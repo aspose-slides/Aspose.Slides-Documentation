@@ -7,49 +7,57 @@ url: /fa/net/shape-formatting/
 keywords:
 - قالب‌بندی شکل
 - قالب‌بندی خط
-- افکت طرح‌دستی
-- خط شکل طرح‌دستی
+- افکت طرح‌وار
+- خط شکل طرح‌وار
 - قالب‌بندی سبک اتصال
-- پر کردن گرادیانتی
-- پر کردن الگوئی
+- پر کردن گرادیان
+- پر کردن الگو
 - پر کردن تصویر
 - پر کردن بافت
 - پر کردن رنگ ثابت
 - شفافیت شکل
+- رندر سیاه-سفید شکل
+- رندر خاکستری شکل
 - چرخاندن شکل
-- افکت برجستگی 3 بعدی
-- افکت چرخش 3 بعدی
+- افکت برش 3بعدی
+- افکت چرخش 3بعدی
 - بازنشانی قالب‌بندی
-- PowerPoint
+- پاورپوینت
 - ارائه
 - .NET
 - C#
 - Aspose.Slides
-description: "یاد بگیرید چگونه اشکال PowerPoint را در C# با استفاده از Aspose.Slides—استایل‌های پر، خط و افکت را برای فایل‌های PPT و PPTX با دقت و کنترل کامل تنظیم کنید."
+description: "یاد بگیرید چگونه اشکال PowerPoint را در C# با استفاده از Aspose.Slides قالب‌بندی کنید—استایل‌های پر کردن، خط و افکت را برای فایل‌های PPT و PPTX با دقت و کنترل کامل تنظیم کنید."
 ---
-## **معرفی**
+## **مقدمه**
 
-در PowerPoint می‌توانید شکل‌ها را به اسلایدها اضافه کنید. از آنجا که شکل‌ها از خطوط تشکیل شده‌اند، می‌توانید آنها را با تغییر یا اعمال افکت‌ها بر روی خطوط حاشیه‌ای‌شان قالب‌بندی کنید. علاوه بر این، می‌توانید شکل‌ها را با تعیین تنظیماتی که نحوه پر شدن داخلی آنها را کنترل می‌کند، قالب‌بندی کنید.
+در PowerPoint می‌توانید اشکال را به اسلایدها اضافه کنید. از آنجا که اشکال از خطوط تشکیل شده‌اند، می‌توانید آن‌ها را با تغییر یا اعمال افکت‌ها بر روی خطوط مرزی قالب‌بندی کنید. علاوه بر این، می‌توانید اشکال را با تعیین تنظیماتی که نحوه پر شدن داخلی آن‌ها را کنترل می‌کند، قالب‌بندی کنید.
 
-![قالب‌بندی-شکل-پاورپوینت](format-shape-powerpoint.png)
+![format-shape-powerpoint](format-shape-powerpoint.png)
 
-Aspose.Slides برای .NET رابط‌ها و خصوصیتی را فراهم می‌کند که به شما امکان می‌دهد شکل‌ها را با استفاده از همان گزینه‌های موجود در PowerPoint قالب‌بندی کنید.
+Aspose.Slides for .NET رابط‌ها و خصوصیتی را فراهم می‌کند که به شما امکان می‌دهد اشکال را با استفاده از همان گزینه‌های موجود در PowerPoint قالب‌بندی کنید.
 
 ## **قالب‌بندی خطوط**
 
-با استفاده از Aspose.Slides می‌توانید یک سبک خط سفارشی برای یک شکل مشخص کنید. مراحل زیر روش انجام را شرح می‌دهند:
+با استفاده از Aspose.Slides می‌توانید یک سبک خط سفارشی برای یک شکل مشخص کنید. مراحل زیر فرآیند را توضیح می‌دهند:
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/) ایجاد کنید.
-1. یک مرجع به اسلاید را بر اساس اندیس آن دریافت کنید.
+1. یک مرجع به اسلاید را بر اساس ایندکس آن دریافت کنید.
 1. یک [IAutoShape](https://reference.aspose.com/slides/fa/net/aspose.slides/iautoshape/) به اسلاید اضافه کنید.
 1. قالب [line style](https://reference.aspose.com/slides/fa/net/aspose.slides/linestyle/) شکل را تنظیم کنید.
-1. ضخامت خط را تنظیم کنید.
+1. عرض خط را تنظیم کنید.
 1. قالب [dash style](https://reference.aspose.com/slides/fa/net/aspose.slides/linedashstyle/) خط را تنظیم کنید.
 1. رنگ خط برای شکل را تنظیم کنید.
-1. ارائهٔ اصلاح شده را به عنوان فایل PPTX ذخیره کنید.
+1. ارائهٔ اصلاح‌شده را به صورت فایل PPTX ذخیره کنید.
+
+کد C# زیر نشان می‌دهد چگونه یک `AutoShape` مستطیل را قالب‌بندی کنید:
 
 ```c#
-// یک شی از کلاس Presentation که نمایانگر فایل ارائه است را ایجاد کنید.
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// یک شی از کلاس Presentation ایجاد کنید که نمایانگر یک فایل ارائه است.
 using (Presentation presentation = new Presentation())
 {
     // اسلاید اول را دریافت کنید.
@@ -58,15 +66,15 @@ using (Presentation presentation = new Presentation())
     // یک شکل خودکار از نوع Rectangle اضافه کنید.
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // رنگ پر کردن برای شکل Rectangle را تنظیم کنید.
+    // رنگ پر کردن برای شکل مستطیل تنظیم کنید.
     shape.FillFormat.FillType = FillType.NoFill;
 
-    // قالب‌بندی را بر خطوط Rectangle اعمال کنید.
+    // قالب‌بندی خطوط مستطیل را اعمال کنید.
     shape.LineFormat.Style = LineStyle.ThickThin;
     shape.LineFormat.Width = 7;
     shape.LineFormat.DashStyle = LineDashStyle.Dash;
 
-    // رنگ خط Rectangle را تنظیم کنید.
+    // رنگ خط مستطیل را تنظیم کنید.
     shape.LineFormat.FillFormat.FillType = FillType.Solid;
     shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
 
@@ -77,15 +85,17 @@ using (Presentation presentation = new Presentation())
 
 نتیجه:
 
-![خطوط قالب‌بندی‌شده در ارائه](formatted-lines.png)
+![The formatted lines in the presentation](formatted-lines.png)
 
-## **اعمال افکت‌های اسکچ بر خطوط شکل**
+## **اعمال افکت‌های طرح‌وار به خطوط شکل**
 
-یک افکت اسکچ باعث می‌شود خط یک شکل شبیه به دست‌نویس باشد. برای دسترسی به تنظیمات خط از [IShape.LineFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/ishape/lineformat/) استفاده کنید، برای دسترسی به تنظیمات اسکچ از [ILineFormat.SketchFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/ilineformat/sketchformat/) و برای انتخاب مقدار از شمارندهٔ [LineSketchType](https://reference.aspose.com/slides/fa/net/aspose.slides/linesketchtype/) از [ISketchFormat.SketchType](https://reference.aspose.com/slides/fa/net/aspose.slides/isketchformat/sketchtype/) استفاده کنید.
+یک افکت طرح‌وار باعث می‌شود خط یک شکل شبیه به دست‌نویس شود. برای دسترسی به تنظیمات خط از [IShape.LineFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/ishape/lineformat/) استفاده کنید، برای دسترسی به تنظیمات طرح‌وار از [ILineFormat.SketchFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/ilineformat/sketchformat/) و برای انتخاب مقدار از شمارش‌گر [LineSketchType](https://reference.aspose.com/slides/fa/net/aspose.slides/linesketchtype/) از [ISketchFormat.SketchType](https://reference.aspose.com/slides/fa/net/aspose.slides/isketchformat/sketchtype/) استفاده کنید.
 
-کد C# زیر نشان می‌دهد چگونه یک افکت [LineSketchType.Curved](https://reference.aspose.com/slides/fa/net/aspose.slides/linesketchtype/) اعمال شود، مقدار اختصاص داده‌شده به‌وضوح خوانده شود و افکت با [LineSketchType.None](https://reference.aspose.com/slides/fa/net/aspose.slides/linesketchtype/) حذف گردد:
+کد C# زیر نشان می‌دهد چگونه افکت [LineSketchType.Curved](https://reference.aspose.com/slides/fa/net/aspose.slides/linesketchtype/) را اعمال کرده، مقدار اختصاص داده‌شده را بخوانید و با [LineSketchType.None](https://reference.aspose.com/slides/fa/net/aspose.slides/linesketchtype/) افکت را حذف کنید:
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation();
 
 var slide = presentation.Slides[0];
@@ -105,9 +115,11 @@ Console.WriteLine($"Explicit sketch type: {explicitSketchType}");
 sketchFormat.SketchType = LineSketchType.None;
 ```
 
-مقداری که `ISketchFormat.SketchType` برمی‌گرداند نشان‌دهنده تنظیمی است که مستقیماً به شکل اختصاص یافته است. اگر قالب‌بندی خط می‌تواند از یک تم، اسلاید اصلی یا اسلاید چیدمان به ارث برده شود، از [ILineFormat.GetEffective](https://reference.aspose.com/slides/fa/net/aspose.slides/ilineformat/geteffective/) استفاده کنید، به [ILineFormatEffectiveData.SketchFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/ilineformateffectivedata/sketchformat/) دسترسی پیدا کنید و [ISketchFormatEffectiveData.SketchType](https://reference.aspose.com/slides/fa/net/aspose.slides/isketchformateffectivedata/sketchtype/) را بخوانید. مقدار مؤثر، قالب‌بندی‌ای را نشان می‌دهد که پس از حل ارث‌بری واقعاً اعمال شده است:
+مقداری که `ISketchFormat.SketchType` برمی‌گرداند، تنظیمی است که مستقیماً به شکل اختصاص داده شده است. اگر قالب‌بندی خط می‌تواند از تم، اسلاید اصلی یا اسلاید چیدمان ارث‌بری شود، از [ILineFormat.GetEffective](https://reference.aspose.com/slides/fa/net/aspose.slides/ilineformat/geteffective/) استفاده کنید، به [ILineFormatEffectiveData.SketchFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/ilineformateffectivedata/sketchformat/) دسترسی پیدا کنید و [ISketchFormatEffectiveData.SketchType](https://reference.aspose.com/slides/fa/net/aspose.slides/isketchformateffectivedata/sketchtype/) را بخوانید. مقدار موثر نشان‌دهنده قالب‌بندی‌ای است که پس از حل ارث‌بری واقعاً اعمال می‌شود:
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("presentation.pptx");
 
 var shape = presentation.Slides[0].Shapes[0];
@@ -121,20 +133,26 @@ Console.WriteLine($"Explicit sketch type: {explicitSketchType}");
 Console.WriteLine($"Effective sketch type: {effectiveSketchType}");
 ```
 
-## **قالب‌بندی نوع اتصال‌ها**
+## **قالب‌بندی سبک‌های پیوست**
 
-در اینجا سه گزینهٔ نوع اتصال موجود است:
+در اینجا سه گزینهٔ نوع پیوست وجود دارد:
 
-* گرد
-* میتر
-* بویل
+* Round
+* Miter
+* Bevel
 
-به‌طور پیش‌فرض، زمانی که PowerPoint دو خط را در یک زاویه (مانند گوشهٔ شکل) به هم می‌پیوندد، تنظیم **گرد** را استفاده می‌کند. اما اگر شکل با زوایای تیز رسم می‌کنید، ممکن است گزینه **میتر** را ترجیح دهید.
+به‌طور پیش‌فرض، وقتی PowerPoint دو خط را در یک زاویه (مانند گوشهٔ یک شکل) ترکیب می‌کند، از تنظیم **Round** استفاده می‌کند. با این حال، اگر شکل با زوایای تیز رسم می‌کنید، ممکن است گزینهٔ **Miter** را ترجیح دهید.
 
-![نوع اتصال در ارائه](join-style-powerpoint.png)
+![The join style in the presentation](join-style-powerpoint.png)
+
+کد C# زیر نشان می‌دهد چگونه سه مستطیل (همان‌طور که در تصویر بالا مشاهده می‌شود) با استفاده از تنظیمات نوع پیوست Miter، Bevel و Round ایجاد شدند:
 
 ```c#
-// یک شی از کلاس Presentation که نمایانگر یک فایل ارائه است را ایجاد کنید.
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// یک شی از کلاس Presentation ایجاد کنید که نمایانگر یک فایل ارائه است.
 using (Presentation presentation = new Presentation())
 {
     // اسلاید اول را دریافت کنید.
@@ -145,7 +163,7 @@ using (Presentation presentation = new Presentation())
     IAutoShape shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 210, 20, 150, 75);
     IAutoShape shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 135, 150, 75);
 
-    // رنگ پر کردن برای هر شکل Rectangle تنظیم شود.
+    // رنگ پر کردن برای هر شکل مستطیل تنظیم کنید.
     shape1.FillFormat.FillType = FillType.Solid;
     shape1.FillFormat.SolidFillColor.Color = Color.Black;
     shape2.FillFormat.FillType = FillType.Solid;
@@ -158,7 +176,7 @@ using (Presentation presentation = new Presentation())
     shape2.LineFormat.Width = 15;
     shape3.LineFormat.Width = 15;
 
-    // رنگ خط هر Rectangle را تنظیم کنید.
+    // رنگ خط هر مستطیل را تنظیم کنید.
     shape1.LineFormat.FillFormat.FillType = FillType.Solid;
     shape1.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
     shape2.LineFormat.FillFormat.FillType = FillType.Solid;
@@ -171,7 +189,7 @@ using (Presentation presentation = new Presentation())
     shape2.LineFormat.JoinStyle = LineJoinStyle.Bevel;
     shape3.LineFormat.JoinStyle = LineJoinStyle.Round;
 
-    // متن را به هر Rectangle اضافه کنید.
+    // متن را به هر مستطیل اضافه کنید.
     shape1.TextFrame.Text = "Miter Join Style";
     shape2.TextFrame.Text = "Bevel Join Style";
     shape3.TextFrame.Text = "Round Join Style";
@@ -181,21 +199,26 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **پر کردن گرادیانتی**
+## **پر کردن گرادیان**
 
-در PowerPoint، پر کردن گرادیانتی گزینه‌ای قالب‌بندی است که به شما امکان می‌دهد ترکیبی متصل از رنگ‌ها را به یک شکل اعمال کنید. به‌عنوان مثال می‌توانید دو یا چند رنگ را به‌گونه‌ای به‌کار ببرید که یکی به‌تدریج به دیگری ختم شود.
+در PowerPoint، پر کردن گرادیان گزینهٔ قالب‌بندی است که به شما اجازه می‌دهد ترکیبی پیوسته از رنگ‌ها را روی یک شکل اعمال کنید. برای مثال می‌توانید دو یا چند رنگ را به‌طوری اعمال کنید که یکی به تدریج به دیگری محو شود.
 
-در اینجا نحوهٔ اعمال پر کردن گرادیانتی به یک شکل با استفاده از Aspose.Slides آمده است:
+چگونه یک پر کردن گرادیان را به یک شکل با Aspose.Slides اعمال کنیم:
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/) ایجاد کنید.
-1. یک مرجع به اسلاید را بر اساس اندیس آن دریافت کنید.
+1. یک مرجع به اسلاید را بر اساس ایندکس آن دریافت کنید.
 1. یک [IAutoShape](https://reference.aspose.com/slides/fa/net/aspose.slides/iautoshape/) به اسلاید اضافه کنید.
-1. [FillType](https://reference.aspose.com/slides/fa/net/aspose.slides/filltype/) شکل را به `Gradient` تنظیم کنید.
-1. دو رنگ مورد علاقهٔ خود را با موقعیت‌های تعریف‌شده با استفاده از متدهای `Add` مجموعهٔ توقف گرادیان که توسط رابط [IGradientFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/igradientformat/) در دسترس است، اضافه کنید.
-1. ارائهٔ اصلاح‌شده را به عنوان فایل PPTX ذخیره کنید.
+1. [FillType](https://reference.aspose.com/slides/fa/net/aspose.slides/filltype/) شکل را روی `Gradient` تنظیم کنید.
+1. دو رنگ دلخواه خود را با موقعیت‌های تعریف‌شده با استفاده از متدهای `Add` مجموعه‌متوقفین گرادیان که توسط رابط [IGradientFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/igradientformat/) در دسترس است، اضافه کنید.
+1. ارائهٔ اصلاح‌شده را به صورت فایل PPTX ذخیره کنید.
+
+کد C# زیر نشان می‌دهد چگونه یک اثر پر کردن گرادیان را بر روی یک بیضی اعمال کنیم:
 
 ```c#
-// یک شی از کلاس Presentation که نمایانگر یک فایل ارائه است را ایجاد کنید.
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// یک شی از کلاس Presentation ایجاد کنید که نمایانگر یک فایل ارائه است.
 using (Presentation presentation = new Presentation())
 {
     // اسلاید اول را دریافت کنید.
@@ -204,14 +227,14 @@ using (Presentation presentation = new Presentation())
     // یک شکل خودکار از نوع Ellipse اضافه کنید.
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 50, 150, 75);
 
-    // قالب‌بندی گرادیانتی را به بیضی اعمال کنید.
+    // قالب‌بندی گرادیان را به بیضی اعمال کنید.
     shape.FillFormat.FillType = FillType.Gradient;
     shape.FillFormat.GradientFormat.GradientShape = GradientShape.Linear;
 
     // جهت گرادیان را تنظیم کنید.
     shape.FillFormat.GradientFormat.GradientDirection = GradientDirection.FromCorner2;
 
-    // دو توقف گرادیان اضافه کنید.
+    // دو نقطه توقف اضافه کنید.
     shape.FillFormat.GradientFormat.GradientStops.Add(1.0f, PresetColor.Purple);
     shape.FillFormat.GradientFormat.GradientStops.Add(0.0f, PresetColor.Red);
 
@@ -222,27 +245,33 @@ using (Presentation presentation = new Presentation())
 
 نتیجه:
 
-![بیضی با پر کردن گرادیانتی](gradient-fill.png)
+![The ellipse with gradient fill](gradient-fill.png)
 
-## **پر کردن الگوئی**
+## **پر کردن الگو**
 
-در PowerPoint، پر کردن الگوئی گزینه‌ای قالب‌بندی است که به شما امکان می‌دهد یک طرح دو‌رنگ—مانند نقاط، نوارها، خطوط متقاطع یا شطرنجی—را به یک شکل اعمال کنید. می‌توانید رنگ‌های سفارشی برای پیش‌زمینه و پس‌زمینهٔ الگو انتخاب کنید.
+در PowerPoint، پر کردن الگو گزینهٔ قالب‌بندی است که به شما اجازه می‌دهد یک طرح دو رنگی—مانند نقطه‌ها، خط‌خط‌ها، قوس‌خط‌ها یا شطرنجی‌ها—را روی یک شکل اعمال کنید. می‌توانید رنگ‌های پیش‌زمینه و پس‌زمینهٔ الگو را به‌صورت دلخواه انتخاب کنید.
 
-Aspose.Slides بیش از ۴۵ سبک الگوی پیش‌تعریف‌شده ارائه می‌دهد که می‌توانید به شکل‌ها اعمال کنید تا جذابیت بصری ارائه‌های خود را افزایش دهید. حتی پس از انتخاب یک الگوی پیش‌تعریف‌شده، می‌توانید رنگ‌های دقیق مورد استفاده را مشخص کنید.
+Aspose.Slides بیش از 45 سبک الگوی پیش‌تعریف‌شده را فراهم می‌کند که می‌توانید روی اشکال برای ارتقای جذابیت بصری ارائه‌های خود اعمال کنید. حتی پس از انتخاب یک الگوی پیش‌تعریف‌شده، می‌توانید رنگ‌های دقیق مورد استفاده را مشخص کنید.
 
-در اینجا نحوهٔ اعمال پر کردن الگوئی به یک شکل با استفاده از Aspose.Slides آمده است:
+چگونه یک پر کردن الگو را به یک شکل با Aspose.Slides اعمال کنیم:
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/) ایجاد کنید.
-1. یک مرجع به اسلاید را بر اساس اندیس آن دریافت کنید.
+1. یک مرجع به اسلاید را بر اساس ایندکس آن دریافت کنید.
 1. یک [IAutoShape](https://reference.aspose.com/slides/fa/net/aspose.slides/iautoshape/) به اسلاید اضافه کنید.
-1. [FillType](https://reference.aspose.com/slides/fa/net/aspose.slides/filltype/) شکل را به `Pattern` تنظیم کنید.
-1. یک سبک الگو را از گزینه‌های پیش‌تعریف‌شده انتخاب کنید.
-1. [Background Color](https://reference.aspose.com/slides/fa/net/aspose.slides/ipatternformat/backcolor/) الگو را تنظیم کنید.
-1. [Foreground Color](https://reference.aspose.com/slides/fa/net/aspose.slides/ipatternformat/forecolor/) الگو را تنظیم کنید.
-1. ارائهٔ اصلاح‌شده را به عنوان فایل PPTX ذخیره کنید.
+1. [FillType](https://reference.aspose.com/slides/fa/net/aspose.slides/filltype/) شکل را روی `Pattern` تنظیم کنید.
+1. یک سبک الگو از گزینه‌های پیش‌تعریف‌شده انتخاب کنید.
+1. رنگ پس‌زمینهٔ الگو را با استفاده از [Background Color](https://reference.aspose.com/slides/fa/net/aspose.slides/ipatternformat/backcolor/) تنظیم کنید.
+1. رنگ پیش‌زمینهٔ الگو را با استفاده از [Foreground Color](https://reference.aspose.com/slides/fa/net/aspose.slides/ipatternformat/forecolor/) تنظیم کنید.
+1. ارائهٔ اصلاح‌شده را به صورت فایل PPTX ذخیره کنید.
+
+کد C# زیر نشان می‌دهد چگونه یک پر کردن الگو را روی یک مستطیل اعمال کنیم:
 
 ```c#
-// یک شی از کلاس Presentation که نمایانگر یک فایل ارائه است را ایجاد کنید.
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// یک شی از کلاس Presentation ایجاد کنید که نمایانگر یک فایل ارائه است.
 using (Presentation presentation = new Presentation())
 {
     // اسلاید اول را دریافت کنید.
@@ -268,27 +297,34 @@ using (Presentation presentation = new Presentation())
 
 نتیجه:
 
-![مستطیل با پر کردن الگوئی](pattern-fill.png)
+![The rectangle with pattern fill](pattern-fill.png)
 
 ## **پر کردن تصویر**
 
-در PowerPoint، پر کردن تصویر گزینه‌ای قالب‌بندی است که به شما امکان می‌دهد یک تصویر را داخل یک شکل قرار دهید—به‌صورت مؤثری تصویر را به‌عنوان پس‌زمینهٔ شکل استفاده می‌کند.
+در PowerPoint، پر کردن تصویر گزینهٔ قالب‌بندی است که به شما اجازه می‌دهد یک تصویر را داخل یک شکل قرار دهید—به‌طوری که تصویر به عنوان پس‌زمینهٔ شکل عمل کند.
 
-در اینجا نحوهٔ استفاده از Aspose.Slides برای اعمال پر کردن تصویر به یک شکل آمده است:
+چگونه از Aspose.Slides برای اعمال پر کردن تصویر به یک شکل استفاده کنیم:
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/) ایجاد کنید.
-1. یک مرجع به اسلاید را بر اساس اندیس آن دریافت کنید.
+1. یک مرجع به اسلاید را بر اساس ایندکس آن دریافت کنید.
 1. یک [IAutoShape](https://reference.aspose.com/slides/fa/net/aspose.slides/iautoshape/) به اسلاید اضافه کنید.
-1. [FillType](https://reference.aspose.com/slides/fa/net/aspose.slides/filltype/) شکل را به `Picture` تنظیم کنید.
-1. حالت پر کردن تصویر را به `Tile` (یا حالت دلخواه دیگر) تنظیم کنید.
+1. [FillType](https://reference.aspose.com/slides/fa/net/aspose.slides/filltype/) شکل را روی `Picture` تنظیم کنید.
+1. حالت پر کردن تصویر را روی `Tile` (یا حالت دلخواه دیگر) تنظیم کنید.
 1. یک شیء [IPPImage](https://reference.aspose.com/slides/fa/net/aspose.slides/ippimage/) از تصویری که می‌خواهید استفاده کنید، ایجاد کنید.
 1. این تصویر را به ویژگی `Picture.Image` از `PictureFillFormat` شکل اختصاص دهید.
-1. ارائهٔ اصلاح‌شده را به عنوان فایل PPTX ذخیره کنید.
+1. ارائهٔ اصلاح‌شده را به صورت فایل PPTX ذخیره کنید.
 
-![تصویر نبات‌قهره](lotus.png)
+فرض کنید فایلی به نام "lotus.png" داریم که تصویر زیر را دارد:
+
+![The lotus picture](lotus.png)
+
+کد C# زیر نشان می‌دهد چگونه یک شکل را با تصویر پر کنیم:
 
 ```c#
-// یک شی از کلاس Presentation که نمایانگر یک فایل ارائه است را ایجاد کنید.
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// یک شی از کلاس Presentation ایجاد کنید که نمایانگر یک فایل ارائه است.
 using (Presentation presentation = new Presentation())
 {
     // اسلاید اول را دریافت کنید.
@@ -318,34 +354,39 @@ using (Presentation presentation = new Presentation())
 
 نتیجه:
 
-![شکل با پر کردن تصویر](picture-fill.png)
+![The shape with picture fill](picture-fill.png)
 
 ### **کاشی تصویر به عنوان بافت**
 
-اگر می‌خواهید یک تصویر کاشی‌شده را به‌عنوان بافت تنظیم کنید و رفتار کاشی‌بندی را سفارشی کنید، می‌توانید از خصوصیات زیر رابط [IPictureFillFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/ipicturefillformat/) و کلاس [PictureFillFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/picturefillformat/) استفاده کنید:
+اگر می‌خواهید یک تصویر کاشی‌شده را به‌عنوان بافت تنظیم کنید و رفتار کاشی‌گذاری را سفارشی کنید، می‌توانید از ویژگی‌های زیر رابط [IPictureFillFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/ipicturefillformat/) و کلاس [PictureFillFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/picturefillformat/) استفاده کنید:
 
 - [PictureFillMode](https://reference.aspose.com/slides/fa/net/aspose.slides/ipicturefillformat/picturefillmode/): حالت پر کردن تصویر را تنظیم می‌کند—یا `Tile` یا `Stretch`.
-- [TileAlignment](https://reference.aspose.com/slides/fa/net/aspose.slides/ipicturefillformat/tilealignment/): ترازبندی کاشی‌ها داخل شکل را مشخص می‌کند.
-- [TileFlip](https://reference.aspose.com/slides/fa/net/aspose.slides/ipicturefillformat/tileflip/): کنترل می‌کند که کاشی به‌صورت افقی، عمودی یا هر دو معکوس شود.
-- [TileOffsetX](https://reference.aspose.com/slides/fa/net/aspose.slides/ipicturefillformat/tileoffsetx/): افست افقی کاشی (به‌پیکسل) را از مبدأ شکل تنظیم می‌کند.
-- [TileOffsetY](https://reference.aspose.com/slides/fa/net/aspose.slides/ipicturefillformat/tileoffsety/): افست عمودی کاشی (به‌پیکسل) را از مبدأ شکل تنظیم می‌کند.
+- [TileAlignment](https://reference.aspose.com/slides/fa/net/aspose.slides/ipicturefillformat/tilealignment/): تراز کاشی‌ها داخل شکل را مشخص می‌کند.
+- [TileFlip](https://reference.aspose.com/slides/fa/net/aspose.slides/ipicturefillformat/tileflip/): تعیین می‌کند آیا کاشی به‌صورت افقی، عمودی یا هر دو معکوس شود.
+- [TileOffsetX](https://reference.aspose.com/slides/fa/net/aspose.slides/ipicturefillformat/tileoffsetx/): افست افقی کاشی (به پوینت) را از مبدأ شکل تنظیم می‌کند.
+- [TileOffsetY](https://reference.aspose.com/slides/fa/net/aspose.slides/ipicturefillformat/tileoffsety/): افست عمودی کاشی (به پوینت) را از مبدأ شکل تنظیم می‌کند.
 - [TileScaleX](https://reference.aspose.com/slides/fa/net/aspose.slides/ipicturefillformat/tilescalex/): مقیاس افقی کاشی را به‌صورت درصد تعریف می‌کند.
 - [TileScaleY](https://reference.aspose.com/slides/fa/net/aspose.slides/ipicturefillformat/tilescaley/): مقیاس عمودی کاشی را به‌صورت درصد تعریف می‌کند.
 
+نمونه کد زیر نشان می‌دهد چگونه یک شکل مستطیل با پر کردن تصویر کاشی‌شده اضافه کرده و گزینه‌های کاشی را پیکربندی کنید:
+
 ```c#
-// یک شی از کلاس Presentation که نمایانگر یک فایل ارائه است را ایجاد کنید.
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// یک شی از کلاس Presentation ایجاد کنید که نمایانگر یک فایل ارائه است.
 using (Presentation presentation = new Presentation())
 {
     // اسلاید اول را دریافت کنید.
     ISlide firstSlide = presentation.Slides[0];
 
-    // یک شکل خودکار مستطیل اضافه کنید.
+    // یک شکل خودکار مستطیلی اضافه کنید.
     IAutoShape shape = firstSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 190, 95);
 
     // نوع پر کردن شکل را به Picture تنظیم کنید.
     shape.FillFormat.FillType = FillType.Picture;
 
-    // تصویر را بارگیری کنید و به منابع ارائه اضافه کنید.
+    // تصویر را بارگذاری کنید و به منابع ارائه اضافه کنید.
     IPPImage presentationImage;
     using (IImage sourceImage = Images.FromFile("lotus.png"))
         presentationImage = presentation.Images.AddImage(sourceImage);
@@ -370,23 +411,29 @@ using (Presentation presentation = new Presentation())
 
 نتیجه:
 
-![گزینه‌های کاشی](tile-options.png)
+![The tile options](tile-options.png)
 
-## **پر کردن با رنگ ثابت**
+## **پر کردن رنگ ثابت**
 
-در PowerPoint، پر کردن با رنگ ثابت گزینه‌ای قالب‌بندی است که شکل را با یک رنگ یکنواخت پر می‌کند. این پس‌زمینهٔ ساده بدون هیچ‌گونه گرادیان، بافت یا الگو اعمال می‌شود.
+در PowerPoint، پر کردن رنگ ثابت گزینهٔ قالب‌بندی است که یک شکل را با یک رنگ یکنواخت پر می‌کند. این رنگ زمینه ساده بدون هیچ‌گونه گرادیان، بافت یا الگو اعمال می‌شود.
 
-برای اعمال پر کردن با رنگ ثابت به یک شکل با استفاده از Aspose.Slides، مراحل زیر را دنبال کنید:
+برای اعمال پر کردن رنگ ثابت به یک شکل با Aspose.Slides، مراحل زیر را دنبال کنید:
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/) ایجاد کنید.
-1. یک مرجع به اسلاید را بر اساس اندیس آن دریافت کنید.
+1. یک مرجع به اسلاید را بر اساس ایندکس آن دریافت کنید.
 1. یک [IAutoShape](https://reference.aspose.com/slides/fa/net/aspose.slides/iautoshape/) به اسلاید اضافه کنید.
-1. [FillType](https://reference.aspose.com/slides/fa/net/aspose.slides/filltype/) شکل را به `Solid` تنظیم کنید.
-1. رنگ پر کردن مورد نظر خود را به شکل اختصاص دهید.
-1. ارائهٔ اصلاح‌شده را به عنوان فایل PPTX ذخیره کنید.
+1. [FillType](https://reference.aspose.com/slides/fa/net/aspose.slides/filltype/) شکل را روی `Solid` تنظیم کنید.
+1. رنگ پر کردن دلخواه خود را به شکل اختصاص دهید.
+1. ارائهٔ اصلاح‌شده را به صورت فایل PPTX ذخیره کنید.
+
+کد C# زیر نشان می‌دهد چگونه یک پر کردن رنگ ثابت را بر روی یک مستطیل در یک اسلاید PowerPoint اعمال کنیم:
 
 ```c#
-// یک شی از کلاس Presentation که نمایانگر یک فایل ارائه است را ایجاد کنید.
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// یک شی از کلاس Presentation ایجاد کنید که نمایانگر یک فایل ارائه است.
 using (Presentation presentation = new Presentation())
 {
     // اسلاید اول را دریافت کنید.
@@ -408,34 +455,40 @@ using (Presentation presentation = new Presentation())
 
 نتیجه:
 
-![شکل با پر کردن رنگ ثابت](solid-color-fill.png)
+![The shape with solid color fill](solid-color-fill.png)
 
 ## **تنظیم شفافیت**
 
-در PowerPoint، زمانی که پر کردن رنگ ثابت، گرادیان، تصویر یا بافت را به شکل‌ها اعمال می‌کنید، می‌توانید همچنین سطح شفافیتی را تنظیم کنید تا میزان شفافیت پر کردن را کنترل کنید. مقدار شفافیت بالاتر باعث می‌شود شکل بیشتر قابل‌مشاهده باشد و پس‌زمینه یا اشیای زیرین به‌صورت جزئی دیده شوند.
+در PowerPoint، هنگامی که یک پر کردن رنگ ثابت، گرادیان، تصویر یا بافت را به اشکال اعمال می‌کنید، می‌توانید سطح شفافیت را نیز تنظیم کنید تا میزان مات بودن پر کردن را کنترل کنید. مقدار شفافیت بالاتر باعث می‌شود شکل بیشتر شفاف باشد و پس‌زمینه یا اشیای زیرین را تا حدی قابل مشاهده کند.
 
-Aspose.Slides به شما اجازه می‌دهد سطح شفافیت را با تنظیم مقدار آلفا در رنگ مورد استفاده برای پر کردن تنظیم کنید. در اینجا نحوهٔ انجام آن آورده شده است:
+Aspose.Slides به شما امکان می‌دهد سطح شفافیت را با تنظیم مقدار آلفا در رنگ مورد استفاده برای پر کردن تنظیم کنید. این‌گونه می‌توانید این کار را انجام دهید:
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/) ایجاد کنید.
-1. یک مرجع به اسلاید را بر اساس اندیس آن دریافت کنید.
+1. یک مرجع به اسلاید را بر اساس ایندکس آن دریافت کنید.
 1. یک [IAutoShape](https://reference.aspose.com/slides/fa/net/aspose.slides/iautoshape/) به اسلاید اضافه کنید.
-1. [FillType](https://reference.aspose.com/slides/fa/net/aspose.slides/filltype/) را به `Solid` تنظیم کنید.
-1. از `Color.FromArgb(alpha, baseColor)` برای تعریف رنگی با شفافیت استفاده کنید (کامپوننت `alpha` شفافیت را کنترل می‌کند).
+1. [FillType](https://reference.aspose.com/slides/fa/net/aspose.slides/filltype/) را روی `Solid` تنظیم کنید.
+1. از `Color.FromArgb(alpha, baseColor)` برای تعریف رنگی با شفافیت (جزء `alpha` شفافیت را کنترل می‌کند) استفاده کنید.
 1. ارائه را ذخیره کنید.
 
+کد C# زیر نشان می‌دهد چگونه یک رنگ پر کردن شفاف را به یک مستطیل اعمال کنیم:
+
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 const int alpha = 128;
 
-// یک شی از کلاس Presentation که نمایانگر یک فایل ارائه است را ایجاد کنید.
+// یک شی از کلاس Presentation ایجاد کنید که نمایانگر یک فایل ارائه است.
 using (Presentation presentation = new Presentation())
 {
     // اسلاید اول را دریافت کنید.
     ISlide slide = presentation.Slides[0];
 
-    // یک شکل خودکار مستطیل ثابت اضافه کنید.
+    // یک شکل خودکار مستطیل جامد اضافه کنید.
     IAutoShape solidShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // یک شکل خودکار مستطیل شفاف بر روی شکل ثابت اضافه کنید.
+    // یک شکل خودکار مستطیل شفاف روی شکل جامد اضافه کنید.
     IAutoShape transparentShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 80, 80, 150, 75);
     transparentShape.FillFormat.FillType = FillType.Solid;
     transparentShape.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Yellow);
@@ -447,22 +500,27 @@ using (Presentation presentation = new Presentation())
 
 نتیجه:
 
-![شکل شفاف](shape-transparency.png)
+![The transparent shape](shape-transparency.png)
 
-## **چرخاندن شکل‌ها**
+## **چرخاندن اشکال**
 
-Aspose.Slides به شما امکان می‌دهد شکل‌ها را در ارائه‌های PowerPoint بچرخانید. این می‌تواند هنگام قرار دادن عناصر بصری با نیازهای خاص تراز یا طراحی مفید باشد.
+Aspose.Slides به شما امکان می‌دهد اشکال را در ارائه‌های PowerPoint چرخانده کنید. این می‌تواند هنگام موقعیت‌یابی عناصر بصری با نیازهای خاص هم‌راستایی یا طراحی مفید باشد.
 
-برای چرخاندن یک شکل در اسلاید، مراحل زیر را دنبال کنید:
+برای چرخاندن یک شکل روی اسلاید، مراحل زیر را دنبال کنید:
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/) ایجاد کنید.
-1. یک مرجع به اسلاید را بر اساس اندیس آن دریافت کنید.
+1. یک مرجع به اسلاید را بر اساس ایندکس آن دریافت کنید.
 1. یک [IAutoShape](https://reference.aspose.com/slides/fa/net/aspose.slides/iautoshape/) به اسلاید اضافه کنید.
-1. ویژگی `Rotation` شکل را به زاویهٔ مورد نظر تنظیم کنید.
+1. ویژگی `Rotation` شکل را روی زاویهٔ مورد نظر تنظیم کنید.
 1. ارائه را ذخیره کنید.
 
+کد C# زیر نشان می‌دهد چگونه یک شکل را به‌صورت 5 درجه بچرخانید:
+
 ```c#
-// یک شی از کلاس Presentation که نمایانگر یک فایل ارائه است را ایجاد کنید.
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// یک شی از کلاس Presentation ایجاد کنید که نمایانگر یک فایل ارائه است.
 using (Presentation presentation = new Presentation())
 {
     // اسلاید اول را دریافت کنید.
@@ -471,7 +529,7 @@ using (Presentation presentation = new Presentation())
     // یک شکل خودکار از نوع Rectangle اضافه کنید.
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // شکل را به‌صورت 5 درجه بچرخانید.
+    // شکل را به میزان 5 درجه بچرخانید.
     shape.Rotation = 5;
 
     // فایل PPTX را روی دیسک ذخیره کنید.
@@ -481,22 +539,28 @@ using (Presentation presentation = new Presentation())
 
 نتیجه:
 
-![چرخش شکل](shape-rotation.png)
+![The shape rotation](shape-rotation.png)
 
-## **افکت‌های برجستگی 3 بعدی را اضافه کنید**
+## **اضافه کردن افکت‌های برش 3بعدی**
 
-Aspose.Slides به شما اجازه می‌دهد افکت‌های برجستگی 3 بعدی را به شکل‌ها با پیکربندی خصوصیات [ThreeDFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/threedformat/) اعمال کنید.
+Aspose.Slides به شما امکان می‌دهد افکت‌های برش 3بعدی را به اشکال اعمال کنید با پیکربندی ویژگی‌های [ThreeDFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/threedformat/) آن‌ها.
 
-برای افزودن افکت‌های برجستگی 3 بعدی به یک شکل، مراحل زیر را دنبال کنید:
+برای اضافه کردن افکت‌های برش 3بعدی به یک شکل، مراحل زیر را دنبال کنید:
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/) ایجاد کنید.
-1. یک مرجع به اسلاید را بر اساس اندیس آن دریافت کنید.
+1. یک مرجع به اسلاید را بر اساس ایندکس آن دریافت کنید.
 1. یک [IAutoShape](https://reference.aspose.com/slides/fa/net/aspose.slides/iautoshape/) به اسلاید اضافه کنید.
-1. [ThreeDFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/threedformat/) شکل را برای تعریف تنظیمات برجستگی پیکربندی کنید.
+1. [ThreeDFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/threedformat/) شکل را برای تعریف تنظیمات برش پیکربندی کنید.
 1. ارائه را ذخیره کنید.
 
+کد C# زیر نشان می‌دهد چگونه افکت‌های برش 3بعدی را به یک شکل اعمال کنیم:
+
 ```c#
-// یک شی از کلاس Presentation ایجاد کنید.
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// یک نمونه از کلاس Presentation ایجاد کنید.
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -518,29 +582,34 @@ using (Presentation presentation = new Presentation())
     shape.ThreeDFormat.LightRig.LightType = LightRigPresetType.ThreePt;
     shape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
 
-    // ارائه را به‌صورت فایل PPTX ذخیره کنید.
+    // ارائه را به صورت فایل PPTX ذخیره کنید.
     presentation.Save("3D_bevel_effect.pptx", SaveFormat.Pptx);
 }
 ```
 
 نتیجه:
 
-![افکت برجستگی 3 بعدی](3D-bevel-effect.png)
+![The 3D bevel effect](3D-bevel-effect.png)
 
-## **افکت‌های چرخش 3 بعدی را اضافه کنید**
+## **اضافه کردن افکت‌های چرخش 3بعدی**
 
-Aspose.Slides به شما امکان می‌دهد افکت‌های چرخش 3 بعدی را به شکل‌ها با پیکربندی خصوصیات [ThreeDFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/threedformat/) اعمال کنید.
+Aspose.Slides به شما امکان می‌دهد افکت‌های چرخش 3بعدی را به اشکال اعمال کنید با پیکربندی ویژگی‌های [ThreeDFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/threedformat/) آن‌ها.
 
-برای اعمال چرخش 3 بعدی به یک شکل:
+برای اعمال چرخش 3بعدی به یک شکل:
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/) ایجاد کنید.
-1. یک مرجع به اسلاید را بر اساس اندیس آن دریافت کنید.
+1. یک مرجع به اسلاید را بر اساس ایندکس آن دریافت کنید.
 1. یک [IAutoShape](https://reference.aspose.com/slides/fa/net/aspose.slides/iautoshape/) به اسلاید اضافه کنید.
-1. [CameraType](https://reference.aspose.com/slides/fa/net/aspose.slides/icamera/cameratype/) و [LightType](https://reference.aspose.com/slides/fa/net/aspose.slides/ilightrig/lighttype/) شکل را تنظیم کنید تا چرخش 3 بعدی تعریف شود.
+1. [CameraType](https://reference.aspose.com/slides/fa/net/aspose.slides/icamera/cameratype/) و [LightType](https://reference.aspose.com/slides/fa/net/aspose.slides/ilightrig/lighttype/) شکل را تنظیم کنید تا چرخش 3بعدی تعریف شود.
 1. ارائه را ذخیره کنید.
 
+کد C# زیر نشان می‌دهد چگونه افکت‌های چرخش 3بعدی را به یک شکل اعمال کنیم:
+
 ```c#
-// یک شی از کلاس Presentation ایجاد کنید.
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// یک نمونه از کلاس Presentation ایجاد کنید.
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -548,30 +617,58 @@ using (Presentation presentation = new Presentation())
     IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
     autoShape.TextFrame.Text = "Hello, Aspose!";
 
-    autoShape.ThreeDFormat.Depth = 6;
     autoShape.ThreeDFormat.Camera.SetRotation(40, 35, 20);
     autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.IsometricLeftUp;
     autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
 
-    // ارائه را به عنوان فایل PPTX ذخیره کنید.
+    // ارائه را به صورت فایل PPTX ذخیره کنید.
     presentation.Save("3D_rotation_effect.pptx", SaveFormat.Pptx);
 }
 ```
 
 نتیجه:
 
-![افکت چرخش 3 بعدی](3D-rotation-effect.png)
+![The 3D rotation effect](3D-rotation-effect.png)
+
+## **کنترل رندر سیاه‑سفید برای اشکال**
+
+ویژگی [IShape.BlackWhiteMode](https://reference.aspose.com/slides/fa/net/aspose.slides/ishape/blackwhitemode/) مشخص می‌کند که یک شکل به‌صورت جداگانه چگونه در حالت نمایش یا پردازش سیاه‑سفید رندر شود. این ویژگی به‌تنهایی حالت سیاه‑سفید را فعال نمی‌کند و رنگ‌بندی، خط یا قالب‌بندی دیگر شکل را در حالت رنگ عادی تغییر نمی‌دهد.
+
+از مقداری از شمارش‌گر [BlackWhiteMode](https://reference.aspose.com/slides/fa/net/aspose.slides/blackwhitemode/) برای انتخاب رفتار دلخواه استفاده کنید. به‌عنوان مثال، `Automatic` اجازه می‌دهد برنامه رندر انتخاب تبدیل را انجام دهد، `Gray` و `LightGray` از رنگ خاکستری استفاده می‌کنند، `BlackWhite` فقط سیاه و سفید را به‌کار می‌برد، `Black` و `White` یک رنگ ثابت را اعمال می‌کنند، `Color` رنگ عادی را حفظ می‌کند و `Hidden` شکل را در حالت سیاه‑سفید حذف می‌کند. `NotDefined` به این معنی است که هیچ حالت سطح‑شکلی‌ای تعیین نشده است.
+
+کد C# زیر یک شکل رنگی ایجاد می‌کند و آن را طوری تنظیم می‌کند که در حالت نمایش سیاه‑سفید به‌صورت خاکستری ظاهر شود:
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
+shape.FillFormat.FillType = FillType.Solid;
+shape.FillFormat.SolidFillColor.Color = Color.Orange;
+
+// Keep the orange fill in color mode, but render the shape with gray coloring in black-and-white mode.
+shape.BlackWhiteMode = BlackWhiteMode.Gray;
+
+presentation.Save("shape_black_white_mode.pptx", SaveFormat.Pptx);
+```
 
 ## **بازنشانی قالب‌بندی**
 
-کد C# زیر نشان می‌دهد چگونه قالب‌بندی یک اسلاید و موقعیت، اندازه و قالب‌بندی تمام اشکال با نگهدارنده‌ها در [LayoutSlide](https://reference.aspose.com/slides/fa/net/aspose.slides/layoutslide/) را به تنظیمات پیش‌فرض بازگردانید:
+کد C# زیر نشان می‌دهد چگونه قالب‌بندی یک اسلاید را بازنشانی کنید و موقعیت، اندازه و قالب‌بندی تمام اشکال با جای‌نگه‌دارها را در [LayoutSlide](https://reference.aspose.com/slides/fa/net/aspose.slides/layoutslide/) به تنظیمات پیش‌فرض برگردانید:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     foreach (ISlide slide in presentation.Slides)
     {
-        // بازنشانی هر شکلی در اسلاید که دارای یک placeholder در لایهٔ چیدمان است.
+        // بازنشانی هر شکل در اسلایدی که یک مکان‌نگه‌دار در طرح‌بندی دارد.
         slide.Reset();
     }
 
@@ -579,16 +676,16 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-## **سوالات متداول**
+## **س Questions & Answers**
 
-**آیا قالب‌بندی شکل بر اندازهٔ نهایی فایل ارائه تأثیر می‌گذارد؟**
+**آیا قالب‌بندی شکل‌ها بر اندازهٔ نهایی فایل ارائه تأثیر می‌گذارد؟**
 
-به‌صرفه‌ترین تأثیر. تصاویر و رسانه‌های تعبیه‌شده بیشتر فضای فایل را اشغال می‌کنند، در حالی که پارامترهای شکل مانند رنگ‌ها، افکت‌ها و گرادیان‌ها به‌عنوان فراداده ذخیره می‌شوند و تقریباً هیچ حجم اضافی ایجاد نمی‌کنند.
+به‌صورت حداقل. تصاویر و رسانه‌های جاسازی‌شده بیشترین فضای فایل را اشغال می‌کنند، در حالی که پارامترهای شکل مانند رنگ‌ها، افکت‌ها و گرادیان‌ها به‌عنوان فراداده ذخیره می‌شوند و تقریباً هیچ حجم اضافی اضافه نمی‌کنند.
 
-**چگونه می‌توانم شکل‌هایی در یک اسلاید که قالب‌بندی یکسان دارند را شناسایی کنم تا بتوانم آنها را گروه‌بندی کنم؟**
+**چگونه می‌توانم شکل‌هایی را در یک اسلاید که قالب‌بندی یکسانی دارند شناسایی کنم تا بتوانم آن‌ها را گروه‌بندی کنم؟**
 
-ویژگی‌های کلیدی قالب‌بندی هر شکل—تنظیمات پر، خط و اثر—را مقایسه کنید. اگر تمام مقادیر متناظر مطابقت داشته باشند، سبک‌های آنها را یکسان در نظر بگیرید و منطقی آن اشکال را گروه‌بندی کنید؛ این کار مدیریت سبک‌ها را در ادامه ساده می‌کند.
+ویژگی‌های کلیدی قالب‌بندی هر شکل—پر کردن، خط و تنظیمات افکت—را مقایسه کنید. اگر تمام مقدارهای متناظر مطابقت داشته باشند، سبک‌های آن‌ها را به‌عنوان یکسان در نظر بگیرید و به‌صورت منطقی آن‌ها را گروه‌بندی کنید؛ این کار مدیریت سبک‌ها را در مراحل بعدی ساده می‌سازی.
 
 **آیا می‌توانم مجموعه‌ای از سبک‌های سفارشی شکل را در فایلی جداگانه ذخیره کنم تا در ارائه‌های دیگر دوباره استفاده کنم؟**
 
-بله. اشکال نمونه با سبک‌های مورد نظر را در یک اسلاید الگو یا فایل قالب .POTX ذخیره کنید. هنگام ایجاد یک ارائهٔ جدید، قالب را باز کنید، اشکال سبک‌دار مورد نیاز را کلون کنید و قالب‌بندی آنها را هرجا که لازم باشد اعمال کنید.
+بله. شکل‌های نمونه با سبک‌های موردنظر را در یک اسلاید قالب یا فایل قالب .POTX ذخیره کنید. هنگام ایجاد یک ارائهٔ جدید، قالب را باز کنید، شکل‌های سبک‌دار موردنیاز را کلون کنید و قالب‌بندی آن‌ها را هرجا که لازم باشد دوباره اعمال کنید.

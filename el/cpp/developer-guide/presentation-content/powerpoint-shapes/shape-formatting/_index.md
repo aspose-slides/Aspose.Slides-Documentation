@@ -1,23 +1,25 @@
 ---
-title: Μορφοποίηση Σχημάτων PowerPoint σε C++
-linktitle: Μορφοποίηση Σχήματος
+title: "Μορφοποίηση Σχημάτων PowerPoint σε C++"
+linktitle: "Μορφοποίηση Σχημάτων"
 type: docs
 weight: 20
 url: /el/cpp/shape-formatting/
 keywords:
 - μορφοποίηση σχήματος
 - μορφοποίηση γραμμής
-- εφέ σκίτσου
-- γραμμή σχήματος σκίτσου
+- εφέ σχεδίασης
+- γραμμή σχήματος σχεδίασης
 - μορφοποίηση στυλ συνένωσης
-- γέμιση διαβάθμισης
-- γέμιση μοτίβου
-- γέμιση εικόνας
-- γέμιση υφής
-- γέμιση στερεού χρώματος
+- γέμισμα διαβάθμισης
+- γέμισμα μοτίβου
+- γέμισμα εικόνας
+- γέμισμα υφής
+- γέμισμα συμπαγούς χρώματος
 - διαφάνεια σχήματος
+- απεικόνιση σχήματος σε ασπρόμαυρο
+- απεικόνιση σχήματος σε γκρι κλίμακα
 - περιστροφή σχήματος
-- εφέ 3Δ λειάνσης
+- εφέ 3Δ λεπίδας
 - εφέ 3Δ περιστροφής
 - επαναφορά μορφοποίησης
 - PowerPoint
@@ -28,63 +30,83 @@ description: "Μάθετε πώς να μορφοποιείτε σχήματα P
 ---
 ## **Εισαγωγή**
 
-Στο PowerPoint, μπορείτε να προσθέσετε σχήματα σε διαφάνειες. Επειδή τα σχήματα αποτελούνται από γραμμές, μπορείτε να μορφοποιήσετε τις γραμμές τους τροποποιώντας ή εφαρμόζοντας εφέ στα περιγράμματά τους. Επιπλέον, μπορείτε να μορφοποιήσετε τα σχήματα ορίζοντας ρυθμίσεις που ελέγχουν τον τρόπο γεμίσματος των εσωτερικών τους.
+Στο PowerPoint, μπορείτε να προσθέσετε σχήματα στις διαφάνειες. Καθώς τα σχήματα αποτελούνται από γραμμές, μπορείτε να τα μορφοποιήσετε τροποποιώντας ή εφαρμόζοντας εφέ στις περιγραμμίσεις τους. Επιπλέον, μπορείτε να μορφοποιήσετε τα σχήματα καθορίζοντας ρυθμίσεις που ελέγχουν πώς γεμίζουν τα εσωτερικά τους.
 
 ![μορφοποίηση-σχήματος-powerpoint](format-shape-powerpoint.png)
 
-Aspose.Slides for C++ παρέχει διεπαφές και μεθόδους που σας επιτρέπουν να μορφοποιείτε σχήματα χρησιμοποιώντας τις ίδιες επιλογές που διατίθενται στο PowerPoint.
+Η Aspose.Slides for C++ παρέχει διεπαφές και μεθόδους που σας επιτρέπουν να μορφοποιείτε σχήματα χρησιμοποιώντας τις ίδιες επιλογές που είναι διαθέσιμες στο PowerPoint.
 
 ## **Μορφοποίηση Γραμμών**
 
-Χρησιμοποιώντας το Aspose.Slides, μπορείτε να καθορίσετε προσαρμοσμένο στυλ γραμμής για ένα σχήμα. Τα παρακάτω βήματα περιγράφουν τη διαδικασία:
+Χρησιμοποιώντας την Aspose.Slides, μπορείτε να ορίσετε ένα προσαρμοσμένο στυλ γραμμής για ένα σχήμα. Τα παρακάτω βήματα περιγράφουν τη διαδικασία:
 
-1. Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/).
-1. Αποκτήστε μια αναφορά σε μια διαφάνεια με βάση το δείκτη της.
-1. Προσθέστε μια [IAutoShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/iautoshape/) στη διαφάνεια.
-1. Ορίστε το [line style](https://reference.aspose.com/slides/el/cpp/aspose.slides/linestyle/) του σχήματος.
-1. Ορίστε το πλάτος γραμμής.
-1. Ορίστε το [dash style](https://reference.aspose.com/slides/el/cpp/aspose.slides/linedashstyle/) της γραμμής.
+1. Δημιουργήστε μια παρουσία της κλάσης [Παρουσίαση](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/).
+1. Λάβετε μια αναφορά σε μια διαφάνεια με βάση τον αριθμό της.
+1. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/iautoshape/) στη διαφάνεια.
+1. Ορίστε το [στυλ γραμμής](https://reference.aspose.com/slides/el/cpp/aspose.slides/linestyle/) του σχήματος.
+1. Ορίστε το πλάτος της γραμμής.
+1. Ορίστε το [στυλ παύλας](https://reference.aspose.com/slides/el/cpp/aspose.slides/linedashstyle/) της γραμμής.
 1. Ορίστε το χρώμα γραμμής για το σχήμα.
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+1. Αποθηκεύστε την τροποποιημένη παρουσία ως αρχείο PPTX.
 
 Ο παρακάτω κώδικας δείχνει πώς να μορφοποιήσετε ένα ορθογώνιο `AutoShape`:
 
 ```cpp
-// Δημιουργήστε μία παρουσίαση της κλάσης Presentation που αντιπροσωπεύει αρχείο παρουσίασης.
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/LineDashStyle.h>
+#include <DOM/LineStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+// Δημιουργεί την κλάση Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
 auto presentation = MakeObject<Presentation>();
 
-// Αποκτήστε την πρώτη διαφάνεια.
+// Αποκτά την πρώτη διαφάνεια.
 auto slide = presentation->get_Slide(0);
 
-// Προσθέστε ένα auto shape τύπου Rectangle.
+// Προσθέτει ένα auto shape τύπου Rectangle.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 150, 150, 75);
 
-// Ορίστε το χρώμα γεμίσματος για το σχήμα Rectangle.
+// Ορίζει το χρώμα γεμίσματος για το σχήμα rectangle.
 shape->get_FillFormat()->set_FillType(FillType::NoFill);
 
-// Εφαρμόστε μορφοποίηση στις γραμμές του Rectangle.
+// Εφαρμόζει μορφοποίηση στις γραμμές του rectangle.
 shape->get_LineFormat()->set_Style(LineStyle::ThickThin);
 shape->get_LineFormat()->set_Width(7);
 shape->get_LineFormat()->set_DashStyle(LineDashStyle::Dash);
 
-// Ορίστε το χρώμα για τη γραμμή του Rectangle.
+// Ορίζει το χρώμα για τη γραμμή του rectangle.
 shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 shape->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
 
-// Αποθηκεύστε το αρχείο PPTX στον δίσκο.
+// Αποθηκεύει το αρχείο PPTX στο δίσκο.
 presentation->Save(u"formatted_lines.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
 Το αποτέλεσμα:
 
-![Οι μορφοποιημένες γραμμές στην παρουσίαση](formatted-lines.png)
+![Οι μορφοποιημένες γραμμές στην παρουσία](formatted-lines.png)
 
-## **Εφαρμογή Σχεδίων Εφέ σε Γραμμές Σχήματος**
+## **Εφαρμογή Σχεδίου Εφέ στις Γραμμές Σχήματος**
 
-Ένα εφέ σκίτσου κάνει μια γραμμή σχήματος να φαίνεται σχεδιασμένη με το χέρι. Χρησιμοποιήστε [IShape::get_LineFormat](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishape/get_lineformat/) για πρόσβαση στις ρυθμίσεις γραμμής, [ILineFormat::get_SketchFormat](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilineformat/get_sketchformat/) για πρόσβαση στις ρυθμίσεις σκίτσου, και [ISketchFormat::set_SketchType](https://reference.aspose.com/slides/el/cpp/aspose.slides/isketchformat/set_sketchtype/) για επιλογή τιμής από την απαρίθμηση [LineSketchType](https://reference.aspose.com/slides/el/cpp/aspose.slides/linesketchtype/).
+Ένα εφέ σχεδίασης κάνει τη γραμμή ενός σχήματος να φαίνεται χειροποίητη. Χρησιμοποιήστε [IShape::get_LineFormat](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishape/get_lineformat/) για να προσπελάσετε τις ρυθμίσεις γραμμής, [ILineFormat::get_SketchFormat](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilineformat/get_sketchformat/) για να προσπελάσετε τις ρυθμίσεις σχεδίασης και [ISketchFormat::set_SketchType](https://reference.aspose.com/slides/el/cpp/aspose.slides/isketchformat/set_sketchtype/) για να επιλέξετε μια τιμή από την αρίθμηση [LineSketchType](https://reference.aspose.com/slides/el/cpp/aspose.slides/linesketchtype/).
 
-Ο παρακάτω κώδικας C++ δείχνει πώς να εφαρμόσετε το εφέ [LineSketchType::Curved](https://reference.aspose.com/slides/el/cpp/aspose.slides/linesketchtype/) , να διαβάσετε την ρητά εκχωρημένη τιμή και να αφαιρέσετε το εφέ με το [LineSketchType::None](https://reference.aspose.com/slides/el/cpp/aspose.slides/linesketchtype/):
+Ο παρακάτω κώδικας C++ δείχνει πώς να εφαρμόσετε το εφέ [LineSketchType::Curved](https://reference.aspose.com/slides/el/cpp/aspose.slides/linesketchtype/) , να διαβάσετε την ρητά ορισμένη τιμή και να αφαιρέσετε το εφέ με το [LineSketchType::None](https://reference.aspose.com/slides/el/cpp/aspose.slides/linesketchtype/):
 
 ```cpp
 auto presentation = MakeObject<Presentation>();
@@ -108,7 +130,7 @@ sketchFormat->set_SketchType(LineSketchType::None);
 presentation->Dispose();
 ```
 
-Η τιμή που επιστρέφεται από το [ISketchFormat::get_SketchType](https://reference.aspose.com/slides/el/cpp/aspose.slides/isketchformat/get_sketchtype/) αντιπροσωπεύει τη ρύθμιση που έχει εκχωρηθεί άμεσα στο σχήμα. Εάν η μορφοποίηση της γραμμής μπορεί να κληθεί από ένα θέμα, μια κύρια διαφάνεια ή μια διάταξη, χρησιμοποιήστε το [ILineFormat::GetEffective](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilineformat/geteffective/), αποκτήστε πρόσβαση στο [ILineFormatEffectiveData::get_SketchFormat](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilineformateffectivedata/get_sketchformat/) και διαβάστε το [ISketchFormatEffectiveData::get_SketchType](https://reference.aspose.com/slides/el/cpp/aspose.slides/isketchformateffectivedata/get_sketchtype/). Η αποτελεσματική τιμή αντικατοπτρίζει τη μορφοποίηση που εφαρμόζεται πραγματικά μετά την επίλυση της κληρονομιάς:
+Η τιμή που επιστρέφει το [ISketchFormat::get_SketchType](https://reference.aspose.com/slides/el/cpp/aspose.slides/isketchformat/get_sketchtype/) αντιπροσωπεύει τη ρύθμιση που έχει οριστεί άμεσα στο σχήμα. Εάν η μορφοποίηση της γραμμής μπορεί να κληθεί από ένα θέμα, κύρια διαφάνεια ή διάταξη, χρησιμοποιήστε το [ILineFormat::GetEffective](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilineformat/geteffective/), προσπελάστε το [ILineFormatEffectiveData::get_SketchFormat](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilineformateffectivedata/get_sketchformat/) και διαβάστε το [ISketchFormatEffectiveData::get_SketchType](https://reference.aspose.com/slides/el/cpp/aspose.slides/isketchformateffectivedata/get_sketchtype/). Η αποτελεσματική τιμή αντανακλά τη μορφοποίηση που εφαρμόζεται μετά την επίλυση της κληρονομικότητας:
 
 ```cpp
 auto presentation = MakeObject<Presentation>(u"presentation.pptx");
@@ -130,29 +152,49 @@ presentation->Dispose();
 
 Αυτές είναι οι τρεις επιλογές τύπου συνένωσης:
 
-- Στρογγυλό
-- Κωνικό
-- Λεία
+* Στρογγυλό
+* Μπλεβέρ
+* Κοψί
 
-Από προεπιλογή, όταν το PowerPoint ενώνει δύο γραμμές σε γωνία (όπως στη γωνία ενός σχήματος), χρησιμοποιεί τη ρύθμιση **Στρογγυλό**. Ωστόσο, εάν σχεδιάζετε ένα σχήμα με αιχμηρές γωνίες, μπορεί να προτιμάτε την επιλογή **Κωνικό**.
+Από προεπιλογή, όταν το PowerPoint ενώνει δύο γραμμές υπό γωνία (όπως στη γωνία ενός σχήματος), χρησιμοποιεί τη ρύθμιση **Στρογγυλό**. Ωστόσο, αν σχεδιάζετε ένα σχήμα με κοφτερές γωνίες, ίσως προτιμήσετε την επιλογή **Κοψί**.
 
-![Το στυλ συνένωσης στην παρουσίαση](join-style-powerpoint.png)
+![Το στυλ συνένωσης στην παρουσία](join-style-powerpoint.png)
 
-Ο παρακάτω κώδικας C++ δείχνει πώς δημιουργήθηκαν τρία ορθογώνια (όπως φαίνεται στην παραπάνω εικόνα) χρησιμοποιώντας τις ρυθμίσεις τύπου συνένωσης Στρογγυλό, Κωνικό και Λεία:
+Ο παρακάτω κώδικας C++ δείχνει πώς τρία ορθογώνια (όπως φαίνονται στην παραπάνω εικόνα) δημιουργήθηκαν χρησιμοποιώντας τις ρυθμίσεις στυλ συνένωσης Μπλεβέρ, Κοψί και Στρογγυλό:
 
 ```cpp
-// Δημιουργήστε την κλάση Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/LineJoinStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+// Δημιουργεί το αντικείμενο Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
 auto presentation = MakeObject<Presentation>();
 
-// Αποκτήστε την πρώτη διαφάνεια.
+// Αποκτά την πρώτη διαφάνεια.
 auto slide = presentation->get_Slide(0);
 
-// Προσθέστε τρία auto shapes τύπου Rectangle.
+// Προσθέτει τρία auto shapes τύπου Rectangle.
 auto shape1 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 20, 150, 75);
 auto shape2 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 210, 20, 150, 75);
 auto shape3 = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20, 135, 150, 75);
 
-// Ορίστε το χρώμα γεμίσματος για κάθε σχήμα Rectangle.
+// Ορίζει το χρώμα γεμίσματος για κάθε σχήμα rectangle.
 shape1->get_FillFormat()->set_FillType(FillType::Solid);
 shape1->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
 shape2->get_FillFormat()->set_FillType(FillType::Solid);
@@ -160,12 +202,12 @@ shape2->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
 shape3->get_FillFormat()->set_FillType(FillType::Solid);
 shape3->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
 
-// Ορίστε το πλάτος της γραμμής.
+// Ορίζει το πλάτος της γραμμής.
 shape1->get_LineFormat()->set_Width(15);
 shape2->get_LineFormat()->set_Width(15);
 shape3->get_LineFormat()->set_Width(15);
 
-// Ορίστε το χρώμα για τη γραμμή κάθε Rectangle.
+// Ορίζει το χρώμα για τη γραμμή κάθε rectangle.
 shape1->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 shape1->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
 shape2->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
@@ -173,193 +215,281 @@ shape2->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Colo
 shape3->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 shape3->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
 
-// Ορίστε το στυλ συνένωσης.
+// Ορίζει το στυλ συνένωσης.
 shape1->get_LineFormat()->set_JoinStyle(LineJoinStyle::Miter);
 shape2->get_LineFormat()->set_JoinStyle(LineJoinStyle::Bevel);
 shape3->get_LineFormat()->set_JoinStyle(LineJoinStyle::Round);
 
-// Προσθέστε κείμενο σε κάθε Rectangle.
+// Προσθέτει κείμενο σε κάθε rectangle.
 shape1->get_TextFrame()->set_Text(u"Miter Join Style");
 shape2->get_TextFrame()->set_Text(u"Bevel Join Style");
 shape3->get_TextFrame()->set_Text(u"Round Join Style");
 
-// Αποθηκεύστε το αρχείο PPTX στον δίσκο.
+// Αποθηκεύει το αρχείο PPTX στο δίσκο.
 presentation->Save(u"join_styles.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Γέμιση Διαβάθμισης**
+## **Γέμισμα Διαβάθμισης**
 
-Στο PowerPoint, η Γέμιση Διαβάθμισης είναι μια επιλογή μορφοποίησης που σας επιτρέπει να εφαρμόσετε ένα συνεχές μείγμα χρωμάτων σε ένα σχήμα. Για παράδειγμα, μπορείτε να εφαρμόσετε δύο ή περισσότερα χρώματα με τρόπο που το ένα ξεθωριάζει σταδιακά στο άλλο.
+Στο PowerPoint, το Γέμισμα Διαβάθμισης είναι μια επιλογή μορφοποίησης που σας επιτρέπει να εφαρμόσετε ένα συνεχές μίγμα χρωμάτων σε ένα σχήμα. Για παράδειγμα, μπορείτε να εφαρμόσετε δύο ή περισσότερα χρώματα με τρόπο που το ένα σταδιακά να εξασθενεί στο άλλο.
 
-Ακολουθεί πώς να εφαρμόσετε γέμιση διαβάθμισης σε ένα σχήμα χρησιμοποιώντας το Aspose.Slides:
+Ακολουθεί πώς να εφαρμόσετε ένα γέμισμα διαβάθμισης σε σχήμα χρησιμοποιώντας την Aspose.Slides:
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/).
-1. Αποκτήστε μια αναφορά σε μια διαφάνεια με βάση το δείκτη της.
-1. Προσθέστε μια [IAutoShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/iautoshape/) στη διαφάνεια.
-1. Ορίστε το [FillType] του σχήματος σε `Gradient`.
-1. Προσθέστε τα δύο προτιμώμενα χρώματά σας με καθορισμένες θέσεις χρησιμοποιώντας τις μεθόδους `Add` της συλλογής σταθμών διαβάθμισης που εκτίθενται από τη διεπαφή [IGradientFormat](https://reference.aspose.com/slides/el/cpp/aspose.slides/igradientformat/).
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+1. Δημιουργήστε μια παρουσία της κλάσης [Παρουσίαση](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/).
+1. Λάβετε μια αναφορά σε μια διαφάνεια με βάση τον αριθμό της.
+1. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/iautoshape/) στη διαφάνεια.
+1. Ορίστε το [FillType](https://reference.aspose.com/slides/el/cpp/aspose.slides/filltype/) του σχήματος σε `Gradient`.
+1. Προσθέστε τα δύο προτιμώμενα χρώματά σας με καθορισμένες θέσεις χρησιμοποιώντας τις μεθόδους `Add` της συλλογής διαβάθμισης που εκτίθεται από τη διεπαφή [IGradientFormat](https://reference.aspose.com/slides/el/cpp/aspose.slides/igradientformat/).
+1. Αποθηκεύστε την τροποποιημένη παρουσία ως αρχείο PPTX.
+
+Ο παρακάτω κώδικας C++ δείχνει πώς να εφαρμόσετε ένα εφέ γέμισμα διαβάθμισης σε μια έλλειψη:
 
 ```cpp
-// Δημιουργήστε την κλάση Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
+#include <DOM/FillType.h>
+#include <DOM/GradientDirection.h>
+#include <DOM/GradientShape.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IGradientFormat.h>
+#include <DOM/IGradientStopCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/PresetColor.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+// Δημιουργεί το αντικείμενο Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
 auto presentation = MakeObject<Presentation>();
 
-// Αποκτήστε την πρώτη διαφάνεια.
+// Αποκτά την πρώτη διαφάνεια.
 auto slide = presentation->get_Slide(0);
 
-// Προσθέστε ένα auto shape τύπου Ellipse.
+// Προσθέτει ένα auto shape τύπου Ellipse.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 50, 50, 150, 75);
 
-// Εφαρμόστε μορφοποίηση διαβάθμισης στην Ellipse.
+// Εφαρμόζει διαβαθμισμένη μορφοποίηση στην έλλειψη.
 shape->get_FillFormat()->set_FillType(FillType::Gradient);
 shape->get_FillFormat()->get_GradientFormat()->set_GradientShape(GradientShape::Linear);
 
-// Ορίστε την κατεύθυνση της διαβάθμισης.
+// Ορίζει την κατεύθυνση του gradient.
 shape->get_FillFormat()->get_GradientFormat()->set_GradientDirection(GradientDirection::FromCorner2);
 
-// Προσθέστε δύο στάσεις διαβάθμισης.
+// Προσθέτει δύο σημεία διαβάθμισης.
 shape->get_FillFormat()->get_GradientFormat()->get_GradientStops()->Add(1.0f, PresetColor::Purple);
 shape->get_FillFormat()->get_GradientFormat()->get_GradientStops()->Add(0.0f, PresetColor::Red);
 
-// Αποθηκεύστε το αρχείο PPTX στον δίσκο.
+// Αποθηκεύει το αρχείο PPTX στο δίσκο.
 presentation->Save(u"gradient_fill.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-![Η έλλειψη με γέμιση διαβάθμισης](gradient-fill.png)
+Το αποτέλεσμα:
 
-## **Γέμιση Μοτίβου**
+![Η έλλειψη με γέμισμα διαβάθμισης](gradient-fill.png)
 
-Στο PowerPoint, η Γέμιση Μοτίβου είναι μια επιλογή μορφοποίησης που σας επιτρέπει να εφαρμόσετε ένα δίσκο χρωμάτων—όπως κουκκίδες, γραμμές, σταυροδιαδισίες ή τετράγωνα—σε ένα σχήμα. Μπορείτε να επιλέξετε προσαρμοσμένα χρώματα για το προσκήνιο και το φόντο του μοτίβου.
+## **Γέμισμα Σχεδίου**
 
-Το Aspose.Slides παρέχει πάνω από 45 προεπιλεγμένα στυλ μοτίβου που μπορείτε να εφαρμόσετε σε σχήματα για να βελτιώσετε την οπτική ελκυστικότητα των παρουσιάσεών σας. Ακόμη και μετά την επιλογή ενός προεπιλεγμένου μοτίβου, μπορείτε να καθορίσετε τα ακριβή χρώματα που θα χρησιμοποιήσει.
+Στο PowerPoint, το Γέμισμα Σχεδίου είναι μια επιλογή μορφοποίησης που σας επιτρέπει να εφαρμόσετε ένα σχεδιασμό δύο χρωμάτων — όπως κουκκίδες, γραμμές, διαγώνιες λωρίδες ή σκακιές — σε ένα σχήμα. Μπορείτε να επιλέξετε προσαρμοσμένα χρώματα για το προσκήνιο και το φόντο του σχεδίου.
 
-Ακολουθεί πώς να εφαρμόσετε γέμιση μοτίβου σε ένα σχήμα χρησιμοποιώντας το Aspose.Slides:
+Η Aspose.Slides παρέχει πάνω από 45 προεπιλεγμένα στυλ σχεδίου που μπορείτε να εφαρμόσετε σε σχήματα για να ενισχύσετε το οπτικό αποτέλεσμα των παρουσιάσεων σας. Ακόμη και αφού επιλέξετε ένα προεπιλεγμένο σχέδιο, μπορείτε να καθορίσετε τα ακριβή χρώματα που θα χρησιμοποιήσει.
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/).
-1. Αποκτήστε μια αναφορά σε μια διαφάνεια με βάση το δείκτη της.
-1. Προσθέστε μια [IAutoShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/iautoshape/) στη διαφάνεια.
-1. Ορίστε το [FillType] του σχήματος σε `Pattern`.
-1. Επιλέξτε ένα στυλ μοτίβου από τις προεπιλεγμένες επιλογές.
-1. Ορίστε το [Background Color] του μοτίβου.
-1. Ορίστε το [Foreground Color] του μοτίβου.
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+Ακολουθεί πώς να εφαρμόσετε ένα γέμισμα σχεδίου σε σχήμα χρησιμοποιώντας την Aspose.Slides:
+
+1. Δημιουργήστε μια παρουσία της κλάσης [Παρουσίαση](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/).
+1. Λάβετε μια αναφορά σε μια διαφάνεια με βάση τον αριθμό της.
+1. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/iautoshape/) στη διαφάνεια.
+1. Ορίστε το [FillType](https://reference.aspose.com/slides/el/cpp/aspose.slides/filltype/) του σχήματος σε `Pattern`.
+1. Επιλέξτε ένα στυλ σχεδίου από τις προεπιλεγμένες επιλογές.
+1. Ορίστε το [Background Color](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipatternformat/get_backcolor/) του σχεδίου.
+1. Ορίστε το [Foreground Color](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipatternformat/get_forecolor/) του σχεδίου.
+1. Αποθηκεύστε την τροποποιημένη παρουσία ως αρχείο PPTX.
+
+Ο παρακάτω κώδικας C++ δείχνει πώς να εφαρμόσετε ένα γέμισμα σχεδίου σε ένα ορθογώνιο:
 
 ```cpp
-// Δημιουργήστε την κλάση Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IPatternFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/PatternStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+// Δημιουργεί το αντικείμενο Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
 auto presentation = MakeObject<Presentation>();
 
-// Αποκτήστε την πρώτη διαφάνεια.
+// Αποκτά την πρώτη διαφάνεια.
 auto slide = presentation->get_Slide(0);
 
-// Προσθέστε ένα auto shape τύπου Rectangle.
+// Προσθέτει ένα auto shape τύπου Rectangle.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-// Ορίστε τον τύπο γεμίσματος σε Pattern.
+// Ορίζει τον τύπο γεμίσματος σε Pattern.
 shape->get_FillFormat()->set_FillType(FillType::Pattern);
 
-// Ορίστε το στυλ μοτίβου.
+// Ορίζει το στυλ του μοτίβου.
 shape->get_FillFormat()->get_PatternFormat()->set_PatternStyle(PatternStyle::Trellis);
 
-// Ορίστε τα χρώματα φόντου και προσκηνίου του μοτίβου.
+// Ορίζει τα χρώματα φόντου και προσκηνίου του μοτίβου.
 shape->get_FillFormat()->get_PatternFormat()->get_BackColor()->set_Color(Color::get_LightGray());
 shape->get_FillFormat()->get_PatternFormat()->get_ForeColor()->set_Color(Color::get_Yellow());
 
-// Αποθηκεύστε το αρχείο PPTX στον δίσκο.
+// Αποθηκεύει το αρχείο PPTX στο δίσκο.
 presentation->Save(u"pattern_fill.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-![Το ορθογώνιο με γέμιση μοτίβου](pattern-fill.png)
+Το αποτέλεσμα:
 
-## **Γέμιση Εικόνας**
+![Το ορθογώνιο με γέμισμα σχεδίου](pattern-fill.png)
 
-Στο PowerPoint, η Γέμιση Εικόνας είναι μια επιλογή μορφοποίησης που σας επιτρέπει να εισάγετε μια εικόνα μέσα σε ένα σχήμα—χρησιμοποιώντας ουσιαστικά την εικόνα ως φόντο του σχήματος.
+## **Γέμισμα Εικόνας**
 
-Ακολουθεί πώς να χρησιμοποιήσετε το Aspose.Slides για να εφαρμόσετε γέμιση εικόνας σε ένα σχήμα:
+Στο PowerPoint, το Γέμισμα Εικόνας είναι μια επιλογή μορφοποίησης που σας επιτρέπει να ενσωματώσετε μια εικόνα μέσα σε ένα σχήμα — χρησιμοποιώντας ουσιαστικά την εικόνα ως φόντο του σχήματος.
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/).
-1. Αποκτήστε μια αναφορά σε μια διαφάνεια με βάση το δείκτη της.
-1. Προσθέστε μια [IAutoShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/iautoshape/) στη διαφάνεια.
-1. Ορίστε το [FillType] του σχήματος σε `Picture`.
-1. Ορίστε τη λειτουργία γέμισης εικόνας σε `Tile` (ή άλλη προτιμώμενη λειτουργία).
-1. Δημιουργήστε ένα αντικείμενο [IPPImage] από την εικόνα που θέλετε να χρησιμοποιήσετε.
-1. Προωθήστε την εικόνα στη μέθοδο `ISlidesPicture.set_Image`.
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+Ακολουθεί πώς να χρησιμοποιήσετε την Aspose.Slides για να εφαρμόσετε ένα γέμισμα εικόνας σε σχήμα:
 
-Ας πούμε ότι έχουμε ένα αρχείο "lotus.png" με την παρακάτω εικόνα:
+1. Δημιουργήστε μια παρουσία της κλάσης [Παρουσίαση](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/).
+1. Λάβετε μια αναφορά σε μια διαφάνεια με βάση τον αριθμό της.
+1. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/iautoshape/) στη διαφάνεια.
+1. Ορίστε το [FillType](https://reference.aspose.com/slides/el/cpp/aspose.slides/filltype/) του σχήματος σε `Picture`.
+1. Ορίστε τη λειτουργία γεμίσματος εικόνας σε `Tile` (ή άλλη προτιμώμενη λειτουργία).
+1. Δημιουργήστε ένα αντικείμενο [IPPImage](https://reference.aspose.com/slides/el/cpp/aspose.slides/ippimage/) από την εικόνα που θέλετε να χρησιμοποιήσετε.
+1. Περάστε την εικόνα στη μέθοδο `ISlidesPicture.set_Image`.
+1. Αποθηκεύστε την τροποποιημένη παρουσία ως αρχείο PPTX.
 
-![Η εικόνα lotus](lotus.png)
+Ας υποθέσουμε ότι έχουμε ένα αρχείο «lotus.png» με την παρακάτω εικόνα:
+
+![Η εικόνα λωτού](lotus.png)
+
+Ο παρακάτω κώδικας C++ δείχνει πώς να γεμίσετε ένα σχήμα με την εικόνα:
 
 ```cpp
-// Δημιουργήστε την κλάση Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/PictureFillMode.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+// Δημιουργεί το αντικείμενο Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
 auto presentation = MakeObject<Presentation>();
 
-// Αποκτήστε την πρώτη διαφάνεια.
+// Αποκτά την πρώτη διαφάνεια.
 auto slide = presentation->get_Slide(0);
 
-// Προσθέστε ένα auto shape τύπου Rectangle.
+// Προσθέτει ένα auto shape τύπου Rectangle.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 255, 130);
 
-// Ορίστε τον τύπο γεμίσματος σε Picture.
+// Ορίζει τον τύπο γεμίσματος σε Picture.
 shape->get_FillFormat()->set_FillType(FillType::Picture);
 
-// Ορίστε τη λειτουργία γεμίσματος εικόνας.
+// Ορίζει τη λειτουργία γεμίσματος εικόνας.
 shape->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Tile);
 
-// Φορτώστε μια εικόνα και προσθέστε την στους πόρους της παρουσίασης.
+// Φορτώνει μια εικόνα και την προσθέτει στους πόρους της παρουσίασης.
 auto image = Images::FromFile(u"lotus.png");
 auto picture = presentation->get_Images()->AddImage(image);
 image->Dispose();
 
-// Ορίστε την εικόνα.
+// Ορίζει την εικόνα.
 shape->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(picture);
 
-// Αποθηκεύστε το αρχείο PPTX στον δίσκο.
+// Αποθηκεύει το αρχείο PPTX στο δίσκο.
 presentation->Save(u"picture_fill.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-![Το σχήμα με γέμιση εικόνας](picture-fill.png)
+Το αποτέλεσμα:
 
-### **Τίλινγκ Εικόνας Ως Υφή**
+![Το σχήμα με γέμισμα εικόνας](picture-fill.png)
 
-Εάν θέλετε να ορίσετε μια εικόνα σε πλακίδια ως υφή και να προσαρμόσετε τη συμπεριφορά του πλακιδίου, μπορείτε να χρησιμοποιήσετε τις ακόλουθες μεθόδους της διεπαφής [IPictureFillFormat] και της κλάσης [PictureFillFormat]:
+### **Ταπετσαρία Εικόνας Ως Υφή**
 
-- Ορίζει τη λειτουργία γέμισης εικόνας—είτε `Tile` είτε `Stretch`.
-- Καθορίζει την ευθυγράμμιση των πλακιδίων μέσα στο σχήμα.
-- Ελέγχει αν το πλακίδιο είναι αναστραμμένο οριζόντια, κάθετα ή και τα δύο.
-- Ορίζει την οριζόντια μετατόπιση του πλακιδίου (σε σημεία) από το αρχικό σημείο του σχήματος.
-- Ορίζει την κάθετη μετατόπιση του πλακιδίου (σε σημεία) από το αρχικό σημείο του σχήματος.
-- Ορίζει την οριζόντια κλίμακα του πλακιδίου ως ποσοστό.
-- Ορίζει την κάθετη κλίμακα του πλακιδίου ως ποσοστό.
+Εάν θέλετε να ορίσετε μια ταπετσαρία εικόνας ως υφή και να προσαρμόσετε τη συμπεριφορά ταπέτας, μπορείτε να χρησιμοποιήσετε τις παρακάτω μεθόδους της διεπαφής [IPictureFillFormat](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipicturefillformat/) και της κλάσης [PictureFillFormat](https://reference.aspose.com/slides/el/cpp/aspose.slides/picturefillformat/):
 
-Ο παρακάτω κώδικας δείχνει πώς να προσθέσετε ένα ορθογώνιο σχήμα με γέμιση εικόνας σε πλακίδια και να ρυθμίσετε τις επιλογές πλακιδίων:
+- [set_PictureFillMode](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipicturefillformat/set_picturefillmode/): Ορίζει τη λειτουργία γεμίσματος εικόνας — είτε `Tile` είτε `Stretch`.
+- [set_TileAlignment](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipicturefillformat/set_tilealignment/): Καθορίζει την ευθυγράμμιση των πλακιδίων μέσα στο σχήμα.
+- [set_TileFlip](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipicturefillformat/set_tileflip/): Ελέγχει αν το πλακίδιο θα αναστραφεί οριζόντια, κάθετα ή και τα δύο.
+- [set_TileOffsetX](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipicturefillformat/set_tileoffsetx/): Ορίζει την οριζόντια απόκλιση του πλακιδίου (σε points) από την αρχή του σχήματος.
+- [set_TileOffsetY](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipicturefillformat/set_tileoffsety/): Ορίζει τη καθέτη απόκλιση του πλακιδίου (σε points) από την αρχή του σχήματος.
+- [set_TileScaleX](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipicturefillformat/set_tilescalex/): Ορίζει την οριζόντια κλίμακα του πλακιδίου ως ποσοστό.
+- [set_TileScaleY](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipicturefillformat/set_tilescaley/): Ορίζει τη καθέτη κλίμακα του πλακιδίου ως ποσοστό.
+
+Ο παρακάτω κώδικας δείχνει πώς να προσθέσετε ένα ορθογώνιο σχήμα με ταπετσαρία εικόνας και να ρυθμίσετε τις παραμέτρους πλακιδίων:
 
 ```cpp
-// Δημιουργήστε την κλάση Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/PictureFillMode.h>
+#include <DOM/Presentation.h>
+#include <DOM/RectangleAlignment.h>
+#include <DOM/ShapeType.h>
+#include <DOM/TileFlip.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+// Δημιουργεί το αντικείμενο Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
 auto presentation = MakeObject<Presentation>();
 
-// Αποκτήστε την πρώτη διαφάνεια.
+// Αποκτά την πρώτη διαφάνεια.
 auto firstSlide = presentation->get_Slide(0);
 
-// Προσθέστε ένα αυτόματο σχήμα Rectangle.
+// Προσθέτει ένα ορθογώνιο auto shape.
 auto shape = firstSlide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 190, 95);
 
-// Ορίστε τον τύπο γεμίσματος του σχήματος σε Picture.
+// Ορίζει τον τύπο γεμίσματος του σχήματος σε Picture.
 shape->get_FillFormat()->set_FillType(FillType::Picture);
 
-// Φορτώστε την εικόνα και προσθέστε την στους πόρους της παρουσίασης.
+// Φορτώνει την εικόνα και την προσθέτει στους πόρους της παρουσίασης.
 auto sourceImage = Images::FromFile(u"lotus.png");
 auto presentationImage = presentation->get_Images()->AddImage(sourceImage);
 sourceImage->Dispose();
 
-// Αντιστοιχίστε την εικόνα στο σχήμα.
+// Αναθέτει την εικόνα στο σχήμα.
 auto pictureFillFormat = shape->get_FillFormat()->get_PictureFillFormat();
 pictureFillFormat->get_Picture()->set_Image(presentationImage);
 
-// Ρυθμίστε τη λειτουργία γεμίσματος εικόνας και τις ιδιότητες πλακιδίων.
+// Διαμορφώνει τη λειτουργία γεμίσματος εικόνας και τις ιδιότητες τοποθέτησης πλακιδίων.
 pictureFillFormat->set_PictureFillMode(PictureFillMode::Tile);
 pictureFillFormat->set_TileOffsetX(-32);
 pictureFillFormat->set_TileOffsetY(-32);
@@ -368,135 +498,220 @@ pictureFillFormat->set_TileScaleY(50);
 pictureFillFormat->set_TileAlignment(RectangleAlignment::BottomRight);
 pictureFillFormat->set_TileFlip(TileFlip::FlipBoth);
 
-// Αποθηκεύστε το αρχείο PPTX στον δίσκο.
+// Αποθηκεύει το αρχείο PPTX στο δίσκο.
 presentation->Save(u"tile.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-![Οι επιλογές πλακιδίου](tile-options.png)
+Το αποτέλεσμα:
 
-## **Γέμιση Στερεού Χρώματος**
+![Οι επιλογές πλακιδίων](tile-options.png)
 
-Στο PowerPoint, η Γέμιση Στερεού Χρώματος είναι μια επιλογή μορφοποίησης που γεμίζει ένα σχήμα με ένα ενιαίο, ομοιόμορφο χρώμα. Αυτό το απλό χρώμα φόντου εφαρμόζεται χωρίς διαβαθμίσεις, υφές ή μοτίβα.
+## **Συμπαγές Χρώμα Γέμισμα**
 
-Για να εφαρμόσετε γέμιση στερεού χρώματος σε ένα σχήμα χρησιμοποιώντας το Aspose.Slides, ακολουθήστε τα εξής βήματα:
+Στο PowerPoint, το Συμπαγές Χρώμα Γέμισμα είναι μια επιλογή μορφοποίησης που γεμίζει ένα σχήμα με ένα ενιαίο, ομοιόμορφο χρώμα. Αυτό το απλό χρώμα φόντου εφαρμόζεται χωρίς διαβαθμίσεις, υφές ή μοτίβα.
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/).
-1. Αποκτήστε μια αναφορά σε μια διαφάνεια με βάση το δείκτη της.
-1. Προσθέστε μια [IAutoShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/iautoshape/) στη διαφάνεια.
-1. Ορίστε το [FillType] του σχήματος σε `Solid`.
+Για να εφαρμόσετε ένα συμπαγές χρώμα γέμισμα σε σχήμα χρησιμοποιώντας την Aspose.Slides, ακολουθήστε τα παρακάτω βήματα:
+
+1. Δημιουργήστε μια παρουσία της κλάσης [Παρουσίαση](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/).
+1. Λάβετε μια αναφορά σε μια διαφάνεια με βάση τον αριθμό της.
+1. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/iautoshape/) στη διαφάνεια.
+1. Ορίστε το [FillType](https://reference.aspose.com/slides/el/cpp/aspose.slides/filltype/) του σχήματος σε `Solid`.
 1. Αναθέστε το προτιμώμενο χρώμα γεμίσματος στο σχήμα.
-1. Αποθηκεύστε την παρουσίαση.
+1. Αποθηκεύστε την τροποποιημένη παρουσία ως αρχείο PPTX.
+
+Ο παρακάτω κώδικας C++ δείχνει πώς να εφαρμόσετε ένα συμπαγές χρώμα γέμισμα σε ένα ορθογώνιο σε διαφάνεια PowerPoint:
 
 ```cpp
-// Δημιουργήστε την κλάση Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+// Δημιουργεί το αντικείμενο Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
 auto presentation = MakeObject<Presentation>();
 
-// Αποκτήστε την πρώτη διαφάνεια.
+// Αποκτά την πρώτη διαφάνεια.
 auto slide = presentation->get_Slide(0);
 
-// Προσθέστε ένα auto shape τύπου Rectangle.
+// Προσθέτει ένα auto shape τύπου Rectangle.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-// Ορίστε τον τύπο γεμίσματος σε Solid.
+// Ορίζει τον τύπο γεμίσματος σε Solid.
 shape->get_FillFormat()->set_FillType(FillType::Solid);
 
-// Ορίστε το χρώμα γεμίσματος.
+// Ορίζει το χρώμα γεμίσματος.
 shape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Yellow());
 
-// Αποθηκεύστε το αρχείο PPTX στον δίσκο.
+// Αποθηκεύει το αρχείο PPTX στο δίσκο.
 presentation->Save(u"solid_color_fill.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-![Το σχήμα με γέμιση στερεού χρώματος](solid-color-fill.png)
+Το αποτέλεσμα:
+
+![Το σχήμα με συμπαγές χρώμα γέμισμα](solid-color-fill.png)
 
 ## **Ορισμός Διαφάνειας**
 
-Στο PowerPoint, όταν εφαρμόζετε γέμιση στερεού χρώματος, διαβάθμισης, εικόνας ή υφής σε σχήματα, μπορείτε επίσης να ορίσετε ένα επίπεδο διαφάνειας για να ελέγξετε την αδιαφάνεια του γεμίσματος. Μια υψηλότερη τιμή διαφάνειας κάνει το σχήμα πιο διαυγές, επιτρέποντας στο φόντο ή στα υποκείμενα αντικείμενα να φαίνονται μερικώς.
+Στο PowerPoint, όταν εφαρμόζετε ένα συμπαγές χρώμα, διαβάθμιση, εικόνα ή υφή σε σχήματα, μπορείτε επίσης να ορίσετε ένα επίπεδο διαφάνειας για να ελέγξετε τη διαφάνεια του γέμισης. Μια υψηλότερη τιμή διαφάνειας κάνει το σχήμα πιο διαφανές, επιτρέποντας στο φόντο ή στα υποκείμενα αντικείμενα να φαίνονται εν μέρει.
 
-Το Aspose.Slides σας επιτρέπει να ορίσετε το επίπεδο διαφάνειας ρυθμίζοντας την τιμή alpha στο χρώμα που χρησιμοποιείται για το γέμισμα. Ακολουθεί πώς να το κάνετε:
+Η Aspose.Slides σας επιτρέπει να ορίσετε το επίπεδο διαφάνειας ρυθμίζοντας την τιμή alpha στο χρώμα που χρησιμοποιείται για το γέμισμα. Δείτε πώς:
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/).
-1. Αποκτήστε μια αναφορά σε μια διαφάνεια με βάση το δείκτη της.
-1. Προσθέστε μια [IAutoShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/iautoshape/) στη διαφάνεια.
-1. Ορίστε το [FillType] του σχήματος σε `Solid`.
+1. Δημιουργήστε μια παρουσία της κλάσης [Παρουσίαση](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/).
+1. Λάβετε μια αναφορά σε μια διαφάνεια με βάση τον αριθμό της.
+1. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/iautoshape/) στη διαφάνεια.
+1. Ορίστε το [FillType](https://reference.aspose.com/slides/el/cpp/aspose.slides/filltype/) σε `Solid`.
 1. Χρησιμοποιήστε το `Color` για να ορίσετε ένα χρώμα με διαφάνεια (το στοιχείο `alpha` ελέγχει τη διαφάνεια).
-1. Αποθηκεύστε την παρουσίαση.
+1. Αποθηκεύστε την παρουσία.
+
+Ο παρακάτω κώδικας C++ δείχνει πώς να εφαρμόσετε ένα διαφανές χρώμα γέμισματος σε ένα ορθογώνιο:
 
 ```cpp
-// Δημιουργήστε την κλάση Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+// Δημιουργεί το αντικείμενο Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
 auto presentation = MakeObject<Presentation>();
 
-// Αποκτήστε την πρώτη διαφάνεια.
+// Αποκτά την πρώτη διαφάνεια.
 auto slide = presentation->get_Slide(0);
 
-// Προσθέστε ένα στερεό αυτόματο σχήμα Rectangle.
+// Προσθέτει ένα συμπαγές ορθογώνιο auto shape.
 auto solidShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-// Προσθέστε ένα διαφανές αυτόματο σχήμα Rectangle πάνω από το στερεό σχήμα.
+// Προσθέτει ένα διαφανές ορθογώνιο auto shape πάνω από το συμπαγές σχήμα.
 auto transparentShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 80, 80, 150, 75);
 transparentShape->get_FillFormat()->set_FillType(FillType::Solid);
 transparentShape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::FromArgb(204, 255, 255, 0));
 
-// Αποθηκεύστε το αρχείο PPTX στον δίσκο.
+// Αποθηκεύει το αρχείο PPTX στο δίσκο.
 presentation->Save(u"shape_transparency.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
+
+Το αποτέλεσμα:
 
 ![Το διαφανές σχήμα](shape-transparency.png)
 
 ## **Περιστροφή Σχημάτων**
 
-Το Aspose.Slides σας επιτρέπει να περιστρέφετε σχήματα σε παρουσιάσεις PowerPoint. Αυτό μπορεί να είναι χρήσιμο κατά την τοποθέτηση οπτικών στοιχείων με συγκεκριμένη ευθυγράμμιση ή σχεδιαστικές απαιτήσεις.
+Η Aspose.Slides σας επιτρέπει να περιστρέφετε σχήματα σε παρουσιάσεις PowerPoint. Αυτό μπορεί να είναι χρήσιμο όταν θέλετε να τοποθετήσετε οπτικά στοιχεία με συγκεκριμένη ευθυγράμμιση ή σχεδιαστικές ανάγκες.
 
 Για να περιστρέψετε ένα σχήμα σε μια διαφάνεια, ακολουθήστε τα παρακάτω βήματα:
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/).
-1. Αποκτήστε μια αναφορά σε μια διαφάνεια με βάση το δείκτη της.
-1. Προσθέστε μια [IAutoShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/iautoshape/) στη διαφάνεια.
-1. Ορίστε την ιδιότητα περιστροφής του σχήματος στη ζητούμενη γωνία.
-1. Αποθηκεύστε την παρουσίαση.
+1. Δημιουργήστε μια παρουσία της κλάσης [Παρουσίαση](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/).
+1. Λάβετε μια αναφορά σε μια διαφάνεια με βάση τον αριθμό της.
+1. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/iautoshape/) στη διαφάνεια.
+1. Ορίστε την ιδιότητα περιστροφής του σχήματος στη gewünschte γωνία.
+1. Αποθηκεύστε την παρουσία.
+
+Ο παρακάτω κώδικας C++ δείχνει πώς να περιστρέψετε ένα σχήμα κατά 5 μοίρες:
 
 ```cpp
-// Δημιουργήστε την κλάση Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+// Δημιουργεί το αντικείμενο Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
 auto presentation = MakeObject<Presentation>();
 
-// Αποκτήστε την πρώτη διαφάνεια.
+// Αποκτά την πρώτη διαφάνεια.
 auto slide = presentation->get_Slide(0);
 
-// Προσθέστε ένα auto shape τύπου Rectangle.
+// Προσθέτει ένα auto shape τύπου Rectangle.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-// Περιστρέψτε το σχήμα 5 μοίρες.
+// Περιστρέφει το σχήμα κατά 5 μοίρες.
 shape->set_Rotation(5);
 
-// Αποθηκεύστε το αρχείο PPTX στον δίσκο.
+// Αποθηκεύει το αρχείο PPTX στο δίσκο.
 presentation->Save(u"shape_rotation.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+Το αποτέλεσμα:
+
 ![Η περιστροφή του σχήματος](shape-rotation.png)
 
-## **Προσθήκη 3Δ Εφέ Λείανσης**
+## **Προσθήκη 3Δ Εφέ Λεπίδας**
 
-Το Aspose.Slides σας επιτρέπει να εφαρμόσετε 3Δ εφέ λειάνσης σε σχήματα διαμορφώνοντας τις ιδιότητες [ThreeDFormat] τους.
+Η Aspose.Slides σας επιτρέπει να εφαρμόζετε 3Δ εφέ λεπίδας σε σχήματα διαμορφώνοντας τις ιδιότητες του [ThreeDFormat](https://reference.aspose.com/slides/el/cpp/aspose.slides/threedformat/).
 
-Για να προσθέσετε 3Δ εφέ λειάνσης σε ένα σχήμα, ακολουθήστε τα βήματα:
+Για να προσθέσετε 3Δ εφέ λεπίδας σε ένα σχήμα, ακολουθήστε τα παρακάτω βήματα:
 
-1. Δημιουργήστε μια παρουσίαση της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/).
-1. Αποκτήστε μια αναφορά σε μια διαφάνεια με βάση το δείκτη της.
-1. Προσθέστε μια [IAutoShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/iautoshape/) στη διαφάνεια.
-1. Διαμορφώστε το [ThreeDFormat] του σχήματος για να ορίσετε τις ρυθμίσεις λειάνσης.
-1. Αποθηκεύστε την παρουσίαση.
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/).
+1. Λάβετε μια αναφορά σε μια διαφάνεια με βάση τον αριθμό της.
+1. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/iautoshape/) στη διαφάνεια.
+1. Διαμορφώστε το [ThreeDFormat](https://reference.aspose.com/slides/el/cpp/aspose.slides/threedformat/) του σχήματος για να ορίσετε τις ρυθμίσεις λεπίδας.
+1. Αποθηκεύστε την παρουσία.
+
+Ο παρακάτω κώδικας C++ δείχνει πώς να εφαρμόσετε 3Δ εφέ λεπίδας σε ένα σχήμα:
 
 ```cpp
-// Δημιουργήστε ένα στιγμιότυπο της κλάσης Presentation.
+#include <DOM/BevelPresetType.h>
+#include <DOM/CameraPresetType.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ICamera.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILightRig.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeBevel.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/LightRigPresetType.h>
+#include <DOM/LightingDirection.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+// Δημιουργεί ένα αντικείμενο της κλάσης Presentation.
 auto presentation = MakeObject<Presentation>();
 
 auto slide = presentation->get_Slide(0);
 
-// Προσθέστε ένα σχήμα στη διαφάνεια.
+// Προσθέτει ένα σχήμα στη διαφάνεια.
 auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 50, 50, 100, 100);
 shape->get_FillFormat()->set_FillType(FillType::Solid);
 shape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Green());
@@ -504,7 +719,7 @@ shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 shape->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Orange());
 shape->get_LineFormat()->set_Width(2.0);
 
-// Ορίστε τις ιδιότητες ThreeDFormat του σχήματος.
+// Ορίζει τις ιδιότητες ThreeDFormat του σχήματος.
 shape->get_ThreeDFormat()->set_Depth(4.0);
 shape->get_ThreeDFormat()->get_BevelTop()->set_BevelType(BevelPresetType::Circle);
 shape->get_ThreeDFormat()->get_BevelTop()->set_Height(6);
@@ -513,27 +728,48 @@ shape->get_ThreeDFormat()->get_Camera()->set_CameraType(CameraPresetType::Orthog
 shape->get_ThreeDFormat()->get_LightRig()->set_LightType(LightRigPresetType::ThreePt);
 shape->get_ThreeDFormat()->get_LightRig()->set_Direction(LightingDirection::Top);
 
-// Αποθηκεύστε την παρουσίαση ως αρχείο PPTX.
+// Αποθηκεύει την παρουσίαση ως αρχείο PPTX.
 presentation->Save(u"3D_bevel_effect.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-![Το 3Δ εφέ λειάνσης](3D-bevel-effect.png)
+Το αποτέλεσμα:
+
+![Το 3Δ εφέ λεπίδας](3D-bevel-effect.png)
 
 ## **Προσθήκη 3Δ Εφέ Περιστροφής**
 
-Το Aspose.Slides σας επιτρέπει να εφαρμόσετε 3Δ εφέ περιστροφής σε σχήματα διαμορφώνοντας τις ιδιότητές τους [ThreeDFormat].
+Η Aspose.Slides σας επιτρέπει να εφαρμόζετε 3Δ εφέ περιστροφής σε σχήματα διαμορφώνοντας τις ιδιότητες του [ThreeDFormat](https://reference.aspose.com/slides/el/cpp/aspose.slides/threedformat/).
 
 Για να εφαρμόσετε 3Δ περιστροφή σε ένα σχήμα:
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/).
-1. Αποκτήστε μια αναφορά σε μια διαφάνεια με βάση το δείκτη της.
-1. Προσθέστε μια [IAutoShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/iautoshape/) στη διαφάνεια.
-1. Χρησιμοποιήστε τις μεθόδους [set_CameraType](https://reference.aspose.com/slides/el/cpp/aspose.slides/icamera/set_cameratype/) και [set_LightType](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilightrig/set_lighttype/) για να ορίσετε την 3Δ περιστροφή.
-1. Αποθηκεύστε την παρουσίαση.
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/).
+1. Λάβετε μια αναφορά σε μια διαφάνεια με βάση τον αριθμό της.
+1. Προσθέστε ένα [IAutoShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/iautoshape/) στη διαφάνεια.
+1. Χρησιμοποιήστε τα [set_CameraType](https://reference.aspose.com/slides/el/cpp/aspose.slides/icamera/set_cameratype/) και [set_LightType](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilightrig/set_lighttype/) για να ορίσετε την 3Δ περιστροφή.
+1. Αποθηκεύστε την παρουσία.
+
+Ο παρακάτω κώδικας C++ δείχνει πώς να εφαρμόσετε 3Δ εφέ περιστροφής σε ένα σχήμα:
 
 ```cpp
-// Δημιουργήστε ένα στιγμιότυπο της κλάσης Presentation.
+#include <DOM/CameraPresetType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ICamera.h>
+#include <DOM/ILightRig.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/LightRigPresetType.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+// Δημιουργεί ένα αντικείμενο της κλάσης Presentation.
 auto presentation = MakeObject<Presentation>();
 
 auto slide = presentation->get_Slide(0);
@@ -546,23 +782,77 @@ shape->get_ThreeDFormat()->get_Camera()->SetRotation(40, 35, 20);
 shape->get_ThreeDFormat()->get_Camera()->set_CameraType(CameraPresetType::IsometricLeftUp);
 shape->get_ThreeDFormat()->get_LightRig()->set_LightType(LightRigPresetType::Balanced);
 
-// Αποθηκεύστε την παρουσίαση ως αρχείο PPTX.
+// Αποθηκεύει την παρουσίαση ως αρχείο PPTX.
 presentation->Save(u"3D_rotation_effect.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+Το αποτέλεσμα:
+
 ![Το 3Δ εφέ περιστροφής](3D-rotation-effect.png)
+
+## **Έλεγχος Μονόχρωμης Απόδοσης για Σχήματα**
+
+Η μέθοδος [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishape/set_blackwhitemode/) καθορίζει πώς θα αποδίδεται ένα μεμονωμένο σχήμα όταν μια παρουσία προβάλλεται ή επεξεργάζεται σε μονόχρωμη λειτουργία. Δεν ενεργοποιεί αυτόματα την εμφάνιση σε μαυρόλευκο χρώμα και δεν αλλάζει το γέμισμα, τη γραμμή ή άλλες μορφοποιήσεις του σχήματος σε κανονική έγχρωμη λειτουργία.
+
+Χρησιμοποιήστε μια τιμή από την αρίθμηση [BlackWhiteMode](https://reference.aspose.com/slides/el/cpp/aspose.slides/blackwhitemode/) για να επιλέξετε τη ζητούμενη συμπεριφορά. Για παράδειγμα, `Automatic` αφήνει την εφαρμογή απόδοσης να επιλέξει τη μετατροπή, `Gray` και `LightGray` χρησιμοποιούν γκρι χρώματα, `BlackWhite` χρησιμοποιεί μόνο μαύρο και λευκό, `Black` και `White` εξαναγκάζουν ένα ενιαίο χρώμα, `Color` διατηρεί το κανονικό χρώμα και `Hidden` παραλείπει το σχήμα στη μονόχρωμη λειτουργία. `NotDefined` σημαίνει ότι δεν έχει οριστεί λειτουργία σε επίπεδο σχήματος.
+
+Ο παρακάτω κώδικας C++ δημιουργεί ένα έγχρωμο σχήμα και το κάνει να φαίνεται γκρι σε μονόχρωμη λειτουργία προβολής:
+
+```cpp
+#include <DOM/BlackWhiteMode.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 200, 100);
+shape->get_FillFormat()->set_FillType(FillType::Solid);
+shape->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Orange());
+
+// Keep the orange fill in color mode, but render the shape with gray coloring in black-and-white mode.
+shape->set_BlackWhiteMode(BlackWhiteMode::Gray);
+
+presentation->Save(u"shape_black_white_mode.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Σε κανονική έγχρωμη λειτουργία, το ορθογώνιο διατηρεί το πορτοκαλί γέμισμά του. Σε μονόχρωμη λειτουργία προβολής, εμφανίζεται γκρι επειδή η λειτουργία του έχει οριστεί σε `Gray`. Έτσι μπορείτε να διατηρήσετε μια πλήρως έγχρωμη διαφάνεια ενώ ορίζετε διαφορετική εμφάνιση για εκτύπωση, προεπισκόπηση ή άλλες ροές εργασίας που σέβονται τις ρυθμίσεις μονόχρωμης εμφάνισης της παρουσίασης.
 
 ## **Επαναφορά Μορφοποίησης**
 
-Ο παρακάτω κώδικας C++ δείχνει πώς να επαναφέρετε τη μορφοποίηση μιας διαφάνειας και να επαναφέρετε τη θέση, το μέγεθος και τη μορφοποίηση όλων των σχημάτων με placeholders στο [LayoutSlide](https://reference.aspose.com/slides/el/cpp/aspose.slides/layoutslide/) στις προεπιλεγμένες ρυθμίσεις τους:
+Ο παρακάτω κώδικας C++ δείχνει πώς να επαναφέρετε τη μορφοποίηση μιας διαφάνειας και να επαναφέρετε τη θέση, το μέγεθος και τη μορφοποίηση όλων των σχημάτων με σύμβολα στην [LayoutSlide](https://reference.aspose.com/slides/el/cpp/aspose.slides/layoutslide/) στις προεπιλεγμένες τιμές τους:
 
 ```cpp
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/enumerator_adapter.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-for (auto&& slide : presentation->get_Slides())
+for (auto&& slide : System::IterateOver(presentation->get_Slides()))
 {
-    // Επαναφέρετε κάθε σχήμα στη διαφάνεια που έχει θέση κράτησης στη διάταξη.
+    // Επαναφέρει κάθε σχήμα στη διαφάνεια που έχει σύμβολο στην διάταξη.
     slide->Reset();
 }
 
@@ -572,14 +862,14 @@ presentation->Dispose();
 
 ## **Συχνές Ερωτήσεις**
 
-**Επηρεάζει η μορφοποίηση των σχημάτων το τελικό μέγεθος του αρχείου παρουσίασης;**
+**Επηρεάζει η μορφοποίηση σχήματος το τελικό μέγεθος αρχείου της παρουσίασης;**
 
-Μόνο ελάχιστα. Οι ενσωματωμένες εικόνες και τα μέσα καταλαμβάνουν το μεγαλύτερο μέρος του χώρου του αρχείου, ενώ οι παράμετροι των σχημάτων όπως χρώματα, εφέ και διαβαθμίσεις αποθηκεύονται ως μεταδεδομένα και δεν προσθέτουν σχεδόν κανένα επιπλέον μέγεθος.
+Μόνο ελαφρώς. Οι ενσωματωμένες εικόνες και τα μέσα καταλαμβάνουν το μεγαλύτερο μέρος του χώρου του αρχείου, ενώ οι παράμετροι σχήματος όπως χρώματα, εφέ και διαβαθμίσεις αποθηκεύονται ως μεταδεδομένα και προσθέτουν πρακτικά κανένα επιπλέον μέγεθος.
 
-**Πώς μπορώ να εντοπίσω σχήματα σε μια διαφάνεια που μοιράζονται την ίδια μορφοποίηση ώστε να τα ομαδοποιήσω;**
+**Πώς μπορώ να εντοπίσω σχήματα σε μια διαφάνεια που έχουν ίδια μορφοποίηση ώστε να τα ομαδοποιήσω;**
 
-Συγκρίνετε τις βασικές ιδιότητες μορφοποίησης κάθε σχήματος—ρυθμίσεις γεμίσματος, γραμμής και εφέ. Εάν όλα τα αντίστοιχα τιμές ταιριάζουν, θεωρήστε τα στυλ τους ως πανομοιότυπα και ομαδοποιήστε λογικά αυτά τα σχήματα, κάτι που απλοποιεί τη διαχείριση στυλ αργότερα.
+Συγκρίνετε τις κύριες ιδιότητες μορφοποίησης κάθε σχήματος — γέμισμα, γραμμή και ρυθμίσεις εφέ. Εάν όλες οι αντίστοιχες τιμές ταιριάζουν, θεωρήστε ότι τα στυλ είναι ίδια και ομαδοποιήστε λογικά αυτά τα σχήματα, κάτι που απλοποιεί τη μετέπειτα διαχείριση στυλ.
 
-**Μπορώ να αποθηκεύσω ένα σύνολο προσαρμοσμένων στυλ σχημάτων σε ξεχωριστό αρχείο για επαναχρησιμοποίηση σε άλλες παρουσιάσεις;**
+**Μπορώ να αποθηκεύσω ένα σύνολο προσαρμοσμένων στυλ σχήματος σε ξεχωριστό αρχείο για χρήση σε άλλες παρουσιάσεις;**
 
-Ναι. Αποθηκεύστε δείγματα σχημάτων με τα επιθυμητά στυλ σε μια παρουσίαση‑πρότυπο ή αρχείο προτύπου .POTX. Όταν δημιουργείτε νέα παρουσίαση, ανοίξτε το πρότυπο, κλωνοποιήστε τα σχήματα με το στυλ που χρειάζεστε και επαναεφαρμόστε τη μορφοποίησή τους όπου απαιτείται.
+Ναι. Αποθηκεύστε δείγματα σχημάτων με τα επιθυμητά στυλ σε ένα πρότυπο σετ διαφανειών ή σε ένα αρχείο πρότυπου .POTX. Κατά τη δημιουργία νέας παρουσίασης, ανοίξτε το πρότυπο, αντιγράψτε τα στυλσχημάτων που χρειάζεστε και εφαρμόστε ξανά τη μορφοποίησή τους όπου απαιτείται.

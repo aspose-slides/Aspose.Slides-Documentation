@@ -1,6 +1,6 @@
 ---
 title: Formátování tvarů PowerPointu v PHP
-linktitle: Formátování tvaru
+linktitle: Formátování tvarů
 type: docs
 weight: 20
 url: /cs/php-java/shape-formatting/
@@ -8,46 +8,48 @@ keywords:
 - formátovat tvar
 - formátovat čáru
 - skicový efekt
-- skicová čára tvaru
+- skicovat čáru tvaru
 - formátovat styl spojení
-- gradientová výplň
+- gradientní výplň
 - vzorová výplň
-- výplň obrázkem
+- obrázková výplň
 - texturová výplň
-- výplň jednou barvou
+- jednobarevná výplň
 - průhlednost tvaru
+- černobílé vykreslování tvaru
+- stupňová šedá vykreslování tvaru
 - otáčet tvar
-- 3D zkosený efekt
-- 3D rotační efekt
+- 3d efekt zkosení
+- 3d rotační efekt
 - resetovat formátování
 - PowerPoint
 - prezentace
 - PHP
 - Aspose.Slides
-description: "Naučte se, jak v PHP pomocí Aspose.Slides formátovat tvary v PowerPointu — nastavte výplň, čáru a styly efektů pro soubory PPT, PPTX a ODP s přesností a úplnou kontrolou."
+description: "Naučte se, jak formátovat tvary PowerPointu v PHP pomocí Aspose.Slides — nastavte výplň, čáru a styly efektů pro soubory PPT, PPTX a ODP s přesností a plnou kontrolou."
 ---
 ## **Úvod**
 
-V PowerPointu můžete do snímků přidávat tvary. Protože tvary jsou složeny z čar, můžete je formátovat úpravou nebo aplikací efektů na jejich obrysech. Navíc můžete formátovat tvary nastavením, která řídí, jak jsou jejich vnitřky vyplněny.
+V PowerPointu můžete do snímků přidávat tvary. Protože tvary jsou složeny z čar, můžete je formátovat úpravou nebo aplikací efektů na jejich obrysy. Navíc můžete tvary formátovat zadáním nastavení, která řídí, jak jsou jejich vnitřky vyplněny.
 
-![formátování tvaru ve PowerPointu](format-shape-powerpoint.png)
+![formátování tvaru v PowerPointu](format-shape-powerpoint.png)
 
-Aspose.Slides pro PHP přes Java poskytuje třídy a metody, které umožňují formátovat tvary pomocí stejných možností, které jsou dostupné v PowerPointu.
+Aspose.Slides for PHP via Java poskytuje třídy a metody, které vám umožní formátovat tvary pomocí stejných možností, které jsou k dispozici v PowerPointu.
 
 ## **Formátování čar**
 
-Pomocí Aspose.Slides můžete pro tvar zadat vlastní styl čáry. Následující kroky popisují postup:
+Pomocí Aspose.Slides můžete pro tvar určit vlastní styl čáry. Následující kroky popisují postup:
 
-1. Vytvořte instanci třídy [Prezentace](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/).
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/) na snímek.
-1. Nastavte [styl čáry](https://reference.aspose.com/slides/cs/php-java/aspose.slides/linestyle/) tvaru.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/).
+1. Získejte referenci na snímek podle jeho indexu.
+1. Přidejte na snímek [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/).
+1. Nastavte [line style](https://reference.aspose.com/slides/cs/php-java/aspose.slides/linestyle/) tvaru.
 1. Nastavte šířku čáry.
-1. Nastavte [styl čáry s čárkováním](https://reference.aspose.com/slides/cs/php-java/aspose.slides/linedashstyle/).
-1. Nastavte barvu čáry tvaru.
+1. Nastavte [dash style](https://reference.aspose.com/slides/cs/php-java/aspose.slides/linedashstyle/) čáry.
+1. Nastavte barvu čáry pro tvar.
 1. Uložte upravenou prezentaci jako soubor PPTX.
 
-Následující kód PHP ukazuje, jak na obdélníkovém `AutoShape` nastavit formátování čáry:
+Následující PHP kód ukazuje, jak formátovat obdélník `AutoShape`:
 
 ```php
 // Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
@@ -59,7 +61,7 @@ try {
     // Přidejte automatický tvar typu Rectangle.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 150, 150, 75);
 
-    // Nastavte barvu výplně pro obdélníkový tvar.
+    // Nastavte barvu výplně pro tvar obdélníku.
     $shape->getFillFormat()->setFillType(FillType::NoFill);
 
     // Aplikujte formátování na čáry obdélníku.
@@ -67,7 +69,7 @@ try {
     $shape->getLineFormat()->setWidth(7);
     $shape->getLineFormat()->setDashStyle(LineDashStyle::Dash);
 
-    // Nastavte barvu čáry obdélníku.
+    // Nastavte barvu pro čáru obdélníku.
     $shape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
     $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
 
@@ -82,11 +84,11 @@ Výsledek:
 
 ![Formátované čáry v prezentaci](formatted-lines.png)
 
-## **Použití skicových efektů na čáry tvarů**
+## **Použití skicových efektů na čáry tvaru**
 
-Skicový efekt způsobí, že čára tvaru vypadá ručně kresleně. Použijte [Shape.getLineFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shape/) k přístupu k nastavení čáry, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/lineformat/) k přístupu k nastavení skicu a [SketchFormat.setSketchType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/sketchformat/) k výběru hodnoty z výčtu [LineSketchType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/linesketchtype/).
+Skicový efekt způsobí, že čára tvaru vypadá ručně kresleně. K přístupu k nastavením čáry použijte [Shape.getLineFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shape/), k nastavení skicu použijte [LineFormat.getSketchFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/lineformat/), a k výběru hodnoty z výčtu [LineSketchType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/linesketchtype/) použijte [SketchFormat.setSketchType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/sketchformat/).
 
-Následující kód PHP ukazuje, jak použít efekt [LineSketchType.Curved](https://reference.aspose.com/slides/cs/php-java/aspose.slides/linesketchtype/), přečíst explicitně přiřazenou hodnotu a odebrat efekt pomocí [LineSketchType.None](https://reference.aspose.com/slides/cs/php-java/aspose.slides/linesketchtype/):
+Následující PHP kód ukazuje, jak aplikovat efekt [LineSketchType.Curved](https://reference.aspose.com/slides/cs/php-java/aspose.slides/linesketchtype/) , přečíst explicitně přiřazenou hodnotu a odstranit efekt pomocí [LineSketchType.None](https://reference.aspose.com/slides/cs/php-java/aspose.slides/linesketchtype/):
 
 ```php
 $presentation = new Presentation();
@@ -97,21 +99,21 @@ try {
     // Přístup k formátu čáry tvaru a jeho skicovému formátu.
     $sketchFormat = $shape->getLineFormat()->getSketchFormat();
 
-    // Aplikovat skicový efekt.
+    // Aplikujte skicový efekt.
     $sketchFormat->setSketchType(LineSketchType::Curved);
 
-    // Přečíst skicový efekt přiřazený přímo tvaru.
+    // Přečtěte skicový efekt přiřazený přímo tvaru.
     $explicitSketchType = $sketchFormat->getSketchType();
     echo "Explicit sketch type: " . $explicitSketchType . PHP_EOL;
 
-    // Odebrat skicový efekt.
+    // Odeberte skicový efekt.
     $sketchFormat->setSketchType(LineSketchType::None);
 } finally {
     $presentation->dispose();
 }
 ```
 
-Hodnota vrácená metodou [SketchFormat.getSketchType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/sketchformat/) představuje nastavení přiřazené přímo tvaru. Pokud může být formátování čáry zděděno z motivu, hlavního snímku nebo rozložení, použijte [LineFormat.getEffective](https://reference.aspose.com/slides/cs/php-java/aspose.slides/lineformat/), získejte metodu `getSketchFormat` vráceného objektu a přečtěte jeho hodnotu `getSketchType`. Efektivní hodnota odráží formátování, které je skutečně použito po vyřešení dědičnosti:
+Hodnota vrácená metodou [SketchFormat.getSketchType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/sketchformat/) představuje nastavení přiřazené přímo tvaru. Pokud může být formátování čáry zděděno z motivu, hlavního snímku nebo rozložení, použijte [LineFormat.getEffective](https://reference.aspose.com/slides/cs/php-java/aspose.slides/lineformat/), získejte metodu `getSketchFormat` vráceného objektu a přečtěte jeho hodnotu `getSketchType`. Efektivní hodnota odráží formátování, které je skutečně použito po rozřešení dědičnosti:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -138,11 +140,11 @@ Zde jsou tři možnosti typu spojení:
 * Miter
 * Bevel
 
-Ve výchozím nastavení PowerPoint používá při spojení dvou čar pod úhlem (například v rohu tvaru) nastavení **Round**. Pokud však kreslíte tvar s ostrými úhly, můžete preferovat možnost **Miter**.
+Ve výchozím nastavení PowerPoint při spojení dvou čar pod úhlem (například na rohu tvaru) používá nastavení **Round**. Pokud však kreslíte tvar s ostrými úhly, můžete upřednostnit možnost **Miter**.
 
 ![Styl spojení v prezentaci](join-style-powerpoint.png)
 
-Následující kód PHP ukazuje, jak byly vytvořeny tři obdélníky (jak je vidět na obrázku výše) s nastavením spojení Miter, Bevel a Round:
+Následující PHP kód ukazuje, jak byly vytvořeny tři obdélníky (jak je vidět na obrázku výše) pomocí nastavení typů spojení Miter, Bevel a Round:
 
 ```php
 // Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
@@ -169,7 +171,7 @@ try {
     $shape2->getLineFormat()->setWidth(15);
     $shape3->getLineFormat()->setWidth(15);
 
-    // Nastavte barvu čáry každého obdélníku.
+    // Nastavte barvu pro čáru každého obdélníku.
     $shape1->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
     $shape1->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     $shape2->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
@@ -182,7 +184,7 @@ try {
     $shape2->getLineFormat()->setJoinStyle(LineJoinStyle::Bevel);
     $shape3->getLineFormat()->setJoinStyle(LineJoinStyle::Round);
 
-    // Přidejte text ke každému obdélníku.
+    // Přidejte text do každého obdélníku.
     $shape1->getTextFrame()->setText("Miter Join Style");
     $shape2->getTextFrame()->setText("Bevel Join Style");
     $shape3->getTextFrame()->setText("Round Join Style");
@@ -194,20 +196,18 @@ try {
 }
 ```
 
-## **Gradient Fill**
+## **Gradientní výplň**
 
-V PowerPointu je Gradient Fill formátovací možnost, která umožňuje aplikovat plynulé prolínání barev na tvar. Například můžete použít dvě nebo více barev tak, aby jedna postupně přecházela v druhou.
+V PowerPointu je Gradient Fill formátovací volba, která vám umožní aplikovat plynulý přechod barev na tvar. Například můžete použít dvě nebo více barev tak, že se jedna postupně přechází do druhé.
 
-Postup aplikace gradientního výplně na tvar pomocí Aspose.Slides:
+Zde je postup, jak aplikovat gradientní výplň na tvar pomocí Aspose.Slides:
 
-1. Vytvořte instanci třídy [Prezentace](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/).
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/) na snímek.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/).
+1. Získejte referenci na snímek podle jeho indexu.
+1. Přidejte na snímek [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/).
 1. Nastavte [FillType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/filltype/) tvaru na `Gradient`.
-1. Přidejte dvě preferované barvy s definovanými pozicemi pomocí metod `add` kolekce gradientových zastávek, kterou poskytuje třída [GradientFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/gradientformat/).
+1. Přidejte své dvě preferované barvy s definovanými pozicemi pomocí metod `add` ze sbírky gradientových zastávek, kterou poskytuje třída [GradientFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/gradientformat/).
 1. Uložte upravenou prezentaci jako soubor PPTX.
-
-Následující kód PHP ukazuje, jak aplikovat efekt gradientní výplně na elipsu:
 
 ```php
 // Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
@@ -219,7 +219,7 @@ try {
     // Přidejte automatický tvar typu Ellipse.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 50, 50, 150, 75);
 
-    // Aplikujte gradientové formátování na elipsu.
+    // Aplikujte gradientní formátování na elipsu.
     $shape->getFillFormat()->setFillType(FillType::Gradient);
     $shape->getFillFormat()->getGradientFormat()->setGradientShape(GradientShape::Linear);
 
@@ -241,24 +241,22 @@ Výsledek:
 
 ![Elipsa s gradientní výplní](gradient-fill.png)
 
-## **Pattern Fill**
+## **Vzorová výplň**
 
-V PowerPointu je Pattern Fill formátovací možnost, která vám umožní aplikovat dvoubarevný vzor – například tečky, pruhy, křížové šrafování nebo šachovnici – na tvar. Můžete si zvolit vlastní barvy pro popředí a pozadí vzoru.
+V PowerPointu je Pattern Fill formátovací volba, která vám umožní aplikovat dvoubarevný design — například tečky, pruhy, křížové šrafování nebo šachovnici — na tvar. Můžete zvolit vlastní barvy pro popředí a pozadí vzoru.
 
-Aspose.Slides poskytuje více než 45 předdefinovaných stylů vzorů, které můžete aplikovat na tvary a tím zvýšit vizuální atraktivitu prezentací. I po výběru předdefinovaného vzoru můžete nadále určit přesné barvy, které se mají použít.
+Aspose.Slides nabízí více než 45 předdefinovaných vzorových stylů, které můžete aplikovat na tvary a zlepšit tak vizuální atraktivitu prezentací. I po výběru předdefinovaného vzoru můžete stále určit přesné barvy, které má použít.
 
-Postup aplikace vzorové výplně na tvar pomocí Aspose.Slides:
+Zde je postup, jak aplikovat vzorovou výplň na tvar pomocí Aspose.Slides:
 
-1. Vytvořte instanci třídy [Prezentace](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/).
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/) na snímek.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/).
+1. Získejte referenci na snímek podle jeho indexu.
+1. Přidejte na snímek [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/).
 1. Nastavte [FillType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/filltype/) tvaru na `Pattern`.
 1. Vyberte styl vzoru z předdefinovaných možností.
 1. Nastavte [Background Color](https://reference.aspose.com/slides/cs/php-java/aspose.slides/patternformat/#getBackColor) vzoru.
 1. Nastavte [Foreground Color](https://reference.aspose.com/slides/cs/php-java/aspose.slides/patternformat/#getForeColor) vzoru.
 1. Uložte upravenou prezentaci jako soubor PPTX.
-
-Následující kód PHP ukazuje, jak aplikovat vzorovou výplň na obdélník:
 
 ```php
 // Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
@@ -291,26 +289,22 @@ Výsledek:
 
 ![Obdélník s vzorovou výplní](pattern-fill.png)
 
-## **Picture Fill**
+## **Obrázková výplň**
 
-V PowerPointu je Picture Fill formátovací možnost, která umožňuje vložit obrázek do tvaru – prakticky použít obrázek jako pozadí tvaru.
+V PowerPointu je Picture Fill formátovací volba, která vám umožní vložit obrázek do tvaru – účinně použít obrázek jako pozadí tvaru.
 
-Postup použití Aspose.Slides k aplikaci výplně obrázkem na tvar:
+Zde je postup, jak pomocí Aspose.Slides aplikovat obrázkovou výplň na tvar:
 
-1. Vytvořte instanci třídy [Prezentace](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/).
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/) na snímek.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/).
+1. Získejte referenci na snímek podle jeho indexu.
+1. Přidejte na snímek [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/).
 1. Nastavte [FillType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/filltype/) tvaru na `Picture`.
-1. Nastavte režim výplně obrázkem na `Tile` (nebo jiný preferovaný režim).
+1. Nastavte režim obrázkové výplně na `Tile` (nebo jiný preferovaný režim).
 1. Vytvořte objekt [PPImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/ppimage/) z obrázku, který chcete použít.
-1. Předávejte obrázek metodě `SlidesPicture.setImage`.
+1. Předáte obrázek metodě `SlidesPicture.setImage`.
 1. Uložte upravenou prezentaci jako soubor PPTX.
 
-Předpokládejme, že máme soubor "lotus.png" s následujícím obrázkem:
-
 ![Obrázek lotosu](lotus.png)
-
-Následující kód PHP ukazuje, jak vyplnit tvar obrázkem:
 
 ```php
 // Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
@@ -325,7 +319,7 @@ try {
     // Nastavte typ výplně na Picture.
     $shape->getFillFormat()->setFillType(FillType::Picture);
 
-    // Nastavte režim výplně obrázkem.
+    // Nastavte režim obrázkové výplně.
     $shape->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Tile);
 
     // Načtěte obrázek a přidejte jej do zdrojů prezentace.
@@ -345,21 +339,19 @@ try {
 
 Výsledek:
 
-![Tvar s výplní obrázkem](picture-fill.png)
+![Tvar s obrázkovou výplní](picture-fill.png)
 
-### **Tile Picture As Texture**
+### **Dlaždicovat obrázek jako texturu**
 
-Pokud chcete nastavit obrázek jako dlaždicovou texturu a přizpůsobit chování dlaždic, můžete použít následující metody třídy [PictureFillFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picturefillformat/):
-
-- [setPictureFillMode](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picturefillformat/#setPictureFillMode): Nastaví režim výplně obrázkem – buď `Tile`, nebo `Stretch`.
+- [setPictureFillMode](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picturefillformat/#setPictureFillMode): Nastaví režim obrázkové výplně – buď `Tile`, nebo `Stretch`.
 - [setTileAlignment](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picturefillformat/#setTileAlignment): Určuje zarovnání dlaždic uvnitř tvaru.
-- [setTileFlip](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picturefillformat/#setTileFlip): Ovládá, zda je dlaždice převrácena vodorovně, svisle nebo obojí.
-- [setTileOffsetX](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picturefillformat/#setTileOffsetX): Nastaví horizontální posun dlaždice (v bodech) od počátku tvaru.
-- [setTileOffsetY](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picturefillformat/#setTileOffsetY): Nastaví vertikální posun dlaždice (v bodech) od počátku tvaru.
-- [setTileScaleX](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picturefillformat/#setTileScaleX): Definuje horizontální měřítko dlaždice v procentech.
-- [setTileScaleY](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picturefillformat/#setTileScaleY): Definuje vertikální měřítko dlaždice v procentech.
+- [setTileFlip](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picturefillformat/#setTileFlip): Ovládá, zda je dlaždice přetočena vodorovně, svisle nebo obojí.
+- [setTileOffsetX](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picturefillformat/#setTileOffsetX): Nastaví vodorovný posun dlaždice (v bodech) od počátku tvaru.
+- [setTileOffsetY](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picturefillformat/#setTileOffsetY): Nastaví svislý posun dlaždice (v bodech) od počátku tvaru.
+- [setTileScaleX](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picturefillformat/#setTileScaleX): Definuje vodorovné měřítko dlaždice v procentech.
+- [setTileScaleY](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picturefillformat/#setTileScaleY): Definuje svislé měřítko dlaždice v procentech.
 
-Následující ukázkový kód ukazuje, jak přidat obdélníkový tvar s dlaždicovou výplní obrázkem a nakonfigurovat možnosti dlaždic:
+Následující ukázka kódu ukazuje, jak přidat obdélníkový tvar s dlaždicovou obrázkovou výplní a nakonfigurovat možnosti dlaždic:
 
 ```php
 // Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
@@ -383,7 +375,7 @@ try {
     $pictureFillFormat = $shape->getFillFormat()->getPictureFillFormat();
     $pictureFillFormat->getPicture()->setImage($presentationImage);
 
-    // Nastavte režim výplně obrázkem a vlastnosti dlaždicování.
+    // Nakonfigurujte režim obrázkové výplně a vlastnosti dlaždic.
     $pictureFillFormat->setPictureFillMode(PictureFillMode::Tile);
     $pictureFillFormat->setTileOffsetX(-32);
     $pictureFillFormat->setTileOffsetY(-32);
@@ -403,20 +395,18 @@ Výsledek:
 
 ![Možnosti dlaždic](tile-options.png)
 
-## **Solid Color Fill**
+## **Jednobarevná výplň**
 
-V PowerPointu je Solid Color Fill formátovací možnost, která vyplní tvar jednou, jednotnou barvou. Tento jednoduchý podkladový odstín se použije bez gradientů, textur či vzorů.
+V PowerPointu je Solid Color Fill formátovací volba, která vyplní tvar jednou, jednotnou barvou. Tato jednoduchá barva pozadí se použije bez jakýchkoli přechodů, textur či vzorů.
 
-Postup aplikace jednotné barevné výplně na tvar pomocí Aspose.Slides:
+Chcete‑li použít jednobarevnou výplň na tvar pomocí Aspose.Slides, postupujte následovně:
 
-1. Vytvořte instanci třídy [Prezentace](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/).
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/) na snímek.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/).
+1. Získejte referenci na snímek podle jeho indexu.
+1. Přidejte na snímek [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/).
 1. Nastavte [FillType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/filltype/) tvaru na `Solid`.
-1. Přiřaďte požadovanou barvu výplně tvaru.
+1. Přiřaďte tvaru preferovanou barvu výplně.
 1. Uložte upravenou prezentaci jako soubor PPTX.
-
-Následující kód PHP ukazuje, jak aplikovat jednotnou barvu výplně na obdélník v PowerPoint snímku:
 
 ```php
 // Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
@@ -443,22 +433,20 @@ try {
 
 Výsledek:
 
-![Tvar s jednotnou barvou výplně](solid-color-fill.png)
+![Tvar s jednobarevnou výplní](solid-color-fill.png)
 
-## **Set Transparency**
+## **Nastavení průhlednosti**
 
-V PowerPointu můžete při použití jednotné barvy, gradientu, obrázku nebo textury nastavit úroveň průhlednosti, která řídí neprůhlednost výplně. Vyšší hodnota průhlednosti způsobí, že tvar bude více prosvětlený a podklad nebo podložní objekty budou částečně viditelné.
+V PowerPointu, když použijete jednobarevnou, gradientní, obrázkovou nebo texturovou výplň na tvary, můžete také nastavit úroveň průhlednosti, která řídí neprůhlednost výplně. Vyšší hodnota průhlednosti způsobí, že tvar bude více průhledný, což umožní částečně vidět pozadí nebo podkladové objekty.
 
-Aspose.Slides umožňuje nastavit úroveň průhlednosti úpravou alfa komponenty barvy použité pro výplň. Postup:
+Aspose.Slides vám umožňuje nastavit úroveň průhlednosti úpravou alfa‑komponenty barvy použité pro výplň. Zde je postup:
 
-1. Vytvořte instanci třídy [Prezentace](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/).
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/) na snímek.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/).
+1. Získejte referenci na snímek podle jeho indexu.
+1. Přidejte na snímek [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/).
 1. Nastavte [FillType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/filltype/) na `Solid`.
-1. Použijte `Color` k definování barvy s průhledností (komponenta `alpha` řídí průhlednost).
+1. Použijte `Color` k definici barvy s průhledností (komponenta `alpha` řídí průhlednost).
 1. Uložte prezentaci.
-
-Následující kód PHP ukazuje, jak aplikovat průhlednou barvu výplně na obdélník:
 
 ```php
 // Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
@@ -467,10 +455,10 @@ try {
     // Získejte první snímek.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Přidejte plný obdélníkový automatický tvar.
+    // Přidejte automatický tvar typu Rectangle s plnou výplní.
     $solidShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-    // Přidejte průhledný obdélníkový automatický tvar přes plný tvar.
+    // Přidejte transparentní automatický tvar obdélníku nad pevný tvar.
     $transparentShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 80, 80, 150, 75);
     $transparentShape->getFillFormat()->setFillType(FillType::Solid);
     $transparentShape->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", 255, 255, 0, 204));
@@ -486,19 +474,17 @@ Výsledek:
 
 ![Průhledný tvar](shape-transparency.png)
 
-## **Rotate Shapes**
+## **Otáčení tvarů**
 
-Aspose.Slides umožňuje otáčet tvary v PowerPoint prezentacích. To může být užitečné při umisťování vizuálních prvků s konkrétním zarovnáním nebo designovými požadavky.
+Aspose.Slides vám umožňuje otáčet tvary v prezentacích PowerPointu. To může být užitečné při umisťování vizuálních prvků s konkrétními požadavky na zarovnání nebo design.
 
-Postup otáčení tvaru na snímku:
+Chcete‑li otáčet tvar na snímku, postupujte následovně:
 
-1. Vytvořte instanci třídy [Prezentace](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/).
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/) na snímek.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/).
+1. Získejte referenci na snímek podle jeho indexu.
+1. Přidejte na snímek [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/).
 1. Nastavte vlastnost otáčení tvaru na požadovaný úhel.
 1. Uložte prezentaci.
-
-Následující kód PHP ukazuje, jak otočit tvar o 5 stupňů:
 
 ```php
 // Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
@@ -524,19 +510,17 @@ Výsledek:
 
 ![Otáčení tvaru](shape-rotation.png)
 
-## **Add 3D Bevel Effects**
+## **Přidání 3D efektů zkosení**
 
-Aspose.Slides umožňuje aplikovat 3D zkosené efekty na tvary konfigurací jejich vlastností [ThreeDFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/threedformat/).
+Aspose.Slides vám umožňuje aplikovat 3D efekty zkosení na tvary konfigurací jejich vlastností [ThreeDFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/threedformat/).
 
-Postup přidání 3D zkosených efektů na tvar:
+Chcete‑li přidat 3D efekty zkosení na tvar, postupujte následovně:
 
-1. Vytvořte instanci třídy [Prezentace](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/).
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/) na snímek.
-1. Nakonfigurujte [ThreeDFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/threedformat/) tvaru a definujte nastavení zkosení.
+1. Instancujte třídu [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/).
+1. Získejte referenci na snímek podle jeho indexu.
+1. Přidejte na snímek [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/).
+1. Nakonfigurujte [ThreeDFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/threedformat/) tvaru pro definování nastavení zkosení.
 1. Uložte prezentaci.
-
-Následující kód PHP ukazuje, jak aplikovat 3D zkosené efekty na tvar:
 
 ```php
 // Vytvořte instanci třídy Presentation.
@@ -570,24 +554,22 @@ try {
 
 Výsledek:
 
-![3D zkosený efekt](3D-bevel-effect.png)
+![3D efekt zkosení](3D-bevel-effect.png)
 
-## **Add 3D Rotation Effects**
+## **Přidání 3D rotačních efektů**
 
-Aspose.Slides umožňuje aplikovat 3D rotační efekty na tvary konfigurací jejich vlastností [ThreeDFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/threedformat/).
+Aspose.Slides vám umožňuje aplikovat 3D rotační efekty na tvary konfigurací jejich vlastností [ThreeDFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/threedformat/).
 
-Postup aplikace 3D rotace na tvar:
+Chcete‑li aplikovat 3D rotaci na tvar:
 
-1. Vytvořte instanci třídy [Prezentace](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/).
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/) na snímek.
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/).
+1. Získejte referenci na snímek podle jeho indexu.
+1. Přidejte na snímek [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/).
 1. Použijte [setCameraType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/camera/#setCameraType) a [setLightType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/lightrig/#setLightType) k definování 3D rotace.
 1. Uložte prezentaci.
 
-Následující kód PHP ukazuje, jak aplikovat 3D rotační efekty na tvar:
-
 ```php
-// Vytvořte instanci třídy Presentation.
+// Create an instance of the Presentation class.
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
@@ -600,7 +582,7 @@ try {
     $autoShape->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::IsometricLeftUp);
     $autoShape->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::Balanced);
 
-    // Uložte prezentaci jako soubor PPTX.
+    // Save the presentation as a PPTX file.
     $presentation->save("3D_rotation_effect.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -611,9 +593,44 @@ Výsledek:
 
 ![3D rotační efekt](3D-rotation-effect.png)
 
-## **Reset Formatting**
+## **Řízení černobílého vykreslování pro tvary**
 
-Následující kód Java ukazuje, jak resetovat formátování snímku a vrátit pozici, velikost a formátování všech tvarů s placeholdery na [LayoutSlide](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutslide/) do jejich výchozích nastavení:
+Metoda [Shape::setBlackWhiteMode](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shape/#setBlackWhiteMode) určuje, jak je jednotlivý tvar vykreslen, když je prezentace zobrazena nebo zpracována v černobílém režimu. Samotná metoda neaktivuje černobílý režim a nemění výplň, čáru ani jiné formátování tvaru v normálním barevném režimu.
+
+Použijte hodnotu z třídy [BlackWhiteMode](https://reference.aspose.com/slides/cs/php-java/aspose.slides/blackwhitemode/) pro výběr požadovaného chování. Například `Automatic` nechá aplikaci rozhodnout o konverzi, `Gray` a `LightGray` používají šedé zbarvení, `BlackWhite` používá pouze černou a bílou, `Black` a `White` vynutí jednu barvu, `Color` zachová normální zbarvení a `Hidden` vynechá tvar v černobílém režimu. `NotDefined` znamená, že není přiřazen žádný režim na úrovni tvaru.
+
+Následující PHP kód vytvoří barevný tvar a způsobí, že se v černobílém zobrazení zobrazí šedě:
+
+```php
+use aspose\slides\BlackWhiteMode;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 200, 100);
+    $shape->getFillFormat()->setFillType(FillType::Solid);
+    $orange = new Java("java.awt.Color", 255, 165, 0);
+    $shape->getFillFormat()->getSolidFillColor()->setColor($orange);
+
+    // Uchovejte oranžovou výplň v barevném režimu, ale vykreslete tvar se šedým zbarvením v černobílém režimu.
+    $shape->setBlackWhiteMode(BlackWhiteMode::Gray);
+
+    $presentation->save("shape_black_white_mode.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+V normálním barevném režimu si obdélník zachovává oranžovou výplň. V černobílém zobrazení používá šedé zbarvení, protože je nastaven režim na `Gray`. To vám umožní zachovat plnobarevný snímek a zároveň definovat odlišný vzhled pro tisk, náhled či jiné procesy, které respektují nastavení černobílého zobrazení prezentace.
+
+## **Obnovení formátování**
+
+Následující Java kód ukazuje, jak obnovit formátování snímku a vrátit pozici, velikost a formátování všech tvarů s prostorovými značkami na [LayoutSlide](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutslide/) na jejich výchozí nastavení:
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -631,14 +648,14 @@ try {
 
 ## **FAQ**
 
-**Ovlivňuje formátování tvarů konečnou velikost souboru prezentace?**
+**Ovlivňuje formátování tvarů velikost finálního souboru prezentace?**
 
-Pouze minimálně. Vložené obrázky a média zabírají většinu prostoru souboru, zatímco parametry tvarů, jako jsou barvy, efekty a gradienty, jsou uloženy jako metadata a prakticky nepřidávají žádnou další velikost.
+Pouze minimálně. Vložené obrázky a média zabírají většinu prostoru souboru, zatímco parametry tvarů, jako jsou barvy, efekty a přechody, jsou uloženy jako metadata a prakticky nepřidávají žádnou další velikost.
 
 **Jak mohu detekovat tvary na snímku, které mají identické formátování, abych je mohl seskupit?**
 
-Porovnejte klíčové vlastnosti formátování každého tvaru – nastavení výplně, čáry a efektů. Pokud se všechny odpovídající hodnoty shodují, považujte jejich styly za identické a logicky je seskupte, což později usnadní správu stylů.
+Porovnejte klíčové vlastnosti formátování každého tvaru – nastavení výplně, čáry a efektů. Pokud se všechny odpovídající hodnoty shodují, považujte jejich styly za identické a logicky seskupte tyto tvary, což usnadní pozdější správu stylů.
 
 **Mohu uložit sadu vlastních stylů tvarů do samostatného souboru pro opětovné použití v jiných prezentacích?**
 
-Ano. Uložte ukázkové tvary s požadovanými styly do šablony snímků nebo souboru .POTX. Při vytváření nové prezentace otevřete šablonu, zkopírujte potřebné stylované tvary a aplikujte jejich formátování tam, kde je potřeba.
+Ano. Uložte vzorové tvary s požadovanými styly do šablonového balíku snímků nebo souboru .POTX. Při tvorbě nové prezentace otevřete šablonu, klonujte potřebné stylované tvary a znovu aplikujte jejich formátování tam, kde je to vyžadováno.

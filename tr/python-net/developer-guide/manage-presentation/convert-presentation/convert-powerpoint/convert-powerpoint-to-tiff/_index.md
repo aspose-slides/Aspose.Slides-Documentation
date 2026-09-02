@@ -1,5 +1,5 @@
 ---
-title: PowerPoint Sunumlarını Python'da TIFF'e Dönüştürme
+title: Python'da PowerPoint Sunumlarını TIFF'e Dönüştür
 titlelink: PowerPoint'ten TIFF'e
 type: docs
 weight: 90
@@ -11,41 +11,47 @@ keywords:
 - slaytı dönüştür
 - PowerPoint'ten TIFF'e
 - OpenDocument'ten TIFF'e
-- sunumu TIFF'e
-- slaytı TIFF'e
+- sunumdan TIFF'e
+- slayttan TIFF'e
 - PPT'den TIFF'e
-- PPTX'ten TIFF'e
+- PPTX'den TIFF'e
 - ODP'den TIFF'e
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET kullanarak PowerPoint (PPT, PPTX) ve OpenDocument (ODP) sunumlarını yüksek kaliteli TIFF görüntülerine kolayca nasıl dönüştüreceğinizi öğrenin. Adım adım rehber ve kod örnekleriyle."
+description: "Aspose.Slides for Python via .NET kullanarak PowerPoint (PPT, PPTX) ve OpenDocument (ODP) sunumlarını yüksek kaliteli TIFF görüntülerine kolayca nasıl dönüştüreceğinizi öğrenin. Kod örnekleri dahil adım adım rehber."
 ---
 ## **Giriş**
 
-TIFF (**Tagged Image File Format**) yaygın olarak kullanılan, kayıpsız raster görüntü formatıdır ve olağanüstü kalitesi ve grafiklerin ayrıntılı korunmasıyla bilinir. Tasarımcılar, fotoğrafçılar ve masaüstü yayıncıları genellikle TIFF'i katmanları, renk doğruluğunu ve görüntülerindeki orijinal ayarları korumak için tercih eder.
+TIFF (**Tagged Image File Format**) yaygın olarak kullanılan, kayıpsız bir raster görüntü formatıdır ve olağanüstü kalitesi ve grafiklerin ayrıntılı korunmasıyla bilinir. Tasarımcılar, fotoğrafçılar ve masaüstü yayıncıları genellikle görüntülerinde katmanları, renk doğruluğunu ve orijinal ayarları korumak için TIFF'i seçer.
 
-Aspose.Slides kullanarak, PowerPoint slaytlarınızı (PPT, PPTX) ve OpenDocument slaytlarınızı (ODP) doğrudan yüksek kaliteli TIFF görüntülerine zahmetsizce dönüştürebilir, sunumlarınızın en yüksek görsel sadakati korumasını sağlayabilirsiniz.
+Aspose.Slides kullanarak, PowerPoint slaytlarınızı (PPT, PPTX) ve OpenDocument slaytlarını (ODP) doğrudan yüksek kaliteli TIFF görüntülerine zahmetsizce dönüştürebilir, sunumlarınızın maksimum görsel doğruluğunu korumasını sağlayabilirsiniz.
 
-## **Sunumu TIFF'e Dönüştürme**
+## **Bir Sunumu TIFF'e Dönüştür**
 
-[save](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/#methods) yöntemini kullanan [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfı aracılığıyla, bir PowerPoint sunumunu tamamen hızlı bir şekilde TIFF'e dönüştürebilirsiniz. Ortaya çıkan TIFF görüntüleri varsayılan slayt boyutuna karşılık gelir.
+Sunum sınıfı tarafından sağlanan [save](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/#methods) yöntemini kullanarak, tüm bir PowerPoint sunumunu hızlıca TIFF'e dönüştürebilirsiniz. Oluşan TIFF görüntüleri varsayılan slayt boyutuna karşılık gelir.
 
 Bu Python kodu, bir PowerPoint sunumunu TIFF'e nasıl dönüştüreceğinizi gösterir:
 
 ```py
 import aspose.slides as slides
 
-# Presentation sınıfını örnekleyin; bu sınıf bir sunum dosyasını (PPT, PPTX, ODP, vb.) temsil eder.
+# Sunum dosyasını (PPT, PPTX, ODP vb.) temsil eden Presentation sınıfının bir örneğini oluşturur.
 with slides.Presentation("presentation.pptx") as presentation:
-    # Sunumu TIFF olarak kaydedin.
+    # Sunumu TIFF olarak kaydeder.
     presentation.save("output.tiff", slides.export.SaveFormat.TIFF)
 ```
 
-## **Sunumu Siyah-Beyaz TIFF'e Dönüştürme**
+## **Bir Sunumu Siyah-Beyaz TIFF'e Dönüştür**
 
-[TiffOptions] sınıfındaki [bw_conversion_mode] özelliği, renkli bir slaytı veya görüntüyü siyah-beyaz TIFF'e dönüştürürken kullanılan algoritmayı belirlemenizi sağlar. Bu ayarın yalnızca [compression_type] özelliği `CCITT4` veya `CCITT3` olarak ayarlandığında geçerli olduğunu unutmayın.
+[TiffOptions] sınıfındaki [bw_conversion_mode](https://reference.aspose.com/slides/tr/python-net/aspose.slides.export/tiffoptions/bw_conversion_mode/) özelliği, renkli bir slaytı veya görüntüyü siyah-beyaz TIFF'e dönüştürürken kullanılacak algoritmayı belirtmenizi sağlar. Bu ayarın yalnızca [compression_type](https://reference.aspose.com/slides/tr/python-net/aspose.slides.export/tiffoptions/compression_type/) özelliği `CCITT4` veya `CCITT3` olarak ayarlandığında geçerli olduğunu unutmayın.
 
-Örneğin aşağıdaki slaytı içeren bir "sample.pptx" dosyamız olduğunu varsayalım:
+{{% alert color="info" title="Not" %}}
+
+[TiffOptions.bw_conversion_mode](https://reference.aspose.com/slides/tr/python-net/aspose.slides.export/tiffoptions/bw_conversion_mode/) bir dışa aktarma düzeyi ayarıdır ve tam TIFF görüntüsü için bir piksel dönüşüm algoritması seçer. Bireysel bir şeklin siyah-beyaz görüntüleme modunda nasıl görünmesi gerektiğini belirlemek için [Shape.black_white_mode](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shape/black_white_mode/) özelliğini kullanın. Örnekler için [Control Black-and-White Rendering for Shapes](/python-net/shape-formatting/#control-black-and-white-rendering-for-shapes) bölümüne bakın.
+
+{{% /alert %}}
+
+Diyelim ki aşağıdaki slaytı içeren bir "sample.pptx" dosyamız var:
 
 ![Bir sunum slaytı](slide_black_and_white.png)
 
@@ -66,9 +72,9 @@ Sonuç:
 
 ![Siyah-Beyaz TIFF](TIFF_black_and_white.png)
 
-## **Özel Boyutlu TIFF'e Sunumu Dönüştürme**
+## **Bir Sunumu Özel Boyutlu TIFF'e Dönüştür**
 
-Belirli boyutlarda bir TIFF görüntüsü gerekiyorsa, [TiffOptions] sınıfında bulunan özellikleri kullanarak istediğiniz değerleri ayarlayabilirsiniz. Örneğin, [image_size] özelliği ortaya çıkan görüntünün boyutunu tanımlamanıza olanak verir.
+Eğer belirli boyutlarda bir TIFF görüntüsü gerekiyorsa, [TiffOptions] sınıfında bulunan özellikleri kullanarak istediğiniz değerleri ayarlayabilirsiniz. Örneğin, [image_size](https://reference.aspose.com/slides/tr/python-net/aspose.slides.export/tiffoptions/image_size/) özelliği oluşturulan görüntünün boyutunu tanımlamanıza olanak verir.
 
 Bu Python kodu, bir PowerPoint sunumunu özel boyutlu TIFF görüntülerine nasıl dönüştüreceğinizi gösterir:
 
@@ -76,78 +82,80 @@ Bu Python kodu, bir PowerPoint sunumunu özel boyutlu TIFF görüntülerine nas�
 import aspose.slides as slides
 import aspose.pydrawing as drawing
 
-# Sunum dosyasını (PPT, PPTX, ODP, vb.) temsil eden Presentation sınıfını örnekleyin.
+# Sunum dosyasını (PPT, PPTX, ODP vb.) temsil eden Presentation sınıfının bir örneğini oluşturur.
 with slides.Presentation("sample.pptx") as presentation:
     tiff_options = slides.export.TiffOptions()
 
-    # Sıkıştırma türünü ayarlayın.
+    # Sıkıştırma tipini ayarlar.
     tiff_options.compression_type = slides.export.TiffCompressionTypes.DEFAULT
     """
-    Sıkıştırma türleri:
-        Default - Varsayılan sıkıştırma şemasını (LZW) belirtir.
-        None - Sıkıştırma yapılmadığını belirtir.
+    Compression types:
+        Default - Specifies the default compression scheme (LZW).
+        None - Specifies no compression.
         CCITT3
         CCITT4
         LZW
         RLE
     """
 
-    # Görüntü DPI'sını ayarlayın.
+    # Görüntü DPI'sını ayarlar.
     tiff_options.dpi_x = 200
     tiff_options.dpi_y = 200
 
-    # Görüntü boyutunu ayarlayın.
+    # Görüntü boyutunu ayarlar.
     tiff_options.image_size = drawing.Size(1728, 1078)
 
     notes_options = slides.export.NotesCommentsLayoutingOptions()
     notes_options.notes_position = slides.export.NotesPositions.BOTTOM_FULL
     tiff_options.slides_layout_options = notes_options
 
-    # Sunumu belirtilen boyutta TIFF olarak kaydedin.
+    # Sunumu belirtilen boyutta TIFF olarak kaydeder.
     presentation.save("custom_size.tiff", slides.export.SaveFormat.TIFF, tiff_options)
 ```
 
-## **Özel Görüntü Piksel Biçimiyle TIFF'e Sunumu Dönüştürme**
+## **Bir Sunumu Özel Görüntü Piksel Formatı ile TIFF'e Dönüştür**
 
-[TiffOptions] sınıfındaki [pixel_format] özelliğini kullanarak, ortaya çıkan TIFF görüntüsü için tercih ettiğiniz piksel biçimini belirtebilirsiniz.
+[TiffOptions] sınıfındaki [pixel_format](https://reference.aspose.com/slides/tr/python-net/aspose.slides.export/tiffoptions/pixel_format/) özelliğini kullanarak, elde edilen TIFF görüntüsü için tercih ettiğiniz piksel formatını belirtebilirsiniz.
 
-Bu Python kodu, bir PowerPoint sunumunu özel piksel biçimiyle bir TIFF görüntüsüne nasıl dönüştüreceğinizi gösterir:
+Bu Python kodu, bir PowerPoint sunumunu özel piksel formatlı bir TIFF görüntüsüne nasıl dönüştüreceğinizi gösterir:
 
 ```py
 import aspose.slides as slides
 
-# Sunum dosyasını (PPT, PPTX, ODP, vb.) temsil eden Presentation sınıfını örnekleyin.
+# Sunum dosyasını (PPT, PPTX, ODP, vb.) temsil eden Presentation sınıfının bir örneğini oluşturur.
 with slides.Presentation("Presentation.pptx") as presentation:
     tiff_options = slides.export.TiffOptions()
 
     tiff_options.pixel_format = slides.export.ImagePixelFormat.FORMAT_8BPP_INDEXED
     """
-    ImagePixelFormat aşağıdaki değerleri içerir (belgelere göre):
-        FORMAT_1BPP_INDEXED - Piksel başına 1 bit, indeksli.
-        FORMAT_4BPP_INDEXED - Piksel başına 4 bit, indeksli.
-        FORMAT_8BPP_INDEXED - Piksel başına 8 bit, indeksli.
-        FORMAT_24BPP_RGB    - Piksel başına 24 bit, RGB.
-        FORMAT_32BPP_ARGB   - Piksel başına 32 bit, ARGB.
+    ImagePixelFormat aşağıdaki değerleri içerir (belgelendirmede belirtildiği gibi):
+        FORMAT_1BPP_INDEXED - piksel başına 1 bit, indeksli.
+        FORMAT_4BPP_INDEXED - piksel başına 4 bit, indeksli.
+        FORMAT_8BPP_INDEXED - piksel başına 8 bit, indeksli.
+        FORMAT_24BPP_RGB    - piksel başına 24 bit, RGB.
+        FORMAT_32BPP_ARGB   - piksel başına 32 bit, ARGB.
     """
 
-    # Sunumu belirtilen görüntü boyutu ile TIFF olarak kaydedin.
+    # Sunumu belirtilen piksel formatı ile TIFF olarak kaydeder.
     presentation.save("Custom_Image_Pixel_Format.tiff", slides.export.SaveFormat.TIFF, tiff_options)
 ```
 
-{{% alert title="İpucu" color="primary" %}}
-Aspose'un [ÜCRETSİZ PowerPoint'ten Poster dönüştürücüsü](https://products.aspose.app/slides/tr/conversion/convert-ppt-to-poster-online)’na göz atın.
+{{% alert title="İpucu" color="info" %}}
+
+Aspose'un [ÜCRETSİZ PowerPoint'ten Poster dönüştürücüsü](https://products.aspose.app/slides/tr/conversion/convert-ppt-to-poster-online) ürününe bir göz atın.
+
 {{% /alert %}}
 
 ## **SSS**
 
-**Bir PowerPoint sunumunun tümü yerine tek bir slaytı TIFF'e dönüştürebilir miyim?**
+**Bir PowerPoint sunumunun tamamı yerine tek bir slaytı TIFF'e dönüştürebilir miyim?**
 
-Evet. Aspose.Slides, PowerPoint ve OpenDocument sunumlarından tek tek slaytları ayrı ayrı TIFF görüntülerine dönüştürmenizi sağlar.
+Evet. Aspose.Slides, PowerPoint ve OpenDocument sunumlardan tek tek slaytları ayrı ayrı TIFF görüntülerine dönüştürmenize olanak tanır.
 
-**Bir sunumu TIFF'e dönüştürürken slayt sayısında bir limit var mı?**
+**Sunumu TIFF'e dönüştürürken slayt sayısı için bir limit var mı?**
 
 Hayır, Aspose.Slides slayt sayısı üzerinde herhangi bir kısıtlama getirmez. Herhangi bir boyuttaki sunumları TIFF formatına dönüştürebilirsiniz.
 
-**Slaytları TIFF'e dönüştürürken PowerPoint animasyonları ve geçiş efektleri korunur mu?**
+**PowerPoint animasyonları ve geçiş efektleri slaytları TIFF'e dönüştürürken korunur mu?**
 
-Hayır, TIFF statik bir görüntü formatıdır. Bu nedenle animasyonlar ve geçiş efektleri korunmaz; sadece slaytların statik anlık görüntüleri dışa aktarılır.
+Hayır, TIFF statik bir görüntü formatıdır. Bu nedenle animasyonlar ve geçiş efektleri korunmaz; yalnızca slaytların statik anlık görüntüleri dışa aktarılır.

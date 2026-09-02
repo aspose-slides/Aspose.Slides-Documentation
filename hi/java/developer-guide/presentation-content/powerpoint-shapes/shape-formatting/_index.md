@@ -1,90 +1,97 @@
 ---
-title: Java में PowerPoint आकार फॉर्मेट करें
-linktitle: आकार फॉर्मेटिंग
+title: Java में PowerPoint आकार स्वरूपित करें
+linktitle: आकार स्वरूपण
 type: docs
 weight: 20
 url: /hi/java/shape-formatting/
 keywords:
-  - आकार फॉर्मेट
-  - रेखा फॉर्मेट
-  - स्केच प्रभाव
-  - स्केच आकार रेखा
-  - जॉइन स्टाइल फॉर्मेट
-  - ग्रेडिएंट फ़िल
-  - पैटर्न फ़िल
-  - पिक्चर फ़िल
-  - टेक्सचर फ़िल
-  - सॉलिड कलर फ़िल
-  - आकार पारदर्शिता
-  - आकार घुमाएँ
-  - 3d बीवेल प्रभाव
-  - 3d घुमाव प्रभाव
-  - फ़ॉर्मेटिंग रीसेट
-  - PowerPoint
-  - प्रस्तुति
-  - Java
-  - Aspose.Slides
-description: "Aspose.Slides का उपयोग करके Java में PowerPoint आकार को कैसे फॉर्मेट करें सीखें—PPT, PPTX और ODP फ़ाइलों के लिए भराव, रेखा और प्रभाव शैलियों को सटीकता और पूर्ण नियंत्रण के साथ सेट करें।"
+- आकार स्वरूपित करें
+- रेखा स्वरूपित करें
+- स्केच प्रभाव
+- स्केच आकार रेखा
+- जॉइन स्टाइल स्वरूपित करें
+- ग्रेडिएंट फ़िल
+- पैटर्न फ़िल
+- पिक्चर फ़िल
+- टेक्सचर फ़िल
+- सॉलिड रंग फ़िल
+- आकार पारदर्शिता
+- काले-और-सफेद आकार रेंडरिंग
+- ग्रेस्केल आकार रेंडरिंग
+- आकार घुमाएँ
+- 3डी बिवेल प्रभाव
+- 3डी घुमाव प्रभाव
+- फ़ॉर्मेट रीसेट करें
+- PowerPoint
+- प्रस्तुति
+- Java
+- Aspose.Slides
+description: "Aspose.Slides का उपयोग करके Java में PowerPoint आकारों को स्वरूपित करना सीखें— PPT, PPTX और ODP फ़ाइलों के लिए भराव, रेखा और प्रभाव शैलियों को सटीकता और पूर्ण नियंत्रण के साथ सेट करें।"
 ---
 ## **परिचय**
 
-PowerPoint में, आप स्लाइड्स में आकार जोड़ सकते हैं। चूँकि आकार रेखाओं से बने होते हैं, आप उनके आउटलाइन को संशोधित करके या प्रभाव लागू करके उन्हें फ़ॉर्मेट कर सकते हैं। इसके अतिरिक्त, आप आकारों को इस प्रकार फ़ॉर्मेट कर सकते हैं कि उनके आंतरिक भाग को भरने के सेटिंग्स को निर्दिष्ट किया जाए।
+PowerPoint में आप स्लाइड्स में आकार (शेप) जोड़ सकते हैं। चूँकि आकार रेखाओं से बने होते हैं, आप उनके आउटलाइन पर प्रभाव लागू करके या संशोधित करके उन्हें स्वरूपित कर सकते हैं। अतिरिक्त रूप से, आप आकार के भीतर के भाग को कैसे भरा जाए, यह नियंत्रित करने वाली सेटिंग्स निर्धारित करके आकार को स्वरूपित कर सकते हैं।
 
-![format-shape-powerpoint](format-shape-powerpoint.png)
+![आकार स्वरूपण पॉवरपॉइंट](format-shape-powerpoint.png)
 
-Aspose.Slides for Java इंटरफ़ेस और मेथड्स प्रदान करता है जो आपको PowerPoint में उपलब्ध वही विकल्पों का उपयोग करके आकारों को फ़ॉर्मेट करने की अनुमति देते हैं।
+Aspose.Slides for Java इंटरफ़ेस और मेथड प्रदान करता है जो आपको PowerPoint में उपलब्ध वही विकल्पों का उपयोग करके आकारों को स्वरूपित करने की अनुमति देता है।
 
-## **रेखाओं को फ़ॉर्मेट करें**
+## **रेखा स्वरूपित करें**
 
-Aspose.Slides का उपयोग करके, आप किसी आकार के लिए कस्टम लाइन शैली निर्दिष्ट कर सकते हैं। नीचे दिए गए चरण इस प्रक्रिया को दर्शाते हैं:
+Aspose.Slides का उपयोग करके आप किसी आकार के लिए एक कस्टम लाइन स्टाइल निर्दिष्ट कर सकते हैं। निम्नलिखित चरण प्रक्रिया को स्पष्ट करते हैं:
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/) क्लास का इंस्टेंस बनाएँ।
-1. इंडेक्स के आधार पर एक स्लाइड का रेफ़रेंस प्राप्त करें।
-1. स्लाइड में एक [IAutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iautoshape/) जोड़ें।
-1. आकार की [line style](https://reference.aspose.com/slides/hi/java/com.aspose.slides/linestyle/) सेट करें।
-1. लाइन की चौड़ाई सेट करें।
-1. लाइन का [dash style](https://reference.aspose.com/slides/hi/java/com.aspose.slides/linedashstyle/) सेट करें।
-1. आकार के लिए लाइन का रंग सेट करें।
-1. परिवर्तित प्रेज़ेंटेशन को PPTX फ़ाइल के रूप में सहेजें।
+1. Create an instance of the [प्रस्तुति](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index.
+1. Add an [IAutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iautoshape/) to the slide.
+1. Set the [लाइन स्टाइल](https://reference.aspose.com/slides/hi/java/com.aspose.slides/linestyle/) of the shape.
+1. Set the line width.
+1. Set the [डैश स्टाइल](https://reference.aspose.com/slides/hi/java/com.aspose.slides/linedashstyle/) of the line.
+1. Set the line color for the shape.
+1. Save the modified presentation as a PPTX file.
+
+The following code demonstrates how to format a rectangle `AutoShape`:
 
 ```java
-    // प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टेंस बनाएं।
-    Presentation presentation = new Presentation();
-    try {
-        // पहले स्लाइड प्राप्त करें।
-        ISlide slide = presentation.getSlides().get_Item(0);
+import com.aspose.slides.*;
+import java.awt.Color;
 
-        // Rectangle प्रकार का एक ऑटो शेप जोड़ें।
-        IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 150, 75);
+// प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाले Presentation वर्ग को इंस्टैंसिएट करें।
+Presentation presentation = new Presentation();
+try {
+    // पहली स्लाइड प्राप्त करें।
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-        // Rectangle आकार के लिए फिल रंग सेट करें।
-        shape.getFillFormat().setFillType(FillType.NoFill);
+    // Rectangle प्रकार का ऑटो शेप जोड़ें।
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 150, 75);
 
-        // Rectangle की रेखाओं पर फ़ॉर्मेटिंग लागू करें।
-        shape.getLineFormat().setStyle(LineStyle.ThickThin);
-        shape.getLineFormat().setWidth(7);
-        shape.getLineFormat().setDashStyle(LineDashStyle.Dash);
+    // आयत आकार के लिए फ़िल रंग सेट करें।
+    shape.getFillFormat().setFillType(FillType.NoFill);
 
-        // Rectangle की रेखा का रंग सेट करें।
-        shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-        shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+    // आयत की रेखाओं पर फ़ॉर्मेटिंग लागू करें।
+    shape.getLineFormat().setStyle(LineStyle.ThickThin);
+    shape.getLineFormat().setWidth(7);
+    shape.getLineFormat().setDashStyle(LineDashStyle.Dash);
 
-        // PPTX फ़ाइल को डिस्क पर सेव करें।
-        presentation.save("formatted_lines.pptx", SaveFormat.Pptx);
-    } finally {
-        presentation.dispose();
-    }
+    // आयत की रेखा के लिए रंग सेट करें।
+    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+
+    // PPTX फ़ाइल को डिस्क पर सहेजें।
+    presentation.save("formatted_lines.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
-परिणाम:
+The result:
 
-![The formatted lines in the presentation](formatted-lines.png)
+![प्रस्तुति में स्वरूपित रेखाएँ](formatted-lines.png)
 
 ## **आकार रेखाओं पर स्केच प्रभाव लागू करें**
 
-स्केच प्रभाव एक आकार की रेखा को हाथ से बना हुआ दिखाता है। लाइन सेटिंग्स तक पहुँचने के लिए [IShape.getLineFormat](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ishape/) का उपयोग करें, स्केच सेटिंग्स तक पहुँचने के लिए [ILineFormat.getSketchFormat](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ilineformat/) का उपयोग करें, और [LineSketchType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/linesketchtype/) एन्उमरेशन से मान चुनने के लिए [ISketchFormat.setSketchType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/isketchformat/) का उपयोग करें।
+एक स्केच प्रभाव आकार की रेखा को हाथ से खींची हुई जैसा बनाता है। `IShape.getLineFormat` का उपयोग करके लाइन सेटिंग्स तक पहुँचें, `ILineFormat.getSketchFormat` का उपयोग करके स्केच सेटिंग्स तक पहुँचें, और `ISketchFormat.setSketchType` का उपयोग करके `LineSketchType` enumeration से कोई मान चुनें।
 
-निम्नलिखित जावा कोड दर्शाता है कि कैसे [LineSketchType.Curved](https://reference.aspose.com/slides/hi/java/com.aspose.slides/linesketchtype/) प्रभाव लागू किया जाए, स्पष्ट रूप से निर्धारित मान पढ़ा जाए, और प्रभाव को [LineSketchType.None](https://reference.aspose.com/slides/hi/java/com.aspose.slides/linesketchtype/) से हटाया जाए:
+The following Java code shows how to apply a [LineSketchType.Curved](https://reference.aspose.com/slides/hi/java/com.aspose.slides/linesketchtype/) effect, read the explicitly assigned value, and remove the effect with [LineSketchType.None](https://reference.aspose.com/slides/hi/java/com.aspose.slides/linesketchtype/):
 
 ```java
 Presentation presentation = new Presentation();
@@ -92,13 +99,13 @@ try {
     ISlide slide = presentation.getSlides().get_Item(0);
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
 
-    // आकार के लाइन फ़ॉर्मेट और उसके स्केच फ़ॉर्मेट तक पहुँचें।
+    // आकार के लाइन फ़ॉर्मेट और उसके स्केच फ़ॉर्मेट तक पहुंचें।
     ISketchFormat sketchFormat = shape.getLineFormat().getSketchFormat();
 
     // एक स्केच प्रभाव लागू करें।
     sketchFormat.setSketchType(LineSketchType.Curved);
 
-    // आकार को सीधे सौंपा गया स्केच प्रभाव पढ़ें।
+    // आकार को सीधे असाइन किए गए स्केच प्रभाव को पढ़ें।
     int explicitSketchType = sketchFormat.getSketchType();
     System.out.println("Explicit sketch type: " + explicitSketchType);
 
@@ -109,7 +116,7 @@ try {
 }
 ```
 
-[ISketchFormat.getSketchType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/isketchformat/) द्वारा लौटाया गया मान सीधे आकार को सौंपे गए सेटिंग को दर्शाता है। यदि लाइन फ़ॉर्मेटिंग थीम, मास्टर स्लाइड या लेआउट स्लाइड से विरासत में मिल सकती है, तो [ILineFormat.getEffective](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ilineformat/), [ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ilineformateffectivedata/), और [ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/isketchformateffectivedata/) का उपयोग करें। प्रभावी मान वह फ़ॉर्मेटिंग दिखाता है जो विरासत समाधान के बाद वास्तविक रूप से लागू होती है:
+`ISketchFormat.getSketchType` द्वारा लौटाया गया मान उस सेटिंग को दर्शाता है जो सीधे आकार पर असाइन की गई है। यदि लाइन फ़ॉर्मेटिंग थीम, मास्टर स्लाइड या लेआउट स्लाइड से विरासत में प्राप्त की जा सकती है, तो `ILineFormat.getEffective` का उपयोग करके, `ILineFormatEffectiveData.getSketchFormat` तक पहुँचें, और `ISketchFormatEffectiveData.getSketchType` पढ़ें। प्रभावी मान वह फ़ॉर्मेटिंग दर्शाता है जो विरासत के समाधान के बाद वास्तविक रूप से लागू होती है:
 
 ```java
 Presentation presentation = new Presentation("presentation.pptx");
@@ -128,25 +135,28 @@ try {
 }
 ```
 
-## **जॉइन स्टाइल फ़ॉर्मेट करें**
+## **जॉइन स्टाइल स्वरूपित करें**
 
-यहाँ तीन जॉइन प्रकार विकल्प हैं:
+यहाँ तीन जॉइन टाइप विकल्प हैं:
 
-* Round
-* Miter
-* Bevel
+* गोल
+* मिटर
+* बिवेल
 
-डिफ़ॉल्ट रूप से, जब PowerPoint दो रेखाओं को कोण पर जोड़ता है (जैसे आकार के कोने पर), यह **Round** सेटिंग का उपयोग करता है। हालांकि, यदि आप तीखे कोण वाले आकार बनाते हैं, तो आप **Miter** विकल्प को पसंद कर सकते हैं।
+डिफ़ॉल्ट रूप से, जब PowerPoint दो रेखाओं को कोण पर जोड़ता है (जैसे आकार के कोने पर), तो वह **गोल** सेटिंग का उपयोग करता है। हालांकि, यदि आप तीखे कोण वाले आकार बना रहे हैं, तो आप **मिटर** विकल्प को पसंद कर सकते हैं।
 
-![The join style in the presentation](join-style-powerpoint.png)
+![जॉइन स्टाइल प्रस्तुति में](join-style-powerpoint.png)
 
-निम्नलिखित जावा कोड दर्शाता है कि ऊपर की छवि में दिखाए गए तीन आयतों को Meter, Bevel, और Round जॉइन प्रकार सेटिंग्स का उपयोग करके कैसे बनाया गया था:
+The following Java code demonstrates how three rectangles (as shown in the image above) were created using the Miter, Bevel, and Round join type settings:
 
 ```java
-// प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टेंस बनाएं।
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाले Presentation क्लास को इंस्टैंसिएट करें।
 Presentation presentation = new Presentation();
 try {
-    // पहले स्लाइड प्राप्त करें।
+    // पहली स्लाइड प्राप्त करें।
     ISlide slide = presentation.getSlides().get_Item(0);
 
     // Rectangle प्रकार के तीन ऑटो शैप जोड़ें।
@@ -154,7 +164,7 @@ try {
     IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 210, 20, 150, 75);
     IAutoShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 135, 150, 75);
 
-    // प्रत्येक Rectangle आकार के लिए फ़िल रंग सेट करें।
+    // प्रत्येक आयताकार शैप के लिए फ़िल रंग सेट करें।
     shape1.getFillFormat().setFillType(FillType.Solid);
     shape1.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
     shape2.getFillFormat().setFillType(FillType.Solid);
@@ -167,7 +177,7 @@ try {
     shape2.getLineFormat().setWidth(15);
     shape3.getLineFormat().setWidth(15);
 
-    // प्रत्येक Rectangle की रेखा का रंग सेट करें।
+    // प्रत्येक आयत की रेखा के लिए रंग सेट करें।
     shape1.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     shape1.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     shape2.getLineFormat().getFillFormat().setFillType(FillType.Solid);
@@ -175,12 +185,12 @@ try {
     shape3.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     shape3.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
 
-    // जॉइन स्टाइल सेट करें।
+    // जॉइन शैली सेट करें।
     shape1.getLineFormat().setJoinStyle(LineJoinStyle.Miter);
     shape2.getLineFormat().setJoinStyle(LineJoinStyle.Bevel);
     shape3.getLineFormat().setJoinStyle(LineJoinStyle.Round);
 
-    // प्रत्येक Rectangle में टेक्स्ट जोड़ें।
+    // प्रत्येक आयत में टेक्स्ट जोड़ें।
     shape1.getTextFrame().setText("Miter Join Style");
     shape2.getTextFrame().setText("Bevel Join Style");
     shape3.getTextFrame().setText("Round Join Style");
@@ -194,28 +204,32 @@ try {
 
 ## **ग्रेडिएंट फ़िल**
 
-PowerPoint में, Gradient Fill एक फ़ॉर्मेटिंग विकल्प है जो आपको आकार पर लगातार रंगों का मिश्रण लागू करने देता है। उदाहरण के लिए, आप दो या अधिक रंग इस तरह लागू कर सकते हैं कि एक धीरे-धीरे दूसरे में मिल जाए।
+PowerPoint में, ग्रेडिएंट फ़िल एक फ़ॉर्मेटिंग विकल्प है जो आपको आकार में निरंतर रंग मिश्रण लागू करने की अनुमति देता है। उदाहरण के लिए, आप दो या अधिक रंग इस प्रकार लागू कर सकते हैं कि एक धीरे‑धीरे दूसरे में मिल जाता है।
 
-Aspose.Slides का उपयोग करके आकार पर ग्रेडिएंट फ़िल कैसे लागू करें:
+Aspose.Slides का उपयोग करके आकार पर ग्रेडिएंट फ़िल लागू करने के चरण इस प्रकार हैं:
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/) क्लास का इंस्टेंस बनाएँ।
-1. इंडेक्स के आधार पर एक स्लाइड का रेफ़रेंस प्राप्त करें।
-1. स्लाइड में एक [IAutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iautoshape/) जोड़ें।
-1. आकार की [FillType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/filltype/) को `Gradient` सेट करें।
-1. ग्रेडिएंट स्टॉप कलेक्शन की `add` मेथड्स का उपयोग करके, आप दो पसंदीदा रंगों को परिभाषित स्थितियों के साथ जोड़ सकते हैं, जो कि [IGradientFormat](https://reference.aspose.com/slides/hi/java/com.aspose.slides/igradientformat/) इंटरफ़ेस द्वारा उजागर किए गए हैं।
-1. परिवर्तित प्रेज़ेंटेशन को PPTX फ़ाइल के रूप में सहेजें।
+1. Create an instance of the [प्रस्तुति](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index.
+1. Add an [IAutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iautoshape/) to the slide.
+1. Set the shape's [FillType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/filltype/) to `Gradient`.
+1. Add your two preferred colors with defined positions using the `add` methods of the gradient stop collection exposed by the [IGradientFormat](https://reference.aspose.com/slides/hi/java/com.aspose.slides/igradientformat/) interface.
+1. Save the modified presentation as a PPTX file.
+
+The following Java code demonstrates how to apply a gradient fill effect to an ellipse:
 
 ```java
-// प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टेंस बनाएं।
+import com.aspose.slides.*;
+
+// प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाले Presentation क्लास को इंस्टैंसिएट करें।
 Presentation presentation = new Presentation();
 try {
     // पहली स्लाइड प्राप्त करें।
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Ellipse प्रकार का एक ऑटो शेप जोड़ें।
+    // Ellipse प्रकार का ऑटो शैप जोड़ें।
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 50, 50, 150, 75);
 
-    // एलिप्स पर ग्रेडिएंट फ़ॉर्मेटिंग लागू करें।
+    // एलीप्स पर ग्रेडिएंट फ़ॉर्मेटिंग लागू करें।
     shape.getFillFormat().setFillType(FillType.Gradient);
     shape.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
 
@@ -233,41 +247,46 @@ try {
 }
 ```
 
-परिणाम:
+The result:
 
-![The ellipse with gradient fill](gradient-fill.png)
+![ग्रेडिएंट फ़िल वाला बिंदु](gradient-fill.png)
 
 ## **पैटर्न फ़िल**
 
-PowerPoint में, Pattern Fill एक फ़ॉर्मेटिंग विकल्प है जो आपको आकार पर दो-रंगीय डिज़ाइन—जैसे बिंदु, धारी, क्रॉसहैच, या चेक—लगाने देता है। आप पैटर्न की अग्रभूमि और पृष्ठभूमि के लिए कस्टम रंग चुन सकते हैं।
+PowerPoint में, पैटर्न फ़िल एक फ़ॉर्मेटिंग विकल्प है जो आपको दो‑रंग की डिज़ाइन — जैसे बिंदु, स्ट्राइप, क्रॉसहैच या चे़क्स — आकार पर लागू करने देता है। आप पैटर्न के अग्रभूमि और पृष्ठभूमि के लिए कस्टम रंग चुन सकते हैं।
 
-Aspose.Slides 45 से अधिक पूर्वनिर्धारित पैटर्न शैलियाँ प्रदान करता है जिन्हें आप अपने प्रेज़ेंटेशन की दृश्य अपील बढ़ाने के लिए आकारों पर लागू कर सकते हैं। पूर्वनिर्धारित पैटर्न चुनने के बाद भी आप सटीक रंग निर्दिष्ट कर सकते हैं।
+Aspose.Slides 45 से अधिक पूर्वनिर्धारित पैटर्न स्टाइल प्रदान करता है जिन्हें आप अपने प्रस्तुतियों की दृश्य आकर्षकता बढ़ाने के लिए आकारों पर लागू कर सकते हैं। पूर्वनिर्धारित पैटर्न चुनने के बाद भी आप निश्चित रंग निर्दिष्ट कर सकते हैं।
 
-Aspose.Slides का उपयोग करके आकार पर पैटर्न फ़िल कैसे लागू किया जाए, यह यहाँ बताया गया है:
+पैटर्न फ़िल लागू करने के चरण इस प्रकार हैं:
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/) क्लास का इंस्टेंस बनाएँ।
-1. इंडेक्स के आधार पर एक स्लाइड का रेफ़रेंस प्राप्त करें।
-1. स्लाइड में एक [IAutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iautoshape/) जोड़ें।
-1. आकार की [FillType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/filltype/) को `Pattern` सेट करें।
-1. पूर्वनिर्धारित विकल्पों में से एक पैटर्न शैली चुनें।
-1. पैटर्न के [Background Color](https://reference.aspose.com/slides/hi/java/com.aspose.slides/patternformat/#getBackColor--) को सेट करें।
-1. पैटर्न के [Foreground Color](https://reference.aspose.com/slides/hi/java/com.aspose.slides/patternformat/#getForeColor--) को सेट करें।
-1. परिवर्तित प्रेज़ेंटेशन को PPTX फ़ाइल के रूप में सहेजें।
+1. Create an instance of the [प्रस्तुति](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index.
+1. Add an [IAutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iautoshape/) to the slide.
+1. Set the shape’s [FillType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/filltype/) to `Pattern`.
+1. Choose a pattern style from the predefined options.
+1. Set the [Background Color](https://reference.aspose.com/slides/hi/java/com.aspose.slides/patternformat/#getBackColor--) of the pattern.
+1. Set the [Foreground Color](https://reference.aspose.com/slides/hi/java/com.aspose.slides/patternformat/#getForeColor--) of the pattern.
+1. Save the modified presentation as a PPTX file.
+
+The following Java code demonstrates how to apply a pattern fill to a rectangle:
 
 ```java
-// प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टेंस बनाएं।
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाले Presentation वर्ग को इंस्टैंसिएट करें।
 Presentation presentation = new Presentation();
 try {
     // पहली स्लाइड प्राप्त करें।
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Rectangle प्रकार का एक ऑटो शेप जोड़ें।
+    // Rectangle प्रकार का ऑटो शैप जोड़ें।
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Fill प्रकार को Pattern सेट करें।
+    // फ़िल टाइप को Pattern पर सेट करें।
     shape.getFillFormat().setFillType(FillType.Pattern);
 
-    // पैटर्न शैली सेट करें।
+    // पैटर्न स्टाइल सेट करें।
     shape.getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.Trellis);
 
     // पैटर्न की पृष्ठभूमि और अग्रभूमि रंग सेट करें।
@@ -281,40 +300,44 @@ try {
 }
 ```
 
-परिणाम:
+The result:
 
-![The rectangle with pattern fill](pattern-fill.png)
+![पैटर्न फ़िल वाला आयत](pattern-fill.png)
 
 ## **पिक्चर फ़िल**
 
-PowerPoint में, Picture Fill एक फ़ॉर्मेटिंग विकल्प है जो आपको आकार के अंदर एक छवि डालने देता है—अर्थात छवि को आकार की पृष्ठभूमि के रूप में उपयोग किया जाता है।
+PowerPoint में, पिक्चर फ़िल एक फ़ॉर्मेटिंग विकल्प है जो आपको आकार के भीतर चित्र सम्मिलित करने देता है — प्रभावी रूप से चित्र को आकार की पृष्ठभूमि के रूप में उपयोग करता है।
 
-किस प्रकार Aspose.Slides का उपयोग करके आकार पर पिक्चर फ़िल लागू किया जाए, यह यहाँ है:
+Aspose.Slides का उपयोग करके पिक्चर फ़िल लागू करने के चरण इस प्रकार हैं:
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/) क्लास का इंस्टेंस बनाएँ।
-1. इंडेक्स के आधार पर एक स्लाइड का रेफ़रेंस प्राप्त करें।
-1. स्लाइड में एक [IAutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iautoshape/) जोड़ें।
-1. आकार की [FillType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/filltype/) को `Picture` सेट करें।
-1. पिक्चर फ़िल मोड को `Tile` (या कोई अन्य पसंदीदा मोड) सेट करें।
-1. उस छवि से एक [IPPImage](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ippimage/) ऑब्जेक्ट बनाएँ जिसे आप उपयोग करना चाहते हैं।
-1. छवि को `ISlidesPicture.setImage` मेथड में पास करें।
-1. परिवर्तित प्रेज़ेंटेशन को PPTX फ़ाइल के रूप में सहेजें।
+1. Create an instance of the [प्रस्तुति](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index.
+1. Add an [IAutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iautoshape/) to the slide.
+1. Set the shape's [FillType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/filltype/) to `Picture`.
+1. Set the picture fill mode to `Tile` (or another preferred mode).
+1. Create an [IPPImage](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ippimage/) object from the image you want to use.
+1. Pass the image to the `ISlidesPicture.setImage` method.
+1. Save the modified presentation as a PPTX file.
 
-मान लीजिए हमारे पास एक "lotus.png" फ़ाइल है जिसमें निम्नलिखित चित्र है:
+मान लीजिए हमारे पास "lotus.png" फ़ाइल है, जिसमें नीचे दिखाया गया चित्र है:
 
-![The lotus picture](lotus.png)
+![लोटस चित्र](lotus.png)
+
+The following Java code demonstrates how to fill a shape with the picture:
 
 ```java
-// प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टेंस बनाएं।
+import com.aspose.slides.*;
+
+// प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाले Presentation क्लास को इंस्टैंसिएट करें।
 Presentation presentation = new Presentation();
 try {
     // पहली स्लाइड प्राप्त करें।
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Rectangle प्रकार का एक ऑटो शेप जोड़ें।
+    // Rectangle प्रकार का ऑटो शैप जोड़ें।
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 255, 130);
     
-    // Fill प्रकार को Picture सेट करें।
+    // फ़िल टाइप को Picture पर सेट करें।
     shape.getFillFormat().setFillType(FillType.Picture);
 
     // पिक्चर फ़िल मोड सेट करें।
@@ -335,47 +358,49 @@ try {
 }
 ```
 
-परिणाम:
+The result:
 
-![The shape with picture fill](picture-fill.png)
+![पिक्चर फ़िल वाला आकार](picture-fill.png)
 
-### **टाइल पिक्चर को टेक्सचर के रूप में**
+### **टाइल चित्र को टेक्सचर के रूप में**
 
-यदि आप टाइल किया हुआ चित्र को टेक्सचर के रूप में सेट करना चाहते हैं और टाइलिंग व्यवहार को कस्टमाइज़ करना चाहते हैं, तो आप [IPictureFillFormat] इंटरफ़ेस और [PictureFillFormat] क्लास की निम्नलिखित मेथड्स का उपयोग कर सकते हैं:
+यदि आप टाइल किए हुए चित्र को टेक्सचर के रूप में सेट करना चाहते हैं और टाइलिंग व्यवहार को अनुकूलित करना चाहते हैं, तो आप [IPictureFillFormat](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipicturefillformat/) इंटरफ़ेस और [PictureFillFormat](https://reference.aspose.com/slides/hi/java/com.aspose.slides/picturefillformat/) क्लास की निम्नलिखित विधियों का उपयोग कर सकते हैं:
 
-- [setPictureFillMode](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-): चित्र फ़िल मोड सेट करता है—या तो `Tile` या `Stretch`।
-- [setTileAlignment](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-): आकार के भीतर टाइल्स का संरेखण निर्धारित करता है।
-- [setTileFlip](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipicturefillformat/#setTileFlip-int-): टाइल को क्षैतिज, लंबवत या दोनों दिशा में फ़्लिप करने को नियंत्रित करता है।
-- [setTileOffsetX](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): आकार की मूल से टाइल का क्षैतिज ऑफ़सेट (पॉइंट्स में) सेट करता है।
-- [setTileOffsetY](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): आकार की मूल से टाइल का लंबवत ऑफ़सेट (पॉइंट्स में) सेट करता है।
-- [setTileScaleX](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-): टाइल का क्षैतिज स्केल प्रतिशत के रूप में परिभाषित करता है।
-- [setTileScaleY](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-): टाइल का लंबवत स्केल प्रतिशत के रूप में परिभाषित करता है।
+- [setPictureFillMode](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-): चित्र फ़िल मोड सेट करता है — `Tile` या `Stretch`।
+- [setTileAlignment](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-): आकार के भीतर टाइलों की संरेखण निर्दिष्ट करता है।
+- [setTileFlip](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipicturefillformat/#setTileFlip-int-): टाइल को क्षैतिज, लंबवत या दोनों दिशा में उलटने को नियंत्रित करता है।
+- [setTileOffsetX](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): आकार के मूल बिंदु से टाइल के क्षैतिज ऑफ़सेट (पॉइंट में) को सेट करता है।
+- [setTileOffsetY](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): आकार के मूल बिंदु से टाइल के लंबवत ऑफ़सेट (पॉइंट में) को सेट करता है।
+- [setTileScaleX](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-): टाइल के क्षैतिज स्केल को प्रतिशत में परिभाषित करता है।
+- [setTileScaleY](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-): टाइल के लंबवत स्केल को प्रतिशत में परिभाषित करता है।
 
-निम्नलिखित कोड नमूना दर्शाता है कि टाइल पिक्चर फ़िल के साथ आयत आकार कैसे जोड़ें और टाइल विकल्प कैसे कॉन्फ़िगर करें:
+The following code sample shows how to add a rectangle shape with a tiled picture fill and configure tile options:
 
 ```java
-// प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टेंस बनाएं।
+import com.aspose.slides.*;
+
+// प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाले Presentation क्लास को इंस्टैंसिएट करें।
 Presentation presentation = new Presentation();
 try {
     // पहली स्लाइड प्राप्त करें।
     ISlide firstSlide = presentation.getSlides().get_Item(0);
 
-    // एक Rectangle ऑटो शेप जोड़ें।
+    // आयताकार ऑटो शैप जोड़ें।
     IAutoShape shape = firstSlide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 190, 95);
 
-    // आकार का Fill प्रकार Picture सेट करें।
+    // आकार का फ़िल टाइप Picture पर सेट करें।
     shape.getFillFormat().setFillType(FillType.Picture);
 
-    // इमेज लोड करें और उसे प्रस्तुति संसाधनों में जोड़ें।
+    // छवि लोड करें और उसे प्रस्तुति संसाधनों में जोड़ें।
     IImage sourceImage = Images.fromFile("lotus.png");
     IPPImage presentationImage = presentation.getImages().addImage(sourceImage);
     sourceImage.dispose();
 
-    // इमेज को आकार को असाइन करें।
+    // छवि को आकार में असाइन करें।
     IPictureFillFormat pictureFillFormat = shape.getFillFormat().getPictureFillFormat();
     pictureFillFormat.getPicture().setImage(presentationImage);
 
-    // पिक्चर फ़िल मोड और टाइलिंग प्रॉपर्टीज़ कॉन्फ़िगर करें।
+    // पिक्चर फ़िल मोड और टाइलिंग गुणों को कॉन्फ़िगर करें।
     pictureFillFormat.setPictureFillMode(PictureFillMode.Tile);
     pictureFillFormat.setTileOffsetX(-32);
     pictureFillFormat.setTileOffsetY(-32);
@@ -391,37 +416,42 @@ try {
 }
 ```
 
-परिणाम:
+The result:
 
-![The tile options](tile-options.png)
+![टाइल विकल्प](tile-options.png)
 
 ## **सॉलिड कलर फ़िल**
 
-PowerPoint में, Solid Color Fill एक फ़ॉर्मेटिंग विकल्प है जो आकार को एकल, समान रंग से भरता है। यह सादा पृष्ठभूमि रंग बिना किसी ग्रेडिएंट, टेक्सचर या पैटर्न के लागू किया जाता है।
+PowerPoint में, सॉलिड कलर फ़िल एक फ़ॉर्मेटिंग विकल्प है जो आकार को एक समान, एकरंगीय भरावट देता है। यह साधारण पृष्ठभूमि रंग ग्रेडिएंट, टेक्सचर या पैटर्न के बिना लागू किया जाता है।
 
-Aspose.Slides का उपयोग करके आकार पर सॉलिड कलर फ़िल लागू करने के लिए, इन चरणों का पालन करें:
+Aspose.Slides का उपयोग करके सॉलिड कलर फ़िल लागू करने के चरण इस प्रकार हैं:
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/) क्लास का इंस्टेंस बनाएँ।
-1. इंडेक्स के आधार पर एक स्लाइड का रेफ़रेंस प्राप्त करें।
-1. स्लाइड में एक [IAutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iautoshape/) जोड़ें।
-1. आकार की [FillType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/filltype/) को `Solid` सेट करें।
-1. आकार को अपना इच्छित फ़िल रंग असाइन करें।
-1. परिवर्तित प्रेज़ेंटेशन को PPTX फ़ाइल के रूप में सहेजें।
+1. Create an instance of the [प्रस्तुति](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index.
+1. Add an [IAutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iautoshape/) to the slide.
+1. Set the shape’s [FillType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/filltype/) to `Solid`.
+1. Assign your preferred fill color to the shape.
+1. Save the modified presentation as a PPTX file.
+
+The following Java code demonstrates how to apply a solid color fill to a rectangle in a PowerPoint slide:
 
 ```java
-// प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टेंस बनाएं।
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाले Presentation क्लास को इंस्टैंसिएट करें।
 Presentation presentation = new Presentation();
 try {
     // पहली स्लाइड प्राप्त करें।
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Rectangle प्रकार का एक ऑटो शेप जोड़ें।
+    // Rectangle प्रकार का ऑटो शैप जोड़ें।
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Fill प्रकार को Solid सेट करें।
+    // फ़िल टाइप को Solid पर सेट करें।
     shape.getFillFormat().setFillType(FillType.Solid);
 
-    // Fill रंग सेट करें।
+    // फ़िल रंग सेट करें।
     shape.getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
 
     // PPTX फ़ाइल को डिस्क पर सहेजें।
@@ -431,34 +461,39 @@ try {
 }
 ```
 
-परिणाम:
+The result:
 
-![The shape with solid color fill](solid-color-fill.png)
+![सॉलिड कलर फ़िल वाला आकार](solid-color-fill.png)
 
-## **ट्रांसपेरेंसी सेट करें**
+## **पारदर्शिता सेट करें**
 
-PowerPoint में, जब आप आकारों पर सॉलिड कलर, ग्रेडिएंट, पिक्चर या टेक्सचर फ़िल लागू करते हैं, तो आप फ़िल की अपारदर्शिता को नियंत्रित करने के लिए ट्रांसपेरेंसी स्तर भी सेट कर सकते हैं। उच्च ट्रांसपेरेंसी मान आकार को अधिक पारदर्शी बनाता है, जिससे पृष्ठभूमि या नीचे की वस्तुएँ आंशिक रूप से दिखाई देती हैं।
+PowerPoint में, जब आप आकार पर सॉलिड कलर, ग्रेडिएंट, पिक्चर या टेक्सचर फ़िल लागू करते हैं, तो आप पारदर्शिता स्तर भी सेट कर सकते हैं जिससे भराव की अपारदर्शिता नियंत्रित होती है। उच्च पारदर्शिता मान आकार को अधिक पारदर्शी बनाता है, जिससे पृष्ठभूमि या नीचे के वस्तुएँ आंशिक रूप से दिखाई देती हैं।
 
-Aspose.Slides आपको फ़िल के लिए उपयोग किए गए रंग में अल्फा मान को समायोजित करके ट्रांसपेरेंसी स्तर सेट करने की अनुमति देता है। इसे करने का तरीका इस प्रकार है:
+Aspose.Slides आपको `Color` के अल्फा मान को समायोजित करके पारदर्शिता स्तर सेट करने की अनुमति देता है। नीचे बताया गया है कि इसे कैसे करें:
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/) क्लास का इंस्टेंस बनाएँ।
-1. इंडेक्स के आधार पर एक स्लाइड का रेफ़रेंस प्राप्त करें।
-1. स्लाइड में एक [IAutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iautoshape/) जोड़ें।
-1. [FillType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/filltype/) को `Solid` सेट करें।
-1. `Color` का उपयोग करके अल्फा घटक के साथ पारदर्शी रंग परिभाषित करें।
-1. प्रेज़ेंटेशन को सहेजें।
+1. Create an instance of the [प्रस्तुति](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index.
+1. Add an [IAutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iautoshape/) to the slide.
+1. Set the [FillType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/filltype/) to `Solid`.
+1. Use `Color` to define a color with transparency (the `alpha` component controls transparency).
+1. Save the presentation.
+
+The following Java code demonstrates how to apply a transparent fill color to a rectangle:
 
 ```java
-// एक प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टेंस बनाएं।
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाले Presentation क्लास को इंस्टैंसिएट करें।
 Presentation presentation = new Presentation();
 try {
     // पहली स्लाइड प्राप्त करें।
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // एक सॉलिड Rectangle ऑटो शैप जोड़ें।
+    // एक ठोस आयताकार ऑटो शैप जोड़ें।
     IAutoShape solidShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // सॉलिड आकार के ऊपर एक पारदर्शी Rectangle ऑटो शैप जोड़ें।
+    // ठोस आकार के ऊपर एक पारदर्शी आयताकार ऑटो शैप जोड़ें।
     IAutoShape transparentShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 80, 80, 150, 75);
     transparentShape.getFillFormat().setFillType(FillType.Solid);
     transparentShape.getFillFormat().getSolidFillColor().setColor(new Color(255, 255, 0, 204));
@@ -470,30 +505,34 @@ try {
 }
 ```
 
-परिणाम:
+The result:
 
-![The transparent shape](shape-transparency.png)
+![पारदर्शी आकार](shape-transparency.png)
 
 ## **आकार घुमाएँ**
 
-Aspose.Slides आपको PowerPoint प्रेज़ेंटेशन में आकार घुमाने देता है। यह विशेष संरेखण या डिज़ाइन आवश्यकताओं के साथ दृश्य तत्वों को स्थित करने में उपयोगी हो सकता है।
+Aspose.Slides आपको PowerPoint प्रस्तुतियों में आकारों को घुमाने की सुविधा देता है। यह दृश्य तत्वों को विशिष्ट संरेखण या डिज़ाइन आवश्यकताओं के साथ स्थित करने में उपयोगी हो सकता है।
 
-आकार को स्लाइड पर घुमाने के लिए, इन चरणों का पालन करें:
+एक स्लाइड पर आकार को घुमाने के चरण इस प्रकार हैं:
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/) क्लास का इंस्टेंस बनाएँ।
-1. इंडेक्स के आधार पर एक स्लाइड का रेफ़रेंस प्राप्त करें।
-1. स्लाइड में एक [IAutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iautoshape/) जोड़ें।
-1. आकार के घुमाव प्रॉपर्टी को वांछित कोण पर सेट करें।
-1. प्रेज़ेंटेशन को सहेजें।
+1. Create an instance of the [प्रस्तुति](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index.
+1. Add an [IAutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iautoshape/) to the slide.
+1. Set the shape’s rotation property to the desired angle.
+1. Save the presentation.
+
+The following Java code demonstrates how to rotate a shape by 5 degrees:
 
 ```java
-// प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टेंस बनाएं।
+import com.aspose.slides.*;
+
+// प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाले Presentation क्लास को इंस्टैंसिएट करें।
 Presentation presentation = new Presentation();
 try {
     // पहली स्लाइड प्राप्त करें।
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Rectangle प्रकार का एक ऑटो शैप जोड़ें।
+    // Rectangle प्रकार का ऑटो शैप जोड़ें।
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
     // आकार को 5 डिग्री घुमाएँ।
@@ -506,24 +545,29 @@ try {
 }
 ```
 
-परिणाम:
+The result:
 
-![The shape rotation](shape-rotation.png)
+![आकार घुमाव](shape-rotation.png)
 
-## **3D बीवेल प्रभाव जोड़ें**
+## **3 डी बिवेल प्रभाव जोड़ें**
 
-Aspose.Slides आपको आकारों पर [ThreeDFormat](https://reference.aspose.com/slides/hi/java/com.aspose.slides/threedformat/) प्रॉपर्टीज़ को कॉन्फ़िगर करके 3D बीवेल प्रभाव लागू करने देता है।
+Aspose.Slides आपको आकारों पर 3 डी बिवेल प्रभाव लागू करने की अनुमति देता है, जिसके लिए आप उनके [ThreeDFormat](https://reference.aspose.com/slides/hi/java/com.aspose.slides/threedformat/) गुणों को कॉन्फ़िगर करते हैं।
 
-3D बीवेल प्रभाव जोड़ने के लिए, इन चरणों का पालन करें:
+3 डी बिवेल प्रभाव जोड़ने के चरण इस प्रकार हैं:
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/) क्लास का इंस्टेंस बनाएँ।
-1. इंडेक्स के आधार पर एक स्लाइड का रेफ़रेंस प्राप्त करें।
-1. स्लाइड में एक [IAutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iautoshape/) जोड़ें।
-1. आकार की [ThreeDFormat](https://reference.aspose.com/slides/hi/java/com.aspose.slides/threedformat/) को कॉन्फ़िगर करके बीवेल सेटिंग्स निर्धारित करें।
-1. प्रेज़ेंटेशन को सहेजें।
+1. Instantiate the [प्रस्तुति](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index.
+1. Add an [IAutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iautoshape/) to the slide.
+1. Configure the shape’s [ThreeDFormat](https://reference.aspose.com/slides/hi/java/com.aspose.slides/threedformat/) to define bevel settings.
+1. Save the presentation.
+
+The following Java code shows how to apply 3 डी बिवेल effects to a shape:
 
 ```java
-// Presentation क्लास का इंस्टेंस बनाएं।
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// Presentation क्लास का एक इंस्टेंस बनाएं।
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -545,30 +589,34 @@ try {
     shape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.ThreePt);
     shape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
 
-    // प्रेज़ेंटेशन को PPTX फ़ाइल के रूप में सहेजें।
+    // प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
     presentation.save("3D_bevel_effect.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-परिणाम:
+The result:
 
-![The 3D bevel effect](3D-bevel-effect.png)
+![3 डी बिवेल प्रभाव](3D-bevel-effect.png)
 
-## **3D घुमाव प्रभाव जोड़ें**
+## **3 डी घुमाव प्रभाव जोड़ें**
 
-Aspose.Slides आपको आकारों पर [ThreeDFormat](https://reference.aspose.com/slides/hi/java/com.aspose.slides/threedformat/) प्रॉपर्टीज़ को कॉन्फ़िगर करके 3D घुमाव प्रभाव लागू करने देता है।
+Aspose.Slides आपको आकारों पर 3 डी घुमाव प्रभाव लागू करने की अनुमति देता है, जिसके लिए आप उनके [ThreeDFormat](https://reference.aspose.com/slides/hi/java/com.aspose.slides/threedformat/) गुणों को कॉन्फ़िगर करते हैं।
 
-3D घुमाव प्रभाव लागू करने के लिए:
+3 डी घुमाव लागू करने के चरण इस प्रकार हैं:
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/) क्लास का इंस्टेंस बनाएँ।
-1. इंडेक्स के आधार पर एक स्लाइड का रेफ़रेंस प्राप्त करें।
-1. स्लाइड में एक [IAutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iautoshape/) जोड़ें।
-1. 3D घुमाव को परिभाषित करने के लिए [setCameraType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/icamera/#setCameraType-int-) और [setLightType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ilightrig/#setLightType-int-) का उपयोग करें।
-1. प्रेज़ेंटेशन को सहेजें।
+1. Create an instance of the [प्रस्तुति](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/) class.
+1. Get a reference to a slide by its index.
+1. Add an [IAutoShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/iautoshape/) to the slide.
+1. Use the [setCameraType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/icamera/#setCameraType-int-) and [setLightType](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ilightrig/#setLightType-int-) to define the 3 डी rotation.
+1. Save the presentation.
+
+The following Java code demonstrates how to apply 3 डी rotation effects to a shape:
 
 ```java
+import com.aspose.slides.*;
+
 // Presentation क्लास का एक इंस्टेंस बनाएं।
 Presentation presentation = new Presentation();
 try {
@@ -582,26 +630,59 @@ try {
     autoShape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.IsometricLeftUp);
     autoShape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
 
-    // प्रेज़ेंटेशन को PPTX फ़ाइल के रूप में सहेजें।
+    // प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
     presentation.save("3D_rotation_effect.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-परिणाम:
+The result:
 
-![The 3D rotation effect](3D-rotation-effect.png)
+![3 डी घुमाव प्रभाव](3D-rotation-effect.png)
 
-## **फ़ॉर्मेटिंग रीसेट करें**
+## **आकारों के लिए काले‑सफ़ेद रेंडरिंग नियंत्रित करें**
 
-निम्नलिखित जावा कोड दर्शाता है कि स्लाइड की फ़ॉर्मेटिंग कैसे रीसेट करें और [LayoutSlide](https://reference.aspose.com/slides/hi/java/com.aspose.slides/layoutslide/) पर प्लेसहोल्डर वाले सभी आकारों की स्थिति, आकार और फ़ॉर्मेटिंग को उनकी डिफ़ॉल्ट सेटिंग्स में कैसे वापस लाएँ:
+[IShape.setBlackWhiteMode](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) मेथड यह निर्दिष्ट करता है कि कोई व्यक्तिगत आकार काले‑सफ़ेद मोड में प्रस्तुति देखे या प्रोसेस की जाए तो कैसे रेंडर किया जाएगा। यह स्वयं काले‑सफ़ेद डिस्प्ले को सक्रिय नहीं करता, और सामान्य रंग मोड में आकार की फ़िल, लाइन या अन्य फ़ॉर्मेटिंग को नहीं बदलता।
+
+[BlackWhiteMode](https://reference.aspose.com/slides/hi/java/com.aspose.slides/blackwhitemode/) क्लास के मानों में से एक चुनें। उदाहरण के लिए, `Automatic` एप्लीकेशन को रूपांतरण चुनने देता है, `Gray` और `LightGray` ग्रे रंग का उपयोग करते हैं, `BlackWhite` केवल काला‑सफ़ेद उपयोग करता है, `Black` और `White` एकल रंग को लागू करते हैं, `Color` सामान्य रंग को बनाए रखता है, और `Hidden` काले‑सफ़ेद मोड में आकार को छोड़ देता है। `NotDefined` का अर्थ है कि कोई आकार‑स्तरीय मोड असाइन नहीं किया गया है।
+
+The following Java code creates a colored shape and makes it appear gray in black‑and‑white display mode:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
+    shape.getFillFormat().setFillType(FillType.Solid);
+    shape.getFillFormat().getSolidFillColor().setColor(Color.ORANGE);
+
+    // रंग मोड में नारंगी फ़िल बनाए रखें, लेकिन काले-सफ़ेद मोड में आकार को ग्रे रंगरण के साथ रेंडर करें।
+    shape.setBlackWhiteMode(BlackWhiteMode.Gray);
+
+    presentation.save("shape_black_white_mode.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+सामान्य रंग मोड में, आयत अपना नारंगी फ़िल बनाए रखता है। काले‑सफ़ेद डिस्प्ले वर्कफ़्लो में, इसका रंग ग्रे हो जाता है क्योंकि उसका मोड `Gray` पर सेट है। इससे आप पूर्ण‑रंग स्लाइड को बनाए रखते हुए मुद्रण, प्री‑व्यू या अन्य वर्कफ़्लो के लिए अलग दृष्टिकोण परिभाषित कर सकते हैं जो काले‑सफ़ेद डिस्प्ले सेटिंग को मानते हैं।
+
+## **फ़ॉर्मेट रीसेट करें**
+
+The following Java code shows how to reset the formatting of a slide and revert the position, size, and formatting of all shapes with placeholders on the [LayoutSlide](https://reference.aspose.com/slides/hi/java/com.aspose.slides/layoutslide/) to their default settings:
+
+```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     for (ISlide slide : presentation.getSlides()) {
-        // लेआउट पर प्लेसहोल्डर वाले स्लाइड पर प्रत्येक आकार को रीसेट करें।
+        // लेआउट में प्लेसहोल्डर वाले स्लाइड पर प्रत्येक आकार को रीसेट करें।
         slide.reset();
     }
     presentation.save("reset_formatting.pptx", SaveFormat.Pptx);
@@ -610,16 +691,16 @@ try {
 }
 ```
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+## **FAQ**
 
-**क्या आकार की फ़ॉर्मेटिंग अंतिम प्रेज़ेंटेशन फ़ाइल आकार को प्रभावित करती है?**
+**क्या आकार फ़ॉर्मेटिंग से अंतिम प्रस्तुति फ़ाइल का आकार प्रभावित होता है?**
 
-केवल न्यूनतम रूप में। एम्बेडेड इमेजेज़ और मीडिया फ़ाइल के अधिकांश स्थान को लेते हैं, जबकि आकार के पैरामीटर जैसे रंग, प्रभाव, और ग्रेडिएंट मेटाडेटा के रूप में सहेजे जाते हैं और लगभग कोई अतिरिक्त आकार नहीं जोड़ते।
+बहुत कम। एम्बेडेड चित्र और मीडिया फ़ाइल आकार का अधिकांश भाग होते हैं, जबकि आकार के पैरामीटर जैसे रंग, प्रभाव और ग्रेडिएंट मेटाडेटा के रूप में ذخیرہ होते हैं और लगभग कोई अतिरिक्त आकार नहीं जोड़ते।
 
-**मैं कैसे पहचानूँ कि स्लाइड पर कौन से आकार समान फ़ॉर्मेटिंग साझा करते हैं ताकि मैं उन्हें समूहबद्ध कर सकूँ?**
+**मैं कैसे उन आकारों की पहचान करूँ जो समान फ़ॉर्मेटिंग साझा करते हैं ताकि उन्हें समूहित किया जा सके?**
 
-प्रत्येक आकार की प्रमुख फ़ॉर्मेटिंग प्रॉपर्टीज़—फ़िल, लाइन, और इफ़ेक्ट सेटिंग्स—की तुलना करें। यदि सभी संबंधित मान मेल खाते हैं, तो उनके स्टाइल को समान मानें और उन आकारों को तार्किक रूप से समूहित करें, जिससे बाद के स्टाइल प्रबंधन को सरल बनाया जा सके।
+प्रत्येक आकार की प्रमुख फ़ॉर्मेटिंग गुणों — फ़िल, लाइन और प्रभाव सेटिंग्स — की तुलना करें। यदि सभी संबंधित मान मेल खाते हैं, तो उनके शैलियों को समान मानें और उन आकारों को तर्कसंगत रूप से समूहित करें, जिससे बाद में शैली प्रबंधन आसान हो जाता है।
 
-**क्या मैं कस्टम आकार स्टाइल्स का एक सेट अलग फ़ाइल में सहेज सकता हूँ ताकि इसे अन्य प्रेज़ेंटेशन्स में पुनः उपयोग किया जा सके?**
+**क्या मैं कस्टम आकार शैलियों का एक सेट अलग फ़ाइल में सहेज कर अन्य प्रस्तुतियों में पुनः उपयोग कर सकता हूँ?**
 
-हाँ। इच्छित स्टाइल वाले सैंपल आकारों को एक टेम्पलेट स्लाइड डेक या .POTX टेम्पलेट फ़ाइल में रखें। नई प्रेज़ेंटेशन बनाते समय टेम्पलेट खोलें, आवश्यक स्टाइल वाले आकारों को क्लोन करें, और जहाँ‑जहाँ आवश्यक हो वहाँ उनके फ़ॉर्मेटिंग को फिर से लागू करें।
+हां। वांछित शैलियों वाले नमूना आकार को एक टेम्पलेट स्लाइड डेक या `.POTX` टेम्पलेट फ़ाइल में सहेजें। नया प्रस्तुति बनाते समय टेम्पलेट खोलें, आवश्यक शैली वाले आकार को क्लोन करें, और जहाँ‑जहाँ जरूरत हो फ़ॉर्मेटिंग पुनः लागू करें।

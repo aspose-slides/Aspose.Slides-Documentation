@@ -1,93 +1,99 @@
 ---
 title: Formátování tvarů PowerPointu v .NET
-linktitle: Formátování tvaru
+linktitle: Formátování tvarů
 type: docs
 weight: 20
 url: /cs/net/shape-formatting/
 keywords:
-- formát tvaru
-- formát čáry
+- formátování tvaru
+- formátování čáry
 - náčrtový efekt
 - náčrtová čára tvaru
-- formát stylu spojení
-- gradientová výplň
-- výplň vzorem
-- obrázková výplň
-- texturovaná výplň
-- jednobarevná výplň
+- formátování stylu spojení
+- gradientové vyplnění
+- vzorkované vyplnění
+- obrázkové vyplnění
+- texturované vyplnění
+- jednobarevné vyplnění
 - průhlednost tvaru
-- otočení tvaru
-- 3D efekt zkosení
-- 3D efekt otáčení
-- obnovení formátování
+- černobílé vykreslení tvaru
+- vykreslení tvaru ve stupních šedi
+- otočit tvar
+- 3D zkosený efekt
+- 3D rotační efekt
+- resetovat formátování
 - PowerPoint
 - prezentace
 - .NET
 - C#
 - Aspose.Slides
-description: "Naučte se, jak formátovat tvary PowerPointu v C# pomocí Aspose.Slides—nastavit styly výplně, čáry a efektů pro soubory PPT a PPTX s přesností a plnou kontrolou."
+description: "Naučte se, jak formátovat tvary PowerPointu v C# pomocí Aspose.Slides—nastavte styly vyplnění, čáry a efektů pro soubory PPT a PPTX s přesností a plnou kontrolou."
 ---
 ## **Úvod**
 
-V PowerPointu můžete do snímků přidávat tvary. Protože jsou tvary tvořeny čarami, můžete je formátovat úpravou nebo aplikací efektů na jejich obrysy. Navíc můžete tvary formátovat nastavením, která určují, jak bude vyplněn jejich vnitřek.
+V PowerPointu můžete do snímků přidávat tvary. Protože tvary jsou složeny z čar, můžete je formátovat úpravou nebo použitím efektů na jejich obrysy. Navíc můžete tvary formátovat zadáním nastavení, která řídí, jak jsou jejich vnitřky vyplněny.
 
-![formátování tvaru v powerpointu](format-shape-powerpoint.png)
+![Formátování tvaru v PowerPointu](format-shape-powerpoint.png)
 
-Aspose.Slides pro .NET poskytuje rozhraní a vlastnosti, které vám umožní formátovat tvary pomocí stejných možností, jaké jsou dostupné v PowerPointu.
+Aspose.Slides pro .NET poskytuje rozhraní a vlastnosti, které vám umožňují formátovat tvary pomocí stejných možností, jaké jsou k dispozici v PowerPointu.
 
 ## **Formátování čar**
 
 Pomocí Aspose.Slides můžete pro tvar zadat vlastní styl čáry. Následující kroky popisují postup:
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/).
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte do snímku [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/).
-1. Nastavte [line style](https://reference.aspose.com/slides/cs/net/aspose.slides/linestyle/) tvaru.
-1. Nastavte šířku čáry.
-1. Nastavte [dash style](https://reference.aspose.com/slides/cs/net/aspose.slides/linedashstyle/) čáry.
-1. Nastavte barvu čáry pro tvar.
-1. Uložte upravenou prezentaci jako soubor PPTX.
+2. Získejte odkaz na snímek podle jeho indexu.
+3. Přidejte do snímku [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/).
+4. Nastavte [line style](https://reference.aspose.com/slides/cs/net/aspose.slides/linestyle/) tvaru.
+5. Nastavte šířku čáry.
+6. Nastavte [dash style](https://reference.aspose.com/slides/cs/net/aspose.slides/linedashstyle/) čáry.
+7. Nastavte barvu čáry pro tvar.
+8. Uložte upravenou prezentaci jako soubor PPTX.
 
-Následující kód v C# ukazuje, jak formátovat obdélníkový `AutoShape`:
+Následující kód C# ukazuje, jak naformátovat obdélníkový `AutoShape`:
 
 ```c#
- // Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
- using (Presentation presentation = new Presentation())
- {
-     // Získejte první snímek.
-     ISlide slide = presentation.Slides[0];
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-     // Přidejte automatický tvar typu Obdélník.
-     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+// Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
+using (Presentation presentation = new Presentation())
+{
+    // Získejte první snímek.
+    ISlide slide = presentation.Slides[0];
 
-     // Nastavte barvu výplně pro obdélníkový tvar.
-     shape.FillFormat.FillType = FillType.NoFill;
+    // Přidejte automatický tvar typu Rectangle.
+    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-     // Aplikujte formátování na čáry obdélníku.
-     shape.LineFormat.Style = LineStyle.ThickThin;
-     shape.LineFormat.Width = 7;
-     shape.LineFormat.DashStyle = LineDashStyle.Dash;
+    // Nastavte barvu výplně pro obdélníkový tvar.
+    shape.FillFormat.FillType = FillType.NoFill;
 
-     // Nastavte barvu čáry obdélníku.
-     shape.LineFormat.FillFormat.FillType = FillType.Solid;
-     shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+    // Použijte formátování na čáry obdélníku.
+    shape.LineFormat.Style = LineStyle.ThickThin;
+    shape.LineFormat.Width = 7;
+    shape.LineFormat.DashStyle = LineDashStyle.Dash;
 
-     // Uložte soubor PPTX na disk.
-     presentation.Save("formatted_lines.pptx", SaveFormat.Pptx);
- }
+    // Nastavte barvu čáry obdélníku.
+    shape.LineFormat.FillFormat.FillType = FillType.Solid;
+    shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+
+    // Uložte soubor PPTX na disk.
+    presentation.Save("formatted_lines.pptx", SaveFormat.Pptx);
+}
 ```
-
-Výsledek:
 
 ![Formátované čáry v prezentaci](formatted-lines.png)
 
-## **Použití náčrtových efektů na čáry tvarů**
+## **Použití náčrtových efektů na čáry tvaru**
 
-Náčrtový efekt způsobí, že čára tvaru vypadá, jako by byla ručně kreslená. Použijte [IShape.LineFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/lineformat/) pro přístup k nastavením čáry, [ILineFormat.SketchFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/ilineformat/sketchformat/) pro přístup k nastavením náčrtu a [ISketchFormat.SketchType](https://reference.aspose.com/slides/cs/net/aspose.slides/isketchformat/sketchtype/) pro výběr hodnoty z výčtu [LineSketchType](https://reference.aspose.com/slides/cs/net/aspose.slides/linesketchtype/).
+Cílem náčrtového efektu je, aby čára tvaru vypadala ručně kresleně. Použijte [IShape.LineFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/lineformat/) pro přístup k nastavením čáry, [ILineFormat.SketchFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/ilineformat/sketchformat/) pro přístup k nastavením náčrtu a [ISketchFormat.SketchType](https://reference.aspose.com/slides/cs/net/aspose.slides/isketchformat/sketchtype/) pro výběr hodnoty z výčtu [LineSketchType](https://reference.aspose.com/slides/cs/net/aspose.slides/linesketchtype/).
 
-Následující kód v C# ukazuje, jak aplikovat efekt [LineSketchType.Curved](https://reference.aspose.com/slides/cs/net/aspose.slides/linesketchtype/), přečíst explicitně přiřazenou hodnotu a odstranit efekt pomocí [LineSketchType.None](https://reference.aspose.com/slides/cs/net/aspose.slides/linesketchtype/):
+Následující kód C# ukazuje, jak použít efekt [LineSketchType.Curved](https://reference.aspose.com/slides/cs/net/aspose.slides/linesketchtype/) , přečíst explicitně přiřazenou hodnotu a odstranit efekt pomocí [LineSketchType.None](https://reference.aspose.com/slides/cs/net/aspose.slides/linesketchtype/):
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation();
 
 var slide = presentation.Slides[0];
@@ -107,9 +113,11 @@ Console.WriteLine($"Explicit sketch type: {explicitSketchType}");
 sketchFormat.SketchType = LineSketchType.None;
 ```
 
-Hodnota vrácená `ISketchFormat.SketchType` představuje nastavení přiřazené přímo tvaru. Pokud může být formátování čáry zděděno z motivu, hlavního snímku nebo rozvržení, použijte [ILineFormat.GetEffective](https://reference.aspose.com/slides/cs/net/aspose.slides/ilineformat/geteffective/), přistupte k [ILineFormatEffectiveData.SketchFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/ilineformateffectivedata/sketchformat/) a přečtěte [ISketchFormatEffectiveData.SketchType](https://reference.aspose.com/slides/cs/net/aspose.slides/isketchformateffectivedata/sketchtype/). Efektivní hodnota odráží formátování, které je skutečně použito po vyřešení zděděných nastavení:
+Hodnota vrácená `ISketchFormat.SketchType` představuje nastavení přiřazené přímo tvaru. Pokud může být formátování čáry zděděno z motivu, hlavního snímku nebo rozložení snímku, použijte [ILineFormat.GetEffective](https://reference.aspose.com/slides/cs/net/aspose.slides/ilineformat/geteffective/), přistupujte k [ILineFormatEffectiveData.SketchFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/ilineformateffectivedata/sketchformat/), a přečtěte [ISketchFormatEffectiveData.SketchType](https://reference.aspose.com/slides/cs/net/aspose.slides/isketchformateffectivedata/sketchtype/). Efektivní hodnota odráží formátování, které je skutečně použito po vyřešení dědičnosti:
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("presentation.pptx");
 
 var shape = presentation.Slides[0].Shapes[0];
@@ -127,24 +135,28 @@ Console.WriteLine($"Effective sketch type: {effectiveSketchType}");
 
 Zde jsou tři možnosti typu spojení:
 
-* Round – zakulacené
-* Miter – šikmé
-* Bevel – zkosené
+* Kulatý
+* Miter
+* Šikmý
 
-Ve výchozím nastavení PowerPoint používá při spojení dvou čar pod úhlem (například v rohu tvaru) nastavení **Round**. Pokud však kreslíte tvar s ostrými úhly, můžete upřednostnit možnost **Miter**.
+Ve výchozím nastavení PowerPoint spojuje dvě čáry pod úhlem (například na rohu tvaru) pomocí nastavení **Kulatý**. Pokud však kreslíte tvar s ostrými úhly, můžete upřednostnit možnost **Miter**.
 
 ![Styl spojení v prezentaci](join-style-powerpoint.png)
 
-Následující kód v C# ukazuje, jak byly vytvořeny tři obdélníky (viz obrázek výše) pomocí nastavení spojení Miter, Bevel a Round:
+Následující kód C# ukazuje, jak byly vytvořeny tři obdélníky (jak je vidět na obrázku výše) pomocí nastavení typu spojení Miter, Bevel a Round:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
 using (Presentation presentation = new Presentation())
 {
     // Získejte první snímek.
     ISlide slide = presentation.Slides[0];
 
-    // Přidejte tři automatické tvary typu Obdélník.
+    // Přidejte tři automatické tvary typu Rectangle.
     IAutoShape shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 75);
     IAutoShape shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 210, 20, 150, 75);
     IAutoShape shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 135, 150, 75);
@@ -162,7 +174,7 @@ using (Presentation presentation = new Presentation())
     shape2.LineFormat.Width = 15;
     shape3.LineFormat.Width = 15;
 
-    // Nastavte barvu čáry každého obdélníku.
+    // Nastavte barvu čáry pro každý obdélník.
     shape1.LineFormat.FillFormat.FillType = FillType.Solid;
     shape1.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
     shape2.LineFormat.FillFormat.FillType = FillType.Solid;
@@ -175,7 +187,7 @@ using (Presentation presentation = new Presentation())
     shape2.LineFormat.JoinStyle = LineJoinStyle.Bevel;
     shape3.LineFormat.JoinStyle = LineJoinStyle.Round;
 
-    // Přidejte text do každého obdélníku.
+    // Přidejte text ke každému obdélníku.
     shape1.TextFrame.Text = "Miter Join Style";
     shape2.TextFrame.Text = "Bevel Join Style";
     shape3.TextFrame.Text = "Round Join Style";
@@ -185,32 +197,33 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **Gradientové výplně**
+## **Gradientové vyplnění**
 
-V PowerPointu je gradientová výplň formátovací možnost, která vám umožní aplikovat plynulý přechod barev do tvaru. Například můžete použít dvě nebo více barev tak, aby jedna postupně přecházela v druhou.
+V PowerPointu je Gradientové vyplnění formátovací možnost, která vám umožňuje použít plynulý přechod barev na tvar. Například můžete použít dvě nebo více barev tak, že se jedna postupně přechází do druhé.
 
-Postup aplikace gradientové výplně na tvar pomocí Aspose.Slides:
+Zde je postup, jak aplikovat gradientové vyplnění na tvar pomocí Aspose.Slides:
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/).
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte do snímku [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/).
-1. Nastavte tvaru [FillType](https://reference.aspose.com/slides/cs/net/aspose.slides/filltype/) na `Gradient`.
-1. Přidejte své dvě preferované barvy s definovanými pozicemi pomocí metod `Add` kolekce zastávek gradientu, kterou vystavuje rozhraní [IGradientFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/igradientformat/).
-1. Uložte upravenou prezentaci jako soubor PPTX.
-
-Následující kód v C# ukazuje, jak aplikovat efekt gradientové výplně na elipsu:
+2. Získejte odkaz na snímek podle jeho indexu.
+3. Přidejte do snímku [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/).
+4. Nastavte [FillType](https://reference.aspose.com/slides/cs/net/aspose.slides/filltype/) tvaru na `Gradient`.
+5. Přidejte své dvě preferované barvy s definovanými pozicemi pomocí metod `Add` kolekce gradientových zastávek, kterou poskytuje rozhraní [IGradientFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/igradientformat/).
+6. Uložte upravenou prezentaci jako soubor PPTX.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
 using (Presentation presentation = new Presentation())
 {
     // Získejte první snímek.
     ISlide slide = presentation.Slides[0];
 
-    // Přidejte automatický tvar typu Elipsa.
+    // Přidejte automatický tvar typu Ellipse.
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 50, 150, 75);
 
-    // Aplikujte gradientové formátování na elipsu.
+    // Použijte gradientové formátování na elipsu.
     shape.FillFormat.FillType = FillType.Gradient;
     shape.FillFormat.GradientFormat.GradientShape = GradientShape.Linear;
 
@@ -226,40 +239,40 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-Výsledek:
+![Elipsa s gradientovým vyplněním](gradient-fill.png)
 
-![Elipsa s gradientovou výplní](gradient-fill.png)
+## **Vzorkované vyplnění**
 
-## **Výplň vzorem**
+V PowerPointu je Vzorkované vyplnění formátovací možnost, která vám umožňuje aplikovat dvoubarevný návrh – například tečky, pruhy, křížové šrafování nebo šachovnici – na tvar. Můžete zvolit vlastní barvy popředí a pozadí vzoru.
 
-V PowerPointu je výplň vzorem formátovací možnost, která vám umožní aplikovat dvoubarevný vzor – například tečky, pruhy, křížové šrafování nebo šachovnici – na tvar. Pro popředí i pozadí vzoru můžete zvolit vlastní barvy.
+Aspose.Slides poskytuje více než 45 předdefinovaných stylů vzorů, které můžete aplikovat na tvary a zvýšit tak vizuální atraktivitu vašich prezentací. I po výběru předdefinovaného vzoru můžete stále určit přesné barvy, které má použít.
 
-Aspose.Slides poskytuje více než 45 předdefinovaných stylů vzorů, které můžete použít na tvary a zvýšit tak vizuální atraktivitu prezentací. I po výběru předdefinovaného vzoru můžete stále určit přesné barvy, které se mají použít.
-
-Postup aplikace výplně vzorem na tvar pomocí Aspose.Slides:
+Toto je postup, jak aplikovat vzorkované vyplnění na tvar pomocí Aspose.Slides:
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/).
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte do snímku [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/).
-1. Nastavte tvaru [FillType](https://reference.aspose.com/slides/cs/net/aspose.slides/filltype/) na `Pattern`.
-1. Vyberte styl vzoru z předdefinovaných možností.
-1. Nastavte [Background Color](https://reference.aspose.com/slides/cs/net/aspose.slides/ipatternformat/backcolor/) vzoru.
-1. Nastavte [Foreground Color](https://reference.aspose.com/slides/cs/net/aspose.slides/ipatternformat/forecolor/) vzoru.
-1. Uložte upravenou prezentaci jako soubor PPTX.
-
-Následující kód v C# ukazuje, jak aplikovat výplň vzorem na obdélník:
+2. Získejte odkaz na snímek podle jeho indexu.
+3. Přidejte do snímku [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/).
+4. Nastavte [FillType](https://reference.aspose.com/slides/cs/net/aspose.slides/filltype/) tvaru na `Pattern`.
+5. Vyberte styl vzoru z předdefinovaných možností.
+6. Nastavte [Background Color](https://reference.aspose.com/slides/cs/net/aspose.slides/ipatternformat/backcolor/) vzoru.
+7. Nastavte [Foreground Color](https://reference.aspose.com/slides/cs/net/aspose.slides/ipatternformat/forecolor/) vzoru.
+8. Uložte upravenou prezentaci jako soubor PPTX.
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
 using (Presentation presentation = new Presentation())
 {
     // Získejte první snímek.
     ISlide slide = presentation.Slides[0];
 
-    // Přidejte automatický tvar typu Obdélník.
+    // Přidejte automatický tvar typu Rectangle.
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Nastavte typ výplně na Vzor.
+    // Nastavte typ výplně na Pattern.
     shape.FillFormat.FillType = FillType.Pattern;
 
     // Nastavte styl vzoru.
@@ -274,89 +287,89 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-Výsledek:
+![Obdélník s vzorkovaným vyplněním](pattern-fill.png)
 
-![Obdélník s výplní vzorem](pattern-fill.png)
+## **Obrázkové vyplnění**
 
-## **Obrázková výplň**
+V PowerPointu je Obrázkové vyplnění formátovací možnost, která vám umožňuje vložit obrázek dovnitř tvaru – efektivně použít obrázek jako pozadí tvaru.
 
-V PowerPointu je obrázková výplň formátovací možnost, která vám umožní vložit obrázek dovnitř tvaru – prakticky použít obrázek jako pozadí tvaru.
-
-Postup použití Aspose.Slides pro aplikaci obrázkové výplně na tvar:
+Toto je postup, jak pomocí Aspose.Slides aplikovat obrázkové vyplnění na tvar:
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/).
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte do snímku [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/).
-1. Nastavte tvaru [FillType](https://reference.aspose.com/slides/cs/net/aspose.slides/filltype/) na `Picture`.
-1. Nastavte režim obrázkové výplně na `Tile` (nebo jiný preferovaný režim).
-1. Vytvořte objekt [IPPImage](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/) z obrázku, který chcete použít.
-1. Přiřaďte tento obrázek vlastnosti `Picture.Image` výplňového formátu `PictureFillFormat` tvaru.
-1. Uložte upravenou prezentaci jako soubor PPTX.
+2. Získejte odkaz na snímek podle jeho indexu.
+3. Přidejte do snímku [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/).
+4. Nastavte [FillType](https://reference.aspose.com/slides/cs/net/aspose.slides/filltype/) tvaru na `Picture`.
+5. Nastavte režim obrázkového vyplnění na `Tile` (nebo jiný preferovaný režim).
+6. Vytvořte objekt [IPPImage](https://reference.aspose.com/slides/cs/net/aspose.slides/ippimage/) z obrázku, který chcete použít.
+7. Přiřaďte tento obrázek vlastnosti `Picture.Image` formátu `PictureFillFormat` tvaru.
+8. Uložte upravenou prezentaci jako soubor PPTX.
 
-Řekněme, že máme soubor **lotus.png** s následujícím obrázkem:
+Předpokládejme, že máme soubor „lotus.png“ s následujícím obrázkem:
 
 ![Obrázek lotusu](lotus.png)
 
-Následující kód v C# ukazuje, jak vyplnit tvar obrázkem:
-
 ```c#
- // Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
- using (Presentation presentation = new Presentation())
- {
-     // Získejte první snímek.
-     ISlide slide = presentation.Slides[0];
- 
-     // Přidejte automatický tvar typu Obdélník.
-     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 255, 130);
- 
-     // Nastavte typ výplně na Obrázek.
-     shape.FillFormat.FillType = FillType.Picture;
- 
-     // Nastavte režim obrázkové výplně.
-     shape.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Tile;
- 
-     // Načtěte obrázek a přidejte jej do zdrojů prezentace.
-     IImage image = Images.FromFile("lotus.png");
-     IPPImage presentationImage = presentation.Images.AddImage(image);
-     image.Dispose();
- 
-     // Nastavte obrázek.
-     shape.FillFormat.PictureFillFormat.Picture.Image = presentationImage;
- 
-     // Uložte soubor PPTX na disk.
-     presentation.Save("picture_fill.pptx", SaveFormat.Pptx);
- }
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
+using (Presentation presentation = new Presentation())
+{
+    // Získejte první snímek.
+    ISlide slide = presentation.Slides[0];
+
+    // Přidejte automatický tvar typu Rectangle.
+    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 255, 130);
+
+    // Nastavte typ výplně na Picture.
+    shape.FillFormat.FillType = FillType.Picture;
+
+    // Nastavte režim vyplnění obrázkem.
+    shape.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Tile;
+
+    // Načtěte obrázek a přidejte jej do zdrojů prezentace.
+    IImage image = Images.FromFile("lotus.png");
+    IPPImage presentationImage = presentation.Images.AddImage(image);
+    image.Dispose();
+
+    // Nastavte obrázek.
+    shape.FillFormat.PictureFillFormat.Picture.Image = presentationImage;
+
+    // Uložte soubor PPTX na disk.
+    presentation.Save("picture_fill.pptx", SaveFormat.Pptx);
+}
 ```
 
-Výsledek:
+![Tvar s obrázkovým vyplněním](picture-fill.png)
 
-![Tvar s obrázkovou výplní](picture-fill.png)
+### **Dlaždicový obrázek jako textura**
 
-### **Dlaždicovat obrázek jako texturu**
+Pokud chcete nastavit dlaždicový obrázek jako texturu a přizpůsobit chování dláždění, můžete použít následující vlastnosti rozhraní [IPictureFillFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/ipicturefillformat/) a třídy [PictureFillFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/picturefillformat/):
 
-Pokud chcete nastavit obrázek jako dlaždicovou texturu a přizpůsobit chování dlaždicování, můžete použít následující vlastnosti rozhraní [IPictureFillFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/ipicturefillformat/) a třídy [PictureFillFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/picturefillformat/):
-
-- [PictureFillMode](https://reference.aspose.com/slides/cs/net/aspose.slides/ipicturefillformat/picturefillmode/): Nastavuje režim obrázkové výplně – `Tile` nebo `Stretch`.
+- [PictureFillMode](https://reference.aspose.com/slides/cs/net/aspose.slides/ipicturefillformat/picturefillmode/): Nastaví režim obrázkového vyplnění – buď `Tile`, nebo `Stretch`.
 - [TileAlignment](https://reference.aspose.com/slides/cs/net/aspose.slides/ipicturefillformat/tilealignment/): Určuje zarovnání dlaždic uvnitř tvaru.
-- [TileFlip](https://reference.aspose.com/slides/cs/net/aspose.slides/ipicturefillformat/tileflip/): Ovládá, zda je dlaždice převrácena horizontálně, vertikálně nebo oběma směry.
-- [TileOffsetX](https://reference.aspose.com/slides/cs/net/aspose.slides/ipicturefillformat/tileoffsetx/): Nastavuje horizontální posun dlaždice (v bodech) od počátku tvaru.
-- [TileOffsetY](https://reference.aspose.com/slides/cs/net/aspose.slides/ipicturefillformat/tileoffsety/): Nastavuje vertikální posun dlaždice (v bodech) od počátku tvaru.
+- [TileFlip](https://reference.aspose.com/slides/cs/net/aspose.slides/ipicturefillformat/tileflip/): Řídí, zda je dlaždice otočena horizontálně, vertikálně nebo obojí.
+- [TileOffsetX](https://reference.aspose.com/slides/cs/net/aspose.slides/ipicturefillformat/tileoffsetx/): Nastaví horizontální posun dlaždice (v bodech) od počátku tvaru.
+- [TileOffsetY](https://reference.aspose.com/slides/cs/net/aspose.slides/ipicturefillformat/tileoffsety/): Nastaví vertikální posun dlaždice (v bodech) od počátku tvaru.
 - [TileScaleX](https://reference.aspose.com/slides/cs/net/aspose.slides/ipicturefillformat/tilescalex/): Definuje horizontální měřítko dlaždice v procentech.
 - [TileScaleY](https://reference.aspose.com/slides/cs/net/aspose.slides/ipicturefillformat/tilescaley/): Definuje vertikální měřítko dlaždice v procentech.
 
-Následující ukázkový kód ukazuje, jak přidat obdélníkový tvar s dlaždicovou obrázkovou výplní a nakonfigurovat možnosti dlaždic:
+Následující ukázka kódu ukazuje, jak přidat obdélníkový tvar s dlaždicovým obrázkovým vyplněním a nakonfigurovat možnosti dlaždic:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
 using (Presentation presentation = new Presentation())
 {
     // Získejte první snímek.
     ISlide firstSlide = presentation.Slides[0];
 
-    // Přidejte automatický tvar typu Obdélník.
+    // Přidejte automatický tvar typu Rectangle.
     IAutoShape shape = firstSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 190, 95);
 
-    // Nastavte typ výplně tvaru na Obrázek.
+    // Nastavte typ výplně tvaru na Picture.
     shape.FillFormat.FillType = FillType.Picture;
 
     // Načtěte obrázek a přidejte jej do zdrojů prezentace.
@@ -364,11 +377,11 @@ using (Presentation presentation = new Presentation())
     using (IImage sourceImage = Images.FromFile("lotus.png"))
         presentationImage = presentation.Images.AddImage(sourceImage);
 
-    // Přiřaďte obrázek k tvaru.
+    // Přiřaďte obrázek ke tvaru.
     IPictureFillFormat pictureFillFormat = shape.FillFormat.PictureFillFormat;
     pictureFillFormat.Picture.Image = presentationImage;
 
-    // Nakonfigurujte režim obrázkové výplně a vlastnosti dlaždicování.
+    // Nakonfigurujte režim vyplnění obrázkem a vlastnosti dláždění.
     pictureFillFormat.PictureFillMode = PictureFillMode.Tile;
     pictureFillFormat.TileOffsetX = -32;
     pictureFillFormat.TileOffsetY = -32;
@@ -382,36 +395,36 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-Výsledek:
+![Možnosti dláždění](tile-options.png)
 
-![Možnosti dlaždicování](tile-options.png)
+## **Jednobarevné vyplnění**
 
-## **Jednobarevná výplň**
+V PowerPointu je Jednobarevné vyplnění formátovací možnost, která vyplní tvar jednou jednotnou barvou. Tato jednoduchá barva pozadí se použije bez jakýchkoli gradientů, textur nebo vzorů.
 
-V PowerPointu je jednobarevná výplň formátovací možnost, která vyplní tvar jednou, jednotnou barvou. Tento jednoduchý podklad se aplikuje bez gradientů, textur nebo vzorů.
-
-Postup aplikace jednobarevné výplně na tvar pomocí Aspose.Slides:
+Pro aplikaci jednobarevného vyplnění na tvar pomocí Aspose.Slides postupujte následovně:
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/).
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte do snímku [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/).
-1. Nastavte tvaru [FillType](https://reference.aspose.com/slides/cs/net/aspose.slides/filltype/) na `Solid`.
-1. Přiřaďte požadovanou barvu výplně tvaru.
-1. Uložte upravenou prezentaci jako soubor PPTX.
-
-Následující kód v C# ukazuje, jak aplikovat jednobarevnou výplň na obdélník v PowerPoint snímku:
+2. Získejte odkaz na snímek podle jeho indexu.
+3. Přidejte do snímku [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/).
+4. Nastavte [FillType](https://reference.aspose.com/slides/cs/net/aspose.slides/filltype/) tvaru na `Solid`.
+5. Přiřaďte požadovanou barvu vyplnění tvaru.
+6. Uložte upravenou prezentaci jako soubor PPTX.
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
 using (Presentation presentation = new Presentation())
 {
     // Získejte první snímek.
     ISlide slide = presentation.Slides[0];
 
-    // Přidejte automatický tvar typu Obdélník.
+    // Přidejte automatický tvar typu Rectangle.
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Nastavte typ výplně na Jednobarevný.
+    // Nastavte typ výplně na Solid.
     shape.FillFormat.FillType = FillType.Solid;
 
     // Nastavte barvu výplně.
@@ -422,26 +435,26 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-Výsledek:
-
-![Tvar s jednobarevnou výplní](solid-color-fill.png)
+![Tvar s jednobarevným vyplněním](solid-color-fill.png)
 
 ## **Nastavení průhlednosti**
 
-V PowerPointu, když použijete jednobarevnou, gradientovou, obrázkovou nebo texturovou výplň na tvary, můžete také nastavit úroveň průhlednosti, která řídí neprůhlednost výplně. Vyšší hodnota průhlednosti způsobí, že bude tvar více průhledný, což umožní viditelnost pozadí nebo podkladových objektů.
+V PowerPointu, když použijete jednobarevné, gradientové, obrázkové nebo texturové vyplnění na tvary, můžete také nastavit úroveň průhlednosti, která řídí neprůhlednost vyplnění. Vyšší hodnota průhlednosti způsobí, že tvar bude průhlednější a umožní částečnou viditelnost pozadí nebo podkladových objektů.
 
-Aspose.Slides umožňuje nastavit úroveň průhlednosti úpravou alfa komponenty ve barvě použitých pro výplň. Postup:
+Aspose.Slides vám umožňuje nastavit úroveň průhlednosti úpravou alfa komponenty barvy použité pro vyplnění. Zde je postup:
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/).
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte do snímku [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/).
-1. Nastavte [FillType](https://reference.aspose.com/slides/cs/net/aspose.slides/filltype/) na `Solid`.
-1. Použijte `Color.FromArgb(alpha, baseColor)` k definování barvy s průhledností (komponenta `alpha` řídí průhlednost).
-1. Uložte prezentaci.
-
-Následující kód v C# ukazuje, jak aplikovat průhlednou barvu výplně na obdélník:
+2. Získejte odkaz na snímek podle jeho indexu.
+3. Přidejte do snímku [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/).
+4. Nastavte [FillType](https://reference.aspose.com/slides/cs/net/aspose.slides/filltype/) tvaru na `Solid`.
+5. Použijte `Color.FromArgb(alpha, baseColor)` k definování barvy s průhledností (komponenta `alpha` řídí průhlednost).
+6. Uložte prezentaci.
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 const int alpha = 128;
 
 // Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
@@ -450,10 +463,10 @@ using (Presentation presentation = new Presentation())
     // Získejte první snímek.
     ISlide slide = presentation.Slides[0];
 
-    // Přidejte plný obdélníkový automatický tvar.
+    // Přidejte automatický tvar obdélníku s plnou výplní.
     IAutoShape solidShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Přidejte průhledný obdélníkový automatický tvar nad plný tvar.
+    // Přidejte transparentní automatický tvar obdélníku nad plný tvar.
     IAutoShape transparentShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 80, 80, 150, 75);
     transparentShape.FillFormat.FillType = FillType.Solid;
     transparentShape.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Yellow);
@@ -463,61 +476,60 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-Výsledek:
-
 ![Průhledný tvar](shape-transparency.png)
 
 ## **Otáčení tvarů**
 
-Aspose.Slides umožňuje otáčet tvary v PowerPoint prezentacích. To může být užitečné při umisťování vizuálních prvků s konkrétním zarovnáním nebo designovými požadavky.
+Aspose.Slides vám umožňuje otáčet tvary v prezentacích PowerPoint. To může být užitečné při umisťování vizuálních prvků s konkrétními požadavky na zarovnání nebo design.
 
-Postup otáčení tvaru na snímku:
+Pro otáčení tvaru na snímku postupujte podle následujících kroků:
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/).
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte do snímku [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/).
-1. Nastavte vlastnost `Rotation` tvaru na požadovaný úhel.
-1. Uložte prezentaci.
-
-Následující kód v C# ukazuje, jak otočit tvar o 5 stupňů:
+2. Získejte odkaz na snímek podle jeho indexu.
+3. Přidejte do snímku [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/).
+4. Nastavte vlastnost `Rotation` tvaru na požadovaný úhel.
+5. Uložte prezentaci.
 
 ```c#
- // Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
- using (Presentation presentation = new Presentation())
- {
-     // Získejte první snímek.
-     ISlide slide = presentation.Slides[0];
- 
-     // Přidejte automatický tvar typu Obdélník.
-     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
- 
-     // Otočte tvar o 5 stupňů.
-     shape.Rotation = 5;
- 
-     // Uložte soubor PPTX na disk.
-     presentation.Save("shape_rotation.pptx", SaveFormat.Pptx);
- }
-```
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-Výsledek:
+// Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
+using (Presentation presentation = new Presentation())
+{
+    // Získejte první snímek.
+    ISlide slide = presentation.Slides[0];
+
+    // Přidejte automatický tvar typu Rectangle.
+    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
+
+    // Otočte tvar o 5 stupňů.
+    shape.Rotation = 5;
+
+    // Uložte soubor PPTX na disk.
+    presentation.Save("shape_rotation.pptx", SaveFormat.Pptx);
+}
+```
 
 ![Otáčení tvaru](shape-rotation.png)
 
-## **Přidání 3D efektů zkosení**
+## **Přidání 3D zkosených efektů**
 
-Aspose.Slides umožňuje aplikovat 3D efekty zkosení na tvary konfigurací jejich vlastností [ThreeDFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/threedformat/).
+Aspose.Slides vám umožňuje aplikovat 3D zkosené efekty na tvary konfigurací jejich vlastností [ThreeDFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/threedformat/).
 
-Postup přidání 3D efektů zkosení na tvar:
+Pro přidání 3D zkosených efektů na tvar postupujte takto:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/).
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte do snímku [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/).
-1. Nakonfigurujte [ThreeDFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/threedformat/) tvaru pro definování nastavení zkosení.
-1. Uložte prezentaci.
-
-Následující kód v C# ukazuje, jak aplikovat 3D efekty zkosení na tvar:
+1. Instancujte třídu [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/).
+2. Získejte odkaz na snímek podle jeho indexu.
+3. Přidejte do snímku [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/).
+4. Nakonfigurujte [ThreeDFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/threedformat/) tvaru pro definování nastavení zkosení.
+5. Uložte prezentaci.
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Vytvořte instanci třídy Presentation.
 using (Presentation presentation = new Presentation())
 {
@@ -545,25 +557,24 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-Výsledek:
+![3D zkosený efekt](3D-bevel-effect.png)
 
-![3D efekt zkosení](3D-bevel-effect.png)
+## **Přidání 3D rotačních efektů**
 
-## **Přidání 3D efektů otáčení**
+Aspose.Slides vám umožňuje aplikovat 3D rotační efekty na tvary konfigurací jejich vlastností [ThreeDFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/threedformat/).
 
-Aspose.Slides umožňuje aplikovat 3D efekty otáčení na tvary konfigurací jejich vlastností [ThreeDFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/threedformat/).
-
-Postup aplikace 3D otáčení na tvar:
+Pro aplikaci 3D rotace na tvar:
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/).
-1. Získejte odkaz na snímek podle jeho indexu.
-1. Přidejte do snímku [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/).
-1. Nastavte [CameraType](https://reference.aspose.com/slides/cs/net/aspose.slides/icamera/cameratype/) a [LightType](https://reference.aspose.com/slides/cs/net/aspose.slides/ilightrig/lighttype/) tvaru pro definování 3D otáčení.
-1. Uložte prezentaci.
-
-Následující kód v C# ukazuje, jak aplikovat 3D efekty otáčení na tvar:
+2. Získejte odkaz na snímek podle jeho indexu.
+3. Přidejte do snímku [IAutoShape](https://reference.aspose.com/slides/cs/net/aspose.slides/iautoshape/).
+4. Nastavte [CameraType](https://reference.aspose.com/slides/cs/net/aspose.slides/icamera/cameratype/) a [LightType](https://reference.aspose.com/slides/cs/net/aspose.slides/ilightrig/lighttype/) tvaru pro definování 3D rotace.
+5. Uložte prezentaci.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Vytvořte instanci třídy Presentation.
 using (Presentation presentation = new Presentation())
 {
@@ -572,7 +583,6 @@ using (Presentation presentation = new Presentation())
     IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
     autoShape.TextFrame.Text = "Hello, Aspose!";
 
-    autoShape.ThreeDFormat.Depth = 6;
     autoShape.ThreeDFormat.Camera.SetRotation(40, 35, 20);
     autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.IsometricLeftUp;
     autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
@@ -582,20 +592,49 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-Výsledek:
+![3D rotační efekt](3D-rotation-effect.png)
 
-![3D efekt otáčení](3D-rotation-effect.png)
+## **Řízení černobílého vykreslení pro tvary**
 
-## **Obnovení formátování**
+Vlastnost [IShape.BlackWhiteMode](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/blackwhitemode/) určuje, jak se jednotlivý tvar vykreslí, když je prezentace zobrazena nebo zpracována v černobílém režimu. Sama o sobě neaktivuje černobílé zobrazení a nemění vyplnění, čáru ani jiné formátování tvaru v normálním barevném režimu.
 
-Následující kód v C# ukazuje, jak obnovit formátování snímku a vrátit pozici, velikost a formátování všech tvarů se zástupci na [LayoutSlide](https://reference.aspose.com/slides/cs/net/aspose.slides/layoutslide/) do jejich výchozích nastavení:
+Při výběru požadovaného chování použijte hodnotu z výčtu [BlackWhiteMode](https://reference.aspose.com/slides/cs/net/aspose.slides/blackwhitemode/). Například `Automatic` ponechá výběr konverze na aplikaci, `Gray` a `LightGray` použijí šedé zbarvení, `BlackWhite` používá jen černou a bílou, `Black` a `White` vynutí jedinou barvu, `Color` zachová normální barvu a `Hidden` vynechá tvar v černobílém režimu. `NotDefined` znamená, že není přiřazen žádný režim na úrovni tvaru.
+
+Následující kód C# vytvoří barevný tvar a zobrazí jej šedě v černobílém režimu zobrazení:
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
+shape.FillFormat.FillType = FillType.Solid;
+shape.FillFormat.SolidFillColor.Color = Color.Orange;
+
+// Udržte oranžovou výplň v barevném režimu, ale vykreslete tvar se šedým zbarvením v černobílém režimu.
+shape.BlackWhiteMode = BlackWhiteMode.Gray;
+
+presentation.Save("shape_black_white_mode.pptx", SaveFormat.Pptx);
+```
+
+V normálním barevném režimu si obdélník zachová oranžové vyplnění. V černobílém pracovním procesu se použije šedé zbarvení, protože jeho režim je nastaven na `Gray`. To vám umožní zachovat snímek v plné barvě a zároveň definovat odlišný vzhled pro tisk, náhled nebo jiné procesy, které respektují nastavení černobílého zobrazení prezentace.
+
+## **Resetování formátování**
+
+Následující kód C# ukazuje, jak resetovat formátování snímku a vrátit pozici, velikost a formátování všech tvarů s místodržiteli na [LayoutSlide](https://reference.aspose.com/slides/cs/net/aspose.slides/layoutslide/) na výchozí nastavení:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     foreach (ISlide slide in presentation.Slides)
     {
-        // Resetujte každý tvar na snímku, který má zástupce v rozvržení.
+        // Resetujte každý tvar na snímku, který má placeholder v rozložení.
         slide.Reset();
     }
 
@@ -605,14 +644,14 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 
 ## **Často kladené otázky**
 
-**Ovlivňuje formátování tvarů konečnou velikost souboru prezentace?**
+**Ovlivňuje formátování tvaru konečnou velikost souboru prezentace?**
 
-Pouze minimálně. Vložené obrázky a média zabírají většinu místa v souboru, zatímco parametry tvarů jako barvy, efekty a gradienty jsou uloženy jako metadata a prakticky nepřidávají žádnou extra velikost.
+Pouze minimálně. Vložené obrázky a média zabírají většinu místa v souboru, zatímco parametry tvarů, jako jsou barvy, efekty a gradienty, jsou uloženy jako metadata a téměř nepřidávají žádnou velikost.
 
-**Jak mohu detekovat tvary na snímku, které mají identické formátování, abych je mohl seskupit?**
+**Jak mohu na snímku zjistit tvary, které mají identické formátování, abych je mohl seskupit?**
 
-Porovnejte klíčové vlastnosti formátování každého tvaru – nastavení výplně, čáry a efektů. Pokud se všechny odpovídající hodnoty shodují, považujte jejich styly za identické a logicky je seskupte, což usnadní následnou správu stylů.
+Porovnejte klíčové vlastnosti formátování každého tvaru – nastavení vyplnění, čáry a efektů. Pokud se všechny odpovídající hodnoty shodují, považujte jejich styly za identické a logicky je seskupte, což usnadní následnou správu stylů.
 
 **Mohu uložit sadu vlastních stylů tvarů do samostatného souboru pro opětovné použití v jiných prezentacích?**
 
-Ano. Uložte ukázkové tvary s požadovanými styly do šablony snímků nebo souboru .POTX. Při tvorbě nové prezentace otevřete šablonu, zkopírujte potřebné stylované tvary a znovu aplikujte jejich formátování kdekoliv je to potřeba.
+Ano. Uložte vzorové tvary s požadovanými styly do šablony snímků nebo souboru .POTX. Při vytváření nové prezentace otevřete šablonu, naklonujte potřebné stylované tvary a znovu aplikujte jejich formátování tam, kde je potřeba.

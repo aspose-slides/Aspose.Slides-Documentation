@@ -1,6 +1,6 @@
 ---
 title: PowerPoint alakzatok formázása .NET-ben
-linktitle: Alakzatformázás
+linktitle: Alakzat Formázása
 type: docs
 weight: 20
 url: /hu/net/shape-formatting/
@@ -8,16 +8,18 @@ keywords:
 - alakzat formázása
 - vonal formázása
 - vázlat hatás
-- vázlat alakvonal
+- vázlat vonal
 - csatlakozási stílus formázása
 - színátmenetes kitöltés
 - mintás kitöltés
 - kép kitöltés
 - textúra kitöltés
 - egyszínű kitöltés
-- alakzat átlátszósága
+- alakzat átlátszóság
+- fekete-fehér alakzat renderelés
+- szürkeárnyalatos alakzat renderelés
 - alakzat forgatása
-- 3D lekerekített hatás
+- 3D lekerekítési hatás
 - 3D forgatási hatás
 - formázás visszaállítása
 - PowerPoint
@@ -25,50 +27,54 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Tanulja meg, hogyan formázhatja a PowerPoint alakzatokat C#-ban az Aspose.Slides segítségével — állítson be kitöltési, vonal- és effektus stílusokat PPT és PPTX fájlokhoz precízen és teljes körű irányítással."
+description: "Ismerje meg, hogyan formázhatja a PowerPoint alakzatokat C#-ban az Aspose.Slides segítségével – állítsa be a kitöltés, vonal és effektus stílusokat PPT és PPTX fájlokhoz precízen és teljes irányítással."
 ---
 ## **Bevezetés**
 
-A PowerPointban alakzatokat adhatunk a diákhoz. Mivel az alakzatok vonalakból állnak, a kontúrok módosításával vagy hatások alkalmazásával formázhatók. Emellett az alakzatok kitöltésének beállításával szabályozhatjuk a belső terület megjelenését.
+A PowerPointban alakzatokat adhat hozzá a diákhoz. Mivel az alakzatok vonalakból állnak, formázhatja őket a körvonalak módosításával vagy hatások alkalmazásával. Továbbá beállíthatja az alakzatok belső kitöltését szabályozó beállításokat.
 
 ![format-shape-powerpoint](format-shape-powerpoint.png)
 
-Az Aspose.Slides for .NET felületeket és tulajdonságokat biztosít, amelyekkel az alakzatokat a PowerPointban elérhető ugyanazokkal a beállításokkal formázhatja.
+Az Aspose.Slides for .NET interfészeket és tulajdonságokat biztosít, amelyekkel a PowerPointban elérhető ugyanazokkal az opciókkal formázhatja az alakzatokat.
 
 ## **Vonalak formázása**
 
-Az Aspose.Slides segítségével egy alakzat egyéni vonalstílusát adhatja meg. A következő lépések ismertetik az eljárást:
+Az Aspose.Slides segítségével egy alakzat egyéni vonalstílusát adhatja meg. Az alábbi lépések mutatják a folyamatot:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztályból.
-1. Szerezzen hivatkozást egy diára az indexe alapján.
-1. Adjon hozzá egy [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/) elemet a diához.
-1. Állítsa be az alakzat [line style](https://reference.aspose.com/slides/hu/net/aspose.slides/linestyle/)‑ját.
-1. Állítsa be a vonalszélességet.
-1. Állítsa be a vonal [dash style](https://reference.aspose.com/slides/hu/net/aspose.slides/linedashstyle/)‑ját.
-1. Állítsa be a vonal színét az alakzathoz.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztályból.  
+1. Szerezzen referenciát egy diára az indexe alapján.  
+1. Adj hozzá egy [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/) elemet a diához.  
+1. Állítsa be az alakzat [vonalstílusát](https://reference.aspose.com/slides/hu/net/aspose.slides/linestyle/).  
+1. Állítsa be a vonalvastagságot.  
+1. Állítsa be a vonal [szaggatott stílusát](https://reference.aspose.com/slides/hu/net/aspose.slides/linedashstyle/).  
+1. Állítsa be az alakzat vonalszínét.  
 1. Mentse a módosított prezentációt PPTX fájlként.
 
-Az alábbi C# kód bemutatja, hogyan formázzon egy téglalap `AutoShape`‑t:
+Az alábbi C# kód bemutatja, hogyan formázhat egy téglalap `AutoShape`‑t:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Példányosítsa a Presentation osztályt, amely egy prezentációs fájlt képvisel.
 using (Presentation presentation = new Presentation())
 {
     // Szerezze meg az első diát.
     ISlide slide = presentation.Slides[0];
 
-    // Adjon hozzá egy automatikus alakzatot Rectangle típusúként.
+    // Adjon hozzá egy Rectangle típusú automatikus alakzatot.
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Állítsa be a téglalap alakzat kitöltő színét.
+    // Állítsa be a téglalap alakzat kitöltőszínét.
     shape.FillFormat.FillType = FillType.NoFill;
 
-    // Alkalmazzon formázást a téglalap vonalaira.
+    // Alkalmazza a formázást a téglalap vonalaira.
     shape.LineFormat.Style = LineStyle.ThickThin;
     shape.LineFormat.Width = 7;
     shape.LineFormat.DashStyle = LineDashStyle.Dash;
 
-    // Állítsa be a téglalap vonal színét.
+    // Állítsa be a téglalap vonalának színét.
     shape.LineFormat.FillFormat.FillType = FillType.Solid;
     shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
 
@@ -79,37 +85,41 @@ using (Presentation presentation = new Presentation())
 
 Az eredmény:
 
-![The formatted lines in the presentation](formatted-lines.png)
+![A formázott vonalak a prezentációban](formatted-lines.png)
 
-## **Vázlat hatások alkalmazása alakvonalakra**
+## **Vázlatos hatások alkalmazása az alakzat vonalaira**
 
-A vázlat hatás kézzel rajzolt vonalat eredményez. Használja az [IShape.LineFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/ishape/lineformat/)‑t a vonalbeállítások eléréséhez, az [ILineFormat.SketchFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/ilineformat/sketchformat/)‑t a vázlat beállításokhoz, valamint az [ISketchFormat.SketchType](https://reference.aspose.com/slides/hu/net/aspose.slides/isketchformat/sketchtype/)‑t a [LineSketchType](https://reference.aspose.com/slides/hu/net/aspose.slides/linesketchtype/) felsorolásból történő érték kiválasztásához.
+A vázlatos hatás úgy teszi a vonalat, mintha kézzel rajzolták volna. Használja az [IShape.LineFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/ishape/lineformat/) interfészt a vonal beállításainak eléréséhez, az [ILineFormat.SketchFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/ilineformat/sketchformat/) interfészt a vázlat beállításaihoz, és az [ISketchFormat.SketchType](https://reference.aspose.com/slides/hu/net/aspose.slides/isketchformat/sketchtype/) interfészt a [LineSketchType](https://reference.aspose.com/slides/hu/net/aspose.slides/linesketchtype/) felsorolás értékének kiválasztásához.
 
-Az alábbi C# kód megmutatja, hogyan alkalmazzon egy [LineSketchType.Curved](https://reference.aspose.com/slides/hu/net/aspose.slides/linesketchtype/) hatást, hogyan olvassa ki a kifejezetten hozzárendelt értéket, és hogyan távolítsa el a hatást a [LineSketchType.None](https://reference.aspose.com/slides/hu/net/aspose.slides/linesketchtype/) használatával:
+Az alábbi C# kód megmutatja, hogyan alkalmazzon egy [LineSketchType.Curved](https://reference.aspose.com/slides/hu/net/aspose.slides/linesketchtype/) hatást, olvassa ki a kifejezetten hozzárendelt értéket, és távolítsa el a hatást a [LineSketchType.None](https://reference.aspose.com/slides/hu/net/aspose.slides/linesketchtype/) segítségével:
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation();
 
 var slide = presentation.Slides[0];
 var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
 
-// Hozzáférés az alakzat vonalformátumához és a vázlatformátumához.
+// Access the shape's line format and its sketch format.
 var sketchFormat = shape.LineFormat.SketchFormat;
 
-// Vázlat hatás alkalmazása.
+// Apply a sketch effect.
 sketchFormat.SketchType = LineSketchType.Curved;
 
-// A formára közvetlenül hozzárendelt vázlat hatás olvasása.
+// Read the sketch effect assigned directly to the shape.
 var explicitSketchType = sketchFormat.SketchType;
 Console.WriteLine($"Explicit sketch type: {explicitSketchType}");
 
-// A vázlat hatás eltávolítása.
+// Remove the sketch effect.
 sketchFormat.SketchType = LineSketchType.None;
 ```
 
-Az `ISketchFormat.SketchType` által visszaadott érték azt a beállítást jelenti, amely közvetlenül az alakzatra lett hozzárendelve. Ha a vonalformázás egy témából, mesterdiából vagy elrendezési diából öröklődik, használja az [ILineFormat.GetEffective](https://reference.aspose.com/slides/hu/net/aspose.slides/ilineformat/geteffective/)‑t, férjen hozzá az [ILineFormatEffectiveData.SketchFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/ilineformateffectivedata/sketchformat/)‑hez, és olvassa ki az [ISketchFormatEffectiveData.SketchType](https://reference.aspose.com/slides/hu/net/aspose.slides/isketchformateffectivedata/sketchtype/) értékét. A hatékony érték tükrözi a ténylegesen alkalmazott formázást az öröklődés feloldása után:
+Az `ISketchFormat.SketchType` által visszaadott érték a közvetlenül az alakzatra beállított formátumot jelenti. Ha a vonal formázását egy téma, mesterdia vagy elrendezési dia örökölheti, használja az [ILineFormat.GetEffective](https://reference.aspose.com/slides/hu/net/aspose.slides/ilineformat/geteffective/) metódust, érje el az [ILineFormatEffectiveData.SketchFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/ilineformateffectivedata/sketchformat/) elemet, és olvassa ki az [ISketchFormatEffectiveData.SketchType](https://reference.aspose.com/slides/hu/net/aspose.slides/isketchformateffectivedata/sketchtype/) értékét. A hatékony érték a ténylegesen alkalmazott formázást tükrözi az öröklődés feloldása után:
 
 ```csharp
+using Aspose.Slides;
+
 using var presentation = new Presentation("presentation.pptx");
 
 var shape = presentation.Slides[0].Shapes[0];
@@ -125,31 +135,35 @@ Console.WriteLine($"Effective sketch type: {effectiveSketchType}");
 
 ## **Csatlakozási stílusok formázása**
 
-Az alábbi három csatlakozási típus közül választhat:
+Itt a három csatlakozási típus lehetősége:
 
-* Round
-* Miter
-* Bevel
+* Round  
+* Miter  
+* Bevel  
 
-Alapértelmezés szerint, amikor a PowerPoint két vonalat szöggel (például egy alakzat sarkán) egyesít, a **Round** beállítást használja. Ha azonban olyan alakzatot rajzol, amelynek éles szögei vannak, előfordulhat, hogy a **Miter** opciót részesíti előnyben.
+Alapértelmezés szerint, amikor a PowerPoint két vonalat egy szögnél (például egy alakzat sarkán) kapcsol össze, a **Round** beállítást használja. Ha éles szögekkel rendelkező alakzatot rajzol, a **Miter** opció lehet előnyösebb.
 
-![The join style in the presentation](join-style-powerpoint.png)
+![A csatlakozási stílus a prezentációban](join-style-powerpoint.png)
 
-Az alábbi C# kód bemutatja, hogyan hoztak létre három téglalapot (a fenti képen látható) a Miter, Bevel és Round csatlakozási beállításokkal:
+Az alábbi C# kód bemutatja, hogyan hoztak létre három téglalapot (az előző képen látható) a Miter, Bevel és Round csatlakozási beállításokkal:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Példányosítsa a Presentation osztályt, amely egy prezentációs fájlt képvisel.
 using (Presentation presentation = new Presentation())
 {
     // Szerezze meg az első diát.
     ISlide slide = presentation.Slides[0];
 
-    // Adjon hozzá három automatikus alakzatot Rectangle típusúként.
+    // Adjon hozzá három Rectangle típusú automatikus alakzatot.
     IAutoShape shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 75);
     IAutoShape shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 210, 20, 150, 75);
     IAutoShape shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 135, 150, 75);
 
-    // Állítsa be minden téglalap alakzat kitöltő színét.
+    // Állítsa be a kitöltőszínt minden téglalap alakzatra.
     shape1.FillFormat.FillType = FillType.Solid;
     shape1.FillFormat.SolidFillColor.Color = Color.Black;
     shape2.FillFormat.FillType = FillType.Solid;
@@ -162,7 +176,7 @@ using (Presentation presentation = new Presentation())
     shape2.LineFormat.Width = 15;
     shape3.LineFormat.Width = 15;
 
-    // Állítsa be minden téglalap vonalának színét.
+    // Állítsa be a vonal színét minden téglalaphoz.
     shape1.LineFormat.FillFormat.FillType = FillType.Solid;
     shape1.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
     shape2.LineFormat.FillFormat.FillType = FillType.Solid;
@@ -187,37 +201,40 @@ using (Presentation presentation = new Presentation())
 
 ## **Színátmenetes kitöltés**
 
-A PowerPointban a Színátmenetes kitöltés egy formázási lehetőség, amely lehetővé teszi, hogy folyamatos színátmenetet alkalmazzon egy alakzatra. Például két vagy több színt alkalmazhat úgy, hogy az egyik fokozatosan elhalványuljon a másikba.
+A PowerPointban a Színátmenetes kitöltés egy olyan formázási lehetőség, amely lehetővé teszi, hogy egy alakzatra folyamatos színátmenetet alkalmazzon. Például több színt is alkalmazhat úgy, hogy az egyik fokozatosan elhalványul a másikba.
 
-Íme, hogyan alkalmazzon színátmenetes kitöltést egy alakzatra az Aspose.Slides segítségével:
+Az alábbiak szerint alkalmazhat színátmenetes kitöltést egy alakzatra az Aspose.Slides segítségével:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztályból.
-1. Szerezzen hivatkozást egy diára az indexe alapján.
-1. Adjon hozzá egy [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/) elemet a diához.
-1. Állítsa be az alakzat [FillType](https://reference.aspose.com/slides/hu/net/aspose.slides/filltype/)‑ját `Gradient`‑ra.
-1. Adja hozzá a két kedvenc színét a definiált pozíciókkal a [IGradientFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/igradientformat/) interfész által biztosított gradient stop gyűjtemény `Add` metódusaival.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztályból.  
+1. Szerezzen referenciát egy diára az indexe alapján.  
+1. Adj hozzá egy [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/) elemet a diához.  
+1. Állítsa be az alakzat [FillType](https://reference.aspose.com/slides/hu/net/aspose.slides/filltype/) értékét `Gradient`‑ra.  
+1. Az [IGradientFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/igradientformat/) interfész által biztosított színátmenet‑állomásgyűjtemény `Add` metódusaival adja meg a kívánt színeket és pozíciókat.  
 1. Mentse a módosított prezentációt PPTX fájlként.
 
-Az alábbi C# kód bemutatja, hogyan alkalmazzon színátmenetes kitöltési hatást egy ellipszisre:
+Az alábbi C# kód bemutatja, hogyan alkalmazzon színátmenetes kitöltést egy ellipszisre:
 
 ```c#
- // Példányosítsa a Presentation osztályt, amely egy prezentációs fájlt képvisel.
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Példányosítsa a Presentation osztályt, amely egy prezentációs fájlt képvisel.
 using (Presentation presentation = new Presentation())
 {
     // Szerezze meg az első diát.
     ISlide slide = presentation.Slides[0];
 
-    // Adjon hozzá egy automatikus alakzatot Ellipse típusúként.
+    // Adjon hozzá egy Ellipse típusú automatikus alakzatot.
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 50, 150, 75);
 
-    // Alkalmazzon színátmenetes formázást az ellipszisre.
+    // Alkalmazza a színátmenetes formázást az ellipszisre.
     shape.FillFormat.FillType = FillType.Gradient;
     shape.FillFormat.GradientFormat.GradientShape = GradientShape.Linear;
 
     // Állítsa be a színátmenet irányát.
     shape.FillFormat.GradientFormat.GradientDirection = GradientDirection.FromCorner2;
 
-    // Adjon hozzá két színátmenet állomást.
+    // Adjon hozzá két színátmenet‑állomást.
     shape.FillFormat.GradientFormat.GradientStops.Add(1.0f, PresetColor.Purple);
     shape.FillFormat.GradientFormat.GradientStops.Add(0.0f, PresetColor.Red);
 
@@ -228,41 +245,45 @@ using (Presentation presentation = new Presentation())
 
 Az eredmény:
 
-![The ellipse with gradient fill](gradient-fill.png)
+![Az ellipszis színátmenetes kitöltéssel](gradient-fill.png)
 
 ## **Minta kitöltés**
 
-A PowerPointban a Minta kitöltés egy formázási lehetőség, amely lehetővé teszi, hogy két színű mintát – például pontokat, csíkokat, keresztvonalakat vagy négyzeteket – alkalmazzon egy alakzatra. A minta előtér- és háttérszíneit egyedi színekkel állíthatja be.
+A PowerPointban a Minta kitöltés egy olyan formázási lehetőség, amely lehetővé teszi egy két színű minta – például pontok, csíkok, keresztvonalak vagy négyzethálók – alkalmazását egy alakzatra. A minta előtér- és háttérszínét is testre szabhatja.
 
-Az Aspose.Slides több mint 45 előre definiált mintastílust biztosít, amelyeket alakzatokra alkalmazhat a bemutatók vizuális vonzerejének növelése érdekében. Még előre definiált minta kiválasztása után is megadhatja a pontos színeket, amelyeket használjon.
+Az Aspose.Slides több mint 45 előre definiált mintastílust kínál, amelyeket alakzatokra alkalmazva növelheti a prezentációk vizuális hatását. Még előre definiált minta választása után is megadhatja a pontos színeket, amelyeket a minta használjon.
 
-Íme, hogyan alkalmazzon minta kitöltést egy alakzatra az Aspose.Slides segítségével:
+Az alábbiak szerint alkalmazhat mintát egy alakzatra az Aspose.Slides segítségével:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztályból.
-1. Szerezzen hivatkozást egy diára az indexe alapján.
-1. Adjon hozzá egy [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/) elemet a diához.
-1. Állítsa be az alakzat [FillType](https://reference.aspose.com/slides/hu/net/aspose.slides/filltype/)‑ját `Pattern`‑ra.
-1. Válasszon egy mintastílust az előre definiált lehetőségek közül.
-1. Állítsa be a minta [Background Color](https://reference.aspose.com/slides/hu/net/aspose.slides/ipatternformat/backcolor/)‑ját.
-1. Állítsa be a minta [Foreground Color](https://reference.aspose.com/slides/hu/net/aspose.slides/ipatternformat/forecolor/)‑ját.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztályból.  
+1. Szerezzen referenciát egy diára az indexe alapján.  
+1. Adj hozzá egy [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/) elemet a diához.  
+1. Állítsa be az alakzat [FillType](https://reference.aspose.com/slides/hu/net/aspose.slides/filltype/) értékét `Pattern`‑ra.  
+1. Válasszon egy mintastílust az előre definiált lehetőségek közül.  
+1. Állítsa be a minta [Background Color](https://reference.aspose.com/slides/hu/net/aspose.slides/ipatternformat/backcolor/) értékét.  
+1. Állítsa be a minta [Foreground Color](https://reference.aspose.com/slides/hu/net/aspose.slides/ipatternformat/forecolor/) értékét.  
 1. Mentse a módosított prezentációt PPTX fájlként.
 
-Az alábbi C# kód bemutatja, hogyan alkalmazzon minta kitöltést egy téglalapra:
+Az alábbi C# kód bemutatja, hogyan alkalmazzon mintát egy téglalapra:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Példányosítsa a Presentation osztályt, amely egy prezentációs fájlt képvisel.
 using (Presentation presentation = new Presentation())
 {
     // Szerezze meg az első diát.
     ISlide slide = presentation.Slides[0];
 
-    // Adjon hozzá egy automatikus alakzatot Rectangle típusúként.
+    // Adjon hozzá egy Rectangle típusú automatikus alakzatot.
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Állítsa be a kitöltés típusát Pattern-re.
+    // Állítsa be a kitöltést Pattern típusra.
     shape.FillFormat.FillType = FillType.Pattern;
 
-    // Állítsa be a minta stílusát.
+    // Állítsa be a mintastílust.
     shape.FillFormat.PatternFormat.PatternStyle = PatternStyle.Trellis;
 
     // Állítsa be a minta háttér- és előtérszíneit.
@@ -276,46 +297,49 @@ using (Presentation presentation = new Presentation())
 
 Az eredmény:
 
-![The rectangle with pattern fill](pattern-fill.png)
+![A téglalap mintás kitöltéssel](pattern-fill.png)
 
-## **Képek kitöltése**
+## **Kép kitöltés**
 
-A PowerPointban a Képek kitöltése egy formázási lehetőség, amely lehetővé teszi, hogy egy képet helyezzen el egy alakzat belsejében – a képet ezzel az alakzat háttérként használva.
+A PowerPointban a Kép kitöltés egy olyan formázási lehetőség, amely lehetővé teszi egy kép beszúrását egy alakzatba – lényegében a képet az alakzat háttérként használja.
 
-Íme, hogyan használja az Aspose.Slides‑t egy kép kitöltés alkalmazásához egy alakzaton:
+Az alábbiak szerint használhatja az Aspose.Slides‑t egy alakzat kép‑kitöltéséhez:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztályból.
-1. Szerezzen hivatkozást egy diára az indexe alapján.
-1. Adjon hozzá egy [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/) elemet a diához.
-1. Állítsa be az alakzat [FillType](https://reference.aspose.com/slides/hu/net/aspose.slides/filltype/)‑ját `Picture`‑ra.
-1. Állítsa be a kép kitöltés módját `Tile`‑re (vagy egy másik kedvenc módra).
-1. Hozzon létre egy [IPPImage](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/) objektumot a használni kívánt képből.
-1. Rendelje hozzá ezt a képet a `Picture.Image` tulajdonsághoz a shape `PictureFillFormat`‑jában.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztályból.  
+1. Szerezzen referenciát egy diára az indexe alapján.  
+1. Adj hozzá egy [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/) elemet a diához.  
+1. Állítsa be az alakzat [FillType](https://reference.aspose.com/slides/hu/net/aspose.slides/filltype/) értékét `Picture`‑ra.  
+1. Állítsa be a kép kitöltési módot `Tile`‑ra (vagy egy másik kívánt módra).  
+1. Hozzon létre egy [IPPImage](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/) objektumot a kívánt képből.  
+1. Rendelje hozzá ezt a képet az alakzat `PictureFillFormat`‑jának `Picture.Image` tulajdonságához.  
 1. Mentse a módosított prezentációt PPTX fájlként.
 
-Tegyük fel, hogy van egy „lotus.png” fájlunk a következő képpel:
+Tegyük fel, hogy rendelkezünk egy „lotus.png” fájllal a következő képpel:
 
-![The lotus picture](lotus.png)
+![A lotus kép](lotus.png)
 
 Az alábbi C# kód bemutatja, hogyan töltsön ki egy alakzatot a képpel:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Példányosítsa a Presentation osztályt, amely egy prezentációs fájlt képvisel.
 using (Presentation presentation = new Presentation())
 {
     // Szerezze meg az első diát.
     ISlide slide = presentation.Slides[0];
 
-    // Adjon hozzá egy automatikus alakzatot Rectangle típusúként.
+    // Adjon hozzá egy Rectangle típusú automatikus alakzatot.
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 255, 130);
 
-    // Állítsa be a kitöltés típusát Picture-re.
+    // Állítsa be a kitöltést Picture típusra.
     shape.FillFormat.FillType = FillType.Picture;
 
-    // Állítsa be a kép kitöltés módját.
+    // Állítsa be a kép kitöltési módot.
     shape.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Tile;
 
-    // Töltsön be egy képet és adja hozzá a prezentáció erőforrásaihoz.
+    // Töltsön be egy képet, és adja hozzá a prezentáció erőforrásaihoz.
     IImage image = Images.FromFile("lotus.png");
     IPPImage presentationImage = presentation.Images.AddImage(image);
     image.Dispose();
@@ -330,36 +354,39 @@ using (Presentation presentation = new Presentation())
 
 Az eredmény:
 
-![The shape with picture fill](picture-fill.png)
+![Az alakzat kép‑kitöltéssel](picture-fill.png)
 
-### **Kép mozaikként textúrával**
+### **Kép mozaikként textúra**
 
-Ha egy mozaik képet szeretne textúraként beállítani, és testreszabni a mozaik viselkedését, akkor a következő [IPictureFillFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/ipicturefillformat/) interfész és [PictureFillFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/picturefillformat/) osztály tulajdonságait használhatja:
+Ha mozaikként szeretne beállítani egy képet textúraként, és testre szabni a mozaik viselkedését, a következő [IPictureFillFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/ipicturefillformat/) interfész és a [PictureFillFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/picturefillformat/) osztály tulajdonságait használhatja:
 
-- [PictureFillMode](https://reference.aspose.com/slides/hu/net/aspose.slides/ipicturefillformat/picturefillmode/): Beállítja a kép kitöltés módját – `Tile` vagy `Stretch`.
-- [TileAlignment](https://reference.aspose.com/slides/hu/net/aspose.slides/ipicturefillformat/tilealignment/): Megadja a mozaikok igazítását az alakzaton belül.
-- [TileFlip](https://reference.aspose.com/slides/hu/net/aspose.slides/ipicturefillformat/tileflip/): Szabályozza, hogy a mozaik vízszintesen, függőlegesen vagy mindkét irányban legyen-e tükrözve.
-- [TileOffsetX](https://reference.aspose.com/slides/hu/net/aspose.slides/ipicturefillformat/tileoffsetx/): Beállítja a mozaik vízszintes eltolását (pontokban) az alakzat kiindulási pontjától.
-- [TileOffsetY](https://reference.aspose.com/slides/hu/net/aspose.slides/ipicturefillformat/tileoffsety/): Beállítja a mozaik függőleges eltolását (pontokban) az alakzat kiindulási pontjától.
-- [TileScaleX](https://reference.aspose.com/slides/hu/net/aspose.slides/ipicturefillformat/tilescalex/): Meghatározza a mozaik vízszintes méretezését százalékban.
-- [TileScaleY](https://reference.aspose.com/slides/hu/net/aspose.slides/ipicturefillformat/tilescaley/): Meghatározza a mozaik függőleges méretezését százalékban.
+- [PictureFillMode](https://reference.aspose.com/slides/hu/net/aspose.slides/ipicturefillformat/picturefillmode/): A kép kitöltési módját állítja be – `Tile` vagy `Stretch`.  
+- [TileAlignment](https://reference.aspose.com/slides/hu/net/aspose.slides/ipicturefillformat/tilealignment/): A mozaikok alakzaton belüli elrendezését határozza meg.  
+- [TileFlip](https://reference.aspose.com/slides/hu/net/aspose.slides/ipicturefillformat/tileflip/): Igazítja, hogy a mozaik vízszintesen, függőlegesen vagy mindkettőnél tükröződjön.  
+- [TileOffsetX](https://reference.aspose.com/slides/hu/net/aspose.slides/ipicturefillformat/tileoffsetx/): A mozaik vízszintes eltolását (pontban) az alakzat kiindulópontjától.  
+- [TileOffsetY](https://reference.aspose.com/slides/hu/net/aspose.slides/ipicturefillformat/tileoffsety/): A mozaik függőleges eltolását (pontban) az alakzat kiindulópontjától.  
+- [TileScaleX](https://reference.aspose.com/slides/hu/net/aspose.slides/ipicturefillformat/tilescalex/): A mozaik vízszintes méretezését százalékban.  
+- [TileScaleY](https://reference.aspose.com/slides/hu/net/aspose.slides/ipicturefillformat/tilescaley/): A mozaik függőleges méretezését százalékban.
 
-Az alábbi kódrészlet megmutatja, hogyan adjon hozzá egy téglalap alakzatot mozaik képpel és hogyan konfigurálja a mozaik opciókat:
+Az alábbi kódrészlet bemutatja, hogyan adjon hozzá egy téglalap alakzatot mozaik‑képpel, és hogyan konfigurálja a mozaik beállításait:
 
 ```c#
- // Példányosítsa a Presentation osztályt, amely egy prezentációs fájlt képvisel.
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Példányosítsa a Presentation osztályt, amely egy prezentációs fájlt képvisel.
 using (Presentation presentation = new Presentation())
 {
     // Szerezze meg az első diát.
     ISlide firstSlide = presentation.Slides[0];
 
-    // Adjon hozzá egy téglalap auto alakzatot.
+    // Adjon hozzá egy Rectangle típusú automatikus alakzatot.
     IAutoShape shape = firstSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 190, 95);
 
-    // Állítsa be az alakzat kitöltés típusát Picture-re.
+    // Állítsa be az alakzat kitöltést Picture típusra.
     shape.FillFormat.FillType = FillType.Picture;
 
-    // Töltse be a képet és adja hozzá a prezentáció erőforrásaihoz.
+    // Töltsön be egy képet, és adja hozzá a prezentáció erőforrásaihoz.
     IPPImage presentationImage;
     using (IImage sourceImage = Images.FromFile("lotus.png"))
         presentationImage = presentation.Images.AddImage(sourceImage);
@@ -368,7 +395,7 @@ using (Presentation presentation = new Presentation())
     IPictureFillFormat pictureFillFormat = shape.FillFormat.PictureFillFormat;
     pictureFillFormat.Picture.Image = presentationImage;
 
-    // Állítsa be a kép kitöltés módját és a csempézési tulajdonságokat.
+    // Állítsa be a kép kitöltési módot és a mozaik tulajdonságait.
     pictureFillFormat.PictureFillMode = PictureFillMode.Tile;
     pictureFillFormat.TileOffsetX = -32;
     pictureFillFormat.TileOffsetY = -32;
@@ -384,37 +411,41 @@ using (Presentation presentation = new Presentation())
 
 Az eredmény:
 
-![The tile options](tile-options.png)
+![A mozaik beállítások](tile-options.png)
 
 ## **Egyszínű kitöltés**
 
-A PowerPointban az Egyszínű kitöltés egy formázási lehetőség, amely egyetlen, egységes színnel tölti ki az alakzatot. Ez a tiszta háttérszín nem tartalmaz színátmenetet, textúrát vagy mintát.
+A PowerPointban az Egyszínű kitöltés egy olyan formázási lehetőség, amely egyetlen, egységes színnel tölti ki az alakzatot. Ez a tiszta háttérszín nem tartalmaz színátmeneteket, textúrákat vagy mintákat.
 
 Az egyszínű kitöltés alkalmazásához az Aspose.Slides segítségével kövesse az alábbi lépéseket:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztályból.
-1. Szerezzen hivatkozást egy diára az indexe alapján.
-1. Adjon hozzá egy [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/) elemet a diához.
-1. Állítsa be az alakzat [FillType](https://reference.aspose.com/slides/hu/net/aspose.slides/filltype/)‑ját `Solid`‑ra.
-1. Rendelje hozzá a kívánt kitöltő színt az alakzathoz.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztályból.  
+1. Szerezzen referenciát egy diára az indexe alapján.  
+1. Adj hozzá egy [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/) elemet a diához.  
+1. Állítsa be az alakzat [FillType](https://reference.aspose.com/slides/hu/net/aspose.slides/filltype/) értékét `Solid`‑ra.  
+1. Rendelje hozzá a kívánt kitöltőszínt az alakzathoz.  
 1. Mentse a módosított prezentációt PPTX fájlként.
 
 Az alábbi C# kód bemutatja, hogyan alkalmazzon egyszínű kitöltést egy téglalapra egy PowerPoint dián:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Példányosítsa a Presentation osztályt, amely egy prezentációs fájlt képvisel.
 using (Presentation presentation = new Presentation())
 {
     // Szerezze meg az első diát.
     ISlide slide = presentation.Slides[0];
 
-    // Adjon hozzá egy automatikus alakzatot Rectangle típusúként.
+    // Adjon hozzá egy Rectangle típusú automatikus alakzatot.
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Állítsa be a kitöltés típusát Solid-ra.
+    // Állítsa be a kitöltést Solid típusra.
     shape.FillFormat.FillType = FillType.Solid;
 
-    // Állítsa be a kitöltés színét.
+    // Állítsa be a kitöltőszínt.
     shape.FillFormat.SolidFillColor.Color = Color.Yellow;
 
     // Mentse a PPTX fájlt a lemezre.
@@ -424,24 +455,28 @@ using (Presentation presentation = new Presentation())
 
 Az eredmény:
 
-![The shape with solid color fill](solid-color-fill.png)
+![Az alakzat egyszínű kitöltéssel](solid-color-fill.png)
 
 ## **Átlátszóság beállítása**
 
-A PowerPointban, ha egyszínű, színátmenetes, képes vagy textúrás kitöltést alkalmaz a alakzatokra, beállíthat átlátszósági szintet a kitöltés átlátszóságának szabályozásához. A magasabb átlátszóság érték átlátszóbban jeleníti meg az alakzatot, lehetővé téve a háttér vagy az alatta lévő elemek részleges láthatóságát.
+A PowerPointban, amikor egyszínű, színátmenetes, kép‑ vagy textúra‑kitöltést alkalmaz alakzatokra, beállíthat átlátszósági szintet is, hogy szabályozza a kitöltés átlátszóságát. Magasabb átlátszósági érték esetén az alakzat átlátszóbb lesz, és a háttér vagy az alatta lévő objektumok részben láthatóvá válnak.
 
-Az Aspose.Slides a szín alfa értékének módosításával teszi lehetővé az átlátszóság beállítását. Így csinálja:
+Az Aspose.Slides lehetővé teszi az átlátszósági szint beállítását a kitöltéshez használt szín alfa‑értékének módosításával. Így teheti:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztályból.
-1. Szerezzen hivatkozást egy diára az indexe alapján.
-1. Adjon hozzá egy [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/) elemet a diához.
-1. Állítsa be a [FillType](https://reference.aspose.com/slides/hu/net/aspose.slides/filltype/)‑t `Solid`‑ra.
-1. Használja a `Color.FromArgb(alpha, baseColor)` metódust egy átlátszó szín definiálásához (az `alpha` komponens szabályozza az átlátszóságot).
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztályból.  
+1. Szerezzen referenciát egy diára az indexe alapján.  
+1. Adj hozzá egy [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/) elemet a diához.  
+1. Állítsa be a [FillType](https://reference.aspose.com/slides/hu/net/aspose.slides/filltype/) értékét `Solid`‑ra.  
+1. Használja a `Color.FromArgb(alpha, baseColor)` metódust egy átlátszó szín definiálásához (az `alpha` komponens szabályozza az átlátszóságot).  
 1. Mentse a prezentációt.
 
-Az alábbi C# kód bemutatja, hogyan alkalmazzon átlátszó kitöltő színt egy téglalapra:
+Az alábbi C# kód bemutatja, hogyan alkalmazzon átlátszó kitöltőszínt egy téglalapra:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 const int alpha = 128;
 
 // Példányosítsa a Presentation osztályt, amely egy prezentációs fájlt képvisel.
@@ -450,10 +485,10 @@ using (Presentation presentation = new Presentation())
     // Szerezze meg az első diát.
     ISlide slide = presentation.Slides[0];
 
-    // Adjon hozzá egy szilárd téglalap auto alakzatot.
+    // Adjon hozzá egy szilárd téglalap automatikus alakzatot.
     IAutoShape solidShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Adjon hozzá egy átlátszó téglalap auto alakzatot a szilárd alakzat fölé.
+    // Adjon hozzá egy átlátszó téglalap automatikus alakzatot a szilárd alakzat fölé.
     IAutoShape transparentShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 80, 80, 150, 75);
     transparentShape.FillFormat.FillType = FillType.Solid;
     transparentShape.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Yellow);
@@ -465,33 +500,36 @@ using (Presentation presentation = new Presentation())
 
 Az eredmény:
 
-![The transparent shape](shape-transparency.png)
+![Az átlátszó alakzat](shape-transparency.png)
 
 ## **Alakzatok forgatása**
 
-Az Aspose.Slides lehetővé teszi, hogy forgassa az alakzatokat a PowerPoint prezentációkban. Ez hasznos lehet a vizuális elemek elhelyezésekor, ha speciális igazításra vagy tervezési igényekre van szükség.
+Az Aspose.Slides lehetővé teszi alakzatok forgatását PowerPoint prezentációkban. Ez hasznos lehet vizuális elemek pontos elhelyezésekor vagy tervezési igények esetén.
 
-Alakzat forgatásához egy dián kövesse az alábbi lépéseket:
+Alakzat forgatásához a dián kövesse az alábbi lépéseket:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztályból.
-1. Szerezzen hivatkozást egy diára az indexe alapján.
-1. Adjon hozzá egy [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/) elemet a diához.
-1. Állítsa be az alakzat `Rotation` tulajdonságát a kívánt szögre.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztályból.  
+1. Szerezzen referenciát egy diára az indexe alapján.  
+1. Adj hozzá egy [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/) elemet a diához.  
+1. Állítsa be az alakzat `Rotation` tulajdonságát a kívánt szöggel.  
 1. Mentse a prezentációt.
 
 Az alábbi C# kód bemutatja, hogyan forgasson egy alakzatot 5 fokkal:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Példányosítsa a Presentation osztályt, amely egy prezentációs fájlt képvisel.
 using (Presentation presentation = new Presentation())
 {
     // Szerezze meg az első diát.
     ISlide slide = presentation.Slides[0];
 
-    // Adjon hozzá egy automatikus alakzatot Rectangle típusúként.
+    // Adjon hozzá egy Rectangle típusú automatikus alakzatot.
     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Forgassa el az alakzatot 5 fokkal.
+    // Forgassa a alakzatot 5 fokkal.
     shape.Rotation = 5;
 
     // Mentse a PPTX fájlt a lemezre.
@@ -501,69 +539,76 @@ using (Presentation presentation = new Presentation())
 
 Az eredmény:
 
-![The shape rotation](shape-rotation.png)
+![Az alakzat forgatása](shape-rotation.png)
 
-## **3D lekerekített hatások hozzáadása**
+## **3D lekerekítési hatások hozzáadása**
 
-Az Aspose.Slides lehetővé teszi, hogy 3D lekerekített hatásokat alkalmazzon alakzatokra a [ThreeDFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/threedformat/) tulajdonságok konfigurálásával.
+Az Aspose.Slides lehetővé teszi 3D lekerekítési hatások alkalmazását alakzatokra a [ThreeDFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/threedformat/) tulajdonságok konfigurálásával.
 
-3D lekerekített hatások hozzáadásához egy alakzathoz kövesse az alábbi lépéseket:
+3D lekerekítési hatások hozzáadásához kövesse az alábbi lépéseket:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztályból.
-1. Szerezzen hivatkozást egy diára az indexe alapján.
-1. Adjon hozzá egy [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/) elemet a diához.
-1. Konfigurálja az alakzat [ThreeDFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/threedformat/)‑ját a lekerekítési beállítások meghatározásához.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztályból.  
+1. Szerezzen referenciát egy diára az indexe alapján.  
+1. Adj hozzá egy [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/) elemet a diához.  
+1. Konfigurálja az alakzat [ThreeDFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/threedformat/) beállításait a lekerekítési paraméterek meghatározásához.  
 1. Mentse a prezentációt.
 
-Az alábbi C# kód megmutatja, hogyan alkalmazzon 3D lekerekített hatásokat egy alakzatra:
+Az alábbi C# kód megmutatja, hogyan alkalmazzon 3D lekerekítési hatásokat egy alakzatra:
 
 ```c#
- // Hozzon létre egy példányt a Presentation osztályból.
- using (Presentation presentation = new Presentation())
- {
-     ISlide slide = presentation.Slides[0];
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-     // Adjon hozzá egy alakzatot a diához.
-     IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 50, 100, 100);
-     shape.FillFormat.FillType = FillType.Solid;
-     shape.FillFormat.SolidFillColor.Color = Color.Green;
-     shape.LineFormat.FillFormat.FillType = FillType.Solid;
-     shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Orange;
-     shape.LineFormat.Width = 2.0;
+// Hozzon létre egy példányt a Presentation osztályból.
+using (Presentation presentation = new Presentation())
+{
+    ISlide slide = presentation.Slides[0];
 
-     // Állítsa be az alakzat ThreeDFormat tulajdonságait.
-     shape.ThreeDFormat.Depth = 4;
-     shape.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
-     shape.ThreeDFormat.BevelTop.Height = 6;
-     shape.ThreeDFormat.BevelTop.Width = 6;
-     shape.ThreeDFormat.Camera.CameraType = CameraPresetType.OrthographicFront;
-     shape.ThreeDFormat.LightRig.LightType = LightRigPresetType.ThreePt;
-     shape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
+    // Adj hozzá egy alakzatot a diához.
+    IAutoShape shape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 50, 50, 100, 100);
+    shape.FillFormat.FillType = FillType.Solid;
+    shape.FillFormat.SolidFillColor.Color = Color.Green;
+    shape.LineFormat.FillFormat.FillType = FillType.Solid;
+    shape.LineFormat.FillFormat.SolidFillColor.Color = Color.Orange;
+    shape.LineFormat.Width = 2.0;
 
-     // Mentse a prezentációt PPTX fájlként.
-     presentation.Save("3D_bevel_effect.pptx", SaveFormat.Pptx);
- }
+    // Állítsa be az alakzat ThreeDFormat tulajdonságait.
+    shape.ThreeDFormat.Depth = 4;
+    shape.ThreeDFormat.BevelTop.BevelType = BevelPresetType.Circle;
+    shape.ThreeDFormat.BevelTop.Height = 6;
+    shape.ThreeDFormat.BevelTop.Width = 6;
+    shape.ThreeDFormat.Camera.CameraType = CameraPresetType.OrthographicFront;
+    shape.ThreeDFormat.LightRig.LightType = LightRigPresetType.ThreePt;
+    shape.ThreeDFormat.LightRig.Direction = LightingDirection.Top;
+
+    // Mentse a prezentációt PPTX fájlként.
+    presentation.Save("3D_bevel_effect.pptx", SaveFormat.Pptx);
+}
 ```
 
 Az eredmény:
 
-![The 3D bevel effect](3D-bevel-effect.png)
+![A 3D lekerekítési hatás](3D-bevel-effect.png)
 
 ## **3D forgatási hatások hozzáadása**
 
-Az Aspose.Slides lehetővé teszi, hogy 3D forgatási hatásokat alkalmazzon alakzatokra a [ThreeDFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/threedformat/) tulajdonságok konfigurálásával.
+Az Aspose.Slides lehetővé teszi 3D forgatási hatások alkalmazását alakzatokra a [ThreeDFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/threedformat/) tulajdonságok konfigurálásával.
 
 3D forgatás alkalmazásához egy alakzatra:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztályból.
-1. Szerezzen hivatkozást egy diára az indexe alapján.
-1. Adjon hozzá egy [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/) elemet a diához.
-1. Állítsa be az alakzat [CameraType](https://reference.aspose.com/slides/hu/net/aspose.slides/icamera/cameratype/) és [LightType](https://reference.aspose.com/slides/hu/net/aspose.slides/ilightrig/lighttype/) tulajdonságait a 3D forgatás meghatározásához.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztályból.  
+1. Szerezzen referenciát egy diára az indexe alapján.  
+1. Adj hozzá egy [IAutoShape](https://reference.aspose.com/slides/hu/net/aspose.slides/iautoshape/) elemet a diához.  
+1. Állítsa be az alakzat [CameraType](https://reference.aspose.com/slides/hu/net/aspose.slides/icamera/cameratype/) és [LightType](https://reference.aspose.com/slides/hu/net/aspose.slides/ilightrig/lighttype/) tulajdonságait a 3D forgatás meghatározásához.  
 1. Mentse a prezentációt.
 
 Az alábbi C# kód bemutatja, hogyan alkalmazzon 3D forgatási hatásokat egy alakzatra:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Hozzon létre egy példányt a Presentation osztályból.
 using (Presentation presentation = new Presentation())
 {
@@ -572,7 +617,6 @@ using (Presentation presentation = new Presentation())
     IAutoShape autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
     autoShape.TextFrame.Text = "Hello, Aspose!";
 
-    autoShape.ThreeDFormat.Depth = 6;
     autoShape.ThreeDFormat.Camera.SetRotation(40, 35, 20);
     autoShape.ThreeDFormat.Camera.CameraType = CameraPresetType.IsometricLeftUp;
     autoShape.ThreeDFormat.LightRig.LightType = LightRigPresetType.Balanced;
@@ -584,18 +628,49 @@ using (Presentation presentation = new Presentation())
 
 Az eredmény:
 
-![The 3D rotation effect](3D-rotation-effect.png)
+![A 3D forgatási hatás](3D-rotation-effect.png)
+
+## **Fekete-fehér megjelenítés szabályozása alakzatoknál**
+
+Az [IShape.BlackWhiteMode](https://reference.aspose.com/slides/hu/net/aspose.slides/ishape/blackwhitemode/) tulajdonság határozza meg, hogyan jelenik meg egy egyedi alakzat, amikor a prezentációt fekete-fehér módban tekintik vagy dolgozzák fel. Nem engedélyezi a fekete-fehér megjelenítést önmagában, és nem változtatja meg az alakzat kitöltését, vonalát vagy egyéb formázását normál színmódban.
+
+Használja a [BlackWhiteMode](https://reference.aspose.com/slides/hu/net/aspose.slides/blackwhitemode/) felsorolás egyik értékét a kívánt viselkedés meghatározásához. Például az `Automatic` lehetővé teszi a megjelenítő alkalmazásnak, hogy a konverziót a saját módján végezze, a `Gray` és `LightGray` szürke színezést alkalmaz, a `BlackWhite` csak fekete‑fehért használ, a `Black` és `White` egyetlen színt kényszerít, a `Color` megőrzi a normál színezést, a `Hidden` elrejti az alakzatot fekete‑fehér módban, a `NotDefined` pedig azt jelenti, hogy nincs alakzatszintű mód hozzárendelve.
+
+Az alábbi C# kód egy színes alakzatot hoz létre, amely a fekete‑fehér megjelenítési mód alatt szürke lesz:
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
+shape.FillFormat.FillType = FillType.Solid;
+shape.FillFormat.SolidFillColor.Color = Color.Orange;
+
+// Tartsa a narancssárga kitöltést színes módban, de jelenítse meg a alakzatot szürke színnel fekete-fehér módban.
+shape.BlackWhiteMode = BlackWhiteMode.Gray;
+
+presentation.Save("shape_black_white_mode.pptx", SaveFormat.Pptx);
+```
+
+Normál színmódban a téglalap narancssárga kitöltése marad. Fekete‑fehér megjelenítés esetén a `Gray` mód miatt szürke színt kap, ami lehetővé teszi, hogy a teljes színű dia megmaradjon, miközben a nyomtatás, előnézet vagy egyéb munkafolyamatok során külön megjeleníthető legyen a fekete‑fehér beállítás.
 
 ## **Formázás visszaállítása**
 
-Az alábbi C# kód megmutatja, hogyan állítsa vissza egy dia formázását, és hogyan állítsa vissza az összes helykitöltővel ellátott alakzat helyzetét, méretét és formázását a [LayoutSlide](https://reference.aspose.com/slides/hu/net/aspose.slides/layoutslide/) alapértelmezett beállításaiba:
+Az alábbi C# kód bemutatja, hogyan állítsa vissza egy dia formázását, és hogyan állítsa alaphelyzetbe az összes alakzat pozícióját, méretét és formázását a [LayoutSlide](https://reference.aspose.com/slides/hu/net/aspose.slides/layoutslide/) helyőrzőivel:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     foreach (ISlide slide in presentation.Slides)
     {
-        // Állítsa vissza a dián lévő minden alakzatot, amelynek helykitöltője van az elrendezésen.
+        // Állítsa vissza a dián lévő minden alakzatot, amelynek helyőrzője van az elrendezésen.
         slide.Reset();
     }
 
@@ -605,14 +680,14 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 
 ## **GYIK**
 
-**A formaformázás befolyásolja a végleges prezentáció fájlméretét?**
+**A befolyásolja a formaformázás a végleges prezentáció fájlméretét?**
 
-Csak minimálisan. A beágyazott képek és médiafájlok foglalják a fájl legnagyobb részét, míg a formázási paraméterek – színek, hatások, színátmenetek – metaadatként tárolódnak, és gyakorlatilag nem növelik a méretet.
+Csak minimálisan. A beágyazott képek és médiafájlok foglalják a legtöbb helyet, míg a formázási paraméterek – színek, hatások, színátmenetek – metaadatként tárolódnak, és gyakorlatilag nem növelik a méretet.
 
-**Hogyan lehet felismerni azonos formázású alakzatokat egy dián, hogy csoportosíthassam őket?**
+**Hogyan tudom felismerni a dián olyan alakzatokat, amelyek azonos formázást használnak, hogy csoportosíthassam őket?**
 
-Hasonlítsa össze az egyes alakzatok kulcsfontosságú formázási tulajdonságait – kitöltés, vonal és hatásbeállítások. Ha minden érték megegyezik, tekintse stílusaikat azonosnak, és logikailag csoportosítsa az alakzatokat, ami megkönnyíti a későbbi stíluskezelést.
+Hasonlítsa össze az egyes alakzatok kulcsfontosságú formázási tulajdonságait – kitöltés, vonal és hatás beállításait. Ha az összes megfelelő érték megegyezik, tekintse a stílusokat azonosnak, és logikailag csoportosítsa az alakzatokat, ez megkönnyíti a későbbi stíluskezelést.
 
-**Menthetek egyedi alakzatifogásokat egy külön fájlba, hogy más prezentációkban is felhasználjam őket?**
+**Menthetek-e egy egyedi forma stíluskészletet külön fájlba, hogy más prezentációkban is felhasználjam?**
 
-Igen. Tárolja a kívánt stílusú mintaalakzatokat egy sablon‑diakönyvtárban vagy egy .POTX sablonfájlban. Új prezentáció létrehozásakor nyissa meg a sablont, klónozza a szükséges alakzatokat, és alkalmazza formázásukat a megfelelő helyeken.
+Igen. Tároljon minta‑alakzatokat a kívánt stílusokkal egy sablon‑diakészletben vagy .POTX sablonfájlban. Új prezentáció létrehozásakor nyissa meg a sablont, klónozza a szükséges stílusú alakzatokat, és alkalmazza a formázást a kívánt helyeken.

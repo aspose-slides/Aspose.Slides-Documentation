@@ -1,6 +1,6 @@
 ---
 title: تنسيق أشكال PowerPoint على Android
-linktitle: تنسيق الشكل
+linktitle: تنسيق الأشكال
 type: docs
 weight: 20
 url: /ar/androidjava/shape-formatting/
@@ -8,49 +8,54 @@ keywords:
 - تنسيق الشكل
 - تنسيق الخط
 - تأثير الرسم التخطيطي
-- خط الشكل التخطيطي
-- تنسيق نمط التقاطع
-- تعبئة متدرجة
-- تعبئة بنمط
-- تعبئة بصورة
-- تعبئة بقوام
+- خط الشكل الرسم التخطيطي
+- تنسيق نمط الوصل
+- تعبئة تدرجية
+- تعبئة نمطية
+- تعبئة صورة
+- تعبئة قوام
 - تعبئة بلون صلب
 - شفافية الشكل
+- عرض الشكل بالأبيض والأسود
+- عرض الشكل بالرمادي
 - تدوير الشكل
-- تأثير القطع الثلاثي الأبعاد
-- تأثير الدوران الثلاثي الأبعاد
-- إعادة تعيين التنسيق
+- تأثير بروفيل ثلاثي الأبعاد
+- تأثير دوران ثلاثي الأبعاد
+- إعادة ضبط التنسيق
 - PowerPoint
 - عرض تقديمي
 - Android
 - Java
 - Aspose.Slides
-description: "تعلم كيفية تنسيق أشكال PowerPoint على Android باستخدام Aspose.Slides—حدد أنماط التعبئة والخط والتأثير لملفات PPT و PPTX و ODP بدقة وتحكم كامل."
+description: "تعرّف على كيفية تنسيق أشكال PowerPoint على Android باستخدام Aspose.Slides—قم بتعيين أنماط التعبئة، الخط، والتأثير لملفات PPT و PPTX و ODP بدقة وتحكم كامل."
 ---
-## **مقدمة**
+## **المقدمة**
 
-في PowerPoint، يمكنك إضافة أشكال إلى الشرائح. نظرًا لأن الأشكال مكوّنة من خطوط، يمكنك تنسيقها عن طريق تعديل أو تطبيق تأثيرات على حدودها. بالإضافة إلى ذلك، يمكنك تنسيق الأشكال بتحديد الإعدادات التي تتحكم في كيفية ملء داخلها.
+في PowerPoint، يمكنك إضافة أشكال إلى الشرائح. نظرًا لأن الأشكال تتكون من خطوط، يمكنك تنسيقها بتعديل أو تطبيق تأثيرات على حدودها. بالإضافة إلى ذلك، يمكنك تنسيق الأشكال عن طريق تحديد الإعدادات التي تتحكم في كيفية ملء داخلها.
 
-![تنسيق الشكل في PowerPoint](format-shape-powerpoint.png)
+![format-shape-powerpoint](format-shape-powerpoint.png)
 
-توفر مكتبة Aspose.Slides for Android عبر Java واجهات وطرق تسمح لك بتنسيق الأشكال باستخدام نفس الخيارات المتاحة في PowerPoint.
+توفر Aspose.Slides لنظام Android عبر Java واجهات وطرق تمكّنك من تنسيق الأشكال باستخدام نفس الخيارات المتاحة في PowerPoint.
 
 ## **تنسيق الخطوط**
 
-باستخدام Aspose.Slides، يمكنك تحديد نمط خط مخصص لشكل ما. الخطوات التالية توضح العملية:
+باستخدام Aspose.Slides، يمكنك تحديد نمط خط مخصص لشكل. الخطوات التالية توضح الإجراء:
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/) .
-2. الحصول على مرجع إلى شريحة بواسطة الفهرس الخاص بها.
-3. إضافة كائن [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/) إلى الشريحة.
-4. تحديد [line style](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/linestyle/) للشكل.
-5. تحديد عرض الخط.
-6. تحديد [dash style](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/linedashstyle/) للخط.
-7. تحديد لون الخط للشكل.
-8. حفظ العرض التقديمي المعدل كملف PPTX.
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/).
+1. الحصول على مرجع إلى شريحة باستخدام فهرسها.
+1. إضافة [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/) إلى الشريحة.
+1. ضبط [line style](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/linestyle/) للشكل.
+1. ضبط عرض الخط.
+1. ضبط [dash style](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/linedashstyle/) للخط.
+1. ضبط لون الخط للشكل.
+1. حفظ العرض التقديمي المعدل كملف PPTX.
 
-الشفرة التالية توضح كيفية تنسيق مستطيل `AutoShape`:
+الكود التالي يُظهر كيفية تنسيق مستطيل `AutoShape`:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
 Presentation presentation = new Presentation();
 try {
@@ -60,7 +65,7 @@ try {
     // إضافة شكل تلقائي من النوع Rectangle.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 150, 75);
 
-    // تعيين لون التعبئة لشكل المستطيل.
+    // إزالة التعبئة من الشكل المستطيل بحيث تكون الخطوط فقط مرئية.
     shape.getFillFormat().setFillType(FillType.NoFill);
 
     // تطبيق تنسيق على خطوط المستطيل.
@@ -68,7 +73,7 @@ try {
     shape.getLineFormat().setWidth(7);
     shape.getLineFormat().setDashStyle(LineDashStyle.Dash);
 
-    // تعيين لون الخط للمستطيل.
+    // تعيين اللون لخط المستطيل.
     shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
 
@@ -79,15 +84,19 @@ try {
 }
 ```
 
+النتيجة:
+
 ![الخطوط المنسقة في العرض التقديمي](formatted-lines.png)
 
-## **تطبيق تأثيرات الرسم التخطيطي على خطوط الشكل**
+## **تطبيق تأثيرات الرسم الخطي على خطوط الشكل**
 
-تجعل تأثيرات الرسم التخطيطي خط الشكل يبدو كأنه مرسوم يدويًا. استخدم [IShape.getLineFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishape/) للوصول إلى إعدادات الخط، و[ILineFormat.getSketchFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ilineformat/) للوصول إلى إعدادات الرسم التخطيطي، و[ISketchFormat.setSketchType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/isketchformat/) لاختيار قيمة من تعداد [LineSketchType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/linesketchtype/).
+يُضفي تأثير الرسم الخطي مظهرًا يدويًا على خط الشكل. استخدم [IShape.getLineFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishape/) للوصول إلى إعدادات الخط، و[ILineFormat.getSketchFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ilineformat/) للوصول إلى إعدادات الرسم الخطي، و[ISketchFormat.setSketchType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/isketchformat/) لاختيار قيمة من enumeration [LineSketchType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/linesketchtype/).
 
-الشفرة Java التالية توضح كيفية تطبيق تأثير [LineSketchType.Curved](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/linesketchtype/) ، وقراءة القيمة المعينة صراحةً، وإزالة التأثير باستخدام [LineSketchType.None](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/linesketchtype/) :
+الكود Java التالي يوضح كيفية تطبيق تأثير [LineSketchType.Curved](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/linesketchtype/) ، قراءة القيمة المعينة صراحةً، وإزالة التأثير باستخدام [LineSketchType.None](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/linesketchtype/):
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -96,10 +105,10 @@ try {
     // الوصول إلى تنسيق خط الشكل وتنسيق الرسم التخطيطي الخاص به.
     ISketchFormat sketchFormat = shape.getLineFormat().getSketchFormat();
 
-    // تطبيق تأثير رسم تخطيطي.
+    // تطبيق تأثير الرسم التخطيطي.
     sketchFormat.setSketchType(LineSketchType.Curved);
 
-    // قراءة تأثير الرسم التخطيطي المعيّن مباشرةً على الشكل.
+    // قراءة تأثير الرسم التخطيطي المعين مباشرةً إلى الشكل.
     int explicitSketchType = sketchFormat.getSketchType();
     System.out.println("Explicit sketch type: " + explicitSketchType);
 
@@ -110,9 +119,11 @@ try {
 }
 ```
 
-القيمة التي تُعيدها الدالة [ISketchFormat.getSketchType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/isketchformat/) تمثل الإعداد المخصص مباشرةً للشكل. إذا كان يمكن أن يرث تنسيق الخط من سمة أو شريحة رئيسية أو شريحة تخطيط، استخدم [ILineFormat.getEffective](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ilineformat/)، ثم وصول إلى [ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ilineformateffectivedata/)، واقرأ [ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/isketchformateffectivedata/). القيمة الفعّالة تعكس التنسيق الذي يُطبق فعليًا بعد حل الوراثة:
+القيمة التي تُعيدها [ISketchFormat.getSketchType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/isketchformat/) تمثل الإعداد المعين مباشرةً إلى الشكل. إذا كان يمكن أن يتم وراثة تنسيق الخط من سمة أو شريحة رئيسية أو شريحة تخطيط، استخدم [ILineFormat.getEffective](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ilineformat/)، وادخل إلى [ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ilineformateffectivedata/)، واقرأ [ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/isketchformateffectivedata/). القيمة الفعّالة تعكس التنسيق الذي يتم تطبيقه فعليًا بعد حل الوراثة:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -129,33 +140,36 @@ try {
 }
 ```
 
-## **تنسيق أنماط التقاطع**
+## **تنسيق أنماط الوصل**
 
-فيما يلي خيارات ثلاثة لأنواع التقاطع:
+إليك خيارات ثلاثة لأنواع الوصل:
 
-* دائري
-* مِتِر
-* شَبِك
+* مستدير
+* مِتر
+* مشطوف
 
-بشكل افتراضي، عندما يجمع PowerPoint خطين بزاوية (مثلًا عند زاوية الشكل)، يستخدم الإعداد **دائري**. ومع ذلك، إذا كنت ترسم شكلًا بزوايا حادة، قد تفضّل خيار **مِتِر**.
+بشكل افتراضي، عندما يقوم PowerPoint بدمج خطين بزاوية (مثل زاوية شكل)، يستخدم الإعداد **مستدير**. ومع ذلك، إذا كنت ترسم شكلاً بزاويا حادة، قد تفضّل خيار **مِتر**.
 
-![نمط التقاطع في العرض التقديمي](join-style-powerpoint.png)
+![نمط الوصل في العرض التقديمي](join-style-powerpoint.png)
 
-الشفرة Java التالية توضح كيفية إنشاء ثلاثة مستطيلات (كما هو موضح في الصورة أعلاه) باستخدام إعدادات التقاطع مِتِر، شَبِك، ودائري:
+الكود Java التالي يوضح كيفية إنشاء ثلاثة مستطيلات (كما في الصورة أعلاه) باستخدام إعدادات نوع الوصل مِتر، مشطوف، ومستدير:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
 Presentation presentation = new Presentation();
 try {
     // الحصول على الشريحة الأولى.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // إضافة ثلاثة أشكال تلقائية من نوع Rectangle.
+    // إضافة ثلاثة أشكال تلقائية من النوع Rectangle.
     IAutoShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 75);
     IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 210, 20, 150, 75);
     IAutoShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 135, 150, 75);
 
-    // تحديد لون التعبئة لكل شكل مستطيل.
+    // تعيين لون التعبئة لكل شكل مستطيل.
     shape1.getFillFormat().setFillType(FillType.Solid);
     shape1.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
     shape2.getFillFormat().setFillType(FillType.Solid);
@@ -163,12 +177,12 @@ try {
     shape3.getFillFormat().setFillType(FillType.Solid);
     shape3.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
 
-    // تحديد عرض الخط.
+    // تعيين عرض الخط.
     shape1.getLineFormat().setWidth(15);
     shape2.getLineFormat().setWidth(15);
     shape3.getLineFormat().setWidth(15);
 
-    // تحديد لون خط كل مستطيل.
+    // تعيين اللون لخط كل مستطيل.
     shape1.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     shape1.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     shape2.getLineFormat().getFillFormat().setFillType(FillType.Solid);
@@ -176,7 +190,7 @@ try {
     shape3.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     shape3.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
 
-    // تحديد نمط التقاطع.
+    // تعيين نمط الوصل.
     shape1.getLineFormat().setJoinStyle(LineJoinStyle.Miter);
     shape2.getLineFormat().setJoinStyle(LineJoinStyle.Bevel);
     shape3.getLineFormat().setJoinStyle(LineJoinStyle.Round);
@@ -193,20 +207,24 @@ try {
 }
 ```
 
-## **تعبئة متدرجة**
+## **تعبئة تدرجية**
 
-في PowerPoint، تعبئة المتدرّج هي خيار تنسيق يتيح لك تطبيق دمج مستمر للألوان على شكل. على سبيل المثال، يمكنك تطبيق لونين أو أكثر بطريقة يتلاشى فيها أحدهما تدريجيًا إلى الآخر.
+في PowerPoint، تعبئة تدرجية هي خيار تنسيق يتيح لك تطبيق مزج مستمر للألوان على شكل. على سبيل المثال، يمكنك تطبيق لونين أو أكثر بحيث يتلاشى أحدهما تدريجيًا إلى الآخر.
 
-باستخدام Aspose.Slides، يمكنك تنفيذ ذلك عبر الخطوات التالية:
+باستخدام Aspose.Slides، يمكنك تطبيق تعبئة تدرجية على شكل كما يلي:
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/) .
-2. الحصول على مرجع إلى شريحة بواسطة الفهرس الخاص بها.
-3. إضافة [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/) إلى الشريحة.
-4. تحديد خاصية [FillType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/filltype/) للشكل إلى `Gradient`.
-5. إضافة اللونين المفضلين لديك مع تحديد المواضع باستخدام طرق `add` لمجموعة إيقاف التدرج التي يوفرها الواجهة [IGradientFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/igradientformat/) .
-6. حفظ العرض التقديمي المعدل كملف PPTX.
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/).
+1. الحصول على مرجع إلى شريحة باستخدام فهرسها.
+1. إضافة [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/) إلى الشريحة.
+1. ضبط [FillType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/filltype/) للشكل إلى `Gradient`.
+1. أضف اللونين المفضلين لديك مع المواقع المحددة باستخدام طرق `add` في مجموعة إيقاف التدرج التي تُعرض عبر واجهة [IGradientFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/igradientformat/).
+1. حفظ العرض التقديمي المعدل كملف PPTX.
+
+الكود Java التالي يوضح كيفية تطبيق تأثير تعبئة تدرجية على إهليلج:
 
 ```java
+import com.aspose.slides.*;
+
 // إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
 Presentation presentation = new Presentation();
 try {
@@ -216,14 +234,14 @@ try {
     // إضافة شكل تلقائي من النوع Ellipse.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 50, 50, 150, 75);
 
-    // تطبيق تنسيق متدرج على الشكل البيضاوي.
+    // تطبيق تنسيق تدرج على الإهليلج.
     shape.getFillFormat().setFillType(FillType.Gradient);
     shape.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
 
-    // تحديد اتجاه التدرج.
+    // تعيين اتجاه التدرج.
     shape.getFillFormat().getGradientFormat().setGradientDirection(GradientDirection.FromCorner2);
 
-    // إضافة نقطتي توقف للتدرج.
+    // إضافة نقطتي تدرج.
     shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor((float)1.0, PresetColor.Purple);
     shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor((float)0, PresetColor.Red);
 
@@ -234,26 +252,33 @@ try {
 }
 ```
 
-![القطع الناقص مع تعبئة متدرجة](gradient-fill.png)
+النتيجة:
 
-## **تعبئة بنمط**
+![الإهليلج مع تعبئة تدرجية](gradient-fill.png)
 
-في PowerPoint، تعبئة بنمط هي خيار تنسيق يتيح لك تطبيق تصميم بلونين—مثل النقاط أو الخطوط أو التعرّجات المتقاطعة أو المربعات—على شكل. يمكنك اختيار ألوان مخصصة لخلفية ونص النمط.
+## **تعبئة نمطية**
 
-توفر Aspose.Slides أكثر من 45 نمطًا مسبقًا يمكنك تطبيقه على الأشكال لتعزيز المظهر البصري لعروضك التقديمية. حتى بعد اختيار نمط مسبق، يمكنك تحديد الألوان الدقيقة التي يستخدمها.
+في PowerPoint، تعبئة نمطية هي خيار تنسيق يتيح لك تطبيق تصميم ثنائي اللون—مثل النقاط أو الخطوط أو التظليل المتقاطع أو المربعات—على شكل. يمكنك اختيار ألوان مخصصة لمقدمة النمط وخلفيته.
 
-لتطبيق تعبئة بنمط على شكل باستخدام Aspose.Slides:
+توفر Aspose.Slides أكثر من 45 نمطًا مبدئيًا يمكنك تطبيقها على الأشكال لتعزيز المظهر البصري لعروضك. حتى بعد اختيار نمط مبدئي، يمكنك تحديد الألوان الدقيقة التي سيستخدمها.
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/) .
-2. الحصول على مرجع إلى شريحة بواسطة الفهرس الخاص بها.
-3. إضافة [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/) إلى الشريحة.
-4. تحديد خاصية [FillType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/filltype/) للشكل إلى `Pattern`.
-5. اختيار نمط النمط من الخيارات المسبقة.
-6. تحديد [Background Color](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/patternformat/#getBackColor--) للنمط.
-7. تحديد [Foreground Color](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/patternformat/#getForeColor--) للنمط.
-8. حفظ العرض التقديمي المعدل كملف PPTX.
+إليك كيفية تطبيق تعبئة نمطية على شكل باستخدام Aspose.Slides:
+
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/).
+1. الحصول على مرجع إلى شريحة باستخدام فهرسها.
+1. إضافة [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/) إلى الشريحة.
+1. ضبط [FillType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/filltype/) للشكل إلى `Pattern`.
+1. اختيار نمط نمطي من الخيارات المبدئية.
+1. ضبط [Background Color](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/patternformat/#getBackColor--) للنمط.
+1. ضبط [Foreground Color](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/patternformat/#getForeColor--) للنمط.
+1. حفظ العرض التقديمي المعدل كملف PPTX.
+
+الكود Java التالي يوضح كيفية تطبيق تعبئة نمطية على مستطيل:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
 Presentation presentation = new Presentation();
 try {
@@ -263,13 +288,13 @@ try {
     // إضافة شكل تلقائي من النوع Rectangle.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // تعيين نوع التعبئة إلى Pattern.
+    // ضبط نوع التعبئة إلى Pattern.
     shape.getFillFormat().setFillType(FillType.Pattern);
 
-    // تعيين نمط النمط.
+    // ضبط نمط النقشة.
     shape.getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.Trellis);
 
-    // تعيين ألوان خلفية ونص النمط.
+    // ضبط ألوان الخلفية والواجهة للنقشة.
     shape.getFillFormat().getPatternFormat().getBackColor().setColor(Color.LIGHT_GRAY);
     shape.getFillFormat().getPatternFormat().getForeColor().setColor(Color.YELLOW);
 
@@ -280,26 +305,34 @@ try {
 }
 ```
 
-![المستطيل مع تعبئة بنمط](pattern-fill.png)
+النتيجة:
 
-## **تعبئة بصورة**
+![المستطيل مع تعبئة نمطية](pattern-fill.png)
 
-في PowerPoint، تعبئة بصورة هي خيار تنسيق يتيح لك إدراج صورة داخل شكل—مما يجعل الصورة بمثابة خلفية الشكل.
+## **تعبئة صورة**
 
-لإستخدام Aspose.Slides لتطبيق تعبئة بصورة على شكل:
+في PowerPoint، تعبئة صورة هي خيار تنسيق يسمح لك بإدراج صورة داخل شكل—مُستخدمًا الصورة كخلفية للشكل.
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/) .
-2. الحصول على مرجع إلى شريحة بواسطة الفهرس الخاص بها.
-3. إضافة [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/) إلى الشريحة.
-4. تحديد خاصية [FillType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/filltype/) للشكل إلى `Picture`.
-5. تحديد وضع تعبئة الصورة إلى `Tile` (أو وضع مفضَل آخر).
-6. إنشاء كائن [IPPImage](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ippimage/) من الصورة التي تريد استخدامها.
-7. تمرير الصورة إلى طريقة `ISlidesPicture.setImage` .
-8. حفظ العرض التقديمي المعدل كملف PPTX.
+إليك كيفية استخدام Aspose.Slides لتطبيق تعبئة صورة على شكل:
+
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/).
+1. الحصول على مرجع إلى شريحة باستخدام فهرسها.
+1. إضافة [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/) إلى الشريحة.
+1. ضبط [FillType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/filltype/) للشكل إلى `Picture`.
+1. ضبط وضع تعبئة الصورة إلى `Tile` (أو وضع مفضل آخر).
+1. إنشاء كائن [IPPImage](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ippimage/) من الصورة التي تريد استخدامها.
+1. تمرير الصورة إلى طريقة `ISlidesPicture.setImage`.
+1. حفظ العرض التقديمي المعدل كملف PPTX.
+
+لنفترض أن لدينا ملف "lotus.png" بالصور التالية:
 
 ![صورة اللوتس](lotus.png)
 
+الكود Java التالي يوضح كيفية تعبئة شكل بالصورة:
+
 ```java
+import com.aspose.slides.*;
+
 // إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
 Presentation presentation = new Presentation();
 try {
@@ -330,31 +363,37 @@ try {
 }
 ```
 
+النتيجة:
+
 ![الشكل مع تعبئة صورة](picture-fill.png)
 
-### **صورة متكررة كنقش**
+### **استخدام صورة متكررة كقوام**
 
-إذا كنت تريد تعيين صورة متكررة كنقش وتخصيص سلوك التبليط، يمكنك استخدام الطرق التالية من الواجهة [IPictureFillFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipicturefillformat/) والفئة [PictureFillFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/picturefillformat/) :
+إذا أردت ضبط صورة متكررة كقوام وتخصيص سلوك التكرار، يمكنك استخدام الطرق التالية من واجهة [IPictureFillFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipicturefillformat/) والفئة [PictureFillFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/picturefillformat/):
 
 - [setPictureFillMode](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-): يحدد وضع تعبئة الصورة — إما `Tile` أو `Stretch`.
 - [setTileAlignment](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-): يحدد محاذاة البلاط داخل الشكل.
-- [setTileFlip](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipicturefillformat/#setTileFlip-int-): يتحكم فيما إذا كان البلاط يُعكس أفقيا أو رأسيا أو كليهما.
-- [setTileOffsetX](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): يحدد الإزاحة الأفقية للبلاط (بنقاط) من أصل الشكل.
-- [setTileOffsetY](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): يحدد الإزاحة الرأسية للبلاط (بنقاط) من أصل الشكل.
-- [setTileScaleX](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-): يحدد مقياس البلاط الأفقي كنسبة مئوية.
-- [setTileScaleY](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-): يحدد مقياس البلاط الرأسي كنسبة مئوية.
+- [setTileFlip](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipicturefillformat/#setTileFlip-int-): يتحكم فيما إذا كان البلاط يُقلب أفقيًا أو رأسيًا أو كليًا.
+- [setTileOffsetX](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): يحدد إزاحة البلاط أفقياً (بالنقاط) من أصل الشكل.
+- [setTileOffsetY](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): يحدد إزاحة البلاط عموديًا (بالنقاط) من أصل الشكل.
+- [setTileScaleX](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-): يحدد مقياس البلاط أفقيًا كنسبة مئوية.
+- [setTileScaleY](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-): يحدد مقياس البلاط رأسيًا كنسبة مئوية.
+
+الكود التالي يوضح كيفية إضافة شكل مستطيل مع تعبئة صورة متكررة وضبط خيارات البلاط:
 
 ```java
+import com.aspose.slides.*;
+
 // إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
 Presentation presentation = new Presentation();
 try {
     // الحصول على الشريحة الأولى.
     ISlide firstSlide = presentation.getSlides().get_Item(0);
 
-    // إضافة شكل تلقائي من نوع Rectangle.
+    // إضافة شكل تلقائي من النوع Rectangle.
     IAutoShape shape = firstSlide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 190, 95);
 
-    // تعيين نوع التعبئة للشكل إلى Picture.
+    // ضبط نوع التعبئة للشكل إلى Picture.
     shape.getFillFormat().setFillType(FillType.Picture);
 
     // تحميل الصورة وإضافتها إلى موارد العرض التقديمي.
@@ -366,7 +405,7 @@ try {
     IPictureFillFormat pictureFillFormat = shape.getFillFormat().getPictureFillFormat();
     pictureFillFormat.getPicture().setImage(presentationImage);
 
-    // تكوين وضع تعبئة الصورة وخصائص التبليط.
+    // تكوين وضع تعبئة الصورة وخصائص التكرار.
     pictureFillFormat.setPictureFillMode(PictureFillMode.Tile);
     pictureFillFormat.setTileOffsetX(-32);
     pictureFillFormat.setTileOffsetY(-32);
@@ -382,35 +421,42 @@ try {
 }
 ```
 
-![خيارات التبليط](tile-options.png)
+النتيجة:
+
+![خيارات التكرار](tile-options.png)
 
 ## **تعبئة بلون صلب**
 
-في PowerPoint، تعبئة بلون صلب هي خيار تنسيق يملأ الشكل بلون موحّد واحد. يتم تطبيق هذا اللون الخلفي البسيط دون أي تدرجات أو قوام أو أنماط.
+في PowerPoint، تعبئة بلون صلب هي خيار تنسيق يملئ الشكل بلون موحد واحد. يُطبق هذا اللون الخلفي البسيط دون أي تدرجات أو قوام أو أنماط.
 
 لتطبيق تعبئة بلون صلب على شكل باستخدام Aspose.Slides، اتبع الخطوات التالية:
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/) .
-2. الحصول على مرجع إلى شريحة بواسطة الفهرس الخاص بها.
-3. إضافة [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/) إلى الشريحة.
-4. تحديد خاصية [FillType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/filltype/) للشكل إلى `Solid`.
-5. تعيين لون التعبئة المفضّل للشكل.
-6. حفظ العرض التقديمي المعدل كملف PPTX.
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/).
+1. الحصول على مرجع إلى شريحة باستخدام فهرسها.
+1. إضافة [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/) إلى الشريحة.
+1. ضبط [FillType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/filltype/) للشكل إلى `Solid`.
+1. تعيين لون التعبئة المفضل للشكل.
+1. حفظ العرض التقديمي المعدل كملف PPTX.
+
+الكود Java التالي يُظهر كيفية تطبيق تعبئة بلون صلب على مستطيل في شريحة PowerPoint:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
 Presentation presentation = new Presentation();
 try {
     // الحصول على الشريحة الأولى.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // إضافة شكل تلقائي من نوع Rectangle.
+    // إضافة شكل تلقائي من النوع Rectangle.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // تعيين نوع التعبئة إلى Solid.
+    // ضبط نوع التعبئة إلى Solid.
     shape.getFillFormat().setFillType(FillType.Solid);
 
-    // تعيين لون التعبئة.
+    // ضبط لون التعبئة.
     shape.getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
 
     // حفظ ملف PPTX إلى القرص.
@@ -420,22 +466,29 @@ try {
 }
 ```
 
+النتيجة:
+
 ![الشكل مع تعبئة بلون صلب](solid-color-fill.png)
 
 ## **تعيين الشفافية**
 
-في PowerPoint، عند تطبيق تعبئة بلون صلب أو تدرج أو صورة أو قوام على الأشكال، يمكنك أيضًا تعيين مستوى الشفافية للتحكم في مدى شفافية التعبئة. كلما ارتفعت قيمة الشفافية، يصبح الشكل أكثر شفافية، مما يسمح برؤية الخلفية أو الكائنات تحتها جزئيًا.
+في PowerPoint، عند تطبيق تعبئة بلون صلب أو تدرج أو صورة أو قوام على الأشكال، يمكنك أيضًا تحديد مستوى الشفافية للتحكم في شفافية التعبئة. قيمة شفافية أعلى تجعل الشكل أكثر شفافية، مما يسمح بظهور الخلفية أو الكائنات الأسفل جزئيًا.
 
-تسمح لك Aspose.Slides بتعيين مستوى الشفافية عن طريق تعديل قيمة α في اللون المستخدم للتعبئة. إليك الطريقة:
+تتيح لك Aspose.Slides ضبط مستوى الشفافية عن طريق تعديل قيمة الألفا في اللون المستخدم للتعبئة. إليك الطريقة:
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/) .
-2. الحصول على مرجع إلى شريحة بواسطة الفهرس الخاص بها.
-3. إضافة [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/) إلى الشريحة.
-4. تحديد خاصية [FillType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/filltype/) إلى `Solid`.
-5. استخدام `Color` لتحديد لون مع شفافية (مكون الـ `alpha` يتحكم في الشفافية).
-6. حفظ العرض التقديمي.
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/).
+1. الحصول على مرجع إلى شريحة باستخدام فهرسها.
+1. إضافة [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/) إلى الشريحة.
+1. ضبط [FillType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/filltype/) إلى `Solid`.
+1. استخدام `Color` لتعريف لون مع شفافية (مكوّن `alpha` يتحكم بالشفافية).
+1. حفظ العرض التقديمي.
+
+الكود Java التالي يُظهر كيفية تطبيق لون تعبئة شفاف على مستطيل:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
 Presentation presentation = new Presentation();
 try {
@@ -457,21 +510,27 @@ try {
 }
 ```
 
+النتيجة:
+
 ![الشكل الشفاف](shape-transparency.png)
 
 ## **تدوير الأشكال**
 
-تتيح لك Aspose.Slides تدوير الأشكال في عروض PowerPoint. يمكن أن يكون ذلك مفيدًا عند وضع العناصر البصرية بمواضع أو تصاميم محددة.
+تتيح لك Aspose.Slides تدوير الأشكال في عروض PowerPoint. يمكن أن يكون ذلك مفيدًا عند وضع العناصر البصرية وفق محاذاة أو احتياجات تصميمية معينة.
 
 لتدوير شكل على شريحة، اتبع الخطوات التالية:
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/) .
-2. الحصول على مرجع إلى شريحة بواسطة الفهرس الخاص بها.
-3. إضافة [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/) إلى الشريحة.
-4. ضبط خاصية الدوران للShape إلى الزاوية المطلوبة.
-5. حفظ العرض التقديمي.
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/).
+1. الحصول على مرجع إلى شريحة باستخدام فهرسها.
+1. إضافة [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/) إلى الشريحة.
+1. ضبط خاصية دوران الشكل إلى الزاوية المطلوبة.
+1. حفظ العرض التقديمي.
+
+الكود Java التالي يُظهر كيفية تدوير شكل بزاوية 5 درجات:
 
 ```java
+import com.aspose.slides.*;
+
 // إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي.
 Presentation presentation = new Presentation();
 try {
@@ -491,22 +550,29 @@ try {
 }
 ```
 
+النتيجة:
+
 ![تدوير الشكل](shape-rotation.png)
 
-## **إضافة تأثيرات القطع الثلاثي الأبعاد**
+## **إضافة تأثيرات بروفيل ثلاثية الأبعاد**
 
-تسمح لك Aspose.Slides بتطبيق تأثيرات القطع الثلاثي الأبعاد على الأشكال عن طريق ضبط خصائص [ThreeDFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/threedformat/) الخاصة بها.
+تسمح لك Aspose.Slides بتطبيق تأثيرات بروفيل ثلاثية الأبعاد على الأشكال عن طريق تكوين خصائص [ThreeDFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/threedformat/).
 
-لإضافة تأثيرات القطع الثلاثي الأبعاد إلى شكل، اتبع الخطوات التالية:
+لإضافة تأثيرات بروفيل ثلاثية الأبعاد إلى شكل، اتبع الخطوات التالية:
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/) .
-2. الحصول على مرجع إلى شريحة بواسطة الفهرس الخاص بها.
-3. إضافة [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/) إلى الشريحة.
-4. ضبط خصائص [ThreeDFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/threedformat/) للShape لتحديد إعدادات القطع.
-5. حفظ العرض التقديمي.
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/).
+1. الحصول على مرجع إلى شريحة باستخدام فهرسها.
+1. إضافة [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/) إلى الشريحة.
+1. ضبط خصائص [ThreeDFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/threedformat/) لتحديد إعدادات البروفيل.
+1. حفظ العرض التقديمي.
+
+الكود Java التالي يوضح كيفية تطبيق تأثيرات بروفيل ثلاثية الأبعاد على شكل:
 
 ```java
-// إنشاء كائن من فئة Presentation.
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// إنشاء مثيل من فئة Presentation.
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -519,7 +585,7 @@ try {
     shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.ORANGE);
     shape.getLineFormat().setWidth(2.0);
 
-    // تعيين خصائص ThreeDFormat للشكل.
+    // ضبط خصائص ThreeDFormat للشكل.
     shape.getThreeDFormat().setDepth(4);
     shape.getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle);
     shape.getThreeDFormat().getBevelTop().setHeight(6);
@@ -535,22 +601,28 @@ try {
 }
 ```
 
-![تأثير القطع الثلاثي الأبعاد](3D-bevel-effect.png)
+النتيجة:
 
-## **إضافة تأثيرات الدوران الثلاثي الأبعاد**
+![تأثير البروفيل ثلاثي الأبعاد](3D-bevel-effect.png)
 
-تسمح لك Aspose.Slides بتطبيق تأثيرات الدوران الثلاثي الأبعاد على الأشكال عن طريق ضبط خصائص [ThreeDFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/threedformat/) الخاصة بها.
+## **إضافة تأثيرات دوران ثلاثية الأبعاد**
+
+تسمح لك Aspose.Slides بتطبيق تأثيرات دوران ثلاثية الأبعاد على الأشكال عن طريق تكوين خصائص [ThreeDFormat](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/threedformat/).
 
 لتطبيق دوران ثلاثي الأبعاد على شكل:
 
-1. إنشاء كائن من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/) .
-2. الحصول على مرجع إلى شريحة بواسطة الفهرس الخاص بها.
-3. إضافة [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/) إلى الشريحة.
-4. استخدام [setCameraType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/icamera/#setCameraType-int-) و[setLightType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ilightrig/#setLightType-int-) لتحديد إعدادات الدوران الثلاثي الأبعاد.
-5. حفظ العرض التقديمي.
+1. إنشاء مثيل من الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/).
+1. الحصول على مرجع إلى شريحة باستخدام فهرسها.
+1. إضافة [IAutoShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iautoshape/) إلى الشريحة.
+1. استخدم [setCameraType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/icamera/#setCameraType-int-) و[setLightType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ilightrig/#setLightType-int-) لتحديد دوران ثلاثي الأبعاد.
+1. حفظ العرض التقديمي.
+
+الكود Java التالي يُظهر كيفية تطبيق تأثيرات دوران ثلاثية الأبعاد على شكل:
 
 ```java
-// إنشاء كائن من فئة Presentation.
+import com.aspose.slides.*;
+
+// إنشاء مثيل من فئة Presentation.
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -570,17 +642,52 @@ try {
 }
 ```
 
-![تأثير الدوران الثلاثي الأبعاد](3D-rotation-effect.png)
+النتيجة:
 
-## **إعادة تعيين التنسيق**
+![تأثير الدوران ثلاثي الأبعاد](3D-rotation-effect.png)
 
-الشفرة Java التالية توضح كيفية إعادة تعيين تنسيق شريحة وإرجاع الموقع والحجم وتنسيق جميع الأشكال التي تحتوي على عناصر نائبة على الـ [LayoutSlide](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/layoutslide/) إلى الإعدادات الافتراضية لها:
+## **التحكم في العرض بالأبيض والأسود للأشكال**
+
+طريقة [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) تحدد كيفية عرض شكل فردي عندما يُشاهد أو يُعالج العرض التقديمي في وضع الأبيض والأسود. لا تُفعِّل العرض بالأبيض والأسود بحد ذاتها، ولا تُغيِّر تعبئة الشكل أو خطه أو تنسيقه في وضع الألوان العادية.
+
+استخدم قيمة من فئة [BlackWhiteMode](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/blackwhitemode/) لتحديد السلوك المطلوب. على سبيل المثال، `Automatic` يتيح لتطبيق العرض اختيار التحويل، `Gray` و`LightGray` يستخدمان اللون الرمادي، `BlackWhite` يستخدم فقط الأسود والأبيض، `Black` و`White` يفرضان لونًا واحدًا، `Color` يحافظ على الألوان العادية، و`Hidden` يُخفي الشكل في وضع الأبيض والأسود. `NotDefined` يعني أنه لم يتم تعيين وضع على مستوى الشكل.
+
+الكود Java التالي ينشئ شكلًا ملونًا ويجعله يظهر باللون الرمادي في وضع العرض بالأبيض والأسود:
 
 ```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
+    shape.getFillFormat().setFillType(FillType.Solid);
+    shape.getFillFormat().getSolidFillColor().setColor(Color.rgb(255, 165, 0));
+
+    // احتفظ بالتعبئة البرتقالية في وضع اللون، لكن اعرض الشكل باللون الرمادي في وضع الأبيض والأسود.
+    shape.setBlackWhiteMode(BlackWhiteMode.Gray);
+
+    presentation.save("shape_black_white_mode.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+في وضع الألوان العادية، يحتفظ المستطيل بملئه البرتقالي. في سير عمل العرض بالأبيض والأسود، يستخدم اللون الرمادي لأن وضعه مضبوط على `Gray`. يتيح لك هذا الحفاظ على شريحة ملونة بالكامل مع تحديد مظهر مميز للطباعة أو المعاينة أو أي سير عمل يراعي إعدادات العرض بالأبيض والأسود.
+
+## **إعادة ضبط التنسيق**
+
+الكود Java التالي يُظهر كيفية إعادة ضبط تنسيق شريحة وإعادة موضع وحجم وتنسيق جميع الأشكال ذات العناصر النائبة على [LayoutSlide](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/layoutslide/) إلى إعداداتها الافتراضية:
+
+```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     for (ISlide slide : presentation.getSlides()) {
-        // إعادة تعيين كل شكل في الشريحة التي لديها عنصر نائب على التخطيط.
+        // إعادة تعيين كل شكل على الشريحة الذي يحتوي على عنصر نائب في التخطيط.
         slide.reset();
     }
     presentation.save("reset_formatting.pptx", SaveFormat.Pptx);
@@ -589,16 +696,16 @@ try {
 }
 ```
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
 **هل يؤثر تنسيق الشكل على حجم ملف العرض التقديمي النهائي؟**
 
-بشكل طفيف فقط. الصور والوسائط المضمنة تشغل معظم مساحة الملف، بينما معاملات الشكل مثل الألوان والتأثيرات والتدرجات تُخزن كبيانات وصفية وتضيف حجمًا ضئيلًا تقريبًا.
+يتأثر ذلك بشكل طفيف فقط. تشغل الصور والوسائط المضمنة الجزء الأكبر من مساحة الملف، بينما تُخزن معلمات الشكل مثل الألوان والتأثيرات والتدرجات كبيانات وصفية ولا تضيف حجمًا إضافيًا ملحوظًا.
 
 **كيف يمكنني اكتشاف الأشكال على شريحة التي تشترك في تنسيق متطابق حتى أتمكن من تجميعها؟**
 
-قارن خصائص التنسيق الرئيسية لكل شكل — إعدادات التعبئة، الخط، والتأثيرات. إذا تطابقت جميع القيم المقابلة، اعتبر أن الأنماط متطابقة وجمّع تلك الأشكال معًا لتبسيط إدارة الأنماط لاحقًا.
+قارن خصائص التنسيق الرئيسية لكل شكل—الإعدادات الخاصة بالملء، الخط، والتأثير. إذا تطابقت جميع القيم المقابلة، اعتبر أن أنماطها متطابقة وقم بتجميع تلك الأشكال منطقيًا، مما يبسط إدارة الأنماط لاحقًا.
 
-**هل يمكنني حفظ مجموعة من أنماط الشكل المخصصة في ملف منفصل لإعادة استخدامها في عروض تقديمية أخرى؟**
+**هل يمكنني حفظ مجموعة من أنماط الشكل المخصصة إلى ملف منفصل لإعادة استخدامها في عروض تقديمية أخرى؟**
 
-نعم. احفظ أشكالًا نموذجية تحمل الأنماط المطلوبة في شريحة قالب أو ملف قالب .POTX. عند إنشاء عرض تقديمي جديد، افتح القالب، استنسخ الأشكال ذات الأنماط التي تحتاجها، وأعد تطبيق تنسيقاتها حسب الحاجة.
+نعم. احفظ أشكالًا نموذجية بالأنماط المطلوبة في شريحة قالب أو ملف قالب .POTX. عند إنشاء عرض تقديمي جديد، افتح القالب، استنسخ الأشكال ذات الأنماط التي تحتاجها، وأعد تطبيق تنسيقها حيثما يلزم.

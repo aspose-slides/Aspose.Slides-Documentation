@@ -1,5 +1,5 @@
 ---
-title: Format Bentuk PowerPoint dalam PHP
+title: Format Bentuk PowerPoint di PHP
 linktitle: Pemformatan Bentuk
 type: docs
 weight: 20
@@ -10,25 +10,27 @@ keywords:
 - efek sketsa
 - garis bentuk sketsa
 - format gaya sambungan
-- isi gradien
-- isi pola
-- isi gambar
-- isi tekstur
-- isi warna solid
+- isian gradien
+- isian pola
+- isian gambar
+- isian tekstur
+- isian warna solid
 - transparansi bentuk
+- rendering bentuk hitam-putih
+- rendering bentuk skala abu-abu
 - putar bentuk
 - efek bevel 3D
 - efek rotasi 3D
-- reset pemformatan
+- atur ulang pemformatan
 - PowerPoint
 - presentasi
 - PHP
 - Aspose.Slides
-description: "Pelajari cara memformat bentuk PowerPoint dalam PHP menggunakan Aspose.Slides—atur gaya isi, garis, dan efek untuk file PPT, PPTX, dan ODP dengan presisi dan kontrol penuh."
+description: "Pelajari cara memformat bentuk PowerPoint di PHP menggunakan Aspose.Slides—atur gaya isian, garis, dan efek untuk file PPT, PPTX, dan ODP dengan presisi dan kontrol penuh."
 ---
 ## **Pendahuluan**
 
-Di PowerPoint, Anda dapat menambahkan bentuk ke slide. Karena bentuk terdiri atas garis, Anda dapat memformatnya dengan mengubah atau menerapkan efek pada outline‑nya. Selain itu, Anda dapat memformat bentuk dengan menentukan pengaturan yang mengontrol cara interiornya diisi.
+Di PowerPoint, Anda dapat menambahkan bentuk ke slide. Karena bentuk terdiri dari garis, Anda dapat memformatnya dengan memodifikasi atau menerapkan efek pada kontur mereka. Selain itu, Anda dapat memformat bentuk dengan menentukan pengaturan yang mengontrol bagaimana bagian dalamnya diisi.
 
 ![format-shape-powerpoint](format-shape-powerpoint.png)
 
@@ -38,16 +40,16 @@ Aspose.Slides untuk PHP via Java menyediakan kelas dan metode yang memungkinkan 
 
 Dengan Aspose.Slides, Anda dapat menentukan gaya garis khusus untuk sebuah bentuk. Langkah‑langkah berikut menjelaskan prosedurnya:
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/).
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/).
 1. Dapatkan referensi ke slide berdasarkan indeksnya.
-1. Tambahkan [AutoShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/autoshape/) ke slide.
+1. Tambahkan sebuah [AutoShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/autoshape/) ke slide.
 1. Atur [line style](https://reference.aspose.com/slides/id/php-java/aspose.slides/linestyle/) bentuk.
 1. Atur lebar garis.
 1. Atur [dash style](https://reference.aspose.com/slides/id/php-java/aspose.slides/linedashstyle/) garis.
 1. Atur warna garis untuk bentuk.
 1. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode PHP berikut mendemonstrasikan cara memformat `AutoShape` persegi panjang:
+Kode PHP berikut memperlihatkan cara memformat sebuah `AutoShape` persegi panjang:
 
 ```php
 // Membuat instance kelas Presentation yang mewakili file presentasi.
@@ -59,7 +61,7 @@ try {
     // Tambahkan auto shape tipe Rectangle.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 150, 150, 75);
 
-    // Atur warna isi untuk bentuk persegi panjang.
+    // Atur warna isian untuk shape persegi panjang.
     $shape->getFillFormat()->setFillType(FillType::NoFill);
 
     // Terapkan pemformatan pada garis persegi panjang.
@@ -80,7 +82,7 @@ try {
 
 Hasilnya:
 
-![Garis yang diformat dalam presentasi](formatted-lines.png)
+![The formatted lines in the presentation](formatted-lines.png)
 
 ## **Terapkan Efek Sketsa pada Garis Bentuk**
 
@@ -94,13 +96,13 @@ try {
     $slide = $presentation->getSlides()->get_Item(0);
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 200, 100);
 
-    // Akses format garis bentuk dan format sketsanya.
+    // Akses format garis shape dan format sketsanya.
     $sketchFormat = $shape->getLineFormat()->getSketchFormat();
 
     // Terapkan efek sketsa.
     $sketchFormat->setSketchType(LineSketchType::Curved);
 
-    // Baca efek sketsa yang ditetapkan langsung pada bentuk.
+    // Baca efek sketsa yang ditetapkan langsung pada shape.
     $explicitSketchType = $sketchFormat->getSketchType();
     echo "Explicit sketch type: " . $explicitSketchType . PHP_EOL;
 
@@ -111,7 +113,7 @@ try {
 }
 ```
 
-Nilai yang dikembalikan oleh [SketchFormat.getSketchType](https://reference.aspose.com/slides/id/php-java/aspose.slides/sketchformat/) mewakili pengaturan yang ditetapkan langsung pada bentuk. Jika pemformatan garis dapat diturunkan dari tema, master slide, atau layout slide, gunakan [LineFormat.getEffective](https://reference.aspose.com/slides/id/php-java/aspose.slides/lineformat/), akses metode `getSketchFormat` pada objek yang dikembalikan, dan baca nilai `getSketchType`‑nya. Nilai efektif mencerminkan pemformatan yang sebenarnya diterapkan setelah pewarisan diselesaikan:
+Nilai yang dikembalikan oleh [SketchFormat.getSketchType](https://reference.aspose.com/slides/id/php-java/aspose.slides/sketchformat/) mewakili pengaturan yang ditetapkan langsung pada bentuk. Jika pemformatan garis dapat diwarisi dari tema, master slide, atau layout slide, gunakan [LineFormat.getEffective](https://reference.aspose.com/slides/id/php-java/aspose.slides/lineformat/), akses metode `getSketchFormat` pada objek yang dikembalikan, dan baca nilai `getSketchType`‑nya. Nilai efektif mencerminkan pemformatan yang benar‑benar diterapkan setelah pewarisan diselesaikan:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -132,20 +134,20 @@ try {
 
 ## **Format Gaya Sambungan**
 
-Berikut tiga opsi jenis sambungan:
+Berikut tiga opsi tipe sambungan:
 
 * Round
 * Miter
 * Bevel
 
-Secara default, ketika PowerPoint menggabungkan dua garis pada sudut (misalnya pada sudut bentuk), ia menggunakan pengaturan **Round**. Namun, jika Anda menggambar bentuk dengan sudut tajam, Anda mungkin lebih suka opsi **Miter**.
+Secara default, ketika PowerPoint menyambungkan dua garis pada sudut (misalnya pada sudut bentuk), ia menggunakan pengaturan **Round**. Namun, jika Anda menggambar bentuk dengan sudut tajam, Anda mungkin lebih menyukai opsi **Miter**.
 
-![Gaya sambungan dalam presentasi](join-style-powerpoint.png)
+![The join style in the presentation](join-style-powerpoint.png)
 
-Kode PHP berikut mendemonstrasikan bagaimana tiga persegi panjang (seperti pada gambar di atas) dibuat dengan pengaturan jenis sambungan Miter, Bevel, dan Round:
+Kode PHP berikut memperlihatkan cara tiga persegi panjang (seperti pada gambar di atas) dibuat menggunakan pengaturan jenis sambungan Miter, Bevel, dan Round:
 
 ```php
-// Membuat instance kelas Presentation yang mewakili file presentasi.
+// Buat instance kelas Presentation yang mewakili file presentasi.
 $presentation = new Presentation();
 try {
     // Dapatkan slide pertama.
@@ -156,7 +158,7 @@ try {
     $shape2 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 210, 20, 150, 75);
     $shape3 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 135, 150, 75);
 
-    // Atur warna isi untuk setiap bentuk persegi panjang.
+    // Atur warna isian untuk setiap shape persegi panjang.
     $shape1->getFillFormat()->setFillType(FillType::Solid);
     $shape1->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
     $shape2->getFillFormat()->setFillType(FillType::Solid);
@@ -194,20 +196,20 @@ try {
 }
 ```
 
-## **Isi Gradien**
+## **Isian Gradien**
 
-Di PowerPoint, Isi Gradien adalah opsi pemformatan yang memungkinkan Anda menerapkan perpaduan warna berkelanjutan pada sebuah bentuk. Misalnya, Anda dapat menerapkan dua atau lebih warna sehingga satu warna perlahan memudar menjadi warna lainnya.
+Di PowerPoint, Isian Gradien adalah opsi pemformatan yang memungkinkan Anda menerapkan perpaduan warna berkelanjutan pada sebuah bentuk. Misalnya, Anda dapat menerapkan dua atau lebih warna sehingga satu secara bertahap berubah menjadi warna lain.
 
-Berikut cara menerapkan isi gradien pada bentuk menggunakan Aspose.Slides:
+Berikut cara menerapkan isian gradien pada bentuk menggunakan Aspose.Slides:
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/).
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/).
 1. Dapatkan referensi ke slide berdasarkan indeksnya.
-1. Tambahkan [AutoShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/autoshape/) ke slide.
+1. Tambahkan sebuah [AutoShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/autoshape/) ke slide.
 1. Atur [FillType](https://reference.aspose.com/slides/id/php-java/aspose.slides/filltype/) bentuk menjadi `Gradient`.
 1. Tambahkan dua warna pilihan Anda dengan posisi yang ditentukan menggunakan metode `add` pada koleksi gradient stop yang diekspos oleh kelas [GradientFormat](https://reference.aspose.com/slides/id/php-java/aspose.slides/gradientformat/).
 1. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode PHP berikut mendemonstrasikan cara menerapkan efek isi gradien pada sebuah elips:
+Kode PHP berikut memperlihatkan cara menerapkan efek isian gradien pada sebuah elips:
 
 ```php
 // Membuat instance kelas Presentation yang mewakili file presentasi.
@@ -226,7 +228,7 @@ try {
     // Atur arah gradien.
     $shape->getFillFormat()->getGradientFormat()->setGradientDirection(GradientDirection::FromCorner2);
 
-    // Tambahkan dua titik henti gradien.
+    // Tambahkan dua gradient stop.
     $shape->getFillFormat()->getGradientFormat()->getGradientStops()->addPresetColor(1.0, PresetColor::Purple);
     $shape->getFillFormat()->getGradientFormat()->getGradientStops()->addPresetColor(0, PresetColor::Red);
 
@@ -239,78 +241,78 @@ try {
 
 Hasilnya:
 
-![Elips dengan isi gradien](gradient-fill.png)
+![The ellipse with gradient fill](gradient-fill.png)
 
-## **Isi Pola**
+## **Isian Pola**
 
-Di PowerPoint, Isi Pola adalah opsi pemformatan yang memungkinkan Anda menerapkan desain dua warna—misalnya titik, garis, crosshatch, atau kotak—pada sebuah bentuk. Anda dapat memilih warna khusus untuk latar depan dan latar belakang pola.
+Di PowerPoint, Isian Pola adalah opsi pemformatan yang memungkinkan Anda menerapkan desain dua warna—misalnya titik, garis, silang, atau kotak—pada sebuah bentuk. Anda dapat memilih warna khusus untuk latar depan dan latar belakang pola.
 
-Aspose.Slides menyediakan lebih dari 45 gaya pola bawaan yang dapat Anda terapkan pada bentuk untuk meningkatkan daya tarik visual presentasi. Bahkan setelah memilih pola bawaan, Anda masih dapat menentukan warna tepat yang akan digunakan.
+Aspose.Slides menyediakan lebih dari 45 gaya pola pra‑definisi yang dapat Anda terapkan pada bentuk untuk meningkatkan daya tarik visual presentasi Anda. Bahkan setelah memilih pola pra‑definisi, Anda masih dapat menentukan warna tepat yang akan digunakan.
 
-Berikut cara menerapkan isi pola pada bentuk menggunakan Aspose.Slides:
+Berikut cara menerapkan isian pola pada bentuk menggunakan Aspose.Slides:
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/).
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/).
 1. Dapatkan referensi ke slide berdasarkan indeksnya.
-1. Tambahkan [AutoShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/autoshape/) ke slide.
+1. Tambahkan sebuah [AutoShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/autoshape/) ke slide.
 1. Atur [FillType](https://reference.aspose.com/slides/id/php-java/aspose.slides/filltype/) bentuk menjadi `Pattern`.
-1. Pilih gaya pola dari opsi bawaan.
+1. Pilih gaya pola dari opsi pra‑definisi.
 1. Atur [Background Color](https://reference.aspose.com/slides/id/php-java/aspose.slides/patternformat/#getBackColor) pola.
 1. Atur [Foreground Color](https://reference.aspose.com/slides/id/php-java/aspose.slides/patternformat/#getForeColor) pola.
 1. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode PHP berikut mendemonstrasikan cara menerapkan isi pola pada sebuah persegi panjang:
+Kode PHP berikut memperlihatkan cara menerapkan isian pola pada sebuah persegi panjang:
 
 ```php
-// Membuat instance kelas Presentation yang mewakili file presentasi.
-$presentation = new Presentation();
-try {
-    // Dapatkan slide pertama.
-    $slide = $presentation->getSlides()->get_Item(0);
+    // Membuat instance kelas Presentation yang mewakili file presentasi.
+    $presentation = new Presentation();
+    try {
+        // Dapatkan slide pertama.
+        $slide = $presentation->getSlides()->get_Item(0);
 
-    // Tambahkan auto shape tipe Rectangle.
-    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
+        // Tambahkan auto shape tipe Rectangle.
+        $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-    // Atur jenis isi menjadi Pattern.
-    $shape->getFillFormat()->setFillType(FillType::Pattern);
+        // Atur jenis isian menjadi Pattern.
+        $shape->getFillFormat()->setFillType(FillType::Pattern);
 
-    // Atur gaya pola.
-    $shape->getFillFormat()->getPatternFormat()->setPatternStyle(PatternStyle::Trellis);
+        // Atur gaya pola.
+        $shape->getFillFormat()->getPatternFormat()->setPatternStyle(PatternStyle::Trellis);
 
-    // Atur warna latar belakang dan latar depan pola.
-    $shape->getFillFormat()->getPatternFormat()->getBackColor()->setColor(java("java.awt.Color")->LIGHT_GRAY);
-    $shape->getFillFormat()->getPatternFormat()->getForeColor()->setColor(java("java.awt.Color")->YELLOW);
+        // Atur warna latar belakang dan latar depan pola.
+        $shape->getFillFormat()->getPatternFormat()->getBackColor()->setColor(java("java.awt.Color")->LIGHT_GRAY);
+        $shape->getFillFormat()->getPatternFormat()->getForeColor()->setColor(java("java.awt.Color")->YELLOW);
 
-    // Simpan file PPTX ke disk.
-    $presentation->save("pattern_fill.pptx", SaveFormat::Pptx);
-} finally {
-    $presentation->dispose();
-}
+        // Simpan file PPTX ke disk.
+        $presentation->save("pattern_fill.pptx", SaveFormat::Pptx);
+    } finally {
+        $presentation->dispose();
+    }
 ```
 
 Hasilnya:
 
-![Persegi panjang dengan isi pola](pattern-fill.png)
+![The rectangle with pattern fill](pattern-fill.png)
 
-## **Isi Gambar**
+## **Isian Gambar**
 
-Di PowerPoint, Isi Gambar adalah opsi pemformatan yang memungkinkan Anda menyisipkan gambar ke dalam sebuah bentuk—secara efektif menggunakan gambar tersebut sebagai latar belakang bentuk.
+Di PowerPoint, Isian Gambar adalah opsi pemformatan yang memungkinkan Anda menyisipkan gambar di dalam sebuah bentuk—secara efektif menggunakan gambar tersebut sebagai latar belakang bentuk.
 
-Berikut cara menggunakan Aspose.Slides untuk menerapkan isi gambar pada bentuk:
+Berikut cara menggunakan Aspose.Slides untuk menerapkan isian gambar pada bentuk:
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/).
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/).
 1. Dapatkan referensi ke slide berdasarkan indeksnya.
-1. Tambahkan [AutoShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/autoshape/) ke slide.
+1. Tambahkan sebuah [AutoShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/autoshape/) ke slide.
 1. Atur [FillType](https://reference.aspose.com/slides/id/php-java/aspose.slides/filltype/) bentuk menjadi `Picture`.
-1. Atur mode isi gambar menjadi `Tile` (atau mode lain yang diinginkan).
+1. Atur mode isian gambar menjadi `Tile` (atau mode lain yang diinginkan).
 1. Buat objek [PPImage](https://reference.aspose.com/slides/id/php-java/aspose.slides/ppimage/) dari gambar yang ingin Anda gunakan.
-1. Berikan gambar tersebut ke metode `SlidesPicture.setImage`.
+1. Serahkan gambar ke metode `SlidesPicture.setImage`.
 1. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
 Misalkan kita memiliki file "lotus.png" dengan gambar berikut:
 
-![Gambar lotus](lotus.png)
+![The lotus picture](lotus.png)
 
-Kode PHP berikut mendemonstrasikan cara mengisi bentuk dengan gambar:
+Kode PHP berikut memperlihatkan cara mengisi sebuah bentuk dengan gambar:
 
 ```php
 // Membuat instance kelas Presentation yang mewakili file presentasi.
@@ -322,10 +324,10 @@ try {
     // Tambahkan auto shape tipe Rectangle.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 255, 130);
 
-    // Atur jenis isi menjadi Picture.
+    // Atur jenis isian menjadi Picture.
     $shape->getFillFormat()->setFillType(FillType::Picture);
 
-    // Atur mode isi gambar.
+    // Atur mode isian gambar.
     $shape->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Tile);
 
     // Muat gambar dan tambahkan ke sumber daya presentasi.
@@ -345,24 +347,24 @@ try {
 
 Hasilnya:
 
-![Bentuk dengan isi gambar](picture-fill.png)
+![The shape with picture fill](picture-fill.png)
 
-### **Gambar Ubin sebagai Tekstur**
+### **Tile Picture As Texture**
 
-Jika Anda ingin menetapkan gambar ubin sebagai tekstur dan menyesuaikan perilaku ubinan, Anda dapat menggunakan metode berikut dari kelas [PictureFillFormat](https://reference.aspose.com/slides/id/php-java/aspose.slides/picturefillformat/):
+Jika Anda ingin menetapkan gambar berulang sebagai tekstur dan menyesuaikan perilaku penempatan ubin, Anda dapat menggunakan metode berikut dari kelas [PictureFillFormat](https://reference.aspose.com/slides/id/php-java/aspose.slides/picturefillformat/):
 
-- [setPictureFillMode](https://reference.aspose.com/slides/id/php-java/aspose.slides/picturefillformat/#setPictureFillMode): Menetapkan mode isi gambar—`Tile` atau `Stretch`.
-- [setTileAlignment](https://reference.aspose.com/slides/id/php-java/aspose.slides/picturefillformat/#setTileAlignment): Menentukan perataan ubin di dalam bentuk.
+- [setPictureFillMode](https://reference.aspose.com/slides/id/php-java/aspose.slides/picturefillformat/#setPictureFillMode): Menetapkan mode isian gambar—baik `Tile` atau `Stretch`.
+- [setTileAlignment](https://reference.aspose.com/slides/id/php-java/aspose.slides/picturefillformat/#setTileAlignment): Menentukan perataan ubin dalam bentuk.
 - [setTileFlip](https://reference.aspose.com/slides/id/php-java/aspose.slides/picturefillformat/#setTileFlip): Mengontrol apakah ubin dibalik secara horizontal, vertikal, atau keduanya.
-- [setTileOffsetX](https://reference.aspose.com/slides/id/php-java/aspose.slides/picturefillformat/#setTileOffsetX): Menetapkan offset horizontal ubin (dalam point) dari asal bentuk.
-- [setTileOffsetY](https://reference.aspose.com/slides/id/php-java/aspose.slides/picturefillformat/#setTileOffsetY): Menetapkan offset vertikal ubin (dalam point) dari asal bentuk.
+- [setTileOffsetX](https://reference.aspose.com/slides/id/php-java/aspose.slides/picturefillformat/#setTileOffsetX): Menetapkan offset horizontal ubin (dalam poin) dari asal bentuk.
+- [setTileOffsetY](https://reference.aspose.com/slides/id/php-java/aspose.slides/picturefillformat/#setTileOffsetY): Menetapkan offset vertikal ubin (dalam poin) dari asal bentuk.
 - [setTileScaleX](https://reference.aspose.com/slides/id/php-java/aspose.slides/picturefillformat/#setTileScaleX): Mendefinisikan skala horizontal ubin dalam persentase.
 - [setTileScaleY](https://reference.aspose.com/slides/id/php-java/aspose.slides/picturefillformat/#setTileScaleY): Mendefinisikan skala vertikal ubin dalam persentase.
 
-Contoh kode berikut menunjukkan cara menambahkan bentuk persegi panjang dengan isi gambar ubin dan mengonfigurasi opsi ubin:
+Kode contoh berikut memperlihatkan cara menambahkan bentuk persegi panjang dengan isian gambar berulang dan mengonfigurasi opsi ubinnya:
 
 ```php
-// Membuat instance kelas Presentation yang mewakili file presentasi.
+// Buat instance kelas Presentation yang mewakili file presentasi.
 $presentation = new Presentation();
 try {
     // Dapatkan slide pertama.
@@ -371,7 +373,7 @@ try {
     // Tambahkan auto shape persegi panjang.
     $shape = $firstSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 190, 95);
 
-    // Atur jenis isi bentuk menjadi Picture.
+    // Atur jenis isian shape menjadi Picture.
     $shape->getFillFormat()->setFillType(FillType::Picture);
 
     // Muat gambar dan tambahkan ke sumber daya presentasi.
@@ -379,11 +381,11 @@ try {
     $presentationImage = $presentation->getImages()->addImage($sourceImage);
     $sourceImage->dispose();
 
-    // Tetapkan gambar ke bentuk.
+    // Tetapkan gambar ke shape.
     $pictureFillFormat = $shape->getFillFormat()->getPictureFillFormat();
     $pictureFillFormat->getPicture()->setImage($presentationImage);
 
-    // Konfigurasikan mode isi gambar dan properti ubinan.
+    // Konfigurasikan mode isian gambar dan properti ubin.
     $pictureFillFormat->setPictureFillMode(PictureFillMode::Tile);
     $pictureFillFormat->setTileOffsetX(-32);
     $pictureFillFormat->setTileOffsetY(-32);
@@ -401,22 +403,22 @@ try {
 
 Hasilnya:
 
-![Opsi ubin](tile-options.png)
+![The tile options](tile-options.png)
 
-## **Isi Warna Solid**
+## **Isian Warna Solid**
 
-Di PowerPoint, Isi Warna Solid adalah opsi pemformatan yang mengisi bentuk dengan satu warna seragam. Latar belakang berwarna polos ini diterapkan tanpa gradien, tekstur, atau pola apa pun.
+Di PowerPoint, Isian Warna Solid adalah opsi pemformatan yang mengisi sebuah bentuk dengan satu warna seragam. Latar belakang berwarna polos ini diterapkan tanpa gradien, tekstur, atau pola apapun.
 
-Untuk menerapkan isi warna solid pada bentuk menggunakan Aspose.Slides, ikuti langkah berikut:
+Untuk menerapkan isian warna solid pada bentuk menggunakan Aspose.Slides, ikuti langkah‑langkah berikut:
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/).
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/).
 1. Dapatkan referensi ke slide berdasarkan indeksnya.
-1. Tambahkan [AutoShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/autoshape/) ke slide.
+1. Tambahkan sebuah [AutoShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/autoshape/) ke slide.
 1. Atur [FillType](https://reference.aspose.com/slides/id/php-java/aspose.slides/filltype/) bentuk menjadi `Solid`.
-1. Tetapkan warna isi pilihan Anda pada bentuk.
+1. Tentukan warna isian pilihan Anda pada bentuk.
 1. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
-Kode PHP berikut mendemonstrasikan cara menerapkan isi warna solid pada sebuah persegi panjang di slide PowerPoint:
+Kode PHP berikut memperlihatkan cara menerapkan isian warna solid pada sebuah persegi panjang dalam slide PowerPoint:
 
 ```php
 // Membuat instance kelas Presentation yang mewakili file presentasi.
@@ -428,10 +430,10 @@ try {
     // Tambahkan auto shape tipe Rectangle.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-    // Atur jenis isi menjadi Solid.
+    // Atur jenis isian menjadi Solid.
     $shape->getFillFormat()->setFillType(FillType::Solid);
 
-    // Atur warna isi.
+    // Atur warna isian.
     $shape->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->YELLOW);
 
     // Simpan file PPTX ke disk.
@@ -443,25 +445,25 @@ try {
 
 Hasilnya:
 
-![Bentuk dengan isi warna solid](solid-color-fill.png)
+![The shape with solid color fill](solid-color-fill.png)
 
-## **Atur Transparansi**
+## **Set Transparansi**
 
-Di PowerPoint, ketika Anda menerapkan isi warna solid, gradien, gambar, atau tekstur pada bentuk, Anda juga dapat mengatur tingkat transparansi untuk mengontrol opasitas isi. Nilai transparansi yang lebih tinggi membuat bentuk lebih tembus pandang, sehingga latar belakang atau objek di bawahnya menjadi sebagian terlihat.
+Di PowerPoint, ketika Anda menerapkan isian warna solid, gradien, gambar, atau tekstur pada bentuk, Anda juga dapat mengatur tingkat transparansi untuk mengontrol opasitas isian. Nilai transparansi yang lebih tinggi membuat bentuk menjadi lebih tembus, memungkinkan latar belakang atau objek di bawahnya terlihat sebagian.
 
-Aspose.Slides memungkinkan Anda mengatur tingkat transparansi dengan menyesuaikan nilai alfa pada warna yang digunakan untuk isi. Berikut caranya:
+Aspose.Slides memungkinkan Anda mengatur tingkat transparansi dengan menyesuaikan nilai alpha pada warna yang digunakan untuk isian. Berikut caranya:
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/).
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/).
 1. Dapatkan referensi ke slide berdasarkan indeksnya.
-1. Tambahkan [AutoShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/autoshape/) ke slide.
+1. Tambahkan sebuah [AutoShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/autoshape/) ke slide.
 1. Atur [FillType](https://reference.aspose.com/slides/id/php-java/aspose.slides/filltype/) menjadi `Solid`.
 1. Gunakan `Color` untuk mendefinisikan warna dengan transparansi (komponen `alpha` mengontrol transparansi).
 1. Simpan presentasi.
 
-Kode PHP berikut mendemonstrasikan cara menerapkan warna isi transparan pada sebuah persegi panjang:
+Kode PHP berikut memperlihatkan cara menerapkan warna isian transparan pada sebuah persegi panjang:
 
 ```php
-// Membuat instance kelas Presentation yang mewakili file presentasi.
+// Buat instance kelas Presentation yang mewakili file presentasi.
 $presentation = new Presentation();
 try {
     // Dapatkan slide pertama.
@@ -470,7 +472,7 @@ try {
     // Tambahkan auto shape persegi panjang solid.
     $solidShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-    // Tambahkan auto shape persegi panjang transparan di atas bentuk solid.
+    // Tambahkan auto shape persegi panjang transparan di atas shape solid.
     $transparentShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 80, 80, 150, 75);
     $transparentShape->getFillFormat()->setFillType(FillType::Solid);
     $transparentShape->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", 255, 255, 0, 204));
@@ -484,24 +486,24 @@ try {
 
 Hasilnya:
 
-![Bentuk transparan](shape-transparency.png)
+![The transparent shape](shape-transparency.png)
 
 ## **Putar Bentuk**
 
 Aspose.Slides memungkinkan Anda memutar bentuk dalam presentasi PowerPoint. Hal ini berguna saat menempatkan elemen visual dengan kebutuhan penyelarasan atau desain tertentu.
 
-Untuk memutar bentuk pada slide, ikuti langkah berikut:
+Untuk memutar sebuah bentuk pada slide, ikuti langkah‑langkah berikut:
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/).
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/).
 1. Dapatkan referensi ke slide berdasarkan indeksnya.
-1. Tambahkan [AutoShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/autoshape/) ke slide.
+1. Tambahkan sebuah [AutoShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/autoshape/) ke slide.
 1. Atur properti rotasi bentuk ke sudut yang diinginkan.
 1. Simpan presentasi.
 
-Kode PHP berikut mendemonstrasikan cara memutar bentuk sebesar 5 derajat:
+Kode PHP berikut memperlihatkan cara memutar sebuah bentuk sebesar 5 derajat:
 
 ```php
-// Membuat instance kelas Presentation yang mewakili file presentasi.
+// Buat instance kelas Presentation yang mewakili file presentasi.
 $presentation = new Presentation();
 try {
     // Dapatkan slide pertama.
@@ -510,7 +512,7 @@ try {
     // Tambahkan auto shape tipe Rectangle.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-    // Putar bentuk sebesar 5 derajat.
+    // Putar shape sebesar 5 derajat.
     $shape->setRotation(5);
 
     // Simpan file PPTX ke disk.
@@ -522,29 +524,29 @@ try {
 
 Hasilnya:
 
-![Rotasi bentuk](shape-rotation.png)
+![The shape rotation](shape-rotation.png)
 
-## **Tambah Efek Bevel 3D**
+## **Tambahkan Efek Bevel 3D**
 
-Aspose.Slides memungkinkan Anda menerapkan efek bevel 3D pada bentuk dengan mengonfigurasi properti [ThreeDFormat](https://reference.aspose.com/slides/id/php-java/aspose.slides/threedformat/).
+Aspose.Slides memungkinkan Anda menerapkan efek bevel 3D pada bentuk dengan mengonfigurasi properti [ThreeDFormat](https://reference.aspose.com/slides/id/php-java/aspose.slides/threedformat/) mereka.
 
-Untuk menambahkan efek bevel 3D pada bentuk, ikuti langkah berikut:
+Untuk menambahkan efek bevel 3D pada sebuah bentuk, ikuti langkah‑langkah berikut:
 
 1. Instansiasi kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/).
 1. Dapatkan referensi ke slide berdasarkan indeksnya.
-1. Tambahkan [AutoShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/autoshape/) ke slide.
+1. Tambahkan sebuah [AutoShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/autoshape/) ke slide.
 1. Konfigurasikan [ThreeDFormat](https://reference.aspose.com/slides/id/php-java/aspose.slides/threedformat/) bentuk untuk menentukan pengaturan bevel.
 1. Simpan presentasi.
 
-Kode PHP berikut menunjukkan cara menerapkan efek bevel 3D pada bentuk:
+Kode PHP berikut memperlihatkan cara menerapkan efek bevel 3D pada sebuah bentuk:
 
 ```php
-// Membuat instance kelas Presentation.
+// Buat instance kelas Presentation.
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Tambahkan bentuk ke slide.
+    // Tambahkan shape ke slide.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 50, 50, 100, 100);
     $shape->getFillFormat()->setFillType(FillType::Solid);
     $shape->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GREEN);
@@ -552,7 +554,7 @@ try {
     $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->ORANGE);
     $shape->getLineFormat()->setWidth(2.0);
 
-    // Atur properti ThreeDFormat bentuk.
+    // Atur properti ThreeDFormat shape.
     $shape->getThreeDFormat()->setDepth(4);
     $shape->getThreeDFormat()->getBevelTop()->setBevelType(BevelPresetType::Circle);
     $shape->getThreeDFormat()->getBevelTop()->setHeight(6);
@@ -570,24 +572,24 @@ try {
 
 Hasilnya:
 
-![Efek bevel 3D](3D-bevel-effect.png)
+![The 3D bevel effect](3D-bevel-effect.png)
 
-## **Tambah Efek Rotasi 3D**
+## **Tambahkan Efek Rotasi 3D**
 
-Aspose.Slides memungkinkan Anda menerapkan efek rotasi 3D pada bentuk dengan mengonfigurasi properti [ThreeDFormat](https://reference.aspose.com/slides/id/php-java/aspose.slides/threedformat/).
+Aspose.Slides memungkinkan Anda menerapkan efek rotasi 3D pada bentuk dengan mengonfigurasi properti [ThreeDFormat](https://reference.aspose.com/slides/id/php-java/aspose.slides/threedformat/) mereka.
 
-Untuk menerapkan rotasi 3D pada bentuk:
+Untuk menerapkan rotasi 3D pada sebuah bentuk:
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/).
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/).
 1. Dapatkan referensi ke slide berdasarkan indeksnya.
-1. Tambahkan [AutoShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/autoshape/) ke slide.
+1. Tambahkan sebuah [AutoShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/autoshape/) ke slide.
 1. Gunakan [setCameraType](https://reference.aspose.com/slides/id/php-java/aspose.slides/camera/#setCameraType) dan [setLightType](https://reference.aspose.com/slides/id/php-java/aspose.slides/lightrig/#setLightType) untuk mendefinisikan rotasi 3D.
 1. Simpan presentasi.
 
-Kode PHP berikut mendemonstrasikan cara menerapkan efek rotasi 3D pada bentuk:
+Kode PHP berikut memperlihatkan cara menerapkan efek rotasi 3D pada sebuah bentuk:
 
 ```php
-// Membuat instance kelas Presentation.
+// Buat instance kelas Presentation.
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
@@ -609,18 +611,53 @@ try {
 
 Hasilnya:
 
-![Efek rotasi 3D](3D-rotation-effect.png)
+![The 3D rotation effect](3D-rotation-effect.png)
 
-## **Reset Pemformatan**
+## **Kendalikan Rendering Hitam‑Putih untuk Bentuk**
 
-Kode Java berikut menunjukkan cara mereset pemformatan slide dan mengembalikan posisi, ukuran, serta pemformatan semua bentuk dengan placeholder pada [LayoutSlide](https://reference.aspose.com/slides/id/php-java/aspose.slides/layoutslide/) ke pengaturan default mereka:
+Metode [Shape::setBlackWhiteMode](https://reference.aspose.com/slides/id/php-java/aspose.slides/shape/#setBlackWhiteMode) menentukan bagaimana sebuah bentuk individu dirender ketika presentasi dilihat atau diproses dalam mode hitam‑putih. Metode ini tidak mengaktifkan tampilan hitam‑putih secara otomatis, dan tidak mengubah isian, garis, atau pemformatan lain bentuk dalam mode warna biasa.
+
+Gunakan nilai dari kelas [BlackWhiteMode](https://reference.aspose.com/slides/id/php-java/aspose.slides/blackwhitemode/) untuk memilih perilaku yang diinginkan. Misalnya, `Automatic` membiarkan aplikasi rendering memilih konversi, `Gray` dan `LightGray` menggunakan warna abu‑abu, `BlackWhite` hanya menggunakan hitam dan putih, `Black` dan `White` memaksa satu warna, `Color` mempertahankan warna normal, dan `Hidden` menyembunyikan bentuk dalam mode hitam‑putih. `NotDefined` berarti tidak ada mode pada tingkat bentuk yang ditetapkan.
+
+Kode PHP berikut membuat sebuah bentuk berwarna dan membuatnya tampil abu‑abu dalam mode tampilan hitam‑putih:
+
+```php
+use aspose\slides\BlackWhiteMode;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 200, 100);
+    $shape->getFillFormat()->setFillType(FillType::Solid);
+    $orange = new Java("java.awt.Color", 255, 165, 0);
+    $shape->getFillFormat()->getSolidFillColor()->setColor($orange);
+
+    // Pertahankan isian oranye dalam mode warna, tetapi render bentuk dengan pewarnaan abu-abu dalam mode hitam-putih.
+    $shape->setBlackWhiteMode(BlackWhiteMode::Gray);
+
+    $presentation->save("shape_black_white_mode.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Dalam mode warna normal, persegi panjang mempertahankan isian oranye. Dalam alur kerja tampilan hitam‑putih, ia menggunakan warna abu‑abu karena modenya disetel ke `Gray`. Hal ini memungkinkan Anda mempertahankan slide berwarna penuh sambil mendefinisikan tampilan khusus untuk pencetakan, pratinjau, atau alur kerja lain yang menghormati pengaturan tampilan hitam‑putih presentasi.
+
+## **Atur Ulang Pemformatan**
+
+Kode Java berikut menunjukkan cara mengatur ulang pemformatan slide dan mengembalikan posisi, ukuran, serta pemformatan semua bentuk dengan placeholder pada [LayoutSlide](https://reference.aspose.com/slides/id/php-java/aspose.slides/layoutslide/) ke pengaturan default mereka:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
     for ($i = 0; $i < java_values($presentation->getSlides()->size()); $i++) {
         $slide = $presentation->getSlides()->get_Item($i);
-        // Reset setiap bentuk pada slide yang memiliki placeholder pada layout.
+        // Setel ulang setiap shape pada slide yang memiliki placeholder pada tata letak.
         $slide->reset();
     }
     $presentation->save("reset_formatting.pptx", SaveFormat::Pptx);
@@ -633,12 +670,12 @@ try {
 
 **Apakah pemformatan bentuk memengaruhi ukuran file presentasi akhir?**
 
-Hanya sangat sedikit. Gambar dan media yang disematkan mengambil sebagian besar ruang file, sedangkan parameter bentuk seperti warna, efek, dan gradien disimpan sebagai metadata dan hampir tidak menambah ukuran.
+Hanya sangat sedikit. Gambar dan media yang disematkan memakan sebagian besar ruang file, sementara parameter bentuk seperti warna, efek, dan gradien disimpan sebagai metadata dan hampir tidak menambah ukuran.
 
-**Bagaimana cara mendeteksi bentuk pada slide yang memiliki pemformatan identik sehingga saya dapat mengelompokkannya?**
+**Bagaimana saya dapat menemukan bentuk pada slide yang memiliki pemformatan identik sehingga saya dapat mengelompokkannya?**
 
-Bandingkan setiap properti pemformatan utama bentuk—pengaturan isi, garis, dan efek. Jika semua nilai yang bersesuaian cocok, anggap gaya mereka identik dan kelompokkan bentuk‑bentuk tersebut secara logis, yang mempermudah manajemen gaya selanjutnya.
+Bandingkan properti kunci pemformatan setiap bentuk—pengaturan isian, garis, dan efek. Jika semua nilai yang bersesuaian cocok, perlakukan gaya mereka sebagai identik dan kelompokkan bentuk‑bentuk tersebut secara logis, yang menyederhanakan manajemen gaya di kemudian hari.
 
 **Bisakah saya menyimpan sekumpulan gaya bentuk khusus ke file terpisah untuk digunakan kembali di presentasi lain?**
 
-Ya. Simpan contoh bentuk dengan gaya yang diinginkan dalam deck slide templat atau file .POTX. Saat membuat presentasi baru, buka templat tersebut, klon bentuk bergaya yang diperlukan, dan terapkan kembali pemformatannya sesuai kebutuhan.
+Ya. Simpan bentuk contoh dengan gaya yang diinginkan dalam slide templat atau file templat .POTX. Saat membuat presentasi baru, buka templat tersebut, kloning bentuk bergaya yang dibutuhkan, dan terapkan kembali pemformatannya sesuai kebutuhan.

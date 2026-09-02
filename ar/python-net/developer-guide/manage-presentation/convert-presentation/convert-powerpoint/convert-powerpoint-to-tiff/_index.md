@@ -1,5 +1,5 @@
 ---
-title: تحويل عروض PowerPoint إلى TIFF باستخدام Python
+title: تحويل عروض PowerPoint إلى TIFF في Python
 titlelink: PowerPoint إلى TIFF
 type: docs
 weight: 90
@@ -18,39 +18,43 @@ keywords:
 - ODP إلى TIFF
 - Python
 - Aspose.Slides
-description: "تعرف على كيفية تحويل عروض PowerPoint (PPT، PPTX) و OpenDocument (ODP) بسهولة إلى صور TIFF عالية الجودة باستخدام Aspose.Slides للغة Python عبر .NET. دليل خطوة بخطوة مع أمثلة على الشيفرة متضمنة."
+description: "تعلم كيفية تحويل عروض PowerPoint (PPT، PPTX) وOpenDocument (ODP) بسهولة إلى صور TIFF عالية الجودة باستخدام Aspose.Slides لبايثون عبر .NET. دليل خطوة بخطوة مع أمثلة على الشيفرة مضمّن."
 ---
+## **المقدمة**
 
-## **نظرة عامة**
+TIFF (**Tagged Image File Format**) هو تنسيق صورة نقطية غير مضغوط واسع الاستخدام يُعرف بجودته الاستثنائية وحفظه التفصيلي للرسومات. غالبًا ما يختار المصممون والمصورون والناشرون المكتبيون TIFF للحفاظ على الطبقات ودقة الألوان والإعدادات الأصلية في صورهم.
 
-TIFF (**Tagged Image File Format**) هو تنسيق صور نقطية غير فقدان يُستخدم على نطاق واسع ويتمتع بجودة استثنائية وحفظ تفصيلي للرسومات. يختار المصممون والمصورون وناشرو الكتب المكتبية غالبًا TIFF للحفاظ على الطبقات ودقة الألوان والإعدادات الأصلية في صورهم.
-
-باستخدام Aspose.Slides، يمكنك بسهولة تحويل شرائح PowerPoint (PPT، PPTX) وشرائح OpenDocument (ODP) مباشرة إلى صور TIFF عالية الجودة، لضمان بقاء عروضك التقديمية بأقصى درجات الدقة البصرية.
+باستخدام Aspose.Slides، يمكنك بسهولة تحويل شرائح PowerPoint (PPT، PPTX) وشرائح OpenDocument (ODP) مباشرةً إلى صور TIFF عالية الجودة، مما يضمن احتفاظ عروضك التقديمية بأقصى درجات الدقة البصرية.
 
 ## **تحويل عرض تقديمي إلى TIFF**
 
-باستخدام طريقة [save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/#methods) المقدمة من فئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)، يمكنك بسرعة تحويل عرض PowerPoint كامل إلى TIFF. تتطابق صور TIFF الناتجة مع حجم الشريحة الافتراضي.
+باستخدام طريقة [save](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/#methods) المقدمة من الفئة [Presentation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/)، يمكنك بسرعة تحويل ملف PowerPoint كامل إلى TIFF. تتطابق صور TIFF الناتجة مع حجم الشريحة الافتراضي.
 
-يعرض هذا الكود Python كيفية تحويل عرض PowerPoint إلى TIFF:
+يظهر هذا الكود بايثون كيفية تحويل عرض تقديمي PowerPoint إلى TIFF:
+
 ```py
 import aspose.slides as slides
 
-# إنشاء كائن من الفئة Presentation الذي يمثل ملف عرض تقديمي (PPT، PPTX، ODP، إلخ).
+# إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي (PPT، PPTX، ODP، إلخ).
 with slides.Presentation("presentation.pptx") as presentation:
     # حفظ العرض التقديمي كملف TIFF.
     presentation.save("output.tiff", slides.export.SaveFormat.TIFF)
 ```
 
-
 ## **تحويل عرض تقديمي إلى TIFF بالأبيض والأسود**
 
-تتيح الخاصية [bw_conversion_mode](https://reference.aspose.com/slides/python-net/aspose.slides.export/tiffoptions/bw_conversion_mode/) في فئة [TiffOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/tiffoptions/) تحديد الخوارزمية المستخدمة عند تحويل شريحة أو صورة ملونة إلى TIFF بالأبيض والأسود. لاحظ أن هذا الإعداد ينطبق فقط عندما تكون الخاصية [compression_type](https://reference.aspose.com/slides/python-net/aspose.slides.export/tiffoptions/compression_type/) مضبوطة على `CCITT4` أو `CCITT3`.
+خاصية [bw_conversion_mode](https://reference.aspose.com/slides/ar/python-net/aspose.slides.export/tiffoptions/bw_conversion_mode/) في الفئة [TiffOptions](https://reference.aspose.com/slides/ar/python-net/aspose.slides.export/tiffoptions/) تتيح لك تحديد الخوارزمية المستخدمة عند تحويل شريحة أو صورة ملونة إلى TIFF بالأبيض والأسود. لاحظ أن هذا الإعداد يُطبق فقط عندما تكون خاصية [compression_type](https://reference.aspose.com/slides/ar/python-net/aspose.slides.export/tiffoptions/compression_type/) مضبوطة على `CCITT4` أو `CCITT3`.
+
+{{% alert color="info" title="ملاحظة" %}}
+[TiffOptions.bw_conversion_mode](https://reference.aspose.com/slides/ar/python-net/aspose.slides.export/tiffoptions/bw_conversion_mode/) هو إعداد على مستوى التصدير يختار خوارزمية تحويل البكسل للصورة TIFF الكاملة. لتحديد كيف يجب أن يظهر شكل فردي عندما يكون وضع العرض بالأبيض والأسود مفعلاً، استخدم [Shape.black_white_mode](https://reference.aspose.com/slides/ar/python-net/aspose.slides/shape/black_white_mode/). راجع [Control Black-and-White Rendering for Shapes](/python-net/shape-formatting/#control-black-and-white-rendering-for-shapes) للأمثلة.
+{{% /alert %}}
 
 لنفترض أن لدينا ملف "sample.pptx" يحتوي على الشريحة التالية:
 
-![A presentation slide](slide_black_and_white.png)
+![شريحة عرض تقديمي](slide_black_and_white.png)
 
-يعرض هذا الكود Python كيفية تحويل الشريحة الملونة إلى TIFF بالأبيض والأسود:
+هذا الكود بايثون يوضح كيفية تحويل الشريحة الملونة إلى TIFF بالأبيض والأسود:
+
 ```py
 import aspose.slides as slides
 
@@ -62,21 +66,21 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("output.tiff", slides.export.SaveFormat.TIFF, tiff_options)
 ```
 
-
 النتيجة:
 
-![Black-and-White TIFF](TIFF_black_and_white.png)
+![TIFF بالأبيض والأسود](TIFF_black_and_white.png)
 
 ## **تحويل عرض تقديمي إلى TIFF بحجم مخصص**
 
-إذا كنت تحتاج إلى صورة TIFF بأبعاد محددة، يمكنك ضبط القيم المطلوبة باستخدام الخصائص المتوفرة في [TiffOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/tiffoptions/). على سبيل المثال، تتيح الخاصية [image_size](https://reference.aspose.com/slides/python-net/aspose.slides.export/tiffoptions/image_size/) تحديد حجم الصورة الناتجة.
+إذا كنت تحتاج إلى صورة TIFF بأبعاد محددة، يمكنك ضبط القيم المطلوبة باستخدام الخصائص المتاحة في [TiffOptions](https://reference.aspose.com/slides/ar/python-net/aspose.slides.export/tiffoptions/). على سبيل المثال، خاصية [image_size](https://reference.aspose.com/slides/ar/python-net/aspose.slides.export/tiffoptions/image_size/) تسمح لك بتحديد حجم الصورة الناتجة.
 
-يعرض هذا الكود Python كيفية تحويل عرض PowerPoint إلى صور TIFF بحجم مخصص:
+هذا الكود بايثون يوضح كيفية تحويل عرض تقديمي PowerPoint إلى صور TIFF بحجم مخصص:
+
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as drawing
 
-# إنشاء كائن من الفئة Presentation الذي يمثل ملف عرض تقديمي (PPT, PPTX, ODP, إلخ).
+# إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي (PPT، PPTX، ODP، إلخ).
 with slides.Presentation("sample.pptx") as presentation:
     tiff_options = slides.export.TiffOptions()
 
@@ -107,16 +111,16 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("custom_size.tiff", slides.export.SaveFormat.TIFF, tiff_options)
 ```
 
+## **تحويل عرض تقديمي إلى TIFF بصيغة بكسل مخصصة**
 
-## **تحويل عرض تقديمي إلى TIFF بصيغة بكسل مخصصة للصورة**
+باستخدام خاصية [pixel_format](https://reference.aspose.com/slides/ar/python-net/aspose.slides.export/tiffoptions/pixel_format/) من الفئة [TiffOptions](https://reference.aspose.com/slides/ar/python-net/aspose.slides.export/tiffoptions/)، يمكنك تحديد صيغة البكسل المفضلة للصورة TIFF الناتجة.
 
-باستخدام الخاصية [pixel_format](https://reference.aspose.com/slides/python-net/aspose.slides.export/tiffoptions/pixel_format/) من فئة [TiffOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/tiffoptions/)، يمكنك تحديد صيغة البكسل المفضلة للصورة TIFF الناتجة.
+هذا الكود بايثون يوضح كيفية تحويل عرض تقديمي PowerPoint إلى صورة TIFF بصيغة بكسل مخصصة:
 
-يعرض هذا الكود Python كيفية تحويل عرض PowerPoint إلى صورة TIFF بصيغة بكسل مخصصة:
 ```py
 import aspose.slides as slides
 
-# إنشاء كائن من الفئة Presentation الذي يمثل ملف عرض تقديمي (PPT، PPTX، ODP، إلخ).
+# إنشاء كائن من فئة Presentation التي تمثل ملف عرض تقديمي (PPT، PPTX، ODP، إلخ).
 with slides.Presentation("Presentation.pptx") as presentation:
     tiff_options = slides.export.TiffOptions()
 
@@ -130,25 +134,24 @@ with slides.Presentation("Presentation.pptx") as presentation:
         FORMAT_32BPP_ARGB   - 32 bits per pixel, ARGB.
     """
 
-    # حفظ العرض التقديمي كملف TIFF بالحجم المحدد للصورة.
+    # حفظ العرض التقديمي كملف TIFF بصيغة البكسل المحددة.
     presentation.save("Custom_Image_Pixel_Format.tiff", slides.export.SaveFormat.TIFF, tiff_options)
 ```
 
-
-{{% alert title="Tip" color="primary" %}}
-تحقق من أداة التحويل المجانية من PowerPoint إلى ملصق من Aspose [FREE PowerPoint to Poster converter](https://products.aspose.app/slides/conversion/convert-ppt-to-poster-online).
+{{% alert title="نصيحة" color="info" %}}
+اطلع على [FREE PowerPoint to Poster converter](https://products.aspose.app/slides/ar/conversion/convert-ppt-to-poster-online) من Aspose.
 {{% /alert %}}
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
-**هل يمكنني تحويل شريحة فردية بدلاً من العرض التقديمي كامل إلى TIFF؟**
+**هل يمكنني تحويل شريحة فردية بدلاً من عرض PowerPoint كامل إلى TIFF؟**
 
-نعم. يتيح Aspose.Slides تحويل الشرائح الفردية من عروض PowerPoint وOpenDocument إلى صور TIFF بشكل منفصل.
+نعم. يتيح لك Aspose.Slides تحويل شرائح فردية من عروض PowerPoint وOpenDocument إلى صور TIFF بشكل منفصل.
 
-**هل هناك أي حد لعدد الشرائح عند تحويل عرض تقديمي إلى TIFF؟**
+**هل هناك حد لعدد الشرائح عند تحويل عرض تقديمي إلى TIFF؟**
 
-لا، لا يفرض Aspose.Slides أي قيود على عدد الشرائح. يمكنك تحويل عروض بأي حجم إلى تنسيق TIFF.
+لا، لا تفرض Aspose.Slides أي قيود على عدد الشرائح. يمكنك تحويل عروض بأي حجم إلى تنسيق TIFF.
 
-**هل يتم الاحتفاظ بالرسوم المتحركة وتأثيرات الانتقال في PowerPoint عند تحويل الشرائح إلى TIFF؟**
+**هل يتم الحفاظ على الرسوم المتحركة وتأثيرات الانتقال في PowerPoint عند تحويل الشرائح إلى TIFF؟**
 
-لا، TIFF هو تنسيق صورة ثابت. لذلك لا يتم حفظ الرسوم المتحركة أو تأثيرات الانتقال؛ يتم تصدير لقطات ثابتة فقط من الشرائح.
+لا، TIFF هو تنسيق صورة ثابت. لذلك لا يتم حفظ الرسوم المتحركة وتأثيرات الانتقال؛ يتم تصدير لقطات ثابتة فقط من الشرائح.

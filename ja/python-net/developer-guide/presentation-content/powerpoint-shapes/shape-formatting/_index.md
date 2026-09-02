@@ -16,23 +16,25 @@ keywords:
 - テクスチャ塗りつぶし
 - 単色塗りつぶし
 - 図形の透明度
+- 白黒図形レンダリング
+- グレースケール図形レンダリング
 - 図形の回転
 - 3Dベベル効果
 - 3D回転効果
-- 書式設定のリセット
+- 書式のリセット
 - PowerPoint
 - プレゼンテーション
 - Python
 - Aspose.Slides
-description: "Aspose.Slides を使用して Python で PowerPoint の図形をフォーマットする方法を学びます。PPT、PPTX、ODP ファイルに対して、塗りつぶし、線、エフェクトのスタイルを精密かつ完全にコントロールして設定できます。"
+description: "Aspose.Slides を使用して Python で PowerPoint の図形をフォーマットする方法を学びます。PPT、PPTX、ODP ファイルの塗りつぶし、線、エフェクトスタイルを正確かつ完全に制御できます。"
 ---
-## **はじめに**
+## **概要**
 
-PowerPoint ではスライドに図形を追加できます。図形は線で構成されているため、輪郭線を変更したりエフェクトを適用したりして書式設定できます。また、内部の塗りつぶし方法を指定して図形をフォーマットすることもできます。
+PowerPoint では、スライドに図形を追加できます。図形は線で構成されているため、輪郭を変更したりエフェクトを適用したりして書式設定できます。また、図形の内部をどのように塗りつぶすかを指定する設定でも書式設定できます。
 
-![PowerPoint の図形書式設定](format-shape-powerpoint.png)
+![format-shape-powerpoint](format-shape-powerpoint.png)
 
-Aspose.Slides for Python は、PowerPoint で利用できる同じオプションを使用して図形をフォーマットできるクラスとプロパティを提供します。
+Aspose.Slides for Python は、PowerPoint で利用できる同じオプションを使用して図形をフォーマットするためのクラスとプロパティを提供します。
 
 ## **線の書式設定**
 
@@ -42,51 +44,51 @@ Aspose.Slides を使用すると、図形にカスタムの線スタイルを指
 1. インデックスでスライドへの参照を取得します。
 1. スライドに [AutoShape](https://reference.aspose.com/slides/ja/python-net/aspose.slides/autoshape/) を追加します。
 1. 図形の [line style](https://reference.aspose.com/slides/ja/python-net/aspose.slides/linestyle/) を設定します。
-1. 線の幅を設定します。
+1. 線幅を設定します。
 1. 図形の [dash style](https://reference.aspose.com/slides/ja/python-net/aspose.slides/linedashstyle/) を設定します。
 1. 図形の線の色を設定します。
 1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-以下の Python コードは、矩形の `AutoShape` の線をフォーマットする方法を示しています。
+次の Python コードは、矩形の `AutoShape` の書式設定方法を示しています。
 
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-    # プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します。
-    with slides.Presentation() as presentation:
+# プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します。
+with slides.Presentation() as presentation:
 
-        # 最初のスライドを取得します。
-        slide = presentation.slides[0]
+    # 最初のスライドを取得します。
+    slide = presentation.slides[0]
 
-        # Rectangle タイプのオートシェイプを追加します。
-        shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 150, 75)
+    # Rectangle タイプのオートシェイプを追加します。
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 150, 75)
 
-        # 矩形シェイプの塗りつぶし色を設定します。
-        shape.fill_format.fill_type = slides.FillType.NO_FILL
+    # 矩形シェイプの塗りつぶしを削除し、線のみが表示されるようにします。
+    shape.fill_format.fill_type = slides.FillType.NO_FILL
 
-        # 矩形の線に書式設定を適用します。
-        shape.line_format.style = slides.LineStyle.THICK_THIN
-        shape.line_format.width = 7
-        shape.line_format.dash_style = slides.LineDashStyle.DASH
+    # 矩形の線に書式設定を適用します。
+    shape.line_format.style = slides.LineStyle.THICK_THIN
+    shape.line_format.width = 7
+    shape.line_format.dash_style = slides.LineDashStyle.DASH
 
-        # 矩形の線の色を設定します。
-        shape.line_format.fill_format.fill_type = slides.FillType.SOLID
-        shape.line_format.fill_format.solid_fill_color.color = draw.Color.blue
+    # 矩形の線の色を設定します。
+    shape.line_format.fill_format.fill_type = slides.FillType.SOLID
+    shape.line_format.fill_format.solid_fill_color.color = draw.Color.blue
 
-        # PPTX ファイルをディスクに保存します。
-        presentation.save("formatted_lines.pptx", slides.export.SaveFormat.PPTX)
+    # PPTX ファイルをディスクに保存します。
+    presentation.save("formatted_lines.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 結果:
 
-![プレゼンテーションのフォーマットされた線](formatted-lines.png)
+![The formatted lines in the presentation](formatted-lines.png)
 
 ## **図形の線にスケッチ効果を適用する**
 
-スケッチ効果は、図形の線を手書き風に見せます。`Shape.line_format` を使用して線設定にアクセスし、`LineFormat.sketch_format` でスケッチ設定にアクセスし、`SketchFormat.sketch_type` で [LineSketchType](https://reference.aspose.com/slides/ja/python-net/aspose.slides/linesketchtype/) 列挙体から値を選択します。
+スケッチ効果は、図形の線を手描きのように見せます。`[Shape.line_format](https://reference.aspose.com/slides/ja/python-net/aspose.slides/shape/line_format/)` で線設定にアクセスし、`[LineFormat.sketch_format](https://reference.aspose.com/slides/ja/python-net/aspose.slides/lineformat/sketch_format/)` でスケッチ設定にアクセスし、`[SketchFormat.sketch_type](https://reference.aspose.com/slides/ja/python-net/aspose.slides/sketchformat/sketch_type/)` で `[LineSketchType](https://reference.aspose.com/slides/ja/python-net/aspose.slides/linesketchtype/)` 列挙体から値を選択します。
 
-以下の Python コードは、[LineSketchType.CURVED](https://reference.aspose.com/slides/ja/python-net/aspose.slides/linesketchtype/) 効果を適用し、明示的に割り当てられた値を読み取り、[LineSketchType.NONE](https://reference.aspose.com/slides/ja/python-net/aspose.slides/linesketchtype/) で効果を削除する方法を示しています。
+次の Python コードは、`[LineSketchType.CURVED](https://reference.aspose.com/slides/ja/python-net/aspose.slides/linesketchtype/)` 効果を適用し、明示的に割り当てられた値を取得し、`[LineSketchType.NONE](https://reference.aspose.com/slides/ja/python-net/aspose.slides/linesketchtype/)` で効果を削除する方法を示しています。
 
 ```python
 import aspose.slides as slides
@@ -95,7 +97,7 @@ with slides.Presentation() as presentation:
     slide = presentation.slides[0]
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 200, 100)
 
-    # 形状の線フォーマットとスケッチフォーマットにアクセスします。
+    # 形状のライン書式とそのスケッチ書式にアクセスします。
     sketch_format = shape.line_format.sketch_format
 
     # スケッチ効果を適用します。
@@ -109,7 +111,7 @@ with slides.Presentation() as presentation:
     sketch_format.sketch_type = slides.LineSketchType.NONE
 ```
 
-`SketchFormat.sketch_type` が返す値は、図形に直接割り当てられた設定を表します。線の書式設定がテーマ、マスタースライド、またはレイアウトスライドから継承される場合は、[LineFormat.get_effective](https://reference.aspose.com/slides/ja/python-net/aspose.slides/lineformat/get_effective/) を使用し、返されたオブジェクトの `sketch_format` プロパティにアクセスして `sketch_type` を読み取ります。Effective 値は継承が解決された後に実際に適用される書式設定を反映します。
+`SketchFormat.sketch_type` が返す値は、図形に直接割り当てられた設定を表します。線の書式設定がテーマ、マスタースライド、レイアウトスライドから継承される可能性がある場合は、`[LineFormat.get_effective](https://reference.aspose.com/slides/ja/python-net/aspose.slides/lineformat/get_effective/)` を使用し、返されたオブジェクトの `sketch_format` プロパティにアクセスして `sketch_type` プロパティを読み取ります。Effective 値は継承が解決された後に実際に適用される書式設定を示します。
 
 ```python
 import aspose.slides as slides
@@ -134,11 +136,11 @@ with slides.Presentation("presentation.pptx") as presentation:
 * Miter
 * Bevel
 
-既定では、PowerPoint は角度のある二つの線（図形のコーナーなど）を結合する際に **Round** 設定を使用します。ただし、鋭角の図形を描く場合は **Miter** オプションを選択した方が好ましいことがあります。
+デフォルトでは、PowerPoint は角度のある 2 本の線（図形のコーナーなど）を結合するときに **Round** 設定を使用します。ただし、鋭角の図形を描く場合は **Miter** オプションを好むことがあります。
 
-![プレゼンテーションの結合スタイル](join-style-powerpoint.png)
+![The join style in the presentation](join-style-powerpoint.png)
 
-以下の Python コードは、上図のように Miter、Bevel、Round の結合タイプ設定を使用して 3 つの矩形を作成した方法を示しています。
+次の Python コードは、上図のように Miter、Bevel、Round の結合タイプ設定を使用して 3 つの矩形を作成した例です。
 
 ```python
 import aspose.slides as slides
@@ -190,9 +192,9 @@ with slides.Presentation() as presentation:
 	presentation.save("join_styles.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **グラデーション塗りつぶし**
+## **グラデーション 塗りつぶし**
 
-PowerPoint のグラデーション塗りつぶしは、図形に連続的な色のブレンドを適用できる書式設定オプションです。たとえば、二つ以上の色を徐々に変化させて塗りつぶすことができます。
+PowerPoint のグラデーション塗りつぶしは、図形に連続的なカラーのブレンドを適用できる書式設定オプションです。たとえば、2 色以上を徐々にフェードさせる形で適用できます。
 
 Aspose.Slides を使用して図形にグラデーション塗りつぶしを適用する手順は次のとおりです。
 
@@ -200,10 +202,10 @@ Aspose.Slides を使用して図形にグラデーション塗りつぶしを適
 1. インデックスでスライドへの参照を取得します。
 1. スライドに [AutoShape](https://reference.aspose.com/slides/ja/python-net/aspose.slides/autoshape/) を追加します。
 1. 図形の [FillType](https://reference.aspose.com/slides/ja/python-net/aspose.slides/filltype/) を `GRADIENT` に設定します。
-1. [GradientFormat](https://reference.aspose.com/slides/ja/python-net/aspose.slides/gradientformat/) クラスが公開する `gradient_stops` コレクションの `add` メソッドを使用し、位置を指定した 2 色以上を追加します。
+1. `[GradientFormat](https://reference.aspose.com/slides/ja/python-net/aspose.slides/gradientformat/)` クラスが公開する `gradient_stops` コレクションの `add` メソッドを使用して、位置を指定した 2 つ以上のカラーを追加します。
 1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-以下の Python コードは、楕円にグラデーション塗りつぶし効果を適用する方法を示しています。
+次の Python コードは、楕円にグラデーション塗りつぶし効果を適用する例です。
 
 ```python
 import aspose.slides as slides
@@ -217,14 +219,14 @@ with slides.Presentation() as presentation:
     # Ellipse タイプのオートシェイプを追加します。
     shape = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 50, 50, 150, 75)
 
-    # 楕円にグラデーション書式設定を適用します。
+    # 楕円にグラデーション書式を適用します。
     shape.fill_format.fill_type = slides.FillType.GRADIENT
     shape.fill_format.gradient_format.gradient_shape = slides.GradientShape.LINEAR
 
     # グラデーションの方向を設定します。
     shape.fill_format.gradient_format.gradient_direction = slides.GradientDirection.FROM_CORNER2
 
-    # 2 つのグラデーションストップを追加します。
+    # 2 つのグラデーション ストップを追加します。
     shape.fill_format.gradient_format.gradient_stops.add(1.0, slides.PresetColor.PURPLE)
     shape.fill_format.gradient_format.gradient_stops.add(0, slides.PresetColor.RED)
 
@@ -234,13 +236,13 @@ with slides.Presentation() as presentation:
 
 結果:
 
-![グラデーション塗りつぶしの楕円](gradient-fill.png)
+![The ellipse with gradient fill](gradient-fill.png)
 
 ## **パターン塗りつぶし**
 
-PowerPoint のパターン塗りつぶしは、点、ストライプ、クロスハッチ、チェックなどの二色デザインを図形に適用できる書式設定オプションです。パターンの前景色と背景色を自由に設定できます。
+PowerPoint のパターン塗りつぶしは、2 色のデザイン（ドット、ストライプ、クロスハッチ、チェックなど）を図形に適用できる書式設定オプションです。パターンの前景色と背景色をカスタムで指定できます。
 
-Aspose.Slides は、プレゼンテーションの視覚的魅力を高めるために適用できる 45 以上の事前定義パターンスタイルを提供します。事前定義パターンを選択した後でも、使用する正確な色を指定できます。
+Aspose.Slides では、45 以上の事前定義パターンスタイルを提供しており、図形に適用してプレゼンテーションの視覚的魅力を高められます。事前定義パターンを選択した後でも、使用する正確な色を指定できます。
 
 パターン塗りつぶしを図形に適用する手順は次のとおりです。
 
@@ -253,7 +255,7 @@ Aspose.Slides は、プレゼンテーションの視覚的魅力を高めるた
 1. パターンの [fore_color](https://reference.aspose.com/slides/ja/python-net/aspose.slides/patternformat/fore_color/) を設定します。
 1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-以下の Python コードは、矩形にパターン塗りつぶしを適用する方法を示しています。
+次の Python コードは、矩形にパターン塗りつぶしを適用する例です。
 
 ```python
 import aspose.slides as slides
@@ -284,11 +286,11 @@ with slides.Presentation() as presentation:
 
 結果:
 
-![パターン塗りつぶしの矩形](pattern-fill.png)
+![The rectangle with pattern fill](pattern-fill.png)
 
 ## **画像塗りつぶし**
 
-PowerPoint の画像塗りつぶしは、画像を図形の内部に挿入し、図形の背景として使用できる書式設定オプションです。
+PowerPoint の画像塗りつぶしは、図形の内部に画像を挿入し、画像を図形の背景として使用できる書式設定オプションです。
 
 Aspose.Slides を使用して図形に画像塗りつぶしを適用する手順は次のとおりです。
 
@@ -296,16 +298,16 @@ Aspose.Slides を使用して図形に画像塗りつぶしを適用する手順
 1. インデックスでスライドへの参照を取得します。
 1. スライドに [AutoShape](https://reference.aspose.com/slides/ja/python-net/aspose.slides/autoshape/) を追加します。
 1. 図形の [FillType](https://reference.aspose.com/slides/ja/python-net/aspose.slides/filltype/) を `PICTURE` に設定します。
-1. 画像塗りつぶしモードを `TILE`（または他の希望モード）に設定します。
-1. 使用したい画像から [PPImage](https://reference.aspose.com/slides/ja/python-net/aspose.slides/ppimage/) オブジェクトを作成します。
+1. 画像塗りつぶしモードを `TILE`（または他の好みのモード）に設定します。
+1. 使用したい画像から `[PPImage](https://reference.aspose.com/slides/ja/python-net/aspose.slides/ppimage/)` オブジェクトを作成します。
 1. この画像を図形の `picture_fill_format` の `picture.image` プロパティに割り当てます。
 1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-次の画像は「lotus.png」というファイルの例です。
+たとえば、次の画像があるとします（ファイル名 `lotus.png`）。
 
-![ロータス画像](lotus.png)
+![The lotus picture](lotus.png)
 
-以下の Python コードは、画像で図形を塗りつぶす方法を示しています。
+次の Python コードは、図形に画像塗りつぶしを適用する例です。
 
 ```python
 import aspose.slides as slides
@@ -322,14 +324,14 @@ with slides.Presentation() as presentation:
     # 塗りつぶしタイプを Picture に設定します。
     shape.fill_format.fill_type = slides.FillType.PICTURE
 
-    # 画像塗りつぶしモードを設定します。
+    # ピクチャーフィルモードを設定します。
     shape.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.TILE
 
     # 画像を読み込み、プレゼンテーションのリソースに追加します。
     with slides.Images.from_file("lotus.png") as image:
         presentation_image = presentation.images.add_image(image)
 
-    # 画像を設定します。
+    # ピクチャーを設定します。
     shape.fill_format.picture_fill_format.picture.image = presentation_image
 
     # PPTX ファイルをディスクに保存します。
@@ -338,21 +340,21 @@ with slides.Presentation() as presentation:
 
 結果:
 
-![画像塗りつぶしの図形](picture-fill.png)
+![The shape with picture fill](picture-fill.png)
 
-### **テクスチャとしてタイル画像を使用する**
+### **テクスチャとしてタイル画像を設定する**
 
-タイル状の画像をテクスチャとして設定し、タイル配置の動作をカスタマイズしたい場合は、[PictureFillFormat](https://reference.aspose.com/slides/ja/python-net/aspose.slides/picturefillformat/) クラスの次のプロパティを使用できます。
+タイル画像をテクスチャとして使用し、タイルの配置をカスタマイズしたい場合は、[PictureFillFormat](https://reference.aspose.com/slides/ja/python-net/aspose.slides/picturefillformat/) クラスの次のプロパティを使用できます。
 
 - [picture_fill_mode](https://reference.aspose.com/slides/ja/python-net/aspose.slides/picturefillformat/picture_fill_mode/): `TILE` または `STRETCH` を指定します。
 - [tile_alignment](https://reference.aspose.com/slides/ja/python-net/aspose.slides/picturefillformat/tile_alignment/): 図形内でのタイルの配置を指定します。
-- [tile_flip](https://reference.aspose.com/slides/ja/python-net/aspose.slides/picturefillformat/tile_flip/): タイルを水平、垂直、または両方に反転するかを制御します。
+- [tile_flip](https://reference.aspose.com/slides/ja/python-net/aspose.slides/picturefillformat/tile_flip/): タイルを水平、垂直、または両方に反転させるかを制御します。
 - [tile_offset_x](https://reference.aspose.com/slides/ja/python-net/aspose.slides/picturefillformat/tile_offset_x/): 図形の原点からタイルの水平オフセット（ポイント）を設定します。
 - [tile_offset_y](https://reference.aspose.com/slides/ja/python-net/aspose.slides/picturefillformat/tile_offset_y/): 図形の原点からタイルの垂直オフセット（ポイント）を設定します。
 - [tile_scale_x](https://reference.aspose.com/slides/ja/python-net/aspose.slides/picturefillformat/tile_scale_x/): タイルの水平スケールをパーセンテージで定義します。
 - [tile_scale_y](https://reference.aspose.com/slides/ja/python-net/aspose.slides/picturefillformat/tile_scale_y/): タイルの垂直スケールをパーセンテージで定義します。
 
-以下のコードサンプルは、タイル画像塗りつぶし付きの矩形を追加し、タイルオプションを構成する方法を示しています。
+次のコードサンプルは、タイル画像塗りつぶし付きの矩形を追加し、タイルオプションを構成する方法を示しています。
 
 ```py
 import aspose.slides as slides
@@ -377,7 +379,7 @@ with slides.Presentation() as presentation:
     picture_fill_format = shape.fill_format.picture_fill_format
     picture_fill_format.picture.image = presentation_image
 
-    # 画像塗りつぶしモードとタイルのプロパティを設定します。
+    # ピクチャーフィルモードとタイル設定を構成します。
     picture_fill_format.picture_fill_mode = slides.PictureFillMode.TILE
     picture_fill_format.tile_offset_x = -32
     picture_fill_format.tile_offset_y = -32
@@ -392,13 +394,13 @@ with slides.Presentation() as presentation:
 
 結果:
 
-![タイルオプションのプレビュー](tile-options.png)
+![The tile options](tile-options.png)
 
 ## **単色塗りつぶし**
 
-PowerPoint の単色塗りつぶしは、図形を単一の均一な色で塗りつぶす書式設定オプションです。グラデーション、テクスチャ、パターンなどは使用されません。
+PowerPoint の単色塗りつぶしは、図形を単一の均一な色で塗りつぶす書式設定オプションです。グラデーション、テクスチャ、パターンなどは使用せず、シンプルな背景色が適用されます。
 
-Aspose.Slides を使用して図形に単色塗りつぶしを適用する手順は次のとおりです。
+Aspose.Slides で図形に単色塗りつぶしを適用する手順は次のとおりです。
 
 1. [Presentation](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。
 1. インデックスでスライドへの参照を取得します。
@@ -407,7 +409,7 @@ Aspose.Slides を使用して図形に単色塗りつぶしを適用する手順
 1. 好みの塗りつぶし色を図形に割り当てます。
 1. 変更したプレゼンテーションを PPTX ファイルとして保存します。
 
-以下の Python コードは、PowerPoint スライドの矩形に単色塗りつぶしを適用する方法を示しています。
+次の Python コードは、スライド上の矩形に単色塗りつぶしを適用する例です。
 
 ```python
 import aspose.slides as slides
@@ -425,7 +427,7 @@ with slides.Presentation() as presentation:
     # 塗りつぶしタイプを Solid に設定します。
     shape.fill_format.fill_type = slides.FillType.SOLID
 
-    # 塗りつぶし色を設定します。
+    # 塗りつぶしの色を設定します。
     shape.fill_format.solid_fill_color.color = draw.Color.yellow
 
     # PPTX ファイルをディスクに保存します。
@@ -434,22 +436,22 @@ with slides.Presentation() as presentation:
 
 結果:
 
-![単色塗りつぶしの図形](solid-color-fill.png)
+![The shape with solid color fill](solid-color-fill.png)
 
 ## **透明度の設定**
 
-PowerPoint では、単色、グラデーション、画像、テクスチャ塗りつぶしを図形に適用する際に、透明度レベルを設定して塗りつぶしの不透明度を制御できます。透明度が高いほど図形が透けて見え、背景や下にあるオブジェクトが部分的に表示されます。
+PowerPoint では、図形に単色、グラデーション、画像、またはテクスチャの塗りつぶしを適用する際に、透明度レベルを設定して塗りつぶしの不透明度を制御できます。透明度の数値が高いほど図形が透過し、背景や下にあるオブジェクトが部分的に見えるようになります。
 
-Aspose.Slides では、塗りつぶしに使用する色のアルファ値を調整することで透明度を設定できます。手順は次のとおりです。
+Aspose.Slides では、塗りつぶしに使用するカラーのアルファ値を調整することで透明度を設定できます。手順は次のとおりです。
 
 1. [Presentation](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。
 1. インデックスでスライドへの参照を取得します。
 1. スライドに [AutoShape](https://reference.aspose.com/slides/ja/python-net/aspose.slides/autoshape/) を追加します。
 1. 塗りつぶしタイプを `SOLID` に設定します。
-1. `Color.from_argb` を使用して透明度（アルファ）成分を含む色を定義します。
+1. `Color.from_argb` を使用して、透明度を含むカラーを定義します（`alpha` 成分が透明度を制御します）。
 1. プレゼンテーションを保存します。
 
-以下の Python コードは、矩形に透明塗りつぶし色を適用する方法を示しています。
+次の Python コードは、矩形に透明塗りつぶし色を適用する例です。
 
 ```python
 import aspose.pydrawing as draw
@@ -461,10 +463,10 @@ with slides.Presentation() as presentation:
     # 最初のスライドを取得します。
     slide = presentation.slides[0]
     
-    # 単色矩形オートシェイプを追加します。
+    # ソリッド矩形のオートシェイプを追加します。
     slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 150, 75)
 
-    # ソリッドシェイプの上に透明な矩形オートシェイプを追加します。
+    # ソリッドシェイプ上に透明矩形のオートシェイプを追加します。
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 80, 80, 150, 75)
     shape.fill_format.fill_type = slides.FillType.SOLID
     shape.fill_format.solid_fill_color.color = draw.Color.from_argb(128, 204, 102, 0)
@@ -474,11 +476,11 @@ with slides.Presentation() as presentation:
 
 結果:
 
-![透明な図形](shape-transparency.png)
+![The transparent shape](shape-transparency.png)
 
 ## **図形の回転**
 
-Aspose.Slides は、PowerPoint プレゼンテーション内の図形を回転させることができます。特定の配置やデザイン要件に合わせて視覚要素を調整する際に便利です。
+Aspose.Slides は、PowerPoint プレゼンテーション内の図形を回転させることができます。これは、特定の配置やデザイン要件に合わせてビジュアル要素を調整したい場合に便利です。
 
 スライド上の図形を回転させる手順は次のとおりです。
 
@@ -488,7 +490,7 @@ Aspose.Slides は、PowerPoint プレゼンテーション内の図形を回転�
 1. 図形の `rotation` プロパティに目的の角度を設定します。
 1. プレゼンテーションを保存します。
 
-以下の Python コードは、図形を 5 度回転させる方法を示しています。
+次の Python コードは、図形を 5 度回転させる例です。
 
 ```python
 import aspose.slides as slides
@@ -511,21 +513,21 @@ with slides.Presentation() as presentation:
 
 結果:
 
-![図形の回転](shape-rotation.png)
+![The shape rotation](shape-rotation.png)
 
 ## **3D ベベル効果の追加**
 
-Aspose.Slides は、図形の [ThreeDFormat](https://reference.aspose.com/slides/ja/python-net/aspose.slides/threedformat/) プロパティを構成することで 3D ベベル効果を適用できます。
+Aspose.Slides は、図形の `[ThreeDFormat](https://reference.aspose.com/slides/ja/python-net/aspose.slides/threedformat/)` プロパティを構成することで、3D ベベル効果を適用できます。
 
-図形に 3D ベベル効果を追加する手順は次のとおりです。
+3D ベベル効果を図形に追加する手順は次のとおりです。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/) クラスをインスタンス化します。
+1. `[Presentation](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/)` クラスをインスタンス化します。
 1. インデックスでスライドへの参照を取得します。
-1. スライドに [AutoShape](https://reference.aspose.com/slides/ja/python-net/aspose.slides/autoshape/) を追加します。
-1. 図形の [ThreeDFormat](https://reference.aspose.com/slides/ja/python-net/aspose.slides/threedformat/) を構成し、ベベル設定を定義します。
+1. スライドに `[AutoShape](https://reference.aspose.com/slides/ja/python-net/aspose.slides/autoshape/)` を追加します。
+1. 図形の `[ThreeDFormat](https://reference.aspose.com/slides/ja/python-net/aspose.slides/threedformat/)` を構成してベベル設定を定義します。
 1. プレゼンテーションを保存します。
 
-以下の Python コードは、図形に 3D ベベル効果を適用する方法を示しています。
+次の Python コードは、図形に 3D ベベル効果を適用する例です。
 
 ```python
 import aspose.slides as slides
@@ -536,7 +538,7 @@ with slides.Presentation() as presentation:
 
     slide = presentation.slides[0]
 
-    # スライドに図形を追加します。
+    # スライドにシェイプを追加します。
     shape = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 50, 50, 100, 100)
     shape.fill_format.fill_type = slides.FillType.SOLID
     shape.fill_format.solid_fill_color.color = draw.Color.green
@@ -544,7 +546,7 @@ with slides.Presentation() as presentation:
     shape.line_format.fill_format.solid_fill_color.color = draw.Color.orange
     shape.line_format.width = 2.0
 
-    # 図形の ThreeDFormat プロパティを設定します。
+    # シェイプの ThreeDFormat プロパティを設定します。
     shape.three_d_format.depth = 4
     shape.three_d_format.bevel_top.bevel_type = slides.BevelPresetType.CIRCLE
     shape.three_d_format.bevel_top.height = 6
@@ -559,21 +561,21 @@ with slides.Presentation() as presentation:
 
 結果:
 
-![3D ベベル効果](3D-bevel-effect.png)
+![The 3D bevel effect](3D-bevel-effect.png)
 
 ## **3D 回転効果の追加**
 
-Aspose.Slides は、図形の [ThreeDFormat](https://reference.aspose.com/slides/ja/python-net/aspose.slides/threedformat/) プロパティを構成することで 3D 回転効果を適用できます。
+Aspose.Slides は、図形の `[ThreeDFormat](https://reference.aspose.com/slides/ja/python-net/aspose.slides/threedformat/)` プロパティを構成することで、3D 回転効果を適用できます。
 
-図形に 3D 回転を適用する手順は次のとおりです。
+3D 回転を図形に適用する手順は次のとおりです。
 
-1. [Presentation](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/) クラスのインスタンスを作成します。
+1. `[Presentation](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/)` クラスのインスタンスを作成します。
 1. インデックスでスライドへの参照を取得します。
-1. スライドに [AutoShape](https://reference.aspose.com/slides/ja/python-net/aspose.slides/autoshape/) を追加します。
-1. 図形の [camera_type](https://reference.aspose.com/slides/ja/python-net/aspose.slides/camera/camera_type/) と [light_type](https://reference.aspose.com/slides/ja/python-net/aspose.slides/lightrig/light_type/) を設定して 3D 回転を定義します。
+1. スライドに `[AutoShape](https://reference.aspose.com/slides/ja/python-net/aspose.slides/autoshape/)` を追加します。
+1. 図形の `[camera_type](https://reference.aspose.com/slides/ja/python-net/aspose.slides/camera/camera_type/)` と `[light_type](https://reference.aspose.com/slides/ja/python-net/aspose.slides/lightrig/light_type/)` を設定して 3D 回転を定義します。
 1. プレゼンテーションを保存します。
 
-以下の Python コードは、図形に 3D 回転効果を適用する方法を示しています。
+次の Python コードは、図形に 3D 回転効果を適用する例です。
 
 ```python
 import aspose.slides as slides
@@ -591,17 +593,44 @@ with slides.Presentation() as presentation:
     auto_shape.three_d_format.camera.camera_type = slides.CameraPresetType.ISOMETRIC_LEFT_UP
     auto_shape.three_d_format.light_rig.light_type = slides.LightRigPresetType.BALANCED
 
-    # プレゼンテーションを PPTX ファイルとして保存します。      
+    # プレゼンテーションを PPTX ファイルとして保存します.      
     presentation.save("3D_rotation_effect.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 結果:
 
-![3D 回転効果](3D-rotation-effect.png)
+![The 3D rotation effect](3D-rotation-effect.png)
 
-## **書式設定のリセット**
+## **図形の白黒表示制御**
 
-以下の Python コードは、スライドの書式設定をリセットし、[LayoutSlide](https://reference.aspose.com/slides/ja/python-net/aspose.slides/layoutslide/) 上のプレースホルダーを含むすべての図形の位置、サイズ、書式設定を既定に戻す方法を示しています。
+`[Shape.black_white_mode](https://reference.aspose.com/slides/ja/python-net/aspose.slides/shape/black_white_mode/)` プロパティは、プレゼンテーションが白黒モードで表示または処理される場合に、個々の図形がどのようにレンダリングされるかを指定します。白黒表示自体を有効にするものではなく、通常のカラー表示時の図形の塗り、線、その他の書式設定も変更しません。
+
+`[BlackWhiteMode](https://reference.aspose.com/slides/ja/python-net/aspose.slides/blackwhitemode/)` 列挙体の値を使用して動作を選択します。たとえば、`AUTOMATIC` はレンダリングアプリケーションに変換を任せ、`GRAY` と `LIGHT_GRAY` はグレー表示、`BLACK_WHITE` は黒と白のみ、`BLACK` と `WHITE` は単一色、`COLOR` は通常のカラー保持、`HIDDEN` は白黒モードで図形を非表示にします。`NOT_DEFINED` は図形レベルでのモードが未設定であることを意味します。
+
+次の Python コードは、カラーの図形を作成し、白黒表示モードでグレーに表示させる例です。
+
+```python
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 200, 100)
+    shape.fill_format.fill_type = slides.FillType.SOLID
+    shape.fill_format.solid_fill_color.color = draw.Color.orange
+
+    # カラーモードではオレンジの塗りつぶしを保持し、白黒モードでは図形をグレーで表示します。
+    shape.black_white_mode = slides.BlackWhiteMode.GRAY
+
+    presentation.save("shape_black_white_mode.pptx", slides.export.SaveFormat.PPTX)
+```
+
+通常のカラー表示では、矩形はオレンジの塗りつぶしを保持します。白黒表示のワークフローでは、モードが `GRAY` に設定されているためグレーで表示されます。これにより、フルカラーのスライドを保持しつつ、印刷やプレビューなど、プレゼンテーションの白黒表示設定を尊重するワークフローで別の外観を定義できます。
+
+## **書式のリセット**
+
+次の Python コードは、スライドの書式をリセットし、`[LayoutSlide](https://reference.aspose.com/slides/ja/python-net/aspose.slides/layoutslide/)` 上のプレースホルダー付きすべての図形の位置、サイズ、書式をデフォルト設定に戻す方法を示しています。
 
 ```python
 import aspose.slides as slides
@@ -609,7 +638,7 @@ import aspose.slides as slides
 with slides.Presentation("sample.pptx") as presentation:
 
     for slide in presentation.slides:
-        # レイアウト上のプレースホルダーがあるスライド上の各シェイプをリセットします。
+        # レイアウトにプレースホルダーがあるスライド上の各シェイプをリセットします。
         slide.reset()
 
     presentation.save("reset_formatting.pptx", slides.export.SaveFormat.PPTX)
@@ -617,14 +646,14 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ## **FAQ**
 
-**図形の書式設定は最終的なプレゼンテーションのファイルサイズに影響しますか？**
+**図形の書式設定は最終的なプレゼンテーション ファイル サイズに影響しますか？**
 
-影響はほとんどありません。埋め込み画像やメディアがファイルサイズの大部分を占め、色やエフェクト、グラデーションといった図形パラメータはメタデータとして保存され、実質的なサイズ増加はありません。
+ほとんど影響しません。埋め込み画像やメディアがファイルサイズの大部分を占め、色やエフェクト、グラデーションなどの図形パラメータはメタデータとして保存され、実質的なサイズ増加はほぼありません。
 
-**同じ書式設定を持つ図形をスライド上で検出してグループ化するにはどうすればよいですか？**
+**同じ書式設定を持つ図形をスライド上で検出し、グループ化するにはどうすればよいですか？**
 
-各図形の主要な書式プロパティ（塗りつぶし、線、エフェクト設定）を比較します。すべての対応する値が一致すれば、スタイルが同一と見なして論理的にグループ化でき、後のスタイル管理が簡略化されます。
+各図形の主要な書式プロパティ（塗り、線、エフェクト設定）を比較します。すべての対応する値が一致すれば、書式が同一とみなし、論理的にグループ化できます。これにより、後のスタイル管理が簡素化されます。
 
 **カスタム図形スタイルのセットを別ファイルに保存し、他のプレゼンテーションで再利用できますか？**
 
-はい。目的のスタイルを持つサンプル図形をテンプレートスライドデッキまたは .POTX テンプレートファイルに保存します。新規プレゼンテーション作成時にテンプレートを開き、必要なスタイルの図形をクローンして、必要な場所に書式設定を再適用します。
+可能です。目的のスタイルを持つサンプル図形をテンプレート スライド デッキまたは `.POTX` テンプレート ファイルに保存します。新しいプレゼンテーションを作成する際にテンプレートを開き、必要なスタイルの図形をクローンして、必要な場所で書式を再適用します。

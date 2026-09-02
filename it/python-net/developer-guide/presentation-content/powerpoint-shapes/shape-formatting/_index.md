@@ -1,92 +1,94 @@
 ---
-title: Formattare le forme PowerPoint in Python
-linktitle: Formattazione Forma
+title: Formattare forme PowerPoint in Python
+linktitle: Formattazione forme
 type: docs
 weight: 20
 url: /it/python-net/shape-formatting/
 keywords:
-- formattazione forma
-- formattazione linea
+- formattare forma
+- formattare linea
 - effetto schizzo
-- linea forma schizzo
-- formattazione stile giunzione
+- linea forma a schizzo
+- formattare stile di giunzione
 - riempimento gradiente
 - riempimento motivo
 - riempimento immagine
 - riempimento texture
 - riempimento colore solido
 - trasparenza forma
+- rendering forma in bianco-nero
+- rendering forma in scala di grigi
 - ruotare forma
-- effetto smussatura 3D
+- effetto smusso 3D
 - effetto rotazione 3D
-- ripristinare formattazione
+- reimpostare formattazione
 - PowerPoint
 - presentazione
 - Python
 - Aspose.Slides
-description: "Impara a formattare le forme PowerPoint in Python usando Aspose.Slides—imposta riempimenti, linee e stili di effetto per file PPT, PPTX e ODP con precisione e pieno controllo."
+description: "Scopri come formattare le forme PowerPoint in Python usando Aspose.Slides - imposta stili di riempimento, linea ed effetto per file PPT, PPTX e ODP con precisione e pieno controllo."
 ---
 ## **Introduzione**
 
-Nel PowerPoint, puoi aggiungere forme alle diapositive. Poiché le forme sono costituite da linee, puoi formattarle modificando o applicando effetti ai loro contorni. Inoltre, puoi formattare le forme specificando le impostazioni che controllano come vengono riempiti gli interni.
+In PowerPoint è possibile aggiungere forme alle diapositive. Poiché le forme sono composte da linee, è possibile formattarle modificando o applicando effetti ai loro contorni. Inoltre, è possibile formattare le forme specificando le impostazioni che controllano il riempimento degli interni.
 
-![formato forma PowerPoint](format-shape-powerpoint.png)
+![format-shape-powerpoint](format-shape-powerpoint.png)
 
-Aspose.Slides per Python fornisce classi e proprietà che consentono di formattare le forme utilizzando le stesse opzioni disponibili in PowerPoint.
+Aspose.Slides for Python offre classi e proprietà che consentono di formattare le forme utilizzando le stesse opzioni disponibili in PowerPoint.
 
 ## **Formattare le linee**
 
-Utilizzando Aspose.Slides, puoi specificare uno stile di linea personalizzato per una forma. I passaggi seguenti descrivono la procedura:
+Utilizzando Aspose.Slides, è possibile specificare uno stile di linea personalizzato per una forma. I passaggi seguenti descrivono la procedura:
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/).
-1. Ottieni un riferimento a una diapositiva mediante il suo indice.
-1. Aggiungi un [AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/) alla diapositiva.
-1. Imposta lo [line style](https://reference.aspose.com/slides/it/python-net/aspose.slides/linestyle/) della forma.
-1. Imposta la larghezza della linea.
-1. Imposta lo [dash style](https://reference.aspose.com/slides/it/python-net/aspose.slides/linedashstyle/) della forma.
-1. Imposta il colore della linea per la forma.
-1. Salva la presentazione modificata come file PPTX.
+1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/).
+2. Ottenere un riferimento a una diapositiva tramite il suo indice.
+3. Aggiungere una [AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/) alla diapositiva.
+4. Impostare lo [stile della linea](https://reference.aspose.com/slides/it/python-net/aspose.slides/linestyle/) della forma.
+5. Impostare lo spessore della linea.
+6. Impostare lo [stile tratteggiato](https://reference.aspose.com/slides/it/python-net/aspose.slides/linedashstyle/) della forma.
+7. Impostare il colore della linea per la forma.
+8. Salvare la presentazione modificata come file PPTX.
 
-Il seguente codice Python dimostra come formattare un rettangolo `AutoShape`:
+Il seguente codice Python dimostra come formattare un `AutoShape` rettangolare:
 
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Istanziare la classe Presentation che rappresenta un file di presentazione.
+# Instanziare la classe Presentation che rappresenta un file di presentazione.
 with slides.Presentation() as presentation:
 
-    # Ottieni la prima diapositiva.
+    # Ottenere la prima diapositiva.
     slide = presentation.slides[0]
 
-    # Aggiungi una forma automatica di tipo Rettangolo.
+    # Aggiungere una forma automatica di tipo Rettangolo.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 150, 75)
 
-    # Imposta il colore di riempimento per la forma rettangolo.
+    # Rimuovere il riempimento dalla forma rettangolo in modo che siano visibili solo le linee.
     shape.fill_format.fill_type = slides.FillType.NO_FILL
 
-    # Applica formattazione alle linee del rettangolo.
+    # Applicare la formattazione alle linee del rettangolo.
     shape.line_format.style = slides.LineStyle.THICK_THIN
     shape.line_format.width = 7
     shape.line_format.dash_style = slides.LineDashStyle.DASH
 
-    # Imposta il colore per la linea del rettangolo.
+    # Impostare il colore della linea del rettangolo.
     shape.line_format.fill_format.fill_type = slides.FillType.SOLID
     shape.line_format.fill_format.solid_fill_color.color = draw.Color.blue
 
-    # Salva il file PPTX su disco.
+    # Salvare il file PPTX su disco.
     presentation.save("formatted_lines.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Il risultato:
 
-![Le linee formattate nella presentazione](formatted-lines.png)
+![The formatted lines in the presentation](formatted-lines.png)
 
-## **Applicare effetti schizzo alle linee della forma**
+## **Applicare effetti di schizzi alle linee delle forme**
 
-Un effetto schizzo rende la linea di una forma simile a un disegno a mano libera. Usa [Shape.line_format](https://reference.aspose.com/slides/it/python-net/aspose.slides/shape/line_format/) per accedere alle impostazioni della linea, [LineFormat.sketch_format](https://reference.aspose.com/slides/it/python-net/aspose.slides/lineformat/sketch_format/) per accedere alle impostazioni dello schizzo e [SketchFormat.sketch_type](https://reference.aspose.com/slides/it/python-net/aspose.slides/sketchformat/sketch_type/) per selezionare un valore dall'enumerazione [LineSketchType](https://reference.aspose.com/slides/it/python-net/aspose.slides/linesketchtype/).
+Un effetto di schizzo rende la linea di una forma simile a un disegno a mano libera. Utilizzare [Shape.line_format](https://reference.aspose.com/slides/it/python-net/aspose.slides/shape/line_format/) per accedere alle impostazioni della linea, [LineFormat.sketch_format](https://reference.aspose.com/slides/it/python-net/aspose.slides/lineformat/sketch_format/) per accedere alle impostazioni di schizzo e [SketchFormat.sketch_type](https://reference.aspose.com/slides/it/python-net/aspose.slides/sketchformat/sketch_type/) per selezionare un valore dall'enumerazione [LineSketchType](https://reference.aspose.com/slides/it/python-net/aspose.slides/linesketchtype/).
 
-Il seguente codice Python mostra come applicare un effetto [LineSketchType.CURVED](https://reference.aspose.com/slides/it/python-net/aspose.slides/linesketchtype/) , leggere il valore assegnato esplicitamente e rimuovere l'effetto con [LineSketchType.NONE](https://reference.aspose.com/slides/it/python-net/aspose.slides/linesketchtype/):
+Il seguente codice Python mostra come applicare l'effetto [LineSketchType.CURVED](https://reference.aspose.com/slides/it/python-net/aspose.slides/linesketchtype/), leggere il valore assegnato esplicitamente e rimuovere l'effetto con [LineSketchType.NONE](https://reference.aspose.com/slides/it/python-net/aspose.slides/linesketchtype/):
 
 ```python
 import aspose.slides as slides
@@ -95,21 +97,21 @@ with slides.Presentation() as presentation:
     slide = presentation.slides[0]
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 200, 100)
 
-    # Accedi al formato della linea della forma e al suo formato schizzo.
+    # Accedere al formato linea della forma e al suo formato schizzo.
     sketch_format = shape.line_format.sketch_format
 
-    # Applica un effetto schizzo.
+    # Applicare un effetto schizzo.
     sketch_format.sketch_type = slides.LineSketchType.CURVED
 
-    # Leggi l'effetto schizzo assegnato direttamente alla forma.
+    # Leggere l'effetto schizzo assegnato direttamente alla forma.
     explicit_sketch_type = sketch_format.sketch_type
     print(f"Explicit sketch type: {explicit_sketch_type}")
 
-    # Rimuovi l'effetto schizzo.
+    # Rimuovere l'effetto schizzo.
     sketch_format.sketch_type = slides.LineSketchType.NONE
 ```
 
-Il valore restituito da `SketchFormat.sketch_type` rappresenta l'impostazione assegnata direttamente alla forma. Se la formattazione della linea può essere ereditata da un tema, da una diapositiva master o da una diapositiva layout, usa [LineFormat.get_effective](https://reference.aspose.com/slides/it/python-net/aspose.slides/lineformat/get_effective/), accedi alla proprietà `sketch_format` dell'oggetto restituito e leggi la sua proprietà `sketch_type`. Il valore efficace riflette la formattazione effettivamente applicata dopo la risoluzione dell'ereditarietà:
+Il valore restituito da `SketchFormat.sketch_type` rappresenta l'impostazione assegnata direttamente alla forma. Se la formattazione della linea può essere ereditata da un tema, da una diapositiva master o da una diapositiva layout, utilizzare [LineFormat.get_effective](https://reference.aspose.com/slides/it/python-net/aspose.slides/lineformat/get_effective/), accedere alla proprietà `sketch_format` dell'oggetto restituito e leggere la sua proprietà `sketch_type`. Il valore effettivo riflette la formattazione realmente applicata dopo la risoluzione dell'ereditarietà:
 
 ```python
 import aspose.slides as slides
@@ -126,36 +128,36 @@ with slides.Presentation("presentation.pptx") as presentation:
     print(f"Effective sketch type: {effective_sketch_type}")
 ```
 
-## **Formattare gli stili di unione**
+## **Formattare gli stili di giunzione**
 
-Ecco le tre opzioni di tipo di unione:
+Ecco le tre opzioni di tipo di giunzione:
 
-* Arrotondato
+* Round
 * Miter
-* Smussatura
+* Bevel
 
-Per impostazione predefinita, quando PowerPoint unisce due linee a un angolo (ad esempio all'angolo di una forma), utilizza l'impostazione **Round**. Tuttavia, se stai disegnando una forma con angoli acuti, potresti preferire l'opzione **Miter**.
+Per impostazione predefinita, quando PowerPoint unisce due linee ad angolo (ad esempio nell'angolo di una forma), utilizza l'impostazione **Round**. Tuttavia, se si disegna una forma con angoli pronunciati, potrebbe essere preferibile l'opzione **Miter**.
 
-![Lo stile di unione nella presentazione](join-style-powerpoint.png)
+![The join style in the presentation](join-style-powerpoint.png)
 
-Il seguente codice Python dimostra come tre rettangoli (come mostrato nell'immagine sopra) siano stati creati utilizzando le impostazioni di tipo di unione Miter, Bevel e Round:
+Il seguente codice Python dimostra come tre rettangoli (come mostrato nell'immagine sopra) siano stati creati utilizzando le impostazioni di tipo di giunzione Miter, Bevel e Round:
 
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Istanziare la classe Presentation che rappresenta un file di presentazione.
+# Instanziare la classe Presentation che rappresenta un file di presentazione.
 with slides.Presentation() as presentation:
 
-	# Ottieni la prima diapositiva.
+	# Ottenere la prima diapositiva.
 	slide = presentation.slides[0]
 
-	# Aggiungi tre forme automatiche di tipo Rettangolo.
+	# Aggiungere tre forme automatiche di tipo Rettangolo.
 	shape1 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 150, 75)
 	shape2 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 210, 20, 150, 75)
 	shape3 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 135, 150, 75)
 
-	# Imposta il colore di riempimento per ciascuna forma rettangolare.
+	# Impostare il colore di riempimento per ciascuna forma rettangolare.
 	shape1.fill_format.fill_type = slides.FillType.SOLID
 	shape1.fill_format.solid_fill_color.color = draw.Color.black
 	shape2.fill_format.fill_type = slides.FillType.SOLID
@@ -163,12 +165,12 @@ with slides.Presentation() as presentation:
 	shape3.fill_format.fill_type = slides.FillType.SOLID
 	shape3.fill_format.solid_fill_color.color = draw.Color.black
 
-	# Imposta la larghezza della linea.
+	# Impostare lo spessore della linea.
 	shape1.line_format.width = 15
 	shape2.line_format.width = 15
 	shape3.line_format.width = 15
 
-	# Imposta il colore per la linea di ciascun rettangolo.
+	# Impostare il colore per la linea di ciascun rettangolo.
 	shape1.line_format.fill_format.fill_type = slides.FillType.SOLID
 	shape1.line_format.fill_format.solid_fill_color.color = draw.Color.blue
 	shape2.line_format.fill_format.fill_type = slides.FillType.SOLID
@@ -176,32 +178,34 @@ with slides.Presentation() as presentation:
 	shape3.line_format.fill_format.fill_type = slides.FillType.SOLID
 	shape3.line_format.fill_format.solid_fill_color.color = draw.Color.blue
 
-	# Imposta lo stile di unione.
+	# Impostare lo stile di giunzione.
 	shape1.line_format.join_style = slides.LineJoinStyle.MITER
 	shape2.line_format.join_style = slides.LineJoinStyle.BEVEL
 	shape3.line_format.join_style = slides.LineJoinStyle.ROUND
 
-	# Aggiungi testo a ciascun rettangolo.
+	# Aggiungere testo a ciascun rettangolo.
 	shape1.text_frame.text = "Miter Join style"
 	shape2.text_frame.text = "Bevel Join style"
 	shape3.text_frame.text = "Round Join style"
 
-	# Salva il file PPTX su disco.
+	# Salvare il file PPTX su disco.
 	presentation.save("join_styles.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Riempimento a gradiente**
+## **Riempimento gradiente**
 
-Nel PowerPoint, il Riempimento a gradiente è un'opzione di formattazione che consente di applicare una sfumatura continua di colori a una forma. Ad esempio, puoi applicare due o più colori in modo che uno sfumi gradualmente nell'altro.
+In PowerPoint, il Riempimento gradiente è un'opzione di formattazione che consente di applicare una fusione continua di colori a una forma. Ad esempio, è possibile applicare due o più colori in modo che uno sfumi gradualmente nell'altro.
 
-Ecco come applicare un riempimento a gradiente a una forma utilizzando Aspose.Slides:
+Ecco come applicare un riempimento gradiente a una forma utilizzando Aspose.Slides:
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/).
-1. Ottieni un riferimento a una diapositiva mediante il suo indice.
-1. Aggiungi un [AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/) alla diapositiva.
-1. Imposta il [FillType](https://reference.aspose.com/slides/it/python-net/aspose.slides/filltype/) della forma su `GRADIENT`.
-1. Aggiungi i tuoi due colori preferiti con posizioni definite utilizzando i metodi `add` della raccolta `gradient_stops` esposta dalla classe [GradientFormat](https://reference.aspose.com/slides/it/python-net/aspose.slides/gradientformat/).
-1. Salva la presentazione modificata come file PPTX.
+1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/).
+2. Ottenere un riferimento a una diapositiva tramite il suo indice.
+3. Aggiungere una [AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/) alla diapositiva.
+4. Impostare il [FillType](https://reference.aspose.com/slides/it/python-net/aspose.slides/filltype/) della forma su `GRADIENT`.
+5. Aggiungere i due colori preferiti con posizioni definite usando i metodi `add` della collezione `gradient_stops` esposta dalla classe [GradientFormat](https://reference.aspose.com/slides/it/python-net/aspose.slides/gradientformat/).
+6. Salvare la presentazione modificata come file PPTX.
+
+Il seguente codice Python dimostra come applicare un effetto di riempimento gradiente a un'ellisse:
 
 ```python
 import aspose.slides as slides
@@ -209,47 +213,49 @@ import aspose.slides as slides
 # Istanziare la classe Presentation che rappresenta un file di presentazione.
 with slides.Presentation() as presentation:
 
-    # Ottieni la prima diapositiva.
+    # Ottenere la prima diapositiva.
     slide = presentation.slides[0]
 
-    # Aggiungi una forma automatica di tipo Ellisse.
+    # Aggiungere una forma automatica di tipo Ellisse.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 50, 50, 150, 75)
 
-    # Applica formattazione a gradiente all'ellisse.
+    # Applicare formattazione gradiente all'ellisse.
     shape.fill_format.fill_type = slides.FillType.GRADIENT
     shape.fill_format.gradient_format.gradient_shape = slides.GradientShape.LINEAR
 
-    # Imposta la direzione del gradiente.
+    # Impostare la direzione del gradiente.
     shape.fill_format.gradient_format.gradient_direction = slides.GradientDirection.FROM_CORNER2
 
-    # Aggiungi due fermate di gradiente.
+    # Aggiungere due punti di gradiente.
     shape.fill_format.gradient_format.gradient_stops.add(1.0, slides.PresetColor.PURPLE)
     shape.fill_format.gradient_format.gradient_stops.add(0, slides.PresetColor.RED)
 
-    # Salva il file PPTX su disco.
+    # Salvare il file PPTX su disco.
     presentation.save("gradient_fill.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-L'ellisse con riempimento a gradiente:
+Il risultato:
 
-![L'ellisse con riempimento a gradiente](gradient-fill.png)
+![The ellipse with gradient fill](gradient-fill.png)
 
-## **Riempimento motivo**
+## **Riempimento a trama**
 
-Nel PowerPoint, il Riempimento motivo è un'opzione di formattazione che consente di applicare un disegno a due colori — come punti, strisce, reticolati o quadretti — a una forma. Puoi scegliere colori personalizzati per il primo piano e lo sfondo del motivo.
+In PowerPoint, il Riempimento a trama è un'opzione di formattazione che consente di applicare un motivo a due colori—come punti, righe, tratteggi incrociati o quadri—a una forma. È possibile scegliere colori personalizzati per il primo piano e lo sfondo del motivo.
 
-Aspose.Slides fornisce oltre 45 stili di motivo predefiniti che puoi applicare alle forme per migliorare l'appeal visivo delle tue presentazioni. Anche dopo aver selezionato un motivo predefinito, puoi comunque specificare i colori esatti da utilizzare.
+Aspose.Slides fornisce oltre 45 stili di trama predefiniti che è possibile applicare alle forme per migliorare l'aspetto visivo delle presentazioni. Anche dopo aver selezionato una trama predefinita, è possibile specificare i colori esatti da utilizzare.
 
-Ecco come applicare un riempimento motivo a una forma utilizzando Aspose.Slides:
+Ecco come applicare un riempimento a trama a una forma utilizzando Aspose.Slides:
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/).
-1. Ottieni un riferimento a una diapositiva mediante il suo indice.
-1. Aggiungi un [AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/) alla diapositiva.
-1. Imposta il [FillType](https://reference.aspose.com/slides/it/python-net/aspose.slides/filltype/) della forma su `PATTERN`.
-1. Scegli uno stile di motivo tra le opzioni predefinite.
-1. Imposta il [back_color](https://reference.aspose.com/slides/it/python-net/aspose.slides/patternformat/back_color/) del motivo.
-1. Imposta il [fore_color](https://reference.aspose.com/slides/it/python-net/aspose.slides/patternformat/fore_color/) del motivo.
-1. Salva la presentazione modificata come file PPTX.
+1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/).
+2. Ottenere un riferimento a una diapositiva tramite il suo indice.
+3. Aggiungere una [AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/) alla diapositiva.
+4. Impostare il [FillType](https://reference.aspose.com/slides/it/python-net/aspose.slides/filltype/) della forma su `PATTERN`.
+5. Scegliere uno stile di trama dalle opzioni predefinite.
+6. Impostare il [back_color](https://reference.aspose.com/slides/it/python-net/aspose.slides/patternformat/back_color/) del motivo.
+7. Impostare il [fore_color](https://reference.aspose.com/slides/it/python-net/aspose.slides/patternformat/fore_color/) del motivo.
+8. Salvare la presentazione modificata come file PPTX.
+
+Il seguente codice Python dimostra come applicare un riempimento a trama a un rettangolo:
 
 ```python
 import aspose.slides as slides
@@ -258,97 +264,97 @@ import aspose.pydrawing as draw
 # Istanziare la classe Presentation che rappresenta un file di presentazione.
 with slides.Presentation() as presentation:
 
-    # Ottieni la prima diapositiva.
+    # Ottenere la prima diapositiva.
     slide = presentation.slides[0]
 
-    # Aggiungi una forma automatica di tipo Rettangolo.
+    # Aggiungere una forma automatica di tipo Rettangolo.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 150, 75)
 
-    # Imposta il tipo di riempimento a Pattern.
+    # Impostare il tipo di riempimento su Pattern.
     shape.fill_format.fill_type = slides.FillType.PATTERN
 
-    # Imposta lo stile del motivo.
+    # Impostare lo stile del motivo.
     shape.fill_format.pattern_format.pattern_style = slides.PatternStyle.TRELLIS
 
-    # Imposta i colori di sfondo e primo piano del motivo.
+    # Impostare i colori di sfondo e primo piano del motivo.
     shape.fill_format.pattern_format.back_color.color = draw.Color.light_gray
     shape.fill_format.pattern_format.fore_color.color = draw.Color.yellow
 
-    # Salva il file PPTX su disco.
+    # Salvare il file PPTX su disco.
     presentation.save("pattern_fill.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Il rettangolo con riempimento motivo:
+Il risultato:
 
-![Il rettangolo con riempimento motivo](pattern-fill.png)
+![The rectangle with pattern fill](pattern-fill.png)
 
 ## **Riempimento immagine**
 
-Nel PowerPoint, il Riempimento immagine è un'opzione di formattazione che consente di inserire un'immagine all'interno di una forma — utilizzando effettivamente l'immagine come sfondo della forma.
+In PowerPoint, il Riempimento immagine è un'opzione di formattazione che consente di inserire un'immagine all'interno di una forma—utilizzando effettivamente l'immagine come sfondo della forma.
 
-Ecco come usare Aspose.Slides per applicare un riempimento immagine a una forma:
+Ecco come utilizzare Aspose.Slides per applicare un riempimento immagine a una forma:
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/).
-1. Ottieni un riferimento a una diapositiva mediante il suo indice.
-1. Aggiungi un [AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/) alla diapositiva.
-1. Imposta il [FillType](https://reference.aspose.com/slides/it/python-net/aspose.slides/filltype/) della forma su `PICTURE`.
-1. Imposta la modalità di riempimento immagine su `TILE` (o un'altra modalità preferita).
-1. Crea un oggetto [PPImage](https://reference.aspose.com/slides/it/python-net/aspose.slides/ppimage/) dall'immagine che desideri utilizzare.
-1. Assegna questa immagine alla proprietà `picture.image` del `picture_fill_format` della forma.
-1. Salva la presentazione modificata come file PPTX.
+1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/).
+2. Ottenere un riferimento a una diapositiva tramite il suo indice.
+3. Aggiungere una [AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/) alla diapositiva.
+4. Impostare il [FillType](https://reference.aspose.com/slides/it/python-net/aspose.slides/filltype/) della forma su `PICTURE`.
+5. Impostare la modalità di riempimento immagine su `TILE` (o su un'altra modalità preferita).
+6. Creare un oggetto [PPImage](https://reference.aspose.com/slides/it/python-net/aspose.slides/ppimage/) dall'immagine da utilizzare.
+7. Assegnare questa immagine alla proprietà `picture.image` del `picture_fill_format` della forma.
+8. Salvare la presentazione modificata come file PPTX.
 
 Supponiamo di avere un file "lotus.png" con l'immagine seguente:
 
-![L'immagine del loto](lotus.png)
+![The lotus picture](lotus.png)
 
 Il seguente codice Python dimostra come riempire una forma con l'immagine:
 
 ```python
 import aspose.slides as slides
 
-# Istanziare la classe Presentation che rappresenta un file di presentazione.
+# Instanziare la classe Presentation che rappresenta un file di presentazione.
 with slides.Presentation() as presentation:
 
-    # Ottieni la prima diapositiva.
+    # Ottenere la prima diapositiva.
     slide = presentation.slides[0]
 
-    # Aggiungi una forma automatica di tipo Rettangolo.
+    # Aggiungere una forma automatica di tipo Rectangle.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 192, 95)
 
-    # Imposta il tipo di riempimento a Picture.
+    # Impostare il tipo di riempimento su Picture.
     shape.fill_format.fill_type = slides.FillType.PICTURE
 
-    # Imposta la modalità di riempimento immagine.
+    # Impostare la modalità di riempimento immagine.
     shape.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.TILE
 
-    # Carica un'immagine e aggiungila alle risorse della presentazione.
+    # Caricare un'immagine e aggiungerla alle risorse della presentazione.
     with slides.Images.from_file("lotus.png") as image:
         presentation_image = presentation.images.add_image(image)
 
-    # Imposta l'immagine.
+    # Impostare l'immagine.
     shape.fill_format.picture_fill_format.picture.image = presentation_image
 
-    # Salva il file PPTX su disco.
+    # Salvare il file PPTX su disco.
     presentation.save("picture_fill.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-La forma con riempimento immagine:
+Il risultato:
 
-![La forma con riempimento immagine](picture-fill.png)
+![The shape with picture fill](picture-fill.png)
 
-### **Usa immagine a tasselli come texture**
+### **Tile Picture As Texture**
 
-Se desideri impostare un'immagine a tasselli come texture e personalizzare il comportamento del tassellamento, puoi utilizzare le seguenti proprietà della classe [PictureFillFormat](https://reference.aspose.com/slides/it/python-net/aspose.slides/picturefillformat/):
+Se si desidera impostare un'immagine piastrellata come texture e personalizzare il comportamento della piastrellatura, è possibile utilizzare le seguenti proprietà della classe [PictureFillFormat](https://reference.aspose.com/slides/it/python-net/aspose.slides/picturefillformat/):
 
-- [picture_fill_mode](https://reference.aspose.com/slides/it/python-net/aspose.slides/picturefillformat/picture_fill_mode/): Imposta la modalità di riempimento immagine — `TILE` o `STRETCH`.
-- [tile_alignment](https://reference.aspose.com/slides/it/python-net/aspose.slides/picturefillformat/tile_alignment/): Specifica l'allineamento dei tasselli all'interno della forma.
-- [tile_flip](https://reference.aspose.com/slides/it/python-net/aspose.slides/picturefillformat/tile_flip/): Controlla se il tassello è capovolto orizzontalmente, verticalmente o entrambi.
-- [tile_offset_x](https://reference.aspose.com/slides/it/python-net/aspose.slides/picturefillformat/tile_offset_x/): Imposta lo spostamento orizzontale del tassello (in punti) dall'origine della forma.
-- [tile_offset_y](https://reference.aspose.com/slides/it/python-net/aspose.slides/picturefillformat/tile_offset_y/): Imposta lo spostamento verticale del tassello (in punti) dall'origine della forma.
-- [tile_scale_x](https://reference.aspose.com/slides/it/python-net/aspose.slides/picturefillformat/tile_scale_x/): Definisce la scala orizzontale del tassello in percentuale.
-- [tile_scale_y](https://reference.aspose.com/slides/it/python-net/aspose.slides/picturefillformat/tile_scale_y/): Definisce la scala verticale del tassello in percentuale.
+- [picture_fill_mode](https://reference.aspose.com/slides/it/python-net/aspose.slides/picturefillformat/picture_fill_mode/): Imposta la modalità di riempimento immagine—`TILE` o `STRETCH`.
+- [tile_alignment](https://reference.aspose.com/slides/it/python-net/aspose.slides/picturefillformat/tile_alignment/): Specifica l'allineamento delle piastrelle all'interno della forma.
+- [tile_flip](https://reference.aspose.com/slides/it/python-net/aspose.slides/picturefillformat/tile_flip/): Controlla se la piastrella è capovolta orizzontalmente, verticalmente o in entrambi i modi.
+- [tile_offset_x](https://reference.aspose.com/slides/it/python-net/aspose.slides/picturefillformat/tile_offset_x/): Imposta lo spostamento orizzontale della piastrella (in punti) dall'origine della forma.
+- [tile_offset_y](https://reference.aspose.com/slides/it/python-net/aspose.slides/picturefillformat/tile_offset_y/): Imposta lo spostamento verticale della piastrella (in punti) dall'origine della forma.
+- [tile_scale_x](https://reference.aspose.com/slides/it/python-net/aspose.slides/picturefillformat/tile_scale_x/): Definisce la scala orizzontale della piastrella in percentuale.
+- [tile_scale_y](https://reference.aspose.com/slides/it/python-net/aspose.slides/picturefillformat/tile_scale_y/): Definisce la scala verticale della piastrella in percentuale.
 
-Il seguente esempio di codice mostra come aggiungere una forma rettangolare con riempimento immagine a tasselli e configurare le opzioni di tassellamento:
+Il seguente esempio di codice mostra come aggiungere una forma rettangolare con riempimento immagine piastrellato e configurare le opzioni di piastrellatura:
 
 ```py
 import aspose.slides as slides
@@ -356,24 +362,24 @@ import aspose.slides as slides
 # Istanziare la classe Presentation che rappresenta un file di presentazione.
 with slides.Presentation() as presentation:
 
-    # Ottieni la prima diapositiva.
+    # Ottenere la prima diapositiva.
     first_slide = presentation.slides[0]
 
-    # Aggiungi una forma automatica rettangolare.
+    # Aggiungere una forma automatica di tipo rettangolo.
     shape = first_slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 190, 95)
 
-    # Imposta il tipo di riempimento della forma a Picture.
+    # Impostare il tipo di riempimento della forma su Picture.
     shape.fill_format.fill_type = slides.FillType.PICTURE
 
-    # Carica l'immagine e aggiungila alle risorse della presentazione.
+    # Caricare l'immagine e aggiungerla alle risorse della presentazione.
     with slides.Images.from_file("lotus.png") as source_image:
         presentation_image = presentation.images.add_image(source_image)
 
-    # Assegna l'immagine alla forma.
+    # Assegnare l'immagine alla forma.
     picture_fill_format = shape.fill_format.picture_fill_format
     picture_fill_format.picture.image = presentation_image
 
-    # Configura la modalità di riempimento immagine e le proprietà di tassellamento.
+    # Configurare la modalità di riempimento immagine e le proprietà di piastrellatura.
     picture_fill_format.picture_fill_mode = slides.PictureFillMode.TILE
     picture_fill_format.tile_offset_x = -32
     picture_fill_format.tile_offset_y = -32
@@ -382,81 +388,85 @@ with slides.Presentation() as presentation:
     picture_fill_format.tile_alignment = slides.RectangleAlignment.BOTTOM_RIGHT
     picture_fill_format.tile_flip = slides.TileFlip.FLIP_BOTH
 
-    # Salva il file PPTX su disco.
+    # Salvare il file PPTX su disco.
     presentation.save("tile.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Le opzioni di tassellamento:
+Il risultato:
 
-![Le opzioni di tassellamento](tile-options.png)
+![The tile options](tile-options.png)
 
-## **Riempimento a colore solido**
+## **Riempimento colore solido**
 
-Nel PowerPoint, il Riempimento a colore solido è un'opzione di formattazione che riempie una forma con un unico colore uniforme. Questo colore di sfondo semplice viene applicato senza gradazioni, texture o motivi.
+In PowerPoint, il Riempimento colore solido è un'opzione di formattazione che riempie una forma con un unico colore uniforme. Questo colore di sfondo semplice viene applicato senza gradienti, texture o motivi.
 
-Per applicare un riempimento a colore solido a una forma usando Aspose.Slides, segui questi passaggi:
+Per applicare un riempimento colore solido a una forma usando Aspose.Slides, seguire questi passaggi:
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/).
-1. Ottieni un riferimento a una diapositiva mediante il suo indice.
-1. Aggiungi un [AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/) alla diapositiva.
-1. Imposta il [FillType](https://reference.aspose.com/slides/it/python-net/aspose.slides/filltype/) della forma su `SOLID`.
-1. Assegna il colore di riempimento desiderato alla forma.
-1. Salva la presentazione modificata come file PPTX.
+1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/).
+2. Ottenere un riferimento a una diapositiva tramite il suo indice.
+3. Aggiungere una [AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/) alla diapositiva.
+4. Impostare il [FillType](https://reference.aspose.com/slides/it/python-net/aspose.slides/filltype/) della forma su `SOLID`.
+5. Assegnare il colore di riempimento desiderato alla forma.
+6. Salvare la presentazione modificata come file PPTX.
+
+Il seguente codice Python dimostra come applicare un riempimento colore solido a un rettangolo in una diapositiva PowerPoint:
 
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Istanziare la classe Presentation che rappresenta un file di presentazione.
+# Instanziare la classe Presentation che rappresenta un file di presentazione.
 with slides.Presentation() as presentation:
 
-    # Ottieni la prima diapositiva.
+    # Ottenere la prima diapositiva.
     slide = presentation.slides[0]
 
-    # Aggiungi una forma automatica di tipo Rettangolo.
+    # Aggiungere una forma automatica di tipo Rectangle.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 150, 75)
 
-    # Imposta il tipo di riempimento su Solid.
+    # Impostare il tipo di riempimento su Solid.
     shape.fill_format.fill_type = slides.FillType.SOLID
 
-    # Imposta il colore di riempimento.
+    # Impostare il colore di riempimento.
     shape.fill_format.solid_fill_color.color = draw.Color.yellow
 
-    # Salva il file PPTX su disco.
+    # Salvare il file PPTX su disco.
     presentation.save("solid_color_fill.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-La forma con riempimento a colore solido:
+Il risultato:
 
-![La forma con riempimento a colore solido](solid-color-fill.png)
+![The shape with solid color fill](solid-color-fill.png)
 
 ## **Impostare la trasparenza**
 
-Nel PowerPoint, quando applichi un riempimento a colore solido, a gradiente, immagine o texture a una forma, puoi anche impostare un livello di trasparenza per controllare l'opacità del riempimento. Un valore di trasparenza più alto rende la forma più trasparente, consentendo allo sfondo o agli oggetti sottostanti di essere parzialmente visibili.
+In PowerPoint, quando si applica un colore solido, un gradiente, un'immagine o un riempimento texture a delle forme, è possibile impostare anche un livello di trasparenza per controllare l'opacità del riempimento. Un valore di trasparenza più alto rende la forma più trasparente, consentendo al sfondo o agli oggetti sottostanti di essere parzialmente visibili.
 
-Aspose.Slides ti consente di impostare il livello di trasparenza modificando il valore alfa nel colore usato per il riempimento. Ecco come fare:
+Aspose.Slides consente di impostare il livello di trasparenza regolando il valore alfa del colore usato per il riempimento. Ecco come fare:
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/).
-1. Ottieni un riferimento a una diapositiva mediante il suo indice.
-1. Aggiungi un [AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/) alla diapositiva.
-1. Imposta il tipo di riempimento su `SOLID`.
-1. Usa `Color.from_argb` per definire un colore con trasparenza (il componente `alpha` controlla la trasparenza).
-1. Salva la presentazione.
+1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/).
+2. Ottenere un riferimento a una diapositiva tramite il suo indice.
+3. Aggiungere una [AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/) alla diapositiva.
+4. Impostare il tipo di riempimento su `SOLID`.
+5. Utilizzare `Color.from_argb` per definire un colore con trasparenza (il componente `alpha` controlla la trasparenza).
+6. Salvare la presentazione.
+
+Il seguente codice Python dimostra come applicare un colore di riempimento trasparente a un rettangolo:
 
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Istanziare la classe Presentation che rappresenta un file di presentazione.
+# Instanziare la classe Presentation che rappresenta un file di presentazione.
 with slides.Presentation() as presentation:
 
-    # Ottieni la prima diapositiva.
+    # Ottenere la prima diapositiva.
     slide = presentation.slides[0]
     
-    # Aggiungi una forma automatica rettangolare solida.
+    # Aggiungere una forma automatica rettangolare solida.
     slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 150, 75)
 
-    # Aggiungi una forma automatica rettangolare trasparente sopra la forma solida.
+    # Aggiungere una forma automatica rettangolare trasparente sopra la forma solida.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 80, 80, 150, 75)
     shape.fill_format.fill_type = slides.FillType.SOLID
     shape.fill_format.solid_fill_color.color = draw.Color.from_argb(128, 204, 102, 0)
@@ -464,21 +474,23 @@ with slides.Presentation() as presentation:
     presentation.save("shape_transparency.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-La forma trasparente:
+Il risultato:
 
-![La forma trasparente](shape-transparency.png)
+![The transparent shape](shape-transparency.png)
 
 ## **Ruotare le forme**
 
-Aspose.Slides ti consente di ruotare le forme nelle presentazioni PowerPoint. Questo può essere utile quando posizioni elementi visivi con esigenze specifiche di allineamento o design.
+Aspose.Slides consente di ruotare le forme nelle presentazioni PowerPoint. Questo può essere utile quando è necessario posizionare elementi visivi con un allineamento o un design specifici.
 
-Per ruotare una forma su una diapositiva, segui questi passaggi:
+Per ruotare una forma su una diapositiva, seguire questi passaggi:
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/).
-1. Ottieni un riferimento a una diapositiva mediante il suo indice.
-1. Aggiungi un [AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/) alla diapositiva.
-1. Imposta la proprietà `rotation` della forma sull'angolo desiderato.
-1. Salva la presentazione.
+1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/).
+2. Ottenere un riferimento a una diapositiva tramite il suo indice.
+3. Aggiungere una [AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/) alla diapositiva.
+4. Impostare la proprietà `rotation` della forma sull'angolo desiderato.
+5. Salvare la presentazione.
+
+Il seguente codice Python dimostra come ruotare una forma di 5 gradi:
 
 ```python
 import aspose.slides as slides
@@ -486,45 +498,47 @@ import aspose.slides as slides
 # Istanziare la classe Presentation che rappresenta un file di presentazione.
 with slides.Presentation() as presentation:
 
-    # Ottieni la prima diapositiva.
+    # Ottenere la prima diapositiva.
     slide = presentation.slides[0]
 
-    # Aggiungi una forma automatica di tipo Rettangolo.
+    # Aggiungere una forma automatica di tipo Rectangle.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 150, 75)
 
-    # Ruota la forma di 5 gradi.
+    # Ruotare la forma di 5 gradi.
     shape.rotation = 5
 
-    # Salva il file PPTX su disco.
+    # Salvare il file PPTX su disco.
     presentation.save("shape_rotation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-La rotazione della forma:
+Il risultato:
 
-![La rotazione della forma](shape-rotation.png)
+![The shape rotation](shape-rotation.png)
 
-## **Aggiungere effetti di smussatura 3D**
+## **Aggiungere effetti di smusso 3D**
 
-Aspose.Slides consente di applicare effetti di smussatura 3D alle forme configurando le loro proprietà [ThreeDFormat](https://reference.aspose.com/slides/it/python-net/aspose.slides/threedformat/).
+Aspose.Slides permette di applicare effetti di smusso 3D alle forme configurando le loro proprietà [ThreeDFormat](https://reference.aspose.com/slides/it/python-net/aspose.slides/threedformat/).
 
-Per aggiungere effetti di smussatura 3D a una forma, segui questi passaggi:
+Per aggiungere effetti di smusso 3D a una forma, seguire questi passaggi:
 
-1. Instanzia la classe [Presentation](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/).
-1. Ottieni un riferimento a una diapositiva mediante il suo indice.
-1. Aggiungi un [AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/) alla diapositiva.
-1. Configura il [ThreeDFormat](https://reference.aspose.com/slides/it/python-net/aspose.slides/threedformat/) della forma per definire le impostazioni di smussatura.
-1. Salva la presentazione.
+1. Istanziare la classe [Presentation](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/).
+2. Ottenere un riferimento a una diapositiva tramite il suo indice.
+3. Aggiungere una [AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/) alla diapositiva.
+4. Configurare il [ThreeDFormat](https://reference.aspose.com/slides/it/python-net/aspose.slides/threedformat/) della forma per definire le impostazioni di smusso.
+5. Salvare la presentazione.
+
+Il seguente codice Python mostra come applicare effetti di smusso 3D a una forma:
 
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-# Crea un'istanza della classe Presentation.
+# Creare un'istanza della classe Presentation.
 with slides.Presentation() as presentation:
 
     slide = presentation.slides[0]
 
-    # Aggiungi una forma alla diapositiva.
+    # Aggiungere una forma alla diapositiva.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 50, 50, 100, 100)
     shape.fill_format.fill_type = slides.FillType.SOLID
     shape.fill_format.solid_fill_color.color = draw.Color.green
@@ -532,7 +546,7 @@ with slides.Presentation() as presentation:
     shape.line_format.fill_format.solid_fill_color.color = draw.Color.orange
     shape.line_format.width = 2.0
 
-    # Imposta le proprietà ThreeDFormat della forma.
+    # Impostare le proprietà ThreeDFormat della forma.
     shape.three_d_format.depth = 4
     shape.three_d_format.bevel_top.bevel_type = slides.BevelPresetType.CIRCLE
     shape.three_d_format.bevel_top.height = 6
@@ -541,30 +555,32 @@ with slides.Presentation() as presentation:
     shape.three_d_format.light_rig.light_type = slides.LightRigPresetType.THREE_PT
     shape.three_d_format.light_rig.direction = slides.LightingDirection.TOP
 
-    # Salva la presentazione come file PPTX.
+    # Salvare la presentazione come file PPTX.
     presentation.save("3D_bevel_effect.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-L'effetto smussatura 3D:
+Il risultato:
 
-![L'effetto smussatura 3D](3D-bevel-effect.png)
+![The 3D bevel effect](3D-bevel-effect.png)
 
 ## **Aggiungere effetti di rotazione 3D**
 
-Aspose.Slides consente di applicare effetti di rotazione 3D alle forme configurando le loro proprietà [ThreeDFormat](https://reference.aspose.com/slides/it/python-net/aspose.slides/threedformat/).
+Aspose.Slides permette di applicare effetti di rotazione 3D alle forme configurando le loro proprietà [ThreeDFormat](https://reference.aspose.com/slides/it/python-net/aspose.slides/threedformat/).
 
-Per applicare una rotazione 3D a una forma:
+Per applicare la rotazione 3D a una forma:
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/).
-1. Ottieni un riferimento a una diapositiva mediante il suo indice.
-1. Aggiungi un [AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/) alla diapositiva.
-1. Imposta le proprietà `camera_type` e `light_type` della forma per definire la rotazione 3D.
-1. Salva la presentazione.
+1. Creare un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/).
+2. Ottenere un riferimento a una diapositiva tramite il suo indice.
+3. Aggiungere una [AutoShape](https://reference.aspose.com/slides/it/python-net/aspose.slides/autoshape/) alla diapositiva.
+4. Impostare il [camera_type](https://reference.aspose.com/slides/it/python-net/aspose.slides/camera/camera_type/) e il [light_type](https://reference.aspose.com/slides/it/python-net/aspose.slides/lightrig/light_type/) della forma per definire la rotazione 3D.
+5. Salvare la presentazione.
+
+Il seguente codice Python dimostra come applicare effetti di rotazione 3D a una forma:
 
 ```python
 import aspose.slides as slides
 
-# Crea un'istanza della classe Presentation.
+# Creare un'istanza della classe Presentation.
 with slides.Presentation() as presentation:
 
     slide = presentation.slides[0]
@@ -577,17 +593,44 @@ with slides.Presentation() as presentation:
     auto_shape.three_d_format.camera.camera_type = slides.CameraPresetType.ISOMETRIC_LEFT_UP
     auto_shape.three_d_format.light_rig.light_type = slides.LightRigPresetType.BALANCED
 
-    # Salva la presentazione come file PPTX.      
+    # Salvare la presentazione come file PPTX.
     presentation.save("3D_rotation_effect.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-L'effetto rotazione 3D:
+Il risultato:
 
-![L'effetto rotazione 3D](3D-rotation-effect.png)
+![The 3D rotation effect](3D-rotation-effect.png)
+
+## **Controllare la resa in bianco‑nero per le forme**
+
+La proprietà [Shape.black_white_mode](https://reference.aspose.com/slides/it/python-net/aspose.slides/shape/black_white_mode/) specifica come una singola forma viene resa quando una presentazione è visualizzata o elaborata in modalità bianco‑nero. Non abilita la visualizzazione in bianco‑nero da sola e non modifica il riempimento, la linea o altre formattazioni della forma in modalità colore normale.
+
+Utilizzare un valore dell'enumerazione [BlackWhiteMode](https://reference.aspose.com/slides/it/python-net/aspose.slides/blackwhitemode/) per selezionare il comportamento desiderato. Ad esempio, `AUTOMATIC` consente all'applicazione di rendering di scegliere la conversione, `GRAY` e `LIGHT_GRAY` usano la colorazione grigia, `BLACK_WHITE` utilizza solo nero e bianco, `BLACK` e `WHITE` forzano un colore unico, `COLOR` preserva la colorazione normale, `HIDDEN` omette la forma in modalità bianco‑nero, e `NOT_DEFINED` indica che non è stato assegnato alcun modo a livello di forma.
+
+Il seguente codice Python crea una forma colorata e la fa apparire grigia nella modalità di visualizzazione bianco‑nero:
+
+```python
+import aspose.slides as slides
+import aspose.pydrawing as draw
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 200, 100)
+    shape.fill_format.fill_type = slides.FillType.SOLID
+    shape.fill_format.solid_fill_color.color = draw.Color.orange
+
+    # Mantenere il riempimento arancione in modalità colore, ma visualizzare la forma con colorazione grigia in modalità bianco-nero.
+    shape.black_white_mode = slides.BlackWhiteMode.GRAY
+
+    presentation.save("shape_black_white_mode.pptx", slides.export.SaveFormat.PPTX)
+```
+
+In modalità colore normale, il rettangolo mantiene il suo riempimento arancione. In un flusso di lavoro di visualizzazione bianco‑nero, utilizza la colorazione grigia perché il suo modo è impostato su `GRAY`. Questo consente di mantenere una diapositiva a colori completa definendo al contempo un aspetto distinto per la stampa, l'anteprima o altri flussi di lavoro che rispettano le impostazioni di visualizzazione bianco‑nero della presentazione.
 
 ## **Ripristinare la formattazione**
 
-Il seguente codice Python mostra come ripristinare la formattazione di una diapositiva e riportare posizione, dimensione e formattazione di tutte le forme con segnaposto sul [LayoutSlide](https://reference.aspose.com/slides/it/python-net/aspose.slides/layoutslide/) alle impostazioni predefinite:
+Il seguente codice Python mostra come ripristinare la formattazione di una diapositiva e riportare posizione, dimensione e formattazione di tutte le forme con segnaposto nella [LayoutSlide](https://reference.aspose.com/slides/it/python-net/aspose.slides/layoutslide/) alle impostazioni predefinite:
 
 ```python
 import aspose.slides as slides
@@ -603,14 +646,14 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ## **FAQ**
 
-**La formattazione delle forme influisce sulla dimensione finale del file della presentazione?**
+**La formattazione delle forme influisce sulla dimensione finale del file di presentazione?**
 
-Solo in minima parte. Le immagini e i media incorporati occupano la maggior parte dello spazio del file, mentre i parametri delle forme come colori, effetti e gradienti sono memorizzati come metadati e aggiungono praticamente nessuna dimensione aggiuntiva.
+Solo marginalmente. Immagini e media incorporati occupano la maggior parte dello spazio del file, mentre i parametri delle forme come colori, effetti e gradienti sono memorizzati come metadati e aggiungono praticamente nessuna dimensione extra.
 
-**Come posso individuare forme su una diapositiva che condividono la stessa formattazione per poterle raggruppare?**
+**Come posso individuare le forme su una diapositiva che condividono una formattazione identica per raggrupparle?**
 
-Confronta le proprietà chiave di formattazione di ciascuna forma — impostazioni di riempimento, linea ed effetti. Se tutti i valori corrispondenti coincidono, considera i loro stili identici e raggruppa logicamente queste forme, semplificando la gestione dello stile in seguito.
+Confrontare le proprietà chiave di formattazione di ciascuna forma—riempimento, linea e impostazioni degli effetti. Se tutti i valori corrispondono, trattare i loro stili come identici e raggruppare logicamente le forme, semplificando la gestione successiva degli stili.
 
-**Posso salvare un set di stili di forma personalizzati in un file separato per riutilizzarli in altre presentazioni?**
+**Posso salvare un set di stili di forma personalizzati in un file separato per riutilizzarlo in altre presentazioni?**
 
-Sì. Salva forme di esempio con gli stili desiderati in una presentazione modello o in un file .POTX. Quando crei una nuova presentazione, apri il modello, clona le forme stilizzate di cui hai bisogno e riapplica la loro formattazione dove necessario.
+Sì. Conservare le forme di esempio con gli stili desiderati in una presentazione modello o in un file modello .POTX. Quando si crea una nuova presentazione, aprire il modello, clonare le forme stilizzate necessarie e riapplicare la loro formattazione dove richiesto.

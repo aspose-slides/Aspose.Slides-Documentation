@@ -18,39 +18,43 @@ keywords:
 - ODP zu TIFF
 - Python
 - Aspose.Slides
-description: "Lernen Sie, wie Sie PowerPoint (PPT, PPTX) und OpenDocument (ODP) Präsentationen mühelos in hochwertige TIFF-Bilder mit Aspose.Slides für Python via .NET konvertieren. Schritt-für-Schritt-Anleitung mit Codebeispielen inklusive."
+description: "Erfahren Sie, wie Sie PowerPoint‑ (PPT, PPTX) und OpenDocument‑ (ODP) Präsentationen mithilfe von Aspose.Slides für Python über .NET einfach in hochqualitative TIFF‑Bilder konvertieren können. Schritt‑für‑Schritt‑Anleitung mit Code‑Beispielen inklusive."
 ---
+## **Einführung**
 
-## **Übersicht**
+TIFF (**Tagged Image File Format**) ist ein weit verbreitetes, verlustfreies Rasterbildformat, das für seine außergewöhnliche Qualität und detailgetreue Bilddarstellung bekannt ist. Designer, Fotografen und Desktop-Publisher wählen TIFF häufig, um Ebenen, Farbgenauigkeit und ursprüngliche Einstellungen in ihren Bildern beizubehalten.
 
-TIFF (**Tagged Image File Format**) ist ein weit verbreitetes, verlustfreies Rasterbildformat, das für seine herausragende Qualität und die detaillierte Erhaltung von Grafiken bekannt ist. Designer, Fotografen und Desktop-Publisher wählen TIFF häufig, um Ebenen, Farbgenauigkeit und ursprüngliche Einstellungen in ihren Bildern beizubehalten.
+Mit Aspose.Slides können Sie PowerPoint‑Folien (PPT, PPTX) und OpenDocument‑Folien (ODP) mühelos direkt in hochwertige TIFF‑Bilder konvertieren, sodass Ihre Präsentationen die maximale visuelle Treue behalten.
 
-Mit Aspose.Slides können Sie Ihre PowerPoint‑Folien (PPT, PPTX) und OpenDocument‑Folien (ODP) mühelos direkt in hochwertige TIFF‑Bilder konvertieren, sodass Ihre Präsentationen die maximale visuelle Treue beibehalten.
+## **Eine Präsentation in TIFF konvertieren**
 
-## **Präsentation in TIFF konvertieren**
-
-Verwenden Sie die Methode [save](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/#methods) der Klasse [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/), um schnell eine gesamte PowerPoint‑Präsentation in TIFF zu konvertieren. Die erzeugten TIFF‑Bilder entsprechen der Standard‑Foliengröße.
+Durch die [speichern](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/#methods)-Methode der Klasse [Presentation](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/) können Sie schnell eine gesamte PowerPoint‑Präsentation in TIFF umwandeln. Die resultierenden TIFF‑Bilder entsprechen der Standardfoliengröße.
 
 Dieser Python‑Code zeigt, wie man eine PowerPoint‑Präsentation in TIFF konvertiert:
+
 ```py
 import aspose.slides as slides
 
-# Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei (PPT, PPTX, ODP usw.) darstellt.
+# Instanziieren Sie die Presentation‑Klasse, die eine Präsentationsdatei (PPT, PPTX, ODP usw.) darstellt.
 with slides.Presentation("presentation.pptx") as presentation:
     # Speichern Sie die Präsentation als TIFF.
     presentation.save("output.tiff", slides.export.SaveFormat.TIFF)
 ```
 
+## **Eine Präsentation in Schwarz‑Weiß‑TIFF konvertieren**
 
-## **Präsentation in Schwarz‑Weiß‑TIFF konvertieren**
+Die Eigenschaft [bw_conversion_mode](https://reference.aspose.com/slides/de/python-net/aspose.slides.export/tiffoptions/bw_conversion_mode/) in der Klasse [TiffOptions](https://reference.aspose.com/slides/de/python-net/aspose.slides.export/tiffoptions/) ermöglicht es, den Algorithmus anzugeben, der beim Konvertieren einer farbigen Folie oder eines Bildes in ein Schwarz‑Weiß‑TIFF verwendet wird. Beachten Sie, dass diese Einstellung nur gilt, wenn die Eigenschaft [compression_type](https://reference.aspose.com/slides/de/python-net/aspose.slides.export/tiffoptions/compression_type/) auf `CCITT4` oder `CCITT3` gesetzt ist.
 
-Die Eigenschaft [bw_conversion_mode](https://reference.aspose.com/slides/python-net/aspose.slides.export/tiffoptions/bw_conversion_mode/) in der Klasse [TiffOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/tiffoptions/) ermöglicht es, den Algorithmus festzulegen, der beim Konvertieren einer farbigen Folie oder eines Bildes in ein Schwarz‑Weiß‑TIFF verwendet wird. Beachten Sie, dass diese Einstellung nur gilt, wenn die Eigenschaft [compression_type](https://reference.aspose.com/slides/python-net/aspose.slides.export/tiffoptions/compression_type/) auf `CCITT4` oder `CCITT3` gesetzt ist.
+{{% alert color="info" title="Hinweis" %}}
+[TiffOptions.bw_conversion_mode](https://reference.aspose.com/slides/de/python-net/aspose.slides.export/tiffoptions/bw_conversion_mode/) ist eine Export‑Einstellung, die einen Pixel‑Konversionsalgorithmus für das gesamte TIFF‑Bild auswählt. Um festzulegen, wie eine einzelne Form angezeigt werden soll, wenn der Schwarz‑Weiß‑Modus aktiv ist, verwenden Sie [Shape.black_white_mode](https://reference.aspose.com/slides/de/python-net/aspose.slides/shape/black_white_mode/). Siehe [Control Black-and-White Rendering for Shapes](/python-net/shape-formatting/#control-black-and-white-rendering-for-shapes) für Beispiele.
+{{% /alert %}}
 
-Angenommen, wir haben eine Datei "sample.pptx" mit der folgenden Folie:
+Angenommen, wir haben eine Datei *sample.pptx* mit folgender Folie:
 
 ![Eine Präsentationsfolie](slide_black_and_white.png)
 
 Dieser Python‑Code zeigt, wie man die farbige Folie in ein Schwarz‑Weiß‑TIFF konvertiert:
+
 ```py
 import aspose.slides as slides
 
@@ -62,30 +66,30 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("output.tiff", slides.export.SaveFormat.TIFF, tiff_options)
 ```
 
-
 Das Ergebnis:
 
 ![Schwarz‑Weiß‑TIFF](TIFF_black_and_white.png)
 
-## **Präsentation in TIFF mit benutzerdefinierter Größe konvertieren**
+## **Eine Präsentation in TIFF mit benutzerdefinierter Größe konvertieren**
 
-Wenn Sie ein TIFF‑Bild mit bestimmten Abmessungen benötigen, können Sie die gewünschten Werte über Eigenschaften in [TiffOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/tiffoptions/) festlegen. Beispielsweise ermöglicht die Eigenschaft [image_size](https://reference.aspose.com/slides/python-net/aspose.slides.export/tiffoptions/image_size/), die Größe des resultierenden Bildes zu definieren.
+Wenn Sie ein TIFF‑Bild mit bestimmten Abmessungen benötigen, können Sie die gewünschten Werte über die in [TiffOptions](https://reference.aspose.com/slides/de/python-net/aspose.slides.export/tiffoptions/) verfügbaren Eigenschaften festlegen. Beispielsweise ermöglicht die Eigenschaft [image_size](https://reference.aspose.com/slides/de/python-net/aspose.slides.export/tiffoptions/image_size/), die Größe des resultierenden Bildes zu definieren.
 
 Dieser Python‑Code zeigt, wie man eine PowerPoint‑Präsentation in TIFF‑Bilder mit benutzerdefinierter Größe konvertiert:
+
 ```py
 import aspose.slides as slides
 import aspose.pydrawing as drawing
 
-# Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei (PPT, PPTX, ODP usw.) darstellt.
+# Instanziieren Sie die Presentation‑Klasse, die eine Präsentationsdatei (PPT, PPTX, ODP usw.) darstellt.
 with slides.Presentation("sample.pptx") as presentation:
     tiff_options = slides.export.TiffOptions()
 
     # Legen Sie den Kompressionstyp fest.
     tiff_options.compression_type = slides.export.TiffCompressionTypes.DEFAULT
     """
-    Kompressionstypen:
-        Default - Gibt das Standard‑Kompressionsschema (LZW) an.
-        None - Gibt keine Kompression an.
+    Compression types:
+        Default - Specifies the default compression scheme (LZW).
+        None - Specifies no compression.
         CCITT3
         CCITT4
         LZW
@@ -107,47 +111,46 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("custom_size.tiff", slides.export.SaveFormat.TIFF, tiff_options)
 ```
 
+## **Eine Präsentation in TIFF mit benutzerdefiniertem Bild‑Pixel‑Format konvertieren**
 
-## **Präsentation in TIFF mit benutzerdefiniertem Bild‑Pixel‑Format konvertieren**
-
-Verwenden Sie die Eigenschaft [pixel_format](https://reference.aspose.com/slides/python-net/aspose.slides.export/tiffoptions/pixel_format/) der Klasse [TiffOptions](https://reference.aspose.com/slides/python-net/aspose.slides.export/tiffoptions/), um das gewünschte Pixel‑Format für das resultierende TIFF‑Bild festzulegen.
+Mit der Eigenschaft [pixel_format](https://reference.aspose.com/slides/de/python-net/aspose.slides.export/tiffoptions/pixel_format/) der Klasse [TiffOptions](https://reference.aspose.com/slides/de/python-net/aspose.slides.export/tiffoptions/) können Sie das gewünschte Pixel‑Format für das resultierende TIFF‑Bild festlegen.
 
 Dieser Python‑Code zeigt, wie man eine PowerPoint‑Präsentation in ein TIFF‑Bild mit benutzerdefiniertem Pixel‑Format konvertiert:
+
 ```py
 import aspose.slides as slides
 
-# Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei (PPT, PPTX, ODP usw.) darstellt.
+# Instanziieren Sie die Presentation‑Klasse, die eine Präsentationsdatei (PPT, PPTX, ODP usw.) darstellt.
 with slides.Presentation("Presentation.pptx") as presentation:
     tiff_options = slides.export.TiffOptions()
 
     tiff_options.pixel_format = slides.export.ImagePixelFormat.FORMAT_8BPP_INDEXED
     """
-    ImagePixelFormat enthält die folgenden Werte (wie in der Dokumentation angegeben):
-        FORMAT_1BPP_INDEXED - 1 Bit pro Pixel, indiziert.
-        FORMAT_4BPP_INDEXED - 4 Bits pro Pixel, indiziert.
-        FORMAT_8BPP_INDEXED - 8 Bits pro Pixel, indiziert.
-        FORMAT_24BPP_RGB    - 24 Bits pro Pixel, RGB.
-        FORMAT_32BPP_ARGB   - 32 Bits pro Pixel, ARGB.
+    ImagePixelFormat contains the following values (as stated in the documentation):
+        FORMAT_1BPP_INDEXED - 1 bit per pixel, indexed.
+        FORMAT_4BPP_INDEXED - 4 bits per pixel, indexed.
+        FORMAT_8BPP_INDEXED - 8 bits per pixel, indexed.
+        FORMAT_24BPP_RGB    - 24 bits per pixel, RGB.
+        FORMAT_32BPP_ARGB   - 32 bits per pixel, ARGB.
     """
 
-    # Speichern Sie die Präsentation als TIFF mit der angegebenen Bildgröße.
+    # Speichern Sie die Präsentation als TIFF mit dem angegebenen Pixel‑Format.
     presentation.save("Custom_Image_Pixel_Format.tiff", slides.export.SaveFormat.TIFF, tiff_options)
 ```
 
-
-{{% alert title="Tip" color="primary" %}}
-Schauen Sie sich Asposes [KOSTENLOSEN PowerPoint‑zu‑Poster‑Konverter](https://products.aspose.app/slides/conversion/convert-ppt-to-poster-online) an.
+{{% alert title="Tipp" color="info" %}}
+Probieren Sie Asposes [KOSTENLOSEN PowerPoint‑zu‑Poster‑Konverter](https://products.aspose.app/slides/de/conversion/convert-ppt-to-poster-online) aus.
 {{% /alert %}}
 
 ## **FAQ**
 
-**Kann ich anstelle der gesamten PowerPoint‑Präsentation eine einzelne Folie in TIFF konvertieren?**
+**Kann ich eine einzelne Folie statt der gesamten PowerPoint‑Präsentation in TIFF konvertieren?**
 
-Ja. Aspose.Slides ermöglicht es, einzelne Folien aus PowerPoint‑ und OpenDocument‑Präsentationen getrennt in TIFF‑Bilder zu konvertieren.
+Ja. Aspose.Slides ermöglicht das separate Konvertieren einzelner Folien aus PowerPoint‑ und OpenDocument‑Präsentationen in TIFF‑Bilder.
 
-**Gibt es eine Beschränkung der Folienanzahl beim Konvertieren einer Präsentation in TIFF?**
+**Gibt es eine Begrenzung der Folienzahl beim Konvertieren einer Präsentation in TIFF?**
 
-Nein, Aspose.Slides legt keine Beschränkungen für die Folienanzahl fest. Sie können Präsentationen jeder Größe in das TIFF‑Format konvertieren.
+Nein, Aspose.Slides legt keine Beschränkungen für die Folienzahl fest. Sie können Präsentationen jeder Größe in das TIFF‑Format konvertieren.
 
 **Werden PowerPoint‑Animationen und Übergangseffekte beim Konvertieren von Folien in TIFF beibehalten?**
 

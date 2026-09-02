@@ -1,73 +1,76 @@
 ---
-title: จัดรูปแบบรูปทรง PowerPoint ใน Java
-linktitle: การจัดรูปแบบรูปทรง
+title: จัดรูปแบบรูปร่าง PowerPoint ใน Java
+linktitle: การจัดรูปแบบรูปร่าง
 type: docs
 weight: 20
 url: /th/java/shape-formatting/
 keywords:
-- จัดรูปแบบรูปทรง
+- จัดรูปแบบรูปร่าง
 - จัดรูปแบบเส้น
 - เอฟเฟกต์สเก็ตช์
-- เส้นรูปทรงสเก็ตช์
+- เส้นรูปร่างสเก็ตช์
 - จัดรูปแบบสไตล์การเชื่อมต่อ
-- การเติมไล่ระดับสี
-- การเติมลวดลาย
+- การเติมสีไล่ระดับ
+- การเติมลาย
 - การเติมรูปภาพ
 - การเติมพื้นผิว
 - การเติมสีทึบ
-- ความโปร่งใสของรูปทรง
-- หมุนรูปทรง
-- เอฟเฟกต์ bevel 3 มิติ
+- ความโปร่งใสของรูปร่าง
+- การแสดงผลรูปร่างขาวดำ
+- การแสดงผลรูปร่างระดับสีเทา
+- หมุนรูปร่าง
+- เอฟเฟกต์เบเวล 3 มิติ
 - เอฟเฟกต์การหมุน 3 มิติ
 - รีเซ็ตการจัดรูปแบบ
 - PowerPoint
-- งานนำเสนอ
+- การนำเสนอ
 - Java
 - Aspose.Slides
-description: "เรียนรู้วิธีจัดรูปแบบรูปทรง PowerPoint ใน Java ด้วย Aspose.Slides—กำหนดสไตล์การเติม, เส้น, และเอฟเฟกต์สำหรับไฟล์ PPT, PPTX, และ ODP ด้วยความแม่นยำและการควบคุมเต็มรูปแบบ"
+description: "เรียนรู้วิธีจัดรูปแบบรูปร่าง PowerPoint ใน Java ด้วย Aspose.Slides—ตั้งค่าการเติม, เส้น, และสไตล์เอฟเฟกต์สำหรับไฟล์ PPT, PPTX, และ ODP ด้วยความแม่นยำและการควบคุมเต็มรูปแบบ"
 ---
 ## **บทนำ**
 
-ใน PowerPoint คุณสามารถเพิ่มรูปทรงลงในสไลด์ได้ เนื่องจากรูปทรงประกอบด้วยเส้น คุณจึงสามารถจัดรูปแบบได้โดยการแก้ไขหรือใช้เอฟเฟกต์กับขอบของพวกมัน นอกจากนี้คุณยังสามารถจัดรูปแบบรูปทรงได้โดยกำหนดการตั้งค่าที่ควบคุมการเติมภายในของรูปทรง
+ใน PowerPoint คุณสามารถเพิ่มรูปร่างลงในสไลด์ได้ เนื่องจากรูปร่างประกอบด้วยเส้น คุณสามารถจัดรูปแบบได้โดยการแก้ไขหรือใช้เอฟเฟกต์กับขอบเส้นของมัน นอกจากนี้คุณยังสามารถจัดรูปแบบรูปร่างโดยระบุการตั้งค่าที่ควบคุมการเติมสีภายในของรูปร่างได้
 
-![format-shape-powerpoint](format-shape-powerpoint.png)
+![รูปแบบรูปร่างใน PowerPoint](format-shape-powerpoint.png)
 
-Aspose.Slides for Java มีอินเทอร์เฟซและเมธอดที่ให้คุณจัดรูปแบบรูปทรงโดยใช้ตัวเลือกเดียวกับที่มีใน PowerPoint
+Aspose.Slides for Java มีอินเทอร์เฟซและเมธอดที่ให้คุณจัดรูปแบบรูปร่างได้โดยใช้ตัวเลือกเดียวกับที่มีใน PowerPoint
 
 ## **จัดรูปแบบเส้น**
 
-โดยใช้ Aspose.Slides คุณสามารถระบุสไตล์เส้นที่กำหนดเองสำหรับรูปทรง ขั้นตอนต่อไปนี้สรุปกระบวนการ:
+สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/)
+รับอ้างอิงถึงสไลด์โดยใช้ดัชนีของมัน
+เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/iautoshape/) ลงในสไลด์
+ตั้งค่า [line style](https://reference.aspose.com/slides/th/java/com.aspose.slides/linestyle/) ของรูปร่าง
+ตั้งค่าความกว้างของเส้น
+ตั้งค่า [dash style](https://reference.aspose.com/slides/th/java/com.aspose.slides/linedashstyle/) ของเส้น
+ตั้งค่าสีเส้นสำหรับรูปร่าง
+บันทึกพรีเซนเทชันที่แก้ไขแล้วเป็นไฟล์ PPTX
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/) .
-1. รับอ้างอิงไปยังสไลด์ตามดัชนีของมัน
-1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/iautoshape/) ลงในสไลด์
-1. ตั้งค่า [line style](https://reference.aspose.com/slides/th/java/com.aspose.slides/linestyle/) ของรูปทรง
-1. ตั้งค่าความกว้างของเส้น
-1. ตั้งค่า [dash style](https://reference.aspose.com/slides/th/java/com.aspose.slides/linedashstyle/) ของเส้น
-1. ตั้งค่าสีของเส้นสำหรับรูปทรง
-1. บันทึกการนำเสนอที่แก้ไขเป็นไฟล์ PPTX
-
-โค้ดต่อไปนี้แสดงวิธีจัดรูปแบบ `AutoShape` สี่เหลี่ยมผืนผ้า:
+โค้ดต่อไปนี้แสดงวิธีจัดรูปแบบ `AutoShape` แบบสี่เหลี่ยมผืนผ้า:
 
 ```java
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนไฟล์งานนำเสนอ.
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์การนำเสนอ.
 Presentation presentation = new Presentation();
 try {
     // ดึงสไลด์แรก.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // เพิ่มออโต้เชปของประเภท Rectangle.
+    // เพิ่ม AutoShape ประเภท Rectangle.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 150, 75);
 
-    // ตั้งค่าสีเติมสำหรับรูปทรงสี่เหลี่ยม.
+    // ตั้งค่าสีเติมสำหรับรูปร่างสี่เหลี่ยมผืนผ้า.
     shape.getFillFormat().setFillType(FillType.NoFill);
 
-    // ใช้การจัดรูปแบบกับเส้นของสี่เหลี่ยม.
+    // ใช้การจัดรูปแบบกับเส้นของสี่เหลี่ยมผืนผ้า.
     shape.getLineFormat().setStyle(LineStyle.ThickThin);
     shape.getLineFormat().setWidth(7);
     shape.getLineFormat().setDashStyle(LineDashStyle.Dash);
 
-    // ตั้งค่าสีสำหรับเส้นของสี่เหลี่ยม.
+    // ตั้งค่าสีสำหรับเส้นของสี่เหลี่ยมผืนผ้า.
     shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
 
@@ -78,15 +81,13 @@ try {
 }
 ```
 
-ผลลัพธ์:
+![เส้นที่จัดรูปแบบในพรีเซนเทชัน](formatted-lines.png)
 
-![เส้นที่จัดรูปแบบในงานนำเสนอ](formatted-lines.png)
+## **ใช้เอฟเฟกต์ Sketch กับเส้นของรูปร่าง**
 
-## **ใช้เอฟเฟกต์สเก็ตช์กับเส้นของรูปทรง**
+เอฟเฟกต์ sketch ทำให้เส้นของรูปร่างดูเหมือนถูกวาดด้วยมือ ใช้ [IShape.getLineFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishape/) เพื่อเข้าถึงการตั้งค่าเส้น, [ILineFormat.getSketchFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilineformat/) เพื่อเข้าถึงการตั้งค่า sketch, และ [ISketchFormat.setSketchType](https://reference.aspose.com/slides/th/java/com.aspose.slides/isketchformat/) เพื่อเลือกค่าจากการนับจำนวน [LineSketchType](https://reference.aspose.com/slides/th/java/com.aspose.slides/linesketchtype/)  
 
-เอฟเฟกต์สเก็ตช์ทำให้เส้นของรูปทรงดูเหมือนถูกวาดด้วยมือ ใช้ [IShape.getLineFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishape/) เพื่อเข้าถึงการตั้งค่าเส้น, [ILineFormat.getSketchFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilineformat/) เพื่อเข้าถึงการตั้งค่าสเก็ตช์, และ [ISketchFormat.setSketchType](https://reference.aspose.com/slides/th/java/com.aspose.slides/isketchformat/) เพื่อเลือกค่าจาก enumeration [LineSketchType](https://reference.aspose.com/slides/th/java/com.aspose.slides/linesketchtype/)
-
-โค้ด Java ต่อไปนี้แสดงวิธีใช้เอฟเฟกต์ [LineSketchType.Curved](https://reference.aspose.com/slides/th/java/com.aspose.slides/linesketchtype/) อ่านค่าที่กำหนดโดยตรง และลบเอฟเฟกต์ด้วย [LineSketchType.None](https://reference.aspose.com/slides/th/java/com.aspose.slides/linesketchtype/):
+โค้ด Java ด้านล่างนี้แสดงวิธีใช้เอฟเฟกต์ [LineSketchType.Curved](https://reference.aspose.com/slides/th/java/com.aspose.slides/linesketchtype/) , อ่านค่าที่กำหนดโดยตรง, และลบเอฟเฟกต์ด้วย [LineSketchType.None](https://reference.aspose.com/slides/th/java/com.aspose.slides/linesketchtype/):
 
 ```java
 Presentation presentation = new Presentation();
@@ -94,13 +95,13 @@ try {
     ISlide slide = presentation.getSlides().get_Item(0);
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
 
-    // เข้าถึงรูปแบบเส้นของรูปทรงและรูปแบบสเก็ตช์ของมัน.
+    // เข้าถึงฟอร์แมตเส้นของรูปร่างและฟอร์แมตสเก็ตช์ของมัน.
     ISketchFormat sketchFormat = shape.getLineFormat().getSketchFormat();
 
     // ใช้เอฟเฟกต์สเก็ตช์.
     sketchFormat.setSketchType(LineSketchType.Curved);
 
-    // อ่านเอฟเฟกต์สเก็ตช์ที่กำหนดโดยตรงให้กับรูปทรง.
+    // อ่านเอฟเฟกต์สเก็ตช์ที่กำหนดโดยตรงให้กับรูปร่าง.
     int explicitSketchType = sketchFormat.getSketchType();
     System.out.println("Explicit sketch type: " + explicitSketchType);
 
@@ -111,7 +112,7 @@ try {
 }
 ```
 
-ค่าที่ [ISketchFormat.getSketchType](https://reference.aspose.com/slides/th/java/com.aspose.slides/isketchformat/) คืนกลับมาจะแสดงการตั้งค่าที่กำหนดโดยตรงให้กับรูปทรง หากการจัดรูปแบบเส้นสามารถสืบทอดจากธีม ไมสเตอร์สไลด์ หรือเลเอาต์สไลด์ ให้ใช้ [ILineFormat.getEffective](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilineformat/), เข้าถึง [ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilineformateffectivedata/), และอ่าน [ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/th/java/com.aspose.slides/isketchformateffectivedata/) ค่าที่มีผลจะแสดงการจัดรูปแบบที่ใช้จริงหลังจากการสืบทอดถูกแก้ไข:
+ค่าที่คืนจาก [ISketchFormat.getSketchType](https://reference.aspose.com/slides/th/java/com.aspose.slides/isketchformat/) แสดงถึงการตั้งค่าที่กำหนดโดยตรงให้กับรูปร่าง หากการจัดรูปแบบเส้นสามารถสืบทอดจากธีม, มาสเตอร์สไลด์, หรือเลเอาท์สไลด์ ให้ใช้ [ILineFormat.getEffective](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilineformat/) เข้าถึง [ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilineformateffectivedata/) และอ่านค่า [ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/th/java/com.aspose.slides/isketchformateffectivedata/) ค่าที่มีผลจริงจะแสดงการจัดรูปแบบที่ถูกนำไปใช้จริงหลังจากการสืบทอดได้รับการแก้ไข:
 
 ```java
 Presentation presentation = new Presentation("presentation.pptx");
@@ -134,29 +135,32 @@ try {
 
 ต่อไปนี้คือสามตัวเลือกประเภทการเชื่อมต่อ:
 
-* Round
-* Miter
-* Bevel
+* โค้ง
+* มิตเตอร์
+* บีเวล
 
-โดยค่าเริ่มต้น PowerPoint จะใช้การตั้งค่า **Round** เมื่อเชื่อมต่อสองเส้นที่มุม (เช่นที่มุมของรูปทรง) อย่างไรก็ตาม หากคุณกำลังวาดรูปทรงที่มีมุมคม คุณอาจต้องการตัวเลือก **Miter** แทน
+โดยค่าเริ่มต้น PowerPoint จะเชื่อมสองเส้นที่มุม (เช่นมุมของรูปร่าง) ด้วยการตั้งค่า **Round** อย่างไรก็ตาม หากคุณกำลังวาดรูปร่างที่มีมุมคม คุณอาจต้องการใช้ตัวเลือก **Miter**
 
-![สไตล์การเชื่อมต่อในงานนำเสนอ](join-style-powerpoint.png)
+![สไตล์การเชื่อมต่อในพรีเซนเทชัน](join-style-powerpoint.png)
 
-โค้ด Java ด้านล่างนี้แสดงวิธีที่สร้างสี่เหลี่ยมสามรูป (ตามภาพด้านบน) โดยใช้การตั้งค่าเชื่อมต่อ Miter, Bevel, และ Round:
+โค้ด Java ด้านล่างนี้แสดงวิธีที่สี่เหลี่ยมผืนผ้าสามรูป (เช่นในรูปด้านบน) ถูกสร้างด้วยการตั้งค่าชนิดการเชื่อมต่อ Miter, Bevel, และ Round:
 
 ```java
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นไฟล์งานนำเสนอ.
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์การนำเสนอ.
 Presentation presentation = new Presentation();
 try {
     // ดึงสไลด์แรก.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // เพิ่มออโต้เชปสามรูปแบบประเภท Rectangle.
+    // เพิ่ม AutoShape จำนวนสามรูปแบบ Rectangle.
     IAutoShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 75);
     IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 210, 20, 150, 75);
     IAutoShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 135, 150, 75);
 
-    // ตั้งค่าสีเติมสำหรับแต่ละรูปสี่เหลี่ยม.
+    // ตั้งค่าสีเติมสำหรับแต่ละรูปร่างสี่เหลี่ยมผืนผ้า.
     shape1.getFillFormat().setFillType(FillType.Solid);
     shape1.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
     shape2.getFillFormat().setFillType(FillType.Solid);
@@ -169,7 +173,7 @@ try {
     shape2.getLineFormat().setWidth(15);
     shape3.getLineFormat().setWidth(15);
 
-    // ตั้งค่าสีสำหรับเส้นของแต่ละสี่เหลี่ยม.
+    // ตั้งค่าสีสำหรับเส้นของแต่ละสี่เหลี่ยมผืนผ้า.
     shape1.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     shape1.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     shape2.getLineFormat().getFillFormat().setFillType(FillType.Solid);
@@ -182,7 +186,7 @@ try {
     shape2.getLineFormat().setJoinStyle(LineJoinStyle.Bevel);
     shape3.getLineFormat().setJoinStyle(LineJoinStyle.Round);
 
-    // เพิ่มข้อความให้กับแต่ละสี่เหลี่ยม.
+    // เพิ่มข้อความให้แต่ละสี่เหลี่ยมผืนผ้า.
     shape1.getTextFrame().setText("Miter Join Style");
     shape2.getTextFrame().setText("Bevel Join Style");
     shape3.getTextFrame().setText("Round Join Style");
@@ -194,196 +198,193 @@ try {
 }
 ```
 
-## **การเติมแบบไล่ระดับสี**
+## **การเติมสีแบบไล่ระดับ**
 
-ใน PowerPoint การเติมแบบไล่ระดับสีเป็นตัวเลือกการจัดรูปแบบที่ให้คุณนำการผสมสีต่อเนื่องมาประยุกต์ใช้กับรูปทรง ตัวอย่างเช่น คุณสามารถใช้สองสีหรือมากกว่าซึ่งสีหนึ่งค่อย ๆ จางลงสู่สีอื่น
+ใน PowerPoint, Gradient Fill เป็นตัวเลือกการจัดรูปแบบที่ให้คุณเติมสีต่อเนื่องหลายสีลงในรูปร่าง ตัวอย่างเช่น คุณสามารถใช้สีสองสีหรือมากกว่าโดยให้สีหนึ่งค่อยๆ จางลงไปเป็นสีอีกสีหนึ่ง
 
-วิธีการเติมแบบไล่ระดับสีให้กับรูปทรงโดยใช้ Aspose.Slides:
+ต่อไปนี้เป็นวิธีการเติมสีไล่ระดับให้กับรูปร่างโดยใช้ Aspose.Slides:
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/) .
-1. รับอ้างอิงไปยังสไลด์ตามดัชนีของมัน
-1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/iautoshape/) ลงในสไลด์
-1. ตั้งค่า [FillType](https://reference.aspose.com/slides/th/java/com.aspose.slides/filltype/) ของรูปทรงเป็น `Gradient`
-1. ใช้วิธี `add` ของคอลเลกชัน gradient stop ที่เปิดเผยโดยอินเทอร์เฟซ [IGradientFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/igradientformat/) เพื่อเพิ่มสีสองสีที่คุณต้องการพร้อมตำแหน่งที่กำหนด
-1. บันทึกการนำเสนอที่แก้ไขเป็นไฟล์ PPTX
-
-โค้ด Java ต่อไปนี้แสดงวิธีประยุกต์ใช้เอฟเฟกต์การเติมแบบไล่ระดับสีให้กับวงรี:
+สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/)
+รับอ้างอิงถึงสไลด์โดยใช้ดัชนีของมัน
+เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/iautoshape/) ลงในสไลด์
+ตั้งค่า [FillType](https://reference.aspose.com/slides/th/java/com.aspose.slides/filltype/) ของรูปร่างเป็น `Gradient`
+เพิ่มสองสีที่คุณต้องการพร้อมตำแหน่งที่กำหนดโดยใช้เมธอด `add` ของคอลเลกชัน gradient stop ที่เปิดโดยอินเทอร์เฟซ [IGradientFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/igradientformat/)
+บันทึกพรีเซนเทชันที่แก้ไขแล้วเป็นไฟล์ PPTX
 
 ```java
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นไฟล์งานนำเสนอ.
+import com.aspose.slides.*;
+
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์การนำเสนอ
 Presentation presentation = new Presentation();
 try {
-    // ดึงสไลด์แรก.
+    // ดึงสไลด์แรก
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // เพิ่มออโต้เชปประเภท Ellipse.
+    // เพิ่ม AutoShape ประเภท Ellipse
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 50, 50, 150, 75);
 
-    // ใช้การจัดรูปแบบไล่ระดับสีกับวงรี.
+    // ใช้การจัดรูปแบบไล่ระดับสีให้กับวงรี
     shape.getFillFormat().setFillType(FillType.Gradient);
     shape.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
 
-    // ตั้งค่าทิศทางของไล่ระดับสี.
+    // ตั้งค่าทิศทางของการไล่ระดับสี
     shape.getFillFormat().getGradientFormat().setGradientDirection(GradientDirection.FromCorner2);
 
-    // เพิ่มจุดไล่ระดับสีสองจุด.
+    // เพิ่มสองจุดหยุดไล่ระดับสี
     shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor((float)1.0, PresetColor.Purple);
     shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor((float)0, PresetColor.Red);
 
-    // บันทึกไฟล์ PPTX ลงดิสก์.
+    // บันทึกไฟล์ PPTX ลงดิสก์
     presentation.save("gradient_fill.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-ผลลัพธ์:
+![วงรีที่เต็มด้วยการไล่ระดับสี](gradient-fill.png)
 
-![วงรีที่เติมแบบไล่ระดับสี](gradient-fill.png)
+## **การเติมลาย**
 
-## **การเติมแบบลวดลาย**
+ใน PowerPoint, Pattern Fill เป็นตัวเลือกการจัดรูปแบบที่ให้คุณใส่ลายสองสี—เช่น จุด, ลายขีด, ลายตาราง หรือ เช็ก—ลงในรูปร่าง คุณสามารถเลือกสีกำหนดเองสำหรับสีพื้นหน้าและพื้นหลังของลายได้
 
-ใน PowerPoint การเติมแบบลวดลายเป็นตัวเลือกการจัดรูปแบบที่ให้คุณเติมการออกแบบสองสี—เช่น จุด, ลายเส้น, แนวตาข่าย หรือการตรวจสอบ—บนรูปทรง คุณสามารถเลือกสีสำหรับพื้นหน้าและพื้นหลังของลวดลายได้ตามต้องการ
+Aspose.Slides มีลายแบบกำหนดล่วงหน้ากว่า 45 แบบที่คุณสามารถนำไปใช้กับรูปร่างเพื่อเพิ่มความสวยงามของพรีเซนเทชัน แม้หลังจากเลือกลายที่กำหนดไว้แล้ว คุณยังสามารถระบุสีที่ต้องการใช้ได้อย่างแม่นยำ
 
-Aspose.Slides มีสไตล์ลวดลายที่กำหนดไว้ล่วงหน้า มากกว่า 45 แบบ ที่คุณสามารถนำไปใช้กับรูปทรงเพื่อเพิ่มความสวยงามให้กับงานนำเสนอของคุณ แม้ว่าคุณจะเลือกลวดลายที่กำหนดไว้แล้ว คุณยังสามารถระบุสีที่แน่นอนที่ลวดลายควรใช้ได้
+ต่อไปนี้เป็นวิธีการเติมลายให้กับรูปร่างโดยใช้ Aspose.Slides:
 
-วิธีการเติมแบบลวดลายให้กับรูปทรงโดยใช้ Aspose.Slides:
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/) .
-1. รับอ้างอิงไปยังสไลด์ตามดัชนีของมัน
-1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/iautoshape/) ลงในสไลด์
-1. ตั้งค่า [FillType](https://reference.aspose.com/slides/th/java/com.aspose.slides/filltype/) ของรูปทรงเป็น `Pattern`
-1. เลือกสไตล์ลวดลายจากตัวเลือกที่กำหนดไว้ล่วงหน้า
-1. ตั้งค่า [Background Color](https://reference.aspose.com/slides/th/java/com.aspose.slides/patternformat/#getBackColor--) ของลวดลาย
-1. ตั้งค่า [Foreground Color](https://reference.aspose.com/slides/th/java/com.aspose.slides/patternformat/#getForeColor--) ของลวดลาย
-1. บันทึกการนำเสนอที่แก้ไขเป็นไฟล์ PPTX
-
-โค้ด Java ด้านล่างนี้แสดงวิธีเติมแบบลวดลายให้กับสี่เหลี่ยมผืนผ้า:
+สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/)
+รับอ้างอิงถึงสไลด์โดยใช้ดัชนีของมัน
+เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/iautoshape/) ลงในสไลด์
+ตั้งค่า [FillType](https://reference.aspose.com/slides/th/java/com.aspose.slides/filltype/) ของรูปร่างเป็น `Pattern`
+เลือกสไตล์ลายจากตัวเลือกที่กำหนดล่วงหน้า
+ตั้งค่า [Background Color](https://reference.aspose.com/slides/th/java/com.aspose.slides/patternformat/#getBackColor--) ของลาย
+ตั้งค่า [Foreground Color](https://reference.aspose.com/slides/th/java/com.aspose.slides/patternformat/#getForeColor--) ของลาย
+บันทึกพรีเซนเทชันที่แก้ไขแล้วเป็นไฟล์ PPTX
 
 ```java
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นไฟล์งานนำเสนอ.
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์การนำเสนอ
 Presentation presentation = new Presentation();
 try {
-    // ดึงสไลด์แรก.
+    // ดึงสไลด์แรก
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // เพิ่มออโต้เชปประเภท Rectangle.
+    // เพิ่ม AutoShape ประเภท Rectangle
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // ตั้งค่า FillType เป็น Pattern.
+    // ตั้งค่าชนิดการเติมเป็น Pattern
     shape.getFillFormat().setFillType(FillType.Pattern);
 
-    // ตั้งค่าสไตล์ลวดลาย.
+    // ตั้งค่าสไตล์ลาย
     shape.getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.Trellis);
 
-    // ตั้งค่าสีพื้นหลังและสีพื้นหน้า ของลวดลาย.
+    // ตั้งค่าสีพื้นหลังและสีพื้นหน้าของลาย
     shape.getFillFormat().getPatternFormat().getBackColor().setColor(Color.LIGHT_GRAY);
     shape.getFillFormat().getPatternFormat().getForeColor().setColor(Color.YELLOW);
 
-    // บันทึกไฟล์ PPTX ลงดิสก์.
+    // บันทึกไฟล์ PPTX ลงดิสก์
     presentation.save("pattern_fill.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-ผลลัพธ์:
+![สี่เหลี่ยมที่เต็มด้วยลาย](pattern-fill.png)
 
-![สี่เหลี่ยมที่เติมแบบลวดลาย](pattern-fill.png)
+## **การเติมรูปภาพ**
 
-## **การเติมด้วยรูปภาพ**
+ใน PowerPoint, Picture Fill เป็นตัวเลือกการจัดรูปแบบที่ให้คุณใส่รูปภาพภายในรูปร่าง—ทำให้รูปภาพเป็นพื้นหลังของรูปร่างได้
 
-ใน PowerPoint การเติมด้วยรูปภาพเป็นตัวเลือกการจัดรูปแบบที่ให้คุณแทรกภาพภายในรูปทรง—โดยใช้ภาพเป็นพื้นหลังของรูปทรงนั้น
+ต่อไปนี้เป็นวิธีใช้ Aspose.Slides เพื่อเติมรูปภาพลงในรูปร่าง:
 
-วิธีการใช้ Aspose.Slides เพื่อเติมรูปภาพให้กับรูปทรง:
+สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/)
+รับอ้างอิงถึงสไลด์โดยใช้ดัชนีของมัน
+เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/iautoshape/) ลงในสไลด์
+ตั้งค่า [FillType](https://reference.aspose.com/slides/th/java/com.aspose.slides/filltype/) ของรูปร่างเป็น `Picture`
+ตั้งค่าโหมดการเติมรูปภาพเป็น `Tile` (หรือโหมดอื่นที่ต้องการ)
+สร้างอ็อบเจ็กต์ [IPPImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/ippimage/) จากรูปภาพที่ต้องการใช้
+ส่งรูปภาพให้เมธอด `ISlidesPicture.setImage`
+บันทึกพรีเซนเทชันที่แก้ไขแล้วเป็นไฟล์ PPTX
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/) .
-1. รับอ้างอิงไปยังสไลด์ตามดัชนีของมัน
-1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/iautoshape/) ลงในสไลด์
-1. ตั้งค่า [FillType](https://reference.aspose.com/slides/th/java/com.aspose.slides/filltype/) ของรูปทรงเป็น `Picture`
-1. ตั้งค่าโหมดการเติมรูปภาพเป็น `Tile` (หรือโหมดที่คุณต้องการอื่น)
-1. สร้างอ็อบเจกต์ [IPPImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/ippimage/) จากภาพที่ต้องการใช้
-1. ส่งภาพไปยังเมธอด `ISlidesPicture.setImage`
-1. บันทึกการนำเสนอที่แก้ไขเป็นไฟล์ PPTX
+สมมติว่าเรามีไฟล์ "lotus.png" ที่มีรูปภาพต่อไปนี้:
 
-สมมติว่ามีไฟล์ "lotus.png" ที่มีภาพดังนี้:
-
-![ภาพดอกบัว](lotus.png)
-
-โค้ด Java ต่อไปนี้แสดงวิธีเติมรูปภาพลงในรูปทรง:
+![รูปภาพ lotus](lotus.png)
 
 ```java
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นไฟล์งานนำเสนอ.
+import com.aspose.slides.*;
+
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์การนำเสนอ
 Presentation presentation = new Presentation();
 try {
-    // ดึงสไลด์แรก.
+    // ดึงสไลด์แรก
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // เพิ่มออโต้เชปประเภท Rectangle.
+    // เพิ่ม AutoShape ประเภท Rectangle
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 255, 130);
     
-    // ตั้งค่า FillType เป็น Picture.
+    // ตั้งค่าชนิดการเติมเป็น Picture
     shape.getFillFormat().setFillType(FillType.Picture);
 
-    // ตั้งค่าโหมดการเติมรูปภาพ.
+    // ตั้งค่าโหมดการเติมรูปภาพ
     shape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Tile);
 
-    // โหลดภาพและเพิ่มลงในทรัพยากรของงานนำเสนอ.
+    // โหลดภาพและเพิ่มลงในทรัพยากรของการนำเสนอ
     IImage image = Images.fromFile("lotus.png");
     IPPImage picture = presentation.getImages().addImage(image);
     image.dispose();
 
-    // ตั้งค่ารูปภาพ.
+    // ตั้งค่ารูปภาพ
     shape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
 
-    // บันทึกไฟล์ PPTX ลงดิสก์.
+    // บันทึกไฟล์ PPTX ลงดิสก์
     presentation.save("picture_fill.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-ผลลัพธ์:
+![รูปร่างที่เต็มด้วยรูปภาพ](picture-fill.png)
 
-![รูปทรงที่เติมด้วยรูปภาพ](picture-fill.png)
+### **ใช้รูปภาพต่อเป็นพื้นผิว**
 
-### **Tile Picture As Texture**
+หากคุณต้องการตั้งค่ารูปภาพต่อเป็นพื้นผิวและปรับพฤติกรรมการต่อ คุณสามารถใช้เมธอดต่อนี้ของอินเทอร์เฟซ [IPictureFillFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipicturefillformat/) และคลาส [PictureFillFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/picturefillformat/):
 
-หากต้องการตั้งรูปภาพแบบต่อแถวเป็นพื้นผิวและปรับแต่งการจัดเรียงแบบต่อแถว คุณสามารถใช้เมธอดต่อไปนี้ของอินเทอร์เฟซ [IPictureFillFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipicturefillformat/) และคลาส [PictureFillFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/picturefillformat/) :
+- [setPictureFillMode](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-): ตั้งค่าโหมดการเติมรูปภาพ—either `Tile` หรือ `Stretch`.
+- [setTileAlignment](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-): ระบุตำแหน่งการจัดเรียงของแผ่นต่อภายในรูปร่าง.
+- [setTileFlip](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipicturefillformat/#setTileFlip-int-): กำหนดว่าการต่อจะถูกกลับแนวนอน แนวตั้ง หรือทั้งสองอย่างหรือไม่.
+- [setTileOffsetX](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): ตั้งค่าการเยื้องแนวนอนของแผ่นต่อ (เป็นจุด) จากตำแหน่งต้นของรูปร่าง.
+- [setTileOffsetY](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): ตั้งค่าการเยื้องแนวตั้งของแผ่นต่อ (เป็นจุด) จากตำแหน่งต้นของรูปร่าง.
+- [setTileScaleX](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-): กำหนดสเกลแนวนอนของแผ่นต่อเป็นเปอร์เซ็นต์.
+- [setTileScaleY](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-): กำหนดสเกลแนวตั้งของแผ่นต่อเป็นเปอร์เซ็นต์.
 
-- [setPictureFillMode](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-): ตั้งค่าโหมดการเติมรูปภาพ—`Tile` หรือ `Stretch`
-- [setTileAlignment](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-): ระบุตำแหน่งการจัดเรียงของแผ่นต่อแถวภายในรูปทรง
-- [setTileFlip](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipicturefillformat/#setTileFlip-int-): ควบคุมว่าภาพต่อแถวจะกลับด้านในแนวนอน แนวตั้ง หรือทั้งสองอย่าง
-- [setTileOffsetX](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): ตั้งค่าการเยื้องแนวนอนของแผ่นต่อแถว (หน่วย points) จากจุดกำเนิดของรูปทรง
-- [setTileOffsetY](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): ตั้งค่าการเยื้องแนวตั้งของแผ่นต่อแถว (หน่วย points) จากจุดกำเนิดของรูปทรง
-- [setTileScaleX](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-): กำหนดสเกลแนวนอนของแผ่นต่อแถวเป็นเปอร์เซ็นต์
-- [setTileScaleY](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-): กำหนดสเกลแนวตั้งของแผ่นต่อแถวเป็นเปอร์เซ็นต์
-
-ตัวอย่างโค้ดต่อไปนี้แสดงวิธีเพิ่มรูปทรงสี่เหลี่ยมที่มีการเติมรูปภาพแบบต่อแถวและกำหนดตัวเลือกการต่อแถว:
+ตัวอย่างโค้ดต่อไปนี้แสดงวิธีเพิ่มรูปร่างสี่เหลี่ยมผืนผ้าพร้อมการเติมรูปภาพต่อและกำหนดตัวเลือกการต่อ:
 
 ```java
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นไฟล์งานนำเสนอ.
+import com.aspose.slides.*;
+
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์การนำเสนอ
 Presentation presentation = new Presentation();
 try {
-    // ดึงสไลด์แรก.
+    // ดึงสไลด์แรก
     ISlide firstSlide = presentation.getSlides().get_Item(0);
 
-    // เพิ่มออโต้เชปสี่เหลี่ยม.
+    // เพิ่ม AutoShape ประเภท Rectangle
     IAutoShape shape = firstSlide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 190, 95);
 
-    // ตั้งค่า FillType ของรูปทรงเป็น Picture.
+    // ตั้งค่าชนิดการเติมของรูปร่างเป็น Picture
     shape.getFillFormat().setFillType(FillType.Picture);
 
-    // โหลดภาพและเพิ่มลงในทรัพยากรของงานนำเสนอ.
+    // โหลดภาพและเพิ่มลงในทรัพยากรของการนำเสนอ
     IImage sourceImage = Images.fromFile("lotus.png");
     IPPImage presentationImage = presentation.getImages().addImage(sourceImage);
     sourceImage.dispose();
 
-    // กำหนดภาพให้กับรูปทรง.
+    // กำหนดภาพให้กับรูปร่าง
     IPictureFillFormat pictureFillFormat = shape.getFillFormat().getPictureFillFormat();
     pictureFillFormat.getPicture().setImage(presentationImage);
 
-    // กำหนดโหมดการเติมรูปภาพและคุณสมบัติการต่อแถว.
+    // กำหนดค่าโหมดการเติมรูปภาพและคุณสมบัติการต่อ
     pictureFillFormat.setPictureFillMode(PictureFillMode.Tile);
     pictureFillFormat.setTileOffsetX(-32);
     pictureFillFormat.setTileOffsetY(-32);
@@ -392,159 +393,154 @@ try {
     pictureFillFormat.setTileAlignment(RectangleAlignment.BottomRight);
     pictureFillFormat.setTileFlip(TileFlip.FlipBoth);
 
-    // บันทึกไฟล์ PPTX ลงดิสก์.
+    // บันทึกไฟล์ PPTX ลงดิสก์
     presentation.save("tile.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-ผลลัพธ์:
-
-![ตัวเลือกการต่อแถว](tile-options.png)
+![ตัวเลือกการต่อ](tile-options.png)
 
 ## **การเติมสีทึบ**
 
-ใน PowerPoint การเติมสีทึบเป็นตัวเลือกการจัดรูปแบบที่เติมรูปทรงด้วยสีเดียวที่สม่ำเสมอ สีพื้นหลังเรียบนี้ถูกใช้โดยไม่มีการไล่ระดับ สีเทกเจอร์ หรือลวดลายใด ๆ
+ใน PowerPoint, Solid Color Fill เป็นตัวเลือกการจัดรูปแบบที่เติมสีเดียวที่สม่ำเสมอลงในรูปร่าง สีพื้นหลังแบบเรียบนี้จะถูกใช้โดยไม่มีการไล่สี, พื้นผิว หรือ ลายใดๆ
 
-วิธีการเติมสีทึบให้กับรูปทรงโดยใช้ Aspose.Slides ทำตามขั้นตอนต่อไปนี้:
+เพื่อเติมสีทึบให้กับรูปร่างโดยใช้ Aspose.Slides ให้ทำตามขั้นตอนต่อไปนี้:
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/) .
-1. รับอ้างอิงไปยังสไลด์ตามดัชนีของมัน
-1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/iautoshape/) ลงในสไลด์
-1. ตั้งค่า [FillType](https://reference.aspose.com/slides/th/java/com.aspose.slides/filltype/) ของรูปทรงเป็น `Solid`
-1. กำหนดสีเติมที่คุณต้องการให้กับรูปทรง
-1. บันทึกการนำเสนอที่แก้ไขเป็นไฟล์ PPTX
-
-โค้ด Java ด้านล่างนี้แสดงวิธีเติมสีทึบให้กับสี่เหลี่ยมในสไลด์ PowerPoint:
+สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/)
+รับอ้างอิงถึงสไลด์โดยใช้ดัชนีของมัน
+เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/iautoshape/) ลงในสไลด์
+ตั้งค่า [FillType](https://reference.aspose.com/slides/th/java/com.aspose.slides/filltype/) ของรูปร่างเป็น `Solid`
+กำหนดสีเติมที่คุณต้องการให้กับรูปร่าง
+บันทึกพรีเซนเทชันที่แก้ไขแล้วเป็นไฟล์ PPTX
 
 ```java
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นไฟล์งานนำเสนอ.
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์การนำเสนอ
 Presentation presentation = new Presentation();
 try {
-    // ดึงสไลด์แรก.
+    // ดึงสไลด์แรก
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // เพิ่มออโต้เชปประเภท Rectangle.
+    // เพิ่ม AutoShape ประเภท Rectangle
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // ตั้งค่า FillType เป็น Solid.
+    // ตั้งค่าชนิดการเติมเป็น Solid
     shape.getFillFormat().setFillType(FillType.Solid);
 
-    // ตั้งค่าสีเติม.
+    // ตั้งค่าสีเติม
     shape.getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
 
-    // บันทึกไฟล์ PPTX ลงดิสก์.
+    // บันทึกไฟล์ PPTX ลงดิสก์
     presentation.save("solid_color_fill.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-ผลลัพธ์:
+![รูปร่างที่เต็มด้วยสีทึบ](solid-color-fill.png)
 
-![รูปทรงที่เติมสีทึบ](solid-color-fill.png)
+## **ตั้งค่าความโปร่งแสง**
 
-## **ตั้งค่าความโปร่งใส**
+ใน PowerPoint, เมื่อคุณเติมสีทึบ, ไล่ระดับ, รูปภาพ, หรือพื้นผิวลงในรูปร่าง คุณยังสามารถตั้งค่าระดับความโปร่งแสงเพื่อควบคุมความทึบของการเติม ค่าความโปร่งแสงที่สูงทำให้รูปร่างดูโปร่งแสงมากขึ้นและทำให้พื้นหลังหรือวัตถุด้านหลังมองเห็นได้บางส่วน
 
-ใน PowerPoint เมื่อคุณใช้การเติมสีทึบ, ไล่ระดับสี, รูปภาพ หรือพื้นผิว คุณสามารถตั้งค่าระดับความโปร่งใสเพื่อควบคุมความทึบของการเติม ค่าความโปร่งใสสูงจะทำให้รูปทรงดูโปร่งใสมากขึ้น ทำให้พื้นหลังหรือวัตถุที่อยู่ด้านล่างสามารถมองเห็นได้บางส่วน
+Aspose.Slides ให้คุณตั้งค่าระดับความโปร่งแสงโดยการปรับค่า alpha ในสีที่ใช้สำหรับการเติม นี่คือวิธีทำ:
 
-Aspose.Slides ให้คุณตั้งค่าความโปร่งใสโดยปรับค่า alpha ในสีที่ใช้สำหรับการเติม วิธีการทำมีดังนี้:
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/) .
-1. รับอ้างอิงไปยังสไลด์ตามดัชนีของมัน
-1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/iautoshape/) ลงในสไลด์
-1. ตั้งค่า [FillType](https://reference.aspose.com/slides/th/java/com.aspose.slides/filltype/) เป็น `Solid`
-1. ใช้ `Color` เพื่อกำหนดสีพร้อมความโปร่งใส (ส่วน `alpha` ควบคุมความโปร่งใส)
-1. บันทึกการนำเสนอ
-
-โค้ด Java ต่อไปนี้แสดงวิธีเติมสีโปร่งใสให้กับสี่เหลี่ยม:
+สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/)
+รับอ้างอิงถึงสไลด์โดยใช้ดัชนีของมัน
+เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/iautoshape/) ลงในสไลด์
+ตั้งค่า [FillType](https://reference.aspose.com/slides/th/java/com.aspose.slides/filltype/) เป็น `Solid`
+ใช้ `Color` เพื่อกำหนดสีที่มีค่าความโปร่งแสง (ส่วน `alpha` ควบคุมความโปร่งแสง)
+บันทึกพรีเซนเทชัน
 
 ```java
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นไฟล์งานนำเสนอ.
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์การนำเสนอ
 Presentation presentation = new Presentation();
 try {
-    // ดึงสไลด์แรก.
+    // ดึงสไลด์แรก
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // เพิ่มออโต้เชปสี่เหลี่ยมทึบ.
+    // เพิ่ม AutoShape สี่เหลี่ยมผืนผ้าแบบทึบ
     IAutoShape solidShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // เพิ่มออโต้เชปสี่เหลี่ยมโปร่งใสเหนือรูปทรงทึบ.
+    // เพิ่ม AutoShape สี่เหลี่ยมผืนผ้าโปร่งแสงเหนือรูปร่างที่ทึบ
     IAutoShape transparentShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 80, 80, 150, 75);
     transparentShape.getFillFormat().setFillType(FillType.Solid);
     transparentShape.getFillFormat().getSolidFillColor().setColor(new Color(255, 255, 0, 204));
 
-    // บันทึกไฟล์ PPTX ลงดิสก์.
+    // บันทึกไฟล์ PPTX ลงดิสก์
     presentation.save("shape_transparency.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-ผลลัพธ์:
+![รูปร่างที่โปร่งใส](shape-transparency.png)
 
-![รูปทรงที่โปร่งใส](shape-transparency.png)
+## **การหมุนรูปร่าง**
 
-## **หมุนรูปทรง**
+Aspose.Slides ให้คุณหมุนรูปร่างในพรีเซนเทชัน PowerPoint ซึ่งมีประโยชน์เมื่อต้องจัดตำแหน่งองค์ประกอบด้วยการจัดแนวหรือดีไซน์เฉพาะ
 
-Aspose.Slides ให้คุณหมุนรูปทรงในงานนำเสนอ PowerPoint ซึ่งเป็นประโยชน์เมื่อต้องจัดตำแหน่งองค์ประกอบภาพตามการจัดแนวหรือการออกแบบที่เฉพาะเจาะจง
+เพื่อหมุนรูปร่างบนสไลด์ ให้ทำตามขั้นตอนต่อไปนี้:
 
-เพื่อหมุนรูปทรงบนสไลด์ ทำตามขั้นตอนต่อไปนี้:
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/) .
-1. รับอ้างอิงไปยังสไลด์ตามดัชนีของมัน
-1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/iautoshape/) ลงในสไลด์
-1. ตั้งค่าคุณสมบัติการหมุนของรูปทรงเป็นมุมที่ต้องการ
-1. บันทึกการนำเสนอ
-
-โค้ด Java ด้านล่างนี้แสดงวิธีหมุนรูปทรงด้วยมุม 5 ดีกรี:
+สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/)
+รับอ้างอิงถึงสไลด์โดยใช้ดัชนีของมัน
+เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/iautoshape/) ลงในสไลด์
+ตั้งค่าคุณสมบัติการหมุนของรูปร่างเป็นมุมที่ต้องการ
+บันทึกพรีเซนเทชัน
 
 ```java
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นไฟล์งานนำเสนอ.
+import com.aspose.slides.*;
+
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์การนำเสนอ
 Presentation presentation = new Presentation();
 try {
-    // ดึงสไลด์แรก.
+    // ดึงสไลด์แรก
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // เพิ่มออโต้เชปประเภท Rectangle.
+    // เพิ่ม AutoShape ประเภท Rectangle
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // หมุนรูปทรงด้วยมุม 5 องศา.
+    // หมุนรูปร่าง 5 องศา
     shape.setRotation(5);
 
-    // บันทึกไฟล์ PPTX ลงดิสก์.
+    // บันทึกไฟล์ PPTX ลงดิสก์
     presentation.save("shape_rotation.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-ผลลัพธ์:
+![การหมุนรูปร่าง](shape-rotation.png)
 
-![การหมุนรูปทรง](shape-rotation.png)
+## **เพิ่มเอฟเฟกต์เบเวล 3 มิติ**
 
-## **เพิ่มเอฟเฟกต์ Bevel 3 มิติ**
+Aspose.Slides อนุญาตให้คุณเพิ่มเอฟเฟกต์เบเวล 3 มิติให้กับรูปร่างโดยกำหนดคุณสมบัติของ [ThreeDFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/threedformat/)
 
-Aspose.Slides อนุญาตให้คุณใช้เอฟเฟกต์ bevel 3 มิติบนรูปทรงโดยกำหนดคุณสมบัติ [ThreeDFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/threedformat/) ของรูปทรง
+เพื่อเพิ่มเอฟเฟกต์เบเวล 3 มิติให้กับรูปร่าง ให้ทำตามขั้นตอนต่อไปนี้:
 
-เพื่อเพิ่มเอฟเฟกต์ bevel 3 มิติให้กับรูปทรง ทำตามขั้นตอนต่อไปนี้:
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/) .
-1. รับอ้างอิงไปยังสไลด์ตามดัชนีของมัน
-1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/iautoshape/) ลงในสไลด์
-1. กำหนดค่า [ThreeDFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/threedformat/) ของรูปทรงเพื่อระบุการตั้งค่า bevel
-1. บันทึกการนำเสนอ
-
-โค้ด Java ด้านล่างนี้แสดงวิธีใช้เอฟเฟกต์ bevel 3 มิติบนรูปทรง:
+สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/)
+รับอ้างอิงถึงสไลด์โดยใช้ดัชนีของมัน
+เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/iautoshape/) ลงในสไลด์
+กำหนดค่า [ThreeDFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/threedformat/) ของรูปร่างเพื่อกำหนดการตั้งค่าเบเวล
+บันทึกพรีเซนเทชัน
 
 ```java
-// สร้างอินสแตนซ์ของคลาส Presentation.
+import com.aspose.slides.*;
+import java.awt.Color;
+
+// สร้างอินสแตนซ์ของคลาส Presentation
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // เพิ่มรูปทรงลงในสไลด์.
+    // เพิ่มรูปร่างลงบนสไลด์
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 50, 50, 100, 100);
     shape.getFillFormat().setFillType(FillType.Solid);
     shape.getFillFormat().getSolidFillColor().setColor(Color.GREEN);
@@ -552,7 +548,7 @@ try {
     shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.ORANGE);
     shape.getLineFormat().setWidth(2.0);
 
-    // ตั้งค่าคุณสมบัติ ThreeDFormat ของรูปทรง.
+    // ตั้งค่าคุณสมบัติ ThreeDFormat ของรูปร่าง
     shape.getThreeDFormat().setDepth(4);
     shape.getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle);
     shape.getThreeDFormat().getBevelTop().setHeight(6);
@@ -561,33 +557,31 @@ try {
     shape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.ThreePt);
     shape.getThreeDFormat().getLightRig().setDirection(LightingDirection.Top);
 
-    // บันทึกการนำเสนอเป็นไฟล์ PPTX.
+    // บันทึกพรีเซนเทชันเป็นไฟล์ PPTX
     presentation.save("3D_bevel_effect.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-ผลลัพธ์:
-
-![เอฟเฟกต์ bevel 3 มิติ](3D-bevel-effect.png)
+![เอฟเฟกต์เบเวล 3 มิติ](3D-bevel-effect.png)
 
 ## **เพิ่มเอฟเฟกต์การหมุน 3 มิติ**
 
-Aspose.Slides อนุญาตให้คุณใช้เอฟเฟกต์การหมุน 3 มิติบนรูปทรงโดยกำหนดคุณสมบัติ [ThreeDFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/threedformat/) ของรูปทรง
+Aspose.Slides อนุญาตให้คุณเพิ่มเอฟเฟกต์การหมุน 3 มิติให้กับรูปร่างโดยกำหนดคุณสมบัติของ [ThreeDFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/threedformat/)
 
-เพื่อประยุกต์ใช้การหมุน 3 มิติบนรูปทรง:
+เพื่อใช้การหมุน 3 มิติบนรูปร่าง:
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/) .
-1. รับอ้างอิงไปยังสไลด์ตามดัชนีของมัน
-1. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/iautoshape/) ลงในสไลด์
-1. ใช้เมธอด [setCameraType](https://reference.aspose.com/slides/th/java/com.aspose.slides/icamera/#setCameraType-int-) และ [setLightType](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilightrig/#setLightType-int-) เพื่อกำหนดการหมุน 3 มิติ
-1. บันทึกการนำเสนอ
-
-โค้ด Java ด้านล่างนี้แสดงวิธีใช้เอฟเฟกต์การหมุน 3 มิติบนรูปทรง:
+สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/)
+รับอ้างอิงถึงสไลด์โดยใช้ดัชนีของมัน
+เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/iautoshape/) ลงในสไลด์
+ใช้เมธอด [setCameraType](https://reference.aspose.com/slides/th/java/com.aspose.slides/icamera/#setCameraType-int-) และ [setLightType](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilightrig/#setLightType-int-) เพื่อกำหนดการหมุน 3 มิติ
+บันทึกพรีเซนเทชัน
 
 ```java
-// สร้างอินสแตนซ์ของคลาส Presentation.
+import com.aspose.slides.*;
+
+// สร้างอินสแตนซ์ของคลาส Presentation
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -600,26 +594,57 @@ try {
     autoShape.getThreeDFormat().getCamera().setCameraType(CameraPresetType.IsometricLeftUp);
     autoShape.getThreeDFormat().getLightRig().setLightType(LightRigPresetType.Balanced);
 
-    // บันทึกการนำเสนอเป็นไฟล์ PPTX.
+    // บันทึกพรีเซนเทชันเป็นไฟล์ PPTX
     presentation.save("3D_rotation_effect.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-ผลลัพธ์:
-
 ![เอฟเฟกต์การหมุน 3 มิติ](3D-rotation-effect.png)
+
+## **ควบคุมการแสดงผลขาวดำสำหรับรูปร่าง**
+
+เมธอด [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) ระบุว่ารูปร่างแต่ละอันจะแสดงผลอย่างไรเมื่อพรีเซนเทชันถูกดูหรือประมวลผลในโหมดขาวดำ มันไม่ได้เปิดใช้งานการแสดงผลขาวดำโดยอัตโนมัติและไม่เปลี่ยนการเติม, เส้น หรือการจัดรูปแบบอื่นของรูปร่างในโหมดสีปกติ
+
+ใช้ค่าจากคลาส [BlackWhiteMode](https://reference.aspose.com/slides/th/java/com.aspose.slides/blackwhitemode/) เพื่อเลือกพฤติกรรมที่ต้องการ เช่น `Automatic` ให้แอปพลิเคชันแปลงเอง, `Gray` และ `LightGray` ใช้สีเทา, `BlackWhite` ใช้สีดำและสีขาวเท่านั้น, `Black` และ `White` บังคับให้เป็นสีเดียว, `Color` รักษาสีปกติ, `Hidden` ไม่แสดงรูปร่างในโหมดขาวดำ, `NotDefined` หมายความว่าไม่มีการกำหนดโหมดระดับรูปร่าง
+
+โค้ด Java ด้านล่างนี้สร้างรูปร่างสีและทำให้แสดงเป็นสีเทาในโหมดแสดงผลขาวดำ:
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
+    shape.getFillFormat().setFillType(FillType.Solid);
+    shape.getFillFormat().getSolidFillColor().setColor(Color.ORANGE);
+
+    // เก็บการเติมสีส้มในโหมดสี, แต่เรนเดอร์รูปร่างด้วยสีเทาในโหมดขาวดำ.
+    shape.setBlackWhiteMode(BlackWhiteMode.Gray);
+
+    presentation.save("shape_black_white_mode.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+ในโหมดสีปกติ สี่เหลี่ยมจะคงสีส้มไว้ ในกระบวนการแสดงผลขาวดำ มันจะใช้สีเทาเนื่องจากโหมดถูกตั้งเป็น `Gray` วิธีนี้ทำให้คุณสามารถเก็บสไลด์สีเต็มได้ในขณะที่กำหนดลักษณะที่แตกต่างสำหรับการพิมพ์, การดูตัวอย่าง หรือกระบวนการอื่นที่เคารพการตั้งค่าแสดงผลขาวดำของพรีเซนเทชัน
 
 ## **รีเซ็ตการจัดรูปแบบ**
 
-โค้ด Java ด้านล่างนี้แสดงวิธีรีเซ็ตการจัดรูปแบบของสไลด์และคืนค่าตำแหน่ง, ขนาด, และการจัดรูปแบบของรูปทรงทั้งหมดที่มี placeholder บน [LayoutSlide](https://reference.aspose.com/slides/th/java/com.aspose.slides/layoutslide/) ให้กลับไปเป็นค่าดีฟอลต์:
+โค้ด Java ด้านล่างนี้แสดงวิธีรีเซ็ตการจัดรูปแบบของสไลด์และคืนตำแหน่ง, ขนาด, และการจัดรูปแบบของรูปร่างทั้งหมดที่มีตัวแสดงตำแหน่งบน [LayoutSlide](https://reference.aspose.com/slides/th/java/com.aspose.slides/layoutslide/) ให้กลับไปเป็นค่าเริ่มต้น:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     for (ISlide slide : presentation.getSlides()) {
-        // รีเซ็ตแต่ละรูปทรงบนสไลด์ที่มี placeholder บนเลเอาต์.
+        // รีเซ็ตรูปร่างแต่ละอันบนสไลด์ที่มี placeholder บนเลเอาต์
         slide.reset();
     }
     presentation.save("reset_formatting.pptx", SaveFormat.Pptx);
@@ -630,14 +655,11 @@ try {
 
 ## **คำถามที่พบบ่อย**
 
-**การจัดรูปแบบรูปทรงส่งผลต่อขนาดไฟล์งานนำเสนอสุดท้ายหรือไม่?**
+**Does shape formatting affect the final presentation file size?**  
+ผลกระทบต่อขนาดไฟล์พรีเซนเทชันนั้นมีเพียงเล็กน้อย ภาพและสื่อที่ฝังอยู่ใช้พื้นที่ส่วนใหญ่ ส่วนพารามิเตอร์ของรูปร่างเช่นสี, เอฟเฟกต์, และการไล่สีถูกบันทึกเป็นเมตาดาต้าและเพิ่มขนาดไฟล์น้อยมาก
 
-ผลกระทบมีเพียงเล็กน้อย ภาพและสื่อที่ฝังอยู่ใช้พื้นที่ไฟล์ส่วนใหญ่ ส่วนพารามิเตอร์ของรูปทรงเช่นสี, เอฟเฟกต์, และการไล่ระดับสีจะถูกบันทึกเป็นเมตาดาต้าและไม่เพิ่มขนาดไฟล์อย่างมีนัยสำคัญ
+**How can I detect shapes on a slide that share identical formatting so I can group them?**  
+เปรียบเทียบคุณสมบัติการจัดรูปแบบหลักของแต่ละรูปร่าง—การเติม, เส้น, และการตั้งค่าเอฟเฟกต์ หากค่าที่สอดคล้องกันทั้งหมดตรงกัน ให้ถือว่ารูปร่างมีสไตล์เดียวกันและสามารถจัดกลุ่มตรรกะได้ ซึ่งทำให้การจัดการสไตล์ในภายหลังง่ายขึ้น
 
-**ฉันจะตรวจจับรูปทรงบนสไลด์ที่มีการจัดรูปแบบเดียวกันเพื่อที่จะจัดกลุ่มได้อย่างไร?**
-
-เปรียบเทียคุณสมบัติการจัดรูปแบบหลักของแต่ละรูปทรง—การเติม, เส้น, และการตั้งค่าเอฟเฟกต์ หากค่าทั้งหมดตรงกัน ให้นิยามสไตล์ของพวกมันว่าเป็นแบบเดียวกันและจัดกลุ่มรูปทรงเหล่านั้นอย่างเป็นตรรกะ ซึ่งจะทำให้การจัดการสไตล์ในภายหลังง่ายขึ้น
-
-**ฉันสามารถบันทึกชุดสไตล์รูปทรงแบบกำหนดเองเป็นไฟล์แยกเพื่อใช้ซ้ำในงานนำเสนออื่นได้หรือไม่?**
-
-ได้ คุณสามารถเก็บรูปทรงตัวอย่างที่มีสไตล์ที่ต้องการไว้ในสไลด์เทมเพลตหรือไฟล์ .POTX จากนั้นเมื่อสร้างงานนำเสนอใหม่ ให้เปิดเทมเพลต, คัดลอกรูปทรงที่สไตล์ต้องการ, แล้วนำการจัดรูปแบบเหล่านั้นไปใช้ที่ต้องการในงานนำเสนอใหม่.
+**Can I save a set of custom shape styles to a separate file for reuse in other presentations?**  
+ได้ คุณสามารถบันทึกรูปร่างตัวอย่างพร้อมสไตล์ที่ต้องการในสไลด์เทมเพลตหรือไฟล์เทมเพลต .POTX เมื่อต้องสร้างพรีเซนเทชันใหม่ ให้เปิดเทมเพลต ทำการคัดลอกรูปร่างที่สไตล์ต้องการ แล้วนำไปใช้ใหม่ในสไลด์อื่นตามต้องการ.

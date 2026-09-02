@@ -1,90 +1,92 @@
 ---
-title: "PHP'de PowerPoint Şekillerini Biçimlendirme"
-linktitle: "Şekil Biçimlendirme"
+title: PHP'de PowerPoint Şekillerini Biçimlendirme
+linktitle: Şekil Biçimlendirme
 type: docs
 weight: 20
 url: /tr/php-java/shape-formatting/
 keywords:
 - şekil biçimlendirme
 - çizgi biçimlendirme
-- eskiz efekti
-- eskiz şekil çizgisi
-- birleştirme stili biçimlendirme
-- gradyan dolgu
-- desen dolgu
-- resim dolgu
-- doku dolgu
-- düz renk dolgu
-- şekil şeffaflığı
-- şekli döndürme
-- 3B köz efekti
-- 3B döndürme efekti
-- biçimlendirmeyi sıfırla
+- taslak efekti
+- taslak şekil çizgisi
+- bağlantı stili biçimlendirme
+- degrade doldurma
+- desen doldurma
+- resim doldurma
+- doku doldurma
+- katı renk doldurma
+- şekil saydamlığı
+- siyah‑beyaz şekil renderleme
+- gri tonlamalı şekil renderleme
+- şekil döndürme
+- 3D kırma etkisi
+- 3D döndürme etkisi
+- biçimlendirmeyi sıfırlama
 - PowerPoint
 - sunum
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides kullanarak PHP'de PowerPoint şekillerini nasıl biçimlendireceğinizi öğrenin—PPT, PPTX ve ODP dosyalarında dolgu, çizgi ve efekt stillerini kesinlik ve tam kontrol ile ayarlayın."
+description: "Aspose.Slides kullanarak PHP'de PowerPoint şekillerini nasıl biçimlendireceğinizi öğrenin—PPT, PPTX ve ODP dosyaları için dolgu, çizgi ve efekt stillerini hassasiyetle ve tam kontrolle ayarlayın."
 ---
 ## **Giriş**
 
-PowerPoint'te slaytlara şekil ekleyebilirsiniz. Şekiller çizgilerden oluştuğu için, kenarlıklarını değiştirerek veya efektler uygulayarak biçimlendirebilirsiniz. Ayrıca şekillerin iç kısımlarını dolduran ayarları belirleyerek biçimlendirme yapabilirsiniz.
+PowerPoint’te slaytlara şekil ekleyebilirsiniz. Şekiller çizgilerden oluştuğu için, kenar çizgilerine etkiler uygulayarak veya değiştirerek biçimlendirebilirsiniz. Ayrıca şeklin içinin nasıl doldurulacağını kontrol eden ayarları belirleyerek şekilleri biçimlendirebilirsiniz.
 
-![format-shape-powerpoint](format-shape-powerpoint.png)
+![format‑shape‑powerpoint](format-shape-powerpoint.png)
 
-Aspose.Slides for PHP via Java, PowerPoint'te mevcut aynı seçenekleri kullanarak şekilleri biçimlendirmenizi sağlayan sınıflar ve yöntemler sunar.
+Aspose.Slides for PHP via Java, PowerPoint’te mevcut olan aynı seçenekleri kullanarak şekilleri biçimlendirmenizi sağlayan sınıflar ve yöntemler sunar.
 
 ## **Çizgi Biçimlendirme**
 
 Aspose.Slides kullanarak bir şekil için özel bir çizgi stili belirtebilirsiniz. İşlem aşağıdaki adımlarla açıklanmıştır:
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. İndeksiyle bir slayta referans alın.
+1. [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. İndeksine göre bir slayta referans alın.
 1. Slayta bir [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/) ekleyin.
 1. Şeklin [line style](https://reference.aspose.com/slides/tr/php-java/aspose.slides/linestyle/) özelliğini ayarlayın.
 1. Çizgi kalınlığını belirleyin.
 1. Çizginin [dash style](https://reference.aspose.com/slides/tr/php-java/aspose.slides/linedashstyle/) özelliğini ayarlayın.
 1. Şeklin çizgi rengini belirleyin.
-1. Değiştirilen sunumu PPTX dosyası olarak kaydedin.
+1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-Aşağıdaki PHP kodu, bir dikdörtgen `AutoShape`'i nasıl biçimlendireceğinizi gösterir:
+Aşağıdaki PHP kodu, bir dikdörtgen `AutoShape` nasıl biçimlendirilir gösterir:
 
 ```php
-// Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
-$presentation = new Presentation();
-try {
-    // İlk slaytı alın.
-    $slide = $presentation->getSlides()->get_Item(0);
+    // Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
+    $presentation = new Presentation();
+    try {
+        // İlk slaytı alın.
+        $slide = $presentation->getSlides()->get_Item(0);
 
-    // Rectangle tipi bir otomatik şekil ekleyin.
-    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 150, 150, 75);
+        // Rectangle tipinde bir otomatik şekil ekleyin.
+        $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 150, 150, 75);
 
-    // Dikdörtgen şeklinin dolgu rengini ayarlayın.
-    $shape->getFillFormat()->setFillType(FillType::NoFill);
+        // Dikdörtgen şeklinin dolgu rengini ayarlayın.
+        $shape->getFillFormat()->setFillType(FillType::NoFill);
 
-    // Dikdörtgenin çizgilerine biçimlendirme uygulayın.
-    $shape->getLineFormat()->setStyle(LineStyle::ThickThin);
-    $shape->getLineFormat()->setWidth(7);
-    $shape->getLineFormat()->setDashStyle(LineDashStyle::Dash);
+        // Dikdörtgenin çizgilerine biçimlendirme uygulayın.
+        $shape->getLineFormat()->setStyle(LineStyle::ThickThin);
+        $shape->getLineFormat()->setWidth(7);
+        $shape->getLineFormat()->setDashStyle(LineDashStyle::Dash);
 
-    // Dikdörtgenin çizgisinin rengini ayarlayın.
-    $shape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
+        // Dikdörtgenin çizgisinin rengini ayarlayın.
+        $shape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+        $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
 
-    // PPTX dosyasını diske kaydedin.
-    $presentation->save("formatted_lines.pptx", SaveFormat::Pptx);
-} finally {
-    $presentation->dispose();
-}
+        // PPTX dosyasını diske kaydedin.
+        $presentation->save("formatted_lines.pptx", SaveFormat::Pptx);
+    } finally {
+        $presentation->dispose();
+    }
 ```
 
 Sonuç:
 
 ![Sunumdaki biçimlendirilmiş çizgiler](formatted-lines.png)
 
-## **Şekil Çizgilerine Eskiz Efektleri Uygulama**
+## **Şekil Çizgilerine Çizim Efekti Uygulama**
 
-Bir eskiz efekti, şekil çizgisini elle çizilmiş gibi gösterir. Çizgi ayarlarına erişmek için [Shape.getLineFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/), eskiz ayarlarına erişmek için [LineFormat.getSketchFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/lineformat/), ve [SketchFormat.setSketchType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/sketchformat/) ile [LineSketchType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/linesketchtype/) öneklerinden bir değeri seçebilirsiniz.
+Bir çizim efekti, şekil çizgisini elle çizilmiş gibi gösterir. Çizgi ayarlarına erişmek için [Shape.getLineFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/) yöntemini, çizim ayarlarına erişmek için [LineFormat.getSketchFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/lineformat/) yöntemini ve [SketchFormat.setSketchType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/sketchformat/) yöntemiyle [LineSketchType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/linesketchtype/) enum’undan bir değer seçebilirsiniz.
 
 Aşağıdaki PHP kodu, bir [LineSketchType.Curved](https://reference.aspose.com/slides/tr/php-java/aspose.slides/linesketchtype/) efekti nasıl uygulanır, atanmış değer nasıl okunur ve [LineSketchType.None](https://reference.aspose.com/slides/tr/php-java/aspose.slides/linesketchtype/) ile efekt nasıl kaldırılır gösterir:
 
@@ -94,24 +96,24 @@ try {
     $slide = $presentation->getSlides()->get_Item(0);
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 200, 100);
 
-    // Şeklin çizgi formatına ve eskiz formatına eriş.
+    // Şeklin çizgi formatına ve taslak formatına erişin.
     $sketchFormat = $shape->getLineFormat()->getSketchFormat();
 
-    // Bir eskiz efekti uygula.
+    // Bir taslak efekti uygulayın.
     $sketchFormat->setSketchType(LineSketchType::Curved);
 
-    // Şekle doğrudan atanmış eskiz efektini oku.
+    // Şekle doğrudan atanmış taslak efektini okuyun.
     $explicitSketchType = $sketchFormat->getSketchType();
     echo "Explicit sketch type: " . $explicitSketchType . PHP_EOL;
 
-    // Eskiz efektini kaldır.
+    // Taslak efektini kaldırın.
     $sketchFormat->setSketchType(LineSketchType::None);
 } finally {
     $presentation->dispose();
 }
 ```
 
-[SketchFormat.getSketchType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/sketchformat/) tarafından döndürülen değer, doğrudan şekle atanan ayarı temsil eder. Çizgi biçimlendirmesi bir temadan, ana slayttan veya düzen slaytından kalıtılamışsa, [LineFormat.getEffective](https://reference.aspose.com/slides/tr/php-java/aspose.slides/lineformat/) kullanın, dönen nesnenin `getSketchFormat` metoduna erişin ve `getSketchType` değerini okuyun. Etkin değer, kalıtım çözüldükten sonra gerçekte uygulanan biçimlendirmeyi yansıtır:
+[SketchFormat.getSketchType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/sketchformat/) tarafından döndürülen değer, şekle doğrudan atanmış ayarı temsil eder. Çizgi biçimlendirmesi bir temadan, ana slayttan veya düzen slaytından devralınabiliyorsa, [LineFormat.getEffective](https://reference.aspose.com/slides/tr/php-java/aspose.slides/lineformat/) kullanın, dönen nesnenin `getSketchFormat` metoduna erişin ve `getSketchType` değerini okuyun. Etkili değer, kalıtım çözüldükten sonra gerçekte uygulanan biçimlendirmeyi yansıtır:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -130,19 +132,19 @@ try {
 }
 ```
 
-## **Birleştirme Stilleri Biçimlendirme**
+## **Bağlantı Stilini Biçimlendirme**
 
-İşte üç birleştirme türü seçeneği:
+Üç bağlantı türü seçeneği şunlardır:
 
-* Yuvarlak
-* Köşe
-* Eğimli
+* Round
+* Miter
+* Bevel
 
-Varsayılan olarak, PowerPoint iki çizgiyi bir açıda (örneğin bir şeklin köşesinde) birleştirirken **Yuvarlak** ayarını kullanır. Ancak, keskin açılara sahip bir şekil çizerken **Köşe** seçeneğini tercih edebilirsiniz.
+PowerPoint varsayılan olarak iki çizgiyi bir açıda (örneğin bir şeklin köşesinde) birleştirirken **Round** ayarını kullanır. Ancak keskin açıları olan bir şekil çizerseniz **Miter** seçeneğini tercih edebilirsiniz.
 
-![Sunumdaki birleştirme stili](join-style-powerpoint.png)
+![Sunumdaki bağlantı stili](join-style-powerpoint.png)
 
-Aşağıdaki PHP kodu, yukarıdaki görselde gösterildiği gibi Miter, Bevel ve Round (Yuvarlak) birleştirme türü ayarlarıyla üç dikdörtgenin nasıl oluşturulduğunu gösterir:
+Aşağıdaki PHP kodu, yukarıdaki görseldeki üç dikdörtgenin Miter, Bevel ve Round bağlantı stil ayarlarıyla nasıl oluşturulduğunu gösterir:
 
 ```php
 // Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
@@ -169,7 +171,7 @@ try {
     $shape2->getLineFormat()->setWidth(15);
     $shape3->getLineFormat()->setWidth(15);
 
-    // Her dikdörtgenin çizgi rengini ayarlayın.
+    // Her dikdörtgenin çizgisinin rengini ayarlayın.
     $shape1->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
     $shape1->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     $shape2->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
@@ -177,7 +179,7 @@ try {
     $shape3->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
     $shape3->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
 
-    // Bağlama stilini ayarlayın.
+    // Bağlantı stilini ayarlayın.
     $shape1->getLineFormat()->setJoinStyle(LineJoinStyle::Miter);
     $shape2->getLineFormat()->setJoinStyle(LineJoinStyle::Bevel);
     $shape3->getLineFormat()->setJoinStyle(LineJoinStyle::Round);
@@ -194,20 +196,20 @@ try {
 }
 ```
 
-## **Gradyan Dolgu**
+## **Degrade Doldurma**
 
-PowerPoint'te Gradyan Dolgu, bir şekle sürekli bir renk geçişi uygulamanızı sağlayan bir biçimlendirme seçeneğidir. Örneğin, iki veya daha fazla rengi birinin diğerine yavaşça karıştığı şekilde uygulayabilirsiniz.
+PowerPoint’te Degrade Doldurma, bir şekle sürekli bir renk geçişi uygulamanızı sağlayan bir biçimlendirme seçeneğidir. Örneğin iki veya daha fazla renk, birinin diğerine yavaşça karıştığı şekilde uygulanabilir.
 
-Aspose.Slides kullanarak bir şekle gradyan dolgu uygulama adımları:
+Aspose.Slides kullanarak bir şekle degrade doldurma uygulama adımları:
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. İndeksiyle bir slayta referans alın.
+1. [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. İndeksine göre bir slayta referans alın.
 1. Slayta bir [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/) ekleyin.
 1. Şeklin [FillType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/filltype/) özelliğini `Gradient` olarak ayarlayın.
-1. [GradientFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/gradientformat/) sınıfı tarafından sunulan gradyan durak koleksiyonunun `add` metotlarıyla konumları tanımlanmış iki tercih ettiğiniz rengi ekleyin.
-1. Değiştirilen sunumu PPTX dosyası olarak kaydedin.
+1. [GradientFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/gradientformat/) sınıfının sunduğu degrade durakları koleksiyonunun `add` metodlarıyla iki tercih ettiğiniz rengi tanımlı konumlarla ekleyin.
+1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-Aşağıdaki PHP kodu, bir elips üzerine gradyan dolgu etkisi nasıl uygulanır gösterir:
+Aşağıdaki PHP kodu, bir elipse nasıl degrade doldurma efekti uygulanır gösterir:
 
 ```php
 // Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
@@ -219,14 +221,14 @@ try {
     // Ellipse tipinde bir otomatik şekil ekleyin.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 50, 50, 150, 75);
 
-    // Elipseye gradyan biçimlendirmesi uygulayın.
+    // Elipseye degrade biçimlendirmesi uygulayın.
     $shape->getFillFormat()->setFillType(FillType::Gradient);
     $shape->getFillFormat()->getGradientFormat()->setGradientShape(GradientShape::Linear);
 
-    // Gradyanın yönünü ayarlayın.
+    // Degradenin yönünü ayarlayın.
     $shape->getFillFormat()->getGradientFormat()->setGradientDirection(GradientDirection::FromCorner2);
 
-    // İki gradyan durak ekleyin.
+    // İki degrade durak ekleyin.
     $shape->getFillFormat()->getGradientFormat()->getGradientStops()->addPresetColor(1.0, PresetColor::Purple);
     $shape->getFillFormat()->getGradientFormat()->getGradientStops()->addPresetColor(0, PresetColor::Red);
 
@@ -239,26 +241,26 @@ try {
 
 Sonuç:
 
-![Gradyan dolgu uygulanmış elips](gradient-fill.png)
+![Degrade doldurulmuş elips](gradient-fill.png)
 
-## **Desen Dolgu**
+## **Desen Doldurma**
 
-PowerPoint'te Desen Dolgu, bir şekle iki renkli bir tasarım—nokta, çizgi, çapraz tarama veya kare gibi—uygulamanızı sağlayan bir biçimlendirme seçeneğidir. Desenin ön planı ve arka planı için özel renkler seçebilirsiniz.
+PowerPoint’te Desen Doldurma, iki renkli bir tasarım—nokta, şerit, çapraz çizgi veya kare—şekle uygulanmasını sağlayan bir biçimlendirme seçeneğidir. Desenin ön plan ve arka plan renklerini özelleştirebilirsiniz.
 
-Aspose.Slides, sunumlarınızın görsel çekiciliğini artırmak için şekillere uygulayabileceğiniz 45'ten fazla ön tanımlı desen stili sunar. Ön tanımlı bir deseni seçtikten sonra, hâlâ kullanılacak kesin renkleri belirleyebilirsiniz.
+Aspose.Slides, sunumlarınızın görsel çekiciliğini artırmak için şekillere uygulanabilen 45’ten fazla ön tanımlı desen stili sunar. Ön tanımlı bir desen seçtikten sonra bile kullanılacak kesin renkleri belirleyebilirsiniz.
 
-Aspose.Slides kullanarak bir şekle desen dolgu uygulama adımları:
+Aspose.Slides kullanarak bir şekle desen doldurma uygulama adımları:
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. İndeksiyle bir slayta referans alın.
+1. [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. İndeksine göre bir slayta referans alın.
 1. Slayta bir [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/) ekleyin.
 1. Şeklin [FillType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/filltype/) özelliğini `Pattern` olarak ayarlayın.
 1. Ön tanımlı seçenekler arasından bir desen stili seçin.
-1. Desenin [Background Color](https://reference.aspose.com/slides/tr/php-java/aspose.slides/patternformat/#getBackColor) değerini ayarlayın.
-1. Desenin [Foreground Color](https://reference.aspose.com/slides/tr/php-java/aspose.slides/patternformat/#getForeColor) değerini ayarlayın.
-1. Değiştirilen sunumu PPTX dosyası olarak kaydedin.
+1. Desenin [Background Color](https://reference.aspose.com/slides/tr/php-java/aspose.slides/patternformat/#getBackColor) özelliğini ayarlayın.
+1. Desenin [Foreground Color](https://reference.aspose.com/slides/tr/php-java/aspose.slides/patternformat/#getForeColor) özelliğini ayarlayın.
+1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-Aşağıdaki PHP kodu, bir dikdörtgene desen dolgu nasıl uygulanır gösterir:
+Aşağıdaki PHP kodu, bir dikdörtgene nasıl desen doldurma uygulanır gösterir:
 
 ```php
 // Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
@@ -270,7 +272,7 @@ try {
     // Rectangle tipinde bir otomatik şekil ekleyin.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-    // Dolgu tipini Pattern olarak ayarlayın.
+    // Dolgu türünü Pattern olarak ayarlayın.
     $shape->getFillFormat()->setFillType(FillType::Pattern);
 
     // Desen stilini ayarlayın.
@@ -289,28 +291,28 @@ try {
 
 Sonuç:
 
-![Desen dolgu uygulanmış dikdörtgen](pattern-fill.png)
+![Desen doldurulmuş dikdörtgen](pattern-fill.png)
 
-## **Resim Dolgu**
+## **Resim Doldurma**
 
-PowerPoint'te Resim Dolgu, bir şeklin içine bir resim eklemenizi—resmi şeklin arka planı gibi kullanmanızı—sağlayan bir biçimlendirme seçeneğidir.
+PowerPoint’te Resim Doldurma, bir şeklin içine bir görüntü ekleyerek resmi şeklin arka planı olarak kullanmanızı sağlayan bir biçimlendirme seçeneğidir.
 
-Aspose.Slides kullanarak bir şekle resim dolgu uygulama adımları:
+Aspose.Slides kullanarak bir şekle resim doldurma uygulama adımları:
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. İndeksiyle bir slayta referans alın.
+1. [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. İndeksine göre bir slayta referans alın.
 1. Slayta bir [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/) ekleyin.
 1. Şeklin [FillType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/filltype/) özelliğini `Picture` olarak ayarlayın.
-1. Resim dolgu modunu `Tile` (veya tercih ettiğiniz başka bir mod) olarak ayarlayın.
-1. Kullanmak istediğiniz görüntüden bir [PPImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/ppimage/) nesnesi oluşturun.
-1. Görüntüyü `SlidesPicture.setImage` metoduna aktarın.
-1. Değiştirilen sunumu PPTX dosyası olarak kaydedin.
+1. Resim doldurma modunu `Tile` (veya tercih ettiğiniz başka bir mod) olarak ayarlayın.
+1. Kullanmak istediğiniz görselden bir [PPImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/ppimage/) nesnesi oluşturun.
+1. Görseli `SlidesPicture.setImage` metoduna aktarın.
+1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-Aşağıdaki resim, "lotus.png" adlı dosyanın içeriğini göstermektedir:
+Aşağıda “lotus.png” adlı dosyanın görseli gösterilmiştir:
 
 ![Lotus resmi](lotus.png)
 
-Aşağıdaki PHP kodu, bir şekle resim dolgu nasıl uygulanır gösterir:
+Aşağıdaki PHP kodu, bir şekli resimle nasıl doldurur gösterir:
 
 ```php
 // Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
@@ -322,10 +324,10 @@ try {
     // Rectangle tipinde bir otomatik şekil ekleyin.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 255, 130);
 
-    // Dolgu tipini Picture olarak ayarlayın.
+    // Dolgu türünü Picture olarak ayarlayın.
     $shape->getFillFormat()->setFillType(FillType::Picture);
 
-    // Resim dolgu modunu ayarlayın.
+    // Resim doldurma modunu ayarlayın.
     $shape->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Tile);
 
     // Bir görüntü yükleyin ve sunum kaynaklarına ekleyin.
@@ -333,7 +335,7 @@ try {
     $picture = $presentation->getImages()->addImage($image);
     $image->dispose();
 
-    // Resimi ayarlayın.
+    // Resmi ayarlayın.
     $shape->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($picture);
 
     // PPTX dosyasını diske kaydedin.
@@ -345,21 +347,21 @@ try {
 
 Sonuç:
 
-![Resim dolgu uygulanmış şekil](picture-fill.png)
+![Resim doldurulmuş şekil](picture-fill.png)
 
-### **Resmi Doku Olarak Döşe**
+### **Doku Olarak Döşeme Resmi**
 
-Köşeli bir resmi doku olarak ayarlamak ve döşeme davranışını özelleştirmek istiyorsanız, aşağıdaki [PictureFillFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/picturefillformat/) sınıfı yöntemlerini kullanabilirsiniz:
+Döşeme şeklinde bir resmi doku olarak ayarlamak ve döşeme davranışını özelleştirmek istiyorsanız, [PictureFillFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/picturefillformat/) sınıfının aşağıdaki yöntemlerini kullanabilirsiniz:
 
-- [setPictureFillMode](https://reference.aspose.com/slides/tr/php-java/aspose.slides/picturefillformat/#setPictureFillMode): Resim dolgu modunu `Tile` veya `Stretch` olarak ayarlar.
-- [setTileAlignment](https://reference.aspose.com/slides/tr/php-java/aspose.slides/picturefillformat/#setTileAlignment): Döşemelerin şekil içinde nasıl hizalanacağını belirtir.
+- [setPictureFillMode](https://reference.aspose.com/slides/tr/php-java/aspose.slides/picturefillformat/#setPictureFillMode): Resim doldurma modunu `Tile` ya da `Stretch` olarak ayarlar.
+- [setTileAlignment](https://reference.aspose.com/slides/tr/php-java/aspose.slides/picturefillformat/#setTileAlignment): Döşemelerin şekil içinde hizalanmasını belirler.
 - [setTileFlip](https://reference.aspose.com/slides/tr/php-java/aspose.slides/picturefillformat/#setTileFlip): Döşemenin yatay, dikey ya da her iki yönde çevrilip çevrilmeyeceğini kontrol eder.
-- [setTileOffsetX](https://reference.aspose.com/slides/tr/php-java/aspose.slides/picturefillformat/#setTileOffsetX): Döşemenin yatay ofsetini (puan cinsinden) şeklin orijinalinden ayarlar.
-- [setTileOffsetY](https://reference.aspose.com/slides/tr/php-java/aspose.slides/picturefillformat/#setTileOffsetY): Döşemenin dikey ofsetini (puan cinsinden) şeklin orijinalinden ayarlar.
-- [setTileScaleX](https://reference.aspose.com/slides/tr/php-java/aspose.slides/picturefillformat/#setTileScaleX): Döşemenin yatay ölçeğini yüzde olarak tanımlar.
-- [setTileScaleY](https://reference.aspose.com/slides/tr/php-java/aspose.slides/picturefillformat/#setTileScaleY): Döşemenin dikey ölçeğini yüzde olarak tanımlar.
+- [setTileOffsetX](https://reference.aspose.com/slides/tr/php-java/aspose.slides/picturefillformat/#setTileOffsetX): Döşemenin şeklin orijiniyle olan yatay ofsetini (puan cinsinden) ayarlar.
+- [setTileOffsetY](https://reference.aspose.com/slides/tr/php-java/aspose.slides/picturefillformat/#setTileOffsetY): Döşemenin şeklin orijiniyle olan dikey ofsetini (puan cinsinden) ayarlar.
+- [setTileScaleX](https://reference.aspose.com/slides/tr/php-java/aspose.slides/picturefillformat/#setTileScaleX): Döşemenin yüzde olarak yatay ölçeğini tanımlar.
+- [setTileScaleY](https://reference.aspose.com/slides/tr/php-java/aspose.slides/picturefillformat/#setTileScaleY): Döşemenin yüzde olarak dikey ölçeğini tanımlar.
 
-Aşağıdaki kod örneği, döşenmiş bir resim dolgu ile bir dikdörtgen şekli ekleyip döşeme seçeneklerini nasıl yapılandıracağınızı gösterir:
+Aşağıdaki kod örneği, bir dikdörtgen şekline döşemeli resim doldurma ekleyip döşeme seçeneklerini nasıl yapılandırır gösterir:
 
 ```php
 // Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
@@ -368,10 +370,10 @@ try {
     // İlk slaytı alın.
     $firstSlide = $presentation->getSlides()->get_Item(0);
 
-    // Rectangle tipinde bir otomatik şekil ekleyin.
+    // Bir dikdörtgen otomatik şekil ekleyin.
     $shape = $firstSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 190, 95);
 
-    // Şeklin dolgu tipini Picture olarak ayarlayın.
+    // Şeklin dolgu türünü Picture olarak ayarlayın.
     $shape->getFillFormat()->setFillType(FillType::Picture);
 
     // Görüntüyü yükleyin ve sunum kaynaklarına ekleyin.
@@ -379,11 +381,11 @@ try {
     $presentationImage = $presentation->getImages()->addImage($sourceImage);
     $sourceImage->dispose();
 
-    // Resmi şekle atayın.
+    // Görüntüyü şekle atayın.
     $pictureFillFormat = $shape->getFillFormat()->getPictureFillFormat();
     $pictureFillFormat->getPicture()->setImage($presentationImage);
 
-    // Resim dolgu modunu ve döşeme özelliklerini yapılandırın.
+    // Resim doldurma modunu ve döşeme özelliklerini yapılandırın.
     $pictureFillFormat->setPictureFillMode(PictureFillMode::Tile);
     $pictureFillFormat->setTileOffsetX(-32);
     $pictureFillFormat->setTileOffsetY(-32);
@@ -403,20 +405,20 @@ Sonuç:
 
 ![Döşeme seçenekleri](tile-options.png)
 
-## **Düz Renk Dolgu**
+## **Katı Renk Doldurma**
 
-PowerPoint'te Düz Renk Dolgu, bir şekli tek ve tekdüz bir renk ile dolduran bir biçimlendirme seçeneğidir. Bu sade arka plan rengi, hiçbir gradyan, doku ya da desen içermeden uygulanır.
+PowerPoint’te Katı Renk Doldurma, bir şekli tek, tekdüze bir renk ile dolduran bir biçimlendirme seçeneğidir. Bu düz arka plan rengi, degrade, doku ya da desen içermeden uygulanır.
 
-Aspose.Slides kullanarak bir şekle düz renk dolgu uygulamak için şu adımları izleyin:
+Aspose.Slides kullanarak bir şekle katı renk doldurma uygulama adımları:
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. İndeksiyle bir slayta referans alın.
+1. [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. İndeksine göre bir slayta referans alın.
 1. Slayta bir [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/) ekleyin.
 1. Şeklin [FillType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/filltype/) özelliğini `Solid` olarak ayarlayın.
-1. İstediğiniz dolgu rengini şekle atayın.
-1. Değiştirilen sunumu PPTX dosyası olarak kaydedin.
+1. Şekle tercih ettiğiniz doldurma rengini atayın.
+1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
 
-Aşağıdaki PHP kodu, bir PowerPoint slaytındaki bir dikdörtgene düz renk dolgu nasıl uygulanır gösterir:
+Aşağıdaki PHP kodu, bir PowerPoint slaydındaki dikdörtgene katı renk doldurma nasıl uygulanır gösterir:
 
 ```php
 // Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
@@ -428,7 +430,7 @@ try {
     // Rectangle tipinde bir otomatik şekil ekleyin.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-    // Dolgu tipini Solid olarak ayarlayın.
+    // Dolgu türünü Solid olarak ayarlayın.
     $shape->getFillFormat()->setFillType(FillType::Solid);
 
     // Dolgu rengini ayarlayın.
@@ -443,22 +445,22 @@ try {
 
 Sonuç:
 
-![Düz renk dolgu uygulanmış şekil](solid-color-fill.png)
+![Katı renk doldurulmuş şekil](solid-color-fill.png)
 
-## **Şeffaflığı Ayarlama**
+## **Saydamlık Ayarlama**
 
-PowerPoint'te bir şekle düz renk, gradyan, resim ya da doku dolgusu uyguladığınızda, dolgunun opaklığını kontrol etmek için şeffaflık düzeyi de ayarlayabilirsiniz. Daha yüksek bir şeffaflık değeri, şeklin daha fazla görünür olmasını sağlar ve arka plan ya da alt nesneler kısmen görünür hale gelir.
+PowerPoint’te bir şekle katı renk, degrade, resim ya da doku doldurma uyguladığınızda, doldurmanın saydamlık seviyesini de belirleyerek opaklığını kontrol edebilirsiniz. Yüksek saydamlık değeri, şeklin daha çok görünür olmasını sağlar ve arka plan ya da alttaki nesneler bir kısmı görünür hâle gelir.
 
-Aspose.Slides, dolgu için kullanılan rengin alfa değerini ayarlayarak şeffaflık seviyesini belirlemenize olanak tanır. İşte nasıl yapılacağı:
+Aspose.Slides, doldurma için kullanılan rengin alfa değerini ayarlayarak saydamlık seviyesini belirlemenizi sağlar. İşte yöntemi:
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. İndeksiyle bir slayta referans alın.
+1. [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. İndeksine göre bir slayta referans alın.
 1. Slayta bir [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/) ekleyin.
 1. [FillType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/filltype/) özelliğini `Solid` olarak ayarlayın.
-1. `Color` kullanarak alfa bileşeniyle şeffaflığı kontrol eden bir renk tanımlayın.
+1. `Color` sınıfını kullanarak saydamlığı (alfa bileşeni) içeren bir renk tanımlayın.
 1. Sunumu kaydedin.
 
-Aşağıdaki PHP kodu, bir dikdörtgene şeffaf bir dolgu rengi nasıl uygulanır gösterir:
+Aşağıdaki PHP kodu, bir dikdörtgene nasıl saydam bir doldurma rengi uygulanır gösterir:
 
 ```php
 // Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
@@ -467,7 +469,7 @@ try {
     // İlk slaytı alın.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Düz bir dikdörtgen otomatik şekil ekleyin.
+    // Katı bir dikdörtgen otomatik şekil ekleyin.
     $solidShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
     // Katı şeklin üzerine şeffaf bir dikdörtgen otomatik şekil ekleyin.
@@ -484,18 +486,18 @@ try {
 
 Sonuç:
 
-![Şeffaf şekil](shape-transparency.png)
+![Saydam şekil](shape-transparency.png)
 
 ## **Şekilleri Döndürme**
 
 Aspose.Slides, PowerPoint sunumlarında şekilleri döndürmenizi sağlar. Bu, görsel öğeleri belirli hizalama veya tasarım ihtiyaçlarıyla konumlandırırken faydalı olabilir.
 
-Bir slayttaki bir şekli döndürmek için şu adımları izleyin:
+Bir slayt üzerindeki bir şekli döndürmek için şu adımları izleyin:
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. İndeksiyle bir slayta referans alın.
+1. [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. İndeksine göre bir slayta referans alın.
 1. Slayta bir [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/) ekleyin.
-1. Şeklin dönüş özelliğini istediğiniz açıya ayarlayın.
+1. Şeklin döndürme özelliğini istediğiniz açıya ayarlayın.
 1. Sunumu kaydedin.
 
 Aşağıdaki PHP kodu, bir şekli 5 derece nasıl döndürür gösterir:
@@ -524,19 +526,19 @@ Sonuç:
 
 ![Şekil döndürmesi](shape-rotation.png)
 
-## **3B Köz Efektleri Ekle**
+## **3D Kırma Efektleri Ekleme**
 
-Aspose.Slides, şekillerin [ThreeDFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/threedformat/) özelliklerini yapılandırarak 3B köz efektleri eklemenizi sağlar.
+Aspose.Slides, şekillerin [ThreeDFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/threedformat/) özelliklerini yapılandırarak 3D kırma (bevel) efektleri uygular.
 
-Bir şekle 3B köz efekti eklemek için şu adımları izleyin:
+Bir şekle 3D kırma efekti eklemek için şu adımları izleyin:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. İndeksiyle bir slayta referans alın.
+1. [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının bir örneğini başlatın.
+1. İndeksine göre bir slayta referans alın.
 1. Slayta bir [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/) ekleyin.
-1. Şeklin [ThreeDFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/threedformat/) özelliğini yapılandırarak köz ayarlarını tanımlayın.
+1. Şeklin [ThreeDFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/threedformat/) özelliğini ayarlayarak kırma ayarlarını tanımlayın.
 1. Sunumu kaydedin.
 
-Aşağıdaki PHP kodu, bir şekle 3B köz efektleri nasıl uygulanır gösterir:
+Aşağıdaki PHP kodu, bir şekle 3D kırma efektleri nasıl uygulanır gösterir:
 
 ```php
 // Presentation sınıfının bir örneğini oluşturun.
@@ -561,7 +563,7 @@ try {
     $shape->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::ThreePt);
     $shape->getThreeDFormat()->getLightRig()->setDirection(LightingDirection::Top);
 
-    // Sunumu PPTX dosyası olarak kaydedin.
+    // Sunumu bir PPTX dosyası olarak kaydedin.
     $presentation->save("3D_bevel_effect.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -570,21 +572,21 @@ try {
 
 Sonuç:
 
-![3B köz efekti](3D-bevel-effect.png)
+![3D kırma efekti](3D-bevel-effect.png)
 
-## **3B Döndürme Efektleri Ekle**
+## **3D Döndürme Efektleri Ekleme**
 
-Aspose.Slides, şekillerin [ThreeDFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/threedformat/) özelliklerini yapılandırarak 3B döndürme efektleri eklemenizi sağlar.
+Aspose.Slides, şekillerin [ThreeDFormat](https://reference.aspose.com/slides/tr/php-java/aspose.slides/threedformat/) özelliklerini yapılandırarak 3D döndürme efektleri uygular.
 
-Bir şekle 3B döndürme uygulamak için:
+Bir şekle 3D döndürme uygulamak için:
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. İndeksiyle bir slayta referans alın.
+1. [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
+1. İndeksine göre bir slayta referans alın.
 1. Slayta bir [AutoShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/autoshape/) ekleyin.
-1. 3B döndürmeyi tanımlamak için [setCameraType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/camera/#setCameraType) ve [setLightType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/lightrig/#setLightType) yöntemlerini kullanın.
+1. [setCameraType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/camera/#setCameraType) ve [setLightType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/lightrig/#setLightType) metodlarını kullanarak 3D döndürmeyi tanımlayın.
 1. Sunumu kaydedin.
 
-Aşağıdaki PHP kodu, bir şekle 3B döndürme efektleri nasıl uygulanır gösterir:
+Aşağıdaki PHP kodu, bir şekle 3D döndürme efektleri nasıl uygulanır gösterir:
 
 ```php
 // Presentation sınıfının bir örneğini oluşturun.
@@ -600,7 +602,7 @@ try {
     $autoShape->getThreeDFormat()->getCamera()->setCameraType(CameraPresetType::IsometricLeftUp);
     $autoShape->getThreeDFormat()->getLightRig()->setLightType(LightRigPresetType::Balanced);
 
-    // Sunumu PPTX dosyası olarak kaydedin.
+    // Sunumu bir PPTX dosyası olarak kaydedin.
     $presentation->save("3D_rotation_effect.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
@@ -609,18 +611,53 @@ try {
 
 Sonuç:
 
-![3B döndürme efekti](3D-rotation-effect.png)
+![3D döndürme efekti](3D-rotation-effect.png)
 
-## **Biçimlendirmeyi Sıfırla**
+## **Şekiller İçin Siyah‑Beyaz Renderlemeyi Kontrol Etme**
 
-Aşağıdaki Java kodu, bir slaydın biçimlendirmesini nasıl sıfırlayacağınızı ve [LayoutSlide](https://reference.aspose.com/slides/tr/php-java/aspose.slides/layoutslide/) üzerindeki yer tutucularla birlikte tüm şekillerin konum, boyut ve biçimlendirmesini varsayılan ayarlarına nasıl geri döndüreceğinizi gösterir:
+[Shape::setBlackWhiteMode](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/#setBlackWhiteMode) yöntemi, bir sunum siyah‑beyaz modunda görüntülendiğinde veya işlendiğinde bireysel bir şeklin nasıl renderlanacağını belirtir. Bu yöntem tek başına siyah‑beyaz görüntülemeyi etkinleştirmez ve normal renk modundaki şeklin doldurma, çizgi ya da diğer biçimlendirmelerini değiştirmez.
+
+İstenen davranışı seçmek için [BlackWhiteMode](https://reference.aspose.com/slides/tr/php-java/aspose.slides/blackwhitemode/) sınıfından bir değer kullanın. Örneğin `Automatic` dönüşümü uygulama programına bırakır, `Gray` ve `LightGray` gri tonlamayı, `BlackWhite` sadece siyah ve beyazı, `Black` ve `White` tek bir rengi, `Color` normal renkleri korur, `Hidden` şekli siyah‑beyaz modunda gizler. `NotDefined` ise şekil düzeyinde bir mod atanmadığını gösterir.
+
+Aşağıdaki PHP kodu, renkli bir şekil oluşturur ve siyah‑beyaz görüntüleme modunda gri görünmesini sağlar:
+
+```php
+use aspose\slides\BlackWhiteMode;
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 200, 100);
+    $shape->getFillFormat()->setFillType(FillType::Solid);
+    $orange = new Java("java.awt.Color", 255, 165, 0);
+    $shape->getFillFormat()->getSolidFillColor()->setColor($orange);
+
+    // Renk modunda turuncu dolguyu koruyun, ancak siyah-beyaz modunda şekli gri renkle renderlayın.
+    $shape->setBlackWhiteMode(BlackWhiteMode::Gray);
+
+    $presentation->save("shape_black_white_mode.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Normal renk modunda dikdörtgen turuncu dolgu ile kalır. Siyah‑beyaz görüntüleme akışında ise modu `Gray` olduğundan gri renkte gösterilir. Bu, tam renkli bir slaytı korurken, yazdırma, ön izleme ya da sunumun siyah‑beyaz görüntüleme ayarlarını dikkate alan diğer akışlar için ayrı bir görünüm tanımlamanıza olanak verir.
+
+## **Biçimlendirmeyi Sıfırlama**
+
+Aşağıdaki Java kodu, bir slaydın biçimlendirmesini sıfırlamak ve [LayoutSlide](https://reference.aspose.com/slides/tr/php-java/aspose.slides/layoutslide/) üzerindeki yer tutuculara sahip tüm şekillerin konum, boyut ve biçimlendirmesini varsayılan ayarlara döndürmek için kullanılabilir:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
     for ($i = 0; $i < java_values($presentation->getSlides()->size()); $i++) {
         $slide = $presentation->getSlides()->get_Item($i);
-        // Düzen üzerindeki yer tutucuya sahip slayttaki her şeklin biçimlendirmesini sıfırla.
+        // Yerleşimde yer tutucu bulunan slayttaki her şekli sıfırla.
         $slide->reset();
     }
     $presentation->save("reset_formatting.pptx", SaveFormat::Pptx);
@@ -631,14 +668,14 @@ try {
 
 ## **SSS**
 
-**Şekil biçimlendirmesi nihai sunum dosyasının boyutunu etkiler mi?**
+**Şekil biçimlendirmesi nihai sunum dosya boyutunu etkiler mi?**
 
-Sadece çok az etkiler. Gömülü görüntüler ve medya dosyaları dosyanın büyük kısmını oluştururken, renkler, efektler ve gradyanlar gibi şekil parametreleri meta veri olarak saklanır ve neredeyse ek bir boyut katmaz.
+Özellikle çok az. Gömülü görüntüler ve medya dosyaları dosya alanının çoğunu kaplarken, renkler, efektler ve degradeler gibi şekil parametreleri meta veri olarak saklanır ve neredeyse ek bir boyut oluşturmaz.
 
-**Aynı biçimlendirmeye sahip şekilleri bir slaytta nasıl tespit edip gruplandırabilirim?**
+**Aynı biçimlendirmeye sahip şekilleri bir slaytta tespit edip gruplamak nasıl yapılır?**
 
-Her şeklin temel biçimlendirme özelliklerini—dolgu, çizgi ve efekt ayarlarını—karşılaştırın. Tüm ilgili değerler eşleşiyorsa, stillerini aynı olarak kabul edip bu şekilleri mantıksal olarak gruplayabilirsiniz; bu, sonraki stil yönetimini kolaylaştırır.
+Her şeklin ana biçimlendirme özelliklerini—dolgu, çizgi ve efekt ayarlarını—karşılaştırın. Tüm ilgili değerler eşleşiyorsa stilleri aynı kabul edip o şekilleri mantıksal olarak gruplayın; bu, sonraki stil yönetimini sadeleştirir.
 
-**Özel şekil stillerini başka sunumlarda yeniden kullanmak üzere ayrı bir dosyada saklayabilir miyim?**
+**Özel şekil stillerini başka sunumlarda yeniden kullanmak için ayrı bir dosyada saklayabilir miyim?**
 
-Evet. İstediğiniz stillere sahip örnek şekilleri bir şablon slayt destesi ya da .POTX şablon dosyasında tutun. Yeni bir sunum oluştururken şablonu açın, ihtiyacınız olan stilize şekilleri kopyalayın ve gerektiği yerde biçimlendirmelerini yeniden uygulayın.
+Evet. İstediğiniz stillere sahip örnek şekilleri bir şablon slayt destesi ya da .POTX şablon dosyasında tutun. Yeni bir sunum oluştururken şablonu açın, ihtiyaç duyduğunuz stilize şekilleri klonlayın ve gerektiği yerde biçimlendirmelerini yeniden uygulayın.
