@@ -1,6 +1,6 @@
 ---
 title: Gestisci intestazioni e piè di pagina della presentazione in .NET
-linktitle: Intestazione e piè di pagina
+linktitle: Intestazione e Piè di pagina
 type: docs
 weight: 140
 url: /it/net/presentation-header-and-footer/
@@ -9,9 +9,9 @@ keywords:
 - testo intestazione
 - piè di pagina
 - testo piè di pagina
-- impostare intestazione
-- impostare piè di pagina
-- dispensa
+- imposta intestazione
+- imposta piè di pagina
+- opuscolo
 - note
 - PowerPoint
 - OpenDocument
@@ -19,129 +19,224 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Utilizza Aspose.Slides per .NET per aggiungere e personalizzare intestazioni e piè di pagina in presentazioni PowerPoint e OpenDocument per un aspetto professionale."
+description: "Scopri come gestire i segnaposti di piè di pagina, data/ora, numero diapositiva e intestazione su diapositive, pagine note e opuscoli con Aspose.Slides per .NET."
 ---
 ## **Panoramica**
 
-Aspose.Slides consente di gestire le impostazioni di intestazione e piè di pagina nelle presentazioni PowerPoint. Intestazioni e piè di pagina vengono gestiti a livello del master della presentazione e l'API fornisce metodi per impostare il testo del piè di pagina, modificare la visibilità del piè di pagina e aggiornare il testo dell'intestazione nelle diapositive master delle note.
+PowerPoint utilizza segnaposti di intestazione e piè di pagina diversi a seconda del tipo di pagina. Aspose.Slides per .NET consente di controllare il testo e la visibilità di questi segnaposti tramite le interfacce del gestore intestazione/piè di pagina.
 
-È inoltre possibile gestire intestazioni e piè di pagina per le diapositive di dispensa e note. Ciò include la modifica della visibilità e del testo dei segnaposto di intestazione, piè di pagina, numero diapositiva e data/ora per il master delle note, tutte le diapositive figlie delle note o una singola diapositiva di note.
+I segnaposti disponibili dipendono dall'ambito:
 
-## **Gestisci testo di intestazione e piè di pagina**
+| Ambito | Intestazione | Piè di pagina | Data/ora | Numero diapositiva/pagina |
+|---|---|---|---|---|
+| Diapositiva normale | No | Sì | Sì | Sì |
+| Master note | Sì | Sì | Sì | Sì |
+| Diapositiva note | Sì | Sì | Sì | Sì |
+| Master opuscolo | Sì | Sì | Sì | Sì |
 
-Le note di una diapositiva specifica possono essere aggiornate come mostrato nell'esempio seguente:
+Una diapositiva di presentazione normale non ha un segnaposto di intestazione. Le intestazioni sono disponibili su pagine note e opuscoli. Per le diapositive normali, utilizzare i segnaposti di piè di pagina, data/ora e numero diapositiva.
 
-```c#
-// Carica presentazione
-Presentation pres = new Presentation("headerTest.pptx");
+L'ambito di una modifica dipende dal gestore che si utilizza. L'interfaccia [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/it/net/aspose.slides/islideheaderfootermanager/) controlla una diapositiva normale. L'interfaccia [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/it/net/aspose.slides/inotesslideheaderfootermanager/) controlla una diapositiva note. I gestori master e layout possono anche propagare le impostazioni alle diapositive dipendenti, mentre l'interfaccia [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/it/net/aspose.slides/imasterhandoutslideheaderfootermanager/) controlla il master opuscolo.
 
-// Impostazione del piè di pagina
-pres.HeaderFooterManager.SetAllFootersText("My Footer text");
-pres.HeaderFooterManager.SetAllFootersVisibility(true);
+## **Imposta Piè di pagina, Data/Ora e Numeri Diapositiva su Diapositive Normali**
 
-// Accedi e aggiorna intestazione
-IMasterNotesSlide masterNotesSlide = pres.MasterNotesSlideManager.MasterNotesSlide;
-if (null != masterNotesSlide)
-{
-    UpdateHeaderFooterText(masterNotesSlide);
-}
+Per le diapositive normali, il flusso di lavoro di base consiste nel accedere al gestore intestazione/piè di pagina di ogni diapositiva, impostare il testo del piè di pagina e della data/ora, abilitare i segnaposti richiesti e salvare la presentazione. I numeri delle diapositive sono generati dalla presentazione, quindi è necessario controllarne solo la visibilità.
 
-// Salva presentazione
-pres.Save("HeaderFooterJava.pptx", SaveFormat.Pptx);
-```
+Utilizzare [`SetFooterText`](https://reference.aspose.com/slides/it/net/aspose.slides/baseslideheaderfootermanager/setfootertext/) e [`SetDateTimeText`](https://reference.aspose.com/slides/it/net/aspose.slides/baseslideheaderfootermanager/setdatetimetext/) per impostare il testo, e utilizzare [`SetFooterVisibility`](https://reference.aspose.com/slides/it/net/aspose.slides/baseslideheaderfootermanager/setfootervisibility/), [`SetDateTimeVisibility`](https://reference.aspose.com/slides/it/net/aspose.slides/baseslideheaderfootermanager/setdatetimevisibility/), e [`SetSlideNumberVisibility`](https://reference.aspose.com/slides/it/net/aspose.slides/baseslideheaderfootermanager/setslidenumbervisibility/) per mostrare i corrispondenti segnaposti.
+
+Il seguente esempio completo applica lo stesso piè di pagina, testo della data/ora e visibilità del numero di diapositiva a tutte le diapositive normali:
 
 ```c#
-// Metodo per impostare il testo dell'intestazione/piè di pagina
-public static void UpdateHeaderFooterText(IBaseSlide master)
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-    foreach (IShape shape in master.Shapes)
-    {
-        if (shape.Placeholder != null)
-        {
-            if (shape.Placeholder.Type == PlaceholderType.Header)
-            {
-                ((IAutoShape)shape).TextFrame.Text = "HI there new header";
-            }
-        }
-    }
+    var headerFooterManager = slide.HeaderFooterManager;
+
+    headerFooterManager.SetFooterText("Company Confidential");
+    headerFooterManager.SetFooterVisibility(true);
+
+    headerFooterManager.SetDateTimeText("Date and time text");
+    headerFooterManager.SetDateTimeVisibility(true);
+
+    headerFooterManager.SetSlideNumberVisibility(true);
 }
+
+presentation.Save("presentation_with_slide_footers.pptx", SaveFormat.Pptx);
 ```
 
-## **Gestisci intestazioni e piè di pagina su diapositive di dispensa e note**
-Aspose.Slides per .NET supporta intestazioni e piè di pagina su diapositive di dispensa e note. Segui i passaggi seguenti:
+Se è necessario aggiornare una sola diapositiva, accedere a quella diapositiva direttamente tramite la collezione [`Slides`](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/slides/it/) anziché iterare sull'intera collezione.
 
-- Carica una [Presentazione](https://reference.aspose.com/slides/it/net/aspose.slides/presentation)contenente un video.
-- Modifica le impostazioni di intestazione e piè di pagina per il master delle note e tutte le diapositive delle note.
-- Imposta i segnaposto Footer del master delle note e di tutte le note figlie come visibili.
-- Imposta i segnaposto Data e ora del master delle note e di tutte le note figlie come visibili.
-- Modifica le impostazioni di intestazione e piè di pagina solo per la prima diapositiva di note.
-- Imposta il segnaposto Header della diapositiva di note come visibile.
-- Imposta il testo del segnaposto Header della diapositiva di note.
-- Imposta il testo del segnaposto Data-ora della diapositiva di note.
-- Scrivi il file della presentazione modificata.
+## **Imposta Intestazioni e Piè di pagina sul Master Note**
 
-Snippet di codice fornito nell'esempio seguente.
+Il master note definisce la formattazione comune e il comportamento dei segnaposti per le pagine note. Utilizzare l'interfaccia [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/it/net/aspose.slides/imasternotesslideheaderfootermanager/) quando si desidera modificare solo il master note.
+
+Il seguente esempio imposta intestazione, piè di pagina e testo della data/ora sul master note e rende tutti i segnaposti supportati visibili su quel master:
 
 ```c#
-using (Presentation presentation = new Presentation("presentation.pptx"))
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var masterNotesSlide = presentation.MasterNotesSlideManager.MasterNotesSlide;
+
+if (masterNotesSlide != null)
 {
-	// Modifica le impostazioni di intestazione e piè di pagina per il master delle note e tutte le diapositive delle note
-	IMasterNotesSlide masterNotesSlide = presentation.MasterNotesSlideManager.MasterNotesSlide;
-	if (masterNotesSlide != null)
-	{
-		IMasterNotesSlideHeaderFooterManager headerFooterManager = masterNotesSlide.HeaderFooterManager;
+    var headerFooterManager = masterNotesSlide.HeaderFooterManager;
 
-		headerFooterManager.SetHeaderAndChildHeadersVisibility(true); // rendere la diapositiva master delle note e tutti i segnaposto Footer figli visibili
-		headerFooterManager.SetFooterAndChildFootersVisibility(true); // rendere la diapositiva master delle note e tutti i segnaposto Header figli visibili
-		headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true); // rendere la diapositiva master delle note e tutti i segnaposto SlideNumber figli visibili
-		headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true); // rendere la diapositiva master delle note e tutti i segnaposto Data e ora figli visibili
+    headerFooterManager.SetHeaderText("Notes header");
+    headerFooterManager.SetHeaderVisibility(true);
 
-		headerFooterManager.SetHeaderAndChildHeadersText("Header text"); // impostare il testo nella diapositiva master delle note e tutti i segnaposto Header figli
-		headerFooterManager.SetFooterAndChildFootersText("Footer text"); // impostare il testo nella diapositiva master delle note e tutti i segnaposto Footer figli
-		headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text"); // impostare il testo nella diapositiva master delle note e tutti i segnaposto Data e ora figli
-	}
+    headerFooterManager.SetFooterText("Notes footer");
+    headerFooterManager.SetFooterVisibility(true);
 
-	// Modifica le impostazioni di intestazione e piè di pagina solo per la prima diapositiva delle note
-	INotesSlide notesSlide = presentation.Slides[0].NotesSlideManager.NotesSlide;
-	if (notesSlide != null)
-	{
-		INotesSlideHeaderFooterManager headerFooterManager = notesSlide.HeaderFooterManager;
-		if (!headerFooterManager.IsHeaderVisible)
-			headerFooterManager.SetHeaderVisibility(true); // rendere visibile il segnaposto Header di questa diapositiva delle note
+    headerFooterManager.SetDateTimeText("Date and time text");
+    headerFooterManager.SetDateTimeVisibility(true);
 
-		if (!headerFooterManager.IsFooterVisible)
-			headerFooterManager.SetFooterVisibility(true); // rendere visibile il segnaposto Footer di questa diapositiva delle note
-
-		if (!headerFooterManager.IsSlideNumberVisible)
-			headerFooterManager.SetSlideNumberVisibility(true); // rendere visibile il segnaposto SlideNumber di questa diapositiva delle note
-
-		if (!headerFooterManager.IsDateTimeVisible)
-			headerFooterManager.SetDateTimeVisibility(true); // rendere visibile il segnaposto Data-ora di questa diapositiva delle note
-
-		headerFooterManager.SetHeaderText("New header text"); // impostare il testo nel segnaposto Header della diapositiva delle note
-		headerFooterManager.SetFooterText("New footer text"); // impostare il testo nel segnaposto Footer della diapositiva delle note
-		headerFooterManager.SetDateTimeText("New date and time text"); // impostare il testo nel segnaposto Date-time della diapositiva delle note
-	}
-	presentation.Save("testresult.pptx",SaveFormat.Pptx);
+    headerFooterManager.SetSlideNumberVisibility(true);
 }
-		
- }
+
+presentation.Save("presentation_with_notes_master_footers.pptx", SaveFormat.Pptx);
 ```
+
+La proprietà [`MasterNotesSlide`](https://reference.aspose.com/slides/it/net/aspose.slides/imasternotesslidemanager/masternotesslide/) restituisce `null` quando la presentazione non contiene un master note.
+
+## **Applica le impostazioni del Master Note alle Diapositive Note Figlie**
+
+Un master note può applicare le impostazioni di intestazione e piè di pagina a se stesso e a tutte le diapositive note dipendenti. Utilizzare i metodi di propagazione dedicati su [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/it/net/aspose.slides/imasternotesslideheaderfootermanager/) quando le stesse impostazioni devono essere applicate in tutta la gerarchia delle note.
+
+Ad esempio, [`SetHeaderAndChildHeadersText`](https://reference.aspose.com/slides/it/net/aspose.slides/masternotesslideheaderfootermanager/setheaderandchildheaderstext/) e [`SetHeaderAndChildHeadersVisibility`](https://reference.aspose.com/slides/it/net/aspose.slides/masternotesslideheaderfootermanager/setheaderandchildheadersvisibility/) aggiornano l'intestazione del master note e tutte le intestazioni figlie. Metodi equivalenti sono disponibili per i piè di pagina, data/ora e numeri diapositiva.
+
+```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var masterNotesSlide = presentation.MasterNotesSlideManager.MasterNotesSlide;
+
+if (masterNotesSlide != null)
+{
+    var headerFooterManager = masterNotesSlide.HeaderFooterManager;
+
+    headerFooterManager.SetHeaderAndChildHeadersText("Notes header");
+    headerFooterManager.SetHeaderAndChildHeadersVisibility(true);
+
+    headerFooterManager.SetFooterAndChildFootersText("Notes footer");
+    headerFooterManager.SetFooterAndChildFootersVisibility(true);
+
+    headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text");
+    headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true);
+
+    headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true);
+}
+
+presentation.Save("presentation_with_child_notes_footers.pptx", SaveFormat.Pptx);
+```
+
+I metodi di propagazione utilizzati sopra sono [`SetFooterAndChildFootersText`](https://reference.aspose.com/slides/it/net/aspose.slides/masternotesslideheaderfootermanager/setfooterandchildfooterstext/), [`SetFooterAndChildFootersVisibility`](https://reference.aspose.com/slides/it/net/aspose.slides/masternotesslideheaderfootermanager/setfooterandchildfootersvisibility/), [`SetDateTimeAndChildDateTimesText`](https://reference.aspose.com/slides/it/net/aspose.slides/masternotesslideheaderfootermanager/setdatetimeandchilddatetimestext/), [`SetDateTimeAndChildDateTimesVisibility`](https://reference.aspose.com/slides/it/net/aspose.slides/masternotesslideheaderfootermanager/setdatetimeandchilddatetimesvisibility/), e [`SetSlideNumberAndChildSlideNumbersVisibility`](https://reference.aspose.com/slides/it/net/aspose.slides/masternotesslideheaderfootermanager/setslidenumberandchildslidenumbersvisibility/).
+
+## **Imposta Intestazioni e Piè di pagina su una Diapositiva Note Individuale**
+
+Una diapositiva note appartiene a una specifica diapositiva normale. Utilizzare la sua interfaccia [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/it/net/aspose.slides/inotesslideheaderfootermanager/) quando si desidera personalizzare solo quella pagina note.
+
+Il metodo [`AddNotesSlide`](https://reference.aspose.com/slides/it/net/aspose.slides/inotesslidemanager/addnotesslide/) restituisce la diapositiva note per la diapositiva corrente e ne crea una se non esiste già. Il seguente esempio configura la pagina note associata alla prima diapositiva della presentazione:
+
+```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var notesSlide = presentation.Slides[0].NotesSlideManager.AddNotesSlide();
+var headerFooterManager = notesSlide.HeaderFooterManager;
+
+headerFooterManager.SetHeaderText("Header for the first notes page");
+headerFooterManager.SetHeaderVisibility(true);
+
+headerFooterManager.SetFooterText("Footer for the first notes page");
+headerFooterManager.SetFooterVisibility(true);
+
+headerFooterManager.SetDateTimeText("Date and time text");
+headerFooterManager.SetDateTimeVisibility(true);
+
+headerFooterManager.SetSlideNumberVisibility(true);
+
+presentation.Save("presentation_with_custom_notes_footers.pptx", SaveFormat.Pptx);
+```
+
+Se prima si propagano le impostazioni dal master note e poi si modifica una singola diapositiva note, le impostazioni per‑diapositiva successive consentono di personalizzare quella pagina note in modo indipendente.
+
+## **Imposta Intestazioni e Piè di pagina sul Master Opuscolo**
+
+Le pagine opuscolo utilizzano il master opuscolo per i loro segnaposti di intestazione, piè di pagina, data/ora e numero di pagina. A differenza delle pagine note, le impostazioni dell'opuscolo sono gestite attraverso il master opuscolo piuttosto che tramite singole diapositive opuscolo.
+
+Utilizzare la proprietà [`MasterHandoutSlide`](https://reference.aspose.com/slides/it/net/aspose.slides/imasterhandoutslidemanager/masterhandoutslide/) per accedere al master opuscolo. Se non è presente, chiamare [`SetDefaultMasterHandoutSlide`](https://reference.aspose.com/slides/it/net/aspose.slides/imasterhandoutslidemanager/setdefaultmasterhandoutslide/) per creare il master opuscolo predefinito.
+
+```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var masterHandoutSlide = presentation.MasterHandoutSlideManager.MasterHandoutSlide;
+
+if (masterHandoutSlide == null)
+{
+    presentation.MasterHandoutSlideManager.SetDefaultMasterHandoutSlide();
+    masterHandoutSlide = presentation.MasterHandoutSlideManager.MasterHandoutSlide;
+}
+
+if (masterHandoutSlide != null)
+{
+    var headerFooterManager = masterHandoutSlide.HeaderFooterManager;
+
+    headerFooterManager.SetHeaderText("Handout header");
+    headerFooterManager.SetHeaderVisibility(true);
+
+    headerFooterManager.SetFooterText("Handout footer");
+    headerFooterManager.SetFooterVisibility(true);
+
+    headerFooterManager.SetDateTimeText("Date and time text");
+    headerFooterManager.SetDateTimeVisibility(true);
+
+    headerFooterManager.SetSlideNumberVisibility(true);
+}
+
+presentation.Save("presentation_with_handout_footers.pptx", SaveFormat.Pptx);
+```
+
+## **Comprendere Ambito ed Ereditarietà**
+
+Scegliere il gestore intestazione/piè di pagina che corrisponde all'ambito che si desidera modificare:
+
+- [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/it/net/aspose.slides/islideheaderfootermanager/) modifica le impostazioni di piè di pagina, data/ora e numero diapositiva per una singola diapositiva normale.
+- [`ILayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/it/net/aspose.slides/ilayoutslideheaderfootermanager/) controlla una diapositiva layout e può propagare le impostazioni supportate alle diapositive dipendenti.
+- [`IMasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/it/net/aspose.slides/imasterslideheaderfootermanager/) controlla un master diapositiva normale e può propagare le impostazioni supportate alle diapositive dipendenti.
+- [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/it/net/aspose.slides/imasternotesslideheaderfootermanager/) controlla il master note e può propagare le impostazioni a tutte le diapositive note dipendenti.
+- [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/it/net/aspose.slides/inotesslideheaderfootermanager/) modifica una singola diapositiva note e supporta un segnaposto di intestazione oltre a piè di pagina, data/ora e numero diapositiva.
+- [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/it/net/aspose.slides/imasterhandoutslideheaderfootermanager/) modifica il master opuscolo e supporta tutti e quattro i tipi di segnaposto.
+
+Utilizzare la propagazione da un master o layout quando la stessa impostazione deve essere applicata in tutta la sua gerarchia. Utilizzare un gestore di diapositiva individuale o di diapositiva note quando è necessaria un'impostazione locale per una singola pagina.
 
 ## **FAQ**
 
-**Posso aggiungere un "header" alle diapositive normali?**
+**Posso aggiungere un'intestazione a una diapositiva normale?**
 
-In PowerPoint, l'"Header" è disponibile solo per note e dispense; nelle diapositive regolari gli elementi supportati sono il piè di pagina, data/ora e numero diapositiva. In Aspose.Slides questo corrisponde alle stesse limitazioni: intestazione solo per Notes/Handout, e nelle diapositive—Footer/DateTime/SlideNumber.
+No. PowerPoint non definisce un segnaposto di intestazione per le diapositive normali. Su diapositive normali, utilizzare i segnaposti di piè di pagina, data/ora e numero diapositiva. I segnaposti di intestazione sono disponibili su pagine note e opuscoli.
 
-**Cosa succede se il layout non contiene un'area piè di pagina—posso "attivare" la sua visibilità?**
+**Cosa succede se un segnaposto di piè di pagina, data/ora o numero diapositiva non è visibile?**
 
-Sì. Verifica la visibilità tramite il gestore intestazione/piè di pagina e abilitala se necessario. Questi indicatori e metodi dell'API sono progettati per i casi in cui il segnaposto è mancante o nascosto.
+Utilizzare il gestore intestazione/piè di pagina corrispondente per verificare la sua visibilità e abilitarla quando necessario. Ad esempio, [`IsFooterVisible`](https://reference.aspose.com/slides/it/net/aspose.slides/baseslideheaderfootermanager/isfootervisible/) indica se è presente un segnaposto di piè di pagina, e [`SetFooterVisibility`](https://reference.aspose.com/slides/it/net/aspose.slides/baseslideheaderfootermanager/setfootervisibility/) ne cambia la visibilità.
 
-**Come faccio a far iniziare il numero della diapositiva da un valore diverso da 1?**
+**Come avvio la numerazione delle diapositive da un valore diverso da 1?**
 
-Imposta il [primo numero diapositiva](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/firstslidenumber/) della presentazione; dopo di ciò, tutta la numerazione viene ricalcolata. Ad esempio, puoi iniziare da 0 o 10 e nascondere il numero sulla diapositiva del titolo.
+Impostare la proprietà [`FirstSlideNumber`](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/firstslidenumber/) della presentazione. I segnaposti di numero diapositiva utilizzeranno quindi la sequenza di numerazione aggiornata.
 
-**Cosa succede a intestazioni/piè di pagina quando si esporta in PDF/immagini/HTML?**
+**Cosa succede a intestazioni e piè di pagina quando si esporta in PDF, immagini o HTML?**
 
-Vengono renderizzati come normali elementi di testo della presentazione. Ovvero, se gli elementi sono visibili su diapositive/pagine di note, appariranno anche nel formato di output insieme al resto del contenuto.
+Gli elementi di intestazione e piè di pagina visibili vengono renderizzati insieme al resto del contenuto della presentazione nel formato di output. Il loro aspetto dipende dal tipo di pagina esportata e dalle relative impostazioni di visibilità dei segnaposti.

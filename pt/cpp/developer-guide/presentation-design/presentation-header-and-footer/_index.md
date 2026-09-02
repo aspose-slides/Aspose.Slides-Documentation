@@ -1,5 +1,5 @@
 ---
-title: Gerenciar cabeçalhos e rodapés de apresentação em C++
+title: Gerenciar cabeçalhos e rodapés de apresentações em C++
 linktitle: Cabeçalho e Rodapé
 type: docs
 weight: 140
@@ -18,146 +18,253 @@ keywords:
 - apresentação
 - C++
 - Aspose.Slides
-description: "Use o Aspose.Slides para C++ para adicionar e personalizar cabeçalhos e rodapés em apresentações PowerPoint e OpenDocument, proporcionando um visual profissional."
+description: "Saiba como gerenciar marcadores de posição de rodapé, data/hora, número de slide e cabeçalho em slides, páginas de notas e folhetos com Aspose.Slides para C++."
 ---
 ## **Visão geral**
 
-Aspose.Slides permite gerenciar as configurações de cabeçalho e rodapé em apresentações do PowerPoint. Cabeçalhos e rodapés são manipulados no nível do mestre da apresentação, e a API fornece métodos para definir o texto do rodapé, alterar a visibilidade do rodapé e atualizar o texto do cabeçalho nos slides mestres de notas.
+O PowerPoint usa diferentes marcadores de posição de cabeçalho e rodapé dependendo do tipo de página. O Aspose.Slides para C++ permite controlar o texto e a visibilidade desses marcadores de posição por meio de interfaces de gerenciador de cabeçalho/rodapé.
 
-Você também pode gerenciar cabeçalhos e rodapés para slides de folhetos e notas. Isso inclui alterar a visibilidade e o texto dos marcadores de posição de cabeçalho, rodapé, número do slide e data/hora para o mestre de notas, todos os slides de notas filhos ou um slide de notas individual.
+Os marcadores de posição disponíveis dependem do escopo:
 
-## **Gerenciar texto de cabeçalho e rodapé**
+| Escopo | Cabeçalho | Rodapé | Data/hora | Número de slide/página |
+|---|---|---|---|---|
+| Slide regular | Não | Sim | Sim | Sim |
+| Mestre de notas | Sim | Sim | Sim | Sim |
+| Slide de notas | Sim | Sim | Sim | Sim |
+| Mestre de folheto | Sim | Sim | Sim | Sim |
 
-As notas de um slide específico podem ser atualizadas como mostrado no exemplo abaixo:
+Um slide de apresentação regular não possui um marcador de posição de cabeçalho. Cabeçalhos estão disponíveis em páginas de notas e folhetos. Para slides regulares, use os marcadores de posição de rodapé, data/hora e número de slide.
 
-``` cpp
-// Função para definir o texto do cabeçalho/rodapé
-void UpdateHeaderFooterText(System::SharedPtr<IBaseSlide> master)
-{
-    for (const auto& shape : System::IterateOver(master->get_Shapes()))
-    {
-        if (shape->get_Placeholder() != nullptr)
-        {
-            if (shape->get_Placeholder()->get_Type() == PlaceholderType::Header)
-            {
-                (System::ExplicitCast<IAutoShape>(shape))->get_TextFrame()->set_Text(u"HI there new header");
-            }
-        }
-    }
-}
-```
+O escopo de uma alteração depende do gerenciador que você usa. A interface [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/pt/cpp/aspose.slides/islideheaderfootermanager/) controla um slide regular. A interface [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/pt/cpp/aspose.slides/inotesslideheaderfootermanager/) controla um slide de notas. Gerenciadores de mestre e layout também podem propagar configurações para slides dependentes, enquanto a interface [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/pt/cpp/aspose.slides/imasterhandoutslideheaderfootermanager/) controla o mestre de folhetos.
 
-``` cpp
-// Carregar apresentação
-auto pres = System::MakeObject<Presentation>(u"headerTest.pptx");
+## **Definir Rodapé, Data/Hora e Números de Slides em Slides Regulares**
 
-// Definir rodapé
-pres->get_HeaderFooterManager()->SetAllFootersText(u"My Footer text");
-pres->get_HeaderFooterManager()->SetAllFootersVisibility(true);
+Para slides regulares, o fluxo básico é acessar o gerenciador de cabeçalho/rodapé de cada slide, definir o texto do rodapé e da data/hora, habilitar os marcadores de posição necessários e salvar a apresentação. Os números de slide são gerados pela apresentação, portanto você só precisa controlar sua visibilidade.
 
-// Acessar e atualizar cabeçalho
-auto masterNotesSlide = pres->get_MasterNotesSlideManager()->get_MasterNotesSlide();
-if (nullptr != masterNotesSlide)
-{
-	UpdateHeaderFooterText(masterNotesSlide);
-}
+Use [`SetFooterText`](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ibaseslideheaderfootermanager/setfootertext/) e [`SetDateTimeText`](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ibaseslideheaderfootermanager/setdatetimetext/) para definir texto, e use [`SetFooterVisibility`](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ibaseslideheaderfootermanager/setfootervisibility/), [`SetDateTimeVisibility`](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ibaseslideheaderfootermanager/setdatetimevisibility/) e [`SetSlideNumberVisibility`](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ibaseslideheaderfootermanager/setslidenumbervisibility/) para exibir os marcadores de posição correspondentes.
 
-// Salvar apresentação
-pres->Save(u"HeaderFooterJava.pptx", SaveFormat::Pptx);
-```
+O exemplo completo a seguir aplica o mesmo rodapé, texto de data/hora e visibilidade do número de slide a todos os slides regulares:
 
-## **Gerenciar cabeçalhos e rodapés em folhetos e slides de notas**
-Aspose.Slides for C++ oferece suporte a Cabeçalho e Rodapé em slides de folhetos e notas. Siga as etapas abaixo:
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideHeaderFooterManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/enumerator_adapter.h>
 
-- Carregue uma [Presentation ](https://reference.aspose.com/slides/pt/cpp/class/aspose.slides.presentation) contendo um vídeo.
-- Altere as configurações de cabeçalho e rodapé para o mestre de notas e todos os slides de notas.
-- Defina o slide mestre de notas e todos os marcadores de posição de rodapé filhos como visíveis.
-- Defina o slide mestre de notas e todos os marcadores de posição de data e hora filhos como visíveis.
-- Altere as configurações de cabeçalho e rodapé apenas para o primeiro slide de notas.
-- Defina o marcador de posição de cabeçalho do slide de notas como visível.
-- Defina o texto do marcador de posição de cabeçalho do slide de notas.
-- Defina o texto do marcador de posição de data e hora do slide de notas.
-- Grave o arquivo de apresentação modificado.
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-``` cpp
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
-// Alterar as configurações de cabeçalho e rodapé para o mestre de notas e todos os slides de notas
+
+for (const auto& slide : System::IterateOver(presentation->get_Slides()))
+{
+    auto headerFooterManager = slide->get_HeaderFooterManager();
+
+    headerFooterManager->SetFooterText(u"Company Confidential");
+    headerFooterManager->SetFooterVisibility(true);
+
+    headerFooterManager->SetDateTimeText(u"Date and time text");
+    headerFooterManager->SetDateTimeVisibility(true);
+
+    headerFooterManager->SetSlideNumberVisibility(true);
+}
+
+presentation->Save(u"presentation_with_slide_footers.pptx", SaveFormat::Pptx);
+```
+
+Se precisar atualizar apenas um slide, acesse esse slide diretamente através de [`Presentation::get_Slide`](https://reference.aspose.com/slides/pt/cpp/aspose.slides/presentation/get_slide/) em vez de iterar por toda a coleção de slides.
+
+## **Definir Cabeçalhos e Rodapés no Mestre de Notas**
+
+O mestre de notas define formatação comum e comportamento dos marcadores de posição para páginas de notas. Use a interface [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/pt/cpp/aspose.slides/imasternotesslideheaderfootermanager/) quando quiser alterar somente o próprio mestre de notas.
+
+O exemplo a seguir define cabeçalho, rodapé e texto de data/hora no mestre de notas e torna todos os marcadores de posição suportados visíveis nesse mestre:
+
+```cpp
+#include <DOM/IMasterNotesSlide.h>
+#include <DOM/IMasterNotesSlideHeaderFooterManager.h>
+#include <DOM/IMasterNotesSlideManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 auto masterNotesSlide = presentation->get_MasterNotesSlideManager()->get_MasterNotesSlide();
+
 if (masterNotesSlide != nullptr)
 {
-	auto headerFooterManager = masterNotesSlide->get_HeaderFooterManager();
+    auto headerFooterManager = masterNotesSlide->get_HeaderFooterManager();
 
-	// torne o slide mestre de notas e todos os marcadores de posição de rodapé filhos visíveis
-	headerFooterManager->SetHeaderAndChildHeadersVisibility(true);
-	// torne o slide mestre de notas e todos os marcadores de posição de cabeçalho filhos visíveis
-	headerFooterManager->SetFooterAndChildFootersVisibility(true);
-	// torne o slide mestre de notas e todos os marcadores de posição de número do slide filhos visíveis
-	headerFooterManager->SetSlideNumberAndChildSlideNumbersVisibility(true);
-	// torne o slide mestre de notas e todos os marcadores de posição de data e hora filhos visíveis
-	headerFooterManager->SetDateTimeAndChildDateTimesVisibility(true);
+    headerFooterManager->SetHeaderText(u"Notes header");
+    headerFooterManager->SetHeaderVisibility(true);
 
-	// defina o texto no slide mestre de notas e em todos os marcadores de posição de cabeçalho filhos
-	headerFooterManager->SetHeaderAndChildHeadersText(u"Header text");
-	// defina o texto no slide mestre de notas e em todos os marcadores de posição de rodapé filhos
-	headerFooterManager->SetFooterAndChildFootersText(u"Footer text");
-	// defina o texto no slide mestre de notas e em todos os marcadores de posição de data e hora filhos
-	headerFooterManager->SetDateTimeAndChildDateTimesText(u"Date and time text");
+    headerFooterManager->SetFooterText(u"Notes footer");
+    headerFooterManager->SetFooterVisibility(true);
+
+    headerFooterManager->SetDateTimeText(u"Date and time text");
+    headerFooterManager->SetDateTimeVisibility(true);
+
+    headerFooterManager->SetSlideNumberVisibility(true);
 }
 
-// Alterar as configurações de cabeçalho e rodapé apenas para o primeiro slide de notas
-auto notesSlide = presentation->get_Slides()->idx_get(0)->get_NotesSlideManager()->get_NotesSlide();
-if (notesSlide != nullptr)
-{
-	auto headerFooterManager = notesSlide->get_HeaderFooterManager();
-	if (!headerFooterManager->get_IsHeaderVisible())
-	{
-		// torne este marcador de posição de cabeçalho do slide de notas visível
-		headerFooterManager->SetHeaderVisibility(true);
-	}
-
-	if (!headerFooterManager->get_IsFooterVisible())
-	{
-		// torne este marcador de posição de rodapé do slide de notas visível
-		headerFooterManager->SetFooterVisibility(true);
-	}
-
-	if (!headerFooterManager->get_IsSlideNumberVisible())
-	{
-		// torne este marcador de posição de número do slide do slide de notas visível
-		headerFooterManager->SetSlideNumberVisibility(true);
-	}
-	
-	if (!headerFooterManager->get_IsDateTimeVisible())
-	{
-		// torne este marcador de posição de data e hora do slide de notas visível
-		headerFooterManager->SetDateTimeVisibility(true);
-	}
-	
-	// defina o texto no marcador de posição de cabeçalho do slide de notas
-	headerFooterManager->SetHeaderText(u"New header text");
-	// defina o texto no marcador de posição de rodapé do slide de notas
-	headerFooterManager->SetFooterText(u"New footer text");
-	// defina o texto no marcador de posição de data e hora do slide de notas
-	headerFooterManager->SetDateTimeText(u"New date and time text");
-}
-
-presentation->Save(u"testresult.pptx", SaveFormat::Pptx);
+presentation->Save(u"presentation_with_notes_master_footers.pptx", SaveFormat::Pptx);
 ```
 
-## **Perguntas frequentes**
+O método [`IMasterNotesSlideManager::get_MasterNotesSlide`](https://reference.aspose.com/slides/pt/cpp/aspose.slides/imasternotesslidemanager/get_masternotesslide/) devolve `nullptr` quando a apresentação não contém um mestre de notas.
 
-**Posso adicionar um "cabeçalho" aos slides normais?**
+## **Aplicar Configurações do Mestre de Notas a Slides de Notas Filhos**
 
-No PowerPoint, o "cabeçalho" existe apenas para notas e folhetos; nos slides normais, os elementos suportados são rodapé, data/hora e número do slide. No Aspose.Slides isso segue as mesmas limitações: cabeçalho apenas para Notas/Folhetos e, nos slides, Rodapé/DataHora/NúmeroDoSlide.
+Um mestre de notas pode aplicar configurações de cabeçalho e rodapé a ele próprio e a todos os slides de notas dependentes. Use os métodos de propagação dedicados em [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/pt/cpp/aspose.slides/imasternotesslideheaderfootermanager/) quando as mesmas configurações devem ser aplicadas em toda a hierarquia de notas.
 
-**E se o layout não contiver uma área de rodapé—posso "ativar" sua visibilidade?**
+Por exemplo, [`SetHeaderAndChildHeadersText`](https://reference.aspose.com/slides/pt/cpp/aspose.slides/imasternotesslideheaderfootermanager/setheaderandchildheaderstext/) e [`SetHeaderAndChildHeadersVisibility`](https://reference.aspose.com/slides/pt/cpp/aspose.slides/imasternotesslideheaderfootermanager/setheaderandchildheadersvisibility/) atualizam o cabeçalho do mestre de notas e todos os cabeçalhos filhos. Métodos equivalentes estão disponíveis para rodapés, data/hora e números de slide.
 
-Sim. Verifique a visibilidade por meio do gerenciador de cabeçalho/rodapé e habilite-a se necessário. Esses indicadores e métodos da API foram projetados para casos em que o marcador de posição está ausente ou oculto.
+```cpp
+#include <DOM/IMasterNotesSlide.h>
+#include <DOM/IMasterNotesSlideHeaderFooterManager.h>
+#include <DOM/IMasterNotesSlideManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
 
-**Como faço para que o número do slide comece a partir de um valor diferente de 1?**
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-Defina o [first slide number](https://reference.aspose.com/slides/pt/cpp/aspose.slides/presentation/set_firstslidenumber/) da apresentação; após isso, toda a numeração é recalculada. Por exemplo, você pode iniciar em 0 ou 10 e ocultar o número no slide de título.
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+auto masterNotesSlide = presentation->get_MasterNotesSlideManager()->get_MasterNotesSlide();
 
-**O que acontece com cabeçalhos/rodapés ao exportar para PDF/imagens/HTML?**
+if (masterNotesSlide != nullptr)
+{
+    auto headerFooterManager = masterNotesSlide->get_HeaderFooterManager();
 
-Eles são renderizados como elementos de texto normais da apresentação. Ou seja, se os elementos estiverem visíveis nos slides/páginas de notas, eles também aparecerão no formato de saída junto com o restante do conteúdo.
+    headerFooterManager->SetHeaderAndChildHeadersText(u"Notes header");
+    headerFooterManager->SetHeaderAndChildHeadersVisibility(true);
+
+    headerFooterManager->SetFooterAndChildFootersText(u"Notes footer");
+    headerFooterManager->SetFooterAndChildFootersVisibility(true);
+
+    headerFooterManager->SetDateTimeAndChildDateTimesText(u"Date and time text");
+    headerFooterManager->SetDateTimeAndChildDateTimesVisibility(true);
+
+    headerFooterManager->SetSlideNumberAndChildSlideNumbersVisibility(true);
+}
+
+presentation->Save(u"presentation_with_child_notes_footers.pptx", SaveFormat::Pptx);
+```
+
+Os métodos de propagação usados acima são [`SetFooterAndChildFootersText`](https://reference.aspose.com/slides/pt/cpp/aspose.slides/imasternotesslideheaderfootermanager/setfooterandchildfooterstext/), [`SetFooterAndChildFootersVisibility`](https://reference.aspose.com/slides/pt/cpp/aspose.slides/imasternotesslideheaderfootermanager/setfooterandchildfootersvisibility/), [`SetDateTimeAndChildDateTimesText`](https://reference.aspose.com/slides/pt/cpp/aspose.slides/imasternotesslideheaderfootermanager/setdatetimeandchilddatetimestext/), [`SetDateTimeAndChildDateTimesVisibility`](https://reference.aspose.com/slides/pt/cpp/aspose.slides/imasternotesslideheaderfootermanager/setdatetimeandchilddatetimesvisibility/) e [`SetSlideNumberAndChildSlideNumbersVisibility`](https://reference.aspose.com/slides/pt/cpp/aspose.slides/imasternotesslideheaderfootermanager/setslidenumberandchildslidenumbersvisibility/).
+
+## **Definir Cabeçalhos e Rodapés em um Slide de Notas Individual**
+
+Um slide de notas pertence a um slide regular específico. Use sua interface [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/pt/cpp/aspose.slides/inotesslideheaderfootermanager/) quando quiser personalizar somente essa página de notas.
+
+O método [`INotesSlideManager::AddNotesSlide`](https://reference.aspose.com/slides/pt/cpp/aspose.slides/inotesslidemanager/addnotesslide/) devolve o slide de notas para o slide atual e cria um caso ainda não exista. O exemplo a seguir configura a página de notas associada ao primeiro slide da apresentação:
+
+```cpp
+#include <DOM/INotesSlide.h>
+#include <DOM/INotesSlideHeaderFooterManager.h>
+#include <DOM/INotesSlideManager.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+auto slide = presentation->get_Slide(0);
+auto notesSlide = slide->get_NotesSlideManager()->AddNotesSlide();
+auto headerFooterManager = notesSlide->get_HeaderFooterManager();
+
+headerFooterManager->SetHeaderText(u"Header for the first notes page");
+headerFooterManager->SetHeaderVisibility(true);
+
+headerFooterManager->SetFooterText(u"Footer for the first notes page");
+headerFooterManager->SetFooterVisibility(true);
+
+headerFooterManager->SetDateTimeText(u"Date and time text");
+headerFooterManager->SetDateTimeVisibility(true);
+
+headerFooterManager->SetSlideNumberVisibility(true);
+
+presentation->Save(u"presentation_with_custom_notes_footers.pptx", SaveFormat::Pptx);
+```
+
+Se primeiro propagar as configurações do mestre de notas e depois alterar um slide de notas individual, as configurações posteriores por slide permitem personalizar essa página de notas de forma independente.
+
+## **Definir Cabeçalhos e Rodapés no Mestre de Folhetos**
+
+Páginas de folhetos usam o mestre de folhetos para seus marcadores de posição de cabeçalho, rodapé, data/hora e número de página. Diferentemente das páginas de notas, as configurações de folheto são gerenciadas através do mestre de folhetos e não por slides individuais.
+
+Use [`IMasterHandoutSlideManager::get_MasterHandoutSlide`](https://reference.aspose.com/slides/pt/cpp/aspose.slides/imasterhandoutslidemanager/get_masterhandoutslide/) para acessar o mestre de folhetos. Se ele não estiver presente, chame [`IMasterHandoutSlideManager::SetDefaultMasterHandoutSlide`](https://reference.aspose.com/slides/pt/cpp/aspose.slides/imasterhandoutslidemanager/setdefaultmasterhandoutslide/) para criar o mestre de folhetos padrão.
+
+```cpp
+#include <DOM/IMasterHandoutSlide.h>
+#include <DOM/IMasterHandoutSlideHeaderFooterManager.h>
+#include <DOM/IMasterHandoutSlideManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+auto masterHandoutSlideManager = presentation->get_MasterHandoutSlideManager();
+auto masterHandoutSlide = masterHandoutSlideManager->get_MasterHandoutSlide();
+
+if (masterHandoutSlide == nullptr)
+{
+    masterHandoutSlide = masterHandoutSlideManager->SetDefaultMasterHandoutSlide();
+}
+
+if (masterHandoutSlide != nullptr)
+{
+    auto headerFooterManager = masterHandoutSlide->get_HeaderFooterManager();
+
+    headerFooterManager->SetHeaderText(u"Handout header");
+    headerFooterManager->SetHeaderVisibility(true);
+
+    headerFooterManager->SetFooterText(u"Handout footer");
+    headerFooterManager->SetFooterVisibility(true);
+
+    headerFooterManager->SetDateTimeText(u"Date and time text");
+    headerFooterManager->SetDateTimeVisibility(true);
+
+    headerFooterManager->SetSlideNumberVisibility(true);
+}
+
+presentation->Save(u"presentation_with_handout_footers.pptx", SaveFormat::Pptx);
+```
+
+## **Entender Escopo e Herança**
+
+Escolha o gerenciador de cabeçalho/rodapé que corresponde ao escopo que você deseja alterar:
+
+- [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/pt/cpp/aspose.slides/islideheaderfootermanager/) altera as configurações de rodapé, data/hora e número de slide para um slide regular.
+- [`ILayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ilayoutslideheaderfootermanager/) controla um slide de layout e pode propagar configurações suportadas para slides dependentes.
+- [`IMasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/pt/cpp/aspose.slides/imasterslideheaderfootermanager/) controla um mestre de slide regular e pode propagar configurações suportadas para slides dependentes.
+- [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/pt/cpp/aspose.slides/imasternotesslideheaderfootermanager/) controla o mestre de notas e pode propagar configurações para todos os slides de notas dependentes.
+- [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/pt/cpp/aspose.slides/inotesslideheaderfootermanager/) altera um slide de notas e suporta um marcador de posição de cabeçalho além de rodapé, data/hora e número de slide.
+- [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/pt/cpp/aspose.slides/imasterhandoutslideheaderfootermanager/) altera o mestre de folhetos e suporta os quatro tipos de marcadores de posição.
+
+Use a propagação a partir de um mestre ou layout quando a mesma configuração precisar ser aplicada em toda a sua hierarquia. Use um gerenciador de slide individual ou de slide de notas quando precisar de uma configuração local para uma única página.
+
+## **FAQ**
+
+**Posso adicionar um cabeçalho a um slide regular?**
+
+Não. O PowerPoint não define um marcador de posição de cabeçalho para slides regulares. Em slides regulares, use os marcadores de posição de rodapé, data/hora e número de slide. Marcadores de posição de cabeçalho estão disponíveis em páginas de notas e folhetos.
+
+**E se um marcador de posição de rodapé, data/hora ou número de slide não estiver visível?**
+
+Use o gerenciador de cabeçalho/rodapé correspondente para verificar sua visibilidade e habilitá‑la quando necessário. Por exemplo, [`get_IsFooterVisible`](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ibaseslideheaderfootermanager/get_isfootervisible/) indica se um marcador de posição de rodapé está presente, e [`SetFooterVisibility`](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ibaseslideheaderfootermanager/setfootervisibility/) altera sua visibilidade.
+
+**Como iniciar a numeração de slides a partir de um valor diferente de 1?**
+
+Use [`Presentation::set_FirstSlideNumber`](https://reference.aspose.com/slides/pt/cpp/aspose.slides/presentation/set_firstslidenumber/) para definir o número do primeiro slide. Os marcadores de posição de número de slide então usarão a sequência de numeração atualizada.
+
+**O que acontece com cabeçalhos e rodapés ao exportar para PDF, imagens ou HTML?**
+
+Elementos de cabeçalho e rodapé visíveis são renderizados junto com o restante do conteúdo da apresentação no formato de saída. Sua aparência depende do tipo de página que está sendo exportado e das configurações de visibilidade dos marcadores de posição correspondentes.

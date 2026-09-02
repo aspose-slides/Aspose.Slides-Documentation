@@ -18,148 +18,253 @@ keywords:
 - sunum
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++'ı kullanarak PowerPoint ve OpenDocument sunumlarına profesyonel bir görünüm kazandırmak için üstbilgi ve altbilgi ekleyin ve özelleştirin."
+description: "Aspose.Slides for C++ ile slaytlarda, not sayfalarında ve el ilanlarında altbilgi, tarih-saat, slayt-numarası ve üstbilgi yer tutucularını nasıl yöneteceğinizi öğrenin."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides, PowerPoint sunumlarındaki üstbilgi ve altbilgi ayarlarını yönetmenizi sağlar. Üstbilgi ve altbilgiler sunum ana düzeyinde işlenir ve API, altbilgi metnini ayarlama, altbilgi görünürlüğünü değiştirme ve ana not slaytlarındaki üstbilgi metnini güncelleme yöntemleri sunar.
+PowerPoint, sayfa türüne göre farklı üstbilgi ve altbilgi yer tutucuları kullanır. Aspose.Slides for C++ bu yer tutucuların metnini ve görünürlüğünü üstbilgi/altbilgi yöneticisi arabirimleri aracılığıyla kontrol etmenizi sağlar.
 
-Not el ilanı ve not slaytları için de üstbilgi ve altbilgileri yönetebilirsiniz. Bu, not ana slaytı, tüm alt not slaytları veya tek bir not slaytı için üstbilgi, altbilgi, slayt numarası ve tarih‑saat yer tutucularının görünürlüğünü ve metnini değiştirmeyi içerir.
+Kullanılabilir yer tutucular kapsamına göre değişir:
 
-## **Üstbilgi ve Altbilgi Metnini Yönetme**
+| Kapsam | Üstbilgi | Altbilgi | Tarih/saat | Slayt/sayfa numarası |
+|---|---|---|---|---|
+| Normal slayt | Hayır | Evet | Evet | Evet |
+| Notlar ana sayfası | Evet | Evet | Evet | Evet |
+| Not slaytı | Evet | Evet | Evet | Evet |
+| El ilanı ana sayfası | Evet | Evet | Evet | Evet |
 
-Belirli bir slaydın notları aşağıdaki örnekte gösterildiği gibi güncellenebilir:
+Normal bir sunum slaytında üstbilgi yer tutucusu bulunmaz. Üstbilgiler not sayfalarında ve el ilanlarında mevcuttur. Normal slaytlar için altbilgi, tarih/saat ve slayt‑numarası yer tutucularını kullanın.
 
-``` cpp
-// Başlık/Altbilgi Metnini ayarlama işlevi
-void UpdateHeaderFooterText(System::SharedPtr<IBaseSlide> master)
-{
-    for (const auto& shape : System::IterateOver(master->get_Shapes()))
-    {
-        if (shape->get_Placeholder() != nullptr)
-        {
-            if (shape->get_Placeholder()->get_Type() == PlaceholderType::Header)
-            {
-                (System::ExplicitCast<IAutoShape>(shape))->get_TextFrame()->set_Text(u"HI there new header");
-            }
-        }
-    }
-}
-```
+Değişikliğin kapsamı kullandığınız yöneticiye bağlıdır. [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/tr/cpp/aspose.slides/islideheaderfootermanager/) arabirimi tek bir normal slaytı kontrol eder. [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/tr/cpp/aspose.slides/inotesslideheaderfootermanager/) arabirimi tek bir not slaytını kontrol eder. Ana sayfa ve düzen yöneticileri ayrıca ayarları bağımlı slaytlara yayabilirken, [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imasterhandoutslideheaderfootermanager/) arabirimi el ilanı ana sayfasını kontrol eder.
 
-``` cpp
-// Sunumu Yükle
-auto pres = System::MakeObject<Presentation>(u"headerTest.pptx");
+## **Normal Slaytlarda Altbilgi, Tarih/Saat ve Slayt Numaralarını Ayarlama**
 
-// Altbilgi Ayarlama
-pres->get_HeaderFooterManager()->SetAllFootersText(u"My Footer text");
-pres->get_HeaderFooterManager()->SetAllFootersVisibility(true);
+Normal slaytlar için temel iş akışı, her slaytın üstbilgi/altbilgi yöneticisine erişmek, altbilgi ve tarih/saat metnini ayarlamak, gerekli yer tutucuları etkinleştirmek ve sunumu kaydetmektir. Slayt numaraları sunum tarafından otomatik oluşturulur; yalnızca görünürlüğünü kontrol etmeniz gerekir.
 
-// Üstbilgiye Eriş ve Güncelle
-auto masterNotesSlide = pres->get_MasterNotesSlideManager()->get_MasterNotesSlide();
-if (nullptr != masterNotesSlide)
-{
-	UpdateHeaderFooterText(masterNotesSlide);
-}
+Metni ayarlamak için [`SetFooterText`](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ibaseslideheaderfootermanager/setfootertext/) ve [`SetDateTimeText`](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ibaseslideheaderfootermanager/setdatetimetext/) yöntemlerini, ilgili yer tutucuları göstermek için ise [`SetFooterVisibility`](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ibaseslideheaderfootermanager/setfootervisibility/), [`SetDateTimeVisibility`](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ibaseslideheaderfootermanager/setdatetimevisibility/) ve [`SetSlideNumberVisibility`](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ibaseslideheaderfootermanager/setslidenumbervisibility/) yöntemlerini kullanın.
 
-// Sunumu Kaydet
-pres->Save(u"HeaderFooterJava.pptx", SaveFormat::Pptx);
-```
+Aşağıdaki uçtan uca örnek, aynı altbilgi, tarih/saat metni ve slayt‑numarası görünürlüğünü tüm normal slaytlara uygular:
 
-## **El İlanı ve Not Slaytlarında Üstbilgi ve Altbilgileri Yönetme**
-Aspose.Slides for C++ supports Header and Footer in Handout and notes slides. Please follow the steps below:
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideHeaderFooterManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/enumerator_adapter.h>
 
-- Bir video içeren bir [Sunum](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.presentation) yükleyin.
-- Not ana slaytı ve tüm not slaytları için üstbilgi ve altbilgi ayarlarını değiştirin.
-- Ana not slaytındaki ve tüm alt Footer yer tutucularının görünür olmasını ayarlayın.
-- Ana not slaytındaki ve tüm alt Tarih ve saat yer tutucularının görünür olmasını ayarlayın.
-- Yalnızca ilk not slaytı için üstbilgi ve altbilgi ayarlarını değiştirin.
-- Not slaytındaki üstbilgi yer tutucusunun görünür olmasını ayarlayın.
-- Not slaytındaki üstbilgi yer tutucusuna metin ayarlayın.
-- Not slaytındaki tarih‑saat yer tutucusuna metin ayarlayın.
-- Değiştirilmiş sunum dosyasını yazın.
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-Code Snippet provided in the below Example.
-
-``` cpp
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
-// Not ana slaytı ve tüm not slaytları için Üstbilgi ve Altbilgi ayarlarını değiştir
+
+for (const auto& slide : System::IterateOver(presentation->get_Slides()))
+{
+    auto headerFooterManager = slide->get_HeaderFooterManager();
+
+    headerFooterManager->SetFooterText(u"Company Confidential");
+    headerFooterManager->SetFooterVisibility(true);
+
+    headerFooterManager->SetDateTimeText(u"Date and time text");
+    headerFooterManager->SetDateTimeVisibility(true);
+
+    headerFooterManager->SetSlideNumberVisibility(true);
+}
+
+presentation->Save(u"presentation_with_slide_footers.pptx", SaveFormat::Pptx);
+```
+
+Yalnızca bir slaytı güncellemek isterseniz, tüm slayt koleksiyonunu döngüye almaktansa [`Presentation::get_Slide`](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/get_slide/) aracılığıyla o slayta doğrudan erişin.
+
+## **Notlar Ana Sayfasında Üstbilgi ve Altbilgi Ayarlama**
+
+Notlar ana sayfası, not sayfaları için ortak biçimlendirme ve yer tutucu davranışını tanımlar. Yalnızca notlar ana sayfasını değiştirmek istediğinizde [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imasternotesslideheaderfootermanager/) arabirimini kullanın.
+
+Aşağıdaki örnek, notlar ana sayfasında üstbilgi, altbilgi ve tarih/saat metnini ayarlar ve o ana sayfadaki tüm desteklenen yer tutucuları görünür yapar:
+
+```cpp
+#include <DOM/IMasterNotesSlide.h>
+#include <DOM/IMasterNotesSlideHeaderFooterManager.h>
+#include <DOM/IMasterNotesSlideManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 auto masterNotesSlide = presentation->get_MasterNotesSlideManager()->get_MasterNotesSlide();
+
 if (masterNotesSlide != nullptr)
 {
-	auto headerFooterManager = masterNotesSlide->get_HeaderFooterManager();
+    auto headerFooterManager = masterNotesSlide->get_HeaderFooterManager();
 
-	// ana not slaytı ve tüm alt Footer yer tutucularını görünür yap
-	headerFooterManager->SetHeaderAndChildHeadersVisibility(true);
-	// ana not slaytı ve tüm alt Header yer tutucularını görünür yap
-	headerFooterManager->SetFooterAndChildFootersVisibility(true);
-	// ana not slaytı ve tüm alt SlideNumber yer tutucularını görünür yap
-	headerFooterManager->SetSlideNumberAndChildSlideNumbersVisibility(true);
-	// ana not slaytı ve tüm alt Tarih ve saat yer tutucularını görünür yap
-	headerFooterManager->SetDateTimeAndChildDateTimesVisibility(true);
+    headerFooterManager->SetHeaderText(u"Notes header");
+    headerFooterManager->SetHeaderVisibility(true);
 
-	// ana not slaytı ve tüm alt Header yer tutucularına metin ayarla
-	headerFooterManager->SetHeaderAndChildHeadersText(u"Header text");
-	// ana not slaytı ve tüm alt Footer yer tutucularına metin ayarla
-	headerFooterManager->SetFooterAndChildFootersText(u"Footer text");
-	// ana not slaytı ve tüm alt Tarih ve saat yer tutucularına metin ayarla
-	headerFooterManager->SetDateTimeAndChildDateTimesText(u"Date and time text");
+    headerFooterManager->SetFooterText(u"Notes footer");
+    headerFooterManager->SetFooterVisibility(true);
+
+    headerFooterManager->SetDateTimeText(u"Date and time text");
+    headerFooterManager->SetDateTimeVisibility(true);
+
+    headerFooterManager->SetSlideNumberVisibility(true);
 }
 
-// sadece ilk not slaytı için Üstbilgi ve Altbilgi ayarlarını değiştir
-auto notesSlide = presentation->get_Slides()->idx_get(0)->get_NotesSlideManager()->get_NotesSlide();
-if (notesSlide != nullptr)
-{
-	auto headerFooterManager = notesSlide->get_HeaderFooterManager();
-	if (!headerFooterManager->get_IsHeaderVisible())
-	{
-		// bu not slaytı Header yer tutucusunu görünür yap
-		headerFooterManager->SetHeaderVisibility(true);
-	}
-
-	if (!headerFooterManager->get_IsFooterVisible())
-	{
-		// bu not slaytı Footer yer tutucusunu görünür yap
-		headerFooterManager->SetFooterVisibility(true);
-	}
-
-	if (!headerFooterManager->get_IsSlideNumberVisible())
-	{
-		// bu not slaytı SlideNumber yer tutucusunu görünür yap
-		headerFooterManager->SetSlideNumberVisibility(true);
-	}
-	
-	if (!headerFooterManager->get_IsDateTimeVisible())
-	{
-		// bu not slaytı Date-time yer tutucusunu görünür yap
-		headerFooterManager->SetDateTimeVisibility(true);
-	}
-	
-	// not slaytı Header yer tutucusuna metin ayarla
-	headerFooterManager->SetHeaderText(u"New header text");
-	// not slaytı Footer yer tutucusuna metin ayarla
-	headerFooterManager->SetFooterText(u"New footer text");
-	// not slaytı Date-time yer tutucusuna metin ayarla
-	headerFooterManager->SetDateTimeText(u"New date and time text");
-}
-
-presentation->Save(u"testresult.pptx", SaveFormat::Pptx);
+presentation->Save(u"presentation_with_notes_master_footers.pptx", SaveFormat::Pptx);
 ```
+
+[`IMasterNotesSlideManager::get_MasterNotesSlide`](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imasternotesslidemanager/get_masternotesslide/) yöntemi, sunumda notlar ana sayfası bulunmadığında `nullptr` döndürür.
+
+## **Notlar Ana Sayfası Ayarlarını Alt Not Slaytlarına Uygulama**
+
+Bir notlar ana sayfası, üstbilgi ve altbilgi ayarlarını kendisine ve tüm bağımlı not slaytlarına uygulayabilir. Aynı ayarların notlar hiyerarşisi boyunca uygulanması gerektiğinde [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imasternotesslideheaderfootermanager/) üzerindeki özel yayma yöntemlerini kullanın.
+
+Örneğin, [`SetHeaderAndChildHeadersText`](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imasternotesslideheaderfootermanager/setheaderandchildheaderstext/) ve [`SetHeaderAndChildHeadersVisibility`](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imasternotesslideheaderfootermanager/setheaderandchildheadersvisibility/) notlar ana sayfası üstbilgisini ve tüm alt üstbilgileri günceller. Altbilgi, tarih/saat ve slayt numarası için eşdeğer yöntemler mevcuttur.
+
+```cpp
+#include <DOM/IMasterNotesSlide.h>
+#include <DOM/IMasterNotesSlideHeaderFooterManager.h>
+#include <DOM/IMasterNotesSlideManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+auto masterNotesSlide = presentation->get_MasterNotesSlideManager()->get_MasterNotesSlide();
+
+if (masterNotesSlide != nullptr)
+{
+    auto headerFooterManager = masterNotesSlide->get_HeaderFooterManager();
+
+    headerFooterManager->SetHeaderAndChildHeadersText(u"Notes header");
+    headerFooterManager->SetHeaderAndChildHeadersVisibility(true);
+
+    headerFooterManager->SetFooterAndChildFootersText(u"Notes footer");
+    headerFooterManager->SetFooterAndChildFootersVisibility(true);
+
+    headerFooterManager->SetDateTimeAndChildDateTimesText(u"Date and time text");
+    headerFooterManager->SetDateTimeAndChildDateTimesVisibility(true);
+
+    headerFooterManager->SetSlideNumberAndChildSlideNumbersVisibility(true);
+}
+
+presentation->Save(u"presentation_with_child_notes_footers.pptx", SaveFormat::Pptx);
+```
+
+Yukarıda kullanılan yayma yöntemleri şunlardır: [`SetFooterAndChildFootersText`](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imasternotesslideheaderfootermanager/setfooterandchildfooterstext/), [`SetFooterAndChildFootersVisibility`](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imasternotesslideheaderfootermanager/setfooterandchildfootersvisibility/), [`SetDateTimeAndChildDateTimesText`](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imasternotesslideheaderfootermanager/setdatetimeandchilddatetimestext/), [`SetDateTimeAndChildDateTimesVisibility`](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imasternotesslideheaderfootermanager/setdatetimeandchilddatetimesvisibility/), ve [`SetSlideNumberAndChildSlideNumbersVisibility`](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imasternotesslideheaderfootermanager/setslidenumberandchildslidenumbersvisibility/).
+
+## **Bireysel Bir Not Slaytında Üstbilgi ve Altbilgi Ayarlama**
+
+Bir not slaytı, belirli bir normal slayta aittir. Yalnızca o not sayfasını özelleştirmek istediğinizde [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/tr/cpp/aspose.slides/inotesslideheaderfootermanager/) arabirimini kullanın.
+
+[`INotesSlideManager::AddNotesSlide`](https://reference.aspose.com/slides/tr/cpp/aspose.slides/inotesslidemanager/addnotesslide/) yöntemi, mevcut slayt için not slaytını döndürür ve mevcut değilse bir tane oluşturur. Aşağıdaki örnek, ilk sunum slaytıyla ilişkili not sayfasını yapılandırır:
+
+```cpp
+#include <DOM/INotesSlide.h>
+#include <DOM/INotesSlideHeaderFooterManager.h>
+#include <DOM/INotesSlideManager.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+auto slide = presentation->get_Slide(0);
+auto notesSlide = slide->get_NotesSlideManager()->AddNotesSlide();
+auto headerFooterManager = notesSlide->get_HeaderFooterManager();
+
+headerFooterManager->SetHeaderText(u"Header for the first notes page");
+headerFooterManager->SetHeaderVisibility(true);
+
+headerFooterManager->SetFooterText(u"Footer for the first notes page");
+headerFooterManager->SetFooterVisibility(true);
+
+headerFooterManager->SetDateTimeText(u"Date and time text");
+headerFooterManager->SetDateTimeVisibility(true);
+
+headerFooterManager->SetSlideNumberVisibility(true);
+
+presentation->Save(u"presentation_with_custom_notes_footers.pptx", SaveFormat::Pptx);
+```
+
+İlk olarak ayarları notlar ana sayfasından yayar, ardından bireysel bir not slaytını değiştirirseniz, sonraki slayt‑özel ayarlar o not sayfasını bağımsız şekilde özelleştirmenizi sağlar.
+
+## **El İlanı Ana Sayfasında Üstbilgi ve Altbilgi Ayarlama**
+
+El ilanı sayfaları, üstbilgi, altbilgi, tarih/saat ve sayfa‑numarası yer tutucuları için el ilanı ana sayfasını kullanır. Not sayfalarının aksine, el ilanı ayarları bireysel el ilanı slaytları yerine el ilanı ana sayfası aracılığıyla yönetilir.
+
+El ilanı ana sayfasına erişmek için [`IMasterHandoutSlideManager::get_MasterHandoutSlide`](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imasterhandoutslidemanager/get_masterhandoutslide/) metodunu kullanın. Eğer bulunmuyorsa, varsayılan el ilanı ana sayfasını oluşturmak için [`IMasterHandoutSlideManager::SetDefaultMasterHandoutSlide`](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imasterhandoutslidemanager/setdefaultmasterhandoutslide/) metodunu çağırın.
+
+```cpp
+#include <DOM/IMasterHandoutSlide.h>
+#include <DOM/IMasterHandoutSlideHeaderFooterManager.h>
+#include <DOM/IMasterHandoutSlideManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+auto masterHandoutSlideManager = presentation->get_MasterHandoutSlideManager();
+auto masterHandoutSlide = masterHandoutSlideManager->get_MasterHandoutSlide();
+
+if (masterHandoutSlide == nullptr)
+{
+    masterHandoutSlide = masterHandoutSlideManager->SetDefaultMasterHandoutSlide();
+}
+
+if (masterHandoutSlide != nullptr)
+{
+    auto headerFooterManager = masterHandoutSlide->get_HeaderFooterManager();
+
+    headerFooterManager->SetHeaderText(u"Handout header");
+    headerFooterManager->SetHeaderVisibility(true);
+
+    headerFooterManager->SetFooterText(u"Handout footer");
+    headerFooterManager->SetFooterVisibility(true);
+
+    headerFooterManager->SetDateTimeText(u"Date and time text");
+    headerFooterManager->SetDateTimeVisibility(true);
+
+    headerFooterManager->SetSlideNumberVisibility(true);
+}
+
+presentation->Save(u"presentation_with_handout_footers.pptx", SaveFormat::Pptx);
+```
+
+## **Kapsam ve Kalıtımı Anlama**
+
+Değiştirmek istediğiniz kapsama uygun üstbilgi/altbilgi yöneticisini seçin:
+
+- [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/tr/cpp/aspose.slides/islideheaderfootermanager/) bir normal slayt için altbilgi, tarih/saat ve slayt‑numarası ayarlarını değiştirir.
+- [`ILayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ilayoutslideheaderfootermanager/) bir düzen slaytını kontrol eder ve desteklenen ayarları bağımlı slaytlara yayabilir.
+- [`IMasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imasterslideheaderfootermanager/) bir normal slayt ana sayfasını kontrol eder ve desteklenen ayarları bağımlı slaytlara yayabilir.
+- [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imasternotesslideheaderfootermanager/) notlar ana sayfasını kontrol eder ve ayarları tüm bağımlı not slaytlarına yayabilir.
+- [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/tr/cpp/aspose.slides/inotesslideheaderfootermanager/) bir not slaytını değiştirir ve üstbilgi yer tutucusunu, altbilgi, tarih/saat ve slayt numarası ile birlikte destekler.
+- [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imasterhandoutslideheaderfootermanager/) el ilanı ana sayfasını değiştirir ve dört yer tutucu tipinin tümünü destekler.
+
+Aynı ayarın hiyerarşi boyunca uygulanması gerektiğinde bir ana sayfa veya düzen üzerinden yayma kullanın. Tek bir sayfa için yerel bir ayar gerektiğinde bireysel slayt veya not‑slayt yöneticisini kullanın.
 
 ## **SSS**
 
-**Normal slaytlara "üstbilgi" ekleyebilir miyim?**
+**Normal bir slayta üstbilgi ekleyebilir miyim?**
 
-PowerPoint'te "Üstbilgi" yalnızca notlar ve el ilanları için bulunur; normal slaytlarda desteklenen öğeler altbilgi, tarih/saat ve slayt numarasıdır. Aspose.Slides de aynı sınırlamaları uygular: üstbilgi sadece Notlar/El İlanı için vardır ve slaytlarda—Altbilgi/TarihSaat/SlaytNumarası.
+Hayır. PowerPoint normal slaytlar için bir üstbilgi yer tutucusu tanımlamaz. Normal slaytlarda altbilgi, tarih/saat ve slayt‑numarası yer tutucularını kullanın. Üstbilgi yer tutucuları not sayfalarında ve el ilanlarında mevcuttur.
 
-**Düzen bir altbilgi alanı içermiyorsa—görünürlüğünü "aç"abilir miyim?**
+**Altbilgi, tarih/saat veya slayt‑numarası yer tutucusu görünmüyorsa ne yapmalıyım?**
 
-Evet. Görünürlüğü üstbilgi/altbilgi yöneticisi aracılığıyla kontrol edin ve gerekirse etkinleştirin. Bu API göstergeleri ve yöntemleri, yer tutucu eksik ya da gizli olduğunda kullanılmak üzere tasarlanmıştır.
+İlgili üstbilgi/altbilgi yöneticisini kullanarak görünürlüğünü kontrol edin ve gerektiğinde etkinleştirin. Örneğin, [`get_IsFooterVisible`](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ibaseslideheaderfootermanager/get_isfootervisible/) bir altbilgi yer tutucusunun var olup olmadığını raporlar ve [`SetFooterVisibility`](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ibaseslideheaderfootermanager/setfootervisibility/) görünürlüğünü değiştirir.
 
-**Slayt numarasını 1 yerine başka bir değerden nasıl başlatabilirim?**
+**Slayt numaralandırmasını 1 dışındaki bir değerden başlatabilir miyim?**
 
-Sunumun [ilk slayt numarası](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/set_firstslidenumber/) ayarlayın; ardından tüm numaralandırma yeniden hesaplanır. Örneğin, 0 veya 10’dan başlayabilir ve başlık slaytındaki numarayı gizleyebilirsiniz.
+[`Presentation::set_FirstSlideNumber`](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/set_firstslidenumber/) yöntemini kullanarak ilk slayt numarasını ayarlayın. Slayt‑numarası yer tutucuları güncellenen numaralandırma dizisini kullanır.
 
-**PDF/görüntülere/HTML'ye dışa aktarırken üstbilgi/altbilgi ne olur?**
+**PDF, görüntü veya HTML olarak dışa aktarılırken üstbilgi ve altbilgi ne olur?**
 
-Sunumun normal metin öğeleri olarak işlenirler. Yani, öğeler slayt/nota sayfalarında görünürse, çıktı formatında da diğer içeriklerle birlikte görüneceklerdir.
+Görünür üstbilgi ve altbilgi öğeleri, sunum içeriğiyle birlikte çıktı formatında işlenir. Görünümü, dışa aktarılan sayfa türüne ve ilgili yer tutucu görünürlük ayarlarına bağlıdır.

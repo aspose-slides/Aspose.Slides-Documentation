@@ -1,5 +1,5 @@
 ---
-title: Správa záhlaví a zápatí prezentace v Java
+title: Správa záhlaví a zápatí prezentace v Javě
 linktitle: Záhlaví a zápatí
 type: docs
 weight: 140
@@ -18,130 +18,229 @@ keywords:
 - prezentace
 - Java
 - Aspose.Slides
-description: "Použijte Aspose.Slides pro Java k přidání a přizpůsobení záhlaví a zápatí v prezentacích PowerPoint a OpenDocument pro profesionální vzhled."
+description: "Naučte se, jak spravovat zástupné symboly zápatí, datum‑času, čísla snímků a záhlaví na snímcích, stránkách poznámek a podkladech pomocí Aspose.Slides pro Java."
 ---
 ## **Overview**
 
-Aspose.Slides umožňuje spravovat nastavení záhlaví a zápatí v prezentacích PowerPoint. Záhlaví a zápatí jsou řízena na úrovni hlavního souboru prezentace a API poskytuje metody pro nastavení textu zápatí, změnu viditelnosti zápatí a aktualizaci textu záhlaví na hlavních snímcích poznámek.
+PowerPoint používá různé zástupné symboly záhlaví a zápatí podle typu stránky. Aspose.Slides for Java vám umožňuje řídit text a viditelnost těchto zástupných symbolů pomocí rozhraní správce záhlaví/zápatí.
 
-Můžete také spravovat záhlaví a zápatí pro listy s podklady a poznámkové snímky. To zahrnuje změnu viditelnosti a textu zástupných objektů záhlaví, zápatí, čísla snímku a data/času pro hlavní poznámkový snímek, všechny podřízené poznámkové snímky nebo jednotlivý poznámkový snímek.
+Dostupné zástupné symboly závisí na rozsahu:
 
-## **Manage Headers and Footers in a Presentation**
-Poznámky některých konkrétních snímků mohou být odstraněny, jak je ukázáno v následujícím příkladu:
+| Rozsah | Záhlaví | Zápatí | Datum/čas | Číslo snímku/strany |
+|---|---|---|---|---|
+| Běžný snímek | Ne | Ano | Ano | Ano |
+| Master poznámek | Ano | Ano | Ano | Ano |
+| Snímek poznámek | Ano | Ano | Ano | Ano |
+| Master podkladů | Ano | Ano | Ano | Ano |
+
+Běžný snímek prezentace nemá zástupný symbol záhlaví. Záhlaví jsou k dispozici na stránkách poznámek a podkladů. Pro běžné snímky použijte místo toho zástupné symboly zápatí, datum/čas a číslo snímku.
+
+Rozsah změny závisí na použitém správci. Rozhraní [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islideheaderfootermanager/) řídí jeden běžný snímek. Rozhraní [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/cs/java/com.aspose.slides/inotesslideheaderfootermanager/) řídí jeden snímek poznámek. Správci master a rozvržení mohou také propagovat nastavení na podřízené snímky, zatímco rozhraní [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imasterhandoutslideheaderfootermanager/) řídí master podkladů.
+
+## **Set Footer, Date/Time, and Slide Numbers on Regular Slides**
+
+Pro běžné snímky je základní postup: přistupte ke správci záhlaví/zápatí každého snímku, nastavte text zápatí a datum/čas, povolte požadované zástupné symboly a uložte prezentaci. Čísla snímků generuje prezentace, takže stačí řídit jejich viditelnost.
+
+Použijte [`setFooterText`](https://reference.aspose.com/slides/cs/java/com.aspose.slides/baseslideheaderfootermanager/#setFooterText-java.lang.String-) a [`setDateTimeText`](https://reference.aspose.com/slides/cs/java/com.aspose.slides/baseslideheaderfootermanager/#setDateTimeText-java.lang.String-) pro nastavení textu a použijte [`setFooterVisibility`](https://reference.aspose.com/slides/cs/java/com.aspose.slides/baseslideheaderfootermanager/#setFooterVisibility-boolean-), [`setDateTimeVisibility`](https://reference.aspose.com/slides/cs/java/com.aspose.slides/baseslideheaderfootermanager/#setDateTimeVisibility-boolean-), a [`setSlideNumberVisibility`](https://reference.aspose.com/slides/cs/java/com.aspose.slides/baseslideheaderfootermanager/#setSlideNumberVisibility-boolean-) pro zobrazení odpovídajících zástupných symbolů.
+
+Následující příklad od začátku použije stejný text zápatí, datum/čas a viditelnost čísla snímku pro všechny běžné snímky:
 
 ```java
-// Načíst prezentaci
-Presentation pres = new Presentation("headerTest.pptx");
-try {
-    // Nastavení zápatí
-    pres.getHeaderFooterManager().setAllFootersText("My Footer text");
-    pres.getHeaderFooterManager().setAllFootersVisibility(true);
+import com.aspose.slides.*;
 
-    // Přístup a aktualizace záhlaví
-    IMasterNotesSlide masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
-    if (null != masterNotesSlide)
-    {
-        updateHeaderFooterText(masterNotesSlide);
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        ISlideHeaderFooterManager headerFooterManager = slide.getHeaderFooterManager();
+
+        headerFooterManager.setFooterText("Company Confidential");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
     }
 
-    // Uložit prezentaci
-    pres.save("HeaderFooterJava.pptx", SaveFormat.Pptx);
+    presentation.save("presentation_with_slide_footers.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
-}
-```
-```java
-// Metoda pro nastavení textu záhlaví/zápatí
-public static void updateHeaderFooterText(IBaseSlide master)
-{
-    for (IShape shape : master.getShapes())
-    {
-        if (shape.getPlaceholder() != null)
-        {
-            if (shape.getPlaceholder().getType() == PlaceholderType.Header)
-            {
-                ((IAutoShape)shape).getTextFrame().setText("HI there new header");
-            }
-        }
-    }
+    presentation.dispose();
 }
 ```
 
-## **Manage Headers and Footers on Handout and Notes Slides**
-Aspose.Slides pro Java podporuje Header a Footer v listu s podklady a poznámkových snímcích. Postupujte podle následujících kroků:
+Pokud potřebujete aktualizovat jen jeden snímek, přistupte k němu přímo pomocí metody [`getSlides`](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/#getSlides--) místo iterace přes celou kolekci.
 
-- Načtěte prezentaci obsahující video.
-- Změňte nastavení Header a Footer pro notes master a všechny notes slides.
-- Zobrazte zástupné objekty Footer v master notes slide a ve všech podřízených.
-- Zobrazte zástupné objekty Date a time v master notes slide a ve všech podřízených.
-- Změňte nastavení Header a Footer pouze pro první notes slide.
-- Zobrazte zástupný objekt Header v notes slide.
-- Nastavte text do zástupného objektu Header v notes slide.
-- Nastavte text do zástupného objektu Date-time v notes slide.
-- Zapište upravený soubor prezentace.
+## **Set Headers and Footers on the Notes Master**
 
-Code Snippet provided in below Example.
+Master poznámek určuje společné formátování a chování zástupných symbolů pro stránky poznámek. Použijte rozhraní [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imasternotesslideheaderfootermanager/) pokud chcete měnit pouze samotný master poznámek.
+
+Následující příklad nastaví záhlaví, zápatí a text datum/čas na master poznámek a zobrazí všechny podporované zástupné symboly na tomto masteru:
 
 ```java
-Presentation pres = new Presentation("presentation.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    // Změnit nastavení záhlaví a zápatí pro hlavní poznámkový snímek a všechny poznámkové snímky
-    IMasterNotesSlide masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
-    if (masterNotesSlide != null)
-    {
+    IMasterNotesSlide masterNotesSlide = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
+
+    if (masterNotesSlide != null) {
         IMasterNotesSlideHeaderFooterManager headerFooterManager = masterNotesSlide.getHeaderFooterManager();
 
-        headerFooterManager.setHeaderAndChildHeadersVisibility(true); // zobrazit hlavní poznámkový snímek a všechny podřízené zástupce zápatí
-        headerFooterManager.setFooterAndChildFootersVisibility(true); // zobrazit hlavní poznámkový snímek a všechny podřízené zástupce záhlaví
-        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true); // zobrazit hlavní poznámkový snímek a všechny podřízené zástupce čísla snímku
-        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true); // zobrazit hlavní poznámkový snímek a všechny podřízené zástupce data a času
+        headerFooterManager.setHeaderText("Notes header");
+        headerFooterManager.setHeaderVisibility(true);
 
-        headerFooterManager.setHeaderAndChildHeadersText("Header text"); // nastavit text do hlavního poznámkového snímku a všech podřízených zástupců záhlaví
-        headerFooterManager.setFooterAndChildFootersText("Footer text"); // nastavit text do hlavního poznámkového snímku a všech podřízených zástupců zápatí
-        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text"); // nastavit text do hlavního poznámkového snímku a všech podřízených zástupců data a času
+        headerFooterManager.setFooterText("Notes footer");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
     }
 
-    // Změnit nastavení záhlaví a zápatí pouze pro první poznámkový snímek
-    INotesSlide notesSlide = pres.getSlides().get_Item(0).getNotesSlideManager().getNotesSlide();
-    if (notesSlide != null)
-    {
-        INotesSlideHeaderFooterManager headerFooterManager = notesSlide.getHeaderFooterManager();
-        if (!headerFooterManager.isHeaderVisible())
-            headerFooterManager.setHeaderVisibility(true); // zobrazit zástupce záhlaví tohoto poznámkového snímku
-
-        if (!headerFooterManager.isFooterVisible())
-            headerFooterManager.setFooterVisibility(true); // zobrazit zástupce zápatí tohoto poznámkového snímku
-
-        if (!headerFooterManager.isSlideNumberVisible())
-            headerFooterManager.setSlideNumberVisibility(true); // zobrazit zástupce čísla snímku tohoto poznámkového snímku
-
-        if (!headerFooterManager.isDateTimeVisible())
-            headerFooterManager.setDateTimeVisibility(true); // zobrazit zástupce data a času tohoto poznámkového snímku
-
-        headerFooterManager.setHeaderText("New header text"); // nastavit text do zástupce záhlaví poznámkového snímku
-        headerFooterManager.setFooterText("New footer text"); // nastavit text do zástupce zápatí poznámkového snímku
-        headerFooterManager.setDateTimeText("New date and time text"); // nastavit text do zástupce data a času poznámkového snímku
-    }
-    pres.save("testresult.pptx",SaveFormat.Pptx);
+    presentation.save("presentation_with_notes_master_footers.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+Metoda [`getMasterNotesSlide`](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imasternotesslidemanager/#getMasterNotesSlide--) vrací `null`, když prezentace neobsahuje master poznámek.
+
+## **Apply Notes Master Settings to Child Notes Slides**
+
+Master poznámek může aplikovat nastavení záhlaví a zápatí na sebe i na všechny podřízené snímky poznámek. Použijte specializované metody propagace na rozhraní [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imasternotesslideheaderfootermanager/) když mají být stejná nastavení použita napříč hierarchií poznámek.
+
+Například metody [`setHeaderAndChildHeadersText`](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imasternotesslideheaderfootermanager/#setHeaderAndChildHeadersText-java.lang.String-) a [`setHeaderAndChildHeadersVisibility`](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imasternotesslideheaderfootermanager/#setHeaderAndChildHeadersVisibility-boolean-) aktualizují záhlaví masteru poznámek a všech podřazených záhlaví. Ekvivalentní metody jsou k dispozici pro zápatí, datum/čas a čísla snímků.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterNotesSlide masterNotesSlide = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
+
+    if (masterNotesSlide != null) {
+        IMasterNotesSlideHeaderFooterManager headerFooterManager = masterNotesSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderAndChildHeadersText("Notes header");
+        headerFooterManager.setHeaderAndChildHeadersVisibility(true);
+
+        headerFooterManager.setFooterAndChildFootersText("Notes footer");
+        headerFooterManager.setFooterAndChildFootersVisibility(true);
+
+        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
+        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
+
+        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
+    }
+
+    presentation.save("presentation_with_child_notes_footers.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Metody propagace použité výše jsou [`setFooterAndChildFootersText`](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imasternotesslideheaderfootermanager/#setFooterAndChildFootersText-java.lang.String-), [`setFooterAndChildFootersVisibility`](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imasternotesslideheaderfootermanager/#setFooterAndChildFootersVisibility-boolean-), [`setDateTimeAndChildDateTimesText`](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imasternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesText-java.lang.String-), [`setDateTimeAndChildDateTimesVisibility`](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imasternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesVisibility-boolean-), a [`setSlideNumberAndChildSlideNumbersVisibility`](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imasternotesslideheaderfootermanager/#setSlideNumberAndChildSlideNumbersVisibility-boolean-).
+
+## **Set Headers and Footers on an Individual Notes Slide**
+
+Snímek poznámek patří ke konkrétnímu běžnému snímku. Použijte jeho rozhraní [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/cs/java/com.aspose.slides/inotesslideheaderfootermanager/) pokud chcete upravit jen tuto stránku poznámek.
+
+Metoda [`addNotesSlide`](https://reference.aspose.com/slides/cs/java/com.aspose.slides/inotesslidemanager/#addNotesSlide--) vrací snímek poznámek pro aktuální snímek a vytvoří jej, pokud ještě neexistuje. Následující příklad konfiguruje stránku poznámek přidruženou k prvnímu snímku prezentace:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    INotesSlide notesSlide = slide.getNotesSlideManager().addNotesSlide();
+    INotesSlideHeaderFooterManager headerFooterManager = notesSlide.getHeaderFooterManager();
+
+    headerFooterManager.setHeaderText("Header for the first notes page");
+    headerFooterManager.setHeaderVisibility(true);
+
+    headerFooterManager.setFooterText("Footer for the first notes page");
+    headerFooterManager.setFooterVisibility(true);
+
+    headerFooterManager.setDateTimeText("Date and time text");
+    headerFooterManager.setDateTimeVisibility(true);
+
+    headerFooterManager.setSlideNumberVisibility(true);
+
+    presentation.save("presentation_with_custom_notes_footers.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Pokud nejprve propagujete nastavení z masteru poznámek a poté změníte jednotlivý snímek poznámek, pozdější nastavení per‑snímek vám umožní tuto stránku přizpůsobit nezávisle.
+
+## **Set Headers and Footers on the Handout Master**
+
+Stránky podkladů používají master podkladů pro své zástupné symboly záhlaví, zápatí, datum/čas a číslo stránky. Na rozdíl od stránek poznámek jsou nastavení podkladů spravována prostřednictvím masteru podkladů, nikoli jednotlivých slide‑ů podkladů.
+
+Použijte metodu [`getMasterHandoutSlide`](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imasterhandoutslidemanager/#getMasterHandoutSlide--) pro přístup k masteru podkladů. Pokud není přítomen, zavolejte [`setDefaultMasterHandoutSlide`](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imasterhandoutslidemanager/#setDefaultMasterHandoutSlide--) pro vytvoření výchozího masteru podkladů.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterHandoutSlide masterHandoutSlide = presentation.getMasterHandoutSlideManager().getMasterHandoutSlide();
+
+    if (masterHandoutSlide == null) {
+        masterHandoutSlide = presentation.getMasterHandoutSlideManager().setDefaultMasterHandoutSlide();
+    }
+
+    if (masterHandoutSlide != null) {
+        IMasterHandoutSlideHeaderFooterManager headerFooterManager = masterHandoutSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderText("Handout header");
+        headerFooterManager.setHeaderVisibility(true);
+
+        headerFooterManager.setFooterText("Handout footer");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
+    }
+
+    presentation.save("presentation_with_handout_footers.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Understand Scope and Inheritance**
+
+Vyberte správce záhlaví/zápatí, který odpovídá rozsahu, který chcete změnit:
+
+- [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islideheaderfootermanager/) mění nastavení zápatí, datum/čas a čísla snímku pro jeden běžný snímek.
+- [`ILayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ilayoutslideheaderfootermanager/) řídí snímek rozvržení a může propagovat podporovaná nastavení na podřízené snímky.
+- [`IMasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imasterslideheaderfootermanager/) řídí běžný master snímků a může propagovat podporovaná nastavení na podřízené snímky.
+- [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imasternotesslideheaderfootermanager/) řídí master poznámek a může propagovat nastavení na všechny podřízené snímky poznámek.
+- [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/cs/java/com.aspose.slides/inotesslideheaderfootermanager/) mění jeden snímek poznámek a podporuje zástupný symbol záhlaví kromě zápatí, datum/čas a čísla snímku.
+- [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imasterhandoutslideheaderfootermanager/) mění master podkladů a podporuje všechny čtyři typy zástupných symbolů.
+
+Použijte propagaci z masteru nebo rozvržení, když má být stejné nastavení použito v celé hierarchii. Použijte správce jednotlivého snímku nebo snímku poznámek, pokud potřebujete lokální nastavení pro jednu stránku.
 
 ## **FAQ**
 
-**Can I add a "header" to regular slides?**
+**Mohu přidat záhlaví na běžný snímek?**
 
-V PowerPointu existuje „Header“ pouze pro poznámky a listy s podklady; na běžných snímcích jsou podporovány pouze Footer, date/time a slide number. V Aspose.Slides to odpovídá stejným omezením: header jen pro Notes/Handout a na snímcích — Footer/DateTime/SlideNumber.
+Ne. PowerPoint nedefinuje zástupný symbol záhlaví pro běžné snímky. Na běžných snímcích použijte zástupné symboly zápatí, datum/čas a čísla snímku. Zástupné symboly záhlaví jsou k dispozici na stránkách poznámek a podkladů.
 
-**What if the layout doesn’t contain a footer area—can I "turn on" its visibility?**
+**Co když zástupný symbol zápatí, datum/čas nebo číslo snímku není viditelný?**
 
-Ano. Zkontrolujte viditelnost pomocí správce header/footer a v případě potřeby ji povolte. Tyto ukazatele a metody API jsou navrženy pro případy, kdy je placeholder chybějící nebo skrytý.
+Použijte odpovídající správce záhlaví/zápatí k ověření jeho viditelnosti a povolte jej podle potřeby. Například metoda [`isFooterVisible`](https://reference.aspose.com/slides/cs/java/com.aspose.slides/baseslideheaderfootermanager/#isFooterVisible--) oznamuje, zda je zástupný symbol zápatí přítomen, a [`setFooterVisibility`](https://reference.aspose.com/slides/cs/java/com.aspose.slides/baseslideheaderfootermanager/#setFooterVisibility-boolean-) mění jeho viditelnost.
 
-**How do I make the slide number start from a value other than 1?**
+**Jak začít číslovat snímky od hodnoty jiného než 1?**
 
-Nastavte první číslo snímku prezentace pomocí [první číslo snímku](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/#setFirstSlideNumber-int-); poté se přepočítá celé číslování. Například můžete začít od 0 nebo 10 a číslo skrýt na titulním snímku.
+Zavolejte metodu prezentace [`setFirstSlideNumber`](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/#setFirstSlideNumber-int-). Zástupné symboly čísla snímku pak používají aktualizovanou sekvenci číslování.
 
-**What happens to headers/footers when exporting to PDF/images/HTML?**
+**Co se stane se záhlavími a zápatími při exportu do PDF, obrázků nebo HTML?**
 
-Jsou vykresleny jako běžné textové prvky prezentace. To znamená, že pokud jsou prvky viditelné na slides/notes pages, objeví se také ve výstupním formátu spolu se zbytkem obsahu.
+Viditelné prvky záhlaví a zápatí jsou vykresleny spolu se zbytkem obsahu prezentace ve výstupním formátu. Jejich vzhled závisí na typu stránky, který se exportuje, a na nastavení viditelnosti příslušných zástupných symbolů.

@@ -1,5 +1,5 @@
 ---
-title: Quản lý tiêu đề và chân trang cho bản trình bày trong PHP
+title: Quản lý Tiêu đề và Chân trang của Bản trình chiếu trong PHP
 linktitle: Tiêu đề và Chân trang
 type: docs
 weight: 140
@@ -15,131 +15,237 @@ keywords:
 - ghi chú
 - PowerPoint
 - OpenDocument
-- bản trình bày
+- bản trình chiếu
 - PHP
 - Aspose.Slides
-description: "Sử dụng Aspose.Slides for PHP via Java để thêm và tùy chỉnh tiêu đề và chân trang trong các bản trình bày PowerPoint và OpenDocument, tạo giao diện chuyên nghiệp."
+description: "Tìm hiểu cách quản lý các vị trí giữ chỗ chân trang, ngày‑giờ, số slide và tiêu đề trên slide, trang ghi chú và tài liệu phát tay với Aspose.Slides cho PHP thông qua Java."
 ---
 ## **Tổng quan**
 
-Aspose.Slides cho phép bạn quản lý cài đặt tiêu đề và chân trang trong các bản trình bày PowerPoint. Tiêu đề và chân trang được xử lý ở mức master của bản trình bày, và API cung cấp các phương thức để đặt văn bản chân trang, thay đổi hiển thị chân trang và cập nhật văn bản tiêu đề trên các slide ghi chú master.
+PowerPoint sử dụng các vị trí giữ chỗ tiêu đề và chân trang khác nhau tùy thuộc vào loại trang. Aspose.Slides cho PHP thông qua Java cho phép bạn kiểm soát văn bản và hiển thị của các vị trí này thông qua các lớp quản lý tiêu đề/chân trang.
 
-Bạn cũng có thể quản lý tiêu đề và chân trang cho các slide tài liệu phát tay và ghi chú. Điều này bao gồm việc thay đổi hiển thị và nội dung của các placeholder tiêu đề, chân trang, số slide và ngày‑giờ cho notes master, tất cả các slide ghi chú con hoặc một slide ghi chú riêng lẻ.
+Các vị trí giữ chỗ có sẵn phụ thuộc vào phạm vi:
 
-## **Quản lý Tiêu đề và Chân trang trong Bản trình bày**
+| Phạm vi | Tiêu đề | Chân trang | Ngày/giờ | Số slide/trang |
+|---|---|---|---|---|
+| Slide thường | Không | Có | Có | Có |
+| Mẫu ghi chú | Có | Có | Có | Có |
+| Slide ghi chú | Có | Có | Có | Có |
+| Mẫu tài liệu | Có | Có | Có | Có |
 
-Ghi chú của một số slide cụ thể có thể bị xóa như minh họa dưới đây:
+Một slide trình chiếu thông thường không có vị trí giữ chỗ tiêu đề. Tiêu đề có sẵn trên các trang ghi chú và tài liệu. Đối với các slide thường, hãy sử dụng các vị trí giữ chỗ chân trang, ngày/giờ và số slide thay thế.
 
-```php
-  # Tải bản trình bày
-  $pres = new Presentation("headerTest.pptx");
-  try {
-    # Đặt chân trang
-    $pres->getHeaderFooterManager()->setAllFootersText("My Footer text");
-    $pres->getHeaderFooterManager()->setAllFootersVisibility(true);
-    # Truy cập và Cập nhật tiêu đề
-    $masterNotesSlide = $pres->getMasterNotesSlideManager()->getMasterNotesSlide();
-    if (null != $masterNotesSlide) {
-      updateHeaderFooterText($masterNotesSlide);
-    }
-    # Lưu bản trình bày
-    $pres->save("HeaderFooterJava.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-```php
+Phạm vi của một thay đổi phụ thuộc vào trình quản lý bạn sử dụng. Lớp [`SlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/php-java/aspose.slides/slideheaderfootermanager/) điều khiển một slide thường. Lớp [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/php-java/aspose.slides/notesslideheaderfootermanager/) điều khiển một slide ghi chú. Trình quản lý mẫu và bố cục cũng có thể truyền các cài đặt tới các slide phụ thuộc, trong khi lớp [`MasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/php-java/aspose.slides/masterhandoutslideheaderfootermanager/) điều khiển mẫu tài liệu.
 
-```
+## **Đặt Chân trang, Ngày/Giờ và Số Slide trên Slide Thường**
 
-## **Quản lý Tiêu đề và Chân trang trên Slide Tài liệu và Ghi chú**
-Aspose.Slides for PHP via Java hỗ trợ Tiêu đề và Chân trang trong slide tài liệu và ghi chú. Vui lòng thực hiện các bước sau:
+Đối với các slide thường, quy trình cơ bản là truy cập trình quản lý tiêu đề/chân trang của từng slide, đặt văn bản chân trang và ngày/giờ, bật các vị trí giữ chỗ cần thiết và lưu bản trình chiếu. Số slide được tạo ra bởi bản trình chiếu, vì vậy bạn chỉ cần kiểm soát khả năng hiển thị của chúng.
 
-- Tải một [Bản trình bày](https://reference.aspose.com/slides/vi/php-java/aspose.slides/Presentation) chứa video.
-- Thay đổi cài đặt Tiêu đề và Chân trang cho notes master và tất cả các slide ghi chú.
-- Đặt các placeholder Chân trang của master notes slide và tất cả các placeholder con hiển thị.
-- Đặt các placeholder Ngày và giờ của master notes slide và tất cả các placeholder con hiển thị.
-- Thay đổi cài đặt Tiêu đề và Chân trang chỉ cho slide ghi chú đầu tiên.
-- Đặt placeholder Tiêu đề của slide ghi chú hiển thị.
-- Đặt văn bản cho placeholder Tiêu đề của slide ghi chú.
-- Đặt văn bản cho placeholder Ngày‑giờ của slide ghi chú.
-- Ghi file bản trình bày đã chỉnh sửa.
+Sử dụng [`setFooterText`](https://reference.aspose.com/slides/vi/php-java/aspose.slides/baseslideheaderfootermanager/setfootertext/) và [`setDateTimeText`](https://reference.aspose.com/slides/vi/php-java/aspose.slides/baseslideheaderfootermanager/setdatetimetext/) để đặt văn bản, và sử dụng [`setFooterVisibility`](https://reference.aspose.com/slides/vi/php-java/aspose.slides/baseslideheaderfootermanager/setfootervisibility/), [`setDateTimeVisibility`](https://reference.aspose.com/slides/vi/php-java/aspose.slides/baseslideheaderfootermanager/setdatetimevisibility/) và [`setSlideNumberVisibility`](https://reference.aspose.com/slides/vi/php-java/aspose.slides/baseslideheaderfootermanager/setslidenumbervisibility/) để hiển thị các vị trí giữ chỗ tương ứng.
 
-Đoạn mã mẫu được cung cấp trong Ví dụ dưới đây.
+Ví dụ toàn diện dưới đây áp dụng cùng một chân trang, văn bản ngày/giờ và hiển thị số slide cho tất cả các slide thường:
 
 ```php
-  $pres = new Presentation("presentation.pptx");
-  try {
-    # Thay đổi cài đặt Tiêu đề và Chân trang cho notes master và tất cả các slide ghi chú
-    $masterNotesSlide = $pres->getMasterNotesSlideManager()->getMasterNotesSlide();
-    if (!java_is_null($masterNotesSlide)) {
-      $headerFooterManager = $masterNotesSlide->getHeaderFooterManager();
-      $headerFooterManager->setHeaderAndChildHeadersVisibility(true);// làm cho master notes slide và tất cả placeholder Tiêu đề con hiển thị
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-      $headerFooterManager->setFooterAndChildFootersVisibility(true);// làm cho master notes slide và tất cả placeholder Chân trang con hiển thị
+$presentation = new Presentation("presentation.pptx");
+try {
+    foreach ($presentation->getSlides() as $slide) {
+        $headerFooterManager = $slide->getHeaderFooterManager();
 
-      $headerFooterManager->setSlideNumberAndChildSlideNumbersVisibility(true);// làm cho master notes slide và tất cả placeholder Số slide con hiển thị
-
-      $headerFooterManager->setDateTimeAndChildDateTimesVisibility(true);// làm cho master notes slide và tất cả placeholder Ngày và giờ con hiển thị
-
-      $headerFooterManager->setHeaderAndChildHeadersText("Header text");// đặt văn bản cho master notes slide và tất cả placeholder Tiêu đề con
-
-      $headerFooterManager->setFooterAndChildFootersText("Footer text");// đặt văn bản cho master notes slide và tất cả placeholder Chân trang con
-
-      $headerFooterManager->setDateTimeAndChildDateTimesText("Date and time text");// đặt văn bản cho master notes slide và tất cả placeholder Ngày và giờ con
-
-    }
-    # Thay đổi cài đặt Tiêu đề và Chân trang chỉ cho slide ghi chú đầu tiên
-    $notesSlide = $pres->getSlides()->get_Item(0)->getNotesSlideManager()->getNotesSlide();
-    if (!java_is_null($notesSlide)) {
-      $headerFooterManager = $notesSlide->getHeaderFooterManager();
-      if (!$headerFooterManager->isHeaderVisible()) {
-        $headerFooterManager->setHeaderVisibility(true);
-      }// làm cho placeholder Tiêu đề của slide ghi chú này hiển thị
-
-      if (!$headerFooterManager->isFooterVisible()) {
+        $headerFooterManager->setFooterText("Company Confidential");
         $headerFooterManager->setFooterVisibility(true);
-      }// làm cho placeholder Chân trang của slide ghi chú này hiển thị
 
-      if (!$headerFooterManager->isSlideNumberVisible()) {
-        $headerFooterManager->setSlideNumberVisibility(true);
-      }// làm cho placeholder Số slide của slide ghi chú này hiển thị
-
-      if (!$headerFooterManager->isDateTimeVisible()) {
+        $headerFooterManager->setDateTimeText("Date and time text");
         $headerFooterManager->setDateTimeVisibility(true);
-      }// làm cho placeholder Ngày‑giờ của slide ghi chú này hiển thị
 
-      $headerFooterManager->setHeaderText("New header text");// đặt văn bản cho placeholder Tiêu đề của slide ghi chú
-
-      $headerFooterManager->setFooterText("New footer text");// đặt văn bản cho placeholder Chân trang của slide ghi chú
-
-      $headerFooterManager->setDateTimeText("New date and time text");// đặt văn bản cho placeholder Ngày‑giờ của slide ghi chú
-
+        $headerFooterManager->setSlideNumberVisibility(true);
     }
-    $pres->save("testresult.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("presentation_with_slide_footers.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
+
+Nếu bạn cần cập nhật chỉ một slide, hãy truy cập slide đó trực tiếp thông qua phương thức [`getSlides`](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/getslides/) thay vì duyệt qua toàn bộ bộ sưu tập.
+
+## **Đặt Tiêu đề và Chân trang trên Mẫu Ghi chú**
+
+Mẫu ghi chú định nghĩa định dạng chung và hành vi vị trí giữ chỗ cho các trang ghi chú. Sử dụng lớp [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/php-java/aspose.slides/masternotesslideheaderfootermanager/) khi bạn muốn thay đổi chỉ mẫu ghi chú.
+
+Ví dụ dưới đây đặt tiêu đề, chân trang và văn bản ngày/giờ trên mẫu ghi chú và làm cho tất cả các vị trí giữ chỗ được hỗ trợ hiển thị trên mẫu đó:
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("presentation.pptx");
+try {
+    $masterNotesSlide = $presentation->getMasterNotesSlideManager()->getMasterNotesSlide();
+
+    if (!java_is_null($masterNotesSlide)) {
+        $headerFooterManager = $masterNotesSlide->getHeaderFooterManager();
+
+        $headerFooterManager->setHeaderText("Notes header");
+        $headerFooterManager->setHeaderVisibility(true);
+
+        $headerFooterManager->setFooterText("Notes footer");
+        $headerFooterManager->setFooterVisibility(true);
+
+        $headerFooterManager->setDateTimeText("Date and time text");
+        $headerFooterManager->setDateTimeVisibility(true);
+
+        $headerFooterManager->setSlideNumberVisibility(true);
+    }
+
+    $presentation->save("presentation_with_notes_master_footers.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Phương thức [`getMasterNotesSlide`](https://reference.aspose.com/slides/vi/php-java/aspose.slides/masternotesslidemanager/getmasternotesslide/) trả về `null` khi bản trình chiếu không chứa mẫu ghi chú.
+
+## **Áp dụng Cài đặt Mẫu Ghi chú cho Các Slide Ghi chú Con**
+
+Mẫu ghi chú có thể áp dụng các cài đặt tiêu đề và chân trang cho chính nó và cho tất cả các slide ghi chú phụ thuộc. Sử dụng các phương thức truyền đạt chuyên dụng trên [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/php-java/aspose.slides/masternotesslideheaderfootermanager/) khi cùng một cài đặt cần được áp dụng trên toàn bộ cây ghi chú.
+
+Ví dụ, [`setHeaderAndChildHeadersText`](https://reference.aspose.com/slides/vi/php-java/aspose.slides/masternotesslideheaderfootermanager/setheaderandchildheaderstext/) và [`setHeaderAndChildHeadersVisibility`](https://reference.aspose.com/slides/vi/php-java/aspose.slides/masternotesslideheaderfootermanager/setheaderandchildheadersvisibility/) cập nhật tiêu đề mẫu ghi chú và tất cả tiêu đề con. Các phương thức tương đương cũng có cho chân trang, ngày/giờ và số slide.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("presentation.pptx");
+try {
+    $masterNotesSlide = $presentation->getMasterNotesSlideManager()->getMasterNotesSlide();
+
+    if (!java_is_null($masterNotesSlide)) {
+        $headerFooterManager = $masterNotesSlide->getHeaderFooterManager();
+
+        $headerFooterManager->setHeaderAndChildHeadersText("Notes header");
+        $headerFooterManager->setHeaderAndChildHeadersVisibility(true);
+
+        $headerFooterManager->setFooterAndChildFootersText("Notes footer");
+        $headerFooterManager->setFooterAndChildFootersVisibility(true);
+
+        $headerFooterManager->setDateTimeAndChildDateTimesText("Date and time text");
+        $headerFooterManager->setDateTimeAndChildDateTimesVisibility(true);
+
+        $headerFooterManager->setSlideNumberAndChildSlideNumbersVisibility(true);
+    }
+
+    $presentation->save("presentation_with_child_notes_footers.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Các phương thức truyền đạt được sử dụng ở trên là [`setFooterAndChildFootersText`](https://reference.aspose.com/slides/vi/php-java/aspose.slides/masternotesslideheaderfootermanager/setfooterandchildfooterstext/), [`setFooterAndChildFootersVisibility`](https://reference.aspose.com/slides/vi/php-java/aspose.slides/masternotesslideheaderfootermanager/setfooterandchildfootersvisibility/), [`setDateTimeAndChildDateTimesText`](https://reference.aspose.com/slides/vi/php-java/aspose.slides/masternotesslideheaderfootermanager/setdatetimeandchilddatetimestext/), [`setDateTimeAndChildDateTimesVisibility`](https://reference.aspose.com/slides/vi/php-java/aspose.slides/masternotesslideheaderfootermanager/setdatetimeandchilddatetimesvisibility/), và [`setSlideNumberAndChildSlideNumbersVisibility`](https://reference.aspose.com/slides/vi/php-java/aspose.slides/masternotesslideheaderfootermanager/setslidenumberandchildslidenumbersvisibility/).
+
+## **Đặt Tiêu đề và Chân trang trên Slide Ghi chú Cá nhân**
+
+Slide ghi chú thuộc về một slide thường cụ thể. Sử dụng lớp [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/php-java/aspose.slides/notesslideheaderfootermanager/) khi bạn muốn tùy chỉnh chỉ trang ghi chú đó.
+
+Phương thức [`addNotesSlide`](https://reference.aspose.com/slides/vi/php-java/aspose.slides/notesslidemanager/addnotesslide/) trả về slide ghi chú cho slide hiện tại và tạo một slide nếu chưa tồn tại. Ví dụ dưới đây cấu hình trang ghi chú liên kết với slide trình chiếu đầu tiên:
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("presentation.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $notesSlide = $slide->getNotesSlideManager()->addNotesSlide();
+    $headerFooterManager = $notesSlide->getHeaderFooterManager();
+
+    $headerFooterManager->setHeaderText("Header for the first notes page");
+    $headerFooterManager->setHeaderVisibility(true);
+
+    $headerFooterManager->setFooterText("Footer for the first notes page");
+    $headerFooterManager->setFooterVisibility(true);
+
+    $headerFooterManager->setDateTimeText("Date and time text");
+    $headerFooterManager->setDateTimeVisibility(true);
+
+    $headerFooterManager->setSlideNumberVisibility(true);
+
+    $presentation->save("presentation_with_custom_notes_footers.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Nếu bạn đầu tiên truyền các cài đặt từ mẫu ghi chú và sau đó thay đổi một slide ghi chú cá nhân, các cài đặt riêng lẻ cho từng slide sẽ cho phép bạn tùy chỉnh trang ghi chú đó một cách độc lập.
+
+## **Đặt Tiêu đề và Chân trang trên Mẫu Tài liệu**
+
+Các trang tài liệu sử dụng mẫu tài liệu cho các vị trí giữ chỗ tiêu đề, chân trang, ngày/giờ và số trang. Không giống như các trang ghi chú, cài đặt tài liệu được quản lý thông qua mẫu tài liệu thay vì qua các slide tài liệu riêng lẻ.
+
+Sử dụng phương thức [`getMasterHandoutSlide`](https://reference.aspose.com/slides/vi/php-java/aspose.slides/masterhandoutslidemanager/getmasterhandoutslide/) để truy cập mẫu tài liệu. Nếu không có, gọi [`setDefaultMasterHandoutSlide`](https://reference.aspose.com/slides/vi/php-java/aspose.slides/masterhandoutslidemanager/setdefaultmasterhandoutslide/) để tạo mẫu tài liệu mặc định.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("presentation.pptx");
+try {
+    $masterHandoutSlide = $presentation->getMasterHandoutSlideManager()->getMasterHandoutSlide();
+
+    if (java_is_null($masterHandoutSlide)) {
+        $masterHandoutSlide = $presentation->getMasterHandoutSlideManager()->setDefaultMasterHandoutSlide();
+    }
+
+    if (!java_is_null($masterHandoutSlide)) {
+        $headerFooterManager = $masterHandoutSlide->getHeaderFooterManager();
+
+        $headerFooterManager->setHeaderText("Handout header");
+        $headerFooterManager->setHeaderVisibility(true);
+
+        $headerFooterManager->setFooterText("Handout footer");
+        $headerFooterManager->setFooterVisibility(true);
+
+        $headerFooterManager->setDateTimeText("Date and time text");
+        $headerFooterManager->setDateTimeVisibility(true);
+
+        $headerFooterManager->setSlideNumberVisibility(true);
+    }
+
+    $presentation->save("presentation_with_handout_footers.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Hiểu Phạm vi và Kế thừa**
+
+Chọn trình quản lý tiêu đề/chân trang phù hợp với phạm vi bạn muốn thay đổi:
+
+- [`SlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/php-java/aspose.slides/slideheaderfootermanager/) thay đổi cài đặt chân trang, ngày/giờ và số slide cho một slide thường.
+- [`LayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/php-java/aspose.slides/layoutslideheaderfootermanager/) điều khiển một slide bố cục và có thể truyền các cài đặt được hỗ trợ tới các slide phụ thuộc.
+- [`MasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/php-java/aspose.slides/masterslideheaderfootermanager/) điều khiển mẫu slide thường và có thể truyền các cài đặt được hỗ trợ tới các slide phụ thuộc.
+- [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/php-java/aspose.slides/masternotesslideheaderfootermanager/) điều khiển mẫu ghi chú và có thể truyền cài đặt tới tất cả các slide ghi chú phụ thuộc.
+- [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/php-java/aspose.slides/notesslideheaderfootermanager/) thay đổi một slide ghi chú và hỗ trợ vị trí giữ chỗ tiêu đề bên cạnh chân trang, ngày/giờ và số slide.
+- [`MasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/php-java/aspose.slides/masterhandoutslideheaderfootermanager/) thay đổi mẫu tài liệu và hỗ trợ tất cả bốn loại vị trí giữ chỗ.
+
+Sử dụng việc truyền từ một mẫu hoặc bố cục khi cùng một cài đặt cần áp dụng trên toàn bộ cây của nó. Sử dụng trình quản lý slide riêng lẻ hoặc slide‑ghi‑chú khi bạn cần một cài đặt cục bộ cho một trang.
 
 ## **FAQ**
 
-**Tôi có thể thêm “tiêu đề” vào các slide thông thường không?**
+**Tôi có thể thêm tiêu đề vào slide thường không?**
 
-Trong PowerPoint, “Tiêu đề” chỉ tồn tại cho ghi chú và tài liệu phát tay; trên các slide thông thường, các yếu tố được hỗ trợ là chân trang, ngày/giờ và số slide. Trong Aspose.Slides điều này cũng tương tự: tiêu đề chỉ dành cho Notes/Handout, còn trên slide thì có Chân trang/DateTime/SlideNumber.
+Không. PowerPoint không định nghĩa vị trí giữ chỗ tiêu đề cho slide thường. Trên slide thường, sử dụng các vị trí giữ chỗ chân trang, ngày/giờ và số slide. Vị trí giữ chỗ tiêu đề có sẵn trên các trang ghi chú và tài liệu.
 
-**Nếu bố cục không có vùng chân trang—tôi có thể “bật” hiển thị không?**
+**Nếu vị trí giữ chỗ chân trang, ngày/giờ hoặc số slide không hiển thị thì sao?**
 
-Có. Kiểm tra trạng thái hiển thị qua trình quản lý tiêu đề/chân trang và bật nó nếu cần. Các chỉ báo và phương thức API này được thiết kế cho trường hợp placeholder bị thiếu hoặc bị ẩn.
+Sử dụng trình quản lý tiêu đề/chân trang tương ứng để kiểm tra khả năng hiển thị và bật nó khi cần. Ví dụ, [`isFooterVisible`](https://reference.aspose.com/slides/vi/php-java/aspose.slides/baseslideheaderfootermanager/isfootervisible/) báo cáo liệu vị trí giữ chỗ chân trang có tồn tại hay không, và [`setFooterVisibility`](https://reference.aspose.com/slides/vi/php-java/aspose.slides/baseslideheaderfootermanager/setfootervisibility/) thay đổi khả năng hiển thị của nó.
 
-**Làm sao để số slide bắt đầu từ giá trị khác 1?**
+**Làm thế nào để bắt đầu đánh số slide từ giá trị khác 1?**
 
-Đặt [số slide đầu tiên](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/setfirstslidenumber/) cho bản trình bày; sau đó, tất cả các số sẽ được tính lại. Ví dụ, bạn có thể bắt đầu từ 0 hoặc 10, và ẩn số trên slide tiêu đề.
+Gọi phương thức [`setFirstSlideNumber`](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/setfirstslidenumber/) của bản trình chiếu. Các vị trí giữ chỗ số slide sau đó sẽ sử dụng chuỗi đánh số đã được cập nhật.
 
-**Tiêu đề/chân trang sẽ như thế nào khi xuất ra PDF/hình ảnh/HTML?**
+**Điều gì xảy ra với tiêu đề và chân trang khi xuất ra PDF, hình ảnh hoặc HTML?**
 
-Chúng được hiển thị như các thành phần văn bản thường của bản trình bày. Nghĩa là, nếu các yếu tố này hiển thị trên slide/ghi chú, chúng cũng sẽ xuất hiện trong định dạng đầu ra cùng với các nội dung còn lại.
+Các yếu tố tiêu đề và chân trang hiển thị sẽ được kết xuất cùng phần nội dung còn lại của bản trình chiếu trong định dạng đầu ra. Hiển thị của chúng phụ thuộc vào loại trang đang được xuất và các cài đặt khả năng hiển thị của vị trí giữ chỗ tương ứng.

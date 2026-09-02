@@ -1,141 +1,247 @@
 ---
-title: Beheer presentatiekoppen en -voetteksten in JavaScript
-linktitle: Koptekst & Voettekst
+title: Beheer presentatiekopt- en voetteksten in JavaScript
+linktitle: Koptekst en Voettekst
 type: docs
 weight: 140
 url: /nl/nodejs-java/presentation-header-and-footer/
 keywords:
-  - koptekst
-  - koptekst tekst
-  - voettekst
-  - voettekst tekst
-  - koptekst instellen
-  - voettekst instellen
-  - hand-out
-  - notities
-  - PowerPoint
-  - OpenDocument
-  - presentatie
-  - Node.js
-  - JavaScript
-  - Aspose.Slides
-description: "Gebruik JavaScript en Aspose.Slides voor Node.js om kop- en voetteksten toe te voegen en aan te passen in PowerPoint- en OpenDocument-presentaties voor een professionele uitstraling."
+- koptekst
+- koptekst tekst
+- voettekst
+- voettekst tekst
+- koptekst instellen
+- voettekst instellen
+- handout
+- notities
+- PowerPoint
+- OpenDocument
+- presentatie
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Leer hoe u koptekst-, voettekst-, datum-tijd- en dia-nummer-plaatsaanduidingen op dia's, notitiepagina's en handouts kunt beheren met Aspose.Slides voor Node.js via Java."
 ---
 ## **Overzicht**
 
-Aspose.Slides stelt u in staat de instellingen voor kop- en voetteksten in PowerPoint‑presentaties te beheren. Kop‑ en voetteksten worden op het niveau van de présentatiemaster beheerd, en de API biedt methoden om de voettekst in te stellen, de zichtbaarheid van de voettekst te wijzigen en de koptekst op master‑notitieslides bij te werken.
+PowerPoint gebruikt verschillende kop‑ en voettekst‑plaatsaanduidingen afhankelijk van het paginatype. Aspose.Slides voor Node.js via Java stelt u in staat de tekst en zichtbaarheid van deze plaatsaanduidingen te beheersen via kop‑/voettekst‑managerklassen.
 
-U kunt ook kop‑ en voetteksten beheren voor hand‑out‑ en notitieslides. Dit omvat het wijzigen van de zichtbaarheid en tekst van kop‑, voettekst‑, dia‑nummer‑ en datum‑tijd‑plaatsaanduiders voor de notities‑master, alle onderliggende notitieslides of een individuele notitieslide.
+De beschikbare plaatsaanduidingen hangen af van de reikwijdte:
 
-## **Kop‑ en voettekst beheren in presentatie**
-Notities van een specifieke dia kunnen worden verwijderd zoals weergegeven in het voorbeeld hieronder:
+| Bereik | Koptekst | Voettekst | Datum/tijd | Dia-/paginanummer |
+|---|---|---|---|---|
+| Reguliere dia | Nee | Ja | Ja | Ja |
+| Notitie‑master | Ja | Ja | Ja | Ja |
+| Notitiedia | Ja | Ja | Ja | Ja |
+| Handout‑master | Ja | Ja | Ja | Ja |
+
+Een regulier presentatiedia heeft geen koptekst‑plaatsaanduiding. Kopteksten zijn beschikbaar op notitiepagina’s en handouts. Voor reguliere dia’s gebruikt u in plaats daarvan de voettekst‑, datum/tijd‑ en dia‑nummer‑plaatsaanduidingen.
+
+De reikwijdte van een wijziging hangt af van de manager die u gebruikt. De [`SlideHeaderFooterManager`](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/slideheaderfootermanager/) klasse stuurt één regulier dia aan. De [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/notesslideheaderfootermanager/) klasse stuurt één notitiedia aan. Master‑ en layout‑managers kunnen de instellingen ook doorvoeren naar afhankelijke dia’s, terwijl de [`MasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/masterhandoutslideheaderfootermanager/) klasse de handout‑master beheert.
+
+## **Voettekst, datum/tijd en dia‑nummers instellen op reguliere dia’s**
+
+Voor reguliere dia’s bestaat de basisworkflow uit het benaderen van de kop‑/voettekst‑manager van elke dia, het instellen van de voettekst‑ en datum/tijd‑tekst, het inschakelen van de benodigde plaatsaanduidingen, en het opslaan van de presentatie. Dia‑nummers worden door de presentatie gegenereerd, dus u hoeft alleen hun zichtbaarheid te regelen.
+
+Gebruik [`setFooterText`](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setFooterText) en [`setDateTimeText`](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setDateTimeText) om tekst in te stellen, en gebruik [`setFooterVisibility`](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setFooterVisibility), [`setDateTimeVisibility`](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setDateTimeVisibility) en [`setSlideNumberVisibility`](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setSlideNumberVisibility) om de overeenkomstige plaatsaanduidingen weer te geven.
+
+Het volgende end‑to‑end‑voorbeeld past dezelfde voettekst, datum/tijd‑tekst en dia‑nummer‑zichtbaarheid toe op alle reguliere dia’s:
 
 ```javascript
-// Presentatie laden
-var pres = new aspose.slides.Presentation("headerTest.pptx");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
 try {
-    // Voettekst instellen
-    pres.getHeaderFooterManager().setAllFootersText("My Footer text");
-    pres.getHeaderFooterManager().setAllFootersVisibility(true);
-    // Koptekst openen en bijwerken
-    var masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
-    if (null != masterNotesSlide) {
-        updateHeaderFooterText(masterNotesSlide);
+    for (let i = 0; i < presentation.getSlides().size(); i++) {
+        const slide = presentation.getSlides().get_Item(i);
+        const headerFooterManager = slide.getHeaderFooterManager();
+
+        headerFooterManager.setFooterText("Company Confidential");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
     }
-    // Presentatie opslaan
-    pres.save("HeaderFooterJava.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("presentation_with_slide_footers.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-```javascript
-function updateHeaderFooterText(master) {
-    let shapes = master.getShapes();
-    for (let i = 0; i < shapes.size(); i++) {
-        let shape = shapes.get_Item(i); 
-        if (shape.getPlaceholder() !== null) {
-            if (shape.getPlaceholder().getType() === aspose.PlaceholderType.Header) {
-                shape.getTextFrame().setText("HI there new header");
-            }
-        }
-    }
+    presentation.dispose();
 }
 ```
 
-## **Kop‑ en voettekst beheren in hand‑out‑ en notitieslides**
-Aspose.Slides voor Node.js via Java ondersteunt kop‑ en voettekst in hand‑out‑ en notitieslides. Volg de onderstaande stappen:
+Als u slechts één dia wilt bijwerken, benader dan die dia rechtstreeks via de [`getSlides`](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/getslides/)‑methode in plaats van door de volledige collectie te itereren.
 
-- Laad een [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Presentation) die een video bevat.
-- Wijzig de kop‑ en voettekstinstellingen voor de notities‑master en alle notitieslides.
-- Maak de voettekst‑plaatsaanduidingen op de master‑notitieslide en alle onderliggende slides zichtbaar.
-- Maak de datum‑en‑tijd‑plaatsaanduidingen op de master‑notitieslide en alle onderliggende slides zichtbaar.
-- Wijzig de kop‑ en voettekstinstellingen alleen voor de eerste notitieslide.
-- Maak de kop‑plaatsaanduiding op de notitieslide zichtbaar.
-- Stel de tekst in voor de kop‑plaatsaanduiding van de notitieslide.
-- Stel de tekst in voor de datum‑tijd‑plaatsaanduiding van de notitieslide.
-- Schrijf het gewijzigde presentatiebestand.
+## **Kop‑ en voetteksten instellen op de notitie‑master**
 
-Code‑fragment wordt hieronder gegeven.
+De notitie‑master bepaalt gemeenschappelijke opmaak en plaatsaanduidingsgedrag voor notitiepagina’s. Gebruik de [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/) klasse wanneer u alleen de notitie‑master zelf wilt wijzigen.
+
+Het volgende voorbeeld stelt koptekst, voettekst en datum/tijd‑tekst in op de notitie‑master en maakt alle ondersteunde plaatsaanduidingen zichtbaar op die master:
 
 ```javascript
-var pres = new aspose.slides.Presentation("presentation.pptx");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
 try {
-    // Wijzig kop- en voettekstinstellingen voor de notities-master en alle notitieslides
-    var masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
-    if (masterNotesSlide != null) {
-        var headerFooterManager = masterNotesSlide.getHeaderFooterManager();
-        headerFooterManager.setHeaderAndChildHeadersVisibility(true);// maak de master-notitieslide en alle onderliggende voettekst-plaatsaanduidingen zichtbaar
-        headerFooterManager.setFooterAndChildFootersVisibility(true);// maak de master-notitieslide en alle onderliggende koptekst-plaatsaanduidingen zichtbaar
-        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);// maak de master-notitieslide en alle onderliggende dia-nummer-plaatsaanduidingen zichtbaar
-        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);// maak de master-notitieslide en alle onderliggende datum-en-tijd-plaatsaanduidingen zichtbaar
-        headerFooterManager.setHeaderAndChildHeadersText("Header text");// stel tekst in voor de master-notitieslide en alle onderliggende koptekst-plaatsaanduidingen
-        headerFooterManager.setFooterAndChildFootersText("Footer text");// stel tekst in voor de master-notitieslide en alle onderliggende voettekst-plaatsaanduidingen
-        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");// stel tekst in voor de master-notitieslide en alle onderliggende datum-en-tijd-plaatsaanduidingen
+    const masterNotesSlide = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
+
+    if (masterNotesSlide !== null) {
+        const headerFooterManager = masterNotesSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderText("Notes header");
+        headerFooterManager.setHeaderVisibility(true);
+
+        headerFooterManager.setFooterText("Notes footer");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
     }
-    // Wijzig kop- en voettekstinstellingen alleen voor de eerste notitieslide
-    var notesSlide = pres.getSlides().get_Item(0).getNotesSlideManager().getNotesSlide();
-    if (notesSlide != null) {
-        var headerFooterManager = notesSlide.getHeaderFooterManager();
-        if (!headerFooterManager.isHeaderVisible()) {
-            headerFooterManager.setHeaderVisibility(true);
-        }// maak deze notitieslide-koptekst-plaatsaanduiding zichtbaar
-        if (!headerFooterManager.isFooterVisible()) {
-            headerFooterManager.setFooterVisibility(true);
-        }// maak deze notitieslide-voettekst-plaatsaanduiding zichtbaar
-        if (!headerFooterManager.isSlideNumberVisible()) {
-            headerFooterManager.setSlideNumberVisibility(true);
-        }// maak deze notitieslide-dia-nummer-plaatsaanduiding zichtbaar
-        if (!headerFooterManager.isDateTimeVisible()) {
-            headerFooterManager.setDateTimeVisibility(true);
-        }// maak deze notitieslide-datum-tijd-plaatsaanduiding zichtbaar
-        headerFooterManager.setHeaderText("New header text");// stel tekst in voor de notitieslide-koptekst-plaatsaanduiding
-        headerFooterManager.setFooterText("New footer text");// stel tekst in voor de notitieslide-voettekst-plaatsaanduiding
-        headerFooterManager.setDateTimeText("New date and time text");// stel tekst in voor de notitieslide-datum-tijd-plaatsaanduiding
-    }
-    pres.save("testresult.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("presentation_with_notes_master_footers.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
+
+De [`getMasterNotesSlide`](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/masternotesslidemanager/#getMasterNotesSlide) methode retourneert `null` wanneer de presentatie geen notitie‑master bevat.
+
+## **Instellingen van de notitie‑master toepassen op onderliggende notitiedia’s**
+
+Een notitie‑master kan de kop‑ en voettekstinstellingen toepassen op zichzelf en op alle afhankelijke notitiedia’s. Gebruik de speciale propagatiemethoden op de [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/) wanneer dezelfde instellingen over de hele notitie‑hiërarchie moeten worden toegepast.
+
+Bijvoorbeeld, [`setHeaderAndChildHeadersText`](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setHeaderAndChildHeadersText) en [`setHeaderAndChildHeadersVisibility`](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setHeaderAndChildHeadersVisibility) werken de notitie‑master‑koptekst en alle onderliggende kopteksten bij. Gelijkwaardige methoden zijn beschikbaar voor voetteksten, datum/tijd en dia‑nummers.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
+try {
+    const masterNotesSlide = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
+
+    if (masterNotesSlide !== null) {
+        const headerFooterManager = masterNotesSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderAndChildHeadersText("Notes header");
+        headerFooterManager.setHeaderAndChildHeadersVisibility(true);
+
+        headerFooterManager.setFooterAndChildFootersText("Notes footer");
+        headerFooterManager.setFooterAndChildFootersVisibility(true);
+
+        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
+        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
+
+        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
+    }
+
+    presentation.save("presentation_with_child_notes_footers.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+De propagatiemethoden die hierboven werden gebruikt, zijn [`setFooterAndChildFootersText`](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setFooterAndChildFootersText), [`setFooterAndChildFootersVisibility`](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setFooterAndChildFootersVisibility), [`setDateTimeAndChildDateTimesText`](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesText), [`setDateTimeAndChildDateTimesVisibility`](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesVisibility) en [`setSlideNumberAndChildSlideNumbersVisibility`](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setSlideNumberAndChildSlideNumbersVisibility).
+
+## **Kop‑ en voetteksten instellen op een individuele notitiedia**
+
+Een notitiedia behoort tot een specifieke reguliere dia. Gebruik de [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/notesslideheaderfootermanager/) klasse wanneer u alleen die notitiepagina wilt aanpassen.
+
+De [`addNotesSlide`](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/notesslidemanager/#addNotesSlide) methode retourneert de notitiedia voor de huidige dia en maakt er een aan als deze nog niet bestaat. Het volgende voorbeeld configureert de notitiepagina die bij de eerste presentatiedia hoort:
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const headerFooterManager = slide.getNotesSlideManager().addNotesSlide().getHeaderFooterManager();
+
+    headerFooterManager.setHeaderText("Header for the first notes page");
+    headerFooterManager.setHeaderVisibility(true);
+
+    headerFooterManager.setFooterText("Footer for the first notes page");
+    headerFooterManager.setFooterVisibility(true);
+
+    headerFooterManager.setDateTimeText("Date and time text");
+    headerFooterManager.setDateTimeVisibility(true);
+
+    headerFooterManager.setSlideNumberVisibility(true);
+
+    presentation.save("presentation_with_custom_notes_footers.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Als u eerst instellingen van de notitie‑master doorvoert en daarna een individuele notitiedia wijzigt, laten de latere per‑dia‑instellingen u die notitiepagina onafhankelijk aanpassen.
+
+## **Kop‑ en voetteksten instellen op de handout‑master**
+
+Handout‑pagina’s gebruiken de handout‑master voor hun kop‑, voettekst‑, datum/tijd‑ en paginanummer‑plaatsaanduidingen. In tegenstelling tot notitiepagina’s worden handout‑instellingen beheerd via de handout‑master in plaats van via individuele handout‑dia’s.
+
+Gebruik [`getMasterHandoutSlide`](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/masterhandoutslidemanager/#getMasterHandoutSlide) om de handout‑master te benaderen. Als deze niet aanwezig is, roep dan [`setDefaultMasterHandoutSlide`](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/masterhandoutslidemanager/#setDefaultMasterHandoutSlide) aan om de standaard handout‑master te creëren.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
+try {
+    let masterHandoutSlide = presentation.getMasterHandoutSlideManager().getMasterHandoutSlide();
+
+    if (masterHandoutSlide === null) {
+        masterHandoutSlide = presentation.getMasterHandoutSlideManager().setDefaultMasterHandoutSlide();
+    }
+
+    if (masterHandoutSlide !== null) {
+        const headerFooterManager = masterHandoutSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderText("Handout header");
+        headerFooterManager.setHeaderVisibility(true);
+
+        headerFooterManager.setFooterText("Handout footer");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
+    }
+
+    presentation.save("presentation_with_handout_footers.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Begrijp reikwijdte en overerving**
+
+Kies de kop‑/voettekst‑manager die overeenkomt met de reikwijdte die u wilt wijzigen:
+
+- [`SlideHeaderFooterManager`](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/slideheaderfootermanager/) wijzigt voettekst-, datum/tijd- en dia‑nummerinstellingen voor één reguliere dia.
+- [`LayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/layoutslideheaderfootermanager/) beheert een layout‑dia en kan ondersteunde instellingen doorvoeren naar afhankelijke dia’s.
+- [`MasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/masterslideheaderfootermanager/) beheert een reguliere dia‑master en kan ondersteunde instellingen doorvoeren naar afhankelijke dia’s.
+- [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/) beheert de notitie‑master en kan instellingen doorvoeren naar alle afhankelijke notitiedia’s.
+- [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/notesslideheaderfootermanager/) wijzigt één notitiedia en ondersteunt een koptekst‑plaatsaanduiding naast voettekst, datum/tijd en dia‑nummer.
+- [`MasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/masterhandoutslideheaderfootermanager/) wijzigt de handout‑master en ondersteunt alle vier de plaatsaanduidingstypen.
+
+Gebruik propagatie vanaf een master of layout wanneer dezelfde instelling door de hele hiërarchie moet gelden. Gebruik een individuele dia‑ of notitiedia‑manager wanneer u een lokale instelling voor één pagina nodig heeft.
 
 ## **FAQ**
 
-**Kan ik een “kop” toevoegen aan gewone slides?**
+**Kan ik een koptekst toevoegen aan een regulier dia?**
 
-In PowerPoint bestaat een “kop” alleen voor notities en hand‑outs; op gewone slides zijn de ondersteunde elementen de voettekst, datum/tijd en dia‑nummer. In Aspose.Slides is dit dezelfde beperking: kop alleen voor Notes/Handout, en op slides – Footer/DateTime/SlideNumber.
+Nee. PowerPoint definieert geen koptekst‑plaatsaanduiding voor reguliere dia’s. Op reguliere dia’s gebruikt u de voettekst‑, datum/tijd‑ en dia‑nummer‑plaatsaanduidingen. Koptekst‑plaatsaanduidingen zijn beschikbaar op notitiepagina’s en handouts.
 
-**Wat als de lay‑out geen voettekstgebied bevat — kan ik de zichtbaarheid “activeren”?**
+**Wat als een voettekst‑, datum/tijd‑ of dia‑nummer‑plaatsaanduiding niet zichtbaar is?**
 
-Ja. Controleer de zichtbaarheid via de kop‑/voettekst‑beheerder en schakel deze in indien nodig. Deze API‑indicatoren en methoden zijn bedoeld voor situaties waarin de plaatsaanduiding ontbreekt of verborgen is.
+Gebruik de overeenkomstige kop‑/voettekst‑manager om de zichtbaarheid te controleren en deze in te schakelen wanneer nodig. Bijvoorbeeld, [`isFooterVisible`](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/baseslideheaderfootermanager/#isFooterVisible) meldt of een voettekst‑plaatsaanduiding aanwezig is, en [`setFooterVisibility`](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setFooterVisibility) wijzigt de zichtbaarheid.
 
-**Hoe kan ik het dia‑nummer laten beginnen bij een waarde anders dan 1?**
+**Hoe start ik de dia‑nummering vanaf een andere waarde dan 1?**
 
-Stel het eerste dia‑nummer van de presentatie in; daarna wordt alle nummering opnieuw berekend. U kunt bijvoorbeeld beginnen bij 0 of 10 en het nummer op de titel‑slide verbergen.
+Roep de [`setFirstSlideNumber`](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/setfirstslidenumber/)‑methode van de presentatie aan. De dia‑nummer‑plaatsaanduidingen gebruiken vervolgens de bijgewerkte nummeringsreeks.
 
-**Wat gebeurt er met kop‑ en voetteksten bij export naar PDF/afbeeldingen/HTML?**
+**Wat gebeurt er met kop‑ en voetteksten bij het exporteren naar PDF, afbeeldingen of HTML?**
 
-Ze worden gerenderd als gewone textelementen van de presentatie. Dat wil zeggen, als de elementen zichtbaar zijn op dia‑/notitiespagina’s, verschijnen ze ook in het uitvoerformaat, samen met de rest van de inhoud.
+Zichtbare kop‑ en voettekstelementen worden samen met de rest van de presentatiewaarde gerenderd in het uitvoerformaat. Hun weergave hangt af van het paginatype dat wordt geëxporteerd en de bijbehorende plaatsaanduiding‑zichtbaarheidsinstellingen.

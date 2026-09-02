@@ -1,143 +1,247 @@
 ---
-title: JavaScript में प्रस्तुति हेडर और फुटर का प्रबंधन
-linktitle: हेडर और फुटर
+title: जावास्क्रिप्ट में प्रस्तुति हेडर और फ़ूटर प्रबंधित करें
+linktitle: हेडर और फ़ूटर
 type: docs
 weight: 140
 url: /hi/nodejs-java/presentation-header-and-footer/
 keywords:
 - हेडर
 - हेडर टेक्स्ट
-- फुटर
-- फुटर टेक्स्ट
+- फ़ूटर
+- फ़ूटर टेक्स्ट
 - हेडर सेट करें
-- फुटर सेट करें
+- फ़ूटर सेट करें
 - हैंडआउट
 - नोट्स
 - PowerPoint
 - OpenDocument
 - प्रस्तुति
 - Node.js
-- JavaScript
+- जावास्क्रिप्ट
 - Aspose.Slides
-description: "JavaScript और Aspose.Slides for Node.js का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में हेडर और फुटर जोड़ें और उन्हें अनुकूलित करें ताकि पेशेवर रूप प्राप्त हो।"
+description: "Aspose.Slides for Node.js via Java के साथ स्लाइड्स, नोट्स पेज और हैंडआउट्स में फ़ूटर, तारीख‑समय, स्लाइड‑नंबर और हेडर प्लेसहोल्डर कैसे प्रबंधित करें, सीखें।"
 ---
-## **अवलोकन**
+## **सारांश**
 
-Aspose.Slides आपको PowerPoint प्रस्तुतियों में हेडर और फुटर सेटिंग्स को प्रबंधित करने की अनुमति देता है। हेडर और फुटर प्रस्तुति मास्टर स्तर पर संभाले जाते हैं, और API फुटर टेक्स्ट सेट करने, फुटर दृश्यमानता बदलने, और मास्टर नोट्स स्लाइड्स पर हेडर टेक्स्ट अपडेट करने के लिए मेथड्स प्रदान करता है।
+PowerPoint पृष्ठ प्रकार के आधार पर विभिन्न हैडर और फ़ूटर प्लेसहोल्डर का उपयोग करता है। Aspose.Slides for Node.js via Java आपको इन प्लेसहोल्डर के पाठ और दृश्यता को हैडर/फ़ूटर मैनेजर क्लासों के माध्यम से नियंत्रित करने की अनुमति देता है।
 
-आप हैंडआउट और नोट्स स्लाइड्स के लिए भी हेडर और फुटर का प्रबंधन कर सकते हैं। इसमें नोट्स मास्टर, सभी चाइल्ड नोट्स स्लाइड्स, या व्यक्तिगत नोट्स स्लाइड के लिए हेडर, फुटर, स्लाइड क्रमांक, और तिथि‑समय प्लेसहोल्डर्स की दृश्यमानता और टेक्स्ट बदलना शामिल है।
+उपलब्ध प्लेसहोल्डर परिधि पर निर्भर करते हैं:
 
-## **प्रेजेंटेशन में हेडर और फुटर प्रबंधन**
+| परिधि | हैडर | फ़ूटर | तारीख/समय | स्लाइड/पेज संख्या |
+|---|---|---|---|---|
+| सामान्य स्लाइड | नहीं | हाँ | हाँ | हाँ |
+| नोट्स मास्टर | हाँ | हाँ | हाँ | हाँ |
+| नोट्स स्लाइड | हाँ | हाँ | हाँ | हाँ |
+| हैंडआउट मास्टर | हाँ | हाँ | हाँ | हाँ |
 
-नीचे के उदाहरण में दिखाए अनुसार कुछ विशिष्ट स्लाइड की नोट्स को हटाया जा सकता है:
+एक सामान्य प्रस्तुति स्लाइड में हैडर प्लेसहोल्डर नहीं होता। हैडर नोट्स पेज और हैंडआउट पर उपलब्ध होते हैं। सामान्य स्लाइड्स के लिए फ़ूटर, तारीख/समय, और स्लाइड-नंबर प्लेसहोल्डर का उपयोग करें।
+
+परिवर्तन की परिधि उस मैनेजर पर निर्भर करती है जिसे आप उपयोग करते हैं। [`SlideHeaderFooterManager`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/slideheaderfootermanager/) क्लास एक सामान्य स्लाइड को नियंत्रित करती है। [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/notesslideheaderfootermanager/) क्लास एक नोट्स स्लाइड को नियंत्रित करती है। मास्टर और लेआउट मैनेजर भी सेटिंग्स को निर्भर स्लाइड्स तक प्रसारित कर सकते हैं, जबकि [`MasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/masterhandoutslideheaderfootermanager/) क्लास हैंडआउट मास्टर को नियंत्रित करती है।
+
+## **सामान्य स्लाइड्स पर फ़ूटर, तारीख/समय, और स्लाइड नंबर सेट करें**
+
+सामान्य स्लाइड्स के लिए बुनियादी कार्यप्रवाह यह है कि प्रत्येक स्लाइड के हैडर/फ़ूटर मैनेजर तक पहुँचें, फ़ूटर और तारीख/समय का पाठ सेट करें, आवश्यक प्लेसहोल्डर को सक्षम करें, और प्रस्तुति को सहेजें। स्लाइड नंबर प्रस्तुति द्वारा उत्पन्न होते हैं, इसलिए आपको केवल उनकी दृश्यता नियंत्रित करनी होती है।
+
+पाठ सेट करने के लिए [`setFooterText`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setFooterText) और [`setDateTimeText`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setDateTimeText) का उपयोग करें, तथा संबंधित प्लेसहोल्डर दिखाने के लिए [`setFooterVisibility`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setFooterVisibility), [`setDateTimeVisibility`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setDateTimeVisibility), और [`setSlideNumberVisibility`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setSlideNumberVisibility) का उपयोग करें।
+
+निम्नलिखित अंत‑से‑अंत उदाहरण सभी सामान्य स्लाइड्स पर समान फ़ूटर, तारीख/समय पाठ, और स्लाइड‑नंबर दृश्यता लागू करता है:
 
 ```javascript
-// प्रस्तुति लोड करें
-var pres = new aspose.slides.Presentation("headerTest.pptx");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
 try {
-    // फुटर सेट करना
-    pres.getHeaderFooterManager().setAllFootersText("My Footer text");
-    pres.getHeaderFooterManager().setAllFootersVisibility(true);
-    // हेडर तक पहुंचें और अपडेट करें
-    var masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
-    if (null != masterNotesSlide) {
-        updateHeaderFooterText(masterNotesSlide);
+    for (let i = 0; i < presentation.getSlides().size(); i++) {
+        const slide = presentation.getSlides().get_Item(i);
+        const headerFooterManager = slide.getHeaderFooterManager();
+
+        headerFooterManager.setFooterText("Company Confidential");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
     }
-    // प्रस्तुति सहेजें
-    pres.save("HeaderFooterJava.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("presentation_with_slide_footers.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-```javascript
-function updateHeaderFooterText(master) {
-    let shapes = master.getShapes();
-    for (let i = 0; i < shapes.size(); i++) {
-        let shape = shapes.get_Item(i); 
-        if (shape.getPlaceholder() !== null) {
-            if (shape.getPlaceholder().getType() === aspose.PlaceholderType.Header) {
-                shape.getTextFrame().setText("HI there new header");
-            }
-        }
-    }
+    presentation.dispose();
 }
 ```
 
-## **हैंडआउट और नोट्स स्लाइड्स में हेडर और फुटर का प्रबंधन**
+यदि आपको केवल एक स्लाइड को अपडेट करना है, तो पूरे संग्रह को इटरित करने के बजाय [`getSlides`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/getslides/) मेथड के द्वारा सीधे उस स्लाइड तक पहुँचें।
 
-Aspose.Slides for Node.js via Java हैंडआउट और नोट्स स्लाइड्स में हेडर और फुटर का समर्थन करता है। कृपया नीचे दिए गए चरणों का पालन करें:
+## **नोट्स मास्टर पर हैडर और फ़ूटर सेट करें**
 
-- एक वीडियो वाली [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/Presentation) लोड करें।
-- नोट्स मास्टर और सभी नोट्स स्लाइड्स के लिए हेडर और फुटर सेटिंग्स बदलें।
-- मास्टर नोट्स स्लाइड और सभी चाइल्ड फुटर प्लेसहोल्डर्स को दृश्यमान सेट करें।
-- मास्टर नोट्स स्लाइड और सभी चाइल्ड तिथि एवं समय प्लेसहोल्डर्स को दृश्यमान सेट करें।
-- केवल पहली नोट्स स्लाइड के लिए हेडर और फुटर सेटिंग्स बदलें।
-- नोट्स स्लाइड हेडर प्लेसहोल्डर को दृश्यमान सेट करें।
-- नोट्स स्लाइड हेडर प्लेसहोल्डर के टेक्स्ट को सेट करें।
-- नोट्स स्लाइड तिथि‑समय प्लेसहोल्डर के टेक्स्ट को सेट करें।
-- संशोधित प्रेजेंटेशन फ़ाइल लिखें।
+नोट्स मास्टर नोट्स पेज के लिए सामान्य फॉर्मेटिंग और प्लेसहोल्डर व्यवहार को परिभाषित करता है। जब आप केवल नोट्स मास्टर को बदलना चाहते हैं, तो [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/) क्लास का उपयोग करें।
 
-नीचे के उदाहरण में कोड स्निपेट प्रदान किया गया है।
+निम्न उदाहरण नोट्स मास्टर पर हैडर, फ़ूटर, और तारीख/समय पाठ सेट करता है और उस मास्टर पर सभी समर्थित प्लेसहोल्डर को दृश्य बनाता है:
 
 ```javascript
-var pres = new aspose.slides.Presentation("presentation.pptx");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
 try {
-    // नोट्स मास्टर और सभी नोट्स स्लाइड्स के लिए हेडर और फुटर सेटिंग्स बदलें
-    var masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
-    if (masterNotesSlide != null) {
-        var headerFooterManager = masterNotesSlide.getHeaderFooterManager();
-        headerFooterManager.setHeaderAndChildHeadersVisibility(true);// मास्टर नोट्स स्लाइड और सभी चाइल्ड फुटर प्लेसहोल्डर्स को दृश्यमान बनाएं
-        headerFooterManager.setFooterAndChildFootersVisibility(true);// मास्टर नोट्स स्लाइड और सभी चाइल्ड हेडर प्लेसहोल्डर्स को दृश्यमान बनाएं
-        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);// मास्टर नोट्स स्लाइड और सभी चाइल्ड स्लाइडनंबर प्लेसहोल्डर्स को दृश्यमान बनाएं
-        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);// मास्टर नोट्स स्लाइड और सभी चाइल्ड तिथि और समय प्लेसहोल्डर्स को दृश्यमान बनाएं
-        headerFooterManager.setHeaderAndChildHeadersText("Header text");// मास्टर नोट्स स्लाइड और सभी चाइल्ड हेडर प्लेसहोल्डर्स पर टेक्स्ट सेट करें
-        headerFooterManager.setFooterAndChildFootersText("Footer text");// मास्टर नोट्स स्लाइड और सभी चाइल्ड फुटर प्लेसहोल्डर्स पर टेक्स्ट सेट करें
-        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");// मास्टर नोट्स स्लाइड और सभी चाइल्ड तिथि और समय प्लेसहोल्डर्स पर टेक्स्ट सेट करें
+    const masterNotesSlide = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
+
+    if (masterNotesSlide !== null) {
+        const headerFooterManager = masterNotesSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderText("Notes header");
+        headerFooterManager.setHeaderVisibility(true);
+
+        headerFooterManager.setFooterText("Notes footer");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
     }
-    // केवल पहली नोट्स स्लाइड के लिए हेडर और फुटर सेटिंग्स बदलें
-    var notesSlide = pres.getSlides().get_Item(0).getNotesSlideManager().getNotesSlide();
-    if (notesSlide != null) {
-        var headerFooterManager = notesSlide.getHeaderFooterManager();
-        if (!headerFooterManager.isHeaderVisible()) {
-            headerFooterManager.setHeaderVisibility(true);
-        }// इस नोट्स स्लाइड के हेडर प्लेसहोल्डर को दृश्यमान बनाएं
-        if (!headerFooterManager.isFooterVisible()) {
-            headerFooterManager.setFooterVisibility(true);
-        }// इस नोट्स स्लाइड के फुटर प्लेसहोल्डर को दृश्यमान बनाएं
-        if (!headerFooterManager.isSlideNumberVisible()) {
-            headerFooterManager.setSlideNumberVisibility(true);
-        }// इस नोट्स स्लाइड के स्लाइडनंबर प्लेसहोल्डर को दृश्यमान बनाएं
-        if (!headerFooterManager.isDateTimeVisible()) {
-            headerFooterManager.setDateTimeVisibility(true);
-        }// इस नोट्स स्लाइड के तिथि‑समय प्लेसहोल्डर को दृश्यमान बनाएं
-        headerFooterManager.setHeaderText("New header text");// नोट्स स्लाइड के हेडर प्लेसहोल्डर पर टेक्स्ट सेट करें
-        headerFooterManager.setFooterText("New footer text");// नोट्स स्लाइड के फुटर प्लेसहोल्डर पर टेक्स्ट सेट करें
-        headerFooterManager.setDateTimeText("New date and time text");// नोट्स स्लाइड के तिथि‑समय प्लेसहोल्डर पर टेक्स्ट सेट करें
-    }
-    pres.save("testresult.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("presentation_with_notes_master_footers.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
+
+[`getMasterNotesSlide`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/masternotesslidemanager/#getMasterNotesSlide) मेथड तब `null` लौटाता है जब प्रस्तुति में नोट्स मास्टर मौजूद नहीं होता।
+
+## **नोट्स मास्टर सेटिंग्स को चाइल्ड नोट्स स्लाइड्स पर लागू करें**
+
+एक नोट्स मास्टर हैडर और फ़ूटर सेटिंग्स को स्वयं तथा सभी निर्भर नोट्स स्लाइड्स पर लागू कर सकता है। जब समान सेटिंग्स नोट्स पदानुक्रम के सभी स्तरों पर लागू करनी हों, तो [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/) पर समर्पित प्रसार मेथड का उपयोग करें।
+
+उदाहरण के लिए, [`setHeaderAndChildHeadersText`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setHeaderAndChildHeadersText) और [`setHeaderAndChildHeadersVisibility`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setHeaderAndChildHeadersVisibility) नोट्स मास्टर हैडर और सभी चाइल्ड हैडर को अपडेट करते हैं। फ़ूटर, तारीख/समय, और स्लाइड नंबर के लिए समान मेथड उपलब्ध हैं।
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
+try {
+    const masterNotesSlide = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
+
+    if (masterNotesSlide !== null) {
+        const headerFooterManager = masterNotesSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderAndChildHeadersText("Notes header");
+        headerFooterManager.setHeaderAndChildHeadersVisibility(true);
+
+        headerFooterManager.setFooterAndChildFootersText("Notes footer");
+        headerFooterManager.setFooterAndChildFootersVisibility(true);
+
+        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
+        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
+
+        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
+    }
+
+    presentation.save("presentation_with_child_notes_footers.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+ऊपर उपयोग किए गए प्रसार मेथड हैं [`setFooterAndChildFootersText`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setFooterAndChildFootersText), [`setFooterAndChildFootersVisibility`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setFooterAndChildFootersVisibility), [`setDateTimeAndChildDateTimesText`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesText), [`setDateTimeAndChildDateTimesVisibility`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesVisibility), और [`setSlideNumberAndChildSlideNumbersVisibility`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setSlideNumberAndChildSlideNumbersVisibility)।
+
+## **एक व्यक्तिगत नोट्स स्लाइड पर हैडर और फ़ूटर सेट करें**
+
+एक नोट्स स्लाइड एक विशिष्ट सामान्य स्लाइड से संबंधित होती है। जब आप केवल उस नोट्स पेज को अनुकूलित करना चाहते हैं, तो उसके [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/notesslideheaderfootermanager/) क्लास का उपयोग करें।
+
+[`addNotesSlide`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/notesslidemanager/#addNotesSlide) मेथड वर्तमान स्लाइड के लिए नोट्स स्लाइड लौटाता है और यदि वह पहले से मौजूद नहीं है तो एक नया बनाता है। निम्न उदाहरण प्रथम प्रस्तुति स्लाइड से संबद्ध नोट्स पेज को कॉन्फ़िगर करता है:
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const headerFooterManager = slide.getNotesSlideManager().addNotesSlide().getHeaderFooterManager();
+
+    headerFooterManager.setHeaderText("Header for the first notes page");
+    headerFooterManager.setHeaderVisibility(true);
+
+    headerFooterManager.setFooterText("Footer for the first notes page");
+    headerFooterManager.setFooterVisibility(true);
+
+    headerFooterManager.setDateTimeText("Date and time text");
+    headerFooterManager.setDateTimeVisibility(true);
+
+    headerFooterManager.setSlideNumberVisibility(true);
+
+    presentation.save("presentation_with_custom_notes_footers.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+यदि आप पहले नोट्स मास्टर से सेटिंग्स प्रसारित करें और फिर एक व्यक्तिगत नोट्स स्लाइड बदलें, तो बाद की प्रति‑स्लाइड सेटिंग्स आपको उस नोट्स पेज को स्वतंत्र रूप से अनुकूलित करने की अनुमति देती हैं।
+
+## **हैंडआउट मास्टर पर हैडर और फ़ूटर सेट करें**
+
+हैंडआउट पेज अपने हैडर, फ़ूटर, तारीख/समय, और पेज‑नंबर प्लेसहोल्डर के लिए हैंडआउट मास्टर का उपयोग करता है। नोट्स पेज के विपरीत, हैंडआउट सेटिंग्स व्यक्तिगत हैंडआउट स्लाइड्स के बजाय हैंडआउट मास्टर के माध्यम से प्रबंधित की जाती हैं।
+
+[`getMasterHandoutSlide`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/masterhandoutslidemanager/#getMasterHandoutSlide) का उपयोग करके हैंडआउट मास्टर तक पहुँचें। यदि वह मौजूद नहीं है, तो डिफ़ॉल्ट हैंडआउट मास्टर बनाने के लिए [`setDefaultMasterHandoutSlide`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/masterhandoutslidemanager/#setDefaultMasterHandoutSlide) को कॉल करें।
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
+try {
+    let masterHandoutSlide = presentation.getMasterHandoutSlideManager().getMasterHandoutSlide();
+
+    if (masterHandoutSlide === null) {
+        masterHandoutSlide = presentation.getMasterHandoutSlideManager().setDefaultMasterHandoutSlide();
+    }
+
+    if (masterHandoutSlide !== null) {
+        const headerFooterManager = masterHandoutSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderText("Handout header");
+        headerFooterManager.setHeaderVisibility(true);
+
+        headerFooterManager.setFooterText("Handout footer");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
+    }
+
+    presentation.save("presentation_with_handout_footers.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **परिधि और वारिसी को समझें**
+
+उस हैडर/फ़ूटर मैनेजर को चुनें जो आप जिस परिधि को बदलना चाहते हैं, उसके साथ मेल खाता हो:
+
+- [`SlideHeaderFooterManager`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/slideheaderfootermanager/) एक सामान्य स्लाइड के फ़ूटर, तारीख/समय, और स्लाइड‑नंबर सेटिंग्स बदलता है।
+- [`LayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/layoutslideheaderfootermanager/) एक लेआउट स्लाइड को नियंत्रित करता है और समर्थित सेटिंग्स को निर्भर स्लाइड्स तक प्रसारित कर सकता है।
+- [`MasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/masterslideheaderfootermanager/) एक सामान्य स्लाइड मास्टर को नियंत्रित करता है और समर्थित सेटिंग्स को निर्भर स्लाइड्स तक प्रसारित कर सकता है।
+- [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/) नोट्स मास्टर को नियंत्रित करता है और सभी निर्भर नोट्स स्लाइड्स तक सेटिंग्स प्रसारित कर सकता है।
+- [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/notesslideheaderfootermanager/) एक नोट्स स्लाइड को बदलता है और फ़ूटर, तारीख/समय, स्लाइड नंबर के साथ एक हैडर प्लेसहोल्डर का समर्थन करता है।
+- [`MasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/masterhandoutslideheaderfootermanager/) हैंडआउट मास्टर को बदलता है और चारों प्रकार के प्लेसहोल्डर को समर्थन देता है।
+
+जब समान सेटिंग पूरे पदानुक्रम में लागू होनी हो, तो मास्टर या लेआउट से प्रसार करें। जब एक पेज के लिए स्थानीय सेटिंग आवश्यक हो, तो व्यक्तिगत स्लाइड या नोट्स‑स्लाइड मैनेजर का उपयोग करें।
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या मैं नियमित स्लाइड्स में "header" जोड़ सकता हूँ?**
+**क्या मैं सामान्य स्लाइड पर हैडर जोड़ सकता हूँ?**
 
-PowerPoint में, "Header" केवल नोट्स और हैंडआउट के लिए ही मौजूद है; नियमित स्लाइड्स पर समर्थित तत्व फुटर, तिथि/समय, और स्लाइड क्रमांक हैं। Aspose.Slides में भी यही सीमाएँ लागू होती हैं: हेडर केवल नोट्स/हैंडआउट के लिए, और स्लाइड्स पर—Footer/DateTime/SlideNumber।
+नहीं। PowerPoint सामान्य स्लाइड्स के लिए हैडर प्लेसहोल्डर निर्धारित नहीं करता। सामान्य स्लाइड्स पर फ़ूटर, तारीख/समय, और स्लाइड‑नंबर प्लेसहोल्डर का उपयोग करें। हैडर प्लेसहोल्डर नोट्स पेज और हैंडआउट पर उपलब्ध होते हैं।
 
-**यदि लेआउट में फुटर क्षेत्र नहीं है—क्या मैं उसकी दृश्यमानता "चालू" कर सकता हूँ?**
+**यदि फ़ूटर, तारीख/समय, या स्लाइड‑नंबर प्लेसहोल्डर दिखाई नहीं दे रहा है तो क्या करें?**
 
-हाँ। हेडर/फुटर मैनेजर द्वारा दृश्यमानता जांचें और आवश्यक होने पर इसे सक्षम करें। ये API संकेतक और मेथड्स उन मामलों के लिए डिज़ाइन किए गए हैं जब प्लेसहोल्डर अनुपस्थित या छिपा हो।
+संबंधित हैडर/फ़ूटर मैनेजर का उपयोग करके उसकी दृश्यता जांचें और आवश्यक होने पर उसे सक्षम करें। उदाहरण के लिए, [`isFooterVisible`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/baseslideheaderfootermanager/#isFooterVisible) दर्शाता है कि फ़ूटर प्लेसहोल्डर मौजूद है या नहीं, और [`setFooterVisibility`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setFooterVisibility) उसकी दृश्यता बदलता है।
 
-**मैं स्लाइड क्रमांक को 1 के अलावा किसी मान से शुरू कैसे करूँ?**
+**मैं स्लाइड नंबरिंग को 1 के अलावा किसी अन्य मान से कैसे शुरू करूँ?**
 
-प्रेजेंटेशन का [first slide number](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/setfirstslidenumber/) सेट करें; इसके बाद सभी क्रमांकन पुनः गणना हो जाता है। उदाहरण के लिए, आप 0 या 10 से शुरू कर सकते हैं, और टाइटल स्लाइड पर क्रमांक को छिपा सकते हैं।
+प्रेजेंटेशन के [`setFirstSlideNumber`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/setfirstslidenumber/) मेथड को कॉल करें। तब स्लाइड‑नंबर प्लेसहोल्डर अपडेटेड क्रमांक अनुक्रम का उपयोग करेंगे।
 
-**PDF/इमेज/HTML में निर्यात करते समय हेडर/फुटर पर क्या प्रभाव पड़ता है?**
+**PDF, इमेज या HTML में निर्यात करते समय हैडर और फ़ूटर का क्या होता है?**
 
-वे प्रेजेंटेशन के सामान्य टेक्स्ट तत्वों के रूप में रेंडर होते हैं। अर्थात, यदि तत्व स्लाइड्स/नोट्स पृष्ठों पर दृश्यमान हैं, तो वे आउटपुट फ़ॉर्मेट में बाकी सामग्री के साथ दिखाई देंगे।
+दृश्यमान हैडर और फ़ूटर तत्व आउटपुट फ़ॉर्मेट में प्रस्तुति की शेष सामग्री के साथ रेंडर होते हैं। उनका रूपांतरण निर्यात किए जा रहे पेज प्रकार और संबंधित प्लेसहोल्डर दृश्यता सेटिंग्स पर निर्भर करता है।

@@ -1,17 +1,17 @@
 ---
-title: Android'de Sunum Üst ve Alt Bilgilerini Yönetme
-linktitle: Üst Bilgi & Alt Bilgi
+title: Android'de Sunum Başlık ve Alt Bilgilerini Yönetme
+linktitle: Başlık ve Alt Bilgi
 type: docs
 weight: 140
 url: /tr/androidjava/presentation-header-and-footer/
 keywords:
-- üst bilgi
-- üst bilgi metni
+- başlık
+- başlık metni
 - alt bilgi
 - alt bilgi metni
-- üst bilgi ayarla
+- başlık ayarla
 - alt bilgi ayarla
-- el kitabı
+- dağıtım
 - notlar
 - PowerPoint
 - OpenDocument
@@ -19,126 +19,229 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Profesyonel bir görünüm için PowerPoint ve OpenDocument sunumlarına üst ve alt bilgiler eklemek ve özelleştirmek amacıyla Java aracılığıyla Android için Aspose.Slides kullanın."
+description: "Aspose.Slides for Android via Java ile slaytlarda, not sayfalarında ve dağıtımlarda alt bilgi, tarih-saat, slayt-numarası ve başlık yer tutucularını nasıl yöneteceğinizi öğrenin."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides, PowerPoint sunumlarında üst bilgi ve alt bilgi ayarlarını yönetmenizi sağlar. Üst ve alt bilgiler sunum ana sayfası düzeyinde ele alınır ve API, alt bilgi metnini ayarlama, alt bilginin görünürlüğünü değiştirme ve ana not slaytlarındaki üst bilgi metnini güncelleme yöntemleri sunar.
+PowerPoint sayfa türüne göre farklı başlık ve alt bilgi yer tutucuları kullanır. Aspose.Slides for Android via Java, bu yer tutucuların metnini ve görünürlüğünü başlık/alt bilgi yöneticisi arayüzleri aracılığıyla kontrol etmenizi sağlar.
 
-Ayrıca el kitabı ve not slaytları için üst ve alt bilgileri yönetebilirsiniz. Bu, not ana sayfası, tüm alt not slaytları veya tek bir not slaytı için üst bilgi, alt bilgi, slayt numarası ve tarih‑zaman yer tutucularının görünürlüğünü ve metnini değiştirmeyi içerir.
+Mevcut yer tutucular kapsamına bağlıdır:
 
-## **Sunumda Üst ve Alt Bilgileri Yönetme**
-Bazı belirli bir slaytın notları aşağıdaki örnekte gösterildiği gibi kaldırılabilir:
+| Kapsam | Başlık | Alt Bilgi | Tarih/Zaman | Slayt/sayfa numarası |
+|---|---|---|---|---|
+| Normal slayt | Hayır | Evet | Evet | Evet |
+| Notlar ana | Evet | Evet | Evet | Evet |
+| Not slaytı | Evet | Evet | Evet | Evet |
+| Dağıtım ana | Evet | Evet | Evet | Evet |
+
+Normal bir sunum slaytının başlık yer tutucusu yoktur. Başlıklar not sayfalarında ve dağıtım sayfalarında bulunur. Normal slaytlar için bunun yerine alt bilgi, tarih/zaman ve slayt‑numarası yer tutucularını kullanın.
+
+Bir değişikliğin kapsamı kullandığınız yönetime bağlıdır. [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/islideheaderfootermanager/) arayüzü bir normal slaytı kontrol eder. [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/inotesslideheaderfootermanager/) arayüzü bir not slaytını kontrol eder. Ana ve yerleşim yöneticileri ayrıca ayarları bağımlı slaytlara yayabilir, buna karşın [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imasterhandoutslideheaderfootermanager/) arayüzü dağıtım ana sayfasını kontrol eder.
+
+## **Normal Slaytlarda Alt Bilgi, Tarih/Zaman ve Slayt Numaralarını Ayarlama**
+
+Normal slaytlar için temel iş akışı, her slaytın başlık/alt bilgi yöneticisine erişmek, alt bilgi ve tarih/zaman metnini ayarlamak, gerekli yer tutucuları etkinleştirmek ve sunumu kaydetmektir. Slayt numaraları sunum tarafından oluşturulur, bu yüzden yalnızca görünürlüklerini kontrol etmeniz yeterlidir.
+
+[`setFooterText`](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/baseslideheaderfootermanager/#setFooterText-java.lang.String-) ve [`setDateTimeText`](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/baseslideheaderfootermanager/#setDateTimeText-java.lang.String-) metodlarını metin ayarlamak için kullanın ve [`setFooterVisibility`](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/baseslideheaderfootermanager/#setFooterVisibility-boolean-), [`setDateTimeVisibility`](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/baseslideheaderfootermanager/#setDateTimeVisibility-boolean-), ve [`setSlideNumberVisibility`](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/baseslideheaderfootermanager/#setSlideNumberVisibility-boolean-) metodlarını ilgili yer tutucuları göstermek için kullanın.
+
+Aşağıdaki uçtan uca örnek aynı alt bilgi, tarih/zaman metnini ve slayt‑numarası görünürlüğünü tüm normal slaytlara uygular:
 
 ```java
-// Sunumu Yükle
-Presentation pres = new Presentation("headerTest.pptx");
-try {
-    // Alt Bilgiyi Ayarlama
-    pres.getHeaderFooterManager().setAllFootersText("My Footer text");
-    pres.getHeaderFooterManager().setAllFootersVisibility(true);
+import com.aspose.slides.*;
 
-    // Üst Bilgiye Eriş ve Güncelle
-    IMasterNotesSlide masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
-    if (null != masterNotesSlide)
-    {
-        updateHeaderFooterText(masterNotesSlide);
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        ISlideHeaderFooterManager headerFooterManager = slide.getHeaderFooterManager();
+
+        headerFooterManager.setFooterText("Company Confidential");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
     }
 
-    // Sunumu Kaydet
-    pres.save("HeaderFooterJava.pptx", SaveFormat.Pptx);
+    presentation.save("presentation_with_slide_footers.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
-}
-```
-```java
-// Üst Bilgi/Alt Bilgi Metnini Ayarlama Yöntemi
-public static void updateHeaderFooterText(IBaseSlide master)
-{
-    for (IShape shape : master.getShapes())
-    {
-        if (shape.getPlaceholder() != null)
-        {
-            if (shape.getPlaceholder().getType() == PlaceholderType.Header)
-            {
-                ((IAutoShape)shape).getTextFrame().setText("HI there new header");
-            }
-        }
-    }
+    presentation.dispose();
 }
 ```
 
-## **El Kitabı ve Not Slaytlarında Üst ve Alt Bilgileri Yönetme**
-Aspose.Slides for Android via Java, El kitabı ve not slaytlarında Üst ve Alt Bilgileri destekler. Lütfen aşağıdaki adımları izleyin:
+Yalnızca bir slaytı güncellemeniz gerekiyorsa, tüm koleksiyonu döngüyle gezmek yerine [`getSlides`](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/#getSlides--) yöntemiyle o slayta doğrudan erişin.
 
-- Video içeren bir [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/Presentation) yükleyin.
-- Not ana sayfası ve tüm not slaytları için Üst ve Alt Bilgi ayarlarını değiştirin.
-- Ana not slaytındaki ve tüm alt Footer yer tutucularını görünür olarak ayarlayın.
-- Ana not slaytındaki ve tüm alt Date and time yer tutucularını görünür olarak ayarlayın.
-- Yalnızca ilk not slaytı için Üst ve Alt Bilgi ayarlarını değiştirin.
-- Not slaytındaki Üst Bilgi yer tutucusunu görünür yapın.
-- Not slaytı Üst Bilgi yer tutucusuna metin atayın.
-- Not slaytı Date-time yer tutucusuna metin atayın.
-- Değiştirilmiş sunum dosyasını yazın.
+## **Notlar Ana Sayfasında Başlık ve Alt Bilgileri Ayarlama**
 
-Aşağıdaki örnekte kod bölümü sağlanmıştır.
+Notlar ana sayfası, not sayfaları için ortak biçimlendirme ve yer tutucu davranışını tanımlar. Yalnızca notlar ana sayfasını değiştirmek istediğinizde [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/) arayüzünü kullanın.
+
+Aşağıdaki örnek notlar ana sayfasında başlık, alt bilgi ve tarih/zaman metnini ayarlar ve o ana sayfadaki tüm desteklenen yer tutucuları görünür kılar:
 
 ```java
-Presentation pres = new Presentation("presentation.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    // Not ana sayfası ve tüm not slaytları için Üst ve Alt Bilgi ayarlarını değiştir
-    IMasterNotesSlide masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
-    if (masterNotesSlide != null)
-    {
+    IMasterNotesSlide masterNotesSlide = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
+
+    if (masterNotesSlide != null) {
         IMasterNotesSlideHeaderFooterManager headerFooterManager = masterNotesSlide.getHeaderFooterManager();
 
-        headerFooterManager.setHeaderAndChildHeadersVisibility(true); // ana not slaytını ve tüm alt Footer yer tutucularını görünür yap
-        headerFooterManager.setFooterAndChildFootersVisibility(true); // ana not slaytını ve tüm alt Header yer tutucularını görünür yap
-        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true); // ana not slaytını ve tüm alt SlideNumber yer tutucularını görünür yap
-        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true); // ana not slaytını ve tüm alt Date and time yer tutucularını görünür yap
+        headerFooterManager.setHeaderText("Notes header");
+        headerFooterManager.setHeaderVisibility(true);
 
-        headerFooterManager.setHeaderAndChildHeadersText("Header text"); // metni ana not slaytı ve tüm alt Header yer tutucularına ayarla
-        headerFooterManager.setFooterAndChildFootersText("Footer text"); // metni ana not slaytı ve tüm alt Footer yer tutucularına ayarla
-        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text"); // metni ana not slaytı ve tüm alt Date and time yer tutucularına ayarla
+        headerFooterManager.setFooterText("Notes footer");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
     }
 
-    // İlk not slaytı için yalnızca Üst ve Alt Bilgi ayarlarını değiştir
-    INotesSlide notesSlide = pres.getSlides().get_Item(0).getNotesSlideManager().getNotesSlide();
-    if (notesSlide != null)
-    {
-        INotesSlideHeaderFooterManager headerFooterManager = notesSlide.getHeaderFooterManager();
-        if (!headerFooterManager.isHeaderVisible())
-            headerFooterManager.setHeaderVisibility(true); // bu not slaytının Header yer tutucusunu görünür yap
-
-        if (!headerFooterManager.isFooterVisible())
-            headerFooterManager.setFooterVisibility(true); // bu not slaytının Footer yer tutucusunu görünür yap
-
-        if (!headerFooterManager.isSlideNumberVisible())
-            headerFooterManager.setSlideNumberVisibility(true); // bu not slaytının SlideNumber yer tutucusunu görünür yap
-
-        if (!headerFooterManager.isDateTimeVisible())
-            headerFooterManager.setDateTimeVisibility(true); // bu not slaytının Date-time yer tutucusunu görünür yap
-
-        headerFooterManager.setHeaderText("New header text"); // metni not slaytı Header yer tutucusuna ayarla
-        headerFooterManager.setFooterText("New footer text"); // metni not slaytı Footer yer tutucusuna ayarla
-        headerFooterManager.setDateTimeText("New date and time text"); // metni not slaytı Date-time yer tutucusuna ayarla
-    }
-    pres.save("testresult.pptx",SaveFormat.Pptx);
+    presentation.save("presentation_with_notes_master_footers.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+[`getMasterNotesSlide`](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imasternotesslidemanager/#getMasterNotesSlide--) yöntemi, sunum bir notlar ana sayfası içermediğinde `null` döndürür.
+
+## **Notlar Ana Ayarlarını Alt Not Slaytlarına Uygulama**
+
+Bir notlar ana sayfası, başlık ve alt bilgi ayarlarını kendisine ve tüm bağımlı not slaytlarına uygulayabilir. Aynı ayarların not hiyerarşisi boyunca uygulanması gerektiğinde [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/) üzerindeki özel yayma yöntemlerini kullanın.
+
+Örneğin, [`setHeaderAndChildHeadersText`](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/#setHeaderAndChildHeadersText-java.lang.String-) ve [`setHeaderAndChildHeadersVisibility`](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/#setHeaderAndChildHeadersVisibility-boolean-) notlar ana sayfası başlığını ve tüm alt başlıkları günceller. Alt bilgiler, tarih/zaman ve slayt numaraları için eşdeğer yöntemler mevcuttur.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterNotesSlide masterNotesSlide = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
+
+    if (masterNotesSlide != null) {
+        IMasterNotesSlideHeaderFooterManager headerFooterManager = masterNotesSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderAndChildHeadersText("Notes header");
+        headerFooterManager.setHeaderAndChildHeadersVisibility(true);
+
+        headerFooterManager.setFooterAndChildFootersText("Notes footer");
+        headerFooterManager.setFooterAndChildFootersVisibility(true);
+
+        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
+        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
+
+        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
+    }
+
+    presentation.save("presentation_with_child_notes_footers.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Yukarıda kullanılan yayma yöntemleri şunlardır: [`setFooterAndChildFootersText`](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/#setFooterAndChildFootersText-java.lang.String-), [`setFooterAndChildFootersVisibility`](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/#setFooterAndChildFootersVisibility-boolean-), [`setDateTimeAndChildDateTimesText`](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesText-java.lang.String-), [`setDateTimeAndChildDateTimesVisibility`](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesVisibility-boolean-), ve [`setSlideNumberAndChildSlideNumbersVisibility`](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/#setSlideNumberAndChildSlideNumbersVisibility-boolean-).
+
+## **Tek Bir Not Slaytında Başlık ve Alt Bilgileri Ayarlama**
+
+Bir not slaytı belirli bir normal slayta aittir. Yalnızca o not sayfasını özelleştirmek istediğinizde onun [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/inotesslideheaderfootermanager/) arayüzünü kullanın.
+
+[`addNotesSlide`](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/inotesslidemanager/#addNotesSlide--) yöntemi mevcut slayt için not slaytını döndürür ve mevcut değilse bir tane oluşturur. Aşağıdaki örnek ilk sunum slaytıyla ilişkili not sayfasını yapılandırır:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    INotesSlide notesSlide = slide.getNotesSlideManager().addNotesSlide();
+    INotesSlideHeaderFooterManager headerFooterManager = notesSlide.getHeaderFooterManager();
+
+    headerFooterManager.setHeaderText("Header for the first notes page");
+    headerFooterManager.setHeaderVisibility(true);
+
+    headerFooterManager.setFooterText("Footer for the first notes page");
+    headerFooterManager.setFooterVisibility(true);
+
+    headerFooterManager.setDateTimeText("Date and time text");
+    headerFooterManager.setDateTimeVisibility(true);
+
+    headerFooterManager.setSlideNumberVisibility(true);
+
+    presentation.save("presentation_with_custom_notes_footers.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Önce notlar ana sayfasından ayarları yayar, ardından tek bir not slaytını değiştirirseniz, daha sonraki slayt‑başına ayarlar o not sayfasını bağımsız olarak özelleştirmenizi sağlar.
+
+## **Dağıtım Ana Sayfasında Başlık ve Alt Bilgileri Ayarlama**
+
+Dağıtım sayfaları, başlık, alt bilgi, tarih/zaman ve sayfa numarası yer tutucuları için dağıtım ana sayfasını kullanır. Not sayfalarının aksine, dağıtım ayarları tek tek dağıtım slaytları yerine dağıtım ana sayfası üzerinden yönetilir.
+
+[`getMasterHandoutSlide`](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imasterhandoutslidemanager/#getMasterHandoutSlide--) yöntemini dağıtım ana sayfasına erişmek için kullanın. Eğer mevcut değilse, varsayılan dağıtım ana sayfasını oluşturmak için `[`setDefaultMasterHandoutSlide`](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imasterhandoutslidemanager/#setDefaultMasterHandoutSlide--)` çağırın.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterHandoutSlide masterHandoutSlide = presentation.getMasterHandoutSlideManager().getMasterHandoutSlide();
+
+    if (masterHandoutSlide == null) {
+        masterHandoutSlide = presentation.getMasterHandoutSlideManager().setDefaultMasterHandoutSlide();
+    }
+
+    if (masterHandoutSlide != null) {
+        IMasterHandoutSlideHeaderFooterManager headerFooterManager = masterHandoutSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderText("Handout header");
+        headerFooterManager.setHeaderVisibility(true);
+
+        headerFooterManager.setFooterText("Handout footer");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
+    }
+
+    presentation.save("presentation_with_handout_footers.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Kapsam ve Kalıtımı Anlama**
+
+Kapsamını değiştirmek istediğiniz başlık/alt bilgi yöneticisini seçin:
+
+- [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/islideheaderfootermanager/) bir normal slayt için alt bilgi, tarih/zaman ve slayt‑numarası ayarlarını değiştirir.
+- [`ILayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ilayoutslideheaderfootermanager/) bir yerleşim slaytını kontrol eder ve desteklenen ayarları bağımlı slaytlara yayabilir.
+- [`IMasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imasterslideheaderfootermanager/) bir normal slayt ana sayfasını kontrol eder ve desteklenen ayarları bağımlı slaytlara yayabilir.
+- [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/) notlar ana sayfasını kontrol eder ve tüm bağımlı not slaytlarına ayarları yayabilir.
+- [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/inotesslideheaderfootermanager/) bir not slaytını değiştirir ve alt bilgi, tarih/zaman ve slayt numarasına ek olarak bir başlık yer tutucusunu da destekler.
+- [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/imasterhandoutslideheaderfootermanager/) dağıtım ana sayfasını değiştirir ve dört yer tutucu tipinin tamamını destekler.
+
+Aynı ayarın hiyerarşisinin tamamına uygulanması gerektiğinde bir ana ya da yerleşimden yayım kullanın. Tek bir sayfa için yerel bir ayara ihtiyaç duyduğunuzda bireysel slayt ya da not‑slayt yöneticisini kullanın.
 
 ## **SSS**
 
-**Normal slaytlara bir "üst bilgi" ekleyebilir miyim?**  
-PowerPoint'te "Üst Bilgi" yalnızca notlar ve el kitapları için vardır; normal slaytlarda desteklenen öğeler alt bilgi, tarih/zaman ve slayt numarasıdır. Aspose.Slides'te de aynı sınırlamalar geçerlidir: üst bilgi yalnızca Notlar/El Kitapları için, slaytlarda ise Alt Bilgi/TarihZaman/SlaytNumarası.
+**Normal bir slayta başlık ekleyebilir miyim?**
 
-**Düzen bir alt bilgi alanı içermiyorsa—görünürlüğünü "açabilir" miyim?**  
-Evet. Görünürlüğü üst/alt bilgi yöneticisi aracılığıyla kontrol edin ve gerekirse etkinleştirin. Bu API göstergeleri ve yöntemleri, yer tutucu eksik veya gizli olduğunda kullanılmak üzere tasarlanmıştır.
+Hayır. PowerPoint normal slaytlar için bir başlık yer tutucusu tanımlamaz. Normal slaytlarda alt bilgi, tarih/zaman ve slayt‑numarası yer tutucularını kullanın. Başlık yer tutucuları not sayfalarında ve dağıtımlarda mevcuttur.
 
-**Slayt numarasının 1 yerine farklı bir değerden başlamasını nasıl sağlarım?**  
-Sunumun [first slide number](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/#setFirstSlideNumber-int-) ayarlayın; bundan sonra tüm numaralandırma yeniden hesaplanır. Örneğin, 0 veya 10'dan başlayabilir ve başlık slaytında numarayı gizleyebilirsiniz.
+**Alt bilgi, tarih/zaman veya slayt‑numarası yer tutucusu görünür değilse ne olur?**
 
-**PDF/görseller/HTML'ye dışa aktarırken üst/alt bilgiler ne olur?**  
-Üst ve alt bilgiler, sunumun normal metin öğeleri olarak işlenir. Yani, bu öğeler slaytlarda/not sayfalarında görünürse, çıktı formatında da içerikle birlikte görüntülenir.
+İlgili başlık/alt bilgi yöneticisini kullanarak görünürlüğünü kontrol edin ve gerektiğinde etkinleştirin. Örneğin, [`isFooterVisible`](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/baseslideheaderfootermanager/#isFooterVisible--) bir alt bilgi yer tutucusunun mevcut olup olmadığını bildirir ve [`setFooterVisibility`](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/baseslideheaderfootermanager/#setFooterVisibility-boolean-) görünürlüğünü değiştirir.
+
+**Slayt numaralandırmasını 1'den farklı bir değerden nasıl başlatırım?**
+
+Sunumun [`setFirstSlideNumber`](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/#setFirstSlideNumber-int-) metodunu çağırın. Slayt‑numarası yer tutucuları ardından güncellenmiş numaralandırma dizisini kullanır.
+
+**Başlık ve alt bilgiler PDF, resimler veya HTML olarak dışa aktarıldığında ne olur?**
+
+Görünür başlık ve alt bilgi öğeleri, çıktı formatında sunum içeriğinin geri kalanıyla birlikte işlenir. Görünüşleri, dışa aktarılacak sayfa türüne ve ilgili yer tutucu görünürlük ayarlarına bağlıdır.

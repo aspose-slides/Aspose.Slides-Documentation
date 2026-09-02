@@ -1,6 +1,6 @@
 ---
 title: Hantera presentationens sidhuvuden och sidfötter i JavaScript
-linktitle: Sidhuvud & Sidfot
+linktitle: Sidhuvud och sidfot
 type: docs
 weight: 140
 url: /sv/nodejs-java/presentation-header-and-footer/
@@ -11,7 +11,7 @@ keywords:
 - sidfotstext
 - ange sidhuvud
 - ange sidfot
-- handout
+- utdelning
 - anteckningar
 - PowerPoint
 - OpenDocument
@@ -19,123 +19,229 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Använd JavaScript och Aspose.Slides för Node.js för att lägga till och anpassa sidhuvuden och sidfötter i PowerPoint- och OpenDocument-presentationer för ett professionellt utseende."
+description: "Lär dig hur du hanterar sidfot-, datum-tid-, bild-nummer- och sidhuvud-platshållare på bilder, anteckningssidor och utdelningar med Aspose.Slides för Node.js via Java."
 ---
 ## **Översikt**
 
-Aspose.Slides låter dig hantera inställningar för sidhuvud och sidfot i PowerPoint‑presentationer. Sidhuvuden och sidfötter hanteras på presentations‑masternivå, och API‑et erbjuder metoder för att ange sidfotstext, ändra sidfotens synlighet och uppdatera sidhuvudstext på master‑noteringsbilder.
+PowerPoint använder olika platshållare för sidhuvud och sidfot beroende på sidtyp. Aspose.Slides för Node.js via Java låter dig kontrollera texten och synligheten för dessa platshållare via klasser för sidhuvud/sidfots‑hanterare.
 
-Du kan även hantera sidhuvuden och sidfötter för utdelnings‑ och notssidor. Detta inkluderar att ändra synlighet och text för sidhuvud, sidfot, bildnummer och datum‑tid‑platshållare för notsmästaren, alla underliggande notbilder eller en enskild notbild.
+De tillgängliga platshållarna beror på omfånget:
 
-## **Hantera sidhuvud och sidfot i presentation**
-Anteckningar för någon specifik bild kan tas bort, som visas i exemplet nedan:
+| Omfång | Sidhuvud | Sidfot | Datum/tid | Bild/sidnummer |
+|---|---|---|---|---|
+| Vanlig bild | Nej | Ja | Ja | Ja |
+| Anteckningsmaster | Ja | Ja | Ja | Ja |
+| Anteckningsbild | Ja | Ja | Ja | Ja |
+| Utdelnings‑master | Ja | Ja | Ja | Ja |
+
+En vanlig presentationsbild har ingen sidhuvuds‑platshållare. Sidhuvuden finns på anteckningssidor och utdelningar. För vanliga bilder använder du sidfot, datum/tid och bild‑/sidnummer‑platshållare istället.
+
+Omfånget för en ändring beror på vilken manager du använder. Klassen [`SlideHeaderFooterManager`](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slideheaderfootermanager/) styr en vanlig bild. Klassen [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/notesslideheaderfootermanager/) styr en anteckningsbild. Master‑ och layout‑managers kan också sprida inställningar till beroende bilder, medan klassen [`MasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/masterhandoutslideheaderfootermanager/) styr utdelnings‑mastern.
+
+## **Ställ in sidfot, datum/tid och bildnummer på vanliga bilder**
+
+För vanliga bilder är det grundläggande arbetsflödet att komma åt varje bilds sidhuvud/sidfots‑manager, sätta sidfot‑ och datum/tid‑text, aktivera de nödvändiga platshållarna och spara presentationen. Bildnummer genereras av presentationen, så du behöver bara kontrollera deras synlighet.
+
+Använd [`setFooterText`](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setFooterText) och [`setDateTimeText`](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setDateTimeText) för att ange text, och använd [`setFooterVisibility`](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setFooterVisibility), [`setDateTimeVisibility`](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setDateTimeVisibility) och [`setSlideNumberVisibility`](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setSlideNumberVisibility) för att visa motsvarande platshållare.
+
+Följande end‑to‑end‑exempel tillämpar samma sidfot, datum/tid‑text och bildnummer‑synlighet på alla vanliga bilder:
 
 ```javascript
-// Läs in presentation
-var pres = new aspose.slides.Presentation("headerTest.pptx");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
 try {
-    // Ställer in sidfot
-    pres.getHeaderFooterManager().setAllFootersText("My Footer text");
-    pres.getHeaderFooterManager().setAllFootersVisibility(true);
-    // Åtkomst och uppdatering av sidhuvud
-    var masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
-    if (null != masterNotesSlide) {
-        updateHeaderFooterText(masterNotesSlide);
+    for (let i = 0; i < presentation.getSlides().size(); i++) {
+        const slide = presentation.getSlides().get_Item(i);
+        const headerFooterManager = slide.getHeaderFooterManager();
+
+        headerFooterManager.setFooterText("Company Confidential");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
     }
-    // Spara presentation
-    pres.save("HeaderFooterJava.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("presentation_with_slide_footers.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-```javascript
-function updateHeaderFooterText(master) {
-    let shapes = master.getShapes();
-    for (let i = 0; i < shapes.size(); i++) {
-        let shape = shapes.get_Item(i); 
-        if (shape.getPlaceholder() !== null) {
-            if (shape.getPlaceholder().getType() === aspose.PlaceholderType.Header) {
-                shape.getTextFrame().setText("HI there new header");
-            }
-        }
-    }
+    presentation.dispose();
 }
 ```
 
-## **Hantera sidhuvud och sidfot i utdelnings‑ och notssidor**
-Aspose.Slides for Node.js via Java stöder Sidhuvud och Sidfot i utdelnings‑ och notssidor. Följ stegen nedan:
+Om du bara behöver uppdatera en bild, kom åt den bilden direkt via metoden [`getSlides`](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/getslides/) istället för att iterera genom hela samlingen.
 
-- Läs in en [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/Presentation) som innehåller en video.
-- Ändra sidhuvuds‑ och sidfotsinställningar för notsmästaren och alla notbilder.
-- Gör master‑notebildens och alla underliggande sidfot‑platshållare synliga.
-- Gör master‑notebildens och alla underliggande datum‑ och tid‑platshållare synliga.
-- Ändra sidhuvuds‑ och sidfotsinställningar endast för den första notbilden.
-- Gör notbildens sidhuvuds‑platshållare synlig.
-- Ange text för notbildens sidhuvuds‑platshållare.
-- Ange text för notbildens datum‑tid‑platshållare.
-- Skriv den modifierade presentationsfilen.
+## **Ställ in sidhuvud och sidfot på antecknings‑mastern**
 
-Kodexempel tillhandahållet i exemplet nedan.
+Antecknings‑mastern definierar gemensam formatering och platshållarbeteende för anteckningssidor. Använd klassen [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/) när du vill ändra endast antecknings‑mastern.
+
+Följande exempel sätter sidhuvud, sidfot och datum/tid‑text på antecknings‑mastern och gör alla stödjade platshållare synliga på den mastern:
 
 ```javascript
-var pres = new aspose.slides.Presentation("presentation.pptx");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
 try {
-    // Ändra inställningar för sidhuvud och sidfot för notsmästare och alla notbilder
-    var masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
-    if (masterNotesSlide != null) {
-        var headerFooterManager = masterNotesSlide.getHeaderFooterManager();
-        headerFooterManager.setHeaderAndChildHeadersVisibility(true);// gör master‑notebilden och alla underliggande sidfot‑platshållare synliga
-        headerFooterManager.setFooterAndChildFootersVisibility(true);// gör master‑notebilden och alla underliggande sidhuvud‑platshållare synliga
-        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);// gör master‑notebilden och alla underliggande bildnummer‑platshållare synliga
-        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);// gör master‑notebilden och alla underliggande datum‑och‑tids‑platshållare synliga
-        headerFooterManager.setHeaderAndChildHeadersText("Header text");// sätt text på master‑notebilden och alla underliggande sidhuvud‑platshållare
-        headerFooterManager.setFooterAndChildFootersText("Footer text");// sätt text på master‑notebilden och alla underliggande sidfot‑platshållare
-        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");// sätt text på master‑notebilden och alla underliggande datum‑och‑tids‑platshållare
+    const masterNotesSlide = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
+
+    if (masterNotesSlide !== null) {
+        const headerFooterManager = masterNotesSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderText("Notes header");
+        headerFooterManager.setHeaderVisibility(true);
+
+        headerFooterManager.setFooterText("Notes footer");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
     }
-    // Ändra inställningar för sidhuvud och sidfot endast för den första notbilden
-    var notesSlide = pres.getSlides().get_Item(0).getNotesSlideManager().getNotesSlide();
-    if (notesSlide != null) {
-        var headerFooterManager = notesSlide.getHeaderFooterManager();
-        if (!headerFooterManager.isHeaderVisible()) {
-            headerFooterManager.setHeaderVisibility(true);
-        }// gör denna notbilds sidhuvud‑platshållare synlig
-        if (!headerFooterManager.isFooterVisible()) {
-            headerFooterManager.setFooterVisibility(true);
-        }// gör denna notbilds sidfot‑platshållare synlig
-        if (!headerFooterManager.isSlideNumberVisible()) {
-            headerFooterManager.setSlideNumberVisibility(true);
-        }// gör denna notbilds bildnummer‑platshållare synlig
-        if (!headerFooterManager.isDateTimeVisible()) {
-            headerFooterManager.setDateTimeVisibility(true);
-        }// gör denna notbilds datum‑tids‑platshållare synlig
-        headerFooterManager.setHeaderText("New header text");// sätt text på notbildens sidhuvud‑platshållare
-        headerFooterManager.setFooterText("New footer text");// sätt text på notbildens sidfot‑platshållare
-        headerFooterManager.setDateTimeText("New date and time text");// sätt text på notbildens datum‑tids‑platshållare
-    }
-    pres.save("testresult.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("presentation_with_notes_master_footers.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
+
+Metoden [`getMasterNotesSlide`](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/masternotesslidemanager/#getMasterNotesSlide) returnerar `null` när presentationen inte innehåller någon antecknings‑master.
+
+## **Tillämpa antecknings‑masterinställningar på underordnade anteckningsbilder**
+
+En antecknings‑master kan tillämpa sidhuvuds‑ och sidfotsinställningar på sig själv och på alla beroende anteckningsbilder. Använd de dedikerade spridningsmetoderna på [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/) när samma inställningar ska gälla i hela anteckningshierarkin.
+
+Till exempel uppdaterar [`setHeaderAndChildHeadersText`](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setHeaderAndChildHeadersText) och [`setHeaderAndChildHeadersVisibility`](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setHeaderAndChildHeadersVisibility) antecknings‑masterns sidhuvud och alla underordnade sidhuvuden. Motsvarande metoder finns för sidfötter, datum/tid och bildnummer.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
+try {
+    const masterNotesSlide = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
+
+    if (masterNotesSlide !== null) {
+        const headerFooterManager = masterNotesSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderAndChildHeadersText("Notes header");
+        headerFooterManager.setHeaderAndChildHeadersVisibility(true);
+
+        headerFooterManager.setFooterAndChildFootersText("Notes footer");
+        headerFooterManager.setFooterAndChildFootersVisibility(true);
+
+        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
+        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
+
+        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
+    }
+
+    presentation.save("presentation_with_child_notes_footers.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Spridningsmetoderna som används ovan är [`setFooterAndChildFootersText`](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setFooterAndChildFootersText), [`setFooterAndChildFootersVisibility`](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setFooterAndChildFootersVisibility), [`setDateTimeAndChildDateTimesText`](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesText), [`setDateTimeAndChildDateTimesVisibility`](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesVisibility) och [`setSlideNumberAndChildSlideNumbersVisibility`](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setSlideNumberAndChildSlideNumbersVisibility).
+
+## **Ställ in sidhuvud och sidfot på en individuell anteckningsbild**
+
+En anteckningsbild tillhör en specifik vanlig bild. Använd dess [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/notesslideheaderfootermanager/) när du vill anpassa endast den anteckningssidan.
+
+Metoden [`addNotesSlide`](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/notesslidemanager/#addNotesSlide) returnerar anteckningsbilden för den aktuella bilden och skapar en om den inte redan finns. Följande exempel konfigurerar anteckningssidan som är kopplad till den första presentationsbilden:
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const headerFooterManager = slide.getNotesSlideManager().addNotesSlide().getHeaderFooterManager();
+
+    headerFooterManager.setHeaderText("Header for the first notes page");
+    headerFooterManager.setHeaderVisibility(true);
+
+    headerFooterManager.setFooterText("Footer for the first notes page");
+    headerFooterManager.setFooterVisibility(true);
+
+    headerFooterManager.setDateTimeText("Date and time text");
+    headerFooterManager.setDateTimeVisibility(true);
+
+    headerFooterManager.setSlideNumberVisibility(true);
+
+    presentation.save("presentation_with_custom_notes_footers.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Om du först sprider inställningar från antecknings‑mastern och sedan ändrar en individuell anteckningsbild, låter de senare per‑bild‑inställningarna dig anpassa den anteckningssidan oberoende.
+
+## **Ställ in sidhuvud och sidfot på utdelnings‑mastern**
+
+Utdelningssidor använder utdelnings‑mastern för sina sidhuvuds‑, sidfots‑, datum/tid‑ och sidnummer‑platshållare. Till skillnad från anteckningssidor hanteras utdelningsinställningarna via utdelnings‑mastern snarare än genom enskilda utdelningsbilder.
+
+Använd [`getMasterHandoutSlide`](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/masterhandoutslidemanager/#getMasterHandoutSlide) för att komma åt utdelnings‑mastern. Om den inte finns, anropa [`setDefaultMasterHandoutSlide`](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/masterhandoutslidemanager/#setDefaultMasterHandoutSlide) för att skapa standard‑utdelnings‑master.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
+try {
+    let masterHandoutSlide = presentation.getMasterHandoutSlideManager().getMasterHandoutSlide();
+
+    if (masterHandoutSlide === null) {
+        masterHandoutSlide = presentation.getMasterHandoutSlideManager().setDefaultMasterHandoutSlide();
+    }
+
+    if (masterHandoutSlide !== null) {
+        const headerFooterManager = masterHandoutSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderText("Handout header");
+        headerFooterManager.setHeaderVisibility(true);
+
+        headerFooterManager.setFooterText("Handout footer");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
+    }
+
+    presentation.save("presentation_with_handout_footers.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Förstå omfång och arv**
+
+Välj den sidhuvud/sidfots‑manager som matchar det omfång du vill ändra:
+
+- [`SlideHeaderFooterManager`](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slideheaderfootermanager/) ändrar sidfot, datum/tid och bild‑nummer‑inställningar för en vanlig bild.
+- [`LayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/layoutslideheaderfootermanager/) styr en layout‑bild och kan sprida stödjade inställningar till beroende bilder.
+- [`MasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/masterslideheaderfootermanager/) styr en vanlig bild‑master och kan sprida stödjade inställningar till beroende bilder.
+- [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/) styr antecknings‑mastern och kan sprida inställningar till alla beroende anteckningsbilder.
+- [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/notesslideheaderfootermanager/) ändrar en anteckningsbild och stödjer en sidhuvuds‑platshållare utöver sidfot, datum/tid och bildnummer.
+- [`MasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/masterhandoutslideheaderfootermanager/) ändrar utdelnings‑mastern och stödjer alla fyra platshållartyper.
+
+Använd spridning från en master eller layout när samma inställning ska gälla genom hela dess hierarki. Använd en individuell bild‑ eller antecknings‑bild‑manager när du behöver en lokal inställning för en sida.
 
 ## **FAQ**
 
-**Kan jag lägga till ett "sidhuvud" på vanliga bilder?**
+**Kan jag lägga till ett sidhuvud på en vanlig bild?**
 
-I PowerPoint finns "Header" bara för anteckningar och utdelningar; på vanliga bilder är de stödja elementen sidfot, datum/tid och bildnummer. I Aspose.Slides gäller samma begränsningar: sidhuvud endast för anteckningar/utdelning, och på bilder — sidfot/datum‑tid/bildnummer.
+Nej. PowerPoint definierar ingen sidhuvuds‑platshållare för vanliga bilder. På vanliga bilder använder du sidfot, datum/tid och bild‑/sidnummer‑platshållare. Sidhuvuds‑platshållare finns på anteckningssidor och utdelningar.
 
-**Vad händer om layouten inte innehåller ett sidfot‑område—kan jag "aktivera" dess synlighet?**
+**Vad händer om en sidfot, datum/tid eller bild‑/sidnummer‑platshållare inte är synlig?**
 
-Ja. Kontrollera synligheten via sidhuvud-/sidfot‑hanteraren och aktivera den om det behövs. Dessa API‑indikatorer och metoder är avsedda för situationer när platshållaren saknas eller är dold.
+Använd den motsvarande sidhuvud/sidfots‑managern för att kontrollera dess synlighet och aktivera den vid behov. Till exempel rapporterar [`isFooterVisible`](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/baseslideheaderfootermanager/#isFooterVisible) om en sidfot‑platshållare finns, och [`setFooterVisibility`](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setFooterVisibility) ändrar dess synlighet.
 
-**Hur får jag bildnumret att börja från ett annat värde än 1?**
+**Hur startar jag bildnumrering från ett annat värde än 1?**
 
-Ställ in presentationens [first slide number](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/setfirstslidenumber/); därefter räknas alla numreringar om. Till exempel kan du börja på 0 eller 10, och dölja numret på titeldbilden.
+Anropa presentationens [`setFirstSlideNumber`](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/setfirstslidenumber/) metod. Bild‑/sidnummer‑platshållarna använder då den uppdaterade numreringssekvensen.
 
-**Vad händer med sidhuvuden/sidfötter vid export till PDF/bilder/HTML?**
+**Vad händer med sidhuvuden och sidfötter vid export till PDF, bilder eller HTML?**
 
-De renderas som vanliga textelement i presentationen. Det betyder att om elementen är synliga på bilder/anteckningssidor, så kommer de även att visas i exportformatet tillsammans med övrigt innehåll.
+Synliga sidhuvuds‑ och sidfotselement renderas tillsammans med resten av presentationsinnehållet i det exporterade formatet. Deras utseende beror på vilken sidtyp som exporteras och de motsvarande platshållar‑synlighetsinställningarna.

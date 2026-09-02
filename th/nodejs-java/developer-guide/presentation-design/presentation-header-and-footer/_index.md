@@ -1,141 +1,247 @@
 ---
-title: จัดการส่วนหัวและส่วนท้ายของงานนำเสนอใน JavaScript
-linktitle: ส่วนหัว & ส่วนท้าย
+title: จัดการส่วนหัวและส่วนล่างของการนำเสนอใน JavaScript
+linktitle: ส่วนหัวและส่วนล่าง
 type: docs
 weight: 140
 url: /th/nodejs-java/presentation-header-and-footer/
 keywords:
 - ส่วนหัว
 - ข้อความส่วนหัว
-- ส่วนท้าย
-- ข้อความส่วนท้าย
+- ส่วนล่าง
+- ข้อความส่วนล่าง
 - ตั้งค่าส่วนหัว
-- ตั้งค่าส่วนท้าย
-- เอกสารประกอบ
-- บันทึกย่อ
+- ตั้งค่าส่วนล่าง
+- เอกสารแจก
+- บันทึก
 - PowerPoint
 - OpenDocument
-- งานนำเสนอ
+- การนำเสนอ
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "ใช้ JavaScript และ Aspose.Slides สำหรับ Node.js เพื่อเพิ่มและปรับแต่งส่วนหัวและส่วนท้ายในงานนำเสนอ PowerPoint และ OpenDocument ให้ดูเป็นมืออาชีพ"
+description: "เรียนรู้วิธีจัดการตัวแทนส่วนท้าย, วันที่-เวลา, หมายเลขสไลด์, และส่วนหัวบนสไลด์, หน้าโน้ต, และเอกสารแจก ด้วย Aspose.Slides สำหรับ Node.js ผ่าน Java."
 ---
 ## **ภาพรวม**
 
-Aspose.Slides ช่วยให้คุณจัดการการตั้งค่าหัวเรื่องและส่วนท้ายในงานนำเสนอ PowerPoint ได้ หัวเรื่องและส่วนท้ายจะถูกจัดการระดับมาสเตอร์ของงานนำเสนอ และ API มีเมธอดสำหรับตั้งค่าข้อความส่วนท้าย การเปลี่ยนการมองเห็นของส่วนท้าย และอัปเดตข้อความหัวเรื่องบนสไลด์บันทึกย่อมาสเตอร์
+PowerPoint ใช้ส่วนหัวและส่วนล่างแบบตัวแทนที่แตกต่างกันขึ้นอยู่กับประเภทของหน้า. Aspose.Slides สำหรับ Node.js ผ่าน Java ให้คุณควบคุมข้อความและการมองเห็นของตัวแทนเหล่านี้ผ่านคลาสผู้จัดการส่วนหัว/ส่วนล่าง.
 
-คุณยังสามารถจัดการหัวเรื่องและส่วนท้ายสำหรับสไลด์เอกสารประกอบและสไลด์บันทึกย่อได้ ซึ่งรวมถึงการเปลี่ยนการมองเห็นและข้อความของตำแหน่งเก็บหัวเรื่อง ส่วนท้าย หมายเลขสไลด์ และตัวบรรจุวัน‑เวลา สำหรับมาสเตอร์บันทึกย่อ สไลด์บันทึกย่อทั้งหมดที่เป็นลูก หรือสไลด์บันทึกย่อเฉพาะหนึ่งสไลด์
+ตัวแทนที่ใช้ได้ขึ้นอยู่กับขอบเขต:
 
-## **จัดการหัวเรื่องและส่วนท้ายในงานนำเสนอ**
-บันทึกย่อของสไลด์เฉพาะบางสไลด์อาจถูกลบตามที่แสดงในตัวอย่างด้านล่าง:
+| ขอบเขต | ส่วนหัว | ส่วนท้าย | วันที่/เวลา | หมายเลขสไลด์/หน้า |
+|---|---|---|---|---|
+| สไลด์ปกติ | ไม่ | ใช่ | ใช่ | ใช่ |
+| โน้ตมาสเตอร์ | ใช่ | ใช่ | ใช่ | ใช่ |
+| สไลด์โน้ต | ใช่ | ใช่ | ใช่ | ใช่ |
+| มาสเตอร์ของเอกสารแจก | ใช่ | ใช่ | ใช่ | ใช่ |
+
+สไลด์นำเสนอแบบทั่วไปไม่มีตัวแทนส่วนหัว. ส่วนหัวใช้ได้บนหน้าบันทึกและเอกสารแจก. สำหรับสไลด์ปกติ, ให้ใช้ตัวแทนส่วนท้าย, วันที่/เวลา, และหมายเลขสไลด์แทน.
+
+ขอบเขตของการเปลี่ยนแปลงขึ้นอยู่กับผู้จัดการที่คุณใช้. คลาส [`SlideHeaderFooterManager`](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slideheaderfootermanager/) ควบคุมสไลด์ปกติหนึ่งสไลด์. คลาส [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/notesslideheaderfootermanager/) ควบคุมสไลด์โน้ตหนึ่งสไลด์. ผู้จัดการมาสเตอร์และเลย์เอาต์ยังสามารถกระจายการตั้งค่าไปยังสไลด์ที่ขึ้นอยู่ได้, ในขณะที่คลาส [`MasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/masterhandoutslideheaderfootermanager/) ควบคุมมาสเตอร์ของเอกสารแจก.
+
+## **ตั้งค่าภาคท้าย, วันที่/เวลา, และหมายเลขสไลด์บนสไลด์ปกติ**
+
+สำหรับสไลด์ปกติ, ขั้นตอนพื้นฐานคือเข้าถึงผู้จัดการส่วนหัว/ส่วนล่างของแต่ละสไลด์, ตั้งค่าข้อความส่วนท้ายและวันที่/เวลา, เปิดตัวแทนที่ต้องการ, แล้วบันทึกการนำเสนอ. หมายเลขสไลด์สร้างโดยการนำเสนอ, ดังนั้นคุณเพียงต้องควบคุมการมองเห็นของมัน.
+
+ใช้ [`setFooterText`](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setFooterText) และ [`setDateTimeText`](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setDateTimeText) เพื่อกำหนดข้อความ, และใช้ [`setFooterVisibility`](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setFooterVisibility), [`setDateTimeVisibility`](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setDateTimeVisibility), และ [`setSlideNumberVisibility`](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setSlideNumberVisibility) เพื่อแสดงตัวแทนที่สอดคล้องกัน.
+
+ตัวอย่างครบวงจรต่อไปนี้ใช้ส่วนท้าย, ข้อความวันที่/เวลา, และการมองเห็นหมายเลขสไลด์เดียวกันกับสไลด์ปกติทั้งหมด:
 
 ```javascript
-// โหลดงานนำเสนอ
-var pres = new aspose.slides.Presentation("headerTest.pptx");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
 try {
-    // ตั้งค่าส่วนท้าย
-    pres.getHeaderFooterManager().setAllFootersText("My Footer text");
-    pres.getHeaderFooterManager().setAllFootersVisibility(true);
-    // เข้าถึงและอัปเดตส่วนหัว
-    var masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
-    if (null != masterNotesSlide) {
-        updateHeaderFooterText(masterNotesSlide);
+    for (let i = 0; i < presentation.getSlides().size(); i++) {
+        const slide = presentation.getSlides().get_Item(i);
+        const headerFooterManager = slide.getHeaderFooterManager();
+
+        headerFooterManager.setFooterText("Company Confidential");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
     }
-    // บันทึกงานนำเสนอ
-    pres.save("HeaderFooterJava.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("presentation_with_slide_footers.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-```javascript
-function updateHeaderFooterText(master) {
-    let shapes = master.getShapes();
-    for (let i = 0; i < shapes.size(); i++) {
-        let shape = shapes.get_Item(i); 
-        if (shape.getPlaceholder() !== null) {
-            if (shape.getPlaceholder().getType() === aspose.PlaceholderType.Header) {
-                shape.getTextFrame().setText("HI there new header");
-            }
-        }
-    }
+    presentation.dispose();
 }
 ```
 
-## **จัดการหัวเรื่องและส่วนท้ายในสไลด์เอกสารประกอบและบันทึกย่อ**
-Aspose.Slides สำหรับ Node.js ผ่าน Java รองรับหัวเรื่องและส่วนท้ายในสไลด์เอกสารประกอบและบันทึกย่อ โปรดทำตามขั้นตอนด้านล่าง:
+หากคุณต้องการอัปเดตเพียงสไลด์เดียว, ให้เข้าถึงสไลด์นั้นโดยตรงผ่านเมธอด [`getSlides`](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/getslides/) แทนการวนลูปผ่านคอลเลกชันทั้งหมด.
 
-- โหลด [งานนำเสนอ](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Presentation) ที่มีวิดีโอ.
-- เปลี่ยนการตั้งค่าหัวเรื่องและส่วนท้ายสำหรับมาสเตอร์บันทึกย่อและสไลด์บันทึกย่อทั้งหมด.
-- ตั้งค่าตำแหน่งเก็บส่วนท้ายของมาสเตอร์บันทึกย่อและลูกทั้งหมดให้มองเห็นได้.
-- ตั้งค่าตำแหน่งเก็บวันและเวลาของมาสเตอร์บันทึกย่อและลูกทั้งหมดให้มองเห็นได้.
-- เปลี่ยนการตั้งค่าหัวเรื่องและส่วนท้ายสำหรับสไลด์บันทึกย่อแรกเท่านั้น.
-- ตั้งค่าตำแหน่งเก็บหัวเรื่องของสไลด์บันทึกย่อให้มองเห็นได้.
-- ตั้งค่าข้อความให้กับตำแหน่งเก็บหัวเรื่องของสไลด์บันทึกย่อ.
-- ตั้งค่าข้อความให้กับตำแหน่งเก็บวัน‑เวลา ของสไลด์บันทึกย่อ.
-- เขียนไฟล์งานนำเสนอที่แก้ไขแล้ว.
+## **ตั้งค่าส่วนหัวและส่วนท้ายบนโน้ตมาสเตอร์**
 
-ตัวอย่างโค้ดสแนปป์มีให้ด้านล่างนี้.
+โน้ตมาสเตอร์กำหนดการจัดรูปแบบและพฤติกรรมตัวแทนที่ใช้ร่วมกันสำหรับหน้าบันทึก. ใช้คลาส [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/) เมื่อคุณต้องการเปลี่ยนแปลงเฉพาะโน้ตมาสเตอร์เท่านั้น.
+
+ตัวอย่างต่อไปนี้ตั้งค่าส่วนหัว, ส่วนท้าย, และข้อความวันที่/เวลาในโน้ตมาสเตอร์และทำให้ตัวแทนทั้งหมดที่รองรับมองเห็นได้บนมาสเตอร์นั้น:
 
 ```javascript
-var pres = new aspose.slides.Presentation("presentation.pptx");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
 try {
-    // เปลี่ยนการตั้งค่าหัวเรื่องและส่วนท้ายสำหรับมาสเตอร์บันทึกย่อและสไลด์บันทึกย่อทั้งหมด
-    var masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
-    if (masterNotesSlide != null) {
-        var headerFooterManager = masterNotesSlide.getHeaderFooterManager();
-        headerFooterManager.setHeaderAndChildHeadersVisibility(true);// ทำให้สไลด์บันทึกย่อมาสเตอร์และตำแหน่งเก็บ Footer ลูกทั้งหมดมองเห็นได้
-        headerFooterManager.setFooterAndChildFootersVisibility(true);// ทำให้สไลด์บันทึกย่อมาสเตอร์และตำแหน่งเก็บ Header ลูกทั้งหมดมองเห็นได้
-        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);// ทำให้สไลด์บันทึกย่อมาสเตอร์และตำแหน่งเก็บ SlideNumber ลูกทั้งหมดมองเห็นได้
-        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);// ทำให้สไลด์บันทึกย่อมาสเตอร์และตำแหน่งเก็บ Date and time ลูกทั้งหมดมองเห็นได้
-        headerFooterManager.setHeaderAndChildHeadersText("Header text");// ตั้งข้อความให้สไลด์บันทึกย่อมาสเตอร์และตำแหน่งเก็บ Header ลูกทั้งหมด
-        headerFooterManager.setFooterAndChildFootersText("Footer text");// ตั้งข้อความให้สไลด์บันทึกย่อมาสเตอร์และตำแหน่งเก็บ Footer ลูกทั้งหมด
-        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");// ตั้งข้อความให้สไลด์บันทึกย่อมาสเตอร์และตำแหน่งเก็บ Date and time ลูกทั้งหมด
+    const masterNotesSlide = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
+
+    if (masterNotesSlide !== null) {
+        const headerFooterManager = masterNotesSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderText("Notes header");
+        headerFooterManager.setHeaderVisibility(true);
+
+        headerFooterManager.setFooterText("Notes footer");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
     }
-    // เปลี่ยนการตั้งค่าหัวเรื่องและส่วนท้ายสำหรับสไลด์บันทึกย่อแรกเท่านั้น
-    var notesSlide = pres.getSlides().get_Item(0).getNotesSlideManager().getNotesSlide();
-    if (notesSlide != null) {
-        var headerFooterManager = notesSlide.getHeaderFooterManager();
-        if (!headerFooterManager.isHeaderVisible()) {
-            headerFooterManager.setHeaderVisibility(true);
-        }// ทำให้ตำแหน่งเก็บ Header ของสไลด์บันทึกย่อนี้มองเห็นได้
-        if (!headerFooterManager.isFooterVisible()) {
-            headerFooterManager.setFooterVisibility(true);
-        }// ทำให้ตำแหน่งเก็บ Footer ของสไลด์บันทึกย่อนี้มองเห็นได้
-        if (!headerFooterManager.isSlideNumberVisible()) {
-            headerFooterManager.setSlideNumberVisibility(true);
-        }// ทำให้ตำแหน่งเก็บ SlideNumber ของสไลด์บันทึกย่อนี้มองเห็นได้
-        if (!headerFooterManager.isDateTimeVisible()) {
-            headerFooterManager.setDateTimeVisibility(true);
-        }// ทำให้ตำแหน่งเก็บ Date-time ของสไลด์บันทึกย่อนี้มองเห็นได้
-        headerFooterManager.setHeaderText("New header text");// ตั้งข้อความให้ตำแหน่งเก็บ Header ของสไลด์บันทึกย่อ
-        headerFooterManager.setFooterText("New footer text");// ตั้งข้อความให้ตำแหน่งเก็บ Footer ของสไลด์บันทึกย่อ
-        headerFooterManager.setDateTimeText("New date and time text");// ตั้งข้อความให้ตำแหน่งเก็บ Date-time ของสไลด์บันทึกย่อ
-    }
-    pres.save("testresult.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("presentation_with_notes_master_footers.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
+
+เมธอด [`getMasterNotesSlide`](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/masternotesslidemanager/#getMasterNotesSlide) จะคืนค่า `null` เมื่อการนำเสนอไม่มีโน้ตมาสเตอร์.
+
+## **ใช้การตั้งค่าโน้ตมาสเตอร์กับสไลด์โน้ตลูก**
+
+โน้ตมาสเตอร์สามารถนำการตั้งค่าส่วนหัวและส่วนท้ายไปใช้กับตัวเองและสไลด์โน้ตที่ขึ้นอยู่ทั้งหมดได้. ใช้วิธีการกระจายเฉพาะบน [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/) เมื่อต้องการใช้การตั้งค่าเดียวกันทั่วระดับโน้ต.
+
+ตัวอย่างเช่น, [`setHeaderAndChildHeadersText`](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setHeaderAndChildHeadersText) และ [`setHeaderAndChildHeadersVisibility`](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setHeaderAndChildHeadersVisibility) จะอัปเดตส่วนหัวของโน้ตมาสเตอร์และส่วนหัวของลูกทั้งหมด. มีเมธอดที่เทียบเท่าสำหรับส่วนท้าย, วันที่/เวลา, และหมายเลขสไลด์.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
+try {
+    const masterNotesSlide = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
+
+    if (masterNotesSlide !== null) {
+        const headerFooterManager = masterNotesSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderAndChildHeadersText("Notes header");
+        headerFooterManager.setHeaderAndChildHeadersVisibility(true);
+
+        headerFooterManager.setFooterAndChildFootersText("Notes footer");
+        headerFooterManager.setFooterAndChildFootersVisibility(true);
+
+        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
+        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
+
+        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
+    }
+
+    presentation.save("presentation_with_child_notes_footers.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+เมธอดกระจายที่ใช้ข้างต้นได้แก่ [`setFooterAndChildFootersText`](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setFooterAndChildFootersText), [`setFooterAndChildFootersVisibility`](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setFooterAndChildFootersVisibility), [`setDateTimeAndChildDateTimesText`](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesText), [`setDateTimeAndChildDateTimesVisibility`](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesVisibility), และ [`setSlideNumberAndChildSlideNumbersVisibility`](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setSlideNumberAndChildSlideNumbersVisibility).
+
+## **ตั้งค่าส่วนหัวและส่วนท้ายบนสไลด์โน้ตเดี่ยว**
+
+สไลด์โน้ตเป็นส่วนหนึ่งของสไลด์ปกติที่ระบุ. ใช้คลาส [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/notesslideheaderfootermanager/) เมื่อคุณต้องการปรับแต่งเพียงหน้าบันทึกนั้นเท่านั้น.
+
+เมธอด [`addNotesSlide`](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/notesslidemanager/#addNotesSlide) จะคืนค่าสไลด์โน้ตสำหรับสไลด์ปัจจุบันและสร้างใหม่หากยังไม่มี. ตัวอย่างต่อไปนี้ตั้งค่าหน้าบันทึกที่เชื่อมกับสไลด์แรกของการนำเสนอ:
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const headerFooterManager = slide.getNotesSlideManager().addNotesSlide().getHeaderFooterManager();
+
+    headerFooterManager.setHeaderText("Header for the first notes page");
+    headerFooterManager.setHeaderVisibility(true);
+
+    headerFooterManager.setFooterText("Footer for the first notes page");
+    headerFooterManager.setFooterVisibility(true);
+
+    headerFooterManager.setDateTimeText("Date and time text");
+    headerFooterManager.setDateTimeVisibility(true);
+
+    headerFooterManager.setSlideNumberVisibility(true);
+
+    presentation.save("presentation_with_custom_notes_footers.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+หากคุณกระจายการตั้งค่าจากโน้ตมาสเตอร์ก่อนแล้วทำการเปลี่ยนแปลงสไลด์โน้ตเดี่ยวต่อมา, การตั้งค่าเฉพาะสไลด์นั้นจะทำให้คุณปรับแต่งหน้าบันทึกได้อย่างอิสระ.
+
+## **ตั้งค่าส่วนหัวและส่วนท้ายบนมาสเตอร์ของเอกสารแจก**
+
+หน้าที่เอกสารแจกใช้มาสเตอร์ของเอกสารแจกสำหรับส่วนหัว, ส่วนท้าย, วันที่/เวลา, และตัวแทนหมายเลขหน้า. แตกต่างจากหน้าบันทึก, การตั้งค่าเอกสารแจกจัดการผ่านมาสเตอร์ของเอกสารแจกแทนการจัดการสไลด์เอกสารแจกแต่ละสไลด์.
+
+ใช้ [`getMasterHandoutSlide`](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/masterhandoutslidemanager/#getMasterHandoutSlide) เพื่อเข้าถึงมาสเตอร์ของเอกสารแจก. หากไม่มี, เรียก [`setDefaultMasterHandoutSlide`](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/masterhandoutslidemanager/#setDefaultMasterHandoutSlide) เพื่อสร้างมาสเตอร์เอกสารแจกเริ่มต้น.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
+try {
+    let masterHandoutSlide = presentation.getMasterHandoutSlideManager().getMasterHandoutSlide();
+
+    if (masterHandoutSlide === null) {
+        masterHandoutSlide = presentation.getMasterHandoutSlideManager().setDefaultMasterHandoutSlide();
+    }
+
+    if (masterHandoutSlide !== null) {
+        const headerFooterManager = masterHandoutSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderText("Handout header");
+        headerFooterManager.setHeaderVisibility(true);
+
+        headerFooterManager.setFooterText("Handout footer");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
+    }
+
+    presentation.save("presentation_with_handout_footers.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **ทำความเข้าใจขอบเขตและการสืบทอด**
+
+เลือกผู้จัดการส่วนหัว/ส่วนท้ายที่ตรงกับขอบเขตที่คุณต้องการเปลี่ยนแปลง:
+
+- [`SlideHeaderFooterManager`](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slideheaderfootermanager/) เปลี่ยนการตั้งค่าส่วนท้าย, วันที่/เวลา, และหมายเลขสไลด์สำหรับสไลด์ปกติหนึ่งสไลด์.
+- [`LayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/layoutslideheaderfootermanager/) ควบคุมสไลด์เลย์เอาต์และสามารถกระจายการตั้งค่าที่รองรับไปยังสไลด์ที่ขึ้นอยู่.
+- [`MasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/masterslideheaderfootermanager/) ควบคุมมาสเตอร์ของสไลด์ปกติและสามารถกระจายการตั้งค่าที่รองรับไปยังสไลด์ที่ขึ้นอยู่.
+- [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/) ควบคุมโน้ตมาสเตอร์และสามารถกระจายการตั้งค่าไปยังสไลด์โน้ตที่ขึ้นอยู่ทั้งหมด.
+- [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/notesslideheaderfootermanager/) เปลี่ยนสไลด์โน้ตหนึ่งสไลด์และรองรับส่วนหัวเพิ่มเติมนอกเหนือจากส่วนท้าย, วันที่/เวลา, และหมายเลขสไลด์.
+- [`MasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/masterhandoutslideheaderfootermanager/) เปลี่ยนมาสเตอร์ของเอกสารแจกและรองรับตัวแทนสี่ประเภททั้งหมด.
+
+ใช้การกระจายจากมาสเตอร์หรือเลย์เอาต์เมื่อการตั้งค่าเดียวกันควรใช้ตลอดระดับของมัน. ใช้สไลด์เดี่ยวหรือผู้จัดการสไลด์โน้ตเมื่อคุณต้องการการตั้งค่าท้องถิ่นสำหรับหน้าหนึ่ง.
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันสามารถเพิ่ม "หัวเรื่อง" ให้กับสไลด์ปกติได้หรือไม่?**
+**ฉันสามารถเพิ่มส่วนหัวให้กับสไลด์ปกติได้หรือไม่?**
 
-ใน PowerPoint, "Header" มีเฉพาะสำหรับบันทึกย่อและเอกสารประกอบเท่านั้น; บนสไลด์ปกติ มีเพียงส่วนท้าย, วัน‑เวลา, และหมายเลขสไลด์ที่รองรับ. ใน Aspose.Slides มีข้อจำกัดเช่นเดียวกัน: หัวเรื่องใช้ได้เฉพาะกับบันทึกย่อ/เอกสารประกอบ, และบนสไลด์—ส่วนท้าย/วัน‑เวลา/หมายเลขสไลด์.
+ไม่ได้. PowerPoint ไม่ได้กำหนดตัวแทนส่วนหัวสำหรับสไลด์ปกติ. บนสไลด์ปกติ, ให้ใช้ตัวแทนส่วนท้าย, วันที่/เวลา, และหมายเลขสไลด์. ตัวแทนส่วนหัวมีให้ใช้บนหน้าบันทึกและเอกสารแจก.
 
-**ถ้าเค้าโครงไม่มีพื้นที่ส่วนท้าย—ฉันสามารถ "เปิด" การมองเห็นได้หรือไม่?**
+**หากตัวแทนส่วนท้าย, วันที่/เวลา, หรือหมายเลขสไลด์ไม่ปรากฏจะทำอย่างไร?**
 
-ได้. ตรวจสอบการมองเห็นผ่านตัวจัดการหัวเรื่อง/ส่วนท้ายและเปิดใช้งานหากจำเป็น. ตัวชี้วัดและเมธอดของ API นี้ออกแบบมาสำหรับกรณีที่ตำแหน่งเก็บหายไปหรือถูกซ่อน.
+ใช้ผู้จัดการส่วนหัว/ส่วนท้ายที่สอดคล้องกันเพื่อตรวจสอบการมองเห็นและเปิดใช้งานเมื่อจำเป็น. ตัวอย่างเช่น, [`isFooterVisible`](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/baseslideheaderfootermanager/#isFooterVisible) แสดงว่าตัวแทนส่วนท้ายมีอยู่หรือไม่, และ [`setFooterVisibility`](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setFooterVisibility) เปลี่ยนการมองเห็นของมัน.
 
-**ฉันจะทำให้หมายเลขสไลด์เริ่มจากค่าที่ไม่ใช่ 1 ได้อย่างไร?**
+**ฉันจะเริ่มนับหมายเลขสไลด์จากค่าที่ไม่ใช่ 1 ได้อย่างไร?**
 
-ตั้งค่าหมายเลขสไลด์แรกของงานนำเสนอด้วย [หมายเลขสไลด์แรก](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/setfirstslidenumber/); หลังจากนั้น การนับหมายเลขทั้งหมดจะถูกคำนวณใหม่. ตัวอย่างเช่น คุณสามารถเริ่มที่ 0 หรือ 10 และซ่อนหมายเลขบนสไลด์หัวเรื่อง.
+เรียกเมธอด [`setFirstSlideNumber`](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/setfirstslidenumber/) ของการนำเสนอ. ตัวแทนหมายเลขสไลด์จะใช้ลำดับการนับที่อัปเดตแล้ว.
 
-**หัวเรื่อง/ส่วนท้ายจะเกิดอะไรขึ้นเมื่อส่งออกเป็น PDF/รูปภาพ/HTML?**
+**ส่วนหัวและส่วนท้ายจะเกิดอะไรขึ้นเมื่อส่งออกเป็น PDF, รูปภาพ หรือ HTML?**
 
-พวกมันจะถูกเรนเดอร์เป็นองค์ประกอบข้อความปกติของงานนำเสนอ. กล่าวคือ หากองค์ประกอบเหล่านั้นมองเห็นได้บนสไลด์/หน้าบันทึกย่อ พวกมันก็จะแสดงในรูปแบบผลลัพธ์พร้อมกับเนื้อหาอื่น ๆ.
+องค์ประกอบส่วนหัวและส่วนท้ายที่มองเห็นจะถูกเรนเดอร์พร้อมกับเนื้อหาการนำเสนอในรูปแบบผลลัพธ์. รูปลักษณ์ของมันขึ้นอยู่กับประเภทหน้าที่กำลังส่งออกและการตั้งค่าการมองเห็นของตัวแทนที่เกี่ยวข้อง.

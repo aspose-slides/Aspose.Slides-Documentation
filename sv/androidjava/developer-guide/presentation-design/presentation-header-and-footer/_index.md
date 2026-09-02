@@ -1,16 +1,16 @@
 ---
-title: Hantera presentationssidhuvuden och sidfötter på Android
-linktitle: Sidhuvud & Sidfot
+title: Hantera presentationsrubriker och -sidfötter på Android
+linktitle: Rubrik och sidfot
 type: docs
 weight: 140
 url: /sv/androidjava/presentation-header-and-footer/
 keywords:
-- sidhuvud
-- sidhuvudstext
+- rubrik
+- rubriktext
 - sidfot
-- sidfotstext
-- sätt sidhuvud
-- sätt sidfot
+- sidfottext
+- ställ in rubrik
+- ställ in sidfot
 - utdelning
 - anteckningar
 - PowerPoint
@@ -19,130 +19,229 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Använd Aspose.Slides för Android via Java för att lägga till och anpassa sidhuvuden och sidfötter i PowerPoint- och OpenDocument-presentationer för ett professionellt utseende."
+description: "Lär dig hur du hanterar sidfot-, datum-tid-, bildnummer- och rubrik-platshållare på bilder, anteckningssidor och utdelningar med Aspose.Slides för Android via Java."
 ---
 ## **Översikt**
 
-Aspose.Slides låter dig hantera inställningar för sidhuvud och sidfot i PowerPoint-presentationer. Sidhuvuden och sidfötter hanteras på presentationsmästarens nivå, och API:et tillhandahåller metoder för att ange sidfotstext, ändra sidfotens synlighet och uppdatera sidhuvudstext på master‑notesslides.
+PowerPoint använder olika rubrik- och sidfotplatshållare beroende på sidtyp. Aspose.Slides för Android via Java låter dig kontrollera texten och synligheten för dessa platshållare via rubrik-/sidfotshanterargränssnitt.
 
-Du kan också hantera sidhuvuden och sidfötter för utdelnings‑ och notesslides. Detta inkluderar att ändra synlighet och text för sidhuvud, sidfot, bildnummer och datum‑tid‑platshållare för notermästaren, alla underordnade notesslides eller en enskild notesslide.
+De tillgängliga platshållarna beror på omfånget:
 
-## **Hantera sidhuvuden och sidfötter i en presentation**
-Anteckningar för vissa specifika slides kan tas bort som visas i exemplet nedan:
+| Omfång | Rubrik | Sidfot | Datum/tid | Bild-/sidnummer |
+|---|---|---|---|---|
+| Vanlig bild | Nej | Ja | Ja | Ja |
+| Anteckningsmaster | Ja | Ja | Ja | Ja |
+| Anteckningsbild | Ja | Ja | Ja | Ja |
+| Utdelningsmaster | Ja | Ja | Ja | Ja |
+
+En vanlig presentationsbild har ingen rubrikplatshållare. Rubriker finns på anteckningssidor och utdelningar. För vanliga bilder, använd sidfot-, datum/tid- och bild-/sidnummerplatshållare istället.
+
+Omfånget för en ändring beror på den hanterare du använder. Gränssnittet [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/islideheaderfootermanager/) styr en vanlig bild. Gränssnittet [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/inotesslideheaderfootermanager/) styr en anteckningsbild. Master‑ och layout‑hanterare kan också sprida inställningarna till beroende bilder, medan gränssnittet [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imasterhandoutslideheaderfootermanager/) styr utdelningsmastern.
+
+## **Ställ in sidfot, datum/tid och bildnummer på vanliga bilder**
+
+För vanliga bilder är det grundläggande arbetsflödet att komma åt varje bilds rubrik-/sidfotshanterare, sätta sidfot- och datum/tid‑text, aktivera de nödvändiga platshållarna och spara presentationen. Bildnumren genereras av presentationen, så du behöver bara kontrollera deras synlighet.
+
+Använd [`setFooterText`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/baseslideheaderfootermanager/#setFooterText-java.lang.String-) och [`setDateTimeText`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/baseslideheaderfootermanager/#setDateTimeText-java.lang.String-) för att ställa in text, och använd [`setFooterVisibility`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/baseslideheaderfootermanager/#setFooterVisibility-boolean-), [`setDateTimeVisibility`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/baseslideheaderfootermanager/#setDateTimeVisibility-boolean-), och [`setSlideNumberVisibility`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/baseslideheaderfootermanager/#setSlideNumberVisibility-boolean-) för att visa motsvarande platshållare.
+
+Följande helhetsexempel tillämpar samma sidfot, datum/tid‑text och bildnummer‑synlighet på alla vanliga bilder:
 
 ```java
-// Läs in presentation
-Presentation pres = new Presentation("headerTest.pptx");
-try {
-    // Ställer in sidfot
-    pres.getHeaderFooterManager().setAllFootersText("My Footer text");
-    pres.getHeaderFooterManager().setAllFootersVisibility(true);
+import com.aspose.slides.*;
 
-    // Åtkomst och uppdatering av sidhuvud
-    IMasterNotesSlide masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
-    if (null != masterNotesSlide)
-    {
-        updateHeaderFooterText(masterNotesSlide);
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        ISlideHeaderFooterManager headerFooterManager = slide.getHeaderFooterManager();
+
+        headerFooterManager.setFooterText("Company Confidential");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
     }
 
-    // Spara presentation
-    pres.save("HeaderFooterJava.pptx", SaveFormat.Pptx);
+    presentation.save("presentation_with_slide_footers.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
-}
-```
-```java
-// Metod för att sätta sidhuvud/sidfotstext
-public static void updateHeaderFooterText(IBaseSlide master)
-{
-    for (IShape shape : master.getShapes())
-    {
-        if (shape.getPlaceholder() != null)
-        {
-            if (shape.getPlaceholder().getType() == PlaceholderType.Header)
-            {
-                ((IAutoShape)shape).getTextFrame().setText("HI there new header");
-            }
-        }
-    }
+    presentation.dispose();
 }
 ```
 
-## **Hantera sidhuvuden och sidfötter på utdelning‑ och notesslides**
-Aspose.Slides för Android via Java stöder Sidhuvud och Sidfot i utdelnings‑ och notesslides. Följ stegen nedan:
+Om du bara behöver uppdatera en bild, åtkom den bilden direkt via metoden [`getSlides`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/#getSlides--) istället för att iterera genom hela samlingen.
 
-- Läs in en [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/Presentation) som innehåller en video.
-- Ändra inställningarna för Sidhuvud och Sidfot för notermästarens och alla notesslides.
-- Gör alla Footer‑platshållare på master‑notesslide och underordnade synliga.
-- Gör alla Date‑ och time‑platshållare på master‑notesslide och underordnade synliga.
-- Ändra inställningarna för Sidhuvud och Sidfot endast för den första notessliden.
-- Gör Header‑platshållaren på notessliden synlig.
-- Sätt text för Header‑platshållaren på notessliden.
-- Sätt text för Date‑time‑platshållaren på notessliden.
-- Skriv den modifierade presentationsfilen.
+## **Ställ in rubriker och sidfot på anteckningsmastern**
 
-Kodexempel ges i exemplet nedan.
+Anteckningsmastern definierar gemensam formatering och platshållarbeteende för anteckningssidor. Använd gränssnittet [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/) när du vill ändra endast anteckningsmastern.
+
+Följande exempel sätter rubrik, sidfot och datum/tid‑text på anteckningsmastern och gör alla stödda platshållare synliga på den mastern:
 
 ```java
-Presentation pres = new Presentation("presentation.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    // Ändra sidhuvud- och sidfotinställningar för notermästare och alla notesslides
-    IMasterNotesSlide masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
-    if (masterNotesSlide != null)
-    {
+    IMasterNotesSlide masterNotesSlide = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
+
+    if (masterNotesSlide != null) {
         IMasterNotesSlideHeaderFooterManager headerFooterManager = masterNotesSlide.getHeaderFooterManager();
 
-        headerFooterManager.setHeaderAndChildHeadersVisibility(true); // gör master notessliden och alla underordnade Footer‑platshållare synliga
-        headerFooterManager.setFooterAndChildFootersVisibility(true); // gör master notessliden och alla underordnade Header‑platshållare synliga
-        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true); // gör master notessliden och alla underordnade SlideNumber‑platshållare synliga
-        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true); // gör master notessliden och alla underordnade Date‑ och time‑platshållare synliga
+        headerFooterManager.setHeaderText("Notes header");
+        headerFooterManager.setHeaderVisibility(true);
 
-        headerFooterManager.setHeaderAndChildHeadersText("Header text"); // sätt text till master notessliden och alla underordnade Header‑platshållare
-        headerFooterManager.setFooterAndChildFootersText("Footer text"); // sätt text till master notessliden och alla underordnade Footer‑platshållare
-        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text"); // sätt text till master notessliden och alla underordnade Date‑ och time‑platshållare
+        headerFooterManager.setFooterText("Notes footer");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
     }
 
-    // Ändra sidhuvud- och sidfotinställningar endast för den första notessliden
-    INotesSlide notesSlide = pres.getSlides().get_Item(0).getNotesSlideManager().getNotesSlide();
-    if (notesSlide != null)
-    {
-        INotesSlideHeaderFooterManager headerFooterManager = notesSlide.getHeaderFooterManager();
-        if (!headerFooterManager.isHeaderVisible())
-            headerFooterManager.setHeaderVisibility(true); // gör denna notesslides Header‑platshållare synlig
-
-        if (!headerFooterManager.isFooterVisible())
-            headerFooterManager.setFooterVisibility(true); // gör denna notesslides Footer‑platshållare synlig
-
-        if (!headerFooterManager.isSlideNumberVisible())
-            headerFooterManager.setSlideNumberVisibility(true); // gör denna notesslides SlideNumber‑platshållare synlig
-
-        if (!headerFooterManager.isDateTimeVisible())
-            headerFooterManager.setDateTimeVisibility(true); // gör denna notesslides Date‑time‑platshållare synlig
-
-        headerFooterManager.setHeaderText("New header text"); // sätt text till notesslides Header‑platshållare
-        headerFooterManager.setFooterText("New footer text"); // sätt text till notesslides Footer‑platshållare
-        headerFooterManager.setDateTimeText("New date and time text"); // sätt text till notesslides Date‑time‑platshållare
-    }
-    pres.save("testresult.pptx",SaveFormat.Pptx);
+    presentation.save("presentation_with_notes_master_footers.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+Metoden [`getMasterNotesSlide`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imasternotesslidemanager/#getMasterNotesSlide--) returnerar `null` när presentationen inte innehåller en anteckningsmaster.
 
-**Kan jag lägga till ett "sidhuvud" på vanliga slides?**
+## **Tillämpa anteckningsmasterinställningar på underordnade anteckningsbilder**
 
-I PowerPoint finns "Sidhuvud" bara för noteringar och utdelningar; på vanliga slides stöds endast sidfot, datum/tid och bildnummer. I Aspose.Slides gäller samma begränsningar: sidhuvud bara för Notes/Handout, och på slides — Footer/DateTime/SlideNumber.
+En anteckningsmaster kan tillämpa rubrik- och sidfotsinställningar på sig själv och på alla beroende anteckningsbilder. Använd de dedikerade spridningsmetoderna på [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/) när samma inställningar ska tillämpas över hela anteckningshierarkin.
 
-**Vad händer om layouten inte innehåller ett sidfotområde—kan jag "aktivera" dess synlighet?**
+Till exempel uppdaterar [`setHeaderAndChildHeadersText`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/#setHeaderAndChildHeadersText-java.lang.String-) och [`setHeaderAndChildHeadersVisibility`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/#setHeaderAndChildHeadersVisibility-boolean-) anteckningsmasterns rubrik och alla barnrubriker. Liknande metoder finns för sidfot, datum/tid och bildnummer.
 
-Ja. Kontrollera synligheten via sidhuvuds-/sidfots‑hanteraren och aktivera den om det behövs. Dessa API‑indikatorer och metoder är avsedda för fall då platshållaren saknas eller är dold.
+```java
+import com.aspose.slides.*;
 
-**Hur får jag bildnumret att börja från ett annat värde än 1?**
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterNotesSlide masterNotesSlide = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
 
-Ställ in presentationens [första bildnummer](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/#setFirstSlideNumber-int-); därefter beräknas all numrering om. Till exempel kan du börja på 0 eller 10, och dölja numret på titelsliden.
+    if (masterNotesSlide != null) {
+        IMasterNotesSlideHeaderFooterManager headerFooterManager = masterNotesSlide.getHeaderFooterManager();
 
-**Vad händer med sidhuvuden/sidfötter vid export till PDF/bilder/HTML?**
+        headerFooterManager.setHeaderAndChildHeadersText("Notes header");
+        headerFooterManager.setHeaderAndChildHeadersVisibility(true);
 
-De renderas som vanliga textelement i presentationen. Det betyder att om elementen är synliga på slides/notessidor så visas de också i den exporterade filen tillsammans med resten av innehållet.
+        headerFooterManager.setFooterAndChildFootersText("Notes footer");
+        headerFooterManager.setFooterAndChildFootersVisibility(true);
+
+        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
+        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
+
+        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
+    }
+
+    presentation.save("presentation_with_child_notes_footers.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Spridningsmetoderna som användes ovan är [`setFooterAndChildFootersText`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/#setFooterAndChildFootersText-java.lang.String-), [`setFooterAndChildFootersVisibility`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/#setFooterAndChildFootersVisibility-boolean-), [`setDateTimeAndChildDateTimesText`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesText-java.lang.String-), [`setDateTimeAndChildDateTimesVisibility`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesVisibility-boolean-), och [`setSlideNumberAndChildSlideNumbersVisibility`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/#setSlideNumberAndChildSlideNumbersVisibility-boolean-).
+
+## **Ställ in rubriker och sidfot på en enskild anteckningsbild**
+
+En anteckningsbild tillhör en specifik vanlig bild. Använd dess gränssnitt [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/inotesslideheaderfootermanager/) när du vill anpassa endast den anteckningssidan.
+
+Metoden [`addNotesSlide`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/inotesslidemanager/#addNotesSlide--) returnerar anteckningsbilden för den aktuella bilden och skapar en om den ännu inte finns. Följande exempel konfigurerar anteckningssidan som är kopplad till den första presentationsbilden:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    INotesSlide notesSlide = slide.getNotesSlideManager().addNotesSlide();
+    INotesSlideHeaderFooterManager headerFooterManager = notesSlide.getHeaderFooterManager();
+
+    headerFooterManager.setHeaderText("Header for the first notes page");
+    headerFooterManager.setHeaderVisibility(true);
+
+    headerFooterManager.setFooterText("Footer for the first notes page");
+    headerFooterManager.setFooterVisibility(true);
+
+    headerFooterManager.setDateTimeText("Date and time text");
+    headerFooterManager.setDateTimeVisibility(true);
+
+    headerFooterManager.setSlideNumberVisibility(true);
+
+    presentation.save("presentation_with_custom_notes_footers.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Om du först sprider inställningar från anteckningsmastern och sedan ändrar en enskild anteckningsbild, låter de senare per‑bild‑inställningarna dig anpassa den anteckningssidan oberoende.
+
+## **Ställ in rubriker och sidfot på utdelningsmastern**
+
+Utdelningssidor använder utdelningsmastern för sina rubrik-, sidfot-, datum/tid- och sidnummer‑platshållare. Till skillnad från anteckningssidor hanteras utdelningsinställningarna via utdelningsmastern istället för enskilda utdelningsbilder.
+
+Använd metoden [`getMasterHandoutSlide`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imasterhandoutslidemanager/#getMasterHandoutSlide--) för att komma åt utdelningsmastern. Om den inte finns, anropa [`setDefaultMasterHandoutSlide`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imasterhandoutslidemanager/#setDefaultMasterHandoutSlide--) för att skapa standard‑utdelningsmastern.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterHandoutSlide masterHandoutSlide = presentation.getMasterHandoutSlideManager().getMasterHandoutSlide();
+
+    if (masterHandoutSlide == null) {
+        masterHandoutSlide = presentation.getMasterHandoutSlideManager().setDefaultMasterHandoutSlide();
+    }
+
+    if (masterHandoutSlide != null) {
+        IMasterHandoutSlideHeaderFooterManager headerFooterManager = masterHandoutSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderText("Handout header");
+        headerFooterManager.setHeaderVisibility(true);
+
+        headerFooterManager.setFooterText("Handout footer");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
+    }
+
+    presentation.save("presentation_with_handout_footers.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Förstå omfång och arv**
+
+Välj den rubrik-/sidfotshanterare som motsvarar det omfång du vill ändra:
+
+- [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/islideheaderfootermanager/) ändrar sidfot-, datum/tid- och bildnummerinställningar för en vanlig bild.
+- [`ILayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ilayoutslideheaderfootermanager/) styr en layout‑bild och kan sprida stödda inställningar till beroende bilder.
+- [`IMasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imasterslideheaderfootermanager/) styr en vanlig bildmaster och kan sprida stödda inställningar till beroende bilder.
+- [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/) styr anteckningsmastern och kan sprida inställningar till alla beroende anteckningsbilder.
+- [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/inotesslideheaderfootermanager/) ändrar en anteckningsbild och stöder en rubrik‑platshållare utöver sidfot, datum/tid och bildnummer.
+- [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/imasterhandoutslideheaderfootermanager/) ändrar utdelningsmastern och stöder alla fyra platshållartyper.
+
+Använd spridning från en master eller layout när samma inställning ska gälla i hela dess hierarki. Använd en enskild bild‑ eller antecknings‑bild‑hanterare när du behöver en lokal inställning för en sida.
+
+## **Vanliga frågor**
+
+**Kan jag lägga till en rubrik på en vanlig bild?**
+
+Nej. PowerPoint definierar ingen rubrik‑platshållare för vanliga bilder. På vanliga bilder använder du sidfot-, datum/tid- och bildnummer‑platshållare. Rubrik‑platshållare finns på anteckningssidor och utdelningar.
+
+**Vad händer om en sidfot-, datum/tid- eller bildnummer‑platshållare inte är synlig?**
+
+Använd motsvarande rubrik-/sidfotshanterare för att kontrollera dess synlighet och aktivera den vid behov. Till exempel rapporterar [`isFooterVisible`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/baseslideheaderfootermanager/#isFooterVisible--) om en sidfot‑platshållare finns, och [`setFooterVisibility`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/baseslideheaderfootermanager/#setFooterVisibility-boolean-) ändrar dess synlighet.
+
+**Hur startar jag bildnumreringen från ett annat värde än 1?**
+
+Anropa presentationens metod [`setFirstSlideNumber`](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/#setFirstSlideNumber-int-). Bildnummer‑platshållarna använder då den uppdaterade nummersekvensen.
+
+**Vad händer med rubriker och sidfot när man exporterar till PDF, bilder eller HTML?**
+
+Synliga rubrik‑ och sidfotselement renderas tillsammans med resten av presentationsinnehållet i det exporterade formatet. Deras utseende beror på den sidtyp som exporteras och de motsvarande platshållar‑synlighetsinställningarna.

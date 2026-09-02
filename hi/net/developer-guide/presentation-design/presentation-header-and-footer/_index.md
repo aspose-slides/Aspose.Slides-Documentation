@@ -1,16 +1,16 @@
 ---
-title: .NET में प्रस्तुति हेडर और फ़ुटर को प्रबंधित करें
-linktitle: हेडर और फ़ुटर
+title: .NET में प्रस्तुति हेडर और फुटर प्रबंधित करें
+linktitle: हेडर और फुटर
 type: docs
 weight: 140
 url: /hi/net/presentation-header-and-footer/
 keywords:
 - हेडर
 - हेडर टेक्स्ट
-- फ़ुटर
-- फ़ुटर टेक्स्ट
+- फुटर
+- फुटर टेक्स्ट
 - हेडर सेट करें
-- फ़ुटर सेट करें
+- फुटर सेट करें
 - हैंडआउट
 - नोट्स
 - PowerPoint
@@ -19,132 +19,224 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "प्रोफ़ेशनल लुक के लिए PowerPoint और OpenDocument प्रस्तुतियों में हेडर और फ़ुटर जोड़ने और अनुकूलित करने के लिए .NET के लिए Aspose.Slides का उपयोग करें।"
+description: "Aspose.Slides for .NET के साथ स्लाइड, नोट्स पृष्ठ और हैंडआउट पर फुटर, तारीख‑समय, स्लाइड‑नंबर और हेडर प्लेसहोल्डर को प्रबंधित करना सीखें।"
 ---
-## **सारांश**
+## **अवलोकन**
 
-Aspose.Slides आपको PowerPoint प्रस्तुतियों में हेडर और फुटर सेटिंग्स प्रबंधित करने की सुविधा देता है। हेडर और फुटर प्रस्तुति मास्टर स्तर पर संभाले जाते हैं, और API फ़ुटर टेक्स्ट सेट करने, फ़ुटर की दृश्यता बदलने, और मास्टर नोट्स स्लाइड्स पर हेडर टेक्स्ट अपडेट करने के लिए मेथड्स प्रदान करता है।
+PowerPoint पृष्ठ प्रकार के आधार पर विभिन्न हेडर और फुटर प्लेसहोल्डर का उपयोग करता है। Aspose.Slides for .NET आपको इन प्लेसहोल्डरों के पाठ और दृश्यता को हेडर/फुटर प्रबंधन इंटरफ़ेस के माध्यम से नियंत्रित करने की अनुमति देता है।
 
-आप हैंडआउट और नोट्स स्लाइड्स के लिए भी हेडर और फुटर प्रबंधित कर सकते हैं। इसमें नोट्स मास्टर, सभी चाइल्ड नोट्स स्लाइड्स, या किसी व्यक्तिगत नोट्स स्लाइड के लिए हेडर, फुटर, स्लाइड नंबर, और तिथि‑समय प्लेसहोल्डर्स की दृश्यता और टेक्स्ट बदलना शामिल है।
+उपलब्ध प्लेसहोल्डर स्कोप पर निर्भर करते हैं:
 
-## **हेडर और फुटर टेक्स्ट प्रबंधन**
+| स्कोप | हेडर | फुटर | तारीख/समय | स्लाइड/पृष्ठ संख्या |
+|---|---|---|---|---|
+| साधारण स्लाइड | नहीं | हाँ | हाँ | हाँ |
+| नोट्स मास्टर | हाँ | हाँ | हाँ | हाँ |
+| नोट्स स्लाइड | हाँ | हाँ | हाँ | हाँ |
+| हैंडआउट मास्टर | हाँ | हाँ | हाँ | हाँ |
 
-कुछ विशिष्ट स्लाइड के नोट्स को नीचे दर्शाए गए उदाहरण की तरह अपडेट किया जा सकता है:
+एक साधारण प्रस्तुति स्लाइड में हेडर प्लेसहोल्डर नहीं होता है। हेडर नोट्स पृष्ठों और हैंडआउट में उपलब्ध होते हैं। साधारण स्लाइड के लिए, फुटर, तारीख/समय, और स्लाइड‑नंबर प्लेसहोल्डर का उपयोग करें।
 
-```c#
-// प्रस्तुति लोड करें
-Presentation pres = new Presentation("headerTest.pptx");
+परिवर्तन का स्कोप आपके द्वारा उपयोग किए जाने वाले प्रबंधक पर निर्भर करता है। [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/hi/net/aspose.slides/islideheaderfootermanager/) इंटरफ़ेस एक साधारण स्लाइड को नियंत्रित करता है। [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/hi/net/aspose.slides/inotesslideheaderfootermanager/) इंटरफ़ेस एक नोट्स स्लाइड को नियंत्रित करता है। मास्टर और लेआउट प्रबंधक सेटिंग्स को निर्भर स्लाइडों तक भी प्रसारित कर सकते हैं, जबकि [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/hi/net/aspose.slides/imasterhandoutslideheaderfootermanager/) इंटरफ़ेस हैंडआउट मास्टर को नियंत्रित करता है।
 
-// फुटर सेट करना
-pres.HeaderFooterManager.SetAllFootersText("My Footer text");
-pres.HeaderFooterManager.SetAllFootersVisibility(true);
+## **साधारण स्लाइड पर फुटर, तारीख/समय और स्लाइड नंबर सेट करें**
 
-// हेडर तक पहुँचें और अपडेट करें
-IMasterNotesSlide masterNotesSlide = pres.MasterNotesSlideManager.MasterNotesSlide;
-if (null != masterNotesSlide)
-{
-	UpdateHeaderFooterText(masterNotesSlide);
-}
+साधारण स्लाइडों के लिए, मूल कार्यप्रवाह यह है कि प्रत्येक स्लाइड के हेडर/फुटर प्रबंधक तक पहुँचें, फुटर और तारीख/समय का पाठ सेट करें, आवश्यक प्लेसहोल्डर सक्षम करें, और प्रस्तुति को सहेजें। स्लाइड नंबर प्रस्तुति द्वारा उत्पन्न होते हैं, इसलिए आपको केवल उनकी दृश्यता को नियंत्रित करना होता है।
 
-// प्रस्तुति सहेजें
-pres.Save("HeaderFooterJava.pptx", SaveFormat.Pptx);
-```
+टेक्स्ट सेट करने के लिए [`SetFooterText`](https://reference.aspose.com/slides/hi/net/aspose.slides/baseslideheaderfootermanager/setfootertext/) और [`SetDateTimeText`](https://reference.aspose.com/slides/hi/net/aspose.slides/baseslideheaderfootermanager/setdatetimetext/) का उपयोग करें, और संबंधित प्लेसहोल्डर दिखाने के लिए [`SetFooterVisibility`](https://reference.aspose.com/slides/hi/net/aspose.slides/baseslideheaderfootermanager/setfootervisibility/), [`SetDateTimeVisibility`](https://reference.aspose.com/slides/hi/net/aspose.slides/baseslideheaderfootermanager/setdatetimevisibility/) और [`SetSlideNumberVisibility`](https://reference.aspose.com/slides/hi/net/aspose.slides/baseslideheaderfootermanager/setslidenumbervisibility/) का उपयोग करें।
 
-
+नीचे दिया गया अंत‑से‑अंत उदाहरण सभी साधारण स्लाइडों पर समान फुटर, तारीख/समय पाठ और स्लाइड‑नंबर दृश्यता लागू करता है:
 
 ```c#
-// हेडर/फ़ुटर टेक्स्ट सेट करने की विधि
-public static void UpdateHeaderFooterText(IBaseSlide master)
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-    foreach (IShape shape in master.Shapes)
-    {
-        if (shape.Placeholder != null)
-        {
-            if (shape.Placeholder.Type == PlaceholderType.Header)
-            {
-                ((IAutoShape)shape).TextFrame.Text = "HI there new header";
-            }
-        }
-    }
+    var headerFooterManager = slide.HeaderFooterManager;
+
+    headerFooterManager.SetFooterText("Company Confidential");
+    headerFooterManager.SetFooterVisibility(true);
+
+    headerFooterManager.SetDateTimeText("Date and time text");
+    headerFooterManager.SetDateTimeVisibility(true);
+
+    headerFooterManager.SetSlideNumberVisibility(true);
 }
+
+presentation.Save("presentation_with_slide_footers.pptx", SaveFormat.Pptx);
 ```
 
+यदि आपको केवल एक स्लाइड को अपडेट करना है, तो पूरी संग्रह पर इटरशन करने के बजाय [`Slides`](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/slides/hi/) संग्रह के माध्यम से उस स्लाइड तक सीधे पहुँचें।
 
+## **नोट्स मास्टर पर हेडर और फुटर सेट करें**
 
+नोट्स मास्टर नोट्स पृष्ठों के लिए सामान्य फ़ॉर्मेटिंग और प्लेसहोल्डर व्यवहार निर्धारित करता है। जब आप केवल नोट्स मास्टर को बदलना चाहते हैं, तो [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/hi/net/aspose.slides/imasternotesslideheaderfootermanager/) इंटरफ़ेस का उपयोग करें।
 
-## **हैंडआउट और नोट्स स्लाइड्स में हेडर और फुटर प्रबंधन**
-Aspose.Slides for .NET हैंडआउट और नोट्स स्लाइड्स में हेडर और फुटर का समर्थन करता है। कृपया नीचे दिए गए चरणों का पालन करें:
-
-- एक [प्रस्तुति](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation)लोड करें जिसमें वीडियो हो।
-- नोट्स मास्टर और सभी नोट्स स्लाइड्स के लिए हेडर और फुटर सेटिंग्स बदलें।
-- मास्टर नोट्स स्लाइड और सभी चाइल्ड फुटर प्लेसहोल्डर्स को दृश्यमान सेट करें।
-- मास्टर नोट्स स्लाइड और सभी चाइल्ड तिथि और समय प्लेसहोल्डर्स को दृश्यमान सेट करें।
-- केवल पहले नोट्स स्लाइड के लिए हेडर और फुटर सेटिंग्स बदलें।
-- नोट्स स्लाइड हेडर प्लेसहोल्डर को दृश्यमान सेट करें।
-- नोट्स स्लाइड हेडर प्लेसहोल्डर में टेक्स्ट सेट करें।
-- नोट्स स्लाइड तिथि‑समय प्लेसहोल्डर में टेक्स्ट सेट करें।
-- संशोधित प्रस्तुति फ़ाइल लिखें।
-
-नीचे दिए गए उदाहरण में कोड स्निपेट प्रदान किया गया है।
+निम्न उदाहरण नोट्स मास्टर पर हेडर, फुटर और तारीख/समय पाठ सेट करता है और उस मास्टर पर सभी समर्थित प्लेसहोल्डर को दृश्य बनाता है:
 
 ```c#
-using (Presentation presentation = new Presentation("presentation.pptx"))
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var masterNotesSlide = presentation.MasterNotesSlideManager.MasterNotesSlide;
+
+if (masterNotesSlide != null)
 {
-	// नोट्स मास्टर और सभी नोट्स स्लाइड्स के लिए हेडर और फुटर सेटिंग्स बदलें
-	IMasterNotesSlide masterNotesSlide = presentation.MasterNotesSlideManager.MasterNotesSlide;
-	if (masterNotesSlide != null)
-	{
-		IMasterNotesSlideHeaderFooterManager headerFooterManager = masterNotesSlide.HeaderFooterManager;
+    var headerFooterManager = masterNotesSlide.HeaderFooterManager;
 
-		headerFooterManager.SetHeaderAndChildHeadersVisibility(true); // मास्टर नोट्स स्लाइड और सभी चाइल्ड फुटर प्लेसहोल्डर्स को दृश्यमान बनाएं
-		headerFooterManager.SetFooterAndChildFootersVisibility(true); // मास्टर नोट्स स्लाइड और सभी चाइल्ड हेडर प्लेसहोल्डर्स को दृश्यमान बनाएं
-		headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true); // मास्टर नोट्स स्लाइड और सभी चाइल्ड स्लाइडनंबर प्लेसहोल्डर्स को दृश्यमान बनाएं
-		headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true); // मास्टर नोट्स स्लाइड और सभी चाइल्ड तिथि और समय प्लेसहोल्डर्स को दृश्यमान बनाएं
+    headerFooterManager.SetHeaderText("Notes header");
+    headerFooterManager.SetHeaderVisibility(true);
 
-		headerFooterManager.SetHeaderAndChildHeadersText("Header text"); // मास्टर नोट्स स्लाइड और सभी चाइल्ड हेडर प्लेसहोल्डर्स को टेक्स्ट सेट करें
-		headerFooterManager.SetFooterAndChildFootersText("Footer text"); // मास्टर नोट्स स्लाइड और सभी चाइल्ड फुटर प्लेसहोल्डर्स को टेक्स्ट सेट करें
-		headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text"); // मास्टर नोट्स स्लाइड और सभी चाइल्ड तिथि और समय प्लेसहोल्डर्स को टेक्स्ट सेट करें
-	}
+    headerFooterManager.SetFooterText("Notes footer");
+    headerFooterManager.SetFooterVisibility(true);
 
-	// पहली नोट्स स्लाइड के लिए केवल हेडर और फुटर सेटिंग्स बदलें
-	INotesSlide notesSlide = presentation.Slides[0].NotesSlideManager.NotesSlide;
-	if (notesSlide != null)
-	{
-		INotesSlideHeaderFooterManager headerFooterManager = notesSlide.HeaderFooterManager;
-		if (!headerFooterManager.IsHeaderVisible)
-			headerFooterManager.SetHeaderVisibility(true); // इस नोट्स स्लाइड के हेडर प्लेसहोल्डर को दृश्यमान बनाएं
+    headerFooterManager.SetDateTimeText("Date and time text");
+    headerFooterManager.SetDateTimeVisibility(true);
 
-		if (!headerFooterManager.IsFooterVisible)
-			headerFooterManager.SetFooterVisibility(true); // इस नोट्स स्लाइड के फुटर प्लेसहोल्डर को दृश्यमान बनाएं
-
-		if (!headerFooterManager.IsSlideNumberVisible)
-			headerFooterManager.SetSlideNumberVisibility(true); // इस नोट्स स्लाइड के स्लाइडनंबर प्लेसहोल्डर को दृश्यमान बनाएं
-
-		if (!headerFooterManager.IsDateTimeVisible)
-			headerFooterManager.SetDateTimeVisibility(true); // इस नोट्स स्लाइड के तिथि-समय प्लेसहोल्डर को दृश्यमान बनाएं
-
-		headerFooterManager.SetHeaderText("New header text"); // नोट्स स्लाइड हेडर प्लेसहोल्डर को टेक्स्ट सेट करें
-		headerFooterManager.SetFooterText("New footer text"); // नोट्स स्लाइड फुटर प्लेसहोल्डर को टेक्स्ट सेट करें
-		headerFooterManager.SetDateTimeText("New date and time text"); // नोट्स स्लाइड तिथि-समय प्लेसहोल्डर को टेक्स्ट सेट करें
-	}
-	presentation.Save("testresult.pptx",SaveFormat.Pptx);
+    headerFooterManager.SetSlideNumberVisibility(true);
 }
+
+presentation.Save("presentation_with_notes_master_footers.pptx", SaveFormat.Pptx);
 ```
+
+`[`MasterNotesSlide`](https://reference.aspose.com/slides/hi/net/aspose.slides/imasternotesslidemanager/masternotesslide/)` प्रॉपर्टी `null` लौटाती है जब प्रस्तुति में नोट्स मास्टर नहीं होता है।
+
+## **नोट्स मास्टर सेटिंग्स को चाइल्ड नोट्स स्लाइड्स पर लागू करें**
+
+एक नोट्स मास्टर हेडर और फुटर सेटिंग्स को स्वयं और सभी निर्भर नोट्स स्लाइड्स पर लागू कर सकता है। जब समान सेटिंग्स को नोट्स क्रम में लागू करने की आवश्यकता हो, तो [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/hi/net/aspose.slides/imasternotesslideheaderfootermanager/) पर समर्पित प्रसरण विधियों का उपयोग करें।
+
+उदाहरण के लिए, [`SetHeaderAndChildHeadersText`](https://reference.aspose.com/slides/hi/net/aspose.slides/masternotesslideheaderfootermanager/setheaderandchildheaderstext/) और [`SetHeaderAndChildHeadersVisibility`](https://reference.aspose.com/slides/hi/net/aspose.slides/masternotesslideheaderfootermanager/setheaderandchildheadersvisibility/) नोट्स मास्टर हेडर और सभी चाइल्ड हेडर को अपडेट करते हैं। फुटर, तारीख/समय और स्लाइड नंबर के लिए समान विधियां उपलब्ध हैं।
+
+```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var masterNotesSlide = presentation.MasterNotesSlideManager.MasterNotesSlide;
+
+if (masterNotesSlide != null)
+{
+    var headerFooterManager = masterNotesSlide.HeaderFooterManager;
+
+    headerFooterManager.SetHeaderAndChildHeadersText("Notes header");
+    headerFooterManager.SetHeaderAndChildHeadersVisibility(true);
+
+    headerFooterManager.SetFooterAndChildFootersText("Notes footer");
+    headerFooterManager.SetFooterAndChildFootersVisibility(true);
+
+    headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text");
+    headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true);
+
+    headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true);
+}
+
+presentation.Save("presentation_with_child_notes_footers.pptx", SaveFormat.Pptx);
+```
+
+ऊपर उपयोग की गई प्रसरण विधियां हैं [`SetFooterAndChildFootersText`](https://reference.aspose.com/slides/hi/net/aspose.slides/masternotesslideheaderfootermanager/setfooterandchildfooterstext/), [`SetFooterAndChildFootersVisibility`](https://reference.aspose.com/slides/hi/net/aspose.slides/masternotesslideheaderfootermanager/setfooterandchildfootersvisibility/), [`SetDateTimeAndChildDateTimesText`](https://reference.aspose.com/slides/hi/net/aspose.slides/masternotesslideheaderfootermanager/setdatetimeandchilddatetimestext/), [`SetDateTimeAndChildDateTimesVisibility`](https://reference.aspose.com/slides/hi/net/aspose.slides/masternotesslideheaderfootermanager/setdatetimeandchilddatetimesvisibility/), और [`SetSlideNumberAndChildSlideNumbersVisibility`](https://reference.aspose.com/slides/hi/net/aspose.slides/masternotesslideheaderfootermanager/setslidenumberandchildslidenumbersvisibility/)।
+
+## **व्यक्तिगत नोट्स स्लाइड पर हेडर और फुटर सेट करें**
+
+एक नोट्स स्लाइड एक विशिष्ट साधारण स्लाइड से जुड़ी होती है। जब आप केवल उस नोट्स पृष्ठ को कस्टमाइज़ करना चाहते हैं, तो उसके [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/hi/net/aspose.slides/inotesslideheaderfootermanager/) इंटरफ़ेस का उपयोग करें।
+
+[`AddNotesSlide`](https://reference.aspose.com/slides/hi/net/aspose.slides/inotesslidemanager/addnotesslide/) मेथड वर्तमान स्लाइड के लिए नोट्स स्लाइड लौटाता है और यदि वह मौजूद नहीं है तो एक नया बनाता है। नीचे दिया गया उदाहरण पहली प्रस्तुति स्लाइड से संबंधित नोट्स पृष्ठ को कॉन्फ़िगर करता है:
+
+```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var notesSlide = presentation.Slides[0].NotesSlideManager.AddNotesSlide();
+var headerFooterManager = notesSlide.HeaderFooterManager;
+
+headerFooterManager.SetHeaderText("Header for the first notes page");
+headerFooterManager.SetHeaderVisibility(true);
+
+headerFooterManager.SetFooterText("Footer for the first notes page");
+headerFooterManager.SetFooterVisibility(true);
+
+headerFooterManager.SetDateTimeText("Date and time text");
+headerFooterManager.SetDateTimeVisibility(true);
+
+headerFooterManager.SetSlideNumberVisibility(true);
+
+presentation.Save("presentation_with_custom_notes_footers.pptx", SaveFormat.Pptx);
+```
+
+यदि आप पहले नोट्स मास्टर से सेटिंग्स प्रसारित करें और फिर व्यक्तिगत नोट्स स्लाइड में परिवर्तन करें, तो बाद की प्रति‑स्लाइड सेटिंग्स आपको उस नोट्स पृष्ठ को स्वतंत्र रूप से कस्टमाइज़ करने देती हैं।
+
+## **हैंडआउट मास्टर पर हेडर और फुटर सेट करें**
+
+हैंडआउट पेज अपने हेडर, फुटर, तारीख/समय और पेज‑नंबर प्लेसहोल्डर के लिए हैंडआउट मास्टर का उपयोग करते हैं। नोट्स पेजों के विपरीत, हैंडआउट सेटिंग्स व्यक्तिगत हैंडआउट स्लाइडों के बजाय हैंडआउट मास्टर के माध्यम से प्रबंधित की जाती हैं।
+
+`[`MasterHandoutSlide`](https://reference.aspose.com/slides/hi/net/aspose.slides/imasterhandoutslidemanager/masterhandoutslide/)` प्रॉपर्टी का उपयोग करके हैंडआउट मास्टर तक पहुँचें। यदि यह मौजूद नहीं है, तो डिफ़ॉल्ट हैंडआउट मास्टर बनाने के लिए [`SetDefaultMasterHandoutSlide`](https://reference.aspose.com/slides/hi/net/aspose.slides/imasterhandoutslidemanager/setdefaultmasterhandoutslide/) को कॉल करें।
+
+```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var masterHandoutSlide = presentation.MasterHandoutSlideManager.MasterHandoutSlide;
+
+if (masterHandoutSlide == null)
+{
+    presentation.MasterHandoutSlideManager.SetDefaultMasterHandoutSlide();
+    masterHandoutSlide = presentation.MasterHandoutSlideManager.MasterHandoutSlide;
+}
+
+if (masterHandoutSlide != null)
+{
+    var headerFooterManager = masterHandoutSlide.HeaderFooterManager;
+
+    headerFooterManager.SetHeaderText("Handout header");
+    headerFooterManager.SetHeaderVisibility(true);
+
+    headerFooterManager.SetFooterText("Handout footer");
+    headerFooterManager.SetFooterVisibility(true);
+
+    headerFooterManager.SetDateTimeText("Date and time text");
+    headerFooterManager.SetDateTimeVisibility(true);
+
+    headerFooterManager.SetSlideNumberVisibility(true);
+}
+
+presentation.Save("presentation_with_handout_footers.pptx", SaveFormat.Pptx);
+```
+
+## **स्कोप और विरासत को समझें**
+
+स्कोप चुनें जो आप बदलना चाहते हैं और उसके अनुसार हेडर/फुटर प्रबंधक चुनें:
+
+- [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/hi/net/aspose.slides/islideheaderfootermanager/) एक साधारण स्लाइड के लिए फुटर, तारीख/समय और स्लाइड‑नंबर सेटिंग्स बदलता है।
+- [`ILayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/hi/net/aspose.slides/ilayoutslideheaderfootermanager/) लेआउट स्लाइड को नियंत्रित करता है और समर्थित सेटिंग्स को निर्भर स्लाइडों तक प्रसारित कर सकता है।
+- [`IMasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/hi/net/aspose.slides/imasterslideheaderfootermanager/) साधारण स्लाइड मास्टर को नियंत्रित करता है और समर्थित सेटिंग्स को निर्भर स्लाइडों तक प्रसारित कर सकता है।
+- [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/hi/net/aspose.slides/imasternotesslideheaderfootermanager/) नोट्स मास्टर को नियंत्रित करता है और सभी निर्भर नोट्स स्लाइडों तक सेटिंग्स को प्रसारित कर सकता है।
+- [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/hi/net/aspose.slides/inotesslideheaderfootermanager/) एक नोट्स स्लाइड को बदलता है और फुटर, तारीख/समय, स्लाइड नंबर के अतिरिक्त हेडर प्लेसहोल्डर का समर्थन करता है।
+- [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/hi/net/aspose.slides/imasterhandoutslideheaderfootermanager/) हैंडआउट मास्टर को बदलता है और सभी चार प्रकार के प्लेसहोल्डर का समर्थन करता है।
+
+जब एक ही सेटिंग को उसकी पूरी पदानुक्रम में लागू करना हो, तो मास्टर या लेआउट से प्रसारण का उपयोग करें। जब आपको केवल एक पृष्ठ के लिए स्थानीय सेटिंग की आवश्यकता हो, तो व्यक्तिगत स्लाइड या नोट्स‑स्लाइड प्रबंधक का उपयोग करें।
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या मैं सामान्य स्लाइड्स में "हेडर" जोड़ सकता हूँ?**
+**क्या मैं साधारण स्लाइड में हेडर जोड़ सकता हूँ?**
 
-PowerPoint में "हेडर" केवल नोट्स और हैंडआउट के लिए मौजूद है; सामान्य स्लाइड्स में समर्थित तत्व फुटर, तिथि/समय, और स्लाइड नंबर हैं। Aspose.Slides में भी यही सीमाएँ लागू होती हैं: हेडर केवल नोट्स/हैंडआउट के लिए, और स्लाइड्स में—फ़ुटर/तिथि‑समय/स्लाइड‑नंबर।
+नहीं। PowerPoint साधारण स्लाइडों के लिए हेडर प्लेसहोल्डर परिभाषित नहीं करता है। साधारण स्लाइडों पर फुटर, तारीख/समय और स्लाइड‑नंबर प्लेसहोल्डर का उपयोग करें। हेडर प्लेसहोल्डर नोट्स पृष्ठों और हैंडआउट पर उपलब्ध होते हैं।
 
-**यदि लेआउट में फुटर क्षेत्र नहीं है—क्या मैं उसकी दृश्यता "ऑन" कर सकता हूँ?**
+**यदि फुटर, तारीख/समय या स्लाइड‑नंबर प्लेसहोल्डर दिखाई नहीं दे रहा है तो क्या करें?**
 
-हाँ। हेडर/फ़ुटर प्रबंधक के माध्यम से दृश्यता जाँचें और आवश्यक होने पर इसे सक्षम करें। यह API संकेतक और मेथड्स उन मामलों के लिए बनाए गए हैं जब प्लेसहोल्डर अनुपलब्ध या छिपा हो।
+संबंधित हेडर/फुटर प्रबंधक का उपयोग करके उसकी दृश्यता जाँचें और आवश्यकता होने पर उसे सक्षम करें। उदाहरण के लिए, [`IsFooterVisible`](https://reference.aspose.com/slides/hi/net/aspose.slides/baseslideheaderfootermanager/isfootervisible/) बताता है कि फुटर प्लेसहोल्डर मौजूद है या नहीं, और [`SetFooterVisibility`](https://reference.aspose.com/slides/hi/net/aspose.slides/baseslideheaderfootermanager/setfootervisibility/) उसकी दृश्यता बदलता है।
 
-**मैं स्लाइड नंबर को 1 के अलावा किसी मान से शुरू कैसे करूँ?**
+**मैं स्लाइड नंबरिंग को 1 के अलावा किसी मान से कैसे शुरू करूँ?**
 
-प्रस्तुति के [पहले स्लाइड नंबर](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/firstslidenumber/) को सेट करें; इसके बाद सभी क्रमांक पुनः गणना किए जाएंगे। उदाहरण के लिए, आप 0 या 10 से शुरू कर सकते हैं, और शीर्षक स्लाइड पर नंबर को छिपा सकते हैं।
+प्रस्तुति की [`FirstSlideNumber`](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/firstslidenumber/) प्रॉपर्टी सेट करें। फिर स्लाइड‑नंबर प्लेसहोल्डर अपडेटेड क्रमांक श्रृंखला का उपयोग करेंगे।
 
-**PDF/इमेज/HTML में निर्यात करते समय हेडर/फ़ुटर का क्या होता है?**
+**PDF, इमेज या HTML में निर्यात करते समय हेडर और फुटर का क्या होता है?**
 
-वे प्रस्तुति के नियमित टेक्स्ट तत्वों के रूप में रेंडर होते हैं। अर्थात यदि ये तत्व स्लाइड्स/नोट्स पृष्ठों पर दृश्यमान हैं, तो वे आउटपुट फ़ॉर्मेट में भी बाकी सामग्री के साथ दिखाई देंगे।
+दृश्यमान हेडर और फुटर तत्व आउटपुट फ़ॉर्मेट में प्रस्तुति की बाकी सामग्री के साथ रेंडर होते हैं। उनका स्वरूप निर्यात किए जा रहे पृष्ठ प्रकार और संबंधित प्लेसहोल्डर दृश्यता सेटिंग्स पर निर्भर करता है।

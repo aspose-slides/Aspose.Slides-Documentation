@@ -1,6 +1,6 @@
 ---
-title: จัดการส่วนหัวและส่วนท้ายของงานนำเสนอบน Android
-linktitle: ส่วนหัว & ส่วนท้าย
+title: จัดการส่วนหัวและส่วนท้ายของการนำเสนอบน Android
+linktitle: ส่วนหัวและส่วนท้าย
 type: docs
 weight: 140
 url: /th/androidjava/presentation-header-and-footer/
@@ -9,140 +9,239 @@ keywords:
 - ข้อความส่วนหัว
 - ส่วนท้าย
 - ข้อความส่วนท้าย
-- ตั้งค่า ส่วนหัว
-- ตั้งค่า ส่วนท้าย
-- แฮนด์เอาต์
-- หมายเหตุ
+- ตั้งส่วนหัว
+- ตั้งส่วนท้าย
+- เอกสารแจก
+- บันทึกย่อ
 - PowerPoint
 - OpenDocument
-- งานนำเสนอ
+- การนำเสนอ
 - Android
 - Java
 - Aspose.Slides
-description: "ใช้ Aspose.Slides สำหรับ Android ผ่าน Java เพื่อเพิ่มและปรับแต่งส่วนหัวและส่วนท้ายในงานนำเสนอ PowerPoint และ OpenDocument เพื่อให้ดูเป็นมืออาชีพ"
+description: "เรียนรู้วิธีจัดการตำแหน่งส่วนท้าย, วันที่-เวลา, หมายเลขสไลด์, และส่วนหัวบนสไลด์, หน้าบันทึกย่อ, และเอกสารแจกด้วย Aspose.Slides สำหรับ Android ผ่าน Java."
 ---
 ## **ภาพรวม**
 
-Aspose.Slides ช่วยให้คุณจัดการการตั้งค่าส่วนหัวและส่วนท้ายในงานนำเสนอ PowerPoint ได้ ส่วนหัวและส่วนท้ายจะถูกจัดการระดับมาสเตอร์ของงานนำเสนอ และ API จะมีเมธอดสำหรับการตั้งค่าข้อความส่วนท้าย การเปลี่ยนการมองเห็นของส่วนท้าย และการอัปเดตข้อความส่วนหัวบนสไลด์หมายเหตุมาสเตอร์
+PowerPoint ใช้ตำแหน่งข้อความส่วนหัวและส่วนล่างที่แตกต่างกันตามประเภทของหน้า Aspose.Slides for Android ผ่าน Java ให้คุณควบคุมข้อความและการมองเห็นของตำแหน่งเหล่านี้ผ่านอินเทอร์เฟซผู้จัดการส่วนหัว/ส่วนล่าง
 
-คุณยังสามารถจัดการส่วนหัวและส่วนท้ายสำหรับสไลด์แฮนด์เอาต์และสไลด์บันทึกหมายเหตุได้ รวมถึงการเปลี่ยนการมองเห็นและข้อความของตัวแทนส่วนหัว ส่วนท้าย หมายเลขสไลด์ และวัน‑เวลา สำหรับมาสเตอร์หมายเหตุ สไลด์หมายเหตุทั้งหมดที่เป็นลูก หรือสไลด์หมายเหตุบุคคลใดบุคคลหนึ่ง
+ตำแหน่งที่ใช้ได้ขึ้นอยู่กับขอบเขต:
 
-## **จัดการส่วนหัวและส่วนท้ายในงานนำเสนอ**
-บันทึกหมายเหตุของสไลด์บางสไลด์อาจถูกลบตามตัวอย่างด้านล่าง:
+| ขอบเขต | ส่วนหัว | ส่วนล่าง | วันที่/เวลา | หมายเลขสไลด์/หน้า |
+|---|---|---|---|---|
+| สไลด์ปกติ | ไม่ | ใช่ | ใช่ | ใช่ |
+| มาสเตอร์บันทึกย่อ | ใช่ | ใช่ | ใช่ | ใช่ |
+| สไลด์บันทึกย่อ | ใช่ | ใช่ | ใช่ | ใช่ |
+| มาสเตอร์เอกสารแจก | ใช่ | ใช่ | ใช่ | ใช่ |
+
+สไลด์การนำเสนอปกติไม่มีตำแหน่งข้อความส่วนหัว ส่วนหัวจะปรากฏบนหน้าบันทึกย่อและเอกสารแจก สำหรับสไลด์ปกติให้ใช้ตำแหน่งส่วนล่าง, วันที่/เวลา และหมายเลขสไลด์แทน
+
+ขอบเขตของการเปลี่ยนแปลงขึ้นอยู่กับผู้จัดการที่คุณใช้ อินเทอร์เฟซ[`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islideheaderfootermanager/) ควบคุมสไลด์ปกติหนึ่งสไลด์ อินเทอร์เฟซ[`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/inotesslideheaderfootermanager/) ควบคุมสไลด์บันทึกย่อหนึ่งสไลด์ ผู้จัดการมาสเตอร์และเค้าโครงสามารถแพร่กระจายการตั้งค่าไปยังสไลด์ที่ขึ้นอยู่ได้ ขณะที่อินเทอร์เฟซ[`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imasterhandoutslideheaderfootermanager/) ควบคุมมาสเตอร์เอกสารแจก
+
+## **ตั้งส่วนล่าง, วันที่/เวลา, และหมายเลขสไลด์บนสไลด์ปกติ**
+
+สำหรับสไลด์ปกติ กระบวนการพื้นฐานคือเข้าถึงผู้จัดการส่วนหัว/ส่วนล่างของแต่ละสไลด์ ตั้งข้อความส่วนล่างและวันที่/เวลา เปิดใช้งานตำแหน่งที่ต้องการ แล้วบันทึกการนำเสนอ หมายเลขสไลด์จะถูกสร้างโดยอัตโนมัติ ดังนั้นคุณเพียงแค่ควบคุมการแสดงผลของมัน
+
+ใช้[`setFooterText`](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/baseslideheaderfootermanager/#setFooterText-java.lang.String-)และ[`setDateTimeText`](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/baseslideheaderfootermanager/#setDateTimeText-java.lang.String-)เพื่อกำหนดข้อความ และใช้[`setFooterVisibility`](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/baseslideheaderfootermanager/#setFooterVisibility-boolean-),[`setDateTimeVisibility`](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/baseslideheaderfootermanager/#setDateTimeVisibility-boolean-),และ[`setSlideNumberVisibility`](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/baseslideheaderfootermanager/#setSlideNumberVisibility-boolean-)เพื่อแสดงตำแหน่งที่สอดคล้องกัน
+
+ตัวอย่างต่อไปนี้เป็นการประยุกต์ใช้ส่วนล่าง, ข้อความวันที่/เวลา, และการมองเห็นหมายเลขสไลด์เดียวกันกับสไลด์ปกติทั้งหมด:
 
 ```java
-// โหลดงานนำเสนอ
-Presentation pres = new Presentation("headerTest.pptx");
-try {
-    // ตั้งค่าส่วนท้าย
-    pres.getHeaderFooterManager().setAllFootersText("My Footer text");
-    pres.getHeaderFooterManager().setAllFootersVisibility(true);
+import com.aspose.slides.*;
 
-    // เข้าถึงและอัปเดตส่วนหัว
-    IMasterNotesSlide masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
-    if (null != masterNotesSlide)
-    {
-        updateHeaderFooterText(masterNotesSlide);
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        ISlideHeaderFooterManager headerFooterManager = slide.getHeaderFooterManager();
+
+        headerFooterManager.setFooterText("Company Confidential");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
     }
 
-    // บันทึกงานนำเสนอ
-    pres.save("HeaderFooterJava.pptx", SaveFormat.Pptx);
+    presentation.save("presentation_with_slide_footers.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
-}
-```
-```java
-// วิธีตั้งข้อความส่วนหัว/ส่วนท้าย
-public static void updateHeaderFooterText(IBaseSlide master)
-{
-    for (IShape shape : master.getShapes())
-    {
-        if (shape.getPlaceholder() != null)
-        {
-            if (shape.getPlaceholder().getType() == PlaceholderType.Header)
-            {
-                ((IAutoShape)shape).getTextFrame().setText("HI there new header");
-            }
-        }
-    }
+    presentation.dispose();
 }
 ```
 
-## **จัดการส่วนหัวและส่วนท้ายบนสไลด์แฮนด์เอาต์และบันทึกหมายเหตุ**
-Aspose.Slides สำหรับ Android ผ่าน Java รองรับส่วนหัวและส่วนท้ายในสไลด์แฮนด์เอาต์และสไลด์หมายเหตุ โปรดทำตามขั้นตอนด้านล่าง:
+หากคุณต้องการอัปเดตเพียงสไลด์เดียว ให้เข้าถึงสไลด์นั้นโดยตรงผ่านเมธอด[`getSlides`](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/#getSlides--)แทนการวนลูปผ่านคอลเลกชันทั้งหมด
 
-- โหลด [งานนำเสนอ](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/Presentation) ที่มีวิดีโอ
-- เปลี่ยนการตั้งค่าส่วนหัวและส่วนท้ายสำหรับมาสเตอร์หมายเหตุและสไลด์หมายเหตุทั้งหมด
-- ตั้งให้สไลด์หมายเหตุมาสเตอร์และตัวแทนส่วนท้ายของลูกทั้งหมดมองเห็นได้
-- ตั้งให้สไลด์หมายเหตุมาสเตอร์และตัวแทนวัน‑เวลา ของลูกทั้งหมดมองเห็นได้
-- เปลี่ยนการตั้งค่าส่วนหัวและส่วนท้ายสำหรับสไลด์หมายเหตุแรกเท่านั้น
-- ตั้งให้ตัวแทนส่วนหัวของสไลด์หมายเหตุมองเห็นได้
-- ตั้งข้อความให้กับตัวแทนส่วนหัวของสไลด์หมายเหตุ
-- ตั้งข้อความให้กับตัวแทนวัน‑เวลาของสไลด์หมายเหตุ
-- เขียนไฟล์งานนำเสนอที่แก้ไขแล้ว
+## **ตั้งส่วนหัวและส่วนล่างบนมาสเตอร์บันทึกย่อ**
 
-ตัวอย่างโค้ดที่ให้ไว้ด้านล่าง
+มาสเตอร์บันทึกย่อกำหนดรูปแบบทั่วไปและพฤติกรรมตำแหน่งของหน้าบันทึกย่อ ใช้อินเทอร์เฟซ[`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/) เมื่อคุณต้องการเปลี่ยนแปลงเฉพาะมาสเตอร์บันทึกย่อเอง
+
+ตัวอย่างต่อไปนี้ตั้งส่วนหัว, ส่วนล่าง, และข้อความวันที่/เวลาบนมาสเตอร์บันทึกย่อและทำให้ตำแหน่งที่รองรับทั้งหมดแสดงผลบนมาสเตอร์นั้น:
 
 ```java
-Presentation pres = new Presentation("presentation.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    // เปลี่ยนการตั้งค่าส่วนหัวและส่วนท้ายสำหรับมาสเตอร์หมายเหตุและสไลด์หมายเหตุทั้งหมด
-    IMasterNotesSlide masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
-    if (masterNotesSlide != null)
-    {
+    IMasterNotesSlide masterNotesSlide = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
+
+    if (masterNotesSlide != null) {
         IMasterNotesSlideHeaderFooterManager headerFooterManager = masterNotesSlide.getHeaderFooterManager();
 
-        headerFooterManager.setHeaderAndChildHeadersVisibility(true); // ทำให้สไลด์หมายเหตุมาสเตอร์และตัวแทน Footer ลูกทั้งหมดมองเห็นได้
-        headerFooterManager.setFooterAndChildFootersVisibility(true); // ทำให้สไลด์หมายเหตุมาสเตอร์และตัวแทน Header ลูกทั้งหมดมองเห็นได้
-        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true); // ทำให้สไลด์หมายเหตุมาสเตอร์และตัวแทน SlideNumber ลูกทั้งหมดมองเห็นได้
-        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true); // ทำให้สไลด์หมายเหตุมาสเตอร์และตัวแทน Date and time ลูกทั้งหมดมองเห็นได้
+        headerFooterManager.setHeaderText("Notes header");
+        headerFooterManager.setHeaderVisibility(true);
 
-        headerFooterManager.setHeaderAndChildHeadersText("Header text"); // ตั้งข้อความให้สไลด์หมายเหตุมาสเตอร์และตัวแทน Header ลูกทั้งหมด
-        headerFooterManager.setFooterAndChildFootersText("Footer text"); // ตั้งข้อความให้สไลด์หมายเหตุมาสเตอร์และตัวแทน Footer ลูกทั้งหมด
-        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text"); // ตั้งข้อความให้สไลด์หมายเหตุมาสเตอร์และตัวแทน Date and time ลูกทั้งหมด
+        headerFooterManager.setFooterText("Notes footer");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
     }
 
-    // เปลี่ยนการตั้งค่าส่วนหัวและส่วนท้ายสำหรับสไลด์หมายเหตุแรกเท่านั้น
-    INotesSlide notesSlide = pres.getSlides().get_Item(0).getNotesSlideManager().getNotesSlide();
-    if (notesSlide != null)
-    {
-        INotesSlideHeaderFooterManager headerFooterManager = notesSlide.getHeaderFooterManager();
-        if (!headerFooterManager.isHeaderVisible())
-            headerFooterManager.setHeaderVisibility(true); // ทำให้ตัวแทน Header ของสไลด์หมายเหตุนี้มองเห็นได้
-
-        if (!headerFooterManager.isFooterVisible())
-            headerFooterManager.setFooterVisibility(true); // ทำให้ตัวแทน Footer ของสไลด์หมายเหตุนี้มองเห็นได้
-
-        if (!headerFooterManager.isSlideNumberVisible())
-            headerFooterManager.setSlideNumberVisibility(true); // ทำให้ตัวแทน SlideNumber ของสไลด์หมายเหตุนี้มองเห็นได้
-
-        if (!headerFooterManager.isDateTimeVisible())
-            headerFooterManager.setDateTimeVisibility(true); // ทำให้ตัวแทน Date-time ของสไลด์หมายเหตุนี้มองเห็นได้
-
-        headerFooterManager.setHeaderText("New header text"); // ตั้งข้อความให้ตัวแทน Header ของสไลด์หมายเหตุ
-        headerFooterManager.setFooterText("New footer text"); // ตั้งข้อความให้ตัวแทน Footer ของสไลด์หมายเหตุ
-        headerFooterManager.setDateTimeText("New date and time text"); // ตั้งข้อความให้ตัวแทน Date-time ของสไลด์หมายเหตุ
-    }
-    pres.save("testresult.pptx",SaveFormat.Pptx);
+    presentation.save("presentation_with_notes_master_footers.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+เมธอด[`getMasterNotesSlide`](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imasternotesslidemanager/#getMasterNotesSlide--) จะคืนค่า `null` เมื่อการนำเสนอไม่มีมาสเตอร์บันทึกย่อ
+
+## **ใช้การตั้งค่ามาสเตอร์บันทึกย่อกับสไลด์บันทึกย่อลูก**
+
+มาสเตอร์บันทึกย่อสามารถประยุกต์ใช้การตั้งค่าส่วนหัวและส่วนล่างกับตัวมันเองและกับสไลด์บันทึกย่อที่ขึ้นอยู่ทั้งหมด ใช้เมธอดการแพร่กระจายเฉพาะบน[`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/) เมื่อต้องการใช้การตั้งค่าเดียวกันทั่วทั้งระดับบันทึกย่อ
+
+เช่น[`setHeaderAndChildHeadersText`](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/#setHeaderAndChildHeadersText-java.lang.String-)และ[`setHeaderAndChildHeadersVisibility`](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/#setHeaderAndChildHeadersVisibility-boolean-)จะอัปเดตส่วนหัวของมาสเตอร์บันทึกย่อและส่วนหัวของสไลด์ลูกทั้งหมด มีเมธอดเทียบเคียงสำหรับส่วนล่าง, วันที่/เวลา, และหมายเลขสไลด์
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterNotesSlide masterNotesSlide = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
+
+    if (masterNotesSlide != null) {
+        IMasterNotesSlideHeaderFooterManager headerFooterManager = masterNotesSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderAndChildHeadersText("Notes header");
+        headerFooterManager.setHeaderAndChildHeadersVisibility(true);
+
+        headerFooterManager.setFooterAndChildFootersText("Notes footer");
+        headerFooterManager.setFooterAndChildFootersVisibility(true);
+
+        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
+        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
+
+        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
+    }
+
+    presentation.save("presentation_with_child_notes_footers.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+เมธอดการแพร่กระจายที่ใช้ด้านบนได้แก่[`setFooterAndChildFootersText`](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/#setFooterAndChildFootersText-java.lang.String-),[`setFooterAndChildFootersVisibility`](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/#setFooterAndChildFootersVisibility-boolean-),[`setDateTimeAndChildDateTimesText`](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesText-java.lang.String-),[`setDateTimeAndChildDateTimesVisibility`](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesVisibility-boolean-),และ[`setSlideNumberAndChildSlideNumbersVisibility`](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/#setSlideNumberAndChildSlideNumbersVisibility-boolean-)
+
+## **ตั้งส่วนหัวและส่วนล่างบนสไลด์บันทึกย่อแต่ละรายการ**
+
+สไลด์บันทึกย่อเป็นส่วนหนึ่งของสไลด์ปกติเฉพาะ ใช้อินเทอร์เฟซ[`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/inotesslideheaderfootermanager/) เมื่อคุณต้องการปรับแต่งเพียงหน้าบันทึกย่อนั้น
+
+เมธอด[`addNotesSlide`](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/inotesslidemanager/#addNotesSlide--) จะคืนค่าหน้าบันทึกย่อสำหรับสไลด์ปัจจุบันและสร้างใหม่หากยังไม่มี ตัวอย่างต่อไปนี้กำหนดค่าหน้าบันทึกย่อที่เชื่อมโยงกับสไลด์แรกของการนำเสนอ:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    INotesSlide notesSlide = slide.getNotesSlideManager().addNotesSlide();
+    INotesSlideHeaderFooterManager headerFooterManager = notesSlide.getHeaderFooterManager();
+
+    headerFooterManager.setHeaderText("Header for the first notes page");
+    headerFooterManager.setHeaderVisibility(true);
+
+    headerFooterManager.setFooterText("Footer for the first notes page");
+    headerFooterManager.setFooterVisibility(true);
+
+    headerFooterManager.setDateTimeText("Date and time text");
+    headerFooterManager.setDateTimeVisibility(true);
+
+    headerFooterManager.setSlideNumberVisibility(true);
+
+    presentation.save("presentation_with_custom_notes_footers.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+หากคุณแรกเริ่มแพร่กระจายการตั้งค่าจากมาสเตอร์บันทึกย่อแล้วจึงเปลี่ยนสไลด์บันทึกย่อรายบุคคล การตั้งค่าที่ทำภายหลังจะทำให้คุณปรับแต่งหน้านั้นได้อย่างอิสระ
+
+## **ตั้งส่วนหัวและส่วนล่างบนมาสเตอร์เอกสารแจก**
+
+หน้ากระดาษแจกใช้มาสเตอร์เอกสารแจกสำหรับส่วนหัว, ส่วนล่าง, วันที่/เวลา, และตำแหน่งหมายเลขหน้า ต่างจากหน้าบันทึกย่อ การตั้งค่าเอกสารแจกจัดการผ่านมาสเตอร์เอกสารแจกแทนสไลด์เอกสารแจกแต่ละหน้า
+
+ใช้เมธอด[`getMasterHandoutSlide`](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imasterhandoutslidemanager/#getMasterHandoutSlide--) เพื่อเข้าถึงมาสเตอร์เอกสารแจก หากไม่มีให้เรียก[`setDefaultMasterHandoutSlide`](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imasterhandoutslidemanager/#setDefaultMasterHandoutSlide--) เพื่อสร้างมาสเตอร์เอกสารแจกเริ่มต้น
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterHandoutSlide masterHandoutSlide = presentation.getMasterHandoutSlideManager().getMasterHandoutSlide();
+
+    if (masterHandoutSlide == null) {
+        masterHandoutSlide = presentation.getMasterHandoutSlideManager().setDefaultMasterHandoutSlide();
+    }
+
+    if (masterHandoutSlide != null) {
+        IMasterHandoutSlideHeaderFooterManager headerFooterManager = masterHandoutSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderText("Handout header");
+        headerFooterManager.setHeaderVisibility(true);
+
+        headerFooterManager.setFooterText("Handout footer");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
+    }
+
+    presentation.save("presentation_with_handout_footers.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **เข้าใจขอบเขตและการสืบทอด**
+
+เลือกผู้จัดการส่วนหัว/ส่วนล่างที่ตรงกับขอบเขตที่คุณต้องการเปลี่ยนแปลง:
+
+- [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islideheaderfootermanager/) เปลี่ยนการตั้งค่าส่วนล่าง, วันที่/เวลา, และหมายเลขสไลด์สำหรับสไลด์ปกติหนึ่งสไลด์
+- [`ILayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ilayoutslideheaderfootermanager/) ควบคุมสไลด์เค้าโครงและสามารถแพร่กระจายการตั้งค่าที่รองรับไปยังสไลด์ที่ขึ้นอยู่
+- [`IMasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imasterslideheaderfootermanager/) ควบคุมมาสเตอร์สไลด์ปกติและสามารถแพร่กระจายการตั้งค่าที่รองรับไปยังสไลด์ที่ขึ้นอยู่
+- [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/) ควบคุมมาสเตอร์บันทึกย่อและสามารถแพร่กระจายการตั้งค่าไปยังสไลด์บันทึกย่องทั้งหมด
+- [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/inotesslideheaderfootermanager/) เปลี่ยนสไลด์บันทึกย่อหนึ่งสไลด์และรองรับส่วนหัวนอกเหนือจากส่วนล่าง, วันที่/เวลา, และหมายเลขสไลด์
+- [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imasterhandoutslideheaderfootermanager/) เปลี่ยนมาสเตอร์เอกสารแจกและรองรับตำแหน่งสี่ประเภททั้งหมด
+
+ใช้การแพร่กระจายจากมาสเตอร์หรือเค้าโครงเมื่อการตั้งค่าเดียวกันควรใช้ทั่วทั้งระดับ ใช้ผู้จัดการสไลด์หรือสไลด์บันทึกย่อแยกเมื่อต้องการการตั้งค่าท้องถิ่นสำหรับหน้าเดียว
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันสามารถเพิ่ม "ส่วนหัว" ลงในสไลด์ปกติได้หรือไม่?**
+**ฉันสามารถเพิ่มส่วนหัวในสไลด์ปกติได้หรือไม่?**
 
-ใน PowerPoint "ส่วนหัว" มีอยู่เฉพาะสำหรับหมายเหตุและแฮนด์เอาต์; บนสไลด์ปกติ จะสนับสนุนเพียงส่วนท้าย, วัน‑เวลา, และหมายเลขสไลด์เท่านั้น ใน Aspose.Slides จะตรงกับข้อจำกัดเดียวกัน: ส่วนหัวใช้ได้เฉพาะหมายเหตุ/แฮนด์เอาต์ และบนสไลด์—ส่วนท้าย/วัน‑เวลา/หมายเลขสไลด์
+ไม่ PowerPoint ไม่ได้กำหนดตำแหน่งส่วนหัวสำหรับสไลด์ปกติ บนสไลด์ปกติให้ใช้ส่วนล่าง, วันที่/เวลา, และหมายเลขสไลด์ ส่วนหัวจะมีเฉพาะบนหน้าบันทึกย่อและเอกสารแจก
 
-**ถ้าตัวแบบไม่มีพื้นที่ส่วนท้าย—ฉันสามารถ "เปิด" การมองเห็นได้หรือไม่?**
+**ถ้าตำแหน่งส่วนล่าง, วันที่/เวลา, หรือหมายเลขสไลด์ไม่แสดงผลจะทำอย่างไร?**
 
-ได้ ตรวจสอบการมองเห็นผ่านผู้จัดการส่วนหัว/ส่วนท้ายและเปิดใช้งานหากจำเป็น API เหล่านี้ออกแบบมาสำหรับกรณีที่ตัวแทนหายไปหรือถูกซ่อนไว้
+ใช้ผู้จัดการส่วนหัว/ส่วนล่างที่เกี่ยวข้องเพื่อตรวจสอบการมองเห็นและเปิดใช้งานเมื่อจำเป็น ตัวอย่างเช่น[`isFooterVisible`](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/baseslideheaderfootermanager/#isFooterVisible--) จะรายงานว่ามีส่วนล่างอยู่หรือไม่, และ[`setFooterVisibility`](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/baseslideheaderfootermanager/#setFooterVisibility-boolean-) จะเปลี่ยนการมองเห็นของมัน
 
-**ฉันจะทำให้หมายเลขสไลด์เริ่มจากค่าอื่นที่ไม่ใช่ 1 อย่างไร?**
+**ฉันจะเริ่มหมายเลขสไลด์จากค่าที่ไม่ใช่ 1 ได้อย่างไร?**
 
-ตั้งค่า [หมายเลขสไลด์แรก](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/#setFirstSlideNumber-int-); หลังจากนั้นการนับทั้งหมดจะถูกคำนวณใหม่ ตัวอย่างเช่น คุณสามารถเริ่มที่ 0 หรือ 10 และซ่อนหมายเลขบนสไลด์หัวเรื่องได้
+เรียกเมธอด[`setFirstSlideNumber`](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/#setFirstSlideNumber-int-) ของการนำเสนอ หมายเลขสไลด์จะใช้ลำดับที่อัปเดตแล้ว
 
-**ส่วนหัว/ส่วนท้ายจะเป็นอย่างไรเมื่อส่งออกเป็น PDF/รูปภาพ/HTML?**
+**ส่วนหัวและส่วนล่างจะเป็นอย่างไรเมื่อส่งออกเป็น PDF, รูปภาพ หรือ HTML?**
 
-พวกมันจะถูกเรนเดอร์เป็นองค์ประกอบข้อความปกติของงานนำเสนอ นั่นหมายความว่า หากองค์ประกอบเหล่านั้นมองเห็นได้บนสไลด์หรือหน้าหมายเหตุ ก็จะปรากฏในรูปแบบผลลัพธ์พร้อมกับเนื้อหาอื่น ๆ.
+ส่วนหัวและส่วนล่างที่มองเห็นได้จะถูกเรนเดอร์พร้อมกับเนื้อหาการนำเสนอในรูปแบบผลลัพธ์ การปรากฏของพวกมันขึ้นอยู่กับประเภทของหน้าที่กำลังส่งออกและการตั้งค่าการมองเห็นของตำแหน่งเหล่านั้น

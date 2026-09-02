@@ -1,141 +1,247 @@
 ---
-title: Quản lý đầu đề và chân trang cho bản trình bày bằng JavaScript
-linktitle: Đầu đề & Chân trang
+title: Quản lý tiêu đề và chân trang của bản trình chiếu trong JavaScript
+linktitle: Tiêu đề và Chân trang
 type: docs
 weight: 140
 url: /vi/nodejs-java/presentation-header-and-footer/
 keywords:
-- đầu đề
-- văn bản đầu đề
+- tiêu đề
+- văn bản tiêu đề
 - chân trang
 - văn bản chân trang
-- đặt đầu đề
+- đặt tiêu đề
 - đặt chân trang
-- tài liệu phát
+- tài liệu phát tay
 - ghi chú
 - PowerPoint
 - OpenDocument
-- bản trình bày
+- bản trình chiếu
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Sử dụng JavaScript và Aspose.Slides cho Node.js để thêm và tùy chỉnh đầu đề và chân trang trong các bản trình bày PowerPoint và OpenDocument, tạo giao diện chuyên nghiệp."
+description: "Tìm hiểu cách quản lý các trình giữ chỗ chân trang, ngày-gio, số slide và tiêu đề trên slide, trang ghi chú và tài liệu phát tay với Aspose.Slides cho Node.js qua Java."
 ---
 ## **Tổng quan**
 
-Aspose.Slides cho phép bạn quản lý cài đặt đầu đề và chân trang trong các bản trình bày PowerPoint. Đầu đề và chân trang được xử lý ở mức master của bản trình bày, và API cung cấp các phương thức để đặt văn bản chân trang, thay đổi hiển thị của chân trang, và cập nhật văn bản đầu đề trên các slide ghi chú master.
+PowerPoint sử dụng các trình giữ chỗ tiêu đề và chân trang khác nhau tùy thuộc vào loại trang. Aspose.Slides cho Node.js thông qua Java cho phép bạn kiểm soát văn bản và khả năng hiển thị của các trình giữ chỗ này thông qua các lớp quản lý tiêu đề/chân trang.
 
-Bạn cũng có thể quản lý đầu đề và chân trang cho các slide tài liệu phát và ghi chú. Điều này bao gồm việc thay đổi hiển thị và văn bản của các placeholder đầu đề, chân trang, số slide và ngày‑giờ cho master ghi chú, tất cả các slide ghi chú con, hoặc một slide ghi chú riêng lẻ.
+Các trình giữ chỗ khả dụng phụ thuộc vào phạm vi:
 
-## **Quản lý Đầu đề và Chân trang trong Bản trình bày**
-Ghi chú của một số slide cụ thể có thể bị xóa như đã minh họa trong ví dụ dưới đây:
+| Phạm vi | Tiêu đề | Chân trang | Ngày/giờ | Số slide/trang |
+|---|---|---|---|---|
+| Slide thường | Không | Có | Có | Có |
+| Mở đầu ghi chú | Có | Có | Có | Có |
+| Slide ghi chú | Có | Có | Có | Có |
+| Mở đầu tài liệu phát tay | Có | Có | Có | Có |
+
+Một slide trình chiếu thông thường không có trình giữ chỗ tiêu đề. Tiêu đề khả dụng trên các trang ghi chú và tài liệu phát tay. Đối với các slide thông thường, hãy sử dụng các trình giữ chỗ chân trang, ngày/giờ và số slide thay thế.
+
+Phạm vi của một thay đổi phụ thuộc vào trình quản lý bạn sử dụng. Lớp [`SlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slideheaderfootermanager/) kiểm soát một slide thường. Lớp [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/notesslideheaderfootermanager/) kiểm soát một slide ghi chú. Các trình quản lý master và layout cũng có thể truyền các cài đặt tới các slide phụ thuộc, trong khi lớp [`MasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/masterhandoutslideheaderfootermanager/) kiểm soát master tài liệu phát tay.
+
+## **Đặt Chân trang, Ngày/Giờ và Số slide trên Slide Thông thường**
+
+Đối với các slide thông thường, quy trình cơ bản là truy cập trình quản lý tiêu đề/chân trang của từng slide, đặt văn bản chân trang và ngày/giờ, bật các trình giữ chỗ cần thiết và lưu bản trình chiếu. Số slide được tạo tự động bởi bản trình chiếu, vì vậy bạn chỉ cần kiểm soát khả năng hiển thị của chúng.
+
+Sử dụng [`setFooterText`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setFooterText) và [`setDateTimeText`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setDateTimeText) để đặt văn bản, và sử dụng [`setFooterVisibility`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setFooterVisibility), [`setDateTimeVisibility`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setDateTimeVisibility) và [`setSlideNumberVisibility`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setSlideNumberVisibility) để hiển thị các trình giữ chỗ tương ứng.
+
+Ví dụ toàn diện sau áp dụng cùng một chân trang, văn bản ngày/giờ và khả năng hiển thị số slide cho tất cả các slide thông thường:
 
 ```javascript
-// Tải bản trình bày
-var pres = new aspose.slides.Presentation("headerTest.pptx");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
 try {
-    // Đặt chân trang
-    pres.getHeaderFooterManager().setAllFootersText("My Footer text");
-    pres.getHeaderFooterManager().setAllFootersVisibility(true);
-    // Truy cập và cập nhật đầu đề
-    var masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
-    if (null != masterNotesSlide) {
-        updateHeaderFooterText(masterNotesSlide);
+    for (let i = 0; i < presentation.getSlides().size(); i++) {
+        const slide = presentation.getSlides().get_Item(i);
+        const headerFooterManager = slide.getHeaderFooterManager();
+
+        headerFooterManager.setFooterText("Company Confidential");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
     }
-    // Lưu bản trình bày
-    pres.save("HeaderFooterJava.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("presentation_with_slide_footers.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-```javascript
-function updateHeaderFooterText(master) {
-    let shapes = master.getShapes();
-    for (let i = 0; i < shapes.size(); i++) {
-        let shape = shapes.get_Item(i); 
-        if (shape.getPlaceholder() !== null) {
-            if (shape.getPlaceholder().getType() === aspose.PlaceholderType.Header) {
-                shape.getTextFrame().setText("HI there new header");
-            }
-        }
-    }
+    presentation.dispose();
 }
 ```
 
-## **Quản lý Đầu đề và Chân trang trong Slide Tài liệu phát và Ghi chú**
-Aspose.Slides cho Node.js thông qua Java hỗ trợ Đầu đề và Chân trang trong các slide Tài liệu phát và Ghi chú. Vui lòng thực hiện các bước sau:
+Nếu bạn chỉ cần cập nhật một slide, truy cập slide đó trực tiếp thông qua phương thức [`getSlides`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/getslides/) thay vì duyệt qua toàn bộ bộ sưu tập.
 
-- Tải một [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Presentation) chứa video.
-- Thay đổi cài đặt Đầu đề và Chân trang cho master ghi chú và tất cả các slide ghi chú.
-- Đặt các placeholder Chân trang của slide ghi chú master và tất cả các slide con hiển thị.
-- Đặt các placeholder Ngày và giờ của slide ghi chú master và tất cả các slide con hiển thị.
-- Thay đổi cài đặt Đầu đề và Chân trang chỉ cho slide ghi chú đầu tiên.
-- Đặt placeholder Đầu đề của slide ghi chú hiển thị.
-- Đặt văn bản cho placeholder Đầu đề của slide ghi chú.
-- Đặt văn bản cho placeholder Ngày‑giờ của slide ghi chú.
-- Ghi tệp bản trình bày đã sửa đổi.
+## **Đặt Tiêu đề và Chân trang trên Mở đầu Ghi chú**
 
-Đoạn mã mẫu được cung cấp trong ví dụ dưới đây.
+Mở đầu ghi chú định nghĩa định dạng chung và hành vi trình giữ chỗ cho các trang ghi chú. Sử dụng lớp [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/) khi bạn muốn thay đổi chỉ riêng mở đầu ghi chú.
+
+Ví dụ sau đặt tiêu đề, chân trang và văn bản ngày/giờ trên mở đầu ghi chú và bật tất cả các trình giữ chỗ được hỗ trợ trên master đó:
 
 ```javascript
-var pres = new aspose.slides.Presentation("presentation.pptx");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
 try {
-    // Thay đổi cài đặt Đầu đề và Chân trang cho master ghi chú và tất cả các slide ghi chú
-    var masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
-    if (masterNotesSlide != null) {
-        var headerFooterManager = masterNotesSlide.getHeaderFooterManager();
-        headerFooterManager.setHeaderAndChildHeadersVisibility(true);// làm cho slide ghi chú master và tất cả các placeholder Footer con hiển thị
-        headerFooterManager.setFooterAndChildFootersVisibility(true);// làm cho slide ghi chú master và tất cả các placeholder Header con hiển thị
-        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);// làm cho slide ghi chú master và tất cả các placeholder SlideNumber con hiển thị
-        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);// làm cho slide ghi chú master và tất cả các placeholder Ngày và giờ con hiển thị
-        headerFooterManager.setHeaderAndChildHeadersText("Header text");// đặt văn bản cho slide ghi chú master và tất cả các placeholder Header con
-        headerFooterManager.setFooterAndChildFootersText("Footer text");// đặt văn bản cho slide ghi chú master và tất cả các placeholder Footer con
-        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");// đặt văn bản cho slide ghi chú master và tất cả các placeholder Ngày và giờ con
+    const masterNotesSlide = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
+
+    if (masterNotesSlide !== null) {
+        const headerFooterManager = masterNotesSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderText("Notes header");
+        headerFooterManager.setHeaderVisibility(true);
+
+        headerFooterManager.setFooterText("Notes footer");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
     }
-    // Thay đổi cài đặt Đầu đề và Chân trang chỉ cho slide ghi chú đầu tiên
-    var notesSlide = pres.getSlides().get_Item(0).getNotesSlideManager().getNotesSlide();
-    if (notesSlide != null) {
-        var headerFooterManager = notesSlide.getHeaderFooterManager();
-        if (!headerFooterManager.isHeaderVisible()) {
-            headerFooterManager.setHeaderVisibility(true);
-        }// làm cho placeholder Header của slide ghi chú này hiển thị
-        if (!headerFooterManager.isFooterVisible()) {
-            headerFooterManager.setFooterVisibility(true);
-        }// làm cho placeholder Footer của slide ghi chú này hiển thị
-        if (!headerFooterManager.isSlideNumberVisible()) {
-            headerFooterManager.setSlideNumberVisibility(true);
-        }// làm cho placeholder SlideNumber của slide ghi chú này hiển thị
-        if (!headerFooterManager.isDateTimeVisible()) {
-            headerFooterManager.setDateTimeVisibility(true);
-        }// làm cho placeholder Date-time của slide ghi chú này hiển thị
-        headerFooterManager.setHeaderText("New header text");// đặt văn bản cho placeholder Header của slide ghi chú
-        headerFooterManager.setFooterText("New footer text");// đặt văn bản cho placeholder Footer của slide ghi chú
-        headerFooterManager.setDateTimeText("New date and time text");// đặt văn bản cho placeholder Date-time của slide ghi chú
-    }
-    pres.save("testresult.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("presentation_with_notes_master_footers.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
+
+Phương thức [`getMasterNotesSlide`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/masternotesslidemanager/#getMasterNotesSlide) trả về `null` khi bản trình chiếu không chứa mở đầu ghi chú.
+
+## **Áp dụng Cài đặt Mở đầu Ghi chú cho Các Slide Ghi chú Con**
+
+Một mở đầu ghi chú có thể áp dụng cài đặt tiêu đề và chân trang cho chính nó và cho tất cả các slide ghi chú phụ thuộc. Sử dụng các phương thức truyền đạt chuyên biệt trên [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/) khi cùng một cài đặt cần được áp dụng trên toàn bộ hierarchy ghi chú.
+
+Ví dụ, [`setHeaderAndChildHeadersText`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setHeaderAndChildHeadersText) và [`setHeaderAndChildHeadersVisibility`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setHeaderAndChildHeadersVisibility) cập nhật tiêu đề master và tất cả các tiêu đề con. Các phương thức tương đương cũng có sẵn cho chân trang, ngày/giờ và số slide.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
+try {
+    const masterNotesSlide = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
+
+    if (masterNotesSlide !== null) {
+        const headerFooterManager = masterNotesSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderAndChildHeadersText("Notes header");
+        headerFooterManager.setHeaderAndChildHeadersVisibility(true);
+
+        headerFooterManager.setFooterAndChildFootersText("Notes footer");
+        headerFooterManager.setFooterAndChildFootersVisibility(true);
+
+        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
+        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
+
+        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
+    }
+
+    presentation.save("presentation_with_child_notes_footers.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Các phương thức truyền đạt được sử dụng ở trên là [`setFooterAndChildFootersText`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setFooterAndChildFootersText), [`setFooterAndChildFootersVisibility`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setFooterAndChildFootersVisibility), [`setDateTimeAndChildDateTimesText`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesText), [`setDateTimeAndChildDateTimesVisibility`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesVisibility) và [`setSlideNumberAndChildSlideNumbersVisibility`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setSlideNumberAndChildSlideNumbersVisibility).
+
+## **Đặt Tiêu đề và Chân trang trên Một Slide Ghi chú Cá nhân**
+
+Một slide ghi chú thuộc về một slide thường cụ thể. Sử dụng lớp [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/notesslideheaderfootermanager/) khi bạn muốn tùy chỉnh chỉ trang ghi chú đó.
+
+Phương thức [`addNotesSlide`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/notesslidemanager/#addNotesSlide) trả về slide ghi chú cho slide hiện tại và tạo mới nếu nó chưa tồn tại. Ví dụ sau cấu hình trang ghi chú liên kết với slide trình chiếu đầu tiên:
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const headerFooterManager = slide.getNotesSlideManager().addNotesSlide().getHeaderFooterManager();
+
+    headerFooterManager.setHeaderText("Header for the first notes page");
+    headerFooterManager.setHeaderVisibility(true);
+
+    headerFooterManager.setFooterText("Footer for the first notes page");
+    headerFooterManager.setFooterVisibility(true);
+
+    headerFooterManager.setDateTimeText("Date and time text");
+    headerFooterManager.setDateTimeVisibility(true);
+
+    headerFooterManager.setSlideNumberVisibility(true);
+
+    presentation.save("presentation_with_custom_notes_footers.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Nếu bạn trước tiên truyền đạt cài đặt từ mở đầu ghi chú và sau đó thay đổi một slide ghi chú cá nhân, các cài đặt theo slide sau này cho phép bạn tùy chỉnh trang ghi chú đó một cách độc lập.
+
+## **Đặt Tiêu đề và Chân trang trên Mở đầu Tài liệu Phát tay**
+
+Các trang tài liệu phát tay sử dụng mở đầu tài liệu phát tay cho các trình giữ chỗ tiêu đề, chân trang, ngày/giờ và số trang. Khác với các trang ghi chú, cài đặt tài liệu phát tay được quản lý qua mở đầu tài liệu phát tay chứ không phải qua các slide tài liệu phát tay riêng lẻ.
+
+Sử dụng [`getMasterHandoutSlide`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/masterhandoutslidemanager/#getMasterHandoutSlide) để truy cập mở đầu tài liệu phát tay. Nếu không tồn tại, gọi [`setDefaultMasterHandoutSlide`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/masterhandoutslidemanager/#setDefaultMasterHandoutSlide) để tạo master tài liệu phát tay mặc định.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
+try {
+    let masterHandoutSlide = presentation.getMasterHandoutSlideManager().getMasterHandoutSlide();
+
+    if (masterHandoutSlide === null) {
+        masterHandoutSlide = presentation.getMasterHandoutSlideManager().setDefaultMasterHandoutSlide();
+    }
+
+    if (masterHandoutSlide !== null) {
+        const headerFooterManager = masterHandoutSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderText("Handout header");
+        headerFooterManager.setHeaderVisibility(true);
+
+        headerFooterManager.setFooterText("Handout footer");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
+    }
+
+    presentation.save("presentation_with_handout_footers.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Hiểu Phạm vi và Kế thừa**
+
+Chọn trình quản lý tiêu đề/chân trang phù hợp với phạm vi bạn muốn thay đổi:
+
+- [`SlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slideheaderfootermanager/) thay đổi cài đặt chân trang, ngày/giờ và số slide cho một slide thường.
+- [`LayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/layoutslideheaderfootermanager/) điều khiển một layout slide và có thể truyền các cài đặt hỗ trợ tới các slide phụ thuộc.
+- [`MasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/masterslideheaderfootermanager/) điều khiển một master slide thường và có thể truyền các cài đặt hỗ trợ tới các slide phụ thuộc.
+- [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/) điều khiển mở đầu ghi chú và có thể truyền cài đặt tới tất cả các slide ghi chú phụ thuộc.
+- [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/notesslideheaderfootermanager/) thay đổi một slide ghi chú và hỗ trợ trình giữ chỗ tiêu đề bên cạnh chân trang, ngày/giờ và số slide.
+- [`MasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/masterhandoutslideheaderfootermanager/) thay đổi master tài liệu phát tay và hỗ trợ cả bốn loại trình giữ chỗ.
+
+Sử dụng truyền đạt từ một master hoặc layout khi cùng một cài đặt cần áp dụng xuyên suốt hierarchy của nó. Sử dụng một slide cá nhân hoặc trình quản lý slide‑ghi‑chú khi bạn cần cài đặt cục bộ cho một trang.
 
 ## **Câu hỏi thường gặp**
 
-**Có thể thêm "header" vào các slide thông thường không?**
+**Tôi có thể thêm tiêu đề vào một slide thường không?**
 
-Trong PowerPoint, "Header" chỉ tồn tại cho ghi chú và tài liệu phát; trên các slide thông thường, các thành phần được hỗ trợ là chân trang, ngày/giờ và số slide. Trong Aspose.Slides điều này cũng giống nhau: header chỉ dành cho Notes/Handout, và trên slide—Footer/DateTime/SlideNumber.
+Không. PowerPoint không định nghĩa trình giữ chỗ tiêu đề cho slide thường. Trên slide thường, hãy sử dụng các trình giữ chỗ chân trang, ngày/giờ và số slide. Trình giữ chỗ tiêu đề chỉ khả dụng trên các trang ghi chú và tài liệu phát tay.
 
-**Nếu bố cục không có khu vực chân trang—tôi có thể "bật" chế độ hiển thị không?**
+**Nếu một trình giữ chỗ chân trang, ngày/giờ hoặc số slide không hiển thị thì sao?**
 
-Có. Kiểm tra trạng thái hiển thị thông qua trình quản lý header/footer và bật nó lên nếu cần. Các chỉ báo và phương thức API này được thiết kế cho trường hợp placeholder bị thiếu hoặc ẩn.
+Sử dụng trình quản lý tiêu đề/chân trang tương ứng để kiểm tra khả năng hiển thị và bật nó khi cần. Ví dụ, [`isFooterVisible`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/baseslideheaderfootermanager/#isFooterVisible) báo cáo xem có trình giữ chỗ chân trang hay không, và [`setFooterVisibility`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setFooterVisibility) thay đổi khả năng hiển thị của nó.
 
-**Làm sao để số slide bắt đầu từ một giá trị khác 1?**
+**Làm thế nào để bắt đầu đánh số slide từ một giá trị khác 1?**
 
-Đặt [first slide number](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/setfirstslidenumber/) của bản trình bày; sau đó, tất cả các số sẽ được tính lại. Ví dụ, bạn có thể bắt đầu từ 0 hoặc 10, và ẩn số trên slide tiêu đề.
+Gọi phương thức [`setFirstSlideNumber`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/setfirstslidenumber/) của bản trình chiếu. Các trình giữ chỗ số slide sau đó sẽ sử dụng chuỗi đánh số đã cập nhật.
 
-**Điều gì xảy ra với đầu đề/chân trang khi xuất sang PDF/hình ảnh/HTML?**
+**Điều gì xảy ra với tiêu đề và chân trang khi xuất ra PDF, hình ảnh hoặc HTML?**
 
-Chúng được hiển thị như các thành phần văn bản thông thường của bản trình bày. Nghĩa là, nếu các thành phần này hiển thị trên slide/trang ghi chú, chúng cũng sẽ xuất hiện trong định dạng đầu ra cùng với phần nội dung còn lại.
+Các phần tử tiêu đề và chân trang hiển thị sẽ được vẽ cùng với phần còn lại của nội dung bản trình chiếu trong định dạng đầu ra. Ngoại hình của chúng phụ thuộc vào loại trang đang được xuất và các cài đặt khả năng hiển thị của trình giữ chỗ tương ứng.

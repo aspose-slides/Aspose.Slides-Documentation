@@ -1,6 +1,6 @@
 ---
 title: Kelola Header dan Footer Presentasi di JavaScript
-linktitle: Header & Footer
+linktitle: Header dan Footer
 type: docs
 weight: 140
 url: /id/nodejs-java/presentation-header-and-footer/
@@ -19,123 +19,229 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Gunakan JavaScript dan Aspose.Slides untuk Node.js untuk menambahkan dan menyesuaikan header serta footer pada presentasi PowerPoint dan OpenDocument agar tampilan menjadi profesional."
+description: "Pelajari cara mengelola placeholder footer, tanggal-waktu, nomor slide, dan header pada slide, halaman catatan, dan handout dengan Aspose.Slides untuk Node.js via Java."
 ---
-## **Gambaran Umum**
+## **Ringkasan**
 
-Aspose.Slides memungkinkan Anda mengelola pengaturan header dan footer dalam presentasi PowerPoint. Header dan footer ditangani pada tingkat master presentasi, dan API menyediakan metode untuk mengatur teks footer, mengubah visibilitas footer, dan memperbarui teks header pada slide master catatan.
+PowerPoint menggunakan placeholder header dan footer yang berbeda tergantung pada jenis halaman. Aspose.Slides untuk Node.js via Java memungkinkan Anda mengontrol teks dan visibilitas placeholder ini melalui kelas manager header/footer.
 
-Anda juga dapat mengelola header dan footer untuk slide handout dan catatan. Ini mencakup mengubah visibilitas dan teks placeholder header, footer, nomor slide, dan tanggal‑waktu untuk master catatan, semua slide catatan anak, atau slide catatan individu.
+Placeholder yang tersedia bergantung pada ruang lingkup:
 
-## **Kelola Header dan Footer dalam Presentasi**
-Catatan beberapa slide tertentu dapat dihapus seperti yang ditunjukkan pada contoh di bawah:
+| Ruang lingkup | Header | Footer | Tanggal/waktu | Nomor slide/halaman |
+|---|---|---|---|---|
+| Slide reguler | Tidak | Ya | Ya | Ya |
+| Master catatan | Ya | Ya | Ya | Ya |
+| Slide catatan | Ya | Ya | Ya | Ya |
+| Master handout | Ya | Ya | Ya | Ya |
+
+Slide presentasi reguler tidak memiliki placeholder header. Header tersedia pada halaman catatan dan handout. Untuk slide reguler, gunakan placeholder footer, tanggal/waktu, dan nomor slide sebagai gantinya.
+
+Ruang lingkup perubahan tergantung pada manager yang Anda gunakan. Kelas [`SlideHeaderFooterManager`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slideheaderfootermanager/) mengontrol satu slide reguler. Kelas [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/notesslideheaderfootermanager/) mengontrol satu slide catatan. Manager master dan layout juga dapat menyebarkan pengaturan ke slide yang bergantung, sementara kelas [`MasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/masterhandoutslideheaderfootermanager/) mengontrol master handout.
+
+## **Menetapkan Footer, Tanggal/Waktu, dan Nomor Slide pada Slide Reguler**
+
+Untuk slide reguler, alur kerja dasar adalah mengakses manager header/footer setiap slide, mengatur teks footer dan tanggal/waktu, mengaktifkan placeholder yang diperlukan, dan menyimpan presentasi. Nomor slide dihasilkan oleh presentasi, jadi Anda hanya perlu mengontrol visibilitasnya.
+
+Gunakan [`setFooterText`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setFooterText) dan [`setDateTimeText`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setDateTimeText) untuk mengatur teks, serta gunakan [`setFooterVisibility`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setFooterVisibility), [`setDateTimeVisibility`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setDateTimeVisibility), dan [`setSlideNumberVisibility`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setSlideNumberVisibility) untuk menampilkan placeholder yang bersangkutan.
+
+Contoh end-to-end berikut menerapkan footer, teks tanggal/waktu, dan visibilitas nomor slide yang sama ke semua slide reguler:
 
 ```javascript
-// Muat Presentasi
-var pres = new aspose.slides.Presentation("headerTest.pptx");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
 try {
-    // Mengatur Footer
-    pres.getHeaderFooterManager().setAllFootersText("My Footer text");
-    pres.getHeaderFooterManager().setAllFootersVisibility(true);
-    // Akses dan Perbarui Header
-    var masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
-    if (null != masterNotesSlide) {
-        updateHeaderFooterText(masterNotesSlide);
+    for (let i = 0; i < presentation.getSlides().size(); i++) {
+        const slide = presentation.getSlides().get_Item(i);
+        const headerFooterManager = slide.getHeaderFooterManager();
+
+        headerFooterManager.setFooterText("Company Confidential");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
     }
-    // Simpan presentasi
-    pres.save("HeaderFooterJava.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("presentation_with_slide_footers.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-```javascript
-function updateHeaderFooterText(master) {
-    let shapes = master.getShapes();
-    for (let i = 0; i < shapes.size(); i++) {
-        let shape = shapes.get_Item(i); 
-        if (shape.getPlaceholder() !== null) {
-            if (shape.getPlaceholder().getType() === aspose.PlaceholderType.Header) {
-                shape.getTextFrame().setText("HI there new header");
-            }
-        }
-    }
+    presentation.dispose();
 }
 ```
 
-## **Kelola Header dan Footer dalam Slide Handout dan Catatan**
-Aspose.Slides untuk Node.js via Java mendukung Header dan Footer dalam slide Handout dan catatan. Ikuti langkah‑langkah berikut:
+Jika Anda perlu memperbarui hanya satu slide, akses slide tersebut secara langsung melalui metode [`getSlides`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/getslides/) alih-alih iterasi seluruh koleksi.
 
-- Muat sebuah [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/Presentation) yang berisi video.
-- Ubah pengaturan Header dan Footer untuk master catatan dan semua slide catatan.
-- Atur placeholder Footer master catatan dan semua anak menjadi terlihat.
-- Atur placeholder Tanggal dan waktu master catatan dan semua anak menjadi terlihat.
-- Ubah pengaturan Header dan Footer hanya untuk slide catatan pertama.
-- Atur placeholder Header slide catatan menjadi terlihat.
-- Atur teks untuk placeholder Header slide catatan.
-- Atur teks untuk placeholder Tanggal‑waktu slide catatan.
-- Tulis file presentasi yang telah dimodifikasi.
+## **Menetapkan Header dan Footer pada Master Catatan**
 
-Potongan kode disediakan dalam Contoh di bawah.
+Master catatan mendefinisikan pemformatan umum dan perilaku placeholder untuk halaman catatan. Gunakan kelas [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/) ketika Anda ingin mengubah hanya master catatan itu sendiri.
+
+Contoh berikut mengatur header, footer, dan teks tanggal/waktu pada master catatan serta membuat semua placeholder yang didukung terlihat pada master tersebut:
 
 ```javascript
-var pres = new aspose.slides.Presentation("presentation.pptx");
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
 try {
-    // Ubah pengaturan Header dan Footer untuk master catatan dan semua slide catatan
-    var masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
-    if (masterNotesSlide != null) {
-        var headerFooterManager = masterNotesSlide.getHeaderFooterManager();
-        headerFooterManager.setHeaderAndChildHeadersVisibility(true);// buat slide master catatan dan semua placeholder Footer anak menjadi terlihat
-        headerFooterManager.setFooterAndChildFootersVisibility(true);// buat slide master catatan dan semua placeholder Header anak menjadi terlihat
-        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);// buat slide master catatan dan semua placeholder SlideNumber anak menjadi terlihat
-        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);// buat slide master catatan dan semua placeholder Date dan time anak menjadi terlihat
-        headerFooterManager.setHeaderAndChildHeadersText("Header text");// set teks ke slide master catatan dan semua placeholder Header anak
-        headerFooterManager.setFooterAndChildFootersText("Footer text");// set teks ke slide master catatan dan semua placeholder Footer anak
-        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");// set teks ke slide master catatan dan semua placeholder Date dan time anak
+    const masterNotesSlide = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
+
+    if (masterNotesSlide !== null) {
+        const headerFooterManager = masterNotesSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderText("Notes header");
+        headerFooterManager.setHeaderVisibility(true);
+
+        headerFooterManager.setFooterText("Notes footer");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
     }
-    // Ubah pengaturan Header dan Footer hanya untuk slide catatan pertama
-    var notesSlide = pres.getSlides().get_Item(0).getNotesSlideManager().getNotesSlide();
-    if (notesSlide != null) {
-        var headerFooterManager = notesSlide.getHeaderFooterManager();
-        if (!headerFooterManager.isHeaderVisible()) {
-            headerFooterManager.setHeaderVisibility(true);
-        }// buat placeholder Header slide catatan ini menjadi terlihat
-        if (!headerFooterManager.isFooterVisible()) {
-            headerFooterManager.setFooterVisibility(true);
-        }// buat placeholder Footer slide catatan ini menjadi terlihat
-        if (!headerFooterManager.isSlideNumberVisible()) {
-            headerFooterManager.setSlideNumberVisibility(true);
-        }// buat placeholder SlideNumber slide catatan ini menjadi terlihat
-        if (!headerFooterManager.isDateTimeVisible()) {
-            headerFooterManager.setDateTimeVisibility(true);
-        }// buat placeholder Date-time slide catatan ini menjadi terlihat
-        headerFooterManager.setHeaderText("New header text");// set teks ke placeholder Header slide catatan
-        headerFooterManager.setFooterText("New footer text");// set teks ke placeholder Footer slide catatan
-        headerFooterManager.setDateTimeText("New date and time text");// set teks ke placeholder Date-time slide catatan
-    }
-    pres.save("testresult.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("presentation_with_notes_master_footers.pptx", slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
+
+Metode [`getMasterNotesSlide`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/masternotesslidemanager/#getMasterNotesSlide) mengembalikan `null` ketika presentasi tidak berisi master catatan.
+
+## **Menerapkan Pengaturan Master Catatan ke Slide Catatan Anak**
+
+Master catatan dapat menerapkan pengaturan header dan footer ke dirinya sendiri dan ke semua slide catatan yang bergantung. Gunakan metode propagasi khusus pada [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/) ketika pengaturan yang sama harus diterapkan di seluruh hierarki catatan.
+
+Sebagai contoh, [`setHeaderAndChildHeadersText`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setHeaderAndChildHeadersText) dan [`setHeaderAndChildHeadersVisibility`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setHeaderAndChildHeadersVisibility) memperbarui header master catatan dan semua header anak. Metode setara tersedia untuk footer, tanggal/waktu, dan nomor slide.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
+try {
+    const masterNotesSlide = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
+
+    if (masterNotesSlide !== null) {
+        const headerFooterManager = masterNotesSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderAndChildHeadersText("Notes header");
+        headerFooterManager.setHeaderAndChildHeadersVisibility(true);
+
+        headerFooterManager.setFooterAndChildFootersText("Notes footer");
+        headerFooterManager.setFooterAndChildFootersVisibility(true);
+
+        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
+        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
+
+        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
+    }
+
+    presentation.save("presentation_with_child_notes_footers.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Metode propagasi yang digunakan di atas meliputi [`setFooterAndChildFootersText`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setFooterAndChildFootersText), [`setFooterAndChildFootersVisibility`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setFooterAndChildFootersVisibility), [`setDateTimeAndChildDateTimesText`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesText), [`setDateTimeAndChildDateTimesVisibility`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesVisibility), dan [`setSlideNumberAndChildSlideNumbersVisibility`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/#setSlideNumberAndChildSlideNumbersVisibility).
+
+## **Menetapkan Header dan Footer pada Slide Catatan Individual**
+
+Slide catatan merupakan bagian dari slide reguler tertentu. Gunakan kelas [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/notesslideheaderfootermanager/) ketika Anda ingin menyesuaikan hanya halaman catatan tersebut.
+
+Metode [`addNotesSlide`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/notesslidemanager/#addNotesSlide) mengembalikan slide catatan untuk slide saat ini dan membuat satu jika belum ada. Contoh berikut mengonfigurasi halaman catatan yang terkait dengan slide pertama presentasi:
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const headerFooterManager = slide.getNotesSlideManager().addNotesSlide().getHeaderFooterManager();
+
+    headerFooterManager.setHeaderText("Header for the first notes page");
+    headerFooterManager.setHeaderVisibility(true);
+
+    headerFooterManager.setFooterText("Footer for the first notes page");
+    headerFooterManager.setFooterVisibility(true);
+
+    headerFooterManager.setDateTimeText("Date and time text");
+    headerFooterManager.setDateTimeVisibility(true);
+
+    headerFooterManager.setSlideNumberVisibility(true);
+
+    presentation.save("presentation_with_custom_notes_footers.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Jika Anda pertama-tama menyebarkan pengaturan dari master catatan dan kemudian mengubah slide catatan individual, pengaturan per-slide berikutnya memungkinkan Anda menyesuaikan halaman catatan tersebut secara independen.
+
+## **Menetapkan Header dan Footer pada Master Handout**
+
+Halaman handout menggunakan master handout untuk placeholder header, footer, tanggal/waktu, dan nomor halaman. Tidak seperti halaman catatan, pengaturan handout dikelola melalui master handout bukan melalui slide handout individual.
+
+Gunakan [`getMasterHandoutSlide`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/masterhandoutslidemanager/#getMasterHandoutSlide) untuk mengakses master handout. Jika tidak ada, panggil [`setDefaultMasterHandoutSlide`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/masterhandoutslidemanager/#setDefaultMasterHandoutSlide) untuk membuat master handout default.
+
+```javascript
+const slides = require("aspose.slides.via.java");
+
+const presentation = new slides.Presentation("presentation.pptx");
+try {
+    let masterHandoutSlide = presentation.getMasterHandoutSlideManager().getMasterHandoutSlide();
+
+    if (masterHandoutSlide === null) {
+        masterHandoutSlide = presentation.getMasterHandoutSlideManager().setDefaultMasterHandoutSlide();
+    }
+
+    if (masterHandoutSlide !== null) {
+        const headerFooterManager = masterHandoutSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderText("Handout header");
+        headerFooterManager.setHeaderVisibility(true);
+
+        headerFooterManager.setFooterText("Handout footer");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
+    }
+
+    presentation.save("presentation_with_handout_footers.pptx", slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Memahami Ruang Lingkup dan Pewarisan**
+
+Pilih manager header/footer yang sesuai dengan ruang lingkup yang ingin Anda ubah:
+
+- [`SlideHeaderFooterManager`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slideheaderfootermanager/) mengubah pengaturan footer, tanggal/waktu, dan nomor slide untuk satu slide reguler.
+- [`LayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/layoutslideheaderfootermanager/) mengontrol sebuah slide layout dan dapat menyebarkan pengaturan yang didukung ke slide yang bergantung.
+- [`MasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/masterslideheaderfootermanager/) mengontrol master slide reguler dan dapat menyebarkan pengaturan yang didukung ke slide yang bergantung.
+- [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/masternotesslideheaderfootermanager/) mengontrol master catatan dan dapat menyebarkan pengaturan ke semua slide catatan yang bergantung.
+- [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/notesslideheaderfootermanager/) mengubah satu slide catatan dan mendukung placeholder header selain footer, tanggal/waktu, dan nomor slide.
+- [`MasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/masterhandoutslideheaderfootermanager/) mengubah master handout dan mendukung keempat jenis placeholder.
+
+Gunakan propagasi dari master atau layout ketika pengaturan yang sama harus berlaku di seluruh hierarki. Gunakan manager slide individual atau notes-slide ketika Anda memerlukan pengaturan lokal untuk satu halaman.
 
 ## **FAQ**
 
-**Apakah saya dapat menambahkan “header” pada slide reguler?**
+**Apakah saya dapat menambahkan header ke slide reguler?**
 
-Di PowerPoint, “Header” hanya ada untuk catatan dan handout; pada slide reguler, elemen yang didukung adalah footer, tanggal/waktu, dan nomor slide. Di Aspose.Slides hal ini memiliki batasan yang sama: header hanya untuk Catatan/Handout, dan pada slide—Footer/TanggalWaktu/NomorSlide.
+Tidak. PowerPoint tidak mendefinisikan placeholder header untuk slide reguler. Pada slide reguler, gunakan placeholder footer, tanggal/waktu, dan nomor slide. Placeholder header tersedia pada halaman catatan dan handout.
 
-**Bagaimana jika tata letak tidak memiliki area footer—apakah saya dapat “mengaktifkan” visibilitasnya?**
+**Bagaimana jika placeholder footer, tanggal/waktu, atau nomor slide tidak terlihat?**
 
-Ya. Periksa visibilitas melalui manajer header/footer dan aktifkan bila diperlukan. Indikator dan metode API ini dirancang untuk kasus ketika placeholder tidak ada atau disembunyikan.
+Gunakan manager header/footer yang bersangkutan untuk memeriksa visibilitasnya dan mengaktifkannya bila diperlukan. Misalnya, [`isFooterVisible`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/baseslideheaderfootermanager/#isFooterVisible) melaporkan apakah placeholder footer ada, dan [`setFooterVisibility`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/baseslideheaderfootermanager/#setFooterVisibility) mengubah visibilitasnya.
 
-**Bagaimana cara membuat nomor slide mulai dari nilai selain 1?**
+**Bagaimana cara memulai penomoran slide dari nilai selain 1?**
 
-Atur [first slide number](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/setfirstslidenumber/) presentasi; setelah itu, semua penomoran dihitung ulang. Misalnya, Anda dapat memulai dari 0 atau 10, dan menyembunyikan nomor pada slide judul.
+Panggil metode [`setFirstSlideNumber`](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/setfirstslidenumber/) pada presentasi. Placeholder nomor slide kemudian akan menggunakan urutan penomoran yang diperbarui.
 
-**Apa yang terjadi pada header/footer saat mengekspor ke PDF/gambar/HTML?**
+**Apa yang terjadi pada header dan footer saat mengekspor ke PDF, gambar, atau HTML?**
 
-Mereka dirender sebagai elemen teks biasa dalam presentasi. Artinya, jika elemen tersebut terlihat pada slide/halaman catatan, mereka juga akan muncul dalam format output bersama dengan konten lainnya.
+Elemen header dan footer yang terlihat dirender bersama konten presentasi lainnya dalam format output. Penampilannya tergantung pada jenis halaman yang diekspor dan pengaturan visibilitas placeholder yang bersangkutan.

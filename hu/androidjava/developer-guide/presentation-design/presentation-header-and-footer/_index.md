@@ -1,6 +1,6 @@
 ---
-title: Fejlécek és láblécek kezelése prezentációkban Androidon
-linktitle: Fejléc & Lábléc
+title: Prezentáció fejlécek és láblécek kezelése Androidon
+linktitle: Fejléc és lábléc
 type: docs
 weight: 140
 url: /hu/androidjava/presentation-header-and-footer/
@@ -11,7 +11,7 @@ keywords:
 - lábléc szöveg
 - fejléc beállítása
 - lábléc beállítása
-- jegyzetlap
+- kiosztott anyag
 - jegyzetek
 - PowerPoint
 - OpenDocument
@@ -19,130 +19,229 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Használja az Aspose.Slides for Android for Java-t, hogy fejléceket és lábléceket adjon hozzá és testreszabjon PowerPoint és OpenDocument prezentációkban, professzionális megjelenés érdekében."
+description: "Ismerje meg, hogyan kezelheti a lábléc, dátum-idő, dia-szám és fejléc helyőrzőket a diákon, jegyzetoldalakon és kiosztott anyagokon az Aspose.Slides for Android via Java segítségével."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides lehetővé teszi fejléc‑ és lábléc‑beállítások kezelését PowerPoint‑prezentációkban. A fejlécek és láblécek a prezentáció mester‑szintjén kerülnek kezelve, és az API olyan metódusokat biztosít, amelyekkel beállítható a lábléc szövege, módosítható a lábléc láthatósága, valamint frissíthető a fejléc szövege a mester‑jegyzet diákon.
+A PowerPoint a diavetípus függvényében különböző fej- és lábléchelyőrzőket használ. Az Aspose.Slides for Android via Java lehetővé teszi, hogy ezen helyőrzők szövegét és láthatóságát a fej/lábléckezelő interfészeken keresztül szabályozza.
 
-A kézbesítési (handout) és jegyzetdiák fejléceit és láblécét is kezelheti. Ez magában foglalja a fejléc, lábléc, dia szám és dátum‑idő helyfoglalók láthatóságának és szövegének módosítását a jegyzet‑mesterben, az összes gyermek‑jegyzetdián vagy egy adott jegyzetdián.
+Az elérhető helyőrzők a hatókör függvényei:
 
-## **Fejlécek és láblécek kezelése egy prezentációban**
-Néhány konkrét dia jegyzete eltávolítható, ahogyan az alábbi példában látható:
+| Hatókör | Fejléc | Lábléc | Dátum/Idő | Dia/oldalszám |
+|---|---|---|---|---|
+| Általános dia | Nem | Igen | Igen | Igen |
+| Jegyzet-mester | Igen | Igen | Igen | Igen |
+| Jegyzet dia | Igen | Igen | Igen | Igen |
+| Tájékoztató mester | Igen | Igen | Igen | Igen |
+
+Egy általános bemutató dia nem rendelkezik fejléchelyőrzővel. Fejlécek a jegyzetoldalakon és a tájékoztatókban érhetők el. Általános diák esetén a lábléc, dátum/idő és dia‑szám helyőrzőket kell használni.
+
+A változás hatóköre attól a kezelőtől függ, amelyet használ. A [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islideheaderfootermanager/) interfész egy általános diát vezérel. A [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/inotesslideheaderfootermanager/) interfész egy jegyzet diát vezérel. A mester- és elrendezéskezelők a beállításokat a függő diákra is továbbíthatják, míg a [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imasterhandoutslideheaderfootermanager/) interfész a tájékoztató mestert kezeli.
+
+## **Lábléc, Dátum/Idő és Dia Számok beállítása az általános diákon**
+
+Általános diák esetén az alapmunkafolyamat, hogy elérjük az egyes diák fej/lábléckezelőjét, beállítjuk a lábléc és dátum/idő szövegét, engedélyezzük a szükséges helyőrzőket, és elmentjük a bemutatót. A dia számokat a bemutató generálja, így csak a láthatóságukat kell szabályozni.
+
+Használja a [`setFooterText`](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/baseslideheaderfootermanager/#setFooterText-java.lang.String-) és a [`setDateTimeText`](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/baseslideheaderfootermanager/#setDateTimeText-java.lang.String-) metódusokat a szöveg beállításához, illetve a [`setFooterVisibility`](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/baseslideheaderfootermanager/#setFooterVisibility-boolean-), a [`setDateTimeVisibility`](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/baseslideheaderfootermanager/#setDateTimeVisibility-boolean-), és a [`setSlideNumberVisibility`](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/baseslideheaderfootermanager/#setSlideNumberVisibility-boolean-) metódusokat a megfelelő helyőrzők megjelenítéséhez.
+
+A következő végponttól végpontig terjedő példa ugyanazt a láblécet, dátum/idő szöveget és dia‑szám láthatóságot alkalmazza az összes általános diára:
 
 ```java
-// Prezentáció betöltése
-Presentation pres = new Presentation("headerTest.pptx");
-try {
-    // Lábléc beállítása
-    pres.getHeaderFooterManager().setAllFootersText("My Footer text");
-    pres.getHeaderFooterManager().setAllFootersVisibility(true);
+import com.aspose.slides.*;
 
-    // Fejléc elérése és frissítése
-    IMasterNotesSlide masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
-    if (null != masterNotesSlide)
-    {
-        updateHeaderFooterText(masterNotesSlide);
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        ISlideHeaderFooterManager headerFooterManager = slide.getHeaderFooterManager();
+
+        headerFooterManager.setFooterText("Company Confidential");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
     }
 
-    // Prezentáció mentése
-    pres.save("HeaderFooterJava.pptx", SaveFormat.Pptx);
+    presentation.save("presentation_with_slide_footers.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
-}
-```
-```java
-// Metódus a fejléc/lábléc szöveg beállításához
-public static void updateHeaderFooterText(IBaseSlide master)
-{
-    for (IShape shape : master.getShapes())
-    {
-        if (shape.getPlaceholder() != null)
-        {
-            if (shape.getPlaceholder().getType() == PlaceholderType.Header)
-            {
-                ((IAutoShape)shape).getTextFrame().setText("HI there new header");
-            }
-        }
-    }
+    presentation.dispose();
 }
 ```
 
-## **Fejlécek és láblécek kezelése kézbesítési és jegyzetdiákon**
-Az Aspose.Slides for Android Java‑környezetben támogatja a fejléceket és lábléceket kézbesítési és jegyzetdiákon. Kövesse az alábbi lépéseket:
+Ha csak egy diát kell frissíteni, közvetlenül érje el azt a [`getSlides`](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/#getSlides--) metódussal, a teljes gyűjtemény bejárása helyett.
 
-- Töltsön be egy [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Presentation) videóval.
-- Módosítsa a fejléc‑ és lábléc‑beállításokat a jegyzet‑mesterben és az összes jegyzetdián.
-- Állítsa be a mester‑jegyzetdiát és az összes gyermek‑lábléc‑helyfoglalót láthatóvá.
-- Állítsa be a mester‑jegyzetdiát és az összes gyermek‑dátum‑idő‑helyfoglalót láthatóvá.
-- Módosítsa a fejléc‑ és lábléc‑beállításokat csak az első jegyzetdián.
-- Állítsa be a jegyzetdia fejléc‑helyfoglalóját láthatóvá.
-- Adja meg a szöveget a jegyzetdia fejléc‑helyfoglalójához.
-- Adja meg a szöveget a jegyzetdia dátum‑idő‑helyfoglalójához.
-- Írja ki a módosított prezentációfájlt.
+## **Fejlécek és láblécek beállítása a Jegyzet mesteren**
 
-Az alábbi példában a kódrészlet is szerepel.
+A jegyzet mester közös formázást és helyőrző‑viselkedést határoz meg a jegyzetoldalak számára. Használja a [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/) interfészt, ha csak a jegyzet mestert szeretné módosítani.
+
+A következő példa beállítja a fejlécet, láblécet és dátum/idő szöveget a jegyzet mesteren, és minden támogatott helyőrzőt láthatóvá tesz azon a mesteren:
 
 ```java
-Presentation pres = new Presentation("presentation.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    // Change Header and Footer settings for notes master and all notes slides
-    IMasterNotesSlide masterNotesSlide = pres.getMasterNotesSlideManager().getMasterNotesSlide();
-    if (masterNotesSlide != null)
-    {
+    IMasterNotesSlide masterNotesSlide = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
+
+    if (masterNotesSlide != null) {
         IMasterNotesSlideHeaderFooterManager headerFooterManager = masterNotesSlide.getHeaderFooterManager();
 
-        headerFooterManager.setHeaderAndChildHeadersVisibility(true); // make the master notes slide and all child Footer placeholders visible
-        headerFooterManager.setFooterAndChildFootersVisibility(true); // make the master notes slide and all child Header placeholders visible
-        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true); // make the master notes slide and all child SlideNumber placeholders visible
-        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true); // make the master notes slide and all child Date and time placeholders visible
+        headerFooterManager.setHeaderText("Notes header");
+        headerFooterManager.setHeaderVisibility(true);
 
-        headerFooterManager.setHeaderAndChildHeadersText("Header text"); // set text to master notes slide and all child Header placeholders
-        headerFooterManager.setFooterAndChildFootersText("Footer text"); // set text to master notes slide and all child Footer placeholders
-        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text"); // set text to master notes slide and all child Date and time placeholders
+        headerFooterManager.setFooterText("Notes footer");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
     }
 
-    // Change Header and Footer settings for first notes slide only
-    INotesSlide notesSlide = pres.getSlides().get_Item(0).getNotesSlideManager().getNotesSlide();
-    if (notesSlide != null)
-    {
-        INotesSlideHeaderFooterManager headerFooterManager = notesSlide.getHeaderFooterManager();
-        if (!headerFooterManager.isHeaderVisible())
-            headerFooterManager.setHeaderVisibility(true); // make this notes slide Header placeholder visible
-
-        if (!headerFooterManager.isFooterVisible())
-            headerFooterManager.setFooterVisibility(true); // make this notes slide Footer placeholder visible
-
-        if (!headerFooterManager.isSlideNumberVisible())
-            headerFooterManager.setSlideNumberVisibility(true); // make this notes slide SlideNumber placeholder visible
-
-        if (!headerFooterManager.isDateTimeVisible())
-            headerFooterManager.setDateTimeVisibility(true); // make this notes slide Date-time placeholder visible
-
-        headerFooterManager.setHeaderText("New header text"); // set text to notes slide Header placeholder
-        headerFooterManager.setFooterText("New footer text"); // set text to notes slide Footer placeholder
-        headerFooterManager.setDateTimeText("New date and time text"); // set text to notes slide Date-time placeholder
-    }
-    pres.save("testresult.pptx",SaveFormat.Pptx);
+    presentation.save("presentation_with_notes_master_footers.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+A [`getMasterNotesSlide`](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imasternotesslidemanager/#getMasterNotesSlide--) metódus `null` értéket ad vissza, ha a bemutató nem tartalmaz jegyzet mestert.
+
+## **Jegyzet mester beállításainak alkalmazása a gyermek jegyzet diákra**
+
+A jegyzet mester alkalmazhatja a fejléc‑ és láblécbeállításokat saját magára és az összes függő jegyzet diára. Használja a dedikált propagációs metódusokat a [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/) interfészen, ha ugyanazokat a beállításokat a jegyzet hierarchián belül kell alkalmazni.
+
+Például a [`setHeaderAndChildHeadersText`](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/#setHeaderAndChildHeadersText-java.lang.String-) és a [`setHeaderAndChildHeadersVisibility`](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/#setHeaderAndChildHeadersVisibility-boolean-) frissíti a jegyzet mester fejlécét és az összes gyermekfejlécet. Hasonló metódusok állnak rendelkezésre a láblécek, dátum/idő és dia számok esetén.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterNotesSlide masterNotesSlide = presentation.getMasterNotesSlideManager().getMasterNotesSlide();
+
+    if (masterNotesSlide != null) {
+        IMasterNotesSlideHeaderFooterManager headerFooterManager = masterNotesSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderAndChildHeadersText("Notes header");
+        headerFooterManager.setHeaderAndChildHeadersVisibility(true);
+
+        headerFooterManager.setFooterAndChildFootersText("Notes footer");
+        headerFooterManager.setFooterAndChildFootersVisibility(true);
+
+        headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
+        headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
+
+        headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
+    }
+
+    presentation.save("presentation_with_child_notes_footers.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+A fent használt propagációs metódusok a [`setFooterAndChildFootersText`](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/#setFooterAndChildFootersText-java.lang.String-), a [`setFooterAndChildFootersVisibility`](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/#setFooterAndChildFootersVisibility-boolean-), a [`setDateTimeAndChildDateTimesText`](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesText-java.lang.String-), a [`setDateTimeAndChildDateTimesVisibility`](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/#setDateTimeAndChildDateTimesVisibility-boolean-), és a [`setSlideNumberAndChildSlideNumbersVisibility`](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/#setSlideNumberAndChildSlideNumbersVisibility-boolean-) metódusok.
+
+## **Fejlécek és láblécek beállítása egyes jegyzet dián**
+
+Egy jegyzet dia egy konkrét általános diához tartozik. Használja annak [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/inotesslideheaderfootermanager/) interfészét, ha csak azt a jegyzet oldalt kívánja testre szabni.
+
+A [`addNotesSlide`](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/inotesslidemanager/#addNotesSlide--) metódus visszaadja a jelenlegi dia jegyzet diáját, és létrehoz egyet, ha még nem létezik. A következő példa az első bemutató diahoz kapcsolódó jegyzet oldalt konfigurálja:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    INotesSlide notesSlide = slide.getNotesSlideManager().addNotesSlide();
+    INotesSlideHeaderFooterManager headerFooterManager = notesSlide.getHeaderFooterManager();
+
+    headerFooterManager.setHeaderText("Header for the first notes page");
+    headerFooterManager.setHeaderVisibility(true);
+
+    headerFooterManager.setFooterText("Footer for the first notes page");
+    headerFooterManager.setFooterVisibility(true);
+
+    headerFooterManager.setDateTimeText("Date and time text");
+    headerFooterManager.setDateTimeVisibility(true);
+
+    headerFooterManager.setSlideNumberVisibility(true);
+
+    presentation.save("presentation_with_custom_notes_footers.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Ha először a jegyzet mesterből propagálja a beállításokat, majd módosít egy adott jegyzet diát, a későbbi egyedi diabeállítások lehetővé teszik, hogy az adott jegyzet oldalt önállóan testre szabja.
+
+## **Fejlécek és láblécek beállítása a Tájékoztató mesteren**
+
+A tájékoztató oldalak a tájékoztató mestert használják a fej‑, lábléc‑, dátum/idő‑ és oldalszám‑helyőrzőkhöz. A jegyzet oldalakkal ellentétben a tájékoztató beállításokat a tájékoztató mester, nem pedig az egyes tájékoztató diák kezelik.
+
+Használja a [`getMasterHandoutSlide`](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imasterhandoutslidemanager/#getMasterHandoutSlide--) metódust a tájékoztató mester eléréséhez. Ha nincs jelen, hívja meg a [`setDefaultMasterHandoutSlide`](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imasterhandoutslidemanager/#setDefaultMasterHandoutSlide--) metódust az alapértelmezett tájékoztató mester létrehozásához.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterHandoutSlide masterHandoutSlide = presentation.getMasterHandoutSlideManager().getMasterHandoutSlide();
+
+    if (masterHandoutSlide == null) {
+        masterHandoutSlide = presentation.getMasterHandoutSlideManager().setDefaultMasterHandoutSlide();
+    }
+
+    if (masterHandoutSlide != null) {
+        IMasterHandoutSlideHeaderFooterManager headerFooterManager = masterHandoutSlide.getHeaderFooterManager();
+
+        headerFooterManager.setHeaderText("Handout header");
+        headerFooterManager.setHeaderVisibility(true);
+
+        headerFooterManager.setFooterText("Handout footer");
+        headerFooterManager.setFooterVisibility(true);
+
+        headerFooterManager.setDateTimeText("Date and time text");
+        headerFooterManager.setDateTimeVisibility(true);
+
+        headerFooterManager.setSlideNumberVisibility(true);
+    }
+
+    presentation.save("presentation_with_handout_footers.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **A hatókör és öröklődés megértése**
+
+Válassza ki a fej/lábléckezelőt, amely megfelel a módosítani kívánt hatókörnek:
+
+- a [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islideheaderfootermanager/) módosítja a lábléc, dátum/idő és dia‑szám beállításokat egy általános dián.
+- a [`ILayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ilayoutslideheaderfootermanager/) egy elrendezés diát vezérel, és a támogatott beállításokat a függő diákra továbbíthatja.
+- a [`IMasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imasterslideheaderfootermanager/) egy általános dia mestert kezel, és a támogatott beállításokat a függő diákra továbbíthatja.
+- a [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imasternotesslideheaderfootermanager/) a jegyzet mestert kezeli, és a beállításokat minden függő jegyzet diára propagálja.
+- a [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/inotesslideheaderfootermanager/) egy jegyzet diát módosít, és a lábléc, dátum/idő és dia‑szám mellett fejléchelyőrzőt is támogat.
+- a [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imasterhandoutslideheaderfootermanager/) a tájékoztató mestert módosítja, és mind a négy helyőrző típust támogatja.
+
+Használja a propagációt egy mester vagy elrendezés esetén, ha ugyanazt a beállítást szeretné a hierarchián belül mindenhol alkalmazni. Használjon egyedi diakezelőt vagy jegyzet‑diakezelőt, ha egy oldalra helyi beállításra van szükség.
 
 ## **GYIK**
 
-**Hozzáadhatok „fejlécet” a normál diákhoz?**
+**Hozzáadhatok fejlécet egy általános diához?**
 
-PowerPoint‑ban a „fejléc” csak jegyzetekhez és kézbesítésekhez létezik; általános diákon a támogatott elemek a lábléc, a dátum/idő és a dia száma. Az Aspose.Slides ugyanazokat a korlátozásokat követi: fejléc csak jegyzetekhez/kézbesítésekhez, a diákon pedig – lábléc/dátum‑idő/dia‑szám.
+Nem. A PowerPoint nem definiál fejléchelyőrzőt általános diák számára. Általános diákon a lábléc, dátum/idő és dia‑szám helyőrzőket kell használni. Fejléchelyőrzők a jegyzetoldalakon és a tájékoztatókón érhetők el.
 
-**Mi van, ha az elrendezés nem tartalmaz lábléc‑területet – bekapcsolhatom a láthatóságát?**
+**Mi van, ha egy lábléc, dátum/idő vagy dia‑szám helyőrző nem látható?**
 
-Igen. Ellenőrizze a láthatóságot a fejléc/lábléc kezelőn keresztül, és szükség esetén engedélyezze. Ezek az API‑jelzők és metódusok olyan esetekre lettek tervezve, amikor a helyfoglaló hiányzik vagy rejtve van.
+Használja a megfelelő fej/lábléckezelőt a láthatóság ellenőrzéséhez, és szükség esetén engedélyezze azt. Például a [`isFooterVisible`](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/baseslideheaderfootermanager/#isFooterVisible--) jelzi, hogy a lábléchelyőrző jelen van‑e, és a [`setFooterVisibility`](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/baseslideheaderfootermanager/#setFooterVisibility-boolean-) megváltoztatja a láthatóságát.
 
-**Hogyan állíthatom be, hogy a dia‑szám 1‑től eltérő értékkel induljon?**
+**Hogyan indítsam a dia számolását 1‑nél eltérő értékkel?**
 
-Állítsa be a prezentáció [első dia számát](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/#setFirstSlideNumber-int-); ezután az összes számozás újraszámolódik. Például kezdheti 0‑nál vagy 10‑nél, és elrejtheti a számot a címdian.
+Hívja meg a bemutató [`setFirstSlideNumber`](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/#setFirstSlideNumber-int-) metódusát. A dia‑szám helyőrzők ezt követően a frissített számozási sorozatot használják.
 
-**Mi történik a fejlécekkel/láblécekkel PDF‑/képek/HTML‑exportáláskor?**
+**Mi történik a fejlécekkel és láblécekkel PDF‑re, képekre vagy HTML‑re exportáláskor?**
 
-A fejlécek és láblécek a prezentáció szokásos szövegelemeként kerülnek renderelésre. Vagyis ha az elemek láthatóak a diákon/jegyzetoldalakon, akkor a kimeneti formátumban is megjelennek a többi tartalommal együtt.
+A látható fejléc‑ és lábléc elemek a kimeneti formátumban a bemutató egyéb tartalmával együtt kerülnek megjelenítésre. Megjelenésük az exportált oldal típusától és a megfelelő helyőrző láthatósági beállításoktól függ.

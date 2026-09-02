@@ -11,155 +11,260 @@ keywords:
 - 바닥글 텍스트
 - 머리글 설정
 - 바닥글 설정
-- 핸드아웃
+- 유인물
 - 노트
 - PowerPoint
 - OpenDocument
 - 프레젠테이션
 - C++
 - Aspose.Slides
-description: "전문적인 모습을 위해 PowerPoint 및 OpenDocument 프레젠테이션에 머리글과 바닥글을 추가하고 사용자 지정하려면 C++용 Aspose.Slides를 사용하십시오."
+description: "Aspose.Slides for C++를 사용하여 슬라이드, 노트 페이지 및 유인물에서 바닥글, 날짜/시간, 슬라이드 번호 및 머리글 자리표시자를 관리하는 방법을 배웁니다."
 ---
 ## **개요**
 
-Aspose.Slides를 사용하면 PowerPoint 프레젠테이션에서 머리글 및 바닥글 설정을 관리할 수 있습니다. 머리글과 바닥글은 프레젠테이션 마스터 수준에서 처리되며, API는 바닥글 텍스트 설정, 바닥글 표시 여부 변경, 마스터 노트 슬라이드의 머리글 텍스트 업데이트를 위한 메서드를 제공합니다.
+PowerPoint는 페이지 유형에 따라 서로 다른 머리글 및 바닥글 자리표시자를 사용합니다. Aspose.Slides for C++는 이러한 자리표시자의 텍스트와 가시성을 머리글/바닥글 관리자 인터페이스를 통해 제어할 수 있습니다.
 
-핸드아웃 및 노트 슬라이드에 대한 머리글 및 바닥글도 관리할 수 있습니다. 여기에는 노트 마스터, 모든 하위 노트 슬라이드 또는 개별 노트 슬라이드에 대한 머리글, 바닥글, 슬라이드 번호 및 날짜‑시간 자리표시자의 표시 여부와 텍스트를 변경하는 작업이 포함됩니다.
+사용 가능한 자리표시자는 범위에 따라 달라집니다:
 
-## **머리글 및 바닥글 텍스트 관리**
+| 범위 | 머리글 | 바닥글 | 날짜/시간 | 슬라이드/페이지 번호 |
+|---|---|---|---|---|
+| 일반 슬라이드 | 아니오 | 예 | 예 | 예 |
+| 노트 마스터 | 예 | 예 | 예 | 예 |
+| 노트 슬라이드 | 예 | 예 | 예 | 예 |
+| 유인물 마스터 | 예 | 예 | 예 | 예 |
 
-특정 슬라이드의 노트를 아래 예시와 같이 업데이트할 수 있습니다:
+일반 프레젠테이션 슬라이드에는 머리글 자리표시자가 없습니다. 머리글은 노트 페이지와 유인물에 제공됩니다. 일반 슬라이드에서는 대신 바닥글, 날짜/시간 및 슬라이드 번호 자리표시자를 사용하십시오.
 
-``` cpp
-// Header/Footer 텍스트를 설정하는 함수
-void UpdateHeaderFooterText(System::SharedPtr<IBaseSlide> master)
-{
-    for (const auto& shape : System::IterateOver(master->get_Shapes()))
-    {
-        if (shape->get_Placeholder() != nullptr)
-        {
-            if (shape->get_Placeholder()->get_Type() == PlaceholderType::Header)
-            {
-                (System::ExplicitCast<IAutoShape>(shape))->get_TextFrame()->set_Text(u"HI there new header");
-            }
-        }
-    }
-}
-```
+변경 범위는 사용 중인 관리자에 따라 달라집니다. [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/ko/cpp/aspose.slides/islideheaderfootermanager/) 인터페이스는 하나의 일반 슬라이드를 제어합니다. [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/ko/cpp/aspose.slides/inotesslideheaderfootermanager/) 인터페이스는 하나의 노트 슬라이드를 제어합니다. 마스터 및 레이아웃 관리자는 종속 슬라이드에 설정을 전파할 수 있으며, [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imasterhandoutslideheaderfootermanager/) 인터페이스는 유인물 마스터를 제어합니다.
 
-``` cpp
-// 프레젠테이션 로드
-auto pres = System::MakeObject<Presentation>(u"headerTest.pptx");
+## **일반 슬라이드에 바닥글, 날짜/시간 및 슬라이드 번호 설정**
 
-// 바닥글 설정
-pres->get_HeaderFooterManager()->SetAllFootersText(u"My Footer text");
-pres->get_HeaderFooterManager()->SetAllFootersVisibility(true);
+일반 슬라이드의 경우 기본 작업 흐름은 각 슬라이드의 머리글/바닥글 관리자에 접근하여 바닥글 및 날짜/시간 텍스트를 설정하고 필요한 자리표시자를 활성화한 다음 프레젠테이션을 저장하는 것입니다. 슬라이드 번호는 프레젠테이션에서 자동으로 생성되므로 가시성만 제어하면 됩니다.
 
-// 헤더에 접근하고 업데이트
-auto masterNotesSlide = pres->get_MasterNotesSlideManager()->get_MasterNotesSlide();
-if (nullptr != masterNotesSlide)
-{
-	UpdateHeaderFooterText(masterNotesSlide);
-}
+텍스트를 설정하려면 [`SetFooterText`](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ibaseslideheaderfootermanager/setfootertext/) 및 [`SetDateTimeText`](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ibaseslideheaderfootermanager/setdatetimetext/)를 사용하고, 해당 자리표시자를 표시하려면 [`SetFooterVisibility`](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ibaseslideheaderfootermanager/setfootervisibility/), [`SetDateTimeVisibility`](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ibaseslideheaderfootermanager/setdatetimevisibility/) 및 [`SetSlideNumberVisibility`](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ibaseslideheaderfootermanager/setslidenumbervisibility/)를 사용하십시오.
 
-// 프레젠테이션 저장
-pres->Save(u"HeaderFooterJava.pptx", SaveFormat::Pptx);
-```
+다음 전체 예제는 모든 일반 슬라이드에 동일한 바닥글, 날짜/시간 텍스트 및 슬라이드 번호 가시성을 적용합니다:
 
-## **핸드아웃 및 노트 슬라이드에서 머리글 및 바닥글 관리**
-Aspose.Slides for C++는 핸드아웃 및 노트 슬라이드에서 머리글 및 바닥글을 지원합니다. 아래 단계를 따르세요:
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ISlideHeaderFooterManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/enumerator_adapter.h>
 
-- 비디오가 포함된 [프레젠테이션](https://reference.aspose.com/slides/ko/cpp/class/aspose.slides.presentation)을 로드합니다.
-- 노트 마스터 및 모든 노트 슬라이드에 대한 머리글 및 바닥글 설정을 변경합니다.
-- 마스터 노트 슬라이드와 모든 자식 바닥글 자리표시자를 표시하도록 설정합니다.
-- 마스터 노트 슬라이드와 모든 자식 날짜‑시간 자리표시자를 표시하도록 설정합니다.
-- 첫 번째 노트 슬라이드에만 머리글 및 바닥글 설정을 변경합니다.
-- 노트 슬라이드 머리글 자리표시자를 표시하도록 설정합니다.
-- 노트 슬라이드 머리글 자리표시자에 텍스트를 설정합니다.
-- 노트 슬라이드 날짜‑시간 자리표시자에 텍스트를 설정합니다.
-- 수정된 프레젠테이션 파일을 씁니다.
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-예제에 제공된 코드 스니펫:
-
-``` cpp
 auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
-// 노트 마스터 및 모든 노트 슬라이드에 대한 머리글 및 바닥글 설정을 변경합니다
+
+for (const auto& slide : System::IterateOver(presentation->get_Slides()))
+{
+    auto headerFooterManager = slide->get_HeaderFooterManager();
+
+    headerFooterManager->SetFooterText(u"Company Confidential");
+    headerFooterManager->SetFooterVisibility(true);
+
+    headerFooterManager->SetDateTimeText(u"Date and time text");
+    headerFooterManager->SetDateTimeVisibility(true);
+
+    headerFooterManager->SetSlideNumberVisibility(true);
+}
+
+presentation->Save(u"presentation_with_slide_footers.pptx", SaveFormat::Pptx);
+```
+
+하나의 슬라이드만 업데이트해야 하는 경우 전체 슬라이드 컬렉션을 반복하는 대신 [`Presentation::get_Slide`](https://reference.aspose.com/slides/ko/cpp/aspose.slides/presentation/get_slide/)을 통해 해당 슬라이드에 직접 접근하십시오.
+
+## **노트 마스터에 머리글 및 바닥글 설정**
+
+노트 마스터는 노트 페이지에 대한 공통 서식 및 자리표시자 동작을 정의합니다. 노트 마스터 자체만 변경하려면 [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imasternotesslideheaderfootermanager/) 인터페이스를 사용하십시오.
+
+다음 예제는 노트 마스터에 머리글, 바닥글 및 날짜/시간 텍스트를 설정하고 해당 마스터에서 지원되는 모든 자리표시자를 표시합니다:
+
+```cpp
+#include <DOM/IMasterNotesSlide.h>
+#include <DOM/IMasterNotesSlideHeaderFooterManager.h>
+#include <DOM/IMasterNotesSlideManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
 auto masterNotesSlide = presentation->get_MasterNotesSlideManager()->get_MasterNotesSlide();
+
 if (masterNotesSlide != nullptr)
 {
-	auto headerFooterManager = masterNotesSlide->get_HeaderFooterManager();
+    auto headerFooterManager = masterNotesSlide->get_HeaderFooterManager();
 
-	// 마스터 노트 슬라이드와 모든 하위 Footer 자리표시자를 표시하도록 설정
-	headerFooterManager->SetHeaderAndChildHeadersVisibility(true);
-	// 마스터 노트 슬라이드와 모든 하위 Header 자리표시자를 표시하도록 설정
-	headerFooterManager->SetFooterAndChildFootersVisibility(true);
-	// 마스터 노트 슬라이드와 모든 하위 SlideNumber 자리표시자를 표시하도록 설정
-	headerFooterManager->SetSlideNumberAndChildSlideNumbersVisibility(true);
-	// 마스터 노트 슬라이드와 모든 하위 Date and time 자리표시자를 표시하도록 설정
-	headerFooterManager->SetDateTimeAndChildDateTimesVisibility(true);
+    headerFooterManager->SetHeaderText(u"Notes header");
+    headerFooterManager->SetHeaderVisibility(true);
 
-	// 마스터 노트 슬라이드와 모든 하위 Header 자리표시자에 텍스트를 설정
-	headerFooterManager->SetHeaderAndChildHeadersText(u"Header text");
-	// 마스터 노트 슬라이드와 모든 하위 Footer 자리표시자에 텍스트를 설정
-	headerFooterManager->SetFooterAndChildFootersText(u"Footer text");
-	// 마스터 노트 슬라이드와 모든 하위 Date and time 자리표시자에 텍스트를 설정
-	headerFooterManager->SetDateTimeAndChildDateTimesText(u"Date and time text");
+    headerFooterManager->SetFooterText(u"Notes footer");
+    headerFooterManager->SetFooterVisibility(true);
+
+    headerFooterManager->SetDateTimeText(u"Date and time text");
+    headerFooterManager->SetDateTimeVisibility(true);
+
+    headerFooterManager->SetSlideNumberVisibility(true);
 }
 
-// 첫 번째 노트 슬라이드에만 머리글 및 바닥글 설정을 변경합니다
-auto notesSlide = presentation->get_Slides()->idx_get(0)->get_NotesSlideManager()->get_NotesSlide();
-if (notesSlide != nullptr)
-{
-	auto headerFooterManager = notesSlide->get_HeaderFooterManager();
-	if (!headerFooterManager->get_IsHeaderVisible())
-	{
-		// 이 노트 슬라이드의 Header 자리표시자를 표시하도록 설정
-		headerFooterManager->SetHeaderVisibility(true);
-	}
-
-	if (!headerFooterManager->get_IsFooterVisible())
-	{
-		// 이 노트 슬라이드의 Footer 자리표시자를 표시하도록 설정
-		headerFooterManager->SetFooterVisibility(true);
-	}
-
-	if (!headerFooterManager->get_IsSlideNumberVisible())
-	{
-		// 이 노트 슬라이드의 SlideNumber 자리표시자를 표시하도록 설정
-		headerFooterManager->SetSlideNumberVisibility(true);
-	}
-	
-	if (!headerFooterManager->get_IsDateTimeVisible())
-	{
-		// 이 노트 슬라이드의 Date-time 자리표시자를 표시하도록 설정
-		headerFooterManager->SetDateTimeVisibility(true);
-	}
-	
-	// 노트 슬라이드 Header 자리표시자에 텍스트를 설정
-	headerFooterManager->SetHeaderText(u"New header text");
-	// 노트 슬라이드 Footer 자리표시자에 텍스트를 설정
-	headerFooterManager->SetFooterText(u"New footer text");
-	// 노트 슬라이드 Date-time 자리표시자에 텍스트를 설정
-	headerFooterManager->SetDateTimeText(u"New date and time text");
-}
-
-presentation->Save(u"testresult.pptx", SaveFormat::Pptx);
+presentation->Save(u"presentation_with_notes_master_footers.pptx", SaveFormat::Pptx);
 ```
+
+[`IMasterNotesSlideManager::get_MasterNotesSlide`](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imasternotesslidemanager/get_masternotesslide/) 메서드는 프레젠테이션에 노트 마스터가 포함되어 있지 않을 경우 `nullptr`을 반환합니다.
+
+## **노트 마스터 설정을 자식 노트 슬라이드에 적용**
+
+노트 마스터는 머리글 및 바닥글 설정을 자신과 모든 종속 노트 슬라이드에 적용할 수 있습니다. 동일한 설정을 노트 계층 전체에 적용해야 하는 경우 [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imasternotesslideheaderfootermanager/)의 전용 전파 메서드를 사용하십시오.
+
+예를 들어, [`SetHeaderAndChildHeadersText`](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imasternotesslideheaderfootermanager/setheaderandchildheaderstext/) 및 [`SetHeaderAndChildHeadersVisibility`](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imasternotesslideheaderfootermanager/setheaderandchildheadersvisibility/)은 노트 마스터 머리글과 모든 자식 머리글을 업데이트합니다. 바닥글, 날짜/시간 및 슬라이드 번호에 대한 동등한 메서드도 제공됩니다.
+
+```cpp
+#include <DOM/IMasterNotesSlide.h>
+#include <DOM/IMasterNotesSlideHeaderFooterManager.h>
+#include <DOM/IMasterNotesSlideManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+auto masterNotesSlide = presentation->get_MasterNotesSlideManager()->get_MasterNotesSlide();
+
+if (masterNotesSlide != nullptr)
+{
+    auto headerFooterManager = masterNotesSlide->get_HeaderFooterManager();
+
+    headerFooterManager->SetHeaderAndChildHeadersText(u"Notes header");
+    headerFooterManager->SetHeaderAndChildHeadersVisibility(true);
+
+    headerFooterManager->SetFooterAndChildFootersText(u"Notes footer");
+    headerFooterManager->SetFooterAndChildFootersVisibility(true);
+
+    headerFooterManager->SetDateTimeAndChildDateTimesText(u"Date and time text");
+    headerFooterManager->SetDateTimeAndChildDateTimesVisibility(true);
+
+    headerFooterManager->SetSlideNumberAndChildSlideNumbersVisibility(true);
+}
+
+presentation->Save(u"presentation_with_child_notes_footers.pptx", SaveFormat::Pptx);
+```
+
+위에서 사용된 전파 메서드는 [`SetFooterAndChildFootersText`](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imasternotesslideheaderfootermanager/setfooterandchildfooterstext/), [`SetFooterAndChildFootersVisibility`](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imasternotesslideheaderfootermanager/setfooterandchildfootersvisibility/), [`SetDateTimeAndChildDateTimesText`](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imasternotesslideheaderfootermanager/setdatetimeandchilddatetimestext/), [`SetDateTimeAndChildDateTimesVisibility`](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imasternotesslideheaderfootermanager/setdatetimeandchilddatetimesvisibility/) 및 [`SetSlideNumberAndChildSlideNumbersVisibility`](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imasternotesslideheaderfootermanager/setslidenumberandchildslidenumbersvisibility/) 입니다.
+
+## **개별 노트 슬라이드에 머리글 및 바닥글 설정**
+
+노트 슬라이드는 특정 일반 슬라이드에 속합니다. 해당 노트 페이지만 맞춤화하려면 그 슬라이드의 [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/ko/cpp/aspose.slides/inotesslideheaderfootermanager/) 인터페이스를 사용하십시오.
+
+[`INotesSlideManager::AddNotesSlide`](https://reference.aspose.com/slides/ko/cpp/aspose.slides/inotesslidemanager/addnotesslide/) 메서드는 현재 슬라이드에 대한 노트 슬라이드를 반환하며, 존재하지 않을 경우 새로 생성합니다. 다음 예제는 첫 번째 프레젠테이션 슬라이드와 연결된 노트 페이지를 구성합니다:
+
+```cpp
+#include <DOM/INotesSlide.h>
+#include <DOM/INotesSlideHeaderFooterManager.h>
+#include <DOM/INotesSlideManager.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+auto slide = presentation->get_Slide(0);
+auto notesSlide = slide->get_NotesSlideManager()->AddNotesSlide();
+auto headerFooterManager = notesSlide->get_HeaderFooterManager();
+
+headerFooterManager->SetHeaderText(u"Header for the first notes page");
+headerFooterManager->SetHeaderVisibility(true);
+
+headerFooterManager->SetFooterText(u"Footer for the first notes page");
+headerFooterManager->SetFooterVisibility(true);
+
+headerFooterManager->SetDateTimeText(u"Date and time text");
+headerFooterManager->SetDateTimeVisibility(true);
+
+headerFooterManager->SetSlideNumberVisibility(true);
+
+presentation->Save(u"presentation_with_custom_notes_footers.pptx", SaveFormat::Pptx);
+```
+
+먼저 노트 마스터에서 설정을 전파한 후 개별 노트 슬라이드를 변경하면, 이후 슬라이드별 설정을 통해 해당 노트 페이지를 독립적으로 맞춤화할 수 있습니다.
+
+## **유인물 마스터에 머리글 및 바닥글 설정**
+
+유인물 페이지는 머리글, 바닥글, 날짜/시간 및 페이지 번호 자리표시자를 위해 유인물 마스터를 사용합니다. 노트 페이지와 달리 유인물 설정은 개별 유인물 슬라이드가 아니라 유인물 마스터를 통해 관리됩니다.
+
+[`IMasterHandoutSlideManager::get_MasterHandoutSlide`](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imasterhandoutslidemanager/get_masterhandoutslide/)를 사용해 유인물 마스터에 접근하십시오. 마스터가 없을 경우, [`IMasterHandoutSlideManager::SetDefaultMasterHandoutSlide`](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imasterhandoutslidemanager/setdefaultmasterhandoutslide/)을 호출하여 기본 유인물 마스터를 생성하십시오.
+
+```cpp
+#include <DOM/IMasterHandoutSlide.h>
+#include <DOM/IMasterHandoutSlideHeaderFooterManager.h>
+#include <DOM/IMasterHandoutSlideManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+auto masterHandoutSlideManager = presentation->get_MasterHandoutSlideManager();
+auto masterHandoutSlide = masterHandoutSlideManager->get_MasterHandoutSlide();
+
+if (masterHandoutSlide == nullptr)
+{
+    masterHandoutSlide = masterHandoutSlideManager->SetDefaultMasterHandoutSlide();
+}
+
+if (masterHandoutSlide != nullptr)
+{
+    auto headerFooterManager = masterHandoutSlide->get_HeaderFooterManager();
+
+    headerFooterManager->SetHeaderText(u"Handout header");
+    headerFooterManager->SetHeaderVisibility(true);
+
+    headerFooterManager->SetFooterText(u"Handout footer");
+    headerFooterManager->SetFooterVisibility(true);
+
+    headerFooterManager->SetDateTimeText(u"Date and time text");
+    headerFooterManager->SetDateTimeVisibility(true);
+
+    headerFooterManager->SetSlideNumberVisibility(true);
+}
+
+presentation->Save(u"presentation_with_handout_footers.pptx", SaveFormat::Pptx);
+```
+
+## **범위 및 상속 이해**
+
+변경하려는 범위에 맞는 머리글/바닥글 관리자를 선택하십시오:
+
+- [`ISlideHeaderFooterManager`](https://reference.aspose.com/slides/ko/cpp/aspose.slides/islideheaderfootermanager/)는 하나의 일반 슬라이드에 대해 바닥글, 날짜/시간 및 슬라이드 번호 설정을 변경합니다.
+- [`ILayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ilayoutslideheaderfootermanager/)는 레이아웃 슬라이드를 제어하고 지원되는 설정을 종속 슬라이드에 전파할 수 있습니다.
+- [`IMasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imasterslideheaderfootermanager/)는 일반 슬라이드 마스터를 제어하며, 지원되는 설정을 종속 슬라이드에 전파할 수 있습니다.
+- [`IMasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imasternotesslideheaderfootermanager/)는 노트 마스터를 제어하고 모든 종속 노트 슬라이드에 설정을 전파할 수 있습니다.
+- [`INotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/ko/cpp/aspose.slides/inotesslideheaderfootermanager/)는 하나의 노트 슬라이드를 변경하며, 바닥글, 날짜/시간 및 슬라이드 번호 외에 머리글 자리표시자를 지원합니다.
+- [`IMasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/ko/cpp/aspose.slides/imasterhandoutslideheaderfootermanager/)는 유인물 마스터를 변경하며 네 가지 자리표시자 유형을 모두 지원합니다.
+
+동일한 설정을 계층 전체에 적용해야 할 경우 마스터 또는 레이아웃에서 전파를 사용하십시오. 하나의 페이지에 대해 로컬 설정이 필요할 경우 개별 슬라이드 또는 노트 슬라이드 관리자를 사용하십시오.
 
 ## **FAQ**
 
-**일반 슬라이드에 "머리글"을 추가할 수 있나요?**
+**일반 슬라이드에 머리글을 추가할 수 있나요?**
 
-PowerPoint에서는 머리글이 노트와 핸드아웃에만 존재합니다. 일반 슬라이드에서는 바닥글, 날짜/시간, 슬라이드 번호만 지원됩니다. Aspose.Slides도 동일한 제한을 따릅니다: 머리글은 노트/핸드아웃에만, 슬라이드에서는 바닥글/날짜‑시간/슬라이드 번호만 지원됩니다.
+아니오. PowerPoint는 일반 슬라이드에 머리글 자리표시자를 정의하지 않습니다. 일반 슬라이드에서는 바닥글, 날짜/시간 및 슬라이드 번호 자리표시자를 사용하십시오. 머리글 자리표시자는 노트 페이지와 유인물에 제공됩니다.
 
-**레이아웃에 바닥글 영역이 없는데 표시를 "켜"게 할 수 있나요?**
+**바닥글, 날짜/시간 또는 슬라이드 번호 자리표시자가 보이지 않을 경우 어떻게 해야 하나요?**
 
-예, 가능합니다. 머리글/바닥글 관리자를 통해 표시 여부를 확인하고 필요하면 활성화할 수 있습니다. 자리표시자가 없거나 숨겨져 있는 경우를 위해 이러한 API 지시자와 메서드가 설계되었습니다.
+해당 머리글/바닥글 관리자를 사용하여 가시성을 확인하고 필요 시 활성화하십시오. 예를 들어, [`get_IsFooterVisible`](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ibaseslideheaderfootermanager/get_isfootervisible/)는 바닥글 자리표시자가 존재하는지 여부를 보고하고, [`SetFooterVisibility`](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ibaseslideheaderfootermanager/setfootervisibility/)는 그 가시성을 변경합니다.
 
-**슬라이드 번호를 1이 아닌 다른 값부터 시작하려면 어떻게 해야 하나요?**
+**슬라이드 번호를 1이 아닌 값부터 시작하려면 어떻게 합니까?**
 
-프레젠테이션의 [첫 슬라이드 번호](https://reference.aspose.com/slides/ko/cpp/aspose.slides/presentation/set_firstslidenumber/)를 설정하면 됩니다. 그 후 모든 번호 매기기가 재계산됩니다. 예를 들어 0이나 10부터 시작하도록 할 수 있으며, 제목 슬라이드에서는 번호를 숨길 수 있습니다.
+[`Presentation::set_FirstSlideNumber`](https://reference.aspose.com/slides/ko/cpp/aspose.slides/presentation/set_firstslidenumber/)를 사용하여 첫 슬라이드 번호를 설정하십시오. 그러면 슬라이드 번호 자리표시자는 업데이트된 번호 순서를 사용합니다.
 
-**PDF/이미지/HTML로 내보낼 때 머리글/바닥글은 어떻게 처리되나요?**
+**PDF, 이미지 또는 HTML로 내보낼 때 머리글과 바닥글은 어떻게 되나요?**
 
-머리글과 바닥글은 프레젠테이션의 일반 텍스트 요소로 렌더링됩니다. 즉, 슬라이드나 노트 페이지에 해당 요소가 표시되어 있으면 출력 형식에서도 다른 콘텐츠와 함께 표시됩니다.
+보이는 머리글 및 바닥글 요소는 출력 형식에서 프레젠테이션 내용과 함께 렌더링됩니다. 이들의 모양은 내보내는 페이지 유형 및 해당 자리표시자의 가시성 설정에 따라 달라집니다.

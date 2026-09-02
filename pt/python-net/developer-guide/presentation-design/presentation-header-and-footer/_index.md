@@ -1,5 +1,5 @@
 ---
-title: Gerenciar cabeçalhos e rodapés da apresentação com Python
+title: Gerenciar cabeçalhos e rodapés de apresentação com Python
 linktitle: Cabeçalho e Rodapé
 type: docs
 weight: 140
@@ -14,122 +14,208 @@ keywords:
 - folheto
 - anotações
 - PowerPoint
+- OpenDocument
 - apresentação
 - Python
 - Aspose.Slides
-description: "Use o Aspose.Slides para Python via .NET para adicionar e personalizar cabeçalhos e rodapés em apresentações PowerPoint e OpenDocument, proporcionando um visual profissional."
+description: "Aprenda como gerenciar marcadores de espaço de rodapé, data/hora, número de slide e cabeçalho em slides, páginas de anotações e folhetos com Aspose.Slides para Python via .NET."
 ---
 ## **Visão geral**
 
-O Aspose.Slides for Python permite controlar os marcadores de cabeçalho e rodapé em toda a apresentação com escopo preciso. O texto do rodapé, data/hora e números de slides são gerenciados a partir do nível mestre e podem ser aplicados globalmente ou ajustados por slide. Os cabeçalhos são suportados em anotações e folhetos, onde você pode alternar a visibilidade e definir o texto para cabeçalho, rodapé, data/hora e números de página através do gerenciador dedicado de cabeçalho e rodapé no slide mestre de anotações ou em slides de anotações individuais. Este artigo descreve os principais padrões para atualizar esses marcadores e propagar as alterações de forma consistente em todo o seu conjunto de slides.
+O PowerPoint usa diferentes marcadores de espaço de cabeçalho e rodapé dependendo do tipo de página. Aspose.Slides for Python via .NET permite controlar o texto e a visibilidade desses marcadores de espaço por meio de classes de gerenciador de cabeçalho/rodapé.
 
-## **Gerenciar texto de cabeçalho e rodapé**
+Os marcadores de espaço disponíveis dependem do escopo:
 
-Nesta seção, você aprenderá como gerenciar o conteúdo de cabeçalho e rodapé em uma apresentação — habilitar ou modificar o rodapé, data e hora, e números de slides. Descreveremos brevemente os escopos para aplicar essas configurações (toda a apresentação, slides individuais e visualizações de anotações/folhetos) e mostraremos como usar a API do Aspose.Slides para atualizá-los de forma rápida e consistente.
+| Escopo | Cabeçalho | Rodapé | Data/hora | Número do slide/página |
+|---|---|---|---|---|
+| Slide regular | Não | Sim | Sim | Sim |
+| Mestre de anotações | Sim | Sim | Sim | Sim |
+| Slide de anotações | Sim | Sim | Sim | Sim |
+| Mestre de folhetos | Sim | Sim | Sim | Sim |
 
-O exemplo de código abaixo abre uma apresentação, habilita e define o texto do rodapé, atualiza o texto do cabeçalho no slide mestre de anotações e salva o arquivo.
+Um slide regular de apresentação não possui um marcador de espaço de cabeçalho. Cabeçalhos estão disponíveis em páginas de notas e folhetos. Para slides regulares, use os marcadores de espaço de rodapé, data/hora e número do slide.
 
-```py
+O escopo de uma alteração depende do gerenciador que você usar. A classe [`SlideHeaderFooterManager`](https://reference.aspose.com/slides/pt/python-net/aspose.slides/slideheaderfootermanager/) controla um slide regular. A classe [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/pt/python-net/aspose.slides/notesslideheaderfootermanager/) controla um slide de notas. Gerenciadores de mestre e layout também podem propagar configurações para slides dependentes, enquanto a classe [`MasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/pt/python-net/aspose.slides/masterhandoutslideheaderfootermanager/) controla o mestre de folhetos.
+
+## **Definir rodapé, data/hora e números de slide em slides regulares**
+
+Para slides regulares, o fluxo básico é acessar o gerenciador de cabeçalho/rodapé de cada slide, definir o texto do rodapé e da data/hora, habilitar os marcadores de espaço necessários e salvar a apresentação. Os números de slide são gerados pela apresentação, portanto você só precisa controlar sua visibilidade.
+
+Use [`set_footer_text`](https://reference.aspose.com/slides/pt/python-net/aspose.slides/baseslideheaderfootermanager/set_footer_text/) e [`set_date_time_text`](https://reference.aspose.com/slides/pt/python-net/aspose.slides/baseslideheaderfootermanager/set_date_time_text/) para definir texto, e use [`set_footer_visibility`](https://reference.aspose.com/slides/pt/python-net/aspose.slides/baseslideheaderfootermanager/set_footer_visibility/), [`set_date_time_visibility`](https://reference.aspose.com/slides/pt/python-net/aspose.slides/baseslideheaderfootermanager/set_date_time_visibility/), e [`set_slide_number_visibility`](https://reference.aspose.com/slides/pt/python-net/aspose.slides/baseslideheaderfootermanager/set_slide_number_visibility/) para mostrar os marcadores de espaço correspondentes.
+
+O exemplo completo a seguir aplica o mesmo rodapé, texto de data/hora e visibilidade de número de slide a todos os slides regulares:
+
+```python
 import aspose.slides as slides
 
-# Função para definir o texto do cabeçalho.
-def update_header_footer_text(master):
-    for shape in master.shapes:
-        if shape.placeholder is not None:
-            if shape.placeholder.type == slides.PlaceholderType.HEADER:
-                shape.text_frame.text = "Hi, there is a header"
+with slides.Presentation("presentation.pptx") as presentation:
+    for slide in presentation.slides:
+        header_footer_manager = slide.header_footer_manager
 
+        header_footer_manager.set_footer_text("Company Confidential")
+        header_footer_manager.set_footer_visibility(True)
 
-# Carregar a apresentação.
-with slides.Presentation("sample.pptx") as presentation:
-    # Definir o rodapé.
-    presentation.header_footer_manager.set_all_footers_text("My Footer text")
-    presentation.header_footer_manager.set_all_footers_visibility(True)
+        header_footer_manager.set_date_time_text("Date and time text")
+        header_footer_manager.set_date_time_visibility(True)
 
-    # Acessar e atualizar o cabeçalho.
-    master_notes_slide = presentation.master_notes_slide_manager.master_notes_slide
-    if master_notes_slide is not None:
-        update_header_footer_text(master_notes_slide)
+        header_footer_manager.set_slide_number_visibility(True)
 
-    # Salvar a apresentação.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("presentation_with_slide_footers.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Gerenciar cabeçalho e rodapé em slides de anotações**
+Se precisar atualizar apenas um slide, acesse esse slide diretamente através da coleção [`slides`](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/slides/pt/) em vez de iterar por toda a coleção.
 
-Nesta seção, você aprenderá como gerenciar cabeçalhos e rodapés especificamente para slides de anotações no Aspose.Slides. Abordaremos a habilitação dos marcadores relevantes, a definição de texto para rodapés, data/hora e números de página, e a aplicação dessas alterações de forma consistente no mestre de anotações e nas páginas de anotações individuais.
+## **Definir cabeçalhos e rodapés no mestre de notas**
 
-Siga os passos abaixo:
+O mestre de notas define a formatação comum e o comportamento dos marcadores de espaço nas páginas de notas. Use a classe [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/pt/python-net/aspose.slides/masternotesslideheaderfootermanager/) quando quiser alterar apenas o próprio mestre de notas.
 
-1. Carregue um arquivo de apresentação.
-1. Obtenha o slide mestre de anotações e seu [gerenciador de cabeçalho e rodapé](https://reference.aspose.com/slides/pt/python-net/aspose.slides/masternotesslideheaderfootermanager/).
-1. No slide mestre de anotações, habilite a visibilidade de Cabeçalho, Rodapé, Número do slide e Data/hora para o mestre e todos os slides de anotações filhos.
-1. No slide mestre de anotações, defina o texto para Cabeçalho, Rodapé e Data/hora para o mestre e todos os slides de anotações filhos.
-1. Obtenha o slide de anotações para o primeiro slide da apresentação e seu [gerenciador de cabeçalho e rodapé](https://reference.aspose.com/slides/pt/python-net/aspose.slides/notesslideheaderfootermanager/).
-1. Para este primeiro slide de anotações somente, garanta que Cabeçalho, Rodapé, Número do slide e Data/hora estejam visíveis (ative qualquer que esteja desativado).
-1. Para este primeiro slide de anotações somente, defina o texto para Cabeçalho, Rodapé e Data/hora.
-1. Salve a apresentação no formato PPTX.
+O exemplo a seguir define cabeçalho, rodapé e texto de data/hora no mestre de notas e torna todos os marcadores de espaço suportados visíveis nesse mestre:
 
-```py
+```python
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
+with slides.Presentation("presentation.pptx") as presentation:
     master_notes_slide = presentation.master_notes_slide_manager.master_notes_slide
+
     if master_notes_slide is not None:
         header_footer_manager = master_notes_slide.header_footer_manager
 
-        # Torne o slide mestre de anotações e todos os marcadores filhos de cabeçalho, rodapé, número do slide e data/hora visíveis.
+        header_footer_manager.set_header_text("Notes header")
+        header_footer_manager.set_header_visibility(True)
+
+        header_footer_manager.set_footer_text("Notes footer")
+        header_footer_manager.set_footer_visibility(True)
+
+        header_footer_manager.set_date_time_text("Date and time text")
+        header_footer_manager.set_date_time_visibility(True)
+
+        header_footer_manager.set_slide_number_visibility(True)
+
+    presentation.save("presentation_with_notes_master_footers.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Uma apresentação pode não conter um mestre de notas, portanto verifique o valor retornado para `None` antes de alterá‑lo.
+
+## **Aplicar configurações do mestre de notas a slides de notas filhos**
+
+Um mestre de notas pode aplicar configurações de cabeçalho e rodapé a si mesmo e a todos os slides de notas dependentes. Use os métodos de propagação dedicados em [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/pt/python-net/aspose.slides/masternotesslideheaderfootermanager/) quando as mesmas configurações devem ser aplicadas em toda a hierarquia de notas.
+
+Por exemplo, [`set_header_and_child_headers_text`](https://reference.aspose.com/slides/pt/python-net/aspose.slides/masternotesslideheaderfootermanager/set_header_and_child_headers_text/) e [`set_header_and_child_headers_visibility`](https://reference.aspose.com/slides/pt/python-net/aspose.slides/masternotesslideheaderfootermanager/set_header_and_child_headers_visibility/) atualizam o cabeçalho do mestre de notas e todos os cabeçalhos filhos. Métodos equivalentes estão disponíveis para rodapés, data/hora e números de slide.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    master_notes_slide = presentation.master_notes_slide_manager.master_notes_slide
+
+    if master_notes_slide is not None:
+        header_footer_manager = master_notes_slide.header_footer_manager
+
+        header_footer_manager.set_header_and_child_headers_text("Notes header")
         header_footer_manager.set_header_and_child_headers_visibility(True)
+
+        header_footer_manager.set_footer_and_child_footers_text("Notes footer")
         header_footer_manager.set_footer_and_child_footers_visibility(True)
-        header_footer_manager.set_slide_number_and_child_slide_numbers_visibility(True)
+
+        header_footer_manager.set_date_time_and_child_date_times_text("Date and time text")
         header_footer_manager.set_date_time_and_child_date_times_visibility(True)
 
-        # Defina o texto no slide mestre de anotações e em todos os marcadores filhos de cabeçalho, rodapé e data/hora.
-        header_footer_manager.set_header_and_child_headers_text("Header text")
-        header_footer_manager.set_footer_and_child_footers_text("Footer text")
-        header_footer_manager.set_date_time_and_child_date_times_text("Date and time text")
+        header_footer_manager.set_slide_number_and_child_slide_numbers_visibility(True)
 
-    # Altere as configurações de cabeçalho, rodapé, número do slide e data/hora apenas para o primeiro slide de anotações.
-    notesSlide = presentation.slides[0].notes_slide_manager.notes_slide
-    if notesSlide is not None:
-        header_footer_manager = notesSlide.header_footer_manager
-
-        # Garanta que os marcadores de cabeçalho, rodapé, número do slide e data/hora estejam visíveis.
-        if not header_footer_manager.is_header_visible:
-            header_footer_manager.set_header_visibility(True)
-
-        if not header_footer_manager.is_footer_visible:
-            header_footer_manager.set_footer_visibility(True)
-
-        if not header_footer_manager.is_slide_number_visible:
-            header_footer_manager.set_slide_number_visibility(True)
-
-        if not header_footer_manager.is_date_time_visible:
-            header_footer_manager.set_date_time_visibility(True)
-
-        # Defina o texto nos marcadores de cabeçalho, rodapé e data/hora do slide de anotações.
-        header_footer_manager.set_header_text("New header text")
-        header_footer_manager.set_footer_text("New footer text")
-        header_footer_manager.set_date_time_text("New date and time text")
-
-    # Salvar a apresentação.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("presentation_with_child_notes_footers.pptx", slides.export.SaveFormat.PPTX)
 ```
+
+Os métodos de propagação usados acima são [`set_footer_and_child_footers_text`](https://reference.aspose.com/slides/pt/python-net/aspose.slides/masternotesslideheaderfootermanager/set_footer_and_child_footers_text/), [`set_footer_and_child_footers_visibility`](https://reference.aspose.com/slides/pt/python-net/aspose.slides/masternotesslideheaderfootermanager/set_footer_and_child_footers_visibility/), [`set_date_time_and_child_date_times_text`](https://reference.aspose.com/slides/pt/python-net/aspose.slides/masternotesslideheaderfootermanager/set_date_time_and_child_date_times_text/), [`set_date_time_and_child_date_times_visibility`](https://reference.aspose.com/slides/pt/python-net/aspose.slides/masternotesslideheaderfootermanager/set_date_time_and_child_date_times_visibility/), e [`set_slide_number_and_child_slide_numbers_visibility`](https://reference.aspose.com/slides/pt/python-net/aspose.slides/masternotesslideheaderfootermanager/set_slide_number_and_child_slide_numbers_visibility/).
+
+## **Definir cabeçalhos e rodapés em um slide de notas individual**
+
+Um slide de notas pertence a um slide regular específico. Use a classe [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/pt/python-net/aspose.slides/notesslideheaderfootermanager/) quando quiser personalizar apenas essa página de notas.
+
+O método [`add_notes_slide`](https://reference.aspose.com/slides/pt/python-net/aspose.slides/notesslidemanager/add_notes_slide/) retorna o slide de notas para o slide atual e cria um caso não exista. O exemplo a seguir configura a página de notas associada ao primeiro slide da apresentação:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    notes_slide = presentation.slides[0].notes_slide_manager.add_notes_slide()
+    header_footer_manager = notes_slide.header_footer_manager
+
+    header_footer_manager.set_header_text("Header for the first notes page")
+    header_footer_manager.set_header_visibility(True)
+
+    header_footer_manager.set_footer_text("Footer for the first notes page")
+    header_footer_manager.set_footer_visibility(True)
+
+    header_footer_manager.set_date_time_text("Date and time text")
+    header_footer_manager.set_date_time_visibility(True)
+
+    header_footer_manager.set_slide_number_visibility(True)
+
+    presentation.save("presentation_with_custom_notes_footers.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Se primeiro propagar configurações do mestre de notas e depois alterar um slide de notas individual, as configurações posteriores por slide permitem personalizar essa página de notas de forma independente.
+
+## **Definir cabeçalhos e rodapés no mestre de folhetos**
+
+Páginas de folhetos usam o mestre de folhetos para seus marcadores de espaço de cabeçalho, rodapé, data/hora e número de página. Diferente das páginas de notas, as configurações de folhetos são gerenciadas através do mestre de folhetos e não por slides de folhetos individuais.
+
+Use a propriedade [`master_handout_slide`](https://reference.aspose.com/slides/pt/python-net/aspose.slides/imasterhandoutslidemanager/master_handout_slide/) para acessar o mestre de folhetos. Se ele não estiver presente, chame [`set_default_master_handout_slide`](https://reference.aspose.com/slides/pt/python-net/aspose.slides/imasterhandoutslidemanager/set_default_master_handout_slide/) para criar o mestre de folhetos padrão.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    master_handout_slide = presentation.master_handout_slide_manager.master_handout_slide
+
+    if master_handout_slide is None:
+        presentation.master_handout_slide_manager.set_default_master_handout_slide()
+        master_handout_slide = presentation.master_handout_slide_manager.master_handout_slide
+
+    if master_handout_slide is not None:
+        header_footer_manager = master_handout_slide.header_footer_manager
+
+        header_footer_manager.set_header_text("Handout header")
+        header_footer_manager.set_header_visibility(True)
+
+        header_footer_manager.set_footer_text("Handout footer")
+        header_footer_manager.set_footer_visibility(True)
+
+        header_footer_manager.set_date_time_text("Date and time text")
+        header_footer_manager.set_date_time_visibility(True)
+
+        header_footer_manager.set_slide_number_visibility(True)
+
+    presentation.save("presentation_with_handout_footers.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Compreender escopo e herança**
+
+Escolha o gerenciador de cabeçalho/rodapé que corresponde ao escopo que deseja alterar:
+
+- [`SlideHeaderFooterManager`](https://reference.aspose.com/slides/pt/python-net/aspose.slides/slideheaderfootermanager/) altera as configurações de rodapé, data/hora e número de slide para um slide regular.
+- [`LayoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/pt/python-net/aspose.slides/layoutslideheaderfootermanager/) controla um slide de layout e pode propagar configurações suportadas para slides dependentes.
+- [`MasterSlideHeaderFooterManager`](https://reference.aspose.com/slides/pt/python-net/aspose.slides/masterslideheaderfootermanager/) controla um mestre de slide regular e pode propagar configurações suportadas para slides dependentes.
+- [`MasterNotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/pt/python-net/aspose.slides/masternotesslideheaderfootermanager/) controla o mestre de notas e pode propagar configurações para todos os slides de notas dependentes.
+- [`NotesSlideHeaderFooterManager`](https://reference.aspose.com/slides/pt/python-net/aspose.slides/notesslideheaderfootermanager/) altera um slide de notas e suporta um marcador de espaço de cabeçalho além de rodapé, data/hora e número de slide.
+- [`MasterHandoutSlideHeaderFooterManager`](https://reference.aspose.com/slides/pt/python-net/aspose.slides/masterhandoutslideheaderfootermanager/) altera o mestre de folhetos e suporta os quatro tipos de marcadores de espaço.
+
+Use a propagação a partir de um mestre ou layout quando a mesma configuração deve ser aplicada em toda a hierarquia. Use um gerenciador de slide individual ou de slide de notas quando precisar de uma configuração local para uma única página.
 
 ## **Perguntas frequentes**
 
-**Posso adicionar um "cabeçalho" aos slides normais?**
+**Posso adicionar um cabeçalho a um slide regular?**
 
-No PowerPoint, “Cabeçalho” existe apenas para anotações e folhetos; nos slides normais, os elementos suportados são rodapé, data/hora e número do slide. No Aspose.Slides isso reflete as mesmas limitações: cabeçalho apenas para Anotações/Folhetos, e nos slides — Rodapé/DataHora/NúmeroDoSlide.
+Não. O PowerPoint não define um marcador de espaço de cabeçalho para slides regulares. Em slides regulares, use os marcadores de espaço de rodapé, data/hora e número de slide. Marcadores de espaço de cabeçalho estão disponíveis em páginas de notas e folhetos.
 
-**E se o layout não contiver uma área de rodapé — posso “ativar” sua visibilidade?**
+**E se um marcador de espaço de rodapé, data/hora ou número de slide não estiver visível?**
 
-Sim. Verifique a visibilidade através do gerenciador de cabeçalho/rodapé e habilite-a se necessário. Esses indicadores e métodos da API foram projetados para casos em que o marcador está ausente ou oculto.
+Use o gerenciador de cabeçalho/rodapé correspondente para verificar sua visibilidade e habilitá‑lo quando necessário. Por exemplo, [`is_footer_visible`](https://reference.aspose.com/slides/pt/python-net/aspose.slides/baseslideheaderfootermanager/is_footer_visible/) informa se um marcador de espaço de rodapé está presente, e [`set_footer_visibility`](https://reference.aspose.com/slides/pt/python-net/aspose.slides/baseslideheaderfootermanager/set_footer_visibility/) altera sua visibilidade.
 
-**Como faço para que o número do slide comece a partir de um valor diferente de 1?**
+**Como iniciar a numeração de slides a partir de um valor diferente de 1?**
 
-Defina o [primeiro número do slide](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/first_slide_number/) da apresentação; depois disso, toda a numeração será recalculada. Por exemplo, você pode iniciar em 0 ou 10 e ocultar o número no slide de título.
+Defina a propriedade [`first_slide_number`](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/first_slide_number/) da apresentação. Os marcadores de espaço de número de slide então usarão a sequência de numeração atualizada.
 
-**O que acontece com cabeçalhos/rodapés ao exportar para PDF/imagens/HTML?**
+**O que acontece com cabeçalhos e rodapés ao exportar para PDF, imagens ou HTML?**
 
-Eles são renderizados como elementos de texto regulares da apresentação. Ou seja, se os elementos estiverem visíveis nos slides/páginas de anotações, também aparecerão no formato de saída juntamente com o restante do conteúdo.
+Elementos de cabeçalho e rodapé visíveis são renderizados juntamente com o restante do conteúdo da apresentação no formato de saída. Sua aparência depende do tipo de página exportada e das configurações de visibilidade dos marcadores de espaço correspondentes.
