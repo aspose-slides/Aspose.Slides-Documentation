@@ -13,7 +13,7 @@ keywords:
 - validera signatur
 - PowerPoint
 - PPTX
-- presentationsäkerhet
+- presentationssäkerhet
 - .NET
 - C#
 - Aspose.Slides
@@ -21,31 +21,31 @@ description: "Lär dig hur du signerar befintliga PPTX-presentationer med PFX-ce
 ---
 ## **Översikt**
 
-En digital signatur hjälper en mottagare att avgöra vem som har signerat en presentation och om det signerade innehållet har ändrats. Tre relaterade säkerhetskoncept är viktiga här:
+En digital signatur hjälper mottagaren att avgöra vem som har signerat en presentation och om det signerade innehållet har förändrats. Tre relaterade säkerhetskoncept är viktiga här:
 
-- Ett **digitalt certifikat** är ett elektroniskt bevis som kopplar en identitet till en publik nyckel. En pålitlig certifikatutfärdare (CA) kan utfärda ett certifikat, eller så kan en organisation använda ett självsignerat certifikat för interna arbetsflöden.
-- En **digital signatur** skapas från presentationsinnehållet och certifikatinnehavarens privata nyckel. Certifikatets publika nyckel kan sedan användas för att verifiera signaturen. En signatur ger bevis på ursprung och integritet; den krypterar inte presentationen.
-- **Lösenordsskydd** styr om en användare kan öppna eller ändra en presentation. Det är separat från digital signering och beskrivs i [Password-Protected Presentations](/net/password-protected-presentation/).
+- Ett **digitalt certifikat** är ett elektroniskt intyg som kopplar en identitet till en offentlig nyckel. En pålitlig certifikatutfärdare (CA) kan utfärda ett certifikat, eller en organisation kan använda ett självsignerat certifikat för interna arbetsflöden.
+- En **digital signatur** skapas från presentationsinnehållet och certifikatinnehavarens privata nyckel. Certifikatets offentliga nyckel kan sedan användas för att verifiera signaturen. En signatur ger bevis på ursprung och integritet; den krypterar inte presentationen.
+- **Lösenordsskydd** styr om en användare kan öppna eller ändra en presentation. Det är separat från digital signering och beskrivs i [Password-Protected Presentations](/slides/sv/net/password-protected-presentation/).
 
-PowerPoint erbjuder kommandot **Add a Digital Signature** under **File > Info > Protect Presentation**.
+PowerPoint tillhandahåller kommandot **Add a Digital Signature** under **File > Info > Protect Presentation**.
 
-![PowerPoint-menyn Protect Presentation med Add a Digital Signature markerad](add-digital-signature-in-powerpoint.png)
+![PowerPoint-meny för att skydda presentation med Add a Digital Signature markerad](add-digital-signature-in-powerpoint.png)
 
-När en signerad presentation öppnas kan PowerPoint visa en notifikation om signaturstatus.
+När en signerad presentation öppnas kan PowerPoint visa en avisering om signaturstatus.
 
-![PowerPoint-notifikation som visar att presentationen innehåller giltiga signaturer](digital-signature-status-in-powerpoint.png)
+![PowerPoint-avisering som visar att presentationen innehåller giltiga signaturer](digital-signature-status-in-powerpoint.png)
 
-Aspose.Slides exponerar signaturer via [IPresentation.DigitalSignatures](https://reference.aspose.com/slides/sv/net/aspose.slides/ipresentation/digitalsignatures/), en [IDigitalSignatureCollection](https://reference.aspose.com/slides/sv/net/aspose.slides/idigitalsignaturecollection/), vars objekt implementerar [IDigitalSignature](https://reference.aspose.com/slides/sv/net/aspose.slides/idigitalsignature/). En presentation kan innehålla flera signaturer.
+Aspose.Slides exponerar signaturer via [IPresentation.DigitalSignatures](https://reference.aspose.com/slides/sv/net/aspose.slides/ipresentation/digitalsignatures/), en [IDigitalSignatureCollection](https://reference.aspose.com/slides/sv/net/aspose.slides/idigitalsignaturecollection/) vars objekt implementerar [IDigitalSignature](https://reference.aspose.com/slides/sv/net/aspose.slides/idigitalsignature/). En presentation kan innehålla flera signaturer.
 
 ## **Förstå PFX‑certifikat och lösenord**
 
-En PFX‑fil, även känd som en PKCS#12‑fil och vanligtvis med filändelsen `.pfx` eller `.p12`, kan innehålla ett X.509‑certifikat, dess privata nyckel och certifikatkedjan. Den privata nyckeln är det som möjliggör för innehavaren att skapa en signatur. Ett certifikat utan en åtkomlig privat nyckel kan inte användas för att signera en presentation.
+En PFX‑fil, även känd som en PKCS#12‑fil och vanligtvis med filändelsen `.pfx` eller `.p12`, kan innehålla ett X.509‑certifikat, dess privata nyckel och certifikatkedjan. Den privata nyckeln är det som gör det möjligt för innehavaren att skapa en signatur. Ett certifikat utan en åtkomlig privat nyckel kan inte användas för att signera en presentation.
 
-PFX‑lösenordet skyddar certifikatpaketet och den privata nyckeln. Det är **inte** ett lösenord för att öppna eller redigera presentationen. Lagra inte PFX‑filer eller deras lösenord i källkodshantering. I produktion bör åtkomsten till certifikatfilen begränsas och lösenordet hämtas från en hemlig lagring eller en annan skyddad konfigurationskälla. Exemplen nedan använder en miljövariabel endast för att undvika att lösenordet inbäddas i kod.
+PFX‑lösenordet skyddar certifikatpaketet och den privata nyckeln. Det är **inte** ett lösenord för att öppna eller redigera presentationen. Checka inte in PFX‑filer eller deras lösenord i källkontrollen. I produktionsmiljö bör åtkomsten till certifikatfilen begränsas och lösenordet hämtas från en hemlig lagring eller en annan skyddad konfigurationskälla. Exemplen nedan använder en miljövariabel endast för att undvika att lösenordet inbäddas i koden.
 
 ## **Lägg till en digital signatur i en presentation**
 
-För att signera ett verkligt presentationsarbetsflöde, läs in en befintlig PPTX‑fil, skapa ett [DigitalSignature](https://reference.aspose.com/slides/sv/net/aspose.slides/digitalsignature/) från ett PFX‑certifikat och dess lösenord, lägg till signaturen i presentationens samling och spara till en PPTX‑fil.
+För att signera ett riktigt presentationsarbetsflöde, läs in en befintlig PPTX‑fil, skapa ett [DigitalSignature](https://reference.aspose.com/slides/sv/net/aspose.slides/digitalsignature/) från ett PFX‑certifikat och dess lösenord, lägg till signaturen i presentationens samling och spara till en PPTX‑fil.
 
 ```csharp
 using System;
@@ -66,7 +66,7 @@ presentation.DigitalSignatures.Add(signature);
 presentation.Save("InputPresentation-signed.pptx", SaveFormat.Pptx);
 ```
 
-Genom att spara resultatet med ett nytt namn bevaras den osignerade källfilen. Värdet [DigitalSignature.Comments](https://reference.aspose.com/slides/sv/net/aspose.slides/digitalsignature/comments/) beskriver signaturens syfte; det är ingen säkerhetskontroll.
+Att spara resultatet under ett nytt namn bevarar den osignerade källfilen. Värdet [DigitalSignature.Comments](https://reference.aspose.com/slides/sv/net/aspose.slides/digitalsignature/comments/) beskriver signaturens syfte; det är ingen säkerhetskontroll.
 
 ## **Validera digitala signaturer**
 
@@ -105,13 +105,13 @@ else
 }
 ```
 
-Ett ogiltigt resultat betyder vanligtvis att det signerade presentationsinnehållet eller signaturdata har förändrats efter signering, eller att filen är skadad. Att ta bort alla signaturer skapar en osignerad presentation, så att bara kontrollera giltigheten för objekt räcker inte: ett säkerhetskänsligt arbetsflöde måste också verifiera att det förväntade antalet signaturer och förväntade signataridentiteter finns.
+Ett ogiltigt resultat betyder vanligtvis att det signerade presentationsinnehållet eller signaturdata har ändrats efter signering, eller att filen är skadad. Att ta bort alla signaturer ger en osignerad presentation, så det räcker inte att bara kontrollera objektens giltighet: ett säkerhetskänsligt arbetsflöde måste också verifiera att det förväntade antalet signaturer och förväntade signatörsidentiteter finns.
 
-Detta giltighetsresultat bör inte betraktas som ett fullständigt beslut om certifikatförtroende. Beroende på din säkerhetspolicy kan din applikation också behöva bygga och validera X.509‑certifikatkedjan, kontrollera certifikatets giltighetsdatum och återkallelsestatus, bekräfta förväntad ämnesnamn eller fingeravtryck, verifiera nyckelanvändning och utvärdera en betrodd tidsstämpel. Värdet [IDigitalSignature.SignTime](https://reference.aspose.com/slides/sv/net/aspose.slides/idigitalsignature/signtime/) i sig är inte bevis från en betrodd tidsstämpel‑myndighet.
+Detta giltighetsresultat bör inte betraktas som ett fullständigt beslut om certifikatförtroende. Beroende på din säkerhetspolicy kan din applikation även behöva bygga och validera X.509‑certifikatkedjan, kontrollera certifikatets giltighetsdatum och revokeringsstatus, bekräfta förväntat ämne eller fingeravtryck, verifiera nyckelanvändning och utvärdera en betrodd tidsstämpel. Värdet [IDigitalSignature.SignTime](https://reference.aspose.com/slides/sv/net/aspose.slides/idigitalsignature/signtime/) i sig är inte bevis från en betrodd tidsstämpelmyndighet.
 
 ## **Ta bort digitala signaturer**
 
-Att ta bort signaturer ändrar presentationens säkerhetsstatus. Följande exempel läser in en signerad PPTX‑fil, tar bort alla signaturer med [IDigitalSignatureCollection.Clear](https://reference.aspose.com/slides/sv/net/aspose.slides/idigitalsignaturecollection/clear/), och sparar en osignerad kopia.
+Att ta bort signaturer ändrar presentationens säkerhetstillstånd. Följande exempel läser in en signerad PPTX‑fil, tar bort alla signaturer med [IDigitalSignatureCollection.Clear](https://reference.aspose.com/slides/sv/net/aspose.slides/idigitalsignaturecollection/clear/), och sparar en osignerad kopia.
 
 ```csharp
 using Aspose.Slides;
@@ -123,45 +123,45 @@ presentation.DigitalSignatures.Clear();
 presentation.Save("InputPresentation-unsigned.pptx", SaveFormat.Pptx);
 ```
 
-För att ta bort endast en signatur, anropa [IDigitalSignatureCollection.RemoveAt](https://reference.aspose.com/slides/sv/net/aspose.slides/idigitalsignaturecollection/removeat/) med dess nollbaserade index. Spara till en ny fil om du inte explicit ska skriva över den signerade originalfilen i ditt arbetsflöde.
+För att bara ta bort en signatur, anropa [IDigitalSignatureCollection.RemoveAt](https://reference.aspose.com/slides/sv/net/aspose.slides/idigitalsignaturecollection/removeat/) med dess nollbaserade index. Spara till en ny fil om du inte uttryckligen ska skriva över den signerade originalfilen som en del av ditt arbetsflöde.
 
 ## **Redigering och formatöverväganden**
 
-- En signatur gör inte en presentation skrivskyddad. Användare och applikationer kan fortfarande redigera filen, men ändringar i signerat innehåll gör vanligtvis den befintliga signaturen ogiltig.
+- En signatur gör inte en presentation skrivskyddad. Användare och program kan fortfarande redigera filen, men ändringar i signerade innehåll gör vanligtvis den befintliga signaturen ogiltig.
 - Slutför alla avsedda redigeringar innan signering. Om en presentation måste ändras, spara den reviderade presentationen och signera den revisionen igen.
 - Behåll slutresultatet i PPTX‑format. Att konvertera en signerad presentation till ett annat format överför inte den ursprungliga PPTX‑signaturen som en giltig signatur för den konverterade filen.
-- Behandla certifikatets privata nyckel som känslig. Alla som får tag på den privata nyckeln och dess lösenord kan skapa signaturer som verkar komma från den certifikatinnehavaren.
-- Bevara den osignerade källfilen eller en annan kontrollerad kopia när din dokumentbevarandepolicy kräver det.
+- Behandla certifikatets privata nyckel som känslig. Alla som får tag på den privata nyckeln och dess lösenord kan kunna skapa signaturer som verkar komma från den certifikatinnehavaren.
+- Behåll den osignerade källfilen eller en annan kontrollerad kopia när ditt dokumentbevarande‑policy kräver det.
 
 ## **FAQ**
 
 **Krypterar en digital signatur presentationen?**
 
-Nej. En digital signatur ger bevis om ursprung och integritet, men presentationsinnehållet förblir läsbart om inte separat kryptering används. Använd [password protection](/net/password-protected-presentation/) när åtkomst till innehållet måste begränsas.
+Nej. En digital signatur ger bevis om ursprung och integritet, men presentationsinnehållet förblir läsbart om inte separat kryptering används. Använd [lösenordsskydd](/slides/sv/net/password-protected-presentation/) när åtkomst till innehållet måste begränsas.
 
-**Är PFX‑lösenordet detsamma som ett presentationslösenord?**
+**Är PFX‑lösenordet samma som ett presentationslösenord?**
 
 Nej. PFX‑lösenordet låser upp den privata nyckeln som lagras i certifikatpaketet. Det styr inte vem som kan öppna eller redigera PPTX‑filen.
 
 **Kan jag använda ett självsignerat certifikat?**
 
-Tekniskt kan ett självsignerat certifikat användas när det innehåller en åtkomlig privat nyckel. Mottagare kommer dock inte automatiskt att lita på det, såvida inte certifikatet uttryckligen har lagts till i deras betrodda miljö. Offentliga eller tvärorganisationsarbetsflöden använder i allmänhet ett certifikat utfärdat av en pålitlig CA.
+Tekniskt sett kan ett självsignerat certifikat användas när det innehåller en åtkomlig privat nyckel. Mottagare litar inte automatiskt på det, såvida inte certifikatet uttryckligen har lagts till i deras betrodda miljö. Offentliga eller tvärorganisationella arbetsflöden använder vanligtvis ett certifikat utfärdat av en betrodd CA.
 
 **Vad gör en signatur ogiltig?**
 
-Att ändra signerat presentationsinnehåll eller signaturdata efter signering kan göra signaturen ogiltig. Filkorruption kan också få valideringen att misslyckas. Om alla signaturer tas bort är presentationen osignerad snarare än en fil som innehåller en ogiltig signatur.
+Att ändra det signerade presentationsinnehållet eller signaturdata efter signering kan ogiltigförklara signaturen. Filkorruption kan också få valideringen att misslyckas. Om alla signaturer tas bort är presentationen osignerad snarare än en fil som innehåller en ogiltig signatur.
 
-**Betyder en giltig signatur att jag ska lita på signatären?**
+**Betyder en giltig signatur att jag ska lita på signatören?**
 
-Inte i sig. Signaturens integritet och signatarens förtroende är separata beslut. En produktionsvalideringspolicy bör också kontrollera certifikatkedjan, giltighetsperioden, återkallelsestatus, förväntad identitet, nyckelanvändning och eventuella krav på betrodda tidsstämplar.
+Inte i sig. Signaturens integritet och signatörens förtroende är separata beslut. En produktionsvalideringspolicy bör också kontrollera certifikatkedjan, giltighetsperioden, revokeringsstatus, förväntad identitet, nyckelanvändning och eventuella krav på betrodda tidsstämplar.
 
 **Vad händer när certifikatet går ut?**
 
-Certifikatets utgång förändrar inte presentationsdata, men det påverkar bedömningen av certifikatförtroende. Om en signatur förblir godtagbar beror på din policy och på om en giltig betrodd tidsstämpel visar att signeringen skedde medan certifikatet var giltigt. Lita inte enbart på den visade signeringstiden som en betrodd tidsstämpel.
+Certifikatets utgång ändrar inte presentationsdata, men den påverkar utvärderingen av certifikatförtroendet. Om en signatur fortsätter att vara acceptabel beror på din policy och om en giltig betrodd tidsstämpel visar att signeringen skedde medan certifikatet var giltigt. Förlita dig inte enbart på den visade signeringstiden som en betrodd tidsstämpel.
 
 **Kan en signerad presentation fortfarande redigeras?**
 
-Ja. Signering låser inte filen. Att redigera signerat innehåll gör vanligtvis den befintliga signaturen ogiltig, så avsluta presentationen först och signera den slutgiltiga revisionen.
+Ja. Signering låser inte filen. Att redigera signerade innehåll gör vanligtvis den befintliga signaturen ogiltig, så slutför presentationen först och signera den slutgiltiga revisionen.
 
 **Kan en presentation innehålla mer än en signatur?**
 
@@ -169,8 +169,8 @@ Ja. Lägg till varje signatur i [IPresentation.DigitalSignatures](https://refere
 
 **Vilka presentationsformat stöder dessa operationer?**
 
-Aspose.Slides stödjer de digitala signatur‑operationerna som beskrivs här endast för PPTX. PPT‑ och OpenDocument‑presentationsformat stöds inte av detta API‑arbetsflöde.
+Aspose.Slides stöder de digitala signatur‑operationer som beskrivs här endast för PPTX. PPT‑ och OpenDocument‑presentationsformat stöds inte av detta API‑arbetsflöde.
 
 **Kan jag ta bort en signatur utan att påverka bilderna?**
 
-Ja. Du kan ta bort en signatur eller rensa hela samlingen och sedan spara presentationen. Bildinnehållet förblir tillgängligt, men den sparade filen bär inte längre med sig beviset för den borttagna signaturen.
+Ja. Du kan ta bort en signatur eller tömma hela samlingen och sedan spara presentationen. Bildinnehållet förblir tillgängligt, men den sparade filen bär inte längre beviset för den borttagna signaturen.

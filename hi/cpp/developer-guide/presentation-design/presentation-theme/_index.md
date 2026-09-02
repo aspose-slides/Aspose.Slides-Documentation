@@ -1,43 +1,43 @@
 ---
-title: C++ में प्रेजेंटेशन थीम प्रबंधित करें
-linktitle: प्रेजेंटेशन थीम
+title: C++ में प्रेज़ेंटेशन थीम प्रबंधित करें
+linktitle: प्रेज़ेंटेशन थीम
 type: docs
 weight: 10
 url: /hi/cpp/presentation-theme/
 keywords:
 - PowerPoint थीम
-- प्रेजेंटेशन थीम
+- प्रेज़ेंटेशन थीम
 - स्लाइड थीम
 - थीम सेट करें
 - थीम बदलें
-- थीम प्रबंधन
+- थीम प्रबंधित करें
 - थीम रंग
 - अतिरिक्त पैलेट
 - थीम फ़ॉन्ट
 - थीम शैली
-- थीम प्रभाव
+- थीम इफ़ेक्ट
 - PowerPoint
 - OpenDocument
-- प्रेजेंटेशन
+- प्रेज़ेंटेशन
 - C++
 - Aspose.Slides
-description: "C++ के लिए Aspose.Slides में मुख्य प्रेजेंटेशन थीम्स ताकि PowerPoint फ़ाइलों को लगातार ब्रांडिंग के साथ बनाया, अनुकूलित और परिवर्तित किया जा सके।"
+description: "C++ के लिए Aspose.Slides में प्रेज़ेंटेशन थीम को मास्टर करके, निरंतर ब्रांडिंग के साथ PowerPoint फ़ाइलों को बनाएं, कस्टमाइज़ करें और कनवर्ट करें।"
 ---
 ## **परिचय**
 
-एक प्रेजेंटेशन थीम रंगों, फ़ॉन्ट्स, बैकग्राउंड स्टाइल्स, फ़िल्स, लाइन्स और इफ़ेक्ट्स का समन्वित सेट परिभाषित करती है। थीम‑जागरूक ऑब्जेक्ट्स इन साझा परिभाषाओं का संदर्भ लेते हैं और प्रत्येक विज़ुअल प्रॉपर्टी को स्थिर मान के रूप में नहीं रखते, इसलिए थीम बदलने से कई ऑब्जेक्ट्स एक साथ अपडेट हो सकते हैं।
+एक प्रेज़ेंटेशन थीम रंगों, फ़ॉन्ट्स, बैकग्राउंड शैलियों, फ़िल्स, लाइनों और इफ़ेक्ट्स का एक समन्वित सेट निर्धारित करता है। थीम‑समझदार ऑब्जेक्ट्स इन साझा परिभाषाओं को संदर्भित करते हैं न कि हर दृश्य गुण को स्थिर मान के रूप में संग्रहीत करते हैं, इसलिए थीम में बदलाव कई ऑब्जेक्ट्स को एक साथ अपडेट कर सकता है।
 
-Aspose.Slides में, प्रेजेंटेशन‑लेवल थीम प्रोवाइड की जाती है [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/get_mastertheme/). प्रेजेंटेशन में निचले लेवल पर भी थीम ओवरराइड हो सकते हैं। एक मास्टर [MasterThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/hi/cpp/aspose.slides.theme/masterthememanager/get_overridetheme/) के माध्यम से प्रेजेंटेशन थीम को ओवरराइड कर सकता है, जबकि लेआउट या व्यक्तिगत स्लाइड [IOverrideThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/hi/cpp/aspose.slides.theme/ioverridethememanager/get_overridetheme/) का उपयोग कर सकती है। व्यवहार में, स्लाइड के लिए प्रभावी थीम इस इनहेरिटेंस चेन के माध्यम से निर्धारित होती है: प्रेजेंटेशन थीम, मास्टर ओवरराइड, लेआउट ओवरराइड, और स्लाइड ओवरराइड।
+Aspose.Slides में प्रेज़ेंटेशन‑स्तर की थीम [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/get_mastertheme/) के माध्यम से उपलब्ध है। एक प्रेज़ेंटेशन में निचले स्तरों पर भी थीम ओवरराइड हो सकते हैं। एक मास्टर [MasterThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/hi/cpp/aspose.slides.theme/masterthememanager/get_overridetheme/) से प्रेज़ेंटेशन थीम को ओवरराइड कर सकता है, जबकि लेआउट या व्यक्तिगत स्लाइड [IOverrideThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/hi/cpp/aspose.slides.theme/ioverridethememanager/get_overridetheme/) का उपयोग कर सकते हैं। व्यवहार में, स्लाइड के लिए प्रभावी थीम इस विरासत श्रृंखला से निर्धारित होती है: प्रेज़ेंटेशन थीम, मास्टर ओवरराइड, लेआउट ओवरराइड, और स्लाइड ओवरराइड।
 
-![Theme components: colors, fonts, background styles, and effects](theme-constituents.png)
+![थीम घटक: रंग, फ़ॉन्ट, बैकग्राउंड शैलियाँ, और इफ़ेक्ट्स](theme-constituents.png)
 
-नीचे के सेक्शन सबसे सामान्य थीम कार्यप्रवाह दिखाते हैं: थीम का निरीक्षण, रंग और फ़ॉन्ट बदलना, थीम कॉपी या लागू करना, बैकग्राउंड और इफ़ेक्ट स्टाइल्स को अपडेट करना, और इनहेरिटेंस व ओवरराइड के बाद प्रभावी मान पढ़ना।
+नीचे के सेक्शन्स सबसे सामान्य थीम कार्यप्रवाह दिखाते हैं: थीम का निरीक्षण, रंग और फ़ॉन्ट बदलना, थीम कॉपी या लागू करना, बैकग्राउंड और इफ़ेक्ट शैलियों को अपडेट करना, तथा विरासत और ओवरराइड के बाद प्रभावी मान पढ़ना।
 
-## **थीम का निरीक्षण करें**
+## **थीम का निरीक्षण**
 
-[MasterTheme](https://reference.aspose.com/slides/hi/cpp/aspose.slides.theme/mastertheme/) ऑब्जेक्ट थीम के [get_ColorScheme()](https://reference.aspose.com/slides/hi/cpp/aspose.slides.theme/mastertheme/get_colorscheme/), [get_FontScheme()](https://reference.aspose.com/slides/hi/cpp/aspose.slides.theme/mastertheme/get_fontscheme/), और [get_FormatScheme()](https://reference.aspose.com/slides/hi/cpp/aspose.slides.theme/mastertheme/get_formatscheme/) मेथड्स को उजागर करता है। इन कलेक्शनों को बदलने से पहले उनका निरीक्षण करना विशेष रूप से उपयोगी होता है जब प्रेजेंटेशन बाहरी स्रोत से आया हो क्योंकि स्टाइल एंट्रीज़ की संख्या और सामग्री अलग हो सकती है।
+[MasterTheme](https://reference.aspose.com/slides/hi/cpp/aspose.slides.theme/mastertheme/) ऑब्जेक्ट थीम के [get_ColorScheme()](https://reference.aspose.com/slides/hi/cpp/aspose.slides.theme/mastertheme/get_colorscheme/), [get_FontScheme()](https://reference.aspose.com/slides/hi/cpp/aspose.slides.theme/mastertheme/get_fontscheme/), और [get_FormatScheme()](https://reference.aspose.com/slides/hi/cpp/aspose.slides.theme/mastertheme/get_formatscheme/) मेथड्स को उजागर करता है। इन संग्रहों को बदलने से पहले निरीक्षण करना विशेष रूप से उपयोगी होता है जब प्रेज़ेंटेशन बाहरी स्रोत से आता है क्योंकि शैली प्रविष्टियों की संख्या और सामग्री भिन्न हो सकती है।
 
-निम्न उदाहरण मुख्य थीम प्रॉपर्टीज़ को पढ़ता है और रिपोर्ट करता है कि थीम में कितनी बैकग्राउंड, फ़िल, लाइन और इफ़ेक्ट स्टाइल्स संग्रहीत हैं:
+निम्न उदाहरण मुख्य थीम गुण पढ़ता है और रिपोर्ट करता है कि थीम में कितनी बैकग्राउंड, फ़िल, लाइन, और इफ़ेक्ट शैलियाँ संग्रहीत हैं:
 
 ```cpp
 #include <DOM/IColorFormat.h>
@@ -69,13 +69,13 @@ Console::WriteLine(u"Line styles: {0}", formatScheme->get_LineStyles()->get_Coun
 Console::WriteLine(u"Effect styles: {0}", formatScheme->get_EffectStyles()->get_Count());
 ```
 
-यदि फ़ाइल में कई मास्टर का उपयोग किया गया है, तो यह न मानें कि हर स्लाइड का प्रभावी थीम समान है। स्लाइड से जुड़े मास्टर का निरीक्षण करें, और लेआउट या स्लाइड ओवरराइड मौजूद होने पर इस लेख में बाद में दिखाए गए प्रभावी‑थीम कार्यप्रवाह का उपयोग करें।
+यदि फ़ाइल कई मास्टर उपयोग करती है, तो यह मान न रखें कि प्रत्येक स्लाइड का प्रभावी थीम समान है। स्लाइड से जुड़े मास्टर का निरीक्षण करें, और जब लेआउट या स्लाइड ओवरराइड मौजूद हों तो इस लेख के बाद दिखाए गए प्रभावी‑थीम कार्यप्रवाह का उपयोग करें।
 
-## **थीम के रंग बदलें**
+## **थीम रंग बदलें**
 
-थीम‑जागरूक फ़िल्स, लाइन्स और टेक्स्ट [SchemeColor](https://reference.aspose.com/slides/hi/cpp/aspose.slides/schemecolor/) एन्ह्यूमरेशन से एक लॉजिकल रंग का संदर्भ ले सकते हैं। जब आप थीम के [IColorScheme](https://reference.aspose.com/slides/hi/cpp/aspose.slides.theme/icolorscheme/) में संबंधित एंट्री बदलते हैं, तो सभी ऑब्जेक्ट्स जो अभी भी उस थीम रंग का संदर्भ ले रहे हैं, नए मान के अनुसार रेजॉल्व हो जाते हैं। सीधे RGB रंग का उपयोग करने वाले ऑब्जेक्ट्स थीम‑कलर अपडेट से नहीं बदलते।
+थीम‑समझदार फ़िल्स, लाइन्स, और टेक्स्ट [SchemeColor](https://reference.aspose.com/slides/hi/cpp/aspose.slides/schemecolor/) enumeration से एक तार्किक रंग का संदर्भ ले सकते हैं। जब आप थीम के [IColorScheme](https://reference.aspose.com/slides/hi/cpp/aspose.slides.theme/icolorscheme/) में संबंधित प्रविष्टि बदलते हैं, तो सभी ऑब्जेक्ट्स जो अभी भी उस थीम रंग को संदर्भित कर रहे हैं, नया मान ले लेते हैं। सीधे RGB रंग उपयोग करने वाले ऑब्जेक्ट्स थीम‑रंग अपडेट से नहीं बदलते।
 
-निम्न अंत‑से‑अंत उदाहरण एक शैप बनाता है जो `Accent4` का उपयोग करता है, थीम के `Accent4` रंग को लाल में बदलता है, प्रेजेंटेशन को सेव करता है, उसे फिर से खोलता है, और प्रभावी फ़िल रंग प्रिंट करता है:
+निम्न अंत‑से‑अंत उदाहरण एक आकार बनाता है जो `Accent4` का उपयोग करता है, थीम के `Accent4` रंग को लाल में बदलता है, प्रेज़ेंटेशन सहेजता है, फिर उसे पुनः खोलता है, और प्रभावी फ़िल रंग प्रिंट करता है:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -114,19 +114,18 @@ auto effectiveFill = savedShape->get_FillFormat()->GetEffective();
 Console::WriteLine(u"Effective fill color: {0}", effectiveFill->get_SolidFillColor());
 ```
 
-क्योंकि आयत `Accent4` से जुड़ी हुई है, थीम बदलने के बाद उसका दृश्य रंग लाल हो जाता है। यदि आप शैप पर स्कीम रंग को सीधे रंग से बदलते हैं, तो बाद में `Accent4` में बदलाव उस फ़िल को प्रभावित नहीं करेंगे।
+क्योंकि आयत `Accent4` से जुड़ी रहती है, थीम बदलने के बाद उसका दिखाई देने वाला रंग लाल हो जाता है। यदि आप आकार पर स्कीम रंग को सीधे रंग से बदलते हैं, तो बाद में `Accent4` में किए गए परिवर्तन उस फ़िल को प्रभावित नहीं करेंगे।
 
-### **एडिशनल पैलेट से रंग उपयोग करें**
+### **अतिरिक्त पैलेट से रंगों का उपयोग करें**
 
-PowerPoint एक थीम रंग से हल्के और गहरे वैरिएंट उत्पन्न करता है रंग ट्रांसफ़ॉर्मेशन लागू करके। Aspose.Slides इन ट्रांसफ़ॉर्मेशन को [ColorTransformOperation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/colortransformoperation/) के माध्यम से उजागर करता है।
+PowerPoint थीम रंग से हल्के और गहरे वैरिएंट बनाता है रंग रूपांतरण लागू करके। Aspose.Slides इन रूपांतरणों को [ColorTransformOperation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/colortransformoperation/) के माध्यम से उजागर करता है।
 
-![Main theme colors and lighter and darker colors generated from the additional palette](additional-palette-colors.png)
+![मुख्य थीम रंग और अतिरिक्त पैलेट से उत्पन्न हल्के तथा गहरे रंग](additional-palette-colors.png)
 
-**1** - मुख्य थीम रंग।
-
+**1** - मुख्य थीम रंग।  
 **2** - मुख्य थीम रंगों से उत्पन्न हल्के और गहरे वैरिएंट।
 
-निम्न उदाहरण `Accent4` पर आधारित छह आयतें बनाता है, उनमें से पाँच पर ल्यूमिनेंस ट्रांसफ़ॉर्मेशन लागू करता है, और परिणाम सेव करता है:
+निम्न उदाहरण `Accent4` पर आधारित छह आयतें बनाता है, उनमें से पाँच पर ल्यूमिनेंस रूपांतरण लागू करता है, और परिणाम सहेजता है:
 
 ```cpp
 #include <DOM/ColorTransformOperation.h>
@@ -195,31 +194,31 @@ solidFillColor6->get_ColorTransform()->Add(ColorTransformOperation::MultiplyLumi
 presentation->Save(u"theme-color-palette.pptx", SaveFormat::Pptx);
 ```
 
-ये वैरिएंट थीम रंग पर आधारित ही रहते हैं। यदि बाद में `Accent4` बदलता है, तो ट्रांसफ़ॉर्म किया गया रंग नए `accent4` मान से पुनः गणना किया जाएगा।
+ये वैरिएंट थीम रंग पर आधारित रहते हैं। यदि बाद में `Accent4` बदलता है, तो रूपांतरित रंग नए `Accent4` मान से पुनः गणना किए जाएंगे।
 
-### **`SchemeColor` मानों को `IColorScheme` स्लॉट्स से मैप करें**
+### **`SchemeColor` मानों को `IColorScheme` स्लॉट्स में मैप करें**
 
-[SchemeColor](https://reference.aspose.com/slides/hi/cpp/aspose.slides/schemecolor/) एन्ह्यूमरेशन `Text1`, `Background1`, `Text2`, और `Background2` का उपयोग करता है, जबकि [IColorScheme](https://reference.aspose.com/slides/hi/cpp/aspose.slides.theme/icolorscheme/) समान थीम स्लॉट्स को `Dark1`, `Light1`, `Dark2`, और `Light2` के रूप में उजागर करता है। मैपिंग स्थिर है:
+[SchemeColor](https://reference.aspose.com/slides/hi/cpp/aspose.slides/schemecolor/) enumeration `Text1`, `Background1`, `Text2`, और `Background2` का उपयोग करती है, जबकि [IColorScheme](https://reference.aspose.com/slides/hi/cpp/aspose.slides.theme/icolorscheme/) वही थीम स्लॉट `Dark1`, `Light1`, `Dark2`, और `Light2` के रूप में उजागर करता है। मैपिंग स्थिर है:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-ये एक ही थीम स्लॉट के वैकल्पिक नाम हैं; ये किसी रूपांतरण का परिणाम नहीं हैं।
+ये समान थीम स्लॉट के वैकल्पिक नाम हैं; इन्हें एक रूप से दूसरे रूप में गतिशील रूप से परिवर्तित नहीं किया जाता।
 
-## **थीम के फ़ॉन्ट बदलें**
+## **थीम फ़ॉन्ट बदलें**
 
-एक थीम फ़ॉन्ट स्कीम में हेडिंग्स के लिए एक मेजर फ़ॉन्ट सेट और बॉडी टेक्स्ट के लिए एक माइनर फ़ॉन्ट सेट होता है। [FontScheme::get_Major()](https://reference.aspose.com/slides/hi/cpp/aspose.slides.theme/fontscheme/get_major/) और [FontScheme::get_Minor()](https://reference.aspose.com/slides/hi/cpp/aspose.slides.theme/fontscheme/get_minor/) मेथड्स इन सेट्स को उजागर करते हैं।
+एक थीम फ़ॉन्ट स्कीम में हेडिंग के लिए प्रमुख फ़ॉन्ट सेट और बॉडी टेक्स्ट के लिए गौण फ़ॉन्ट सेट होता है। [FontScheme::get_Major()](https://reference.aspose.com/slides/hi/cpp/aspose.slides.theme/fontscheme/get_major/) और [FontScheme::get_Minor()](https://reference.aspose.com/slides/hi/cpp/aspose.slides.theme/fontscheme/get_minor/) मेथड्स इन सेट्स को उजागर करते हैं।
 
-PowerPoint‑अनुपालन थीम फ़ॉन्ट पहचानकर्ता टेक्स्ट फ़ॉर्मेटिंग में उपयोग किए जा सकते हैं:
+PowerPoint‑संगत थीम फ़ॉन्ट पहचानकर्ता टेक्स्ट फ़ॉर्मेटिंग में उपयोग किए जा सकते हैं:
 
-* `+mn-lt` - बॉडी फ़ॉन्ट लैटिन (Minor Latin Font)
-* `+mj-lt` - हेडिंग फ़ॉन्ट लैटिन (Major Latin Font)
-* `+mn-ea` - बॉडी फ़ॉन्ट ईस्ट एशियन (Minor East Asian Font)
-* `+mj-ea` - हेडिंग फ़ॉन्ट ईस्ट एशियन (Major East Asian Font)
+* `+mn‑lt` - बॉडी फ़ॉन्ट लैटिन (Minor Latin Font)
+* `+mj‑lt` - हेडिंग फ़ॉन्ट लैटिन (Major Latin Font)
+* `+mn‑ea` - बॉडी फ़ॉन्ट ईस्ट एशियन (Minor East Asian Font)
+* `+mj‑ea` - हेडिंग फ़ॉन्ट ईस्ट एशियन (Major East Asian Font)
 
-निम्न उदाहरण एक हेडिंग बनाता है जो मेजर लैटिन थीम फ़ॉन्ट का उपयोग करता है और एक बॉडी लाइन जो माइनर लैटिन थीम फ़ॉन्ट का, फिर थीम फ़ॉन्ट बदलता है और परिणाम सेव करता है:
+निम्न उदाहरण एक हेडिंग बनाता है जो प्रमुख लैटिन थीम फ़ॉन्ट का उपयोग करता है और एक बॉडी लाइन जो गौण लैटिन थीम फ़ॉन्ट का उपयोग करती है। फिर यह थीम फ़ॉन्ट बदलता है और परिणाम सहेजता है:
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -259,19 +258,21 @@ presentation->get_MasterTheme()->get_FontScheme()->get_Minor()->set_LatinFont(Ma
 presentation->Save(u"theme-fonts.pptx", SaveFormat::Pptx);
 ```
 
-हेडिंग मेजर फ़ॉन्ट को फॉलो करती है और बॉडी टेक्स्ट माइनर फ़ॉन्ट को। यदि टेक्स्ट में स्पष्ट फ़ॉन्ट नाम थीम पहचानकर्ता के बजाय दिया गया है, तो थीम फ़ॉन्ट स्कीम बदलने पर वह स्वचालित रूप से स्विच नहीं करेगा।
+हेडिंग प्रमुख फ़ॉन्ट को फ़ॉलो करती है और बॉडी टेक्स्ट गौण फ़ॉन्ट को। जिस टेक्स्ट में स्पष्ट फ़ॉन्ट नाम थीम पहचानकर्ता के बजाय दिया गया है, वह थीम फ़ॉन्ट स्कीम बदलने पर स्वचालित रूप से नहीं बदलेगा।
+
+मुख्य और गौण फ़ॉन्ट संग्रह व्यक्तिगत लेखन प्रणाली, जैसे Cyrillic, Arabic, Japanese, Georgian, और Thaana के लिए फ़ॉन्ट मैपिंग भी रख सकते हैं। इन मैपिंग को निरीक्षण, जोड़ना, बदलना या हटाने के लिए देखें [Script‑Specific Theme Fonts](/slides/hi/cpp/script-specific-font-mappings/)।
 
 {{% alert color="info" title="Tip" %}}
-प्रेजेंटेशन फ़ॉन्ट के बारे में अधिक जानकारी के लिए देखें [PowerPoint Fonts](/slides/hi/cpp/powerpoint-fonts/)।
+प्रेज़ेंटेशन फ़ॉन्ट्स के बारे में अधिक जानकारी के लिए देखें [PowerPoint Fonts](/slides/hi/cpp/powerpoint-fonts/)।
 {{% /alert %}}
 
-## **थीम को कॉपी या लागू करें**
+## **थीम कॉपी या लागू करें**
 
-दो सामान्य कार्यप्रवाह होते हैं, और वे अलग‑अलग समस्याओं को हल करते हैं।
+दो सामान्य कार्यप्रवाह होते हैं, और वे अलग समस्याओं को हल करते हैं।
 
 ### **स्लाइड्स को स्थानांतरित करते समय स्रोत थीम को संरक्षित रखें**
 
-यदि आप स्लाइड को किसी अन्य प्रेजेंटेशन में ले जाना चाहते हैं और उसका मूल डिज़ाइन बनाए रखना चाहते हैं, तो स्रोत मास्टर को टारगेट प्रेजेंटेशन में [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/imasterslidecollection/addclone/) से क्लोन करें, फिर स्लाइड को [ISlideCollection::AddClone()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/islidecollection/addclone/) और क्लोन किए गए मास्टर से क्लोन करें। इससे मास्टर, उसके लेआउट्स, और संबंधित थीम एक साथ स्थानांतरित होते हैं।
+यदि आप स्लाइड को किसी अन्य प्रेज़ेंटेशन में ले जाना चाहते हैं और उसकी मूल डिज़ाइन को बनाए रखना चाहते हैं, तो स्रोत मास्टर को लक्ष्य प्रेज़ेंटेशन में [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/imasterslidecollection/addclone/) से क्लोन करें, फिर स्लाइड को [ISlideCollection::AddClone()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/islidecollection/addclone/) और क्लोन किए गए मास्टर के साथ क्लोन करें। यह मास्टर, उसके लेआउट, और संबंधित थीम को साथ ले जाता है।
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -295,11 +296,11 @@ target->get_Slides()->AddClone(sourceSlide, clonedMaster, true);
 target->Save(u"theme-preserved.pptx", SaveFormat::Pptx);
 ```
 
-यह वह पसंदीदा कार्यप्रवाह है जब स्रोत स्लाइड को गंतव्य में वही दिखना चाहिए। केवल कंटेंट को एक असंबंधित डेस्टिनेशन मास्टर पर क्लोन करने से थीम‑ड्रिवन रंग, फ़ॉन्ट, बैकग्राउंड और इफ़ेक्ट बदल सकते हैं।
+जब स्रोत स्लाइड को लक्ष्य में वैसा ही दिखना हो, तो यह पसंदीदा कार्यप्रवाह है। अनभिज़ी लक्ष्य मास्टर पर सामग्री क्लोन करने से थीम‑ड्रिवेन रंग, फ़ॉन्ट, बैकग्राउंड और इफ़ेक्ट बदल सकते हैं।
 
-### **मौजूदा स्लाइड पर थीम वैल्यूज़ लागू करें**
+### **मौजूदा स्लाइड पर थीम मान लागू करें**
 
-यदि टारगेट स्लाइड को उसके वर्तमान मास्टर और लेआउट पर ही रहना है, तो स्रोत थीम से स्लाइड‑लेवल ओवरराइड इनिशियलाइज़ करें। [OverrideTheme::InitColorSchemeFrom()](https://reference.aspose.com/slides/hi/cpp/aspose.slides.theme/overridetheme/initcolorschemefrom/), [OverrideTheme::InitFontSchemeFrom()](https://reference.aspose.com/slides/hi/cpp/aspose.slides.theme/overridetheme/initfontschemefrom/), और [OverrideTheme::InitFormatSchemeFrom()](https://reference.aspose.com/slides/hi/cpp/aspose.slides.theme/overridetheme/initformatschemefrom/) मेथड्स तीन मुख्य थीम कॉम्पोनेन्ट्स को ओवरराइड में कॉपी करते हैं।
+यदि लक्ष्य स्लाइड को अपने वर्तमान मास्टर और लेआउट पर ही रहना है, तो स्रोत थीम से स्लाइड‑स्तर का ओवरराइड प्रारंभ करें। [OverrideTheme::InitColorSchemeFrom()](https://reference.aspose.com/slides/hi/cpp/aspose.slides.theme/overridetheme/initcolorschemefrom/), [OverrideTheme::InitFontSchemeFrom()](https://reference.aspose.com/slides/hi/cpp/aspose.slides.theme/overridetheme/initfontschemefrom/), और [OverrideTheme::InitFormatSchemeFrom()](https://reference.aspose.com/slides/hi/cpp/aspose.slides.theme/overridetheme/initformatschemefrom/) मेथड्स तीन मुख्य थीम घटकों को ओवरराइड में कॉपी करते हैं।
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -323,11 +324,11 @@ overrideTheme->InitFormatSchemeFrom(source->get_MasterTheme()->get_FormatScheme(
 target->Save(u"theme-applied-to-slide.pptx", SaveFormat::Pptx);
 ```
 
-यह स्लाइड द्वारा उपयोग की गई थीम को बदलता है बिना अन्य स्लाइड्स की इनहेरिटेड थीम को बदले। स्थानीय ओवरराइड हटाकर इनहेरिटेड वैल्यूज़ पर वापस आने के लिए [OverrideTheme::Clear()](https://reference.aspose.com/slides/hi/cpp/aspose.slides.theme/overridetheme/clear/) को कॉल करें।
+यह उस स्लाइड के द्वारा उपयोग की गई थीम को बदलता है जबकि अन्य स्लाइड्स की विरासत वाली थीम नहीं बदलता। स्थानीय ओवरराइड हटाने और विरासत मानों पर लौटने के लिए [OverrideTheme::Clear()](https://reference.aspose.com/slides/hi/cpp/aspose.slides.theme/overridetheme/clear/) कॉल करें।
 
 ### **लेआउट पर थीम ओवरराइड लागू करें**
 
-लेआउट‑लेवल ओवरराइड उन स्लाइड्स पर लागू होता है जो उस लेआउट को उपयोग करती हैं, जब तक कि किसी विशेष स्लाइड के पास अपना ओवरराइड न हो। समान इनिशियलाइज़ेशन मेथड्स लेआउट के [IOverrideThemeManager](https://reference.aspose.com/slides/hi/cpp/aspose.slides.theme/ioverridethememanager/) के माध्यम से उपयोग किए जा सकते हैं:
+लेआउट‑स्तर का ओवरराइड उन स्लाइड्स पर लागू होता है जो उस लेआउट का उपयोग करती हैं, जब तक कि विशेष स्लाइड का अपना ओवरराइड न हो। वही प्रारंभिक मेथड्स लेआउट की [IOverrideThemeManager](https://reference.aspose.com/slides/hi/cpp/aspose.slides.theme/ioverridethememanager/) के माध्यम से उपयोग किए जा सकते हैं:
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -353,17 +354,17 @@ overrideTheme->InitFormatSchemeFrom(source->get_MasterTheme()->get_FormatScheme(
 target->Save(u"theme-applied-to-layout.pptx", SaveFormat::Pptx);
 ```
 
-जब कई लेआउट और स्लाइड्स को समान बेस डिज़ाइन साझा करना हो तो मास्टर या प्रेजेंटेशन‑लेवल थीम का उपयोग करें, एक लेआउट फैमिली को अलग स्टाइलिंग चाहिए तो लेआउट ओवरराइड, और वास्तविक अपवादों के लिए स्लाइड ओवरराइड। अत्यधिक स्लाइड‑लेवल ओवरराइड्स बाद के ग्लोबल थीम बदलावों को अनुमान लगाना कठिन बना देते हैं।
+जब कई लेआउट और स्लाइड एक ही बेस डिज़ाइन साझा करनी चाहिए तो मास्टर या प्रेज़ेंटेशन‑स्तर की थीम उपयोग करें, एक लेआउट परिवार को अलग स्टाइलिंग चाहिए तो लेआउट ओवरराइड, और केवल वास्तविक अपवादों के लिए स्लाइड ओवरराइट इस्तेमाल करें। अत्यधिक स्लाइड‑स्तर ओवरराइड्स बाद के वैश्विक थीम परिवर्तन को अनुमान लगाना कठिन बना देते हैं।
 
-## **थीम बैकग्राउंड स्टाइल्स को अपडेट करें**
+## **थीम बैकग्राउंड शैलियों को अपडेट करें**
 
-थीम के बैकग्राउंड फ़िल्स [FormatScheme::get_BackgroundFillStyles()](https://reference.aspose.com/slides/hi/cpp/aspose.slides.theme/formatscheme/get_backgroundfillstyles/) में संग्रहीत होते हैं। PowerPoint UI में अधिक बैकग्राउंड विकल्प दिखा सकता है क्योंकि UI थीम फ़िल्स को थीम रंगों और अन्य स्टाइल रेफ़रेंसेज़ के साथ संयोजित कर सकता है।
+थीम की बैकग्राउंड फ़िल्स [FormatScheme::get_BackgroundFillStyles()](https://reference.aspose.com/slides/hi/cpp/aspose.slides.theme/formatscheme/get_backgroundfillstyles/) में संग्रहीत होती हैं। PowerPoint अपनी UI में अधिक बैकग्राउंड विकल्प प्रस्तुत कर सकता है क्योंकि UI थीम फ़िल्स को थीम रंगों और अन्य शैली संदर्भों के साथ मिलाकर दिखा सकता है।
 
-![PowerPoint background style gallery for a presentation theme](presentation-design_8.png)
+![PowerPoint बैकग्राउंड शैली गैलरी प्रेज़ेंटेशन थीम के लिए](presentation-design_8.png)
 
-बैकग्राउंड स्टाइल उपयोग करने से पहले स्टोर्ड कलेक्शन और वर्तमान [Background::get_StyleIndex()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/background/get_styleindex/) की जाँच करें। `StyleIndex` शून्य (`0`) का उपयोग करता है जब कोई थीम्ड फ़िल नहीं है; पॉज़िटिव मान थीम बैकग्राउंड‑स्टाइल रेफ़रेंसेज़ होते हैं। यह C++ कलेक्शन के `idx_get(0)` से अलग है जहाँ `0` पहला स्टोर्ड आइटम दर्शाता है। यह न मानें कि हर प्रेजेंटेशन में समान संख्या में बैकग्राउंड फ़िल स्टाइल्स होते हैं।
+बैकग्राउंड शैली उपयोग करने से पहले संग्रहीत संग्रह और वर्तमान [Background::get_StyleIndex()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/background/get_styleindex/) को निरीक्षण करें। `StyleIndex` `0` को थीम‑फ़िल न होने के रूप में उपयोग करता है; सकारात्मक मान थीम बैकग्राउंड‑स्टाइल संदर्भ होते हैं। यह C++ संग्रह को सीधे `idx_get(0)` से इंडेक्स करने से अलग है, जहाँ `0` पहला संग्रहीत आइटम दर्शाता है। यह मान न रखें कि प्रत्येक प्रेज़ेंटेशन में समान संख्या में बैकग्राउंड फ़िल शैलियाँ होंगी।
 
-निम्न उदाहरण उपलब्ध बैकग्राउंड फ़िल काउंट रिपोर्ट करता है, पहले मास्टर को एक थीम्ड बैकग्राउंड रेफ़रेंस असाइन करता है, और प्रेजेंटेशन को सेव करता है:
+निम्न उदाहरण उपलब्ध बैकग्राउंड फ़िल गिनती रिपोर्ट करता है, पहले मास्टर को थीमेटिक बैकग्राउंड संदर्भ असाइन करता है, और प्रेज़ेंटेशन सहेजता है:
 
 ```cpp
 #include <DOM/BackgroundType.h>
@@ -393,25 +394,25 @@ if (backgroundStyles->get_Count() > 0)
 }
 ```
 
-विज़िबल परिणाम मास्टर द्वारा रेफ़र किए गए थीम एंट्री और लेआउट या स्लाइड लेवल पर किसी भी बैकग्राउंड ओवरराइड पर निर्भर करता है। यदि स्लाइड अपना स्वयं का बैकग्राउंड उपयोग करती है, तो केवल मास्टर बैकग्राउंड बदलने से वह स्लाइड नहीं बदलेगी। जब आपको इनहेरिटेंस लागू होने के बाद अंतिम बैकग्राउंड जानना हो तो [Background::GetEffective()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/background/geteffective/) का उपयोग करें।
+दिखाया गया परिणाम मास्टर द्वारा संदर्भित थीम प्रविष्टि और लेआउट या स्लाइड स्तर पर किसी भी बैकग्राउंड ओवरराइड पर निर्भर करता है। यदि स्लाइड अपनी स्वयं की बैकग्राउंड उपयोग करती है, तो केवल मास्टर बैकग्राउंड बदलने से वह स्लाइड नहीं बदलेगी। अंतिम बैकग्राउंड जानने के लिए जब विरासत लागू हो चुकी हो, तब [Background::GetEffective()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/background/geteffective/) उपयोग करें।
 
 {{% alert color="warning" title="Warning" %}}
-`StyleIndex` को शून्य‑आधारित कलेक्शन इंडेक्स न समझें। साथ ही किसी एक फ़ाइल से स्टाइल नंबर हार्ड‑कोड न करें और मान न लें कि वह दूसरे फ़ाइल में समान दिखेगा; थीम स्टाइल डिफ़िनिशन प्रेजेंटेशन‑स्पेसिफिक होते हैं।
+`StyleIndex` को शून्य‑आधारित संग्रह इंडेक्स न समझें। किसी फ़ाइल से शैली संख्या को हार्ड‑कोड करके दूसरी फ़ाइल में समान उपस्थिति मान लेना भी न करें; थीम शैली परिभाषाएँ प्रेज़ेंटेशन‑विशिष्ट होती हैं।
 {{% /alert %}}
 
 {{% alert color="info" title="Tip" %}}
-सीधे बैकग्राउंड फ़ॉर्मैटिंग और बैकग्राउंड इनहेरिटेंस के लिए देखें [Presentation Background](/slides/hi/cpp/presentation-background/)।
+प्रत्यक्ष बैकग्राउंड फ़ॉर्मेटिंग और बैकग्राउंड विरासत के लिए देखें [Presentation Background](/slides/hi/cpp/presentation-background/)।
 {{% /alert %}}
 
 ## **थीम इफ़ेक्ट्स को अपडेट करें**
 
-एक थीम फ़ॉर्मेट स्कीम में अलग‑अलग [FormatScheme::get_FillStyles()](https://reference.aspose.com/slides/hi/cpp/aspose.slides.theme/formatscheme/get_fillstyles/), [FormatScheme::get_LineStyles()](https://reference.aspose.com/slides/hi/cpp/aspose.slides.theme/formatscheme/get_linestyles/), और [FormatScheme::get_EffectStyles()](https://reference.aspose.com/slides/hi/cpp/aspose.slides.theme/formatscheme/get_effectstyles/) कलेक्शन होते हैं। सामान्य Office थीम में अक्सर तीन प्रमुख स्टाइल एंट्रीज़ होती हैं जो दृश्य रूप से Subtle, Moderate, और Intense फ़ॉर्मेटिंग से मेल खाती हैं, लेकिन कोड को प्रत्येक कलेक्शन की जाँच करनी चाहिए न कि निश्चित काउंट मान लेना चाहिए।
+एक थीम फ़ॉर्मेट स्कीम में अलग‑अलग [FormatScheme::get_FillStyles()](https://reference.aspose.com/slides/hi/cpp/aspose.slides.theme/formatscheme/get_fillstyles/), [FormatScheme::get_LineStyles()](https://reference.aspose.com/slides/hi/cpp/aspose.slides.theme/formatscheme/get_linestyles/), और [FormatScheme::get_EffectStyles()](https://reference.aspose.com/slides/hi/cpp/aspose.slides.theme/formatscheme/get_effectstyles/) संग्रह होते हैं। सामान्य Office थीम अक्सर तीन मुख्य शैली प्रविष्टियों को शामिल करती हैं जो दृश्य रूप से Subtle, Moderate, और Intense फ़ॉर्मेटिंग से मेल खाती हैं, लेकिन कोड को प्रत्येक संग्रह का निरीक्षण करना चाहिए न कि निश्चित गिनती मान लेना चाहिए।
 
-![Subtle, moderate, and intense theme effects applied to the same shape](presentation-design_10.png)
+![एक ही आकार पर लागू Subtle, Moderate, और Intense थीम इफ़ेक्ट्स](presentation-design_10.png)
 
-जब आप इन कलेक्शनों को C++ में एक्सेस करते हैं, तो कलेक्शन इंडेक्स ज़ीरो‑बेस्ड होता है: `idx_get(0)` पहला स्टोर्ड स्टाइल है और `idx_get(2)` तीसरा। एक शैप के स्टाइल‑रेफ़रेंस इंडेक्सेस एक अलग अवधारणा हैं, जो [IShapeStyle](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ishapestyle/) द्वारा उजागर होते हैं। थीम स्टाइल को बदलने से उन शैप्स पर असर पड़ता है जो उस थीम स्टाइल का रेफ़रेंस रखते हैं; सीधे फ़ॉर्मैट किए गए शैप्स अपरिवर्तित रह सकते हैं।
+जब आप C++ में इन संग्रहों तक पहुँचते हैं, तो संग्रह इंडेक्स शून्य‑आधारित होता है: `idx_get(0)` पहला संग्रहीत शैली है और `idx_get(2)` तीसरा है। आकार की शैली‑संदर्भ इंडेक्स अलग अवधारणा है, जिसे [IShapeStyle](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ishapestyle/) द्वारा उजागर किया जाता है। थीम शैली को संशोधित करने से उन आकारों पर असर पड़ता है जो उस थीम शैली को संदर्भित करते हैं; सीधे फ़ॉर्मेट किए गए आकार अपरिवर्तित रह सकते हैं।
 
-निम्न उदाहरण जाँचता है कि आवश्यक स्टाइल एंट्रीज़ मौजूद हैं, पहला लाइन स्टाइल बदलता है, तीसरा फ़िल स्टाइल बदलता है, तीसरे इफ़ेक्ट स्टाइल में आउटर शैडो सक्षम करता है, और परिणाम सेव करता है:
+निम्न उदाहरण जाँचता है कि आवश्यक शैली प्रविष्टियां मौजूद हैं, पहला लाइन शैली बदलता है, तीसरा फ़िल शैली बदलता है, तीसरी इफ़ेक्ट शैली में बाहरी शैडो सक्षम करता है, और परिणाम सहेजता है:
 
 ```cpp
 #include <DOM/Effects/IOuterShadow.h>
@@ -464,15 +465,15 @@ else
 }
 ```
 
-इन स्लॉट्स को रेफ़र करने वाले शैप्स के लिए पहला थीम लाइन स्टाइल लाल हो जाता है, तीसरा थीम फ़िल स्टाइल ठोस फ़ॉरेस्ट ग्रीन, और तीसरा इफ़ेक्ट स्टाइल 10 पॉइंट डिस्टेंस के साथ आउटर शैडो प्राप्त करता है। सटीक दृश्य परिणाम इस बात पर अभी भी निर्भर करता है कि प्रत्येक शैप कौन सा स्लॉट रेफ़र करता है और क्या सीधे फ़ॉर्मैटिंग थीम को ओवरराइड करती है।
+इन स्लॉट्स को संदर्भित करने वाले आकारों के लिए, पहला थीम लाइन शैली लाल हो जाता है, तीसरा थीम फ़िल शैली ठोस फॉरेस्ट ग्रीन, और तीसरी इफ़ेक्ट शैली 10 पॉइंट दूरी के साथ बाहरी शैडो प्राप्त करती है। अंतिम दृश्य परिणाम अभी भी इस पर निर्भर करता है कि प्रत्येक आकार कौन-से शैली स्लॉट को संदर्भित करता है और क्या सीधे फ़ॉर्मेटिंग थीम को ओवरराइड करती है।
 
-![Theme effect styles after changing line, fill, and shadow settings](presentation-design_11.png)
+![लाइन, फ़िल, और शैडो सेटिंग्स बदलने के बाद थीम इफ़ेक्ट शैलियाँ](presentation-design_11.png)
 
-## **प्रभावी थीम वैल्यूज़ पढ़ें**
+## **प्रभावी थीम मान पढ़ें**
 
-रॉ थीम ऑब्जेक्ट आपको बताता है कि किसी विशेष लेवल पर क्या परिभाषित है। प्रभावी वैल्यूज़ आपको बताती हैं कि स्लाइड या शैप वास्तव में इनहेरिटेंस और स्थानीय ओवरराइड के बाद क्या उपयोग कर रहा है। स्लाइड के लिए [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/hi/cpp/aspose.slides.theme/ithemeable/createthemeeffective/) कॉल करें। बैकग्राउंड के लिए [Background::GetEffective()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/background/geteffective/) उपयोग करें, और फ़िल के लिए [FillFormat::GetEffective()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/fillformat/geteffective/)।
+कच्चे थीम ऑब्जेक्ट बताते हैं कि किसी विशेष स्तर पर क्या परिभाषित है। प्रभावी मान बताते हैं कि विरासत और स्थानीय ओवरराइड के बाद स्लाइड या आकार वास्तव में क्या उपयोग करता है। स्लाइड के लिए, [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/hi/cpp/aspose.slides.theme/ithemeable/createthemeeffective/) कॉल करें। बैकग्राउंड के लिए, [Background::GetEffective()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/background/geteffective/) और फ़िल के लिए, [FillFormat::GetEffective()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/fillformat/geteffective/) उपयोग करें।
 
-निम्न उदाहरण स्लाइड से प्रभावी थीम, बैकग्राउंड और पहले शैप फ़िल पढ़ता है:
+निम्न उदाहरण स्लाइड से प्रभावी थीम, बैकग्राउंड, और पहली आकार फ़िल पढ़ता है:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -512,18 +513,18 @@ if (slide->get_Shapes()->get_Count() > 0)
 }
 ```
 
-रेंडरिंग डायग्नॉस्टिक्स, वैलिडेशन और तुलना के लिए प्रभावी डेटा उपयोग करें। यदि आप केवल [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/get_mastertheme/) को जांचते हैं, तो आप मास्टर, लेआउट, स्लाइड या शैप ओवरराइड को मिस कर सकते हैं जो अंतिम दिखावट बदलते हैं।
+रेंडरिंग डायग्नॉस्टिक्स, वैलिडेशन, और तुलना के लिए प्रभावी डेटा का उपयोग करें। यदि आप केवल [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/get_mastertheme/) का निरीक्षण करते हैं, तो आप मास्टर, लेआउट, स्लाइड, या आकार ओवरराइड को चूक सकते हैं जो अंतिम उपस्थिति बदलते हैं।
 
 ## **FAQ**
 
-**क्या मैं मास्टर को बदले बिना किसी एकल स्लाइड पर थीम लागू कर सकता हूँ?**
+**क्या मैं एकल स्लाइड पर थीम लागू कर सकता हूँ बिना मास्टर बदले?**
 
-हाँ। स्लाइड के [IOverrideThemeManager](https://reference.aspose.com/slides/hi/cpp/aspose.slides.theme/ioverridethememanager/) का उपयोग करके उसके ओवरराइड थीम को इनिशियलाइज़ करें। बदलाव केवल उस स्लाइड पर स्थानीय रहेगा; अन्य स्लाइड्स अपने मौजूदा थीम को इनहेरिट करती रहेंगी।
+हां। स्लाइड के [IOverrideThemeManager](https://reference.aspose.com/slides/hi/cpp/aspose.slides.theme/ioverridethememanager/) का उपयोग करके उसके ओवरराइड थीम को प्रारंभ करें। परिवर्तन केवल उस स्लाइड तक सीमित रहेगा; अन्य स्लाइड्स अपने मौजूदा थीम विरासत में लेते रहेंगी।
 
-**एक प्रेजेंटेशन से दूसरे में थीम ले जाने का सबसे सुरक्षित तरीका क्या है?**
+**एक थीम को एक प्रेज़ेंटेशन से दूसरे में ले जाने का सबसे सुरक्षित तरीका क्या है?**
 
-स्लाइड को मूव करते समय और स्रोत लुक को संरक्षित रखते हुए, स्रोत मास्टर को डेस्टिनेशन में क्लोन करें और फिर स्लाइड को उस क्लोन किए हुए मास्टर के साथ [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/imasterslidecollection/addclone/) और [ISlideCollection::AddClone()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/islidecollection/addclone/) से क्लोन करें। इससे मास्टर, लेआउट और थीम साथ में रहेंगे।
+जब आप स्लाइड को स्थानांतरित कर रहे हों और उसकी स्रोत उपस्थिति को संरक्षित रखना चाहते हों, तो स्रोत मास्टर को लक्ष्य में क्लोन करें और फिर उस मास्टर के साथ स्लाइड को [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/imasterslidecollection/addclone/) और [ISlideCollection::AddClone()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/islidecollection/addclone/) से क्लोन करें। यह मास्टर, लेआउट, और थीम को साथ रखता है।
 
-**इनहेरिटेंस और ओवरराइड के बाद प्रभावी वैल्यूज़ कैसे देखें?**
+**मैं विरासत और ओवरराइड के बाद प्रभावी मान कैसे देख सकता हूँ?**
 
-स्लाइड या लेआउट थीम के लिए [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/hi/cpp/aspose.slides.theme/ithemeable/createthemeeffective/) उपयोग करें और फ़ॉर्मेट ऑब्जेक्ट्स जैसे [Background::GetEffective()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/background/geteffective/) और [FillFormat::GetEffective()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/fillformat/geteffective/) के लिए संबंधित प्रभावी‑डेटा मेथड्स कॉल करें। ये API इनहेरिटेंस और ओवरराइड लागू होने के बाद प्रॉपर्टी वैल्यूज़ लौटाते हैं।
+स्लाइड या लेआउट थीम के लिए [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/hi/cpp/aspose.slides.theme/ithemeable/createthemeeffective/) और फ़ॉर्मेट ऑब्जेक्ट जैसे [Background::GetEffective()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/background/geteffective/) और [FillFormat::GetEffective()](https://reference.aspose.com/slides/hi/cpp/aspose.slides/fillformat/geteffective/) के संबंधित प्रभावी‑डेटा मेथड्स का उपयोग करें। ये API विरासत और ओवरराइड लागू होने के बाद समाधान किए हुए मान लौटाते हैं।

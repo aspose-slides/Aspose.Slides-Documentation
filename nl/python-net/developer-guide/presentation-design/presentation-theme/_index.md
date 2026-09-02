@@ -7,37 +7,37 @@ url: /nl/python-net/presentation-theme/
 keywords:
 - PowerPoint-thema
 - presentatiethema
-- diathema
+- dia-thema
 - thema instellen
 - thema wijzigen
 - thema beheren
 - themakleur
-- extra palet
+- aanvullend palet
 - themalettertype
 - themastijl
-- thema-effect
+- thema‑effect
 - PowerPoint
 - OpenDocument
 - presentatie
 - Python
 - Aspose.Slides
-description: "Beheer presentatiethema's in Aspose.Slides voor Python via .NET om PowerPoint-bestanden te maken, aanpassen en converteren met consistente branding."
+description: "Beheer presentatiethema's in Aspose.Slides voor Python via .NET om PowerPoint‑bestanden te maken, aanpassen en converteren met consistente branding."
 ---
 ## **Inleiding**
 
-Een presentatiethema definieert een gecoördineerde set kleuren, lettertypen, achtergrondstijlen, vullingen, lijnen en effecten. Thema‑bewuste objecten verwijzen naar deze gedeelde definities in plaats van elke visuele eigenschap als een vaste waarde op te slaan, zodat een themawijziging veel objecten tegelijk kan bijwerken.
+Een presentatiethema definieert een gecoördineerde set van kleuren, lettertypen, achtergrondstijlen, vullingen, lijnen en effecten. Themagevoelige objecten verwijzen naar deze gedeelde definities in plaats van elke visuele eigenschap als een vaste waarde op te slaan, zodat een themawijziging veel objecten tegelijk kan bijwerken.
 
-In Aspose.Slides is het thema op presentatieniveau beschikbaar via de [Presentation.master_theme](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/master_theme/)‑eigenschap. Een presentatie kan ook themaatvarianties bevatten op lagere niveaus. Een master kan het presentatiethema overschrijven via [MasterThemeManager.override_theme](https://reference.aspose.com/slides/nl/python-net/aspose.slides.theme/masterthememanager/override_theme/), een layout kan zijn geërfde thema overschrijven via [BaseOverrideThemeManager.override_theme](https://reference.aspose.com/slides/nl/python-net/aspose.slides.theme/baseoverridethememanager/override_theme/), en een afzonderlijke dia kan hetzelfde doen. In de praktijk wordt het effectieve thema voor een dia opgelost via deze erfenisketen: presentatiethema, master‑override, layout‑override en dia‑override.
+In Aspose.Slides is het thema op presentatieniveau beschikbaar via de [Presentation.master_theme](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/master_theme/) eigenschap. Een presentatie kan ook themabijstellingen op lagere niveaus bevatten. Een master kan het presentatiethema overschrijven via [MasterThemeManager.override_theme](https://reference.aspose.com/slides/nl/python-net/aspose.slides.theme/masterthememanager/override_theme/), een lay‑out kan zijn geërfde thema overschrijven via [BaseOverrideThemeManager.override_theme](https://reference.aspose.com/slides/nl/python-net/aspose.slides.theme/baseoverridethememanager/override_theme/), en een individuele dia kan hetzelfde doen. In de praktijk wordt het effectieve thema voor een dia opgelost via deze erfketen: presentatiethema, master‑overschrijving, lay‑out‑overschrijving en dia‑overschrijving.
 
-![Theme components: colors, fonts, background styles, and effects](theme-constituents.png)
+![Thema‑onderdelen: kleuren, lettertypen, achtergrondstijlen en effecten](theme-constituents.png)
 
-De onderstaande secties tonen de meest voorkomende themaworkflows: een thema inspecteren, kleuren en lettertypen wijzigen, een thema kopiëren of toepassen, achtergrond‑ en effectstijlen bijwerken, en effectieve waarden lezen nadat erfenis en overrides zijn opgelost.
+De secties hieronder tonen de meest voorkomende themaworkflows: een thema inspecteren, kleuren en lettertypen wijzigen, een thema kopiëren of toepassen, achtergrond‑ en effectstijlen bijwerken, en effectieve waarden lezen nadat erf‑ en overschrijvingsregels zijn toegepast.
 
-## **Een thema inspecteren**
+## **Inspecteer een thema**
 
-Het [MasterTheme](https://reference.aspose.com/slides/nl/python-net/aspose.slides.theme/mastertheme/)‑object stelt de eigenschappen [color_scheme](https://reference.aspose.com/slides/nl/python-net/aspose.slides.theme/mastertheme/color_scheme/), [font_scheme](https://reference.aspose.com/slides/nl/python-net/aspose.slides.theme/mastertheme/font_scheme/) en [format_scheme](https://reference.aspose.com/slides/nl/python-net/aspose.slides.theme/mastertheme/format_scheme/) van het thema bloot. Het inspecteren van deze collecties voordat ze worden gewijzigd is vooral nuttig wanneer een presentatie afkomstig is van een externe bron, omdat het aantal en de inhoud van stijlitems kan variëren.
+Het [MasterTheme](https://reference.aspose.com/slides/nl/python-net/aspose.slides.theme/mastertheme/) object maakt de thema‑eigenschappen [color_scheme](https://reference.aspose.com/slides/nl/python-net/aspose.slides.theme/mastertheme/color_scheme/), [font_scheme](https://reference.aspose.com/slides/nl/python-net/aspose.slides.theme/mastertheme/font_scheme/), en [format_scheme](https://reference.aspose.com/slides/nl/python-net/aspose.slides.theme/mastertheme/format_scheme/) beschikbaar. Het inspecteren van deze collecties voordat u ze wijzigt is bijzonder nuttig wanneer een presentatie afkomstig is uit een externe bron, omdat het aantal en de inhoud van stijl‑items kunnen variëren.
 
-Het volgende voorbeeld leest de belangrijkste thema‑eigenschappen en rapporteert hoeveel achtergrond‑, vul‑, lijn‑ en effectstijlen er in het thema zijn opgeslagen:
+Het volgende voorbeeld leest de hoofdthema‑eigenschappen en meldt hoeveel achtergrond‑, vul‑, lijn‑ en effectstijlen er in het thema zijn opgeslagen:
 
 ```python
 import aspose.slides as slides
@@ -54,13 +54,13 @@ with slides.Presentation("input.pptx") as presentation:
     print(f"Effect styles: {len(theme.format_scheme.effect_styles)}")
 ```
 
-Als een bestand meerdere masters gebruikt, ga er dan niet van uit dat elke dia hetzelfde effectieve thema heeft. Inspecteer de master die bij de dia hoort, en gebruik de effectieve‑thema‑workflow die later in dit artikel wordt getoond wanneer layout‑ of dia‑overrides aanwezig kunnen zijn.
+Als een bestand meerdere masters gebruikt, ga er dan niet van uit dat elke dia hetzelfde effectieve thema heeft. Inspecteer de master die bij de dia hoort, en gebruik de effectieve‑thema‑workflow die later in dit artikel wordt getoond wanneer lay‑out‑ of dia‑overschrijvingen aanwezig kunnen zijn.
 
 ## **Themakleuren wijzigen**
 
-Thema‑bewuste vullingen, lijnen en tekst kunnen verwijzen naar een logische kleur uit de [SchemeColor](https://reference.aspose.com/slides/nl/python-net/aspose.slides/schemecolor/)‑enumeratie. Wanneer u de overeenkomstige entry in de [ColorScheme](https://reference.aspose.com/slides/nl/python-net/aspose.slides.theme/colorscheme/) van het thema wijzigt, worden alle objecten die nog naar die themakleur verwijzen, opgelost tegen de nieuwe waarde. Objecten die een directe RGB‑kleur gebruiken, worden niet gewijzigd door een thema‑kleur‑update.
+Themagevoelige vullingen, lijnen en tekst kunnen verwijzen naar een logische kleur uit de enumeratie [SchemeColor](https://reference.aspose.com/slides/nl/python-net/aspose.slides/schemecolor/). Wanneer u het bijbehorende item in het thema‑[ColorScheme](https://reference.aspose.com/slides/nl/python-net/aspose.slides.theme/colorscheme/) wijzigt, worden alle objecten die nog naar die themakleur verwijzen, bijgewerkt naar de nieuwe waarde. Objecten die een directe RGB‑kleur gebruiken, worden niet gewijzigd door een themakleur‑update.
 
-Het volgende end‑to‑end voorbeeld maakt een vorm die `ACCENT4` gebruikt, wijzigt de themakleur `accent4` naar rood, slaat de presentatie op, opent deze opnieuw en drukt de effectieve vulkleur af:
+Het volgende end‑to‑end voorbeeld maakt een vorm die `ACCENT4` gebruikt, verandert de thema‑`accent4` kleur naar rood, slaat de presentatie op, opent deze opnieuw, en drukt de effectieve vulkleur af:
 
 ```python
 import aspose.pydrawing as draw
@@ -81,17 +81,17 @@ with slides.Presentation("theme-color.pptx") as saved_presentation:
     print(f"Effective fill color: {effective_fill.solid_fill_color}")
 ```
 
-Omdat het rechthoekige object nog steeds gekoppeld is aan `ACCENT4`, wordt de zichtbare kleur rood nadat het thema is gewijzigd. Als u de schema‑kleur vervangt door een directe kleur op de vorm, zullen latere wijzigingen aan `accent4` die vulkleur niet meer beïnvloeden.
+Omdat het rechthoekige object gekoppeld blijft aan `ACCENT4`, wordt de zichtbare kleur rood nadat het thema is aangepast. Als u de schema‑kleur vervangt door een directe kleur op de vorm, zullen latere wijzigingen van `accent4` die vulkleur niet meer beïnvloeden.
 
 ### **Kleuren uit het aanvullende palet gebruiken**
 
-PowerPoint leidt lichtere en donkere varianten af van een themakleur door kleurtransformaties toe te passen. Aspose.Slides maakt deze transformaties bloot via de [ColorTransformOperation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/colortransformoperation/)‑enumeratie.
+PowerPoint genereert lichtere en donkere varianten van een themakleur door kleurtransformaties toe te passen. Aspose.Slides stelt deze transformaties beschikbaar via de enumeratie [ColorTransformOperation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/colortransformoperation/).
 
-![Main theme colors and lighter and darker colors generated from the additional palette](additional-palette-colors.png)
+![Hoofdkleuren van het thema en lichtere en donkere kleuren gegenereerd uit het aanvullende palet](additional-palette-colors.png)
 
-**1** - Hoofdkleuren van het thema.
+**1** – Hoofdkleuren van het thema.  
 
-**2** - Lichtere en donkere varianten die zijn afgeleid van de hoofdkleuren.
+**2** – Lichtere en donkere varianten die zijn voortgebracht uit de hoofdkleuren.
 
 Het volgende voorbeeld maakt zes rechthoeken gebaseerd op `ACCENT4`, past luminantietransformaties toe op vijf ervan, en slaat het resultaat op:
 
@@ -131,29 +131,29 @@ with slides.Presentation() as presentation:
 
 Deze varianten blijven gebaseerd op de themakleur. Als `accent4` later verandert, worden de getransformeerde kleuren opnieuw berekend op basis van de nieuwe `accent4`‑waarde.
 
-### **`SchemeColor`‑waarden naar `ColorScheme`‑slots mappen**
+### **Map `SchemeColor`‑waarden naar `ColorScheme`‑posities**
 
-De [SchemeColor](https://reference.aspose.com/slides/nl/python-net/aspose.slides/schemecolor/)‑enumeratie gebruikt `TEXT1`, `BACKGROUND1`, `TEXT2` en `BACKGROUND2`, terwijl [ColorScheme](https://reference.aspose.com/slides/nl/python-net/aspose.slides.theme/colorscheme/) dezelfde themaslots blootlegt als `dark1`, `light1`, `dark2` en `light2`. De mapping is vast:
+De enumeratie [SchemeColor](https://reference.aspose.com/slides/nl/python-net/aspose.slides/schemecolor/) gebruikt `TEXT1`, `BACKGROUND1`, `TEXT2` en `BACKGROUND2`, terwijl [ColorScheme](https://reference.aspose.com/slides/nl/python-net/aspose.slides.theme/colorscheme/) dezelfde themaposities blootlegt als `dark1`, `light1`, `dark2` en `light2`. De mapping is vast:
 
 * `TEXT1` = `dark1`
 * `BACKGROUND1` = `light1`
 * `TEXT2` = `dark2`
 * `BACKGROUND2` = `light2`
 
-Dit zijn alternatieve namen voor dezelfde themaslots; het zijn geen waarden die dynamisch van de ene vorm naar de andere worden geconverteerd.
+Dit zijn alternatieve namen voor dezelfde themaposities; ze zijn geen waarden die dynamisch van de ene vorm naar de andere worden omgezet.
 
-## **Themalettertypen wijzigen**
+## **Themallettertypen wijzigen**
 
-Een thema‑lettertype‑schema bevat een hoofdlettertype‑set voor koppen en een secundaire lettertype‑set voor de hoofdtekst. De eigenschappen [FontScheme.major](https://reference.aspose.com/slides/nl/python-net/aspose.slides.theme/fontscheme/major/) en [FontScheme.minor](https://reference.aspose.com/slides/nl/python-net/aspose.slides.theme/fontscheme/minor/) tonen die sets.
+Een thema‑lettertype‑schema bevat een hoofdlettertype‑set voor koppen en een secundaire set voor body‑tekst. De eigenschappen [FontScheme.major](https://reference.aspose.com/slides/nl/python-net/aspose.slides.theme/fontscheme/major/) en [FontScheme.minor](https://reference.aspose.com/slides/nl/python-net/aspose.slides.theme/fontscheme/minor/) maken die sets beschikbaar.
 
-PowerPoint‑compatibele thema‑lettertype‑identifiers kunnen worden gebruikt bij tekstopmaak:
+PowerPoint‑compatibele thema‑lettertype‑identifiers kunnen in tekstopmaak worden gebruikt:
 
-* `+mn-lt` - Body Font Latin (Minor Latin Font)
-* `+mj-lt` - Heading Font Latin (Major Latin Font)
-* `+mn-ea` - Body Font East Asian (Minor East Asian Font)
-* `+mj-ea` - Heading Font East Asian (Major East Asian Font)
+* `+mn-lt` – Body Font Latin (Minor Latin Font)
+* `+mj-lt` – Heading Font Latin (Major Latin Font)
+* `+mn-ea` – Body Font East Asian (Minor East Asian Font)
+* `+mj-ea` – Heading Font East Asian (Major East Asian Font)
 
-Het volgende voorbeeld maakt één kop die het hoofd‑Latin‑themalettertype gebruikt en één body‑regel die het secundaire Latin‑themalettertype gebruikt. Vervolgens worden de thema‑lettertypen gewijzigd en wordt het resultaat opgeslagen:
+Het volgende voorbeeld maakt één kop die het hoofd‑Latin‑themale lettertype gebruikt en één body‑regel die het secundaire Latin‑themale lettertype gebruikt. Vervolgens wijzigt het de thema‑lettertypen en slaat het resultaat op:
 
 ```python
 import aspose.slides as slides
@@ -171,19 +171,21 @@ with slides.Presentation() as presentation:
     presentation.save("theme-fonts.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-De kop volgt het hoofdlettertype en de hoofdtekst volgt het secundaire lettertype. Tekst die een expliciete lettertype‑naam heeft in plaats van een thema‑identifier, zal niet automatisch wisselen wanneer het thema‑lettertype‑schema verandert.
+De kop volgt het hoofd‑lettertype en de body‑tekst volgt het secundaire lettertype. Tekst met een expliciete lettertype‑naam in plaats van een thema‑identifier zal niet automatisch overschakelen wanneer het thema‑lettertype‑schema wordt aangepast.
+
+De hoofd‑ en secundaire lettertype‑collecties kunnen ook lettertype‑mappingen bevatten voor individuele schrijfsystemen, zoals Cyrillisch, Arabisch, Japans, Georgisch en Thaana. Om deze mappingen te inspecteren, toe te voegen, te vervangen of te verwijderen, zie [Script‑Specific Theme Fonts](/slides/nl/python-net/script-specific-font-mappings/).
 
 {{% alert color="info" title="Tip" %}}
-Voor meer informatie over presentatielettertypen, zie [PowerPoint Fonts](/slides/nl/python-net/powerpoint-fonts/).
+Voor meer informatie over presentatie‑lettertypen, zie [PowerPoint Fonts](/slides/nl/python-net/powerpoint-fonts/).
 {{% /alert %}}
 
 ## **Een thema kopiëren of toepassen**
 
-Er zijn twee gangbare workflows, die verschillende problemen oplossen.
+Er zijn twee gangbare workflows, en ze lossen verschillende problemen op.
 
-### **Bron‑thema behouden bij het verplaatsen van dia's**
+### **Bron‑thema behouden bij verplaatsen van dia's**
 
-Wilt u een dia naar een andere presentatie verplaatsen en het oorspronkelijke ontwerp behouden, cloneer dan de bron‑master naar de doelpresentatie met [MasterSlideCollection.add_clone](https://reference.aspose.com/slides/nl/python-net/aspose.slides/masterslidecollection/add_clone/), en cloneer daarna de dia met [SlideCollection.add_clone](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidecollection/add_clone/) en de gekloonde master. Hiermee worden de master, de layouts en het bijbehorende thema samen meegenomen.
+Wilt u een dia naar een andere presentatie verplaatsen en tegelijk het oorspronkelijke ontwerp behouden, kloont u de bron‑master in de doelpresentatie met [MasterSlideCollection.add_clone](https://reference.aspose.com/slides/nl/python-net/aspose.slides/masterslidecollection/add_clone/), en kloont u vervolgens de dia met [SlideCollection.add_clone](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidecollection/add_clone/) en de gekloonde master. Hierdoor worden de master, zijn lay‑outs en het bijbehorende thema gezamenlijk overgebracht.
 
 ```python
 import aspose.slides as slides
@@ -197,11 +199,11 @@ with slides.Presentation("source-theme.pptx") as source:
         target.save("theme-preserved.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Dit is de aanbevolen workflow wanneer de bron‑dia er identiek uit moet zien in de bestemming. Het simpelweg klonen van inhoud naar een ongeassocieerde bestemmings‑master kan themagestuurde kleuren, lettertypen, achtergronden en effecten wijzigen.
+Dit is de geprefereerde workflow wanneer de bron‑dia er in de bestemming precies hetzelfde uit moet zien. Het simpelweg klonen van inhoud op een ongekende bestemming‑master kan themagestuurde kleuren, lettertypen, achtergronden en effecten wijzigen.
 
 ### **Themawaarden toepassen op een bestaande dia**
 
-Moet de doel‑dia op zijn huidige master en layout blijven, initialiseert u een dia‑niveau‑override vanuit het bron‑thema. De methoden [OverrideTheme.init_color_scheme_from](https://reference.aspose.com/slides/nl/python-net/aspose.slides.theme/overridetheme/init_color_scheme_from/), [OverrideTheme.init_font_scheme_from](https://reference.aspose.com/slides/nl/python-net/aspose.slides.theme/overridetheme/init_font_scheme_from/) en [OverrideTheme.init_format_scheme_from](https://reference.aspose.com/slides/nl/python-net/aspose.slides.theme/overridetheme/init_format_scheme_from/) kopiëren de drie hoofdthema‑componenten naar de override.
+Moet de doel‑dia op de huidige master en lay‑out blijven, initialiseert u een dia‑niveau overschrijving vanuit het bron‑thema. De methoden [OverrideTheme.init_color_scheme_from](https://reference.aspose.com/slides/nl/python-net/aspose.slides.theme/overridetheme/init_color_scheme_from/), [OverrideTheme.init_font_scheme_from](https://reference.aspose.com/slides/nl/python-net/aspose.slides.theme/overridetheme/init_font_scheme_from/) en [OverrideTheme.init_format_scheme_from](https://reference.aspose.com/slides/nl/python-net/aspose.slides.theme/overridetheme/init_format_scheme_from/) kopiëren de drie hoofdthema‑componenten naar de overschrijving.
 
 ```python
 import aspose.slides as slides
@@ -216,11 +218,11 @@ with slides.Presentation("source-theme.pptx") as source:
         target.save("theme-applied-to-slide.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Dit wijzigt het thema dat door die dia wordt gebruikt zonder het thema dat andere dia's erven te wijzigen. Om de lokale override te verwijderen en terug te keren naar geërfde waarden, roep [OverrideTheme.clear](https://reference.aspose.com/slides/nl/python-net/aspose.slides.theme/overridetheme/clear/) aan.
+Dit wijzigt het thema dat door die dia wordt gebruikt zonder het thema dat door andere dia's wordt geërfd te veranderen. Om de lokale overschrijving te verwijderen en terug te gaan naar erfd waarden, roep [OverrideTheme.clear](https://reference.aspose.com/slides/nl/python-net/aspose.slides.theme/overridetheme/clear/) aan.
 
-### **Een themaunderschrijving toepassen op een layout**
+### **Een themabijstelling toepassen op een lay‑out**
 
-Een layout‑niveau‑override geldt voor alle dia's die die layout gebruiken, tenzij een specifieke dia een eigen override heeft. Dezelfde initialisatiemethoden kunnen worden gebruikt via de [LayoutSlideThemeManager](https://reference.aspose.com/slides/nl/python-net/aspose.slides.theme/layoutslidethememanager/) van de layout:
+Een lay‑out‑niveau overschrijving is van toepassing op alle dia's die die lay‑out gebruiken, tenzij een specifieke dia een eigen overschrijving heeft. Dezelfde initialisatiemethoden kunnen worden gebruikt via de lay‑out‑[LayoutSlideThemeManager](https://reference.aspose.com/slides/nl/python-net/aspose.slides.theme/layoutslidethememanager/):
 
 ```python
 import aspose.slides as slides
@@ -235,17 +237,17 @@ with slides.Presentation("source-theme.pptx") as source:
         target.save("theme-applied-to-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Gebruik een master‑ of presentatieniveau‑thema wanneer veel layouts en dia's hetzelfde basisonwerp moeten delen, een layout‑override wanneer één layout‑familie een andere styling vereist, en een dia‑override alleen voor echte uitzonderingen. Overmatige dia‑niveau‑overrides maken latere globale themawijzigingen moeilijker voorspelbaar.
+Gebruik een master‑ of presentatieniveau‑thema wanneer veel lay‑outs en dia's hetzelfde basisontwerp moeten delen, een lay‑out‑overschrijving wanneer één lay‑outfamilie een andere styling vereist, en een dia‑overschrijving alleen voor echte uitzonderingen. Overmatige dia‑niveau overschrijvingen maken latere globale themawijzigingen moeilijker te voorspellen.
 
-## **Thema‑achtergrondstijlen bijwerken**
+## **Achtergrondstijlen van het thema bijwerken**
 
-De achtergrondvullingen van het thema worden opgeslagen in [FormatScheme.background_fill_styles](https://reference.aspose.com/slides/nl/python-net/aspose.slides.theme/formatscheme/background_fill_styles/). PowerPoint kan meer achtergrondkeuzes presenteren in de UI dan het aantal vullingdefinities dat feitelijk in deze collectie is opgeslagen, omdat de UI themavullingen kan combineren met themakleuren en andere stijl‑referenties.
+De achtergrondvullingen van het thema worden bewaard in [FormatScheme.background_fill_styles](https://reference.aspose.com/slides/nl/python-net/aspose.slides.theme/formatscheme/background_fill_styles/). PowerPoint kan meer achtergrondkeuzes in de UI presenteren dan het aantal vuldefinities dat fysiek in deze collectie is opgeslagen, omdat de UI themavullingen kan combineren met themakleuren en andere stijl‑referenties.
 
-![PowerPoint background style gallery for a presentation theme](presentation-design_8.png)
+![PowerPoint‑achtergrondstijlgallerij voor een presentatiethema](presentation-design_8.png)
 
-Voordat u een achtergrondstijl gebruikt, inspecteert u de opgeslagen collectie en de huidige [Background.style_index](https://reference.aspose.com/slides/nl/python-net/aspose.slides/background/style_index/). `style_index` gebruikt `0` voor geen themavulling; positieve waarden zijn referenties naar themachtergrond‑stijlen. Dit verschilt van het indexeren van een Python‑collectie, waarbij `[0]` het eerste opgeslagen item betekent. Ga niet ervan uit dat elke presentatie evenveel achtergrondvullingsstijlen bevat.
+Voordat u een achtergrondstijl gebruikt, inspecteert u de opgeslagen collectie en de huidige [Background.style_index](https://reference.aspose.com/slides/nl/python-net/aspose.slides/background/style_index/). `style_index` gebruikt `0` voor geen themavulling; positieve waarden zijn verwijzingen naar themachtergrond‑stijlen. Dit verschilt van het indexeren van een Python‑collectie, waarbij `[0]` het eerste opgeslagen item betekent. Ga er dus niet van uit dat elke presentatie hetzelfde aantal achtergrondvullingsstijlen bevat.
 
-Het volgende voorbeeld meldt het aantal beschikbare achtergrondvullingen, kent een thematische achtergrondreferentie toe aan de eerste master en slaat de presentatie op:
+Het volgende voorbeeld meldt het aantal beschikbare achtergrondvullingen, kent een thematische achtergrondreferentie toe aan de eerste master, en slaat de presentatie op:
 
 ```python
 import aspose.slides as slides
@@ -261,10 +263,10 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("theme-background.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Het zichtbare resultaat hangt af van de themareferentie die door de master wordt gebruikt en van eventuele achtergrond‑overrides op layout‑ of dia‑niveau. Als een dia een eigen achtergrond heeft, kan het wijzigen van alleen de master‑achtergrond die dia ongewijzigd laten. Gebruik [Background.get_effective](https://reference.aspose.com/slides/nl/python-net/aspose.slides/background/get_effective/) wanneer u de uiteindelijke achtergrond na erfenis moet weten.
+Het zichtbare resultaat hangt af van de themareferentie die door de master wordt gebruikt en van eventuele achtergrond‑overschrijvingen op lay‑out‑ of dia‑niveau. Als een dia een eigen achtergrond heeft, kan het wijzigen van alleen de master‑achtergrond die dia niet beïnvloeden. Gebruik [Background.get_effective](https://reference.aspose.com/slides/nl/python-net/aspose.slides/background/get_effective/) wanneer u de uiteindelijke achtergrond na erf‑ en overschrijvingsregels wilt weten.
 
 {{% alert color="warning" title="Waarschuwing" %}}
-Beschouw `style_index` niet als een nul‑gebaseerde collectie‑index. Vermijd ook het hard‑coderen van een stijlnummer uit één bestand en ervan uitgaan dat het dezelfde weergave heeft in een ander bestand; themastijldefinities zijn presentatiespecifiek.
+Behandel `style_index` niet als een nul‑gebaseerde collectie‑index. Vermijd ook het hard‑coderen van een stijlnummer uit één bestand en aannemen dat het dezelfde weergave heeft in een ander bestand; themastijldefinities zijn presentatiespecifiek.
 {{% /alert %}}
 
 {{% alert color="info" title="Tip" %}}
@@ -273,13 +275,13 @@ Voor directe achtergrondopmaak en achtergrond‑erfenis, zie [Presentation Backg
 
 ## **Thema‑effecten bijwerken**
 
-Een thema‑formaatschema bevat afzonderlijke collecties [FormatScheme.fill_styles](https://reference.aspose.com/slides/nl/python-net/aspose.slides.theme/formatscheme/fill_styles/), [FormatScheme.line_styles](https://reference.aspose.com/slides/nl/python-net/aspose.slides.theme/formatscheme/line_styles/) en [FormatScheme.effect_styles](https://reference.aspose.com/slides/nl/python-net/aspose.slides.theme/formatscheme/effect_styles/). Typische Office‑thema's bevatten vaak drie belangrijkste stijlitems die visueel overeenkomen met subtiele, gematigde en intensieve opmaak, maar code moet elke collectie inspecteren in plaats van uit te gaan van een vast aantal.
+Een thema‑format‑schema bevat afzonderlijke collecties [FormatScheme.fill_styles](https://reference.aspose.com/slides/nl/python-net/aspose.slides.theme/formatscheme/fill_styles/), [FormatScheme.line_styles](https://reference.aspose.com/slides/nl/python-net/aspose.slides.theme/formatscheme/line_styles/), en [FormatScheme.effect_styles](https://reference.aspose.com/slides/nl/python-net/aspose.slides.theme/formatscheme/effect_styles/). Typische Office‑thema’s bevatten vaak drie belangrijke stijl‑items die visueel overeenkomen met subtiele, gematigde en intensieve opmaak, maar code moet elke collectie inspecteren in plaats van een vast aantal aan te nemen.
 
-![Subtle, moderate, and intense theme effects applied to the same shape](presentation-design_10.png)
+![Subtiele, gematigde en intensieve thema‑effecten toegepast op dezelfde vorm](presentation-design_10.png)
 
-Wanneer u deze collecties in Python benadert, is de collectie‑index nul‑gebaseerd: `[0]` is de eerste opgeslagen stijl en `[2]` de derde. De indexen die een vorm gebruikt voor stijl‑referenties vormen een apart concept, blootgelegd via [IShapeStyle](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ishapestyle/). Het aanpassen van een themastijl beïnvloedt vormen die die themastijl refereren; vormen met directe opmaak kunnen ongewijzigd blijven.
+Wanneer u deze collecties in Python benadert, is de collectie‑index nul‑gebaseerd: `[0]` is de eerste opgeslagen stijl en `[2]` de derde. De stijl‑referentie‑indexen van een vorm vormen een apart concept, blootgelegd via [IShapeStyle](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ishapestyle/). Het wijzigen van een themastijl beïnvloedt vormen die die themastijl refereren; vormen met directe opmaak blijven mogelijk ongewijzigd.
 
-Het volgende voorbeeld controleert of de vereiste stijlitems bestaan, wijzigt de eerste lijnstijl, wijzigt de derde vulstijl, schakelt een buitenste schaduw in bij de derde effectstijl, en slaat het resultaat op:
+Het volgende voorbeeld controleert of de vereiste stijl‑items aanwezig zijn, wijzigt de eerste lijnstijl, wijzigt de derde vulstijl, schakelt een buitenste schaduw in bij de derde effectstijl, en slaat het resultaat op:
 
 ```python
 import aspose.pydrawing as draw
@@ -298,15 +300,15 @@ with slides.Presentation("Subtle_Moderate_Intense.pptx") as presentation:
     presentation.save("theme-effects.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Voor vormen die deze slots refereren, wordt de eerste themalijnstijl rood, de derde themavulstijl wordt effen bosgroen, en de derde effectstijl krijgt een buitenste schaduw met een afstand van 10 punten. Het exacte visuele resultaat blijft afhangen van welke stijl‑slots elke vorm referereert en of directe opmaak de thema‑instelling overschrijft.
+Voor vormen die naar deze posities verwijzen, wordt de eerste themalijnstijl rood, de derde themavulstijl een stevige bosgroen, en krijgt de derde effectstijl een buitenste schaduw met een afstand van 10 punten. Het exacte visuele resultaat hangt nog steeds af van welke stijlposities elke vorm referereert en of directe opmaak de thema‑instellingen overschrijft.
 
-![Theme effect styles after changing line, fill, and shadow settings](presentation-design_11.png)
+![Thema‑effectstijlen na wijziging van lijn‑, vul‑ en schaduwinstellingen](presentation-design_11.png)
 
 ## **Effectieve themawaarden lezen**
 
-Ruwe thema‑objecten tonen wat er op een bepaald niveau is gedefinieerd. Effectieve waarden tonen wat een dia of vorm daadwerkelijk gebruikt na erfenis en lokale overrides. Voor een dia roept u [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/nl/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/) aan. Voor een achtergrond gebruikt u [Background.get_effective](https://reference.aspose.com/slides/nl/python-net/aspose.slides/background/get_effective/), en voor een vul krijgt u [FillFormat.get_effective](https://reference.aspose.com/slides/nl/python-net/aspose.slides/fillformat/get_effective/).
+Ruwe thema‑objecten laten zien wat op een bepaald niveau is gedefinieerd. Effectieve waarden laten zien wat een dia of vorm daadwerkelijk gebruikt nadat erf‑ en lokale overschrijvingsregels zijn toegepast. Voor een dia roept u [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/nl/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/) aan. Voor een achtergrond gebruikt u [Background.get_effective](https://reference.aspose.com/slides/nl/python-net/aspose.slides/background/get_effective/), en voor een vul vulling [FillFormat.get_effective](https://reference.aspose.com/slides/nl/python-net/aspose.slides/fillformat/get_effective/).
 
-Het volgende voorbeeld leest het effectieve thema, de achtergrond en de eerste vormvulling van een dia:
+Het volgende voorbeeld leest het effectieve thema, de achtergrond, en de eerste vormvulling van een dia:
 
 ```python
 import aspose.slides as slides
@@ -325,18 +327,18 @@ with slides.Presentation("input.pptx") as presentation:
             print(f"First shape effective fill color: {effective_fill.solid_fill_color}")
 ```
 
-Gebruik effectieve data voor renderdiagnostiek, validatie en vergelijkingen. Als u alleen [Presentation.master_theme](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/master_theme/) inspecteert, kunt u een master‑, layout‑, dia‑ of vorm‑override missen die de uiteindelijke weergave veranderd.
+Gebruik effectieve data voor weergave‑diagnostiek, validatie en vergelijkingen. Als u alleen [Presentation.master_theme](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/master_theme/) inspecteert, kunt u een master‑, lay‑out‑, dia‑ of vorm‑overschrijving missen die de uiteindelijke weergave verandert.
 
-## **Veelgestelde vragen**
+## **FAQ**
 
-**Kun ik een thema toepassen op één dia zonder de master te wijzigen?**
+**Kan ik een thema toepassen op één enkele dia zonder de master te wijzigen?**
 
-Ja. Gebruik de [SlideThemeManager](https://reference.aspose.com/slides/nl/python-net/aspose.slides.theme/slidethememanager/) van de dia en initialiseert zijn override‑thema. De wijziging blijft lokaal voor die dia; andere dia's blijven hun bestaande thema’s erven.
+Ja. Gebruik de [SlideThemeManager](https://reference.aspose.com/slides/nl/python-net/aspose.slides.theme/slidethememanager/) van de dia en initialiseert zijn overschrijvings‑thema. De wijziging blijft lokaal voor die dia; andere dia's blijven hun bestaande thema’s erven.
 
-**Wat is de veiligste manier om een thema van de ene presentatie naar de andere over te dragen?**
+**Wat is de veiligste manier om een thema van de ene presentatie naar de andere over te brengen?**
 
-Wanneer u een dia verplaatst en de oorspronkelijke weergave wilt behouden, cloneer dan de bron‑master naar de bestemming en cloneer de dia met die master via [MasterSlideCollection.add_clone](https://reference.aspose.com/slides/nl/python-net/aspose.slides/masterslidecollection/add_clone/) en [SlideCollection.add_clone](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidecollection/add_clone/). Hiermee blijven master, layouts en thema samen.
+Wanneer u een dia verplaatst en het oorspronkelijke uiterlijk wilt behouden, kloont u de bron‑master naar de bestemming en kloont u de dia met die master via [MasterSlideCollection.add_clone](https://reference.aspose.com/slides/nl/python-net/aspose.slides/masterslidecollection/add_clone/) en [SlideCollection.add_clone](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidecollection/add_clone/). Zo blijven master, lay‑outs en thema samen.
 
-**Hoe kan ik de effectieve waarden zien na erfenis en overrides?**
+**Hoe kan ik de effectieve waarden zien nadat erf‑ en overschrijvingsregels zijn toegepast?**
 
-Gebruik [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/nl/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/) voor een dia‑ of layout‑thema en de overeenkomstige effective‑data‑methoden voor format‑objecten zoals [Background.get_effective](https://reference.aspose.com/slides/nl/python-net/aspose.slides/background/get_effective/) en [FillFormat.get_effective](https://reference.aspose.com/slides/nl/python-net/aspose.slides/fillformat/get_effective/). Deze API’s retourneren de opgeloste waarden na erfenis en overrides.
+Gebruik [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/nl/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/) voor een dia‑ of lay‑out‑thema en de bijbehorende effectieve‑data‑methoden voor format‑objecten zoals [Background.get_effective](https://reference.aspose.com/slides/nl/python-net/aspose.slides/background/get_effective/) en [FillFormat.get_effective](https://reference.aspose.com/slides/nl/python-net/aspose.slides/fillformat/get_effective/). Deze API‑s retourneren de opgeloste waarden nadat erf‑ en overschrijvingsregels zijn toegepast.

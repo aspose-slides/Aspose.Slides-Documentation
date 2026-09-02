@@ -1,55 +1,57 @@
 ---
-title: Python’da Sunum Slide Master’larını Yönet
-linktitle: Slayt Master
+title: "Python'da Sunum Slayt Ana Taslaklarını Yönetme"
+linktitle: "Slayt Ana Taslağı"
 type: docs
 weight: 80
 url: /tr/python-net/slide-master/
 keywords:
-- slayt master
-- master slayt
-- PPT master slayt
-- birden fazla master slayt
-- master slaytları karşılaştır
+- slayt ana taslağı
+- ana slayt
+- PPT ana slaytı
+- çoklu ana slaytlar
+- ana slaytları karşılaştırma
 - arka plan
 - yer tutucu
-- master slaytı klonla
-- master slaytı kopyala
-- master slaytı çoğalt
-- kullanılmayan master slayt
+- ana slaytı klonla
+- ana slaytı kopyala
+- ana slaytı çoğalt
+- kullanılmayan ana slayt
 - PowerPoint
 - OpenDocument
 - sunum
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET içinde slayt masterlarını yönetin: PowerPoint ve OpenDocument sunumlarındaki master slaytları erişin, düzenleyin, klonlayın, karşılaştırın ve kaldırın."
+description: "Aspose.Slides for Python via .NET içinde slayt ana taslaklarını yönetin: PowerPoint ve OpenDocument sunumlarında ana slaytları erişin, düzenleyin, klonlayın, karşılaştırın ve kaldırın."
 ---
 ## **Genel Bakış**
 
-Bir **slide master**, bir grup slayt için ortak tasarım ayarlarını tanımlar. Ortak şekiller, logolar, arka planlar, metin stilleri, tema ayarları ve alt bilgi ayarları içerebilir. PowerPoint’te bir slide master’ı düzenlemek, aynı biçimlendirmeyi her slaytta tekrarlamadan sunumu tutarlı tutmanın yaygın yoludur.
+Bir **slayt ana taslağı**, bir grup slayt için ortak tasarım ayarlarını tanımlar. Ortak şekiller, logolar, arka planlar, metin stilleri, tema ayarları ve alt bilgi ayarları içerebilir. PowerPoint'te bir slayt ana taslağını düzenlemek, aynı biçimlendirmeyi her slaytta tekrarlamadan sunumu tutarlı tutmanın yaygın yoludur.
 
-Aspose.Slides for Python via .NET aynı modeli destekler. Bir sunum bir veya daha fazla master slayt içerebilir ve her master slayt birden çok layout slaytı barındırabilir. Normal slaytlar doğrudan bir master slayta başvurmaz. Bunun yerine, normal bir slayt bir layout slaytını kullanır ve bu layout slayt bir master slayta aittir.
+Aspose.Slides for Python via .NET aynı modeli destekler. Bir sunum bir veya daha fazla ana slayt içerebilir ve her ana slayt birkaç yerleşim slaytı içerebilir. Normal slaytlar genellikle doğrudan bir ana slayta başvurmaz. Bunun yerine, normal bir slayt bir yerleşim slaytı kullanır ve bu yerleşim slaytı bir ana slayta aittir.
 
-Hiyerarşi şudur:
+Hiyerarşi şu şekildedir:
 
-1. **Slide master** – ortak tasarımı ve temayı tanımlar.  
-1. **Layout slayt** – yer tutucuların ve layout‑seviyesi biçimlendirmelerin özel düzenini tanımlar.  
-1. **Normal slayt** – gerçek sunum içeriğini barındırır ve bir layout slaytı kullanır.
+1. **Slide master** - ortak tasarım ve temayı tanımlar.
+1. **Layout slide** - yer tutucuların belirli düzenini ve yerleşim‑seviyesindeki biçimlendirmeyi tanımlar.
+1. **Normal slide** - gerçek sunum içeriğini içerir ve bir yerleşim slaytı kullanır.
 
-![Master slaytların, layout slaytların ve normal slaytların hiyerarşisi](slide-master_2.jpg)
+![Ana slaytların, yerleşim slaytlarının ve normal slaytların hiyerarşisi](slide-master_2.jpg)
 
-Aspose.Slides’ta bir slide master, [MasterSlide](https://reference.aspose.com/slides/tr/python-net/aspose.slides/masterslide/) sınıfı ile temsil edilir. Bir sunumdaki tüm master slaytlar `Presentation.masters` koleksiyonu üzerinden erişilebilir.
+Aspose.Slides'te bir slayt ana taslağı, [MasterSlide](https://reference.aspose.com/slides/tr/python-net/aspose.slides/masterslide/) sınıfı ile temsil edilir. Bir sunumdaki tüm ana slaytlar `Presentation.masters` koleksiyonu aracılığıyla erişilebilir.
 
 {{% alert color="info" title="Inheritance" %}}
-Aynı özellik birden çok seviyede tanımlandığında, daha spesifik seviye geçerli olur. Örneğin, bir master slayt ve bir layout slayt aynı arka planı tanımlarsa, o layout’a dayanan slaytlar layout arka planını kullanır. Layout slaytları hakkında daha fazla bilgi için [Apply or Change Slide Layouts](/python-net/slide-layout/) sayfasına bakın.
+
+Aynı özellik birden fazla seviyede tanımlandığında, daha spesifik seviye geçerli olur. Örneğin, bir ana slayt ve bir yerleşim slaytı aynı arka planı tanımlarsa, o yerleşime dayanan slaytlar yerleşim arka planını kullanır. Yerleşim slaytları hakkında daha fazla bilgi için [Apply or Change Slide Layouts](/slides/tr/python-net/slide-layout/) bölümüne bakın.
+
 {{% /alert %}}
 
-## **Slide Master’lara Erişim**
+## **Slide Ana Taslaklarına Erişim**
 
-PowerPoint’te **View** > **Slide Master** menüsünden Slide Master görünümünü açabilirsiniz.
+PowerPoint'te **View** > **Slide Master** menüsünden Slide Master görünümünü açabilirsiniz.
 
 ![PowerPoint Görünüm sekmesindeki Slide Master komutu](slide-master_3.jpg)
 
-Aspose.Slides’ta master slaytlara erişmek için `masters` koleksiyonunu kullanın:
+Aspose.Slides'te ana slaytlara erişmek için `masters` koleksiyonunu kullanın:
 
 ```python
 import aspose.slides as slides
@@ -63,7 +65,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     print("Layouts in the first master: " + str(first_master_layout_slide_count))
 ```
 
-Ayrıca bir normal slaytın kullandığı master slaytı, o slaytın layout’u üzerinden elde edebilirsiniz:
+Ayrıca, bir normal slaytın kullandığı ana slaytı, onun yerleşimi üzerinden alabilirsiniz:
 
 ```python
 import aspose.slides as slides
@@ -77,26 +79,26 @@ with slides.Presentation("presentation.pptx") as presentation:
     print(master_slide_name)
 ```
 
-## **Bir Slide Master’ın İçeriği**
+## **Bir Slide Ana Taslağı Ne İçerir**
 
-Bir master slayt, slayt benzeri bir nesnedir. Ortak slayt davranışını [BaseSlide](https://reference.aspose.com/slides/tr/python-net/aspose.slides/baseslide/) sınıfından kalıtır; bu sayede normal ve layout slaytlarda kullanılan birçok slayt özelliğine erişebilir. Master‑özel üyeler [MasterSlide](https://reference.aspose.com/slides/tr/python-net/aspose.slides/masterslide/) API sayfasında listelenir.
+Bir ana slayt, slayt benzeri bir nesnedir. [BaseSlide](https://reference.aspose.com/slides/tr/python-net/aspose.slides/baseslide/) sınıfından ortak slayt davranışını devralır, bu yüzden normal ve yerleşim slaytlarıyla aynı birçok slayt özelliğini sunar. Ana slayta özgü üyeler [MasterSlide](https://reference.aspose.com/slides/tr/python-net/aspose.slides/masterslide/) API sayfasında listelenmiştir.
 
-Sık kullanılan master slayt üyeleri şunlardır:
+Sıklıkla kullanılan ana slayt üyeleri şunlardır:
 
-| Üye | Amaç |
+| Üye | Açıklama |
 | --- | --- |
-| `background` | Master‑seviyesi slayt arka planını ayarlar. |
-| `shapes` | Master üzerine yerleştirilen şekilleri (logolar, resim çerçeveleri, ortak metin vb.) depolar. |
-| `layout_slides` | Master’a ait layout slaytları saklar. |
-| `theme_manager` | Master tema API’lerine erişim sağlar. |
-| `header_footer_manager` | Master ve onun alt layoutları için başlık, alt bilgi, tarih ve slayt numaralarını kontrol eder. |
-| `get_depending_slides` | Layoutları aracılığıyla master’a bağımlı olan normal slaytları döndürür. |
+| `background` | Ana‑seviye slayt arka planını ayarlar. |
+| `shapes` | Logolar, resim çerçeveleri ve ortak metin gibi ana slayta yerleştirilen şekilleri depolar. |
+| `layout_slides` | Ana slayta ait yerleşim slaytlarını depolar. |
+| `theme_manager` | Ana temanın API'lerine erişim sağlar. |
+| `header_footer_manager` | Ana ve ona bağlı yerleşimler için başlık, alt bilgi, tarih ve slayt numaralarını kontrol eder. |
+| `get_depending_slides` | Yerleşimleri aracılığıyla ana slayta bağımlı olan normal slaytları döndürür. |
 
-## **Slide Master’a Görüntü Ekleme**
+## **Slide Ana Taslağına Resim Ekleme**
 
-Bir master slayta resim eklediğinizde, o master’dan layout kullanan slaytlarda görünür. Logolar, filigranlar, dekoratif şeritler ve diğer tekrarlanan görsel öğeler için faydalıdır.
+Bir ana slayta resim eklendiğinde, o ana slayttan yerleşim kullanan tüm slaytlarda görünür. Bu, logo, filigran, süs bandı ve diğer tekrar eden görsel öğeler için faydalıdır.
 
-Aşağıdaki örnek, ilk master slayta bir logo ekler:
+Aşağıdaki örnek, ilk ana slayta bir logo ekler:
 
 ```python
 import aspose.slides as slides
@@ -120,17 +122,17 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-with-logo.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Resim çerçeveleri hakkında daha fazla bilgi için [Picture Frame](/python-net/picture-frame/) sayfasına bakın.
+Resim çerçeveleri hakkında daha fazla bilgi için [Picture Frame](/slides/tr/python-net/picture-frame/) bölümüne bakın.
 
 ## **Yer Tutucularla Çalışma**
 
-Yer tutucular genellikle layout slaytlarda tanımlanır. Master slayt, bu layoutların devraldığı ortak stil ve temayı sağlar; her layout ise hangi yer tutucuların mevcut olduğunu ve nerede konumlanacağını belirler.
+Yer tutucular normalde yerleşim slaytlarında tanımlanır. Ana slayt, bu yerleşimlerin devraldığı ortak stil ve temayı sağlar; her yerleşim ise hangi yer tutucuların mevcut olduğunu ve nerede konumlandırılacağını belirler.
 
-PowerPoint’te yer tutucu komutları Slide Master görünümünde bulunur.
+PowerPoint'te yer tutucu komutları Slide Master görünümünde bulunur.
 
 ![PowerPoint Slide Master görünümündeki Insert Placeholder komutu](slide-master_5.png)
 
-Aspose.Slides’ta yeni yer tutucular eklemek için master’a ait layout slayt üzerinde çalışın:
+Aspose.Slides ile yeni yer tutucular eklemek için ana slayta ait yerleşim slaytıyla çalışın:
 
 ```python
 import aspose.slides as slides
@@ -151,7 +153,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-with-placeholder.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Mevcut yer tutucu şekillerini de biçimlendirebilirsiniz. Aşağıdaki örnek, başlık yer tutucusunu bulur ve doğrusal bir degrade doldurma uygular:
+Ayrıca, bir ana slaytta zaten bulunan yer tutucu şekillerini biçimlendirebilirsiniz. Aşağıdaki örnek, başlık yer tutucusunu bulur ve lineer bir degrade dolgu uygular:
 
 ```python
 import aspose.pydrawing as draw
@@ -178,18 +180,18 @@ with slides.Presentation("presentation.pptx") as presentation:
         title_placeholder.fill_format.fill_type = slides.FillType.GRADIENT
         title_placeholder.fill_format.gradient_format.gradient_shape = slides.GradientShape.LINEAR
         title_placeholder.fill_format.gradient_format.gradient_stops.add(0, red_gradient_color)
-        title_placeholder.fill_format.gradient_format.gradient_stops.add(255, purple_gradient_color)
+        title_placeholder.fill_format.gradient_format.gradient_stops.add(1, purple_gradient_color)
 
     presentation.save("presentation-title-style.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ![Normal slaytlar tarafından devralınan biçimlendirilmiş başlık yer tutucusu](slide-master_8.png)
 
-Daha fazla yer tutucu ve metin biçimlendirme seçeneği için [Set Prompt Text in Placeholder](/python-net/manage-placeholder/) ve [Text Formatting](/python-net/text-formatting/) sayfalarına bakın.
+Daha fazla yer tutucu ve metin biçimlendirme seçeneği için [Set Prompt Text in Placeholder](/slides/tr/python-net/manage-placeholder/) ve [Text Formatting](/slides/tr/python-net/text-formatting/) bölümlerine bakın.
 
-## **Slide Master Arka Planını Değiştirme**
+## **Slide Ana Taslağı Arka Planını Değiştirme**
 
-Bir master arka planı, üzerine değişiklik yapılmayan layout ve slaytlar tarafından devralınır. Aşağıdaki örnek, ilk master slayt için katı bir arka plan rengi ayarlar:
+Ana arka plan, üzerine yazılmadığı sürece yerleşimler ve slaytlar tarafından devralınır. Aşağıdaki örnek, ilk ana slayt için katı bir arka plan rengi ayarlar:
 
 ```python
 import aspose.pydrawing as draw
@@ -205,11 +207,11 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-master-background.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-İlgili konular için [Presentation Background](/python-net/presentation-background/) ve [Presentation Theme](/python-net/presentation-theme/) sayfalarına göz atın.
+İlgili konular için [Presentation Background](/slides/tr/python-net/presentation-background/) ve [Presentation Theme](/slides/tr/python-net/presentation-theme/) bölümlerine göz atın.
 
-## **Slide Master’ı Başka Bir Sunuma Kopyalama**
+## **Bir Slide Ana Taslağını Başka Bir Sunuma Kopyalama**
 
-[MasterSlideCollection](https://reference.aspose.com/slides/tr/python-net/aspose.slides/masterslidecollection/) sınıfındaki `add_clone` metodunu kullanarak bir master slaytı başka bir sunuma kopyalayabilirsiniz. Kopyalanan master, hedef sunumdaki layout ve slaytlar tarafından kullanılabilir.
+[MasterSlideCollection](https://reference.aspose.com/slides/tr/python-net/aspose.slides/masterslidecollection/) sınıfındaki `add_clone` yöntemiyle bir ana slaytı başka bir sunuma kopyalayabilirsiniz. Kopyalanan ana, hedef sunumdaki yerleşimler ve slaytlar tarafından kullanılabilir.
 
 ```python
 import aspose.slides as slides
@@ -222,15 +224,15 @@ with slides.Presentation("source.pptx") as source_presentation:
         destination_presentation.save("destination-with-master.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Normal slaytları ve bağlı masterlarını bir arada klonlamak isterseniz [Clone Slides](/python-net/clone-slides/) sayfasına bakın.
+Normal slaytları, onların ana slaytlarıyla birlikte kopyalamanız gerekiyorsa, [Clone Slides](/slides/tr/python-net/clone-slides/) bölümüne bakın.
 
-## **Birden Çok Slide Master Ekleme**
+## **Birden Çok Slide Ana Taslağı Ekleme**
 
-Bir sunum birden fazla master slayt içerebilir. Bu, farklı bölümlerin farklı marka, sayfa yapısı veya tema ayarları gerektirdiği durumlarda kullanışlıdır.
+Bir sunum birden fazla ana slayt içerebilir. Bu, farklı bölümlerin farklı marka, sayfa yapısı veya tema ayarları gerektirdiği durumlarda yararlıdır.
 
-![Master slayt ekleme ve yönetme için PowerPoint komutları](slide-master_9.jpg)
+![Ana slayt ekleme ve yönetme için PowerPoint komutları](slide-master_9.jpg)
 
-Aşağıdaki örnek, varsayılan master’ı klonlar, klona farklı bir arka plan verir, bu klon master’ın altına boş bir layout oluşturur ve bu layout üzerinden yeni bir slayt ekler:
+Aşağıdaki örnek, varsayılan ana slaytı kopyalar, kopyaya farklı bir arka plan verir, bu kopyalanmış ana altında boş bir yerleşim alır ve bu yerleşime dayalı yeni bir slayt ekler:
 
 ```python
 import aspose.pydrawing as draw
@@ -256,9 +258,9 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-with-multiple-masters.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Slide Master’ları Karşılaştırma**
+## **Slide Ana Taslaklarını Karşılaştırma**
 
-Master slaytlar, [BaseSlide](https://reference.aspose.com/slides/tr/python-net/aspose.slides/baseslide/) sınıfından miras alınan `equals` metodu ile karşılaştırılabilir. Karşılaştırma, şekiller, metin, biçimlendirme, animasyonlar ve diğer slayt ayarları gibi yapısal ve statik içeriği kontrol eder. Slayt ID’leri gibi benzersiz tanımlayıcılar veya geçerli tarih gibi dinamik yer tutucu değerleri karşılaştırılmaz.
+Ana slaytlar, [BaseSlide](https://reference.aspose.com/slides/tr/python-net/aspose.slides/baseslide/) sınıfından miras alınan `equals` yöntemiyle karşılaştırılabilir. Karşılaştırma, şekiller, metin, biçimlendirme, animasyonlar ve diğer slayt ayarları gibi yapı ve statik içeriği inceler. Slayt kimlikleri gibi benzersiz tanımlayıcıları veya geçerli tarih gibi dinamik yer tutucu değerlerini karşılaştırmaz.
 
 ```python
 import aspose.slides as slides
@@ -281,11 +283,11 @@ with slides.Presentation("first.pptx") as first_presentation:
                             second_master_index))
 ```
 
-Daha fazla bilgi için [Compare Presentation Slides](/python-net/compare-slides/) sayfasına bakın.
+Daha fazla bilgi için [Compare Presentation Slides](/slides/tr/python-net/compare-slides/) bölümüne bakın.
 
-## **Slide Master Görünümünü Varsayılan Görünüm Olarak Ayarlama**
+## **Slide Ana Taslağı Görünümünü Varsayılan Görünüm Olarak Ayarlama**
 
-Sunumun [ViewProperties](https://reference.aspose.com/slides/tr/python-net/aspose.slides/viewproperties/) üzerindeki `last_view` özelliğini kullanarak PowerPoint’in ilk açtığında hangi görünümü göstereceğini kontrol edebilirsiniz. Aşağıdaki örnek, sunumu Slide Master görünümünde açar:
+Sunumun [ViewProperties](https://reference.aspose.com/slides/tr/python-net/aspose.slides/viewproperties/) üzerindeki `last_view` özelliği, PowerPoint'in ilk açtığı görünümü kontrol eder. Aşağıdaki örnek, sunumu Slide Master görünümünde açar:
 
 ```python
 import aspose.slides as slides
@@ -295,13 +297,13 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-master-view.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Daha fazla görünüm ayarı için [Save Presentation](/python-net/save-presentation/) sayfasına bakın.
+Daha fazla görünüm ayarı için [Save Presentation](/slides/tr/python-net/save-presentation/) bölümüne bakın.
 
-## **Kullanılmayan Master Slaytları Kaldırma**
+## **Kullanılmayan Ana Slaytları Kaldırma**
 
-Bazen bir sunum, hiçbir normal slayt tarafından kullanılmayan master slaytlar içerir. Kullanılmayan master’ları kaldırmak dosya boyutunu azaltabilir ve şablon bakımını basitleştirebilir.
+Sunumlar bazen hiçbir normal slayt tarafından kullanılmayan ana slaytlar içerebilir. Kullanılmayan ana slaytların kaldırılması dosya boyutunu azaltabilir ve şablon bakımını basitleştirebilir.
 
-`remove_unused` metodunu kullanarak `masters` koleksiyonundan kullanılmayan master’ları kaldırabilirsiniz:
+Kullanılmayan ana slaytları `masters` koleksiyonundan kaldırmak için `remove_unused` yöntemi kullanın:
 
 ```python
 import aspose.slides as slides
@@ -311,7 +313,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-clean.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Ayrıca düşük‑kodlu `remove_unused_master_slides` metodunu [Compress](https://reference.aspose.com/slides/tr/python-net/aspose.slides.lowcode/compress/) sınıfından da kullanabilirsiniz:
+Ayrıca, [Compress](https://reference.aspose.com/slides/tr/python-net/aspose.slides.lowcode/compress/) sınıfındaki düşük‑kodlu `remove_unused_master_slides` yöntemini de kullanabilirsiniz:
 
 ```python
 import aspose.slides as slides
@@ -323,18 +325,18 @@ with slides.Presentation("presentation.pptx") as presentation:
 
 ## **SSS**
 
-**Slide master ile layout slayt arasındaki fark nedir?**
+### Slide ana taslağı ile yerleşim slaytı arasındaki fark nedir?
 
-Slide master, tema, arka plan, ortak şekiller ve metin stilleri gibi ortak tasarım ayarlarını tanımlar. Layout slayt bir master’a aittir ve yer tutucuların belirli bir düzenini tanımlar. Normal bir slayt bir layout slayt kullanır; böylece hem layout hem de master’dan miras alır.
+Slide ana taslağı tema, arka plan, ortak şekiller ve metin stilleri gibi ortak tasarım ayarlarını tanımlar. Yerleşim slaytı bir ana taslağa aittir ve yer tutucuların belirli bir düzenini tanımlar. Normal bir slayt bir yerleşim slaytı kullanır, bu yüzden hem yerleşimden hem de ana taslaktan devralır.
 
-**Bir sunum birden çok slide master içerebilir mi?**
+### Bir sunum birden fazla slide ana taslağı içerebilir mi?
 
-Evet. Bir sunum birden fazla slide master barındırabilir. Farklı bölümlerin farklı görsel sistemler veya marka ihtiyaçları olduğunda birden fazla master kullanın.
+Evet. Bir sunum birden fazla slide ana taslağı içerebilir. Farklı bölümlerin farklı görsel sistemler veya markalaşma ihtiyaçları olduğunda birden çok ana kullanın.
 
-**Yer tutucuları master slayta mı yoksa layout slayta mı eklemeliyim?**
+### Yer tutucuları ana slayta mı yoksa yerleşim slaytına mı eklemeliyim?
 
-Çoğu durumda yer tutucuları layout slaytlara ekleyin. Paylaşılan görsel öğeleri ve ortak biçimlendirmeyi master slayta koyun, ardından normal slaytların kullanacağı içerik yer tutucularını layout slaytlara yerleştirin.
+Çoğu durumda yer tutucuları yerleşim slaytlarına ekleyin. Ortak görsel öğeleri ve ortak biçimlendirmeyi ana slayta, içerik yer tutucularını ise normal slaytların kullanacağı yerleşimlere koyun.
 
-**Kullanımda olan bir master slaytı silebilir miyim?**
+### Hâlâ kullanılan bir ana slaytı silebilir miyim?
 
-Hayır. Bağımlı slaytları olan bir master slayt doğrudan güvenli şekilde kaldırılamaz. Önce bu slaytları başka bir master altındaki layoutlara taşıyın veya yalnızca kullanılmayan master’ları temizleyen bir yöntem kullanın.
+Hayır. Bağımlı slaytları olan bir ana slaytı doğrudan kaldırmak güvenli değildir. Önce bu slaytları başka bir ana altında yerleşimlere taşıyın veya yalnızca kullanılmayan ana slaytları temizleyen bir yöntem kullanın.

@@ -1,57 +1,57 @@
 ---
-title: Efektywne scalanie prezentacji na Androidzie
-linktitle: Scalanie prezentacji
+title: Efektywne łączenie prezentacji na Androidzie
+linktitle: Łączenie prezentacji
 type: docs
 weight: 40
 url: /pl/androidjava/merge-presentation/
 keywords:
-- scal PowerPoint
-- scal prezentacje
-- scal slajdy
-- scal PPT
-- scal PPTX
-- scal ODP
-- połącz PowerPoint
-- połącz prezentacje
-- połącz slajdy
-- połącz PPT
-- połącz PPTX
-- połącz ODP
+- scalanie PowerPoint
+- scalanie prezentacji
+- scalanie slajdów
+- scalanie PPT
+- scalanie PPTX
+- scalanie ODP
+- łączenie PowerPoint
+- łączenie prezentacji
+- łączenie slajdów
+- łączenie PPT
+- łączenie PPTX
+- łączenie ODP
 - Android
 - Java
 - Aspose.Slides
-description: "Dowiedz się, jak scalać prezentacje PowerPoint i OpenDocument na Androidzie poprzez klonowanie slajdów, kontrolowanie masterów i układów, zmianę rozmiaru zawartości slajdów, zachowanie sekcji oraz obsługę chronionych lub dużych plików."
+description: Dowiedz się, jak na Androidzie scalać prezentacje PowerPoint i OpenDocument, klonując slajdy, kontrolując mastery i układy, zmieniając rozmiar treści slajdów, zachowując sekcje oraz obsługując zabezpieczone lub duże pliki.
 ---
 ## **Przegląd**
 
-Aspose.Slides for Android via Java scala prezentacje poprzez klonowanie slajdów z jednej [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/) do drugiej. Główną operacją jest [ISlideCollection.addClone](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-), która może zachować formatowanie slajdu źródłowego lub dołączyć sklonowany slajd do mastera lub układu w prezentacji docelowej.
+Aspose.Slides for Android via Java łączy prezentacje, kopiując slajdy z jednej [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/) do drugiej. Główną operacją jest [ISlideCollection.addClone](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-), która może zachować formatowanie źródłowego slajdu lub dołączyć sklonowany slajd do mastera lub układu w prezentacji docelowej.
 
-Ten artykuł opisuje najczęstsze scenariusze scalania:
+W tym artykule omówiono najczęstsze scenariusze scalania:
 
-- skaluj wszystkie slajdy, zachowując ich formatowanie źródłowe;
-- skaluj wybrane slajdy;
-- zastosuj master z prezentacji docelowej;
-- zastosuj określony układ z prezentacji docelowej;
-- znormalizuj różne rozmiary slajdów przed scaleniem;
-- dodaj sklonowane slajdy do sekcji;
-- scal kilka prezentacji w jednym przepływie end-to-end;
-- obsłuż mastery, zasoby, notatki, komentarze, multimedia, czcionki, hasła, duże pliki oraz kwestie wielowątkowości.
+- scalenie wszystkich slajdów przy zachowaniu formatowania źródłowego;
+- scalenie wybranych slajdów;
+- zastosowanie mastera z prezentacji docelowej;
+- zastosowanie określonego układu z prezentacji docelowej;
+- normalizacja różnych rozmiarów slajdów przed scalaniem;
+- dodanie sklonowanych slajdów do sekcji;
+- scalenie kilku prezentacji w jednym procesie end‑to‑end;
+- obsługa masterów, zasobów, notatek, komentarzy, multimediów, czcionek, haseł, dużych plików i zagadnień związanych z wielowątkowością.
 
 ## **Jak klonowanie slajdów wpływa na mastery i układy**
 
-Slajd odziedzicza dużą część swojego wyglądu z układu i mastera. Z tego powodu wybrany przeciążony wariant klonowania określa, jak scentralizowany slajd zostanie włączony do prezentacji docelowej.
+Slajd dziedziczy dużą część wyglądu z układu i mastera. Z tego powodu wybrany przeciążony sposób klonowania określa, jak scalony slajd zostanie włączony do prezentacji docelowej.
 
-Użyj [ISlideCollection.addClone](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/islidecollection/) w jeden z następujących sposobów:
+Użyj [ISlideCollection.addClone](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/islidecollection/) w jednej z następujących form:
 
-- `addClone(sourceSlide)` — zachowuje układ i formatowanie slajdu źródłowego. W razie potrzeby master źródłowy może być automatycznie sklonowany do prezentacji docelowej. Aspose.Slides śledzi automatycznie sklonowane mastery, więc powtarzające się slajdy korzystające z tego samego mastera nie powodują jego kolejnych klonowań.
-- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — dołącza sklonowany slajd do określonego mastera docelowego [IMasterSlide](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imasterslide/). Aspose.Slides wyszukuje pasujący układ pod tym masterem według typu układu lub nazwy.
-- `addClone(sourceSlide, destinationLayout)` — dołącza sklonowany slajd bezpośrednio do określonego układu docelowego [ILayoutSlide](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ilayoutslide/).
+- `addClone(sourceSlide)` — zachowuje układ i formatowanie źródłowego slajdu. W razie potrzeby źródłowy master może być automatycznie sklonowany do prezentacji docelowej. Aspose.Slides śledzi automatycznie sklonowane mastery, aby powtarzające się slajdy korzystające z tego samego mastera nie powodowały wielokrotnego klonowania.
+- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — dołącza sklonowany slajd do określonego [IMasterSlide](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imasterslide/). Aspose.Slides szuka pasującego układu pod tym masterem według typu lub nazwy układu.
+- `addClone(sourceSlide, destinationLayout)` — dołącza sklonowany slajd bezpośrednio do określonego [ILayoutSlide](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ilayoutslide/).
 
-Master lub układ przekazany do przeciążenia `addClone` musi należeć do prezentacji **docelowej**, a nie do prezentacji źródłowej.
+Master lub układ przekazany do przeciążenia `addClone` musi należeć do **prezentacji docelowej**, a nie do źródłowej.
 
-## **Scal całą prezentację i zachowaj formatowanie źródła**
+## **Scalanie całych prezentacji i zachowanie formatowania źródłowego**
 
-Najprostsze scalenie kopiuje każdy slajd z prezentacji źródłowej do prezentacji docelowej. Jest to właściwy wybór, gdy zaimportowane slajdy powinny zachować oryginalny motyw, master i powiązania układu.
+Najprostsze scalenie kopiowanie każdego slajdu ze źródłowej prezentacji do docelowej. Jest to właściwy wybór, gdy importowane slajdy powinny zachować oryginalny motyw, master i powiązania układu.
 
 ```java
 import com.aspose.slides.*;
@@ -70,11 +70,11 @@ try {
 }
 ```
 
-Wynikowa prezentacja może zawierać wiele masterów, gdy źródło i docelowa używają różnych projektów. Jest to oczekiwane, gdy formatowanie źródła jest zachowywane celowo.
+W rezultacie prezentacja może zawierać wiele masterów, gdy źródło i cel używają różnych projektów. Jest to oczekiwane, gdy formatowanie źródłowe jest zachowywane świadomie.
 
-## **Scal wybrane slajdy**
+## **Scalanie wybranych slajdów**
 
-Nie musisz klonować każdego slajdu. Poniższy przykład importuje tylko wybrane indeksy slajdów z prezentacji źródłowej.
+Nie musisz klonować każdego slajdu. Poniższy przykład importuje tylko wybrane indeksy slajdów ze źródłowej prezentacji.
 
 ```java
 import com.aspose.slides.*;
@@ -95,11 +95,11 @@ try {
 }
 ```
 
-Sprawdź poprawność indeksów slajdów przed klonowaniem, gdy pochodzą one od użytkownika lub z zewnętrznej konfiguracji.
+Sprawdzaj indeksy slajdów przed klonowaniem, gdy pochodzą one od użytkownika lub z zewnętrznej konfiguracji.
 
-## **Scal slajdy przy użyciu mastera docelowego**
+## **Scalanie slajdów przy użyciu mastera docelowego**
 
-Użyj przeciążenia [addClone(ISlide, IMasterSlide, boolean)](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) gdy zaimportowane slajdy mają korzystać z mastera, który już należy do prezentacji docelowej.
+Użyj przeciążenia [addClone(ISlide, IMasterSlide, boolean)](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) gdy importowane slajdy mają korzystać z mastera, który już należy do prezentacji docelowej.
 
 ```java
 import com.aspose.slides.*;
@@ -120,13 +120,13 @@ try {
 }
 ```
 
-Aspose.Slides wybiera odpowiedni układ pod określonym masterem, dopasowując typ lub nazwę układu źródłowego. Jeśli nie istnieje odpowiedni układ i `allowCloneMissingLayout` jest `true`, układ źródłowy jest klonowany, aby można było dodać slajd. Jeśli jest `false`, zostaje wyrzucony [PptxEditException](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/pptxeditexception/).
+Aspose.Slides wybiera odpowiedni układ pod wskazanym masterem, dopasowując typ lub nazwę układu źródłowego. Jeśli nie istnieje odpowiedni układ i `allowCloneMissingLayout` jest `true`, układ źródłowy zostaje sklonowany, aby slajd mógł zostać dodany. Jeśli jest `false`, zostaje rzucony [PptxEditException](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/pptxeditexception/).
 
-Użyj `false`, gdy chcesz, aby scalenie zakończyło się niepowodzeniem zamiast wprowadzania dodatkowego układu do mastera docelowego.
+Ustaw `false`, gdy chcesz, aby scalenie zakończyło się niepowodzeniem zamiast wprowadzania dodatkowego układu do mastera docelowego.
 
-## **Scal slajdy przy użyciu określonego układu docelowego**
+## **Scalanie slajdów przy użyciu określonego układu docelowego**
 
-Użyj przeciążenia [addClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) gdy dokładnie wiesz, którego układu docelowego mają używać zaimportowane slajdy.
+Użyj przeciążenia [addClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) gdy dokładnie wiesz, którego układu docelowego mają używać importowane slajdy.
 
 ```java
 import com.aspose.slides.*;
@@ -147,13 +147,13 @@ try {
 }
 ```
 
-Zastosowanie układu docelowego zmienia odziedziczoną relację układu; nie przerysowuje zawartości slajdu źródłowego. Jeśli układy źródłowy i docelowy mają różne struktury placeholderów, sprawdź wynik, aby potwierdzić, że odziedziczone formatowanie i zachowanie placeholderów są właściwe.
+Zastosowanie układu docelowego zmienia odziedziczoną relację układu; nie przekształca treści slajdu źródłowego. Jeśli układy źródłowy i docelowy mają różne struktury placeholderów, sprawdź wynik, aby potwierdzić, że odziedziczone formatowanie i zachowanie placeholderów są odpowiednie.
 
-## **Scal prezentacje o różnych rozmiarach slajdów**
+## **Scalanie prezentacji o różnych rozmiarach slajdów**
 
-Prezentacje o różnych wymiarach slajdów można scalać, ale klonowanie slajdu do prezentacji o innym rozmiarze nie przerysowuje automatycznie jego zawartości na nowym płótnie. Kształty mogą więc wyglądać na przesunięte, nieoczekiwanie skalowane lub znajdować się poza widoczną częścią slajdu.
+Prezentacje o różnych wymiarach slajdów można scalać, ale klonowanie slajdu do prezentacji o innym rozmiarze nie przekształca automatycznie jego zawartości do nowego płótna. Dlatego kształty mogą być przesunięte, niespodziewanie skalowane lub znajdować się poza widoczną częścią slajdu.
 
-Praktycznym podejściem jest zmiana rozmiaru prezentacji źródłowej przed klonowaniem. Metoda [SlideSize.setSize](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/slidesize/#setSize-float-float-int-) może skalować istniejącą zawartość przy zmianie wymiarów slajdu. [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/slidesizescaletype/) skaluje zawartość, aby pasowała do żądanego rozmiaru.
+Praktycznym podejściem jest zmiana rozmiaru prezentacji źródłowej przed klonowaniem. Metoda [SlideSize.setSize](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/slidesize/#setSize-float-float-int-) może skalować istniejącą zawartość przy jednoczesnej zmianie wymiarów slajdu. [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/slidesizescaletype/) skaluje zawartość, aby dopasować ją do żądanego rozmiaru.
 
 ```java
 import com.aspose.slides.*;
@@ -184,11 +184,11 @@ try {
 }
 ```
 
-Zmiana rozmiaru modyfikuje obiekt prezentacji źródłowej w pamięci. Jeśli potrzebujesz niezmienionej prezentacji źródłowej do innych operacji, otwórz osobną instancję do scalenia.
+Zmiana rozmiaru modyfikuje obiekt prezentacji źródłowej w pamięci. Jeśli potrzebujesz niezmienionej wersji źródłowej dla innych operacji, otwórz osobną instancję na czas scalania.
 
-## **Scal slajdy w sekcji prezentacji**
+## **Scalanie slajdów do sekcji prezentacji**
 
-Podstawowa pętla klonowania slajdów nie odtwarza hierarchii sekcji w prezentacji źródłowej. Jeśli sekcje mają znaczenie w wyniku, utwórz lub wybierz sekcje w prezentacji docelowej i klonuj slajdy do nich jawnie przy użyciu [addClone(ISlide, ISection)](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-).
+Podstawowa pętla klonowania slajdów nie odtwarza hierarchii sekcji źródłowej prezentacji. Jeśli sekcje mają znaczenie w wyniku, utwórz lub wybierz sekcje w prezentacji docelowej i klonuj slajdy do nich explicite przy użyciu [addClone(ISlide, ISection)](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-).
 
 ```java
 import com.aspose.slides.*;
@@ -209,11 +209,11 @@ try {
 }
 ```
 
-Sklonowane slajdy są dołączane do określonej sekcji docelowej. Aby zachować kilka sekcji źródłowych, odtwórz te sekcje w docelowej i przypisz każdy slajd źródłowy do odpowiedniej sekcji docelowej.
+Sklonowane slajdy są dołączane do określonej sekcji docelowej. Aby zachować wiele sekcji źródłowych, wylicz [Presentation.getSections](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/#getSections--), pobierz bieżące slajdy każdej sekcji źródłowej za pomocą [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/isection/#getSlidesListOfSection--), odtwórz sekcje w docelowej prezentacji i sklonuj każdy zwrócony slajd do odpowiadającej sekcji docelowej. Zobacz [Manage Slide Sections](/slides/pl/androidjava/slide-section/) po kompletny przykład enumeracji sekcji, w tym sekcje puste i zmiany strukturalne.
 
-## **Bezpiecznie scal wiele prezentacji**
+## **Bezpieczne scalanie wielu prezentacji**
 
-Poniższy przykład end-to-end używa pierwszej prezentacji jako docelowej, normalizuje rozmiar slajdów każdego dodatkowego źródła, utrzymuje każde źródło otwarte tylko podczas kopiowania i zapisuje ostateczny plik jednorazowo.
+Poniższy przykład end‑to‑end używa pierwszej prezentacji jako docelowej, normalizuje rozmiar slajdu każdej dodatkowej źródłowej, utrzymuje każdą źródłową otwartą tylko podczas kopiowania i zapisuje ostateczny plik jednorazowo.
 
 ```java
 import com.aspose.slides.*;
@@ -252,39 +252,39 @@ try {
 }
 ```
 
-Jest to przydatna podstawa do zachowania formatowania źródła zaimportowanych slajdów. Jeśli wynik musi używać jednego motywu docelowego, zastąp prostą wywołanie `addClone(slide)` odpowiednim przeciążeniem mastera lub układu docelowego, jak wcześniej pokazano.
+Jest to przydatna baza do zachowania formatowania źródłowego importowanych slajdów. Jeśli wynikowa prezentacja ma używać jednego motywu docelowego, zastąp prostą wywołanie `addClone(slide)` odpowiednim przeciążeniem mastera lub układu docelowego, przedstawionym wcześniej.
 
-## **Praktyczne rozważania**
+## **Praktyczne uwagi**
 
 ### **Mastery, układy i wierność formatowania**
 
-Domyślne klonowanie slajdów może automatycznie przenieść wymagany master źródłowy do prezentacji docelowej. Aspose.Slides prowadzi wewnętrzny rejestr automatycznie sklonowanych masterów, aby uniknąć wielokrotnego klonowania tego samego mastera. Ręcznie sklonowane mastery nie są śledzone przez ten rejestr, więc unikaj wstępnego klonowania masterów, chyba że potrzebujesz explicitnej kontroli nad strukturą mastera.
+Domyślne klonowanie slajdów może automatycznie przenieść wymagany master źródłowy do prezentacji docelowej. Aspose.Slides utrzymuje wewnętrzny rejestr automatycznie sklonowanych masterów, aby uniknąć wielokrotnego klonowania tego samego mastera. Mastery sklonowane ręcznie nie są rejestrowane, więc unikaj wstępnego klonowania masterów, chyba że potrzebna jest pełna kontrola nad strukturą mastera.
 
-Nie zakładaj, że dwa mastery lub układy o tej samej nazwie są wizualnie równoważne. Jeśli szablon korporacyjny ma kontrolować ostateczny wygląd, wybierz wyraźnie master lub układ docelowy i zweryfikuj wynik po scaleniu.
+Nie zakładaj, że dwa mastery lub układy o tej samej nazwie są wizualnie równoważne. Jeśli szablon korporacyjny musi kontrolować ostateczny wygląd, wybierz wyraźnie master lub układ docelowy i zweryfikuj rezultat po scaleniu.
 
 ### **Notatki i komentarze**
 
-Notatki prelegenta i komentarze slajdów są powiązane z treścią slajdu i są kopiowane przy klonowaniu slajdu. Aspose.Slides udostępnia również dedykowane API dla [presentation notes](https://docs.aspose.com/slides/pl/androidjava/presentation-notes/) i [presentation comments](https://docs.aspose.com/slides/pl/androidjava/presentation-comments/).
+Notatki prelegenta i komentarze slajdów są powiązane z treścią slajdu i kopiowane przy klonowaniu. Aspose.Slides udostępnia także dedykowane API dla [presentation notes](/slides/pl/androidjava/presentation-notes/) i [presentation comments](/slides/pl/androidjava/presentation-comments/).
 
-Jeśli formatowanie strony notatek jest istotne, sprawdź scaloną prezentację, ponieważ mastery notatek są obiektami na poziomie prezentacji i mogą różnić się między plikami źródłowymi. W procesach przeglądu, zweryfikuj także autorów komentarzy i wątki komentarzy po połączeniu plików od różnych autorów lub szablonów.
+Jeśli formatowanie strony notatek jest istotne, zweryfikuj scaloną prezentację, ponieważ mastery notatek są obiektami poziomu prezentacji i mogą się różnić pomiędzy plikami źródłowymi. W procesach przeglądu sprawdzaj także autorów komentarzy oraz wątki komentarzy po połączeniu plików od różnych autorów lub szablonów.
 
-### **Obrazy, audio, wideo, obiekty OLE i linki zewnętrzne**
+### **Obrazy, dźwięk, wideo, obiekty OLE i linki zewnętrzne**
 
-Slajdy mogą odwoływać się do zasobów na poziomie prezentacji, takich jak obrazy, osadzone audio, osadzone wideo i dane OLE. Klonuj cały slajd, a nie tylko widoczne kształty, aby Aspose.Slides mogło utrzymać powiązania slajdu z jego zasobami.
+Slajdy mogą odwoływać się do zasobów poziomu prezentacji, takich jak obrazy, osadzone dźwięki, wideo i dane OLE. Klonuj cały slajd, a nie tylko widoczne kształty, aby Aspose.Slides mógł zachować zależności slajdu do zasobów.
 
-Zasoby osadzone i powiązane należy traktować odrębnie. Powiązany audio, wideo, obiekt OLE lub hiperlink pozostaje zależny od zewnętrznego celu; klonowanie slajdu nie przekształca linku zewnętrznego w zawartość osadzoną. Testuj ścieżki zasobów powiązanych i adresy URL w środowisku, w którym otwierana będzie scalona prezentacja.
+Zasoby osadzone i linkowane należy traktować inaczej. Linkowany dźwięk, wideo, obiekt OLE lub hiperłącze pozostaje zależny od zewnętrznego docelowego pliku; klonowanie slajdu nie zamienia linku zewnętrznego w treść osadzoną. Testuj ścieżki i adresy URL zasobów linkowanych w środowisku, w którym otwierana będzie scalona prezentacja.
 
-Aspose.Slides wyraźnie śledzi automatycznie sklonowane mastery, ale nie należy tego traktować jako ogólnej gwarancji, że identyczne zasoby binarne z niepowiązanych prezentacji źródłowych zawsze będą deduplikowane. Jeśli rozmiar pliku wyjściowego jest istotny, sprawdź scalony pakiet i zmierz wynik zamiast polegać na domyślnej deduplikacji.
+Aspose.Slides śledzi automatycznie sklonowane mastery, ale nie należy tego traktować jako ogólnej gwarancji, że identyczne zasoby binarne z niepowiązanych prezentacji będą zawsze deduplikowane. Jeśli rozmiar pliku wyjściowego jest istotny, przeanalizuj pakiet wynikowy i zmierz rozmiar zamiast polegać na domyślnej deduplikacji.
 
 ### **Osadzone czcionki i ich dostępność**
 
-Czcionki są zarządzane na poziomie prezentacji. Jeśli typografia musi pozostać spójna na różnych maszynach, nie zakładaj, że samo klonowanie slajdów zapewnia dostępność każdej potrzebnej czcionki w środowisku docelowym. Możesz sprawdzić osadzone czcionki przy pomocy [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) i zarządzać osadzaniem explicite, jak opisano w [Embed Fonts in Presentations](https://docs.aspose.com/slides/pl/androidjava/embedded-font/).
+Czcionki zarządzane są na poziomie prezentacji. Jeśli typografia ma pozostać spójna na różnych maszynach, nie zakładaj, że samodzielne klonowanie slajdów zapewnia dostępność wszystkich wymaganych czcionek w środowisku docelowym. Możesz sprawdzić osadzone czcionki przy pomocy [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) i zarządzać osadzaniem tak, jak opisano w [Embed Fonts in Presentations](/slides/pl/androidjava/embedded-font/).
 
-Sprawdź również, czy masz prawo osadzać czcionki użyte w plikach źródłowych. Licencje czcionek mogą ograniczać osadzanie.
+Sprawdź także, czy masz prawo do osadzania czcionek użytych w plikach źródłowych. Licencje czcionek mogą ograniczać ich osadzanie.
 
-### **Prezentacje chronione hasłem**
+### **Prezentacje zabezpieczone hasłem**
 
-Źródło chronione hasłem musi zostać pomyślnie otwarte, zanim jego slajdy będą mogły zostać sklonowane. Podaj hasło za pomocą [LoadOptions.setPassword](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-).
+Źródło zabezpieczone hasłem musi zostać pomyślnie otwarte, zanim jego slajdy będą mogły zostać sklonowane. Hasło podaje się przez [LoadOptions.setPassword](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-).
 
 ```java
 import com.aspose.slides.*;
@@ -300,64 +300,64 @@ try {
 }
 ```
 
-Otworzenie zaszyfrowanego źródła nie nakłada automatycznie takiej samej ochrony na prezentację docelową. Skonfiguruj ochronę wyjściową oddzielnie, gdy jest to wymagane.
+Otworzenie zaszyfrowanego źródła nie powoduje automatycznego zastosowania tej samej ochrony do prezentacji docelowej. Ochronę wyjściową konfiguruje się oddzielnie, gdy jest wymagana.
 
 ### **Duże prezentacje i zużycie pamięci**
 
-Duże prezentacje zawierające obrazy wysokiej rozdzielczości, audio, wideo lub inne duże obiekty binarne mogą zużywać znaczną ilość pamięci. [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/loadoptions/#getBlobManagementOptions--) zapewnia kontrolę nad obsługą BLOB-ów i użyciem plików tymczasowych. Zobacz [Manage Presentation BLOBs](https://docs.aspose.com/slides/pl/androidjava/manage-blob/) po strategie dla dużych plików.
+Duże prezentacje zawierające obrazy wysokiej rozdzielczości, dźwięk, wideo lub inne duże obiekty binarne mogą znacząco obciążać pamięć. [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/loadoptions/#getBlobManagementOptions--) udostępnia kontrolę nad obsługą BLOB‑ów i użyciem plików tymczasowych. Zobacz [Manage Presentation BLOBs](/slides/pl/androidjava/manage-blob/) po strategie dla dużych plików.
 
-W przypadku dużych plików, w miarę możliwości wczytuj z ścieżek plików, zwalniaj każdą prezentację źródłową zaraz po jej scałowaniu i unikaj wielokrotnego zapisywania wyników pośrednich, chyba że przepływ wymaga punktów kontrolnych.
+W przypadku dużych plików w miarę możliwości ładuj je z ścieżek plików, zwalniaj każdą prezentację źródłową natychmiast po jej scalceniu i unikaj wielokrotnego zapisywania wyników pośrednich, chyba że przepływ wymaga punktów kontrolnych.
 
 ### **Bezpieczeństwo wątków**
 
-Nie wczytuj, nie modyfikuj, nie zapisuj ani nie klonuj tej samej instancji [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/) jednocześnie z wielu wątków. Trzymaj każdą instancję prezentacji ograniczoną do jednej operacji scalania. Jeśli równolegle przetwarzasz niezależne zadania, używaj niezależnych instancji prezentacji i stosuj się do [Aspose.Slides multithreading guidance](https://docs.aspose.com/slides/pl/androidjava/multithreading/).
+Nie ładuj, nie modyfikuj, nie zapisuj ani nie klonuj tej samej instancji [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/) jednocześnie z wielu wątków. Trzymaj każdą instancję prezentacji w obrębie jednej operacji scalania. Jeśli równolegle przetwarzasz niezależne zadania, używaj odrębnych instancji prezentacji i stosuj wytyczne [Aspose.Slides multithreading guidance](/slides/pl/androidjava/multithreading/).
 
 ## **FAQ**
 
 **Jak zachować oryginalny projekt każdej prezentacji źródłowej?**
 
-Użyj [`addClone(sourceSlide)`](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) bez podawania mastera lub układu docelowego. Aspose.Slides może automatycznie sklonować master źródłowy, gdy jest potrzebny dla zaimportowanego slajdu.
+Użyj [addClone](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) bez podawania mastera lub układu docelowego. Aspose.Slides może automatycznie sklonować master źródłowy, gdy jest wymagany przez importowany slajd.
 
-**Jak sprawić, aby zaimportowane slajdy korzystały z motywu docelowego?**
+**Jak sprawić, by importowane slajdy używały motywu docelowego?**
 
-Użyj przeciążenia, które przyjmuje master docelowy. Przekaż master z prezentacji docelowej, nie ze źródłowej. Aspose.Slides spróbuje dopasować każdy slajd źródłowy do odpowiedniego układu pod tym masterem.
+Użyj przeciążenia przyjmującego master docelowy. Przekaż master z prezentacji docelowej, a nie ze źródłowej. Aspose.Slides spróbuje dopasować każdy slajd źródłowy do odpowiedniego układu pod tym masterem.
 
-**Kiedy używać określonego układu docelowego zamiast mastera docelowego?**
+**Kiedy używać określonego układu docelowego zamiast mastera?**
 
-Użyj określonego układu, gdy każdy zaimportowany slajd ma korzystać z jednego znanego układu. Użyj mastera, gdy chcesz, aby Aspose.Slides wybrało spośród układów tego mastera na podstawie typu lub nazwy układu źródłowego.
+Użyj konkretnego układu, gdy każdy importowany slajd ma korzystać z jednego znanego układu. Użyj mastera, gdy chcesz, aby Aspose.Slides wybrał układ spośród dostępnych w tym masterze na podstawie typu lub nazwy układu źródłowego.
 
-**Czy prezentacje o różnych rozmiarach slajdów mogą być scalane?**
+**Czy można scalać prezentacje o różnych rozmiarach slajdów?**
 
-Tak, ale zawartość slajdu nie jest automatycznie przystosowywana do wymiarów docelowych. Zmniejsz rozmiar prezentacji źródłowej wcześniej, np. przy użyciu [SlideSize.setSize](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/slidesize/#setSize-float-float-int-) i [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/slidesizescaletype/).
+Tak, ale zawartość slajdu nie jest automatycznie przekształcana do nowych wymiarów. Najpierw zmień rozmiar prezentacji źródłowej, np. przy pomocy [SlideSize.setSize](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/slidesize/#setSize-float-float-int-) i [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/slidesizescaletype/).
 
-**Czy mogę scalić prezentacje PPT, PPTX i ODP w jeden plik?**
+**Czy mogę scalać pliki PPT, PPTX i ODP w jeden plik?**
 
-Tak. Wczytaj każdą prezentację źródłową, sklonuj wymagane slajdy do jednej prezentacji docelowej i zapisz ją w obsługiwanym formacie wyjściowym. Ponieważ formaty prezentacji nie wspierają dokładnie tego samego zestawu funkcji, zweryfikuj złożoną zawartość po scałowaniu między formatami. Zobacz [Supported File Formats](https://docs.aspose.com/slides/pl/androidjava/supported-file-formats/).
+Tak. Załaduj każdą prezentację źródłową, sklonuj wymagane slajdy do jednej prezentacji docelowej i zapisz ją w obsługiwanym formacie wyjściowym. Ponieważ formaty prezentacji nie obsługują dokładnie tego samego zestawu funkcji, po połączeniach między formatami sprawdź złożoną treść. Zobacz [Supported File Formats](/slides/pl/androidjava/supported-file-formats/).
 
 **Czy sekcje źródłowe są zachowywane automatycznie?**
 
-Nie w podstawowej pętli, która tylko klonuje slajdy. Utwórz wymagane sekcje w prezentacji docelowej i użyj przeciążenia sekcji [addClone](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-).
+Nie, w podstawowej pętli klonującej tylko slajdy. Aby zachować struktury sekcji, odtwórz wymagane sekcje w prezentacji docelowej i użyj przeciążenia sekcji [addClone](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-), gdy struktura sekcji musi być utrzymana.
 
 **Czy notatki prelegenta i komentarze są zachowywane?**
 
-Są kopiowane wraz ze sklonowanym slajdem. Dla przepływów zależnych od stylu mastera notatek, autorów komentarzy lub wątków przeglądu, zweryfikuj scałowany wynik, ponieważ te scenariusze obejmują struktury na poziomie prezentacji oraz treść slajdu.
+Są kopiowane wraz ze sklonowanym slajdem. W przepływach zależnych od stylizacji mastera notatek, autorów komentarzy lub wątków przeglądowych zweryfikuj wynik, ponieważ scenariusze te obejmują struktury poziomu prezentacji oraz treść slajdu.
 
-**Co się dzieje z audio, wideo, obiektami OLE i hiperłączami?**
+**Co się dzieje z dźwiękiem, wideo, obiektami OLE i hyperlinkami?**
 
-Osadzona zawartość jest przenoszona jako część relacji zasobów sklonowanego slajdu. Linki zewnętrzne pozostają zewnętrzne, więc ich docelowe pliki lub adresy URL muszą być nadal dostępne po scaleniu.
+Zawartość osadzona jest przenoszona jako część relacji zasobów sklonowanego slajdu. Linki zewnętrzne pozostają zewnętrzne, więc ich docelowe pliki lub adresy URL muszą być nadal dostępne po scaleniu.
 
-**Czy osadzone czcionki z każdego źródła są zagwarantowane w scalonej prezentacji?**
+**Czy osadzone czcionki ze wszystkich źródeł są gwarantowane w scalonej prezentacji?**
 
-Nie polegaj wyłącznie na klonowaniu slajdów w celu wdrożenia czcionek. Sprawdź osadzone czcionki w docelowej prezentacji i zarządzaj ich osadzaniem lub dostępnością zewnętrzną, gdy typografia jest ważna.
+Nie polegaj wyłącznie na klonowaniu slajdów w celu wdrożenia czcionek. Sprawdź osadzone czcionki w docelowej prezentacji i zarządzaj ich osadzaniem lub dostępnością zewnętrzną, gdy typografia jest istotna.
 
-**Jak scalić plik chroniony hasłem?**
+**Jak scalać plik zabezpieczony hasłem?**
 
-Otwórz go przy pomocy właściwego [LoadOptions.setPassword](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-), a następnie normalnie klonuj jego slajdy. Ochrona wyjściowa jest konfigurowana oddzielnie.
+Otwórz go przy użyciu odpowiedniego [LoadOptions.setPassword](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-), a następnie normalnie klonuj jego slajdy. Ochronę wyjściową konfiguruje się osobno.
 
-**Jak postępować z bardzo dużymi prezentacjami?**
+**Jak radzić sobie z bardzo dużymi prezentacjami?**
 
-Używaj zarządzania BLOB-ami, gdy duże obiekty binarne dominują zużycie pamięci, preferuj wczytywanie z ścieżek plików dla bardzo dużych plików, szybko zwalniaj prezentacje źródłowe i zapisuj ostateczny wynik tylko wtedy, gdy jest to potrzebne.
+Używaj zarządzania BLOB‑ami, gdy duże obiekty binarne dominują zużycie pamięci, preferuj ładowanie z ścieżek plików dla bardzo dużych plików, szybko zwalniaj prezentacje źródłowe i zapisuj wynik końcowy dopiero wtedy, gdy jest to konieczne.
 
-**Czy mogę scalić slajdy z wielu wątków?**
+**Czy mogę scalać slajdy z wielu wątków?**
 
-Nie używaj jednej instancji [Presentation] jednocześnie w wielu wątkach. Trzymaj każdą operację scalania w odrębnych instancjach prezentacji.
+Nie używaj tej samej instancji [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/) jednocześnie w wielu wątkach. Każdą operację scalania izoluj w oddzielnych instancjach prezentacji.

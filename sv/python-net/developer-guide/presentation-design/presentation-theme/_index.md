@@ -12,8 +12,8 @@ keywords:
 - ändra tema
 - hantera tema
 - temafärg
-- extra palett
-- tematypsnitt
+- tilläggspalett
+- temateckensnitt
 - temastil
 - temaeffekt
 - PowerPoint
@@ -21,23 +21,23 @@ keywords:
 - presentation
 - Python
 - Aspose.Slides
-description: "Behandla presentations-teman i Aspose.Slides för Python via .NET för att skapa, anpassa och konvertera PowerPoint-filer med enhetlig varumärkesprofil."
+description: "Behärska presentationsteman i Aspose.Slides för Python via .NET för att skapa, anpassa och konvertera PowerPoint-filer med enhetlig varumärkesprofil."
 ---
-## **Introduktion**
+## **Introduction**
 
-Ett presentationstema definierar en samordnad uppsättning färger, typsnitt, bakgrundsstilar, fyllningar, linjer och effekter. Temamedvetna objekt hänvisar till dessa delade definitioner istället för att lagra varje visuell egenskap som ett fast värde, så att en temaförändring kan uppdatera många objekt samtidigt.
+Ett presentations-tema definierar en samordnad uppsättning färger, teckensnitt, bakgrundsstilar, fyllningar, linjer och effekter. Tema‑medvetna objekt refererar till dessa delade definitioner istället för att lagra varje visuellt attribut som ett fast värde, så en temaförändring kan uppdatera många objekt på en gång.
 
-I Aspose.Slides är temat på presentationsnivå tillgängligt via [Presentation.master_theme](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/master_theme/). En presentation kan också innehålla temaarvoden på lägre nivåer. En master kan överskrida presentationstemat via [MasterThemeManager.override_theme](https://reference.aspose.com/slides/sv/python-net/aspose.slides.theme/masterthememanager/override_theme/), en layout kan överskrida sitt ärvda tema via [BaseOverrideThemeManager.override_theme](https://reference.aspose.com/slides/sv/python-net/aspose.slides.theme/baseoverridethememanager/override_theme/), och en enskild bild kan göra detsamma. I praktiken löses det effektiva temat för en bild genom denna arvskedja: presentationstema, master‑överskott, layout‑överskott och bild‑överskott.
+I Aspose.Slides finns presentationens tema tillgängligt via egenskapen [Presentation.master_theme](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/master_theme/). En presentation kan också innehålla temaundantag på lägre nivåer. En master kan åsidosätta presentations‑temat via [MasterThemeManager.override_theme](https://reference.aspose.com/slides/sv/python-net/aspose.slides.theme/masterthememanager/override_theme/), en layout kan åsidosätta sitt ärvda tema via [BaseOverrideThemeManager.override_theme](https://reference.aspose.com/slides/sv/python-net/aspose.slides.theme/baseoverridethememanager/override_theme/), och en enskild bild kan göra detsamma. I praktiken löses det effektiva temat för en bild genom denna arvskedja: presentationstema, master‑åsidosättning, layout‑åsidosättning och bild‑åsidosättning.
 
-![Temakomponenter: färger, typsnitt, bakgrundsstilar och effekter](theme-constituents.png)
+![Theme components: colors, fonts, background styles, and effects](theme-constituents.png)
 
-Avsnitten nedan visar de vanligaste temaarbetssätten: inspektera ett tema, ändra färger och typsnitt, kopiera eller tillämpa ett tema, uppdatera bakgrunds‑ och effektstilar samt läsa av effektiva värden efter att arv och överskott har lösts.
+Avsnitten nedan visar de vanligaste temaarbetssätten: inspektera ett tema, ändra färger och teckensnitt, kopiera eller tillämpa ett tema, uppdatera bakgrunds‑ och effekstilar samt läsa effektiva värden efter att arv och åsidosättningar har lösts.
 
-## **Inspektera ett tema**
+## **Inspect a Theme**
 
-Objektet [MasterTheme](https://reference.aspose.com/slides/sv/python-net/aspose.slides.theme/mastertheme/) exponerar temats [color_scheme](https://reference.aspose.com/slides/sv/python-net/aspose.slides.theme/mastertheme/color_scheme/), [font_scheme](https://reference.aspose.com/slides/sv/python-net/aspose.slides.theme/mastertheme/font_scheme/) och [format_scheme](https://reference.aspose.com/slides/sv/python-net/aspose.slides.theme/mastertheme/format_scheme/) egenskaper. Att inspektera dessa samlingar innan de ändras är särskilt användbart när en presentation kommer från en extern källa eftersom antalet och innehållet i stilposterna kan variera.
+Objektet [MasterTheme](https://reference.aspose.com/slides/sv/python-net/aspose.slides.theme/mastertheme/) exponerar temats [color_scheme](https://reference.aspose.com/slides/sv/python-net/aspose.slides.theme/mastertheme/color_scheme/), [font_scheme](https://reference.aspose.com/slides/sv/python-net/aspose.slides.theme/mastertheme/font_scheme/) och [format_scheme](https://reference.aspose.com/slides/sv/python-net/aspose.slides.theme/mastertheme/format_scheme/) egenskaper. Att inspektera dessa samlingar innan de ändras är särskilt användbart när en presentation kommer från en extern källa, eftersom antalet och innehållet i stilposter kan variera.
 
-Följande exempel läser huvudtemats egenskaper och rapporterar hur många bakgrunds‑, fyllnings‑, linje‑ och effekstilar som lagras i temat:
+Följande exempel läser huvudtema‑egenskaperna och rapporterar hur många bakgrunds‑, fyllnings‑, linje‑ och effekstilar som lagras i temat:
 
 ```python
 import aspose.slides as slides
@@ -54,11 +54,11 @@ with slides.Presentation("input.pptx") as presentation:
     print(f"Effect styles: {len(theme.format_scheme.effect_styles)}")
 ```
 
-Om en fil använder flera masters, anta inte att varje bild har samma effektiva tema. Inspektera den master som är kopplad till bilden, och använd arbetsflödet för effektiva teman som visas senare i den här artikeln när layout‑ eller bild‑överskott kan finnas.
+Om en fil använder flera masters, anta inte att varje bild har samma effektiva tema. Inspektera den master som är associerad med bilden och använd arbetsflödet för effektiva teman som visas senare i den här artikeln när layout‑ eller bild‑åsidosättningar kan finnas.
 
-## **Ändra temafärger**
+## **Change Theme Colors**
 
-Temamedvetna fyllningar, linjer och texter kan referera till en logisk färg från uppräkningen [SchemeColor](https://reference.aspose.com/slides/sv/python-net/aspose.slides/schemecolor/). När du ändrar motsvarande post i temats [ColorScheme](https://reference.aspose.com/slides/sv/python-net/aspose.slides.theme/colorscheme/), lösts alla objekt som fortfarande refererar till den temafärgen mot det nya värdet. Objekt som använder en direkt RGB‑färg ändras inte av en temafärgsuppdatering.
+Tema‑medvetna fyllningar, linjer och text kan referera till en logisk färg från uppräkningen [SchemeColor](https://reference.aspose.com/slides/sv/python-net/aspose.slides/schemecolor/). När du ändrar motsvarande post i temats [ColorScheme](https://reference.aspose.com/slides/sv/python-net/aspose.slides.theme/colorscheme/), löses alla objekt som fortfarande refererar till den temafärgen mot det nya värdet. Objekt som använder en direkt RGB‑färg ändras inte av en temafärgsuppdatering.
 
 Följande end‑to‑end‑exempel skapar en form som använder `ACCENT4`, ändrar temats `accent4`‑färg till röd, sparar presentationen, öppnar den igen och skriver ut den effektiva fyllningsfärgen:
 
@@ -81,17 +81,17 @@ with slides.Presentation("theme-color.pptx") as saved_presentation:
     print(f"Effective fill color: {effective_fill.solid_fill_color}")
 ```
 
-Eftersom rektangeln fortfarande är länkad till `ACCENT4` blir dess synliga färg röd efter att temat har ändrats. Om du ersätter schemafärgen med en direkt färg på formen kommer senare förändringar av `accent4` inte längre påverka den fyllningen.
+Eftersom rektangeln fortfarande är länkad till `ACCENT4` blir dess synliga färg röd efter att temat har ändrats. Om du ersätter schemafärgen med en direkt färg på formen, kommer senare ändringar av `accent4` inte längre att påverka den fyllningen.
 
-### **Använd färger från den extra paletten**
+### **Use Colors from the Additional Palette**
 
-PowerPoint härleder ljusare och mörkare varianter från en temafärg genom att applicera färgtransformeringar. Aspose.Slides exponerar dessa transformeringar via uppräkningen [ColorTransformOperation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/colortransformoperation/).
+PowerPoint härleder ljusare och mörkare varianter från en temafärg genom att tillämpa färgtransformeringar. Aspose.Slides exponerar dessa transformeringar via uppräkningen [ColorTransformOperation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/colortransformoperation/).
 
-![Huvudtemafärger och ljusare samt mörkare färger genererade från den extra paletten](additional-palette-colors.png)
+![Main theme colors and lighter and darker colors generated from the additional palette](additional-palette-colors.png)
 
-**1** – Huvudtemafärger.
+**1** - Huvudtemafärger.
 
-**2** – Ljusare och mörkare varianter framtagna från huvudtemafärgerna.
+**2** - Ljusare och mörkare varianter genererade från huvudtemafärgerna.
 
 Följande exempel skapar sex rektanglar baserade på `ACCENT4`, applicerar luminans‑transformeringar på fem av dem och sparar resultatet:
 
@@ -129,9 +129,9 @@ with slides.Presentation() as presentation:
     presentation.save("theme-color-palette.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Dessa varianter förblir baserade på temafärgen. Om `accent4` ändras senare beräknas de transformerade färgerna om från det nya `accent4`‑värdet.
+Dessa varianter förblir baserade på temafärgen. Om `accent4` ändras senare, räknas de transformerade färgerna om från det nya `accent4`‑värdet.
 
-### **Mappa `SchemeColor`‑värden till `ColorScheme`‑platser**
+### **Map `SchemeColor` Values to `ColorScheme` Slots**
 
 Uppräkningen [SchemeColor](https://reference.aspose.com/slides/sv/python-net/aspose.slides/schemecolor/) använder `TEXT1`, `BACKGROUND1`, `TEXT2` och `BACKGROUND2`, medan [ColorScheme](https://reference.aspose.com/slides/sv/python-net/aspose.slides.theme/colorscheme/) exponerar samma temaplatser som `dark1`, `light1`, `dark2` och `light2`. Mappningen är fast:
 
@@ -142,18 +142,18 @@ Uppräkningen [SchemeColor](https://reference.aspose.com/slides/sv/python-net/as
 
 Detta är alternativa namn för samma temaplatser; de är inte värden som dynamiskt konverteras från en form till en annan.
 
-## **Ändra tematypsnitt**
+## **Change Theme Fonts**
 
-Ett tematypsnittsschema innehåller en huvudtypsnittssamling för rubriker och en sekundär typsnittssamling för brödtext. Egenskaperna [FontScheme.major](https://reference.aspose.com/slides/sv/python-net/aspose.slides.theme/fontscheme/major/) och [FontScheme.minor](https://reference.aspose.com/slides/sv/python-net/aspose.slides.theme/fontscheme/minor/) exponerar dessa samlingar.
+Ett temats teckensnittsschema innehåller en huvudteckensnittssamling för rubriker och en sekundär teckensnittssamling för brödtext. Egenskaperna [FontScheme.major](https://reference.aspose.com/slides/sv/python-net/aspose.slides.theme/fontscheme/major/) och [FontScheme.minor](https://reference.aspose.com/slides/sv/python-net/aspose.slides.theme/fontscheme/minor/) exponerar dessa samlingar.
 
-PowerPoint‑kompatibla tematypsnittsidenterare kan användas i textformatering:
+PowerPoint‑kompatibla temateckensnittsidenterare kan användas i textformatering:
 
 * `+mn-lt` – Brödtext Latin (Minor Latin Font)
-* `+mj-lt` – Rubrikfont Latin (Major Latin Font)
+* `+mj-lt` – Rubriktext Latin (Major Latin Font)
 * `+mn-ea` – Brödtext Östasien (Minor East Asian Font)
-* `+mj-ea` – Rubrikfont Östasien (Major East Asian Font)
+* `+mj-ea` – Rubriktext Östasien (Major East Asian Font)
 
-Följande exempel skapar en rubrik som använder det stora latinska tematypsnittet och en brödtextlinje som använder det lilla latinska tematypsnittet. Därefter ändras tematypsnitten och resultatet sparas:
+Följande exempel skapar en rubrik som använder det stora Latin‑temateckensnittet och en brödtextlinje som använder det lilla Latin‑temateckensnittet. Därefter ändras temateckensnitten och resultatet sparas:
 
 ```python
 import aspose.slides as slides
@@ -171,21 +171,21 @@ with slides.Presentation() as presentation:
     presentation.save("theme-fonts.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Rubriken följer det stora typsnittet och brödtexten följer det lilla typsnittet. Text som har ett explicit typsnittnamn istället för en temaidentifierare byter inte automatiskt när tematypsnittsschemat ändras.
+Rubriken följer det stora teckensnittet och brödtexten följer det lilla teckensnittet. Text som har ett explicit teckensnittnamn istället för en temaidentifierare kommer inte automatiskt att bytas när temateckensnittsschemat ändras.
 
-{{% alert color="info" title="Tips" %}}
+De stora och små teckensnittssamlingarna kan också innehålla teckensnittsmappningar för enskilda skriftsystem, såsom kyrilliska, arabiska, japanska, georgiska och thaana. För att inspektera, lägga till, ersätta eller ta bort dessa mappningar, se [Script‑Specific Theme Fonts](/slides/sv/python-net/script-specific-font-mappings/).
 
-För mer information om presentations­typsnitt, se [PowerPoint Fonts](/slides/sv/python-net/powerpoint-fonts/).
-
+{{% alert color="info" title="Tip" %}}
+För mer information om presentations‑teckensnitt, se [PowerPoint Fonts](/slides/sv/python-net/powerpoint-fonts/).
 {{% /alert %}}
 
-## **Kopiera eller tillämpa ett tema**
+## **Copy or Apply a Theme**
 
 Det finns två vanliga arbetsflöden, och de löser olika problem.
 
-### **Bevara ett källtema när du flyttar bilder**
+### **Preserve a Source Theme When Moving Slides**
 
-Om du vill flytta en bild till en annan presentation och bevara dess ursprungliga design, klona käll‑mastern in i mål‑presentationen med [MasterSlideCollection.add_clone](https://reference.aspose.com/slides/sv/python-net/aspose.slides/masterslidecollection/add_clone/), klona sedan bilden med [SlideCollection.add_clone](https://reference.aspose.com/slides/sv/python-net/aspose.slides/slidecollection/add_clone/) och den klonade mastern. Detta bär med sig mastern, dess layouter och det associerade temat tillsammans.
+Om du vill flytta en bild till en annan presentation och bevara dess ursprungliga design, klona käll‑mastern till mål‑presentationen med [MasterSlideCollection.add_clone](https://reference.aspose.com/slides/sv/python-net/aspose.slides/masterslidecollection/add_clone/), klona sedan bilden med [SlideCollection.add_clone](https://reference.aspose.com/slides/sv/python-net/aspose.slides/slidecollection/add_clone/) och den klonade mastern. Detta tar med mastern, dess layouter och det associerade temat.
 
 ```python
 import aspose.slides as slides
@@ -199,11 +199,11 @@ with slides.Presentation("source-theme.pptx") as source:
         target.save("theme-preserved.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Detta är det föredragna arbetsflödet när källbilden måste se likadan ut i destinationen. Att bara klona innehåll till en orelaterad mål‑master kan förändra temadrivna färger, typsnitt, bakgrunder och effekter.
+Detta är det föredragna arbetsflödet när käll‑bilden måste se likadan ut i målet. Att bara klona innehåll på en orelaterad måldestination‑master kan ändra färger, teckensnitt, bakgrunder och effekter som drivs av temat.
 
-### **Tillämpa temavärden på en befintlig bild**
+### **Apply Theme Values to an Existing Slide**
 
-Om mål‑bilden måste behålla sin nuvarande master och layout, initiera ett bild‑nivå‑överskott från källtemat. Metoderna [OverrideTheme.init_color_scheme_from](https://reference.aspose.com/slides/sv/python-net/aspose.slides.theme/overridetheme/init_color_scheme_from/), [OverrideTheme.init_font_scheme_from](https://reference.aspose.com/slides/sv/python-net/aspose.slides.theme/overridetheme/init_font_scheme_from/) och [OverrideTheme.init_format_scheme_from](https://reference.aspose.com/slides/sv/python-net/aspose.slides.theme/overridetheme/init_format_scheme_from/) kopierar de tre huvudtema‑komponenterna till överskottet.
+Om mål‑bilden måste stanna kvar på sin nuvarande master och layout, initiera en bild‑nivå‑åsidosättning från käll‑temat. Metoderna [OverrideTheme.init_color_scheme_from](https://reference.aspose.com/slides/sv/python-net/aspose.slides.theme/overridetheme/init_color_scheme_from/), [OverrideTheme.init_font_scheme_from](https://reference.aspose.com/slides/sv/python-net/aspose.slides.theme/overridetheme/init_font_scheme_from/) och [OverrideTheme.init_format_scheme_from](https://reference.aspose.com/slides/sv/python-net/aspose.slides.theme/overridetheme/init_format_scheme_from/) kopierar de tre huvudtema‑komponenterna till åsidosättningen.
 
 ```python
 import aspose.slides as slides
@@ -218,11 +218,11 @@ with slides.Presentation("source-theme.pptx") as source:
         target.save("theme-applied-to-slide.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Detta ändrar temat som används av den bilden utan att ändra temat som ärvt av andra bilder. För att ta bort det lokala överskottet och återgå till ärvda värden, anropa [OverrideTheme.clear](https://reference.aspose.com/slides/sv/python-net/aspose.slides.theme/overridetheme/clear/).
+Detta förändrar temat som används av den bilden utan att förändra temat som ärvt av andra bilder. För att ta bort den lokala åsidosättningen och återgå till ärvda värden, anropa [OverrideTheme.clear](https://reference.aspose.com/slides/sv/python-net/aspose.slides.theme/overridetheme/clear/).
 
-### **Tillämpa ett tema‑överskott på en layout**
+### **Apply a Theme Override to a Layout**
 
-Ett layout‑nivå‑överskott gäller för bilder som använder den layouten, såvida inte en viss bild har ett eget överskott. Samma initieringsmetoder kan användas via layoutens [LayoutSlideThemeManager](https://reference.aspose.com/slides/sv/python-net/aspose.slides.theme/layoutslidethememanager/):
+En layout‑nivå‑åsidosättning gäller för bilder som använder den layouten, såvida inte en specifik bild har en egen åsidosättning. Samma initialiseringsmetoder kan användas via layoutens [LayoutSlideThemeManager](https://reference.aspose.com/slides/sv/python-net/aspose.slides.theme/layoutslidethememanager/):
 
 ```python
 import aspose.slides as slides
@@ -237,17 +237,17 @@ with slides.Presentation("source-theme.pptx") as source:
         target.save("theme-applied-to-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Använd ett master‑ eller presentations‑tema när många layouter och bilder ska dela samma basdesign, ett layout‑överskott när en layoutfamilj behöver annan styling, och ett bild‑överskott endast för egentliga undantag. Överdrivna bild‑nivå‑överskott gör senare globala temaförändringar svårare att förutsäga.
+Använd ett master‑ eller presentations‑tema när många layouter och bilder ska dela samma basdesign, en layout‑åsidosättning när en layoutfamilj behöver annan styling, och en bild‑åsidosättning endast för verkliga undantag. Överdrivna bild‑nivå‑åsidosättningar gör senare globala temaförändringar svårare att förutsäga.
 
-## **Uppdatera temats bakgrundsstilar**
+## **Update Theme Background Styles**
 
-Temats bakgrundsfyllningar lagras i [FormatScheme.background_fill_styles](https://reference.aspose.com/slides/sv/python-net/aspose.slides.theme/formatscheme/background_fill_styles/). PowerPoint kan visa fler bakgrundsalternativ i sitt gränssnitt än antalet fyllningsdefinitioner som fysiskt lagras i denna samling, eftersom UI kan kombinera temafyllningar med temafärger och andra stilreferenser.
+Temats bakgrundsfyllningar lagras i [FormatScheme.background_fill_styles](https://reference.aspose.com/slides/sv/python-net/aspose.slides.theme/formatscheme/background_fill_styles/). PowerPoint kan presentera fler bakgrundsalternativ i sitt UI än antalet fyllningsdefinitioner som fysiskt lagras i denna samling, eftersom UI kan kombinera temafyllningar med temafärger och andra stilreferenser.
 
-![PowerPoint‑bakgrundsstilsgalleri för ett presentationstema](presentation-design_8.png)
+![PowerPoint background style gallery for a presentation theme](presentation-design_8.png)
 
-Innan du använder en bakgrundsstil, inspektera den lagrade samlingen och det aktuella [Background.style_index](https://reference.aspose.com/slides/sv/python-net/aspose.slides/background/style_index/). `style_index` använder `0` för ingen temafyllning; positiva värden är referenser till temats bakgrundsstil. Detta skiljer sig från indexering av en Python‑samling där `[0]` betyder den första lagrade posten. Anta inte att varje presentation innehåller samma antal bakgrundsfyllningsstilar.
+Innan du använder en bakgrundsstil, inspektera den lagrade samlingen och den aktuella [Background.style_index](https://reference.aspose.com/slides/sv/python-net/aspose.slides/background/style_index/). `style_index` använder `0` för ingen temafyllning; positiva värden är temabas‑stilreferenser. Detta skiljer sig från att indexera en Python‑samling direkt, där `[0]` betyder det första lagrade elementet. Anta inte att varje presentation innehåller samma antal bakgrundsfyllningsstilar.
 
-Följande exempel rapporterar antalet tillgängliga bakgrundsfyllningar, tilldelar en temabakgrundsreferens till den första mastern och sparar presentationen:
+Följande exempel rapporterar antalet tillgängliga bakgrundsfyllningar, tilldelar en temabas‑referens till den första mastern och sparar presentationen:
 
 ```python
 import aspose.slides as slides
@@ -263,27 +263,23 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("theme-background.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Det synliga resultatet beror på temaposteringen som mastern refererar till och på eventuella bakgrundsöverskott på layout‑ eller bildnivå. Om en bild använder sin egen bakgrund kan en ändring av enbart master‑bakgrunden ha ingen effekt på den bilden. Använd [Background.get_effective](https://reference.aspose.com/slides/sv/python-net/aspose.slides/background/get_effective/) när du behöver veta den slutgiltiga bakgrunden efter arv.
+Det synliga resultatet beror på temaposten som refereras av mastern och på eventuella bakgrundsåsidosättningar på layout‑ eller bildnivå. Om en bild använder sin egen bakgrund, kan en förändring av enbart master‑bakgrunden lämna den bilden oförändrad. Använd [Background.get_effective](https://reference.aspose.com/slides/sv/python-net/aspose.slides/background/get_effective/) när du behöver veta den slutliga bakgrunden efter att arv har tillämpats.
 
-{{% alert color="warning" title="Varning" %}}
-
+{{% alert color="warning" title="Warning" %}}
 Behandla inte `style_index` som ett nollbaserat samlingsindex. Undvik också att hårdkoda ett stilnummer från en fil och anta att det har samma utseende i en annan fil; temastildefinitioner är presentationsspecifika.
-
 {{% /alert %}}
 
-{{% alert color="info" title="Tips" %}}
-
+{{% alert color="info" title="Tip" %}}
 För direkt bakgrundsformatering och bakgrundsarv, se [Presentation Background](/slides/sv/python-net/presentation-background/).
-
 {{% /alert %}}
 
-## **Uppdatera temats effekter**
+## **Update Theme Effects**
 
-Ett temaformatschema innehåller separata samlingar för [FormatScheme.fill_styles](https://reference.aspose.com/slides/sv/python-net/aspose.slides.theme/formatscheme/fill_styles/), [FormatScheme.line_styles](https://reference.aspose.com/slides/sv/python-net/aspose.slides.theme/formatscheme/line_styles/) och [FormatScheme.effect_styles](https://reference.aspose.com/slides/sv/python-net/aspose.slides.theme/formatscheme/effect_styles/). Vanliga Office‑teman innehåller ofta tre huvudsakliga stilposter som visuellt motsvarar subtil, måttlig och intensiv formatering, men koden bör inspektera varje samling istället för att anta ett fast antal.
+Ett temats format‑schema innehåller separata samlingar för [FormatScheme.fill_styles](https://reference.aspose.com/slides/sv/python-net/aspose.slides.theme/formatscheme/fill_styles/), [FormatScheme.line_styles](https://reference.aspose.com/slides/sv/python-net/aspose.slides.theme/formatscheme/line_styles/) och [FormatScheme.effect_styles](https://reference.aspose.com/slides/sv/python-net/aspose.slides.theme/formatscheme/effect_styles/). Vanliga Office‑teman innehåller ofta tre huvudsakliga stilposter som visuellt motsvarar subtil, måttlig och intensiv formatering, men koden bör inspektera varje samling istället för att anta ett fast antal.
 
-![Subtila, måttliga och intensiva temaeffekter som tillämpas på samma form](presentation-design_10.png)
+![Subtle, moderate, and intense theme effects applied to the same shape](presentation-design_10.png)
 
-När du får åtkomst till dessa samlingar i Python är samlingsindexen nollbaserade: `[0]` är den första lagrade stilen och `[2]` är den tredje. En forms stilreferens‑index är ett separat koncept, exponerat via [IShapeStyle](https://reference.aspose.com/slides/sv/python-net/aspose.slides/ishapestyle/). Att modifiera en temastil påverkar former som refererar till den temastilen; former med direkt formatering kan förbli oförändrade.
+När du får åtkomst till dessa samlingar i Python är samlingsindexet nollbaserat: `[0]` är den första lagrade stilen och `[2]` är den tredje. En forms stil‑referensindex är ett separat koncept, exponerat via [IShapeStyle](https://reference.aspose.com/slides/sv/python-net/aspose.slides/ishapestyle/). Att modifiera en temastil påverkar former som refererar den temastilen; former med direkt formatering kan förbli oförändrade.
 
 Följande exempel kontrollerar att de nödvändiga stilposterna finns, ändrar den första linjestilen, ändrar den tredje fyllningsstilen, aktiverar en yttre skugga i den tredje effektstilen och sparar resultatet:
 
@@ -304,13 +300,13 @@ with slides.Presentation("Subtle_Moderate_Intense.pptx") as presentation:
     presentation.save("theme-effects.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-För former som refererar till dessa platser blir den första temalinjestilen röd, den tredje temafyllningsstilen blir solid skoggrön, och den tredje effektstilen får en yttre skugga med avstånd 10 punkter. Det exakt visuella resultatet beror fortfarande på vilka stilplatser varje form refererar till och om direkt formatering åsidosätter temat.
+För former som refererar dessa platser blir den första temalinjestilen röd, den tredje temafyllningsstilen blir solid skoggrön, och den tredje effektstilen får en yttre skugga med ett avstånd på 10 punkter. Det exakta visuella resultatet beror fortfarande på vilka stilplatser varje form refererar och om direkt formatering åsidosätter temat.
 
-![Temaeffektstilar efter ändring av linje, fyllning och skugga](presentation-design_11.png)
+![Theme effect styles after changing line, fill, and shadow settings](presentation-design_11.png)
 
-## **Läs av effektiva temavärden**
+## **Read Effective Theme Values**
 
-Råa temaobjekt visar vad som är definierat på en viss nivå. Effektiva värden visar vad en bild eller form faktiskt använder efter att arv och lokala överskott har lösts. För en bild, anropa [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/sv/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/). För en bakgrund, använd [Background.get_effective](https://reference.aspose.com/slides/sv/python-net/aspose.slides/background/get_effective/), och för en fyllning, använd [FillFormat.get_effective](https://reference.aspose.com/slides/sv/python-net/aspose.slides/fillformat/get_effective/).
+Råa temaobjekt berättar vad som är definierat på en viss nivå. Effektiva värden visar vad en bild eller form faktiskt använder efter att arv och lokala åsidosättningar har lösts. För en bild, anropa [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/sv/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/). För en bakgrund, använd [Background.get_effective](https://reference.aspose.com/slides/sv/python-net/aspose.slides/background/get_effective/), och för en fyllning, använd [FillFormat.get_effective](https://reference.aspose.com/slides/sv/python-net/aspose.slides/fillformat/get_effective/).
 
 Följande exempel läser det effektiva temat, bakgrunden och den första formens fyllning från en bild:
 
@@ -331,18 +327,18 @@ with slides.Presentation("input.pptx") as presentation:
             print(f"First shape effective fill color: {effective_fill.solid_fill_color}")
 ```
 
-Använd effektiva data för diagnostik, validering och jämförelser. Om du bara inspekterar [Presentation.master_theme](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/master_theme/), kan du missa ett master‑, layout‑, bild‑ eller form‑överskott som förändrar det slutgiltiga utseendet.
+Använd effektiva data för renderingsdiagnostik, validering och jämförelser. Om du bara inspekterar [Presentation.master_theme](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/master_theme/), kan du missa en master‑, layout‑, bild‑ eller form‑åsidosättning som förändrar det slutliga utseendet.
 
 ## **FAQ**
 
-**Kan jag tillämpa ett tema på en enskild bild utan att ändra mastern?**
+**Can I apply a theme to a single slide without changing the master?**
 
-Ja. Använd bildens [SlideThemeManager](https://reference.aspose.com/slides/sv/python-net/aspose.slides.theme/slidethememanager/) och initiera dess överskottstema. Ändringen förblir lokal för den bilden; andra bilder fortsätter att ärva sina befintliga teman.
+Ja. Använd bildens [SlideThemeManager](https://reference.aspose.com/slides/sv/python-net/aspose.slides.theme/slidethememanager/) och initiera dess åsidosättningstema. Ändringen förblir lokal för den bilden; andra bilder fortsätter att ärva sina befintliga teman.
 
-**Vad är det säkraste sättet att föra ett tema från en presentation till en annan?**
+**What is the safest way to carry a theme from one presentation to another?**
 
 När du flyttar en bild och bevarar dess ursprungliga utseende, klona käll‑mastern till destinationen och klona bilden med den mastern med [MasterSlideCollection.add_clone](https://reference.aspose.com/slides/sv/python-net/aspose.slides/masterslidecollection/add_clone/) och [SlideCollection.add_clone](https://reference.aspose.com/slides/sv/python-net/aspose.slides/slidecollection/add_clone/). Detta behåller master, layouter och tema tillsammans.
 
-**Hur kan jag se de effektiva värdena efter arv och överskott?**
+**How can I see the effective values after inheritance and overrides?**
 
-Använd [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/sv/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/) för ett bild‑ eller layout‑tema och motsvarande effektiva‑data‑metoder för formatobjekt som [Background.get_effective](https://reference.aspose.com/slides/sv/python-net/aspose.slides/background/get_effective/) och [FillFormat.get_effective](https://reference.aspose.com/slides/sv/python-net/aspose.slides/fillformat/get_effective/). Dessa API:er returnerar de lösta värdena efter att arv och överskott har tillämpats.
+Använd [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/sv/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/) för ett bild‑ eller layouttema och de motsvarande effektiva‑datametoderna för formatobjekt såsom [Background.get_effective](https://reference.aspose.com/slides/sv/python-net/aspose.slides/background/get_effective/) och [FillFormat.get_effective](https://reference.aspose.com/slides/sv/python-net/aspose.slides/fillformat/get_effective/). Dessa API‑er returnerar de lösta värdena efter att arv och åsidosättningar har tillämpats.

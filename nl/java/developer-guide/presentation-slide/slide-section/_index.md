@@ -1,6 +1,6 @@
 ---
-title: Beheer dia-secties in presentaties met Java
-linktitle: Dia-sectie
+title: Beheer dia‑secties in presentaties met Java
+linktitle: Dia‑sectie
 type: docs
 weight: 90
 url: /nl/java/slide-section/
@@ -10,83 +10,207 @@ keywords:
 - sectie bewerken
 - sectie wijzigen
 - sectienaam
+- sectiedia's ophalen
+- sectiedia's verwerken
 - PowerPoint
-- OpenDocument
 - presentatie
 - Java
 - Aspose.Slides
-description: "Stroomlijn dia-secties in PowerPoint en OpenDocument met Aspose.Slides voor Java — splits, hernoem en herschik om PPTX- en ODP-werkstromen te optimaliseren."
+description: "Beheer dia‑secties met Aspose.Slides voor Java: maak, hernoem, herschik, haal op en verwerk sectiedia's in PPTX‑presentaties."
 ---
-## **Introductie**
+## **Inleiding**
 
-Met Aspose.Slides voor Java kunt u een PowerPoint‑presentatie organiseren in secties. U kunt secties maken die specifieke dia's bevatten. 
+Secties ordenen opeenvolgende dia's in benoemde groepen zonder de inhoud van de dia's te wijzigen. Met Aspose.Slides voor Java kun je secties maken, opnieuw ordenen, hernoemen, inspecteren en verwijderen via de [Presentation.getSections](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/#getSections--)‑methode.
 
-U wilt mogelijk secties maken en deze gebruiken om dia's in een presentatie te organiseren of te verdelen in logische delen in de volgende situaties:
+Secties zijn vooral nuttig wanneer:
 
-- Wanneer u aan een grote presentatie werkt met anderen of in een team — en u bepaalde dia's aan een collega of teamleden wilt toewijzen. 
-- Wanneer u te maken heeft met een presentatie die veel dia's bevat — en u moeite heeft om de inhoud in één keer te beheren of te bewerken.
+- een grote presentatie moet worden verdeeld in logische onderwerpen of hoofdstukken;
+- verschillende groepen dia's aan verschillende medewerkers worden toegewezen;
+- dia's moeten worden verwerkt, verplaatst of samengevoegd als groepen.
 
-Idealiter maakt u een sectie die vergelijkbare dia's bevat — de dia's hebben iets gemeen of kunnen op basis van een regel in een groep bestaan — en geeft u de sectie een naam die de dia's erin omschrijft. 
+Kies beknopte sectienaam­men die het doel van de gegroepeerde dia's beschrijven. Omdat secties deel uitmaken van de presentatiestructuur, gebruik je de sectie‑API's om lidmaatschap te bepalen in plaats van dit af te leiden uit dia‑posities.
 
-## **Secties maken in presentaties**
+## **Secties maken en beheren**
 
-Om een sectie toe te voegen die dia's in een presentatie bevat, biedt Aspose.Slides voor Java de methode [addSection()](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ISectionCollection#addSection-java.lang.String-com.aspose.slides.ISlide-) die u in staat stelt de naam van de sectie die u wilt maken en de dia waarop de sectie begint op te geven. 
+Gebruik [ISectionCollection.addSection](https://reference.aspose.com/slides/nl/java/com.aspose.slides/isectioncollection/#addSection-java.lang.String-com.aspose.slides.ISlide-) om een sectie te maken door de naam en de startdia op te geven. Aspose.Slides bepaalt welke dia's tot de sectie behoren op basis van de huidige sectiestructuur van de presentatie.
 
-Deze voorbeeldcode laat zien hoe u een sectie maakt in een presentatie in Java:
+Dezelfde [ISectionCollection](https://reference.aspose.com/slides/nl/java/com.aspose.slides/isectioncollection/) stelt je ook in staat om:
+
+- een sectie samen met de bijbehorende dia's te verplaatsen met [ISectionCollection.reorderSectionWithSlides](https://reference.aspose.com/slides/nl/java/com.aspose.slides/isectioncollection/#reorderSectionWithSlides-com.aspose.slides.ISection-int-);
+- alleen de sectiedefinitie te verwijderen met [ISectionCollection.removeSection](https://reference.aspose.com/slides/nl/java/com.aspose.slides/isectioncollection/#removeSection-com.aspose.slides.ISection-), waardoor de dia's behouden blijven;
+- een sectie en de bijbehorende dia's te verwijderen met [ISectionCollection.removeSectionWithSlides](https://reference.aspose.com/slides/nl/java/com.aspose.slides/isectioncollection/#removeSectionWithSlides-com.aspose.slides.ISection-);
+- een lege sectie aan het einde toe te voegen met [ISectionCollection.appendEmptySection](https://reference.aspose.com/slides/nl/java/com.aspose.slides/isectioncollection/#appendEmptySection-java.lang.String-).
+
+Het volgende voorbeeld maakt twee secties, verplaatst er één, verwijdert die samen met de bijbehorende dia's en voegt een lege sectie toe:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.ILayoutSlide;
+import com.aspose.slides.ISection;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation();
 try {
-    ISlide defaultSlide = pres.getSlides().get_Item(0);
-    ISlide newSlide1 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    ISlide newSlide2 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    ISlide newSlide3 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    ISlide newSlide4 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
+    ISlide titleSlide = presentation.getSlides().get_Item(0);
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().get_Item(0);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    ISlide resultsSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+    presentation.getSlides().addEmptySlide(layoutSlide);
 
-    ISection section1 = pres.getSections().addSection("Section 1", newSlide1);
-    ISection section2 = pres.getSections().addSection("Section 2", newSlide3); // section1 wordt beëindigd bij newSlide2 en daarna start section2   
+    presentation.getSections().addSection("Introduction", titleSlide);
+    ISection resultsSection = presentation.getSections().addSection("Results", resultsSlide);
 
-    pres.save("pres-sections.pptx", SaveFormat.Pptx);
-
-    pres.getSections().reorderSectionWithSlides(section2, 0);
-    pres.save("pres-sections-moved.pptx", SaveFormat.Pptx);
-
-    pres.getSections().removeSectionWithSlides(section2);
-
-    pres.getSections().appendEmptySection("Last empty section");
-
-    pres.save("pres-section-with-empty.pptx",SaveFormat.Pptx);
+    presentation.getSections().reorderSectionWithSlides(resultsSection, 0);
+    presentation.getSections().removeSectionWithSlides(resultsSection);
+    presentation.getSections().appendEmptySection("Appendix");
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **De namen van secties wijzigen**
+Na deze bewerkingen bevat de presentatie de sectie `Inleiding` met de bijbehorende dia's en een lege sectie `Bijlage`. De sectie `Resultaten` en de bijbehorende dia's zijn verwijderd.
 
-Nadat u een sectie in een PowerPoint‑presentatie hebt gemaakt, kunt u besluiten de naam te wijzigen. 
+## **Secties hernoemen**
 
-Deze voorbeeldcode laat zien hoe u de naam van een sectie wijzigt in een presentatie in Java met behulp van Aspose.Slides:
+Om een sectie te hernoemen, roep je de [ISection.setName](https://reference.aspose.com/slides/nl/java/com.aspose.slides/isection/#setName-java.lang.String-)‑methode aan. De dia's en positie van de sectie blijven ongewijzigd.
+
+Het volgende voorbeeld maakt een sectie en wijzigt de naam:
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.ISection;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation();
 try {
-    ISection section = pres.getSections().get_Item(0);
-    section.setName("My section");
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ISection section = presentation.getSections().addSection("Overview", slide);
+    section.setName("Introduction");
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+## **Dia's ophalen uit secties**
 
-**Worden secties bewaard bij het opslaan in het PPT (PowerPoint 97–2003) formaat?**
+De [Presentation.getSections](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/#getSections--)‑methode retourneert een [ISectionCollection](https://reference.aspose.com/slides/nl/java/com.aspose.slides/isectioncollection/) die je kunt itereren. Voor elk [ISection](https://reference.aspose.com/slides/nl/java/com.aspose.slides/isection/) roep je [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/nl/java/com.aspose.slides/isection/#getSlidesListOfSection--) aan om de dia's te verkrijgen die momenteel tot die sectie behoren. De methode retourneert een [ISectionSlideCollection](https://reference.aspose.com/slides/nl/java/com.aspose.slides/isectionslidecollection/), die een aantal, indextoegang en iteratie biedt.
 
-Nee. Het PPT‑formaat ondersteunt geen sectiemetadata, waardoor de sectiegroepering verloren gaat bij het opslaan als .ppt.
+Het volgende voorbeeld maakt twee gevulde secties en één lege sectie, en drukt vervolgens voor elke sectie de [naam](https://reference.aspose.com/slides/nl/java/com.aspose.slides/isection/#getName--) , [identifier](https://reference.aspose.com/slides/nl/java/com.aspose.slides/isection/#getSectionId--) , [startdia](https://reference.aspose.com/slides/nl/java/com.aspose.slides/isection/#getStartedFromSlide--) , het aantal dia's en de dia‑nummers af. Het gebruikt [ISectionSlideCollection.get_Item](https://reference.aspose.com/slides/nl/java/com.aspose.slides/isectionslidecollection/#get_Item-int-) om de eerste dia te lezen en een verbeterde `for`‑statement om elke dia te verwerken. Voor de lege sectie heeft de geretourneerde collectie een omvang van nul, wordt de methode niet aangeroepen en voert de iteratie geen bewerkingen uit.
 
-**Kan een hele sectie "verborgen" worden?**
+```java
+import com.aspose.slides.ILayoutSlide;
+import com.aspose.slides.ISection;
+import com.aspose.slides.ISectionSlideCollection;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
 
-Nee. Alleen individuele dia's kunnen worden verborgen. Een sectie als entiteit heeft geen "verborgen" status.
+Presentation presentation = new Presentation();
+try {
+    ISlide firstSlide = presentation.getSlides().get_Item(0);
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().get_Item(0);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    ISlide thirdSlide = presentation.getSlides().addEmptySlide(layoutSlide);
 
-**Kan ik snel een sectie vinden via een dia en, omgekeerd, de eerste dia van een sectie?**
+    presentation.getSections().addSection("Introduction", firstSlide);
+    presentation.getSections().addSection("Details", thirdSlide);
+    presentation.getSections().appendEmptySection("Appendix");
 
-Ja. Een sectie wordt uniek gedefinieerd door zijn startdia; vanaf een dia kunt u bepalen tot welke sectie deze behoort, en voor een sectie kunt u de eerste dia benaderen.
+    for (ISection section : presentation.getSections()) {
+        ISectionSlideCollection sectionSlides = section.getSlidesListOfSection();
+        String startingSlide = section.getStartedFromSlide() == null ? "none" : Integer.toString(section.getStartedFromSlide().getSlideNumber());
+
+        System.out.println("Section: " + section.getName());
+        System.out.println("ID: " + section.getSectionId());
+        System.out.println("Starting slide: " + startingSlide);
+        System.out.println("Slide count: " + sectionSlides.size());
+
+        if (sectionSlides.size() > 0) {
+            System.out.println("First slide via get_Item: " + sectionSlides.get_Item(0).getSlideNumber());
+        }
+
+        System.out.print("Slide numbers:");
+        for (ISlide slide : sectionSlides) {
+            System.out.print(" " + slide.getSlideNumber());
+        }
+        System.out.println();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Het lidmaatschap van een sectie wordt bepaald door de sectiestructuur van de presentatie. Bereken een sectie‑bereik niet handmatig aan de hand van [ISection.getStartedFromSlide](https://reference.aspose.com/slides/nl/java/com.aspose.slides/isection/#getStartedFromSlide--), dia‑indexen en de startdia van de volgende sectie.
+
+Structurele bewerkingen kunnen zowel de voor een sectie geretourneerde dia's als hun dia‑nummers wijzigen. Dit omvat het opnieuw ordenen van dia's, een dia klonen in een sectie, een sectie samen met de bijbehorende dia's verplaatsen, dia's verwijderen en secties verwijderen. Het volgende voorbeeld roept [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/nl/java/com.aspose.slides/isection/#getSlidesListOfSection--) aan na elke dergelijke wijziging in plaats van aannames te behouden over de eerdere grenzen van de sectie.
+
+```java
+import com.aspose.slides.ILayoutSlide;
+import com.aspose.slides.ISection;
+import com.aspose.slides.ISectionSlideCollection;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+
+import java.util.function.BiConsumer;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide firstSlide = presentation.getSlides().get_Item(0);
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().get_Item(0);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    ISlide thirdSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    ISection firstSection = presentation.getSections().addSection("First", firstSlide);
+    ISection secondSection = presentation.getSections().addSection("Second", thirdSlide);
+
+    BiConsumer<String, ISection> printSectionSlides = (label, section) -> {
+        ISectionSlideCollection sectionSlides = section.getSlidesListOfSection();
+        System.out.printf("%s (%d slides):", label, sectionSlides.size());
+        for (ISlide slide : sectionSlides) {
+            System.out.print(" " + slide.getSlideNumber());
+        }
+        System.out.println();
+    };
+
+    printSectionSlides.accept("Initially", firstSection);
+
+    ISectionSlideCollection slidesBeforeClone = firstSection.getSlidesListOfSection();
+    presentation.getSlides().addClone(slidesBeforeClone.get_Item(0), firstSection);
+    printSectionSlides.accept("After cloning into the section", firstSection);
+
+    ISectionSlideCollection slidesBeforeReorder = firstSection.getSlidesListOfSection();
+    int firstSectionPosition = slidesBeforeReorder.get_Item(0).getSlideNumber() - 1;
+    presentation.getSlides().reorder(firstSectionPosition, slidesBeforeReorder.get_Item(slidesBeforeReorder.size() - 1));
+    printSectionSlides.accept("After reordering slides", firstSection);
+
+    presentation.getSections().reorderSectionWithSlides(firstSection, 1);
+    printSectionSlides.accept("After moving the section", firstSection);
+
+    ISectionSlideCollection slidesBeforeRemoval = firstSection.getSlidesListOfSection();
+    presentation.getSlides().remove(slidesBeforeRemoval.get_Item(0));
+    printSectionSlides.accept("After removing a slide", firstSection);
+
+    presentation.getSections().removeSectionWithSlides(secondSection);
+    for (ISection section : presentation.getSections()) {
+        printSectionSlides.accept("Remaining section", section);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Roep [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/nl/java/com.aspose.slides/isection/#getSlidesListOfSection--) opnieuw aan telkens wanneer dia's of secties opnieuw worden geordend, gekloond, verplaatst of verwijderd. Dit zorgt ervoor dat de vervolgverwerking overeenkomt met de huidige presentatiestructuur.
+
+Het PPT‑formaat (PowerPoint 97–2003) behoudt geen sectiemetagegevens. Gebruik deze werkwijze met een formaat dat secties ondersteunt, zoals PPTX; conversie naar PPT verwijdert de sectiestructuur die nodig is voor latere iteratie.
+
+## **Veelgestelde vragen**
+
+**Worden secties behouden bij het opslaan in het PPT‑formaat (PowerPoint 97–2003)?**
+
+Nee. Het PPT‑formaat ondersteunt geen sectiemetagegevens, waardoor de sectiegroepering verloren gaat bij het opslaan als .ppt.
+
+**Kan een gehele sectie "verborgen" worden?**
+
+Nee. Een sectie heeft geen zichtbaarheidsstatus. Om de inhoud te verbergen, roep je [ISlide.setHidden](https://reference.aspose.com/slides/nl/java/com.aspose.slides/islide/#setHidden-boolean-) aan voor elke dia in de sectie.
+
+**Hoe kan ik de sectie vinden die een dia bevat?**
+
+Itereer over de collectie die wordt geretourneerd door [Presentation.getSections](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/#getSections--), roep voor elke sectie [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/nl/java/com.aspose.slides/isection/#getSlidesListOfSection--) aan en vergelijk de geretourneerde dia's met de doel‑dia. Voor een niet‑lege sectie geeft [ISection.getStartedFromSlide](https://reference.aspose.com/slides/nl/java/com.aspose.slides/isection/#getStartedFromSlide--) de eerste dia terug; voor een lege sectie wordt `null` geretourneerd.

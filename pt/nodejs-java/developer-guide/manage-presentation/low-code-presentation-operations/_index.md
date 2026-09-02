@@ -22,23 +22,23 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Use a API low-code do Aspose.Slides em JavaScript para converter e mesclar apresentações, iterar conteúdo, coletar formas e reduzir o tamanho da apresentação."
+description: "Use a API low-code do Aspose.Slides em JavaScript para converter e mesclar apresentações, iterar pelo conteúdo, coletar formas e reduzir o tamanho da apresentação."
 ---
 ## **Visão geral**
 
-O namespace `aspose.slides` fornece classes auxiliares estáticas para operações comuns de apresentação. Esses auxiliares encapsulam fluxos de trabalho do modelo de objeto frequentemente usados em métodos focados, permitindo converter ou mesclar arquivos, processar elementos da apresentação, coletar formas e remover conteúdo não usado com menos código.
+O namespace `aspose.slides` fornece classes auxiliares estáticas para operações comuns de apresentação. Esses auxiliares encapsulam fluxos de trabalho do modelo de objeto frequentemente usados em métodos focados, permitindo converter ou mesclar arquivos, processar elementos da apresentação, coletar formas e remover conteúdo não utilizado com menos código.
 
-Os auxiliares de baixo código são mais úteis quando a operação se aplica a todo o arquivo ou apresentação e o fluxo de trabalho padrão atende aos seus requisitos. Use o modelo de objeto completo [Aspose.Slides object model](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/) quando precisar de controle granular sobre slides individuais, mestres, layouts, formas, configurações de exportação ou relacionamentos entre os elementos da apresentação.
+Os auxiliares de low‑code são mais úteis quando a operação se aplica a um arquivo ou apresentação inteira e o fluxo de trabalho padrão atende aos seus requisitos. Use o modelo de objeto completo do [Aspose.Slides](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/) quando precisar de controle granular sobre slides individuais, mestres, layouts, formas, configurações de exportação ou relacionamentos entre elementos da apresentação.
 
 A tabela a seguir resume os auxiliares disponíveis:
 
-| Auxiliar | Para que usar |
+| Auxiliar | Use para |
 | --- | --- |
-| [Converter](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/convert/) | Conversão de uma apresentação para outro formato com chamada direta de arquivo para arquivo. |
-| [Merger](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/merger/) | Combinação de arquivos de apresentação completos do mesmo formato. |
-| [ForEach](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/foreach/) | Execução de uma ação para cada slide, forma, parágrafo ou porção de texto. |
-| [Collect](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/collect/) | Recuperação de formas de toda a apresentação para processamento ou análise repetidos. |
-| [Compress](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/compress/) | Remoção de mestres e layouts não usados e redução de dados de fontes incorporadas. |
+| [Convert](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/convert/) | Converter uma apresentação para outro formato com uma chamada direta de arquivo para arquivo. |
+| [Merger](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/merger/) | Combinar arquivos de apresentação completos do mesmo formato. |
+| [ForEach](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/foreach/) | Executar uma ação para cada slide, forma, parágrafo ou porção de texto. |
+| [Collect](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/collect/) | Recuperar formas de toda a apresentação para processamento ou análise repetidos. |
+| [Compress](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/compress/) | Remover mestres e layouts não usados e reduzir dados de fontes incorporadas. |
 
 ## **Converter uma apresentação**
 
@@ -51,7 +51,7 @@ aspose.slides = require("aspose.slides.via.java");
 aspose.slides.Convert.autoByExtension("input.pptx", "output.pdf");
 ```
 
-A classe [Convert](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/convert/) também fornece métodos dedicados para saída em PDF, SVG, JPEG, PNG e TIFF. Use o modelo de objeto completo quando precisar inspecionar ou modificar a apresentação antes da exportação ou configurar uma opção de exportação que não seja exposta pelo auxiliar selecionado. Consulte [Converter apresentação](/nodejs-java/convert-presentation/) para fluxos de trabalho e opções específicas de formato.
+A classe [Convert](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/convert/) também fornece métodos dedicados para saída PDF, SVG, JPEG, PNG e TIFF. Use o modelo de objeto completo quando precisar inspecionar ou modificar a apresentação antes da exportação ou configurar uma opção de exportação que não esteja exposta pelo auxiliar selecionado. Consulte [Convert Presentation](/slides/pt/nodejs-java/convert-presentation/) para fluxos de trabalho e opções específicos de formato.
 
 ## **Mesclar apresentações**
 
@@ -65,11 +65,11 @@ const inputFiles = ["first.pptx", "second.pptx"];
 aspose.slides.Merger.process(inputFiles, "merged.pptx");
 ```
 
-O auxiliar é adequado quando todos os slides devem ser anexados a um único resultado sem selecioná‑los ou remapeá‑los individualmente. Use o modelo de objeto completo quando precisar mesclar slides selecionados, aplicar um mestre ou layout de destino, preservar seções explicitamente ou conciliar tamanhos de slide diferentes. Consulte [Merge Presentations](/nodejs-java/merge-presentation/) para esses cenários.
+O auxiliar é adequado quando todos os slides devem ser anexados a um único resultado sem precisar selecioná‑los ou remapeá‑los individualmente. Use o modelo de objeto completo quando precisar mesclar slides selecionados, aplicar um mestre ou layout de destino, preservar seções explicitamente ou reconciliar tamanhos de slide diferentes. Consulte [Merge Presentations](/slides/pt/nodejs-java/merge-presentation/) para esses cenários.
 
-## **Iterar através dos elementos da apresentação**
+## **Iterar pelos elementos da apresentação**
 
-A classe [ForEach](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/foreach/) invoca um callback para cada tipo solicitado de elemento da apresentação. Ela evita loops de coleta aninhados e é conveniente para inspeção ou alterações de formatação em toda a apresentação. No Node.js, crie implementações das interfaces de callback com `java.newProxy`.
+A classe [ForEach](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/foreach/) invoca um callback para cada tipo solicitado de elemento da apresentação. Ela evita loops aninhados de coleções e é conveniente para inspeção ou alterações de formatação em toda a apresentação. No Node.js, crie implementações das interfaces de callback com `java.newProxy`.
 
 O exemplo a seguir usa [ForEach.slide](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/foreach/#slide), [ForEach.shape](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/foreach/#shape), [ForEach.paragraph](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/foreach/#paragraph) e [ForEach.portion](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/foreach/#portion) para inspecionar os elementos correspondentes:
 
@@ -112,11 +112,11 @@ try {
 }
 ```
 
-Por padrão, a travessia de formas e texto em toda a apresentação inclui slides normais, mestres e de layout. Sobrecargas com um parâmetro `includeNotes` também podem processar slides de notas. Use loops de coleção diretos quando a ordem de travessia, saída antecipada, filtragem antes da invocação do callback ou controle detalhado de pai‑filho for importante.
+Por padrão, a travessia de formas e texto em toda a apresentação inclui slides normais, mestres e layouts. Sobrecargas com um parâmetro `includeNotes` também podem processar slides de notas. Use loops de coleção diretos quando a ordem de travessia, saída antecipada, filtragem antes da invocação do callback ou controle detalhado de pai‑filho for importante.
 
 ## **Coletar formas**
 
-Use [Collect.shapes](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/collect/#shapes) quando precisar de uma coleção de todas as formas em uma apresentação ao invés de um callback para cada forma. Isso é útil quando o mesmo conjunto será filtrado, contado ou processado mais de uma vez.
+Use [Collect.shapes](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/collect/#shapes) quando precisar de uma coleção de todas as formas em uma apresentação em vez de um callback para cada forma. Isso é útil quando o mesmo conjunto será filtrado, contado ou processado mais de uma vez.
 
 ```javascript
 var aspose = aspose || {};
@@ -136,15 +136,15 @@ try {
 }
 ```
 
-Use [ForEach.shape](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/foreach/#shape) em vez disso quando cada forma puder ser tratada imediatamente e você não precisar reter o resultado coletado.
+Use [ForEach.shape](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/foreach/#shape) em vez disso quando cada forma puder ser tratada imediatamente e não for necessário reter o resultado coletado.
 
 ## **Comprimir conteúdo da apresentação**
 
-A classe [Compress](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/compress/) pode remover elementos estruturais não usados e reduzir os dados de fontes incorporadas:
+A classe [Compress](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/compress/) pode remover elementos estruturais não usados e reduzir dados de fontes incorporadas:
 
 - [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) remove slides de layout que não são referenciados por nenhum slide normal.
-- [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/compress/#removeUnusedMasterSlides) remove slides mestres que não são mais usados.
-- [Compress.compressEmbeddedFonts](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/compress/#compressEmbeddedFonts) remove caracteres não usados de fontes incorporadas.
+- [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/compress/#removeUnusedMasterSlides) remove mestres que não são mais usados.
+- [Compress.compressEmbeddedFonts](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/compress/#compressEmbeddedFonts) remove caracteres não utilizados de fontes incorporadas.
 
 ```javascript
 var aspose = aspose || {};
@@ -162,38 +162,38 @@ try {
 }
 ```
 
-Remova layouts não usados antes dos mestres não usados, de modo que um mestre que se torne não referenciado após a limpeza de layouts também possa ser removido. Salve a apresentação otimizada em um novo arquivo se precisar dos mestres, layouts ou dos dados completos de fontes incorporadas originais mais tarde. Para mais detalhes, veja [Slide Master](/nodejs-java/slide-master/) e [Embedded Font](/nodejs-java/embedded-font/).
+Remova layouts não usados antes dos mestres não usados, pois um mestre que se tornar desreferenciado após a limpeza de layouts também pode ser removido. Salve a apresentação otimizada em um novo arquivo se precisar dos mestres, layouts ou dados completos de fontes incorporadas originais mais tarde. Para mais detalhes, consulte [Slide Master](/slides/pt/nodejs-java/slide-master/) e [Embedded Font](/slides/pt/nodejs-java/embedded-font/).
 
 ## **Perguntas frequentes**
 
-**Quando devo usar a API de baixo código em vez do modelo de objeto completo?**
+**Quando devo usar a API low‑code em vez do modelo de objeto completo?**
 
-Use os auxiliares de baixo código quando uma operação padrão se aplica a um arquivo ou apresentação completa e não requer controle detalhado sobre elementos individuais. Use o modelo de objeto completo quando precisar selecionar slides específicos, controlar relações de mestre e layout, inspecionar o estado intermediário ou configurar comportamentos que o auxiliar não expõe.
+Use os auxiliares low‑code quando uma operação padrão se aplica a um arquivo ou apresentação completa e não requer controle detalhado sobre elementos individuais. Use o modelo de objeto completo quando precisar selecionar slides específicos, controlar relacionamentos de mestres e layouts, inspecionar estado intermediário ou configurar um comportamento que o auxiliar não expõe.
 
-**O Merger pode combinar apresentações em diferentes formatos de arquivo?**
+**O Merger pode combinar apresentações em formatos de arquivo diferentes?**
 
-Não. [Merger.process](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/merger/#process) requer apresentações de entrada no mesmo formato. Converta os arquivos de entrada para um formato comum primeiro, por exemplo com [Convert.autoByExtension](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/convert/#autoByExtension), e então mescle os arquivos convertidos.
+Não. [Merger.process](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/merger/#process) exige apresentações de entrada no mesmo formato. Converta os arquivos de entrada para um formato comum primeiro, por exemplo com [Convert.autoByExtension](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/convert/#autoByExtension), e então mescle os arquivos convertidos.
 
-**O ForEach processa slides mestre, de layout e de notas?**
+**O ForEach processa slides mestre, layout e de notas?**
 
-[ForEach.slide](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/foreach/#slide) itera pelos slides normais da apresentação. As operações de [ForEach.shape](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/foreach/#shape), [ForEach.paragraph](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/foreach/#paragraph) e [ForEach.portion](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/foreach/#portion) em toda a apresentação incluem, por padrão, slides normais, mestres e de layout. Use suas sobrecargas com `includeNotes` definido como `true` para incluir slides de notas.
+[ForEach.slide](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/foreach/#slide) itera pelos slides normais da apresentação. As operações de [ForEach.shape](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/foreach/#shape), [ForEach.paragraph](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/foreach/#paragraph) e [ForEach.portion](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/foreach/#portion) em toda a apresentação incluem slides normais, mestre e layout por padrão. Use suas sobrecargas com `includeNotes` definido como `true` para incluir slides de notas.
 
-**Qual a diferença entre ForEach.shape e Collect.shapes?**
+**Qual é a diferença entre ForEach.shape e Collect.shapes?**
 
-Use [ForEach.shape](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/foreach/#shape) para processar cada forma imediatamente por meio de um callback. Use [Collect.shapes](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/collect/#shapes) quando precisar de um resultado iterável que possa ser retido, filtrado, contado ou percorrido várias vezes.
+Use [ForEach.shape](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/foreach/#shape) para processar cada forma imediatamente por meio de um callback. Use [Collect.shapes](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/collect/#shapes) quando precisar de um resultado iterável que possa ser retido, filtrado, contado ou percorrido múltiplas vezes.
 
-**O Compress sempre diminui o tamanho do arquivo da apresentação?**
+**O Compress sempre reduz o tamanho do arquivo da apresentação?**
 
-Não necessariamente. O resultado depende de a apresentação conter layouts não usados, mestres não usados ou fontes incorporadas com caracteres não usados. Se nenhum desses estiver presente, as operações correspondentes de [Compress](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/compress/) podem não reduzir o tamanho do arquivo.
+Não necessariamente. O resultado depende de a apresentação conter ou não layouts não usados, mestres não usados ou fontes incorporadas com caracteres não utilizados. Se nenhum desses itens estiver presente, as operações correspondentes de [Compress](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/compress/) podem não diminuir o tamanho do arquivo.
 
 **As alterações feitas por ForEach ou Compress são salvas automaticamente?**
 
-Não. Esses auxiliares operam sobre o objeto [Presentation](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation/) carregado na memória. Após alterar elementos em um callback de [ForEach](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/foreach/) ou executar [Compress](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/compress/), chame [Presentation.save](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation/#save) para gravar o resultado.
+Não. Esses auxiliares operam no objeto [Presentation](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation/) carregado na memória. Após alterar elementos em um callback de [ForEach](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/foreach/) ou executar [Compress](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/compress/), chame [Presentation.save](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation/#save) para gravar o resultado.
 
 ## **Artigos relacionados**
 
-- [Converter apresentação](/nodejs-java/convert-presentation/)
-- [Mesclar apresentações](/nodejs-java/merge-presentation/)
-- [Mestre de slide](/nodejs-java/slide-master/)
-- [Gerenciar caixa de texto](/nodejs-java/manage-textbox/)
-- [Fonte incorporada](/nodejs-java/embedded-font/)
+- [Convert Presentation](/slides/pt/nodejs-java/convert-presentation/)
+- [Merge Presentations](/slides/pt/nodejs-java/merge-presentation/)
+- [Slide Master](/slides/pt/nodejs-java/slide-master/)
+- [Manage Text Box](/slides/pt/nodejs-java/manage-textbox/)
+- [Embedded Font](/slides/pt/nodejs-java/embedded-font/)

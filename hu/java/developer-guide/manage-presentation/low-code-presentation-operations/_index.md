@@ -1,47 +1,47 @@
 ---
-title: Alacsony kódszintű prezentációs műveletek Java-ban
-linktitle: Alacsony kódszintű API
+title: Alacsony kódú bemutató műveletek Java nyelven
+linktitle: Alacsony kódú API
 type: docs
 weight: 50
 url: /hu/java/low-code-presentation-operations/
 keywords:
-- alacsony kódszintű prezentáció API
-- prezentáció konvertálása
-- prezentációk egyesítése
+- alacsony kódú bemutató API
+- bemutató konvertálása
+- bemutatók egyesítése
 - diák bejárása
 - alakzatok bejárása
 - szöveg bejárása
 - alakzatok összegyűjtése
-- prezentáció tömörítése
-- fel nem használt master diák eltávolítása
-- fel nem használt elrendezés diák eltávolítása
+- bemutató tömörítése
+- fel nem használt mesterdiák eltávolítása
+- fel nem használt elrendezési diák eltávolítása
 - beágyazott betűtípusok tömörítése
 - PowerPoint
 - OpenDocument
-- prezentáció
+- bemutató
 - Java
 - Aspose.Slides
-description: "Használja az Aspose.Slides alacsony kódszintű API-t Java-ban a prezentációk konvertálásához és egyesítéséhez, a tartalom bejárásához, az alakzatok összegyűjtéséhez, valamint a prezentáció méretének csökkentéséhez."
+description: "Használja az Aspose.Slides alacsony kódú API-t Java-ban a bemutatók konvertálásához és egyesítéséhez, a tartalom bejárásához, alakzatok összegyűjtéséhez, valamint a bemutató méretének csökkentéséhez."
 ---
 ## **Áttekintés**
 
-A [com.aspose.slides](https://reference.aspose.com/slides/hu/java/com.aspose.slides/) csomag statikus segédosztályokat biztosít a gyakori prezentációs műveletekhez. Ezek a segítők a gyakran használt objektummodell-munkafolyamatokat fókuszált metódusokba csomagolják, így kevesebb kóddal konvertálhat vagy összevonhat fájlokat, feldolgozhatja a prezentáció elemeit, összegyűjtheti az alakzatokat, és eltávolíthatja a fel nem használt tartalmat.
+A [com.aspose.slides](https://reference.aspose.com/slides/hu/java/com.aspose.slides/) csomag statikus segédosztályokat biztosít a gyakori bemutató műveletekhez. Ezek a segédek a gyakran használt objektummodell munkafolyamatokat fókuszált metódusokba csomagolják, így fájlokat konvertálhat vagy egyesíthet, feldolgozhatja a bemutató elemeit, összegyűjtheti az alakzatokat, és kevesebb kóddal eltávolíthatja a fel nem használt tartalmat.
 
-Az alacsony kódszintű segítők a leghasznosabbak, ha a művelet egy teljes fájlra vagy prezentációra vonatkozik, és az alapértelmezett munkafolyamat megfelel az igényeinek. Használja a teljes [Aspose.Slides objektummodellt](https://reference.aspose.com/slides/hu/java/com.aspose.slides/), ha finomhangolt vezérlésre van szüksége egyes diák, masterek, elrendezések, alakzatok, exportbeállítások vagy a prezentáció elemei közötti kapcsolatok felett.
+Az alacsony kódolású segédek leginkább akkor hasznosak, amikor a művelet egy teljes fájlra vagy bemutatóra vonatkozik, és az alapértelmezett munkafolyamat megfelel az igényeinek. Használja a teljes [Aspose.Slides object model](https://reference.aspose.com/slides/hu/java/com.aspose.slides/)‑t, ha finomhangolt vezérlésre van szükség egyes diák, mesterlapok, elrendezések, alakzatok, exportbeállítások vagy a bemutató elemei közötti kapcsolatok felett.
 
-Az alábbi táblázat összegzi a rendelkezésre álló segítőket:
+Az alábbi táblázat összegzi a rendelkezésre álló segédeszközöket:
 
-| Segítő | Használat célja |
+| Segédeszköz | Használat célja |
 | --- | --- |
-| [Convert](https://reference.aspose.com/slides/hu/java/com.aspose.slides/convert/) | A prezentáció másik formátumba konvertálása közvetlen fájl‑fájl hívással. |
-| [Merger](https://reference.aspose.com/slides/hu/java/com.aspose.slides/merger/) | Az azonos formátumú teljes prezentációs fájlok egyesítése. |
-| [ForEach](https://reference.aspose.com/slides/hu/java/com.aspose.slides/foreach/) | Művelet végrehajtása minden dián, alakzaton, bekezdésen vagy szövegrészen. |
-| [Collect](https://reference.aspose.com/slides/hu/java/com.aspose.slides/collect/) | Alakzatok lekérése a teljes prezentációból ismételt feldolgozáshoz vagy elemzéshez. |
-| [Compress](https://reference.aspose.com/slides/hu/java/com.aspose.slides/compress/) | Fel nem használt masterek és elrendezések eltávolítása, valamint a beágyazott betűtípusok adatainak csökkentése. |
+| [Convert](https://reference.aspose.com/slides/hu/java/com.aspose.slides/convert/) | Bemutató konvertálása egy másik formátumra közvetlen fájl‑fájl hívással. |
+| [Merger](https://reference.aspose.com/slides/hu/java/com.aspose.slides/merger/) | Azonos formátumú teljes bemutató fájlok egyesítése. |
+| [ForEach](https://reference.aspose.com/slides/hu/java/com.aspose.slides/foreach/) | Művelet végrehajtása minden diára, alakzatra, bekezdésre vagy szövegrészre. |
+| [Collect](https://reference.aspose.com/slides/hu/java/com.aspose.slides/collect/) | Alakzatok lekérése a teljes bemutatóból ismételt feldolgozás vagy elemzés céljából. |
+| [Compress](https://reference.aspose.com/slides/hu/java/com.aspose.slides/compress/) | A fel nem használt mesterlapok és elrendezések eltávolítása, valamint a beágyazott betűtípusadatok csökkentése. |
 
-## **Prezentáció konvertálása**
+## **Bemutató konvertálása**
 
-Használja a [Convert.autoByExtension](https://reference.aspose.com/slides/hu/java/com.aspose.slides/convert/#autoByExtension-java.lang.String-java.lang.String-) metódust, ha a kimeneti fájl kiterjesztése elegendő az exportformátum kiválasztásához. A metódus megnyitja a forrás prezentációt, meghatározza a szükséges formátumot a kimeneti útvonal alapján, és felírja az eredményt.
+Használja a [Convert.autoByExtension](https://reference.aspose.com/slides/hu/java/com.aspose.slides/convert/#autoByExtension-java.lang.String-java.lang.String-) metódust, ha a kimeneti fájl kiterjesztése elegendő az exportformátum kiválasztásához. A metódus megnyitja a forrásbemutatót, a kimeneti útvonalból meghatározza a szükséges formátumot, és kiírja az eredményt.
 
 ```java
 import com.aspose.slides.Convert;
@@ -49,11 +49,11 @@ import com.aspose.slides.Convert;
 Convert.autoByExtension("input.pptx", "output.pdf");
 ```
 
-A [Convert](https://reference.aspose.com/slides/hu/java/com.aspose.slides/convert/) osztály további dedikált metódusokat is biztosít a PDF, SVG, JPEG, PNG és TIFF kimenetekhez. Használja a teljes objektummodellt, ha a prezentációt exportálás előtt meg kell vizsgálnia vagy módosítania, vagy ha olyan exportbeállítást kell konfigurálnia, amelyet a kiválasztott segítő nem tesz közzé. Tekintse meg a [Convert Presentation](/java/convert-presentation/) oldalt a formátum‑specifikus munkafolyamatokért és beállításokért.
+A [Convert](https://reference.aspose.com/slides/hu/java/com.aspose.slides/convert/) osztály dedikált metódusokat is biztosít PDF, SVG, JPEG, PNG és TIFF kimenethez. Használja a teljes objektummodellt, ha a export előtt inspect vagy módosítani kell a bemutatót, vagy ha olyan exportopciót kell beállítani, amelyet a kiválasztott segédeszköz nem tesz elérhetővé. Lásd a [Convert Presentation](/slides/hu/java/convert-presentation/) oldalt a formátumspecifikus munkafolyamatokért és beállításokért.
 
-## **Prezentációk összevonása**
+## **Bemutatók egyesítése**
 
-Használja a [Merger.process](https://reference.aspose.com/slides/hu/java/com.aspose.slides/merger/#process-java.lang.String:A-java.lang.String-) metódust a teljes prezentációs fájlok egy hívással történő egyesítéséhez. A bemeneti prezentációknak azonos fájlformátummal kell rendelkezniük.
+Használja a [Merger.process](https://reference.aspose.com/slides/hu/java/com.aspose.slides/merger/#process-java.lang.String:A-java.lang.String-) metódust a teljes bemutató fájlok egyesítéséhez egy hívással. A bemeneti bemutatóknak azonos fájlformátummal kell rendelkezniük.
 
 ```java
 import com.aspose.slides.Merger;
@@ -62,13 +62,13 @@ String[] inputFiles = { "part-1.pptx", "part-2.pptx" };
 Merger.process(inputFiles, "merged.pptx");
 ```
 
-Ez a segítő akkor megfelelő, ha minden diát egyetlen eredményhez kell hozzáfűzni, anélkül, hogy egyenként kiválasztaná vagy átmappálná őket. Használja a teljes objektummodellt, ha kiválasztott diákat kell egyesítenie, egy célmastert vagy elrendezést alkalmazni, szekciókat kifejezetten megőrizni, vagy különböző dia méreteket egyeztetni szeretne. Tekintse meg a [Merge Presentations](/java/merge-presentation/) oldalt az ilyen esetekhez.
+A segéd akkor megfelelő, ha minden diát egy eredményfájlba kell fűzni anélkül, hogy egyenként kiválasztanánk vagy újra leképeznénk őket. Használja a teljes objektummodellt, ha kiválasztott diákat kell egyesíteni, célmesterlapot vagy elrendezést kell alkalmazni, szakaszokat kell kifejezetten megőrizni, vagy különböző diaméreteket kell egységesíteni. Lásd a [Merge Presentations](/slides/hu/java/merge-presentation/) oldalt ezekre a forgatókönyvekre.
 
-## **Prezentációelemek bejárása**
+## **Bemutató elemeinek bejárása**
 
-A [ForEach](https://reference.aspose.com/slides/hu/java/com.aspose.slides/foreach/) osztály egy visszahívást indít el minden kért típusú prezentációs elemhez. Elkerüli a beágyazott gyűjtemény‑hurok használatát, és kényelmes a prezentáció egészére kiterjedő ellenőrzéshez vagy formázási módosításokhoz.
+A [ForEach](https://reference.aspose.com/slides/hu/java/com.aspose.slides/foreach/) osztály callback‑et hív meg minden kért típusú bemutatóelemre. Elkerüli a beágyazott gyűjteményciklusokat, és kényelmes a teljes bemutató szintű ellenőrzéshez vagy formázási módosításokhoz.
 
-Az alábbi példa a [ForEach.slide](https://reference.aspose.com/slides/hu/java/com.aspose.slides/foreach/#slide-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachSlideCallback-), [ForEach.shape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-), [ForEach.paragraph](https://reference.aspose.com/slides/hu/java/com.aspose.slides/foreach/#paragraph-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachParagraphCallback-), és a [ForEach.portion](https://reference.aspose.com/slides/hu/java/com.aspose.slides/foreach/#portion-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachPortionCallback-) használatával vizsgálja meg a megfelelő elemeket:
+Az alábbi példa a [ForEach.slide](https://reference.aspose.com/slides/hu/java/com.aspose.slides/foreach/#slide-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachSlideCallback-), [ForEach.shape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-), [ForEach.paragraph](https://reference.aspose.com/slides/hu/java/com.aspose.slides/foreach/#paragraph-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachParagraphCallback-), és [ForEach.portion](https://reference.aspose.com/slides/hu/java/com.aspose.slides/foreach/#portion-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachPortionCallback-) használatával vizsgálja meg a megfelelő elemeket:
 
 ```java
 import com.aspose.slides.*;
@@ -95,11 +95,11 @@ try {
 }
 ```
 
-Alapértelmezés szerint a prezentáció egészére kiterjedő alakzat- és szövegbejárás magában foglalja a normál, master és elrendezés diát is. Az `includeNotes` paraméterrel rendelkező túlterhelések a jegyzetdiákat is feldolgozhatják. Használjon közvetlen gyűjtemény‑hurokokat, ha a bejárás sorrendje, a korai kilépés, a visszahívás előtti szűrés vagy a részletes szülő‑gyermek vezérlés fontos.
+Alapértelmezés szerint a teljes bemutató alakzat‑ és szövegbejárás magában foglalja a normál, mester és elrendezés diákat. Az `includeNotes` paraméterrel rendelkező túlterhelések a jegyzet diakat is feldolgozhatják. Használjon közvetlen gyűjteményciklusokat, ha a bejárás sorrendje, korai kilépés, szűrés a callback meghívása előtt vagy a részletes szülő‑gyermek vezérlés fontos.
 
 ## **Alakzatok összegyűjtése**
 
-Használja a [Collect.shapes](https://reference.aspose.com/slides/hu/java/com.aspose.slides/collect/#shapes-com.aspose.slides.Presentation-) metódust, ha a prezentáció összes alakzatának gyűjteményére van szüksége egy-egy alakzatra vonatkozó visszahívás helyett. Ez akkor hasznos, ha ugyanazt a halmazt többször szeretné szűrni, megszámolni vagy feldolgozni.
+Használja a [Collect.shapes](https://reference.aspose.com/slides/hu/java/com.aspose.slides/collect/#shapes-com.aspose.slides.Presentation-) metódust, ha a teljes bemutatóban lévő összes alakzatra szüksége van egy gyűjteményre, ahelyett, hogy minden alakzatra külön callback‑et kapna. Ez hasznos, ha ugyanazt a halmazt többször kell szűrni, számolni vagy feldolgozni.
 
 ```java
 import com.aspose.slides.*;
@@ -116,15 +116,15 @@ try {
 }
 ```
 
-Használja inkább a [ForEach.shape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-) metódust, ha az egyes alakzatok azonnal kezelhetők, és nincs szükség a gyűjtött eredmény megtartására.
+Használja helyette a [ForEach.shape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-) metódust, ha minden alakzatot azonnal kezel, és nincs szükség a gyűjtött eredmény megőrzésére.
 
-## **Prezentáció tartalmának tömörítése**
+## **Bemutató tartalom tömörítése**
 
-A [Compress](https://reference.aspose.com/slides/hu/java/com.aspose.slides/compress/) osztály képes eltávolítani a fel nem használt szerkezeti elemeket és csökkenteni a beágyazott betűtípus adatokat:
+A [Compress](https://reference.aspose.com/slides/hu/java/com.aspose.slides/compress/) osztály a következőkkel tud segíteni:
 
-- A [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/hu/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) eltávolítja azokat az elrendezés diákot, amelyeket egyetlen normál dia sem hivatkozik.
-- A [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/hu/java/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) eltávolítja a már nem használt master diákat.
-- A [Compress.compressEmbeddedFonts](https://reference.aspose.com/slides/hu/java/com.aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) eltávolítja a beágyazott betűtípusok fel nem használt karaktereit.
+- [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/hu/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) eltávolítja azokat az elrendezés diákat, amelyekre nincs normál dia hivatkozás.
+- [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/hu/java/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) eltávolítja a már nem használt mesterlapokat.
+- [Compress.compressEmbeddedFonts](https://reference.aspose.com/slides/hu/java/com.aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) eltávolítja a beágyazott betűtípusokból a nem használt karaktereket.
 
 ```java
 import com.aspose.slides.*;
@@ -141,38 +141,38 @@ try {
 }
 ```
 
-Először távolítsa el a fel nem használt elrendezéseket, majd a fel nem használt mastereket, így egy elrendezés tisztítása után a már hivatkozás nélküli master is eltávolítható. Mentse az optimalizált prezentációt egy új fájlba, ha később szüksége lehet az eredeti masterekre, elrendezésekre vagy a teljes beágyazott betűtípus adatokra. További részletekért tekintse meg a [Slide Master](/java/slide-master/) és az [Embedded Font](/java/embedded-font/) oldalakat.
+Először távolítsa el a fel nem használt elrendezéseket, majd a fel nem használt mesterlapokat, így egy a layout takarítás után már fel nem hivatkozott mesterlap is eltávolítható. Mentse az optimalizált bemutatót egy új fájlba, ha később szüksége lehet az eredeti mesterlapokra, elrendezésekre vagy a teljes beágyazott betűtípusra. További részletekért lásd a [Slide Master](/slides/hu/java/slide-master/) és az [Embedded Font](/slides/hu/java/embedded-font/) oldalakat.
 
-## **FAQ**
+## **GYIK**
 
-**Mikor érdemes az alacsony kódszintű API-t használni a teljes objektummodell helyett?**
+**Mikor kellene az alacsony‑kódú API‑t használni a teljes objektummodell helyett?**
 
-Használjon alacsony kódszintű segítőket, ha egy szabványos művelet egy teljes fájlra vagy prezentációra vonatkozik, és nem igényel részletes vezérlést az egyes elemek felett. Használja a teljes objektummodellt, ha konkrét diákat kell kiválasztania, a master és elrendezés kapcsolatait kell irányítania, köztes állapotot kell ellenőriznie, vagy olyan viselkedést kell konfigurálnia, amelyet a segítő nem tesz közzé.
+Használja az alacsony kódolású segédeszközöket, ha egy szabványos művelet egy teljes fájlra vagy bemutatóra vonatkozik, és nem igényel részletes vezérlést az egyes elemek felett. Használja a teljes objektummodellt, ha konkrét diák kiválasztására, a mester‑ és elrendezéskapcsolatok irányítására, köztes állapot ellenőrzésére vagy olyan viselkedés konfigurálására van szükség, amelyet a segédeszköz nem biztosít.
 
-**Kombinálhatja a Merger különböző fájlformátumú prezentációkat?**
+**Kombinálhat-e a Merger különböző fájlformátumú bemutatókat?**
 
-Nem. A [Merger.process](https://reference.aspose.com/slides/hu/java/com.aspose.slides/merger/#process-java.lang.String:A-java.lang.String-) ugyanazon formátumú bemeneti prezentációkat igényel. Először konvertálja a bemeneti fájlokat egységes formátumba, például a [Convert.autoByExtension](https://reference.aspose.com/slides/hu/java/com.aspose.slides/convert/#autoByExtension-java.lang.String-java.lang.String-) használatával, majd egyesítse a konvertált fájlokat.
+Nem. A [Merger.process](https://reference.aspose.com/slides/hu/java/com.aspose.slides/merger/#process-java.lang.String:A-java.lang.String-) ugyanabban a formátumban lévő bemutatókat igényel. Először konvertálja a bemeneti fájlokat közös formátumba, például a [Convert.autoByExtension](https://reference.aspose.com/slides/hu/java/com.aspose.slides/convert/#autoByExtension-java.lang.String-java.lang.String-) metódussal, majd egyesítse a konvertált fájlokat.
 
-**Feldolgozza a ForEach a master, elrendezés és jegyzet diákot?**
+**Feldolgozza-e a ForEach a mester, layout és jegyzet diákat?**
 
-A [ForEach.slide](https://reference.aspose.com/slides/hu/java/com.aspose.slides/foreach/#slide-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachSlideCallback-) a normál prezentációs diákon iterál. A prezentáció egészére kiterjedő [ForEach.shape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-), [ForEach.paragraph](https://reference.aspose.com/slides/hu/java/com.aspose.slides/foreach/#paragraph-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachParagraphCallback-), és [ForEach.portion](https://reference.aspose.com/slides/hu/java/com.aspose.slides/foreach/#portion-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachPortionCallback-) műveletek alapértelmezés szerint tartalmazzák a normál, master és elrendezés diákot. Használja azok túlterheléseit az `includeNotes` paraméter `true` értékre állításával, ha a jegyzet diakat is bele szeretné foglalni.
+A [ForEach.slide](https://reference.aspose.com/slides/hu/java/com.aspose.slides/foreach/#slide-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachSlideCallback-) csak a normál bemutatódiákat járja be. A teljes bemutatóra kiterjedő [ForEach.shape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-), [ForEach.paragraph](https://reference.aspose.com/slides/hu/java/com.aspose.slides/foreach/#paragraph-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachParagraphCallback-), és [ForEach.portion](https://reference.aspose.com/slides/hu/java/com.aspose.slides/foreach/#portion-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachPortionCallback-) műveletek alapértelmezés szerint a normál, mester és layout diákat is tartalmazzák. Az `includeNotes` paramétert `true`‑ra állítva a jegyzet diák is be lesz vonva.
 
 **Mi a különbség a ForEach.shape és a Collect.shapes között?**
 
-Használja a [ForEach.shape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-) metódust, ha minden alakzatot azonnal egy visszahíváson keresztül kíván feldolgozni. Használja a [Collect.shapes](https://reference.aspose.com/slides/hu/java/com.aspose.slides/collect/#shapes-com.aspose.slides.Presentation-) metódust, ha egy iterálható eredményre van szüksége, amelyet megtarthat, szűrhet, megszámolhat vagy többször bejárhat.
+Használja a [ForEach.shape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-) metódust, ha minden alakzatot azonnal szeretne feldolgozni egy callback‑en keresztül. Használja a [Collect.shapes](https://reference.aspose.com/slides/hu/java/com.aspose.slides/collect/#shapes-com.aspose.slides.Presentation-) metódust, ha egy iterálható eredményre van szüksége, amelyet megőrizhet, szűrhet, megszámolhat vagy többször bejárhat.
 
-**Mindig kisebbre csökkenti a Compress a prezentáció fájlt?**
+**Mindig kisebbre csökkenti-e a Compress a bemutató fájlt?**
 
-Nem feltétlenül. Az eredmény attól függ, hogy a prezentáció tartalmaz-e fel nem használt elrendezéseket, fel nem használt mastereket vagy beágyazott betűtípusokat fel nem használt karakterekkel. Ha ezek közül egyik sem van jelen, a megfelelő [Compress](https://reference.aspose.com/slides/hu/java/com.aspose.slides/compress/) műveletek nem csökkenthetik a fájl méretét.
+Nem feltétlenül. Az eredmény attól függ, hogy a bemutató tartalmaz‑e fel nem használt elrendezéseket, fel nem használt mestereket vagy beágyazott betűtípusokat nem használt karakterekkel. Ha egyik sem áll fenn, a megfelelő [Compress](https://reference.aspose.com/slides/hu/java/com.aspose.slides/compress/) művelet nem feltétlenül csökkenti a fájlméretet.
 
-**A ForEach vagy Compress által végrehajtott változtatások automatikusan mentődnek?**
+**Mentésre kerülnek-e automatikusan a ForEach vagy a Compress által végrehajtott módosítások?**
 
-Nem. Ezek a segítők a memóriában betöltött [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/) objektumon dolgoznak. A [ForEach](https://reference.aspose.com/slides/hu/java/com.aspose.slides/foreach/) visszahíváson belüli elem módosítása vagy a [Compress](https://reference.aspose.com/slides/hu/java/com.aspose.slides/compress/) futtatása után hívja meg a [Presentation.save](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/#save-java.lang.String-int-) metódust az eredmény írásához.
+Nem. Ezek a segédeszközök a memóriában lévő [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/) objektumot módosítják. A [ForEach](https://reference.aspose.com/slides/hu/java/com.aspose.slides/foreach/) callback‑ben vagy a [Compress](https://reference.aspose.com/slides/hu/java/com.aspose.slides/compress/) futtatása után hívja meg a [Presentation.save](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/#save-java.lang.String-int-) metódust a végeredmény kiírásához.
 
 ## **Kapcsolódó cikkek**
 
-- [Convert Presentation](/java/convert-presentation/)
-- [Merge Presentations](/java/merge-presentation/)
-- [Slide Master](/java/slide-master/)
-- [Manage Text Box](/java/manage-textbox/)
-- [Embedded Font](/java/embedded-font/)
+- [Bemutató konvertálása](/slides/hu/java/convert-presentation/)
+- [Bemutatók egyesítése](/slides/hu/java/merge-presentation/)
+- [Dia mesterlap](/slides/hu/java/slide-master/)
+- [Szövegdoboz kezelése](/slides/hu/java/manage-textbox/)
+- [Beágyazott betűtípus](/slides/hu/java/embedded-font/)

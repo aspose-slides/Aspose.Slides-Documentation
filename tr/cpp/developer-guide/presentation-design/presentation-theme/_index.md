@@ -1,5 +1,5 @@
 ---
-title: C++'ta Sunum Temalarını Yönetme
+title: C++'ta Sunum Temalarını Yönet
 linktitle: Sunum Teması
 type: docs
 weight: 10
@@ -9,8 +9,8 @@ keywords:
 - sunum teması
 - slayt teması
 - tema ayarla
-- temayı değiştir
-- temayı yönet
+- tema değiştir
+- tema yönet
 - tema rengi
 - ek palet
 - tema yazı tipi
@@ -21,23 +21,23 @@ keywords:
 - sunum
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++'ta tutarlı markalama ile PowerPoint dosyaları oluşturmak, özelleştirmek ve dönüştürmek için ana sunum temaları."
+description: "C++ için Aspose.Slides'te ana sunum temalarını yöneterek, tutarlı marka kimliğiyle PowerPoint dosyaları oluşturun, özelleştirin ve dönüştürün."
 ---
 ## **Giriş**
 
-Bir sunum teması, renkler, yazı tipleri, arka plan stilleri, dolgu, çizgi ve efektlerden oluşan koordineli bir set tanımlar. Tema farkındalığı olan nesneler, her görsel özelliği sabit bir değer olarak depolamak yerine bu ortak tanımlara başvurur, böylece bir tema değişikliği birden çok nesneyi aynı anda güncelleyebilir.
+Bir sunum teması, renkler, yazı tipleri, arka plan stilleri, dolgu, çizgi ve efektlerden oluşan koordineli bir set tanımlar. Tema farkındalığına sahip nesneler, her görsel özelliği sabit bir değer olarak depolamak yerine bu ortak tanımlara başvurur, böylece bir tema değişikliği birden çok nesneyi aynı anda güncelleyebilir.
 
-Aspose.Slides içinde, sunum seviyesindeki tema [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/get_mastertheme/) aracılığıyla kullanılabilir. Bir sunum ayrıca daha alt seviyelerde tema geçersiz kılmalarını içerebilir. Bir master, temayı [MasterThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/tr/cpp/aspose.slides.theme/masterthememanager/get_overridetheme/) ile geçersiz kılabilir, bir düzen veya tek bir slayt ise [IOverrideThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/tr/cpp/aspose.slides.theme/ioverridethememanager/get_overridetheme/) kullanabilir. Pratikte, bir slayt için geçerli tema, bu kalıtım zinciri aracılığıyla çözülür: sunum teması, master geçersiz kılması, düzen geçersiz kılması ve slayt geçersiz kılması.
+Aspose.Slides içinde, sunum düzeyindeki tema, [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/get_mastertheme/) aracılığıyla kullanılabilir. Bir sunum ayrıca daha düşük seviyelerde tema geçersiz kılmaları içerebilir. Bir master, [MasterThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/tr/cpp/aspose.slides.theme/masterthememanager/get_overridetheme/) aracılığıyla sunum temasını geçersiz kılabilir, bir layout veya bireysel slayt ise [IOverrideThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/tr/cpp/aspose.slides.theme/ioverridethememanager/get_overridetheme/) kullanabilir. Pratikte, bir slayt için etkili tema, bu kalıtım zinciri üzerinden çözülür: sunum teması, master geçersiz kılması, layout geçersiz kılması ve slayt geçersiz kılması.
 
 ![Tema bileşenleri: renkler, yazı tipleri, arka plan stilleri ve efektler](theme-constituents.png)
 
-Aşağıdaki bölümler en yaygın tema iş akışlarını gösterir: bir temayı inceleme, renk ve yazı tiplerini değiştirme, bir temayı kopyalama veya uygulama, arka plan ve efekt stillerini güncelleme ve kalıtım ve geçersizlikler çözüldükten sonra geçerli değerleri okuma.
+Aşağıdaki bölümler en yaygın tema iş akışlarını gösterir: bir temayı inceleme, renk ve yazı tiplerini değiştirme, bir temayı kopyalama veya uygulama, arka plan ve efekt stillerini güncelleme ve kalıtım ve geçersiz kılmalar çözüldükten sonra etkili değerleri okuma.
 
-## **Tema İnceleme**
+## **Temayı İncele**
 
-[MasterTheme](https://reference.aspose.com/slides/tr/cpp/aspose.slides.theme/mastertheme/) nesnesi temanın [get_ColorScheme()](https://reference.aspose.com/slides/tr/cpp/aspose.slides.theme/mastertheme/get_colorscheme/), [get_FontScheme()](https://reference.aspose.com/slides/tr/cpp/aspose.slides.theme/mastertheme/get_fontscheme/), ve [get_FormatScheme()](https://reference.aspose.com/slides/tr/cpp/aspose.slides.theme/mastertheme/get_formatscheme/) yöntemlerini ortaya koyar. Bu koleksiyonları değiştirmeden önce incelemek, bir sunum dış bir kaynaktan geldiğinde stil girişlerinin sayısı ve içeriği değişebileceği için özellikle faydalıdır.
+[MasterTheme](https://reference.aspose.com/slides/tr/cpp/aspose.slides.theme/mastertheme/) nesnesi, temanın [get_ColorScheme()](https://reference.aspose.com/slides/tr/cpp/aspose.slides.theme/mastertheme/get_colorscheme/), [get_FontScheme()](https://reference.aspose.com/slides/tr/cpp/aspose.slides.theme/mastertheme/get_fontscheme/) ve [get_FormatScheme()](https://reference.aspose.com/slides/tr/cpp/aspose.slides.theme/mastertheme/get_formatscheme/) metodlarını ortaya çıkarır. Bu koleksiyonları değiştirmeden önce incelemek, bir sunum dış bir kaynaktan geldiğinde özellikle yararlıdır; çünkü stil girişlerinin sayısı ve içeriği değişkenlik gösterebilir.
 
-Aşağıdaki örnek ana tema özelliklerini okur ve temada kaç adet arka plan, dolgu, çizgi ve efekt stilinin depolandığını raporlar:
+Aşağıdaki örnek, ana tema özelliklerini okur ve temada kaç tane arka plan, dolgu, çizgi ve efekt stilinin depolandığını raporlar:
 
 ```cpp
 #include <DOM/IColorFormat.h>
@@ -69,13 +69,13 @@ Console::WriteLine(u"Line styles: {0}", formatScheme->get_LineStyles()->get_Coun
 Console::WriteLine(u"Effect styles: {0}", formatScheme->get_EffectStyles()->get_Count());
 ```
 
-Bir dosya birden fazla master içeriyorsa, her slaytın aynı geçerli temaya sahip olduğunu varsaymayın. Slayt ile ilişkili master'ı inceleyin ve düzen ya da slayt geçersizlikleri mevcut olduğunda bu makalede daha sonra gösterilen geçerli‑tema iş akışını kullanın.
+Bir dosya birden çok master kullanıyorsa, her slaytın aynı etkili temaya sahip olduğunu varsaymayın. Slayt ile ilişkili masterı inceleyin ve layout ya da slayt geçersiz kılmaları mevcut olduğunda daha sonra bu makalede gösterilen etkili tema iş akışını kullanın.
 
-## **Tema Renklerini Değiştirme**
+## **Tema Renklerini Değiştir**
 
-Tema farkındalığı olan dolgular, çizgiler ve metinler, [SchemeColor](https://reference.aspose.com/slides/tr/cpp/aspose.slides/schemecolor/) enumundan bir mantıksal renge başvurabilir. Temanın [IColorScheme](https://reference.aspose.com/slides/tr/cpp/aspose.slides.theme/icolorscheme/) içindeki ilgili girişi değiştirdiğinizde, hâlâ o tema rengine başvuran tüm nesneler yeni değerle çözülür. Doğrudan bir RGB rengi kullanan nesneler tema‑renk güncellemesinden etkilenmez.
+Tema farkındalığına sahip dolgu, çizgi ve metinler, [SchemeColor](https://reference.aspose.com/slides/tr/cpp/aspose.slides/schemecolor/) enum'undaki mantıksal bir renge başvurabilir. Tema'nın [IColorScheme](https://reference.aspose.com/slides/tr/cpp/aspose.slides.theme/icolorscheme/) içindeki ilgili girişi değiştirdiğinizde, hâlâ o tema rengine başvuran tüm nesneler yeni değere göre çözülür. Doğrudan RGB rengi kullanan nesneler, tema rengi güncellemesinden etkilenmez.
 
-Aşağıdaki uçtan‑uca örnek `Accent4` kullanan bir şekil oluşturur, temanın `Accent4` rengini kırmızıya değiştirir, sunumu kaydeder, tekrar açar ve geçerli dolgu rengini yazdırır:
+Aşağıdaki uçtan uca örnek, `Accent4` kullanan bir şekil oluşturur, temanın `Accent4` rengini kırmızıya değiştirir, sunumu kaydeder, yeniden açar ve etkili dolgu rengini yazdırır:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -114,18 +114,18 @@ auto effectiveFill = savedShape->get_FillFormat()->GetEffective();
 Console::WriteLine(u"Effective fill color: {0}", effectiveFill->get_SolidFillColor());
 ```
 
-Dikdörtgen `Accent4` ile bağlantılı kaldığı için tema değiştirildikten sonra görünür rengi kırmızı olur. Şekildeki şema rengini doğrudan bir renkle değiştirirseniz, sonraki `Accent4` değişiklikleri bu dolguyu artık etkilemez.
+Dikdörtgen `Accent4`e bağlı kalmaya devam ettiğinden, tema değiştirildiğinde görünür rengi kırmızı olur. Şekilde şema rengini doğrudan bir renkle değiştirirseniz, sonraki `Accent4` değişiklikleri artık o dolguya etki etmez.
 
 ### **Ek Paletten Renkleri Kullanma**
 
-PowerPoint, bir tema renginden daha açık ve daha koyu varyantlar türetmek için renk dönüşümleri uygular. Aspose.Slides bu dönüşümleri [ColorTransformOperation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/colortransformoperation/) aracılığıyla sunar.
+PowerPoint, bir tema renginden daha açık ve daha koyu varyantlar türetmek için renk dönüşümleri uygular. Aspose.Slides bu dönüşümleri [ColorTransformOperation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/colortransformoperation/) üzerinden sunar.
 
-![Ana tema renkleri ve ek paletten oluşturulan daha açık ve daha koyu renkler](additional-palette-colors.png)
+![Ana tema renkleri ve ek paletten türetilen daha açık ve daha koyu renkler](additional-palette-colors.png)
 
 **1** - Ana tema renkleri.  
 **2** - Ana tema renklerinden üretilen daha açık ve daha koyu varyantlar.
 
-Aşağıdaki örnek `Accent4` temelinde altı dikdörtgen oluşturur, beş tanesine parlaklık dönüşümleri uygular ve sonucu kaydeder:
+Aşağıdaki örnek, `Accent4` temelli altı dikdörtgen oluşturur, beşine parlaklık dönüşümleri uygular ve sonucu kaydeder:
 
 ```cpp
 #include <DOM/ColorTransformOperation.h>
@@ -196,9 +196,9 @@ presentation->Save(u"theme-color-palette.pptx", SaveFormat::Pptx);
 
 Bu varyantlar tema rengine dayalı kalır. `Accent4` daha sonra değişirse, dönüştürülmüş renkler yeni `Accent4` değerinden yeniden hesaplanır.
 
-### **`SchemeColor` Değerlerini `IColorScheme` Yuvalarına Eşleme**
+### **`SchemeColor` Değerlerini `IColorScheme` Yuvalarına Eşle**
 
-[SchemeColor](https://reference.aspose.com/slides/tr/cpp/aspose.slides/schemecolor/) enumu `Text1`, `Background1`, `Text2` ve `Background2` değerlerini kullanırken, [IColorScheme](https://reference.aspose.com/slides/tr/cpp/aspose.slides.theme/icolorscheme/) aynı tema yuvalarını `Dark1`, `Light1`, `Dark2` ve `Light2` olarak sunar. Eşleme sabittir:
+[SchemeColor](https://reference.aspose.com/slides/tr/cpp/aspose.slides/schemecolor/) enum'ı `Text1`, `Background1`, `Text2` ve `Background2` değerlerini kullanırken, [IColorScheme](https://reference.aspose.com/slides/tr/cpp/aspose.slides.theme/icolorscheme/) aynı tema yuvalarını `Dark1`, `Light1`, `Dark2` ve `Light2` olarak sunar. Eşleme sabittir:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
@@ -207,18 +207,18 @@ Bu varyantlar tema rengine dayalı kalır. `Accent4` daha sonra değişirse, dö
 
 Bunlar aynı tema yuvalarının alternatif adlarıdır; bir formdan diğerine dinamik olarak dönüştürülen değerler değildir.
 
-## **Tema Yazı Tiplerini Değiştirme**
+## **Tema Yazı Tiplerini Değiştir**
 
-Bir tema yazı tipi şeması, başlıklar için bir ana (major) yazı tipi seti ve gövde metni için bir yan (minor) yazı tipi seti içerir. [FontScheme::get_Major()](https://reference.aspose.com/slides/tr/cpp/aspose.slides.theme/fontscheme/get_major/) ve [FontScheme::get_Minor()](https://reference.aspose.com/slides/tr/cpp/aspose.slides.theme/fontscheme/get_minor/) yöntemleri bu setleri ortaya koyar.
+Bir tema yazı tipi şeması, başlıklar için ana yazı tipi kümesi ve gövde metni için ikincil bir yazı tipi kümesi içerir. [FontScheme::get_Major()](https://reference.aspose.com/slides/tr/cpp/aspose.slides.theme/fontscheme/get_major/) ve [FontScheme::get_Minor()](https://reference.aspose.com/slides/tr/cpp/aspose.slides.theme/fontscheme/get_minor/) metodları bu kümeleri ortaya çıkarır.
 
-PowerPoint‑uyumlu tema yazı tipi tanımlayıcıları metin biçimlendirmede kullanılabilir:
+PowerPoint uyumlu tema yazı tipi tanımlayıcıları metin biçimlendirmede kullanılabilir:
 
-* `+mn-lt` - Gövde Yazı Tipi Latin (Küçük Latin Yazı Tipi)
-* `+mj-lt` - Başlık Yazı Tipi Latin (Büyük Latin Yazı Tipi)
-* `+mn-ea` - Gövde Yazı Tipi Doğu Asya (Küçük Doğu Asya Yazı Tipi)
-* `+mj-ea` - Başlık Yazı Tipi Doğu Asya (Büyük Doğu Asya Yazı Tipi)
+* `+mn-lt` – Gövde Yazı Tipi Latin (Minor Latin Font)
+* `+mj-lt` – Başlık Yazı Tipi Latin (Major Latin Font)
+* `+mn-ea` – Gövde Yazı Tipi Doğu Asya (Minor East Asian Font)
+* `+mj-ea` – Başlık Yazı Tipi Doğu Asya (Major East Asian Font)
 
-Aşağıdaki örnek bir başlık oluşturur; başlık ana Latin tema yazı tipini, bir gövde satırı yan Latin tema yazı tipini kullanır. Ardından tema yazı tiplerini değiştirir ve sonucu kaydeder:
+Aşağıdaki örnek, ana Latin tema yazı tipini kullanan bir başlık ve ikincil Latin tema yazı tipini kullanan bir gövde satırı oluşturur. Ardından tema yazı tiplerini değiştirir ve sonucu kaydeder:
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -258,19 +258,23 @@ presentation->get_MasterTheme()->get_FontScheme()->get_Minor()->set_LatinFont(Ma
 presentation->Save(u"theme-fonts.pptx", SaveFormat::Pptx);
 ```
 
-Başlık ana yazı tipini, gövde metni ise yan yazı tipini izler. Tema tanımlayıcısı yerine açıkça bir yazı tipi adı verilmiş metin, tema yazı tipi şeması değiştiğinde otomatik olarak değişmez.
+Başlık ana yazı tipini, gövde metni ise ikincil yazı tipini izler. Tema tanımlayıcısı yerine açıkça belirtilmiş bir yazı tipi adı varsa, tema yazı tipi şeması değiştiğinde otomatik olarak geçmez.
 
-{{% alert color="info" title="Tip" %}}
-Sunum yazı tipleri hakkında daha fazla bilgi için, [PowerPoint Fonts](/slides/tr/cpp/powerpoint-fonts/) sayfasına bakın.
+Ana ve ikincil yazı tipi koleksiyonları ayrıca Kiril, Arapça, Japonca, Gürcüce ve Thaana gibi bireysel yazı sistemleri için yazı tipi eşlemeleri içerebilir. Bu eşlemeleri incelemek, eklemek, değiştirmek veya kaldırmak için [Script‑Specific Theme Fonts](/slides/tr/cpp/script-specific-font-mappings/) bölümüne bakın.
+
+{{% alert color="info" title="İpucu" %}}
+
+Sunum yazı tipleri hakkında daha fazla bilgi için [PowerPoint Fonts](/slides/tr/cpp/powerpoint-fonts/) sayfasına bakın.
+
 {{% /alert %}}
 
-## **Bir Temayı Kopyalama veya Uygulama**
+## **Bir Temayı Kopyala veya Uygula**
 
-İki yaygın iş akışı vardır ve bunlar farklı problemleri çözer.
+İki yaygın iş akışı vardır ve farklı problemleri çözerler.
 
-### **Kaynak Temasını Slayt Taşıdığınızda Korumak**
+### **Kaynak Temayı Slaytları Taşırken Koru**
 
-Bir slaytı başka bir sunuma taşıyıp özgün tasarımını korumak istiyorsanız, kaynak master'ı hedef sunuma [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imasterslidecollection/addclone/) ile klonlayın, ardından slaytı [ISlideCollection::AddClone()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/islidecollection/addclone/) ve klonlanmış master ile klonlayın. Bu, master'ı, düzenlerini ve ilişkili temayı birlikte taşır.
+Bir slaytı başka bir sunuma taşımak ve orijinal tasarımını korumak istiyorsanız, kaynak masterı hedef sunuma [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imasterslidecollection/addclone/) ile klonlayın, ardından slaytı [ISlideCollection::AddClone()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/islidecollection/addclone/) ve klonlanmış master ile klonlayın. Bu, masterı, layoutlarını ve ilişkili temayı bir arada taşır.
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -294,11 +298,11 @@ target->get_Slides()->AddClone(sourceSlide, clonedMaster, true);
 target->Save(u"theme-preserved.pptx", SaveFormat::Pptx);
 ```
 
-Kaynak slaytın hedefte aynı görünmesi gerektiğinde tercih edilen iş akışıdır. İçeriği alakasız bir hedef master üzerine sadece klonlamak, tema‑tahrikli renkleri, yazı tiplerini, arka planları ve efektleri değiştirebilir.
+Bu, kaynak slaytın hedefte aynı görünmesi gerektiğinde tercih edilen iş akışıdır. İlişkili olmayan bir hedef master üzerine sadece içeriği klonlamak, tema‑türetilen renkleri, yazı tiplerini, arka planları ve efektleri değiştirebilir.
 
-### **Mevcut Bir Slayta Tema Değerlerini Uygulama**
+### **Tema Değerlerini Mevcut Bir Slayta Uygula**
 
-Hedef slayt mevcut master ve düzeninde kalmalıysa, kaynak temadan bir slayt‑seviyesi geçersizlik başlatın. [OverrideTheme::InitColorSchemeFrom()](https://reference.aspose.com/slides/tr/cpp/aspose.slides.theme/overridetheme/initcolorschemefrom/), [OverrideTheme::InitFontSchemeFrom()](https://reference.aspose.com/slides/tr/cpp/aspose.slides.theme/overridetheme/initfontschemefrom/) ve [OverrideTheme::InitFormatSchemeFrom()](https://reference.aspose.com/slides/tr/cpp/aspose.slides.theme/overridetheme/initformatschemefrom/) yöntemleri üç ana tema bileşenini geçersiz kılmaya kopyalar.
+Hedef slayt mevcut master ve layout üzerinde kalmalıysa, kaynak temadan slayt‑düzeyinde bir geçersiz kılma başlatın. [OverrideTheme::InitColorSchemeFrom()](https://reference.aspose.com/slides/tr/cpp/aspose.slides.theme/overridetheme/initcolorschemefrom/), [OverrideTheme::InitFontSchemeFrom()](https://reference.aspose.com/slides/tr/cpp/aspose.slides.theme/overridetheme/initfontschemefrom/) ve [OverrideTheme::InitFormatSchemeFrom()](https://reference.aspose.com/slides/tr/cpp/aspose.slides.theme/overridetheme/initformatschemefrom/) metodları üç ana tema bileşenini geçersiz kılmaya kopyalar.
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -322,11 +326,11 @@ overrideTheme->InitFormatSchemeFrom(source->get_MasterTheme()->get_FormatScheme(
 target->Save(u"theme-applied-to-slide.pptx", SaveFormat::Pptx);
 ```
 
-Bu, o slaytın kullandığı temayı diğer slaytların kalıtılan temasını değiştirmeden değiştirir. Yerel geçersiz kılmayı kaldırıp kalıtılan değerlere dönmek için [OverrideTheme::Clear()](https://reference.aspose.com/slides/tr/cpp/aspose.slides.theme/overridetheme/clear/) çağırın.
+Bu, diğer slaytların miras aldığı temayı değiştirmeden sadece bu slaytın temasını değiştirir. Yerel geçersiz kılmayı kaldırıp miras alınan değerlere dönmek için [OverrideTheme::Clear()](https://reference.aspose.com/slides/tr/cpp/aspose.slides.theme/overridetheme/clear/) çağırın.
 
-### **Bir Düzen İçin Tema Geçersiz Kılmasını Uygulama**
+### **Bir Layout İçin Tema Geçersiz Kılmasını Uygula**
 
-Düzen‑seviyesi bir geçersizlik, özel bir slayt kendi geçersizliğine sahip değilse o düzeni kullanan slaytlara uygulanır. Aynı başlatma yöntemleri düzenin [IOverrideThemeManager](https://reference.aspose.com/slides/tr/cpp/aspose.slides.theme/ioverridethememanager/) üzerinden kullanılabilir:
+Layout‑düzeyindeki geçersiz kılma, o layoutu kullanan slaytlara uygulanır; yalnızca belirli bir slayt kendi geçersiz kılmasına sahipse farklı davranır. Aynı başlatma metodları, layoutun [IOverrideThemeManager](https://reference.aspose.com/slides/tr/cpp/aspose.slides.theme/ioverridethememanager/) üzerinden kullanılabilir:
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -352,17 +356,17 @@ overrideTheme->InitFormatSchemeFrom(source->get_MasterTheme()->get_FormatScheme(
 target->Save(u"theme-applied-to-layout.pptx", SaveFormat::Pptx);
 ```
 
-Bir master veya sunum‑seviyesi tema, birçok düzen ve slayt aynı temel tasarımı paylaşmalıysa kullanın; bir düzen geçersiz kılması, bir düzen ailesinin farklı stilizasyon ihtiyacı olduğunda; ve bir slayt geçersiz kılması yalnızca gerçek istisnalar için. Aşırı slayt‑seviyesi geçersizlikler, daha sonraki küresel tema değişikliklerini tahmin etmeyi zorlaştırır.
+Birçok layout ve slayt aynı temel tasarımı paylaşmalıysa master veya sunum‑düzeyinde tema kullanın; bir layout ailesi farklı stil gerektiriyorsa layout geçersiz kılması, yalnızca gerçek istisnalar için slayt geçersiz kılması kullanın. Aşırı slayt‑düzeyinde geçersiz kılmalar, daha sonraki küresel tema değişikliklerini öngörmeyi zorlaştırır.
 
-## **Tema Arka Plan Stillerini Güncelleme**
+## **Tema Arka Plan Stillerini Güncelle**
 
-Temanın arka plan doldurmaları [FormatScheme::get_BackgroundFillStyles()](https://reference.aspose.com/slides/tr/cpp/aspose.slides.theme/formatscheme/get_backgroundfillstyles/) içinde depolanır. PowerPoint, UI'da temanın doldurmalarını tema renkleri ve diğer stil referanslarıyla birleştirebildiği için bu koleksiyonda fiziksel olarak depolanan dolgu tanımlarından daha fazla arka plan seçeneği sunabilir.
+Temanın arka plan dolgu stilleri, [FormatScheme::get_BackgroundFillStyles()](https://reference.aspose.com/slides/tr/cpp/aspose.slides.theme/formatscheme/get_backgroundfillstyles/) içinde depolanır. PowerPoint, UI’da temalı dolguları tema renkleri ve diğer stil referanslarıyla birleştirebildiği için bu koleksiyonda fiziksel olarak depolanan dolgu tanımlarından daha fazla arka plan seçeneği sunabilir.
 
-![Sunum teması için PowerPoint arka plan stil galerisi](presentation-design_8.png)
+![PowerPoint sunum teması için arka plan stil galerisii](presentation-design_8.png)
 
-Bir arka plan stilini kullanmadan önce, depolanmış koleksiyonu ve geçerli [Background::get_StyleIndex()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/background/get_styleindex/) değerini inceleyin. `StyleIndex` temalı bir dolgu olmadığında `0` kullanır; pozitif değerler tema arka plan‑stil referanslarıdır. Bu, `idx_get(0)` ile doğrudan bir C++ koleksiyonunu indekslemeden farklıdır; burada `0` ilk depolanmış öğeyi ifade eder. Her sunumun aynı sayıda arka plan doldurma stili içerdiğini varsaymayın.
+Bir arka plan stilini kullanmadan önce, depolanmış koleksiyonu ve mevcut [Background::get_StyleIndex()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/background/get_styleindex/) değerini inceleyin. `StyleIndex` temalı dolgu yoksa `0` kullanır; pozitif değerler tema arka plan‑stil referanslarıdır. Bu, `idx_get(0)` ile bir C++ koleksiyonunu doğrudan indekslemenin (burada `0` ilk depolanmış öğeyi gösterir) farklıdır. Her sunumun aynı sayıda arka plan dolgu stiline sahip olduğunu varsaymayın.
 
-Aşağıdaki örnek kullanılabilir arka plan dolgu sayısını raporlar, ilk master'a temalı bir arka plan referansı atar ve sunumu kaydeder:
+Aşağıdaki örnek, mevcut arka plan dolgu sayısını raporlar, ilk mastera temalı bir arka plan referansı atar ve sunumu kaydeder:
 
 ```cpp
 #include <DOM/BackgroundType.h>
@@ -392,25 +396,29 @@ if (backgroundStyles->get_Count() > 0)
 }
 ```
 
-Görünür sonuç, master tarafından referans alınan tema girdisine ve düzen ya da slayt seviyesindeki arka plan geçersizliklerine bağlıdır. Bir slayt kendi arka planını kullanıyorsa, yalnızca master arka planını değiştirmek o slaytı etkilemeyebilir. Kalıtım uygulandıktan sonra nihai arka planı öğrenmeniz gerektiğinde [Background::GetEffective()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/background/geteffective/) kullanın.
+Görünür sonuç, masterın başvurduğu tema girişi ve layout ya da slayt düzeyindeki olası arka plan geçersiz kılmalarına bağlıdır. Bir slayt kendi arka planını kullanıyorsa, yalnızca master arka planını değiştirmek o slaytı etkilemez. Kalıtım uygulandıktan sonra nihai arka planı öğrenmeniz gerektiğinde [Background::GetEffective()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/background/geteffective/) kullanın.
 
-{{% alert color="warning" title="Warning" %}}
-`StyleIndex`i sıfır‑tabanlı bir koleksiyon indeksi gibi işlemeyin. Ayrıca bir dosyadan sabit bir stil numarasını kodlayıp başka bir dosyada aynı görünümü sağlayacağını varsımaktan kaçının; tema stil tanımları sunuma özeldir.
+{{% alert color="warning" title="Uyarı" %}}
+
+`StyleIndex`i sıfır tabanlı bir koleksiyon indeksi gibi işlemeyin. Ayrıca bir dosyadan bir stil numarasını sabit kodlayıp başka bir dosyada aynı görünüme sahip olacağını varsamayın; tema stil tanımları sunuma özgüdür.
+
 {{% /alert %}}
 
-{{% alert color="info" title="Tip" %}}
-Doğrudan arka plan biçimlendirme ve arka plan kalıtımı için, [Presentation Background](/slides/tr/cpp/presentation-background/) sayfasına bakın.
+{{% alert color="info" title="İpucu" %}}
+
+Doğrudan arka plan biçimlendirme ve arka plan kalıtımı için [Presentation Background](/slides/tr/cpp/presentation-background/) bölümüne bakın.
+
 {{% /alert %}}
 
-## **Tema Efektlerini Güncelleme**
+## **Tema Efektlerini Güncelle**
 
-Bir tema format şeması ayrı ayrı [FormatScheme::get_FillStyles()](https://reference.aspose.com/slides/tr/cpp/aspose.slides.theme/formatscheme/get_fillstyles/), [FormatScheme::get_LineStyles()](https://reference.aspose.com/slides/tr/cpp/aspose.slides.theme/formatscheme/get_linestyles/) ve [FormatScheme::get_EffectStyles()](https://reference.aspose.com/slides/tr/cpp/aspose.slides.theme/formatscheme/get_effectstyles/) koleksiyonlarını içerir. Tipik Office temaları genellikle görsel olarak hafif, orta ve yoğun biçimlendirmeye karşılık gelen üç temel stil girdisi barındırır, ancak kod sabit bir sayıyı varsaymak yerine her koleksiyonu incelemelidir.
+Bir tema format şeması, ayrı ayrı [FormatScheme::get_FillStyles()](https://reference.aspose.com/slides/tr/cpp/aspose.slides.theme/formatscheme/get_fillstyles/), [FormatScheme::get_LineStyles()](https://reference.aspose.com/slides/tr/cpp/aspose.slides.theme/formatscheme/get_linestyles/) ve [FormatScheme::get_EffectStyles()](https://reference.aspose.com/slides/tr/cpp/aspose.slides.theme/formatscheme/get_effectstyles/) koleksiyonlarını içerir. Tipik Office temaları genellikle görsel olarak ince, orta ve yoğun biçimlendirmelere karşılık gelen üç ana stil girdisi barındırır, ancak kod her koleksiyonu sabit bir sayı varsaymak yerine incelemelidir.
 
-![Aynı şekle uygulanan hafif, orta ve yoğun tema efektleri](presentation-design_10.png)
+![Aynı şekle uygulanmış ince, orta ve yoğun tema efektleri](presentation-design_10.png)
 
-C++ içinde bu koleksiyonlara eriştiğinizde, koleksiyon indeksi sıfır‑tabanlıdır: `idx_get(0)` ilk depolanmış stil, `idx_get(2)` üçüncüdür. Bir şeklin stil‑referans indeksleri ayrı bir kavramdır ve [IShapeStyle](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishapestyle/) aracılığıyla ortaya konur. Bir tema stilini değiştirmek, o tema stiline başvuran şekilleri etkiler; doğrudan biçimlendirilmiş şekiller değişmeden kalabilir.
+C++'ta bu koleksiyonlara eriştiğinizde, koleksiyon indeksi sıfır‑tabanlıdır: `idx_get(0)` ilk depolanmış stil, `idx_get(2)` üçüncüdür. Bir şeklin stil‑referans indeksleri ayrı bir kavramdır ve [IShapeStyle](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishapestyle/) aracılığıyla ortaya çıkar. Bir tema stilini değiştirmek, o tema stiline başvuran şekilleri etkiler; doğrudan biçimlendirilmiş şekiller değişmeden kalabilir.
 
-Aşağıdaki örnek gerekli stil girdilerinin mevcut olduğunu kontrol eder, ilk çizgi stilini değiştirir, üçüncü dolgu stilini değiştirir, üçüncü efekt stilinde dış gölgeyi etkinleştirir ve sonucu kaydeder:
+Aşağıdaki örnek, gerekli stil girdilerinin mevcut olduğunu doğrular, ilk çizgi stilini değiştirir, üçüncü dolgu stilini değiştirir, üçüncü efekt stiline dış gölge ekler ve sonucu kaydeder:
 
 ```cpp
 #include <DOM/Effects/IOuterShadow.h>
@@ -463,15 +471,15 @@ else
 }
 ```
 
-Bu yuvalara başvuran şekiller için, ilk tema çizgi stili kırmızı, üçüncü tema dolgu stili katı orman yeşili, üçüncü efekt stili ise 10 puan mesafeli bir dış gölge kazanır. Tam görsel sonuç, her şeklin hangi stil yuvalarına referans verdiğine ve doğrudan biçimlendirme temayı geçersiz kılıyor mu olduğuna bağlıdır.
+Bu yuvalara başvuran şekiller için, ilk tema çizgi stili kırmızı, üçüncü tema dolgu stili katı orman yeşili ve üçüncü efekt stili 10 puan mesafeli dış gölge kazanır. Tam görsel sonuç hâlâ hangi stil yuvalarının her şekil tarafından referans alındığına ve doğrudan biçimlendirmenin temayı geçersiz kılıp kılmadığına bağlıdır.
 
 ![Satır, dolgu ve gölge ayarları değiştirildikten sonra tema efekt stilleri](presentation-design_11.png)
 
-## **Geçerli Tema Değerlerini Okuma**
+## **Etkili Tema Değerlerini Oku**
 
-Ham tema nesneleri belirli bir seviyede tanımlananları gösterir. Geçerli değerler, bir slayt ya da şeklin kalıtım ve yerel geçersizlikler çözüldükten sonra gerçekte ne kullandığını gösterir. Bir slayt için [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/tr/cpp/aspose.slides.theme/ithemeable/createthemeeffective/) çağırın. Bir arka plan için [Background::GetEffective()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/background/geteffective/), bir dolgu için ise [FillFormat::GetEffective()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/fillformat/geteffective/) kullanın.
+Ham tema nesneleri belirli bir seviyede tanımlananları gösterir. Etkili değerler, kalıtım ve yerel geçersiz kılmalar çözüldükten sonra bir slayt ya da şeklin gerçekte ne kullandığını gösterir. Bir slayt için [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/tr/cpp/aspose.slides.theme/ithemeable/createthemeeffective/) çağırın. Bir arka plan için [Background::GetEffective()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/background/geteffective/), bir dolgu için ise [FillFormat::GetEffective()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/fillformat/geteffective/) kullanın.
 
-Aşağıdaki örnek bir slayttan geçerli tema, arka plan ve ilk şekil dolgusunu okur:
+Aşağıdaki örnek, bir slayttan etkili temayı, arka planı ve ilk şekil dolgusunu okur:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -511,15 +519,18 @@ if (slide->get_Shapes()->get_Count() > 0)
 }
 ```
 
-Rendring tanılamaları, doğrulama ve karşılaştırmalar için geçerli verileri kullanın. Yalnızca [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/get_mastertheme/) incelemeniz, nihai görünümü değiştiren bir master, düzen, slayt veya şekil geçersizliğini kaçırmanıza neden olabilir.
+Rendere diagnostikleri, doğrulama ve karşılaştırmalar için etkili verileri kullanın. Yalnızca [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/get_mastertheme/) incelediğinizde, final görünümü değiştiren bir master, layout, slayt ya da şekil geçersiz kılmasını kaçırabilirsiniz.
 
 ## **SSS**
 
-**Bir tema, master'ı değiştirmeden tek bir slayta uygulanabilir mi?**  
-Evet. Slaytın [IOverrideThemeManager](https://reference.aspose.com/slides/tr/cpp/aspose.slides.theme/ioverridethememanager/) kullanın ve geçersizlik temasını başlatın. Değişiklik yalnızca o slayda yerel olarak uygulanır; diğer slaytlar mevcut temalarını miras almaya devam eder.
+**Bir slayta masterı değiştirmeden tek bir slayta tema uygulayabilir miyim?**
 
-**Bir temayı bir sunumdan diğerine taşırken en güvenli yol nedir?**  
-Bir slaytı taşırken ve kaynak görünümünü korurken, kaynak master'ı hedefe klonlayın ve ardından slaytı o master ile [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imasterslidecollection/addclone/) ve [ISlideCollection::AddClone()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/islidecollection/addclone/) kullanarak klonlayın. Bu, master, düzenler ve temayı birlikte tutar.
+Evet. Slaydın [IOverrideThemeManager](https://reference.aspose.com/slides/tr/cpp/aspose.slides.theme/ioverridethememanager/) kullanın ve geçersiz temaını başlatın. Değişiklik yalnızca o slayda yerel kalır; diğer slaytlar mevcut temalarını miras almaya devam eder.
 
-**Kalıtım ve geçersizliklerden sonra geçerli değerleri nasıl görebilirim?**  
-Bir slayt veya düzen teması için [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/tr/cpp/aspose.slides.theme/ithemeable/createthemeeffective/) ve [Background::GetEffective()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/background/geteffective/) ve [FillFormat::GetEffective()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/fillformat/geteffective/) gibi ilgili geçerli‑veri yöntemlerini kullanın. Bu API'ler, kalıtım ve geçersizlikler uygulandıktan sonra çözülen değerleri döndürür.
+**Bir temayı bir sunumdan diğerine taşırken en güvenli yol nedir?**
+
+Bir slaytı taşırken ve kaynak görünümünü korurken, kaynak masterı hedefe [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/imasterslidecollection/addclone/) ile klonlayın ve ardından slaytı aynı master ile [ISlideCollection::AddClone()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/islidecollection/addclone/) kullanarak klonlayın. Bu, masterı, layoutları ve temayı birlikte tutar.
+
+**Kalıtım ve geçersiz kılmalardan sonra etkili değerleri nasıl görebilirim?**
+
+Bir slayt ya da layout teması için [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/tr/cpp/aspose.slides.theme/ithemeable/createthemeeffective/) ve [Background::GetEffective()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/background/geteffective/) ve [FillFormat::GetEffective()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/fillformat/geteffective/) gibi ilgili etkili‑veri metodlarını kullanın. Bu API'ler, kalıtım ve geçersiz kılmalar uygulandıktan sonra çözümlenmiş değerleri döndürür.

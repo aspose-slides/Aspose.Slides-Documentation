@@ -1,6 +1,6 @@
 ---
-title: Prezentációs Témák Kezelése C++-ban
-linktitle: Prezentációs Téma
+title: Prezentációs témák kezelése C++-ban
+linktitle: Prezentációs téma
 type: docs
 weight: 10
 url: /hu/cpp/presentation-theme/
@@ -13,31 +13,31 @@ keywords:
 - téma kezelése
 - téma szín
 - kiegészítő paletta
-- téma betűkészlet
+- téma betűtípus
 - téma stílus
-- téma effekt
+- téma effektus
 - PowerPoint
 - OpenDocument
 - prezentáció
 - C++
 - Aspose.Slides
-description: "Fő prezentációs témák az Aspose.Slides for C++-ban a PowerPoint fájlok egységes márkaidentitással történő létrehozásához, testreszabásához és konvertálásához."
+description: "Mester prezentációs témák az Aspose.Slides for C++-ban a PowerPoint fájlok létrehozásához, testreszabásához és konvertálásához egységes márkajelzéssel."
 ---
 ## **Bevezetés**
 
-A prezentációs téma egy összehangolt szín-, betűtípus-, háttérstílus-, kitöltés-, vonal- és effektkészletet definiál. A témára érzékeny objektumok ezekre a közös definíciókra hivatkoznak ahelyett, hogy minden vizuális tulajdonságot rögzített értékként tárolnának, így egy téma módosítása egyszerre frissítheti a sok objektumot.
+A prezentációs téma egy koordinált szín-, betűtípus-, háttérstílus-, kitöltés-, vonal- és effektuskészletet határoz meg. A témaérzékeny objektumok ezekre a megosztott definíciókra hivatkoznak ahelyett, hogy minden vizuális tulajdonságot rögzített értékként tárolnának, így egy téma módosítása egyszerre több objektumot is frissíthet.
 
-Az Aspose.Slides-ban a prezentáció szintű téma a [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/get_mastertheme/) segítségével érhető el. A prezentáció alacsonyabb szinteken is tartalmazhat téma felülírásokat. Egy master felülírhatja a prezentációs témát a [MasterThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/hu/cpp/aspose.slides.theme/masterthememanager/get_overridetheme/) segítségével, míg egy elrendezés vagy egy egyedi dia a [IOverrideThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/hu/cpp/aspose.slides.theme/ioverridethememanager/get_overridetheme/) használatával. Gyakorlatban egy dia hatékony témája ezen öröklődési lánc mentén oldódik fel: prezentációs téma, master felülírás, elrendezés felülírás és dia felülírás.
+Az Aspose.Slides esetében a prezentáció szintű témát a [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/get_mastertheme/) biztosítja. A prezentáció alacsonyabb szinteken is tartalmazhat téma‑felülírásokat. Egy mester a [MasterThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/hu/cpp/aspose.slides.theme/masterthememanager/get_overridetheme/) segítségével felülírhatja a prezentáció témáját, míg egy elrendezés vagy egy adott dia a [IOverrideThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/hu/cpp/aspose.slides.theme/ioverridethememanager/get_overridetheme/) használatával. Gyakorlatban a dia tényleges témája ezen öröklődési lánc alapján kerül feloldásra: prezentáció témája, mester felülírás, elrendezés felülírás és dia felülírás.
 
-![Theme components: colors, fonts, background styles, and effects](theme-constituents.png)
+![Téma összetevők: színek, betűtípusok, háttérstílusok és effektusok](theme-constituents.png)
 
-Az alábbi szakaszok a leggyakoribb téma munkafolyamatokat mutatják be: téma ellenőrzése, színek és betűkészletek módosítása, téma másolása vagy alkalmazása, háttér- és effektstílusok frissítése, valamint az öröklődés és felülírások feloldása után kapott hatékony értékek olvasása.
+Az alábbi szakaszok a leggyakoribb téma‑munkafolyamatokat mutatják be: téma megtekintése, színek és betűtípusok módosítása, téma másolása vagy alkalmazása, háttér‑ és effektusstílusok frissítése, valamint a hatékony értékek olvasása az öröklődés és felülírások feloldása után.
 
-## **Téma Ellenőrzése**
+## **Téma megtekintése**
 
-A [MasterTheme](https://reference.aspose.com/slides/hu/cpp/aspose.slides.theme/mastertheme/) objektum a téma [get_ColorScheme()](https://reference.aspose.com/slides/hu/cpp/aspose.slides.theme/mastertheme/get_colorscheme/), [get_FontScheme()](https://reference.aspose.com/slides/hu/cpp/aspose.slides.theme/mastertheme/get_fontscheme/) és [get_FormatScheme()](https://reference.aspose.com/slides/hu/cpp/aspose.slides.theme/mastertheme/get_formatscheme/) metódusait teszi elérhetővé. Ezeknek a gyűjteményeknek az ellenőrzése a módosításuk előtt különösen hasznos, ha a prezentáció külső forrásból származik, mert a stílusbejegyzések száma és tartalma változhat.
+A [MasterTheme](https://reference.aspose.com/slides/hu/cpp/aspose.slides.theme/mastertheme/) objektum a téma [get_ColorScheme()](https://reference.aspose.com/slides/hu/cpp/aspose.slides.theme/mastertheme/get_colorscheme/), [get_FontScheme()](https://reference.aspose.com/slides/hu/cpp/aspose.slides.theme/mastertheme/get_fontscheme/) és [get_FormatScheme()](https://reference.aspose.com/slides/hu/cpp/aspose.slides.theme/mastertheme/get_formatscheme/) metódusait teszi elérhetővé. Ezeknek a gyűjteményeknek a megtekintése a módosítás előtt különösen hasznos, ha a prezentáció külső forrásból származik, mivel a stílusbejegyzések száma és tartalma változhat.
 
-Az alábbi példa beolvassa a fő téma tulajdonságait, és jelentést készít arról, hogy hány háttér-, kitöltés-, vonal- és effektstílus van tárolva a témában:
+Az alábbi példa beolvassa a fő téma‑tulajdonságokat, és jelentést készít arról, hogy hány háttér-, kitöltés-, vonal- és effektus‑stílus van tárolva a témában:
 
 ```cpp
 #include <DOM/IColorFormat.h>
@@ -69,13 +69,13 @@ Console::WriteLine(u"Line styles: {0}", formatScheme->get_LineStyles()->get_Coun
 Console::WriteLine(u"Effect styles: {0}", formatScheme->get_EffectStyles()->get_Count());
 ```
 
-Ha egy fájl több masterrel dolgozik, ne feltételezze, hogy minden dia ugyanazzal a hatékony témával rendelkezik. Ellenőrizze a diához tartozó mastert, és használja a később ebben a cikkben bemutatott hatékony-téma munkafolyamatot, ha elrendezés- vagy diafelülírások is előfordulhatnak.
+Ha egy fájl több mestert használ, ne feltételezze, hogy minden dia ugyanazzal a hatékony témával rendelkezik. Tekintse meg a diával kapcsolatos mestert, és használja a később ebben a cikkben bemutatott hatékony‑téma munkafolyamatot, ha elrendezés‑ vagy dia‑felülírások lehetnek jelen.
 
-## **Téma Színeinek Módosítása**
+## **Téma színeinek módosítása**
 
-A témára érzékeny kitöltések, vonalak és szövegek logikai színekre hivatkozhatnak a [SchemeColor](https://reference.aspose.com/slides/hu/cpp/aspose.slides/schemecolor/) felsoroltámból. Amikor a téma [IColorScheme](https://reference.aspose.com/slides/hu/cpp/aspose.slides.theme/icolorscheme/) megfelelő bejegyzését módosítja, minden objektum, amely még mindig arra a téma színre hivatkozik, az új érték szerint kerül feloldásra. Azok az objektumok, amelyek közvetlen RGB-színt használnak, nem változnak a téma‑szín frissítésekor.
+A téma‑érzékeny kitöltések, vonalak és szövegek logikai színekre hivatkozhatnak a [SchemeColor](https://reference.aspose.com/slides/hu/cpp/aspose.slides/schemecolor/) felsorolásból. Amikor a téma [IColorScheme](https://reference.aspose.com/slides/hu/cpp/aspose.slides.theme/icolorscheme/) megfelelő bejegyzését módosítja, minden, még mindig az adott téma‑színre hivatkozó objektum az új értékkel kerül feloldásra. Azok az objektumok, amelyek közvetlen RGB‑színt használnak, nem változnak a téma‑szín frissítésekor.
 
-Az alábbi végponttól végpontig tartó példa egy olyan alakzatot hoz létre, amely az `Accent4` színt használja, megváltoztatja a téma `Accent4` színét pirosra, elmenti a prezentációt, újra megnyitja, és kiírja a hatékony kitöltőszínt:
+Az alábbi végponttól‑végpontig tartó példa létrehoz egy alakzatot, amely az `Accent4` színt használja, megváltoztatja a téma `Accent4` színét pirosra, menti a prezentációt, újból megnyitja, és kiírja a hatékony kitöltési színt:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -114,19 +114,19 @@ auto effectiveFill = savedShape->get_FillFormat()->GetEffective();
 Console::WriteLine(u"Effective fill color: {0}", effectiveFill->get_SolidFillColor());
 ```
 
-Mivel a téglalap továbbra is az `Accent4`-hez van linkelve, a látható színe pirosra változik a téma módosítása után. Ha a téma színt közvetlen színre cseréli az alakzaton, a későbbi `Accent4` változások már nem befolyásolják azt a kitöltést.
+Mivel a téglalap továbbra is az `Accent4`-hez van kapcsolva, látható színe piros lesz a téma módosítása után. Ha a séma‑színt közvetlen színre cseréli az alakzaton, a későbbi `Accent4`‑változások már nem befolyásolják azt a kitöltést.
 
-### **Használjon Színeket a Kiegészítő Palettáról**
+### **A kiegészítő palettáról származó színek használata**
 
-A PowerPoint könnyebb és sötétebb variánsokat származtat a téma színéből színtranszformációk alkalmazásával. Az Aspose.Slides ezeket a transzformációkat a [ColorTransformOperation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/colortransformoperation/) segítségével teszi elérhetővé.
+A PowerPoint a téma‑színből világosabb és sötétebb változatokat színátalakítások alkalmazásával állít elő. Az Aspose.Slides ezeket az átalakításokat a [ColorTransformOperation](https://reference.aspose.com/slides/hu/cpp/aspose.slides/colortransformoperation/) segítségével teszi elérhetővé.
 
-![Main theme colors and lighter and darker colors generated from the additional palette](additional-palette-colors.png)
+![A fő téma színei és a kiegészítő palettából generált világosabb és sötétebb színek](additional-palette-colors.png)
 
-**1** – Fő téma színek.
+**1** – Fő téma színei.
 
-**2** – A fő téma színekből származtatott könnyebb és sötétebb variánsok.
+**2** – A fő téma színeiből előállított világosabb és sötétebb variánsok.
 
-Az alábbi példa hat téglalapot hoz létre az `Accent4` alapján, ötötön luminancia‑transzformációt alkalmaz, és elmenti az eredményt:
+Az alábbi példa hat téglalapot hoz létre az `Accent4` alapján, ötökre luminancia‑átalakítást alkalmaz, és elmenti az eredményt:
 
 ```cpp
 #include <DOM/ColorTransformOperation.h>
@@ -195,31 +195,31 @@ solidFillColor6->get_ColorTransform()->Add(ColorTransformOperation::MultiplyLumi
 presentation->Save(u"theme-color-palette.pptx", SaveFormat::Pptx);
 ```
 
-Ezek a variánsok továbbra is a téma szín alapján vannak. Ha később az `Accent4` megváltozik, a transzformált színek újra lesznek számítva az új `Accent4` értékből.
+Ezek a variánsok továbbra is a téma‑színen alapulnak. Ha később az `Accent4` megváltozik, a transzformált színek újra lesznek számítva az új `Accent4` értékből.
 
-### **Térképezze a `SchemeColor` Értékeket az `IColorScheme` Helyekre**
+### **A `SchemeColor` értékek leképezése az `IColorScheme` helyekre**
 
-A [SchemeColor](https://reference.aspose.com/slides/hu/cpp/aspose.slides/schemecolor/) felsoroltáma a `Text1`, `Background1`, `Text2` és `Background2` értékeket használja, míg az [IColorScheme](https://reference.aspose.com/slides/hu/cpp/aspose.slides.theme/icolorscheme/) ugyanazon témahelyeket `Dark1`, `Light1`, `Dark2` és `Light2` néven teszi közzé. A leképezés rögzített:
+A [SchemeColor](https://reference.aspose.com/slides/hu/cpp/aspose.slides/schemecolor/) felsorolás a `Text1`, `Background1`, `Text2` és `Background2` értékeket használja, míg az [IColorScheme](https://reference.aspose.com/slides/hu/cpp/aspose.slides.theme/icolorscheme/) a ugyanazokat a témahelyeket `Dark1`, `Light1`, `Dark2` és `Light2` néven exponálja. A leképezés fix:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-Ezek ugyanazon témahelyek alternatív nevei; nem dinamikusan konvertált értékek.
+Ezek ugyanazoknak a témahelyeknek alternatív nevei; nem olyan értékek, amelyeket dinamikusan konvertálnának egyik formából a másikba.
 
-## **Téma Betűkészletek Módosítása**
+## **Téma betűtípusainak módosítása**
 
-A téma betűkészlete egy fő betűkészletet tartalmaz a címsorokhoz és egy másodlagos betűkészletet a törzsszöveghez. A [FontScheme::get_Major()](https://reference.aspose.com/slides/hu/cpp/aspose.slides.theme/fontscheme/get_major/) és a [FontScheme::get_Minor()](https://reference.aspose.com/slides/hu/cpp/aspose.slides.theme/fontscheme/get_minor/) metódusok teszik elérhetővé ezeket a készleteket.
+Egy téma‑betűtípus‑séma fő (major) betűkészletet tartalmaz a címsorokhoz és kisebb (minor) betűkészletet a törzsszöveghez. A [FontScheme::get_Major()](https://reference.aspose.com/slides/hu/cpp/aspose.slides.theme/fontscheme/get_major/) és a [FontScheme::get_Minor()](https://reference.aspose.com/slides/hu/cpp/aspose.slides.theme/fontscheme/get_minor/) metódusok ezeket a készleteket teszik elérhetővé.
 
-PowerPoint‑kompatibilis téma‑betűazonosítókat használhat a szövegformázásnál:
+A PowerPoint‑kompatibilis téma‑betűtípus‑azonosítók a szövegformázásban használhatók:
 
-* `+mn-lt` – Body Font Latin (Minor Latin Font)
-* `+mj-lt` – Heading Font Latin (Major Latin Font)
-* `+mn-ea` – Body Font East Asian (Minor East Asian Font)
-* `+mj-ea` – Heading Font East Asian (Major East Asian Font)
+* `+mn-lt` – Testbetű Latin (Minor Latin Font)
+* `+mj-lt` – Címsorbetű Latin (Major Latin Font)
+* `+mn-ea` – Testbetű Kelet-Ázsiai (Minor East Asian Font)
+* `+mj-ea` – Címsorbetű Kelet-Ázsiai (Major East Asian Font)
 
-Az alábbi példa egy címsort hoz létre, amely a fő latin téma‑betűt használja, valamint egy törzssort, amely a másodlagos latin téma‑betűt használja. Ezután megváltoztatja a téma betűkészleteit és elmenti az eredményt:
+Az alábbi példa létrehoz egy címsort, amely a fő Latin téma‑betűtípust használja, és egy törzssort, amely a kisebb Latin téma‑betűtípust használja. Ezután megváltoztatja a téma betűtípusait és elmenti az eredményt:
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -259,19 +259,21 @@ presentation->get_MasterTheme()->get_FontScheme()->get_Minor()->set_LatinFont(Ma
 presentation->Save(u"theme-fonts.pptx", SaveFormat::Pptx);
 ```
 
-A címsor a fő betűt, a törzsszöveg a másodlagos betűt követi. Azok a szövegek, amelyek kifejezett betűnevet tartalmaznak a témaazonosító helyett, nem váltanak automatikusan, amikor a téma‑betűkészlet megváltozik.
+A címsor a fő betűtípust, a törzsszöveg a kisebb betűtípust követi. Az a szöveg, amelynek explicit betűtípus‑neve van egy téma‑azonosító helyett, nem vált automatikusan, ha a téma betűtípus‑sémája megváltozik.
+
+A fő és kisebb betűtárak tartalmazhatnak betűtípus‑leképezéseket egyedi írásrendszerekhez, például cirill, arab, japán, grúz és thaana. A leképezések megtekintéséhez, hozzáadásához, cseréjéhez vagy eltávolításához lásd a [Script-Specific Theme Fonts](/slides/hu/cpp/script-specific-font-mappings/) oldalat.
 
 {{% alert color="info" title="Tip" %}}
-További információkért a prezentáció betűiről, lásd a [PowerPoint Fonts](/slides/hu/cpp/powerpoint-fonts/) oldalt.
+További információkért a prezentációs betűtípusokról lásd a [PowerPoint Fonts](/slides/hu/cpp/powerpoint-fonts/) oldalt.
 {{% /alert %}}
 
-## **Téma Másolása vagy Alkalmazása**
+## **Téma másolása vagy alkalmazása**
 
-Két gyakori munkafolyamat létezik, amelyek különböző problémákat oldanak meg.
+Két gyakori munkafolyamat létezik, és különböző problémákat oldanak meg.
 
-### **Forrás Téma Megőrzése Diák Áthelyezésekor**
+### **Forrástéma megőrzése a diák áthelyezésekor**
 
-Ha egy diát egy másik prezentációba szeretne áthelyezni, és meg akarja őrizni az eredeti megjelenését, klónozza a forrás mastert a célprezentációba a [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/imasterslidecollection/addclone/) segítségével, majd a diát a [ISlideCollection::AddClone()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islidecollection/addclone/) és a klónozott master segítségével klónozza. Ez a mastert, az elrendezéseket és a kapcsolódó témát együtt szállítja.
+Ha egy diát egy másik prezentációba szeretne áthelyezni, és meg akarja őrizni az eredeti megjelenését, klónozza a forrás‑mestert a cél‑prezentációba a [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/imasterslidecollection/addclone/) segítségével, majd klónozza a diát a [ISlideCollection::AddClone()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islidecollection/addclone/) és a klónozott mesterrel. Ez együtt szállítja a mestert, az elrendezéseket és a kapcsolódó témát.
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -295,11 +297,11 @@ target->get_Slides()->AddClone(sourceSlide, clonedMaster, true);
 target->Save(u"theme-preserved.pptx", SaveFormat::Pptx);
 ```
 
-Ez a leginkább ajánlott munkafolyamat, ha a forrás dia ugyanúgy kell, hogy kinézzen a célban. Az egyszerű klónozás egy nem kapcsolódó cél‑masterre megváltoztathatja a téma‑alapú színeket, betűket, háttereket és effektusokat.
+Ez a preferált munkafolyamat, ha a forrás‑díát ugyanúgy kell megjeleníteni a célhelyen. A tartalom egyszerű klónozása egy nem kapcsolódó cél‑mesterre megváltoztathatja a téma‑vezérelt színeket, betűtípusokat, háttér‑ és effektus‑beállításokat.
 
-### **Témaértékek Alkalmazása Létező Diára**
+### **Témaértékek alkalmazása egy meglévő diára**
 
-Ha a cél‑dia a jelenlegi masterén és elrendezésén kell maradjon, inicializáljon egy dia‑szintű felülírást a forrás témából. A [OverrideTheme::InitColorSchemeFrom()](https://reference.aspose.com/slides/hu/cpp/aspose.slides.theme/overridetheme/initcolorschemefrom/), [OverrideTheme::InitFontSchemeFrom()](https://reference.aspose.com/slides/hu/cpp/aspose.slides.theme/overridetheme/initfontschemefrom/) és [OverrideTheme::InitFormatSchemeFrom()](https://reference.aspose.com/slides/hu/cpp/aspose.slides.theme/overridetheme/initformatschemefrom/) metódusok lemásolják a három fő témaelemet a felülírásba.
+Ha a cél‑díát a jelenlegi mesterén és elrendezésén kell hagyni, inicializáljon egy dia‑szintű felülírást a forrástémából. A [OverrideTheme::InitColorSchemeFrom()](https://reference.aspose.com/slides/hu/cpp/aspose.slides.theme/overridetheme/initcolorschemefrom/), [OverrideTheme::InitFontSchemeFrom()](https://reference.aspose.com/slides/hu/cpp/aspose.slides.theme/overridetheme/initfontschemefrom/) és [OverrideTheme::InitFormatSchemeFrom()](https://reference.aspose.com/slides/hu/cpp/aspose.slides.theme/overridetheme/initformatschemefrom/) metódusok átmásolják a három fő téma‑komponenst a felülírásba.
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -323,11 +325,11 @@ overrideTheme->InitFormatSchemeFrom(source->get_MasterTheme()->get_FormatScheme(
 target->Save(u"theme-applied-to-slide.pptx", SaveFormat::Pptx);
 ```
 
-Ez megváltoztatja a dia által használt témát anélkül, hogy a többi dia örökölt témáját befolyásolná. A helyi felülírás eltávolításához és az örökölt értékek visszaállításához hívja meg a [OverrideTheme::Clear()](https://reference.aspose.com/slides/hu/cpp/aspose.slides.theme/overridetheme/clear/) metódust.
+Ez a dia által használt témát módosítja, anélkül hogy a többi dia örökölt témáját megváltoztatná. A helyi felülírás eltávolításához, és az örökölt értékek visszaállításához hívja meg a [OverrideTheme::Clear()](https://reference.aspose.com/slides/hu/cpp/aspose.slides.theme/overridetheme/clear/) metódust.
 
-### **Téma Felülírás Alkalmazása Elrendezésre**
+### **Téma felülírás alkalmazása egy elrendezésre**
 
-Az elrendezés‑szintű felülírás az az elrendezést használó diákra vonatkozik, hacsak egy adott dia nem rendelkezik saját felülírással. Ugyanezeket az inicializáló metódusokat használhatja az elrendezés [IOverrideThemeManager](https://reference.aspose.com/slides/hu/cpp/aspose.slides.theme/ioverridethememanager/) segítségével:
+Az elrendezés‑szintű felülírás az arra épülő diákra hat, hacsak egy adott dia saját felülírást nem tartalmaz. Ugyanezeket az inicializáló metódusokat a layout [IOverrideThemeManager](https://reference.aspose.com/slides/hu/cpp/aspose.slides.theme/ioverridethememanager/) segítségével is használhatja:
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -353,17 +355,17 @@ overrideTheme->InitFormatSchemeFrom(source->get_MasterTheme()->get_FormatScheme(
 target->Save(u"theme-applied-to-layout.pptx", SaveFormat::Pptx);
 ```
 
-Használjon master‑ vagy prezentáció‑szintű témát, ha sok elrendezésnek és diáknak közös alaptervezésre van szüksége; elrendezés‑felülírást, ha egy elrendezéscsaládnak eltérő stílusra van szüksége; és dia‑felülírást csak valós kivételek esetén. A túlzott dia‑szintű felülírások megnehezítik a későbbi globális téma‑változások előrejelzését.
+Használjon mester‑ vagy prezentáció‑szintű témát, ha sok elrendezésnek és diáknak ugyanazt az alaptervet kell megosztania, egy elrendezés‑felülírást, ha egy elrendezéscsaládnak más stílusra van szüksége, és csak dia‑felülírást valósítsen meg valós kivételek esetén. A túlzott dia‑szintű felülírások megnehezítik a későbbi globális téma‑változtatások előrejelzését.
 
-## **Téma Háttérstílusok Frissítése**
+## **Téma háttérstílusainak frissítése**
 
-A téma háttérkitöltései a [FormatScheme::get_BackgroundFillStyles()](https://reference.aspose.com/slides/hu/cpp/aspose.slides.theme/formatscheme/get_backgroundfillstyles/) metódusban tárolódnak. A PowerPoint több háttérválasztást jeleníthet meg a felhasználói felületen, mint amennyi kitöltés‑definíció fizikailag tárolódik ebben a gyűjteményben, mert a felület kombinálhat téma‑kitöltéseket téma‑színekkel és egyéb stílusreferenciákkal.
+A téma háttér‑kitöltései a [FormatScheme::get_BackgroundFillStyles()](https://reference.aspose.com/slides/hu/cpp/aspose.slides.theme/formatscheme/get_backgroundfillstyles/) metódusban tárolódnak. A PowerPoint a felhasználói felületen több háttérválasztási lehetőséget mutathat meg, mint a gyűjteményben fizikailag tárolt kitöltések száma, mivel a UI kombinálhat téma‑kitöltéseket téma‑színekkel és más stílus‑referenciákkal.
 
-![PowerPoint background style gallery for a presentation theme](presentation-design_8.png)
+![PowerPoint háttérstílus galéria egy prezentációs témához](presentation-design_8.png)
 
-Mielőtt háttérstílust használna, ellenőrizze a tárolt gyűjteményt és a jelenlegi [Background::get_StyleIndex()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/background/get_styleindex/)-t. A `StyleIndex` a `0`‑t használja, ha nincs témás kitöltés; a pozitív értékek téma‑háttér‑stílus‑referenciák. Ez eltér attól, amikor egy C++ gyűjteményt közvetlenül indexelünk `idx_get(0)`‑val, ahol a `0` az első tárolt elemet jelenti. Ne feltételezze, hogy minden prezentáció ugyanannyi háttérkitöltési stílussal rendelkezik.
+Mielőtt háttérstílust használna, tekintse meg a tárolt gyűjteményt és az aktuális [Background::get_StyleIndex()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/background/get_styleindex/) értéket. A `StyleIndex` a `0`‑t használja „nincs téma‑kitöltés” esetén; a pozitív értékek téma‑háttér‑stílusra mutatnak. Ez eltér a C++ gyűjtemény közvetlen indexelésétől, ahol az `idx_get(0)` az első tárolt elemet jelenti. Ne feltételezze, hogy minden prezentáció ugyanannyi háttér‑kitöltési stílussal rendelkezik.
 
-Az alábbi példa jelentést készít a rendelkezésre álló háttérkitöltések számáról, egy témás háttérreferenciát rendel az első masterhez, és elmenti a prezentációt:
+Az alábbi példa jelentést készít a rendelkezésre álló háttér‑kitöltések számáról, a tematikus háttérreferenciát az első mesterhez rendeli, és elmenti a prezentációt:
 
 ```cpp
 #include <DOM/BackgroundType.h>
@@ -393,25 +395,25 @@ if (backgroundStyles->get_Count() > 0)
 }
 ```
 
-A látható eredmény a master által hivatkozott téma‑bejegyzéstől, valamint az elrendezés‑ vagy dia‑szintű háttér‑felülírásoktól függ. Ha egy dia saját háttérrel rendelkezik, csak a master háttér módosítása nem feltétlenül változtatja meg azt a diát. Használja a [Background::GetEffective()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/background/geteffective/) metódust, ha a végső, öröklődés után alkalmazott háttérre van szüksége.
+A látható eredmény a mester által hivatkozott téma‑bejegyzéstől, valamint az elrendezés‑ vagy dia‑szintű háttér‑felülírásoktól függ. Ha egy dia saját háttérrel rendelkezik, csak a mester háttér módosítása nem feltétlenül változtatja meg azt a diát. Használja a [Background::GetEffective()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/background/geteffective/) metódust, ha a végleges háttérre van szüksége az öröklődés alkalmazása után.
 
 {{% alert color="warning" title="Warning" %}}
-Ne kezelje a `StyleIndex`‑et nullára alapozott gyűjtemény‑indexnek. Emellett kerüld a stílus‑számok hard‑kódolását egy fájlból, és annak feltételezését, hogy ugyanúgy jelenik meg egy másik fájlban; a téma‑stílusdefiníciók prezentációnként eltérőek.
+Ne kezelje a `StyleIndex`‑et nulla‑bázisú gyűjtemény‑indexként. Kerülje a stílusszám egy fájlból való hard‑kódolását és feltételezést, hogy ugyanúgy jelenik meg egy másik fájlban; a téma‑stílusdefiníciók prezentáció‑specifikusak.
 {{% /alert %}}
 
 {{% alert color="info" title="Tip" %}}
-A közvetlen háttérformázásért és a háttér‑öröklődésért lásd a [Presentation Background](/slides/hu/cpp/presentation-background/) oldalt.
+A közvetlen háttérformázáshoz és a háttér‑öröklődéshez lásd a [Presentation Background](/slides/hu/cpp/presentation-background/) oldalt.
 {{% /alert %}}
 
-## **Téma Effektusok Frissítése**
+## **Téma effektusainak frissítése**
 
-A téma formátumsémája különálló [FormatScheme::get_FillStyles()](https://reference.aspose.com/slides/hu/cpp/aspose.slides.theme/formatscheme/get_fillstyles/), [FormatScheme::get_LineStyles()](https://reference.aspose.com/slides/hu/cpp/aspose.slides.theme/formatscheme/get_linestyles/) és [FormatScheme::get_EffectStyles()](https://reference.aspose.com/slides/hu/cpp/aspose.slides.theme/formatscheme/get_effectstyles/) gyűjteményeket tartalmaz. A tipikus Office‑témák gyakran három fő stílusbejegyzést tartalmaznak, amelyek vizuálisan a finom, közepes és intenzív formázásnak felelnek meg, de a kódnak minden gyűjteményt ellenőriznie kell, ahelyett, hogy állandó számra építene.
+A téma formátumsémája különálló [FormatScheme::get_FillStyles()](https://reference.aspose.com/slides/hu/cpp/aspose.slides.theme/formatscheme/get_fillstyles/), [FormatScheme::get_LineStyles()](https://reference.aspose.com/slides/hu/cpp/aspose.slides.theme/formatscheme/get_linestyles/) és [FormatScheme::get_EffectStyles()](https://reference.aspose.com/slides/hu/cpp/aspose.slides.theme/formatscheme/get_effectstyles/) gyűjteményeket tartalmaz. A tipikus Office‑témák gyakran három fő stílusbejegyzést tartalmaznak, amelyek vizuálisan a finom, közepes és intenzív formázásnak felelnek meg, de a kódnak minden gyűjteményt ellenőriznie kell, ahelyett, hogy rögzített számra támaszkodna.
 
-![Subtle, moderate, and intense theme effects applied to the same shape](presentation-design_10.png)
+![Finom, közepes és intenzív téma‑effektusok ugyanazon alakzatra alkalmazva](presentation-design_10.png)
 
-C++‑ban ezeknek a gyűjteményeknek az indexelése nullára alapozott: `idx_get(0)` az első tárolt stílus, `idx_get(2)` a harmadik. Egy alakzat stílus‑referencia‑indexei külön koncepciót képeznek, amelyet az [IShapeStyle](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishapestyle/) szolgáltat. Egy téma‑stílus módosítása olyan alakzatokat érint, amelyek hivatkoznak arra a téma‑stílusra; a közvetlen formázással rendelkező alakzatok változatlanok maradhatnak.
+C++‑ban ezekhez a gyűjteményekhez való hozzáféréskor a gyűjtemény indexe nulla‑bázisú: az `idx_get(0)` az első tárolt stílus, az `idx_get(2)` a harmadik. Az alakzat‑stílus‑referencia indexek egy külön fogalom, amelyet az [IShapeStyle](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishapestyle/) exponál. Egy téma‑stílus módosítása azokra az alakzatokra hat, amelyek arra a téma‑stílusra hivatkoznak; a közvetlen formázású alakzatok változatlanok maradhatnak.
 
-Az alábbi példa ellenőrzi, hogy a szükséges stílusbejegyzések léteznek, megváltoztatja az első vonalstílust, a harmadik kitöltőstílust, engedélyezi a külső árnyékot a harmadik effektus‑stílusban, majd elmenti az eredményt:
+Az alábbi példa ellenőrzi, hogy a szükséges stílusbejegyzések léteznek, megváltoztatja az első vonal‑stílust, a harmadik kitöltés‑stílust, engedélyezi a külső árnyékot a harmadik effektus‑stílusban, és elmenti az eredményt:
 
 ```cpp
 #include <DOM/Effects/IOuterShadow.h>
@@ -464,15 +466,15 @@ else
 }
 ```
 
-Azoknál az alakzatoknál, amelyek ezekre a helyekre hivatkoznak, az első téma‑vonalstílus pirosra, a harmadik téma‑kitöltőstílus szilárd erdei zöldre, a harmadik effektus‑stílus pedig külső árnyékra változik, távolsága 10 pont. A pontos vizuális eredmény továbbra is attól függ, melyik stílus‑helyet hivatkozza az adott alakzat, és hogy a közvetlen formázás felülírja‑e a témát.
+Azoknál az alakzatoknál, amelyek ezekre a helyekre hivatkoznak, az első téma‑vonal‑stílus pirosra, a harmadik téma‑kitöltés‑stílus szilárd erdőzöldre, a harmadik effektus‑stílus pedig 10 pont távolságú külső árnyékra változik. A pontos vizuális eredmény továbbra is attól függ, hogy melyik stílus‑helyre hivatkozik az egyes alakzat, és hogy a közvetlen formázás felülírja‑e a témát.
 
-![Theme effect styles after changing line, fill, and shadow settings](presentation-design_11.png)
+![Téma‑effektus‑stílusok a vonal‑, kitöltés‑ és árnyék‑beállítások módosítása után](presentation-design_11.png)
 
-## **Hatékony Témaértékek Olvasása**
+## **Hatékony témaértékek olvasása**
 
-A nyers témaobjektumok megmutatják, hogy mi van definiálva egy adott szinten. A hatékony értékek azt mutatják, hogy egy dia vagy alakzat valójában mit használ az öröklődés és a helyi felülírások feloldása után. Diára a [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/hu/cpp/aspose.slides.theme/ithemeable/createthemeeffective/) metódust hívja. Háttérhez használja a [Background::GetEffective()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/background/geteffective/)-t, kitöltéshez pedig a [FillFormat::GetEffective()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fillformat/geteffective/)-t.
+A nyers témaobjektumok megmutatják, mi van definiálva egy adott szinten. A hatékony értékek megmutatják, mit használ egy dia vagy alakzat az öröklődés és a helyi felülírások feloldása után. Diára vonatkozóan hívja meg a [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/hu/cpp/aspose.slides.theme/ithemeable/createthemeeffective/) metódust. Háttérhez használja a [Background::GetEffective()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/background/geteffective/)‑t, kitöltéshez pedig a [FillFormat::GetEffective()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fillformat/geteffective/)‑t.
 
-Az alábbi példa beolvassa a hatékony témát, a háttért és az első alakzat kitöltését egy diáról:
+Az alábbi példa beolvassa a hatékony témát, a hátteret és az első alakzat kitöltését egy diáról:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -512,18 +514,18 @@ if (slide->get_Shapes()->get_Count() > 0)
 }
 ```
 
-Használja a hatékony adatokat diagnosztikához, validációhoz és összehasonlításokhoz. Ha csak a [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/get_mastertheme/) objektumot ellenőrzi, lemaradhat egy master, elrendezés, dia vagy alakzat felülírásáról, amely megváltoztatja a végső megjelenést.
+Használja a hatékony adatokat renderelési diagnosztikához, validációhoz és összehasonlításokhoz. Ha csak a [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/presentation/get_mastertheme/)‑t tekinti meg, lemaradhat egy mester, elrendezés, dia vagy alakzat felülírásáról, amely megváltoztatja a végső megjelenést.
 
 ## **GYIK**
 
-**Alkalmazhatok-e témát egyetlen diára anélkül, hogy a mastert megváltoztatnám?**
+**Alkalmazhatok témát egyetlen diára a mester megváltoztatása nélkül?**
 
-Igen. Használja a dia [IOverrideThemeManager](https://reference.aspose.com/slides/hu/cpp/aspose.slides.theme/ioverridethememanager/)‑ét, és inicializálja a felülírási témát. A módosítás csak arra a diára marad helyi; a többi dia a meglévő témákat örökli.
+Igen. Használja a dia [IOverrideThemeManager](https://reference.aspose.com/slides/hu/cpp/aspose.slides.theme/ioverridethememanager/)‑ét, és inicializálja annak felülírási témáját. A módosítás lokálisan marad azon a dián; a többi dia továbbra is a meglévő témáit örökli.
 
-**Mi a legbiztonságosabb módja a téma egyik prezentációból a másikba való átvitelének?**
+**Mi a legbiztonságosabb módja egy téma átvitelének egy prezentációról a másikra?**
 
-Amikor egy diát áthelyez és meg akarja őrizni az eredeti megjelenését, klónozza a forrás mastert a célba, majd a diát a klónozott masterrel a [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/imasterslidecollection/addclone/) és a [ISlideCollection::AddClone()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islidecollection/addclone/) segítségével. Ez a mastert, az elrendezéseket és a témát együtt tartja.
+Amikor egy diát mozgat és meg akarja őrizni a forrás megjelenését, klónozza a forrás‑mestert a célba, majd a diát klónozza azzal a mesterrel a [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/imasterslidecollection/addclone/) és a [ISlideCollection::AddClone()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/islidecollection/addclone/) segítségével. Ez együtt tartja a mestert, az elrendezéseket és a témát.
 
 **Hogyan tekinthetem meg a hatékony értékeket az öröklődés és felülírások után?**
 
-Használja a [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/hu/cpp/aspose.slides.theme/ithemeable/createthemeeffective/) metódust egy dia vagy elrendezés témájához, valamint a megfelelő hatékony‑adat metódusokat formátumobjektumok, például a [Background::GetEffective()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/background/geteffective/) és a [FillFormat::GetEffective()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fillformat/geteffective/) esetén. Ezek az API‑k a feloldott értékeket adják vissza az öröklődés és felülírások alkalmazása után.
+Használja az [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/hu/cpp/aspose.slides.theme/ithemeable/createthemeeffective/)‑t egy dia vagy elrendezés témájához, és a megfelelő hatékony‑adat‑metódusokat a formátumobjektumokhoz, például a [Background::GetEffective()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/background/geteffective/)‑t és a [FillFormat::GetEffective()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fillformat/geteffective/)‑t. Ezek az API‑k a feloldott értékeket adják vissza az öröklődés és felülírások alkalmazása után.

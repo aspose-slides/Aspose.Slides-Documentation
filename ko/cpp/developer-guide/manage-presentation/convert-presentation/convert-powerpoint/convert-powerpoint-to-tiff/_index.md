@@ -1,5 +1,5 @@
 ---
-title: PowerPoint 프레젠테이션을 C++에서 TIFF로 변환
+title: C++에서 PowerPoint 프레젠테이션을 TIFF로 변환
 titlelink: PowerPoint를 TIFF로
 type: docs
 weight: 90
@@ -22,17 +22,17 @@ keywords:
 - PPTX를 TIFF로 내보내기
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++를 사용하여 PowerPoint (PPT, PPTX) 프레젠테이션을 고품질 TIFF 이미지로 손쉽게 변환하는 방법을 코드 예제와 함께 알아보세요."
+description: "Aspose.Slides for C++를 사용하여 PowerPoint(PPT, PPTX) 프레젠테이션을 고품질 TIFF 이미지로 쉽게 변환하는 방법을 코드 예제와 함께 배우세요."
 ---
 ## **소개**
 
-TIFF (**Tagged Image File Format**)는 뛰어난 품질과 그래픽의 세밀한 보존으로 알려진 널리 사용되는 무손실 래스터 이미지 형식입니다. 디자이너, 사진작가 및 데스크톱 퍼블리셔는 종종 레이어, 색 정확도 및 이미지의 원래 설정을 유지하기 위해 TIFF를 선택합니다.
+TIFF(**Tagged Image File Format**)는 뛰어난 품질과 그래픽의 세밀한 보존으로 널리 사용되는 무손실 래스터 이미지 형식입니다. 디자이너, 사진작가 및 데스크톱 퍼블리셔는 종종 이미지의 레이어, 색 정확도 및 원본 설정을 유지하기 위해 TIFF를 선택합니다.
 
-Aspose.Slides를 사용하면 PowerPoint 슬라이드(PPT, PPTX)와 OpenDocument 슬라이드(ODP)를 고품질 TIFF 이미지로 손쉽게 변환할 수 있어 프레젠테이션이 최대한의 시각적 충실도를 유지합니다.
+Aspose.Slides를 사용하면 PowerPoint 슬라이드(PPT, PPTX)와 OpenDocument 슬라이드(ODP)를 직접 고품질 TIFF 이미지로 손쉽게 변환할 수 있어 프레젠테이션의 시각적 충실도를 최대한 유지할 수 있습니다.
 
 ## **프레젠테이션을 TIFF로 변환**
 
-[Save](https://reference.aspose.com/slides/ko/cpp/aspose.slides/presentation/save/) 메서드와 [Presentation](https://reference.aspose.com/slides/ko/cpp/aspose.slides/presentation/) 클래스를 사용하면 전체 PowerPoint 프레젠테이션을 빠르게 TIFF로 변환할 수 있습니다. 생성된 TIFF 이미지는 기본 슬라이드 크기에 해당합니다.
+[Presentation](https://reference.aspose.com/slides/ko/cpp/aspose.slides/presentation/) 클래스가 제공하는 [Save](https://reference.aspose.com/slides/ko/cpp/aspose.slides/presentation/save/) 메서드를 사용하면 전체 PowerPoint 프레젠테이션을 빠르게 TIFF로 변환할 수 있습니다. 결과 TIFF 이미지는 기본 슬라이드 크기에 해당합니다.
 
 다음 C++ 코드는 PowerPoint 프레젠테이션을 TIFF로 변환하는 방법을 보여줍니다:
 
@@ -55,17 +55,17 @@ presentation->Dispose();
 
 ## **프레젠테이션을 흑백 TIFF로 변환**
 
-[set_BwConversionMode](https://reference.aspose.com/slides/ko/cpp/aspose.slides.export/tiffoptions/set_bwconversionmode/) 메서드는 [TiffOptions](https://reference.aspose.com/slides/ko/cpp/aspose.slides.export/tiffoptions/) 클래스에서 색상 슬라이드 또는 이미지를 흑백 TIFF로 변환할 때 사용할 알고리즘을 지정할 수 있게 해줍니다. 이 설정은 [set_CompressionType](https://reference.aspose.com/slides/ko/cpp/aspose.slides.export/tiffoptions/set_compressiontype/) 메서드가 `CCITT4` 또는 `CCITT3`으로 설정된 경우에만 적용됩니다.
+[TiffOptions](https://reference.aspose.com/slides/ko/cpp/aspose.slides.export/tiffoptions/) 클래스의 [set_BwConversionMode](https://reference.aspose.com/slides/ko/cpp/aspose.slides.export/tiffoptions/set_bwconversionmode/) 메서드를 사용하면 색상이 있는 슬라이드 또는 이미지를 흑백 TIFF로 변환할 때 사용할 알고리즘을 지정할 수 있습니다. 이 설정은 [set_CompressionType](https://reference.aspose.com/slides/ko/cpp/aspose.slides.export/tiffoptions/set_compressiontype/) 메서드가 `CCITT4` 또는 `CCITT3`으로 설정된 경우에만 적용됩니다.
 
 {{% alert color="info" title="Note" %}}
-[TiffOptions::set_BwConversionMode](https://reference.aspose.com/slides/ko/cpp/aspose.slides.export/tiffoptions/set_bwconversionmode/)은 전체 TIFF 이미지에 대한 픽셀 변환 알고리즘을 선택하는 내보내기 수준 설정입니다. 흑백 디스플레이 모드가 활성화될 때 개별 도형이 어떻게 표시되는지 정의하려면 [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ishape/set_blackwhitemode/)을 사용하십시오. 예제는 [Control Black-and-White Rendering for Shapes](/cpp/shape-formatting/#control-black-and-white-rendering-for-shapes)를 참조하세요.
+[TiffOptions::set_BwConversionMode](https://reference.aspose.com/slides/ko/cpp/aspose.slides.export/tiffoptions/set_bwconversionmode/)은 전체 TIFF 이미지에 대한 픽셀 변환 알고리즘을 선택하는 내보내기 수준 설정입니다. 개별 도형이 흑백 표시 모드에서 어떻게 보일지 정의하려면 [IShape::set_BlackWhiteMode](https://reference.aspose.com/slides/ko/cpp/aspose.slides/ishape/set_blackwhitemode/)을 사용하십시오. 예제는 [Control Black-and-White Rendering for Shapes](/slides/ko/cpp/shape-formatting/#control-black-and-white-rendering-for-shapes)를 참조하세요.
 {{% /alert %}}
 
-예를 들어 다음 슬라이드가 포함된 "sample.pptx" 파일이 있다고 가정해 보겠습니다:
+예를 들어, 다음 슬라이드가 포함된 "sample.pptx" 파일이 있다고 가정합니다:
 
 ![프레젠테이션 슬라이드](slide_black_and_white.png)
 
-다음 C++ 코드는 컬러 슬라이드를 흑백 TIFF로 변환하는 방법을 보여줍니다:
+다음 C++ 코드는 색상 슬라이드를 흑백 TIFF로 변환하는 방법을 보여줍니다:
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -92,11 +92,11 @@ presentation->Dispose();
 
 ![흑백 TIFF](TIFF_black_and_white.png)
 
-## **프레젠테이션을 사용자 정의 크기의 TIFF로 변환**
+## **프레젠테이션을 사용자 지정 크기의 TIFF로 변환**
 
-특정 치수의 TIFF 이미지가 필요한 경우 [TiffOptions](https://reference.aspose.com/slides/ko/cpp/aspose.slides.export/tiffoptions/)에서 제공하는 메서드를 사용하여 원하는 값을 설정할 수 있습니다. 예를 들어, [set_ImageSize](https://reference.aspose.com/slides/ko/cpp/aspose.slides.export/tiffoptions/set_imagesize/) 메서드를 사용하면 결과 이미지의 크기를 정의할 수 있습니다.
+특정 차원의 TIFF 이미지가 필요한 경우 [TiffOptions](https://reference.aspose.com/slides/ko/cpp/aspose.slides.export/tiffoptions/)에서 제공하는 메서드를 사용해 원하는 값을 설정할 수 있습니다. 예를 들어, [set_ImageSize](https://reference.aspose.com/slides/ko/cpp/aspose.slides.export/tiffoptions/set_imagesize/) 메서드를 사용하면 결과 이미지의 크기를 정의할 수 있습니다.
 
-다음 C++ 코드는 사용자 정의 크기로 PowerPoint 프레젠테이션을 TIFF 이미지로 변환하는 방법을 보여줍니다:
+다음 C++ 코드는 PowerPoint 프레젠테이션을 사용자 지정 크기의 TIFF 이미지로 변환하는 방법을 보여줍니다:
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -120,7 +120,7 @@ tiffOptions->set_CompressionType(TiffCompressionTypes::Default);
 /*
 압축 유형:
     Default - 기본 압축 방식(LZW)을 지정합니다.
-    None - 압축을 하지 않음을 지정합니다.
+    None - 압축을 사용하지 않음을 지정합니다.
     CCITT3
     CCITT4
     LZW
@@ -146,11 +146,11 @@ presentation->Save(u"custom_size.tiff", SaveFormat::Tiff, tiffOptions);
 presentation->Dispose();
 ```
 
-## **프레젠테이션을 사용자 정의 이미지 픽셀 형식의 TIFF로 변환**
+## **프레젠테이션을 사용자 지정 이미지 픽셀 형식의 TIFF로 변환**
 
 [TiffOptions](https://reference.aspose.com/slides/ko/cpp/aspose.slides.export/tiffoptions/) 클래스의 [set_PixelFormat](https://reference.aspose.com/slides/ko/cpp/aspose.slides.export/tiffoptions/set_pixelformat/) 메서드를 사용하면 결과 TIFF 이미지에 원하는 픽셀 형식을 지정할 수 있습니다.
 
-다음 C++ 코드는 사용자 정의 픽셀 형식으로 PowerPoint 프레젠테이션을 TIFF 이미지로 변환하는 방법을 보여줍니다:
+다음 C++ 코드는 PowerPoint 프레젠테이션을 사용자 지정 픽셀 형식의 TIFF 이미지로 변환하는 방법을 보여줍니다:
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -169,15 +169,15 @@ auto tiffOptions = MakeObject<TiffOptions>();
 
 tiffOptions->set_PixelFormat(ImagePixelFormat::Format8bppIndexed);
 /*
-ImagePixelFormat은 다음 값들을 포함합니다(문서에 명시된 대로):
-    Format1bppIndexed - 픽셀당 1비트, 인덱스 방식.
-    Format4bppIndexed - 픽셀당 4비트, 인덱스 방식.
-    Format8bppIndexed - 픽셀당 8비트, 인덱스 방식.
+ImagePixelFormat에는 다음 값들이 포함됩니다(문서에 명시된 대로):
+    Format1bppIndexed - 픽셀당 1비트, 인덱스형.
+    Format4bppIndexed - 픽셀당 4비트, 인덱스형.
+    Format8bppIndexed - 픽셀당 8비트, 인덱스형.
     Format24bppRgb    - 픽셀당 24비트, RGB.
     Format32bppArgb   - 픽셀당 32비트, ARGB.
 */
 
-// 지정된 이미지 크기로 프레젠테이션을 TIFF 형식으로 저장합니다.
+// 지정된 이미지 크기로 프레젠테이션을 TIFF로 저장합니다.
 presentation->Save(u"Custom_Image_Pixel_Format.tiff", SaveFormat::Tiff, tiffOptions);
 
 presentation->Dispose();
@@ -189,14 +189,14 @@ Aspose의 [FREE PowerPoint to Poster converter](https://products.aspose.app/slid
 
 ## **FAQ**
 
-**전체 PowerPoint 프레젠테이션이 아니라 개별 슬라이드를 TIFF로 변환할 수 있나요?**
+**개별 슬라이드만 TIFF로 변환할 수 있나요?**
 
-예. Aspose.Slides를 사용하면 PowerPoint 및 OpenDocument 프레젠테이션의 개별 슬라이드를 별도로 TIFF 이미지로 변환할 수 있습니다.
+네. Aspose.Slides를 사용하면 PowerPoint 및 OpenDocument 프레젠테이션의 개별 슬라이드를 별도로 TIFF 이미지로 변환할 수 있습니다.
 
 **프레젠테이션을 TIFF로 변환할 때 슬라이드 수에 제한이 있나요?**
 
-아니요, Aspose.Slides는 슬라이드 수에 제한을 두지 않습니다. 크기에 관계없이 어떤 프레젠테이션이든 TIFF 형식으로 변환할 수 있습니다.
+없습니다. Aspose.Slides는 슬라이드 수에 제한을 두지 않으며, 크기에 관계없이 프레젠테이션을 TIFF 형식으로 변환할 수 있습니다.
 
 **슬라이드를 TIFF로 변환할 때 PowerPoint 애니메이션 및 전환 효과가 유지되나요?**
 
-아니요, TIFF는 정적 이미지 형식입니다. 따라서 애니메이션 및 전환 효과는 유지되지 않으며 슬라이드의 정적 스냅샷만 내보내집니다.
+아니요. TIFF는 정적 이미지 형식이므로 애니메이션 및 전환 효과는 보존되지 않으며 슬라이드의 정적인 스냅샷만 내보내집니다.

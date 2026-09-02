@@ -1,6 +1,6 @@
 ---
 title: Převod PowerPoint prezentací do TIFF v .NET
-titlelink: PowerPoint do TIFF
+titlelink: PowerPoint na TIFF
 type: docs
 weight: 90
 url: /cs/net/convert-powerpoint-to-tiff/
@@ -11,11 +11,11 @@ keywords:
 - převést snímek
 - převést PPT
 - převést PPTX
-- PowerPoint do TIFF
-- prezentace do TIFF
-- snímek do TIFF
-- PPT do TIFF
-- PPTX do TIFF
+- PowerPoint na TIFF
+- prezentaci na TIFF
+- snímek na TIFF
+- PPT na TIFF
+- PPTX na TIFF
 - uložit PPT jako TIFF
 - uložit PPTX jako TIFF
 - exportovat PPT do TIFF
@@ -27,15 +27,15 @@ description: "Zjistěte, jak snadno převést PowerPoint (PPT, PPTX) prezentace 
 ---
 ## **Úvod**
 
-TIFF (**Tagged Image File Format**) je široce používaný bezztrátový rastrový formát obrázků známý pro vynikající kvalitu a podrobnou zachování grafiky. Návrháři, fotografové i desktopoví publikátoři často volí TIFF k zachování vrstev, věrnosti barev a původních nastavení v jejich obrázcích.
+TIFF (**Tagged Image File Format**) je široce používaný bezztrátový rastrový formát obrázků, známý pro svou výjimečnou kvalitu a detailní zachování grafiky. Designéři, fotografové a desktopoví vydavatelé často volí TIFF pro zachování vrstev, přesnosti barev a původních nastavení v jejich obrázcích.
 
-Pomocí Aspose.Slides můžete snadno převést své PowerPointové snímky (PPT, PPTX) a OpenDocument snímky (ODP) přímo na vysoce kvalitní TIFF obrázky, čímž zajistíte, že vaše prezentace zachovají maximální vizuální věrnost.
+Pomocí Aspose.Slides můžete snadno převést své PowerPoint snímky (PPT, PPTX) a snímky OpenDocument (ODP) přímo na vysoce kvalitní TIFF obrázky, což zajistí, že vaše prezentace zachovají maximální vizuální věrnost.
 
 ## **Převod prezentace do TIFF**
 
-Pomocí metody [Uložit](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/save/) poskytované třídou [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/) můžete rychle převést celou PowerPointovou prezentaci do TIFF. Výsledné TIFF obrázky odpovídají výchozí velikosti snímku.
+Pomocí metody [Save](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/save/) poskytované třídou [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/) můžete rychle převést celou PowerPoint prezentaci do formátu TIFF. Výsledné TIFF obrázky odpovídají výchozí velikosti snímků.
 
-Tento C# kód ukazuje, jak převést PowerPointovou prezentaci do TIFF:
+Tento C# kód ukazuje, jak převést PowerPoint prezentaci do TIFF:
 
 ```cs
 using Aspose.Slides;
@@ -51,15 +51,13 @@ using (Presentation presentation = new Presentation("Demo_File.pptx"))
 
 ## **Převod prezentace do černobílého TIFF**
 
-Vlastnost [BwConversionMode](https://reference.aspose.com/slides/cs/net/aspose.slides.export/tiffoptions/bwconversionmode/) ve třídě [TiffOptions](https://reference.aspose.com/slides/cs/net/aspose.slides.export/tiffoptions/) vám umožňuje určit algoritmus používaný při převodu barevného snímku nebo obrázku na černobílý TIFF. Všimněte si, že toto nastavení se použije jen tehdy, když je vlastnost [CompressionType](https://reference.aspose.com/slides/cs/net/aspose.slides.export/tiffoptions/compressiontype/) nastavena na `CCITT4` nebo `CCITT3`.
+Vlastnost [BwConversionMode](https://reference.aspose.com/slides/cs/net/aspose.slides.export/tiffoptions/bwconversionmode/) ve třídě [TiffOptions](https://reference.aspose.com/slides/cs/net/aspose.slides.export/tiffoptions/) vám umožňuje určit algoritmus používaný při převodu barevného snímku nebo obrázku na černobílý TIFF. Všimněte si, že toto nastavení se uplatňuje pouze tehdy, když je vlastnost [CompressionType](https://reference.aspose.com/slides/cs/net/aspose.slides.export/tiffoptions/compressiontype/) nastavena na `CCITT4` nebo `CCITT3`.
 
 {{% alert color="info" title="Poznámka" %}}
-
-[TiffOptions.BwConversionMode](https://reference.aspose.com/slides/cs/net/aspose.slides.export/tiffoptions/bwconversionmode/) je nastavení na úrovni exportu, které vybírá algoritmus převodu pixelů pro celý TIFF obrázek. Pro definování, jak má být zobrazen konkrétní tvar v režimu černobílého zobrazení, použijte [IShape.BlackWhiteMode](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/blackwhitemode/). Viz [Ovládání černobílého vykreslování pro tvary](/net/shape-formatting/#control-black-and-white-rendering-for-shapes) pro příklady.
-
+[TiffOptions.BwConversionMode](https://reference.aspose.com/slides/cs/net/aspose.slides.export/tiffoptions/bwconversionmode/) je nastavení na úrovni exportu, které vybírá algoritmus převodu pixelů pro celý TIFF obrázek. Pro definování, jak by měla vypadat jednotlivá forma při aktivním režimu černobílého zobrazení, použijte [IShape.BlackWhiteMode](https://reference.aspose.com/slides/cs/net/aspose.slides/ishape/blackwhitemode/). Viz [Control Black-and-White Rendering for Shapes](/slides/cs/net/shape-formatting/#control-black-and-white-rendering-for-shapes) pro příklady.
 {{% /alert %}}
 
-Předpokládejme, že máme soubor **sample.pptx** s následujícím snímkem:
+Předpokládejme, že máme soubor "sample.pptx" s následujícím snímkem:
 
 ![Snímek prezentace](slide_black_and_white.png)
 
@@ -89,7 +87,7 @@ Výsledek:
 
 Pokud potřebujete TIFF obrázek s konkrétními rozměry, můžete nastavit požadované hodnoty pomocí vlastností dostupných ve třídě [TiffOptions](https://reference.aspose.com/slides/cs/net/aspose.slides.export/tiffoptions/). Například vlastnost [ImageSize](https://reference.aspose.com/slides/cs/net/aspose.slides.export/tiffoptions/imagesize/) vám umožňuje definovat velikost výsledného obrázku.
 
-Tento C# kód ukazuje, jak převést PowerPointovou prezentaci na TIFF obrázky s vlastní velikostí:
+Tento C# kód ukazuje, jak převést PowerPoint prezentaci na TIFF obrázky s vlastní velikostí:
 
 ```cs
 using System.Drawing;
@@ -106,7 +104,7 @@ using (Presentation presentation = new Presentation("sample.pptx"))
     /* 
     Typy komprese:
         Default - Určuje výchozí kompresní schéma (LZW).
-        None - Určuje, že není použita žádná komprese.
+        None - Určuje žádnou kompresi.
         CCITT3
         CCITT4
         LZW
@@ -127,16 +125,16 @@ using (Presentation presentation = new Presentation("sample.pptx"))
         NotesPosition = NotesPositions.BottomFull
     };
 
-    // Uložte prezentaci jako TIFF s určenou velikostí.
+    // Uložte prezentaci jako TIFF se zadanou velikostí.
     presentation.Save("custom_size.tiff", SaveFormat.Tiff, tiffOptions);
 }
 ```
 
-## **Převod prezentace do TIFF s vlastním formátem pixelů obrázku**
+## **Převod prezentace do TIFF s vlastním pixelformátem obrázku**
 
-Pomocí vlastnosti [PixelFormat](https://reference.aspose.com/slides/cs/net/aspose.slides.export/tiffoptions/pixelformat/) ze třídy [TiffOptions](https://reference.aspose.com/slides/cs/net/aspose.slides.export/tiffoptions) můžete určit požadovaný formát pixelů pro vzniklý TIFF obrázek.
+Pomocí vlastnosti [PixelFormat](https://reference.aspose.com/slides/cs/net/aspose.slides.export/tiffoptions/pixelformat/) ze třídy [TiffOptions](https://reference.aspose.com/slides/cs/net/aspose.slides.export/tiffoptions) můžete určit požadovaný pixelformát pro výsledný TIFF obrázek.
 
-Tento C# kód ukazuje, jak převést PowerPointovou prezentaci na TIFF obrázek s vlastním formátem pixelů:
+Tento C# kód ukazuje, jak převést PowerPoint prezentaci na TIFF obrázek s vlastním pixelformátem:
 
 ```cs
 using Aspose.Slides;
@@ -157,27 +155,25 @@ using (Presentation presentation = new Presentation("Demo_File.pptx"))
         Format32bppArgb   - 32 bitů na pixel, ARGB.
     */
 
-    // Uložte prezentaci jako TIFF s určenou velikostí obrázku.
+    // Uložte prezentaci jako TIFF se zadanou velikostí obrázku.
     presentation.Save("Custom_Image_Pixel_Format.tiff", SaveFormat.Tiff, tiffOptions);
 }
 ```
 
-{{% alert title="Rada" color="info" %}}
-
-Vyzkoušejte bezplatný převodník Aspose **PowerPoint na Poster** [ZDARMA PowerPoint na Poster převodník](https://products.aspose.app/slides/cs/conversion/convert-ppt-to-poster-online).
-
+{{% alert title="Tip" color="info" %}}
+Podívejte se na bezplatný konvertor PowerPoint na plakát od Aspose: [FREE PowerPoint to Poster converter](https://products.aspose.app/slides/cs/conversion/convert-ppt-to-poster-online).
 {{% /alert %}}
 
 ## **Často kladené otázky**
 
-**Mohu převést jednotlivý snímek místo celé PowerPointové prezentace do TIFF?**
+**Mohu převést jednotlivý snímek místo celé PowerPoint prezentace do TIFF?**
 
-Ano. Aspose.Slides vám umožňuje převádět jednotlivé snímky z PowerPointových i OpenDocument prezentací do TIFF obrázků samostatně.
+Ano. Aspose.Slides umožňuje převádět jednotlivé snímky z PowerPoint i OpenDocument prezentací do TIFF obrázků samostatně.
 
 **Existuje nějaký limit počtu snímků při převodu prezentace do TIFF?**
 
 Ne, Aspose.Slides neklade žádná omezení na počet snímků. Můžete převádět prezentace libovolné velikosti do formátu TIFF.
 
-**Zachovají se při převodu snímků do TIFF animace a přechodové efekty PowerPointu?**
+**Zůstávají animace a přechodové efekty PowerPointu zachovány při převodu snímků do TIFF?**
 
-Ne, TIFF je statický formát obrázku. Animace a přechodové efekty tedy nejsou zachovány; exportují se jen statické snímky.
+Ne, TIFF je formát statického obrázku. Proto nejsou animace a přechodové efekty zachovány; exportovány jsou pouze statické snímky snímků.

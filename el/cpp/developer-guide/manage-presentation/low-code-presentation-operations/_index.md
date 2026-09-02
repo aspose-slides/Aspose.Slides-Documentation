@@ -1,11 +1,11 @@
 ---
-title: Λειτουργίες παρουσίασης χαμηλού κώδικα σε C++
-linktitle: API χαμηλού κώδικα
+title: Λειτουργίες Παρουσίασης Low‑Code σε C++
+linktitle: API Low‑Code
 type: docs
 weight: 50
 url: /el/cpp/low-code-presentation-operations/
 keywords:
-- API παρουσίασης χαμηλού κώδικα
+- API παρουσίασης low‑code
 - μετατροπή παρουσίασης
 - συγχώνευση παρουσιάσεων
 - επανάληψη διαφανειών
@@ -14,34 +14,34 @@ keywords:
 - συλλογή σχημάτων
 - συμπίεση παρουσίασης
 - αφαίρεση αχρησιμοποίητων master διαφανειών
-- αφαίρεση αχρησιμοποίητων layout διαφανειών
+- αφαίρεση αχρησιμοποίητων διαφανειών διάταξης
 - συμπίεση ενσωματωμένων γραμματοσειρών
 - PowerPoint
 - OpenDocument
 - παρουσίαση
 - C++
 - Aspose.Slides
-description: "Χρησιμοποιήστε το API χαμηλού κώδικα του Aspose.Slides σε C++ για να μετατρέψετε και να συγχωνεύσετε παρουσιάσεις, να επαναλάβετε το περιεχόμενο, να συλλέξετε σχήματα και να μειώσετε το μέγεθος της παρουσίασης."
+description: "Χρησιμοποιήστε το low‑code API του Aspose.Slides σε C++ για να μετατρέψετε και να συγχωνεύσετε παρουσιάσεις, να επαναλάβετε το περιεχόμενο, να συλλέξετε σχήματα και να μειώσετε το μέγεθος της παρουσίασης."
 ---
 ## **Επισκόπηση**
 
-Ο χώρος ονομάτων [Aspose::Slides::LowCode] παρέχει στατικές βοηθητικές κλάσεις για κοινές λειτουργίες παρουσίασης. Αυτοί οι βοηθοί περικλείουν συχνά χρησιμοποιούμενες ροές εργασίας του μοντέλου αντικειμένων σε στοχευμένες μεθόδους, ώστε να μπορείτε να μετατρέψετε ή να συγχωνεύσετε αρχεία, να επεξεργαστείτε στοιχεία παρουσίασης, να συλλέξετε σχήματα και να αφαιρέσετε αχρησιμοποίητο περιεχόμενο με λιγότερο κώδικα.
+Ο χώρος ονομάτων [Aspose::Slides::LowCode](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/) παρέχει στατικές βοηθητικές κλάσεις για κοινές λειτουργίες παρουσίασης. Αυτοί οι βοηθοί περιτυλίγουν συχνά χρησιμοποιούμενες ροές εργασίας του μοντέλου αντικειμένων σε εστιασμένες μεθόδους, ώστε να μπορείτε να μετατρέπετε ή να συγχωνεύετε αρχεία, να επεξεργάζεστε στοιχεία παρουσίασης, να συλλέγετε σχήματα και να αφαιρείτε αχρήσιμο περιεχόμενο με λιγότερο κώδικα.
 
-Οι βοηθοί χαμηλού κώδικα είναι πιο χρήσιμοι όταν η λειτουργία αφορά ολόκληρο αρχείο ή παρουσίαση και η προεπιλεγμένη ροή εργασίας ταιριάζει στις απαιτήσεις σας. Χρησιμοποιήστε το πλήρες μοντέλο αντικειμένων [Aspose.Slides object model] όταν χρειάζεστε λεπτομερή έλεγχο των επιμέρους διαφανειών, master, διατάξεων, σχημάτων, ρυθμίσεων εξαγωγής ή σχέσεων μεταξύ των στοιχείων παρουσίασης.
+Οι βοηθοί χαμηλού κώδικα είναι πιο χρήσιμοι όταν η λειτουργία εφαρμόζεται σε ολόκληρο το αρχείο ή την παρουσίαση και η προεπιλεγμένη ροή εργασίας ταιριάζει στις απαιτήσεις σας. Χρησιμοποιήστε το πλήρες μοντέλο αντικειμένων [Aspose.Slides](https://reference.aspose.com/slides/el/cpp/aspose.slides/) όταν χρειάζεστε ακριβή έλεγχο σε μεμονωμένες διαφάνειες, master, διατάξεις, σχήματα, ρυθμίσεις εξαγωγής ή σχέσεις μεταξύ των στοιχείων παρουσίασης.
 
 Ο παρακάτω πίνακας συνοψίζει τους διαθέσιμους βοηθούς:
 
-| Βοηθός | Χρήση |
+| Βοηθός | Για τι χρησιμοποιείται |
 | --- | --- |
-| [Convert](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/convert/) | Μετατροπή μιας παρουσίασης σε άλλη μορφή με άμεση κλήση αρχείου-προς-αρχείο. |
-| [Merger](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/merger/) | Συνδυασμός πλήρων αρχείων παρουσίασης του ίδιου μορφότυπου. |
+| [Convert](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/convert/) | Μετατροπή μιας παρουσίασης σε άλλη μορφή με άμεση κλήση αρχείου‑σε‑αρχείο. |
+| [Merger](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/merger/) | Συνένωση πλήρων αρχείων παρουσίασης της ίδιας μορφής. |
 | [ForEach](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/foreach/) | Εκτέλεση ενέργειας για κάθε διαφάνεια, σχήμα, παράγραφο ή τμήμα κειμένου. |
 | [Collect](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/collect/) | Ανάκτηση σχημάτων από ολόκληρη την παρουσίαση για επαναλαμβανόμενη επεξεργασία ή ανάλυση. |
-| [Compress](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/compress/) | Αφαίρεση αχρησιμοποίητων master και διατάξεων και μείωση ενσωματωμένων δεδομένων γραμματοσειρών. |
+| [Compress](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/compress/) | Αφαίρεση αχρησιμοποίητων master και διατάξεων και μείωση των ενσωματωμένων δεδομένων γραμματοσειρών. |
 
-## **Μετατροπή Παρουσίασης**
+## **Convert a Presentation**
 
-Χρησιμοποιήστε [Convert::AutoByExtension](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/convert/autobyextension/) όταν η επέκταση του αρχείου εξόδου είναι επαρκής για την επιλογή του μορφότυπου εξαγωγής. Η μέθοδος ανοίγει την αρχική παρουσίαση, προσδιορίζει τον απαιτούμενο μορφότυπο από τη διαδρομή εξόδου και γράφει το αποτέλεσμα.
+Χρησιμοποιήστε το [Convert::AutoByExtension](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/convert/autobyextension/) όταν η επέκταση του αρχείου εξόδου είναι επαρκής για την επιλογή της μορφής εξαγωγής. Η μέθοδος ανοίγει την πηγή παρουσίασης, καθορίζει τη ζητούμενη μορφή από τη διαδρομή εξόδου και γράφει το αποτέλεσμα.
 
 ```cpp
 #include <LowCode/Convert.h>
@@ -51,11 +51,11 @@ using namespace Aspose::Slides::LowCode;
 Convert::AutoByExtension(u"input.pptx", u"output.pdf");
 ```
 
-Η κλάση [Convert](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/convert/) παρέχει επίσης αφιερωμένες μεθόδους για εξαγωγή σε PDF, SVG, JPEG, PNG και TIFF. Χρησιμοποιήστε το πλήρες μοντέλο αντικειμένων όταν πρέπει να ελέγξετε ή να τροποποιήσετε την παρουσίαση πριν από την εξαγωγή ή να ρυθμίσετε μια επιλογή εξαγωγής που δεν εκτίθεται από τον επιλεγμένο βοηθό. Δείτε [Convert Presentation](/cpp/convert-presentation/) για μορφο-συγκεκριμένες ροές εργασίας και επιλογές.
+Η κλάση [Convert](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/convert/) παρέχει επίσης εξειδικευμένες μεθόδους για έξοδο PDF, SVG, JPEG, PNG και TIFF. Χρησιμοποιήστε το πλήρες μοντέλο αντικειμένων όταν πρέπει να ελέγξετε ή να τροποποιήσετε την παρουσίαση πριν από την εξαγωγή ή να διαμορφώσετε μια επιλογή εξαγωγής που δεν εκτίθεται από τον επιλεγμένο βοηθό. Δείτε το [Convert Presentation](/slides/el/cpp/convert-presentation/) για ροές εργασίας και επιλογές συγκεκριμένων μορφών.
 
-## **Συγχώνευση Παρουσιάσεων**
+## **Merge Presentations**
 
-Χρησιμοποιήστε [Merger::Process](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/merger/process/) για να συνδυάσετε πλήρη αρχεία παρουσίασης με μία κλήση. Οι εισερχόμενες παρουσιάσεις πρέπει να έχουν τον ίδιο μορφότυπο αρχείου.
+Χρησιμοποιήστε το [Merger::Process](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/merger/process/) για να συνδυάσετε πλήρη αρχεία παρουσίασης με μία κλήση. Οι εισερχόμενες παρουσιάσεις πρέπει να έχουν την ίδια μορφή αρχείου.
 
 ```cpp
 #include <LowCode/Merger.h>
@@ -68,13 +68,13 @@ auto inputFiles = System::MakeArray<System::String>({u"part-1.pptx", u"part-2.pp
 Merger::Process(inputFiles, u"merged.pptx");
 ```
 
-Ο βοηθός είναι κατάλληλος όταν όλες οι διαφάνειες πρέπει να προσαρτηθούν σε ένα αποτέλεσμα χωρίς να επιλέγονται ή να αντιστοιχίζονται χωριστά. Χρησιμοποιήστε το πλήρες μοντέλο αντικειμένων όταν χρειάζεται να συγχωνεύσετε επιλεγμένες διαφάνειες, να εφαρμόσετε master ή διάταξη προορισμού, να διατηρήσετε ενότητες ρητά ή να εναρμονίσετε διαφορετικά μεγέθη διαφανειών. Δείτε [Merge Presentations](/cpp/merge-presentation/) για αυτές τις περιπτώσεις.
+Ο βοηθός είναι κατάλληλος όταν όλες οι διαφάνειες πρέπει να προστεθούν σε ένα αποτέλεσμα χωρίς να επιλέγονται ή να αντιστοιχίζονται μεμονωμένα. Χρησιμοποιήστε το πλήρες μοντέλο αντικειμένων όταν χρειάζεται να συγχωνεύσετε επιλεγμένες διαφάνειες, να εφαρμόσετε προορισμένο master ή διάταξη, να διατηρήσετε τμήματα ρητά ή να εναρμονίσετε διαφορετικά μεγέθη διαφανειών. Δείτε το [Merge Presentations](/slides/el/cpp/merge-presentation/) για αυτές τις περιπτώσεις.
 
-## **Επανάληψη Στοιχείων Παρουσίασης**
+## **Iterate Through Presentation Elements**
 
-Η κλάση [ForEach](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/foreach/) καλεί μια λειτουργία επανάκλησης για κάθε ζητούμενο τύπο στοιχείου παρουσίασης. Αποφεύγει ένθετους βρόχους συλλογής και είναι βολική για επιθεώρηση ή αλλαγές μορφοποίησης σε όλη την παρουσίαση.
+Η κλάση [ForEach](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/foreach/) καλεί μια συνάρτηση επανάκλησης για κάθε ζητούμενο τύπο στοιχείου παρουσίασης. Αποφεύγει ενσωματωμένους βρόχους συλλογής και είναι βολική για ελέγχους ή αλλαγές διαμόρφωσης σε όλη την παρουσίαση.
 
-Το παρακάτω παράδειγμα χρησιμοποιεί [ForEach::Slide](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/foreach/slide/), [ForEach::Shape](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/foreach/shape/), [ForEach::Paragraph](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/foreach/paragraph/), και [ForEach::Portion](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/foreach/portion/) για την επιθεώρηση των αντίστοιχων στοιχείων:
+Το παρακάτω παράδειγμα χρησιμοποιεί [ForEach::Slide](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/foreach/slide/), [ForEach::Shape](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/foreach/shape/), [ForEach::Paragraph](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/foreach/paragraph/) και [ForEach::Portion](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/foreach/portion/) για να ελέγξει τα αντίστοιχα στοιχεία:
 
 ```cpp
 #include <DOM/BaseSlide.h>
@@ -118,11 +118,11 @@ auto portionCallback = std::function<void(System::SharedPtr<Portion>, System::Sh
 ForEach::Portion(presentation, portionCallback);
 ```
 
-Από προεπιλογή, η διέλευση σχημάτων και κειμένου σε όλη την παρουσίαση περιλαμβάνει κανονικές, master και layout διαφάνειες. Οι υπερφορτώσεις με παράμετρο `includeNotes` μπορούν επίσης να επεξεργαστούν διαφάνειες σημειώσεων. Χρησιμοποιήστε άμεσους βρόχους συλλογής όταν η σειρά διέλευσης, η πρόωρη έξοδος, το φιλτράρισμα πριν την κλήση επανάκλησης ή ο λεπτομερής έλεγχος γονέα-παιδιού είναι σημαντικοί.
+Από προεπιλογή, η περιήγηση σχήματος και κειμένου σε όλη την παρουσίαση περιλαμβάνει κανονικές, master και layout διαφάνειες. Οι υπερφορτώσεις με παράμετρο `includeNotes` μπορούν επίσης να επεξεργαστούν διαφάνειες σημειώσεων. Χρησιμοποιήστε άμεσους βρόχους συλλογής όταν η σειρά περιήγησης, η πρόωρη έξοδος, το φιλτράρισμα πριν από την κλήση της συνάρτησης επανάκλησης ή ο λεπτομερής έλεγχος γονέα‑παιδιού είναι σημαντικά.
 
-## **Συλλογή Σχημάτων**
+## **Collect Shapes**
 
-Χρησιμοποιήστε [Collect::Shapes](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/collect/shapes/) όταν χρειάζεστε μια συλλογή όλων των σχημάτων σε μια παρουσίαση αντί για μια λειτουργία επανάκλησης για κάθε σχήμα. Αυτό είναι χρήσιμο όταν το ίδιο σύνολο θα φιλτραριστεί, θα μετρηθεί ή θα υποστεί επεξεργασία περισσότερες από μία φορές.
+Χρησιμοποιήστε το [Collect::Shapes](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/collect/shapes/) όταν χρειάζεστε μια συλλογή όλων των σχημάτων σε μια παρουσίαση αντί για κλήση επανάκλησης για κάθε σχήμα. Αυτό είναι χρήσιμο όταν το ίδιο σύνολο θα φιλτραριστεί, μετρηθεί ή επεξεργαστεί περισσότερες από μία φορές.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -142,9 +142,9 @@ for (const auto& shape : shapes)
 }
 ```
 
-Χρησιμοποιήστε [ForEach::Shape](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/foreach/shape/) αντ' αυτού όταν κάθε σχήμα μπορεί να επεξεργαστεί αμέσως και δεν χρειάζεται να διατηρήσετε το συλλεγμένο αποτέλεσμα.
+Χρησιμοποιήστε το [ForEach::Shape](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/foreach/shape/) αντ' αυτού όταν κάθε σχήμα μπορεί να επεξεργαστεί άμεσα και δεν χρειάζεται να διατηρήσετε το συλλεχθέν αποτέλεσμα.
 
-## **Συμπίεση Περιεχομένου Παρουσίασης**
+## **Compress Presentation Content**
 
 Η κλάση [Compress](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/compress/) μπορεί να αφαιρέσει αχρησιμοποίητα δομικά στοιχεία και να μειώσει τα ενσωματωμένα δεδομένα γραμματοσειρών:
 
@@ -170,38 +170,38 @@ Compress::CompressEmbeddedFonts(presentation);
 presentation->Save(u"compressed.pptx", SaveFormat::Pptx);
 ```
 
-Αφαιρέστε πρώτα τις αχρησιμοποίητες διατάξεις και μετά τα αχρησιμοποίητα master, ώστε ένα master που γίνει ακατάλληλο μετά τον καθαρισμό των διατάξεων να μπορεί επίσης να αφαιρεθεί. Αποθηκεύστε την βελτιστοποιημένη παρουσίαση σε νέο αρχείο εάν μπορεί να χρειαστείτε αργότερα τα αρχικά master, διατάξεις ή τα πλήρη δεδομένα ενσωματωμένων γραμματοσειρών. Για περισσότερες λεπτομέρειες, δείτε [Slide Master](/cpp/slide-master/) και [Embedded Font](/cpp/embedded-font/).
+Αφαιρέστε πρώτα τις αχρησιμοποίητες διατάξεις πριν τις αχρησιμοποίητες master, ώστε μια master που γίνει ακαταλήπτη μετά τον καθαρισμό των διατάξεων να μπορεί επίσης να αφαιρεθεί. Αποθηκεύστε την βελτιστοποιημένη παρουσίαση σε νέο αρχείο εάν μπορεί να χρειαστείτε αργότερα τους αρχικούς masters, διατάξεις ή τα πλήρη ενσωματωμένα δεδομένα γραμματοσειρών. Για περισσότερες λεπτομέρειες, δείτε το [Slide Master](/slides/el/cpp/slide-master/) και το [Embedded Font](/slides/el/cpp/embedded-font/).
 
-## **Συχνές Ερωτήσεις**
+## **FAQ**
 
-**Πότε πρέπει να χρησιμοποιήσω το API χαμηλού κώδικα αντί του πλήρους μοντέλου αντικειμένων;**
+**Πότε πρέπει να χρησιμοποιήσω το low‑code API αντί για το πλήρες μοντέλο αντικειμένων;**
 
-Χρησιμοποιήστε τους βοηθούς χαμηλού κώδικα όταν μια τυπική λειτουργία ισχύει για ολόκληρο το αρχείο ή την παρουσίαση και δεν απαιτεί λεπτομερή έλεγχο των επιμέρους στοιχείων. Χρησιμοποιήστε το πλήρες μοντέλο αντικειμένων όταν χρειάζεται να επιλέξετε συγκεκριμένες διαφάνειες, να ελέγξετε σχέσεις master και διάταξης, να επιθεωρήσετε ενδιάμεση κατάσταση ή να ρυθμίσετε συμπεριφορά που ο βοηθός δεν εκθέτει.
+Χρησιμοποιήστε τους βοηθούς low‑code όταν μια τυπική λειτουργία εφαρμόζεται σε ολοκληρωμένο αρχείο ή παρουσίαση και δεν απαιτεί λεπτομερή έλεγχο σε μεμονωμένα στοιχεία. Χρησιμοποιήστε το πλήρες μοντέλο αντικειμένων όταν χρειάζεται να επιλέξετε συγκεκριμένες διαφάνειες, να ελέγξετε σχέσεις master‑layout, να ελέγξετε ενδιάμεση κατάσταση ή να ρυθμίσετε συμπεριφορά που δεν εκτίθεται από τον βοηθό.
 
-**Μπορεί το Merger να συνδυάσει παρουσιάσεις σε διαφορετικούς τύπους αρχείων;**
+**Μπορεί ο Merger να συνδυάσει παρουσιάσεις σε διαφορετικές μορφές αρχείου;**
 
-Όχι. Το [Merger::Process](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/merger/process/) απαιτεί οι εισερχόμενες παρουσιάσεις να είναι στον ίδιο μορφότυπο. Μετατρέψτε πρώτα τα αρχεία εισόδου σε κοινό μορφότυπο, για παράδειγμα με [Convert::AutoByExtension](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/convert/autobyextension/), και μετά συγχωνεύστε τα μετατρεπόμενα αρχεία.
+Όχι. Το [Merger::Process](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/merger/process/) απαιτεί οι εισερχόμενες παρουσιάσεις να είναι της ίδιας μορφής. Μετατρέψτε πρώτα τα αρχεία εισόδου σε κοινή μορφή, π.χ. με το [Convert::AutoByExtension](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/convert/autobyextension/), και, στη συνέχεια, συγχωνεύστε τα μετατρεπόμενα αρχεία.
 
-**Η ForEach επεξεργάζεται master, layout και notes διαφάνειες;**
+**Το ForEach επεξεργάζεται master, layout και notes διαφάνειες;**
 
-Το [ForEach::Slide](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/foreach/slide/) επαναλαμβάνει τις κανονικές διαφάνειες παρουσίασης. Η [ForEach::Shape](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/foreach/shape/), [ForEach::Paragraph](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/foreach/paragraph/) και [ForEach::Portion](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/foreach/portion/) περιλαμβάνουν από προεπιλογή κανονικές, master και layout διαφάνειες. Χρησιμοποιήστε τις υπερφορτώσεις τους με `includeNotes` ορισμένο σε `true` για να συμπεριλάβετε και τις διαφάνειες σημειώσεων.
+Το [ForEach::Slide](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/foreach/slide/) επαναλαμβάνει τις κανονικές διαφάνειες παρουσίασης. Η λειτουργία [ForEach::Shape](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/foreach/shape/), [ForEach::Paragraph](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/foreach/paragraph/) και [ForEach::Portion](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/foreach/portion/) σε όλη την παρουσίαση περιλαμβάνει εξ προεπιλογή τις κανονικές, master και layout διαφάνειες. Χρησιμοποιήστε τις υπερφορτώσεις τους με `includeNotes` ορισμένο σε `true` για να συμπεριλάβετε και τις notes διαφάνειες.
 
 **Ποια είναι η διαφορά μεταξύ ForEach::Shape και Collect::Shapes;**
 
-Χρησιμοποιήστε το [ForEach::Shape](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/foreach/shape/) για να επεξεργαστείτε κάθε σχήμα αμέσως μέσω μιας λειτουργίας επανάκλησης. Χρησιμοποιήστε το [Collect::Shapes](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/collect/shapes/) όταν χρειάζεστε ένα συλλεκτικό αποτέλεσμα που μπορεί να διατηρηθεί, φιλτραριστεί, μετρηθεί ή διασχιστεί πολλές φορές.
+Χρησιμοποιήστε το [ForEach::Shape](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/foreach/shape/) για άμεση επεξεργασία κάθε σχήματος μέσω κλήσης επανάκλησης. Χρησιμοποιήστε το [Collect::Shapes](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/collect/shapes/) όταν χρειάζεστε ένα επαναχρησιμοποιήσιμο αποτέλεσμα που μπορεί να διατηρηθεί, φιλτραριστεί, μετρηθεί ή περιηγηθεί πολλές φορές.
 
-**Η Compress μειώνει πάντα το μέγεθος του αρχείου παρουσίασης;**
+**Το Compress μειώνει πάντα το μέγεθος του αρχείου παρουσίασης;**
 
-Δεν είναι απαραίτητα. Το αποτέλεσμα εξαρτάται από το αν η παρουσίαση περιέχει αχρησιμοποίητες διατάξεις, αχρησιμοποίητα master ή ενσωματωμένες γραμματοσειρές με αχρησιμοποίητους χαρακτήρες. Εάν κανένα από αυτά δεν υπάρχει, οι αντίστοιχες λειτουργίες [Compress](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/compress/) ενδέχεται να μην μειώσουν το μέγεθος του αρχείου.
+Όχι απαραίτητα. Το αποτέλεσμα εξαρτάται από το εάν η παρουσίαση περιέχει αχρησιμοποίητες διατάξεις, αχρησιμοποίητους masters ή ενσωματωμένες γραμματοσειρές με αχρησιμοποίητους χαρακτήρες. Εάν δεν υπάρχουν, οι αντίστοιχες λειτουργίες [Compress](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/compress/) μπορεί να μην μειώσουν το μέγεθος του αρχείου.
 
-**Αποθηκεύονται αυτόματα οι αλλαγές που γίνονται από τη ForEach ή τη Compress;**
+**Αποθηκεύονται αυτόματα οι αλλαγές που κάνει το ForEach ή το Compress;**
 
-Όχι. Αυτοί οι βοηθοί λειτουργούν πάνω στο φορτωμένο αντικείμενο [Presentation](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/) στη μνήμη. Μετά την αλλαγή στοιχείων σε μια λειτουργία επανάκλησης [ForEach](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/foreach/) ή μετά την εκτέλεση της [Compress](https://reference.aspose.com/slides/el/cpp/aspose.slides.lowcode/compress/), καλέστε το [Presentation::Save](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/save/) για να γράψετε το αποτέλεσμα.
+Όχι. Οι βοηθοί αυτοί λειτουργούν στο φορτωμένο αντικείμενο [Presentation](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/) στη μνήμη. Μετά την αλλαγή στοιχείων σε μια κλήση επανάκλησης [ForEach] ή την εκτέλεση του [Compress], καλέστε το [Presentation::Save](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/save/) για να γράψετε το αποτέλεσμα.
 
 ## **Σχετικά Άρθρα**
 
-- [Μετατροπή Παρουσίασης](/cpp/convert-presentation/)
-- [Συγχώνευση Παρουσιάσεων](/cpp/merge-presentation/)
-- [Slide Master](/cpp/slide-master/)
-- [Διαχείριση Πλαισίου Κειμένου](/cpp/manage-textbox/)
-- [Embedded Font](/cpp/embedded-font/)
+- [Convert Presentation](/slides/el/cpp/convert-presentation/)
+- [Merge Presentations](/slides/el/cpp/merge-presentation/)
+- [Slide Master](/slides/el/cpp/slide-master/)
+- [Manage Text Box](/slides/el/cpp/manage-textbox/)
+- [Embedded Font](/slides/el/cpp/embedded-font/)

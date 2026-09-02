@@ -6,39 +6,39 @@ weight: 10
 url: /pl/nodejs-java/presentation-theme/
 keywords:
 - Motyw PowerPoint
-- Motyw prezentacji
-- Motyw slajdu
-- Ustaw motyw
-- Zmień motyw
-- Zarządzaj motywem
-- Kolor motywu
-- Dodatkowa paleta
-- Czcionka motywu
-- Styl motywu
-- Efekt motywu
+- motyw prezentacji
+- motyw slajdu
+- ustaw motyw
+- zmień motyw
+- zarządzaj motywem
+- kolor motywu
+- dodatkowa paleta
+- czcionka motywu
+- styl motywu
+- efekt motywu
 - PowerPoint
 - OpenDocument
-- Prezentacja
+- prezentacja
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Twórz, dostosowuj i konwertuj pliki PowerPoint w JavaScript z Aspose.Slides dla Node.js, zarządzając głównymi motywami prezentacji i zapewniając spójną identyfikację wizualną."
+description: "Główne motywy prezentacji w JavaScript przy użyciu Aspose.Slides dla Node.js, aby tworzyć, dostosowywać i konwertować pliki PowerPoint z jednolitą identyfikacją marki."
 ---
 ## **Wprowadzenie**
 
-Motyw prezentacji definiuje skoordynowany zestaw kolorów, czcionek, stylów tła, wypełnień, linii i efektów. Obiekty świadome motywu odwołują się do tych wspólnych definicji zamiast przechowywania każdej właściwości wizualnej jako stałej wartości, więc zmiana motywu może jednocześnie zaktualizować wiele obiektów.
+Motyw prezentacji definiuje skoordynowany zestaw kolorów, czcionek, stylów tła, wypełnień, linii i efektów. Obiekty świadome motywu odwołują się do tych wspólnych definicji zamiast przechowywać każdą właściwość wizualną jako stałą wartość, dzięki czemu zmiana motywu może jednocześnie zaktualizować wiele obiektów.
 
-W Aspose.Slides motyw na poziomie prezentacji jest dostępny poprzez [Presentation.getMasterTheme](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/getmastertheme/). Prezentacja może również zawierać nadpisania motywu na niższych poziomach. Master może nadpisać motyw prezentacji poprzez [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/masterthememanager/), natomiast układ lub pojedynczy slajd może nadpisać odziedziczony motyw poprzez [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/baseoverridethememanager/). W praktyce skuteczny motyw dla slajdu jest rozwiązywany w następującej kolejności dziedziczenia: motyw prezentacji, nadpisanie mastera, nadpisanie układu i nadpisanie slajdu.
+W bibliotece Aspose.Slides motyw na poziomie prezentacji jest dostępny za pośrednictwem [Presentation.getMasterTheme](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/getmastertheme/). Prezentacja może również zawierać nadpisania motywu na niższych poziomach. Master może nadpisać motyw prezentacji poprzez [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/masterthememanager/), natomiast układ lub pojedynczy slajd może nadpisać odziedziczony motyw poprzez [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/baseoverridethememanager/). W praktyce skuteczny motyw dla slajdu jest rozwiązywany według tego łańcucha dziedziczenia: motyw prezentacji, nadpisanie mastera, nadpisanie układu i nadpisanie slajdu.
 
-![Elementy motywu: kolory, czcionki, style tła i efekty](theme-constituents.png)
+![Komponenty motywu: kolory, czcionki, style tła i efekty](theme-constituents.png)
 
-Poniższe sekcje przedstawiają najczęstsze scenariusze pracy z motywem: sprawdzanie motywu, zmiana kolorów i czcionek, kopiowanie lub zastosowanie motywu, aktualizacja stylów tła i efektów oraz odczyt skutecznych wartości po rozwiązaniu dziedziczenia i nadpisań.
+Niżej znajdują się sekcje pokazujące najczęstsze przepływy pracy z motywem: sprawdzanie motywu, zmiana kolorów i czcionek, kopiowanie lub zastosowanie motywu, aktualizacja stylów tła i efektów oraz odczytywanie wartości efektywnych po rozwiązaniu dziedziczenia i nadpisań.
 
-## **Sprawdzenie motywu**
+## **Sprawdzanie motywu**
 
-Obiekt [MasterTheme](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/mastertheme/) udostępnia schemat kolorów, schemat czcionek i schemat formatów motywu poprzez [MasterTheme.getColorScheme](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/mastertheme/) i [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/mastertheme/). Sprawdzenie tych kolekcji przed ich zmianą jest szczególnie przydatne, gdy prezentacja pochodzi z zewnętrznego źródła, ponieważ liczba i zawartość wpisów stylów mogą się różnić.
+Obiekt [MasterTheme] udostępnia schemat kolorów, schemat czcionek i schemat formatów motywu za pośrednictwem [MasterTheme.getColorScheme](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/mastertheme/), i [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/mastertheme/). Sprawdzanie tych kolekcji przed ich zmianą jest szczególnie przydatne, gdy prezentacja pochodzi z zewnętrznego źródła, ponieważ liczba i zawartość wpisów stylów może się różnić.
 
-Poniższy przykład odczytuje główne właściwości motywu i raportuje, ile stylów tła, wypełnień, linii i efektów jest przechowywanych w motywie:
+Następujący przykład odczytuje główne właściwości motywu i raportuje, ile stylów tła, wypełnień, linii i efektów jest przechowywanych w motywie:
 
 ```javascript
 const aspose = {};
@@ -60,13 +60,13 @@ try {
 }
 ```
 
-Jeśli plik używa wielu masterów, nie zakładaj, że każdy slajd ma taki sam skuteczny motyw. Sprawdź master powiązany ze slajdem i użyj przepływu pracy z efektywnym motywem przedstawionego później w tym artykule, gdy mogą występować nadpisania układu lub slajdu.
+Jeśli plik używa wielu masterów, nie zakładaj, że każdy slajd ma ten sam skuteczny motyw. Sprawdź master powiązany ze slajdem i użyj przepływu pracy ze skutecznym motywem przedstawionego później w tym artykule, gdy mogą występować nadpisania układu lub slajdu.
 
 ## **Zmiana kolorów motywu**
 
 Wypełnienia, linie i tekst świadome motywu mogą odwoływać się do logicznego koloru z wyliczenia [SchemeColor](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/schemecolor/). Gdy zmienisz odpowiedni wpis w [ColorScheme](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/colorscheme/), wszystkie obiekty, które nadal odwołują się do tego koloru motywu, są rozwiązywane względem nowej wartości. Obiekty używające bezpośredniego koloru RGB nie są zmieniane przez aktualizację koloru motywu.
 
-Poniższy kompleksowy przykład tworzy kształt używający `Accent4`, zmienia kolor motywu `Accent4` na czerwony, zapisuje prezentację, otwiera ją ponownie i wypisuje skuteczny kolor wypełnienia:
+Następujący kompletny przykład tworzy kształt używający `Accent4`, zmienia kolor `Accent4` w motywie na czerwony, zapisuje prezentację, otwiera ją ponownie i wypisuje efektywny kolor wypełnienia:
 
 ```javascript
 const aspose = {};
@@ -96,18 +96,18 @@ try {
 }
 ```
 
-Ponieważ prostokąt pozostaje połączony z `Accent4`, jego widoczny kolor staje się czerwony po zmianie motywu. Jeśli zamienisz kolor schematu na bezpośredni kolor w kształcie, późniejsze zmiany `Accent4` nie będą już wpływać na to wypełnienie.
+Ponieważ prostokąt pozostaje powiązany z `Accent4`, jego widoczny kolor staje się czerwony po zmianie motywu. Jeśli zamienisz kolor schematu na bezpośredni kolor w kształcie, późniejsze zmiany `Accent4` nie będą już wpływać na to wypełnienie.
 
-### **Użycie kolorów z dodatkowej palety**
+### **Użyj kolorów z dodatkowej palety**
 
-PowerPoint tworzy jaśniejsze i ciemniejsze warianty z koloru motywu, stosując transformacje kolorów. Aspose.Slides udostępnia te transformacje poprzez wyliczenie [ColorTransformOperation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/colortransformoperation/).
+PowerPoint generuje jaśniejsze i ciemniejsze warianty z koloru motywu, stosując transformacje kolorów. Aspose.Slides udostępnia te transformacje za pośrednictwem wyliczenia [ColorTransformOperation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/colortransformoperation/).
 
 ![Główne kolory motywu oraz jaśniejsze i ciemniejsze kolory wygenerowane z dodatkowej palety](additional-palette-colors.png)
 
 **1** – Główne kolory motywu.  
-**2** – Jaśniejsze i ciemniejsze warianty wyprodukowane z głównych kolorów motywu.
+**2** – Jaśniejsze i ciemniejsze warianty wytworzone z głównych kolorów motywu.
 
-Poniższy przykład tworzy sześć prostokątów na bazie `Accent4`, stosuje transformacje luminancji do pięciu z nich i zapisuje wynik:
+Następujący przykład tworzy sześć prostokątów opartych na `Accent4`, stosuje transformacje luminancji do pięciu z nich i zapisuje wynik:
 
 ```javascript
 const aspose = {};
@@ -156,31 +156,31 @@ try {
 }
 ```
 
-Warianty te pozostają oparte na kolorze motywu. Jeśli `Accent4` zostanie później zmieniony, przeliczone kolory zostaną zaktualizowane na nową wartość `Accent4`.
+Te warianty pozostają oparte na kolorze motywu. Jeśli `Accent4` zmieni się później, przekształcone kolory zostaną przeliczone na podstawie nowej wartości `Accent4`.
 
-### **Mapowanie wartości `SchemeColor` na pozycje `ColorScheme`**
+### **Mapowanie wartości `SchemeColor` na sloty `ColorScheme`**
 
-Wyliczenie [SchemeColor](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/schemecolor/) używa `Text1`, `Background1`, `Text2` i `Background2`, podczas gdy [ColorScheme](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/colorscheme/) udostępnia te same pozycje motywu jako `Dark1`, `Light1`, `Dark2` i `Light2`. Mapowanie jest stałe:
+Wyliczenie [SchemeColor](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/schemecolor/) używa `Text1`, `Background1`, `Text2` i `Background2`, podczas gdy [ColorScheme](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/colorscheme/) udostępnia te same sloty motywu jako `Dark1`, `Light1`, `Dark2` i `Light2`. Mapowanie jest stałe:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-Są to alternatywne nazwy tych samych pozycji motywu; nie są to wartości dynamicznie konwertowane z jednej formy na drugą.
+Są to alternatywne nazwy tych samych slotów motywu; nie są to wartości dynamicznie konwertowane z jednej formy na drugą.
 
 ## **Zmiana czcionek motywu**
 
-Schemat czcionek motywu zawiera główny zestaw czcionek dla nagłówków oraz poboczny zestaw czcionek dla tekstu podstawowego. Metody [FontScheme.getMajor](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/fontscheme/) i [FontScheme.getMinor](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/fontscheme/) udostępniają te zestawy.
+Schemat czcionek motywu zawiera zestaw głównych czcionek dla nagłówków oraz zestaw pomocniczych czcin dla tekstu podstawowego. Metody [FontScheme.getMajor](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/fontscheme/) i [FontScheme.getMinor](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/fontscheme/) udostępniają te zestawy.
 
-Identyfikatory czcionek zgodne z PowerPoint mogą być używane w formatowaniu tekstu:
+PowerPoint‑compatible theme font identifiers can be used in text formatting:
 
-* `+mn-lt` – Czcionka podstawowa Latin (Minor Latin Font)
+* `+mn-lt` – Czcionka tekstu podstawowego Latin (Minor Latin Font)
 * `+mj-lt` – Czcionka nagłówka Latin (Major Latin Font)
-* `+mn-ea` – Czcionka podstawowa East Asian (Minor East Asian Font)
+* `+mn-ea` – Czcionka tekstu podstawowego East Asian (Minor East Asian Font)
 * `+mj-ea` – Czcionka nagłówka East Asian (Major East Asian Font)
 
-Poniższy przykład tworzy jeden nagłówek używający głównej czcionki Latin oraz jedną linię tekstu podstawowego używającą pobocznej czcionki Latin. Następnie zmienia czcionki motywu i zapisuje wynik:
+Następujący przykład tworzy jeden nagłówek używający głównej czcionki Latin z motywu oraz jedną linię tekstu podstawowego używającą pomocniczej czcionki Latin z motywu. Następnie zmienia czcionki motywu i zapisuje wynik:
 
 ```javascript
 const aspose = {};
@@ -206,10 +206,12 @@ try {
 }
 ```
 
-Nagłówek korzysta z czcionki głównej, a tekst podstawowy z czcionki pobocznej. Tekst, który ma explicite określoną nazwę czcionki zamiast identyfikatora motywu, nie zostanie automatycznie przełączony po zmianie schematu czcionek motywu.
+Nagłówek używa głównej czcionki, a tekst podstawowy używa czcionki pomocniczej. Tekst, który ma explicite określoną nazwę czcionki zamiast identyfikatora motywu, nie zmieni się automatycznie po zmianie schematu czcionek motywu.
+
+Zbiory głównych i pomocniczych czcionek mogą również zawierać mapowania czcionek dla poszczególnych systemów pisma, takich jak cyrylica, arabski, japoński, gruziński i thaana. Aby sprawdzić, dodać, zastąpić lub usunąć te mapowania, zobacz [Script-Specific Theme Fonts](/slides/pl/nodejs-java/script-specific-font-mappings/).
 
 {{% alert color="info" title="Tip" %}}
-Więcej informacji o czcionkach w prezentacjach znajdziesz w [PowerPoint Fonts](/slides/pl/nodejs-java/powerpoint-fonts/).
+Aby uzyskać więcej informacji o czcionkach w prezentacji, zobacz [PowerPoint Fonts](/slides/pl/nodejs-java/powerpoint-fonts/).
 {{% /alert %}}
 
 ## **Kopiowanie lub zastosowanie motywu**
@@ -218,7 +220,7 @@ Istnieją dwa typowe przepływy pracy, które rozwiązują różne problemy.
 
 ### **Zachowanie motywu źródłowego przy przenoszeniu slajdów**
 
-Jeśli chcesz przenieść slajd do innej prezentacji i zachować jego pierwotny wygląd, sklonuj master źródłowy do prezentacji docelowej za pomocą [MasterSlideCollection.addClone](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/masterslidecollection/), a następnie sklonuj slajd za pomocą [SlideCollection.addClone](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/slidecollection/) i sklonowanego mastera. Dzięki temu master, jego układy i powiązany motyw zostaną przeniesione razem.
+Jeśli chcesz przenieść slajd do innej prezentacji i zachować jego oryginalny projekt, sklonuj master źródłowy do docelowej prezentacji za pomocą [MasterSlideCollection.addClone](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/masterslidecollection/), a następnie sklonuj slajd przy użyciu [SlideCollection.addClone](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/slidecollection/) i sklonowanego mastera. To przenosi master, jego układy i powiązany motyw razem.
 
 ```javascript
 const aspose = {};
@@ -240,11 +242,11 @@ try {
 }
 ```
 
-Jest to zalecany przepływ, gdy slajd źródłowy musi wyglądać identycznie w miejscu docelowym. Proste sklonowanie zawartości na niepowiązany master docelowy może zmienić kolory, czcionki, tła i efekty sterowane przez motyw.
+Jest to preferowany przepływ pracy, gdy slajd źródłowy musi wyglądać identycznie w miejscu docelowym. Proste klonowanie zawartości na niepowiązany master docelowy może zmienić kolory, czcionki, tła i efekty sterowane przez motyw.
 
 ### **Zastosowanie wartości motywu do istniejącego slajdu**
 
-Jeśli docelowy slajd ma pozostać na bieżącym masterze i układzie, zainicjuj nadpisanie na poziomie slajdu z motywu źródłowego. Metody [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/overridetheme/) i [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/overridetheme/) kopiują trzy główne komponenty motywu do nadpisania.
+Jeśli docelowy slajd musi pozostać na bieżącym masterze i układzie, zainicjuj nadpisanie na poziomie slajdu z motywu źródłowego. Metody [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/overridetheme/), i [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/overridetheme/) kopiują trzy główne komponenty motywu do nadpisania.
 
 ```javascript
 const aspose = {};
@@ -269,11 +271,11 @@ try {
 }
 ```
 
-Zmiana ta wpływa na motyw używany przez ten slajd bez zmiany motywu dziedziczonego przez inne slajdy. Aby usunąć lokalne nadpisanie i powrócić do wartości dziedziczonych, wywołaj [OverrideTheme.clear](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/overridetheme/).
+To zmienia motyw używany przez ten slajd bez zmiany motywu dziedziczonego przez inne slajdy. Aby usunąć lokalne nadpisanie i powrócić do wartości dziedziczonych, wywołaj [OverrideTheme.clear](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/overridetheme/).
 
 ### **Zastosowanie nadpisania motywu do układu**
 
-Nadpisanie na poziomie układu ma zastosowanie do slajdów używających tego układu, chyba że konkretny slajd ma własne nadpisanie. Te same metody inicjalizacji można użyć poprzez [LayoutSlideThemeManager](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/layoutslidethememanager/):
+Nadpisanie na poziomie układu ma zastosowanie do slajdów używających tego układu, chyba że konkretny slajd ma własne nadpisanie. Te same metody inicjalizacji mogą być użyte za pośrednictwem [LayoutSlideThemeManager](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/layoutslidethememanager/):
 
 ```javascript
 const aspose = {};
@@ -298,17 +300,17 @@ try {
 }
 ```
 
-Używaj motywu na poziomie mastera lub prezentacji, gdy wiele układów i slajdów ma współdzielić tę samą bazową stylistykę, nadpisania układu, gdy jedna rodzina układów wymaga innego stylu, oraz nadpisania slajdu tylko w rzeczywistych wyjątkach. Nadmierne nadpisania na poziomie slajdu utrudniają późniejsze globalne zmiany motywu.
+Używaj motywu master lub na poziomie prezentacji, gdy wiele układów i slajdów powinno współdzielić ten sam podstawowy projekt, nadpisania układu, gdy jedna rodzina układów wymaga innego stylu, oraz nadpisania slajdu tylko w prawdziwych wyjątkach. Nadmierne nadpisania na poziomie slajdu utrudniają przewidywanie późniejszych globalnych zmian motywu.
 
 ## **Aktualizacja stylów tła motywu**
 
-Wypełnienia tła motywu są przechowywane w [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/formatscheme/). PowerPoint może prezentować w interfejsie więcej opcji tła niż liczba fizycznie przechowywanych definicji w tej kolekcji, ponieważ UI może łączyć wypełnienia motywu z kolorami motywu i innymi odniesieniami stylów.
+Wypełnienia tła motywu są przechowywane w [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/formatscheme/). PowerPoint może prezentować w interfejsie więcej opcji tła niż liczba definicji wypełnień fizycznie przechowywanych w tej kolekcji, ponieważ UI może łączyć wypełnienia motywu z kolorami motywu i innymi odniesieniami do stylów.
 
 ![Galeria stylów tła PowerPoint dla motywu prezentacji](presentation-design_8.png)
 
-Przed użyciem stylu tła sprawdź przechowywaną kolekcję i bieżący [Background.getStyleIndex](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/background/). Indeks stylu `0` oznacza brak wypełnienia z motywu; wartości dodatnie są odwołaniami do stylów tła motywu. Jest to inne niż indeksowanie kolekcji JavaScript, gdzie indeks `0` oznacza pierwszy zapisany element. Nie zakładaj, że każda prezentacja zawiera taką samą liczbę stylów wypełnień tła.
+Przed użyciem stylu tła sprawdź przechowywaną kolekcję i bieżący [Background.getStyleIndex](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/background/). Indeks stylu `0` oznacza brak wypełnienia motywowego; wartości dodatnie są odniesieniami do stylu tła motywu. To różni się od indeksowania kolekcji JavaScript bezpośrednio, gdzie indeks `0` oznacza pierwszy przechowywany element. Nie zakładaj, że każda prezentacja zawiera taką samą liczbę stylów wypełnień tła.
 
-Poniższy przykład raportuje dostępny licznik wypełnień tła, przypisuje odwołanie do stylu tła motywu pierwszemu masterowi i zapisuje prezentację:
+Następujący przykład raportuje dostępny licznik wypełnień tła, przypisuje odniesienie do tła motywu pierwszemu masterowi i zapisuje prezentację:
 
 ```javascript
 const aspose = {};
@@ -332,25 +334,25 @@ try {
 }
 ```
 
-Widoczny rezultat zależy od wpisu motywu, do którego odwołuje się master oraz od wszelkich nadpisań tła na poziomie układu lub slajdu. Jeśli slajd używa własnego tła, zmiana tylko tła mastera może nie wpłynąć na ten slajd. Użyj [Background.getEffective](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/background/) gdy potrzebujesz znać ostateczne tło po zastosowaniu dziedziczenia.
+Widoczny rezultat zależy od wpisu motywu przypisanego do mastera oraz od wszelkich nadpisań tła na poziomie układu lub slajdu. Jeśli slajd używa własnego tła, zmiana jedynie tła mastera może nie wpłynąć na ten slajd. Użyj [Background.getEffective](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/background/) , gdy potrzebujesz znać ostateczne tło po zastosowaniu dziedziczenia.
 
 {{% alert color="warning" title="Warning" %}}
-Nie traktuj indeksu stylu jako indeksu kolekcji zerowego. Unikaj również twardego kodowania numeru stylu z jednego pliku i zakładania, że będzie miał ten sam wygląd w innym pliku; definicje stylów motywu są specyficzne dla prezentacji.
+Nie traktuj indeksu stylu jako indeksu zerowego w kolekcji. Unikaj także twardego kodowania numeru stylu z jednego pliku i zakładania, że będzie miał ten sam wygląd w innym pliku; definicje stylów motywu są specyficzne dla prezentacji.
 {{% /alert %}}
 
 {{% alert color="info" title="Tip" %}}
-Informacje o bezpośrednim formatowaniu tła i dziedziczeniu tła znajdziesz w [Presentation Background](/slides/pl/nodejs-java/presentation-background/).
+Aby uzyskać informacje o bezpośrednim formatowaniu tła i dziedziczeniu tła, zobacz [Presentation Background](/slides/pl/nodejs-java/presentation-background/).
 {{% /alert %}}
 
 ## **Aktualizacja efektów motywu**
 
-Schemat formatu motywu zawiera oddzielne kolekcje stylów wypełnień, linii i efektów, udostępniane poprzez [FormatScheme.getFillStyles](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/formatscheme/), [FormatScheme.getLineStyles](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/formatscheme/) i [FormatScheme.getEffectStyles](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/formatscheme/). Typowe motywy Office często zawierają trzy główne wpisy stylów, które wizualnie odpowiadają subtelnemu, umiarkowanemu i intensywnemu formatowaniu, ale kod powinien sprawdzać każdą kolekcję zamiast zakładać stałą liczbę elementów.
+Schemat formatu motywu zawiera oddzielne kolekcje stylów wypełnień, linii i efektów udostępnione przez [FormatScheme.getFillStyles](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/formatscheme/), [FormatScheme.getLineStyles](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/formatscheme/), i [FormatScheme.getEffectStyles](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/formatscheme/). Typowe motywy Office często zawierają trzy główne wpisy stylów, które wizualnie odpowiadają subtelnemu, umiarkowanemu i intensywnemu formatowaniu, ale kod powinien sprawdzać każdą kolekcję zamiast zakładać stałą liczbę.
 
 ![Subtelne, umiarkowane i intensywne efekty motywu zastosowane do tego samego kształtu](presentation-design_10.png)
 
-Gdy uzyskujesz dostęp do tych kolekcji w JavaScript, indeks kolekcji jest zerowy: indeks `0` to pierwszy zapisany styl, a indeks `2` to trzeci. Indeksy odniesień stylu kształtu to odrębna koncepcja, udostępniona poprzez [ShapeStyle](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/shapestyle/). Modyfikacja stylu motywu wpływa na kształty, które odwołują się do tego stylu; kształty z bezpośrednim formatowaniem mogą pozostać niezmienione.
+Kiedy uzyskujesz dostęp do tych kolekcji w JavaScript, indeks kolekcji jest zerowy: indeks `0` to pierwszy przechowywany styl, a indeks `2` to trzeci. Indeksy odniesień stylu kształtu to odrębna koncepcja, udostępniona przez [ShapeStyle](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/shapestyle/). Modyfikacja stylu motywu wpływa na kształty, które odwołują się do tego stylu motywu; kształty z bezpośrednim formatowaniem mogą pozostać niezmienione.
 
-Poniższy przykład sprawdza, czy wymagane wpisy stylów istnieją, zmienia pierwszy styl linii, trzeci styl wypełnienia, włącza zewnętrzny cień w trzecim stylu efektu i zapisuje wynik:
+Następujący przykład sprawdza, czy wymagane wpisy stylów istnieją, zmienia pierwszy styl linii, zmienia trzeci styl wypełnienia, włącza zewnętrzny cień w trzecim stylu efektu i zapisuje wynik:
 
 ```javascript
 const aspose = {};
@@ -377,15 +379,15 @@ try {
 }
 ```
 
-Dla kształtów odwołujących się do tych slotów, pierwszy styl linii motywu staje się czerwony, trzeci styl wypełnienia motywu staje się jednolitym zielonym lasem, a trzeci styl efektu zyskuje zewnętrzny cień o odległości 10 punktów. Dokładny wizualny rezultat nadal zależy od tego, które sloty stylu każdy kształt odwołuje oraz czy bezpośrednie formatowanie nadpisuje motyw.
+Dla kształtów, które odwołują się do tych slotów, pierwszy styl linii motywu staje się czerwony, trzeci styl wypełnienia motywu staje się jednolitym zielonym lasem, a trzeci styl efektu zyskuje zewnętrzny cień o odległości 10 punktów. Dokładny rezultat wizualny nadal zależy od tego, które sloty stylów każdy kształt odwołuje oraz czy bezpośrednie formatowanie nadpisuje motyw.
 
 ![Style efektów motywu po zmianie ustawień linii, wypełnienia i cienia](presentation-design_11.png)
 
 ## **Odczyt skutecznych wartości motywu**
 
-Surowe obiekty motywu informują, co jest zdefiniowane na danym poziomie. Skuteczne wartości mówią, co slajd lub kształt faktycznie używa po rozwiązaniu dziedziczenia i lokalnych nadpisań. Dla slajdu wywołaj [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/baseoverridethememanager/). Dla tła użyj [Background.getEffective](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/background/), a dla wypełnienia [FillFormat.getEffective](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/fillformat/).
+Surowe obiekty motywu informują, co jest zdefiniowane na danym poziomie. Skuteczne wartości informują, co slajd lub kształt faktycznie używa po rozwiązaniu dziedziczenia i lokalnych nadpisań. Dla slajdu wywołaj [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/baseoverridethememanager/). Dla tła użyj [Background.getEffective](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/background/), a dla wypełnienia [FillFormat.getEffective](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/fillformat/).
 
-Poniższy przykład odczytuje skuteczny motyw, tło i pierwsze wypełnienie kształtu ze slajdu:
+Następujący przykład odczytuje skuteczny motyw, tło i pierwsze wypełnienie kształtu ze slajdu:
 
 ```javascript
 const aspose = {};
@@ -403,7 +405,7 @@ try {
         const effectiveFill = slide.getShapes().get_Item(0).getFillFormat().getEffective();
         console.log("First shape effective fill type: " + effectiveFill.getFillType());
         if (effectiveFill.getFillType() === aspose.slides.FillType.Solid) {
-            console.log("First shape effective fill color: " + effectiveFill.getSolidFillColor");
+            console.log("First shape effective fill color: " + effectiveFill.getSolidFillColor());
         }
     }
 } finally {
@@ -411,15 +413,18 @@ try {
 }
 ```
 
-Używaj danych skutecznych do diagnostyki renderowania, walidacji i porównań. Jeśli sprawdzisz tylko [Presentation.getMasterTheme](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/getmastertheme/), możesz pominąć master, układ, slajd lub nadpisanie kształtu, które zmieniają ostateczny wygląd.
+Używaj danych skutecznych do diagnostyki renderowania, walidacji i porównań. Jeśli sprawdzisz tylko [Presentation.getMasterTheme](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/getmastertheme/), możesz przeoczyć master, układ, slajd lub nadpisanie kształtu, które zmienia ostateczny wygląd.
 
 ## **FAQ**
 
-**Czy mogę zastosować motyw do pojedynczego slajdu bez zmiany mastera?**  
-Tak. Użyj [SlideThemeManager](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/slidethememanager/) slajdu i zainicjuj jego nadpisanie motywu. Zmiana pozostaje lokalna dla tego slajdu; inne slajdy nadal dziedziczą swoje istniejące motywy.
+**Czy mogę zastosować motyw do pojedynczego slajdu bez zmiany mastera?**
 
-**Jaki jest najbezpieczniejszy sposób przeniesienia motywu z jednej prezentacji do drugiej?**  
-Podczas przenoszenia slajdu i zachowania jego pierwotnego wyglądu, sklonuj master źródłowy do miejsca docelowego i sklonuj slajd z tym masterem, używając [MasterSlideCollection.addClone](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/masterslidecollection/) oraz [SlideCollection.addClone](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/slidecollection/). Dzięki temu master, układy i motyw pozostaną razem.
+Tak. Użyj [SlideThemeManager](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/slidethememanager/) slajdu i zainicjuj jego motyw nadpisania. Zmiana pozostaje lokalna dla tego slajdu; inne slajdy nadal odziedziczą swoje istniejące motywy.
 
-**Jak mogę zobaczyć skuteczne wartości po dziedziczeniu i nadpisaniach?**  
-Użyj [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/baseoverridethememanager/) dla motywu slajdu lub układu oraz odpowiednich metod danych skutecznych dla obiektów formatu, takich jak [Background.getEffective](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/background/) i [FillFormat.getEffective](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/fillformat/). Te API zwracają rozwiązane wartości po zastosowaniu dziedziczenia i nadpisań.
+**Jaki jest najbezpieczniejszy sposób przeniesienia motywu z jednej prezentacji do drugiej?**
+
+Podczas przenoszenia slajdu i zachowania jego wyglądu źródłowego, sklonuj master źródłowy do docelowej prezentacji i sklonuj slajd z tym masterem używając [MasterSlideCollection.addClone](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/masterslidecollection/) i [SlideCollection.addClone](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/slidecollection/). To zachowuje master, układy i motyw razem.
+
+**Jak mogę zobaczyć skuteczne wartości po dziedziczeniu i nadpisaniach?**
+
+Użyj [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/baseoverridethememanager/) dla motywu slajdu lub układu oraz odpowiednich metod danych skutecznych dla obiektów formatu, takich jak [Background.getEffective](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/background/) i [FillFormat.getEffective](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/fillformat/). Te interfejsy API zwracają wartości po rozwiązaniu dziedziczenia i nadpisań.

@@ -1,91 +1,216 @@
 ---
-title: Gestionar secciones de diapositivas en presentaciones usando Java
-linktitle: Sección de diapositiva
+title: Gestionar secciones de diapositivas en presentaciones con Java
+linktitle: Sección de diapositivas
 type: docs
 weight: 90
 url: /es/java/slide-section/
 keywords:
 - crear sección
-- agregar sección
+- añadir sección
 - editar sección
 - cambiar sección
 - nombre de sección
+- obtener diapositivas de sección
+- procesar diapositivas de sección
 - PowerPoint
-- OpenDocument
 - presentación
 - Java
 - Aspose.Slides
-description: "Optimice las secciones de diapositivas en PowerPoint y OpenDocument con Aspose.Slides para Java — divida, renombre y reorganice para mejorar los flujos de trabajo PPTX y ODP."
+description: "Gestionar secciones de diapositivas con Aspose.Slides para Java: crear, renombrar, reordenar, obtener y procesar diapositivas de sección en presentaciones PPTX."
 ---
+## **Introducción**
 
-Con Aspose.Slides for Java, puede organizar una presentación de PowerPoint en secciones. Puede crear secciones que contengan diapositivas específicas. 
+Las secciones organizan diapositivas consecutivas en grupos con nombre sin modificar el contenido de las diapositivas. Con Aspose.Slides for Java, puedes crear, reordenar, renombrar, inspeccionar y eliminar secciones mediante el método [Presentation.getSections](https://reference.aspose.com/slides/es/java/com.aspose.slides/presentation/#getSections--) .
 
-Puede que desee crear secciones y utilizarlas para organizar o dividir las diapositivas de una presentación en partes lógicas en estas situaciones:
+Las secciones son especialmente útiles cuando:
 
-- Cuando trabaja en una presentación grande con otras personas o un equipo, y necesita asignar ciertas diapositivas a un colega o a algunos miembros del equipo. 
-- Cuando trata con una presentación que contiene muchas diapositivas y le resulta difícil administrar o editar su contenido de una sola vez.
+- una presentación grande necesita dividirse en temas o capítulos lógicos;
+- diferentes grupos de diapositivas se asignan a distintos colaboradores;
+- las diapositivas deben procesarse, trasladarse o fusionarse como grupos.
 
-Idealmente, debe crear una sección que agrupe diapositivas similares: las diapositivas comparten algo en común o pueden estar juntas en un grupo basado en una regla, y asignarle a la sección un nombre que describa las diapositivas que contiene. 
+Elige nombres de sección concisos que describan el propósito de las diapositivas agrupadas. Dado que las secciones forman parte de la estructura de la presentación, utiliza las API de sección para determinar la pertenencia en lugar de derivarla de las posiciones de las diapositivas.
 
-## **Create Sections in Presentations**
+## **Crear y gestionar secciones**
 
-Para añadir una sección que contenga diapositivas en una presentación, Aspose.Slides for Java proporciona el método [addSection()](https://reference.aspose.com/slides/java/com.aspose.slides/ISectionCollection#addSection-java.lang.String-com.aspose.slides.ISlide-) que le permite especificar el nombre de la sección que desea crear y la diapositiva a partir de la cual comienza la sección. 
+Utiliza [ISectionCollection.addSection](https://reference.aspose.com/slides/es/java/com.aspose.slides/isectioncollection/#addSection-java.lang.String-com.aspose.slides.ISlide-) para crear una sección especificando su nombre y diapositiva inicial. Aspose.Slides determina a qué diapositivas pertenece la sección a partir de la estructura de secciones actual de la presentación.
 
-Este fragmento de código muestra cómo crear una sección en una presentación en Java:
+El mismo [ISectionCollection](https://reference.aspose.com/slides/es/java/com.aspose.slides/isectioncollection/) también permite:
+
+- mover una sección junto con sus diapositivas usando [ISectionCollection.reorderSectionWithSlides](https://reference.aspose.com/slides/es/java/com.aspose.slides/isectioncollection/#reorderSectionWithSlides-com.aspose.slides.ISection-int-);
+- eliminar solo la definición de la sección con [ISectionCollection.removeSection](https://reference.aspose.com/slides/es/java/com.aspose.slides/isectioncollection/#removeSection-com.aspose.slides.ISection-), lo que conserva sus diapositivas;
+- eliminar una sección y sus diapositivas con [ISectionCollection.removeSectionWithSlides](https://reference.aspose.com/slides/es/java/com.aspose.slides/isectioncollection/#removeSectionWithSlides-com.aspose.slides.ISection-);
+- añadir una sección vacía al final con [ISectionCollection.appendEmptySection](https://reference.aspose.com/slides/es/java/com.aspose.slides/isectioncollection/#appendEmptySection-java.lang.String-).
+
+El siguiente ejemplo crea dos secciones, mueve una de ellas, la elimina junto con sus diapositivas y añade una sección vacía:
+
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.ILayoutSlide;
+import com.aspose.slides.ISection;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation();
 try {
-    ISlide defaultSlide = pres.getSlides().get_Item(0);
-    ISlide newSlide1 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    ISlide newSlide2 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    ISlide newSlide3 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    ISlide newSlide4 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
+    ISlide titleSlide = presentation.getSlides().get_Item(0);
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().get_Item(0);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    ISlide resultsSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+    presentation.getSlides().addEmptySlide(layoutSlide);
 
-    ISection section1 = pres.getSections().addSection("Section 1", newSlide1);
-    ISection section2 = pres.getSections().addSection("Section 2", newSlide3); // la sección1 terminará en newSlide2 y después comenzará la sección2   
+    presentation.getSections().addSection("Introduction", titleSlide);
+    ISection resultsSection = presentation.getSections().addSection("Results", resultsSlide);
 
-    pres.save("pres-sections.pptx", SaveFormat.Pptx);
-
-    pres.getSections().reorderSectionWithSlides(section2, 0);
-    pres.save("pres-sections-moved.pptx", SaveFormat.Pptx);
-
-    pres.getSections().removeSectionWithSlides(section2);
-
-    pres.getSections().appendEmptySection("Last empty section");
-
-    pres.save("pres-section-with-empty.pptx",SaveFormat.Pptx);
+    presentation.getSections().reorderSectionWithSlides(resultsSection, 0);
+    presentation.getSections().removeSectionWithSlides(resultsSection);
+    presentation.getSections().appendEmptySection("Appendix");
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+Tras estas operaciones, la presentación contiene la sección `Introduction` con sus diapositivas y una sección vacía `Appendix`. La sección `Results` y sus diapositivas han sido eliminadas.
 
-## **Change the Names of Sections**
+## **Renombrar secciones**
 
-Después de crear una sección en una presentación de PowerPoint, puede decidir cambiar su nombre. 
+Para renombrar una sección, llama a su método [ISection.setName](https://reference.aspose.com/slides/es/java/com.aspose.slides/isection/#setName-java.lang.String-) . Las diapositivas y la posición de la sección permanecen sin cambios.
 
-Este fragmento de código muestra cómo cambiar el nombre de una sección en una presentación en Java usando Aspose.Slides:
+El siguiente ejemplo crea una sección y cambia su nombre:
+
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.ISection;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation();
 try {
-    ISection section = pres.getSections().get_Item(0);
-    section.setName("My section");
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ISection section = presentation.getSections().addSection("Overview", slide);
+    section.setName("Introduction");
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **Obtener diapositivas de secciones**
 
-## **FAQ**
+El método [Presentation.getSections](https://reference.aspose.com/slides/es/java/com.aspose.slides/presentation/#getSections--) devuelve una [ISectionCollection](https://reference.aspose.com/slides/es/java/com.aspose.slides/isectioncollection/) que puedes iterar. Para cada [ISection](https://reference.aspose.com/slides/es/java/com.aspose.slides/isection/), llama a [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/es/java/com.aspose.slides/isection/#getSlidesListOfSection--) para obtener las diapositivas que actualmente le pertenecen. El método devuelve una [ISectionSlideCollection](https://reference.aspose.com/slides/es/java/com.aspose.slides/isectionslidecollection/), que proporciona un recuento, acceso indexado e iteración.
 
-**¿Se conservan las secciones al guardar en formato PPT (PowerPoint 97–2003)?**
+El siguiente ejemplo crea dos secciones pobladas y una sección vacía, luego imprime el [nombre](https://reference.aspose.com/slides/es/java/com.aspose.slides/isection/#getName--), el [identificador](https://reference.aspose.com/slides/es/java/com.aspose.slides/isection/#getSectionId--), la [diapositiva inicial](https://reference.aspose.com/slides/es/java/com.aspose.slides/isection/#getStartedFromSlide--), el recuento de diapositivas y los números de diapositiva de cada sección. Utiliza [ISectionSlideCollection.get_Item](https://reference.aspose.com/slides/es/java/com.aspose.slides/isectionslidecollection/#get_Item-int-) para leer la primera diapositiva y una sentencia `for` mejorada para procesar cada diapositiva. Para la sección vacía, la colección devuelta tiene un tamaño de cero, no se llama al método y la iteración no realiza operaciones.
 
-No. El formato PPT no admite metadatos de secciones, por lo que la agrupación por secciones se pierde al guardar en .ppt.
+```java
+import com.aspose.slides.ILayoutSlide;
+import com.aspose.slides.ISection;
+import com.aspose.slides.ISectionSlideCollection;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
 
-**¿Se puede “ocultar” una sección completa?**
+Presentation presentation = new Presentation();
+try {
+    ISlide firstSlide = presentation.getSlides().get_Item(0);
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().get_Item(0);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    ISlide thirdSlide = presentation.getSlides().addEmptySlide(layoutSlide);
 
-No. Solo se pueden ocultar diapositivas individuales. Una sección como entidad no tiene estado “oculto”.
+    presentation.getSections().addSection("Introduction", firstSlide);
+    presentation.getSections().addSection("Details", thirdSlide);
+    presentation.getSections().appendEmptySection("Appendix");
 
-**¿Puedo encontrar rápidamente una sección a partir de una diapositiva y, a la inversa, la primera diapositiva de una sección?**
+    for (ISection section : presentation.getSections()) {
+        ISectionSlideCollection sectionSlides = section.getSlidesListOfSection();
+        String startingSlide = section.getStartedFromSlide() == null ? "none" : Integer.toString(section.getStartedFromSlide().getSlideNumber());
 
-Sí. Una sección se define de forma única por su diapositiva inicial; dado una diapositiva, puede determinar a qué sección pertenece, y para una sección puede acceder a su primera diapositiva.
+        System.out.println("Section: " + section.getName());
+        System.out.println("ID: " + section.getSectionId());
+        System.out.println("Starting slide: " + startingSlide);
+        System.out.println("Slide count: " + sectionSlides.size());
+
+        if (sectionSlides.size() > 0) {
+            System.out.println("First slide via get_Item: " + sectionSlides.get_Item(0).getSlideNumber());
+        }
+
+        System.out.print("Slide numbers:");
+        for (ISlide slide : sectionSlides) {
+            System.out.print(" " + slide.getSlideNumber());
+        }
+        System.out.println();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+La pertenencia a una sección se determina por la estructura de secciones de la presentación. No calcules manualmente el rango de una sección a partir de [ISection.getStartedFromSlide](https://reference.aspose.com/slides/es/java/com.aspose.slides/isection/#getStartedFromSlide--), índices de diapositiva y la diapositiva inicial de la siguiente sección.
+
+Las ediciones estructurales pueden cambiar tanto las diapositivas devueltas para una sección como sus números de diapositiva. Esto incluye reordenar diapositivas, clonar una diapositiva dentro de una sección, mover una sección con sus diapositivas, eliminar diapositivas y eliminar secciones. El siguiente ejemplo llama a [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/es/java/com.aspose.slides/isection/#getSlidesListOfSection--) después de cada uno de esos cambios en lugar de mantener suposiciones sobre los límites anteriores de la sección.
+
+```java
+import com.aspose.slides.ILayoutSlide;
+import com.aspose.slides.ISection;
+import com.aspose.slides.ISectionSlideCollection;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+
+import java.util.function.BiConsumer;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide firstSlide = presentation.getSlides().get_Item(0);
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().get_Item(0);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    ISlide thirdSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    ISection firstSection = presentation.getSections().addSection("First", firstSlide);
+    ISection secondSection = presentation.getSections().addSection("Second", thirdSlide);
+
+    BiConsumer<String, ISection> printSectionSlides = (label, section) -> {
+        ISectionSlideCollection sectionSlides = section.getSlidesListOfSection();
+        System.out.printf("%s (%d slides):", label, sectionSlides.size());
+        for (ISlide slide : sectionSlides) {
+            System.out.print(" " + slide.getSlideNumber());
+        }
+        System.out.println();
+    };
+
+    printSectionSlides.accept("Initially", firstSection);
+
+    ISectionSlideCollection slidesBeforeClone = firstSection.getSlidesListOfSection();
+    presentation.getSlides().addClone(slidesBeforeClone.get_Item(0), firstSection);
+    printSectionSlides.accept("After cloning into the section", firstSection);
+
+    ISectionSlideCollection slidesBeforeReorder = firstSection.getSlidesListOfSection();
+    int firstSectionPosition = slidesBeforeReorder.get_Item(0).getSlideNumber() - 1;
+    presentation.getSlides().reorder(firstSectionPosition, slidesBeforeReorder.get_Item(slidesBeforeReorder.size() - 1));
+    printSectionSlides.accept("After reordering slides", firstSection);
+
+    presentation.getSections().reorderSectionWithSlides(firstSection, 1);
+    printSectionSlides.accept("After moving the section", firstSection);
+
+    ISectionSlideCollection slidesBeforeRemoval = firstSection.getSlidesListOfSection();
+    presentation.getSlides().remove(slidesBeforeRemoval.get_Item(0));
+    printSectionSlides.accept("After removing a slide", firstSection);
+
+    presentation.getSections().removeSectionWithSlides(secondSection);
+    for (ISection section : presentation.getSections()) {
+        printSectionSlides.accept("Remaining section", section);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Llama a [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/es/java/com.aspose.slides/isection/#getSlidesListOfSection--) nuevamente siempre que se reordenen, clonen, muevan o eliminen diapositivas o secciones. Esto mantiene el procesamiento posterior alineado con la estructura actual de la presentación.
+
+El formato PPT (PowerPoint 97–2003) no conserva los metadatos de secciones. Utiliza este flujo de trabajo con un formato que admita secciones, como PPTX; la conversión a PPT elimina la estructura de secciones necesaria para iteraciones posteriores.
+
+## **Preguntas frecuentes**
+
+**¿Se conservan las secciones al guardar en el formato PPT (PowerPoint 97–2003)?**
+
+No. El formato PPT no admite metadatos de sección, por lo que la agrupación por secciones se pierde al guardar en .ppt.
+
+**¿Puede una sección completa estar “oculta”?**
+
+No. Una sección no tiene estado de visibilidad. Para ocultar su contenido, llama a [ISlide.setHidden](https://reference.aspose.com/slides/es/java/com.aspose.slides/islide/#setHidden-boolean-) para cada diapositiva de la sección.
+
+**¿Cómo puedo encontrar la sección que contiene una diapositiva?**
+
+Itera sobre la colección devuelta por [Presentation.getSections](https://reference.aspose.com/slides/es/java/com.aspose.slides/presentation/#getSections--), llama a [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/es/java/com.aspose.slides/isection/#getSlidesListOfSection--) para cada sección y compara las diapositivas devueltas con la diapositiva objetivo. Para una sección no vacía, [ISection.getStartedFromSlide](https://reference.aspose.com/slides/es/java/com.aspose.slides/isection/#getStartedFromSlide--) devuelve su primera diapositiva; para una sección vacía, devuelve `null`.

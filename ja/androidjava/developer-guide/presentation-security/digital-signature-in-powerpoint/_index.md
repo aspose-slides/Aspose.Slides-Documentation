@@ -13,39 +13,39 @@ keywords:
 - 署名の検証
 - PowerPoint
 - PPTX
-- プレゼンテーションのセキュリティ
+- プレゼンテーションセキュリティ
 - Android
 - Java
 - Aspose.Slides
-description: "PFX 証明書を使用して既存の PPTX プレゼンテーションに署名し、Java 経由で Android 用 Aspose.Slides を利用してデジタル署名の検証や削除を行う方法を学びます。"
+description: "既存の PPTX プレゼンテーションに PFX 証明書で署名し、Java 経由で Android 用 Aspose.Slides を使用してデジタル署名を検証または削除する方法を学びます。"
 ---
 ## **概要**
 
-デジタル署名は、受信者がプレゼンテーションの署名者と署名されたコンテンツが変更されたかどうかを判断できるようにします。ここでは、次の 3 つの関連するセキュリティ概念が重要です。
+デジタル署名は、受信者がプレゼンテーションに誰が署名したか、署名されたコンテンツが変更されているかを判断するのに役立ちます。ここでは、次の3つの関連するセキュリティ概念が重要です：
 
-- **デジタル証明書** は、身元と公開鍵を結び付ける電子的資格情報です。信頼できる認証局 (CA) が証明書を発行することも、組織が内部ワークフロー向けに自己署名証明書を使用することもできます。
-- **デジタル署名** はプレゼンテーションのコンテンツと証明書保持者の秘密鍵から作成されます。証明書の公開鍵を使用して署名を検証できます。署名は出所と完全性の証拠を提供しますが、プレゼンテーション自体を暗号化しません。
-- **パスワード保護** は、ユーザーがプレゼンテーションを開くか変更できるかを制御します。これはデジタル署名とは別個であり、[Password-Protected Presentations](/androidjava/password-protected-presentation/)で説明されています。
+- **デジタル証明書** は、識別子と公開鍵を結び付ける電子クレデンシャルです。信頼できる認証局（CA）が証明書を発行することも、組織が内部ワークフロー向けに自己署名証明書を使用することもできます。
+- **デジタル署名** は、プレゼンテーションのコンテンツと証明書所有者の秘密鍵から作成されます。その後、証明書の公開鍵を使用して署名を検証できます。署名は出所と完全性の証拠を提供しますが、プレゼンテーションを暗号化するものではありません。
+- **パスワード保護** は、ユーザーがプレゼンテーションを開くまたは変更できるかを制御します。デジタル署名とは別物であり、[パスワードで保護されたプレゼンテーション](/slides/ja/androidjava/password-protected-presentation/)で説明されています。
 
-PowerPoint は **ファイル > 情報 > プレゼンテーションの保護** の下に **デジタル署名の追加** コマンドを提供します。
+PowerPoint は、**ファイル > 情報 > プレゼンテーションの保護** の下にある **デジタル署名の追加** コマンドを提供します。
 
-![PowerPoint Protect Presentation メニューで デジタル署名の追加 がハイライトされた](add-digital-signature-in-powerpoint.png)
+![PowerPoint の「プレゼンテーションの保護」メニューで「デジタル署名の追加」がハイライトされている様子](add-digital-signature-in-powerpoint.png)
 
 署名されたプレゼンテーションを開くと、PowerPoint は署名ステータスの通知を表示できます。
 
-![PowerPoint の通知: プレゼンテーションに有効な署名が含まれています](digital-signature-status-in-powerpoint.png)
+![PowerPoint の通知で、プレゼンテーションに有効な署名が含まれていることが示されています](digital-signature-status-in-powerpoint.png)
 
-Aspose.Slides は [IPresentation.getDigitalSignatures](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipresentation/#getDigitalSignatures--) を介して署名を公開し、[IDigitalSignatureCollection](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/idigitalsignaturecollection/) を返します。このコレクションの各項目は [IDigitalSignature](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/idigitalsignature/) を実装しています。プレゼンテーションには複数の署名を含めることができます。
+Aspose.Slides は、[IPresentation.getDigitalSignatures](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipresentation/#getDigitalSignatures--) を通じて署名を公開し、[IDigitalSignatureCollection](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/idigitalsignaturecollection/) を返します。このコレクションの項目は [IDigitalSignature](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/idigitalsignature/) を実装しています。プレゼンテーションは複数の署名を含めることができます。
 
 ## **PFX 証明書とパスワードの理解**
 
-PFX ファイル（PKCS#12 ファイルとも呼ばれ、拡張子は `.pfx` または `.p12`）には X.509 証明書、その秘密鍵、および証明書チェーンが格納されます。秘密鍵は保持者が署名を作成できるようにするものです。秘密鍵にアクセスできない証明書はプレゼンテーションの署名に使用できません。
+PFX ファイル（PKCS#12 ファイルとも呼ばれ、一般に `.pfx` または `.p12` 拡張子が付く）は、X.509 証明書、その秘密鍵、および証明書チェーンを含むことができます。秘密鍵は所有者が署名を作成できるようにするものです。アクセス可能な秘密鍵を持たない証明書は、プレゼンテーションに署名するために使用できません。
 
-PFX のパスワードは証明書パッケージと秘密鍵を保護しますが、プレゼンテーションを開いたり編集したりするためのパスワードでは **ありません**。PFX ファイルやそのパスワードをソース管理にコミットしないでください。実運用では証明書ファイルへのアクセスを制限し、パスワードはシークレットストアまたは他の保護された設定ソースから取得します。以下の例では、コードにパスワードを埋め込まないために環境変数を使用しています。
+PFX パスワードは証明書パッケージと秘密鍵を保護しますが、プレゼンテーションを開くまたは編集するためのパスワードでは **ありません**。PFX ファイルやそのパスワードをソース管理にコミットしないでください。本番環境では、証明書ファイルへのアクセスを制限し、パスワードはシークレットストアやその他の保護された構成ソースから取得してください。以下の例では、コードにパスワードを埋め込まないよう環境変数を使用しています。
 
 ## **プレゼンテーションへのデジタル署名の追加**
 
-実際のプレゼンテーション ワークフローで署名するには、既存の PPTX ファイルを読み込み、PFX 証明書とパスワードから [DigitalSignature](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/digitalsignature/) を作成し、署名をプレゼンテーションのコレクションに追加して PPTX ファイルとして保存します。
+実際のプレゼンテーション ワークフローで署名するには、既存の PPTX ファイルをロードし、PFX 証明書とそのパスワードから [DigitalSignature](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/digitalsignature/) を作成し、署名をプレゼンテーションのコレクションに追加して、PPTX ファイルに保存します。
 
 ```java
 import com.aspose.slides.*;
@@ -67,11 +67,11 @@ try {
 }
 ```
 
-結果を新しい名前で保存すると、署名されていない元ファイルが保持されます。[IDigitalSignature.setComments](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/idigitalsignature/#setComments-java.lang.String-) で設定する値は署名の目的を記述するものであり、セキュリティ制御ではありません。
+結果を新しい名前で保存すると、署名されていない元のファイルが保持されます。[IDigitalSignature.setComments](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/idigitalsignature/#setComments-java.lang.String-) で設定する値は署名の目的を記述するものであり、セキュリティ制御ではありません。
 
 ## **デジタル署名の検証**
 
-署名された PPTX ファイルを読み込む際は、[IPresentation.getDigitalSignatures](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipresentation/#getDigitalSignatures--) が返すすべての項目を検査します。各項目の [IDigitalSignature.isValid](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/idigitalsignature/#isValid--) メソッドは、埋め込まれた署名が現在のプレゼンテーション コンテンツに対して有効かどうかを示します。
+署名された PPTX ファイルをロードしたら、[IPresentation.getDigitalSignatures](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipresentation/#getDigitalSignatures--) が返すすべての項目をチェックします。[IDigitalSignature.isValid](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/idigitalsignature/#isValid--) メソッドは、埋め込まれた署名が現在のプレゼンテーション コンテンツに対して有効かどうかを示します。
 
 ```java
 import com.aspose.slides.*;
@@ -116,13 +116,13 @@ try {
 }
 ```
 
-無効な結果は、署名後にプレゼンテーション コンテンツまたは署名データが変更された、またはファイルが破損したことを意味することが多いです。すべての署名を削除すると署名なしのプレゼンテーションになりますので、項目の有効性だけを確認するのは不十分です。セキュリティが重要なワークフローでは、期待される署名数と署名者の身元が存在することも検証する必要があります。
+無効な結果は、署名されたプレゼンテーション コンテンツまたは署名データが署名後に変更されたか、ファイルが破損していることを意味することが多いです。すべての署名を削除すると未署名のプレゼンテーションが生成されるため、項目の有効性だけをチェックするだけでは不十分です。セキュリティ上重要なワークフローでは、期待される署名数と署名者の身元が存在することも確認する必要があります。
 
-この有効性の結果だけで証明書の信頼性を判断すべきではありません。セキュリティ ポリシーに応じて、アプリケーションは X.509 証明書チェーンの構築と検証、証明書の有効期限と失効状態の確認、期待されるサブジェクトまたはサムプリントの照合、キー使用目的の検証、信頼できるタイムスタンプの評価を行う必要があります。[IDigitalSignature.getSignTime](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/idigitalsignature/#getSignTime--) の値だけでは、信頼できるタイムスタンプ機関からの証拠とはなりません。
+この有効性の結果だけを証明書の信頼判断の全体と見なしてはいけません。セキュリティ ポリシーに応じて、アプリケーションは X.509 証明書チェーンの構築と検証、証明書の有効期間と失効状態の確認、期待されるサブジェクトまたはサムプリントの確認、鍵使用法の検証、信頼できるタイムスタンプの評価も行う必要があります。[IDigitalSignature.getSignTime](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/idigitalsignature/#getSignTime--) の値だけでは、信頼できるタイムスタンプ機関からの証拠とはみなされません。
 
-## **デジタル署名の除去**
+## **デジタル署名の削除**
 
-署名を除去するとプレゼンテーションのセキュリティ状態が変わります。次の例は署名された PPTX ファイルを読み込み、[IDigitalSignatureCollection.clear](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/idigitalsignaturecollection/#clear--) で全署名を削除し、署名なしのコピーとして保存します。
+署名を削除すると、プレゼンテーションのセキュリティ状態が変わります。次の例は、署名された PPTX ファイルをロードし、[IDigitalSignatureCollection.clear](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/idigitalsignaturecollection/#clear--) ですべての署名を削除し、未署名のコピーとして保存します。
 
 ```java
 Presentation presentation = new Presentation("InputPresentation-signed.pptx");
@@ -134,54 +134,54 @@ try {
 }
 ```
 
-1 つだけ署名を除去したい場合は、ゼロベースのインデックスを使用して [IDigitalSignatureCollection.removeAt](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/idigitalsignaturecollection/#removeAt-int-) を呼び出します。署名された元ファイルを上書きすることが明示的なワークフローの一部でない限り、必ず新しいファイルに保存してください。
+1 つの署名だけを削除する場合は、ゼロベースのインデックスを指定して [IDigitalSignatureCollection.removeAt](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/idigitalsignaturecollection/#removeAt-int-) を呼び出します。署名された元ファイルを上書きすることが明示的なワークフローの一部でない限り、新しいファイルに保存してください。
 
-## **編集と形式に関する考慮事項**
+## **編集および形式に関する考慮事項**
 
-- 署名はプレゼンテーションを読み取り専用にしません。ユーザーやアプリケーションは引き続きファイルを編集できますが、署名されたコンテンツを変更すると通常は既存の署名が無効になります。
-- 署名前にすべての編集を完了してください。プレゼンテーションを変更する必要がある場合は、修正後のプレゼンテーションを保存し、再度署名します。
-- 最終出力は PPTX 形式のままにしてください。署名付きプレゼンテーションを別の形式に変換しても、元の PPTX 署名は変換後のファイルに有効な署名として転送されません。
-- 証明書の秘密鍵は機密情報として扱ってください。秘密鍵とそのパスワードを取得した者は、その証明書保持者になりすました署名を作成できる可能性があります。
-- 文書保持ポリシーで要求される場合は、署名なしの元ファイルまたは別の管理されたコピーを保管してください。
+- 署名はプレゼンテーションを読み取り専用にしません。ユーザーやアプリケーションは引き続きファイルを編集できますが、署名されたコンテンツの変更は通常、既存の署名を無効にします。
+- 署名する前に意図したすべての編集を完了してください。プレゼンテーションを変更する必要がある場合は、修正後のプレゼンテーションを保存し、再度署名してください。
+- 最終出力は PPTX 形式のままにしてください。署名されたプレゼンテーションを別の形式に変換しても、元の PPTX 署名は有効な署名として転送されません。
+- 証明書の秘密鍵は機密情報として扱ってください。秘密鍵とそのパスワードを取得した者は、その証明書所有者になりすました署名を作成できる可能性があります。
+- 文書保持ポリシーで要求される場合は、未署名の元ファイルまたは別の管理コピーを保持してください。
 
-## **FAQ**
+## **よくある質問**
 
-**デジタル署名はプレゼンテーションを暗号化しますか？**
+**プレゼンテーションはデジタル署名で暗号化されますか？**
 
-いいえ。デジタル署名は出所と完全性の証拠を提供しますが、別途暗号化しない限りプレゼンテーションの内容は読み取り可能です。コンテンツへのアクセスを制限する必要がある場合は、[password protection](/androidjava/password-protected-presentation/) を使用してください。
+いいえ。デジタル署名は出所と完全性に関する証拠を提供しますが、別途暗号化しない限りプレゼンテーションの内容は読み取り可能です。コンテンツへのアクセスを制限する必要がある場合は、[パスワード保護](/slides/ja/androidjava/password-protected-presentation/) を使用してください。
 
-**PFX のパスワードはプレゼンテーションのパスワードと同じですか？**
+**PFX パスワードはプレゼンテーションのパスワードと同じですか？**
 
-いいえ。PFX のパスワードは証明書パッケージ内の秘密鍵をロック解除するためのものです。PPTX ファイルを開くまたは編集できるかは制御しません。
+いいえ。PFX パスワードは証明書パッケージに保存された秘密鍵を解除するためのものであり、PPTX ファイルを開くまたは編集できるかどうかは制御しません。
 
 **自己署名証明書を使用できますか？**
 
-技術的には、アクセス可能な秘密鍵が含まれていれば自己署名証明書を使用できます。ただし、受信者は自動的に信頼しません。信頼された環境に明示的に追加しない限り、一般的な組織間ワークフローでは信頼された CA が発行した証明書が使用されます。
+技術的には、アクセス可能な秘密鍵が含まれていれば自己署名証明書を使用できます。ただし、受信者は自動的にそれを信頼しません。明示的に信頼された環境に証明書を追加しない限り、一般的な組織間ワークフローでは信頼できる CA が発行した証明書が使用されます。
 
-**署名が無効になる原因は何ですか？**
+**署名が無効になる理由は何ですか？**
 
-署名後にプレゼンテーション コンテンツや署名データを変更すると署名が無効になります。ファイルの破損も検証失敗の原因です。すべての署名を削除した場合、プレゼンテーションは「署名なし」となります。
+署名後にプレゼンテーション コンテンツや署名データを変更すると署名が無効になります。ファイルの破損も検証失敗の原因です。すべての署名が削除された場合、プレゼンテーションは未署名となりますが、無効な署名が残っているわけではありません。
 
-**有効な署名は署名者を信頼すべきことを意味しますか？**
+**有効な署名は、署名者を信頼すべきことを意味しますか？**
 
-それだけでは信頼できません。署名の完全性と署名者の信頼は別々の判断です。運用上の検証ポリシーでは、証明書チェーン、 有効期間、失効状態、期待される身元、キー使用目的、信頼できるタイムスタンプ要件なども確認すべきです。
+署名の完全性だけでは署名者の信頼は判断できません。運用上の検証ポリシーでは、証明書チェーン、証明書の有効期間、失効状態、期待される身元、鍵の使用目的、信頼できるタイムスタンプ要件なども確認すべきです。
 
 **証明書が期限切れになるとどうなりますか？**
 
-証明書の有効期限が切れてもプレゼンテーションのバイト列は変わりませんが、証明書の信頼評価に影響します。署名が有効かどうかはポリシーと、署名時に証明書が有効であったことを示す信頼できるタイムスタンプの有無に依存します。表示される署名時刻だけを信頼できるタイムスタンプとして使用しないでください。
+証明書の有効期限が切れてもプレゼンテーションのバイト列は変わりませんが、証明書の信頼評価に影響します。署名が受け入れ可能かどうかは、ポリシーと、署名時に証明書が有効であったことを示す信頼できるタイムスタンプがあるかどうかに依存します。表示される署名時間だけを信頼できるタイムスタンプとみなさないでください。
 
-**署名されたプレゼンテーションは編集できますか？**
+**署名されたプレゼンテーションはまだ編集できますか？**
 
-はい。署名はファイルをロックしません。署名されたコンテンツを編集すると既存の署名は通常無効になるため、最終版を完成させてから署名してください。
+はい。署名はファイルをロックしません。署名されたコンテンツを編集すると既存の署名は通常無効になるため、最終版を署名することが推奨されます。
 
-**プレゼンテーションに複数の署名を含められますか？**
+**プレゼンテーションに複数の署名を含めることはできますか？**
 
-はい。保存前に [IPresentation.getDigitalSignatures](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipresentation/#getDigitalSignatures--) が返すコレクションに各署名を追加します。検証時はすべての署名を確認し、必要な署名者がすべて存在することを確認してください。
+はい。[IPresentation.getDigitalSignatures](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipresentation/#getDigitalSignatures--) が返すコレクションに各署名を追加してから保存してください。検証時にはすべての署名をチェックし、必要な署名者がすべて揃っていることを確認します。
 
-**どのプレゼンテーション形式がこれらの操作をサポートしますか？**
+**どのプレゼンテーション形式がこれらの操作をサポートしていますか？**
 
-Aspose.Slides がここで説明するデジタル署名操作をサポートしているのは PPTX のみです。PPT および OpenDocument プレゼンテーション形式はこの API ワークフローではサポートされていません。
+Aspose.Slides がここで説明したデジタル署名操作をサポートしているのは PPTX 形式のみです。PPT および OpenDocument のプレゼンテーション形式はこの API ワークフローではサポートされていません。
 
-**スライド内容に影響を与えずに署名を削除できますか？**
+**スライドに影響を与えずに署名を削除できますか？**
 
-はい。1 つの署名だけを削除するか、コレクション全体をクリアしてからプレゼンテーションを保存できます。スライドの内容はそのまま残りますが、保存されたファイルには削除された署名の証拠は残りません。
+はい。1 つの署名を削除するかコレクション全体をクリアしてからプレゼンテーションを保存すれば、スライドの内容はそのまま残りますが、保存されたファイルには削除された署名の証拠は残りません。

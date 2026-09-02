@@ -1,5 +1,5 @@
 ---
-title: Zarządzanie ramkami obrazu w prezentacjach przy użyciu PHP
+title: Zarządzanie ramkami obrazów w prezentacjach przy użyciu PHP
 linktitle: Ramka obrazu
 type: docs
 weight: 10
@@ -8,39 +8,39 @@ keywords:
 - ramka obrazu
 - dodaj ramkę obrazu
 - utwórz ramkę obrazu
-- osadzony obraz
-- powiązany obraz
+- obraz osadzony
+- obraz linkowany
 - wyodrębnij obraz
 - obraz rastrowy
 - obraz SVG
 - przytnij obraz
 - usuń przycięte obszary
-- skompresuj obraz
+- kompresuj obraz
 - StretchOffset
 - formatowanie ramki obrazu
 - skala względna
 - efekt obrazu
-- proporcje obrazu
+- proporcje
 - PowerPoint
 - OpenDocument
 - prezentacja
 - PHP
 - Aspose.Slides
-description: "Twórz, formatuj, łącz, przycinaj, wyodrębniaj i kompresuj ramki obrazu w prezentacjach przy użyciu Aspose.Slides dla PHP via Java."
+description: "Twórz, formatuj, linkuj, przycinaj, wyodrębniaj i kompresuj ramki obrazów w prezentacjach za pomocą Aspose.Slides dla PHP przez Java."
 ---
-## **Overview**
+## **Przegląd**
 
-A picture frame is a slide shape that displays an image. In Aspose.Slides, the image resource and the shape that displays it are separate objects: a [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/) owns embedded image resources through its [ImageCollection](https://reference.aspose.com/slides/pl/php-java/aspose.slides/imagecollection/), while a [PictureFrame](https://reference.aspose.com/slides/pl/php-java/aspose.slides/pictureframe/) controls the image's position, size, line formatting, rotation, cropping, picture effects, and other frame-level settings.
+Obrazek‑ramka jest kształtem slajdu wyświetlającym obraz. W Aspose.Slides zasób obrazu i kształt wyświetlający go są oddzielnymi obiektami: [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/) posiada osadzone zasoby obrazu poprzez swoją [ImageCollection](https://reference.aspose.com/slides/pl/php-java/aspose.slides/imagecollection/), natomiast [PictureFrame](https://reference.aspose.com/slides/pl/php-java/aspose.slides/pictureframe/) kontroluje pozycję obrazu, rozmiar, formatowanie linii, obrót, przycinanie, efekty obrazu oraz inne ustawienia na poziomie ramki.
 
-This separation is useful when the same image is shown more than once. Add the image to the presentation once, keep the returned [PPImage](https://reference.aspose.com/slides/pl/php-java/aspose.slides/ppimage/), and use that image resource when creating picture frames.
+To rozdzielenie jest przydatne, gdy ten sam obraz jest wyświetlany więcej niż raz. Dodaj obraz do prezentacji raz, zachowaj zwrócony [PPImage](https://reference.aspose.com/slides/pl/php-java/aspose.slides/ppimage/), i użyj tego zasobu obrazu przy tworzeniu kolejnych ramek obrazu.
 
-Picture frames can contain raster images such as PNG or JPEG and vector SVG images. They can also refer to linked images instead of storing the image bytes in the presentation. The choice affects portability, file size, extraction, and export behavior, so it is useful to decide how the image should be stored before applying formatting or optimization.
+Ramki obrazu mogą zawierać obrazy rastrowe, takie jak PNG lub JPEG, oraz wektorowe obrazy SVG. Mogą także odwoływać się do obrazów linkowanych zamiast przechowywać bajty obrazu w prezentacji. Wybór wpływa na przenośność, rozmiar pliku, wyodrębnianie i zachowanie eksportu, dlatego warto zdecydować, jak obraz ma być przechowywany, zanim zastosujesz formatowanie lub optymalizację.
 
-## **Add and Format an Embedded Image**
+## **Dodawanie i formatowanie obrazu osadzonego**
 
-For an embedded image, add the image data to the presentation and create a picture frame with [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shapecollection/addpictureframe/). The image becomes part of the presentation package, so the presentation remains self-contained when it is moved to another computer.
+W przypadku obrazu osadzonego dodaj dane obrazu do prezentacji i utwórz ramkę obrazu przy pomocy [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shapecollection/addpictureframe/). Obraz staje się częścią pakietu prezentacji, więc prezentacja pozostaje samodzielna po przeniesieniu na inny komputer.
 
-The following example adds a JPEG image, creates a frame at the image's native dimensions, and applies line formatting and rotation:
+Poniższy przykład dodaje obraz JPEG, tworzy ramkę w natywnych wymiarach obrazu i stosuje formatowanie linii oraz obrót:
 
 ```php
 use aspose\slides\FillType;
@@ -74,11 +74,11 @@ try {
 }
 ```
 
-The picture frame controls the displayed geometry; changing the frame size does not change the original pixel dimensions stored in the embedded image resource. This distinction becomes important when cropping or compressing an image later.
+Ramka obrazu kontroluje wyświetlaną geometrię; zmiana rozmiaru ramki nie zmienia pierwotnych wymiarów pikselowych przechowywanych w osadzonym zasobie obrazu. To rozróżnienie jest ważne przy późniejszym przycinaniu lub kompresji obrazu.
 
-## **Use Relative Scale**
+## **Używanie skali względnej**
 
-[PictureFrame](https://reference.aspose.com/slides/pl/php-java/aspose.slides/pictureframe/) exposes relative width and height scaling for the frame through [setRelativeScaleWidth](https://reference.aspose.com/slides/pl/php-java/aspose.slides/pictureframe/setrelativescalewidth/) and [setRelativeScaleHeight](https://reference.aspose.com/slides/pl/php-java/aspose.slides/pictureframe/setrelativescaleheight/). A value of `1.0` corresponds to 100% of the original picture size. Relative scale is useful when a workflow needs to preserve a relationship to the source image size instead of calculating final dimensions manually.
+[PictureFrame](https://reference.aspose.com/slides/pl/php-java/aspose.slides/pictureframe/) udostępnia skalowanie względne szerokości i wysokości ramki poprzez [setRelativeScaleWidth](https://reference.aspose.com/slides/pl/php-java/aspose.slides/pictureframe/setrelativescalewidth/) i [setRelativeScaleHeight](https://reference.aspose.com/slides/pl/php-java/aspose.slides/pictureframe/setrelativescaleheight/). Wartość `1.0` odpowiada 100 % pierwotnego rozmiaru obrazu. Skala względna jest przydatna, gdy proces wymaga zachowania proporcji względem rozmiaru źródłowego obrazu zamiast ręcznego obliczania wymiarów końcowych.
 
 ```php
 use aspose\slides\Images;
@@ -109,17 +109,17 @@ try {
 }
 ```
 
-Relative scale changes the frame's scale settings; it does not resample or compress the embedded image.
+Skala względna zmienia ustawienia skali ramki; nie przetwarza ani nie kompresuje osadzonego obrazu.
 
-## **Embedded and Linked Images**
+## **Obrazy osadzone i linkowane**
 
-An embedded picture stores image data inside the presentation and is therefore the safest choice for portability and predictable rendering. A linked picture stores an external location through the [Picture::setLinkPathLong](https://reference.aspose.com/slides/pl/php-java/aspose.slides/picture/setlinkpathlong/) method instead of embedding the image data in the same way.
+Obraz osadzony przechowuje dane obrazu wewnątrz prezentacji i jest więc najbezpieczniejszym wyborem pod względem przenośności i przewidywalnego renderowania. Obraz linkowany przechowuje zewnętrzną lokalizację za pomocą metody [Picture::setLinkPathLong](https://reference.aspose.com/slides/pl/php-java/aspose.slides/picture/setlinkpathlong/) zamiast osadzania danych obrazu w tym samym miejscu.
 
-Linked images can reduce the amount of image data stored in the PPTX, but they introduce an external dependency. The linked file must remain accessible to the application that opens or renders the presentation. If the path changes, the file is moved, or the resource is unavailable, the linked picture may not be displayed as expected. For presentations that must be emailed, archived, or rendered in isolated environments, embedded images are usually more reliable.
+Obrazy linkowane mogą zmniejszyć ilość danych obrazu przechowywanych w pliku PPTX, ale wprowadzają zależność zewnętrzną. Plik linkowany musi pozostać dostępny dla aplikacji otwierającej lub renderującej prezentację. Jeśli ścieżka się zmieni, plik zostanie przeniesiony lub zasób będzie niedostępny, obraz linkowany może nie zostać wyświetlony zgodnie z oczekiwaniami. Dla prezentacji, które mają być wysyłane e‑mailem, archiwizowane lub renderowane w odizolowanych środowiskach, obrazy osadzone są zazwyczaj bardziej niezawodne.
 
-### **Add a Linked Image**
+### **Dodawanie obrazu linkowanego**
 
-The following example creates a picture frame and points it to a local image file. It deals only with image linking; video linking is a separate media workflow and is intentionally not mixed into this example.
+Poniższy przykład tworzy ramkę obrazu i wskazuje na lokalny plik obrazu. Dotyczy on wyłącznie linkowania obrazów; linkowanie wideo to odrębny proces medialny i celowo nie jest mieszane w tym przykładzie.
 
 ```php
 use aspose\slides\Presentation;
@@ -140,15 +140,15 @@ try {
 }
 ```
 
-Use links when external file management is intentional. Do not use them merely as a replacement for compression: a small PPTX with broken image dependencies is usually less useful than a larger self-contained presentation.
+Używaj linków, gdy zarządzanie plikami zewnętrznymi jest zamierzone. Nie używaj ich wyłącznie jako zamiennika kompresji: mały PPTX z uszkodzonymi zależnościami obrazów jest zwykle mniej użyteczny niż większa, samodzielna prezentacja.
 
-## **Extract Images from Picture Frames**
+## **Wyodrębnianie obrazów z ramek obrazu**
 
-Before extracting an image from an existing presentation, check that a shape is actually a [PictureFrame](https://reference.aspose.com/slides/pl/php-java/aspose.slides/pictureframe/) and that it contains an embedded image. Linked picture frames may not contain image bytes that can be extracted in the same way.
+Przed wyodrębnieniem obrazu z istniejącej prezentacji sprawdź, czy kształt jest faktycznie [PictureFrame](https://reference.aspose.com/slides/pl/php-java/aspose.slides/pictureframe/) i czy zawiera osadzony obraz. Ramki obrazów linkowanych mogą nie zawierać bajtów obrazu, które można wyodrębnić w ten sam sposób.
 
-### **Extract a Raster Image**
+### **Wyodrębnianie obrazu rastrowego**
 
-The modern image API uses [IImage](https://reference.aspose.com/slides/pl/php-java/aspose.slides/iimage/) directly. The following example finds the first embedded raster picture on a slide and saves it as PNG:
+Nowoczesne API obrazu używa bezpośrednio [IImage](https://reference.aspose.com/slides/pl/php-java/aspose.slides/iimage/). Poniższy przykład znajduje pierwszy osadzony rastrowy obraz na slajdzie i zapisuje go jako PNG:
 
 ```php
 use aspose\slides\ImageFormat;
@@ -185,11 +185,11 @@ try {
 }
 ```
 
-Saving through [IImage::save](https://reference.aspose.com/slides/pl/php-java/aspose.slides/iimage/#save) converts the extracted image to the requested output format. If you need the encoded bytes stored in the presentation rather than a converted raster file, use the image resource's binary data instead.
+Zapisanie przy pomocy [IImage::save](https://reference.aspose.com/slides/pl/php-java/aspose.slides/iimage/#save) konwertuje wyodrębniony obraz do żądanego formatu wyjściowego. Jeśli potrzebujesz zakodowanych bajtów przechowywanych w prezentacji, a nie przekonwertowanego pliku rastrowego, użyj binarnych danych zasobu obrazu.
 
-### **Extract an SVG Image**
+### **Wyodrębnianie obrazu SVG**
 
-For an SVG picture, the [PPImage](https://reference.aspose.com/slides/pl/php-java/aspose.slides/ppimage/) exposes an [SvgImage](https://reference.aspose.com/slides/pl/php-java/aspose.slides/svgimage/) object. This lets you retrieve the SVG data directly instead of rasterizing the picture first.
+Dla obrazu SVG, [PPImage](https://reference.aspose.com/slides/pl/php-java/aspose.slides/ppimage/) udostępnia obiekt [SvgImage](https://reference.aspose.com/slides/pl/php-java/aspose.slides/svgimage/). Pozwala to pobrać dane SVG bezpośrednio, zamiast rasteryzować obraz najpierw.
 
 ```php
 use aspose\slides\Presentation;
@@ -224,13 +224,13 @@ try {
 }
 ```
 
-Keeping SVG content as SVG preserves the vector source inside the presentation. Raster exports such as PNG or JPEG necessarily render that vector content to pixels. PDF or SVG slide export is also a rendering operation, so the exported graphics should not be treated as a byte-for-byte copy of the original embedded SVG; use the embedded [SvgImage::getSvgData](https://reference.aspose.com/slides/pl/php-java/aspose.slides/svgimage/getsvgdata/) data when the original vector resource itself is required.
+Zachowanie treści SVG jako SVG zachowuje wektorowe źródło w prezentacji. Eksporty rastrowe, takie jak PNG czy JPEG, muszą renderować tę zawartość wektorową do pikseli. Eksport slajdu do PDF lub SVG również jest operacją renderowania, więc wyeksportowane grafiki nie powinny być traktowane jako dokładna kopia osadzonego SVG; użyj danych [SvgImage::getSvgData](https://reference.aspose.com/slides/pl/php-java/aspose.slides/svgimage/getsvgdata/) gdy wymagana jest oryginalna wektorowa treść.
 
-## **Crop an Image**
+## **Przycinanie obrazu**
 
-Cropping changes which part of an image is visible inside the frame. The crop values on [PictureFillFormat](https://reference.aspose.com/slides/pl/php-java/aspose.slides/picturefillformat/) are percentages of the source image dimensions. Cropping does not initially delete the hidden pixels from the embedded image; it only changes the visible region.
+Przycinanie zmienia, która część obrazu jest widoczna wewnątrz ramki. Wartości przycięcia w [PictureFillFormat](https://reference.aspose.com/slides/pl/php-java/aspose.slides/picturefillformat/) są procentami wymiarów obrazu źródłowego. Przycinanie nie usuwa początkowo ukrytych pikseli z osadzonego obrazu; zmienia jedynie widoczny obszar.
 
-The following example finds a picture frame safely and applies crop values:
+Poniższy przykład bezpiecznie znajduje ramkę obrazu i stosuje wartości przycięcia:
 
 ```php
 use aspose\slides\Presentation;
@@ -262,11 +262,11 @@ try {
 }
 ```
 
-Because the hidden image data is still present, the crop can be changed later without losing the original pixels. If file size matters more than reversibility, the cropped regions can be physically removed as described in the next section.
+Ponieważ ukryte dane obrazu nadal istnieją, przycięcie może być zmienione później bez utraty oryginalnych pikseli. Jeśli rozmiar pliku jest ważniejszy niż odwracalność, przycięte obszary można fizycznie usunąć, jak opisano w następnej sekcji.
 
-## **Remove Cropped Image Data**
+## **Usuwanie przyciętych danych obrazu**
 
-[PictureFillFormat::deletePictureCroppedAreas](https://reference.aspose.com/slides/pl/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) removes image data outside the current crop rectangle and returns the resulting image resource. This can reduce file size, but it is a destructive optimization: after the presentation is saved, the removed pixels are no longer available for a later uncrop operation.
+[PictureFillFormat::deletePictureCroppedAreas](https://reference.aspose.com/slides/pl/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) usuwa dane obrazu poza bieżącym prostokątem przycięcia i zwraca nowy zasób obrazu. Może to zmniejszyć rozmiar pliku, ale jest to destrukcyjna optymalizacja: po zapisaniu prezentacji usunięte piksele nie są już dostępne dla późniejszej operacji odprzycinania.
 
 ```php
 use aspose\slides\Presentation;
@@ -297,13 +297,13 @@ try {
 }
 ```
 
-The method may add a new image resource to the presentation. If the original image is also used by other picture frames, those frames still need their existing resource, so deleting cropped areas does not necessarily reduce the total number of images. Cropping WMF or EMF content with this method rasterizes the cropped result to PNG.
+Metoda może dodać nowy zasób obrazu do prezentacji. Jeśli pierwotny obraz jest używany także przez inne ramki, te ramki nadal potrzebują istniejącego zasobu, więc usunięcie przyciętych obszarów niekoniecznie zmniejsza łączną liczbę obrazów. Przycinanie treści WMF lub EMF przy użyciu tej metody rasteryzuje przycięty wynik do PNG.
 
-## **Compress Raster Images**
+## **Kompresja obrazów rastrowych**
 
-[PictureFillFormat::compressImage](https://reference.aspose.com/slides/pl/php-java/aspose.slides/picturefillformat/#compressImage_boolean_int_) reduces raster image resolution relative to the size at which the picture is displayed. It can also remove cropped regions in the same operation. The method returns `true` when the image was resized or cropped and `false` when no change was necessary.
+[PictureFillFormat::compressImage](https://reference.aspose.com/slides/pl/php-java/aspose.slides/picturefillformat/#compressImage_boolean_int_) zmniejsza rozdzielczość obrazu rastrowego względem rozmiaru, w jakim jest wyświetlany. Może również usuwać przycięte regiony w tej samej operacji. Metoda zwraca `true`, gdy obraz został przeskalowany lub przycięty oraz `false`, gdy nie było konieczności zmiany.
 
-Use a predefined [PicturesCompression](https://reference.aspose.com/slides/pl/php-java/aspose.slides/picturescompression/) value when a standard target resolution is sufficient:
+Użyj wbudowanej wartości [PicturesCompression](https://reference.aspose.com/slides/pl/php-java/aspose.slides/picturescompression/) gdy wystarcza standardowa docelowa rozdzielczość:
 
 ```php
 use aspose\slides\PicturesCompression;
@@ -334,17 +334,17 @@ try {
 }
 ```
 
-A custom positive DPI value can be passed instead of a predefined value when a specific target is required.
+Zamiast wartości wbudowanej można przekazać własną dodatnią wartość DPI, gdy wymagana jest konkretna rozdzielczość docelowa.
 
-Compression is intended for raster images. SVG and metafile content is not reduced by this raster compression workflow. Also remember that lower resolution and deleted cropped regions cannot be recovered from the optimized presentation. Choose a target resolution based on the largest size at which the image will actually be viewed or exported rather than applying the lowest DPI globally.
+Kompresja jest przeznaczona dla obrazów rastrowych. Treść SVG i metaplików nie jest zmniejszana przez ten proces kompresji rastrowej. Pamiętaj także, że niższa rozdzielczość i usunięte przycięte obszary nie mogą zostać odzyskane z zoptymalizowanej prezentacji. Wybieraj docelową rozdzielczość na podstawie największego rozmiaru, w jakim obraz będzie rzeczywiście wyświetlany lub eksportowany, a nie stosuj najniższego DPI globalnie.
 
-## **Manage Image Transform Effects**
+## **Zarządzanie efektami transformacji obrazu**
 
-For a complete workflow covering brightness, contrast, color transformations, blur, alpha effects, ordered chains, inspection, removal, and round-trip verification, see [Image Transform Effects](/php-java/image-transform-effects/).
+Kompletny przepływ pracy obejmujący jasność, kontrast, przekształcenia kolorów, rozmycie, efekty alfa, łańcuchy uporządkowane, inspekcję, usuwanie i weryfikację dwukierunkową znajduje się w [Image Transform Effects](/slides/pl/php-java/image-transform-effects/).
 
-## **Lock Picture Frame Geometry**
+## **Blokowanie geometrii ramki obrazu**
 
-The [PictureFrameLock](https://reference.aspose.com/slides/pl/php-java/aspose.slides/pictureframelock/) settings control which editing operations are disabled for a picture frame. For example, [setAspectRatioLocked](https://reference.aspose.com/slides/pl/php-java/aspose.slides/pictureframelock/setaspectratiolocked/) preserves the shape's proportions while it is resized.
+Ustawienia [PictureFrameLock](https://reference.aspose.com/slides/pl/php-java/aspose.slides/pictureframelock/) kontrolują, które operacje edycji są wyłączone dla ramki obrazu. Na przykład [setAspectRatioLocked](https://reference.aspose.com/slides/pl/php-java/aspose.slides/pictureframelock/setaspectratiolocked/) zachowuje proporcje kształtu podczas zmiany rozmiaru.
 
 ```php
 use aspose\slides\Images;
@@ -374,13 +374,13 @@ try {
 }
 ```
 
-The lock applies to the picture frame shape. It does not force the source image to be resampled or permanently changed to the same aspect ratio.
+Blokada dotyczy kształtu ramki obrazu. Nie wymusza ona przetworzenia źródłowego obrazu ani trwałej zmiany jego proporcji.
 
-## **Adjust the StretchOffset Values**
+## **Dostosowywanie wartości StretchOffset**
 
-When the picture fill mode is stretch, the stretch-offset values on [PictureFillFormat](https://reference.aspose.com/slides/pl/php-java/aspose.slides/picturefillformat/) define the fill rectangle relative to the picture frame's bounding box. Positive percentages create an inset from an edge, while negative percentages create an outset.
+Gdy tryb wypełnienia obrazu jest rozciągnięty, wartości stretch‑offset w [PictureFillFormat](https://reference.aspose.com/slides/pl/php-java/aspose.slides/picturefillformat/) określają prostokąt wypełnienia względem ramki obrazu. Dodatnie procenty tworzą wcięcie od krawędzi, a ujemne procenty tworzą występ.
 
-This is different from cropping. Crop values select which part of the source image is visible; stretch offsets change the rectangle into which the visible picture fill is stretched.
+Jest to inne niż przycinanie. Wartości przycięcia wybierają, która część obrazu źródłowego jest widoczna; offsety rozciągnięcia zmieniają prostokąt, w którym widoczne wypełnienie obrazu jest rozciągane.
 
 ```php
 use aspose\slides\Images;
@@ -415,43 +415,43 @@ try {
 }
 ```
 
-Use stretch offsets for fill placement. Use crop properties when the goal is to hide source-image edges.
+Używaj offsetów rozciągnięcia do rozmieszczania wypełnienia. Używaj właściwości przycięcia, gdy celem jest ukrycie krawędzi obrazu źródłowego.
 
-## **Storage, File Size, and Export Considerations**
+## **Przechowywanie, rozmiar pliku i uwagi dotyczące eksportu**
 
-The main tradeoffs are easier to manage when image storage and picture-frame formatting are treated separately:
+Główne kompromisy są łatwiejsze do zarządzania, gdy przechowywanie obrazu i formatowanie ramki obrazu traktowane są oddzielnie:
 
-- **Embedded images** make the presentation self-contained and are the most reliable for sharing and server-side rendering, but large raster images increase PPTX size and memory use.
-- **Linked images** can keep the package smaller, but the presentation depends on external files remaining available at the stored paths or locations.
-- **Cropping** is initially non-destructive. The hidden pixels remain embedded until cropped areas are explicitly deleted or removed during compression.
-- **Compression** can reduce file size substantially for oversized raster images, but it trades away source resolution. It should be applied after the intended on-slide size is known.
-- **SVG images** should remain as SVG when vector preservation is important. Extract the embedded SVG directly when you need the vector resource itself. Raster slide exports always convert the rendered slide to pixels.
-- **Repeated images** should reuse an existing [PPImage](https://reference.aspose.com/slides/pl/php-java/aspose.slides/ppimage/) resource when possible instead of repeatedly loading the same file into the presentation workflow.
+- **Obrazy osadzone** sprawiają, że prezentacja jest samodzielna i są najbardziej niezawodne przy udostępnianiu i renderowaniu po stronie serwera, ale duże obrazy rastrowe zwiększają rozmiar PPTX i zużycie pamięci.
+- **Obrazy linkowane** mogą utrzymać mniejszy pakiet, ale prezentacja zależy od dostępności zewnętrznych plików pod zapisanymi ścieżkami lub lokalizacjami.
+- **Przycinanie** początkowo nie jest destrukcyjne. Ukryte piksele pozostają osadzone, aż do momentu wyraźnego usunięcia przyciętych obszarów lub usunięcia ich podczas kompresji.
+- **Kompresja** może znacznie zmniejszyć rozmiar pliku przy zbyt dużych obrazach rastrowych, ale kosztem utraty rozdzielczości źródła. Powinna być stosowana po ustaleniu docelowego rozmiaru na slajdzie.
+- **Obrazy SVG** powinny pozostać w formacie SVG, gdy ważne jest zachowanie wektorowości. Wyodrębnij osadzony SVG bezpośrednio, gdy potrzebny jest sam zasób wektorowy. Eksport slajdu do formatu rastrowego zawsze konwertuje renderowany slajd do pikseli.
+- **Powtarzające się obrazy** powinny ponownie wykorzystywać istniejący zasób [PPImage](https://reference.aspose.com/slides/pl/php-java/aspose.slides/ppimage/) zamiast wielokrotnego ładowania tego samego pliku w procesie tworzenia prezentacji.
 
-For large presentations, image optimization is usually most effective when performed selectively: keep logos and diagrams as vector content, compress photographs according to their real display size, remove cropped pixels only when later editing is not required, and avoid external links unless dependency management is part of the deployment design.
+W dużych prezentacjach optymalizacja obrazów jest najskuteczniejsza, gdy jest stosowana selektywnie: trzymaj logotypy i diagramy jako treść wektorową, kompresuj zdjęcia zgodnie z ich rzeczywistym rozmiarem wyświetlania, usuwaj przycięte piksele tylko wtedy, gdy późniejsza edycja nie jest wymagana, i unikaj linków zewnętrznych, chyba że zarządzanie zależnościami jest częścią projektu wdrożenia.
 
 ## **FAQ**
 
-**What is the difference between a picture frame and an image resource?**
+**Jaka jest różnica między ramką obrazu a zasobem obrazu?**
 
-A [PPImage](https://reference.aspose.com/slides/pl/php-java/aspose.slides/ppimage/) represents an image resource associated with the presentation. A [PictureFrame](https://reference.aspose.com/slides/pl/php-java/aspose.slides/pictureframe/) is a shape on a slide that displays an image and stores frame-level geometry and formatting such as size, rotation, crop values, effects, and locks.
+[PPImage](https://reference.aspose.com/slides/pl/php-java/aspose.slides/ppimage/) reprezentuje zasób obrazu powiązany z prezentacją. [PictureFrame](https://reference.aspose.com/slides/pl/php-java/aspose.slides/pictureframe/) jest kształtem na slajdzie wyświetlającym obraz i przechowującym geometrię oraz formatowanie ramki, takie jak rozmiar, obrót, wartości przycięcia, efekty i blokady.
 
-**Should I embed or link images?**
+**Czy powinienem osadzać, czy linkować obrazy?**
 
-Embed images when the presentation must be portable, archived, or rendered without access to external resources. Link images only when keeping image files outside the PPTX is intentional and the external locations can be maintained reliably.
+Osadzaj obrazy, gdy prezentacja musi być przenośna, archiwizowana lub renderowana bez dostępu do zasobów zewnętrznych. Linkuj obrazy tylko wtedy, gdy umieszczenie plików obrazu poza PPTX jest zamierzone i zewnętrzne lokalizacje mogą być utrzymywane w sposób niezawodny.
 
-**Does cropping reduce PPTX file size?**
+**Czy przycinanie zmniejsza rozmiar pliku PPTX?**
 
-Not by itself. Normal crop settings hide parts of the source image but keep the underlying pixels. Use [PictureFillFormat::deletePictureCroppedAreas](https://reference.aspose.com/slides/pl/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) or image compression with cropped-area removal when those pixels can be discarded permanently.
+Nie samo w sobie. Normalne ustawienia przycięcia ukrywają części obrazu źródłowego, ale zachowują ukryte piksele. Użyj [PictureFillFormat::deletePictureCroppedAreas](https://reference.aspose.com/slides/pl/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) lub kompresji obrazu z usuwaniem przyciętych obszarów, gdy te piksele można trwale usunąć.
 
-**Can I restore image quality after compression?**
+**Czy mogę przywrócić jakość obrazu po kompresji?**
 
-No. Compression can reduce stored raster resolution, and removing cropped regions discards image data. Keep the original source image outside the presentation if later high-resolution editing may be required.
+Nie. Kompresja może obniżyć przechowywaną rozdzielczość rastrową, a usunięcie przyciętych regionów usuwa dane obrazu. Trzymaj oryginalny obraz źródłowy poza prezentacją, jeśli później może być potrzebna edycja w wysokiej rozdzielczości.
 
-**How should SVG images be handled?**
+**Jak powinny być obsługiwane obrazy SVG?**
 
-Keep SVG content as SVG when vector fidelity matters. The embedded [SvgImage](https://reference.aspose.com/slides/pl/php-java/aspose.slides/svgimage/) can be extracted directly. Rendering a slide to a raster format such as PNG or JPEG rasterizes the SVG as part of the slide image.
+Trzymaj treść SVG jako SVG, gdy zależy Ci na wierności wektorowej. Osadzony [SvgImage](https://reference.aspose.com/slides/pl/php-java/aspose.slides/svgimage/) można wyodrębnić bezpośrednio. Renderowanie slajdu do formatu rastrowego, takiego jak PNG lub JPEG, rasteryzuje SVG jako część obrazu slajdu.
 
-**How can I avoid unsafe casts when reading existing slides?**
+**Jak uniknąć niebezpiecznych rzutowań przy odczycie istniejących slajdów?**
 
-Check the shape type before using picture-frame-specific members. A `java_instanceof` check against [PictureFrame](https://reference.aspose.com/slides/pl/php-java/aspose.slides/pictureframe/) avoids invalid casts and lets the code handle slides that do not contain picture frames.
+Sprawdzaj typ kształtu przed użyciem członków specyficznych dla ramki obrazu. Kontrola `java_instanceof` przeciwko [PictureFrame](https://reference.aspose.com/slides/pl/php-java/aspose.slides/pictureframe/) zapobiega nieprawidłowym rzutowaniom i pozwala obsłużyć slajdy, które nie zawierają ramek obrazu.

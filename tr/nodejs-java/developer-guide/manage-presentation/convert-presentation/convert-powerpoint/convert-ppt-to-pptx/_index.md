@@ -17,15 +17,15 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides ile Node.js'te eski PPT dosyalarını PPTX'e dönüştürün. Tek dosya ve toplu dönüşüm, hata yönetimi ve doğruluk notları için JavaScript örneklerini içerir."
+description: "Aspose.Slides ile Node.js'te eski PPT dosyalarını PPTX'e dönüştürün. Tek dosya ve toplu dönüşüm, hata yönetimi ve doğruluk notları için JavaScript örnekleri içerir."
 ---
 ## **Genel Bakış**
 
-PPT, eski ikili PowerPoint formatıdır, PPTX ise daha yeni Open XML formatıdır. Aspose.Slides for Node.js via Java, Microsoft PowerPoint olmadan bir PPT dosyasını yükleyebilir ve PPTX olarak kaydedebilir. Bu makale, tek bir dosya veya bir dizindeki dosyalar nasıl dönüştürülür ve dönüşüm sonrası neyin doğrulanması gerektiğini açıklar.
+PPT, eski ikili PowerPoint formatıdır, PPTX ise daha yeni Open XML formatıdır. Aspose.Slides for Node.js via Java, Microsoft PowerPoint olmadan bir PPT dosyasını yükleyip PPTX olarak kaydedebilir. Bu makale bir dosyayı ya da bir dizindeki dosyaları nasıl dönüştüreceğinizi gösterir ve dönüştürmeden sonra neyin doğrulanması gerektiğini açıklar.
 
 ## **PPT Dosyasını PPTX'e Dönüştür**
 
-Kaynak dosyayı Presentation sınıfı ile yükleyin, ardından SaveFormat.Pptx ile Presentation.save yöntemini çağırın. `finally` bloğu sunumu serbest bırakır ve kaynaklarını serbest bırakır.
+Kaynak dosyayı [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) sınıfı ile yükleyin, ardından [Presentation.save](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/#save) metodunu [SaveFormat.Pptx](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/saveformat/) argümanıyle çağırın. `finally` bloğu sunumu serbest bırakır ve kaynaklarını serbest bırakır.
 
 ```javascript
 var aspose = aspose || {};
@@ -41,11 +41,11 @@ try {
 }
 ```
 
-Dosya uzantısı tek başına çıktı formatını seçmez; SaveFormat.Pptx argümanı seçer. Orijinal PPT dosyasını korumanız gerekiyorsa giriş ve çıkış yollarını farklı tutun.
+Dosya uzantısı tek başına çıktı formatını seçmez; bu işi [SaveFormat.Pptx](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/saveformat/) argümanı yapar. Orijinal PPT dosyasını korumanız gerekiyorsa giriş ve çıkış yollarını farklı tutun.
 
 ## **Birden Çok PPT Dosyasını Dönüştür**
 
-Aşağıdaki örnek, bir dizindeki tüm `.ppt` dosyalarını dönüştürür. Her dosya bağımsız olarak işlenir, bu nedenle tek bir dönüşüm hatası toplu işlemin geri kalanını durdurmaz.
+Aşağıdaki örnek bir dizindeki tüm `.ppt` dosyalarını dönüştürür. Her dosya bağımsız olarak işlenir, bu yüzden bir dönüşüm hatası diğerlerinin işlenmesini durdurmaz.
 
 ```javascript
 var aspose = aspose || {};
@@ -81,32 +81,32 @@ for (const fileName of inputFiles) {
 }
 ```
 
-Üretim ortamlarında, tam hatayı günlüğe kaydedin, mevcut bir çıktı dosyasının üzerine yazılıp yazılamayacağına karar verin ve başarısız dosya adlarını yeniden deneme veya inceleme kuyruğuna yazın. Bozuk dosyalar, gerekli şifre olmadan açılan şifre korumalı dosyalar, erişilemeyen yollar ve desteklenmeyen içerik dönüşümün başarısız olmasına neden olabilir. Şifre korumalı sunumları yüklemek için [Password-Protected Presentations](/nodejs-java/password-protected-presentation/) sayfasına bakın.
+Üretim ortamları için, tam hatayı günlüğe kaydedin, mevcut bir çıktı dosyasının üzerine yazılıp yazılamayacağını belirleyin ve başarısız dosya adlarını yeniden deneme veya inceleme kuyruğuna yazın. Bozuk dosyalar, gerekli şifre olmadan açılan şifre korumalı dosyalar, erişilemeyen yollar ve desteklenmeyen içerikler dönüşümün başarısız olmasına neden olabilir. Şifreli dosyaları yüklemek için [Password-Protected Presentations](/slides/tr/nodejs-java/password-protected-presentation/) bölümüne bakın.
 
 ## **Doğruluk ve Eski Özellikler**
 
-Dönüştürme genellikle slaytları, masterları, yerleşimleri, metni, şekilleri, görüntüleri, tabloları ve grafikleri korur. Ancak PPT ve PPTX her özelliği aynı şekilde temsil etmez. Kütüphane tarafından desteklenmeyen veya PPTX karşılığı olmayan bir eski özellik normalleştirilebilir, çıkarılabilir veya farklı görüntülenebilir.
+Dönüşüm genellikle slaytları, ana şablonları, düzenleri, metni, şekilleri, görüntüleri, tabloları ve grafikleri korur. Ancak PPT ve PPTX, her özelliği tam olarak aynı şekilde temsil etmez. Kitaplık tarafından desteklenmeyen veya PPTX eşdeğeri olmayan bir eski özellik normalize edilebilir, atlanabilir veya farklı gösterilebilir.
 
-Dönüştürülen dosyayı animasyonlar, geçişler, gömülü veya bağlantılı OLE nesneleri, ActiveX denetimleri, gömülü medya, nadir kullanılan fontlar veya VBA makroları içerdiğinde kontrol edin. Düz bir PPTX dosyası makro destekli bir format değildir; VBA'nın erişilebilir olması gerekiyorsa uygun bir makro-destekli iş akışı kullanın. Ayrıca, dönüştürülen sunumun açılacağı veya render edileceği ortamda gerekli fontların ve harici kaynakların mevcut olduğunu doğrulayın.
+Animasyonlar, geçişler, gömülü veya bağlı OLE nesneleri, ActiveX denetimleri, gömülü medya, nadir yazı tipleri veya VBA makroları içeren dönüştürülmüş dosyayı kontrol edin. Düz bir PPTX dosyası makro destekli bir format değildir; VBA'nın kullanılabilir olması gerektiğinde uygun makro‑destekli iş akışı kullanın. Ayrıca dönüştürülen sunumun açılacağı ya da render edileceği ortamda gerekli yazı tiplerinin ve dış kaynakların mevcut olduğunu doğrulayın.
 
-Önemli belgeler için, oluşturulan PPTX'i programlı olarak yeniden açın ve ana slayt sayısını ve içeriği inceleyin, ardından hedef görüntüleyicide görünümünü ve slayt gösterisi davranışını karşılaştırın. Başarılı bir Presentation.save çağrısını, her eski özelliğin tam bir PPTX temsiline sahip olduğunun kanıtı olarak değerlendirmeyin.
+Önemli belgeler için, oluşturulan PPTX'i programlı olarak yeniden açın ve ana slayt sayısını ve içeriğini inceleyin, ardından görünümünü ve slayt gösterisi davranışını hedeflenen görüntüleyicide karşılaştırın. Başarılı bir [Presentation.save](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/#save) çağrısını, her eski özelliğin tam bir PPTX temsiline sahip olduğu kanıtı olarak değerlendirmeyin.
 
-## **PPTX Ne Zaman Kullanılmalı**
+## **Ne Zaman PPTX Kullanılmalı**
 
-Sunum, mevcut PowerPoint sürümlerinde düzenlenecek, Open XML paketleriyle çalışan sistemlerle değiştirilecek veya eski ikili PPT'ye göre daha kolay incelenebilir ve kurtarılabilir bir formatta saklanacaksa PPTX kullanın. Dönüştürülen sunum doğruluk kontrollerinizi geçene kadar orijinal PPT'yi arşiv veya geri dönüş kopyası olarak tutun.
+Sunumun güncel PowerPoint sürümlerinde düzenlenecek, Open XML paketleriyle çalışan sistemlerle değiştirilecek veya eski ikili PPT'den daha kolay incelenip geri kurtarılabilen bir formatta depolanacak olması durumunda PPTX kullanın. Dönüştürülen sunum doğruluk kontrollerinizi geçtiği sürece orijinal PPT'yi arşiv veya geri dönüş kopyası olarak tutun.
 
-PDF, HTML, görüntüler, XPS veya başka bir çıktı türüne ihtiyacınız varsa, tüm hedeflerin düzenlenebilir PowerPoint özelliklerini koruyacağını varsaymak yerine [Convert Presentations to Multiple Formats](/nodejs-java/convert-presentation/) bölümündeki format-özelliği kılavuzunu kullanın.
+PDF, HTML, görüntüler, XPS veya başka bir çıktı türüne ihtiyacınız varsa, tüm hedeflerin düzenlenebilir PowerPoint özelliklerini koruyacağını varsaymak yerine [Convert Presentations to Multiple Formats](/slides/tr/nodejs-java/convert-presentation/) bölümündeki formata özgü yönergeleri kullanın.
 
 ## **Çevrimiçi Dönüştürücü**
 
-Ara sıra bir dosya veya hızlı bir karşılaştırma için çevrimiçi [online PPT to PPTX converter](https://products.aspose.app/slides/tr/conversion/ppt-to-pptx) kullanabilirsiniz. Tekrarlanabilir dönüşümler, toplu işleme veya uygulama düzeyinde hata yönetimi için Node.js via Java API'sini kullanın.
+Arada bir dosya veya hızlı bir karşılaştırma için [online PPT to PPTX converter](https://products.aspose.app/slides/tr/conversion/ppt-to-pptx) adresini kullanabilirsiniz. Tekrarlanabilir dönüşümler, toplu işleme veya uygulama seviyesinde hata yönetimi için Node.js via Java API'yi kullanın.
 
 ## **İlgili Makaleler**
 
-- [PPT vs PPTX](/nodejs-java/ppt-vs-pptx/)
-- [Node.js'te Sunumları Kaydet](/nodejs-java/save-presentation/)
-- [Desteklenen Dosya Biçimleri](/nodejs-java/supported-file-formats/)
-- [Node.js'te Sunumları Aç](/nodejs-java/open-presentation/)
+- [PPT vs PPTX](/slides/tr/nodejs-java/ppt-vs-pptx/)
+- [Node.js'te Sunumları Kaydet](/slides/tr/nodejs-java/save-presentation/)
+- [Desteklenen Dosya Formatları](/slides/tr/nodejs-java/supported-file-formats/)
+- [Node.js'te Sunumları Aç](/slides/tr/nodejs-java/open-presentation/)
 
 ## **SSS**
 
@@ -114,14 +114,14 @@ Ara sıra bir dosya veya hızlı bir karşılaştırma için çevrimiçi [online
 
 Evet. Aspose.Slides for Node.js via Java, Microsoft PowerPoint gerektirmeden sunum dosyalarını yükler ve kaydeder.
 
-**PPT‑to‑PPTX dönüşümü tüm içeriği tam olarak korur mu?**
+**PPT'den PPTX'e dönüşüm tüm içeriği tam olarak korur mu?**
 
-Ortak sunum içeriğini korur, ancak her eski veya desteklenmeyen özellik için tam doğruluk garanti edilemez. Makrolar, OLE veya ActiveX nesneleri, medya, özel animasyonlar veya nadir kullanılan fontlar içerdiğinde oluşturulan dosyayı gözden geçirin.
+Ortak sunum içeriğini korur, ancak her eski veya desteklenmeyen özellik için tam doğruluk garanti edilmez. Oluşturulan dosyayı makrolar, OLE veya ActiveX nesneleri, medya, özel animasyonlar veya nadir yazı tipleri içeriyorsa gözden geçirin.
 
 **Şifre korumalı bir PPT dosyasını dönüştürebilir miyim?**
 
-Evet, dosyayı yüklerken doğru şifreyi sağlarsanız. Şifre eksik veya hatalı olduğunda yükleme işlemi başarısız olur.
+Evet, dosyayı yüklerken doğru şifreyi sağlarsanız mümkündür. Eksik veya hatalı şifre, yükleme işleminin başarısız olmasına neden olur.
 
-**Dönüşümden sonra PPT dosyasını silmeli miyim?**
+**Dönüştürmeden sonra PPT dosyasını silmeli miyim?**
 
-Orijinali, PPTX'i sizin için önemli olan görüntüleyicilerde ve iş akışlarında doğrulayana kadar tutun. Bu, bir eski özelliğin farklı dönüştürülmesi durumunda geri dönüş kopyası sağlar.
+Orijinali, PPTX'i sizin için önemli olan görüntüleyicilerde ve iş akışlarında doğrulayana kadar saklayın. Bu, eski bir özelliğin farklı dönüştürülmesi durumunda geri dönüş kopyası sağlar.

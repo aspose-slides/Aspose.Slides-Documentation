@@ -1,5 +1,5 @@
 ---
-title: Управление разделами слайдов в презентациях с помощью C++
+title: Управление разделами слайдов в презентациях с C++
 linktitle: Раздел слайдов
 type: docs
 weight: 100
@@ -10,76 +10,222 @@ keywords:
 - редактировать раздел
 - изменить раздел
 - имя раздела
+- получить слайды раздела
+- обработать слайды раздела
 - PowerPoint
-- OpenDocument
 - презентация
 - C++
 - Aspose.Slides
-description: "Оптимизируйте разделы слайдов в PowerPoint и OpenDocument с помощью Aspose.Slides для C++ — разделяйте, переименовывайте и переупорядочивайте для улучшения рабочих процессов PPTX и ODP."
+description: "Управляйте разделами слайдов с помощью Aspose.Slides для C++: создавайте, переименовывайте, переупорядочивайте, получайте и обрабатывайте слайды разделов в презентациях PPTX."
 ---
+## **Введение**
 
-С помощью Aspose.Slides для C++ вы можете организовать презентацию PowerPoint по разделам. Вы можете создавать разделы, содержащие определённые слайды. 
+Разделы организуют последовательные слайды в именованные группы, не изменяя содержимое слайдов. С помощью Aspose.Slides для C++ вы можете создавать, переупорядочивать, переименовывать, просматривать и удалять разделы через метод [Presentation::get_Sections](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/get_sections/) .
 
-Вам может потребоваться создавать разделы и использовать их для организации или разделения слайдов в презентации на логические части в следующих ситуациях:
+Разделы особенно полезны, когда:
 
-- Когда вы работаете над большой презентацией совместно с другими людьми или командой — и вам нужно назначить определённые слайды коллеге или членам команды. 
-- Когда вы имеете дело с презентацией, содержащей множество слайдов — и вам сложно управлять или редактировать её содержимое единовременно.
+- большая презентация должна быть разбита на логические темы или главы;
+- разные группы слайдов назначаются различным сотрудникам;
+- слайды нужно обрабатывать, перемещать или объединять группами.
 
-В идеале следует создать раздел, содержащий похожие слайды — у слайдов есть что‑то общее или они могут образовать группу по правилу — и дать разделу имя, описывающее слайды внутри него. 
+Выбирайте короткие имена разделов, которые описывают назначение сгруппированных слайдов. Поскольку разделы являются частью структуры презентации, используйте API разделов для определения принадлежности, а не выводите её из позиций слайдов.
 
-## **Создание разделов в презентациях**
+## **Создание и управление разделами**
 
-Чтобы добавить раздел, содержащий слайды в презентации, Aspose.Slides для C++ предоставляет метод AddSection, позволяющий указать имя создаваемого раздела и слайд, с которого начинается раздел. 
+Используйте [ISectionCollection::AddSection](https://reference.aspose.com/slides/ru/cpp/aspose.slides/isectioncollection/addsection/) для создания раздела, указав его имя и начальный слайд. Aspose.Slides определяет, какие слайды принадлежат разделу, исходя из текущей структуры разделов презентации.
 
-Этот пример кода показывает, как создать раздел в презентации на C++:
-``` cpp
-auto pres = System::MakeObject<Presentation>();
+Тот же [ISectionCollection](https://reference.aspose.com/slides/ru/cpp/aspose.slides/isectioncollection/) также позволяет вам:
 
-auto defaultSlide = pres->get_Slides()->idx_get(0);
-auto newSlide1 = pres->get_Slides()->AddEmptySlide(pres->get_LayoutSlides()->idx_get(0));
-auto newSlide2 = pres->get_Slides()->AddEmptySlide(pres->get_LayoutSlides()->idx_get(0));
-auto newSlide3 = pres->get_Slides()->AddEmptySlide(pres->get_LayoutSlides()->idx_get(0));
-auto newSlide4 = pres->get_Slides()->AddEmptySlide(pres->get_LayoutSlides()->idx_get(0));
+- переместить раздел вместе с его слайдами, используя [ISectionCollection::ReorderSectionWithSlides](https://reference.aspose.com/slides/ru/cpp/aspose.slides/isectioncollection/reordersectionwithslides/) ;
+- удалить только определение раздела с помощью [ISectionCollection::RemoveSection](https://reference.aspose.com/slides/ru/cpp/aspose.slides/isectioncollection/removesection/) , при этом слайды сохраняются;
+- удалить раздел вместе с его слайдами с помощью [ISectionCollection::RemoveSectionWithSlides](https://reference.aspose.com/slides/ru/cpp/aspose.slides/isectioncollection/removesectionwithslides/) ;
+- добавить пустой раздел в конец с помощью [ISectionCollection::AppendEmptySection](https://reference.aspose.com/slides/ru/cpp/aspose.slides/isectioncollection/appendemptysection/) .
 
-auto section1 = pres->get_Sections()->AddSection(u"Section 1", newSlide1);
-auto section2 = pres->get_Sections()->AddSection(u"Section 2", newSlide3);
-// section1 будет завершён на newSlide2, а после него начнётся section2
+Следующий пример создает два раздела, перемещает один из них, удаляет его вместе со слайдами и добавляет пустой раздел:
 
-pres->Save(u"pres-sections.pptx", SaveFormat::Pptx);
+```cpp
+#include <DOM/ISectionCollection.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
 
-pres->get_Sections()->ReorderSectionWithSlides(section2, 0);
-pres->Save(u"pres-sections-moved.pptx", SaveFormat::Pptx);
+using namespace Aspose::Slides;
 
-pres->get_Sections()->RemoveSectionWithSlides(section2);
+auto presentation = System::MakeObject<Presentation>();
+auto layoutSlide = presentation->get_LayoutSlide(0);
+auto titleSlide = presentation->get_Slide(0);
+presentation->get_Slides()->AddEmptySlide(layoutSlide);
+auto resultsSlide = presentation->get_Slides()->AddEmptySlide(layoutSlide);
+presentation->get_Slides()->AddEmptySlide(layoutSlide);
 
-pres->get_Sections()->AppendEmptySection(u"Last empty section");
+auto sections = presentation->get_Sections();
+sections->AddSection(u"Introduction", titleSlide);
+auto resultsSection = sections->AddSection(u"Results", resultsSlide);
 
-pres->Save(u"pres-section-with-empty.pptx", SaveFormat::Pptx);
+sections->ReorderSectionWithSlides(resultsSection, 0);
+sections->RemoveSectionWithSlides(resultsSection);
+sections->AppendEmptySection(u"Appendix");
 ```
 
+После выполнения этих операций презентация содержит раздел `Introduction` со своими слайдами и пустой раздел `Appendix`. Раздел `Results` и его слайды были удалены.
 
-## **Изменение имён разделов**
+## **Переименование разделов**
 
-После создания раздела в презентации PowerPoint вы можете решить изменить его имя. 
+Чтобы переименовать раздел, вызовите [ISection::set_Name](https://reference.aspose.com/slides/ru/cpp/aspose.slides/isection/set_name/) . Слайды раздела и его позиция остаются неизменными.
 
-Этот пример кода показывает, как изменить имя раздела в презентации на C++ с использованием Aspose.Slides:
-``` cpp
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-auto section = pres->get_Sections()->idx_get(0);
-section->set_Name(u"My section");
+Следующий пример создает раздел и меняет его имя:
+
+```cpp
+#include <DOM/ISection.h>
+#include <DOM/ISectionCollection.h>
+#include <DOM/Presentation.h>
+
+using namespace Aspose::Slides;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto section = presentation->get_Sections()->AddSection(u"Overview", slide);
+section->set_Name(u"Introduction");
 ```
 
+## **Получение слайдов из разделов**
 
-## **Часто задаваемые вопросы**
+Метод [Presentation::get_Sections](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/get_sections/) возвращает [ISectionCollection](https://reference.aspose.com/slides/ru/cpp/aspose.slides/isectioncollection/) , который можно перечислять. Для каждого [ISection](https://reference.aspose.com/slides/ru/cpp/aspose.slides/isection/) вызовите [ISection::GetSlidesListOfSection](https://reference.aspose.com/slides/ru/cpp/aspose.slides/isection/getslideslistofsection/) , чтобы получить слайды, принадлежащие ему в текущий момент. Метод возвращает [ISectionSlideCollection](https://reference.aspose.com/slides/ru/cpp/aspose.slides/isectionslidecollection/) , предоставляющий количество, индексированный доступ и возможность перечисления.
 
-**Сохраняются ли разделы при сохранении в формате PPT (PowerPoint 97–2003)?**
+Следующий пример создаёт два заполненных раздела и один пустой раздел, затем выводит для каждого раздела его [name](https://reference.aspose.com/slides/ru/cpp/aspose.slides/isection/get_name/) , [identifier](https://reference.aspose.com/slides/ru/cpp/aspose.slides/isection/get_sectionid/) , [starting slide](https://reference.aspose.com/slides/ru/cpp/aspose.slides/isection/get_startedfromslide/) , количество слайдов и номера слайдов. Он использует индексированный доступ для чтения первого слайда и диапазонный `for`‑цикл для обработки каждого слайда. Для пустого раздела возвращённая коллекция имеет нулевое количество, индексированный доступ не используется, а перечисление не совершает итераций.
+
+```cpp
+#include <DOM/ISection.h>
+#include <DOM/ISectionCollection.h>
+#include <DOM/ISectionSlideCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+
+auto presentation = System::MakeObject<Presentation>();
+auto layoutSlide = presentation->get_LayoutSlide(0);
+auto firstSlide = presentation->get_Slide(0);
+presentation->get_Slides()->AddEmptySlide(layoutSlide);
+auto thirdSlide = presentation->get_Slides()->AddEmptySlide(layoutSlide);
+
+auto sections = presentation->get_Sections();
+sections->AddSection(u"Introduction", firstSlide);
+sections->AddSection(u"Details", thirdSlide);
+sections->AppendEmptySection(u"Appendix");
+
+for (const auto& section : sections)
+{
+    auto sectionSlides = section->GetSlidesListOfSection();
+    auto startingSlide = section->get_StartedFromSlide();
+
+    System::Console::WriteLine(u"Section: {0}", section->get_Name());
+    System::Console::WriteLine(u"ID: {0}", section->get_SectionId().ToString());
+    if (startingSlide == nullptr)
+    {
+        System::Console::WriteLine(u"Starting slide: none");
+    }
+    else
+    {
+        System::Console::WriteLine(u"Starting slide: {0}", startingSlide->get_SlideNumber());
+    }
+    System::Console::WriteLine(u"Slide count: {0}", sectionSlides->get_Count());
+
+    if (sectionSlides->get_Count() > 0)
+    {
+        System::Console::WriteLine(u"First slide via index: {0}", sectionSlides->idx_get(0)->get_SlideNumber());
+    }
+
+    System::Console::Write(u"Slide numbers:");
+    for (const auto& slide : sectionSlides)
+    {
+        System::Console::Write(u" {0}", slide->get_SlideNumber());
+    }
+    System::Console::WriteLine();
+}
+```
+
+Принадлежность к разделу определяется структурой разделов презентации. Не вычисляйте диапазон раздела вручную, используя [ISection::get_StartedFromSlide](https://reference.aspose.com/slides/ru/cpp/aspose.slides/isection/get_startedfromslide/) , индексы слайдов и начальный слайд следующего раздела.
+
+Структурные изменения могут менять как набор слайдов, возвращаемых для раздела, так и их номера. К ним относятся переупорядочивание слайдов, клонирование слайда в раздел, перемещение раздела вместе с его слайдами, удаление слайдов и удаление разделов. Следующий пример вызывает [ISection::GetSlidesListOfSection](https://reference.aspose.com/slides/ru/cpp/aspose.slides/isection/getslideslistofsection/) после каждого такого изменения вместо сохранения предположений о прежних границах раздела.
+
+```cpp
+#include <DOM/ISection.h>
+#include <DOM/ISectionCollection.h>
+#include <DOM/ISectionSlideCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+
+auto presentation = System::MakeObject<Presentation>();
+auto layoutSlide = presentation->get_LayoutSlide(0);
+auto firstSlide = presentation->get_Slide(0);
+presentation->get_Slides()->AddEmptySlide(layoutSlide);
+auto thirdSlide = presentation->get_Slides()->AddEmptySlide(layoutSlide);
+presentation->get_Slides()->AddEmptySlide(layoutSlide);
+
+auto sections = presentation->get_Sections();
+auto firstSection = sections->AddSection(u"First", firstSlide);
+auto secondSection = sections->AddSection(u"Second", thirdSlide);
+
+auto printSectionSlides = [](const System::String& label, const System::SharedPtr<ISection>& section)
+{
+    auto sectionSlides = section->GetSlidesListOfSection();
+    System::Console::Write(u"{0} ({1} slides):", label, sectionSlides->get_Count());
+    for (const auto& slide : sectionSlides)
+    {
+        System::Console::Write(u" {0}", slide->get_SlideNumber());
+    }
+    System::Console::WriteLine();
+};
+
+printSectionSlides(u"Initially", firstSection);
+
+auto slidesBeforeClone = firstSection->GetSlidesListOfSection();
+presentation->get_Slides()->AddClone(slidesBeforeClone->idx_get(0), firstSection);
+printSectionSlides(u"After cloning into the section", firstSection);
+
+auto slidesBeforeReorder = firstSection->GetSlidesListOfSection();
+auto firstSlideInSection = slidesBeforeReorder->idx_get(0);
+auto lastSlideInSection = slidesBeforeReorder->idx_get(slidesBeforeReorder->get_Count() - 1);
+auto firstSectionPosition = firstSlideInSection->get_SlideNumber() - 1;
+presentation->get_Slides()->Reorder(firstSectionPosition, lastSlideInSection);
+printSectionSlides(u"After reordering slides", firstSection);
+
+sections->ReorderSectionWithSlides(firstSection, 1);
+printSectionSlides(u"After moving the section", firstSection);
+
+auto slidesBeforeRemoval = firstSection->GetSlidesListOfSection();
+presentation->get_Slides()->Remove(slidesBeforeRemoval->idx_get(0));
+printSectionSlides(u"After removing a slide", firstSection);
+
+sections->RemoveSectionWithSlides(secondSection);
+for (const auto& section : sections)
+{
+    printSectionSlides(u"Remaining section", section);
+}
+```
+
+Вызывайте [ISection::GetSlidesListOfSection](https://reference.aspose.com/slides/ru/cpp/aspose.slides/isection/getslideslistofsection/) снова каждый раз, когда слайды или разделы переупорядочиваются, клонируются, перемещаются или удаляются. Это сохраняет согласованность последующей обработки с текущей структурой презентации.
+
+Формат PPT (PowerPoint 97–2003) не сохраняет метаданные разделов. Используйте этот рабочий процесс с форматом, поддерживающим разделы, например PPTX; преобразование в PPT удаляет структуру разделов, необходимую для последующего перечисления.
+
+## **FAQ**
+
+**Сохраняются ли разделы при сохранении в формат PPT (PowerPoint 97–2003)?**
 
 Нет. Формат PPT не поддерживает метаданные разделов, поэтому группировка разделов теряется при сохранении в .ppt.
 
 **Можно ли полностью скрыть раздел?**
 
-Нет. Можно скрывать только отдельные слайды. У раздела как сущности нет состояния «скрыт».
+Нет. У раздела нет состояния видимости. Чтобы скрыть его содержимое, вызовите [ISlide::set_Hidden](https://reference.aspose.com/slides/ru/cpp/aspose.slides/islide/set_hidden/) для каждого слайда в этом разделе.
 
-**Можно ли быстро найти раздел по слайду и, наоборот, первый слайд раздела?**
+**Как найти раздел, содержащий определённый слайд?**
 
-Да. Раздел однозначно определяется своим начальным слайдом; по слайду можно определить, к какому разделу он принадлежит, а для раздела можно получить его первый слайд.
+Перечислите [Presentation::get_Sections](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/get_sections/), вызовите [ISection::GetSlidesListOfSection](https://reference.aspose.com/slides/ru/cpp/aspose.slides/isection/getslideslistofsection/) для каждого раздела и сравните полученные слайды с целевым слайдом. Для непустого раздела [ISection::get_StartedFromSlide](https://reference.aspose.com/slides/ru/cpp/aspose.slides/isection/get_startedfromslide/) возвращает его первый слайд; для пустого раздела он возвращает `nullptr`.

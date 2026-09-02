@@ -1,5 +1,5 @@
 ---
-title: JavaScript'te PowerPoint Yazı Tiplerini Özelleştirme
+title: JavaScript ile PowerPoint Yazı Tiplerini Özelleştir
 linktitle: Özel Yazı Tipi
 type: docs
 weight: 20
@@ -17,18 +17,21 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "JavaScript ve Aspose.Slides for Node.js üzerinden Java ile PowerPoint slaytlarındaki yazı tiplerini özelleştirerek sunumlarınızı her cihazda keskin ve tutarlı tutun."
+description: "JavaScript ve Aspose.Slides for Node.js kullanarak Java üzerinden PowerPoint slaytlarındaki yazı tiplerini özelleştirerek sunumlarınızın her cihazda keskin ve tutarlı kalmasını sağlayın."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides, özel yazı tiplerini işletim sistemine kurmadan sunumlarda kullanmanıza olanak tanır. Yazı tiplerini özel klasörlerden yükleyebilir, belge‑seviyesi yazı tipi kaynakları aracılığıyla belirli bir sunum için sağlayabilir veya dış yazı tiplerini doğrudan ikili veri üzerinden yükleyebilirsiniz.
+Aspose.Slides, işletim sistemine yüklemeden sunumlarda özel yazı tiplerini kullanmanıza olanak tanır. Yazı tiplerini özel klasörlerden yükleyebilir, belge düzeyindeki yazı tipi kaynakları aracılığıyla belirli bir sunum için sağlayabilir veya dış yazı tiplerini doğrudan ikili veriden yükleyebilirsiniz.
 
-Yüklenen yazı tipleri, bir sunum render edildiğinde veya PDF, görüntüler ve diğer desteklenen formatlara dışa aktarıldığında kullanılır. Bu, farklı ortamlar arasında sunum çıktısının tutarlı kalmasına yardımcı olur. Makale ayrıca Aspose.Slides tarafından kullanılan yazı tipi klasörlerinin nasıl inceleneceğini ve dış yazı tipleriyle çalıştıktan sonra yazı tipi önbelleğinin nasıl temizleneceğini açıklar.
+Yüklenen yazı tipleri, bir sunum PDF, resimler ve diğer desteklenen biçimlere dışa aktarılırken veya render edilirken kullanılır. Bu, farklı ortamlar arasında sunum çıktısının tutarlı kalmasına yardımcı olur. Makale ayrıca Aspose.Slides tarafından kullanılan yazı tipi klasörlerini nasıl inceleyeceğinizi ve dış yazı tipleriyle çalıştıktan sonra yazı tipi önbelleğini nasıl temizleyeceğinizi açıklar.
 
-Render için özel yazı tiplerinin kaydedilmesi, bir PPTX dosyasına gömülmesinden ayrı bir işlemdir. Bir yazı tipinin sunumun içinde saklanması gerekiyorsa, gömme özelliklerini açıkça kullanın.
+Render için özel yazı tiplerini kaydetmek, bir PPTX dosyasına yazı tiplerini gömmekten ayrı bir işlemdir. Bir yazı tipinin sunumun içinde saklanması gerekiyorsa, gömme özelliklerini açıkça kullanın.
 
-{{% alert color="primary" %}} 
-Aspose Slides, bu yazı tiplerini aşağıdaki [loadExternalFonts](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) yöntemiyle yüklemenizi sağlar:
+Bir sunum teması, bireysel yazı sistemleri için farklı yazı tipi ailelerine referans verebilir. Bu eşlemeler yalnızca yazı tipi adlarını saklar, ancak yazı tipi dosyalarını yüklemez veya kurmaz. Eşlemeleri yönetmek için [Script-Specific Theme Fonts](/slides/tr/nodejs-java/script-specific-font-mappings/) bölümüne bakın ve aşağıdaki yükleme seçeneklerini kullanarak referans verilen yazı tiplerini tutarlı render için kullanılabilir hale getirin.
+
+{{% alert color="info" title="Not" %}}
+
+Aspose Slides, bu yazı tiplerini [loadExternalFonts](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) yöntemiyle yüklemenize izin verir:
 
 * TrueType (.ttf) ve TrueType Collection (.ttc) yazı tipleri. Bkz. [TrueType](https://en.wikipedia.org/wiki/TrueType).
 
@@ -36,19 +39,25 @@ Aspose Slides, bu yazı tiplerini aşağıdaki [loadExternalFonts](https://refer
 
 {{% /alert %}}
 
-## **Özel Yazı Tiplerini Yükleme**
+## **Özel Yazı Tiplerini Yükle**
 
-Aspose.Slides, bir sunumda kullanılan yazı tiplerini sistemde kurmadan yüklemenize izin verir. Bu, PDF, görüntüler ve diğer desteklenen formatlar gibi dışa aktarma çıktısını etkiler; böylece oluşan belgeler ortamlar arasında tutarlı görünür. Yazı tipleri özel dizinlerden yüklenir.
+Aspose.Slides, bir sunumda kullanılan yazı tiplerini sistemde kurmadan yüklemenize izin verir. Bu, PDF, resimler ve diğer desteklenen biçimler gibi dışa aktarım çıktısını etkiler; böylece ortaya çıkan belgeler ortamlar arasında tutarlı görünür. Yazı tipleri özel dizinlerden yüklenir.
 
-1. Yazı tipi dosyalarını içeren bir veya daha fazla klasör belirtin.
-2. Statik [FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/fontsloader/loadexternalfonts/) yöntemini çağırarak bu klasörlerden yazı tiplerini yükleyin.
-3. Sunumu yükleyin ve render/​dışa aktarın.
+1. Yazı tipi dosyalarını içeren bir veya daha fazla klasör belirtin.  
+2. Statik [FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/fontsloader/loadexternalfonts/) yöntemini çağırarak bu klasörlerden yazı tiplerini yükleyin.  
+3. Sunumu yükleyin ve render/​dışa aktarın.  
 4. Yazı tipi önbelleğini temizlemek için [FontsLoader.clearCache](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/fontsloader/clearcache/) yöntemini çağırın.
 
-Aşağıdaki kod örneği yazı tipi yükleme sürecini gösterir:
+Aşağıdaki kod örneği, yazı tipi yükleme sürecini gösterir:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 // Özel yazı tipi dosyalarını içeren klasörleri tanımlayın.
+let externalFontFolder1 = "fonts";
+let externalFontFolder2 = "extra-fonts";
 let fontFolders = java.newArray("java.lang.String", [externalFontFolder1, externalFontFolder2]);
 
 // Belirtilen klasörlerden özel yazı tiplerini yükleyin.
@@ -58,7 +67,7 @@ let presentation = null;
 try {
     presentation = new aspose.slides.Presentation("sample.pptx");
     
-    // Yüklenen yazı tiplerini kullanarak sunumu render/dışa aktarın (ör. PDF, görüntüler veya diğer formatlar).
+    // Yüklenen yazı tiplerini kullanarak sunumu render/ dışa aktar (ör. PDF, resimler veya diğer formatlar).
     presentation.save("output.pdf", aspose.slides.SaveFormat.Pdf);
 } finally {
     if (presentation != null) presentation.dispose();
@@ -68,31 +77,42 @@ try {
 }
 ```
 
-{{% alert color="info" title="Note" %}}
-[FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/fontsloader/loadexternalfonts/) ek klasörleri yazı tipi arama yollarına ekler, ancak yazı tipi başlatma sırasını değiştirmez.
+{{% alert color="info" title="Not" %}}
+
+[FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/fontsloader/loadexternalfonts/) ek klasörleri yazı tipi arama yollarına ekler, ancak yazı tipi başlatma sırasını değiştirmez.  
 Yazı tipleri şu sırayla başlatılır:
 
-1. Varsayılan işletim sistemi yazı tipi yolu.
+1. Varsayılan işletim sistemi yazı tipi yolu.  
 1. [FontsLoader](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/fontsloader/) aracılığıyla yüklenen yollar.
+
 {{%/alert %}}
 
-## **Özel Yazı Tipi Klasörünü Alma**
+## **Özel Yazı Tipi Klasörünü Al**
+
 Aspose.Slides, yazı tipi klasörlerini bulmanıza olanak tanıyan [getFontFolders](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/fontsloader/#getFontFolders--) yöntemini sağlar. Bu yöntem, `LoadExternalFonts` yöntemiyle eklenen klasörleri ve sistem yazı tipi klasörlerini döndürür.
 
-Bu JavaScript kodu, [getFontFolders](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/fontsloader/#getFontFolders--) nasıl kullanılacağını gösterir:
+Bu JavaScript kodu, [getFontFolders](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/fontsloader/#getFontFolders--) yönteminin nasıl kullanılacağını gösterir:
 
 ```javascript
-// Bu satır, yazı tipi dosyalarının arandığı klasörleri çıktılar.
-// Bunlar LoadExternalFonts yöntemiyle eklenen klasörler ve sistem yazı tipi klasörleridir.
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// Bu satır, yazı tipi dosyalarının aranacağı klasörleri çıktılar.
+// Bunlar LoadExternalFonts yöntemiyle eklenen ve sistem yazı tipi klasörleridir.
 var fontFolders = aspose.slides.FontsLoader.getFontFolders();
 ```
 
-## **Sunumda Kullanılan Özel Yazı Tiplerini Belirleme**
-Aspose.Slides, sunumla birlikte kullanılacak dış yazı tiplerini belirlemenize olanak tanıyan [setDocumentLevelFontSources](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/loadoptions/#setDocumentLevelFontSources-aspose.slides.IFontSources-) özelliğini sunar.
+## **Sunumla Kullanılacak Özel Yazı Tiplerini Belirt**
+
+Aspose.Slides, sunumla birlikte kullanılacak harici yazı tiplerini belirtmenize olanak tanıyan [setDocumentLevelFontSources](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/loadoptions/#setDocumentLevelFontSources-aspose.slides.IFontSources-) özelliğini sunar.
 
 Bu JavaScript kodu, [setDocumentLevelFontSources](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/loadoptions/#setDocumentLevelFontSources-aspose.slides.IFontSources-) özelliğinin nasıl kullanılacağını gösterir:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var memoryFont1 = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "customfonts/CustomFont1.ttf"));
 var memoryFont2 = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "customfonts/CustomFont2.ttf"));
 var loadOptions = new aspose.slides.LoadOptions();
@@ -101,7 +121,7 @@ loadOptions.getDocumentLevelFontSources().setMemoryFonts(java.newArray("[B", [ja
 var pres = new aspose.slides.Presentation("MyPresentation.pptx", loadOptions);
 try {
     // Sunumla çalış
-    // CustomFont1, CustomFont2 ve assets\fonts & global\fonts klasörleri ve alt klasörlerindeki yazı tipleri sunum için kullanılabilir
+    // CustomFont1, CustomFont2 ve assets\fonts & global\fonts klasörlerinden ve alt klasörlerinden gelen yazı tipleri sunum için kullanılabilir
 } finally {
     if (pres != null) {
         pres.dispose();
@@ -109,20 +129,24 @@ try {
 }
 ```
 
-## **Yazı Tiplerini Dışarıdan Yönetme**
+## **Yazı Tiplerini Dışarıdan Yönet**
 
-Aspose.Slides, dış yazı tiplerini ikili veri üzerinden yüklemenizi sağlayan [loadExternalFont](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) yöntemini sunar.
+Aspose.Slides, dış yazı tiplerini ikili veriden yüklemenizi sağlayan [loadExternalFont](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) yöntemini sunar.
 
-Bu JavaScript kodu, bayt dizisi ile yazı tipi yükleme sürecini gösterir:
+Bu JavaScript kodu, bayt dizisi üzerinden yazı tipi yükleme sürecini gösterir:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 java.callStaticMethodSync("com.aspose.slides.FontsLoader", "loadExternalFonts", java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "ARIALN.TTF")));
 java.callStaticMethodSync("com.aspose.slides.FontsLoader", "loadExternalFonts", java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "ARIALNBI.TTF")));
 java.callStaticMethodSync("com.aspose.slides.FontsLoader", "loadExternalFonts", java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "ARIALNI.TTF")));
 try {
     var pres = new aspose.slides.Presentation("");
     try {
-        // sunum süresi boyunca dış yazı tipi yüklendi
+        // sunum ömrü boyunca dış yazı tipi yüklendi
     } finally {
     }
 } finally {
@@ -132,22 +156,22 @@ try {
 
 ## **SSS**
 
-**Özel yazı tipleri tüm formatlara (PDF, PNG, SVG, HTML) dışa aktarımı etkiler mi?**
+### Özel yazı tipleri tüm formatlara (PDF, PNG, SVG, HTML) dışa aktarımı etkiler mi?
 
-Evet. Bağlantılı yazı tipleri, render tarafından tüm dışa aktarma formatlarında kullanılır.
+Evet. Bağlı yazı tipleri, renderlayıcı tarafından tüm dışa aktarım formatlarında kullanılır.
 
-**Özel yazı tipleri otomatik olarak oluşturulan PPTX dosyasına gömülür mü?**
+### Özel yazı tipleri sonuç PPTX dosyasına otomatik olarak gömülür mü?
 
-Hayır. Render için bir yazı tipini kaydetmek, onu bir PPTX dosyasına gömmekle aynı şey değildir. Yazı tipinin sunum dosyası içinde taşınmasını istiyorsanız, açıkça [gömme özelliklerini](/slides/tr/nodejs-java/embedded-font/) kullanmanız gerekir.
+Hayır. Bir yazı tipini render için kaydetmek, onu PPTX dosyasına gömmekle aynı şey değildir. Yazı tipinin sunum dosyasının içinde taşınmasını istiyorsanız, açıkça [gömme özelliklerini](/slides/tr/nodejs-java/embedded-font/) kullanmanız gerekir.
 
-**Özel bir yazı tipinde belirli glifler eksik olduğunda yedekleme davranışını kontrol edebilir miyim?**
+### Özel bir yazı tipinde bazı glifler eksik olduğunda geri dönüş davranışını kontrol edebilir miyim?
 
-Evet. [Yazı tipi ikamesi](/slides/tr/nodejs-java/font-substitution/), [değiştirme kuralları](/slides/tr/nodejs-java/font-replacement/) ve [yedekleme setleri](/slides/tr/nodejs-java/fallback-font/) yapılandırarak, istenen glif bulunamadığında hangi yazı tipinin kullanılacağını tam olarak tanımlayabilirsiniz.
+Evet. [Yazı tipi ikamesi](/slides/tr/nodejs-java/font-substitution/), [değiştirme kuralları](/slides/tr/nodejs-java/font-replacement/) ve [geri dönüş setleri](/slides/tr/nodejs-java/fallback-font/) yapılandırarak istenen glif eksik olduğunda tam olarak hangi yazı tipinin kullanılacağını belirleyebilirsiniz.
 
-**Linux/Docker konteynerlerinde yazı tiplerini sistem genelinde kurmadan kullanabilir miyim?**
+### Linux/Docker konteynerlerinde yazı tiplerini sistem genelinde kurmadan kullanabilir miyim?
 
-Evet. Kendi yazı tipi klasörlerinize işaret ederek veya bayt dizilerinden yazı tiplerini yükleyerek bunu yapabilirsiniz. Bu, konteyner imajındaki sistem yazı tipi dizinlerine herhangi bir bağımlılığı ortadan kaldırır.
+Evet. Kendi yazı tipi klasörlerinize işaret edebilir veya yazı tiplerini bayt dizilerinden yükleyebilirsiniz. Bu, konteyner görüntüsündeki sistem yazı tipi dizinlerine olan bağımlılığı ortadan kaldırır.
 
-**Lisanslama konusunda ne söyleyebilirsiniz—herhangi bir özel yazı tipini kısıtlama olmadan gömebilir miyim?**
+### Lisanslama hakkında—herhangi bir özel yazı tipini kısıtlama olmadan gömebilir miyim?
 
-Yazı tipi lisanslama uyumluluğu sizin sorumluluğunuzdadır. Şartlar değişiklik gösterebilir; bazı lisanslar gömme veya ticari kullanımı yasaklayabilir. Çıktıları dağıtmadan önce her zaman ilgili yazı tipinin EULA'sını inceleyin.
+Yazı tipi lisans uyumluluğundan siz sorumlusunuz. Şartlar değişir; bazı lisanslar gömme veya ticari kullanımı yasaklar. Çıktıları dağıtmadan önce her zaman yazı tipinin EULA’sını gözden geçirin.

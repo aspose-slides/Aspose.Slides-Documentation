@@ -9,39 +9,39 @@ keywords:
 - konversi presentasi
 - menggabungkan presentasi
 - iterasi slide
-- iterasi shape
+- iterasi bentuk
 - iterasi teks
-- mengumpulkan shape
+- kumpulkan bentuk
 - kompres presentasi
-- hapus master slide yang tidak terpakai
-- hapus layout slide yang tidak terpakai
+- hapus slide master yang tidak terpakai
+- hapus slide tata letak yang tidak terpakai
 - kompres font yang disematkan
 - PowerPoint
 - OpenDocument
 - presentasi
 - C++
 - Aspose.Slides
-description: "Gunakan API low-code Aspose.Slides dalam C++ untuk mengonversi dan menggabungkan presentasi, mengiterasi konten, mengumpulkan shape, dan mengurangi ukuran presentasi."
+description: "Gunakan API low-code Aspose.Slides dalam C++ untuk mengonversi dan menggabungkan presentasi, iterasi konten, mengumpulkan bentuk, dan mengurangi ukuran presentasi."
 ---
 ## **Gambaran Umum**
 
-Namespace [Aspose::Slides::LowCode](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/) menyediakan kelas pembantu statis untuk operasi presentasi umum. Pembantu ini membungkus alur kerja model objek yang sering digunakan ke dalam metode terfokus, sehingga Anda dapat mengonversi atau menggabungkan file, memproses elemen presentasi, mengumpulkan shape, dan menghapus konten yang tidak terpakai dengan kode yang lebih sedikit.
+Namespace [Aspose::Slides::LowCode](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/) menyediakan kelas pembantu statis untuk operasi presentasi yang umum. Pembantu ini membungkus alur kerja model objek yang sering digunakan dalam metode yang terfokus, sehingga Anda dapat mengonversi atau menggabungkan file, memproses elemen presentasi, mengumpulkan bentuk, dan menghapus konten yang tidak terpakai dengan kode yang lebih sedikit.
 
-Pembantu low‑code paling berguna ketika operasi diterapkan pada seluruh file atau presentasi dan alur kerja default memenuhi kebutuhan Anda. Gunakan model objek lengkap [Aspose.Slides](https://reference.aspose.com/slides/id/cpp/aspose.slides/) ketika Anda memerlukan kontrol yang lebih halus atas slide, master, layout, shape, pengaturan ekspor, atau hubungan antar elemen presentasi.
+Pembantu low-code paling berguna ketika operasi diterapkan pada seluruh file atau presentasi dan alur kerja default memenuhi kebutuhan Anda. Gunakan model objek lengkap [Aspose.Slides](https://reference.aspose.com/slides/id/cpp/aspose.slides/) ketika Anda memerlukan kontrol halus atas slide tunggal, master, tata letak, bentuk, pengaturan ekspor, atau hubungan antar elemen presentasi.
 
 Tabel berikut merangkum pembantu yang tersedia:
 
-| Pembantu | Gunakan untuk |
+| Helper | Gunakan untuk |
 | --- | --- |
-| [Convert](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/convert/) | Mengonversi presentasi ke format lain dengan panggilan file‑ke‑file langsung. |
+| [Convert](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/convert/) | Mengonversi presentasi ke format lain dengan panggilan file-ke-file langsung. |
 | [Merger](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/merger/) | Menggabungkan file presentasi lengkap dengan format yang sama. |
-| [ForEach](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/foreach/) | Menjalankan aksi untuk setiap slide, shape, paragraf, atau potongan teks. |
-| [Collect](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/collect/) | Mengambil shape dari seluruh presentasi untuk diproses atau dianalisis berulang kali. |
-| [Compress](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/compress/) | Menghapus master dan layout yang tidak terpakai serta mengurangi data font yang disematkan. |
+| [ForEach](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/foreach/) | Menjalankan aksi untuk setiap slide, bentuk, paragraf, atau bagian teks. |
+| [Collect](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/collect/) | Mengambil bentuk dari seluruh presentasi untuk pemrosesan atau analisis berulang. |
+| [Compress](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/compress/) | Menghapus master dan tata letak yang tidak terpakai serta mengurangi data font yang disematkan. |
 
 ## **Mengonversi Presentasi**
 
-Gunakan [Convert::AutoByExtension](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/convert/autobyextension/) ketika ekstensi file output cukup untuk memilih format ekspor. Metode ini membuka presentasi sumber, menentukan format yang diperlukan dari jalur output, dan menulis hasilnya.
+Gunakan [Convert::AutoByExtension](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/convert/autobyextension/) ketika ekstensi file keluaran cukup untuk memilih format ekspor. Metode ini membuka presentasi sumber, menentukan format yang diperlukan dari jalur keluaran, dan menulis hasilnya.
 
 ```cpp
 #include <LowCode/Convert.h>
@@ -51,7 +51,7 @@ using namespace Aspose::Slides::LowCode;
 Convert::AutoByExtension(u"input.pptx", u"output.pdf");
 ```
 
-Kelas [Convert](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/convert/) juga menyediakan metode khusus untuk output PDF, SVG, JPEG, PNG, dan TIFF. Gunakan model objek lengkap ketika Anda perlu memeriksa atau memodifikasi presentasi sebelum ekspor atau mengonfigurasi opsi ekspor yang tidak disediakan oleh pembantu yang dipilih. Lihat [Convert Presentation](/cpp/convert-presentation/) untuk alur kerja dan opsi spesifik format.
+Kelas [Convert](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/convert/) juga menyediakan metode khusus untuk output PDF, SVG, JPEG, PNG, dan TIFF. Gunakan model objek lengkap ketika Anda perlu memeriksa atau mengubah presentasi sebelum mengekspor atau mengonfigurasi opsi ekspor yang tidak disediakan oleh pembantu yang dipilih. Lihat [Convert Presentation](/slides/id/cpp/convert-presentation/) untuk alur kerja dan opsi khusus format.
 
 ## **Menggabungkan Presentasi**
 
@@ -68,13 +68,13 @@ auto inputFiles = System::MakeArray<System::String>({u"part-1.pptx", u"part-2.pp
 Merger::Process(inputFiles, u"merged.pptx");
 ```
 
-Pembantu ini cocok ketika semua slide harus ditambahkan ke satu hasil tanpa memilih atau memetakan mereka secara individual. Gunakan model objek lengkap ketika Anda perlu menggabungkan slide tertentu, menerapkan master atau layout tujuan, mempertahankan bagian secara eksplisit, atau menyelaraskan ukuran slide yang berbeda. Lihat [Merge Presentations](/cpp/merge-presentation/) untuk skenario tersebut.
+Pembantu ini cocok ketika semua slide harus ditambahkan ke satu hasil tanpa memilih atau memetakan mereka secara individual. Gunakan model objek lengkap ketika Anda perlu menggabungkan slide terpilih, menerapkan master atau tata letak tujuan, mempertahankan bagian secara eksplisit, atau menyesuaikan ukuran slide yang berbeda. Lihat [Merge Presentations](/slides/id/cpp/merge-presentation/) untuk skenario tersebut.
 
 ## **Iterasi Elemen Presentasi**
 
-Kelas [ForEach](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/foreach/) memanggil callback untuk setiap tipe elemen presentasi yang diminta. Ini menghindari loop koleksi bertingkat dan memudahkan inspeksi atau perubahan format pada seluruh presentasi.
+Kelas [ForEach](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/foreach/) memanggil callback untuk setiap jenis elemen presentasi yang diminta. Ini menghindari loop koleksi bersarang dan nyaman untuk inspeksi atau perubahan format pada seluruh presentasi.
 
-Contoh berikut menggunakan [ForEach::Slide](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/foreach/slide/), [ForEach::Shape](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/foreach/shape/), [ForEach::Paragraph](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/foreach/paragraph/), dan [ForEach::Portion](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/foreach/portion/) untuk memeriksa elemen yang bersangkutan:
+Contoh berikut menggunakan [ForEach::Slide](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/foreach/slide/), [ForEach::Shape](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/foreach/shape/), [ForEach::Paragraph](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/foreach/paragraph/), dan [ForEach::Portion](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/foreach/portion/) untuk memeriksa elemen yang bersesuaian:
 
 ```cpp
 #include <DOM/BaseSlide.h>
@@ -118,11 +118,11 @@ auto portionCallback = std::function<void(System::SharedPtr<Portion>, System::Sh
 ForEach::Portion(presentation, portionCallback);
 ```
 
-Secara default, traversal shape dan teks pada seluruh presentasi mencakup slide normal, master, dan layout. Overload dengan parameter `includeNotes` juga dapat memproses slide catatan. Gunakan loop koleksi langsung ketika urutan traversal, penghentian awal, penyaringan sebelum pemanggilan callback, atau kontrol detail orang‑tua‑anak penting.
+Secara default, penelusuran bentuk dan teks pada seluruh presentasi mencakup slide normal, master, dan tata letak. Overload dengan parameter `includeNotes` juga dapat memproses slide catatan. Gunakan loop koleksi langsung ketika urutan penelusuran, penghentian awal, penyaringan sebelum pemanggilan callback, atau kontrol induk-anak yang detail penting.
 
-## **Mengumpulkan Shapes**
+## **Kumpulkan Bentuk**
 
-Gunakan [Collect::Shapes](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/collect/shapes/) ketika Anda memerlukan koleksi semua shape dalam presentasi daripada callback untuk tiap shape. Ini berguna ketika kumpulan yang sama akan disaring, dihitung, atau diproses lebih dari satu kali.
+Gunakan [Collect::Shapes](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/collect/shapes/) ketika Anda memerlukan koleksi semua bentuk dalam presentasi alih-alih callback untuk tiap bentuk. Ini berguna ketika kumpulan yang sama akan disaring, dihitung, atau diproses lebih dari satu kali.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -142,13 +142,13 @@ for (const auto& shape : shapes)
 }
 ```
 
-Gunakan [ForEach::Shape](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/foreach/shape/) sebagai gantinya ketika setiap shape dapat ditangani segera dan Anda tidak perlu menyimpan hasil yang dikumpulkan.
+Gunakan [ForEach::Shape](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/foreach/shape/) sebagai gantinya ketika setiap bentuk dapat ditangani segera dan Anda tidak perlu menyimpan hasil kumpulan.
 
-## **Mengompresi Konten Presentasi**
+## **Kompres Konten Presentasi**
 
 Kelas [Compress](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/compress/) dapat menghapus elemen struktural yang tidak terpakai dan mengurangi data font yang disematkan:
 
-- [Compress::RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) menghapus slide layout yang tidak dirujuk oleh slide normal mana pun.
+- [Compress::RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) menghapus slide tata letak yang tidak direferensikan oleh slide normal mana pun.
 - [Compress::RemoveUnusedMasterSlides](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/compress/removeunusedmasterslides/) menghapus slide master yang tidak lagi digunakan.
 - [Compress::CompressEmbeddedFonts](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/compress/compressembeddedfonts/) menghapus karakter yang tidak terpakai dari font yang disematkan.
 
@@ -170,38 +170,38 @@ Compress::CompressEmbeddedFonts(presentation);
 presentation->Save(u"compressed.pptx", SaveFormat::Pptx);
 ```
 
-Hapus layout yang tidak terpakai sebelum master yang tidak terpakai sehingga master yang menjadi tidak dirujuk setelah pembersihan layout juga dapat dihapus. Simpan presentasi yang dioptimalkan ke file baru jika Anda mungkin memerlukan master, layout, atau data font yang disematkan secara lengkap nanti. Untuk detail lebih lanjut, lihat [Slide Master](/cpp/slide-master/) dan [Embedded Font](/cpp/embedded-font/).
+Hapus tata letak yang tidak terpakai sebelum master yang tidak terpakai sehingga master yang menjadi tak terreferensi setelah pembersihan tata letak juga dapat dihapus. Simpan presentasi yang dioptimalkan ke file baru jika Anda mungkin memerlukan master, tata letak, atau data font yang disematkan lengkap di kemudian hari. Untuk detail lebih lanjut, lihat [Slide Master](/slides/id/cpp/slide-master/) dan [Embedded Font](/slides/id/cpp/embedded-font/).
 
-## **Tanya Jawab**
+## **FAQ**
 
-**Kapan saya harus menggunakan API low‑code alih‑alih model objek lengkap?**
+**Kapan saya harus menggunakan API low-code alih-alih model objek lengkap?**
 
-Gunakan pembantu low‑code ketika operasi standar diterapkan pada file atau presentasi lengkap dan tidak memerlukan kontrol detail atas elemen individual. Gunakan model objek lengkap ketika Anda perlu memilih slide tertentu, mengontrol hubungan master dan layout, memeriksa keadaan menengah, atau mengonfigurasi perilaku yang tidak disediakan pembantu.
+Gunakan pembantu low-code ketika operasi standar diterapkan pada file atau presentasi lengkap dan tidak memerlukan kontrol detail atas elemen individual. Gunakan model objek lengkap ketika Anda perlu memilih slide tertentu, mengontrol hubungan master dan tata letak, memeriksa keadaan menengah, atau mengonfigurasi perilaku yang tidak disediakan pembantu.
 
 **Apakah Merger dapat menggabungkan presentasi dengan format file yang berbeda?**
 
-Tidak. [Merger::Process](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/merger/process/) mengharuskan presentasi masukan memiliki format yang sama. Konversi file masukan ke format bersama terlebih dahulu, misalnya dengan [Convert::AutoByExtension](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/convert/autobyextension/), lalu gabungkan file yang telah dikonversi.
+Tidak. [Merger::Process](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/merger/process/) memerlukan presentasi masukan dengan format yang sama. Konversi file masukan ke format umum terlebih dahulu, misalnya dengan [Convert::AutoByExtension](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/convert/autobyextension/), lalu gabungkan file yang telah dikonversi.
 
-**Apakah ForEach memproses slide master, layout, dan catatan?**
+**Apakah ForEach memproses slide master, tata letak, dan catatan?**
 
-[ForEach::Slide](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/foreach/slide/) mengiterasi slide presentasi normal. [ForEach::Shape](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/foreach/shape/), [ForEach::Paragraph](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/foreach/paragraph/), dan [ForEach::Portion](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/foreach/portion/) pada seluruh presentasi mencakup slide normal, master, dan layout secara default. Gunakan overload mereka dengan `includeNotes` disetel ke `true` untuk menyertakan slide catatan.
+[ForEach::Slide](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/foreach/slide/) mengiterasi slide presentasi normal. [ForEach::Shape](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/foreach/shape/), [ForEach::Paragraph](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/foreach/paragraph/), dan [ForEach::Portion](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/foreach/portion/) pada seluruh presentasi mencakup slide normal, master, dan tata letak secara default. Gunakan overload mereka dengan `includeNotes` diatur ke `true` untuk menyertakan slide catatan.
 
 **Apa perbedaan antara ForEach::Shape dan Collect::Shapes?**
 
-Gunakan [ForEach::Shape](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/foreach/shape/) untuk memproses tiap shape secara langsung melalui callback. Gunakan [Collect::Shapes](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/collect/shapes/) ketika Anda memerlukan hasil yang dapat dipertahankan, disaring, dihitung, atau dilintasi beberapa kali.
+Gunakan [ForEach::Shape](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/foreach/shape/) untuk memproses setiap bentuk segera melalui callback. Gunakan [Collect::Shapes](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/collect/shapes/) ketika Anda memerlukan hasil enumerable yang dapat disimpan, disaring, dihitung, atau ditelusuri berkali-kali.
 
 **Apakah Compress selalu membuat file presentasi lebih kecil?**
 
-Tidak selalu. Hasilnya tergantung pada apakah presentasi berisi layout yang tidak terpakai, master yang tidak terpakai, atau font yang disematkan dengan karakter yang tidak terpakai. Jika tidak ada hal tersebut, operasi [Compress](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/compress/) yang bersangkutan mungkin tidak mengurangi ukuran file.
+Tidak selalu. Hasilnya tergantung pada apakah presentasi berisi tata letak yang tidak terpakai, master yang tidak terpakai, atau font yang disematkan dengan karakter yang tidak terpakai. Jika tidak ada hal tersebut, operasi [Compress](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/compress/) yang bersangkutan mungkin tidak mengurangi ukuran file.
 
-**Apakah perubahan yang dibuat oleh ForEach atau Compress disimpan secara otomatis?**
+**Apakah perubahan yang dilakukan oleh ForEach atau Compress disimpan secara otomatis?**
 
 Tidak. Pembantu ini beroperasi pada objek [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/) yang dimuat di memori. Setelah mengubah elemen dalam callback [ForEach](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/foreach/) atau menjalankan [Compress](https://reference.aspose.com/slides/id/cpp/aspose.slides.lowcode/compress/), panggil [Presentation::Save](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/save/) untuk menulis hasilnya.
 
 ## **Artikel Terkait**
 
-- [Convert Presentation](/cpp/convert-presentation/)
-- [Merge Presentations](/cpp/merge-presentation/)
-- [Slide Master](/cpp/slide-master/)
-- [Manage Text Box](/cpp/manage-textbox/)
-- [Embedded Font](/cpp/embedded-font/)
+- [Convert Presentation](/slides/id/cpp/convert-presentation/)
+- [Merge Presentations](/slides/id/cpp/merge-presentation/)
+- [Slide Master](/slides/id/cpp/slide-master/)
+- [Manage Text Box](/slides/id/cpp/manage-textbox/)
+- [Embedded Font](/slides/id/cpp/embedded-font/)

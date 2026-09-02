@@ -1,43 +1,43 @@
 ---
-title: إدارة سمات العرض في C++
-linktitle: قالب العرض
+title: إدارة موضوعات العرض التقديمي في C++
+linktitle: موضوع العرض التقديمي
 type: docs
 weight: 10
 url: /ar/cpp/presentation-theme/
 keywords:
-- سمة PowerPoint
-- سمة العرض
-- سمة الشريحة
-- تعيين سمة
-- تغيير سمة
-- إدارة سمة
-- لون السمة
-- لوحة الألوان الإضافية
-- خط السمة
-- نمط السمة
-- تأثير السمة
+- موضوع PowerPoint
+- موضوع العرض التقديمي
+- موضوع الشريحة
+- تعيين الموضوع
+- تغيير الموضوع
+- إدارة الموضوع
+- لون الموضوع
+- لوحة إضافية
+- خط الموضوع
+- نمط الموضوع
+- تأثير الموضوع
 - PowerPoint
 - OpenDocument
-- عرض
+- العرض التقديمي
 - C++
 - Aspose.Slides
-description: "إتقان سمات العروض التقديمية في Aspose.Slides للغة C++ لإنشاء وتخصيص وتحويل ملفات PowerPoint مع هوية علامية متسقة."
+description: "إتقان موضوعات العرض التقديمي في Aspose.Slides للغة C++ لإنشاء وتخصيص وتحويل ملفات PowerPoint مع علامة تجارية متسقة."
 ---
 ## **المقدمة**
 
-يُعرّف قالب العرض مجموعة منسقة من الألوان، الخطوط، أنماط الخلفية، التعبئات، الخطوط، والظلال. تُشير الكائنات المتوافقة مع القالب إلى هذه التعريفات المشتركة بدلاً من تخزين كل خاصية بصرية كقيمة ثابتة، لذا يمكن لتغيّر القالب تحديث عدة كائنات في آن واحد.
+يعرف موضوع العرض التقديمي مجموعة منسقة من الألوان، الخطوط، أنماط الخلفية، التعبئات، الخطوط، والتأثيرات. تشير الكائنات الواعية للموضوع إلى هذه التعريفات المشتركة بدلاً من تخزين كل خاصية بصرية كقيمة ثابتة، لذا يمكن لتغيير الموضوع أن يحدث تحديثاً للعديد من الكائنات في آن واحد.
 
-في Aspose.Slides، يتوفر قالب المستوى العام للعرض عبر [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/get_mastertheme/). يمكن للعرض أيضاً أن يحتوي على تجاوزات للقالب في مستويات أدنى. يمكن للماستر أن يتجاوز قالب العرض عبر [MasterThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/masterthememanager/get_overridetheme/)، بينما يمكن للتخطيط أو الشريحة الفردية استخدام [IOverrideThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/ioverridethememanager/get_overridetheme/). عمليًا، يتم حل القالب الفعّال لشريحة ما عبر سلسلة الوراثة هذه: قالب العرض، تجاوز الماستر، تجاوز التخطيط، وتجاوز الشريحة.
+في Aspose.Slides، يتوفر موضوع العرض على مستوى العرض من خلال [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/get_mastertheme/). يمكن للعرض أيضاً أن يحتوي على تجاوزات للموضوع على مستويات أدنى. يمكن للماستر أن يتجاوز موضوع العرض عبر [MasterThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/masterthememanager/get_overridetheme/)، بينما يمكن لتخطيط أو شريحة فردية أن تستخدم [IOverrideThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/ioverridethememanager/get_overridetheme/). عملياً، يتم حل الموضوع الفعلي لشريحة ما من خلال سلسلة الوراثة هذه: موضوع العرض، تجاوز الماستر، تجاوز التخطيط، وتجاوز الشريحة.
 
-![مكونات القالب: الألوان والخطوط وأنماط الخلفية والظلال](theme-constituents.png)
+![مكونات الموضوع: ألوان، خطوط، أنماط خلفية، وتأثيرات](theme-constituents.png)
 
-تُظهر الأقسام أدناه أكثر سير عمل القالب شيوعًا: فحص القالب، تغيير الألوان والخطوط، نسخ أو تطبيق قالب، تحديث أنماط الخلفية والظلال، وقراءة القيم الفعّالة بعد حل الوراثة والتجاوزات.
+توضح الأقسام أدناه أكثر سير عمل شائع للموضوع: فحص الموضوع، تغيير الألوان والخطوط، نسخ أو تطبيق موضوع، تحديث أنماط الخلفية والتأثيرات، وقراءة القيم الفعّالة بعد حل الوراثة والتجاوزات.
 
-## **فحص القالب**
+## **فحص موضوع**
 
-يُظهر كائن [MasterTheme](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/mastertheme/) طريقة [get_ColorScheme()](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/mastertheme/get_colorscheme/)، [get_FontScheme()](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/mastertheme/get_fontscheme/)، و[get_FormatScheme()](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/mastertheme/get_formatscheme/) الخاصة بالقالب. إن فحص هذه التجمعات قبل تعديلها مفيد بشكل خاص عندما يأتي العرض من مصدر خارجي لأن عدد ومحتوى مدخلات الأنماط قد يختلف.
+يكشف كائن [MasterTheme](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/mastertheme/) عن طرق [get_ColorScheme()](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/mastertheme/get_colorscheme/)، [get_FontScheme()](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/mastertheme/get_fontscheme/)، و[get_FormatScheme()](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/mastertheme/get_formatscheme/). يكون فحص هذه المجموعات قبل تعديلها مفيداً خصوصاً عندما يأتي العرض من مصدر خارجي لأن عدد ومحتوى إدخالات الأنماط قد يختلف.
 
-المثال التالي يقرأ الخصائص الرئيسية للقالب ويُبلغ عن عدد أنماط الخلفية، التعبئة، الخط، والظلال المخزنة في القالب:
+المثال التالي يقرأ خصائص الموضوع الرئيسية ويبلغ عن عدد أنماط الخلفية، التعبئة، الخط، والتأثير المخزنة في الموضوع:
 
 ```cpp
 #include <DOM/IColorFormat.h>
@@ -69,13 +69,13 @@ Console::WriteLine(u"Line styles: {0}", formatScheme->get_LineStyles()->get_Coun
 Console::WriteLine(u"Effect styles: {0}", formatScheme->get_EffectStyles()->get_Count());
 ```
 
-إذا كان الملف يستخدم عدة ماسترات، لا تفترض أن كل شريحة لديها نفس القالب الفعّال. افحص الماستر المرتبط بالشريحة، واستخدم سير عمل القالب الفعّال الموضح لاحقًا في هذه المقالة عندما تكون هناك تجاوزات للتخطيط أو الشريحة.
+إذا كان الملف يستخدم عدة ماسترز، لا تفترض أن كل شريحة لها نفس الموضوع الفعّال. فحص الماستر المرتبط بالشريحة، واستخدم سير عمل الموضوع الفعّال الموضح لاحقاً في هذه المقالة عندما قد تكون هناك تجاوزات للتخطيط أو الشريحة.
 
-## **تغيير ألوان القالب**
+## **تغيير ألوان الموضوع**
 
-يمكن أن تشير التعبئات، الخطوط، والنصوص المتوافقة مع القالب إلى لون منطقي من تعداد [SchemeColor](https://reference.aspose.com/slides/ar/cpp/aspose.slides/schemecolor/). عندما تغير المدخل المقابل في [IColorScheme](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/icolorscheme/) الخاص بالقالب، تُحل جميع الكائنات التي لا تزال تشير إلى ذلك اللون القالب مقابل القيمة الجديدة. لا تتغير الكائنات التي تستخدم لون RGB مباشر بتحديث لون القالب.
+يمكن للتعبئات، الخطوط، والنصوص الواعية للموضوع أن تشير إلى لون منطقي من تعداد [SchemeColor](https://reference.aspose.com/slides/ar/cpp/aspose.slides/schemecolor/). عندما تغير الإدخال المقابل في [IColorScheme](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/icolorscheme/) الخاص بالموضوع، يتم حل جميع الكائنات التي لا تزال تشير إلى ذلك اللون وفقاً للقيمة الجديدة. الكائنات التي تستخدم لون RGB مباشر لا تتغير عند تحديث لون الموضوع.
 
-المثال التالي من النهاية إلى النهاية يُنشئ شكلًا يستخدم `Accent4`، يغيّر لون القالب `Accent4` إلى الأحمر، يحفظ العرض، يعيد فتحه، ويطبع لون التعبئة الفعّال:
+المثال الشامل التالي ينشئ شكلاً يستخدم `Accent4`، يغيّر لون `Accent4` في الموضوع إلى الأحمر، يحفظ العرض، يعيد فتحه، ويطبع لون التعبئة الفعّال:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -114,19 +114,19 @@ auto effectiveFill = savedShape->get_FillFormat()->GetEffective();
 Console::WriteLine(u"Effective fill color: {0}", effectiveFill->get_SolidFillColor());
 ```
 
-نظرًا لأن المستطيل لا يزال مرتبطًا بـ `Accent4`، يصبح لونه الظاهر أحمر بعد تغيير القالب. إذا استبدلت لون المخطط بلون مباشر على الشكل، لن تؤثر التغييرات اللاحقة على `Accent4` على تلك التعبئة.
+نظرًا لأن المستطيل لا يزال مرتبطاً بـ `Accent4`، يصبح لونه الظاهر أحمر بعد تغيير الموضوع. إذا استبدلت اللون المخطط بلون مباشر على الشكل، فإن التغييرات اللاحقة على `Accent4` لن تؤثر بعد ذلك على تلك التعبئة.
 
-### **استخدام الألوان من اللوحة الإضافية**
+### **استخدام ألوان من اللوحة الإضافية**
 
-يستخرج PowerPoint متغيرات أفتح وأغمق من لون القالب عن طريق تطبيق تحولات اللون. تُظهر Aspose.Slides هذه التحولات عبر [ColorTransformOperation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/colortransformoperation/).
+يستمد PowerPoint متغيرات أفتح وأغمق من لون الموضوع عن طريق تطبيق تحويلات لونية. تعرض Aspose.Slides هذه التحويلات عبر [ColorTransformOperation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/colortransformoperation/).
 
-![الألوان الرئيسية للقالب والألوان الأفتح والأغمق المولدة من اللوحة الإضافية](additional-palette-colors.png)
+![الألوان الرئيسية للموضوع والألوان الأفتح والأغمق المولدة من اللوحة الإضافية](additional-palette-colors.png)
 
-**1** - الألوان الرئيسية للقالب.
+**1** - الألوان الرئيسية للموضوع.
 
-**2** - المتغيرات الأفتح والأغمق المنتجة من الألوان الرئيسية للقالب.
+**2** - المتغيرات الأفتح والأغمق المنتجة من الألوان الرئيسية للموضوع.
 
-المثال التالي يُنشئ ستة مستطيلات تعتمد على `Accent4`، يطبق تحولات الإضاءة على خمسة منها، ويحفظ النتيجة:
+المثال التالي ينشئ ستة مستطيلات تعتمد على `Accent4`، يطبق تحويلات سطوع على خمسة منها، ويحفظ النتيجة:
 
 ```cpp
 #include <DOM/ColorTransformOperation.h>
@@ -195,31 +195,31 @@ solidFillColor6->get_ColorTransform()->Add(ColorTransformOperation::MultiplyLumi
 presentation->Save(u"theme-color-palette.pptx", SaveFormat::Pptx);
 ```
 
-تظل هذه المتغيرات مُستمًدة على لون القالب. إذا تغير `Accent4` لاحقًا، تُعاد حساب الألوان المُحوَّلة من القيمة الجديدة لـ `Accent4`.
+تظل هذه المتغيرات قائمة على لون الموضوع. إذا تغيّر `Accent4` لاحقاً، تُعاد حساب الألوان المحوّلة من القيمة الجديدة لـ `Accent4`.
 
 ### **ربط قيم `SchemeColor` بفتحات `IColorScheme`**
 
-يستخدم تعداد [SchemeColor](https://reference.aspose.com/slides/ar/cpp/aspose.slides/schemecolor/) القيم `Text1`، `Background1`، `Text2`، و`Background2`، بينما تُظهر [IColorScheme](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/icolorscheme/) نفس فتحات القالب كـ `Dark1`، `Light1`، `Dark2`، و`Light2`. الخريطة ثابتة:
+يستخدم تعداد [SchemeColor](https://reference.aspose.com/slides/ar/cpp/aspose.slides/schemecolor/) القيم `Text1`, `Background1`, `Text2`, و`Background2`، بينما يُظهر [IColorScheme](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/icolorscheme/) نفس فتحات الموضوع كـ `Dark1`, `Light1`, `Dark2`, و`Light2`. الخريطة ثابتة:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-هذه أسماء بديلة لنفس فتحات القالب؛ ليست قيمًا تُحوَّل ديناميكيًا من شكل إلى آخر.
+هذه أسماء بديلة لنفس فتحات الموضوع؛ ليست قيماً تُحوَّل ديناميكياً من شكل إلى آخر.
 
-## **تغيير خطوط القالب**
+## **تغيير خطوط الموضوع**
 
-يحتوي مخطط خطوط القالب على مجموعة خطوط رئيسية للعناوين ومجموعة خطوط فرعية للنص الأساسي. تُظهر طريقتا [FontScheme::get_Major()](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/fontscheme/get_major/) و[FontScheme::get_Minor()](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/fontscheme/get_minor/) تلك المجموعات.
+تحتوي مخططة خطوط الموضوع على مجموعة خطوط رئيسية للعناوين ومجموعة خطوط ثانوية لنص الجسم. تكشف الطريقتان [FontScheme::get_Major()](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/fontscheme/get_major/) و[FontScheme::get_Minor()](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/fontscheme/get_minor/) تلك المجموعات.
 
-يمكن استخدام معرفات خطوط القالب المتوافقة مع PowerPoint في تنسيق النص:
+يمكن استخدام معرّفات خطوط الموضوع المتوافقة مع PowerPoint في تنسيق النص:
 
-* `+mn-lt` - الخط الأساسي للغة اللاتينية (Minor Latin Font)
-* `+mj-lt` - خط العناوين للغة اللاتينية (Major Latin Font)
-* `+mn-ea` - الخط الأساسي للغة الآسيوية الشرقية (Minor East Asian Font)
-* `+mj-ea` - خط العناوين للغة الآسيوية الشرقية (Major East Asian Font)
+* `+mn-lt` - خط جسم النص اللاتيني (Minor Latin Font)
+* `+mj-lt` - خط عنوان النص اللاتيني (Major Latin Font)
+* `+mn-ea` - خط جسم النص شرق آسيوي (Minor East Asian Font)
+* `+mj-ea` - خط عنوان النص شرق آسيوي (Major East Asian Font)
 
-المثال التالي يُنشئ عنوانًا يستخدم الخط اللاتيني الرئيسي وخطًا أساسيًا يستخدم الخط اللاتيني الفرعي. ثم يغيّر خطوط القالب ويحفظ النتيجة:
+المثال التالي ينشئ عنواناً يستخدم الخط اللاتيني الرئيسي وخط جسم نص يستخدم الخط اللاتيني الثانوي. ثم يغير خطوط الموضوع ويحفظ النتيجة:
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -259,19 +259,21 @@ presentation->get_MasterTheme()->get_FontScheme()->get_Minor()->set_LatinFont(Ma
 presentation->Save(u"theme-fonts.pptx", SaveFormat::Pptx);
 ```
 
-العنوان يتبع الخط الرئيسي والنص الأساسي يتبع الخط الفرعي. النص الذي يحتوي على اسم خط صريح بدلاً من معرف القالب لن يتحول تلقائيًا عندما يتغيّر مخطط خطوط القالب.
+يتبع العنوان الخط الرئيسي ويتبع نص الجسم الخط الثانوي. النص الذي يحتوي على اسم خط صريح بدلاً من معرف موضوع لن يتبدل تلقائياً عندما تتغيّر مخططة خطوط الموضوع.
+
+يمكن أن تحتوي مجموعات الخطوط الرئيسية والثانوية أيضاً على خرائط خطوط للأنظمة الكتابية الفردية، مثل السيريلية، العربية، اليابانية، الجورجية، والثانا. لتفقد، إضافة، استبدال أو إزالة هذه الخرائط، انظر [خطوط الموضوع الخاصة بالسكريبت](/slides/ar/cpp/script-specific-font-mappings/).
 
 {{% alert color="info" title="Tip" %}}
-لمزيد من المعلومات حول خطوط العرض، راجع [PowerPoint Fonts](/slides/ar/cpp/powerpoint-fonts/).
+لمزيد من المعلومات حول خطوط العرض، راجع [خطوط PowerPoint](/slides/ar/cpp/powerpoint-fonts/).
 {{% /alert %}}
 
-## **نسخ أو تطبيق قالب**
+## **نسخ أو تطبيق موضوع**
 
-هناك سيرا عمل شائعان، ويحلّان مشكلتين مختلفتين.
+هناك سيرا عمل شائعين، كل منهما يحل مشكلة مختلفة.
 
-### **الحفاظ على القالب الأصلي عند نقل الشرائح**
+### **الحفاظ على موضوع المصدر عند نقل الشرائح**
 
-إذا كنت ترغب في نقل شريحة إلى عرض آخر مع الحفاظ على تصميمها الأصلي، استنسخ الماستر المصدر إلى العرض الهدف باستخدام [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imasterslidecollection/addclone/)، ثم استنسخ الشريحة باستخدام [ISlideCollection::AddClone()](https://reference.aspose.com/slides/ar/cpp/aspose.slides/islidecollection/addclone/) والماستر المستنسخ. هذا يحمل الماستر وتخطيطاته والقالب المرتبط به معًا.
+إذا أردت نقل شريحة إلى عرض آخر مع الحفاظ على تصميمها الأصلي، استنسخ الماستر المصدر إلى العرض المستهدف باستخدام [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imasterslidecollection/addclone/)، ثم استنسخ الشريحة باستخدام [ISlideCollection::AddClone()](https://reference.aspose.com/slides/ar/cpp/aspose.slides/islidecollection/addclone/) والماستر المستنسخ. ينقل هذا الماستر وتخطيطاته والموضوع المرتبط معه معاً.
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -295,11 +297,11 @@ target->get_Slides()->AddClone(sourceSlide, clonedMaster, true);
 target->Save(u"theme-preserved.pptx", SaveFormat::Pptx);
 ```
 
-هذا هو سير العمل المفضَّل عندما يجب أن تبدو الشريحة المصدرية نفسها في الوجهة. مجرد استنسخ المحتوى إلى ماستر غير مرتبط قد يغيّر الألوان والخطوط والخلفيات والظلال المدفوعة بالقالب.
+هذا هو سير العمل المفضّل عندما يجب أن تبدو الشريحة المصدرية نفس الشكل في الوجهة. مجرد استنساخ المحتوى على ماستر غير مرتبط قد يغيّر الألوان، الخطوط، الخلفيات، والتأثيرات المدفوعة بالموضوع.
 
-### **تطبيق قيم القالب على شريحة موجودة**
+### **تطبيق قيم الموضوع على شريحة موجودة**
 
-إذا كان على الشريحة الهدف البقاء على الماستر والتخطيط الحاليين، ابدأ تجاوزًا على مستوى الشريحة من القالب المصدر. تنسخ طرق [OverrideTheme::InitColorSchemeFrom()](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/overridetheme/initcolorschemefrom/)، [OverrideTheme::InitFontSchemeFrom()](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/overridetheme/initfontschemefrom/)، و[OverrideTheme::InitFormatSchemeFrom()](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/overridetheme/initformatschemefrom/) المكونات الثلاثة الرئيسية للقالب إلى التجاوز.
+إذا كان على الشريحة المستهدفة البقاء على الماستر والتخطيط الحاليين، قم بتهيئة تجاوز على مستوى الشريحة من الموضوع المصدر. تنسخ الطرق [OverrideTheme::InitColorSchemeFrom()](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/overridetheme/initcolorschemefrom/)، [OverrideTheme::InitFontSchemeFrom()](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/overridetheme/initfontschemefrom/)، و[OverrideTheme::InitFormatSchemeFrom()](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/overridetheme/initformatschemefrom/) المكونات الثلاثة الرئيسية للموضوع إلى التجاوز.
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -323,11 +325,11 @@ overrideTheme->InitFormatSchemeFrom(source->get_MasterTheme()->get_FormatScheme(
 target->Save(u"theme-applied-to-slide.pptx", SaveFormat::Pptx);
 ```
 
-هذا يغيّر القالب المستخدم لتلك الشريحة دون تغيير القالب الموروث من الشرائح الأخرى. لإزالة التجاوز المحلي والعودة إلى القيم الموروثة، استدعِ [OverrideTheme::Clear()](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/overridetheme/clear/).
+يغيّر هذا الموضوع المستخدم لتلك الشريحة دون تغيير الموضوع الموروث من الشرائح الأخرى. لإزالة التجاوز المحلي والعودة إلى القيم الموروثة، استدعِ [OverrideTheme::Clear()](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/overridetheme/clear/).
 
-### **تطبيق تجاوز القالب على تخطيط**
+### **تطبيق تجاوز موضوع على تخطيط**
 
-تطبق التجاوزات على مستوى التخطيط على الشرائح التي تستخدم ذلك التخطيط، ما لم تكن شريحة معينة لها تجاوز خاص بها. يمكن استخدام نفس طرق التهيئة عبر [IOverrideThemeManager](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/ioverridethememanager/) الخاص بالتخطيط:
+تطبق التجاوزات على مستوى التخطيط على الشرائح التي تستخدم ذلك التخطيط، ما لم تكن شريحة معينة لها تجاوز خاص. يمكن استخدام نفس طرق التهيئة عبر [IOverrideThemeManager](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/ioverridethememanager/) الخاص بالتخطيط:
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -353,17 +355,17 @@ overrideTheme->InitFormatSchemeFrom(source->get_MasterTheme()->get_FormatScheme(
 target->Save(u"theme-applied-to-layout.pptx", SaveFormat::Pptx);
 ```
 
-استخدم قالب الماستر أو مستوى العرض عندما يجب أن تتشارك العديد من التخطيطات والشرائح نفس التصميم الأساسي، واستخدم تجاوز التخطيط عندما تحتاج عائلة تخطيط واحدة إلى نمط مختلف، واستخدم تجاوز الشريحة فقط للاستثناءات الحقيقية. تجعل التجاوزات المفرطة على مستوى الشرائح تغيّر القالب العالمي لاحقًا أصعب توقعًا.
+استخدم موضوع ماستر أو مستوى عرض عندما يجب أن تشترك العديد من التخطيطات والشرائح في نفس التصميم الأساسي، واستخدم تجاوز تخطيط عندما تحتاج عائلة تخطيط واحدة إلى نمط مختلف، واستخدم تجاوز شريحة فقط للاستثناءات الحقيقية. تجعل التجاوزات الكثيرة على مستوى الشريحة تغييرات الموضوع العالمية المستقبلية أصعب توقعاً.
 
-## **تحديث أنماط خلفية القالب**
+## **تحديث أنماط خلفية الموضوع**
 
-تُخزن تعبئات الخلفية الخاصة بالقالب في [FormatScheme::get_BackgroundFillStyles()](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/formatscheme/get_backgroundfillstyles/). يمكن لـ PowerPoint عرض المزيد من خيارات الخلفية في واجهته مقارنةً بعدد تعريفات التعبئة المخزنة فعليًا في هذا التجمع لأن الواجهة يمكنها دمج تعبئات القالب مع ألوان القالب ومراجع الأنماط الأخرى.
+تُخزن تعبئات خلفية الموضوع في [FormatScheme::get_BackgroundFillStyles()](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/formatscheme/get_backgroundfillstyles/). يمكن لـ PowerPoint عرض مزيد من خيارات الخلفية في واجهته مقارنة بعدد تعريفات التعبئة المخزَّنة فعلياً في هذه المجموعة لأن الواجهة يمكنها دمج تعبئات الموضوع مع ألوان الموضوع وإشارات نمطية أخرى.
 
-![معرض أنماط خلفية PowerPoint لقالب عرض](presentation-design_8.png)
+![معرض أنماط خلفية PowerPoint لموضوع عرض تقديمي](presentation-design_8.png)
 
-قبل استخدام نمط خلفية، افحص التجمع المخزن و[Background::get_StyleIndex()](https://reference.aspose.com/slides/ar/cpp/aspose.slides/background/get_styleindex/). يستخدم `StyleIndex` القيمة `0` لعدم وجود تعبئة قالب؛ القيم الموجبة هي مراجع لأنماط خلفية القالب. هذا يختلف عن فهرسة مجموعة C++ مباشرة بـ `idx_get(0)` حيث `0` يعني العنصر الأول المخزن. لا تفترض أن كل عرض يحتوي على نفس عدد أنماط تعبئة الخلفية.
+قبل استخدام نمط خلفية، فحص المجموعة المخزَّنة و[Background::get_StyleIndex()](https://reference.aspose.com/slides/ar/cpp/aspose.slides/background/get_styleindex/). يستخدم `StyleIndex` القيمة `0` لعدم وجود تعبئة موضوع؛ القيم الموجبة تشير إلى مراجع أنماط خلفية موضوع. هذا مختلف عن فهرسة مجموعة C++ مباشرةً باستخدام `idx_get(0)`, حيث `0` يعني العنصر الأول المخزن. لا تفترض أن كل عرض يحتوي على نفس عدد أنماط تعبئة الخلفية.
 
-المثال التالي يُبلغ عن عدد تعبئات الخلفية المتاحة، يعيّن مرجع خلفية قالب إلى أول ماستر، ويحفظ العرض:
+المثال التالي يبلغ عن عدد تعبئة الخلفيات المتاحة، يعين مرجع خلفية موضوع للماستر الأول، ويحفظ العرض:
 
 ```cpp
 #include <DOM/BackgroundType.h>
@@ -393,25 +395,25 @@ if (backgroundStyles->get_Count() > 0)
 }
 ```
 
-النتيجة الظاهرة تعتمد على مدخل القالب الذي يُشار إليه من قبل الماستر وأي تجاوزات خلفية على مستوى التخطيط أو الشريحة. إذا استخدمت شريحة خلفيتها الخاصة، قد لا يغيّر تغيير خلفية الماستر تلك الشريحة. استخدم [Background::GetEffective()](https://reference.aspose.com/slides/ar/cpp/aspose.slides/background/geteffective/) عندما تحتاج إلى معرفة الخلفية النهائية بعد تطبيق الوراثة.
+النتيجة الظاهرة تعتمد على إدخال الموضوع المرجعي من قبل الماستر وأي تجاوزات خلفية على مستوى التخطيط أو الشريحة. إذا استخدمت شريحة خلفيتها الخاصة، قد لا يغيّر تغيير خلفية الماستر تلك الشريحة. استخدم [Background::GetEffective()](https://reference.aspose.com/slides/ar/cpp/aspose.slides/background/geteffective/) عندما تحتاج لمعرفة الخلفية النهائية بعد تطبيق الوراثة.
 
 {{% alert color="warning" title="Warning" %}}
-لا تعتقد أن `StyleIndex` هو فهرس مجموعة صفر‑مبدئي. تجنّب أيضًا الترميز الصلب لرقم نمط من ملف واحد وافتراض أنه سيظهر بنفس الشكل في ملف آخر؛ تعريفات أنماط القالب خاصة بالعرض.
+لا تتعامل مع `StyleIndex` كفهرس مجموعة يبدأ من الصفر. وتجنب أيضاً ترميز رقم نمط من ملف واحد وافتراض أن له نفس المظهر في ملف آخر؛ تعاريف أنماط الموضوع خاصة بالعرض.
 {{% /alert %}}
 
 {{% alert color="info" title="Tip" %}}
-للتنسيق المباشر للخلفية ووراثة الخلفية، راجع [Presentation Background](/slides/ar/cpp/presentation-background/).
+لمزيد من التنسيق المباشر للخلفية ووراثة الخلفية، راجع [خلفية العرض](/slides/ar/cpp/presentation-background/).
 {{% /alert %}}
 
-## **تحديث ظلال القالب**
+## **تحديث تأثيرات الموضوع**
 
-يحتوي مخطط تنسيق القالب على مجموعات منفصلة من [FormatScheme::get_FillStyles()](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/formatscheme/get_fillstyles/)، [FormatScheme::get_LineStyles()](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/formatscheme/get_linestyles/)، و[FormatScheme::get_EffectStyles()](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/formatscheme/get_effectstyles/). غالبًا ما تحتوي القوالب المكتبية على ثلاثة مدخلات نمط أساسية تُطابق بصريًا التنسيقات الخفيفة، المتوسطة، والشديدة، لكن يجب على الشيفرة فحص كل مجموعة بدلاً من افتراض عدد ثابت.
+تحتوي مخططة تنسيق الموضوع على مجموعات منفصلة لـ [FormatScheme::get_FillStyles()](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/formatscheme/get_fillstyles/)، [FormatScheme::get_LineStyles()](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/formatscheme/get_linestyles/)، و[FormatScheme::get_EffectStyles()](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/formatscheme/get_effectstyles/). غالباً ما تحتوي موضوعات Office على ثلاثة إدخالات أساسية تتCorrespond بصرياً إلى تنسيقات خفيفة، متوسطة، وشديدة، لكن يجب على الكود فحص كل مجموعة بدلاً من افتراض عدد ثابت.
 
-![ظلال القالب الخفيفة، المتوسطة، والشديدة مطبقة على نفس الشكل](presentation-design_10.png)
+![تأثيرات موضوع خفيفة، متوسطة، وشديدة مطبقة على نفس الشكل](presentation-design_10.png)
 
-عند الوصول إلى هذه المجموعات في C++، يكون فهرس المجموعة صفر‑مبدئي: `idx_get(0)` هو أول نمط مخزن و`idx_get(2)` هو الثالث. فهارس إشارة النمط في الشكل هي مفهوم منفصل يُعرَف عبر [IShapeStyle](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishapestyle/). تعديل نمط القالب يؤثر على الأشكال التي تشير إلى ذلك النمط؛ قد تظل الأشكال ذات التنسيق المباشر دون تغيير.
+عند الوصول إلى هذه المجموعات في C++، يكون فهرس المجموعة يبدأ من الصفر: `idx_get(0)` هو أول نمط مخزن و`idx_get(2)` هو الثالث. فهارس مراجع النمط للشكليات هي مفهوم منفصل، يُعرض عبر [IShapeStyle](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishapestyle/). تعديل نمط موضوع يؤثر على الأشكال التي تشير إلى ذلك النمط؛ قد تظل الأشكال ذات التنسيق المباشر دون تغيير.
 
-المثال التالي يتحقق من وجود مدخلات النمط المطلوبة، يغيّر أول نمط خط، يغيّر ثالث نمط تعبئة، يُفعِّل ظلًا خارجيًا في النمط الثالث للظلال، ويحفظ النتيجة:
+المثال التالي يتحقق من وجود الإدخالات المطلوبة، يغيّر نمط الخط الأول، يغيّر نمط التعبئة الثالث، يفعّل ظلًا خارجيًا في نمط التأثير الثالث، ويحفظ النتيجة:
 
 ```cpp
 #include <DOM/Effects/IOuterShadow.h>
@@ -464,15 +466,15 @@ else
 }
 ```
 
-بالنسبة للأشكال التي تشير إلى هذه الفتحات، يصبح أول نمط خط للقالب أحمر، وثالث نمط تعبئة يصبح أخضر غامق صلب، ويكتسب النمط الثالث للظلال ظلًا خارجيًا بمسافة 10 نقاط. النتيجة البصرية الدقيقة لا تزال تعتمد على أي فترات نمط يشير إليها كل شكل وما إذا كان التنسيق المباشر يتجاوز القالب.
+للأشكال التي تشير إلى هذه الفتحات، يصبح نمط الخط الموضوع الأول أحمر، ويصبح نمط التعبئة الموضوع الثالث أخضر غابوي صلب، ويضيف نمط التأثير الثالث ظلًا خارجيًا بمسافة 10 نقاط. لا يزال النتيجة البصرية الدقيقة تعتمد على الفتحات التي تشير إليها كل شكل وما إذا كان التنسيق المباشر يتجاوز الموضوع.
 
-![أنماط ظلال القالب بعد تعديل الخط، التعبئة، وإعدادات الظل](presentation-design_11.png)
+![أنماط تأثيرات الموضوع بعد تغيير الخط والتعبئة وإعدادات الظل](presentation-design_11.png)
 
-## **قراءة قيم القالب الفعّالة**
+## **قراءة القيم الفعّالة للموضوع**
 
-تخبرك كائنات القالب الخام ما هو معرف على مستوى معين. تُظهر القيم الفعّالة ما يستخدمه الشريحة أو الشكل بالفعل بعد حل الوراثة والتجاوزات المحلية. لشريحة، استدعِ [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/ithemeable/createthemeeffective/). للخلفية، استخدم [Background::GetEffective()](https://reference.aspose.com/slides/ar/cpp/aspose.slides/background/geteffective/)، وللتعبئة استخدم [FillFormat::GetEffective()](https://reference.aspose.com/slides/ar/cpp/aspose.slides/fillformat/geteffective/).
+تخبرك كائنات الموضوع الخام بما تم تعريفه على مستوى معين. القيم الفعّالة تخبرك بما تستخدمه الشريحة أو الشكل فعلياً بعد حل الوراثة والتجاوزات المحلية. لشريحة، استدعِ [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/ithemeable/createthemeeffective/). للخلفية، استخدم [Background::GetEffective()](https://reference.aspose.com/slides/ar/cpp/aspose.slides/background/geteffective/)، وللتعبئة استخدم [FillFormat::GetEffective()](https://reference.aspose.com/slides/ar/cpp/aspose.slides/fillformat/geteffective/).
 
-المثال التالي يقرأ القالب الفعّال، الخلفية، وتعبئة الشكل الأول من شريحة:
+المثال التالي يقرأ الموضوع الفعّال، الخلفية، وتعبئة الشكل الأول من شريحة:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -512,18 +514,18 @@ if (slide->get_Shapes()->get_Count() > 0)
 }
 ```
 
-استخدم البيانات الفعّالة لتشخيص العرض، والتحقق، والمقارنات. إذا فحصت فقط [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/get_mastertheme/)، قد تفوّت ماستر أو تخطيط أو شريحة أو تجاوز شكل يغيّر المظهر النهائي.
+استخدم البيانات الفعّالة لتشخيص العرض، التحقق، والمقارنات. إذا فحصت فقط [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/get_mastertheme/)، قد تفوتك تجاوزات ماستر، تخطيط، شريحة أو شكل تغير المظهر النهائي.
 
 ## **الأسئلة المتكررة**
 
-**هل يمكنني تطبيق قالب على شريحة واحدة دون تغيير الماستر؟**
+**هل يمكنني تطبيق موضوع على شريحة واحدة دون تغيير الماستر؟**
 
-نعم. استخدم [IOverrideThemeManager](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/ioverridethememanager/) الخاص بالشريحة وابدأ تهيئة قالب التجاوز الخاص به. يبقى التغيير محليًا لتلك الشريحة؛ تستمر الشرائح الأخرى في وراثة القوالب الحالية.
+نعم. استخدم [IOverrideThemeManager](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/ioverridethememanager/) الخاص بالشريحة وابدأ موضوع التجاوز الخاص بها. يبقى التغيير محلياً لتلك الشريحة؛ تستمر الشرائح الأخرى في وراثة موضوعاتها الحالية.
 
-**ما هي الطريقة الأكثر أمانًا لنقل قالب من عرض إلى آخر؟**
+**ما هي الطريقة الأكثر أماناً لنقل موضوع من عرض إلى آخر؟**
 
-عند نقل شريحة مع الحفاظ على مظهرها الأصلي، استنسخ الماستر المصدر إلى الوجهة واستنسخ الشريحة مع ذلك الماستر باستخدام [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imasterslidecollection/addclone/) و[ISlideCollection::AddClone()](https://reference.aspose.com/slides/ar/cpp/aspose.slides/islidecollection/addclone/). هذا يحافظ على الماستر، التخطيطات، والقالب معًا.
+عند نقل شريحة والحفاظ على مظهرها الأصلي، استنسخ الماستر المصدر إلى الوجهة واستنسخ الشريحة مع ذلك الماستر باستخدام [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/ar/cpp/aspose.slides/imasterslidecollection/addclone/) و[ISlideCollection::AddClone()](https://reference.aspose.com/slides/ar/cpp/aspose.slides/islidecollection/addclone/). هذا يحافظ على الماستر، التخطيطات، والموضوع معاً.
 
 **كيف يمكنني رؤية القيم الفعّالة بعد الوراثة والتجاوزات؟**
 
-استخدم [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/ithemeable/createthemeeffective/) لقالب شريحة أو تخطيط والطُرق المقابلة للبيانات الفعّالة للكائنات التنسيقية مثل [Background::GetEffective()](https://reference.aspose.com/slides/ar/cpp/aspose.slides/background/geteffective/) و[FillFormat::GetEffective()](https://reference.aspose.com/slides/ar/cpp/aspose.slides/fillformat/geteffective/). تُعيد هذه الواجهات القيم المحلولة بعد تطبيق الوراثة والتجاوزات.
+استخدم [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/ar/cpp/aspose.slides.theme/ithemeable/createthemeeffective/) لموضوع شريحة أو تخطيط والطرق المقابلة للحصول على بيانات فعّالة لكائنات التنسيق مثل [Background::GetEffective()](https://reference.aspose.com/slides/ar/cpp/aspose.slides/background/geteffective/) و[FillFormat::GetEffective()](https://reference.aspose.com/slides/ar/cpp/aspose.slides/fillformat/geteffective/). تُعيد هذه الواجهات القيم المحلولة بعد تطبيق الوراثة والتجاوزات.

@@ -5,44 +5,44 @@ type: docs
 weight: 50
 url: /nl/net/low-code-presentation-operations/
 keywords:
-- low-code presentatie-API
-- presentatie converteren
+- low-code presentaties API
+- presentaties converteren
 - presentaties samenvoegen
-- dia's doorlopen
-- vormen doorlopen
-- tekst doorlopen
+- dia's itereren
+- vormen itereren
+- tekst itereren
 - vormen verzamelen
 - presentatie comprimeren
-- ongebruikte masterdia's verwijderen
+- ongebruikte mastersdia's verwijderen
 - ongebruikte lay-outdia's verwijderen
-- ingesloten lettertypen comprimeren
+- ingebedde lettertypen comprimeren
 - PowerPoint
 - OpenDocument
 - presentatie
 - .NET
 - C#
 - Aspose.Slides
-description: "Gebruik de Aspose.Slides low-code API in .NET om presentaties te converteren en samen te voegen, door de inhoud te lopen, vormen te verzamelen en de grootte van de presentatie te verkleinen."
+description: "Gebruik de Aspose.Slides low-code API in .NET om presentaties te converteren en samen te voegen, door de inhoud te itereren, vormen te verzamelen en de presentatiegrootte te verkleinen."
 ---
 ## **Overzicht**
 
-De [Aspose.Slides.LowCode](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/) namespace biedt statische hulpklassen voor veelvoorkomende presentatietaken. Deze helpers verpakken vaak gebruikte objectmodel‑workflows in gerichte methoden, zodat u bestanden kunt converteren of samenvoegen, presentatiestructuren kunt verwerken, vormen kunt verzamelen en ongebruikte inhoud kunt verwijderen met minder code.
+De [Aspose.Slides.LowCode](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/) namespace biedt statische hulpklassen voor algemene presentatie‑bewerkingen. Deze helpers verpakken veelgebruikte object‑modelworkflows in gerichte methoden, zodat u bestanden kunt converteren of samenvoegen, presentatie‑elementen kunt verwerken, vormen kunt verzamelen en ongebruikte inhoud kunt verwijderen met minder code.
 
-Low-code helpers zijn het meest bruikbaar wanneer de bewerking van toepassing is op een heel bestand of een hele presentatie en de standaard workflow aan uw vereisten voldoet. Gebruik het volledige [Aspose.Slides object model](https://reference.aspose.com/slides/nl/net/aspose.slides/) wanneer u fijnmazige controle nodig heeft over individuele dia's, masters, lay‑outs, vormen, exportinstellingen of relaties tussen presentatie‑elementen.
+Low‑code helpers zijn het meest bruikbaar wanneer de bewerking van toepassing is op een volledig bestand of presentatie en de standaard workflow aan uw eisen voldoet. Gebruik het volledige [Aspose.Slides objectmodel](https://reference.aspose.com/slides/nl/net/aspose.slides/) wanneer u fijnmazige controle nodig heeft over individuele dia’s, masters, lay‑outs, vormen, exportinstellingen of relaties tussen presentatie‑elementen.
 
 De onderstaande tabel geeft een overzicht van de beschikbare helpers:
 
-| Helper | Waarvoor te gebruiken |
+| Helper | Gebruik voor |
 | --- | --- |
-| [Convert](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/convert/) | Een presentatie converteren naar een ander formaat met een directe bestands‑naar‑bestandsaanroep. |
-| [Merger](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/merger/) | Volledige presentatiebestanden van hetzelfde formaat combineren. |
-| [ForEach](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/foreach/) | Een actie uitvoeren voor elke dia, vorm, alinea of tekstdelen. |
-| [Collect](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/collect/) | Vormen ophalen uit de volledige presentatie voor herhaaldelijk verwerken of analyseren. |
-| [Compress](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/compress/) | Ongebruikte masters en lay‑outs verwijderen en ingesloten lettertype‑gegevens verkleinen. |
+| [Convert](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/convert/) | Een presentatie naar een ander formaat converteren met een directe bestand‑naar‑bestand‑aanroep. |
+| [Merger](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/merger/) | Volledige presentatiesamenvoeging van bestanden met hetzelfde formaat. |
+| [ForEach](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/foreach/) | Een actie uitvoeren voor elke dia, vorm, alinea of tekstgedeelte. |
+| [Collect](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/collect/) | Vormen ophalen uit de volledige presentatie voor herhaalde verwerking of analyse. |
+| [Compress](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/compress/) | Ongebruikte masters en lay‑outs verwijderen en ingesloten lettertype‑data reduceren. |
 
-## **Een presentatie converteren**
+## **Presentatie converteren**
 
-Gebruik [Convert.AutoByExtension](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/convert/autobyextension/) wanneer de bestands­extensie van het uitvoerbestand voldoende is om het exportformaat te bepalen. De methode opent de bronpresentatie, bepaalt het vereiste formaat aan de hand van het uitvoerpad en schrijft het resultaat.
+Gebruik [Convert.AutoByExtension](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/convert/autobyextension/) wanneer de bestandsextensie van de uitvoer voldoende is om het exportformaat te bepalen. De methode opent de bronpresentatie, bepaalt het vereiste formaat op basis van het uitvoerpad en schrijft het resultaat.
 
 ```csharp
 using Aspose.Slides.LowCode;
@@ -50,11 +50,11 @@ using Aspose.Slides.LowCode;
 Convert.AutoByExtension("input.pptx", "output.pdf");
 ```
 
-De [Convert](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/convert/) klasse biedt ook specifieke methoden voor PDF-, SVG-, JPEG-, PNG- en TIFF‑uitvoer. Gebruik het volledige objectmodel wanneer u de presentatie moet inspecteren of wijzigen vóór het exporteren of een exportoptie moet configureren die niet beschikbaar is via de geselecteerde helper. Zie [Presentatie converteren](/net/convert-presentation/) voor format‑specifieke workflows en opties.
+De [Convert](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/convert/)‑klasse biedt ook speciale methoden voor PDF, SVG, JPEG, PNG en TIFF uitvoer. Gebruik het volledige objectmodel wanneer u de presentatie moet inspecteren of aanpassen vóór export, of wanneer u een exportoptie moet configureren die niet beschikbaar is via de helper. Zie [Convert Presentation](/slides/nl/net/convert-presentation/) voor formaat‑specifieke workflows en opties.
 
 ## **Presentaties samenvoegen**
 
-Gebruik [Merger.Process](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/merger/process/) om volledige presentatiebestanden met één aanroep te combineren. De invoerpresentaties moeten hetzelfde bestandsformaat hebben.
+Gebruik [Merger.Process](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/merger/process/) om volledige presentaties met één oproep samen te voegen. De invoer‑presentaties moeten hetzelfde bestandsformaat hebben.
 
 ```csharp
 using Aspose.Slides.LowCode;
@@ -63,13 +63,13 @@ var inputFiles = new[] { "part-1.pptx", "part-2.pptx" };
 Merger.Process(inputFiles, "merged.pptx");
 ```
 
-De helper is geschikt wanneer alle dia's moeten worden toegevoegd aan één resultaat zonder ze individueel te selecteren of opnieuw toe te wijzen. Gebruik het volledige objectmodel wanneer u geselecteerde dia's moet samenvoegen, een doeldia‑master of lay‑out wilt toepassen, secties expliciet wilt behouden of verschillende dia‑groottes moet combineren. Zie [Presentaties samenvoegen](/net/merge-presentation/) voor die scenario's.
+De helper is geschikt wanneer alle dia’s aan één resultaat moeten worden toegevoegd zonder dat ze individueel geselecteerd of opnieuw gemapt moeten worden. Gebruik het volledige objectmodel wanneer u geselecteerde dia’s moet samenvoegen, een bestemmings‑master of lay‑out moet toepassen, secties expliciet moet behouden, of verschillende dia‑groottes moet harmoniseren. Zie [Merge Presentations](/slides/nl/net/merge-presentation/) voor die scenario’s.
 
-## **Itereren door presentatie‑elementen**
+## **Door presentatie‑elementen itereren**
 
-De [ForEach](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/foreach/) klasse roept een callback aan voor elk opgevraagd type presentatie‑element. Het voorkomt geneste collectielussen en is handig voor inspectie of opmaakwijzigingen over de hele presentatie.
+De [ForEach](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/foreach/)‑klasse roept een terugbel‑functie aan voor elk gevraagd type presentatie‑element. Het voorkomt geneste verzamelings‑lussen en is handig voor inspectie of formatteringswijzigingen op presentatieniveau.
 
-Het onderstaande voorbeeld gebruikt [ForEach.Slide](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/foreach/slide/), [ForEach.Shape](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/foreach/shape/), [ForEach.Paragraph](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/foreach/paragraph/), en [ForEach.Portion](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/foreach/portion/) om de overeenkomstige elementen te inspecteren:
+Het volgende voorbeeld gebruikt [ForEach.Slide](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/foreach/slide/), [ForEach.Shape](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/foreach/shape/), [ForEach.Paragraph](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/foreach/paragraph/) en [ForEach.Portion](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/foreach/portion/) om de overeenkomstige elementen te inspecteren:
 
 ```csharp
 using System;
@@ -99,11 +99,11 @@ ForEach.Portion(presentation, (portion, paragraph, slide, index) =>
 });
 ```
 
-Standaard omvat traverseren van vormen en tekst over de hele presentatie normale, master‑ en lay‑out‑dia's. Overloads met een `includeNotes`‑parameter kunnen ook notitiedia's verwerken. Gebruik directe collectielussen wanneer de volgorde van traverseren, vroegtijdige beëindiging, filteren vóór de callback‑aanroep, of gedetailleerde ouder‑kind‑controle belangrijk is.
+Standaard omvat de traversering van vormen en tekst over de gehele presentatie normale, master‑ en lay‑outdia’s. Overloads met een `includeNotes`‑parameter kunnen ook notitiedia’s verwerken. Gebruik directe verzamelings‑lussen wanneer de volgorde van traversering, vroegtijdig afbreken, filteren vóór de terugbel‑aanroep of gedetailleerde ouder‑kind‑controle belangrijk is.
 
 ## **Vormen verzamelen**
 
-Gebruik [Collect.Shapes](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/collect/shapes/) wanneer u een verzameling van alle vormen in een presentatie nodig heeft in plaats van een callback voor elke vorm. Dit is nuttig wanneer dezelfde set vaker zal worden gefilterd, geteld of verwerkt.
+Gebruik [Collect.Shapes](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/collect/shapes/) wanneer u een verzameling van alle vormen in een presentatie nodig heeft in plaats van een terugbel‑functie voor elke vorm. Dit is nuttig wanneer dezelfde set later gefilterd, geteld of meerdere keren verwerkt moet worden.
 
 ```csharp
 using System;
@@ -119,15 +119,15 @@ foreach (var shape in shapes)
 }
 ```
 
-Gebruik in plaats daarvan [ForEach.Shape](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/foreach/shape/) wanneer elke vorm onmiddellijk kan worden verwerkt en u het verzamelde resultaat niet hoeft te behouden.
+Gebruik [ForEach.Shape](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/foreach/shape/) in plaats daarvan wanneer elke vorm direct kan worden verwerkt en u de verzamelde resultaten niet hoeft te behouden.
 
 ## **Presentatie‑inhoud comprimeren**
 
-De [Compress](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/compress/) klasse kan ongebruikte structurele elementen verwijderen en ingesloten lettertype‑gegevens verkleinen:
+De [Compress](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/compress/)‑klasse kan ongebruikte structurele elementen verwijderen en ingesloten lettertype‑data reduceren:
 
-- [Compress.RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) verwijdert lay‑out‑dia's waar geen normale dia naar verwijst.
-- [Compress.RemoveUnusedMasterSlides](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/compress/removeunusedmasterslides/) verwijdert master‑dia's die niet meer worden gebruikt.
-- [Compress.CompressEmbeddedFonts](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/compress/compressembeddedfonts/) verwijdert ongebruikte tekens uit ingesloten lettertypen.
+- [Compress.RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) verwijdert lay‑outdia’s die door geen enkele normale dia worden gerefereerd.
+- [Compress.RemoveUnusedMasterSlides](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/compress/removeunusedmasterslides/) verwijdert masters die niet langer in gebruik zijn.
+- [Compress.CompressEmbeddedFonts](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/compress/compressembeddedfonts/) verwijdert ongebruikte tekens uit ingesloten lettertypes.
 
 ```csharp
 using Aspose.Slides;
@@ -143,38 +143,38 @@ Compress.CompressEmbeddedFonts(presentation);
 presentation.Save("compressed.pptx", SaveFormat.Pptx);
 ```
 
-Verwijder ongebruikte lay-outs vóór ongebruikte masters, zodat een master die na het opruimen van de lay‑outs niet meer wordt verwezen, ook kan worden verwijderd. Sla de geoptimaliseerde presentatie op in een nieuw bestand als u later de originele masters, lay‑outs of volledige ingesloten lettertype‑gegevens nodig heeft. Voor meer details, zie [Slide‑master](/net/slide-master/) en [Ingesloten lettertype](/net/embedded-font/).
+Verwijder eerst ongebruikte lay‑outs voordat u ongebruikte masters verwijdert, zodat een master die na het opschonen van lay‑outs niet meer wordt gerefereerd eveneens kan worden verwijderd. Sla de geoptimaliseerde presentatie op in een nieuw bestand als u later de oorspronkelijke masters, lay‑outs of volledige ingesloten lettertype‑data nodig heeft. Voor meer details, zie [Slide Master](/slides/nl/net/slide-master/) en [Embedded Font](/slides/nl/net/embedded-font/).
 
-## **FAQ**
+## **Veelgestelde vragen**
 
-**Wanneer moet ik de low-code‑API gebruiken in plaats van het volledige objectmodel?**
+**Wanneer moet ik de low‑code‑API gebruiken in plaats van het volledige objectmodel?**
 
-Gebruik low-code helpers wanneer een standaardbewerking van toepassing is op een volledig bestand of een volledige presentatie en geen gedetailleerde controle over individuele elementen vereist. Gebruik het volledige objectmodel wanneer u specifieke dia's moet selecteren, de relaties tussen master‑ en lay‑out‑dia's moet beheersen, de tussenliggende status moet inspecteren, of gedrag moet configureren dat de helper niet blootstelt.
+Gebruik low‑code helpers wanneer een standaardbewerking van toepassing is op een compleet bestand of presentatie en geen gedetailleerde controle over individuele elementen vereist. Gebruik het volledige objectmodel wanneer u specifieke dia’s moet selecteren, relaties tussen master en lay‑out moet beheersen, de tussentijdse status moet inspecteren, of gedrag moet configureren dat de helper niet blootlegt.
 
-**Kan Merger presentaties combineren in verschillende bestandsformaten?**
+**Kan Merger presentaties combineren met verschillende bestandsformaten?**
 
-Nee. [Merger.Process](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/merger/process/) vereist dat de invoer‑presentaties hetzelfde formaat hebben. Converteer de invoerbestanden eerst naar een gemeenschappelijk formaat, bijvoorbeeld met [Convert.AutoByExtension](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/convert/autobyextension/), en voeg vervolgens de geconverteerde bestanden samen.
+Nee. [Merger.Process](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/merger/process/) vereist invoer‑presentaties in hetzelfde formaat. Converteer de invoer‑bestanden eerst naar een gemeenschappelijk formaat, bijvoorbeeld met [Convert.AutoByExtension](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/convert/autobyextension/), en voeg vervolgens de geconverteerde bestanden samen.
 
-**Verwerkt ForEach master‑, lay‑out‑ en notitiedia's?**
+**Verwerkt ForEach master‑, lay‑out‑ en notitiedia’s?**
 
-[ForEach.Slide](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/foreach/slide/) doorloopt normale presentatiedia's. [ForEach.Shape](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/foreach/shape/), [ForEach.Paragraph](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/foreach/paragraph/) en [ForEach.Portion](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/foreach/portion/) over de hele presentatie omvatten standaard normale, master‑ en lay‑out‑dia's. Gebruik hun overloads met `includeNotes` ingesteld op `true` om notitiedia's op te nemen.
+[ForEach.Slide](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/foreach/slide/) doorloopt normale presentatiedia’s. De presentatie‑brede [ForEach.Shape](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/foreach/shape/), [ForEach.Paragraph](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/foreach/paragraph/) en [ForEach.Portion](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/foreach/portion/) operaties omvatten standaard normale, master‑ en lay‑outdia’s. Gebruik hun overloads met `includeNotes` op `true` om notitiedia’s op te nemen.
 
 **Wat is het verschil tussen ForEach.Shape en Collect.Shapes?**
 
-Gebruik [ForEach.Shape](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/foreach/shape/) om elke vorm onmiddellijk via een callback te verwerken. Gebruik [Collect.Shapes](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/collect/shapes/) wanneer u een doorzoekbaar resultaat nodig heeft dat kan worden behouden, gefilterd, geteld of meerdere keren doorlopen.
+Gebruik [ForEach.Shape](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/foreach/shape/) om elke vorm direct via een terugbel‑functie te verwerken. Gebruik [Collect.Shapes](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/collect/shapes/) wanneer u een dooriterbare verzameling nodig heeft die u later kunt behouden, filteren, tellen of meerdere keren kunt doorlopen.
 
-**Maakt Compress altijd het presentatiebestand kleiner?**
+**Maakt Compress altijd de presentatiedatei kleiner?**
 
-Niet per se. Het resultaat hangt af van of de presentatie ongebruikte lay-outs, ongebruikte masters of ingesloten lettertypen met ongebruikte tekens bevat. Als geen van deze aanwezig is, kunnen de bijbehorende [Compress](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/compress/)‑bewerkingen de bestandsgrootte mogelijk niet verkleinen.
+Niet noodzakelijk. Het resultaat hangt af van of de presentatie ongebruikte lay‑outs, ongebruikte masters of ingesloten lettertypes met ongebruikte tekens bevat. Als geen van deze aanwezig is, zullen de betreffende [Compress](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/compress/)‑operaties de bestandsgrootte mogelijk niet verkleinen.
 
-**Worden wijzigingen gemaakt door ForEach of Compress automatisch opgeslagen?**
+**Worden wijzigingen die door ForEach of Compress worden aangebracht automatisch opgeslagen?**
 
-Nee. Deze helpers werken op het geladen [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/)‑object in het geheugen. Nadat u elementen hebt gewijzigd in een [ForEach](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/foreach/)‑callback of [Compress](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/compress/) hebt uitgevoerd, roept u [Presentation.Save](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/save/) aan om het resultaat op te slaan.
+Nee. Deze helpers werken op het geladen [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/) object in het geheugen. Nadat u elementen hebt gewijzigd in een [ForEach](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/foreach/) terugbel‑functie of [Compress](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/compress/) hebt uitgevoerd, roept u [Presentation.Save](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/save/) aan om het resultaat weg te schrijven.
 
 ## **Gerelateerde artikelen**
 
-- [Presentatie converteren](/net/convert-presentation/)
-- [Presentaties samenvoegen](/net/merge-presentation/)
-- [Slide‑master](/net/slide-master/)
-- [Tekstvak beheren](/net/manage-textbox/)
-- [Ingesloten lettertype](/net/embedded-font/)
+- [Convert Presentation](/slides/nl/net/convert-presentation/)
+- [Merge Presentations](/slides/nl/net/merge-presentation/)
+- [Slide Master](/slides/nl/net/slide-master/)
+- [Manage Text Box](/slides/nl/net/manage-textbox/)
+- [Embedded Font](/slides/nl/net/embedded-font/)

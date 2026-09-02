@@ -1,5 +1,5 @@
 ---
-title: Java Kullanarak Sunumlarda Slayt Bölümlerini Yönetme
+title: Java ile Sunumlarda Slayt Bölümlerini Yönetme
 linktitle: Slayt Bölümü
 type: docs
 weight: 90
@@ -10,83 +10,207 @@ keywords:
 - bölüm düzenle
 - bölüm değiştir
 - bölüm adı
+- bölüm slaytlarını al
+- bölüm slaytlarını işleme
 - PowerPoint
-- OpenDocument
 - sunum
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java ile PowerPoint ve OpenDocument'teki slayt bölümlerini düzenleyin — böl, yeniden adlandır ve yeniden sırala, PPTX ve ODP iş akışlarını optimize edin."
+description: "Aspose.Slides for Java ile slayt bölümlerini yönetin: PPTX sunumlarında bölüm slaytlarını oluştur, yeniden adlandır, yeniden sırala, al ve işle."
 ---
 ## **Giriş**
 
-Aspose.Slides for Java ile bir PowerPoint Sunumunu bölümlere ayırabilirsiniz. Belirli slaytları içeren bölümler oluşturabilirsiniz. 
+Bölümler, ardışık slaytları içeriklerini değiştirmeden adlandırılmış gruplar halinde organize eder. Aspose.Slides for Java ile [Presentation.getSections](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#getSections--) yöntemi aracılığıyla bölümler oluşturabilir, yeniden sıralayabilir, yeniden adlandırabilir, inceleyebilir ve kaldırabilirsiniz.
 
-Bu durumlarda, bir sunumdaki slaytları mantıksal parçalara ayırmak veya düzenlemek için bölümler oluşturmak isteyebilirsiniz:
+Bölümler özellikle aşağıdaki durumlarda faydalıdır:
 
-- Diğer kişiler veya bir ekip ile büyük bir sunum üzerinde çalışıyorsanız ve belirli slaytları bir meslektaşınıza veya ekip üyelerine atamanız gerekiyorsa. 
-- Birçok slayt içeren bir sunumla uğraşıyorsanız ve içeriğini tek seferde yönetmek veya düzenlemek zor geliyorsa.
+- büyük bir sunum, mantıksal konulara ya da bölümlere ayrılması gerektiğinde;
+- slaytların farklı grupları farklı iş ortaklarına atanmış olduğunda;
+- slaytların grup olarak işlenmesi, taşınması veya birleştirilmesi gerektiğinde.
 
-İdeal olarak, benzer slaytları barındıran bir bölüm oluşturmalısınız—slaytların ortak bir özelliği vardır ya da bir kurala göre bir grup içinde bulunabilir—ve bölüme içindeki slaytları tanımlayan bir ad vermelisiniz. 
+Grup slaytların amacını tanımlayan kısa bölüm adları seçin. Bölümler sunum yapısının bir parçası olduğundan, üye olmayı slayt konumlarından türetmek yerine bölüm API’lerini kullanarak belirleyin.
 
-## **Sunumlarda Bölüm Oluşturma**
+## **Bölümleri Oluşturma ve Yönetme**
 
-Bir sunumda slaytları barındıracak bir bölüm eklemek için, Aspose.Slides for Java, oluşturmak istediğiniz bölümün adını ve bölümün başladığı slaytı belirtmenizi sağlayan [addSection()](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ISectionCollection#addSection-java.lang.String-com.aspose.slides.ISlide-) yöntemini sunar. 
+[ISectionCollection.addSection](https://reference.aspose.com/slides/tr/java/com.aspose.slides/isectioncollection/#addSection-java.lang.String-com.aspose.slides.ISlide-) kullanarak bölüm adını ve başlangıç slaytını belirterek bir bölüm oluşturabilirsiniz. Aspose.Slides, mevcut bölüm yapısına göre hangi slaytların bölüme ait olduğunu belirler.
 
-Bu örnek kod, Java'da bir sunumda bölüm oluşturmayı gösterir:
+Aynı [ISectionCollection](https://reference.aspose.com/slides/tr/java/com.aspose.slides/isectioncollection/) ayrıca şunları yapmanıza olanak tanır:
+
+- [ISectionCollection.reorderSectionWithSlides](https://reference.aspose.com/slides/tr/java/com.aspose.slides/isectioncollection/#reorderSectionWithSlides-com.aspose.slides.ISection-int-) kullanarak bir bölümü slaytlarıyla birlikte taşıyın;
+- yalnızca bölüm tanımını tutup slaytları koruyan [ISectionCollection.removeSection](https://reference.aspose.com/slides/tr/java/com.aspose.slides/isectioncollection/#removeSection-com.aspose.slides.ISection-) ile bölümü kaldırın;
+- bölüm ve slaytlarını birlikte kaldırmak için [ISectionCollection.removeSectionWithSlides](https://reference.aspose.com/slides/tr/java/com.aspose.slides/isectioncollection/#removeSectionWithSlides-com.aspose.slides.ISection-) kullanın;
+- [ISectionCollection.appendEmptySection](https://reference.aspose.com/slides/tr/java/com.aspose.slides/isectioncollection/#appendEmptySection-java.lang.String-) ile listenin sonuna boş bir bölüm ekleyin.
+
+Aşağıdaki örnek iki bölüm oluşturur, birini taşır, onu slaytlarıyla birlikte kaldırır ve boş bir bölüm ekler:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.ILayoutSlide;
+import com.aspose.slides.ISection;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation();
 try {
-    ISlide defaultSlide = pres.getSlides().get_Item(0);
-    ISlide newSlide1 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    ISlide newSlide2 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    ISlide newSlide3 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    ISlide newSlide4 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
+    ISlide titleSlide = presentation.getSlides().get_Item(0);
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().get_Item(0);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    ISlide resultsSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+    presentation.getSlides().addEmptySlide(layoutSlide);
 
-    ISection section1 = pres.getSections().addSection("Section 1", newSlide1);
-    ISection section2 = pres.getSections().addSection("Section 2", newSlide3); // section1, newSlide2'de sona erecek ve ardından section2 başlayacak   
+    presentation.getSections().addSection("Introduction", titleSlide);
+    ISection resultsSection = presentation.getSections().addSection("Results", resultsSlide);
 
-    pres.save("pres-sections.pptx", SaveFormat.Pptx);
-
-    pres.getSections().reorderSectionWithSlides(section2, 0);
-    pres.save("pres-sections-moved.pptx", SaveFormat.Pptx);
-
-    pres.getSections().removeSectionWithSlides(section2);
-
-    pres.getSections().appendEmptySection("Last empty section");
-
-    pres.save("pres-section-with-empty.pptx",SaveFormat.Pptx);
+    presentation.getSections().reorderSectionWithSlides(resultsSection, 0);
+    presentation.getSections().removeSectionWithSlides(resultsSection);
+    presentation.getSections().appendEmptySection("Appendix");
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Bölüm İsimlerini Değiştirme**
+Bu işlemlerden sonra sunum, slaytlarıyla birlikte `Introduction` bölümünü ve boş bir `Appendix` bölümünü içerir. `Results` bölümü ve slaytları kaldırılmıştır.
 
-PowerPoint sunumunda bir bölüm oluşturduktan sonra, adını değiştirmeye karar verebilirsiniz. 
+## **Bölüm Adlarını Yeniden Adlandırma**
 
-Bu örnek kod, Aspose.Slides kullanarak Java'da bir sunumda bölümün adını nasıl değiştireceğinizi gösterir:
+Bir bölümü yeniden adlandırmak için onun [ISection.setName](https://reference.aspose.com/slides/tr/java/com.aspose.slides/isection/#setName-java.lang.String-) yöntemini çağırın. Bölümün slaytları ve konumu değişmeden kalır.
+
+Aşağıdaki örnek bir bölüm oluşturur ve adını değiştirir:
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.ISection;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation();
 try {
-    ISection section = pres.getSections().get_Item(0);
-    section.setName("My section");
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ISection section = presentation.getSections().addSection("Overview", slide);
+    section.setName("Introduction");
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+## **Bölümlerden Slaytları Almak**
 
-**PPT (PowerPoint 97–2003) formatına kaydederken bölümler korunur mu?**
+[Presentation.getSections](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#getSections--) yöntemi, üzerinde yineleme yapabileceğiniz bir [ISectionCollection](https://reference.aspose.com/slides/tr/java/com.aspose.slides/isectioncollection/) döndürür. Her bir [ISection](https://reference.aspose.com/slides/tr/java/com.aspose.slides/isection/) için, o an o bölüme ait slaytları elde etmek üzere [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/tr/java/com.aspose.slides/isection/#getSlidesListOfSection--) çağrısı yapılır. Bu yöntem bir [ISectionSlideCollection](https://reference.aspose.com/slides/tr/java/com.aspose.slides/isectionslidecollection/) döndürür; bu koleksiyon öğe sayısı, indeksli erişim ve yineleme sağlar.
 
-Hayır. PPT formatı bölüm meta verilerini desteklemediği için .ppt olarak kaydedildiğinde bölüm gruplaması kaybolur.
+Aşağıdaki örnek iki dolu bölümü ve bir boş bölümü oluşturur, ardından her bölümün [name](https://reference.aspose.com/slides/tr/java/com.aspose.slides/isection/#getName--), [identifier](https://reference.aspose.com/slides/tr/java/com.aspose.slides/isection/#getSectionId--), [starting slide](https://reference.aspose.com/slides/tr/java/com.aspose.slides/isection/#getStartedFromSlide--), slayt sayısı ve slayt numaralarını yazdırır. İlk slaytı okumak için [ISectionSlideCollection.get_Item](https://reference.aspose.com/slides/tr/java/com.aspose.slides/isectionslidecollection/#get_Item-int-) kullanılır ve her slaytı işlemek için gelişmiş bir `for` ifadesi kullanılır. Boş bölüm için döndürülen koleksiyonun boyutu sıfırdır; yöntem çağrılmaz ve yineleme hiçbir işlem yapmaz.
 
-**Bir bütün bölüm "gizli" yapılabilir mi?**
+```java
+import com.aspose.slides.ILayoutSlide;
+import com.aspose.slides.ISection;
+import com.aspose.slides.ISectionSlideCollection;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
 
-Hayır. Sadece tek tek slaytlar gizlenebilir. Bir bölüm bir varlık olarak "gizli" bir duruma sahip değildir.
+Presentation presentation = new Presentation();
+try {
+    ISlide firstSlide = presentation.getSlides().get_Item(0);
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().get_Item(0);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    ISlide thirdSlide = presentation.getSlides().addEmptySlide(layoutSlide);
 
-**Bir slayta göre bir bölümü ve tersine bir bölümün ilk slaytını hızlıca bulabilir miyim?**
+    presentation.getSections().addSection("Introduction", firstSlide);
+    presentation.getSections().addSection("Details", thirdSlide);
+    presentation.getSections().appendEmptySection("Appendix");
 
-Evet. Bir bölüm, başlangıç slaytı ile benzersiz olarak tanımlanır; bir slayt verildiğinde hangi bölüme ait olduğunu belirleyebilir ve bir bölüm için ilk slaytına erişebilirsiniz.
+    for (ISection section : presentation.getSections()) {
+        ISectionSlideCollection sectionSlides = section.getSlidesListOfSection();
+        String startingSlide = section.getStartedFromSlide() == null ? "none" : Integer.toString(section.getStartedFromSlide().getSlideNumber());
+
+        System.out.println("Section: " + section.getName());
+        System.out.println("ID: " + section.getSectionId());
+        System.out.println("Starting slide: " + startingSlide);
+        System.out.println("Slide count: " + sectionSlides.size());
+
+        if (sectionSlides.size() > 0) {
+            System.out.println("First slide via get_Item: " + sectionSlides.get_Item(0).getSlideNumber());
+        }
+
+        System.out.print("Slide numbers:");
+        for (ISlide slide : sectionSlides) {
+            System.out.print(" " + slide.getSlideNumber());
+        }
+        System.out.println();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Bölüm üyeliği, sunumun bölüm yapısına göre belirlenir. Bölüm aralığını [ISection.getStartedFromSlide](https://reference.aspose.com/slides/tr/java/com.aspose.slides/isection/#getStartedFromSlide--) ve slayt indekslerinden, bir sonraki bölümün başlangıç slaytından manuel olarak hesaplamayın.
+
+Yapısal düzenlemeler, bir bölüm için döndürülen slaytları ve slayt numaralarını değiştirebilir. Bu, slaytların yeniden sıralanması, bir slaytın bir bölüme kopyalanması, bir bölümün slaytlarıyla birlikte taşınması, slaytların kaldırılması ve bölümlerin kaldırılmasını içerir. Sonraki örnek, bölüm sınırları hakkında varsayımlarda bulunmak yerine, her değişiklikten sonra [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/tr/java/com.aspose.slides/isection/#getSlidesListOfSection--) metodunu tekrar çağırır.
+
+```java
+import com.aspose.slides.ILayoutSlide;
+import com.aspose.slides.ISection;
+import com.aspose.slides.ISectionSlideCollection;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+
+import java.util.function.BiConsumer;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide firstSlide = presentation.getSlides().get_Item(0);
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().get_Item(0);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    ISlide thirdSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    ISection firstSection = presentation.getSections().addSection("First", firstSlide);
+    ISection secondSection = presentation.getSections().addSection("Second", thirdSlide);
+
+    BiConsumer<String, ISection> printSectionSlides = (label, section) -> {
+        ISectionSlideCollection sectionSlides = section.getSlidesListOfSection();
+        System.out.printf("%s (%d slides):", label, sectionSlides.size());
+        for (ISlide slide : sectionSlides) {
+            System.out.print(" " + slide.getSlideNumber());
+        }
+        System.out.println();
+    };
+
+    printSectionSlides.accept("Initially", firstSection);
+
+    ISectionSlideCollection slidesBeforeClone = firstSection.getSlidesListOfSection();
+    presentation.getSlides().addClone(slidesBeforeClone.get_Item(0), firstSection);
+    printSectionSlides.accept("After cloning into the section", firstSection);
+
+    ISectionSlideCollection slidesBeforeReorder = firstSection.getSlidesListOfSection();
+    int firstSectionPosition = slidesBeforeReorder.get_Item(0).getSlideNumber() - 1;
+    presentation.getSlides().reorder(firstSectionPosition, slidesBeforeReorder.get_Item(slidesBeforeReorder.size() - 1));
+    printSectionSlides.accept("After reordering slides", firstSection);
+
+    presentation.getSections().reorderSectionWithSlides(firstSection, 1);
+    printSectionSlides.accept("After moving the section", firstSection);
+
+    ISectionSlideCollection slidesBeforeRemoval = firstSection.getSlidesListOfSection();
+    presentation.getSlides().remove(slidesBeforeRemoval.get_Item(0));
+    printSectionSlides.accept("After removing a slide", firstSection);
+
+    presentation.getSections().removeSectionWithSlides(secondSection);
+    for (ISection section : presentation.getSections()) {
+        printSectionSlides.accept("Remaining section", section);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Slaytlar veya bölümler yeniden sıralandığında, kopyalandığında, taşındığında veya kaldırıldığında her zaman [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/tr/java/com.aspose.slides/isection/#getSlidesListOfSection--) metodunu tekrar çağırın. Bu, sonraki işlemlerin mevcut sunum yapısıyla uyumlu olmasını sağlar.
+
+PPT (PowerPoint 97–2003) formatı bölüm meta verilerini korumaz. Bölüm destekleyen bir format (ör. PPTX) ile bu iş akışını kullanın; PPT’ye dönüştürmek, sonraki yinelemeler için gerekli bölüm yapısını kaldırır.
+
+## **SSS**
+
+**Bölümler, PPT (PowerPoint 97–2003) formatına kaydedildiğinde korunur mu?**
+
+Hayır. PPT formatı bölüm meta verilerini desteklemez; bu nedenle .ppt olarak kaydedildiğinde bölüm gruplaması kaybolur.
+
+**Bir bütün bölüm “gizlenebilir” mi?**
+
+Hayır. Bir bölümün görünürlük durumu yoktur. İçeriğini gizlemek için bölümdeki her slayt için [ISlide.setHidden](https://reference.aspose.com/slides/tr/java/com.aspose.slides/islide/#setHidden-boolean-) yöntemi çağrılmalıdır.
+
+**Bir slaytı içeren bölümü nasıl bulabilirim?**
+
+[Presentation.getSections](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#getSections--) tarafından döndürülen koleksiyon üzerinde yineleme yapın, her bölüm için [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/tr/java/com.aspose.slides/isection/#getSlidesListOfSection--) çağırın ve dönen slaytları hedef slaytla karşılaştırın. Boş olmayan bir bölüm için [ISection.getStartedFromSlide](https://reference.aspose.com/slides/tr/java/com.aspose.slides/isection/#getStartedFromSlide--) ilk slaytını verir; boş bir bölüm için `null` döner.

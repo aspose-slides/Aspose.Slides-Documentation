@@ -1,44 +1,44 @@
 ---
-title: 管理 Android 上的簡報主題
-linktitle: 簡報主題
+title: 在 Android 上管理簡報佈景主題
+linktitle: 簡報佈景主題
 type: docs
 weight: 10
 url: /zh-hant/androidjava/presentation-theme/
 keywords:
-- PowerPoint 主題
-- 簡報主題
-- 投影片主題
-- 設定主題
-- 變更主題
-- 管理主題
-- 主題顏色
-- 其他調色盤
-- 主題字型
-- 主題樣式
-- 主題效果
+- PowerPoint 佈景主題
+- 簡報佈景主題
+- 投影片佈景主題
+- 設定佈景主題
+- 變更佈景主題
+- 管理佈景主題
+- 佈景主題顏色
+- 額外調色盤
+- 佈景主題字型
+- 佈景主題樣式
+- 佈景主題效果
 - PowerPoint
 - OpenDocument
 - 簡報
 - Android
 - Java
 - Aspose.Slides
-description: "透過 Java 在 Aspose.Slides for Android 中管理主要簡報主題，以建立、客製化並轉換具有一致品牌識別的 PowerPoint 檔案。"
+description: "透過 Java 在 Android 上的 Aspose.Slides 掌握簡報佈景主題，以建立、客製化與轉換具一致品牌形象的 PowerPoint 檔案。"
 ---
-## **介紹**
+## **簡介**
 
-簡報主題定義了一組協調的顏色、字型、背景樣式、填滿、線條和效果。具備主題感知的物件會參照這些共同定義，而不是將每個視覺屬性儲存為固定值，因而在變更主題時能一次更新許多物件。
+簡報佈景主題 定義了一組協調的顏色、字型、背景樣式、填滿、線條與效果。支援佈景主題的物件 會參照這些共用定義，而不是將每個視覺屬性儲存為固定值，因此變更佈景主題時 可以一次更新許多物件。
 
-在 Aspose.Slides 中，簡報層級的主題可透過 [Presentation.getMasterTheme](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/) 取得。簡報也可以在較低階層包含主題覆寫。Master 可透過 [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/masterthememanager/) 覆寫簡報主題，而版面配置或個別投影片則可透過 [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/baseoverridethememanager/) 覆寫其繼承的主題。實務上，投影片的有效主題會透過以下繼承鏈解決：簡報主題 → Master 覆寫 → 版面配置覆寫 → 投影片覆寫。
+在 Aspose.Slides 中，可透過 [Presentation.getMasterTheme](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/) 取得投影片層級的佈景主題。投影片也可以在較低層級上覆寫佈景主題。母片可透過 [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/masterthememanager/) 覆寫投影片佈景主題，而版面配置或單一投影片可透過 [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/baseoverridethememanager/) 覆寫繼承而來的佈景主題。實務上，投影片的實際佈景主題 會透過以下繼承鏈決定：投影片佈景主題 → 母片覆寫 → 版面配置覆寫 → 投影片覆寫。
 
-![Theme components: colors, fonts, background styles, and effects](theme-constituents.png)
+![佈景主題組件：顏色、字型、背景樣式與效果](theme-constituents.png)
 
-下面的章節說明最常見的主題工作流程：檢視主題、變更顏色與字型、複製或套用主題、更新背景與效果樣式，以及在繼承與覆寫解析後讀取有效值。
+以下章節說明最常見的佈景主題工作流程：檢查佈景主題、變更顏色與字型、複製或套用佈景主題、更新背景與效果樣式，以及在繼承與覆寫完成後讀取實際值。
 
-## **檢視主題**
+## **檢查佈景主題**
 
-[MasterTheme](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/mastertheme/) 物件透過 [MasterTheme.getColorScheme](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/mastertheme/)、[MasterTheme.getFontScheme](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/mastertheme/) 與 [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/mastertheme/) 暴露主題的顏色方案、字型方案與格式方案。變更前先檢查這些集合尤其在簡報來自外部來源時有幫助，因為樣式項目的數量與內容可能有所不同。
+[MasterTheme](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/mastertheme/) 物件 會透過 [MasterTheme.getColorScheme](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/mastertheme/)、[MasterTheme.getFontScheme](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/mastertheme/) 以及 [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/mastertheme/) 公開佈景主題的顏色配置、字型配置與格式配置。在變更前先檢視這些集合 非常有用，尤其是投影片來源於外部檔案時，樣式項目的數量與內容可能會不同。
 
-以下範例讀取主要主題屬性，並報告主題中儲存了多少背景、填滿、線條與效果樣式：
+以下範例讀取主要佈景主題屬性，並回報佈景主題中儲存了多少背景、填滿、線條與效果樣式：
 
 ```java
 import com.aspose.slides.*;
@@ -61,13 +61,13 @@ try {
 }
 ```
 
-如果檔案使用多個 Master，請勿假設每張投影片都有相同的有效主題。請檢查與投影片相關的 Master，並在版面配置或投影片可能有覆寫時，使用本文稍後說明的有效主題工作流程。
+如果檔案使用多個母片，請勿假設每張投影片都有相同的實際佈景主題。請檢查與投影片相關聯的母片，並在版面配置或投影片可能有覆寫時，使用本文後面說明的實際佈景主題工作流程。
 
-## **變更主題顏色**
+## **變更佈景主題顏色**
 
-具備主題感知的填滿、線條與文字可以參照 [SchemeColor](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/schemecolor/) 列舉中的邏輯顏色。當您在 [IColorScheme](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/icolorscheme/) 中變更相應條目時，所有仍參照該主題顏色的物件都會以新值重新解析。使用直接 RGB 顏色的物件不會因主題顏色更新而改變。
+支援佈景主題的填滿、線條與文字 可以參照 [SchemeColor](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/schemecolor/) 列舉中的邏輯顏色。當您在 [IColorScheme](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/icolorscheme/) 中變更相對應的項目時，所有仍參照該佈景主題顏色的物件 會以新值重新解析。直接使用 RGB 顏色的物件 則不會因佈景主題顏色的更新而改變。
 
-以下端對端範例建立一個使用 `Accent4` 的形狀，將主題的 `Accent4` 顏色改為紅色，儲存簡報後重新開啟，並印出有效的填滿顏色：
+以下端對端範例建立一個使用 `Accent4` 的圖形，將佈景主題的 `Accent4` 顏色改為紅色，儲存投影片，重新開啟後列印實際填滿顏色：
 
 ```java
 import com.aspose.slides.*;
@@ -97,17 +97,17 @@ try {
 }
 ```
 
-因為矩形仍與 `Accent4` 連結，主題變更後其可見顏色會變成紅色。如果您將形狀的配色改為直接顏色，之後 `Accent4` 的變更將不再影響該填滿。
+因為矩形仍與 `Accent4` 連結，佈景主題變更後其可見顏色會變成紅色。若您在圖形上將方案顏色取代為直接顏色，之後對 `Accent4` 的變更將不再影響該填滿。
 
-### **使用額外調色盤中的顏色**
+### **使用附加調色盤的顏色**
 
-PowerPoint 會透過顏色變換從主題顏色衍生較亮與較暗的變體。Aspose.Slides 透過 [ColorTransformOperation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/colortransformoperation/) 列舉公開這些變換。
+PowerPoint 會透過顏色變換，從佈景主題顏色衍生出較亮與較暗的變體。Aspose.Slides 透過 [ColorTransformOperation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/colortransformoperation/) 列舉公開這些變換。
 
-![Main theme colors and lighter and darker colors generated from the additional palette](additional-palette-colors.png)
+![主要佈景主題顏色與由附加調色盤產生的較亮與較暗顏色](additional-palette-colors.png)
 
-**1** - 主要主題顏色。
+**1** - 主要佈景主題顏色。
 
-**2** - 從主要主題顏色產生的較亮與較暗變體。
+**2** - 由主要佈景主題顏色產生的較亮與較暗變體。
 
 以下範例建立六個以 `Accent4` 為基礎的矩形，對其中五個套用亮度變換，並儲存結果：
 
@@ -156,31 +156,31 @@ try {
 }
 ```
 
-這些變體仍以主題顏色為基礎。如果之後 `Accent4` 變更，變換後的顏色會根據新的 `Accent4` 值重新計算。
+這些變體仍以佈景主題顏色為基礎。若之後變更 `Accent4`，變換後的顏色會根據新的 `Accent4` 值重新計算。
 
-### **將 `SchemeColor` 值對映至 `IColorScheme` 槽位**
+### **將 `SchemeColor` 值對映到 `IColorScheme` 插槽**
 
-[SchemeColor](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/schemecolor/) 列舉使用 `Text1`、`Background1`、`Text2` 與 `Background2`，而 [IColorScheme](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/icolorscheme/) 以 `Dark1`、`Light1`、`Dark2`、`Light2` 來呈現相同的主題槽位。對映固定如下：
+[SchemeColor](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/schemecolor/) 列舉使用 `Text1`、`Background1`、`Text2`、`Background2`，而 [IColorScheme](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/icolorscheme/) 則以 `Dark1`、`Light1`、`Dark2`、`Light2` 來呈現相同的佈景主題插槽。對映固定如下：
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-這些是同一主題槽位的別名，並非會動態相互轉換的值。
+這些是相同佈景主題插槽的別名；並非會在執行時動態轉換的值。
 
-## **變更主題字型**
+## **變更佈景主題字型**
 
-主題字型方案包含標題的主要字型集合與內文的次要字型集合。[IFontScheme.getMajor](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ifontscheme/) 與 [IFontScheme.getMinor](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ifontscheme/) 方法暴露這兩套字型。
+佈景主題字型配置 包含標題的主要字型集合與內文字的次要字型集合。[IFontScheme.getMajor](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ifontscheme/) 與 [IFontScheme.getMinor](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ifontscheme/) 方法會公開這兩個集合。
 
-可在文字格式化中使用 PowerPoint 相容的主題字型識別碼：
+PowerPoint 相容的佈景主題字型識別碼 可用於文字格式化：
 
-* `+mn-lt` - 內文字型 Latin（次要 Latin 字型）
-* `+mj-lt` - 標題字型 Latin（主要 Latin 字型）
-* `+mn-ea` - 內文字型 East Asian（次要東亞字型）
-* `+mj-ea` - 標題字型 East Asian（主要東亞字型）
+* `+mn-lt` - 內文字拉丁字型 (Minor Latin Font)
+* `+mj-lt` - 標題拉丁字型 (Major Latin Font)
+* `+mn-ea` - 內文字東亞字型 (Minor East Asian Font)
+* `+mj-ea` - 標題東亞字型 (Major East Asian Font)
 
-以下範例建立一個使用主要 Latin 主題字型的標題，以及一個使用次要 Latin 主題字型的內文行，然後變更主題字型並儲存結果：
+以下範例建立一個使用主要拉丁佈景主題字型的標題與一個使用次要拉丁佈景主題字型的內文，然後變更佈景主題字型並儲存結果：
 
 ```java
 import com.aspose.slides.*;
@@ -205,19 +205,21 @@ try {
 }
 ```
 
-標題遵循主要字型，內文則遵循次要字型。若文字使用了明確的字型名稱而非主題識別碼，則在主題字型方案變更時不會自動切換。
+標題會遵循主要字型，內文則遵循次要字型。若文字使用了明確的字型名稱而非佈景主題識別碼，則在佈景主題字型方案變更時不會自動切換。
+
+主要與次要字型集合亦可包含針對個別書寫系統（例如西里爾文、阿拉伯文、日文、喬治亞文與塔安那文）的字型對映。若要檢查、加入、取代或移除這些對映，請參閱 [Script-Specific Theme Fonts](/slides/zh-hant/androidjava/script-specific-font-mappings/)。
 
 {{% alert color="info" title="Tip" %}}
-欲取得有關簡報字型的更多資訊，請參閱 [PowerPoint Fonts](/slides/zh-hant/androidjava/powerpoint-fonts/)。
+欲取得更多有關簡報字型的資訊，請參閱 [PowerPoint Fonts](/slides/zh-hant/androidjava/powerpoint-fonts/)。
 {{% /alert %}}
 
-## **複製或套用主題**
+## **複製或套用佈景主題**
 
-常見的兩種工作流程解決不同的問題。
+有兩種常見工作流程，且它們解決的問題不同。
 
-### **在移動投影片時保留來源主題**
+### **在搬移投影片時保留來源佈景主題**
 
-若要將投影片移至另一個簡報且保留其原始設計，請使用 [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imasterslidecollection/) 將來源 Master 複製到目標簡報，然後使用 [ISlideCollection.addClone](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/islidecollection/) 以及已複製的 Master 複製投影片。如此可同時攜帶 Master、其版面配置與相關主題。
+若您想將投影片搬移至另一個簡報且保留其原始設計，請使用 [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imasterslidecollection/) 將來源母片複製到目標簡報，然後使用 [ISlideCollection.addClone](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/islidecollection/) 搭配複製的母片來複製投影片。這樣會同時攜帶母片、其版面配置與相關聯的佈景主題。
 
 ```java
 import com.aspose.slides.*;
@@ -239,11 +241,11 @@ try {
 }
 ```
 
-此流程在必須在目標簡報中保持來源投影片外觀時是首選。僅將內容複製到不相關的目標 Master 可能會改變受主題驅動的顏色、字型、背景與效果。
+這是當來源投影片必須在目的地保持相同外觀時的首選工作流程。直接將內容複製到不相關的目的地母片上，可能會改變受佈景主題驅動的顏色、字型、背景與效果。
 
-### **將主題值套用至現有投影片**
+### **將佈景主題值套用至現有投影片**
 
-若目標投影片必須保留其目前的 Master 與版面配置，請從來源主題為投影片層級建立覆寫。[OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/overridetheme/)、[OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/overridetheme/) 與 [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/overridetheme/) 方法會將三個主要主題元件複製到覆寫中。
+若目標投影片必須保留目前的母片與版面配置，請從來源佈景主題初始化投影片層級的覆寫。[OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/overridetheme/)、[OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/overridetheme/) 與 [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/overridetheme/) 方法會將三個主要佈景主題元件複製到覆寫中。
 
 ```java
 import com.aspose.slides.*;
@@ -266,11 +268,11 @@ try {
 }
 ```
 
-此方式會變更該投影片使用的主題，而不會影響其他投影片繼承的主題。若要移除本機覆寫並回復至繼承值，請呼叫 [OverrideTheme.clear](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/overridetheme/)。
+此做法會變更該投影片使用的佈景主題，而不會影響其他投影片繼承的佈景主題。若要移除本機覆寫並回復至繼承值，請呼叫 [OverrideTheme.clear](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/overridetheme/)。
 
-### **將主題覆寫套用至版面配置**
+### **將佈景主題覆寫套用至版面配置**
 
-版面配置層級的覆寫會套用至使用該版面配置的所有投影片，除非特定投影片自行有覆寫。相同的初始化方法可透過 [LayoutSlideThemeManager](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/layoutslidethememanager/) 使用：
+版面配置層級的覆寫會套用至使用該版面配置的投影片，除非特定投影片有自己的覆寫。相同的初始化方法可透過 [LayoutSlideThemeManager](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/layoutslidethememanager/) 使用：
 
 ```java
 import com.aspose.slides.*;
@@ -294,17 +296,17 @@ try {
 }
 ```
 
-當許多版面與投影片應共享相同基礎設計時，使用 Master 或簡報層級的主題；當單一版面族群需要不同樣式時，使用版面覆寫；僅在真正例外的情況下才使用投影片覆寫。過度的投影片層級覆寫會使後續全域主題變更難以預測。
+當多個版面配置與投影片需要共享相同的基礎設計時，請使用母片或簡報層級的佈景主題；需要不同樣式的版面配置則使用版面配置覆寫；僅在真正例外時才使用投影片覆寫。過多的投影片層級覆寫會使之後的全域佈景主題變更變得難以預測。
 
-## **更新主題背景樣式**
+## **更新佈景主題背景樣式**
 
-主題的背景填滿儲存在 [IFormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iformatscheme/) 中。PowerPoint 在 UI 中可呈現的背景選項比此集合實際儲存的填滿定義更多，因為 UI 可以將主題填滿與主題顏色及其他樣式參照結合。
+佈景主題的背景填滿儲存在 [IFormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iformatscheme/) 中。PowerPoint 在 UI 中可以呈現比此集合實際儲存的填滿定義更多的背景選項，因為 UI 能將佈景主題填滿與佈景主題顏色及其他樣式參照結合。
 
-![PowerPoint background style gallery for a presentation theme](presentation-design_8.png)
+![PowerPoint 針對簡報佈景主題的背景樣式庫](presentation-design_8.png)
 
-在使用背景樣式前，請檢查儲存的集合與目前的 [Background.getStyleIndex](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/background/)。`0` 表示沒有主題填滿；正值則代表主題背景樣式參照。這與直接以 Java 集合索引不同，`get_Item(0)` 代表第一筆儲存項目。請勿假設每個簡報都有相同數量的背景填滿樣式。
+在使用背景樣式之前，請檢查已儲存的集合以及目前的 [Background.getStyleIndex](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/background/)。`0` 表示沒有佈景主題填滿；正值則是佈景主題背景樣式的參照。這與直接以 Java 集合索引不同，`get_Item(0)` 代表第一筆儲存的項目。請勿假設每個簡報都有相同數量的背景填滿樣式。
 
-以下範例報告可用的背景填滿數量，將有主題的背景參照指派給第一個 Master，並儲存簡報：
+以下範例回報可用的背景填滿數量，將佈景主題背景參照指派給第一個母片，並儲存簡報：
 
 ```java
 import com.aspose.slides.*;
@@ -326,25 +328,25 @@ try {
 }
 ```
 
-最終顯示結果取決於 Master 參照的主題條目以及版面配置或投影片層級的任何背景覆寫。如果投影片使用自己的背景，僅變更 Master 背景可能不會影響該投影片。當需要取得繼承後的最終背景時，請使用 [Background.getEffective](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/background/)。
+實際顯示的結果取決於母片所參照的佈景主題條目，以及版面配置或投影片層級的任何背景覆寫。如果投影片使用自己的背景，僅更改母片背景可能不會影響該投影片。需要取得繼承後的最終背景時，請使用 [Background.getEffective](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/background/)。
 
 {{% alert color="warning" title="Warning" %}}
-請勿將樣式索引當作零基集合索引。也請避免硬編碼某檔案的樣式編號並假設在其他檔案中具相同外觀；主題樣式定義是簡報特有的。
+請勿將樣式索引當作零基集合索引來使用。也不要從單一檔案硬編碼樣式編號，並假設在其他檔案中會有相同外觀；佈景主題樣式定義是針對簡報而定的。
 {{% /alert %}}
 
 {{% alert color="info" title="Tip" %}}
-欲了解直接背景格式設定與背景繼承，請參閱 [Presentation Background](/slides/zh-hant/androidjava/presentation-background/)。
+欲取得直接背景格式設定與背景繼承相關資訊，請參閱 [Presentation Background](/slides/zh-hant/androidjava/presentation-background/)。
 {{% /alert %}}
 
-## **更新主題效果**
+## **更新佈景主題效果**
 
-主題格式方案包含分別的填滿、線條與效果樣式集合，透過 [IFormatScheme.getFillStyles](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iformatscheme/)、[IFormatScheme.getLineStyles](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iformatscheme/)、[IFormatScheme.getEffectStyles](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iformatscheme/) 暴露。典型的 Office 主題常包含三筆主要樣式條目，視覺上對應為細緻、適中與強烈的格式，但程式碼應檢查每個集合，而非假設固定數量。
+佈景主題格式方案包含分別的填滿、線條與效果樣式集合，分別透過 [IFormatScheme.getFillStyles](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iformatscheme/)、[IFormatScheme.getLineStyles](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iformatscheme/)、[IFormatScheme.getEffectStyles](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iformatscheme/) 暴露。一般 Office 佈景主題常包含三個主要樣式條目，視覺上分別對應為淡雅、適中與強烈的格式，但程式碼應檢查每個集合，而不是假設固定的計數。
 
-![Subtle, moderate, and intense theme effects applied to the same shape](presentation-design_10.png)
+![淡雅、適中與強烈的佈景主題效果套用於同一圖形](presentation-design_10.png)
 
-在 Java 中存取這些集合時，集合索引為零基：`get_Item(0)` 為第一筆儲存的樣式，`get_Item(2)` 為第三筆。形狀的樣式參照索引是另一概念，透過 [IShapeStyle](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishapestyle/) 暴露。修改主題樣式會影響參照該主題樣式的形狀；直接格式化的形狀可能保持不變。
+在 Java 中存取這些集合時，集合索引是從零開始：`get_Item(0)` 為第一筆儲存的樣式，`get_Item(2)` 為第三筆。圖形的樣式參照索引是另一個概念，透過 [IShapeStyle](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishapestyle/) 暴露。修改佈景主題樣式會影響所有參照該樣式的圖形；直接格式化的圖形可能保持不變。
 
-以下範例檢查所需的樣式條目是否存在，變更第一筆線條樣式、變更第三筆填滿樣式，並在第三筆效果樣式中啟用外部陰影，最後儲存結果：
+以下範例檢查必要的樣式條目是否存在，變更第一個線條樣式、變更第三個填滿樣式，並在第三個效果樣式中啟用外部陰影，最後儲存結果：
 
 ```java
 import com.aspose.slides.*;
@@ -369,15 +371,15 @@ try {
 }
 ```
 
-對於參照這些槽位的形狀，第一筆主題線條樣式將變為紅色，第三筆主題填滿樣式將變為實心森林綠，第三筆效果樣式則增加距離 10 點的外部陰影。最終視覺結果仍取決於每個形狀參照的樣式槽位以及是否有直接格式覆寫。
+對於參照這些插槽的圖形而言，第一個佈景主題線條樣式會變成紅色，第三個佈景主題填滿樣式會變成實心森林綠，第三個效果樣式會新增一個距離為 10 點的外部陰影。最終的視覺結果仍取決於每個圖形參照的樣式插槽以及是否有直接格式化覆寫佈景主題。
 
-![Theme effect styles after changing line, fill, and shadow settings](presentation-design_11.png)
+![變更線條、填滿與陰影設定後的佈景主題效果樣式](presentation-design_11.png)
 
-## **讀取有效主題值**
+## **讀取實際佈景主題值**
 
-原始主題物件告訴您在特定層級定義了什麼。有效值則告訴您投影片或形狀在繼承與本機覆寫解析後實際使用的內容。對投影片呼叫 [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/baseoverridethememanager/)。對背景使用 [Background.getEffective](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/background/)，對填滿使用 [FillFormat.getEffective](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/fillformat/)。
+原始佈景主題物件告訴您在特定層級上定義了什麼。實際值告訴您投影片或圖形在繼承與本機覆寫解析後實際使用的內容。對於投影片，呼叫 [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/baseoverridethememanager/)。對於背景，使用 [Background.getEffective](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/background/)，對於填滿，使用 [FillFormat.getEffective](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/fillformat/)。
 
-以下範例從投影片讀取有效的主題、背景與第一個形狀的填滿：
+以下範例讀取投影片的實際佈景主題、背景與第一個圖形的填滿：
 
 ```java
 import com.aspose.slides.*;
@@ -404,18 +406,18 @@ try {
 }
 ```
 
-請使用有效資料進行呈現診斷、驗證與比較。如果只檢查 [Presentation.getMasterTheme](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/)，可能會錯過改變最終外觀的 Master、版面、投影片或形狀覆寫。
+將實際資料用於渲染偵錯、驗證與比較。如果僅檢查 [Presentation.getMasterTheme](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/)，可能會錯過改變最終外觀的母片、版面配置、投影片或圖形覆寫。
 
 ## **常見問題**
 
-**我可以在不變更 Master 的情況下僅對單一投影片套用主題嗎？**
+**我可以在不變更母片的情況下，將佈景主題套用到單一投影片嗎？**
 
-可以。使用投影片的 [SlideThemeManager](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/slidethememanager/) 並初始化其覆寫主題。變更僅限於該投影片，其他投影片仍保留各自的繼承主題。
+可以。使用投影片的 [SlideThemeManager](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/slidethememanager/) 並初始化其覆寫佈景主題。變更僅限於該投影片；其他投影片仍繼承現有佈景主題。
 
-**將主題從一個簡報搬移到另一個簡報的最安全方法是什麼？**
+**從一個簡報搬移佈景主題到另一個簡報的最安全方式是什麼？**
 
-在搬移投影片且需保留來源外觀時，請使用 [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imasterslidecollection/) 將來源 Master 複製到目標簡報，然後使用 [ISlideCollection.addClone](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/islidecollection/) 以該 Master 複製投影片。這樣可同時保留 Master、版面配置與主題。
+在搬移投影片並保留來源外觀時，請將來源母片使用 [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imasterslidecollection/) 複製到目的地，然後使用 [ISlideCollection.addClone](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/islidecollection/) 搭配該母片複製投影片。這樣可同時保留母片、版面配置與佈景主題。
 
-**我如何查看繼承與覆寫後的有效值？**
+**我該如何在繼承與覆寫完成後看到實際值？**
 
-對投影片或版面配置的主題使用 [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/baseoverridethememanager/)，對格式物件如 [Background.getEffective](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/background/) 與 [FillFormat.getEffective](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/fillformat/) 使用相對應的有效資料方法。這些 API 會在繼承與覆寫套用後回傳解析後的值。
+對於投影片或版面配置佈景主題，使用 [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/baseoverridethememanager/)。對於格式物件，如背景與填滿，分別使用 [Background.getEffective](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/background/) 與 [FillFormat.getEffective](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/fillformat/)。這些 API 會在繼承與覆寫套用後返回解析後的值。

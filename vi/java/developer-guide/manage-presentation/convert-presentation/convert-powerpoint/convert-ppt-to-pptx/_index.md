@@ -6,42 +6,42 @@ weight: 20
 url: /vi/java/convert-ppt-to-pptx/
 keywords:
 - chuyển đổi PowerPoint
-- chuyển đổi bản trình chiếu
+- chuyển đổi bản trình bày
 - chuyển đổi slide
 - chuyển đổi PPT
 - PPT sang PPTX
 - lưu PPT dưới dạng PPTX
 - xuất PPT sang PPTX
 - PowerPoint
-- bản trình chiếu
+- bản trình bày
 - Java
 - Aspose.Slides
-description: "Chuyển đổi các tệp PPT kế thừa sang PPTX trong Java bằng Aspose.Slides. Bao gồm các ví dụ Java cho chuyển đổi tệp đơn và hàng loạt, xử lý lỗi và ghi chú về độ trung thực."
+description: "Chuyển đổi các tệp PPT kế thừa sang PPTX trong Java với Aspose.Slides. Bao gồm các ví dụ Java cho chuyển đổi tệp đơn và hàng loạt, xử lý lỗi, và ghi chú về độ trung thực."
 ---
 ## **Tổng quan**
 
-PPT là định dạng PowerPoint nhị phân kế thừa, trong khi PPTX là định dạng Open XML mới hơn. Aspose.Slides cho Java có thể tải tệp PPT và lưu nó dưới dạng PPTX mà không cần Microsoft PowerPoint. Bài viết này trình bày cách chuyển đổi một tệp hoặc một thư mục các tệp và giải thích những điều cần kiểm tra sau khi chuyển đổi.
+PPT là định dạng PowerPoint nhị phân kế thừa, trong khi PPTX là định dạng Open XML mới hơn. Aspose.Slides for Java có thể tải tệp PPT và lưu dưới dạng PPTX mà không cần Microsoft PowerPoint. Bài viết này giới thiệu cách chuyển đổi một tệp hoặc một thư mục các tệp và giải thích những nội dung cần kiểm tra sau khi chuyển đổi.
 
 ## **Chuyển đổi tệp PPT sang PPTX**
 
-Tải tệp nguồn bằng lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) , sau đó gọi [Presentation.save](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/#save-java.lang.String-int-) với [SaveFormat.Pptx](https://reference.aspose.com/slides/vi/java/com.aspose.slides/saveformat/#Pptx) . Khối `finally` giải phóng đối tượng trình chiếu và giải phóng tài nguyên.
+Tải tệp nguồn bằng lớp [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/), sau đó gọi [Presentation.save](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/#save-java.lang.String-int-) với [SaveFormat.Pptx](https://reference.aspose.com/slides/vi/java/com.aspose.slides/saveformat/#Pptx). Khối `finally` giải phóng đối tượng presentation và giải phóng tài nguyên của nó.
 
 ```java
-// Tải bản trình chiếu PPT kế thừa.
+// Tải bản trình bày PPT kế thừa.
 com.aspose.slides.Presentation presentation = new com.aspose.slides.Presentation("presentation.ppt");
 try {
-    // Lưu bản trình chiếu ở định dạng PPTX.
+    // Lưu bản trình bày ở định dạng PPTX.
     presentation.save("presentation.pptx", com.aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Phần mở rộng tệp không tự động chọn định dạng đầu ra; đối số [SaveFormat.Pptx](https://reference.aspose.com/slides/vi/java/com.aspose.slides/saveformat/#Pptx) làm điều đó. Giữ các đường dẫn đầu vào và đầu ra khác nhau nếu bạn cần giữ lại tệp PPT gốc.
+Phần mở rộng tệp không tự động chọn định dạng đầu ra; đối số [SaveFormat.Pptx](https://reference.aspose.com/slides/vi/java/com.aspose.slides/saveformat/#Pptx) quyết định. Giữ các đường dẫn đầu vào và đầu ra khác nhau nếu bạn cần giữ nguyên tệp PPT gốc.
 
 ## **Chuyển đổi nhiều tệp PPT**
 
-Ví dụ dưới đây chuyển đổi mọi tệp `.ppt` trong một thư mục. Mỗi tệp được xử lý độc lập, vì vậy một lỗi chuyển đổi không làm dừng toàn bộ lô.
+Ví dụ sau chuyển đổi mọi tệp `.ppt` trong một thư mục. Mỗi tệp được xử lý độc lập, vì vậy một lỗi chuyển đổi không làm dừng toàn bộ lô.
 
 ```java
 java.io.File inputDirectory = new java.io.File("input");
@@ -76,47 +76,47 @@ for (java.io.File inputFile : inputFiles) {
 }
 ```
 
-Đối với môi trường sản xuất, ghi lại toàn bộ ngoại lệ, quyết định có ghi đè lên tệp đầu ra hiện có hay không, và ghi tên các tệp thất bại vào hàng đợi thử lại hoặc rà soát. Các tệp hỏng, tệp được bảo vệ bằng mật khẩu mà không cung cấp mật khẩu đúng, đường dẫn không truy cập được và nội dung không được hỗ trợ đều có thể gây lỗi chuyển đổi. Xem [Password-Protected Presentations](/java/password-protected-presentation/) để tải các tệp đã mã hoá.
+Đối với môi trường sản xuất, ghi lại toàn bộ ngoại lệ, quyết định có nên ghi đè tệp đầu ra đã tồn tại hay không, và ghi tên các tệp thất bại vào hàng đợi thử lại hoặc xem xét. Các tệp hỏng, tệp được bảo vệ bằng mật khẩu mà không cung cấp mật khẩu đúng, đường dẫn không truy cập được và nội dung không được hỗ trợ đều có thể gây lỗi chuyển đổi. Xem [Password-Protected Presentations](/slides/vi/java/password-protected-presentation/) để tải các tệp được mã hóa.
 
 ## **Độ trung thực và các tính năng kế thừa**
 
-Quá trình chuyển đổi thường giữ nguyên các slide, master, layout, văn bản, hình dạng, hình ảnh, bảng và biểu đồ. Tuy nhiên, PPT và PPTX không biểu diễn mọi tính năng một cách giống hệt nhau. Một tính năng kế thừa không có tương đương PPTX, hoặc không được thư viện hỗ trợ, có thể được chuẩn hoá, bỏ qua hoặc hiển thị khác đi.
+Quá trình chuyển đổi thường giữ nguyên các slide, master, layout, văn bản, hình dạng, hình ảnh, bảng và biểu đồ. Tuy nhiên, PPT và PPTX không đại diện cho mọi tính năng theo cùng một cách. Một tính năng kế thừa không có tương đương trong PPTX, hoặc không được thư viện hỗ trợ, có thể được chuẩn hoá, bỏ qua hoặc hiển thị khác đi.
 
-Kiểm tra tệp đã chuyển đổi khi nó chứa hoạt ảnh, chuyển cảnh, đối tượng OLE nhúng hoặc liên kết, điều khiển ActiveX, phương tiện nhúng, phông chữ ít gặp hoặc macro VBA. Tệp PPTX thuần không phải là định dạng hỗ trợ macro, vì vậy hãy sử dụng quy trình làm việc hỗ trợ macro phù hợp khi cần giữ lại VBA. Đồng thời xác thực rằng các phông chữ và tài nguyên bên ngoài cần thiết có mặt trong môi trường mà bản trình chiếu đã chuyển đổi sẽ được mở hoặc render.
+Kiểm tra tệp đã chuyển đổi khi nó chứa các hoạt ảnh, chuyển đổi, đối tượng OLE nhúng hoặc liên kết, điều khiển ActiveX, phương tiện nhúng, phông chữ không phổ biến hoặc macro VBA. Tệp PPTX thông thường không phải là định dạng hỗ trợ macro, vì vậy hãy sử dụng quy trình làm việc hỗ trợ macro khi cần giữ lại VBA. Đồng thời, xác minh rằng các phông chữ và tài nguyên bên ngoài cần thiết có sẵn trong môi trường nơi bản trình bày đã chuyển đổi sẽ được mở hoặc hiển thị.
 
-Đối với các tài liệu quan trọng, mở lại PPTX đã tạo bằng mã và kiểm tra số lượng slide và nội dung quan trọng, sau đó so sánh giao diện và hành vi chiếu slide trong trình xem dự kiến. Đừng coi một cuộc gọi thành công của [Presentation.save](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/#save-java.lang.String-int-) là bằng chứng rằng mọi tính năng kế thừa đều có đại diện PPTX chính xác.
+Đối với các tài liệu quan trọng, hãy mở lại tệp PPTX đã tạo bằng chương trình và kiểm tra số lượng slide và nội dung chính, sau đó so sánh giao diện và hành vi trình chiếu trong phần mềm xem mong muốn. Không coi một lời gọi [Presentation.save](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/#save-java.lang.String-int-) thành công là bằng chứng rằng mọi tính năng kế thừa đều có đại diện PPTX chính xác.
 
-## **Khi nào nên dùng PPTX**
+## **Khi nào nên sử dụng PPTX**
 
-Sử dụng PPTX khi bản trình chiếu sẽ được chỉnh sửa trong các phiên bản PowerPoint hiện tại, được trao đổi với các hệ thống làm việc với gói Open XML, hoặc lưu trữ ở định dạng dễ kiểm tra và khôi phục hơn so với PPT nhị phân kế thừa. Giữ lại tệp PPT gốc làm bản lưu trữ hoặc sao lưu cho tới khi bản trình chiếu đã chuyển đổi vượt qua các kiểm tra độ trung thực của bạn.
+Sử dụng PPTX khi bản trình bày sẽ được chỉnh sửa trong các phiên bản PowerPoint hiện đại, trao đổi với các hệ thống làm việc với gói Open XML, hoặc lưu trữ ở định dạng dễ kiểm tra và khôi phục hơn so với PPT nhị phân kế thừa. Giữ bản PPT gốc như bản lưu trữ hoặc bản sao quay lại cho đến khi bản trình bày đã chuyển đổi vượt qua các kiểm tra độ trung thực của bạn.
 
-Nếu bạn cần PDF, HTML, hình ảnh, XPS hoặc kiểu đầu ra khác, hãy sử dụng hướng dẫn định dạng cụ thể trong [Convert Presentations to Multiple Formats](/java/convert-presentation/)... thay vì cho rằng mọi mục tiêu đều giữ lại các tính năng PowerPoint có thể chỉnh sửa.
+Nếu bạn cần PDF, HTML, hình ảnh, XPS hoặc loại đầu ra khác, hãy sử dụng hướng dẫn theo định dạng trong [Convert Presentations to Multiple Formats](/slides/vi/java/convert-presentation/) thay vì giả định rằng mọi mục tiêu đều giữ lại các tính năng PowerPoint có thể chỉnh sửa.
 
 ## **Trình chuyển đổi trực tuyến**
 
-Đối với tệp thỉnh thoảng hoặc so sánh nhanh, bạn có thể sử dụng [online PPT to PPTX converter](https://products.aspose.app/slides/vi/conversion/ppt-to-pptx). Đối với các chuyển đổi lặp lại, xử lý hàng loạt hoặc xử lý lỗi ở mức ứng dụng, hãy sử dụng API Java.
+Đối với tệp không thường xuyên hoặc so sánh nhanh, bạn có thể sử dụng [online PPT to PPTX converter](https://products.aspose.app/slides/vi/conversion/ppt-to-pptx). Đối với các chuyển đổi lặp lại, xử lý batch, hoặc xử lý lỗi ở mức ứng dụng, hãy sử dụng Java API.
 
 ## **Bài viết liên quan**
 
-- [PPT và PPTX](/java/ppt-vs-pptx/)
-- [Lưu bản trình chiếu trong Java](/java/save-presentation/)
-- [Các định dạng tệp được hỗ trợ](/java/supported-file-formats/)
-- [Mở bản trình chiếu trong Java](/java/open-presentation/)
+- [PPT vs PPTX](/slides/vi/java/ppt-vs-pptx/)
+- [Lưu bản trình bày trong Java](/slides/vi/java/save-presentation/)
+- [Định dạng tệp được hỗ trợ](/slides/vi/java/supported-file-formats/)
+- [Mở bản trình bày trong Java](/slides/vi/java/open-presentation/)
 
 ## **Câu hỏi thường gặp**
 
-**Tôi có thể chuyển đổi PPT sang PPTX mà không cài đặt Microsoft PowerPoint không?**
+**Có thể chuyển đổi PPT sang PPTX mà không cài đặt Microsoft PowerPoint không?**
 
-Có. Aspose.Slides cho Java tải và lưu các tệp trình chiếu mà không cần Microsoft PowerPoint.
+Có. Aspose.Slides for Java tải và lưu các tệp trình bày mà không cần Microsoft PowerPoint.
 
-**Việc chuyển đổi PPT sang PPTX có giữ nguyên toàn bộ nội dung một cách chính xác không?**
+**Quá trình chuyển đổi PPT sang PPTX có giữ nguyên toàn bộ nội dung một cách chính xác không?**
 
-Nó giữ lại nội dung trình chiếu phổ biến, nhưng độ trung thực chính xác không được đảm bảo cho mọi tính năng kế thừa hoặc không được hỗ trợ. Hãy kiểm tra tệp đã tạo khi nó chứa macro, đối tượng OLE hoặc ActiveX, phương tiện, hoạt ảnh đặc biệt hoặc phông chữ ít gặp.
+Nó giữ lại nội dung chung của bản trình bày, nhưng độ trung thực chính xác không được đảm bảo cho mọi tính năng kế thừa hoặc không được hỗ trợ. Kiểm tra tệp đã tạo khi nó chứa macro, đối tượng OLE hoặc ActiveX, phương tiện, hoạt ảnh đặc biệt hoặc phông chữ không phổ biến.
 
-**Tôi có thể chuyển đổi tệp PPT được bảo vệ bằng mật khẩu không?**
+**Có thể chuyển đổi tệp PPT được bảo vệ bằng mật khẩu không?**
 
-Có, nếu bạn cung cấp mật khẩu đúng khi tải tệp. Thiếu mật khẩu hoặc mật khẩu không đúng sẽ khiến thao tác tải thất bại.
+Có, nếu bạn cung cấp mật khẩu đúng khi tải tệp. Thiếu mật khẩu hoặc mật khẩu không đúng sẽ làm cho thao tác tải thất bại.
 
 **Có nên xóa tệp PPT sau khi chuyển đổi không?**
 
-Giữ lại bản gốc cho đến khi bạn đã xác thực PPTX trong các trình xem và quy trình làm việc quan trọng. Điều này cung cấp bản sao lưu nếu một tính năng kế thừa chuyển đổi khác.
+Giữ bản gốc cho đến khi bạn đã kiểm tra PPTX trong các trình xem và quy trình làm việc quan trọng đối với bạn. Điều này cung cấp một bản sao quay lại nếu một tính năng kế thừa được chuyển đổi khác nhau.

@@ -13,15 +13,15 @@ keywords:
 - metni yinele
 - şekilleri topla
 - sunumu sıkıştır
-- kullanılmayan ana slaytları kaldır
-- kullanılmayan düzen slaytlarını kaldır
+- kullanılmayan master slaytları kaldır
+- kullanılmayan layout slaytları kaldır
 - gömülü fontları sıkıştır
 - PowerPoint
 - OpenDocument
 - sunum
 - Java
 - Aspose.Slides
-description: "Java'da Aspose.Slides düşük kodlu API'sini kullanarak sunumları dönüştürüp birleştirin, içeriği yineleyin, şekilleri toplayın ve sunum boyutunu küçültün."
+description: "Java'da Aspose.Slides düşük kodlu API'yi kullanarak sunumları dönüştürüp birleştirin, içeriği yineleyin, şekilleri topla ve sunum boyutunu azaltın."
 ---
 ## **Genel Bakış**
 
@@ -31,15 +31,15 @@ Low-code helpers are most useful when the operation applies to an entire file or
 
 The following table summarizes the available helpers:
 
-| Yardımcı | Kullanım amacı |
+| Helper | Use it for |
 | --- | --- |
-| [Convert](https://reference.aspose.com/slides/tr/java/com.aspose.slides/convert/) | Sunumu doğrudan dosya‑dosya çağrısı ile başka bir formata dönüştürme. |
-| [Merger](https://reference.aspose.com/slides/tr/java/com.aspose.slides/merger/) | Aynı formatta tam sunum dosyalarını birleştirme. |
-| [ForEach](https://reference.aspose.com/slides/tr/java/com.aspose.slides/foreach/) | Her slayt, şekil, paragraf veya metin bölümü için bir eylem çalıştırma. |
-| [Collect](https://reference.aspose.com/slides/tr/java/com.aspose.slides/collect/) | Tekrarlayan işleme veya analiz için tüm sunumdan şekilleri alma. |
-| [Compress](https://reference.aspose.com/slides/tr/java/com.aspose.slides/compress/) | Kullanılmayan ana ve düzenleri kaldırma ve gömülü font verilerini azaltma. |
+| [Convert](https://reference.aspose.com/slides/tr/java/com.aspose.slides/convert/) | Sunumu başka bir biçime dosya‑dosya doğrudan çağrı ile dönüştürmek. |
+| [Merger](https://reference.aspose.com/slides/tr/java/com.aspose.slides/merger/) | Aynı biçimdeki tam sunum dosyalarını birleştirmek. |
+| [ForEach](https://reference.aspose.com/slides/tr/java/com.aspose.slides/foreach/) | Her slayt, şekil, paragraf veya metin parçası için bir işlem çalıştırmak. |
+| [Collect](https://reference.aspose.com/slides/tr/java/com.aspose.slides/collect/) | Tekrar tekrar işleme veya analiz için tüm sunumdaki şekilleri toplamak. |
+| [Compress](https://reference.aspose.com/slides/tr/java/com.aspose.slides/compress/) | Kullanılmayan master ve layoutları kaldırmak ve gömülü font verisini azaltmak. |
 
-## **Sunumu Dönüştür**
+## **Bir Sunumu Dönüştürme**
 
 Use [Convert.autoByExtension](https://reference.aspose.com/slides/tr/java/com.aspose.slides/convert/#autoByExtension-java.lang.String-java.lang.String-) when the output file extension is sufficient to select the export format. The method opens the source presentation, determines the required format from the output path, and writes the result.
 
@@ -49,9 +49,9 @@ import com.aspose.slides.Convert;
 Convert.autoByExtension("input.pptx", "output.pdf");
 ```
 
-The [Convert](https://reference.aspose.com/slides/tr/java/com.aspose.slides/convert/) class also provides dedicated methods for PDF, SVG, JPEG, PNG, and TIFF output. Use the full object model when you need to inspect or modify the presentation before export or configure an export option that is not exposed by the selected helper. See [Convert Presentation](/java/convert-presentation/) for format-specific workflows and options.
+The [Convert](https://reference.aspose.com/slides/tr/java/com.aspose.slides/convert/) class also provides dedicated methods for PDF, SVG, JPEG, PNG, and TIFF output. Use the full object model when you need to inspect or modify the presentation before export or configure an export option that is not exposed by the selected helper. See [Convert Presentation](/slides/tr/java/convert-presentation/) for format-specific workflows and options.
 
-## **Sunumları Birleştir**
+## **Sunumları Birleştirme**
 
 Use [Merger.process](https://reference.aspose.com/slides/tr/java/com.aspose.slides/merger/#process-java.lang.String:A-java.lang.String-) to combine complete presentation files with one call. The input presentations must have the same file format.
 
@@ -62,9 +62,9 @@ String[] inputFiles = { "part-1.pptx", "part-2.pptx" };
 Merger.process(inputFiles, "merged.pptx");
 ```
 
-The helper is appropriate when all slides should be appended to one result without selecting or remapping them individually. Use the full object model when you need to merge selected slides, apply a destination master or layout, preserve sections explicitly, or reconcile different slide sizes. See [Merge Presentations](/java/merge-presentation/) for those scenarios.
+The helper is appropriate when all slides should be appended to one result without selecting or remapping them individually. Use the full object model when you need to merge selected slides, apply a destination master or layout, preserve sections explicitly, or reconcile different slide sizes. See [Merge Presentations](/slides/tr/java/merge-presentation/) for those scenarios.
 
-## **Sunum Öğeleri Üzerinde Döngü**
+## **Sunum Öğeleri Üzerinde Dolaşma**
 
 The [ForEach](https://reference.aspose.com/slides/tr/java/com.aspose.slides/foreach/) class invokes a callback for each requested type of presentation element. It avoids nested collection loops and is convenient for presentation-wide inspection or formatting changes.
 
@@ -95,9 +95,9 @@ try {
 }
 ```
 
-By default, presentation-wide shape and text traversal includes normal, master, and layout slides. Overloads with an `includeNotes` parameter can also process notes slides. Use direct collection loops when traversal order, early exit, filtering before callback invocation, or detailed parent-child control is important.
+By default, presentation-wide shape and text traversal includes normal, master, and layout slides. Overloads with an `includeNotes` parameter can also process notes slides. Use direct collection loops when traversal order, early exit, filtering before callback invocation, or detailed parent‑child control is important.
 
-## **Şekilleri Topla**
+## **Şekilleri Toplama**
 
 Use [Collect.shapes](https://reference.aspose.com/slides/tr/java/com.aspose.slides/collect/#shapes-com.aspose.slides.Presentation-) when you need a collection of all shapes in a presentation rather than a callback for each shape. This is useful when the same set will be filtered, counted, or processed more than once.
 
@@ -118,7 +118,7 @@ try {
 
 Use [ForEach.shape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-) instead when each shape can be handled immediately and you do not need to retain the collected result.
 
-## **Sunum İçeriğini Sıkıştır**
+## **Sunum İçeriğini Sıkıştırma**
 
 The [Compress](https://reference.aspose.com/slides/tr/java/com.aspose.slides/compress/) class can remove unused structural elements and reduce embedded font data:
 
@@ -141,38 +141,32 @@ try {
 }
 ```
 
-Remove unused layouts before unused masters so a master that becomes unreferenced after layout cleanup can also be removed. Save the optimized presentation to a new file if you may need the original masters, layouts, or complete embedded font data later. For more detail, see [Slide Master](/java/slide-master/) and [Embedded Font](/java/embedded-font/).
+Remove unused layouts before unused masters so a master that becomes unreferenced after layout cleanup can also be removed. Save the optimized presentation to a new file if you may need the original masters, layouts, or complete embedded font data later. For more detail, see [Slide Master](/slides/tr/java/slide-master/) and [Embedded Font](/slides/tr/java/embedded-font/).
 
 ## **SSS**
 
-**Ne zaman düşük kodlu API'yi tam nesne modeline tercih etmeliyim?**
+**When should I use the low-code API instead of the full object model?**  
+Low-code yardımcıları, standart bir işlem tüm dosya veya sunuma uygulanıyor ve bireysel öğeler üzerinde ayrıntılı kontrol gerektirmiyorsa kullanın. Bireysel slaytları seçmeniz, master‑layout ilişkilerini yönetmeniz, ara durumu incelemeniz veya yardımcı tarafından sunulmayan davranışları yapılandırmanız gerektiğinde tam nesne modelini kullanın.
 
-Use low-code helpers when a standard operation applies to a complete file or presentation and does not require detailed control over individual elements. Use the full object model when you need to select specific slides, control master and layout relationships, inspect intermediate state, or configure behavior that the helper does not expose.
+**Can Merger combine presentations in different file formats?**  
+Hayır. [Merger.process](https://reference.aspose.com/slides/tr/java/com.aspose.slides/merger/#process-java.lang.String:A-java.lang.String-) aynı biçimdeki giriş sunumlarını gerektirir. Önce giriş dosyalarını ortak bir biçime dönüştürün, örneğin [Convert.autoByExtension](https://reference.aspose.com/slides/tr/java/com.aspose.slides/convert/#autoByExtension-java.lang.String-java.lang.String-) ile, ardından dönüştürülmüş dosyaları birleştirin.
 
-**Merger farklı dosya formatlarındaki sunumları birleştirebilir mi?**
+**Does ForEach process master, layout, and notes slides?**  
+[ForEach.slide](https://reference.aspose.com/slides/tr/java/com.aspose.slides/foreach/#slide-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachSlideCallback-) normal sunum slaytlarını iterasyona alır. Sunum‑geneli [ForEach.shape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-), [ForEach.paragraph](https://reference.aspose.com/slides/tr/java/com.aspose.slides/foreach/#paragraph-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachParagraphCallback-), ve [ForEach.portion](https://reference.aspose.com/slides/tr/java/com.aspose.slides/foreach/#portion-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachPortionCallback-) işlemleri varsayılan olarak normal, master ve layout slaytlarını içerir. Not slaytlarını da dahil etmek için `includeNotes` parametresi `true` olarak ayarlanmış aşırı yüklemelerini kullanın.
 
-No. [Merger.process](https://reference.aspose.com/slides/tr/java/com.aspose.slides/merger/#process-java.lang.String:A-java.lang.String-) requires input presentations in the same format. Convert the input files to a common format first, for example with [Convert.autoByExtension](https://reference.aspose.com/slides/tr/java/com.aspose.slides/convert/#autoByExtension-java.lang.String-java.lang.String-), and then merge the converted files.
+**What is the difference between ForEach.shape and Collect.shapes?**  
+[ForEach.shape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-) her şekli anında bir geri çağrı ile işlemek içindir. [Collect.shapes](https://reference.aspose.com/slides/tr/java/com.aspose.slides/collect/#shapes-com.aspose.slides.Presentation-) ise şekilleri bir koleksiyon olarak elde edip daha sonra filtreleme, sayma veya birden çok kez dolaşma ihtiyacınız olduğunda kullanılır.
 
-**ForEach ana, düzen ve not slaytlarını işliyor mu?**
+**Does Compress always make the presentation file smaller?**  
+Her zaman değildir. Sonuç, sunumda kullanılmayan layoutlar, kullanılmayan masterlar veya kullanılmayan karakterlere sahip gömülü fontlar olup olmamasına bağlıdır. Bu öğeler yoksa ilgili [Compress](https://reference.aspose.com/slides/tr/java/com.aspose.slides/compress/) işlemleri dosya boyutunu azaltmayabilir.
 
-[ForEach.slide](https://reference.aspose.com/slides/tr/java/com.aspose.slides/foreach/#slide-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachSlideCallback-) iterates through normal presentation slides. Presentation-wide [ForEach.shape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-), [ForEach.paragraph](https://reference.aspose.com/slides/tr/java/com.aspose.slides/foreach/#paragraph-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachParagraphCallback-), and [ForEach.portion](https://reference.aspose.com/slides/tr/java/com.aspose.slides/foreach/#portion-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachPortionCallback-) operations include normal, master, and layout slides by default. Use their overloads with `includeNotes` set to `true` to include notes slides.
+**Are changes made by ForEach or Compress saved automatically?**  
+Hayır. Bu yardımcılar, bellekte yüklü olan [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) nesnesi üzerinde çalışır. Bir [ForEach](https://reference.aspose.com/slides/tr/java/com.aspose.slides/foreach/) geri çağrısında veya bir [Compress](https://reference.aspose.com/slides/tr/java/com.aspose.slides/compress/) çalıştırdıktan sonra sonucu yazmak için [Presentation.save](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#save-java.lang.String-int-) metodunu çağırın.
 
-**ForEach.shape ile Collect.shapes arasındaki fark nedir?**
+## **Related Articles**
 
-Use [ForEach.shape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-) to process each shape immediately through a callback. Use [Collect.shapes](https://reference.aspose.com/slides/tr/java/com.aspose.slides/collect/#shapes-com.aspose.slides.Presentation-) when you need an iterable result that can be retained, filtered, counted, or traversed multiple times.
-
-**Compress her zaman sunum dosyasını küçültür mü?**
-
-Not necessarily. The result depends on whether the presentation contains unused layouts, unused masters, or embedded fonts with unused characters. If none of those are present, the corresponding [Compress](https://reference.aspose.com/slides/tr/java/com.aspose.slides/compress/) operations may not reduce the file size.
-
-**ForEach veya Compress tarafından yapılan değişiklikler otomatik olarak kaydedilir mi?**
-
-No. These helpers operate on the loaded [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) object in memory. After changing elements in a [ForEach](https://reference.aspose.com/slides/tr/java/com.aspose.slides/foreach/) callback or running [Compress](https://reference.aspose.com/slides/tr/java/com.aspose.slides/compress/), call [Presentation.save](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#save-java.lang.String-int-) to write the result.
-
-## **İlgili Makaleler**
-
-- [Convert Presentation](/java/convert-presentation/)
-- [Merge Presentations](/java/merge-presentation/)
-- [Slide Master](/java/slide-master/)
-- [Manage Text Box](/java/manage-textbox/)
-- [Embedded Font](/java/embedded-font/)
+- [Convert Presentation](/slides/tr/java/convert-presentation/)
+- [Merge Presentations](/slides/tr/java/merge-presentation/)
+- [Slide Master](/slides/tr/java/slide-master/)
+- [Manage Text Box](/slides/tr/java/manage-textbox/)
+- [Embedded Font](/slides/tr/java/embedded-font/)

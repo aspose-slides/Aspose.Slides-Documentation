@@ -1,48 +1,48 @@
 ---
-title: Операции Low-Code с презентациями в .NET
-linktitle: API Low-Code
+title: Операции low-code презентаций в .NET
+linktitle: Low-Code API
 type: docs
 weight: 50
 url: /ru/net/low-code-presentation-operations/
 keywords:
-- API low-code для презентаций
-- конвертировать презентацию
-- объединять презентации
-- перебирать слайды
-- перебирать фигуры
-- перебирать текст
-- собирать фигуры
-- сжимать презентацию
-- удалять неиспользуемые мастер‑слайды
-- удалять неиспользуемые макетные слайды
-- сжимать встроенные шрифты
+- low-code API презентаций
+- конвертация презентации
+- объединение презентаций
+- перебор слайдов
+- перебор фигур
+- перебор текста
+- сбор фигур
+- сжатие презентации
+- удаление неиспользуемых мастер‑слайдов
+- удаление неиспользуемых макетных слайдов
+- сжатие встроенных шрифтов
 - PowerPoint
 - OpenDocument
 - презентация
 - .NET
 - C#
 - Aspose.Slides
-description: "Используйте low-code API Aspose.Slides в .NET для конвертации и объединения презентаций, перебора содержимого, сбора фигур и уменьшения размера презентации."
+description: "Используйте low-code API Aspose.Slides в .NET для конвертации и объединения презентаций, перебора содержимого, сбора фигур и сокращения размера презентации."
 ---
 ## **Обзор**
 
-Пространство имён [Aspose.Slides.LowCode](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/) предоставляет статические вспомогательные классы для распространённых операций с презентациями. Эти вспомогательные классы упаковывают часто используемые сценарии объектной модели в целевые методы, позволяя конвертировать или объединять файлы, обрабатывать элементы презентации, собирать фигуры и удалять неиспользуемый контент с меньшим количеством кода.
+Пространство имён [Aspose.Slides.LowCode](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/) предоставляет статические вспомогательные классы для общих операций с презентациями. Эти вспомогательные классы инкапсулируют часто используемые рабочие процессы объектной модели в специализированных методах, позволяя конвертировать или объединять файлы, обрабатывать элементы презентации, собирать фигуры и удалять неиспользуемый контент с меньшим количеством кода.
 
-Вспомогательные классы low‑code наиболее полезны, когда операция применяется к целому файлу или презентации и стандартный рабочий процесс соответствует вашим требованиям. Используйте полную [Aspose.Slides object model](https://reference.aspose.com/slides/ru/net/aspose.slides/) при необходимости детального контроля над отдельными слайдами, мастерами, макетами, фигурами, параметрами экспорта или связями между элементами презентации.
+Вспомогательные функции low‑code наиболее полезны, когда операция применяется ко всему файлу или презентации и стандартный рабочий процесс соответствует вашим требованиям. Используйте полную [Aspose.Slides object model](https://reference.aspose.com/slides/ru/net/aspose.slides/) при необходимости детального управления отдельными слайдами, шаблонами, макетами, фигурами, параметрами экспорта или взаимосвязями между элементами презентации.
 
-В следующей таблице суммированы доступные вспомогательные классы:
+Ниже представлена таблица с доступными вспомогательными классами:
 
-| Helper | Применение |
+| Помощник | Для чего использовать |
 | --- | --- |
-| [Convert](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/convert/) | Конвертирование презентации в другой формат прямым вызовом файл‑в‑файл. |
+| [Convert](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/convert/) | Конвертация презентации в другой формат с прямым вызовом файл‑в‑файл. |
 | [Merger](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/merger/) | Объединение полных файлов презентаций одинакового формата. |
 | [ForEach](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/foreach/) | Выполнение действия для каждого слайда, фигуры, абзаца или части текста. |
 | [Collect](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/collect/) | Получение фигур из всей презентации для повторной обработки или анализа. |
-| [Compress](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/compress/) | Удаление неиспользуемых мастеров и макетов и уменьшение данных встраиваемых шрифтов. |
+| [Compress](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/compress/) | Удаление неиспользуемых шаблонов и макетов и уменьшение встроенных данных шрифтов. |
 
-## **Конвертировать презентацию**
+## **Конвертация презентации**
 
-Используйте [Convert.AutoByExtension](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/convert/autobyextension/) когда расширение выходного файла достаточно для выбора формата экспорта. Метод открывает исходную презентацию, определяет требуемый формат из пути вывода и записывает результат.
+Используйте [Convert.AutoByExtension](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/convert/autobyextension/) когда расширение выходного файла достаточно для выбора формата экспорта. Метод открывает исходную презентацию, определяет требуемый формат по пути к выходному файлу и записывает результат.
 
 ```csharp
 using Aspose.Slides.LowCode;
@@ -50,11 +50,11 @@ using Aspose.Slides.LowCode;
 Convert.AutoByExtension("input.pptx", "output.pdf");
 ```
 
-Класс [Convert](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/convert/) также предоставляет отдельные методы для вывода в PDF, SVG, JPEG, PNG и TIFF. Используйте полную объектную модель, если необходимо проверить или изменить презентацию перед экспортом или настроить параметр экспорта, который не доступен через выбранный вспомогательный класс. См. [Convert Presentation](/net/convert-presentation/) для рабочих процессов и параметров, специфичных для форматов.
+Класс [Convert](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/convert/) также предоставляет специальные методы для вывода в PDF, SVG, JPEG, PNG и TIFF. Используйте полную объектную модель, когда необходимо изучить или изменить презентацию перед экспортом или настроить параметр экспорта, который не доступен в выбранном помощнике. См. [Convert Presentation](/slides/ru/net/convert-presentation/) для рабочих процессов и параметров, специфичных для форматов.
 
-## **Объединить презентации**
+## **Объединение презентаций**
 
-Используйте [Merger.Process](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/merger/process/) для объединения полных файлов презентаций одним вызовом. Входные презентации должны быть одного формата.
+Используйте [Merger.Process](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/merger/process/) для объединения полных файлов презентаций одним вызовом. Входные презентации должны иметь одинаковый файловый формат.
 
 ```csharp
 using Aspose.Slides.LowCode;
@@ -63,13 +63,13 @@ var inputFiles = new[] { "part-1.pptx", "part-2.pptx" };
 Merger.Process(inputFiles, "merged.pptx");
 ```
 
-Вспомогательный класс подходит, когда все слайды необходимо добавить к единому результату без отдельного выбора или переназначения. Используйте полную объектную модель, если нужно объединить выбранные слайды, применить целевой мастер или макет, явно сохранить разделы или согласовать различные размеры слайдов. См. [Merge Presentations](/net/merge-presentation/) для этих сценариев.
+Этот помощник подходит, когда все слайды должны быть добавлены к одному результату без индивидуального выбора или переопределения. Используйте полную объектную модель, когда нужно объединять выбранные слайды, применять целевой шаблон или макет, явно сохранять секции или согласовать разные размеры слайдов. См. [Merge Presentations](/slides/ru/net/merge-presentation/) для таких сценариев.
 
-## **Итерировать элементы презентации**
+## **Итерация по элементам презентации**
 
-Класс [ForEach](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/foreach/) вызывает обратный вызов для каждого запрошенного типа элемента презентации. Он избавляет от вложенных циклов по коллекциям и удобен для инспекции или изменения форматирования по всей презентации.
+Класс [ForEach](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/foreach/) вызывает обратный вызов для каждого запрошенного типа элемента презентации. Он избавляет от вложенных циклов перебора коллекций и удобен для проверки или изменения параметров по всей презентации.
 
-Следующий пример использует [ForEach.Slide](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/foreach/slide/), [ForEach.Shape](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/foreach/shape/), [ForEach.Paragraph](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/foreach/paragraph/), и [ForEach.Portion](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/foreach/portion/) для инспекции соответствующих элементов:
+В следующем примере используются [ForEach.Slide](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/foreach/slide/), [ForEach.Shape](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/foreach/shape/), [ForEach.Paragraph](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/foreach/paragraph/) и [ForEach.Portion](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/foreach/portion/) для проверки соответствующих элементов:
 
 ```csharp
 using System;
@@ -99,11 +99,11 @@ ForEach.Portion(presentation, (portion, paragraph, slide, index) =>
 });
 ```
 
-По умолчанию обход фигур и текста по всей презентации включает обычные, мастер‑ и макетные слайды. Перегрузки с параметром `includeNotes` могут также обрабатывать слайды заметок. Используйте прямые циклы по коллекциям, когда важен порядок обхода, ранний выход, фильтрация до вызова обратного вызова или детальный контроль родитель‑дочерних связей.
+По умолчанию обход всех фигур и текста в презентации включает обычные, шаблонные и макетные слайды. Перегрузки с параметром `includeNotes` могут также обрабатывать слайды заметок. Используйте прямые циклы перебора, когда важен порядок обхода, ранний выход, фильтрация перед вызовом обратного вызова или детальный контроль родитель‑дочерних отношений.
 
-## **Собирать фигуры**
+## **Сбор фигур**
 
-Используйте [Collect.Shapes](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/collect/shapes/) когда вам нужна коллекция всех фигур в презентации, а не обратный вызов для каждой фигуры. Это удобно, если один и тот же набор будет отфильтрован, подсчитан или обработан более одного раза.
+Используйте [Collect.Shapes](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/collect/shapes/) когда нужен набор всех фигур в презентации, а не обратный вызов для каждой фигуры. Это удобно, если один и тот же набор будет фильтроваться, подсчитываться или обрабатываться более одного раза.
 
 ```csharp
 using System;
@@ -119,14 +119,14 @@ foreach (var shape in shapes)
 }
 ```
 
-Используйте [ForEach.Shape](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/foreach/shape/) вместо этого, когда каждую фигуру можно обработать сразу и сохранять полученный результат не требуется.
+Применяйте [ForEach.Shape](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/foreach/shape/) вместо этого, когда каждую фигуру можно обработать сразу и нет необходимости сохранять собранный результат.
 
-## **Сжать содержимое презентации**
+## **Сжатие содержимого презентации**
 
-Класс [Compress](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/compress/) может удалять неиспользуемые структурные элементы и уменьшать данные встраиваемых шрифтов:
+Класс [Compress](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/compress/) может удалять неиспользуемые структурные элементы и уменьшать объём встроенных шрифтов:
 
-- [Compress.RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) удаляет макетные слайды, которые не используют обычные слайды.
-- [Compress.RemoveUnusedMasterSlides](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/compress/removeunusedmasterslides/) удаляет мастер‑слайды, которые больше не используются.
+- [Compress.RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) удаляет макетные слайды, на которые не ссылаются обычные слайды.
+- [Compress.RemoveUnusedMasterSlides](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/compress/removeunusedmasterslides/) удаляет шаблонные слайды, которые больше не используются.
 - [Compress.CompressEmbeddedFonts](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/compress/compressembeddedfonts/) удаляет неиспользуемые символы из встроенных шрифтов.
 
 ```csharp
@@ -143,38 +143,38 @@ Compress.CompressEmbeddedFonts(presentation);
 presentation.Save("compressed.pptx", SaveFormat.Pptx);
 ```
 
-Удаляйте неиспользуемые макеты перед неиспользуемыми мастерами, чтобы мастер, который станет неупомянутым после очистки макетов, тоже мог быть удалён. Сохраните оптимизированную презентацию в новый файл, если позже могут понадобиться оригинальные мастера, макеты или полные данные встроенных шрифтов. Подробнее см. [Slide Master](/net/slide-master/) и [Embedded Font](/net/embedded-font/).
+Сначала удаляйте неиспользуемые макетные слайды, а затем неиспользуемые шаблоны, чтобы шаблон, ставший неиспользуемым после очистки макетов, также был удалён. Сохраните оптимизированную презентацию в новый файл, если позже могут понадобиться исходные шаблоны, макеты или полные данные встроенных шрифтов. Подробнее см. [Slide Master](/slides/ru/net/slide-master/) и [Embedded Font](/slides/ru/net/embedded-font/).
 
 ## **FAQ**
 
 **Когда следует использовать low‑code API вместо полной объектной модели?**
 
-Используйте low‑code вспомогательные классы, когда стандартная операция применяется к полному файлу или презентации и не требует детального контроля над отдельными элементами. Применяйте полную объектную модель, если необходимо выбрать конкретные слайды, управлять связями мастеров и макетов, проверять промежуточное состояние или настраивать поведение, не доступное через вспомогательный класс.
+Используйте low‑code помощники, когда стандартная операция применяется к целому файлу или презентации и не требует детального управления отдельными элементами. Применяйте полную объектную модель, если необходимо выбрать конкретные слайды, управлять связями шаблонов и макетов, изучать промежуточное состояние или настраивать поведение, которое помощник не раскрывает.
 
-**Может ли Merger объединять презентации разных форматов файлов?**
+**Может ли Merger объединять презентации разных файловых форматов?**
 
-Нет. [Merger.Process](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/merger/process/) требует, чтобы входные презентации были в одном и том же формате. Сначала конвертируйте входные файлы в общий формат, например с помощью [Convert.AutoByExtension](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/convert/autobyextension/), а затем объедините полученные файлы.
+Нет. [Merger.Process](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/merger/process/) требует, чтобы входные презентации имели один и тот же формат. Сначала преобразуйте входные файлы в общий формат, например с помощью [Convert.AutoByExtension](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/convert/autobyextension/), а затем объедините полученные файлы.
 
-**Обрабатывает ли ForEach мастер‑, макетные и слайды заметок?**
+**Обрабатывает ли ForEach шаблонные, макетные и слайды заметок?**
 
-[ForEach.Slide](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/foreach/slide/) перебирает обычные слайды презентации. Операции [ForEach.Shape](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/foreach/shape/), [ForEach.Paragraph](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/foreach/paragraph/) и [ForEach.Portion](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/foreach/portion/) по умолчанию включают обычные, мастер‑ и макетные слайды. Используйте их перегрузки с параметром `includeNotes`, установленным в `true`, чтобы включить слайды заметок.
+[ForEach.Slide](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/foreach/slide/) проходит только по обычным слайдам презентации. По всей презентации [ForEach.Shape](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/foreach/shape/), [ForEach.Paragraph](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/foreach/paragraph/) и [ForEach.Portion](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/foreach/portion/) включают обычные, шаблонные и макетные слайды по умолчанию. Используйте их перегрузки с параметром `includeNotes`, установленным в `true`, чтобы включить слайды заметок.
 
 **В чём разница между ForEach.Shape и Collect.Shapes?**
 
-Используйте [ForEach.Shape](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/foreach/shape/) для немедленной обработки каждой фигуры через обратный вызов. Применяйте [Collect.Shapes](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/collect/shapes/) когда нужен перечислимый результат, который можно сохранить, отфильтровать, подсчитать или пройти несколько раз.
+Применяйте [ForEach.Shape](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/foreach/shape/) для непосредственной обработки каждой фигуры через обратный вызов. Используйте [Collect.Shapes](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/collect/shapes/) когда нужен перечисляемый результат, который можно сохранить, отфильтровать, подсчитать или пройти несколько раз.
 
-**Всегда ли Compress делает файл презентации меньше?**
+**Всегда ли Compress уменьшает размер файла презентации?**
 
-Не обязательно. Результат зависит от наличия в презентации неиспользуемых макетов, мастеров или встроенных шрифтов с неиспользуемыми символами. Если таких элементов нет, соответствующие операции [Compress](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/compress/) могут не уменьшить размер файла.
+Не обязательно. Результат зависит от наличия неиспользуемых макетов, шаблонов или встроенных шрифтов с неиспользуемыми символами. Если таких элементов нет, соответствующие операции [Compress](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/compress/) могут не уменьшить размер файла.
 
-**Сохраняются ли изменения, сделанные ForEach или Compress, автоматически?**
+**Сохраняются ли изменения, внесённые ForEach или Compress, автоматически?**
 
-Нет. Эти вспомогательные классы работают с загруженным объектом [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/) в памяти. После изменения элементов в обратном вызове [ForEach](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/foreach/) или выполнения [Compress](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/compress/) вызовите [Presentation.Save](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/save/) для записи результата.
+Нет. Эти помощники работают с загруженным объектом [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/) в памяти. После изменения элементов в обратном вызове [ForEach](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/foreach/) или выполнения [Compress](https://reference.aspose.com/slides/ru/net/aspose.slides.lowcode/compress/) вызовите [Presentation.Save](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/save/) для записи результата.
 
 ## **Связанные статьи**
 
-- [Конвертировать презентацию](/net/convert-presentation/)
-- [Объединить презентации](/net/merge-presentation/)
-- [Мастер слайда](/net/slide-master/)
-- [Управление текстовым полем](/net/manage-textbox/)
-- [Встроенный шрифт](/net/embedded-font/)
+- [Convert Presentation](/slides/ru/net/convert-presentation/)
+- [Merge Presentations](/slides/ru/net/merge-presentation/)
+- [Slide Master](/slides/ru/net/slide-master/)
+- [Manage Text Box](/slides/ru/net/manage-textbox/)
+- [Embedded Font](/slides/ru/net/embedded-font/)

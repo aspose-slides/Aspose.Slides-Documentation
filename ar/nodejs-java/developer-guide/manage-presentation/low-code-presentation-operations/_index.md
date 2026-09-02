@@ -1,48 +1,48 @@
 ---
-title: "عمليات العرض التقديمي ذات الكود القليل في JavaScript"
-linktitle: "API منخفض الكود"
+title: عمليات العرض التقديمي منخفضة الشيفرة في JavaScript
+linktitle: API منخفضة الشيفرة
 type: docs
 weight: 50
 url: /ar/nodejs-java/low-code-presentation-operations/
 keywords:
-- API عرض تقديمي منخفض الكود
+- API عرض تقديمي منخفض الشيفرة
 - تحويل العرض التقديمي
 - دمج العروض التقديمية
-- التنقل عبر الشرائح
-- التنقل عبر الأشكال
-- التنقل عبر النص
+- التكرار عبر الشرائح
+- التكرار عبر الأشكال
+- التكرار عبر النص
 - جمع الأشكال
 - ضغط العرض التقديمي
 - إزالة القوالب غير المستخدمة
 - إزالة التخطيطات غير المستخدمة
-- ضغط الخطوط المدمجة
+- ضغط الخطوط المضمّنة
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "استخدم API منخفض الكود لـ Aspose.Slides في JavaScript لتحويل ودمج العروض التقديمية، والتنقل عبر المحتوى، وجمع الأشكال، وتقليل حجم العرض التقديمي."
+description: "استخدم واجهة برمجة تطبيقات Aspose.Slides منخفضة الشيفرة في JavaScript لتحويل ودمج العروض التقديمية، والتكرار عبر المحتوى، وجمع الأشكال، وتقليل حجم العرض."
 ---
 ## **نظرة عامة**
 
-توفر مساحة الاسم `aspose.slides` فئات مساعد ثابتة لعمليات العرض التقديمي الشائعة. تغلف هذه المساعدات سير عمل نموذج الكائنات المستخدم كثيرًا في طرق مركزة، بحيث يمكنك تحويل أو دمج الملفات، معالجة عناصر العرض التقديمي، جمع الأشكال، وإزالة المحتوى غير المستخدم بكتابة أقل.
+توفر مساحة الاسم `aspose.slides` فئات مساعدة ثابتة للعمليات الشائعة على العروض التقديمية. تقوم هذه المساعدات بلف سير عمل نموذج الكائنات المتكرر في أساليب مركزة، بحيث يمكنك تحويل أو دمج الملفات، معالجة عناصر العرض، جمع الأشكال، وإزالة المحتوى غير المستخدم مع أقل قدر من الشيفرة.
 
-المساعدات ذات الكود القليل هي الأكثر فائدة عندما ينطبق العملية على ملف أو عرض تقديمي كامل ويتطابق سير العمل الافتراضي مع متطلباتك. استخدم نموذج الكائنات الكامل [Aspose.Slides object model](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/) عندما تحتاج إلى تحكم دقيق على الشرائح الفردية أو القوالب أو التخطيطات أو الأشكال أو إعدادات التصدير أو العلاقات بين عناصر العرض التقديمي.
+تكون المساعدات منخفضة الشيفرة أكثر فائدة عندما تنطبق العملية على ملف أو عرض تقديمي كامل ويتطابق سير العمل الافتراضي مع متطلباتك. استخدم نموذج الكائن الكامل لـ [Aspose.Slides object model](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/) عندما تحتاج إلى تحكم دقيق في الشرائح الفردية، القوالب، التخطيطات، الأشكال، إعدادات التصدير، أو العلاقات بين عناصر العرض.
 
-الجدول التالي يلخّص المساعدات المتاحة:
+تلخص الجدول التالي المساعدات المتاحة:
 
-| المساعد | الاستخدام |
+| مساعد | استخدامه لـ |
 | --- | --- |
-| [Convert](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/convert/) | تحويل عرض تقديمي إلى تنسيق آخر عبر استدعاء مباشر من ملف إلى ملف. |
-| [Merger](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/merger/) | دمج ملفات العروض التقديمية الكاملة ذات التنسيق نفسه. |
-| [ForEach](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/foreach/) | تنفيذ إجراء لكل شريحة أو شكل أو فقرة أو قطعة نصية. |
-| [Collect](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/collect/) | استرجاع الأشكال من العرض التقديمي بأكمله للمعالجة المتكررة أو التحليل. |
-| [Compress](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/compress/) | إزالة القوالب والتخطيطات غير المستخدمة وتقليل بيانات الخطوط المدمجة. |
+| [تحويل](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/convert/) | تحويل عرض تقديمي إلى تنسيق آخر عبر استدعاء ملف إلى ملف مباشر. |
+| [دمج](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/merger/) | دمج ملفات عروض تقديمية كاملة من نفس التنسيق. |
+| [لكل](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/foreach/) | تشغيل إجراء لكل شريحة أو شكل أو فقرة أو جزء نصي. |
+| [جمع](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/collect/) | استرجاع الأشكال من كامل العرض للتعامل المتكرر أو التحليل. |
+| [ضغط](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/compress/) | إزالة القوالب والتخطيطات غير المستخدمة وتقليل بيانات الخطوط المضمّنة. |
 
 ## **تحويل عرض تقديمي**
 
-استخدم [Convert.autoByExtension](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/convert/#autoByExtension) عندما تكون امتداد الملف الناتج كافياً لاختيار تنسيق التصدير. يفتح الأسلوب العرض التقديمي المصدر، يحدد التنسيق المطلوب من مسار الإخراج، ويكتب النتيجة.
+استخدم [Convert.autoByExtension](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/convert/#autoByExtension) عندما تكون امتداد الملف الناتج كافياً لاختيار تنسيق التصدير. يفتح الأسلوب العرض المصدر، يحدّد التنسيق المطلوب من مسار الإخراج، ويكتب النتيجة.
 
 ```javascript
 var aspose = aspose || {};
@@ -51,11 +51,11 @@ aspose.slides = require("aspose.slides.via.java");
 aspose.slides.Convert.autoByExtension("input.pptx", "output.pdf");
 ```
 
-توفر فئة [Convert](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/convert/) أيضاً طرقًا مخصصة لإنشاء ملفات PDF و SVG و JPEG و PNG و TIFF. استخدم نموذج الكائنات الكامل عندما تحتاج إلى فحص أو تعديل العرض التقديمي قبل التصدير أو تكوين خيار تصدير غير متاح عبر المساعد المحدد. راجع [Convert Presentation](/nodejs-java/convert-presentation/) للحصول على سير عمل وخيارات خاصة بكل تنسيق.
+توفر فئة [تحويل](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/convert/) أيضاً أساليب مخصصة لإنتاج PDF و SVG و JPEG و PNG و TIFF. استخدم نموذج الكائن الكامل عندما تحتاج إلى فحص أو تعديل العرض قبل التصدير أو تكوين خيار تصدير غير متاح عبر المساعد المحدد. راجع [Convert Presentation](/slides/ar/nodejs-java/convert-presentation/) للحصول على سير عمل وخيارات خاصة بالتنسيق.
 
-## **دمج العروض التقديمية**
+## **دمج عروض تقديمية**
 
-استخدم [Merger.process](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/merger/#process) لدمج ملفات عروض تقديمية كاملة بنقرة واحدة. يجب أن تكون العروض التقديمية المدخلة بتنسيق ملف واحد.
+استخدم [دمج.process](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/merger/#process) لدمج ملفات عروض تقديمية كاملة باستدعاء واحد. يجب أن تكون الصيغة المتوفرة للعرضين متماثلة.
 
 ```javascript
 var aspose = aspose || {};
@@ -65,13 +65,13 @@ const inputFiles = ["first.pptx", "second.pptx"];
 aspose.slides.Merger.process(inputFiles, "merged.pptx");
 ```
 
-المساعد مناسب عندما يجب إلحاق جميع الشرائح بنتيجة واحدة دون اختيارها أو إعادة تعيينها بشكل فردي. استخدم نموذج الكائنات الكامل عندما تحتاج إلى دمج شرائح محددة، تطبيق قالب أو تخطيط وجهة، الحفاظ على الأقسام صراحة، أو توحيد أحجام الشرائح المختلفة. راجع [Merge Presentations](/nodejs-java/merge-presentation/) لهذه السيناريوهات.
+المساعد مناسب عندما يجب إلحاق جميع الشرائح بنتيجة واحدة دون اختيارها أو إعادة تعيينها بشكل فردي. استخدم نموذج الكائن الكامل عندما تحتاج إلى دمج شرائح مختارة، تطبيق قالب أو تخطيط وجهة، الحفاظ على الأقسام صراحة، أو التوفيق بين أحجام الشرائح المختلفة. راجع [Merge Presentations](/slides/ar/nodejs-java/merge-presentation/) لتلك السيناريوهات.
 
-## **التنقل عبر عناصر العرض التقديمي**
+## **التكرار عبر عناصر العرض التقديمي**
 
-تستدعي فئة [ForEach](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/foreach/) رد نداء لكل نوع مطلوب من عناصر العرض التقديمي. إنها تتجنب الحلقات المتداخلة للمجموعات وتكون ملائمة للفحص أو تغييرات التنسيق على مستوى كامل للعرض. في Node.js، يمكنك إنشاء تنفيذ لواجهات رد النداء باستخدام `java.newProxy`.
+تستدعي فئة [لكل](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/foreach/) استدعاءً ردًا لكل نوع مطلوب من عناصر العرض. يخفف ذلك من حلقات التجميع المتداخلة ويكون مناسبًا للفحص أو تعديل التنسيقات على مستوى العرض بالكامل. في Node.js، أنشئ تطبيقات لواجهات الرد باستخدام `java.newProxy`.
 
-المثال التالي يستخدم [ForEach.slide](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/foreach/#slide)، [ForEach.shape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/foreach/#shape)، [ForEach.paragraph](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/foreach/#paragraph)، و[ForEach.portion](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/foreach/#portion) لفحص العناصر المقابلة:
+يستخدم المثال التالي [لكل.slide](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/foreach/#slide)، [لكل.shape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/foreach/#shape)، [لكل.paragraph](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/foreach/#paragraph)، و [لكل.portion](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/foreach/#portion) لتفقد العناصر المقابلة:
 
 ```javascript
 const java = require("java");
@@ -112,11 +112,11 @@ try {
 }
 ```
 
-افتراضيًا، تشمل عملية اجتياز الأشكال والنص على مستوى العرض الشرائح العادية، والقوالب، والتخطيطات. يمكن للتحميل الزائد مع معامل `includeNotes` أيضًا معالجة شرائح الملاحظات. استخدم حلقات جمع مباشرة عندما تكون أولوية ترتيب الاجتياز، الخروج المبكر، التصفية قبل استدعاء رد النداء، أو التحكم المفصل بين الأصل والابن أمرًا مهمًا.
+افتراضيًا، يتضمن استعراض الأشكال والنص على مستوى العرض الشرائح العادية، والقوالب، والتخطيطات. يمكن للتحميلات التي تتضمن معامل `includeNotes` أيضًا معالجة شرائح الملاحظات. استخدم حلقات التجميع المباشرة عندما تكون أولوية ترتيب الاستعراض، الخروج المبكر، الترشيح قبل استدعاء الرد، أو التحكم المفصل في العلاقات الأب‑ابن.
 
 ## **جمع الأشكال**
 
-استخدم [Collect.shapes](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/collect/#shapes) عندما تحتاج إلى مجموعة تشمل جميع الأشكال في عرض تقديمي بدلاً من رد نداء لكل شكل. هذا مفيد عندما سيُطبق نفس المجموعة على تصفية أو عد أو معالجة متعددة.
+استخدم [جمع.shapes](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/collect/#shapes) عندما تحتاج إلى مجموعة من جميع الأشكال في عرض تقديمي بدلاً من رد لكل شكل. يكون ذلك مفيدًا عندما سيتم ترشيح المجموعة نفسها أو عدّها أو معالجتها أكثر من مرة.
 
 ```javascript
 var aspose = aspose || {};
@@ -136,15 +136,15 @@ try {
 }
 ```
 
-استخدم [ForEach.shape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/foreach/#shape) بدلاً من ذلك عندما يمكن معالجة كل شكل فورًا ولا تحتاج إلى الاحتفاظ بالنتيجة المجمعة.
+استخدم [لكل.shape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/foreach/#shape) بدلاً من ذلك عندما يمكن معالجة كل شكل فورًا ولا تحتاج إلى الاحتفاظ بالنتيجة المجمّعة.
 
 ## **ضغط محتوى العرض التقديمي**
 
-يمكن لفئة [Compress](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/compress/) إزالة العناصر الهيكلية غير المستخدمة وتقليل بيانات الخطوط المدمجة:
+يمكن لفئة [ضغط](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/compress/) إزالة العناصر الهيكلية غير المستخدمة وتقليل بيانات الخطوط المضمّنة:
 
-- [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) يزيل تخطيطات الشرائح التي لا تُشير إليها أي شريحة عادية.
-- [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/compress/#removeUnusedMasterSlides) يزيل القوالب التي لم يعد يتم استخدامها.
-- [Compress.compressEmbeddedFonts](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/compress/#compressEmbeddedFonts) يزيل الأحرف غير المستخدمة من الخطوط المدمجة.
+- [ضغط.removeUnusedLayoutSlides](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) يزيل شرائح التخطيط التي لا تشير إليها أي شريحة عادية.
+- [ضغط.removeUnusedMasterSlides](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/compress/#removeUnusedMasterSlides) يزيل القوالب التي لم تعد مستخدمة.
+- [ضغط.compressEmbeddedFonts](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/compress/#compressEmbeddedFonts) يزيل الأحرف غير المستخدمة من الخطوط المضمّنة.
 
 ```javascript
 var aspose = aspose || {};
@@ -162,38 +162,38 @@ try {
 }
 ```
 
-قم بإزالة التخطيطات غير المستخدمة قبل القوالب غير المستخدمة بحيث يمكن أيضًا حذف القالب الذي يصبح غير مرجّع بعد تنظيف التخطيطات. احفظ العرض التقديمي المُحسّن في ملف جديد إذا كنت قد تحتاج إلى القوالب الأصلية، التخطيطات، أو بيانات الخط المدمج الكاملة لاحقًا. لمزيد من التفاصيل، راجع [Slide Master](/nodejs-java/slide-master/) و[Embedded Font](/nodejs-java/embedded-font/).
+أزل التخطيطات غير المستخدمة قبل القوالب غير المستخدمة بحيث يمكن أيضًا حذف القالب غير المرتبط بعد تنظيف التخطيطات. احفظ العرض المُحسّن في ملف جديد إذا كنت قد تحتاج القوالب، التخطيطات، أو بيانات الخط المضمّنة بالكامل لاحقًا. للمزيد من التفاصيل، راجع [Slide Master](/slides/ar/nodejs-java/slide-master/) و [Embedded Font](/slides/ar/nodejs-java/embedded-font/).
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**متى يجب علي استخدام API ذات الكود القليل بدلاً من نموذج الكائنات الكامل؟**
+**متى يجب أن أستخدم واجهة برمجة التطبيقات منخفضة الشيفرة بدلاً من نموذج الكائن الكامل؟**
 
-استخدم المساعدات ذات الكود القليل عندما تنطبق عملية معيارية على ملف أو عرض تقديمي كامل ولا تتطلب تحكمًا تفصيليًا في العناصر الفردية. استخدم نموذج الكائنات الكامل عندما تحتاج إلى اختيار شرائح محددة، التحكم في علاقات القالب والتخطيط، فحص الحالة المتوسطة، أو تكوين سلوك لا يقدمه المساعد.
+استخدم المساعدات منخفضة الشيفرة عندما ينطبق عملية قياسية على ملف أو عرض تقديمي كامل ولا تتطلب تحكمًا دقيقًا في العناصر الفردية. استخدم نموذج الكائن الكامل عندما تحتاج إلى اختيار شرائح محددة، التحكم في علاقات القالب والتخطيط، فحص الحالة الوسيطة، أو تكوين سلوك لا يُظهره المساعد.
 
-**هل يمكن لـ Merger دمج عروض تقديمية بصيغ ملفات مختلفة؟**
+**هل يمكن لـ دمج دمج عروض تقديمية بصيغ ملفات مختلفة؟**
 
-لا. [Merger.process](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/merger/#process) يتطلب أن تكون العروض التقديمية المدخلة بنفس التنسيق. حوّل الملفات المدخلة إلى تنسيق مشترك أولًا، على سبيل المثال باستخدام [Convert.autoByExtension](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/convert/#autoByExtension)، ثم دمج الملفات المحوَّلة.
+لا. يتطلب [دمج.process](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/merger/#process) أن تكون العروض المدخلة بنفس الصيغة. حوّل الملفات المدخلة إلى صيغة مشتركة أولاً، على سبيل المثال باستخدام [Convert.autoByExtension](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/convert/#autoByExtension)، ثم دمج الملفات المحوّلة.
 
-**هل يعالج ForEach الشرائح القوالب، التخطيطات، وملاحظات الشريحة؟**
+**هل يعالج لكل الشرائح القوالب، التخطيطات، وشرائح الملاحظات؟**
 
-[ForEach.slide](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/foreach/#slide) يتنقل عبر الشرائح العادية للعرض التقديمي. عمليات [ForEach.shape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/foreach/#shape)، [ForEach.paragraph](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/foreach/#paragraph) و[ForEach.portion](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/foreach/#portion) تشمل الشرائح العادية، والقوالب، والتخطيطات بشكل افتراضي. استخدم التحميل الزائد مع `includeNotes` مضبوطًا على `true` لتضمين شرائح الملاحظات.
+يتجول [لكل.slide](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/foreach/#slide) عبر الشرائح العادية للعرض. تشمل عمليات [لكل.shape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/foreach/#shape)، [لكل.paragraph](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/foreach/#paragraph)، و [لكل.portion](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/foreach/#portion) الشرائح العادية، القوالب، والتخطيطات بشكل افتراضي. استخدم التحميلات التي لديها `includeNotes` مضبوطة على `true` لتضمين شرائح الملاحظات.
 
-**ما الفرق بين ForEach.shape و Collect.shapes؟**
+**ما الفرق بين لكل.shape و جمع.shapes؟**
 
-استخدم [ForEach.shape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/foreach/#shape) لمعالجة كل شكل فورًا عبر رد نداء. استخدم [Collect.shapes](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/collect/#shapes) عندما تحتاج إلى نتيجة قابلة للتكرار يمكن الاحتفاظ بها، تصفيتها، عدها أو اجتيازها عدة مرات.
+استخدم [لكل.shape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/foreach/#shape) لمعالجة كل شكل فورًا عبر رد. استخدم [جمع.shapes](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/collect/#shapes) عندما تحتاج إلى نتيجة قابلة للتكرار يمكن الاحتفاظ بها، ترشيحها، عدّها، أو استعراضها عدة مرات.
 
-**هل يؤدي Compress دائمًا إلى تقليل حجم ملف العرض التقديمي؟**
+**هل يجعل الضغط دائمًا ملف العرض أصغر؟**
 
-ليس بالضرورة. النتيجة تعتمد على ما إذا كان العرض يحتوي على تخطيطات غير مستخدمة، قوالب غير مستخدمة، أو خطوط مدمجة بها أحرف غير مستخدمة. إذا لم يكن أي من هذه موجودًا، قد لا تقلل عمليات [Compress](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/compress/) حجم الملف.
+ليس بالضرورة. يعتمد النتيجة على ما إذا كان العرض يحتوي على تخطيطات غير مستخدمة، قوالب غير مستخدمة، أو خطوط مضمّنة بأحرف غير مستخدمة. إذا لم يكن أي من ذلك موجودًا، قد لا تقلل عمليات [ضغط](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/compress/) حجم الملف.
 
-**هل يتم حفظ التغييرات التي تُجريها ForEach أو Compress تلقائيًا؟**
+**هل تُحفظ التغييرات التي يجريها لكل أو ضغط تلقائيًا؟**
 
-لا. هذه المساعدات تعمل على كائن [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/) المحمّل في الذاكرة. بعد تعديل العناصر في رد نداء [ForEach](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/foreach/) أو تشغيل [Compress](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/compress/)، استدعِ [Presentation.save](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/#save) لكتابة النتيجة.
+لا. تعمل هذه المساعدات على كائن [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/) المحمّل في الذاكرة. بعد تعديل العناصر في رد [لكل](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/foreach/) أو تشغيل [ضغط](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/compress/)، استدعِ [Presentation.save](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/#save) لكتابة النتيجة.
 
 ## **مقالات ذات صلة**
 
-- [Convert Presentation](/nodejs-java/convert-presentation/)
-- [Merge Presentations](/nodejs-java/merge-presentation/)
-- [Slide Master](/nodejs-java/slide-master/)
-- [Manage Text Box](/nodejs-java/manage-textbox/)
-- [Embedded Font](/nodejs-java/embedded-font/)
+- [تحويل عرض تقديمي](/slides/ar/nodejs-java/convert-presentation/)
+- [دمج عروض تقديمية](/slides/ar/nodejs-java/merge-presentation/)
+- [قالب الشريحة](/slides/ar/nodejs-java/slide-master/)
+- [إدارة مربع النص](/slides/ar/nodejs-java/manage-textbox/)
+- [خط مضمّن](/slides/ar/nodejs-java/embedded-font/)

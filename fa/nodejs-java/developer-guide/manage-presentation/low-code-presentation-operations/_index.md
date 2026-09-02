@@ -1,46 +1,48 @@
 ---
-title: عملیات‌های ارائه کم‌کد در جاوااسکریپت
-linktitle: API کم‌کد
+title: عملیات ارائه با کد کم در جاوااسکریپت
+linktitle: API کد کم
 type: docs
 weight: 50
 url: /fa/nodejs-java/low-code-presentation-operations/
 keywords:
-- API ارائه کم‌کد
+- API ارائه با کد کم
 - تبدیل ارائه
-- ترکیب ارائه‌ها
-- پیمایش اسلایدها
-- پیمایش اشکال
-- پیمایش متن
-- جمع‌آوری اشکال
+- ادغام ارائه‌ها
+- مرور اسلایدها
+- مرور شکل‌ها
+- مرور متن
+- جمع‌آوری شکل‌ها
 - فشرده‌سازی ارائه
-- حذف اسلایدهای مستر استفاده نشده
-- حذف اسلایدهای طرح‌بندی استفاده نشده
-- فشرده‌سازی فونت‌های جاسازی‌شده
+- حذف اسلایدهای مستر استفاده‌نشده
+- حذف اسلایدهای لایه استفاده‌نشده
+- فشرده‌سازی فونت‌های توکار
 - PowerPoint
 - OpenDocument
 - ارائه
 - Node.js
-- JavaScript
+- جاوااسکریپت
 - Aspose.Slides
-description: "از API کم‌کد Aspose.Slides در جاوااسکریپت برای تبدیل و ترکیب ارائه‌ها، پیمایش محتوا، جمع‌آوری اشکال و کاهش اندازه ارائه استفاده کنید."
+description: "از API کد کم Aspose.Slides در جاوااسکریپت برای تبدیل و ادغام ارائه‌ها، مرور محتوا، جمع‌آوری شکل‌ها و کاهش حجم ارائه استفاده کنید."
 ---
-## **بررسی کلی**
+## **مروری**
 
-فضای‌نامی `aspose.slides` کلاس‌های استاتیک کمکی برای عملیات رایج ارائه را فراهم می‌کند. این کمکی‌ها جریان‌کاری‌های پرکاربرد مدل‌شیء را در روش‌های متمرکز می‌پیچند، به‌طوری که می‌توانید فایل‌ها را تبدیل یا ترکیب کنید، عناصر ارائه را پردازش کنید، اشکال را جمع‌آوری کنید و محتوای استفاده نشده را با کد کمتر حذف کنید.
+فضای‌نام `aspose.slides` کلاس‌های کمکی ایستاتیک برای عملیات رایج ارائه‌ها را فراهم می‌کند. این کمکی‌ها جریان‌های کاری مدل‑شیء پرکاربرد را در متدهای متمرکز می‌پیچند، به طوری که می‌توانید فایل‌ها را تبدیل یا ادغام کنید، عناصر ارائه را پردازش کنید، شکل‌ها را جمع‌آوری کنید و محتوای استفاده‌نشده را با کد کمتر حذف کنید.
 
-کمک‌های Low-code زمانی مفیدترین هستند که عملیات بر روی یک فایل یا ارائه کامل اعمال می‌شود و گردش‌کار پیش‌فرض با نیازهای شما مطابقت دارد. زمانی که به کنترل دقیق بر اسلایدهای تک‌تک، مسترها، طرح‌بندی‌ها، اشکال، تنظیمات خروجی یا روابط بین عناصر ارائه نیاز دارید، از مدل شیء کامل [Aspose.Slides object model](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/) استفاده کنید.
+کمک‌کننده‌های کم‌کد زمانی مفیدترین هستند که عملیات بر روی یک فایل یا ارائه کامل اعمال می‌شود و جریان کاری پیش‌فرض با نیازهای شما مطابقت دارد. هنگام نیاز به کنترل دقیق بر اسلایدها، مسترها، لایه‌ها، شکل‌ها، تنظیمات صادرات یا رابطه بین عناصر ارائه، از **[مدل شیء Aspose.Slides](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/)** کامل استفاده کنید.
 
-| Helper | Use it for |
+جدول زیر خلاصه‌ای از کمک‌کننده‌های موجود را ارائه می‌دهد:
+
+| کمک‌کننده | موارد استفاده |
 | --- | --- |
-| [Convert](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/convert/) | تبدیل یک ارائه به قالب دیگر با فراخوانی مستقیم فایل به فایل. |
-| [Merger](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/merger/) | ترکیب فایل‌های ارائه کامل با قالب یکسان. |
-| [ForEach](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/foreach/) | اجرای یک عمل برای هر اسلاید، شکل، پاراگراف یا بخش متن. |
-| [Collect](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/collect/) | دریافت اشکال از کل ارائه برای پردازش یا تجزیه و تحلیل مکرر. |
-| [Compress](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/compress/) | حذف مسترها و طرح‌بندی‌های استفاده نشده و کاهش داده‌های فونت‌های جاسازی‌شده. |
+| [Convert](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/convert/) | تبدیل یک ارائه به قالب دیگر با فراخوانی مستقیم فایل‑به‑فایل. |
+| [Merger](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/merger/) | ترکیب کامل فایل‌های ارائه‌ای با همان قالب. |
+| [ForEach](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/foreach/) | اجرای عملی برای هر اسلاید، شکل، پاراگراف یا قسمت متن. |
+| [Collect](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/collect/) | به‌دست آوردن شکل‌ها از کل ارائه برای پردازش یا تجزیه و تحلیل مکرر. |
+| [Compress](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/compress/) | حذف مسترها و لایه‌های استفاده‌نشده و کاهش داده‌های فونت‌های توکار. |
 
 ## **تبدیل یک ارائه**
 
-از [Convert.autoByExtension](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/convert/#autoByExtension) زمانی استفاده کنید که پسوند فایل خروجی برای انتخاب فرمت خروجی کافی باشد. این متد ارائه منبع را باز می‌کند، فرمت مورد نیاز را از مسیر خروجی تعیین می‌کند و نتیجه را می‌نویسد.
+از [Convert.autoByExtension](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/convert/#autoByExtension) زمانی استفاده کنید که پسوند فایل خروجی به تنهایی برای انتخاب فرمت صادرات کافی باشد. این متد ارائه منبع را باز می‌کند، فرمت مورد نیاز را از مسیر خروجی تعیین می‌نماید و نتیجه را می‌نویسد.
 
 ```javascript
 var aspose = aspose || {};
@@ -49,11 +51,11 @@ aspose.slides = require("aspose.slides.via.java");
 aspose.slides.Convert.autoByExtension("input.pptx", "output.pdf");
 ```
 
-کلاس [Convert](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/convert/) همچنین روش‌های اختصاصی برای خروجی PDF، SVG، JPEG، PNG و TIFF ارائه می‌دهد. زمانی که نیاز به بازرسی یا تغییر ارائه پیش از خروجی یا پیکربندی گزینه خروجی‌ای دارید که توسط کمکی انتخاب‌شده در دسترس نیست، از مدل شیء کامل استفاده کنید. برای گردش‌کارها و گزینه‌های مخصوص به هر فرمت، به [Convert Presentation](/nodejs-java/convert-presentation/) مراجعه کنید.
+کلاس [Convert](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/convert/) همچنین متدهای اختصاصی برای خروجی PDF، SVG، JPEG، PNG و TIFF را فراهم می‌کند. هنگامی که نیاز به بازرسی یا تغییر ارائه قبل از صادرات یا تنظیم گزینه‌ای دارید که توسط کمک‌کننده در دسترس نیست، از مدل شیء کامل استفاده کنید. برای گردش‌کارها و گزینه‌های خاص هر فرمت، به **[تبدیل ارائه](/slides/fa/nodejs-java/convert-presentation/)** مراجعه کنید.
 
-## **ترکیب ارائه‌ها**
+## **ادغام ارائه‌ها**
 
-از [Merger.process](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/merger/#process) برای ترکیب کامل فایل‌های ارائه با یک فراخوانی استفاده کنید. ارائه‌های ورودی باید دارای همان قالب فایل باشند.
+از [Merger.process](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/merger/#process) برای ترکیب کامل فایل‌های ارائه‌ای با یک فراخوانی استفاده کنید. ارائه‌های ورودی باید همان قالب فایل را داشته باشند.
 
 ```javascript
 var aspose = aspose || {};
@@ -63,11 +65,13 @@ const inputFiles = ["first.pptx", "second.pptx"];
 aspose.slides.Merger.process(inputFiles, "merged.pptx");
 ```
 
-این کمکی زمانی مناسب است که همه اسلایدها باید بدون انتخاب یا بازنگری فردی به یک نتیجه اضافه شوند. زمانی که نیاز به ترکیب اسلایدهای انتخابی، اعمال مستر یا طرح‌بندی مقصد، حفظ بخش‌ها به‌صورت صریح یا تطبیق اندازه‌های اسلاید متفاوت دارید، از مدل شیء کامل استفاده کنید. برای این سناریوها به [Merge Presentations](/nodejs-java/merge-presentation/) مراجعه کنید.
+این کمک‌کننده زمانی مناسب است که تمام اسلایدها باید بدون انتخاب یا بازنگری جداگانه به یک نتیجه اضافه شوند. هنگامی که نیاز به ادغام اسلایدهای انتخابی، اعمال مستر یا لایه مقصد، حفظ بخش‌ها به‌صورت صریح یا تطبیق اندازه‌های مختلف اسلاید دارید، از مدل شیء کامل استفاده کنید. برای این سناریوها به **[ادغام ارائه‌ها](/slides/fa/nodejs-java/merge-presentation/)** نگاه کنید.
 
-## **تکرار در عناصر ارائه**
+## **تکرار بر روی عناصر ارائه**
 
-کلاس [ForEach](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/foreach/) برای هر نوع عنصر درخواست‌شده از ارائه یک فراخوانی (callback) را فراخوانی می‌کند. این کار از حلقه‌های تو در توی جمع‌آوری جلوگیری می‌کند و برای بازرسی یا تغییر فرمت سراسری ارائه مناسب است. در Node.js، پیاده‌سازی‌های رابط‌های callback را با `java.newProxy` ایجاد کنید.
+کلاس [ForEach](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/foreach/) برای هر نوع عنصر درخواست‌شدهٔ ارائه یک کال‌بک فراخوانی می‌کند. این کار حلقه‌های تو در توی جمع‌آوری را حذف می‌کند و برای بازرسی یا تغییرات سراسری مفید است. در Node.js، پیاده‌سازی‌های این کال‌بک‌ها را می‌توانید با `java.newProxy` ایجاد کنید.
+
+مثال زیر از [ForEach.slide](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/foreach/#slide)، [ForEach.shape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/foreach/#shape)، [ForEach.paragraph](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/foreach/#paragraph) و [ForEach.portion](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/foreach/#portion) برای بازرسی عناصر مربوطه استفاده می‌کند:
 
 ```javascript
 const java = require("java");
@@ -108,11 +112,11 @@ try {
 }
 ```
 
-به‌صورت پیش‌فرض، پیمایش اشکال و متن سراسری ارائه شامل اسلایدهای عادی، مستر و طرح‌بندی می‌شود. نسخه‌های با پارامتر `includeNotes` می‌توانند اسلایدهای یادداشت‌ها را نیز پردازش کنند. هنگامی که ترتیب پیمایش، خروج زودهنگام، فیلتر پیش از فراخوانی callback یا کنترل دقیق والد‑فرزندی مهم است، از حلقه‌های جمع‌آوری مستقیم استفاده کنید.
+به‌صورت پیش‌فرض، عبور سراسری بر شکل‌ها و متن شامل اسلایدهای عادی، مستر و لایه می‌شود. بارگذاری‌های دیگری با پارامتر `includeNotes` می‌توانند اسلایدهای یادداشت‌ها را نیز پردازش کنند. وقتی ترتیب عبور، خروج زودهنگام، فیلترینگ قبل از فراخوانی کال‌بک یا کنترل والد‑فرزندی دقیق مهم باشد، از حلقه‌های جمع‌آوری مستقیم استفاده کنید.
 
-## **جمع‌آوری اشکال**
+## **جمع‌آوری شکل‌ها**
 
-از [Collect.shapes](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/collect/#shapes) زمانی استفاده کنید که به یک مجموعه از تمام اشکال در یک ارائه نیاز دارید نه یک فراخوانی برای هر شکل. این مورد زمانی مفید است که همان مجموعه چندبار فیلتر، شمارش یا پردازش شود.
+از [Collect.shapes](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/collect/#shapes) زمانی استفاده کنید که به یک مجموعهٔ تمام شکل‌های یک ارائه نیاز دارید نه یک کال‌بک برای هر شکل. این روش زمانی مفید است که همان مجموعه به‌صورت مکرر فیلتر، شمارش یا پردازش شود.
 
 ```javascript
 var aspose = aspose || {};
@@ -132,15 +136,15 @@ try {
 }
 ```
 
-در صورتی که هر شکل می‌تواند بلافاصله پردازش شود و نیازی به نگهداری نتیجه جمع‌آوری‌شده ندارید، به جای آن از [ForEach.shape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/foreach/#shape) استفاده کنید.
+در صورتی که هر شکل می‌تواند بلافاصله پردازش شود و نیازی به نگه‌داری نتیجه جمع‌آوری‌شده ندارید، به جای آن از [ForEach.shape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/foreach/#shape) استفاده کنید.
 
 ## **فشرده‌سازی محتوای ارائه**
 
-کلاس [Compress](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/compress/) می‌تواند عناصر ساختاری استفاده‌نشده را حذف و داده‌های فونت‌های جاسازی‌شده را کاهش دهد:
+کلاس [Compress](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/compress/) می‌تواند عناصر ساختاری استفاده‌نشده را حذف کرده و داده‌های فونت‌های توکار را کاهش دهد:
 
-- [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) اسلایدهای طرح‌بندی را که هیچ اسلاید عادی به آن ارجاع نمی‌دهد، حذف می‌کند.
-- [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/compress/#removeUnusedMasterSlides) اسلایدهای مستر که دیگر استفاده نمی‌شوند را حذف می‌کند.
-- [Compress.compressEmbeddedFonts](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/compress/#compressEmbeddedFonts) کاراکترهای استفاده‌نشده را از فونت‌های جاسازی‌شده حذف می‌کند.
+- [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) لایه‌هایی را که هیچ اسلاید عادی به آن‌ها ارجاع نمی‌دهد، حذف می‌کند.
+- [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/compress/#removeUnusedMasterSlides) مسترهایی را که دیگر استفاده نمی‌شوند، حذف می‌کند.
+- [Compress.compressEmbeddedFonts](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/compress/#compressEmbeddedFonts) کاراکترهای استفاده‌نشدۀ فونت‌های توکار را حذف می‌کند.
 
 ```javascript
 var aspose = aspose || {};
@@ -158,38 +162,32 @@ try {
 }
 ```
 
-طرح‌بندی‌های استفاده‌نشده را قبل از مسترهای استفاده‌نشده حذف کنید تا مستری که پس از پاک‌سازی طرح‌بندی غیرقابل ارجاع می‌شود نیز حذف شود. اگر ممکن است به مسترها، طرح‌بندی‌ها یا داده‌های کامل فونت‌های جاسازی‌شده اصلی بعداً نیاز داشته باشید، ارائه بهینه‌شده را در فایل جدید ذخیره کنید. برای جزئیات بیشتر، به [Slide Master](/nodejs-java/slide-master/) و [Embedded Font](/nodejs-java/embedded-font/) مراجعه کنید.
+ابتدا لایه‌های استفاده‌نشده را حذف کنید، سپس مسترهای استفاده‌نشده؛ به این ترتیب مستری که پس از پاک‌سازی لایه‌ها دیگر ارجاع ندارد، نیز حذف می‌شود. برای حفظ مسترها، لایه‌ها یا داده‌های کامل فونت‌های توکار، ارائه بهینه‌شده را در فایلی جدید ذخیره کنید. برای جزئیات بیشتر، به **[مستری اسلاید](/slides/fa/nodejs-java/slide-master/)** و **[فونت توکار](/slides/fa/nodejs-java/embedded-font/)** مراجعه کنید.
 
 ## **پرسش‌های متداول**
 
-**چه موقع باید از API کم‌کد به جای مدل شیء کامل استفاده کنم؟**
+**چه موقع باید از API کم‌کد به‌جای مدل شیء کامل استفاده کنم؟**  
+وقتی یک عملیات استاندارد بر روی یک فایل یا ارائهٔ کامل اعمال می‌شود و نیازی به کنترل دقیق بر عناصر منفرد نیست، از کمک‌کننده‌های کم‌کد استفاده کنید. برای انتخاب اسلایدهای خاص، کنترل روابط مستر و لایه، بازرسی وضعیت میانی یا تنظیم رفتاری که توسط کمک‌کننده ارائه نمی‌شود، از مدل شیء کامل استفاده کنید.
 
-وقتی یک عملیات استاندارد بر روی یک فایل یا ارائه کامل اعمال می‌شود و کنترل دقیق بر عناصر تک‌تک لازم نیست، از کمک‌های کم‌کد استفاده کنید. هنگامی که نیاز به انتخاب اسلایدهای خاص، کنترل روابط مستر و طرح‌بندی، بازرسی وضعیت میانی یا پیکربندی رفتاری دارید که کمکی آن را افشا نمی‌کند، از مدل شیء کامل استفاده کنید.
+**آیا Merger می‌تواند ارائه‌ها را در قالب‌های فایل متفاوت ترکیب کند؟**  
+خیر. متد [Merger.process](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/merger/#process) نیاز دارد که همهٔ ارائه‌های ورودی یک قالب داشته باشند. ابتدا فایل‌های ورودی را با نمونه‌ای مانند [Convert.autoByExtension](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/convert/#autoByExtension) به قالب مشترک تبدیل کنید، سپس آن‌ها را ادغام کنید.
 
-**آیا Merger می‌تواند ارائه‌ها را با فرمت‌های فایل متفاوت ترکیب کند؟**
+**آیا ForEach مستر، لایه و اسلایدهای یادداشت را پردازش می‌کند؟**  
+متد [ForEach.slide](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/foreach/#slide) فقط اسلایدهای عادی ارائه را مرور می‌کند. عملیات سراسری [ForEach.shape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/foreach/#shape)، [ForEach.paragraph](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/foreach/#paragraph) و [ForEach.portion](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/foreach/#portion) به‌صورت پیش‌فرض شامل اسلایدهای عادی، مستر و لایه هستند. برای شامل کردن اسلایدهای یادداشت، از بارگذاری‌هایی که پارامتر `includeNotes` را به `true` تنظیم می‌کنند، استفاده کنید.
 
-خیر. [Merger.process](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/merger/#process) نیاز دارد که ارائه‌های ورودی در یک فرمت باشند. ابتدا فایل‌های ورودی را به یک فرمت مشترک تبدیل کنید، برای مثال با [Convert.autoByExtension](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/convert/#autoByExtension)، سپس فایل‌های تبدیل‌شده را ترکیب کنید.
+**فرق بین ForEach.shape و Collect.shapes چیست؟**  
+اگر می‌خواهید هر شکل را بلافاصله با کال‌بک پردازش کنید، از [ForEach.shape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/foreach/#shape) استفاده کنید. اگر به یک نتیجهٔ قابل تکرار (قابل نگهداری، فیلتر یا شمارش) نیاز دارید، از [Collect.shapes](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/collect/#shapes) استفاده کنید.
 
-**آیا ForEach مسترها، طرح‌بندی‌ها و اسلایدهای یادداشت‌ها را پردازش می‌کند؟**
+**آیا Compress همیشه اندازهٔ فایل ارائه را کاهش می‌دهد؟**  
+لزومی نیست. نتیجه بستگی به این دارد که آیا ارائه شامل لایه‌ها یا مسترهای استفاده‌نشده یا فونت‌های توکار با کاراکترهای غیرمصرف است یا نه. اگر هیچ‌یک از این موارد وجود نداشته باشد، عملیات مربوط به [Compress](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/compress/) ممکن است اندازهٔ فایل را کاهش ندهد.
 
-[ForEach.slide](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/foreach/#slide) اسلایدهای عادی ارائه را پیمایش می‌کند. عملیات سراسری [ForEach.shape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/foreach/#shape)، [ForEach.paragraph](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/foreach/#paragraph) و [ForEach.portion](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/foreach/#portion) به‌طور پیش‌فرض شامل اسلایدهای عادی، مستر و طرح‌بندی می‌شوند. برای شامل کردن اسلایدهای یادداشت‌ها، از نسخه‌های آنها با پارامتر `includeNotes` برابر `true` استفاده کنید.
-
-**تفاوت بین ForEach.shape و Collect.shapes چیست؟**
-
-از [ForEach.shape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/foreach/#shape) برای پردازش هر شکل بلافاصله در یک callback استفاده کنید. از [Collect.shapes](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/collect/#shapes) زمانی که به یک نتیجه قابل تکرار نیاز دارید که می‌توانید آن را نگه دارید، فیلتر کنید، شمارش کنید یا چندبار عبور کنید، استفاده کنید.
-
-**آیا Compress همیشه اندازه فایل ارائه را کوچکتر می‌کند؟**
-
-لزماً نیست. نتیجه بستگی دارد به اینکه آیا ارائه شامل طرح‌بندی‌های استفاده‌نشده، مسترهای استفاده‌نشده یا فونت‌های جاسازی‌شده با کاراکترهای استفاده‌نشده باشد یا خیر. اگر هیچ‌یک از این موارد وجود نداشته باشد، عملیات مربوط به [Compress](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/compress/) ممکن است اندازه فایل را کاهش ندهد.
-
-**آیا تغییرات انجام‌شده توسط ForEach یا Compress به‌صورت خودکار ذخیره می‌شوند؟**
-
-خیر. این کمکی‌ها بر روی شیء [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) بارگذاری‌شده در حافظه کار می‌کنند. پس از تغییر عناصر در یک callback از [ForEach](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/foreach/) یا اجرای [Compress](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/compress/)، برای نوشتن نتیجه باید [Presentation.save](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/#save) را صدا بزنید.
+**آیا تغییرات اعمال‌شده توسط ForEach یا Compress به‌صورت خودکار ذخیره می‌شوند؟**  
+خیر. این کمک‌کننده‌ها بر روی شیء [Presentation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) بارگذاری‌شده در حافظه عمل می‌کنند. پس از تغییر عناصر در کال‌بک [ForEach](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/foreach/) یا اجرای [Compress](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/compress/)، برای نوشتن نتیجه باید متد [Presentation.save](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/#save) را فراخوانی کنید.
 
 ## **مقالات مرتبط**
 
-- [Convert Presentation](/nodejs-java/convert-presentation/)
-- [Merge Presentations](/nodejs-java/merge-presentation/)
-- [Slide Master](/nodejs-java/slide-master/)
-- [Manage Text Box](/nodejs-java/manage-textbox/)
-- [Embedded Font](/nodejs-java/embedded-font/)
+- [تبدیل ارائه](/slides/fa/nodejs-java/convert-presentation/)
+- [ادغام ارائه‌ها](/slides/fa/nodejs-java/merge-presentation/)
+- [مستری اسلاید](/slides/fa/nodejs-java/slide-master/)
+- [مدیریت جعبهٔ متن](/slides/fa/nodejs-java/manage-textbox/)
+- [فونت توکار](/slides/fa/nodejs-java/embedded-font/)

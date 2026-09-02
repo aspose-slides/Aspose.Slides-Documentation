@@ -1,5 +1,5 @@
 ---
-title: Các hoạt động trình chiếu Low-Code trong PHP
+title: Các hoạt động trình chiếu low-code trong PHP
 linktitle: API Low-Code
 type: docs
 weight: 50
@@ -7,41 +7,41 @@ url: /vi/php-java/low-code-presentation-operations/
 keywords:
 - API trình chiếu low-code
 - chuyển đổi trình chiếu
-- kết hợp các trình chiếu
+- hợp nhất trình chiếu
 - lặp qua slide
 - lặp qua shape
 - lặp qua văn bản
 - thu thập shape
 - nén trình chiếu
-- xóa master slide không sử dụng
-- xóa layout slide không sử dụng
+- xóa slide master không dùng
+- xóa slide layout không dùng
 - nén phông chữ nhúng
 - PowerPoint
 - OpenDocument
 - trình chiếu
 - PHP
 - Aspose.Slides
-description: "Sử dụng API low-code Aspose.Slides trong PHP để chuyển đổi và kết hợp các trình chiếu, lặp qua nội dung, thu thập shape và giảm kích thước trình chiếu."
+description: "Sử dụng API low-code của Aspose.Slides trong PHP để chuyển đổi và hợp nhất các trình chiếu, lặp qua nội dung, thu thập shape và giảm kích thước trình chiếu."
 ---
 ## **Tổng quan**
 
-The [aspose.slides](https://reference.aspose.com/slides/vi/php-java/aspose.slides/) namespace provides static helper classes for common presentation operations. These helpers wrap frequently used object-model workflows in focused methods, so you can convert or merge files, process presentation elements, collect shapes, and remove unused content with less code.
+The [aspose.slides](https://reference.aspose.com/slides/vi/php-java/aspose.slides/) namespace cung cấp các lớp trợ giúp tĩnh cho các thao tác trình chiếu phổ biến. Những trợ giúp này gói gọn các quy trình mô hình đối tượng thường dùng vào các phương thức tập trung, cho phép bạn chuyển đổi hoặc hợp nhất tệp, xử lý các thành phần của trình chiếu, thu thập các shape và loại bỏ nội dung không dùng tới với ít mã hơn.
 
-Low-code helpers are most useful when the operation applies to an entire file or presentation and the default workflow matches your requirements. Use the full [Aspose.Slides object model](https://reference.aspose.com/slides/vi/php-java/aspose.slides/) when you need fine-grained control over individual slides, masters, layouts, shapes, export settings, or relationships between presentation elements.
+Các trợ giúp low-code hữu ích nhất khi thao tác áp dụng cho toàn bộ tệp hoặc trình chiếu và quy trình mặc định phù hợp với yêu cầu của bạn. Sử dụng toàn bộ [Aspose.Slides object model](https://reference.aspose.com/slides/vi/php-java/aspose.slides/) khi bạn cần kiểm soát chi tiết từng slide, master, layout, shape, cài đặt xuất, hoặc mối quan hệ giữa các thành phần của trình chiếu.
 
-The following table summarizes the available helpers:
+Bảng sau tóm tắt các trợ giúp có sẵn:
 
-| Trợ giúp | Dùng cho |
+| Trợ giúp | Sử dụng cho |
 | --- | --- |
-| [Convert](https://reference.aspose.com/slides/vi/php-java/aspose.slides/convert/) | Chuyển đổi bản trình chiếu sang định dạng khác bằng một lệnh trực tiếp file-to-file. |
-| [Merger](https://reference.aspose.com/slides/vi/php-java/aspose.slides/merger/) | Kết hợp các tệp bản trình chiếu hoàn chỉnh cùng định dạng. |
-| [ForEach_](https://reference.aspose.com/slides/vi/php-java/aspose.slides/foreach_/) | Thực thi callback cho mỗi slide, shape, paragraph hoặc text portion. |
-| [Collect](https://reference.aspose.com/slides/vi/php-java/aspose.slides/collect/) | Lấy các shape từ toàn bộ bản trình chiếu để xử lý hoặc phân tích lặp lại. |
-| [Compress](https://reference.aspose.com/slides/vi/php-java/aspose.slides/compress/) | Xóa các master và layout không sử dụng và giảm dữ liệu phông chữ được nhúng. |
+| [Convert](https://reference.aspose.com/slides/vi/php-java/aspose.slides/convert/) | Chuyển đổi một trình chiếu sang định dạng khác bằng lời gọi trực tiếp từ tệp này sang tệp khác. |
+| [Merger](https://reference.aspose.com/slides/vi/php-java/aspose.slides/merger/) | Kết hợp các tệp trình chiếu hoàn chỉnh cùng định dạng. |
+| [ForEach_](https://reference.aspose.com/slides/vi/php-java/aspose.slides/foreach_/) | Thực thi một callback cho mỗi slide, shape, paragraph hoặc phần văn bản. |
+| [Collect](https://reference.aspose.com/slides/vi/php-java/aspose.slides/collect/) | Lấy các shape từ toàn bộ trình chiếu để xử lý hoặc phân tích nhiều lần. |
+| [Compress](https://reference.aspose.com/slides/vi/php-java/aspose.slides/compress/) | Xóa các master và layout không dùng và giảm dữ liệu phông chữ nhúng. |
 
-## **Chuyển đổi bản trình chiếu**
+## **Chuyển đổi một trình chiếu**
 
-Use [Convert::autoByExtension](https://reference.aspose.com/slides/vi/php-java/aspose.slides/convert/#autoByExtension) when the output file extension is sufficient to select the export format. The method opens the source presentation, determines the required format from the output path, and writes the result.
+Sử dụng [Convert::autoByExtension](https://reference.aspose.com/slides/vi/php-java/aspose.slides/convert/#autoByExtension) khi phần mở rộng tệp đầu ra đủ để chọn định dạng xuất. Phương thức này mở trình chiếu nguồn, xác định định dạng yêu cầu từ đường dẫn đầu ra và ghi kết quả.
 
 ```php
 use aspose\slides\Convert;
@@ -49,11 +49,11 @@ use aspose\slides\Convert;
 Convert::autoByExtension("input.pptx", "output.pdf");
 ```
 
-The [Convert](https://reference.aspose.com/slides/vi/php-java/aspose.slides/convert/) class also provides dedicated methods for PDF, SVG, JPEG, PNG, and TIFF output. Use the full object model when you need to inspect or modify the presentation before export or configure an export option that is not exposed by the selected helper. See [Convert Presentation](/php-java/convert-presentation/) for format-specific workflows and options.
+Lớp [Convert](https://reference.aspose.com/slides/vi/php-java/aspose.slides/convert/) cũng cung cấp các phương thức riêng cho đầu ra PDF, SVG, JPEG, PNG và TIFF. Sử dụng toàn bộ mô hình đối tượng khi bạn cần kiểm tra hoặc sửa đổi trình chiếu trước khi xuất hoặc cấu hình tùy chọn xuất không được trợ giúp này cung cấp. Xem [Chuyển đổi trình chiếu](/slides/vi/php-java/convert-presentation/) để biết quy trình và tùy chọn theo định dạng.
 
-## **Kết hợp các bản trình chiếu**
+## **Kết hợp các trình chiếu**
 
-Use [Merger::process](https://reference.aspose.com/slides/vi/php-java/aspose.slides/merger/#process) to combine complete presentation files with one call. The input presentations must have the same file format.
+Sử dụng [Merger::process](https://reference.aspose.com/slides/vi/php-java/aspose.slides/merger/#process) để kết hợp các tệp trình chiếu hoàn chỉnh trong một lời gọi. Các trình chiếu đầu vào phải có cùng định dạng tệp.
 
 ```php
 use aspose\slides\Merger;
@@ -62,13 +62,13 @@ $inputFiles = ["part-1.pptx", "part-2.pptx"];
 Merger::process($inputFiles, "merged.pptx");
 ```
 
-The helper is appropriate when all slides should be appended to one result without selecting or remapping them individually. Use the full object model when you need to merge selected slides, apply a destination master or layout, preserve sections explicitly, or reconcile different slide sizes. See [Merge Presentations](/php-java/merge-presentation/) for those scenarios.
+Trợ giúp này phù hợp khi tất cả các slide cần được nối vào một kết quả mà không cần chọn hoặc ánh xạ lại từng slide. Sử dụng toàn bộ mô hình đối tượng khi bạn cần hợp nhất các slide được chọn, áp dụng master hoặc layout đích, giữ nguyên các phần rõ ràng, hoặc đồng bộ các kích thước slide khác nhau. Xem [Kết hợp các trình chiếu](/slides/vi/php-java/merge-presentation/) cho các kịch bản này.
 
-## **Duyệt qua các phần tử của bản trình chiếu**
+## **Lặp qua các thành phần của trình chiếu**
 
-The [ForEach_](https://reference.aspose.com/slides/vi/php-java/aspose.slides/foreach_/) class invokes a callback for each requested type of presentation element. It avoids nested collection loops and is convenient for presentation-wide inspection or formatting changes.
+Lớp [ForEach_](https://reference.aspose.com/slides/vi/php-java/aspose.slides/foreach_/) gọi một callback cho mỗi loại thành phần trình chiếu được yêu cầu. Nó tránh các vòng lặp collection lồng nhau và tiện lợi cho việc kiểm tra hoặc thay đổi định dạng trên toàn bộ trình chiếu.
 
-The following example uses [ForEach_::slide](https://reference.aspose.com/slides/vi/php-java/aspose.slides/foreach_/#slide), [ForEach_::shape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/foreach_/#shape), [ForEach_::paragraph](https://reference.aspose.com/slides/vi/php-java/aspose.slides/foreach_/#paragraph), and [ForEach_::portion](https://reference.aspose.com/slides/vi/php-java/aspose.slides/foreach_/#portion) to inspect the corresponding elements:
+Ví dụ dưới đây sử dụng [ForEach_::slide](https://reference.aspose.com/slides/vi/php-java/aspose.slides/foreach_/#slide), [ForEach_::shape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/foreach_/#shape), [ForEach_::paragraph](https://reference.aspose.com/slides/vi/php-java/aspose.slides/foreach_/#paragraph) và [ForEach_::portion](https://reference.aspose.com/slides/vi/php-java/aspose.slides/foreach_/#portion) để kiểm tra các phần tử tương ứng:
 
 ```php
 use aspose\slides\ForEach_;
@@ -125,11 +125,11 @@ try {
 }
 ```
 
-By default, presentation-wide shape and text traversal includes normal, master, and layout slides. Overloads with an `includeNotes` parameter can also process notes slides. Use direct collection loops when traversal order, early exit, filtering before callback invocation, or detailed parent-child control is important.
+Mặc định, việc duyệt shape và văn bản trên toàn bộ trình chiếu bao gồm các slide thông thường, master và layout. Các overload có tham số `includeNotes` cũng có thể xử lý các slide ghi chú. Sử dụng vòng lặp collection trực tiếp khi thứ tự duyệt, thoát sớm, lọc trước khi gọi callback, hoặc kiểm soát chi tiết cha-con là quan trọng.
 
-## **Thu thập Shapes**
+## **Thu thập Shape**
 
-Use [Collect::shapes](https://reference.aspose.com/slides/vi/php-java/aspose.slides/collect/#shapes) when you need a collection of all shapes in a presentation rather than a callback for each shape. This is useful when the same set will be filtered, counted, or processed more than once.
+Sử dụng [Collect::shapes](https://reference.aspose.com/slides/vi/php-java/aspose.slides/collect/#shapes) khi bạn cần một tập hợp tất cả các shape trong một trình chiếu thay vì một callback cho mỗi shape. Điều này hữu ích khi cùng một bộ sẽ được lọc, đếm hoặc xử lý nhiều lần.
 
 ```php
 use aspose\slides\Collect;
@@ -149,15 +149,15 @@ try {
 }
 ```
 
-Use [ForEach_::shape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/foreach_/#shape) instead when each shape can be handled immediately and you do not need to retain the collected result.
+Sử dụng [ForEach_::shape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/foreach_/#shape) thay thế khi mỗi shape có thể được xử lý ngay lập tức và bạn không cần giữ lại kết quả đã thu thập.
 
-## **Nén nội dung bản trình chiếu**
+## **Nén nội dung trình chiếu**
 
-The [Compress](https://reference.aspose.com/slides/vi/php-java/aspose.slides/compress/) class can remove unused structural elements and reduce embedded font data:
+Lớp [Compress](https://reference.aspose.com/slides/vi/php-java/aspose.slides/compress/) có thể xóa các yếu tố cấu trúc không dùng và giảm dữ liệu phông chữ nhúng:
 
-- [Compress::removeUnusedLayoutSlides](https://reference.aspose.com/slides/vi/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) removes layout slides that no normal slide references.
-- [Compress::removeUnusedMasterSlides](https://reference.aspose.com/slides/vi/php-java/aspose.slides/compress/#removeUnusedMasterSlides) removes master slides that are no longer used.
-- [Compress::compressEmbeddedFonts](https://reference.aspose.com/slides/vi/php-java/aspose.slides/compress/#compressEmbeddedFonts) removes unused characters from embedded fonts.
+- [Compress::removeUnusedLayoutSlides](https://reference.aspose.com/slides/vi/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) xóa các slide layout mà không có slide thông thường nào tham chiếu.
+- [Compress::removeUnusedMasterSlides](https://reference.aspose.com/slides/vi/php-java/aspose.slides/compress/#removeUnusedMasterSlides) xóa các slide master không còn được sử dụng.
+- [Compress::compressEmbeddedFonts](https://reference.aspose.com/slides/vi/php-java/aspose.slides/compress/#compressEmbeddedFonts) xóa các ký tự không dùng khỏi phông chữ nhúng.
 
 ```php
 use aspose\slides\Compress;
@@ -176,38 +176,38 @@ try {
 }
 ```
 
-Remove unused layouts before unused masters so a master that becomes unreferenced after layout cleanup can also be removed. Save the optimized presentation to a new file if you may need the original masters, layouts, or complete embedded font data later. For more detail, see [Slide Master](/php-java/slide-master/) and [Embedded Font](/php-java/embedded-font/).
+Xóa các layout không dùng trước các master không dùng để một master mất tham chiếu sau khi dọn dẹp layout cũng có thể bị xóa. Lưu trình chiếu đã tối ưu vào một tệp mới nếu bạn có thể cần lại các master, layout gốc hoặc toàn bộ dữ liệu phông chữ nhúng sau này. Để biết chi tiết hơn, xem [Slide Master](/slides/vi/php-java/slide-master/) và [Embedded Font](/slides/vi/php-java/embedded-font/).
 
-## **Câu hỏi thường gặp**
+## **FAQ**
 
 **Khi nào tôi nên sử dụng API low-code thay vì mô hình đối tượng đầy đủ?**
 
-Use low-code helpers when a standard operation applies to a complete file or presentation and does not require detailed control over individual elements. Use the full object model when you need to select specific slides, control master and layout relationships, inspect intermediate state, or configure behavior that the helper does not expose.
+Sử dụng các trợ giúp low-code khi một thao tác tiêu chuẩn áp dụng cho toàn bộ tệp hoặc trình chiếu và không yêu cầu kiểm soát chi tiết các thành phần riêng lẻ. Sử dụng mô hình đối tượng đầy đủ khi bạn cần chọn các slide cụ thể, kiểm soát mối quan hệ master và layout, kiểm tra trạng thái trung gian, hoặc cấu hình hành vi mà trợ giúp không cung cấp.
 
-**Merger có thể kết hợp các bản trình chiếu ở các định dạng file khác nhau không?**
+**Merger có thể kết hợp các trình chiếu ở các định dạng tệp khác nhau không?**
 
-No. [Merger::process](https://reference.aspose.com/slides/vi/php-java/aspose.slides/merger/#process) requires input presentations in the same format. Convert the input files to a common format first, for example with [Convert::autoByExtension](https://reference.aspose.com/slides/vi/php-java/aspose.slides/convert/#autoByExtension), and then merge the converted files.
+Không. [Merger::process](https://reference.aspose.com/slides/vi/php-java/aspose.slides/merger/#process) yêu cầu các trình chiếu đầu vào cùng định dạng. Đầu tiên chuyển đổi các tệp đầu vào sang cùng một định dạng, ví dụ bằng [Convert::autoByExtension](https://reference.aspose.com/slides/vi/php-java/aspose.slides/convert/#autoByExtension), sau đó hợp nhất các tệp đã chuyển đổi.
 
-**ForEach_ có xử lý master, layout và notes slides không?**
+**ForEach_ có xử lý các slide master, layout và ghi chú không?**
 
-[ForEach_::slide](https://reference.aspose.com/slides/vi/php-java/aspose.slides/foreach_/#slide) iterates through normal presentation slides. Presentation-wide [ForEach_::shape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/foreach_/#shape), [ForEach_::paragraph](https://reference.aspose.com/slides/vi/php-java/aspose.slides/foreach_/#paragraph), and [ForEach_::portion](https://reference.aspose.com/slides/vi/php-java/aspose.slides/foreach_/#portion) operations include normal, master, and layout slides by default. Use their overloads with `includeNotes` set to `true` to include notes slides.
+[ForEach_::slide](https://reference.aspose.com/slides/vi/php-java/aspose.slides/foreach_/#slide) lặp qua các slide trình chiếu thông thường. Các thao tác [ForEach_::shape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/foreach_/#shape), [ForEach_::paragraph](https://reference.aspose.com/slides/vi/php-java/aspose.slides/foreach_/#paragraph) và [ForEach_::portion](https://reference.aspose.com/slides/vi/php-java/aspose.slides/foreach_/#portion) trên toàn trình chiếu bao gồm các slide thông thường, master và layout theo mặc định. Sử dụng các overload với `includeNotes` đặt thành `true` để bao gồm các slide ghi chú.
 
 **Sự khác biệt giữa ForEach_::shape và Collect::shapes là gì?**
 
-Use [ForEach_::shape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/foreach_/#shape) to process each shape immediately through a callback. Use [Collect::shapes](https://reference.aspose.com/slides/vi/php-java/aspose.slides/collect/#shapes) when you need an iterable result that can be retained, filtered, counted, or traversed multiple times.
+Sử dụng [ForEach_::shape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/foreach_/#shape) để xử lý mỗi shape ngay lập tức qua một callback. Sử dụng [Collect::shapes](https://reference.aspose.com/slides/vi/php-java/aspose.slides/collect/#shapes) khi bạn cần một kết quả có thể lặp lại, giữ lại, lọc, đếm hoặc duyệt nhiều lần.
 
-**Compress luôn làm cho tệp bản trình chiếu nhỏ hơn không?**
+**Compress luôn làm cho tệp trình chiếu nhỏ hơn không?**
 
-Not necessarily. The result depends on whether the presentation contains unused layouts, unused masters, or embedded fonts with unused characters. If none of those are present, the corresponding [Compress](https://reference.aspose.com/slides/vi/php-java/aspose.slides/compress/) operations may not reduce the file size.
+Không nhất thiết. Kết quả phụ thuộc vào việc trình chiếu có chứa các layout không dùng, master không dùng, hoặc phông chữ nhúng có ký tự không dùng hay không. Nếu không có các yếu tố trên, các thao tác [Compress](https://reference.aspose.com/slides/vi/php-java/aspose.slides/compress/) tương ứng có thể không làm giảm kích thước tệp.
 
 **Các thay đổi do ForEach_ hoặc Compress thực hiện có được lưu tự động không?**
 
-No. These helpers operate on the loaded [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/) object in memory. After changing elements in a [ForEach_](https://reference.aspose.com/slides/vi/php-java/aspose.slides/foreach_/) callback or running [Compress](https://reference.aspose.com/slides/vi/php-java/aspose.slides/compress/), call [Presentation::save](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/#save) to write the result.
+Không. Các trợ giúp này hoạt động trên đối tượng [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/) đã tải trong bộ nhớ. Sau khi thay đổi các phần tử trong callback của [ForEach_](https://reference.aspose.com/slides/vi/php-java/aspose.slides/foreach_/), hoặc chạy [Compress](https://reference.aspose.com/slides/vi/php-java/aspose.slides/compress/), gọi [Presentation::save](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/#save) để ghi kết quả.
 
 ## **Bài viết liên quan**
 
-- [Convert Presentation](/php-java/convert-presentation/)
-- [Merge Presentations](/php-java/merge-presentation/)
-- [Slide Master](/php-java/slide-master/)
-- [Manage Text Box](/php-java/manage-textbox/)
-- [Embedded Font](/php-java/embedded-font/)
+- [Chuyển đổi trình chiếu](/slides/vi/php-java/convert-presentation/)
+- [Kết hợp các trình chiếu](/slides/vi/php-java/merge-presentation/)
+- [Slide Master](/slides/vi/php-java/slide-master/)
+- [Quản lý hộp văn bản](/slides/vi/php-java/manage-textbox/)
+- [Embedded Font](/slides/vi/php-java/embedded-font/)

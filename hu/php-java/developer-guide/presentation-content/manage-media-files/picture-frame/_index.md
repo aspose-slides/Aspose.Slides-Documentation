@@ -1,46 +1,46 @@
 ---
-title: "Képkeretek kezelése prezentációkban PHP használatával"
-linktitle: "Képkeret"
+title: Manage Picture Frames in Presentations Using PHP
+linktitle: Picture Frame
 type: docs
 weight: 10
 url: /hu/php-java/picture-frame/
 keywords:
-  - "képkeret"
-  - "képkeret hozzáadása"
-  - "képkeret létrehozása"
-  - "beágyazott kép"
-  - "csatolt kép"
-  - "kép kinyerése"
-  - "raszteres kép"
-  - "SVG kép"
-  - "kép vágása"
-  - "vágott területek törlése"
-  - "kép tömörítése"
-  - "StretchOffset"
-  - "képkeret formázása"
-  - "relatív méretezés"
-  - "kép hatás"
-  - "oldalarány"
-  - "PowerPoint"
-  - "OpenDocument"
-  - "prezentáció"
-  - "PHP"
-  - "Aspose.Slides"
-description: "Képkeretek létrehozása, formázása, összekapcsolása, vágása, kinyerése és tömörítése prezentációkban az Aspose.Slides for PHP via Java használatával."
+- képkeret
+- képkeret hozzáadása
+- képkeret létrehozása
+- beágyazott kép
+- kapcsolt kép
+- kép kinyerése
+- raszteres kép
+- SVG kép
+- kép vágása
+- vágott területek törlése
+- kép tömörítése
+- StretchOffset
+- képkeret formázása
+- relatív méretezés
+- kép effektus
+- oldalarány
+- PowerPoint
+- OpenDocument
+- prezentáció
+- PHP
+- Aspose.Slides
+description: "Képkeretek létrehozása, formázása, összekapcsolása, vágása, kinyerése és tömörítése prezentációkban az Aspose.Slides for PHP via Java segítségével."
 ---
 ## **Áttekintés**
 
-A picture frame egy diára vonatkozó alak, amely képet jelenít meg. Az Aspose.Slides-ban a képernyöző erőforrás és a megjelenítő alak külön objektumok: egy [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) beágyazott képernyöző erőforrásokat birtokol a [ImageCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/imagecollection/) segítségével, míg egy [PictureFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pictureframe/) szabályozza a kép helyzetét, méretét, vonalformázását, forgását, vágását, képhatásait és egyéb keretszintű beállításait.
+A képkeret egy dián megjelenő forma, amely képet mutat. Az Aspose.Slides-ben a kép erőforrás és a megjelenítő forma külön objektumok: egy [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) tartalmaz beágyazott kép erőforrásokat az [ImageCollection](https://reference.aspose.com/slides/hu/php-java/aspose.slides/imagecollection/) révén, míg egy [PictureFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pictureframe/) szabályozza a kép pozícióját, méretét, vonalformázását, forgását, vágását, képhatásait és egyéb keretszintű beállításokat.
 
-Ez a szétválasztás hasznos, ha ugyanaz a kép többször jelenik meg. A képet egyszer hozzáadja a prezentációhoz, megtartja a visszakapott [PPImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/ppimage/), és ezt a képernyöző erőforrást használja a képkeretek létrehozásakor.
+Ez a szétválasztás akkor hasznos, ha ugyanaz a kép többször is megjelenik. Adja hozzá a képet egyszer a prezentációhoz, tartsa meg a visszaadott [PPImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/ppimage/), és használja ezt a kép erőforrást képkeretek létrehozásakor.
 
-A képkeretek raszteres képeket, például PNG vagy JPEG, valamint vektoros SVG képeket is tartalmazhatnak. Emellett hivatkozhatnak csatolt képekre is, ahelyett, hogy a képadatokat a prezentációban tárolnák. A választás befolyásolja a hordozhatóságot, a fájlméretet, a kinyerést és az export viselkedését, ezért célszerű eldönteni, hogyan tárolja a képet a formázás vagy optimalizálás előtt.
+A képkeretek raster (például PNG vagy JPEG) és vektor (SVG) képeket is tartalmazhatnak. Emellett hivatkozhatnak kapcsolt képekre is, ahelyett, hogy a kép bájtjait a prezentációban tárolnák. A választás befolyásolja a hordozhatóságot, fájlméretet, kinyerést és az export viselkedését, ezért érdemes eldönteni, hogyan legyen a kép tárolva a formázás vagy optimalizálás előtt.
 
 ## **Beágyazott kép hozzáadása és formázása**
 
-Beágyazott képnél adja hozzá a kép adatát a prezentációhoz, majd hozza létre a képkeretet a [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shapecollection/addpictureframe/) segítségével. A kép a prezentáció csomagjának részévé válik, így a prezentáció önálló marad, amikor egy másik számítógépre kerül.
+Beágyazott kép esetén adja hozzá a kép adatát a prezentációhoz, és hozzon létre egy képkeretet a [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shapecollection/addpictureframe/). A kép a prezentációcsomag részévé válik, ezért a prezentáció önmagában is marad, ha egy másik számítógépre helyezik.
 
-Az alábbi példa egy JPEG képet ad hozzá, a kép natív méreteivel hoz létre egy keretet, majd vonalformázást és forgatást alkalmaz:
+A következő példa egy JPEG képet ad hozzá, a kép eredeti méreteiben hoz létre egy keretet, és alkalmaz vonalformázást és forgatást:
 
 ```php
 use aspose\slides\FillType;
@@ -74,11 +74,11 @@ try {
 }
 ```
 
-A képkeret az megjelenített geometriát szabályozza; a keret méretének módosítása nem változtatja meg az eredeti, a beágyazott kép erőforrásban tárolt pixelméreteket. Ez a különbség későbbi vágás vagy tömörítés esetén fontos.
+A képkeret szabályozza a megjelenített geometriát; a keret méretének módosítása nem változtatja meg a beágyazott kép erőforrásban tárolt eredeti pixelméreteket. Ez a különbség későbbi vágás vagy tömörítés esetén fontos.
 
 ## **Relatív méretezés használata**
 
-[PictureFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pictureframe/) relatív szélesség- és magasságarányos méretezést biztosít a kerethez a [setRelativeScaleWidth](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pictureframe/setrelativescalewidth/) és a [setRelativeScaleHeight](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pictureframe/setrelativescaleheight/) metódusokkal. Az `1.0` érték az eredeti kép méretének 100%-ának felel meg. A relatív méretezés hasznos, ha egy munkafolyamatnak a forrás kép méretéhez való viszonyt kell megőriznie, ahelyett, hogy manuálisan számolná ki a végső méreteket.
+[PictureFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pictureframe/) a keret relatív szélesség- és magasságméretezését teszi elérhetővé a [setRelativeScaleWidth](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pictureframe/setrelativescalewidth/) és a [setRelativeScaleHeight](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pictureframe/setrelativescaleheight/) segítségével. Az `1.0` érték az eredeti kép 100%-ának felel meg. A relatív méretezés akkor hasznos, ha a munkafolyamatnak a forráskép méretéhez való arányt kell megtartania a végső méretek kézi kiszámítása helyett.
 
 ```php
 use aspose\slides\Images;
@@ -109,17 +109,17 @@ try {
 }
 ```
 
-A relatív méretezés a keret méretezési beállításait változtatja; nem mintavételezi vagy tömöríti a beágyazott képet.
+A relatív méretezés a keret méretbeállításait módosítja; nem mintavételez vagy tömörít beágyazott képet.
 
-## **Beágyazott és csatolt képek**
+## **Beágyazott és kapcsolt képek**
 
-A beágyazott kép a képadatokat a prezentációban tárolja, ezért a hordozhatóság és a kiszámítható megjelenítés tekintetében a legbiztonságosabb választás. A csatolt kép a [Picture::setLinkPathLong](https://reference.aspose.com/slides/hu/php-java/aspose.slides/picture/setlinkpathlong/) metóduson keresztül egy külső helyet tárol a képadatok beágyazása helyett.
+A beágyazott kép a kép adatát a prezentációban tárolja, ezért a legbiztonságosabb választás a hordozhatósághoz és a kiszámítható megjelenítéshez. Egy kapcsolt kép egy külső helyet tárol a [Picture::setLinkPathLong](https://reference.aspose.com/slides/hu/php-java/aspose.slides/picture/setlinkpathlong/) metóduson keresztül ahelyett, hogy a kép adatát beágyazná.
 
-A csatolt képek csökkenthetik a PPTX-ben tárolt képadatok mennyiségét, de külső függőséget hoznak létre. A csatolt fájlnak elérhetőnek kell maradnia az alkalmazás számára, amely megnyitja vagy rendereli a prezentációt. Ha az elérési út megváltozik, a fájl átkerül, vagy az erőforrás nem elérhető, a csatolt kép nem jelenhet meg a várt módon. Azok számára, akiknek a prezentációt e‑mailben kell küldeni, archiválni vagy elszigetelt környezetben renderelni kell, a beágyazott képek általában megbízhatóbbak.
+A kapcsolt képek csökkenthetik a PPTX-ben tárolt képadatok mennyiségét, de külső függőséget hoznak létre. A kapcsolt fájlnak elérhetőnek kell maradnia az alkalmazás számára, amely a prezentációt megnyitja vagy rendereli. Ha az útvonal változik, a fájl átkerül vagy a forrás nem érhető el, a kapcsolt kép esetleg nem jelenik meg a várt módon. Azoknál a prezentációknál, amelyeket e‑mailben kell küldeni, archiválni vagy elszigetelt környezetben megjeleníteni, a beágyazott képek általában megbízhatóbbak.
 
-### **Csatolt kép hozzáadása**
+### **Kapcsolt kép hozzáadása**
 
-Az alábbi példa egy képkeretet hoz létre, és egy helyi képfájlra mutat. Csak a kép csatolásával foglalkozik; a videó csatolás egy külön média munkafolyamat, és szándékosan nincs keverve ebbe a példába.
+A következő példa egy képkeretet hoz létre, és egy helyi képfájlra mutat. Csak a képhivatkozással foglalkozik; a videóhivatkozás egy külön média munkafolyamat, és szándékosan nincs belekeverve ebbe a példába.
 
 ```php
 use aspose\slides\Presentation;
@@ -140,15 +140,15 @@ try {
 }
 ```
 
-Használjon hivatkozásokat, amikor a külső fájlkezelés szándékos. Ne használja őket pusztán a tömörítés helyettesítésére: egy kis PPTX, amelyben törött képfüggőségek vannak, általában kevésbé hasznos, mint egy nagyobb, önálló prezentáció.
+Használjon hivatkozásokat, ha a külső fájlkezelés szándékos. Ne használja őket csak a tömörítés helyettesítésére: egy kis PPTX, amely hibás képfüggőségekkel rendelkezik, általában kevésbé hasznos, mint egy nagyobb önálló prezentáció.
 
 ## **Képek kinyerése képkeretekből**
 
-Mielőtt képet nyernénk ki egy meglévő prezentációból, ellenőrizze, hogy az alak ténylegesen [PictureFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pictureframe/), és tartalmaz-e beágyazott képet. A csatolt képkeretek esetleg nem tartalmaznak kinyerhető képbyte-okat ugyanúgy.
+Mielőtt képet nyerne ki egy meglévő prezentációból, ellenőrizze, hogy a forma valóban egy [PictureFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pictureframe/) és tartalmaz-e beágyazott képet. A kapcsolt képkeretek nem feltétlenül tartalmaznak kép bájtokat, amelyeket ugyanúgy ki lehetne nyerni.
 
-### **Rasterkép kinyerése**
+### **Raster kép kinyerése**
 
-A modern kép API közvetlenül a [IImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/iimage/) használatát javasolja. Az alábbi példa megtalálja az első beágyazott rasterképet egy dián, és PNG‑ként menti el:
+A modern kép API közvetlenül a [IImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/iimage/) használja. A következő példa megtalálja az első beágyazott raster képet egy dián, és PNG-ként menti el:
 
 ```php
 use aspose\slides\ImageFormat;
@@ -185,11 +185,11 @@ try {
 }
 ```
 
-Az [IImage::save](https://reference.aspose.com/slides/hu/php-java/aspose.slides/iimage/#save) hívása a kinyert képet a kért kimeneti formátumba konvertálja. Ha a prezentációban tárolt kódolt bájtokra van szüksége, a képernyöző bináris adataival kell dolgozni, nem a konvertált rasterfájllal.
+A [IImage::save](https://reference.aspose.com/slides/hu/php-java/aspose.slides/iimage/#save) használatával mentés a kinyert képet a kért kimeneti formátumba konvertálja. Ha a prezentációban tárolt kódolt bájtokra van szüksége egy konvertált raster fájl helyett, használja a kép erőforrás bináris adatait.
 
 ### **SVG kép kinyerése**
 
-SVG kép esetén a [PPImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/ppimage/) egy [SvgImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/svgimage/) objektumot tesz elérhetővé. Ez lehetővé teszi az SVG adat közvetlen lekérését anélkül, hogy előbb rasterizálná a képet.
+SVG kép esetén a [PPImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/ppimage/) egy [SvgImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/svgimage/) objektumot tesz elérhetővé. Ez lehetővé teszi, hogy közvetlenül lekérje az SVG adatokat anélkül, hogy előbb rasterizálná a képet.
 
 ```php
 use aspose\slides\Presentation;
@@ -224,13 +224,13 @@ try {
 }
 ```
 
-Az SVG tartalom SVG‑ként való megtartása megőrzi a vektoros forrást a prezentációban. A PNG vagy JPEG‑hez hasonló raster exportok kénytelenek a vektoros tartalmat pixelekre renderelni. A PDF vagy SVG diaexport szintén egy renderelési művelet, ezért az exportált grafika nem tekinthető a beágyazott SVG eredeti bájt‑az‑bájtnyi másolatának; ha a vektoros erőforrásra van szükség, használja a beágyazott [SvgImage::getSvgData](https://reference.aspose.com/slides/hu/php-java/aspose.slides/svgimage/getsvgdata/) adatot.
+Az SVG tartalom SVGként tartása megőrzi a vektor forrást a prezentációban. A raster exportok, mint a PNG vagy JPEG, kötelezően a vektor tartalmat pixelekké renderelik. A PDF vagy SVG dia exportus is renderelés, ezért az exportált grafika nem tekinthető bit‑pontos másolatnak az eredeti beágyazott SVG‑ből; használd a beágyazott [SvgImage::getSvgData](https://reference.aspose.com/slides/hu/php-java/aspose.slides/svgimage/getsvgdata/) adatot, ha maga a vektor forrás szükséges.
 
 ## **Kép vágása**
 
-A vágás meghatározza, hogy a kép mely része látható a keretben. A [PictureFillFormat](https://reference.aspose.com/slides/hu/php-java/aspose.slides/picturefillformat/) vágási értékei a forrás kép dimenzióinak százalékában vannak megadva. A vágás kezdetben nem törli a rejtett pixeleket a beágyazott képből; csak a látható területet változtatja meg.
+A vágás megváltoztatja, hogy a kép mely része látható a kereten belül. A [PictureFillFormat](https://reference.aspose.com/slides/hu/php-java/aspose.slides/picturefillformat/) vágási értékei a forráskép méretének százalékai. A vágás eredetileg nem törli a rejtett pixeleket a beágyazott képből; csak a látható területet módosítja.
 
-Az alábbi példa biztonságosan megtalál egy képkeretet, és alkalmazza a vágási értékeket:
+A következő példa biztonságosan megtalál egy képkeretet, és alkalmazza a vágási értékeket:
 
 ```php
 use aspose\slides\Presentation;
@@ -262,11 +262,11 @@ try {
 }
 ```
 
-Mivel a rejtett képadatok továbbra is jelen vannak, a vágás később módosítható az eredeti pixelek elvesztése nélkül. Ha a fájlméret fontosabb, mint a visszafordíthatóság, a vágott területeket fizikailag eltávolíthatja a következő szakaszban leírt módon.
+Mivel a rejtett képadat továbbra is jelen van, a vágás később módosítható az eredeti pixelek elvesztése nélkül. Ha a fájlméret fontosabb, mint a visszafordíthatóság, a vágott területek fizikailag eltávolíthatók, ahogyan a következő szakaszban le van írva.
 
 ## **Vágott képadatok eltávolítása**
 
-[A PictureFillFormat::deletePictureCroppedAreas](https://reference.aspose.com/slides/hu/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) eltávolítja a képadatokat a jelenlegi vágott téglalapon kívül, és visszaadja az eredményül kapott képernyöző erőforrást. Ez csökkentheti a fájlméretet, de destruktív optimalizáció: a prezentáció mentése után a eltávolított pixelek már nem állnak rendelkezésre egy későbbi „uncrop” művelethez.
+[PictureFillFormat::deletePictureCroppedAreas](https://reference.aspose.com/slides/hu/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) eltávolítja a képadatot a jelenlegi vágási téglalapon kívülről, és visszaadja a keletkezett kép erőforrást. Ez csökkentheti a fájlméretet, de destruktív optimalizáció: a prezentáció mentése után az eltávolított pixelek már nem állnak rendelkezésre későbbi visszavágási művelethez.
 
 ```php
 use aspose\slides\Presentation;
@@ -297,13 +297,13 @@ try {
 }
 ```
 
-A metódus új képernyöző erőforrást adhat a prezentációhoz. Ha az eredeti képet más képkeretek is használják, ezeknek továbbra is a meglévő erőforrásra van szükségük, így a vágott területek törlése nem feltétlenül csökkenti a képek összes számát. WMF vagy EMF tartalom vágása ezzel a módszerrel a vágott eredményt PNG‑re rasterizálja.
+A metódus új kép erőforrást adhat hozzá a prezentációhoz. Ha az eredeti képet más képkeretek is használják, azoknak továbbra is szükségük van a meglévő erőforrásra, így a vágott területek törlése nem feltétlenül csökkenti a képek teljes számát. WMF vagy EMF tartalom vágása ezzel a módszerrel rasterizálja a vágott eredményt PNG-be.
 
-## **Rasterképek tömörítése**
+## **Raster képek tömörítése**
 
-[PictureFillFormat::compressImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/picturefillformat/#compressImage_boolean_int_) csökkenti a rasterkép felbontását a kép megjelenítésének méretéhez viszonyítva. Ugyanabban a műveletben törölheti a vágott területeket is. A metódus `true`‑t ad vissza, ha a képet átméretezték vagy levágták, és `false`‑t, ha nem történt változás.
+[PictureFillFormat::compressImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/picturefillformat/#compressImage_boolean_int_) csökkenti a raster kép felbontását a kép megjelenítési méretéhez képest. Ugyanabban a műveletben eltávolíthatja a vágott területeket is. A metódus `true` értékkel tér vissza, ha a képet átméretezték vagy vágották, és `false` értékkel, ha nem volt szükség változtatásra.
 
-Használjon előre definiált [PicturesCompression](https://reference.aspose.com/slides/hu/php-java/aspose.slides/picturescompression/) értéket, ha egy szabványos célfelbontás megfelelő:
+Használjon egy előre definiált [PicturesCompression](https://reference.aspose.com/slides/hu/php-java/aspose.slides/picturescompression/) értéket, ha egy szabványos célfelbontás elegendő:
 
 ```php
 use aspose\slides\PicturesCompression;
@@ -334,17 +334,17 @@ try {
 }
 ```
 
-Egy egyedi, pozitív DPI‑érték is megadható előre definiált érték helyett, ha egy konkrét cél szükséges.
+Egy egyedi pozitív DPI érték is megadható előre definiált érték helyett, ha specifikus cél szükséges.
 
-A tömörítés rasterképekre vonatkozik. SVG‑ és metafájl tartalom nem csökken ebben a raster tömörítési munkafolyamatban. Emlékezzen arra is, hogy az alacsonyabb felbontású és a törölt vágott területek nem állíthatók helyre az optimalizált prezentációból. Válasszon célfelbontást az alapján, hogy a képet mekkora méretben fogják ténylegesen megtekinteni vagy exportálni, ne pedig a legalacsonyabb DPI‑t alkalmazza globálisan.
+A tömörítés raster képekre van szánva. SVG és metafájl tartalom nem csökken ezzel a raster tömörítési munkafolyamattal. Ne feledje, hogy az alacsonyabb felbontás és a törölt vágott területek nem állíthatók vissza az optimalizált prezentációból. Válasszon célfelbontást a legnagyobb méret alapján, amelynél a kép ténylegesen meg lesz tekintve vagy exportálva, ahelyett, hogy globálisan a legalacsonyabb DPI-t alkalmazná.
 
 ## **Képtranszformációs hatások kezelése**
 
-A fényerő, kontraszt, színtranszformációk, elmosás, alfa‑hatások, sorozatos láncok, ellenőrzés, eltávolítás és round‑trip ellenőrzés teljes munkafolyamatáért lásd a [Image Transform Effects](/php-java/image-transform-effects/) oldalt.
+A fényerő, kontraszt, színátalakítások, elmosás, alfa hatások, sorozatos láncok, ellenőrzés, eltávolítás és körtúra ellenőrzés lefedését biztosító teljes munkafolyamatért lásd a [Image Transform Effects](/slides/hu/php-java/image-transform-effects/) oldalt.
 
-## **Képkeret geometria zárolása**
+## **Képkeret geometriájának zárolása**
 
-A [PictureFrameLock](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pictureframelock/) beállítások határozzák meg, hogy a képkeret mely szerkesztési műveletei vannak letiltva. Például a [setAspectRatioLocked](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pictureframelock/setaspectratiolocked/) megőrzi az alak arányait átméretezés közben.
+A [PictureFrameLock](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pictureframelock/) beállítások szabályozzák, hogy mely szerkesztési műveletek vannak letiltva egy képkeret számára. Például a [setAspectRatioLocked](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pictureframelock/setaspectratiolocked/) megőrzi a forma arányait átméretezés során.
 
 ```php
 use aspose\slides\Images;
@@ -374,13 +374,13 @@ try {
 }
 ```
 
-A zárolás a képkeret alakra vonatkozik. Nem kényszeríti a forrás képet, hogy a ugyanolyan képarány szerint legyen mintavéve vagy véglegesen megváltoztatva.
+A zárolás a képkeret formára vonatkozik. Nem kényszeríti a forrásképet a mintavételezésre vagy a folyamatosan ugyanarra az arányra módosításra.
 
-## **StretchOffset értékek módosítása**
+## **StretchOffset értékek beállítása**
 
-Ha a kép kitöltési módja stretch, akkor a [PictureFillFormat](https://reference.aspose.com/slides/hu/php-java/aspose.slides/picturefillformat/) stretch‑offset értékei definiálják a kitöltési téglalapot a képkeret határoló dobozához képest. A pozitív százalékok belső eltolást hoznak létre egy élről, míg a negatív százalékok külső eltolást.
+Ha a kép kitöltési mód a nyújtás, akkor a [PictureFillFormat](https://reference.aspose.com/slides/hu/php-java/aspose.slides/picturefillformat/) stretch‑offset értékei a képkeret határoló dobozához viszonyítva határozzák meg a kitöltő téglalapot. Pozitív százalékok belső eltolást hoznak létre az élről, míg negatív százalékok külső eltolást eredményeznek.
 
-Ez eltér a vágástól. A vágási értékek azt határozzák meg, hogy a forrás kép mely része látható; a stretch‑offsetok a látható kép kitöltésének téglalapját módosítják.
+Ez különbözik a vágástól. A vágási értékek azt határozzák meg, hogy a forráskép mely része látható; a stretch‑offsetok a téglalapot változtatják, amelybe a látható kép kitöltése nyújtódik.
 
 ```php
 use aspose\slides\Images;
@@ -417,41 +417,41 @@ try {
 
 Használja a stretch‑offsetokat a kitöltés elhelyezéséhez. Használja a vágási tulajdonságokat, ha a cél a forráskép széleinek elrejtése.
 
-## **Tárolás, fájlméret és exportálási szempontok**
+## **Tárolási, fájlméret és export szempontok**
 
-A fő kompromisszumok könnyebben kezelhetők, ha a kép tárolását és a képkeret formázását külön kezeljük:
+A fő kompromisszumok kezelése egyszerűbb, ha a kép tárolását és a képkeret formázását külön kezeljük:
 
-- **Beágyazott képek** önállóvá teszik a prezentációt, és a legmegbízhatóbbak a megosztáshoz és a szerveroldali rendereléshez, de a nagy raszteres képek növelik a PPTX méretét és a memóriahasználatot.
-- **Csatolt képek** kisebb csomagot eredményezhetnek, de a prezentáció külső fájlok elérhetőségétől függ a megadott útvonalakon vagy helyeken.
-- **Vágás** kezdetben nem destruktív. A rejtett pixelek addig beágyazva maradnak, amíg a vágott területeket kifejezetten nem törlik vagy a tömörítés során el nem távolítják.
-- **Tömörítés** jelentősen csökkentheti a fájlméretet a túlméretezett raszteres képek esetén, de a forrás felbontást feláldozza. A kívánt dia‑méret ismerete után kell alkalmazni.
-- **SVG képek** esetén maradjanak SVG‑ként, ha a vektoros megőrzés fontos. A beágyazott SVG‑t közvetlenül nyerje ki, amikor a vektoros erőforrásra van szükség. A raster diaexportok mindig a diát pixelekre konvertálják.
-- **Ismétlődő képek** esetén használja újra a meglévő [PPImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/ppimage/) erőforrást, ahelyett, hogy ugyanazt a fájlt többször betöltené a prezentáció munkafolyamatába.
+- **Beágyazott képek** önállóvá teszik a prezentációt, és a megosztásra és szerveroldali renderelésre a legmegbízhatóbbak, de a nagy raster képek növelik a PPTX méretét és a memóriahasználatot.
+- **Kapcsolt képek** kisebb csomagot tarthatnak, de a prezentáció a külső fájlok elérhetőségétől függ a tárolt útvonalakon vagy helyeken.
+- **Vágás** eleve nem destruktív. A rejtett pixelek beágyazva maradnak, amíg a vágott területeket kifejezetten nem törlik vagy nem távolítják el tömörítés során.
+- **Tömörítés** jelentősen csökkentheti a fájlméretet a túlméretezett raster képek esetén, de feláldozza a forrás felbontását. Azt a dián belüli célméret ismerete után kell alkalmazni.
+- **SVG képek** esetén meg kell maradni SVG formátumban, ha a vektor megőrzése fontos. Közvetlenül nyerje ki a beágyazott SVG-t, ha magára a vektor erőforrásra van szükség. A raster dia exportok mindig a renderelt diát pixelekké konvertálják.
+- **Ismétlődő képek** esetén lehetőség szerint használja újra a meglévő [PPImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/ppimage/) erőforrást, ahelyett, hogy ugyanazt a fájlt többször betöltené a prezentációs munkafolyamatba.
 
-Nagy prezentációk esetén a képoptimalizálás általában akkor a leghatékonyabb, ha szelektíven hajtják végre: tartsa a logókat és diagramokat vektoros tartalomként, tömörítse a fényképeket a tényleges megjelenítési méretük alapján, csak akkor távolítsa el a vágott pixeleket, ha a későbbi szerkesztés nem szükséges, és kerülje a külső hivatkozásokat, hacsak a függőségkezelés nem része a telepítési tervezésnek.
+Nagy prezentációk esetén a képoptimalizálás általában leginkább hatékony, ha szelektíven alkalmazzák: logókat és diagramokat vektor tartalomként tartsák, fényképeket a valós megjelenítési méretük szerint tömörítsék, a vágott pixeleket csak akkor távolítsák el, ha a későbbi szerkesztés nem szükséges, és kerüljék a külső hivatkozásokat, kivéve ha a függőségkezelés része a telepítési tervnek.
 
-## **Gyakran ismételt kérdések**
+## **GYIK**
 
-**Mi a különbség egy képkeret és egy képernyöző erőforrás között?**
+**Mi a különbség egy képkeret és egy kép erőforrás között?**
 
-Egy [PPImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/ppimage/) képpernyöző erőforrást reprezentál, amely a prezentációhoz van hozzárendve. Egy [PictureFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pictureframe/) egy dia alakja, amely képet jelenít meg, és keretszintű geometriát és formázást tárol, például méretet, forgatást, vágási értékeket, hatásokat és zárolásokat.
+A [PPImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/ppimage/) egy a prezentációhoz társított kép erőforrást képvisel. A [PictureFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pictureframe/) egy dián lévő forma, amely képet jelenít meg, és a keretszintű geometriát és formázást tárolja, mint például méret, forgatás, vágási értékek, hatások és zárolások.
 
-**Beágyazzam vagy csatoljam a képeket?**
+**Be kellene ágyaznom vagy kapcsolnom a képeket?**
 
-Beágyazza a képeket, ha a prezentációnak hordozhatónak, archiváltnak vagy külső erőforrások nélkül renderelőnek kell lennie. Csak akkor csatolja a képeket, ha a képfájlok kívül tartása szándékos, és a külső helyek megbízhatóan karbantarthatók.
+Ágyazza be a képeket, ha a prezentációnak hordozhatónak, archiváltnak vagy külső erőforrásokhoz való hozzáférés nélkül történő renderelésnek kell lennie. Kapcsolja a képeket csak akkor, ha a kép fájlokat szándékosan a PPTX-en kívül tartja, és a külső helyek megbízhatóan karbantarthatók.
 
-**Csökkenti-e a vágás a PPTX fájlméretét?**
+**Csökkenti a vágás a PPTX fájlméretét?**
 
-Nem önmagában. A normál vágási beállítások elrejtik a forrás kép részeit, de a mögöttes pixeleket megtartják. Használja a [PictureFillFormat::deletePictureCroppedAreas](https://reference.aspose.com/slides/hu/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) vagy a képcompressziót vágott‑terület-eltávolítással, ha ezeket a pixeleket véglegesen el szeretné távolítani.
+Nem önmagában. A normál vágási beállítások elrejtik a forráskép részeit, de megtartják az alatta lévő pixeleket. Használja a [PictureFillFormat::deletePictureCroppedAreas](https://reference.aspose.com/slides/hu/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) vagy a kép tömörítést vágott terület eltávolítással, ha ezeket a pixeleket véglegesen el lehet dobni.
 
-**Vissza tudom állítani a képminőséget a tömörítés után?**
+**Vissza tudom állítani a kép minőségét a tömörítés után?**
 
-Nem. A tömörítés csökkentheti a tárolt raster felbontást, és a vágott területek eltávolítása adatvesztést jelent. Tartsa meg az eredeti forrásképet a prezentáción kívül, ha később nagy felbontású szerkesztésre van szükség.
+Nem. A tömörítés csökkentheti a tárolt raster felbontást, és a vágott területek eltávolítása megsemmisíti a kép adatokat. Tartsa meg az eredeti forrásképet a prezentáción kívül, ha később nagy felbontású szerkesztésre lehet szükség.
 
 **Hogyan kell kezelni az SVG képeket?**
 
-Tartsa meg az SVG tartalmat SVG‑ként, ha a vektoros hűség fontos. A beágyazott [SvgImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/svgimage/) közvetlenül kinyerhető. Egy dia rasterformátumba, például PNG‑be vagy JPEG‑be történő renderelése rasterizálja az SVG‑t a dia képének részeként.
+Tartsa SVG formátumban az SVG tartalmat, ha a vektor pontossága fontos. A beágyazott [SvgImage](https://reference.aspose.com/slides/hu/php-java/aspose.slides/svgimage/) közvetlenül kinyerhető. A dia raster formátumba, például PNG vagy JPEG formátumba történő renderelése rasterizálja az SVG-t a dia képének részeként.
 
-**Hogyan kerülhetem el a nem biztonságos cast‑eket létező diák olvasásakor?**
+**Hogyan kerülhetem el a nem biztonságos átalakításokat létező diák beolvasásakor?**
 
-Ellenőrizze az alak típusát, mielőtt a képkeretre jellemző tagokat használná. Egy `java_instanceof` ellenőrzés a [PictureFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pictureframe/) ellenőriz a hibás cast‑ek elkerülése érdekében, és lehetővé teszi a kód számára, hogy a nem képkeretes diákra megfelelően reagáljon.
+Ellenőrizze a forma típusát, mielőtt képkeret‑specifikus tagokat használna. A `java_instanceof` ellenőrzés a [PictureFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/pictureframe/) ellen érvénytelen átalakítások megelőzése érdekében, és lehetővé teszi, hogy a kód kezelje azokat a diákat, amelyek nem tartalmaznak képkeretet.

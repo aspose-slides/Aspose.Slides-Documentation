@@ -1,57 +1,57 @@
 ---
-title: Efficiënt Presentaties Samenvoegen in .NET
-linktitle: Presentaties Samenvoegen
+title: "Efficiënt Presentaties Samenvoegen in .NET"
+linktitle: "Presentaties Samenvoegen"
 type: docs
 weight: 40
 url: /nl/net/merge-presentation/
 keywords:
-- PowerPoint samenvoegen
-- presentaties samenvoegen
-- dia's samenvoegen
-- PPT samenvoegen
-- PPTX samenvoegen
-- ODP samenvoegen
-- PowerPoint combineren
-- presentaties combineren
-- dia's combineren
-- PPT combineren
-- PPTX combineren
-- ODP combineren
-- .NET
-- C#
-- Aspose.Slides
-description: "Leer hoe u PowerPoint- en OpenDocument-presentaties kunt samenvoegen in .NET door dia's te klonen, masters en lay-outs te beheren, dia-inhoud te schalen, secties te behouden en beschermde of grote bestanden af te handelen."
+- "PowerPoint samenvoegen"
+- "presentaties samenvoegen"
+- "dia's samenvoegen"
+- "PPT samenvoegen"
+- "PPTX samenvoegen"
+- "ODP samenvoegen"
+- "PowerPoint combineren"
+- "presentaties combineren"
+- "dia's combineren"
+- "PPT combineren"
+- "PPTX combineren"
+- "ODP combineren"
+- ".NET"
+- "C#"
+- "Aspose.Slides"
+description: "Leer hoe u PowerPoint- en OpenDocument-presentaties in .NET kunt samenvoegen door dia's te klonen, masters en layout te beheren, dia-inhoud te schalen, secties te behouden en beveiligde of grote bestanden af te handelen."
 ---
 ## **Overzicht**
 
-Aspose.Slides for .NET voegt presentaties samen door dia's te clonen van één [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/) naar een andere. De hoofdoperatie is [ISlideCollection.AddClone](https://reference.aspose.com/slides/nl/net/aspose.slides/islidecollection/addclone/), die de opmaak van de bron‑dia kan behouden of de gekloonde dia kan koppelen aan een master of lay‑out in de doelpresentatie.
+Aspose.Slides for .NET voegt presentaties samen door dia's te klonen van de ene [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/) naar de andere. De belangrijkste bewerking is [ISlideCollection.AddClone](https://reference.aspose.com/slides/nl/net/aspose.slides/islidecollection/addclone/), die de opmaak van de brondia kan behouden of de gekloonde dia kan koppelen aan een master of lay‑out in de bestemmingspresentatie.
 
 Dit artikel behandelt de meest voorkomende samenvoeg‑workflows:
 
-- alle dia's samenvoegen terwijl de bronopmaak behouden blijft;
-- geselecteerde dia's samenvoegen;
-- een master uit de doelpresentatie toepassen;
-- een specifieke lay‑out uit de doelpresentatie toepassen;
+- alle dia’s samenvoegen en de bronopmaak behouden;
+- geselecteerde dia’s samenvoegen;
+- een master uit de bestemmingspresentatie toepassen;
+- een specifieke lay‑out uit de bestemmingspresentatie toepassen;
 - verschillende diaformaten normaliseren vóór het samenvoegen;
-- gekloonde dia's toevoegen aan een sectie;
-- meerdere presentaties samenvoegen in één end‑to‑end workflow;
-- masters, bronnen, notities, commentaren, media, lettertypen, wachtwoorden, grote bestanden en multithreading‑gerelateerde zaken afhandelen.
+- gekloonde dia’s aan een sectie toevoegen;
+- meerdere presentaties in één end‑to‑end workflow samenvoegen;
+- masters, bronnen, notities, opmerkingen, media, lettertypen, wachtwoorden, grote bestanden en multithreading‑aspecten afhandelen.
 
-## **Hoe Dia‑clonen Masters en Lay‑outs Beïnvloedt**
+## **Hoe Slideklonen Invloed Heeft Op Masters en Layouts**
 
-Een dia erft een groot deel van zijn uiterlijk van zijn lay‑out en master. Om die reden bepaalt de overload van het clonen die je kiest hoe de samengevoegde dia wordt geïntegreerd in de doelpresentatie.
+Een dia erft veel van haar uiterlijk van de lay‑out en master. Daarom bepaalt de overload die je kiest hoe de samengevoegde dia in de bestemmingspresentatie wordt geïntegreerd.
 
-Gebruik [ISlideCollection.AddClone](https://reference.aspose.com/slides/nl/net/aspose.slides/islidecollection/addclone/) op een van de volgende manieren:
+Gebruik [ISlideCollection.AddClone](https://reference.aspose.com/slides/nl/net/aspose.slides/islidecollection/addclone/) op één van de volgende manieren:
 
-- `AddClone(sourceSlide)` — behoudt de lay‑out en opmaak van de bron‑dia. Indien nodig kan de bron‑master automatisch in de doelpresentatie worden gekloond. Aspose.Slides houdt automatisch gekloonde masters bij zodat herhaalde dia's die dezelfde bron‑master gebruiken die master niet opnieuw klonen.
-- `AddClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — koppelt de gekloonde dia aan een specifieke doel‑[IMasterSlide](https://reference.aspose.com/slides/nl/net/aspose.slides/imasterslide/). Aspose.Slides zoekt onder die master naar een overeenkomende lay‑out op type of naam.
-- `AddClone(sourceSlide, destinationLayout)` — koppelt de gekloonde dia rechtstreeks aan een specifieke doel‑[ILayoutSlide](https://reference.aspose.com/slides/nl/net/aspose.slides/ilayoutslide/).
+- `AddClone(sourceSlide)` — behoudt de lay‑out en opmaak van de brondia. Indien nodig kan de brondia‑master automatisch in de bestemmingspresentatie worden gekloond. Aspose.Slides houdt automatisch gekloonde masters bij zodat herhaalde dia’s die dezelfde brondia‑master gebruiken die master niet telkens opnieuw klonen.
+- `AddClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — koppelt de gekloonde dia aan een specifieke bestemming‑[IMasterSlide](https://reference.aspose.com/slides/nl/net/aspose.slides/imasterslide/). Aspose.Slides zoekt een bijpassende lay‑out onder die master op basis van type of naam.
+- `AddClone(sourceSlide, destinationLayout)` — koppelt de gekloonde dia rechtstreeks aan een specifieke bestemming‑[ILayoutSlide](https://reference.aspose.com/slides/nl/net/aspose.slides/ilayoutslide/).
 
-De master of lay‑out die aan een `AddClone`‑overload wordt doorgegeven, moet behoren tot de **doel**‑presentatie, niet tot de bron‑presentatie.
+De master of lay‑out die aan een `AddClone`‑overload wordt doorgegeven moet behoren tot de **bestemmings**‑presentatie, niet tot de bronpresentatie.
 
 ## **Volledige Presentaties Samenvoegen en Bronopmaak Behouden**
 
-De eenvoudigste samenvoeging kopieert elke dia van de bron‑presentatie naar de doel‑presentatie. Dit is de juiste keuze wanneer de geïmporteerde dia's hun oorspronkelijke thema, master en lay‑outrelaties moeten behouden.
+De eenvoudigste samenvoeging kopieert elke dia van de bronpresentatie naar de bestemmingspresentatie. Dit is de juiste keuze wanneer de geïmporteerde dia’s hun oorspronkelijke thema, master en lay‑outrelaties moeten behouden.
 
 ```csharp
 using Aspose.Slides;
@@ -68,11 +68,11 @@ foreach (var slide in source.Slides)
 destination.Save("merged.pptx", SaveFormat.Pptx);
 ```
 
-De resulterende presentatie kan meerdere masters bevatten wanneer bron‑ en doel‑presentatie verschillende ontwerpen gebruiken. Dit is te verwachten wanneer de bronopmaak opzettelijk behouden wordt.
+De resulterende presentatie kan meerdere masters bevatten wanneer bron‑ en bestemmingspresentatie verschillende ontwerpen gebruiken. Dat is verwacht wanneer de bronopmaak bewust behouden blijft.
 
-## **Geselecteerde Dia's Samenvoegen**
+## **Geselecteerde Dia’s Samenvoegen**
 
-Je hoeft niet elke dia te klonen. Het volgende voorbeeld importeert alleen geselecteerde dia‑indexen uit de bron‑presentatie.
+Je hoeft niet elke dia te klonen. Het volgende voorbeeld importeert alleen geselecteerde dia‑indexen uit de bronpresentatie.
 
 ```csharp
 using Aspose.Slides;
@@ -91,11 +91,11 @@ foreach (var index in slideIndexes)
 destination.Save("merged-selected-slides.pptx", SaveFormat.Pptx);
 ```
 
-Valideer dia‑indexen vóór het klonen wanneer ze afkomstig zijn van gebruikersinvoer of een externe configuratie.
+Valideer dia‑indexen vóór het klonen wanneer ze afkomstig zijn van gebruikersinvoer of externe configuratie.
 
-## **Dia's Samenvoegen met een Doel‑Master**
+## **Dia’s Samenvoegen Met Een Bestemmings‑Master**
 
-Gebruik de [AddClone(ISlide, IMasterSlide, Boolean)](https://reference.aspose.com/slides/nl/net/aspose.slides/islidecollection/addclone/)‑overload wanneer geïmporteerde dia's een master moeten volgen die al tot de doelpresentatie behoort.
+Gebruik de overload [AddClone(ISlide, IMasterSlide, Boolean)](https://reference.aspose.com/slides/nl/net/aspose.slides/islidecollection/addclone/) wanneer geïmporteerde dia’s een master moeten volgen die al tot de bestemmingspresentatie behoort.
 
 ```csharp
 using Aspose.Slides;
@@ -114,13 +114,13 @@ foreach (var slide in source.Slides)
 destination.Save("merged-with-destination-master.pptx", SaveFormat.Pptx);
 ```
 
-Aspose.Slides selecteert een passende lay‑out onder de opgegeven master door het type of de naam van de bron‑lay‑out te matchen. Als er geen geschikte lay‑out bestaat en `allowCloneMissingLayout` is `true`, wordt de bron‑lay‑out gekloond zodat de dia kan worden toegevoegd. Als deze `false` is, wordt een [PptxEditException](https://reference.aspose.com/slides/nl/net/aspose.slides/pptxeditexception/) gegooid.
+Aspose.Slides selecteert een geschikte lay‑out onder de opgegeven master door het type of de naam van de bronlay‑out te matchen. Als er geen geschikte lay‑out bestaat en `allowCloneMissingLayout` `true` is, wordt de bronlay‑out gekloond zodat de dia kan worden toegevoegd. Als het `false` is, wordt een [PptxEditException](https://reference.aspose.com/slides/nl/net/aspose.slides/pptxeditexception/) gegooid.
 
-Gebruik `false` wanneer je wilt dat de samenvoeging mislukt in plaats van een extra lay‑out in de doel‑master te introduceren.
+Gebruik `false` wanneer je wilt dat de samenvoeging faalt in plaats van een extra lay‑out aan de bestemmings‑master toe te voegen.
 
-## **Dia's Samenvoegen met een Specifieke Doel‑Lay‑out**
+## **Dia’s Samenvoegen Met Een Specifieke Bestemmings‑Lay‑out**
 
-Gebruik de [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/nl/net/aspose.slides/islidecollection/addclone/)‑overload wanneer je precies weet welke doel‑lay‑out de geïmporteerde dia's moeten gebruiken.
+Gebruik de overload [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/nl/net/aspose.slides/islidecollection/addclone/) wanneer je precies weet welke bestemmings‑lay‑out de geïmporteerde dia’s moeten gebruiken.
 
 ```csharp
 using Aspose.Slides;
@@ -139,13 +139,13 @@ foreach (var slide in source.Slides)
 destination.Save("merged-with-destination-layout.pptx", SaveFormat.Pptx);
 ```
 
-Het toepassen van een doel‑lay‑out verandert de erfd lay‑outrelatie; het herschept de inhoud van de bron‑dia niet. Als de bron‑ en doel‑lay‑outs verschillende placeholder‑structuren hebben, controleer dan het resultaat om te bevestigen dat de geërfde opmaak en placeholder‑gedrag passend zijn.
+Het toepassen van een bestemmings‑lay‑out wijzigt de geërfde lay‑outrelatie; het rediseigne de inhoud van de brondia niet. Als de bron‑ en bestemmings‑lay‑out verschillende plaatshouderstructuren hebben, controleer dan het resultaat om te bevestigen dat de geërfde opmaak en plaatshoudergedrag passend zijn.
 
-## **Presentaties Met Verschillende Diaformaten Samenvoegen**
+## **Presentaties Met Verschillende Dia‑Groottes Samenvoegen**
 
-Presentaties met verschillende dia‑afmetingen kunnen worden samengevoegd, maar het klonen van een dia in een presentatie met een andere dia‑grootte herontwerpt de inhoud niet automatisch voor het nieuwe canvas. Vormen kunnen daardoor verschoven, onverwacht geschaald of buiten het zichtbare dia‑gebied verschijnen.
+Presentaties met verschillende dia‑afmetingen kunnen worden samengevoegd, maar een dia klonen naar een presentatie met een andere dia‑grootte rediseigne de inhoud niet automatisch voor het nieuwe canvas. Vormen kunnen daardoor verschoven, onverwacht geschaald of buiten het zichtbare dia‑gebied terechtkomen.
 
-Een praktische aanpak is om de bron‑presentatie vóór het klonen te herschalen. De [SlideSize.SetSize](https://reference.aspose.com/slides/nl/net/aspose.slides/slidesize/setsize/)‑methode kan bestaande inhoud schalen terwijl de dia‑dimensies worden aangepast. [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/nl/net/aspose.slides/slidesizescaletype/) schaalt de inhoud zodat deze binnen de gevraagde grootte past.
+Een praktische aanpak is om de bronpresentatie vóór het klonen van grootte te veranderen. De methode [SlideSize.SetSize](https://reference.aspose.com/slides/nl/net/aspose.slides/slidesize/setsize/) kan bestaande inhoud schalen terwijl de dia‑afmetingen worden gewijzigd. [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/nl/net/aspose.slides/slidesizescaletype/) schaalt de inhoud zodat deze binnen de gewenste grootte past.
 
 ```csharp
 using Aspose.Slides;
@@ -171,11 +171,11 @@ foreach (var slide in source.Slides)
 destination.Save("merged-same-slide-size.pptx", SaveFormat.Pptx);
 ```
 
-Schalen verandert het bron‑presentatie‑object in het geheugen. Als je de originele bron‑presentatie ongewijzigd nodig hebt voor andere bewerkingen, open dan een aparte instantie voor de samenvoeging.
+Het wijzigen van de grootte verandert het bronpresentatie‑object in het geheugen. Als je de oorspronkelijke bronpresentatie ongewijzigd wilt houden voor andere bewerkingen, open dan een aparte instantie voor de samenvoeging.
 
-## **Dia's Samenvoegen in een Presentatie‑Sectie**
+## **Dia’s Samenvoegen In Een Presentatie‑Sectie**
 
-De basale dia‑cloningslus maakt de sectie‑hiërarchie van de bron‑presentatie niet opnieuw. Als secties van belang zijn in de output, maak of selecteer dan secties in de doel‑presentatie en kloon dia's expliciet naar deze secties met [AddClone(ISlide, ISection)](https://reference.aspose.com/slides/nl/net/aspose.slides/islidecollection/addclone/).
+De basis‑dia‑klonlus recreateert de sectiestructuur van de bronpresentatie niet. Als secties belangrijk zijn in de uitvoer, maak of selecteer dan secties in de bestemmingspresentatie en kloon dia’s expliciet daarin met [AddClone(ISlide, ISection)](https://reference.aspose.com/slides/nl/net/aspose.slides/islidecollection/addclone/).
 
 ```csharp
 using Aspose.Slides;
@@ -194,11 +194,11 @@ foreach (var slide in source.Slides)
 destination.Save("merged-with-section.pptx", SaveFormat.Pptx);
 ```
 
-De gekloonde dia's worden toegevoegd aan de opgegeven doel‑sectie. Om meerdere bron‑secties te behouden, maak die secties opnieuw aan in de doel‑presentatie en ken elke bron‑dia toe aan de corresponderende doel‑sectie.
+De gekloonde dia’s worden toegevoegd aan de opgegeven bestemmings‑sectie. Om meerdere bron‑secties te behouden, iterereer over [Presentation.Sections](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/sections/), haal de huidige dia’s van elke bron‑sectie op met [ISection.GetSlidesListOfSection](https://reference.aspose.com/slides/nl/net/aspose.slides/isection/getslideslistofsection/), maak de secties in de bestemming opnieuw aan en kloon elke opgehaalde dia naar de corresponderende bestemmings‑sectie. Zie [Manage Slide Sections](/slides/nl/net/slide-section/) voor een volledig voorbeeld van sectie‑enumeratie, inclusief lege secties en structurele wijzigingen.
 
 ## **Meerdere Presentaties Veilig Samenvoegen**
 
-Het volgende end‑to‑end voorbeeld gebruikt de eerste presentatie als doel, normaliseert de dia‑grootte van elke extra bron, houdt elke bron alleen geopend zolang deze wordt gekopieerd, en slaat het uiteindelijke bestand één keer op.
+Het volgende end‑to‑end voorbeeld gebruikt de eerste presentatie als bestemming, normaliseert de dia‑grootte van elke extra bron, houdt elke bron alleen open terwijl deze wordt gekopieerd, en slaat het definitieve bestand één keer op.
 
 ```csharp
 using Aspose.Slides;
@@ -230,39 +230,39 @@ for (var fileIndex = 1; fileIndex < inputFiles.Length; fileIndex++)
 merged.Save("merged.pptx", SaveFormat.Pptx);
 ```
 
-Dit is een handige basis om de bronopmaak van geïmporteerde dia's te behouden. Als je output één enkel doel‑thema moet gebruiken, vervang dan de eenvoudige `AddClone(slide)`‑aanroep door de juiste doel‑master‑ of doel‑lay‑out‑overload die eerder is getoond.
+Dit vormt een nuttige basis voor het behouden van de bronopmaak van geïmporteerde dia’s. Als je uitvoer één enkel bestemmings‑thema moet gebruiken, vervang dan de eenvoudige `AddClone(slide)`‑aanroep door de juiste bestemmings‑master‑ of bestemmings‑lay‑out‑overload die eerder werd getoond.
 
 ## **Praktische Overwegingen**
 
-### **Masters, Lay‑outs en Opmaakgetrouwheid**
+### **Masters, Layouts en Opmaak‑Fideliteit**
 
-Standaard dia‑clonen kan automatisch een benodigde bron‑master in de doel‑presentatie brengen. Aspose.Slides houdt een interne registratie bij van automatisch gekloonde masters om te voorkomen dat dezelfde master herhaaldelijk wordt geklond. Handmatig gekloonde masters worden niet bijgehouden door die registratie, dus vermijd het vooraf klonen van masters tenzij je expliciete controle over de master‑structuur nodig hebt.
+Standaard dia‑klonen kan automatisch een vereiste bron‑master in de bestemmingspresentatie brengen. Aspose.Slides houdt een interne register bij voor automatisch gekloonde masters om te voorkomen dat dezelfde master herhaaldelijk wordt gekloond. Handmatig gekloonde masters worden niet in dat register bijgehouden, dus voorkom pre‑klonen van masters tenzij je expliciete controle over de master‑structuur nodig hebt.
 
-Ga er niet vanuit dat twee masters of lay‑outs met dezelfde naam visueel gelijk zijn. Als een corporate‑template het uiteindelijke uiterlijk moet bepalen, kies dan expliciet een doel‑master of -lay‑out en verifieer het resultaat na het samenvoegen.
+Ga er niet vanuit dat twee masters of layouts met dezelfde naam visueel gelijk zijn. Als een bedrijfs‑template de uiteindelijke uitstraling moet bepalen, kies dan expliciet een bestemmings‑master of -lay‑out en controleer het resultaat na het samenvoegen.
 
-### **Notities en Commentaren**
+### **Notities en Opmerkingen**
 
-Sprekersnotities en dia‑commentaren zijn gekoppeld aan de dia‑inhoud en worden gekopieerd wanneer een dia wordt gekloond. Aspose.Slides biedt ook aparte API’s voor [presentation notes](https://docs.aspose.com/slides/nl/net/presentation-notes/) en [presentation comments](https://docs.aspose.com/slides/nl/net/presentation-comments/).
+Sprekersnotities en dia‑opmerkingen zijn gekoppeld aan de dia‑inhoud en worden gekopieerd wanneer een dia wordt gekloond. Aspose.Slides biedt ook speciale API’s voor [presentation notes](/slides/nl/net/presentation-notes/) en [presentation comments](/slides/nl/net/presentation-comments/).
 
-Als de opmaak van de notitie‑pagina belangrijk is, controleer dan de samengevoegde presentatie omdat note‑masters objecten op presentatieniveau zijn en kunnen verschillen tussen bronbestanden. Voor review‑workflows controleer ook de auteurs van commentaren en thread‑commentaren na het combineren van bestanden van verschillende auteurs of templates.
+Als de opmaak van de notitie‑pagina belangrijk is, controleer dan de samengevoegde presentatie omdat notitie‑masters objecten op presentatieniveau zijn en kunnen verschillen tussen bronbestanden. Voor review‑workflows controleer ook de auteurs van opmerkingen en de threaded comments nadat bestanden van verschillende auteurs of templates zijn gecombineerd.
 
-### **Afbeeldingen, Audio, Video, OLE‑objecten en Externe Links**
+### **Afbeeldingen, Audio, Video, OLE‑Objecten en Externe Links**
 
-Dia’s kunnen verwijzen naar bronnen op presentatieniveau, zoals afbeeldingen, ingebedde audio, ingebedde video en OLE‑data. Kloon de dia zelf in plaats van alleen de zichtbare vormen te kopiëren, zodat Aspose.Slides de relaties van de dia met zijn bronnen kan behouden.
+Dia’s kunnen refereren naar bronnen op presentatieniveau, zoals afbeeldingen, ingesloten audio, ingesloten video en OLE‑data. Kloon de volledige dia in plaats van alleen de zichtbare vormen, zodat Aspose.Slides de relaties van de dia met haar bronnen kan behouden.
 
-Ingesloten en gelinkte bronnen moeten anders behandeld worden. Een gelinkte audio‑, video‑, OLE‑object‑ of hyperlink blijft afhankelijk van het externe doel; het klonen van een dia maakt een externe link niet tot ingesloten inhoud. Test gelinkte pad‑ en URL‑referenties in de omgeving waar de samengevoegde presentatie wordt geopend.
+Ingesloten en gelinkte bronnen moeten verschillend worden behandeld. Een gelinkte audio, video, OLE‑object of hyperlink blijft afhankelijk van zijn externe doel; het klonen van een dia maakt van een externe link geen ingesloten inhoud. Test gelinkte pad‑ en URL‑locaties in de omgeving waarin de samengevoegde presentatie zal worden geopend.
 
-Aspose.Slides houdt expliciet automatisch gekloonde masters bij, maar dit moet niet gezien worden als een algemene garantie dat identieke binaire bronnen uit verschillende bron‑presentaties altijd worden gededupliceerd. Als de bestandsgrootte belangrijk is, inspecteer dan het samengevoegde pakket en meet het resultaat in plaats van te vertrouwen op impliciete deduplicatie.
+Aspose.Slides houdt automatisch gekloonde masters bij, maar dit moet niet worden opgevat als een algemene garantie dat identieke binaire bronnen uit ongerelateerde bron‑presentaties altijd worden gededupliceerd. Als de grootte van het uitvoerbestand belangrijk is, inspecteer dan het samengevoegde pakket en meet het resultaat in plaats van te vertrouwen op impliciete deduplicatie.
 
 ### **Ingesloten Lettertypen en Beschikbaarheid van Lettertypen**
 
-Lettertypen worden beheerd op presentatieniveau. Als typografie consistent moet blijven over verschillende machines, ga er niet vanuit dat het klonen van dia’s alleen garandeert dat elk vereist lettertype beschikbaar is in de doelomgeving. Je kunt ingesloten lettertypen inspecteren met [FontsManager.GetEmbeddedFonts](https://reference.aspose.com/slides/nl/net/aspose.slides/fontsmanager/getembeddedfonts/) en het insluiten expliciet beheren zoals beschreven in [Embed Fonts in Presentations](https://docs.aspose.com/slides/nl/net/embedded-font/).
+Lettertypen worden op presentatieniveau beheerd. Als typografie consistent moet blijven over verschillende machines, ga er niet vanuit dat alleen dia‑klonen garandeert dat elk vereist lettertype beschikbaar is in de bestemmingsomgeving. Je kunt ingesloten lettertypen bekijken met [FontsManager.GetEmbeddedFonts](https://reference.aspose.com/slides/nl/net/aspose.slides/fontsmanager/getembeddedfonts/) en expliciet beheren zoals beschreven in [Embed Fonts in Presentations](/slides/nl/net/embedded-font/).
 
-Controleer ook of je toestemming hebt om de lettertypen die in de bronbestanden worden gebruikt in te sluiten. Licenties kunnen het insluiten beperken.
+Controleer ook dat je toestemming hebt om de lettertypen die in de bronbestanden worden gebruikt in te sluiten. Licenties voor lettertypen kunnen het insluiten beperken.
 
-### **Wachtwoordbeveiligde Presentaties**
+### **Wachtwoord‑Beschermde Presentaties**
 
-Een wachtwoord‑beveiligde bron moet succesvol worden geopend voordat de dia’s kunnen worden gekloond. Geef het wachtwoord door via [LoadOptions.Password](https://reference.aspose.com/slides/nl/net/aspose.slides/loadoptions/password/).
+Een wachtwoord‑beveiligde bron moet eerst succesvol worden geopend voordat de dia’s kunnen worden gekloond. Lever het wachtwoord via [LoadOptions.Password](https://reference.aspose.com/slides/nl/net/aspose.slides/loadoptions/password/).
 
 ```csharp
 using Aspose.Slides;
@@ -272,64 +272,65 @@ var loadOptions = new LoadOptions { Password = "YOUR_PASSWORD" };
 using var source = new Presentation("protected.pptx", loadOptions);
 ```
 
-Het openen van een versleutelde bron past de dezelfde bescherming niet automatisch toe op de doel‑presentatie. Configureer de output‑beveiliging afzonderlijk wanneer nodig.
+Het openen van een versleutelde bron past niet automatisch dezelfde bescherming toe op de bestemmingspresentatie. Configureer de uitvoerbeveiliging afzonderlijk wanneer dat nodig is.
 
 ### **Grote Presentaties en Geheugengebruik**
 
-Grote presentaties met hoge‑resolutie‑afbeeldingen, audio, video of andere grote binaire objecten kunnen veel geheugen verbruiken. [LoadOptions.BlobManagementOptions](https://reference.aspose.com/slides/nl/net/aspose.slides/loadoptions/blobmanagementoptions/) biedt controle over BLOB‑verwerking en tijdelijk‑bestandgebruik. Zie [Manage Presentation BLOBs](https://docs.aspose.com/slides/nl/net/manage-blob/) voor strategieën voor grote bestanden.
+Grote presentaties met afbeeldingen in hoge resolutie, audio, video of andere grote binaire objecten kunnen aanzienlijk geheugen verbruiken. [LoadOptions.BlobManagementOptions](https://reference.aspose.com/slides/nl/net/aspose.slides/loadoptions/blobmanagementoptions/) biedt controles voor BLOB‑beheer en het gebruik van tijdelijke bestanden. Zie [Manage Presentation BLOBs](/slides/nl/net/manage-blob/) voor strategieën bij grote bestanden.
 
-Voor grote bestanden, laad bij voorkeur vanuit bestands­paden, maak elke bron‑presentatie onmiddellijk vrij zodra deze is samengevoegd, en vermijd het herhaaldelijk opslaan van tussenresultaten tenzij de workflow checkpoints vereist.
+Voor grote bestanden, laad bij voorkeur via bestandspaden, maak elke bronpresentatie zo snel mogelijk leeg nadat deze is samengevoegd, en vermijd herhaaldelijk opslaan van tussenresultaten tenzij de workflow checkpoints vereist.
 
-### **Thread‑veiligheid**
+### **Thread‑Safety**
 
-Laad, wijzig, sla op of kloon dezelfde [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/)‑instantie niet gelijktijdig vanuit meerdere threads. Houd elke presentatietoepassing beperkt tot één samenvoeg‑bewerking. Als je onafhankelijke taken paralleliseert, gebruik dan onafhankelijke presentatietoepassingen en volg de [Aspose.Slides multithreading guidance](https://docs.aspose.com/slides/nl/net/multithreading/).
+Laad, wijzig, sla op of kloon dezelfde [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/)‑instantie niet gelijktijdig vanuit meerdere threads. Houd elke presentaties‑instantie beperkt tot één samenvoeg‑operatie. Als je onafhankelijke taken paralleliseert, gebruik dan onafhankelijke presentaties‑instanties en volg de [Aspose.Slides multithreading guidance](/slides/nl/net/multithreading/).
 
 ## **FAQ**
 
-**Hoe behoud ik het oorspronkelijke ontwerp van elke bron‑presentatie?**
+**Hoe houd ik het oorspronkelijke ontwerp van elke bronpresentatie intact?**
 
-Gebruik [`AddClone(sourceSlide)`](https://reference.aspose.com/slides/nl/net/aspose.slides/islidecollection/addclone/) zonder een doel‑master of -lay‑out op te geven. Aspose.Slides kan de bron‑master automatisch klonen wanneer deze nodig is voor de geïmporteerde dia.
+Gebruik [AddClone](https://reference.aspose.com/slides/nl/net/aspose.slides/islidecollection/addclone/) zonder een bestemmings‑master of -lay‑out op te geven. Aspose.Slides kan de bron‑master automatisch klonen wanneer die nodig is voor de geïmporteerde dia.
 
-**Hoe laat ik geïmporteerde dia's het doel‑thema gebruiken?**
+**Hoe laat ik geïmporteerde dia’s het bestemmings‑thema gebruiken?**
 
-Gebruik de overload die een doel‑master accepteert. Geef een master uit de doel‑presentatie door, niet uit de bron. Aspose.Slides probeert elke bron‑dia aan een passende lay‑out onder die master te koppelen.
+Gebruik de overload die een bestemmings‑master accepteert. Geef een master uit de bestemmingspresentatie op, niet uit de bron. Aspose.Slides probeert elke bron‑dia te koppelen aan een passende lay‑out onder die master.
 
-**Wanneer moet ik een specifieke doel‑lay‑out gebruiken in plaats van een doel‑master?**
+**Wanneer moet ik een specifieke bestemmings‑lay‑out gebruiken in plaats van een bestemmings‑master?**
 
-Gebruik een specifieke lay‑out wanneer elke geïmporteerde dia één bekende lay‑out moet gebruiken. Gebruik een master wanneer je wilt dat Aspose.Slides kiest uit de lay‑outs van die master op basis van het type of de naam van de bron‑lay‑out.
+Gebruik een specifieke lay‑out wanneer elke geïmporteerde dia één bekende lay‑out moet gebruiken. Gebruik een master wanneer je wilt dat Aspose.Slides kiest tussen de lay‑outs van die master op basis van het type of de naam van de bron‑lay‑out.
 
-**Kunnen presentaties met verschillende diaformaten worden samengevoegd?**
+**Kunnen presentaties met verschillende dia‑groottes worden samengevoegd?**
 
-Ja, maar de inhoud van de dia wordt niet automatisch herontworpen voor de doel‑dimensies. Schaal de bron‑presentatie eerst wanneer je voorspelbare plaatsing nodig hebt, bijvoorbeeld met [SlideSize.SetSize](https://reference.aspose.com/slides/nl/net/aspose.slides/slidesize/setsize/) en [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/nl/net/aspose.slides/slidesizescaletype/).
+Ja, maar de inhoud van de dia wordt niet automatisch opnieuw ontworpen voor de bestemmingsafmetingen. Wijzig eerst de grootte van de bronpresentatie wanneer je een voorspelbare plaatsing nodig hebt, bijvoorbeeld met [SlideSize.SetSize](https://reference.aspose.com/slides/nl/net/aspose.slides/slidesize/setsize/) en [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/nl/net/aspose.slides/slidesizescaletype/).
 
-**Kan ik PPT, PPTX en ODP presentaties samenvoegen tot één bestand?**
 
-Ja. Laad elke bron‑presentatie, kloon de benodigde dia's naar één doel‑presentatie en sla de doel‑presentatie op in een ondersteund output‑formaat. Omdat presentaties verschillende functionaliteiten kunnen hebben, controleer complexe inhoud na cross‑format samenvoegingen. Zie [Supported File Formats](https://docs.aspose.com/slides/nl/net/supported-file-formats/).
+**Kan ik PPT, PPTX en ODP presentaties in één bestand samenvoegen?**
+
+Ja. Laad elke bronpresentatie, kloon de benodigde dia’s in één bestemming, en sla de bestemming op in een ondersteund uitvoerformaat. Omdat presentatie‑formaten niet exact dezelfde functionaliteit bieden, controleer complexe inhoud na cross‑format samenvoegingen. Zie [Supported File Formats](/slides/nl/net/supported-file-formats/).
 
 **Worden bron‑secties automatisch bewaard?**
 
-Niet met een basale lus die alleen dia’s kloont. Maak de benodigde secties opnieuw aan in de doel‑presentatie en gebruik de sectie‑overload van [AddClone](https://reference.aspose.com/slides/nl/net/aspose.slides/islidecollection/addclone/) wanneer de sectiestructuur behouden moet blijven.
+Niet door een eenvoudige lus die alleen dia’s kloont. Maak de benodigde secties in de bestemming aan en gebruik de sectie‑overload van [AddClone](https://reference.aspose.com/slides/nl/net/aspose.slides/islidecollection/addclone/) wanneer de sectiestructuur behouden moet blijven.
 
-**Worden sprekersnotities en commentaren bewaard?**
+**Worden sprekersnotities en opmerkingen bewaard?**
 
-Ze worden gekopieerd met de gekloonde dia. Voor workflows die afhankelijk zijn van note‑master‑styling, commentaarauteurs of thread‑review‑data, controleer het samengevoegde resultaat omdat deze scenario's zowel presentatieniveau‑ als dia‑niveau‑structuren betreffen.
+Ze worden gekopieerd met de gekloonde dia. Voor workflows die afhankelijk zijn van notitie‑master‑styling, auteurs van opmerkingen of threaded review‑data, controleer het samengevoegde resultaat omdat deze scenario’s zowel presentatieniveau‑structuren als dia‑niveau‑inhoud betrekken.
 
 **Wat gebeurt er met audio, video, OLE‑objecten en hyperlinks?**
 
-Ingesloten inhoud wordt meegenomen als onderdeel van de resource‑relaties van de gekloonde dia. Externe links blijven extern; hun doel‑bestanden of URL’s moeten nog steeds beschikbaar zijn na de samenvoeging.
+Ingesloten inhoud wordt meegenomen als onderdeel van de resource‑relaties van de gekloonde dia. Externe links blijven extern, dus hun doel‑bestanden of URL’s moeten nog steeds beschikbaar zijn na de samenvoeging.
 
 **Zijn ingesloten lettertypen uit elke bron gegarandeerd beschikbaar in de samengevoegde presentatie?**
 
-Vertrouw niet alleen op dia‑clonen voor lettertype‑distributie. Inspecteer de ingesloten lettertypen van de doel‑presentatie en beheer expliciet het insluiten of de beschikbaarheid van externe lettertypen wanneer typografie belangrijk is.
+Vertrouw niet alleen op dia‑klonen voor font‑distributie. Inspecteer de ingesloten lettertypen van de bestemming en beheer expliciet font‑insluiting of externe font‑beschikbaarheid wanneer typografie belangrijk is.
 
-**Hoe voeg ik een wachtwoord‑beveiligd bestand samen?**
+**Hoe voeg ik een wachtwoord‑beschermd bestand samen?**
 
-Open het met het juiste [LoadOptions.Password](https://reference.aspose.com/slides/nl/net/aspose.slides/loadoptions/password/), kloon vervolgens de dia’s normaal. De output‑beveiliging wordt afzonderlijk geconfigureerd.
+Open het met het juiste [LoadOptions.Password](https://reference.aspose.com/slides/nl/net/aspose.slides/loadoptions/password/), kloon daarna de dia’s normaal. Uitvoerbeveiliging wordt afzonderlijk geconfigureerd.
 
-**Hoe ga ik om met zeer grote presentaties?**
+**Hoe moet ik zeer grote presentaties afhandelen?**
 
-Gebruik BLOB‑beheer wanneer grote binaire objecten het geheugengebruik domineren, laad grote bestanden bij voorkeur via pad‑namen, maak bron‑presentaties snel vrij en sla het uiteindelijke resultaat pas op wanneer dat nodig is.
+Gebruik BLOB‑beheer wanneer grote binaire objecten het geheugen zwaar belasten, laad bij voorkeur via bestandspaden voor zeer grote bestanden, maak bron‑presentaties snel leeg, en sla het eindresultaat alleen op wanneer nodig.
 
-**Kan ik dia’s vanuit meerdere threads samenvoegen?**
+**Kan ik dia’s vanaf meerdere threads samenvoegen?**
 
-Gebruik geen enkele [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/)‑instantie gelijktijdig vanuit meerdere threads. Houd elke samenvoeg‑bewerking geïsoleerd in eigen presentatietoepassingen.
+Gebruik geen enkele [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/)‑instantie gelijktijdig vanuit meerdere threads. Houd elke samenvoeg‑operatie geïsoleerd in eigen presentaties‑instanties.

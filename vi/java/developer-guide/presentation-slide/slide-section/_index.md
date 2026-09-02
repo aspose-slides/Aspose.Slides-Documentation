@@ -1,5 +1,5 @@
 ---
-title: Quản lý các phần Slide trong Bản trình chiếu bằng Java
+title: Quản lý các phần slide trong bài thuyết trình với Java
 linktitle: Phần Slide
 type: docs
 weight: 90
@@ -10,82 +10,207 @@ keywords:
 - chỉnh sửa phần
 - thay đổi phần
 - tên phần
+- lấy slide của phần
+- xử lý slide của phần
 - PowerPoint
-- OpenDocument
-- bản trình chiếu
+- bài thuyết trình
 - Java
 - Aspose.Slides
-description: "Tối ưu hoá các phần slide trong PowerPoint và OpenDocument với Aspose.Slides cho Java — chia nhỏ, đổi tên và sắp xếp lại để cải thiện quy trình làm việc PPTX và ODP."
+description: "Quản lý các phần slide với Aspose.Slides cho Java: tạo, đổi tên, sắp xếp lại, lấy và xử lý các slide của phần trong các bài thuyết trình PPTX."
 ---
-## **Introduction**
+## **Giới thiệu**
 
-Với Aspose.Slides for Java, bạn có thể sắp xếp một bản trình chiếu PowerPoint thành các phần. Bạn có thể tạo các phần chứa các slide cụ thể.
+Các phần tổ chức các slide liên tiếp thành các nhóm có tên mà không thay đổi nội dung slide. Với Aspose.Slides for Java, bạn có thể tạo, sắp xếp lại, đổi tên, kiểm tra và xóa các phần thông qua phương thức [Presentation.getSections](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/#getSections--) .
 
-Bạn có thể muốn tạo các phần và sử dụng chúng để sắp xếp hoặc chia các slide trong bản trình chiếu thành các phần logic trong những tình huống sau:
-- Khi bạn đang làm việc trên một bản trình chiếu lớn cùng với người khác hoặc một nhóm—và bạn cần chỉ định một số slide cho đồng nghiệp hoặc một số thành viên trong nhóm.
-- Khi bạn đang xử lý một bản trình chiếu có nhiều slide—và bạn gặp khó khăn trong việc quản lý hoặc chỉnh sửa toàn bộ nội dung một cách đồng thời.
+Các phần đặc biệt hữu ích khi:
 
-Lý tưởng nhất, bạn nên tạo một phần chứa các slide giống nhau—các slide có điểm chung hoặc có thể tồn tại trong một nhóm dựa trên một quy tắc—và đặt cho phần một tên mô tả các slide bên trong.
+- một bản trình bày lớn cần được chia thành các chủ đề hoặc chương logic;
+- các nhóm slide khác nhau được giao cho các cộng tác viên khác nhau;
+- các slide cần được xử lý, di chuyển hoặc hợp nhất dưới dạng nhóm.
 
-## **Tạo Các Phần trong Bản Trình Chiếu**
+Chọn các tên phần ngắn gọn mô tả mục đích của các slide được nhóm lại. Vì các phần là một phần của cấu trúc bản trình bày, hãy sử dụng các API phần để xác định thành viên thay vì suy ra từ vị trí slide.
 
-Để thêm một phần sẽ chứa các slide trong bản trình chiếu, Aspose.Slides for Java cung cấp phương thức [addSection()](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ISectionCollection#addSection-java.lang.String-com.aspose.slides.ISlide-) cho phép bạn chỉ định tên của phần mà bạn muốn tạo và slide mà phần đó bắt đầu.
+## **Tạo và Quản lý Các Phần**
 
-Các đoạn mã mẫu sau cho bạn thấy cách tạo một phần trong bản trình chiếu bằng Java:
+Sử dụng [ISectionCollection.addSection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isectioncollection/#addSection-java.lang.String-com.aspose.slides.ISlide-) để tạo một phần bằng cách chỉ định tên và slide bắt đầu. Aspose.Slides xác định các slide thuộc phần dựa trên cấu trúc phần hiện tại của bản trình bày.
+
+Cùng với [ISectionCollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isectioncollection/) , bạn còn có thể:
+
+- di chuyển một phần cùng với các slide của nó bằng cách sử dụng [ISectionCollection.reorderSectionWithSlides](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isectioncollection/#reorderSectionWithSlides-com.aspose.slides.ISection-int-);
+- xóa chỉ định nghĩa phần bằng [ISectionCollection.removeSection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isectioncollection/#removeSection-com.aspose.slides.ISection-), giữ lại các slide;
+- xóa một phần và các slide của nó bằng [ISectionCollection.removeSectionWithSlides](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isectioncollection/#removeSectionWithSlides-com.aspose.slides.ISection-);
+- thêm một phần trống ở cuối bằng [ISectionCollection.appendEmptySection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isectioncollection/#appendEmptySection-java.lang.String-).
+
+Ví dụ sau tạo hai phần, di chuyển một trong số chúng, xóa nó cùng với các slide, và thêm một phần trống:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.ILayoutSlide;
+import com.aspose.slides.ISection;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation();
 try {
-    ISlide defaultSlide = pres.getSlides().get_Item(0);
-    ISlide newSlide1 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    ISlide newSlide2 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    ISlide newSlide3 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    ISlide newSlide4 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
+    ISlide titleSlide = presentation.getSlides().get_Item(0);
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().get_Item(0);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    ISlide resultsSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+    presentation.getSlides().addEmptySlide(layoutSlide);
 
-    ISection section1 = pres.getSections().addSection("Section 1", newSlide1);
-    ISection section2 = pres.getSections().addSection("Section 2", newSlide3); // section1 sẽ kết thúc tại newSlide2 và sau đó section2 sẽ bắt đầu   
+    presentation.getSections().addSection("Introduction", titleSlide);
+    ISection resultsSection = presentation.getSections().addSection("Results", resultsSlide);
 
-    pres.save("pres-sections.pptx", SaveFormat.Pptx);
-
-    pres.getSections().reorderSectionWithSlides(section2, 0);
-    pres.save("pres-sections-moved.pptx", SaveFormat.Pptx);
-
-    pres.getSections().removeSectionWithSlides(section2);
-
-    pres.getSections().appendEmptySection("Last empty section");
-
-    pres.save("pres-section-with-empty.pptx",SaveFormat.Pptx);
+    presentation.getSections().reorderSectionWithSlides(resultsSection, 0);
+    presentation.getSections().removeSectionWithSlides(resultsSection);
+    presentation.getSections().appendEmptySection("Appendix");
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Thay Đổi Tên Các Phần**
+Sau các thao tác này, bản trình bày chứa phần `Introduction` với các slide của nó và một phần `Appendix` trống. Phần `Results` và các slide của nó đã bị xóa.
 
-Sau khi bạn tạo một phần trong bản trình chiếu PowerPoint, bạn có thể quyết định thay đổi tên của nó.
+## **Đổi tên Các Phần**
 
-Các đoạn mã mẫu sau cho bạn thấy cách thay đổi tên của một phần trong bản trình chiếu bằng Java sử dụng Aspose.Slides:
+Để đổi tên một phần, gọi phương thức [ISection.setName](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isection/#setName-java.lang.String-) . Các slide và vị trí của phần không thay đổi.
+
+Ví dụ sau tạo một phần và thay đổi tên của nó:
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.ISection;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation();
 try {
-    ISection section = pres.getSections().get_Item(0);
-    section.setName("My section");
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ISection section = presentation.getSections().addSection("Overview", slide);
+    section.setName("Introduction");
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Câu Hỏi Thường Gặp**
+## **Lấy Các Slide từ Các Phần**
 
-**Liệu các phần có được giữ lại khi lưu dưới định dạng PPT (PowerPoint 97–2003) không?**
+[Presentation.getSections](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/#getSections--) trả về một [ISectionCollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isectioncollection/) mà bạn có thể lặp qua. Đối với mỗi [ISection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isection/), gọi [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isection/#getSlidesListOfSection--) để lấy các slide hiện đang thuộc về nó. Phương thức trả về một [ISectionSlideCollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isectionslidecollection/), cung cấp số lượng, truy cập theo chỉ mục và khả năng lặp.
+
+Ví dụ sau tạo hai phần đã có nội dung và một phần trống, sau đó in ra [name](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isection/#getName--), [identifier](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isection/#getSectionId--), [starting slide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isection/#getStartedFromSlide--), số slide và số thứ tự slide của mỗi phần. Nó sử dụng [ISectionSlideCollection.get_Item](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isectionslidecollection/#get_Item-int-) để đọc slide đầu tiên và câu lệnh `for` mở rộng để xử lý mọi slide. Đối với phần trống, bộ sưu tập trả về có kích thước bằng không, phương thức không được gọi và việc lặp không thực hiện thao tác nào.
+
+```java
+import com.aspose.slides.ILayoutSlide;
+import com.aspose.slides.ISection;
+import com.aspose.slides.ISectionSlideCollection;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide firstSlide = presentation.getSlides().get_Item(0);
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().get_Item(0);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    ISlide thirdSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+
+    presentation.getSections().addSection("Introduction", firstSlide);
+    presentation.getSections().addSection("Details", thirdSlide);
+    presentation.getSections().appendEmptySection("Appendix");
+
+    for (ISection section : presentation.getSections()) {
+        ISectionSlideCollection sectionSlides = section.getSlidesListOfSection();
+        String startingSlide = section.getStartedFromSlide() == null ? "none" : Integer.toString(section.getStartedFromSlide().getSlideNumber());
+
+        System.out.println("Section: " + section.getName());
+        System.out.println("ID: " + section.getSectionId());
+        System.out.println("Starting slide: " + startingSlide);
+        System.out.println("Slide count: " + sectionSlides.size());
+
+        if (sectionSlides.size() > 0) {
+            System.out.println("First slide via get_Item: " + sectionSlides.get_Item(0).getSlideNumber());
+        }
+
+        System.out.print("Slide numbers:");
+        for (ISlide slide : sectionSlides) {
+            System.out.print(" " + slide.getSlideNumber());
+        }
+        System.out.println();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Thành viên của phần được xác định bởi cấu trúc phần của bản trình bày. Không tự tính phạm vi của một phần bằng cách sử dụng [ISection.getStartedFromSlide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isection/#getStartedFromSlide--), chỉ mục slide và slide bắt đầu của phần tiếp theo.
+
+Các chỉnh sửa cấu trúc có thể thay đổi cả các slide được trả về cho một phần và số thứ tự slide của chúng. Điều này bao gồm sắp xếp lại slide, sao chép một slide vào một phần, di chuyển một phần cùng với các slide của nó, xóa slide và xóa phần. Ví dụ tiếp theo gọi [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isection/#getSlidesListOfSection--) sau mỗi thay đổi như vậy thay vì giữ giả định về ranh giới trước đây của phần.
+
+```java
+import com.aspose.slides.ILayoutSlide;
+import com.aspose.slides.ISection;
+import com.aspose.slides.ISectionSlideCollection;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+
+import java.util.function.BiConsumer;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide firstSlide = presentation.getSlides().get_Item(0);
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().get_Item(0);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    ISlide thirdSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    ISection firstSection = presentation.getSections().addSection("First", firstSlide);
+    ISection secondSection = presentation.getSections().addSection("Second", thirdSlide);
+
+    BiConsumer<String, ISection> printSectionSlides = (label, section) -> {
+        ISectionSlideCollection sectionSlides = section.getSlidesListOfSection();
+        System.out.printf("%s (%d slides):", label, sectionSlides.size());
+        for (ISlide slide : sectionSlides) {
+            System.out.print(" " + slide.getSlideNumber());
+        }
+        System.out.println();
+    };
+
+    printSectionSlides.accept("Initially", firstSection);
+
+    ISectionSlideCollection slidesBeforeClone = firstSection.getSlidesListOfSection();
+    presentation.getSlides().addClone(slidesBeforeClone.get_Item(0), firstSection);
+    printSectionSlides.accept("After cloning into the section", firstSection);
+
+    ISectionSlideCollection slidesBeforeReorder = firstSection.getSlidesListOfSection();
+    int firstSectionPosition = slidesBeforeReorder.get_Item(0).getSlideNumber() - 1;
+    presentation.getSlides().reorder(firstSectionPosition, slidesBeforeReorder.get_Item(slidesBeforeReorder.size() - 1));
+    printSectionSlides.accept("After reordering slides", firstSection);
+
+    presentation.getSections().reorderSectionWithSlides(firstSection, 1);
+    printSectionSlides.accept("After moving the section", firstSection);
+
+    ISectionSlideCollection slidesBeforeRemoval = firstSection.getSlidesListOfSection();
+    presentation.getSlides().remove(slidesBeforeRemoval.get_Item(0));
+    printSectionSlides.accept("After removing a slide", firstSection);
+
+    presentation.getSections().removeSectionWithSlides(secondSection);
+    for (ISection section : presentation.getSections()) {
+        printSectionSlides.accept("Remaining section", section);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Gọi lại [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isection/#getSlidesListOfSection--) bất cứ khi nào slide hoặc phần được sắp xếp lại, sao chép, di chuyển hoặc xóa. Điều này giúp việc xử lý tiếp theo đồng bộ với cấu trúc bản trình bày hiện tại.
+
+Định dạng PPT (PowerPoint 97–2003) không lưu giữ siêu dữ liệu phần. Hãy sử dụng quy trình này với định dạng hỗ trợ phần, như PPTX; chuyển sang PPT sẽ loại bỏ cấu trúc phần cần thiết cho việc lặp sau này.
+
+## **Câu hỏi thường gặp**
+
+**Các phần có được giữ lại khi lưu dưới định dạng PPT (PowerPoint 97–2003) không?**
 
 Không. Định dạng PPT không hỗ trợ siêu dữ liệu phần, vì vậy việc nhóm phần sẽ bị mất khi lưu dưới dạng .ppt.
 
 **Có thể ẩn toàn bộ một phần không?**
 
-Không. Chỉ có thể ẩn các slide riêng lẻ. Một phần như một thực thể không có trạng thái “ẩn”.
+Không. Một phần không có trạng thái hiển thị. Để ẩn nội dung của nó, gọi [ISlide.setHidden](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islide/#setHidden-boolean-) cho mỗi slide trong phần đó.
 
-**Tôi có thể nhanh chóng tìm một phần dựa trên một slide và ngược lại, tìm slide đầu tiên của một phần không?**
+**Làm thế nào tôi có thể tìm phần chứa một slide?**
 
-Có. Một phần được xác định duy nhất bởi slide bắt đầu; dựa trên một slide, bạn có thể xác định phần nào nó thuộc về, và với một phần bạn có thể truy cập slide đầu tiên của nó.
+Lặp qua bộ sưu tập trả về bởi [Presentation.getSections](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/#getSections--) , gọi [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isection/#getSlidesListOfSection--) cho mỗi phần và so sánh các slide trả về với slide mục tiêu. Đối với phần không rỗng, [ISection.getStartedFromSlide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/isection/#getStartedFromSlide--) trả về slide đầu tiên; đối với phần rỗng, nó trả về `null`.

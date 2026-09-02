@@ -1,5 +1,5 @@
 ---
-title: Android'de Sunumlarda Resim Çerçevelerini Yönetme
+title: Android'ta Sunumlarda Resim Çerçevelerini Yönetme
 linktitle: Resim Çerçevesi
 type: docs
 weight: 10
@@ -8,40 +8,40 @@ keywords:
 - resim çerçevesi
 - resim çerçevesi ekle
 - resim çerçevesi oluştur
-- gömülü görüntü
-- bağlı görüntü
-- görüntü çıkar
-- raster görüntü
-- SVG görüntü
-- görüntüyü kırp
+- gömülü resim
+- bağlantılı resim
+- resim çıkar
+- raster resim
+- SVG resmi
+- resim kırp
 - kırpılmış alanları sil
-- görüntüyü sıkıştır
+- resim sıkıştır
 - StretchOffset
-- resim çerçevesi biçimlendirme
+- resim çerçevesi formatlama
 - göreceli ölçek
-- görüntü efekti
-- en‑boy oranı
+- resim efekti
+- en-boy oranı
 - PowerPoint
 - OpenDocument
 - sunum
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java kullanarak sunumlarda resim çerçevelerini oluşturun, biçimlendirin, bağlayın, kırpın, çıkarın ve sıkıştırın."
+description: "Aspose.Slides for Android via Java ile sunumlarda resim çerçevelerini oluşturun, biçimlendirin, bağlayın, kırpın, çıkarın ve sıkıştırın."
 ---
 ## **Genel Bakış**
 
-Bir resim çerçevesi, bir görüntüyü gösteren slayt şeklidir. Aspose.Slides'ta, görüntü kaynağı ve onu gösteren şekil ayrı nesnelerdir: bir [Presentation](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) yerleşik görüntü kaynaklarını [IImageCollection](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iimagecollection/) aracılığıyla sahiplenirken, bir [IPictureFrame](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipictureframe/) görüntünün konumunu, boyutunu, çizgi biçimlendirmesini, dönüşümünü, kırpmasını, resim efektlerini ve diğer çerçeve‑seviyesi ayarları kontrol eder.
+Bir resim çerçevesi, bir resmi gösteren slayt şeklidir. Aspose.Slides içinde resim kaynağı ve onu gösteren şekil ayrı nesnelerdir: bir [Sunum] (https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/) gömülü resim kaynaklarını [IImageCollection] (https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iimagecollection/) aracılığıyla sahiplenirken, bir [IPictureFrame] (https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipictureframe/) resmin konumunu, boyutunu, kenar biçimlendirmesini, döndürülmesini, kırpılmasını, resim efektlerini ve diğer çerçeve‑seviyesi ayarları kontrol eder.
 
-Aynı görüntünün birden çok kez gösterildiği durumlarda bu ayrım faydalıdır. Görüntüyü sunuma bir kez ekleyin, döndürülen [IPPImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ippimage/) nesnesini saklayın ve resim çerçeveleri oluştururken bu görüntü kaynağını kullanın.
+Bu ayrım, aynı resmin birden fazla kez gösterilmesi gerektiğinde faydalıdır. Resmi sunuma bir kez ekleyin, döndürülen [IPPImage] (https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ippimage/) nesnesini saklayın ve resim çerçeveleri oluştururken bu resim kaynağını kullanın.
 
-Resim çerçeveleri PNG veya JPEG gibi raster görüntülerin yanı sıra vektör SVG görüntülerini de içerebilir. Ayrıca görüntü baytlarını sunuma depolamak yerine ilişkilendirilmiş görüntülere de başvurabilirler. Bu seçim, taşınabilirlik, dosya boyutu, çıkarma ve dışa aktarma davranışını etkiler; bu nedenle biçimlendirme veya optimizasyon uygulamadan önce görüntünün nasıl depolanacağına karar vermek yararlıdır.
+Resim çerçeveleri PNG veya JPEG gibi raster resimler ile SVG gibi vektör resimleri içerebilir. Ayrıca resim baytlarını sunuma depolamak yerine bağlanmış resimlere de referans verebilir. Bu seçim, taşınabilirliği, dosya boyutunu, çıkartma ve dışa aktarma davranışını etkiler; bu nedenle biçimlendirme veya optimizasyon uygulamadan önce resmin nasıl depolanacağına karar vermek faydalıdır.
 
-## **Gömülü Bir Görüntü Ekleme ve Biçimlendirme**
+## **Gömülü Resim Ekleme ve Biçimlendirme**
 
-Gömülü bir görüntü için, görüntü verisini sunuma ekleyin ve bir resim çerçevesi oluşturmak üzere [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) yöntemini kullanın. Görüntü sunum paketinin bir parçası haline gelir, böylece sunum başka bir bilgisayara taşındığında kendine yeterli kalır.
+Gömülü bir resim için, resim verisini sunuma ekleyin ve bir resim çerçevesi oluşturmak için [IShapeCollection.addPictureFrame] (https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) metodunu kullanın. Resim sunum paketinin bir parçası haline gelir, bu sayede sunum başka bir bilgisayara taşındığında kendine yeterli kalır.
 
-Aşağıdaki örnek bir JPEG görüntüsü ekler, görüntünün yerel boyutlarında bir çerçeve oluşturur ve çizgi biçimlendirmesi ile dönüşüm uygular:
+Aşağıdaki örnek bir JPEG resmi ekler, resmin özgün boyutlarında bir çerçeve oluşturur ve kenar biçimlendirmesi ile döndürme uygular:
 
 ```java
 import com.aspose.slides.*;
@@ -71,11 +71,11 @@ try {
 }
 ```
 
-Resim çerçevesi gösterilen geometrinin kontrolünü sağlar; çerçeve boyutunu değiştirmek, gömülü görüntü kaynağında saklanan orijinal piksel boyutlarını değiştirmez. Bu ayrım, daha sonra görüntüyü kırpma veya sıkıştırma yapıldığında önem kazanır.
+Resim çerçevesi görüntülenen geometriyi kontrol eder; çerçeve boyutunu değiştirmek gömülü resim kaynağında saklanan piksel boyutlarını değiştirmez. Bu ayrım, daha sonra resim kırpma ya da sıkıştırma yapıldığında önem kazanır.
 
-## **Göreceli Ölçek Kullanma**
+## **Göreceli Ölçeği Kullanma**
 
-[IPictureFrame](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipictureframe/) çerçeve için göreceli genişlik ve yükseklik ölçeklendirmesini [setRelativeScaleWidth](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipictureframe/#setRelativeScaleWidth-float-) ve [setRelativeScaleHeight](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipictureframe/#setRelativeScaleHeight-float-) aracılığıyla sunar. `1.0` değeri, orijinal resim boyutunun %100'üne karşılık gelir. Göreceli ölçek, bir iş akışının kaynak görüntü boyutuna ilişkin bir ilişkiyi koruması gerektiğinde, son boyutları elle hesaplamaktan daha kullanışlıdır.
+[IPictureFrame] (https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipictureframe/) çerçeve için göreceli genişlik ve yükseklik ölçeklemeyi [setRelativeScaleWidth] (https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipictureframe/#setRelativeScaleWidth-float-) ve [setRelativeScaleHeight] (https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipictureframe/#setRelativeScaleHeight-float-) metodlarıyla sunar. `1.0` değeri, orijinal resim boyutunun %100'üne karşılık gelir. Göreceli ölçek, bir iş akışının kaynak resim boyutuyla oranı koruması gerektiğinde, nihai boyutları elle hesaplamaktan daha kullanışlıdır.
 
 ```java
 import com.aspose.slides.*;
@@ -102,17 +102,17 @@ try {
 }
 ```
 
-Göreceli ölçek çerçevenin ölçek ayarlarını değiştirir; gömülü görüntüyü yeniden örnekleme veya sıkıştırma yapmaz.
+Göreceli ölçek çerçevenin ölçek ayarlarını değiştirir; gömülü resmi yeniden örneklemez veya sıkıştırmaz.
 
-## **Gömülü ve Bağlantılı Görüntüler**
+## **Gömülü ve Bağlantılı Resimler**
 
-Gömülü bir resim, görüntü verilerini sunum içinde saklar ve bu nedenle taşınabilirlik ve öngörülebilir render için en güvenli seçenektir. Bağlantılı bir resim ise görüntü verilerini aynı şekilde gömmek yerine [ISlidesPicture.setLinkPathLong](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/islidespicture/#setLinkPathLong-java.lang.String-) yöntemiyle harici bir konumu tutar.
+Gömülü bir resim, resim verilerini sunum içinde saklar ve bu nedenle taşınabilirlik ve öngörülebilir render için en güvenli seçenektir. Bağlantılı bir resim, resim verilerini aynı şekilde gömmek yerine [ISlidesPicture.setLinkPathLong] (https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/islidespicture/#setLinkPathLong-java.lang.String-) metodu aracılığıyla harici bir konuma referans verir.
 
-Bağlantılı görüntüler PPTX içindeki görüntü verisi miktarını azaltabilir, ancak dış bir bağımlılık getirir. Bağlantılı dosya, sunumu açan veya render eden uygulama tarafından erişilebilir olmalıdır. Yol değişirse, dosya taşınırsa veya kaynak mevcut olmazsa, bağlantılı resim beklenildiği gibi görüntülenmeyebilir. E-posta, arşivleme veya izole ortamlarda render edilen sunumlar için gömülü görüntüler genellikle daha güvenilirdir.
+Bağlantılı resimler PPTX içinde depolanan resim verisi miktarını azaltabilir, ancak dış bir bağımlılık getirir. Bağlantılı dosya, sunumu açan veya render eden uygulama tarafından erişilebilir olmalıdır. Yol değişirse, dosya taşınırsa ya da kaynak kullanılmazsa, bağlantılı resim beklenildiği gibi görüntülenmeyebilir. E‑posta ile gönderilmesi, arşivlenmesi veya izole ortamda render edilmesi gereken sunumlar için gömülü resimler genellikle daha güvenilirdir.
 
-### **Bağlantılı Bir Görüntü Ekleme**
+### **Bağlantılı Resim Ekleme**
 
-Aşağıdaki örnek bir resim çerçevesi oluşturur ve yerel bir görüntü dosyasına yönlendirir. Sadece görüntü bağlantısına odaklanır; video bağlantısı ayrı bir medya iş akışıdır ve bu örnek içinde karıştırılmamıştır.
+Aşağıdaki örnek bir resim çerçevesi oluşturur ve onu yerel bir resim dosyasına yönlendirir. Sadece resim bağlamayı gösterir; video bağlama ayrı bir medya iş akışıdır ve bu örnekte bilinçli olarak karıştırılmamıştır.
 
 ```java
 import com.aspose.slides.*;
@@ -133,15 +133,15 @@ try {
 }
 ```
 
-Harici dosya yönetimi amaçlıysa bağlantıları kullanın. Sıkıştırmanın yerine sadece bir alternatif olarak kullanmayın: kırık görüntü bağımlılıklarına sahip küçük bir PPTX, genellikle büyük, kendine yeterli bir sunumdan daha az yararlıdır.
+Dış dosya yönetimi kasıtlıysa bağlantı kullanın. Sıkıştırmanın yerine yalnızca bir yedek olarak kullanmayın: kırık bağımlılıkları olan küçük bir PPTX, büyük, kendine yeterli bir sunumdan genellikle daha az kullanışlıdır.
 
-## **Resim Çerçevelerinden Görüntü Çıkarma**
+## **Resim Çerçevelerinden Resimleri Çıkarma**
 
-Mevcut bir sunumdan görüntü çıkarmadan önce, şeklin gerçekten bir [IPictureFrame](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipictureframe/) olup olmadığını ve gömülü bir görüntü içerdiğini kontrol edin. Bağlantılı resim çerçeveleri, aynı şekilde çıkarılabilecek görüntü baytlarını içermeyebilir.
+Mevcut bir sunumdan resmi çıkarmadan önce, şeklin gerçekten bir [IPictureFrame] (https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipictureframe/) olup olmadığını ve gömülü bir resim içerdiğini kontrol edin. Bağlantılı resim çerçeveleri aynı şekilde çıkarılabilecek resim baytlarını içermeyebilir.
 
-### **Raster Görüntü Çıkarma**
+### **Raster Resim Çıkarma**
 
-Modern görüntü API'si, daha eski Java görüntü sarmalayıcısına ihtiyaç duymadan doğrudan [IImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iimage/) kullanır. Aşağıdaki örnek bir slayttaki ilk gömülü raster resmi bulur ve PNG olarak kaydeder:
+Modern resim API’si, eski Java resim sarmalayıcısına gerek kalmadan [IImage] (https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iimage/) nesnesini doğrudan kullanır. Aşağıdaki örnek bir slayttaki ilk gömülü raster resmi bulur ve PNG olarak kaydeder:
 
 ```java
 import com.aspose.slides.*;
@@ -174,11 +174,11 @@ try {
 }
 ```
 
-[IImage.save](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) ile kaydetmek, çıkarılan görüntüyü istenen çıktı biçimine dönüştürür. Sunum içinde saklanan kodlanmış baytlara ihtiyacınız varsa, dönüştürülmüş raster dosya yerine görüntü kaynağının ikili verilerini kullanın.
+[IImage.save] (https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) aracılığıyla kaydetmek, çıkarılan resmi istenen çıktı formatına dönüştürür. Sunum içinde saklanan kodlanmış baytlara ihtiyacınız varsa, dönüştürülmüş raster dosya yerine resim kaynağının ikili verisini kullanın.
 
-### **SVG Görüntüsü Çıkarma**
+### **SVG Resim Çıkarma**
 
-Bir SVG resmi için, [IPPImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ippimage/) bir [ISvgImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/isvgimage/) nesnesi sunar. Bu, resmi önce rasterleştirmeden doğrudan SVG verisini almanızı sağlar.
+SVG resmi için, [IPPImage] (https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ippimage/) bir [ISvgImage] (https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/isvgimage/) nesnesi sunar. Bu, resmi önce rasterleştirmeden doğrudan SVG verisini almanızı sağlar.
 
 ```java
 import com.aspose.slides.*;
@@ -215,11 +215,11 @@ try {
 }
 ```
 
-SVG içeriğini SVG olarak tutmak, vektör kaynağını sunum içinde korur. PNG veya JPEG gibi raster dışa aktarmalar, o vektör içeriği piksellere dönüştürür. PDF veya SVG slayt dışa aktarma da bir render işlemidir; dışa aktarılan grafikler, orijinal gömülü SVG'nin bayt‑bayt kopyası olarak görülmemelidir; asıl vektör kaynağı gerektiğinde gömülü [ISvgImage.getSvgData](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/isvgimage/#getSvgData--) verisi kullanılmalıdır.
+SVG içeriğini SVG olarak tutmak, vektör kaynağını sunum içinde korur. PNG veya JPEG gibi raster dışa aktarımlar bu vektör içeriği piksele dönüştürür. PDF veya SVG slayt dışa aktarma da bir render işlemi olduğundan, dışa çıkan grafikler orijinal gömülü SVG’nin bayt‑bayt bir kopyası olarak değerlendirilmemelidir; orijinal vektör kaynağı gerektiğinde gömülü [ISvgImage.getSvgData] (https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/isvgimage/#getSvgData--) verisi kullanılmalıdır.
 
-## **Bir Görüntüyü Kırpma**
+## **Bir Resmi Kırpma**
 
-Kırpma, görüntünün çerçeve içinde hangi bölümünün görüneceğini değiştirir. [IPictureFillFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipicturefillformat/) üzerindeki kırpma değerleri, kaynak görüntü boyutlarının yüzdesi olarak tanımlanır. Kırpma, gömülü görüntüdeki gizli pikselleri başlangıçta silmez; yalnızca görünür bölgeyi değiştirir.
+Kırpma, resmin çerçeve içinde hangi kısmının görüneceğini değiştirir. [IPictureFillFormat] (https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipicturefillformat/) üzerindeki kırpma değerleri, kaynak resim boyutlarının yüzde değerleridir. Kırpma başlangıçta gizli pikselleri gömülü resimden silmez; yalnızca görünür bölgeyi değiştirir.
 
 Aşağıdaki örnek bir resim çerçevesini güvenli bir şekilde bulur ve kırpma değerlerini uygular:
 
@@ -250,11 +250,11 @@ try {
 }
 ```
 
-Gizli görüntü verisi hâlâ mevcut olduğundan, kırpma daha sonra orijinal pikselleri kaybetmeden değiştirilebilir. Dosya boyutu, geri dönüşümden daha önemliyse, sonraki bölümde anlatıldığı gibi kırpılmış bölgeler fiziksel olarak kaldırılabilir.
+Gizli resim verisi hâlâ mevcut olduğu için, kırpma daha sonra orijinal pikselleri kaybetmeden değiştirilebilir. Dosya boyutu tersinirlikten daha önemliyse, sonraki bölümde açıklanan gibi kırpılmış bölgeler fiziksel olarak kaldırılabilir.
 
-## **Kırpılmış Görüntü Verisini Kaldırma**
+## **Kırpılmış Resim Verilerini Kaldırma**
 
-[IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) mevcut kırpma dikdörtgeninin dışındaki görüntü verisini siler ve oluşan görüntü kaynağını döndürür. Bu, dosya boyutunu azaltabilir, ancak yıkıcı bir optimizasyondur: sunum kaydedildikten sonra kaldırılan pikseller daha sonraki bir “uncrop” işlemiyle elde edilemez.
+[IPictureFillFormat.deletePictureCroppedAreas] (https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) mevcut kırpma dikdörtgeninin dışındaki resim verilerini siler ve ortaya çıkan resim kaynağını döndürür. Bu, dosya boyutunu azaltabilir, ancak yıkıcı bir optimizasyondur: sunum kaydedildikten sonra kaldırılan pikseller daha sonraki bir kırpma geri alma işlemi için artık kullanılamaz.
 
 ```java
 import com.aspose.slides.*;
@@ -282,13 +282,13 @@ try {
 }
 ```
 
-Bu yöntem sunuma yeni bir görüntü kaynağı ekleyebilir. Orijinal görüntü başka resim çerçeveleri tarafından da kullanılıyorsa, bu çerçeveler hâlâ mevcut kaynaklarını gerektirir; bu nedenle kırpılmış alanların silinmesi mutlaka toplam görüntü sayısını azaltmaz. WMF veya EMF içeriğini bu yöntemle kırpmak, kırpılmış sonucu PNG’ye rasterleştirir.
+Bu yöntem sunuma yeni bir resim kaynağı ekleyebilir. Orijinal resim başka resim çerçeveleri tarafından da kullanılıyorsa, bu çerçevelerin hâlen mevcut kaynağa ihtiyacı olur; bu yüzden kırpılmış alanların silinmesi mutlaka toplam resim sayısını azaltmaz. WMF veya EMF içeriğini bu yöntemle kırpmak, kırpılmış sonucu PNG’ye rasterleştirir.
 
-## **Raster Görüntüleri Sıkıştırma**
+## **Raster Resimleri Sıkıştırma**
 
-[IPictureFillFormat.compressImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) raster görüntü çözünürlüğünü, resmin gösterildiği boyuta göre azaltır. Aynı işlemde kırpılmış bölgeler de kaldırılabilir. Yöntem, görüntü yeniden boyutlandırıldıysa veya kırpıldıysa `true`, değişiklik gerekmediyse `false` döndürür.
+[IPictureFillFormat.compressImage] (https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) raster resim çözünürlüğünü, resmin gösterildiği boyuta göre azaltır. Aynı işlemde kırpılmış bölgeler de kaldırılabilir. Metod, resim yeniden boyutlandırıldıysa veya kırpıldıysa `true`, hiçbir değişiklik gerekmediyse `false` döndürür.
 
-Standart bir hedef çözünürlük yeterli olduğunda ön tanımlı bir [PicturesCompression](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/picturescompression/) değeri kullanın:
+Standart bir hedef çözünürlük yeterli olduğunda önceden tanımlı bir [PicturesCompression] (https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/picturescompression/) değeri kullanın:
 
 ```java
 import com.aspose.slides.*;
@@ -315,17 +315,17 @@ try {
 }
 ```
 
-Belirli bir hedef gerektiğinde, ön tanımlı bir değer yerine özel pozitif DPI değeri geçirilebilir.
+Belirli bir hedef gerektiğinde, önceden tanımlı bir değer yerine pozitif DPI değeri de geçirilebilir.
 
-Sıkıştırma raster görüntüler içindir. SVG ve metafile içeriği bu raster sıkıştırma süreciyle azaltılmaz. Ayrıca, düşük çözünürlük ve silinmiş kırpılmış bölgeler, optimize edilmiş sunumdan geri getirilemez. En büyük görüntü izleme veya dışa aktarma boyutuna göre hedef çözünürlük seçin; tüm sunumda en düşük DPI’yı uygulamaktan kaçının.
+Sıkıştırma raster resimler için tasarlanmıştır. SVG ve metafile içeriği bu raster sıkıştırma iş akışıyla azaltılmaz. Ayrıca, düşük çözünürlük ve silinmiş kırpılmış bölgeler, optimize edilmiş sunumdan geri getirilemez. Hedef çözünürlüğü, resmin aslında görüntülenecek veya dışa aktarılacak en büyük boyutuna göre seçin; tüm sunumda en düşük DPI’yı uygulamaktan kaçının.
 
-## **Görüntü Dönüşüm Efektlerini Yönetme**
+## **Resim Dönüştürme Efektlerini Yönetme**
 
-Parlaklık, kontrast, renk dönüşümleri, bulanıklaştırma, alfa efektleri, sıralı zincirler, inceleme, kaldırma ve iki yönlü doğrulama gibi tam bir iş akışı için [Image Transform Effects](/androidjava/image-transform-effects/) bölümüne bakın.
+Parlaklık, kontrast, renk dönüşümleri, bulanıklaştırma, alfa efektleri, sıralı zincirler, inceleme, kaldırma ve çift yönlü doğrulama gibi tam bir iş akışı için [Image Transform Effects](/slides/tr/androidjava/image-transform-effects/) sayfasına bakın.
 
 ## **Resim Çerçevesi Geometrisini Kilitleme**
 
-[IPictureFrameLock](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipictureframelock/) ayarları, bir resim çerçevesi için hangi düzenleme işlemlerinin devre dışı bırakılacağını kontrol eder. Örneğin, [setAspectRatioLocked](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) yeniden boyutlandırılırken şeklin en‑boy oranını korur.
+[IPictureFrameLock] (https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipictureframelock/) ayarları, bir resim çerçevesi için hangi düzenleme işlemlerinin devre dışı bırakılacağını kontrol eder. Örneğin, [setAspectRatioLocked] (https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) şeklin oranını yeniden boyutlandırılırken korur.
 
 ```java
 import com.aspose.slides.*;
@@ -351,13 +351,13 @@ try {
 }
 ```
 
-Kilit, resim çerçevesi şekline uygulanır. Kaynak görüntünün aynı en‑boy oranına yeniden örneklenmesini veya kalıcı olarak değiştirilmesini zorlamaz.
+Kilitleme, resim çerçevesi şekline uygulanır. Kaynak resmin aynı en‑boy oranına yeniden örneklenmesi veya kalıcı olarak değiştirilmesi zorunlu kılmaz.
 
 ## **StretchOffset Değerlerini Ayarlama**
 
-Resim dolgu modu “stretch” olduğunda, [IPictureFillFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipicturefillformat/) üzerindeki stretch‑offset değerleri, doldurma dikdörtgenini resim çerçevesinin sınırlayıcı kutusuna göre tanımlar. Pozitif yüzde değerleri kenardan içeriye doğru bir kenar boşluğu oluştururken, negatif yüzde değerleri dışarıya doğru bir genişleme yaratır.
+Resim doldurma modu “stretch” (germe) ise, [IPictureFillFormat] (https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipicturefillformat/) üzerindeki stretch‑offset değerleri, doldurma dikdörtgenini resim çerçevesinin sınırlayıcı kutusuna göre tanımlar. Pozitif yüzde değerler bir kenardan içeriye doğru bir girinti oluştururken, negatif yüzde değerler dışarıya doğru bir çıkıntı oluşturur.
 
-Bu, kırpmadan farklıdır. Kırpma değerleri, kaynağın hangi kısmının görüneceğini seçerken; stretch offset değerleri, görünür resim dolgusunun hangi dikdörtgene gerileceğini belirler.
+Bu, kırpmadan farklıdır. Kırpma değerleri, kaynak resmin hangi kısmının görüneceğini seçerken; stretch offset değerleri, görünür resim doldurmasının hangi dikdörtgene gerileceğini belirler.
 
 ```java
 import com.aspose.slides.*;
@@ -387,43 +387,43 @@ try {
 }
 ```
 
-Dolgu yerleştirme için stretch offset kullanın. Kaynak görüntünün kenarlarını gizlemek istiyorsanız kırpma özelliklerini kullanın.
+Doldurma yerleşimi için stretch offset kullanın. Kaynak resim kenarlarını gizlemek istiyorsanız kırpma özelliklerini kullanın.
 
 ## **Depolama, Dosya Boyutu ve Dışa Aktarma Hususları**
 
-Görüntü depolama ve resim‑çerçeve biçimlendirmesi ayrı ayrı ele alındığında temel ticaret‑off’lar daha iyi yönetilir:
+Resim depolama ve resim‑çerçeve biçimlendirmesi ayrı ayrı ele alındığında temel ödünleşimler daha net yönetilir:
 
-- **Gömülü görüntüler** sunumu kendine yeterli kılar ve paylaşım ve sunucu‑tarafı render için en güvenilir olanlardır; ancak büyük raster görüntüler PPTX boyutunu ve bellek kullanımını artırır.
-- **Bağlantılı görüntüler** paketi daha küçük tutabilir, ancak sunumun dış dosyaların belirtilen yollarda erişilebilir olmasına bağımlılığı vardır.
-- **Kırpma** başlangıçta yıkıcı değildir. Gizli pikseller, kırpılmış alanlar açıkça silinene ya da sıkıştırma sırasında kaldırılana kadar gömülü kalır.
-- **Sıkıştırma**, aşırı büyük raster görüntülerin dosya boyutunu önemli ölçüde azaltabilir, ancak kaynak çözünürlüğü feda eder. Slayt üzerindeki hedef boyut bilindiğinde uygulanmalıdır.
-- **SVG görüntüler** vektör korumasının önemli olduğu durumlarda SVG olarak bırakılmalıdır. Vektör kaynağı gerektiğinde gömülü SVG doğrudan çıkarılabilir. Raster slayt dışa aktarmaları her zaman render edilen slaytı piksellere dönüştürür.
-- **Tekrarlanan görüntüler** mümkün olduğunca mevcut bir [IPPImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ippimage/) kaynağını yeniden kullanmalı, aynı dosyayı birden çok kez sunuma yüklemekten kaçınmalıdır.
+- **Gömülü resimler** sunumu kendine yeterli kılar ve paylaşım ile sunucu‑tarafı render için en güvenilirdir, ancak büyük raster resimler PPTX boyutunu ve bellek kullanımını artırır.
+- **Bağlantılı resimler** paketi daha küçük tutabilir, ancak sunum, belirtilen yollar veya konumlardaki dış dosyalara bağımlı hâle gelir.
+- **Kırpma** başlangıçta yıkıcı değildir. Gizli pikseller, kırpılmış alanlar açıkça silinene ya da sıkıştırma sırasında kaldırılıncaya kadar gömülü kalır.
+- **Sıkıştırma**, aşırı büyük raster resimlerin dosya boyutunu önemli ölçüde azaltabilir, ancak kaynak çözünürlüğü feda eder. Kaynak boyut biliniyorsa, sıkıştırma bu boyut kesinleştirildikten sonra uygulanmalıdır.
+- **SVG resimler**, vektör korumanın önemli olduğu durumlarda SVG olarak kalmalıdır. Vektör kaynağı gerektiğinde gömülü SVG doğrudan çıkarılabilir. Raster slayt dışa aktarımları her zaman render edilen slaytı piksele dönüştürür.
+- **Tekrarlanan resimler**, mümkün olduğunca aynı [IPPImage] (https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ippimage/) kaynağını yeniden kullanmalı, aynı dosyayı tekrar‑tekrar sunuma yüklemekten kaçınmalıdır.
 
-Büyük sunumlarda, görüntü optimizasyonu genellikle seçici olarak yapıldığında en etkili olur: logoları ve diyagramları vektör içerik olarak tutun, fotoğrafları gerçek gösterim boyutlarına göre sıkıştırın, kırpılmış pikselleri yalnızca ileri düzenleme gerekmediğinde kaldırın ve dış bağlantıları yalnızca bağımlılık yönetimi dağıtım tasarımının bir parçasıysa kullanın.
+Büyük sunumlarda, resim optimizasyonu seçici olarak yapıldığında en etkili olur: logolar ve diyagramlar vektör içerik olarak tutulur, fotoğraflar gerçek gösterim boyutuna göre sıkıştırılır, kırpılmış pikseller yalnızca sonraki düzenleme gerekmediğinde kaldırılır ve dış bağlantılar, bağımlılık yönetimi dağıtım tasarımının bir parçası olmadıkça kullanılmaz.
 
 ## **SSS**
 
-**Resim çerçevesi ile görüntü kaynağı arasındaki fark nedir?**
+**Resim çerçevesi ile resim kaynağı arasındaki fark nedir?**
 
-Bir [IPPImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ippimage/) sunuma ilişkilendirilmiş bir görüntü kaynağını temsil eder. Bir [IPictureFrame](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipictureframe/) ise bir slaytta görüntüyü gösteren ve çerçeve‑seviyesi geometri ve biçimlendirmeyi (boyut, dönüş, kırpma değerleri, efektler ve kilitler gibi) depolayan bir şekildir.
+[IPPImage] (https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ippimage/) sunuma bağlı bir resim kaynağını temsil eder. [IPictureFrame] (https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipictureframe/) bir slayttaki resmi gösteren, boyut, döndürme, kırpma değerleri, efektler ve kilitler gibi çerçeve‑seviyesi geometrik ve biçimsel bilgileri saklayan bir şekildedir.
 
-**Görüntüleri gömmeli miyim yoksa bağlamalı mı?**
+**Resimleri gömmeli mi yoksa bağlamalı mıyım?**
 
-Sunumun taşınabilir, arşivlenebilir veya dış kaynaklara erişim olmadan render edilmesi gerekiyorsa görüntüleri gömün. Görüntü dosyalarını PPTX dışına tutma ve dış konumların güvenilir bir şekilde korunması amaçlıysa bağlayın.
+Sunumun taşınabilir, arşivlenebilir veya dış kaynaklar olmadan render edilmesi gerekiyorsa resimleri gömün. Resimleri dış dosyalarda tutmak ve dış konumları güvenilir bir şekilde yönetebiliyorsanız, bağlamayı tercih edin.
 
 **Kırpma PPTX dosya boyutunu azaltır mı?**
 
-Kendiliğinden olmaz. Normal kırpma ayarları, kaynak görüntünün bir kısmını gizler ancak temel pikselleri tutar. Bu pikselleri kalıcı olarak atmak için [IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) veya kırpılmış alanların kaldırıldığı sıkıştırma kullanılmalıdır.
+Kendiliğinden olmaz. Normal kırpma ayarları kaynağın bir kısmını gizler ancak altındaki pikselleri tutar. Kırpılmış pikselleri kalıcı olarak kaldırmak için [IPictureFillFormat.deletePictureCroppedAreas] (https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) veya kırpılmış alanların kaldırıldığı bir sıkıştırma işlemi kullanılmalıdır.
 
 **Sıkıştırma sonrası görüntü kalitesini geri getirebilir miyim?**
 
-Hayır. Sıkıştırma saklanan raster çözünürlüğü düşürür ve kırpılmış bölgelerin kaldırılması görüntü verisini yok eder. Daha sonraki yüksek çözünürlük düzenlemeleri gerekebilecekse, orijinal kaynağı sunum dışında tutun.
+Hayır. Sıkıştırma saklanan raster çözünürlüğü düşürür, kırpılmış bölgelerin kaldırılması ise resim verisini siler. Daha sonra yüksek çözünürlüklü düzenleme gerekebileceğini düşünüyorsanız, orijinal kaynak resmi sunum dışına saklayın.
 
-**SVG görüntüler nasıl ele alınmalı?**
+**SVG resimlerin nasıl ele alınması gerekir?**
 
-Vektör doğruluğunun önemli olduğu durumlarda SVG içeriği SVG olarak kalmalıdır. Gömülü [ISvgImage](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/isvgimage/) doğrudan çıkarılabilir. PNG veya JPEG gibi raster bir formata slayt render etmek, SVG’yi slayt görüntüsünün bir parçası olarak piksellere dönüştürür.
+Vektör bütünlüğünün önemli olduğu durumlarda SVG içeriği SVG olarak tutun. Gömülü [ISvgImage] (https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/isvgimage/) doğrudan çıkarılabilir. Slaytı PNG veya JPEG gibi raster bir formata dışa aktarmak, SVG’yi slayt görüntüsünün bir parçası olarak piksele dönüştürür.
 
-**Mevcut slaytları okurken güvensiz tip dönüşümlerinden nasıl kaçınılır?**
+**Mevcut slaytları okurken güvensiz tip dönüşümlerinden nasıl kaçınırım?**
 
-Şekil tipini kullanmadan önce kontrol edin. Bir `instanceof` kontrolü ile [IPictureFrame](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipictureframe/) olup olmadığını doğrulamak, geçersiz dönüşümleri önler ve resim çerçevesi içermeyen slaytların kod tarafından güvenli bir şekilde işlenmesini sağlar.
+Resim‑çerçevesi‑özel üyeleri kullanmadan önce şekil tipini kontrol edin. [IPictureFrame] (https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ipictureframe/) karşısında bir `instanceof` kontrolü, geçersiz dönüşümleri önler ve resim çerçevesi içermeyen slaytların kod tarafından güvenli bir şekilde işlenmesini sağlar.

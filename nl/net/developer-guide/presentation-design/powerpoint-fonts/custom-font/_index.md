@@ -1,6 +1,6 @@
 ---
-title: Aangepaste PowerPoint-lettertypen in .NET
-linktitle: Aangepast Lettertype
+title: PowerPoint-lettertypen aanpassen in .NET
+linktitle: Aangepast lettertype
 type: docs
 weight: 20
 url: /nl/net/custom-font/
@@ -10,49 +10,51 @@ keywords:
 - extern lettertype
 - lettertype laden
 - lettertypen beheren
-- lettertype map
+- lettertypefolder
 - PowerPoint
 - OpenDocument
 - presentatie
 - .NET
 - C#
 - Aspose.Slides
-description: "Pas lettertypen aan in PowerPoint-dia's met Aspose.Slides voor .NET om uw presentaties scherp en consistent te houden op elk apparaat."
+description: "Pas lettertypen in PowerPoint‑dia's aan met Aspose.Slides voor .NET om je presentaties scherp en consistent te houden op elk apparaat."
 ---
 ## **Overzicht**
 
-Aspose.Slides stelt u in staat om aangepaste lettertypen te gebruiken in presentaties zonder ze op het besturingssysteem te installeren. U kunt lettertypen laden vanuit aangepaste mappen, lettertypen aanbieden voor een specifieke presentatie via document‑niveau‑font‑bronnen, of externe lettertypen rechtstreeks uit binaire data laden.
+Aspose.Slides maakt het mogelijk om aangepaste lettertypen in presentaties te gebruiken zonder ze op het besturingssysteem te installeren. Je kunt lettertypen laden vanuit aangepaste mappen, lettertypen voor een specifieke presentatie beschikbaar stellen via document‑level font sources, of externe lettertypen direct uit binaire gegevens laden.
 
-Geladen lettertypen worden gebruikt wanneer een presentatie wordt gerenderd of geëxporteerd, bijvoorbeeld naar PDF, afbeeldingen en andere ondersteunde formaten. Dit helpt om de uitvoer van de presentatie consistent te houden over verschillende omgevingen heen. Het artikel legt ook uit hoe u de door Aspose.Slides gebruikte lettertype‑mappen kunt inspecteren en hoe u de lettertype‑cache kunt wissen na het werken met externe lettertypen.
+Geladen lettertypen worden gebruikt wanneer een presentatie wordt gerenderd of geëxporteerd, bijvoorbeeld naar PDF, afbeeldingen en andere ondersteunde formaten. Dit helpt om de uitvoer van de presentatie consistent te houden tussen verschillende omgevingen. Het artikel legt ook uit hoe je de lettertype‑mappen die door Aspose.Slides worden gebruikt kunt inspecteren en hoe je de lettertype‑cache kunt legen na het werken met externe lettertypen.
 
-Het registreren van aangepaste lettertypen voor weergave is gescheiden van het insluiten van lettertypen in een PPTX‑bestand. Als een lettertype in het presentatie‑bestand zelf moet worden opgeslagen, gebruikt u de insluit‑functionaliteit expliciet.
+Het registreren van aangepaste lettertypen voor weergave is gescheiden van het insluiten van lettertypen in een PPTX‑bestand. Als een lettertype in de presentatie zelf moet worden opgeslagen, gebruik dan expliciet de insluit‑functies.
 
-{{% alert color="primary" %}} 
+Een presentatiethema kan verschillende lettertypefamilies refereren voor individuele schrijfsystemen. Deze koppelingen slaan alleen lettertype‑namen op, maar installeren of laden de lettertypebestanden niet. Zie [Script‑Specific Theme Fonts](/slides/nl/net/script-specific-font-mappings/) om de koppelingen te beheren, en gebruik de onderstaande laadopties om de gerefereerde lettertypen beschikbaar te maken voor consistente weergave.
 
-Aspose Slides stelt u in staat deze lettertypen te laden met de [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/nl/net/aspose.slides/fontsloader/loadexternalfonts/) methode:
+{{% alert color="info" title="Opmerking" %}}
 
-* TrueType (.ttf) en TrueType‑collectie (.ttc) lettertypen. Zie [TrueType](https://en.wikipedia.org/wiki/TrueType).
+Aspose Slides stelt je in staat deze lettertypen te laden met de [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/nl/net/aspose.slides/fontsloader/loadexternalfonts/)‑methode:
 
-* OpenType (.otf) lettertypen. Zie [OpenType](https://en.wikipedia.org/wiki/OpenType).
+* TrueType‑lettertypen (.ttf) en TrueType‑collecties (.ttc). Zie [TrueType](https://en.wikipedia.org/wiki/TrueType).
+
+* OpenType‑lettertypen (.otf). Zie [OpenType](https://en.wikipedia.org/wiki/OpenType).
 
 {{% /alert %}}
 
 ## **Aangepaste lettertypen laden**
 
-Aspose.Slides stelt u in staat om lettertypen die in een presentatie worden gebruikt te laden zonder ze op het systeem te installeren. Dit beïnvloedt de export‑output — zoals PDF, afbeeldingen en andere ondersteunde formaten — zodat de gegenereerde documenten er consistent uitzien in verschillende omgevingen. Lettertypen worden geladen uit aangepaste mappen.
+Aspose.Slides maakt het mogelijk lettertypen te laden die in een presentatie worden gebruikt zonder ze op het systeem te installeren. Dit beïnvloedt de export‑output – zoals PDF, afbeeldingen en andere ondersteunde formaten – zodat de resulterende documenten er consistent uitzien tussen omgevingen. Lettertypen worden geladen vanuit aangepaste mappen.
 
-1. Geef een of meer mappen op die de lettertype‑bestanden bevatten.  
-2. Roep de statische [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/nl/net/aspose.slides/fontsloader/loadexternalfonts/) methode aan om lettertypen uit die mappen te laden.  
-3. Laad en render/expoteer de presentatie.  
+1. Geef één of meerdere mappen op die de lettertype‑bestanden bevatten.  
+2. Roep de statische [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/nl/net/aspose.slides/fontsloader/loadexternalfonts/)‑methode aan om lettertypen uit die mappen te laden.  
+3. Laad en render/­exporteer de presentatie.  
 4. Roep [FontsLoader.ClearCache](https://reference.aspose.com/slides/nl/net/aspose.slides/fontsloader/clearcache/) aan om de lettertype‑cache te wissen.
 
-De volgende code‑voorbeeld toont het lettertype‑laadproces:
+Het volgende code‑voorbeeld toont het proces van het laden van lettertypen:
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Definieer mappen die aangepaste lettertypebestanden bevatten.
+// Definieer de mappen die aangepaste lettertypebestanden bevatten.
 string[] fontFolders = { @"C:\MyFonts", @"D:\Fonts" };
 
 // Laad aangepaste lettertypen vanuit de opgegeven mappen.
@@ -60,40 +62,40 @@ FontsLoader.LoadExternalFonts(fontFolders);
 
 using Presentation presentation = new Presentation("sample.pptx");
 
-// Render/Exporteer de presentatie (bijv. naar PDF, afbeeldingen of andere formaten) met de geladen lettertypen.
+// Render/en exporteer de presentatie (bijv. naar PDF, afbeeldingen of andere formaten) met de geladen lettertypen.
 presentation.Save("output.pdf", SaveFormat.Pdf);
 
-// Wis de lettertype-cache nadat het werk is voltooid.
+// Wis de lettertypecache nadat het werk voltooid is.
 FontsLoader.ClearCache();
 ```
 
-{{% alert color="info" title="Note" %}}
+{{% alert color="info" title="Opmerking" %}}
 
-[FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/nl/net/aspose.slides/fontsloader/loadexternalfonts/) voegt extra mappen toe aan de zoekpaden voor lettertypen, maar verandert niet de volgorde waarin lettertypen worden geïnitialiseerd.  
+[FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/nl/net/aspose.slides/fontsloader/loadexternalfonts/) voegt extra mappen toe aan de zoekpaden voor lettertypen, maar verandert de volgorde van initialisatie niet.  
 Lettertypen worden in deze volgorde geïnitialiseerd:
 
-1. Het standaard‑pad voor lettertypen van het besturingssysteem.  
+1. Het standaard‑lettertypepad van het besturingssysteem.  
 1. De paden die via [FontsLoader](https://reference.aspose.com/slides/nl/net/aspose.slides/fontsloader/) zijn geladen.
 
 {{%/alert %}}
 
-## **Aangepaste lettertype‑mappen ophalen**
-Aspose.Slides biedt de [GetFontFolders](https://reference.aspose.com/slides/nl/net/aspose.slides/fontsloader/getfontfolders/) methode om u in staat te stellen lettertype‑mappen te vinden. Deze methode retourneert de mappen die via de `LoadExternalFonts`‑methode zijn toegevoegd en de systeem‑lettertype‑mappen.
+## **Aangepaste lettertypefolders ophalen**
+Aspose.Slides biedt de [GetFontFolders](https://reference.aspose.com/slides/nl/net/aspose.slides/fontsloader/getfontfolders/)‑methode om je lettertypefolders te laten vinden. Deze methode retourneert de folders die via de `LoadExternalFonts`‑methode zijn toegevoegd en de systeembrede lettertypefolders.
 
-Deze C#‑code laat zien hoe u [GetFontFolders](https://reference.aspose.com/slides/nl/net/aspose.slides/fontsloader/getfontfolders/) gebruikt:
+Deze C#‑code laat zien hoe je [GetFontFolders](https://reference.aspose.com/slides/nl/net/aspose.slides/fontsloader/getfontfolders/) gebruikt:
 
 ```c#
 using Aspose.Slides;
 
 // Deze regel geeft de mappen weer die worden gecontroleerd op lettertypebestanden.
-// Dit zijn de mappen die via de LoadExternalFonts-methode zijn toegevoegd en de systeemlettertype-mappen.
+// Dit zijn mappen die via de LoadExternalFonts-methode zijn toegevoegd en systeembrede lettertype-mappen.
 string[] fontFolders = FontsLoader.GetFontFolders();
 ```
 
-## **Aangepaste lettertypen voor een presentatie specificeren**
-Aspose.Slides biedt de [DocumentLevelFontSources](https://reference.aspose.com/slides/nl/net/aspose.slides/loadoptions/documentlevelfontsources/) eigenschap om u in staat te stellen externe lettertypen te specificeren die met de presentatie worden gebruikt.
+## **Aangepaste lettertypen specificeren die met een presentatie worden gebruikt**
+Aspose.Slides biedt de [DocumentLevelFontSources](https://reference.aspose.com/slides/nl/net/aspose.slides/loadoptions/documentlevelfontsources/)‑eigenschap om externe lettertypen op te geven die bij de presentatie worden gebruikt.
 
-Deze C#‑code laat zien hoe u de [DocumentLevelFontSources](https://reference.aspose.com/slides/nl/net/aspose.slides/loadoptions/documentlevelfontsources/) eigenschap gebruikt:
+Deze C#‑code laat zien hoe je de [DocumentLevelFontSources](https://reference.aspose.com/slides/nl/net/aspose.slides/loadoptions/documentlevelfontsources/)‑eigenschap gebruikt:
 
 ```c#
 using Aspose.Slides;
@@ -107,15 +109,15 @@ loadOptions.DocumentLevelFontSources.MemoryFonts = new byte[][] { memoryFont1, m
 using (IPresentation presentation = new Presentation("MyPresentation.pptx", loadOptions))
 {
     // Werk met de presentatie
-    // CustomFont1, CustomFont2, en lettertypen uit de mappen assets\fonts & global\fonts en hun submappen zijn beschikbaar voor de presentatie
+    // CustomFont1, CustomFont2 en lettertypen uit de mappen assets\fonts & global\fonts en hun submappen zijn beschikbaar voor de presentatie
 }
 ```
 
 ## **Lettertypen extern beheren**
 
-Aspose.Slides biedt de [LoadExternalFont](https://reference.aspose.com/slides/nl/net/aspose.slides/fontsloader/loadexternalfont/)(byte[] data) methode om externe lettertypen vanuit binaire data te laden.
+Aspose.Slides biedt de [LoadExternalFont](https://reference.aspose.com/slides/nl/net/aspose.slides/fontsloader/loadexternalfont/)(byte[] data)‑methode om externe lettertypen vanuit binaire gegevens te laden.
 
-Deze C#‑code demonstreert het laden van een lettertype via een byte‑array:
+Deze C#‑code toont het proces van het laden van een lettertype‑byte‑array:
 
 ```c#
 using Aspose.Slides;
@@ -137,26 +139,26 @@ finally
 }
 ```
 
-## **FAQ**
+## **Veelgestelde vragen**
 
-**Hebben aangepaste lettertypen invloed op export naar alle formaten (PDF, PNG, SVG, HTML)?**
+**Beïnvloeden aangepaste lettertypen de export naar alle formaten (PDF, PNG, SVG, HTML)?**
 
-Ja. Aangesloten lettertypen worden door de renderer gebruikt bij alle exportformaten.
+Ja. De verbonden lettertypen worden door de renderer gebruikt voor alle exportformaten.
 
-**Worden aangepaste lettertypen automatisch ingesloten in de resulterende PPTX?**
+**Worden aangepaste lettertypen automatisch ingebed in de resulterende PPTX?**
 
-Nee. Een lettertype registreren voor weergave is niet hetzelfde als het in te sluiten in een PPTX. Als u het lettertype in het presentatie‑bestand wilt behouden, moet u de expliciete [embedding features](/slides/nl/net/embedded-font/) gebruiken.
+Nee. Het registreren van een lettertype voor weergave is niet hetzelfde als het insluiten in een PPTX. Als je wilt dat het lettertype in het presentatie‑bestand wordt meegenomen, moet je de expliciete [insluit‑functies](/slides/nl/net/embedded-font/) gebruiken.
 
 **Kan ik het fallback‑gedrag regelen wanneer een aangepast lettertype bepaalde glyphs mist?**
 
-Ja. Configureer [font substitution](/slides/nl/net/font-substitution/), [replacement rules](/slides/nl/net/font-replacement/) en [fallback sets](/slides/nl/net/fallback-font/) om precies te bepalen welk lettertype wordt gebruikt wanneer het gevraagde glyph ontbreekt.
+Ja. Configureer [font‑substitutie](/slides/nl/net/font-substitution/), [vervangingsregels](/slides/nl/net/font-replacement/) en [fallback‑sets](/slides/nl/net/fallback-font/) om precies te bepalen welk lettertype wordt gebruikt wanneer de gevraagde glyph afwezig is.
 
 **Kan ik lettertypen gebruiken in Linux/Docker‑containers zonder ze systeemwijd te installeren?**
 
-Ja. Verwijs naar uw eigen lettertype‑mappen of laad lettertypen vanuit byte‑arrays. Dit verwijdert elke afhankelijkheid van systeem‑lettertype‑mappen in het container‑image.
+Ja. Verwijs naar je eigen lettertypefolders of laad lettertypen vanuit byte‑arrays. Hiermee vermijd je elke afhankelijkheid van systeembrede lettertype‑directories in de container‑image.
 
-> **Opmerking voor Linux/Docker**: Wanneer u `FontsLoader.LoadExternalFonts` aanroept, zorgt u ervoor dat elk item in de `directories`‑array een niet‑lege pad naar een bestaande map bevat. Als een omgevingsvariabele die wordt gebruikt om een lettertype‑pad samen te stellen niet is gedefinieerd of leeg is, kan Aspose.Slides proberen de lege waarde te resolveren als een volledig pad, wat resulteert in `System.ArgumentException`.
+> **Opmerking voor Linux/Docker**: Bij het aanroepen van `FontsLoader.LoadExternalFonts` moet elk item in de `directories`‑array een niet‑lege pad naar een bestaande map bevatten. Als een omgevingsvariabele die wordt gebruikt om een lettertypepad samen te stellen niet is gedefinieerd of leeg is, kan Aspose.Slides proberen de lege waarde als een volledig pad op te lossen, wat leidt tot `System.ArgumentException`.
 
-**Wat betreft licenties — kan ik elk aangepast lettertype insluiten zonder restricties?**
+**Hoe zit het met licenties – kan ik elk aangepast lettertype zonder beperkingen insluiten?**
 
-U bent zelf verantwoordelijk voor naleving van de licentie van het lettertype. De voorwaarden verschillen; sommige licenties verbieden insluiting of commercieel gebruik. Controleer altijd de EULA van het lettertype voordat u de resultaten verspreidt.
+Jij bent verantwoordelijk voor naleving van de licentievoorwaarden van het lettertype. De voorwaarden verschillen; sommige licenties verbieden insluiten of commercieel gebruik. Controleer altijd de EULA van het lettertype voordat je de resultaten verspreidt.

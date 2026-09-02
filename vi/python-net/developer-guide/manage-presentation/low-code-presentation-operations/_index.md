@@ -1,5 +1,5 @@
 ---
-title: Thao tác Trình chiếu Low-Code bằng Python
+title: Các hoạt động trình chiếu Low-Code trong Python
 linktitle: API Low-Code
 type: docs
 weight: 50
@@ -7,37 +7,37 @@ url: /vi/python-net/low-code-presentation-operations/
 keywords:
 - API trình chiếu low-code
 - chuyển đổi trình chiếu
-- hợp nhất trình chiếu
-- thu thập hình dạng
+- ghép nối trình chiếu
+- thu thập shape
 - nén trình chiếu
-- loại bỏ các master slide không dùng
-- loại bỏ các layout slide không dùng
+- loại bỏ các slide master không dùng
+- loại bỏ các slide layout không dùng
 - nén phông chữ nhúng
 - PowerPoint
 - OpenDocument
 - trình chiếu
 - Python
 - Aspose.Slides
-description: "Sử dụng API low-code Aspose.Slides trong Python để chuyển đổi và hợp nhất các trình chiếu, thu thập các hình dạng, và giảm kích thước của trình chiếu."
+description: "Sử dụng API low-code Aspose.Slides trong Python để chuyển đổi và ghép nối các trình chiếu, thu thập shape, và giảm kích thước trình chiếu."
 ---
 ## **Tổng quan**
 
-Mô-đun [aspose.slides.lowcode](https://reference.aspose.com/slides/vi/python-net/aspose.slides.lowcode/) cung cấp các lớp trợ giúp cho các thao tác trình chiếu thông thường. Những trợ giúp này gói các quy trình mô hình đối tượng thường được sử dụng vào các phương thức tập trung, cho phép bạn chuyển đổi hoặc hợp nhất tệp, thu thập hình dạng và loại bỏ nội dung không dùng đến với ít mã hơn.
+The [aspose.slides.lowcode](https://reference.aspose.com/slides/vi/python-net/aspose.slides.lowcode/) module provides helper classes for common presentation operations. These helpers wrap frequently used object-model workflows in focused methods, so you can convert or merge files, collect shapes, and remove unused content with less code.
 
-Các trợ giúp low-code hữu ích nhất khi thao tác áp dụng cho toàn bộ tệp hoặc bản trình chiếu và quy trình mặc định đáp ứng yêu cầu của bạn. Sử dụng toàn bộ [Aspose.Slides object model](https://reference.aspose.com/slides/vi/python-net/aspose.slides/) khi bạn cần kiểm soát chi tiết từng slide, master, layout, shape, cài đặt xuất, hoặc mối quan hệ giữa các yếu tố của bản trình chiếu.
+Low-code helpers are most useful when the operation applies to an entire file or presentation and the default workflow matches your requirements. Use the full [Aspose.Slides object model](https://reference.aspose.com/slides/vi/python-net/aspose.slides/) when you need fine-grained control over individual slides, masters, layouts, shapes, export settings, or relationships between presentation elements.
 
-Bảng sau tóm tắt các trợ giúp có sẵn:
+The following table summarizes the available helpers:
 
 | Trợ giúp | Sử dụng cho |
 | --- | --- |
-| [Convert](https://reference.aspose.com/slides/vi/python-net/aspose.slides.lowcode/convert/) | Chuyển đổi một bản trình chiếu sang định dạng khác bằng cuộc gọi trực tiếp từ tệp này sang tệp khác. |
-| [Merger](https://reference.aspose.com/slides/vi/python-net/aspose.slides.lowcode/merger/) | Kết hợp các tệp bản trình chiếu hoàn chỉnh cùng định dạng. |
-| [Collect](https://reference.aspose.com/slides/vi/python-net/aspose.slides.lowcode/collect/) | Lấy các shape từ toàn bộ bản trình chiếu để xử lý hoặc phân tích lặp lại. |
+| [Convert](https://reference.aspose.com/slides/vi/python-net/aspose.slides.lowcode/convert/) | Chuyển đổi một bài thuyết trình sang định dạng khác bằng lời gọi trực tiếp tệp‑tới‑tệp. |
+| [Merger](https://reference.aspose.com/slides/vi/python-net/aspose.slides.lowcode/merger/) | Kết hợp các tệp bài thuyết trình hoàn chỉnh cùng định dạng. |
+| [Collect](https://reference.aspose.com/slides/vi/python-net/aspose.slides.lowcode/collect/) | Lấy các shape từ toàn bộ bài thuyết trình để xử lý hoặc phân tích lặp lại. |
 | [Compress](https://reference.aspose.com/slides/vi/python-net/aspose.slides.lowcode/compress/) | Loại bỏ các master và layout không dùng và giảm dữ liệu phông chữ nhúng. |
 
-## **Chuyển đổi một bản trình chiếu**
+## **Chuyển đổi một bài thuyết trình**
 
-Sử dụng [Convert.auto_by_extension](https://reference.aspose.com/slides/vi/python-net/aspose.slides.lowcode/convert/auto_by_extension/) khi phần mở rộng tệp đầu ra đủ để chọn định dạng xuất. Phương thức mở bản trình chiếu nguồn, xác định định dạng cần thiết từ đường dẫn đầu ra và ghi kết quả.
+Use [Convert.auto_by_extension](https://reference.aspose.com/slides/vi/python-net/aspose.slides.lowcode/convert/auto_by_extension/) when the output file extension is sufficient to select the export format. The method opens the source presentation, determines the required format from the output path, and writes the result.
 
 ```python
 import aspose.slides as slides
@@ -45,11 +45,11 @@ import aspose.slides as slides
 slides.lowcode.Convert.auto_by_extension("input.pptx", "output.pdf")
 ```
 
-Lớp [Convert](https://reference.aspose.com/slides/vi/python-net/aspose.slides.lowcode/convert/) cũng cung cấp các phương thức riêng cho đầu ra PDF, SVG, JPEG, PNG và TIFF. Sử dụng mô hình đối tượng đầy đủ khi bạn cần kiểm tra hoặc sửa đổi bản trình chiếu trước khi xuất hoặc cấu hình tùy chọn xuất mà trợ giúp đã chọn không cung cấp. Xem [Convert Presentation](/python-net/convert-presentation/) để biết quy trình và tùy chọn cho từng định dạng.
+The [Convert](https://reference.aspose.com/slides/vi/python-net/aspose.slides.lowcode/convert/) class also provides dedicated methods for PDF, SVG, JPEG, PNG, and TIFF output. Use the full object model when you need to inspect or modify the presentation before export or configure an export option that is not exposed by the selected helper. See [Convert Presentation](/slides/vi/python-net/convert-presentation/) for format-specific workflows and options.
 
-## **Hợp nhất các bản trình chiếu**
+## **Ghép nối các bài thuyết trình**
 
-Sử dụng [Merger.process](https://reference.aspose.com/slides/vi/python-net/aspose.slides.lowcode/merger/process/) để kết hợp các tệp bản trình chiếu hoàn chỉnh chỉ bằng một lần gọi. Các bản trình chiếu đầu vào phải có cùng định dạng tệp.
+Use [Merger.process](https://reference.aspose.com/slides/vi/python-net/aspose.slides.lowcode/merger/process/) to combine complete presentation files with one call. The input presentations must have the same file format.
 
 ```python
 import aspose.slides as slides
@@ -58,11 +58,11 @@ input_files = ["part-1.pptx", "part-2.pptx"]
 slides.lowcode.Merger.process(input_files, "merged.pptx")
 ```
 
-Trợ giúp này phù hợp khi tất cả các slide cần được nối vào một kết quả duy nhất mà không cần chọn hoặc ánh xạ lại từng slide riêng lẻ. Sử dụng mô hình đối tượng đầy đủ khi bạn cần hợp nhất các slide đã chọn, áp dụng master hoặc layout đích, bảo tồn các phần một cách rõ ràng, hoặc điều chỉnh kích thước slide khác nhau. Xem [Merge Presentations](/python-net/merge-presentation/) cho các kịch bản này.
+The helper is appropriate when all slides should be appended to one result without selecting or remapping them individually. Use the full object model when you need to merge selected slides, apply a destination master or layout, preserve sections explicitly, or reconcile different slide sizes. See [Merge Presentations](/slides/vi/python-net/merge-presentation/) for those scenarios.
 
-## **Thu thập hình dạng**
+## **Thu thập các shape**
 
-Sử dụng [Collect.shapes](https://reference.aspose.com/slides/vi/python-net/aspose.slides.lowcode/collect/shapes/) khi bạn cần một bộ sưu tập tất cả các shape trong bản trình chiếu. Điều này hữu ích khi cùng một tập hợp sẽ được lọc, đếm hoặc xử lý nhiều lần.
+Use [Collect.shapes](https://reference.aspose.com/slides/vi/python-net/aspose.slides.lowcode/collect/shapes/) when you need a collection of all shapes in a presentation. This is useful when the same set will be filtered, counted, or processed more than once.
 
 ```python
 import aspose.slides as slides
@@ -74,15 +74,15 @@ with slides.Presentation("input.pptx") as presentation:
         print(f"{shape.name}: {type(shape).__name__}")
 ```
 
-Sử dụng vòng lặp thu thập trực tiếp khi thứ tự duyệt, thoát sớm, lọc trước khi xử lý hoặc kiểm soát chi tiết cha‑con là quan trọng.
+Use direct collection loops when traversal order, early exit, filtering before processing, or detailed parent‑child control is important.
 
-## **Nén nội dung bản trình chiếu**
+## **Nén nội dung bài thuyết trình**
 
-Lớp [Compress](https://reference.aspose.com/slides/vi/python-net/aspose.slides.lowcode/compress/) có thể loại bỏ các phần tử cấu trúc không dùng và giảm dữ liệu phông chữ nhúng:
+The [Compress](https://reference.aspose.com/slides/vi/python-net/aspose.slides.lowcode/compress/) class can remove unused structural elements and reduce embedded font data:
 
-- [Compress.remove_unused_layout_slides](https://reference.aspose.com/slides/vi/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) loại bỏ các slide layout mà không có slide bình thường nào tham chiếu.
-- [Compress.remove_unused_master_slides](https://reference.aspose.com/slides/vi/python-net/aspose.slides.lowcode/compress/remove_unused_master_slides/) loại bỏ các master slide không còn được sử dụng.
-- [Compress.compress_embedded_fonts](https://reference.aspose.com/slides/vi/python-net/aspose.slides.lowcode/compress/compress_embedded_fonts/) loại bỏ các ký tự không dùng đến từ phông chữ nhúng.
+- [Compress.remove_unused_layout_slides](https://reference.aspose.com/slides/vi/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) removes layout slides that no normal slide references.
+- [Compress.remove_unused_master_slides](https://reference.aspose.com/slides/vi/python-net/aspose.slides.lowcode/compress/remove_unused_master_slides/) removes master slides that are no longer used.
+- [Compress.compress_embedded_fonts](https://reference.aspose.com/slides/vi/python-net/aspose.slides.lowcode/compress/compress_embedded_fonts/) removes unused characters from embedded fonts.
 
 ```python
 import aspose.slides as slides
@@ -95,34 +95,34 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("compressed.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Loại bỏ các layout không dùng trước các master không dùng để một master trở nên không tham chiếu sau khi dọn dẹp layout cũng có thể bị loại bỏ. Lưu bản trình chiếu đã tối ưu vào tệp mới nếu bạn có thể cần lại các master, layout hoặc dữ liệu phông chữ nhúng đầy đủ sau này. Để biết chi tiết hơn, xem [Slide Master](/python-net/slide-master/) và [Embedded Font](/python-net/embedded-font/).
+Remove unused layouts before unused masters so a master that becomes unreferenced after layout cleanup can also be removed. Save the optimized presentation to a new file if you may need the original masters, layouts, or complete embedded font data later. For more detail, see [Slide Master](/slides/vi/python-net/slide-master/) and [Embedded Font](/slides/vi/python-net/embedded-font/).
 
 ## **Câu hỏi thường gặp**
 
 **Khi nào tôi nên sử dụng API low-code thay vì mô hình đối tượng đầy đủ?**
 
-Sử dụng các trợ giúp low-code khi một thao tác tiêu chuẩn áp dụng cho toàn bộ tệp hoặc bản trình chiếu và không yêu cầu kiểm soát chi tiết các yếu tố riêng lẻ. Sử dụng mô hình đối tượng đầy đủ khi bạn cần chọn các slide cụ thể, kiểm soát quan hệ master và layout, kiểm tra trạng thái trung gian, hoặc cấu hình hành vi mà trợ giúp không cung cấp.
+Use low-code helpers when a standard operation applies to a complete file or presentation and does not require detailed control over individual elements. Use the full object model when you need to select specific slides, control master and layout relationships, inspect intermediate state, or configure behavior that the helper does not expose.
 
-**Merger có thể kết hợp các bản trình chiếu với các định dạng tệp khác nhau không?**
+**Merger có thể kết hợp các bài thuyết trình có định dạng tệp khác nhau không?**
 
-Không. [Merger.process](https://reference.aspose.com/slides/vi/python-net/aspose.slides.lowcode/merger/process/) yêu cầu các bản trình chiếu đầu vào có cùng định dạng. Đầu tiên chuyển đổi các tệp đầu vào sang cùng một định dạng, ví dụ bằng [Convert.auto_by_extension](https://reference.aspose.com/slides/vi/python-net/aspose.slides.lowcode/convert/auto_by_extension/), rồi sau đó hợp nhất các tệp đã chuyển đổi.
+No. [Merger.process](https://reference.aspose.com/slides/vi/python-net/aspose.slides.lowcode/merger/process/) requires input presentations in the same format. Convert the input files to a common format first, for example with [Convert.auto_by_extension](https://reference.aspose.com/slides/vi/python-net/aspose.slides.lowcode/convert/auto_by_extension/), and then merge the converted files.
 
 **Collect.shapes bao gồm những gì?**
 
-[Collect.shapes](https://reference.aspose.com/slides/vi/python-net/aspose.slides.lowcode/collect/shapes/) lấy các shape từ bản trình chiếu để chúng có thể được giữ lại, lọc, đếm hoặc duyệt nhiều lần. Sử dụng vòng lặp thu thập trực tiếp khi bạn cần kiểm soát chính xác loại slide hoặc các đối tượng lồng nhau nào sẽ được truy cập.
+[Collect.shapes](https://reference.aspose.com/slides/vi/python-net/aspose.slides.lowcode/collect/shapes/) retrieves shapes from the presentation so they can be retained, filtered, counted, or traversed multiple times. Use direct collection loops when you need precise control over which slide types or nested objects are visited.
 
-**Compress luôn làm giảm kích thước tệp bản trình chiếu không?**
+**Compress luôn làm giảm kích thước tệp bài thuyết trình không?**
 
-Không nhất thiết. Kết quả phụ thuộc vào việc bản trình chiếu có chứa các layout không dùng, các master không dùng, hoặc phông chữ nhúng có ký tự không dùng. Nếu không có các thành phần này, các thao tác [Compress](https://reference.aspose.com/slides/vi/python-net/aspose.slides.lowcode/compress/) tương ứng có thể không giảm kích thước tệp.
+Not necessarily. The result depends on whether the presentation contains unused layouts, unused masters, or embedded fonts with unused characters. If none of those are present, the corresponding [Compress](https://reference.aspose.com/slides/vi/python-net/aspose.slides.lowcode/compress/) operations may not reduce the file size.
 
-**Các thay đổi bởi Compress có được lưu tự động không?**
+**Các thay đổi do Compress thực hiện có được lưu tự động không?**
 
-Không. Các trợ giúp này hoạt động trên đối tượng [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/) đã tải trong bộ nhớ. Sau khi chạy [Compress](https://reference.aspose.com/slides/vi/python-net/aspose.slides.lowcode/compress/), hãy gọi [Presentation.save](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/save/) để ghi kết quả.
+No. These helpers operate on the loaded [Presentation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/) object in memory. After running [Compress](https://reference.aspose.com/slides/vi/python-net/aspose.slides.lowcode/compress/), call [Presentation.save](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/save/) to write the result.
 
 ## **Bài viết liên quan**
 
-- [Chuyển đổi bản trình chiếu](/python-net/convert-presentation/)
-- [Hợp nhất các bản trình chiếu](/python-net/merge-presentation/)
-- [Slide Master](/python-net/slide-master/)
-- [Quản lý hộp văn bản](/python-net/manage-textbox/)
-- [Embedded Font](/python-net/embedded-font/)
+- [Chuyển đổi bài thuyết trình](/slides/vi/python-net/convert-presentation/)
+- [Ghép nối các bài thuyết trình](/slides/vi/python-net/merge-presentation/)
+- [Slide Master](/slides/vi/python-net/slide-master/)
+- [Quản lý hộp văn bản](/slides/vi/python-net/manage-textbox/)
+- [Phông chữ được nhúng](/slides/vi/python-net/embedded-font/)

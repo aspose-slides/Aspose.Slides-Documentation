@@ -21,31 +21,31 @@ description: "Lär dig hur du signerar befintliga PPTX-presentationer med PFX-ce
 ---
 ## **Översikt**
 
-En digital signatur hjälper mottagaren att avgöra vem som har signerat en presentation och om det signerade innehållet har förändrats. Tre relaterade säkerhetskoncept är viktiga här:
+En digital signatur hjälper mottagaren att avgöra vem som har signerat en presentation och om det signerade innehållet har ändrats. Tre relaterade säkerhetskoncept är viktiga här:
 
-- En **digitalt certifikat** är en elektronisk legitimation som kopplar en identitet till en offentlig nyckel. En betrodd certifikatutfärdare (CA) kan utfärda ett certifikat, eller så kan en organisation använda ett självsignerat certifikat för interna arbetsflöden.
-- En **digital signatur** skapas från presentationsinnehållet och certifikatets ägares privata nyckel. Certifikatets offentliga nyckel kan sedan användas för att verifiera signaturen. En signatur ger bevis på ursprung och integritet; den krypterar inte presentationen.
-- **Lösenordsskydd** styr om en användare kan öppna eller ändra en presentation. Det är separat från digital signering och beskrivs i [Password-Protected Presentations](/nodejs-java/password-protected-presentation/).
+- Ett **digitalt certifikat** är ett elektroniskt intyg som kopplar en identitet till en publik nyckel. En betrodd certifikatutfärdare (CA) kan utfärda ett certifikat, eller så kan en organisation använda ett självsignerat certifikat för interna arbetsflöden.
+- En **digital signatur** skapas från presentationsinnehållet och certifikatinnehavarens privata nyckel. Certifikatets publika nyckel kan sedan användas för att verifiera signaturen. En signatur ger bevis på ursprung och integritet; den krypterar inte presentationen.
+- **Lösenordsskydd** kontrollerar om en användare kan öppna eller ändra en presentation. Det är separat från digital signering och beskrivs i [Password-Protected Presentations](/slides/sv/nodejs-java/password-protected-presentation/).
 
 PowerPoint tillhandahåller kommandot **Add a Digital Signature** under **File > Info > Protect Presentation**.
 
-![PowerPoint Protect Presentation-menyn med Add a Digital Signature markerad](add-digital-signature-in-powerpoint.png)
+![PowerPoint‑meny för att skydda presentation med Add a Digital Signature markerad](add-digital-signature-in-powerpoint.png)
 
-När en signerad presentation öppnas kan PowerPoint visa en signaturstatusavisering.
+Efter att en signerad presentation har öppnats kan PowerPoint visa en signatur‑status‑notifiering.
 
-![PowerPoint-avisering som visar att presentationen innehåller giltiga signaturer](digital-signature-status-in-powerpoint.png)
+![PowerPoint‑avisering som visar att presentationen innehåller giltiga signaturer](digital-signature-status-in-powerpoint.png)
 
 Aspose.Slides exponerar signaturer via [Presentation.getDigitalSignatures](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/#getDigitalSignatures--), vilket returnerar en [DigitalSignatureCollection](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/digitalsignaturecollection/) som innehåller [DigitalSignature](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/digitalsignature/)‑objekt. En presentation kan innehålla flera signaturer.
 
 ## **Förstå PFX‑certifikat och lösenord**
 
-En PFX‑fil, även känd som en PKCS#12‑fil och vanligtvis med filändelsen `.pfx` eller `.p12`, kan innehålla ett X.509‑certifikat, dess privata nyckel och certifikatkedjan. Den privata nyckeln är det som möjliggör för ägaren att skapa en signatur. Ett certifikat utan en tillgänglig privat nyckel kan inte användas för att signera en presentation.
+En PFX‑fil, även känd som en PKCS#12‑fil och vanligtvis med filändelsen `.pfx` eller `.p12`, kan innehålla ett X.509‑certifikat, dess privata nyckel och certifikatkedjan. Den privata nyckeln är det som möjliggör för innehavaren att skapa en signatur. Ett certifikat utan en åtkomlig privat nyckel kan inte användas för att signera en presentation.
 
-PFX‑lösenordet skyddar certifikatpaketet och den privata nyckeln. Det är **inte** ett lösenord för att öppna eller redigera presentationen. Checka inte in PFX‑filer eller deras lösenord i källkontrollen. I produktion bör åtkomsten till certifikatfilen begränsas och lösenordet hämtas från en hemlig lagring eller annan skyddad konfigurationskälla. Exemplen nedan använder en miljövariabel enbart för att undvika att lösenordet inbäddas i koden.
+PFX‑lösenordet skyddar certifikatpaketet och den privata nyckeln. Det är **inte** ett lösenord för att öppna eller redigera presentationen. Lagra inte PFX‑filer eller deras lösenord i källkodshantering. I produktion bör åtkomsten till certifikatfilen begränsas och lösenordet hämtas från en hemlig lagring eller en annan skyddad konfigurationskälla. Exemplen nedan använder en miljövariabel endast för att undvika att bädda in lösenordet i kod.
 
 ## **Lägg till en digital signatur i en presentation**
 
-För att signera ett riktigt presentationsflöde, ladda en befintlig PPTX‑fil, skapa en [DigitalSignature](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/digitalsignature/) från ett PFX‑certifikat och dess lösenord, lägg till signaturen i presentationens samling och spara till en PPTX‑fil.
+För att signera ett verkligt presentationsarbetsflöde, läs in en befintlig PPTX‑fil, skapa en [DigitalSignature](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/digitalsignature/) från ett PFX‑certifikat och dess lösenord, lägg till signaturen i presentationens samling och spara till en PPTX‑fil.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -67,11 +67,11 @@ try {
 }
 ```
 
-Att spara resultatet under ett nytt namn bevarar den osignerade källfilen. Värdet som sätts av [DigitalSignature.setComments](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/digitalsignature/) beskriver syftet med signaturen; det är inte en säkerhetskontroll.
+Att spara resultatet under ett nytt namn bevarar den osignerade källfilen. Värdet som sätts av [DigitalSignature.setComments](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/digitalsignature/) beskriver signaturens syfte; det är ingen säkerhetskontroll.
 
 ## **Validera digitala signaturer**
 
-När du laddar en signerad PPTX‑fil, inspektera varje objekt som returneras av [Presentation.getDigitalSignatures](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/#getDigitalSignatures--). Metoden [DigitalSignature.isValid](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/digitalsignature/) visar om den inbäddade signaturen är giltig för det aktuella presentationsinnehållet.
+När du läser in en signerad PPTX‑fil, inspektera varje objekt som returneras av [Presentation.getDigitalSignatures](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/#getDigitalSignatures--). Metoden [DigitalSignature.isValid](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/digitalsignature/) indikerar om den inbäddade signaturen är giltig för det aktuella presentationsinnehållet.
 
 Följande exempel använder också Node.js‑klassen `X509Certificate` för att läsa ämnesnamnet från varje inbäddat certifikat.
 
@@ -115,13 +115,13 @@ try {
 }
 ```
 
-Ett ogiltigt resultat betyder vanligtvis att det signerade presentationsinnehållet eller signaturdata ändrats efter signering, eller att filen är skadad. Att ta bort alla signaturer skapar en osignerad presentation, så att bara kontrollera giltigheten för objekten är inte tillräckligt: ett säkerhetskritiskt arbetsflöde måste också verifiera att det förväntade antalet signaturer och de förväntade signatöridentiteterna finns.
+Ett ogiltigt resultat betyder vanligtvis att det signerade presentationsinnehållet eller signaturdata har förändrats efter signering, eller att filen är skadad. Att ta bort alla signaturer ger en osignerad presentation, så att bara kontrollera giltigheten av objekt är inte tillräckligt: ett säkerhetskänsligt arbetsflöde måste också verifiera att det förväntade antalet signaturer och förväntade undertecknare finns.
 
-Detta giltighetsresultat bör inte betraktas som ett fullständigt beslut om certifikatförtroende. Beroende på din säkerhetspolicy kan din applikation också behöva bygga och validera X.509‑certifikatkedjan, kontrollera certifikatens giltighetsdatum och återkallningsstatus, bekräfta förväntat ämne eller fingeravtryck, verifiera nyckelanvändning och utvärdera en betrodd tidsstämpel. Värdet från [DigitalSignature.getSignTime](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/digitalsignature/) i sig är inte bevis från en betrodd tidsstämpelmyndighet.
+Detta giltighetsresultat bör inte betraktas som ett fullständigt certifikat‑tillitsbeslut. Beroende på din säkerhetspolicy kan din applikation också behöva bygga och validera X.509‑certifikatkedjan, kontrollera certifikatets giltighetsdatum och revocationsstatus, bekräfta förväntat ämne eller fingeravtryck, verifiera nyckelanvändning och utvärdera en betrodd tidsstämpel. Värdet från [DigitalSignature.getSignTime](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/digitalsignature/) i sig är inte bevis från en betrodd tidsstämplingsmyndighet.
 
 ## **Ta bort digitala signaturer**
 
-Att ta bort signaturer ändrar presentationens säkerhetstillstånd. Följande exempel laddar en signerad PPTX‑fil, tar bort alla signaturer med [DigitalSignatureCollection.clear](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/digitalsignaturecollection/clear/), och sparar en osignerad kopia.
+Att ta bort signaturer ändrar presentationens säkerhetstillstånd. Följande exempel läser in en signerad PPTX‑fil, tar bort alla signaturer med [DigitalSignatureCollection.clear](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/digitalsignaturecollection/clear/), och sparar en osignerad kopia.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -137,39 +137,39 @@ try {
 
 För att ta bort endast en signatur, anropa [DigitalSignatureCollection.removeAt](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/digitalsignaturecollection/removeat/) med dess nollbaserade index. Spara till en ny fil om inte överskrivning av den signerade originalfilen är en explicit del av ditt arbetsflöde.
 
-## **Redigering och formatöverväganden**
+## **Redigerings‑ och formatöverväganden**
 
-- En signatur gör inte en presentation skrivskyddad. Användare och program kan fortfarande redigera filen, men ändringar i signerat innehåll ogiltigförklarar normalt den befintliga signaturen.
+- En signatur gör inte en presentation skrivskyddad. Användare och applikationer kan fortfarande redigera filen, men ändringar i signerat innehåll gör vanligtvis den befintliga signaturen ogiltig.
 - Slutför alla avsedda redigeringar innan signering. Om en presentation måste ändras, spara den reviderade presentationen och signera den revisionen igen.
 - Behåll slutresultatet i PPTX‑format. Att konvertera en signerad presentation till ett annat format överför inte den ursprungliga PPTX‑signaturen som en giltig signatur för den konverterade filen.
-- Behandla certifikatets privata nyckel som känslig. Alla som får tag på den privata nyckeln och dess lösenord kan skapa signaturer som verkar komma från den certifikatägaren.
-- Behåll den osignerade källan eller en annan kontrollerad kopia när din dokumentbevarandepolicy kräver det.
+- Behandla certifikatets privata nyckel som känslig. Alla som får tag på den privata nyckeln och dess lösenord kan kunna skapa signaturer som ser ut att komma från den certifikatinnehavaren.
+- Behåll den osignerade källan eller en annan kontrollerad kopia när din dokumentbevarande‑policy kräver det.
 
 ## **FAQ**
 
 **Krypterar en digital signatur presentationen?**
 
-Nej. En digital signatur ger bevis om ursprung och integritet, men presentationsinnehållet förblir läsbart om inte separata kryptering tillämpas. Använd [password protection](/nodejs-java/password-protected-presentation/) när åtkomst till innehållet måste begränsas.
+Nej. En digital signatur ger bevis om ursprung och integritet, men presentationsinnehållet förblir läsbart om inte separat kryptering tillämpas. Använd [lösenordsskydd](/slides/sv/nodejs-java/password-protected-presentation/) när åtkomst till innehållet måste begränsas.
 
-**Är PFX‑lösenordet detsamma som ett presentationslösenord?**
+**Är PFX‑lösenordet samma som presentationslösenordet?**
 
 Nej. PFX‑lösenordet låser upp den privata nyckeln som lagras i certifikatpaketet. Det styr inte vem som kan öppna eller redigera PPTX‑filen.
 
 **Kan jag använda ett självsignerat certifikat?**
 
-Tekniskt sett kan ett självsignerat certifikat användas när det inkluderar en åtkomlig privat nyckel. Mottagare kommer dock inte automatiskt att lita på det, såvida inte certifikatet uttryckligen har lagts till i deras betrodda miljö. Offentliga eller tvärorganisationsarbetsflöden använder vanligtvis ett certifikat utfärdat av en betrodd CA.
+Tekniskt kan ett självsignerat certifikat användas när det innehåller en åtkomlig privat nyckel. Mottagare kommer dock inte automatiskt att lita på det, såvida inte certifikatet uttryckligen har lagts till i deras betrodda miljö. Publika eller tvärorganisationella arbetsflöden använder vanligtvis ett certifikat utfärdat av en betrodd CA.
 
 **Vad gör en signatur ogiltig?**
 
-Att ändra det signerade presentationsinnehållet eller signaturdata efter signering kan göra signaturen ogiltig. Filkorruption kan också få valideringen att misslyckas. Om alla signaturer tas bort, är presentationen osignerad snarare än en fil som innehåller en ogiltig signatur.
+Att ändra signerat presentationsinnehåll eller signaturdata efter signering kan göra signaturen ogiltig. Filkorruption kan också få valideringen att misslyckas. Om alla signaturer tas bort är presentationen osignerad snarare än en fil som innehåller en ogiltig signatur.
 
-**Betyder en giltig signatur att jag ska lita på signatören?**
+**Betyder en giltig signatur att jag ska lita på undertecknaren?**
 
-Inte i sig själv. Signaturens integritet och signatörens förtroende är separata beslut. En produktionsvalideringspolicy bör också kontrollera certifikatkedjan, giltighetsperioden, återkallningsstatus, förväntad identitet, nyckelanvändning och eventuella krav på betrodda tidsstämplar.
+Inte i sig själv. Signaturens integritet och förtroendet för undertecknaren är separata beslut. En produktionsvalideringspolicy bör också kontrollera certifikatkedjan, giltighetsperioden, revokeringsstatus, förväntad identitet, nyckelanvändning och eventuella krav på betrodda tidsstämplar.
 
 **Vad händer när certifikatet går ut?**
 
-Certifikatets utgång påverkar inte presentationsbytena, men det påverkar bedömningen av certifikatförtroende. Om en signatur förblir acceptabel beror på din policy och på om en giltig betrodd tidsstämpel visar att signeringen skedde medan certifikatet var giltigt. Lita inte enbart på den visade signeringstiden som en betrodd tidsstämpel.
+Certifikatets utgång ändrar inte presentationsbytarna, men det påverkar utvärderingen av certifikattillit. Huruvida en signatur förblir acceptabel beror på din policy och på om en giltig betrodd tidsstämpel visar att signeringen skedde medan certifikatet var giltigt. Förlita dig inte enbart på den visade signeringstiden som en betrodd tidsstämpel.
 
 **Kan en signerad presentation fortfarande redigeras?**
 
@@ -177,12 +177,12 @@ Ja. Signering låser inte filen. Att redigera signerat innehåll gör vanligtvis
 
 **Kan en presentation innehålla mer än en signatur?**
 
-Ja. Lägg till varje signatur i samlingen som returneras av [Presentation.getDigitalSignatures](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/#getDigitalSignatures--) innan du sparar. Vid validering, inspektera varje signatur och bekräfta att alla erforderliga signatörer finns.
+Ja. Lägg till varje signatur i samlingen som returneras av [Presentation.getDigitalSignatures](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/#getDigitalSignatures--) innan du sparar. Under validering, inspektera varje signatur och bekräfta att alla erforderliga undertecknare finns.
 
-**Vilka presentationsformat stödjer dessa operationer?**
+**Vilka presentationsformat stöder dessa operationer?**
 
-Aspose.Slides stödjer de digitala signaturoperationer som beskrivs här endast för PPTX. PPT- och OpenDocument‑presentationsformat stöds inte av detta API‑arbetsflöde.
+Aspose.Slides stöder de digitala signatur‑operationer som beskrivs här endast för PPTX. PPT‑ och OpenDocument‑presentationsformat stöds inte av detta API‑arbetsflöde.
 
 **Kan jag ta bort en signatur utan att påverka bilderna?**
 
-Ja. Du kan ta bort en signatur eller rensa hela samlingen och sedan spara presentationen. Bildinnehållet förblir tillgängligt, men den sparade filen bär inte längre beviset för den borttagna signaturen.
+Ja. Du kan ta bort en signatur eller tömma hela samlingen och sedan spara presentationen. Bildinnehållet förblir tillgängligt, men den sparade filen bär inte längre den borttagna signaturens bevis.

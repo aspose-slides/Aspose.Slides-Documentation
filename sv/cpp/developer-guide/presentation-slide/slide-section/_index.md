@@ -10,77 +10,222 @@ keywords:
 - redigera sektion
 - ändra sektion
 - sektionens namn
+- hämta sektionbilder
+- bearbeta sektionbilder
 - PowerPoint
-- OpenDocument
 - presentation
 - C++
 - Aspose.Slides
-description: "Strömlinjeforma bildsektioner i PowerPoint och OpenDocument med Aspose.Slides för C++ — dela, byt namn och omordna för att optimera PPTX- och ODP-arbetsflöden."
+description: "Hantera bildsektioner med Aspose.Slides för C++: skapa, byta namn, ändra ordning, hämta och bearbeta sektionbilder i PPTX-presentationer."
 ---
 ## **Introduktion**
 
-Med Aspose.Slides för C++ kan du organisera en PowerPoint‑presentation i sektioner. Du kan skapa sektioner som innehåller specifika bilder. 
+Sektioner organiserar på varandra följande bilder i namngivna grupper utan att ändra bildens innehåll. Med Aspose.Slides för C++ kan du skapa, ändra ordning, byta namn, inspektera och ta bort sektioner via metoden [Presentation::get_Sections](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/get_sections/).
 
-Du kanske vill skapa sektioner och använda dem för att organisera eller dela upp bilder i en presentation i logiska delar i följande situationer:
+Sektioner är särskilt användbara när:
 
-- När du arbetar med en stor presentation tillsammans med andra personer eller ett team – och du behöver tilldela vissa bilder till en kollega eller några teammedlemmar. 
-- När du har en presentation som innehåller många bilder – och du har svårt att hantera eller redigera dess innehåll på en gång.
+- en stor presentation behöver delas in i logiska ämnen eller kapitel;
+- olika grupper av bilder tilldelas olika medarbetare;
+- bilder behöver bearbetas, flyttas eller slås ihop som grupper.
 
-Idealiskt bör du skapa en sektion som innehåller liknande bilder – bilderna har något gemensamt eller kan finnas i en grupp baserad på en regel – och ge sektionen ett namn som beskriver bilderna i den. 
+Välj koncisa sektionsnamn som beskriver syftet med de grupperade bilderna. Eftersom sektioner är en del av presentationens struktur, använd sektions‑API:erna för att bestämma medlemskap i stället för att härleda det från bildpositioner.
 
-## **Skapa sektioner i presentationer**
+## **Skapa och hantera sektioner**
 
-För att lägga till en sektion som kommer att innehålla bilder i en presentation tillhandahåller Aspose.Slides för C++ metoden AddSection som låter dig ange namnet på sektionen du vill skapa och bilden där sektionen börjar. 
+Använd [ISectionCollection::AddSection](https://reference.aspose.com/slides/sv/cpp/aspose.slides/isectioncollection/addsection/) för att skapa en sektion genom att ange dess namn och startbild. Aspose.Slides avgör vilka bilder som tillhör sektionen utifrån presentationens nuvarande sektionsstruktur.
 
-Den här exempelkoden visar hur du skapar en sektion i en presentation i C++:
+Samma [ISectionCollection](https://reference.aspose.com/slides/sv/cpp/aspose.slides/isectioncollection/) låter dig också:
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
+- flytta en sektion tillsammans med sina bilder genom att använda [ISectionCollection::ReorderSectionWithSlides](https://reference.aspose.com/slides/sv/cpp/aspose.slides/isectioncollection/reordersectionwithslides/);
+- ta bort endast sektionsdefinitionen med [ISectionCollection::RemoveSection](https://reference.aspose.com/slides/sv/cpp/aspose.slides/isectioncollection/removesection/), vilket behåller dess bilder;
+- ta bort en sektion och dess bilder med [ISectionCollection::RemoveSectionWithSlides](https://reference.aspose.com/slides/sv/cpp/aspose.slides/isectioncollection/removesectionwithslides/);
+- lägga till en tom sektion i slutet med [ISectionCollection::AppendEmptySection](https://reference.aspose.com/slides/sv/cpp/aspose.slides/isectioncollection/appendemptysection/).
 
-auto defaultSlide = pres->get_Slides()->idx_get(0);
-auto newSlide1 = pres->get_Slides()->AddEmptySlide(pres->get_LayoutSlides()->idx_get(0));
-auto newSlide2 = pres->get_Slides()->AddEmptySlide(pres->get_LayoutSlides()->idx_get(0));
-auto newSlide3 = pres->get_Slides()->AddEmptySlide(pres->get_LayoutSlides()->idx_get(0));
-auto newSlide4 = pres->get_Slides()->AddEmptySlide(pres->get_LayoutSlides()->idx_get(0));
+Följande exempel skapar två sektioner, flyttar en av dem, tar bort den tillsammans med sina bilder och lägger till en tom sektion:
 
-auto section1 = pres->get_Sections()->AddSection(u"Section 1", newSlide1);
-auto section2 = pres->get_Sections()->AddSection(u"Section 2", newSlide3);
-// section1 kommer att avslutas vid newSlide2 och därefter startar section2   
+```cpp
+#include <DOM/ISectionCollection.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
 
-pres->Save(u"pres-sections.pptx", SaveFormat::Pptx);
+using namespace Aspose::Slides;
 
-pres->get_Sections()->ReorderSectionWithSlides(section2, 0);
-pres->Save(u"pres-sections-moved.pptx", SaveFormat::Pptx);
+auto presentation = System::MakeObject<Presentation>();
+auto layoutSlide = presentation->get_LayoutSlide(0);
+auto titleSlide = presentation->get_Slide(0);
+presentation->get_Slides()->AddEmptySlide(layoutSlide);
+auto resultsSlide = presentation->get_Slides()->AddEmptySlide(layoutSlide);
+presentation->get_Slides()->AddEmptySlide(layoutSlide);
 
-pres->get_Sections()->RemoveSectionWithSlides(section2);
+auto sections = presentation->get_Sections();
+sections->AddSection(u"Introduction", titleSlide);
+auto resultsSection = sections->AddSection(u"Results", resultsSlide);
 
-pres->get_Sections()->AppendEmptySection(u"Last empty section");
-
-pres->Save(u"pres-section-with-empty.pptx", SaveFormat::Pptx);
+sections->ReorderSectionWithSlides(resultsSection, 0);
+sections->RemoveSectionWithSlides(resultsSection);
+sections->AppendEmptySection(u"Appendix");
 ```
 
-## **Ändra namn på sektioner**
+Efter dessa operationer innehåller presentationen `Introduction`-sektionen med sina bilder och en tom `Appendix`-sektion. `Results`-sektionen och dess bilder har tagits bort.
 
-Efter att du har skapat en sektion i en PowerPoint‑presentation kan du besluta att ändra dess namn. 
+## **Byt namn på sektioner**
 
-Den här exempelkoden visar hur du ändrar namnet på en sektion i en presentation i C++ med hjälp av Aspose.Slides:
+För att byta namn på en sektion, anropa [ISection::set_Name](https://reference.aspose.com/slides/sv/cpp/aspose.slides/isection/set_name/). Sektionens bilder och position förblir oförändrade.
 
-``` cpp
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-auto section = pres->get_Sections()->idx_get(0);
-section->set_Name(u"My section");
+Följande exempel skapar en sektion och ändrar dess namn:
+
+```cpp
+#include <DOM/ISection.h>
+#include <DOM/ISectionCollection.h>
+#include <DOM/Presentation.h>
+
+using namespace Aspose::Slides;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto section = presentation->get_Sections()->AddSection(u"Overview", slide);
+section->set_Name(u"Introduction");
 ```
+
+## **Hämta bilder från sektioner**
+
+Metoden [Presentation::get_Sections](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/get_sections/) returnerar en [ISectionCollection](https://reference.aspose.com/slides/sv/cpp/aspose.slides/isectioncollection/) som du kan iterera över. För varje [ISection](https://reference.aspose.com/slides/sv/cpp/aspose.slides/isection/), anropar du [ISection::GetSlidesListOfSection](https://reference.aspose.com/slides/sv/cpp/aspose.slides/isection/getslideslistofsection/) för att få de bilder som för närvarande tillhör den. Metoden returnerar en [ISectionSlideCollection](https://reference.aspose.com/slides/sv/cpp/aspose.slides/isectionslidecollection/), som tillhandahåller ett antal, indexerad åtkomst och enumeration.
+
+Följande exempel skapar två fyllda sektioner och en tom sektion, och skriver sedan ut varje sektions [name](https://reference.aspose.com/slides/sv/cpp/aspose.slides/isection/get_name/), [identifier](https://reference.aspose.com/slides/sv/cpp/aspose.slides/isection/get_sectionid/), [starting slide](https://reference.aspose.com/slides/sv/cpp/aspose.slides/isection/get_startedfromslide/), antalet bilder och bildnumren. Det använder indexerad åtkomst för att läsa den första bilden och en räckviddsbaserad `for`-loop för att bearbeta varje bild. För den tomma sektionen har den returnerade samlingen ett antal på noll, indexerad åtkomst används inte och enumeration utför inga iterationer.
+
+```cpp
+#include <DOM/ISection.h>
+#include <DOM/ISectionCollection.h>
+#include <DOM/ISectionSlideCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+
+auto presentation = System::MakeObject<Presentation>();
+auto layoutSlide = presentation->get_LayoutSlide(0);
+auto firstSlide = presentation->get_Slide(0);
+presentation->get_Slides()->AddEmptySlide(layoutSlide);
+auto thirdSlide = presentation->get_Slides()->AddEmptySlide(layoutSlide);
+
+auto sections = presentation->get_Sections();
+sections->AddSection(u"Introduction", firstSlide);
+sections->AddSection(u"Details", thirdSlide);
+sections->AppendEmptySection(u"Appendix");
+
+for (const auto& section : sections)
+{
+    auto sectionSlides = section->GetSlidesListOfSection();
+    auto startingSlide = section->get_StartedFromSlide();
+
+    System::Console::WriteLine(u"Section: {0}", section->get_Name());
+    System::Console::WriteLine(u"ID: {0}", section->get_SectionId().ToString());
+    if (startingSlide == nullptr)
+    {
+        System::Console::WriteLine(u"Starting slide: none");
+    }
+    else
+    {
+        System::Console::WriteLine(u"Starting slide: {0}", startingSlide->get_SlideNumber());
+    }
+    System::Console::WriteLine(u"Slide count: {0}", sectionSlides->get_Count());
+
+    if (sectionSlides->get_Count() > 0)
+    {
+        System::Console::WriteLine(u"First slide via index: {0}", sectionSlides->idx_get(0)->get_SlideNumber());
+    }
+
+    System::Console::Write(u"Slide numbers:");
+    for (const auto& slide : sectionSlides)
+    {
+        System::Console::Write(u" {0}", slide->get_SlideNumber());
+    }
+    System::Console::WriteLine();
+}
+```
+
+Sektionsmedlemskap bestäms av presentationens sektionsstruktur. Beräkna inte en sektions intervall manuellt från [ISection::get_StartedFromSlide](https://reference.aspose.com/slides/sv/cpp/aspose.slides/isection/get_startedfromslide/), bildindex och nästa sektions startbild.
+
+Strukturella redigeringar kan förändra både de bilder som returneras för en sektion och deras bildnummer. Detta inkluderar att ändra ordning på bilder, klona en bild till en sektion, flytta en sektion tillsammans med dess bilder, ta bort bilder och ta bort sektioner. Nästa exempel anropar [ISection::GetSlidesListOfSection](https://reference.aspose.com/slides/sv/cpp/aspose.slides/isection/getslideslistofsection/) efter varje sådan förändring istället för att behålla antaganden om sektionens tidigare gränser.
+
+```cpp
+#include <DOM/ISection.h>
+#include <DOM/ISectionCollection.h>
+#include <DOM/ISectionSlideCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+
+auto presentation = System::MakeObject<Presentation>();
+auto layoutSlide = presentation->get_LayoutSlide(0);
+auto firstSlide = presentation->get_Slide(0);
+presentation->get_Slides()->AddEmptySlide(layoutSlide);
+auto thirdSlide = presentation->get_Slides()->AddEmptySlide(layoutSlide);
+presentation->get_Slides()->AddEmptySlide(layoutSlide);
+
+auto sections = presentation->get_Sections();
+auto firstSection = sections->AddSection(u"First", firstSlide);
+auto secondSection = sections->AddSection(u"Second", thirdSlide);
+
+auto printSectionSlides = [](const System::String& label, const System::SharedPtr<ISection>& section)
+{
+    auto sectionSlides = section->GetSlidesListOfSection();
+    System::Console::Write(u"{0} ({1} slides):", label, sectionSlides->get_Count());
+    for (const auto& slide : sectionSlides)
+    {
+        System::Console::Write(u" {0}", slide->get_SlideNumber());
+    }
+    System::Console::WriteLine();
+};
+
+printSectionSlides(u"Initially", firstSection);
+
+auto slidesBeforeClone = firstSection->GetSlidesListOfSection();
+presentation->get_Slides()->AddClone(slidesBeforeClone->idx_get(0), firstSection);
+printSectionSlides(u"After cloning into the section", firstSection);
+
+auto slidesBeforeReorder = firstSection->GetSlidesListOfSection();
+auto firstSlideInSection = slidesBeforeReorder->idx_get(0);
+auto lastSlideInSection = slidesBeforeReorder->idx_get(slidesBeforeReorder->get_Count() - 1);
+auto firstSectionPosition = firstSlideInSection->get_SlideNumber() - 1;
+presentation->get_Slides()->Reorder(firstSectionPosition, lastSlideInSection);
+printSectionSlides(u"After reordering slides", firstSection);
+
+sections->ReorderSectionWithSlides(firstSection, 1);
+printSectionSlides(u"After moving the section", firstSection);
+
+auto slidesBeforeRemoval = firstSection->GetSlidesListOfSection();
+presentation->get_Slides()->Remove(slidesBeforeRemoval->idx_get(0));
+printSectionSlides(u"After removing a slide", firstSection);
+
+sections->RemoveSectionWithSlides(secondSection);
+for (const auto& section : sections)
+{
+    printSectionSlides(u"Remaining section", section);
+}
+```
+
+Anropa [ISection::GetSlidesListOfSection](https://reference.aspose.com/slides/sv/cpp/aspose.slides/isection/getslideslistofsection/) igen när bilder eller sektioner har ändrat ordning, klonats, flyttats eller tagits bort. Detta håller efterföljande bearbetning i linje med den aktuella presentationsstrukturen.
+
+PPT-formatet (PowerPoint 97–2003) bevarar inte sektionmetadata. Använd detta arbetsflöde med ett format som stöder sektioner, till exempel PPTX; konvertering till PPT tar bort den sektionstruktur som behövs för senare enumeration.
 
 ## **FAQ**
 
-**Behålls sektioner när man sparar till PPT (PowerPoint 97–2003) format?**
+**Bevaras sektioner när de sparas till PPT (PowerPoint 97–2003)-formatet?**
 
-Nej. PPT‑formatet stöder inte sektionsmetadata, så sektiongruppering går förlorad när du sparar till .ppt.
+Nej. PPT-formatet stöder inte sektionmetadata, så sektiongruppering går förlorad när du sparar till .ppt.
 
-**Kan en hel sektion vara "dold"?**
+**Kan en hel sektion \"döljas\"?**
 
-Nej. Endast enskilda bilder kan döljas. En sektion som enhet har inget "dolt" tillstånd.
+Nej. En sektion har inget synlighetstillstånd. För att dölja dess innehåll, anropa [ISlide::set_Hidden](https://reference.aspose.com/slides/sv/cpp/aspose.slides/islide/set_hidden/) för varje bild i sektionen.
 
-**Kan jag snabbt hitta en sektion via en bild och, omvänt, den första bilden i en sektion?**
+**Hur kan jag hitta sektionen som innehåller en bild?**
 
-Ja. En sektion definieras unikt av sin startbild; givet en bild kan du avgöra vilken sektion den tillhör, och för en sektion kan du komma åt dess första bild.
+Iterera igenom [Presentation::get_Sections](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/get_sections/), anropa [ISection::GetSlidesListOfSection](https://reference.aspose.com/slides/sv/cpp/aspose.slides/isection/getslideslistofsection/) för varje sektion och jämför de returnerade bilderna med målbilden. För en icke-tom sektion returnerar [ISection::get_StartedFromSlide](https://reference.aspose.com/slides/sv/cpp/aspose.slides/isection/get_startedfromslide/) dess första bild; för en tom sektion returneras `nullptr`.

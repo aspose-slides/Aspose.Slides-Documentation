@@ -1,5 +1,5 @@
 ---
-title: Sunumlarda Resim Çerçevelerini JavaScript Kullanarak Yönetme
+title: Sunularda Resim Çerçevelerini JavaScript Kullanarak Yönetme
 linktitle: Resim Çerçevesi
 type: docs
 weight: 10
@@ -10,7 +10,7 @@ keywords:
 - resim çerçevesi oluştur
 - gömülü görüntü
 - bağlantılı görüntü
-- görüntüyü çıkar
+- görüntü çıkar
 - raster görüntü
 - SVG görüntü
 - görüntüyü kırp
@@ -18,30 +18,30 @@ keywords:
 - görüntüyü sıkıştır
 - StretchOffset
 - resim çerçevesi biçimlendirme
-- göreli ölçek
+- göreceli ölçek
 - görüntü efekti
 - en-boy oranı
 - PowerPoint
 - OpenDocument
-- presentation
+- sunum
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: Aspose.Slides for Node.js ile JavaScript kullanarak sunumlarda resim çerçevelerini oluşturun, biçimlendirin, bağlayın, kırpın, çıkarın ve sıkıştırın.
+description: "Aspose.Slides for Node.js ile JavaScript kullanarak sunularda resim çerçevelerini oluşturun, biçimlendirin, bağlayın, kırpın, çıkarın ve sıkıştırın."
 ---
 ## **Genel Bakış**
 
-Bir picture frame bir slayt şeklidir ve bir resmi gösterir. Aspose.Slides'da görüntü kaynağı ve onu gösteren şekil ayrı nesnelerdir: bir [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) gömülü görüntü kaynaklarını [ImageCollection](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/imagecollection/) aracılığıyla sahiplenirken, bir [PictureFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pictureframe/) görüntünün konumunu, boyutunu, hat biçimini, döndürmeyi, kırpmayı, resim efektlerini ve diğer çerçeve‑seviyesi ayarları kontrol eder.
+PictureFrame, bir resmi gösteren bir slayt şeklidir. Aspose.Slides’da, görüntü kaynağı ve onu gösteren şekil ayrı nesnelerdir: bir [Sunum](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) **ImageCollection**(https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/imagecollection/) aracılığıyla yerleşik görüntü kaynaklarını sahiplenirken, bir [PictureFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pictureframe/) görüntünün konumunu, boyutunu, kenar biçimlendirmesini, döndürülmesini, kırpılmasını, resim efektlerini ve diğer çerçeve‑seviyesi ayarlarını kontrol eder.
 
-Bu ayrım aynı görüntünün birden çok kez gösterildiği durumlarda kullanışlıdır. Görüntüyü sunuma bir kez ekleyin, döndürülen [PPImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ppimage/) nesnesini saklayın ve picture frame oluştururken bu görüntü kaynağını kullanın.
+Bu ayrım, aynı görüntünün birden çok kez gösterilmesi gerektiğinde yararlıdır. Görüntüyü sunuma bir kez ekleyin, döndürülen [PPImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ppimage/) nesnesini saklayın ve picture frame oluştururken bu görüntü kaynağını kullanın.
 
-Picture frame'ler PNG veya JPEG gibi raster görüntülerin yanı sıra vektör SVG görüntülerini de içerebilir. Ayrıca görüntünün baytlarını sunuma depolamak yerine bağlanmış (linked) görüntülere de başvurabilirler. Seçim, taşınabilirlik, dosya boyutu, çıkarma ve dışa aktarma davranışını etkiler; bu nedenle formatlama veya optimizasyon uygulamadan önce görüntünün nasıl depolanacağına karar vermek faydalıdır.
+Picture frame’ler PNG veya JPEG gibi raster görüntülerin yanı sıra SVG gibi vektör görüntülerini de içerebilir. Ayrıca, görüntü baytlarını sunuma depolamak yerine bağlantılı (linked) görüntülere de başvurabilirler. Bu seçim, taşınabilirlik, dosya boyutu, çıkarma ve dışa aktarma davranışını etkiler; bu yüzden biçimlendirme veya optimizasyon uygulanmadan önce görüntünün nasıl saklanacağına karar vermek faydalıdır.
 
-## **Gömülü Bir Görüntüyü Ekle ve Biçimlendir**
+## **Gömülü Bir Görüntü Ekleme ve Biçimlendirme**
 
-Gömülü bir görüntü için, görüntü verisini sunuma ekleyin ve bir picture frame'i [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shapecollection/#addPictureFrame-int-float-float-float-float-aspose.slides.PPImage-) ile oluşturun. Görüntü, sunum paketinin bir parçası haline gelir; böylece sunum, başka bir bilgisayara taşındığında bile kendine yeterli kalır.
+Gömülü bir görüntü için, görüntü verisini sunuma ekleyin ve [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shapecollection/#addPictureFrame-int-float-float-float-float-aspose.slides.PPImage-) yöntemiyle bir picture frame oluşturun. Görüntü, sunum paketinin bir parçası hâline gelir; bu sayede sunum başka bir bilgisayara taşındığında da kendine yeterli olur.
 
-Aşağıdaki örnek bir PNG görüntüsü ekler, görüntünün yerel boyutlarında bir çerçeve oluşturur ve hat biçimi ile döndürmeyi uygular:
+Aşağıdaki örnek bir PNG görüntüsü ekler, görüntünün yerel boyutlarında bir çerçeve oluşturur ve kenar biçimlendirmesi ile döndürmeyi uygular:
 
 ```javascript
 var aspose = aspose || {};
@@ -72,11 +72,11 @@ try {
 }
 ```
 
-Picture frame görüntülenen geometrileri kontrol eder; çerçeve boyutunu değiştirmek gömülü görüntü kaynağında saklanan orijinal piksel boyutlarını değiştirmez. Bu ayrım, daha sonra bir görüntüyü kırpma veya sıkıştırma yapıldığında önem kazanır.
+Picture frame, görüntünün gösterilen geometrisini kontrol eder; çerçevenin boyutunu değiştirmek, gömülü görüntü kaynağında saklanan orijinal piksel boyutlarını değiştirmez. Bu ayrım, daha sonra görüntüyü kırpma veya sıkıştırma yapıldığında önemli hâle gelir.
 
-## **Göreli Ölçeği Kullan**
+## **Göreceli Ölçek Kullanma**
 
-[PictureFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pictureframe/) çerçeve için göreli genişlik ve yükseklik ölçeğini [setRelativeScaleWidth](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pictureframe/#setRelativeScaleWidth-float-) ve [setRelativeScaleHeight](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pictureframe/#setRelativeScaleHeight-float-) metodlarıyla sunar. `1.0` değeri orijinal resim boyutunun %100'üne karşılık gelir. Göreli ölçek, bir iş akışının son boyutları manuel olarak hesaplamak yerine kaynak görüntü boyutuyla olan ilişkiyi koruması gerektiğinde faydalıdır.
+[PictureFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pictureframe/), çerçeve için [setRelativeScaleWidth](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pictureframe/#setRelativeScaleWidth-float-) ve [setRelativeScaleHeight](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pictureframe/#setRelativeScaleHeight-float-) aracılığıyla göreceli genişlik ve yükseklik ölçeklemesini sunar. `1.0` değeri, orijinal resim boyutunun %100’üne karşılık gelir. Göreceli ölçek, bir iş akışının son boyutları manuel olarak hesaplamak yerine kaynak görüntü boyutuna ilişkin bir ilişkiyi koruması gerektiğinde faydalıdır.
 
 ```javascript
 var aspose = aspose || {};
@@ -105,17 +105,17 @@ try {
 }
 ```
 
-Göreli ölçek çerçevenin ölçek ayarlarını değiştirir; gömülü görüntüyü yeniden örneklemez veya sıkıştırmaz.
+Göreceli ölçek çerçevenin ölçek ayarlarını değiştirir; gömülü görüntüyü yeniden örnekleme veya sıkıştırma yapmaz.
 
 ## **Gömülü ve Bağlantılı Görüntüler**
 
-Gömülü bir picture, görüntü verisini sunum içinde depolar ve bu nedenle taşınabilirlik ve öngörülebilir renderlama açısından en güvenli tercih olur. Bağlantılı bir picture, görüntü verisini aynı şekilde gömmek yerine [Picture.setLinkPathLong](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/picture/#setLinkPathLong-java.lang.String-) metodu aracılığıyla harici bir konuma işaret eder.
+Gömülü bir picture, görüntü verilerini sunum içinde depolar ve bu yüzden taşınabilirlik ve öngörülebilir render için en güvenli tercihtir. Bağlantılı bir picture, görüntü verilerini aynı şekilde gömmek yerine [Picture.setLinkPathLong](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/picture/#setLinkPathLong-java.lang.String-) yöntemiyle harici bir konumu saklar.
 
-Bağlantılı görüntüler PPTX içinde depolanan görüntü verisinin miktarını azaltabilir, ancak dış bir bağımlılık getirir. Bağlantılı dosya, sunumu açan veya renderlayan uygulama tarafından erişilebilir olmalıdır. Yol değişirse, dosya taşınırsa veya kaynak erişilemez hâle gelirse, bağlantılı picture beklendiği gibi gösterilemez. E-posta ile gönderilmesi, arşivlenmesi veya izole ortamda renderlanması gereken sunumlar için gömülü görüntüler genellikle daha güvenilirdir.
+Bağlantılı görüntüler PPTX içinde depolanan görüntü verisi miktarını azaltabilir, ancak dış bir bağımlılık getirir. Bağlantılı dosya, sunumu açan veya render eden uygulama tarafından erişilebilir kalmalıdır. Yol değişirse, dosya taşınırsa veya kaynak mevcut değilse, bağlantılı picture beklenildiği gibi gösterilemez. E-posta ile gönderilmesi, arşivlenmesi veya izole ortamda render edilmesi gereken sunumlar için gömülü görüntüler genellikle daha güvenilirdir.
 
-### **Bağlantılı Bir Görüntü Ekle**
+### **Bağlantılı Bir Görüntü Ekleme**
 
-Aşağıdaki örnek bir picture frame oluşturur ve onu yerel bir resim dosyasına işaret eder. Yalnızca görüntü bağlama ile ilgilenir; video bağlama ayrı bir medya iş akışıdır ve bu örneğe kasıtlı olarak dahil edilmemiştir.
+Aşağıdaki örnek bir picture frame oluşturur ve yerel bir görüntü dosyasına işaret eder. Sadece görüntü bağlama ile ilgilenir; video bağlama ayrı bir medya iş akışı olup bu örnekte kasıtlı olarak karıştırılmamıştır.
 
 ```javascript
 var aspose = aspose || {};
@@ -136,15 +136,15 @@ try {
 }
 ```
 
-Harici dosya yönetimi amaçlı olduğunda bağlantılar kullanılmalıdır. Sıkıştırma yerine bağlantı olarak kullanılmamalıdır: kırık bağımlılıkları olan küçük bir PPTX, daha büyük ama kendine yeterli bir sunuma göre genellikle daha az kullanışlıdır.
+Harici dosya yönetimi kasıtlıysa linkleri kullanın. Sıkıştırmanın yerine sadece bir seçenek olarak kullanmayın: kırık görüntü bağımlılıkları olan küçük bir PPTX, genellikle daha büyük, kendine yeten bir sunumdan daha az yararlı olur.
 
-## **Resim Çerçevelerinden Görüntüleri Çıkar**
+## **Picture Frame’lerden Görüntü Çıkarma**
 
-Mevcut bir sunumdan bir görüntü çıkarmadan önce, şeklin gerçekten bir [PictureFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pictureframe/) olup olmadığını ve gömülü bir görüntü içerdiğini kontrol edin. Bağlantılı picture frame'ler aynı şekilde çıkarılabilecek görüntü baytlarını içermeyebilir.
+Mevcut bir sunumdan bir görüntü çıkarmadan önce, şeklin gerçekten bir [PictureFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pictureframe/) olup olmadığını ve gömülü bir görüntü içerip içermediğini kontrol edin. Bağlantılı picture frame’ler, aynı şekilde çıkarılabilecek görüntü baytlarını içermeyebilir.
 
-### **Raster Görüntüyü Çıkar**
+### **Raster Görüntü Çıkarma**
 
-Modern görüntü API'si doğrudan [IImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/iimage/) kullanır. Aşağıdaki örnek bir slayttaki ilk gömülü raster picture'ı bulur ve PNG olarak kaydeder:
+Modern görüntü API’si doğrudan [IImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/iimage/) kullanır. Aşağıdaki örnek bir slayttaki ilk gömülü raster resmi bulur ve PNG olarak kaydeder:
 
 ```javascript
 var aspose = aspose || {};
@@ -179,11 +179,11 @@ try {
 }
 ```
 
-[IImage.save](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/iimage/#save) üzerinden kaydetmek, çıkarılan görüntüyü istenen çıktı formatına dönüştürür. Sunum içinde depolanmış kodlanmış baytları (dönüştürülmüş raster dosya yerine) istiyorsanız, görüntü kaynağının ikili verisini kullanın.
+[IImage.save](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/iimage/#save) aracılığıyla kaydetmek, çıkarılan görüntüyü istenen çıktı formatına dönüştürür. Sunum içinde kodlanmış baytları (dönüştürülmüş raster dosya yerine) almanız gerekiyorsa, görüntü kaynağının ikili verisini kullanın.
 
-### **SVG Görüntüyü Çıkar**
+### **SVG Görüntüsü Çıkarma**
 
-SVG picture için, [PPImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ppimage/) bir [SvgImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/svgimage/) nesnesi sunar. Bu sayede rasterlaştırma yapmadan SVG verisini doğrudan alabilirsiniz.
+Bir SVG picture için, [PPImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ppimage/) bir [SvgImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/svgimage/) nesnesi sunar. Bu, resmi rasterleştirmeden doğrudan SVG verisini almanızı sağlar.
 
 ```javascript
 var aspose = aspose || {};
@@ -215,13 +215,13 @@ try {
 }
 ```
 
-SVG içeriğini SVG olarak tutmak, vektör kaynağını sunum içinde korur. PNG veya JPEG gibi raster dışa aktarımlar bu vektörü piksellere dönüştürür. PDF veya SVG slayt dışa aktarımları da bir render işlemi olduğundan, dışa aktarılan grafikler orijinal gömülü SVG'nin bayt‑bayt kopyası olarak görülmemelidir; orijinal vektör kaynağı gerektiğinde gömülü [SvgImage.getSvgData](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/svgimage/#getSvgData--) verisi kullanılmalıdır.
+SVG içeriğini SVG olarak tutmak, sunum içinde vektör kaynağının korunmasını sağlar. PNG veya JPEG gibi raster dışa aktarımlar, bu vektör içeriği piksellere dönüştürür. PDF veya SVG slayt dışa aktarması da bir render işlemi olduğundan, dışa aktarılan grafikler orijinal gömülü SVG’nin bayt‑bayt kopyası olarak değerlendirilmemelidir; orijinal vektör kaynağı gerektiğinde gömülü [SvgImage.getSvgData](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/svgimage/#getSvgData--) verisi kullanılmalıdır.
 
-## **Bir Görüntüyü Kırp**
+## **Bir Görüntüyü Kırpma**
 
-Kırpma, bir görüntünün çerçeve içinde hangi kısmının görüleceğini değiştirir. [PictureFillFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/picturefillformat/) üzerindeki kırpma değerleri kaynak görüntünün boyutlarının yüzdelik değerleridir. Kırpma, gizli pikselleri gömülü görüntüden hemen silmez; sadece görünür bölgeyi değiştirir.
+Kırpma, çerçeve içinde görüntünün hangi kısmının görüneceğini değiştirir. [PictureFillFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/picturefillformat/) üzerindeki kırpma değerleri, kaynak görüntünün boyutlarının yüzde değerleridir. Kırpma, gömülü görüntüden gizli pikselleri başlangıçta silmez; yalnızca görünür bölgeyi değiştirir.
 
-Aşağıdaki örnek bir picture frame'i güvenli bir şekilde bulur ve kırpma değerlerini uygular:
+Aşağıdaki örnek bir picture frame’i güvenli bir şekilde bulur ve kırpma değerlerini uygular:
 
 ```javascript
 var aspose = aspose || {};
@@ -253,11 +253,11 @@ try {
 }
 ```
 
-Gizli görüntü verisi hâlâ mevcut olduğundan, kırpma daha sonra orijinal pikselleri kaybetmeden değiştirilebilir. Dosya boyutu geri dönüşümsüzlüğe göre daha önemliyse, sonraki bölümde açıklanan şekilde kırpılmış bölgeler fiziksel olarak kaldırılabilir.
+Gizli görüntü verisi hâlâ mevcut olduğundan, kırpma daha sonra orijinal pikselleri kaybetmeden değiştirilebilir. Dosya boyutu, geri dönüşlülükten daha önemliyse, kırpılmış bölgeler bir sonraki bölümde fiziksel olarak kaldırılabilir.
 
-## **Kırpılmış Görüntü Verisini Kaldır**
+## **Kırpılmış Görüntü Verisini Kaldırma**
 
-[PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) mevcut kırpma dikdörtgeninin dışındaki görüntü verisini siler ve ortaya çıkan görüntü kaynağını döndürür. Bu, dosya boyutunu azaltabilir, ancak yıkıcı bir optimizasyondur: sunum kaydedildikten sonra silinen pikseller daha sonra bir "uncrop" işlemiyle geri getirilemez.
+[PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) mevcut kırpma dikdörtgeni dışındaki görüntü verisini kaldırır ve ortaya çıkan görüntü kaynağını döndürür. Bu, dosya boyutunu azaltabilir, fakat yıkıcı bir optimizasyondur: sunum kaydedildikten sonra kaldırılan pikseller daha sonra bir “uncrop” işlemiyle geri getirilemez.
 
 ```javascript
 var aspose = aspose || {};
@@ -288,13 +288,13 @@ try {
 }
 ```
 
-Bu yöntem sunuma yeni bir görüntü kaynağı ekleyebilir. Orijinal görüntü başka picture frame'ler tarafından da kullanılıyorsa, bu frame'ler hâlâ mevcut kaynaklarını ihtiyaç duyar; bu nedenle kırpılmış alanların silinmesi mutlaka toplam görüntü sayısını azaltmaz. WMF veya EMF içeriğini bu yöntemle kırpmak, kırpılmış sonucu PNG'ye rasterlaştırır.
+Bu yöntem, sunuma yeni bir görüntü kaynağı ekleyebilir. Orijinal görüntü başka picture frame’ler tarafından da kullanılıyorsa, bu frame’ler hâlâ mevcut kaynağa ihtiyaç duyar; bu nedenle kırpılmış alanların silinmesi mutlaka toplam görüntü sayısını azaltmaz. WMF veya EMF içeriğini bu yöntemle kırpmak, kırpılmış sonucu PNG’ye rasterleştirir.
 
-## **Raster Görüntüleri Sıkıştır**
+## **Raster Görüntüleri Sıkıştırma**
 
-[PictureFillFormat.compressImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/picturefillformat/#compressImage-boolean-int-) raster görüntünün çözünürlüğünü, resmin gösterildiği boyuta göre azaltır. Aynı işlemde kırpılmış bölgeler de kaldırılabilir. Görüntü yeniden boyutlandırıldıysa veya kırpıldıysa `true`, hiç bir değişiklik gerekmediyse `false` döner.
+[PictureFillFormat.compressImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/picturefillformat/#compressImage-boolean-int-) raster görüntünün çözünürlüğünü, resmin gösterildiği boyuta göre azaltır. Aynı işlemde kırpılmış bölgeler de kaldırılabilir. Yöntem, görüntü yeniden boyutlandırıldıysa veya kırpıldıysa `true`, hiçbir değişiklik gerekmediyse `false` döndürür.
 
-Standart bir hedef çözünürlük yeterli olduğunda önceden tanımlı bir [PicturesCompression](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/picturescompression/) değeri kullanılabilir:
+Standart bir hedef çözünürlük yeterli olduğunda önceden tanımlı bir [PicturesCompression](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/picturescompression/) değeri kullanın:
 
 ```javascript
 var aspose = aspose || {};
@@ -324,17 +324,17 @@ try {
 }
 ```
 
-Belirli bir hedef gerekiyorsa, önceden tanımlı değer yerine pozitif bir DPI değeri geçirilebilir.
+Belirli bir hedef gerekiyorsa, önceden tanımlı bir değer yerine pozitif bir DPI değeri de geçirilebilir.
 
-Sıkıştırma raster görüntüler için tasarlanmıştır. SVG ve metafile içeriği bu raster sıkıştırma iş akışıyla azaltılmaz. Ayrıca düşük çözünürlük ve silinen kırpılmış bölgeler optimize edilmiş sunumdan geri alınamaz. Hedef çözünürlüğü, görüntünün gerçekte görüntülenecek veya dışa aktarılacak en büyük boyutuna göre seçin; tüm sunumu en düşük DPI'ye indirgeyerek değil.
+Sıkıştırma raster görüntüler için tasarlanmıştır. SVG ve metadönüştürme içeriği bu raster sıkıştırma iş akışıyla azaltılmaz. Ayrıca, daha düşük çözünürlük ve silinmiş kırpılmış bölgelerin optimize edilmiş sunumdan geri kazanılamayacağını unutmayın. Hedef çözünürlüğü, görüntünün gerçekten görüntüleneceği veya dışa aktarılacağı en büyük boyuta göre seçin; tüm sunumda en düşük DPI’yı uygulamayın.
 
-## **Görüntü Dönüşüm Efektlerini Yönet**
+## **Görüntü Dönüşüm Efektlerini Yönetme**
 
-Parlaklık, kontrast, renk dönüşümleri, bulanıklaştırma, alfa efektleri, sıralı zincirler, inceleme, kaldırma ve çift yönlü doğrulama gibi tam bir iş akışı için [Image Transform Effects](/nodejs-java/image-transform-effects/) bölümüne bakın.
+Parlaklık, kontrast, renk dönüşümleri, bulanıklaştırma, alfa efektleri, sıralı zincirler, inceleme, kaldırma ve çift yönlü doğrulama gibi tam bir iş akışı için [Image Transform Effects](/slides/tr/nodejs-java/image-transform-effects/) bölümüne bakın.
 
-## **Resim Çerçevesi Geometrisini Kilitle**
+## **Picture Frame Geometrisini Kilitleme**
 
-[PictureFrameLock](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pictureframelock/) ayarları, bir picture frame için hangi düzenleme işlemlerinin devre dışı bırakılacağını kontrol eder. Örneğin, [setAspectRatioLocked](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pictureframelock/#setAspectRatioLocked-boolean-) şeklin yeniden boyutlandırılırken en boy oranını korur.
+[PictureFrameLock](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pictureframelock/) ayarları, bir picture frame için hangi düzenleme işlemlerinin devre dışı bırakılacağını kontrol eder. Örneğin, [setAspectRatioLocked](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pictureframelock/#setAspectRatioLocked-boolean-) yeniden boyutlandırılırken şeklin en‑boy oranını korur.
 
 ```javascript
 var aspose = aspose || {};
@@ -361,13 +361,13 @@ try {
 }
 ```
 
-Kilitleme picture frame şekline uygulanır. Kaynak görüntünün aynı en boy oranına yeniden örneklenmesini veya kalıcı olarak değiştirilmesini zorlamaz.
+Kilitleme picture frame şekline uygulanır. Kaynak görüntünün yeniden örneklenmesini veya kalıcı olarak aynı en‑boy oranına dönüştürülmesini zorlamaz.
 
-## **StretchOffset Değerlerini Ayarla**
+## **StretchOffset Değerlerini Ayarlama**
 
-Picture fill modu stretch olduğunda, [PictureFillFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/picturefillformat/) üzerindeki stretch‑offset değerleri, doldurma dikdörtgenini picture frame'in sınırlayıcı kutusuna göre tanımlar. Pozitif yüzde değerleri kenardan içe doğru bir içerik oluştururken, negatif yüzde değerleri dışa doğru bir genişleme yaratır.
+Resim doldurma modu “stretch” olduğunda, [PictureFillFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/picturefillformat/) üzerindeki stretch‑offset değerleri, doldurma dikdörtgenini picture frame’in sınırlayıcı kutusuna göre tanımlar. Pozitif yüzde değerleri bir kenardan içe girerken, negatif değerler dışa çıkar.
 
-Bu, kırpmadan farklıdır. Kırpma değerleri kaynak görüntünün hangi kısmının görüleceğini seçer; stretch offset'ler ise görünen picture fill'in uzatılacağı dikdörtgeni değiştirir.
+Bu, kırpmadan farklıdır. Kırpma değerleri, kaynağın hangi kısmının görüneceğini seçerken; stretch offset’ler görünür resim doldurmasının hangi dikdörtgene gerileceğini değiştirir.
 
 ```javascript
 var aspose = aspose || {};
@@ -399,43 +399,43 @@ try {
 }
 ```
 
-Stretch offset'leri doldurma konumlandırması için kullanın. Kaynak görüntünün kenarlarını gizlemek istiyorsanız kırpma özelliklerini kullanın.
+Dolgu konumlandırması için stretch offset’leri kullanın. Kaynak görüntünün kenarlarını gizlemek istiyorsanız kırpma özelliklerini kullanın.
 
-## **Depolama, Dosya Boyutu ve Dışa Aktarma Hususları**
+## **Depolama, Dosya Boyutu ve Dışa Aktarma Düşünceleri**
 
-Görsel depolama ve picture‑frame biçimlendirmesi ayrı ayrı ele alındığında temel karşılaştırmalar daha net yönetilir:
+Görüntü depolama ve picture‑frame biçimlendirmesi ayrı ayrı ele alındığında temel ödünleşimler daha kolay yönetilir:
 
-- **Gömülü görüntüler** sunumu kendine yeterli kılar ve paylaşım ve sunucu tarafı renderlama için en güvenilir seçenektir, ancak büyük raster görüntüler PPTX boyutunu ve bellek kullanımını artırır.
-- **Bağlantılı görüntüler** paketi daha küçük tutabilir, ancak sunumun harici dosyaların belirtilen yollarda veya konumlarda mevcut olmasına bağlıdır.
-- **Kırpma** başlangıçta yıkıcı değildir. Gizli pikseller, kırpılmış alanlar açıkça silinene veya sıkıştırma sırasında kaldırılana kadar gömülüdür.
-- **Sıkıştırma**, aşırı büyük raster görüntülerin dosya boyutunu önemli ölçüde azaltabilir, fakat kaynak çözünürlüğü feda eder. Görüntünün slayt üzerindeki hedef boyutu bilindiğinde uygulanmalıdır.
-- **SVG görüntüler** vektör korumasının önemli olduğu durumlarda SVG olarak kalmalıdır. Vektör kaynağının kendisine ihtiyaç duyduğunuzda gömülü SVG'yi doğrudan çıkarın. Raster slayt dışa aktarımları her zaman görüntüyü piksellere dönüştürür.
-- **Tekrarlanan görüntüler** mümkün olduğunca mevcut bir [PPImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ppimage/) kaynağını yeniden kullanmalı, aynı dosyanın sunuma birden çok kez yüklenmesinden kaçınılmalıdır.
+- **Gömülü görüntüler** sunumu kendine yeten hâle getirir ve paylaşım ile sunucu tarafı render için en güvenilir seçenektir; ancak büyük raster görüntüler PPTX boyutunu ve bellek kullanımını artırır.
+- **Bağlantılı görüntüler** paketi daha küçük tutabilir, fakat sunumun dış dosyaların belirtilen yollar/konumlarda erişilebilir olmasına bağlıdır.
+- **Kırpma** başlangıçta yıkıcı değildir. Gizli pikseller, kırpılmış alanlar açıkça silinene kadar gömülü kalır veya sıkıştırma sırasında kaldırılır.
+- **Sıkıştırma**, aşırı büyük raster görüntüler için dosya boyutunu önemli ölçüde azaltabilir, ancak kaynak çözünürlüğü feda eder. Slayt üzerindeki hedef boyut bilindikten sonra uygulanmalıdır.
+- **SVG görüntüler** vektör korunumu önemli olduğunda SVG olarak kalmalıdır. Vektör kaynağına ihtiyacınız olduğunda gömülü SVG doğrudan çıkarılabilir. Raster slayt dışa aktarımları her zaman slaytı piksellere dönüştürür.
+- **Tekrarlanan görüntüler**, aynı dosyayı tekrar tekrar sunuma yüklemek yerine mümkün olduğunca mevcut bir [PPImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ppimage/) kaynağını yeniden kullanmalıdır.
 
-Büyük sunumlarda, görüntü optimizasyonu seçici olarak yapıldığında en etkili olur: logo ve diyagramları vektör içerik olarak tutun, fotoğrafları gerçek gösterim boyutuna göre sıkıştırın, kırpılmış pikselleri yalnızca sonraki düzenleme gerekmiyorsa kaldırın ve dış bağlantılar ancak bağımlılık yönetimi dağıtım tasarımının bir parçasıysa kullanılmalıdır.
+Büyük sunumlarda, görüntü optimizasyonu seçici olarak yapıldığında genellikle en etkilidir: logolar ve diyagramları vektör içerik olarak tutun, fotoğrafları gerçek gösterim boyutlarına göre sıkıştırın, kırpılmış pikselleri yalnızca sonraki düzenleme gerekmiyorsa kaldırın ve dış bağlantıları, bağımlılık yönetimi dağıtım tasarımına dahil değilse kullanmaktan kaçının.
 
 ## **SSS**
 
-**Resim çerçevesi ile görüntü kaynağı arasındaki fark nedir?**
+**Bir picture frame ile bir görüntü kaynağı arasındaki fark nedir?**
 
-[PPImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ppimage/) sunumla ilişkili bir görüntü kaynağını temsil eder. [PictureFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pictureframe/) ise bir slaytta görüntüyü gösteren, boyut, döndürme, kırpma değerleri, efektler ve kilitler gibi çerçeve‑seviyesi geometrileri ve biçimlendirmeyi depolayan bir şekildir.
+[PPImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ppimage/), sunumla ilişkilendirilmiş bir görüntü kaynağını temsil eder. [PictureFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pictureframe/), bir slaytta görüntüyü gösteren ve çerçeve‑seviyesi geometrik ve biçimlendirme bilgilerini (boyut, döndürme, kırpma değerleri, efektler, kilitlemeler) tutan bir şekildir.
 
 **Görüntüleri gömmeli mi yoksa bağlamalı mı?**
 
-Görseller, sunumun taşınabilir, arşivlenebilir veya dış kaynaklara erişim olmadan renderlanması gerektiğinde gömülmelidir. Görselleri dışarda tutmak ve PPTX'in daha küçük olmasını sağlamak sadece dış dosya konumları güvenilir bir şekilde yönetilebileceği durumlarda tercih edilmelidir.
+Sunumun taşınabilir, arşivlenebilir veya dış kaynaklara erişim olmadan render edilmesi gerekiyorsa görüntüleri gömün. Görüntü dosyalarını PPTX dışına koymak kasıtlı ve dış konumlar güvenilir bir şekilde yönetilebilecekse yalnızca bağlayın.
 
 **Kırpma PPTX dosya boyutunu azaltır mı?**
 
-Kendiliğinden olmaz. Normal kırpma ayarları kaynak görüntünün bir kısmını gizler ancak alttaki pikselleri tutar. Kırpılmış alanları gerçekten silmek için [PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) veya kırpma kaldırmalı bir görüntü sıkıştırması kullanılmalıdır.
+Kendiliğinden azaltmaz. Normal kırpma ayarları kaynağın bir kısmını gizler ancak alttaki pikselleri tutar. Kırpılmış pikselleri kalıcı olarak kaldırmak için [PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) veya kırpma bölgesi kaldırmalı sıkıştırma kullanın.
 
-**Sıkıştırmadan sonra görüntü kalitesini geri getirebilir miyim?**
+**Sıkıştırma sonrası görüntü kalitesi geri getirilebilir mi?**
 
-Hayır. Sıkıştırma depolanan raster çözünürlüğü azaltabilir ve kırpılmış bölgelerin kaldırılması görüntü verisini siler. Daha sonraki yüksek çözünürlükli düzenleme ihtimali varsa orijinal kaynak görüntüyü sunum dışına saklayın.
+Hayır. Sıkıştırma depolanan raster çözünürlüğü düşürebilir ve kırpılmış bölgelerin kaldırılması görüntü verisini siler. Daha sonra yüksek çözünürlükte düzenleme gerekebileceği durumlarda orijinal kaynağı sunum dışına alın.
 
 **SVG görüntüler nasıl ele alınmalı?**
 
-Vektör doğruluğunun önemli olduğu durumlarda SVG içeriği SVG olarak tutulmalıdır. Gömülü [SvgImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/svgimage/) doğrudan çıkarılabilir. PNG veya JPEG gibi raster formatlara slayt renderlamak, SVG'yi slayt görüntüsünün bir parçası olarak piksellere dönüştürür.
+Vektör kalitesi önemliyse SVG içeriği SVG olarak tutun. Gömülü [SvgImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/svgimage/) doğrudan çıkarılabilir. Slaytı PNG veya JPEG gibi raster bir formata render etmek, SVG’yi slayt görüntüsünün bir parçası hâline getirir.
 
-**Mevcut slaytları okurken güvenli olmayan cast'leri nasıl önleyebilirim?**
+**Mevcut slaytları okurken güvensiz cast’lerden nasıl kaçınılır?**
 
-Picture frame'e özgü üyeleri kullanmadan önce şekil tipini kontrol edin. [PictureFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pictureframe/) tipine bir `java.instanceOf` kontrolü, geçersiz cast'leri önler ve picture frame içermeyen slaytların kod tarafından uygun şekilde işlenmesini sağlar.
+Picture‑frame‑özel üyeleri kullanmadan önce şekil tipini kontrol edin. [PictureFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pictureframe/) karşısında bir `java.instanceOf` kontrolü, geçersiz cast’leri önler ve picture frame içermeyen slaytların kod tarafından uygun şekilde işlenmesini sağlar.

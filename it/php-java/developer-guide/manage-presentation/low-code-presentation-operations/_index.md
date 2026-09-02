@@ -1,11 +1,11 @@
 ---
-title: Operazioni di presentazione low-code in PHP
-linktitle: API low-code
+title: Operazioni di Presentazione Low-Code in PHP
+linktitle: API Low-Code
 type: docs
 weight: 50
 url: /it/php-java/low-code-presentation-operations/
 keywords:
-- API presentazione low-code
+- API low-code per presentazioni
 - convertire presentazione
 - unire presentazioni
 - iterare diapositive
@@ -13,35 +13,35 @@ keywords:
 - iterare testo
 - raccogliere forme
 - comprimere presentazione
-- rimuovere diapositive master inutilizzate
-- rimuovere diapositive layout inutilizzate
+- rimuovere master diapositive inutilizzati
+- rimuovere layout diapositive inutilizzati
 - comprimere font incorporati
 - PowerPoint
 - OpenDocument
 - presentazione
 - PHP
 - Aspose.Slides
-description: "Usa l'API low-code di Aspose.Slides in PHP per convertire e unire presentazioni, scorrere il contenuto, raccogliere forme e ridurre le dimensioni della presentazione."
+description: "Utilizza l'API low-code di Aspose.Slides in PHP per convertire e unire presentazioni, iterare il contenuto, raccogliere forme e ridurre le dimensioni della presentazione."
 ---
 ## **Panoramica**
 
-Lo spazio dei nomi [aspose.slides](https://reference.aspose.com/slides/it/php-java/aspose.slides/) fornisce classi di supporto statiche per operazioni comuni sulle presentazioni. Questi helper incapsulano i flussi di lavoro più usati del modello a oggetti in metodi focalizzati, così è possibile convertire o unire file, elaborare elementi della presentazione, raccogliere forme e rimuovere contenuti non utilizzati con meno codice.
+Il namespace [aspose.slides](https://reference.aspose.com/slides/it/php-java/aspose.slides/) fornisce classi helper statiche per operazioni comuni sulle presentazioni. questi helper incapsulano flussi di lavoro frequentemente utilizzati del modello a oggetti in metodi focalizzati, così è possibile convertire o unire file, elaborare gli elementi della presentazione, raccogliere forme e rimuovere contenuti inutilizzati con meno codice.
 
-Gli helper low‑code sono più utili quando l'operazione si applica a un intero file o a una presentazione e il flusso di lavoro predefinito corrisponde ai requisiti. Utilizza il modello completo di oggetti [Aspose.Slides](https://reference.aspose.com/slides/it/php-java/aspose.slides/) quando hai bisogno di un controllo più fine su diapositive individuali, master, layout, forme, impostazioni di esportazione o relazioni tra gli elementi della presentazione.
+Gli helper low‑code sono più utili quando l'operazione si applica a un intero file o presentazione e il flusso di lavoro predefinito soddisfa i requisiti. Usa il modello a oggetti completo di [Aspose.Slides](https://reference.aspose.com/slides/it/php-java/aspose.slides/) quando hai bisogno di un controllo fine su diapositive individuali, master, layout, forme, impostazioni di esportazione o relazioni tra gli elementi della presentazione.
 
 La tabella seguente riassume gli helper disponibili:
 
-| Helper | Per cosa usarlo |
+| Helper | Usa per |
 | --- | --- |
-| [Convert](https://reference.aspose.com/slides/it/php-java/aspose.slides/convert/) | Conversione di una presentazione in un altro formato con una chiamata file‑to‑file. |
-| [Merger](https://reference.aspose.com/slides/it/php-java/aspose.slides/merger/) | Unione di file di presentazione completi dello stesso formato. |
-| [ForEach_](https://reference.aspose.com/slides/it/php-java/aspose.slides/foreach_/) | Esecuzione di un callback per ogni diapositiva, forma, paragrafo o porzione di testo. |
-| [Collect](https://reference.aspose.com/slides/it/php-java/aspose.slides/collect/) | Recupero delle forme dall'intera presentazione per elaborazioni o analisi ripetute. |
-| [Compress](https://reference.aspose.com/slides/it/php-java/aspose.slides/compress/) | Rimozione di master e layout non usati e riduzione dei dati dei font incorporati. |
+| [Convert](https://reference.aspose.com/slides/it/php-java/aspose.slides/convert/) | Convertire una presentazione in un altro formato con una chiamata file‑to‑file diretta. |
+| [Merger](https://reference.aspose.com/slides/it/php-java/aspose.slides/merger/) | Unire file di presentazione completi dello stesso formato. |
+| [ForEach_](https://reference.aspose.com/slides/it/php-java/aspose.slides/foreach_/) | Eseguire un callback per ogni diapositiva, forma, paragrafo o porzione di testo. |
+| [Collect](https://reference.aspose.com/slides/it/php-java/aspose.slides/collect/) | Recuperare le forme dall'intera presentazione per elaborazioni o analisi ripetute. |
+| [Compress](https://reference.aspose.com/slides/it/php-java/aspose.slides/compress/) | Rimuovere master e layout inutilizzati e ridurre i dati dei font incorporati. |
 
-## **Convertire una presentazione**
+## **Convertire una Presentazione**
 
-Usa [Convert::autoByExtension](https://reference.aspose.com/slides/it/php-java/aspose.slides/convert/#autoByExtension) quando l'estensione del file di output è sufficiente per selezionare il formato di esportazione. Il metodo apre la presentazione sorgente, determina il formato richiesto dal percorso di output e scrive il risultato.
+Usa [Convert::autoByExtension](https://reference.aspose.com/slides/it/php-java/aspose.slides/convert/#autoByExtension) quando l'estensione del file di output è sufficiente a selezionare il formato di esportazione. il metodo apre la presentazione sorgente, determina il formato richiesto dal percorso di output e scrive il risultato.
 
 ```php
 use aspose\slides\Convert;
@@ -49,11 +49,11 @@ use aspose\slides\Convert;
 Convert::autoByExtension("input.pptx", "output.pdf");
 ```
 
-La classe [Convert](https://reference.aspose.com/slides/it/php-java/aspose.slides/convert/) fornisce anche metodi dedicati per output PDF, SVG, JPEG, PNG e TIFF. Usa il modello completo di oggetti quando devi ispezionare o modificare la presentazione prima dell'esportazione o configurare un'opzione di esportazione non esposta dall'helper selezionato. Vedi [Convert Presentation](/php-java/convert-presentation/) per flussi di lavoro e opzioni specifiche per formato.
+La classe [Convert](https://reference.aspose.com/slides/it/php-java/aspose.slides/convert/) offre anche metodi dedicati per output PDF, SVG, JPEG, PNG e TIFF. Usa il modello a oggetti completo quando devi ispezionare o modificare la presentazione prima dell'esportazione o configurare un'opzione di esportazione non esposta dall'helper selezionato. Vedi [Convert Presentation](/slides/it/php-java/convert-presentation/) per flussi di lavoro e opzioni specifiche per formato.
 
-## **Unire presentazioni**
+## **Unire Presentazioni**
 
-Usa [Merger::process](https://reference.aspose.com/slides/it/php-java/aspose.slides/merger/#process) per combinare file di presentazione completi con una sola chiamata. Le presentazioni di input devono avere lo stesso formato di file.
+Usa [Merger::process](https://reference.aspose.com/slides/it/php-java/aspose.slides/merger/#process) per combinare file di presentazione completi con una sola chiamata. le presentazioni di input devono avere lo stesso formato di file.
 
 ```php
 use aspose\slides\Merger;
@@ -62,11 +62,11 @@ $inputFiles = ["part-1.pptx", "part-2.pptx"];
 Merger::process($inputFiles, "merged.pptx");
 ```
 
-L'helper è appropriato quando tutte le diapositive devono essere aggiunte a un unico risultato senza selezionarle o rimapparle individualmente. Usa il modello completo di oggetti quando devi unire diapositive selezionate, applicare un master o layout di destinazione, preservare sezioni in modo esplicito o conciliare diverse dimensioni delle diapositive. Vedi [Merge Presentations](/php-java/merge-presentation/) per questi scenari.
+L'helper è appropriato quando tutte le diapositive devono essere aggiunte a un risultato unico senza selezionarle o rimapparle individualmente. Usa il modello a oggetti completo quando devi unire diapositive selezionate, applicare un master o layout di destinazione, preservare esplicitamente le sezioni o riconciliare diverse dimensioni delle diapositive. Vedi [Merge Presentations](/slides/it/php-java/merge-presentation/) per questi scenari.
 
-## **Iterare sugli elementi della presentazione**
+## **Iterare Attraverso gli Elementi della Presentazione**
 
-La classe [ForEach_](https://reference.aspose.com/slides/it/php-java/aspose.slides/foreach_/) invoca un callback per ogni tipo richiesto di elemento della presentazione. Evita loop nidificati su collezioni ed è comoda per ispezioni o modifiche di formattazione a livello di presentazione.
+La classe [ForEach_](https://reference.aspose.com/slides/it/php-java/aspose.slides/foreach_/) invoca un callback per ogni tipo di elemento della presentazione richiesto. Evita loop di raccolta annidati ed è comoda per ispezioni o modifiche di formattazione a livello di presentazione.
 
 L'esempio seguente utilizza [ForEach_::slide](https://reference.aspose.com/slides/it/php-java/aspose.slides/foreach_/#slide), [ForEach_::shape](https://reference.aspose.com/slides/it/php-java/aspose.slides/foreach_/#shape), [ForEach_::paragraph](https://reference.aspose.com/slides/it/php-java/aspose.slides/foreach_/#paragraph) e [ForEach_::portion](https://reference.aspose.com/slides/it/php-java/aspose.slides/foreach_/#portion) per ispezionare gli elementi corrispondenti:
 
@@ -125,11 +125,11 @@ try {
 }
 ```
 
-Per impostazione predefinita, il traversal di forme e testo a livello di presentazione includono diapositive normali, master e layout. Le sovraccariche con un parametro `includeNotes` possono anche elaborare le diapositive delle note. Usa loop di collezione diretti quando l'ordine di traversal, l'uscita anticipata, il filtraggio prima della chiamata del callback o il controllo dettagliato padre‑figlio sono importanti.
+Per impostazione predefinita, l'attraversamento di forme e testo a livello di presentazione include diapositive normali, master e layout. Le overload con un parametro `includeNotes` possono anche elaborare le diapositive delle note. Usa cicli di raccolta diretti quando l'ordine di attraversamento, l'uscita anticipata, il filtraggio prima della chiamata al callback o il controllo dettagliato genitore‑figlio sono importanti.
 
-## **Raccogliere forme**
+## **Raccogliere Forme**
 
-Usa [Collect::shapes](https://reference.aspose.com/slides/it/php-java/aspose.slides/collect/#shapes) quando ti serve una raccolta di tutte le forme in una presentazione anziché un callback per ogni forma. È utile quando lo stesso insieme verrà filtrato, contato o elaborato più volte.
+Usa [Collect::shapes](https://reference.aspose.com/slides/it/php-java/aspose.slides/collect/#shapes) quando ti serve una collezione di tutte le forme in una presentazione invece di un callback per ogni forma. Questo è utile quando lo stesso set verrà filtrato, contato o elaborato più volte.
 
 ```php
 use aspose\slides\Collect;
@@ -149,15 +149,15 @@ try {
 }
 ```
 
-Utilizza [ForEach_::shape](https://reference.aspose.com/slides/it/php-java/aspose.slides/foreach_/#shape) invece quando ogni forma può essere gestita immediatamente e non è necessario conservare il risultato raccolto.
+Usa [ForEach_::shape](https://reference.aspose.com/slides/it/php-java/aspose.slides/foreach_/#shape) invece quando ogni forma può essere gestita immediatamente e non hai bisogno di conservare il risultato raccolto.
 
-## **Comprimere il contenuto della presentazione**
+## **Comprimere il Contenuto della Presentazione**
 
-La classe [Compress](https://reference.aspose.com/slides/it/php-java/aspose.slides/compress/) può rimuovere elementi strutturali non usati e ridurre i dati dei font incorporati:
+La classe [Compress](https://reference.aspose.com/slides/it/php-java/aspose.slides/compress/) può rimuovere elementi strutturali inutilizzati e ridurre i dati dei font incorporati:
 
-- [Compress::removeUnusedLayoutSlides](https://reference.aspose.com/slides/it/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) rimuove i layout non referenziati da alcuna diapositiva normale.
-- [Compress::removeUnusedMasterSlides](https://reference.aspose.com/slides/it/php-java/aspose.slides/compress/#removeUnusedMasterSlides) rimuove i master non più utilizzati.
-- [Compress::compressEmbeddedFonts](https://reference.aspose.com/slides/it/php-java/aspose.slides/compress/#compressEmbeddedFonts) rimuove i caratteri inutilizzati dai font incorporati.
+- [Compress::removeUnusedLayoutSlides](https://reference.aspose.com/slides/it/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) rimuove i layout diapositive che non sono riferiti da alcuna diapositiva normale.
+- [Compress::removeUnusedMasterSlides](https://reference.aspose.com/slides/it/php-java/aspose.slides/compress/#removeUnusedMasterSlides) rimuove i master diapositiva non più utilizzati.
+- [Compress::compressEmbeddedFonts](https://reference.aspose.com/slides/it/php-java/aspose.slides/compress/#compressEmbeddedFonts) rimuove caratteri inutilizzati dai font incorporati.
 
 ```php
 use aspose\slides\Compress;
@@ -176,38 +176,38 @@ try {
 }
 ```
 
-Rimuovi prima i layout non usati e poi i master non usati, così un master che diventa non referenziato dopo la pulizia dei layout può anch'esso essere eliminato. Salva la presentazione ottimizzata in un nuovo file se potresti aver bisogno in seguito dei master, layout o dei dati completi dei font incorporati originali. Per maggiori dettagli, vedi [Slide Master](/php-java/slide-master/) e [Embedded Font](/php-java/embedded-font/).
+Rimuovi prima i layout inutilizzati e poi i master inutilizzati, così un master che diventa non referenziato dopo la pulizia dei layout può essere rimosso. Salva la presentazione ottimizzata in un nuovo file se potresti aver bisogno in seguito dei master, layout o dei dati completi dei font incorporati originali. Per maggiori dettagli, vedi [Slide Master](/slides/it/php-java/slide-master/) e [Embedded Font](/slides/it/php-java/embedded-font/).
 
 ## **FAQ**
 
-**Quando dovrei usare l'API low‑code invece del modello object completo?**
+**Quando dovrei usare l'API low‑code invece del modello a oggetti completo?**
 
-Usa gli helper low‑code quando un'operazione standard si applica a un file o a una presentazione completa e non richiede un controllo dettagliato sugli elementi individuali. Usa il modello completo di oggetti quando devi selezionare diapositive specifiche, controllare le relazioni tra master e layout, ispezionare lo stato intermedio o configurare comportamenti non esposti dall'helper.
+Usa gli helper low‑code quando un'operazione standard si applica a un file o una presentazione completa e non richiede un controllo dettagliato sugli elementi individuali. Usa il modello a oggetti completo quando devi selezionare diapositive specifiche, controllare le relazioni tra master e layout, ispezionare lo stato intermedio o configurare comportamenti che l'helper non espone.
 
-**Merger può combinare presentazioni in formati di file diversi?**
+**Il Merger può combinare presentazioni in formati di file diversi?**
 
 No. [Merger::process](https://reference.aspose.com/slides/it/php-java/aspose.slides/merger/#process) richiede che le presentazioni di input siano nello stesso formato. Converti prima i file di input in un formato comune, ad esempio con [Convert::autoByExtension](https://reference.aspose.com/slides/it/php-java/aspose.slides/convert/#autoByExtension), e poi unisci i file convertiti.
 
 **ForEach_ elabora le diapositive master, layout e note?**
 
-[ForEach_::slide](https://reference.aspose.com/slides/it/php-java/aspose.slides/foreach_/#slide) itera solo le diapositive normali della presentazione. Le operazioni a livello di presentazione di [ForEach_::shape](https://reference.aspose.com/slides/it/php-java/aspose.slides/foreach_/#shape), [ForEach_::paragraph](https://reference.aspose.com/slides/it/php-java/aspose.slides/foreach_/#paragraph) e [ForEach_::portion](https://reference.aspose.com/slides/it/php-java/aspose.slides/foreach_/#portion) includono diapositive normali, master e layout per impostazione predefinita. Usa le loro sovraccariche con `includeNotes` impostato a `true` per includere le diapositive delle note.
+[ForEach_::slide](https://reference.aspose.com/slides/it/php-java/aspose.slides/foreach_/#slide) itera le diapositive normali della presentazione. Le operazioni a livello di presentazione [ForEach_::shape](https://reference.aspose.com/slides/it/php-java/aspose.slides/foreach_/#shape), [ForEach_::paragraph](https://reference.aspose.com/slides/it/php-java/aspose.slides/foreach_/#paragraph) e [ForEach_::portion](https://reference.aspose.com/slides/it/php-java/aspose.slides/foreach_/#portion) includono per impostazione predefinita le diapositive normali, master e layout. Usa le loro overload con `includeNotes` impostato su `true` per includere le diapositive delle note.
 
 **Qual è la differenza tra ForEach_::shape e Collect::shapes?**
 
-Usa [ForEach_::shape](https://reference.aspose.com/slides/it/php-java/aspose.slides/foreach_/#shape) per elaborare ogni forma immediatamente tramite un callback. Usa [Collect::shapes](https://reference.aspose.com/slides/it/php-java/aspose.slides/collect/#shapes) quando ti serve un risultato iterabile che può essere conservato, filtrato, contato o attraversato più volte.
+Usa [ForEach_::shape](https://reference.aspose.com/slides/it/php-java/aspose.slides/foreach_/#shape) per elaborare immediatamente ogni forma tramite un callback. Usa [Collect::shapes](https://reference.aspose.com/slides/it/php-java/aspose.slides/collect/#shapes) quando ti serve un risultato iterabile che può essere conservato, filtrato, contato o attraversato più volte.
 
-**Compress rende sempre più piccolo il file della presentazione?**
+**Compress rende sempre il file della presentazione più piccolo?**
 
-Non necessariamente. Il risultato dipende dal fatto che la presentazione contenga layout inutilizzati, master inutilizzati o font incorporati con caratteri non usati. Se nessuno di questi elementi è presente, le operazioni corrispondenti di [Compress](https://reference.aspose.com/slides/it/php-java/aspose.slides/compress/) potrebbero non ridurre la dimensione del file.
+Non necessariamente. Il risultato dipende dal fatto che la presentazione contenga layout inutilizzati, master inutilizzati o font incorporati con caratteri inutilizzati. Se nessuno di questi è presente, le operazioni corrispondenti di [Compress](https://reference.aspose.com/slides/it/php-java/aspose.slides/compress/) potrebbero non ridurre la dimensione del file.
 
-**Le modifiche apportate da ForEach_ o Compress vengono salvate automaticamente?**
+**Le modifiche effettuate da ForEach_ o Compress vengono salvate automaticamente?**
 
-No. Questi helper operano sull'oggetto [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/) caricato in memoria. Dopo aver modificato gli elementi in un callback di [ForEach_](https://reference.aspose.com/slides/it/php-java/aspose.slides/foreach_/) o aver eseguito [Compress](https://reference.aspose.com/slides/it/php-java/aspose.slides/compress/), chiama [Presentation::save](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/#save) per scrivere il risultato.
+No. questi helper operano sull'oggetto [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/) caricato in memoria. Dopo aver modificato gli elementi in un callback [ForEach_](https://reference.aspose.com/slides/it/php-java/aspose.slides/foreach_) o aver eseguito [Compress](https://reference.aspose.com/slides/it/php-java/aspose.slides/compress/), chiama [Presentation::save](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/#save) per scrivere il risultato.
 
-## **Articoli correlati**
+## **Articoli Correlati**
 
-- [Convert Presentation](/php-java/convert-presentation/)
-- [Merge Presentations](/php-java/merge-presentation/)
-- [Slide Master](/php-java/slide-master/)
-- [Manage Text Box](/php-java/manage-textbox/)
-- [Embedded Font](/php-java/embedded-font/)
+- [Convert Presentation](/slides/it/php-java/convert-presentation/)
+- [Merge Presentations](/slides/it/php-java/merge-presentation/)
+- [Slide Master](/slides/it/php-java/slide-master/)
+- [Manage Text Box](/slides/it/php-java/manage-textbox/)
+- [Embedded Font](/slides/it/php-java/embedded-font/)

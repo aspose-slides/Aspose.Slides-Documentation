@@ -1,15 +1,15 @@
 ---
-title: Zarządzanie ramkami obrazu w prezentacjach przy użyciu JavaScript
-linktitle: Ramka obrazu
+title: Zarządzaj ramkami obrazów w prezentacjach przy użyciu JavaScript
+linktitle: Rama obrazu
 type: docs
 weight: 10
 url: /pl/nodejs-java/picture-frame/
 keywords:
-- ramka obrazu
+- rama obrazu
 - dodaj ramkę obrazu
 - utwórz ramkę obrazu
-- obraz osadzony
-- obraz połączony
+- osadzony obraz
+- powiązany obraz
 - wyodrębnij obraz
 - obraz rastrowy
 - obraz SVG
@@ -27,19 +27,19 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Twórz, formatuj, łącz, przycinaj, wyodrębniaj i kompresuj ramki obrazu w prezentacjach przy użyciu Aspose.Slides dla Node.js za pomocą JavaScript."
+description: "Twórz, formatuj, łącz, przycinaj, wyodrębniaj i kompresuj ramki obrazów w prezentacjach przy użyciu Aspose.Slides dla Node.js w języku Java."
 ---
 ## **Przegląd**
 
-Ramka obrazu jest kształtem slajdu wyświetlającym obraz. W Aspose.Slides zasób obrazu i kształt, który go wyświetla, są oddzielnymi obiektami: [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/) posiada osadzone zasoby obrazów poprzez swoją [ImageCollection](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/imagecollection/), podczas gdy [PictureFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/pictureframe/) kontroluje pozycję obrazu, rozmiar, formatowanie linii, obrót, przycinanie, efekty obrazu i inne ustawienia na poziomie ramki.
+Picture frame jest kształtem slajdu wyświetlającym obraz. W Aspose.Slides zasób obrazu i kształt, który go wyświetla, są oddzielnymi obiektami: [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/) posiada osadzone zasoby obrazów poprzez swoją [ImageCollection](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/imagecollection/), natomiast [PictureFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/pictureframe/) kontroluje pozycję obrazu, rozmiar, formatowanie linii, obrót, przycinanie, efekty obrazu i inne ustawienia na poziomie ramki.
 
-To rozdzielenie jest przydatne, gdy ten sam obraz jest wyświetlany więcej niż raz. Dodaj obraz do prezentacji raz, zachowaj zwrócony [PPImage](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ppimage/), i użyj tego zasobu obrazu przy tworzeniu ramek obrazu.
+To rozdzielenie jest przydatne, gdy ten sam obraz jest wyświetlany więcej niż raz. Dodaj obraz do prezentacji raz, zachowaj zwrócony [PPImage](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ppimage/), i użyj tego zasobu obrazu przy tworzeniu ramek obrazów.
 
-Ramki obrazu mogą zawierać obrazy rastrowe, takie jak PNG lub JPEG, oraz obrazy wektorowe SVG. Mogą także odwoływać się do połączonych obrazów zamiast przechowywać bajty obrazu w prezentacji. Wybór wpływa na przenośność, rozmiar pliku, sposób wyodrębniania i zachowanie przy eksporcie, dlatego warto zdecydować, jak obraz ma być przechowywany, zanim zastosujesz formatowanie lub optymalizację.
+Ramki obrazów mogą zawierać obrazy rastrowe, takie jak PNG lub JPEG, oraz wektorowe obrazy SVG. Mogą także odwoływać się do powiązanych obrazów zamiast przechowywać bajty obrazu w prezentacji. Wybór wpływa na przenośność, rozmiar pliku, ekstrakcję i zachowanie przy eksporcie, więc warto zdecydować, jak obraz ma być przechowywany przed zastosowaniem formatowania lub optymalizacji.
 
 ## **Dodaj i sformatuj osadzony obraz**
 
-W przypadku obrazu osadzonego dodaj dane obrazu do prezentacji i utwórz ramkę obrazu za pomocą [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/shapecollection/#addPictureFrame-int-float-float-float-float-aspose.slides.PPImage-). Obraz staje się częścią pakietu prezentacji, więc prezentacja pozostaje samodzielna po przeniesieniu na inny komputer.
+W przypadku osadzonego obrazu dodaj dane obrazu do prezentacji i utwórz ramkę obrazu za pomocą [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/shapecollection/#addPictureFrame-int-float-float-float-float-aspose.slides.PPImage-). Obraz staje się częścią pakietu prezentacji, więc prezentacja pozostaje samodzielna po przeniesieniu na inny komputer.
 
 Poniższy przykład dodaje obraz PNG, tworzy ramkę o natywnych wymiarach obrazu i stosuje formatowanie linii oraz obrót:
 
@@ -72,11 +72,11 @@ try {
 }
 ```
 
-Ramka obrazu kontroluje wyświetlaną geometrię; zmiana rozmiaru ramki nie zmienia pierwotnych wymiarów pikseli przechowywanych w osadzonym zasobie obrazu. Rozróżnienie to staje się ważne przy późniejszym przycinaniu lub kompresji obrazu.
+Ramka obrazu kontroluje wyświetlaną geometrię; zmiana rozmiaru ramki nie zmienia pierwotnych wymiarów pikseli przechowywanych w osadzonym zasobie obrazu. Rozróżnienie to jest istotne przy późniejszym przycinaniu lub kompresji obrazu.
 
 ## **Użyj skali względnej**
 
-[PictureFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/pictureframe/) udostępnia skalowanie względne szerokości i wysokości ramki poprzez [setRelativeScaleWidth](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/pictureframe/#setRelativeScaleWidth-float-) i [setRelativeScaleHeight](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/pictureframe/#setRelativeScaleHeight-float-). Wartość `1.0` odpowiada 100 % pierwotnego rozmiaru obrazu. Skala względna jest przydatna, gdy przepływ pracy wymaga zachowania proporcji względem rozmiaru źródłowego obrazu zamiast ręcznego obliczania końcowych wymiarów.
+[PictureFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/pictureframe/) udostępnia skalowanie względne szerokości i wysokości ramki poprzez [setRelativeScaleWidth](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/pictureframe/#setRelativeScaleWidth-float-) i [setRelativeScaleHeight](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/pictureframe/#setRelativeScaleHeight-float-). Wartość `1.0` odpowiada 100 % oryginalnego rozmiaru obrazu. Skala względna jest przydatna, gdy przepływ pracy wymaga zachowania relacji do rozmiaru źródłowego obrazu zamiast ręcznego obliczania wymiarów końcowych.
 
 ```javascript
 var aspose = aspose || {};
@@ -105,17 +105,17 @@ try {
 }
 ```
 
-Skala względna zmienia ustawienia skali ramki; nie dokonuje ona próbkowania ani kompresji osadzonego obrazu.
+Skala względna zmienia ustawienia skali ramki; nie przebasuje ani nie kompresuje osadzonego obrazu.
 
-## **Obrazy osadzone i połączone**
+## **Osadzone i powiązane obrazy**
 
-Obraz osadzony przechowuje dane obrazu wewnątrz prezentacji i jest zatem najbezpieczniejszym wyborem pod względem przenośności i przewidywalnego renderowania. Obraz połączony przechowuje zewnętrzną lokalizację przy użyciu metody [Picture.setLinkPathLong](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/picture/#setLinkPathLong-java.lang.String-) zamiast osadzania danych obrazu w ten sam sposób.
+Osadzony obraz przechowuje dane obrazu wewnątrz prezentacji i jest więc najbezpieczniejszym wyborem pod względem przenośności i przewidywalnego renderowania. Powiązany obraz przechowuje zewnętrzną lokalizację przy użyciu metody [Picture.setLinkPathLong](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/picture/#setLinkPathLong-java.lang.String-) zamiast osadzania danych obrazu w ten sam sposób.
 
-Połączone obrazy mogą zmniejszyć ilość danych obrazu przechowywanych w pliku PPTX, ale wprowadzają zewnętrzną zależność. Plik połączony musi pozostać dostępny dla aplikacji otwierającej lub renderującej prezentację. Jeśli ścieżka ulegnie zmianie, plik zostanie przeniesiony lub zasób będzie niedostępny, połączony obraz może nie być wyświetlany zgodnie z oczekiwaniami. Dla prezentacji, które muszą być wysyłane e‑mailem, archiwizowane lub renderowane w odizolowanych środowiskach, obrazy osadzone są zwykle bardziej niezawodne.
+Powiązane obrazy mogą zmniejszyć ilość danych obrazu przechowywanych w PPTX, ale wprowadzają zależność zewnętrzną. Powiązany plik musi pozostać dostępny dla aplikacji otwierającej lub renderującej prezentację. Jeśli ścieżka się zmieni, plik zostanie przeniesiony lub zasób stanie się niedostępny, powiązany obraz może nie być wyświetlony zgodnie z oczekiwaniami. Dla prezentacji, które muszą być wysyłane e‑mailem, archiwizowane lub renderowane w odizolowanych środowiskach, obrazy osadzone są zazwyczaj bardziej niezawodne.
 
-### **Dodaj połączony obraz**
+### **Dodaj powiązany obraz**
 
-Poniższy przykład tworzy ramkę obrazu i wskazuje ją na lokalny plik obrazu. Dotyczy on wyłącznie łączenia obrazów; łączenie wideo jest osobnym przepływem multimedialnym i celowo nie jest mieszane w tym przykładzie.
+Poniższy przykład tworzy ramkę obrazu i wskazuje na lokalny plik obrazu. Dotyczy wyłącznie łączenia obrazów; łączenie wideo to odrębny przepływ multimedialny i celowo nie jest mieszane w tym przykładzie.
 
 ```javascript
 var aspose = aspose || {};
@@ -136,11 +136,11 @@ try {
 }
 ```
 
-Używaj łączy, gdy zarządzanie plikami zewnętrznymi jest zamierzone. Nie używaj ich jedynie jako zamiennika kompresji: mały PPTX z uszkodzonymi zależnościami obrazów jest zazwyczaj mniej użyteczny niż większa, samodzielna prezentacja.
+Używaj linków, gdy zarządzanie plikami zewnętrznymi jest zamierzone. Nie używaj ich jedynie jako zamiennika kompresji: mały PPTX z uszkodzonymi zależnościami obrazu jest zwykle mniej użyteczny niż większa, samodzielna prezentacja.
 
-## **Wyodrębnij obrazy z ramek obrazu**
+## **Wyodrębnij obrazy z ramek obrazów**
 
-Przed wyodrębnieniem obrazu z istniejącej prezentacji sprawdź, czy kształt jest faktycznie [PictureFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/pictureframe/) i czy zawiera osadzony obraz. Połączone ramki obrazu mogą nie zawierać bajtów obrazu, które można wyodrębnić w ten sam sposób.
+Przed wyodrębnieniem obrazu z istniejącej prezentacji sprawdź, czy kształt jest rzeczywiście [PictureFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/pictureframe/) i czy zawiera osadzony obraz. Powiązane ramki obrazów mogą nie zawierać bajtów obrazu, które można wyodrębnić w ten sam sposób.
 
 ### **Wyodrębnij obraz rastrowy**
 
@@ -179,11 +179,11 @@ try {
 }
 ```
 
-Zapis przy użyciu [IImage.save](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/iimage/#save) konwertuje wyodrębniony obraz do żądanego formatu wyjściowego. Jeśli potrzebujesz zakodowanych bajtów przechowywanych w prezentacji, a nie skonwertowanego pliku rastrowego, użyj binarnych danych zasobu obrazu.
+Zapisywanie przez [IImage.save](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/iimage/#save) konwertuje wyodrębniony obraz do żądanego formatu wyjściowego. Jeśli potrzebujesz zakodowanych bajtów przechowywanych w prezentacji, a nie skonwertowanego pliku rastrowego, użyj binarnych danych zasobu obrazu.
 
 ### **Wyodrębnij obraz SVG**
 
-W przypadku obrazu SVG [PPImage](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ppimage/) udostępnia obiekt [SvgImage](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/svgimage/). Pozwala to pobrać dane SVG bezpośrednio zamiast rasteryzować obraz najpierw.
+Dla obrazu SVG, [PPImage](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ppimage/) udostępnia obiekt [SvgImage](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/svgimage/). Pozwala to pobrać dane SVG bezpośrednio, zamiast najpierw rasteryzować obraz.
 
 ```javascript
 var aspose = aspose || {};
@@ -215,11 +215,11 @@ try {
 }
 ```
 
-Zachowanie treści SVG jako SVG zachowuje wektorowe źródło w prezentacji. Eksporty rastrowe, takie jak PNG lub JPEG, koniecznie renderują tę wektorową treść do pikseli. Eksport slajdu do PDF lub SVG również jest operacją renderowania, więc wyeksportowana grafika nie powinna być traktowana jako dokładna kopia oryginalnego osadzonego SVG; użyj danych [SvgImage.getSvgData](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/svgimage/#getSvgData--) gdy potrzebny jest pierwotny zasób wektorowy.
+Zachowanie treści SVG jako SVG zachowuje źródło wektorowe w prezentacji. Eksporty rastrowe, takie jak PNG lub JPEG, muszą renderować tę wektorową treść do pikseli. Eksport slajdu do PDF lub SVG również jest operacją renderowania, więc wyeksportowane grafiki nie powinny być traktowane jako identyczna kopia oryginalnego osadzonego SVG; użyj danych [SvgImage.getSvgData](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/svgimage/#getSvgData--) gdy wymagana jest sama wektorowa zasoba.
 
 ## **Przytnij obraz**
 
-Przycinanie zmienia, która część obrazu jest widoczna wewnątrz ramki. Wartości przycięcia w [PictureFillFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/picturefillformat/) są procentami wymiarów obrazu źródłowego. Przycinanie początkowo nie usuwa ukrytych pikseli z osadzonego obrazu; zmienia jedynie widoczny obszar.
+Przycinanie zmienia, która część obrazu jest widoczna wewnątrz ramki. Wartości przycięcia w [PictureFillFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/picturefillformat/) są procentami wymiarów obrazu źródłowego. Przycinanie nie usuwa początkowo ukrytych pikseli z osadzonego obrazu; zmienia jedynie widoczny obszar.
 
 Poniższy przykład bezpiecznie znajduje ramkę obrazu i stosuje wartości przycięcia:
 
@@ -253,11 +253,11 @@ try {
 }
 ```
 
-Ponieważ ukryte dane obrazu nadal istnieją, przycięcie może być zmienione później bez utraty oryginalnych pikseli. Jeśli rozmiar pliku ma większe znaczenie niż odwracalność, przycięte regiony można fizycznie usunąć, jak opisano w następnym rozdziale.
+Ponieważ ukryte dane obrazu nadal istnieją, przycięcie można zmienić później bez utraty oryginalnych pikseli. Jeśli rozmiar pliku jest ważniejszy niż odwracalność, przycięte regiony mogą być fizycznie usunięte, jak opisano w następnym sekcji.
 
 ## **Usuń przycięte dane obrazu**
 
-[PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) usuwa dane obrazu poza bieżącym prostokątem przycięcia i zwraca wynikowy zasób obrazu. Może to zmniejszyć rozmiar pliku, ale jest destrukcyjną optymalizacją: po zapisaniu prezentacji usunięte piksele nie są już dostępne do późniejszego odwrócenia przycięcia.
+[PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) usuwa dane obrazu znajdujące się poza aktualnym prostokątem przycięcia i zwraca powstały zasób obrazu. Może to zmniejszyć rozmiar pliku, ale jest destrukcyjną optymalizacją: po zapisaniu prezentacji usunięte piksele nie są już dostępne dla późniejszej operacji przywracania przycięcia.
 
 ```javascript
 var aspose = aspose || {};
@@ -288,11 +288,11 @@ try {
 }
 ```
 
-Metoda może dodać nowy zasób obrazu do prezentacji. Jeśli oryginalny obraz jest również używany przez inne ramki obrazu, te ramki nadal potrzebują istniejącego zasobu, więc usunięcie przyciętych obszarów niekoniecznie zmniejsza łączną liczbę obrazów. Przycinanie treści WMF lub EMF przy użyciu tej metody rasteryzuje przycięty wynik do PNG.
+Metoda może dodać nowy zasób obrazu do prezentacji. Jeśli oryginalny obraz jest używany również przez inne ramki, te ramki wciąż potrzebują swojego istniejącego zasobu, więc usunięcie przyciętych obszarów niekoniecznie zmniejsza łączną liczbę obrazów. Przycinanie zawartości WMF lub EMF tą metodą rasteryzuje przycięty wynik do PNG.
 
 ## **Kompresuj obrazy rastrowe**
 
-[PictureFillFormat.compressImage](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/picturefillformat/#compressImage-boolean-int-) zmniejsza rozdzielczość obrazu rastrowego w stosunku do rozmiaru, w jakim obraz jest wyświetlany. Może także usunąć przycięte regiony w tej samej operacji. Metoda zwraca `true`, gdy obraz został zmieniony rozmiaru lub przycięty oraz `false`, gdy nie było konieczności zmian.
+[PictureFillFormat.compressImage](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/picturefillformat/#compressImage-boolean-int-) zmniejsza rozdzielczość obrazu rastrowego względem rozmiaru, w jakim obraz jest wyświetlany. Może także usunąć przycięte regiony w tej samej operacji. Metoda zwraca `true`, gdy obraz został zmieniony rozmiarem lub przycięty oraz `false`, gdy nie było potrzeby żadnej zmiany.
 
 Użyj predefiniowanej wartości [PicturesCompression](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/picturescompression/), gdy wystarcza standardowa docelowa rozdzielczość:
 
@@ -326,15 +326,15 @@ try {
 
 Zamiast predefiniowanej wartości można przekazać własną dodatnią wartość DPI, gdy wymagana jest konkretna rozdzielczość docelowa.
 
-Kompresja przeznaczona jest dla obrazów rastrowych. Treść SVG i metaplików nie jest zmniejszana przez ten workflow kompresji rastrowej. Pamiętaj też, że niższa rozdzielczość i usunięte przycięte regiony nie mogą być odzyskane z zoptymalizowanej prezentacji. Wybieraj docelową rozdzielczość na podstawie największego rozmiaru, w jakim obraz będzie rzeczywiście oglądany lub eksportowany, a nie stosuj najniższego DPI globalnie.
+Kompresja jest przeznaczona dla obrazów rastrowych. Zawartość SVG i metafilów nie jest zmniejszana przez ten proces kompresji rastrowej. Pamiętaj również, że niższa rozdzielczość i usunięte przycięte regiony nie mogą zostać odzyskane z zoptymalizowanej prezentacji. Wybierz docelową rozdzielczość na podstawie największego rozmiaru, w jakim obraz będzie rzeczywiście oglądany lub eksportowany, a nie stosuj najniższego DPI globalnie.
 
 ## **Zarządzaj efektami transformacji obrazu**
 
-Pełny workflow obejmujący jasność, kontrast, transformacje kolorów, rozmycie, efekty alfa, łańcuchy kolejności, inspekcję, usuwanie i weryfikację dwukierunkową znajduje się w [Image Transform Effects](/nodejs-java/image-transform-effects/).
+Kompletny przepływ pracy obejmujący jasność, kontrast, transformacje kolorów, rozmycie, efekty alfa, łańcuchy uporządkowane, inspekcję, usuwanie i weryfikację dwukierunkową znajdziesz w [Image Transform Effects](/slides/pl/nodejs-java/image-transform-effects/).
 
 ## **Zablokuj geometrię ramki obrazu**
 
-Ustawienia [PictureFrameLock](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/pictureframelock/) kontrolują, które operacje edycji są wyłączone dla ramki obrazu. Na przykład [setAspectRatioLocked](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/pictureframelock/#setAspectRatioLocked-boolean-) zachowuje proporcje kształtu podczas zmiany rozmiaru.
+Ustawienia [PictureFrameLock](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/pictureframelock/) kontrolują, które operacje edycji są wyłączone dla ramki obrazu. Na przykład [setAspectRatioLocked](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/pictureframelock/#setAspectRatioLocked-boolean-) zachowuje proporcje kształtu podczas jego zmiany rozmiaru.
 
 ```javascript
 var aspose = aspose || {};
@@ -361,13 +361,13 @@ try {
 }
 ```
 
-Blokada dotyczy kształtu ramki obrazu. Nie wymusza ona ponownego próbkowania źródłowego obrazu ani trwałej zmiany jego proporcji.
+Blokada dotyczy kształtu ramki obrazu. Nie wymusza ona ponownego próbkowania lub trwałej zmiany źródłowego obrazu na ten sam współczynnik proporcji.
 
 ## **Dostosuj wartości StretchOffset**
 
-Gdy tryb wypełnienia obrazu jest rozciągnięty, wartości stretch‑offset w [PictureFillFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/picturefillformat/) definiują prostokąt wypełnienia względem ramki obrazu. Dodatnie procenty tworzą wcięcie od krawędzi, natomiast ujemne procenty tworzą występ.
+Gdy tryb wypełnienia obrazu jest rozciągnięty, wartości stretch‑offset w [PictureFillFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/picturefillformat/) definiują prostokąt wypełnienia względem pola ograniczającego ramki obrazu. Dodatnie procenty tworzą wcięcie od krawędzi, natomiast ujemne procenty tworzą występ.
 
-Jest to różne od przycinania. Wartości przycięcia wybierają, która część obrazu źródłowego jest widoczna; offsety rozciągnięcia zmieniają prostokąt, w którym widoczne wypełnienie obrazu jest rozciągane.
+Jest to inne niż przycinanie. Wartości przycięcia wybierają, która część obrazu źródłowego jest widoczna; offsety rozciągania zmieniają prostokąt, w który widoczne wypełnienie obrazu jest rozciągane.
 
 ```javascript
 var aspose = aspose || {};
@@ -399,20 +399,20 @@ try {
 }
 ```
 
-Używaj offsetów rozciągnięcia do pozycjonowania wypełnienia. Używaj właściwości przycięcia, gdy celem jest ukrycie krawędzi obrazu źródłowego.
+Używaj offsetów rozciągania do pozycjonowania wypełnienia. Używaj właściwości przycięcia, gdy celem jest ukrycie krawędzi obrazu źródłowego.
 
-## **Rozważania dotyczące przechowywania, rozmiaru pliku i eksportu**
+## **Przechowywanie, rozmiar pliku i kwestie eksportu**
 
-Główne kompromisy są łatwiejsze do zarządzania, gdy przechowywanie obrazu i formatowanie ramki obrazu są traktowane oddzielnie:
+Główne kompromisy są łatwiejsze do zarządzania, gdy przechowywanie obrazu i formatowanie ramki są traktowane oddzielnie:
 
-- **Obrazy osadzone** czynią prezentację samodzielną i są najbardziej niezawodne przy udostępnianiu oraz renderowaniu po stronie serwera, ale duże obrazy rastrowe zwiększają rozmiar PPTX i użycie pamięci.
-- **Obrazy połączone** mogą utrzymać pakiet mniejszy, ale prezentacja zależy od dostępności plików zewnętrznych pod zapisanymi ścieżkami lub lokalizacjami.
-- **Przycinanie** jest początkowo nieodwracalne. Ukryte piksele pozostają osadzone, dopóki przycięte obszary nie zostaną explicite usunięte lub usunięte podczas kompresji.
-- **Kompresja** może znacznie zmniejszyć rozmiar pliku przy zbyt dużych obrazach rastrowych, ale kosztem utraty rozdzielczości źródłowej. Powinna być stosowana po poznaniu docelowego rozmiaru na slajdzie.
-- **Obrazy SVG** powinny pozostać w formacie SVG, gdy ważne jest zachowanie wektora. Wyodrębnij osadzony SVG bezpośrednio, gdy potrzebny jest sam zasób wektorowy. Eksport slajdu do formatu rastrowego zawsze konwertuje renderowany slajd na piksele.
-- **Powtarzane obrazy** powinny ponownie wykorzystywać istniejący zasób [PPImage] zamiast wielokrotnego ładowania tego samego pliku do przepływu pracy prezentacji.
+- **Obrazy osadzone** sprawiają, że prezentacja jest samodzielna i są najbardziej niezawodne przy udostępnianiu oraz renderowaniu po stronie serwera, ale duże obrazy rastrowe zwiększają rozmiar PPTX i zużycie pamięci.
+- **Obrazy powiązane** mogą utrzymać mniejszy pakiet, ale prezentacja zależy od dostępności plików zewnętrznych pod zapisanymi ścieżkami lub lokalizacjami.
+- **Przycinanie** jest początkowo nie destrukcyjne. Ukryte piksele pozostają osadzone aż do wyraźnego usunięcia przyciętych obszarów lub usunięcia podczas kompresji.
+- **Kompresja** może znacznie zmniejszyć rozmiar pliku przy nadmiernie dużych obrazach rastrowych, ale kosztem utraty rozdzielczości źródła. Powinna być stosowana po ustaleniu docelowego rozmiaru na slajdzie.
+- **Obrazy SVG** powinny pozostać w formacie SVG, gdy ważne jest zachowanie wektora. Wyodrębnij osadzony SVG bezpośrednio, gdy potrzebny jest sam zasób wektorowy. Eksport slajdów do formatu rastrowego zawsze konwertuje renderowany slajd na piksele.
+- **Powtarzające się obrazy** powinny ponownie wykorzystywać istniejący zasób [PPImage] gdy to możliwe, zamiast wielokrotnie ładować ten sam plik do przepływu pracy prezentacji.
 
-W dużych prezentacjach optymalizacja obrazu jest zwykle najskuteczniejsza przy selektywnym podejściu: zachowuj loga i diagramy jako treść wektorową, kompresuj zdjęcia zgodnie z ich rzeczywistym rozmiarem wyświetlania, usuwaj przycięte piksele tylko wtedy, gdy późniejsza edycja nie jest wymagana, i unikaj zewnętrznych linków, chyba że zarządzanie zależnościami jest częścią projektu wdrożenia.
+W dużych prezentacjach optymalizacja obrazów jest najskuteczniejsza przy selektywnym podejściu: zachowaj logotypy i diagramy jako zawartość wektorową, kompresuj fotografie zgodnie z ich rzeczywistym rozmiarem wyświetlania, usuwaj przycięte piksele tylko wtedy, gdy dalsza edycja nie jest wymagana, i unikaj zewnętrznych linków, chyba że zarządzanie zależnościami jest częścią projektu wdrożenia.
 
 ## **FAQ**
 
@@ -422,20 +422,20 @@ W dużych prezentacjach optymalizacja obrazu jest zwykle najskuteczniejsza przy 
 
 **Czy powinienem osadzać czy łączyć obrazy?**
 
-Osadzaj obrazy, gdy prezentacja musi być przenośna, archiwizowana lub renderowana bez dostępu do zasobów zewnętrznych. Łącz obrazy tylko wtedy, gdy trzymanie plików obrazu poza PPTX jest zamierzone i zewnętrzne lokalizacje mogą być utrzymywane niezawodnie.
+Osadzaj obrazy, gdy prezentacja musi być przenośna, archiwizowana lub renderowana bez dostępu do zasobów zewnętrznych. Łącz obrazy wyłącznie wtedy, gdy zamierzone jest utrzymanie plików obrazów poza PPTX i zewnętrzne lokalizacje mogą być wiarygodnie zarządzane.
 
 **Czy przycinanie zmniejsza rozmiar pliku PPTX?**
 
-Nie samo w sobie. Normalne ustawienia przycięcia ukrywają części obrazu źródłowego, ale zachowują podłoże pikseli. Użyj [PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) lub kompresji obrazu z usuwaniem przyciętych obszarów, gdy te piksele można trwale usunąć.
+Nie samo w sobie. Standardowe ustawienia przycięcia ukrywają części obrazu źródłowego, ale zachowują ukryte piksele. Użyj [PictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas--) lub kompresji obrazu z usuwaniem przyciętych obszarów, gdy te piksele mogą być trwale odrzucone.
 
 **Czy mogę przywrócić jakość obrazu po kompresji?**
 
-Nie. Kompresja może zmniejszyć przechowywaną rozdzielczość rastrową, a usunięcie przyciętych regionów odrzuca dane obrazu. Zachowaj oryginalny obraz źródłowy poza prezentacją, jeśli później może być wymagana edycja w wysokiej rozdzielczości.
+Nie. Kompresja może obniżyć przechowywaną rozdzielczość rastrową, a usunięcie przyciętych regionów usuwa dane obrazu. Zachowaj oryginalny obraz źródłowy poza prezentacją, jeśli później może być potrzebna edycja w wysokiej rozdzielczości.
 
-**Jak obsługiwać obrazy SVG?**
+**Jak powinny być obsługiwane obrazy SVG?**
 
-Zachowuj treść SVG jako SVG, gdy zależy Ci na wierności wektora. Osadzony [SvgImage](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/svgimage/) może być wyodrębniony bezpośrednio. Renderowanie slajdu do formatu rastrowego, takiego jak PNG lub JPEG, rasteryzuje SVG jako część obrazu slajdu.
+Zachowaj treść SVG jako SVG, gdy ważna jest wierność wektora. Osadzony [SvgImage](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/svgimage/) może być wyodrębniony bezpośrednio. Renderowanie slajdu do formatu rastrowego, takiego jak PNG lub JPEG, rasteryzuje SVG jako część obrazu slajdu.
 
 **Jak uniknąć niebezpiecznych rzutowań przy odczycie istniejących slajdów?**
 
-Sprawdź typ kształtu przed użyciem członków specyficznych dla ramki obrazu. Kontrola `java.instanceOf` przeciwko [PictureFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/pictureframe/) unika nieprawidłowych rzutowań i pozwala kodowi obsłużyć slajdy, które nie zawierają ramki obrazu.
+Sprawdź typ kształtu przed użyciem członków specyficznych dla ramki obrazu. Kontrola `java.instanceOf` względem [PictureFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/pictureframe/) zapobiega nieprawidłowym rzutowaniom i pozwala kodowi obsłużyć slajdy, które nie zawierają ramek obrazu.

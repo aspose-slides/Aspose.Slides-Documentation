@@ -1,47 +1,47 @@
 ---
-title: عملیات ارائه کم‌کد در C++
-linktitle: API کم‌کد
+title: عملیات ارائه با کد-کم در C++
+linktitle: API کد-کم
 type: docs
 weight: 50
 url: /fa/cpp/low-code-presentation-operations/
 keywords:
-- API ارائه کم‌کد
+- API ارائه کد-کم
 - تبدیل ارائه
-- ادغام ارائه‌ها
-- تکرار اسلایدها
-- تکرار اشکال
-- تکرار متن
+- ترکیب ارائه‌ها
+- پیمایش اسلایدها
+- پیمایش اشکال
+- پیمایش متن
 - جمع‌آوری اشکال
 - فشرده‌سازی ارائه
-- حذف مسترهای استفاده‌نشده
-- حذف لایه‌های استفاده‌نشده
-- فشرده‌سازی فونت‌های توکار
+- حذف اسلایدهای الگوی بلااستفاده
+- حذف اسلایدهای چیدمان بلااستفاده
+- فشرده‌سازی فونت‌های تعبیه‌شده
 - PowerPoint
 - OpenDocument
 - ارائه
 - C++
 - Aspose.Slides
-description: "از API کم‌کد Aspose.Slides در C++ برای تبدیل و ادغام ارائه‌ها، تکرار محتوا، جمع‌آوری اشکال و کاهش حجم ارائه استفاده کنید."
+description: "از API کد-کم Aspose.Slides در C++ برای تبدیل و ترکیب ارائه‌ها، پیمایش محتوا، جمع‌آوری اشکال و کاهش حجم ارائه استفاده کنید."
 ---
 ## **بررسی کلی**
 
-The [Aspose::Slides::LowCode](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/) namespace provides static helper classes for common presentation operations. These helpers wrap frequently used object-model workflows in focused methods, so you can convert or merge files, process presentation elements, collect shapes, and remove unused content with less code.
+فضای نام [Aspose::Slides::LowCode](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/) کلاس‌های کمکی استاتیک برای عملیات متداول ارائه فراهم می‌کند. این کمکی‌ها جریان‌های کاری مدلسازی شیء را که به‌صورت مکرر استفاده می‌شوند، در روش‌های متمرکز بسته‌بندی می‌کنند، بنابراین می‌توانید فایل‌ها را تبدیل یا ترکیب کنید، عناصر ارائه را پردازش کنید، اشکال را جمع‌آوری کنید و محتوای بلااستفاده را با کد کمتر حذف کنید.
 
-Low-code helpers are most useful when the operation applies to an entire file or presentation and the default workflow matches your requirements. Use the full [Aspose.Slides object model](https://reference.aspose.com/slides/fa/cpp/aspose.slides/) when you need fine-grained control over individual slides, masters, layouts, shapes, export settings, or relationships between presentation elements.
+کمک‌کننده‌های کد‑کم زمانی مفید هستند که عملیات بر روی یک فایل یا ارائه کامل اعمال می‌شود و گردش کار پیش‌فرض با نیازهای شما همخوانی دارد. هنگامی که به کنترل دقیق بر اسلایدهای فردی، الگوها، چیدمان‌ها، اشکال، تنظیمات خروجی یا روابط بین عناصر ارائه نیاز دارید، از مدل شیء کامل [Aspose.Slides](https://reference.aspose.com/slides/fa/cpp/aspose.slides/) استفاده کنید.
 
-The following table summarizes the available helpers:
+جدول زیر خلاصه‌ای از کمک‌کننده‌های موجود را ارائه می‌دهد:
 
-| Helper | Use it for |
+| کمک‌کننده | موارد استفاده |
 | --- | --- |
-| [Convert](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/convert/) | تبدیل یک ارائه به قالبی دیگر با فراخوانی مستقیم فایل‑به‑فایل. |
-| [Merger](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/merger/) | ترکیب کامل فایل‌های ارائه با فرمت یکسان. |
+| [Convert](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/convert/) | تبدیل ارائه به قالب دیگر با فراخوانی مستقیم فایل‑به‑فایل. |
+| [Merger](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/merger/) | ترکیب کامل فایل‌های ارائه‌ای با همان قالب. |
 | [ForEach](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/foreach/) | اجرای یک عمل برای هر اسلاید، شکل، پاراگراف یا بخش متنی. |
-| [Collect](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/collect/) | استخراج اشکال از کل ارائه برای پردازش یا تحلیل مکرر. |
-| [Compress](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/compress/) | حذف مسترها و لایه‌های استفاده‌نشده و کاهش داده‌های فونت‌های توکار. |
+| [Collect](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/collect/) | بازیابی اشکال از کل ارائه برای پردازش یا تجزیه و تحلیل مکرر. |
+| [Compress](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/compress/) | حذف الگوها و چیدمان‌های بلااستفاده و کاهش داده‌های فونت تعبیه‌شده. |
 
 ## **تبدیل یک ارائه**
 
-Use [Convert::AutoByExtension](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/convert/autobyextension/) when the output file extension is sufficient to select the export format. The method opens the source presentation, determines the required format from the output path, and writes the result.
+از [Convert::AutoByExtension](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/convert/autobyextension/) استفاده کنید وقتی پسوند فایل خروجی به‌تنهایی کافی باشد تا قالب خروجی را انتخاب کند. این متد ارائه منبع را باز می‌کند، قالب مورد نیاز را از مسیر خروجی تعیین می‌کند و نتیجه را می‌نویسد.
 
 ```cpp
 #include <LowCode/Convert.h>
@@ -51,11 +51,11 @@ using namespace Aspose::Slides::LowCode;
 Convert::AutoByExtension(u"input.pptx", u"output.pdf");
 ```
 
-The [Convert](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/convert/) class also provides dedicated methods for PDF, SVG, JPEG, PNG, and TIFF output. Use the full object model when you need to inspect or modify the presentation before export or configure an export option that is not exposed by the selected helper. See [Convert Presentation](/cpp/convert-presentation/) for format-specific workflows and options.
+کلاس [Convert](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/convert/) همچنین روش‌های اختصاصی برای خروجی PDF، SVG، JPEG، PNG و TIFF ارائه می‌دهد. هنگامی که قبل از خروجی بررسی یا تغییر ارائه لازم است یا گزینهٔ خروجی‌ای که توسط کمک‌کننده در دسترس نیست را پیکربندی می‌کنید، از مدل شیء کامل استفاده کنید. برای گردش کارها و گزینه‌های خاص هر قالب، به بخش [تبدیل ارائه](/slides/fa/cpp/convert-presentation/) مراجعه کنید.
 
-## **ادغام ارائه‌ها**
+## **ترکیب ارائه‌ها**
 
-Use [Merger::Process](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/merger/process/) to combine complete presentation files with one call. The input presentations must have the same file format.
+از [Merger::Process](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/merger/process/) برای ترکیب کامل فایل‌های ارائه‌ای با یک فراخوانی استفاده کنید. ارائه‌های ورودی باید همان قالب فایل را داشته باشند.
 
 ```cpp
 #include <LowCode/Merger.h>
@@ -68,13 +68,13 @@ auto inputFiles = System::MakeArray<System::String>({u"part-1.pptx", u"part-2.pp
 Merger::Process(inputFiles, u"merged.pptx");
 ```
 
-The helper is appropriate when all slides should be appended to one result without selecting or remapping them individually. Use the full object model when you need to merge selected slides, apply a destination master or layout, preserve sections explicitly, or reconcile different slide sizes. See [Merge Presentations](/cpp/merge-presentation/) for those scenarios.
+این کمک‌کننده زمانی مناسب است که تمام اسلایدها باید بدون انتخاب یا بازنگری جداگانه به یک نتیجهٔ نهایی اضافه شوند. هنگامی که نیاز به ترکیب اسلایدهای منتخب، اعمال الگوی مقصد یا چیدمان، حفظ بخش‌ها به‌صورت صریح یا تطبیق اندازه‌های مختلف اسلاید دارید، از مدل شیء کامل استفاده کنید. برای این سناریوها به بخش [ترکیب ارائه‌ها](/slides/fa/cpp/merge-presentation/) نگاه کنید.
 
-## **تکرار در عناصر ارائه**
+## **پیمایش عناصر ارائه**
 
-The [ForEach](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/foreach/) class invokes a callback for each requested type of presentation element. It avoids nested collection loops and is convenient for presentation-wide inspection or formatting changes.
+کلاس [ForEach](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/foreach/) برای هر نوع عنصر درخواست‌شده از ارائه یک فراخوانی بازخوردی اجرا می‌کند. این کار از حلقه‌های تو در توی جمع‌آوری جلوگیری می‌کند و برای بازرسی یا تغییر فرمت سراسری ارائه مناسب است.
 
-The following example uses [ForEach::Slide](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/foreach/slide/), [ForEach::Shape](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/foreach/shape/), [ForEach::Paragraph](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/foreach/paragraph/), and [ForEach::Portion](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/foreach/portion/) to inspect the corresponding elements:
+مثال زیر از [ForEach::Slide](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/foreach/slide/)، [ForEach::Shape](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/foreach/shape/)، [ForEach::Paragraph](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/foreach/paragraph/) و [ForEach::Portion](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/foreach/portion/) برای بازرسی عناصر مربوطه استفاده می‌کند:
 
 ```cpp
 #include <DOM/BaseSlide.h>
@@ -118,11 +118,11 @@ auto portionCallback = std::function<void(System::SharedPtr<Portion>, System::Sh
 ForEach::Portion(presentation, portionCallback);
 ```
 
-By default, presentation-wide shape and text traversal includes normal, master, and layout slides. Overloads with an `includeNotes` parameter can also process notes slides. Use direct collection loops when traversal order, early exit, filtering before callback invocation, or detailed parent‑child control is important.
+به طور پیش‌فرض، پیمایش شکل‌ها و متن سراسری ارائه شامل اسلایدهای عادی، الگو و چیدمان می‌شود. overloadهایی با پارامتر `includeNotes` می‌توانند اسلایدهای یادداشت‌ها را نیز پردازش کنند. وقتی ترتیب پیمایش، خروج زودهنگام، فیلتر قبل از فراخوانی بازخورد یا کنترل دقیق والد‑فرزند مهم باشد، از حلقه‌های جمع‌آوری مستقیم استفاده کنید.
 
 ## **جمع‌آوری اشکال**
 
-Use [Collect::Shapes](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/collect/shapes/) when you need a collection of all shapes in a presentation rather than a callback for each shape. This is useful when the same set will be filtered, counted, or processed more than once.
+وقتی به یک مجموعهٔ تمام اشکال موجود در یک ارائه نیاز دارید نه یک بازخورد برای هر شکل، از [Collect::Shapes](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/collect/shapes/) استفاده کنید. این کار زمانی مفید است که همان مجموعه برای فیلتر، شمارش یا پردازش چندبار استفاده شود.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -142,15 +142,15 @@ for (const auto& shape : shapes)
 }
 ```
 
-Use [ForEach::Shape](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/foreach/shape/) instead when each shape can be handled immediately and you do not need to retain the collected result.
+اگر می‌توانید هر شکل را بلافاصله پردازش کنید و نیازی به نگه داشتن نتیجهٔ جمع‌آوری‌شده ندارید، به جای آن از [ForEach::Shape](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/foreach/shape/) استفاده کنید.
 
 ## **فشرده‌سازی محتوای ارائه**
 
-The [Compress](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/compress/) class can remove unused structural elements and reduce embedded font data:
+کلاس [Compress](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/compress/) می‌تواند عناصر ساختاری بلااستفاده را حذف کرده و داده‌های فونت تعبیه‌شده را کاهش دهد:
 
-- [Compress::RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) removes layout slides that no normal slide references.
-- [Compress::RemoveUnusedMasterSlides](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/compress/removeunusedmasterslides/) removes master slides that are no longer used.
-- [Compress::CompressEmbeddedFonts](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/compress/compressembeddedfonts/) removes unused characters from embedded fonts.
+- [Compress::RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) اسلایدهای چیدمان را که هیچ اسلاید عادی به آن‌ها ارجاع نمی‌دهد، حذف می‌کند.
+- [Compress::RemoveUnusedMasterSlides](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/compress/removeunusedmasterslides/) اسلایدهای الگو را که دیگر استفاده نمی‌شوند، حذف می‌کند.
+- [Compress::CompressEmbeddedFonts](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/compress/compressembeddedfonts/) کاراکترهای بلااستفاده را از فونت‌های تعبیه‌شده حذف می‌کند.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -170,38 +170,38 @@ Compress::CompressEmbeddedFonts(presentation);
 presentation->Save(u"compressed.pptx", SaveFormat::Pptx);
 ```
 
-Remove unused layouts before unused masters so a master that becomes unreferenced after layout cleanup can also be removed. Save the optimized presentation to a new file if you may need the original masters, layouts, or complete embedded font data later. For more detail, see [Slide Master](/cpp/slide-master/) and [Embedded Font](/cpp/embedded-font/).
+ابتدا چیدمان‌های بلااستفاده را حذف کنید و سپس الگوهای بلااستفاده را؛ به‌طوری‌که الگوی حذف‌شده پس از پاک‌سازی چیدمان‌ها نیز می‌تواند حذف شود. برای ذخیرهٔ ارائهٔ بهینه‌شده در فایلی جدید اقدام کنید اگر ممکن است در آینده به الگوها، چیدمان‌ها یا داده‌های کامل فونت‌های تعبیه‌شدهٔ اصلی نیاز داشته باشید. برای جزئیات بیشتر، به بخش‌های [اسلاید الگو](/slides/fa/cpp/slide-master/) و [فونت تعبیه‌شده](/slides/fa/cpp/embedded-font/) مراجعه کنید.
 
-## **سوالات متداول**
+## **سؤالات متداول**
 
-**چه زمانی باید به جای استفاده از مدل کامل شیء، از API کم‌کد استفاده کنم؟**
+**چه زمانی باید به‌جای مدل شیء کامل از API کد‑کم استفاده کنم؟**
 
-از راهنماهای کم‌کد زمانی استفاده کنید که یک عملیات استاندارد بر روی یک فایل یا ارائه کامل اعمال می‌شود و نیازی به کنترل دقیق بر عناصر تک‌تک نیست. وقتی نیاز به انتخاب اسلایدهای خاص، کنترل روابط مستر و لایه، بازرسی وضعیت میانی یا پیکربندی رفتاری که راهنما آن را در اختیار نمی‌گذارد، از مدل کامل شیء استفاده کنید.
+وقتی یک عملیات استاندارد بر روی یک فایل یا ارائه کامل اعمال می‌شود و نیازی به کنترل دقیق بر عناصر فردی نیست، از کمک‌کننده‌های کد‑کم استفاده کنید. وقتی باید اسلایدهای خاصی را انتخاب کنید، روابط الگو و چیدمان را کنترل کنید، وضعیت میانی را بازرسی کنید یا رفتارهایی را پیکربندی کنید که توسط کمک‌کننده در دسترس نیست، از مدل شیء کامل بهره ببرید.
 
-**آیا Merger می‌تواند ارائه‌ها را با فرمت‌های متفاوت ترکیب کند؟**
+**آیا Merger می‌تواند ارائه‌ها را با قالب‌های فایل متفاوت ترکیب کند؟**
 
-خیر. [Merger::Process](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/merger/process/) نیاز دارد که ورودی‌ها در همان فرمت باشند. ابتدا فایل‌های ورودی را با روش‌هایی نظیر [Convert::AutoByExtension](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/convert/autobyextension/) به فرمت مشترک تبدیل کنید و سپس فایل‌های تبدیل‌شده را ادغام کنید.
+خیر. [Merger::Process](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/merger/process/) نیاز دارد که ارائه‌های ورودی همگی در یک قالب باشند. ابتدا فایل‌های ورودی را با استفاده از [Convert::AutoByExtension](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/convert/autobyextension/) به قالب مشترک تبدیل کنید و سپس فایل‌های تبدیل‌شده را ترکیب کنید.
 
-**آیا ForEach مستر، لایه و اسلایدهای یادداشت را پردازش می‌کند؟**
+**آیا ForEach اسلایدهای الگو، چیدمان و یادداشت‌ها را پردازش می‌کند؟**
 
-[ForEach::Slide](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/foreach/slide/) فقط بر اسلایدهای معمولی ارائه پیمایش می‌کند. عملیات‌های سطح‑کل مانند [ForEach::Shape](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/foreach/shape/)، [ForEach::Paragraph](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/foreach/paragraph/) و [ForEach::Portion](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/foreach/portion/) به‌طور پیش‌فرض شامل اسلایدهای معمولی، مستر و لایه هستند. برای شامل کردن اسلایدهای یادداشت از overloadهای آنها با `includeNotes` برابر `true` استفاده کنید.
+[ForEach::Slide](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/foreach/slide/) بر اسلایدهای عادی ارائه پیمایش می‌کند. عملیات سراسری [ForEach::Shape](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/foreach/shape/)، [ForEach::Paragraph](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/foreach/paragraph/) و [ForEach::Portion](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/foreach/portion/) به‌طور پیش‌فرض اسلایدهای عادی، الگو و چیدمان را شامل می‌شوند. برای شامل کردن اسلایدهای یادداشت‌ها، overloadهای آن‌ها را با مقدار `includeNotes` برابر `true` فراخوانی کنید.
 
-**فرق بین ForEach::Shape و Collect::Shapes چیست؟**
+**تفاوت بین ForEach::Shape و Collect::Shapes چیست؟**
 
-از [ForEach::Shape](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/foreach/shape/) برای پردازش فوری هر شکل از طریق یک callback استفاده کنید. وقتی به یک مجموعه قابل تکرار نیاز دارید که بتوان آن را نگه‌دارید، فیلتر کرد، شمارش یا چند بار مرور کرد، از [Collect::Shapes](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/collect/shapes/) بهره ببرید.
+وقتی می‌خواهید هر شکل را بلافاصله از طریق یک بازخورد پردازش کنید، از [ForEach::Shape](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/foreach/shape/) استفاده کنید. وقتی نیاز به نتیجه‌ای قابل پیمایش دارید که بتوان آن را نگه داشت، فیلتر کرد یا چندبار شمارش کرد، از [Collect::Shapes](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/collect/shapes/) بهره ببرید.
 
-**آیا Compress همیشه اندازه فایل ارائه را کوچک می‌کند؟**
+**آیا Compress همیشه اندازهٔ فایل ارائه را کوچک می‌کند؟**
 
-لزومی نیست. نتیجه به این بستگی دارد که آیا در ارائه لایه‌ها یا مسترهای استفاده‌نشده یا فونت‌های توکار با کاراکترهای استفاده‌نشده وجود دارد یا خیر. در صورت عدم وجود این موارد، عملیات‌های مربوطه ممکن است اندازه فایل را کاهش ندهند.
+لزومی ندارد. نتیجه بستگی دارد به اینکه آیا ارائه شامل چیدمان‌های بلااستفاده، الگوهای بلااستفاده یا فونت‌های تعبیه‌شده با کاراکترهای بلااستفاده باشد یا نه. اگر هیچ‌یک از این موارد موجود نباشد، عملیات‌های مربوط به [Compress](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/compress/) ممکن است اندازهٔ فایل را کاهش ندهند.
 
-**آیا تغییرات انجام‌شده توسط ForEach یا Compress به‌صورت خودکار ذخیره می‌شود؟**
+**آیا تغییرات اعمال‌شده توسط ForEach یا Compress به‌صورت خودکار ذخیره می‌شوند؟**
 
-خیر. این راهنماها بر روی شیء [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) در حافظه عمل می‌کنند. پس از اعمال تغییرات در یک callback از [ForEach](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/foreach/) یا اجرای [Compress](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/compress/)، برای نوشتن نتیجه باید [Presentation::Save](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/save/) را صدا بزنید.
+خیر. این کمک‌کننده‌ها بر روی شیء [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) بارگذاری‌شده در حافظه عمل می‌کنند. پس از تغییر عناصر در بازخورد [ForEach](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/foreach/) یا اجرای [Compress](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/compress/)، برای نوشتن نتیجه باید [Presentation::Save](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/save/) را فراخوانی کنید.
 
 ## **مقالات مرتبط**
 
-- [Convert Presentation](/cpp/convert-presentation/)
-- [Merge Presentations](/cpp/merge-presentation/)
-- [Slide Master](/cpp/slide-master/)
-- [Manage Text Box](/cpp/manage-textbox/)
-- [Embedded Font](/cpp/embedded-font/)
+- [Convert Presentation](/slides/fa/cpp/convert-presentation/)
+- [Merge Presentations](/slides/fa/cpp/merge-presentation/)
+- [Slide Master](/slides/fa/cpp/slide-master/)
+- [Manage Text Box](/slides/fa/cpp/manage-textbox/)
+- [Embedded Font](/slides/fa/cpp/embedded-font/)

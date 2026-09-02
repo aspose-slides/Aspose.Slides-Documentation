@@ -10,42 +10,42 @@ keywords:
 - certifikační autorita
 - PFX certifikát
 - PKCS#12
-- ověření podpisu
+- ověřit podpis
 - PowerPoint
 - PPTX
-- zabezpečení prezentace
+- zabezpečení prezentací
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Naučte se, jak podepsat existující PPTX prezentace pomocí PFX certifikátů a použít Aspose.Slides pro Node.js prostřednictvím Javy k ověření nebo odstranění digitálních podpisů."
+description: "Zjistěte, jak podepsat existující PPTX prezentace pomocí PFX certifikátů a použít Aspose.Slides pro Node.js přes Java k ověření nebo odstranění digitálních podpisů."
 ---
 ## **Přehled**
 
-Digitální podpis pomáhá příjemci určit, kdo prezentaci podepsal a zda se podepsaný obsah změnil. Tři související bezpečnostní pojmy jsou zde důležité:
+Digitální podpis pomáhá příjemci zjistit, kdo prezentaci podepsal a zda se podepsaný obsah změnil. Tři související bezpečnostní koncepty jsou zde důležité:
 
-- **digitální certifikát** je elektronické oprávnění, které spojuje identitu s veřejným klíčem. Důvěryhodná certifikační autorita (CA) může certifikát vydat, nebo organizace může použít samopodepsaný certifikát pro interní pracovní postupy.
-- **digitální podpis** je vytvořen z obsahu prezentace a soukromého klíče držitele certifikátu. Veřejný klíč certifikátu pak může být použit k ověření podpisu. Podpis poskytuje důkaz o původu a integritě; nešifruje prezentaci.
-- **Ochrana heslem** určuje, zda může uživatel otevřít nebo upravit prezentaci. Je oddělena od digitálního podepisování a je popsána v [Prezentace chráněné heslem](/nodejs-java/password-protected-presentation/).
+- **Digitální certifikát** je elektronické oprávnění, které spojuje identitu s veřejným klíčem. Důvěryhodná certifikační autorita (CA) může certifikát vydat, nebo organizace může použít samopodepsaný certifikát pro interní pracovní postupy.
+- **Digitální podpis** je vytvořen z obsahu prezentace a soukromého klíče držitele certifikátu. Veřejný klíč certifikátu lze pak použít k ověření podpisu. Podpis poskytuje důkaz o původu a integritě; nešifruje prezentaci.
+- **Ochrana heslem** řídí, zda může uživatel otevřít nebo upravit prezentaci. Je oddělena od digitálního podepisování a je popsána v [Prezentace chráněné heslem](/slides/cs/nodejs-java/password-protected-presentation/).
 
-PowerPoint poskytuje příkaz **Přidat digitální podpis** v nabídce **Soubor > Informace > Chrání prezentaci**.
+PowerPoint nabízí příkaz **Add a Digital Signature** pod **File > Info > Protect Presentation**.
 
-![PowerPoint nabídka Ochrana prezentace s vyznačeným Přidat digitální podpis](add-digital-signature-in-powerpoint.png)
+![Menu PowerPoint Ochrana prezentace s zvýrazněnou položkou Add a Digital Signature](add-digital-signature-in-powerpoint.png)
 
-Po otevření podepsané prezentace může PowerPoint zobrazit upozornění o stavu podpisu.
+Po otevření podepsané prezentace může PowerPoint zobrazit oznámení o stavu podpisu.
 
-![Upozornění PowerPointu, že prezentace obsahuje platné podpisy](digital-signature-status-in-powerpoint.png)
+![Upozornění PowerPoint uvádějící, že prezentace obsahuje platné podpisy](digital-signature-status-in-powerpoint.png)
 
-Aspose.Slides zpřístupňuje podpisy prostřednictvím [Presentation.getDigitalSignatures](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/#getDigitalSignatures--), který vrací [DigitalSignatureCollection](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/digitalsignaturecollection/) obsahující objekty [DigitalSignature](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/digitalsignature/). Prezentace může obsahovat více podpisů.
+Aspose.Slides zpřístupňuje podpisy prostřednictvím [Presentation.getDigitalSignatures](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/#getDigitalSignatures--), což vrací [DigitalSignatureCollection](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/digitalsignaturecollection/), obsahující objekty [DigitalSignature](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/digitalsignature/). Prezentace může obsahovat více podpisů.
 
 ## **Pochopení PFX certifikátů a hesel**
 
-Soubor PFX, také známý jako soubor PKCS#12 a běžně s příponou `.pfx` nebo `.p12`, může obsahovat certifikát X.509, jeho soukromý klíč a řetězec certifikátů. Soukromý klíč umožňuje držiteli vytvořit podpis. Certifikát bez dostupného soukromého klíče nelze použít k podepsání prezentace.
+Soubor PFX, také známý jako soubor PKCS#12 a běžně s příponou `.pfx` nebo `.p12`, může obsahovat X.509 certifikát, jeho soukromý klíč a řetězec certifikátů. Soukromý klíč umožňuje držiteli vytvořit podpis. Certifikát bez přístupného soukromého klíče nelze použít k podepsání prezentace.
 
-Heslo PFX chrání balíček certifikátu a soukromý klíč. Není to **heslo** pro otevírání nebo úpravu prezentace. Nezapisujte soubory PFX ani jejich hesla do správy verzí. V produkci omezte přístup k souboru certifikátu a získejte jeho heslo z tajného úložiště nebo jiného chráněného konfiguračního zdroje. Níže uvedené příklady používají proměnnou prostředí pouze proto, aby se heslo neukládalo přímo v kódu.
+Heslo PFX chrání balíček certifikátu a soukromý klíč. Není to **heslo** pro otevírání nebo úpravu prezentace. Nepřidávejte soubory PFX ani jejich hesla do zdrojového řízení. Ve výrobě omezte přístup k souboru certifikátu a získejte jeho heslo ze secret store nebo jiného chráněného konfiguračního zdroje. Níže uvedené příklady používají proměnnou prostředí pouze aby se vyhnuly vkládání hesla do kódu.
 
 ## **Přidání digitálního podpisu do prezentace**
 
-Pro podepsání reálného pracovního postupu s prezentací načtěte existující soubor PPTX, vytvořte [DigitalSignature](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/digitalsignature/) z PFX certifikátu a jeho hesla, přidejte podpis do kolekce prezentace a uložte do souboru PPTX.
+Pro podepsání reálného pracovního postupu prezentace načtěte existující soubor PPTX, vytvořte [DigitalSignature](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/digitalsignature/) z PFX certifikátu a jeho hesla, přidejte podpis do kolekce prezentace a uložte jako soubor PPTX.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -67,13 +67,13 @@ try {
 }
 ```
 
-Uložení výsledku pod novým názvem zachová neoznačený zdrojový soubor. Hodnota nastavená pomocí [DigitalSignature.setComments](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/digitalsignature/) popisuje účel podpisu; nejde o bezpečnostní kontrolu.
+Uložení výsledku pod novým názvem zachovává neoznačený zdrojový soubor. Hodnota nastavená pomocí [DigitalSignature.setComments](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/digitalsignature/setComments/) popisuje účel podpisu; nejedná se o bezpečnostní kontrolu.
 
 ## **Ověření digitálních podpisů**
 
-Když načtete podepsaný soubor PPTX, prohlédněte každou položku vrácenou metodou [Presentation.getDigitalSignatures](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/#getDigitalSignatures--). Metoda [DigitalSignature.isValid](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/digitalsignature/) udává, zda je vložený podpis platný pro aktuální obsah prezentace.
+Když načtete podepsaný soubor PPTX, prozkoumejte každou položku vrácenou metodou [Presentation.getDigitalSignatures](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/#getDigitalSignatures--). Metoda [DigitalSignature.isValid](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/digitalsignature/isValid/) udává, zda je vložený podpis platný pro aktuální obsah prezentace.
 
-Následující příklad také používá třídu Node.js `X509Certificate` k přečtení jména subjektu z každého vloženého certifikátu.
+Následující příklad také používá třídu Node.js `X509Certificate` k načtení názvu subjektu z každého vloženého certifikátu.
 
 ```javascript
 const { X509Certificate } = require("node:crypto");
@@ -115,13 +115,13 @@ try {
 }
 ```
 
-Neplatný výsledek obvykle znamená, že po podepsání byl změněn obsah prezentace nebo data podpisu, nebo že soubor je poškozen. Odebrání všech podpisů vytvoří neoznačenou prezentaci, takže kontrola pouze platnosti položek není dostatečná: workflow citlivé na bezpečnost musí také ověřit, že je přítomen očekávaný počet podpisů a očekávané identity podepisujících.
+Neplatný výsledek obvykle znamená, že obsah podepsané prezentace nebo data podpisu se po podepsání změnily, nebo že soubor je poškozen. Odstranění všech podpisů vytvoří nepodepsanou prezentaci, takže kontrola pouze platnosti položek není dostačující: bezpečnostně citlivý pracovní postup musí také ověřit, že je přítomen očekávaný počet podpisů a očekávané identity podepisujících.
 
-Tento výsledek platnosti by neměl být považován za úplné rozhodnutí o důvěře certifikátu. V závislosti na vaší bezpečnostní politice může vaše aplikace také potřebovat vytvořit a ověřit řetězec certifikátů X.509, zkontrolovat data platnosti certifikátu a stav revokace, potvrdit očekávaný subjekt nebo otisk, ověřit použití klíče a vyhodnotit důvěryhodné časové razítko. Hodnota [DigitalSignature.getSignTime](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/digitalsignature/) sama o sobě není důkaz od důvěryhodné autority časových razítek.
+Tento výsledek platnosti by neměl být považován za úplné rozhodnutí o důvěře v certifikát. V závislosti na vaší bezpečnostní politice může vaše aplikace také potřebovat sestavit a ověřit řetězec certifikátů X.509, zkontrolovat datum platnosti certifikátu a stav revokace, potvrdit očekávaný subjekt nebo otisk, ověřit použití klíče a vyhodnotit důvěryhodný časový razítko. Hodnota [DigitalSignature.getSignTime](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/digitalsignature/getSignTime/) sama o sobě není důkaz od důvěryhodné autority časových razítek.
 
 ## **Odstranění digitálních podpisů**
 
-Odstranění podpisů mění bezpečnostní stav prezentace. Následující příklad načte podepsaný soubor PPTX, odstraní všechny podpisy pomocí [DigitalSignatureCollection.clear](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/digitalsignaturecollection/clear/), a uloží neoznačenou kopii.
+Odstranění podpisů mění stav zabezpečení prezentace. Následující příklad načte podepsaný soubor PPTX, odstraní všechny podpisy pomocí [DigitalSignatureCollection.clear](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/digitalsignaturecollection/clear/), a uloží neoznačenou kopii.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -135,21 +135,21 @@ try {
 }
 ```
 
-Pro odstranění pouze jednoho podpisu zavolejte [DigitalSignatureCollection.removeAt](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/digitalsignaturecollection/removeat/) s jeho nulovým indexem. Uložte do nového souboru, pokud není přepsání původního podepsaného souboru explicitní součástí vašeho pracovního postupu.
+Pro odstranění pouze jednoho podpisu zavolejte [DigitalSignatureCollection.removeAt](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/digitalsignaturecollection/removeat/) s jeho indexem začínajícím od nuly. Uložte do nového souboru, pokud není přepisování původního podepsaného souboru explicitní částí vašeho pracovního postupu.
 
-## **Úpravy a formátové úvahy**
+## **Úvahy o úpravách a formátech**
 
-- Podpis nečiní prezentaci jen pro čtení. Uživatelé i aplikace mohou soubor stále upravovat, ale změny podepsaného obsahu obvykle zneplatní stávající podpis.
-- Dokončete všechny zamýšlené úpravy před podepsáním. Pokud je nutné prezentaci změnit, uložte upravenou verzi a podepište ji znovu.
-- Uchovávejte finální výstup ve formátu PPTX. Převod podepsané prezentace do jiného formátu nepřenáší původní PPTX podpis jako platný podpis pro konvertovaný soubor.
-- Považujte soukromý klíč certifikátu za citlivý. Každý, kdo získá soukromý klíč a jeho heslo, může vytvořit podpisy, které se jeví jako pocházející od držitele certifikátu.
+- Podpis neznamená, že je prezentace jen pro čtení. Uživatelé a aplikace mohou soubor nadále upravovat, ale změny podepsaného obsahu obvykle zneplatní existující podpis.
+- Dokončete všechny zamýšlené úpravy před podpisem. Pokud je nutné prezentaci změnit, uložte revidovanou verzi a tuto revizi podepište znovu.
+- Udržujte finální výstup ve formátu PPTX. Převod podepsané prezentace do jiného formátu nepřenáší původní podpis PPTX jako platný podpis pro převedený soubor.
+- Považujte soukromý klíč certifikátu za citlivý. Kdokoli, kdo získá soukromý klíč a jeho heslo, může vytvořit podpisy, které se jeví jako pocházející od držitele tohoto certifikátu.
 - Uchovávejte neoznačený zdroj nebo jinou kontrolovanou kopii, pokud to vyžaduje vaše politika uchovávání dokumentů.
 
 ## **Často kladené otázky**
 
-**Šifruje digitální podpis prezentaci?**
+**Digitální podpis šifruje prezentaci?**
 
-Ne. Digitální podpis poskytuje důkaz o původu a integritě, ale obsah prezentace zůstává čitelný, pokud není použita samostatná šifrování. Použijte [ochranu heslem](/nodejs-java/password-protected-presentation/), když je nutné omezit přístup k obsahu.
+Ne. Digitální podpis poskytuje důkaz o původu a integritě, ale obsah prezentace zůstává čitelný, pokud není použita samostatná šifrování. Použijte [ochranu heslem](/slides/cs/nodejs-java/password-protected-presentation/), pokud je nutné omezit přístup k obsahu.
 
 **Je heslo PFX stejné jako heslo prezentace?**
 
@@ -157,32 +157,32 @@ Ne. Heslo PFX odemyká soukromý klíč uložený v balíčku certifikátu. Nere
 
 **Mohu použít samopodepsaný certifikát?**
 
-Technicky lze použít samopodepsaný certifikát, pokud obsahuje přístupný soukromý klíč. Příjemci jej nebudou automaticky důvěřovat, pokud není tento certifikát výslovně přidán do jejich důvěryhodného prostředí. Veřejné nebo meziorganizační workflow obecně používají certifikát vydaný důvěryhodnou certifikační autoritou.
+Technicky lze samopodepsaný certifikát použít, pokud obsahuje přístupný soukromý klíč. Příjemci jej však nebudou automaticky důvěřovat, pokud tento certifikát není výslovně přidán do jejich důvěryhodného prostředí. Ve veřejných nebo mezioborových pracovních postupech se obvykle používá certifikát vydaný důvěryhodnou CA.
 
-**Co způsobuje, že je podpis neplatný?**
+**Co způsobuje neplatnost podpisu?**
 
-Změna podepsaného obsahu prezentace nebo dat podpisu po podepsání může podpis zneplatnit. Poškození souboru může také způsobit selhání ověření. Pokud jsou všechny podpisy odstraněny, prezentace je neoznačená, nikoli soubor obsahující neplatný podpis.
+Změna podepsaného obsahu prezentace nebo dat podpisu po podepsání může podpis neplatnit. Poškození souboru může také způsobit selhání ověření. Pokud jsou odstraněny všechny podpisy, prezentace je nepodepsaná, nikoli soubor obsahující neplatný podpis.
 
 **Znamená platný podpis, že bych měl důvěřovat podepisovateli?**
 
-Ne, samotné. Integrita podpisu a důvěra v podepisovatele jsou samostatná rozhodnutí. Politika ověřování v produkci by měla také kontrolovat řetězec certifikátů, období platnosti, stav revokace, očekávanou identitu, použití klíče a jakékoli požadavky na důvěryhodné časové razítko.
+Není to samostatně. Integrita podpisu a důvěra v podepisovatele jsou samostatná rozhodnutí. Produkční validační politika by měla také kontrolovat řetězec certifikátů, období platnosti, stav revokace, očekávanou identitu, použití klíče a případné požadavky na důvěryhodné časové razítko.
 
 **Co se stane, když certifikát vyprší?**
 
-Vypršení platnosti certifikátu nemění bajty prezentace, ale ovlivňuje hodnocení důvěry certifikátu. Zda podpis zůstane akceptovatelný, závisí na vaší politice a na tom, zda platné důvěryhodné časové razítko prokazuje, že podpis byl proveden, když byl certifikát platný. Nespoléhejte se pouze na zobrazený čas podpisu jako na důvěryhodné časové razítko.
+Vypršení platnosti certifikátu nemění bajty prezentace, ale ovlivňuje hodnocení důvěry v certifikát. Zda je podpis stále přijatelné, závisí na vaší politice a na tom, zda platné důvěryhodné časové razítko prokazuje, že podpis byl vytvořen, když byl certifikát platný. Nespoléhejte se pouze na zobrazený čas podpisu jako na důvěryhodné časové razítko.
 
-**Může být podepsaná prezentace stále upravována?**
+**Lze podepsanou prezentaci stále upravovat?**
 
-Ano. Podepsání neblokuje soubor. Úprava podepsaného obsahu obecně způsobí neplatnost stávajícího podpisu, takže nejprve dokončete prezentaci a podepište finální revizi.
+Ano. Podepsání soubor neuzamyká. Úprava podepsaného obsahu obvykle zneplatní existující podpis, proto dokončete prezentaci nejprve a podepište finální revizi.
 
 **Může prezentace obsahovat více než jeden podpis?**
 
-Ano. Přidejte každý podpis do kolekce vrácené metodou [Presentation.getDigitalSignatures](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/#getDigitalSignatures--) před uložením. Během ověřování prohlédněte každý podpis a potvrďte, že jsou přítomni všichni požadovaní podepisující.
+Ano. Přidejte každý podpis do kolekce vrácené metodou [Presentation.getDigitalSignatures](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/#getDigitalSignatures--) před uložením. Během ověřování prozkoumejte každý podpis a potvrďte, že jsou přítomni všichni požadovaní podepisovatelé.
 
-**Které formáty prezentací podporují tyto operace?**
+**Které formáty prezentací tyto operace podporují?**
 
-Aspose.Slides podporuje operace s digitálním podpisem popsané zde pouze pro formát PPTX. Formáty PPT a OpenDocument nejsou tímto API workflow podporovány.
+Aspose.Slides podporuje operace s digitálními podpisy popsané zde pouze pro PPTX. Formáty PPT a OpenDocument nejsou tímto API pracovním postupem podporovány.
 
-**Mohu odstranit podpis, aniž by to ovlivnilo snímky?**
+**Mohu odstranit podpis bez ovlivnění snímků?**
 
-Ano. Můžete odstranit jeden podpis nebo vyprázdnit celou kolekci a pak uložit prezentaci. Obsah snímků zůstává zachován, ale uložený soubor již neobsahuje důkaz o odstraněném podpisu.
+Ano. Můžete odstranit jeden podpis nebo vyprázdnit celou kolekci a potom uložit prezentaci. Obsah snímků zůstává dostupný, ale uložený soubor již neobsahuje důkaz o odstraněném podpisu.

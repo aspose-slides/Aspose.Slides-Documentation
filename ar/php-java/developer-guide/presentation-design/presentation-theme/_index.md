@@ -1,12 +1,12 @@
 ---
-title: إدارة سمات العرض في PHP
-linktitle: سمة العرض
+title: إدارة سمات العرض التقديمي في PHP
+linktitle: سمة العرض التقديمي
 type: docs
 weight: 10
 url: /ar/php-java/presentation-theme/
 keywords:
 - سمة PowerPoint
-- سمة العرض
+- سمة العرض التقديمي
 - سمة الشريحة
 - تعيين سمة
 - تغيير سمة
@@ -21,23 +21,23 @@ keywords:
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "إدارة سمات عروض الـ PowerPoint في Aspose.Slides للـ PHP عبر Java لإنشاء وتخصيص وتحويل ملفات PowerPoint مع الحفاظ على هوية العلامة التجارية المتسقة."
+description: "إدارة سمات العروض التقديمية في Aspose.Slides لـ PHP عبر Java لإنشاء وتخصيص وتحويل ملفات PowerPoint بعلامة تجارية متسقة."
 ---
-## **المقدمة**
+## **مقدمة**
 
-يحدد سمة العرض مجموعة منسقة من الألوان، الخطوط، أنماط الخلفية، التعبئات، الخطوط، والتأثيرات. تُشير الكائنات التي تدعم السمة إلى هذه التعريفات المشتركة بدلاً من تخزين كل خاصية مرئية كقيمة ثابتة، لذا يمكن لتغيير السمة تحديث العديد من الكائنات مرة واحدة.
+تعّرّف سمة العرض التقديمي مجموعة منسقة من الألوان، الخطوط، أنماط الخلفية، التعبئة، الخطوط، والتأثيرات. تشير الكائنات المتعاطية مع السمة إلى هذه التعريفات المشتركة بدلاً من تخزين كل خاصية بصرية كقيمة ثابتة، لذا يمكن لتغيير السمة أن يُحدّث العديد من الكائنات دفعة واحدة.
 
-في Aspose.Slides، تتوفر سمة مستوى العرض من خلال [Presentation.getMasterTheme](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/). يمكن للعرض أيضًا أن يحتوي على تجاوزات سمة في مستويات أدنى. يمكن للماستر تجاوز سمة العرض من خلال [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/ar/php-java/aspose.slides/masterthememanager/)، بينما يمكن لتخطيط أو شريحة فردية تجاوز سمتها الموروثة من خلال [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/ar/php-java/aspose.slides/baseoverridethememanager/). عمليًا، تُحل السمة الفعلية للشريحة عبر سلسلة الوراثة هذه: سمة العرض، تجاوز الماستر، تجاوز التخطيط، وتجاوز الشريحة.
+في Aspose.Slides، تتوفر سمة العرض على مستوى العرض عبر [Presentation.getMasterTheme](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/). يمكن للعرض أيضاً أن يحتوي على تجاوزات سمة على مستويات أدنى. يمكن للماستر أن يتجاوز سمة العرض عبر [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/ar/php-java/aspose.slides/masterthememanager/)، بينما يمكن للتخطيط أو الشريحة الفردية أن يتجاوز سمتها الموروثة عبر [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/ar/php-java/aspose.slides/baseoverridethememanager/). عملياً، يتم حل السمة الفعّالة لشريحة ما عبر سلسلة الوراثة التالية: سمة العرض، تجاوز الماستر، تجاوز التخطيط، وتجاوز الشريحة.
 
-![Theme components: colors, fonts, background styles, and effects](theme-constituents.png)
+![مكوّنات السمة: الألوان، الخطوط، أنماط الخلفية، والتأثيرات](theme-constituents.png)
 
-الأقسام أدناه تُظهر أكثر سير عمل السمة شيوعًا: فحص السمة، تغيير الألوان والخطوط، نسخ أو تطبيق سمة، تحديث أنماط الخلفية والتأثيرات، وقراءة القيم الفعلية بعد حل الوراثة والتجاوزات.
+تُظهر الأقسام أدناه أكثر سير عمل شائع للسماح بالسمة: فحص سمة، تغيير الألوان والخطوط، نسخ أو تطبيق سمة، تحديث أنماط الخلفية والتأثيرات، وقراءة القيم الفعّالة بعد حل الوراثة والتجاوزات.
 
 ## **فحص سمة**
 
-الكائن [MasterTheme](https://reference.aspose.com/slides/ar/php-java/aspose.slides/mastertheme/) يُظهر مخطط ألوان السمة، مخطط الخطوط، ومخطط التنسيق عبر [MasterTheme.getColorScheme](https://reference.aspose.com/slides/ar/php-java/aspose.slides/mastertheme/)، [MasterTheme.getFontScheme](https://reference.aspose.com/slides/ar/php-java/aspose.slides/mastertheme/)، و[MasterTheme.getFormatScheme](https://reference.aspose.com/slides/ar/php-java/aspose.slides/mastertheme/). فحص هذه المجموعات قبل تعديلها مفيد جدًا عندما يأتي العرض من مصدر خارجي لأن عدد ومحتوى إدخالات الأنماط قد يختلف.
+يُظهر كائن [MasterTheme](https://reference.aspose.com/slides/ar/php-java/aspose.slides/mastertheme/) مخطط ألوان السمة، مخطط الخطوط، ومخطط التنسيق عبر [MasterTheme.getColorScheme](https://reference.aspose.com/slides/ar/php-java/aspose.slides/mastertheme/)، [MasterTheme.getFontScheme](https://reference.aspose.com/slides/ar/php-java/aspose.slides/mastertheme/)، و[MasterTheme.getFormatScheme](https://reference.aspose.com/slides/ar/php-java/aspose.slides/mastertheme/). يُعد فحص هذه المجموعات قبل تعديلها مفيداً جداً عندما يأتي العرض من مصدر خارجي لأن عدد ومحتوى إدخالات الأنماط يمكن أن يختلف.
 
-المثال التالي يقرأ خصائص السمة الرئيسية ويُبلغ عن عدد أنماط الخلفية، التعبئة، الخط، والتأثير المخزنة في السمة:
+المثال التالي يقرأ خصائص السمة الرئيسية ويُبلغ عن عدد أنماط الخلفية، التعبئة، الخط، والتأثير المخزّن في السمة:
 
 ```php
 use aspose\slides\Presentation;
@@ -58,13 +58,13 @@ try {
 }
 ```
 
-إذا كان الملف يستخدم عدة ماسترات، لا تفترض أن كل شريحة لها نفس السمة الفعلية. افحص الماستر المرتبط بالشريحة، واستخدم سير عمل السمة الفعلية الموضح لاحقًا في هذه المقالة عندما قد تكون هناك تجاوزات في التخطيط أو الشريحة.
+إذا كان الملف يستخدم عدة ماسترات، لا تفترض أن كل شريحة لها نفس السمة الفعّالة. افحص الماستر المرتبط بالشريحة، واستخدم سير عمل السمة الفعّالة الموضح لاحقاً في هذه المقالة عندما قد تكون هناك تجاوزات في التخطيط أو الشريحة.
 
 ## **تغيير ألوان السمة**
 
-يمكن أن تُشير التعبئات، الخطوط، والنصوص المدركة للسمة إلى لون منطقي من تعداد [SchemeColor](https://reference.aspose.com/slides/ar/php-java/aspose.slides/schemecolor/). عند تغيير الإدخال المقابل في [ColorScheme](https://reference.aspose.com/slides/ar/php-java/aspose.slides/colorscheme/)، تُحل جميع الكائنات التي لا تزال تُشير إلى ذلك اللون السمة الجديدة. الكائنات التي تستخدم لون RGB مباشر لا تتغير بتحديث لون السمة.
+يمكن للتعبئات، الخطوط، والنصوص المتعاطية مع السمة الإشارة إلى لون منطقي من تعداد [SchemeColor](https://reference.aspose.com/slides/ar/php-java/aspose.slides/schemecolor/). عندما تغيّر الإدخال المقابل في [ColorScheme](https://reference.aspose.com/slides/ar/php-java/aspose.slides/colorscheme/)، تُحلّ جميع الكائنات التي لا زالت تشير إلى ذلك اللون السُمّي وفق القيمة الجديدة. الكائنات التي تستخدم لون RGB مباشر لا تتغير عند تحديث لون السمة.
 
-المثال التالي الشامل ينشئ شكلًا يستخدم `Accent4`، يغير لون السمة `Accent4` إلى الأحمر، يحفظ العرض، يُعيد فتحه، ويطبع لون التعبئة الفعلي:
+المثال التالي من البداية إلى النهاية يُنشئ شكلًا يستخدم `Accent4`، يغيّر لون السمة `Accent4` إلى الأحمر، يُحفظ العرض، يُعاد فتحه، ويطبع لون التعبئة الفعّال:
 
 ```php
 use aspose\slides\FillType;
@@ -96,18 +96,19 @@ try {
 }
 ```
 
-لأن المستطيل يظل مرتبطًا بـ `Accent4`، يصبح لونه المرئي أحمر بعد تغيير السمة. إذا قمت باستبدال لون المخطط بلون مباشر على الشكل، فإن التغييرات اللاحقة على `Accent4` لن تؤثر على تلك التعبئة.
+لأن المستطيل يظل مرتبطًا بـ `Accent4`، يصبح لونه الظاهر الأحمر بعد تعديل السمة. إذا استبدلت لون المخطط بلون مباشر على الشكل، فإن التغييرات اللاحقة على `Accent4` لن تؤثر بعد ذلك على تلك التعبئة.
 
-### **استخدام الألوان من اللوحة الإضافية**
+### **استخدام ألوان من اللوحة الإضافية**
 
-يستخرج PowerPoint متغيرات أفتح وأغمق من لون السمة بتطبيق تحولات اللون. تُظهر Aspose.Slides هذه التحولات عبر تعداد [ColorTransformOperation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/colortransformoperation/).
+يستخلص PowerPoint متغيّرات أفتح وأغمق من لون السمة عبر تطبيق تحويلات لونية. تُظهر Aspose.Slides هذه التحويلات عبر تعداد [ColorTransformOperation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/colortransformoperation/).
 
-![Main theme colors and lighter and darker colors generated from the additional palette](additional-palette-colors.png)
+![الألوان الرئيسية للسمة والألوان الأفتح والأغمق المُولّدة من اللوحة الإضافية](additional-palette-colors.png)
 
-**1** - الألوان الرئيسية للسمة.  
-**2** - المتغيرات الفاتحة والداكنة المشتقة من ألوان السمة الرئيسية.
+**1** - الألوان الرئيسية للسمة.
 
-المثال التالي ينشئ ستة مستطيلات تعتمد على `Accent4`، يطبق تحولات اللمعان على خمسة منها، ويحفظ النتيجة:
+**2** - المتغيّرات الأفتح والأغمق المُنتجة من الألوان الرئيسية للسمة.
+
+المثال التالي يُنشئ ستة مستطيلات قائمة على `Accent4`، يطبق تحويلات الإضاءة على خمسة منها، ويُحفظ النتيجة:
 
 ```php
 use aspose\slides\ColorTransformOperation;
@@ -159,22 +160,22 @@ try {
 }
 ```
 
-هذه المتغيرات تظل مبنية على لون السمة. إذا تغير `Accent4` لاحقًا، تُعاد حساب الألوان المحوَّلة من القيمة الجديدة لـ `Accent4`.
+تظل هذه المتغيّرات مُستندة إلى لون السمة. إذا تغيّر `Accent4` لاحقاً، تُعاد حساب الألوان المُحوّلة من قيمة `Accent4` الجديدة.
 
-### **ربط قيم `SchemeColor` بفتحات `ColorScheme`**
+### **تعيين قيم `SchemeColor` إلى فتحات `ColorScheme`**
 
-يستخدم تعداد [SchemeColor](https://reference.aspose.com/slides/ar/php-java/aspose.slides/schemecolor/) القيم `Text1`، `Background1`، `Text2`، و`Background2`، بينما يُظهر تعداد [ColorScheme](https://reference.aspose.com/slides/ar/php-java/aspose.slides/colorscheme/) نفس فتحات السمة كـ `Dark1`، `Light1`، `Dark2`، و`Light2`. الربط ثابت:
+يستخدم تعداد [SchemeColor](https://reference.aspose.com/slides/ar/php-java/aspose.slides/schemecolor/) القيم `Text1`، `Background1`، `Text2`، و`Background2`، بينما يُظهر تعداد [ColorScheme](https://reference.aspose.com/slides/ar/php-java/aspose.slides/colorscheme/) نفس فتحات السمة كـ `Dark1`، `Light1`، `Dark2`، و`Light2`. الخريطة ثابتة:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-هذه أسماء بديلة لنفس فتحات السمة؛ ليست قيمًا تُحوَّل ديناميكيًا من شكل إلى آخر.
+هذه أسماؤن بديلة لنفس فتحات السمة؛ ليست قيمًا تُحوَّل ديناميكياً من شكل إلى آخر.
 
 ## **تغيير خطوط السمة**
 
-يتضمن مخطط خطوط السمة مجموعة خطوط رئيسية للعناوين ومجموعة خطوط ثانوية لنص الجسم. تُظهر طُرُق [FontScheme.getMajor](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fontscheme/) و[FontScheme.getMinor](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fontscheme/) تلك المجموعات.
+يحتوي مخطط خطوط السمة على مجموعة خطوط رئيسية للعناوين ومجموعة خطوط ثانوية للنص الأساسي. تُظهر طريقتا [FontScheme.getMajor](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fontscheme/) و[FontScheme.getMinor](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fontscheme/) تلك المجموعات.
 
 يمكن استخدام معرفات خطوط السمة المتوافقة مع PowerPoint في تنسيق النص:
 
@@ -183,7 +184,7 @@ try {
 * `+mn-ea` - خط النص الأساسي الآسيوي الشرقي (Minor East Asian Font)
 * `+mj-ea` - خط العنوان الآسيوي الشرقي (Major East Asian Font)
 
-المثال التالي ينشئ عنوانًا واحدًا يستخدم خط السمة اللاتيني الرئيسي وسطرًا نصيًا يستخدم خط السمة اللاتيني الثانوي. ثم يغيّر خطوط السمة ويحفظ النتيجة:
+المثال التالي يُنشئ عنوانًا يستخدم خط السمة اللاتيني الرئيسي وخطًا أساسيًا يستخدم خط السمة اللاتيني الثانوي. ثم يغيّر خطوط السمة ويحفظ النتيجة:
 
 ```php
 use aspose\slides\FontData;
@@ -211,19 +212,23 @@ try {
 }
 ```
 
-العنوان يتبع الخط الرئيسي والنص الأساسي يتبع الخط الثانوي. النص الذي يحتوي على اسم خط صريح بدلًا من معرف سمة لن يتحول تلقائيًا عندما يتغيّر مخطط خطوط السمة.
+العنوان يتبع الخط الرئيسي والنص الأساسي يتبع الخط الثانوي. النص الذي يحتوي على اسم خط صريح بدلاً من معرف سمة لن ينتقل تلقائياً عندما يتغيّر مخطط خطوط السمة.
+
+يمكن أن تحتوي مجموعات الخطوط الرئيسية والثانوية أيضًا على تعيينات خطوط لأنظمة كتابة فردية، مثل السريلية، العربية، اليابانية، الجورجية، والثانا. لفحص، إضافة، استبدال، أو إزالة هذه التعيينات، راجع [Script-Specific Theme Fonts](/slides/ar/php-java/script-specific-font-mappings/).
 
 {{% alert color="info" title="Tip" %}}
-لمزيد من المعلومات حول خطوط العرض،参见 [PowerPoint Fonts](/slides/ar/php-java/powerpoint-fonts/).
+
+لمزيد من المعلومات حول خطوط العروض التقديمية، راجع [PowerPoint Fonts](/slides/ar/php-java/powerpoint-fonts/).
+
 {{% /alert %}}
 
 ## **نسخ أو تطبيق سمة**
 
-هناك سير عملان شائعان، ويحلان مشاكل مختلفة.
+هناك سيرا عمل شائعان، كلٌّ يحل مشكلة مختلفة.
 
 ### **الحفاظ على سمة المصدر عند نقل الشرائح**
 
-إذا رغبت في نقل شريحة إلى عرض آخر مع الحفاظ على تصميمها الأصلي، استنسخ الماستر المصدر إلى العرض الهدف باستخدام [MasterSlideCollection.addClone](https://reference.aspose.com/slides/ar/php-java/aspose.slides/masterslidecollection/)، ثم استنسخ الشريحة باستخدام [SlideCollection.addClone](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slidecollection/) والماستر المستنسخ. هذا يحمل الماستر وتخطيطاته والسمة المرتبطة معًا.
+إذا أردت نقل شريحة إلى عرض تقديمي آخر مع الحفاظ على التصميم الأصلي، استنسخ الماستر المصدر إلى العرض الهدف عبر [MasterSlideCollection.addClone](https://reference.aspose.com/slides/ar/php-java/aspose.slides/masterslidecollection/)، ثم استنسخ الشريحة عبر [SlideCollection.addClone](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slidecollection/) والماستر المستنسخ. هذا ينقل الماستر، تخطيطاته، والسمة المرتبطة معه معًا.
 
 ```php
 use aspose\slides\Presentation;
@@ -246,11 +251,11 @@ try {
 }
 ```
 
-هذا هو سير العمل المفضل عندما يجب أن تبدو الشريحة المصدرية نفسها في الوجهة. مجرد استنساخ المحتوى إلى ماستر غير مرتبط قد يغيّر الألوان والخطوط والخلفيات والتأثيرات المدفوعة بالسمة.
+هذا هو سير العمل المفضَّل عندما يجب أن تبدو الشريحة المصدرية بنفس الشكل في الوجهة. مجرد استنساخ المحتوى إلى ماستر الوجهة غير المرتبط يمكن أن يغيّر ألوان، خطوط، خلفيات، وتأثيرات تعتمد على السمة.
 
 ### **تطبيق قيم السمة على شريحة موجودة**
 
-إذا كان على الشريحة المستهدفة البقاء على الماستر والتخطيط الحاليين، ابدء تجاوزًا على مستوى الشريحة من السمة المصدر. تقوم طُرُق [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/ar/php-java/aspose.slides/overridetheme/)، [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/ar/php-java/aspose.slides/overridetheme/)، و[OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/ar/php-java/aspose.slides/overridetheme/) بنسخ مكونات السمة الثلاث الرئيسية إلى التجاوز.
+إذا كان على الشريحة الهدف البقاء على الماستر والتخطيط الحاليين، ابدأ تجاوزًا على مستوى الشريحة من السمة المصدر. تُنسخ طرق [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/ar/php-java/aspose.slides/overridetheme/)، [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/ar/php-java/aspose.slides/overridetheme/)، و[OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/ar/php-java/aspose.slides/overridetheme/) المكوّنات الثلاثة الرئيسية للسمة إلى التجاوز.
 
 ```php
 use aspose\slides\Presentation;
@@ -274,11 +279,11 @@ try {
 }
 ```
 
-هذا يغيّر السمة المستخدمة لتلك الشريحة دون تغيير السمة الموروثة من الشرائح الأخرى. لإزالة التجاوز المحلي والعودة إلى القيم الموروثة، استدعِ [OverrideTheme.clear](https://reference.aspose.com/slides/ar/php-java/aspose.slides/overridetheme/).
+هذا يغيّر السمة المستخدمة لتلك الشريحة دون تغيير السمة الموروثة من قبل الشرائح الأخرى. لإزالة التجاوز المحلي والعودة إلى القيم الموروثة، استدعِ [OverrideTheme.clear](https://reference.aspose.com/slides/ar/php-java/aspose.slides/overridetheme/).
 
 ### **تطبيق تجاوز سمة على تخطيط**
 
-تطبيق تجاوز على مستوى التخطيط ينعكس على الشرائح التي تستخدم ذلك التخطيط، ما لم يكن لشريحة معينة تجاوز خاص بها. يمكن استخدام نفس طرق التهيئة عبر [LayoutSlideThemeManager](https://reference.aspose.com/slides/ar/php-java/aspose.slides/layoutslidethememanager/):
+تطبق تجاوزات مستوى التخطيط على الشرائح التي تستخدم ذلك التخطيط، ما لم تكن لشريحة معينة تجاوزها الخاص. يمكن استخدام نفس طرق التهيئة عبر [LayoutSlideThemeManager](https://reference.aspose.com/slides/ar/php-java/aspose.slides/layoutslidethememanager/):
 
 ```php
 use aspose\slides\Presentation;
@@ -302,17 +307,17 @@ try {
 }
 ```
 
-استخدم سمة على مستوى الماستر أو العرض عندما يجب أن تشترك العديد من التخطيطات والشرائح في نفس التصميم الأساسي، واستخدم تجاوز التخطيط عندما تحتاج عائلة تخطيط واحدة إلى تنسيق مختلف، واستخدم تجاوز الشريحة فقط للاستثناءات الحقيقية. تُعقّد التجاوزات المتعددة على مستوى الشريحة تغييرات السمة العامة اللاحقة.
+استخدم سمة ماستر أو سمة على مستوى العرض عندما ينبغي للعديد من التخطيطات والشرائح مشاركة نفس التصميم الأساسي، واستخدم تجاوز التخطيط عندما تحتاج عائلة تخطيط واحدة إلى تنسيق مختلف، واستخدم تجاوز الشريحة فقط للاستثناءات الحقيقية. تجعل التجاوزات المتعددة على مستوى الشريحة من الصعب توقع تغييرات السمة العامة لاحقًا.
 
 ## **تحديث أنماط خلفية السمة**
 
-يُخزن ملء خلفية السمة في [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/ar/php-java/aspose.slides/formatscheme/). يمكن لـ PowerPoint عرض خيارات خلفية أكثر في واجهته مقارنةً بعدد تعريفات التعبئة المخزنة فعليًا في هذه المجموعة لأن الواجهة يمكنها دمج تعبئات السمة بألوان السمة ومراجع أنماط أخرى.
+تُخزن تعبئات خلفية السمة في [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/ar/php-java/aspose.slides/formatscheme/). يمكن لـ PowerPoint عرض خيارات خلفية أكثر في واجهته مما يُخزن فعليًا في هذه المجموعة لأن الواجهة يمكنها دمج تعبئات السمة مع ألوان السمة ومراجع أنماط أخرى.
 
-![PowerPoint background style gallery for a presentation theme](presentation-design_8.png)
+![معرض أنماط خلفية PowerPoint لسمة العرض التقديمي](presentation-design_8.png)
 
-قبل استخدام نمط خلفية، افحص المجموعة المخزنة و[Background.getStyleIndex](https://reference.aspose.com/slides/ar/php-java/aspose.slides/background/) الحالي. قيمة الفهرس `0` تعني عدم وجود تعبئة مُمَثلة؛ القيم الموجبة هي مراجع أنماط خلفية سمة. هذا يختلف عن فهرسة مجموعة PHP مباشرةً، حيث يعني `get_Item(0)` أول عنصر مخزن. لا تفترض أن كل عرض يحتوي على نفس عدد أنماط تعبئة الخلفية.
+قبل استخدام نمط خلفية، افحص المجموعة المخزنة و[Background.getStyleIndex](https://reference.aspose.com/slides/ar/php-java/aspose.slides/background/) الحالي. مؤشر النمط `0` يعني عدم وجود تعبئة مُمَثلة؛ القيم الموجبة تشير إلى مراجع أنماط خلفية سمة. هذا يختلف عن فهرسة مجموعة PHP مباشرةً، حيث يعني `get_Item(0)` العنصر الأول المخزن. لا تفترض أن كل عرض يحتوي على نفس عدد أنماط تعبئة الخلفية.
 
-المثال التالي يُبلغ عن عدد تعبئات الخلفية المتاحة، يُعيّن مرجع خلفية مُمَثل للماستر الأول، ويحفظ العرض:
+المثال التالي يبلغ عن عدد تعبئات الخلفية المتاحة، يُعيّن مرجع خلفية سمة للماستر الأول، ويحفظ العرض:
 
 ```php
 use aspose\slides\BackgroundType;
@@ -336,25 +341,29 @@ try {
 }
 ```
 
-النتيجة الظاهرة تعتمد على إدخال السمة الذي يشير إليه الماستر وعلى أي تجاوزات خلفية في التخطيط أو مستوى الشريحة. إذا استخدمت شريحة خلفيتها الخاصة، قد لا يغيّر تغيير خلفية الماستر تلك الشريحة. استخدم [Background.getEffective](https://reference.aspose.com/slides/ar/php-java/aspose.slides/background/) عندما تحتاج إلى معرفة الخلفية النهائية بعد تطبيق الوراثة.
+النتيجة الظاهرة تعتمد على مدخل السمة الذي يشير إليه الماستر وعلى أي تجاوزات خلفية في مستوى التخطيط أو الشريحة. إذا استخدمت شريحة خلفيتها الخاصة، قد لا يغيّر تعديل خلفية الماستر فقط تلك الشريحة. استخدم [Background.getEffective](https://reference.aspose.com/slides/ar/php-java/aspose.slides/background/) عندما تحتاج إلى معرفة الخلفية النهائية بعد تطبيق الوراثة.
 
 {{% alert color="warning" title="Warning" %}}
-لا تُعامل فهرس النمط كفهرس مجموعة صفرية. وتجنب أيضًا ترميز رقم نمط من ملف واحد وافتراض أن له نفس المظهر في ملف آخر؛ تعريفات أنماط السمة خاصة بالعرض.
+
+لا تعامل مؤشر النمط كفهارس صفرية للمجموعة. وتجنّب أيضًا ترميز رقم نمط من ملف واحد وافتراض أنه سيظهر بنفس الشكل في ملف آخر؛ تعريفات أنماط السمة خاصة بالعرض.
+
 {{% /alert %}}
 
 {{% alert color="info" title="Tip" %}}
-للتنسيق المباشر للخلفية والوراثة الخلفية، راجع [Presentation Background](/slides/ar/php-java/presentation-background/).
+
+للتنسيق المباشر للخلفية ووراثة الخلفية، راجع [Presentation Background](/slides/ar/php-java/presentation-background/).
+
 {{% /alert %}}
 
 ## **تحديث تأثيرات السمة**
 
-يحتوي مخطط تنسيق السمة على مجموعات منفصلة من تعبئات الخطوط، الخطوط، وأنماط التأثير تُعرض عبر [FormatScheme.getFillStyles](https://reference.aspose.com/slides/ar/php-java/aspose.slides/formatscheme/)، [FormatScheme.getLineStyles](https://reference.aspose.com/slides/ar/php-java/aspose.slides/formatscheme/)، و[FormatScheme.getEffectStyles](https://reference.aspose.com/slides/ar/php-java/aspose.slides/formatscheme/). غالبًا ما تحتوي سمات Office على ثلاثة إدخالات أساسية تتطابق بصريًا مع تنسيقات خفيفة، معتدلة، وشديدة، لكن يجب على الكود فحص كل مجموعة بدلاً من افتراض عدد ثابت.
+يحتوي مخطط تنسيق السمة على مجموعات تعبئة، خط، وتأثير منفصلة تُعرض عبر [FormatScheme.getFillStyles](https://reference.aspose.com/slides/ar/php-java/aspose.slides/formatscheme/)، [FormatScheme.getLineStyles](https://reference.aspose.com/slides/ar/php-java/aspose.slides/formatscheme/)، و[FormatScheme.getEffectStyles](https://reference.aspose.com/slides/ar/php-java/aspose.slides/formatscheme/). غالبًا ما تحتوي السِمات المكتبية على ثلاثة إدخالات نمط رئيسية تتوافق بصريًا مع تنسيقات خفيفة، متوسطة، وشديدة، لكن يجب على الشيفرة فحص كل مجموعة بدلاً من افتراض عدد ثابت.
 
-![Subtle, moderate, and intense theme effects applied to the same shape](presentation-design_10.png)
+![تأثيرات سمة خفيفة، متوسطة، وشديدة مُطبقة على نفس الشكل](presentation-design_10.png)
 
-عند الوصول إلى هذه المجموعات في PHP، يكون فهرس المجموعة صفرًا مبنيًا: `get_Item(0)` هو أول نمط مخزن و`get_Item(2)` هو الثالث. فهارس مراجع النمط في الشكل مفهوم منفصل، تُعرض عبر [ShapeStyle](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shapestyle/). تعديل نمط سمة يؤثر على الأشكال التي تُشير إلى ذلك النمط؛ قد تظل الأشكال ذات التنسيق المباشر دون تغيير.
+عند الوصول إلى هذه المجموعات في PHP، يكون فهرس المجموعة صفرًا أساسياً: `get_Item(0)` هو أول نمط مخزن و`get_Item(2)` هو الثالث. فهارس مراجع النمط للشكل مفهوم منفصل، تُعرض عبر [ShapeStyle](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shapestyle/). تعديل نمط سمة يؤثر على الأشكال التي تشير إلى ذلك النمط؛ قد تظل الأشكال ذات التنسيق المباشر دون تغيير.
 
-المثال التالي يتحقق من وجود الإدخالات المطلوبة، يغيّر أول نمط خط، يغيّر ثالث نمط تعبئة، يفعّل ظلًا خارجيًا في ثالث نمط تأثير، ويحفظ النتيجة:
+المثال التالي يتحقق من وجود إدخالات النمط المطلوبة، يغيّر أول نمط خط، يغيّر ثالث نمط تعبئة، يفعّل ظلًا خارجيًا في ثالث نمط تأثير، ويحفظ النتيجة:
 
 ```php
 use aspose\slides\FillType;
@@ -381,15 +390,15 @@ try {
 }
 ```
 
-للأشكال التي تُشير إلى هذه الفتحات، يصبح أول خط سمة أحمر، وثالث تعبئة سمة خضراء غابية صلبة، والثالث تأثير يكتسب ظلًا خارجيًا بمسافة 10 نقاط. لا يزال المظهر البصري الدقيق يعتمد على أي فترات نمط كل شكل يُشير إليها وما إذا كان التنسيق المباشر يتجاوز السمة.
+للأشكال التي تشير إلى هذه الفتحات، يصبح أول نمط خط سمة أحمر، وثالث نمط تعبئة سمة أخضر غابة صلب، وثالث نمط تأثير يضيف ظلًا خارجيًا بمسافة 10 نقاط. لا يزال الناتج البصري يعتمد على الفتحات التي يشير إليها كل شكل وما إذا كان التنسيق المباشر يتجاوز السمة.
 
-![Theme effect styles after changing line, fill, and shadow settings](presentation-design_11.png)
+![أنماط تأثير السمة بعد تغيير إعدادات الخط، التعبئة، والظل](presentation-design_11.png)
 
-## **قراءة قيم السمة الفعلية**
+## **قراءة قيم السمة الفعّالة**
 
-تخبرك كائنات السمة الخام بما تم تعريفه على مستوى معين. تُظهر القيم الفعلية ما تستخدمه الشريحة أو الشكل فعليًا بعد حل الوراثة والتجاوزات المحلية. للشريحة، استدعِ [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/ar/php-java/aspose.slides/baseoverridethememanager/). للخلفية، استخدم [Background.getEffective](https://reference.aspose.com/slides/ar/php-java/aspose.slides/background/)، وللتعبئة، استخدم [FillFormat.getEffective](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fillformat/).
+تخبرك كائنات السمة الخام بما هو معرف على مستوى معين. القيم الفعّالة تخبرك بما يستخدمه الشريحة أو الشكل فعليًا بعد حل الوراثة والتجاوزات المحلية. لشريحة، استدعِ [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/ar/php-java/aspose.slides/baseoverridethememanager/). للخلفية، استخدم [Background.getEffective](https://reference.aspose.com/slides/ar/php-java/aspose.slides/background/)، وللتعبئة، استخدم [FillFormat.getEffective](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fillformat/).
 
-المثال التالي يقرأ السمة الفعلية، الخلفية، وتعبئة الشكل الأول من شريحة:
+المثال التالي يقرأ السمة الفعّالة، الخلفية، وتعبئة الشكل الأول من شريحة:
 
 ```php
 use aspose\slides\FillType;
@@ -416,18 +425,18 @@ try {
 }
 ```
 
-استخدم البيانات الفعلية لتشخيص العرض، التحقق، والمقارنات. إذا فحصت فقط [Presentation.getMasterTheme](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/)، قد تفوتك ماستر أو تخطيط أو شريحة أو تجاوز شكل يغيّر المظهر النهائي.
+استخدم البيانات الفعّالة لتشخيص العرض، التحقق، والمقارنات. إذا فحصت فقط [Presentation.getMasterTheme](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/)، قد تفوت تجاوز ماستر أو تخطيط أو شريحة أو شكل يغيّر المظهر النهائي.
 
 ## **الأسئلة الشائعة**
 
 **هل يمكنني تطبيق سمة على شريحة واحدة دون تغيير الماستر؟**
 
-نعم. استخدم [SlideThemeManager](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slidethememanager/) الخاص بالشريحة وابدأ سمة التجاوز الخاصة بها. يبقى التغيير محليًا لتلك الشريحة؛ تستمر الشرائح الأخرى في وراثة سماتها الحالية.
+نعم. استخدم [SlideThemeManager](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slidethememanager/) للشريحة وابدأ سمة التجاوز الخاصة بها. يبقى التغيير محليًا لتلك الشريحة؛ تستمر الشرائح الأخرى في وراثة سماتها الحالية.
 
-**ما هي الطريقة الأكثر أمانًا لنقل سمة من عرض إلى آخر؟**
+**ما هي الطريقة الأكثر أمانًا لنقل سمة من عرض تقديمي إلى آخر؟**
 
-عند نقل شريحة والحفاظ على مظهرها الأصلي، استنسخ الماستر المصدر إلى الوجهة واستنسخ الشريحة باستخدام [MasterSlideCollection.addClone](https://reference.aspose.com/slides/ar/php-java/aspose.slides/masterslidecollection/) و[SlideCollection.addClone](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slidecollection/). هذا يحافظ على الماستر، التخطيطات، والسمة معًا.
+عند نقل شريحة مع الحفاظ على مظهر المصدر، استنسخ الماستر المصدر إلى الوجهة واستنسخ الشريحة مع ذلك الماستر باستخدام [MasterSlideCollection.addClone](https://reference.aspose.com/slides/ar/php-java/aspose.slides/masterslidecollection/) و[SlideCollection.addClone](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slidecollection/). هذا يحافظ على الماستر، التخطيطات، والسمة معًا.
 
-**كيف يمكنني رؤية القيم الفعلية بعد الوراثة والتجاوزات؟**
+**كيف يمكنني رؤية القيم الفعّالة بعد الوراثة والتجاوزات؟**
 
-استخدم [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/ar/php-java/aspose.slides/baseoverridethememanager/) لسمة شريحة أو تخطيط والطرق الفعلية المقابلة لكائنات التنسيق مثل [Background.getEffective](https://reference.aspose.com/slides/ar/php-java/aspose.slides/background/) و[FillFormat.getEffective](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fillformat/). تُعيد هذه الواجهات القيم المُحَلَّة بعد تطبيق الوراثة والتجاوزات.
+استخدم [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/ar/php-java/aspose.slides/baseoverridethememanager/) لسمة شريحة أو تخطيط والطرق المقابلة للبيانات الفعّالة لكائنات التنسيق مثل [Background.getEffective](https://reference.aspose.com/slides/ar/php-java/aspose.slides/background/) و[FillFormat.getEffective](https://reference.aspose.com/slides/ar/php-java/aspose.slides/fillformat/). تُعيد هذه الواجهات القيم المحلولة بعد تطبيق الوراثة والتجاوزات.

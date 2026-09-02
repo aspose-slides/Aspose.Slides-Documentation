@@ -7,7 +7,7 @@ url: /es/nodejs-java/digital-signature-in-powerpoint/
 keywords:
 - firma digital
 - certificado digital
-- autoridad certificadora
+- autoridad de certificación
 - certificado PFX
 - PKCS#12
 - validar firma
@@ -17,35 +17,35 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aprenda a firmar presentaciones PPTX existentes con certificados PFX y use Aspose.Slides para Node.js a través de Java para validar o eliminar firmas digitales."
+description: "Aprende cómo firmar presentaciones PPTX existentes con certificados PFX y usar Aspose.Slides para Node.js a través de Java para validar o eliminar firmas digitales."
 ---
 ## **Visión general**
 
-Una firma digital ayuda al destinatario a determinar quién firmó una presentación y si el contenido firmado ha cambiado. Tres conceptos de seguridad relacionados son importantes aquí:
+Una firma digital ayuda al destinatario a determinar quién firmó una presentación y si el contenido firmado ha cambiado. Aquí son importantes tres conceptos de seguridad relacionados:
 
 - Un **certificado digital** es una credencial electrónica que asocia una identidad con una clave pública. Una autoridad de certificación (CA) de confianza puede emitir un certificado, o una organización puede usar un certificado autofirmado para flujos de trabajo internos.
-- Una **firma digital** se crea a partir del contenido de la presentación y la clave privada del titular del certificado. La clave pública del certificado puede entonces usarse para verificar la firma. Una firma proporciona evidencia de origen e integridad; no cifra la presentación.
-- La **protección con contraseña** controla si un usuario puede abrir o modificar una presentación. Es independiente de la firma digital y se describe en [Presentaciones protegidas con contraseña](/nodejs-java/password-protected-presentation/).
+- Una **firma digital** se crea a partir del contenido de la presentación y de la clave privada del titular del certificado. La clave pública del certificado puede usarse entonces para verificar la firma. Una firma brinda evidencia de origen e integridad; no cifra la presentación.
+- **Protección con contraseña** controla si un usuario puede abrir o modificar una presentación. Es independiente de la firma digital y se describe en [Presentaciones protegidas con contraseña](/slides/es/nodejs-java/password-protected-presentation/).
 
-PowerPoint ofrece el comando **Agregar una firma digital** bajo **Archivo > Información > Proteger presentación**.
+PowerPoint ofrece el comando **Add a Digital Signature** bajo **File > Info > Protect Presentation**.
 
-![Menú Proteger presentación de PowerPoint con Agregar una firma digital resaltado](add-digital-signature-in-powerpoint.png)
+![Menú Proteger presentación de PowerPoint con Add a Digital Signature resaltado](add-digital-signature-in-powerpoint.png)
 
-Después de abrir una presentación firmada, PowerPoint puede mostrar una notificación del estado de la firma.
+Tras abrir una presentación firmada, PowerPoint puede mostrar una notificación del estado de la firma.
 
-![Notificación de PowerPoint que indica que la presentación contiene firmas válidas](digital-signature-status-in-powerpoint.png)
+![Notificación de PowerPoint indicando que la presentación contiene firmas válidas](digital-signature-status-in-powerpoint.png)
 
-Aspose.Slides expone las firmas mediante [Presentation.getDigitalSignatures](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/presentation/#getDigitalSignatures--), que devuelve una [DigitalSignatureCollection](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/digitalsignaturecollection/) que contiene objetos [DigitalSignature](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/digitalsignature/). Una presentación puede contener varias firmas.
+Aspose.Slides expone las firmas a través de [Presentation.getDigitalSignatures](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/presentation/#getDigitalSignatures--), que devuelve una [DigitalSignatureCollection](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/digitalsignaturecollection/), que contiene objetos [DigitalSignature](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/digitalsignature/). Una presentación puede contener varias firmas.
 
-## **Comprender los certificados PFX y las contraseñas**
+## **Entender los certificados PFX y las contraseñas**
 
-Un archivo PFX, también conocido como archivo PKCS#12 y habitualmente con extensión `.pfx` o `.p12`, puede contener un certificado X.509, su clave privada y la cadena de certificados. La clave privada es la que permite al titular crear una firma. Un certificado sin una clave privada accesible no puede usarse para firmar una presentación.
+Un archivo PFX, también conocido como archivo PKCS#12 y generalmente con extensión `.pfx` o `.p12`, puede contener un certificado X.509, su clave privada y la cadena de certificados. La clave privada es lo que permite al titular crear una firma. Un certificado sin una clave privada accesible no puede usarse para firmar una presentación.
 
-La contraseña del PFX protege el paquete del certificado y la clave privada. **No** es una contraseña para abrir o editar la presentación. No incluya archivos PFX ni sus contraseñas en el control de versiones. En producción, limite el acceso al archivo del certificado y obtenga su contraseña de un almacén de secretos u otra fuente de configuración protegida. Los ejemplos a continuación usan una variable de entorno solo para evitar incrustar la contraseña en el código.
+La contraseña del PFX protege el paquete del certificado y la clave privada. **No** es una contraseña para abrir o editar la presentación. No se deben subir archivos PFX ni sus contraseñas al control de versiones. En producción, limite el acceso al archivo del certificado y obtenga su contraseña de un almacén de secretos u otra fuente de configuración protegida. Los ejemplos siguientes usan una variable de entorno solo para evitar incrustar la contraseña en el código.
 
 ## **Agregar una firma digital a una presentación**
 
-Para firmar el flujo de trabajo de una presentación real, cargue un archivo PPTX existente, cree una [DigitalSignature](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/digitalsignature/) a partir de un certificado PFX y su contraseña, añada la firma a la colección de la presentación y guarde en un archivo PPTX.
+Para firmar un flujo de trabajo de presentación real, cargue un archivo PPTX existente, cree un [DigitalSignature](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/digitalsignature/) a partir de un certificado PFX y su contraseña, añada la firma a la colección de la presentación y guarde en un archivo PPTX.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -67,13 +67,13 @@ try {
 }
 ```
 
-Guardar el resultado con un nombre nuevo conserva el archivo fuente sin firmar. El valor establecido mediante [DigitalSignature.setComments](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/digitalsignature/) describe el propósito de la firma; no es un control de seguridad.
+Guardar el resultado con un nombre nuevo preserva el archivo de origen sin firmar. El valor establecido mediante [DigitalSignature.setComments](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/digitalsignature/#setComments--) describe el propósito de la firma; no es un control de seguridad.
 
 ## **Validar firmas digitales**
 
-Cuando cargue un archivo PPTX firmado, inspeccione cada elemento devuelto por [Presentation.getDigitalSignatures](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/presentation/#getDigitalSignatures--). El método [DigitalSignature.isValid](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/digitalsignature/) indica si la firma incrustada es válida para el contenido actual de la presentación.
+Cuando cargue un archivo PPTX firmado, inspeccione cada elemento devuelto por [Presentation.getDigitalSignatures](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/presentation/#getDigitalSignatures--). El método [DigitalSignature.isValid](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/digitalsignature/#isValid--) indica si la firma incrustada es válida para el contenido actual de la presentación.
 
-El siguiente ejemplo también usa la clase `X509Certificate` de Node.js para leer el nombre del sujeto de cada certificado incrustado.
+El siguiente ejemplo también utiliza la clase `X509Certificate` de Node.js para leer el nombre del sujeto de cada certificado incrustado.
 
 ```javascript
 const { X509Certificate } = require("node:crypto");
@@ -117,7 +117,7 @@ try {
 
 Un resultado inválido suele significar que el contenido firmado de la presentación o los datos de la firma cambiaron después de la firma, o que el archivo está dañado. Eliminar todas las firmas produce una presentación sin firmar, por lo que comprobar solo la validez de los elementos no es suficiente: un flujo de trabajo sensible a la seguridad también debe verificar que el número esperado de firmas y las identidades de los firmantes esperados estén presentes.
 
-Este resultado de validez no debe considerarse una decisión completa de confianza del certificado. Dependiendo de su política de seguridad, su aplicación también puede necesitar construir y validar la cadena de certificados X.509, comprobar las fechas de validez y el estado de revocación del certificado, confirmar el sujeto o la huella esperados, verificar el uso de la clave y evaluar una marca de tiempo de confianza. El valor devuelto por [DigitalSignature.getSignTime](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/digitalsignature/) por sí solo no constituye prueba de una autoridad de sellado de tiempo confiable.
+Este resultado de validez no debe tratarse como una decisión completa de confianza del certificado. Dependiendo de su política de seguridad, su aplicación también puede necesitar construir y validar la cadena de certificados X.509, comprobar las fechas de validez y el estado de revocación del certificado, confirmar el sujeto o la huella esperada, verificar el uso de la clave y evaluar una marca de tiempo de confianza. El valor de [DigitalSignature.getSignTime](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/digitalsignature/#getSignTime--) por sí solo no es prueba de una autoridad de marca de tiempo de confianza.
 
 ## **Eliminar firmas digitales**
 
@@ -135,21 +135,21 @@ try {
 }
 ```
 
-Para eliminar solo una firma, llame a [DigitalSignatureCollection.removeAt](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/digitalsignaturecollection/removeat/) con su índice basado en cero. Guarde en un archivo nuevo salvo que sobrescribir el original firmado sea una parte explícita de su flujo de trabajo.
+Para eliminar solo una firma, llame a [DigitalSignatureCollection.removeAt](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/digitalsignaturecollection/removeat/) con su índice basado en cero. Guarde en un archivo nuevo a menos que sobrescribir el original firmado sea una parte explícita de su flujo de trabajo.
 
 ## **Consideraciones de edición y formato**
 
-- Una firma no hace que una presentación sea de solo lectura. Los usuarios y las aplicaciones pueden seguir editando el archivo, pero los cambios en el contenido firmado normalmente invalidan la firma existente.
-- Realice todas las ediciones previstas antes de firmar. Si la presentación debe modificarse, guarde la versión revisada y vuelva a firmar esa revisión.
-- Mantenga la salida final en formato PPTX. Convertir una presentación firmada a otro formato no transfiere la firma original del PPTX como una firma válida para el archivo convertido.
-- Trate la clave privada del certificado como un dato sensible. Cualquier persona que obtenga la clave privada y su contraseña podría crear firmas que parezcan procedentes de ese titular del certificado.
+- Una firma no hace que una presentación sea de solo lectura. Los usuarios y aplicaciones todavía pueden editar el archivo, pero los cambios en el contenido firmado normalmente invalidan la firma existente.
+- Complete todas las ediciones previstas antes de firmar. Si una presentación debe modificarse, guarde la presentación revisada y firme esa revisión nuevamente.
+- Mantenga el resultado final en formato PPTX. Convertir una presentación firmada a otro formato no transfiere la firma original PPTX como una firma válida para el archivo convertido.
+- Trate la clave privada del certificado como información sensible. Cualquier persona que obtenga la clave privada y su contraseña podría crear firmas que parezcan provenir de ese titular del certificado.
 - Conserve el origen sin firmar o una copia controlada cuando su política de retención de documentos lo requiera.
 
 ## **Preguntas frecuentes**
 
 **¿Una firma digital cifra la presentación?**
 
-No. Una firma digital aporta evidencia sobre el origen y la integridad, pero el contenido de la presentación sigue siendo legible a menos que se aplique un cifrado separado. Use [protección con contraseña](/nodejs-java/password-protected-presentation/) cuando sea necesario restringir el acceso al contenido.
+No. Una firma digital proporciona evidencia sobre el origen y la integridad, pero el contenido de la presentación sigue siendo legible a menos que se aplique un cifrado por separado. Utilice [protección con contraseña](/slides/es/nodejs-java/password-protected-presentation/) cuando se deba restringir el acceso al contenido.
 
 **¿La contraseña del PFX es la misma que la contraseña de la presentación?**
 
@@ -157,23 +157,23 @@ No. La contraseña del PFX desbloquea la clave privada almacenada en el paquete 
 
 **¿Puedo usar un certificado autofirmado?**
 
-Técnicamente, un certificado autofirmado puede usarse siempre que incluya una clave privada accesible. Sin embargo, los destinatarios no lo confiarán automáticamente, a menos que ese certificado se haya añadido explícitamente a su entorno de confianza. Los flujos de trabajo públicos o inter‑organizaciones suelen usar un certificado emitido por una CA de confianza.
+Técnicamente, un certificado autofirmado puede usarse cuando incluye una clave privada accesible. Sin embargo, los destinatarios no lo confiarán automáticamente, a menos que ese certificado se haya añadido explícitamente a su entorno de confianza. Los flujos de trabajo públicos o interorganizacionales suelen usar un certificado emitido por una CA de confianza.
 
 **¿Qué hace que una firma sea inválida?**
 
-Cambiar el contenido firmado de la presentación o los datos de la firma después de firmar puede invalidar la firma. La corrupción del archivo también puede provocar fallos en la validación. Si se eliminan todas las firmas, la presentación queda sin firmar en lugar de contener una firma inválida.
+Cambiar el contenido firmado de la presentación o los datos de la firma después de firmar puede invalidar la firma. La corrupción del archivo también puede causar que la validación falle. Si se eliminan todas las firmas, la presentación queda sin firmar en lugar de contener una firma inválida.
 
 **¿Una firma válida significa que debo confiar en el firmante?**
 
-No por sí sola. La integridad de la firma y la confianza en el firmante son decisiones separadas. Una política de validación en producción debe también comprobar la cadena de certificados, el periodo de validez, el estado de revocación, la identidad esperada, el uso de la clave y cualquier requisito de marca de tiempo confiable.
+No, por sí sola. La integridad de la firma y la confianza en el firmante son decisiones separadas. Una política de validación en producción también debe comprobar la cadena de certificados, el período de validez, el estado de revocación, la identidad esperada, el uso de la clave y cualquier requisito de marca de tiempo de confianza.
 
 **¿Qué ocurre cuando el certificado expira?**
 
-La expiración del certificado no altera los bytes de la presentación, pero afecta la evaluación de confianza del certificado. Si una firma sigue siendo aceptable dependerá de su política y de si una marca de tiempo confiable valida que la firma se realizó mientras el certificado estaba vigente. No confíe únicamente en la hora de firma mostrada como marca de tiempo confiable.
+La expiración del certificado no altera los bytes de la presentación, pero afecta la evaluación de confianza del certificado. Si una firma sigue siendo aceptable depende de su política y de si una marca de tiempo de confianza válida demuestra que la firma se realizó mientras el certificado estaba vigente. No confíe únicamente en la hora de firma mostrada como marca de tiempo de confianza.
 
-**¿Una presentación firmada puede seguir editándose?**
+**¿Se puede seguir editando una presentación firmada?**
 
-Sí. Firmar no bloquea el archivo. Editar el contenido firmado generalmente invalida la firma existente, por lo que debe terminar la presentación antes de firmar la versión final.
+Sí. Firmar no bloquea el archivo. Editar contenido firmado generalmente invalida la firma existente, por lo que se debe terminar la presentación primero y firmar la revisión final.
 
 **¿Una presentación puede contener más de una firma?**
 
@@ -181,8 +181,8 @@ Sí. Añada cada firma a la colección devuelta por [Presentation.getDigitalSign
 
 **¿Qué formatos de presentación admiten estas operaciones?**
 
-Aspose.Slides admite las operaciones de firma digital descritas aquí solo para PPTX. Los formatos PPT y OpenDocument no son compatibles con este flujo de trabajo de API.
+Aspose.Slides solo admite las operaciones de firma digital descritas aquí para PPTX. Los formatos PPT y OpenDocument de presentación no son compatibles con este flujo de trabajo de la API.
 
 **¿Puedo eliminar una firma sin afectar las diapositivas?**
 
-Sí. Puede eliminar una firma o vaciar la colección completa y luego guardar la presentación. El contenido de las diapositivas permanece disponible, pero el archivo guardado ya no lleva la evidencia de la firma eliminada.
+Sí. Puede eliminar una firma o vaciar toda la colección y luego guardar la presentación. El contenido de las diapositivas sigue disponible, pero el archivo guardado ya no contiene la evidencia de la firma eliminada.

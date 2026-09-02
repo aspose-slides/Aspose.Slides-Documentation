@@ -1,21 +1,21 @@
 ---
-title: Zarządzanie ramkami obrazu w prezentacjach na Androidzie
+title: Zarządzaj ramkami obrazu w prezentacjach na Androidzie
 linktitle: Ramka obrazu
 type: docs
 weight: 10
 url: /pl/androidjava/picture-frame/
 keywords:
 - ramka obrazu
-- dodawanie ramki obrazu
-- tworzenie ramki obrazu
+- dodaj ramkę obrazu
+- utwórz ramkę obrazu
 - osadzony obraz
-- powiązany obraz
-- wyodrębnianie obrazu
+- połączony obraz
+- wyodrębnij obraz
 - obraz rastrowy
 - obraz SVG
-- przycinanie obrazu
-- usuwanie przyciętych obszarów
-- kompresja obrazu
+- przytnij obraz
+- usuń przycięte obszary
+- skompresuj obraz
 - StretchOffset
 - formatowanie ramki obrazu
 - skala względna
@@ -27,21 +27,21 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Utwórz, formatuj, łącz, przycinaj, wyodrębniaj i kompresuj ramki obrazu w prezentacjach przy użyciu Aspose.Slides dla Androida w Javie."
+description: "Twórz, formatuj, łącz, przycinaj, wyodrębniaj i kompresuj ramki obrazu w prezentacjach za pomocą Aspose.Slides dla Androida w języku Java."
 ---
 ## **Przegląd**
 
-Ramka obrazu jest kształtem slajdu, który wyświetla obraz. W Aspose.Slides zasób obrazu i kształt, który go wyświetla, są oddzielnymi obiektami: [Prezentacja](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/) posiada osadzone zasoby obrazu poprzez swoją [IImageCollection](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iimagecollection/), natomiast [IPictureFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipictureframe/) kontroluje pozycję obrazu, rozmiar, formatowanie linii, obrót, przycinanie, efekty obrazu i inne ustawienia na poziomie ramki.
+Ramka obrazu jest kształtem slajdu, który wyświetla obraz. W Aspose.Slides zasób obrazu i kształt, który go wyświetla, są oddzielnymi obiektami: [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/) posiada wbudowane zasoby obrazów poprzez swoje [IImageCollection](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iimagecollection/), natomiast [IPictureFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipictureframe/) kontroluje pozycję obrazu, rozmiar, formatowanie linii, obrót, przycinanie, efekty obrazu i inne ustawienia na poziomie ramki.
 
-To rozdzielenie jest przydatne, gdy ten sam obraz jest wyświetlany więcej niż raz. Dodaj obraz do prezentacji raz, zachowaj zwrócony [IPPImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ippimage/), i używaj tego zasobu obrazu przy tworzeniu ramek obrazu.
+To rozdzielenie jest przydatne, gdy ten sam obraz jest wyświetlany więcej niż raz. Dodaj obraz do prezentacji raz, zachowaj zwrócony [IPPImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ippimage/), i użyj tego zasobu obrazu przy tworzeniu ramek obrazu.
 
-Ramki obrazu mogą zawierać obrazy rastrowe, takie jak PNG lub JPEG, oraz wektorowe obrazy SVG. Mogą również odwoływać się do obrazów powiązanych zamiast przechowywać bajty obrazu w prezentacji. Wybór wpływa na przenośność, rozmiar pliku, ekstrakcję i zachowanie przy eksporcie, więc warto zdecydować, jak obraz ma być przechowywany, zanim zastosuje się formatowanie lub optymalizację.
+Ramki obrazu mogą zawierać obrazy rastrowe, takie jak PNG lub JPEG, oraz obrazy wektorowe SVG. Mogą również odwoływać się do połączonych obrazów zamiast przechowywać bajty obrazu w prezentacji. Wybór wpływa na przenośność, rozmiar pliku, wyodrębnianie i zachowanie przy eksporcie, więc warto zdecydować, jak obraz ma być przechowywany przed zastosowaniem formatowania lub optymalizacji.
 
-## **Dodawanie i formatowanie osadzonego obrazu**
+## **Dodaj i sformatuj osadzony obraz**
 
-W przypadku obrazu osadzonego dodaj dane obrazu do prezentacji i utwórz ramkę obrazu za pomocą [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-). Obraz staje się częścią pakietu prezentacji, więc prezentacja pozostaje samodzielna po przeniesieniu na inny komputer.
+W przypadku osadzonego obrazu dodaj dane obrazu do prezentacji i utwórz ramkę obrazu za pomocą [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-). Obraz staje się częścią pakietu prezentacji, dlatego prezentacja pozostaje samodzielna po przeniesieniu na inny komputer.
 
-Poniższy przykład dodaje obraz JPEG, tworzy ramkę w natywnych wymiarach obrazu i stosuje formatowanie linii oraz obrót:
+Poniższy przykład dodaje obraz JPEG, tworzy ramkę o natywnych wymiarach obrazu i stosuje formatowanie linii oraz obrót:
 
 ```java
 import com.aspose.slides.*;
@@ -71,11 +71,11 @@ try {
 }
 ```
 
-Ramka obrazu kontroluje wyświetlaną geometrię; zmiana rozmiaru ramki nie zmienia oryginalnych wymiarów pikseli przechowywanych w osadzonym zasobie obrazu. Rozróżnienie to staje się istotne przy późniejszym przycinaniu lub kompresji obrazu.
+Ramka obrazu kontroluje wyświetlaną geometrię; zmiana rozmiaru ramki nie zmienia pierwotnych wymiarów w pikselach przechowywanych w osadzonym zasobie obrazu. Rozróżnienie to staje się istotne przy przycinaniu lub kompresji obrazu później.
 
-## **Używanie skali względnej**
+## **Użyj skalowania względnego**
 
-[IPictureFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipictureframe/) udostępnia skalowanie względne szerokości i wysokości ramki poprzez [setRelativeScaleWidth](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipictureframe/#setRelativeScaleWidth-float-) i [setRelativeScaleHeight](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipictureframe/#setRelativeScaleHeight-float-). Wartość `1.0` odpowiada 100 % oryginalnego rozmiaru obrazu. Skala względna jest przydatna, gdy workflow wymaga zachowania zależności od rozmiaru obrazu źródłowego zamiast ręcznego obliczania końcowych wymiarów.
+[IPictureFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipictureframe/) udostępnia względne skalowanie szerokości i wysokości ramki za pomocą [setRelativeScaleWidth](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipictureframe/#setRelativeScaleWidth-float-) i [setRelativeScaleHeight](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipictureframe/#setRelativeScaleHeight-float-). Wartość `1.0` odpowiada 100 % oryginalnego rozmiaru obrazu. Skalowanie względne jest przydatne, gdy proces wymaga zachowania relacji do rozmiaru obrazu źródłowego zamiast ręcznego obliczania ostatecznych wymiarów.
 
 ```java
 import com.aspose.slides.*;
@@ -102,17 +102,17 @@ try {
 }
 ```
 
-Skala względna zmienia ustawienia skalowania ramki; nie przetwarza ani nie kompresuje osadzonego obrazu.
+Skalowanie względne zmienia ustawienia skali ramki; nie przetwarza ani nie kompresuje osadzonego obrazu.
 
-## **Osadzone i powiązane obrazy**
+## **Obrazy osadzone i połączone**
 
-Osadzony obraz przechowuje dane obrazu wewnątrz prezentacji i jest więc najbezpieczniejszym wyborem pod względem przenośności i przewidywalnego renderowania. Obraz powiązany przechowuje zewnętrzną lokalizację za pomocą metody [ISlidesPicture.setLinkPathLong](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/islidespicture/#setLinkPathLong-java.lang.String-) zamiast osadzania danych obrazu w ten sam sposób.
+Obraz osadzony przechowuje dane obrazu wewnątrz prezentacji i jest więc najbezpieczniejszym wyborem pod kątem przenośności i przewidywalnego renderowania. Obraz połączony przechowuje zewnętrzną lokalizację przy użyciu metody [ISlidesPicture.setLinkPathLong](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/islidespicture/#setLinkPathLong-java.lang.String-) zamiast osadzania danych obrazu w ten sam sposób.
 
-Obrazy powiązane mogą zmniejszyć ilość danych obrazu przechowywanych w pliku PPTX, ale wprowadzają zewnętrzną zależność. Plik powiązany musi pozostać dostępny dla aplikacji otwierającej lub renderującej prezentację. Jeśli ścieżka się zmieni, plik zostanie przeniesiony lub zasób będzie niedostępny, powiązany obraz może nie zostać wyświetlony zgodnie z oczekiwaniami. Dla prezentacji, które muszą być wysyłane e‑mailem, archiwizowane lub renderowane w odizolowanych środowiskach, obrazy osadzone są zazwyczaj bardziej niezawodne.
+Połączone obrazy mogą zmniejszyć ilość danych obrazu przechowywanych w pliku PPTX, ale wprowadzają zewnętrzną zależność. Połączony plik musi pozostać dostępny dla aplikacji otwierającej lub renderującej prezentację. Jeśli ścieżka ulegnie zmianie, plik zostanie przeniesiony lub zasób będzie niedostępny, połączony obraz może nie być wyświetlany zgodnie z oczekiwaniami. Dla prezentacji, które muszą być wysyłane e‑mailem, archiwizowane lub renderowane w odizolowanych środowiskach, obrazy osadzone są zazwyczaj bardziej niezawodne.
 
-### **Dodawanie obrazu powiązanego**
+### **Dodaj połączony obraz**
 
-Poniższy przykład tworzy ramkę obrazu i wskazuje ją na lokalny plik obrazu. Dotyczy wyłącznie wiązania obrazu; wiązanie wideo to oddzielny workflow mediów i celowo nie jest tutaj mieszane.
+Poniższy przykład tworzy ramkę obrazu i wskazuje ją na lokalny plik obrazu. Dotyczy tylko łączenia obrazów; łączenie wideo to osobny przepływ mediów i celowo nie jest mieszany w tym przykładzie.
 
 ```java
 import com.aspose.slides.*;
@@ -133,15 +133,15 @@ try {
 }
 ```
 
-Używaj linków, gdy zarządzanie plikami zewnętrznymi jest zamierzone. Nie używaj ich wyłącznie jako zamiennika kompresji: mały plik PPTX z uszkodzonymi zależnościami obrazu jest zazwyczaj mniej użyteczny niż większa, samodzielna prezentacja.
+Używaj linków, gdy zarządzanie plikami zewnętrznymi jest zamierzone. Nie używaj ich jedynie jako zamiennika kompresji: mały PPTX z uszkodzonymi zależnościami obrazu jest zazwyczaj mniej przydatny niż większa, samodzielna prezentacja.
 
-## **Ekstrahowanie obrazów z ramek obrazu**
+## **Wyodrębnij obrazy z ramek obrazu**
 
-Przed wyekstrawowaniem obrazu z istniejącej prezentacji sprawdź, czy kształt jest faktycznie [IPictureFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipictureframe/) i czy zawiera osadzony obraz. Powiązane ramki obrazu mogą nie zawierać bajtów obrazu, które można wyekstrahować w ten sam sposób.
+Przed wyodrębnieniem obrazu z istniejącej prezentacji sprawdź, czy kształt jest faktycznie [IPictureFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipictureframe/) i czy zawiera osadzony obraz. Połączone ramki obrazu mogą nie zawierać bajtów obrazu, które można wyodrębnić w ten sam sposób.
 
-### **Ekstrahowanie obrazu rastrowego**
+### **Wyodrębnij obraz rastrowy**
 
-Nowoczesne API obrazu używa [IImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iimage/) bezpośrednio i nie wymaga starszego wrappera Java. Poniższy przykład znajduje pierwszy osadzony rastrowy obraz na slajdzie i zapisuje go jako PNG:
+Nowoczesne API obrazów używa bezpośrednio [IImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iimage/) i nie wymaga starszego wrappera obrazu Java. Poniższy przykład znajduje pierwszy osadzony obraz rastrowy na slajdzie i zapisuje go jako PNG:
 
 ```java
 import com.aspose.slides.*;
@@ -174,11 +174,11 @@ try {
 }
 ```
 
-Zapisywanie za pomocą [IImage.save](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) konwertuje wyekstrahowany obraz do żądanego formatu wyjściowego. Jeśli potrzebujesz zakodowanych bajtów przechowywanych w prezentacji, a nie przekonwertowanego pliku rastrowego, użyj binarnych danych zasobu obrazu.
+Zapisywanie za pomocą [IImage.save](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) konwertuje wyodrębnięty obraz na żądany format wyjściowy. Jeśli potrzebujesz zakodowanych bajtów przechowywanych w prezentacji, a nie skonwertowanego pliku rastrowego, użyj danych binarnych zasobu obrazu.
 
-### **Ekstrahowanie obrazu SVG**
+### **Wyodrębnij obraz SVG**
 
-Dla obrazu SVG, [IPPImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ippimage/) udostępnia obiekt [ISvgImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/isvgimage/). Pozwala to pobrać dane SVG bezpośrednio, zamiast rasteryzować obraz najpierw.
+Dla obrazu SVG, [IPPImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ippimage/) udostępnia obiekt [ISvgImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/isvgimage/). Pozwala to pobrać dane SVG bezpośrednio, zamiast najpierw rasteryzować obraz.
 
 ```java
 import com.aspose.slides.*;
@@ -215,13 +215,13 @@ try {
 }
 ```
 
-Zachowanie treści SVG jako SVG zachowuje wektorowe źródło w prezentacji. Eksporty rastrowe, takie jak PNG lub JPEG, muszą renderować tę wektorową treść do pikseli. Eksport slajdu do PDF lub SVG jest również operacją renderowania, więc wyeksportowane grafiki nie powinny być traktowane jako dokładna kopia oryginalnego osadzonego SVG; użyj danych [ISvgImage.getSvgData](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/isvgimage/#getSvgData--) gdy wymagany jest sam wektorowy zasób.
+Zachowanie treści SVG jako SVG zachowuje źródło wektorowe w prezentacji. Eksporty rastrowe, takie jak PNG lub JPEG, muszą renderować tę zawartość wektorową do pikseli. Eksport slajdu do PDF lub SVG również jest operacją renderowania, więc wyeksportowane grafiki nie powinny być traktowane jako dokładna kopia oryginalnego osadzonego SVG; użyj danych osadzonego [ISvgImage.getSvgData](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/isvgimage/#getSvgData--) , gdy wymagany jest sam zasób wektorowy.
 
-## **Przycinanie obrazu**
+## **Przytnij obraz**
 
-Przycinanie zmienia, która część obrazu jest widoczna wewnątrz ramki. Wartości przycięcia na [IPictureFillFormat](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipicturefillformat/) są procentami wymiarów obrazu źródłowego. Przycinanie nie usuwa początkowo ukrytych pikseli z osadzonego obrazu; zmienia jedynie widoczny region.
+Przycinanie zmienia, która część obrazu jest widoczna wewnątrz ramki. Wartości przycięcia w [IPictureFillFormat](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipicturefillformat/) są procentami wymiarów obrazu źródłowego. Przycinanie nie usuwa początkowo ukrytych pikseli z osadzonego obrazu; zmienia jedynie widoczny obszar.
 
-Poniższy przykład znajduje ramkę obrazu w bezpieczny sposób i stosuje wartości przycięcia:
+Poniższy przykład bezpiecznie znajduje ramkę obrazu i stosuje wartości przycięcia:
 
 ```java
 import com.aspose.slides.*;
@@ -250,11 +250,11 @@ try {
 }
 ```
 
-Ponieważ ukryte dane obrazu nadal istnieją, przycięcie może być zmieniane później bez utraty oryginalnych pikseli. Jeśli rozmiar pliku ma większe znaczenie niż odwracalność, przycięte obszary mogą być fizycznie usunięte, jak opisano w następnej sekcji.
+Ponieważ ukryte dane obrazu nadal istnieją, przycięcie można zmienić później bez utraty oryginalnych pikseli. Jeśli rozmiar pliku jest ważniejszy niż odwracalność, przycięte obszary można fizycznie usunąć, jak opisano w następnej sekcji.
 
-## **Usuwanie przyciętych danych obrazu**
+## **Usuń przycięte dane obrazu**
 
-[IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) usuwa dane obrazu poza aktualnym prostokątem przycięcia i zwraca wynikowy zasób obrazu. Może to zmniejszyć rozmiar pliku, ale jest to destrukcyjna optymalizacja: po zapisaniu prezentacji usunięte piksele nie są już dostępne do późniejszej operacji odprzycinania.
+[IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) usuwa dane obrazu znajdujące się poza bieżącym prostokątem przycięcia i zwraca powstały zasób obrazu. Może to zmniejszyć rozmiar pliku, ale jest to destrukcyjna optymalizacja: po zapisaniu prezentacji usunięte piksele nie są już dostępne do późniejszego odwrócenia przycięcia.
 
 ```java
 import com.aspose.slides.*;
@@ -282,13 +282,13 @@ try {
 }
 ```
 
-Metoda może dodać nowy zasób obrazu do prezentacji. Jeśli oryginalny obraz jest również używany przez inne ramki obrazu, te ramki nadal potrzebują swojego istniejącego zasobu, więc usuwanie przyciętych obszarów niekoniecznie redukuje łączną liczbę obrazów. Przycinanie zawartości WMF lub EMF tą metodą rasteryzuje przycięty wynik do PNG.
+Metoda może dodać nowy zasób obrazu do prezentacji. Jeśli oryginalny obraz jest również używany przez inne ramki obrazu, te ramki nadal potrzebują swojego istniejącego zasobu, więc usunięcie przyciętych obszarów niekoniecznie zmniejsza łączną liczbę obrazów. Przycinanie treści WMF lub EMF tą metodą rasteryzuje przycięty wynik do PNG.
 
-## **Kompresja obrazów rastrowych**
+## **Kompresuj obrazy rastrowe**
 
-[IPictureFillFormat.compressImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) zmniejsza rozdzielczość obrazu rastrowego względem rozmiaru, w jakim obraz jest wyświetlany. Może także usunąć przycięte regiony w tej samej operacji. Metoda zwraca `true`, gdy obraz został przeskalowany lub przycięty oraz `false`, gdy nie było konieczności zmiany.
+[IPictureFillFormat.compressImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) zmniejsza rozdzielczość obrazu rastrowego w stosunku do rozmiaru, w jakim obraz jest wyświetlany. Może również usunąć przycięte obszary w tej samej operacji. Metoda zwraca `true`, gdy obraz został przeskalowany lub przycięty oraz `false`, gdy nie był potrzebny żaden zmian.
 
-Użyj predefiniowanej wartości [PicturesCompression](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/picturescompression/), gdy wystarczy standardowa docelowa rozdzielczość:
+Użyj predefiniowanej wartości [PicturesCompression](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/picturescompression/) , gdy wystarczająca jest standardowa docelowa rozdzielczość:
 
 ```java
 import com.aspose.slides.*;
@@ -315,17 +315,17 @@ try {
 }
 ```
 
-Zamiast predefiniowanej wartości można podać własną dodatnią wartość DPI, gdy wymagana jest konkretna rozdzielczość docelowa.
+Można przekazać niestandardową dodatnią wartość DPI zamiast predefiniowanej wartości, gdy wymagany jest konkretny cel.
 
-Kompresja przeznaczona jest dla obrazów rastrowych. Zawartość SVG i metaplików nie jest zmniejszana przez ten workflow kompresji rastrowej. Pamiętaj także, że niższa rozdzielczość i usunięte przycięte regiony nie mogą być odzyskane z zoptymalizowanej prezentacji. Wybieraj docelową rozdzielczość w oparciu o największy rozmiar, w którym obraz będzie faktycznie oglądany lub eksportowany, zamiast stosować najniższe DPI globalnie.
+Kompresja jest przeznaczona dla obrazów rastrowych. Zawartość SVG i metaplików nie jest zmniejszana w tym przepływie kompresji rastrowej. Pamiętaj również, że niższa rozdzielczość i usunięte przycięte obszary nie mogą być odzyskane z zoptymalizowanej prezentacji. Wybierz docelową rozdzielczość na podstawie największego rozmiaru, w jakim obraz będzie faktycznie oglądany lub eksportowany, zamiast stosować najniższe DPI globalnie.
 
-## **Zarządzanie efektami transformacji obrazu**
+## **Zarządzaj efektami transformacji obrazu**
 
-Kompletny workflow obejmujący jasność, kontrast, transformacje kolorów, rozmycie, efekty alfa, łańcuchy zamówień, inspekcję, usuwanie i weryfikację dwukierunkową znajdziesz w [Image Transform Effects](/androidjava/image-transform-effects/).
+Aby uzyskać kompletny przepływ obejmujący jasność, kontrast, transformacje kolorów, rozmycie, efekty alfa, łańcuchy, inspekcję, usuwanie i weryfikację w dwie strony, zobacz [Image Transform Effects](/slides/pl/androidjava/image-transform-effects/).
 
-## **Zablokowanie geometrii ramki obrazu**
+## **Zablokuj geometrię ramki obrazu**
 
-Ustawienia [IPictureFrameLock](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipictureframelock/) kontrolują, które operacje edycji są wyłączone dla ramki obrazu. Na przykład [setAspectRatioLocked](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) zachowuje proporcje kształtu podczas zmiany jego rozmiaru.
+Ustawienia [IPictureFrameLock](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipictureframelock/) kontrolują, które operacje edycji są wyłączone dla ramki obrazu. Na przykład [setAspectRatioLocked](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) zachowuje proporcje kształtu podczas jego skalowania.
 
 ```java
 import com.aspose.slides.*;
@@ -351,13 +351,13 @@ try {
 }
 ```
 
-Blokada dotyczy kształtu ramki obrazu. Nie wymusza ona ponownego próbkowania źródłowego obrazu ani trwałej zmiany jego proporcji.
+Blokada dotyczy kształtu ramki obrazu. Nie wymusza ona przetworzenia ani trwałej zmiany obrazu źródłowego do tego samego współczynnika proporcji.
 
-## **Dostosowanie wartości StretchOffset**
+## **Dostosuj wartości StretchOffset**
 
-Gdy tryb wypełnienia obrazu jest rozciągnięty, wartości stretch‑offset na [IPictureFillFormat](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipicturefillformat/) definiują prostokąt wypełnienia względem ramki obrazu. Dodatnie procenty tworzą wcięcie od krawędzi, a ujemne procenty tworzą występ.
+Gdy tryb wypełnienia obrazu jest rozciągnięcie, wartości stretch‑offset w [IPictureFillFormat](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipicturefillformat/) definiują prostokąt wypełnienia względem ramki obrazu. Dodatnie procenty tworzą wcięcie od krawędzi, podczas gdy ujemne procenty tworzą występ.
 
-Jest to inne niż przycinanie. Wartości przycięcia wybierają, która część obrazu źródłowego jest widoczna; offsety rozciągania zmieniają prostokąt, do którego widoczne wypełnienie obrazu jest rozciągane.
+Jest to inne niż przycinanie. Wartości przycięcia wybierają, która część obrazu źródłowego jest widoczna; offsety rozciągnięcia zmieniają prostokąt, w którym widoczne wypełnienie obrazu jest rozciągane.
 
 ```java
 import com.aspose.slides.*;
@@ -387,20 +387,20 @@ try {
 }
 ```
 
-Używaj offsetów rozciągania do umieszczania wypełnienia. Używaj właściwości przycięcia, gdy celem jest ukrycie krawędzi obrazu źródłowego.
+Używaj offsetów rozciągnięcia do pozycjonowania wypełnienia. Używaj właściwości przycięcia, gdy celem jest ukrycie krawędzi obrazu źródłowego.
 
-## **Przechowywanie, rozmiar pliku i uwagi przy eksporcie**
+## **Przechowywanie, rozmiar pliku i kwestie eksportu**
 
-Główne kompromisy są łatwiejsze do zarządzania, gdy przechowywanie obrazu i formatowanie ramki obrazu są traktowane oddzielnie:
+Główne kompromisy są łatwiejsze do zarządzania, gdy przechowywanie obrazów i formatowanie ramek obrazu są traktowane oddzielnie:
 
-- **Obrazy osadzone** czynią prezentację samodzielną i są najniebardziej niezawodne przy udostępnianiu i renderowaniu po stronie serwera, ale duże obrazy rastrowe zwiększają rozmiar PPTX i zużycie pamięci.
-- **Obrazy powiązane** mogą utrzymać paczkę mniejszą, ale prezentacja zależy od dostępności plików zewnętrznych pod przechowywanymi ścieżkami lub lokalizacjami.
-- **Przycinanie** jest początkowo niedestruktywne. Ukryte piksele pozostają osadzone, aż do momentu, gdy przycięte obszary zostaną wyraźnie usunięte lub usunięte podczas kompresji.
-- **Kompresja** może znacząco zmniejszyć rozmiar pliku przy zbyt dużych obrazach rastrowych, ale kosztem utraty rozdzielczości źródła. Powinna być stosowana po ustaleniu docelowego rozmiaru obrazu na slajdzie.
-- **Obrazy SVG** powinny pozostać jako SVG, gdy ważne jest zachowanie wektora. Wyodrębnij osadzony SVG bezpośrednio, gdy potrzebujesz samego zasobu wektorowego. Eksport slajdu do formatu rastrowego zawsze konwertuje renderowany slajd do pikseli.
-- **Powtarzające się obrazy** powinny ponownie wykorzystywać istniejący zasób [IPPImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ippimage/), gdy to możliwe, zamiast wielokrotnego ładowania tego samego pliku w workflow prezentacji.
+- **Obrazy osadzone** sprawiają, że prezentacja jest samodzielna i są najbardziej niezawodne w udostępnianiu oraz renderowaniu po stronie serwera, ale duże obrazy rastrowe zwiększają rozmiar PPTX i zużycie pamięci.
+- **Obrazy połączone** mogą utrzymać pakiet mniejszy, ale prezentacja zależy od dostępności plików zewnętrznych pod zapisanymi ścieżkami lub lokalizacjami.
+- **Przycinanie** jest początkowo niedestrukcyjne. Ukryte piksele pozostają osadzone, dopóki przycięte obszary nie zostaną wyraźnie usunięte lub usunięte podczas kompresji.
+- **Kompresja** może znacząco zmniejszyć rozmiar pliku przy zbyt dużych obrazach rastrowych, ale kosztem rozdzielczości źródła. Powinna być zastosowana po określeniu zamierzonego rozmiaru obrazu na slajdzie.
+- **Obrazy SVG** powinny pozostawać jako SVG, gdy ważne jest zachowanie wektora. Wyodrębnij osadzony SVG bezpośrednio, gdy potrzebny jest sam zasób wektorowy. Eksporty slajdów rastrowych zawsze konwertują renderowany slajd na piksele.
+- **Powtarzające się obrazy** powinny ponownie wykorzystywać istniejący zasób [IPPImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ippimage/), gdy to możliwe, zamiast wielokrotnego ładowania tego samego pliku w przepływie pracy prezentacji.
 
-W dużych prezentacjach optymalizacja obrazów jest najskuteczniejsza, gdy jest stosowana selektywnie: trzymaj loga i diagramy jako treść wektorową, kompresuj fotografie zgodnie z ich rzeczywistym rozmiarem wyświetlania, usuwaj przycięte piksele tylko wtedy, gdy późniejsza edycja nie jest wymagana, i unikaj linków zewnętrznych, chyba że zarządzanie zależnościami jest częścią projektu wdrożenia.
+W dużych prezentacjach optymalizacja obrazów jest zazwyczaj najskuteczniejsza, gdy jest przeprowadzana selektywnie: zachowaj logotypy i diagramy jako treść wektorową, kompresuj zdjęcia zgodnie z ich rzeczywistym rozmiarem wyświetlania, usuwaj przycięte piksele tylko gdy późniejsza edycja nie jest wymagana oraz unikaj linków zewnętrznych, chyba że zarządzanie zależnościami jest częścią projektu wdrożenia.
 
 ## **FAQ**
 
@@ -410,20 +410,20 @@ W dużych prezentacjach optymalizacja obrazów jest najskuteczniejsza, gdy jest 
 
 **Czy powinienem osadzać, czy łączyć obrazy?**
 
-Osadzaj obrazy, gdy prezentacja musi być przenośna, archiwizowana lub renderowana bez dostępu do zasobów zewnętrznych. Łącz obrazy tylko wtedy, gdy utrzymywanie plików obrazu poza PPTX jest zamierzone i zewnętrzne lokalizacje mogą być utrzymane w sposób niezawodny.
+Osadzaj obrazy, gdy prezentacja musi być przenośna, archiwizowana lub renderowana bez dostępu do zasobów zewnętrznych. Łącz obrazy tylko wtedy, gdy zamierzone jest przechowywanie plików obrazu poza PPTX i zewnętrzne lokalizacje mogą być utrzymywane wiarygodnie.
 
 **Czy przycinanie zmniejsza rozmiar pliku PPTX?**
 
-Nie samo w sobie. Normalne ustawienia przycięcia ukrywają części obrazu źródłowego, ale zachowują ukryte piksele. Użyj [IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) lub kompresji obrazu z usuwaniem przyciętych obszarów, gdy te piksele mogą być trwale odrzucone.
+Nie samo w sobie. Normalne ustawienia przycięcia ukrywają część obrazu źródłowego, ale zachowują ukryte piksele. Użyj [IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) lub kompresji obrazu z usunięciem przyciętych obszarów, gdy te piksele można trwale odrzucić.
 
 **Czy mogę przywrócić jakość obrazu po kompresji?**
 
-Nie. Kompresja może zmniejszyć przechowywaną rozdzielczość rastrową, a usunięcie przyciętych regionów usuwa dane obrazu. Trzymaj oryginalny obraz źródłowy poza prezentacją, jeśli później może być potrzebna edycja w wysokiej rozdzielczości.
+Nie. Kompresja może obniżyć przechowywaną rozdzielczość rastrową, a usunięcie przyciętych obszarów odrzuca dane obrazu. Zachowaj oryginalny obraz źródłowy poza prezentacją, jeśli później może być potrzebna edycja w wysokiej rozdzielczości.
 
-**Jak postępować z obrazami SVG?**
+**Jak należy postępować z obrazami SVG?**
 
-Zachowuj treść SVG jako SVG, gdy liczy się wierność wektora. Osadzony [ISvgImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/isvgimage/) może być wyodrębniony bezpośrednio. Renderowanie slajdu do formatu rastrowego, takiego jak PNG lub JPEG, rasteryzuje SVG jako część obrazu slajdu.
+Zachowuj zawartość SVG jako SVG, gdy ważna jest wierność wektora. Osadzony [ISvgImage](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/isvgimage/) może być wyodrębniony bezpośrednio. Renderowanie slajdu do formatu rastrowego, takiego jak PNG lub JPEG, rasteryzuje SVG jako część obrazu slajdu.
 
 **Jak uniknąć niebezpiecznych rzutowań przy odczytywaniu istniejących slajdów?**
 
-Sprawdzaj typ kształtu przed użyciem członków specyficznych dla ramki obrazu. Rzutowanie `instanceof` na [IPictureFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipictureframe/) zapobiega nieprawidłowym rzutowaniom i pozwala kodowi obsłużyć slajdy, które nie zawierają ramek obrazu.
+Sprawdź typ kształtu przed użyciem członków specyficznych dla ramki obrazu. Sprawdzenie `instanceof` względem [IPictureFrame](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipictureframe/) unika nieprawidłowych rzutowań i pozwala kodowi obsługiwać slajdy, które nie zawierają ramek obrazu.

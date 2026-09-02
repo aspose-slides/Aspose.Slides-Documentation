@@ -1,5 +1,5 @@
 ---
-title: Kelola Bingkai Gambar dalam Presentasi Menggunakan Java
+title: Kelola Picture Frame dalam Presentasi Menggunakan Java
 linktitle: Bingkai Gambar
 type: docs
 weight: 10
@@ -14,7 +14,7 @@ keywords:
 - gambar raster
 - gambar SVG
 - potong gambar
-- hapus area terpotong
+- hapus area yang dipotong
 - kompres gambar
 - StretchOffset
 - pemformatan bingkai gambar
@@ -28,19 +28,19 @@ keywords:
 - Aspose.Slides
 description: "Buat, format, tautkan, potong, ekstrak, dan kompres bingkai gambar dalam presentasi dengan Aspose.Slides untuk Java."
 ---
-## **Overview**
+## **Gambaran Umum**
 
-Picture frame adalah bentuk slide yang menampilkan gambar. Di Aspose.Slides, sumber gambar dan bentuk yang menampilkannya adalah objek terpisah: sebuah [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/) memiliki sumber gambar tersemat melalui [IImageCollection](https://reference.aspose.com/slides/id/java/com.aspose.slides/iimagecollection/), sementara sebuah [IPictureFrame](https://reference.aspose.com/slides/id/java/com.aspose.slides/ipictureframe/) mengendalikan posisi gambar, ukuran, pemformatan garis, rotasi, pemotongan, efek gambar, dan pengaturan tingkat bingkai lainnya.
+Picture frame adalah bentuk slide yang menampilkan gambar. Di Aspose.Slides, sumber daya gambar dan bentuk yang menampilkannya adalah objek terpisah: sebuah [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/) memiliki sumber daya gambar tersemat melalui [IImageCollection](https://reference.aspose.com/slides/id/java/com.aspose.slides/iimagecollection/), sementara sebuah [IPictureFrame](https://reference.aspose.com/slides/id/java/com.aspose.slides/ipictureframe/) mengontrol posisi gambar, ukuran, format garis, rotasi, pemotongan, efek gambar, dan pengaturan tingkat frame lainnya.
 
-Pemisahan ini berguna ketika gambar yang sama ditampilkan lebih dari sekali. Tambahkan gambar ke presentasi sekali saja, simpan [IPPImage](https://reference.aspose.com/slides/id/java/com.aspose.slides/ippimage/) yang dikembalikan, dan gunakan sumber gambar tersebut saat membuat picture frame.
+Pemisahan ini berguna ketika gambar yang sama ditampilkan lebih dari sekali. Tambahkan gambar ke presentasi sekali, simpan [IPPImage](https://reference.aspose.com/slides/id/java/com.aspose.slides/ippimage/) yang dikembalikan, dan gunakan sumber daya gambar tersebut saat membuat picture frame.
 
-Picture frame dapat berisi gambar raster seperti PNG atau JPEG dan gambar vektor SVG. Mereka juga dapat merujuk ke gambar yang ditautkan alih‑alih menyimpan byte gambar dalam presentasi. Pilihan ini memengaruhi portabilitas, ukuran file, ekstraksi, dan perilaku ekspor, sehingga penting memutuskan bagaimana gambar harus disimpan sebelum menerapkan pemformatan atau optimasi.
+Picture frame dapat berisi gambar raster seperti PNG atau JPEG serta gambar vektor SVG. Mereka juga dapat merujuk ke gambar tertaut alih‑alih menyimpan byte gambar di dalam presentasi. Pilihan ini memengaruhi portabilitas, ukuran berkas, ekstraksi, dan perilaku ekspor, sehingga penting memutuskan cara penyimpanan gambar sebelum menerapkan pemformatan atau optimasi.
 
-## **Add and Format an Embedded Image**
+## **Menambahkan dan Memformat Gambar Tersemat**
 
 Untuk gambar tersemat, tambahkan data gambar ke presentasi dan buat picture frame dengan [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/id/java/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-). Gambar menjadi bagian dari paket presentasi, sehingga presentasi tetap mandiri ketika dipindahkan ke komputer lain.
 
-Contoh berikut menambahkan gambar JPEG, membuat bingkai dengan dimensi asli gambar, dan menerapkan pemformatan garis serta rotasi:
+Contoh berikut menambahkan gambar JPEG, membuat frame dengan dimensi asli gambar, dan menerapkan format garis serta rotasi:
 
 ```java
 import com.aspose.slides.*;
@@ -70,11 +70,11 @@ try {
 }
 ```
 
-Picture frame mengontrol geometri yang ditampilkan; mengubah ukuran bingkai tidak mengubah dimensi piksel asli yang disimpan dalam sumber gambar tersemat. Perbedaan ini menjadi penting saat memotong atau mengompresi gambar di kemudian hari.
+Picture frame mengontrol geometri yang ditampilkan; mengubah ukuran frame tidak mengubah dimensi piksel asli yang disimpan dalam sumber daya gambar tersemat. Perbedaan ini menjadi penting ketika memotong atau mengompresi gambar di kemudian hari.
 
-## **Use Relative Scale**
+## **Menggunakan Skala Relatif**
 
-[IPictureFrame](https://reference.aspose.com/slides/id/java/com.aspose.slides/ipictureframe/) menyediakan skala lebar dan tinggi relatif untuk bingkai melalui [setRelativeScaleWidth](https://reference.aspose.com/slides/id/java/com.aspose.slides/ipictureframe/#setRelativeScaleWidth-float-) dan [setRelativeScaleHeight](https://reference.aspose.com/slides/id/java/com.aspose.slides/ipictureframe/#setRelativeScaleHeight-float-). Nilai `1.0` berarti 100 % dari ukuran gambar asli. Skala relatif berguna ketika alur kerja harus mempertahankan hubungan dengan ukuran gambar sumber alih‑alih menghitung dimensi akhir secara manual.
+[IPictureFrame](https://reference.aspose.com/slides/id/java/com.aspose.slides/ipictureframe/) mengekspos skala lebar dan tinggi relatif untuk frame melalui [setRelativeScaleWidth](https://reference.aspose.com/slides/id/java/com.aspose.slides/ipictureframe/#setRelativeScaleWidth-float-) dan [setRelativeScaleHeight](https://reference.aspose.com/slides/id/java/com.aspose.slides/ipictureframe/#setRelativeScaleHeight-float-). Nilai `1.0` mewakili 100 % ukuran gambar asli. Skala relatif berguna ketika alur kerja harus mempertahankan hubungan dengan ukuran gambar sumber alih‑alih menghitung dimensi akhir secara manual.
 
 ```java
 import com.aspose.slides.*;
@@ -101,17 +101,17 @@ try {
 }
 ```
 
-Skala relatif mengubah pengaturan skala bingkai; ia tidak melakukan resampling atau kompresi pada gambar tersemat.
+Skala relatif mengubah pengaturan skala frame; tidak melakukan resampling atau kompresi pada gambar tersemat.
 
-## **Embedded and Linked Images**
+## **Gambar Tersemat dan Tertaut**
 
-Gambar tersemat menyimpan data gambar di dalam presentasi dan oleh karena itu merupakan pilihan paling aman untuk portabilitas dan rendering yang dapat diprediksi. Gambar yang ditautkan menyimpan lokasi eksternal melalui metode [ISlidesPicture.setLinkPathLong](https://reference.aspose.com/slides/id/java/com.aspose.slides/islidespicture/#setLinkPathLong-java.lang.String-) alih‑alih menanamkan data gambar dengan cara yang sama.
+Gambar tersemat menyimpan data gambar di dalam presentasi dan karenanya merupakan pilihan paling aman untuk portabilitas serta rendering yang dapat diprediksi. Gambar tertaut menyimpan lokasi eksternal melalui metode [ISlidesPicture.setLinkPathLong](https://reference.aspose.com/slides/id/java/com.aspose.slides/islidespicture/#setLinkPathLong-java.lang.String-) alih‑alih menyematkan data gambar dengan cara yang sama.
 
-Gambar yang ditautkan dapat mengurangi jumlah data gambar yang disimpan dalam PPTX, tetapi mereka menambah ketergantungan eksternal. Berkas tertaut harus tetap dapat diakses oleh aplikasi yang membuka atau merender presentasi. Jika jalur berubah, berkas dipindahkan, atau sumber tidak tersedia, gambar yang ditautkan mungkin tidak ditampilkan sebagaimana mestinya. Untuk presentasi yang harus dikirim melalui email, diarsipkan, atau dirender dalam lingkungan terisolasi, gambar tersemat biasanya lebih dapat diandalkan.
+Gambar tertaut dapat mengurangi jumlah data gambar yang disimpan dalam PPTX, tetapi memperkenalkan ketergantungan eksternal. File tertaut harus tetap dapat diakses oleh aplikasi yang membuka atau merender presentasi. Jika jalur berubah, file dipindahkan, atau sumber tidak tersedia, picture frame tertaut mungkin tidak ditampilkan sebagaimana mestinya. Untuk presentasi yang harus dikirim email, diarsipkan, atau dirender di lingkungan terisolasi, gambar tersemat biasanya lebih dapat diandalkan.
 
-### **Add a Linked Image**
+### **Menambahkan Gambar Tertaut**
 
-Contoh berikut membuat picture frame dan mengarahkannya ke berkas gambar lokal. Contoh ini hanya menangani penautan gambar; penautan video merupakan alur kerja media terpisah dan sengaja tidak dicampur ke dalam contoh ini.
+Contoh berikut membuat picture frame dan menunjukannya ke file gambar lokal. Contoh ini hanya menangani penautan gambar; penautan video merupakan alur kerja media terpisah dan sengaja tidak dicampur ke contoh ini.
 
 ```java
 import com.aspose.slides.*;
@@ -132,15 +132,15 @@ try {
 }
 ```
 
-Gunakan tautan bila manajemen berkas eksternal bersifat disengaja. Jangan menggunakannya hanya sebagai pengganti kompresi: PPTX kecil dengan ketergantungan gambar yang rusak biasanya kurang berguna daripada presentasi mandiri yang lebih besar.
+Gunakan tautan ketika manajemen file eksternal memang diinginkan. Jangan gunakan hanya sebagai pengganti kompresi: PPTX kecil dengan ketergantungan gambar yang rusak biasanya kurang berguna dibandingkan presentasi mandiri yang lebih besar.
 
-## **Extract Images from Picture Frames**
+## **Mengekstrak Gambar dari Picture Frame**
 
-Sebelum mengekstrak gambar dari presentasi yang ada, pastikan bahwa bentuk memang sebuah [IPictureFrame](https://reference.aspose.com/slides/id/java/com.aspose.slides/ipictureframe/) dan bahwa ia berisi gambar tersemat. Picture frame yang ditautkan mungkin tidak berisi byte gambar yang dapat diekstrak dengan cara yang sama.
+Sebelum mengekstrak gambar dari presentasi yang ada, pastikan bahwa bentuk tersebut memang sebuah [IPictureFrame](https://reference.aspose.com/slides/id/java/com.aspose.slides/ipictureframe/) dan bahwa ia berisi gambar tersemat. Picture frame tertaut mungkin tidak berisi byte gambar yang dapat diekstrak dengan cara yang sama.
 
-### **Extract a Raster Image**
+### **Mengekstrak Gambar Raster**
 
-API gambar modern menggunakan [IImage](https://reference.aspose.com/slides/id/java/com.aspose.slides/iimage/) secara langsung dan tidak memerlukan pembungkus gambar Java lama. Contoh berikut menemukan gambar raster tersemat pertama pada slide dan menyimpannya sebagai PNG:
+API gambar modern menggunakan [IImage](https://reference.aspose.com/slides/id/java/com.aspose.slides/iimage/) secara langsung dan tidak memerlukan wrapper gambar Java lama. Contoh berikut menemukan gambar raster tersemat pertama pada slide dan menyimpannya sebagai PNG:
 
 ```java
 import com.aspose.slides.*;
@@ -173,11 +173,11 @@ try {
 }
 ```
 
-Menyimpan melalui [IImage.save](https://reference.aspose.com/slides/id/java/com.aspose.slides/iimage/#save-java.lang.String-int-) mengonversi gambar yang diekstrak ke format output yang diminta. Jika Anda memerlukan byte yang telah dienkode dan disimpan dalam presentasi alih‑alih file raster yang dikonversi, gunakan data biner sumber gambar tersebut.
+Menyimpan melalui [IImage.save](https://reference.aspose.com/slides/id/java/com.aspose.slides/iimage/#save-java.lang.String-int-) mengonversi gambar yang diekstrak ke format output yang diminta. Jika Anda memerlukan byte terenkode yang disimpan dalam presentasi alih‑alih file raster yang telah dikonversi, gunakan data biner sumber daya gambar tersebut.
 
-### **Extract an SVG Image**
+### **Mengekstrak Gambar SVG**
 
-Untuk gambar SVG, [IPPImage](https://reference.aspose.com/slides/id/java/com.aspose.slides/ippimage/) menyediakan objek [ISvgImage](https://reference.aspose.com/slides/id/java/com.aspose.slides/isvgimage/). Ini memungkinkan Anda mengambil data SVG secara langsung alih‑alih meraster gambar terlebih dahulu.
+Untuk gambar SVG, [IPPImage](https://reference.aspose.com/slides/id/java/com.aspose.slides/ippimage/) mengekspos objek [ISvgImage](https://reference.aspose.com/slides/id/java/com.aspose.slides/isvgimage/). Hal ini memungkinkan Anda mengambil data SVG secara langsung alih‑alih merasterkan gambar terlebih dahulu.
 
 ```java
 import com.aspose.slides.*;
@@ -214,13 +214,13 @@ try {
 }
 ```
 
-Menyimpan konten SVG sebagai SVG mempertahankan sumber vektor di dalam presentasi. Ekspor raster seperti PNG atau JPEG secara wajib merender konten vektor ke piksel. Ekspor slide ke PDF atau SVG juga merupakan operasi rendering, sehingga grafik yang diekspor tidak boleh dianggap sebagai salinan byte‑per‑byte dari SVG tersemat yang asli; gunakan data [ISvgImage.getSvgData](https://reference.aspose.com/slides/id/java/com.aspose.slides/isvgimage/#getSvgData--) ketika sumber vektor asli diperlukan.
+Menjaga konten SVG sebagai SVG mempertahankan sumber vektor di dalam presentasi. Ekspor raster seperti PNG atau JPEG secara otomatis merender konten vektor tersebut ke piksel. Ekspor slide ke PDF atau SVG juga merupakan operasi rendering, sehingga grafik yang diekspor tidak boleh dianggap sebagai salinan byte‑per‑byte dari SVG tersemat asli; gunakan data [ISvgImage.getSvgData](https://reference.aspose.com/slides/id/java/com.aspose.slides/isvgimage/#getSvgData--) ketika sumber vektor asli diperlukan.
 
-## **Crop an Image**
+## **Memotong Gambar**
 
-Pemotongan mengubah bagian gambar yang terlihat di dalam bingkai. Nilai pemotongan pada [IPictureFillFormat](https://reference.aspose.com/slides/id/java/com.aspose.slides/ipicturefillformat/) adalah persentase dari dimensi gambar sumber. Pemotongan pada awalnya tidak menghapus piksel tersembunyi dari gambar tersemat; ia hanya mengubah wilayah yang terlihat.
+Pemotongan mengubah bagian gambar yang terlihat di dalam frame. Nilai pemotongan pada [IPictureFillFormat](https://reference.aspose.com/slides/id/java/com.aspose.slides/ipicturefillformat/) adalah persentase dari dimensi gambar sumber. Pemotongan awalnya tidak menghapus piksel tersembunyi dari gambar tersemat; ia hanya mengubah wilayah yang terlihat.
 
-Contoh berikut menemukan picture frame secara aman dan menerapkan nilai pemotongan:
+Contoh berikut menemukan picture frame dengan aman dan menerapkan nilai pemotongan:
 
 ```java
 import com.aspose.slides.*;
@@ -249,11 +249,11 @@ try {
 }
 ```
 
-Karena data gambar tersembunyi masih ada, pemotongan dapat diubah kemudian tanpa kehilangan piksel asli. Jika ukuran berkas lebih penting daripada kemampuan membatalkan, wilayah yang dipotong dapat dihapus secara fisik seperti dijelaskan pada bagian berikut.
+Karena data gambar tersembunyi masih ada, pemotongan dapat diubah nanti tanpa kehilangan piksel asli. Jika ukuran berkas lebih penting daripada kemampuan membatalkan, wilayah yang dipotong dapat dihapus secara fisik seperti yang dijelaskan pada bagian berikut.
 
-## **Remove Cropped Image Data**
+## **Menghapus Data Gambar yang Dipotong**
 
-[IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/id/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) menghapus data gambar di luar persegi pemotongan saat ini dan mengembalikan sumber gambar yang dihasilkan. Ini dapat mengurangi ukuran berkas, tetapi merupakan optimasi destruktif: setelah presentasi disimpan, piksel yang dihapus tidak lagi tersedia untuk operasi un‑crop di kemudian hari.
+[IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/id/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) menghapus data gambar di luar persegi panjang pemotongan saat ini dan mengembalikan sumber daya gambar yang dihasilkan. Ini dapat mengurangi ukuran berkas, tetapi merupakan optimasi destruktif: setelah presentasi disimpan, piksel yang dihapus tidak lagi tersedia untuk operasi pembatalan pemotongan di kemudian hari.
 
 ```java
 import com.aspose.slides.*;
@@ -281,13 +281,13 @@ try {
 }
 ```
 
-Metode ini dapat menambahkan sumber gambar baru ke presentasi. Jika gambar asli juga digunakan oleh picture frame lain, frame‑frame tersebut tetap memerlukan sumber yang ada, sehingga menghapus area yang dipotong tidak selalu mengurangi total jumlah gambar. Memotong konten WMF atau EMF dengan metode ini meraster hasil yang dipotong menjadi PNG.
+Metode ini mungkin menambahkan sumber daya gambar baru ke presentasi. Jika gambar asli juga digunakan oleh picture frame lain, frame‑frame tersebut tetap memerlukan sumber daya yang ada, sehingga penghapusan area yang dipotong tidak selalu mengurangi total jumlah gambar. Memotong konten WMF atau EMF dengan metode ini merasterkan hasil yang dipotong menjadi PNG.
 
-## **Compress Raster Images**
+## **Mengompresi Gambar Raster**
 
-[IPictureFillFormat.compressImage](https://reference.aspose.com/slides/id/java/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) mengurangi resolusi gambar raster relatif terhadap ukuran saat gambar ditampilkan. Ia juga dapat menghapus wilayah yang dipotong dalam operasi yang sama. Metode mengembalikan `true` bila gambar diubah ukurannya atau dipotong dan `false` bila tidak ada perubahan yang diperlukan.
+[IPictureFillFormat.compressImage](https://reference.aspose.com/slides/id/java/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) mengurangi resolusi gambar raster relatif terhadap ukuran saat gambar ditampilkan. Metode ini juga dapat menghapus wilayah yang dipotong dalam satu operasi. Metode mengembalikan `true` ketika gambar diubah ukurannya atau dipotong, dan `false` bila tidak ada perubahan yang diperlukan.
 
-Gunakan nilai [PicturesCompression](https://reference.aspose.com/slides/id/java/com.aspose.slides/picturescompression/) yang telah ditentukan bila resolusi target standar sudah cukup:
+Gunakan nilai [PicturesCompression](https://reference.aspose.com/slides/id/java/com.aspose.slides/picturescompression/) yang telah ditentukan sebelumnya ketika target resolusi standar sudah cukup:
 
 ```java
 import com.aspose.slides.*;
@@ -314,15 +314,15 @@ try {
 }
 ```
 
-Nilai DPI positif khusus dapat diberikan alih‑alih nilai yang telah ditentukan ketika target tertentu diperlukan.
+Nilai DPI positif khusus dapat diberikan alih‑alih nilai yang telah ditentukan ketika target spesifik diperlukan.
 
-Kompresi ditujukan untuk gambar raster. Konten SVG dan metafile tidak berkurang oleh alur kerja kompresi raster ini. Juga ingat bahwa resolusi lebih rendah dan wilayah yang dipotong yang dihapus tidak dapat dipulihkan dari presentasi yang telah dioptimasi. Pilih resolusi target berdasarkan ukuran terbesar di mana gambar akan benar‑benar dilihat atau diekspor, bukan dengan menerapkan DPI terendah secara global.
+Kompresi ditujukan untuk gambar raster. Konten SVG dan metafile tidak dikurangi oleh alur kerja kompresi raster ini. Ingat juga bahwa resolusi lebih rendah dan wilayah yang dipotong yang dihapus tidak dapat dipulihkan dari presentasi yang telah dioptimasi. Pilih resolusi target berdasarkan ukuran terbesar di mana gambar benar‑benar akan dilihat atau diekspor, bukan dengan menerapkan DPI terendah secara global.
 
-## **Manage Image Transform Effects**
+## **Mengelola Efek Transformasi Gambar**
 
-Untuk alur kerja lengkap yang mencakup kecerahan, kontras, transformasi warna, blur, efek alfa, rantai terurut, inspeksi, penghapusan, dan verifikasi lintas‑sisi, lihat [Image Transform Effects](/java/image-transform-effects/).
+Untuk alur kerja lengkap yang mencakup kecerahan, kontras, transformasi warna, blur, efek alfa, rantai berurutan, inspeksi, penghapusan, dan verifikasi putar‑balik, lihat [Image Transform Effects](/slides/id/java/image-transform-effects/).
 
-## **Lock Picture Frame Geometry**
+## **Mengunci Geometri Picture Frame**
 
 Pengaturan [IPictureFrameLock](https://reference.aspose.com/slides/id/java/com.aspose.slides/ipictureframelock/) mengontrol operasi penyuntingan mana yang dinonaktifkan untuk picture frame. Misalnya, [setAspectRatioLocked](https://reference.aspose.com/slides/id/java/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) mempertahankan proporsi bentuk saat diubah ukurannya.
 
@@ -350,13 +350,13 @@ try {
 }
 ```
 
-Kunci ini berlaku pada bentuk picture frame. Ia tidak memaksa gambar sumber untuk dire-sample atau diubah secara permanen ke rasio aspek yang sama.
+Penguncian berlaku pada bentuk picture frame. Ia tidak memaksa gambar sumber untuk dire-sample atau secara permanen diubah menjadi rasio aspek yang sama.
 
-## **Adjust the StretchOffset Values**
+## **Menyesuaikan Nilai StretchOffset**
 
-Ketika mode isian gambar adalah stretch, nilai stretch‑offset pada [IPictureFillFormat](https://reference.aspose.com/slides/id/java/com.aspose.slides/ipicturefillformat/) menentukan persegi isian relatif terhadap kotak pembatas picture frame. Persentase positif membuat inset dari tepi, sementara persentase negatif membuat outset.
+Ketika mode isian gambar adalah stretch, nilai stretch‑offset pada [IPictureFillFormat](https://reference.aspose.com/slides/id/java/com.aspose.slides/ipicturefillformat/) menentukan persegi isi relatif terhadap kotak batas picture frame. Persentase positif membuat inset dari tepi, sementara persentase negatif membuat outset.
 
-Ini berbeda dari pemotongan. Nilai pemotongan memilih bagian gambar sumber yang terlihat; stretch offset mengubah persegi dimana isian gambar yang terlihat diregangkan.
+Ini berbeda dari pemotongan. Nilai pemotongan memilih bagian gambar sumber yang terlihat; offset stretch mengubah persegi tempat isian gambar yang terlihat diregangkan.
 
 ```java
 import com.aspose.slides.*;
@@ -386,43 +386,43 @@ try {
 }
 ```
 
-Gunakan stretch offset untuk penempatan isian. Gunakan properti crop ketika tujuan Anda menyembunyikan tepi gambar sumber.
+Gunakan stretch offset untuk penempatan isian. Gunakan properti pemotongan ketika tujuan Anda adalah menyembunyikan tepi gambar sumber.
 
-## **Storage, File Size, and Export Considerations**
+## **Penyimpanan, Ukuran Berkas, dan Pertimbangan Ekspor**
 
-Pertukaran utama lebih mudah dikelola ketika penyimpanan gambar dan pemformatan picture frame diperlakukan secara terpisah:
+Trade‑off utama lebih mudah dikelola ketika penyimpanan gambar dan pemformatan picture frame diperlakukan terpisah:
 
-- **Embedded images** membuat presentasi mandiri dan paling dapat diandalkan untuk berbagi serta rendering sisi server, tetapi gambar raster besar meningkatkan ukuran PPTX dan penggunaan memori.
-- **Linked images** dapat membuat paket lebih kecil, tetapi presentasi bergantung pada berkas eksternal yang tetap tersedia di jalur atau lokasi yang disimpan.
-- **Cropping** pada awalnya tidak destruktif. Piksel tersembunyi tetap tersemat sampai area yang dipotong secara eksplisit dihapus atau dihilangkan selama kompresi.
-- **Compression** dapat mengurangi ukuran berkas secara signifikan untuk gambar raster yang terlalu besar, tetapi mengorbankan resolusi sumber. Sebaiknya diterapkan setelah ukuran akhir pada slide diketahui.
-- **SVG images** sebaiknya tetap sebagai SVG ketika preservasi vektor penting. Ekstrak SVG tersemat secara langsung ketika Anda memerlukan sumber vektor itu sendiri. Ekspor slide raster selalu mengonversi slide yang dirender ke piksel.
-- **Repeated images** sebaiknya menggunakan kembali sumber [IPPImage] yang ada bila memungkinkan alih‑alih memuat berkas yang sama berulang‑ulang ke dalam alur kerja presentasi.
+- **Gambar tersemat** membuat presentasi mandiri dan paling dapat diandalkan untuk berbagi serta rendering sisi server, tetapi gambar raster besar meningkatkan ukuran PPTX dan penggunaan memori.
+- **Gambar tertaut** dapat menjaga paket tetap lebih kecil, tetapi presentasi bergantung pada file eksternal yang tetap tersedia di jalur atau lokasi yang disimpan.
+- **Pemotongan** pada awalnya non‑destruktif. Piksel tersembunyi tetap tersemat hingga area yang dipotong secara eksplisit dihapus atau dihilangkan selama kompresi.
+- **Kompresi** dapat mengurangi ukuran berkas secara signifikan untuk gambar raster yang berukuran berlebih, tetapi mengorbankan resolusi sumber. Kompresi sebaiknya diterapkan setelah ukuran pada slide yang diinginkan diketahui.
+- **Gambar SVG** sebaiknya tetap sebagai SVG ketika preservasi vektor penting. Ekstrak SVG tersemat secara langsung ketika Anda memerlukan sumber vektor itu sendiri. Ekspor slide raster selalu mengonversi slide yang dirender menjadi piksel.
+- **Gambar berulang** sebaiknya menggunakan kembali sumber daya [IPPImage](https://reference.aspose.com/slides/id/java/com.aspose.slides/ippimage/) yang ada bila memungkinkan alih‑alih memuat file yang sama berulang kali ke alur kerja presentasi.
 
-Untuk presentasi besar, optimasi gambar biasanya paling efektif bila dilakukan secara selektif: pertahankan logo dan diagram sebagai konten vektor, kompres foto sesuai ukuran tampilan sebenarnya, hapus piksel yang dipotong hanya bila penyuntingan lanjutan tidak diperlukan, dan hindari tautan eksternal kecuali manajemen ketergantungan merupakan bagian dari desain penyebaran.
+Untuk presentasi besar, optimasi gambar biasanya paling efektif bila dilakukan secara selektif: simpan logo dan diagram sebagai konten vektor, kompres foto sesuai ukuran tampilan sebenarnya, hapus piksel yang dipotong hanya bila penyuntingan di kemudian hari tidak diperlukan, dan hindari tautan eksternal kecuali manajemen ketergantungan menjadi bagian dari desain penyebaran.
 
 ## **FAQ**
 
-**What is the difference between a picture frame and an image resource?**
+**Apa perbedaan antara picture frame dan sumber daya gambar?**
 
-[IPPImage](https://reference.aspose.com/slides/id/java/com.aspose.slides/ippimage/) mewakili sumber gambar yang terkait dengan presentasi. [IPictureFrame](https://reference.aspose.com/slides/id/java/com.aspose.slides/ipictureframe/) adalah bentuk pada slide yang menampilkan gambar dan menyimpan geometri serta pemformatan tingkat bingkai seperti ukuran, rotasi, nilai crop, efek, dan kunci.
+[IPPImage](https://reference.aspose.com/slides/id/java/com.aspose.slides/ippimage/) mewakili sumber daya gambar yang terkait dengan presentasi. [IPictureFrame](https://reference.aspose.com/slides/id/java/com.aspose.slides/ipictureframe/) adalah bentuk pada slide yang menampilkan gambar dan menyimpan geometri serta format tingkat frame seperti ukuran, rotasi, nilai pemotongan, efek, dan kunci.
 
-**Should I embed or link images?**
+**Haruskah saya menyematkan atau menautkan gambar?**
 
-Sematkan gambar ketika presentasi harus portabel, diarsipkan, atau dirender tanpa akses ke sumber eksternal. Tautkan gambar hanya ketika menyimpan berkas gambar di luar PPTX bersifat disengaja dan lokasi eksternal dapat dipelihara dengan andal.
+Sematkan gambar ketika presentasi harus portabel, diarsipkan, atau dirender tanpa akses ke sumber daya eksternal. Tautkan gambar hanya ketika menyimpan file gambar di luar PPTX memang diinginkan dan lokasi eksternal dapat dipertahankan dengan handal.
 
-**Does cropping reduce PPTX file size?**
+**Apakah pemotongan mengurangi ukuran berkas PPTX?**
 
-Tidak secara otomatis. Pengaturan crop normal menyembunyikan bagian gambar sumber tetapi tetap menyimpan piksel di bawahnya. Gunakan [IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/id/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) atau kompresi gambar dengan penghapusan area yang dipotong ketika piksel tersebut dapat dibuang secara permanen.
+Tidak secara otomatis. Pengaturan pemotongan standar menyembunyikan bagian gambar sumber tetapi tetap menyimpan piksel di bawahnya. Gunakan [IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/id/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) atau kompresi gambar dengan penghapusan area yang dipotong ketika piksel tersebut dapat dibuang secara permanen.
 
-**Can I restore image quality after compression?**
+**Bisakah saya mengembalikan kualitas gambar setelah kompresi?**
 
-Tidak. Kompresi dapat mengurangi resolusi raster yang disimpan, dan menghapus wilayah yang dipotong menghilangkan data gambar. Simpan gambar sumber asli di luar presentasi jika penyuntingan resolusi tinggi di kemudian hari mungkin diperlukan.
+Tidak. Kompresi dapat menurunkan resolusi raster yang disimpan, dan penghapusan wilayah yang dipotong membuang data gambar. Simpan gambar sumber asli di luar presentasi bila penyuntingan beresolusi tinggi di masa depan mungkin diperlukan.
 
-**How should SVG images be handled?**
+**Bagaimana cara menangani gambar SVG?**
 
 Pertahankan konten SVG sebagai SVG ketika fidelitas vektor penting. [ISvgImage](https://reference.aspose.com/slides/id/java/com.aspose.slides/isvgimage/) yang tersemat dapat diekstrak secara langsung. Merender slide ke format raster seperti PNG atau JPEG merasterkan SVG sebagai bagian dari gambar slide.
 
-**How can I avoid unsafe casts when reading existing slides?**
+**Bagaimana saya dapat menghindari cast tidak aman saat membaca slide yang ada?**
 
 Periksa tipe bentuk sebelum menggunakan anggota khusus picture frame. Pemeriksaan `instanceof` terhadap [IPictureFrame](https://reference.aspose.com/slides/id/java/com.aspose.slides/ipictureframe/) menghindari cast yang tidak valid dan memungkinkan kode menangani slide yang tidak berisi picture frame.

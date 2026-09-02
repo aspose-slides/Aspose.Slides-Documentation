@@ -1,5 +1,5 @@
 ---
-title: مدیریت بخش‌های اسلاید در ارائه‌ها با استفاده از C++
+title: مدیریت بخش‌های اسلاید در ارائه‌ها با C++
 linktitle: بخش اسلاید
 type: docs
 weight: 100
@@ -10,77 +10,220 @@ keywords:
 - ویرایش بخش
 - تغییر بخش
 - نام بخش
+- دریافت اسلایدهای بخش
+- پردازش اسلایدهای بخش
 - PowerPoint
-- OpenDocument
 - ارائه
 - C++
 - Aspose.Slides
-description: "بخش‌های اسلاید را در PowerPoint و OpenDocument با Aspose.Slides برای C++ بهینه کنید — تقسیم، تغییر نام و بازچینش برای بهبود جریان کار فایل‌های PPTX و ODP."
+description: "مدیریت بخش‌های اسلاید با Aspose.Slides برای C++: ایجاد، تغییر نام، ترتیب‌دهی مجدد، دریافت و پردازش اسلایدهای بخش در ارائه‌های PPTX."
 ---
-## **مقدمه**
+## **معرفی**
 
-با Aspose.Slides برای C++ می‌توانید یک ارائه PowerPoint را به بخش‌ها سازماندهی کنید. می‌توانید بخش‌هایی را ایجاد کنید که اسلایدهای خاصی را شامل می‌شوند.
+بخش‌ها اسلایدهای متوالی را بدون تغییر محتوای اسلاید، به صورت گروه‌های نام‌گذاری‌شده سازماندهی می‌کنند. با Aspose.Slides برای C++ می‌توانید با استفاده از متد [Presentation::get_Sections](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/get_sections/) بخش‌ها را ایجاد، ترتیب‌دهی مجدد، تغییر نام، بررسی و حذف کنید.
 
-ممکن است بخواهید بخش‌هایی ایجاد کنید و از آن‌ها برای سازماندهی یا تقسیم اسلایدهای یک ارائه به بخش‌های منطقی در این شرایط استفاده کنید:
+بخش‌ها به‌ویژه زمانی مفید هستند که:
+- یک ارائه بزرگ نیاز دارد به موضوعات یا فصل‌های منطقی تقسیم شود؛
+- گروه‌های مختلف اسلاید به همکاران متفاوت اختصاص داده شوند؛
+- اسلایدها نیاز داشته باشند به‌عنوان گروه‌ها پردازش، منتقل یا ادغام شوند.
 
-- هنگامی که بر روی یک ارائه بزرگ با افراد دیگر یا یک تیم کار می‌کنید—و نیاز دارید اسلایدهای خاصی را به همکار یا برخی اعضای تیم اختصاص دهید. 
-- هنگامی که با ارائه‌ای که دارای اسلایدهای بسیاری است سروکار دارید—و در مدیریت یا ویرایش محتوای آن به‌صورت یک‌جا دچار مشکل می‌شوید.
+نام‌های بخش کوتاه و واضحی انتخاب کنید که هدف اسلایدهای گروه‌بندی‌شده را توصیف کند. چون بخش‌ها بخشی از ساختار ارائه هستند، برای تعیین عضویت از APIهای بخش استفاده کنید نه این‌که از موقعیت اسلایدها استخراج کنید.
 
-به‌طور ایده‌آل باید بخشی ایجاد کنید که اسلایدهای مشابه را در خود جای دهد—اسلایدها ویژگی مشترکی دارند یا می‌توانند بر اساس یک قانون در یک گروه قرار بگیرند—و به آن بخش نامی بدهید که اسلایدهای داخل آن را توصیف کند. 
+## **ایجاد و مدیریت بخش‌ها**
 
-## **ایجاد بخش‌ها در ارائه‌ها**
+از [ISectionCollection::AddSection](https://reference.aspose.com/slides/fa/cpp/aspose.slides/isectioncollection/addsection/) برای ایجاد یک بخش با مشخص کردن نام و اسلاید شروع استفاده کنید. Aspose.Slides اسلایدهایی که به بخش تعلق دارند را از ساختار فعلی بخش‌های ارائه تعیین می‌کند.
 
-برای افزودن بخشی که اسلایدها را در یک ارائه در خود جای دهد، Aspose.Slides برای C++ متد AddSection را ارائه می‌دهد که به شما امکان می‌دهد نام بخشی که قصد ایجاد آن را دارید و اسلایدی که بخش از آن شروع می‌شود را مشخص کنید. 
+هم‌چنین [ISectionCollection](https://reference.aspose.com/slides/fa/cpp/aspose.slides/isectioncollection/) همان امکان را می‌دهد:
+- جابه‌جایی یک بخش همراه با اسلایدهای آن با استفاده از [ISectionCollection::ReorderSectionWithSlides](https://reference.aspose.com/slides/fa/cpp/aspose.slides/isectioncollection/reordersectionwithslides/);
+- حذف فقط تعریف بخش با [ISectionCollection::RemoveSection](https://reference.aspose.com/slides/fa/cpp/aspose.slides/isectioncollection/removesection/)، که اسلایدهای آن را حفظ می‌کند؛ 
+- حذف یک بخش به همراه اسلایدهای آن با [ISectionCollection::RemoveSectionWithSlides](https://reference.aspose.com/slides/fa/cpp/aspose.slides/isectioncollection/removesectionwithslides/);
+- افزودن یک بخش خالی در انتها با [ISectionCollection::AppendEmptySection](https://reference.aspose.com/slides/fa/cpp/aspose.slides/isectioncollection/appendemptysection/).
 
-این کد نمونه نشان می‌دهد چگونه در یک ارائه به زبان C++ یک بخش ایجاد کنید:
+مثال زیر دو بخش ایجاد می‌کند، یکی از آن‌ها را جابه‌جا می‌کند، آن را همراه با اسلایدهایش حذف می‌کند و یک بخش خالی اضافه می‌نماید:
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
+```cpp
+#include <DOM/ISectionCollection.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
 
-auto defaultSlide = pres->get_Slides()->idx_get(0);
-auto newSlide1 = pres->get_Slides()->AddEmptySlide(pres->get_LayoutSlides()->idx_get(0));
-auto newSlide2 = pres->get_Slides()->AddEmptySlide(pres->get_LayoutSlides()->idx_get(0));
-auto newSlide3 = pres->get_Slides()->AddEmptySlide(pres->get_LayoutSlides()->idx_get(0));
-auto newSlide4 = pres->get_Slides()->AddEmptySlide(pres->get_LayoutSlides()->idx_get(0));
+using namespace Aspose::Slides;
 
-auto section1 = pres->get_Sections()->AddSection(u"Section 1", newSlide1);
-auto section2 = pres->get_Sections()->AddSection(u"Section 2", newSlide3);
-// section1 در newSlide2 پایان خواهد یافت و پس از آن section2 شروع خواهد شد   
+auto presentation = System::MakeObject<Presentation>();
+auto layoutSlide = presentation->get_LayoutSlide(0);
+auto titleSlide = presentation->get_Slide(0);
+presentation->get_Slides()->AddEmptySlide(layoutSlide);
+auto resultsSlide = presentation->get_Slides()->AddEmptySlide(layoutSlide);
+presentation->get_Slides()->AddEmptySlide(layoutSlide);
 
-pres->Save(u"pres-sections.pptx", SaveFormat::Pptx);
+auto sections = presentation->get_Sections();
+sections->AddSection(u"Introduction", titleSlide);
+auto resultsSection = sections->AddSection(u"Results", resultsSlide);
 
-pres->get_Sections()->ReorderSectionWithSlides(section2, 0);
-pres->Save(u"pres-sections-moved.pptx", SaveFormat::Pptx);
-
-pres->get_Sections()->RemoveSectionWithSlides(section2);
-
-pres->get_Sections()->AppendEmptySection(u"Last empty section");
-
-pres->Save(u"pres-section-with-empty.pptx", SaveFormat::Pptx);
+sections->ReorderSectionWithSlides(resultsSection, 0);
+sections->RemoveSectionWithSlides(resultsSection);
+sections->AppendEmptySection(u"Appendix");
 ```
+
+پس از این عملیات، ارائه شامل بخش `Introduction` به همراه اسلایدهایش و یک بخش خالی `Appendix` می‌شود. بخش `Results` و اسلایدهایش حذف شده‌اند.
 
 ## **تغییر نام بخش‌ها**
 
-پس از ایجاد یک بخش در ارائه PowerPoint، ممکن است تصمیم بگیرید نام آن را تغییر دهید. 
+برای تغییر نام یک بخش، [ISection::set_Name](https://reference.aspose.com/slides/fa/cpp/aspose.slides/isection/set_name/) را فراخوانی کنید. اسلایدهای بخش و موقعیت آن بدون تغییر باقی می‌مانند.
 
-این کد نمونه نشان می‌دهد چگونه نام یک بخش را در یک ارائه به زبان C++ با استفاده از Aspose.Slides تغییر دهید:
+مثال زیر یک بخش ایجاد می‌کند و نام آن را تغییر می‌دهد:
 
-``` cpp
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-auto section = pres->get_Sections()->idx_get(0);
-section->set_Name(u"My section");
+```cpp
+#include <DOM/ISection.h>
+#include <DOM/ISectionCollection.h>
+#include <DOM/Presentation.h>
+
+using namespace Aspose::Slides;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto section = presentation->get_Sections()->AddSection(u"Overview", slide);
+section->set_Name(u"Introduction");
 ```
+
+## **دریافت اسلایدها از بخش‌ها**
+
+متد [Presentation::get_Sections](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/get_sections/) یک [ISectionCollection](https://reference.aspose.com/slides/fa/cpp/aspose.slides/isectioncollection/) را برمی‌گرداند که می‌توانید آن را مرور کنید. برای هر [ISection](https://reference.aspose.com/slides/fa/cpp/aspose.slides/isection/)، با فراخوانی [ISection::GetSlidesListOfSection](https://reference.aspose.com/slides/fa/cpp/aspose.slides/isection/getslideslistofsection/) اسلایدهایی که در حال حاضر به آن تعلق دارند را به دست می‌آورید. این متد یک [ISectionSlideCollection](https://reference.aspose.com/slides/fa/cpp/aspose.slides/isectionslidecollection/) را باز می‌گرداند که شامل شمارش، دسترسی اندیسی و امکان مرور است.
+
+مثال زیر دو بخش پر شده و یک بخش خالی ایجاد می‌کند، سپس نام هر بخش را با استفاده از لینک [نام](https://reference.aspose.com/slides/fa/cpp/aspose.slides/isection/get_name/)، [شناسه](https://reference.aspose.com/slides/fa/cpp/aspose.slides/isection/get_sectionid/), [اسلاید شروع](https://reference.aspose.com/slides/fa/cpp/aspose.slides/isection/get_startedfromslide/), تعداد اسلایدها و شماره اسلایدها چاپ می‌کند. از دسترسی اندیسی برای خواندن اولین اسلاید و یک حلقه `for` مبتنی بر بازه برای پردازش تمام اسلایدها استفاده می‌شود. برای بخش خالی، مجموعه بازگردانده‌شده شمارشی برابر صفر دارد، دسترسی اندیسی استفاده نمی‌شود و مرور هیچ تکراری انجام نمی‌دهد.
+
+```cpp
+#include <DOM/ISection.h>
+#include <DOM/ISectionCollection.h>
+#include <DOM/ISectionSlideCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+
+auto presentation = System::MakeObject<Presentation>();
+auto layoutSlide = presentation->get_LayoutSlide(0);
+auto firstSlide = presentation->get_Slide(0);
+presentation->get_Slides()->AddEmptySlide(layoutSlide);
+auto thirdSlide = presentation->get_Slides()->AddEmptySlide(layoutSlide);
+
+auto sections = presentation->get_Sections();
+sections->AddSection(u"Introduction", firstSlide);
+sections->AddSection(u"Details", thirdSlide);
+sections->AppendEmptySection(u"Appendix");
+
+for (const auto& section : sections)
+{
+    auto sectionSlides = section->GetSlidesListOfSection();
+    auto startingSlide = section->get_StartedFromSlide();
+
+    System::Console::WriteLine(u"Section: {0}", section->get_Name());
+    System::Console::WriteLine(u"ID: {0}", section->get_SectionId().ToString());
+    if (startingSlide == nullptr)
+    {
+        System::Console::WriteLine(u"Starting slide: none");
+    }
+    else
+    {
+        System::Console::WriteLine(u"Starting slide: {0}", startingSlide->get_SlideNumber());
+    }
+    System::Console::WriteLine(u"Slide count: {0}", sectionSlides->get_Count());
+
+    if (sectionSlides->get_Count() > 0)
+    {
+        System::Console::WriteLine(u"First slide via index: {0}", sectionSlides->idx_get(0)->get_SlideNumber());
+    }
+
+    System::Console::Write(u"Slide numbers:");
+    for (const auto& slide : sectionSlides)
+    {
+        System::Console::Write(u" {0}", slide->get_SlideNumber());
+    }
+    System::Console::WriteLine();
+}
+```
+
+عضویت در بخش‌ها توسط ساختار بخش‌های ارائه تعیین می‌شود. محدوده یک بخش را به‌صورت دستی از [ISection::get_StartedFromSlide](https://reference.aspose.com/slides/fa/cpp/aspose.slides/isection/get_startedfromslide/)، شاخص‌های اسلاید و اسلاید شروع بخش بعدی محاسبه نکنید.
+
+ویرایش‌های ساختاری می‌توانند هم اسلایدهای برگشتی برای یک بخش و هم شماره‌های آن را تغییر دهند. این شامل ترتیب‌داده‑مجدّد اسلایدها، کلون کردن یک اسلاید به یک بخش، جابه‌جایی یک بخش همراه با اسلایدهای آن، حذف اسلایدها و حذف بخش‌ها می‌شود. مثال بعدی پس از هر چنین تغییری به جای حفظ فرضیات دربارهٔ مرزهای قبلی بخش، [ISection::GetSlidesListOfSection](https://reference.aspose.com/slides/fa/cpp/aspose.slides/isection/getslideslistofsection/) را فراخوانی می‌کند.
+
+```cpp
+#include <DOM/ISection.h>
+#include <DOM/ISectionCollection.h>
+#include <DOM/ISectionSlideCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+
+auto presentation = System::MakeObject<Presentation>();
+auto layoutSlide = presentation->get_LayoutSlide(0);
+auto firstSlide = presentation->get_Slide(0);
+presentation->get_Slides()->AddEmptySlide(layoutSlide);
+auto thirdSlide = presentation->get_Slides()->AddEmptySlide(layoutSlide);
+presentation->get_Slides()->AddEmptySlide(layoutSlide);
+
+auto sections = presentation->get_Sections();
+auto firstSection = sections->AddSection(u"First", firstSlide);
+auto secondSection = sections->AddSection(u"Second", thirdSlide);
+
+auto printSectionSlides = [](const System::String& label, const System::SharedPtr<ISection>& section)
+{
+    auto sectionSlides = section->GetSlidesListOfSection();
+    System::Console::Write(u"{0} ({1} slides):", label, sectionSlides->get_Count());
+    for (const auto& slide : sectionSlides)
+    {
+        System::Console::Write(u" {0}", slide->get_SlideNumber());
+    }
+    System::Console::WriteLine();
+};
+
+printSectionSlides(u"Initially", firstSection);
+
+auto slidesBeforeClone = firstSection->GetSlidesListOfSection();
+presentation->get_Slides()->AddClone(slidesBeforeClone->idx_get(0), firstSection);
+printSectionSlides(u"After cloning into the section", firstSection);
+
+auto slidesBeforeReorder = firstSection->GetSlidesListOfSection();
+auto firstSlideInSection = slidesBeforeReorder->idx_get(0);
+auto lastSlideInSection = slidesBeforeReorder->idx_get(slidesBeforeReorder->get_Count() - 1);
+auto firstSectionPosition = firstSlideInSection->get_SlideNumber() - 1;
+presentation->get_Slides()->Reorder(firstSectionPosition, lastSlideInSection);
+printSectionSlides(u"After reordering slides", firstSection);
+
+sections->ReorderSectionWithSlides(firstSection, 1);
+printSectionSlides(u"After moving the section", firstSection);
+
+auto slidesBeforeRemoval = firstSection->GetSlidesListOfSection();
+presentation->get_Slides()->Remove(slidesBeforeRemoval->idx_get(0));
+printSectionSlides(u"After removing a slide", firstSection);
+
+sections->RemoveSectionWithSlides(secondSection);
+for (const auto& section : sections)
+{
+    printSectionSlides(u"Remaining section", section);
+}
+```
+
+هر زمان اسلایدها یا بخش‌ها دوباره ترتیب داده شوند، کلون شوند، جابه‌جا یا حذف شوند، [ISection::GetSlidesListOfSection](https://reference.aspose.com/slides/fa/cpp/aspose.slides/isection/getslideslistofsection/) را دوباره فراخوانی کنید. این کار پردازش‌های بعدی را با ساختار فعلی ارائه هم‌راستا نگه می‌دارد.
+
+قالب PPT (PowerPoint 97–2003) متادیتای بخش‌ها را حفظ نمی‌کند. از این جریان کاری با قالبی که از بخش‌ها پشتیبانی می‌کند، مانند PPTX استفاده کنید؛ تبدیل به PPT ساختار بخش‌ها را که برای شمارش‌های بعدی لازم است، حذف می‌کند.
 
 ## **سوالات متداول**
 
-**آیا بخش‌ها هنگام ذخیره در فرمت PPT (PowerPoint 97–2003) حفظ می‌شوند؟**
+**آیا بخش‌ها هنگام ذخیره به قالب PPT (PowerPoint 97–2003) حفظ می‌شوند؟**
 
-خیر. فرمت PPT از متادیتای بخش پشتیبانی نمی‌کند، به‌طوری که گروه‌بندی بخش‌ها هنگام ذخیره به .ppt از بین می‌روند.
+خیر. قالب PPT از متادیتای بخش پشتیبانی نمی‌کند، بنابراین گروه‌بندی بخش‌ها هنگام ذخیره به .ppt از بین می‌رود.
 
-**آیا می‌توان یک بخش کامل را «مخفی» کرد؟**
+**آیا می‌توان یک بخش کامل را "پنهان" کرد؟**
 
-خیر. فقط اسلایدهای منفرد می‌توانند مخفی شوند. یک بخش به عنوان یک موجودیت وضعیت «مخفی» ندارد.
+خیر. یک بخش وضعیت نمایش ندارد. برای پنهان کردن محتویات آن، برای هر اسلاید در بخش، [ISlide::set_Hidden](https://reference.aspose.com/slides/fa/cpp/aspose.slides/islide/set_hidden/) را فراخوانی کنید.
 
-**آیا می‌توانم به‌سرعت یک بخش را بر اساس اسلاید پیدا کنم و بالعکس، اولین اسلاید یک بخش را بدست آورم؟**
+**چگونه می‌توانم بخشی که شامل یک اسلاید است پیدا کنم؟**
 
-بله. یک بخش به‌ طور یکتا توسط اسلاید شروع آن تعریف می‌شود؛ با دانستن یک اسلاید می‌توانید بخش مربوطه را مشخص کنید و برای یک بخش می‌توانید به اولین اسلاید آن دسترسی پیدا کنید.
+با مرور [Presentation::get_Sections](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/get_sections/)، برای هر بخش [ISection::GetSlidesListOfSection](https://reference.aspose.com/slides/fa/cpp/aspose.slides/isection/getslideslistofsection/) را صدا بزنید و اسلایدهای برگردانده‌شده را با اسلاید هدف مقایسه کنید. برای یک بخش غیر خالی، [ISection::get_StartedFromSlide](https://reference.aspose.com/slides/fa/cpp/aspose.slides/isection/get_startedfromslide/) اولین اسلاید آن را برمی‌گرداند؛ برای یک بخش خالی، `nullptr` برمی‌گرداند.

@@ -1,48 +1,48 @@
 ---
-title: การดำเนินการงานนำเสนอแบบ Low-Code ใน JavaScript
+title: การดำเนินการนำเสนอแบบ Low-Code ใน JavaScript
 linktitle: API Low-Code
 type: docs
 weight: 50
 url: /th/nodejs-java/low-code-presentation-operations/
 keywords:
-- API งานนำเสนอแบบ Low-Code
-- แปลงงานนำเสนอ
-- รวมงานนำเสนอ
+- API การนำเสนอแบบ Low-Code
+- แปลงการนำเสนอ
+- ผสานการนำเสนอ
 - วนรอบสไลด์
 - วนรอบรูปร่าง
 - วนรอบข้อความ
 - รวบรวมรูปร่าง
-- บีบอัดงานนำเสนอ
+- บีบอัดการนำเสนอ
 - ลบมาสเตอร์สไลด์ที่ไม่ได้ใช้
-- ลบเลย์เอาต์สไลด์ที่ไม่ได้ใช้
+- ลบสไลด์การจัดวางที่ไม่ได้ใช้
 - บีบอัดฟอนท์ที่ฝังอยู่
 - PowerPoint
 - OpenDocument
-- งานนำเสนอ
+- การนำเสนอ
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "ใช้ Aspose.Slides low-code API ใน JavaScript เพื่อแปลงและรวมงานนำเสนอ, วนรอบเนื้อหา, รวบรวมรูปร่าง, และลดขนาดของงานนำเสนอ"
+description: "ใช้ Aspose.Slides low-code API ใน JavaScript เพื่อแปลงและผสานการนำเสนอ, วนรอบเนื้อหา, รวบรวมรูปร่าง, และลดขนาดการนำเสนอ"
 ---
 ## **ภาพรวม**
 
-`aspose.slides` เนมสเปซให้คลาส helper แบบสถิตสำหรับการทำงานทั่วไปของงานนำเสนอ Helper เหล่านี้ห่อหุ้มกระบวนการโมเดลวัตถุที่ใช้บ่อยในเมธอดที่มุ่งเน้น ทำให้คุณสามารถแปลงหรือรวมไฟล์ ประมวลผลองค์ประกอบของงานนำเสนอ รวบรวมรูปร่าง และลบเนื้อหาที่ไม่ได้ใช้ด้วยโค้ดที่น้อยลง
+เนมสเปซ `aspose.slides` ให้คลาสช่วยเหลือแบบสแตติกสำหรับการดำเนินการนำเสนอทั่วไป ตัวช่วยเหล่านี้ห่อหุ้มกระบวนการทำงานของโมเดลวัตถุที่ใช้บ่อยเป็นเมธอดที่เน้นจุดประสงค์ เพื่อให้คุณสามารถแปลงหรือรวมไฟล์ ประมวลผลองค์ประกอบของการนำเสนอ รวบรวมรูปร่าง และลบเนื้อหาที่ไม่ได้ใช้ได้โดยโค้ดน้อยลง
 
-Low-code helper มีประโยชน์มากที่สุดเมื่อการดำเนินการใช้กับไฟล์หรือการนำเสนอทั้งหมดและกระบวนการทำงานเริ่มต้นตรงกับความต้องการของคุณ ให้ใช้ [Aspose.Slides object model](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/) อย่างเต็มรูปแบบเมื่อคุณต้องการการควบคุมระดับละเอียดบนสไลด์, มาสเตอร์, เลย์เอาต์, รูปร่าง, การตั้งค่าการส่งออก หรือความสัมพันธ์ระหว่างองค์ประกอบของงานนำเสนอ
+ตัวช่วยแบบ low‑code มีประโยชน์ที่สุดเมื่อการดำเนินการครอบคลุมไฟล์หรือการนำเสนอทั้งหมดและกระบวนการทำงานค่าเริ่มต้นตรงกับความต้องการของคุณ ใช้ [Aspose.Slides object model](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/) อย่างเต็มรูปแบบเมื่อคุณต้องการควบคุมระดับละเอียดบนสไลด์แต่ละสไลด์ มาสเตอร์ ใช้รูปแบบ รูปร่าง การตั้งค่าการส่งออก หรือความสัมพันธ์ระหว่างองค์ประกอบของการนำเสนอ
 
-ตารางต่อไปนี้สรุปตัวช่วยที่มีให้:
+ตารางต่อไปสรุปตัวช่วยที่มีอยู่:
 
 | ตัวช่วย | ใช้สำหรับ |
 | --- | --- |
-| [Convert](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/convert/) | แปลงงานนำเสนอเป็นรูปแบบอื่นโดยใช้การเรียกไฟล์ต่อไฟล์โดยตรง |
-| [Merger](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/merger/) | รวมไฟล์งานนำเสนอเต็มรูปแบบที่เป็นรูปแบบเดียวกัน |
-| [ForEach](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/foreach/) | เรียกใช้การทำงานสำหรับแต่ละสไลด์, รูปร่าง, ย่อหน้า หรือส่วนของข้อความ |
-| [Collect](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/collect/) | ดึงรูปร่างจากงานนำเสนอทั้งหมดเพื่อการประมวลผลหรือวิเคราะห์หลายครั้ง |
-| [Compress](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/compress/) | ลบมาสเตอร์และเลย์เอาต์ที่ไม่ได้ใช้และลดข้อมูลฟอนท์ที่ฝังอยู่ |
+| [แปลง](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/convert/) | แปลงการนำเสนอเป็นรูปแบบอื่นโดยการเรียกไฟล์‑to‑ไฟล์โดยตรง |
+| [ผสาน](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/merger/) | รวมไฟล์การนำเสนอเต็มรูปแบบที่มีรูปแบบเดียวกัน |
+| [ForEach](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/foreach/) | เรียกกระทำสำหรับแต่ละสไลด์ รูปร่าง ย่อหน้า หรือส่วนของข้อความ |
+| [รวบรวม](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/collect/) | ดึงรูปร่างจากการนำเสนอทั้งหมดเพื่อประมวลผลหรือวิเคราะห์ซ้ำ |
+| [บีบอัด](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/compress/) | ลบมาสเตอร์และการจัดวางที่ไม่ได้ใช้และลดข้อมูลฟอนท์ที่ฝังอยู่ |
 
-## **แปลงงานนำเสนอ**
+## **แปลงการนำเสนอ**
 
-ใช้ [Convert.autoByExtension](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/convert/#autoByExtension) เมื่อส่วนต่อท้ายไฟล์ผลลัพธ์เพียงพอที่จะเลือกรูปแบบการส่งออก เมธอดจะเปิดงานนำแหล่งที่มา กำหนดรูปแบบที่ต้องการจากเส้นทางไฟล์ผลลัพธ์ และเขียนผลลัพธ์
+ใช้ [Convert.autoByExtension](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/convert/#autoByExtension) เมื่อส่วนขยายไฟล์ผลลัพธ์เพียงพอสำหรับการเลือกรูปแบบการส่งออก เมธอดจะเปิดการนำเสนอต้นทาง กำหนดรูปแบบที่ต้องการจากเส้นทางผลลัพธ์ และเขียนผลลัพธ์ออกไป
 
 ```javascript
 var aspose = aspose || {};
@@ -51,11 +51,11 @@ aspose.slides = require("aspose.slides.via.java");
 aspose.slides.Convert.autoByExtension("input.pptx", "output.pdf");
 ```
 
-คลาส [Convert](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/convert/) ยังมีเมธอดเฉพาะสำหรับการส่งออกเป็น PDF, SVG, JPEG, PNG, และ TIFF. ใช้โมเดลวัตถุเต็มรูปแบบเมื่อคุณต้องการตรวจสอบหรือแก้ไขงานนำเสนอก่อนการส่งออก หรือกำหนดค่าตัวเลือกการส่งออกที่ไม่ได้เปิดเผยโดยตัวช่วยที่เลือก ดู [Convert Presentation](/nodejs-java/convert-presentation/) สำหรับกระบวนการทำงานและตัวเลือกตามรูปแบบ
+คลาส [แปลง](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/convert/) ยังมีเมธอดเฉพาะสำหรับการส่งออกเป็น PDF, SVG, JPEG, PNG และ TIFF อีกด้วย ใช้โมเดลวัตถุเต็มรูปแบบเมื่อคุณต้องการตรวจสอบหรือแก้ไขการนำเสนอก่อนการส่งออก หรือกำหนดตัวเลือกการส่งออกที่ตัวช่วยไม่ได้เปิดเผย ดู [Convert Presentation](/slides/th/nodejs-java/convert-presentation/) สำหรับขั้นตอนและตัวเลือกเฉพาะรูปแบบ
 
-## **รวมงานนำเสนอ**
+## **ผสานการนำเสนอ**
 
-ใช้ [Merger.process](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/merger/#process) เพื่อรวมไฟล์งานนำเสนอเต็มรูปแบบด้วยการเรียกครั้งเดียว งานนำเข้าต้องมีรูปแบบไฟล์เดียวกัน
+ใช้ [Merger.process](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/merger/#process) เพื่อรวมไฟล์การนำเสนอเต็มรูปแบบด้วยการเรียกครั้งเดียว การนำเสนอที่นำเข้าต้องมีรูปแบบไฟล์เดียวกัน
 
 ```javascript
 var aspose = aspose || {};
@@ -65,13 +65,13 @@ const inputFiles = ["first.pptx", "second.pptx"];
 aspose.slides.Merger.process(inputFiles, "merged.pptx");
 ```
 
-ตัวช่วยนี้เหมาะเมื่อสไลด์ทั้งหมดควรถูกต่อท้ายเป็นผลลัพธ์เดียวโดยไม่ต้องเลือกหรือแมพใหม่แต่ละสไลด์ ใช้โมเดลวัตถุเต็มรูปแบบเมื่อคุณต้องการรวมสไลด์ที่เลือก ใช้มาสเตอร์หรือเลย์เอาต์ปลายทาง, รักษาภาคอย่างชัดเจน, หรือปรับขนาดสไลด์ที่แตกต่างกัน ดู [Merge Presentations](/nodejs-java/merge-presentation/) สำหรับสถานการณ์เหล่านั้น
+ตัวช่วยนี้เหมาะเมื่อสไลด์ทั้งหมดควรถูกต่อท้ายเป็นผลลัพธ์หนึ่งโดยไม่ต้องเลือกหรือแมปใหม่เป็นรายสไลด์ ใช้โมเดลวัตถุเต็มรูปแบบเมื่อคุณต้องการผสานสไลด์ที่เลือกใช้งาน ใส่มาสเตอร์หรือการจัดวางปลายทาง รักษาส่วนต่างโดยเจาะจง หรือจัดการขนาดสไลด์ที่แตกต่างกัน ดู [Merge Presentations](/slides/th/nodejs-java/merge-presentation/) สำหรับกรณีเหล่านั้น
 
-## **วนรอบผ่านองค์ประกอบของงานนำเสนอ**
+## **วนรอบผ่านองค์ประกอบการนำเสนอ**
 
-คลาส [ForEach](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/foreach/) เรียก callback สำหรับแต่ละประเภทขององค์ประกอบงานนำเสนอที่ต้องการ มันช่วยหลีกเลี่ยงลูปคอลเลกชันซ้อนกันและสะดวกสำหรับการตรวจสอบหรือการเปลี่ยนแปลงรูปแบบทั่วงานนำเสนอ ใน Node.js สร้างการนำเข้า interface callback ด้วย `java.newProxy`
+คลาส [ForEach](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/foreach/) จะเรียกคอลแบ็กสำหรับแต่ละประเภทขององค์ประกอบการนำเสนอที่ระบุ มันช่วยลดการวนลูปเก็บรวบรวมแบบซ้อนกันและสะดวกสำหรับการตรวจสอบหรือการเปลี่ยนแปลงรูปแบบทั่วการนำเสนอ ใน Node.js ให้สร้างการนำเข้าของอินเทอร์เฟซคอลแบ็กด้วย `java.newProxy`
 
-ตัวอย่างต่อไปนี้ใช้ [ForEach.slide](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/foreach/#slide), [ForEach.shape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/foreach/#shape), [ForEach.paragraph](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/foreach/#paragraph), และ [ForEach.portion](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/foreach/#portion) เพื่อตรวจสอบองค์ประกอบที่สอดคล้องกัน:
+ตัวอย่างต่อไปนี้ใช้ [ForEach.slide](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/foreach/#slide), [ForEach.shape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/foreach/#shape), [ForEach.paragraph](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/foreach/#paragraph) และ [ForEach.portion](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/foreach/#portion) เพื่อตรวจสอบองค์ประกอบที่สอดคล้องกัน:
 
 ```javascript
 const java = require("java");
@@ -112,11 +112,11 @@ try {
 }
 ```
 
-โดยค่าเริ่มต้น การเดินทางผ่านรูปร่างและข้อความทั่วงานนำเสนอรวมสไลด์ปกติ, มาสเตอร์, และเลย์เอ็ต การ overload ที่มีพารามิเตอร์ `includeNotes` สามารถประมวลผลสไลด์บันทึกได้ ใช้ลูปคอลเลกชันโดยตรงเมื่อลำดับการเดินทาง, การออกก่อนหน้า, การกรองก่อนเรียก callback, หรือการควบคุมความสัมพันธ์พาเรนท์-ชิลด์อย่างละเอียดเป็นสิ่งสำคัญ
+โดยค่าปริยาย การเดินทางผ่านรูปร่างและข้อความทั่วทั้งการนำเสนอรวมสไลด์แบบปกติ มาสเตอร์ และการจัดวางด้วย การโอเวอร์โหลดที่มีพารามิเตอร์ `includeNotes` ยังสามารถประมวลผลสไลด์บันทึกได้ ใช้ลูปการเก็บรวบรวมโดยตรงเมื่อลำดับการเดินทาง ความต้องการออกก่อนเวลาอายุการกรองก่อนการเรียกคอลแบ็ก หรือการควบคุมพาเรนท์‑ชิลด์อย่างละเอียดเป็นสิ่งสำคัญ
 
 ## **รวบรวมรูปร่าง**
 
-ใช้ [Collect.shapes](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/collect/#shapes) เมื่อคุณต้องการคอลเลกชันของรูปร่างทั้งหมดในงานนำเสนอแทนการใช้ callback สำหรับแต่ละรูปร่าง นี้มีประโยชน์เมื่อชุดเดียวกันต้องถูกกรอง, นับ, หรือประมวลผลหลายครั้ง
+ใช้ [Collect.shapes](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/collect/#shapes) เมื่อคุณต้องการชุดของรูปร่างทั้งหมดในการนำเสนอแทนการใช้คอลแบ็กสำหรับแต่ละรูปร่าง นี่มีประโยชน์เมื่อชุดเดียวกันต้องถูกกรอง นับ หรือประมวลผลหลายครั้ง
 
 ```javascript
 var aspose = aspose || {};
@@ -136,14 +136,14 @@ try {
 }
 ```
 
-ใช้ [ForEach.shape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/foreach/#shape) แทนเมื่อแต่ละรูปร่างสามารถจัดการได้ทันทีและคุณไม่จำเป็นต้องเก็บผลลัพธ์ที่รวบรวมไว้
+หากต้องการจัดการแต่ละรูปร่างทันทีและไม่ต้องการเก็บผลลัพธ์ที่รวบรวมไว้ ให้ใช้ [ForEach.shape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/foreach/#shape) แทน
 
-## **บีบอัดเนื้อหางานนำเสนอ**
+## **บีบอัดเนื้อหาการนำเสนอ**
 
-คลาส [Compress](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/compress/) สามารถลบองค์ประกอบโครงสร้างที่ไม่ได้ใช้และลดข้อมูลฟอนท์ที่ฝังอยู่:
+คลาส [บีบอัด](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/compress/) สามารถลบองค์ประกอบโครงสร้างที่ไม่ได้ใช้และลดข้อมูลฟอนท์ที่ฝังอยู่ได้:
 
-- [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) ลบสไลด์เลย์เอาต์ที่ไม่มีสไลด์ปกติอ้างอิง
-- [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/compress/#removeUnusedMasterSlides) ลบมาสเตอร์สไลด์ที่ไม่ได้ใช้แล้ว
+- [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) ลบสไลด์การจัดวางที่สไลด์ปกติไม่มีการอ้างอิง
+- [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/compress/#removeUnusedMasterSlides) ลบมาสเตอร์สไลด์ที่ไม่ถูกใช้งานอีกต่อไป
 - [Compress.compressEmbeddedFonts](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/compress/#compressEmbeddedFonts) ลบอักขระที่ไม่ได้ใช้จากฟอนท์ที่ฝังอยู่
 
 ```javascript
@@ -162,38 +162,38 @@ try {
 }
 ```
 
-ลบเลย์เอาต์ที่ไม่ได้ใช้ก่อนมาสเตอร์ที่ไม่ได้ใช้ เพื่อให้มาสเตอร์ที่กลายเป็นไม่มีการอ้างอิงหลังจากทำความสะอาดเลย์เอาต์ก็สามารถถูกลบได้ บันทึกงานนำเสนอที่ปรับแต่งแล้วเป็นไฟล์ใหม่หากคุณอาจต้องการมาสเตอร์, เลย์เอาต์ หรือข้อมูลฟอนท์ที่ฝังอยู่แบบเต็มในภายหลัง สำหรับรายละเอียดเพิ่มเติม ดู [Slide Master](/nodejs-java/slide-master/) และ [Embedded Font](/nodejs-java/embedded-font/)
+ให้ลบการจัดวางที่ไม่ได้ใช้ก่อนมาสเตอร์ที่ไม่ได้ใช้ เพื่อให้มาสเตอร์ที่กลายเป็นไม่มีการอ้างอิงหลังจากทำความสะอาดการจัดวางก็สามารถลบได้ด้วย บันทึกการนำเสนอที่ปรับให้เหมาะสมเป็นไฟล์ใหม่หากคุณอาจต้องการมาสเตอร์ การจัดวาง หรือข้อมูลฟอนท์ที่ฝังอยู่ทั้งหมดในภายหลัง สำหรับรายละเอียดเพิ่มเติม ดู [Slide Master](/slides/th/nodejs-java/slide-master/) และ [Embedded Font](/slides/th/nodejs-java/embedded-font/)
 
 ## **FAQ**
 
-**เมื่อไหร่ควรใช้ low-code API แทนการใช้โมเดลวัตถุเต็มรูปแบบ?**
+**ควรใช้ API แบบ low‑code แทนโมเดลวัตถุเต็มรูปแบบเมื่อไร?**
 
-ใช้ low-code helper เมื่อการดำเนินการมาตรฐานใช้กับไฟล์หรือการนำเสนอทั้งหมดและไม่ต้องการการควบคุมอย่างละเอียดบนแต่ละองค์ประกอบ ใช้โมเดลวัตถุเต็มรูปแบบเมื่อคุณต้องการเลือกสไลด์เฉพาะ, ควบคุมความสัมพันธ์ของมาสเตอร์และเลย์เอาต์, ตรวจสอบสถานะกลาง, หรือกำหนดพฤติกรรมที่ตัวช่วยไม่ได้เปิดเผย
+ใช้ตัวช่วยแบบ low‑code เมื่อการดำเนินการมาตรฐานใช้กับไฟล์หรือการนำเสนอทั้งหมดและไม่ต้องการควบคุมรายละเอียดบนองค์ประกอบแต่ละอัน ใช้โมเดลวัตถุเต็มรูปแบบเมื่อคุณต้องการเลือกสไลด์เฉพาะ ควบคุมความสัมพันธ์ระหว่างมาสเตอร์และการจัดวาง ตรวจสอบสถานะกลาง หรือกำหนดพฤติกรรมที่ตัวช่วยไม่ได้เปิดเผย
 
-**Merger สามารถรวมงานนำเสนอในรูปแบบไฟล์ที่แตกต่างกันได้หรือไม่?**
+**Merger สามารถผสานการนำเสนอในรูปแบบไฟล์ที่แตกต่างกันได้หรือไม่?**
 
-ไม่ได้. [Merger.process](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/merger/#process) ต้องการงานนำเข้าที่มีรูปแบบไฟล์เดียวกัน ก่อนที่จะรวมให้แปลงไฟล์อินพุตเป็นรูปแบบเดียวกันก่อน ตัวอย่างเช่นใช้ [Convert.autoByExtension](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/convert/#autoByExtension), จากนั้นจึงรวมไฟล์ที่แปลงแล้ว
+ไม่ได้ ตัวช่วย [Merger.process](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/merger/#process) ต้องการการนำเข้าที่มีรูปแบบเดียวกันก่อน ให้แปลงไฟล์อินพุตเป็นรูปแบบร่วมกันก่อน เช่นใช้ [Convert.autoByExtension](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/convert/#autoByExtension) แล้วจึงผสานไฟล์ที่แปลงแล้ว
 
-**ForEach ประมวลผลสไลด์มาสเตอร์, เลย์เอต, และบันทึกหรือไม่?**
+**ForEach ประมวลผลสไลด์มาสเตอร์ การจัดวางและบันทึกหรือไม่?**
 
-[ForEach.slide](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/foreach/#slide) วนผ่านสไลด์ปกติของงานนำเสนอ การดำเนินการทั่วงานนำเสนอของ [ForEach.shape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/foreach/#shape), [ForEach.paragraph](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/foreach/#paragraph), และ [ForEach.portion](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/foreach/#portion) จะรวมสไลด์ปกติ, มาสเตอร์, และเลย์เอ็ตโดยค่าเริ่มต้น ใช้ overload ของพวกมันโดยกำหนด `includeNotes` เป็น `true` เพื่อรวมสไลด์บันทึก
+[ForEach.slide](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/foreach/#slide) วนผ่านสไลด์การนำเสนอแบบปกติ การทำงานทั่วการนำเสนอของ [ForEach.shape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/foreach/#shape), [ForEach.paragraph](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/foreach/#paragraph) และ [ForEach.portion](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/foreach/#portion) จะรวมสไลด์ปกติ มาสเตอร์และการจัดวางเป็นค่าเริ่มต้น ใช้โอเวอร์โหลดโดยตั้งค่า `includeNotes` เป็น `true` เพื่อรวมสไลด์บันทึกด้วย
 
 **ความแตกต่างระหว่าง ForEach.shape และ Collect.shapes คืออะไร?**
 
-ใช้ [ForEach.shape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/foreach/#shape) เพื่อประมวลผลแต่ละรูปร่างทันทีผ่าน callback. ใช้ [Collect.shapes](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/collect/#shapes) เมื่อคุณต้องการผลลัพธ์ที่สามารถวนซ้ำได้ ซึ่งสามารถเก็บ, กรอง, นับ, หรือเดินทางหลายครั้ง
+ใช้ [ForEach.shape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/foreach/#shape) เพื่อประมวลผลแต่ละรูปร่างทันทีผ่านคอลแบ็ก ใช้ [Collect.shapes](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/collect/#shapes) เมื่อคุณต้องการผลลัพธ์ที่สามารถเก็บไว้ กรอง นับ หรือเดินทางหลายครั้งได้
 
-**Compress ทำให้ไฟล์งานนำเสนอเล็กลงเสมอหรือไม่?**
+**Compress ทำให้ไฟล์การนำเสนอเล็กลงเสมอหรือไม่?**
 
-ไม่จำเป็น. ผลลัพธ์ขึ้นอยู่กับว่ามีเลย์เอาต์ที่ไม่ได้ใช้, มาสเตอร์ที่ไม่ได้ใช้, หรือฟอนท์ที่ฝังอยู่ซึ่งมีอักขระที่ไม่ได้ใช้หรือไม่ หากไม่มีสิ่งเหล่านั้น การดำเนินการ [Compress](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/compress/) ที่เกี่ยวข้องอาจไม่ลดขนาดไฟล์
+ไม่เสมอ ผลลัพธ์ขึ้นอยู่กับว่าการนำเสนอมีการจัดวางที่ไม่ได้ใช้ มาสเตอร์ที่ไม่ได้ใช้ หรือฟอนท์ที่ฝังอยู่โดยมีอักขระที่ไม่ได้ใช้หรือไม่ หากไม่มีสิ่งเหล่านั้น การดำเนินการ [Compress](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/compress/) ที่เกี่ยวข้องอาจไม่ลดขนาดไฟล์
 
-**การเปลี่ยนแปลงที่ทำโดย ForEach หรือ Compress จะถูกบันทึกโดยอัตโนมัติหรือไม่?**
+**การเปลี่ยนแปลงที่ทำโดย ForEach หรือ Compress จะถูกบันทึกอัตโนมัติหรือไม่?**
 
-ไม่. ตัวช่วยเหล่านี้ทำงานบนอ็อบเจกต์ [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/) ที่โหลดอยู่ในหน่วยความจำ หลังจากเปลี่ยนแปลงองค์ประกอบใน callback ของ [ForEach](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/foreach/) หรือเรียกใช้ [Compress](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/compress/) ให้เรียก [Presentation.save](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/#save) เพื่อบันทึกผลลัพธ์
+ไม่ ตัวช่วยเหล่านี้ทำงานบนอ็อบเจกต์ [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/) ที่โหลดอยู่ในหน่วยความจำ หลังจากแก้ไของค์ประกอบในคอลแบ็กของ [ForEach](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/foreach/) หรือรัน [Compress](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/compress/) ให้เรียก [Presentation.save](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/#save) เพื่อบันทึกผลลัพธ์
 
-## **Related Articles**
+## **บทความที่เกี่ยวข้อง**
 
-- [Convert Presentation](/nodejs-java/convert-presentation/)
-- [Merge Presentations](/nodejs-java/merge-presentation/)
-- [Slide Master](/nodejs-java/slide-master/)
-- [Manage Text Box](/nodejs-java/manage-textbox/)
-- [Embedded Font](/nodejs-java/embedded-font/)
+- [Convert Presentation](/slides/th/nodejs-java/convert-presentation/)
+- [Merge Presentations](/slides/th/nodejs-java/merge-presentation/)
+- [Slide Master](/slides/th/nodejs-java/slide-master/)
+- [Manage Text Box](/slides/th/nodejs-java/manage-textbox/)
+- [Embedded Font](/slides/th/nodejs-java/embedded-font/)

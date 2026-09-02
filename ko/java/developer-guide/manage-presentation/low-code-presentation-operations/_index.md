@@ -8,40 +8,40 @@ keywords:
 - 로우코드 프레젠테이션 API
 - 프레젠테이션 변환
 - 프레젠테이션 병합
-- 슬라이드 반복
-- 도형 반복
-- 텍스트 반복
+- 슬라이드 순회
+- 도형 순회
+- 텍스트 순회
 - 도형 수집
 - 프레젠테이션 압축
 - 사용되지 않는 마스터 슬라이드 제거
 - 사용되지 않는 레이아웃 슬라이드 제거
-- 내장 글꼴 압축
+- 포함된 글꼴 압축
 - PowerPoint
 - OpenDocument
 - 프레젠테이션
 - Java
 - Aspose.Slides
-description: "Java에서 Aspose.Slides 로우코드 API를 사용하여 프레젠테이션을 변환 및 병합하고, 콘텐츠를 반복하며, 도형을 수집하고, 프레젠테이션 크기를 줄입니다."
+description: "Java에서 Aspose.Slides 로우코드 API를 사용하여 프레젠테이션을 변환 및 병합하고, 콘텐츠를 순회하며, 도형을 수집하고, 프레젠테이션 크기를 줄입니다."
 ---
 ## **개요**
 
-The [com.aspose.slides](https://reference.aspose.com/slides/ko/java/com.aspose.slides/) package provides static helper classes for common presentation operations. These helpers wrap frequently used object-model workflows in focused methods, so you can convert or merge files, process presentation elements, collect shapes, and remove unused content with less code.
+[com.aspose.slides](https://reference.aspose.com/slides/ko/java/com.aspose.slides/) 패키지는 일반적인 프레젠테이션 작업을 위한 정적 헬퍼 클래스를 제공합니다. 이 헬퍼들은 자주 사용되는 객체 모델 워크플로우를 집중된 메서드로 래핑하여 파일을 변환하거나 병합하고, 프레젠테이션 요소를 처리하며, 도형을 수집하고, 사용되지 않는 콘텐츠를 적은 코드로 제거할 수 있게 합니다.
 
-Low-code helpers are most useful when the operation applies to an entire file or presentation and the default workflow matches your requirements. Use the full [Aspose.Slides object model](https://reference.aspose.com/slides/ko/java/com.aspose.slides/) when you need fine-grained control over individual slides, masters, layouts, shapes, export settings, or relationships between presentation elements.
+Low-code 헬퍼는 작업이 전체 파일이나 프레젠테이션에 적용되고 기본 워크플로우가 요구사항에 맞을 때 가장 유용합니다. 개별 슬라이드, 마스터, 레이아웃, 도형, 내보내기 설정 또는 프레젠테이션 요소 간 관계에 대한 세밀한 제어가 필요할 경우 전체 [Aspose.Slides object model](https://reference.aspose.com/slides/ko/java/com.aspose.slides/)을 사용하십시오.
 
-The following table summarizes the available helpers:
+다음 표는 사용 가능한 헬퍼를 요약한 것입니다:
 
-| 도우미 | 사용 목적 |
+| Helper | Use it for |
 | --- | --- |
-| [Convert](https://reference.aspose.com/slides/ko/java/com.aspose.slides/convert/) | 프레젠테이션을 다른 형식으로 변환하며 파일 간 직접 호출을 사용합니다. |
-| [Merger](https://reference.aspose.com/slides/ko/java/com.aspose.slides/merger/) | 동일 형식의 전체 프레젠테이션 파일을 결합합니다. |
-| [ForEach](https://reference.aspose.com/slides/ko/java/com.aspose.slides/foreach/) | 모든 슬라이드, 도형, 단락 또는 텍스트 부분에 대해 작업을 실행합니다. |
-| [Collect](https://reference.aspose.com/slides/ko/java/com.aspose.slides/collect/) | 전체 프레젠테이션에서 도형을 가져와 반복 처리나 분석에 사용합니다. |
+| [Convert](https://reference.aspose.com/slides/ko/java/com.aspose.slides/convert/) | 파일을 다른 형식으로 직접 변환합니다. |
+| [Merger](https://reference.aspose.com/slides/ko/java/com.aspose.slides/merger/) | 동일한 형식의 프레젠테이션 파일을 결합합니다. |
+| [ForEach](https://reference.aspose.com/slides/ko/java/com.aspose.slides/foreach/) | 각 슬라이드, 도형, 단락, 텍스트 부분에 대해 작업을 수행합니다. |
+| [Collect](https://reference.aspose.com/slides/ko/java/com.aspose.slides/collect/) | 전체 프레젠테이션에서 도형을 가져와 반복 처리하거나 분석합니다. |
 | [Compress](https://reference.aspose.com/slides/ko/java/com.aspose.slides/compress/) | 사용되지 않는 마스터와 레이아웃을 제거하고 포함된 글꼴 데이터를 축소합니다. |
 
 ## **프레젠테이션 변환**
 
-Use [Convert.autoByExtension](https://reference.aspose.com/slides/ko/java/com.aspose.slides/convert/#autoByExtension-java.lang.String-java.lang.String-) when the output file extension is sufficient to select the export format. The method opens the source presentation, determines the required format from the output path, and writes the result.
+[Convert.autoByExtension](https://reference.aspose.com/slides/ko/java/com.aspose.slides/convert/#autoByExtension-java.lang.String-java.lang.String-)을 사용하면 출력 파일 확장자만으로 내보내기 형식을 결정할 수 있습니다. 메서드는 원본 프레젠테이션을 열고, 출력 경로에서 필요한 형식을 판단한 뒤 결과를 작성합니다.
 
 ```java
 import com.aspose.slides.Convert;
@@ -49,11 +49,11 @@ import com.aspose.slides.Convert;
 Convert.autoByExtension("input.pptx", "output.pdf");
 ```
 
-The [Convert](https://reference.aspose.com/slides/ko/java/com.aspose.slides/convert/) class also provides dedicated methods for PDF, SVG, JPEG, PNG, and TIFF output. Use the full object model when you need to inspect or modify the presentation before export or configure an export option that is not exposed by the selected helper. See [Convert Presentation](/java/convert-presentation/) for format-specific workflows and options.
+[Convert](https://reference.aspose.com/slides/ko/java/com.aspose.slides/convert/) 클래스는 PDF, SVG, JPEG, PNG, TIFF 출력 전용 메서드도 제공합니다. 내보내기 전에 프레젠테이션을 검사하거나 수정하거나, 선택된 헬퍼가 제공하지 않는 내보내기 옵션을 구성해야 할 경우 전체 객체 모델을 사용하십시오. 형식별 워크플로와 옵션은 [Convert Presentation](/slides/ko/java/convert-presentation/)를 참고하세요.
 
 ## **프레젠테이션 병합**
 
-Use [Merger.process](https://reference.aspose.com/slides/ko/java/com.aspose.slides/merger/#process-java.lang.String:A-java.lang.String-) to combine complete presentation files with one call. The input presentations must have the same file format.
+[Merger.process](https://reference.aspose.com/slides/ko/java/com.aspose.slides/merger/#process-java.lang.String:A-java.lang.String-)를 사용하면 한 번의 호출로 전체 프레젠테이션 파일을 결합할 수 있습니다. 입력 프레젠테이션은 동일한 파일 형식이어야 합니다.
 
 ```java
 import com.aspose.slides.Merger;
@@ -62,13 +62,13 @@ String[] inputFiles = { "part-1.pptx", "part-2.pptx" };
 Merger.process(inputFiles, "merged.pptx");
 ```
 
-The helper is appropriate when all slides should be appended to one result without selecting or remapping them individually. Use the full object model when you need to merge selected slides, apply a destination master or layout, preserve sections explicitly, or reconcile different slide sizes. See [Merge Presentations](/java/merge-presentation/) for those scenarios.
+모든 슬라이드를 개별 선택이나 재매핑 없이 하나의 결과에 추가해야 할 경우 이 헬퍼가 적합합니다. 선택된 슬라이드를 병합하거나, 대상 마스터 또는 레이아웃을 적용하거나, 섹션을 명시적으로 보존하거나, 서로 다른 슬라이드 크기를 조정해야 할 경우 전체 객체 모델을 사용하십시오. 이러한 시나리오는 [Merge Presentations](/slides/ko/java/merge-presentation/)를 참고하십시오.
 
 ## **프레젠테이션 요소 반복**
 
-The [ForEach](https://reference.aspose.com/slides/ko/java/com.aspose.slides/foreach/) class invokes a callback for each requested type of presentation element. It avoids nested collection loops and is convenient for presentation-wide inspection or formatting changes.
+[ForEach](https://reference.aspose.com/slides/ko/java/com.aspose.slides/foreach/) 클래스는 요청된 유형의 프레젠테이션 요소마다 콜백을 호출합니다. 중첩된 컬렉션 반복을 피하고 프레젠테이션 전체에 대한 검사 또는 서식 변경에 편리합니다.
 
-The following example uses [ForEach.slide](https://reference.aspose.com/slides/ko/java/com.aspose.slides/foreach/#slide-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachSlideCallback-), [ForEach.shape](https://reference.aspose.com/slides/ko/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-), [ForEach.paragraph](https://reference.aspose.com/slides/ko/java/com.aspose.slides/foreach/#paragraph-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachParagraphCallback-), and [ForEach.portion](https://reference.aspose.com/slides/ko/java/com.aspose.slides/foreach/#portion-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachPortionCallback-) to inspect the corresponding elements:
+다음 예제는 [ForEach.slide](https://reference.aspose.com/slides/ko/java/com.aspose.slides/foreach/#slide-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachSlideCallback-), [ForEach.shape](https://reference.aspose.com/slides/ko/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-), [ForEach.paragraph](https://reference.aspose.com/slides/ko/java/com.aspose.slides/foreach/#paragraph-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachParagraphCallback-), 및 [ForEach.portion](https://reference.aspose.com/slides/ko/java/com.aspose.slides/foreach/#portion-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachPortionCallback-)를 사용하여 해당 요소를 검사합니다:
 
 ```java
 import com.aspose.slides.*;
@@ -95,11 +95,11 @@ try {
 }
 ```
 
-By default, presentation-wide shape and text traversal includes normal, master, and layout slides. Overloads with an `includeNotes` parameter can also process notes slides. Use direct collection loops when traversal order, early exit, filtering before callback invocation, or detailed parent-child control is important.
+기본적으로 프레젠테이션 전체의 도형 및 텍스트 순회에는 일반 슬라이드, 마스터 슬라이드, 레이아웃 슬라이드가 포함됩니다. `includeNotes` 매개변수가 있는 오버로드를 사용하면 노트 슬라이드도 처리할 수 있습니다. 순회 순서, 조기 종료, 콜백 호출 전에 필터링이 필요하거나 부모‑자식 관계에 대한 세부 제어가 중요한 경우 직접 컬렉션 루프를 사용하십시오.
 
 ## **도형 수집**
 
-Use [Collect.shapes](https://reference.aspose.com/slides/ko/java/com.aspose.slides/collect/#shapes-com.aspose.slides.Presentation-) when you need a collection of all shapes in a presentation rather than a callback for each shape. This is useful when the same set will be filtered, counted, or processed more than once.
+[Collect.shapes](https://reference.aspose.com/slides/ko/java/com.aspose.slides/collect/#shapes-com.aspose.slides.Presentation-)을 사용하면 각 도형에 대한 콜백 대신 프레젠테이션 전체의 도형 컬렉션을 얻을 수 있습니다. 동일한 도형 집합을 여러 번 필터링, 계산하거나 처리해야 할 때 유용합니다.
 
 ```java
 import com.aspose.slides.*;
@@ -116,15 +116,15 @@ try {
 }
 ```
 
-Use [ForEach.shape](https://reference.aspose.com/slides/ko/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-) instead when each shape can be handled immediately and you do not need to retain the collected result.
+각 도형을 즉시 처리하고 수집 결과를 유지할 필요가 없을 경우에는 대신 [ForEach.shape](https://reference.aspose.com/slides/ko/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-)를 사용하십시오.
 
 ## **프레젠테이션 콘텐츠 압축**
 
-The [Compress](https://reference.aspose.com/slides/ko/java/com.aspose.slides/compress/) class can remove unused structural elements and reduce embedded font data:
+[Compress](https://reference.aspose.com/slides/ko/java/com.aspose.slides/compress/) 클래스는 사용되지 않는 구조 요소를 제거하고 포함된 글꼴 데이터를 축소할 수 있습니다:
 
-- [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/ko/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) removes layout slides that no normal slide references.
-- [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/ko/java/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) removes master slides that are no longer used.
-- [Compress.compressEmbeddedFonts](https://reference.aspose.com/slides/ko/java/com.aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) removes unused characters from embedded fonts.
+- [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/ko/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-)는 일반 슬라이드가 참조하지 않는 레이아웃 슬라이드를 제거합니다.
+- [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/ko/java/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-)는 더 이상 사용되지 않는 마스터 슬라이드를 제거합니다.
+- [Compress.compressEmbeddedFonts](https://reference.aspose.com/slides/ko/java/com.aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-)는 포함된 글꼴에서 사용되지 않는 문자들을 제거합니다.
 
 ```java
 import com.aspose.slides.*;
@@ -141,38 +141,38 @@ try {
 }
 ```
 
-Remove unused layouts before unused masters so a master that becomes unreferenced after layout cleanup can also be removed. Save the optimized presentation to a new file if you may need the original masters, layouts, or complete embedded font data later. For more detail, see [Slide Master](/java/slide-master/) and [Embedded Font](/java/embedded-font/).
+레이아웃 정리 후에 참조되지 않게 된 마스터도 제거될 수 있도록 사용되지 않는 레이아웃을 먼저 제거하십시오. 나중에 원본 마스터, 레이아웃 또는 전체 포함 글꼴 데이터가 필요할 수 있다면 최적화된 프레젠테이션을 새 파일에 저장하십시오. 자세한 내용은 [Slide Master](/slides/ko/java/slide-master/)와 [Embedded Font](/slides/ko/java/embedded-font/)를 참고하십시오.
 
 ## **FAQ**
 
-**When should I use the low-code API instead of the full object model?**
+**전체 객체 모델 대신 로우코드 API를 언제 사용해야 하나요?**
 
-Low-code helpers should be used when a standard operation applies to a complete file or presentation and does not require detailed control over individual elements. Use the full object model when you need to select specific slides, control master and layout relationships, inspect intermediate state, or configure behavior that the helper does not expose.
+Low-code 헬퍼는 표준 작업이 전체 파일이나 프레젠테이션에 적용되고 개별 요소에 대한 세부 제어가 필요하지 않을 때 사용합니다. 개별 슬라이드 선택, 마스터 및 레이아웃 관계 제어, 중간 상태 검사, 헬퍼가 제공하지 않는 동작 구성 등이 필요할 경우 전체 객체 모델을 사용하십시오.
 
-**Can Merger combine presentations in different file formats?**
+**Merger가 서로 다른 파일 형식의 프레젠테이션을 결합할 수 있나요?**
 
-No. [Merger.process](https://reference.aspose.com/slides/ko/java/com.aspose.slides/merger/#process-java.lang.String:A-java.lang.String-) requires input presentations in the same format. Convert the input files to a common format first, for example with [Convert.autoByExtension](https://reference.aspose.com/slides/ko/java/com.aspose.slides/convert/#autoByExtension-java.lang.String-java.lang.String-), and then merge the converted files.
+아니요. [Merger.process]는 입력 프레젠테이션이 동일한 형식이어야 합니다. 먼저 [Convert.autoByExtension](https://reference.aspose.com/slides/ko/java/com.aspose.slides/convert/#autoByExtension-java.lang.String-java.lang.String-)을 사용해 공통 형식으로 변환한 뒤 결합하십시오.
 
-**Does ForEach process master, layout, and notes slides?**
+**ForEach가 마스터, 레이아웃 및 노트 슬라이드를 처리합니까?**
 
-[ForEach.slide](https://reference.aspose.com/slides/ko/java/com.aspose.slides/foreach/#slide-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachSlideCallback-) iterates through normal presentation slides. Presentation-wide [ForEach.shape](https://reference.aspose.com/slides/ko/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-), [ForEach.paragraph](https://reference.aspose.com/slides/ko/java/com.aspose.slides/foreach/#paragraph-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachParagraphCallback-), and [ForEach.portion](https://reference.aspose.com/slides/ko/java/com.aspose.slides/foreach/#portion-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachPortionCallback-) operations include normal, master, and layout slides by default. Use their overloads with `includeNotes` set to `true` to include notes slides.
+[ForEach.slide]은 일반 프레젠테이션 슬라이드만 순회합니다. 프레젠테이션 전체에 대해 [ForEach.shape], [ForEach.paragraph], [ForEach.portion] 연산은 기본적으로 일반, 마스터, 레이아웃 슬라이드를 포함합니다. `includeNotes` 파라미터를 `true`로 설정하면 노트 슬라이드도 포함됩니다.
 
-**What is the difference between ForEach.shape and Collect.shapes?**
+**ForEach.shape와 Collect.shapes의 차이점은 무엇인가요?**
 
-Use [ForEach.shape](https://reference.aspose.com/slides/ko/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-) to process each shape immediately through a callback. Use [Collect.shapes](https://reference.aspose.com/slides/ko/java/com.aspose.slides/collect/#shapes-com.aspose.slides.Presentation-) when you need an iterable result that can be retained, filtered, counted, or traversed multiple times.
+[ForEach.shape]는 콜백을 통해 각 도형을 즉시 처리합니다. [Collect.shapes]는 도형 컬렉션을 반환하여 보관, 필터링, 계산 또는 여러 번 순회할 수 있게 합니다.
 
-**Does Compress always make the presentation file smaller?**
+**Compress가 항상 프레젠테이션 파일을 더 작게 만들까요?**
 
-Not necessarily. The result depends on whether the presentation contains unused layouts, unused masters, or embedded fonts with unused characters. If none of those are present, the corresponding [Compress](https://reference.aspose.com/slides/ko/java/com.aspose.slides/compress/) operations may not reduce the file size.
+반드시 그렇지는 않습니다. 프레젠테이션에 사용되지 않는 레이아웃, 마스터, 사용되지 않은 글꼴 문자 등이 포함되어 있을 때만 파일 크기가 감소합니다. 해당 요소가 없으면 [Compress] 작업이 파일 크기를 줄이지 않을 수 있습니다.
 
-**Are changes made by ForEach or Compress saved automatically?**
+**ForEach 또는 Compress로 만든 변경 사항이 자동으로 저장되나요?**
 
-No. These helpers operate on the loaded [Presentation](https://reference.aspose.com/slides/ko/java/com.aspose.slides/presentation/) object in memory. After changing elements in a [ForEach](https://reference.aspose.com/slides/ko/java/com.aspose.slides/foreach/) callback or running [Compress](https://reference.aspose.com/slides/ko/java/com.aspose.slides/compress/), call [Presentation.save](https://reference.aspose.com/slides/ko/java/com.aspose.slides/presentation/#save-java.lang.String-int-) to write the result.
+아니요. 이 헬퍼들은 메모리상의 [Presentation] 객체에만 적용됩니다. [ForEach] 콜백이나 [Compress] 실행 후에는 [Presentation.save]를 호출해 결과를 저장해야 합니다.
 
-## **Related Articles**
+## **관련 문서**
 
-- [Convert Presentation](/java/convert-presentation/)
-- [Merge Presentations](/java/merge-presentation/)
-- [Slide Master](/java/slide-master/)
-- [Manage Text Box](/java/manage-textbox/)
-- [Embedded Font](/java/embedded-font/)
+- [Convert Presentation](/slides/ko/java/convert-presentation/)
+- [Merge Presentations](/slides/ko/java/merge-presentation/)
+- [Slide Master](/slides/ko/java/slide-master/)
+- [Manage Text Box](/slides/ko/java/manage-textbox/)
+- [Embedded Font](/slides/ko/java/embedded-font/)

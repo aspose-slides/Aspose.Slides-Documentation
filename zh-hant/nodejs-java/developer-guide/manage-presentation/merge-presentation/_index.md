@@ -1,5 +1,5 @@
 ---
-title: 在 JavaScript 中高效合併簡報
+title: 高效合併 JavaScript 中的簡報
 linktitle: 合併簡報
 type: docs
 weight: 40
@@ -11,47 +11,47 @@ keywords:
 - 合併 PPT
 - 合併 PPTX
 - 合併 ODP
-- 組合 PowerPoint
-- 組合簡報
-- 組合投影片
-- 組合 PPT
-- 組合 PPTX
-- 組合 ODP
+- 結合 PowerPoint
+- 結合簡報
+- 結合投影片
+- 結合 PPT
+- 結合 PPTX
+- 結合 ODP
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "學習如何在 JavaScript 中通過克隆投影片、控制母片與版面配置、調整投影片內容大小、保留節以及處理受保護或大型檔案，來合併 PowerPoint 和 OpenDocument 簡報。"
+description: "了解如何在 JavaScript 中透過克隆投影片、控制母版與版面配置、調整投影片內容大小、保留章節，以及處理受保護或大型檔案，來合併 PowerPoint 與 OpenDocument 簡報。"
 ---
-## **概覽**
+## **概述**
 
-Aspose.Slides for Node.js via Java 透過將幻燈片從一個[簡報](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/)克隆到另一個來合併簡報。主要的操作是[SlideCollection.addClone](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-)，它可以保留來源幻燈片的格式，或將克隆的幻燈片附加到目標簡報的母片或版面配置。
+Aspose.Slides for Node.js via Java 通过克隆幻灯片将演示文稿从一个 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/) 合并到另一个。主要操作是 [SlideCollection.addClone](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-)，它可以保留源幻灯片的格式，或将克隆的幻灯片附加到目标演示文稿的母版或布局。
 
-本文說明最常見的合併工作流程：
+本文介绍最常见的合并工作流：
 
-- 合併所有幻燈片，同時保留其來源格式；
-- 合併選取的幻燈片；
-- 使用目標簡報的母片；
-- 使用目標簡報的特定版面配置；
-- 在合併前正規化不同的幻燈片尺寸；
-- 將克隆的幻燈片加入節；
-- 在單一端到端工作流程中合併多個簡報；
-- 處理母片、資源、註解、評論、媒體、字型、密碼、大檔案以及多執行緒相關問題。
+- 合并所有幻灯片并保留其源格式；
+- 合并选定的幻灯片；
+- 使用目标演示文稿的母版；
+- 使用目标演示文稿的特定布局；
+- 在合并前规范不同的幻灯片尺寸；
+- 将克隆的幻灯片添加到章节；
+- 在一次端到端工作流中合并多个演示文稿；
+- 处理母版、资源、备注、评论、媒体、字体、密码、大文件以及多线程相关问题。
 
-## **投影片克隆如何影響母片與版面配置**
+## **幻灯片克隆对母版和布局的影响**
 
-投影片的大部分外觀會從其版面配置與母片繼承。因此，您選擇的克隆重載方式會決定合併後的投影片如何整合至目標簡報。
+幻灯片的大部分外观继承自其布局和母版。因此，您选择的克隆重载决定了合并后的幻灯片如何集成到目标演示文稿中。
 
-使用[SlideCollection.addClone](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/slidecollection/)時，可採取以下任一方式：
+以以下方式使用 [SlideCollection.addClone](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/slidecollection/)：
 
-- `addClone(sourceSlide)` — 保留來源投影片的版面配置與格式。必要時，來源母片會自動克隆到目標簡報。Aspose.Slides 會追蹤自動克隆的母片，避免同一來源母片被重複克隆。
-- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — 將克隆的投影片附加到特定的目標[MasterSlide](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/masterslide/)。Aspose.Slides 會依版面配置類型或名稱，於該母片下尋找匹配的版面配置。
-- `addClone(sourceSlide, destinationLayout)` — 將克隆的投影片直接附加到特定的目標[LayoutSlide](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/layoutslide/)。
+- `addClone(sourceSlide)` — 保留源幻灯片的布局和格式。必要时，源母版会自动克隆到目标演示文稿中。Aspose.Slides 会自动跟踪已克隆的母版，以避免对使用相同源母版的重复幻灯片重复克隆该母版。
+- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — 将克隆的幻灯片附加到特定的目标 [MasterSlide](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/masterslide/)。Aspose.Slides 会根据布局类型或名称在该母版下查找匹配的布局。
+- `addClone(sourceSlide, destinationLayout)` — 将克隆的幻灯片直接附加到特定的目标 [LayoutSlide](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/layoutslide/)。
 
-傳遞給 `addClone` 重載的母片或版面配置必須屬於**目標**簡報，而非來源簡報。
+传递给 `addClone` 重载的母版或布局必须属于 **目标** 演示文稿，而非源演示文稿。
 
-## **合併整個簡報並保留來源格式**
+## **合并整个演示文稿并保留源格式**
 
-最簡單的合併方式是將來源簡報的每張投影片複製到目標簡報。當匯入的投影片需要保留原始主題、母片與版面配置關係時，這是適當的選擇。
+最简单的合并方式是将源演示文稿的每张幻灯片复制到目标演示文稿。这是在导入的幻灯片应保持其原始主题、母版和布局关系时的合适选择。
 
 ```javascript
 const aspose = require("aspose.slides.via.java");
@@ -70,11 +70,11 @@ try {
 }
 ```
 
-若來源與目標使用不同的設計，最終簡報可能會包含多個母片。這在刻意保留來源格式時屬於預期行為。
+当源和目标使用不同的设计时，生成的演示文稿可能包含多个母版。这是有意保留源格式时的预期行为。
 
-## **合併選取的投影片**
+## **合并选定的幻灯片**
 
-您不必克隆每張投影片。以下範例僅從來源簡報匯入選取的投影片索引。
+您不必克隆每张幻灯片。下面的示例仅从源演示文稿中导入选定的幻灯片索引。
 
 ```javascript
 const aspose = require("aspose.slides.via.java");
@@ -95,11 +95,11 @@ try {
 }
 ```
 
-在克隆之前，請驗證投影片索引，尤其是來自使用者輸入或外部設定時。
+在克隆之前，请验证幻灯片索引，尤其是它们来自用户输入或外部配置时。
 
-## **使用目標母片合併投影片**
+## **使用目标母版合并幻灯片**
 
-當匯入的投影片應遵循已存在於目標簡報的母片時，請使用[addClone(Slide, MasterSlide, boolean)](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-) 重載。
+当导入的幻灯片应遵循已存在于目标演示文稿的母版时，请使用 [addClone(Slide, MasterSlide, boolean)](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.IMasterSlide-boolean-) 重载。
 
 ```javascript
 const aspose = require("aspose.slides.via.java");
@@ -120,13 +120,13 @@ try {
 }
 ```
 
-Aspose.Slides 會根據來源版面配置的類型或名稱，在指定的母片下選取合適的版面配置。若不存在合適的版面配置且 `allowCloneMissingLayout` 為 `true`，則會克隆來源版面配置以便加入投影片；若為 `false`，則會拋出 [PptxEditException](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/pptxeditexception/)。
+Aspose.Slides 会通过匹配源布局的类型或名称，在指定的母版下选择合适的布局。如果不存在合适的布局且 `allowCloneMissingLayout` 为 `true`，则会克隆源布局，以便添加幻灯片；如果为 `false`，则会抛出 [PptxEditException](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/pptxeditexception/)。
 
-當您希望合併失敗而不是在目標母片中新增版面配置時，請使用 `false`。
+当您希望合并在没有向目标母版添加额外布局的情况下失败时，请使用 `false`。
 
-## **使用特定目標版面配置合併投影片**
+## **使用特定目标布局合并幻灯片**
 
-當您確定匯入的投影片必須使用特定的目標版面配置時，請使用[addClone(Slide, LayoutSlide)](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.ILayoutSlide-) 重載。
+当您明确知道导入的幻灯片应使用哪个目标布局时，请使用 [addClone(Slide, LayoutSlide)](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.ILayoutSlide-) 重载。
 
 ```javascript
 const aspose = require("aspose.slides.via.java");
@@ -147,13 +147,13 @@ try {
 }
 ```
 
-套用目標版面配置會改變繼承的版面關係；它不會重新設計來源投影片的內容。若來源與目標版面配置的佔位元結構不同，請檢查結果，以確保繼承的格式與佔位元行為符合預期。
+应用目标布局会改变继承的布局关系，但不会重新设计源幻灯片的内容。如果源布局和目标布局的占位符结构不同，请检查结果以确认继承的格式和占位符行为是否符合预期。
 
-## **合併不同幻燈片尺寸的簡報**
+## **合并不同幻灯片尺寸的演示文稿**
 
-不同幻燈片尺寸的簡報可以合併，但將投影片克隆至尺寸不同的簡報不會自動為新畫布重新設計內容。形狀可能會出現移位、比例異常或超出可視範圍的情況。
+不同幻灯片尺寸的演示文稿可以合并，但将幻灯片克隆到尺寸不同的演示文稿时，内容不会自动重新设计以适配新的画布。形状可能因此出现偏移、意外缩放或位于可视区域之外。
 
-實用的做法是在克隆前先調整來源簡報的尺寸。`[SlideSize.setSize](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/slidesize/#setSize-float-float-int-)` 方法可在變更幻燈片尺寸的同時縮放現有內容。`[SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/slidesizescaletype/)` 會將內容縮放至符合指定大小。
+一种实用方法是先在克隆之前调整源演示文稿的尺寸。[SlideSize.setSize](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/slidesize/#setSize-float-float-int-) 方法可以在更改幻灯片尺寸的同时缩放现有内容。[SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/slidesizescaletype/) 会将内容缩放至请求的尺寸范围内。
 
 ```javascript
 const aspose = require("aspose.slides.via.java");
@@ -184,11 +184,11 @@ try {
 }
 ```
 
-調整尺寸會在記憶體中變更來源簡報物件。若您需要保留原始來源簡報以供其他操作，請為合併開啟另一個實例。
+调整尺寸会在内存中更改源演示文稿对象。如果您需要在其他操作中保持源演示文稿原样，请为合并打开单独的实例。
 
-## **將投影片合併至簡報節**
+## **将幻灯片合并到演示文稿章节**
 
-基本的克隆迴圈不會重建來源簡報的節層級。若輸出需要保留節結構，請在目標簡報中建立或選取節，並使用 `[addClone(Slide, Section)](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.ISection-)` 明確將投影片克隆至該節。
+基本的克隆循环不会重新创建源演示文稿的章节层次结构。如果章节在输出中很重要，请在目标演示文稿中创建或选择章节，并使用 [addClone(Slide, Section)](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.ISection-) 将幻灯片显式克隆到这些章节中。
 
 ```javascript
 const aspose = require("aspose.slides.via.java");
@@ -209,11 +209,11 @@ try {
 }
 ```
 
-克隆的投影片會附加到指定的目標節。若要保留多個來源節，請在目標中重建這些節，並將每個來源投影片對映至相應的目標節。
+克隆的幻灯片会追加到指定的目标章节。若要保留多个源章节，请枚举 [Presentation.getSections](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/#getSections)，使用 [Section.getSlidesListOfSection](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/section/#getSlidesListOfSection) 获取每个源章节的当前幻灯片，重新在目标中创建章节，并将每个返回的幻灯片克隆到相应的目标章节。有关完整的章节枚举示例（包括空章节和结构更改），请参阅 [Manage Slide Sections](/slides/zh-hant/nodejs-java/slide-section/)。
 
-## **安全合併多個簡報**
+## **安全合并多个演示文稿**
 
-以下端到端範例使用第一個簡報作為目標，將每個額外來源的幻燈片尺寸正規化，僅在複製期間保持來源開啟，最終一次性保存檔案。
+下面的端到端示例以第一个演示文稿作为目标，规范每个额外源的幻灯片尺寸，仅在复制时保持源打开，最终一次性保存文件。
 
 ```javascript
 const aspose = require("aspose.slides.via.java");
@@ -252,39 +252,39 @@ try {
 }
 ```
 
-這是一個保留匯入投影片來源格式的實用基礎。若您的輸出必須使用單一目標主題，請將簡單的 `addClone(sourceSlide)` 呼叫替換為前述的目標母片或目標版面配置重載。
+这是保留导入幻灯片源格式的有用基准。如果输出必须使用单一目标主题，请将简单的 `addClone(sourceSlide)` 调用替换为前文示例中的相应目标母版或目标布局重载。
 
-## **實務考量**
+## **实际注意事项**
 
-### **母片、版面配置與格式忠實度**
+### **母版、布局与格式保真度**
 
-預設的投影片克隆會自動將所需的來源母片帶入目標簡報。Aspose.Slides 會維護自動克隆母片的內部註冊表，以避免重複克隆同一母片。手動克隆的母片不會被該註冊表追蹤，因此除非需要對母片結構進行明確控制，否則請避免預先克隆母片。
+默认的幻灯片克隆可以自动将所需的源母版带入目标演示文稿。Aspose.Slides 为自动克隆的母版维护内部注册表，以避免对同一母版的重复克隆。手动克隆的母版不受该注册表跟踪，因此除非需要对母版结构进行明确控制，否则请避免预先克隆母版。
 
-即使兩個母片或版面配置名稱相同，也不要假設它們在外觀上等價。若企業範本必須控制最終外觀，請明確選取目標母片或版面配置，並在合併後驗證結果。
+不要假设名称相同的两个母版或布局在视觉上是等价的。如果企业模板必须控制最终外观，请显式选择目标母版或布局，并在合并后验证结果。
 
-### **註解與評論**
+### **备注和评论**
 
-講者備註與投影片評論與投影片內容關聯，克隆投影片時會一併複製。Aspose.Slides 也提供專門的 API 供[簡報備註](https://docs.aspose.com/slides/zh-hant/nodejs-java/presentation-notes/)與[簡報評論](https://docs.aspose.com/slides/zh-hant/nodejs-java/presentation-comments/)使用。
+演讲者备注和幻灯片评论与幻灯片内容关联，并在克隆幻灯片时一起复制。Aspose.Slides 还提供专用 API 用于 [presentation notes](/slides/zh-hant/nodejs-java/presentation-notes/) 和 [presentation comments](/slides/zh-hant/nodejs-java/presentation-comments/)。
 
-若備註頁的格式很重要，請驗證合併後的簡報，因為備註母片是簡報層級的物件，來源檔案間可能不同。對於審閱工作流程，亦請在合併不同作者或範本的檔案後，驗證評論作者與串接評論的正確性。
+如果备注页的格式很重要，请验证合并后的演示文稿，因为备注母版是演示文稿级对象，可能在源文件之间有所不同。对于审阅工作流，还需在合并来自不同作者或模板的文件后验证评论作者及线程评论。
 
-### **圖片、音訊、視訊、OLE 物件與外部連結**
+### **图像、音频、视频、OLE 对象和外部链接**
 
-投影片可能會引用簡報層級的資源，如圖片、內嵌音訊、內嵌視訊與 OLE 資料。請克隆整張投影片，而非僅複製可見圖形，讓 Aspose.Slides 能維護投影片與資源之間的關聯。
+幻灯片可以引用演示文稿级资源，如图像、嵌入式音频、嵌入式视频和 OLE 数据。请克隆整个幻灯片，而不是仅复制可见形状，这样 Aspose.Slides 才能维护幻灯片与其资源的关系。
 
-內嵌與連結的資源應分別處理。連結的音訊、視訊、OLE 物件或超連結仍依賴外部目標；克隆投影片不會將外部連結自動轉為內嵌內容。請在最終開啟的環境中測試連結路徑與 URL。
+嵌入式资源和链接资源的处理方式不同。链接的音频、视频、OLE 对象或超链接仍然依赖外部目标；克隆幻灯片不会将外部链接转为嵌入内容。请在合并后在实际使用环境中测试链接资源的路径和 URL。
 
-雖然 Aspose.Slides 會追蹤自動克隆的母片，但這不代表來自不同來源簡報的相同二進位資源一定會被去重。若輸出檔案大小重要，請檢查合併後的封裝並自行測量結果，而非依賴隱性去重機制。
+Aspose.Slides 显式跟踪自动克隆的母版，但这并不意味着对来自不相关源演示文稿的相同二进制资源始终会去重。如果文件大小是关键，请检查合并后的包并自行测量结果，而不要依赖隐式去重。
 
-### **內嵌字型與字型可用性**
+### **嵌入字体与字体可用性**
 
-字型在簡報層級管理。若排版必須在不同機器上保持一致，請勿僅依賴投影片克隆就假設所有必要字型均已在目標環境中可用。您可以使用 `[FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/fontsmanager/#getEmbeddedFonts--)` 檢查內嵌字型，並依照[在簡報中嵌入字型](https://docs.aspose.com/slides/zh-hant/nodejs-java/embedded-font/)的說明明確管理字型嵌入。
+字体在演示文稿级别管理。如果排版必须在不同机器上保持一致，请不要仅依赖克隆幻灯片来保证所有必需字体在目标环境中可用。您可以使用 [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/fontsmanager/#getEmbeddedFonts--) 检查嵌入的字体，并按照 [Embed Fonts in Presentations](/slides/zh-hant/nodejs-java/embedded-font/) 中的说明显式管理嵌入。
 
-同時也請確認您有權限嵌入來源檔案使用的字型；字型授權可能限制嵌入行為。
+同时，请确认您有权嵌入源文件使用的字体。字体许可可能限制嵌入。
 
-### **受密碼保護的簡報**
+### **受密码保护的演示文稿**
 
-必須先成功開啟受密碼保護的來源，才能克隆其投影片。請透過 `[LoadOptions.setPassword](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/loadoptions/#setPassword-String-)` 提供密碼。
+在克隆幻灯片之前，必须成功打开受密码保护的源演示文稿。请通过 [LoadOptions.setPassword](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/loadoptions/#setPassword-String-) 提供密码。
 
 ```javascript
 const aspose = require("aspose.slides.via.java");
@@ -300,64 +300,64 @@ try {
 }
 ```
 
-開啟加密的來源不會自動將相同的保護套用至目標簡報。若需要，請另行設定輸出保護。
+打开加密的源文件不会自动将相同的保护应用到目标演示文稿。必要时请单独配置输出保护。
 
-### **大型簡報與記憶體使用量**
+### **大型演示文稿与内存使用**
 
-包含高解析度圖片、音訊、視訊或其他大型二進位物件的簡報會消耗大量記憶體。`[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/loadoptions/#getBlobManagementOptions--)` 提供 BLOB 處理與暫存檔使用的控制。請參考[管理簡報 BLOB](https://docs.aspose.com/slides/zh-hant/nodejs-java/manage-blob/)以了解大型檔案的策略。
+包含高分辨率图像、音频、视频或其他大型二进制对象的大型演示文稿会占用相当的内存。[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/loadoptions/#getBlobManagementOptions--) 提供对 BLOB 处理和临时文件使用的控制。有关大文件策略，请参阅 [Manage Presentation BLOBs](/slides/zh-hant/nodejs-java/manage-blob/)。
 
-對於大型檔案，盡可能使用檔案路徑載入，於合併完成後立即釋放每個來源簡報，除非工作流程需要檢查點，否則避免重複儲存中間結果。
+对于大文件，尽可能使用文件路径加载，合并后立即释放每个源演示文稿，并避免反复保存中间结果，除非工作流需要检查点。
 
-### **執行緒安全性**
+### **线程安全**
 
-請勿在多個執行緒中載入、儲存或克隆同一個[Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/)實例。這些操作不支援多執行緒使用。若需要平行處理多個獨立的合併工作，請使用多個單執行緒的程序，各自擁有獨立的簡報實例，並遵循[Aspose.Slides 多執行緒指導方針](https://docs.aspose.com/slides/zh-hant/nodejs-java/multithreading/)。
+不要在多个线程中加载、保存或克隆同一 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/) 实例。这些操作不支持多线程使用。如果需要并行处理独立的合并任务，请使用多个单线程进程，每个进程拥有自己的演示文稿实例，并遵循 [Aspose.Slides multithreading guidance](/slides/zh-hant/nodejs-java/multithreading/)。
 
-## **常見問題**
+## **常见问答**
 
-**如何保留每個來源簡報的原始設計？**
+**如何保留每个源演示文稿的原始设计？**
 
-使用[`addClone(sourceSlide)`](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-)，且不提供目標母片或版面配置。Aspose.Slides 會在需要時自動克隆來源母片。
+使用不提供目标母版或布局的 [addClone](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-)。Aspose.Slides 会在导入的幻灯片需要时自动克隆源母版。
 
-**如何讓匯入的投影片使用目標主題？**
+**如何让导入的幻灯片使用目标主题？**
 
-使用接受目標母片的重載。傳入目標簡報中的母片，而非來源母片。Aspose.Slides 會嘗試將每個來源投影片映射至該母片下的適當版面配置。
+使用接受目标母版的重载。传入目标演示文稿中的母版，而非源演示文稿中的母版。Aspose.Slides 将尝试将每个源幻灯片映射到该母版下的合适布局。
 
-**何時應使用特定的目標版面配置而非目標母片？**
+**何时应该使用特定的目标布局而不是目标母版？**
 
-當每張匯入的投影片都必須使用同一已知版面配置時，使用特定版面配置；當希望 Aspose.Slides 根據來源版面配置的類型或名稱，在該母片的多個版面配置之間自動選擇時，則使用母片。
+当每个导入的幻灯片都应使用已知的单一布局时使用特定布局。需要 Aspose.Slides 根据源布局类型或名称在母版的多个布局中进行选择时，请使用母版。
 
-**不同幻燈片尺寸的簡報可以合併嗎？**
+**可以合并不同幻灯片尺寸的演示文稿吗？**
 
-可以，但投影片內容不會自動為目標尺寸重新設計。若需要預測的版面位置，請先調整來源簡報，例如使用 `[SlideSize.setSize](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/slidesize/#setSize-float-float-int-)` 與 `[SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/slidesizescaletype/)`。
+可以，但幻灯片内容不会自动为目标尺寸重新设计。需要可预测的布局时，请先使用 [SlideSize.setSize](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/slidesize/#setSize-float-float-int-) 和 [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/slidesizescaletype/) 调整源演示文稿。
 
-**我可以將 PPT、PPTX 與 ODP 簡報合併成同一個檔案嗎？**
+**可以将 PPT、PPTX 和 ODP 演示文稿合并为一个文件吗？**
 
-可以。載入每個來源簡報，將所需的投影片克隆至同一目標簡報，並以支援的輸出格式保存。因為不同簡報格式的功能集合不完全相同，請在跨格式合併後驗證複雜內容。請參閱[支援的檔案格式](https://docs.aspose.com/slides/zh-hant/nodejs-java/supported-file-formats/)。
+可以。加载每个源演示文稿，将所需幻灯片克隆到同一目标中，并以受支持的输出格式保存。由于演示文稿格式的特性集并不完全相同，跨格式合并后请验证复杂内容。参阅 [Supported File Formats](/slides/zh-hant/nodejs-java/supported-file-formats/)。
 
-**來源節會自動保留嗎？**
+**源章节会自动保留吗？**
 
-不會，基本的僅克隆投影片的迴圈不會保留節結構。若必須保留節，請在目標中重新建立所需節，並使用 `[addClone](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.ISection-)` 的節重載。
+基本的仅克隆幻灯片的循环不会保留章节。请在目标中重新创建所需章节，并在必须保留章节结构时使用 [addClone](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/slidecollection/#addClone-aspose.slides.ISlide-aspose.slides.ISection-) 的章节重载。
 
-**講者備註與評論會被保留嗎？**
+**演讲者备注和评论会被保留吗？**
 
-會隨克隆的投影片一起複製。對於依賴備註母片樣式、評論作者或串接審閱資料的工作流程，請驗證合併結果，因為這些情況涉及簡報層級結構以及投影片層級內容。
+它们会随克隆的幻灯片一起复制。对于依赖备注母版样式、评论作者或线程审阅数据的工作流，请在合并后验证结果，因为这些场景涉及演示文稿级结构以及幻灯片级内容。
 
-**音訊、視訊、OLE 物件與超連結會發生什麼事？**
+**音频、视频、OLE 对象和超链接会怎样处理？**
 
-內嵌的內容會隨克隆的投影片的資源關聯一起保留。外部連結仍然保持外部狀態，合併後仍需確保其目標檔案或 URL 可用。
+嵌入的内容会随克隆的幻灯片的资源关系一起保留。外部链接仍保持外部状态，合并后其目标文件或 URL 必须仍然可用。
 
-**是否保證所有來源的內嵌字型都會出現在合併後的簡報中？**
+**所有源的嵌入字体是否都保证在合并后可用？**
 
-不要僅依賴投影片克隆來部署字型。請檢查目標簡報的內嵌字型，並在排版重要時明確管理字型嵌入或外部字型的可用性。
+不要仅依赖幻灯片克隆来实现字体部署。请检查目标的嵌入字体，并在排版重要时显式管理字体嵌入或外部字体可用性。
 
-**如何合併受密碼保護的檔案？**
+**如何合并受密码保护的文件？**
 
-使用正確的 `[LoadOptions.setPassword](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/loadoptions/#setPassword-String-)` 開啟檔案，然後正常克隆其投影片。輸出保護需另行配置。
+使用正确的 [LoadOptions.setPassword](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/loadoptions/#setPassword-String-) 打开文件，然后正常克隆其幻灯片。输出的保护需另行配置。
 
-**如何處理非常大的簡報？**
+**如何处理非常大的演示文稿？**
 
-在大型二進位物件主導記憶體使用時，使用 BLOB 管理，盡可能以檔案路徑載入大型檔案，及時釋放來源簡報，且僅在必要時保存最終結果。
+当大二进制对象占用大量内存时使用 BLOB 管理，尽可能使用文件路径加载超大文件，及时释放源演示文稿，并仅在需要时保存最终结果。
 
-**我可以從多個執行緒合併投影片嗎？**
+**可以从多个线程合并幻灯片吗？**
 
-不要在多個執行緒中載入、保存或克隆簡報實例。若需平行合併工作，請使用獨立的單執行緒程序及獨立的簡報實例。
+不要在多个线程中加载、保存或克隆演示文稿实例。对于并行的合并任务，请使用独立的单线程进程和各自的演示文稿实例。

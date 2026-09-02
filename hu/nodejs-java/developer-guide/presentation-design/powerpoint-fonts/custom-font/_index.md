@@ -1,6 +1,6 @@
 ---
-title: PowerPoint betűtípusok testreszabása JavaScript-ben
-linktitle: Egyéni betűtípus
+title: PowerPoint Betűtípusok testreszabása JavaScript-ben
+linktitle: Egyéni Betűtípus
 type: docs
 weight: 20
 url: /hu/nodejs-java/custom-font/
@@ -13,89 +13,94 @@ keywords:
 - betűtípus mappa
 - PowerPoint
 - OpenDocument
-- bemutató
+- prezentáció
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Testreszabja a PowerPoint diák betűtípusait JavaScript és a Node.js-hez készült Aspose.Slides Java segítségével, hogy bemutatói élesek és következetesek legyenek minden eszközön."
+description: "Testreszabhatja a betűtípusokat a PowerPoint diáknál JavaScript és az Aspose.Slides for Node.js Java segítségével, hogy előadásai élesek és következetesek legyenek minden eszközön."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides lehetővé teszi, hogy egyéni betűtípusokat használjon a bemutatókban anélkül, hogy azokat az operációs rendszerre telepítené. Betűtípusokat tölthet be egyéni mappákból, megadhat betűtípusokat egy adott bemutatóhoz dokumentumszintű betűtípusforrások segítségével, vagy külső betűtípusokat tölthet be közvetlenül bináris adatokból.
+Az Aspose.Slides lehetővé teszi egyéni betűtípusok használatát a bemutatókban anélkül, hogy az operációs rendszerre telepítené őket. Betűtípusokat betölthetsz egyéni mappákból, megadhatsz betűtípusokat egy adott bemutatóhoz a dokumentumszintű betűforrások segítségével, vagy külső betűtípusokat tölthetsz be közvetlenül bináris adatokból.
 
-A betöltött betűtípusok a bemutató renderelése vagy exportálása során kerülnek felhasználásra, például PDF, képek és egyéb támogatott formátumok esetén. Ez segít abban, hogy a bemutató kimenete egységes maradjon a különböző környezetekben. A cikk bemutatja, hogyan ellenőrizheti az Aspose.Slides által használt betűtípus-mappákat, és hogyan törölheti a betűtípus-gyorsítót a külső betűtípusok használata után.
+A betöltött betűtípusok a bemutató renderelésekor vagy exportálásakor kerülnek felhasználásra, például PDF, képek és más támogatott formátumok esetén. Ez segít abban, hogy a bemutató kimenete különböző környezetekben is egységes maradjon. Ez a cikk azt is bemutatja, hogyan ellenőrizheted az Aspose.Slides által használt betűtípus-mappákat, és hogyan törölheted a betűtípus-gyorsítót a külső betűtípusok használata után.
 
-Az egyéni betűtípusok regisztrálása a rendereléshez különálló a betűtípusok PPTX fájlba ágyazásától. Ha egy betűtípust a bemutatóban kell tárolni, használja a betűtípus-ágyazási funkciókat kifejezetten.
+Az egyéni betűtípusok regisztrálása a rendereléshez elkülönül a betűtípusok PPTX fájlba ágyazásától. Ha egy betűtípust a bemutatóba kell ágyazni, használja a betűtípuságyazási funkciókat kifejezetten.
 
-{{% alert color="primary" %}} 
+Az előadás témája különböző betűcsaládokra hivatkozhat az egyes írásrendszerekhez. Ezek a leképezések csak betűtípusneveket tárolnak, de nem telepítik vagy töltik be a betűtípusfájlokat. Tekintsd meg a [Script-Specific Theme Fonts](/slides/hu/nodejs-java/script-specific-font-mappings/) oldalt a leképezések kezeléséhez, és használd az alábbi betöltési beállításokat, hogy a hivatkozott betűtípusok elérhetők legyenek az egységes rendereléshez.
 
-Az Aspose Slides lehetővé teszi, hogy ezeket a betűtípusokat a [loadExternalFonts](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) metódussal töltse be:
+{{% alert color="info" title="Note" %}}
+Az Aspose Slides lehetővé teszi ezen betűtípusok betöltését a [loadExternalFonts](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) metódus segítségével:
 
-* TrueType (.ttf) és TrueType Collection (.ttc) betűtípusok. Lásd [TrueType](https://en.wikipedia.org/wiki/TrueType).
+* TrueType (.ttf) és TrueType Collection (.ttc) betűtípusok. Lásd a [TrueType](https://en.wikipedia.org/wiki/TrueType) oldalt.
 
-* OpenType (.otf) betűtípusok. Lásd [OpenType](https://en.wikipedia.org/wiki/OpenType).
-
+* OpenType (.otf) betűtípusok. Lásd a [OpenType](https://en.wikipedia.org/wiki/OpenType) oldalt.
 {{% /alert %}}
 
 ## **Egyéni betűtípusok betöltése**
 
-Az Aspose.Slides lehetővé teszi, hogy a bemutatóban használt betűtípusokat a rendszer telepítése nélkül töltse be. Ez befolyásolja az export kimenetét – például PDF, képek és egyéb támogatott formátumok – így a létrehozott dokumentumok egységesek maradnak a különböző környezetekben. A betűtípusok egyéni könyvtárakból töltődnek be.
+Az Aspose.Slides lehetővé teszi a bemutatóban használt betűtípusok betöltését anélkül, hogy telepítené őket a rendszerre. Ez befolyásolja az export kimenetét – például PDF, képek és más támogatott formátumok –, így a létrehozott dokumentumok különböző környezetekben is egységesnek tűnnek. A betűtípusok egyéni könyvtárakból töltődnek be.
 
-1. Adja meg a betűtípus-fájlokat tartalmazó egy vagy több mappát.
-2. Hívja meg a statikus [FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/fontsloader/loadexternalfonts/) metódust a betűtípusok betöltéséhez ezekből a mappákból.
-3. Töltse be és renderelje/exportálja a bemutatót.
-4. Hívja meg a [FontsLoader.clearCache](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/fontsloader/clearcache/) metódust a betűtípus-gyorsító törléséhez.
-
-A következő kódrészlet bemutatja a betűtípus betöltésének folyamatát:
+1. Adj meg egy vagy több mappát, amely a betűtípusfájlokat tartalmazza.
+2. Hívd meg a statikus [FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/fontsloader/loadexternalfonts/) metódust a betűtípusok betöltéséhez a megadott mappákból.
+3. Töltsd be és rendereld/exportáld a bemutatót.
+4. Hívd meg a [FontsLoader.clearCache](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/fontsloader/clearcache/) metódust a betűtípus-gyorsítót törléséhez.
 
 ```js
-// Határozza meg az egyéni betűtípus fájlokat tartalmazó mappákat.
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+// Határozd meg az egyéni betűtípusfájlokat tartalmazó mappákat.
+let externalFontFolder1 = "fonts";
+let externalFontFolder2 = "extra-fonts";
 let fontFolders = java.newArray("java.lang.String", [externalFontFolder1, externalFontFolder2]);
 
-// Töltsön be egyéni betűtípusokat a megadott mappákból.
+// Töltsd be az egyéni betűtípusokat a megadott mappákból.
 aspose.slides.FontsLoader.loadExternalFonts(fontFolders);
 
 let presentation = null;
 try {
     presentation = new aspose.slides.Presentation("sample.pptx");
     
-    // Renderelje/exportálja a bemutatót (például PDF, képek vagy egyéb formátumok) a betöltött betűtípusok használatával.
+    // Rendereld/exportáld a bemutatót (pl. PDF-be, képekbe vagy más formátumokba) a betöltött betűtípusok használatával.
     presentation.save("output.pdf", aspose.slides.SaveFormat.Pdf);
 } finally {
     if (presentation != null) presentation.dispose();
 
-    // Törölje a betűtípus-gyorsítót a munka befejezése után.
+    // Töröld a betűtípus gyorsítótárát a munka befejezése után.
     aspose.slides.FontsLoader.clearCache();
 }
 ```
 
 {{% alert color="info" title="Note" %}}
+[FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/fontsloader/loadexternalfonts/) további mappákat ad a betűtípus-keresési útvonalakhoz, de nem módosítja a betűtípusok inicializálási sorrendjét.
+A betűtípusok ebben a sorrendben inicializálódnak:
 
-A [FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/fontsloader/loadexternalfonts/) további mappákat ad a betűtípus-keresési útvonalakhoz, de nem módosítja a betűtípusok inicializálási sorrendjét.  
-A betűtípusok e sorrendben inicializálódnak:
-
-1. Az operációs rendszer alapértelmezett betűtípus-útvonala.
+1. Az alapértelmezett operációs rendszer betűtípus útvonala.
 1. A [FontsLoader](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/fontsloader/) által betöltött útvonalak.
-
 {{%/alert %}}
 
-## **Egyéni betűtípus mappák lekérése**
-Az Aspose.Slides a [getFontFolders](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/fontsloader/#getFontFolders--) metódust biztosítja, amely lehetővé teszi a betűtípus-mappák megtalálását. Ez a metódus visszaadja a `LoadExternalFonts` metódussal hozzáadott és a rendszer betűtípus-mappáit.
+## **Egyéni betűtípusok mappájának lekérése**
+Az Aspose.Slides a [getFontFolders](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/fontsloader/#getFontFolders--) metódust biztosítja, amely lehetővé teszi a betűtípus-mappák megtalálását. Ez a metódus visszaadja a `LoadExternalFonts` metódus által hozzáadott mappákat és a rendszer betűtípus-mappákat.
 
-Ez a JavaScript-kód megmutatja, hogyan használja a [getFontFolders](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/fontsloader/#getFontFolders--):
-
+Ez a JavaScript kód bemutatja, hogyan használhatod a [getFontFolders](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/fontsloader/#getFontFolders--) metódust:
 ```javascript
-// Ez a sor kiírja azokat a mappákat, ahol a betűtípus fájlok keresésre kerülnek.
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// Ez a sor kiírja azokat a mappákat, ahol a betűtípusfájlok keresése történik.
 // Ezek a LoadExternalFonts metódussal hozzáadott és a rendszer betűtípus mappái.
 var fontFolders = aspose.slides.FontsLoader.getFontFolders();
 ```
 
-## **Egyéni betűtípusok megadása a bemutatóval**
-Az Aspose.Slides a [setDocumentLevelFontSources](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/loadoptions/#setDocumentLevelFontSources-aspose.slides.IFontSources-) tulajdonságot biztosítja, amely lehetővé teszi, hogy külső betűtípusok legyenek megadva a bemutatóhoz.
-
-Ez a JavaScript-kód megmutatja, hogyan használja a [setDocumentLevelFontSources](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/loadoptions/#setDocumentLevelFontSources-aspose.slides.IFontSources-) tulajdonságot:
-
+## **Egyéni betűtípusok megadása a bemutatóhoz**
+Az Aspose.Slides a [setDocumentLevelFontSources](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/loadoptions/#setDocumentLevelFontSources-aspose.slides.IFontSources-) tulajdonságot biztosítja, amely lehetővé teszi, hogy külső betűtípusokat adj meg a bemutatóhoz.
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var memoryFont1 = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "customfonts/CustomFont1.ttf"));
 var memoryFont2 = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "customfonts/CustomFont2.ttf"));
 var loadOptions = new aspose.slides.LoadOptions();
@@ -103,8 +108,8 @@ loadOptions.getDocumentLevelFontSources().setFontFolders(java.newArray("java.lan
 loadOptions.getDocumentLevelFontSources().setMemoryFonts(java.newArray("[B", [java.newArray("byte", ["item1", "item2", "item3"])]));
 var pres = new aspose.slides.Presentation("MyPresentation.pptx", loadOptions);
 try {
-    // Dolgozzon a prezentációval
-    // A CustomFont1, a CustomFont2, valamint az assets\fonts és a global\fonts mappák (és alkönyvtáraik) betűtípusai elérhetők a prezentációban
+    // Munkát végez a bemutatóval
+    // A CustomFont1, CustomFont2, valamint az assets\fonts & global\fonts mappákból és azok almappáiból származó betűtípusok elérhetők a bemutató számára
 } finally {
     if (pres != null) {
         pres.dispose();
@@ -112,20 +117,20 @@ try {
 }
 ```
 
-## **Betűtípusok kezelése külsőleg**
-
+## **Betűtípusok külső kezelése**
 Az Aspose.Slides a [loadExternalFont](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) metódust biztosítja, amely lehetővé teszi a külső betűtípusok betöltését bináris adatokból.
-
-Ez a JavaScript-kód bemutatja a bájt tömbből történő betűtípus betöltésének folyamatát:
-
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 java.callStaticMethodSync("com.aspose.slides.FontsLoader", "loadExternalFonts", java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "ARIALN.TTF")));
 java.callStaticMethodSync("com.aspose.slides.FontsLoader", "loadExternalFonts", java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "ARIALNBI.TTF")));
 java.callStaticMethodSync("com.aspose.slides.FontsLoader", "loadExternalFonts", java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "ARIALNI.TTF")));
 try {
     var pres = new aspose.slides.Presentation("");
     try {
-        // külső betűtípus betöltve a prezentáció élettartama alatt
+        // külső betűtípus betöltve a bemutató élettartama alatt
     } finally {
     }
 } finally {
@@ -135,22 +140,17 @@ try {
 
 ## **GYIK**
 
-**Hatnak az egyéni betűtípusok az exportálásra minden formátumban (PDF, PNG, SVG, HTML)?**
+### Az egyéni betűtípusok befolyásolják az exportálást minden formátumra (PDF, PNG, SVG, HTML)?
+Igen. A csatlakoztatott betűtípusokat a renderelő használja az összes export formátumban.
 
-Igen. A kapcsolódó betűtípusok a renderelő által minden export formátumban felhasználásra kerülnek.
+### Az egyéni betűtípusok automatikusan beágyazódnak a létrehozott PPTX-be?
+Nem. Egy betűtípus regisztrálása a rendereléshez nem ugyanaz, mint a betűtípus beágyazása egy PPTX-be. Ha a betűtípust a bemutató fájljába szeretnéd ágyazni, használni kell a kifejezett [embedding features](/slides/hu/nodejs-java/embedded-font/) funkciókat.
 
-**Ágyazódnak automatikusan az egyéni betűtípusok a létrehozott PPTX-be?**
+### Ellenőrizhetem a helyettesítő viselkedést, ha egy egyéni betűtípus bizonyos glifekkel nem rendelkezik?
+Igen. Konfiguráld a [font substitution](/slides/hu/nodejs-java/font-substitution/), [replacement rules](/slides/hu/nodejs-java/font-replacement/) és [fallback sets](/slides/hu/nodejs-java/fallback-font/) beállításokat, hogy pontosan meghatározd, melyik betűtípust kell használni, ha a kért glif hiányzik.
 
-Nem. Egy betűtípus regisztrálása a rendereléshez nem ugyanaz, mint annak PPTX-be ágyazása. Ha a betűtípust a bemutató fájlban szeretné megtartani, kifejezetten használnia kell a [beágyazási funkciókat](/slides/hu/nodejs-java/embedded-font/).
+### Használhatok betűtípusokat Linux/Docker konténerekben anélkül, hogy a rendszer szintjén telepíteném őket?
+Igen. Mutass a saját betűtípus-mappáidra, vagy tölts betűtípusokat byte tömbökből. Ez eltávolít minden függőséget a konténer képen lévő rendszer betűtípus könyvtáraktól.
 
-**Kezelhetem a tartalék viselkedést, ha egy egyéni betűtípusnál hiányoznak bizonyos glyfek?**
-
-Igen. Konfigurálja a [betűtípushelyettesítést](/slides/hu/nodejs-java/font-substitution/), a [csere szabályokat](/slides/hu/nodejs-java/font-replacement/), és a [tartalék készleteket](/slides/hu/nodejs-java/fallback-font/), hogy pontosan meghatározza, melyik betűtípus legyen használva, amikor a kért glif hiányzik.
-
-**Használhatok betűtípusokat Linux/Docker konténerekben anélkül, hogy rendszer-szintűen telepíteném őket?**
-
-Igen. Mutasson saját betűtípus-mappákra vagy töltse be a betűtípusokat bájt tömbökből. Ez eltávolít minden függőséget a rendszer betűtípus könyvtáraktól a konténer képen.
-
-**Mi a helyzet a licenceléssel – beágyazhatok bármilyen egyéni betűtípust korlátozások nélkül?**
-
-Ön felelős a betűtípus-licencelés betartásáért. A feltételek változóak; egyes licencek tiltják az ágyazást vagy a kereskedelmi felhasználást. Mindig ellenőrizze a betűtípus EULA-ját, mielőtt a kimenetet terjesztené.
+### Mi a helyzet a licenceléssel – beágyazhatok bármilyen egyéni betűtípust korlátozások nélkül?
+A te felelősséged a betűtípusok licencelésének betartása. A feltételek változóak; egyes licencek tiltják a beágyazást vagy a kereskedelmi felhasználást. Mindig ellenőrizd a betűtípus EULA‑ját a kimenetek terjesztése előtt.

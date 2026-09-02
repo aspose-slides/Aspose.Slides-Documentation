@@ -1,13 +1,13 @@
 ---
-title: Správa obrázkových rámů v prezentacích pomocí PHP
-linktitle: Obrázkový rám
+title: Spravovat rámy obrázků v prezentacích pomocí PHP
+linktitle: Rám obrázku
 type: docs
 weight: 10
 url: /cs/php-java/picture-frame/
 keywords:
-- obrázkový rám
-- přidat obrázkový rám
-- vytvořit obrázkový rám
+- rám obrázku
+- přidat rám obrázku
+- vytvořit rám obrázku
 - vložený obrázek
 - propojený obrázek
 - extrahovat obrázek
@@ -17,7 +17,7 @@ keywords:
 - smazat ořezané oblasti
 - komprimovat obrázek
 - StretchOffset
-- formátování obrázkového rámu
+- formátování rámu obrázku
 - relativní měřítko
 - efekt obrázku
 - poměr stran
@@ -26,21 +26,21 @@ keywords:
 - prezentace
 - PHP
 - Aspose.Slides
-description: "Vytvářejte, formátujte, propojujte, ořezávejte, extrahujte a komprimujte obrázkové rámy v prezentacích pomocí Aspose.Slides pro PHP přes Java."
+description: "Vytvářejte, formátujte, propojujte, ořezávejte, extrahujte a komprimujte rámy obrázků v prezentacích pomocí Aspose.Slides pro PHP přes Java."
 ---
-## **Overview**
+## **Přehled**
 
-Obrázkový rám je tvar na snímku, který zobrazuje obrázek. V Aspose.Slides jsou prostředek obrázku a tvar, který jej zobrazuje, samostatné objekty: [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/) vlastní vložené prostředky obrázků přes svou [ImageCollection](https://reference.aspose.com/slides/cs/php-java/aspose.slides/imagecollection/), zatímco [PictureFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pictureframe/) řídí pozici, velikost, formátování čáry, otočení, ořez, efekty obrázku a další nastavení na úrovni rámu.
+Rám obrázku je tvar na snímku, který zobrazuje obrázek. V Aspose.Slides jsou zdroj obrázku a tvar, který jej zobrazuje, oddělené objekty: [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/) vlastní vložené zdroje obrázků prostřednictvím své [ImageCollection](https://reference.aspose.com/slides/cs/php-java/aspose.slides/imagecollection/), zatímco [PictureFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pictureframe/) řídí pozici obrázku, velikost, formátování čar, otáčení, oříznutí, efekty obrázku a další nastavení na úrovni rámu.
 
-Toto oddělení je užitečné, když se stejný obrázek zobrazí vícekrát. Přidejte obrázek do prezentace jednou, uchovejte vrácený [PPImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/ppimage/), a použijte tento prostředek obrázku při vytváření obrázkových rámů.
+Toto oddělení je užitečné, když je stejný obrázek zobrazen vícekrát. Přidejte obrázek do prezentace jednou, uchovejte vrácený [PPImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/ppimage/), a použijte tento zdroj obrázku při vytváření rámů obrázků.
 
-Obrázkové rámy mohou obsahovat rastrové obrázky, jako jsou PNG nebo JPEG, a vektorové SVG obrázky. Můžou se také odkazovat na propojené obrázky místo ukládání bajtů obrázku do prezentace. Volba ovlivňuje přenositelnost, velikost souboru, extrakci a chování exportu, takže je vhodné rozhodnout, jak má být obrázek uložen, ještě před aplikací formátování nebo optimalizace.
+Rámy obrázků mohou obsahovat rastrové obrázky, jako jsou PNG nebo JPEG, i vektorové SVG obrázky. Mohou také odkazovat na propojené obrázky místo ukládání bajtů obrázku v prezentaci. Volba ovlivňuje přenositelnost, velikost souboru, extrakci a chování při exportu, takže je užitečné rozhodnout, jak má být obrázek uložen, před aplikací formátování nebo optimalizace.
 
-## **Add and Format an Embedded Image**
+## **Přidání a formátování vloženého obrázku**
 
-Pro vložený obrázek přidejte data obrázku do prezentace a vytvořte obrázkový rám pomocí [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shapecollection/addpictureframe/). Obrázek se stane součástí balíčku prezentace, takže prezentace zůstane samostatná, i když je přesunuta na jiný počítač.
+Pro vložený obrázek přidejte data obrázku do prezentace a vytvořte rám obrázku pomocí [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shapecollection/addpictureframe/). Obrázek se stane součástí balíčku prezentace, takže prezentace zůstane samostatná při přesunu na jiný počítač.
 
-Následující příklad přidá JPEG obrázek, vytvoří rám v nativních rozměrech obrázku a použije formátování čáry a otočení:
+Následující příklad přidá JPEG obrázek, vytvoří rám v nativních rozměrech obrázku a použije formátování čar a otáčení:
 
 ```php
 use aspose\slides\FillType;
@@ -74,11 +74,11 @@ try {
 }
 ```
 
-Obrázkový rám řídí zobrazenou geometrii; změna velikosti rámu nemění původní rozměry pixelů uložené ve vloženém prostředku obrázku. Toto rozlišení je důležité při následném ořezávání nebo komprimaci obrázku.
+Rám obrázku řídí zobrazenou geometrii; změna velikosti rámu nemění původní rozměry pixelů uložené ve vloženém zdroji obrázku. Toto rozlišení se stává důležitým při ořezávání nebo kompresi obrázku později.
 
-## **Use Relative Scale**
+## **Použití relativní škály**
 
-[PictureFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pictureframe/) poskytuje relativní škálování šířky a výšky rámu pomocí [setRelativeScaleWidth](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pictureframe/setrelativescalewidth/) a [setRelativeScaleHeight](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pictureframe/setrelativescaleheight/). Hodnota `1.0` odpovídá 100 % původní velikosti obrázku. Relativní měřítko je užitečné, když workflow potřebuje zachovat vztah k velikosti zdrojového obrázku místo ručního výpočtu konečných rozměrů.
+[PictureFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pictureframe/) poskytuje relativní škálu šířky a výšky rámu prostřednictvím [setRelativeScaleWidth](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pictureframe/setrelativescalewidth/) a [setRelativeScaleHeight](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pictureframe/setrelativescaleheight/). Hodnota `1.0` odpovídá 100 % původní velikosti obrázku. Relativní škála je užitečná, když workflow potřebuje zachovat poměr k velikosti zdrojového obrázku místo ručního výpočtu finálních rozměrů.
 
 ```php
 use aspose\slides\Images;
@@ -109,17 +109,17 @@ try {
 }
 ```
 
-Relativní měřítko mění nastavení měřítka rámu; nepřevzorkovává ani nekomprimuje vložený obrázek.
+Relativní škála mění nastavení škály rámu; nepřevzorkuje ani nekonprimuje vložený obrázek.
 
-## **Embedded and Linked Images**
+## **Vložené a propojené obrázky**
 
-Vložený obrázek ukládá data obrázku uvnitř prezentace a je proto nejbezpečnější volbou pro přenositelnost a předvídatelné vykreslování. Propojený obrázek ukládá externí umístění pomocí metody [Picture::setLinkPathLong](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picture/setlinkpathlong/) místo vložení dat obrázku stejným způsobem.
+Vložený obrázek ukládá data obrázku uvnitř prezentace a je tak nejbezpečnější volbou pro přenositelnost a předvídatelné vykreslování. Propojený obrázek ukládá externí umístění pomocí metody [Picture::setLinkPathLong](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picture/setlinkpathlong/) místo vkládání dat obrázku stejným způsobem.
 
-Propojené obrázky mohou snížit množství dat uložených v PPTX, ale zavádějí externí závislost. Propojený soubor musí zůstat přístupný aplikaci, která prezentaci otevírá nebo vykresluje. Pokud se cesta změní, soubor se přesune nebo prostředek není dostupný, může se propojený obrázek nezobrazit podle očekávání. Pro prezentace, které mají být e-mailem odesílány, archivovány nebo vykreslovány v izolovaných prostředích, jsou vložené obrázky obvykle spolehlivější.
+Propojené obrázky mohou snížit množství dat obrázku uložených v PPTX, ale zavádějí externí závislost. Propojený soubor musí zůstat přístupný aplikaci, která prezentaci otevírá nebo vykresluje. Pokud se cesta změní, soubor se přesune nebo zdroj není dostupný, může se propojený obrázek nezobrazit podle očekávání. Pro prezentace, které musí být posílány e‑mailem, archivovány nebo vykreslovány v izolovaných prostředích, jsou vložené obrázky obvykle spolehlivější.
 
-### **Add a Linked Image**
+### **Přidání propojeného obrázku**
 
-Následující příklad vytvoří obrázkový rám a nasměruje jej na lokální soubor obrázku. Zabývá se pouze propojováním obrázků; propojování videa je samostatný mediální workflow a není v tomto příkladu smícháno.
+Následující příklad vytvoří rám obrázku a nasměruje jej na místní soubor obrázku. Zabývá se pouze odkazováním na obrázek; odkazování na video je samostatný workflow a je úmyslně v tomto příkladu nepletené.
 
 ```php
 use aspose\slides\Presentation;
@@ -140,15 +140,15 @@ try {
 }
 ```
 
-Používejte odkazy, když je externí správa souborů úmyslná. Nepoužívejte je jen jako náhradu za kompresi: malý PPTX s poškozenými závislostmi na obrázcích je obvykle méně užitečný než větší samostatná prezentace.
+Používejte odkazy, když je správa externích souborů záměrná. Nepoužívejte je jen jako náhradu za kompresi: malý PPTX s poškozenými závislostmi na obrázcích je obvykle méně užitečný než větší samostatná prezentace.
 
-## **Extract Images from Picture Frames**
+## **Extrahování obrázků z rámů obrázků**
 
-Před extrakcí obrázku ze stávající prezentace ověřte, že tvar je skutečně [PictureFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pictureframe/) a že obsahuje vložený obrázek. Propojené rámce nemusí obsahovat bajty obrázku, které lze extrahovat stejným způsobem.
+Před extrahováním obrázku z existující prezentace zkontrolujte, že tvar je skutečně [PictureFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pictureframe/) a že obsahuje vložený obrázek. Propojené rámy obrázků nemusí obsahovat bajty obrazu, které lze extrahovat stejným způsobem.
 
-### **Extract a Raster Image**
+### **Extrahování rastrového obrázku**
 
-Moderní API obrázku používá přímo [IImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/iimage/). Následující příklad najde první vložený rastrový obrázek na snímku a uloží jej jako PNG:
+Moderní API pro obrázky používá přímo [IImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/iimage/). Následující příklad najde první vložený rastrový obrázek na snímku a uloží jej jako PNG:
 
 ```php
 use aspose\slides\ImageFormat;
@@ -185,11 +185,11 @@ try {
 }
 ```
 
-Ukládání pomocí [IImage::save](https://reference.aspose.com/slides/cs/php-java/aspose.slides/iimage/#save) převádí extrahovaný obrázek do požadovaného výstupního formátu. Pokud potřebujete kódované bajty uložené v prezentaci místo konvertovaného rastrového souboru, použijte binární data prostředku obrázku.
+Ukládání pomocí [IImage::save](https://reference.aspose.com/slides/cs/php-java/aspose.slides/iimage/#save) převádí extrahovaný obrázek do požadovaného výstupního formátu. Pokud potřebujete kódované bajty uložené v prezentaci místo převedeného rastrového souboru, použijte binární data zdroje obrázku.
 
-### **Extract an SVG Image**
+### **Extrahování SVG obrázku**
 
-Pro SVG obrázek [PPImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/ppimage/) poskytuje objekt [SvgImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/svgimage/). To vám umožní získat data SVG přímo místo rasterizace obrázku nejprve.
+Pro SVG obrázek poskytuje [PPImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/ppimage/) objekt [SvgImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/svgimage/). To vám umožní získat SVG data přímo místo rasterizace obrázku nejprve.
 
 ```php
 use aspose\slides\Presentation;
@@ -224,13 +224,13 @@ try {
 }
 ```
 
-Uchování obsahu SVG jako SVG zachovává vektorový zdroj uvnitř prezentace. Rasterové exporty jako PNG nebo JPEG nutně renderují tento vektorový obsah do pixelů. Export snímků do PDF nebo SVG je také renderovací operací, takže exportovaná grafika by neměla být považována za bit‑pro‑bit kopii původního vloženého SVG; použijte data [SvgImage::getSvgData](https://reference.aspose.com/slides/cs/php-java/aspose.slides/svgimage/getsvgdata/) při potřebě samotného vektorového prostředku.
+Uchování SVG obsahu jako SVG zachovává vektorový zdroj v prezentaci. Rasterové exporty jako PNG nebo JPEG nutně renderují tento vektorový obsah do pixelů. Export snímku do PDF nebo SVG je také renderovací operace, takže exportovaná grafika by neměla být považována za bit‑podle‑bitovou kopii původního vloženého SVG; použijte data [SvgImage::getSvgData](https://reference.aspose.com/slides/cs/php-java/aspose.slides/svgimage/getsvgdata/) při potřebě samotného vektorového zdroje.
 
-## **Crop an Image**
+## **Ořezávání obrázku**
 
-Ořez mění, která část obrázku je viditelná uvnitř rámu. Hodnoty ořezu na [PictureFillFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picturefillformat/) jsou procenta rozměrů zdrojového obrázku. Ořezování zpočátku neodstraňuje skryté pixely z vloženého obrázku; pouze mění viditelnou oblast.
+Ořezávání mění, která část obrázku je viditelná uvnitř rámu. Hodnoty ořezu na [PictureFillFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picturefillformat/) jsou procenta rozměrů zdrojového obrázku. Ořezování počátečně neodstraňuje skryté pixely z vloženého obrázku; pouze mění viditelnou oblast.
 
-Následující příklad bezpečně najde obrázkový rám a použije hodnoty ořezu:
+Následující příklad bezpečně najde rám obrázku a použije hodnoty ořezu:
 
 ```php
 use aspose\slides\Presentation;
@@ -262,11 +262,11 @@ try {
 }
 ```
 
-Protože skrytá data obrázku jsou stále přítomna, lze ořez později změnit bez ztráty původních pixelů. Pokud je velikost souboru důležitější než možnost vrácení, mohou být ořezané oblasti fyzicky odstraněny, jak je popsáno v další sekci.
+Protože skrytá data obrázku jsou stále přítomna, lze ořez později změnit, aniž by se ztratily původní pixely. Pokud je velikost souboru důležitější než reverzibilita, lze ořezané oblasti fyzicky odstranit, jak je popsáno v následující sekci.
 
-## **Remove Cropped Image Data**
+## **Odstranění ořezaných dat obrázku**
 
-[PictureFillFormat::deletePictureCroppedAreas](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) odstraňuje data obrázku mimo aktuální ořezový obdélník a vrací vzniklý prostředek obrázku. To může zmenšit velikost souboru, ale jedná se o destruktivní optimalizaci: po uložení prezentace již odstraněné pixely nejsou k dispozici pro pozdější operaci „uncrop“.
+[PictureFillFormat::deletePictureCroppedAreas](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) odstraňuje data obrázku mimo aktuální ořezový obdélník a vrací výsledný zdroj obrázku. To může snížit velikost souboru, ale jedná se o destruktivní optimalizaci: po uložení prezentace již nejsou odstraněné pixely k dispozici pro pozdější ne‑ořez operaci.
 
 ```php
 use aspose\slides\Presentation;
@@ -297,13 +297,13 @@ try {
 }
 ```
 
-Metoda může do prezentace přidat nový prostředek obrázku. Pokud je původní obrázek také používán jinými obrázkovými rámci, tyto rámce stále potřebují svůj existující prostředek, takže mazání ořezaných oblastí nutně nesníží celkový počet obrázků. Ořezávání obsahu WMF nebo EMF touto metodou rasterizuje výsledek do PNG.
+Metoda může do prezentace přidat nový zdroj obrázku. Pokud je původní obrázek také používán jinými rámy, tyto rámy stále potřebují svůj existující zdroj, takže mazání ořezaných oblastí nutně nesnižuje celkový počet obrázků. Ořezávání obsahu WMF nebo EMF touto metodou rasterizuje ořezaný výsledek do PNG.
 
-## **Compress Raster Images**
+## **Kompresi rastrových obrázků**
 
-[PictureFillFormat::compressImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picturefillformat/#compressImage_boolean_int_) snižuje rozlišení rastrového obrázku relativně k velikosti, při které je obrázek zobrazován. Může také v jedné operaci odstranit ořezané oblasti. Metoda vrací `true`, když byl obrázek změněn velikostí nebo oříznut, a `false`, když nebyla nutná žádná změna.
+[PictureFillFormat::compressImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picturefillformat/#compressImage_boolean_int_) snižuje rozlišení rastrových obrázků vzhledem k velikosti, při které je obrázek zobrazen. Může také v téže operaci odstranit ořezané oblasti. Metoda vrací `true`, když byl obrázek změněn velikostí nebo oříznut, a `false`, když žádná změna nebyla potřebná.
 
-Použijte předdefinovanou hodnotu [PicturesCompression](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picturescompression/), pokud stačí standardní cílové rozlišení:
+Použijte předdefinovanou hodnotu [PicturesCompression](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picturescompression/), když stačí standardní cílové rozlišení:
 
 ```php
 use aspose\slides\PicturesCompression;
@@ -334,17 +334,17 @@ try {
 }
 ```
 
-Místo předdefinované hodnoty lze předat vlastní kladnou hodnotu DPI, když je vyžadován konkrétní cíl.
+Místo předdefinované hodnoty lze zadat vlastní kladnou DPI, pokud je vyžadován konkrétní cíl.
 
-Komprese je určena pro rastrové obrázky. SVG a obsah metafile nejsou tímto rasterovým kompresním workflow zmenšeny. Také si pamatujte, že nižší rozlišení a smazané ořezané oblasti nelze z optimalizované prezentace obnovit. Zvolte cílové rozlišení podle největší velikosti, při které bude obrázek skutečně zobrazen nebo exportován, místo aby se globálně aplikovalo nejnižší DPI.
+Komprese je určena pro rastrové obrázky. SVG a metafile obsah není touto rasterovou kompresí zmenšen. Také pamatujte, že nižší rozlišení a odstraněné ořezané oblasti nelze z optimalizované prezentace obnovit. Zvolte cílové rozlišení na základě největší velikosti, při které bude obrázek skutečně zobrazen nebo exportován, místo aby se globálně aplikovalo nejnižší DPI.
 
-## **Manage Image Transform Effects**
+## **Správa transformačních efektů obrázku**
 
-Kompletní workflow zahrnující jas, kontrast, barevné transformace, rozostření, alfa efekty, řetězce příkazů, inspekci, odstranění a ověření round‑trip najdete v [Image Transform Effects](/php-java/image-transform-effects/).
+Pro kompletní workflow zahrnující jas, kontrast, barevné transformace, rozostření, alfa efekty, řetězce, inspekci, odstranění a ověření round‑trip viz [Image Transform Effects](/slides/cs/php-java/image-transform-effects/).
 
-## **Lock Picture Frame Geometry**
+## **Uzamčení geometrie rámu obrázku**
 
-Nastavení [PictureFrameLock](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pictureframelock/) řídí, které editační operace jsou pro obrázkový rám zakázány. Například [setAspectRatioLocked](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pictureframelock/setaspectratiolocked/) zachovává proporce tvaru při změně velikosti.
+Nastavení [PictureFrameLock](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pictureframelock/) řídí, které editační operace jsou pro rám obrázku zakázány. Například [setAspectRatioLocked](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pictureframelock/setaspectratiolocked/) zachovává proporce tvaru při jeho změně velikosti.
 
 ```php
 use aspose\slides\Images;
@@ -374,13 +374,13 @@ try {
 }
 ```
 
-Zámek platí pro tvar obrázkového rámu. Nenutí zdrojový obrázek být převzorkován ani trvale změněn na stejný poměr stran.
+Uzamčení se vztahuje na tvar rámu obrázku. Nevyžaduje, aby byl zdrojový obrázek převeden nebo trvale změněn na stejný poměr stran.
 
-## **Adjust the StretchOffset Values**
+## **Úprava hodnot StretchOffset**
 
-Když je režim výplně obrázku nastaven na „stretch“, hodnoty stretch‑offset na [PictureFillFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picturefillformat/) definují výplňový obdélník relativně k ohraničujícímu rámečku obrázkového rámu. Kladná procenta vytvářejí vnitřní odsazení od hrany, záporná procenta vytvářejí výstupek.
+Když je režim výplně obrázku nastaven na „stretch“, hodnoty stretch‑offset na [PictureFillFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picturefillformat/) definují výplňový obdélník relativně k ohraničovacímu rámečku rámu obrázku. Kladná procenta vytvářejí vstup z okraje, záporná procenta pak výstup.
 
-To se liší od ořezu. Hodnoty ořezu vybírají, která část zdrojového obrázku je viditelná; stretch‑offsety mění obdélník, do kterého je viditelná výplň obrázku roztahována.
+To se liší od ořezávání. Hodnoty ořezu vybírají, která část zdrojového obrázku je viditelná; stretch offsety mění obdélník, do kterého je viditelná výplň obrázku natažena.
 
 ```php
 use aspose\slides\Images;
@@ -415,43 +415,43 @@ try {
 }
 ```
 
-Používejte stretch‑offsety pro umístění výplně. Používejte vlastnosti ořezu, když je cílem skrýt okraje zdrojového obrázku.
+Používejte stretch offsety pro umístění výplně. Používejte vlastnosti ořezu, když je cílem skrýt okraje zdrojového obrázku.
 
-## **Storage, File Size, and Export Considerations**
+## **Úložiště, velikost souboru a úvahy o exportu**
 
-Hlavní kompromisy je snazší spravovat, když jsou úložiště obrázků a formátování obrázkových rámů řešeny odděleně:
+Hlavní kompromisy jsou snáze říditelné, když je ukládání obrázků a formátování rámu oddělené:
 
-- **Embedded images** činí prezentaci samostatnou a jsou nejspolehlivější pro sdílení a server‑side vykreslování, ale velké rastrové obrázky zvětšují velikost PPTX a paměťovou náročnost.
-- **Linked images** mohou udržet balíček menší, ale prezentace závisí na tom, že externí soubory zůstanou dostupné na uložených cestách nebo místech.
-- **Cropping** je zpočátku ne‑destruktivní. Skryté pixely zůstávají vložené, dokud nejsou ořezané oblasti explicitně smazány nebo odstraněny během komprese.
-- **Compression** může podstatně zmenšit velikost souboru u převelikých rastrových obrázků, ale snižuje rozlišení zdroje. Měla by být použita po určení zamýšlené velikosti na snímku.
-- **SVG images** by měly zůstat jako SVG, když je důležitá zachování vektoru. Vložené SVG extrahujte přímo, když potřebujete samotný vektorový prostředek. Rasterové exporty snímků vždy převádějí vykreslený snímek na pixely.
-- **Repeated images** by měly opětovně využívat existující prostředek [PPImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/ppimage/), pokud je to možné, místo opakovaného načítání stejného souboru do workflow prezentace.
+- **Vložené obrázky** činí prezentaci samostatnou a jsou nejspolehlivější pro sdílení a server‑side vykreslování, ale velké rastrové obrázky zvyšují velikost PPTX a spotřebu paměti.
+- **Propojené obrázky** mohou udržet balíček menší, ale prezentace závisí na externích souborech, které musí zůstat dostupné na uložených cestách nebo místech.
+- **Ořezávání** je zpočátku ne‑destruktivní. Skryté pixely zůstávají vložené, dokud nejsou ořezané oblasti výslovně smazány nebo odstraněny během komprese.
+- **Kompresí** lze výrazně snížit velikost souboru u převyšujících rastrových obrázků, ale snižuje se rozlišení zdroje. Měla by být aplikována po určení zamýšlené velikosti na snímku.
+- **SVG obrázky** by měly zůstat jako SVG, když je důležitá zachování vektorové podoby. Vložený SVG lze extrahovat přímo, pokud potřebujete samotný vektorový zdroj. Rasterové exporty snímků vždy převádějí vykreslený snímek na pixely.
+- **Opakované obrázky** by měly při možnosti znovu použít existující zdroj [PPImage] místo opakovaného načítání stejného souboru do workflow prezentace.
 
-U velkých prezentací je optimalizace obrázků obvykle nejúčinnější, když se provádí selektivně: ponechte loga a diagramy jako vektorový obsah, komprimujte fotografie podle jejich skutečné velikosti zobrazení, odstraňujte ořezané pixely jen když není potřeba další úprava, a vyhněte se externím odkazům, pokud není správa závislostí součástí návrhu nasazení.
+U velkých prezentací je optimalizace obrázků obvykle nejúčinnější, když je prováděna selektivně: ponechejte loga a diagramy jako vektorový obsah, komprimujte fotografie podle jejich skutečné velikosti zobrazení, odstraňujte ořezané pixely jen tehdy, když není potřeba další úpravy, a vyhněte se externím odkazům, pokud není správa závislostí součástí návrhu nasazení.
 
-## **FAQ**
+## **Často kladené otázky**
 
-**What is the difference between a picture frame and an image resource?**
+**Jaký je rozdíl mezi rámem obrázku a zdrojem obrázku?**
 
-[PPImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/ppimage/) představuje prostředek obrázku spojený s prezentací. [PictureFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pictureframe/) je tvar na snímku, který obrázek zobrazuje a ukládá geometrii a formátování na úrovni rámu, jako jsou velikost, otočení, hodnoty ořezu, efekty a zamčení.
+[PPImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/ppimage/) představuje zdroj obrázku spojený s prezentací. [PictureFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pictureframe/) je tvar na snímku, který zobrazí obrázek a ukládá geometrické a formátovací informace na úrovni rámu, jako jsou velikost, otáčení, hodnoty ořezu, efekty a uzamčení.
 
-**Should I embed or link images?**
+**Mám obrázky vkládat nebo linkovat?**
 
-Vkládejte obrázky, když musí být prezentace přenosná, archivovaná nebo vykreslená bez přístupu k externím prostředkům. Propojujte obrázky jen tehdy, když je úmyslné mít soubory obrázků mimo PPTX a externí umístění lze spolehlivě udržovat.
+Vkládejte obrázky, když musí být prezentace přenosná, archivována nebo vykreslována bez přístupu k externím zdrojům. Linkujte obrázky pouze tehdy, když je úmyslné mít soubory mimo PPTX a externí umístění lze spolehlivě udržovat.
 
-**Does cropping reduce PPTX file size?**
+**Snižuje ořezávání velikost souboru PPTX?**
 
-Samotné ořezání ne. Normální nastavení ořezu skrývá části zdrojového obrázku, ale zachovává podkladové pixely. Použijte [PictureFillFormat::deletePictureCroppedAreas](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) nebo kompresi obrázku s odstraněním ořezaných oblastí, když lze tyto pixely trvale zrušit.
+Samotné ořezání ne. Normální nastavení ořezu skryje části zdrojového obrázku, ale zachovává podkladové pixely. Použijte [PictureFillFormat::deletePictureCroppedAreas](https://reference.aspose.com/slides/cs/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) nebo kompresi obrázku s odstraněním ořezaných oblastí, když lze tyto pixely trvale odstranit.
 
-**Can I restore image quality after compression?**
+**Mohu po kompresi obnovit kvalitu obrázku?**
 
-Ne. Komprese může snížit uložené rasterové rozlišení a odstranění ořezaných oblastí zahazuje data obrázku. Uchovejte originální zdrojový obrázek mimo prezentaci, pokud může být později potřeba úprava v plném rozlišení.
+Ne. Komprese může snížit uložené rozlišení rastrového obrázku a odstranění ořezaných oblastí ztrácí data obrázku. Uchovejte původní zdrojový obrázek mimo prezentaci, pokud může být později potřeba úprava ve vysokém rozlišení.
 
-**How should SVG images be handled?**
+**Jak mám zacházet s SVG obrázky?**
 
 Uchovávejte SVG obsah jako SVG, když je důležitá vektorová věrnost. Vložený [SvgImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/svgimage/) lze extrahovat přímo. Rendering snímku do rastrového formátu, jako je PNG nebo JPEG, rasterizuje SVG jako součást obrázku snímku.
 
-**How can I avoid unsafe casts when reading existing slides?**
+**Jak mohu předejít nebezpečným přetypováním při čtení existujících snímků?**
 
-Zkontrolujte typ tvaru před použitím členů specifických pro obrázkový rám. Kontrola `java_instanceof` vůči [PictureFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pictureframe/) zabrání neplatným přetypováním a umožní kódu ošetřit snímky, které neobsahují obrázkové rámy.
+Před použitím členů specifických pro rám obrázku zkontrolujte typ tvaru. Kontrola `java_instanceof` vůči [PictureFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pictureframe/) zabrání neplatným přetypováním a umožní kódu zpracovat snímky, které neobsahují rámy obrázků.

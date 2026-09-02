@@ -1,48 +1,48 @@
 ---
-title: "تحويل PPT إلى PPTX على Android"
-linktitle: "PPT إلى PPTX"
+title: تحويل PPT إلى PPTX على Android
+linktitle: PPT إلى PPTX
 type: docs
 weight: 20
 url: /ar/androidjava/convert-ppt-to-pptx/
 keywords:
-- "تحويل PowerPoint"
-- "تحويل عرض تقديمي"
-- "تحويل شريحة"
-- "تحويل PPT"
-- "PPT إلى PPTX"
-- "حفظ PPT كـ PPTX"
-- "تصدير PPT إلى PPTX"
-- "PowerPoint"
-- "عرض تقديمي"
-- "Android"
-- "Java"
-- "Aspose.Slides"
-description: "تحويل ملفات PPT القديمة إلى PPTX على Android باستخدام Aspose.Slides. يتضمن أمثلة Java للتحويل الفردي وتحويل الدفعات، ومعالجة الأخطاء، وملاحظات الدقة."
+- تحويل PowerPoint
+- تحويل العرض التقديمي
+- تحويل الشريحة
+- تحويل PPT
+- PPT إلى PPTX
+- حفظ PPT كـ PPTX
+- تصدير PPT إلى PPTX
+- PowerPoint
+- عرض تقديمي
+- Android
+- Java
+- Aspose.Slides
+description: "تحويل ملفات PPT القديمة إلى PPTX على Android باستخدام Aspose.Slides. يتضمن أمثلة Java للتحويل الفردي وتحويل الدُفعات، ومعالجة الأخطاء، وملاحظات حول الدقة."
 ---
 ## **نظرة عامة**
 
-PPT هو تنسيق PowerPoint الثنائي القديم، بينما PPTX هو تنسيق Open XML الأحدث. يمكن لـ Aspose.Slides for Android عبر Java تحميل ملف PPT وحفظه كـ PPTX دون الحاجة إلى Microsoft PowerPoint. تُظهر هذه المقالة كيفية تحويل ملف واحد أو دليل من الملفات وتوضح ما يجب التحقق منه بعد التحويل.
+PPT هو تنسيق PowerPoint الثنائي القديم، بينما PPTX هو تنسيق Open XML الأحدث. يمكن لـ Aspose.Slides for Android عبر Java تحميل ملف PPT وحفظه كـ PPTX بدون Microsoft PowerPoint. يوضح هذا المقال كيفية تحويل ملف واحد أو دليل من الملفات ويشرح ما يجب التحقق منه بعد التحويل.
 
 ## **تحويل ملف PPT إلى PPTX**
 
-قم بتحميل ملف المصدر باستخدام الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/)، ثم استدعِ [Presentation.save](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) مع [SaveFormat.Pptx](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/saveformat/#Pptx). تقوم كتلة `finally` بتحرير العرض وتحرير موارده.
+حمّل ملف المصدر باستخدام الفئة [Presentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/)، ثم استدعِ [Presentation.save](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) مع [SaveFormat.Pptx](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/saveformat/#Pptx). يُفرغ كتلة `finally` العرض وتحرّر موارده.
 
 ```java
 // تحميل عرض PPT القديم.
 com.aspose.slides.Presentation presentation = new com.aspose.slides.Presentation("presentation.ppt");
 try {
-    // حفظ العرض بصيغة PPTX.
+    // حفظ العرض بتنسيق PPTX.
     presentation.save("presentation.pptx", com.aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-امتداد الملف لا يحدد تنسيق الإخراج بحد ذاته؛ المعامل [SaveFormat.Pptx](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/saveformat/#Pptx) هو الذي يحدده. حافظ على مسارات الإدخال والإخراج مختلفة إذا كنت بحاجة إلى الاحتفاظ بملف PPT الأصلي.
+امتداد الملف لا يحدد تنسيق الإخراج بحد ذاته؛ بل يقوم بذلك المعامل [SaveFormat.Pptx](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/saveformat/#Pptx). احرص على اختلاف مسارات الإدخال والإخراج إذا كنت تحتاج إلى الاحتفاظ بملف PPT الأصلي.
 
 ## **تحويل ملفات PPT متعددة**
 
-المثال التالي يحول كل ملف `.ppt` في دليل واحد. يتم معالجة كل ملف بشكل مستقل، لذلك فشل تحويل واحد لا يوقف ما تبقى من الدفعة.
+المثال التالي يحول كل ملف `.ppt` في دليل واحد. يتم معالجة كل ملف بشكل مستقل، لذا عدم نجاح تحويل أحد الملفات لا يوقف باقي الدفعة.
 
 ```java
 java.io.File inputDirectory = new java.io.File("input");
@@ -77,47 +77,47 @@ for (java.io.File inputFile : inputFiles) {
 }
 ```
 
-لأحمال الإنتاج، سجّل الاستثناء الكامل، وحدد ما إذا كان يمكن استبدال ملف الإخراج الموجود، واكتب أسماء الملفات الفاشلة إلى قائمة إعادة محاولة أو مراجعة. يمكن أن تتسبب الملفات التالفة، والملفات المحمية بكلمة مرور المفتوحة بدون كلمة المرور المطلوبة، والمسارات غير القابلة للوصول، والمحتوى غير المدعم في فشل التحويل. راجع [Password-Protected Presentations](/androidjava/password-protected-presentation/) لتحميل الملفات المشفرة.
+في بيئات الإنتاج، سجِّل الاستثناء الكامل، وقرر ما إذا كان من الممكن كتابة فوق ملف الإخراج الموجود، واكتب أسماء الملفات الفاشلة إلى قائمة إعادة محاولة أو مراجعة. يمكن أن تتسبب الملفات التالفة، والملفات المحمية بكلمة مرور تم فتحها بدون كلمة المرور المطلوبة، والمسارات غير القابلة للوصول، والمحتوى غير المدعوم جميعًا في فشل التحويل. راجع [العروض التقديمية المحمية بكلمة مرور](/androidjava/password-protected-presentation/) لتحميل الملفات المشفرة.
 
 ## **الدقة والميزات القديمة**
 
-عادةً ما يحافظ التحويل على الشرائح، والقوالب الرئيسية، والتخطيطات، والنص، والأشكال، والصور، والجداول، والمخططات. ومع ذلك، لا تمثل PPT و PPTX كل ميزة بنفس الطريقة تمامًا. قد يتم تعديل أو حذف أو عرض بشكل مختلف أي ميزة قديمة لا يوجد لها مكافئ في PPTX أو غير مدعومة من المكتبة.
+عادةً ما تحتفظ عملية التحويل بالشرائح، والقوالب، والتنسيقات، والنص، والأشكال، والصور، والجداول، والرسوم البيانية. ومع ذلك، لا تمثل PPT و PPTX كل ميزة بنفس الطريقة تمامًا. قد يتم تعديل أو حذف أو عرض مختلف لميزة قديمة لا يوجد لها مايلف في PPTX أو لا يدعمها المكتبة.
 
-تحقق من الملف المحوَّل عندما يحتوي على رسومات متحركة، أو انتقالات، أو كائنات OLE مضمَّنة أو مرتبطة، أو عناصر تحكم ActiveX، أو وسائط مضمَّنة، أو خطوط غير شائعة، أو ماكرو VBA. ملف PPTX العادي ليس تنسيقًا يدعم الماكرو، لذا استخدم سير عمل يدعم الماكرو عندما يجب أن يبقى VBA متاحًا. كما يجب التأكد من توفر الخطوط المطلوبة والموارد الخارجية في البيئة التي سيفتح أو يُعرض فيها العرض المحوَّل.
+تحقق من الملف المحوّل عندما يحتوي على حركات، أو انتقالات، أو كائنات OLE مضمنة أو مرتبطة، أو عناصر تحكم ActiveX، أو وسائط مدمجة، أو خطوط غير شائعة، أو ماكرو VBA. ملف PPTX العادي ليس تنسيقًا يدعم الماكرو، لذا استخدم سير عمل يدعم الماكرو عندما يجب أن يبقى VBA متاحًا. كما يجب التأكد من وجود الخطوط المطلوبة والموارد الخارجية في البيئة التي سيفتح فيها أو يُعرض فيها العرض التقديمي المحوّل.
 
- للمستندات المهمة، أعد فتح ملف PPTX المُنشأ برمجيًا وتفحص عدد الشرائح ومحتواها الرئيسي، ثم قارن مظهره وسلوك تشغيل الشرائح في المشاهد المقصود. لا تُعَدّ استدعاء ناجح لـ [Presentation.save](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) دليلًا على أن كل ميزة قديمة لها تمثيل PPTX دقيق.
+بالنسبة للمستندات الهامة، أعد فتح ملف PPTX المُولَّد برمجيًا وتفقد عدد الشرائح الرئيسية ومحتواها، ثم قارن مظهره وسلوك عرض الشرائح في العارض المقصود. لا تعتبر استدعاء [Presentation.save](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) الناجح دليلًا على أن كل ميزة قديمة لها تمثيل PPTX دقيق.
 
-## **متى تستخدم PPTX**
+## **متى يجب استخدام PPTX**
 
-استخدم PPTX عندما يتم تعديل العرض في إصدارات PowerPoint الحالية، أو تبادله مع أنظمة تعمل مع حزم Open XML، أو تخزينه بتنسيق يسهل فحصه واستعادته مقارنةً بـ PPT الثنائي القديم. احتفظ بملف PPT الأصلي كنسخة أرشيفية أو للعودة إليها حتى يجتاز العرض المحوَّل فحوصات الدقة الخاصة بك.
+استخدم PPTX عندما يتم تحرير العرض التقديمي في إصدارات PowerPoint الحالية، أو تبادله مع أنظمة تتعامل مع حزم Open XML، أو تخزينه في تنسيق أسهل للفحص والاستعادة مقارنةً بتنسيق PPT الثنائي القديم. احتفظ بملف PPT الأصلي كنسخة أرشيفية أو نسخة احتياطية حتى يجتاز العرض التقديمي المحوّل فحوصات الدقة الخاصة بك.
 
-إذا كنت تحتاج إلى PDF أو HTML أو صور أو XPS أو أي نوع إخراج آخر، استخدم الإرشادات الخاصة بالتنسيق في [Convert Presentations to Multiple Formats](/androidjava/convert-presentation/) بدلاً من افتراض أن جميع الأهداف تحافظ على ميزات PowerPoint القابلة للتحرير.
+إذا كنت بحاجة إلى PDF أو HTML أو صور أو XPS أو أي نوع إخراج آخر، استخدم إرشادات التنسيق المحدد في [تحويل العروض التقديمية إلى صيغ متعددة](/slides/ar/androidjava/convert-presentation/) بدلاً من افتراض أن جميع الأهداف تحفظ ميزات PowerPoint القابلة للتحرير.
 
-## **محول عبر الإنترنت**
+## **المحول عبر الإنترنت**
 
-لملف عرضي أو مقارنة سريعة، يمكنك استخدام [online PPT to PPTX converter](https://products.aspose.app/slides/ar/conversion/ppt-to-pptx). للتحويلات المتكررة أو المعالجة الدفعية أو معالجة الأخطاء على مستوى التطبيق، استخدم API Android عبر Java.
+لملف عرضي أو مقارنة سريعة، يمكنك استخدام [محول PPT إلى PPTX عبر الإنترنت](https://products.aspose.app/slides/ar/conversion/ppt-to-pptx). لإجراء التحويلات المتكررة أو المعالجة الدفعية أو التعامل مع الأخطاء على مستوى التطبيق، استخدم API Android عبر Java.
 
 ## **مقالات ذات صلة**
 
-- [PPT vs PPTX](/androidjava/ppt-vs-pptx/)
-- [Save Presentations on Android](/androidjava/save-presentation/)
-- [Supported File Formats](/androidjava/supported-file-formats/)
-- [Open Presentations on Android](/androidjava/open-presentation/)
+- [PPT مقابل PPTX](/slides/ar/androidjava/ppt-vs-pptx/)
+- [حفظ العروض التقديمية على Android](/slides/ar/androidjava/save-presentation/)
+- [تنسيقات الملفات المدعومة](/slides/ar/androidjava/supported-file-formats/)
+- [فتح العروض التقديمية على Android](/slides/ar/androidjava/open-presentation/)
 
 ## **الأسئلة الشائعة**
 
-**هل يمكنني تحويل PPT إلى PPTX دون تثبيت Microsoft PowerPoint؟**
+**هل يمكنني تحويل PPT إلى PPTX بدون تثبيت Microsoft PowerPoint؟**
 
 نعم. يقوم Aspose.Slides for Android عبر Java بتحميل وحفظ ملفات العروض التقديمية دون الحاجة إلى Microsoft PowerPoint.
 
-**هل سيحافظ التحويل من PPT إلى PPTX على كل المحتوى بدقة؟**
+**هل سيحافظ تحويل PPT إلى PPTX على جميع المحتويات بدقة؟**
 
-يحافظ على محتوى العرض الشائع، لكن الدقة الكاملة غير مضمونة لكل ميزة قديمة أو غير مدعومة. راجع الملف المُنتَج عندما يحتوي على ماكرو، أو كائنات OLE أو ActiveX، أو وسائط، أو رسوم متحركة متخصصة، أو خطوط غير شائعة.
+إنه يحافظ على المحتوى الشائع للعرض التقديمي، لكن لا يُضمن الدقة الكاملة لكل ميزة قديمة أو غير مدعومة. راجع الملف المُولَّد عندما يحتوي على ماكرو، أو كائنات OLE أو ActiveX، أو وسائط، أو حركات متخصصة، أو خطوط غير شائعة.
 
 **هل يمكنني تحويل ملف PPT محمي بكلمة مرور؟**
 
-نعم، إذا زوّدت كلمة المرور الصحيحة عند تحميل الملف. يؤدي عدم وجود كلمة مرور أو كلمة مرور غير صحيحة إلى فشل عملية التحميل.
+نعم، إذا قمت بتوفير كلمة المرور الصحيحة عند تحميل الملف. عدم وجود كلمة مرور أو كلمة مرور غير صحيحة يتسبب في فشل عملية التحميل.
 
 **هل يجب حذف ملف PPT بعد التحويل؟**
 
-احتفظ بالأصلي حتى تتأكد من صحة PPTX في المشاهد وسير العمل التي تهمك. هذا يوفِّر نسخة احتياطية للعودة إليها إذا تم تحويل ميزة قديمة بطريقة مختلفة.
+احتفظ بالملف الأصلي حتى تقوم بالتحقق من PPTX في العارضات وسير العمل التي تهمك. هذا يضمن وجود نسخة احتياطية في حال تم تحويل ميزة قديمة بطريقة مختلفة.

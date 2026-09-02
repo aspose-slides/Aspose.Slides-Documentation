@@ -1,54 +1,56 @@
 ---
-title: Unire Efficientemente le Presentazioni in C++
-linktitle: Unisci Presentazioni
+title: Unire presentazioni in modo efficiente in C++
+linktitle: Unire presentazioni
 type: docs
 weight: 40
 url: /it/cpp/merge-presentation/
 keywords:
-- unisci PowerPoint
-- unisci presentazioni
-- unisci diapositive
-- unisci PPT
-- unisci PPTX
-- unisci ODP
-- combina PowerPoint
-- combina presentazioni
-- combina diapositive
-- combina PPT
-- combina PPTX
-- combina ODP
+- unire PowerPoint
+- unire presentazioni
+- unire diapositive
+- unire PPT
+- unire PPTX
+- unire ODP
+- combinare PowerPoint
+- combinare presentazioni
+- combinare diapositive
+- combinare PPT
+- combinare PPTX
+- combinare ODP
 - C++
 - Aspose.Slides
-description: "Scopri come unire presentazioni PowerPoint e OpenDocument in C++ clonando le diapositive, controllando master e layout, ridimensionando il contenuto delle diapositive, preservando le sezioni e gestendo file protetti o di grandi dimensioni."
+description: "Scopri come unire presentazioni PowerPoint e OpenDocument in C++ clonando le diapositive, controllando i master e i layout, ridimensionando il contenuto delle diapositive, preservando le sezioni e gestendo file protetti o di grandi dimensioni."
 ---
 ## **Panoramica**
 
-Aspose.Slides per C++ unisce presentazioni clonando le diapositive da una [Presentazione](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/) a un'altra. L'operazione principale è [ISlideCollection::AddClone](https://reference.aspose.com/slides/it/cpp/aspose.slides/islidecollection/addclone/), che può preservare la formattazione della diapositiva di origine o collegare la diapositiva clonata a un master o a un layout nella presentazione di destinazione.
+Aspose.Slides per C++ unisce le presentazioni clonando le diapositive da una [Presentation](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/) a un'altra. L'operazione principale è [ISlideCollection::AddClone](https://reference.aspose.com/slides/it/cpp/aspose.slides/islidecollection/addclone/), che può preservare la formattazione della diapositiva di origine o allegare la diapositiva clonata a un master o a un layout nella presentazione di destinazione.
+
+Questo articolo copre i flussi di lavoro di unione più comuni:
 
 - unire tutte le diapositive preservando la formattazione di origine;
 - unire diapositive selezionate;
 - applicare un master dalla presentazione di destinazione;
 - applicare un layout specifico dalla presentazione di destinazione;
-- normalizzare le diverse dimensioni delle diapositive prima dell'unione;
+- normalizzare diverse dimensioni di diapositiva prima dell'unione;
 - aggiungere diapositive clonate a una sezione;
-- unire più presentazioni in un unico flusso di lavoro end-to-end;
-- gestire master, risorse, note, commenti, media, font, password, file di grandi dimensioni e problematiche di multithreading.
+- unire più presentazioni in un unico flusso di lavoro end‑to‑end;
+- gestire master, risorse, note, commenti, media, caratteri, password, file di grandi dimensioni e considerazioni sul multithreading.
 
-## **Come la clonazione delle diapositive influenza master e layout**
+## **Come la clonazione delle diapositive influisce su master e layout**
 
 Una diapositiva eredita gran parte del suo aspetto dal layout e dal master. Per questo motivo, la sovraccarico di clonazione che scegli determina come la diapositiva unita viene integrata nella presentazione di destinazione.
 
-Usa [ISlideCollection::AddClone](https://reference.aspose.com/slides/it/cpp/aspose.slides/islidecollection/addclone/) in uno di questi modi:
+Usa [ISlideCollection::AddClone](https://reference.aspose.com/slides/it/cpp/aspose.slides/islidecollection/addclone/) in uno dei seguenti modi:
 
-- `AddClone(sourceSlide)` — preserva il layout e la formattazione della diapositiva di origine. Quando necessario, il master di origine può essere clonato nella presentazione di destinazione automaticamente. Aspose.Slides tiene traccia dei master clonati automaticamente in modo che le diapositive ripetute che usano lo stesso master di origine non causino il riclonamento di quel master.
-- `AddClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — collega la diapositiva clonata a un [IMasterSlide](https://reference.aspose.com/slides/it/cpp/aspose.slides/imasterslide/) di destinazione specifico. Aspose.Slides cerca un layout corrispondente sotto quel master per tipo o nome del layout.
-- `AddClone(sourceSlide, destinationLayout)` — collega direttamente la diapositiva clonata a un [ILayoutSlide](https://reference.aspose.com/slides/it/cpp/aspose.slides/ilayoutslide/) di destinazione specifico.
+- `AddClone(sourceSlide)` — preserva il layout e la formattazione della diapositiva di origine. Quando necessario, il master di origine può essere clonato automaticamente nella presentazione di destinazione. Aspose.Slides tiene traccia dei master clonate automaticamente in modo che le diapositive ripetute che usano lo stesso master di origine non provocino la clonazione ripetuta di quel master.
+- `AddClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — allega la diapositiva clonata a uno specifico [IMasterSlide](https://reference.aspose.com/slides/it/cpp/aspose.slides/imasterslide/) di destinazione. Aspose.Slides cerca un layout corrispondente sotto quel master per tipo di layout o nome.
+- `AddClone(sourceSlide, destinationLayout)` — allega la diapositiva clonata direttamente a uno specifico [ILayoutSlide](https://reference.aspose.com/slides/it/cpp/aspose.slides/ilayoutslide/) di destinazione.
 
-Il master o il layout passato a una sovraccarico `AddClone` deve appartenere alla presentazione **di destinazione**, non a quella di origine.
+Il master o il layout passati a una sovraccarico `AddClone` devono appartenere alla **presentazione di destinazione**, non a quella di origine.
 
-## **Unire presentazioni intere e preservare la formattazione di origine**
+## **Unire intere presentazioni preservando la formattazione di origine**
 
-L'unione più semplice copia ogni diapositiva dalla presentazione di origine a quella di destinazione. Questa è la scelta appropriata quando le diapositive importate devono mantenere il tema, il master e le relazioni di layout originali.
+L'unione più semplice copia ogni diapositiva dalla presentazione di origine alla presentazione di destinazione. Questa è la scelta appropriata quando le diapositive importate devono mantenere il tema, il master e le relazioni di layout originali.
 
 ```cpp
 #include <DOM/ISlideCollection.h>
@@ -69,11 +71,11 @@ for (const auto& slide : source->get_Slides())
 destination->Save(u"merged.pptx", SaveFormat::Pptx);
 ```
 
-La presentazione risultante può contenere più master quando l'origine e la destinazione usano design diversi. Questo è previsto quando la formattazione di origine viene preservata intenzionalmente.
+La presentazione risultante può contenere più master quando l'origine e la destinazione utilizzano design diversi. Questo è previsto quando la formattazione di origine viene preservata intenzionalmente.
 
 ## **Unire diapositive selezionate**
 
-Non è necessario clonare tutte le diapositive. Il seguente esempio importa solo gli indici di diapositiva selezionati dalla presentazione di origine.
+Non è necessario clonare tutte le diapositive. L'esempio seguente importa solo gli indici di diapositiva selezionati dalla presentazione di origine.
 
 ```cpp
 #include <DOM/ISlideCollection.h>
@@ -96,7 +98,7 @@ for (auto index : slideIndexes)
 destination->Save(u"merged-selected-slides.pptx", SaveFormat::Pptx);
 ```
 
-Convalida gli indici delle diapositive prima della clonazione quando provengono da input dell'utente o da configurazioni esterne.
+Convalida gli indici di diapositiva prima di clonare quando provengono da input dell'utente o da configurazioni esterne.
 
 ## **Unire diapositive usando un master di destinazione**
 
@@ -124,13 +126,13 @@ for (const auto& slide : source->get_Slides())
 destination->Save(u"merged-with-destination-master.pptx", SaveFormat::Pptx);
 ```
 
-Aspose.Slides seleziona un layout appropriato sotto il master specificato corrispondendo al tipo o al nome del layout di origine. Se non esiste un layout adatto e `allowCloneMissingLayout` è `true`, il layout di origine viene clonato così la diapositiva può essere aggiunta. Se è `false`, viene sollevata un'[PptxEditException](https://reference.aspose.com/slides/it/cpp/aspose.slides/details_pptxeditexception/).
+Aspose.Slides seleziona un layout appropriato sotto il master specificato corrispondendo al tipo o al nome del layout di origine. Se non esiste un layout adatto e `allowCloneMissingLayout` è `true`, il layout di origine viene clonato così la diapositiva può essere aggiunta. Se è `false`, viene generata un'[PptxEditException](https://reference.aspose.com/slides/it/cpp/aspose.slides/details_pptxeditexception/).
 
 Usa `false` quando vuoi che l'unione fallisca invece di introdurre un layout aggiuntivo nel master di destinazione.
 
 ## **Unire diapositive usando un layout di destinazione specifico**
 
-Usa la sovraccarico [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/it/cpp/aspose.slides/islidecollection/addclone/) quando sai esattamente quale layout di destinazione le diapositive importate dovrebbero usare.
+Usa la sovraccarico [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/it/cpp/aspose.slides/islidecollection/addclone/) quando conosci esattamente quale layout di destinazione devono usare le diapositive importate.
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -154,13 +156,13 @@ for (const auto& slide : source->get_Slides())
 destination->Save(u"merged-with-destination-layout.pptx", SaveFormat::Pptx);
 ```
 
-Applicare un layout di destinazione cambia la relazione di layout ereditata; non ridisegna il contenuto della diapositiva di origine. Se i layout di origine e destinazione hanno strutture di segnaposto diverse, verifica il risultato per confermare che la formattazione ereditata e il comportamento dei segnaposti siano appropriati.
+L'applicazione di un layout di destinazione modifica la relazione di layout ereditata; non ridisegna il contenuto della diapositiva di origine. Se i layout di origine e destinazione hanno strutture di segnaposto diverse, ispeziona il risultato per confermare che la formattazione ereditata e il comportamento dei segnaposto siano appropriati.
 
-## **Unire presentazioni con dimensioni delle diapositive diverse**
+## **Unire presentazioni con dimensioni di diapositiva diverse**
 
-Le presentazioni con dimensioni delle diapositive diverse possono essere unite, ma clonare una diapositiva in una presentazione con un'altra dimensione non ridisegna automaticamente il contenuto per la nuova area. Le forme possono quindi apparire spostate, scalate in modo inatteso o fuori dall'area visibile della diapositiva.
+Le presentazioni con dimensioni di diapositiva diverse possono essere unite, ma clonare una diapositiva in una presentazione con un'altra dimensione non ridisegna automaticamente il suo contenuto per la nuova tela. Le forme possono quindi apparire spostate, scalate in modo inatteso o fuori dall'area visibile della diapositiva.
 
-Un approccio pratico è ridimensionare la presentazione di origine prima della clonazione. Il metodo [SlideSize::SetSize](https://reference.aspose.com/slides/it/cpp/aspose.slides/slidesize/setsize/) può scalare il contenuto esistente cambiando le dimensioni della diapositiva. [SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/it/cpp/aspose.slides/slidesizescaletype/) scala il contenuto per adattarlo alla dimensione richiesta.
+Un approccio pratico è ridimensionare la presentazione di origine prima di clonare. Il metodo [SlideSize::SetSize](https://reference.aspose.com/slides/it/cpp/aspose.slides/slidesize/setsize/) può scalare il contenuto esistente modificando le dimensioni della diapositiva. [SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/it/cpp/aspose.slides/slidesizescaletype/) scala il contenuto per adattarlo alla dimensione richiesta.
 
 ```cpp
 #include <DOM/ISlideCollection.h>
@@ -196,11 +198,11 @@ for (const auto& slide : source->get_Slides())
 destination->Save(u"merged-same-slide-size.pptx", SaveFormat::Pptx);
 ```
 
-Il ridimensionamento modifica l'oggetto della presentazione di origine in memoria. Se hai bisogno che la presentazione di origine rimanga invariata per altre operazioni, apri un'istanza separata per l'unione.
+Il ridimensionamento modifica l'oggetto della presentazione di origine in memoria. Se hai bisogno che la presentazione di origine originale rimanga invariata per altre operazioni, apri un'istanza separata per l'unione.
 
 ## **Unire diapositive in una sezione della presentazione**
 
-Il ciclo base di clonazione delle diapositive non ricrea la gerarchia delle sezioni della presentazione di origine. Se le sezioni sono importanti nell'output, crea o seleziona sezioni nella presentazione di destinazione e clona le diapositive in esse esplicitamente con [AddClone(ISlide, ISection)](https://reference.aspose.com/slides/it/cpp/aspose.slides/islidecollection/addclone/).
+Il ciclo di base per la clonazione delle diapositive non ricrea la gerarchia delle sezioni della presentazione di origine. Se le sezioni sono importanti nell'output, crea o seleziona le sezioni nella presentazione di destinazione e clona le diapositive in esse esplicitamente con [AddClone(ISlide, ISection)](https://reference.aspose.com/slides/it/cpp/aspose.slides/islidecollection/addclone/).
 
 ```cpp
 #include <DOM/ISectionCollection.h>
@@ -224,11 +226,11 @@ for (const auto& slide : source->get_Slides())
 destination->Save(u"merged-with-section.pptx", SaveFormat::Pptx);
 ```
 
-Le diapositive clonate vengono aggiunte alla sezione di destinazione specificata. Per preservare più sezioni di origine, ricrea quelle sezioni nella destinazione e mappa ogni diapositiva di origine alla corrispondente sezione di destinazione.
+Le diapositive clonate vengono aggiunte alla sezione di destinazione specificata. Per preservare più sezioni di origine, elenca le [Presentation::get_Sections](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/get_sections/), recupera le diapositive correnti di ciascuna sezione di origine con [ISection::GetSlidesListOfSection](https://reference.aspose.com/slides/it/cpp/aspose.slides/isection/getslideslistofsection/), ricrea le sezioni nella destinazione e clona ogni diapositiva restituita nella sua corrispondente sezione di destinazione. Vedi [Manage Slide Sections](/slides/it/cpp/slide-section/) per un esempio completo di enumerazione delle sezioni, incluse sezioni vuote e modifiche strutturali.
 
 ## **Unire più presentazioni in modo sicuro**
 
-Il seguente esempio end-to-end utilizza la prima presentazione come destinazione, normalizza la dimensione della diapositiva di ogni fonte aggiuntiva, mantiene ogni fonte aperta solo durante la copia e salva il file finale una sola volta.
+L'esempio end‑to‑end seguente usa la prima presentazione come destinazione, normalizza la dimensione della diapositiva di ciascuna origine aggiuntiva, mantiene ogni origine aperta solo mentre viene copiata e salva il file finale una sola volta.
 
 ```cpp
 #include <DOM/ISlideCollection.h>
@@ -270,35 +272,35 @@ for (int32_t fileIndex = 1; fileIndex < inputFileCount; fileIndex++)
 merged->Save(u"merged.pptx", SaveFormat::Pptx);
 ```
 
-Questo è un utile punto di partenza per preservare la formattazione di origine delle diapositive importate. Se l'output deve utilizzare un unico tema di destinazione, sostituisci la semplice chiamata `AddClone(slide)` con la sovraccarico di master o layout di destinazione appropriata mostrata in precedenza.
+Questo è un utile punto di partenza per preservare la formattazione di origine delle diapositive importate. Se il risultato deve utilizzare un unico tema di destinazione, sostituisci la semplice chiamata `AddClone(slide)` con la sovraccarico di master o layout di destinazione appropriata mostrata in precedenza.
 
 ## **Considerazioni pratiche**
 
 ### **Master, layout e fedeltà della formattazione**
 
-La clonazione predefinita delle diapositive può portare automaticamente un master di origine necessario nella presentazione di destinazione. Aspose.Slides mantiene un registro interno per i master clonati automaticamente per evitare di clonare lo stesso master più volte. I master clonati manualmente non sono tracciati da quel registro, quindi evita di preclonare i master a meno che non sia necessario un controllo esplicito sulla struttura del master.
+La clonazione predefinita delle diapositive può inserire automaticamente un master di origine necessario nella presentazione di destinazione. Aspose.Slides mantiene un registro interno per i master clonati automaticamente per evitare di clonare lo stesso master più volte. I master clonati manualmente non sono tracciati da quel registro, quindi evita di pre‑clonare i master a meno che non ti serva un controllo esplicito sulla struttura del master.
 
-Non presumere che due master o layout con lo stesso nome siano visualmente equivalenti. Se un modello aziendale deve controllare l'aspetto finale, scegli esplicitamente un master o layout di destinazione e verifica il risultato dopo l'unione.
+Non presumere che due master o layout con lo stesso nome siano visivamente equivalenti. Se un modello aziendale deve controllare l'aspetto finale, scegli esplicitamente un master o un layout di destinazione e verifica il risultato dopo l'unione.
 
 ### **Note e commenti**
 
-Le note del relatore e i commenti alle diapositive sono associate al contenuto della diapositiva e vengono copiate quando una diapositiva è clonata. Aspose.Slides espone anche API dedicate per [note di presentazione](https://docs.aspose.com/slides/it/cpp/presentation-notes/) e [commenti di presentazione](https://docs.aspose.com/slides/it/cpp/presentation-comments/).
+Le note del relatore e i commenti delle diapositive sono associati al contenuto della diapositiva e vengono copiati quando una diapositiva è clonata. Aspose.Slides espone anche API dedicate per [presentation notes](/slides/it/cpp/presentation-notes/) e [presentation comments](/slides/it/cpp/presentation-comments/).
 
-Se la formattazione della pagina delle note è importante, verifica la presentazione unita poiché i master delle note sono oggetti a livello di presentazione e possono differire tra i file di origine. Per i flussi di revisione, verifica anche gli autori dei commenti e i commenti a filo dopo aver combinato file da autori o modelli diversi.
+Se la formattazione della pagina delle note è importante, verifica la presentazione unita perché i master delle note sono oggetti a livello di presentazione e possono differire tra i file di origine. Per i flussi di revisione, verifica anche gli autori dei commenti e i commenti in thread dopo aver combinato file da autori o modelli diversi.
 
 ### **Immagini, audio, video, oggetti OLE e collegamenti esterni**
 
-Le diapositive possono fare riferimento a risorse a livello di presentazione come immagini, audio incorporato, video incorporato e dati OLE. Clona la diapositiva stessa anziché copiare solo le sue forme visibili affinché Aspose.Slides mantenga le relazioni della diapositiva alle sue risorse.
+Le diapositive possono fare riferimento a risorse a livello di presentazione come immagini, audio incorporato, video incorporato e dati OLE. Clona la diapositiva stessa anziché copiare solo le forme visibili affinché Aspose.Slides possa mantenere le relazioni della diapositiva con le sue risorse.
 
-Le risorse incorporate e collegate devono essere trattate diversamente. Un audio, video, oggetto OLE o collegamento ipertestuale collegato rimane dipendente dal suo target esterno; la clonazione di una diapositiva non trasforma un collegamento esterno in contenuto incorporato. Verifica i percorsi e gli URL delle risorse collegate nell'ambiente in cui la presentazione unita sarà aperta.
+Le risorse incorporate e collegate devono essere trattate diversamente. Un audio, video, oggetto OLE o collegamento ipertestuale collegato rimane dipendente dal suo target esterno; clonare una diapositiva non trasforma un collegamento esterno in contenuto incorporato. Testa i percorsi e gli URL delle risorse collegate nell'ambiente in cui la presentazione unita sarà aperta.
 
-Aspose.Slides traccia esplicitamente i master clonati automaticamente, ma ciò non deve essere considerato una garanzia generale che le risorse binarie identiche da presentazioni di origine non correlate vengano sempre deduplicate. Se la dimensione del file di output è importante, ispeziona il pacchetto unito e misura il risultato invece di fare affidamento sulla deduplicazione implicita.
+Aspose.Slides tiene traccia esplicitamente dei master clonati automaticamente, ma ciò non deve essere considerato una garanzia generale che risorse binarie identiche da presentazioni di origine non correlate vengano sempre deduplicate. Se la dimensione del file di output è importante, ispeziona il pacchetto unito e misura il risultato invece di fare affidamento sulla deduplicazione implicita.
 
-### **Font incorporati e disponibilità dei font**
+### **Caratteri incorporati e disponibilità dei caratteri**
 
-I font sono gestiti a livello di presentazione. Se la tipografia deve rimanere coerente tra i computer, non presumere che la clonazione delle diapositive garantisca che tutti i font richiesti siano disponibili nell'ambiente di destinazione. Puoi ispezionare i font incorporati con [FontsManager::GetEmbeddedFonts](https://reference.aspose.com/slides/it/cpp/aspose.slides/fontsmanager/getembeddedfonts/) e gestire l'incorporamento esplicitamente come descritto in [Incorpora font nelle presentazioni](https://docs.aspose.com/slides/it/cpp/embedded-font/).
+I caratteri sono gestiti a livello di presentazione. Se la tipografia deve rimanere coerente tra macchine, non presumere che la sola clonazione delle diapositive garantisca che ogni carattere necessario sia disponibile nell'ambiente di destinazione. Puoi ispezionare i caratteri incorporati con [FontsManager::GetEmbeddedFonts](https://reference.aspose.com/slides/it/cpp/aspose.slides/fontsmanager/getembeddedfonts/) e gestire l'incorporamento esplicitamente come descritto in [Embed Fonts in Presentations](/slides/it/cpp/embedded-font/).
 
-Verifica anche di avere l'autorizzazione per incorporare i font utilizzati nei file di origine. Le licenze dei font possono limitare l'incorporamento.
+Verifica anche di avere il permesso di incorporare i caratteri utilizzati nei file di origine. Le licenze dei caratteri possono limitare l'incorporamento.
 
 ### **Presentazioni protette da password**
 
@@ -316,64 +318,65 @@ loadOptions->set_Password(u"YOUR_PASSWORD");
 auto source = System::MakeObject<Presentation>(u"protected.pptx", loadOptions);
 ```
 
-Aprire una sorgente crittografata non applica automaticamente la stessa protezione alla presentazione di destinazione. Configura la protezione dell'output separatamente quando necessario.
+Aprire una sorgente crittografata non applica automaticamente la stessa protezione alla presentazione di destinazione. Configura separatamente la protezione dell'output quando necessario.
 
 ### **Presentazioni di grandi dimensioni e uso della memoria**
 
-Le presentazioni di grandi dimensioni contenenti immagini ad alta risoluzione, audio, video o altri grandi oggetti binari possono consumare molta memoria. [LoadOptions::set_BlobManagementOptions](https://reference.aspose.com/slides/it/cpp/aspose.slides/loadoptions/set_blobmanagementoptions/) fornisce controlli per la gestione dei BLOB e l'uso di file temporanei. Vedi [Gestisci BLOB di presentazione](https://docs.aspose.com/slides/it/cpp/manage-blob/) per strategie su file di grandi dimensioni.
+Le presentazioni di grandi dimensioni contenenti immagini ad alta risoluzione, audio, video o altri oggetti binari di grandi dimensioni possono consumare molta memoria. [LoadOptions::set_BlobManagementOptions](https://reference.aspose.com/slides/it/cpp/aspose.slides/loadoptions/set_blobmanagementoptions/) offre controlli per la gestione dei BLOB e l'uso di file temporanei. Vedi [Manage Presentation BLOBs](/slides/it/cpp/manage-blob/) per strategie sui file di grandi dimensioni.
 
-Per i file di grandi dimensioni, preferisci il caricamento da percorsi di file quando possibile, elimina ogni presentazione di origine non appena è stata unita e evita di salvare ripetutamente risultati intermedi a meno che il flusso di lavoro non richieda punti di controllo.
+Per file di grandi dimensioni, preferisci il caricamento da percorsi di file quando possibile, elimina ogni presentazione di origine non appena è stata unita e evita di salvare ripetutamente risultati intermedi a meno che il flusso di lavoro non richieda checkpoint.
 
 ### **Sicurezza dei thread**
 
-Non caricare, modificare, salvare o clonare la stessa istanza di [Presentation](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/) contemporaneamente da più thread. Mantieni ogni istanza di presentazione confinata a un'unica operazione di unione. Se parallelizzi lavori indipendenti, usa istanze di presentazione indipendenti e segui le [linee guida sul multithreading di Aspose.Slides](https://docs.aspose.com/slides/it/cpp/multithreading/).
+Non caricare, modificare, salvare o clonare la stessa [Presentation](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/) istanza contemporaneamente da più thread. Mantieni ogni istanza di presentazione confinata a una singola operazione di unione. Se parallelizzi lavori indipendenti, usa istanze di presentazione indipendenti e segui le linee guida sul [multithreading di Aspose.Slides](/slides/it/cpp/multithreading/).
 
 ## **FAQ**
 
-**Come mantengo il design originale di ogni presentazione di origine?**
+**Come faccio a mantenere il design originale di ogni presentazione di origine?**
 
-Usa [`AddClone(sourceSlide)`](https://reference.aspose.com/slides/it/cpp/aspose.slides/islidecollection/addclone/) senza fornire un master o un layout di destinazione. Aspose.Slides può clonare automaticamente il master di origine quando è necessario per la diapositiva importata.
+Usa [AddClone](https://reference.aspose.com/slides/it/cpp/aspose.slides/islidecollection/addclone/) senza fornire un master o un layout di destinazione. Aspose.Slides può clonare automaticamente il master di origine quando è necessario per la diapositiva importata.
 
 **Come faccio a far usare alle diapositive importate il tema di destinazione?**
 
 Usa la sovraccarico che accetta un master di destinazione. Passa un master dalla presentazione di destinazione, non da quella di origine. Aspose.Slides cercherà di mappare ogni diapositiva di origine a un layout appropriato sotto quel master.
 
-**Quando dovrei usare un layout di destinazione specifico invece di un master di destinazione?**
+**Quando devo usare un layout di destinazione specifico invece di un master di destinazione?**
 
-Usa un layout specifico quando ogni diapositiva importata deve utilizzare un layout noto. Usa un master quando desideri che Aspose.Slides selezioni tra i layout di quel master in base al tipo o al nome del layout di origine.
+Usa un layout specifico quando ogni diapositiva importata deve utilizzare un layout noto. Usa un master quando vuoi che Aspose.Slides selezioni tra i layout di quel master in base al tipo o al nome del layout di origine.
 
-**Le presentazioni con dimensioni delle diapositive diverse possono essere unite?**
+**È possibile unire presentazioni con dimensioni di diapositiva diverse?**
 
 Sì, ma il contenuto delle diapositive non viene ridisegnato automaticamente per le dimensioni di destinazione. Ridimensiona prima la presentazione di origine quando hai bisogno di un posizionamento prevedibile, ad esempio con [SlideSize::SetSize](https://reference.aspose.com/slides/it/cpp/aspose.slides/slidesize/setsize/) e [SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/it/cpp/aspose.slides/slidesizescaletype/).
 
-**Posso unire presentazioni PPT, PPTX e ODP in un unico file?**
 
-Sì. Carica ogni presentazione di origine, clona le diapositive richieste in una destinazione unica e salva la destinazione in un formato di output supportato. Poiché i formati di presentazione non supportano esattamente lo stesso set di funzionalità, verifica i contenuti complessi dopo le unioni cross‑format. Vedi [Supported File Formats](https://docs.aspose.com/slides/it/cpp/supported-file-formats/).
+**Posso unire file PPT, PPTX e ODP in un unico file?**
 
-**Le sezioni di origine vengono preservate automaticamente?**
+Sì. Carica ogni presentazione di origine, clona le diapositive necessarie in una destinazione e salva la destinazione in un formato di output supportato. Poiché i formati di presentazione non supportano esattamente lo stesso insieme di funzionalità, verifica i contenuti complessi dopo le unioni cross‑format. Vedi [Supported File Formats](/slides/it/cpp/supported-file-formats/).
 
-No, non con un ciclo base che clona solo le diapositive. Ricrea le sezioni necessarie nella destinazione e usa la sovraccarico di sezione di [AddClone](https://reference.aspose.com/slides/it/cpp/aspose.slides/islidecollection/addclone/) quando la struttura delle sezioni deve essere preservata.
+**Le sezioni di origine sono preserve automaticamente?**
 
-**Le note del relatore e i commenti vengono preservati?**
+No, non con un semplice ciclo che clona solo le diapositive. Ricrea le sezioni necessarie nella destinazione e usa la sovraccarico di sezione di [AddClone](https://reference.aspose.com/slides/it/cpp/aspose.slides/islidecollection/addclone/) quando la struttura delle sezioni deve essere preservata.
 
-Vengono copiati con la diapositiva clonata. Per i flussi di lavoro che dipendono dallo styling del master delle note, dagli autori dei commenti o dai dati di revisione a filo, verifica il risultato unito poiché questi scenari coinvolgono strutture a livello di presentazione oltre al contenuto a livello di diapositiva.
+**Le note del relatore e i commenti sono preservati?**
 
-**Cosa succede a audio, video, oggetti OLE e collegamenti ipertestuali?**
+Sono copiate con la diapositiva clonata. Per i flussi di lavoro che dipendono dallo stile del master delle note, dagli autori dei commenti o dai dati di revisione in thread, verifica il risultato unito perché quegli scenari coinvolgono strutture a livello di presentazione oltre al contenuto della diapositiva.
 
-Il contenuto incorporato viene mantenuto come parte delle relazioni di risorse della diapositiva clonata. I collegamenti esterni rimangono esterni, quindi i file o gli URL di destinazione devono ancora essere disponibili dopo l'unione.
+**Cosa succede ad audio, video, oggetti OLE e collegamenti ipertestuali?**
 
-**I font incorporati da ogni origine sono garantiti disponibili nella presentazione unita?**
+Il contenuto incorporato viene trasportato come parte delle relazioni di risorsa della diapositiva clonata. I collegamenti esterni rimangono esterni, quindi i file di destinazione o gli URL devono comunque essere disponibili dopo l'unione.
 
-Non fare affidamento solo sulla clonazione delle diapositive per il deployment dei font. Ispeziona i font incorporati nella destinazione e gestisci esplicitamente l'incorporamento dei font o la disponibilità di font esterni quando la tipografia è importante.
+**I caratteri incorporati da ogni origine sono garantiti disponibili nella presentazione unita?**
+
+Non fare affidamento solo sulla clonazione delle diapositive per la distribuzione dei caratteri. Ispeziona i caratteri incorporati nella destinazione e gestisci esplicitamente l'incorporamento dei caratteri o la disponibilità di caratteri esterni quando la tipografia è importante.
 
 **Come unisco un file protetto da password?**
 
-Aprila con il corretto [LoadOptions::set_Password](https://reference.aspose.com/slides/it/cpp/aspose.slides/loadoptions/set_password/), poi clona le sue diapositive normalmente. La protezione dell'output viene configurata separatamente.
+Aprilo con il corretto [LoadOptions::set_Password](https://reference.aspose.com/slides/it/cpp/aspose.slides/loadoptions/set_password/), quindi clona le sue diapositive normalmente. La protezione dell'output è configurata separatamente.
 
-**Come devo gestire presentazioni molto grandi?**
+**Come gestire presentazioni molto grandi?**
 
-Usa la gestione dei BLOB quando i grandi oggetti binari dominano l'uso della memoria, preferisci il caricamento da percorsi di file per file molto grandi, elimina rapidamente le presentazioni di origine e salva il risultato finale solo quando necessario.
+Usa la gestione dei BLOB quando gli oggetti binari di grandi dimensioni dominano l'uso della memoria, preferisci il caricamento da percorso di file per file molto grandi, elimina prontamente le presentazioni di origine e salva il risultato finale solo quando necessario.
 
 **Posso unire diapositive da più thread?**
 
-Non usare una singola istanza di [Presentation](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/) contemporaneamente da più thread. Mantieni ogni operazione di unione isolata alle proprie istanze di presentazione.
+Non utilizzare una singola istanza di [Presentation](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/) contemporaneamente da più thread. Mantieni ogni operazione di unione isolata nelle proprie istanze di presentazione.

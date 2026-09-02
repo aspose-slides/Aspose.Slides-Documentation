@@ -5,13 +5,13 @@ type: docs
 weight: 50
 url: /th/cpp/low-code-presentation-operations/
 keywords:
-- API พรีเซนเทชันแบบ Low-Code
+- API พรีเซนเทชัน Low-Code
 - แปลงพรีเซนเทชัน
 - รวมพรีเซนเทชัน
 - วนซ้ำสไลด์
 - วนซ้ำรูปร่าง
 - วนซ้ำข้อความ
-- รวบรวมรูปร่าง
+- เก็บรวบรวมรูปร่าง
 - บีบอัดพรีเซนเทชัน
 - ลบมาสเตอร์สไลด์ที่ไม่ได้ใช้
 - ลบเลย์เอาต์สไลด์ที่ไม่ได้ใช้
@@ -21,27 +21,27 @@ keywords:
 - พรีเซนเทชัน
 - C++
 - Aspose.Slides
-description: "ใช้ Aspose.Slides low-code API ใน C++ เพื่อแปลงและรวมพรีเซนเทชัน, วนซ้ำเนื้อหา, รวบรวมรูปร่าง, และลดขนาดพรีเซนเทชัน"
+description: "ใช้ Aspose.Slides low-code API ใน C++ เพื่อแปลงและรวมพรีเซนเทชัน, วนซ้ำเนื้อหา, เก็บรวบรวมรูปร่าง, และลดขนาดพรีเซนเทชัน."
 ---
 ## **ภาพรวม**
 
-เนมสเปซ [Aspose::Slides::LowCode](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/) ให้คลาสช่วยเหลือแบบสแตติกสำหรับการดำเนินการพรีเซนเทชันทั่วไป ตัวช่วยเหลือนี้ห่อหุ้มกระบวนการทำงานของโมเดลวัตถุที่ใช้บ่อยในเมธอดที่มุ่งเน้น ทำให้คุณสามารถแปลงหรือรวมไฟล์, ประมวลผลองค์ประกอบของพรีเซนเทชัน, รวบรวมรูปร่าง, และลบเนื้อหาที่ไม่ได้ใช้โดยใช้โค้ดน้อยลง  
+The [Aspose::Slides::LowCode](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/) namespace provides static helper classes for common presentation operations. These helpers wrap frequently used object-model workflows in focused methods, so you can convert or merge files, process presentation elements, collect shapes, and remove unused content with less code.
 
-Low‑code helpers มีประโยชน์สูงสุดเมื่อการดำเนินการใช้กับไฟล์หรือพรีเซนเทชันทั้งหมดและเวิร์กฟลอว์เริ่มต้นตรงตามความต้องการของคุณ ใช้ [Aspose.Slides object model](https://reference.aspose.com/slides/th/cpp/aspose.slides/) ทั้งหมดเมื่อคุณต้องการการควบคุมละเอียดระดับสไลด์, มาสเตอร์, เลย์เอาต์, รูปร่าง, การตั้งค่าการส่งออก หรือความสัมพันธ์ระหว่างองค์ประกอบของพรีเซนเทชัน  
+Low-code helpers are most useful when the operation applies to an entire file or presentation and the default workflow matches your requirements. Use the full [Aspose.Slides object model](https://reference.aspose.com/slides/th/cpp/aspose.slides/) when you need fine-grained control over individual slides, masters, layouts, shapes, export settings, or relationships between presentation elements.
 
-ตารางต่อไปนี้สรุปตัวช่วยเหลือที่มีอยู่:
+The following table summarizes the available helpers:
 
-| ตัวช่วยเหลือ | ใช้สำหรับ |
+| ตัวช่วย | การใช้ |
 | --- | --- |
 | [Convert](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/convert/) | แปลงพรีเซนเทชันเป็นรูปแบบอื่นด้วยการเรียกไฟล์ต่อไฟล์โดยตรง |
 | [Merger](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/merger/) | รวมไฟล์พรีเซนเทชันเต็มรูปแบบที่มีรูปแบบเดียวกัน |
-| [ForEach](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/foreach/) | ดำเนินการสำหรับสไลด์, รูปร่าง, ย่อหน้า หรือส่วนข้อความแต่ละรายการ |
-| [Collect](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/collect/) | ดึงรูปทรงจากพรีเซนเทชันทั้งหมดเพื่อการประมวลผลหรือวิเคราะห์ซ้ำ |
-| [Compress](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/compress/) | ลบมาสเตอร์และเลย์เอาต์ที่ไม่ได้ใช้และลดข้อมูลฟอนต์ที่ฝังอยู่ |
+| [ForEach](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/foreach/) | ดำเนินการทำงานสำหรับแต่ละสไลด์, รูปร่าง, ย่อหน้า หรือส่วนของข้อความ |
+| [Collect](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/collect/) | ดึงรูปร่างจากพรีเซนเทชันทั้งหมดเพื่อการประมวลผลหรือวิเคราะห์ซ้ำ |
+| [Compress](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/compress/) | ลบมาสเตอร์และเลย์เอาต์ที่ไม่ได้ใช้และลดข้อมูลฟอนต์ที่ฝังไว้ |
 
 ## **แปลงพรีเซนเทชัน**
 
-ใช้ [Convert::AutoByExtension](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/convert/autobyextension/) เมื่อส่วนขยายไฟล์ผลลัพธ์เพียงพอสำหรับเลือกฟอร์แมตการส่งออก เมธอดนี้จะเปิดพรีเซนเทชันต้นฉบับ, กำหนดฟอร์แมตที่ต้องการจากเส้นทางไฟล์ผลลัพธ์, และเขียนผลลัพธ์ออกมา  
+Use [Convert::AutoByExtension](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/convert/autobyextension/) when the output file extension is sufficient to select the export format. The method opens the source presentation, determines the required format from the output path, and writes the result.
 
 ```cpp
 #include <LowCode/Convert.h>
@@ -51,11 +51,11 @@ using namespace Aspose::Slides::LowCode;
 Convert::AutoByExtension(u"input.pptx", u"output.pdf");
 ```
 
-คลาส [Convert](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/convert/) ยังมีเมธอดเฉพาะสำหรับการส่งออกเป็น PDF, SVG, JPEG, PNG และ TIFF อีกด้วย ใช้โมเดลวัตถุเต็มเมื่อคุณต้องการตรวจสอบหรือแก้ไขพรีเซนเทชันก่อนการส่งออกหรือกำหนดตัวเลือกการส่งออกที่ตัวช่วยเหลือไม่ได้เปิดเผย ดู [Convert Presentation](/cpp/convert-presentation/) สำหรับเวิร์กฟลอว์และตัวเลือกตามฟอร์แมต
+The [Convert](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/convert/) class also provides dedicated methods for PDF, SVG, JPEG, PNG, and TIFF output. Use the full object model when you need to inspect or modify the presentation before export or configure an export option that is not exposed by the selected helper. See [แปลงพรีเซนเทชัน](/slides/th/cpp/convert-presentation/) for format-specific workflows and options.
 
 ## **รวมพรีเซนเทชัน**
 
-ใช้ [Merger::Process](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/merger/process/) เพื่อรวมไฟล์พรีเซนเทชันเต็มรูปแบบด้วยคำสั่งเดียว พรีเซนเทชันต้นทางต้องมีรูปแบบไฟล์เดียวกัน  
+Use [Merger::Process](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/merger/process/) to combine complete presentation files with one call. The input presentations must have the same file format.
 
 ```cpp
 #include <LowCode/Merger.h>
@@ -68,13 +68,13 @@ auto inputFiles = System::MakeArray<System::String>({u"part-1.pptx", u"part-2.pp
 Merger::Process(inputFiles, u"merged.pptx");
 ```
 
-ตัวช่วยนี้เหมาะสมเมื่อสไลด์ทั้งหมดควรถูกต่อท้ายเป็นผลลัพธ์เดียวโดยไม่ต้องเลือกหรือแมปใหม่แต่ละสไลด์ ใช้โมเดลวัตถุเต็มเมื่อคุณต้องการรวมสไลด์ที่เลือก, ใช้มาสเตอร์หรือเลย์เอาต์ปลายทาง, เก็บส่วนอย่างชัดเจน, หรือปรับขนาดสไลด์ที่ต่างกัน ดู [Merge Presentations](/cpp/merge-presentation/) สำหรับสถานการณ์เหล่านี้
+The helper is appropriate when all slides should be appended to one result without selecting or remapping them individually. Use the full object model when you need to merge selected slides, apply a destination master or layout, preserve sections explicitly, or reconcile different slide sizes. See [รวมพรีเซนเทชัน](/slides/th/cpp/merge-presentation/) for those scenarios.
 
-## **วนซ้ำผ่านองค์ประกอบของพรีเซนเทชัน**
+## **วนรอบผ่านองค์ประกอบพรีเซนเทชัน**
 
-คลาส [ForEach](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/foreach/) จะเรียกคอลแบ็กสำหรับแต่ละประเภทขององค์ประกอบพรีเซนเทชันที่ร้องขอ ช่วยหลีกเลี่ยงลูปคอลเลกชันซ้อนกันและสะดวกสำหรับการตรวจสอบหรือการเปลี่ยนรูปแบบทั่วพรีเซนเทชัน  
+The [ForEach](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/foreach/) class invokes a callback for each requested type of presentation element. It avoids nested collection loops and is convenient for presentation-wide inspection or formatting changes.
 
-ตัวอย่างต่อไปนี้ใช้ [ForEach::Slide](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/foreach/slide/), [ForEach::Shape](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/foreach/shape/), [ForEach::Paragraph](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/foreach/paragraph/), และ [ForEach::Portion](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/foreach/portion/) เพื่อตรวจสอบองค์ประกอบที่สอดคล้องกัน:  
+The following example uses [ForEach::Slide](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/foreach/slide/), [ForEach::Shape](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/foreach/shape/), [ForEach::Paragraph](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/foreach/paragraph/), and [ForEach::Portion](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/foreach/portion/) to inspect the corresponding elements:
 
 ```cpp
 #include <DOM/BaseSlide.h>
@@ -118,11 +118,11 @@ auto portionCallback = std::function<void(System::SharedPtr<Portion>, System::Sh
 ForEach::Portion(presentation, portionCallback);
 ```
 
-โดยค่าเริ่มต้น การท่องรูปทรงและข้อความทั่วพรีเซนเทชันจะรวมสไลด์ปกติ, มาสเตอร์, และเลย์เอาต์อยู่ด้วย การ overload ที่มีพารามิเตอร์ `includeNotes` ยังสามารถประมวลผลสไลด์โน้ตได้ ใช้ลูปคอลเลกชันโดยตรงเมื่อลำดับการท่อง, การออกก่อน, การกรองก่อนเรียกคอลแบ็ก, หรือการควบคุมความสัมพันธ์พาเรนท์‑ชิลด์โดยละเอียดเป็นสิ่งสำคัญ
+By default, presentation-wide shape and text traversal includes normal, master, and layout slides. Overloads with an `includeNotes` parameter can also process notes slides. Use direct collection loops when traversal order, early exit, filtering before callback invocation, or detailed parent-child control is important.
 
-## **รวบรวมรูปร่าง**
+## **เก็บรวบรวมรูปร่าง**
 
-ใช้ [Collect::Shapes](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/collect/shapes/) เมื่อคุณต้องการคอลเลกชันของรูปทรงทั้งหมดในพรีเซนเทชันแทนคอลแบ็กสำหรับแต่ละรูปทรง ซึ่งมีประโยชน์เมื่อชุดเดียวกันต้องถูกกรอง, นับ, หรือประมวลผลหลายครั้ง  
+Use [Collect::Shapes](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/collect/shapes/) when you need a collection of all shapes in a presentation rather than a callback for each shape. This is useful when the same set will be filtered, counted, or processed more than once.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -142,15 +142,15 @@ for (const auto& shape : shapes)
 }
 ```
 
-ใช้ [ForEach::Shape](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/foreach/shape/) แทนเมื่อรูปทรงแต่ละอันสามารถจัดการได้ทันทีและคุณไม่จำเป็นต้องเก็บผลลัพธ์ที่รวบรวมไว้
+Use [ForEach::Shape](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/foreach/shape/) instead when each shape can be handled immediately and you do not need to retain the collected result.
 
 ## **บีบอัดเนื้อหาพรีเซนเทชัน**
 
-คลาส [Compress](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/compress/) สามารถลบองค์ประกอบโครงสร้างที่ไม่ได้ใช้และลดข้อมูลฟอนต์ที่ฝังอยู่ได้:  
+The [Compress](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/compress/) class can remove unused structural elements and reduce embedded font data:
 
-- [Compress::RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) ลบสไลด์เลย์เอาต์ที่ไม่มีสไลด์ปกติใดอ้างอิง  
-- [Compress::RemoveUnusedMasterSlides](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/compress/removeunusedmasterslides/) ลบมาสเตอร์สไลด์ที่ไม่ได้ใช้แล้ว  
-- [Compress::CompressEmbeddedFonts](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/compress/compressembeddedfonts/) ลบอักขระที่ไม่ได้ใช้จากฟอนต์ที่ฝังอยู่  
+- [Compress::RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) removes layout slides that no normal slide references.
+- [Compress::RemoveUnusedMasterSlides](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/compress/removeunusedmasterslides/) removes master slides that are no longer used.
+- [Compress::CompressEmbeddedFonts](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/compress/compressembeddedfonts/) removes unused characters from embedded fonts.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -170,32 +170,38 @@ Compress::CompressEmbeddedFonts(presentation);
 presentation->Save(u"compressed.pptx", SaveFormat::Pptx);
 ```
 
-ให้ลบเลย์เอาต์ที่ไม่ได้ใช้ก่อนมาสเตอร์ที่ไม่ได้ใช้ เพื่อให้มาสเตอร์ที่กลายเป็นไม่มีการอ้างอิงหลังจากทำความสะอาดเลย์เอาต์ก็สามารถลบได้ บันทึกพรีเซนเทชันที่ปรับแต่งแล้วลงไฟล์ใหม่หากคุณอาจต้องการมาสเตอร์, เลย์เอาต์, หรือข้อมูลฟอนต์ฝังทั้งหมดเดิมในภายหลัง สำหรับรายละเอียดเพิ่มเติม ดู [Slide Master](/cpp/slide-master/) และ [Embedded Font](/cpp/embedded-font/)
+Remove unused layouts before unused masters so a master that becomes unreferenced after layout cleanup can also be removed. Save the optimized presentation to a new file if you may need the original masters, layouts, or complete embedded font data later. For more detail, see [Slide Master](/slides/th/cpp/slide-master/) and [Embedded Font](/slides/th/cpp/embedded-font/).
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-**เมื่อใดที่ควรใช้ low‑code API แทนโมเดลวัตถุเต็ม?**  
-ใช้ตัวช่วย low‑code เมื่อการดำเนินการมาตรฐานใช้กับไฟล์หรือพรีเซนเทชันทั้งหมดและไม่ต้องการการควบคุมละเอียดระดับองค์ประกอบส่วนบุคคล ใช้โมเดลวัตถุเต็มเมื่อคุณต้องการเลือกสไลด์เฉพาะ, ควบคุมความสัมพันธ์ของมาสเตอร์และเลย์เอาต์, ตรวจสอบสถานะกลาง, หรือกำหนดพฤติกรรมที่ตัวช่วยไม่ได้เปิดเผย  
+**เมื่อใดที่ฉันควรใช้ Low-code API แทนโมเดลอ็อบเจกต์เต็ม?**
 
-**Merger สามารถรวมพรีเซนเทชันที่มีรูปแบบไฟล์ต่างกันได้หรือไม่?**  
-ไม่ได้ ตัวเมธอด [Merger::Process](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/merger/process/) ต้องการพรีเซนเทชันต้นทางที่มีรูปแบบไฟล์เดียวกัน ก่อนรวมไฟล์ให้แปลงเป็นรูปแบบเดียวกันก่อน เช่นโดยใช้ [Convert::AutoByExtension](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/convert/autobyextension/) แล้วจึงทำการรวมไฟล์ที่แปลงแล้ว  
+Use low-code helpers when a standard operation applies to a complete file or presentation and does not require detailed control over individual elements. Use the full object model when you need to select specific slides, control master and layout relationships, inspect intermediate state, or configure behavior that the helper does not expose.
 
-**ForEach ประมวลผลมาสเตอร์, เลย์เอาต์ และสไลด์โน้ตหรือไม่?**  
-[ForEach::Slide](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/foreach/slide/) จะวนผ่านสไลด์ปกติของพรีเซนเทชัน ส่วนการดำเนินการ [ForEach::Shape](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/foreach/shape/), [ForEach::Paragraph](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/foreach/paragraph/), และ [ForEach::Portion](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/foreach/portion/) จะรวมสไลด์ปกติ, มาสเตอร์, และเลย์เอาต์โดยค่าเริ่มต้น ใช้ overload ที่มี `includeNotes` เป็น `true` เพื่อรวมสไลด์โน้ตด้วย  
+**Merger สามารถรวมพรีเซนเทชันที่มีรูปแบบไฟล์ต่างกันได้หรือไม่?**
 
-**ความแตกต่างระหว่าง ForEach::Shape กับ Collect::Shapes คืออะไร?**  
-ใช้ [ForEach::Shape](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/foreach/shape/) เพื่อประมวลผลแต่ละรูปทรงทันทีผ่านคอลแบ็ก ใช้ [Collect::Shapes](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/collect/shapes/) เมื่อคุณต้องการผลลัพธ์ที่เป็นคอลเลกชันสามารถเก็บไว้, กรอง, นับ, หรือท่องหลายครั้งได้  
+No. [Merger::Process](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/merger/process/) requires input presentations in the same format. Convert the input files to a common format first, for example with [Convert::AutoByExtension](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/convert/autobyextension/), and then merge the converted files.
 
-**Compress ทำให้ไฟล์พรีเซนเทชันเล็กลงเสมอหรือไม่?**  
-ไม่จำเป็น ผลลัพธ์ขึ้นกับว่าพรีเซนเทชันมีเลย์เอาต์, มาสเตอร์, หรือฟอนต์ฝังที่ไม่ได้ใช้หรือไม่ หากไม่มีองค์ประกอบเหล่านั้น การดำเนินการ [Compress](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/compress/) อาจไม่ลดขนาดไฟล์ได้  
+**ForEach ประมวลผลมาสเตอร์, เลย์เอาต์, และสไลด์โน้ตหรือไม่?**
 
-**การเปลี่ยนแปลงที่ทำโดย ForEach หรือ Compress ถูกบันทึกอัตโนมัติหรือไม่?**  
-ไม่ได้ ตัวช่วยเหลือนี้ทำงานบนอ็อบเจกต์ [Presentation](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/) ที่โหลดอยู่ในหน่วยความจำ หลังจากแก้ไของค์ประกอบในคอลแบ็กของ [ForEach](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/foreach/) หรือเรียกใช้ [Compress](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/compress/) ให้เรียก [Presentation::Save](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/save/) เพื่อบันทึกผลลัพธ์  
+[ForEach::Slide](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/foreach/slide/) iterates through normal presentation slides. Presentation-wide [ForEach::Shape](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/foreach/shape/), [ForEach::Paragraph](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/foreach/paragraph/), and [ForEach::Portion](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/foreach/portion/) operations include normal, master, and layout slides by default. Use their overloads with `includeNotes` set to `true` to include notes slides.
+
+**ความแตกต่างระหว่าง ForEach::Shape กับ Collect::Shapes คืออะไร?**
+
+Use [ForEach::Shape](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/foreach/shape/) to process each shape immediately through a callback. Use [Collect::Shapes](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/collect/shapes/) when you need an enumerable result that can be retained, filtered, counted, or traversed multiple times.
+
+**Compress ทำให้ไฟล์พรีเซนเทชันเล็กลงเสมอหรือไม่?**
+
+Not necessarily. The result depends on whether the presentation contains unused layouts, unused masters, or embedded fonts with unused characters. If none of those are present, the corresponding [Compress](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/compress/) operations may not reduce the file size.
+
+**การเปลี่ยนแปลงโดย ForEach หรือ Compress จะถูกบันทึกโดยอัตโนมัติหรือไม่?**
+
+No. These helpers operate on the loaded [Presentation](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/) object in memory. After changing elements in a [ForEach](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/foreach/) callback or running [Compress](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/compress/), call [Presentation::Save](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/save/) to write the result.
 
 ## **บทความที่เกี่ยวข้อง**
 
-- [แปลงพรีเซนเทชัน](/cpp/convert-presentation/)
-- [รวมพรีเซนเทชัน](/cpp/merge-presentation/)
-- [มาสเตอร์สไลด์](/cpp/slide-master/)
-- [จัดการกล่องข้อความ](/cpp/manage-textbox/)
-- [ฟอนต์ฝัง](/cpp/embedded-font/)
+- [แปลงพรีเซนเทชัน](/slides/th/cpp/convert-presentation/)
+- [รวมพรีเซนเทชัน](/slides/th/cpp/merge-presentation/)
+- [Slide Master](/slides/th/cpp/slide-master/)
+- [Manage Text Box](/slides/th/cpp/manage-textbox/)
+- [Embedded Font](/slides/th/cpp/embedded-font/)

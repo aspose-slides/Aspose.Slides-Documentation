@@ -8,7 +8,7 @@ keywords:
 - خط
 - خط مخصص
 - خط خارجي
-- تحميل خط
+- تحميل الخط
 - إدارة الخطوط
 - مجلد الخطوط
 - PowerPoint
@@ -17,30 +17,43 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "تخصيص الخطوط في شرائح PowerPoint باستخدام JavaScript و Aspose.Slides لـ Node.js عبر Java للحفاظ على عروضك التقديمية حادة ومتسقة عبر أي جهاز."
+description: "قم بتخصيص الخطوط في شرائح PowerPoint باستخدام JavaScript و Aspose.Slides لـ Node.js عبر Java للحفاظ على عروضك التقديمية حادة ومتسقة عبر أي جهاز."
 ---
+## **نظرة عامة**
 
-{{% alert color="primary" %}} 
+Aspose.Slides يتيح لك استخدام خطوط مخصصة في العروض التقديمية دون حاجتها إلى تثبيتها على نظام التشغيل. يمكنك تحميل الخطوط من مجلدات مخصصة، أو توفير الخطوط لعرض تقديمي معين عبر مصادر الخط على مستوى المستند، أو تحميل خطوط خارجية مباشرة من البيانات الثنائية.
 
-Aspose Slides يسمح لك بتحميل هذه الخطوط باستخدام طريقة [loadExternalFonts](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---):
+تُستخدم الخطوط التي تم تحميلها عند تجسيد أو تصدير العرض التقديمي، مثل تصديره إلى PDF أو صور أو صيغ أخرى مدعومة. يساعد ذلك في الحفاظ على تناسق ناتج العرض عبر بيئات مختلفة. كما يوضح هذا المقال كيفية فحص مجلدات الخطوط التي يستخدمها Aspose.Slides وكيفية مسح ذاكرة التخزين المؤقت للخطوط بعد التعامل مع الخطوط الخارجية.
 
-* خطوط TrueType (.ttf) و TrueType Collection (.ttc). راجع [TrueType](https://en.wikipedia.org/wiki/TrueType).
+تسجيل الخطوط المخصصة للتجسيد يتم بشكل منفصل عن تضمين الخطوط داخل ملف PPTX. إذا كان يجب تخزين الخط داخل العرض التقديمي نفسه، استخدم ميزات تضمين الخطوط صراحةً.
+
+يمكن لمظهر العرض التقديمي الإشارة إلى عائلات خطوط مختلفة لأنظمة الكتابة الفردية. تقوم هذه التخطيطات بحفظ أسماء الخطوط لكنها لا تثبت أو تحمل ملفات الخط. راجع [Script-Specific Theme Fonts](/slides/ar/nodejs-java/script-specific-font-mappings/) لإدارة هذه التخطيطات، واستخدم خيارات التحميل أدناه لجعل الخطوط المشار إليها متاحة لتجسيد متسق.
+
+{{% alert color="info" title="ملاحظة" %}}
+يسمح لك Aspose Slides بتحميل هذه الخطوط باستخدام الطريقة [loadExternalFonts](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---):
+
+* خطوط TrueType (.ttf) وTrueType Collection (.ttc). راجع [TrueType](https://en.wikipedia.org/wiki/TrueType).
+
 * خطوط OpenType (.otf). راجع [OpenType](https://en.wikipedia.org/wiki/OpenType).
-
 {{% /alert %}}
 
 ## **تحميل الخطوط المخصصة**
 
-Aspose.Slides يسمح لك بتحميل الخطوط المستخدمة في عرض تقديمي دون تثبيتها على النظام. يؤثر ذلك على مخرجات التصدير—مثل PDF والصور وغيرها من الصيغ المدعومة—بحيث تبدو المستندات الناتجة متسقة عبر بيئات مختلفة. يتم تحميل الخطوط من مجلدات مخصصة.
+Aspose.Slides يتيح لك تحميل الخطوط المستخدمة في عرض تقديمي دون تثبيتها على النظام. يؤثر ذلك على مخرجات التصدير—مثل PDF أو صور أو صيغ مدعومة أخرى—بحيث تبدو المستندات الناتجة متسقة عبر البيئات. تُحمَّل الخطوط من أدلة مخصصة.
 
-1. حدد مجلدًا أو أكثر يحتوي على ملفات الخطوط.  
-2. استدعِ الطريقة الساكنة [FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsloader/loadexternalfonts/) لتحميل الخطوط من تلك المجلدات.  
-3. قم بتحميل العرض التقديمي وعرضه/تصديره.  
-4. استدعِ [FontsLoader.clearCache](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsloader/clearcache/) لمسح ذاكرة مخزن الخطوط.
+1. حدد مجلدًا أو أكثر يحتوي على ملفات الخط.
+2. استدعِ الطريقة الساكنة [FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/fontsloader/loadexternalfonts/) لتحميل الخطوط من تلك المجلدات.
+3. حمِّل العرض وقم بتجسيده/تصديره.
+4. استدعِ [FontsLoader.clearCache](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/fontsloader/clearcache/) لمسح ذاكرة التخزين المؤقت للخطوط.
 
-المثال التالي يوضح عملية تحميل الخطوط:
 ```js
-// تحديد المجلدات التي تحتوي على ملفات الخطوط المخصصة.
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+// تعريف المجلدات التي تحتوي على ملفات الخطوط المخصصة.
+let externalFontFolder1 = "fonts";
+let externalFontFolder2 = "extra-fonts";
 let fontFolders = java.newArray("java.lang.String", [externalFontFolder1, externalFontFolder2]);
 
 // تحميل الخطوط المخصصة من المجلدات المحددة.
@@ -50,7 +63,7 @@ let presentation = null;
 try {
     presentation = new aspose.slides.Presentation("sample.pptx");
     
-    // تصيير/تصدير العرض التقديمي (مثلاً إلى PDF أو صور أو صيغ أخرى) باستخدام الخطوط التي تم تحميلها.
+    // تجسيد/تصدير العرض التقديمي (مثل PDF أو صور أو صيغ أخرى) باستخدام الخطوط التي تم تحميلها.
     presentation.save("output.pdf", aspose.slides.SaveFormat.Pdf);
 } finally {
     if (presentation != null) presentation.dispose();
@@ -60,32 +73,37 @@ try {
 }
 ```
 
+{{% alert color="info" title="ملاحظة" %}}
+[FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/fontsloader/loadexternalfonts/) يضيف مجلدات إضافية إلى مسارات البحث عن الخطوط، لكنه لا يغير ترتيب تهيئة الخط. تُهيَّأ الخطوط بهذا الترتيب:
 
-{{% alert color="info" title="Note" %}}
-
-[FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsloader/loadexternalfonts/) يضيف مجلدات إضافية إلى مسارات البحث عن الخطوط، لكنه لا يغيّر ترتيب تهيئة الخطوط. يتم تهيئة الخطوط بالترتيب التالي:
-
-1. مسار الخط الافتراضي في نظام التشغيل.  
-1. المسارات التي تم تحميلها عبر [FontsLoader](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsloader/).
-
+1. مسار الخط الافتراضي لنظام التشغيل.
+1. المسارات التي تم تحميلها عبر [FontsLoader](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/fontsloader/).
 {{%/alert %}}
 
 ## **الحصول على مجلد الخطوط المخصصة**
-Aspose.Slides يوفر الطريقة [getFontFolders](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsloader/#getFontFolders--) للسماح لك باكتشاف مجلدات الخطوط. تُعيد هذه الطريقة المجلدات التي أضيفت من خلال طريقة `LoadExternalFonts` ومجلدات الخطوط النظامية.
+Aspose.Slides توفر الطريقة [getFontFolders](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/fontsloader/#getFontFolders--) لتُمكِّنك من العثور على مجلدات الخطوط. تُعيد هذه الطريقة المجلدات التي أضيفت عبر طريقة `LoadExternalFonts` ومجلدات الخطوط النظامية.
 
-يظهر هذا الكود JavaScript كيفية استخدام [getFontFolders](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsloader/#getFontFolders--):
+هذا الكود JavaScript يظهر لك كيفية استخدام [getFontFolders](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/fontsloader/#getFontFolders--):
+
 ```javascript
-// هذا السطر يعرض المجلدات التي يتم البحث فيها عن ملفات الخطوط.
-// هذه هي المجلدات التي تم إضافتها عبر طريقة LoadExternalFonts ومجلدات الخطوط النظامية.
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// هذا السطر يُظهر المجلدات التي يتم البحث فيها عن ملفات الخطوط.
+// هذه هي المجلدات التي أضيفت عبر طريقة LoadExternalFonts ومجلدات الخطوط النظامية.
 var fontFolders = aspose.slides.FontsLoader.getFontFolders();
 ```
 
+## **تحديد الخطوط المخصصة المستخدمة مع العرض**
+Aspose.Slides توفر الخاصية [setDocumentLevelFontSources](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/loadoptions/#setDocumentLevelFontSources-aspose.slides.IFontSources-) لتتيح لك تحديد الخطوط الخارجية التي سيتم استخدامها مع العرض.
 
-## **تحديد الخطوط المخصصة المستخدمة مع العرض التقديمي**
-Aspose.Slides يوفر الخاصية [setDocumentLevelFontSources](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/#setDocumentLevelFontSources-aspose.slides.IFontSources-) للسماح لك بتحديد الخطوط الخارجية التي ستُستخدم مع العرض التقديمي.
+هذا الكود JavaScript يظهر لك كيفية استخدام الخاصية [setDocumentLevelFontSources](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/loadoptions/#setDocumentLevelFontSources-aspose.slides.IFontSources-):
 
-يظهر هذا الكود JavaScript كيفية استخدام الخاصية [setDocumentLevelFontSources](https://reference.aspose.com/slides/nodejs-java/aspose.slides/loadoptions/#setDocumentLevelFontSources-aspose.slides.IFontSources-):
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var memoryFont1 = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "customfonts/CustomFont1.ttf"));
 var memoryFont2 = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "customfonts/CustomFont2.ttf"));
 var loadOptions = new aspose.slides.LoadOptions();
@@ -93,8 +111,8 @@ loadOptions.getDocumentLevelFontSources().setFontFolders(java.newArray("java.lan
 loadOptions.getDocumentLevelFontSources().setMemoryFonts(java.newArray("[B", [java.newArray("byte", ["item1", "item2", "item3"])]));
 var pres = new aspose.slides.Presentation("MyPresentation.pptx", loadOptions);
 try {
-    // العمل على العرض التقديمي
-    // CustomFont1، CustomFont2، والخطوط من مجلدات assets\fonts و global\fonts ومجلداتها الفرعية متاحة للعرض التقديمي
+    // التعامل مع العرض التقديمي
+    // خطوط CustomFont1 و CustomFont2، والخطوط من مجلدات assets\fonts و global\fonts ومجلداتها الفرعية متاحة للعرض التقديمي
 } finally {
     if (pres != null) {
         pres.dispose();
@@ -102,20 +120,24 @@ try {
 }
 ```
 
+## **إدارة الخطوط خارجيًا**
 
-## **إدارة الخطوط خارجياً**
+Aspose.Slides توفر الطريقة [loadExternalFont](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) لتحميل الخطوط الخارجية من البيانات الثنائية.
 
-Aspose.Slides يوفر الطريقة [loadExternalFont](https://reference.aspose.com/slides/nodejs-java/aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) للسماح لك بتحميل خطوط خارجية من بيانات بايت.
+هذا الكود JavaScript يعرض عملية تحميل الخط من مصفوفة بايت:
 
-هذا الكود JavaScript يوضح عملية تحميل الخط من مصفوفة بايت:
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 java.callStaticMethodSync("com.aspose.slides.FontsLoader", "loadExternalFonts", java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "ARIALN.TTF")));
 java.callStaticMethodSync("com.aspose.slides.FontsLoader", "loadExternalFonts", java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "ARIALNBI.TTF")));
 java.callStaticMethodSync("com.aspose.slides.FontsLoader", "loadExternalFonts", java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "ARIALNI.TTF")));
 try {
     var pres = new aspose.slides.Presentation("");
     try {
-        // خط خارجي تم تحميله خلال فترة عرض الشرائح
+        // تم تحميل الخط الخارجي طوال مدة العرض التقديمي
     } finally {
     }
 } finally {
@@ -123,25 +145,24 @@ try {
 }
 ```
 
+## **الأسئلة الشائعة**
 
-## **الأسئلة المتكررة**
+### هل تؤثر الخطوط المخصصة على التصدير إلى جميع الصيغ (PDF, PNG, SVG, HTML)؟
 
-**هل تؤثر الخطوط المخصصة على التصدير إلى جميع الصيغ (PDF, PNG, SVG, HTML)؟**
+نعم. تُستخدم الخطوط المتصلة بواسطة المُعالج عبر جميع صيغ التصدير.
 
-نعم. يتم استخدام الخطوط المتصلة بواسطة المحول عبر جميع صيغ التصدير.
+### هل يتم تضمين الخطوط المخصصة تلقائيًا في ملف PPTX الناتج؟
 
-**هل يتم تضمين الخطوط المخصصة تلقائيًا في ملف PPTX الناتج؟**
+لا. تسجيل الخط للتجسيد ليس هو نفسه تضمينه في ملف PPTX. إذا كنت بحاجة إلى حمل الخط داخل ملف العرض، يجب عليك استخدام [ميزات التضمين](/slides/ar/nodejs-java/embedded-font/) بشكل صريح.
 
-لا. تسجيل الخط للعرض لا يعني تضمينه في ملف PPTX. إذا كنت تحتاج الخط داخل ملف العرض، يجب استخدام ميزات [التضمين](/slides/ar/nodejs-java/embedded-font/).
+### هل يمكنني التحكم في سلوك الاحتياطي عندما يفتقر الخط المخصص إلى بعض الرموز؟
 
-**هل يمكن التحكم في سلوك fallback عندما يفتقر الخط المخصص إلى بعض الحروف؟**
+نعم. قم بتهيئة [font substitution](/slides/ar/nodejs-java/font-substitution/)، [replacement rules](/slides/ar/nodejs-java/font-replacement/)، و[fallback sets](/slides/ar/nodejs-java/fallback-font/) لتحديد الخط الذي يُستخدم بالضبط عندما تكون الرموز المطلوبة مفقودة.
 
-نعم. يمكنك ضبط [استبدال الخط](/slides/ar/nodejs-java/font-substitution/)، [قواعد الاستبدال](/slides/ar/nodejs-java/font-replacement/)، و[مجموعات fallback](/slides/ar/nodejs-java/fallback-font/) لتحديد الخط الذي سيُستخدم عند فقدان الحرف المطلوب.
+### هل يمكنني استخدام الخطوط في حاويات Linux/Docker دون تثبيتها على مستوى النظام؟
 
-**هل يمكن استخدام الخطوط في حاويات Linux/Docker دون تثبيتها على النظام؟**
+نعم. قم بالإشارة إلى مجلدات الخطوط الخاصة بك أو حمّل الخطوط من مصفوفات البايت. يزيل ذلك أي اعتماد على دلائل الخطوط النظامية في صورة الحاوية.
 
-نعم. يمكنك الإشارة إلى مجلدات الخطوط الخاصة بك أو تحميل الخطوط من مصفوفات بايت. هذا يزيل أي اعتماد على مجلدات الخطوط النظامية داخل صورة الحاوية.
+### ماذا عن الترخيص—هل يمكنني تضمين أي خط مخصص دون قيود؟
 
-**ماذا عن الترخيص—هل يمكنني تضمين أي خط مخصص دون قيود؟**
-
-أنت مسؤول عن الامتثال لترخيص الخطوط. تختلف الشروط؛ بعض الرخص تمنع التضمين أو الاستخدام التجاري. تأكد دائمًا من مراجعة اتفاقية ترخيص المستخدم النهائي (EULA) للخط قبل توزيع المخرجات.
+أنت المسؤول عن الالتزام بترخيص الخطوط. تختلف الشروط؛ بعض التراخيص تحظر التضمين أو الاستخدام التجاري. احرص دائمًا على مراجعة اتفاقية الترخيص (EULA) الخاصة بالخط قبل توزيع المخرجات.

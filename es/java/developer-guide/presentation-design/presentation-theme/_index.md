@@ -1,43 +1,43 @@
----
-title: Gestionar temas de presentación en Java
-linktitle: Tema de presentación
-type: docs
-weight: 10
-url: /es/java/presentation-theme/
-keywords:
-- Tema PowerPoint
-- Tema de presentación
-- Tema de diapositiva
-- Establecer tema
-- Cambiar tema
-- Gestionar tema
-- Color del tema
-- Paleta adicional
-- Fuente del tema
-- Estilo del tema
-- Efecto del tema
-- PowerPoint
-- OpenDocument
-- presentación
-- Java
-- Aspose.Slides
-description: "Temas maestros de presentación en Aspose.Slides para Java para crear, personalizar y convertir archivos PowerPoint con una identidad corporativa coherente."
+---  
+title: Gestionar temas de presentación en Java  
+linktitle: Tema de presentación  
+type: docs  
+weight: 10  
+url: /es/java/presentation-theme/  
+keywords:  
+- Tema PowerPoint  
+- Tema de presentación  
+- Tema de diapositiva  
+- Establecer tema  
+- Cambiar tema  
+- Gestionar tema  
+- Color del tema  
+- Paleta adicional  
+- Fuente del tema  
+- Estilo del tema  
+- Efecto del tema  
+- PowerPoint  
+- OpenDocument  
+- presentación  
+- Java  
+- Aspose.Slides  
+description: "Domina los temas de presentación en Aspose.Slides para Java para crear, personalizar y convertir archivos PowerPoint con una marca coherente."  
 ---
 ## **Introducción**
 
-Un tema de presentación define un conjunto coordinado de colores, fuentes, estilos de fondo, rellenos, líneas y efectos. Los objetos con conciencia de tema hacen referencia a estas definiciones compartidas en lugar de almacenar cada propiedad visual como un valor fijo, por lo que un cambio de tema puede actualizar muchos objetos a la vez.
+Un tema de presentación define un conjunto coordinado de colores, tipografías, estilos de fondo, rellenos, líneas y efectos. Los objetos compatibles con temas hacen referencia a estas definiciones compartidas en lugar de almacenar cada propiedad visual como un valor fijo, de modo que un cambio de tema puede actualizar muchos objetos a la vez.
 
-En Aspose.Slides, el tema a nivel de presentación está disponible a través de [Presentation.getMasterTheme](https://reference.aspose.com/slides/es/java/com.aspose.slides/presentation/). Una presentación también puede contener anulaciones de tema en niveles inferiores. Un maestro puede anular el tema de la presentación mediante [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/es/java/com.aspose.slides/masterthememanager/), mientras que una disposición o una diapositiva individual puede anular su tema heredado mediante [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/es/java/com.aspose.slides/baseoverridethememanager/). En la práctica, el tema efectivo para una diapositiva se resuelve mediante esta cadena de herencia: tema de la presentación, anulación del maestro, anulación de la disposición y anulación de la diapositiva.
+En Aspose.Slides, el tema a nivel de presentación está disponible a través de [Presentation.getMasterTheme](https://reference.aspose.com/slides/es/java/com.aspose.slides/presentation/). Una presentación también puede contener sobrescrituras de tema en niveles inferiores. Un master puede sobres escribir el tema de la presentación mediante [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/es/java/com.aspose.slides/masterthememanager/), mientras que una diapositiva o un layout pueden sobrescribir su tema heredado mediante [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/es/java/com.aspose.slides/baseoverridethememanager/). En la práctica, el tema efectivo para una diapositiva se resuelve a través de esta cadena de herencia: tema de presentación, sobrescritura del master, sobrescritura del layout y sobrescritura de la diapositiva.
 
-![Componentes del tema: colores, fuentes, estilos de fondo y efectos](theme-constituents.png)
+![Theme components: colors, fonts, background styles, and effects](theme-constituents.png)
 
-Las secciones siguientes muestran los flujos de trabajo de tema más comunes: inspeccionar un tema, cambiar colores y fuentes, copiar o aplicar un tema, actualizar los estilos de fondo y de efecto, y leer los valores efectivos después de que la herencia y las anulaciones se hayan resuelto.
+Las secciones siguientes muestran los flujos de trabajo de temas más habituales: inspeccionar un tema, cambiar colores y tipografías, copiar o aplicar un tema, actualizar estilos de fondo y efectos, y leer los valores efectivos después de que la herencia y las sobrescrituras se hayan resuelto.
 
 ## **Inspeccionar un tema**
 
-El objeto [MasterTheme](https://reference.aspose.com/slides/es/java/com.aspose.slides/mastertheme/) expone el esquema de colores, el esquema de fuentes y el esquema de formato del tema a través de [MasterTheme.getColorScheme](https://reference.aspose.com/slides/es/java/com.aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/es/java/com.aspose.slides/mastertheme/) y [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/es/java/com.aspose.slides/mastertheme/). Inspeccionar estas colecciones antes de modificarlas es especialmente útil cuando una presentación proviene de una fuente externa, ya que el número y contenido de las entradas de estilo pueden variar.
+El objeto [MasterTheme](https://reference.aspose.com/slides/es/java/com.aspose.slides/mastertheme/) expone el esquema de colores, el esquema de tipografías y el esquema de formato del tema mediante [MasterTheme.getColorScheme](https://reference.aspose.com/slides/es/java/com.aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/es/java/com.aspose.slides/mastertheme/) y [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/es/java/com.aspose.slides/mastertheme/). Inspeccionar estas colecciones antes de modificarlas es especialmente útil cuando una presentación proviene de una fuente externa, ya que el número y el contenido de las entradas de estilo pueden variar.
 
-El siguiente ejemplo lee las propiedades principales del tema e informa cuántos estilos de fondo, relleno, línea y efecto están almacenados en el tema:
+El siguiente ejemplo lee las propiedades principales del tema e informa cuántos estilos de fondo, relleno, línea y efecto se almacenan en el tema:
 
 ```java
 import com.aspose.slides.*;
@@ -58,13 +58,13 @@ try {
 }
 ```
 
-Si un archivo utiliza varios maestros, no asuma que cada diapositiva tiene el mismo tema efectivo. Inspeccione el maestro asociado a la diapositiva y utilice el flujo de trabajo de tema efectivo que se muestra más adelante en este artículo cuando puedan estar presentes anulaciones de disposición o de diapositiva.
+Si un archivo usa varios masters, no suponga que cada diapositiva tiene el mismo tema efectivo. Inspeccione el master asociado a la diapositiva y utilice el flujo de trabajo de tema efectivo que se muestra más adelante en este artículo cuando puedan existir sobrescrituras en el layout o en la diapositiva.
 
-## **Cambiar colores del tema**
+## **Cambiar los colores del tema**
 
-Los rellenos, líneas y textos con conciencia de tema pueden referirse a un color lógico de la enumeración [SchemeColor](https://reference.aspose.com/slides/es/java/com.aspose.slides/schemecolor/). Cuando cambias la entrada correspondiente en el [IColorScheme](https://reference.aspose.com/slides/es/java/com.aspose.slides/icolorscheme/), todos los objetos que aún hacen referencia a ese color del tema se resuelven con el nuevo valor. Los objetos que usan un color RGB directo no se modifican con una actualización del color del tema.
+Los rellenos, líneas y textos compatibles con temas pueden referirse a un color lógico de la enumeración [SchemeColor](https://reference.aspose.com/slides/es/java/com.aspose.slides/schemecolor/). Cuando cambia la entrada correspondiente en el [IColorScheme](https://reference.aspose.com/slides/es/java/com.aspose.slides/icolorscheme/), todos los objetos que aún hacen referencia a ese color del tema se resuelven con el nuevo valor. Los objetos que usan un color RGB directo no se modifican con una actualización del color del tema.
 
-El siguiente ejemplo de extremo a extremo crea una forma que utiliza `Accent4`, cambia el color `Accent4` del tema a rojo, guarda la presentación, la vuelve a abrir y muestra el color de relleno efectivo:
+El siguiente ejemplo de extremo a extremo crea una forma que usa `Accent4`, cambia el color `Accent4` del tema a rojo, guarda la presentación, la vuelve a abrir e imprime el color de relleno efectivo:
 
 ```java
 import com.aspose.slides.*;
@@ -93,17 +93,17 @@ try {
 }
 ```
 
-Como el rectángulo sigue vinculado a `Accent4`, su color visible se vuelve rojo después de cambiar el tema. Si sustituyes el color de esquema por un color directo en la forma, los cambios posteriores a `Accent4` ya no afectarán a ese relleno.
+Como el rectángulo sigue vinculado a `Accent4`, su color visible se vuelve rojo después de cambiar el tema. Si sustituye el color del esquema por un color directo en la forma, los cambios posteriores de `Accent4` ya no afectarán a ese relleno.
 
 ### **Usar colores de la paleta adicional**
 
 PowerPoint genera variantes más claras y más oscuras a partir de un color del tema aplicando transformaciones de color. Aspose.Slides expone estas transformaciones mediante la enumeración [ColorTransformOperation](https://reference.aspose.com/slides/es/java/com.aspose.slides/colortransformoperation/).
 
-![Colores principales del tema y colores más claros y más oscuros generados a partir de la paleta adicional](additional-palette-colors.png)
+![Main theme colors and lighter and darker colors generated from the additional palette](additional-palette-colors.png)
 
-**1** - Colores principales del tema.
+**1** – Colores principales del tema.
 
-**2** - Variantes más claras y más oscuras producidas a partir de los colores principales del tema.
+**2** – Variantes más claras y más oscuras generadas a partir de los colores principales del tema.
 
 El siguiente ejemplo crea seis rectángulos basados en `Accent4`, aplica transformaciones de luminancia a cinco de ellos y guarda el resultado:
 
@@ -154,29 +154,29 @@ try {
 
 Estas variantes siguen basadas en el color del tema. Si `Accent4` cambia más adelante, los colores transformados se recalculan a partir del nuevo valor de `Accent4`.
 
-### **Mapear valores `SchemeColor` a ranuras `IColorScheme`**
+### **Mapear valores de `SchemeColor` a ranuras de `IColorScheme`**
 
-El enumerado [SchemeColor](https://reference.aspose.com/slides/es/java/com.aspose.slides/schemecolor/) utiliza `Text1`, `Background1`, `Text2` y `Background2`, mientras que el [IColorScheme](https://reference.aspose.com/slides/es/java/com.aspose.slides/icolorscheme/) expone las mismas ranuras del tema como `Dark1`, `Light1`, `Dark2` y `Light2`. La asignación es fija:
+La enumeración [SchemeColor](https://reference.aspose.com/slides/es/java/com.aspose.slides/schemecolor/) usa `Text1`, `Background1`, `Text2` y `Background2`, mientras que el [IColorScheme](https://reference.aspose.com/slides/es/java/com.aspose.slides/icolorscheme/) expone las mismas ranuras del tema como `Dark1`, `Light1`, `Dark2` y `Light2`. El mapeo es fijo:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-Estos son nombres alternativos para las mismas ranuras del tema; no son valores que se convierten dinámicamente de una forma a otra.
+Estos son nombres alternativos para las mismas ranuras del tema; no son valores que se conviertan dinámicamente de una forma a otra.
 
-## **Cambiar fuentes del tema**
+## **Cambiar las tipografías del tema**
 
-Un esquema de fuentes del tema contiene un conjunto de fuentes principal para los encabezados y un conjunto de fuentes secundario para el texto del cuerpo. Los métodos [IFontScheme.getMajor](https://reference.aspose.com/slides/es/java/com.aspose.slides/ifontscheme/) y [IFontScheme.getMinor](https://reference.aspose.com/slides/es/java/com.aspose.slides/ifontscheme/) exponen esos conjuntos.
+Un esquema tipográfico del tema contiene un juego tipográfico principal para encabezados y un juego secundario para el texto del cuerpo. Los métodos [IFontScheme.getMajor](https://reference.aspose.com/slides/es/java/com.aspose.slides/ifontscheme/) y [IFontScheme.getMinor](https://reference.aspose.com/slides/es/java/com.aspose.slides/ifontscheme/) exponen esos conjuntos.
 
-Los identificadores de fuentes de tema compatibles con PowerPoint pueden usarse en el formato de texto:
+Los identificadores de tipografía compatibles con PowerPoint pueden usarse en el formato de texto:
 
-* `+mn-lt` - Fuente del cuerpo Latin (Fuente Latin menor)
-* `+mj-lt` - Fuente del encabezado Latin (Fuente Latin mayor)
-* `+mn-ea` - Fuente del cuerpo Este Asiático (Fuente Este Asiático menor)
-* `+mj-ea` - Fuente del encabezado Este Asiático (Fuente Este Asiático mayor)
+* `+mn-lt` – Fuente del cuerpo Latin (Minor Latin Font)
+* `+mj-lt` – Fuente del encabezado Latin (Major Latin Font)
+* `+mn-ea` – Fuente del cuerpo East Asian (Minor East Asian Font)
+* `+mj-ea` – Fuente del encabezado East Asian (Major East Asian Font)
 
-El siguiente ejemplo crea un encabezado que utiliza la fuente Latin mayor del tema y una línea de cuerpo que utiliza la fuente Latin menor del tema. Luego cambia las fuentes del tema y guarda el resultado:
+El siguiente ejemplo crea un encabezado que usa la fuente Latin mayor del tema y una línea de cuerpo que usa la fuente Latin menor del tema. Luego cambia las tipografías del tema y guarda el resultado:
 
 ```java
 import com.aspose.slides.*;
@@ -201,19 +201,23 @@ try {
 }
 ```
 
-El encabezado sigue la fuente mayor y el texto del cuerpo sigue la fuente menor. El texto que tiene un nombre de fuente explícito en lugar de un identificador de tema no cambiará automáticamente cuando el esquema de fuentes del tema cambie.
+El encabezado sigue la fuente mayor y el texto del cuerpo sigue la fuente menor. El texto que tenga un nombre de fuente explícito en lugar de un identificador de tema no cambiará automáticamente cuando el esquema tipográfico del tema cambie.
 
-{{% alert color="info" title="Tip" %}}
-Para obtener más información sobre fuentes de presentación, consulte [PowerPoint Fonts](/slides/es/java/powerpoint-fonts/).
+Las colecciones mayor y menor también pueden contener asignaciones de tipografías para sistemas de escritura individuales, como cirílico, árabe, japonés, georgiano y thaana. Para inspeccionar, añadir, reemplazar o eliminar estas asignaciones, consulte [Script-Specific Theme Fonts](/slides/es/java/script-specific-font-mappings/).
+
+{{% alert color="info" title="Consejo" %}}
+
+Para obtener más información sobre las tipografías de presentación, consulte [PowerPoint Fonts](/slides/es/java/powerpoint-fonts/).
+
 {{% /alert %}}
 
 ## **Copiar o aplicar un tema**
 
-Existen dos flujos de trabajo comunes, y resuelven problemas diferentes.
+Existen dos flujos de trabajo habituales, y resuelven problemas diferentes.
 
 ### **Conservar un tema origen al mover diapositivas**
 
-Si desea mover una diapositiva a otra presentación y conservar su diseño original, clone el maestro origen en la presentación de destino con [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/es/java/com.aspose.slides/imasterslidecollection/), luego clone la diapositiva con [ISlideCollection.addClone](https://reference.aspose.com/slides/es/java/com.aspose.slides/islidecollection/) y el maestro clonado. Esto lleva el maestro, sus disposiciones y el tema asociado juntos.
+Si desea mover una diapositiva a otra presentación y conservar su diseño original, clone el master de origen en la presentación de destino con [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/es/java/com.aspose.slides/imasterslidecollection/), y luego clone la diapositiva con [ISlideCollection.addClone](https://reference.aspose.com/slides/es/java/com.aspose.slides/islidecollection/) y el master clonado. De este modo el master, sus layouts y el tema asociado se trasladan juntos.
 
 ```java
 import com.aspose.slides.*;
@@ -235,11 +239,11 @@ try {
 }
 ```
 
-Este es el flujo de trabajo preferido cuando la diapositiva origen debe verse igual en el destino. Simplemente clonar contenido sobre un maestro de destino no relacionado puede cambiar los colores, fuentes, fondos y efectos impulsados por el tema.
+Este es el flujo de trabajo preferido cuando la diapositiva de origen debe verse idéntica en el destino. Simplemente clonar contenido sobre un master de destino no relacionado puede cambiar los colores, tipografías, fondos y efectos controlados por el tema.
 
 ### **Aplicar valores de tema a una diapositiva existente**
 
-Si la diapositiva de destino debe permanecer en su maestro y disposición actuales, inicialice una anulación a nivel de diapositiva a partir del tema de origen. Los métodos [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/es/java/com.aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/es/java/com.aspose.slides/overridetheme/) y [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/es/java/com.aspose.slides/overridetheme/) copian los tres componentes principales del tema en la anulación.
+Si la diapositiva de destino debe permanecer en su master y layout actuales, inicialice una sobrescritura a nivel de diapositiva a partir del tema origen. Los métodos [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/es/java/com.aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/es/java/com.aspose.slides/overridetheme/) y [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/es/java/com.aspose.slides/overridetheme/) copian los tres componentes principales del tema en la sobrescritura.
 
 ```java
 import com.aspose.slides.*;
@@ -262,11 +266,11 @@ try {
 }
 ```
 
-Esto cambia el tema usado por esa diapositiva sin modificar el tema heredado por otras diapositivas. Para eliminar la anulación local y volver a los valores heredados, llame a [OverrideTheme.clear](https://reference.aspose.com/slides/es/java/com.aspose.slides/overridetheme/).
+Esto cambia el tema usado por esa diapositiva sin modificar el tema heredado por otras diapositivas. Para eliminar la sobrescritura local y volver a los valores heredados, llame a [OverrideTheme.clear](https://reference.aspose.com/slides/es/java/com.aspose.slides/overridetheme/).
 
-### **Aplicar una anulación de tema a una disposición**
+### **Aplicar una sobrescritura de tema a un layout**
 
-Una anulación a nivel de disposición se aplica a las diapositivas que utilizan esa disposición, a menos que una diapositiva concreta tenga su propia anulación. Los mismos métodos de inicialización pueden usarse a través de [LayoutSlideThemeManager](https://reference.aspose.com/slides/es/java/com.aspose.slides/layoutslidethememanager/):
+Una sobrescritura a nivel de layout se aplica a las diapositivas que usan ese layout, salvo que una diapositiva concreta tenga su propia sobrescritura. Los mismos métodos de inicialización pueden usarse a través de [LayoutSlideThemeManager](https://reference.aspose.com/slides/es/java/com.aspose.slides/layoutslidethememanager/):
 
 ```java
 import com.aspose.slides.*;
@@ -290,17 +294,17 @@ try {
 }
 ```
 
-Utilice un tema a nivel de maestro o de presentación cuando muchas disposiciones y diapositivas deben compartir el mismo diseño base, una anulación de disposición cuando una familia de disposiciones necesita un estilo diferente, y una anulación de diapositiva solo para excepciones reales. Un exceso de anulaciones a nivel de diapositiva hace que los cambios globales posteriores del tema sean más difíciles de predecir.
+Utilice un tema a nivel de master o presentación cuando muchos layouts y diapositivas deben compartir el mismo diseño base, una sobrescritura de layout cuando una familia de layouts necesita una estética diferente, y una sobrescritura de diapositiva solo para excepciones reales. Un exceso de sobrescrituras a nivel de diapositiva dificulta predecir los cambios globales posteriores del tema.
 
-## **Actualizar estilos de fondo del tema**
+## **Actualizar los estilos de fondo del tema**
 
-Los rellenos de fondo del tema se almacenan en [IFormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/es/java/com.aspose.slides/iformatscheme/). PowerPoint puede presentar más opciones de fondo en su interfaz que el número de definiciones de relleno almacenadas físicamente en esta colección, ya que la interfaz puede combinar rellenos de tema con colores de tema y otras referencias de estilo.
+Los rellenos de fondo del tema se almacenan en [IFormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/es/java/com.aspose.slides/iformatscheme/). PowerPoint puede presentar más opciones de fondo en su interfaz que el número de definiciones de relleno almacenadas físicamente en esta colección, porque la UI puede combinar rellenos del tema con colores del tema y otras referencias de estilo.
 
-![Galería de estilos de fondo de PowerPoint para un tema de presentación](presentation-design_8.png)
+![PowerPoint background style gallery for a presentation theme](presentation-design_8.png)
 
-Antes de usar un estilo de fondo, inspeccione la colección almacenada y el [Background.getStyleIndex](https://reference.aspose.com/slides/es/java/com.aspose.slides/background/) actual. Un índice de estilo de `0` significa que no hay relleno temático; los valores positivos son referencias de estilo de fondo del tema. Esto difiere de indexar directamente la colección Java, donde `get_Item(0)` representa el primer elemento almacenado. No asuma que cada presentación contiene el mismo número de estilos de relleno de fondo.
+Antes de usar un estilo de fondo, inspeccione la colección almacenada y el [Background.getStyleIndex](https://reference.aspose.com/slides/es/java/com.aspose.slides/background/) actual. Un índice de estilo `0` significa que no hay relleno temático; los valores positivos son referencias a estilos de fondo del tema. Esto difiere de indexar directamente la colección Java, donde `get_Item(0)` representa el primer elemento almacenado. No asuma que todas las presentaciones contengan el mismo número de estilos de relleno de fondo.
 
-El siguiente ejemplo informa el recuento de rellenos de fondo disponibles, asigna una referencia de fondo temático al primer maestro y guarda la presentación:
+El siguiente ejemplo informa el número de rellenos de fondo disponibles, asigna una referencia de fondo temático al primer master y guarda la presentación:
 
 ```java
 import com.aspose.slides.*;
@@ -322,23 +326,27 @@ try {
 }
 ```
 
-El resultado visible depende de la entrada de tema referenciada por el maestro y de cualquier anulación de fondo a nivel de disposición o diapositiva. Si una diapositiva usa su propio fondo, cambiar solo el fondo del maestro puede no afectar a esa diapositiva. Use [Background.getEffective](https://reference.aspose.com/slides/es/java/com.aspose.slides/background/) cuando necesite conocer el fondo final después de aplicada la herencia.
+El resultado visible depende de la entrada del tema referenciada por el master y de cualquier sobrescritura de fondo en el layout o la diapositiva. Si una diapositiva usa su propio fondo, cambiar solo el fondo del master puede no afectar a esa diapositiva. Use [Background.getEffective](https://reference.aspose.com/slides/es/java/com.aspose.slides/background/) cuando necesite conocer el fondo final tras aplicar la herencia.
 
-{{% alert color="warning" title="Warning" %}}
-No trate el índice de estilo como un índice de colección basado en cero. Además, evite codificar de forma rígida un número de estilo de un archivo y suponer que tiene la misma apariencia en otro archivo; las definiciones de estilo del tema son específicas de la presentación.
+{{% alert color="warning" title="Advertencia" %}}
+
+No trate el índice de estilo como un índice de colección basado en cero. También evite codificar un número de estilo de un archivo y suponer que tiene la misma apariencia en otro archivo; las definiciones de estilo del tema son específicas de cada presentación.
+
 {{% /alert %}}
 
-{{% alert color="info" title="Tip" %}}
-Para el formato directo de fondos y la herencia de fondos, consulte [Presentation Background](/slides/es/java/presentation-background/).
+{{% alert color="info" title="Consejo" %}}
+
+Para formateo directo de fondo y herencia de fondo, vea [Presentation Background](/slides/es/java/presentation-background/).
+
 {{% /alert %}}
 
-## **Actualizar efectos del tema**
+## **Actualizar los efectos del tema**
 
-Un esquema de formato de tema contiene colecciones separadas de estilos de relleno, línea y efecto expuestas mediante [IFormatScheme.getFillStyles](https://reference.aspose.com/slides/es/java/com.aspose.slides/iformatscheme/), [IFormatScheme.getLineStyles](https://reference.aspose.com/slides/es/java/com.aspose.slides/iformatscheme/) y [IFormatScheme.getEffectStyles](https://reference.aspose.com/slides/es/java/com.aspose.slides/iformatscheme/). Los temas típicos de Office suelen contener tres entradas principales de estilo que corresponden visualmente a formatos sutiles, moderados e intensos, pero el código debe inspeccionar cada colección en lugar de asumir un recuento fijo.
+Un esquema de formato del tema contiene colecciones separadas de estilos de relleno, línea y efecto expuestas mediante [IFormatScheme.getFillStyles](https://reference.aspose.com/slides/es/java/com.aspose.slides/iformatscheme/), [IFormatScheme.getLineStyles](https://reference.aspose.com/slides/es/java/com.aspose.slides/iformatscheme/) y [IFormatScheme.getEffectStyles](https://reference.aspose.com/slides/es/java/com.aspose.slides/iformatscheme/). Los temas típicos de Office suelen contener tres entradas de estilo principales que correspondan visualmente a formatos sutiles, moderados e intensos, pero el código debe inspeccionar cada colección en lugar de asumir un recuento fijo.
 
-![Efectos de tema sutiles, moderados e intensos aplicados a la misma forma](presentation-design_10.png)
+![Subtle, moderate, and intense theme effects applied to the same shape](presentation-design_10.png)
 
-Cuando accede a estas colecciones en Java, el índice de la colección comienza en cero: `get_Item(0)` es el primer estilo almacenado y `get_Item(2)` es el tercero. Los índices de referencia de estilo de una forma son un concepto separado, expuesto a través de [IShapeStyle](https://reference.aspose.com/slides/es/java/com.aspose.slides/ishapestyle/). Modificar un estilo del tema afecta a las formas que referencian ese estilo del tema; las formas con formato directo pueden permanecer sin cambios.
+Al acceder a estas colecciones en Java, el índice de la colección es cero basado: `get_Item(0)` es el primer estilo almacenado y `get_Item(2)` el tercero. Los índices de referencia de estilo de una forma son un concepto separado, expuesto mediante [IShapeStyle](https://reference.aspose.com/slides/es/java/com.aspose.slides/ishapestyle/). Modificar un estilo del tema afecta a las formas que hacen referencia a ese estilo; las formas con formato directo pueden permanecer sin cambios.
 
 El siguiente ejemplo verifica que existan las entradas de estilo requeridas, cambia el primer estilo de línea, cambia el tercer estilo de relleno, habilita una sombra externa en el tercer estilo de efecto y guarda el resultado:
 
@@ -365,15 +373,15 @@ try {
 }
 ```
 
-Para las formas que referencian estas ranuras, el primer estilo de línea del tema se vuelve rojo, el tercer estilo de relleno del tema se vuelve verde bosque sólido, y el tercer estilo de efecto obtiene una sombra externa con una distancia de 10 puntos. El resultado visual exacto sigue dependiendo de qué ranuras de estilo referencia cada forma y si el formato directo anula el tema.
+Para las formas que referencian esas ranuras, el primer estilo de línea del tema se vuelve rojo, el tercer estilo de relleno del tema se vuelve verde bosque sólido y el tercer estilo de efecto gana una sombra externa con una distancia de 10 puntos. El resultado visual exacto sigue dependiendo de qué ranuras de estilo referencia cada forma y si el formato directo sobrescribe el tema.
 
-![Estilos de efecto del tema después de cambiar la línea, el relleno y la configuración de sombra](presentation-design_11.png)
+![Theme effect styles after changing line, fill, and shadow settings](presentation-design_11.png)
 
-## **Leer valores efectivos del tema**
+## **Leer los valores efectivos del tema**
 
-Los objetos de tema sin procesar le indican lo que está definido en un nivel concreto. Los valores efectivos le indican lo que una diapositiva o forma usa realmente después de que la herencia y las anulaciones locales se resuelvan. Para una diapositiva, llame a [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/es/java/com.aspose.slides/baseoverridethememanager/). Para un fondo, use [Background.getEffective](https://reference.aspose.com/slides/es/java/com.aspose.slides/background/), y para un relleno, use [FillFormat.getEffective](https://reference.aspose.com/slides/es/java/com.aspose.slides/fillformat/).
+Los objetos de tema sin procesar le indican qué está definido en un nivel concreto. Los valores efectivos le dicen qué usa realmente una diapositiva o forma después de resolver la herencia y las sobrescrituras locales. Para una diapositiva, llame a [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/es/java/com.aspose.slides/baseoverridethememanager/). Para un fondo, use [Background.getEffective](https://reference.aspose.com/slides/es/java/com.aspose.slides/background/), y para un relleno, use [FillFormat.getEffective](https://reference.aspose.com/slides/es/java/com.aspose.slides/fillformat/).
 
-El siguiente ejemplo lee el tema efectivo, el fondo y el relleno de la primera forma de una diapositiva:
+El siguiente ejemplo lee el tema efectivo, el fondo y el primer relleno de forma de una diapositiva:
 
 ```java
 import com.aspose.slides.*;
@@ -398,18 +406,18 @@ try {
 }
 ```
 
-Utilice datos efectivos para diagnósticos de renderizado, validación y comparaciones. Si solo inspecciona [Presentation.getMasterTheme](https://reference.aspose.com/slides/es/java/com.aspose.slides/presentation/), puede pasar por alto una anulación de maestro, disposición, diapositiva o forma que cambie la apariencia final.
+Utilice los datos efectivos para diagnósticos de renderizado, validación y comparaciones. Si solo inspecciona [Presentation.getMasterTheme](https://reference.aspose.com/slides/es/java/com.aspose.slides/presentation/), puede pasar por alto una sobrescritura en master, layout, diapositiva o forma que cambie la apariencia final.
 
-## **FAQ**
+## **Preguntas frecuentes**
 
-**¿Puedo aplicar un tema a una sola diapositiva sin cambiar el maestro?**
+**¿Puedo aplicar un tema a una sola diapositiva sin cambiar el master?**
 
-Sí. Use el [SlideThemeManager](https://reference.aspose.com/slides/es/java/com.aspose.slides/slidethememanager/) de la diapositiva e inicialice su tema de anulación. El cambio permanece local a esa diapositiva; las demás diapositivas continúan heredando sus temas actuales.
+Sí. Use el [SlideThemeManager](https://reference.aspose.com/slides/es/java/com.aspose.slides/slidethememanager/) de la diapositiva e inicialice su tema de sobrescritura. El cambio permanece local a esa diapositiva; las demás continúan heredando sus temas actuales.
 
 **¿Cuál es la forma más segura de trasladar un tema de una presentación a otra?**
 
-Al mover una diapositiva y conservar su apariencia original, clone el maestro origen en el destino y clone la diapositiva con ese maestro usando [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/es/java/com.aspose.slides/imasterslidecollection/) y [ISlideCollection.addClone](https://reference.aspose.com/slides/es/java/com.aspose.slides/islidecollection/). Esto mantiene el maestro, las disposiciones y el tema juntos.
+Al mover una diapositiva y conservar su apariencia origen, clone el master de origen en el destino y clone la diapositiva con ese master usando [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/es/java/com.aspose.slides/imasterslidecollection/) y [ISlideCollection.addClone](https://reference.aspose.com/slides/es/java/com.aspose.slides/islidecollection/). Así se mantiene el master, los layouts y el tema juntos.
 
-**¿Cómo puedo ver los valores efectivos después de la herencia y las anulaciones?**
+**¿Cómo puedo ver los valores efectivos después de la herencia y las sobrescrituras?**
 
-Utilice [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/es/java/com.aspose.slides/baseoverridethememanager/) para un tema de diapositiva o disposición y los métodos de datos efectivos correspondientes para objetos de formato, como [Background.getEffective](https://reference.aspose.com/slides/es/java/com.aspose.slides/background/) y [FillFormat.getEffective](https://reference.aspose.com/slides/es/java/com.aspose.slides/fillformat/). Estas API devuelven los valores resueltos después de aplicar la herencia y las anulaciones.
+Utilice [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/es/java/com.aspose.slides/baseoverridethememanager/) para un tema de diapositiva o layout y los métodos de datos efectivos correspondientes para objetos de formato como [Background.getEffective](https://reference.aspose.com/slides/es/java/com.aspose.slides/background/) y [FillFormat.getEffective](https://reference.aspose.com/slides/es/java/com.aspose.slides/fillformat/). Estas API devuelven los valores resueltos tras aplicar la herencia y las sobrescrituras.

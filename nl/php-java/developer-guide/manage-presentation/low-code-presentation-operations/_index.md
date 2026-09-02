@@ -1,47 +1,47 @@
 ---
-title: Low-Code presentatiewerk in PHP
+title: Low-Code presentatietaken in PHP
 linktitle: Low-Code API
 type: docs
 weight: 50
 url: /nl/php-java/low-code-presentation-operations/
 keywords:
-- low-code presentaties API
+- low-code presentatie API
 - presentatie converteren
 - presentaties samenvoegen
-- dia's itereren
-- vormen itereren
-- tekst itereren
+- dia's doorlopen
+- vormen doorlopen
+- tekst doorlopen
 - vormen verzamelen
 - presentatie comprimeren
 - ongebruikte masterdia's verwijderen
 - ongebruikte lay-outdia's verwijderen
-- ingesloten fonts comprimeren
+- ingesloten lettertypen comprimeren
 - PowerPoint
 - OpenDocument
 - presentatie
 - PHP
 - Aspose.Slides
-description: "Gebruik de Aspose.Slides low-code API in PHP om presentaties te converteren en samen te voegen, door de inhoud te itereren, vormen te verzamelen en de presentatiegrootte te verkleinen."
+description: "Gebruik de Aspose.Slides low-code API in PHP om presentaties te converteren en samen te voegen, door content te itereren, vormen te verzamelen en de presentatiegrootte te verkleinen."
 ---
 ## **Overzicht**
 
-De namespace [aspose.slides](https://reference.aspose.com/slides/nl/php-java/aspose.slides/) biedt statische helperklassen voor veelvoorkomende presentatietaken. Deze helpers verpakken vaak gebruikte objectmodel‑workflows in gerichte methoden, zodat u bestanden kunt converteren of samenvoegen, presentatie‑elementen kunt verwerken, vormen kunt verzamelen en ongebruikte content kunt verwijderen met minder code.
+De namespace aspose.slides biedt statische hulpprogrammaclassen voor algemene presentatietaken. Deze helpers verpakken veelgebruikte objectmodel‑workflows in gerichte methoden, zodat u bestanden kunt converteren of samenvoegen, presentatie‑elementen kunt verwerken, vormen kunt verzamelen en ongebruikte inhoud kunt verwijderen met minder code.
 
-Low‑code helpers zijn het meest nuttig wanneer de handeling van toepassing is op een heel bestand of een hele presentatie en de standaard workflow aan uw eisen voldoet. Gebruik het volledige [Aspose.Slides objectmodel](https://reference.aspose.com/slides/nl/php-java/aspose.slides/) wanneer u fijnmazige controle nodig heeft over individuele dia’s, masters, lay-outs, vormen, exportinstellingen of relaties tussen presentatie‑elementen.
+Low‑code helpers zijn het meest nuttig wanneer de bewerking van toepassing is op een heel bestand of een hele presentatie en de standaard‑workflow aan uw eisen voldoet. Gebruik het volledige Aspose.Slides‑objectmodel wanneer u fijne controle nodig hebt over individuele dia’s, masters, lay‑outs, vormen, exportinstellingen of relaties tussen presentatie‑elementen.
 
 De volgende tabel geeft een overzicht van de beschikbare helpers:
 
-| Helper | Waarvoor te gebruiken |
+| Helper | Waarvoor gebruiken |
 | --- | --- |
-| [Convert](https://reference.aspose.com/slides/nl/php-java/aspose.slides/convert/) | Een presentatie naar een ander formaat converteren met een directe bestand‑naar‑bestand‑aanroep. |
-| [Merger](https://reference.aspose.com/slides/nl/php-java/aspose.slides/merger/) | Volledige presentatiebestanden van hetzelfde formaat combineren. |
-| [ForEach_](https://reference.aspose.com/slides/nl/php-java/aspose.slides/foreach_/) | Een callback uitvoeren voor elke dia, vorm, alinea of tekstdelen. |
-| [Collect](https://reference.aspose.com/slides/nl/php-java/aspose.slides/collect/) | Vormen uit de hele presentatie ophalen voor herhaalde verwerking of analyse. |
-| [Compress](https://reference.aspose.com/slides/nl/php-java/aspose.slides/compress/) | Ongebruikte masters en lay-outs verwijderen en ingesloten font‑data reduceren. |
+| [Convert](https://reference.aspose.com/slides/nl/php-java/aspose.slides/convert/) | Een presentatie converteren naar een ander formaat met een directe bestand‑naar‑bestand‑aanroep. |
+| [Merger](https://reference.aspose.com/slides/nl/php-java/aspose.slides/merger/) | Complete presentatiebestanden van hetzelfde formaat combineren. |
+| [ForEach_](https://reference.aspose.com/slides/nl/php-java/aspose.slides/foreach_/) | Een callback uitvoeren voor elke dia, vorm, alinea of tekstdeel. |
+| [Collect](https://reference.aspose.com/slides/nl/php-java/aspose.slides/collect/) | Vormen ophalen uit de volledige presentatie voor herhaalde verwerking of analyse. |
+| [Compress](https://reference.aspose.com/slides/nl/php-java/aspose.slides/compress/) | Ongebruikte masters en lay‑outs verwijderen en ingesloten lettertype‑gegevens verkleinen. |
 
 ## **Een presentatie converteren**
 
-Gebruik [Convert::autoByExtension](https://reference.aspose.com/slides/nl/php-java/aspose.slides/convert/#autoByExtension) wanneer de extensie van het uitvoerbestand voldoende is om het exportformaat te selecteren. De methode opent de bronpresentatie, bepaalt het vereiste formaat aan de hand van het uitvoerpad en schrijft het resultaat.
+Gebruik Convert::autoByExtension wanneer de bestands­extensie van de uitvoer voldoende is om het exportformaat te bepalen. De methode opent de bronpresentatie, bepaalt het vereiste formaat op basis van het uitvoerpad en schrijft het resultaat.
 
 ```php
 use aspose\slides\Convert;
@@ -49,11 +49,11 @@ use aspose\slides\Convert;
 Convert::autoByExtension("input.pptx", "output.pdf");
 ```
 
-De [Convert](https://reference.aspose.com/slides/nl/php-java/aspose.slides/convert/)‑klasse biedt ook speciale methoden voor PDF-, SVG-, JPEG-, PNG- en TIFF‑output. Gebruik het volledige objectmodel wanneer u de presentatie moet inspecteren of wijzigen vóór export, of wanneer u een exportoptie moet configureren die door de geselecteerde helper niet wordt blootgesteld. Zie [Convert Presentation](/php-java/convert-presentation/) voor formaat‑specifieke workflows en opties.
+De Convert‑klasse biedt ook speciale methoden voor PDF-, SVG-, JPEG-, PNG- en TIFF‑output. Gebruik het volledige objectmodel wanneer u de presentatie moet inspecteren of aanpassen vóór export of een exportoptie moet configureren die niet beschikbaar is via de geselecteerde helper. Zie [Convert Presentation](/slides/nl/php-java/convert-presentation/) voor format‑specifieke workflows en opties.
 
 ## **Presentaties samenvoegen**
 
-Gebruik [Merger::process](https://reference.aspose.com/slides/nl/php-java/aspose.slides/merger/#process) om volledige presentaties met één aanroep te combineren. De invoer‑presentaties moeten hetzelfde bestandsformaat hebben.
+Gebruik Merger::process om volledige presentatiebestanden met één aanroep te combineren. De invoerpresentaties moeten hetzelfde bestandsformaat hebben.
 
 ```php
 use aspose\slides\Merger;
@@ -62,13 +62,13 @@ $inputFiles = ["part-1.pptx", "part-2.pptx"];
 Merger::process($inputFiles, "merged.pptx");
 ```
 
-De helper is geschikt wanneer alle dia’s moeten worden toegevoegd aan één resultaat zonder ze individueel te selecteren of te remappen. Gebruik het volledige objectmodel wanneer u geselecteerde dia’s wilt samenvoegen, een bestemmings‑master of -lay-out wilt toepassen, secties expliciet wilt behouden, of verschillende dia‑groottes wilt reconciliëren. Zie [Merge Presentations](/php-java/merge-presentation/) voor die scenario’s.
+De helper is geschikt wanneer alle dia's moeten worden toegevoegd aan één resultaat zonder ze individueel te selecteren of te remappen. Gebruik het volledige objectmodel wanneer u geselecteerde dia's moet samenvoegen, een doel‑master of –lay‑out moet toepassen, secties expliciet moet behouden, of verschillende dia‑groottes moet harmoniseren. Zie [Merge Presentations](/slides/nl/php-java/merge-presentation/) voor die scenario’s.
 
-## **Door presentatiedelen itereren**
+## **Door presentatie‑elementen itereren**
 
-De [ForEach_](https://reference.aspose.com/slides/nl/php-java/aspose.slides/foreach_/)‑klasse roept een callback op voor elk gevraagd type presentatiedeel. Het voorkomt geneste collectie‑loops en is handig voor inspectie of opmaakwijzigingen op presentatieniveau.
+De ForEach_‑klasse roept een callback aan voor elk gevraagd type presentaties‑element. Het vermijdt geneste verzamelings‑lussen en is handig voor inspectie of formatteringswijzigingen voor de hele presentatie.
 
-Het volgende voorbeeld gebruikt [ForEach_::slide](https://reference.aspose.com/slides/nl/php-java/aspose.slides/foreach_/#slide), [ForEach_::shape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/foreach_/#shape), [ForEach_::paragraph](https://reference.aspose.com/slides/nl/php-java/aspose.slides/foreach_/#paragraph) en [ForEach_::portion](https://reference.aspose.com/slides/nl/php-java/aspose.slides/foreach_/#portion) om de overeenkomstige elementen te inspecteren:
+Het volgende voorbeeld gebruikt ForEach_::slide, ForEach_::shape, ForEach_::paragraph en ForEach_::portion om de overeenkomstige elementen te inspecteren:
 
 ```php
 use aspose\slides\ForEach_;
@@ -125,11 +125,11 @@ try {
 }
 ```
 
-Standaard omvat de dia‑brede vorm‑ en tekst‑traversie normale, master‑ en lay‑outdia’s. Overloads met een `includeNotes`‑parameter kunnen ook notitiedia’s verwerken. Gebruik directe collectie‑loops wanneer de volgorde van traversie, vroegtijdig stoppen, filteren vóór de callback‑aanroep, of gedetailleerde ouder‑kind‑controle belangrijk is.
+Standaard omvat de vorm‑ en tekstdoorloop voor de gehele presentatie normale, master‑ en lay‑out‑dia’s. Overloads met een `includeNotes`‑parameter kunnen ook notitiedia’s verwerken. Gebruik directe verzamelings‑lussen wanneer de doorloopvolgorde, vroegtijdig afbreken, filteren vóór de callback‑aanroep of gedetailleerde ouder‑kind‑controle belangrijk is.
 
 ## **Vormen verzamelen**
 
-Gebruik [Collect::shapes](https://reference.aspose.com/slides/nl/php-java/aspose.slides/collect/#shapes) wanneer u een collectie van alle vormen in een presentatie nodig heeft in plaats van een callback voor elke vorm. Dit is nuttig wanneer dezelfde set later gefilterd, geteld of meerdere keren verwerkt moet worden.
+Gebruik Collect::shapes wanneer u een collectie van alle vormen in een presentatie nodig heeft in plaats van een callback voor elke vorm. Dit is handig wanneer dezelfde set meerdere keren gefilterd, geteld of verwerkt zal worden.
 
 ```php
 use aspose\slides\Collect;
@@ -149,15 +149,15 @@ try {
 }
 ```
 
-Gebruik in plaats daarvan [ForEach_::shape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/foreach_/#shape) wanneer elke vorm meteen kan worden afgehandeld en u de verzamelde resultaten niet hoeft te behouden.
+Gebruik ForEach_::shape in plaats daarvan wanneer elke vorm onmiddellijk kan worden verwerkt en u het verzamelde resultaat niet hoeft te behouden.
 
-## **Presentatie‑content comprimeren**
+## **Presentatie‑inhoud comprimeren**
 
-De [Compress](https://reference.aspose.com/slides/nl/php-java/aspose.slides/compress/)‑klasse kan ongebruikte structurele elementen verwijderen en ingesloten font‑data reduceren:
+De Compress‑klasse kan ongebruikte structurele elementen verwijderen en ingesloten lettertype‑gegevens verkleinen:
 
-- [Compress::removeUnusedLayoutSlides](https://reference.aspose.com/slides/nl/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) verwijdert lay‑outdia’s die door geen normale dia worden gerefereerd.
-- [Compress::removeUnusedMasterSlides](https://reference.aspose.com/slides/nl/php-java/aspose.slides/compress/#removeUnusedMasterSlides) verwijdert masters die niet meer worden gebruikt.
-- [Compress::compressEmbeddedFonts](https://reference.aspose.com/slides/nl/php-java/aspose.slides/compress/#compressEmbeddedFonts) verwijdert ongebruikte tekens uit ingesloten fonts.
+- [Compress::removeUnusedLayoutSlides](https://reference.aspose.com/slides/nl/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) verwijdert lay‑out‑dia’s die door geen enkele normale dia worden aangeduid.
+- [Compress::removeUnusedMasterSlides](https://reference.aspose.com/slides/nl/php-java/aspose.slides/compress/#removeUnusedMasterSlides) verwijdert master‑dia’s die niet meer worden gebruikt.
+- [Compress::compressEmbeddedFonts](https://reference.aspose.com/slides/nl/php-java/aspose.slides/compress/#compressEmbeddedFonts) verwijdert ongebruikte tekens uit ingesloten lettertypen.
 
 ```php
 use aspose\slides\Compress;
@@ -176,38 +176,38 @@ try {
 }
 ```
 
-Verwijder eerst ongebruikte lay‑outs voordat u ongebruikte masters verwijdert, zodat een master die na het opschonen van lay‑outs niet meer wordt gerefereerd, eveneens kan worden verwijderd. Sla de geoptimaliseerde presentatie op in een nieuw bestand als u later de originele masters, lay‑outs of volledige ingesloten font‑data nodig heeft. Zie [Slide Master](/php-java/slide-master/) en [Embedded Font](/php-java/embedded-font/) voor meer details.
+Verwijder ongebruikte lay‑outs vóór ongebruikte masters, zodat een master die na het opruimen van lay‑outs geen referenties meer heeft, ook kan worden verwijderd. Sla de geoptimaliseerde presentatie op in een nieuw bestand als u later mogelijk de originele masters, lay‑outs of volledige ingesloten lettertype‑gegevens nodig heeft. Zie [Slide Master](/slides/nl/php-java/slide-master/) en [Embedded Font](/slides/nl/php-java/embedded-font/) voor meer details.
 
 ## **FAQ**
 
-**Wanneer moet ik de low‑code API gebruiken in plaats van het volledige objectmodel?**
+**Wanneer moet ik de low‑code‑API gebruiken in plaats van het volledige objectmodel?**
 
-Gebruik low‑code helpers wanneer een standaardhandeling op een compleet bestand of een volledige presentatie van toepassing is en geen gedetailleerde controle over individuele elementen vereist. Gebruik het volledige objectmodel wanneer u specifieke dia’s moet selecteren, master‑ en lay‑outr relaties moet beheren, de tussenliggende status moet inspecteren, of gedrag moet configureren dat de helper niet blootlegt.
+Gebruik low‑code helpers wanneer een standaardbewerking van toepassing is op een compleet bestand of een volledige presentatie en geen gedetailleerde controle over individuele elementen vereist. Gebruik het volledige objectmodel wanneer u specifieke dia’s moet selecteren, relaties tussen masters en lay‑outs moet beheren, de tussentijdse status moet inspecteren, of gedrag moet configureren dat de helper niet blootlegt.
 
-**Kan Merger presentaties combineren met verschillende bestandsformaten?**
+**Kan Merger presentaties combineren in verschillende bestandsformaten?**
 
-Nee. [Merger::process](https://reference.aspose.com/slides/nl/php-java/aspose.slides/merger/#process) vereist invoer‑presentaties in hetzelfde formaat. Converteer de invoerbestanden eerst naar een gemeenschappelijk formaat, bijvoorbeeld met [Convert::autoByExtension](https://reference.aspose.com/slides/nl/php-java/aspose.slides/convert/#autoByExtension), en voeg vervolgens de geconverteerde bestanden samen.
+Nee. Merger::process vereist invoerpresentaties in hetzelfde formaat. Converteer eerst de invoerbestanden naar een gemeenschappelijk formaat, bijvoorbeeld met Convert::autoByExtension, en voeg vervolgens de geconverteerde bestanden samen.
 
 **Verwerkt ForEach_ master‑, lay‑out‑ en notitiedia’s?**
 
-[ForEach_::slide](https://reference.aspose.com/slides/nl/php-java/aspose.slides/foreach_/#slide) iterereert door normale presentatiedia’s. Presentatie‑brede [ForEach_::shape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/foreach_/#shape), [ForEach_::paragraph](https://reference.aspose.com/slides/nl/php-java/aspose.slides/foreach_/#paragraph) en [ForEach_::portion](https://reference.aspose.com/slides/nl/php-java/aspose.slides/foreach_/#portion) operaties omvatten standaard normale, master‑ en lay‑outdia’s. Gebruik hun overloads met `includeNotes` ingesteld op `true` om notitiedia’s mee te nemen.
+ForEach_::slide doorloopt de normale presentatiedia’s. Presentatie‑brede ForEach_::shape, ForEach_::paragraph en ForEach_::portion‑operaties omvatten standaard normale, master‑ en lay‑out‑dia’s. Gebruik hun overloads met `includeNotes` ingesteld op `true` om notitiedia’s op te nemen.
 
 **Wat is het verschil tussen ForEach_::shape en Collect::shapes?**
 
-Gebruik [ForEach_::shape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/foreach_/#shape) om elke vorm onmiddellijk via een callback te verwerken. Gebruik [Collect::shapes](https://reference.aspose.com/slides/nl/php-java/aspose.slides/collect/#shapes) wanneer u een iterabele resultaatset nodig heeft die kan worden behouden, gefilterd, geteld of meerdere keren doorlopen.
+Gebruik ForEach_::shape om elke vorm onmiddellijk via een callback te verwerken. Gebruik Collect::shapes wanneer u een doorloopbaar resultaat nodig heeft dat kan worden bewaard, gefilterd, geteld of meerdere keren kan worden doorlopen.
 
-**Maakt Compress altijd de presentatiedatei kleiner?**
+**Verkleint Compress altijd het presentatie‑bestand?**
 
-Niet per se. Het resultaat hangt af van of de presentatie ongebruikte lay‑outs, ongebruikte masters of ingesloten fonts met ongebruikte tekens bevat. Als geen van deze aanwezig is, zullen de corresponderende [Compress](https://reference.aspose.com/slides/nl/php-java/aspose.slides/compress/)‑bewerkingen mogelijk geen reductie van de bestandsgrootte opleveren.
+Niet per se. Het resultaat hangt af van of de presentatie ongebruikte lay‑outs, ongebruikte masters of ingesloten lettertypen met ongebruikte tekens bevat. Als geen van deze aanwezig is, kunnen de betreffende Compress‑operaties de bestandsgrootte mogelijk niet verkleinen.
 
 **Worden wijzigingen gemaakt door ForEach_ of Compress automatisch opgeslagen?**
 
-Nee. Deze helpers werken op het geladen [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/)‑object in het geheugen. Nadat u elementen hebt gewijzigd in een [ForEach_](https://reference.aspose.com/slides/nl/php-java/aspose.slides/foreach_/)‑callback of [Compress](https://reference.aspose.com/slides/nl/php-java/aspose.slides/compress/) hebt uitgevoerd, roept u [Presentation::save](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/#save) aan om het resultaat weg te schrijven.
+Nee. Deze helpers werken op het geladen Presentation‑object in het geheugen. Nadat u elementen hebt gewijzigd in een ForEach_-callback of Compress hebt uitgevoerd, roept u Presentation::save aan om het resultaat weg te schrijven.
 
 ## **Gerelateerde artikelen**
 
-- [Convert Presentation](/php-java/convert-presentation/)
-- [Merge Presentations](/php-java/merge-presentation/)
-- [Slide Master](/php-java/slide-master/)
-- [Manage Text Box](/php-java/manage-textbox/)
-- [Embedded Font](/php-java/embedded-font/)
+- [Presentatie converteren](/slides/nl/php-java/convert-presentation/)
+- [Presentaties samenvoegen](/slides/nl/php-java/merge-presentation/)
+- [Dia‑master](/slides/nl/php-java/slide-master/)
+- [Tekstvak beheren](/slides/nl/php-java/manage-textbox/)
+- [Ingesloten lettertype](/slides/nl/php-java/embedded-font/)

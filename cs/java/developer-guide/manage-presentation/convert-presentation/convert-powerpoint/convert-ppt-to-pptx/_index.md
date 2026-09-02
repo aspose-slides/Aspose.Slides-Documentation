@@ -5,10 +5,10 @@ type: docs
 weight: 20
 url: /cs/java/convert-ppt-to-pptx/
 keywords:
-- převést PowerPoint
-- převést prezentaci
-- převést snímek
-- převést PPT
+- převod PowerPointu
+- převod prezentace
+- převod snímku
+- převod PPT
 - PPT na PPTX
 - uložit PPT jako PPTX
 - exportovat PPT do PPTX
@@ -16,15 +16,15 @@ keywords:
 - prezentace
 - Java
 - Aspose.Slides
-description: "Převod starých souborů PPT na PPTX v Javě s Aspose.Slides. Obsahuje příklady v Javě pro převod jednoho souboru i dávkový převod, zpracování chyb a poznámky o věrnosti."
+description: "Převod starých souborů PPT na PPTX v Javě pomocí Aspose.Slides. Obsahuje Java příklady pro konverzi jednoho souboru i dávkové konverze, zpracování chyb a poznámky o věrnosti."
 ---
 ## **Přehled**
 
-PPT je starší binární formát PowerPointu, zatímco PPTX je novější formát Open XML. Aspose.Slides pro Java může načíst soubor PPT a uložit jej jako PPTX bez Microsoft PowerPointu. Tento článek ukazuje, jak převést jeden soubor nebo adresář souborů a vysvětluje, co ověřit po konverzi.
+PPT je starší binární formát PowerPointu, zatímco PPTX je novější formát Open XML. Aspose.Slides pro Java dokáže načíst soubor PPT a uložit jej jako PPTX bez Microsoft PowerPoint. Tento článek ukazuje, jak převést jeden soubor nebo adresář souborů a vysvětluje, co po převodu ověřit.
 
-## **Převod souboru PPT na PPTX**
+## **Převést soubor PPT na PPTX**
 
-Načtěte zdrojový soubor pomocí třídy [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/), poté zavolejte [Presentation.save](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/#save-java.lang.String-int-) s argumentem [SaveFormat.Pptx](https://reference.aspose.com/slides/cs/java/com.aspose.slides/saveformat/#Pptx). Blok `finally` uvolní prezentaci a její prostředky.
+Načtěte zdrojový soubor pomocí třídy [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/) , poté zavolejte [Presentation.save](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/#save-java.lang.String-int-) s argumentem [SaveFormat.Pptx](https://reference.aspose.com/slides/cs/java/com.aspose.slides/saveformat/#Pptx) . Blok `finally` uvolní prezentaci a její prostředky.
 
 ```java
 // Načtěte starou PPT prezentaci.
@@ -37,11 +37,11 @@ try {
 }
 ```
 
-Přípona souboru sama o sobě nevybírá výstupní formát; to určuje argument [SaveFormat.Pptx](https://reference.aspose.com/slides/cs/java/com.aspose.slides/saveformat/#Pptx). Ujistěte se, že vstupní a výstupní cesty jsou odlišné, pokud potřebujete zachovat původní soubor PPT.
+Přípona souboru sama o sobě nevybírá výstupní formát; rozhoduje o tom argument [SaveFormat.Pptx](https://reference.aspose.com/slides/cs/java/com.aspose.slides/saveformat/#Pptx) . Uchovávejte vstupní a výstupní cesty odlišné, pokud potřebujete zachovat původní soubor PPT.
 
-## **Převod více souborů PPT**
+## **Převést více souborů PPT**
 
-Následující příklad převádí každý soubor `.ppt` v jednom adresáři. Každý soubor je zpracován samostatně, takže selhání jedné konverze nezastaví zbytek dávky.
+Následující příklad převádí každý soubor `.ppt` v jednom adresáři. Každý soubor je zpracován nezávisle, takže selhání jedné konverze neukončí zbytek dávky.
 
 ```java
 java.io.File inputDirectory = new java.io.File("input");
@@ -76,47 +76,47 @@ for (java.io.File inputFile : inputFiles) {
 }
 ```
 
-Pro produkční úlohy zaznamenejte celé výjimky, rozhodněte, zda může být přepsán existující výstupní soubor, a zapište názvy souborů, u kterých konverze selhala, do fronty pro opakování nebo revizi. Poškozené soubory, soubory chráněné heslem otevřené bez požadovaného hesla, nedostupné cesty a nepodporovaný obsah mohou všechny způsobit selhání konverze. Viz [Password-Protected Presentations](/java/password-protected-presentation/) pro načítání šifrovaných souborů.
+Pro produkční pracovní zátěže zaznamenejte úplnou výjimku, rozhodněte, zda může být existující výstupní soubor přepsán, a zapište názvy neúspěšných souborů do fronty pro opakování nebo revizi. Poškozené soubory, soubory chráněné heslem otevřené bez požadovaného hesla, nedostupné cesty a nepodporovaný obsah mohou způsobit selhání konverze. Viz [Password-Protected Presentations](/slides/cs/java/password-protected-presentation/) pro načítání šifrovaných souborů.
 
 ## **Věrnost a starší funkce**
 
-Konverze obvykle zachovává snímky, mastery, rozložení, text, tvary, obrázky, tabulky a grafy. Nicméně PPT a PPTX nepředstavují každou funkci přesně stejným způsobem. Starší funkce, která nemá ekvivalent v PPTX nebo není knihovnou podporována, může být normalizována, vynechána nebo zobrazena odlišně.
+Konverze obvykle zachovává snímky, mastery, rozvržení, text, tvary, obrázky, tabulky a grafy. Nicméně PPT a PPTX nepředstavují každou funkci přesně stejným způsobem. Starší funkce, která nemá ekvivalent v PPTX nebo není knihovnou podporována, může být normalizována, vynechána nebo zobrazena odlišně.
 
-Zkontrolujte převedený soubor, pokud obsahuje animace, přechody, vložené nebo propojené objekty OLE, ovládací prvky ActiveX, vložená média, neobvyklá písma nebo makra VBA. Pouhý soubor PPTX není formát podporující makra, proto použijte vhodný workflow pro soubory s povolenými makry, pokud je třeba zachovat VBA. Také ověřte, že požadovaná písma a externí zdroje jsou přítomny v prostředí, kde bude převedená prezentace otevřena nebo vykreslena.
+Zkontrolujte převedený soubor, pokud obsahuje animace, přechody, vložené nebo odkazované OLE objekty, ovládací prvky ActiveX, vložená média, neobvyklá písma nebo VBA makra. Čistý soubor PPTX není formát podporující makra, takže použijte odpovídající workflow s podporou maker, pokud musí být VBA k dispozici. Také ověřte, že požadovaná písma a externí zdroje jsou přítomny v prostředí, kde bude převedená prezentace otevřena nebo vykreslena.
 
-U důležitých dokumentů znovu otevřete vygenerovaný PPTX programově a prověřte klíčové počty snímků a obsah, poté porovnejte jeho vzhled a chování prezentace ve zamýšleném prohlížeči. Nepovažujte úspěšné volání [Presentation.save](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/#save-java.lang.String-int-) za důkaz, že každá starší funkce má přesnou reprezentaci v PPTX.
+U důležitých dokumentů znovu otevřete generovaný PPTX programově a zkontrolujte klíčové počty snímků a jejich obsah, poté porovnejte jeho vzhled a chování prezentace ve zamýšleném prohlížeči. Nepovažujte úspěšné volání [Presentation.save](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/#save-java.lang.String-int-) za důkaz, že každá starší funkce má přesnou PPTX reprezentaci.
 
 ## **Kdy použít PPTX**
 
-Používejte PPTX, když bude prezentace upravována v aktuálních verzích PowerPointu, výměnou s systémy pracujícími s Open XML balíčky, nebo ukládána ve formátu, který je snadněji kontrolovatelný a obnovitelný než starý binární PPT. Uchovávejte původní PPT jako archivní nebo záložní kopii, dokud převedená prezentace neprojde vašimi kontrolami věrnosti.
+Používejte PPTX, pokud bude prezentace upravována v aktuálních verzích PowerPointu, vyměňována se systémy pracujícími s balíčky Open XML, nebo uložena ve formátu, který je snadněji prověřitelný a obnovitelný než starší binární PPT. Uchovávejte původní PPT jako archivní nebo záložní kopii, dokud převedená prezentace neprojde vašimi kontrolami věrnosti.
 
-Pokud místo toho potřebujete PDF, HTML, obrázky, XPS nebo jiný výstupní typ, použijte specifické pokyny pro formát v [Convert Presentations to Multiple Formats](/java/convert-presentation/) místo předpokladu, že všechny cíle zachovají editovatelné funkce PowerPointu.
+Pokud místo toho potřebujete PDF, HTML, obrázky, XPS nebo jiný výstupní typ, použijte specifické pokyny pro formát v [Convert Presentations to Multiple Formats](/slides/cs/java/convert-presentation/) místo předpokladu, že všechny cíle zachovají upravitelná PowerPointová funkcionalita.
 
-## **Online převodník**
+## **Online převaděč**
 
-Pro občasný soubor nebo rychlé srovnání můžete použít [online PPT to PPTX converter](https://products.aspose.app/slides/cs/conversion/ppt-to-pptx). Pro opakované konverze, dávkové zpracování nebo zpracování chyb na úrovni aplikace použijte Java API.
+Pro občasný soubor nebo rychlé srovnání můžete použít [online PPT to PPTX converter](https://products.aspose.app/slides/cs/conversion/ppt-to-pptx) . Pro opakované konverze, dávkové zpracování nebo zpracování chyb na úrovni aplikace použijte Java API.
 
 ## **Související články**
 
-- [PPT vs PPTX](/java/ppt-vs-pptx/)
-- [Ukládat prezentace v Javě](/java/save-presentation/)
-- [Podporované formáty souborů](/java/supported-file-formats/)
-- [Otevírání prezentací v Javě](/java/open-presentation/)
+- [PPT vs PPTX](/slides/cs/java/ppt-vs-pptx/)
+- [Uložit prezentace v Javě](/slides/cs/java/save-presentation/)
+- [Podporované formáty souborů](/slides/cs/java/supported-file-formats/)
+- [Otevřít prezentace v Javě](/slides/cs/java/open-presentation/)
 
 ## **Často kladené otázky**
 
-**Mohu převést PPT na PPTX bez nainstalovaného Microsoft PowerPointu?**
+**Mohu převést PPT na PPTX bez nainstalovaného Microsoft PowerPoint?**
 
-Ano. Aspose.Slides pro Java načítá a ukládá soubory prezentací bez nutnosti Microsoft PowerPointu.
+Ano. Aspose.Slides pro Java načítá a ukládá soubory prezentací bez potřeby Microsoft PowerPoint.
 
 **Zachová konverze PPT na PPTX veškerý obsah přesně?**
 
-Zachovává běžný obsah prezentací, ale přesná věrnost není zaručena pro každou starší nebo nepodporovanou funkci. Zkontrolujte vygenerovaný soubor, pokud obsahuje makra, objekty OLE nebo ActiveX, média, specializované animace či neobvyklá písma.
+Zachovává běžný obsah prezentace, ale přesná věrnost není zaručena pro každou starší či nepodporovanou funkci. Prohlédněte vygenerovaný soubor, pokud obsahuje makra, OLE nebo ActiveX objekty, média, specializované animace nebo neobvyklá písma.
 
 **Mohu převést soubor PPT chráněný heslem?**
 
 Ano, pokud při načítání souboru zadáte správné heslo. Chybějící nebo nesprávné heslo způsobí selhání načítací operace.
 
-**Mám po konverzi soubor PPT smazat?**
+**Mám po konverzi smazat soubor PPT?**
 
-Uchovávejte originál, dokud neověříte PPTX v prohlížečích a pracovních postupech, které jsou pro vás důležité. To poskytuje záložní kopii pro případ, že se starší funkce převede odlišně.
+Uchovávejte originál, dokud jste neověřili PPTX ve prohlížečích a pracovních postupech, které jsou pro vás důležité. To poskytuje záložní kopii pro případ, že starší funkce bude převedena odlišně.

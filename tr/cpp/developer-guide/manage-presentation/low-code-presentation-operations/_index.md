@@ -1,11 +1,11 @@
 ---
-title: C++'da Düşük Kodlu Sunum İşlemleri
+title: C++'ta Düşük Kodlu Sunum İşlemleri
 linktitle: Düşük Kodlu API
 type: docs
 weight: 50
 url: /tr/cpp/low-code-presentation-operations/
 keywords:
-- düşük kodlu sunum API
+- düşük kodlu sunum API'si
 - sunumu dönüştür
 - sunumları birleştir
 - slaytları yinele
@@ -14,34 +14,34 @@ keywords:
 - şekilleri topla
 - sunumu sıkıştır
 - kullanılmayan master slaytları kaldır
-- kullanılmayan düzen slaytlarını kaldır
+- kullanılmayan düzen slaytları kaldır
 - gömülü yazı tiplerini sıkıştır
 - PowerPoint
 - OpenDocument
 - sunum
 - C++
 - Aspose.Slides
-description: "C++'da Aspose.Slides düşük kodlu API'sini kullanarak sunumları dönüştürün ve birleştirin, içerikte yineleme yapın, şekilleri toplayın ve sunum boyutunu azaltın."
+description: "Aspose.Slides düşük kodlu API'sini C++'ta kullanarak sunumları dönüştürüp birleştirin, içerik içinde yineleme yapın, şekilleri toplayın ve sunum boyutunu azaltın."
 ---
 ## **Genel Bakış**
 
-[Aspose::Slides::LowCode](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/) isim alanı, ortak sunum işlemleri için statik yardımcı sınıflar sağlar. Bu yardımcılar, sık kullanılan nesne modeli iş akışlarını odaklanmış yöntemlerde sarar, böylece dosyaları dönüştürebilir veya birleştirebilir, sunum öğelerini işleyebilir, şekilleri toplayabilir ve kullanılmayan içeriği daha az kodla kaldırabilirsiniz.
+The [Aspose::Slides::LowCode](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/) namespace provides static helper classes for common presentation operations. These helpers wrap frequently used object-model workflows in focused methods, so you can convert or merge files, process presentation elements, collect shapes, and remove unused content with less code.
 
-Düşük kodlu yardımcılar, işlem tüm bir dosya veya sunuma uygulandığında ve varsayılan iş akışı gereksinimlerinize uyduğunda en yararlıdır. Tek tek slaytlar, masterlar, düzenler, şekiller, dışa aktarma ayarları veya sunum öğeleri arasındaki ilişkiler üzerinde ayrıntılı kontrol gerektiğinde tam [Aspose.Slides nesne modeli](https://reference.aspose.com/slides/tr/cpp/aspose.slides/) kullanın.
+Low-code yardımcılar, işlemin tüm dosya veya sunuma uygulanması ve varsayılan iş akışının gereksinimlerinizi karşılaması durumunda en yararlıdır. Bireysel slaytlar, masterlar, düzenler, şekiller, dışa aktarma ayarları veya sunum öğeleri arasındaki ilişkiler üzerinde ayrıntılı kontrol gerektiğinde tam [Aspose.Slides object model](https://reference.aspose.com/slides/tr/cpp/aspose.slides/) kullanın.
 
-Aşağıdaki tablo mevcut yardımcıları özetlemektedir:
+Aşağıdaki tablo mevcut yardımcıları özetler:
 
 | Yardımcı | Ne için kullanılır |
 | --- | --- |
-| [Convert](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/convert/) | Sunumu doğrudan dosyadan dosyaya çağrı ile başka bir formata dönüştürme. |
+| [Convert](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/convert/) | Sunumu başka bir formata, doğrudan dosya‑dosya çağrısıyla dönüştürme. |
 | [Merger](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/merger/) | Aynı formatta tam sunum dosyalarını birleştirme. |
 | [ForEach](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/foreach/) | Her slayt, şekil, paragraf veya metin bölümü için bir eylem çalıştırma. |
-| [Collect](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/collect/) | Tekrar eden işleme veya analiz için tüm sunumdan şekilleri alma. |
+| [Collect](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/collect/) | Tekrarlanan işleme veya analiz için tüm sunumdan şekilleri alabilme. |
 | [Compress](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/compress/) | Kullanılmayan master ve düzenleri kaldırma ve gömülü yazı tipi verilerini azaltma. |
 
 ## **Bir Sunumu Dönüştür**
 
-Çıktı dosya uzantısının dışa aktarım formatını seçmek için yeterli olduğu durumlarda [Convert::AutoByExtension](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/convert/autobyextension/) kullanın. Yöntem kaynak sunumu açar, çıktı yolundan gereken formatı belirler ve sonucu yazar.
+Çıktı dosya uzantısının dışa aktarma formatını seçmek için yeterli olduğu durumlarda [Convert::AutoByExtension](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/convert/autobyextension/) kullanın. Yöntem kaynak sunumu açar, çıktı yolundan gerekli formatı belirler ve sonucu yazar.
 
 ```cpp
 #include <LowCode/Convert.h>
@@ -51,11 +51,11 @@ using namespace Aspose::Slides::LowCode;
 Convert::AutoByExtension(u"input.pptx", u"output.pdf");
 ```
 
-[Convert](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/convert/) sınıfı ayrıca PDF, SVG, JPEG, PNG ve TIFF çıktısı için özel yöntemler sağlar. Dışa aktarma öncesinde sunumu denetlemeniz veya değiştirmeniz ya da seçilen yardımcı tarafından sunulmayan bir dışa aktarma seçeneği yapılandırmanız gerektiğinde tam nesne modelini kullanın. Biçime özgü iş akışları ve seçenekler için [Convert Presentation](/cpp/convert-presentation/) bölümüne bakın.
+[Convert](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/convert/) sınıfı ayrıca PDF, SVG, JPEG, PNG ve TIFF çıktısı için özel yöntemler sunar. Dışa aktarmadan önce sunumu incelemeniz veya değiştirmeniz ya da seçili yardımcı tarafından sunulmayan bir dışa aktarma seçeneği yapılandırmanız gerektiğinde tam nesne modelini kullanın. Biçime özgü iş akışları ve seçenekler için [Convert Presentation](/slides/tr/cpp/convert-presentation/) sayfasına bakın.
 
 ## **Sunumları Birleştir**
 
-Tam sunum dosyalarını tek bir çağrı ile birleştirmek için [Merger::Process](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/merger/process/) kullanın. Giriş sunumları aynı dosya biçimine sahip olmalıdır.
+Tam sunum dosyalarını tek bir çağrı ile birleştirmek için [Merger::Process](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/merger/process/) kullanın. Girdi sunumları aynı dosya formatına sahip olmalıdır.
 
 ```cpp
 #include <LowCode/Merger.h>
@@ -68,13 +68,13 @@ auto inputFiles = System::MakeArray<System::String>({u"part-1.pptx", u"part-2.pp
 Merger::Process(inputFiles, u"merged.pptx");
 ```
 
-Bu yardımcı, tüm slaytların tek bir sonuca seçilmeden veya yeniden eşlenmeden eklenmesi gerektiğinde uygundur. Seçili slaytları birleştirmeniz, hedef bir master veya düzen uygulamanız, bölümleri açıkça korumanız veya farklı slayt boyutlarını uyumlu hâle getirmeniz gerektiğinde tam nesne modelini kullanın. Bu senaryolar için [Merge Presentations](/cpp/merge-presentation/) bölümüne bakın.
+Bu yardımcı, tüm slaytların tek bir sonuca ayrı ayrı seçilmeden veya yeniden eşlenmeden eklenmesi gerektiğinde uygundur. Seçili slaytları birleştirmeniz, hedef bir master veya düzen uygulamanız, bölümleri açıkça korumanız ya da farklı slayt boyutlarını uyumlu hale getirmeniz gerektiğinde tam nesne modelini kullanın. Bu senaryolar için [Merge Presentations](/slides/tr/cpp/merge-presentation/) sayfasına bakın.
 
-## **Sunum Öğeleri Üzerinde Yineleme**
+## **Sunum Öğeleri Üzerinde Döngü**
 
-[ForEach](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/foreach/) sınıfı, istenen her sunum öğesi türü için bir geri çağırma (callback) çalıştırır. İç içe koleksiyon döngülerini önler ve sunum genelinde denetim veya biçimlendirme değişiklikleri için uygundur.
+[ForEach](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/foreach/) sınıfı, her istenen sunum öğesi türü için bir geri çağırma (callback) çalıştırır. İç içe koleksiyon döngülerini önler ve sunum genelinde denetim veya biçimlendirme değişiklikleri için uygundur.
 
-Aşağıdaki örnek, ilgili öğeleri denetlemek için [ForEach::Slide](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/foreach/slide/), [ForEach::Shape](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/foreach/shape/), [ForEach::Paragraph](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/foreach/paragraph/) ve [ForEach::Portion](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/foreach/portion/) kullanır:
+Şu örnek, ilgili öğeleri incelemek için [ForEach::Slide](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/foreach/slide/), [ForEach::Shape](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/foreach/shape/), [ForEach::Paragraph](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/foreach/paragraph/), ve [ForEach::Portion](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/foreach/portion/) kullanır:
 
 ```cpp
 #include <DOM/BaseSlide.h>
@@ -118,11 +118,11 @@ auto portionCallback = std::function<void(System::SharedPtr<Portion>, System::Sh
 ForEach::Portion(presentation, portionCallback);
 ```
 
-Varsayılan olarak, sunum genelindeki şekil ve metin dolaşımı normal, master ve düzen slaytlarını içerir. `includeNotes` parametresiyle aşırı yüklemeler not slaytlarını da işleyebilir. Dolaşım sırası, erken çıkış, geri çağırmadan önce filtreleme veya ayrıntılı ebeveyn‑çocuk kontrolünün önemli olduğu durumlarda doğrudan koleksiyon döngüleri kullanın.
+Varsayılan olarak, sunum genelindeki şekil ve metin dolaşımı normal, master ve düzen slaytlarını içerir. `includeNotes` parametresiyle aşırı yüklemeler not slaytlarını da işleyebilir. Dolaşım sırası, erken çıkış, geri çağırma öncesi filtreleme veya ayrıntılı ebeveyn‑çocuk kontrolünün önemli olduğu durumlarda doğrudan koleksiyon döngüleri kullanın.
 
 ## **Şekilleri Topla**
 
-Her şekil için bir geri çağırma yerine sunumdaki tüm şekillerin bir koleksiyonuna ihtiyacınız olduğunda [Collect::Shapes](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/collect/shapes/) kullanın. Aynı küme birden fazla kez filtrelenecek, sayılacak veya işlenecekse bu faydalıdır.
+Her şekil için bir geri çağırma yerine bir sunumdaki tüm şekillerin koleksiyonuna ihtiyaç duyduğunuzda [Collect::Shapes](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/collect/shapes/) kullanın. Aynı kümenin birden çok kez filtrelenmesi, sayılması veya işlenmesi gerektiğinde bu yararlıdır.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -142,14 +142,14 @@ for (const auto& shape : shapes)
 }
 ```
 
-Her şekil anında işlenebiliyorsa ve toplanan sonucu tutmanız gerekmiyorsa yerine [ForEach::Shape](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/foreach/shape/) kullanın.
+Her şekil anında işlenebiliyorsa ve topladığınız sonuçları tutmanıza gerek yoksa bunun yerine [ForEach::Shape](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/foreach/shape/) kullanın.
 
 ## **Sunum İçeriğini Sıkıştır**
 
-[Compress](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/compress/) sınıfı, kullanılmayan yapısal öğeleri kaldırabilir ve gömülü yazı tipi verilerini azaltabilir:
+[Compress](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/compress/) sınıfı kullanılmayan yapısal öğeleri kaldırabilir ve gömülü yazı tipi verilerini azaltabilir:
 
-- [Compress::RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) normal bir slaytın referans vermediği düzen slaytlarını kaldırır.
-- [Compress::RemoveUnusedMasterSlides](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/compress/removeunusedmasterslides/) artık kullanılmayan master slaytlarını kaldırır.
+- [Compress::RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) normal slaytların referans vermediği düzen slaytlarını kaldırır.
+- [Compress::RemoveUnusedMasterSlides](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/compress/removeunusedmasterslides/) artık kullanılmayan master slaytları kaldırır.
 - [Compress::CompressEmbeddedFonts](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/compress/compressembeddedfonts/) gömülü yazı tiplerinden kullanılmayan karakterleri kaldırır.
 
 ```cpp
@@ -170,38 +170,32 @@ Compress::CompressEmbeddedFonts(presentation);
 presentation->Save(u"compressed.pptx", SaveFormat::Pptx);
 ```
 
-Kullanılmayan düzenleri, kullanılmayan masterlardan önce kaldırın; böylece düzen temizliği sonrası referanssız kalan bir master da kaldırılabilir. Orijinal masterları, düzenleri veya tam gömülü yazı tipi verilerini daha sonra ihtiyaç duyabilecekseniz optimize edilmiş sunumu yeni bir dosyaya kaydedin. Daha fazla ayrıntı için [Slide Master](/cpp/slide-master/) ve [Embedded Font](/cpp/embedded-font/) bölümlerine bakın.
+Kullanılmayan düzenleri, kullanılmayan masterlardan önce kaldırın; böylece düzen temizliği sonrasında referansı kaybolan bir master da kaldırılabilir. Orijinal master, düzen veya tam gömülü yazı tipi verilerine ileride ihtiyaç duyabilecekseniz optimize edilmiş sunumu yeni bir dosyaya kaydedin. Daha fazla ayrıntı için [Slide Master](/slides/tr/cpp/slide-master/) ve [Embedded Font](/slides/tr/cpp/embedded-font/) sayfalarına bakın.
 
-## **FAQ**
+## **SSS**
 
-**Low-code API'yi tam nesne modeline ne zaman kullanmalıyım?**
+**Low-code API'yi tam nesne modeline ne zaman kullanmalıyım?**  
+Low-code yardımcıları, standart bir işlem tüm dosya veya sunuma uygulanıp bireysel öğeler üzerinde ayrıntılı kontrol gerektirmediğinde kullanın. Belirli slaytları seçmeniz, master ve düzen ilişkilerini kontrol etmeniz, ara durumu incelemeniz ya da yardımcı tarafından sunulmayan bir davranışı yapılandırmanız gerektiğinde tam nesne modelini kullanın.
 
-Standart bir işlem tüm bir dosya veya sunuma uygulandığında ve tekil öğeler üzerinde ayrıntılı kontrol gerektirmediğinde düşük kodlu yardımcıları kullanın. Belirli slaytları seçmek, master ve düzen ilişkilerini kontrol etmek, ara durumu denetlemek veya yardımcı tarafından sunulmayan davranışı yapılandırmak gerektiğinde tam nesne modelini kullanın.
+**Merger farklı dosya formatlarındaki sunumları birleştirebilir mi?**  
+Hayır. [Merger::Process](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/merger/process/) aynı formatta giriş sunumları gerektirir. Giriş dosyalarını önce ortak bir formata dönüştürün, örneğin [Convert::AutoByExtension](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/convert/autobyextension/) ile, ardından dönüştürülmüş dosyaları birleştirin.
 
-**Merger farklı dosya biçimlerinde sunumları birleştirebilir mi?**
+**ForEach master, layout ve not slaytlarını işler mi?**  
+[ForEach::Slide](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/foreach/slide/) normal sunum slaytları üzerinde döner. Sunum genelinde [ForEach::Shape](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/foreach/shape/), [ForEach::Paragraph](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/foreach/paragraph/), ve [ForEach::Portion](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/foreach/portion/) işlemleri varsayılan olarak normal, master ve layout slaytlarını içerir. Not slaytlarını dahil etmek için `includeNotes` parametresini `true` olarak ayarlayan aşırı yüklemeleri kullanın.
 
-Hayır. [Merger::Process](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/merger/process/) aynı biçimdeki giriş sunumlarını gerektirir. Önce giriş dosyalarını ortak bir biçime dönüştürün, örneğin [Convert::AutoByExtension](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/convert/autobyextension/) ile, ardından dönüştürülmüş dosyaları birleştirin.
+**ForEach::Shape ile Collect::Shapes arasındaki fark nedir?**  
+[ForEach::Shape](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/foreach/shape/) her şekli bir geri çağırma ile hemen işlemek için kullanın. [Collect::Shapes](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/collect/shapes/) sonuçları tutulabilir, filtrelenebilir, sayılabilir veya birden çok kez dolaşılabilir bir enumerable sonuç gerektiğinde kullanın.
 
-**ForEach master, layout ve not slaytlarını işliyor mu?**
+**Compress her zaman sunum dosyasını küçültür mü?**  
+Gerekli değildir. Sonuç, sunumun kullanılmayan düzenler, kullanılmayan masterlar veya kullanılmayan karakterlere sahip gömülü yazı tipleri içerip içermediğine bağlıdır. Bu öğeler yoksa ilgili [Compress](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/compress/) işlemleri dosya boyutunu azaltmayabilir.
 
-[ForEach::Slide](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/foreach/slide/) normal sunum slaytları üzerinde döner. Sunum genelindeki [ForEach::Shape](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/foreach/shape/), [ForEach::Paragraph](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/foreach/paragraph/) ve [ForEach::Portion](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/foreach/portion/) işlemleri varsayılan olarak normal, master ve layout slaytlarını içerir. Not slaytlarını dahil etmek için `includeNotes` parametresini `true` olarak ayarlayan aşırı yüklemelerini kullanın.
-
-**ForEach::Shape ile Collect::Shapes arasındaki fark nedir?**
-
-Her şekli bir geri çağırma ile hemen işlemek için [ForEach::Shape](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/foreach/shape/) kullanın. Toplanan sonucu saklayabileceğiniz, filtreleyebileceğiniz, sayabileceğiniz veya birden çok kez dolaşabileceğiniz bir enumerable sonuca ihtiyacınız olduğunda [Collect::Shapes](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/collect/shapes/) kullanın.
-
-**Compress her zaman sunum dosyasını küçültür mü?**
-
-Mutlaka değil. Sonuç, sunumun kullanılmayan düzenler, kullanılmayan masterlar ya da kullanılmayan karakterlere sahip gömülü yazı tipleri içerip içermediğine bağlıdır. Bunların hiçbiri yoksa ilgili [Compress](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/compress/) işlemleri dosya boyutunu azaltmayabilir.
-
-**ForEach veya Compress tarafından yapılan değişiklikler otomatik olarak kaydedilir mi?**
-
-Hayır. Bu yardımcılar, bellekte yüklü [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) nesnesi üzerinde çalışır. Bir [ForEach](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/foreach/) geri çağırmasında öğeleri değiştirdikten veya [Compress](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/compress/) çalıştırdıktan sonra sonucu yazmak için [Presentation::Save](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/save/) metodunu çağırın.
+**ForEach veya Compress tarafından yapılan değişiklikler otomatik olarak kaydedilir mi?**  
+Hayır. Bu yardımcılar, bellekte yüklü [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) nesnesi üzerinde çalışır. Bir [ForEach](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/foreach/) geri çağırma içinde öğeleri değiştirdikten veya [Compress](https://reference.aspose.com/slides/tr/cpp/aspose.slides.lowcode/compress/) çalıştırdıktan sonra sonucu yazmak için [Presentation::Save](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/save/) çağırın.
 
 ## **İlgili Makaleler**
 
-- [Sunumu Dönüştür](/cpp/convert-presentation/)
-- [Sunumları Birleştir](/cpp/merge-presentation/)
-- [Slayt Master](/cpp/slide-master/)
-- [Metin Kutusunu Yönet](/cpp/manage-textbox/)
-- [Gömülü Yazı Tipi](/cpp/embedded-font/)
+- [Sunumu Dönüştür](/slides/tr/cpp/convert-presentation/)
+- [Sunumları Birleştir](/slides/tr/cpp/merge-presentation/)
+- [Slayt Masterı](/slides/tr/cpp/slide-master/)
+- [Metin Kutusunu Yönet](/slides/tr/cpp/manage-textbox/)
+- [Gömülü Yazı Tipi](/slides/tr/cpp/embedded-font/)

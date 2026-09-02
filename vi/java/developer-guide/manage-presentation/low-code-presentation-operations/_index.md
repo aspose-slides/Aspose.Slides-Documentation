@@ -1,6 +1,6 @@
 ---
-title: Các thao tác trình chiếu low-code trong Java
-linktitle: API Low-Code
+title: Các hoạt động trình chiếu low-code trong Java
+linktitle: API low-code
 type: docs
 weight: 50
 url: /vi/java/low-code-presentation-operations/
@@ -8,40 +8,40 @@ keywords:
 - API trình chiếu low-code
 - chuyển đổi trình chiếu
 - hợp nhất trình chiếu
-- lặp qua slide
-- lặp qua shape
-- lặp qua văn bản
+- duyệt slide
+- duyệt shape
+- duyệt văn bản
 - thu thập shape
 - nén trình chiếu
-- xóa master slide không sử dụng
-- xóa layout slide không sử dụng
+- xóa master slide không dùng
+- xóa layout slide không dùng
 - nén phông chữ nhúng
 - PowerPoint
 - OpenDocument
 - trình chiếu
 - Java
 - Aspose.Slides
-description: "Sử dụng API low-code của Aspose.Slides trong Java để chuyển đổi và hợp nhất các trình chiếu, lặp qua nội dung, thu thập shape và giảm kích thước trình chiếu."
+description: "Sử dụng API low-code của Aspose.Slides trong Java để chuyển đổi và hợp nhất các trình chiếu, duyệt nội dung, thu thập shape và giảm kích thước tệp trình chiếu."
 ---
 ## **Tổng quan**
 
-Gói [com.aspose.slides](https://reference.aspose.com/slides/vi/java/com.aspose.slides/) cung cấp các lớp trợ giúp tĩnh cho các thao tác thường gặp với bản trình chiếu. Các trợ giúp này gói gọn các quy trình mô hình đối tượng thường dùng thành các phương thức tập trung, giúp bạn chuyển đổi hoặc hợp nhất tệp, xử lý các phần tử của bản trình chiếu, thu thập các hình dạng và loại bỏ nội dung không sử dụng với ít mã hơn.
+Gói [com.aspose.slides](https://reference.aspose.com/slides/vi/java/com.aspose.slides/) cung cấp các lớp trợ giúp tĩnh cho các thao tác trình chiếu thường gặp. Các trợ giúp này đóng gói các quy trình làm việc với mô hình đối tượng thường được sử dụng vào các phương thức tập trung, cho phép bạn chuyển đổi hoặc hợp nhất tệp, xử lý các yếu tố của trình chiếu, thu thập các shape và loại bỏ nội dung không dùng tới với ít mã hơn.
 
-Các trợ giúp low‑code hữu ích nhất khi thao tác áp dụng cho toàn bộ tệp hoặc bản trình chiếu và quy trình mặc định đáp ứng nhu cầu của bạn. Sử dụng mô hình đối tượng đầy đủ của [Aspose.Slides](https://reference.aspose.com/slides/vi/java/com.aspose.slides/) khi bạn cần kiểm soát chi tiết từng slide, master, layout, shape, cài đặt xuất, hoặc mối quan hệ giữa các phần tử của bản trình chiếu.
+Các trợ giúp low-code hữu ích nhất khi thao tác áp dụng cho toàn bộ tệp hoặc trình chiếu và quy trình làm việc mặc định đáp ứng yêu cầu của bạn. Sử dụng toàn bộ [Aspose.Slides object model](https://reference.aspose.com/slides/vi/java/com.aspose.slides/) khi bạn cần kiểm soát chi tiết từng slide, master, layout, shape, cài đặt xuất hoặc mối quan hệ giữa các yếu tố của trình chiếu.
 
-Bảng dưới đây tóm tắt các trợ giúp có sẵn:
+Bảng sau tóm tắt các trợ giúp có sẵn:
 
-| Tiện ích | Sử dụng cho |
+| Trợ giúp | Mục đích sử dụng |
 | --- | --- |
-| [Convert](https://reference.aspose.com/slides/vi/java/com.aspose.slides/convert/) | Chuyển đổi bản trình chiếu sang định dạng khác bằng một lời gọi file‑to‑file trực tiếp. |
-| [Merger](https://reference.aspose.com/slides/vi/java/com.aspose.slides/merger/) | Kết hợp các tệp bản trình chiếu hoàn chỉnh có cùng định dạng. |
+| [Convert](https://reference.aspose.com/slides/vi/java/com.aspose.slides/convert/) | Chuyển đổi một bài trình chiếu sang định dạng khác bằng gọi trực tiếp file‑to‑file. |
+| [Merger](https://reference.aspose.com/slides/vi/java/com.aspose.slides/merger/) | Kết hợp các tệp trình chiếu hoàn chỉnh cùng định dạng. |
 | [ForEach](https://reference.aspose.com/slides/vi/java/com.aspose.slides/foreach/) | Thực thi một hành động cho mỗi slide, shape, đoạn văn hoặc phần văn bản. |
-| [Collect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/collect/) | Lấy các shape từ toàn bộ bản trình chiếu để xử lý hoặc phân tích lặp lại. |
-| [Compress](https://reference.aspose.com/slides/vi/java/com.aspose.slides/compress/) | Loại bỏ các master và layout không sử dụng và giảm dữ liệu phông chữ được nhúng. |
+| [Collect](https://reference.aspose.com/slides/vi/java/com.aspose.slides/collect/) | Lấy các shape từ toàn bộ trình chiếu để xử lý hoặc phân tích lặp lại. |
+| [Compress](https://reference.aspose.com/slides/vi/java/com.aspose.slides/compress/) | Xóa các master và layout không dùng và giảm dữ liệu phông chữ nhúng. |
 
-## **Chuyển đổi bản trình chiếu**
+## **Chuyển đổi một trình chiếu**
 
-Sử dụng [Convert.autoByExtension](https://reference.aspose.com/slides/vi/java/com.aspose.slides/convert/#autoByExtension-java.lang.String-java.lang.String-) khi phần mở rộng tệp đầu ra đủ để chọn định dạng xuất. Phương thức sẽ mở bản trình chiếu nguồn, xác định định dạng cần thiết từ đường dẫn đầu ra và ghi kết quả.
+Sử dụng [Convert.autoByExtension](https://reference.aspose.com/slides/vi/java/com.aspose.slides/convert/#autoByExtension-java.lang.String-java.lang.String-) khi phần mở rộng tệp đầu ra đủ để chọn định dạng xuất. Phương thức mở trình chiếu nguồn, xác định định dạng yêu cầu từ đường dẫn đầu ra và ghi kết quả.
 
 ```java
 import com.aspose.slides.Convert;
@@ -49,11 +49,11 @@ import com.aspose.slides.Convert;
 Convert.autoByExtension("input.pptx", "output.pdf");
 ```
 
-Lớp [Convert](https://reference.aspose.com/slides/vi/java/com.aspose.slides/convert/) cũng cung cấp các phương thức riêng cho đầu ra PDF, SVG, JPEG, PNG và TIFF. Sử dụng mô hình đối tượng đầy đủ khi bạn cần kiểm tra hoặc sửa đổi bản trình chiếu trước khi xuất hoặc cấu hình một tùy chọn xuất mà trợ giúp không cung cấp. Xem [Convert Presentation](/java/convert-presentation/) để biết quy trình và tùy chọn theo định dạng.
+Lớp [Convert](https://reference.aspose.com/slides/vi/java/com.aspose.slides/convert/) cũng cung cấp các phương thức riêng cho đầu ra PDF, SVG, JPEG, PNG và TIFF. Sử dụng toàn bộ mô hình đối tượng khi bạn cần kiểm tra hoặc sửa đổi trình chiếu trước khi xuất hoặc cấu hình tùy chọn xuất không được trợ giúp chọn hiển thị. Xem [Convert Presentation](/slides/vi/java/convert-presentation/) để biết quy trình và tùy chọn riêng cho từng định dạng.
 
-## **Hợp nhất bản trình chiếu**
+## **Hợp nhất các trình chiếu**
 
-Sử dụng [Merger.process](https://reference.aspose.com/slides/vi/java/com.aspose.slides/merger/#process-java.lang.String:A-java.lang.String-) để kết hợp các tệp bản trình chiếu hoàn chỉnh bằng một lời gọi. Các bản trình chiếu đầu vào phải có cùng định dạng tệp.
+Sử dụng [Merger.process](https://reference.aspose.com/slides/vi/java/com.aspose.slides/merger/#process-java.lang.String:A-java.lang.String-) để kết hợp các tệp trình chiếu hoàn chỉnh chỉ bằng một lời gọi. Các trình chiếu đầu vào phải có cùng định dạng tệp.
 
 ```java
 import com.aspose.slides.Merger;
@@ -62,13 +62,13 @@ String[] inputFiles = { "part-1.pptx", "part-2.pptx" };
 Merger.process(inputFiles, "merged.pptx");
 ```
 
-Trợ giúp này phù hợp khi tất cả các slide cần được nối vào một kết quả mà không cần chọn hoặc ánh xạ riêng lẻ. Sử dụng mô hình đối tượng đầy đủ khi bạn cần hợp nhất các slide đã chọn, áp dụng master hoặc layout đích, bảo lưu các phần một cách rõ ràng, hoặc điều chỉnh kích thước slide khác nhau. Xem [Merge Presentations](/java/merge-presentation/) cho các kịch bản đó.
+Trợ giúp này phù hợp khi tất cả các slide cần được nối thêm vào một kết quả duy nhất mà không cần chọn hoặc ánh xạ lại chúng riêng lẻ. Sử dụng toàn bộ mô hình đối tượng khi bạn cần hợp nhất các slide đã chọn, áp dụng master hoặc layout đích, bảo tồn các phần rõ ràng, hoặc điều chỉnh các kích thước slide khác nhau. Xem [Merge Presentations](/slides/vi/java/merge-presentation/) cho các kịch bản đó.
 
-## **Duyệt qua các phần tử của bản trình chiếu**
+## **Lặp lại các yếu tố của trình chiếu**
 
-Lớp [ForEach](https://reference.aspose.com/slides/vi/java/com.aspose.slides/foreach/) gọi một callback cho mỗi loại phần tử bản trình chiếu được yêu cầu. Nó tránh các vòng lặp thu thập lồng nhau và thuận tiện cho việc kiểm tra hoặc thay đổi định dạng trên toàn bộ bản trình chiếu.
+Lớp [ForEach](https://reference.aspose.com/slides/vi/java/com.aspose.slides/foreach/) gọi một callback cho mỗi loại yếu tố trình chiếu được yêu cầu. Nó tránh các vòng lặp collection lồng nhau và tiện lợi cho việc kiểm tra hoặc thay đổi định dạng trên toàn bộ trình chiếu.
 
-Ví dụ sau sử dụng [ForEach.slide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/foreach/#slide-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachSlideCallback-), [ForEach.shape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-), [ForEach.paragraph](https://reference.aspose.com/slides/vi/java/com.aspose.slides/foreach/#paragraph-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachParagraphCallback-), và [ForEach.portion](https://reference.aspose.com/slides/vi/java/com.aspose.slides/foreach/#portion-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachPortionCallback-) để kiểm tra các phần tử tương ứng:
+Ví dụ sau sử dụng [ForEach.slide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/foreach/#slide-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachSlideCallback-), [ForEach.shape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-), [ForEach.paragraph](https://reference.aspose.com/slides/vi/java/com.aspose.slides/foreach/#paragraph-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachParagraphCallback-), và [ForEach.portion](https://reference.aspose.com/slides/vi/java/com.aspose.slides/foreach/#portion-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachPortionCallback-) để kiểm tra các yếu tố tương ứng:
 
 ```java
 import com.aspose.slides.*;
@@ -95,11 +95,11 @@ try {
 }
 ```
 
-Mặc định, việc duyệt shape và văn bản trên toàn bộ bản trình chiếu bao gồm các slide bình thường, master và layout. Các overload có tham số `includeNotes` cũng có thể xử lý các slide ghi chú. Sử dụng vòng lặp thu thập trực tiếp khi thứ tự duyệt, thoát sớm, lọc trước khi gọi callback, hoặc kiểm soát chi tiết quan hệ cha‑con quan trọng.
+Mặc định, việc duyệt shape và văn bản trên toàn bộ trình chiếu bao gồm các slide bình thường, master và layout. Các overload có tham số `includeNotes` cũng có thể xử lý các slide ghi chú. Sử dụng vòng lặp collection trực tiếp khi thứ tự duyệt, thoát sớm, lọc trước khi gọi callback, hoặc kiểm soát chi tiết cha‑con là quan trọng.
 
-## **Thu thập Shapes**
+## **Thu thập các Shape**
 
-Sử dụng [Collect.shapes](https://reference.aspose.com/slides/vi/java/com.aspose.slides/collect/#shapes-com.aspose.slides.Presentation-) khi bạn cần một tập hợp tất cả các shape trong bản trình chiếu thay vì một callback cho từng shape. Điều này hữu ích khi cùng một bộ dữ liệu sẽ được lọc, đếm hoặc xử lý nhiều lần.
+Sử dụng [Collect.shapes](https://reference.aspose.com/slides/vi/java/com.aspose.slides/collect/#shapes-com.aspose.slides.Presentation-) khi bạn cần một collection chứa tất cả các shape trong một trình chiếu thay vì một callback cho mỗi shape. Điều này hữu ích khi cùng một tập hợp sẽ được lọc, đếm hoặc xử lý nhiều lần.
 
 ```java
 import com.aspose.slides.*;
@@ -116,15 +116,15 @@ try {
 }
 ```
 
-Sử dụng [ForEach.shape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-) nếu mỗi shape có thể được xử lý ngay lập tức và bạn không cần giữ lại kết quả đã thu thập.
+Sử dụng [ForEach.shape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-) thay thế khi mỗi shape có thể được xử lý ngay lập tức và bạn không cần giữ lại kết quả đã thu thập.
 
-## **Nén nội dung bản trình chiếu**
+## **Nén nội dung trình chiếu**
 
-Lớp [Compress](https://reference.aspose.com/slides/vi/java/com.aspose.slides/compress/) có thể loại bỏ các phần tử cấu trúc không sử dụng và giảm dữ liệu phông chữ được nhúng:
+Lớp [Compress](https://reference.aspose.com/slides/vi/java/com.aspose.slides/compress/) có thể loại bỏ các phần tử cấu trúc không dùng và giảm dữ liệu phông chữ nhúng:
 
-- [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/vi/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) loại bỏ các layout slide mà không có slide bình thường nào tham chiếu.
-- [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/vi/java/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) loại bỏ các master slide không còn được sử dụng.
-- [Compress.compressEmbeddedFonts](https://reference.aspose.com/slides/vi/java/com.aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) loại bỏ các ký tự không dùng trong phông chữ được nhúng.
+- [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/vi/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) Loại bỏ các layout slide mà không có slide bình thường nào tham chiếu.
+- [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/vi/java/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) Loại bỏ các master slide không còn được sử dụng.
+- [Compress.compressEmbeddedFonts](https://reference.aspose.com/slides/vi/java/com.aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) Loại bỏ các ký tự không dùng từ phông chữ nhúng.
 
 ```java
 import com.aspose.slides.*;
@@ -141,38 +141,32 @@ try {
 }
 ```
 
-Hãy loại bỏ các layout không dùng trước các master không dùng để một master trở nên không tham chiếu sau khi dọn dẹp layout cũng có thể bị xóa. Lưu bản trình chiếu đã tối ưu vào tệp mới nếu bạn có thể cần lại các master, layout hoặc dữ liệu phông chữ nhúng đầy đủ sau này. Để biết chi tiết hơn, xem [Slide Master](/java/slide-master/) và [Embedded Font](/java/embedded-font/).
+Xóa các layout không dùng trước các master không dùng để một master trở nên không được tham chiếu sau khi làm sạch layout cũng có thể bị xóa. Lưu trình chiếu đã tối ưu vào tệp mới nếu bạn có thể cần lại các master, layout gốc hoặc dữ liệu phông chữ nhúng đầy đủ sau này. Để biết chi tiết hơn, xem [Slide Master](/slides/vi/java/slide-master/) và [Embedded Font](/slides/vi/java/embedded-font/).
 
 ## **Câu hỏi thường gặp**
 
-**Khi nào nên sử dụng API low‑code thay vì mô hình đối tượng đầy đủ?**
+**Khi nào tôi nên sử dụng API low-code thay vì toàn bộ mô hình đối tượng?**  
+Sử dụng các trợ giúp low-code khi một thao tác tiêu chuẩn áp dụng cho toàn bộ tệp hoặc trình chiếu và không yêu cầu kiểm soát chi tiết các yếu tố riêng lẻ. Sử dụng toàn bộ mô hình đối tượng khi bạn cần chọn các slide cụ thể, kiểm soát mối quan hệ master và layout, kiểm tra trạng thái trung gian, hoặc cấu hình hành vi mà trợ giúp không cung cấp.
 
-Sử dụng các trợ giúp low‑code khi một thao tác tiêu chuẩn áp dụng cho toàn bộ tệp hoặc bản trình chiếu và không yêu cầu kiểm soát chi tiết từng phần tử. Sử dụng mô hình đối tượng đầy đủ khi bạn cần chọn slide cụ thể, kiểm soát mối quan hệ master và layout, kiểm tra trạng thái trung gian, hoặc cấu hình hành vi mà trợ giúp không cung cấp.
+**Merger có thể hợp nhất các trình chiếu có định dạng tệp khác nhau không?**  
+Không. [Merger.process](https://reference.aspose.com/slides/vi/java/com.aspose.slides/merger/#process-java.lang.String:A-java.lang.String-) yêu cầu các trình chiếu đầu vào có cùng định dạng. Đầu tiên chuyển đổi các tệp đầu vào sang một định dạng chung, ví dụ bằng [Convert.autoByExtension](https://reference.aspose.com/slides/vi/java/com.aspose.slides/convert/#autoByExtension-java.lang.String-java.lang.String-), sau đó hợp nhất các tệp đã chuyển đổi.
 
-**Merger có thể kết hợp các bản trình chiếu có định dạng tệp khác nhau không?**
+**ForEach có xử lý các slide master, layout và notes không?**  
+[ForEach.slide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/foreach/#slide-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachSlideCallback-) duyệt các slide trình chiếu bình thường. Các thao tác [ForEach.shape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-), [ForEach.paragraph](https://reference.aspose.com/slides/vi/java/com.aspose.slides/foreach/#paragraph-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachParagraphCallback-), và [ForEach.portion](https://reference.aspose.com/slides/vi/java/com.aspose.slides/foreach/#portion-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachPortionCallback-) trên toàn bộ trình chiếu bao gồm các slide bình thường, master và layout theo mặc định. Sử dụng các overload của chúng với `includeNotes` đặt thành `true` để bao gồm các slide ghi chú.
 
-Không. [Merger.process](https://reference.aspose.com/slides/vi/java/com.aspose.slides/merger/#process-java.lang.String:A-java.lang.String-) yêu cầu các bản trình chiếu đầu vào có cùng định dạng. Đầu tiên hãy chuyển đổi các tệp đầu vào sang cùng một định dạng, ví dụ bằng [Convert.autoByExtension](https://reference.aspose.com/slides/vi/java/com.aspose.slides/convert/#autoByExtension-java.lang.String-java.lang.String-), rồi mới hợp nhất các tệp đã chuyển đổi.
+**Sự khác nhau giữa ForEach.shape và Collect.shapes là gì?**  
+Sử dụng [ForEach.shape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-) để xử lý mỗi shape ngay lập tức qua một callback. Sử dụng [Collect.shapes](https://reference.aspose.com/slides/vi/java/com.aspose.slides/collect/#shapes-com.aspose.slides.Presentation-) khi bạn cần một kết quả có thể lặp lại, có thể giữ lại, lọc, đếm hoặc duyệt nhiều lần.
 
-**ForEach có xử lý các slide master, layout và ghi chú không?**
+**Compress luôn làm giảm kích thước tệp trình chiếu không?**  
+Không nhất thiết. Kết quả phụ thuộc vào việc trình chiếu có chứa các layout không dùng, master không dùng, hoặc phông chữ nhúng có ký tự không dùng hay không. Nếu không có những yếu tố này, các thao tác [Compress](https://reference.aspose.com/slides/vi/java/com.aspose.slides/compress/) tương ứng có thể không giảm kích thước tệp.
 
-[ForEach.slide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/foreach/#slide-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachSlideCallback-) duyệt các slide trình chiếu bình thường. Các thao tác [ForEach.shape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-), [ForEach.paragraph](https://reference.aspose.com/slides/vi/java/com.aspose.slides/foreach/#paragraph-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachParagraphCallback-), và [ForEach.portion](https://reference.aspose.com/slides/vi/java/com.aspose.slides/foreach/#portion-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachPortionCallback-) bao gồm slide bình thường, master và layout theo mặc định. Sử dụng các overload với `includeNotes` đặt thành `true` để bao gồm các slide ghi chú.
-
-**Sự khác nhau giữa ForEach.shape và Collect.shapes là gì?**
-
-Sử dụng [ForEach.shape](https://reference.aspose.com/slides/vi/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-) để xử lý mỗi shape ngay lập tức qua callback. Sử dụng [Collect.shapes](https://reference.aspose.com/slides/vi/java/com.aspose.slides/collect/#shapes-com.aspose.slides.Presentation-) khi bạn cần một kết quả có thể duy trì, lọc, đếm hoặc duyệt lại nhiều lần.
-
-**Compress có luôn làm giảm kích thước tệp bản trình chiếu không?**
-
-Không nhất thiết. Kết quả phụ thuộc vào việc bản trình chiếu có chứa các layout không dùng, master không dùng hoặc phông chữ nhúng với các ký tự không dùng hay không. Nếu không có những yếu tố này, các thao tác [Compress](https://reference.aspose.com/slides/vi/java/com.aspose.slides/compress/) có thể không làm giảm kích thước tệp.
-
-**Các thay đổi do ForEach hoặc Compress thực hiện có được lưu tự động không?**
-
-Không. Các trợ giúp này hoạt động trên đối tượng [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) đã tải vào bộ nhớ. Sau khi thay đổi các phần tử trong callback của [ForEach](https://reference.aspose.com/slides/vi/java/com.aspose.slides/foreach/) hoặc chạy [Compress](https://reference.aspose.com/slides/vi/java/com.aspose.slides/compress/), hãy gọi [Presentation.save](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/#save-java.lang.String-int-) để ghi kết quả.
+**Các thay đổi được thực hiện bởi ForEach hoặc Compress có được lưu tự động không?**  
+Không. Các trợ giúp này hoạt động trên đối tượng [Presentation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) đã tải trong bộ nhớ. Sau khi thay đổi các yếu tố trong callback của [ForEach](https://reference.aspose.com/slides/vi/java/com.aspose.slides/foreach/) hoặc chạy [Compress](https://reference.aspose.com/slides/vi/java/com.aspose.slides/compress/), gọi [Presentation.save](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/#save-java.lang.String-int-) để ghi kết quả.
 
 ## **Bài viết liên quan**
 
-- [Convert Presentation](/java/convert-presentation/)
-- [Merge Presentations](/java/merge-presentation/)
-- [Slide Master](/java/slide-master/)
-- [Manage Text Box](/java/manage-textbox/)
-- [Embedded Font](/java/embedded-font/)
+- [Chuyển đổi trình chiếu](/slides/vi/java/convert-presentation/)
+- [Hợp nhất các trình chiếu](/slides/vi/java/merge-presentation/)
+- [Slide Master](/slides/vi/java/slide-master/)
+- [Quản lý Text Box](/slides/vi/java/manage-textbox/)
+- [Embedded Font](/slides/vi/java/embedded-font/)

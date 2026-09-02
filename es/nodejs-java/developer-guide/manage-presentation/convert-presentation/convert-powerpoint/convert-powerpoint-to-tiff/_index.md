@@ -1,5 +1,5 @@
 ---
-title: Convertir presentaciones de PowerPoint a TIFF con JavaScript
+title: Convertir presentaciones de PowerPoint a TIFF en JavaScript
 titlelink: PowerPoint a TIFF
 type: docs
 weight: 90
@@ -23,17 +23,17 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aprenda cómo convertir fácilmente presentaciones de PowerPoint (PPT, PPTX) a imágenes TIFF de alta calidad utilizando Aspose.Slides para Node.js, con ejemplos de código JavaScript."
+description: "Aprenda a convertir fácilmente presentaciones de PowerPoint (PPT, PPTX) a imágenes TIFF de alta calidad usando Aspose.Slides para Node.js, con ejemplos de código JavaScript."
 ---
 ## **Introducción**
 
-TIFF (**Tagged Image File Format**) es un formato de imagen rasterizada sin pérdida, ampliamente usado, conocido por su calidad excepcional y la preservación detallada de los gráficos. Diseñadores, fotógrafos y maquetadores de escritorio a menudo eligen TIFF para mantener capas, precisión del color y los ajustes originales en sus imágenes.
+TIFF (**Tagged Image File Format**) es un formato de imagen rasterizada sin pérdida muy utilizado, conocido por su calidad excepcional y la preservación detallada de los gráficos. Los diseñadores, fotógrafos y maquetadores de escritorio suelen elegir TIFF para mantener capas, precisión de color y configuraciones originales en sus imágenes.
 
-Con Aspose.Slides, puedes convertir sin esfuerzo tus diapositivas de PowerPoint (PPT, PPTX) y diapositivas OpenDocument (ODP) directamente en imágenes TIFF de alta calidad, garantizando que tus presentaciones mantengan la máxima fidelidad visual.
+Con Aspose.Slides, puedes convertir fácilmente tus diapositivas de PowerPoint (PPT, PPTX) y diapositivas OpenDocument (ODP) directamente en imágenes TIFF de alta calidad, asegurando que tus presentaciones mantengan la máxima fidelidad visual.
 
 ## **Convertir una presentación a TIFF**
 
-Usando el método [save](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/presentation/#save-java.lang.String-int-) provisto por la clase [Presentation](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/presentation/), puedes convertir rápidamente una presentación completa de PowerPoint a TIFF. Las imágenes TIFF resultantes corresponden al tamaño predeterminado de la diapositiva.
+Usando el método [save](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/presentation/#save-java.lang.String-int-) proporcionado por la clase [Presentation](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/presentation/), puedes convertir rápidamente una presentación completa de PowerPoint a TIFF. Las imágenes TIFF resultantes corresponden al tamaño predeterminado de la diapositiva.
 
 Este código JavaScript muestra cómo convertir una presentación de PowerPoint a TIFF:
 
@@ -53,17 +53,17 @@ try {
 
 ## **Convertir una presentación a TIFF en blanco y negro**
 
-El método [setBwConversionMode](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/tiffoptions/#setBwConversionMode-int-) en la clase [TiffOptions](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/tiffoptions/) permite especificar el algoritmo utilizado al convertir una diapositiva o imagen a color a un TIFF en blanco y negro. Ten en cuenta que esta configuración se aplica solo cuando el método [setCompressionType](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/tiffoptions/#setCompressionType-int-) se establece en `CCITT4` o `CCITT3`.
+El método [setBwConversionMode](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/tiffoptions/#setBwConversionMode-int-) en la clase [TiffOptions](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/tiffoptions/) permite especificar el algoritmo utilizado al convertir una diapositiva o imagen a color a un TIFF en blanco y negro. Ten en cuenta que esta configuración se aplica solo cuando el método [setCompressionType](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/tiffoptions/#setCompressionType-int-) está establecido en `CCITT4` o `CCITT3`.
 
 {{% alert color="info" title="Nota" %}}
-[TiffOptions.setBwConversionMode](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/tiffoptions/#setBwConversionMode-int-) es una configuración a nivel de exportación que selecciona un algoritmo de conversión de píxeles para la imagen TIFF completa. Para definir cómo debe aparecer una forma individual cuando el modo de visualización en blanco y negro está activo, utiliza [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shape/#setBlackWhiteMode). Consulta [Control Black-and-White Rendering for Shapes](/nodejs-java/shape-formatting/#control-black-and-white-rendering-for-shapes) para ejemplos.
+[TiffOptions.setBwConversionMode](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/tiffoptions/#setBwConversionMode-int-) es una configuración a nivel de exportación que selecciona un algoritmo de conversión de píxeles para la imagen TIFF completa. Para definir cómo debe aparecer una forma individual cuando el modo de visualización en blanco y negro está activo, utiliza [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/shape/#setBlackWhiteMode). Consulta [Control Black-and-White Rendering for Shapes](/slides/es/nodejs-java/shape-formatting/#control-black-and-white-rendering-for-shapes) para ver ejemplos.
 {{% /alert %}}
 
 Supongamos que tenemos un archivo "sample.pptx" con la siguiente diapositiva:
 
 ![Una diapositiva de la presentación](slide_black_and_white.png)
 
-Este código JavaScript muestra cómo convertir la diapositiva a color a un TIFF en blanco y negro:
+Este código JavaScript muestra cómo convertir la diapositiva en color a un TIFF en blanco y negro:
 
 ```js
 var aspose = aspose || {};
@@ -106,16 +106,16 @@ try {
     /*
     Tipos de compresión:
         Default - Especifica el esquema de compresión predeterminado (LZW).
-        None - Especifica que no hay compresión.
+        None - Especifica ninguna compresión.
         CCITT3
         CCITT4
         LZW
         RLE
     */
 
-    // La profundidad de color está controlada por el formato de píxel (ver el ejemplo abajo); CCITT3 y CCITT4 siempre producen 1 bit por píxel.
+    // La profundidad de color se controla mediante el formato de píxel (ver el ejemplo a continuación); CCITT3 y CCITT4 siempre producen 1 bit por píxel.
 
-    // Establecer los DPI de la imagen.
+    // Establecer la DPI de la imagen.
     tiffOptions.setDpiX(200);
     tiffOptions.setDpiY(200);
 
@@ -135,7 +135,7 @@ try {
 
 ## **Convertir una presentación a TIFF con formato de píxel de imagen personalizado**
 
-Usando el método [setPixelFormat](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/tiffoptions/#setPixelFormat) de la clase [TiffOptions](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/tiffoptions/), puedes especificar el formato de píxel preferido para la imagen TIFF resultante.
+Usando el método [setPixelFormat](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/tiffoptions/#setPixelFormat) de la clase [TiffOptions](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/tiffoptions/), puedes especificar el formato de píxel que prefieras para la imagen TIFF resultante.
 
 Este código JavaScript muestra cómo convertir una presentación de PowerPoint a una imagen TIFF con un formato de píxel personalizado:
 
@@ -166,10 +166,10 @@ try {
 ```
 
 {{% alert title="Consejo" color="info" %}}
-Echa un vistazo al [convertidor GRATUITO de PowerPoint a Póster](https://products.aspose.app/slides/es/conversion/convert-ppt-to-poster-online) de Aspose.
+Descubre el [convertidor GRATUITO de PowerPoint a póster de Aspose](https://products.aspose.app/slides/es/conversion/convert-ppt-to-poster-online).
 {{% /alert %}}
 
-## **FAQ**
+## **Preguntas frecuentes**
 
 **¿Puedo convertir una diapositiva individual en lugar de toda la presentación de PowerPoint a TIFF?**
 
@@ -181,4 +181,4 @@ No, Aspose.Slides no impone restricciones en el número de diapositivas. Puedes 
 
 **¿Se conservan las animaciones y los efectos de transición de PowerPoint al convertir diapositivas a TIFF?**
 
-No, TIFF es un formato de imagen estático. Por lo tanto, las animaciones y los efectos de transición no se conservan; solo se exportan capturas estáticas de las diapositivas.
+No, TIFF es un formato de imagen estática. Por lo tanto, las animaciones y los efectos de transición no se conservan; solo se exportan capturas estáticas de las diapositivas.

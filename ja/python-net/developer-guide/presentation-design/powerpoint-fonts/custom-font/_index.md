@@ -1,5 +1,5 @@
 ---
-title: PythonでPowerPointフォントをカスタマイズ
+title: Python で PowerPoint フォントをカスタマイズ
 linktitle: カスタムフォント
 type: docs
 weight: 20
@@ -15,75 +15,74 @@ keywords:
 - プレゼンテーション
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python を .NET 経由で使用し、PowerPoint スライドにカスタムフォントを埋め込み、どのデバイスでもプレゼンテーションを鮮明かつ一貫性のある状態に保ちます。"
+description: ".NET を介して Python 用 Aspose.Slides で PowerPoint スライドにカスタムフォントを埋め込み、あらゆるデバイスでプレゼンテーションを鮮明かつ一貫性のある状態に保ちます。"
 ---
-
 ## **概要**
 
-Aspose.Slides for Python は、実行時にカスタム フォントを提供できるため、必要なフォントがホスト システムにインストールされていなくてもプレゼンテーションが正しくレンダリングされます。PDF や画像へのエクスポート時に、フォント フォルダーやメモリ内フォント データを指定して、テキストのレイアウト、グリフ メトリック、タイポグラフィを保持できます。これにより、サーバー側のレンダリングが環境ごとに予測可能になり、OS レベルのフォント依存が排除され、不要なフォールバックやリフローが防止されます。本記事ではフォント ソースの登録方法を示します。
+Aspose.Slides for Python を使用すると、実行時にカスタムフォントを提供できるため、必要なフォントがホストシステムにインストールされていなくてもプレゼンテーションが正しく表示されます。PDF や画像へのエクスポート時にフォントフォルダーやメモリ内フォントデータを指定することで、テキストのレイアウト、グリフのメトリクス、タイポグラフィを維持できます。これにより、サーバー側のレンダリングが異なる環境でも予測可能になり、OS レベルのフォント依存が削除され、不要なフォールバックやリフローを防止できます。本記事ではフォント ソースの登録方法を示します。
 
-Aspose.Slides では、[FontsLoader](https://reference.aspose.com/slides/python-net/aspose.slides/fontsloader/) クラスの `load_external_font` および `load_external_fonts` メソッドを使用して次のフォントを読み込むことができます。
+プレゼンテーションのテーマは、個々の表記体系に対して異なるフォント ファミリーを参照できます。これらのマッピングはフォント名を保存しますが、フォント ファイルをインストールまたはロードしません。[Script-Specific Theme Fonts](/slides/ja/python-net/script-specific-font-mappings/) を参照してマッピングを管理し、下記のロードオプションを使用して参照されたフォントを利用可能にし、一貫したレンダリングを実現してください。
 
-- TrueType (.ttf) と TrueType Collection (.ttc) フォント。 詳細は [TrueType](https://en.wikipedia.org/wiki/TrueType) を参照してください。
-- OpenType (.otf) フォント。 詳細は [OpenType](https://en.wikipedia.org/wiki/OpenType) を参照してください。
+Aspose.Slides では、[FontsLoader](https://reference.aspose.com/slides/ja/python-net/aspose.slides/fontsloader/) クラスの `load_external_font` および `load_external_fonts` メソッドを使用して次のフォントをロードできます。
 
-## **カスタム フォントの読み込み**
+- TrueType (.ttf) および TrueType Collection (.ttc) フォント。 詳細は [TrueType](https://en.wikipedia.org/wiki/TrueType) を参照。
+- OpenType (.otf) フォント。 詳細は [OpenType](https://en.wikipedia.org/wiki/OpenType) を参照。
 
-Aspose.Slides は、システムにインストールせずにプレゼンテーションで使用されるフォントを読み込むことができます。これにより、PDF、画像、その他のサポート形式へのエクスポート結果が環境間で一貫した外観になります。フォントはカスタム ディレクトリから読み込まれます。
+## **カスタムフォントのロード**
 
-1. フォント ファイルが格納された 1 つ以上のフォルダーを指定します。  
-2. 静的メソッド [FontsLoader.load_external_fonts](https://reference.aspose.com/slides/python-net/aspose.slides/fontsloader/load_external_fonts/) を呼び出し、これらのフォルダーからフォントを読み込みます。  
-3. プレゼンテーションを読み込み、レンダリング/エクスポートします。  
-4. [FontsLoader.clear_cache](https://reference.aspose.com/slides/python-net/aspose.slides/fontsloader/clear_cache/) を呼び出してフォント キャッシュをクリアします。
+Aspose.Slides は、システムにインストールせずにプレゼンテーションで使用するフォントをロードできるようにします。これにより、PDF や画像、その他サポートされている形式へのエクスポート出力が環境間で一貫した見た目になります。フォントはカスタムディレクトリからロードされます。
 
-以下のコード例はフォント 読み込みプロセスを示しています。
+1. フォント ファイルが含まれるフォルダーを 1 つ以上指定します。
+2. 静的メソッド [FontsLoader.load_external_fonts](https://reference.aspose.com/slides/ja/python-net/aspose.slides/fontsloader/load_external_fonts/) を呼び出し、これらのフォルダーからフォントをロードします。
+3. プレゼンテーションをロードしてレンダリング/エクスポートします。
+4. [FontsLoader.clear_cache](https://reference.aspose.com/slides/ja/python-net/aspose.slides/fontsloader/clear_cache/) を呼び出してフォントキャッシュをクリアします。
+
+以下のコード例はフォントのロード手順を示しています。
+
 ```py
 import aspose.slides as slides
 
-# カスタムフォントファイルが含まれるフォルダーを定義します。
-font_folders = [ external_font_folder1, external_font_folder2 ]
+# カスタムフォントファイルを含むフォルダーを定義します。
+font_folders = ["fonts", "external_fonts"]
 
-# 指定されたフォルダーからカスタムフォントを読み込みます。
+# 指定したフォルダーからカスタムフォントをロードします。
 slides.FontsLoader.load_external_fonts(font_folders)
 
 with slides.Presentation("sample.pptx") as presentation:
-    # 読み込んだフォントを使用してプレゼンテーションをレンダリング/エクスポートします（例: PDF、画像、その他の形式）。
+    # ロードしたフォントを使用してプレゼンテーションをレンダリング/エクスポートします（例: PDF、画像、その他の形式）。
     presentation.save("output.pdf", slides.export.SaveFormat.PDF)
 
 # 作業が完了したらフォントキャッシュをクリアします。
 slides.FontsLoader.clear_cache()
 ```
 
+{{% alert color="info" title="Note" %}}
+[FontsLoader.load_external_fonts](https://reference.aspose.com/slides/ja/python-net/aspose.slides/fontsloader/load_external_fonts/) はフォント検索パスにフォルダーを追加しますが、フォントの初期化順序は変更しません。フォントは次の順序で初期化されます。
 
-{{% alert color="info" title="注" %}}
-
-[FontsLoader.load_external_fonts](https://reference.aspose.com/slides/python-net/aspose.slides/fontsloader/load_external_fonts/) はフォント検索パスにフォルダーを追加しますが、フォントの初期化順序は変更しません。  
-フォントは次の順序で初期化されます。
-
-1. デフォルトのオペレーティング システム フォント パス。  
-1. [FontsLoader](https://reference.aspose.com/slides/python-net/aspose.slides/fontsloader/) によりロードされたパス。
-
+1. デフォルトのオペレーティングシステム フォント パス。  
+1. [FontsLoader](https://reference.aspose.com/slides/ja/python-net/aspose.slides/fontsloader/) 経由でロードされたパス。  
 {{%/alert %}}
 
-## **カスタム フォント フォルダーの取得**
+## **カスタムフォント フォルダーの取得**
 
-Aspose.Slides は `get_font_folders` メソッドを提供し、フォント フォルダーを取得できます。`load_external_fonts` で追加されたフォルダーとシステム フォント フォルダーの両方が返されます。
+Aspose.Slides は `get_font_folders` メソッドを提供し、フォント フォルダーを取得できます。このメソッドは `load_external_fonts` で追加されたフォルダーとシステム フォント フォルダーの両方を返します。
 
 以下の Python コードは `get_font_folders` の使用例です。
+
 ```python
 import aspose.slides as slides
 
 # この呼び出しはフォントファイルがチェックされるフォルダーを返します。
-# これらには load_external_fonts メソッドで追加されたフォルダーとシステムのフォントフォルダーが含まれます。
+# これらには load_external_fonts メソッドで追加されたフォルダーとシステムフォントフォルダーが含まれます。
 font_folders = slides.FontsLoader.get_font_folders()
 ```
 
-
-## **プレゼンテーションにカスタム フォントを指定する**
+## **プレゼンテーション用カスタムフォントの指定**
 
 Aspose.Slides は `document_level_font_sources` プロパティを提供し、プレゼンテーションで使用する外部フォントを指定できます。
 
 以下の Python 例は `document_level_font_sources` の使用方法を示しています。
+
 ```python
 import aspose.slides as slides
 
@@ -100,17 +99,17 @@ load_options.document_level_font_sources.memory_fonts = [font1_data, font2_data]
 with slides.Presentation("Fonts.pptx", load_options) as presentation:
     # ...
     # プレゼンテーションを操作します。
-    # CustomFont1、CustomFont2、および assets\\fonts と global\\fonts フォルダー（およびそのサブフォルダー）からのフォントがプレゼンテーションで使用可能です。
+    # CustomFont1、CustomFont2、および assets\fonts と global\fonts フォルダー（およびそのサブフォルダー）からのフォントは、プレゼンテーションで利用可能です。
     # ...
     print(len(presentation.slides))
 ```
 
+## **バイナリ データから外部フォントをロード**
 
-## **バイナリ データから外部フォントを読み込む**
+Aspose.Slides は `load_external_font` メソッドを提供し、バイナリ データから外部フォントをロードできます。
 
-Aspose.Slides は `load_external_font` メソッドを提供し、バイナリ データから外部フォントを読み込むことができます。
+以下の Python 例はバイト配列からフォントをロードする方法を示しています。
 
-以下の Python 例はバイト配列からフォントを読み込む方法を示しています。
 ```python
 import aspose.slides as slides
 
@@ -132,25 +131,24 @@ finally:
     slides.FontsLoader.clear_cache()
 ```
 
+## **よくある質問**
 
-## **FAQ**
+### カスタムフォントはすべての形式 (PDF、PNG、SVG、HTML) へのエクスポートに影響しますか？
 
-**カスタム フォントはすべての形式（PDF、PNG、SVG、HTML）へのエクスポートに影響しますか？**
+はい。接続されたフォントはすべてのエクスポート形式でレンダラによって使用されます。
 
-はい。接続されたフォントはすべてのエクスポート形式でレンダラーによって使用されます。
+### カスタムフォントは自動的に生成された PPTX に埋め込まれますか？
 
-**カスタム フォントは自動的に生成された PPTX に埋め込まれますか？**
+いいえ。レンダリング用にフォントを登録することは、PPTX に埋め込むこととは別です。プレゼンテーション ファイルにフォントを埋め込む必要がある場合は、明示的な [embedding features](/slides/ja/python-net/embedded-font/) を使用してください。
 
-いいえ。レンダリング用にフォントを登録することは、PPTX に埋め込むこととは異なります。プレゼンテーション ファイル内にフォントを保持したい場合は、明示的な [埋め込み機能](/slides/ja/python-net/embedded-font/) を使用する必要があります。
+### カスタムフォントに特定のグリフが欠けている場合のフォールバック動作を制御できますか？
 
-**カスタム フォントに特定のグリフがない場合のフォールバック動作を制御できますか？**
+はい。[font substitution](/slides/ja/python-net/font-substitution/)、[replacement rules](/slides/ja/python-net/font-replacement/) および [fallback sets](/slides/ja/python-net/fallback-font/) を構成して、要求されたグリフが存在しないときに使用するフォントを正確に定義できます。
 
-はい。[フォント置換](/slides/ja/python-net/font-substitution/)、[置換ルール](/slides/ja/python-net/font-replacement/)、および [フォールバックセット](/slides/ja/python-net/fallback-font/) を構成して、要求されたグリフが欠落しているときに使用するフォントを正確に定義できます。
+### Linux/Docker コンテナー内でシステム全体にインストールせずにフォントを使用できますか？
 
-**Linux/Docker コンテナー内でシステム全体にインストールせずにフォントを使用できますか？**
+はい。独自のフォント フォルダーを指定するか、バイト配列からフォントをロードしてください。これにより、コンテナー イメージ内のシステム フォント ディレクトリへの依存がなくなります。
 
-はい。独自のフォント フォルダーを指すか、バイト配列からフォントをロードします。これにより、コンテナー イメージ内のシステム フォント ディレクトリへの依存が排除されます。
+### ライセンスに関して—制限なしに任意のカスタムフォントを埋め込めますか？
 
-**ライセンスについて—カスタム フォントを制限なく埋め込むことはできますか？**
-
-フォントのライセンス遵守は利用者の責任です。ライセンスにより埋め込みや商用利用が禁止されている場合があります。出力物を配布する前に必ずフォントの EULA を確認してください。
+フォントのライセンス遵守は利用者の責任です。ライセンス条件はフォントごとに異なり、埋め込みや商用利用を禁止するものもあります。出力物を配布する前に必ずフォントの EULA を確認してください。

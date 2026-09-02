@@ -1,5 +1,5 @@
 ---
-title: Efficiënt presentaties samenvoegen met Python
+title: Presentaties efficiënt samenvoegen met Python
 linktitle: Presentaties samenvoegen
 type: docs
 weight: 40
@@ -19,38 +19,38 @@ keywords:
 - ODP combineren
 - Python
 - Aspose.Slides
-description: "Leer hoe u PowerPoint- en OpenDocument-presentaties in Python kunt samenvoegen door dia's te klonen, masters en layouts te beheersen, dia-inhoud te herschalen, secties te behouden en beveiligde of grote bestanden af te handelen."
+description: "Leer hoe u PowerPoint- en OpenDocument‑presentaties in Python kunt samenvoegen door dia's te klonen, masters en lay‑outs te beheren, dia‑inhoud te schalen, secties te behouden en beschermde of grote bestanden af te handelen."
 ---
 ## **Overzicht**
 
-Aspose.Slides for Python via .NET voegt presentaties samen door dia's te klonen van één [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) naar een andere. De belangrijkste bewerking is [SlideCollection.add_clone](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidecollection/add_clone/), die de opmaak van de brondia kan behouden of de gekloonede dia kan koppelen aan een master of lay-out in de doelpresentatie.
+Aspose.Slides for Python via .NET voegt presentaties samen door dia's te klonen van één [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) naar een andere. De hoofdoperatie is [SlideCollection.add_clone](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidecollection/add_clone/), die de opmaak van de bron‑dia kan behouden of de gekloonde dia kan koppelen aan een master of lay‑out in de bestemmingspresentatie.
 
 Dit artikel behandelt de meest voorkomende samenvoeg‑workflows:
 
-- alle dia's samenvoegen terwijl hun bronopmaak behouden blijft;
+- alle dia's samenvoegen met behoud van hun bronopmaak;
 - geselecteerde dia's samenvoegen;
-- een master uit de doelpresentatie toepassen;
-- een specifieke lay-out uit de doelpresentatie toepassen;
+- een master van de bestemmingspresentatie toepassen;
+- een specifieke lay‑out van de bestemmingspresentatie toepassen;
 - verschillende dia‑groottes normaliseren vóór het samenvoegen;
-- gekloonede dia's toevoegen aan een sectie;
+- gekloonde dia's toevoegen aan een sectie;
 - meerdere presentaties samenvoegen in één end‑to‑end workflow;
 - masters, bronnen, notities, opmerkingen, media, lettertypen, wachtwoorden, grote bestanden en multithreading‑aspecten afhandelen.
 
-## **Hoe Slide‑Klonen Masters en Layouts Beïnvloedt**
+## **Hoe dia‑klonen masters en lay‑outs beïnvloedt**
 
-Een dia erft een groot deel van zijn uiterlijk van zijn lay-out en master. Om die reden bepaalt de overload van het klonen die je kiest hoe de samengevoegde dia wordt geïntegreerd in de doelpresentatie.
+Een dia erft veel van zijn uiterlijk van zijn lay‑out en master. Om die reden bepaalt de overload van klonen die u kiest hoe de samengevoegde dia wordt geïntegreerd in de bestemmingspresentatie.
 
 Gebruik [SlideCollection.add_clone](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidecollection/add_clone/) op één van de volgende manieren:
 
-- `add_clone(source_slide)` — behoud de lay-out en opmaak van de brondia. Indien nodig kan de bronslave automatisch worden gekloneerd naar de doelpresentatie. Aspose.Slides houdt automatisch gekloonede masters bij zodat herhaalde dia's die dezelfde bron‑master gebruiken die master niet telkens opnieuw worden gekloond.
-- `add_clone(source_slide, destination_master, allow_clone_missing_layout)` — koppel de gekloonede dia aan een specifieke doel‑[IMasterSlide](https://reference.aspose.com/slides/nl/python-net/aspose.slides/imasterslide/). Aspose.Slides zoekt naar een overeenkomende lay-out onder die master op basis van lay‑outtype of naam.
-- `add_clone(source_slide, destination_layout)` — koppel de gekloonede dia direct aan een specifieke doel‑[ILayoutSlide](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ilayoutslide/).
+- `add_clone(source_slide)` — behoud de lay‑out en opmaak van de bron‑dia. Indien nodig kan de bron‑master automatisch in de bestemmingspresentatie worden gekloond. Aspose.Slides houdt automatisch gekloonde masters bij zodat herhaalde dia's die dezelfde bron‑master gebruiken niet telkens die master opnieuw klonen.
+- `add_clone(source_slide, destination_master, allow_clone_missing_layout)` — koppel de gekloonde dia aan een specifieke bestemmings‑[IMasterSlide](https://reference.aspose.com/slides/nl/python-net/aspose.slides/imasterslide/). Aspose.Slides zoekt onder die master naar een overeenkomende lay‑out op basis van lay‑outtype of naam.
+- `add_clone(source_slide, destination_layout)` — koppel de gekloonde dia direct aan een specifieke bestemmings‑[ILayoutSlide](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ilayoutslide/).
 
-De master of lay‑out die aan een `add_clone`‑overload wordt doorgegeven, moet behoren tot de **doel**‑presentatie, niet tot de bronpresentatie.
+De master of lay‑out die aan een `add_clone`‑overload wordt doorgegeven, moet behoren tot de **bestemmings**‑presentatie, niet tot de bron‑presentatie.
 
-## **Hele Presentaties Samenvoegen en Bronopmaak Behouden**
+## **Gehele presentaties samenvoegen en bronopmaak behouden**
 
-De eenvoudigste samenvoeging kopieert elke dia van de bronpresentatie naar de doelpresentatie. Dit is de juiste keuze wanneer de geïmporteerde dia's hun oorspronkelijke thema, master en lay‑outrelaties moeten behouden.
+De eenvoudigste samenvoeging kopieert elke dia van de bron‑presentatie naar de bestemmingspresentatie. Dit is de juiste keuze wanneer de geïmporteerde dia's hun oorspronkelijke thema, master en lay‑outrelaties moeten behouden.
 
 ```python
 import aspose.slides as slides
@@ -63,11 +63,11 @@ with slides.Presentation("destination.pptx") as destination:
         destination.save("merged.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-De resulterende presentatie kan meerdere masters bevatten wanneer bron‑ en doelpresentatie verschillende ontwerpen gebruiken. Dit is normaal wanneer bronopmaak bewust behouden wordt.
+De resulterende presentatie kan meerdere masters bevatten wanneer bron‑ en bestemmingspresentatie verschillende ontwerpen gebruiken. Dit is te verwachten wanneer bronopmaak bewust behouden wordt.
 
-## **Geselecteerde Dia's Samenvoegen**
+## **Geselecteerde dia's samenvoegen**
 
-Je hoeft niet elke dia te klonen. Het volgende voorbeeld importeert alleen de geselecteerde dia‑indexen uit de bronpresentatie.
+U hoeft niet elke dia te klonen. Het volgende voorbeeld importeert alleen geselecteerde dia‑indexen uit de bron‑presentatie.
 
 ```python
 import aspose.slides as slides
@@ -84,9 +84,9 @@ with slides.Presentation("destination.pptx") as destination:
 
 Valideer dia‑indexen vóór het klonen wanneer ze afkomstig zijn van gebruikersinvoer of externe configuratie.
 
-## **Dia's Samenvoegen Met Een Doel‑Master**
+## **Dia's samenvoegen met een bestemmings‑master**
 
-Gebruik de overload [add_clone(source_slide, destination_master, allow_clone_missing_layout)](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidecollection/add_clone/) wanneer geïmporteerde dia's een master moeten volgen die al tot de doelpresentatie behoort.
+Gebruik de [add_clone(source_slide, destination_master, allow_clone_missing_layout)](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidecollection/add_clone/)‑overload wanneer geïmporteerde dia's een master moeten volgen die al tot de bestemmingspresentatie behoort.
 
 ```python
 import aspose.slides as slides
@@ -101,13 +101,13 @@ with slides.Presentation("destination.pptx") as destination:
         destination.save("merged-with-destination-master.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Aspose.Slides selecteert een passende lay‑out onder de opgegeven master door de bron‑lay‑outtype of -naam te matchen. Als er geen geschikte lay‑out bestaat en `allow_clone_missing_layout` is `True`, wordt de bron‑lay‑out gekloond zodat de dia kan worden toegevoegd. Als het `False` is, wordt een [PptxEditException](https://reference.aspose.com/slides/nl/python-net/aspose.slides/pptxeditexception/) gegooid.
+Aspose.Slides selecteert een geschikte lay‑out onder de opgegeven master door de lay‑outtype of -naam van de bron‑lay‑out te vergelijken. Als er geen passende lay‑out bestaat en `allow_clone_missing_layout` is `True`, wordt de bron‑lay‑out gekloond zodat de dia kan worden toegevoegd. Als het `False` is, wordt een [PptxEditException](https://reference.aspose.com/slides/nl/python-net/aspose.slides/pptxeditexception/) gegooid.
 
-Gebruik `False` wanneer je wilt dat de samenvoeging faalt in plaats van een extra lay‑out aan de doel‑master toe te voegen.
+Gebruik `False` wanneer u wilt dat het samenvoegen faalt in plaats van een extra lay‑out aan de bestemmings‑master toe te voegen.
 
-## **Dia's Samenvoegen Met Een Specifieke Doel‑Lay‑out**
+## **Dia's samenvoegen met een specifieke bestemmings‑lay‑out**
 
-Gebruik de overload [add_clone(source_slide, destination_layout)](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidecollection/add_clone/) wanneer je exact weet welke doel‑lay‑out de geïmporteerde dia's moeten gebruiken.
+Gebruik de [add_clone(source_slide, destination_layout)](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidecollection/add_clone/)‑overload wanneer u precies weet welke bestemmings‑lay‑out de geïmporteerde dia's moeten gebruiken.
 
 ```python
 import aspose.slides as slides
@@ -122,13 +122,13 @@ with slides.Presentation("destination.pptx") as destination:
         destination.save("merged-with-destination-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Het toepassen van een doel‑lay‑out wijzigt de geërfde lay‑outrelatie; het ontwerpt de inhoud van de bron‑dia niet opnieuw. Als bron‑ en doel‑lay‑outs verschillende placeholder‑structuren hebben, controleer dan het resultaat om te bevestigen dat de overgeërfde opmaak en placeholder‑gedrag correct zijn.
+Toepassing van een bestemmings‑lay‑out verandert de geërfde lay‑outrelatie; het herontwerpt de inhoud van de bron‑dia niet. Als bron‑ en bestemmings‑lay‑outs verschillende placeholder‑structuren hebben, inspecteer dan het resultaat om te bevestigen dat de overgenomen opmaak en placeholder‑gedrag passend zijn.
 
-## **Presentaties Met Verschillende Dia‑Grootten Samenvoegen**
+## **Presentaties met verschillende dia‑groottes samenvoegen**
 
-Presentaties met verschillende dia‑afmetingen kunnen worden samengevoegd, maar het klonen van een dia naar een presentatie met een andere dia‑grootte ontwerpt de inhoud niet automatisch opnieuw voor het nieuwe canvas. Vormen kunnen daardoor verschoven, onverwacht geschaald of buiten het zichtbare dia‑gebied terechtkomen.
+Presentaties met verschillende dia‑afmetingen kunnen worden samengevoegd, maar een dia klonen naar een presentatie met een andere dia‑grootte herontwerpt de inhoud niet automatisch voor het nieuwe canvas. Vormen kunnen daardoor verschoven, onverwacht geschaald of buiten het zichtbare dia‑gebied verschijnen.
 
-Een praktische aanpak is om de bronpresentatie vóór het klonen te resize‑n. De methode [SlideSize.set_size](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidesize/set_size/) kan bestaande inhoud schalen terwijl de dia‑afmetingen worden gewijzigd. [SlideSizeScaleType.ENSURE_FIT](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidesizescaletype/) schaalt de inhoud zodat deze binnen de gewenste grootte past.
+Een praktische aanpak is om de bron‑presentatie vóór het klonen te schalen. De [SlideSize.set_size](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidesize/set_size/)‑methode kan bestaande inhoud schalen terwijl de dia‑afmetingen worden aangepast. [SlideSizeScaleType.ENSURE_FIT](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidesizescaletype/) schaalt inhoud zodat deze past binnen de opgegeven grootte.
 
 ```python
 import aspose.slides as slides
@@ -150,11 +150,11 @@ with slides.Presentation("destination.pptx") as destination:
         destination.save("merged-same-slide-size.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Resizen wijzigt het bron‑presentatie‑object in het geheugen. Als je de originele bronpresentatie ongewijzigd wilt houden voor andere bewerkingen, open dan een aparte instantie voor de samenvoeging.
+Schalen wijzigt het bron‑presentatie‑object in het geheugen. Als u de oorspronkelijke bron‑presentatie ongewijzigd wilt behouden voor andere bewerkingen, open dan een aparte instantie voor de samenvoeging.
 
-## **Dia's Samenvoegen Naar Een Presentatie‑Sectie**
+## **Dia's samenvoegen in een presentatiesectie**
 
-De basis‑dia‑klonlus recreëert de sectie‑hiërarchie van de bronpresentatie niet. Als secties van belang zijn in de uitvoer, maak of selecteer dan secties in de doelpresentatie en kloon dia's expliciet erin met [SlideCollection.add_clone](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidecollection/add_clone/).
+De basis‑dia‑klonlus maakt de sectiehiearchie van de bron‑presentatie niet opnieuw. Als secties van belang zijn in de output, maak of selecteer dan secties in de bestemmingspresentatie en kloon dia's expliciet naar hen met [SlideCollection.add_clone](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidecollection/add_clone/).
 
 ```python
 import aspose.slides as slides
@@ -169,11 +169,11 @@ with slides.Presentation("destination.pptx") as destination:
         destination.save("merged-with-section.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-De gekloonede dia's worden toegevoegd aan de opgegeven doel‑sectie. Om meerdere bron‑secties te behouden, recreateer die secties in de doelpresentatie met [SectionCollection.append_empty_section](https://reference.aspose.com/slides/nl/python-net/aspose.slides/sectioncollection/append_empty_section/) en map elke bron‑dia naar de overeenkomstige doel‑sectie.
+De gekloonde dia's worden toegevoegd aan de opgegeven bestemmingssectie. Om meerdere bron‑secties te behouden, doorloop [Presentation.sections](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/sections/), haal de huidige dia's van elke bron‑sectie op met [Section.get_slides_list_of_section](https://reference.aspose.com/slides/nl/python-net/aspose.slides/section/get_slides_list_of_section/), recreate de secties in de bestemming, en kloon elke teruggegeven dia naar de overeenkomstige bestemmingssectie. Zie [Manage Slide Sections](/slides/nl/python-net/slide-section/) voor een volledig sectie‑enumeratie‑voorbeeld, inclusief lege secties en structurele wijzigingen.
 
-## **Meerdere Presentaties Veilig Samenvoegen**
+## **Meerdere presentaties veilig samenvoegen**
 
-Het volgende end‑to‑end voorbeeld gebruikt de eerste presentatie als doel, normaliseert de dia‑grootte van elke extra bron, houdt elke bron alleen open zolang deze wordt gekopieerd, en slaat het uiteindelijke bestand één keer op.
+Het volgende end‑to‑end voorbeeld gebruikt de eerste presentatie als bestemming, normaliseert de dia‑grootte van elke extra bron, houdt elke bron slechts open zolang deze gekopieerd wordt, en slaat het uiteindelijke bestand pas op het einde op.
 
 ```python
 import aspose.slides as slides
@@ -198,39 +198,39 @@ with slides.Presentation(input_files[0]) as merged:
     merged.save("merged.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Dit is een nuttige basis voor het behouden van de bron‑opmaak van geïmporteerde dia's. Als je uitvoer een enkel doel‑thema moet gebruiken, vervang dan de eenvoudige `add_clone(slide)`‑aanroep door de eerder getoonde doel‑master‑ of doel‑lay‑out‑overload.
+Dit is een nuttige basis om de bronopmaak van geïmporteerde dia's te behouden. Als uw output een enkel bestemmings‑thema moet gebruiken, vervang dan de eenvoudige `add_clone(slide)`‑aanroep door de eerder getoonde overload met bestemmings‑master of -lay‑out.
 
-## **Praktische Overwegingen**
+## **Praktische overwegingen**
 
-### **Masters, Lay‑outs en Opmaak‑Nauwkeurigheid**
+### **Masters, lay‑outs en nauwkeurigheid van opmaak**
 
-Standaard dia‑klonen kan automatisch een benodigde bron‑master naar de doelpresentatie brengen. Aspose.Slides houdt een interne register bij voor automatisch gekloonede masters om te voorkomen dat dezelfde master meerdere keren wordt gekloond. Handmatig gekloonede masters worden niet bijgehouden door dat register, dus vermijd voor‑clonen van masters tenzij je expliciete controle over de master‑structuur nodig hebt.
+Standaard dia‑klonen kan automatisch een benodigde bron‑master in de bestemmingspresentatie brengen. Aspose.Slides houdt een interne registratie bij van automatisch gekloonde masters om te voorkomen dat dezelfde master herhaaldelijk wordt gekloond. Handmatig gekloonde masters worden niet in die registratie bijgehouden, dus vermijd voorklonen van masters tenzij u expliciete controle over de master‑structuur nodig hebt.
 
-Ga er niet van uit dat twee masters of lay‑outs met dezelfde naam visueel gelijk zijn. Als een bedrijfs‑template de uiteindelijke weergave moet bepalen, kies dan expliciet een doel‑master of -lay‑out en verifieer het resultaat na het samenvoegen.
+Ga er niet vanuit dat twee masters of lay‑outs met dezelfde naam visueel gelijk zijn. Als een corporate‑template de uiteindelijke uitstraling moet bepalen, kies dan expliciet een bestemmings‑master of -lay‑out en verifieer het resultaat na het samenvoegen.
 
-### **Notities en Opmerkingen**
+### **Notities en opmerkingen**
 
-Spreker‑notities en dia‑commentaren zijn gekoppeld aan de dia‑inhoud en worden gekopieerd wanneer een dia wordt gekloond. Aspose.Slides biedt ook specifieke API’s voor [presentation notes](https://docs.aspose.com/slides/nl/python-net/presentation-notes/) en [presentation comments](https://docs.aspose.com/slides/nl/python-net/presentation-comments/).
+Sprekers‑notities en dia‑opmerkingen zijn gekoppeld aan de dia‑inhoud en worden gekopieerd wanneer een dia wordt gekloond. Aspose.Slides biedt tevens speciale API’s voor [presentation notes](/slides/nl/python-net/presentation-notes/) en [presentation comments](/slides/nl/python-net/presentation-comments/).
 
-Als de opmaak van de notitie‑pagina belangrijk is, controleer dan de samengevoegde presentatie omdat notitie‑masters presentatieniveau‑objecten zijn en kunnen verschillen tussen bronbestanden. Voor review‑workflows, controleer ook auteurs van opmerkingen en geneste commentaren nadat bestanden van verschillende auteurs of templates zijn gecombineerd.
+Als de opmaak van de notitie‑pagina belangrijk is, controleer dan de samengevoegde presentatie omdat notitie‑masters objecten op presentatieniveau zijn en kunnen verschillen tussen bronbestanden. Controleer bij review‑workflows ook de auteurs van opmerkingen en geneste discussies na het combineren van bestanden van verschillende auteurs of templates.
 
-### **Afbeeldingen, Audio, Video, OLE‑objecten en Externe Links**
+### **Afbeeldingen, audio, video, OLE‑objecten en externe koppelingen**
 
-Dia's kunnen verwijzen naar presentatieniveau‑bronnen zoals afbeeldingen, ingesloten audio, ingesloten video en OLE‑data. Kloon de dia zelf in plaats van alleen de zichtbare vormen zodat Aspose.Slides de relaties van de dia met zijn bronnen kan behouden.
+Dia's kunnen verwijzen naar resources op presentatieniveau, zoals afbeeldingen, ingesloten audio, video en OLE‑data. Kloon de volledige dia in plaats van alleen de zichtbare vormen zodat Aspose.Slides de relaties van de dia met zijn resources kan behouden.
 
-Ingesloten en gelinkte bronnen moeten verschillend behandeld worden. Een gelinkte audio, video, OLE‑object of hyperlink blijft afhankelijk van zijn externe doel; het klonen van een dia verandert een externe link niet in ingesloten inhoud. Test gelinkte‑bron‑paden en URL‑s in de omgeving waarin de samengevoegde presentatie wordt geopend.
+Ingesloten en gekoppelde resources dienen verschillend behandeld te worden. Een gekoppeld audio‑, video‑, OLE‑object of hyperlink blijft afhankelijk van zijn externe doel; het klonen van een dia maakt een externe link niet tot ingesloten content. Test de paden en URL’s van gekoppelde resources in de omgeving waarin de samengevoegde presentatie wordt geopend.
 
-Aspose.Slides houdt automatisch gekloonede masters bij, maar dit moet niet worden gezien als een algemene garantie dat identieke binaire bronnen van verschillende bron‑presentaties altijd worden gededupliceerd. Als de grootte van het uitvoerbestand belangrijk is, inspecteer dan het samengevoegde pakket en meet het resultaat in plaats van te vertrouwen op impliciete deduplicatie.
+Aspose.Slides houdt automatisch gekloonde masters bij, maar dit moet niet worden opgevat als een algemene garantie dat identieke binaire resources van uiteenlopende bron‑presentaties altijd worden gededupliceerd. Als de bestandsgrootte van belang is, inspecteer dan het samengevoegde pakket en meet het resultaat in plaats van te vertrouwen op impliciete deduplicatie.
 
-### **Ingesloten Lettertypen en Beschikbaarheid van Lettertypen**
+### **Ingesloten lettertypen en beschikbaarheid van fonts**
 
-Lettertypen worden op presentatieniveau beheerd. Als typografie consistent moet blijven over machines, ga er niet van uit dat alleen dia‑klonen garandeert dat elk vereist lettertype beschikbaar is in de doelomgeving. Je kunt ingesloten lettertypen inspecteren met [FontsManager.get_embedded_fonts](https://reference.aspose.com/slides/nl/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) en het insluiten expliciet beheren zoals beschreven in [Embed Fonts in Presentations](https://docs.aspose.com/slides/nl/python-net/embedded-font/).
+Lettertypen worden beheerd op presentatieniveau. Als typografie consistent moet blijven over machines, ga er niet vanzelfsprekend van uit dat het klonen van dia's alleen garandeert dat elk benodigd lettertype beschikbaar is in de bestemmingsomgeving. U kunt ingesloten lettertypen bekijken met [FontsManager.get_embedded_fonts](https://reference.aspose.com/slides/nl/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) en expliciet beheren zoals beschreven in [Embed Fonts in Presentations](/slides/nl/python-net/embedded-font/).
 
-Controleer ook of je toestemming hebt om de lettertypen die in de bronbestanden worden gebruikt in te sluiten. Lettertype‑licenties kunnen insluiten beperken.
+Controleer ook dat u toestemming heeft om de lettertypen die in de bronbestanden worden gebruikt in te sluiten. Licenties voor lettertypen kunnen insluit‑rechten beperken.
 
-### **Wachtwoord‑Beveiligde Presentaties**
+### **Wachtwoord‑beveiligde presentaties**
 
-Een wachtwoord‑beveiligde bron moet eerst succesvol worden geopend voordat de dia's kunnen worden gekloond. Lever het wachtwoord via [LoadOptions.password](https://reference.aspose.com/slides/nl/python-net/aspose.slides/loadoptions/password/).
+Een wachtwoord‑beveiligde bron moet eerst succesvol worden geopend voordat de dia's kunnen worden gekloond. Geef het wachtwoord door via [LoadOptions.password](https://reference.aspose.com/slides/nl/python-net/aspose.slides/loadoptions/password/).
 
 ```python
 import aspose.slides as slides
@@ -242,64 +242,64 @@ with slides.Presentation("protected.pptx", load_options) as source:
     print(len(source.slides))
 ```
 
-Het openen van een versleutelde bron past de bescherming niet automatisch toe op de doelpresentatie. Configureer uitvoerbeveiliging apart wanneer dat nodig is.
+Het openen van een versleutelde bron past de dezelfde bescherming niet automatisch toe op de bestemmingspresentatie. Configureer de output‑beveiliging apart wanneer dat nodig is.
 
-### **Grote Presentaties en Geheugengebruik**
+### **Grote presentaties en geheugenverbruik**
 
-Grote presentaties met hoge‑resolutie‑afbeeldingen, audio, video of andere grote binaire objecten kunnen veel geheugen verbruiken. [LoadOptions.blob_management_options](https://reference.aspose.com/slides/nl/python-net/aspose.slides/loadoptions/blob_management_options/) biedt controle over BLOB‑afhandeling en tijdelijk‑bestandgebruik. Zie [Manage Presentation BLOBs](https://docs.aspose.com/slides/nl/python-net/manage-blob/) voor strategieën voor grote bestanden.
+Grote presentaties met hoge‑resolutie‑afbeeldingen, audio, video of andere omvangrijke binaire objecten kunnen aanzienlijk geheugen verbruiken. [LoadOptions.blob_management_options](https://reference.aspose.com/slides/nl/python-net/aspose.slides/loadoptions/blob_management_options/) biedt controle over BLOB‑afhandeling en het gebruik van tijdelijke bestanden. Zie [Manage Presentation BLOBs](/slides/nl/python-net/manage-blob/) voor strategieën voor grote bestanden.
 
-Voor grote bestanden, laad bij voorkeur via bestandspaden, sluit elke bron‑presentatie zodra deze is samengevoegd, en vermijd herhaaldelijk opslaan van tussentijdse resultaten tenzij het workflow‑scenario checkpoints vereist. Het gebruik van `with slides.Presentation(...)` zorgt ervoor dat presentatieresources worden vrijgegeven wanneer de context wordt verlaten.
+Voor grote bestanden, laad bij voorkeur vanaf bestandspaden, sluit elke bron‑presentatie zodra deze is samengevoegd, en vermijd herhaaldelijk opslaan van tussenresultaten tenzij de workflow checkpoints vereist. Het gebruik van `with slides.Presentation(...)` zorgt ervoor dat presentatie‑resources worden vrijgegeven wanneer de context wordt verlaten.
 
-### **Thread‑Veiligheid**
+### **Thread‑veiligheid**
 
-Laad, sla op of kloon een [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/)‑instantie niet gelijktijdig vanuit meerdere threads. Houd elke samenvoeg‑operatie enkel‑threaded. Als je onafhankelijke samenvoeg‑taken paralleliseert, gebruik dan aparte enkel‑threaded processen en onafhankelijke presentatiedinstanties zoals beschreven in de [Aspose.Slides multithreading guidance](https://docs.aspose.com/slides/nl/python-net/multithreading/).
+Laad, sla op of kloon een [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/)‑instantie niet gelijktijdig vanuit meerdere threads. Houd elke samenvoegbewerking single‑threaded. Als u onafhankelijke samenvoeg‑taken paralleliseert, gebruik dan afzonderlijke single‑threaded processen en onafhankelijke presentatie‑instanties zoals beschreven in de [Aspose.Slides multithreading guidance](/slides/nl/python-net/multithreading/).
 
 ## **FAQ**
 
-**Hoe behoud ik het originele ontwerp van elke bronpresentatie?**
+**Hoe behoud ik het oorspronkelijke ontwerp van elke bron‑presentatie?**
 
-Gebruik [`add_clone(source_slide)`](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidecollection/add_clone/) zonder een doel‑master of -lay‑out op te geven. Aspose.Slides kan de bron‑master automatisch klonen wanneer deze nodig is voor de geïmporteerde dia.
+Gebruik [add_clone](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidecollection/add_clone/) zonder een bestemmings‑master of -lay‑out op te geven. Aspose.Slides kan de bron‑master automatisch klonen wanneer deze nodig is voor de geïmporteerde dia.
 
-**Hoe laat ik geïmporteerde dia's het doel‑thema gebruiken?**
+**Hoe laat ik geïmporteerde dia's het thema van de bestemming gebruiken?**
 
-Gebruik de overload die een doel‑master accepteert. Geef een master uit de doelpresentatie door, niet uit de bron. Aspose.Slides probeert elke bron‑dia te koppelen aan een passende lay‑out onder die master.
+Gebruik de overload die een bestemmings‑master accepteert. Geef een master uit de bestemmingspresentatie op, niet uit de bron. Aspose.Slides probeert vervolgens elke bron‑dia te koppelen aan een passende lay‑out onder die master.
 
-**Wanneer moet ik een specifieke doel‑lay‑out gebruiken in plaats van een doel‑master?**
+**Wanneer moet ik een specifieke bestemmings‑lay‑out gebruiken in plaats van een bestemmings‑master?**
 
-Gebruik een specifieke lay‑out wanneer elke geïmporteerde dia één bekende lay‑out moet gebruiken. Gebruik een master wanneer je wilt dat Aspose.Slides kiest uit de lay‑outs van die master op basis van het bron‑lay‑outtype of -naam.
+Gebruik een specifieke lay‑out wanneer elke geïmporteerde dia één bekende lay‑out moet gebruiken. Gebruik een master wanneer u wilt dat Aspose.Slides kiest uit de lay‑outs van die master op basis van het type of de naam van de bron‑lay‑out.
 
 **Kunnen presentaties met verschillende dia‑groottes worden samengevoegd?**
 
-Ja, maar de dia‑inhoud wordt niet automatisch opnieuw ontworpen voor de doel‑dimensies. Resize de bronpresentatie eerst wanneer je voorspelbare plaatsing nodig hebt, bijvoorbeeld met [SlideSize.set_size](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidesize/set_size/) en [SlideSizeScaleType.ENSURE_FIT](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidesizescaletype/).
+Ja, maar de dia‑inhoud wordt niet automatisch herontworpen voor de doelafmetingen. Schaal de bron‑presentatie eerst wanneer u voorspelbare plaatsing nodig heeft, bijvoorbeeld met [SlideSize.set_size](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidesize/set_size/) en [SlideSizeScaleType.ENSURE_FIT](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidesizescaletype/).
 
-**Kan ik PPT, PPTX en ODP‑presentaties in één bestand samenvoegen?**
+**Kan ik PPT, PPTX en ODP presentaties in één bestand samenvoegen?**
 
-Ja. Laad elke bronpresentatie, kloon de vereiste dia's naar één doelpresentatie en sla de doelpresentatie op in een ondersteund uitvoerformaat. Omdat presentaties verschillende functionaliteiten bieden, controleer complexe inhoud na cross‑format samenvoegingen. Zie [Supported File Formats](https://docs.aspose.com/slides/nl/python-net/supported-file-formats/).
+Ja. Laad elke bron‑presentatie, kloon de vereiste dia's naar één bestemming, en sla de bestemming op in een ondersteund output‑formaat. Omdat bestandsformaten niet exact dezelfde functionaliteit bieden, controleer complexe content na cross‑format samenvoegingen. Zie [Supported File Formats](/slides/nl/python-net/supported-file-formats/).
 
 **Worden bron‑secties automatisch behouden?**
 
-Nee, niet door een eenvoudige lus die alleen dia's kloont. Maak de benodigde secties in de doelpresentatie opnieuw aan en gebruik de sectie‑overload van [add_clone](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidecollection/add_clone/) wanneer de sectiestructuur behouden moet blijven.
+Niet door een eenvoudige lus die alleen dia's kloont. Maak de benodigde secties in de bestemming aan en gebruik de sectie‑overload van [add_clone](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidecollection/add_clone/) wanneer de sectiestructuur behouden moet blijven.
 
-**Worden speaker‑notes en opmerkingen behouden?**
+**Worden spreker‑notities en opmerkingen behouden?**
 
-Ze worden meegekopieerd met de gekloonede dia. Voor workflows die afhankelijk zijn van notitie‑master‑styling, commentauteur‑informatie of geneste review‑data, controleer het samengevoegde resultaat omdat deze scenario's zowel presentatieniveau‑structuren als dia‑niveau‑inhoud betreffen.
+Ze worden gekopieerd met de gekloonde dia. Voor workflows die afhankelijk zijn van notitie‑master‑styling, auteurs van opmerkingen of geneste review‑data, controleer het samengevoegde resultaat omdat die scenario’s zowel presentatieniveau‑structuren als dia‑niveau‑content omvatten.
 
 **Wat gebeurt er met audio, video, OLE‑objecten en hyperlinks?**
 
-Ingesloten inhoud wordt meegenomen als onderdeel van de gekloonede dia‑resource‑relaties. Externe links blijven extern, dus hun doel‑bestanden of URL‑s moeten nog steeds beschikbaar zijn na de samenvoeging.
+Ingesloten content wordt meegenomen als onderdeel van de resource‑relaties van de gekloonde dia. Externe links blijven extern, dus hun doel‑bestanden of URL’s moeten nog steeds beschikbaar zijn na het samenvoegen.
 
-**Zijn ingesloten lettertypen van elke bron gegarandeerd aanwezig in de samengevoegde presentatie?**
+**Zijn ingesloten lettertypen van elke bron gegarandeerd beschikbaar in de samengevoegde presentatie?**
 
-Vertrouw niet alleen op dia‑klonen voor lettertype‑distributie. Inspecteer de ingesloten lettertypen van de doelpresentatie en beheer het insluiten of de beschikbaarheid van externe lettertypen expliciet wanneer typografie belangrijk is.
+Vertrouw niet uitsluitend op dia‑klonen voor font‑distributie. Inspecteer de ingesloten lettertypen van de bestemming en beheer het insluiten of de beschikbaarheid van externe lettertypen expliciet wanneer typografie belangrijk is.
 
-**Hoe merge ik een wachtwoord‑beveiligd bestand?**
+**Hoe combineer ik een wachtwoord‑beveiligd bestand?**
 
-Open het met het juiste [LoadOptions.password](https://reference.aspose.com/slides/nl/python-net/aspose.slides/loadoptions/password/), kloon daarna de dia's normaal. Uitvoerbeveiliging wordt apart geconfigureerd.
+Open het met het juiste [LoadOptions.password](https://reference.aspose.com/slides/nl/python-net/aspose.slides/loadoptions/password/), kloon vervolgens de dia's zoals gewoonlijk. De output‑beveiliging wordt apart geconfigureerd.
 
-**Hoe moet ik erg grote presentaties afhandelen?**
+**Hoe moet ik zeer grote presentaties afhandelen?**
 
-Gebruik BLOB‑beheer wanneer grote binaire objecten het geheugengebruik domineren, laad bij zeer grote bestanden bij voorkeur via bestandspad, sluit bron‑presentaties snel en sla het eindresultaat alleen op wanneer nodig.
+Gebruik BLOB‑beheer wanneer grote binaire objecten het geheugenbelast, laad bij voorkeur vanaf bestandspaden voor zeer grote bestanden, sluit bron‑presentaties direct na gebruik, en sla het eindresultaat pas op wanneer nodig.
 
-**Kan ik dia's vanuit meerdere threads samenvoegen?**
+**Kan ik dia's uit meerdere threads samenvoegen?**
 
-Laad, sla op of kloon geen [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/)‑instanties in meerdere threads. Houd elke samenvoeg‑operatie enkel‑threaded; gebruik onafhankelijke enkel‑threaded processen als je afzonderlijke merge‑taken wilt paralleliseren.
+Laad, sla op of kloon geen [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/)‑instanties in meerdere threads. Houd elke samenvoegbewerking single‑threaded; gebruik afzonderlijke single‑threaded processen als u onafhankelijke samenvoeg‑taken parallel wilt uitvoeren.

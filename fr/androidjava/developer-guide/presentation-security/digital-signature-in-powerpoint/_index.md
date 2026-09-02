@@ -17,21 +17,21 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Apprenez comment signer des présentations PPTX existantes avec des certificats PFX et utiliser Aspose.Slides pour Android via Java pour valider ou supprimer des signatures numériques."
+description: "Apprenez comment signer des présentations PPTX existantes avec des certificats PFX et utiliser Aspose.Slides pour Android via Java afin de valider ou de supprimer des signatures numériques."
 ---
 ## **Vue d'ensemble**
 
-Une signature numérique aide le destinataire à déterminer qui a signé une présentation et si le contenu signé a été modifié. Trois concepts de sécurité connexes sont importants ici :
+Une signature numérique aide le destinataire à déterminer qui a signé une présentation et si le contenu signé a été modifié. Trois concepts de sécurité liés sont importants ici :
 
 - Un **certificat numérique** est un justificatif électronique qui associe une identité à une clé publique. Une autorité de certification (CA) de confiance peut délivrer un certificat, ou une organisation peut utiliser un certificat auto‑signé pour les flux de travail internes.
-- Une **signature numérique** est créée à partir du contenu de la présentation et de la clé privée du détenteur du certificat. La clé publique du certificat peut ensuite être utilisée pour vérifier la signature. Une signature fournit une preuve d'origine et d'intégrité ; elle n’encrypte pas la présentation.
-- La **protection par mot de passe** contrôle si un utilisateur peut ouvrir ou modifier une présentation. Elle est distincte de la signature numérique et est décrite dans [Présentations protégées par mot de passe](/androidjava/password-protected-presentation/).
+- Une **signature numérique** est créée à partir du contenu de la présentation et de la clé privée du titulaire du certificat. La clé publique du certificat peut alors être utilisée pour vérifier la signature. Une signature fournit une preuve d’origine et d’intégrité ; elle n’encrypte pas la présentation.
+- La **protection par mot de passe** contrôle si un utilisateur peut ouvrir ou modifier une présentation. Elle est distincte de la signature numérique et est décrite dans [Présentations protégées par mot de passe](/slides/fr/androidjava/password-protected-presentation/).
 
-PowerPoint propose la commande **Ajouter une signature numérique** sous **Fichier > Info > Protéger la présentation**.
+PowerPoint propose la commande **Ajouter une signature numérique** sous **Fichier > Informations > Protéger la présentation**.
 
 ![Menu Protéger la présentation de PowerPoint avec Ajouter une signature numérique mis en évidence](add-digital-signature-in-powerpoint.png)
 
-Après l'ouverture d'une présentation signée, PowerPoint peut afficher une notification d'état de la signature.
+Après l’ouverture d’une présentation signée, PowerPoint peut afficher une notification d’état de la signature.
 
 ![Notification PowerPoint indiquant que la présentation contient des signatures valides](digital-signature-status-in-powerpoint.png)
 
@@ -39,13 +39,13 @@ Aspose.Slides expose les signatures via [IPresentation.getDigitalSignatures](htt
 
 ## **Comprendre les certificats PFX et les mots de passe**
 
-Un fichier PFX, également appelé fichier PKCS#12 et généralement doté d’une extension `.pfx` ou `.p12`, peut contenir un certificat X.509, sa clé privée et la chaîne de certificats. La clé privée est ce qui permet au détenteur de créer une signature. Un certificat sans clé privée accessible ne peut pas être utilisé pour signer une présentation.
+Un fichier PFX, également appelé fichier PKCS#12 et généralement doté d’une extension `.pfx` ou `.p12`, peut contenir un certificat X.509, sa clé privée et la chaîne de certificats. La clé privée est ce qui permet au titulaire de créer une signature. Un certificat sans clé privée accessible ne peut pas être utilisé pour signer une présentation.
 
-Le mot de passe PFX protège le paquet de certificat et la clé privée. Il n’est **pas** un mot de passe pour ouvrir ou modifier la présentation. Ne validez pas les fichiers PFX ni leurs mots de passe dans le contrôle de version. En production, limitez l’accès au fichier de certificat et récupérez son mot de passe depuis un magasin secret ou une autre source de configuration protégée. Les exemples ci‑dessous utilisent une variable d’environnement uniquement pour éviter d’intégrer le mot de passe dans le code.
+Le mot de passe PFX protège le paquet de certificat et la clé privée. Ce n’est **pas** un mot de passe pour ouvrir ou modifier la présentation. Ne validez pas les fichiers PFX ni leurs mots de passe dans le contrôle de source. En production, limitez l’accès au fichier de certificat et récupérez son mot de passe depuis un magasin de secrets ou une autre source de configuration protégée. Les exemples ci‑dessous utilisent une variable d’environnement uniquement pour éviter d’incorporer le mot de passe dans le code.
 
 ## **Ajouter une signature numérique à une présentation**
 
-Pour signer le flux de travail d’une vraie présentation, chargez un fichier PPTX existant, créez un [DigitalSignature](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/digitalsignature/) à partir d’un certificat PFX et de son mot de passe, ajoutez la signature à la collection de la présentation, puis enregistrez le fichier PPTX.
+Pour signer un flux de travail réel, chargez un fichier PPTX existant, créez un [DigitalSignature](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/digitalsignature/) à partir d’un certificat PFX et de son mot de passe, ajoutez la signature à la collection de la présentation, puis enregistrez‑la dans un fichier PPTX.
 
 ```java
 import com.aspose.slides.*;
@@ -67,7 +67,7 @@ try {
 }
 ```
 
-En enregistrant le résultat sous un nouveau nom, vous conservez le fichier source non signé. La valeur définie via [IDigitalSignature.setComments](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/idigitalsignature/#setComments-java.lang.String-) décrit le but de la signature ; ce n’est pas un contrôle de sécurité.
+Enregistrer le résultat sous un nouveau nom préserve le fichier source non signé. La valeur définie via [IDigitalSignature.setComments](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/idigitalsignature/#setComments-java.lang.String-) décrit le but de la signature ; ce n’est pas un contrôle de sécurité.
 
 ## **Valider les signatures numériques**
 
@@ -116,13 +116,13 @@ try {
 }
 ```
 
-Un résultat invalide signifie généralement que le contenu signé de la présentation ou les données de la signature ont changé après la création, ou que le fichier est endommagé. Supprimer toutes les signatures produit une présentation non signée, ainsi vérifier uniquement la validité des éléments n’est pas suffisant : un flux de travail sensible à la sécurité doit également s’assurer que le nombre attendu de signatures et les identités des signataires attendues sont présentes.
+Un résultat invalide signifie généralement que le contenu signé ou les données de la signature ont changé après la signature, ou que le fichier est endommagé. Supprimer toutes les signatures produit une présentation non signée, donc vérifier uniquement la validité des éléments n’est pas suffisant : un flux sensible à la sécurité doit aussi vérifier que le nombre attendu de signatures et les identités des signataires attendus sont présents.
 
-Ce résultat de validité ne doit pas être considéré comme une décision complète de confiance du certificat. En fonction de votre politique de sécurité, votre application peut également devoir construire et valider la chaîne de certificats X.509, vérifier les dates de validité du certificat et son statut de révocation, confirmer le sujet ou l’empreinte attendus, vérifier l’utilisation de la clé, et évaluer un horodatage fiable. La valeur renvoyée par [IDigitalSignature.getSignTime](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/idigitalsignature/#getSignTime--) à elle seule n’est pas la preuve d’une autorité d’horodatage fiable.
+Ce résultat de validité ne doit pas être considéré comme une décision complète de confiance du certificat. Selon votre politique de sécurité, votre application peut également devoir construire et valider la chaîne de certificats X.509, vérifier les dates de validité du certificat et son état de révocation, confirmer le sujet ou l’empreinte attendus, vérifier l’usage de la clé, et évaluer un horodatage fiable. La valeur [IDigitalSignature.getSignTime](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/idigitalsignature/#getSignTime--) à elle seule n’est pas une preuve provenant d’une autorité d’horodatage de confiance.
 
 ## **Supprimer les signatures numériques**
 
-Supprimer les signatures modifie l’état de sécurité de la présentation. L’exemple suivant charge un fichier PPTX signé, supprime toutes les signatures avec [IDigitalSignatureCollection.clear](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/idigitalsignaturecollection/#clear--), et enregistre une copie non signée.
+Supprimer des signatures modifie l’état de sécurité de la présentation. L’exemple suivant charge un fichier PPTX signé, supprime toutes les signatures avec [IDigitalSignatureCollection.clear](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/idigitalsignaturecollection/#clear--), puis enregistre une copie non signée.
 
 ```java
 Presentation presentation = new Presentation("InputPresentation-signed.pptx");
@@ -134,54 +134,54 @@ try {
 }
 ```
 
-Pour supprimer uniquement une signature, appelez [IDigitalSignatureCollection.removeAt](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/idigitalsignaturecollection/#removeAt-int-) avec son indice basé sur zéro. Enregistrez dans un nouveau fichier sauf si écraser l’original signé fait partie explicite de votre flux de travail.
+Pour ne supprimer qu’une seule signature, appelez [IDigitalSignatureCollection.removeAt](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/idigitalsignaturecollection/#removeAt-int-) avec son indice basé sur zéro. Enregistrez dans un nouveau fichier sauf si l’écrasement du original signé fait partie explicite de votre flux de travail.
 
-## **Considérations de modification et de format**
+## **Considérations d’édition et de format**
 
-- Une signature ne rend pas une présentation en lecture seule. Les utilisateurs et les applications peuvent toujours modifier le fichier, mais les modifications du contenu signé invalident normalement la signature existante.
+- Une signature ne rend pas une présentation en lecture seule. Les utilisateurs et les applications peuvent toujours modifier le fichier, mais les changements du contenu signé invalident normalement la signature existante.
 - Effectuez toutes les modifications prévues avant de signer. Si une présentation doit être modifiée, enregistrez la version révisée et signez à nouveau cette révision.
-- Conservez le résultat final au format PPTX. Convertir une présentation signée vers un autre format ne transfère pas la signature PPTX originale comme une signature valide pour le fichier converti.
-- Traitez la clé privée du certificat comme sensible. Toute personne qui obtient la clé privée et son mot de passe peut créer des signatures qui semblent provenir du titulaire du certificat.
-- Conservez la source non signée ou une autre copie contrôlée lorsque votre politique de conservation des documents l’exige.
+- Conservez la sortie finale au format PPTX. Convertir une présentation signée vers un autre format ne transfère pas la signature PPTX originale comme une signature valide pour le fichier converti.
+- Traitez la clé privée du certificat comme sensible. Quiconque obtient la clé privée et son mot de passe peut créer des signatures semblant provenir de ce titulaire de certificat.
+- Conservez le source non signé ou une autre copie contrôlée lorsque votre politique de conservation des documents l’exige.
 
 ## **FAQ**
 
-**Une signature numérique chiffre-t-elle la présentation ?**
+**Une signature numérique chiffre‑t‑elle la présentation ?**
 
-Non. Une signature numérique fournit une preuve d'origine et d'intégrité, mais le contenu de la présentation reste lisible à moins qu'un chiffrement distinct ne soit appliqué. Utilisez la [protection par mot de passe](/androidjava/password-protected-presentation/) lorsque l’accès au contenu doit être restreint.
+Non. Une signature numérique fournit une preuve d’origine et d’intégrité, mais le contenu de la présentation reste lisible à moins qu’un chiffrement séparé ne soit appliqué. Utilisez la [protection par mot de passe](/slides/fr/androidjava/password-protected-presentation/) lorsque l’accès au contenu doit être restreint.
 
-**Le mot de passe PFX est‑il le même que le mot de passe d’une présentation ?**
+**Le mot de passe PFX est‑il identique au mot de passe de la présentation ?**
 
 Non. Le mot de passe PFX débloque la clé privée stockée dans le paquet du certificat. Il ne contrôle pas qui peut ouvrir ou modifier le fichier PPTX.
 
 **Puis‑je utiliser un certificat auto‑signé ?**
 
-Techniquement, un certificat auto‑signé peut être utilisé s’il inclut une clé privée accessible. Cependant, les destinataires ne le feront pas automatiquement confiance, sauf si ce certificat a été explicitement ajouté à leur environnement de confiance. Les flux de travail publics ou inter‑organisationnels utilisent généralement un certificat émis par une autorité de certification de confiance.
+Techniquement, un certificat auto‑signé peut être utilisé lorsqu’il inclut une clé privée accessible. Cependant, les destinataires ne le feront pas automatiquement confiance, sauf s’il a été explicitement ajouté à leur environnement de confiance. Les flux de travail publics ou inter‑organisations utilisent généralement un certificat délivré par une CA de confiance.
 
 **Qu’est‑ce qui rend une signature invalide ?**
 
-Modifier le contenu signé de la présentation ou les données de la signature après la signature peut invalider la signature. La corruption du fichier peut également entraîner un échec de validation. Si toutes les signatures sont supprimées, la présentation devient non signée plutôt qu’un fichier contenant une signature invalide.
+Modifier le contenu signé de la présentation ou les données de la signature après la signature peut invalider la signature. La corruption du fichier peut également entraîner un échec de validation. Si toutes les signatures sont supprimées, la présentation est non signée plutôt que contenant une signature invalide.
 
 **Une signature valide signifie‑t‑elle que je dois faire confiance au signataire ?**
 
-Pas à elle seule. L’intégrité de la signature et la confiance envers le signataire sont des décisions distinctes. Une politique de validation en production doit également vérifier la chaîne de certificats, la période de validité, le statut de révocation, l’identité attendue, l’utilisation de la clé et toute exigence d’horodatage fiable.
+Pas à elle seule. L’intégrité de la signature et la confiance du signataire sont des décisions séparées. Une politique de validation en production doit également vérifier la chaîne de certificats, la période de validité, le statut de révocation, l’identité attendue, l’usage de la clé et les exigences éventuelles d’un horodatage fiable.
 
 **Que se passe‑t‑il lorsque le certificat expire ?**
 
-L’expiration du certificat n’altère pas les octets de la présentation, mais elle affecte l’évaluation de la confiance du certificat. La possibilité qu’une signature reste acceptable dépend de votre politique et de l’existence d’un horodatage fiable prouvant que la signature a été effectuée alors que le certificat était valide. Ne vous fiez pas uniquement à l’heure de signature affichée comme à un horodatage fiable.
+L’expiration du certificat n’affecte pas les octets de la présentation, mais elle influence l’évaluation de la confiance du certificat. Le fait qu’une signature reste acceptable dépend de votre politique et du fait qu’un horodatage fiable valide que la signature a été réalisée alors que le certificat était valide. Ne vous fiez pas uniquement à l’heure de signature affichée comme horodatage de confiance.
 
 **Une présentation signée peut‑elle encore être modifiée ?**
 
-Oui. La signature ne verrouille pas le fichier. Modifier le contenu signé rend généralement la signature existante invalide, il faut donc terminer la présentation d’abord et signer la version finale.
+Oui. La signature ne verrouille pas le fichier. Modifier le contenu signé rend généralement la signature existante invalide, donc terminez d’abord la présentation et signez la version finale.
 
 **Une présentation peut‑elle contenir plusieurs signatures ?**
 
-Oui. Ajoutez chaque signature à la collection renvoyée par [IPresentation.getDigitalSignatures](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ipresentation/#getDigitalSignatures--) avant d’enregistrer. Lors de la validation, examinez chaque signature et confirmez que tous les signataires requis sont présents.
+Oui. Ajoutez chaque signature à la collection renvoyée par [IPresentation.getDigitalSignatures](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ipresentation/#getDigitalSignatures--) avant d’enregistrer. Lors de la validation, inspectez chaque signature et confirmez que tous les signataires requis sont présents.
 
-**Quels formats de présentation prennent en charge ces opérations ?**
+**Quels formats de présentation supportent ces opérations ?**
 
-Aspose.Slides prend en charge les opérations de signature numérique décrites ici uniquement pour le format PPTX. Les formats de présentation PPT et OpenDocument ne sont pas supportés par ce flux de travail API.
+Aspose.Slides ne prend en charge les opérations de signature numérique décrites ici que pour le format PPTX. Les formats PPT et OpenDocument ne sont pas supportés par ce flux d’API.
 
 **Puis‑je supprimer une signature sans affecter les diapositives ?**
 
-Oui. Vous pouvez supprimer une signature ou vider toute la collection, puis enregistrer la présentation. Le contenu des diapositives reste disponible, mais le fichier enregistré ne porte plus la preuve de la signature supprimée.
+Oui. Vous pouvez supprimer une seule signature ou vider toute la collection, puis enregistrer la présentation. Le contenu des diapositives reste disponible, mais le fichier enregistré ne comporte plus la preuve de signature supprimée.

@@ -5,38 +5,38 @@ type: docs
 weight: 10
 url: /fa/androidjava/presentation-theme/
 keywords:
-- تم PowerPoint
+- تم پاورپوینت
 - تم ارائه
 - تم اسلاید
 - تنظیم تم
 - تغییر تم
 - مدیریت تم
 - رنگ تم
-- پالت اضافی
+- پالت اضافه
 - قلم تم
 - سبک تم
-- افکت تم
-- PowerPoint
+- اثر تم
+- پاورپوینت
 - OpenDocument
 - ارائه
-- Android
-- Java
+- اندروید
+- جاوا
 - Aspose.Slides
-description: "تم‌های اصلی ارائه در Aspose.Slides برای اندروید از طریق Java برای ایجاد، سفارشی‌سازی و تبدیل فایل‌های PowerPoint با برندینگ یکپارچه."
+description: "تم‌های اصلی ارائه در Aspose.Slides برای اندروید از طریق جاوا برای ایجاد، سفارشی‌سازی و تبدیل فایل‌های پاورپوینت با برندینگ یکپارچه."
 ---
-## **معرفی**
+## **مقدمه**
 
-یک تم ارائه مجموعه‌ای هماهنگ از رنگ‌ها، قلم‌ها، سبک‌های پس‌زمینه، پرکننده‌ها، خطوط و افکت‌ها را تعریف می‌کند. اشیای آگاه از تم به جای ذخیره هر ویژگی بصری به‌عنوان یک مقدار ثابت، به این تعاریف مشترک ارجاع می‌دهند، بنابراین تغییر تم می‌تواند تعداد زیادی از اشیاء را به‌صورت هم‌زمان به‌روز کند.
+یک تم ارائه مجموعهٔ هماهنگی از رنگ‌ها، قلم‌ها، سبک‌های پس‌زمینه، پرکننده‌ها، خطوط و افکت‌ها را تعریف می‌کند. اشیاء آگاه از تم به‌جای ذخیرهٔ هر ویژگی بصری به‌صورت مقدار ثابت، به این تعاریف مشترک ارجاع می‌دهند، بنابراین تغییر تم می‌تواند بسیاری از اشیاء را یک‌بار به‌روزرسانی کند.
 
-در Aspose.Slides، تم سطح ارائه از طریق [Presentation.getMasterTheme](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) در دسترس است. یک ارائه می‌تواند همچنین باطل‌سازی‌های تم را در سطوح پایین‌تر داشته باشد. یک مستر می‌تواند تم ارائه را از طریق [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/masterthememanager/) باطل‌سازی کند، در حالی که یک طرح‌بندی یا اسلاید منفرد می‌تواند تم وارث خود را از طریق [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/baseoverridethememanager/) باطل‌سازی کند. در عمل، تم مؤثر برای یک اسلاید از طریق این زنجیره وراثت حل می‌شود: تم ارائه، باطل‌سازی مستر، باطل‌سازی طرح‌بندی، و باطل‌سازی اسلاید.
+در Aspose.Slides، تم سطح ارائه از طریق [Presentation.getMasterTheme](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) در دسترس است. یک ارائه می‌تواند بازنویسی‌های تم را در سطوح پایین‌تر نیز داشته باشد. یک master می‌تواند تم ارائه را از طریق [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/masterthememanager/) بازنویسی کند، در حالی که یک layout یا یک اسلاید تک‌تک می‌تواند تم وارث شده خود را از طریق [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/baseoverridethememanager/) بازنویسی کند. در عمل، تم مؤثر برای یک اسلاید از طریق این زنجیرهٔ ارث‌بری حل می‌شود: تم ارائه، بازنویسی master، بازنویسی layout و بازنویسی اسلاید.
 
-![اجزای تم: رنگ‌ها، قلم‌ها، سبک‌های پس‌زمینه و افکت‌ها](theme-constituents.png)
+![مؤلفه‌های تم: رنگ‌ها، قلم‌ها، سبک‌های پس‌زمینه و افکت‌ها](theme-constituents.png)
 
-بخش‌های زیر رایج‌ترین گردش‌های کار تم را نشان می‌دهند: بررسی یک تم، تغییر رنگ‌ها و قلم‌ها، کپی یا اعمال یک تم، به‌روزرسانی سبک‌های پس‌زمینه و افکت، و خواندن مقادیر مؤثر پس از حل وراثت و باطل‌سازی‌ها.
+بخش‌های زیر رایج‌ترین جریان‌های کاری تم را نشان می‌دهند: بازرسی یک تم، تغییر رنگ‌ها و قلم‌ها، کپی یا اعمال یک تم، به‌روزرسانی سبک‌های پس‌زمینه و افکت، و خواندن مقادیر مؤثر پس از حل ارث‌بری و بازنویسی‌ها.
 
-## **بررسی یک تم**
+## **بازرسی یک تم**
 
-شیء [MasterTheme](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/mastertheme/) طرح رنگ تم، طرح قلم تم و طرح قالب را از طریق [MasterTheme.getColorScheme](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/mastertheme/)، [MasterTheme.getFontScheme](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/mastertheme/) و [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/mastertheme/) در اختیار می‌گذارد. بررسی این مجموعه‌ها پیش از تغییر آنها به‌ویژه وقتی ارائه از منبع خارجی می‌آید مفید است، زیرا تعداد و محتوای ورودی‌های سبک می‌تواند متفاوت باشد.
+شیء [MasterTheme](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/mastertheme/) طرح رنگی، طرح قلمی و طرح قالب تم را از طریق [MasterTheme.getColorScheme](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/mastertheme/)، [MasterTheme.getFontScheme](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/mastertheme/) و [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/mastertheme/) در معرض نمایش می‌گذارد. بازرسی این مجموعه‌ها قبل از تغییر آن‌ها به‌ویژه زمانی مفید است که یک ارائه از منبع خارجی آمده باشد، زیرا تعداد و محتوای ورودی‌های سبک می‌تواند متفاوت باشد.
 
 مثال زیر ویژگی‌های اصلی تم را می‌خواند و گزارش می‌دهد که چند سبک پس‌زمینه، پرکننده، خط و افکت در تم ذخیره شده‌اند:
 
@@ -61,13 +61,13 @@ try {
 }
 ```
 
-اگر فایلی از چند مستر استفاده کند، فرض نکنید که هر اسلاید همان تم مؤثر را دارد. مستری که به اسلاید مرتبط است را بررسی کنید و از گردش کار تم مؤثر که در ادامه مقاله نشان داده شده است استفاده کنید وقتی که باطل‌سازی‌های طرح‌بندی یا اسلاید ممکن است وجود داشته باشند.
+اگر فایلی از چند master استفاده کند، فرض نکنید هر اسلاید همان تم مؤثر را داشته باشد. master مرتبط با اسلاید را بازرسی کنید و از جریان کاری تم مؤثر که بعداً در این مقاله نشان داده شده است استفاده کنید زمانی که بازنویسی‌های layout یا اسلاید ممکن است وجود داشته باشند.
 
 ## **تغییر رنگ‌های تم**
 
-پرکننده‌ها، خطوط و متن‌های آگاه از تم می‌توانند به یک رنگ منطقی از شمارشگر [SchemeColor](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/schemecolor/) ارجاع دهند. وقتی ورودی متناظر را در [IColorScheme](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/icolorscheme/) تغییر می‌دهید، تمام اشیائی که هنوز به آن رنگ تم ارجاع می‌دهند نسبت به مقدار جدید حل می‌شوند. اشیایی که از یک رنگ RGB مستقیم استفاده می‌کنند، توسط به‌روزرسانی رنگ تم تغییر نمی‌کنند.
+پرکننده‌ها، خطوط و متن‌های آگاه از تم می‌توانند به یک رنگ منطقی از شمارش‌گر [SchemeColor](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/schemecolor/) ارجاع دهند. وقتی ورودی متناظر در [IColorScheme](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/icolorscheme/) را تغییر می‌دهید، تمام اشیائی که هنوز به آن رنگ تم ارجاع می‌دهند، نسبت به مقدار جدید حل می‌شوند. اشیائی که از یک رنگ RGB مستقیم استفاده می‌کنند، با به‌روزرسانی رنگ تم تغییر نمی‌کنند.
 
-مثال انتها‑به‑انتها زیر یک شکل ایجاد می‌کند که از `Accent4` استفاده می‌کند، رنگ `Accent4` تم را به قرمز تغییر می‌دهد، ارائه را ذخیره می‌کند، آن را دوباره باز می‌کند و رنگ پرکننده مؤثر را چاپ می‌کند:
+مثال انتها‑به‑انتها زیر یک شکل ایجاد می‌کند که از `Accent4` استفاده می‌کند، رنگ `Accent4` تم را به قرمز تغییر می‌دهد، ارائه را ذخیره می‌کند، دوباره باز می‌کند و رنگ پرکننده مؤثر را چاپ می‌کند:
 
 ```java
 import com.aspose.slides.*;
@@ -97,19 +97,19 @@ try {
 }
 ```
 
-چون مستطیل همچنان به `Accent4` متصل است، رنگ قابل مشاهده‌اش پس از تغییر تم به قرمز تبدیل می‌شود. اگر رنگ شمارشگر را با یک رنگ مستقیم روی شکل جایگزین کنید، تغییرات بعدی `Accent4` دیگر آن پرکننده را تحت تأثیر قرار نخواهد داد.
+از آنجا که مستطیل به `Accent4` مرتبط باقی می‌ماند، رنگ قابل مشاهده آن پس از تغییر تم به قرمز تبدیل می‌شود. اگر رنگ طرح را با یک رنگ مستقیم روی شکل جایگزین کنید، تغییرات بعدی `Accent4` دیگر آن پرکننده را تحت تأثیر قرار نمی‌دهد.
 
-### **استفاده از رنگ‌ها از پالت اضافی**
+### **استفاده از رنگ‌ها از پالت اضافه**
 
-PowerPoint با اعمال تبدیل‌های رنگی، انواع روشن‌تر و تیره‌تر را از یک رنگ تم استخراج می‌کند. Aspose.Slides این تبدیل‌ها را از طریق شمارشگر [ColorTransformOperation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/colortransformoperation/) در اختیار می‌گذارد.
+PowerPoint با اعمال تبدیلات رنگی، متغیرهای روشن‌تر و تیره‌تر را از یک رنگ تم استخراج می‌کند. Aspose.Slides این تبدیلات را از طریق شمارش‌گر [ColorTransformOperation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/colortransformoperation/) در معرض نمایش می‌گذارد.
 
-![رنگ‌های اصلی تم و رنگ‌های روشن‌تر و تیره‌تر تولید شده از پالت اضافی](additional-palette-colors.png)
+![رنگ‌های اصلی تم و رنگ‌های روشن‌تر و تیره‌تر تولید شده از پالت اضافه](additional-palette-colors.png)
 
 **1** - رنگ‌های اصلی تم.
 
-**2** - انواع روشن‌تر و تیره‌تر تولید شده از رنگ‌های اصلی تم.
+**2** - متغیرهای روشن‌تر و تیره‌تر تولید شده از رنگ‌های اصلی تم.
 
-مثال زیر شش مستطیل مبتنی بر `Accent4` ایجاد می‌کند، به پنج مورد از آنها تبدیل‌های روشنایی اعمال می‌کند و نتیجه را ذخیره می‌نماید:
+مثال زیر شش مستطیل بر پایه `Accent4` ایجاد می‌کند، برای پنج تا از آن‌ها تبدیلات روشنایی اعمال می‌کند و نتیجه را ذخیره می‌نماید:
 
 ```java
 import com.aspose.slides.*;
@@ -156,11 +156,11 @@ try {
 }
 ```
 
-این انواع همچنان بر پایه رنگ تم باقی می‌مانند. اگر `Accent4` بعداً تغییر کند، رنگ‌های تبدیل‌شده از مقدار جدید `Accent4` دوباره محاسبه می‌شوند.
+این متغیرها بر پایه رنگ تم باقی می‌مانند. اگر `Accent4` بعداً تغییر کند، رنگ‌های تبدیل‌شده از مقدار جدید `Accent4` مجدداً محاسبه می‌شوند.
 
 ### **نقشه‌برداری مقادیر `SchemeColor` به اسلات‌های `IColorScheme`**
 
-شمارشگر [SchemeColor](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/schemecolor/) از `Text1`، `Background1`، `Text2` و `Background2` استفاده می‌کند، در حالی که [IColorScheme](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/icolorscheme/) همان اسلات‌های تم را به‌عنوان `Dark1`، `Light1`، `Dark2` و `Light2` ارائه می‌دهد. این نگاشت ثابت است:
+شمارش‌گر [SchemeColor](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/schemecolor/) از `Text1`، `Background1`، `Text2` و `Background2` استفاده می‌کند، در حالی که [IColorScheme](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/icolorscheme/) همان اسلات‌های تم را به عنوان `Dark1`، `Light1`، `Dark2` و `Light2` در دسترس می‌گذارد. نقشه ثابت است:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
@@ -171,16 +171,16 @@ try {
 
 ## **تغییر قلم‌های تم**
 
-یک طرح قلم تم شامل یک مجموعه قلم بزرگ برای سرخط‌ها و یک مجموعه قلم کوچک برای متن بدنه است. متدهای [IFontScheme.getMajor](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ifontscheme/) و [IFontScheme.getMinor](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ifontscheme/) این مجموعه‌ها را در اختیار می‌گذارند.
+یک طرح قلمی تم شامل یک مجموعه قلم اصلی برای سرفصل‌ها و یک مجموعه قلم فرعی برای متن بدنه است. متدهای [IFontScheme.getMajor](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ifontscheme/) و [IFontScheme.getMinor](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ifontscheme/) این مجموعه‌ها را در معرض نمایش می‌گذارند.
 
 شناسه‌های قلم تم سازگار با PowerPoint می‌توانند در قالب‌بندی متن استفاده شوند:
 
 * `+mn-lt` - قلم بدنه لاتین (Minor Latin Font)
-* `+mj-lt` - قلم سرخط لاتین (Major Latin Font)
+* `+mj-lt` - قلم سرفصل لاتین (Major Latin Font)
 * `+mn-ea` - قلم بدنه آسیای شرقی (Minor East Asian Font)
-* `+mj-ea` - قلم سرخط آسیای شرقی (Major East Asian Font)
+* `+mj-ea` - قلم سرفصل آسیای شرقی (Major East Asian Font)
 
-مثال زیر یک سرخط که از قلم لاتین بزرگ تم استفاده می‌کند و یک خط بدنه که از قلم لاتین کوچک تم استفاده می‌کند، ایجاد می‌کند. سپس قلم‌های تم را تغییر می‌دهد و نتیجه را ذخیره می‌کند:
+مثال زیر یک سرفصل که از قلم لاتین اصلی تم استفاده می‌کند و یک خط بدنه که از قلم لاتین فرعی تم استفاده می‌کند، ایجاد می‌کند. سپس قلم‌های تم را تغییر می‌دهد و نتیجه را ذخیره می‌کند:
 
 ```java
 import com.aspose.slides.*;
@@ -205,19 +205,21 @@ try {
 }
 ```
 
-سرخط از قلم بزرگ پیروی می‌کند و متن بدنه از قلم کوچک. متنی که به‌جای شناسه تم، نام قلم صریح داشته باشد، به‌صورت خودکار هنگام تغییر طرح قلم تم سوئیچ نخواهد شد.
+سرفصل از قلم اصلی پیروی می‌کند و متن بدنه از قلم فرعی. متنی که دارای نام قلم صریح به‌جای شناسهٔ تم باشد، به‌صورت خودکار تغییر نمی‌کند وقتی طرح قلمی تم تغییر یابد.
 
-{{% alert color="info" title="Tip" %}}
+مجموعه‌های قلم اصلی و فرعی می‌توانند شامل نگاشت‌های قلم برای سیستم‌های نوشتاری مختلف مانند سیریلی، عربی، ژاپنی، گرجی و ثانا باشند. برای بازرسی، افزودن، جایگزینی یا حذف این نگاشت‌ها، به بخش [Script‑Specific Theme Fonts](/slides/fa/androidjava/script-specific-font-mappings/) مراجعه کنید.
+
+{{% alert color="info" title="نکته" %}}
 برای اطلاعات بیشتر درباره قلم‌های ارائه، به [PowerPoint Fonts](/slides/fa/androidjava/powerpoint-fonts/) مراجعه کنید.
 {{% /alert %}}
 
 ## **کپی یا اعمال یک تم**
 
-دو گردش کار رایج وجود دارد که مشکلات متفاوتی را حل می‌کنند.
+دو جریان کاری رایج وجود دارد که هر کدام مشکل متفاوتی را حل می‌کنند.
 
 ### **حفظ تم منبع هنگام جابجایی اسلایدها**
 
-اگر می‌خواهید اسلایدی را به ارائه دیگر منتقل کنید و طراحی اصلی آن را حفظ کنید، مستر منبع را با استفاده از [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imasterslidecollection/) به ارائه هدف اضافه کنید، سپس اسلاید را با استفاده از [ISlideCollection.addClone](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/islidecollection/) و مستر کپی‌شده کلون کنید. این کار مستر، طرح‌بندی‌های آن و تم مرتبط را همراه می‌برد.
+اگر می‌خواهید یک اسلاید را به ارائهٔ دیگری منتقل کنید و طراحی اصلی آن را حفظ نمایید، master منبع را با استفاده از [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imasterslidecollection/) به ارائه هدف اضافه کنید، سپس اسلاید را با [ISlideCollection.addClone](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/islidecollection/) و master کلون‌شده کپی کنید. این کار master، لایه‌های آن و تم مرتبط را همراه‌هم می‌برد.
 
 ```java
 import com.aspose.slides.*;
@@ -239,11 +241,11 @@ try {
 }
 ```
 
-این گردش کار ترجیحی است وقتی که اسلاید منبع باید در مقصد همان ظاهر را داشته باشد. فقط کلون کردن محتوا روی یک مستر مقصد نامرتبط می‌تواند رنگ‌ها، قلم‌ها، پس‌زمینه و افکت‌های مبتنی بر تم را تغییر دهد.
+این جریان کاری زمانی ترجیح داده می‌شود که اسلاید منبع باید در مقصد همان ظاهر را داشته باشد. ساده‌سازی محتوا روی master مقصدی نامرتبط می‌تواند رنگ‌ها، قلم‌ها، پس‌زمینه‌ها و افکت‌های مبتنی بر تم را تغییر دهد.
 
 ### **اعمال مقادیر تم به یک اسلاید موجود**
 
-اگر اسلاید هدف باید روی مستر و طرح‌بندی فعلی خود بماند، یک باطل‌سازی سطح اسلاید را از تم منبع مقداردهی اولیه کنید. متدهای [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/overridetheme/)، [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/overridetheme/) و [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/overridetheme/) سه مؤلفه اصلی تم را به باطل‌سازی کپی می‌کنند.
+اگر اسلاید هدف باید روی master و layout فعلی خود بماند، یک بازنویسی سطح اسلاید را از تم منبع مقداردهی اولیه کنید. متدهای [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/overridetheme/)، [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/overridetheme/) و [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/overridetheme/) سه بخش اصلی تم را به بازنویسی کپی می‌کنند.
 
 ```java
 import com.aspose.slides.*;
@@ -266,11 +268,11 @@ try {
 }
 ```
 
-این کار تم استفاده‌شده توسط آن اسلاید را بدون تغییر تم وارث شده توسط سایر اسلایدها تغییر می‌دهد. برای حذف باطل‌سازی محلی و بازگشت به مقادیر وارث شده، متد [OverrideTheme.clear](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/overridetheme/) را صدا بزنید.
+این کار تم استفاده‌شده توسط آن اسلاید را بدون تغییر تم وارث‌شده توسط سایر اسلایدها تغییر می‌دهد. برای حذف بازنویسی محلی و بازگشت به مقادیر وارث‌شده، متد [OverrideTheme.clear](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/overridetheme/) را فراخوانی کنید.
 
-### **اعمال باطل‌سازی تم به یک طرح‌بندی**
+### **اعمال بازنویسی تم به یک Layout**
 
-یک باطل‌سازی سطح طرح‌بندی بر اسلایدهایی که از آن طرح‌بندی استفاده می‌کنند اعمال می‌شود، مگر آنکه اسلاید خاصی باطل‌سازی خودش را داشته باشد. همان متدهای مقداردهی اولیه می‌توانند از طریق [LayoutSlideThemeManager](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/layoutslidethememanager/) استفاده شوند:
+یک بازنویسی سطح layout بر اسلایدهایی که از آن layout استفاده می‌کنند اعمال می‌شود مگر این که اسلاید خاص خود بازنویسی داشته باشد. همان متدهای مقداردهی اولیه می‌توانند از طریق [LayoutSlideThemeManager](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/layoutslidethememanager/) استفاده شوند:
 
 ```java
 import com.aspose.slides.*;
@@ -294,17 +296,17 @@ try {
 }
 ```
 
-از تم سطح مستر یا ارائه استفاده کنید وقتی که بسیاری از طرح‌بندی‌ها و اسلایدها باید همان طرح پایه را به‌اشتراک بگذارند، از باطل‌سازی سطح طرح‌بندی وقتی که یک خانواده طرح‌بندی به استایل متفاوتی نیاز دارد، و از باطل‌سازی اسلاید فقط برای استثنای واقعی استفاده کنید. باطل‌سازی‌های اسلاید‑سطح بیش از حد، تغییرات سراسری تم را در آینده پیش‌بینی‌پذیرتر می‌کند.
+از تم master یا سطح ارائه استفاده کنید زمانی که بسیاری از layoutها و اسلایدها باید همان طراحی پایه را به اشتراک بگذارند، یک بازنویسی layout زمانی استفاده شود که یک خانواده layout نیاز به استایل متفاوت داشته باشد، و یک بازنویسی اسلاید فقط برای استثناهای واقعی. بازنویسی‌های بیش از حد در سطح اسلاید، اعمال تغییرات سراسری تم بعدی را دشوار می‌کند.
 
 ## **به‌روزرسانی سبک‌های پس‌زمینه تم**
 
-پرکننده‌های پس‌زمینه تم در [IFormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iformatscheme/) ذخیره می‌شوند. PowerPoint می‌تواند گزینه‌های پس‌زمینه بیشتری را در UI خود ارائه دهد نسبت به تعداد تعریف‌های پرکننده‌ای که فیزیکی در این مجموعه ذخیره شده‌اند، زیرا UI می‌تواند پرکننده‌های تم را با رنگ‌های تم و سایر مراجع سبک ترکیب کند.
+سبک‌های پرکننده پس‌زمینه تم در [IFormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iformatscheme/) ذخیره می‌شوند. PowerPoint می‌تواند گزینه‌های پس‌زمینه بیشتری در UI خود نشان دهد نسبت به تعداد تعاریف پرکننده‌ای که فیزیکی در این مجموعه ذخیره شده‌اند، زیرا UI می‌تواند پرکننده‌های تم را با رنگ‌های تم و سایر ارجاعات سبک ترکیب کند.
 
-![گالری سبک پس‌زمینه PowerPoint برای یک تم ارائه](presentation-design_8.png)
+![گالری سبک پس‌زمینهٔ PowerPoint برای تم یک ارائه](presentation-design_8.png)
 
-قبل از استفاده از یک سبک پس‌زمینه، مجموعه ذخیره‌شده و شاخص سبک فعلی را با [Background.getStyleIndex](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/background/) بررسی کنید. یک شاخص سبک `0` به این معنی است که پرکننده‌ای تم‌شده وجود ندارد؛ مقادیر مثبت مراجع سبک پس‌زمینه تم هستند. این متفاوت از ایندکس‌گذاری مستقیم مجموعه جاوا است، جایی که `get_Item(0)` به اولین مورد ذخیره‌شده اشاره دارد. فرض نکنید که هر ارائه همان تعداد سبک پرکننده پس‌زمینه را دارد.
+قبل از استفاده از یک سبک پس‌زمینه، مجموعه ذخیره‌شده و مقدار فعلی [Background.getStyleIndex](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/background/) را بازرسی کنید. یک شاخص سبک برابر با `0` به معنی عدم وجود پرکنندهٔ تم است؛ مقادیر مثبت ارجاع‌های سبک پس‌زمینهٔ تم هستند. این متفاوت از ایندکس‌گذاری مستقیم مجموعهٔ Java است، جایی که `get_Item(0)` اولین آیتم ذخیره‌شده را نشان می‌دهد. فرض نکنید هر ارائه همان تعداد سبک پرکننده پس‌زمینه دارد.
 
-مثال زیر تعداد پرکننده‌های پس‌زمینه موجود را گزارش می‌دهد، یک مرجع پس‌زمینه تم‌شده به اولین مستر اختصاص می‌دهد و ارائه را ذخیره می‌کند:
+مثال زیر تعداد پرکننده‌های پس‌زمینهٔ موجود را گزارش می‌کند، یک ارجاع پس‌زمینهٔ تم به اولین master اختصاص می‌دهد و ارائه را ذخیره می‌کند:
 
 ```java
 import com.aspose.slides.*;
@@ -326,25 +328,25 @@ try {
 }
 ```
 
-نتیجه‌ی قابل مشاهده به ورودی تم مرجع‌دار توسط مستر و هر باطل‌سازی پس‌زمینه در سطح طرح‌بندی یا اسلاید بستگی دارد. اگر اسلاید پس‌زمینه خودش را داشته باشد، تغییر تنها پس‌زمینه مستر ممکن است آن اسلاید را تغییر ندهد. هنگام نیاز به دانستن پس‌زمینه نهایی پس از اعمال وراثت از [Background.getEffective](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/background/) استفاده کنید.
+نتیجهٔ قابل مشاهده به تم‌ای که توسط master ارجاع داده شده و هر بازنویسی پس‌زمینه‌ای در سطح layout یا اسلاید بستگی دارد. اگر اسلاید پس‌زمینهٔ خود را داشته باشد، تغییر فقط پس‌زمینهٔ master ممکن است آن اسلاید را تحت تأثیر قرار ندهد. برای دانستن پس‌زمینهٔ نهایی پس از اعمال ارث‌بری، از [Background.getEffective](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/background/) استفاده کنید.
 
-{{% alert color="warning" title="Warning" %}}
-شاخص سبک را به‌عنوان یک شاخص صفر‑پایه‌ی مجموعه در نظر نگیرید. همچنین از کدنویسی سخت‌گیرانه‌ی یک شماره سبک از یک فایل و فرض اینکه در فایل دیگر همان ظاهر را دارد، خودداری کنید؛ تعاریف سبک تم به‌صورت خاص به ارائه هستند.
+{{% alert color="warning" title="هشدار" %}}
+شاخص سبک را به‌عنوان یک ایندکس صفر‑محور مجموعه در نظر نگیرید. همچنین از کدنویسی ثابت عدد سبک از یک فایل و انتظار داشتن ظاهر یکسان در فایل دیگر خودداری کنید؛ تعاریف سبک تم به ارائه خاص مربوط می‌شود.
 {{% /alert %}}
 
-{{% alert color="info" title="Tip" %}}
-برای قالب‌بندی مستقیم پس‌زمینه و وراثت پس‌زمینه، به [Presentation Background](/slides/fa/androidjava/presentation-background/) مراجعه کنید.
+{{% alert color="info" title="نکته" %}}
+برای قالب‌بندی مستقیم پس‌زمینه و ارث‌بری پس‌زمینه، به [Presentation Background](/slides/fa/androidjava/presentation-background/) مراجعه کنید.
 {{% /alert %}}
 
 ## **به‌روزرسانی افکت‌های تم**
 
-یک طرح قالب تم شامل مجموعه‌های جداگانه پرکننده، خط و افکت است که از طریق [IFormatScheme.getFillStyles](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iformatscheme/)، [IFormatScheme.getLineStyles](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iformatscheme/) و [IFormatScheme.getEffectStyles](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iformatscheme/) در دسترس هستند. تم‌های اداری معمولاً سه ورودی اصلی سبک دارند که بصورت بصری به فرمت‌های ظریف، متوسط و قوی متناظر هستند، اما کد باید هر مجموعه را به‌جای فرض تعداد ثابت بررسی کند.
+یک طرح قالب تم شامل مجموعه‌های جداگانهٔ پرکننده، خط و افکت است که از طریق [IFormatScheme.getFillStyles](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iformatscheme/)، [IFormatScheme.getLineStyles](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iformatscheme/) و [IFormatScheme.getEffectStyles](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/iformatscheme/) در دسترس هستند. تم‌های معمولی Office اغلب سه ورودی اصلی دارند که بصورت بصری به فرمت‌های Subtle، Moderate و Intense متناظر هستند، اما کد باید هر مجموعه را بازرسی کند به‌جای فرض تعداد ثابت.
 
-![افکت‌های تم ظریف، متوسط و قوی که بر همان شکل اعمال شده‌اند](presentation-design_10.png)
+![افکت‌های تم Subtle، Moderate و Intense که بر همان شکل اعمال شده‌اند](presentation-design_10.png)
 
-هنگامی که این مجموعه‌ها را در Java دسترسی می‌یابید، ایندکس مجموعه صفر‑پایه است: `get_Item(0)` اولین سبک ذخیره‌شده و `get_Item(2)` سومین است. ایندکس‌های ارجاع‑سبک یک شکل یک مفهوم جداگانه هستند که از طریق [IShapeStyle](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishapestyle/) در دسترس هستند. تغییر یک سبک تم بر اشکالی که به آن سبک ارجاع می‌دهند تأثیر می‌گذارد؛ اشکالی که مستقیماً قالب‌بندی شده‌اند ممکن است دست‌نخورده بمانند.
+هنگام دسترسی به این مجموعه‌ها در Java، ایندکس مجموعه صفر‑محور است: `get_Item(0)` اولین سبک ذخیره‌شده و `get_Item(2)` سومین است. ایندکس‌های مرجع سبک یک شکل مفهوم جداگانه‌ای هستند که از طریق [IShapeStyle](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ishapestyle/) در دسترس‌اند. تغییر یک سبک تم بر شکل‌هایی که به آن سبک ارجاع می‌دهند اثر می‌گذارد؛ شکل‌هایی که قالب‌بندی مستقیم دارند ممکن است بدون تغییر باقی بمانند.
 
-مثال زیر بررسی می‌کند که ورودی‌های سبک موردنیاز وجود دارند، اولین سبک خط را تغییر می‌دهد، سومین سبک پرکننده را تغییر می‌دهد، یک سایه خارجی را در سومین سبک افکت فعال می‌کند و نتیجه را ذخیره می‌کند:
+مثال زیر بررسی می‌کند که ورودی‌های سبک لازم وجود دارند، اولین سبک خط را تغییر می‌دهد، سومین سبک پرکننده را تغییر می‌دهد، یک سایهٔ خارجی را در سومین سبک افکت فعال می‌کند و نتیجه را ذخیره می‌کند:
 
 ```java
 import com.aspose.slides.*;
@@ -369,15 +371,15 @@ try {
 }
 ```
 
-برای اشکالی که به این اسلات‌ها ارجاع می‌دهند، اولین سبک خط تم به قرمز، سومین سبک پرکننده تم به سبز جنگلی پر و سومین سبک افکت یک سایه خارجی با فاصله 10 پوینت می‌گیرد. نتیجهٔ بصری دقیق هنوز به این بستگی دارد که هر شکل به کدام اسلات‌ها ارجاع می‌دهد و آیا قالب‌بندی مستقیم تم را بازنویسی می‌کند یا نه.
+برای شکل‌هایی که این اسلات‌ها را ارجاع می‌دهند، اولین سبک خط تم به قرمز، سومین سبک پرکننده تم به سبز جنگلی سفت و سومین سبک افکت یک سایهٔ خارجی با فاصلهٔ 10 پوینت می‌گیرد. نتیجهٔ بصری دقیق هنوز به این بستگی دارد که هر شکل به کدام اسلات‌ها ارجاع می‌دهد و آیا قالب‌بندی مستقیم تم را بازنویسی می‌کند یا نه.
 
 ![سبک‌های افکت تم پس از تغییر تنظیمات خط، پرکننده و سایه](presentation-design_11.png)
 
 ## **خواندن مقادیر مؤثر تم**
 
-اشیای خام تم به شما می‌گویند که در یک سطح خاص چه چیزی تعریف شده است. مقادیر مؤثر به شما می‌گویند که یک اسلاید یا شکل پس از حل وراثت و باطل‌سازی‌های محلی واقعاً چه چیزی استفاده می‌کند. برای یک اسلاید، متد [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/baseoverridethememanager/) را صدا بزنید. برای پس‌زمینه، از [Background.getEffective](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/background/) استفاده کنید و برای پرکننده، از [FillFormat.getEffective](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/fillformat/) بهره ببرید.
+اشیاء خام تم به شما می‌گویند که در یک سطح خاص چه چیزی تعریف شده است. مقادیر مؤثر به شما می‌گویند یک اسلاید یا شکل پس از حل ارث‌بری و بازنویسی‌های محلی واقعاً چه چیزی استفاده می‌کند. برای یک اسلاید، متد [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/baseoverridethememanager/) را فراخوانی کنید. برای پس‌زمینه، از [Background.getEffective](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/background/) استفاده کنید و برای پرکننده، از [FillFormat.getEffective](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/fillformat/) استفاده کنید.
 
-مثال زیر تم مؤثر، پس‌زمینه و اولین پرکننده شکل را از یک اسلاید می‌خواند:
+مثال زیر تم مؤثر، پس‌زمینه و اولین پرکنندهٔ شکل را از یک اسلاید می‌خواند:
 
 ```java
 import com.aspose.slides.*;
@@ -404,18 +406,18 @@ try {
 }
 ```
 
-از داده‌های مؤثر برای تشخیص رندر، اعتبارسنجی و مقایسه‌ها استفاده کنید. اگر فقط [Presentation.getMasterTheme](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) را بررسی کنید، ممکن است یک باطل‌سازی مستر، طرح‌بندی، اسلاید یا شکل را که ظاهر نهایی را تغییر می‌دهد از دست بدهید.
+از داده‌های مؤثر برای عیب‌یابی رندر، اعتبارسنجی و مقایسه استفاده کنید. اگر فقط [Presentation.getMasterTheme](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) را بازرسی کنید، ممکن است یک بازنویسی master، layout، اسلاید یا شکل را که ظاهر نهایی را تغییر می‌دهد، از دست بدهید.
 
-## **سؤالات متداول**
+## **پرسش‌های متداول**
 
-**آیا می‌توانم تم را بر یک اسلاید واحد اعمال کنم بدون اینکه مستر را تغییر دهم؟**
+**آیا می‌توانم یک تم را فقط بر یک اسلاید اعمال کنم بدون اینکه master را تغییر دهم؟**
 
-بله. از [SlideThemeManager](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/slidethememanager/) اسلاید استفاده کنید و تم باطل‌سازی‌شده آن را مقداردهی اولیه کنید. تغییر تنها به‌صورت محلی در آن اسلاید باقی می‌ماند؛ اسلایدهای دیگر همچنان تم‌های موجود خود را وراثت می‌کنند.
+بله. از [SlideThemeManager](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/slidethememanager/) اسلاید استفاده کنید و تم بازنویسی‌شدهٔ آن را مقداردهی کنید. تغییر فقط به‌صورت محلی بر آن اسلاید باقی می‌ماند؛ اسلایدهای دیگر به تم‌های موجود خود ادامه می‌دهند.
 
-**ایمن‌ترین راه برای انتقال یک تم از یک ارائه به ارائه دیگر چیست؟**
+**امن‌ترین روش برای انتقال یک تم از یک ارائه به ارائه دیگر چیست؟**
 
-هنگام جابجایی یک اسلاید و حفظ ظاهر منبع، مستر منبع را به مقصد کلون کنید و اسلاید را با آن مستر با استفاده از [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imasterslidecollection/) و [ISlideCollection.addClone](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/islidecollection/) کلون کنید. این کار مستر، طرح‌بندی‌ها و تم را همراه نگه می‌دارد.
+هنگام انتقال یک اسلاید و حفظ ظاهر منبع، master منبع را به مقصد کلون کنید و اسلاید را با همان master با استفاده از [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imasterslidecollection/) و [ISlideCollection.addClone](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/islidecollection/) کلون کنید. این کار master، layoutها و تم را همراه‌هم نگه می‌دارد.
 
-**چگونه می‌توانم مقادیر مؤثر پس از وراثت و باطل‌سازی‌ها را ببینم؟**
+**چگونه می‌توانم مقادیر مؤثر را پس از ارث‌بری و بازنویسی‌ها ببینم؟**
 
-از [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/baseoverridethememanager/) برای یک اسلاید یا تم طرح‌بندی و متدهای داده‌موثر متناظر برای اشیای قالب مانند [Background.getEffective](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/background/) و [FillFormat.getEffective](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/fillformat/) استفاده کنید. این APIها مقادیر حل‌شده پس از اعمال وراثت و باطل‌سازی‌ها را برمی‌گردانند.
+از [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/baseoverridethememanager/) برای یک اسلاید یا تم layout استفاده کنید و متدهای داده‌های مؤثر مربوط به اشیای قالب مانند [Background.getEffective](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/background/) و [FillFormat.getEffective](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/fillformat/) را به‌کار ببرید. این APIها مقادیر حل‌شده پس از اعمال ارث‌بری و بازنویسی‌ها را برمی‌گردانند.

@@ -7,13 +7,13 @@ url: /ar/nodejs-java/convert-powerpoint-to-tiff/
 keywords:
 - تحويل PowerPoint
 - تحويل OpenDocument
-- تحويل العرض التقديمي
-- تحويل الشريحة
+- تحويل عرض تقديمي
+- تحويل شريحة
 - تحويل PPT
 - تحويل PPTX
 - PowerPoint إلى TIFF
-- العرض التقديمي إلى TIFF
-- الشريحة إلى TIFF
+- عرض تقديمي إلى TIFF
+- شريحة إلى TIFF
 - PPT إلى TIFF
 - PPTX إلى TIFF
 - حفظ PPT كـ TIFF
@@ -23,19 +23,17 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "تعلم كيفية تحويل عروض PowerPoint (PPT، PPTX) بسهولة إلى صور TIFF عالية الجودة باستخدام Aspose.Slides لـ Node.js، مع أمثلة كود JavaScript."
+description: "تعرّف على كيفية تحويل عروض PowerPoint (PPT، PPTX) بسهولة إلى صور TIFF عالية الجودة باستخدام Aspose.Slides لـ Node.js، مع أمثلة كود JavaScript."
 ---
 ## **مقدمة**
 
-TIFF (**Tagged Image File Format**) هو تنسيق صورة نقطية غير مضغوط يُستخدم على نطاق واسع، معروف بجودته الاستثنائية والحفاظ الدقيق على الرسومات. غالبًا ما يختار المصممون والمصورون وناشروا سطح المكتب TIFF للحفاظ على الطبقات ودقة الألوان والإعدادات الأصلية في صورهم.
+TIFF (**Tagged Image File Format**) هو تنسيق صورة نقطية غير فقدانية واسع الاستخدام معروف بجودته الاستثنائية وحفظ التفاصيل الدقيقة للرسومات. غالبًا ما يختار المصممون والمصورون والناشرون المكتبيون TIFF للحفاظ على الطبقات ودقة الألوان والإعدادات الأصلية في صورهم.
 
-باستخدام Aspose.Slides، يمكنك بسهولة تحويل شرائح PowerPoint (PPT، PPTX) وشرائح OpenDocument (ODP) مباشرةً إلى صور TIFF عالية الجودة، مما يضمن احتفاظ عروضك التقديمية بأقصى درجة من الوضوح البصري.
+باستخدام Aspose.Slides، يمكنك بسهولة تحويل شرائح PowerPoint (PPT، PPTX) وشرائح OpenDocument (ODP) مباشرةً إلى صور TIFF عالية الجودة، مما يضمن أن عروضك التقديمية تحتفظ بأعلى درجة من الدقة البصرية.
 
 ## **تحويل عرض تقديمي إلى TIFF**
 
-باستخدام طريقة [save](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/#save-java.lang.String-int-) المقدمة من فئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/)، يمكنك بسرعة تحويل عرض تقديمي كامل إلى TIFF. صور TIFF الناتجة تتطابق مع حجم الشريحة الافتراضي.
-
-هذا كود JavaScript يوضح كيفية تحويل عرض تقديمي PowerPoint إلى TIFF:
+باستخدام طريقة [save](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/#save-java.lang.String-int-) المقدمة من الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/) يمكنك بسرعة تحويل عرض PowerPoint كامل إلى TIFF. تتطابق صور TIFF الناتجة مع حجم الشريحة الافتراضي.
 
 ```js
 var aspose = aspose || {};
@@ -51,19 +49,17 @@ try {
 }
 ```
 
-## **تحويل عرض تقديمي إلى TIFF أبيض وأسود**
+## **تحويل عرض تقديمي إلى TIFF بالأبيض والأسود**
 
-الطريقة [setBwConversionMode](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/tiffoptions/#setBwConversionMode-int-) في فئة [TiffOptions](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/tiffoptions/) تسمح لك بتحديد الخوارزمية المستخدمة عند تحويل شريحة أو صورة ملونة إلى TIFF أبيض وأسود. لاحظ أن هذا الإعداد ينطبق فقط عندما تكون طريقة [setCompressionType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/tiffoptions/#setCompressionType-int-) مضبوطة على `CCITT4` أو `CCITT3`.
+طريقة [setBwConversionMode](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/tiffoptions/#setBwConversionMode-int-) في الفئة [TiffOptions](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/tiffoptions/) تسمح لك بتحديد الخوارزمية المستخدمة عند تحويل شريحة ملونة أو صورة إلى TIFF بالأبيض والأسود. لاحظ أن هذا الإعداد ينطبق فقط عندما تكون طريقة [setCompressionType](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/tiffoptions/#setCompressionType-int-) مُعيَّنة إلى `CCITT4` أو `CCITT3`.
 
 {{% alert color="info" title="ملاحظة" %}}
-[TiffOptions.setBwConversionMode](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/tiffoptions/#setBwConversionMode-int-) هو إعداد على مستوى التصدير يختار خوارزمية تحويل البكسل للصور TIFF الكاملة. لتعريف كيفية ظهور شكل معين عند تفعيل وضع العرض بالأبيض والأسود، استخدم [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shape/#setBlackWhiteMode). راجع [Control Black-and-White Rendering for Shapes](/nodejs-java/shape-formatting/#control-black-and-white-rendering-for-shapes) للحصول على أمثلة.
+[TiffOptions.setBwConversionMode](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/tiffoptions/#setBwConversionMode-int-) هو إعداد على مستوى التصدير يختار خوارزمية تحويل البكسلات لصورة TIFF الكاملة. لتحديد كيفية ظهور شكل فردي عندما يكون وضع العرض بالأبيض والأسود مفعّلاً، استخدم [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shape/#setBlackWhiteMode). راجع [Control Black-and-White Rendering for Shapes](/slides/ar/nodejs-java/shape-formatting/#control-black-and-white-rendering-for-shapes) للحصول على أمثلة.
 {{% /alert %}}
 
 لنفترض أن لدينا ملف "sample.pptx" يحتوي على الشريحة التالية:
 
-![A presentation slide](slide_black_and_white.png)
-
-هذا كود JavaScript يوضح كيفية تحويل الشريحة الملونة إلى TIFF أبيض وأسود:
+![شريحة عرض تقديمي](slide_black_and_white.png)
 
 ```js
 var aspose = aspose || {};
@@ -83,13 +79,11 @@ try {
 
 النتيجة:
 
-![Black-and-White TIFF](TIFF_black_and_white.png)
+![TIFF بالأبيض والأسود](TIFF_black_and_white.png)
 
 ## **تحويل عرض تقديمي إلى TIFF بحجم مخصص**
 
-إذا كنت بحاجة إلى صورة TIFF بأبعاد محددة، يمكنك تعيين القيم المطلوبة باستخدام الطرق المتاحة في فئة [TiffOptions](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/tiffoptions/). على سبيل المثال، تسمح لك طريقة [setImageSize](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/tiffoptions/#setImageSize) بتحديد حجم الصورة الناتجة.
-
-هذا كود JavaScript يوضح كيفية تحويل عرض تقديمي PowerPoint إلى صور TIFF بحجم مخصص:
+إذا كنت تحتاج إلى صورة TIFF بأبعاد محددة، يمكنك تعيين القيم المطلوبة باستخدام الطرق المتاحة في [TiffOptions](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/tiffoptions/). على سبيل المثال، طريقة [setImageSize](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/tiffoptions/#setImageSize) تسمح لك بتحديد حجم الصورة الناتجة.
 
 ```js
 var aspose = aspose || {};
@@ -101,10 +95,10 @@ let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let tiffOptions = new aspose.slides.TiffOptions();
 
-    // ضبط نوع الضغط.
+    // تعيين نوع الضغط.
     tiffOptions.setCompressionType(aspose.slides.TiffCompressionTypes.Default);
     /*
-    أنوع الضغط:
+    أنواع الضغط:
         Default - يحدد مخطط الضغط الافتراضي (LZW).
         None - يحدد عدم وجود ضغط.
         CCITT3
@@ -113,20 +107,20 @@ try {
         RLE
     */
 
-    // يتم التحكم في عمق اللون من خلال تنسيق البكسل (انظر المثال أدناه)؛ CCITT3 و CCITT4 ينتجان دائمًا بت واحد لكل بكسل.
+    // يتم التحكم في عمق اللون بواسطة تنسيق البكسل (انظر المثال أدناه)؛ CCITT3 و CCITT4 دائمًا ينتجان 1 بت لكل بكسل.
 
-    // ضبط DPI للصورة.
+    // تعيين DPI الصورة.
     tiffOptions.setDpiX(200);
     tiffOptions.setDpiY(200);
 
-    // ضبط حجم الصورة.
+    // تعيين حجم الصورة.
     tiffOptions.setImageSize(java.newInstanceSync("java.awt.Dimension", 1728, 1078));
 
     let notesOptions = new aspose.slides.NotesCommentsLayoutingOptions();
     notesOptions.setNotesPosition(aspose.slides.NotesPositions.BottomFull);
     tiffOptions.setSlidesLayoutOptions(notesOptions);
 
-    // حفظ العرض التقديمي بصيغة TIFF بالحجم المحدد.
+    // حفظ العرض التقديمي كملف TIFF بالحجم المحدد.
     presentation.save("tiff-ImageSize.tiff", aspose.slides.SaveFormat.Tiff, tiffOptions);
 } finally {
     presentation.dispose();
@@ -135,9 +129,7 @@ try {
 
 ## **تحويل عرض تقديمي إلى TIFF بصيغة بكسل مخصصة**
 
-باستخدام طريقة [setPixelFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/tiffoptions/#setPixelFormat) من فئة [TiffOptions](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/tiffoptions/)، يمكنك تحديد صيغة البكسل المفضلة لديك للصورة TIFF الناتجة.
-
-هذا كود JavaScript يوضح كيفية تحويل عرض تقديمي PowerPoint إلى صورة TIFF بصيغة بكسل مخصصة:
+باستخدام طريقة [setPixelFormat](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/tiffoptions/#setPixelFormat) من الفئة [TiffOptions](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/tiffoptions/)، يمكنك تحديد صيغة البكسل المفضلة لديك للصورة TIFF الناتجة.
 
 ```js
 var aspose = aspose || {};
@@ -150,7 +142,7 @@ try {
 
     tiffOptions.setPixelFormat(aspose.slides.ImagePixelFormat.Format8bppIndexed);
     /*
-    ImagePixelFormat يحتوي على القيم التالية (كما هو موضح في الوثائق):
+    يحتوي ImagePixelFormat على القيم التالية (كما هو مذكور في الوثائق):
         Format1bppIndexed - 1 بت لكل بكسل، مفهرس.
         Format4bppIndexed - 4 بت لكل بكسل، مفهرس.
         Format8bppIndexed - 8 بت لكل بكسل، مفهرس.
@@ -158,7 +150,7 @@ try {
         Format32bppArgb   - 32 بت لكل بكسل، ARGB.
     */
 
-    /// احفظ العرض التقديمي بصيغة TIFF مع حجم الصورة المحدد.
+    /// حفظ العرض التقديمي كملف TIFF بالحجم المحدد للصورة.
     presentation.save("Tiff-PixelFormat.tiff", aspose.slides.SaveFormat.Tiff, tiffOptions);
 } finally {
     presentation.dispose();
@@ -166,19 +158,19 @@ try {
 ```
 
 {{% alert title="نصيحة" color="info" %}}
-تحقق من [FREE PowerPoint to Poster converter](https://products.aspose.app/slides/ar/conversion/convert-ppt-to-poster-online) المجاني من Aspose.
+تحقق من [محول PowerPoint إلى ملصق مجاني](https://products.aspose.app/slides/ar/conversion/convert-ppt-to-poster-online) الخاص بـ Aspose.
 {{% /alert %}}
 
-## **الأسئلة المتكررة**
+## **الأسئلة المتداولة**
 
-**هل يمكنني تحويل شريحة واحدة بدلاً من entire PowerPoint presentation إلى TIFF؟**
+**هل يمكنني تحويل شريحة واحدة بدلاً من عرض PowerPoint كامل إلى TIFF؟**
 
 نعم. يتيح لك Aspose.Slides تحويل شرائح فردية من عروض PowerPoint وOpenDocument إلى صور TIFF بشكل منفصل.
 
 **هل هناك أي حد لعدد الشرائح عند تحويل عرض تقديمي إلى TIFF؟**
 
-لا، لا تفرض Aspose.Slides أي قيود على عدد الشرائح. يمكنك تحويل عروض بحجم أي حجم إلى تنسيق TIFF.
+لا، لا يفرض Aspose.Slides أي قيود على عدد الشرائح. يمكنك تحويل عروض بأي حجم إلى تنسيق TIFF.
 
-**هل يتم الحفاظ على الرسوم المتحركة وتأثيرات الانتقال في PowerPoint عند تحويل الشرائح إلى TIFF؟**
+**هل يتم الاحتفاظ برسوميات وانتقالات PowerPoint عند تحويل الشرائح إلى TIFF؟**
 
-لا، TIFF هو تنسيق صورة ثابت. لذلك، لا يتم الحفاظ على الرسوم المتحركة أو تأثيرات الانتقال؛ يتم تصدير لقطات ثابتة فقط من الشرائح.
+لا، TIFF هو تنسيق صورة ثابت. لذلك لا يتم الاحتفاظ بالرسوم المتحركة أو تأثيرات الانتقال؛ يتم تصدير لقطات ثابتة فقط من الشرائح.

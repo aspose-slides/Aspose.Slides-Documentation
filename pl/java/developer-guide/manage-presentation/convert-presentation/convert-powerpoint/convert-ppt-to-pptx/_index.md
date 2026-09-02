@@ -1,5 +1,5 @@
 ---
-title: Konwertuj PPT na PPTX w Javie
+title: Konwertuj PPT do PPTX w Javie
 linktitle: PPT do PPTX
 type: docs
 weight: 20
@@ -16,15 +16,15 @@ keywords:
 - prezentacja
 - Java
 - Aspose.Slides
-description: "Konwertuj starsze pliki PPT na PPTX w Javie przy użyciu Aspose.Slides. Zawiera przykłady Java dla konwersji pojedynczych plików i wsadowej, obsługę błędów oraz uwagi dotyczące wierności."
+description: "Konwertuj starsze pliki PPT do PPTX w Javie za pomocą Aspose.Slides. Zawiera przykłady w Javie dla konwersji pojedynczych plików i wsadowej, obsługę błędów oraz uwagi dotyczące wierności."
 ---
 ## **Przegląd**
 
-PPT jest starszym, binarnym formatem PowerPoint, natomiast PPTX to nowszy format Open XML. Aspose.Slides for Java może wczytać plik PPT i zapisać go jako PPTX bez Microsoft PowerPoint. Ten artykuł pokazuje, jak przekonwertować pojedynczy plik lub katalog plików oraz wyjaśnia, co należy sprawdzić po konwersji.
+PPT jest starszym binarnym formatem PowerPoint, podczas gdy PPTX jest nowszym formatem Open XML. Aspose.Slides for Java może wczytać plik PPT i zapisać go jako PPTX bez Microsoft PowerPoint. Ten artykuł pokazuje, jak przekonwertować pojedynczy plik lub katalog plików oraz wyjaśnia, co należy sprawdzić po konwersji.
 
-## **Konwersja pliku PPT do PPTX**
+## **Konwertuj plik PPT do PPTX**
 
-Wczytaj plik źródłowy przy użyciu klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/), a następnie wywołaj [Presentation.save](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/#save-java.lang.String-int-) z parametrem [SaveFormat.Pptx](https://reference.aspose.com/slides/pl/java/com.aspose.slides/saveformat/#Pptx). Blok `finally` zwalnia prezentację i uwalnia jej zasoby.
+Załaduj plik źródłowy przy użyciu klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/), następnie wywołaj [Presentation.save](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/#save-java.lang.String-int-) z argumentem [SaveFormat.Pptx](https://reference.aspose.com/slides/pl/java/com.aspose.slides/saveformat/#Pptx). Blok `finally` zwalnia prezentację i zwalnia jej zasoby.
 
 ```java
 // Wczytaj starszą prezentację PPT.
@@ -37,11 +37,9 @@ try {
 }
 ```
 
-Rozszerzenie pliku nie określa formatu wyjściowego samo w sobie; robi to argument [SaveFormat.Pptx](https://reference.aspose.com/slides/pl/java/com.aspose.slides/saveformat/#Pptx). Zachowaj różne ścieżki wejścia i wyjścia, jeśli musisz zachować oryginalny plik PPT.
+Rozszerzenie pliku nie wybiera formatu wyjściowego samo w sobie; robi to argument [SaveFormat.Pptx](https://reference.aspose.com/slides/pl/java/com.aspose.slides/saveformat/#Pptx). Zachowaj różne ścieżki wejściowe i wyjściowe, jeśli musisz zachować pierwotny plik PPT.
 
-## **Konwersja wielu plików PPT**
-
-Poniższy przykład konwertuje każdy plik `.ppt` w jednym katalogu. Każdy plik jest przetwarzany niezależnie, więc niepowodzenie jednej konwersji nie zatrzymuje pozostałych w partii.
+## **Konwertuj wiele plików PPT**
 
 ```java
 java.io.File inputDirectory = new java.io.File("input");
@@ -76,47 +74,49 @@ for (java.io.File inputFile : inputFiles) {
 }
 ```
 
-W środowiskach produkcyjnych należy logować pełne wyjątki, zdecydować, czy istniejący plik wyjściowy może zostać nadpisany, oraz zapisywać nazwy nieudanych plików do kolejki ponownego przetworzenia lub przeglądu. Uszkodzone pliki, pliki chronione hasłem otwierane bez wymaganego hasła, niedostępne ścieżki oraz nieobsługiwana zawartość mogą spowodować niepowodzenie konwersji. Zobacz [Password-Protected Presentations](/java/password-protected-presentation/) w celu wczytania zaszyfrowanych plików.
+Poniższy przykład konwertuje każdy plik `.ppt` w jednym katalogu. Każdy plik jest przetwarzany niezależnie, więc jedna nieudana konwersja nie zatrzymuje pozostałej partii.
 
-## **Wierność i funkcje przestarzałe**
+W środowiskach produkcyjnych zaloguj pełny wyjątek, zdecyduj, czy istniejący plik wyjściowy może zostać nadpisany, oraz zapisz nazwy nieudanych plików do kolejki ponownych prób lub przeglądu. Uszkodzone pliki, pliki zabezpieczone hasłem otwierane bez wymaganego hasła, niedostępne ścieżki oraz nieobsługiwana zawartość mogą spowodować niepowodzenie konwersji. Zobacz [Password-Protected Presentations](/slides/pl/java/password-protected-presentation/) aby wczytać zaszyfrowane pliki.
 
-Konwersja zazwyczaj zachowuje slajdy, wzorce, układy, tekst, kształty, obrazy, tabele i wykresy. Jednak PPT i PPTX nie odzwierciedlają każdej funkcji w dokładnie taki sam sposób. Funkcja przestarzała, dla której nie istnieje odpowiednik w PPTX lub nie jest obsługiwana przez bibliotekę, może zostać znormalizowana, pominięta lub wyświetlona inaczej.
+## **Wierność i funkcje starsze**
 
-Sprawdź przekonwertowany plik, gdy zawiera animacje, przejścia, osadzone lub powiązane obiekty OLE, kontrolki ActiveX, osadzone multimedia, nietypowe czcionki lub makra VBA. Zwykły plik PPTX nie jest formatem obsługującym makra, więc użyj odpowiedniego przepływu pracy obsługującego makra, gdy VBA musi pozostać dostępne. Zweryfikuj także, czy wymagane czcionki i zasoby externalne są dostępne w środowisku, w którym przekonwertowana prezentacja będzie otwierana lub renderowana.
+Konwersja zazwyczaj zachowuje slajdy, mastery, układy, tekst, kształty, obrazy, tabele i wykresy. Jednak PPT i PPTX nie odzwierciedlają każdej funkcji w identyczny sposób. Funkcja starsza, która nie ma odpowiednika w PPTX lub nie jest obsługiwana przez bibliotekę, może zostać znormalizowana, pominięta lub wyświetlona inaczej.
 
-W przypadku ważnych dokumentów otwórz ponownie wygenerowany plik PPTX programowo i sprawdź liczbę slajdów oraz zawartość, a następnie porównaj jego wygląd i zachowanie pokazu slajdów w docelowej aplikacji. Nie traktuj pomyślnego wywołania [Presentation.save](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/#save-java.lang.String-int-) jako dowodu, że każda funkcja przestarzała ma dokładny odpowiednik w PPTX.
+Sprawdź przekonwertowany plik, gdy zawiera animacje, przejścia, osadzone lub powiązane obiekty OLE, kontrolki ActiveX, osadzone multimedia, rzadkie czcionki lub makra VBA. Zwykły plik PPTX nie jest formatem obsługującym makra, więc użyj odpowiedniego przepływu pracy z obsługą makr, gdy VBA musi pozostać dostępne. Również zweryfikuj, że wymagane czcionki i zasoby zewnętrzne są dostępne w środowisku, w którym otwarty lub renderowany będzie przekonwertowany prezentacja.
+
+W przypadku ważnych dokumentów, otwórz ponownie wygenerowany plik PPTX programowo i sprawdź liczbę kluczowych slajdów oraz ich zawartość, a następnie porównaj wygląd i zachowanie pokazu slajdów w docelowym odtwarzaczu. Nie traktuj udanego wywołania [Presentation.save](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/#save-java.lang.String-int-) jako dowodu, że każda starsza funkcja ma dokładny odpowiednik w PPTX.
 
 ## **Kiedy używać PPTX**
 
-Używaj PPTX, gdy prezentacja będzie edytowana w aktualnych wersjach PowerPoint, wymieniana z systemami pracującymi z pakietami Open XML lub przechowywana w formacie łatwiejszym do przeglądu i odzyskania niż starszy binarny PPT. Zachowaj oryginalny plik PPT jako kopię archiwalną lub przywracania, dopóki przekonwertowana prezentacja nie przejdzie Twoich kontroli wierności.
+Używaj PPTX, gdy prezentacja będzie edytowana w aktualnych wersjach PowerPoint, wymieniana z systemami obsługującymi pakiety Open XML lub przechowywana w formacie łatwiejszym do inspekcji i odzyskiwania niż starszy binarny PPT. Zachowaj oryginalny PPT jako kopię archiwalną lub kopię awaryjną, aż przekonwertowana prezentacja przejdzie Twoje kontrole wierności.
 
-Jeśli potrzebujesz zamiast tego PDF, HTML, obrazów, XPS lub innego typu wyjścia, skorzystaj z instrukcji specyficznych dla formatu w [Convert Presentations to Multiple Formats](/java/convert-presentation/), zamiast zakładać, że wszystkie docelowe formaty zachowują edytowalne funkcje PowerPoint.
+Jeśli potrzebujesz zamiast tego PDF, HTML, obrazów, XPS lub innego typu wyjścia, skorzystaj z instrukcji specyficznych dla formatu w [Convert Presentations to Multiple Formats](/slides/pl/java/convert-presentation/), zamiast zakładać, że wszystkie cele zachowują edytowalne funkcje PowerPoint.
 
 ## **Konwerter online**
 
-W przypadku okazjonalnego pliku lub szybkiego porównania możesz skorzystać z [online PPT to PPTX converter](https://products.aspose.app/slides/pl/conversion/ppt-to-pptx). Do powtarzalnych konwersji, przetwarzania wsadowego lub obsługi błędów na poziomie aplikacji użyj API Java.
+W przypadku okazjonalnego pliku lub szybkiego porównania możesz użyć [online PPT to PPTX converter](https://products.aspose.app/slides/pl/conversion/ppt-to-pptx). Do powtarzalnych konwersji, przetwarzania wsadowego lub obsługi błędów na poziomie aplikacji, użyj API Java.
 
 ## **Powiązane artykuły**
 
-- [PPT vs PPTX](/java/ppt-vs-pptx/)
-- [Zapisywanie prezentacji w Javie](/java/save-presentation/)
-- [Obsługiwane formaty plików](/java/supported-file-formats/)
-- [Otwieranie prezentacji w Javie](/java/open-presentation/)
+- [PPT vs PPTX](/slides/pl/java/ppt-vs-pptx/)
+- [Zapisz prezentacje w Javie](/slides/pl/java/save-presentation/)
+- [Obsługiwane formaty plików](/slides/pl/java/supported-file-formats/)
+- [Otwórz prezentacje w Javie](/slides/pl/java/open-presentation/)
 
 ## **FAQ**
 
-**Czy mogę konwertować PPT na PPTX bez zainstalowanego Microsoft PowerPoint?**
+**Czy mogę konwertować PPT do PPTX bez zainstalowanego Microsoft PowerPoint?**
 
 Tak. Aspose.Slides for Java wczytuje i zapisuje pliki prezentacji bez wymogu posiadania Microsoft PowerPoint.
 
 **Czy konwersja PPT do PPTX zachowa całą zawartość dokładnie?**
 
-Zachowuje ona typową zawartość prezentacji, ale dokładna wierność nie jest gwarantowana dla każdej funkcji przestarzałej lub nieobsługiwanej. Przejrzyj wygenerowany plik, gdy zawiera makra, obiekty OLE lub ActiveX, multimedia, specjalistyczne animacje lub nietypowe czcionki.
+Zachowuje ona typową zawartość prezentacji, ale dokładna wierność nie jest gwarantowana dla każdej funkcji starszej lub nieobsługiwanej. Przejrzyj wygenerowany plik, gdy zawiera makra, obiekty OLE lub ActiveX, multimedia, specjalistyczne animacje lub rzadkie czcionki.
 
-**Czy mogę konwertować plik PPT chroniony hasłem?**
+**Czy mogę konwertować zabezpieczony hasłem plik PPT?**
 
-Tak, pod warunkiem podania prawidłowego hasła podczas wczytywania pliku. Brak lub nieprawidłowe hasło powoduje niepowodzenie operacji wczytywania.
+Tak, jeśli podasz prawidłowe hasło podczas wczytywania pliku. Brak lub nieprawidłowe hasło powoduje niepowodzenie operacji wczytywania.
 
 **Czy powinienem usunąć plik PPT po konwersji?**
 
-Zachowaj oryginał, dopóki nie zweryfikujesz pliku PPTX w przeglądarkach i procesach, które są dla Ciebie istotne. To zapewnia kopię przywracania, jeśli funkcja przestarzała zostanie skonwertowana w inny sposób.
+Zachowaj oryginał, dopóki nie zweryfikujesz pliku PPTX w odtwarzaczach i procesach, które są dla Ciebie istotne. To zapewnia kopię awaryjną, jeśli funkcja starsza zostanie skonwertowana inaczej.

@@ -1,5 +1,5 @@
 ---
-title: مدیریت تم‌های ارائه PowerPoint در پایتون
+title: مدیریت تم‌های ارائه PowerPoint در Python
 linktitle: تم ارائه
 type: docs
 weight: 10
@@ -12,32 +12,32 @@ keywords:
 - تغییر تم
 - مدیریت تم
 - رنگ تم
-- پالت اضافی
+- پلت رنگ افزایشی
 - قلم تم
-- استایل تم
+- سبک تم
 - افکت تم
 - PowerPoint
 - OpenDocument
 - ارائه
 - Python
 - Aspose.Slides
-description: "تم‌های ارائه اصلی را در Aspose.Slides برای پایتون از طریق .NET به‌کار بگیرید تا فایل‌های PowerPoint را با برندینگ یکسان ایجاد، سفارشی‌سازی و تبدیل کنید."
+description: "مدیریت تم‌های ارائه در Aspose.Slides برای Python از طریق .NET برای ایجاد، سفارشی‌سازی و تبدیل فایل‌های PowerPoint با برندینگ یکسان."
 ---
-## **مقدمه**
+## **معرفی**
 
-یک تم ارائه مجموعه‌ای هماهنگ از رنگ‌ها، قلم‌ها، استایل‌های پس‌زمینه، پرکننده‌ها، خطوط و افکت‌ها را تعریف می‌کند. اشیاء آگاه از تم به این تعاریف مشترک ارجاع می‌دهند به‌جای ذخیره هر ویژگی بصری به‌صورت مقدار ثابت، بنابراین تغییر تم می‌تواند بسیاری از اشیاء را به‌طور همزمان به‌روز کند.
+یک تم ارائه یک مجموعه هماهنگ از رنگ‌ها، قلم‌ها، سبک‌های پس‌زمینه، پرکننده‌ها، خطوط و افکت‌ها را تعریف می‌کند. اشیای «آگاه از تم» به این تعاریف مشترک ارجاع می‌دهند به‌جای اینکه هر ویژگی بصری را به‌صورت مقدار ثابت ذخیره کنند، بنابراین تغییر تم می‌تواند همزمان بسیاری از اشیا را به‌روزرسانی کند.
 
-در Aspose.Slides، تم سطح ارائه از طریق ویژگی [Presentation.master_theme](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/master_theme/) در دسترس است. یک ارائه می‌تواند بازنویسی‌های تم را در سطوح پایین‌تر نیز داشته باشد. یک مستر می‌تواند تم ارائه را از طریق [MasterThemeManager.override_theme](https://reference.aspose.com/slides/fa/python-net/aspose.slides.theme/masterthememanager/override_theme/) بازنویسی کند، یک لایه می‌تواند تم به‌دست‌آمده خود را از طریق [BaseOverrideThemeManager.override_theme](https://reference.aspose.com/slides/fa/python-net/aspose.slides.theme/baseoverridethememanager/override_theme/) بازنویسی کند و یک اسلاید جداگانه می‌تواند همین کار را انجام دهد. در عمل، تم مؤثر برای یک اسلاید از طریق این زنجیره وراثت حل می‌شود: تم ارائه، بازنویسی مستر، بازنویسی لایه و بازنویسی اسلاید.
+در Aspose.Slides، تم سطح ارائه از طریق ویژگی [Presentation.master_theme](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/master_theme/) قابل دسترسی است. یک ارائه می‌تواند همچنین بازنویسی‌های تم را در سطوح پایین‌تر داشته باشد. یک مستر می‌تواند تم ارائه را از طریق [MasterThemeManager.override_theme](https://reference.aspose.com/slides/fa/python-net/aspose.slides.theme/masterthememanager/override_theme/) بازنویسی کند، یک لِی‌آوت می‌تواند تم وارث خود را از طریق [BaseOverrideThemeManager.override_theme](https://reference.aspose.com/slides/fa/python-net/aspose.slides.theme/baseoverridethememanager/override_theme/) بازنویسی کند و یک اسلاید منفرد می‌تواند همین کار را انجام دهد. در عمل، تم موثر برای یک اسلاید از طریق این زنجیره وراثتی حل می‌شود: تم ارائه، بازنویسی مستر، بازنویسی لِی‌آوت و بازنویسی اسلاید.
 
-![اجزای تم: رنگ‌ها، قلم‌ها، استایل‌های پس‌زمینه و افکت‌ها](theme-constituents.png)
+![اجزای تم: رنگ‌ها، قلم‌ها، سبک‌های پس‌زمینه و افکت‌ها](theme-constituents.png)
 
-بخش‌های زیر رایج‌ترین جریان‌های کاری تم را نشان می‌دهند: بررسی یک تم، تغییر رنگ‌ها و قلم‌ها، کپی یا اعمال تم، به‌روزرسانی استایل‌های پس‌زمینه و افکت، و خواندن مقادیر مؤثر پس از حل وراثت و بازنویسی‌ها.
+بخش‌های پایین‌ترین، رایج‌ترین گردش کارهای تم را نشان می‌دهند: بررسی یک تم، تغییر رنگ‌ها و قلم‌ها، کپی یا اعمال تم، به‌روزرسانی سبک‌های پس‌زمینه و افکت، و خواندن مقادیر موثر پس از حل وراثت و بازنویسی‌ها.
 
 ## **بررسی یک تم**
 
-شیء [MasterTheme](https://reference.aspose.com/slides/fa/python-net/aspose.slides.theme/mastertheme/) ویژگی‌های [color_scheme](https://reference.aspose.com/slides/fa/python-net/aspose.slides.theme/mastertheme/color_scheme/)، [font_scheme](https://reference.aspose.com/slides/fa/python-net/aspose.slides.theme/mastertheme/font_scheme/) و [format_scheme](https://reference.aspose.com/slides/fa/python-net/aspose.slides.theme/mastertheme/format_scheme/) تم را در معرض نمایش می‌گذارد. بررسی این مجموعه‌ها قبل از تغییر آن‌ها به‌ویژه وقتی مفید است که یک ارائه از منبع خارجی آمده باشد، زیرا تعداد و محتوای ورودی‌های استایل می‌تواند متفاوت باشد.
+شیء [MasterTheme](https://reference.aspose.com/slides/fa/python-net/aspose.slides.theme/mastertheme/) ویژگی‌های [color_scheme](https://reference.aspose.com/slides/fa/python-net/aspose.slides.theme/mastertheme/color_scheme/)، [font_scheme](https://reference.aspose.com/slides/fa/python-net/aspose.slides.theme/mastertheme/font_scheme/) و [format_scheme](https://reference.aspose.com/slides/fa/python-net/aspose.slides.theme/mastertheme/format_scheme/) تم را در اختیار می‌گذارد. بررسی این مجموعه‌ها قبل از تغییر آن‌ها به‌ویژه زمانی مفید است که یک ارائه از منبع خارجی می‌آید زیرا تعداد و محتوای ورودی‌های سبک می‌تواند متفاوت باشد.
 
-مثال زیر ویژگی‌های اصلی تم را می‌خواند و گزارش می‌دهد که چند استایل پس‌زمینه، پرکننده، خط و افکت در تم ذخیره شده‌اند:
+مثال زیر ویژگی‌های اصلی تم را می‌خواند و گزارش می‌دهد که چند سبک پس‌زمینه، پرکننده، خط و افکت در تم ذخیره شده‌اند:
 
 ```python
 import aspose.slides as slides
@@ -54,13 +54,13 @@ with slides.Presentation("input.pptx") as presentation:
     print(f"Effect styles: {len(theme.format_scheme.effect_styles)}")
 ```
 
-اگر یک فایل از چند مستر استفاده کند، فرض نکنید که هر اسلاید همان تم مؤثر را دارد. مستری که به اسلاید مربوط است را بررسی کنید و هنگام وجود بازنویسی‌های لایه یا اسلاید از جریان کاری تم مؤثر نشان داده‌شده در ادامه این مقاله استفاده کنید.
+اگر فایلی چند مستر داشته باشد، فرض نکنید که هر اسلاید همان تم موثر را دارد. مستری که به اسلاید مرتبط است را بررسی کنید و از گردش کار تم مؤثر که در ادامه مقاله نشان داده شده است استفاده کنید وقتی که امکان بازنویسی لِی‌آوت یا اسلاید وجود داشته باشد.
 
 ## **تغییر رنگ‌های تم**
 
-پرکننده‌ها، خطوط و متن‌های آگاه از تم می‌توانند به یک رنگ منطقی از شمارش [SchemeColor](https://reference.aspose.com/slides/fa/python-net/aspose.slides/schemecolor/) ارجاع دهند. وقتی ورودی مربوطه در [ColorScheme](https://reference.aspose.com/slides/fa/python-net/aspose.slides.theme/colorscheme/) تم را تغییر می‌دهید، تمام اشیائی که هنوز به آن رنگ تم ارجاع می‌دهند نسبت به مقدار جدید حل می‌شوند. اشیائی که از یک رنگ RGB مستقیم استفاده می‌کنند، توسط به‌روزرسانی رنگ تم تغییر نمی‌کنند.
+پرکننده‌ها، خطوط و متن‌های «آگاه از تم» می‌توانند به یک رنگ منطقی از شمارش [SchemeColor](https://reference.aspose.com/slides/fa/python-net/aspose.slides/schemecolor/) ارجاع دهند. وقتی ورودی متناظر در [ColorScheme](https://reference.aspose.com/slides/fa/python-net/aspose.slides.theme/colorscheme/) تم تغییر کند، تمام اشیائی که هنوز به آن رنگ تم ارجاع می‌دهند، نسبت به مقدار جدید محاسبه می‌شوند. اشیائی که از یک رنگ RGB مستقیم استفاده می‌کنند، توسط به‌روزرسانی رنگ تم تغییر نمی‌کنند.
 
-مثال انتها‑به‑انتها زیر یک شکل ایجاد می‌کند که از `ACCENT4` استفاده می‌کند، رنگ `accent4` تم را به قرمز تغییر می‌دهد، ارائه را ذخیره می‌کند، دوباره باز می‌کند و رنگ پرکننده مؤثر را چاپ می‌کند:
+مثال سراسری زیر یک شکل ایجاد می‌کند که از `ACCENT4` استفاده می‌کند، رنگ `accent4` تم را به قرمز تغییر می‌دهد، ارائه را ذخیره می‌کند، دوباره باز می‌کند و رنگ پرکننده مؤثر را چاپ می‌کند:
 
 ```python
 import aspose.pydrawing as draw
@@ -81,19 +81,19 @@ with slides.Presentation("theme-color.pptx") as saved_presentation:
     print(f"Effective fill color: {effective_fill.solid_fill_color}")
 ```
 
-از آنجا که مستطیل به `ACCENT4` همچنان مرتبط است، رنگ قابل مشاهده آن پس از تغییر تم به قرمز می‌شود. اگر رنگ طرح را با یک رنگ مستقیم روی شکل جایگزین کنید، تغییرات بعدی `accent4` دیگر بر آن پرکننده تأثیر نخواهد گذاشت.
+چون مستطیل همچنان به `ACCENT4` مرتبط است، رنگ قابل مشاهده آن پس از تغییر تم به قرمز تبدیل می‌شود. اگر رنگ طرح را با یک رنگ مستقیم در شکل جایگزین کنید، تغییرات بعدی `accent4` دیگر بر آن پرکننده تأثیر نخواهد گذاشت.
 
-### **استفاده از رنگ‌ها از پالت اضافی**
+### **استفاده از رنگ‌ها از پلت رنگ‌های افزایشی**
 
-PowerPoint با اعمال تبدیل‌های رنگی، انواع روشن‌تر و تیره‌تر را از یک رنگ تم استخراج می‌کند. Aspose.Slides این تبدیلات را از طریق شمارش [ColorTransformOperation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/colortransformoperation/) در اختیار می‌گذارد.
+PowerPoint با اعمال تبدیلات رنگ، گونه‌های روشن‌تر و تیره‌تر را از یک رنگ تم استخراج می‌کند. Aspose.Slides این تبدیلات را از طریق شمارش [ColorTransformOperation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/colortransformoperation/) در اختیار می‌گذارد.
 
-![رنگ‌های اصلی تم و رنگ‌های روشن‌تر و تیره‌تر تولیدشده از پالت اضافی](additional-palette-colors.png)
+![رنگ‌های اصلی تم و رنگ‌های روشن‌تر و تیره‌تر تولید شده از پلت رنگ‌های افزایشی](additional-palette-colors.png)
 
 **1** - رنگ‌های اصلی تم.
 
-**2** - انواع روشن‌تر و تیره‌تر تولیدشده از رنگ‌های اصلی تم.
+**2** - گونه‌های روشن‌تر و تیره‌تر تولید شده از رنگ‌های اصلی تم.
 
-مثال زیر شش مستطیل بر پایه `ACCENT4` ایجاد می‌کند، به پنج مورد از آن‌ها تبدیل‌های روشنایی اعمال می‌کند و نتیجه را ذخیره می‌نماید:
+مثال زیر شش مستطیل بر پایه `ACCENT4` ایجاد می‌کند، به پنج‌تا از آن‌ها تبدیلات روشنایی اعمال می‌کند و نتیجه را ذخیره می‌نماید:
 
 ```python
 import aspose.slides as slides
@@ -129,31 +129,31 @@ with slides.Presentation() as presentation:
     presentation.save("theme-color-palette.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-این انواع همچنان بر پایه رنگ تم باقی می‌مانند. اگر `accent4` بعدها تغییر کند، رنگ‌های تبدیل‌شده از مقدار جدید `accent4` بازمحاسبه می‌شوند.
+این گونه‌ها همچنان بر پایه رنگ تم باقی می‌مانند. اگر `accent4` بعدها تغییر کند، رنگ‌های تبدیل‌شده از مقدار جدید `accent4` بازمحاسبه می‌شوند.
 
-### **نقشه‌برداری مقادیر `SchemeColor` به سلول‌های `ColorScheme`**
+### **نقشه‌برداری مقادیر `SchemeColor` به جایگاه‌های `ColorScheme`**
 
-شمارش [SchemeColor](https://reference.aspose.com/slides/fa/python-net/aspose.slides/schemecolor/) از `TEXT1`، `BACKGROUND1`، `TEXT2` و `BACKGROUND2` استفاده می‌کند، در حالی که [ColorScheme](https://reference.aspose.com/slides/fa/python-net/aspose.slides.theme/colorscheme/) همان سلول‌های تم را به‌صورت `dark1`، `light1`، `dark2` و `light2` در معرض نمایش می‌گذارد. این نگاشت ثابت است:
+شمارش [SchemeColor](https://reference.aspose.com/slides/fa/python-net/aspose.slides/schemecolor/) از `TEXT1`، `BACKGROUND1`، `TEXT2` و `BACKGROUND2` استفاده می‌کند، در حالی که [ColorScheme](https://reference.aspose.com/slides/fa/python-net/aspose.slides.theme/colorscheme/) همان جایگاه‌های تم را به صورت `dark1`، `light1`، `dark2` و `light2` نمایش می‌دهد. این نگاشت ثابت است:
 
 * `TEXT1` = `dark1`
 * `BACKGROUND1` = `light1`
 * `TEXT2` = `dark2`
 * `BACKGROUND2` = `light2`
 
-این‌ها نام‌های دیگری برای همان سلول‌های تم هستند؛ مقادیری که به‌صورت پویا از یک شکل به شکل دیگر تبدیل می‌شوند نیستند.
+این‌ها نام‌های جایگزین برای همان جایگاه‌های تم هستند؛ آنها مقادیری نیستند که به‌صورت پویا از یک فرم به فرم دیگر تبدیل شوند.
 
 ## **تغییر قلم‌های تم**
 
-یک طرح‌نامه قلم تم شامل یک مجموعه قلم اصلی برای سرعنوان‌ها و یک مجموعه قلم فرعی برای متن بدنه است. ویژگی‌های [FontScheme.major](https://reference.aspose.com/slides/fa/python-net/aspose.slides.theme/fontscheme/major/) و [FontScheme.minor](https://reference.aspose.com/slides/fa/python-net/aspose.slides.theme/fontscheme/minor/) این مجموعه‌ها را نمایش می‌دهند.
+یک طرح قلم تم شامل یک مجموعه قلم اصلی برای سرفصل‌ها و یک مجموعه قلم فرعی برای متن اصلی است. ویژگی‌های [FontScheme.major](https://reference.aspose.com/slides/fa/python-net/aspose.slides.theme/fontscheme/major/) و [FontScheme.minor](https://reference.aspose.com/slides/fa/python-net/aspose.slides.theme/fontscheme/minor/) این مجموعه‌ها را در اختیار می‌گذارند.
 
-شناسه‌های قلم تم سازگار با PowerPoint می‌توانند در قالب‌بندی متن استفاده شوند:
+شناساگرهای قلم تم سازگار با PowerPoint می‌توانند در قالب‌بندی متن استفاده شوند:
 
-* `+mn-lt` - قلم بدنه لاتین (قلم لاتین فرعی)
-* `+mj-lt` - قلم سرعنوان لاتین (قلم لاتین اصلی)
-* `+mn-ea` - قلم بدنه آسیای شرقی (قلم آسیای شرقی فرعی)
-* `+mj-ea` - قلم سرعنوان آسیای شرقی (قلم آسیای شرقی اصلی)
+* `+mn-lt` - قلم بدنه لاتین (Minor Latin Font)
+* `+mj-lt` - قلم سرفصل لاتین (Major Latin Font)
+* `+mn-ea` - قلم بدنه آسیای شرقی (Minor East Asian Font)
+* `+mj-ea` - قلم سرفصل آسیای شرقی (Major East Asian Font)
 
-مثال زیر یک سرعنوان که از قلم لاتین اصلی تم استفاده می‌کند و یک خط بدنه که از قلم لاتین فرعی تم استفاده می‌کند ایجاد می‌کند. سپس قلم‌های تم را تغییر می‌دهد و نتیجه را ذخیره می‌کند:
+مثال زیر یک سرفصل که از قلم لاتین بزرگ تم استفاده می‌کند و یک خط بدنه که از قلم لاتین کوچک تم استفاده می‌کند، ایجاد می‌کند. سپس قلم‌های تم را تغییر می‌دهد و نتیجه را ذخیره می‌کند:
 
 ```python
 import aspose.slides as slides
@@ -171,7 +171,9 @@ with slides.Presentation() as presentation:
     presentation.save("theme-fonts.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-سرعنوان از قلم اصلی پیروی می‌کند و متن بدنه از قلم فرعی. متنی که به‌جای شناسه تم نام قلم صریح دارد، هنگام تغییر طرح‌نامه قلم تم به‌طور خودکار سوئیچ نمی‌شود.
+سرفصل از قلم بزرگ پیروی می‌کند و متن بدنه از قلم کوچک. متنی که به‌صورت صریح نام قلم دارد به‌جای شناسه تم، هنگام تغییر طرح قلم تم به‌صورت خودکار جابجا نمی‌شود.
+
+مجموعه‌های قلم بزرگ و کوچک می‌توانند شامل نگاشت‌های قلم برای سیستم‌های نوشتاری فردی باشند، مانند سیریلیک، عربی، ژاپنی، گرجی و ثانا. برای بررسی، افزودن، جایگزینی یا حذف این نگاشت‌ها، بخش [Script-Specific Theme Fonts](/slides/fa/python-net/script-specific-font-mappings/) را ببینید.
 
 {{% alert color="info" title="Tip" %}}
 برای اطلاعات بیشتر درباره قلم‌های ارائه، به [PowerPoint Fonts](/slides/fa/python-net/powerpoint-fonts/) مراجعه کنید.
@@ -179,11 +181,11 @@ with slides.Presentation() as presentation:
 
 ## **کپی یا اعمال تم**
 
-دو جریان کاری رایج وجود دارد که مشکلات متفاوتی را حل می‌کنند.
+دو گردش کار رایج وجود دارد که هر کدام مشکل متفاوتی را حل می‌کنند.
 
-### **حفظ تم منبع هنگام جابجایی اسلایدها**
+### **حفظ تم منبع هنگام جابه‌جایی اسلایدها**
 
-اگر می‌خواهید اسلایدی را به ارائه دیگری منتقل کنید و طراحی اصلی آن را حفظ کنید، مستر منبع را با استفاده از [MasterSlideCollection.add_clone](https://reference.aspose.com/slides/fa/python-net/aspose.slides/masterslidecollection/add_clone/) به ارائه هدف کلون کنید، سپس اسلاید را با استفاده از [SlideCollection.add_clone](https://reference.aspose.com/slides/fa/python-net/aspose.slides/slidecollection/add_clone/) و مستر کلون شده کلون کنید. این کار مستر، لایه‌های آن و تم مربوطه را به‌هم پیوسته نگه می‌دارد.
+اگر می‌خواهید اسلایدی را به ارائه دیگری منتقل کنید و طراحی اصلی آن را حفظ کنید، مستر منبع را با استفاده از [MasterSlideCollection.add_clone](https://reference.aspose.com/slides/fa/python-net/aspose.slides/masterslidecollection/add_clone/) به ارائه هدف افزودن کنید، سپس اسلاید را با استفاده از [SlideCollection.add_clone](https://reference.aspose.com/slides/fa/python-net/aspose.slides/slidecollection/add_clone/) و مستر کلون‌شده کپی کنید. این کار مستر، لِی‌آوت‌های آن و تم مرتبط را به‌هم پیوند می‌دهد.
 
 ```python
 import aspose.slides as slides
@@ -197,11 +199,11 @@ with slides.Presentation("source-theme.pptx") as source:
         target.save("theme-preserved.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-این روش ترجیحی است زمانی که اسلاید منبع باید در مقصد همان ظاهر را داشته باشد. به‌سادگی کلون کردن محتوا روی یک مستر نامرتبط می‌تواند رنگ‌ها، قلم‌ها، پس‌زمینه‌ها و افکت‌های مبتنی بر تم را تغییر دهد.
+این گردش کار زمانی ترجیح داده می‌شود که اسلاید منبع باید در مقصد همان ظاهر را داشته باشد. به‌سادگی کپی کردن محتوا روی یک مستر مقصد نامرتبط می‌تواند رنگ‌های رانده‌شده توسط تم، قلم‌ها، پس‌زمینه‌ها و افکت‌ها را تغییر دهد.
 
 ### **اعمال مقادیر تم به یک اسلاید موجود**
 
-اگر اسلاید هدف باید بر روی مستر و لایه فعلی خود باقی بماند، یک بازنویسی سطح اسلاید را از تم منبع مقداردهی کنید. روش‌های [OverrideTheme.init_color_scheme_from](https://reference.aspose.com/slides/fa/python-net/aspose.slides.theme/overridetheme/init_color_scheme_from/)، [OverrideTheme.init_font_scheme_from](https://reference.aspose.com/slides/fa/python-net/aspose.slides.theme/overridetheme/init_font_scheme_from/) و [OverrideTheme.init_format_scheme_from](https://reference.aspose.com/slides/fa/python-net/aspose.slides.theme/overridetheme/init_format_scheme_from/) سه مؤلفه اصلی تم را به بازنویسی کپی می‌کنند.
+اگر اسلاید هدف باید بر روی مستر و لِی‌آوت فعلی خود بماند، یک بازنویسی سطح اسلاید را از تم منبع مقداردهی اولیه کنید. متدهای [OverrideTheme.init_color_scheme_from](https://reference.aspose.com/slides/fa/python-net/aspose.slides.theme/overridetheme/init_color_scheme_from/)، [OverrideTheme.init_font_scheme_from](https://reference.aspose.com/slides/fa/python-net/aspose.slides.theme/overridetheme/init_font_scheme_from/) و [OverrideTheme.init_format_scheme_from](https://reference.aspose.com/slides/fa/python-net/aspose.slides.theme/overridetheme/init_format_scheme_from/) سه مؤلفه اصلی تم را به بازنویسی کپی می‌کنند.
 
 ```python
 import aspose.slides as slides
@@ -216,11 +218,11 @@ with slides.Presentation("source-theme.pptx") as source:
         target.save("theme-applied-to-slide.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-این کار تم استفاده‌شده توسط آن اسلاید را بدون تغییر تم وارث شده توسط اسلایدهای دیگر تغییر می‌دهد. برای حذف بازنویسی محلی و بازگشت به مقادیر وارث شده، متد [OverrideTheme.clear](https://reference.aspose.com/slides/fa/python-net/aspose.slides.theme/overridetheme/clear/) را فراخوانی کنید.
+این کار تم استفاده شده توسط آن اسلاید را تغییر می‌دهد بدون این که تم وارث شده توسط اسلایدهای دیگر تغییر کند. برای حذف بازنویسی محلی و بازگشت به مقادیر وارث‌شده، متد [OverrideTheme.clear](https://reference.aspose.com/slides/fa/python-net/aspose.slides.theme/overridetheme/clear/) را فراخوانی کنید.
 
-### **اعمال بازنویسی تم به یک لایه**
+### **اعمال بازنویسی تم به یک لِی‌آوت**
 
-یک بازنویسی سطح لایه برای اسلایدهایی که از آن لایه استفاده می‌کنند اعمال می‌شود، مگر اینکه اسلاید خاصی بازنویسی خود را داشته باشد. همان متدهای مقداردهی می‌توانند از طریق [LayoutSlideThemeManager](https://reference.aspose.com/slides/fa/python-net/aspose.slides.theme/layoutslidethememanager/) لایه استفاده شوند:
+یک بازنویسی سطح لِی‌آوت برای اسلایدهایی که از آن لِی‌آوت استفاده می‌کنند اعمال می‌شود، مگر این که اسلاید خاصی بازنویسی خود را داشته باشد. همان متدهای مقداردهی اولیه می‌توانند از طریق [LayoutSlideThemeManager](https://reference.aspose.com/slides/fa/python-net/aspose.slides.theme/layoutslidethememanager/) لِی‌آوت استفاده شوند:
 
 ```python
 import aspose.slides as slides
@@ -235,17 +237,17 @@ with slides.Presentation("source-theme.pptx") as source:
         target.save("theme-applied-to-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-وقتی تعداد زیادی لایه و اسلاید باید یک طراحی پایه مشترک داشته باشند، از تم سطح مستر یا ارائه استفاده کنید؛ برای یک خانواده لایه که نیاز به استایل متفاوت دارد، بازنویسی لایه؛ و برای استثنای واقعی فقط بازنویسی اسلاید. بازنویسی‌های بیش از حد سطح اسلاید، تغییرات تم کلی بعدی را پیش‌بینی‌ناپذیر می‌کند.
+زمانی که بسیاری از لِی‌آوت‌ها و اسلایدها باید همان طراحی پایه را به‌اشتراک بگذارند، از تم سطح مستر یا ارائه استفاده کنید؛ وقتی یک خانواده لِی‌آوت نیاز به استایل متفاوت دارد، بازنویسی لِی‌آوت را به‌کار ببرید؛ و بازنویسی اسلاید فقط برای استثناهای واقعی کافی است. بازنویسی‌های زیاد در سطح اسلاید باعث می‌شود پیش‌بینی تغییرات تم سراسری دشوارتر شود.
 
-## **به‌روزرسانی استایل‌های پس‌زمینه تم**
+## **به‌روزرسانی سبک‌های پس‌زمینه تم**
 
-پرکننده‌های پس‌زمینه تم در [FormatScheme.background_fill_styles](https://reference.aspose.com/slides/fa/python-net/aspose.slides.theme/formatscheme/background_fill_styles/) ذخیره می‌شوند. PowerPoint می‌تواند گزینه‌های پس‌زمینه بیشتری در رابط کاربری خود نشان دهد نسبت به تعداد تعریف‌های پرکننده‌ای که فیزیکی در این مجموعه ذخیره شده‌اند، زیرا رابط می‌تواند پرکننده‌های تم را با رنگ‌های تم و مراجع استایل دیگر ترکیب کند.
+پرکننده‌های پس‌زمینه تم در [FormatScheme.background_fill_styles](https://reference.aspose.com/slides/fa/python-net/aspose.slides.theme/formatscheme/background_fill_styles/) ذخیره می‌شوند. PowerPoint می‌تواند گزینه‌های پس‌زمینه بیشتری در رابط کاربری خود نمایش دهد نسبت به تعداد تعریف‌های پرکننده‌ای که فیزیکی در این مجموعه ذخیره شده‌اند، زیرا رابط می‌تواند پرکننده‌های تم را با رنگ‌های تم و سایر ارجاعات سبک ترکیب کند.
 
-![گالری استایل پس‌زمینه PowerPoint برای یک تم ارائه](presentation-design_8.png)
+![گالری سبک پس‌زمینه PowerPoint برای یک تم ارائه](presentation-design_8.png)
 
-قبل از استفاده از یک استایل پس‌زمینه، مجموعه ذخیره‌شده و ویژگی [Background.style_index](https://reference.aspose.com/slides/fa/python-net/aspose.slides/background/style_index/) فعلی را بررسی کنید. `style_index` برای عدم وجود پرکننده تم مقدار `0` دارد؛ مقادیر مثبت به مراجع استایل پس‌زمینه تم اشاره می‌کنند. این متفاوت از اندیس‌گذاری مستقیم یک مجموعه پایتون است که در آن `[0]` به اولین آیتم ذخیره‌شده اشاره دارد. فرض نکنید هر ارائه همان تعداد استایل پرکننده پس‌زمینه را دارد.
+قبل از استفاده از یک سبک پس‌زمینه، مجموعه ذخیره‌شده و مقدار فعلی [Background.style_index](https://reference.aspose.com/slides/fa/python-net/aspose.slides/background/style_index/) را بررسی کنید. `style_index` از `0` برای عدم وجود پرکننده تم استفاده می‌کند؛ مقادیر مثبت ارجاع به سبک پس‌زمینه تم هستند. این متفاوت از ایندکس‌گذاری مستقیم یک مجموعه در پایتون است، جایی که `[0]` اولین آیتم ذخیره‌شده را نشان می‌دهد. فرض نکنید که هر ارائه همان تعداد سبک پرکننده پس‌زمینه را دارد.
 
-مثال زیر تعداد پرکننده‌های پس‌زمینه موجود را گزارش می‌دهد، یک مرجع پس‌زمینه تم را به اولین مستر اختصاص می‌دهد و ارائه را ذخیره می‌کند:
+مثال زیر تعداد پرکننده‌های پس‌زمینه موجود را گزارش می‌کند، یک ارجاع پس‌زمینه تم به اولین مستر اختصاص می‌دهد و ارائه را ذخیره می‌کند:
 
 ```python
 import aspose.slides as slides
@@ -261,10 +263,10 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("theme-background.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-نتیجه قابل مشاهده به ورودی تمی که توسط مستر ارجاع داده شده و به هر بازنویسی پس‌زمینه در لایه یا سطح اسلاید بستگی دارد. اگر اسلاید پس‌زمینه خود را داشته باشد، تغییر فقط پس‌زمینه مستر ممکن است آن اسلاید را تحت‌تأثیر قرار ندهد. برای دانستن پس‌زمینه نهایی پس از اعمال وراثت، از [Background.get_effective](https://reference.aspose.com/slides/fa/python-net/aspose.slides/background/get_effective/) استفاده کنید.
+نتیجه قابل مشاهده به تم ارجاع‌شده توسط مستر و هر بازنویسی پس‌زمینه در سطح لِی‌آوت یا اسلاید بستگی دارد. اگر اسلاید پس‌زمینه خاص خود را داشته باشد، تغییر فقط پس‌زمینه مستر ممکن است آن اسلاید را تحت تأثیر قرار ندهد. هنگام نیاز به دانستن پس‌زمینه نهایی پس از اعمال وراثت، از [Background.get_effective](https://reference.aspose.com/slides/fa/python-net/aspose.slides/background/get_effective/) استفاده کنید.
 
 {{% alert color="warning" title="Warning" %}}
-`style_index` را به‌عنوان یک اندیس صفر‑پایه مجموعه در نظر نگیرید. همچنین از کدنویسی سخت‑کد شده یک شماره استایل از یک فایل و فرض اینکه در فایل دیگر همان ظاهر را داشته باشد خودداری کنید؛ تعاریف استایل تم به‌صورت مخصوص به هر ارائه هستند.
+`style_index` را به‌عنوان یک ایندکس صفر‑پایه در مجموعه اشتباه نگیرید. همچنین از کدنویسی مستقیم یک عدد سبک از یک فایل و فرض اینکه در فایل دیگر هم‌ظاهر باشد خودداری کنید؛ تعریف‌های سبک تم به‌صورت خاص برای هر ارائه هستند.
 {{% /alert %}}
 
 {{% alert color="info" title="Tip" %}}
@@ -273,13 +275,13 @@ with slides.Presentation("input.pptx") as presentation:
 
 ## **به‌روزرسانی افکت‌های تم**
 
-یک طرح‌نامه قالب تم شامل مجموعه‌های جداگانهٔ [FormatScheme.fill_styles](https://reference.aspose.com/slides/fa/python-net/aspose.slides.theme/formatscheme/fill_styles/)، [FormatScheme.line_styles](https://reference.aspose.com/slides/fa/python-net/aspose.slides.theme/formatscheme/line_styles/) و [FormatScheme.effect_styles](https://reference.aspose.com/slides/fa/python-net/aspose.slides.theme/formatscheme/effect_styles/) است. تم‌های معمولی آفیس اغلب سه ورودی استایل اصلی دارند که از نظر بصری به ترتیب به سطوح ظریف، متوسط و شدید متناظر هستند، اما کد باید هر مجموعه را به‌جای فرض تعداد ثابت بررسی کند.
+یک طرح قالب تم شامل مجموعه‌های جداگانه [FormatScheme.fill_styles](https://reference.aspose.com/slides/fa/python-net/aspose.slides.theme/formatscheme/fill_styles/)، [FormatScheme.line_styles](https://reference.aspose.com/slides/fa/python-net/aspose.slides.theme/formatscheme/line_styles/) و [FormatScheme.effect_styles](https://reference.aspose.com/slides/fa/python-net/aspose.slides.theme/formatscheme/effect_styles/) است. تم‌های رایج Office اغلب سه ورودی اصلی سبک دارند که به‌صورت بصری با قالب‌بندی‌های ظریف، متوسط و شدید متناظر هستند، اما کد باید هر مجموعه را بررسی کند به‌جای این‌که تعداد ثابت فرض کند.
 
-![افکت‌های تم ظریف، متوسط و شدید اعمال‌شده بر یک شکل مشابه](presentation-design_10.png)
+![افکت‌های تم ظریف، متوسط و شدید که بر روی همان شکل اعمال شده‌اند](presentation-design_10.png)
 
-زمانی که این مجموعه‌ها را در پایتون دسترسی می‌یابید، اندیس مجموعه صفر‑پایه است: `[0]` اولین استایل ذخیره‌شده و `[2]` سومین استایل است. اندیس‌های اشاره‌گر استایل یک شکل مفهوم جداگانه‌ای است که از طریق [IShapeStyle](https://reference.aspose.com/slides/fa/python-net/aspose.slides/ishapestyle/) در دسترس است. تغییر یک استایل تم بر اشکالی که به آن استایل ارجاع می‌دهند اثر می‌گذارد؛ اشکالی که قالب‌بندی مستقیم دارند ممکن است بدون تغییر بمانند.
+هنگامی که این مجموعه‌ها را در پایتون دسترسی می‌گیرید، ایندکس مجموعه صفر‑پایه است: `[0]` اولین سبک ذخیره‌شده و `[2]` سومین. ایندکس‌های ارجاع سبک یک شکل مفهومی جداگانه هستند که از طریق [IShapeStyle](https://reference.aspose.com/slides/fa/python-net/aspose.slides/ishapestyle/) در دسترس است. تغییر یک سبک تم بر شکل‌هایی که به آن سبک ارجاع می‌کنند تأثیر می‌گذارد؛ شکل‌های دارای قالب‌بندی مستقیم ممکن است بدون تغییر بمانند.
 
-مثال زیر بررسی می‌کند که ورودی‌های استایل لازم موجود هستند، اولین استایل خط را تغییر می‌دهد، سومین استایل پرکننده را تغییر می‌دهد، یک سایه خارجی را در سومین استایل افکت فعال می‌کند و نتیجه را ذخیره می‌کند:
+مثال زیر بررسی می‌کند که ورودی‌های سبک مورد نیاز وجود داشته باشند، اولین سبک خط را تغییر می‌دهد، سومین سبک پرکننده را تغییر می‌دهد، یک سایه خارجی را در سومین سبک افکت فعال می‌کند و نتیجه را ذخیره می‌کند:
 
 ```python
 import aspose.pydrawing as draw
@@ -298,13 +300,13 @@ with slides.Presentation("Subtle_Moderate_Intense.pptx") as presentation:
     presentation.save("theme-effects.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-برای اشکالی که به این سلول‌ها ارجاع می‌دهند، اولین استایل خط تم به قرمز، سومین استایل پرکننده تم به سبز جنگلی صلب و سومین استایل افکت یک سایه خارجی با فاصله ۱۰ پوینت می‌گیرد. نتیجه بصری دقیق همچنان به این بستگی دارد که هر شکل به کدام سلول استایل ارجاع می‌دهد و آیا قالب‌بندی مستقیم تم را بازنویسی می‌کند یا نه.
+برای شکل‌هایی که به این جایگاه‌ها ارجاع می‌دهند، اولین سبک خط تم به قرمز، سومین سبک پرکننده تم به سبز جنگلی ثابت و سومین سبک افکت یک سایه خارجی با فاصله ۱۰ پوینت می‌گیرد. نتیجه بصری دقیق هنوز به این‌که هر شکل به کدام جایگاه‌ها ارجاع می‌دهد و آیا قالب‌بندی مستقیم تم را بازنویسی می‌کند بستگی دارد.
 
-![استایل‌های افکت تم پس از تغییر تنظیمات خط، پرکننده و سایه](presentation-design_11.png)
+![سبک‌های افکت تم پس از تغییر تنظیمات خط، پرکننده و سایه](presentation-design_11.png)
 
 ## **خواندن مقادیر مؤثر تم**
 
-شیءهای خام تم چیزی را نشان می‌دهند که در سطح خاصی تعریف شده است. مقادیر مؤثر چیزی را نشان می‌دهند که یک اسلاید یا شکل پس از حل وراثت و بازنویسی‌های محلی واقعاً استفاده می‌کند. برای یک اسلاید، متد [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/fa/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/) را فراخوانی کنید. برای یک پس‌زمینه، از [Background.get_effective](https://reference.aspose.com/slides/fa/python-net/aspose.slides/background/get_effective/) و برای یک پرکننده، از [FillFormat.get_effective](https://reference.aspose.com/slides/fa/python-net/aspose.slides/fillformat/get_effective/) استفاده کنید.
+اشیای خام تم به شما می‌گویند که در یک سطح خاص چه چیزی تعریف شده است. مقادیر مؤثر آنچه یک اسلاید یا شکل پس از حل وراثت و بازنویسی‌های محلی استفاده می‌کند را نشان می‌دهند. برای یک اسلاید، متد [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/fa/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/) را فراخوانی کنید. برای پس‌زمینه، از [Background.get_effective](https://reference.aspose.com/slides/fa/python-net/aspose.slides/background/get_effective/) استفاده کنید و برای پرکننده، از [FillFormat.get_effective](https://reference.aspose.com/slides/fa/python-net/aspose.slides/fillformat/get_effective/) استفاده کنید.
 
 مثال زیر تم مؤثر، پس‌زمینه و اولین پرکننده شکل را از یک اسلاید می‌خواند:
 
@@ -325,18 +327,18 @@ with slides.Presentation("input.pptx") as presentation:
             print(f"First shape effective fill color: {effective_fill.solid_fill_color}")
 ```
 
-از داده‌های مؤثر برای تشخیص، اعتبارسنجی و مقایسه رندر استفاده کنید. اگر فقط به [Presentation.master_theme](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/master_theme/) نگاه کنید، ممکن است بازنویسی‌های مستر، لایه، اسلاید یا شکل را که ظاهر نهایی را تغییر می‌دهند از دست بدهید.
+از داده‌های مؤثر برای عیب‌یابی رندر، اعتبارسنجی و مقایسه‌ها استفاده کنید. اگر فقط [Presentation.master_theme](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/master_theme/) را بررسی کنید، ممکن است بازنویسی‌های مستر، لِی‌آوت، اسلاید یا شکل را که ظاهر نهایی را تغییر می‌دهند از دست بدهید.
 
-## **سؤالات متداول**
+## **سوالات متداول**
 
-**آیا می‌توانم تم را فقط به یک اسلاید اعمال کنم بدون تغییر مستر؟**
+**آیا می‌توانم تم را فقط بر یک اسلاید اعمال کنم بدون این‌که مستر را تغییر دهم؟**
 
-بله. از [SlideThemeManager](https://reference.aspose.com/slides/fa/python-net/aspose.slides.theme/slidethememanager/) اسلاید استفاده کنید و تم بازنویسی‌شده آن را مقداردهی کنید. تغییر فقط به‌صورت محلی بر آن اسلاید باقی می‌ماند؛ اسلایدهای دیگر همچنان تم‌های موجود خود را وراثت می‌گیرند.
+بله. از [SlideThemeManager](https://reference.aspose.com/slides/fa/python-net/aspose.slides.theme/slidethememanager/) اسلاید استفاده کنید و بازنویسی تم آن را مقداردهی کنید. تغییر فقط به‌صورت محلی بر آن اسلاید باقی می‌ماند؛ سایر اسلایدها تم‌های موجود خود را وراثت می‌کنند.
 
-**امن‌ترین روش برای انتقال تم از یک ارائه به ارائه دیگر چیست؟**
+**ایمن‌ترین روش برای انتقال تم از یک ارائه به دیگری چیست؟**
 
-هنگام جابجایی اسلاید و حفظ ظاهر منبع، مستر منبع را به مقصد کلون کنید و اسلاید را با همان مستر با استفاده از [MasterSlideCollection.add_clone](https://reference.aspose.com/slides/fa/python-net/aspose.slides/masterslidecollection/add_clone/) و [SlideCollection.add_clone](https://reference.aspose.com/slides/fa/python-net/aspose.slides/slidecollection/add_clone/) کلون کنید. این کار مستر، لایه‌ها و تم را به‌هم متصل نگه می‌دارد.
+هنگام جابه‌جایی یک اسلاید و حفظ ظاهر منبع، مستر منبع را به مقصد کلون کنید و اسلاید را با استفاده از همان مستر کلون‌شده با متدهای [MasterSlideCollection.add_clone](https://reference.aspose.com/slides/fa/python-net/aspose.slides/masterslidecollection/add_clone/) و [SlideCollection.add_clone](https://reference.aspose.com/slides/fa/python-net/aspose.slides/slidecollection/add_clone/) کپی کنید. این کار مستر، لِی‌آوت‌ها و تم را با هم حفظ می‌کند.
 
-**چگونه می‌توانم مقادیر مؤثر پس از وراثت و بازنویسی‌ها را ببینم؟**
+**چگونه می‌توانم مقادیر مؤثر را پس از وراثت و بازنویسی‌ها مشاهده کنم؟**
 
-برای یک اسلاید یا تم لایه از [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/fa/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/) استفاده کنید و برای اشیاء قالب مانند [Background.get_effective](https://reference.aspose.com/slides/fa/python-net/aspose.slides/background/get_effective/) و [FillFormat.get_effective](https://reference.aspose.com/slides/fa/python-net/aspose.slides/fillformat/get_effective/) از متدهای داده مؤثر مربوطه استفاده کنید. این APIها مقادیر حل‑شده پس از اعمال وراثت و بازنویسی‌ها را برمی‌گردانند.
+از [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/fa/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/) برای یک تم اسلاید یا لِی‌آوت و روش‌های داده‑مؤثر مربوطه برای اشیاء قالب‌بندی مانند [Background.get_effective](https://reference.aspose.com/slides/fa/python-net/aspose.slides/background/get_effective/) و [FillFormat.get_effective](https://reference.aspose.com/slides/fa/python-net/aspose.slides/fillformat/get_effective/) استفاده کنید. این APIها مقادیر حل شده پس از اعمال وراثت و بازنویسی‌ها را برمی‌گردانند.

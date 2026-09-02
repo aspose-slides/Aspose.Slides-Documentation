@@ -17,11 +17,11 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Chuyển đổi các tệp PPT cổ điển sang PPTX trong Node.js với Aspose.Slides. Bao gồm các ví dụ JavaScript cho chuyển đổi một tệp và hàng loạt, xử lý lỗi và ghi chú về độ trung thực."
+description: "Chuyển đổi các tệp PPT cũ sang PPTX trong Node.js bằng Aspose.Slides. Bao gồm các ví dụ JavaScript cho chuyển đổi tệp đơn và hàng loạt, xử lý lỗi và ghi chú về độ chính xác."
 ---
 ## **Tổng quan**
 
-PPT là định dạng nhị phân PowerPoint cũ, trong khi PPTX là định dạng Open XML mới hơn. Aspose.Slides cho Node.js qua Java có thể tải tệp PPT và lưu nó dưới dạng PPTX mà không cần Microsoft PowerPoint. Bài viết này hướng dẫn cách chuyển đổi một tệp hoặc một thư mục các tệp và giải thích những gì cần kiểm tra sau khi chuyển đổi.
+PPT là định dạng PowerPoint nhị phân cũ, trong khi PPTX là định dạng Open XML mới hơn. Aspose.Slides cho Node.js thông qua Java có thể tải tệp PPT và lưu nó dưới dạng PPTX mà không cần Microsoft PowerPoint. Bài viết này trình bày cách chuyển đổi một tệp hoặc một thư mục các tệp và giải thích những gì cần kiểm tra sau khi chuyển đổi.
 
 ## **Chuyển đổi tệp PPT sang PPTX**
 
@@ -41,11 +41,11 @@ try {
 }
 ```
 
-Phần mở rộng tệp không tự động chọn định dạng đầu ra; đối số [SaveFormat.Pptx](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/saveformat/) làm điều đó. Giữ các đường dẫn đầu vào và đầu ra khác nhau nếu bạn cần giữ nguyên tệp PPT gốc.
+Phần mở rộng tệp không tự động chọn định dạng đầu ra; đối số [SaveFormat.Pptx](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/saveformat/) làm điều đó. Giữ các đường dẫn đầu vào và đầu ra khác nhau nếu bạn cần giữ lại tệp PPT gốc.
 
 ## **Chuyển đổi nhiều tệp PPT**
 
-Ví dụ dưới đây chuyển đổi mọi tệp `.ppt` trong một thư mục. Mỗi tệp được xử lý độc lập, vì vậy một chuyển đổi thất bại sẽ không làm dừng phần còn lại của lô.
+Ví dụ sau chuyển đổi mọi tệp `.ppt` trong một thư mục. Mỗi tệp được xử lý độc lập, vì vậy một lần chuyển đổi thất bại sẽ không làm dừng phần còn lại của lô.
 
 ```javascript
 var aspose = aspose || {};
@@ -81,47 +81,47 @@ for (const fileName of inputFiles) {
 }
 ```
 
-Đối với môi trường sản xuất, ghi lại lỗi đầy đủ, quyết định liệu có cho phép ghi đè tệp đầu ra đã tồn tại hay không, và ghi các tên tệp thất bại vào hàng đợi thử lại hoặc xem xét. Các tệp hỏng, tệp được bảo vệ bằng mật khẩu mà mở mà không có mật khẩu cần thiết, đường dẫn không truy cập được và nội dung không hỗ trợ đều có thể gây chuyển đổi thất bại. Xem [Password-Protected Presentations](/nodejs-java/password-protected-presentation/) để tải các tệp đã mã hóa.
+Đối với các tải công việc sản xuất, ghi lại lỗi đầy đủ, quyết định liệu có thể ghi đè tệp đầu ra đã tồn tại không, và ghi các tên tệp thất bại vào hàng đợi thử lại hoặc xem xét. Các tệp hỏng, tệp được bảo vệ bằng mật khẩu mà mở mà không có mật khẩu cần thiết, đường dẫn không thể truy cập và nội dung không được hỗ trợ đều có thể gây thất bại khi chuyển đổi. Xem [Password-Protected Presentations](/slides/vi/nodejs-java/password-protected-presentation/) để tải các tệp được mã hóa.
 
-## **Độ trung thực và các tính năng kế thừa**
+## **Độ chính xác và tính năng kế thừa**
 
-Quá trình chuyển đổi thường giữ nguyên các slide, master, layout, văn bản, hình dạng, hình ảnh, bảng và biểu đồ. Tuy nhiên, PPT và PPTX không đại diện cho mọi tính năng một cách hoàn toàn giống nhau. Một tính năng kế thừa không có tương đương PPTX, hoặc không được thư viện hỗ trợ, có thể được chuẩn hoá, bỏ qua hoặc hiển thị khác đi.
+Quá trình chuyển đổi thường giữ nguyên các slide, master, bố cục, văn bản, hình dạng, hình ảnh, bảng và biểu đồ. Tuy nhiên, PPT và PPTX không đại diện cho mọi tính năng một cách hoàn toàn giống nhau. Một tính năng kế thừa không có tương đương PPTX, hoặc không được thư viện hỗ trợ, có thể được chuẩn hoá, bỏ qua hoặc hiển thị khác đi.
 
-Kiểm tra tệp đã chuyển đổi khi nó chứa hoạt ảnh, chuyển tiếp, các đối tượng OLE nhúng hoặc liên kết, điều khiển ActiveX, phương tiện nhúng, phông chữ không phổ biến, hoặc macro VBA. Tệp PPTX thông thường không phải là định dạng hỗ trợ macro, vì vậy hãy sử dụng quy trình làm việc hỗ trợ macro thích hợp khi VBA cần được giữ lại. Cũng hãy xác minh rằng các phông chữ và tài nguyên bên ngoài cần thiết có sẵn trong môi trường mà bản trình chiếu đã chuyển đổi sẽ được mở hoặc render.
+Kiểm tra tệp đã chuyển đổi khi nó chứa hoạt hình, chuyển tiếp, các đối tượng OLE nhúng hoặc liên kết, điều khiển ActiveX, phương tiện nhúng, phông chữ không phổ biến, hoặc macro VBA. Tệp PPTX thuần không hỗ trợ macro, vì vậy hãy sử dụng quy trình làm việc hỗ trợ macro thích hợp khi VBA phải được giữ lại. Đồng thời xác minh rằng các phông chữ cần thiết và tài nguyên bên ngoài có trong môi trường nơi bản trình bày đã chuyển đổi sẽ được mở hoặc hiển thị.
 
-Đối với các tài liệu quan trọng, mở lại PPTX được tạo một cách lập trình và kiểm tra số lượng slide và nội dung chính, sau đó so sánh giao diện và hành vi trình chiếu trong trình xem mục tiêu. Đừng coi một cuộc gọi thành công [Presentation.save](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/#save) là bằng chứng rằng mọi tính năng kế thừa đều có đại diện PPTX chính xác.
+Đối với các tài liệu quan trọng, hãy mở lại PPTX được tạo bằng chương trình và kiểm tra số lượng slide và nội dung chính, sau đó so sánh giao diện và hành vi chiếu slide trong trình xem mong muốn. Đừng coi một lời gọi thành công tới [Presentation.save](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/#save) là bằng chứng rằng mọi tính năng kế thừa đều có biểu diễn PPTX chính xác.
 
 ## **Khi nào nên sử dụng PPTX**
 
-Sử dụng PPTX khi bản trình chiếu sẽ được chỉnh sửa trong các phiên bản PowerPoint hiện tại, trao đổi với các hệ thống làm việc với gói Open XML, hoặc lưu trữ ở định dạng dễ kiểm tra và khôi phục hơn so với PPT nhị phân cũ. Giữ bản PPT gốc như một bản lưu trữ hoặc bản sao khôi phục cho đến khi bản trình chiếu đã chuyển đổi vượt qua các kiểm tra độ trung thực của bạn.
+Sử dụng PPTX khi bản trình bày sẽ được chỉnh sửa trong các phiên bản PowerPoint hiện tại, trao đổi với các hệ thống làm việc với gói Open XML, hoặc lưu trữ ở định dạng dễ kiểm tra và khôi phục hơn so với PPT nhị phân cũ. Giữ bản PPT gốc làm bản lưu trữ hoặc sao lưu cho tới khi bản trình bày đã chuyển đổi vượt qua các kiểm tra độ chính xác của bạn.
 
-Nếu bạn cần PDF, HTML, hình ảnh, XPS, hoặc loại đầu ra khác, hãy sử dụng hướng dẫn riêng cho định dạng trong [Convert Presentations to Multiple Formats](/nodejs-java/convert-presentation/) thay vì giả định rằng mọi mục tiêu đều bảo lưu các tính năng PowerPoint có thể chỉnh sửa.
+Nếu bạn cần PDF, HTML, hình ảnh, XPS, hoặc loại đầu ra khác, hãy sử dụng hướng dẫn cụ thể cho định dạng trong [Convert Presentations to Multiple Formats](/slides/vi/nodejs-java/convert-presentation/) thay vì cho rằng mọi mục tiêu đều giữ nguyên các tính năng PowerPoint có thể chỉnh sửa.
 
 ## **Trình chuyển đổi trực tuyến**
 
-Đối với một tệp thỉnh thoảng hoặc so sánh nhanh, bạn có thể sử dụng [online PPT to PPTX converter](https://products.aspose.app/slides/vi/conversion/ppt-to-pptx). Đối với các chuyển đổi lặp lại, xử lý hàng loạt, hoặc xử lý lỗi ở mức ứng dụng, hãy sử dụng API Node.js qua Java.
+Đối với tệp cá nhân hoặc so sánh nhanh, bạn có thể sử dụng [online PPT to PPTX converter](https://products.aspose.app/slides/vi/conversion/ppt-to-pptx). Đối với các chuyển đổi lặp lại, xử lý hàng loạt, hoặc xử lý lỗi ở mức ứng dụng, hãy sử dụng API Node.js qua Java.
 
 ## **Bài viết liên quan**
 
-- [PPT vs PPTX](/nodejs-java/ppt-vs-pptx/)
-- [Lưu bản trình chiếu trong Node.js](/nodejs-java/save-presentation/)
-- [Các định dạng tệp được hỗ trợ](/nodejs-java/supported-file-formats/)
-- [Mở bản trình chiếu trong Node.js](/nodejs-java/open-presentation/)
+- [PPT vs PPTX](/slides/vi/nodejs-java/ppt-vs-pptx/)
+- [Lưu trình chiếu trong Node.js](/slides/vi/nodejs-java/save-presentation/)
+- [Định dạng tệp được hỗ trợ](/slides/vi/nodejs-java/supported-file-formats/)
+- [Mở trình chiếu trong Node.js](/slides/vi/nodejs-java/open-presentation/)
 
-## **Câu hỏi thường gặp**
+## **FAQ**
 
-**Tôi có thể chuyển đổi PPT sang PPTX mà không cài đặt Microsoft PowerPoint không?**
+**Có thể chuyển đổi PPT sang PPTX mà không cần cài đặt Microsoft PowerPoint không?**
 
-Có. Aspose.Slides cho Node.js qua Java tải và lưu các tệp trình chiếu mà không cần Microsoft PowerPoint.
+Có. Aspose.Slides cho Node.js thông qua Java tải và lưu các tệp trình chiếu mà không yêu cầu Microsoft PowerPoint.
 
-**Quá trình chuyển đổi PPT sang PPTX có giữ nguyên toàn bộ nội dung một cách chính xác không?**
+**Quá trình chuyển đổi PPT sang PPTX có giữ nguyên toàn bộ nội dung không?**
 
-Nó giữ lại nội dung trình chiếu chung, nhưng độ trung thực chính xác không được đảm bảo cho mọi tính năng cũ hoặc không được hỗ trợ. Kiểm tra tệp đã tạo khi nó chứa macro, đối tượng OLE hoặc ActiveX, phương tiện, hoạt ảnh chuyên biệt, hoặc phông chữ không phổ biến.
+Nó giữ lại nội dung trình chiếu thông thường, nhưng không đảm bảo độ chính xác tuyệt đối cho mọi tính năng kế thừa hoặc không được hỗ trợ. Kiểm tra tệp đã tạo khi nó chứa macro, đối tượng OLE hoặc ActiveX, phương tiện, hoạt ảnh đặc biệt, hoặc phông chữ không phổ biến.
 
-**Tôi có thể chuyển đổi tệp PPT được bảo vệ bằng mật khẩu không?**
+**Có thể chuyển đổi tệp PPT được bảo vệ bằng mật khẩu không?**
 
-Có, nếu bạn cung cấp mật khẩu đúng khi tải tệp. Thiếu mật khẩu hoặc mật khẩu không đúng sẽ khiến thao tác tải thất bại.
+Có, nếu bạn cung cấp mật khẩu đúng khi tải tệp. Thiếu hoặc sai mật khẩu sẽ khiến thao tác tải thất bại.
 
-**Tôi có nên xóa tệp PPT sau khi chuyển đổi không?**
+**Có nên xóa tệp PPT sau khi chuyển đổi không?**
 
-Giữ bản gốc cho đến khi bạn đã xác minh PPTX trong các trình xem và quy trình làm việc quan trọng. Điều này cung cấp một bản sao khôi phục nếu tính năng cũ chuyển đổi khác nhau.
+Giữ bản gốc cho tới khi bạn đã xác minh PPTX trong các trình xem và quy trình làm việc quan trọng. Điều này cung cấp bản sao lưu nếu một tính năng kế thừa được chuyển đổi khác đi.

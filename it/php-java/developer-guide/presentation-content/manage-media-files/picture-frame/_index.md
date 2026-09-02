@@ -1,23 +1,23 @@
 ---
-title: Gestisci i riquadri immagine nelle presentazioni con PHP
-linktitle: Riquadro immagine
+title: Gestire le cornici immagine nelle presentazioni usando PHP
+linktitle: Cornice immagine
 type: docs
 weight: 10
 url: /it/php-java/picture-frame/
 keywords:
-- riquadro immagine
-- aggiungi riquadro immagine
-- crea riquadro immagine
+- cornice immagine
+- aggiungere cornice immagine
+- creare cornice immagine
 - immagine incorporata
 - immagine collegata
-- estrai immagine
+- estrarre immagine
 - immagine raster
 - immagine SVG
-- ritaglia immagine
-- elimina aree ritagliate
-- comprime immagine
+- ritagliare immagine
+- eliminare aree ritagliate
+- comprimere immagine
 - StretchOffset
-- formattazione riquadro immagine
+- formattazione cornice immagine
 - scala relativa
 - effetto immagine
 - rapporto d'aspetto
@@ -26,21 +26,21 @@ keywords:
 - presentazione
 - PHP
 - Aspose.Slides
-description: "Crea, formatta, collega, ritaglia, estrae e comprime i riquadri immagine nelle presentazioni con Aspose.Slides per PHP via Java."
+description: "Creare, formattare, collegare, ritagliare, estrarre e comprimere le cornici immagine nelle presentazioni con Aspose.Slides per PHP tramite Java."
 ---
 ## **Panoramica**
 
-Un picture frame è una forma di diapositiva che visualizza un'immagine. In Aspose.Slides, la risorsa immagine e la forma che la visualizza sono oggetti separati: una [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/) possiede risorse immagine incorporate tramite la sua [ImageCollection](https://reference.aspose.com/slides/it/php-java/aspose.slides/imagecollection/), mentre un [PictureFrame](https://reference.aspose.com/slides/it/php-java/aspose.slides/pictureframe/) controlla la posizione, le dimensioni, la formattazione della linea, la rotazione, il ritaglio, gli effetti immagine e altre impostazioni a livello di cornice.
+Un cornice immagine è una forma della diapositiva che visualizza un’immagine. In Aspose.Slides, la risorsa immagine e la forma che la visualizza sono oggetti separati: una [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/) possiede le risorse immagine incorporate tramite la sua [ImageCollection](https://reference.aspose.com/slides/it/php-java/aspose.slides/imagecollection/), mentre una [PictureFrame](https://reference.aspose.com/slides/it/php-java/aspose.slides/pictureframe/) controlla la posizione, le dimensioni, la formattazione della linea, la rotazione, il ritaglio, gli effetti immagine e altre impostazioni a livello di cornice.
 
-Questa separazione è utile quando la stessa immagine viene mostrata più di una volta. Aggiungi l'immagine alla presentazione una sola volta, conserva il [PPImage](https://reference.aspose.com/slides/it/php-java/aspose.slides/ppimage/) restituito e usa quella risorsa immagine quando crei i picture frame.
+Questa separazione è utile quando la stessa immagine viene mostrata più di una volta. Aggiungi l’immagine alla presentazione una sola volta, conserva il [PPImage](https://reference.aspose.com/slides/it/php-java/aspose.slides/ppimage/) restituito e utilizza quella risorsa immagine quando crei le cornici immagine.
 
-I picture frame possono contenere immagini raster come PNG o JPEG e immagini vettoriali SVG. Possono inoltre riferirsi a immagini collegate anziché memorizzare i byte dell'immagine nella presentazione. La scelta influisce su portabilità, dimensione del file, estrazione e comportamento di esportazione, perciò è utile decidere come l'immagine debba essere archiviata prima di applicare formattazioni o ottimizzazioni.
+Le cornici immagine possono contenere immagini raster come PNG o JPEG e immagini vettoriali SVG. Possono anche fare riferimento a immagini collegate invece di memorizzare i byte dell’immagine nella presentazione. La scelta influisce sulla portabilità, sulle dimensioni del file, sull’estrazione e sul comportamento di esportazione, quindi è utile decidere come l’immagine debba essere memorizzata prima di applicare formattazioni o ottimizzazioni.
 
-## **Aggiungere e formattare un'immagine incorporata**
+## **Aggiungere e formattare un’immagine incorporata**
 
-Per un'immagine incorporata, aggiungi i dati immagine alla presentazione e crea un picture frame con [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/it/php-java/aspose.slides/shapecollection/addpictureframe/). L'immagine diventa parte del pacchetto della presentazione, così la presentazione rimane autonoma quando viene spostata su un altro computer.
+Per un’immagine incorporata, aggiungi i dati dell’immagine alla presentazione e crea una cornice immagine con [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/it/php-java/aspose.slides/shapecollection/addpictureframe/). L’immagine diventa parte del pacchetto della presentazione, così la presentazione rimane autonoma quando viene spostata su un altro computer.
 
-L'esempio seguente aggiunge un'immagine JPEG, crea una cornice con le dimensioni native dell'immagine e applica la formattazione della linea e la rotazione:
+L’esempio seguente aggiunge un’immagine JPEG, crea una cornice con le dimensioni native dell’immagine e applica la formattazione della linea e la rotazione:
 
 ```php
 use aspose\slides\FillType;
@@ -74,11 +74,11 @@ try {
 }
 ```
 
-La cornice controlla la geometria visualizzata; modificare la dimensione della cornice non cambia le dimensioni in pixel originali memorizzate nella risorsa immagine incorporata. Questa distinzione diventa importante quando si ritaglia o si comprime un'immagine in seguito.
+La cornice immagine controlla la geometria visualizzata; modificare le dimensioni della cornice non cambia le dimensioni pixel originali memorizzate nella risorsa immagine incorporata. Questa distinzione diventa importante quando si ritaglia o si comprime un’immagine in seguito.
 
 ## **Utilizzare la scala relativa**
 
-[PictureFrame](https://reference.aspose.com/slides/it/php-java/aspose.slides/pictureframe/) espone la scala di larghezza e altezza relativa per la cornice tramite [setRelativeScaleWidth](https://reference.aspose.com/slides/it/php-java/aspose.slides/pictureframe/setrelativescalewidth/) e [setRelativeScaleHeight](https://reference.aspose.com/slides/it/php-java/aspose.slides/pictureframe/setrelativescaleheight/). Un valore di `1.0` corrisponde al 100 % della dimensione originale dell'immagine. La scala relativa è utile quando un flusso di lavoro deve preservare una relazione con la dimensione dell'immagine di origine invece di calcolare manualmente le dimensioni finali.
+[PictureFrame](https://reference.aspose.com/slides/it/php-java/aspose.slides/pictureframe/) espone la scalatura relativa di larghezza e altezza per la cornice tramite [setRelativeScaleWidth](https://reference.aspose.com/slides/it/php-java/aspose.slides/pictureframe/setrelativescalewidth/) e [setRelativeScaleHeight](https://reference.aspose.com/slides/it/php-java/aspose.slides/pictureframe/setrelativescaleheight/). Un valore di `1.0` corrisponde al 100 % della dimensione originale dell’immagine. La scala relativa è utile quando un flusso di lavoro deve preservare una relazione con le dimensioni dell’immagine di origine invece di calcolare manualmente le dimensioni finali.
 
 ```php
 use aspose\slides\Images;
@@ -109,17 +109,17 @@ try {
 }
 ```
 
-La scala relativa modifica le impostazioni di scala della cornice; non ricampiona né comprime l'immagine incorporata.
+La scala relativa modifica le impostazioni di scala della cornice; non ricampiona né comprime l’immagine incorporata.
 
 ## **Immagini incorporate e collegate**
 
-Un'immagine incorporata memorizza i dati immagine all'interno della presentazione e rappresenta quindi la scelta più sicura per la portabilità e il rendering prevedibile. Un'immagine collegata memorizza un percorso esterno tramite il metodo [Picture::setLinkPathLong](https://reference.aspose.com/slides/it/php-java/aspose.slides/picture/setlinkpathlong/) anziché incorporare i dati immagine nello stesso modo.
+Un’immagine incorporata memorizza i dati dell’immagine all’interno della presentazione ed è quindi la scelta più sicura per la portabilità e il rendering prevedibile. Un’immagine collegata memorizza un percorso esterno tramite il metodo [Picture::setLinkPathLong](https://reference.aspose.com/slides/it/php-java/aspose.slides/picture/setlinkpathlong/) invece di incorporare i dati dell’immagine nello stesso modo.
 
-Le immagini collegate possono ridurre la quantità di dati immagine memorizzati nel PPTX, ma introducono una dipendenza esterna. Il file collegato deve rimanere accessibile all'applicazione che apre o rende la presentazione. Se il percorso cambia, il file viene spostato o la risorsa non è disponibile, l'immagine collegata potrebbe non essere visualizzata come previsto. Per presentazioni che devono essere inviate via e‑mail, archiviate o renderizzate in ambienti isolati, le immagini incorporate sono solitamente più affidabili.
+Le immagini collegate possono ridurre la quantità di dati immagine memorizzati nel PPTX, ma introducono una dipendenza esterna. Il file collegato deve rimanere accessibile all’applicazione che apre o rende la presentazione. Se il percorso cambia, il file è spostato o la risorsa non è disponibile, la foto collegata potrebbe non essere visualizzata come previsto. Per presentazioni che devono essere inviate via e‑mail, archiviate o renderizzate in ambienti isolati, le immagini incorporate sono generalmente più affidabili.
 
-### **Aggiungere un'immagine collegata**
+### **Aggiungere un’immagine collegata**
 
-L'esempio seguente crea un picture frame e lo punta a un file immagine locale. Si occupa solo del collegamento immagine; il collegamento video è un flusso di lavoro multimediale separato e non è mescolato in questo esempio.
+L’esempio seguente crea una cornice immagine e la punta verso un file immagine locale. Gestisce solo il collegamento delle immagini; il collegamento dei video è un flusso di lavoro multimediale separato e non è mescolato in questo esempio.
 
 ```php
 use aspose\slides\Presentation;
@@ -140,15 +140,15 @@ try {
 }
 ```
 
-Usa collegamenti quando la gestione dei file esterni è intenzionale. Non usarli semplicemente come sostituto della compressione: un PPTX piccolo con dipendenze immagine rotte è solitamente meno utile di una presentazione più grande e autonoma.
+Usa i collegamenti quando la gestione di file esterni è intenzionale. Non usarli semplicemente come sostituto della compressione: un PPTX piccolo con dipendenze immagine interrotte è solitamente meno utile di una presentazione più grande e autonoma.
 
-## **Estrarre immagini da picture frame**
+## **Estrarre immagini dalle cornici immagine**
 
-Prima di estrarre un'immagine da una presentazione esistente, verifica che una forma sia effettivamente un [PictureFrame](https://reference.aspose.com/slides/it/php-java/aspose.slides/pictureframe/) e che contenga un'immagine incorporata. I picture frame collegati potrebbero non contenere byte immagine estraibili nello stesso modo.
+Prima di estrarre un’immagine da una presentazione esistente, verifica che una forma sia effettivamente una [PictureFrame](https://reference.aspose.com/slides/it/php-java/aspose.slides/pictureframe/) e che contenga un’immagine incorporata. Le cornici immagine collegate potrebbero non contenere byte immagine estraibili nello stesso modo.
 
-### **Estrarre un'immagine raster**
+### **Estrarre un’immagine raster**
 
-L'API immagine moderna utilizza direttamente [IImage](https://reference.aspose.com/slides/it/php-java/aspose.slides/iimage/). L'esempio seguente trova la prima immagine raster incorporata su una diapositiva e la salva come PNG:
+L’API immagine moderna utilizza direttamente [IImage](https://reference.aspose.com/slides/it/php-java/aspose.slides/iimage/). L’esempio seguente trova la prima immagine raster incorporata su una diapositiva e la salva come PNG:
 
 ```php
 use aspose\slides\ImageFormat;
@@ -185,11 +185,11 @@ try {
 }
 ```
 
-Il salvataggio tramite [IImage::save](https://reference.aspose.com/slides/it/php-java/aspose.slides/iimage/#save) converte l'immagine estratta nel formato di output richiesto. Se hai bisogno dei byte codificati memorizzati nella presentazione invece di un file raster convertito, usa i dati binari della risorsa immagine.
+Il salvataggio tramite [IImage::save](https://reference.aspose.com/slides/it/php-java/aspose.slides/iimage/#save) converte l’immagine estratta nel formato di output richiesto. Se ti servono i byte codificati memorizzati nella presentazione anziché un file raster convertito, usa i dati binari della risorsa immagine.
 
-### **Estrarre un'immagine SVG**
+### **Estrarre un’immagine SVG**
 
-Per un'immagine SVG, il [PPImage](https://reference.aspose.com/slides/it/php-java/aspose.slides/ppimage/) espone un oggetto [SvgImage](https://reference.aspose.com/slides/it/php-java/aspose.slides/svgimage/). Questo consente di recuperare direttamente i dati SVG invece di rasterizzare prima l'immagine.
+Per un’immagine SVG, il [PPImage](https://reference.aspose.com/slides/it/php-java/aspose.slides/ppimage/) espone un oggetto [SvgImage](https://reference.aspose.com/slides/it/php-java/aspose.slides/svgimage/). Questo ti consente di recuperare direttamente i dati SVG invece di rasterizzare prima l’immagine.
 
 ```php
 use aspose\slides\Presentation;
@@ -224,13 +224,13 @@ try {
 }
 ```
 
-Mantenere il contenuto SVG come SVG preserva la sorgente vettoriale all'interno della presentazione. Le esportazioni raster come PNG o JPEG rendono necessariamente quel contenuto vettoriale in pixel. L'esportazione della diapositiva in PDF o SVG è anch'essa un'operazione di rendering, quindi la grafica esportata non dovrebbe essere trattata come una copia byte‑per‑byte dell'SVG originale; usa i dati di [SvgImage::getSvgData](https://reference.aspose.com/slides/it/php-java/aspose.slides/svgimage/getsvgdata/) quando è necessario il vettore originale stesso.
+Mantenere il contenuto SVG come SVG preserva la sorgente vettoriale all’interno della presentazione. Le esportazioni raster come PNG o JPEG rendono necessariamente quel contenuto vettoriale in pixel. Anche l’esportazione di diapositive in PDF o SVG è un’operazione di rendering, quindi la grafica esportata non dovrebbe essere trattata come una copia byte‑per‑byte dell’originale SVG incorporato; usa i dati [SvgImage::getSvgData](https://reference.aspose.com/slides/it/php-java/aspose.slides/svgimage/getsvgdata/) incorporati quando è necessaria la risorsa vettoriale originale.
 
-## **Ritagliare un'immagine**
+## **Ritagliare un’immagine**
 
-Il ritaglio modifica quale parte di un'immagine è visibile all'interno della cornice. I valori di ritaglio su [PictureFillFormat](https://reference.aspose.com/slides/it/php-java/aspose.slides/picturefillformat/) sono percentuali delle dimensioni dell'immagine di origine. Il ritaglio non elimina inizialmente i pixel nascosti dall'immagine incorporata; cambia solo la regione visibile.
+Il ritaglio modifica quale parte di un’immagine è visibile all’interno della cornice. I valori di ritaglio su [PictureFillFormat](https://reference.aspose.com/slides/it/php-java/aspose.slides/picturefillformat/) sono percentuali delle dimensioni dell’immagine di origine. Il ritaglio non elimina inizialmente i pixel nascosti dall’immagine incorporata; cambia solo la regione visibile.
 
-L'esempio seguente individua in modo sicuro un picture frame e applica i valori di ritaglio:
+L’esempio seguente trova una cornice immagine in modo sicuro e applica i valori di ritaglio:
 
 ```php
 use aspose\slides\Presentation;
@@ -262,11 +262,11 @@ try {
 }
 ```
 
-Poiché i dati immagine nascosti sono ancora presenti, il ritaglio può essere modificato in seguito senza perdere i pixel originali. Se la dimensione del file è più importante della reversibilità, le regioni ritagliate possono essere rimosse fisicamente come descritto nella sezione successiva.
+Poiché i dati dell’immagine nascosta sono ancora presenti, il ritaglio può essere modificato in seguito senza perdere i pixel originali. Se le dimensioni del file sono più importanti della reversibilità, le regioni ritagliate possono essere rimosse fisicamente come descritto nella sezione successiva.
 
-## **Rimuovere i dati dell'immagine ritagliata**
+## **Rimuovere i dati dell’immagine ritagliata**
 
-[PictureFillFormat::deletePictureCroppedAreas](https://reference.aspose.com/slides/it/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) rimuove i dati immagine al di fuori del rettangolo di ritaglio corrente e restituisce la risorsa immagine risultante. Questo può ridurre la dimensione del file, ma è un'ottimizzazione distruttiva: dopo il salvataggio della presentazione i pixel rimossi non sono più disponibili per un'operazione di "undo" del ritaglio.
+[PictureFillFormat::deletePictureCroppedAreas](https://reference.aspose.com/slides/it/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) rimuove i dati immagine al di fuori del rettangolo di ritaglio corrente e restituisce la risorsa immagine risultante. Questo può ridurre le dimensioni del file, ma è un’ottimizzazione distruttiva: dopo il salvataggio della presentazione, i pixel rimossi non sono più disponibili per un’operazione di “uncrop”.
 
 ```php
 use aspose\slides\Presentation;
@@ -297,13 +297,13 @@ try {
 }
 ```
 
-Il metodo può aggiungere una nuova risorsa immagine alla presentazione. Se l'immagine originale è anche usata da altri picture frame, quelle cornici hanno ancora bisogno della loro risorsa esistente, quindi l'eliminazione delle aree ritagliate non riduce necessariamente il numero totale di immagini. Il ritaglio di contenuti WMF o EMF con questo metodo rasterizza il risultato ritagliato in PNG.
+Il metodo può aggiungere una nuova risorsa immagine alla presentazione. Se l’immagine originale è utilizzata anche da altre cornici immagine, quelle cornici hanno comunque bisogno della risorsa esistente, quindi l’eliminazione delle aree ritagliate non riduce necessariamente il numero totale di immagini. Il ritaglio di contenuti WMF o EMF con questo metodo rasterizza il risultato ritagliato in PNG.
 
 ## **Comprimere immagini raster**
 
-[PictureFillFormat::compressImage](https://reference.aspose.com/slides/it/php-java/aspose.slides/picturefillformat/#compressImage_boolean_int_) riduce la risoluzione dell'immagine raster rispetto alla dimensione con cui l'immagine viene visualizzata. Può anche rimuovere le regioni ritagliate nella stessa operazione. Il metodo restituisce `true` quando l'immagine è stata ridimensionata o ritagliata e `false` quando non è stato necessario alcun cambiamento.
+[PictureFillFormat::compressImage](https://reference.aspose.com/slides/it/php-java/aspose.slides/picturefillformat/#compressImage_boolean_int_) riduce la risoluzione dell’immagine raster rispetto alle dimensioni con cui l’immagine è visualizzata. Può anche rimuovere le regioni ritagliate nella stessa operazione. Il metodo restituisce `true` quando l’immagine è stata ridimensionata o ritagliata e `false` quando non è stato necessario alcun cambiamento.
 
-Usa un valore predefinito di [PicturesCompression](https://reference.aspose.com/slides/it/php-java/aspose.slides/picturescompression/) quando una risoluzione target standard è sufficiente:
+Usa un valore predefinito di [PicturesCompression](https://reference.aspose.com/slides/it/php-java/aspose.slides/picturescompression/) quando è sufficiente una risoluzione target standard:
 
 ```php
 use aspose\slides\PicturesCompression;
@@ -336,15 +336,15 @@ try {
 
 È possibile passare un valore DPI positivo personalizzato al posto di un valore predefinito quando è richiesto un target specifico.
 
-La compressione è destinata alle immagini raster. Il contenuto SVG e metafile non viene ridotto da questo workflow di compressione raster. Ricorda inoltre che risoluzioni più basse e regioni ritagliate eliminate non possono essere recuperate dalla presentazione ottimizzata. Scegli una risoluzione target basata sulla dimensione più grande alla quale l'immagine verrà effettivamente visualizzata o esportata, anziché applicare il DPI più basso globalmente.
+La compressione è destinata alle immagini raster. I contenuti SVG e metafile non vengono ridotti da questo flusso di lavoro di compressione raster. Ricorda anche che risoluzioni più basse e regioni ritagliate eliminate non possono essere recuperate dalla presentazione ottimizzata. Scegli una risoluzione target basata sulla dimensione massima alla quale l’immagine sarà realmente visualizzata o esportata, piuttosto che applicare il DPI più basso a livello globale.
 
-## **Gestire gli effetti di trasformazione dell'immagine**
+## **Gestire gli effetti di trasformazione dell’immagine**
 
-Per un flusso di lavoro completo che copre luminosità, contrasto, trasformazioni colore, sfocatura, effetti alfa, catene ordinate, ispezione, rimozione e verifica round‑trip, vedere [Image Transform Effects](/php-java/image-transform-effects/).
+Per un flusso di lavoro completo che copra luminosità, contrasto, trasformazioni colore, sfocatura, effetti alfa, catene ordinate, ispezione, rimozione e verifica round‑trip, vedi [Image Transform Effects](/slides/it/php-java/image-transform-effects/).
 
-## **Bloccare la geometria del picture frame**
+## **Bloccare la geometria della cornice immagine**
 
-Le impostazioni di [PictureFrameLock](https://reference.aspose.com/slides/it/php-java/aspose.slides/pictureframelock/) controllano quali operazioni di modifica sono disabilitate per un picture frame. Ad esempio, [setAspectRatioLocked](https://reference.aspose.com/slides/it/php-java/aspose.slides/pictureframelock/setaspectratiolocked/) preserva le proporzioni della forma mentre viene ridimensionata.
+Le impostazioni di [PictureFrameLock](https://reference.aspose.com/slides/it/php-java/aspose.slides/pictureframelock/) controllano quali operazioni di modifica sono disabilitate per una cornice immagine. Per esempio, [setAspectRatioLocked](https://reference.aspose.com/slides/it/php-java/aspose.slides/pictureframelock/setaspectratiolocked/) preserva le proporzioni della forma mentre viene ridimensionata.
 
 ```php
 use aspose\slides\Images;
@@ -374,13 +374,13 @@ try {
 }
 ```
 
-Il blocco si applica alla forma del picture frame. Non forza l'immagine di origine a essere ricampionata o modificata permanentemente per avere lo stesso rapporto d'aspetto.
+Il blocco si applica alla forma della cornice immagine. Non forza l’immagine sorgente a essere ricampionata o permanentemente modificata per avere lo stesso rapporto d’aspetto.
 
 ## **Regolare i valori StretchOffset**
 
-Quando la modalità di riempimento immagine è stretch, i valori stretch‑offset su [PictureFillFormat](https://reference.aspose.com/slides/it/php-java/aspose.slides/picturefillformat/) definiscono il rettangolo di riempimento relativo al riquadro di delimitazione del picture frame. Percentuali positive creano un'inset da un bordo, mentre percentuali negative creano un'outset.
+Quando la modalità di riempimento immagine è stretch, i valori stretch‑offset su [PictureFillFormat](https://reference.aspose.com/slides/it/php-java/aspose.slides/picturefillformat/) definiscono il rettangolo di riempimento relativo al riquadro della cornice immagine. Percentuali positive creano un rientro da un bordo, mentre percentuali negative creano un’estensione.
 
-Questo è diverso dal ritaglio. I valori di ritaglio selezionano quale parte dell'immagine di origine è visibile; gli offset di stretch modificano il rettangolo in cui il riempimento immagine visibile viene allungato.
+Questo è diverso dal ritaglio. I valori di ritaglio selezionano quale parte dell’immagine di origine è visibile; gli offset di stretch modificano il rettangolo nel quale il riempimento immagine visibile è esteso.
 
 ```php
 use aspose\slides\Images;
@@ -415,43 +415,43 @@ try {
 }
 ```
 
-Usa gli offset di stretch per il posizionamento del riempimento. Usa le proprietà di ritaglio quando l'obiettivo è nascondere i bordi dell'immagine di origine.
+Usa gli stretch‑offset per il posizionamento del riempimento. Usa le proprietà di ritaglio quando l’obiettivo è nascondere i bordi dell’immagine di origine.
 
-## **Considerazioni su archiviazione, dimensione file ed esportazione**
+## **Considerazioni su archiviazione, dimensione del file ed esportazione**
 
-I principali compromessi sono più facili da gestire quando l'archiviazione delle immagini e la formattazione dei picture frame sono trattati separatamente:
+I principali compromessi sono più facili da gestire quando l’archiviazione delle immagini e la formattazione della cornice immagine sono trattate separatamente:
 
-- **Immagini incorporate** rendono la presentazione autonoma e sono le più affidabili per condivisione e rendering lato server, ma le grandi immagini raster aumentano la dimensione del PPTX e l'uso di memoria.
-- **Immagini collegate** possono mantenere il pacchetto più piccolo, ma la presentazione dipende dalla disponibilità dei file esterni nei percorsi o nelle posizioni memorizzate.
-- **Ritaglio** è inizialmente non distruttivo. I pixel nascosti rimangono incorporati finché le aree ritagliate non sono esplicitamente eliminate o rimosse durante la compressione.
-- **Compressione** può ridurre significativamente la dimensione del file per immagini raster sovradimensionate, ma sacrifica la risoluzione di origine. Deve essere applicata dopo aver determinato la dimensione finale desiderata nella diapositiva.
-- **Immagini SVG** dovrebbero rimanere SVG quando la preservazione vettoriale è importante. Estrai l'SVG incorporato direttamente quando ti serve la risorsa vettoriale stessa. Le esportazioni raster della diapositiva convertono sempre la diapositiva renderizzata in pixel.
+- **Immagini incorporate** rendono la presentazione autonoma e sono le più affidabili per la condivisione e il rendering lato server, ma le grandi immagini raster aumentano la dimensione del PPTX e l’uso di memoria.
+- **Immagini collegate** possono mantenere il pacchetto più piccolo, ma la presentazione dipende dal fatto che i file esterni rimangano disponibili nei percorsi o nelle posizioni memorizzate.
+- **Ritaglio** è inizialmente non distruttivo. I pixel nascosti rimangono incorporati finché le aree ritagliate non vengono eliminate esplicitamente o rimosse durante la compressione.
+- **Compressione** può ridurre in modo significativo le dimensioni del file per immagini raster sovradimensionate, ma sacrifica la risoluzione di origine. Deve essere applicata dopo aver conosciuto la dimensione effettiva sull‑slide.
+- **Immagini SVG** dovrebbero rimanere come SVG quando la preservazione vettoriale è importante. Estrai direttamente l’SVG incorporato quando hai bisogno della risorsa vettoriale stessa. Le esportazioni raster delle diapositive convertono sempre la diapositiva renderizzata in pixel.
 - **Immagini ripetute** dovrebbero riutilizzare una risorsa [PPImage](https://reference.aspose.com/slides/it/php-java/aspose.slides/ppimage/) esistente quando possibile invece di caricare ripetutamente lo stesso file nel flusso di lavoro della presentazione.
 
-Per presentazioni di grandi dimensioni, l'ottimizzazione delle immagini è solitamente più efficace quando eseguita in modo selettivo: mantieni loghi e diagrammi come contenuto vettoriale, comprimi le foto in base alla loro reale dimensione di visualizzazione, rimuovi i pixel ritagliati solo quando non è necessaria una successiva modifica e evita i collegamenti esterni a meno che la gestione delle dipendenze non faccia parte del design di distribuzione.
+Per presentazioni di grandi dimensioni, l’ottimizzazione delle immagini è di solito più efficace quando eseguita in modo selettivo: mantieni loghi e diagrammi come contenuto vettoriale, comprimi le fotografie in base alla loro reale dimensione di visualizzazione, rimuovi i pixel ritagliati solo quando non è più necessario modificare in seguito e evita i collegamenti esterni a meno che la gestione delle dipendenze non faccia parte del design di distribuzione.
 
 ## **FAQ**
 
-**Qual è la differenza tra un picture frame e una risorsa immagine?**
+**Qual è la differenza tra una cornice immagine e una risorsa immagine?**
 
-Un [PPImage](https://reference.aspose.com/slides/it/php-java/aspose.slides/ppimage/) rappresenta una risorsa immagine associata alla presentazione. Un [PictureFrame](https://reference.aspose.com/slides/it/php-java/aspose.slides/pictureframe/) è una forma su una diapositiva che visualizza un'immagine e memorizza la geometria e la formattazione a livello di cornice, come dimensioni, rotazione, valori di ritaglio, effetti e blocchi.
+Un [PPImage](https://reference.aspose.com/slides/it/php-java/aspose.slides/ppimage/) rappresenta una risorsa immagine associata alla presentazione. Un [PictureFrame](https://reference.aspose.com/slides/it/php-java/aspose.slides/pictureframe/) è una forma su una diapositiva che visualizza un’immagine e memorizza geometria e formattazione a livello di cornice come dimensioni, rotazione, valori di ritaglio, effetti e blocchi.
 
 **Devo incorporare o collegare le immagini?**
 
-Incorpora le immagini quando la presentazione deve essere portabile, archiviata o renderizzata senza accesso a risorse esterne. Collega le immagini solo quando mantenere i file immagine fuori dal PPTX è intenzionale e le posizioni esterne possono essere gestite in modo affidabile.
+Incorpora le immagini quando la presentazione deve essere portabile, archiviata o renderizzata senza accesso a risorse esterne. Collega le immagini solo quando tenere i file immagine fuori dal PPTX è intenzionale e le posizioni esterne possono essere mantenute in modo affidabile.
 
-**Il ritaglio riduce la dimensione del file PPTX?**
+**Il ritaglio riduce le dimensioni del file PPTX?**
 
-Non di per sé. Le impostazioni di ritaglio normali nascondono parti dell'immagine di origine ma mantengono i pixel sottostanti. Usa [PictureFillFormat::deletePictureCroppedAreas](https://reference.aspose.com/slides/it/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) o la compressione dell'immagine con rimozione delle aree ritagliate quando quei pixel possono essere eliminati definitivamente.
+Non di per sé. Le impostazioni di ritaglio normale nascondono parti dell’immagine di origine ma conservano i pixel sottostanti. Usa [PictureFillFormat::deletePictureCroppedAreas](https://reference.aspose.com/slides/it/php-java/aspose.slides/picturefillformat/#deletePictureCroppedAreas) o la compressione dell’immagine con rimozione delle aree ritagliate quando quei pixel possono essere scartati definitivamente.
 
-**Posso ripristinare la qualità dell'immagine dopo la compressione?**
+**Posso ripristinare la qualità dell’immagine dopo la compressione?**
 
-No. La compressione può ridurre la risoluzione raster memorizzata e la rimozione delle regioni ritagliate scarta dati immagine. Conserva l'immagine sorgente originale al di fuori della presentazione se in futuro potresti aver bisogno di modifiche ad alta risoluzione.
+No. La compressione può ridurre la risoluzione raster memorizzata e la rimozione delle regioni ritagliate elimina i dati immagine. Conserva l’immagine originale al di fuori della presentazione se in seguito potrebbe essere necessario un editing ad alta risoluzione.
 
-**Come dovrebbero essere gestite le immagini SVG?**
+**Come devono essere gestite le immagini SVG?**
 
-Mantieni il contenuto SVG come SVG quando la fedeltà vettoriale è importante. L'[SvgImage](https://reference.aspose.com/slides/it/php-java/aspose.slides/svgimage/) incorporato può essere estratto direttamente. Il rendering di una diapositiva in un formato raster come PNG o JPEG rasterizza l'SVG come parte dell'immagine della diapositiva.
+Mantieni il contenuto SVG come SVG quando la fedeltà vettoriale è importante. L’[SvgImage](https://reference.aspose.com/slides/it/php-java/aspose.slides/svgimage/) incorporato può essere estratto direttamente. Renderizzare una diapositiva in un formato raster come PNG o JPEG rasterizza l’SVG come parte dell’immagine della diapositiva.
 
-**Come posso evitare cast non sicuri durante la lettura delle diapositive esistenti?**
+**Come posso evitare cast non sicuri durante la lettura di diapositive esistenti?**
 
-Verifica il tipo di forma prima di utilizzare i membri specifici del picture frame. Un controllo `java_instanceof` contro [PictureFrame](https://reference.aspose.com/slides/it/php-java/aspose.slides/pictureframe/) evita cast non validi e consente al codice di gestire le diapositive che non contengono picture frame.
+Verifica il tipo di forma prima di utilizzare i membri specifici della cornice immagine. Un controllo `java_instanceof` contro [PictureFrame](https://reference.aspose.com/slides/it/php-java/aspose.slides/pictureframe/) evita cast non validi e consente al codice di gestire le diapositive che non contengono cornici immagine.

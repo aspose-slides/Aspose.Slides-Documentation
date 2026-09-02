@@ -1,16 +1,16 @@
 ---
-title: PowerPoint‑presentaties omzetten naar TIFF in JavaScript
+title: PowerPoint‑presentaties converteren naar TIFF in JavaScript
 titlelink: PowerPoint naar TIFF
 type: docs
 weight: 90
 url: /nl/nodejs-java/convert-powerpoint-to-tiff/
 keywords:
-- PowerPoint omzetten
-- OpenDocument omzetten
-- presentatie omzetten
-- dia omzetten
-- PPT omzetten
-- PPTX omzetten
+- PowerPoint converteren
+- OpenDocument converteren
+- presentatie converteren
+- dia converteren
+- PPT converteren
+- PPTX converteren
 - PowerPoint naar TIFF
 - presentatie naar TIFF
 - dia naar TIFF
@@ -23,25 +23,25 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Leer hoe u eenvoudig PowerPoint‑presentaties (PPT, PPTX) kunt omzetten naar hoogwaardige TIFF‑afbeeldingen met Aspose.Slides voor Node.js, inclusief JavaScript‑codevoorbeelden."
+description: "Leer hoe u eenvoudig PowerPoint‑presentaties (PPT, PPTX) kunt converteren naar hoogwaardige TIFF‑afbeeldingen met Aspose.Slides voor Node.js, met JavaScript‑codevoorbeelden."
 ---
 ## **Inleiding**
 
-TIFF (**Tagged Image File Format**) is een veelgebruikt, verliesvrij rasterafbeeldingsformaat dat bekend staat om zijn uitzonderlijke kwaliteit en gedetailleerde behoud van grafische afbeeldingen. Ontwerpers, fotografen en desktopuitgevers kiezen vaak voor TIFF om lagen, kleurnauwkeurigheid en oorspronkelijke instellingen in hun afbeeldingen te behouden.
+TIFF (**Tagged Image File Format**) is een veelgebruikt lossless rasterafbeeldingsformaat dat bekend staat om zijn uitzonderlijke kwaliteit en gedetailleerde behoud van grafische elementen. Ontwerpers, fotografen en desktop‑uitgevers kiezen vaak voor TIFF om lagen, kleurnauwkeurigheid en oorspronkelijke instellingen in hun afbeeldingen te behouden.
 
-Met Aspose.Slides kun je moeiteloos je PowerPoint‑dia’s (PPT, PPTX) en OpenDocument‑dia’s (ODP) direct omzetten naar hoogwaardige TIFF‑afbeeldingen, zodat je presentaties de maximale visuele getrouwheid behouden.
+Met Aspose.Slides kunt u moeiteloos uw PowerPoint‑dia's (PPT, PPTX) en OpenDocument‑dia's (ODP) rechtstreeks omzetten naar hoogwaardige TIFF‑afbeeldingen, zodat uw presentaties maximaal visueel getrouw blijven.
 
-## **Een presentatie omzetten naar TIFF**
+## **Converteer een presentatie naar TIFF**
 
-Met de [save](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/#save-java.lang.String-int-)‑methode van de [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/)-klasse kun je snel een volledige PowerPoint‑presentatie omzetten naar TIFF. De resulterende TIFF‑afbeeldingen hebben de standaard dia‑grootte.
+Met de [opslaan](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/#save-java.lang.String-int-) methode die wordt geleverd door de [Presentatie](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/) klasse, kunt u snel een volledige PowerPoint‑presentatie naar TIFF converteren. De resulterende TIFF‑afbeeldingen komen overeen met de standaard dia‑grootte.
 
-Deze JavaScript‑code laat zien hoe je een PowerPoint‑presentatie omzet naar TIFF:
+Deze JavaScript‑code laat zien hoe u een PowerPoint‑presentatie naar TIFF converteert:
 
 ```js
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 
-// Instantieer de Presentation‑klasse die een presentatiebestand (PPT, PPTX, ODP, enz.) vertegenwoordigt.
+// Instantieer de Presentation-klasse die een presentatiebestand (PPT, PPTX, ODP, enz.) representeert.
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     // Sla de presentatie op als TIFF.
@@ -51,19 +51,19 @@ try {
 }
 ```
 
-## **Een presentatie omzetten naar Zwart‑wit TIFF**
+## **Converteer een presentatie naar zwart‑wit TIFF**
 
-De methode [setBwConversionMode](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/tiffoptions/#setBwConversionMode-int-) in de [TiffOptions](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/tiffoptions/)-klasse stelt je in staat om het algoritme op te geven dat wordt gebruikt bij het omzetten van een gekleurde dia of afbeelding naar een zwart‑wit TIFF. Merk op dat deze instelling alleen van toepassing is wanneer de [setCompressionType](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/tiffoptions/#setCompressionType-int-)‑methode is ingesteld op `CCITT4` of `CCITT3`.
+De methode [setBwConversionMode](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/tiffoptions/#setBwConversionMode-int-) in de [TiffOptions](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/tiffoptions/) klasse stelt u in staat het algoritme op te geven dat wordt gebruikt bij het omzetten van een gekleurde dia of afbeelding naar een zwart‑wit TIFF. Merk op dat deze instelling alleen van toepassing is wanneer de [setCompressionType](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/tiffoptions/#setCompressionType-int-) methode is ingesteld op `CCITT4` of `CCITT3`.
 
 {{% alert color="info" title="Opmerking" %}}
-[TiffOptions.setBwConversionMode](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/tiffoptions/#setBwConversionMode-int-) is een export‑niveau instelling die een pixel‑conversie‑algoritme selecteert voor de volledige TIFF‑afbeelding. Om te bepalen hoe een individueel vormobject eruitziet wanneer de zwart‑wit weergavemodus actief is, gebruik je [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shape/#setBlackWhiteMode). Zie [Control Black-and-White Rendering for Shapes](/nodejs-java/shape-formatting/#control-black-and-white-rendering-for-shapes) voor voorbeelden.
+[TiffOptions.setBwConversionMode](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/tiffoptions/#setBwConversionMode-int-) is een export‑niveau instelling die een pixel‑conversie‑algoritme selecteert voor de volledige TIFF‑afbeelding. Om te definiëren hoe een individuele vorm moet worden weergegeven wanneer de zwart‑wit weergavemodus actief is, gebruikt u [Shape.setBlackWhiteMode](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shape/#setBlackWhiteMode). Zie [Controleer zwart‑wit rendering voor vormen](/slides/nl/nodejs-java/shape-formatting/#control-black-and-white-rendering-for-shapes) voor voorbeelden.
 {{% /alert %}}
 
-Laten we zeggen dat we een bestand "sample.pptx" hebben met de volgende dia:
+Stel, we hebben een bestand **sample.pptx** met de volgende dia:
 
 ![Een presentatiedia](slide_black_and_white.png)
 
-Deze JavaScript‑code laat zien hoe je de gekleurde dia omzet naar een zwart‑wit TIFF:
+Deze JavaScript‑code laat zien hoe u de gekleurde dia naar een zwart‑wit TIFF converteert:
 
 ```js
 var aspose = aspose || {};
@@ -81,22 +81,22 @@ try {
 }
 ```
 
-Resultaat:
+Het resultaat:
 
-![Zwart‑wit TIFF](TIFF_black_and_white.png)
+![Zwart-wit TIFF](TIFF_black_and_white.png)
 
-## **Een presentatie omzetten naar TIFF met aangepaste grootte**
+## **Converteer een presentatie naar TIFF met aangepaste grootte**
 
-Als je een TIFF‑afbeelding met specifieke afmetingen nodig hebt, kun je de gewenste waarden instellen met behulp van de methoden die beschikbaar zijn in [TiffOptions](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/tiffoptions/). Bijvoorbeeld, de [setImageSize](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/tiffoptions/#setImageSize)-methode stelt je in staat om de grootte van de resulterende afbeelding te definiëren.
+Als u een TIFF‑afbeelding met specifieke afmetingen nodig heeft, kunt u uw gewenste waarden instellen via methoden die beschikbaar zijn in [TiffOptions](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/tiffoptions/). De methode [setImageSize](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/tiffoptions/#setImageSize) stelt u bijvoorbeeld in staat de grootte van de resulterende afbeelding te definiëren.
 
-Deze JavaScript‑code laat zien hoe je een PowerPoint‑presentatie omzet naar TIFF‑afbeeldingen met een aangepaste grootte:
+Deze JavaScript‑code laat zien hoe u een PowerPoint‑presentatie naar TIFF‑afbeeldingen met een aangepaste grootte converteert:
 
 ```js
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 const java = require("java");
 
-// Instantieer de Presentation‑klasse die een presentatiebestand (PPT, PPTX, ODP, enz.) vertegenwoordigt.
+// Instantieer de Presentation-klasse die een presentiebestand (PPT, PPTX, ODP, enz.) vertegenwoordigt.
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let tiffOptions = new aspose.slides.TiffOptions();
@@ -105,15 +105,15 @@ try {
     tiffOptions.setCompressionType(aspose.slides.TiffCompressionTypes.Default);
     /*
     Compressietypen:
-        Default - Geeft het standaardcompressieschema (LZW) aan.
-        None - Geeft aan dat er geen compressie is.
+        Default - Geeft het standaardcompressieschema aan (LZW).
+        None - Geeft aan dat er geen compressie wordt toegepast.
         CCITT3
         CCITT4
         LZW
         RLE
     */
 
-    // De kleurdiepte wordt bepaald door het pixel‑formaat (zie het voorbeeld hieronder); CCITT3 en CCITT4 produceren altijd 1 bit per pixel.
+    // De kleurdiepte wordt geregeld door het pixelformaat (zie het voorbeeld hieronder); CCITT3 en CCITT4 geven altijd 1 bit per pixel.
 
     // Stel de DPI van de afbeelding in.
     tiffOptions.setDpiX(200);
@@ -133,17 +133,17 @@ try {
 }
 ```
 
-## **Een presentatie omzetten naar TIFF met aangepast pixel‑formaat**
+## **Converteer een presentatie naar TIFF met aangepast beeldpixelformaat**
 
-Met de [setPixelFormat](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/tiffoptions/#setPixelFormat)-methode van de [TiffOptions](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/tiffoptions/)-klasse kun je het gewenste pixel‑formaat voor de resulterende TIFF‑afbeelding opgeven.
+Met de [setPixelFormat](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/tiffoptions/#setPixelFormat) methode van de [TiffOptions](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/tiffoptions/) klasse kunt u het gewenste pixelformaat voor de resulterende TIFF‑afbeelding opgeven.
 
-Deze JavaScript‑code laat zien hoe je een PowerPoint‑presentatie omzet naar een TIFF‑afbeelding met een aangepast pixel‑formaat:
+Deze JavaScript‑code laat zien hoe u een PowerPoint‑presentatie naar een TIFF‑afbeelding met een aangepast pixelformaat converteert:
 
 ```js
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 
-// Instantieer de Presentation‑klasse die een presentatiebestand (PPT, PPTX, ODP, enz.) vertegenwoordigt.
+// Instantieer de Presentation-klasse die een presentiebestand (PPT, PPTX, ODP, enz.) vertegenwoordigt.
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let tiffOptions = new aspose.slides.TiffOptions();
@@ -151,9 +151,9 @@ try {
     tiffOptions.setPixelFormat(aspose.slides.ImagePixelFormat.Format8bppIndexed);
     /*
     ImagePixelFormat bevat de volgende waarden (zoals vermeld in de documentatie):
-        Format1bppIndexed - 1 bit per pixel, geïndexeerd.
-        Format4bppIndexed - 4 bits per pixel, geïndexeerd.
-        Format8bppIndexed - 8 bits per pixel, geïndexeerd.
+        Format1bppIndexed - 1 bit per pixel, geïndiceerd.
+        Format4bppIndexed - 4 bits per pixel, geïndiceerd.
+        Format8bppIndexed - 8 bits per pixel, geïndiceerd.
         Format24bppRgb    - 24 bits per pixel, RGB.
         Format32bppArgb   - 32 bits per pixel, ARGB.
     */
@@ -166,19 +166,19 @@ try {
 ```
 
 {{% alert title="Tip" color="info" %}}
-Bekijk de [GRATIS PowerPoint‑naar‑Poster‑converter](https://products.aspose.app/slides/nl/conversion/convert-ppt-to-poster-online) van Aspose.
+Bekijk Aspose’s [GRATIS PowerPoint‑naar‑poster converter](https://products.aspose.app/slides/nl/conversion/convert-ppt-to-poster-online).
 {{% /alert %}}
 
-## **FAQ**
+## **Veelgestelde vragen**
 
-**Kan ik een individuele dia in plaats van een volledige PowerPoint‑presentatie omzetten naar TIFF?**
+**Kan ik een individuele dia converteren in plaats van de volledige PowerPoint‑presentatie naar TIFF?**
 
-Ja. Aspose.Slides stelt je in staat om individuele dia’s van PowerPoint‑ en OpenDocument‑presentaties afzonderlijk om te zetten naar TIFF‑afbeeldingen.
+Ja. Aspose.Slides stelt u in staat individuele dia's uit PowerPoint‑ en OpenDocument‑presentaties apart naar TIFF‑afbeeldingen te converteren.
 
-**Is er een limiet op het aantal dia’s bij het omzetten van een presentatie naar TIFF?**
+**Is er een limiet aan het aantal dia's bij het converteren van een presentatie naar TIFF?**
 
-Nee, Aspose.Slides legt geen beperkingen op aan het aantal dia’s. Je kunt presentaties van elke omvang naar TIFF‑formaat omzetten.
+Nee, Aspose.Slides legt geen beperkingen op aan het aantal dia's. U kunt presentaties van elke omvang naar het TIFF‑formaat converteren.
 
-**Worden PowerPoint‑animaties en overgangseffecten behouden bij het omzetten van dia’s naar TIFF?**
+**Worden PowerPoint‑animaties en overgangseffecten behouden bij het converteren van dia's naar TIFF?**
 
-Nee, TIFF is een statisch afbeeldingformaat. Daarom worden animaties en overgangseffecten niet behouden; alleen statische momentopnamen van de dia’s worden geëxporteerd.
+Nee, TIFF is een statisch afbeeldingsformaat. Animaties en overgangseffecten worden daarom niet behouden; alleen statische momentopnames van de dia’s worden geëxporteerd.

@@ -24,34 +24,34 @@ description: "Zjistěte, jak na Androidu sloučit prezentace PowerPoint a OpenDo
 ---
 ## **Přehled**
 
-Aspose.Slides for Android via Java sloučí prezentace klonováním snímků z jedné [Prezentace](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/) do druhé. Hlavní operací je [ISlideCollection.addClone](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-), která může zachovat formátování původního snímku nebo připojit klonovaný snímek k masteru či rozvržení v cílové prezentaci.
+Aspose.Slides for Android via Java slučuje prezentace klonováním snímků z jedné [Prezentace](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/) do druhé. Hlavní operací je [ISlideCollection.addClone](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-), která může zachovat formátování zdrojového snímku nebo připojit klonovaný snímek k masteru či rozvržení v cílové prezentaci.
 
-Tento článek pokrývá nejčastější postupy slučování:
+Tento článek pokrývá nejčastější scénáře slučování:
 
-- sloučit všechny snímky při zachování jejich původního formátování;
+- sloučit všechny snímky při zachování jejich zdrojového formátování;
 - sloučit vybrané snímky;
 - použít master z cílové prezentace;
 - použít konkrétní rozvržení z cílové prezentace;
 - normalizovat různé velikosti snímků před sloučením;
 - přidat klonované snímky do sekce;
-- sloučit několik prezentací v jednom end‑to‑end postupu;
-- řešit mastery, zdroje, poznámky, komentáře, média, fonty, hesla, velké soubory a problémy s vícevláknovostí.
+- sloučit několik prezentací v jednom end‑to‑end scénáři;
+- řešit mastery, zdroje, poznámky, komentáře, média, písma, hesla, velké soubory a problémy s multithreadingem.
 
 ## **Jak klonování snímků ovlivňuje mastery a rozvržení**
 
-Snimek dědí velkou část vzhledu ze svého rozvržení a masteru. Z tohoto důvodu výběr přetížení klonování určuje, jak bude sloučený snímek integrován do cílové prezentace.
+Snímek dědí velkou část vzhledu ze svého rozvržení a masteru. Z tohoto důvodu zvolený přetížený způsob klonování určuje, jak bude sloučený snímek integrován do cílové prezentace.
 
 Použijte [ISlideCollection.addClone](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islidecollection/) jedním z následujících způsobů:
 
-- `addClone(sourceSlide)` — zachovat rozvržení a formátování původního snímku. V případě potřeby může být zdrojový master automaticky klonován do cílové prezentace. Aspose.Slides sleduje automaticky klonované mastery, takže opakované snímky používající stejný zdrojový master způsobí, že master nebude klonován opakovaně.
+- `addClone(sourceSlide)` — zachovat rozvržení a formátování zdrojového snímku. V případě potřeby může být zdrojový master automaticky klonován do cílové prezentace. Aspose.Slides sleduje automaticky klonované mastery tak, aby opakované snímky používající stejný zdrojový master nevedly k opakovanému klonování tohoto masteru.
 - `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — připojit klonovaný snímek ke konkrétnímu cílovému [IMasterSlide](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imasterslide/). Aspose.Slides hledá odpovídající rozvržení pod tímto masterem podle typu nebo názvu rozvržení.
-- `addClone(sourceSlide, destinationLayout)` — připojit klonovaný snímek přímo k specifickému cílovému [ILayoutSlide](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ilayoutslide/).
+- `addClone(sourceSlide, destinationLayout)` — připojit klonovaný snímek přímo ke konkrétnímu cílovému [ILayoutSlide](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ilayoutslide/).
 
-Master nebo rozvržení předané přetížení `addClone` musí patřit **cílové** prezentaci, ne zdrojové prezentaci.
+Master nebo rozvržení předané přetíženému `addClone` musí patřit **cílové** prezentaci, nikoli zdrojové.
 
-## **Sloučit celé prezentace a zachovat původní formátování**
+## **Sloučit celé prezentace a zachovat zdrojové formátování**
 
-Nejjednodušší sloučení zkopíruje každý snímek ze zdrojové prezentace do cílové prezentace. Toto je vhodná volba, když importované snímky mají zachovat svůj původní motiv, master a vztahy rozvržení.
+Nejjednodušší sloučení zkopíruje každý snímek ze zdrojové prezentace do cílové. Toto je vhodná volba, když mají importované snímky zachovat své původní téma, master a vztahy rozvržení.
 
 ```java
 import com.aspose.slides.*;
@@ -70,7 +70,7 @@ try {
 }
 ```
 
-Výsledná prezentace může obsahovat více masterů, pokud zdroj a cíl používají odlišné návrhy. To je očekávané, když je původní formátování úmyslně zachováno.
+Výsledná prezentace může obsahovat více masterů, pokud zdroj a cíl používají odlišné návrhy. To je očekávané, když je zdrojové formátování úmyslně zachováno.
 
 ## **Sloučit vybrané snímky**
 
@@ -95,11 +95,11 @@ try {
 }
 ```
 
-Ověřte indexy snímků před klonováním, pokud pocházejí z uživatelského vstupu nebo externí konfigurace.
+Před klonováním ověřte indexy snímků, pokud pocházejí od uživatele nebo z externí konfigurace.
 
 ## **Sloučit snímky pomocí cílového masteru**
 
-Použijte přetížení [addClone(ISlide, IMasterSlide, boolean)](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) , když importované snímky mají následovat master, který již patří cílové prezentaci.
+Použijte přetížení [addClone(ISlide, IMasterSlide, boolean)](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-), když by importované snímky měly následovat master, který již náleží cílové prezentaci.
 
 ```java
 import com.aspose.slides.*;
@@ -120,13 +120,13 @@ try {
 }
 ```
 
-Aspose.Slides vybere vhodné rozvržení pod zadaným masterem na základě typu nebo názvu zdrojového rozvržení. Pokud žádné vhodné rozvržení neexistuje a `allowCloneMissingLayout` je `true`, zdrojové rozvržení je klonováno, aby mohl být snímek přidán. Pokud je `false`, je vyvolána výjimka [PptxEditException](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/pptxeditexception/).
+Aspose.Slides vybere vhodné rozvržení pod zadaným masterem porovnáním typu nebo názvu zdrojového rozvržení. Pokud žádné vhodné rozvržení neexistuje a `allowCloneMissingLayout` je `true`, zdrojové rozvržení se klonuje, aby mohl být snímek přidán. Pokud je `false`, vyvolá se [PptxEditException](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/pptxeditexception/).
 
-Použijte `false`, pokud chcete, aby sloučení selhalo místo zavedení dalšího rozvržení do cílového masteru.
+Použijte `false`, když chcete, aby sloučení selhalo místo přidání dalšího rozvržení do cílového masteru.
 
 ## **Sloučit snímky pomocí konkrétního cílového rozvržení**
 
-Použijte přetížení [addClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) , když přesně víte, které cílové rozvržení mají importované snímky použít.
+Použijte přetížení [addClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-), když přesně víte, které cílové rozvržení mají importované snímky použít.
 
 ```java
 import com.aspose.slides.*;
@@ -147,13 +147,13 @@ try {
 }
 ```
 
-Aplikace cílového rozvržení mění děděný vztah rozvržení; nepřetváří obsah původního snímku. Pokud mají zdrojové a cílové rozvržení odlišné struktury zástupných objektů, prověřte výsledek, abyste potvrdili, že děděné formátování a chování zástupných objektů jsou vhodné.
+Aplikace cílového rozvržení mění zděděný vztah rozvržení; nepřetváří obsah zdrojového snímku. Pokud mají zdrojové a cílové rozvržení odlišnou strukturu zástupných objektů, zkontrolujte výsledek, aby byly zděděné formátování a chování zástupných objektů vhodné.
 
 ## **Sloučit prezentace s různými velikostmi snímků**
 
-Prezentace s různými rozměry snímků lze sloučit, ale klonování snímku do prezentace s jinou velikostí snímku automaticky nepřetvoří jeho obsah pro nové plátno. Tvary se tak mohou jevit posunuté, nečekaně změněné měřítko, nebo mimo viditelnou oblast snímku.
+Prezentace s různými rozměry snímků lze sloučit, ale klonování snímku do prezentace s jinou velikostí automaticky nepřetvoří jeho obsah pro novou plochu. Tvary se tak mohou zdát posunuté, špatně měřené nebo mimo viditelnou oblast snímku.
 
-Praktickým přístupem je změnit velikost zdrojové prezentace před klonováním. Metoda [SlideSize.setSize](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/slidesize/#setSize-float-float-int-) může změnit měřítko existujícího obsahu při změně rozměrů snímku. [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/slidesizescaletype/) měřítko přizpůsobí obsah tak, aby se vešel do požadované velikosti.
+Praktický přístup je změnit velikost zdrojové prezentace před klonováním. Metoda [SlideSize.setSize](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/slidesize/#setSize-float-float-int-) může měřit existující obsah při změně rozměrů snímku. [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/slidesizescaletype/) škáluje obsah tak, aby se vešel do požadované velikosti.
 
 ```java
 import com.aspose.slides.*;
@@ -184,11 +184,11 @@ try {
 }
 ```
 
-Změna velikosti upraví objekt zdrojové prezentace v paměti. Pokud potřebujete původní zdrojovou prezentaci neporušenou pro jiné operace, otevřete samostatnou instanci pro sloučení.
+Změna velikosti upravuje objekt zdrojové prezentace v paměti. Pokud potřebujete zachovat původní zdrojovou prezentaci nezměněnou pro další operace, otevřete pro sloučení samostatnou instanci.
 
 ## **Sloučit snímky do sekce prezentace**
 
-Základní smyčka klonování snímků neobnoví hierarchii sekcí zdrojové prezentace. Pokud jsou sekce v výstupu důležité, vytvořte nebo vyberte sekce v cílové prezentaci a klonujte snímky do nich explicitně pomocí [addClone(ISlide, ISection)](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-).
+Základní smyčka klonování snímků neobnovuje hierarchii sekcí zdrojové prezentace. Pokud sekce hrají roli ve výstupu, vytvořte nebo vyberte sekce v cílové prezentaci a explicitně klonujte snímky do nich pomocí [addClone(ISlide, ISection)](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-).
 
 ```java
 import com.aspose.slides.*;
@@ -209,11 +209,11 @@ try {
 }
 ```
 
-Klonované snímky jsou připojeny k určené cílové sekci. Pro zachování několika zdrojových sekcí vytvořte tyto sekce v cíli a přiřaďte každý zdrojový snímek k odpovídající cílové sekci.
+Klonované snímky se připojí k určené cílové sekci. Pro zachování několika zdrojových sekcí projděte [Presentation.getSections](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/#getSections--), získejte aktuální snímky každé zdrojové sekce pomocí [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/isection/#getSlidesListOfSection--), znovu vytvořte sekce v cíli a klonujte každý vrácený snímek do odpovídající cílové sekce. Viz [Manage Slide Sections](/slides/cs/androidjava/slide-section/) pro kompletní příklad enumerace sekcí, včetně prázdných sekcí a strukturálních změn.
 
 ## **Bezpečně sloučit více prezentací**
 
-Následující end‑to‑end příklad používá první prezentaci jako cílovou, normalizuje velikost snímku každého dalšího zdroje, udržuje každý zdroj otevřený jen během kopírování a ukládá konečný soubor jednou.
+Následující end‑to‑end příklad používá první prezentaci jako cíl, normalizuje velikost snímku každého dalšího zdroje, drží každý zdroj otevřený pouze během kopírování a nakonec uloží finální soubor.
 
 ```java
 import com.aspose.slides.*;
@@ -252,39 +252,39 @@ try {
 }
 ```
 
-Toto je užitečný výchozí bod pro zachování původního formátování importovaných snímků. Pokud výstup musí používat jediný cílový motiv, nahraďte jednoduché volání `addClone(slide)` vhodným přetížením pro cílový master nebo cílové rozvržení uvedeným dříve.
+Jedná se o užitečný výchozí scénář pro zachování zdrojového formátování importovaných snímků. Pokud výstup musí používat jediný cílový motiv, nahraďte jednoduché volání `addClone(slide)` příslušným přetížením pro cílový master nebo cílové rozvržení uvedeným výše.
 
 ## **Praktické úvahy**
 
 ### **Mastery, rozvržení a věrnost formátování**
 
-Výchozí klonování snímků může automaticky přenést požadovaný zdrojový master do cílové prezentace. Aspose.Slides udržuje interní registr automaticky klonovaných masterů, aby se předešlo opakovanému klonování stejného masteru. Ručně klonované mastery nejsou tímto registrem sledovány, proto se vyhněte předklonování masterů, pokud nepotřebujete explicitní kontrolu nad strukturou masteru.
+Výchozí klonování snímků může automaticky přenést potřebný zdrojový master do cílové prezentace. Aspose.Slides udržuje interní registr automaticky klonovaných masterů, aby se stejný master neklonoval opakovaně. Ručně klonované mastery nejsou v tomto registru sledovány, proto se vyhněte předklonování masterů, pokud nepotřebujete explicitní kontrolu nad strukturou masteru.
 
-Nepředpokládejte, že dva mastery nebo rozvržení se stejným názvem jsou vizuálně ekvivalentní. Pokud korporátní šablona musí řídit konečný vzhled, vyberte cílový master nebo rozvržení explicitně a po sloučení výsledek ověřte.
+Neočekávejte, že dva mastery nebo rozvržení se stejným názvem jsou vizuálně ekvivalentní. Pokud korporátní šablona musí řídit finální vzhled, vyberte explicitně cílový master nebo rozvržení a výsledek po sloučení ověřte.
 
 ### **Poznámky a komentáře**
 
-Poznámky přednášejícího a komentáře ke snímkům jsou spojeny s obsahem snímku a jsou kopírovány při klonování snímku. Aspose.Slides také poskytuje dedikovaná API pro [poznámky prezentace](https://docs.aspose.com/slides/cs/androidjava/presentation-notes/) a [komentáře prezentace](https://docs.aspose.com/slides/cs/androidjava/presentation-comments/).
+Poznámky k řečníkovi a komentáře ke snímkům jsou svázány s obsahem snímku a jsou zkopírovány při jeho klonování. Aspose.Slides také poskytuje specializovaná API pro [presentation notes](/slides/cs/androidjava/presentation-notes/) a [presentation comments](/slides/cs/androidjava/presentation-comments/).
 
-Pokud je formátování stránky poznámek důležité, ověřte sloučenou prezentaci, protože notmastery jsou objekty na úrovni prezentace a mohou se lišit mezi zdrojovými soubory. Pro workflow recenzí také ověřte autory komentářů a vlákna komentářů po sloučení souborů od různých autorů nebo šablon.
+Pokud je formátování stránky poznámek důležité, ověřte sloučenou prezentaci, protože poznámkové mastery jsou objekty na úrovni celé prezentace a mohou se mezi zdrojovými soubory lišit. Pro revizní workflow také ověřte autory komentářů a strukturu vlákna po sloučení souborů od různých autorů nebo šablon.
 
 ### **Obrázky, audio, video, OLE objekty a externí odkazy**
 
-Snímky mohou odkazovat na zdroje na úrovni prezentace, jako jsou obrázky, vložené audio, vložené video a OLE data. Klonujte samotný snímek místo kopírování pouze viditelných tvarů, aby Aspose.Slides mohl udržet vztahy snímku k jeho zdrojům.
+Snímky mohou odkazovat na zdroje na úrovni prezentace, jako jsou obrázky, vložené audio, vložené video a OLE data. Klonujte celý snímek místo kopírování jen viditelných tvarů, aby Aspose.Slides zachoval vztahy snímku k jeho zdrojům.
 
-Vložené a odkazované zdroje by měly být zpracovány odlišně. Odkazovaný audio, video, OLE objekt nebo hypertextový odkaz zůstává závislý na externím cíli; klonování snímku nepřemění externí odkaz na vložený obsah. Otestujte cesty a URL odkazovaných zdrojů v prostředí, kde bude sloučená prezentace otevírána.
+Vložené a odkazované zdroje je třeba ošetřit rozdílně. Odkazovaný audio, video, OLE objekt nebo hypertextový odkaz zůstává závislý na externím cíli; klonování snímku nepromění externí odkaz na vložený obsah. Otestujte cesty a URL odkazovaných zdrojů v prostředí, kde bude sloučená prezentace otevírána.
 
-Aspose.Slides explicitně sleduje automaticky klonované mastery, ale to by nemělo být považováno za obecnou záruku, že identické binární zdroje z nesouvisejících zdrojových prezentací budou vždy deduplicitovány. Pokud je důležitá velikost výstupního souboru, prohlédněte sloučený balíček a změřte výsledek místo spoléhání se na implicitní deduplikaci.
+Aspose.Slides explicitně sleduje automaticky klonované mastery, ale to by nemělo být považováno za obecnou záruku, že identické binární zdroje z nesouvisejících zdrojových prezentací budou vždy deduplikovány. Pokud je velikost výstupního souboru důležitá, prohlédněte sloučený balíček a změřte výsledek místo spoléhání se na implicitní deduplikaci.
 
-### **Vložené fonty a jejich dostupnost**
+### **Vložená písma a dostupnost písem**
 
-Fonty jsou spravovány na úrovni prezentace. Pokud má typografie zůstat konzistentní napříč počítači, nepředpokládejte, že samotné klonování snímků zaručuje, že každý požadovaný font bude dostupný v cílovém prostředí. Můžete prohlédnout vložené fonty pomocí [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) a spravovat vkládání explicitně, jak je popsáno v [Vkládání fontů do prezentací](https://docs.aspose.com/slides/cs/androidjava/embedded-font/).
+Písma jsou spravována na úrovni prezentace. Pokud má typografie zůstat konzistentní napříč zařízeními, nevyvozujte, že klonování snímků samo zajistí, že všechna potřebná písma jsou dostupná v cílovém prostředí. Vložená písma můžete prozkoumat pomocí [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) a spravovat jejich vložení explicitně, jak je popsáno v [Embed Fonts in Presentations](/slides/cs/androidjava/embedded-font/).
 
-Také ověřte, že máte oprávnění vložit fonty použité ve zdrojových souborech. Licence fontů mohou omezovat vkládání.
+Také ověřte, že máte oprávnění vložit písma použité ve zdrojových souborech. Licenční podmínky mohou vkládání omezovat.
 
 ### **Prezentace chráněné heslem**
 
-Zdroj chráněný heslem musí být úspěšně otevřen, než lze jeho snímky klonovat. Heslo poskytněte pomocí [LoadOptions.setPassword](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-).
+Zdroj chráněný heslem je nutné nejprve úspěšně otevřít, než lze jeho snímky klonovat. Heslo předávejte pomocí [LoadOptions.setPassword](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-).
 
 ```java
 import com.aspose.slides.*;
@@ -300,63 +300,64 @@ try {
 }
 ```
 
-Otevření zašifrovaného zdroje automaticky nepřenáší stejnou ochranu na cílovou prezentaci. Ochranu výstupu nakonfigurujte samostatně, pokud je potřeba.
+Otevření šifrovaného zdroje automaticky nepřenáší stejnou ochranu na cílovou prezentaci. Ochranu výstupu nastavte samostatně, pokud je potřeba.
 
 ### **Velké prezentace a využití paměti**
 
-Velké prezentace obsahující vysoce rozlišené obrázky, audio, video nebo jiné velké binární objekty mohou spotřebovat značnou paměť. [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/loadoptions/#getBlobManagementOptions--) poskytuje ovládání pro správu BLOB a používání dočasných souborů. Viz [Správa BLOB v prezentacích](https://docs.aspose.com/slides/cs/androidjava/manage-blob/) pro strategie práce s velkými soubory.
+Velké prezentace obsahující vysoce rozlišené obrázky, audio, video nebo jiné objemné binární objekty mohou spotřebovat značné množství paměti. [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/loadoptions/#getBlobManagementOptions--) poskytuje nastavení pro správu BLOB a dočasných souborů. Viz [Manage Presentation BLOBs](/slides/cs/androidjava/manage-blob/) pro strategie práce s velkými soubory.
 
-U velkých souborů upřednostňujte načítání z cest souborů, pokud je to možné, uvolněte každou zdrojovou prezentaci, jakmile je sloučena, a vyhněte se opakovanému ukládání mezivýsledků, pokud workflow nevyžaduje kontrolní body.
+U velkých souborů upřednostňujte načítání z cest souborů, pokud je to možné, uvolněte každou zdrojovou prezentaci ihned po jejím sloučení a vyhněte se opakovanému ukládání mezivýsledků, pokud workflow nevyžaduje checkpointy.
 
-### **Bezpečnost při vícevláknovém provozu**
+### **Bezpečnost při práci s vlákny**
 
-Nenačítejte, neupravujte, neukládejte ani neklonujte stejnou instanci [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/) současně z více vláken. Udržujte každou instanci prezentace omezenu na jednu operaci sloučení. Pokud paralelizujete nezávislé úlohy, používejte nezávislé instance prezentací a řiďte se pokyny pro vícevláknovost Aspose.Slides.
+Nenačítejte, neupravujte, neukládejte ani nekloonujte stejnou instanci [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/) současně z více vláken. Každou prezentaci omezte na jednu operaci sloučení. Pokud paralelizujete nezávislé úlohy, používejte nezávislé instance prezentací a řiďte se [Aspose.Slides multithreading guidance](/slides/cs/androidjava/multithreading/).
 
-## **FAQ**
+## **Často kladené otázky**
 
-**Jak udržet původní návrh každé zdrojové prezentace?**
+**Jak zachovat původní design každé zdrojové prezentace?**
 
-Použijte `addClone(sourceSlide)` bez zadání cílového masteru nebo rozvržení. Aspose.Slides může automaticky klonovat zdrojový master, pokud jej importovaný snímek potřebuje.
+Použijte [addClone](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) bez zadání cílového masteru nebo rozvržení. Aspose.Slides může automaticky klonovat zdrojový master, pokud ho importovaný snímek potřebuje.
 
-**Jak zajistit, aby importované snímky používaly cílový motiv?**
+**Jak přimět importované snímky používat cílové téma?**
 
 Použijte přetížení, které přijímá cílový master. Předávejte master z cílové prezentace, ne ze zdrojové. Aspose.Slides se pokusí přiřadit každý zdrojový snímek k odpovídajícímu rozvržení pod tímto masterem.
 
 **Kdy použít konkrétní cílové rozvržení místo cílového masteru?**
 
-Použijte konkrétní rozvržení, pokud má každý importovaný snímek používat jedno známé rozvržení. Použijte master, pokud chcete, aby Aspose.Slides vybral mezi rozvrženími toho masteru na základě typu nebo názvu zdrojového rozvržení.
+Použijte konkrétní rozvržení, když má každý importovaný snímek používat jedno známé rozvržení. Použijte master, když chcete, aby Aspose.Slides vybral mezi rozvrženími tohoto masteru na základě typu nebo názvu zdrojového rozvržení.
 
 **Lze sloučit prezentace s různými velikostmi snímků?**
 
-Ano, ale obsah snímku není automaticky přepracován pro cílové rozměry. Změňte velikost zdrojové prezentace nejprve, pokud potřebujete předvídatelné umístění, například pomocí [SlideSize.setSize](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/slidesize/#setSize-float-float-int-) a [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/slidesizescaletype/).
+Ano, ale obsah snímku se automaticky nepřetvoří pro cílové rozměry. Před sloučením změňte velikost zdrojové prezentace, například pomocí [SlideSize.setSize](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/slidesize/#setSize-float-float-int-) a [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/slidesizescaletype/).
 
-**Lze sloučit PPT, PPTX a ODP prezentace do jednoho souboru?**
+**Mohu sloučit soubory PPT, PPTX a ODP do jednoho souboru?**
 
-Ano. Načtěte každou zdrojovou prezentaci, klonujte požadované snímky do jedné cílové a uložte cíl v podporovaném výstupním formátu. Protože formáty prezentací nepodporují exakt stejné funkce, po cross‑formátovém sloučení ověřte složitý obsah. Viz [Podporované formáty souborů](https://docs.aspose.com/slides/cs/androidjava/supported-file-formats/).
+Ano. Načtěte každou zdrojovou prezentaci, klonujte požadované snímky do jedné cílové a uložte cíl v podporovaném výstupním formátu. Protože různé formáty nepodporují přesně stejnou sadu funkcí, po sloučení napříč formáty ověřte složitý obsah. Viz [Supported File Formats](/slides/cs/androidjava/supported-file-formats/).
 
-**Zůstávají zdrojové sekce automaticky zachovány?**
+**Zachovají se zdrojové sekce automaticky?**
 
-Ne, základní smyčka, která pouze klonuje snímky, automaticky neuchovává sekce. Vytvořte požadované sekce v cíli a použijte přetížení sekce `addClone` když struktura sekcí musí být zachována.
+Ne při základní smyčce, která pouze klonuje snímky. Vytvořte požadované sekce v cíli a použijte sekční přetížení [addClone](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-), pokud je struktura sekcí nutná.
 
-**Zůstávají poznámky přednášejícího a komentáře zachovány?**
+**Zachovají se poznámky řečníka a komentáře?**
 
-Ano, jsou kopírovány s klonovaným snímkem. Pro workflow závislé na stylování masteru poznámek, autorech komentářů nebo vláknech recenzí ověřte sloučený výsledek, protože tyto scénáře zahrnují struktury na úrovni prezentace i snímku.
+Ano, kopírují se s klonovaným snímkem. Pro workflow závislé na stylování poznámkového masteru, autorech komentářů nebo vláknové revizi ověřte sloučený výsledek, protože tyto scénáře zahrnují struktury na úrovni celé prezentace i snímku.
 
-**Co se stane s audio, video, OLE objekty a hypertextovými odkazy?**
+**Co se stane s audiem, videem, OLE objekty a hypertextovými odkazy?**
 
-Vložený obsah je přenášen jako součást vztahů zdrojů klonovaného snímku. Externí odkazy zůstávají externí, takže jejich cílové soubory nebo URL musí být po sloučení stále dostupné.
+Vložený obsah zůstává součástí vztahů zdrojů klonovaného snímku. Externí odkazy zůstávají externí, takže jejich cílové soubory nebo URL musí být i po sloučení dostupné.
 
-**Nespoléhejte se pouze na klonování snímků pro nasazení fontů?**  
-Ne, nepředpokládejte, že samotné klonování snímků zaručuje dostupnost všech vložených fontů. Prohlédněte vložené fonty v cíli a explicitně spravujte vkládání fontů nebo jejich externí dostupnost, pokud je typografie důležitá.
+**Jsou vložená písma ze všech zdrojů garantována v sloučené prezentaci?**
+
+Nespoléhejte se pouze na klonování snímků pro nasazení písem. Prohlédněte vložená písma v cíli a explicitně spravujte jejich vložení nebo dostupnost externích písem, pokud je typografie důležitá.
 
 **Jak sloučit soubor chráněný heslem?**
 
-Otevřete jej s správným [LoadOptions.setPassword](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-), poté klonujte jeho snímky normálně. Ochrana výstupu se konfiguruje samostatně.
+Otevřete jej s pomocí správného [LoadOptions.setPassword](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-), poté běžně klonujte jeho snímky. Ochrana výstupu se nastavuje odděleně.
 
 **Jak mám zacházet s velmi velkými prezentacemi?**
 
-Použijte správu BLOB, pokud velké binární objekty dominují využití paměti, upřednostňujte načítání z cest souborů, rychle uvolňujte zdrojové prezentace a ukládejte konečný výsledek jen tehdy, když je potřeba.
+Používejte správu BLOB, pokud velké binární objekty dominují využití paměti, upřednostňujte načítání z cest souborů, rychle uvolňujte zdrojové prezentace po jejich sloučení a finální výsledek ukládejte jen jednou, když je to potřeba.
 
-**Mohou být snímky sloučeny z více vláken?**
+**Mohu sloučit snímky z více vláken?**
 
-Nepoužívejte jednu instanci Presentation současně z více vláken. Udržujte každou operaci sloučení oddělenou svými vlastními instancemi prezentací.
+Nekombinujte jednu instanci [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/) současně v několika vláknech. Každou operaci sloučení izolujte do vlastní instance prezentace.

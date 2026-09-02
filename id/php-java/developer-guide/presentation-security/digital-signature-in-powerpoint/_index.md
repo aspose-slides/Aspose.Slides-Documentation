@@ -22,19 +22,29 @@ description: "Pelajari cara menandatangani presentasi PPTX yang ada dengan serti
 
 Tanda tangan digital membantu penerima menentukan siapa yang menandatangani presentasi dan apakah konten yang ditandatangani telah berubah. Tiga konsep keamanan terkait penting di sini:
 
-- **Sertifikat digital** adalah kredensial elektronik yang mengaitkan identitas dengan kunci publik. Otoritas sertifikat (CA) tepercaya dapat menerbitkan sertifikat, atau sebuah organisasi dapat menggunakan sertifikat yang ditandatangani sendiri untuk alur kerja internal.
-- **Tanda tangan digital** dibuat dari konten presentasi dan kunci pribadi pemegang sertifikat. Kunci publik sertifikat kemudian dapat digunakan untuk memverifikasi tanda tangan. Tanda tangan memberikan bukti asal dan integritas; tidak mengenkripsi presentasi.
-- **Proteksi kata sandi** mengontrol apakah pengguna dapat membuka atau memodifikasi presentasi. Ini terpisah dari penandatanganan digital dan dijelaskan di [Presentasi Dilindungi Kata Sandi](/php-java/password-protected-presentation/).
+- **Sertifikat digital** adalah kredensial elektronik yang mengaitkan identitas dengan kunci publik. Otoritas sertifikat (CA) yang terpercaya dapat mengeluarkan sertifikat, atau organisasi dapat menggunakan sertifikat self‑signed untuk alur kerja internal.
+- **Tanda tangan digital** dibuat dari konten presentasi dan kunci pribadi pemilik sertifikat. Kunci publik sertifikat kemudian dapat digunakan untuk memverifikasi tanda tangan. Tanda tangan memberikan bukti asal dan integritas; tidak mengenkripsi presentasi.
+- **Proteksi password** mengontrol apakah pengguna dapat membuka atau mengubah presentasi. Ini terpisah dari penandatanganan digital dan dijelaskan di [Password‑Protected Presentations](/slides/id/php-java/password-protected-presentation/).
 
 PowerPoint menyediakan perintah **Add a Digital Signature** di bawah **File > Info > Protect Presentation**.
 
-![Menu Lindungi Presentasi PowerPoint dengan Tambah Tanda Tangan Digital disorot](add-digital-signature-in-powerpoint.png)
+![PowerPoint Protect Presentation menu with Add a Digital Signature highlighted](add-digital-signature-in-powerpoint.png)
 
 Setelah presentasi yang ditandatangani dibuka, PowerPoint dapat menampilkan notifikasi status tanda tangan.
 
-![Notifikasi PowerPoint yang menyatakan bahwa presentasi berisi tanda tangan yang valid](digital-signature-status-in-powerpoint.png)
+![PowerPoint notification stating that the presentation contains valid signatures](digital-signature-status-in-powerpoint.png)
 
-Aspose.Slides mengekspos tanda tangan melalui [Presentation::getDigitalSignatures](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/#getDigitalSignatures), yang mengembalikan sebuah [DigitalSignatureCollection](https://reference.aspose.com/slides/id/php-java/aspose.slides/digitalsignaturecollection/) yang item‑nya direpresentasikan oleh objek [DigitalSignature](https://reference.aspose.com/slides/id/php-java/aspose.slides/digitalsignature/). Sebuah presentasi dapat berisi banyak tanda tangan.
+Aspose.Slides mengekspos tanda tangan melalui [Presentation::getDigitalSignatures](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/#getDigitalSignatures), yang mengembalikan sebuah [DigitalSignatureCollection](https://reference.aspose.com/slides/id/php-java/aspose.slides/digitalsignaturecollection/) dengan item‑item yang direpresentasikan oleh objek [DigitalSignature](https://reference.aspose.com/slides/id/php-java/aspose.slides/digitalsignature/). Sebuah presentasi dapat berisi banyak tanda tangan.
+
+## **Memahami Sertifikat PFX dan Password**
+
+File PFX, yang juga dikenal sebagai file PKCS#12 dan biasanya memiliki ekstensi `.pfx` atau `.p12`, dapat berisi sertifikat X.509, kunci privatnya, serta rantai sertifikat. Kunci privatlah yang memungkinkan pemiliknya membuat tanda tangan. Sertifikat tanpa kunci privat yang dapat diakses tidak dapat digunakan untuk menandatangani presentasi.
+
+Password PFX melindungi paket sertifikat dan kunci privat. Ini **bukan** password untuk membuka atau mengedit presentasi. Jangan commit file PFX atau passwordnya ke kontrol sumber. Di lingkungan produksi, batasi akses ke file sertifikat dan dapatkan passwordnya dari penyimpanan rahasia atau sumber konfigurasi yang dilindungi lainnya. Contoh di bawah menggunakan variabel lingkungan hanya untuk menghindari menanamkan password dalam kode.
+
+## **Menambahkan Tanda Tangan Digital ke Presentasi**
+
+Untuk menandatangani alur kerja presentasi nyata, muat file PPTX yang ada, buat sebuah [DigitalSignature](https://reference.aspose.com/slides/id/php-java/aspose.slides/digitalsignature/) dari sertifikat PFX dan passwordnya, tambahkan tanda tangan ke koleksi presentasi, dan simpan ke file PPTX.
 
 ```php
 $certificatePassword = getenv("PFX_PASSWORD");
@@ -54,11 +64,11 @@ try {
 }
 ```
 
-Menyimpan hasil dengan nama baru mempertahankan file sumber yang tidak ditandatangani. Nilai yang ditetapkan oleh [DigitalSignature::setComments](https://reference.aspose.com/slides/id/php-java/aspose.slides/digitalsignature/setcomments/) menjelaskan tujuan tanda tangan; itu bukan kontrol keamanan.
+Menyimpan hasil dengan nama baru mempertahankan file sumber yang belum ditandatangani. Nilai yang diatur melalui [DigitalSignature::setComments](https://reference.aspose.com/slides/id/php-java/aspose.slides/digitalsignature/setcomments/) menjelaskan tujuan tanda tangan; bukan kontrol keamanan.
 
-## **Validasi Tanda Tangan Digital**
+## **Memvalidasi Tanda Tangan Digital**
 
-Saat Anda memuat file PPTX yang ditandatangani, periksa setiap item yang dikembalikan oleh [Presentation::getDigitalSignatures](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/#getDigitalSignatures). Metode [DigitalSignature::isValid](https://reference.aspose.com/slides/id/php-java/aspose.slides/digitalsignature/isvalid/) menunjukkan apakah tanda tangan yang tertanam valid untuk konten presentasi saat ini.
+Saat Anda memuat file PPTX yang ditandatangani, periksa setiap item yang dikembalikan oleh [Presentation::getDigitalSignatures](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/#getDigitalSignatures). Metode [DigitalSignature::isValid](https://reference.aspose.com/slides/id/php-java/aspose.slides/digitalsignature/isvalid/) menunjukkan apakah tanda tangan tersemat valid untuk konten presentasi saat ini.
 
 ```php
 $presentation = new Presentation("InputPresentation-signed.pptx");
@@ -84,7 +94,9 @@ try {
             $certificateStream = new Java("java.io.ByteArrayInputStream", $certificateData);
             try {
                 $certificate = $certificateFactory->generateCertificate($certificateStream);
-                $signerName = java_values($certificate->getSubjectX500Principal()->getName());
+                $signerName = java_values($certificate->getSubjectX5
+
+00Principal()->getName());
             } finally {
                 $certificateStream->close();
             }
@@ -105,9 +117,9 @@ try {
 }
 ```
 
-Hasil tidak valid biasanya berarti konten presentasi yang ditandatangani atau data tanda tangan berubah setelah penandatanganan, atau file rusak. Menghapus semua tanda tangan menghasilkan presentasi yang tidak ditandatangani, sehingga memeriksa hanya keabsahan item tidak cukup: alur kerja yang sensitif keamanan juga harus memverifikasi bahwa jumlah tanda tangan yang diharapkan dan identitas penandatangan yang diharapkan tersedia.
+Hasil tidak valid biasanya berarti konten presentasi yang ditandatangani atau data tanda tangan berubah setelah penandatanganan, atau file rusak. Menghapus semua tanda tangan menghasilkan presentasi yang tidak ditandatangani, sehingga hanya memeriksa validitas item tidak cukup: alur kerja yang sensitif terhadap keamanan harus juga memverifikasi bahwa jumlah tanda tangan yang diharapkan dan identitas penandatangan yang diharapkan ada.
 
-Hasil validitas ini tidak boleh diperlakukan sebagai keputusan kepercayaan sertifikat yang lengkap. Tergantung pada kebijakan keamanan Anda, aplikasi Anda mungkin juga perlu membangun dan memvalidasi rantai sertifikat X.509, memeriksa tanggal berlaku sertifikat dan status pencabutan, mengonfirmasi subjek atau sidik jari yang diharapkan, memverifikasi penggunaan kunci, dan mengevaluasi timestamp terpercaya. Nilai [DigitalSignature::getSignTime](https://reference.aspose.com/slides/id/php-java/aspose.slides/digitalsignature/getsigntime/) sendiri bukan bukti dari otoritas timestamp terpercaya.
+Hasil validitas ini tidak boleh dianggap sebagai keputusan kepercayaan sertifikat yang lengkap. Bergantung pada kebijakan keamanan Anda, aplikasi Anda mungkin juga perlu membangun dan memvalidasi rantai sertifikat X.509, memeriksa tanggal berlaku sertifikat serta status pencabutan, mengonfirmasi subjek atau thumbprint yang diharapkan, memverifikasi penggunaan kunci, dan mengevaluasi timestamp yang terpercaya. Nilai [DigitalSignature::getSignTime](https://reference.aspose.com/slides/id/php-java/aspose.slides/digitalsignature/getsigntime/) sendiri bukan bukti dari otoritas timestamp terpercaya.
 
 ## **Menghapus Tanda Tangan Digital**
 
@@ -123,33 +135,33 @@ try {
 }
 ```
 
-Untuk menghapus hanya satu tanda tangan, panggil [DigitalSignatureCollection::removeAt](https://reference.aspose.com/slides/id/php-java/aspose.slides/digitalsignaturecollection/removeat/) dengan indeks berbasis nolnya. Simpan ke file baru kecuali menimpa file asli yang ditandatangani merupakan bagian eksplisit dari alur kerja Anda.
+Untuk menghapus hanya satu tanda tangan, panggil [DigitalSignatureCollection::removeAt](https://reference.aspose.com/slides/id/php-java/aspose.slides/digitalsignaturecollection/removeat/) dengan indeks berbasis nolnya. Simpan ke file baru kecuali menimpa yang asli merupakan bagian eksplisit dari alur kerja Anda.
 
 ## **Pertimbangan Pengeditan dan Format**
 
-- Tanda tangan tidak membuat presentasi menjadi hanya‑baca. Pengguna dan aplikasi masih dapat mengedit file, tetapi perubahan pada konten yang ditandatangani biasanya membuat tanda tangan yang ada tidak valid.
-- Selesaikan semua pengeditan yang dimaksudkan sebelum menandatangani. Jika presentasi harus diubah, simpan revisi yang diperbarui dan tandatangani revisi tersebut kembali.
+- Tanda tangan tidak membuat presentasi menjadi hanya‑baca. Pengguna dan aplikasi masih dapat mengedit file, namun perubahan pada konten yang ditandatangani biasanya membuat tanda tangan yang ada menjadi tidak valid.
+- Selesaikan semua edit yang diinginkan sebelum menandatangani. Jika presentasi harus diubah, simpan revisi yang diperbarui dan tanda tangani revisi tersebut lagi.
 - Pertahankan output akhir dalam format PPTX. Mengonversi presentasi yang ditandatangani ke format lain tidak mentransfer tanda tangan PPTX asli sebagai tanda tangan yang valid untuk file yang dikonversi.
-- Anggap kunci pribadi sertifikat sebagai informasi sensitif. Siapa pun yang memperoleh kunci pribadi dan kata sandinya dapat membuat tanda tangan yang tampak berasal dari pemegang sertifikat tersebut.
-- Simpan sumber yang tidak ditandatangani atau salinan terkontrol lainnya ketika kebijakan retensi dokumen Anda memerlukannya.
+- Perlakukan kunci privat sertifikat sebagai data sensitif. Siapa pun yang memperoleh kunci privat dan passwordnya dapat membuat tanda tangan yang tampak berasal dari pemilik sertifikat tersebut.
+- Simpan sumber yang belum ditandatangani atau salinan terkendali lainnya ketika kebijakan retensi dokumen Anda memerlukannya.
 
-## **Tanya Jawab**
+## **FAQ**
 
 **Apakah tanda tangan digital mengenkripsi presentasi?**
 
-Tidak. Tanda tangan digital memberikan bukti tentang asal dan integritas, tetapi konten presentasi tetap dapat dibaca kecuali enkripsi terpisah diterapkan. Gunakan [proteksi kata sandi](/php-java/password-protected-presentation/) ketika akses ke konten harus dibatasi.
+Tidak. Tanda tangan digital memberikan bukti tentang asal dan integritas, tetapi konten presentasi tetap dapat dibaca kecuali enkripsi terpisah diterapkan. Gunakan [password protection](/slides/id/php-java/password-protected-presentation/) ketika akses ke konten harus dibatasi.
 
-**Apakah kata sandi PFX sama dengan kata sandi presentasi?**
+**Apakah password PFX sama dengan password presentasi?**
 
-Tidak. Kata sandi PFX membuka kunci pribadi yang disimpan dalam paket sertifikat. Itu tidak mengontrol siapa yang dapat membuka atau mengedit file PPTX.
+Tidak. Password PFX membuka kunci privat yang disimpan dalam paket sertifikat. Itu tidak mengontrol siapa yang dapat membuka atau mengedit file PPTX.
 
-**Bisakah saya menggunakan sertifikat yang ditandatangani sendiri?**
+**Bisakah saya menggunakan sertifikat self‑signed?**
 
-Secara teknis, sertifikat yang ditandatangani sendiri dapat digunakan bila menyertakan kunci pribadi yang dapat diakses. Penerima tidak akan secara otomatis mempercayainya, kecuali sertifikat tersebut secara eksplisit ditambahkan ke lingkungan tepercaya mereka. Alur kerja publik atau lintas organisasi biasanya menggunakan sertifikat yang dikeluarkan oleh CA tepercaya.
+Secara teknis, sertifikat self‑signed dapat digunakan bila menyertakan kunci privat yang dapat diakses. Penerima tidak otomatis mempercayainya, kecuali sertifikat tersebut secara eksplisit ditambahkan ke lingkungan terpercaya mereka. Alur kerja publik atau lintas organisasi biasanya menggunakan sertifikat yang diterbitkan oleh CA terpercaya.
 
 **Apa yang membuat tanda tangan tidak valid?**
 
-Mengubah konten presentasi yang ditandatangani atau data tanda tangan setelah penandatanganan dapat membuat tanda tangan tidak valid. Korupsi file juga dapat menyebabkan validasi gagal. Jika semua tanda tangan dihapus, presentasi menjadi tidak ditandatangani, bukan berisi tanda tangan yang tidak valid.
+Mengubah konten presentasi yang ditandatangani atau data tanda tangan setelah penandatanganan dapat membuat tanda tangan tidak valid. Kerusakan file juga dapat menyebabkan validasi gagal. Jika semua tanda tangan dihapus, presentasi menjadi tidak ditandatangani bukan berisi tanda tangan yang tidak valid.
 
 **Apakah tanda tangan yang valid berarti saya harus mempercayai penandatangan?**
 
@@ -157,20 +169,20 @@ Tidak dengan sendirinya. Integritas tanda tangan dan kepercayaan pada penandatan
 
 **Apa yang terjadi ketika sertifikat kedaluwarsa?**
 
-Kedaluwarsa sertifikat tidak mengubah byte presentasi, tetapi memengaruhi evaluasi kepercayaan sertifikat. Apakah tanda tangan tetap dapat diterima bergantung pada kebijakan Anda dan apakah timestamp terpercaya yang valid membuktikan bahwa penandatanganan terjadi saat sertifikat masih berlaku. Jangan mengandalkan waktu penandatangan yang ditampilkan saja sebagai timestamp terpercaya.
+Kedaluwarsa sertifikat tidak mengubah byte presentasi, tetapi memengaruhi evaluasi kepercayaan sertifikat. Apakah sebuah tanda tangan tetap dapat diterima tergantung pada kebijakan Anda dan apakah timestamp terpercaya yang valid membuktikan bahwa penandatanganan terjadi saat sertifikat masih valid. Jangan bergantung pada waktu penandatangan yang ditampilkan saja sebagai timestamp terpercaya.
 
 **Apakah presentasi yang ditandatangani masih dapat diedit?**
 
-Ya. Penandatanganan tidak mengunci file. Mengedit konten yang ditandatangani biasanya membuat tanda tangan yang ada tidak valid, sehingga selesaikan presentasi terlebih dahulu dan tandatangani revisi akhir.
+Ya. Penandatanganan tidak mengunci file. Mengedit konten yang ditandatangani biasanya membuat tanda tangan yang ada menjadi tidak valid, jadi selesaikan presentasi terlebih dahulu dan tanda tangani revisi final.
 
-**Dapatkah sebuah presentasi berisi lebih dari satu tanda tangan?**
+**Apakah sebuah presentasi dapat berisi lebih dari satu tanda tangan?**
 
-Ya. Tambahkan setiap tanda tangan ke koleksi yang dikembalikan oleh [Presentation::getDigitalSignatures](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/#getDigitalSignatures) sebelum menyimpan. Selama validasi, periksa setiap tanda tangan dan pastikan semua penandatangan yang diperlukan hadir.
+Ya. Tambahkan setiap tanda tangan ke koleksi yang dikembalikan oleh [Presentation::getDigitalSignatures](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/#getDigitalSignatures) sebelum menyimpan. Selama validasi, periksa setiap tanda tangan dan pastikan semua penandatangan yang diperlukan ada.
 
-**Format presentasi mana yang mendukung operasi ini?**
+**Format presentasi apa yang mendukung operasi ini?**
 
 Aspose.Slides mendukung operasi tanda tangan digital yang dijelaskan di sini hanya untuk PPTX. Format PPT dan OpenDocument tidak didukung oleh alur kerja API ini.
 
 **Bisakah saya menghapus tanda tangan tanpa memengaruhi slide?**
 
-Ya. Anda dapat menghapus satu tanda tangan atau mengosongkan seluruh koleksi lalu menyimpan presentasi. Konten slide tetap ada, tetapi file yang disimpan tidak lagi membawa bukti tanda tangan yang dihapus.
+Ya. Anda dapat menghapus satu tanda tangan atau mengosongkan seluruh koleksi, lalu menyimpan presentasi. Konten slide tetap tersedia, tetapi file yang disimpan tidak lagi membawa bukti tanda tangan yang dihapus.

@@ -1,56 +1,56 @@
 ---
-title: Fusion efficace des présentations en Java
+title: Fusionner efficacement des présentations en Java
 linktitle: Fusionner des présentations
 type: docs
 weight: 40
 url: /fr/java/merge-presentation/
 keywords:
 - fusion PowerPoint
-- fusion présentations
-- fusion diapositives
-- fusion PPT
-- fusion PPTX
-- fusion ODP
+- fusionner des présentations
+- fusionner des diapositives
+- fusionner PPT
+- fusionner PPTX
+- fusionner ODP
 - combiner PowerPoint
-- combiner présentations
-- combiner diapositives
+- combiner des présentations
+- combiner des diapositives
 - combiner PPT
 - combiner PPTX
 - combiner ODP
 - Java
 - Aspose.Slides
-description: "Apprenez comment fusionner des présentations PowerPoint et OpenDocument en Java en clonant des diapositives, en contrôlant les maîtres et les mises en page, en redimensionnant le contenu des diapositives, en préservant les sections et en gérant les fichiers protégés ou volumineux."
+description: "Apprenez à fusionner des présentations PowerPoint et OpenDocument en Java en clonant des diapositives, en contrôlant les maîtres et les dispositions, en redimensionnant le contenu des diapositives, en préservant les sections, et en gérant les fichiers protégés ou volumineux."
 ---
-## **Vue d'ensemble**
+## **Aperçu**
 
-Aspose.Slides for Java fusionne des présentations en clonant des diapositives d'une [Presentation](https://reference.aspose.com/slides/fr/java/com.aspose.slides/presentation/) vers une autre. L'opération principale est [ISlideCollection.addClone](https://reference.aspose.com/slides/fr/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-), qui peut conserver le formatage de la diapositive source ou attacher la diapositive clonée à un maître ou à une mise en page dans la présentation de destination.
+Aspose.Slides for Java fusionne des présentations en clonant des diapositives d’une [Présentation](https://reference.aspose.com/slides/fr/java/com.aspose.slides/presentation/) vers une autre. L’opération principale est [ISlideCollection.addClone](https://reference.aspose.com/slides/fr/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-), qui peut préserver le formatage de la diapositive source ou attacher la diapositive clonée à un maître ou à une disposition dans la présentation de destination.
 
 Cet article couvre les flux de travail de fusion les plus courants :
 
-- fusionner toutes les diapositives tout en conservant leur formatage source ;
-- fusionner les diapositives sélectionnées ;
+- fusionner toutes les diapositives en conservant leur formatage d’origine ;
+- fusionner des diapositives sélectionnées ;
 - appliquer un maître de la présentation de destination ;
-- appliquer une mise en page spécifique de la présentation de destination ;
-- normaliser différentes tailles de diapositives avant la fusion ;
-- ajouter les diapositives clonées à une section ;
+- appliquer une disposition spécifique de la présentation de destination ;
+- normaliser des tailles de diapositives différentes avant la fusion ;
+- ajouter des diapositives clonées à une section ;
 - fusionner plusieurs présentations dans un flux de travail complet ;
-- gérer les maîtres, ressources, notes, commentaires, médias, polices, mots de passe, gros fichiers et les problèmes de multithreading.
+- gérer les maîtres, ressources, notes, commentaires, médias, polices, mots de passe, fichiers volumineux et les problèmes de multithreading.
 
-## **Comment le clonage de diapositives affecte les maîtres et les mises en page**
+## **Comment le clonage de diapositives affecte les maîtres et les dispositions**
 
-Une diapositive hérite de la majeure partie de son apparence de sa mise en page et de son maître. Pour cette raison, la surcharge de clonage que vous choisissez détermine comment la diapositive fusionnée est intégrée dans la présentation de destination.
+Une diapositive hérite en grande partie de son apparence de sa disposition et de son maître. Pour cette raison, la surcharge de clonage que vous choisissez détermine la façon dont la diapositive fusionnée est intégrée dans la présentation de destination.
 
-Utilisez [ISlideCollection.addClone](https://reference.aspose.com/slides/fr/java/com.aspose.slides/islidecollection/) de l'une de ces manières :
+Utilisez [ISlideCollection.addClone](https://reference.aspose.com/slides/fr/java/com.aspose.slides/islidecollection/) de l’une des manières suivantes :
 
-- `addClone(sourceSlide)` — conserve la mise en page et le formatage de la diapositive source. Si nécessaire, le maître source peut être cloné automatiquement dans la présentation de destination. Aspose.Slides suit les maîtres clonés automatiquement afin que les diapositives répétées utilisant le même maître source ne provoquent pas un clonage répété de ce maître.
-- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — attache la diapositive clonée à un [IMasterSlide](https://reference.aspose.com/slides/fr/java/com.aspose.slides/imasterslide/) de destination spécifique. Aspose.Slides recherche une mise en page correspondante sous ce maître par type ou nom de mise en page.
-- `addClone(sourceSlide, destinationLayout)` — attache la diapositive clonée directement à un [ILayoutSlide](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ilayoutslide/) de destination spécifique.
+- `addClone(sourceSlide)` — préserve la disposition et le formatage de la diapositive source. Si nécessaire, le maître source peut être cloné automatiquement dans la présentation de destination. Aspose.Slides suit les maîtres clonés automatiquement afin que les diapositives répétées utilisant le même maître source ne provoquent pas de clonage répété de ce maître.
+- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — attache la diapositive clonée à un [IMasterSlide](https://reference.aspose.com/slides/fr/java/com.aspose.slides/imasterslide/) de destination spécifique. Aspose.Slides recherche une disposition correspondante sous ce maître par type ou par nom.
+- `addClone(sourceSlide, destinationLayout)` — attache directement la diapositive clonée à un [ILayoutSlide](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ilayoutslide/) de destination spécifique.
 
-Le maître ou la mise en page passé à une surcharge `addClone` doit appartenir à la présentation **de destination**, pas à la présentation source.
+Le maître ou la disposition passé·e à une surcharge `addClone` doit appartenir à la **présentation de destination**, pas à la présentation source.
 
 ## **Fusionner des présentations entières tout en préservant le formatage source**
 
-La fusion la plus simple copie chaque diapositive de la présentation source vers la présentation de destination. C’est le choix approprié lorsque les diapositives importées doivent conserver leur thème, maître et relations de mise en page d’origine.
+La fusion la plus simple copie chaque diapositive de la présentation source vers la présentation de destination. C’est le choix approprié lorsque les diapositives importées doivent conserver leur thème, maître et relations de disposition d’origine.
 
 ```java
 import com.aspose.slides.*;
@@ -69,9 +69,9 @@ try {
 }
 ```
 
-La présentation résultante peut contenir plusieurs maîtres lorsque la source et la destination utilisent des conceptions différentes. C’est attendu lorsque le formatage source est intentionnellement préservé.
+La présentation résultante peut contenir plusieurs maîtres lorsque la source et la destination utilisent des designs différents. C’est le comportement attendu lorsqu’on conserve intentionnellement le formatage source.
 
-## **Fusionner les diapositives sélectionnées**
+## **Fusionner des diapositives sélectionnées**
 
 Vous n’avez pas besoin de cloner chaque diapositive. L’exemple suivant importe uniquement les index de diapositives sélectionnés de la présentation source.
 
@@ -98,7 +98,7 @@ Validez les index de diapositives avant le clonage lorsqu’ils proviennent d’
 
 ## **Fusionner des diapositives en utilisant un maître de destination**
 
-Utilisez la surcharge [addClone(ISlide, IMasterSlide, boolean)](https://reference.aspose.com/slides/fr/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) lorsque les diapositives importées doivent suivre un maître qui appartient déjà à la présentation de destination.
+Utilisez la surcharge [addClone(ISlide, IMasterSlide, boolean)](https://reference.aspose.com/slides/fr/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) lorsque les diapositives importées doivent suivre un maître déjà présent dans la présentation de destination.
 
 ```java
 import com.aspose.slides.*;
@@ -119,13 +119,13 @@ try {
 }
 ```
 
-Aspose.Slides sélectionne une mise en page appropriée sous le maître spécifié en faisant correspondre le type ou le nom de la mise en page source. Si aucune mise en page adaptée n’existe et que `allowCloneMissingLayout` est `true`, la mise en page source est clonée afin que la diapositive puisse être ajoutée. Si elle est `false`, une [PptxEditException](https://reference.aspose.com/slides/fr/java/com.aspose.slides/pptxeditexception/) est levée.
+Aspose.Slides sélectionne une disposition appropriée sous le maître indiqué en faisant correspondre le type ou le nom de la disposition source. Si aucune disposition adaptée n’existe et que `allowCloneMissingLayout` est `true`, la disposition source est clonée afin que la diapositive puisse être ajoutée. Si elle est `false`, une [PptxEditException](https://reference.aspose.com/slides/fr/java/com.aspose.slides/pptxeditexception/) est levée.
 
-Utilisez `false` lorsque vous souhaitez que la fusion échoue plutôt que d’introduire une mise en page supplémentaire dans le maître de destination.
+Utilisez `false` lorsque vous voulez que la fusion échoue plutôt que d’introduire une disposition supplémentaire dans le maître de destination.
 
-## **Fusionner des diapositives en utilisant une mise en page de destination spécifique**
+## **Fusionner des diapositives en utilisant une disposition de destination spécifique**
 
-Utilisez la surcharge [addClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/fr/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) lorsque vous savez exactement quelle mise en page de destination les diapositives importées doivent utiliser.
+Utilisez la surcharge [addClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/fr/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) lorsque vous savez exactement quelle disposition de destination les diapositives importées doivent utiliser.
 
 ```java
 import com.aspose.slides.*;
@@ -146,13 +146,13 @@ try {
 }
 ```
 
-Appliquer une mise en page de destination modifie la relation de mise en page héritée ; cela ne redessine pas le contenu de la diapositive source. Si les mises en page source et destination ont des structures d’espace réservé différentes, examinez le résultat pour confirmer que le formatage hérité et le comportement des espaces réservés sont appropriés.
+Appliquer une disposition de destination modifie la relation de disposition héritée ; cela ne redessine pas le contenu de la diapositive source. Si les dispositions source et destination ont des structures de zones réservées différentes, examinez le résultat pour confirmer que le formatage hérité et le comportement des zones réservées sont appropriés.
 
 ## **Fusionner des présentations avec des tailles de diapositives différentes**
 
-Les présentations avec des dimensions de diapositive différentes peuvent être fusionnées, mais cloner une diapositive dans une présentation dont la taille de diapositive est différente ne redessine pas automatiquement son contenu pour le nouveau canevas. Les formes peuvent ainsi apparaître déplacées, redimensionnées de façon inattendue ou en dehors de la zone visible de la diapositive.
+Des présentations avec des dimensions de diapositives différentes peuvent être fusionnées, mais le clonage d’une diapositive dans une présentation à une autre taille ne redessine pas automatiquement son contenu pour le nouveau canevas. Les formes peuvent ainsi apparaître déplacées, redimensionnées de façon inattendue ou hors de la zone visible de la diapositive.
 
-Une approche pratique consiste à redimensionner la présentation source avant le clonage. La [SlideSize.setSize](https://reference.aspose.com/slides/fr/java/com.aspose.slides/slidesize/#setSize-float-float-int-) method can scale existing content while changing the slide dimensions. [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/fr/java/com.aspose.slides/slidesizescaletype/) scales content to fit within the requested size.
+Une approche pratique consiste à redimensionner la présentation source avant le clonage. La méthode [SlideSize.setSize](https://reference.aspose.com/slides/fr/java/com.aspose.slides/slidesize/#setSize-float-float-int-) peut mettre à l’échelle le contenu existant tout en modifiant les dimensions des diapositives. [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/fr/java/com.aspose.slides/slidesizescaletype/) met le contenu à l’échelle pour qu’il tienne dans la taille demandée.
 
 ```java
 import com.aspose.slides.*;
@@ -183,11 +183,11 @@ try {
 }
 ```
 
-Le redimensionnement modifie l’objet de la présentation source en mémoire. Si vous avez besoin que la présentation source originale reste inchangée pour d’autres opérations, ouvrez une instance distincte pour la fusion.
+Le redimensionnement modifie l’objet de la présentation source en mémoire. Si vous avez besoin que la présentation source d’origine reste inchangée pour d’autres opérations, ouvrez une instance séparée pour la fusion.
 
 ## **Fusionner des diapositives dans une section de présentation**
 
-La boucle de clonage de diapositives de base ne recrée pas la hiérarchie des sections de la présentation source. Si les sections sont importantes dans la sortie, créez ou sélectionnez des sections dans la présentation de destination et clonez les diapositives dans celles‑ci explicitement avec [addClone(ISlide, ISection)](https://reference.aspose.com/slides/fr/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-).
+La boucle de clonage de diapositives de base ne recrée pas la hiérarchie de sections de la présentation source. Si les sections sont importantes dans le résultat, créez ou sélectionnez des sections dans la présentation de destination et clonez les diapositives dans celles‑ci explicitement avec [addClone(ISlide, ISection)](https://reference.aspose.com/slides/fr/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-).
 
 ```java
 import com.aspose.slides.*;
@@ -208,11 +208,11 @@ try {
 }
 ```
 
-Les diapositives clonées sont ajoutées à la fin de la section de destination spécifiée. Pour conserver plusieurs sections source, recréez ces sections dans la destination et associez chaque diapositive source à la section de destination correspondante.
+Les diapositives clonées sont ajoutées à la section de destination spécifiée. Pour préserver plusieurs sections sources, parcourez [Presentation.getSections](https://reference.aspose.com/slides/fr/java/com.aspose.slides/presentation/#getSections--), récupérez les diapositives actuelles de chaque section source avec [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/fr/java/com.aspose.slides/isection/#getSlidesListOfSection--), recréez les sections dans la destination, puis clonez chaque diapositive retournée dans sa section de destination correspondante. Consultez [Manage Slide Sections](/slides/fr/java/slide-section/) pour un exemple complet d’énumération de sections, incluant les sections vides et les changements structuraux.
 
 ## **Fusionner plusieurs présentations en toute sécurité**
 
-L’exemple de bout en bout suivant utilise la première présentation comme destination, normalise la taille des diapositives de chaque source supplémentaire, garde chaque source ouverte uniquement pendant sa copie, et enregistre le fichier final une fois.
+L’exemple de bout en bout suivant utilise la première présentation comme destination, normalise la taille des diapositives de chaque source supplémentaire, ne garde chaque source ouverte que pendant son copiage, et enregistre le fichier final une fois.
 
 ```java
 import com.aspose.slides.*;
@@ -251,35 +251,35 @@ try {
 }
 ```
 
-C’est une base utile pour préserver le formatage source des diapositives importées. Si votre sortie doit utiliser un thème de destination unique, remplacez l’appel simple `addClone(slide)` par la surcharge de maître de destination ou de mise en page de destination appropriée présentée précédemment.
+C’est une base utile pour préserver le formatage source des diapositives importées. Si votre résultat doit utiliser un thème unique de destination, remplacez l’appel simple `addClone(slide)` par la surcharge maître‑de‑destination ou disposition‑de‑destination appropriée présentée plus haut.
 
 ## **Considérations pratiques**
 
-### **Maîtres, mises en page et fidélité du formatage**
+### **Maîtres, dispositions et fidélité du formatage**
 
-Le clonage par défaut des diapositives peut automatiquement introduire un maître source requis dans la présentation de destination. Aspose.Slides conserve un registre interne des maîtres clonés automatiquement afin d’éviter de cloner le même maître plusieurs fois. Les maîtres clonés manuellement ne sont pas suivis par ce registre, il faut donc éviter le pré‑clonage des maîtres sauf si vous avez besoin d’un contrôle explicite de la structure du maître.
+Le clonage de diapositives par défaut peut automatiquement faire entrer un maître source requis dans la présentation de destination. Aspose.Slides conserve un registre interne des maîtres clonés automatiquement afin d’éviter de cloner le même maître plusieurs fois. Les maîtres clonés manuellement ne sont pas suivis par ce registre, évitez donc de pré‑cloner les maîtres sauf si vous avez besoin d’un contrôle explicite de la structure du maître.
 
-Ne supposez pas que deux maîtres ou deux mises en page portant le même nom soient visuellement équivalents. Si un modèle d’entreprise doit contrôler l’apparence finale, choisissez explicitement un maître ou une mise en page de destination et vérifiez le résultat après la fusion.
+Ne supposez pas que deux maîtres ou deux dispositions portant le même nom soient visuellement équivalents. Si un modèle d’entreprise doit contrôler l’aspect final, choisissez explicitement un maître ou une disposition de destination et vérifiez le résultat après la fusion.
 
 ### **Notes et commentaires**
 
-Les notes du présentateur et les commentaires de diapositive sont associés au contenu de la diapositive et sont copiés lorsqu’une diapositive est clonée. Aspose.Slides expose également des API dédiées pour les [presentation notes](https://docs.aspose.com/slides/fr/java/presentation-notes/) et les [presentation comments](https://docs.aspose.com/slides/fr/java/presentation-comments/).
+Les notes du présentateur et les commentaires de diapositive sont associés au contenu de la diapositive et sont copiés lorsqu’une diapositive est clonée. Aspose.Slides expose également des API dédiées pour les [notes de présentation](/slides/fr/java/presentation-notes/) et les [commentaires de présentation](/slides/fr/java/presentation-comments/).
 
-Si le formatage de la page de notes est important, vérifiez la présentation fusionnée car les maîtres de notes sont des objets au niveau de la présentation et peuvent différer entre les fichiers sources. Pour les flux de travail de révision, vérifiez également les auteurs des commentaires et les commentaires en chaîne après avoir combiné des fichiers provenant de différents auteurs ou modèles.
+Si le formatage de la page de notes est important, vérifiez la présentation fusionnée car les maîtres de notes sont des objets au niveau de la présentation et peuvent différer entre les fichiers sources. Pour les flux de révision, vérifiez également les auteurs des commentaires et les fils de discussion après avoir combiné des fichiers provenant d’auteurs ou de modèles différents.
 
 ### **Images, audio, vidéo, objets OLE et liens externes**
 
-Les diapositives peuvent référencer des ressources au niveau de la présentation telles que des images, audio intégré, vidéo intégrée et données OLE. Clonez la diapositive elle‑même plutôt que de copier uniquement ses formes visibles afin qu’Aspose.Slides puisse maintenir les relations de la diapositive avec ses ressources.
+Les diapositives peuvent référencer des ressources au niveau de la présentation telles que des images, de l’audio intégré, de la vidéo intégrée et des données OLE. Clonez la diapositive elle‑même plutôt que de copier uniquement ses formes visibles afin qu’Aspose.Slides puisse maintenir les relations de la diapositive avec ses ressources.
 
-Les ressources incorporées et les ressources liées doivent être traitées différemment. Un audio, vidéo, objet OLE ou hyperlien lié reste dépendant de sa cible externe ; le clonage d’une diapositive ne transforme pas un lien externe en contenu incorporé. Testez les chemins et URL des ressources liées dans l’environnement où la présentation fusionnée sera ouverte.
+Les ressources intégrées et les ressources liées doivent être traitées différemment. Un audio, une vidéo, un objet OLE ou un hyperlien lié restent dépendants de leur cible externe ; le clonage d’une diapositive ne transforme pas un lien externe en contenu intégré. Testez les chemins et les URL des ressources liées dans l’environnement où la présentation fusionnée sera ouverte.
 
-Aspose.Slides suit explicitement les maîtres clonés automatiquement, mais cela ne doit pas être considéré comme une garantie générale que des ressources binaires identiques provenant de présentations sources indépendantes seront toujours dédupliquées. Si la taille du fichier de sortie est importante, inspectez le package fusionné et mesurez le résultat plutôt que de compter sur la déduplication implicite.
+Aspose.Slides suit explicitement les maîtres clonés automatiquement, mais cela ne constitue pas une garantie générale que des ressources binaires identiques provenant de présentations sources distinctes seront toujours dédupliquées. Si la taille du fichier de sortie est importante, inspectez le package fusionné et mesurez le résultat au lieu de compter sur une déduplication implicite.
 
-### **Polices incorporées et disponibilité des polices**
+### **Polices intégrées et disponibilité des polices**
 
-Les polices sont gérées au niveau de la présentation. Si la typographie doit rester cohérente entre les machines, ne supposez pas que le simple clonage de diapositives garantit que chaque police requise est disponible dans l’environnement de destination. Vous pouvez inspecter les polices incorporées avec [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/fr/java/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) et gérer l’incorporation explicitement comme décrit dans [Embed Fonts in Presentations](https://docs.aspose.com/slides/fr/java/embedded-font/).
+Les polices sont gérées au niveau de la présentation. Si la typographie doit rester cohérente sur plusieurs machines, ne supposez pas que le simple clonage de diapositives garantit que chaque police requise est disponible dans l’environnement de destination. Vous pouvez inspecter les polices intégrées avec [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/fr/java/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) et gérer l’intégration explicitement comme décrit dans [Embed Fonts in Presentations](/slides/fr/java/embedded-font/).
 
-Vérifiez également que vous êtes autorisé à incorporer les polices utilisées par les fichiers sources. Les licences de police peuvent restreindre l’incorporation.
+Vérifiez également que vous êtes autorisé à intégrer les polices utilisées par les fichiers sources. Les licences de polices peuvent restreindre l’intégration.
 
 ### **Présentations protégées par mot de passe**
 
@@ -293,70 +293,70 @@ loadOptions.setPassword("YOUR_PASSWORD");
 
 Presentation source = new Presentation("protected.pptx", loadOptions);
 try {
-    // Travailler avec la présentation déchiffrée.
+    // Travaillez avec la présentation décryptée.
 } finally {
     source.dispose();
 }
 ```
 
-L’ouverture d’une source chiffrée n’applique pas automatiquement la même protection à la présentation de destination. Configurez séparément la protection de sortie si nécessaire.
+L’ouverture d’une source chiffrée n’applique pas automatiquement la même protection à la présentation de destination. Configurez la protection de sortie séparément si nécessaire.
 
 ### **Grandes présentations et utilisation de la mémoire**
 
-Les grandes présentations contenant des images haute résolution, audio, vidéo ou d’autres objets binaires volumineux peuvent consommer une mémoire importante. [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/fr/java/com.aspose.slides/loadoptions/#getBlobManagementOptions--) fournit des contrôles pour la gestion des BLOB et l’utilisation de fichiers temporaires. Voir [Manage Presentation BLOBs](https://docs.aspose.com/slides/fr/java/manage-blob/) pour les stratégies de gros fichiers.
+Les grandes présentations contenant des images haute résolution, de l’audio, de la vidéo ou d’autres objets binaires volumineux peuvent consommer beaucoup de mémoire. [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/fr/java/com.aspose.slides/loadoptions/#getBlobManagementOptions--) offre des contrôles pour la gestion des BLOB et l’utilisation de fichiers temporaires. Consultez [Manage Presentation BLOBs](/slides/fr/java/manage-blob/) pour des stratégies dédiées aux gros fichiers.
 
-Pour les gros fichiers, privilégiez le chargement à partir de chemins de fichiers lorsque c’est possible, libérez chaque présentation source dès qu’elle a été fusionnée, et évitez d’enregistrer à plusieurs reprises les résultats intermédiaires à moins que le flux de travail ne nécessite des points de contrôle.
+Pour les fichiers volumineux, privilégiez le chargement depuis des chemins de fichiers lorsque c’est possible, libérez chaque présentation source dès qu’elle a été fusionnée, et évitez d’enregistrer de façon répétée des résultats intermédiaires sauf si le flux de travail nécessite des points de contrôle.
 
 ### **Sécurité des threads**
 
-Ne chargez pas, ne modifiez pas, n’enregistrez pas et ne clonez pas la même instance de [Presentation](https://reference.aspose.com/slides/fr/java/com.aspose.slides/presentation/) simultanément depuis plusieurs threads. Gardez chaque instance de présentation confinée à une opération de fusion. Si vous parallélisez des tâches indépendantes, utilisez des instances de présentation indépendantes et suivez les [Aspose.Slides multithreading guidance](https://docs.aspose.com/slides/fr/java/multithreading/).
+Ne chargez pas, ne modifiez pas, n’enregistrez pas ou ne clonez pas la même instance de [Presentation](https://reference.aspose.com/slides/fr/java/com.aspose.slides/presentation/) simultanément depuis plusieurs threads. Gardez chaque instance de présentation confinée à une opération de fusion. Si vous parallélisez des travaux indépendants, utilisez des instances de présentation indépendantes et suivez les recommandations de [Aspose.Slides multithreading guidance](/slides/fr/java/multithreading/).
 
 ## **FAQ**
 
-**Comment conserver la conception originale de chaque présentation source ?**
+**Comment conserver le design original de chaque présentation source ?**
 
-Utilisez [`addClone(sourceSlide)`](https://reference.aspose.com/slides/fr/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) sans fournir de maître ou de mise en page de destination. Aspose.Slides peut automatiquement cloner le maître source lorsqu’il est requis par la diapositive importée.
+Utilisez [addClone](https://reference.aspose.com/slides/fr/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) sans fournir de maître ou de disposition de destination. Aspose.Slides peut cloner automatiquement le maître source lorsqu’il est requis par la diapositive importée.
 
 **Comment faire en sorte que les diapositives importées utilisent le thème de destination ?**
 
-Utilisez la surcharge qui accepte un maître de destination. Passez un maître de la présentation de destination, pas de la source. Aspose.Slides tentera de mapper chaque diapositive source à une mise en page appropriée sous ce maître.
+Utilisez la surcharge qui accepte un maître de destination. Passez un maître issu de la présentation de destination, pas de la source. Aspose.Slides tentera de faire correspondre chaque diapositive source à une disposition appropriée sous ce maître.
 
-**Quand faut‑il utiliser une mise en page de destination spécifique plutôt qu’un maître de destination ?**
+**Quand faut‑il utiliser une disposition de destination spécifique plutôt qu’un maître de destination ?**
 
-Utilisez une mise en page spécifique lorsque chaque diapositive importée doit utiliser une mise en page connue. Utilisez un maître lorsque vous souhaitez qu’Aspose.Slides sélectionne parmi les mises en page de ce maître en fonction du type ou du nom de la mise en page source.
+Utilisez une disposition spécifique lorsque chaque diapositive importée doit utiliser une disposition connue. Utilisez un maître lorsque vous voulez qu’Aspose.Slides sélectionne parmi les dispositions de ce maître en fonction du type ou du nom de la disposition source.
 
 **Les présentations avec des tailles de diapositives différentes peuvent‑elles être fusionnées ?**
 
-Oui, mais le contenu des diapositives n’est pas automatiquement redessiné pour les dimensions de destination. Redimensionnez d’abord la présentation source lorsque vous avez besoin d’un positionnement prévisible, par exemple avec [SlideSize.setSize](https://reference.aspose.com/slides/fr/java/com.aspose.slides/slidesize/#setSize-float-float-int-) et [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/fr/java/com.aspose.slides/slidesizescaletype/).
+Oui, mais le contenu des diapositives n’est pas redessiné automatiquement pour les dimensions de destination. Redimensionnez d’abord la présentation source lorsque vous avez besoin d’un placement prévisible, par exemple avec [SlideSize.setSize](https://reference.aspose.com/slides/fr/java/com.aspose.slides/slidesize/#setSize-float-float-int-) et [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/fr/java/com.aspose.slides/slidesizescaletype/).
 
 **Puis‑je fusionner des présentations PPT, PPTX et ODP en un seul fichier ?**
 
-Oui. Chargez chaque présentation source, clonez les diapositives requises dans une destination unique, et enregistrez la destination dans un format de sortie supporté. Étant donné que les formats de présentation ne supportent pas exactement le même ensemble de fonctionnalités, vérifiez le contenu complexe après des fusions inter‑format. Voir [Supported File Formats](https://docs.aspose.com/slides/fr/java/supported-file-formats/).
+Oui. Chargez chaque présentation source, clonez les diapositives requises dans une destination unique, puis enregistrez la destination dans un format de sortie pris en charge. Comme les formats de présentation ne supportent pas exactement le même ensemble de fonctionnalités, vérifiez le contenu complexe après les fusions inter‑format. Voir [Supported File Formats](/slides/fr/java/supported-file-formats/).
 
-**Les sections source sont‑elles préservées automatiquement ?**
+**Les sections sources sont‑elles préservées automatiquement ?**
 
-Pas avec une boucle de base qui ne clone que les diapositives. Recréez les sections requises dans la destination et utilisez la surcharge de section de [addClone](https://reference.aspose.com/slides/fr/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISSlide-com.aspose.slides.ISection-) lorsque la structure des sections doit être préservée.
+Pas par une boucle de base qui ne clone que les diapositives. Recréez les sections nécessaires dans la destination et utilisez la surcharge de section de [addClone](https://reference.aspose.com/slides/fr/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-) lorsque la structure des sections doit être conservée.
 
-**Les notes du présentateur et les commentaires sont‑ils préservés ?**
+**Les notes du présentateur et les commentaires sont‑ils conservés ?**
 
-Oui, elles sont copiées avec la diapositive clonée. Pour les flux de travail qui dépendent du style du maître de notes, des auteurs de commentaires ou des données de révision en chaîne, vérifiez le résultat fusionné car ces scénarios impliquent des structures au niveau de la présentation ainsi que du contenu des diapositives.
+Ils sont copiés avec la diapositive clonée. Pour les flux de travail dépendant du style du maître de notes, des auteurs de commentaires ou des fils de révision, vérifiez le résultat fusionné car ces scénarios impliquent également des structures au niveau de la présentation.
 
-**Que se passe‑t‑il pour l’audio, la vidéo, les objets OLE et les hyperliens ?**
+**Que se passe‑t‑il avec l’audio, la vidéo, les objets OLE et les hyperliens ?**
 
-Le contenu incorporé est transporté comme partie des relations de ressources de la diapositive clonée. Les liens externes restent externes, leurs fichiers cibles ou URL doivent donc rester disponibles après la fusion.
+Le contenu intégré est transporté avec les relations de ressources de la diapositive clonée. Les liens externes restent externes, leurs fichiers cibles ou URL doivent donc rester accessibles après la fusion.
 
-**Les polices incorporées de chaque source sont‑elles garanties d’être disponibles dans la présentation fusionnée ?**
+**Les polices intégrées de chaque source sont‑elles garanties d’être disponibles dans la présentation fusionnée ?**
 
-Ne comptez pas uniquement sur le clonage de diapositives pour le déploiement des polices. Inspectez les polices incorporées de la destination et gérez explicitement l’incorporation des polices ou la disponibilité des polices externes lorsque la typographie est importante.
+Ne comptez pas uniquement sur le clonage de diapositives pour le déploiement des polices. Inspectez les polices intégrées de la destination et gérez explicitement l’intégration des polices ou la disponibilité des polices externes lorsque la typographie est importante.
 
 **Comment fusionner un fichier protégé par mot de passe ?**
 
-Ouvrez‑le avec le bon [LoadOptions.setPassword](https://reference.aspose.com/slides/fr/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-), puis clonez normalement ses diapositives. La protection de sortie est configurée séparément.
+Ouvrez‑le avec le bon [LoadOptions.setPassword](https://reference.aspose.com/slides/fr/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-), puis clonez ses diapositives normalement. La protection de sortie est configurée séparément.
 
 **Comment gérer des présentations très volumineuses ?**
 
-Utilisez la gestion des BLOB lorsque les gros objets binaires dominent l’utilisation de la mémoire, privilégiez le chargement via des chemins de fichiers pour les très gros fichiers, libérez rapidement les présentations source, et enregistrez le résultat final uniquement lorsque nécessaire.
+Utilisez la gestion des BLOB lorsque les objets binaires volumineux dominent l’utilisation de la mémoire, privilégiez le chargement par chemin de fichier pour les très gros fichiers, libérez rapidement les présentations sources et n’enregistrez le résultat final qu’à la fin du processus.
 
 **Puis‑je fusionner des diapositives depuis plusieurs threads ?**
 
-Ne pas utiliser une même instance de [Presentation](https://reference.aspose.com/slides/fr/java/com.aspose.slides/presentation/) simultanément depuis plusieurs threads. Gardez chaque opération de fusion isolée dans ses propres instances de présentation.
+N’utilisez pas une même instance de [Presentation](https://reference.aspose.com/slides/fr/java/com.aspose.slides/presentation/) simultanément depuis plusieurs threads. Gardez chaque opération de fusion isolée avec ses propres instances de présentation.

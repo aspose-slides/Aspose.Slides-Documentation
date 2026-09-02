@@ -1,23 +1,23 @@
 ---
-title: Správa rámečků obrázků v prezentacích pomocí Java
-linktitle: Rámeček obrázku
+title: Správa rámců obrázků v prezentacích pomocí Javy
+linktitle: Rámec obrázku
 type: docs
 weight: 10
 url: /cs/java/picture-frame/
 keywords:
-- rámeček obrázku
-- přidat rámeček obrázku
-- vytvořit rámeček obrázku
+- rámec obrázku
+- přidat rámec obrázku
+- vytvořit rámec obrázku
 - vložený obrázek
 - propojený obrázek
 - extrahovat obrázek
 - rastrový obrázek
 - SVG obrázek
-- oříznout obrázek
-- smazat oříznuté oblasti
+- ořez obrázku
+- smazat ořezané oblasti
 - komprimovat obrázek
 - StretchOffset
-- formátování rámečku obrázku
+- formátování rámce obrázku
 - relativní měřítko
 - efekt obrázku
 - poměr stran
@@ -26,21 +26,21 @@ keywords:
 - prezentace
 - Java
 - Aspose.Slides
-description: "Vytvářejte, formátujte, propojujte, ořezávejte, extrahujte a komprimujte rámečky obrázků v prezentacích pomocí Aspose.Slides pro Java."
+description: "Vytvářejte, formátujte, propojujte, ořezávejte, extrahujte a komprimujte rámy obrázků v prezentacích pomocí Aspose.Slides pro Javu."
 ---
 ## **Přehled**
 
-Rámeček obrázku je tvar slidu, který zobrazuje obrázek. V Aspose.Slides jsou zdroj obrázku a tvar, který jej zobrazuje, samostatné objekty: [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/) vlastní vložené zdroje obrázků prostřednictvím svého [IImageCollection](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iimagecollection/), zatímco [IPictureFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipictureframe/) řídí pozici, velikost, formátování čáry, rotaci, ořez, efekty obrázku a další nastavení na úrovni rámce.
+Rámeček obrázku je tvar snímku, který zobrazuje obrázek. V Aspose.Slides jsou zdroj obrázku a tvar, který jej zobrazuje, samostatné objekty: [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/) vlastní vložené zdroje obrázků prostřednictvím svého [IImageCollection](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iimagecollection/), zatímco [IPictureFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipictureframe/) řídí pozici, velikost, formátování čáry, otáčení, ořez, efekty obrázku a další nastavení na úrovni rámce.
 
-Toto oddělení je užitečné, když je stejný obrázek zobrazen vícekrát. Přidejte obrázek do prezentace jednou, uchovejte vrácený [IPPImage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ippimage/), a použijte tento zdroj obrázku při vytváření rámečků.
+Toto oddělení je užitečné, když je stejný obrázek zobrazen vícekrát. Přidejte obrázek do prezentace jednou, uložte vrácený [IPPImage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ippimage/), a použijte tento zdroj obrázku při vytváření rámců obrázků.
 
-Rámečky mohou obsahovat rastrové obrázky jako PNG nebo JPEG a vektorové SVG obrázky. Mohou také odkazovat na propojené obrázky místo ukládání bajtů obrázku v prezentaci. Volba ovlivňuje přenositelnost, velikost souboru, extrakci a chování při exportu, takže je užitečné rozhodnout, jak má být obrázek uložen, před tím, než použijete formátování nebo optimalizaci.
+Rámečky obrázků mohou obsahovat rastrové obrázky jako PNG nebo JPEG a vektorové obrázky SVG. Mohou také odkazovat na propojené obrázky namísto ukládání bajtů obrázku do prezentace. Volba ovlivňuje přenositelnost, velikost souboru, extrakci a chování při exportu, takže je užitečné rozhodnout, jak má být obrázek uložen, ještě před aplikací formátování nebo optimalizace.
 
 ## **Přidání a formátování vloženého obrázku**
 
-U vloženého obrázku přidejte data obrázku do prezentace a vytvořte rámeček obrázku pomocí [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-). Obrázek se stane součástí balíčku prezentace, takže prezentace zůstane samostatná, když bude přesunuta na jiný počítač.
+U vloženého obrázku přidejte data obrázku do prezentace a vytvořte rámec obrázku pomocí [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-). Obrázek se stane součástí balíčku prezentace, takže prezentace zůstane samostatná i po přesunu na jiný počítač.
 
-Následující příklad přidá JPEG obrázek, vytvoří rámec v přirozených rozměrech obrázku a aplikuje formátování čáry a rotaci:
+Následující příklad přidá JPEG obrázek, vytvoří rámec v přirozených rozměrech obrázku a aplikuje formátování čáry a otočení:
 
 ```java
 import com.aspose.slides.*;
@@ -70,11 +70,11 @@ try {
 }
 ```
 
-Rámeček řídí zobrazovanou geometrii; změna velikosti rámce nemění původní rozměry pixelů uložené ve vloženém zdroji obrázku. Toto rozlišení je důležité při ořezávání nebo kompresi obrázku později.
+Rámeček obrázku řídí zobrazovanou geometrii; změna velikosti rámce nemění původní rozlišení pixelů uložených ve vloženém zdroji obrázku. Tento rozdíl je důležitý při pozdějším ořezu nebo kompresi obrázku.
 
 ## **Použití relativního měřítka**
 
-[IPictureFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipictureframe/) vystavuje relativní měřítko šířky a výšky pro rámec prostřednictvím [setRelativeScaleWidth](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipictureframe/#setRelativeScaleWidth-float-) a [setRelativeScaleHeight](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipictureframe/#setRelativeScaleHeight-float-). Hodnota `1.0` odpovídá 100 % původní velikosti obrázku. Relativní měřítko je užitečné, když workflow potřebuje zachovat vztah k velikosti zdrojového obrázku místo ručního výpočtu konečných rozměrů.
+[IPictureFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipictureframe/) poskytuje relativní škálování šířky a výšky rámce pomocí [setRelativeScaleWidth](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipictureframe/#setRelativeScaleWidth-float-) a [setRelativeScaleHeight](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipictureframe/#setRelativeScaleHeight-float-). Hodnota `1.0` odpovídá 100 % původní velikosti obrázku. Relativní měřítko je užitečné, když workflow potřebuje zachovat vztah k velikosti zdrojového obrázku místo ručního výpočtu konečných rozměrů.
 
 ```java
 import com.aspose.slides.*;
@@ -105,13 +105,13 @@ Relativní měřítko mění nastavení měřítka rámce; neprovádí přešká
 
 ## **Vložené a propojené obrázky**
 
-Vložený obrázek ukládá data obrázku uvnitř prezentace a proto je nejbezpečnější volbou pro přenositelnost a předvídatelné vykreslování. Propojený obrázek ukládá externí umístění pomocí metody [ISlidesPicture.setLinkPathLong](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islidespicture/#setLinkPathLong-java.lang.String-) místo vkládání dat obrázku stejným způsobem.
+Vložený obrázek ukládá data obrázku uvnitř prezentace a je proto nejn bezpečnější volbou pro přenositelnost a předvídatelné vykreslování. Propojený obrázek ukládá externí umístění pomocí metody [ISlidesPicture.setLinkPathLong](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islidespicture/#setLinkPathLong-java.lang.String-) místo vkládání dat obrázku stejným způsobem.
 
-Propojené obrázky mohou snížit množství dat uložených v PPTX, ale zavádějí externí závislost. Propojený soubor musí zůstat přístupný aplikaci, která prezentaci otevírá nebo vykresluje. Pokud se cesta změní, soubor se přesune nebo zdroj není dostupný, může se propojený obrázek nezobrazit podle očekávání. Pro prezentace, které mají být e‑mailem odesílány, archivovány nebo vykresleny v izolovaných prostředích, jsou vložené obrázky obvykle spolehlivější.
+Propojené obrázky mohou snížit množství dat uložených v PPTX, ale zavádějí externí závislost. Propojený soubor musí zůstat dostupný aplikaci, která prezentaci otevírá nebo vykresluje. Pokud se cesta změní, soubor se přesune nebo zdroj nebude dostupný, může se propojený obrázek nezobrazit podle očekávání. Pro prezentace, které musí být posílány e‑mailem, archivovány nebo vykreslovány v izolovaných prostředích, jsou vložené obrázky obvykle spolehlivější.
 
 ### **Přidání propojeného obrázku**
 
-Následující příklad vytvoří rámeček obrázku a nasměruje jej na lokální soubor obrázku. Jedná se jen o propojení obrázku; propojení videa je samostatný mediální workflow a záměrně není v tomto příkladu smícháno.
+Následující příklad vytvoří rámec obrázku a ukáže jej na lokální soubor obrázku. Zabývá se pouze propojením obrázku; propojení videa je samostatný mediální workflow a je úmyslně odděleno od tohoto příkladu.
 
 ```java
 import com.aspose.slides.*;
@@ -132,15 +132,15 @@ try {
 }
 ```
 
-Používejte odkazy, když je správa externích souborů úmyslná. Nepoužívejte je jen jako náhradu komprese: malý PPTX s poškozenými závislostmi na obrázcích je obvykle méně užitečný než větší samostatná prezentace.
+Používejte odkazy, když je správa externích souborů záměrná. Nepoužívejte je jen jako náhradu za kompresi: malý PPTX s poškozenými závislostmi na obrázcích je obvykle méně užitečný než větší samostatná prezentace.
 
-## **Extrahování obrázků z rámečků**
+## **Extrahování obrázků z rámců obrázků**
 
-Před extrahováním obrázku z existující prezentace ověřte, že tvar je skutečně [IPictureFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipictureframe/) a že obsahuje vložený obrázek. Propojené rámečky nemusí obsahovat bajty obrázku, které lze extrahovat stejným způsobem.
+Před extrahováním obrázku z existující prezentace ověřte, že tvar je skutečně [IPictureFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipictureframe/) a že obsahuje vložený obrázek. Propojené rámce obrázků nemusí obsahovat bajty obrázku, které lze extrahovat stejným způsobem.
 
 ### **Extrahování rastrového obrázku**
 
-Moderní API obrázku používá přímo [IImage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iimage/) a nevyžaduje starší Java wrapper. Následující příklad najde první vložený rastrový obrázek na slidu a uloží jej jako PNG:
+Moderní API pro obrázky používá přímo [IImage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iimage/) a nevyžaduje starší Java wrapper. Následující příklad najde první vložený rastrový obrázek na snímku a uloží jej jako PNG:
 
 ```java
 import com.aspose.slides.*;
@@ -173,11 +173,11 @@ try {
 }
 ```
 
-Ukládání pomocí [IImage.save](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iimage/#save-java.lang.String-int-) převádí extrahovaný obrázek do požadovaného výstupního formátu. Pokud potřebujete zakódované bajty uložené v prezentaci místo konvertovaného rastrového souboru, použijte binární data zdroje obrázku.
+Ukládání pomocí [IImage.save](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iimage/#save-java.lang.String-int-) převádí extrahovaný obrázek do požadovaného výstupního formátu. Pokud potřebujete zakódované bajty uložené v prezentaci místo převedeného rastrového souboru, použijte binární data zdroje obrázku.
 
 ### **Extrahování SVG obrázku**
 
-Pro SVG obrázek [IPPImage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ippimage/) vystavuje objekt [ISvgImage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/isvgimage/). To vám umožní získat SVG data přímo místo rasterizace obrázku nejprve.
+Pro SVG obrázek [IPPImage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ippimage/) poskytuje objekt [ISvgImage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/isvgimage/). Ten vám umožní získat SVG data přímo místo rasterizace obrázku nejprve.
 
 ```java
 import com.aspose.slides.*;
@@ -214,13 +214,13 @@ try {
 }
 ```
 
-Uchování SVG obsahu jako SVG zachovává vektorový zdroj uvnitř prezentace. Rastrové exporty jako PNG nebo JPEG nutně renderují tento vektor do pixelů. Export slidu do PDF nebo SVG je také operací renderování, takže exportovaná grafika by neměla být považována za bit‑za‑bitem kopii původního vloženého SVG; použijte data [ISvgImage.getSvgData](https://reference.aspose.com/slides/cs/java/com.aspose.slides/isvgimage/#getSvgData--) z vloženého zdroje, když je vyžadován samotný vektorový zdroj.
+Uchování SVG obsahu jako SVG zachovává vektorový zdroj uvnitř prezentace. Rasterové exporty jako PNG nebo JPEG nutně převádějí tento vektorový obsah na pixely. Export snímku do PDF nebo SVG je také operace renderování, takže exportovaná grafika by neměla být považována za bit‑po‑bitovou kopii původního vloženého SVG; použijte data [ISvgImage.getSvgData](https://reference.aspose.com/slides/cs/java/com.aspose.slides/isvgimage/#getSvgData--) vloženého SVG, pokud je vyžadován samotný vektorový zdroj.
 
-## **Ořezání obrázku**
+## **Ořez obrázku**
 
-Ořezání mění, která část obrázku je viditelná uvnitř rámce. Hodnoty ořezu na [IPictureFillFormat](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipicturefillformat/) jsou procenta rozměrů zdrojového obrázku. Ořez neodstraňuje skryté pixely z vloženého obrázku; pouze mění viditelný region.
+Ořez mění, která část obrázku je viditelná uvnitř rámce. Hodnoty ořezu na [IPictureFillFormat](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipicturefillformat/) jsou procenta rozměrů zdrojového obrázku. Ořez zpočátku neodstraňuje skryté pixely ze vloženého obrázku; pouze mění viditelný region.
 
-Následující příklad najde rámeček obrázku bezpečně a aplikuje hodnoty ořezu:
+Následující příklad bezpečně najde rámec obrázku a aplikuje hodnoty ořezu:
 
 ```java
 import com.aspose.slides.*;
@@ -249,11 +249,11 @@ try {
 }
 ```
 
-Protože skrytá data obrázku stále existují, lze ořez později změnit, aniž by se ztratily původní pixely. Pokud je velikost souboru důležitější než reverzibilita, mohou být oříznuté oblasti fyzicky odstraněny, jak je popsáno v další sekci.
+Protože skrytá data obrázku jsou stále přítomna, lze ořez později změnit bez ztráty původních pixelů. Pokud je velikost souboru důležitější než reverzibilita, lze ořezané oblasti fyzicky odstranit, jak je popsáno v další sekci.
 
-## **Odstranění oříznutých dat obrázku**
+## **Odstranění ořezaných dat obrázku**
 
-[IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) odstraňuje data obrázku mimo aktuální ořezový obdélník a vrací vzniklý zdroj obrázku. To může snížit velikost souboru, ale jedná se o destruktivní optimalizaci: po uložení prezentace již nejsou odstraněné pixely k dispozici pro pozdější operaci "uncrop".
+[IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) odstraňuje data obrázku mimo aktuální ořezový obdélník a vrací výsledný zdroj obrázku. To může snížit velikost souboru, ale jedná se o destruktivní optimalizaci: po uložení prezentace již odstraněné pixely nejsou k dispozici pro pozdější operaci odříznutí.
 
 ```java
 import com.aspose.slides.*;
@@ -281,11 +281,11 @@ try {
 }
 ```
 
-Metoda může do prezentace přidat nový zdroj obrázku. Pokud je originální obrázek používán i jinými rámečky, tyto rámečky stále potřebují svůj existující zdroj, takže mazání oříznutých oblastí nutně nesníží celkový počet obrázků. Ořezávání WMF nebo EMF pomocí této metody rasterizuje výsledek do PNG.
+Metoda může do prezentace přidat nový zdroj obrázku. Pokud je původní obrázek také používán dalšími rámečky, tyto rámce stále potřebují svůj existující zdroj, takže smazání ořezaných oblastí nutně nesnižuje celkový počet obrázků. Ořez WMF nebo EMF pomocí této metody rasterizuje ořezaný výsledek do PNG.
 
-## **Kompresace rastrových obrázků**
+## **Komprese rastrových obrázků**
 
-[IPictureFillFormat.compressImage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) snižuje rozlišení rastrového obrázku relativně k velikosti, v které je obrázek zobrazován. Může také v téže operaci odstranit oříznuté oblasti. Metoda vrací `true`, když byl obrázek změněn velikostí nebo oříznut, a `false`, když nebyla nutná žádná změna.
+[IPictureFillFormat.compressImage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipicturefillformat/#compressImage-boolean-int-) snižuje rozlišení rastrového obrázku relativně k velikosti, v níž je obrázek zobrazen. Může také během stejné operace odstranit ořezané oblasti. Metoda vrací `true`, když byl obrázek změněn velikostí nebo oříznut, a `false`, když nebyla nutná žádná změna.
 
 Použijte předdefinovanou hodnotu [PicturesCompression](https://reference.aspose.com/slides/cs/java/com.aspose.slides/picturescompression/), když stačí standardní cílové rozlišení:
 
@@ -314,17 +314,17 @@ try {
 }
 ```
 
-Místo předdefinované hodnoty můžete předat vlastní kladnou hodnotu DPI, pokud je požadován konkrétní cíl.
+Místo předdefinované hodnoty lze předat vlastní kladnou hodnotu DPI, pokud je požadován specifický cíl.
 
-Kompresní workflow je určeno pro rastrové obrázky. SVG a metafily nejsou tímto rasterním kompresním postupem zmenšeny. Také si pamatujte, že nižší rozlišení a odstraněné oříznuté oblasti nelze z optimalizované prezentace obnovit. Zvolte cílové rozlišení podle největší velikosti, ve které bude obrázek skutečně zobrazen nebo exportován, místo aby se globálně aplikovalo nejnižší DPI.
+Kompresi je určena pro rastrové obrázky. SVG a metafily nejsou tímto rasterovým kompresním workflow zmenšeny. Také si pamatujte, že nižší rozlišení a smazané ořezané oblasti nelze z optimalizované prezentace obnovit. Zvolte cílové rozlišení na základě největší velikosti, při které bude obrázek skutečně zobrazován nebo exportován, místo aby se globálně aplikovalo nejnižší DPI.
 
 ## **Správa efektů transformace obrázku**
 
-Kompletní workflow zahrnující jas, kontrast, barevné transformace, rozostření, alfa efekty, řetězce operací, inspekci, odstraňování a ověření round‑trip najdete na stránce [Image Transform Effects](/java/image-transform-effects/).
+Kompletní workflow zahrnující jas, kontrast, barevné transformace, rozmazání, alfa‑efekty, řetězce, inspekci, odstranění a verifikaci na zpětnou cestu najdete v [Image Transform Effects](/slides/cs/java/image-transform-effects/).
 
-## **Uzamčení geometrie rámečku obrázku**
+## **Uzamčení geometrie rámce obrázku**
 
-Nastavení [IPictureFrameLock](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipictureframelock/) řídí, které úpravy jsou pro rámeček zakázány. Například [setAspectRatioLocked](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) zachovává proporce tvaru při změně jeho velikosti.
+Nastavení [IPictureFrameLock](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipictureframelock/) řídí, které editační operace jsou pro rámec obrázku zakázány. Například [setAspectRatioLocked](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipictureframelock/#setAspectRatioLocked-boolean-) zachovává proporce tvaru během změny velikosti.
 
 ```java
 import com.aspose.slides.*;
@@ -350,13 +350,13 @@ try {
 }
 ```
 
-Uzamčení se vztahuje na tvar rámečku obrázku. Nevyžaduje, aby byl zdrojový obrázek přeškálován nebo trvale změněn na stejný poměr stran.
+Uzamčení platí pro tvar rámce obrázku. Nenutí zdrojový obrázek k přeškálování nebo trvalé změně poměru stran.
 
 ## **Úprava hodnot StretchOffset**
 
-Když je režim výplně obrázku nastaven na stretch, hodnoty stretch‑offset na [IPictureFillFormat](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipicturefillformat/) definují výplňový obdélník relativně k ohraničnému rámečku rámečku obrázku. Kladná procenta vytvoří úbytek od okraje, záporná procenta vytvoří výstupek.
+Když je režim výplně obrázku nastaven na roztažení, hodnoty stretch‑offset na [IPictureFillFormat](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipicturefillformat/) definují výplňový obdélník relativně k omezujícímu rámečku rámce obrázku. Kladná procenta vytvářejí odsazení od okraje, záporná procenta pak vyčlenění.
 
-To se liší od ořezu. Hodnoty ořezu určují, která část zdrojového obrázku je viditelná; stretch offsety mění obdélník, do kterého je viditelná výplň obrázku roztahována.
+Jedná se o něco jiného než ořez. Hodnoty ořezu vybírají, která část zdrojového obrázku je viditelná; stretch‑offsety mění obdélník, do kterého je viditelná výplň obrázku natáhnuta.
 
 ```java
 import com.aspose.slides.*;
@@ -386,43 +386,43 @@ try {
 }
 ```
 
-Používejte stretch offsety pro umístění výplně. Používejte ořezové vlastnosti, když je cílem skrýt okraje zdrojového obrázku.
+Používejte stretch‑offsety pro umístění výplně. Používejte vlastnosti ořezu, když cílem je skrýt okraje zdrojového obrázku.
 
 ## **Úložiště, velikost souboru a úvahy o exportu**
 
-Hlavní kompromisy je snazší spravovat, když jsou úložiště obrázků a formátování rámečků řešeny odděleně:
+Hlavní kompromisy jsou snáze říditelné, když je ukládání obrázků a formátování rámců odděleno:
 
-- **Vložené obrázky** činí prezentaci samostatnou a jsou nejspolehlivější pro sdílení a server‑side renderování, ale velké rastrové obrázky zvyšují velikost PPTX a paměťovou náročnost.
-- **Propojené obrázky** mohou udržet balíček menší, ale prezentace závisí na externích souborech, které musí zůstat dostupné na uložených cestách či umístěních.
-- **Ořez** je zpočátku ne­destruktivní. Skryté pixely zůstávají vložené, dokud nejsou oříznuté oblasti explicitně smazány nebo odstraněny během komprese.
-- **Kompresí** lze podstatně zmenšit velikost souboru u příliš velkých rastrových obrázků, avšak přicházíte o zdrojové rozlišení. Měla by být provedena až po určení zamýšlené velikosti na slidu.
-- **SVG obrázky** by měly zůstat ve formátu SVG, pokud je důležitá zachování vektoru. Vložené SVG lze extrahovat přímo, když potřebujete samotný vektorový zdroj. Rasterové exporty slidu vždy převádějí vykreslený slide na pixely.
-- **Opakované obrázky** by měly znovu použít existující zdroj [IPPImage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ippimage/), pokud je to možné, místo opakovaného načítání téhož souboru do workflow prezentace.
+- **Vložené obrázky** činí prezentaci samostatnou a jsou nejspolehlivější pro sdílení a server‑side renderování, ale velké rastrové obrázky zvětšují velikost PPTX a spotřebu paměti.
+- **Propojené obrázky** mohou balíček zmenšit, ale prezentace závisí na tom, že externí soubory zůstanou dostupné na uložených cestách nebo umístěních.
+- **Ořez** je zpočátku ne‑destruktivní. Skryté pixely zůstávají vložené, dokud nejsou ořezané oblasti výslovně smazány nebo odstraněny během komprese.
+- **Kompresi** může podstatně zmenšit velikost souboru u nadměrných rastrových obrázků, ale snižuje původní rozlišení. Použijte ji po určení zamýšlené velikosti na snímku.
+- **SVG obrázky** by měly zůstat jako SVG, když je důležitá zachování vektoru. Extrahujte vložený SVG přímo, pokud potřebujete samotný vektorový zdroj. Rasterové exporty snímků vždy převádějí vykreslený snímek na pixely.
+- **Opakované obrázky** by měly znovu použít existující zdroj [IPPImage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ippimage/), pokud je to možné, místo opakovaného načítání stejného souboru do workflow prezentace.
 
-U velkých prezentací je optimalizace obrázků nejúčinnější, když je prováděna selektivně: loga a diagramy uchovávejte jako vektorový obsah, komprimujte fotografie podle jejich skutečné zobrazovací velikosti, odstraňujte oříznuté pixely jen tehdy, když není potřeba další úpravy, a vyhýbejte se externím odkazům, pokud není správa závislostí součástí návrhu nasazení.
+Pro velké prezentace je optimalizace obrázků obvykle nejúčinnější, když je prováděna selektivně: loga a diagramy ponechte jako vektorový obsah, komprimujte fotografie podle skutečné zobrazovací velikosti, odstraňujte ořezané pixely jen když úpravy nejsou vyžadovány, a vyhýbejte se externím odkazům, pokud není správa závislostí součástí nasazovacího designu.
 
 ## **Často kladené otázky**
 
-**Jaký je rozdíl mezi rámečkem obrázku a zdrojem obrázku?**
+**Jaký je rozdíl mezi rámcem obrázku a zdrojem obrázku?**
 
-[IPPImage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ippimage/) představuje zdroj obrázku spojený s prezentací. [IPictureFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipictureframe/) je tvar na slidu, který zobrazí obrázek a ukládá geometrické a formátovací informace na úrovni rámce, jako jsou velikost, rotace, hodnoty ořezu, efekty a uzamčení.
+[IPPImage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ippimage/) představuje zdroj obrázku spojený s prezentací. [IPictureFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipictureframe/) je tvar na snímku, který zobrazuje obrázek a ukládá geometrické a formátovací informace na úrovni rámce, jako jsou velikost, otáčení, hodnoty ořezu, efekty a uzamčení.
 
-**Mám obrázky vkládat nebo propojit?**
+**Mám vložit nebo propojit obrázky?**
 
-Vkládejte obrázky, když musí být prezentace přenosná, archivovaná nebo vykreslena bez přístupu k externím zdrojům. Propojujte obrázky jen tehdy, když je úmyslně uložení souborů mimo PPTX a externí umístění lze spolehlivě udržovat.
+Vkládejte obrázky, když musí být prezentace přenosná, archivována nebo vykreslena bez přístupu k externím zdrojům. Propojujte obrázky jen když je úmyslné mít soubory mimo PPTX a externí umístění lze spolehlivě udržovat.
 
 **Snižuje ořez velikost souboru PPTX?**
 
-Ne samostatně. Normální nastavení ořezu skryje části zdrojového obrázku, ale zachovává podkladové pixely. Použijte [IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) nebo kompresi s odstraněním oříznutých oblastí, když lze tyto pixely trvale odstranit.
+Ne samostatně. Normální nastavení ořezu skryje části zdrojového obrázku, ale ponechává podkladové pixely. Použijte [IPictureFillFormat.deletePictureCroppedAreas](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipicturefillformat/#deletePictureCroppedAreas--) nebo kompresi s odstraněním ořezaných oblastí, když lze tyto pixely trvale odstranit.
 
-**Mohu po kompresi obnovit kvalitu obrázku?**
+**Mohu obnovit kvalitu obrázku po kompresi?**
 
-Ne. Komprese může snížit uložené rastrové rozlišení a odstranění oříznutých oblastí zruší data obrázku. Uchovejte původní zdrojový obrázek mimo prezentaci, pokud může být později potřeba úprava ve vysokém rozlišení.
+Ne. Komprese může snížit uložené rastrové rozlišení a odstranění ořezaných oblastí ztrácí data obrázku. Uchovejte originální zdrojový obrázek mimo prezentaci, pokud může být později potřeba úprava v plné kvalitě.
 
-**Jak má být nakládáno s SVG obrázky?**
+**Jak by se měly zacházet s SVG obrázky?**
 
-Uchovávejte SVG jako SVG, když je důležitá vektorová věrnost. Vložený [ISvgImage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/isvgimage/) lze extrahovat přímo. Renderování slidu do rastrového formátu jako PNG nebo JPEG rasterizuje SVG jako součást obrázku slidu.
+Uchovávejte SVG obsah jako SVG, když záleží na vektorové věrnosti. Vložený [ISvgImage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/isvgimage/) lze extrahovat přímo. Renderování snímku do rastrového formátu jako PNG nebo JPEG rasterizuje SVG jako součást obrázku snímku.
 
-**Jak mohu předejít nebezpečným přetypováním při čtení existujících slidů?**
+**Jak se vyhnout nebezpečným přetypováním při čtení existujících snímků?**
 
-Před použitím členů specifických pro rámeček zkontrolujte typ tvaru. Kontrola `instanceof` vůči [IPictureFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipictureframe/) zabraňuje neplatným přetypováním a umožňuje kódu správně zacházet se slidami, které neobsahují rámečky obrázku.
+Před použitím členů specifických pro rámec obrázku zkontrolujte typ tvaru. Kontrola `instanceof` vůči [IPictureFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipictureframe/) zabraňuje neplatným přetypováním a umožňuje kódu zpracovat snímky, které neobsahují rámce obrázků.

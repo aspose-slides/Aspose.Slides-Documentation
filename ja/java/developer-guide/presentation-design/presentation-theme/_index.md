@@ -1,13 +1,13 @@
 ---
-title: Java でプレゼンテーションテーマを管理する
+title: Javaでプレゼンテーションテーマを管理する
 linktitle: プレゼンテーションテーマ
 type: docs
 weight: 10
 url: /ja/java/presentation-theme/
 keywords:
 - PowerPoint テーマ
-- プレゼンテーションテーマ
-- スライドテーマ
+- プレゼンテーション テーマ
+- スライド テーマ
 - テーマの設定
 - テーマの変更
 - テーマの管理
@@ -15,29 +15,29 @@ keywords:
 - 追加パレット
 - テーマフォント
 - テーマスタイル
-- テーマエフェクト
+- テーマ効果
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java でマスタープレゼンテーションテーマを使用し、PowerPoint ファイルを一貫したブランディングで作成、カスタマイズ、変換します。"
+description: "Aspose.Slides for Java でプレゼンテーションテーマをマスターし、一貫したブランディングで PowerPoint ファイルの作成、カスタマイズ、変換を行います。"
 ---
 ## **はじめに**
 
-プレゼンテーションのテーマは、色、フォント、背景スタイル、塗り、線、エフェクトなどの調和したセットを定義します。テーマ対応オブジェクトは、各ビジュアルプロパティを固定値として保存する代わりに、これらの共有定義を参照するため、テーマを変更すると多くのオブジェクトが一度に更新されます。
+プレゼンテーションのテーマは、色、フォント、背景スタイル、塗りつぶし、線、効果という調整されたセットを定義します。テーマ対応オブジェクトは、各ビジュアルプロパティを固定値として保存するのではなく、これらの共有定義を参照するため、テーマを変更すると多くのオブジェクトが一度に更新されます。
 
-Aspose.Slides では、プレゼンテーション レベルのテーマは [Presentation.getMasterTheme](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/) で取得できます。プレゼンテーションは下位レベルでもテーマのオーバーライドを保持できます。マスタは [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/ja/java/com.aspose.slides/masterthememanager/) を介してプレゼンテーションテーマをオーバーライドでき、レイアウトまたは個々のスライドは [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/ja/java/com.aspose.slides/baseoverridethememanager/) を介して継承されたテーマをオーバーライドできます。実際には、スライドの有効テーマは次の継承チェーンで解決されます。プレゼンテーションテーマ、マスタオーバーライド、レイアウトオーバーライド、スライドオーバーライド。
+Aspose.Slides では、プレゼンテーション レベルのテーマは [Presentation.getMasterTheme](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/) で取得できます。プレゼンテーションは、下位レベルでテーマのオーバーライドを含めることもできます。マスターは [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/ja/java/com.aspose.slides/masterthememanager/) を使用してプレゼンテーション テーマをオーバーライドでき、レイアウトまたは個々のスライドは [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/ja/java/com.aspose.slides/baseoverridethememanager/) を使用して継承されたテーマをオーバーライドできます。実際には、スライドの有効テーマはこの継承チェーン（プレゼンテーションテーマ、マスターオーバーライド、レイアウトオーバーライド、スライドオーバーライド）によって解決されます。
 
-![テーマの構成要素: 色、フォント、背景スタイル、エフェクト](theme-constituents.png)
+![テーマ構成要素: 色、フォント、背景スタイル、効果](theme-constituents.png)
 
-以下のセクションでは、最も一般的なテーマのワークフローを示します。テーマの検査、色とフォントの変更、テーマのコピーまたは適用、背景とエフェクトスタイルの更新、継承とオーバーライドが解決された後の有効値の読み取りです。
+以下のセクションでは、最も一般的なテーマ操作フローを示します: テーマの検査、色とフォントの変更、テーマのコピーまたは適用、背景と効果スタイルの更新、継承とオーバーライドが解決された後の有効値の読み取りです。
 
 ## **テーマの検査**
 
-[MasterTheme](https://reference.aspose.com/slides/ja/java/com.aspose.slides/mastertheme/) オブジェクトは、[MasterTheme.getColorScheme](https://reference.aspose.com/slides/ja/java/com.aspose.slides/mastertheme/)、[MasterTheme.getFontScheme](https://reference.aspose.com/slides/ja/java/com.aspose.slides/mastertheme/)、[MasterTheme.getFormatScheme](https://reference.aspose.com/slides/ja/java/com.aspose.slides/mastertheme/) を通じてテーマのカラースキーム、フォントスキーム、フォーマットスキームを公開します。変更前にこれらのコレクションを検査することは、外部ソースから取得したプレゼンテーションの場合に特に有用です。スタイルエントリの数や内容はファイルごとに異なる可能性があります。
+[MasterTheme](https://reference.aspose.com/slides/ja/java/com.aspose.slides/mastertheme/) オブジェクトは、テーマのカラースキーム、フォントスキーム、フォーマットスキームを [MasterTheme.getColorScheme](https://reference.aspose.com/slides/ja/java/com.aspose.slides/mastertheme/)、[MasterTheme.getFontScheme](https://reference.aspose.com/slides/ja/java/com.aspose.slides/mastertheme/)、[MasterTheme.getFormatScheme](https://reference.aspose.com/slides/ja/java/com.aspose.slides/mastertheme/) で公開します。変更する前にこれらのコレクションを検査することは、プレゼンテーションが外部ソースから来た場合に特に有用です。スタイルエントリーの数と内容が異なる可能性があるためです。
 
-次の例は、メインテーマのプロパティを読み取り、テーマに保存されている背景、塗り、線、エフェクトスタイルの数を報告します。
+以下の例は、主要なテーマプロパティを読み取り、テーマに格納されている背景、塗りつぶし、線、効果スタイルの数を報告します:
 
 ```java
 import com.aspose.slides.*;
@@ -58,13 +58,13 @@ try {
 }
 ```
 
-ファイルが複数のマスタを使用している場合、すべてのスライドが同じ有効テーマを持つとは限りません。スライドに関連付けられたマスタを検査し、レイアウトまたはスライドのオーバーライドが存在する可能性がある場合は、後述の有効テーマワークフローを使用してください。
+ファイルが複数のマスターを使用している場合、すべてのスライドが同じ有効テーマを持つとは限りません。スライドに関連付けられたマスターを検査し、レイアウトやスライドのオーバーライドが存在する可能性がある場合は、後述の有効テーマフローを使用してください。
 
-## **テーマの色を変更する**
+## **テーマの色の変更**
 
-テーマ対応の塗り、線、テキストは、[SchemeColor](https://reference.aspose.com/slides/ja/java/com.aspose.slides/schemecolor/) 列挙体の論理色を参照できます。[IColorScheme](https://reference.aspose.com/slides/ja/java/com.aspose.slides/icolorscheme/) の対応エントリを変更すると、そのテーマカラーを参照し続けているすべてのオブジェクトが新しい値に解決されます。直接 RGB 色を使用しているオブジェクトは、テーマカラーの更新の影響を受けません。
+テーマ対応の塗りつぶし、線、テキストは、[SchemeColor](https://reference.aspose.com/slides/ja/java/com.aspose.slides/schemecolor/) 列挙体から論理的なカラーを参照できます。対応するエントリーを [IColorScheme](https://reference.aspose.com/slides/ja/java/com.aspose.slides/icolorscheme/) で変更すると、そのテーマカラーを参照し続けているすべてのオブジェクトが新しい値に対して解決されます。直接 RGB カラーを使用しているオブジェクトは、テーマカラーの更新によって変更されません。
 
-次のエンドツーエンドの例は、`Accent4` を使用するシェイプを作成し、テーマの `Accent4` 色を赤に変更し、プレゼンテーションを保存して再度開き、実際の塗りの色を出力します。
+以下のエンドツーエンド例は、`Accent4` を使用するシェイプを作成し、テーマの `Accent4` カラーを赤に変更し、プレゼンテーションを保存して再度開き、実際の塗りつぶしカラーを出力します:
 
 ```java
 import com.aspose.slides.*;
@@ -93,19 +93,19 @@ try {
 }
 ```
 
-矩形は `Accent4` にリンクされたままであるため、テーマが変更されると表示色が赤になります。シェイプ上で直接色を設定してスキームカラーを置き換えると、以後の `Accent4` の変更はその塗りに影響しなくなります。
+長方形は `Accent4` にリンクされたままであるため、テーマが変更されると表示色は赤になります。シェイプ上でスキームカラーを直接カラーに置き換えると、後続の `Accent4` 変更はその塗りつぶしに影響しなくなります。
 
-### **追加パレットから色を使用する**
+### **追加パレットからの色の使用**
 
-PowerPoint はテーマカラーから明るい色と暗い色のバリエーションを色変換で導出します。Aspose.Slides はこれらの変換を [ColorTransformOperation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/colortransformoperation/) 列挙体で公開しています。
+PowerPoint はテーマカラーに対してカラー変換を適用し、明るいバリアントと暗いバリアントを導出します。Aspose.Slides はこれらの変換を [ColorTransformOperation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/colortransformoperation/) 列挙体で公開しています。
 
-![メインテーマカラーと追加パレットから生成された明るい色・暗い色](additional-palette-colors.png)
+![メインテーマカラーと、追加パレットから生成された明るい・暗いカラー](additional-palette-colors.png)
 
 **1** - メインテーマカラー。
 
-**2** - メインテーマカラーから生成された明るい色と暗い色のバリエーション。
+**2** - メインテーマカラーから生成された明るい・暗いバリアント。
 
-次の例は、`Accent4` を基にした 6 つの矩形を作成し、そのうち 5 つに輝度変換を適用して結果を保存します。
+以下の例は `Accent4` を基にした 6 つの長方形を作成し、そのうち 5 つに輝度変換を適用し、結果を保存します:
 
 ```java
 import com.aspose.slides.*;
@@ -152,31 +152,31 @@ try {
 }
 ```
 
-これらのバリエーションはテーマカラーに基づいたままです。後で `Accent4` が変更されると、変換された色は新しい `Accent4` の値から再計算されます。
+これらのバリアントはテーマカラーに基づいたままです。`Accent4` が後で変更されると、変換されたカラーは新しい `Accent4` 値から再計算されます。
 
-### **`SchemeColor` 値を `IColorScheme` スロットにマッピングする**
+### **`SchemeColor` の値を `IColorScheme` スロットにマッピング**
 
-[SchemeColor](https://reference.aspose.com/slides/ja/java/com.aspose.slides/schemecolor/) 列挙体は `Text1`、`Background1`、`Text2`、`Background2` を使用し、[IColorScheme](https://reference.aspose.com/slides/ja/java/com.aspose.slides/icolorscheme/) は同じテーマスロットを `Dark1`、`Light1`、`Dark2`、`Light2` として公開します。マッピングは固定です。
+[SchemeColor](https://reference.aspose.com/slides/ja/java/com.aspose.slides/schemecolor/) 列挙体は `Text1`、`Background1`、`Text2`、`Background2` を使用し、[IColorScheme](https://reference.aspose.com/slides/ja/java/com.aspose.slides/icolorscheme/) は同じテーマスロットを `Dark1`、`Light1`、`Dark2`、`Light2` として公開します。マッピングは固定です:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-これらは同一テーマスロットの別名であり、動的に相互変換される値ではありません。
+これらは同一テーマスロットの別名であり、ある形態から別形態への動的変換値ではありません。
 
-## **テーマのフォントを変更する**
+## **テーマフォントの変更**
 
-テーマのフォントスキームは、見出し用のメジャーフォントセットと本文用のマイナーフォントセットを含みます。[IFontScheme.getMajor](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ifontscheme/) と [IFontScheme.getMinor](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ifontscheme/) メソッドでこれらのセットを取得できます。
+テーマのフォントスキームには、見出し用のメジャーフォントセットと本文用のマイナーフォントセットが含まれます。[IFontScheme.getMajor](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ifontscheme/) と [IFontScheme.getMinor](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ifontscheme/) メソッドでそれらのセットを取得できます。
 
-PowerPoint 互換のテーマフォント識別子はテキスト書式設定で使用できます。
+PowerPoint 互換のテーマフォント識別子はテキスト書式設定で使用できます:
 
-* `+mn-lt` - 本文フォント ラテン文字 (Minor Latin Font)
-* `+mj-lt` - 見出しフォント ラテン文字 (Major Latin Font)
-* `+mn-ea` - 本文フォント 東アジア文字 (Minor East Asian Font)
-* `+mj-ea` - 見出しフォント 東アジア文字 (Major East Asian Font)
+* `+mn-lt` - 本文フォント ラテン (Minor Latin Font)
+* `+mj-lt` - 見出しフォント ラテン (Major Latin Font)
+* `+mn-ea` - 本文フォント 東アジア (Minor East Asian Font)
+* `+mj-ea` - 見出しフォント 東アジア (Major East Asian Font)
 
-次の例は、メジャーラテンテーマフォントを使用した見出しと、マイナーラテンテーマフォントを使用した本文行を作成し、テーマフォントを変更して結果を保存します。
+以下の例は、メジャー ラテン テーマフォントを使用した見出しと、マイナー ラテン テーマフォントを使用した本文行をそれぞれ作成し、テーマフォントを変更して結果を保存します:
 
 ```java
 import com.aspose.slides.*;
@@ -201,19 +201,21 @@ try {
 }
 ```
 
-見出しはメジャーフォントに従い、本文はマイナーフォントに従います。テーマ識別子ではなく明示的なフォント名が指定されているテキストは、テーマフォントスキームが変わっても自動的に切り替わりません。
+見出しはメジャーフォントに従い、本文はマイナーフォントに従います。テーマ識別子ではなく明示的にフォント名が指定されているテキストは、テーマフォントスキームが変更されても自動的に切り替わりません。
+
+メジャーおよびマイナーのフォントコレクションには、キリル文字、アラビア文字、日本語、ジョージア文字、サーナ文字など、個々の書字システム用のフォントマッピングを含めることもできます。これらのマッピングを検査、追加、置換、削除する方法は、[Script-Specific Theme Fonts](/slides/ja/java/script-specific-font-mappings/) を参照してください。
 
 {{% alert color="info" title="Tip" %}}
-プレゼンテーション フォントの詳細については、[PowerPoint Fonts](/slides/ja/java/powerpoint-fonts/) を参照してください。
+プレゼンテーションフォントの詳細については、[PowerPoint Fonts](/slides/ja/java/powerpoint-fonts/) を参照してください。
 {{% /alert %}}
 
 ## **テーマのコピーまたは適用**
 
-2 つの一般的なワークフローがあり、解決する課題が異なります。
+2 つの一般的なフローがあり、解決すべき問題が異なります。
 
-### **スライド移動時に元のテーマを保持する**
+### **スライドを移動する際に元のテーマを保持する**
 
-スライドを別のプレゼンテーションに移動し、元のデザインを保持したい場合は、[IMasterSlideCollection.addClone](https://reference.aspose.com/slides/ja/java/com.aspose.slides/imasterslidecollection/) でソースマスタをターゲットプレゼンテーションにクローンし、続いて [ISlideCollection.addClone](https://reference.aspose.com/slides/ja/java/com.aspose.slides/islidecollection/) でスライドとクローンしたマスタをクローンします。これによりマスタ、レイアウト、関連テーマが一緒にコピーされます。
+スライドを別のプレゼンテーションに移動し、元のデザインを保持したい場合は、[IMasterSlideCollection.addClone](https://reference.aspose.com/slides/ja/java/com.aspose.slides/imasterslidecollection/) でソースマスターをターゲットプレゼンテーションにクローンし、続いて [ISlideCollection.addClone](https://reference.aspose.com/slides/ja/java/com.aspose.slides/islidecollection/) とクローンしたマスターでスライドをクローンします。これにより、マスター、そのレイアウト、および関連するテーマが一緒にコピーされます。
 
 ```java
 import com.aspose.slides.*;
@@ -235,11 +237,11 @@ try {
 }
 ```
 
-この方法は、ソーススライドが宛先でも同じ外観になる必要がある場合に推奨されます。無関係な宛先マスタにコンテンツだけをクローンすると、テーマ駆動の色、フォント、背景、エフェクトが変わる可能性があります。
+これは、ソーススライドが宛先でも同じ外観である必要がある場合に推奨されるフローです。無関係な宛先マスターにコンテンツだけをクローンすると、テーマに依存する色、フォント、背景、効果が変更される可能性があります。
 
-### **既存スライドにテーマの値を適用する**
+### **既存スライドにテーマ値を適用する**
 
-対象スライドが現在のマスタとレイアウトに留まる必要がある場合は、ソーステーマからスライドレベルのオーバーライドを初期化します。[OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/ja/java/com.aspose.slides/overridetheme/)、[OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/ja/java/com.aspose.slides/overridetheme/)、[OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/ja/java/com.aspose.slides/overridetheme/) メソッドで 3 つの主要テーマコンポーネントをオーバーライドにコピーします。
+対象スライドが現在のマスターおよびレイアウト上に留まる必要がある場合は、ソーステーマからスライドレベルのオーバーライドを初期化します。[OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/ja/java/com.aspose.slides/overridetheme/)、[OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/ja/java/com.aspose.slides/overridetheme/)、[OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/ja/java/com.aspose.slides/overridetheme/) メソッドが、3 つの主要テーマコンポーネントをオーバーライドにコピーします。
 
 ```java
 import com.aspose.slides.*;
@@ -262,11 +264,11 @@ try {
 }
 ```
 
-この操作により、そのスライドだけのテーマが変更され、他のスライドが継承しているテーマは変わりません。ローカルオーバーライドを削除して継承値に戻すには、[OverrideTheme.clear](https://reference.aspose.com/slides/ja/java/com.aspose.slides/overridetheme/) を呼び出します。
+これにより、他のスライドが継承しているテーマを変更せずに、そのスライドだけのテーマが変更されます。ローカルオーバーライドを削除して継承値に戻すには、[OverrideTheme.clear](https://reference.aspose.com/slides/ja/java/com.aspose.slides/overridetheme/) を呼び出します。
 
 ### **レイアウトにテーマオーバーライドを適用する**
 
-レイアウトレベルのオーバーライドは、そのレイアウトを使用するスライドに適用されます（ただし、個別スライドに独自のオーバーライドがある場合は例外）。同じ初期化メソッドは [LayoutSlideThemeManager](https://reference.aspose.com/slides/ja/java/com.aspose.slides/layoutslidethememanager/) 経由でも利用できます。
+レイアウトレベルのオーバーライドは、そのレイアウトを使用するスライドに適用されますが、個々のスライドに独自のオーバーライドがある場合は例外です。同じ初期化メソッドは [LayoutSlideThemeManager](https://reference.aspose.com/slides/ja/java/com.aspose.slides/layoutslidethememanager/) を通じて使用できます。
 
 ```java
 import com.aspose.slides.*;
@@ -290,17 +292,17 @@ try {
 }
 ```
 
-多数のレイアウトやスライドが同一の基本デザインを共有すべき場合はマスタまたはプレゼンテーションレベルのテーマを使用し、特定のレイアウトファミリだけ異なるスタイルが必要な場合はレイアウトオーバーライドを、例外的なケースだけはスライドオーバーライドを使用します。過度なスライドレベルのオーバーライドは、後からの全体テーマ変更を予測しにくくします。
+多くのレイアウトやスライドが同一の基本デザインを共有すべき場合はマスターまたはプレゼンテーションレベルのテーマを使用し、特定のレイアウトファミリーだけ異なるスタイリングが必要な場合はレイアウトオーバーライドを、真の例外の場合のみスライドオーバーライドを使用してください。過度のスライドレベルオーバーライドは、後のグローバルテーマ変更を予測しにくくします。
 
-## **テーマの背景スタイルを更新する**
+## **テーマ背景スタイルの更新**
 
-テーマの背景塗りは [IFormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iformatscheme/) に格納されています。PowerPoint の UI は、このコレクションに物理的に格納されている塗り定義の数以上の背景選択肢を提示できます。これは UI がテーマ塗りとテーマカラー、他のスタイル参照を組み合わせられるためです。
+テーマの背景塗りつぶしは [IFormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iformatscheme/) に格納されています。PowerPoint の UI は、テーマ塗りつぶしとテーマカラーや他のスタイル参照を組み合わせて、コレクションに物理的に保存されている数以上の背景選択肢を提示できます。
 
 ![プレゼンテーションテーマの PowerPoint 背景スタイルギャラリー](presentation-design_8.png)
 
-背景スタイルを使用する前に、保存されているコレクションと現在の [Background.getStyleIndex](https://reference.aspose.com/slides/ja/java/com.aspose.slides/background/) を検査してください。インデックス `0` はテーマ塗りなしを意味し、正の値はテーマ背景スタイル参照です。これは Java コレクションを直接インデックス付けした場合の `get_Item(0)`（最初の項目）とは異なります。すべてのプレゼンテーションが同じ数の背景塗りスタイルを持つとは限りません。
+背景スタイルを使用する前に、格納されたコレクションと現在の [Background.getStyleIndex](https://reference.aspose.com/slides/ja/java/com.aspose.slides/background/) を確認してください。`0` のスタイルインデックスはテーマ塗りつぶしがないことを意味し、正の値はテーマ背景スタイル参照です。これは、Java コレクションを直接インデックス付けした場合の `get_Item(0)` が最初の格納項目を指すこととは異なります。すべてのプレゼンテーションが同じ数の背景塗りつぶしスタイルを持つとは限りません。
 
-次の例は利用可能な背景塗りの数を報告し、最初のマスタにテーマ背景参照を割り当て、プレゼンテーションを保存します。
+以下の例は、利用可能な背景塗りつぶし数を報告し、最初のマスターにテーマ背景参照を割り当て、プレゼンテーションを保存します:
 
 ```java
 import com.aspose.slides.*;
@@ -322,23 +324,25 @@ try {
 }
 ```
 
-表示結果はマスタが参照しているテーマエントリと、レイアウトまたはスライドレベルでの背景オーバーライドの有無に依存します。スライドが独自の背景を使用している場合、マスタ背景だけを変更してもそのスライドは変わりません。継承後の最終背景が必要なときは [Background.getEffective](https://reference.aspose.com/slides/ja/java/com.aspose.slides/background/) を使用してください。
+表示結果は、マスターが参照しているテーマエントリと、レイアウトまたはスライドレベルでの背景オーバーライドの有無に依存します。スライドが独自の背景を使用している場合、マスター背景だけを変更してもそのスライドは変わらないことがあります。継承が適用された最終的な背景を知りたいときは、[Background.getEffective](https://reference.aspose.com/slides/ja/java/com.aspose.slides/background/) を使用してください。
 
 {{% alert color="warning" title="Warning" %}}
-スタイルインデックスを 0 ベースのコレクションインデックスとして扱わないでください。また、あるファイルでのスタイル番号をハードコーディングして別のファイルで同じ見た目になると想定しないでください。テーマスタイル定義はプレゼンテーション固有です。
+スタイルインデックスをゼロベースのコレクションインデックスとして扱わないでください。また、あるファイルから取得したスタイル番号をハードコーディングして別のファイルで同じ外観を期待しないでください。テーマスタイル定義はプレゼンテーション固有です。
 {{% /alert %}}
 
 {{% alert color="info" title="Tip" %}}
-直接的な背景書式設定と背景継承の詳細は、[Presentation Background](/slides/ja/java/presentation-background/) を参照してください。
+直接的な背景書式設定と背景の継承については、[Presentation Background](/slides/ja/java/presentation-background/) を参照してください。
 {{% /alert %}}
 
-## **テーマのエフェクトを更新する**
+## **テーマ効果の更新**
 
-テーマのフォーマットスキームは、[IFormatScheme.getFillStyles](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iformatscheme/)、[IFormatScheme.getLineStyles](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iformatscheme/)、[IFormatScheme.getEffectStyles](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iformatscheme/) を通じて個別の塗り、線、エフェクトスタイルコレクションを公開します。一般的な Office テーマは、微妙、適度、強烈な 3 つの主要スタイルエントリを視覚的に持つことが多いですが、コード側では固定数を前提にせず各コレクションを検査すべきです。
+テーマのフォーマットスキームは、[IFormatScheme.getFillStyles](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iformatscheme/)、[IFormatScheme.getLineStyles](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iformatscheme/)、[IFormatScheme.getEffectStyles](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iformatscheme/) で公開される個別の塗りつぶし、線、効果スタイルコレクションを含みます。一般的な Office テーマは、視覚的に微妙、適度、強烈なフォーマットに対応する 3 つの主要エントリを含むことが多いですが、コード側では固定数を前提にせず各コレクションを検査すべきです。
 
-![同じ形状に適用された微妙、適度、強烈なテーマエフェクト](presentation-design_10.png)
+![同じシェイプに適用された控えめ、適度、強烈なテーマ効果](presentation-design_10.png)
 
-Java でこれらのコレクションにアクセスする場合、コレクションインデックスは 0 ベースです。`get_Item(0)` が最初の格納スタイル、`get_Item(2)` が3番目のスタイルを指します。シェイプのスタイル参照インデックスは別概念で、[IShapeStyle](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishapestyle/) に公開されています。テーマスタイルを変更すると、そのテーマスタイルを参照しているシェイプに影響しますが、直接書式設定されたシェイプは変更されないままです。
+Java でこれらのコレクションにアクセスする場合、コレクションインデックスはゼロベースです。`get_Item(0)` が最初の格納スタイル、`get_Item(2)` が三番目のスタイルを指します。シェイプのスタイル参照インデックスは別概念で、[IShapeStyle](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ishapestyle/) を通じて取得できます。テーマスタイルを変更すると、そのテーマスタイルを参照しているシェイプに影響しますが、直接書式設定されたシェイプは変更されないままです。
+
+以下の例は、必要なスタイルエントリが存在するか確認し、最初の線スタイルを変更し、三番目の塗りつぶしスタイルを変更し、三番目の効果スタイルに外側シャドウ（距離 10 ポイント）を有効にして結果を保存します:
 
 ```java
 import com.aspose.slides.*;
@@ -363,15 +367,15 @@ try {
 }
 ```
 
-必要なスタイルエントリが存在することを確認し、最初の線スタイルを変更し、3 番目の塗りスタイルを変更し、3 番目のエフェクトスタイルに外側の影（距離 10 ポイント）を有効にして結果を保存します。
+これらのスロットを参照しているシェイプでは、最初のテーマ線スタイルが赤に、三番目のテーマ塗りつぶしスタイルが濃い森林緑に、三番目の効果スタイルに外側シャドウが付与されます。最終的な視覚結果は、各シェイプが参照しているスタイルスロットと、直接書式設定がテーマを上書きしているかどうかに依存します。
 
-これらのスロットを参照しているシェイプに対しては、最初のテーマ線スタイルが赤に、3 番目のテーマ塗りスタイルが濃い森林緑に、3 番目のエフェクトスタイルに外側の影が追加されます。最終的な見た目は、各シェイプが参照しているスタイルスロットや直接書式設定の有無に依存します。
+![線、塗りつぶし、影設定変更後のテーマ効果スタイル](presentation-design_11.png)
 
-![線、塗り、影設定変更後のテーマエフェクトスタイル](presentation-design_11.png)
+## **有効テーマ値の取得**
 
-## **有効なテーマ値を読み取る**
+生のテーマオブジェクトは特定レベルで定義されている内容を示します。有効値は、継承とローカルオーバーライドが解決された後、スライドやシェイプが実際に使用するものを示します。スライドの場合は [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/ja/java/com.aspose.slides/baseoverridethememanager/) を呼び出します。背景の場合は [Background.getEffective](https://reference.aspose.com/slides/ja/java/com.aspose.slides/background/)、塗りつぶしの場合は [FillFormat.getEffective](https://reference.aspose.com/slides/ja/java/com.aspose.slides/fillformat/) を使用します。
 
-生のテーマオブジェクトは特定レベルで定義されている内容を示します。有効値は継承とローカルオーバーライドが解決された後、スライドやシェイプが実際に使用している値を示します。スライドの場合は [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/ja/java/com.aspose.slides/baseoverridethememanager/) を呼び出します。背景の場合は [Background.getEffective](https://reference.aspose.com/slides/ja/java/com.aspose.slides/background/)、塗りの場合は [FillFormat.getEffective](https://reference.aspose.com/slides/ja/java/com.aspose.slides/fillformat/) を使用します。
+以下の例は、スライドから有効テーマ、背景、最初のシェイプの塗りつぶしを読み取ります:
 
 ```java
 import com.aspose.slides.*;
@@ -396,18 +400,18 @@ try {
 }
 ```
 
-レンダリング診断、検証、比較のために有効データを使用してください。[Presentation.getMasterTheme](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/) だけを検査すると、マスタ、レイアウト、スライド、シェイプのオーバーライドによって最終的な外観が変わっているケースを見逃す可能性があります。
+レンダリング診断、検証、比較のために有効データを使用してください。[Presentation.getMasterTheme](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/) だけを検査すると、最終的な外観を変えるマスター、レイアウト、スライド、シェイプのオーバーライドを見逃す可能性があります。
 
-## **よくある質問**
+## **FAQ**
 
-**単一のスライドにだけテーマを適用し、マスタを変更しない方法はありますか？**
+**単一スライドに対してマスターを変更せずにテーマを適用できますか？**
 
-はい。スライドの [SlideThemeManager](https://reference.aspose.com/slides/ja/java/com.aspose.slides/slidethememanager/) を使用し、そのオーバーライドテーマを初期化します。この変更はそのスライドにローカルに留まり、他のスライドは既存のテーマを継承し続けます。
+はい。スライドの [SlideThemeManager](https://reference.aspose.com/slides/ja/java/com.aspose.slides/slidethememanager/) を使用し、オーバーライドテーマを初期化します。この変更はそのスライドにローカルに留まり、他のスライドは既存のテーマを継承し続けます。
 
-**あるプレゼンテーションから別のプレゼンテーションへテーマを安全に持ち込む方法は？**
+**あるプレゼンテーションから別のプレゼンテーションへテーマを安全に持ち運ぶ方法は何ですか？**
 
-スライドを移動して元の外観を保持する場合は、[IMasterSlideCollection.addClone](https://reference.aspose.com/slides/ja/java/com.aspose.slides/imasterslidecollection/) でソースマスタを宛先にクローンし、続いて [ISlideCollection.addClone](https://reference.aspose.com/slides/ja/java/com.aspose.slides/islidecollection/) でそのマスタを使ってスライドをクローンします。これによりマスタ、レイアウト、テーマが一緒に保持されます。
+スライドを移動して元の外観を保持したい場合は、[IMasterSlideCollection.addClone](https://reference.aspose.com/slides/ja/java/com.aspose.slides/imasterslidecollection/) でソースマスターを宛先にクローンし、[ISlideCollection.addClone](https://reference.aspose.com/slides/ja/java/com.aspose.slides/islidecollection/) でそのマスターを使用してスライドをクローンします。これにより、マスター、レイアウト、テーマが一緒に保持されます。
 
-**継承とオーバーライドの後の有効値を確認するには？**
+**継承とオーバーライドの後の有効値を確認するにはどうすればよいですか？**
 
-スライドまたはレイアウトテーマに対しては [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/ja/java/com.aspose.slides/baseoverridethememanager/) を使用し、[Background.getEffective](https://reference.aspose.com/slides/ja/java/com.aspose.slides/background/) や [FillFormat.getEffective](https://reference.aspose.com/slides/ja/java/com.aspose.slides/fillformat/) などのフォーマットオブジェクト向けの対応する有効データメソッドを使用してください。これらの API は継承とオーバーライドが適用された後の解決済み値を返します。
+スライドまたはレイアウトテーマに対しては [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/ja/java/com.aspose.slides/baseoverridethememanager/) を使用し、フォーマットオブジェクト（例: [Background.getEffective](https://reference.aspose.com/slides/ja/java/com.aspose.slides/background/) や [FillFormat.getEffective](https://reference.aspose.com/slides/ja/java/com.aspose.slides/fillformat/)）に対しては対応する有効データメソッドを使用します。これらの API は、継承とオーバーライドが適用された後の解決済み値を返します。

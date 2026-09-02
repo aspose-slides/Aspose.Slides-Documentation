@@ -1,18 +1,18 @@
 ---
-title: Low-Code операции с презентациями в Python
-linktitle: Low-Code API
+title: Операции с презентациями low-code в Python
+linktitle: API Low-Code
 type: docs
 weight: 50
 url: /ru/python-net/low-code-presentation-operations/
 keywords:
-- low-code API презентаций
-- конвертация презентации
-- объединение презентаций
-- сбор фигур
-- сжатие презентации
-- удаление неиспользуемых слайдов-шаблонов
-- удаление неиспользуемых макетных слайдов
-- сжатие встроенных шрифтов
+- API низкокодовых презентаций
+- конвертировать презентацию
+- объединять презентации
+- собирать фигуры
+- сжимать презентацию
+- удалять неиспользуемые мастер-слайды
+- удалять неиспользуемые макетные слайды
+- сжимать встроенные шрифты
 - PowerPoint
 - OpenDocument
 - презентация
@@ -22,22 +22,22 @@ description: "Используйте low-code API Aspose.Slides в Python для
 ---
 ## **Обзор**
 
-Модуль [aspose.slides.lowcode](https://reference.aspose.com/slides/ru/python-net/aspose.slides.lowcode/) предоставляет вспомогательные классы для часто используемых операций с презентациями. Эти помощники инкапсулируют типовые сценарии работы с объектной моделью в удобные методы, позволяя конвертировать или объединять файлы, собирать фигуры и удалять неиспользуемый контент с минимальным объёмом кода.
+The [aspose.slides.lowcode](https://reference.aspose.com/slides/ru/python-net/aspose.slides.lowcode/) module provides helper classes for common presentation operations. These helpers wrap frequently used object-model workflows in focused methods, so you can convert or merge files, collect shapes, and remove unused content with less code.
 
-Помощники low‑code наиболее полезны, когда операция применяется ко всему файлу или презентации и стандартный рабочий процесс полностью удовлетворяет требованиям. Используйте полную [модель объектов Aspose.Slides](https://reference.aspose.com/slides/ru/python-net/aspose.slides/), если требуется детальный контроль над отдельными слайдами, шаблонами, макетами, фигурами, параметрами экспорта или взаимосвязями элементов презентации.
+Low-code helpers are most useful when the operation applies to an entire file or presentation and the default workflow matches your requirements. Use the full [Aspose.Slides object model](https://reference.aspose.com/slides/ru/python-net/aspose.slides/) when you need fine-grained control over individual slides, masters, layouts, shapes, export settings, or relationships between presentation elements.
 
-Ниже приведена таблица с доступными помощниками:
+The following table summarizes the available helpers:
 
 | Помощник | Для чего использовать |
 | --- | --- |
-| [Convert](https://reference.aspose.com/slides/ru/python-net/aspose.slides.lowcode/convert/) | Конвертация презентации в другой формат с помощью прямого вызова «файл‑в‑файл». |
-| [Merger](https://reference.aspose.com/slides/ru/python-net/aspose.slides.lowcode/merger/) | Объединение полных файлов презентаций одного и того же формата. |
-| [Collect](https://reference.aspose.com/slides/ru/python-net/aspose.slides.lowcode/collect/) | Получение фигур из всей презентации для последующей обработки или анализа. |
-| [Compress](https://reference.aspose.com/slides/ru/python-net/aspose.slides.lowcode/compress/) | Удаление неиспользуемых шаблонов и макетов и уменьшение встроенных данных шрифтов. |
+| [Convert](https://reference.aspose.com/slides/ru/python-net/aspose.slides.lowcode/convert/) | Конвертация презентации в другой формат с прямым вызовом file-to-file. |
+| [Merger](https://reference.aspose.com/slides/ru/python-net/aspose.slides.lowcode/merger/) | Объединение полных файлов презентаций одинакового формата. |
+| [Collect](https://reference.aspose.com/slides/ru/python-net/aspose.slides.lowcode/collect/) | Получение фигур из всей презентации для повторной обработки или анализа. |
+| [Compress](https://reference.aspose.com/slides/ru/python-net/aspose.slides.lowcode/compress/) | Удаление неиспользуемых мастеров и макетов и уменьшение данных встроенных шрифтов. |
 
 ## **Конвертация презентации**
 
-Используйте [Convert.auto_by_extension](https://reference.aspose.com/slides/ru/python-net/aspose.slides.lowcode/convert/auto_by_extension/), когда достаточно указать расширение выходного файла для выбора формата экспорта. Метод открывает исходную презентацию, определяет требуемый формат из пути вывода и записывает результат.
+Use [Convert.auto_by_extension](https://reference.aspose.com/slides/ru/python-net/aspose.slides.lowcode/convert/auto_by_extension/) when the output file extension is sufficient to select the export format. The method opens the source presentation, determines the required format from the output path, and writes the result.
 
 ```python
 import aspose.slides as slides
@@ -45,11 +45,11 @@ import aspose.slides as slides
 slides.lowcode.Convert.auto_by_extension("input.pptx", "output.pdf")
 ```
 
-Класс [Convert](https://reference.aspose.com/slides/ru/python-net/aspose.slides.lowcode/convert/) также предоставляет специальные методы для вывода в PDF, SVG, JPEG, PNG и TIFF. Используйте полную объектную модель, если нужно просмотреть или изменить презентацию перед экспортом или задать параметр экспорта, который не предусмотрен выбранным помощником. См. [Convert Presentation](/python-net/convert-presentation/) для рабочих процессов и параметров, специфичных для форматов.
+The [Convert](https://reference.aspose.com/slides/ru/python-net/aspose.slides.lowcode/convert/) class also provides dedicated methods for PDF, SVG, JPEG, PNG, and TIFF output. Use the full object model when you need to inspect or modify the presentation before export or configure an export option that is not exposed by the selected helper. See [Convert Presentation](/slides/ru/python-net/convert-presentation/) for format-specific workflows and options.
 
 ## **Объединение презентаций**
 
-Используйте [Merger.process](https://reference.aspose.com/slides/ru/python-net/aspose.slides.lowcode/merger/process/) для объединения полных файлов презентаций одним вызовом. Входные презентации должны иметь один и тот же формат файла.
+Use [Merger.process](https://reference.aspose.com/slides/ru/python-net/aspose.slides.lowcode/merger/process/) to combine complete presentation files with one call. The input presentations must have the same file format.
 
 ```python
 import aspose.slides as slides
@@ -58,11 +58,11 @@ input_files = ["part-1.pptx", "part-2.pptx"]
 slides.lowcode.Merger.process(input_files, "merged.pptx")
 ```
 
-Этот помощник подходит, когда все слайды необходимо добавить к единому результату без индивидуального выбора или переназначения. Применяйте полную объектную модель, если нужно объединять выбранные слайды, задавать целевой шаблон или макет, явно сохранять секции или согласовывать различный размер слайдов. См. [Merge Presentations](/python-net/merge-presentation/) для таких сценариев.
+The helper is appropriate when all slides should be appended to one result without selecting or remapping them individually. Use the full object model when you need to merge selected slides, apply a destination master or layout, preserve sections explicitly, or reconcile different slide sizes. See [Merge Presentations](/slides/ru/python-net/merge-presentation/) for those scenarios.
 
 ## **Сбор фигур**
 
-Используйте [Collect.shapes](https://reference.aspose.com/slides/ru/python-net/aspose.slides.lowcode/collect/shapes/), когда требуется собрать все фигуры в презентации. Это удобно, если один и тот же набор фигур будет фильтровать, подсчитывать или обрабатывать более одного раза.
+Use [Collect.shapes](https://reference.aspose.com/slides/ru/python-net/aspose.slides.lowcode/collect/shapes/) when you need a collection of all shapes in a presentation. This is useful when the same set will be filtered, counted, or processed more than once.
 
 ```python
 import aspose.slides as slides
@@ -74,15 +74,15 @@ with slides.Presentation("input.pptx") as presentation:
         print(f"{shape.name}: {type(shape).__name__}")
 ```
 
-Применяйте прямые циклы сбора, когда важен порядок обхода, раннее прерывание, фильтрация до обработки или детальное управление иерархией родитель‑друг.
+Use direct collection loops when traversal order, early exit, filtering before processing, or detailed parent-child control is important.
 
 ## **Сжатие содержимого презентации**
 
-Класс [Compress](https://reference.aspose.com/slides/ru/python-net/aspose.slides.lowcode/compress/) может удалять неиспользуемые структурные элементы и уменьшать вложенные данные шрифтов:
+The [Compress](https://reference.aspose.com/slides/ru/python-net/aspose.slides.lowcode/compress/) class can remove unused structural elements and reduce embedded font data:
 
-- [Compress.remove_unused_layout_slides](https://reference.aspose.com/slides/ru/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) удаляет макетные слайды, на которые не ссылаются обычные слайды.
-- [Compress.remove_unused_master_slides](https://reference.aspose.com/slides/ru/python-net/aspose.slides.lowcode/compress/remove_unused_master_slides/) удаляет шаблонные слайды, которые больше не используются.
-- [Compress.compress_embedded_fonts](https://reference.aspose.com/slides/ru/python-net/aspose.slides.lowcode/compress/compress_embedded_fonts/) удаляет неиспользуемые символы из встроенных шрифтов.
+- [Compress.remove_unused_layout_slides](https://reference.aspose.com/slides/ru/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) removes layout slides that no normal slide references.
+- [Compress.remove_unused_master_slides](https://reference.aspose.com/slides/ru/python-net/aspose.slides.lowcode/compress/remove_unused_master_slides/) removes master slides that are no longer used.
+- [Compress.compress_embedded_fonts](https://reference.aspose.com/slides/ru/python-net/aspose.slides.lowcode/compress/compress_embedded_fonts/) removes unused characters from embedded fonts.
 
 ```python
 import aspose.slides as slides
@@ -95,34 +95,34 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("compressed.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Сначала удаляйте неиспользуемые макеты, а затем неиспользуемые шаблоны, чтобы шаблон, ставший непосвящённым после очистки макетов, также был удалён. Сохраните оптимизированную презентацию в новый файл, если позже могут понадобиться оригинальные шаблоны, макеты или полные данные встроенных шрифтов. Подробности см. в статьях [Slide Master](/python-net/slide-master/) и [Embedded Font](/python-net/embedded-font/).
+Remove unused layouts before unused masters so a master that becomes unreferenced after layout cleanup can also be removed. Save the optimized presentation to a new file if you may need the original masters, layouts, or complete embedded font data later. For more detail, see [Slide Master](/slides/ru/python-net/slide-master/) and [Embedded Font](/slides/ru/python-net/embedded-font/).
 
-## **FAQ**
+## **Часто задаваемые вопросы**
 
-**Когда следует использовать low‑code API вместо полной объектной модели?**
+**Когда следует использовать low-code API вместо полной объектной модели?**
 
-Применяйте low‑code помощники, когда стандартная операция охватывает весь файл или презентацию и не требует детального контроля над отдельными элементами. Используйте полную объектную модель, если необходимо выбрать конкретные слайды, управлять отношениями шаблон‑макет, просматривать промежуточное состояние или задавать поведение, недоступное через помощник.
+Use low-code helpers when a standard operation applies to a complete file or presentation and does not require detailed control over individual elements. Use the full object model when you need to select specific slides, control master and layout relationships, inspect intermediate state, or configure behavior that the helper does not expose.
 
-**Может ли Merger объединять презентации разных форматов?**
+**Можно ли с помощью Merger объединять презентации разных форматов файлов?**
 
-Нет. [Merger.process](https://reference.aspose.com/slides/ru/python-net/aspose.slides.lowcode/merger/process/) требует, чтобы входные презентации имели одинаковый формат. Сначала преобразуйте входные файлы в общий формат, например с помощью [Convert.auto_by_extension](https://reference.aspose.com/slides/ru/python-net/aspose.slides.lowcode/convert/auto_by_extension/), а затем объедините полученные файлы.
+No. [Merger.process](https://reference.aspose.com/slides/ru/python-net/aspose.slides.lowcode/merger/process/) requires input presentations in the same format. Convert the input files to a common format first, for example with [Convert.auto_by_extension](https://reference.aspose.com/slides/ru/python-net/aspose.slides.lowcode/convert/auto_by_extension/), and then merge the converted files.
 
 **Что включает в себя Collect.shapes?**
 
-[Collect.shapes](https://reference.aspose.com/slides/ru/python-net/aspose.slides.lowcode/collect/shapes/) извлекает фигуры из презентации, чтобы их можно было сохранять, фильтровать, подсчитывать или обходить многократно. Используйте прямые циклы сбора, когда нужен точный контроль над типами слайдов или вложенными объектами, которые посещаются.
+[Collect.shapes](https://reference.aspose.com/slides/ru/python-net/aspose.slides.lowcode/collect/shapes/) retrieves shapes from the presentation so they can be retained, filtered, counted, or traversed multiple times. Use direct collection loops when you need precise control over which slide types or nested objects are visited.
 
 **Всегда ли Compress делает файл презентации меньше?**
 
-Не обязательно. Результат зависит от наличия в презентации неиспользуемых макетов, шаблонов или встроенных шрифтов с неиспользуемыми символами. Если таких элементов нет, соответствующие операции [Compress](https://reference.aspose.com/slides/ru/python-net/aspose.slides.lowcode/compress/) могут не уменьшить размер файла.
+Not necessarily. The result depends on whether the presentation contains unused layouts, unused masters, or embedded fonts with unused characters. If none of those are present, the corresponding [Compress](https://reference.aspose.com/slides/ru/python-net/aspose.slides.lowcode/compress/) operations may not reduce the file size.
 
-**Сохраняются ли изменения, внесённые Compress, автоматически?**
+**Сохраняются ли изменения, сделанные Compress, автоматически?**
 
-Нет. Эти помощники работают с загруженным объектом [Presentation](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/) в памяти. После вызова [Compress](https://reference.aspose.com/slides/ru/python-net/aspose.slides.lowcode/compress/) необходимо вызвать [Presentation.save](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/save/) для записи результата.
+No. These helpers operate on the loaded [Presentation](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/) object in memory. After running [Compress](https://reference.aspose.com/slides/ru/python-net/aspose.slides.lowcode/compress/), call [Presentation.save](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/save/) to write the result.
 
 ## **Связанные статьи**
 
-- [Convert Presentation](/python-net/convert-presentation/)
-- [Merge Presentations](/python-net/merge-presentation/)
-- [Slide Master](/python-net/slide-master/)
-- [Manage Text Box](/python-net/manage-textbox/)
-- [Embedded Font](/python-net/embedded-font/)
+- [Конвертация презентации](/slides/ru/python-net/convert-presentation/)
+- [Объединение презентаций](/slides/ru/python-net/merge-presentation/)
+- [Мастер слайдов](/slides/ru/python-net/slide-master/)
+- [Управление текстовым полем](/slides/ru/python-net/manage-textbox/)
+- [Встроенный шрифт](/slides/ru/python-net/embedded-font/)

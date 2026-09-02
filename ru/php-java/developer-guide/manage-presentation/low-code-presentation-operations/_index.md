@@ -1,21 +1,21 @@
 ---
-title: Операции с презентациями Low-Code в PHP
-linktitle: Low-Code API
+title: Операции low-code с презентациями в PHP
+linktitle: API low-code
 type: docs
 weight: 50
 url: /ru/php-java/low-code-presentation-operations/
 keywords:
-- low-code API презентаций
+- API low-code для презентаций
 - конвертировать презентацию
-- объединять презентации
-- итерировать слайды
-- итерировать фигуры
-- итерировать текст
+- объединение презентаций
+- перебор слайдов
+- перебор фигур
+- перебор текста
 - сбор фигур
-- сжать презентацию
-- удалить неиспользуемые шаблонные слайды
-- удалить неиспользуемые макетные слайды
-- сжать встроенные шрифты
+- сжатие презентации
+- удалить неиспользуемые мастер‑слайды
+- удалить неиспользуемые макет‑слайды
+- сжатие встроенных шрифтов
 - PowerPoint
 - OpenDocument
 - презентация
@@ -25,19 +25,19 @@ description: "Используйте low-code API Aspose.Slides в PHP для к
 ---
 ## **Обзор**
 
-Пространство имён [aspose.slides](https://reference.aspose.com/slides/ru/php-java/aspose.slides/) предоставляет статические вспомогательные классы для общих операций с презентациями. Эти вспомогательные классы оборачивают часто используемые потоки объектной модели в целевые методы, позволяя конвертировать или объединять файлы, обрабатывать элементы презентации, собирать фигуры и удалять неиспользуемый контент с меньшим количеством кода.
+Пространство имён [aspose.slides](https://reference.aspose.com/slides/ru/php-java/aspose.slides/) предоставляет статические вспомогательные классы для распространённых операций с презентациями. Эти вспомогательные классы упаковывают часто используемые сценарии работы с объектной моделью в целевые методы, позволяя конвертировать или объединять файлы, обрабатывать элементы презентации, собирать фигуры и удалять неиспользуемый контент с меньшим объёмом кода.
 
-Вспомогательные средства low-code наиболее полезны, когда операция применяется к целому файлу или презентации и стандартный рабочий процесс соответствует вашим требованиям. Используйте полную [Aspose.Slides object model](https://reference.aspose.com/slides/ru/php-java/aspose.slides/), когда нужен детальный контроль над отдельными слайдами, шаблонами, макетами, фигурами, настройками экспорта или связями между элементами презентации.
+Вспомогательные средства low‑code наиболее полезны, когда операция применяется к целому файлу или презентации и стандартный рабочий процесс соответствует вашим требованиям. Используйте полную объектную модель [Aspose.Slides](https://reference.aspose.com/slides/ru/php-java/aspose.slides/), когда требуется тонкая настройка отдельных слайдов, мастеров, макетов, фигур, параметров экспорта или отношений между элементами презентации.
 
-Следующая таблица суммирует доступные вспомогательные средства:
+Ниже представлена таблица с доступными вспомогательными средствами:
 
-| Помощник | Для чего использовать |
+| Помощник | Для чего используется |
 | --- | --- |
-| [Convert](https://reference.aspose.com/slides/ru/php-java/aspose.slides/convert/) | Конвертирование презентации в другой формат с прямым вызовом файл‑в‑файл. |
-| [Merger](https://reference.aspose.com/slides/ru/php-java/aspose.slides/merger/) | Объединение полных файлов презентаций одного формата. |
-| [ForEach_](https://reference.aspose.com/slides/ru/php-java/aspose.slides/foreach_/) | Выполнение обратного вызова для каждого слайда, фигуры, абзаца или фрагмента текста. |
+| [Convert](https://reference.aspose.com/slides/ru/php-java/aspose.slides/convert/) | Конвертация презентации в другой формат с помощью прямого вызова файл‑в‑файл. |
+| [Merger](https://reference.aspose.com/slides/ru/php-java/aspose.slides/merger/) | Объединение полных файлов презентаций одинакового формата. |
+| [ForEach_](https://reference.aspose.com/slides/ru/php-java/aspose.slides/foreach_/) | Выполнение обратного вызова для каждого слайда, фигуры, абзаца или части текста. |
 | [Collect](https://reference.aspose.com/slides/ru/php-java/aspose.slides/collect/) | Получение фигур из всей презентации для повторной обработки или анализа. |
-| [Compress](https://reference.aspose.com/slides/ru/php-java/aspose.slides/compress/) | Удаление неиспользуемых шаблонов и макетов и уменьшение данных встроенных шрифтов. |
+| [Compress](https://reference.aspose.com/slides/ru/php-java/aspose.slides/compress/) | Удаление неиспользуемых мастеров и макетов и уменьшение объёма встроенных шрифтов. |
 
 ## **Конвертировать презентацию**
 
@@ -49,11 +49,11 @@ use aspose\slides\Convert;
 Convert::autoByExtension("input.pptx", "output.pdf");
 ```
 
-Класс [Convert](https://reference.aspose.com/slides/ru/php-java/aspose.slides/convert/) также предоставляет специальные методы для вывода в PDF, SVG, JPEG, PNG и TIFF. Используйте полную объектную модель, когда необходимо просмотреть или изменить презентацию перед экспортом или настроить параметр экспорта, который не предоставлен выбранным вспомогательным модулем. См. [Convert Presentation](/php-java/convert-presentation/) для рабочих процессов и параметров, специфичных для форматов.
+Класс [Convert](https://reference.aspose.com/slides/ru/php-java/aspose.slides/convert/) также предоставляет специализированные методы для вывода в PDF, SVG, JPEG, PNG и TIFF. Используйте полную объектную модель, когда необходимо просмотреть или изменить презентацию перед экспортом или настроить параметр экспорта, который не доступен через выбранный вспомогательный класс. Смотрите [Конвертировать презентацию](/slides/ru/php-java/convert-presentation/) для рабочих процессов и параметров, специфичных для форматов.
 
 ## **Объединить презентации**
 
-Используйте [Merger::process](https://reference.aspose.com/slides/ru/php-java/aspose.slides/merger/#process) для объединения полных файлов презентаций одним вызовом. Входные презентации должны иметь один и тот же формат файла.
+Используйте [Merger::process](https://reference.aspose.com/slides/ru/php-java/aspose.slides/merger/#process) для комбинирования полных файлов презентаций одним вызовом. Входные презентации должны иметь один и тот же файловый формат.
 
 ```php
 use aspose\slides\Merger;
@@ -62,13 +62,13 @@ $inputFiles = ["part-1.pptx", "part-2.pptx"];
 Merger::process($inputFiles, "merged.pptx");
 ```
 
-Вспомогательный модуль подходит, когда все слайды должны быть добавлены к одному результату без отдельного выбора или переопределения. Используйте полную объектную модель, когда нужно объединить выбранные слайды, применить целевой шаблон или макет, явно сохранить разделы или согласовать разные размеры слайдов. См. [Merge Presentations](/php-java/merge-presentation/) для этих сценариев.
+Этот вспомогательный класс подходит, когда все слайды должны быть добавлены к одному результату без отдельного выбора или переназначения. Применяйте полную объектную модель, если нужно объединять выбранные слайды, применять мастер‑или макет‑назначения, явно сохранять разделы или согласовывать различный размер слайдов. См. [Объединить презентации](/slides/ru/php-java/merge-presentation/) для этих сценариев.
 
-## **Итерировать элементы презентации**
+## **Перебор элементов презентации**
 
-Класс [ForEach_](https://reference.aspose.com/slides/ru/php-java/aspose.slides/foreach_/) вызывает обратный вызов для каждого запрошенного типа элемента презентации. Он избавляет от вложенных циклов по коллекциям и удобен для проверки или изменения формата по всей презентации.
+Класс [ForEach_](https://reference.aspose.com/slides/ru/php-java/aspose.slides/foreach_/) вызывает обратный вызов для каждого запрошенного типа элемента презентации. Это избавляет от вложенных циклов по коллекциям и удобно для проверки или изменения формата по всей презентации.
 
-В следующем примере используются [ForEach_::slide](https://reference.aspose.com/slides/ru/php-java/aspose.slides/foreach_/#slide), [ForEach_::shape](https://reference.aspose.com/slides/ru/php-java/aspose.slides/foreach_/#shape), [ForEach_::paragraph](https://reference.aspose.com/slides/ru/php-java/aspose.slides/foreach_/#paragraph) и [ForEach_::portion](https://reference.aspose.com/slides/ru/php-java/aspose.slides/foreach_/#portion) для проверки соответствующих элементов:
+В следующем примере используются [ForEach_::slide](https://reference.aspose.com/slides/ru/php-java/aspose.slides/foreach_/#slide), [ForEach_::shape](https://reference.aspose.com/slides/ru/php-java/aspose.slides/foreach_/#shape), [ForEach_::paragraph](https://reference.aspose.com/slides/ru/php-java/aspose.slides/foreach_/#paragraph) и [ForEach_::portion](https://reference.aspose.com/slides/ru/php-java/aspose.slides/foreach_/#portion) для инспекции соответствующих элементов:
 
 ```php
 use aspose\slides\ForEach_;
@@ -125,9 +125,9 @@ try {
 }
 ```
 
-По умолчанию обход фигур и текста по всей презентации включает обычные, шаблонные и макетные слайды. Перегрузки с параметром `includeNotes` также могут обрабатывать слайды заметок. Используйте прямые циклы по коллекциям, когда важен порядок обхода, ранний выход, фильтрация до вызова обратного вызова или детальный контроль иерархии родитель‑потомок.
+По умолчанию перебор фигур и текста по всей презентации охватывает обычные, мастер‑ и макет‑слайды. Перегрузки с параметром `includeNotes` позволяют также обрабатывать слайды с заметками. Используйте прямые циклы по коллекциям, когда важен порядок обхода, ранний выход, фильтрация до вызова обратного вызова или детальный контроль родитель‑дочерних связей.
 
-## **Собрать фигуры**
+## **Сбор фигур**
 
 Используйте [Collect::shapes](https://reference.aspose.com/slides/ru/php-java/aspose.slides/collect/#shapes), когда нужна коллекция всех фигур в презентации, а не обратный вызов для каждой фигуры. Это полезно, если один и тот же набор будет отфильтрован, подсчитан или обработан более одного раза.
 
@@ -149,14 +149,14 @@ try {
 }
 ```
 
-Используйте [ForEach_::shape](https://reference.aspose.com/slides/ru/php-java/aspose.slides/foreach_/#shape) вместо этого, когда каждую фигуру можно обработать сразу и нет необходимости сохранять собранный результат.
+Применяйте [ForEach_::shape](https://reference.aspose.com/slides/ru/php-java/aspose.slides/foreach_/#shape) вместо этого, когда каждую фигуру можно обработать сразу и нет необходимости сохранять собранный результат.
 
-## **Сжать содержимое презентации**
+## **Сжатие содержимого презентации**
 
-Класс [Compress](https://reference.aspose.com/slides/ru/php-java/aspose.slides/compress/) может удалять неиспользуемые структурные элементы и уменьшать данные встроенных шрифтов:
+Класс [Compress](https://reference.aspose.com/slides/ru/php-java/aspose.slides/compress/) может удалять неиспользуемые структурные элементы и уменьшать объём встроенных шрифтов:
 
-- [Compress::removeUnusedLayoutSlides](https://reference.aspose.com/slides/ru/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) удаляет макетные слайды, на которые не ссылается ни один обычный слайд.
-- [Compress::removeUnusedMasterSlides](https://reference.aspose.com/slides/ru/php-java/aspose.slides/compress/#removeUnusedMasterSlides) удаляет шаблонные слайды, которые больше не используются.
+- [Compress::removeUnusedLayoutSlides](https://reference.aspose.com/slides/ru/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) удаляет макет‑слайды, которые не используют обычные слайды.
+- [Compress::removeUnusedMasterSlides](https://reference.aspose.com/slides/ru/php-java/aspose.slides/compress/#removeUnusedMasterSlides) удаляет мастер‑слайды, которые больше не нужны.
 - [Compress::compressEmbeddedFonts](https://reference.aspose.com/slides/ru/php-java/aspose.slides/compress/#compressEmbeddedFonts) удаляет неиспользуемые символы из встроенных шрифтов.
 
 ```php
@@ -176,38 +176,38 @@ try {
 }
 ```
 
-Сначала удаляйте неиспользуемые макеты, а затем неиспользуемые шаблоны, чтобы шаблон, который стал неиспользуемым после очистки макетов, также мог быть удалён. Сохраните оптимизированную презентацию в новый файл, если позже могут понадобиться оригинальные шаблоны, макеты или полные данные встроенных шрифтов. Для более подробной информации см. [Slide Master](/php-java/slide-master/) и [Embedded Font](/php-java/embedded-font/).
+Сначала удаляйте неиспользуемые макеты, а затем неиспользуемые мастеры, чтобы мастер, ставший неиспользуемым после очистки макетов, также был удалён. Сохраняйте оптимизированную презентацию в новый файл, если позже могут понадобиться исходные мастеры, макеты или полный набор встроенных шрифтов. Подробности смотрите в статях [Slide Master](/slides/ru/php-java/slide-master/) и [Embedded Font](/slides/ru/php-java/embedded-font/).
 
 ## **Часто задаваемые вопросы**
 
-**Когда следует использовать low-code API вместо полной объектной модели?**
+**Когда следует использовать low‑code API вместо полной объектной модели?**
 
-Используйте low-code вспомогательные модули, когда стандартная операция применяется к полному файлу или презентации и не требует детального управления отдельными элементами. Используйте полную объектную модель, когда нужно выбрать конкретные слайды, контролировать взаимосвязи шаблонов и макетов, просмотреть промежуточное состояние или настроить поведение, которое не предоставляется вспомогательным модулем.
+Применяйте вспомогательные средства low‑code, когда стандартная операция относится к полному файлу или презентации и не требует детального контроля над отдельными элементами. Используйте полную объектную модель, если нужно выбрать конкретные слайды, управлять отношениями мастеров и макетов, проверять промежуточное состояние или настраивать поведение, не доступное через вспомогательный класс.
 
-**Может ли Merger объединять презентации в разных файловых форматах?**
+**Может ли Merger объединять презентации разных файловых форматов?**
 
-Нет. [Merger::process](https://reference.aspose.com/slides/ru/php-java/aspose.slides/merger/#process) требует, чтобы входные презентации были в одинаковом формате. Сначала конвертируйте входные файлы в общий формат, например с помощью [Convert::autoByExtension](https://reference.aspose.com/slides/ru/php-java/aspose.slides/convert/#autoByExtension), а затем объедините конвертированные файлы.
+Нет. [Merger::process](https://reference.aspose.com/slides/ru/php-java/aspose.slides/merger/#process) требует, чтобы входные презентации имели один и тот же формат. Сначала преобразуйте входные файлы в общий формат, например с помощью [Convert::autoByExtension](https://reference.aspose.com/slides/ru/php-java/aspose.slides/convert/#autoByExtension), а затем объедините полученные файлы.
 
-**Обрабатывает ли ForEach_ шаблонные, макетные и слайды заметок?**
+**Обрабатывает ли ForEach_ мастера, макеты и слайды заметок?**
 
-[ForEach_::slide](https://reference.aspose.com/slides/ru/php-java/aspose.slides/foreach_/#slide) перебирает обычные слайды презентации. Операции [ForEach_::shape](https://reference.aspose.com/slides/ru/php-java/aspose.slides/foreach_/#shape), [ForEach_::paragraph](https://reference.aspose.com/slides/ru/php-java/aspose.slides/foreach_/#paragraph) и [ForEach_::portion](https://reference.aspose.com/slides/ru/php-java/aspose.slides/foreach_/#portion) по всей презентации включают обычные, шаблонные и макетные слайды по умолчанию. Используйте их перегрузки с параметром `includeNotes`, установленным в `true`, чтобы включить слайды заметок.
+[ForEach_::slide](https://reference.aspose.com/slides/ru/php-java/aspose.slides/foreach_/#slide) перебирает обычные слайды презентации. Операции [ForEach_::shape](https://reference.aspose.com/slides/ru/php-java/aspose.slides/foreach_/#shape), [ForEach_::paragraph](https://reference.aspose.com/slides/ru/php-java/aspose.slides/foreach_/#paragraph) и [ForEach_::portion](https://reference.aspose.com/slides/ru/php-java/aspose.slides/foreach_/#portion) по умолчанию включают обычные, мастер‑ и макет‑слайды. Используйте их перегрузки с параметром `includeNotes`, установленным в `true`, чтобы включить слайды заметок.
 
 **В чём разница между ForEach_::shape и Collect::shapes?**
 
-Используйте [ForEach_::shape](https://reference.aspose.com/slides/ru/php-java/aspose.slides/foreach_/#shape), чтобы обрабатывать каждую фигуру немедленно через обратный вызов. Используйте [Collect::shapes](https://reference.aspose.com/slides/ru/php-java/aspose.slides/collect/#shapes), когда нужен итерируемый результат, который можно сохранить, отфильтровать, подсчитать или просматривать несколько раз.
+Используйте [ForEach_::shape](https://reference.aspose.com/slides/ru/php-java/aspose.slides/foreach_/#shape) для непосредственной обработки каждой фигуры через обратный вызов. Применяйте [Collect::shapes](https://reference.aspose.com/slides/ru/php-java/aspose.slides/collect/#shapes), когда нужен сохраняемый результат, который можно фильтровать, подсчитывать или обходить несколько раз.
 
-**Всегда ли Compress делает файл презентации меньше?**
+**Делает ли Compress всегда презентацию меньше?**
 
-Не обязательно. Результат зависит от того, содержит ли презентация неиспользуемые макеты, неиспользуемые шаблоны или встроенные шрифты с неиспользуемыми символами. Если их нет, соответствующие операции [Compress](https://reference.aspose.com/slides/ru/php-java/aspose.slides/compress/) могут не уменьшить размер файла.
+Не обязательно. Результат зависит от того, содержит ли презентация неиспользуемые макеты, неиспользуемые мастеры или встроенные шрифты с неиспользуемыми символами. Если ни того, ни другого нет, соответствующие операции [Compress](https://reference.aspose.com/slides/ru/php-java/aspose.slides/compress/) могут не уменьшить размер файла.
 
-**Сохраняются ли изменения, выполненные через ForEach_ или Compress, автоматически?**
+**Сохраняются ли изменения, внесённые через ForEach_ или Compress, автоматически?**
 
-Нет. Эти вспомогательные модули работают с загруженным объектом [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/) в памяти. После изменения элементов в обратном вызове [ForEach_](https://reference.aspose.com/slides/ru/php-java/aspose.slides/foreach_) или выполнения [Compress](https://reference.aspose.com/slides/ru/php-java/aspose.slides/compress/), вызовите [Presentation::save](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/#save), чтобы записать результат.
+Нет. Эти вспомогательные средства работают с загруженным объектом [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/) в памяти. После изменения элементов в обратном вызове [ForEach_](https://reference.aspose.com/slides/ru/php-java/aspose.slides/foreach_) или выполнения [Compress](https://reference.aspose.com/slides/ru/php-java/aspose.slides/compress/) вызовите [Presentation::save](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/#save), чтобы записать результат.
 
 ## **Связанные статьи**
 
-- [Конвертировать презентацию](/php-java/convert-presentation/)
-- [Объединить презентации](/php-java/merge-presentation/)
-- [Шаблон слайда](/php-java/slide-master/)
-- [Управление текстовым полем](/php-java/manage-textbox/)
-- [Встроенный шрифт](/php-java/embedded-font/)
+- [Конвертировать презентацию](/slides/ru/php-java/convert-presentation/)
+- [Объединить презентации](/slides/ru/php-java/merge-presentation/)
+- [Slide Master](/slides/ru/php-java/slide-master/)
+- [Manage Text Box](/slides/ru/php-java/manage-textbox/)
+- [Embedded Font](/slides/ru/php-java/embedded-font/)

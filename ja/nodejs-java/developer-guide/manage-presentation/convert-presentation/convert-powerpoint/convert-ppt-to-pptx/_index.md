@@ -1,6 +1,6 @@
 ---
 title: Node.js で PPT を PPTX に変換
-linktitle: PPT から PPTX
+linktitle: PPT から PPTX へ
 type: docs
 weight: 20
 url: /ja/nodejs-java/convert-ppt-to-pptx/
@@ -9,7 +9,7 @@ keywords:
 - プレゼンテーションを変換
 - スライドを変換
 - PPT を変換
-- PPT から PPTX
+- PPT から PPTX へ
 - PPT を PPTX として保存
 - PPT を PPTX にエクスポート
 - PowerPoint
@@ -17,35 +17,35 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides を使用して Node.js でレガシー PPT ファイルを PPTX に変換します。単一ファイルおよびバッチ変換、エラーハンドリング、忠実度に関する注意点を示す JavaScript のサンプルを含みます。"
+description: "Aspose.Slides を使用して Node.js でレガシーな PPT ファイルを PPTX に変換します。単一ファイルおよびバッチ変換の JavaScript サンプル、エラーハンドリング、忠実度に関する注意事項を含みます。"
 ---
 ## **概要**
 
-PPT はレガシーのバイナリ PowerPoint 形式で、PPTX は新しい Open XML 形式です。Aspose.Slides for Node.js via Java は Microsoft PowerPoint を使用せずに PPT ファイルを読み込み、PPTX として保存できます。本稿では、単一ファイルまたはディレクトリ内のファイルを変換する方法と、変換後に確認すべき項目を説明します。
+PPT は従来のバイナリ PowerPoint 形式で、PPTX は新しい Open XML 形式です。Aspose.Slides for Node.js via Java は Microsoft PowerPoint を使用せずに PPT ファイルを読み込み、PPTX として保存できます。本記事では、単一ファイルまたはディレクトリ内のファイルを変換する方法と、変換後に確認すべき項目を説明します。
 
-## **PPT ファイルを PPTX に変換する**
+## **PPT ファイルを PPTX に変換**
 
-[Presentation] クラスでソース ファイルを読み込み、[Presentation.save] を [SaveFormat.Pptx] とともに呼び出します。`finally` ブロックでプレゼンテーションを破棄し、リソースを解放します。
+ソース ファイルは [Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/) クラスで読み込み、[Presentation.save](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/#save) を [SaveFormat.Pptx](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/saveformat/) とともに呼び出します。`finally` ブロックはプレゼンテーションを破棄し、リソースを解放します。
 
 ```javascript
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 
-// レガシー PPT プレゼンテーションをロードします。
+// レガシー PPT プレゼンテーションを読み込む。
 let presentation = new aspose.slides.Presentation("presentation.ppt");
 try {
-    // プレゼンテーションを PPTX 形式で保存します。
+    // プレゼンテーションを PPTX 形式で保存する。
     presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-ファイル拡張子だけでは出力形式は決まらず、[SaveFormat.Pptx] 引数が形式を指定します。元の PPT ファイルを保持したい場合は、入力パスと出力パスを異なる場所にしてください。
+ファイル拡張子だけでは出力形式は決定されません。出力形式は [SaveFormat.Pptx](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/saveformat/) 引数で指定します。元の PPT ファイルを保持する必要がある場合は、入力パスと出力パスを異なる場所に設定してください。
 
-## **複数の PPT ファイルを変換する**
+## **複数の PPT ファイルを変換**
 
-以下の例は、1 つのディレクトリ内のすべての `.ppt` ファイルを変換します。各ファイルは個別に処理されるため、1 つの変換が失敗してもバッチ全体が中断されません。
+以下の例は、1 つのディレクトリ内のすべての `.ppt` ファイルを変換します。各ファイルは独立して処理されるため、1 つの変換が失敗してもバッチ全体が中断されることはありません。
 
 ```javascript
 var aspose = aspose || {};
@@ -81,47 +81,47 @@ for (const fileName of inputFiles) {
 }
 ```
 
-本番環境では、エラー全体をログに記録し、既存の出力ファイルを上書きしてよいか判断し、失敗したファイル名を再試行またはレビュー キューに書き込んでください。破損したファイル、必要なパスワードなしで開いたパスワード保護されたファイル、アクセスできないパス、サポートされていないコンテンツはすべて変換失敗の原因となります。暗号化されたファイルの読み込みについては、[Password-Protected Presentations](/nodejs-java/password-protected-presentation/) を参照してください。
+本番環境では、エラー全体をログに記録し、既存の出力ファイルを上書きするかどうかを判断し、失敗したファイル名を再試行またはレビュー キューに書き出します。破損したファイル、必要なパスワードなしで開いたパスワード保護されたファイル、アクセスできないパス、サポートされていないコンテンツは、いずれも変換失敗の原因となります。暗号化ファイルの読み込みについては、[Password-Protected Presentations](/slides/ja/nodejs-java/password-protected-presentation/) を参照してください。
 
-## **忠実度とレガシ機能**
+## **忠実度とレガシー機能**
 
-変換は通常、スライド、マスタ、レイアウト、テキスト、図形、画像、表、チャートを保持します。ただし、PPT と PPTX はすべての機能を同一に表現できるわけではありません。PPTX に対応するものがないレガシ機能や、ライブラリでサポートされていない機能は、正規化されたり、省略されたり、別の形で表示されたりする場合があります。
+変換では通常、スライド、マスタ、レイアウト、テキスト、図形、画像、表、チャートが保持されます。しかし、PPT と PPTX はすべての機能を全く同じ形で表現できるわけではありません。PPTX に対応するものがなく、かつライブラリでサポートされていないレガシー機能は、正規化されたり、省略されたり、別の形で表示されたりする可能性があります。
 
-変換後のファイルにアニメーション、トランジション、埋め込みまたはリンクされた OLE オブジェクト、ActiveX コントロール、埋め込みメディア、マイナー フォント、VBA マクロが含まれる場合は確認してください。通常の PPTX ファイルはマクロ対応形式ではないため、VBA を残す必要がある場合はマクロ対応のワークフローを使用してください。また、変換されたプレゼンテーションを開くまたはレンダリングする環境に、必須フォントや外部リソースが存在することも確認してください。
+変換後のファイルにアニメーション、トランジション、埋め込みまたはリンクされた OLE オブジェクト、ActiveX コントロール、埋め込みメディア、マイナーなフォント、VBA マクロが含まれる場合は、必ず確認してください。通常の PPTX ファイルはマクロ有効形式ではないため、VBA を保持する必要がある場合は、マクロ有効なワークフローを使用してください。また、変換されたプレゼンテーションが開かれるまたはレンダリングされる環境に、必要なフォントや外部リソースが存在することも確認してください。
 
-重要なドキュメントについては、生成された PPTX をプログラムから再度開き、スライド数や主要コンテンツを検査し、目的のビューアでの外観やスライドショーの挙動と比較してください。成功した [Presentation.save] 呼び出しだけで、すべてのレガシ機能が正確に PPTX に変換されたとは限らないことに留意してください。
+重要なドキュメントについては、生成された PPTX をプログラムから再度開き、スライド数や主要なコンテンツを検査し、対象のビューアでの見た目やスライドショーの挙動と比較してください。[Presentation.save](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/#save) 呼び出しが成功したことを、すべてのレガシー機能が正確に PPTX に変換された証拠とみなさないでください。
 
-## **PPTX を使用すべきとき**
+## **PPTX を使用すべき場面**
 
-プレゼンテーションを最新の PowerPoint バージョンで編集したり、Open XML パッケージを扱うシステムとやり取りしたり、レガシのバイナリ PPT よりも検査・復元が容易な形式で保存したりする場合は PPTX を使用してください。変換後のプレゼンテーションが忠実度チェックを通過するまで、元の PPT をアーカイブまたはロールバック用のコピーとして保持してください。
+現在の PowerPoint バージョンで編集する、Open XML パッケージを扱うシステムとやり取りする、またはレガシーなバイナリ PPT よりも検査や復元が容易な形式で保存する場合は、PPTX を使用してください。変換されたプレゼンテーションが忠実度チェックを通過するまで、元の PPT をアーカイブまたはロールバック用のコピーとして保持してください。
 
-PDF、HTML、画像、XPS など別の出力形式が必要な場合は、すべての対象が編集可能な PowerPoint 機能を保持すると想定せず、[Convert Presentations to Multiple Formats](/nodejs-java/convert-presentation/) の形式別ガイダンスをご利用ください。
+代わりに PDF、HTML、画像、XPS、または他の出力形式が必要な場合は、すべての対象が編集可能な PowerPoint 機能を保持すると決めつけず、[Convert Presentations to Multiple Formats](/slides/ja/nodejs-java/convert-presentation/) にある形式別ガイダンスを参照してください。
 
-## **オンラインコンバータ**
+## **オンライン コンバータ**
 
-たまにファイルを変換したり、手早く比較したりする場合は、[online PPT to PPTX converter](https://products.aspose.app/slides/ja/conversion/ppt-to-pptx) を利用できます。繰り返しの変換やバッチ処理、アプリケーションレベルのエラーハンドリングが必要な場合は、Node.js via Java API を使用してください。
+たまにファイルを変換する、または簡単に比較したい場合は、[online PPT to PPTX converter](https://products.aspose.app/slides/ja/conversion/ppt-to-pptx) を利用できます。繰り返しの変換やバッチ処理、アプリケーションレベルのエラーハンドリングが必要な場合は、Node.js via Java API を使用してください。
 
 ## **関連記事**
 
-- [PPT と PPTX](/nodejs-java/ppt-vs-pptx/)
-- [Node.js でプレゼンテーションを保存する](/nodejs-java/save-presentation/)
-- [サポートされているファイル形式](/nodejs-java/supported-file-formats/)
-- [Node.js でプレゼンテーションを開く](/nodejs-java/open-presentation/)
+- [PPT と PPTX の違い](/slides/ja/nodejs-java/ppt-vs-pptx/)
+- [Node.js でプレゼンテーションを保存](/slides/ja/nodejs-java/save-presentation/)
+- [サポートされているファイル形式](/slides/ja/nodejs-java/supported-file-formats/)
+- [Node.js でプレゼンテーションを開く](/slides/ja/nodejs-java/open-presentation/)
 
 ## **FAQ**
 
-**Microsoft PowerPoint をインストールせずに PPT を PPTX に変換できますか？**
+**Microsoft PowerPoint がインストールされていなくても PPT を PPTX に変換できますか？**
 
-はい。Aspose.Slides for Node.js via Java は Microsoft PowerPoint を必要とせずにプレゼンテーション ファイルの読み込みと保存を行えます。
+はい。Aspose.Slides for Node.js via Java は Microsoft PowerPoint を必要とせずにプレゼンテーション ファイルを読み込み、保存できます。
 
-**PPT から PPTX への変換はすべてのコンテンツを正確に保持しますか？**
+**PPT から PPTX への変換はすべてのコンテンツを完全に保持しますか？**
 
-一般的なプレゼンテーション コンテンツは保持しますが、すべてのレガシ機能やサポート外の機能が完全に同等に変換される保証はありません。マクロ、OLE や ActiveX オブジェクト、メディア、特殊なアニメーション、マイナーなフォントが含まれる場合は、生成されたファイルを確認してください。
+一般的なプレゼンテーション コンテンツは保持されますが、すべてのレガシー機能やサポートされていない機能が正確に保持される保証はありません。マクロ、OLE または ActiveX オブジェクト、メディア、特殊なアニメーション、マイナーなフォントが含まれる場合は、生成されたファイルを確認してください。
 
 **パスワード保護された PPT ファイルを変換できますか？**
 
-はい、ファイルを読み込む際に正しいパスワードを指定すれば可能です。パスワードがない、または間違っている場合は読み込みに失敗します。
+はい、ファイルを読み込む際に正しいパスワードを指定すれば変換できます。パスワードが無い、または誤っている場合は読み込みが失敗します。
 
 **変換後に PPT ファイルを削除すべきですか？**
 
-重要なビューアやワークフローで PPTX を検証するまで、元のファイルは保持してください。レガシ機能の変換結果が異なる場合のロールバック用コピーとして役立ちます。
+重要なビューアやワークフローで PPTX を確認するまで、元のファイルは保持してください。レガシー機能が異なる形で変換された場合のロールバック コピーとして役立ちます。

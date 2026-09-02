@@ -1,5 +1,5 @@
 ---
-title: Java'da PowerPoint Yazı Tiplerini Özelleştirme
+title: Java'da PowerPoint Yazı Tiplerini Özelleştirin
 linktitle: Özel Yazı Tipi
 type: docs
 weight: 20
@@ -16,87 +16,90 @@ keywords:
 - sunum
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java ile PowerPoint slaytlarındaki yazı tiplerini özelleştirerek sunumlarınızın her cihazda net ve tutarlı kalmasını sağlayın."
+description: "Java için Aspose.Slides ile PowerPoint slaytlarındaki yazı tiplerini özelleştirerek sunumlarınızı her cihazda net ve tutarlı tutun."
 ---
-## **Overview**
+## **Genel Bakış**
 
-Aspose.Slides, işletim sistemine kurulum yapmadan sunumlarda özel yazı tiplerini kullanmanıza olanak tanır. Yazı tiplerini özel klasörlerden yükleyebilir, belge düzeyinde font kaynakları aracılığıyla belirli bir sunum için font sağlayabilir veya dış yazı tiplerini doğrudan ikili veriden yükleyebilirsiniz.
+Aspose.Slides, işletim sistemine yüklemeden sunularda özel yazı tiplerini kullanmanıza olanak sağlar. Yazı tiplerini özel klasörlerden yükleyebilir, belge düzeyinde font kaynakları aracılığıyla belirli bir sunum için font sağlayabilir veya dış fontları doğrudan ikili veri üzerinden yükleyebilirsiniz.
 
-Yüklenen yazı tipleri, bir sunum işlenirken veya dışa aktarılırken, örneğin PDF, görüntüler ve diğer desteklenen formatlara, kullanılır. Bu, sunum çıktısının farklı ortamlar arasında tutarlı kalmasına yardımcı olur. Makale ayrıca Aspose.Slides tarafından kullanılan yazı tipi klasörlerinin nasıl inceleneceğini ve dış yazı tipleriyle çalıştıktan sonra yazı tipi önbelleğinin nasıl temizleneceğini açıklar.
+Yüklenen fontlar, bir sunum oluşturulurken veya dışa aktarılırken, örneğin PDF, görüntüler ve diğer desteklenen biçimlere, kullanılır. Bu, sunum çıktısının farklı ortamlar arasında tutarlı kalmasını sağlar. Makale ayrıca Aspose.Slides tarafından kullanılan font klasörlerinin nasıl inceleneceğini ve dış fontlarla çalıştıktan sonra font önbelleğinin nasıl temizleneceğini açıklar.
 
-Özel yazı tiplerini işleme için kaydetmek, yazı tiplerini bir PPTX dosyasına gömmekten ayrı bir işlemdir. Bir yazı tipinin sunum içinde saklanması gerekiyorsa, yazı tipi gömme özelliklerini açıkça kullanın.
+Özel fontların oluşturma için kaydedilmesi, bir PPTX dosyasına gömülmesinden ayrı bir işlemdir. Bir fontun sunumun içinde saklanması gerekiyorsa, font gömme özelliklerini açıkça kullanın.
 
-{{% alert color="primary" %}} 
+Bir sunum teması, farklı yazı sistemleri için çeşitli yazı tipi ailelerine referans verebilir. Bu eşlemeler yalnızca font adlarını saklar, ancak font dosyalarını kurmaz veya yüklemez. Eşlemeleri yönetmek için [Script-Specific Theme Fonts](/slides/tr/java/script-specific-font-mappings/) sayfasına bakın ve aşağıdaki yükleme seçeneklerini kullanarak referans verilen fontların tutarlı oluşturma için kullanılabilir olmasını sağlayın.
 
-Aspose Slides, bu yazı tiplerini [loadExternalFonts](https://reference.aspose.com/slides/tr/java/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) yöntemiyle yüklemenize olanak tanır:
+{{% alert color="info" title="Not" %}}
 
-* TrueType (.ttf) ve TrueType Collection (.ttc) yazı tipleri. Daha fazla bilgi için [TrueType](https://en.wikipedia.org/wiki/TrueType) sayfasına bakın.
+Aspose Slides, bu fontları [loadExternalFonts](https://reference.aspose.com/slides/tr/java/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) yöntemiyle yüklemenize izin verir:
 
-* OpenType (.otf) yazı tipleri. Daha fazla bilgi için [OpenType](https://en.wikipedia.org/wiki/OpenType) sayfasına bakın.
+* TrueType (.ttf) ve TrueType Collection (.ttc) fontları. Bakınız [TrueType](https://en.wikipedia.org/wiki/TrueType).
+* OpenType (.otf) fontları. Bakınız [OpenType](https://en.wikipedia.org/wiki/OpenType).
 
 {{% /alert %}}
 
-## **Load Custom Fonts**
+## **Özel Fontları Yükle**
 
-Aspose.Slides, bir sunumda kullanılan yazı tiplerini sistemde kurmadan yüklemenize izin verir. Bu durum, PDF, görüntüler ve diğer desteklenen formatlar gibi dışa aktarma çıktısını etkiler; böylece ortaya çıkan belgeler ortamlar arasında tutarlı görünür. Yazı tipleri özel dizinlerden yüklenir.
+Aspose.Slides, bir sunumda kullanılan fontları sisteme kurmadan yüklemenize olanak tanır. Bu, PDF, görüntüler ve diğer desteklenen biçimler gibi dışa aktarma çıktısını etkiler; böylece oluşturulan belgeler farklı ortamlar arasında tutarlı görünür. Fontlar özel dizinlerden yüklenir.
 
-1. Yazı tipi dosyalarını içeren bir veya daha fazla klasör belirtin.
-2. Bu klasörlerden yazı tiplerini yüklemek için statik [FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/tr/java/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) yöntemini çağırın.
-3. Sunumu yükleyin ve işleyin/ dışa aktarın.
-4. Yazı tipi önbelleğini temizlemek için [FontsLoader.clearCache](https://reference.aspose.com/slides/tr/java/com.aspose.slides/FontsLoader#clearCache--) yöntemini çağırın.
-
-Aşağıdaki kod örneği, yazı tipi yükleme sürecini göstermektedir:
+1. Font dosyalarını içeren bir veya daha fazla klasör belirtin.
+2. Bu klasörlerden font yüklemek için statik [FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/tr/java/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) yöntemini çağırın.
+3. Sunumu yükleyin ve oluşturun/dışa aktarın.
+4. Font önbelleğini temizlemek için [FontsLoader.clearCache](https://reference.aspose.com/slides/tr/java/com.aspose.slides/FontsLoader#clearCache--) yöntemini çağırın.
 
 ```java
+import com.aspose.slides.*;
+
 // Özel yazı tipi dosyalarını içeren klasörleri tanımlayın.
-String[] fontFolders = new String[] { externalFontFolder1, externalFontFolder2 };
+String[] fontFolders = new String[] { "assets/fonts", "global/fonts" };
 
-// Belirtilen klasörlerden özel yazı tiplerini yükleyin.
-FontsLoader.loadExternalFonts(fontFolders);
-
+// Yüklenen yazı tiplerini kullanarak sunumu oluşturun/dışa aktarın (ör. PDF, görüntüler veya diğer biçimler).
 Presentation presentation = null;
 try {
     presentation = new Presentation("sample.pptx");
-    
-    // Yüklenen yazı tiplerini kullanarak sunumu işleyin/dışa aktarın (ör. PDF, görüntüler veya diğer formatlar).
+
+    // Yüklenen yazı tiplerini kullanarak sunumu oluşturun/dışa aktarın (ör. PDF, görüntüler veya diğer biçimler).
     presentation.save("output.pdf", SaveFormat.Pdf);
 } finally {
     if (presentation != null) presentation.dispose();
 
-    // İş bittiğinde yazı tipi önbelleğini temizleyin.
+    // İş tamamlandıktan sonra yazı tipi önbelleğini temizleyin.
     FontsLoader.clearCache();
 }
 ```
 
-{{% alert color="info" title="Note" %}}
+{{% alert color="info" title="Not" %}}
 
-[FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/tr/java/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) font arama yollarına ek klasörler ekler, ancak font başlatma sırasını değiştirmez.  
-Yazı tipleri şu sırayla başlatılır:
+[FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/tr/java/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) ek klasörleri font arama yollarına ekler, ancak font başlatma sırasını değiştirmez.
+Fontlar şu sırayla başlatılır:
 
-1. Varsayılan işletim sistemi yazı tipi yolu.
+1. Varsayılan işletim sistemi font yolu.
 1. [FontsLoader](https://reference.aspose.com/slides/tr/java/com.aspose.slides/fontsloader/) aracılığıyla yüklenen yollar.
 
 {{%/alert %}}
 
-## **Get Custom Font Folders**
-Aspose.Slides, yazı tipi klasörlerini bulmanıza olanak tanıyan [getFontFolders](https://reference.aspose.com/slides/tr/java/com.aspose.slides/fontsloader/#getFontFolders--) yöntemini sunar. Bu yöntem, `LoadExternalFonts` yöntemiyle eklenen klasörleri ve sistem yazı tipi klasörlerini döndürür.
+## **Özel Font Klasörlerini Al**
 
-Bu Java kodu, [getFontFolders](https://reference.aspose.com/slides/tr/java/com.aspose.slides/fontsloader/#getFontFolders--) kullanımını gösterir:
+Aspose.Slides, font klasörlerini bulmanıza olanak tanıyan [getFontFolders](https://reference.aspose.com/slides/tr/java/com.aspose.slides/fontsloader/#getFontFolders--) yöntemini sağlar. Bu yöntem, `LoadExternalFonts` yöntemiyle eklenen klasörleri ve sistem font klasörlerini döndürür.
 
 ```java
-// Bu satır, yazı tipi dosyalarının arandığı klasörleri verir.
-// Bunlar, LoadExternalFonts yöntemiyle eklenen klasörler ve sistem yazı tipi klasörleridir.
+import com.aspose.slides.*;
+
+// Bu satır, yazı tipi dosyalarının arandığı klasörleri çıktılar.
+// Bunlar, LoadExternalFonts yöntemi aracılığıyla eklenen ve sistem yazı tipi klasörleridir.
 String[] fontFolders = FontsLoader.getFontFolders();
 ```
 
-## **Specify Custom Fonts Used with a Presentation**
-Aspose.Slides, sunumla kullanılacak dış yazı tiplerini belirtmenizi sağlayan [setDocumentLevelFontSources](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) özelliğini sunar.  
+## **Bir Sunumda Kullanılan Özel Fontları Belirleyin**
 
-Bu Java kodu, [setDocumentLevelFontSources](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) özelliğinin nasıl kullanılacağını gösterir:
+Aspose.Slides, sunumla birlikte kullanılacak dış fontları belirtmenize olanak tanıyan [setDocumentLevelFontSources](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) özelliğini sunar.
 
 ```java
-byte[] memoryFont1 = Files.readAllBytes("customfonts/CustomFont1.ttf");
-byte[] memoryFont2 = Files.readAllBytes("customfonts/CustomFont2.ttf");
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+byte[] memoryFont1 = Files.readAllBytes(Paths.get("customfonts/CustomFont1.ttf"));
+byte[] memoryFont2 = Files.readAllBytes(Paths.get("customfonts/CustomFont2.ttf"));
 
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.getDocumentLevelFontSources().setFontFolders(new String[] { "assets/fonts", "global/fonts" });
@@ -105,19 +108,21 @@ loadOptions.getDocumentLevelFontSources().setMemoryFonts(new byte[][] { memoryFo
 Presentation pres = new Presentation("MyPresentation.pptx", loadOptions);
 try {
     // Sunumla çalış
-    // CustomFont1, CustomFont2 ve assets\fonts & global\fonts klasörlerinden ve alt klasörlerinden gelen yazı tipleri sunuma açıktır
+    // CustomFont1, CustomFont2 ve assets\fonts & global\fonts klasörleri ve alt klasörlerindeki fontlar sunuma kullanılabilir
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Manage Fonts Externally**
+## **Fontları Dışarıdan Yönetmek**
 
-Aspose.Slides, dış yazı tiplerini ikili veriden yüklemenizi sağlayan [loadExternalFont](https://reference.aspose.com/slides/tr/java/com.aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) yöntemini sunar.
-
-Bu Java kodu, bayt dizisi üzerinden yazı tipi yükleme sürecini gösterir:
+Aspose.Slides, ikili veriden dış fontları yüklemenize olanak tanıyan [loadExternalFont](https://reference.aspose.com/slides/tr/java/com.aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) yöntemini sunar.
 
 ```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 FontsLoader.loadExternalFont(Files.readAllBytes(Paths.get("ARIALN.TTF")));
 FontsLoader.loadExternalFont(Files.readAllBytes(Paths.get("ARIALNBI.TTF")));
 FontsLoader.loadExternalFont(Files.readAllBytes(Paths.get("ARIALNI.TTF")));
@@ -126,7 +131,7 @@ try
 {
     Presentation pres = new Presentation("");
     try {
-        // sunum ömrü boyunca yüklenen harici yazı tipi
+        // sunum ömrü boyunca dış font yüklendi
     } finally {
         
     }
@@ -137,24 +142,24 @@ finally
 }
 ```
 
-## **FAQ**
+## **SSS**
 
-**Do custom fonts affect export to all formats (PDF, PNG, SVG, HTML)?**
+### Özel fontlar tüm biçimlere (PDF, PNG, SVG, HTML) dışa aktarımı etkiler mi?
 
-Evet. Bağlantılı yazı tipleri, renderlayıcı tarafından tüm dışa aktarma formatlarında kullanılır.
+Evet. Bağlı fontlar, oluşturucu tarafından tüm dışa aktarım biçimlerinde kullanılır.
 
-**Are custom fonts automatically embedded into the resulting PPTX?**
+### Özel fontlar otomatik olarak ortaya çıkan PPTX dosyasına gömülür mü?
 
-Hayır. Bir yazı tipini işleme için kaydetmek, PPTX dosyasına gömmekle aynı şey değildir. Yazı tipinin sunum dosyasının içinde taşınmasını istiyorsanız, açıkça [gömme özelliklerini](/slides/tr/java/embedded-font/) kullanmalısınız.
+Hayır. Bir fontu oluşturma için kaydetmek, PPTX dosyasına gömmekle aynı şey değildir. Fontun sunum dosyasının içinde bulunmasını istiyorsanız, açıkça [gömme özelliklerini](/slides/tr/java/embedded-font/) kullanmalısınız.
 
-**Can I control fallback behavior when a custom font lacks certain glyphs?**
+### Bir özel font belirli gliflere sahip olmadığında geri dönüş (fallback) davranışını kontrol edebilir miyim?
 
-Evet. İstenen glif eksik olduğunda hangi yazı tipinin kullanılacağını tam olarak tanımlamak için [font ikamesi](/slides/tr/java/font-substitution/), [değiştirme kuralları](/slides/tr/java/font-replacement/) ve [yedek setleri](/slides/tr/java/fallback-font/) yapılandırabilirsiniz.
+Evet. İstenen glif eksik olduğunda hangi fontun kullanılacağını tam olarak tanımlamak için [font ikamesi](/slides/tr/java/font-substitution/), [yerine koyma kuralları](/slides/tr/java/font-replacement/) ve [geri dönüş setleri](/slides/tr/java/fallback-font/) yapılandırabilirsiniz.
 
-**Can I use fonts in Linux/Docker containers without installing them system-wide?**
+### Fontları Linux/Docker konteynerlerinde sistem çapında kurmadan kullanabilir miyim?
 
-Evet. Kendi yazı tipi klasörlerinize yönlendirebilir veya yazı tiplerini bayt dizilerinden yükleyebilirsiniz. Bu, konteyner imajındaki sistem yazı tipi dizinlerine olan bağımlılığı ortadan kaldırır.
+Evet. Kendi font klasörlerinize işaret ederek veya fontları bayt dizilerinden yükleyerek. Bu, konteyner imajındaki sistem font dizinlerine herhangi bir bağımlılığı ortadan kaldırır.
 
-**What about licensing—can I embed any custom font without restrictions?**
+### Lisanslama konusunda ne yapılmalı—herhangi bir özel fontu kısıtlamasız gömebilir miyim?
 
-Yazı tipi lisansına uyumluluktan siz sorumlusunuz. Şartlar farklılık gösterebilir; bazı lisanslar gömme veya ticari kullanımını yasaklayabilir. Çıktıları dağıtmadan önce her zaman yazı tipinin son kullanıcı lisans sözleşmesini (EULA) inceleyin.
+Font lisans uyumluluğundan siz sorumlusunuz. Koşullar değişiklik gösterir; bazı lisanslar gömülmesini veya ticari kullanımını yasaklar. Çıktıları dağıtmadan önce fontun EULA'sını mutlaka gözden geçirin.

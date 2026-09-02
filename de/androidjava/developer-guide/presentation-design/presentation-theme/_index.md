@@ -5,40 +5,40 @@ type: docs
 weight: 10
 url: /de/androidjava/presentation-theme/
 keywords:
-- PowerPoint-Thema
-- Präsentationsthema
-- Folienthema
-- Thema festlegen
-- Thema ändern
-- Thema verwalten
-- Thema-Farbe
+- PowerPoint-Theme
+- Präsentations-Theme
+- Folien-Theme
+- Theme festlegen
+- Theme ändern
+- Theme verwalten
+- Theme-Farbe
 - zusätzliche Palette
-- Thema-Schriftart
-- Thema-Stil
-- Thema-Effekt
+- Theme-Schriftart
+- Theme-Stil
+- Theme-Effekt
 - PowerPoint
 - OpenDocument
 - Präsentation
 - Android
 - Java
 - Aspose.Slides
-description: "Master-Präsentationsthemen in Aspose.Slides für Android via Java erstellen, anpassen und PowerPoint-Dateien mit konsistenter Markenidentität konvertieren."
+description: "Master‑Präsentationsthemen in Aspose.Slides für Android mittels Java erstellen, anpassen und PowerPoint‑Dateien mit konsistenter Markenidentität konvertieren."
 ---
 ## **Einführung**
 
-Ein Präsentationsthema definiert ein koordinierter Satz von Farben, Schriftarten, Hintergrundstilen, Füllungen, Linien und Effekten. Themenbewusste Objekte verweisen auf diese gemeinsamen Definitionen, anstatt jede visuelle Eigenschaft als festen Wert zu speichern, sodass ein Themenwechsel viele Objekte gleichzeitig aktualisieren kann.
+Ein Präsentationsthema definiert ein koordiniertes Set aus Farben, Schriftarten, Hintergrundstilen, Füllungen, Linien und Effekten. Themenbewusste Objekte verweisen auf diese gemeinsam genutzten Definitionen, anstatt jede visuelle Eigenschaft als festen Wert zu speichern, sodass eine Themenänderung zahlreiche Objekte gleichzeitig aktualisieren kann.
 
-In Aspose.Slides ist das Präsentations‑Thema über [Presentation.getMasterTheme](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/presentation/) verfügbar. Eine Präsentation kann auch Themen­überschreibungen auf niedrigeren Ebenen enthalten. Ein Master kann das Präsentationsthema über [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/masterthememanager/) überschreiben, während ein Layout oder eine einzelne Folie ihr geerbtes Thema über [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/baseoverridethememanager/) überschreiben kann. In der Praxis wird das effektive Thema für eine Folie über diese Vererbungskette ermittelt: Präsentationsthema, Master‑Überschreibung, Layout‑Überschreibung und Folien‑Überschreibung.
+In Aspose.Slides ist das präsentationsweite Thema über [Presentation.getMasterTheme](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/presentation/) verfügbar. Eine Präsentation kann außerdem Themen‑Überschreibungen auf niedrigeren Ebenen enthalten. Ein Master kann das Präsentationsthema über [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/masterthememanager/) überschreiben, während ein Layout oder eine einzelne Folie ihr geerbtes Thema über [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/baseoverridethememanager/) überschreiben kann. In der Praxis wird das wirksame Thema für eine Folie über diese Vererbungskette aufgelöst: Präsentationsthema, Master‑Überschreibung, Layout‑Überschreibung und Folien‑Überschreibung.
 
-![Themenkomponenten: Farben, Schriftarten, Hintergrundstile und Effekte](theme-constituents.png)
+![Themen‑Komponenten: Farben, Schriftarten, Hintergrundstile und Effekte](theme-constituents.png)
 
-Die folgenden Abschnitte zeigen die gebräuchlichsten Workflows für Themen: ein Thema untersuchen, Farben und Schriftarten ändern, ein Thema kopieren oder anwenden, Hintergrund‑ und Effektstile aktualisieren und effektive Werte nach Vererbung und Überschreibungen lesen.
+Die nachfolgenden Abschnitte zeigen die häufigsten Themen‑Workflows: Ein Thema untersuchen, Farben und Schriftarten ändern, ein Thema kopieren oder anwenden, Hintergrund‑ und Effektstile aktualisieren und wirksame Werte nach Auflösung von Vererbung und Überschreibungen auslesen.
 
-## **Thema untersuchen**
+## **Ein Thema untersuchen**
 
-Das [MasterTheme](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/mastertheme/)‑Objekt stellt das Farbschema, das Schriftartenschema und das Formatschema des Themas über [MasterTheme.getColorScheme](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/mastertheme/) und [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/mastertheme/) bereit. Das Durchsuchen dieser Sammlungen, bevor man Änderungen vornimmt, ist besonders nützlich, wenn eine Präsentation aus einer externen Quelle stammt, weil die Anzahl und der Inhalt der Stileinträge variieren können.
+Das [MasterTheme](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/mastertheme/)‑Objekt stellt das Farbschema, das Schriftartenschema und das Formatschema des Themas über [MasterTheme.getColorScheme](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/mastertheme/) bzw. [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/mastertheme/) bereit. Das Untersuchen dieser Sammlungen, bevor sie geändert werden, ist besonders nützlich, wenn eine Präsentation aus einer externen Quelle stammt, da die Anzahl und der Inhalt der Stileinträge variieren können.
 
-Das folgende Beispiel liest die Haupteigenschaften des Themas und gibt an, wie viele Hintergrund-, Füll‑, Linien‑ und Effekt‑Stile im Thema gespeichert sind:
+Das folgende Beispiel liest die Haupteigenschaften des Themas aus und gibt an, wie viele Hintergrund‑, Füll‑, Linien‑ und Effektstile im Thema gespeichert sind:
 
 ```java
 import com.aspose.slides.*;
@@ -61,13 +61,13 @@ try {
 }
 ```
 
-Verwendet eine Datei mehrere Master, darf man nicht annehmen, dass jede Folie dasselbe effektive Thema hat. Untersuchen Sie den Master, der der Folie zugeordnet ist, und verwenden Sie den im späteren Artikel gezeigten Workflow für effektive Themen, wenn Layout‑ oder Folien‑Überschreibungen vorhanden sein können.
+Wenn eine Datei mehrere Master verwendet, darf man nicht davon ausgehen, dass jede Folie dasselbe wirksame Thema hat. Untersuchen Sie den mit der Folie verbundenen Master und verwenden Sie den wirksamen‑Thema‑Workflow, der später in diesem Artikel gezeigt wird, falls Layout‑ oder Folien‑Überschreibungen vorhanden sein können.
 
-## **Thema‑Farben ändern**
+## **Themenfarben ändern**
 
-Themen‑bewusste Füllungen, Linien und Texte können sich auf eine logische Farbe aus der Aufzählung [SchemeColor](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/schemecolor/) beziehen. Wenn Sie den entsprechenden Eintrag in [IColorScheme](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/icolorscheme/) ändern, werden alle Objekte, die weiterhin auf diese Themenfarbe verweisen, gegen den neuen Wert aufgelöst. Objekte, die eine direkte RGB‑Farbe verwenden, werden durch ein Update der Themenfarbe nicht verändert.
+Themenbewusste Füllungen, Linien und Texte können sich auf eine logische Farbe aus der [SchemeColor](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/schemecolor/)‑Aufzählung beziehen. Wenn Sie den entsprechenden Eintrag in der [IColorScheme](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/icolorscheme/) ändern, werden alle Objekte, die noch auf diese Themenfarbe verweisen, anhand des neuen Werts aufgelöst. Objekte, die eine direkte RGB‑Farbe verwenden, werden durch eine Themenfarb‑Aktualisierung nicht geändert.
 
-Das folgende End‑to‑End‑Beispiel erstellt eine Form, die `Accent4` verwendet, ändert die `Accent4`‑Farbe des Themas zu Rot, speichert die Präsentation, öffnet sie erneut und gibt die effektive Füllfarbe aus:
+Das folgende End‑to‑End‑Beispiel erstellt eine Form, die `Accent4` verwendet, ändert die `Accent4`‑Farbe des Themas zu Rot, speichert die Präsentation, öffnet sie erneut und gibt die wirksame Füllfarbe aus:
 
 ```java
 import com.aspose.slides.*;
@@ -97,19 +97,18 @@ try {
 }
 ```
 
-Da das Rechteck weiterhin mit `Accent4` verknüpft ist, wird seine sichtbare Farbe nach der Themenänderung rot. Ersetzen Sie die Schema‑Farbe durch eine direkte Farbe in der Form, wirkt sich ein späterer Wechsel von `Accent4` nicht mehr auf diese Füllung aus.
+Da das Rechteck mit `Accent4` verknüpft bleibt, wird seine sichtbare Farbe nach der Themenänderung Rot. Wenn Sie die Schema‑Farbe durch eine direkte Farbe in der Form ersetzen, wirken sich spätere Änderungen von `Accent4` nicht mehr auf diese Füllung aus.
 
 ### **Farben aus der zusätzlichen Palette verwenden**
 
-PowerPoint leitet hellere und dunklere Varianten von einer Themenfarbe ab, indem Farbtransformationen angewendet werden. Aspose.Slides stellt diese Transformationen über die Aufzählung [ColorTransformOperation](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/colortransformoperation/) bereit.
+PowerPoint erzeugt hellere und dunklere Varianten einer Themenfarbe, indem Farb‑Transformationen angewendet werden. Aspose.Slides stellt diese Transformationen über die [ColorTransformOperation](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/colortransformoperation/)‑Aufzählung bereit.
 
-![Hauptthemenfarben und hellere sowie dunklere Farben, die aus der zusätzlichen Palette erzeugt wurden](additional-palette-colors.png)
+![Hauptthemenfarben und aus der zusätzlichen Palette erzeugte hellere und dunklere Farben](additional-palette-colors.png)
 
-**1** – Hauptthemenfarben.
-
+**1** – Hauptthemenfarben.  
 **2** – Hellere und dunklere Varianten, die aus den Hauptthemenfarben erzeugt wurden.
 
-Das folgende Beispiel erstellt sechs Rechtecke, die auf `Accent4` basieren, wendet Luminanz‑Transformationen auf fünf davon an und speichert das Ergebnis:
+Das folgende Beispiel erstellt sechs Rechtecke basierend auf `Accent4`, wendet fünf davon Luminanz‑Transformationen an und speichert das Ergebnis:
 
 ```java
 import com.aspose.slides.*;
@@ -156,31 +155,31 @@ try {
 }
 ```
 
-Diese Varianten bleiben an der Themenfarbe ausgerichtet. Ändert sich später `Accent4`, werden die transformierten Farben aus dem neuen `Accent4`‑Wert neu berechnet.
+Diese Varianten bleiben an der Themenfarbe ausgerichtet. Ändert sich `Accent4` später, werden die transformierten Farben aus dem neuen `Accent4`‑Wert neu berechnet.
 
-### **`SchemeColor`‑Werte auf `IColorScheme`‑Slots abbilden**
+### **`SchemeColor`‑Werte den `IColorScheme`‑Plätzen zuordnen**
 
-Die Aufzählung [SchemeColor](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/schemecolor/) verwendet `Text1`, `Background1`, `Text2` und `Background2`, während [IColorScheme](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/icolorscheme/) dieselben Themenslots als `Dark1`, `Light1`, `Dark2` und `Light2` bereitstellt. Die Zuordnung ist fest:
+Die [SchemeColor](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/schemecolor/)‑Aufzählung verwendet `Text1`, `Background1`, `Text2` und `Background2`, während die [IColorScheme](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/icolorscheme/) dieselben Themenplätze als `Dark1`, `Light1`, `Dark2` und `Light2` bereitstellt. Die Zuordnung ist fest:
 
-* `Text1` = `Dark1`
-* `Background1` = `Light1`
-* `Text2` = `Dark2`
+* `Text1` = `Dark1`  
+* `Background1` = `Light1`  
+* `Text2` = `Dark2`  
 * `Background2` = `Light2`
 
-Dies sind alternative Bezeichnungen für dieselben Themenslots; es handelt sich nicht um Werte, die dynamisch von einer Form in die andere konvertiert werden.
+Dies sind alternative Bezeichnungen für dieselben Themenplätze; es handelt sich nicht um Werte, die dynamisch von einer Form in die andere konvertiert werden.
 
-## **Thema‑Schriftarten ändern**
+## **Themen‑Schriftarten ändern**
 
-Ein Themen‑Schriftartenschema enthält ein Hauptschriftset für Überschriften und ein Nebenschriftset für Fließtext. Die Methoden [IFontScheme.getMajor](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ifontscheme/) und [IFontScheme.getMinor](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ifontscheme/) geben diese Sets frei.
+Ein Themen‑Schriftartenschema enthält einen Hauptschriftartensatz für Überschriften und einen Nebenschriftartensatz für Fließtext. Die Methoden [IFontScheme.getMajor](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ifontscheme/) und [IFontScheme.getMinor](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ifontscheme/) stellen diese Sätze bereit.
 
-PowerPoint‑kompatible Themen‑Schriftart‑Kennungen können in der Textformatierung verwendet werden:
+PowerPoint‑kompatible Themen‑Schriftarten‑Kennungen können in der Textformatierung verwendet werden:
 
-* `+mn-lt` – Body Font Latin (Minor Latin Font)
-* `+mj-lt` – Heading Font Latin (Major Latin Font)
-* `+mn-ea` – Body Font East Asian (Minor East Asian Font)
+* `+mn-lt` – Body Font Latin (Minor Latin Font)  
+* `+mj-lt` – Heading Font Latin (Major Latin Font)  
+* `+mn-ea` – Body Font East Asian (Minor East Asian Font)  
 * `+mj-ea` – Heading Font East Asian (Major East Asian Font)
 
-Das folgende Beispiel erzeugt eine Überschrift, die die Haupt‑Latin‑Themen­schrift verwendet, und eine Textzeile, die die Neben‑Latin‑Themen­schrift verwendet. Anschließend werden die Themen‑Schriftarten geändert und das Ergebnis gespeichert:
+Das folgende Beispiel erstellt eine Überschrift, die die Haupt‑Latin‑Themen‑Schriftart verwendet, und eine Textzeile, die die Nebensatz‑Latin‑Themen‑Schriftart verwendet. Anschließend werden die Themen‑Schriftarten geändert und das Ergebnis gespeichert:
 
 ```java
 import com.aspose.slides.*;
@@ -205,21 +204,21 @@ try {
 }
 ```
 
-Die Überschrift folgt der Hauptschrift und der Fließtext der Neben­schrift. Text, dem ein expliziter Schriftname anstelle einer Themen‑Kennung zugewiesen ist, wechselt nicht automatisch, wenn das Themen‑Schriftartenschema geändert wird.
+Die Überschrift folgt der Hauptschriftart und der Fließtext der Nebenschriftart. Text, dem ein expliziter Schriftartname anstelle einer Themen‑Kennung zugewiesen ist, wechselt nicht automatisch, wenn das Themen‑Schriftartenschema geändert wird.
 
-{{% alert color="info" title="Tip" %}}
+Die Haupt‑ und Nebenschriftartensammlungen können zudem Schriftzuordnungen für einzelne Schriftsysteme enthalten, etwa Kyrillisch, Arabisch, Japanisch, Georgisch und Thaana. Zum Untersuchen, Hinzufügen, Ersetzen oder Entfernen dieser Zuordnungen siehe [Skript‑spezifische Themen‑Schriftarten](/slides/de/androidjava/script-specific-font-mappings/).
 
+{{% alert color="info" title="Tipp" %}}
 Weitere Informationen zu Präsentations‑Schriftarten finden Sie unter [PowerPoint Fonts](/slides/de/androidjava/powerpoint-fonts/).
-
 {{% /alert %}}
 
 ## **Ein Thema kopieren oder anwenden**
 
-Es gibt zwei gängige Workflows, die unterschiedliche Probleme lösen.
+Es gibt zwei häufige Workflows, die unterschiedliche Probleme lösen.
 
-### **Quell‑Thema beim Verschieben von Folien beibehalten**
+### **Quell‑Thema beim Verschieben von Folien erhalten**
 
-Wenn Sie eine Folie in eine andere Präsentation verschieben und ihr ursprüngliches Design beibehalten möchten, klonen Sie den Quell‑Master in die Zielpräsentation mit [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/imasterslidecollection/), und klonen Sie dann die Folie mit [ISlideCollection.addClone](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/islidecollection/) sowie den geklonten Master. Dadurch werden Master, Layouts und das zugehörige Thema zusammen übertragen.
+Wenn Sie eine Folie in eine andere Präsentation verschieben und ihr ursprüngliches Design beibehalten möchten, klonen Sie den Quell‑Master in die Ziel‑Präsentation mit [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/imasterslidecollection/), und klonen Sie anschließend die Folie mit [ISlideCollection.addClone](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/islidecollection/) sowie den geklonten Master. Dadurch werden Master, Layouts und das zugehörige Thema zusammen transportiert.
 
 ```java
 import com.aspose.slides.*;
@@ -241,11 +240,11 @@ try {
 }
 ```
 
-Dies ist der bevorzugte Workflow, wenn die Quell‑Folie im Ziel exakt gleich aussehen soll. Das reine Klonen von Inhalten auf einen nicht zugehörigen Ziel‑Master kann themen‑gesteuerte Farben, Schriftarten, Hintergründe und Effekte ändern.
+Dies ist der bevorzugte Workflow, wenn die Quell‑Folie im Ziel exakt gleich aussehen soll. Das einfache Klonen von Inhalten auf einen nicht verwandten Ziel‑Master kann themen‑gesteuerte Farben, Schriftarten, Hintergründe und Effekte ändern.
 
-### **Thema‑Werte auf eine bestehende Folie anwenden**
+### **Themenwerte auf eine vorhandene Folie anwenden**
 
-Muss die Ziel‑Folie auf ihrem aktuellen Master und Layout bleiben, initialisieren Sie eine Folien‑Überschreibung aus dem Quell‑Thema. Die Methoden [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/overridetheme/) und [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/overridetheme/) kopieren die drei Haupt‑Themen‑Komponenten in die Überschreibung.
+Muss die Ziel‑Folie auf ihrem aktuellen Master und Layout bleiben, initialisieren Sie eine Folien‑Ebene‑Überschreibung aus dem Quell‑Thema. Die Methoden [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/overridetheme/) und [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/overridetheme/) kopieren die drei Haupt‑Themen‑Komponenten in die Überschreibung.
 
 ```java
 import com.aspose.slides.*;
@@ -270,9 +269,9 @@ try {
 
 Damit wird das von dieser Folie verwendete Thema geändert, ohne das von anderen Folien geerbte Thema zu beeinflussen. Um die lokale Überschreibung zu entfernen und zu den geerbten Werten zurückzukehren, rufen Sie [OverrideTheme.clear](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/overridetheme/) auf.
 
-### **Themen‑Überschreibung auf ein Layout anwenden**
+### **Eine Themen‑Überschreibung auf ein Layout anwenden**
 
-Eine Layout‑Überschreibung gilt für Folien, die dieses Layout verwenden, sofern eine bestimmte Folie nicht ihre eigene Überschreibung hat. Die gleichen Initialisierungsmethoden können über den [LayoutSlideThemeManager](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/layoutslidethememanager/) verwendet werden:
+Eine Layout‑Ebene‑Überschreibung gilt für alle Folien, die dieses Layout verwenden, sofern eine bestimmte Folie nicht ihre eigene Überschreibung besitzt. Die gleichen Initialisierungsmethoden können über den [LayoutSlideThemeManager](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/layoutslidethememanager/) verwendet werden:
 
 ```java
 import com.aspose.slides.*;
@@ -296,17 +295,17 @@ try {
 }
 ```
 
-Verwenden Sie ein Master‑ oder Präsentations‑Thema, wenn viele Layouts und Folien dasselbe Design teilen sollen, eine Layout‑Überschreibung, wenn eine Layout‑Familie ein abweichendes Styling benötigt, und eine Folien‑Überschreibung nur für echte Ausnahmen. Zu viele Folien‑Überschreibungen erschweren spätere globale Themen‑Änderungen.
+Verwenden Sie ein Master‑ oder Präsentations‑Thema, wenn viele Layouts und Folien dasselbe Basisedesign teilen sollen, eine Layout‑Überschreibung, wenn eine Layout‑Familie ein anderes Styling benötigt, und nur bei echten Ausnahmen eine Folien‑Überschreibung. Übermäßige Folien‑Überschreibungen erschweren die Vorhersagbarkeit späterer globaler Themen‑Änderungen.
 
 ## **Themen‑Hintergrundstile aktualisieren**
 
-Die Hintergrund‑Füllungen des Themas werden in [IFormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iformatscheme/) gespeichert. PowerPoint kann im UI mehr Hintergrund‑Optionen anbieten, als tatsächlich in dieser Sammlung definiert sind, weil das UI Themen‑Füllungen mit Themen‑Farben und anderen Stil‑Referenzen kombinieren kann.
+Die Hintergrund‑Füllungen des Themas werden in [IFormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iformatscheme/) gespeichert. PowerPoint kann im UI mehr Hintergrund‑Optionen anbieten, als die physisch in dieser Sammlung gespeicherten Fülldefinitionen vorhanden sind, weil das UI Themen‑Füllungen mit Themen‑Farben und anderen Stil‑Referenzen kombinieren kann.
 
 ![PowerPoint‑Hintergrundstil‑Galerie für ein Präsentationsthema](presentation-design_8.png)
 
-Bevor Sie einen Hintergrundstil verwenden, prüfen Sie die gespeicherte Sammlung und den aktuellen [Background.getStyleIndex](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/background/). Ein Stil‑Index von `0` bedeutet keine thematisierte Füllung; positive Werte sind Referenzen auf themenbasierte Hintergrund‑Stile. Das unterscheidet sich vom direkten Indexieren der Java‑Sammlung, wo `get_Item(0)` das erste gespeicherte Element bedeutet. Gehen Sie nicht davon aus, dass jede Präsentation dieselbe Anzahl von Hintergrund‑Füllstilen enthält.
+Bevor Sie einen Hintergrundstil verwenden, prüfen Sie die gespeicherte Sammlung und den aktuellen [Background.getStyleIndex](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/background/). Ein Stil‑Index von `0` bedeutet keine thematisierte Füllung; positive Werte sind Referenzen auf thematische Hintergrund‑Stile. Das unterscheidet sich von der direkten Java‑Sammlungsindizierung, bei der `get_Item(0)` das erste gespeicherte Element bedeutet. Gehen Sie nicht davon aus, dass jede Präsentation dieselbe Anzahl von Hintergrund‑Füllstilen enthält.
 
-Das folgende Beispiel gibt die verfügbare Anzahl von Hintergrund‑Füllungen aus, weist dem ersten Master eine thematisierte Hintergrund‑Referenz zu und speichert die Präsentation:
+Das folgende Beispiel gibt die verfügbare Anzahl von Hintergrund‑Füllungen aus, weist dem ersten Master eine thematische Hintergrund‑Referenz zu und speichert die Präsentation:
 
 ```java
 import com.aspose.slides.*;
@@ -328,29 +327,25 @@ try {
 }
 ```
 
-Das sichtbare Ergebnis hängt vom vom Master referenzierten Themen‑Eintrag und von etwaigen Hintergrund‑Überschreibungen auf Layout‑ oder Folien‑Ebene ab. Verwendet eine Folie ihren eigenen Hintergrund, kann das reine Ändern des Master‑Hintergrunds diese Folie unverändert lassen. Verwenden Sie [Background.getEffective](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/background/), wenn Sie den endgültigen Hintergrund nach Anwendung der Vererbung wissen müssen.
+Das sichtbare Ergebnis hängt vom vom Master referenzierten Themaintrag sowie von etwaigen Hintergrund‑Überschreibungen auf Layout‑ oder Folien‑Ebene ab. Verwendet eine Folie ihren eigenen Hintergrund, kann das Ändern des Master‑Hintergrunds diese Folie unbeeinflusst lassen. Nutzen Sie [Background.getEffective](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/background/), wenn Sie den finalen Hintergrund nach Anwendung der Vererbung kennen müssen.
 
-{{% alert color="warning" title="Warning" %}}
-
-Betrachten Sie den Stil‑Index nicht als nullbasierten Sammlungs‑Index. Vermeiden Sie zudem das Hard‑Coden einer Stil‑Nummer aus einer Datei und die Annahme, dass sie in einer anderen Datei gleich aussieht; Themen‑Stil‑Definitionen sind presentationsspezifisch.
-
+{{% alert color="warning" title="Warnung" %}}
+Behandeln Sie den Stil‑Index nicht wie einen nullbasierten Sammlungs‑Index. Vermeiden Sie außerdem, eine Stil‑Nummer aus einer Datei hart zu codieren und anzunehmen, dass sie in einer anderen Datei dieselbe Darstellung hat; thematische Stil‑Definitionen sind präsentationsspezifisch.
 {{% /alert %}}
 
-{{% alert color="info" title="Tip" %}}
-
-Für direkte Hintergrund‑Formatierung und Hintergrund‑Vererbung siehe [Presentation Background](/slides/de/androidjava/presentation-background/).
-
+{{% alert color="info" title="Tipp" %}}
+Für direkte Hintergrundformatierung und Hintergrund‑Vererbung siehe [Presentation Background](/slides/de/androidjava/presentation-background/).
 {{% /alert %}}
 
 ## **Themen‑Effekte aktualisieren**
 
-Ein Themen‑Formatschema enthält separate Sammlungen für Füll‑, Linien‑ und Effekt‑Stile, die über [IFormatScheme.getFillStyles](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iformatscheme/), [IFormatScheme.getLineStyles](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iformatscheme/) und [IFormatScheme.getEffectStyles](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iformatscheme/) bereitgestellt werden. Typische Office‑Themen enthalten häufig drei Haupteinträge, die visuell subtil, moderat und intensiv formatiert sind, aber der Code sollte jede Sammlung prüfen, anstatt von einer festen Anzahl auszugehen.
+Ein Themen‑Formatschema enthält separate Sammlungen für Füll‑, Linien‑ und Effekt‑Stile, die über [IFormatScheme.getFillStyles](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iformatscheme/), [IFormatScheme.getLineStyles](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iformatscheme/) und [IFormatScheme.getEffectStyles](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iformatscheme/) zugänglich sind. Typische Office‑Themen enthalten häufig drei zentrale Stil‑Einträge, die visuell subtil, moderat und intensiv formatiert sind, aber der Code sollte jede Sammlung prüfen, anstatt von einer festen Anzahl auszugehen.
 
-![Subtile, moderate und intensive Themen‑Effekte, die auf dieselbe Form angewendet werden](presentation-design_10.png)
+![Subtile, moderate und intensive Themeneffekte, die auf dieselbe Form angewendet werden](presentation-design_10.png)
 
-Wenn Sie in Java auf diese Sammlungen zugreifen, ist der Sammlungs‑Index nullbasiert: `get_Item(0)` ist der erste gespeicherte Stil und `get_Item(2)` der dritte. Die Stil‑Referenz‑Indizes einer Form sind ein separates Konzept, das über [IShapeStyle](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ishapestyle/) bereitgestellt wird. Das Ändern eines Themen‑Stils wirkt sich auf Formen aus, die diesen Stil referenzieren; Formen mit direkter Formatierung bleiben unverändert.
+Wenn Sie in Java auf diese Sammlungen zugreifen, ist der Sammlungs‑Index nullbasiert: `get_Item(0)` ist der erste gespeicherte Stil und `get_Item(2)` der dritte. Die Stil‑Referenz‑Indizes einer Form sind ein separates Konzept, das über [IShapeStyle](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ishapestyle/) bereitgestellt wird. Das Modifizieren eines Themen‑Stils wirkt sich auf alle Formen aus, die diesen Themen‑Stil referenzieren; Formen mit direkter Formatierung bleiben unverändert.
 
-Das folgende Beispiel prüft, ob die benötigten Stileinträge existieren, ändert den ersten Linien‑Stil, den dritten Füll‑Stil, aktiviert einen äußeren Schatten im dritten Effekt‑Stil und speichert das Ergebnis:
+Das folgende Beispiel prüft, ob die erforderlichen Stil‑Einträge existieren, ändert den ersten Linien‑Stil, den dritten Füll‑Stil, aktiviert einen äußeren Schatten im dritten Effekt‑Stil und speichert das Ergebnis:
 
 ```java
 import com.aspose.slides.*;
@@ -375,15 +370,15 @@ try {
 }
 ```
 
-Für Formen, die diese Slots referenzieren, wird der erste Themen‑Linienstil rot, der dritte Themen‑Füllstil zu einem durchgängigen Waldgrün und der dritte Effekt‑Stil erhält einen äußeren Schatten mit einem Abstand von 10 Punkten. Das genaue visuelle Ergebnis hängt weiterhin davon ab, welche Stil‑Slots jede Form referenziert und ob direkte Formatierung die Themen‑Stile überschreibt.
+Für Formen, die diese Plätze referenzieren, wird der erste Themen‑Linien‑Stil rot, der dritte Themen‑Füll‑Stil zu einem durchgängigen Waldgrün und der dritte Effekt‑Stil erhält einen äußeren Schatten mit einem Abstand von 10 Punkten. Das genaue visuelle Ergebnis hängt weiterhin davon ab, welche Stil‑Plätze jede Form referenziert und ob direkte Formatierung die Themen‑Stile überschreibt.
 
-![Themen‑Effekt‑Stile nach Änderungen an Linie, Füllung und Schatten‑Einstellungen](presentation-design_11.png)
+![Themen‑Effekt‑Stile nach Änderung von Linie, Füllung und Schatten‑Einstellungen](presentation-design_11.png)
 
-## **Effektive Themen‑Werte lesen**
+## **Wirksame Themen‑Werte auslesen**
 
-Roh‑Themen‑Objekte zeigen, was auf einer bestimmten Ebene definiert ist. Effektive Werte zeigen, was eine Folie oder Form tatsächlich nach Vererbung und lokalen Überschreibungen nutzt. Für eine Folie rufen Sie [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/baseoverridethememanager/) auf. Für einen Hintergrund verwenden Sie [Background.getEffective](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/background/), und für eine Füllung [FillFormat.getEffective](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/fillformat/).
+Roh‑Themen‑Objekte zeigen, was auf einer bestimmten Ebene definiert ist. Wirksame Werte zeigen, was eine Folie oder Form tatsächlich verwendet, nachdem Vererbung und lokale Überschreibungen aufgelöst wurden. Für eine Folie rufen Sie [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/baseoverridethememanager/) auf. Für einen Hintergrund nutzen Sie [Background.getEffective](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/background/), und für eine Füllung [FillFormat.getEffective](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/fillformat/).
 
-Das folgende Beispiel liest das effektive Thema, den Hintergrund und die erste Form‑Füllung einer Folie:
+Das folgende Beispiel liest das wirksame Thema, den Hintergrund und die erste Form‑Füllung einer Folie aus:
 
 ```java
 import com.aspose.slides.*;
@@ -410,7 +405,7 @@ try {
 }
 ```
 
-Verwenden Sie effektive Daten für Rendering‑Diagnosen, Validierung und Vergleiche. Wenn Sie nur [Presentation.getMasterTheme](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/presentation/) untersuchen, können Sie eine Master‑, Layout‑, Folien‑ oder Form‑Überschreibung übersehen, die das endgültige Erscheinungsbild verändert.
+Verwenden Sie wirksame Daten für Rendering‑Diagnosen, Validierung und Vergleiche. Wenn Sie nur [Presentation.getMasterTheme](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/presentation/) untersuchen, können Sie einen Master‑, Layout‑, Folien‑ oder Form‑Überschreibung übersehen, die das endgültige Aussehen ändert.
 
 ## **FAQ**
 
@@ -418,10 +413,10 @@ Verwenden Sie effektive Daten für Rendering‑Diagnosen, Validierung und Vergle
 
 Ja. Verwenden Sie den [SlideThemeManager](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/slidethememanager/) der Folie und initialisieren Sie dessen Überschreibungsthema. Die Änderung bleibt lokal für diese Folie; andere Folien erben weiterhin ihre bestehenden Themen.
 
-**Was ist der sicherste Weg, ein Thema von einer Präsentation zur anderen zu übertragen?**
+**Was ist der sicherste Weg, ein Thema von einer Präsentation in eine andere zu übertragen?**
 
-Wenn Sie eine Folie verschieben und ihr ursprüngliches Erscheinungsbild beibehalten möchten, klonen Sie den Quell‑Master in das Ziel und klonen Sie die Folie mit diesem Master mithilfe von [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/imasterslidecollection/) und [ISlideCollection.addClone](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/islidecollection/). Dadurch bleiben Master, Layouts und Thema zusammen.
+Wenn Sie eine Folie verschieben und ihr ursprüngliches Aussehen beibehalten wollen, klonen Sie den Quell‑Master in das Ziel und klonen Sie die Folie mit diesem Master mittels [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/imasterslidecollection/) und [ISlideCollection.addClone](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/islidecollection/). So bleiben Master, Layouts und Thema zusammen.
 
-**Wie kann ich die effektiven Werte nach Vererbung und Überschreibungen sehen?**
+**Wie kann ich die wirksamen Werte nach Vererbung und Überschreibungen sehen?**
 
-Verwenden Sie [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/baseoverridethememanager/) für ein Folien‑ oder Layout‑Thema und die entsprechenden effektiven‑Daten‑Methoden für Format‑Objekte wie [Background.getEffective](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/background/) und [FillFormat.getEffective](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/fillformat/). Diese APIs geben die aufgelösten Werte nach Anwendung von Vererbung und Überschreibungen zurück.
+Verwenden Sie [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/baseoverridethememanager/) für ein Folien‑ oder Layout‑Thema und die entsprechenden wirksamen‑Daten‑Methoden für Format‑Objekte wie [Background.getEffective](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/background/) und [FillFormat.getEffective](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/fillformat/). Diese APIs geben die aufgelösten Werte nach Anwendung von Vererbung und Überschreibungen zurück.

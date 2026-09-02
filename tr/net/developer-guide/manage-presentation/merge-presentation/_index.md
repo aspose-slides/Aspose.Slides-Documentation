@@ -1,57 +1,55 @@
 ---
-title: .NET'te Sunumları Verimli Şekilde Birleştirme
+title: .NET'te Sunumları Verimli Bir Şekilde Birleştirin
 linktitle: Sunumları Birleştir
 type: docs
 weight: 40
 url: /tr/net/merge-presentation/
 keywords:
-- PowerPoint birleştirme
-- sunumları birleştirme
-- slaytları birleştirme
-- PPT birleştirme
-- PPTX birleştirme
-- ODP birleştirme
-- PowerPoint birleştir
+- PowerPoint'i birleştir
 - sunumları birleştir
 - slaytları birleştir
-- PPT birleştir
-- PPTX birleştir
-- ODP birleştir
+- PPT'yi birleştir
+- PPTX'i birleştir
+- ODP'yi birleştir
+- PowerPoint'i birleştir
+- sunumları birleştir
+- slaytları birleştir
+- PPT'yi birleştir
+- PPTX'i birleştir
+- ODP'yi birleştir
 - .NET
 - C#
 - Aspose.Slides
-description: "PowerPoint ve OpenDocument sunumlarını .NET'te slaytları klonlayarak, master ve düzenleri kontrol ederek, slayt içeriğini yeniden boyutlandırarak, bölümleri koruyarak ve korumalı ya da büyük dosyalarla başa çıkarak nasıl birleştireceğinizi öğrenin."
+description: "Slaytları kopyalayarak, master ve layout'ları kontrol ederek, slayt içeriğini yeniden boyutlandırarak, bölümleri koruyarak ve korumalı ya da büyük dosyalarla başa çıkarak .NET'te PowerPoint ve OpenDocument sunumlarını nasıl birleştireceğinizi öğrenin."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides for .NET, slaytları bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/)’dan diğerine klonlayarak sunumları birleştirir. Ana işlem, kaynak slaydın biçimlendirmesini koruyabilen veya klonlanan slaytı hedef sunumdaki bir mastera veya düzene ekleyebilen [ISlideCollection.AddClone](https://reference.aspose.com/slides/tr/net/aspose.slides/islidecollection/addclone/) metodudur.
+Aspose.Slides for .NET, slaytları bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/)'dan diğerine çoğaltarak sunumları birleştirir. Ana işlem [ISlideCollection.AddClone](https://reference.aspose.com/slides/tr/net/aspose.slides/islidecollection/addclone/) dir; bu işlem kaynak slaytın biçimlendirmesini koruyabilir veya kopyalanan slaytı hedef sunumdaki bir master veya layoute ekleyebilir.
 
-Bu makale en yaygın birleştirme akışlarını kapsar:
+Bu makale en yaygın birleştirme iş akışlarını kapsar:
+- tüm slaytları kaynak biçimlendirmesini koruyarak birleştir;
+- seçili slaytları birleştir;
+- hedef sunumdan bir master uygula;
+- hedef sunumdan belirli bir layout uygula;
+- birleştirmeden önce farklı slayt boyutlarını normalleştir;
+- kopyalanan slaytları bir bölüme ekle;
+- birden fazla sunumu uçtan uca bir iş akışında birleştir;
+- master'ları, kaynakları, notları, yorumları, medyayı, yazı tiplerini, parolaları, büyük dosyaları ve çoklu iş parçacığı konularını ele al.
 
-- tüm slaytları kaynak biçimlendirmelerini koruyarak birleştirme;
-- seçili slaytları birleştirme;
-- hedef sunumun bir masterını uygulama;
-- hedef sunumun belirli bir düzenini uygulama;
-- birleştirmeden önce farklı slayt boyutlarını normalleştirme;
-- klonlanan slaytları bir bölüme ekleme;
-- birden fazla sunumu uçtan uca bir akışta birleştirme;
-- masterlar, kaynaklar, notlar, yorumlar, medya, yazı tipleri, parolalar, büyük dosyalar ve çoklu iş parçacığı konularını ele alma.
+## **Slayt Kopyalamanın Master ve Layout'ları Nasıl Etkilediği**
 
-## **Slayt Klonlamanın Masterlar ve Düzenler Üzerindeki Etkisi**
+Bir slayt, görünümünün büyük bir kısmını layout ve master'ından devralır. Bu nedenle, seçtiğiniz kopyalama aşırı yüklemesi, birleştirilen slaytın hedef sunuma nasıl entegre edileceğini belirler.
 
-Bir slayt görünümünün büyük bir kısmını düzeni ve masterı belirler. Bu nedenle, seçtiğiniz klonlama aşırı yüklemesi, birleştirilen slaydın hedef sunuma nasıl entegre edileceğini belirler.
+Bu yöntemlerden biriyle [ISlideCollection.AddClone](https://reference.aspose.com/slides/tr/net/aspose.slides/islidecollection/addclone/) kullanın:
+- `AddClone(sourceSlide)` — kaynak slaytın layout ve formatlamasını korur. Gerekirse, kaynak master otomatik olarak hedef sunuma kopyalanabilir. Aspose.Slides, otomatik kopyalanan master'ları izleyerek aynı kaynak master'ını kullanan tekrarlanan slaytların master'ı tekrar kopyalamasını önler.
+- `AddClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — kopyalanan slaytı belirli bir hedef [IMasterSlide](https://reference.aspose.com/slides/tr/net/aspose.slides/imasterslide/)'a ekler. Aspose.Slides, o master altında layout tipi ya da adıyla eşleşen bir layout arar.
+- `AddClone(sourceSlide, destinationLayout)` — kopyalanan slaytı doğrudan belirli bir hedef [ILayoutSlide](https://reference.aspose.com/slides/tr/net/aspose.slides/ilayoutslide/)'a ekler.
 
-[ISlideCollection.AddClone](https://reference.aspose.com/slides/tr/net/aspose.slides/islidecollection/addclone/) metodunu şu şekillerde kullanın:
-
-- `AddClone(sourceSlide)` — kaynak slaydın düzenini ve biçimlendirmesini korur. Gerekirse, kaynak master otomatik olarak hedef sunuma klonlanır. Aspose.Slides, aynı kaynak masterı kullanan yinelenen slaytların masterının tekrar tekrar klonlanmasını önlemek için otomatik klonlanan masterları izler.
-- `AddClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — klonlanan slaytı belirli bir hedef [IMasterSlide](https://reference.aspose.com/slides/tr/net/aspose.slides/imasterslide/) üzerine ekler. Aspose.Slides, bu master altında düzen tipine veya adına göre eşleşen bir düzen arar.
-- `AddClone(sourceSlide, destinationLayout)` — klonlanan slaytı doğrudan belirli bir hedef [ILayoutSlide](https://reference.aspose.com/slides/tr/net/aspose.slides/ilayoutslide/) üzerine ekler.
-
-`AddClone` aşırı yüklemesine geçirilen master veya düzen, **hedef** sunuma ait olmalı, kaynak sunuma ait olmamalıdır.
+Bir `AddClone` aşırı yüklemesine geçirilen master veya layout, **hedef** sunuma ait olmalı, kaynak sunuma ait olmamalıdır.
 
 ## **Tüm Sunumları Birleştir ve Kaynak Biçimlendirmesini Koru**
 
-En basit birleştirme, kaynak sunumdaki tüm slaytları hedef sunuma kopyalar. Bu, içe aktarılan slaydların orijinal temalarını, masterlarını ve düzen ilişkilerini koruması gerektiğinde uygun bir seçimdir.
+En basit birleştirme, kaynak sunumdaki her slaytı hedef sunuma kopyalar. Bu, içe aktarılan slaytların orijinal tema, master ve layout ilişkilerini koruması gerektiğinde uygun bir tercihtir.
 
 ```csharp
 using Aspose.Slides;
@@ -68,11 +66,11 @@ foreach (var slide in source.Slides)
 destination.Save("merged.pptx", SaveFormat.Pptx);
 ```
 
-Kaynak ve hedef farklı tasarımlar kullandığında ortaya çıkan sunum birden çok master içerebilir. Kaynak biçimlendirmesinin kasıtlı olarak korunması durumunda bu beklenen bir davranıştır.
+Kaynak ve hedef farklı tasarımlar kullandığında, ortaya çıkan sunum birden fazla master içerebilir. Bu, kaynak biçimlendirmesinin kasıtlı olarak korunması durumunda beklenen bir durumdur.
 
 ## **Seçili Slaytları Birleştir**
 
-Her slaytı klonlamak zorunda değilsiniz. Aşağıdaki örnek, kaynak sunumdan yalnızca seçili slayt dizinlerini içe aktarır.
+Her slaytı kopyalamanız gerekmiyor. Aşağıdaki örnek, kaynak sunumdan yalnızca seçili slayt indekslerini içe aktarır.
 
 ```csharp
 using Aspose.Slides;
@@ -91,11 +89,11 @@ foreach (var index in slideIndexes)
 destination.Save("merged-selected-slides.pptx", SaveFormat.Pptx);
 ```
 
-Kullanıcı girişi veya dış yapılandırmadan gelen dizinler klonlanmadan önce doğrulanmalıdır.
+Kullanıcı girişi veya harici yapılandırmadan gelen slayt indekslerini kopyalamadan önce doğrulayın.
 
 ## **Hedef Master Kullanarak Slaytları Birleştir**
 
-İçe aktarılan slaydların zaten hedef sunuma ait bir masterı izlemesi gerektiğinde [AddClone(ISlide, IMasterSlide, Boolean)](https://reference.aspose.com/slides/tr/net/aspose.slides/islidecollection/addclone/) aşırı yüklemesini kullanın.
+İçe aktarılan slaytların zaten hedef sunuma ait bir master'ı takip etmesi gerektiğinde, [AddClone(ISlide, IMasterSlide, Boolean)](https://reference.aspose.com/slides/tr/net/aspose.slides/islidecollection/addclone/) aşırı yüklemesini kullanın.
 
 ```csharp
 using Aspose.Slides;
@@ -114,13 +112,13 @@ foreach (var slide in source.Slides)
 destination.Save("merged-with-destination-master.pptx", SaveFormat.Pptx);
 ```
 
-Aspose.Slides, kaynak düzenin tipine veya adına göre belirtilen master altında uygun bir düzen seçer. Uygun bir düzen bulunmazsa ve `allowCloneMissingLayout` **true** ise kaynak düzen klonlanır ve slayt eklenebilir. **false** ise bir [PptxEditException](https://reference.aspose.com/slides/tr/net/aspose.slides/pptxeditexception/) atılır.
+Aspose.Slides, belirtilen master altında kaynak layout'un tipini veya adını eşleştirerek uygun bir layout seçer. Uygun bir layout bulunmazsa ve `allowCloneMissingLayout` `true` ise, kaynak layout kopyalanarak slayt eklenebilir. `false` ise bir [PptxEditException](https://reference.aspose.com/slides/tr/net/aspose.slides/pptxeditexception/) fırlatılır.
 
-Birleştirmenin başarısız olmasını ve hedef mastera ek bir düzen eklenmemesini istiyorsanız **false** kullanın.
+Birleştirmenin başarısız olmasını ve hedef master'a ek bir layout eklenmesini istemediğinizde `false` kullanın.
 
-## **Belirli Bir Hedef Düzeni Kullanarak Slaytları Birleştir**
+## **Belirli Bir Hedef Layout Kullanarak Slaytları Birleştir**
 
-İçe aktarılan slaydların kesin olarak hangi hedef düzeni kullanması gerektiğini bildiğinizde [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/tr/net/aspose.slides/islidecollection/addclone/) aşırı yüklemesini kullanın.
+İçe aktarılan slaytların hangi hedef layout'u kullanacağını kesin olarak bildiğinizde, [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/tr/net/aspose.slides/islidecollection/addclone/) aşırı yüklemesini kullanın.
 
 ```csharp
 using Aspose.Slides;
@@ -139,13 +137,13 @@ foreach (var slide in source.Slides)
 destination.Save("merged-with-destination-layout.pptx", SaveFormat.Pptx);
 ```
 
-Hedef düzenin uygulanması, kalıtlama düzen ilişkisini değiştirir; kaynak slayt içeriğini yeniden tasarlamaz. Kaynak ve hedef düzenlerin yer tutucu yapıları farklıysa, kalıtlama biçimlendirme ve yer tutucu davranışının uygun olduğunu doğrulamak için sonucu inceleyin.
+Bir hedef layout uygulamak, devralınan layout ilişkisini değiştirir; kaynak slayt içeriğini yeniden tasarlamaz. Kaynak ve hedef layout'ların farklı placeholder yapılarına sahip olması durumunda, devralınan biçimlendirme ve placeholder davranışının uygun olduğunu doğrulamak için sonucu inceleyin.
 
 ## **Farklı Slayt Boyutlarına Sahip Sunumları Birleştir**
 
-Farklı slayt boyutlarına sahip sunumlar birleştirilebilir, ancak bir slaytı başka bir slayt boyutuna sahip bir sunuma klonlamak, içeriği yeni kanvas için otomatik olarak yeniden tasarlamaz. Bu nedenle şekiller kaymış, beklenmedik şekilde ölçeklenmiş veya görünür slayt alanının dışına taşmış görünebilir.
+Farklı slayt boyutlarına sahip sunumlar birleştirilebilir, ancak bir slaytı farklı bir slayt boyutuna sahip bir sunuya kopyalamak, içeriği yeni tuval için otomatik olarak yeniden tasarlamaz. Bu nedenle şekiller kaymış, beklenmedik şekilde ölçeklenmiş veya görünür slayt alanı dışına çıkmış görünebilir.
 
-Pratik bir yaklaşım, klonlamadan önce kaynak sunumu yeniden boyutlandırmaktır. [SlideSize.SetSize](https://reference.aspose.com/slides/tr/net/aspose.slides/slidesize/setsize/) yöntemi, slayt boyutlarını değiştirirken mevcut içeriği ölçeklendirebilir. [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/tr/net/aspose.slides/slidesizescaletype/) içerikleri isteğe bağlı boyuta sığacak şekilde ölçeklendirir.
+Pratik bir yaklaşım, kopyalamadan önce kaynak sunumun boyutunu yeniden ayarlamaktır. [SlideSize.SetSize](https://reference.aspose.com/slides/tr/net/aspose.slides/slidesize/setsize/) yöntemi, slayt boyutlarını değiştirirken mevcut içeriği ölçeklendirebilir. [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/tr/net/aspose.slides/slidesizescaletype/) ise içeriği istenen boyuta sığacak şekilde ölçeklendirir.
 
 ```csharp
 using Aspose.Slides;
@@ -171,11 +169,11 @@ foreach (var slide in source.Slides)
 destination.Save("merged-same-slide-size.pptx", SaveFormat.Pptx);
 ```
 
-Yeniden boyutlandırma, kaynak sunum nesnesini bellekte değiştirir. Orijinal kaynak sunumun başka işlemler için değişmeden kalması gerekiyorsa, birleştirme sırasında ayrı bir örnek açın.
+Yeniden boyutlandırma, kaynak sunum nesnesini bellek içinde değiştirir. Diğer işlemler için orijinal kaynak sunumun değiştirilmemiş olmasına ihtiyaç duyuyorsanız, birleştirme için ayrı bir örnek açın.
 
 ## **Slaytları Bir Sunum Bölümüne Birleştir**
 
-Temel slayt klonlama döngüsü, kaynak sunumun bölüm hiyerarşisini yeniden oluşturmaz. Çıktıda bölümler önemliyse, hedef sunumda bölümler oluşturun veya seçin ve slaytları açıkça [AddClone(ISlide, ISection)](https://reference.aspose.com/slides/tr/net/aspose.slides/islidecollection/addclone/) ile bölümlere klonlayın.
+Temel slayt kopyalama döngüsü, kaynak sunumun bölüm hiyerarşisini yeniden oluşturmaz. Çıktıda bölümler önemliyse, hedef sunumda bölümler oluşturun veya seçin ve slaytları açıkça [AddClone(ISlide, ISection)](https://reference.aspose.com/slides/tr/net/aspose.slides/islidecollection/addclone/) kullanarak kopyalayın.
 
 ```csharp
 using Aspose.Slides;
@@ -194,11 +192,11 @@ foreach (var slide in source.Slides)
 destination.Save("merged-with-section.pptx", SaveFormat.Pptx);
 ```
 
-Klonlanan slaytlar belirtilen hedef bölüme eklenir. Birkaç kaynak bölümü korumak istiyorsanız, bu bölümleri hedefte yeniden oluşturun ve her kaynak slaytı ilgili hedef bölümüne eşleyin.
+Kopyalanan slaytlar belirtilen hedef bölüme eklenir. Birden fazla kaynak bölümünü korumak için [Presentation.Sections](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/sections/) 'ı dolaşın, her kaynak bölümünün mevcut slaytlarını [ISection.GetSlidesListOfSection](https://reference.aspose.com/slides/tr/net/aspose.slides/isection/getslideslistofsection/) ile alın, bölümleri hedefte yeniden oluşturun ve dönen her slaytı ilgili hedef bölümüne kopyalayın. Boş bölümler ve yapısal değişiklikleri içeren tam bir bölüm enumerasyon örneği için [Manage Slide Sections](/slides/tr/net/slide-section/) sayfasına bakın.
 
-## **Birden Fazla Sunumu Güvenli Bir Şekilde Birleştir**
+## **Birden Çok Sunumu Güvenli Bir Şekilde Birleştir**
 
-Aşağıdaki uçtan uca örnek, ilk sunumu hedef olarak kullanır, ek her bir kaynak için slayt boyutunu normalleştirir, her kaynağı yalnızca kopyalanırken açık tutar ve sonunda tek bir dosya olarak kaydeder.
+Aşağıdaki uçtan uca örnek, ilk sunumu hedef olarak kullanır, ek her kaynak için slayt boyutunu normalleştirir, her kaynağı yalnızca kopyalanırken açık tutar ve sonunda dosyayı bir kez kaydeder.
 
 ```csharp
 using Aspose.Slides;
@@ -230,39 +228,39 @@ for (var fileIndex = 1; fileIndex < inputFiles.Length; fileIndex++)
 merged.Save("merged.pptx", SaveFormat.Pptx);
 ```
 
-Bu, içe aktarılan slaytların kaynak biçimlendirmesini korumak için faydalı bir temel sunar. Çıktınız tek bir hedef teması kullanmalıysa, basit `AddClone(slide)` çağrısını daha önce gösterilen uygun hedef‑master veya hedef‑düzen aşırı yüklemesiyle değiştirin.
+Bu, içe aktarılan slaytların kaynak biçimlendirmesini korumak için yararlı bir temel oluşturur. Çıktınızın tek bir hedef tema kullanması gerekiyorsa, basit `AddClone(slide)` çağrısını önceki örneklerde gösterilen uygun hedef-master veya hedef-layout aşırı yüklemesiyle değiştirin.
 
-## **Pratik Hususlar**
+## **Pratik Düşünceler**
 
-### **Masterlar, Düzenler ve Biçim Korunumu**
+### **Master'lar, Layout'lar ve Biçimlendirme Doğruluğu**
 
-Varsayılan slayt klonlaması, gereken bir kaynak masterını otomatik olarak hedef sunuma getirebilir. Aspose.Slides, aynı masterın tekrar tekrar klonlanmasını önlemek için otomatik klonlanan masterları içsel bir kayıt defterinde tutar. Manuel olarak klonlanan masterlar bu kayıt defterinde izlenmez; bu nedenle, master yapısı üzerinde açık kontrol gerekmiyorsa önceden klonlamaktan kaçının.
+Varsayılan slayt kopyalama, gerekli bir kaynak master'ı otomatik olarak hedef sunuma getirebilir. Aspose.Slides, aynı master'ın tekrar tekrar kopyalanmasını önlemek için otomatik kopyalanan master'ları içeren bir dahili kayıt tutar. Elle kopyalanan master'lar bu kayıt tarafından izlenmez; bu nedenle master yapısı üzerinde açık kontrol gerekmiyorsa master'ları önceden kopyalamaktan kaçının.
 
-Aynı ada sahip iki masterın veya düzenin görsel olarak eşdeğer olduğunu varsaymayın. Kurumsal bir şablon nihai görünüme hükmediyorsa, hedef masterı veya düzeni açıkça seçin ve birleştirme sonrası sonucu doğrulayın.
+Aynı ada sahip iki master veya layout'un görsel olarak eşdeğer olduğunu varsaymayın. Kurumsal bir şablon son görünümü kontrol etmeliyse, hedef master veya layout'u açıkça seçin ve birleştirmeden sonra sonucu doğrulayın.
 
 ### **Notlar ve Yorumlar**
 
-Sunucu notları ve slayt yorumları slayt içeriğiyle ilişkilidir ve bir slayt klonlandığında kopyalanır. Aspose.Slides ayrıca [presentation notes](https://docs.aspose.com/slides/tr/net/presentation-notes/) ve [presentation comments](https://docs.aspose.com/slides/tr/net/presentation-comments/) için özel API’ler sunar.
+Sunucu notları ve slayt yorumları slayt içeriğiyle ilişkilidir ve bir slayt kopyalandığında kopyalanır. Aspose.Slides ayrıca [presentation notes](/slides/tr/net/presentation-notes/) ve [presentation comments](/slides/tr/net/presentation-comments/) için özel API'lar sunar.
 
-Not‑sayfası biçimlendirmesi önemliyse, birleştirilmiş sunumu doğrulayın; çünkü not masterları sunum‑seviyesi nesnelerdir ve kaynak dosyalar arasında farklılık gösterebilir. İnceleme süreçlerinde, farklı yazarların veya şablonların birleşiminden sonra yorum yazarlarını ve zincirleme yorumları da kontrol edin.
+Not sayfası biçimlendirmesi önemliyse, not master'ları sunum seviyesinde nesneler olduğundan ve kaynak dosyalar arasında farklılık gösterebileceğinden birleştirilmiş sunumu doğrulayın. İnceleme iş akışları için, farklı yazarlar veya şablonlardan gelen dosyaları birleştirdikten sonra yorum yazarlarını ve zincirli yorumları da doğrulayın.
 
 ### **Görseller, Ses, Video, OLE Nesneleri ve Harici Bağlantılar**
 
-Slaytlar, sunum‑seviyesi kaynaklar (görseller, gömülü ses, gömülü video, OLE verileri) referans gösterebilir. Sadece görünen şekilleri kopyalamak yerine slaytı tamamen klonlayın; böylece Aspose.Slides, slaydın bu kaynaklarla ilişkisini korur.
+Slaytlar, görseller, gömülü ses, gömülü video ve OLE verileri gibi sunum seviyesindeki kaynaklara referans verebilir. Aspose.Slides'in slaytın kaynaklarla ilişkisini koruyabilmesi için yalnızca görünür şekilleri kopyalamak yerine slaytı tamamen kopyalayın.
 
-Gömülü ve bağlanmış kaynaklar farklı şekilde ele alınmalıdır. Bağlı bir ses, video, OLE nesnesi veya köprü, dış hedefine bağımlı kalır; slaytı klonlamak dış bir bağlantıyı gömülü içeriğe dönüştürmez. Bağlantılı kaynak yollarını ve URL’leri, birleştirilmiş sunumun açılacağı ortamda test edin.
+Gömülü ve bağlanmış kaynaklar farklı muamele görmelidir. Bağlı bir ses, video, OLE nesnesi veya hiperlink dış hedefine bağımlı kalır; bir slaytı kopyalamak harici bir bağlantıyı gömülü içeriğe dönüştürmez. Bağlantılı kaynak yollarını ve URL'leri birleştirilmiş sunumun açılacağı ortamda test edin.
 
-Aspose.Slides otomatik klonlanan masterları izlese de, bu durum, ilişkisiz kaynak sunumlardan gelen aynı ikili kaynakların her zaman tekilleştirileceği anlamına gelmez. Çıktı dosya boyutu önemliyse, birleştirilmiş paketi inceleyin ve sonucu ölçün; örtük tekilleştirmeye güvenmeyin.
+Aspose.Slides otomatik kopyalanan master'ları açıkça izler, ancak bu, ilişkili olmayan kaynak sunumlardan gelen aynı ikili kaynakların her zaman tekilleştirileceği anlamına gelmez. Çıktı dosya boyutu önemliyse, örtülü tekilleştirmeye güvenmek yerine birleştirilmiş paketi inceleyin ve sonucu ölçün.
 
 ### **Gömülü Yazı Tipleri ve Yazı Tipi Kullanılabilirliği**
 
-Yazı tipleri sunum düzeyinde yönetilir. Tipografi makineler arasında tutarlı kalmalıysa, yalnızca slayt klonlamanın her gerekli yazı tipinin hedef ortamda mevcut olacağını varsaymayın. Gömülü yazı tiplerini [FontsManager.GetEmbeddedFonts](https://reference.aspose.com/slides/tr/net/aspose.slides/fontsmanager/getembeddedfonts/) ile inceleyebilir ve [Embed Fonts in Presentations](https://docs.aspose.com/slides/tr/net/embedded-font/)’ta açıklandığı gibi açıkça yönetebilirsiniz.
+Yazı tipleri sunum seviyesinde yönetilir. Tipografinin makineler arasında tutarlı kalması gerekiyorsa, yalnızca slayt kopyalamanın hedef ortamda gerekli tüm yazı tiplerinin bulunacağını varsaymayın. Gömülü yazı tiplerini [FontsManager.GetEmbeddedFonts](https://reference.aspose.com/slides/tr/net/aspose.slides/fontsmanager/getembeddedfonts/) ile inceleyebilir ve [Embed Fonts in Presentations](/slides/tr/net/embedded-font/) bölümünde açıklandığı gibi gömme işlemini açıkça yönetebilirsiniz.
 
-Ayrıca, kaynak dosyalarda kullanılan yazı tiplerini gömmeye izin verilip verilmediğini doğrulayın. Yazı tipi lisansları gömme işlemini kısıtlayabilir.
+Ayrıca kaynak dosyalarda kullanılan yazı tiplerini gömmeye izin verilip verilmediğini doğrulayın. Yazı tipi lisansları gömmeyi sınırlayabilir.
 
-### **Parola Koruması Altındaki Sunumlar**
+### **Parola Koruması Olan Sunumlar**
 
-Parola korumalı bir kaynağın slaytları klonlanmadan önce başarıyla açılmalıdır. Parolayı [LoadOptions.Password](https://reference.aspose.com/slides/tr/net/aspose.slides/loadoptions/password/) aracılığıyla sağlayın.
+Parola korumalı bir kaynak, slaytları kopyalanmadan önce başarılı bir şekilde açılmalıdır. Parolayı [LoadOptions.Password](https://reference.aspose.com/slides/tr/net/aspose.slides/loadoptions/password/) aracılığıyla sağlayın.
 
 ```csharp
 using Aspose.Slides;
@@ -272,64 +270,64 @@ var loadOptions = new LoadOptions { Password = "YOUR_PASSWORD" };
 using var source = new Presentation("protected.pptx", loadOptions);
 ```
 
-Şifrelenmiş bir kaynağın açılması, aynı korumanın otomatik olarak hedef sunuma uygulanacağı anlamına gelmez. Gerektiğinde çıkış korumasını ayrı olarak yapılandırın.
+Şifrelenmiş bir kaynağın açılması, aynı korumayı hedef sunuma otomatik olarak uygulamaz. Gerekli olduğunda çıktı korumasını ayrı olarak yapılandırın.
 
 ### **Büyük Sunumlar ve Bellek Kullanımı**
 
-Yüksek çözünürlüklü görseller, ses, video veya diğer büyük ikili nesneler içeren büyük sunumlar önemli miktarda bellek tüketebilir. [LoadOptions.BlobManagementOptions](https://reference.aspose.com/slides/tr/net/aspose.slides/loadoptions/blobmanagementoptions/) BLOB yönetimi ve geçici dosya kullanımını kontrol eder. Büyük dosya stratejileri için [Manage Presentation BLOBs](https://docs.aspose.com/slides/tr/net/manage-blob/) sayfasına bakın.
+Yüksek çözünürlüklü görseller, ses, video veya diğer büyük ikili nesneler içeren büyük sunumlar önemli miktarda bellek tüketebilir. [LoadOptions.BlobManagementOptions](https://reference.aspose.com/slides/tr/net/aspose.slides/loadoptions/blobmanagementoptions/) BLOB yönetimi ve geçici dosya kullanımına yönelik kontroller sağlar. Büyük dosya stratejileri için [Manage Presentation BLOBs](/slides/tr/net/manage-blob/) sayfasına bakın.
 
-Büyük dosyalar için mümkün olduğunca dosya yollarından yüklemeyi tercih edin, bir kaynak sunumu birleştirildikten hemen sonra serbest bırakın ve iş akışı ara kaydetme gerektirmiyorsa ara sonuçları tekrar tekrar kaydetmekten kaçının.
+Büyük dosyalar için mümkün olduğunda dosya yollarından yüklemeyi tercih edin, bir kaynak sunumu birleştirildiği anda serbest bırakın ve iş akışı kontrol noktaları gerektirmediği sürece ara sonuçları tekrarlı olarak kaydetmekten kaçının.
 
 ### **İş Parçacığı Güvenliği**
 
-Aynı [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) örneğini birden fazla iş parçacığından aynı anda yüklemeyin, değiştirmeyin, kaydetmeyin veya klonlamayın. Her sunum örneğini tek bir birleştirme işlemiyle sınırlı tutun. Bağımsız işleri paralelleştiriyorsanız, bağımsız sunum örnekleri kullanın ve [Aspose.Slides multithreading guidance](https://docs.aspose.com/slides/tr/net/multithreading/) izleyin.
+Aynı [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) örneğini birden çok iş parçacığından aynı anda yüklemeyin, değiştirmeyin, kaydetmeyin veya kopyalamayın. Her sunum örneğini tek bir birleştirme işlemiyle sınırlı tutun. Bağımsız işleri paralelleştiriyorsanız, bağımsız sunum örnekleri kullanın ve [Aspose.Slides multithreading guidance](/slides/tr/net/multithreading/) yönergelerini izleyin.
 
-## **SSS**
+## **FAQ**
 
-**Her kaynak sunumun orijinal tasarımını nasıl korurum?**
+**Kaynak sunumların orijinal tasarımını nasıl korurum?**
 
-Hedef master veya düzen belirtmeden `AddClone(sourceSlide)` kullanın. Aspose.Slides, içe aktarılan slayt için gerekli olduğunda kaynak masterı otomatik olarak klonlayabilir.
+[AddClone](https://reference.aspose.com/slides/tr/net/aspose.slides/islidecollection/addclone/)'i hedef master veya layout sağlamadan kullanın. Aspose.Slides, içe aktarılan slayt tarafından gerektiğinde kaynak master'ı otomatik olarak kopyalayabilir.
 
-**İçe aktarılan slaydların hedef temayı kullanmasını nasıl sağlarım?**
+**İçe aktarılan slaytların hedef temayı kullanmasını nasıl sağlarım?**
 
-Hedef master kabul eden aşırı yüklemeyi kullanın. Masterı kaynak sunumdan değil, hedef sunumdan alın. Aspose.Slides, her kaynak slaytı o master altındaki uygun bir düzene eşlemeye çalışır.
+Hedef master kabul eden aşırı yüklemeyi kullanın. Kaynak değil, hedef sunumdan bir master gönderin. Aspose.Slides, her kaynak slaytı o master altında uygun bir layout'a eşlemeye çalışacaktır.
 
-**Ne zaman belirli bir hedef düzeni, hedef master yerine tercih etmeliyim?**
+**Bir hedef master yerine belirli bir hedef layout ne zaman kullanılmalı?**
 
-Her içe aktarılan slaydın bilinen tek bir düzen kullanması gerektiğinde belirli bir düzen kullanın. Slave slaytların kaynak düzen tipi veya adına göre master altındaki düzenler arasından seçim yapmasını isterseniz master kullanın.
+Her içe aktarılan slaytın bilinen bir layout kullanması gerektiğinde belirli bir layout kullanın. Kaynak layout tipi veya adına göre Aspose.Slides'in master'ın layout'ları arasından seçim yapmasını istediğinizde master kullanın.
 
 **Farklı slayt boyutlarına sahip sunumlar birleştirilebilir mi?**
 
-Evet, ancak slayt içeriği hedef boyutlar için otomatik olarak yeniden tasarlanmaz. Öngörülebilir konumlandırma için önce kaynak sunumu, örneğin [SlideSize.SetSize](https://reference.aspose.com/slides/tr/net/aspose.slides/slidesize/setsize/) ve [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/tr/net/aspose.slides/slidesizescaletype/) ile yeniden boyutlandırın.
+Evet, ancak slayt içeriği hedef boyutlar için otomatik olarak yeniden tasarlanmamaktadır. Öngörülebilir yerleşim gerektiğinde, önce kaynak sunumu yeniden boyutlandırın; örneğin [SlideSize.SetSize](https://reference.aspose.com/slides/tr/net/aspose.slides/slidesize/setsize/) ve [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/tr/net/aspose.slides/slidesizescaletype/) ile.
 
 **PPT, PPTX ve ODP sunumlarını tek bir dosyada birleştirebilir miyim?**
 
-Evet. Her kaynak sunumu yükleyin, gerekli slaytları tek bir hedefe klonlayın ve hedefi desteklenen bir çıktı biçiminde kaydedin. Sunum biçimleri aynı özellik setini tam olarak desteklemediği için, çapraz‑biçim birleştirmelerden sonra karmaşık içeriği doğrulayın. [Supported File Formats](https://docs.aspose.com/slides/tr/net/supported-file-formats/) sayfasına bakın.
+Evet. Her kaynak sunumu yükleyin, gereken slaytları tek bir hedefe kopyalayın ve hedefi desteklenen bir çıktı formatında kaydedin. Sunum formatları aynı özellik setini tam olarak desteklemediği için, çapraz format birleştirmelerinden sonra karmaşık içeriği doğrulayın. [Supported File Formats](/slides/tr/net/supported-file-formats/) sayfasına bakın.
 
 **Kaynak bölümler otomatik olarak korunur mu?**
 
-Yalnızca slaytları klonlayan temel bir döngü bölümleri korumaz. Gerekli bölümleri hedefte yeniden oluşturun ve bölüm yapısının korunması gerektiğinde [AddClone](https://reference.aspose.com/slides/tr/net/aspose.slides/islidecollection/addclone/) bölüm aşırı yüklemesini kullanın.
+Yalnızca slaytları kopyalayan temel bir döngüyle korunmaz. Gerekli bölümleri hedefte yeniden oluşturun ve bölüm yapısı korunmalıysa [AddClone](https://reference.aspose.com/slides/tr/net/aspose.slides/islidecollection/addclone/)'in bölüm aşırı yüklemesini kullanın.
 
-**Konuşmacı notları ve yorumlar korunur mu?**
+**Sunucu notları ve yorumlar korunur mu?**
 
-Klonlanan slaytla birlikte kopyalanırlar. Not‑master stili, yorum yazarları veya zincirleme inceleme verileri gibi yapılar sunum‑seviyesinde olduğu için, birleşik sonucu doğrulamak önemlidir.
+Kopyalanan slaytla birlikte kopyalanırlar. Not-master stiline, yorum yazarlarına veya zincirli inceleme verilerine bağlı iş akışları için, bu senaryolar sunum seviyesindeki yapıların ve slayt seviyesindeki içeriğin birleşimini içerdiğinden birleştirilmiş sonucu doğrulayın.
 
-**Ses, video, OLE nesneleri ve köprüler ne olur?**
+**Ses, video, OLE nesneleri ve hiperlink'lerle ne olur?**
 
-Gömülü içerik, klonlanan slaydın kaynak ilişkileriyle birlikte taşınır. Dış bağlantılar dışda kalır; bu nedenle hedefte yine erişilebilir olmaları gerekir.
+Gömülü içerik, kopyalanan slaytın kaynak ilişkilerinin bir parçası olarak taşınır. Harici bağlantılar dışarıda kalır; bu nedenle birleştirmeden sonra hedef dosya veya URL'lerin hâlâ erişilebilir olması gerekir.
 
-**Her kaynaktan gelen gömülü yazı tipleri birleşik sunumda mevcut olur mu?**
+**Her kaynaktan gelen gömülü yazı tiplerinin birleştirilmiş sunumda bulunacağı garanti edilir mi?**
 
-Sadece slayt klonlamasına güvenerek yazı tiplerinin dağıtılmasını varsaymayın. Hedefteki gömülü yazı tiplerini inceleyin ve tipografi önemliyse yazı tipi gömme veya dış yazı tipi kullanılabilirliğini açıkça yönetin.
+Yazı tipi dağıtımı için yalnızca slayt kopyalamaya güvenmeyin. Tipografi önemliyse, hedefteki gömülü yazı tiplerini inceleyin ve yazı tipi gömmeyi veya dış yazı tipi kullanılabilirliğini açıkça yönetin.
 
 **Parola korumalı bir dosyayı nasıl birleştiririm?**
 
-Doğru [LoadOptions.Password](https://reference.aspose.com/slides/tr/net/aspose.slides/loadoptions/password/) ile açın, ardından slaytlarını normal şekilde klonlayın. Çıktı koruması ayrı olarak yapılandırılır.
+Doğru [LoadOptions.Password](https://reference.aspose.com/slides/tr/net/aspose.slides/loadoptions/password/) ile açın, ardından slaytlarını normal şekilde kopyalayın. Çıktı koruması ayrı olarak yapılandırılır.
 
-**Çok büyük sunumları nasıl yönetirim?**
+**Çok büyük sunumları nasıl yönetmeliyim?**
 
-Büyük ikili nesneler belleği domine ettiğinde BLOB yönetimini kullanın, çok büyük dosyalar için dosya‑yolu yüklemeyi tercih edin, kaynak sunumları hızlıca serbest bırakın ve yalnızca gerektiğinde nihai sonucu kaydedin.
+Büyük ikili nesneler bellek kullanımını domine ettiğinde BLOB yönetimini kullanın, çok büyük dosyalar için dosya yolu üzerinden yüklemeyi tercih edin, kaynak sunumları hemen serbest bırakın ve yalnızca gerektiğinde son sonucu kaydedin.
 
-**Slaytları birden çok iş parçacığından birleştirebilir miyim?**
+**Birden çok iş parçacığından slaytları birleştirebilir miyim?**
 
-Aynı [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) örneğini birden çok iş parçacığından aynı anda kullanmayın. Her birleştirme işlemini kendi sunum örnekleriyle izole tutun.
+Aynı [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) örneğini birden çok iş parçacığından aynı anda kullanmayın. Her bir birleştirme işlemini kendi sunum örnekleriyle izole tutun.

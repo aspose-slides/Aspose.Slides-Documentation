@@ -12,8 +12,8 @@ keywords:
 - 變更主題
 - 管理主題
 - 主題顏色
-- 附加調色盤
-- 主題字型
+- 額外調色盤
+- 主題字體
 - 主題樣式
 - 主題效果
 - PowerPoint
@@ -21,23 +21,23 @@ keywords:
 - 簡報
 - C++
 - Aspose.Slides
-description: "在 Aspose.Slides for C++ 中管理簡報主題，以建立、客製化與轉換具一致品牌形象的 PowerPoint 檔案。"
+description: "使用 Aspose.Slides for C++ 來管理簡報主題，以建立、客製化和轉換具有一致品牌形象的 PowerPoint 檔案。"
 ---
 ## **簡介**
 
-簡報主題定義了一組協調的顏色、字型、背景樣式、填充、線條和效果。支援主題的物件會參考這些共享定義，而不是將每個視覺屬性儲存為固定值，因而在變更主題時可以一次更新多個物件。
+簡報主題定義了一組協調的顏色、字體、背景樣式、填色、線條與效果。具備主題感知的物件會參照這些共享定義，而不是將每個視覺屬性儲存為固定值，因此變更主題即可一次更新多個物件。
 
-在 Aspose.Slides 中，簡報層級的主題可透過[Presentation::get_MasterTheme()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/get_mastertheme/)取得。簡報也可以在較低層級包含主題覆寫。母片可透過[MasterThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.theme/masterthememanager/get_overridetheme/)覆寫簡報主題，而版面配置或單一投影片可使用[IOverrideThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.theme/ioverridethememanager/get_overridetheme/)。實務上，投影片的實際主題是透過以下繼承鏈解析得到：簡報主題、母片覆寫、版面配置覆寫，以及投影片覆寫。
+在 Aspose.Slides 中，簡報層級的主題可透過 [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/get_mastertheme/) 取得。簡報也可以在較低層級包含主題覆寫。母片可透過 [MasterThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.theme/masterthememanager/get_overridetheme/) 覆寫簡報主題，而版面配置或個別投影片則可使用 [IOverrideThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.theme/ioverridethememanager/get_overridetheme/)。實務上，投影片的有效主題是透過以下繼承鏈解析：簡報主題 → 母片覆寫 → 版面配置覆寫 → 投影片覆寫。
 
-![主題組件：顏色、字型、背景樣式與效果](theme-constituents.png)
+![主題組成：顏色、字體、背景樣式與效果](theme-constituents.png)
 
-以下各節說明最常見的主題工作流程：檢查主題、變更顏色與字型、複製或套用主題、更新背景與效果樣式，以及在繼承與覆寫解析後讀取實際值。
+下列章節說明最常見的主題工作流程：檢查主題、變更顏色與字體、複製或套用主題、更新背景與效果樣式，並在繼承與覆寫解析後讀取有效值。
 
 ## **檢查主題**
 
-[MasterTheme](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.theme/mastertheme/) 物件會公開主題的[get_ColorScheme()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.theme/mastertheme/get_colorscheme/)、[get_FontScheme()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.theme/mastertheme/get_fontscheme/) 與[get_FormatScheme()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.theme/mastertheme/get_formatscheme/) 方法。在變更之前檢查這些集合特別有用，因為來自外部來源的簡報其樣式條目數量與內容可能不同。
+[MasterTheme](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.theme/mastertheme/) 物件會公開主題的 [get_ColorScheme()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.theme/mastertheme/get_colorscheme/)、[get_FontScheme()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.theme/mastertheme/get_fontscheme/) 與 [get_FormatScheme()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.theme/mastertheme/get_formatscheme/) 方法。在變更前先檢查這些集合特別有用，因為外部來源的簡報可能在樣式項目的數量與內容上有所不同。
 
-以下範例讀取主要主題屬性，並回報主題中儲存了多少背景、填充、線條與效果樣式：
+以下範例讀取主要主題屬性，並回報主題中儲存了多少個背景、填色、線條與效果樣式：
 
 ```cpp
 #include <DOM/IColorFormat.h>
@@ -69,13 +69,13 @@ Console::WriteLine(u"Line styles: {0}", formatScheme->get_LineStyles()->get_Coun
 Console::WriteLine(u"Effect styles: {0}", formatScheme->get_EffectStyles()->get_Count());
 ```
 
-如果檔案使用多個母片，請勿假設每張投影片都有相同的實際主題。檢查與投影片相關的母片，並在可能存在版面配置或投影片覆寫時使用本文後面示範的實際主題工作流程。
+如果檔案使用了多個母片，切勿假設每張投影片都有相同的有效主題。請檢查與投影片關聯的母片，並在版面配置或投影片可能有覆寫時，使用本文稍後說明的有效主題工作流程。
 
 ## **變更主題顏色**
 
-支援主題的填充、線條和文字可以參考[SchemeColor](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/schemecolor/) 列舉中的邏輯顏色。當您在主題的[IColorScheme](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.theme/icolorscheme/) 中變更對應的條目時，仍參考該主題顏色的所有物件都會解析為新值。使用直接 RGB 顏色的物件不會受到主題顏色更新的影響。
+具備主題感知的填色、線條與文字可以參照 [SchemeColor](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/schemecolor/) 列舉中的邏輯顏色。當您在主題的 [IColorScheme](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.theme/icolorscheme/) 中變更相對應的項目時，所有仍參照該主題顏色的物件都會以新值重新解析。直接使用 RGB 顏色的物件不會因主題顏色更新而改變。
 
-以下端對端範例建立一個使用 `Accent4` 的圖形，將主題的 `Accent4` 顏色改為紅色，儲存簡報，重新開啟，並印出實際的填充顏色：
+以下端對端範例建立一個使用 `Accent4` 的形狀，將主題的 `Accent4` 顏色改為紅色，儲存簡報、重新開啟，並列印有效的填色顏色：
 
 ```cpp
 #include <DOM/FillType.h>
@@ -114,13 +114,13 @@ auto effectiveFill = savedShape->get_FillFormat()->GetEffective();
 Console::WriteLine(u"Effective fill color: {0}", effectiveFill->get_SolidFillColor());
 ```
 
-因為矩形仍連結到 `Accent4`，所以在主題變更後其可見顏色會變為紅色。如果您在圖形上以直接顏色取代色系顏色，之後對 `Accent4` 的變更將不再影響該填充。
+因為矩形仍連結至 `Accent4`，主題變更後其可見顏色會變為紅色。如果您在形狀上以直接顏色取代方案顏色，之後對 `Accent4` 的變更將不再影響該填色。
 
-### **使用附加調色盤的顏色**
+### **使用額外調色盤的顏色**
 
-PowerPoint 會透過顏色變換從主題顏色衍生較亮與較暗的變體。Aspose.Slides 透過[ColorTransformOperation](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/colortransformoperation/)公開這些變換。
+PowerPoint 透過套用顏色變換，從主題色衍生出較亮與較暗的變體。Aspose.Slides 透過 [ColorTransformOperation](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/colortransformoperation/) 公開這些變換。
 
-![主要主題顏色以及由附加調色盤產生的較亮與較暗顏色](additional-palette-colors.png)
+![主要主題顏色與從額外調色盤產生的較亮與較暗顏色](additional-palette-colors.png)
 
 **1** - 主要主題顏色。  
 **2** - 由主要主題顏色產生的較亮與較暗變體。
@@ -194,31 +194,31 @@ solidFillColor6->get_ColorTransform()->Add(ColorTransformOperation::MultiplyLumi
 presentation->Save(u"theme-color-palette.pptx", SaveFormat::Pptx);
 ```
 
-這些變體仍以主題顏色為基礎。若 `Accent4` 後續變更，變換後的顏色會以新的 `Accent4` 值重新計算。
+這些變體仍以主題色為基礎。若 `Accent4` 後續變更，變換後的顏色會根據新的 `Accent4` 值重新計算。
 
-### **將 `SchemeColor` 值對映至 `IColorScheme` 插槽**
+### **將 `SchemeColor` 值對映到 `IColorScheme` 插槽**
 
-[SchemeColor](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/schemecolor/) 列舉使用 `Text1`、`Background1`、`Text2`、`Background2`，而[IColorScheme](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.theme/icolorscheme/) 以 `Dark1`、`Light1`、`Dark2`、`Light2` 暴露相同的主題插槽。對映關係固定：
+[SchemeColor](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/schemecolor/) 列舉使用 `Text1`、`Background1`、`Text2`、`Background2`，而 [IColorScheme](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.theme/icolorscheme/) 則以 `Dark1`、`Light1`、`Dark2`、`Light2` 暴露相同的主題插槽。對映固定如下：
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-這些只是同一主題插槽的別名，並非會在執行期間相互轉換的值。
+這些是同一主題插槽的別名，並非會在執行時相互轉換的值。
 
-## **變更主題字型**
+## **變更主題字體**
 
-主題字型方案包含標題用的主要字型集合以及內文用的次要字型集合。`FontScheme::get_Major()` 和 `FontScheme::get_Minor()` 方法會公開這兩個集合。
+主題字體方案包含標題的主要字體集合與正文的次要字體集合。[FontScheme::get_Major()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.theme/fontscheme/get_major/) 與 [FontScheme::get_Minor()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.theme/fontscheme/get_minor/) 方法會公開這些集合。
 
-PowerPoint 相容的主題字型識別碼可用於文字格式化：
+PowerPoint 相容的主題字體識別碼可於文字格式化時使用：
 
-* `+mn-lt` - 正文字型 Latin（Minor Latin Font）
-* `+mj-lt` - 標題字型 Latin（Major Latin Font）
-* `+mn-ea` - 正文字型 East Asian（Minor East Asian Font）
-* `+mj-ea` - 標題字型 East Asian（Major East Asian Font）
+* `+mn-lt` - 正文字體拉丁文（Minor Latin Font）
+* `+mj-lt` - 標題字體拉丁文（Major Latin Font）
+* `+mn-ea` - 正文字體東亞（Minor East Asian Font）
+* `+mj-ea` - 標題字體東亞（Major East Asian Font）
 
-以下範例建立一個使用主要 Latin 主題字型的標題，及一個使用次要 Latin 主題字型的內文行，然後變更主題字型並儲存結果：
+以下範例建立一個使用主要拉丁字體的標題與一個使用次要拉丁字體的正文，然後變更主題字體並儲存結果：
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -258,19 +258,21 @@ presentation->get_MasterTheme()->get_FontScheme()->get_Minor()->set_LatinFont(Ma
 presentation->Save(u"theme-fonts.pptx", SaveFormat::Pptx);
 ```
 
-標題會遵循主要字型，內文則遵循次要字型。使用明確字型名稱（而非主題識別碼）的文字在主題字型方案變更時不會自動切換。
+標題遵循主要字體，正文則遵循次要字體。若文字明確指定了字體名稱而非主題識別碼，則在主題字體方案變更時不會自動切換。
+
+主要與次要字體集合也可以包含針對個別書寫系統（如西里爾文、阿拉伯文、日文、喬治亞文與Thaana）的字體映射。若要檢查、添加、取代或移除這些映射，請參閱 [Script-Specific Theme Fonts](/slides/zh-hant/cpp/script-specific-font-mappings/)。
 
 {{% alert color="info" title="Tip" %}}
-如需更多關於簡報字型的資訊，請參閱 [PowerPoint Fonts](/slides/zh-hant/cpp/powerpoint-fonts/)。
+欲取得更多簡報字體資訊，請參閱 [PowerPoint Fonts](/slides/zh-hant/cpp/powerpoint-fonts/)。
 {{% /alert %}}
 
 ## **複製或套用主題**
 
-此處有兩種常見工作流程，解決不同的需求。
+常見的兩種工作流程解決不同的問題。
 
-### **在移動投影片時保留來源主題**
+### **搬移投影片時保留來源主題**
 
-若要將投影片移至另一個簡報且保留其原始設計，請使用[IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/imasterslidecollection/addclone/)將來源母片克隆至目標簡報，接著使用[ISlideCollection::AddClone()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/islidecollection/addclone/)將投影片與克隆的母片一起克隆。這會同時攜帶母片、其版面配置及相關主題。
+若要將投影片搬移至其他簡報且保留其原始設計，請使用 [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/imasterslidecollection/addclone/) 將來源母片複製至目標簡報，接著使用 [ISlideCollection::AddClone()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/islidecollection/addclone/) 複製投影片與已複製的母片。這會將母片、其版面配置與關聯的主題一併帶入。
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -294,11 +296,11 @@ target->get_Slides()->AddClone(sourceSlide, clonedMaster, true);
 target->Save(u"theme-preserved.pptx", SaveFormat::Pptx);
 ```
 
-在需要讓來源投影片在目的地保持相同外觀時，這是首選工作流程。僅將內容克隆到不相關的目的地母片可能會改變受主題驅動的顏色、字型、背景與效果。
+此為在目的地必須保持來源投影片外觀的首選工作流程。單純將內容複製至不相關的目的地母片可能會改變主題驅動的顏色、字體、背景與效果。
 
 ### **將主題值套用至現有投影片**
 
-若目標投影片必須保持在目前的母片與版面配置上，請從來源主題初始化投影片層級的覆寫。`OverrideTheme::InitColorSchemeFrom()`、`OverrideTheme::InitFontSchemeFrom()` 與 `OverrideTheme::InitFormatSchemeFrom()` 方法會將三個主要主題元件複製到覆寫中。
+若目標投影片必須保留目前的母片與版面配置，請從來源主題初始化投影片層級的覆寫。[OverrideTheme::InitColorSchemeFrom()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.theme/overridetheme/initcolorschemefrom/)、[OverrideTheme::InitFontSchemeFrom()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.theme/overridetheme/initfontschemefrom/) 與 [OverrideTheme::InitFormatSchemeFrom()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.theme/overridetheme/initformatschemefrom/) 方法會將三個主要主題元件複製到覆寫中。
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -322,11 +324,11 @@ overrideTheme->InitFormatSchemeFrom(source->get_MasterTheme()->get_FormatScheme(
 target->Save(u"theme-applied-to-slide.pptx", SaveFormat::Pptx);
 ```
 
-此作業會變更該投影片使用的主題，而不會影響其他投影片繼承的主題。若要移除本機覆寫並回復至繼承值，呼叫 `OverrideTheme::Clear()`。
+此變更僅會影響該投影片使用的主題，不會改變其他投影片繼承的主題。若要移除本機覆寫並回復至繼承值，請呼叫 [OverrideTheme::Clear()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.theme/overridetheme/clear/)。
 
 ### **將主題覆寫套用至版面配置**
 
-版面配置層級的覆寫會套用至使用該版面配置的投影片，除非特定投影片有自己的覆寫。相同的初始化方法可透過版面配置的[IOverrideThemeManager](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.theme/ioverridethememanager/)使用：
+版面配置層級的覆寫會套用至使用該版面配置的投影片，除非特定投影片有自己的覆寫。相同的初始化方法可透過版面配置的 [IOverrideThemeManager](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.theme/ioverridethememanager/) 使用：
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -352,17 +354,17 @@ overrideTheme->InitFormatSchemeFrom(source->get_MasterTheme()->get_FormatScheme(
 target->Save(u"theme-applied-to-layout.pptx", SaveFormat::Pptx);
 ```
 
-當多個版面配置與投影片需要共享相同的基礎設計時，使用母片或簡報層級的主題；當單一版面配置族別需要不同樣式時使用版面配置覆寫；僅在真正的例外情況下才使用投影片覆寫。過度的投影片層級覆寫會讓之後的全域主題變更變得難以預測。
+當多個版面配置與投影片應共享相同基礎設計時，使用母片或簡報層級的主題；當單一版面配置系列需要不同樣式時，使用版面配置覆寫；僅在真正例外情況下才使用投影片覆寫。過度的投影片層級覆寫會讓日後全域主題變更變得難以預測。
 
 ## **更新主題背景樣式**
 
-主題的背景填充儲存在[FormatScheme::get_BackgroundFillStyles()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.theme/formatscheme/get_backgroundfillstyles/)。PowerPoint 在 UI 中呈現的背景選項可能多於此集合實際儲存的填充定義，因為 UI 可以將主題填充與主題顏色及其他樣式參考結合。
+主題的背景填色儲存在 [FormatScheme::get_BackgroundFillStyles()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.theme/formatscheme/get_backgroundfillstyles/)。PowerPoint 在 UI 中提供的背景選項可能多於此集合實際儲存的填色定義，因為 UI 能將主題填色與主題顏色及其他樣式參照結合。
 
 ![PowerPoint 簡報主題的背景樣式庫](presentation-design_8.png)
 
-在使用背景樣式前，請檢查儲存的集合以及目前的[Background::get_StyleIndex()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/background/get_styleindex/)。`StyleIndex` 使用 `0` 代表無主題填充；正值則為主題背景樣式的參考。這與使用 `idx_get(0)` 直接索引 C++ 集合不同，後者的 `0` 代表第一筆項目。請勿假設每個簡報都有相同數量的背景填充樣式。
+在使用背景樣式前，請檢查已儲存的集合與目前的 [Background::get_StyleIndex()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/background/get_styleindex/)。`StyleIndex` 使用 `0` 表示沒有主題填色；正值則是主題背景樣式參照。這與直接以 `idx_get(0)` 取得 C++ 集合項目不同，後者的 `0` 表示第一筆儲存項目。請勿假設每個簡報都有相同數量的背景填色樣式。
 
-以下範例回報可用的背景填充數量，將第一個母片指派為有主題背景參考，並儲存簡報：
+以下範例回報可用的背景填色數量，將主母片的背景參照指派為主題樣式，並儲存簡報：
 
 ```cpp
 #include <DOM/BackgroundType.h>
@@ -392,25 +394,25 @@ if (backgroundStyles->get_Count() > 0)
 }
 ```
 
-最終顯示結果取決於母片參考的主題條目以及版面配置或投影片層級的任何背景覆寫。如果投影片使用自訂背景，僅變更母片背景可能不會影響該投影片。需要取得繼承後的最終背景時，請使用 `Background::GetEffective()`。
+最終呈現結果取決於母片所參照的主題條目，以及版面配置或投影片層級的任何背景覆寫。若投影片使用了自訂背景，只變更母片背景未必會影響該投影片。需要取得套用繼承後的最終背景時，請使用 [Background::GetEffective()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/background/geteffective/)。
 
 {{% alert color="warning" title="Warning" %}}
-請勿將 `StyleIndex` 當作零基索引來使用。另外，也不要硬編碼來自單一檔案的樣式編號，並假設在其他檔案中會有相同外觀；主題樣式定義是依簡報而異的。
+請勿將 `StyleIndex` 當作零起始的集合索引。也避免硬編碼某檔案的樣式編號並假設在另一檔案中有相同外觀；主題樣式定義是簡報特定的。
 {{% /alert %}}
 
 {{% alert color="info" title="Tip" %}}
-有關直接背景格式設定與背景繼承，請參閱 [Presentation Background](/slides/zh-hant/cpp/presentation-background/)。
+欲取得直接的背景格式設定與背景繼承資訊，請參閱 [Presentation Background](/slides/zh-hant/cpp/presentation-background/)。
 {{% /alert %}}
 
 ## **更新主題效果**
 
-主題格式方案包含獨立的[FormatScheme::get_FillStyles()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.theme/formatscheme/get_fillstyles/)、[FormatScheme::get_LineStyles()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.theme/formatscheme/get_linestyles/) 與[FormatScheme::get_EffectStyles()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.theme/formatscheme/get_effectstyles/) 集合。典型的 Office 主題往往包含三個主要樣式條目，分別對應微妙、適中與強烈的格式化，但程式碼應檢查每個集合，而非假設固定數量。
+主題格式方案包含分別的 [FormatScheme::get_FillStyles()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.theme/formatscheme/get_fillstyles/)、[FormatScheme::get_LineStyles()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.theme/formatscheme/get_linestyles/)、與 [FormatScheme::get_EffectStyles()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.theme/formatscheme/get_effectstyles/) 集合。典型的 Office 主題常包含三個主要樣式項目，視覺上對應為「細膩」(subtle)、「中等」(moderate) 與「強烈」(intense) 的格式，但程式碼應檢查每個集合而非假設固定數量。
 
-![對同一圖形套用微妙、適中與強烈的主題效果](presentation-design_10.png)
+![對同一形狀套用細膩、中等與強烈的主題效果](presentation-design_10.png)
 
-在 C++ 中存取這些集合時，集合索引為零基：`idx_get(0)` 為第一筆儲存的樣式，`idx_get(2)` 為第三筆。圖形的樣式參考索引是另一概念，透過[IShapeStyle](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ishapestyle/) 暴露。修改主題樣式會影響參考該樣式的圖形；直接格式設定的圖形可能保持不變。
+在 C++ 中存取這些集合時，集合索引為零起始：`idx_get(0)` 為第一筆儲存的樣式，`idx_get(2)` 為第三筆。形狀的樣式參照索引是另一概念，透過 [IShapeStyle](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ishapestyle/) 暴露。修改主題樣式會影響參照該主題樣式的形狀；直接格式化的形狀則可能保持不變。
 
-以下範例檢查必要的樣式條目是否存在，變更第一個線條樣式、第三個填充樣式，並在第三個效果樣式中啟用外部陰影，最後儲存結果：
+以下範例檢查必要的樣式項目是否存在，變更第一個線條樣式、變更第三個填色樣式、在第三個效果樣式中啟用外部陰影，並儲存結果：
 
 ```cpp
 #include <DOM/Effects/IOuterShadow.h>
@@ -463,15 +465,15 @@ else
 }
 ```
 
-對於參考這些插槽的圖形而言，第一個主題線條樣式會變為紅色，第三個主題填充樣式會變為實心森林綠，且第三個效果樣式會獲得距離 10 點的外部陰影。實際視覺結果仍取決於每個圖形參考的樣式插槽以及是否有直接格式覆寫。
+對參照這些插槽的形狀而言，第一個主題線條樣式會變為紅色，第三個主題填色樣式會變為純森林綠，第三個效果樣式會新增距離為 10 點的外部陰影。最終視覺結果仍取決於每個形狀參照的樣式槽以及是否有直接格式覆寫主題。
 
-![變更線條、填充與陰影設定後的主題效果樣式](presentation-design_11.png)
+![變更線條、填色與陰影設定後的主題效果樣式](presentation-design_11.png)
 
-## **讀取實際主題值**
+## **讀取有效的主題值**
 
-原始主題物件僅告訴您在特定層級定義了什麼。實際值則告訴您投影片或圖形在繼承與本機覆寫解析後實際使用的內容。對於投影片，呼叫[IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.theme/ithemeable/createthemeeffective/)；對於背景，使用[Background::GetEffective()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/background/geteffective/)，對於填充則使用[FillFormat::GetEffective()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/fillformat/geteffective/)。
+原始主題物件只告訴您在特定層級定義了什麼。有效值告訴您在繼承與本機覆寫解析後，投影片或形狀實際使用的內容。對投影片而言，呼叫 [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.theme/ithemeable/createthemeeffective/)。對背景使用 [Background::GetEffective()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/background/geteffective/)，對填色則使用 [FillFormat::GetEffective()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/fillformat/geteffective/)。
 
-以下範例讀取投影片的實際主題、背景與第一個圖形的填充：
+以下範例從投影片讀取有效的主題、背景與第一個形狀的填色：
 
 ```cpp
 #include <DOM/FillType.h>
@@ -511,18 +513,18 @@ if (slide->get_Shapes()->get_Count() > 0)
 }
 ```
 
-使用實際資料進行渲染診斷、驗證與比較。若僅檢查[Presentation::get_MasterTheme()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/get_mastertheme/)，可能會遺漏母片、版面配置、投影片或圖形的覆寫，從而錯過最終外觀的變化。
+使用有效資料進行渲染診斷、驗證與比較。如果只檢查 [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/get_mastertheme/)，可能會錯過母片、版面配置、投影片或形狀的覆寫，從而遺漏最終外觀的變化。
 
-## **常見問題**
+## **常見問題集**
 
-**我可以在不更改母片的情況下將主題套用到單一投影片嗎？**
+**我可以在不變更母片的情況下，只對單一投影片套用主題嗎？**
 
-可以。使用投影片的[IOverrideThemeManager](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.theme/ioverridethememanager/) 並初始化其覆寫主題。變更僅會影響該投影片，其他投影片仍會繼承其既有主題。
+可以。使用投影片的 [IOverrideThemeManager](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.theme/ioverridethememanager/) 並初始化其覆寫主題。變更僅限於該投影片，其他投影片仍會繼承既有主題。
 
-**將主題從一個簡報搬移到另一個簡報的最安全方式是什麼？**
+**將主題從一個簡報搬移到另一個簡報的最安全方法是什麼？**
 
-在搬移投影片並保留來源外觀時，請將來源母片以[IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/imasterslidecollection/addclone/) 克隆至目的地，然後使用[ISlideCollection::AddClone()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/islidecollection/addclone/) 搭配該母片克隆投影片。這樣可同時保留母片、版面配置與主題。
+在搬移投影片且需保留來源外觀時，先使用 [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/imasterslidecollection/addclone/) 將來源母片複製至目標，然後以相同母片使用 [ISlideCollection::AddClone()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/islidecollection/addclone/) 複製投影片。這樣可確保母片、版面配置與主題一起保留下來。
 
-**如何在繼承與覆寫後看到實際的值？**
+**如何查看繼承與覆寫後的有效值？**
 
-對於投影片或版面配置的主題使用[IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.theme/ithemeable/createthemeeffective/)，對於格式物件（如 Background 或 FillFormat）則使用對應的實際資料方法，例如[Background::GetEffective()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/background/geteffective/)與[FillFormat::GetEffective()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/fillformat/geteffective/)。這些 API 會在繼承與覆寫套用後回傳解析後的值。
+對投影片或版面配置的主題使用 [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.theme/ithemeable/createthemeeffective/)，對格式物件則使用相應的有效資料方法，例如 [Background::GetEffective()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/background/geteffective/) 與 [FillFormat::GetEffective()](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/fillformat/geteffective/)。這些 API 會回傳在繼承與覆寫套用後解析出的最終值。

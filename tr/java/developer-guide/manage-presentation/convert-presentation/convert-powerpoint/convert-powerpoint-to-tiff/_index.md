@@ -1,5 +1,5 @@
 ---
-title: Java'da PowerPoint Sunumlarını TIFF'e Dönüştürme
+title: PowerPoint Sunumlarını Java'da TIFF'e Dönüştür
 titlelink: PowerPoint'ten TIFF'e
 type: docs
 weight: 90
@@ -12,8 +12,8 @@ keywords:
 - PPT dönüştür
 - PPTX dönüştür
 - PowerPoint'ten TIFF'e
-- sunum TIFF'e
-- slayt TIFF'e
+- sunumu TIFF'e
+- slaytı TIFF'e
 - PPT'den TIFF'e
 - PPTX'ten TIFF'e
 - PPT'yi TIFF olarak kaydet
@@ -22,46 +22,48 @@ keywords:
 - PPTX'i TIFF'e dışa aktar
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java kullanarak PowerPoint (PPT, PPTX) sunumlarını yüksek kaliteli TIFF görüntülerine nasıl kolayca dönüştüreceğinizi, kod örnekleriyle öğrenin."
+description: "Aspose.Slides for Java kullanarak PowerPoint (PPT, PPTX) sunumlarını yüksek kalite TIFF görüntülerine nasıl kolayca dönüştüreceğinizi, kod örnekleriyle öğrenin."
 ---
 ## **Giriş**
 
-TIFF (**Tagged Image File Format**) yaygın olarak kullanılan, kayıpsız raster görüntü formatıdır ve olağanüstü kalite ve grafikleri ayrıntılı korumasıyla bilinir. Tasarımcılar, fotoğrafçılar ve masaüstü yayıncıları genellikle katmanları, renk doğruluğunu ve orijinal ayarları korumak için TIFF'i tercih eder.
+TIFF (**Tagged Image File Format**) yaygın olarak kullanılan, kayıpsız bir raster görüntü formatıdır ve olağanüstü kalite ile grafiklerin ayrıntılı korunmasıyla bilinir. Tasarımcılar, fotoğrafçılar ve masaüstü yayıncılar, görüntülerinde katmanları, renk doğruluğunu ve orijinal ayarları korumak için sıkça TIFF'i tercih eder.
 
-Aspose.Slides kullanarak PowerPoint slaytlarınızı (PPT, PPTX) ve OpenDocument slaytlarınızı (ODP) doğrudan yüksek kaliteli TIFF görüntülerine kolayca dönüştürebilir, sunumlarınızın maksimum görsel sadeliğini koruyabilirsiniz. 
+Aspose.Slides kullanarak PowerPoint slaytlarınızı (PPT, PPTX) ve OpenDocument slaytlarınızı (ODP) doğrudan yüksek kaliteli TIFF görüntülerine zahmetsizce dönüştürebilir, sunumlarınızın en yüksek görsel doğruluğu korumasını sağlayabilirsiniz.
 
-## **Sunumu TIFF'e Dönüştürme**
+## **Sunumu TIFF'e Dönüştür**
 
-[save](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#save-java.lang.String-int-) metodunu [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) sınıfı üzerinden kullanarak tüm PowerPoint sunumunu hızlıca TIFF'e dönüştürebilirsiniz. Oluşturulan TIFF görüntüleri varsayılan slayt boyutuna karşılık gelir.
+Sunum sınıfı tarafından sağlanan [save](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#save-java.lang.String-int-) yöntemini kullanarak tüm bir PowerPoint sunumunu hızlıca TIFF'e dönüştürebilirsiniz. Oluşan TIFF görüntüleri varsayılan slayt boyutuna karşılık gelir.
 
-Bu kod, bir PowerPoint sunumunu TIFF'e dönüştürmeyi gösterir:
+Bu kod, bir PowerPoint sunumunun TIFF'e nasıl dönüştürüleceğini göstermektedir:
 
 ```java
 import com.aspose.slides.*;
 
-// Sunum dosyasını (PPT, PPTX, ODP vb.) temsil eden Presentation sınıfını oluşturun.
+// Sunum dosyasını (PPT, PPTX, ODP vb.) temsil eden Presentation sınıfını oluşturur.
 Presentation presentation = new Presentation("presentation.pptx");
 try {
-    // Sunumu TIFF olarak kaydedin.
+    // Sunumu TIFF olarak kaydeder.
     presentation.save("output.tiff", SaveFormat.Tiff);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Sunumu Siyah-Beyaz TIFF'e Dönüştürme**
+## **Sunumu Siyah-Beyaz TIFF'e Dönüştür**
 
-[TiffOptions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/tiffoptions/) sınıfındaki [setBwConversionMode](https://reference.aspose.com/slides/tr/java/com.aspose.slides/tiffoptions/#setBwConversionMode-int-) yöntemi, renkli bir slayt veya resmi siyah-beyaz TIFF'e dönüştürürken kullanılan algoritmayı belirtmenizi sağlar. Bu ayarın yalnızca [setCompressionType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/tiffoptions/#setCompressionType-int-) yöntemi `CCITT4` veya `CCITT3` olarak ayarlandığında geçerli olduğunu unutmayın.
+[TiffOptions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/tiffoptions/) sınıfındaki [setBwConversionMode](https://reference.aspose.com/slides/tr/java/com.aspose.slides/tiffoptions/#setBwConversionMode-int-) yöntemi, renkli bir slaytı veya görüntüyü siyah-beyaz TIFF'e dönüştürürken kullanılacak algoritmayı belirtmenizi sağlar. Bu ayarın yalnızca [setCompressionType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/tiffoptions/#setCompressionType-int-) yöntemi `CCITT4` veya `CCITT3` olarak ayarlandığında geçerli olduğunu unutmayın.
 
 {{% alert color="info" title="Not" %}}
-[TiffOptions.setBwConversionMode](https://reference.aspose.com/slides/tr/java/com.aspose.slides/tiffoptions/#setBwConversionMode-int-) tüm TIFF görüntüsü için piksel dönüşüm algoritmasını seçen bir dışa aktarım seviyesindeki ayardır. Tek bir şeklin siyah-beyaz görüntü modunda nasıl görüneceğini tanımlamak için [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) metodunu kullanın. Örnekler için [Şekiller İçin Siyah-Beyaz İşleme Kontrolü](/java/shape-formatting/#control-black-and-white-rendering-for-shapes) sayfasına bakın.
+
+[TiffOptions.setBwConversionMode](https://reference.aspose.com/slides/tr/java/com.aspose.slides/tiffoptions/#setBwConversionMode-int-) tam TIFF görüntüsü için bir piksel dönüşüm algoritması seçen bir dışa aktarma seviyesindeki ayardır. Siyah-beyaz görüntüleme modu etkin olduğunda tek bir şeklin nasıl görünmesi gerektiğini tanımlamak için [IShape.setBlackWhiteMode](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) yöntemini kullanın. Örnekler için [Control Black-and-White Rendering for Shapes](/slides/tr/java/shape-formatting/#control-black-and-white-rendering-for-shapes) sayfasına bakın.
+
 {{% /alert %}}
 
-Örneğin aşağıdaki slaytı içeren bir "sample.pptx" dosyamız olduğunu varsayalım:
+Şöyle bir "sample.pptx" dosyamız olduğunu ve aşağıdaki slaytı içerdiğini varsayalım:
 
 ![Bir sunum slaytı](slide_black_and_white.png)
 
-Bu kod, renkli slaytı siyah-beyaz TIFF'e dönüştürmeyi gösterir:
+Bu kod, renkli slaytı siyah-beyaz TIFF'e nasıl dönüştüreceğinizi göstermektedir:
 
 ```java
 import com.aspose.slides.*;
@@ -82,25 +84,25 @@ Sonuç:
 
 ![Siyah-Beyaz TIFF](TIFF_black_and_white.png)
 
-## **Sunumu Özel Boyutlu TIFF'e Dönüştürme**
+## **Sunumu Özel Boyutlu TIFF'e Dönüştür**
 
-Belirli boyutlarda bir TIFF görüntüsü gerekiyorsa, [TiffOptions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/tiffoptions/) sınıfında bulunan yöntemleri kullanarak istediğiniz değerleri ayarlayabilirsiniz. Örneğin, [setImageSize](https://reference.aspose.com/slides/tr/java/com.aspose.slides/tiffoptions/#setImageSize-java.awt.Dimension-) yöntemi, oluşturulan görüntünün boyutunu tanımlamanıza olanak verir.
+Belirli boyutlarda bir TIFF görüntüsü gerekliyse, istediğiniz değerleri [TiffOptions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/tiffoptions/) sınıfında bulunan yöntemlerle ayarlayabilirsiniz. Örneğin, [setImageSize](https://reference.aspose.com/slides/tr/java/com.aspose.slides/tiffoptions/#setImageSize-java.awt.Dimension-) yöntemi oluşan görüntünün boyutunu tanımlamanıza olanak verir.
 
-Bu kod, bir PowerPoint sunumunu özel boyutlu TIFF görüntülerine dönüştürmeyi gösterir:
+Bu kod, bir PowerPoint sunumunu özel boyutlu TIFF görüntülerine nasıl dönüştüreceğinizi göstermektedir:
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Dimension;
 
-// Sunum dosyasını (PPT, PPTX, ODP, vb.) temsil eden Presentation sınıfını örnekleyin.
+// Sunum dosyasını (PPT, PPTX, ODP vb.) temsil eden Presentation sınıfını oluşturur.
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     TiffOptions tiffOptions = new TiffOptions();
 
-    // Sıkıştırma tipini ayarlayın.
+    // Sıkıştırma türünü ayarlar.
     tiffOptions.setCompressionType(TiffCompressionTypes.Default);
     /*
-    Sıkıştırma tipleri:
+    Sıkıştırma türleri:
         Default - Varsayılan sıkıştırma şemasını (LZW) belirtir.
         None - Sıkıştırma olmadığını belirtir.
         CCITT3
@@ -109,51 +111,51 @@ try {
         RLE
     */
 
-    // Derinlik, sıkıştırma tipine bağlıdır ve manuel olarak ayarlanamaz.
+    // Derinlik, sıkıştırma türüne bağlıdır ve manuel olarak ayarlanamaz.
 
-    // Görüntü DPI'sını ayarlayın.
+    // Görüntü DPI'sını ayarlar.
     tiffOptions.setDpiX(200);
     tiffOptions.setDpiY(200);
 
-    // Görüntü boyutunu ayarlayın.
+    // Görüntü boyutunu ayarlar.
     tiffOptions.setImageSize(new Dimension(1728, 1078));
 
     NotesCommentsLayoutingOptions notesOptions = new NotesCommentsLayoutingOptions();
     notesOptions.setNotesPosition(NotesPositions.BottomFull);
     tiffOptions.setSlidesLayoutOptions(notesOptions);
 
-    // Sunumu belirtilen boyutta TIFF olarak kaydedin.
+    // Sunumu belirtilen boyutta TIFF olarak kaydeder.
     presentation.save("tiff-ImageSize.tiff", SaveFormat.Tiff, tiffOptions);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Sunumu Özel Görüntü Piksel Biçimiyle TIFF'e Dönüştürme**
+## **Sunumu Özel Görüntü Piksel Biçimiyle TIFF'e Dönüştür**
 
-[TiffOptions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/tiffoptions/) sınıfındaki [setPixelFormat](https://reference.aspose.com/slides/tr/java/com.aspose.slides/tiffoptions/#setPixelFormat-int-) metodunu kullanarak ortaya çıkan TIFF görüntüsü için tercih ettiğiniz piksel biçimini belirtebilirsiniz.
+[TiffOptions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/tiffoptions/) sınıfındaki [setPixelFormat](https://reference.aspose.com/slides/tr/java/com.aspose.slides/tiffoptions/#setPixelFormat-int-) yöntemini kullanarak, oluşan TIFF görüntüsü için tercih ettiğiniz piksel biçimini belirtebilirsiniz.
 
-Bu kod, bir PowerPoint sunumunu özel piksel biçimli bir TIFF görüntüsüne dönüştürmeyi gösterir:
+Bu kod, bir PowerPoint sunumunu özel piksel biçimli bir TIFF görüntüsüne nasıl dönüştüreceğinizi göstermektedir:
 
 ```java
 import com.aspose.slides.*;
 
-// Presentation sınıfını örnekleyin; bu sınıf bir sunum dosyasını (PPT, PPTX, ODP vb.) temsil eder.
+// Sunum dosyasını (PPT, PPTX, ODP, vb.) temsil eden Presentation sınıfını oluşturur.
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     TiffOptions tiffOptions = new TiffOptions();
 
     tiffOptions.setPixelFormat(ImagePixelFormat.Format8bppIndexed);
     /*
-    ImagePixelFormat aşağıdaki değerleri içerir (dokümantasyonda belirtildiği gibi):
-        Format1bppIndexed - piksel başına 1 bit, indeksli.
-        Format4bppIndexed - piksel başına 4 bit, indeksli.
-        Format8bppIndexed - piksel başına 8 bit, indeksli.
-        Format24bppRgb    - piksel başına 24 bit, RGB.
-        Format32bppArgb   - piksel başına 32 bit, ARGB.
+    ImagePixelFormat şu değerleri içerir (belgelerde belirtildiği gibi):
+        Format1bppIndexed - Piksel başına 1 bit, indeksli.
+        Format4bppIndexed - Piksel başına 4 bit, indeksli.
+        Format8bppIndexed - Piksel başına 8 bit, indeksli.
+        Format24bppRgb    - Piksel başına 24 bit, RGB.
+        Format32bppArgb   - Piksel başına 32 bit, ARGB.
     */
     
-    // Sunumu belirtilen piksel biçimiyle TIFF olarak kaydedin.
+    // Sunumu belirtilen piksel biçimiyle TIFF olarak kaydeder.
     presentation.save("Tiff-PixelFormat.tiff", SaveFormat.Tiff, tiffOptions);
 } finally {
     presentation.dispose();
@@ -161,19 +163,21 @@ try {
 ```
 
 {{% alert title="İpucu" color="info" %}}
-Aspose'un [ÜCRETSİZ PowerPoint'ten Poster Dönüştürücüsü](https://products.aspose.app/slides/tr/conversion/convert-ppt-to-poster-online) sayfasına göz atın.
+
+Aspose'un [ÜCRETSİZ PowerPoint'ten Poster dönüştürücüsünü](https://products.aspose.app/slides/tr/conversion/convert-ppt-to-poster-online) inceleyin.
+
 {{% /alert %}}
 
 ## **SSS**
 
-**Bir PowerPoint sunumunun tüm slaytları yerine tek bir slaytı TIFF'e dönüştürebilir miyim?**
+**Bireysel bir slaytı, tüm PowerPoint sunumu yerine TIFF'e dönüştürebilir miyim?**
 
 Evet. Aspose.Slides, PowerPoint ve OpenDocument sunumlarından tek tek slaytları ayrı ayrı TIFF görüntülerine dönüştürmenize olanak tanır.
 
-**Sunumu TIFF'e dönüştürürken slayt sayısı için bir sınırlama var mı?**
+**Sunumu TIFF'e dönüştürürken slayt sayısında bir sınırlama var mı?**
 
-Hayır, Aspose.Slides slayt sayısı üzerinde herhangi bir kısıtlama getirmez. Herhangi bir boyuttaki sunumu TIFF formatına dönüştürebilirsiniz.
+Hayır, Aspose.Slides slayt sayısı üzerinde herhangi bir kısıtlama getirmez. Her boyutta sunumu TIFF formatına dönüştürebilirsiniz.
 
-**PowerPoint animasyonları ve geçiş efektleri slaytları TIFF'e dönüştürürken korunur mu?**
+**PowerPoint animasyonları ve geçiş efektleri slaytlar TIFF'e dönüştürülürken korunur mu?**
 
-Hayır, TIFF statik bir görüntü formatıdır. Bu nedenle animasyonlar ve geçiş efektleri korunmaz; yalnızca slaytların statik anlık görüntüleri dışa aktarılır.
+Hayır, TIFF statik bir görüntü formatıdır. Bu nedenle animasyonlar ve geçiş efektleri korunmaz; sadece slaytların statik anlık görüntüleri dışa aktarılır.

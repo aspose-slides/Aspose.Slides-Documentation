@@ -1,11 +1,11 @@
 ---
-title: Java 中低代码演示操作
+title: Java 中的低代码演示文稿操作
 linktitle: 低代码 API
 type: docs
 weight: 50
 url: /zh/java/low-code-presentation-operations/
 keywords:
-- 低代码演示 API
+- 低代码演示文稿 API
 - 转换演示文稿
 - 合并演示文稿
 - 遍历幻灯片
@@ -21,27 +21,27 @@ keywords:
 - 演示文稿
 - Java
 - Aspose.Slides
-description: "在 Java 中使用 Aspose.Slides 低代码 API 来转换和合并演示文稿、遍历内容、收集形状并压缩演示文稿大小。"
+description: "在 Java 中使用 Aspose.Slides 低代码 API 来转换和合并演示文稿、遍历内容、收集形状，并减小演示文稿的大小。"
 ---
 ## **概述**
 
-The [com.aspose.slides](https://reference.aspose.com/slides/zh/java/com.aspose.slides/) package provides static helper classes for common presentation operations. These helpers wrap frequently used object-model workflows in focused methods, so you can convert or merge files, process presentation elements, collect shapes, and remove unused content with less code.
+[com.aspose.slides](https://reference.aspose.com/slides/zh/java/com.aspose.slides/) 包提供用于常见演示文稿操作的静态帮助类。这些帮助类将常用的对象模型工作流封装在专注的方法中，使您能够在更少的代码量下转换或合并文件、处理演示文稿元素、收集形状以及删除未使用的内容。
 
-Low-code helpers are most useful when the operation applies to an entire file or presentation and the default workflow matches your requirements. Use the full [Aspose.Slides object model](https://reference.aspose.com/slides/zh/java/com.aspose.slides/) when you need fine-grained control over individual slides, masters, layouts, shapes, export settings, or relationships between presentation elements.
+低代码帮助器在操作适用于整个文件或演示文稿且默认工作流符合您的需求时最为有用。当您需要对单个幻灯片、母版、版式、形状、导出设置或演示文稿元素之间的关系进行细粒度控制时，请使用完整的 [Aspose.Slides object model](https://reference.aspose.com/slides/zh/java/com.aspose.slides/)。
 
-The following table summarizes the available helpers:
+下表概述了可用的帮助器：
 
-| 帮助类 | 适用场景 |
+| 帮助器 | 适用场景 |
 | --- | --- |
-| [Convert](https://reference.aspose.com/slides/zh/java/com.aspose.slides/convert/) | 将演示文稿转换为另一种格式的直接文件到文件调用。 |
+| [Convert](https://reference.aspose.com/slides/zh/java/com.aspose.slides/convert/) | 使用直接的文件到文件调用将演示文稿转换为另一种格式。 |
 | [Merger](https://reference.aspose.com/slides/zh/java/com.aspose.slides/merger/) | 合并相同格式的完整演示文稿文件。 |
-| [ForEach](https://reference.aspose.com/slides/zh/java/com.aspose.slides/foreach/) | 对每个幻灯片、形状、段落或文本片段执行操作。 |
-| [Collect](https://reference.aspose.com/slides/zh/java/com.aspose.slides/collect/) | 从整个演示文稿中检索形状，以便重复处理或分析。 |
+| [ForEach](https://reference.aspose.com/slides/zh/java/com.aspose.slides/foreach/) | 对每个幻灯片、形状、段落或文本片段运行操作。 |
+| [Collect](https://reference.aspose.com/slides/zh/java/com.aspose.slides/collect/) | 从整个演示文稿中检索形状以进行重复处理或分析。 |
 | [Compress](https://reference.aspose.com/slides/zh/java/com.aspose.slides/compress/) | 删除未使用的母版和版式并减少嵌入字体数据。 |
 
 ## **转换演示文稿**
 
-Use [Convert.autoByExtension](https://reference.aspose.com/slides/zh/java/com.aspose.slides/convert/#autoByExtension-java.lang.String-java.lang.String-) when the output file extension is sufficient to select the export format. The method opens the source presentation, determines the required format from the output path, and writes the result.
+当输出文件扩展名足以选择导出格式时，请使用 [Convert.autoByExtension](https://reference.aspose.com/slides/zh/java/com.aspose.slides/convert/#autoByExtension-java.lang.String-java.lang.String-)。该方法打开源演示文稿，根据输出路径确定所需格式，并写入结果。
 
 ```java
 import com.aspose.slides.Convert;
@@ -49,11 +49,11 @@ import com.aspose.slides.Convert;
 Convert.autoByExtension("input.pptx", "output.pdf");
 ```
 
-The [Convert](https://reference.aspose.com/slides/zh/java/com.aspose.slides/convert/) class also provides dedicated methods for PDF, SVG, JPEG, PNG, and TIFF output. Use the full object model when you need to inspect or modify the presentation before export or configure an export option that is not exposed by the selected helper. See [Convert Presentation](/java/convert-presentation/) for format-specific workflows and options.
+[Convert] 类还提供针对 PDF、SVG、JPEG、PNG 和 TIFF 输出的专用方法。当您需要在导出前检查或修改演示文稿，或配置所选帮助器未公开的导出选项时，请使用完整的对象模型。有关特定格式的工作流和选项，请参阅 [转换演示文稿](/slides/zh/java/convert-presentation/)。
 
 ## **合并演示文稿**
 
-Use [Merger.process](https://reference.aspose.com/slides/zh/java/com.aspose.slides/merger/#process-java.lang.String:A-java.lang.String-) to combine complete presentation files with one call. The input presentations must have the same file format.
+使用 [Merger.process](https://reference.aspose.com/slides/zh/java/com.aspose.slides/merger/#process-java.lang.String:A-java.lang.String-) 可一次调用合并完整的演示文稿文件。输入的演示文稿必须具有相同的文件格式。
 
 ```java
 import com.aspose.slides.Merger;
@@ -62,13 +62,13 @@ String[] inputFiles = { "part-1.pptx", "part-2.pptx" };
 Merger.process(inputFiles, "merged.pptx");
 ```
 
-The helper is appropriate when all slides should be appended to one result without selecting or remapping them individually. Use the full object model when you need to merge selected slides, apply a destination master or layout, preserve sections explicitly, or reconcile different slide sizes. See [Merge Presentations](/java/merge-presentation/) for those scenarios.
+当所有幻灯片应直接追加到一个结果且无需单独选择或重新映射时，此帮助器适用。当您需要合并选定的幻灯片、应用目标母版或版式、显式保留章节，或调和不同的幻灯片尺寸时，请使用完整的对象模型。有关这些场景，请参阅 [合并演示文稿](/slides/zh/java/merge-presentation/)。
 
 ## **遍历演示文稿元素**
 
-The [ForEach](https://reference.aspose.com/slides/zh/java/com.aspose.slides/foreach/) class invokes a callback for each requested type of presentation element. It avoids nested collection loops and is convenient for presentation-wide inspection or formatting changes.
+[ForEach] 类为每种请求的演示文稿元素类型调用回调。它避免了嵌套的集合循环，方便进行全局检查或格式更改。
 
-The following example uses [ForEach.slide](https://reference.aspose.com/slides/zh/java/com.aspose.slides/foreach/#slide-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachSlideCallback-), [ForEach.shape](https://reference.aspose.com/slides/zh/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-), [ForEach.paragraph](https://reference.aspose.com/slides/zh/java/com.aspose.slides/foreach/#paragraph-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachParagraphCallback-), and [ForEach.portion](https://reference.aspose.com/slides/zh/java/com.aspose.slides/foreach/#portion-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachPortionCallback-) to inspect the corresponding elements:
+以下示例使用 [ForEach.slide](https://reference.aspose.com/slides/zh/java/com.aspose.slides/foreach/#slide-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachSlideCallback-)、[ForEach.shape](https://reference.aspose.com/slides/zh/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-)、[ForEach.paragraph](https://reference.aspose.com/slides/zh/java/com.aspose.slides/foreach/#paragraph-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachParagraphCallback-)、和 [ForEach.portion](https://reference.aspose.com/slides/zh/java/com.aspose.slides/foreach/#portion-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachPortionCallback-) 来检查相应的元素：
 
 ```java
 import com.aspose.slides.*;
@@ -95,11 +95,11 @@ try {
 }
 ```
 
-By default, presentation-wide shape and text traversal includes normal, master, and layout slides. Overloads with an `includeNotes` parameter can also process notes slides. Use direct collection loops when traversal order, early exit, filtering before callback invocation, or detailed parent-child control is important.
+默认情况下，跨整个演示文稿的形状和文本遍历包括普通、母版和版式幻灯片。带有 `includeNotes` 参数的重载还可以处理备注幻灯片。当遍历顺序、提前退出、在回调调用前过滤或需要详细的父子控制很重要时，请使用直接的集合循环。
 
 ## **收集形状**
 
-Use [Collect.shapes](https://reference.aspose.com/slides/zh/java/com.aspose.slides/collect/#shapes-com.aspose.slides.Presentation-) when you need a collection of all shapes in a presentation rather than a callback for each shape. This is useful when the same set will be filtered, counted, or processed more than once.
+当您需要获取演示文稿中所有形状的集合而不是为每个形状提供回调时，请使用 [Collect.shapes](https://reference.aspose.com/slides/zh/java/com.aspose.slides/collect/#shapes-com.aspose.slides.Presentation-)。当同一集合需要多次过滤、计数或处理时，这很有用。
 
 ```java
 import com.aspose.slides.*;
@@ -116,15 +116,15 @@ try {
 }
 ```
 
-Use [ForEach.shape](https://reference.aspose.com/slides/zh/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-) instead when each shape can be handled immediately and you do not need to retain the collected result.
+如果每个形状可以立即处理且不需要保留收集的结果，请改用 [ForEach.shape](https://reference.aspose.com/slides/zh/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-)。
 
 ## **压缩演示文稿内容**
 
-The [Compress](https://reference.aspose.com/slides/zh/java/com.aspose.slides/compress/) class can remove unused structural elements and reduce embedded font data:
+[Compress] 类可以删除未使用的结构元素并降低嵌入字体数据：
 
-- [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/zh/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) removes layout slides that no normal slide references.
-- [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/zh/java/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) removes master slides that are no longer used.
-- [Compress.compressEmbeddedFonts](https://reference.aspose.com/slides/zh/java/com.aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) removes unused characters from embedded fonts.
+- [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/zh/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) 删除没有普通幻灯片引用的版式幻灯片。
+- [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/zh/java/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) 删除不再使用的母版幻灯片。
+- [Compress.compressEmbeddedFonts](https://reference.aspose.com/slides/zh/java/com.aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) 删除嵌入字体中未使用的字符。
 
 ```java
 import com.aspose.slides.*;
@@ -141,38 +141,38 @@ try {
 }
 ```
 
-Remove unused layouts before unused masters so a master that becomes unreferenced after layout cleanup can also be removed. Save the optimized presentation to a new file if you may need the original masters, layouts, or complete embedded font data later. For more detail, see [Slide Master](/java/slide-master/) and [Embedded Font](/java/embedded-font/).
+在删除未使用的母版之前先删除未使用的版式，这样在版式清理后变为未引用的母版也可以被删除。如果以后可能需要原始的母版、版式或完整的嵌入字体数据，请将优化后的演示文稿保存为新文件。有关更多细节，请参阅 [幻灯片母版](/slides/zh/java/slide-master/) 和 [嵌入字体](/slides/zh/java/embedded-font/)。
 
 ## **常见问题**
 
-**何时应使用低代码 API 而不是完整对象模型？**
+**何时应使用低代码 API 而不是完整的对象模型？**
 
-Use low-code helpers when a standard operation applies to a complete file or presentation and does not require detailed control over individual elements. Use the full object model when you need to select specific slides, control master and layout relationships, inspect intermediate state, or configure behavior that the helper does not expose.
+当标准操作适用于完整文件或演示文稿且无需对单个元素进行详细控制时，请使用低代码帮助器。当您需要选择特定幻灯片、控制母版和版式关系、检查中间状态或配置帮助器未公开的行为时，请使用完整的对象模型。
 
 **Merger 能否合并不同文件格式的演示文稿？**
 
-No. Merger.process requires input presentations in the same format. Convert the input files to a common format first, for example with Convert.autoByExtension, and then merge the converted files.
+不能。[Merger.process] 要求输入的演示文稿具有相同的格式。请先使用例如 [Convert.autoByExtension] 将输入文件转换为统一格式，然后再合并已转换的文件。
 
-**ForEach 会处理母版、版式和备注幻灯片吗？**
+**ForEach 是否处理母版、版式和备注幻灯片？**
 
-[ForEach.slide](https://reference.aspose.com/slides/zh/java/com.aspose.slides/foreach/#slide-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachSlideCallback-) iterates through normal presentation slides. Presentation-wide [ForEach.shape](https://reference.aspose.com/slides/zh/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-), [ForEach.paragraph](https://reference.aspose.com/slides/zh/java/com.aspose.slides/foreach/#paragraph-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachParagraphCallback-), and [ForEach.portion](https://reference.aspose.com/slides/zh/java/com.aspose.slides/foreach/#portion-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachPortionCallback-) operations include normal, master, and layout slides by default. Use their overloads with `includeNotes` set to `true` to include notes slides.
+[ForEach.slide] 遍历普通演示幻灯片。全局的 [ForEach.shape]、[ForEach.paragraph] 和 [ForEach.portion] 操作默认包括普通、母版和版式幻灯片。使用带有 `includeNotes` 设置为 `true` 的重载即可包含备注幻灯片。
 
 **ForEach.shape 与 Collect.shapes 有何区别？**
 
-Use [ForEach.shape](https://reference.aspose.com/slides/zh/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-) to process each shape immediately through a callback. Use [Collect.shapes](https://reference.aspose.com/slides/zh/java/com.aspose.slides/collect/#shapes-com.aspose.slides.Presentation-) when you need an iterable result that can be retained, filtered, counted, or traversed multiple times.
+使用 [ForEach.shape] 可以通过回调立即处理每个形状。需要可保留、可过滤、可计数或可多次遍历的可迭代结果时，请使用 [Collect.shapes]。
 
-**Compress 总是使演示文稿文件更小吗？**
+**Compress 总是会使演示文稿文件变小吗？**
 
-Not necessarily. The result depends on whether the presentation contains unused layouts, unused masters, or embedded fonts with unused characters. If none of those are present, the corresponding [Compress](https://reference.aspose.com/slides/zh/java/com.aspose.slides/compress/) operations may not reduce the file size.
+不一定。结果取决于演示文稿是否包含未使用的版式、未使用的母版或嵌入字体中未使用的字符。如果这些都不存在，相应的 [Compress] 操作可能不会减小文件大小。
 
 **ForEach 或 Compress 所做的更改会自动保存吗？**
 
-No. These helpers operate on the loaded [Presentation](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/) object in memory. After changing elements in a [ForEach](https://reference.aspose.com/slides/zh/java/com.aspose.slides/foreach/) callback or running [Compress](https://reference.aspose.com/slides/zh/java/com.aspose.slides/compress/), call [Presentation.save](https://reference.aspose.com/slides/zh/java/com.aspose.slides/presentation/#save-java.lang.String-int-) to write the result.
+不会。这些帮助器在内存中的加载的 [Presentation] 对象上操作。在 [ForEach] 回调中更改元素或运行 [Compress] 后，需调用 [Presentation.save] 将结果写入文件。
 
 ## **相关文章**
 
-- [转换演示文稿](/java/convert-presentation/)
-- [合并演示文稿](/java/merge-presentation/)
-- [幻灯片母版](/java/slide-master/)
-- [管理文本框](/java/manage-textbox/)
-- [嵌入字体](/java/embedded-font/)
+- [转换演示文稿](/slides/zh/java/convert-presentation/)
+- [合并演示文稿](/slides/zh/java/merge-presentation/)
+- [幻灯片母版](/slides/zh/java/slide-master/)
+- [管理文本框](/slides/zh/java/manage-textbox/)
+- [嵌入字体](/slides/zh/java/embedded-font/)

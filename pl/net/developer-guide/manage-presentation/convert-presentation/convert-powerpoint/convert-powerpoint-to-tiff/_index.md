@@ -1,47 +1,47 @@
 ---
-title: Konwertuj prezentacje PowerPoint do TIFF w .NET
+title: Konwertowanie prezentacji PowerPoint na TIFF w .NET
 titlelink: PowerPoint do TIFF
 type: docs
 weight: 90
 url: /pl/net/convert-powerpoint-to-tiff/
 keywords:
-- konwertuj PowerPoint
-- konwertuj OpenDocument
-- konwertuj prezentację
-- konwertuj slajd
-- konwertuj PPT
-- konwertuj PPTX
+- konwertować PowerPoint
+- konwertować OpenDocument
+- konwertować prezentację
+- konwertować slajd
+- konwertować PPT
+- konwertować PPTX
 - PowerPoint do TIFF
 - prezentacja do TIFF
 - slajd do TIFF
 - PPT do TIFF
 - PPTX do TIFF
-- zapisz PPT jako TIFF
-- zapisz PPTX jako TIFF
-- eksportuj PPT do TIFF
-- eksportuj PPTX do TIFF
+- zapisać PPT jako TIFF
+- zapisać PPTX jako TIFF
+- eksportować PPT do TIFF
+- eksportować PPTX do TIFF
 - .NET
 - C#
 - Aspose.Slides
-description: "Dowiedz się, jak łatwo konwertować prezentacje PowerPoint (PPT, PPTX) na wysokiej jakości obrazy TIFF przy użyciu Aspose.Slides dla .NET. Przykłady kodu w C#."
+description: "Dowiedz się, jak łatwo konwertować prezentacje PowerPoint (PPT, PPTX) na obrazy TIFF wysokiej jakości przy użyciu Aspose.Slides dla .NET. Przykłady kodu C#."
 ---
 ## **Wprowadzenie**
 
-TIFF (**Tagged Image File Format**) to szeroko stosowany, bezstratny format rastrowych obrazów, znany z wyjątkowej jakości i szczegółowego zachowania grafiki. Projektanci, fotografowie i wydawcy komputerowi często wybierają TIFF, aby zachować warstwy, dokładność kolorów i pierwotne ustawienia w swoich obrazach.
+TIFF (**Tagged Image File Format**) jest szeroko stosowanym, bezstratnym formatem obrazu rastrowego, znanym z wyjątkowej jakości i szczegółowego zachowania grafiki. Projektanci, fotografowie i wydawcy desktopowi często wybierają TIFF, aby zachować warstwy, dokładność kolorów i oryginalne ustawienia w swoich obrazach.
 
-Korzystając z Aspose.Slides, możesz bez wysiłku konwertować swoje slajdy PowerPoint (PPT, PPTX) oraz slajdy OpenDocument (ODP) bezpośrednio na wysokiej jakości obrazy TIFF, zapewniając maksymalną wierność wizualną prezentacji.
+Korzystając z Aspose.Slides, możesz z łatwością konwertować swoje slajdy PowerPoint (PPT, PPTX) oraz slajdy OpenDocument (ODP) bezpośrednio na obrazy TIFF wysokiej jakości, zapewniając, że Twoje prezentacje zachowają maksymalną wierność wizualną. 
 
-## **Konwertuj prezentację do formatu TIFF**
+## **Konwertowanie prezentacji na TIFF**
 
-Używając metody [Save](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/save/) udostępnionej przez klasę [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/), możesz szybko konwertować całą prezentację PowerPoint na TIFF. Powstałe obrazy TIFF odpowiadają domyślnemu rozmiarowi slajdu.
+Korzystając z metody [Save](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/save/) udostępnionej przez klasę [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/), możesz szybko przekonwertować całą prezentację PowerPoint na TIFF. Uzyskane obrazy TIFF odpowiadają domyślnemu rozmiarowi slajdu.
 
-Ten kod w C# demonstruje, jak konwertować prezentację PowerPoint do TIFF:
+Ten kod C# demonstruje, jak przekonwertować prezentację PowerPoint na TIFF:
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Utwórz obiekt klasy Presentation, który reprezentuje plik prezentacji (PPT, PPTX, ODP, itp.).
+// Utwórz instancję klasy Presentation, która reprezentuje plik prezentacji (PPT, PPTX, ODP itp.).
 using (Presentation presentation = new Presentation("Demo_File.pptx"))
 {
     // Zapisz prezentację jako TIFF.
@@ -49,21 +49,19 @@ using (Presentation presentation = new Presentation("Demo_File.pptx"))
 }
 ```
 
-## **Konwertuj prezentację do czarno-białego TIFF**
+## **Konwertowanie prezentacji na czarno-biały TIFF**
 
-Właśćność [BwConversionMode](https://reference.aspose.com/slides/pl/net/aspose.slides.export/tiffoptions/bwconversionmode/) w klasie [TiffOptions](https://reference.aspose.com/slides/pl/net/aspose.slides.export/tiffoptions/) pozwala określić algorytm używany przy konwertowaniu kolorowego slajdu lub obrazu na czarno-biały TIFF. Uwaga, to ustawienie ma zastosowanie tylko wtedy, gdy właściwość [CompressionType](https://reference.aspose.com/slides/pl/net/aspose.slides.export/tiffoptions/compressiontype/) jest ustawiona na `CCITT4` lub `CCITT3`.
+Właściwość [BwConversionMode](https://reference.aspose.com/slides/pl/net/aspose.slides.export/tiffoptions/bwconversionmode/) w klasie [TiffOptions](https://reference.aspose.com/slides/pl/net/aspose.slides.export/tiffoptions/) pozwala określić algorytm używany przy konwertowaniu kolorowego slajdu lub obrazu na czarno-biały TIFF. Należy zauważyć, że to ustawienie obowiązuje tylko wtedy, gdy właściwość [CompressionType](https://reference.aspose.com/slides/pl/net/aspose.slides.export/tiffoptions/compressiontype/) jest ustawiona na `CCITT4` lub `CCITT3`.
 
 {{% alert color="info" title="Uwaga" %}}
-
-[TiffOptions.BwConversionMode](https://reference.aspose.com/slides/pl/net/aspose.slides.export/tiffoptions/bwconversionmode/) jest ustawieniem na poziomie eksportu, które wybiera algorytm konwersji pikseli dla całego obrazu TIFF. Aby określić, jak powinien wyglądać pojedynczy kształt w trybie czarno-białym, użyj [IShape.BlackWhiteMode](https://reference.aspose.com/slides/pl/net/aspose.slides/ishape/blackwhitemode/). Zobacz [Kontrolowanie renderowania czarno-białego dla kształtów](/net/shape-formatting/#control-black-and-white-rendering-for-shapes) po przykłady.
-
+[TiffOptions.BwConversionMode](https://reference.aspose.com/slides/pl/net/aspose.slides.export/tiffoptions/bwconversionmode/) jest ustawieniem na poziomie eksportu, które wybiera algorytm konwersji pikseli dla całego obrazu TIFF. Aby określić, jak pojedynczy kształt powinien wyglądać w trybie wyświetlania czarno-białego, użyj [IShape.BlackWhiteMode](https://reference.aspose.com/slides/pl/net/aspose.slides/ishape/blackwhitemode/). Zobacz [Kontrola renderowania czarno-białego dla kształtów](/slides/pl/net/shape-formatting/#control-black-and-white-rendering-for-shapes) po przykłady.
 {{% /alert %}}
 
 Załóżmy, że mamy plik „sample.pptx” z następującym slajdem:
 
 ![Slajd prezentacji](slide_black_and_white.png)
 
-Ten kod w C# demonstruje, jak konwertować kolorowy slajd na czarno-biały TIFF:
+Ten kod C# demonstruje, jak przekonwertować kolorowy slajd na czarno-biały TIFF:
 
 ```cs
 using Aspose.Slides;
@@ -83,20 +81,20 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 
 Wynik:
 
-![Czarnobiały TIFF](TIFF_black_and_white.png)
+![Czarny-biały TIFF](TIFF_black_and_white.png)
 
-## **Konwertuj prezentację do formatu TIFF z niestandardowym rozmiarem**
+## **Konwertowanie prezentacji na TIFF o niestandardowym rozmiarze**
 
-Jeśli potrzebujesz obrazu TIFF o określonych wymiarach, możesz ustawić żądane wartości przy pomocy właściwości dostępnych w [TiffOptions](https://reference.aspose.com/slides/pl/net/aspose.slides.export/tiffoptions/). Na przykład właściwość [ImageSize](https://reference.aspose.com/slides/pl/net/aspose.slides.export/tiffoptions/imagesize/) pozwala określić rozmiar wynikowego obrazu.
+Jeśli potrzebujesz obrazu TIFF o określonych wymiarach, możesz ustawić żądane wartości za pomocą właściwości dostępnych w klasie [TiffOptions](https://reference.aspose.com/slides/pl/net/aspose.slides.export/tiffoptions/). Na przykład właściwość [ImageSize](https://reference.aspose.com/slides/pl/net/aspose.slides.export/tiffoptions/imagesize/) pozwala określić rozmiar wynikowego obrazu.
 
-Ten kod w C# demonstruje, jak konwertować prezentację PowerPoint na obrazy TIFF o niestandardowym rozmiarze:
+Ten kod C# demonstruje, jak przekonwertować prezentację PowerPoint na obrazy TIFF o niestandardowym rozmiarze:
 
 ```cs
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Utwórz obiekt klasy Presentation, który reprezentuje plik prezentacji (PPT, PPTX, ODP, itp.).
+// Utwórz instancję klasy Presentation, która reprezentuje plik prezentacji (PPT, PPTX, ODP itp.).
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     TiffOptions tiffOptions = new TiffOptions();
@@ -127,29 +125,29 @@ using (Presentation presentation = new Presentation("sample.pptx"))
         NotesPosition = NotesPositions.BottomFull
     };
 
-    // Zapisz prezentację jako TIFF w określonym rozmiarze.
+    // Zapisz prezentację jako TIFF o określonym rozmiarze.
     presentation.Save("custom_size.tiff", SaveFormat.Tiff, tiffOptions);
 }
 ```
 
-## **Konwertuj prezentację do TIFF z niestandardowym formatem pikseli obrazu**
+## **Konwertowanie prezentacji na TIFF z niestandardowym formatem pikseli obrazu**
 
 Korzystając z właściwości [PixelFormat](https://reference.aspose.com/slides/pl/net/aspose.slides.export/tiffoptions/pixelformat/) klasy [TiffOptions](https://reference.aspose.com/slides/pl/net/aspose.slides.export/tiffoptions), możesz określić preferowany format pikseli dla wynikowego obrazu TIFF.
 
-Ten kod w C# demonstruje, jak konwertować prezentację PowerPoint na obraz TIFF z niestandardowym formatem pikseli:
+Ten kod C# demonstruje, jak przekonwertować prezentację PowerPoint na obraz TIFF z niestandardowym formatem pikseli:
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Utwórz obiekt klasy Presentation, który reprezentuje plik prezentacji (PPT, PPTX, ODP, itp.).
+// Utwórz instancję klasy Presentation, która reprezentuje plik prezentacji (PPT, PPTX, ODP itp.).
 using (Presentation presentation = new Presentation("Demo_File.pptx"))
 {
     TiffOptions tiffOptions = new TiffOptions();
    
     tiffOptions.PixelFormat = ImagePixelFormat.Format8bppIndexed;
     /*
-    ImagePixelFormat zawiera następujące wartości (jak podano w dokumentacji):
+    ImagePixelFormat zawiera następujące wartości (zgodnie z dokumentacją):
         Format1bppIndexed - 1 bit na piksel, indeksowany.
         Format4bppIndexed - 4 bity na piksel, indeksowany.
         Format8bppIndexed - 8 bitów na piksel, indeksowany.
@@ -157,26 +155,24 @@ using (Presentation presentation = new Presentation("Demo_File.pptx"))
         Format32bppArgb   - 32 bity na piksel, ARGB.
     */
 
-    // Zapisz prezentację jako TIFF w określonym rozmiarze obrazu.
+    // Zapisz prezentację jako TIFF o określonym rozmiarze obrazu.
     presentation.Save("Custom_Image_Pixel_Format.tiff", SaveFormat.Tiff, tiffOptions);
 }
 ```
 
-{{% alert title="Wskazówka" color="info" %}}
-
-Sprawdź darmowy konwerter Aspose „PowerPoint do plakatu” [FREE PowerPoint to Poster converter](https://products.aspose.app/slides/pl/conversion/convert-ppt-to-poster-online).
-
+{{% alert title="Porada" color="info" %}}
+Sprawdź darmowy konwerter Aspose [DARMOWY konwerter PowerPoint do plakatu](https://products.aspose.app/slides/pl/conversion/convert-ppt-to-poster-online).
 {{% /alert %}}
 
 ## **FAQ**
 
-**Czy mogę konwertować pojedynczy slajd zamiast całej prezentacji PowerPoint do formatu TIFF?**
+**Czy mogę konwertować pojedynczy slajd zamiast całej prezentacji PowerPoint na TIFF?**
 
-Tak. Aspose.Slides umożliwia konwersję pojedynczych slajdów z prezentacji PowerPoint i OpenDocument na obrazy TIFF osobno.
+Tak. Aspose.Slides umożliwia konwertowanie poszczególnych slajdów z prezentacji PowerPoint i OpenDocument na obrazy TIFF oddzielnie.
 
-**Czy istnieje limit liczby slajdów przy konwertowaniu prezentacji do TIFF?**
+**Czy istnieje limit liczby slajdów przy konwertowaniu prezentacji na TIFF?**
 
-Nie, Aspose.Slides nie nakłada żadnych ograniczeń dotyczących liczby slajdów. Możesz konwertować prezentacje dowolnego rozmiaru do formatu TIFF.
+Nie, Aspose.Slides nie narzuca żadnych ograniczeń liczby slajdów. Możesz konwertować prezentacje o dowolnym rozmiarze do formatu TIFF.
 
 **Czy animacje i efekty przejść PowerPoint są zachowywane przy konwertowaniu slajdów do TIFF?**
 

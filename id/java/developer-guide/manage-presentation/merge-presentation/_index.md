@@ -11,46 +11,46 @@ keywords:
 - gabungkan PPT
 - gabungkan PPTX
 - gabungkan ODP
-- kombinasikan PowerPoint
-- kombinasikan presentasi
-- kombinasikan slide
-- kombinasikan PPT
-- kombinasikan PPTX
-- kombinasikan ODP
+- gabungkan PowerPoint
+- gabungkan presentasi
+- gabungkan slide
+- gabungkan PPT
+- gabungkan PPTX
+- gabungkan ODP
 - Java
 - Aspose.Slides
-description: "Pelajari cara menggabungkan presentasi PowerPoint dan OpenDocument di Java dengan mengkloning slide, mengendalikan master dan tata letak, mengubah ukuran konten slide, mempertahankan bagian, serta menangani file yang dilindungi atau berukuran besar."
+description: "Pelajari cara menggabungkan presentasi PowerPoint dan OpenDocument di Java dengan menyalin slide, mengontrol master dan layout, mengubah ukuran konten slide, mempertahankan seksi, serta menangani file yang dilindungi atau berukuran besar."
 ---
 ## **Gambaran Umum**
 
-Aspose.Slides for Java menggabungkan presentasi dengan mengkloning slide dari satu [Presentasi](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/) ke yang lain. Operasi utama adalah [ISlideCollection.addClone](https://reference.aspose.com/slides/id/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-), yang dapat mempertahankan pemformatan slide sumber atau menempelkan slide yang diklon ke master atau tata letak di presentasi tujuan.
+Aspose.Slides for Java menggabungkan presentasi dengan menyalin slide dari satu [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/) ke yang lain. Operasi utama adalah [ISlideCollection.addClone](https://reference.aspose.com/slides/id/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-), yang dapat mempertahankan format slide sumber atau menempelkan slide yang disalin ke master atau layout di presentasi tujuan.
 
 Artikel ini mencakup alur kerja penggabungan yang paling umum:
 
-- menggabungkan semua slide sambil mempertahankan pemformatan sumber;
+- menggabungkan semua slide sambil mempertahankan format sumbernya;
 - menggabungkan slide yang dipilih;
 - menerapkan master dari presentasi tujuan;
-- menerapkan tata letak tertentu dari presentasi tujuan;
+- menerapkan layout khusus dari presentasi tujuan;
 - menormalkan ukuran slide yang berbeda sebelum menggabungkan;
-- menambahkan slide yang diklon ke sebuah bagian;
-- menggabungkan beberapa presentasi dalam satu alur kerja ujung‑ke‑ujung;
-- menangani master, sumber daya, catatan, komentar, media, font, kata sandi, file besar, dan masalah multithreading.
+- menambahkan slide yang disalin ke sebuah seksi;
+- menggabungkan beberapa presentasi dalam satu alur kerja end‑to‑end;
+- menangani master, sumber daya, catatan, komentar, media, font, password, file besar, dan masalah multithreading.
 
-## **Bagaimana Kloning Slide Mempengaruhi Master dan Tata Letak**
+## **Bagaimana Penyalinan Slide Mempengaruhi Master dan Layout**
 
-Sebuah slide mewarisi banyak penampilannya dari tata letak dan master. Karena itu, overload kloning yang Anda pilih menentukan bagaimana slide yang digabung terintegrasi ke dalam presentasi tujuan.
+Sebuah slide mewarisi sebagian besar penampilannya dari layout dan master. Karena itu, overload penyalinan yang Anda pilih menentukan bagaimana slide yang digabungkan diintegrasikan ke dalam presentasi tujuan.
 
 Gunakan [ISlideCollection.addClone](https://reference.aspose.com/slides/id/java/com.aspose.slides/islidecollection/) dengan salah satu cara berikut:
 
-- `addClone(sourceSlide)` — mempertahankan tata letak dan pemformatan slide sumber. Jika diperlukan, master sumber dapat diklon ke dalam presentasi tujuan secara otomatis. Aspose.Slides melacak master yang diklon secara otomatis sehingga slide berulang yang menggunakan master sumber yang sama tidak menyebabkan master tersebut diklon berulang kali.
-- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — menempelkan slide yang diklon ke [IMasterSlide](https://reference.aspose.com/slides/id/java/com.aspose.slides/imasterslide/) tujuan yang spesifik. Aspose.Slides mencari tata letak yang cocok di bawah master tersebut berdasarkan tipe atau nama tata letak.
-- `addClone(sourceSlide, destinationLayout)` — menempelkan slide yang diklon langsung ke [ILayoutSlide](https://reference.aspose.com/slides/id/java/com.aspose.slides/ilayoutslide/) tujuan yang spesifik.
+- `addClone(sourceSlide)` — mempertahankan layout dan format slide sumber. Jika diperlukan, master sumber dapat disalin ke dalam presentasi tujuan secara otomatis. Aspose.Slides melacak master yang disalin secara otomatis sehingga slide berulang yang menggunakan master sumber yang sama tidak menyebabkan master tersebut disalin berulang kali.
+- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — menempelkan slide yang disalin ke [IMasterSlide](https://reference.aspose.com/slides/id/java/com.aspose.slides/imasterslide/) tujuan tertentu. Aspose.Slides mencari layout yang cocok di bawah master tersebut berdasarkan tipe atau nama layout.
+- `addClone(sourceSlide, destinationLayout)` — menempelkan slide yang disalin langsung ke [ILayoutSlide](https://reference.aspose.com/slides/id/java/com.aspose.slides/ilayoutslide/) tujuan tertentu.
 
-Master atau tata letak yang diberikan ke overload `addClone` harus berasal dari **presentasi tujuan**, bukan presentasi sumber.
+Master atau layout yang diberikan ke overload `addClone` harus berasal dari **presentasi tujuan**, bukan presentasi sumber.
 
-## **Menggabungkan Seluruh Presentasi dan Mempertahankan Pemformatan Sumber**
+## **Gabungkan Seluruh Presentasi dan Pertahankan Format Sumber**
 
-Penggabungan paling sederhana menyalin setiap slide dari presentasi sumber ke presentasi tujuan. Ini merupakan pilihan yang tepat ketika slide yang diimpor harus mempertahankan tema, master, dan hubungan tata letak aslinya.
+Penggabungan paling sederhana menyalin setiap slide dari presentasi sumber ke presentasi tujuan. Ini adalah pilihan yang tepat ketika slide yang diimpor harus menjaga tema, master, dan hubungan layout aslinya.
 
 ```java
 import com.aspose.slides.*;
@@ -69,11 +69,11 @@ try {
 }
 ```
 
-Presentasi yang dihasilkan dapat berisi beberapa master ketika sumber dan tujuan menggunakan desain yang berbeda. Hal ini diharapkan ketika pemformatan sumber sengaja dipertahankan.
+Presentasi hasil dapat berisi beberapa master ketika sumber dan tujuan menggunakan desain yang berbeda. Hal ini diharapkan ketika format sumber sengaja dipertahankan.
 
-## **Menggabungkan Slide yang Dipilih**
+## **Gabungkan Slide yang Dipilih**
 
-Anda tidak harus mengklon setiap slide. Contoh berikut mengimpor hanya indeks slide yang dipilih dari presentasi sumber.
+Anda tidak harus menyalin setiap slide. Contoh berikut mengimpor hanya indeks slide yang dipilih dari presentasi sumber.
 
 ```java
 import com.aspose.slides.*;
@@ -94,11 +94,11 @@ try {
 }
 ```
 
-Validasi indeks slide sebelum mengklon ketika indeks berasal dari masukan pengguna atau konfigurasi eksternal.
+Validasi indeks slide sebelum menyalin ketika mereka berasal dari input pengguna atau konfigurasi eksternal.
 
-## **Menggabungkan Slide Menggunakan Master Tujuan**
+## **Gabungkan Slide Menggunakan Master Tujuan**
 
-Gunakan overload [addClone(ISlide, IMasterSlide, boolean)](https://reference.aspose.com/slides/id/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) ketika slide yang diimpor harus mengikuti master yang sudah ada di presentasi tujuan.
+Gunakan overload [addClone(ISlide, IMasterSlide, boolean)](https://reference.aspose.com/slides/id/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) ketika slide yang diimpor harus mengikuti master yang sudah berada di presentasi tujuan.
 
 ```java
 import com.aspose.slides.*;
@@ -119,13 +119,13 @@ try {
 }
 ```
 
-Aspose.Slides memilih tata letak yang sesuai di bawah master yang ditentukan dengan mencocokkan tipe atau nama tata letak sumber. Jika tidak ada tata letak yang cocok dan `allowCloneMissingLayout` bernilai `true`, tata letak sumber diklon sehingga slide dapat ditambahkan. Jika bernilai `false`, sebuah [PptxEditException](https://reference.aspose.com/slides/id/java/com.aspose.slides/pptxeditexception/) akan dilempar.
+Aspose.Slides memilih layout yang sesuai di bawah master yang ditentukan dengan mencocokkan tipe atau nama layout sumber. Jika tidak ada layout yang cocok dan `allowCloneMissingLayout` bernilai `true`, layout sumber disalin sehingga slide dapat ditambahkan. Jika `false`, sebuah [PptxEditException](https://reference.aspose.com/slides/id/java/com.aspose.slides/pptxeditexception/) dilemparkan.
 
-Gunakan `false` ketika Anda ingin penggabungan gagal alih‑alih memperkenalkan tata letak tambahan ke dalam master tujuan.
+Gunakan `false` ketika Anda ingin penggabungan gagal alih-alih menambahkan layout tambahan ke master tujuan.
 
-## **Menggabungkan Slide Menggunakan Tata Letak Tujuan yang Spesifik**
+## **Gabungkan Slide Menggunakan Layout Tujuan Khusus**
 
-Gunakan overload [addClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/id/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) ketika Anda sudah mengetahui tata letak tujuan yang tepat untuk slide yang diimpor.
+Gunakan overload [addClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/id/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) ketika Anda sudah mengetahui layout tujuan spesifik yang harus digunakan slide yang diimpor.
 
 ```java
 import com.aspose.slides.*;
@@ -146,13 +146,13 @@ try {
 }
 ```
 
-Menerapkan tata letak tujuan mengubah hubungan tata letak yang diwariskan; tidak mengubah desain konten slide sumber. Jika tata letak sumber dan tujuan memiliki struktur placeholder yang berbeda, periksa hasilnya untuk memastikan bahwa pemformatan dan perilaku placeholder yang diwariskan sudah tepat.
+Menerapkan layout tujuan mengubah hubungan layout yang diwarisi; ia tidak merancang ulang konten slide sumber. Jika layout sumber dan tujuan memiliki struktur placeholder yang berbeda, periksa hasilnya untuk memastikan bahwa format yang diwarisi dan perilaku placeholder sudah tepat.
 
-## **Menggabungkan Presentasi dengan Ukuran Slide Berbeda**
+## **Gabungkan Presentasi dengan Ukuran Slide Berbeda**
 
-Presentasi dengan dimensi slide yang berbeda dapat digabung, tetapi mengklon slide ke dalam presentasi dengan ukuran slide lain tidak secara otomatis mendesain ulang kontennya untuk kanvas baru. Oleh karena itu bentuk dapat tampak bergeser, terukur tidak terduga, atau berada di luar area slide yang terlihat.
+Presentasi dengan dimensi slide yang berbeda dapat digabungkan, tetapi menyalin slide ke presentasi dengan ukuran slide lain tidak secara otomatis merancang ulang kontennya untuk kanvas baru. Oleh karena itu bentuk dapat tampak bergeser, skalanya tidak terduga, atau berada di luar area slide yang terlihat.
 
-Pendekatan praktis adalah mengubah ukuran presentasi sumber sebelum mengklon. Metode [SlideSize.setSize](https://reference.aspose.com/slides/id/java/com.aspose.slides/slidesize/#setSize-float-float-int-) dapat memperbesar atau memperkecil konten yang ada sambil mengubah dimensi slide. [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/id/java/com.aspose.slides/slidesizescaletype/) memperkecil konten agar sesuai dengan ukuran yang diminta.
+Pendekatan praktis adalah mengubah ukuran presentasi sumber sebelum menyalin. Metode [SlideSize.setSize](https://reference.aspose.com/slides/id/java/com.aspose.slides/slidesize/#setSize-float-float-int-) dapat menskalakan konten yang ada sambil mengubah dimensi slide. [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/id/java/com.aspose.slides/slidesizescaletype/) menskalakan konten agar pas dalam ukuran yang diminta.
 
 ```java
 import com.aspose.slides.*;
@@ -183,11 +183,11 @@ try {
 }
 ```
 
-Pengubahan ukuran mengubah objek presentasi sumber dalam memori. Jika Anda membutuhkan presentasi sumber asli tetap tidak berubah untuk operasi lain, buka instance terpisah untuk proses penggabungan.
+Mengubah ukuran mengubah objek presentasi sumber di memori. Jika Anda memerlukan presentasi sumber asli tetap tidak berubah untuk operasi lain, buka instance terpisah untuk penggabungan.
 
-## **Menggabungkan Slide ke dalam Bagian Presentasi**
+## **Gabungkan Slide ke dalam Seksi Presentasi**
 
-Loop dasar kloning slide tidak membuat kembali hirarki bagian presentasi sumber. Jika bagian penting dalam output, buat atau pilih bagian di presentasi tujuan dan klon slide ke dalamnya secara eksplisit dengan [addClone(ISlide, ISection)](https://reference.aspose.com/slides/id/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-).
+Loop penyalinan slide dasar tidak membuat kembali hierarki seksi presentasi sumber. Jika seksi penting dalam output, buat atau pilih seksi di presentasi tujuan dan salin slide ke dalamnya secara eksplisit dengan [addClone(ISlide, ISection)](https://reference.aspose.com/slides/id/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-).
 
 ```java
 import com.aspose.slides.*;
@@ -208,11 +208,11 @@ try {
 }
 ```
 
-Slide yang diklon akan ditambahkan ke bagian tujuan yang ditentukan. Untuk mempertahankan beberapa bagian sumber, buat kembali bagian‑bagian tersebut di tujuan dan petakan setiap slide sumber ke bagian tujuan yang bersesuaian.
+Slide yang disalin ditambahkan ke seksi tujuan yang ditentukan. Untuk mempertahankan beberapa seksi sumber, iterasi [Presentation.getSections](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/#getSections--), ambil slide saat ini dari setiap seksi sumber dengan [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/id/java/com.aspose.slides/isection/#getSlidesListOfSection--), buat ulang seksi di tujuan, dan salin setiap slide yang dikembalikan ke seksi tujuan yang bersesuaian. Lihat [Manage Slide Sections](/slides/id/java/slide-section/) untuk contoh lengkap enumerasi seksi, termasuk seksi kosong dan perubahan struktur.
 
-## **Menggabungkan Beberapa Presentasi dengan Aman**
+## **Gabungkan Beberapa Presentasi dengan Aman**
 
-Contoh ujung‑ke‑ujung berikut menggunakan presentasi pertama sebagai tujuan, menormalkan ukuran slide tiap sumber tambahan, membuka tiap sumber hanya saat sedang disalin, dan menyimpan file akhir sekali saja.
+Contoh end‑to‑end berikut menggunakan presentasi pertama sebagai tujuan, menormalkan ukuran slide setiap sumber tambahan, membuka setiap sumber hanya saat sedang disalin, dan menyimpan file akhir sekali saja.
 
 ```java
 import com.aspose.slides.*;
@@ -251,39 +251,39 @@ try {
 }
 ```
 
-Ini adalah dasar yang berguna untuk mempertahankan pemformatan sumber slide yang diimpor. Jika output Anda harus menggunakan satu tema tujuan, gantilah pemanggilan sederhana `addClone(slide)` dengan overload master‑tujuan atau layout‑tujuan yang sesuai yang ditunjukkan sebelumnya.
+Ini merupakan baseline yang berguna untuk mempertahankan format sumber slide yang diimpor. Jika output Anda harus menggunakan satu tema tujuan, ganti pemanggilan sederhana `addClone(slide)` dengan overload master‑tujuan atau layout‑tujuan yang sesuai seperti yang ditunjukkan sebelumnya.
 
 ## **Pertimbangan Praktis**
 
-### **Master, Tata Letak, dan Kesetiaan Pemformatan**
+### **Master, Layout, dan Keakuratan Format**
 
-Klonnig slide default dapat secara otomatis membawa master sumber yang diperlukan ke dalam presentasi tujuan. Aspose.Slides menyimpan registri internal untuk master yang diklon secara otomatis agar tidak mengklon master yang sama berulang kali. Master yang diklon secara manual tidak tercatat di registri tersebut, sehingga hindari pra‑klon master kecuali Anda memerlukan kontrol eksplisit atas struktur master.
+Penyalinan slide default dapat secara otomatis membawa master sumber yang diperlukan ke dalam presentasi tujuan. Aspose.Slides menyimpan registri internal untuk master yang disalin secara otomatis agar tidak menyalin master yang sama berulang kali. Master yang disalin secara manual tidak tercatat dalam registri tersebut, sehingga hindari menyalin master terlebih dahulu kecuali Anda memerlukan kontrol eksplisit atas struktur master.
 
-Jangan menganggap dua master atau tata letak dengan nama yang sama secara visual identik. Jika template perusahaan harus mengontrol penampilan akhir, pilih master atau tata letak tujuan secara eksplisit dan verifikasi hasil setelah penggabungan.
+Jangan menganggap dua master atau layout dengan nama yang sama secara visual setara. Jika template perusahaan harus mengendalikan tampilan akhir, pilih master atau layout tujuan secara eksplisit dan verifikasi hasil setelah penggabungan.
 
 ### **Catatan dan Komentar**
 
-Catatan pembicara dan komentar slide terkait dengan konten slide dan disalin ketika slide diklon. Aspose.Slides juga menyediakan API khusus untuk [catatan presentasi](https://docs.aspose.com/slides/id/java/presentation-notes/) dan [komentar presentasi](https://docs.aspose.com/slides/id/java/presentation-comments/).
+Catatan pembicara dan komentar slide terkait dengan konten slide dan disalin saat slide disalin. Aspose.Slides juga menyediakan API khusus untuk [presentation notes](/slides/id/java/presentation-notes/) dan [presentation comments](/slides/id/java/presentation-comments/).
 
-Jika pemformatan halaman catatan penting, verifikasi presentasi yang digabung karena master catatan berada pada level presentasi dan dapat berbeda antar file sumber. Untuk alur kerja tinjauan, verifikasi juga penulis komentar dan komentar berulir setelah menggabungkan file dari penulis atau template yang berbeda.
+Jika format halaman catatan penting, periksa presentasi yang digabung karena master catatan berada pada tingkat presentasi dan dapat berbeda antar file sumber. Untuk alur kerja tinjauan, verifikasi juga penulis komentar dan komentar berutas setelah menggabungkan file dari penulis atau template yang berbeda.
 
-### **Gambar, Audio, Video, OLE, dan Tautan Eksternal**
+### **Gambar, Audio, Video, Objek OLE, dan Tautan Eksternal**
 
-Slide dapat merujuk ke sumber daya pada level presentasi seperti gambar, audio tersemat, video tersemat, dan data OLE. Klon slide itu sendiri, bukan hanya bentuk yang terlihat, agar Aspose.Slides dapat mempertahankan hubungan slide dengan sumber dayanya.
+Slide dapat merujuk ke sumber tingkat presentasi seperti gambar, audio tersemat, video tersemat, dan data OLE. Salin slide itu sendiri, bukan hanya bentuk yang terlihat, sehingga Aspose.Slides dapat mempertahankan hubungan slide dengan sumber dayanya.
 
-Sumber daya yang tersemat dan yang ditautkan harus diperlakukan berbeda. Audio, video, objek OLE, atau hyperlink yang ditautkan tetap bergantung pada target eksternal; mengklon slide tidak mengubah tautan eksternal menjadi konten tersemat. Uji jalur dan URL sumber daya yang ditautkan di lingkungan tempat presentasi yang digabung akan dibuka.
+Sumber yang tersemat dan yang ditautkan harus diperlakukan berbeda. Audio, video, objek OLE, atau hyperlink yang ditautkan tetap bergantung pada target eksternal; menyalin slide tidak mengubah tautan eksternal menjadi konten tersemat. Uji jalur dan URL sumber yang ditautkan di lingkungan tempat presentasi yang digabung akan dibuka.
 
-Aspose.Slides melacak master yang diklon secara otomatis, namun hal ini tidak menjamin bahwa sumber daya biner yang identik dari presentasi sumber yang tidak berhubungan akan selalu didedup. Jika ukuran file output penting, periksa paket yang digabung dan ukur hasilnya alih‑alih mengandalkan deduplikasi implisit.
+Aspose.Slides secara eksplisit melacak master yang disalin otomatis, namun hal ini bukan jaminan umum bahwa sumber biner identik dari presentasi sumber yang tidak berhubungan akan selalu dideduplicasi. Jika ukuran file output penting, periksa paket yang digabung dan ukur hasilnya alih-alih mengandalkan deduplikasi implisit.
 
-### **Font Tersemat dan Ketersediaan Font**
+### **Font Tertanam dan Ketersediaan Font**
 
-Font dikelola pada level presentasi. Jika tipografi harus tetap konsisten antar mesin, jangan menganggap bahwa mengklon slide saja menjamin setiap font yang diperlukan tersedia di lingkungan tujuan. Anda dapat memeriksa font tersemat dengan [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/id/java/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) dan mengelola penyematan secara eksplisit seperti yang dijelaskan dalam [Menyematkan Font di Presentasi](https://docs.aspose.com/slides/id/java/embedded-font/).
+Font dikelola pada tingkat presentasi. Jika tipografi harus tetap konsisten di berbagai mesin, jangan menganggap bahwa menyalin slide saja menjamin semua font yang diperlukan tersedia di lingkungan tujuan. Anda dapat memeriksa font tertanam dengan [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/id/java/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) dan mengelola penyematan secara eksplisit sebagaimana dijelaskan di [Embed Fonts in Presentations](/slides/id/java/embedded-font/).
 
-Juga pastikan Anda diizinkan menyematkan font yang digunakan oleh file sumber. Lisensi font dapat membatasi penyematan.
+Juga pastikan Anda diizinkan untuk menyematkan font yang digunakan oleh file sumber. Lisensi font dapat membatasi penyematan.
 
-### **Presentasi yang Dilindungi Kata Sandi**
+### **Presentasi yang Dilindungi Password**
 
-Sumber yang dilindungi kata sandi harus dibuka dengan sukses sebelum slidennya dapat diklon. Berikan kata sandi melalui [LoadOptions.setPassword](https://reference.aspose.com/slides/id/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-).
+Sumber yang dilindungi password harus dibuka berhasil sebelum slidennya dapat disalin. Berikan password melalui [LoadOptions.setPassword](https://reference.aspose.com/slides/id/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-).
 
 ```java
 import com.aspose.slides.*;
@@ -299,64 +299,64 @@ try {
 }
 ```
 
-Membuka sumber yang terenkripsi tidak otomatis menerapkan perlindungan yang sama pada presentasi tujuan. Konfigurasikan perlindungan output secara terpisah bila diperlukan.
+Membuka sumber yang terenkripsi tidak secara otomatis menerapkan perlindungan yang sama pada presentasi tujuan. Konfigurasikan perlindungan output secara terpisah bila diperlukan.
 
 ### **Presentasi Besar dan Penggunaan Memori**
 
-Presentasi besar yang berisi gambar resolusi tinggi, audio, video, atau objek biner besar lainnya dapat mengonsumsi memori signifikan. [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/id/java/com.aspose.slides/loadoptions/#getBlobManagementOptions--) menyediakan kontrol untuk penanganan BLOB dan penggunaan file sementara. Lihat [Mengelola BLOB Presentasi](https://docs.aspose.com/slides/id/java/manage-blob/) untuk strategi file besar.
+Presentasi besar yang berisi gambar resolusi tinggi, audio, video, atau objek biner besar lainnya dapat mengonsumsi memori yang signifikan. [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/id/java/com.aspose.slides/loadoptions/#getBlobManagementOptions--) menyediakan kontrol untuk penanganan BLOB dan penggunaan file sementara. Lihat [Manage Presentation BLOBs](/slides/id/java/manage-blob/) untuk strategi file besar.
 
-Untuk file besar, lebih baik memuat dari jalur file bila memungkinkan, buang setiap presentasi sumber segera setelah selesai digabung, dan hindari menyimpan hasil antara berulang kali kecuali alur kerja memerlukan checkpoint.
+Untuk file besar, lebih baik memuat dari jalur file bila memungkinkan, hapus (dispose) setiap presentasi sumber segera setelah selesai digabung, dan hindari menyimpan hasil perantara berulang kali kecuali alur kerja memerlukan checkpoint.
 
 ### **Keamanan Thread**
 
-Jangan memuat, memodifikasi, menyimpan, atau mengklon instance [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/) yang sama secara bersamaan dari beberapa thread. Jaga setiap instance presentasi terbatas pada satu operasi penggabungan. Jika Anda memparalelkan pekerjaan independen, gunakan instance presentasi yang terpisah dan ikuti [panduan multithreading Aspose.Slides](https://docs.aspose.com/slides/id/java/multithreading/).
+Jangan memuat, memodifikasi, menyimpan, atau menyalin instance [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/) yang sama secara bersamaan dari beberapa thread. Batasi setiap instance presentasi pada satu operasi penggabungan. Jika Anda memparallelkan pekerjaan yang independen, gunakan instance presentasi yang terpisah dan ikuti panduan [Aspose.Slides multithreading guidance](/slides/id/java/multithreading/).
 
 ## **FAQ**
 
-**Bagaimana cara mempertahankan desain asli masing‑masing presentasi sumber?**
+**Bagaimana cara mempertahankan desain asli setiap presentasi sumber?**
 
-Gunakan [`addClone(sourceSlide)`](https://reference.aspose.com/slides/id/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) tanpa memberikan master atau tata letak tujuan. Aspose.Slides dapat secara otomatis mengklon master sumber ketika diperlukan oleh slide yang diimpor.
+Gunakan [addClone](https://reference.aspose.com/slides/id/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) tanpa memberikan master atau layout tujuan. Aspose.Slides dapat menyalin master sumber secara otomatis ketika diperlukan oleh slide yang diimpor.
 
-**Bagaimana cara membuat slide yang diimpor memakai tema tujuan?**
+**Bagaimana cara membuat slide yang diimpor menggunakan tema tujuan?**
 
-Gunakan overload yang menerima master tujuan. Berikan master dari presentasi tujuan, bukan dari sumber. Aspose.Slides akan berusaha memetakan setiap slide sumber ke tata letak yang sesuai di bawah master tersebut.
+Gunakan overload yang menerima master tujuan. Berikan master dari presentasi tujuan, bukan dari sumber. Aspose.Slides akan mencoba memetakan setiap slide sumber ke layout yang sesuai di bawah master tersebut.
 
-**Kapan harus menggunakan tata letak tujuan spesifik alih‑alih master tujuan?**
+**Kapan saya harus menggunakan layout tujuan spesifik alih-alih master tujuan?**
 
-Gunakan tata letak spesifik ketika setiap slide yang diimpor harus memakai satu tata letak yang diketahui. Gunakan master ketika Anda ingin Aspose.Slides memilih di antara tata letak master tersebut berdasarkan tipe atau nama tata letak sumber.
+Gunakan layout spesifik ketika setiap slide yang diimpor harus menggunakan satu layout yang diketahui. Gunakan master ketika Anda ingin Aspose.Slides memilih di antara layout master tersebut berdasarkan tipe atau nama layout sumber.
 
-**Apakah presentasi dengan ukuran slide berbeda dapat digabung?**
+**Apakah presentasi dengan ukuran slide berbeda dapat digabungkan?**
 
-Ya, tetapi konten slide tidak secara otomatis didesain ulang untuk dimensi tujuan. Ubah ukuran presentasi sumber terlebih dahulu ketika Anda membutuhkan penempatan yang dapat diprediksi, misalnya dengan [SlideSize.setSize](https://reference.aspose.com/slides/id/java/com.aspose.slides/slidesize/#setSize-float-float-int-) dan [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/id/java/com.aspose.slides/slidesizescaletype/).
+Ya, tetapi konten slide tidak secara otomatis dirancang ulang untuk dimensi tujuan. Ubah ukuran presentasi sumber terlebih dahulu ketika Anda memerlukan penempatan yang dapat diprediksi, misalnya dengan [SlideSize.setSize](https://reference.aspose.com/slides/id/java/com.aspose.slides/slidesize/#setSize-float-float-int-) dan [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/id/java/com.aspose.slides/slidesizescaletype/).
 
-**Bisakah saya menggabungkan file PPT, PPTX, dan ODP menjadi satu file?**
+**Apakah saya dapat menggabungkan presentasi PPT, PPTX, dan ODP menjadi satu file?**
 
-Ya. Muat masing‑masing presentasi sumber, klon slide yang diperlukan ke dalam satu tujuan, dan simpan tujuan dalam format output yang didukung. Karena format presentasi tidak mendukung set fitur yang persis sama, verifikasi konten kompleks setelah penggabungan lintas format. Lihat [Format File yang Didukung](https://docs.aspose.com/slides/id/java/supported-file-formats/).
+Ya. Muat setiap presentasi sumber, salin slide yang diperlukan ke satu tujuan, dan simpan tujuan dalam format output yang didukung. Karena format presentasi tidak mendukung set fitur yang persis sama, verifikasi konten kompleks setelah penggabungan lintas format. Lihat [Supported File Formats](/slides/id/java/supported-file-formats/).
 
-**Apakah bagian sumber dipertahankan secara otomatis?**
+**Apakah seksi sumber dipertahankan secara otomatis?**
 
-Tidak oleh loop dasar yang hanya mengklon slide. Buat kembali bagian yang diperlukan di tujuan dan gunakan overload bagian dari [addClone](https://reference.aspose.com/slides/id/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-) ketika struktur bagian harus dipertahankan.
+Tidak oleh loop dasar yang hanya menyalin slide. Buat ulang seksi yang diperlukan di tujuan dan gunakan overload seksi dari [addClone](https://reference.aspose.com/slides/id/java/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-) ketika struktur seksi harus dipertahankan.
 
 **Apakah catatan pembicara dan komentar dipertahankan?**
 
-Mereka disalin bersama slide yang diklon. Untuk alur kerja yang bergantung pada gaya master catatan, penulis komentar, atau data tinjauan berulir, verifikasi hasil yang digabung karena skenario tersebut melibatkan struktur pada level presentasi serta konten pada level slide.
+Mereka disalin bersama slide yang disalin. Untuk alur kerja yang bergantung pada gaya master catatan, penulis komentar, atau data review berutas, verifikasi hasil penggabungan karena skenario tersebut melibatkan struktur tingkat presentasi serta konten tingkat slide.
 
 **Apa yang terjadi pada audio, video, objek OLE, dan hyperlink?**
 
-Konten tersemat dibawa sebagai bagian dari hubungan sumber daya slide yang diklon. Tautan eksternal tetap eksternal, sehingga file atau URL targetnya harus tetap tersedia setelah penggabungan.
+Konten tersemat dibawa sebagai bagian dari hubungan sumber daya slide yang disalin. Tautan eksternal tetap eksternal, sehingga file atau URL targetnya harus tetap tersedia setelah penggabungan.
 
 **Apakah font tersemat dari setiap sumber dijamin tersedia di presentasi yang digabung?**
 
-Jangan mengandalkan hanya kloning slide untuk penyebaran font. Periksa font tersemat pada tujuan dan kelola penyematan font atau ketersediaan font eksternal secara eksplisit ketika tipografi penting.
+Jangan mengandalkan penyalinan slide saja untuk penyebaran font. Periksa font tersemat pada tujuan dan kelola penyematan font atau ketersediaan font eksternal secara eksplisit ketika tipografi penting.
 
-**Bagaimana menggabungkan file yang dilindungi kata sandi?**
+**Bagaimana cara menggabungkan file yang dilindungi password?**
 
-Buka dengan [LoadOptions.setPassword](https://reference.aspose.com/slides/id/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) yang benar, lalu klon slidennya seperti biasa. Perlindungan output dikonfigurasikan secara terpisah.
+Buka dengan [LoadOptions.setPassword](https://reference.aspose.com/slides/id/java/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) yang tepat, lalu salin slidenya secara normal. Perlindungan output dikonfigurasi secara terpisah.
 
-**Bagaimana menangani presentasi yang sangat besar?**
+**Bagaimana cara menangani presentasi yang sangat besar?**
 
-Gunakan manajemen BLOB ketika objek biner besar mendominasi penggunaan memori, pilih pemuatan dari jalur file untuk file yang sangat besar, buang presentasi sumber segera setelah selesai, dan simpan hasil akhir hanya saat diperlukan.
+Gunakan manajemen BLOB ketika objek biner besar mendominasi penggunaan memori, lebih memilih pemuatan dari jalur file untuk file sangat besar, hapus (dispose) presentasi sumber segera, dan simpan hasil akhir hanya bila diperlukan.
 
-**Bisakah saya menggabungkan slide dari banyak thread?**
+**Apakah saya dapat menggabungkan slide dari beberapa thread?**
 
-Jangan gunakan satu instance [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/) secara bersamaan dari banyak thread. Jaga setiap operasi penggabungan terisolasi pada instance presentasi masing‑masing.
+Jangan gunakan satu instance [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/) secara bersamaan dari beberapa thread. Jaga setiap operasi penggabungan terisolasi pada instance presentasinya masing‑masing.

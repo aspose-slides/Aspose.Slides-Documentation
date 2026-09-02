@@ -1,5 +1,5 @@
 ---
-title: Quản lý các Phần Slide trong Bản Trình Bày bằng .NET
+title: Quản lý các phần slide trong bản trình chiếu trong .NET
 linktitle: Phần Slide
 type: docs
 weight: 100
@@ -10,80 +10,183 @@ keywords:
 - chỉnh sửa phần
 - thay đổi phần
 - tên phần
+- lấy slide của phần
+- xử lý slide của phần
 - PowerPoint
-- OpenDocument
 - bản trình bày
 - .NET
 - C#
 - Aspose.Slides
-description: "Tối ưu hóa các phần slide trong PowerPoint và OpenDocument với Aspose.Slides cho .NET — tách, đổi tên và sắp xếp lại để cải thiện quy trình làm việc với PPTX và ODP."
+description: "Quản lý các phần slide với Aspose.Slides cho .NET: tạo, đổi tên, sắp xếp lại, truy xuất và xử lý slide của phần trong các bản trình bày PPTX."
 ---
 ## **Giới thiệu**
 
-Với Aspose.Slides for .NET, bạn có thể tổ chức một bản trình bày PowerPoint thành các phần. Bạn có thể tạo các phần chứa các slide cụ thể. 
+Các phần tổ chức các slide liên tiếp thành các nhóm có tên mà không thay đổi nội dung slide. Với Aspose.Slides for .NET, bạn có thể tạo, sắp xếp lại, đổi tên, kiểm tra và xóa các phần thông qua thuộc tính [Presentation.Sections](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/sections/) .
 
-Bạn có thể muốn tạo các phần và sử dụng chúng để tổ chức hoặc chia các slide trong một bản trình bày thành các phần logic trong các tình huống sau:
+Các phần đặc biệt hữu ích khi:
 
-- Khi bạn đang làm việc trên một bản trình bày lớn với người khác hoặc một đội—và bạn cần giao một số slide cho đồng nghiệp hoặc một số thành viên trong đội. 
-- Khi bạn đang xử lý một bản trình bày có nhiều slide—and bạn gặp khó khăn trong việc quản lý hoặc chỉnh sửa toàn bộ nội dung cùng một lúc.
+- một bản trình bày lớn cần được chia thành các chủ đề hoặc chương logic;
+- các nhóm slide khác nhau được giao cho các cộng tác viên khác nhau;
+- các slide cần được xử lý, di chuyển hoặc hợp nhất dưới dạng nhóm.
 
-Lý tưởng nhất, bạn nên tạo một phần chứa các slide tương tự—các slide có điểm chung hoặc có thể tồn tại trong một nhóm dựa trên một quy tắc—và đặt tên cho phần sao cho mô tả các slide bên trong. 
+Chọn các tên phần ngắn gọn mô tả mục đích của các slide đã được nhóm lại. Vì các phần là một phần của cấu trúc bản trình bày, hãy sử dụng API phần để xác định thành viên thay vì suy ra từ vị trí slide.
 
-## **Tạo Phần trong Bài Thuyết Trình**
+## **Tạo và Quản lý Các Phần**
 
-Để thêm một phần chứa các slide trong bản trình bày, Aspose.Slides for .NET cung cấp phương thức AddSection cho phép bạn chỉ định tên của phần muốn tạo và slide mà phần bắt đầu. 
+Sử dụng [ISectionCollection.AddSection](https://reference.aspose.com/slides/vi/net/aspose.slides/sectioncollection/addsection/) để tạo một phần bằng cách chỉ định tên và slide bắt đầu. Aspose.Slides xác định slide nào thuộc phần dựa trên cấu trúc phần hiện tại của bản trình bày.
 
-Mã mẫu này cho bạn thấy cách tạo một phần trong bản trình bày bằng C#:
+Cùng với [ISectionCollection](https://reference.aspose.com/slides/vi/net/aspose.slides/isectioncollection/) còn cho phép bạn:
 
-```c#
-using (Presentation pres = new Presentation())
+- di chuyển một phần cùng với các slide của nó bằng cách sử dụng [ISectionCollection.ReorderSectionWithSlides](https://reference.aspose.com/slides/vi/net/aspose.slides/sectioncollection/reordersectionwithslides/) ;
+- chỉ xóa định nghĩa phần bằng [ISectionCollection.RemoveSection](https://reference.aspose.com/slides/vi/net/aspose.slides/sectioncollection/removesection/), giữ lại các slide của nó;
+- xóa một phần và các slide của nó bằng [ISectionCollection.RemoveSectionWithSlides](https://reference.aspose.com/slides/vi/net/aspose.slides/sectioncollection/removesectionwithslides/) ;
+- thêm một phần rỗng ở cuối bằng [ISectionCollection.AppendEmptySection](https://reference.aspose.com/slides/vi/net/aspose.slides/sectioncollection/appendemptysection/) .
+
+Ví dụ dưới đây tạo hai phần, di chuyển một trong số chúng, xóa nó cùng với các slide, và thêm một phần rỗng ở cuối:
+
+```csharp
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var titleSlide = presentation.Slides[0];
+presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+var resultsSlide = presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+
+presentation.Sections.AddSection("Introduction", titleSlide);
+var resultsSection = presentation.Sections.AddSection("Results", resultsSlide);
+
+presentation.Sections.ReorderSectionWithSlides(resultsSection, 0);
+presentation.Sections.RemoveSectionWithSlides(resultsSection);
+presentation.Sections.AppendEmptySection("Appendix");
+```
+
+Sau các thao tác này, bản trình bày chứa phần `Introduction` với các slide của nó và một phần rỗng `Appendix`. Phần `Results` và các slide của nó đã bị xóa.
+
+## **Đổi Tên Các Phần**
+
+Để đổi tên một phần, đặt thuộc tính [ISection.Name](https://reference.aspose.com/slides/vi/net/aspose.slides/isection/name/) của nó. Các slide và vị trí của phần vẫn không thay đổi.
+
+Ví dụ dưới đây tạo một phần và thay đổi tên của nó:
+
+```csharp
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var section = presentation.Sections.AddSection("Overview", slide);
+section.Name = "Introduction";
+```
+
+## **Lấy Các Slide Từ Các Phần**
+
+Thuộc tính [Presentation.Sections](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/sections/) trả về một [ISectionCollection](https://reference.aspose.com/slides/vi/net/aspose.slides/isectioncollection/) mà bạn có thể liệt kê. Đối với mỗi [ISection](https://reference.aspose.com/slides/vi/net/aspose.slides/isection/), gọi [ISection.GetSlidesListOfSection](https://reference.aspose.com/slides/vi/net/aspose.slides/isection/getslideslistofsection/) để lấy các slide hiện đang thuộc về nó. Phương thức trả về một [ISectionSlideCollection](https://reference.aspose.com/slides/vi/net/aspose.slides/isectionslidecollection/), cung cấp số lượng, truy cập theo chỉ mục và việc liệt kê.
+
+Ví dụ dưới đây tạo hai phần đã được điền nội dung và một phần rỗng, sau đó in ra [tên](https://reference.aspose.com/slides/vi/net/aspose.slides/isection/name/), [định danh](https://reference.aspose.com/slides/vi/net/aspose.slides/isection/sectionid/), [slide bắt đầu](https://reference.aspose.com/slides/vi/net/aspose.slides/isection/startedfromslide/), số lượng slide và số thứ tự slide của mỗi phần. Nó sử dụng bộ chỉ mục của collection để đọc slide đầu tiên và `foreach` để xử lý mọi slide. Đối với phần rỗng, collection trả về có số lượng bằng không, bộ chỉ mục không được truy cập và việc liệt kê không thực hiện vòng lặp nào.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var firstSlide = presentation.Slides[0];
+presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+var thirdSlide = presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+
+presentation.Sections.AddSection("Introduction", firstSlide);
+presentation.Sections.AddSection("Details", thirdSlide);
+presentation.Sections.AppendEmptySection("Appendix");
+
+foreach (var section in presentation.Sections)
 {
-    ISlide defaultSlide = pres.Slides[0];
-    ISlide newSlide1 = pres.Slides.AddEmptySlide(pres.LayoutSlides[0]);
-    ISlide newSlide2 = pres.Slides.AddEmptySlide(pres.LayoutSlides[0]);
-    ISlide newSlide3 = pres.Slides.AddEmptySlide(pres.LayoutSlides[0]);
-    ISlide newSlide4 = pres.Slides.AddEmptySlide(pres.LayoutSlides[0]);
+    var sectionSlides = section.GetSlidesListOfSection();
+    var startingSlide = section.StartedFromSlide == null ? "none" : section.StartedFromSlide.SlideNumber.ToString();
 
-    ISection section1 = pres.Sections.AddSection("Section 1", newSlide1);
-    ISection section2 = pres.Sections.AddSection("Section 2", newSlide3); // section1 sẽ kết thúc tại newSlide2 và sau đó section2 sẽ bắt đầu   
-    
-    pres.Save("pres-sections.pptx", SaveFormat.Pptx);
-    
-    pres.Sections.ReorderSectionWithSlides(section2, 0);
-    pres.Save("pres-sections-moved.pptx", SaveFormat.Pptx);
-    
-    pres.Sections.RemoveSectionWithSlides(section2);
-    
-    pres.Sections.AppendEmptySection("Last empty section");
-    
-    pres.Save("pres-section-with-empty.pptx",SaveFormat.Pptx);
+    Console.WriteLine($"Section: {section.Name}");
+    Console.WriteLine($"ID: {section.SectionId}");
+    Console.WriteLine($"Starting slide: {startingSlide}");
+    Console.WriteLine($"Slide count: {sectionSlides.Count}");
+
+    if (sectionSlides.Count > 0)
+    {
+        Console.WriteLine($"First slide via indexer: {sectionSlides[0].SlideNumber}");
+    }
+
+    Console.Write("Slide numbers:");
+    foreach (var slide in sectionSlides)
+    {
+        Console.Write($" {slide.SlideNumber}");
+    }
+    Console.WriteLine();
 }
 ```
 
-## **Thay đổi Tên các Phần**
+Sự thuộc về của phần được xác định bởi cấu trúc phần của bản trình bày. Không tự tính phạm vi của phần một cách thủ công từ [ISection.StartedFromSlide](https://reference.aspose.com/slides/vi/net/aspose.slides/isection/startedfromslide/), chỉ mục slide và slide bắt đầu của phần tiếp theo.
 
-Sau khi bạn tạo một phần trong bản trình bày PowerPoint, bạn có thể quyết định thay đổi tên của nó. 
+Việc chỉnh sửa cấu trúc có thể thay đổi cả các slide trả về cho một phần và số thứ tự slide của chúng. Điều này bao gồm sắp xếp lại slide, sao chép một slide vào một phần, di chuyển một phần cùng với các slide của nó, xóa slide và xóa phần. Ví dụ tiếp theo gọi [ISection.GetSlidesListOfSection](https://reference.aspose.com/slides/vi/net/aspose.slides/isection/getslideslistofsection/) sau mỗi thay đổi như vậy thay vì giữ các giả định về giới hạn trước của phần.
 
-Mã mẫu này cho bạn thấy cách thay đổi tên của một phần trong bản trình bày bằng C# sử dụng Aspose.Slides:
+```csharp
+using System;
+using Aspose.Slides;
 
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+using var presentation = new Presentation();
+var firstSlide = presentation.Slides[0];
+presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+var thirdSlide = presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+var firstSection = presentation.Sections.AddSection("First", firstSlide);
+var secondSection = presentation.Sections.AddSection("Second", thirdSlide);
+
+static void PrintSectionSlides(string label, ISection section)
 {
-   ISection section = pres.Sections[0];
-   section.Name = "My section";
+    var sectionSlides = section.GetSlidesListOfSection();
+    Console.Write($"{label} ({sectionSlides.Count} slides):");
+    foreach (var slide in sectionSlides)
+    {
+        Console.Write($" {slide.SlideNumber}");
+    }
+    Console.WriteLine();
+}
+
+PrintSectionSlides("Initially", firstSection);
+
+var slidesBeforeClone = firstSection.GetSlidesListOfSection();
+presentation.Slides.AddClone(slidesBeforeClone[0], firstSection);
+PrintSectionSlides("After cloning into the section", firstSection);
+
+var slidesBeforeReorder = firstSection.GetSlidesListOfSection();
+var firstSectionPosition = slidesBeforeReorder[0].SlideNumber - 1;
+presentation.Slides.Reorder(firstSectionPosition, slidesBeforeReorder[slidesBeforeReorder.Count - 1]);
+PrintSectionSlides("After reordering slides", firstSection);
+
+presentation.Sections.ReorderSectionWithSlides(firstSection, 1);
+PrintSectionSlides("After moving the section", firstSection);
+
+var slidesBeforeRemoval = firstSection.GetSlidesListOfSection();
+presentation.Slides.Remove(slidesBeforeRemoval[0]);
+PrintSectionSlides("After removing a slide", firstSection);
+
+presentation.Sections.RemoveSectionWithSlides(secondSection);
+foreach (var section in presentation.Sections)
+{
+    PrintSectionSlides("Remaining section", section);
 }
 ```
+
+Gọi lại [ISection.GetSlidesListOfSection](https://reference.aspose.com/slides/vi/net/aspose.slides/isection/getslideslistofsection/) bất cứ khi nào slide hoặc phần được sắp xếp lại, sao chép, di chuyển hoặc xóa. Điều này giữ cho việc xử lý tiếp theo đồng bộ với cấu trúc bản trình bày hiện tại.
+
+Định dạng PPT (PowerPoint 97–2003) không lưu trữ siêu dữ liệu phần. Hãy sử dụng quy trình này với định dạng hỗ trợ các phần, chẳng hạn như PPTX; việc chuyển đổi sang PPT sẽ loại bỏ cấu trúc phần cần thiết cho việc liệt kê sau này.
 
 ## **Câu hỏi thường gặp**
 
 **Các phần có được giữ lại khi lưu dưới định dạng PPT (PowerPoint 97–2003) không?**
 
-Không. Định dạng PPT không hỗ trợ siêu dữ liệu của phần, vì vậy việc nhóm phần sẽ bị mất khi lưu thành .ppt.
+Không. Định dạng PPT không hỗ trợ siêu dữ liệu phần, do đó việc nhóm phần sẽ bị mất khi lưu dưới dạng .ppt.
 
 **Có thể ẩn toàn bộ một phần không?**
 
-Không. Chỉ các slide riêng lẻ có thể bị ẩn. Một phần như một thực thể không có trạng thái “ẩn”.
+Không. Một phần không có trạng thái hiển thị. Để ẩn nội dung của nó, hãy đặt thuộc tính [ISlide.Hidden](https://reference.aspose.com/slides/vi/net/aspose.slides/islide/hidden/) cho mỗi slide trong phần đó.
 
-**Tôi có thể nhanh chóng tìm một phần dựa trên một slide và ngược lại, tìm slide đầu tiên của một phần không?**
+**Làm thế nào tôi có thể tìm phần chứa một slide?**
 
-Có. Một phần được xác định duy nhất bởi slide bắt đầu của nó; với một slide bạn có thể xác định phần mà nó thuộc về, và với một phần bạn có thể truy cập slide đầu tiên của nó.
+Liệt kê [Presentation.Sections](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/sections/), gọi [ISection.GetSlidesListOfSection](https://reference.aspose.com/slides/vi/net/aspose.slides/isection/getslideslistofsection/) cho mỗi phần, và so sánh các slide trả về với slide mục tiêu. Đối với phần không rỗng, [ISection.StartedFromSlide](https://reference.aspose.com/slides/vi/net/aspose.slides/isection/startedfromslide/) trả về slide đầu tiên; đối với phần rỗng, nó trả về `null`.

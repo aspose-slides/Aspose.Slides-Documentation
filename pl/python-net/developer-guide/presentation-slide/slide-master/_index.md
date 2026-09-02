@@ -1,57 +1,55 @@
 ---
-title: Zarządzanie masterami slajdów prezentacji w Pythonie
+title: Zarządzanie masterami slajdów w Pythonie
 linktitle: Master slajdu
 type: docs
 weight: 80
 url: /pl/python-net/slide-master/
 keywords:
 - master slajdu
-- slajd master
-- master slajd PPT
-- wiele master slajdów
-- porównanie master slajdów
+- master slajd
+- master slajdu PPT
+- wiele masterów slajdów
+- porównanie masterów slajdów
 - tło
-- placeholder
-- klonuj master slajd
-- kopiuj master slajd
-- duplikuj master slajd
-- nieużywany master slajd
+- element zastępczy
+- klonowanie mastera slajdu
+- kopiowanie mastera slajdu
+- duplikowanie mastera slajdu
+- nieużywany master slajdu
 - PowerPoint
 - OpenDocument
 - prezentacja
 - Python
 - Aspose.Slides
-description: "Zarządzaj masterami slajdów w Aspose.Slides dla Pythona poprzez .NET: uzyskuj dostęp, edytuj, klonuj, porównuj i usuwaj master slajdy w prezentacjach PowerPoint i OpenDocument."
+description: "Zarządzaj masterami slajdów w Aspose.Slides for Python via .NET: uzyskuj dostęp, edytuj, klonuj, porównuj i usuwaj master slajdy w prezentacjach PowerPoint i OpenDocument."
 ---
 ## **Przegląd**
 
-**Slide master** określa wspólne ustawienia projektu dla grupy slajdów. Może zawierać wspólne kształty, loga, tła, style tekstu, ustawienia motywu oraz stopki. W programie PowerPoint edycja slide mastera jest typowym sposobem zachowania spójności prezentacji bez powtarzania tego samego formatowania na każdym slajdzie.
+**Master slajdu** definiuje wspólne ustawienia projektowe dla grupy slajdów. Może zawierać wspólne kształty, logotypy, tła, style tekstu, ustawienia motywu oraz stopki. W PowerPoint edycja mastera slajdu jest typowym sposobem utrzymania spójności prezentacji bez powtarzania tego samego formatowania na każdym slajdzie.
 
-Aspose.Slides for Python via .NET obsługuje ten sam model. Prezentacja może zawierać jedną lub więcej master‑slajdów, a każdy master‑slajd może zawierać kilka layout‑slajdów. Normalne slajdy zazwyczaj nie odwołują się bezpośrednio do master‑slajdu. Zamiast tego używają layout‑slajdu, który należy do master‑slajdu.
+Aspose.Slides for Python via .NET obsługuje ten sam model. Prezentacja może zawierać jeden lub więcej masterów slajdów, a każdy master może zawierać kilka układów slajdów. Zwykłe slajdy zazwyczaj nie odwołują się bezpośrednio do mastera slajdu. Zamiast tego zwykły slajd używa układu slajdu, a ten układ należy do mastera slajdu.
 
 Hierarchia wygląda następująco:
 
-1. **Slide master** – definiuje wspólny projekt i motyw.  
-1. **Layout slide** – definiuje konkretny układ placeholderów i formatowanie na poziomie układu.  
-1. **Normal slide** – zawiera rzeczywistą treść prezentacji i korzysta z jednego layout‑slajdu.
+1. **Master slajdu** – definiuje wspólny projekt i motyw.  
+1. **Układ slajdu** – definiuje określony układ elementów zastępczych i formatowanie poziomu układu.  
+1. **Zwykły slajd** – zawiera rzeczywistą treść prezentacji i używa jednego układu slajdu.
 
-![Hierarchia master‑slajdów, layout‑slajdów i normalnych slajdów](slide-master_2.jpg)
+![Hierarchia master slajdów, układów slajdów i zwykłych slajdów](slide-master_2.jpg)
 
-W Aspose.Slides master‑slajd jest reprezentowany przez klasę [MasterSlide](https://reference.aspose.com/slides/pl/python-net/aspose.slides/masterslide/). Wszystkie master‑slajdy w prezentacji są dostępne przez kolekcję `Presentation.masters`.
+W Aspose.Slides master slajdu jest reprezentowany przez klasę [MasterSlide](https://reference.aspose.com/slides/pl/python-net/aspose.slides/masterslide/). Wszystkie master slajdy w prezentacji są dostępne poprzez kolekcję `Presentation.masters`.
 
-{{% alert color="info" title="Dziedziczenie" %}}
-
-Gdy to samo właściwość jest zdefiniowana na więcej niż jednym poziomie, wygrywa poziom bardziej szczegółowy. Na przykład, jeśli master‑slajd i layout‑slajd definiują tło, slajdy oparte na tym layout‑cie używają tła layout‑u. Więcej informacji o layout‑slajdach znajdziesz w [Apply or Change Slide Layouts](/python-net/slide-layout/).
-
+{{% alert color="info" title="Inheritance" %}}
+Gdy ta sama właściwość jest zdefiniowana na więcej niż jednym poziomie, wygrywa poziom bardziej szczegółowy. Na przykład, jeśli master slajdu i układ slajdu definiują tło, slajdy oparte na tym układzie używają tła układu. Więcej informacji o układach slajdów znajdziesz w [Apply or Change Slide Layouts](/slides/pl/python-net/slide-layout/).
 {{% /alert %}}
 
-## **Dostęp do master‑slajdów**
+## **Dostęp do masterów slajdów**
 
-W programie PowerPoint możesz otworzyć widok Slide Master z **View** > **Slide Master**.
+W PowerPoint możesz otworzyć widok Master slajdu z **View** > **Slide Master**.
 
 ![Polecenie Slide Master na karcie View w PowerPoint](slide-master_3.jpg)
 
-W Aspose.Slides użyj kolekcji `masters`, aby uzyskać dostęp do master‑slajdów:
+W Aspose.Slides użyj kolekcji `masters`, aby uzyskać dostęp do masterów slajdów:
 
 ```python
 import aspose.slides as slides
@@ -65,7 +63,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     print("Layouts in the first master: " + str(first_master_layout_slide_count))
 ```
 
-Możesz także pobrać master‑slajd używany przez normalny slajd poprzez jego layout:
+Możesz także pobrać master slajdu używany przez zwykły slajd poprzez jego układ:
 
 ```python
 import aspose.slides as slides
@@ -79,26 +77,26 @@ with slides.Presentation("presentation.pptx") as presentation:
     print(master_slide_name)
 ```
 
-## **Co zawiera master‑slajd**
+## **Co zawiera master slajdu**
 
-Master‑slajd jest obiektem podobnym do slajdu. Dziedziczy wspólne zachowanie slajdu z klasy [BaseSlide](https://reference.aspose.com/slides/pl/python-net/aspose.slides/baseslide/), więc udostępnia wiele takich samych właściwości slajdu, które są używane przez slajdy normalne i layout‑slajdy. Członkowie specyficzni dla master‑slajdu są opisani na stronie API [MasterSlide](https://reference.aspose.com/slides/pl/python-net/aspose.slides/masterslide/).
+Master slajd jest obiektem podobnym do slajdu. Dziedziczy wspólne zachowanie slajdu z klasy [BaseSlide](https://reference.aspose.com/slides/pl/python-net/aspose.slides/baseslide/), więc udostępnia wiele tych samych właściwości slajdu używanych przez zwykłe i układy slajdów. Członkowie specyficzni dla mastera są wymienieni na stronie API [MasterSlide](https://reference.aspose.com/slides/pl/python-net/aspose.slides/masterslide/).
 
-Często używane członki master‑slajdu:
+Często używane członki mastera slajdu obejmują:
 
-| Member | Cel |
+| Członek | Zastosowanie |
 | --- | --- |
-| `background` | Ustawia tło na poziomie master‑slajdu. |
-| `shapes` | Przechowuje kształty umieszczone na masterze, takie jak loga, ramki obrazów i współdzielony tekst. |
-| `layout_slides` | Przechowuje layout‑slajdy należące do mastera. |
-| `theme_manager` | Udostępnia dostęp do API motywu mastera. |
-| `header_footer_manager` | Kontroluje nagłówki, stopki, daty i numery slajdów dla mastera i jego podrzędnych layoutów. |
-| `get_depending_slides` | Zwraca normalne slajdy zależne od mastera poprzez ich layouty. |
+| `background` | Ustawia tło slajdu na poziomie mastera. |
+| `shapes` | Przechowuje kształty umieszczone na masterze, takie jak logo, ramki obrazu i wspólny tekst. |
+| `layout_slides` | Przechowuje układy slajdów należące do mastera. |
+| `theme_manager` | Zapewnia dostęp do interfejsów API motywu mastera. |
+| `header_footer_manager` | Kontroluje nagłówki, stopki, daty i numery slajdów dla mastera i jego układów potomnych. |
+| `get_depending_slides` | Zwraca zwykłe slajdy zależne od mastera poprzez ich układy. |
 
-## **Dodanie obrazu do master‑slajdu**
+## **Dodanie obrazu do mastera slajdu**
 
-Gdy dodasz obraz do master‑slajdu, pojawi się on na slajdach wykorzystujących layouty z tego mastera. Jest to przydatne dla logotypów, znaków wodnych, dekoracyjnych pasków i innych powtarzalnych elementów wizualnych.
+Gdy dodasz obraz do mastera slajdu, pojawia się on na slajdach, które używają układów z tego mastera. Jest to przydatne przy logo, znakach wodnych, dekoracyjnych pasach i innych powtarzających się elementach wizualnych.
 
-Poniższy przykład dodaje logo do pierwszego master‑slajdu:
+Poniższy przykład dodaje logo do pierwszego mastera slajdu:
 
 ```python
 import aspose.slides as slides
@@ -122,17 +120,17 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-with-logo.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Więcej informacji o ramkach obrazów znajdziesz w [Picture Frame](/python-net/picture-frame/).
+Więcej informacji o ramkach obrazu znajdziesz w [Picture Frame](/slides/pl/python-net/picture-frame/).
 
-## **Praca z placeholderami**
+## **Praca z elementami zastępczymi**
 
-Placeholdery są zazwyczaj definiowane na layout‑slajdach. Master‑slajd zapewnia wspólny styl i motyw, które te layouty dziedziczą, podczas gdy każdy layout decyduje, które placeholdery są dostępne i gdzie są umieszczone.
+Elementy zastępcze są zazwyczaj definiowane w układach slajdów. Master slajdu zapewnia wspólny styl i motyw, które te układy dziedziczą, podczas gdy każdy układ decyduje, które elementy zastępcze są dostępne i gdzie są rozmieszczone.
 
-W PowerPoint polecenia placeholderów są dostępne w widoku Slide Master.
+W PowerPoint polecenia elementów zastępczych są dostępne w widoku Master slajdu.
 
-![Polecenie Insert Placeholder w widoku Slide Master w PowerPoint](slide-master_5.png)
+![Polecenie Insert Placeholder w widoku Master slajdu PowerPoint](slide-master_5.png)
 
-Aby dodać nowe placeholdery w Aspose.Slides, pracuj z layout‑slajdem, który należy do mastera:
+Aby dodać nowe elementy zastępcze za pomocą Aspose.Slides, pracuj z układem slajdu należącym do mastera:
 
 ```python
 import aspose.slides as slides
@@ -153,7 +151,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-with-placeholder.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Możesz także sformatować istniejące kształty placeholderów na master‑slajdzie. Poniższy przykład znajduje placeholder tytułu i stosuje wypełnienie gradientem liniowym:
+Możesz także formatować kształty elementów zastępczych, które już istnieją w masterze slajdu. Poniższy przykład znajduje element zastępczy tytułu i stosuje liniowe wypełnienie gradientowe:
 
 ```python
 import aspose.pydrawing as draw
@@ -180,18 +178,18 @@ with slides.Presentation("presentation.pptx") as presentation:
         title_placeholder.fill_format.fill_type = slides.FillType.GRADIENT
         title_placeholder.fill_format.gradient_format.gradient_shape = slides.GradientShape.LINEAR
         title_placeholder.fill_format.gradient_format.gradient_stops.add(0, red_gradient_color)
-        title_placeholder.fill_format.gradient_format.gradient_stops.add(255, purple_gradient_color)
+        title_placeholder.fill_format.gradient_format.gradient_stops.add(1, purple_gradient_color)
 
     presentation.save("presentation-title-style.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Sformatowany placeholder tytułu dziedziczony przez normalne slajdy](slide-master_8.png)
+![Sformatowany element zastępczy tytułu dziedziczony przez zwykłe slajdy](slide-master_8.png)
 
-Więcej opcji formatowania placeholderów i tekstu znajdziesz w [Set Prompt Text in Placeholder](/python-net/manage-placeholder/) oraz [Text Formatting](/python-net/text-formatting/).
+Więcej opcji formatowania elementów zastępczych i tekstu znajdziesz w [Set Prompt Text in Placeholder](/slides/pl/python-net/manage-placeholder/) oraz [Text Formatting](/slides/pl/python-net/text-formatting/).
 
-## **Zmiana tła master‑slajdu**
+## **Zmiana tła mastera slajdu**
 
-Tło mastera jest dziedziczone przez layouty i slajdy, które go nie nadpisują. Poniższy przykład ustawia jednolity kolor tła dla pierwszego master‑slajdu:
+Tło mastera jest dziedziczone przez układy i slajdy, które go nie nadpisują. Poniższy przykład ustawia jednolity kolor tła dla pierwszego mastera slajdu:
 
 ```python
 import aspose.pydrawing as draw
@@ -207,11 +205,11 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-master-background.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Powiązane tematy: [Presentation Background](/python-net/presentation-background/) i [Presentation Theme](/python-net/presentation-theme/).
+Powiązane tematy: [Presentation Background](/slides/pl/python-net/presentation-background/) oraz [Presentation Theme](/slides/pl/python-net/presentation-theme/).
 
-## **Klonowanie master‑slajdu do innej prezentacji**
+## **Klonowanie mastera slajdu do innej prezentacji**
 
-Użyj metody `add_clone` klasy [MasterSlideCollection](https://reference.aspose.com/slides/pl/python-net/aspose.slides/masterslidecollection/), aby skopiować master‑slajd do innej prezentacji. Skopiowany master może potem być używany przez layouty i slajdy w prezentacji docelowej.
+Użyj metody `add_clone` klasy [MasterSlideCollection](https://reference.aspose.com/slides/pl/python-net/aspose.slides/masterslidecollection/), aby skopiować master slajdu do innej prezentacji. Skopiowany master może potem być używany przez układy i slajdy w docelowej prezentacji.
 
 ```python
 import aspose.slides as slides
@@ -224,15 +222,15 @@ with slides.Presentation("source.pptx") as source_presentation:
         destination_presentation.save("destination-with-master.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Jeśli potrzebujesz sklonować normalne slajdy razem z ich masterem, zobacz [Clone Slides](/python-net/clone-slides/).
+Jeśli potrzebujesz sklonować zwykłe slajdy razem z ich masterem, zobacz [Clone Slides](/slides/pl/python-net/clone-slides/).
 
-## **Dodawanie wielu master‑slajdów**
+## **Dodanie wielu masterów slajdów**
 
-Prezentacja może zawierać wiele master‑slajdów. Jest to przydatne, gdy różne sekcje wymagają innego brandingu, struktury strony lub ustawień motywu.
+Prezentacja może zawierać wiele masterów slajdów. Jest to przydatne, gdy różne sekcje wymagają odmiennych elementów brandingowych, struktury strony lub ustawień motywu.
 
-![Polecenia PowerPoint do wstawiania i zarządzania master‑slajdami](slide-master_9.jpg)
+![Polecenia PowerPoint do wstawiania i zarządzania masterami slajdów](slide-master_9.jpg)
 
-Poniższy przykład klonuje domyślny master, nadaje klonowi inne tło, pobiera pusty layout pod tym sklonowanym masterem i dodaje nowy slajd oparty na tym layoutcie:
+Poniższy przykład klonuje domyślny master, nadaje klonowi inne tło, pobiera pusty układ pod tym sklonowanym masterem i dodaje nowy slajd oparty na tym układzie:
 
 ```python
 import aspose.pydrawing as draw
@@ -258,9 +256,9 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-with-multiple-masters.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Porównywanie master‑slajdów**
+## **Porównywanie masterów slajdów**
 
-Master‑slajdy można porównać metodą `equals` dziedziczoną po klasie [BaseSlide](https://reference.aspose.com/slides/pl/python-net/aspose.slides/baseslide/). Porównanie sprawdza strukturę i statyczną zawartość, taką jak kształty, tekst, formatowanie, animacje i inne ustawienia slajdu. Nie porównuje unikalnych identyfikatorów, takich jak ID slajdu, ani dynamicznych wartości placeholderów, takich jak bieżąca data.
+Master slajdy można porównać metodą `equals` dziedziczoną po klasie [BaseSlide](https://reference.aspose.com/slides/pl/python-net/aspose.slides/baseslide/). Porównanie sprawdza strukturę i statyczną zawartość, taką jak kształty, tekst, formatowanie, animacje i inne ustawienia slajdu. Nie porównuje unikalnych identyfikatorów, takich jak ID slajdu, ani dynamicznych wartości elementów zastępczych, np. bieżącej daty.
 
 ```python
 import aspose.slides as slides
@@ -283,11 +281,11 @@ with slides.Presentation("first.pptx") as first_presentation:
                             second_master_index))
 ```
 
-Więcej informacji znajdziesz w [Compare Presentation Slides](/python-net/compare-slides/).
+Więcej informacji znajdziesz w [Compare Presentation Slides](/slides/pl/python-net/compare-slides/).
 
-## **Ustawienie widoku Slide Master jako widoku domyślnego**
+## **Ustawienie widoku Master slajdu jako widoku domyślnego**
 
-Użyj właściwości `last_view` na obiekcie [ViewProperties](https://reference.aspose.com/slides/pl/python-net/aspose.slides/viewproperties/) prezentacji, aby kontrolować widok, który PowerPoint otwiera jako pierwszy. Poniższy przykład otwiera prezentację w widoku Slide Master:
+Użyj właściwości `last_view` w obiekcie prezentacji [ViewProperties](https://reference.aspose.com/slides/pl/python-net/aspose.slides/viewproperties/), aby kontrolować widok otwierany jako pierwszy w PowerPoint. Poniższy przykład otwiera prezentację w widoku Master slajdu:
 
 ```python
 import aspose.slides as slides
@@ -297,11 +295,11 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-master-view.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Więcej ustawień widoku znajdziesz w [Save Presentation](/python-net/save-presentation/).
+Więcej ustawień widoku znajdziesz w [Save Presentation](/slides/pl/python-net/save-presentation/).
 
-## **Usuwanie nieużywanych master‑slajdów**
+## **Usuwanie nieużywanych masterów slajdów**
 
-Czasami prezentacje zawierają master‑slajdy, które nie są już używane przez żadne normalne slajdy. Usunięcie nieużywanych masterów może zmniejszyć rozmiar pliku i uprościć utrzymanie szablonu.
+Prezentacje czasami zawierają mastery slajdów, które nie są już używane przez żadne zwykłe slajdy. Usunięcie nieużywanych masterów może zmniejszyć rozmiar pliku i uprościć utrzymanie szablonu.
 
 Użyj `remove_unused`, aby usunąć nieużywane mastery z kolekcji `masters`:
 
@@ -313,7 +311,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-clean.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Możesz także skorzystać z niskokodowej metody `remove_unused_master_slides` klasy [Compress](https://reference.aspose.com/slides/pl/python-net/aspose.slides.lowcode/compress/):
+Możesz również skorzystać z niskokodowej metody `remove_unused_master_slides` klasy [Compress](https://reference.aspose.com/slides/pl/python-net/aspose.slides.lowcode/compress/):
 
 ```python
 import aspose.slides as slides
@@ -325,18 +323,18 @@ with slides.Presentation("presentation.pptx") as presentation:
 
 ## **FAQ**
 
-**Jaka jest różnica między slide masterem a layout‑slajdem?**
+### Jaka jest różnica między masterem slajdu a układem slajdu?
 
-Slide master definiuje wspólne ustawienia projektu, takie jak motyw, tło, wspólne kształty i style tekstu. Layout‑slajd należy do mastera i definiuje konkretny układ placeholderów. Normalny slajd używa layout‑slajdu, więc dziedziczy zarówno z layoutu, jak i z mastera.
+Master slajdu definiuje wspólne ustawienia projektowe, takie jak motyw, tło, wspólne kształty i style tekstu. Układ slajdu należy do mastera i określa konkretny układ elementów zastępczych. Zwykły slajd używa układu, więc dziedziczy zarówno z układu, jak i z mastera.
 
-**Czy jedna prezentacja może zawierać kilka master‑slajdów?**
+### Czy jedna prezentacja może zawierać kilka masterów slajdów?
 
-Tak. Prezentacja może zawierać wiele master‑slajdów. Używaj wielu masterów, gdy różne sekcje wymagają odmiennych systemów wizualnych lub brandingu.
+Tak. Prezentacja może zawierać kilka masterów slajdów. Używaj wielu masterów, gdy różne sekcje wymagają odmiennych systemów wizualnych lub brandingu.
 
-**Czy powinienem dodawać placeholdery do master‑slajdu czy do layout‑slajdu?**
+### Czy powinienem dodawać elementy zastępcze do mastera slajdu czy do układu slajdu?
 
-W większości przypadków dodawaj placeholdery do layout‑slajdów. Umieść współdzielone elementy wizualne i formatowanie na master‑slajdzie, a placeholdery treści na layoutach, które będą wykorzystywane przez normalne slajdy.
+W większości przypadków elementy zastępcze dodaje się do układów slajdów. Na masterze umieszcza się wspólne elementy wizualne i wspólne formatowanie, a na układach – miejsca na treść, które będą wykorzystywane przez zwykłe slajdy.
 
-**Czy mogę usunąć master‑slajd, który jest nadal używany?**
+### Czy mogę usunąć master slajdu, który jest nadal używany?
 
-Nie. Master‑slajd, który ma zależne slajdy, nie może być bezpiecznie usunięty bezpośrednio. Najpierw przenieś te slajdy do layoutów pod innym masterem lub użyj metody czyszczenia nieużywanych masterów, która usuwa tylko te, które nie są wykorzystywane.
+Nie. Master slajdu, który ma zależne slajdy, nie może być bezpiecznie usunięty bezpośrednio. Najpierw przenieś te slajdy do układów pod innym masterem lub użyj metody czyszczenia nieużywanych masterów, która usuwa tylko te, które nie są w użyciu.

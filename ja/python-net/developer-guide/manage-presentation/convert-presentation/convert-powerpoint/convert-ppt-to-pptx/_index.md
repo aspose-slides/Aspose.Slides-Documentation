@@ -1,45 +1,45 @@
 ---
-title: Python で PPT を PPTX に変換
-linktitle: PPT から PPTX へ
+title: PythonでPPTをPPTXに変換する
+linktitle: PPTからPPTXへ
 type: docs
 weight: 20
 url: /ja/python-net/convert-ppt-to-pptx/
 keywords:
-- PowerPoint を変換
+- PowerPointを変換
 - プレゼンテーションを変換
 - スライドを変換
-- PPT を変換
-- PPT から PPTX へ
-- PPT を PPTX として保存
-- PPT を PPTX にエクスポート
+- PPTを変換
+- PPTからPPTXへ
+- PPTをPPTXとして保存
+- PPTをPPTXにエクスポート
 - PowerPoint
 - プレゼンテーション
 - Python
 - Aspose.Slides
-description: "Aspose.Slides を使用して Python でレガシーな PPT ファイルを PPTX に変換します。単一ファイルおよびバッチ変換、エラー処理、忠実度に関する注意点の例が含まれています。"
+description: "Aspose.Slides を使用して、Python でレガシー PPT ファイルを PPTX に変換します。単一ファイルおよびバッチ変換の例、エラーハンドリング、忠実度に関する注意点を含みます。"
 ---
 ## **概要**
 
-PPT は従来のバイナリ形式の PowerPoint、PPTX は新しい Open XML 形式です。Aspose.Slides for Python via .NET は Microsoft PowerPoint がなくても PPT ファイルを読み込み、PPTX として保存できます。本記事では単一ファイルまたはディレクトリ内のファイルを変換する方法と、変換後に確認すべき項目を説明します。
+PPT はレガシーなバイナリ PowerPoint 形式で、PPTX は新しい Open XML 形式です。Aspose.Slides for Python via .NET は Microsoft PowerPoint を使用せずに PPT ファイルを読み込み、PPTX として保存できます。本記事では、単一ファイルまたはディレクトリ内のファイルを変換する方法と、変換後に確認すべき項目について説明します。
 
 ## **PPT ファイルを PPTX に変換する**
 
-[Presentation](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/) クラスでソース ファイルをロードし、[Presentation.save](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/save/) に [SaveFormat.PPTX](https://reference.aspose.com/slides/ja/python-net/aspose.slides.export/saveformat/) を指定して呼び出します。`with` ステートメントはブロック終了時にプレゼンテーションを破棄し、リソースを解放します。
+ソース ファイルは [Presentation](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/) クラスで読み込み、[Presentation.save](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/save/) を [SaveFormat.PPTX](https://reference.aspose.com/slides/ja/python-net/aspose.slides.export/saveformat/) とともに呼び出します。`with` ステートメントはブロックが終了したときにプレゼンテーションを破棄し、リソースを解放します。
 
 ```python
 import aspose.slides as slides
 
-# レガシーな PPT プレゼンテーションを読み込む。
+# レガシー PPT プレゼンテーションを読み込む。
 with slides.Presentation("presentation.ppt") as presentation:
     # プレゼンテーションを PPTX 形式で保存する。
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-ファイル拡張子だけでは出力形式は決まりません。出力形式は [SaveFormat.PPTX](https://reference.aspose.com/slides/ja/python-net/aspose.slides.export/saveformat/) 引数で指定します。元の PPT ファイルを残したい場合は、入力パスと出力パスを別々に設定してください。
+ファイル拡張子だけでは出力形式は選択されません。出力形式は [SaveFormat.PPTX](https://reference.aspose.com/slides/ja/python-net/aspose.slides.export/saveformat/) 引数で指定します。元の PPT ファイルを保持する必要がある場合は、入力パスと出力パスを異なるものにしてください。
 
 ## **複数の PPT ファイルを変換する**
 
-次のサンプルは 1 つのディレクトリ内のすべての `.ppt` ファイルを変換します。各ファイルは独立して処理されるため、1 つの変換失敗がバッチ全体を停止させることはありません。
+以下の例は、1 つのディレクトリ内のすべての `.ppt` ファイルを変換します。各ファイルは個別に処理されるため、1 つの変換に失敗してもバッチの残りは停止しません。
 
 ```python
 from pathlib import Path
@@ -61,47 +61,47 @@ for input_path in input_directory.glob("*.ppt"):
         print(f"Failed: {input_path} ({exception})")
 ```
 
-本番環境では例外の全文をログに記録し、既存の出力ファイルを上書きしてよいか判断し、失敗したファイル名をリトライまたはレビュー キューに書き込むようにしてください。破損したファイル、パスワードが必要なファイルをパスワードなしで開こうとした場合、アクセスできないパス、サポートされていないコンテンツなどが変換失敗の原因となります。暗号化されたファイルの読み込みについては [Password-Protected Presentations](/python-net/password-protected-presentation/) を参照してください。
+本番環境では、例外の全文をログに記録し、既存の出力ファイルを上書きしてよいか判断し、失敗したファイル名を再試行またはレビュー キューに書き込んでください。破損したファイル、必要なパスワードなしで開いたパスワード保護されたファイル、アクセスできないパス、サポートされていないコンテンツは、すべて変換失敗の原因となります。暗号化されたファイルの読み込みについては、[Password-Protected Presentations](/slides/ja/python-net/password-protected-presentation/) を参照してください。
 
 ## **忠実度とレガシー機能**
 
-変換は通常、スライド、マスター、レイアウト、テキスト、シェイプ、画像、表、チャートを保持します。ただし、PPT と PPTX はすべての機能を同じ形で表現できるわけではありません。PPTX に対応する機能がないレガシー機能や、ライブラリでサポートされていない機能は正規化、除外、または別の表示になることがあります。
+変換は通常、スライド、マスタ、レイアウト、テキスト、シェイプ、画像、テーブル、チャートを保持します。しかし、PPT と PPTX はすべての機能を正確に同じ方法で表現しているわけではありません。PPTX に対応するものがないレガシー機能や、ライブラリでサポートされていない機能は、正規化されたり、省略されたり、別の方法で表示されたりすることがあります。
 
-アニメーション、トランジション、埋め込みまたはリンクされた OLE オブジェクト、ActiveX コントロール、埋め込みメディア、珍しいフォント、VBA マクロが含まれる場合は、変換後のファイルを必ず確認してください。純粋な PPTX はマクロ有効形式ではないため、VBA を残す必要がある場合はマクロ有効なワークフローを使用します。また、変換後のプレゼンテーションを開くまたはレンダリングする環境に、必要なフォントや外部リソースが揃っているかも確認してください。
+変換後のファイルにアニメーション、トランジション、埋め込みまたはリンクされた OLE オブジェクト、ActiveX コントロール、埋め込みメディア、珍しいフォント、VBA マクロが含まれる場合は、必ず確認してください。標準の PPTX ファイルはマクロ有効形式ではないため、VBA を残す必要がある場合は、適切なマクロ有効のワークフローを使用してください。また、変換されたプレゼンテーションが開かれるまたはレンダリングされる環境に、必要なフォントや外部リソースが存在することも確認してください。
 
-重要な文書については、生成された PPTX をプログラムで再度開き、スライド数や主要コンテンツを検査し、意図したビューアでの外観やスライドショー 動作と比較してください。`[Presentation.save](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/save/)` の呼び出しが成功しただけで、すべてのレガシー機能が完全に PPTX にマッピングされたとは限りません。
+重要なドキュメントについては、生成された PPTX をプログラムから再度開き、スライド数やコンテンツの重要な要素を検査し、意図したビューアでの外観やスライドショーの動作と比較してください。成功した [Presentation.save](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/save/) 呼び出しが、すべてのレガシー機能が正確に PPTX に変換されたことの証明とみなさないでください。
 
-## **PPTX を使用すべきタイミング**
+## **PPTX を使用すべき場面**
 
-現在の PowerPoint バージョンで編集する、Open XML パッケージとやり取りするシステムと共有する、またはレガシーなバイナリ PPT よりも検査や復元が容易な形式で保存する場合は PPTX を使用します。変換後のプレゼンテーションが忠実度チェックを通過するまで、元の PPT をアーカイブまたはロールバック用のコピーとして保持してください。
+現在の PowerPoint バージョンで編集する、Open XML パッケージを扱うシステムとやり取りする、またはレガシーなバイナリ PPT よりも検査や復旧が容易な形式で保存する場合は PPTX を使用してください。変換されたプレゼンテーションが忠実度チェックを通過するまで、元の PPT をアーカイブまたはロールバック用のコピーとして保持してください。
 
-PDF、HTML、画像、XPS、または他の出力形式が必要な場合は、[Convert Presentations to Multiple Formats](/python-net/convert-presentation/) の形式別ガイダンスに従い、すべてのターゲットが編集可能な PowerPoint 機能を保持するとは限らないことに留意してください。
+PDF、HTML、画像、XPS、またはその他の出力形式が必要な場合は、すべてのターゲットが編集可能な PowerPoint 機能を保持すると仮定せずに、[Convert Presentations to Multiple Formats](/slides/ja/python-net/convert-presentation/) の形式別ガイドラインを利用してください。
 
-## **オンライン コンバータ**
+## **オンラインコンバータ**
 
-たまに使用するファイルや簡易比較の場合は、[online PPT to PPTX converter](https://products.aspose.app/slides/ja/conversion/ppt-to-pptx) を利用できます。繰り返しの変換、バッチ処理、またはアプリケーションレベルのエラーハンドリングが必要な場合は、Python API を使用してください。
+たまにファイルを変換したり、すばやく比較したりする場合は、[online PPT to PPTX converter](https://products.aspose.app/slides/ja/conversion/ppt-to-pptx) を利用できます。繰り返しの変換、バッチ処理、またはアプリケーションレベルのエラーハンドリングが必要な場合は、Python API を使用してください。
 
 ## **関連記事**
 
-- [PPT vs PPTX](/python-net/ppt-vs-pptx/)
-- [Save Presentations in Python](/python-net/save-presentation/)
-- [Supported File Formats](/python-net/supported-file-formats/)
-- [Open Presentations in Python](/python-net/open-presentation/)
+- [PPT と PPTX の比較](/slides/ja/python-net/ppt-vs-pptx/)
+- [Python でプレゼンテーションを保存する](/slides/ja/python-net/save-presentation/)
+- [サポートされているファイル形式](/slides/ja/python-net/supported-file-formats/)
+- [Python でプレゼンテーションを開く](/slides/ja/python-net/open-presentation/)
 
 ## **FAQ**
 
-**Microsoft PowerPoint がインストールされていなくても PPT を PPTX に変換できますか？**
+**Microsoft PowerPoint をインストールしなくても PPT を PPTX に変換できますか？**
 
-はい。Aspose.Slides for Python via .NET は Microsoft PowerPoint を必要とせずにプレゼンテーション ファイルの読み込みと保存が可能です。
+はい。Aspose.Slides for Python via .NET は Microsoft PowerPoint を必要とせずにプレゼンテーション ファイルを読み込み、保存できます。
 
-**PPT から PPTX への変換はすべてのコンテンツを完全に保持しますか？**
+**PPT から PPTX への変換はすべてのコンテンツを正確に保持しますか？**
 
-一般的なプレゼンテーション コンテンツは保持されますが、すべてのレガシー機能や未サポート機能が完全に同等に変換される保証はありません。マクロ、OLE や ActiveX オブジェクト、メディア、特殊なアニメーション、珍しいフォントが含まれる場合は生成ファイルを必ず確認してください。
+一般的なプレゼンテーション コンテンツは保持されますが、すべてのレガシー機能やサポートされていない機能が正確に保持される保証はありません。マクロ、OLE や ActiveX オブジェクト、メディア、特殊なアニメーション、珍しいフォントが含まれる場合は、生成されたファイルを確認してください。
 
 **パスワード保護された PPT ファイルを変換できますか？**
 
-はい。ファイルを読み込む際に正しいパスワードを指定すれば変換可能です。パスワードが不足または誤っている場合、読み込みは失敗します。
+はい、ファイルを読み込む際に正しいパスワードを指定すれば変換できます。パスワードが不足している、または誤っている場合は読み込み操作が失敗します。
 
 **変換後に PPT ファイルを削除すべきですか？**
 
-変換後の PPTX を目的のビューアやワークフローで検証するまで、元の PPT を保持してください。レガシー機能が異なる形で変換された場合のロールバック コピーとして役立ちます。
+重要なビューアやワークフローで PPTX を確認するまで、元のファイルは保持してください。レガシー機能が異なる形で変換された場合のロールバック コピーとして機能します。

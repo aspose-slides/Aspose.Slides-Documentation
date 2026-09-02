@@ -10,80 +10,183 @@ keywords:
 - सेक्शन संपादित करें
 - सेक्शन बदलें
 - सेक्शन नाम
+- सेक्शन स्लाइड प्राप्त करें
+- सेक्शन स्लाइड प्रोसेस करें
 - PowerPoint
-- OpenDocument
 - प्रस्तुति
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET के साथ PowerPoint और OpenDocument में स्लाइड सेक्शन को सरल बनाएं — विभाजित करें, पुनःनामित करें, और पुन: क्रमबद्ध करें ताकि PPTX और ODP वर्कफ़्लो को अनुकूलित किया जा सके।"
+description: "Aspose.Slides for .NET के साथ स्लाइड सेक्शन प्रबंधित करें: PPTX प्रस्तुतियों में सेक्शन स्लाइड बनाएं, नाम बदलें, पुनः क्रमित करें, प्राप्त करें और प्रोसेस करें।"
 ---
 ## **परिचय**
 
-Aspose.Slides for .NET के साथ, आप एक PowerPoint प्रस्तुति को सेक्शन में व्यवस्थित कर सकते हैं। आप विशिष्ट स्लाइड्स वाले सेक्शन बना सकते हैं।
+सेक्शन लगातार स्लाइडों को नामित समूहों में व्यवस्थित करते हैं बिना स्लाइड सामग्री बदले। Aspose.Slides for .NET के साथ, आप [Presentation.Sections](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/sections/) प्रॉपर्टी के माध्यम से सेक्शन बनाना, पुनः क्रमित करना, नाम बदलना, निरीक्षण करना और हटाना कर सकते हैं।
 
-आप निम्नलिखित स्थितियों में सेक्शन बनाकर स्लाइड्स को तार्किक भागों में व्यवस्थित या विभाजित करना चाह सकते हैं:
+सेक्शन विशेष रूप से उपयोगी होते हैं जब:
 
-- जब आप बड़ी प्रस्तुति पर अन्य लोगों या टीम के साथ काम कर रहे हों - और आपको कुछ स्लाइड्स को सहयोगी या टीम के सदस्यों को असाइन करना हो। 
-- जब आपकी प्रस्तुति में बहुत सारी स्लाइड्स हों - और आप एक साथ उसकी सामग्री को प्रबंधित या संपादित करने में कठिनाई महसूस कर रहे हों।
+- एक बड़ी प्रस्तुति को तर्कसंगत विषयों या अध्यायों में विभाजित करना आवश्यक हो;
+- विभिन्न स्लाइड समूह विभिन्न सहयोगियों को सौंपे गए हों;
+- स्लाइडों को समूहों के रूप में प्रोसेस, स्थानांतरित या मर्ज करने की आवश्यकता हो।
 
-आदर्श रूप में, आपको एक ऐसा सेक्शन बनाना चाहिए जिसमें समान स्लाइड्स हों - स्लाइड्स में कोई सामान्य विशेषता हो या वे किसी नियम के आधार पर समूहित हो सकते हों - और सेक्शन को ऐसा नाम दें जो इसके अंदर की स्लाइड्स का वर्णन करे।
+समूहित स्लाइडों के उद्देश्य को दर्शाने वाले संक्षिप्त सेक्शन नाम चुनें। चूंकि सेक्शन प्रस्तुति संरचना का हिस्सा होते हैं, सदस्यता निर्धारित करने के लिये सेक्शन API का उपयोग करें, न कि स्लाइड स्थितियों से निष्कर्ष निकालें।
 
-## **प्रेजेंटेशन में सेक्शन बनाएं**
+## **सेक्शन बनाना और प्रबंधित करना**
 
-प्रेजेंटेशन में स्लाइड्स को रखने वाले सेक्शन को जोड़ने के लिए, Aspose.Slides for .NET AddSection मेथड प्रदान करता है जो आपको बनाने वाले सेक्शन का नाम और वह स्लाइड निर्दिष्ट करने की अनुमति देता है जहाँ सेक्शन शुरू होता है।
+[ISectionCollection.AddSection](https://reference.aspose.com/slides/hi/net/aspose.slides/sectioncollection/addsection/) का उपयोग करके उसका नाम और प्रारंभिक स्लाइड निर्दिष्ट करके एक सेक्शन बनाएं। Aspose.Slides प्रस्तुति की वर्तमान सेक्शन संरचना से निर्धारित करता है कि कौन सी स्लाइडें सेक्शन से संबंधित हैं।
 
-यह नमूना कोड आपको C# में प्रेजेंटेशन में एक सेक्शन बनाने का तरीका दिखाता है:
+समान [ISectionCollection](https://reference.aspose.com/slides/hi/net/aspose.slides/isectioncollection/) आपको भी सक्षम करता है:
 
-```c#
-using (Presentation pres = new Presentation())
+- [ISectionCollection.ReorderSectionWithSlides](https://reference.aspose.com/slides/hi/net/aspose.slides/sectioncollection/reordersectionwithslides/) का उपयोग करके एक सेक्शन को उसकी स्लाइडों के साथ स्थानांतरित करें;
+- [ISectionCollection.RemoveSection](https://reference.aspose.com/slides/hi/net/aspose.slides/sectioncollection/removesection/) के साथ केवल सेक्शन परिभाषा हटाएँ, जो उसकी स्लाइडों को बनाए रखता है;
+- [ISectionCollection.RemoveSectionWithSlides](https://reference.aspose.com/slides/hi/net/aspose.slides/sectioncollection/removesectionwithslides/) के साथ एक सेक्शन और उसकी स्लाइडें हटाएँ;
+- [ISectionCollection.AppendEmptySection](https://reference.aspose.com/slides/hi/net/aspose.slides/sectioncollection/appendemptysection/) के साथ अंत में एक खाली सेक्शन जोड़ें।
+
+निम्न उदाहरण दो सेक्शन बनाता है, उनमें से एक को स्थानांतरित करता है, उसे उसकी स्लाइडों के साथ हटाता है, और एक खाली सेक्शन जोड़ता है:
+
+```csharp
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var titleSlide = presentation.Slides[0];
+presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+var resultsSlide = presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+
+presentation.Sections.AddSection("Introduction", titleSlide);
+var resultsSection = presentation.Sections.AddSection("Results", resultsSlide);
+
+presentation.Sections.ReorderSectionWithSlides(resultsSection, 0);
+presentation.Sections.RemoveSectionWithSlides(resultsSection);
+presentation.Sections.AppendEmptySection("Appendix");
+```
+
+इन संचालन के बाद, प्रस्तुति में `Introduction` सेक्शन उसकी स्लाइडों के साथ और एक खाली `Appendix` सेक्शन सम्मिलित रहता है। `Results` सेक्शन और उसकी स्लाइडें हटा दी गई हैं।
+
+## **सेक्शन का नाम बदलना**
+
+सेक्शन का नाम बदलने के लिये, उसके [ISection.Name](https://reference.aspose.com/slides/hi/net/aspose.slides/isection/name/) प्रॉपर्टी को सेट करें। सेक्शन की स्लाइडें और स्थिति अपरिवर्तित रहती हैं।
+
+निम्न उदाहरण एक सेक्शन बनाता है और उसका नाम बदलता है:
+
+```csharp
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var section = presentation.Sections.AddSection("Overview", slide);
+section.Name = "Introduction";
+```
+
+## **सेक्शन से स्लाइड प्राप्त करना**
+
+[Presentation.Sections](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/sections/) प्रॉपर्टी एक [ISectionCollection](https://reference.aspose.com/slides/hi/net/aspose.slides/isectioncollection/) लौटाती है जिसे आप क्रमबद्ध कर सकते हैं। प्रत्येक [ISection](https://reference.aspose.com/slides/hi/net/aspose.slides/isection/) के लिये, वर्तमान में उससे संबंधित स्लाइडें प्राप्त करने हेतु [ISection.GetSlidesListOfSection](https://reference.aspose.com/slides/hi/net/aspose.slides/isection/getslideslistofsection/) को कॉल करें। यह मेथड एक [ISectionSlideCollection](https://reference.aspose.com/slides/hi/net/aspose.slides/isectionslidecollection/) लौटाता है, जो गिनती, अनुक्रमित पहुँच और क्रमबद्धरण प्रदान करता है।
+
+निम्न उदाहरण दो भरे हुए सेक्शन और एक खाली सेक्शन बनाता है, फिर प्रत्येक सेक्शन का [name](https://reference.aspose.com/slides/hi/net/aspose.slides/isection/name/), [identifier](https://reference.aspose.com/slides/hi/net/aspose.slides/isection/sectionid/), [starting slide](https://reference.aspose.com/slides/hi/net/aspose.slides/isection/startedfromslide/), स्लाइड गिनती, और स्लाइड नंबर प्रिंट करता है। यह संग्रह इंडेक्सर का उपयोग करके पहली स्लाइड पढ़ता है और `foreach` से प्रत्येक स्लाइड को प्रोसेस करता है। खाली सेक्शन के लिये, लौटाया गया संग्रह शून्य गिनती रखता है, इंडेक्सर तक पहुँच नहीं की जाती, और क्रमबद्धरण कोई पुनरावृत्ति नहीं करता।
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var firstSlide = presentation.Slides[0];
+presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+var thirdSlide = presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+
+presentation.Sections.AddSection("Introduction", firstSlide);
+presentation.Sections.AddSection("Details", thirdSlide);
+presentation.Sections.AppendEmptySection("Appendix");
+
+foreach (var section in presentation.Sections)
 {
-    ISlide defaultSlide = pres.Slides[0];
-    ISlide newSlide1 = pres.Slides.AddEmptySlide(pres.LayoutSlides[0]);
-    ISlide newSlide2 = pres.Slides.AddEmptySlide(pres.LayoutSlides[0]);
-    ISlide newSlide3 = pres.Slides.AddEmptySlide(pres.LayoutSlides[0]);
-    ISlide newSlide4 = pres.Slides.AddEmptySlide(pres.LayoutSlides[0]);
+    var sectionSlides = section.GetSlidesListOfSection();
+    var startingSlide = section.StartedFromSlide == null ? "none" : section.StartedFromSlide.SlideNumber.ToString();
 
-    ISection section1 = pres.Sections.AddSection("Section 1", newSlide1);
-    ISection section2 = pres.Sections.AddSection("Section 2", newSlide3); // section1 को newSlide2 पर समाप्त किया जाएगा और उसके बाद section2 शुरू होगा   
+    Console.WriteLine($"Section: {section.Name}");
+    Console.WriteLine($"ID: {section.SectionId}");
+    Console.WriteLine($"Starting slide: {startingSlide}");
+    Console.WriteLine($"Slide count: {sectionSlides.Count}");
 
-    pres.Save("pres-sections.pptx", SaveFormat.Pptx);
-    
-    pres.Sections.ReorderSectionWithSlides(section2, 0);
-    pres.Save("pres-sections-moved.pptx", SaveFormat.Pptx);
-    
-    pres.Sections.RemoveSectionWithSlides(section2);
-    
-    pres.Sections.AppendEmptySection("Last empty section");
-    
-    pres.Save("pres-section-with-empty.pptx",SaveFormat.Pptx);
+    if (sectionSlides.Count > 0)
+    {
+        Console.WriteLine($"First slide via indexer: {sectionSlides[0].SlideNumber}");
+    }
+
+    Console.Write("Slide numbers:");
+    foreach (var slide in sectionSlides)
+    {
+        Console.Write($" {slide.SlideNumber}");
+    }
+    Console.WriteLine();
 }
 ```
 
-## **सेक्शन के नाम बदलें**
+सेक्शन सदस्यता प्रस्तुति की सेक्शन संरचना द्वारा निर्धारित होती है। ISection.StartedFromSlide, स्लाइड सूचकांकों, और अगले सेक्शन की प्रारंभिक स्लाइड से मैन्युअल रूप से सेक्शन की सीमा गणना न करें।
 
-PowerPoint प्रेजेंटेशन में एक सेक्शन बन जाने के बाद, आप उसका नाम बदलना चाह सकते हैं।
+संरचनात्मक संपादन एक सेक्शन के लिये लौटाई गई स्लाइडें और उनके स्लाइड नंबर दोनों को बदल सकते हैं। इसमें स्लाइडों का पुनः क्रमित करना, किसी स्लाइड को सेक्शन में क्लोन करना, सेक्शन को उसकी स्लाइडों के साथ स्थानांतरित करना, स्लाइडें हटाना, और सेक्शन हटाना शामिल है। अगला उदाहरण प्रत्येक ऐसे परिवर्तन के बाद [ISection.GetSlidesListOfSection](https://reference.aspose.com/slides/hi/net/aspose.slides/isection/getslideslistofsection/) को कॉल करता है, बजाय सेक्शन की पूर्व सीमाओं के बारे में धारणाएँ बनाए रखने के।
 
-यह नमूना कोड आपको Aspose.Slides का उपयोग करके C# में प्रेजेंटेशन में एक सेक्शन का नाम बदलने का तरीका दिखाता है:
+```csharp
+using System;
+using Aspose.Slides;
 
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+using var presentation = new Presentation();
+var firstSlide = presentation.Slides[0];
+presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+var thirdSlide = presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+var firstSection = presentation.Sections.AddSection("First", firstSlide);
+var secondSection = presentation.Sections.AddSection("Second", thirdSlide);
+
+static void PrintSectionSlides(string label, ISection section)
 {
-   ISection section = pres.Sections[0];
-   section.Name = "My section";
+    var sectionSlides = section.GetSlidesListOfSection();
+    Console.Write($"{label} ({sectionSlides.Count} slides):");
+    foreach (var slide in sectionSlides)
+    {
+        Console.Write($" {slide.SlideNumber}");
+    }
+    Console.WriteLine();
+}
+
+PrintSectionSlides("Initially", firstSection);
+
+var slidesBeforeClone = firstSection.GetSlidesListOfSection();
+presentation.Slides.AddClone(slidesBeforeClone[0], firstSection);
+PrintSectionSlides("After cloning into the section", firstSection);
+
+var slidesBeforeReorder = firstSection.GetSlidesListOfSection();
+var firstSectionPosition = slidesBeforeReorder[0].SlideNumber - 1;
+presentation.Slides.Reorder(firstSectionPosition, slidesBeforeReorder[slidesBeforeReorder.Count - 1]);
+PrintSectionSlides("After reordering slides", firstSection);
+
+presentation.Sections.ReorderSectionWithSlides(firstSection, 1);
+PrintSectionSlides("After moving the section", firstSection);
+
+var slidesBeforeRemoval = firstSection.GetSlidesListOfSection();
+presentation.Slides.Remove(slidesBeforeRemoval[0]);
+PrintSectionSlides("After removing a slide", firstSection);
+
+presentation.Sections.RemoveSectionWithSlides(secondSection);
+foreach (var section in presentation.Sections)
+{
+    PrintSectionSlides("Remaining section", section);
 }
 ```
 
-## **FAQ**
+जब भी स्लाइडें या सेक्शन पुनः क्रमित, क्लोन, स्थानांतरित या हटाए जाएँ, तब [ISection.GetSlidesListOfSection](https://reference.aspose.com/slides/hi/net/aspose.slides/isection/getslideslistofsection/) को फिर से कॉल करें। यह बाद की प्रोसेसिंग को वर्तमान प्रस्तुति संरचना के अनुरूप रखता है।
 
-**क्या PPT (PowerPoint 97–2003) फ़ॉर्मेट में सहेजते समय सेक्शन संरक्षित रहते हैं?**
+PPT (PowerPoint 97–2003) फ़ॉर्मेट सेक्शन मेटाडेटा को बनाए नहीं रखता। इस कार्यप्रवाह का उपयोग ऐसे फ़ॉर्मेट के साथ करें जो सेक्शन का समर्थन करता हो, जैसे PPTX; PPT में बदलने से बाद में क्रमबद्ध करने के लिये आवश्यक सेक्शन संरचना हट जाती है।
 
-नहीं। PPT फ़ॉर्मेट सेक्शन मेटाडेटा को समर्थन नहीं देता, इसलिए सेक्शन समूहण .ppt में सहेजते समय खो जाता है।
+## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या पूरी सेक्शन को "छुपाया" जा सकता है?**
+**क्या PPT (PowerPoint 97–2003) फ़ॉर्मेट में सहेजने पर सेक्शन संरक्षित रहते हैं?**
 
-नहीं। केवल व्यक्तिगत स्लाइड्स को छुपाया जा सकता है। एक सेक्शन एक इकाई के रूप में कोई "छुपा" स्थिति नहीं रखता।
+नहीं। PPT फ़ॉर्मेट सेक्शन मेटाडेटा का समर्थन नहीं करता, इसलिए .ppt में सहेजने पर सेक्शन समूह खो जाता है।
 
-**क्या मैं एक स्लाइड के आधार पर सेक्शन को जल्दी ढूंढ सकता हूँ और इसके विपरीत, सेक्शन की पहली स्लाइड को?**
+**क्या पूर्ण सेक्शन को "छुपाया" जा सकता है?**
 
-हां। एक सेक्शन अपनी प्रारंभिक स्लाइड द्वारा अद्वितीय रूप से परिभाषित होता है; किसी स्लाइड को दिया जाने पर आप निर्धारित कर सकते हैं कि वह किस सेक्शन में है, और एक सेक्शन के लिए आप उसकी पहली स्लाइड तक पहुंच सकते हैं।
+नहीं। एक सेक्शन की कोई दृश्यता स्थिति नहीं होती। उसके सामग्री को छुपाने के लिये, सेक्शन की प्रत्येक स्लाइड के लिये [ISlide.Hidden](https://reference.aspose.com/slides/hi/net/aspose.slides/islide/hidden/) प्रॉपर्टी सेट करें।
+
+**मैं किसी स्लाइड को शामिल करने वाले सेक्शन को कैसे खोजूँ?**
+
+[Presentation.Sections](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/sections/) को क्रमबद्ध करें, प्रत्येक सेक्शन के लिये [ISection.GetSlidesListOfSection](https://reference.aspose.com/slides/hi/net/aspose.slides/isection/getslideslistofsection/) को कॉल करें, और लौटाए गये स्लाइडों की लक्ष्य स्लाइड से तुलना करें। गैर-खाली सेक्शन के लिये, [ISection.StartedFromSlide](https://reference.aspose.com/slides/hi/net/aspose.slides/isection/startedfromslide/) उसकी पहली स्लाइड लौटाता है; खाली सेक्शन के लिये, यह `null` लौटाता है।

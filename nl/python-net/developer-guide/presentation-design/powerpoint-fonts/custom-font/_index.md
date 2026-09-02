@@ -1,5 +1,5 @@
 ---
-title: Aangepaste PowerPoint-lettertypen in Python
+title: PowerPoint-lettertypen aanpassen in Python
 linktitle: Aangepast lettertype
 type: docs
 weight: 20
@@ -15,56 +15,58 @@ keywords:
 - presentatie
 - Python
 - Aspose.Slides
-description: "Integreer aangepaste lettertypen in PowerPoint-dia's met Aspose.Slides voor Python via .NET, zodat je presentaties scherp en consistent blijven op elk apparaat."
+description: "Integreer aangepaste lettertypen in PowerPoint-dia's met Aspose.Slides voor Python via .NET om uw presentaties scherp en consistent te houden op elk apparaat."
 ---
 ## **Overzicht**
 
-Aspose.Slides voor Python stelt je in staat om aangepaste lettertypen op runtime te leveren zodat presentaties correct worden weergegeven, zelfs wanneer de vereiste lettertypen niet op het systeem zijn geïnstalleerd. Bij het exporteren naar PDF of afbeeldingen kun je lettertypefolders of lettertype‑gegevens in het geheugen opgeven om de tekstlay-out, glyfmetriek en typografie te behouden. Dit maakt server‑side rendering voorspelbaar in verschillende omgevingen, verwijdert OS‑afhankelijke lettertype‑afhankelijkheden en voorkomt ongewenste fallback‑ of herindelingen. In dit artikel wordt getoond hoe je lettertypebronnen kunt registreren.
+Aspose.Slides for Python maakt het mogelijk om tijdens runtime aangepaste lettertypen te leveren zodat presentaties correct worden weergegeven, zelfs wanneer de vereiste lettertypen niet op het host‑systeem zijn geïnstalleerd. Bij het exporteren naar PDF of afbeeldingen kun je lettertype‑mappen of lettertype‑gegevens in het geheugen opgeven om de tekstlay‑out, glyf‑metriek en typografie te behouden. Dit zorgt voor voorspelbare server‑side rendering in verschillende omgevingen, verwijdert OS‑niveau afhankelijkheden van lettertypen en voorkomt ongewenste fallback‑ of reflow‑situaties. In dit artikel wordt getoond hoe je lettertype‑bronnen registreert.
 
-Aspose.Slides laat je de volgende lettertypen laden met de `load_external_font` en `load_external_fonts` methoden van de [FontsLoader](https://reference.aspose.com/slides/nl/python-net/aspose.slides/fontsloader/) klasse:
+Een presentatie‑thema kan verschillende lettertype‑families refereren voor afzonderlijke schrijfsystemen. Deze toewijzingen slaan alleen de lettertype‑namen op, maar installeren of laden de lettertype‑bestanden niet. Zie [Script‑specifieke thema‑lettertypen](/slides/nl/python-net/script-specific-font-mappings/) om de toewijzingen te beheren, en gebruik de onderstaande laad‑opties om de refererende lettertypen beschikbaar te maken voor consistente weergave.
+
+Aspose.Slides laat je de volgende lettertypen laden met de methoden `load_external_font` en `load_external_fonts` van de [FontsLoader](https://reference.aspose.com/slides/nl/python-net/aspose.slides/fontsloader/)‑klasse:
 
 - TrueType (.ttf) en TrueType Collection (.ttc) lettertypen. Zie [TrueType](https://en.wikipedia.org/wiki/TrueType).
 - OpenType (.otf) lettertypen. Zie [OpenType](https://en.wikipedia.org/wiki/OpenType).
 
-## **Aangepaste Lettertypen Laden**
+## **Aangepaste lettertypen laden**
 
-Aspose.Slides maakt het mogelijk om lettertypen die in een presentatie worden gebruikt te laden zonder ze op het systeem te installeren. Dit beïnvloedt de exportoutput – zoals PDF, afbeeldingen en andere ondersteunde formaten – zodat de gegenereerde documenten er consistent uitzien in verschillende omgevingen. Lettertypen worden geladen vanuit aangepaste mappen.
+Aspose.Slides stelt je in staat om lettertypen die in een presentatie worden gebruikt te laden zonder ze op het systeem te installeren. Dit beïnvloedt de export‑output — zoals PDF, afbeeldingen en andere ondersteunde formaten — zodat de gegenereerde documenten er consistent uitzien in verschillende omgevingen. Lettertypen worden geladen vanuit aangepaste mappen.
 
-1. Geef één of meer mappen op die de lettertypebestanden bevatten.  
-2. Roep de statische [FontsLoader.load_external_fonts](https://reference.aspose.com/slides/nl/python-net/aspose.slides/fontsloader/load_external_fonts/) methode aan om lettertypen uit die mappen te laden.  
-3. Laad en render/​export de presentatie.  
+1. Geef één of meerdere mappen op die de lettertype‑bestanden bevatten.
+2. Roep de statische [FontsLoader.load_external_fonts](https://reference.aspose.com/slides/nl/python-net/aspose.slides/fontsloader/load_external_fonts/)‑methode aan om lettertypen uit die mappen te laden.
+3. Laad en render/exporteer de presentatie.
 4. Roep [FontsLoader.clear_cache](https://reference.aspose.com/slides/nl/python-net/aspose.slides/fontsloader/clear_cache/) aan om de lettertype‑cache te wissen.
 
-Het volgende code‑voorbeeld toont het proces van het laden van lettertypen:
+Het volgende codevoorbeeld toont het lettertype‑laadproces:
 
 ```py
 import aspose.slides as slides
 
-# Definieer mappen die aangepaste lettertypebestanden bevatten.
-font_folders = [ external_font_folder1, external_font_folder2 ]
+# Definieer de mappen die aangepaste lettertype-bestanden bevatten.
+font_folders = ["fonts", "external_fonts"]
 
-# Laad aangepaste lettertypen uit de opgegeven mappen.
+# Laad aangepaste lettertypen vanuit de opgegeven mappen.
 slides.FontsLoader.load_external_fonts(font_folders)
 
 with slides.Presentation("sample.pptx") as presentation:
     # Render/exporteer de presentatie (bijv. naar PDF, afbeeldingen of andere formaten) met de geladen lettertypen.
     presentation.save("output.pdf", slides.export.SaveFormat.PDF)
 
-# Wis de lettertype-cache nadat het werk voltooid is.
+# Wis de lettertype-cache nadat het werk is voltooid.
 slides.FontsLoader.clear_cache()
 ```
 
-{{% alert color="info" title="Note" %}}
-[FontsLoader.load_external_fonts](https://reference.aspose.com/slides/nl/python-net/aspose.slides/fontsloader/load_external_fonts/) voegt extra mappen toe aan de zoekpaden voor lettertypen, maar verandert niet de volgorde waarin lettertypen worden geïnitialiseerd.  
+{{% alert color="info" title="Opmerking" %}}
+[FontsLoader.load_external_fonts](https://reference.aspose.com/slides/nl/python-net/aspose.slides/fontsloader/load_external_fonts/) voegt extra mappen toe aan de zoekpaden voor lettertypen, maar verandert niet de initialisatie‑volgorde van de lettertypen.
 Lettertypen worden in deze volgorde geïnitialiseerd:
 
-1. Het standaardpad van het besturingssysteem voor lettertypen.  
-1. De paden die zijn geladen via [FontsLoader](https://reference.aspose.com/slides/nl/python-net/aspose.slides/fontsloader/).  
+1. Het standaard besturingssysteem‑lettertypepad.
+1. De paden die via [FontsLoader](https://reference.aspose.com/slides/nl/python-net/aspose.slides/fontsloader/) zijn geladen.
 {{%/alert %}}
 
-## **De Aangepaste Lettertypenmap Opvragen**
+## **De map met aangepaste lettertypen ophalen**
 
-Aspose.Slides biedt de `get_font_folders` methode om lettertype‑mappen op te halen. Deze retourneert zowel de mappen die via `load_external_fonts` zijn toegevoegd als de systeem‑lettertype‑mappen.
+Aspose.Slides biedt de methode `get_font_folders` om lettertype‑mappen op te halen. Deze geeft zowel de via `load_external_fonts` toegevoegde mappen als de systeem‑lettertype‑mappen terug.
 
 Deze Python‑code laat zien hoe `get_font_folders` wordt gebruikt:
 
@@ -72,15 +74,15 @@ Deze Python‑code laat zien hoe `get_font_folders` wordt gebruikt:
 import aspose.slides as slides
 
 # Deze oproep geeft de mappen terug die gecontroleerd worden op lettertypebestanden.
-# Deze omvatten mappen die zijn toegevoegd via de load_external_fonts-methode en de systeem-lettertype-mappen.
+# Deze omvatten de mappen die via de load_external_fonts-methode zijn toegevoegd en de systeem-lettertype-mappen.
 font_folders = slides.FontsLoader.get_font_folders()
 ```
 
-## **Aangepaste Lettertypen Opgeven Voor Een Presentatie**
+## **Aangepaste lettertypen voor een presentatie opgeven**
 
-Aspose.Slides biedt de `document_level_font_sources` eigenschap, waarmee je externe lettertypen kunt opgeven die bij een presentatie moeten worden gebruikt.
+Aspose.Slides biedt de eigenschap `document_level_font_sources`, waarmee je externe lettertypen kunt specificeren die bij een presentatie gebruikt moeten worden.
 
-Het volgende Python‑voorbeeld toont het gebruik van `document_level_font_sources`:
+Het volgende Python‑voorbeeld laat zien hoe `document_level_font_sources` wordt gebruikt:
 
 ```python
 import aspose.slides as slides
@@ -98,14 +100,14 @@ load_options.document_level_font_sources.memory_fonts = [font1_data, font2_data]
 with slides.Presentation("Fonts.pptx", load_options) as presentation:
     # ...
     # Werk met de presentatie.
-    # CustomFont1, CustomFont2, en lettertypen uit de assets\fonts en global\fonts mappen (en hun submappen) zijn beschikbaar voor de presentatie.
+    # CustomFont1, CustomFont2 en lettertypen uit de mappen assets\fonts en global\fonts (en hun submappen) zijn beschikbaar voor de presentatie.
     # ...
     print(len(presentation.slides))
 ```
 
-## **Externe Lettertypen Laden Vanuit Binaire Gegevens**
+## **Externe lettertypen laden vanuit binaire gegevens**
 
-Aspose.Slides biedt de `load_external_font` methode om externe lettertypen uit binaire gegevens te laden.
+Aspose.Slides biedt de methode `load_external_font` om externe lettertypen te laden vanuit binaire gegevens.
 
 Het volgende Python‑voorbeeld demonstreert het laden van een lettertype vanuit een byte‑array:
 
@@ -124,7 +126,7 @@ slides.FontsLoader.load_external_font(read_all_bytes("ARIALNI.TTF"))
 
 try:
     with slides.Presentation() as presentation:
-        # Externe lettertypen zijn beschikbaar gedurende de levensduur van deze presentatie-instansie.
+        # Externe lettertypen zijn beschikbaar gedurende de levensduur van deze presentatiewinstantie.
         print("processing")
 finally:
     slides.FontsLoader.clear_cache()
@@ -132,22 +134,22 @@ finally:
 
 ## **FAQ**
 
-**Hebben aangepaste lettertypen invloed op de export naar alle formaten (PDF, PNG, SVG, HTML)?**
+### Heeft het gebruik van aangepaste lettertypen invloed op de export naar alle formaten (PDF, PNG, SVG, HTML)?
 
-Ja. Gekoppelde lettertypen worden door de renderer gebruikt voor alle exportformaten.
+Ja. Verbonden lettertypen worden door de renderer gebruikt voor alle export‑formaten.
 
-**Worden aangepaste lettertypen automatisch ingesloten in de resulterende PPTX?**
+### Worden aangepaste lettertypen automatisch ingebed in de resulterende PPTX?
 
-Nee. Een lettertype registreren voor weergave is niet hetzelfde als het insluiten in een PPTX. Als je het lettertype wilt opnemen in het presentatie‑bestand, moet je de expliciete [embedfuncties](/slides/nl/python-net/embedded-font/) gebruiken.
+Nee. Een lettertype registreren voor weergave is niet hetzelfde als het insluiten in een PPTX. Als je het lettertype in het presentatie‑bestand wilt opnemen, moet je de expliciete [embed‑functies](/slides/nl/python-net/embedded-font/) gebruiken.
 
-**Kan ik het fallback‑gedrag regelen wanneer een aangepast lettertype bepaalde glyfen mist?**
+### Kan ik het fallback‑gedrag regelen wanneer een aangepast lettertype bepaalde glyfen mist?
 
-Ja. Configureer [fontersubstitutie](/slides/nl/python-net/font-substitution/), [vervangingsregels](/slides/nl/python-net/font-replacement/) en [fallback‑sets](/slides/nl/python-net/fallback-font/) om precies te bepalen welk lettertype wordt gebruikt wanneer de gevraagde glyf ontbreekt.
+Ja. Configureer [font substitution](/slides/nl/python-net/font-substitution/), [replacement rules](/slides/nl/python-net/font-replacement/) en [fallback sets](/slides/nl/python-net/fallback-font/) om precies te definiëren welk lettertype wordt gebruikt wanneer het gevraagde glyf ontbreekt.
 
-**Kan ik lettertypen gebruiken in Linux/Docker‑containers zonder ze systeem‑wijd te installeren?**
+### Kan ik lettertypen gebruiken in Linux/Docker‑containers zonder ze systeemwijd te installeren?
 
-Ja. Verwijs naar je eigen lettertype‑mappen of laad lettertypen uit byte‑arrays. Dit verwijdert elke afhankelijkheid van systeem‑lettertype‑mappen in het container‑image.
+Ja. Verwijs naar je eigen lettertype‑mappen of laad lettertypen vanuit byte‑arrays. Dit verwijdert elke afhankelijkheid van systeembrede lettertype‑directories in het container‑image.
 
-**Hoe zit het met licenties – kan ik elk aangepast lettertype zonder beperkingen insluiten?**
+### Hoe zit het met licenties — kan ik elk aangepast lettertype insluiten zonder beperkingen?
 
-Je bent zelf verantwoordelijk voor de naleving van de lettertype‑licenties. De voorwaarden variëren; sommige licenties verbieden insluiting of commercieel gebruik. Controleer altijd de EULA van het lettertype voordat je de output distribueert.
+Jij bent verantwoordelijk voor naleving van de licentievoorwaarden van het lettertype. De voorwaarden verschillen; sommige licenties verbieden insluiten of commercieel gebruik. Controleer altijd de EULA van het lettertype vóór distributie van de output.

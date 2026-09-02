@@ -15,7 +15,7 @@ keywords:
 - 프레젠테이션 압축
 - 사용되지 않는 마스터 슬라이드 제거
 - 사용되지 않는 레이아웃 슬라이드 제거
-- 내장 폰트 압축
+- 임베디드 글꼴 압축
 - PowerPoint
 - OpenDocument
 - 프레젠테이션
@@ -25,23 +25,23 @@ description: "PHP에서 Aspose.Slides 로우코드 API를 사용하여 프레젠
 ---
 ## **개요**
 
-[aspose.slides](https://reference.aspose.com/slides/ko/php-java/aspose.slides/) 네임스페이스는 일반 프레젠테이션 작업을 위한 정적 헬퍼 클래스를 제공합니다. 이러한 헬퍼는 자주 사용되는 객체 모델 워크플로를 집중된 메서드로 래핑하여 파일을 변환하거나 병합하고, 프레젠테이션 요소를 처리하고, 도형을 수집하며, 사용되지 않는 콘텐츠를 더 적은 코드로 제거할 수 있습니다.
+The [aspose.slides](https://reference.aspose.com/slides/ko/php-java/aspose.slides/) namespace provides static helper classes for common presentation operations. These helpers wrap frequently used object-model workflows in focused methods, so you can convert or merge files, process presentation elements, collect shapes, and remove unused content with less code.
 
-작업이 전체 파일이나 프레젠테이션에 적용되고 기본 워크플로가 요구 사항에 맞을 때 로우코드 헬퍼가 가장 유용합니다. 개별 슬라이드, 마스터, 레이아웃, 도형, 내보내기 설정 또는 프레젠테이션 요소 간 관계에 대한 세밀한 제어가 필요하면 전체 [Aspose.Slides object model](https://reference.aspose.com/slides/ko/php-java/aspose.slides/)을 사용하십시오.
+Low-code helpers are most useful when the operation applies to an entire file or presentation and the default workflow matches your requirements. Use the full [Aspose.Slides object model](https://reference.aspose.com/slides/ko/php-java/aspose.slides/) when you need fine-grained control over individual slides, masters, layouts, shapes, export settings, or relationships between presentation elements.
 
-다음 표는 사용 가능한 헬퍼를 요약합니다:
+The following table summarizes the available helpers:
 
-| 헬퍼 | 용도 |
+| Helper | Use it for |
 | --- | --- |
-| [Convert](https://reference.aspose.com/slides/ko/php-java/aspose.slides/convert/) | 직접 파일 간 호출로 프레젠테이션을 다른 형식으로 변환 |
-| [Merger](https://reference.aspose.com/slides/ko/php-java/aspose.slides/merger/) | 동일 형식의 전체 프레젠테이션 파일을 결합 |
-| [ForEach_](https://reference.aspose.com/slides/ko/php-java/aspose.slides/foreach_/) | 각 슬라이드, 도형, 단락 또는 텍스트 부분에 대해 콜백 실행 |
-| [Collect](https://reference.aspose.com/slides/ko/php-java/aspose.slides/collect/) | 전체 프레젠테이션에서 도형을 가져와 반복 처리 또는 분석 |
-| [Compress](https://reference.aspose.com/slides/ko/php-java/aspose.slides/compress/) | 사용되지 않는 마스터와 레이아웃을 제거하고 내장 폰트 데이터를 축소 |
+| [Convert](https://reference.aspose.com/slides/ko/php-java/aspose.slides/convert/) | 프레젠테이션을 직접 파일 간 호출로 다른 형식으로 변환 |
+| [Merger](https://reference.aspose.com/slides/ko/php-java/aspose.slides/merger/) | 같은 형식의 전체 프레젠테이션 파일을 결합 |
+| [ForEach_](https://reference.aspose.com/slides/ko/php-java/aspose.slides/foreach_/) | 각 슬라이드, 도형, 단락, 텍스트 부분에 대해 콜백 실행 |
+| [Collect](https://reference.aspose.com/slides/ko/php-java/aspose.slides/collect/) | 전체 프레젠테이션에서 도형을 가져와 반복 처리 또는 분석에 사용 |
+| [Compress](https://reference.aspose.com/slides/ko/php-java/aspose.slides/compress/) | 사용되지 않는 마스터와 레이아웃을 제거하고 포함된 글꼴 데이터를 축소 |
 
 ## **프레젠테이션 변환**
 
-출력 파일 확장자가 내보내기 형식을 선택하기에 충분할 때 [Convert::autoByExtension](https://reference.aspose.com/slides/ko/php-java/aspose.slides/convert/#autoByExtension) 을 사용하십시오. 이 메서드는 원본 프레젠테이션을 열고, 출력 경로에서 필요한 형식을 결정한 뒤 결과를 기록합니다.
+Use [Convert::autoByExtension](https://reference.aspose.com/slides/ko/php-java/aspose.slides/convert/#autoByExtension) when the output file extension is sufficient to select the export format. The method opens the source presentation, determines the required format from the output path, and writes the result.
 
 ```php
 use aspose\slides\Convert;
@@ -49,11 +49,11 @@ use aspose\slides\Convert;
 Convert::autoByExtension("input.pptx", "output.pdf");
 ```
 
-[Convert](https://reference.aspose.com/slides/ko/php-java/aspose.slides/convert/) 클래스는 PDF, SVG, JPEG, PNG 및 TIFF 출력에 대한 전용 메서드도 제공합니다. 내보내기 전에 프레젠테이션을 검사하거나 수정해야 하거나 선택한 헬퍼가 노출하지 않는 내보내기 옵션을 구성해야 할 경우 전체 객체 모델을 사용하십시오. 형식별 워크플로와 옵션은 [Convert Presentation](/php-java/convert-presentation/) 를 참조하십시오.
+The [Convert](https://reference.aspose.com/slides/ko/php-java/aspose.slides/convert/) class also provides dedicated methods for PDF, SVG, JPEG, PNG, and TIFF output. Use the full object model when you need to inspect or modify the presentation before export or configure an export option that is not exposed by the selected helper. See [Convert Presentation](/slides/ko/php-java/convert-presentation/) for format-specific workflows and options.
 
 ## **프레젠테이션 병합**
 
-[Merger::process](https://reference.aspose.com/slides/ko/php-java/aspose.slides/merger/#process) 를 사용하면 한 번의 호출로 전체 프레젠테이션 파일을 결합할 수 있습니다. 입력 프레젠테이션은 동일한 파일 형식이어야 합니다.
+Use [Merger::process](https://reference.aspose.com/slides/ko/php-java/aspose.slides/merger/#process) to combine complete presentation files with one call. The input presentations must have the same file format.
 
 ```php
 use aspose\slides\Merger;
@@ -62,13 +62,13 @@ $inputFiles = ["part-1.pptx", "part-2.pptx"];
 Merger::process($inputFiles, "merged.pptx");
 ```
 
-모든 슬라이드를 하나의 결과에 순차적으로 추가하고 개별 선택이나 매핑이 필요 없을 때 이 헬퍼가 적합합니다. 선택된 슬라이드만 병합하거나 대상 마스터·레이아웃을 적용하고, 섹션을 명시적으로 보존하거나 슬라이드 크기가 다른 경우 전체 객체 모델을 사용하십시오. 이러한 시나리오는 [Merge Presentations](/php-java/merge-presentation/) 에서 확인할 수 있습니다.
+The helper is appropriate when all slides should be appended to one result without selecting or remapping them individually. Use the full object model when you need to merge selected slides, apply a destination master or layout, preserve sections explicitly, or reconcile different slide sizes. See [Merge Presentations](/slides/ko/php-java/merge-presentation/) for those scenarios.
 
 ## **프레젠테이션 요소 반복**
 
-[ForEach_](https://reference.aspose.com/slides/ko/php-java/aspose.slides/foreach_/) 클래스는 요청된 유형의 프레젠테이션 요소마다 콜백을 호출합니다. 중첩된 컬렉션 루프를 피하면서 프레젠테이션 전체 검사나 서식 변경에 편리합니다.
+The [ForEach_](https://reference.aspose.com/slides/ko/php-java/aspose.slides/foreach_/) class invokes a callback for each requested type of presentation element. It avoids nested collection loops and is convenient for presentation-wide inspection or formatting changes.
 
-다음 예제는 [ForEach_::slide](https://reference.aspose.com/slides/ko/php-java/aspose.slides/foreach_/#slide), [ForEach_::shape](https://reference.aspose.com/slides/ko/php-java/aspose.slides/foreach_/#shape), [ForEach_::paragraph](https://reference.aspose.com/slides/ko/php-java/aspose.slides/foreach_/#paragraph), [ForEach_::portion](https://reference.aspose.com/slides/ko/php-java/aspose.slides/foreach_/#portion) 을 사용해 해당 요소들을 검사합니다:
+The following example uses [ForEach_::slide](https://reference.aspose.com/slides/ko/php-java/aspose.slides/foreach_/#slide), [ForEach_::shape](https://reference.aspose.com/slides/ko/php-java/aspose.slides/foreach_/#shape), [ForEach_::paragraph](https://reference.aspose.com/slides/ko/php-java/aspose.slides/foreach_/#paragraph), and [ForEach_::portion](https://reference.aspose.com/slides/ko/php-java/aspose.slides/foreach_/#portion) to inspect the corresponding elements:
 
 ```php
 use aspose\slides\ForEach_;
@@ -125,11 +125,11 @@ try {
 }
 ```
 
-기본적으로 프레젠테이션 전체 도형 및 텍스트 순회에는 일반 슬라이드, 마스터 슬라이드 및 레이아웃 슬라이드가 포함됩니다. `includeNotes` 매개변수가 있는 오버로드를 사용하면 노트 슬라이드도 처리할 수 있습니다. 순회 순서, 조기 종료, 콜백 호출 전 필터링, 또는 상세한 부모‑자식 제어가 중요한 경우 직접 컬렉션 루프를 사용하십시오.
+By default, presentation-wide shape and text traversal includes normal, master, and layout slides. Overloads with an `includeNotes` parameter can also process notes slides. Use direct collection loops when traversal order, early exit, filtering before callback invocation, or detailed parent-child control is important.
 
 ## **도형 수집**
 
-프레젠테이션 전체에서 모든 도형의 컬렉션이 필요하고 각 도형에 대한 콜백이 필요하지 않을 때는 [Collect::shapes](https://reference.aspose.com/slides/ko/php-java/aspose.slides/collect/#shapes) 를 사용하십시오. 동일한 집합을 여러 번 필터링하거나, 카운트하거나, 처리할 경우 유용합니다.
+Use [Collect::shapes](https://reference.aspose.com/slides/ko/php-java/aspose.slides/collect/#shapes) when you need a collection of all shapes in a presentation rather than a callback for each shape. This is useful when the same set will be filtered, counted, or processed more than once.
 
 ```php
 use aspose\slides\Collect;
@@ -149,15 +149,15 @@ try {
 }
 ```
 
-각 도형을 즉시 처리하고 수집된 결과를 유지할 필요가 없을 경우에는 [ForEach_::shape](https://reference.aspose.com/slides/ko/php-java/aspose.slides/foreach_/#shape) 을 대신 사용하십시오.
+Use [ForEach_::shape](https://reference.aspose.com/slides/ko/php-java/aspose.slides/foreach_/#shape) instead when each shape can be handled immediately and you do not need to retain the collected result.
 
-## **프레젠테이션 내용 압축**
+## **프레젠테이션 콘텐츠 압축**
 
-[Compress](https://reference.aspose.com/slides/ko/php-java/aspose.slides/compress/) 클래스는 사용되지 않는 구조 요소를 제거하고 내장 폰트 데이터를 축소할 수 있습니다:
+The [Compress](https://reference.aspose.com/slides/ko/php-java/aspose.slides/compress/) class can remove unused structural elements and reduce embedded font data:
 
-- [Compress::removeUnusedLayoutSlides](https://reference.aspose.com/slides/ko/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) 은 정상 슬라이드가 참조하지 않는 레이아웃 슬라이드를 제거합니다.
-- [Compress::removeUnusedMasterSlides](https://reference.aspose.com/slides/ko/php-java/aspose.slides/compress/#removeUnusedMasterSlides) 은 더 이상 사용되지 않는 마스터 슬라이드를 제거합니다.
-- [Compress::compressEmbeddedFonts](https://reference.aspose.com/slides/ko/php-java/aspose.slides/compress/#compressEmbeddedFonts) 은 내장 폰트에서 사용되지 않는 문자를 제거합니다.
+- [Compress::removeUnusedLayoutSlides](https://reference.aspose.com/slides/ko/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) removes layout slides that no normal slide references.
+- [Compress::removeUnusedMasterSlides](https://reference.aspose.com/slides/ko/php-java/aspose.slides/compress/#removeUnusedMasterSlides) removes master slides that are no longer used.
+- [Compress::compressEmbeddedFonts](https://reference.aspose.com/slides/ko/php-java/aspose.slides/compress/#compressEmbeddedFonts) removes unused characters from embedded fonts.
 
 ```php
 use aspose\slides\Compress;
@@ -176,32 +176,38 @@ try {
 }
 ```
 
-먼저 사용되지 않는 레이아웃을 제거하고 그 다음에 사용되지 않는 마스터를 제거하십시오. 레이아웃 정리 후에 참조가 끊긴 마스터도 함께 제거됩니다. 원본 마스터·레이아웃·전체 내장 폰트 데이터를 나중에 필요할 수 있다면 최적화된 프레젠테이션을 새 파일에 저장하십시오. 자세한 내용은 [Slide Master](/php-java/slide-master/) 및 [Embedded Font](/php-java/embedded-font/) 를 참고하십시오.
+Remove unused layouts before unused masters so a master that becomes unreferenced after layout cleanup can also be removed. Save the optimized presentation to a new file if you may need the original masters, layouts, or complete embedded font data later. For more detail, see [Slide Master](/slides/ko/php-java/slide-master/) and [Embedded Font](/slides/ko/php-java/embedded-font/).
 
 ## **FAQ**
 
-**저코드 API를 전체 객체 모델 대신 언제 사용해야 하나요?**  
-표준 작업이 전체 파일이나 프레젠테이션에 적용되고 개별 요소에 대한 세부 제어가 필요하지 않을 때 로우코드 헬퍼를 사용하십시오. 특정 슬라이드를 선택하거나 마스터·레이아웃 관계를 제어하고, 중간 상태를 검사하거나 헬퍼가 노출하지 않는 동작을 구성해야 할 경우 전체 객체 모델을 사용하십시오.
+**언제 로우코드 API를 전체 객체 모델 대신 사용해야 합니까?**
 
-**Merger가 서로 다른 파일 형식의 프레젠테이션을 결합할 수 있나요?**  
-아니요. [Merger::process](https://reference.aspose.com/slides/ko/php-java/aspose.slides/merger/#process) 은 입력 프레젠테이션이 동일한 형식이어야 합니다. 먼저 [Convert::autoByExtension](https://reference.aspose.com/slides/ko/php-java/aspose.slides/convert/#autoByExtension) 와 같은 방법으로 입력 파일을 공통 형식으로 변환한 뒤 결합하십시오.
+Use low-code helpers when a standard operation applies to a complete file or presentation and does not require detailed control over individual elements. Use the full object model when you need to select specific slides, control master and layout relationships, inspect intermediate state, or configure behavior that the helper does not expose.
 
-**ForEach_가 마스터, 레이아웃 및 노트 슬라이드를 처리합니까?**  
-[ForEach_::slide](https://reference.aspose.com/slides/ko/php-java/aspose.slides/foreach_/#slide) 은 일반 프레젠테이션 슬라이드만 순회합니다. 프레젠테이션 전체에 적용되는 [ForEach_::shape](https://reference.aspose.com/slides/ko/php-java/aspose.slides/foreach_/#shape), [ForEach_::paragraph](https://reference.aspose.com/slides/ko/php-java/aspose.slides/foreach_/#paragraph), [ForEach_::portion](https://reference.aspose.com/slides/ko/php-java/aspose.slides/foreach_/#portion) 작업은 기본적으로 일반, 마스터 및 레이아웃 슬라이드를 포함합니다. 노트 슬라이드를 포함하려면 `includeNotes` 매개변수를 `true` 로 설정한 오버로드를 사용하십시오.
+**Merger가 서로 다른 파일 형식의 프레젠테이션을 결합할 수 있나요?**
 
-**ForEach_::shape와 Collect::shapes의 차이점은 무엇인가요?**  
-각 도형을 즉시 콜백으로 처리하려면 [ForEach_::shape](https://reference.aspose.com/slides/ko/php-java/aspose.slides/foreach_/#shape) 를 사용하십시오. 도형 컬렉션을 보관하고 나중에 필터링·카운트·다중 순회하려면 [Collect::shapes](https://reference.aspose.com/slides/ko/php-java/aspose.slides/collect/#shapes) 를 사용하십시오.
+No. [Merger::process](https://reference.aspose.com/slides/ko/php-java/aspose.slides/merger/#process) requires input presentations in the same format. Convert the input files to a common format first, for example with [Convert::autoByExtension](https://reference.aspose.com/slides/ko/php-java/aspose.slides/convert/#autoByExtension), and then merge the converted files.
 
-**Compress는 항상 프레젠테이션 파일 크기를 줄이나요?**  
-必ずしも 그렇지는 않습니다. 프레젠테이션에 사용되지 않는 레이아웃·마스터·내장 폰트의 사용되지 않는 문자 등이 존재하는 경우에만 해당 [Compress](https://reference.aspose.com/slides/ko/php-java/aspose.slides/compress/) 작업이 파일 크기를 감소시킬 수 있습니다.
+**ForEach_가 마스터, 레이아웃 및 노트 슬라이드를 처리합니까?**
 
-**ForEach_ 또는 Compress가 수행한 변경 사항이 자동으로 저장되나요?**  
-아니요. 이러한 헬퍼는 메모리상의 [Presentation](https://reference.aspose.com/slides/ko/php-java/aspose.slides/presentation/) 객체에 대해 작동합니다. [ForEach_](https://reference.aspose.com/slides/ko/php-java/aspose.slides/foreach_) 콜백이나 [Compress](https://reference.aspose.com/slides/ko/php-java/aspose.slides/compress/) 를 실행한 후에는 [Presentation::save](https://reference.aspose.com/slides/ko/php-java/aspose.slides/presentation/#save) 을 호출해 결과를 파일에 기록해야 합니다.
+[ForEach_::slide](https://reference.aspose.com/slides/ko/php-java/aspose.slides/foreach_/#slide) iterates through normal presentation slides. Presentation-wide [ForEach_::shape](https://reference.aspose.com/slides/ko/php-java/aspose.slides/foreach_/#shape), [ForEach_::paragraph](https://reference.aspose.com/slides/ko/php-java/aspose.slides/foreach_/#paragraph), and [ForEach_::portion](https://reference.aspose.com/slides/ko/php-java/aspose.slides/foreach_/#portion) operations include normal, master, and layout slides by default. Use their overloads with `includeNotes` set to `true` to include notes slides.
+
+**ForEach_::shape와 Collect::shapes의 차이점은 무엇인가요?**
+
+Use [ForEach_::shape](https://reference.aspose.com/slides/ko/php-java/aspose.slides/foreach_/#shape) to process each shape immediately through a callback. Use [Collect::shapes](https://reference.aspose.com/slides/ko/php-java/aspose.slides/collect/#shapes) when you need an iterable result that can be retained, filtered, counted, or traversed multiple times.
+
+**Compress는 항상 프레젠테이션 파일을 더 작게 만들까요?**
+
+Not necessarily. The result depends on whether the presentation contains unused layouts, unused masters, or embedded fonts with unused characters. If none of those are present, the corresponding [Compress](https://reference.aspose.com/slides/ko/php-java/aspose.slides/compress/) operations may not reduce the file size.
+
+**ForEach_ 또는 Compress가 수행한 변경 사항이 자동으로 저장되나요?**
+
+No. These helpers operate on the loaded [Presentation](https://reference.aspose.com/slides/ko/php-java/aspose.slides/presentation/) object in memory. After changing elements in a [ForEach_](https://reference.aspose.com/slides/ko/php-java/aspose.slides/foreach_) callback or running [Compress](https://reference.aspose.com/slides/ko/php-java/aspose.slides/compress/), call [Presentation::save](https://reference.aspose.com/slides/ko/php-java/aspose.slides/presentation/#save) to write the result.
 
 ## **관련 문서**
 
-- [Convert Presentation](/php-java/convert-presentation/)
-- [Merge Presentations](/php-java/merge-presentation/)
-- [Slide Master](/php-java/slide-master/)
-- [Manage Text Box](/php-java/manage-textbox/)
-- [Embedded Font](/php-java/embedded-font/)
+- [프레젠테이션 변환](/slides/ko/php-java/convert-presentation/)
+- [프레젠테이션 병합](/slides/ko/php-java/merge-presentation/)
+- [슬라이드 마스터](/slides/ko/php-java/slide-master/)
+- [텍스트 상자 관리](/slides/ko/php-java/manage-textbox/)
+- [임베디드 글꼴](/slides/ko/php-java/embedded-font/)

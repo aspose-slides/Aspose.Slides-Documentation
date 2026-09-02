@@ -1,5 +1,5 @@
 ---
-title: Android で PowerPoint プレゼンテーションを TIFF に変換する
+title: Android で PowerPoint プレゼンテーションを TIFF に変換
 titlelink: PowerPoint を TIFF に変換
 type: docs
 weight: 90
@@ -23,24 +23,24 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android を使用し、Java コード例と共に、PowerPoint (PPT、PPTX) プレゼンテーションを高品質な TIFF 画像に簡単に変換する方法を学びます。"
+description: "Aspose.Slides for Android を使用し、Java のコード例とともに、PowerPoint (PPT、PPTX) プレゼンテーションを高品質な TIFF 画像に簡単に変換する方法を学びましょう。"
 ---
-## **はじめに**
+## **概要**
 
-TIFF（**Tagged Image File Format**）は、優れた品質と画像の詳細な保存で知られる、広く使用されているロスレスラスター画像形式です。デザイナー、フォトグラファー、デスクトップパブリッシャーは、画像のレイヤー、色精度、元の設定を維持するために TIFF を選択することが多いです。
+TIFF (**Tagged Image File Format**) は、卓越した品質とグラフィックの詳細な保存で知られる、広く利用されているロスレスラスタ画像フォーマットです。デザイナー、写真家、デスクトップパブリッシャーは、レイヤーや色精度、元の設定を画像に保持するために TIFF を選択することが多いです。
 
-Aspose.Slides を使用すると、PowerPoint スライド（PPT、PPTX）や OpenDocument スライド（ODP）を直接高品質な TIFF 画像に簡単に変換でき、プレゼンテーションの視覚的忠実度を最大限に保つことができます。
+Aspose.Slides を使用すれば、PowerPoint スライド (PPT、PPTX) および OpenDocument スライド (ODP) を直接高品質な TIFF 画像に簡単に変換でき、プレゼンテーションの視覚的忠実度を最大限に保ちます。
 
-## **プレゼンテーションを TIFF に変換する**
+## **プレゼンテーションをTIFFに変換**
 
-[Presentation](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/) クラスが提供する [save](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) メソッドを使用すると、PowerPoint プレゼンテーション全体をすばやく TIFF に変換できます。生成された TIFF 画像はデフォルトのスライドサイズに対応します。
+提供されている [save](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) メソッドを使用して、[Presentation](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/) クラスを利用すれば、PowerPoint プレゼンテーション全体を迅速に TIFF に変換できます。生成される TIFF 画像はデフォルトのスライドサイズに対応します。
 
 このコードは、PowerPoint プレゼンテーションを TIFF に変換する方法を示しています。
 
 ```java
 import com.aspose.slides.*;
 
-// プレゼンテーション ファイル (PPT、PPTX、ODP など) を表す Presentation クラスのインスタンスを作成します。
+// プレゼンテーション ファイル (PPT、PPTX、ODP、など) を表す Presentation クラスのインスタンスを作成します。
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     // プレゼンテーションを TIFF として保存します。
@@ -50,19 +50,19 @@ try {
 }
 ```
 
-## **プレゼンテーションを白黒 TIFF に変換する**
+## **プレゼンテーションを白黒TIFFに変換**
 
-[TiffOptions](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/tiffoptions/) クラスの [setBwConversionMode](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/tiffoptions/#setBwConversionMode-int-) メソッドを使用すると、カラー スライドや画像を白黒 TIFF に変換する際に使用するアルゴリズムを指定できます。この設定は、[setCompressionType](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/tiffoptions/#setCompressionType-int-) メソッドが `CCITT4` または `CCITT3` に設定されている場合にのみ適用されます。
+[TiffOptions](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/tiffoptions/) クラスの [setBwConversionMode](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/tiffoptions/#setBwConversionMode-int-) メソッドを使用すると、カラーのスライドまたは画像を白黒 TIFF に変換する際に使用するアルゴリズムを指定できます。この設定は、[setCompressionType](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/tiffoptions/#setCompressionType-int-) メソッドが `CCITT4` または `CCITT3` に設定されている場合にのみ適用されます。
 
 {{% alert color="info" title="Note" %}}
-[TiffOptions.setBwConversionMode](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/tiffoptions/#setBwConversionMode-int-) は、完全な TIFF 画像に対してピクセル変換アルゴリズムを選択するエクスポートレベルの設定です。白黒表示モードが有効なときに個々のシェイプの表示方法を定義するには、[IShape.setBlackWhiteMode](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) を使用します。例については、[Control Black-and-White Rendering for Shapes](/androidjava/shape-formatting/#control-black-and-white-rendering-for-shapes) を参照してください。
+[TiffOptions.setBwConversionMode](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/tiffoptions/#setBwConversionMode-int-) はエクスポートレベルの設定で、完全な TIFF 画像に対するピクセル変換アルゴリズムを選択します。個々のシェイプが白黒表示モードでどのように描画されるかを定義するには、[IShape.setBlackWhiteMode](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ishape/#setBlackWhiteMode-byte-) を使用してください。例については、[Control Black-and-White Rendering for Shapes](/slides/ja/androidjava/shape-formatting/#control-black-and-white-rendering-for-shapes) を参照してください。
 {{% /alert %}}
 
-次のスライドを含む「sample.pptx」ファイルがあるとします。
+たとえば、次のスライドを含む「sample.pptx」ファイルがあるとします。
 
 ![プレゼンテーションスライド](slide_black_and_white.png)
 
-このコードは、カラー スライドを白黒 TIFF に変換する方法を示しています。
+このコードは、カラーのスライドを白黒 TIFF に変換する方法を示しています。
 
 ```java
 import com.aspose.slides.*;
@@ -81,19 +81,19 @@ try {
 
 結果:
 
-![白黒 TIFF](TIFF_black_and_white.png)
+![白黒TIFF](TIFF_black_and_white.png)
 
-## **カスタムサイズでプレゼンテーションを TIFF に変換する**
+## **カスタムサイズでプレゼンテーションをTIFFに変換**
 
 特定の寸法の TIFF 画像が必要な場合は、[TiffOptions](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/tiffoptions/) に用意されているメソッドを使用して希望の値を設定できます。たとえば、[setImageSize](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/tiffoptions/#setImageSize-com.aspose.slides.android.Size-) メソッドを使用すると、生成される画像のサイズを定義できます。
 
-このコードは、カスタムサイズで PowerPoint プレゼンテーションを TIFF 画像に変換する方法を示しています。
+このコードは、PowerPoint プレゼンテーションをカスタムサイズの TIFF 画像に変換する方法を示しています。
 
 ```java
 import com.aspose.slides.*;
 import com.aspose.slides.android.Size;
 
-// プレゼンテーション ファイル (PPT、PPTX、ODP など) を表す Presentation クラスのインスタンスを作成します。
+// プレゼンテーション ファイル (PPT、PPTX、ODP、など) を表す Presentation クラスのインスタンスを作成します。
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     TiffOptions tiffOptions = new TiffOptions();
@@ -103,7 +103,7 @@ try {
     /*
     圧縮タイプ:
         Default - デフォルトの圧縮方式 (LZW) を指定します。
-        None - 圧縮なしを指定します。
+        None - 圧縮しないことを指定します。
         CCITT3
         CCITT4
         LZW
@@ -130,26 +130,26 @@ try {
 }   
 ```
 
-## **カスタム画像ピクセルフォーマットでプレゼンテーションを TIFF に変換する**
+## **カスタム画像ピクセルフォーマットでプレゼンテーションをTIFFに変換**
 
-[TiffOptions](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/tiffoptions/) クラスの [setPixelFormat](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/tiffoptions/#setPixelFormat-int-) メソッドを使用すると、生成される TIFF 画像の希望のピクセルフォーマットを指定できます。
+[TiffOptions](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/tiffoptions/) クラスの [setPixelFormat](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/tiffoptions/#setPixelFormat-int-) メソッドを使用すると、生成される TIFF 画像に対して希望のピクセルフォーマットを指定できます。
 
-このコードは、カスタムピクセルフォーマットで PowerPoint プレゼンテーションを TIFF 画像に変換する方法を示しています。
+このコードは、PowerPoint プレゼンテーションをカスタムピクセルフォーマットの TIFF 画像に変換する方法を示しています。
 
 ```java
 import com.aspose.slides.*;
 
-// プレゼンテーション ファイル (PPT、PPTX、ODP など) を表す Presentation クラスのインスタンスを作成します。
+// プレゼンテーション ファイル (PPT、PPTX、ODP、など) を表す Presentation クラスのインスタンスを作成します。
 Presentation presentation = new Presentation("presentation.pptx");
 try {
     TiffOptions tiffOptions = new TiffOptions();
 
     tiffOptions.setPixelFormat(ImagePixelFormat.Format8bppIndexed);
     /*
-    ImagePixelFormat には以下の値が含まれています（ドキュメント記載の通り）：
-        Format1bppIndexed - 1 ビット/ピクセル、インデックス形式。
-        Format4bppIndexed - 4 ビット/ピクセル、インデックス形式。
-        Format8bppIndexed - 8 ビット/ピクセル、インデックス形式。
+    ImagePixelFormat には以下の値があります（ドキュメント参照）:
+        Format1bppIndexed - 1 ビット/ピクセル、インデックスカラー。
+        Format4bppIndexed - 4 ビット/ピクセル、インデックスカラー。
+        Format8bppIndexed - 8 ビット/ピクセル、インデックスカラー。
         Format24bppRgb    - 24 ビット/ピクセル、RGB。
         Format32bppArgb   - 32 ビット/ピクセル、ARGB。
     */
@@ -162,19 +162,19 @@ try {
 ```
 
 {{% alert title="Tip" color="info" %}}
-[Aspose の無料 PowerPoint からポスターへの変換ツール](https://products.aspose.app/slides/ja/conversion/convert-ppt-to-poster-online) をチェックしてください。
+Aspose の [FREE PowerPoint to Poster converter](https://products.aspose.app/slides/ja/conversion/convert-ppt-to-poster-online) をご確認ください。
 {{% /alert %}}
 
 ## **よくある質問**
 
-**PowerPoint プレゼンテーション全体ではなく、個々のスライドを TIFF に変換できますか？**
+**個々のスライドだけを TIFF に変換できますか？**
 
-はい。Aspose.Slides を使用すると、PowerPoint および OpenDocument プレゼンテーションから個々のスライドを個別に TIFF 画像に変換できます。
+はい。Aspose.Slides を使用すれば、PowerPoint および OpenDocument プレゼンテーションから個々のスライドを別々に TIFF 画像へ変換できます。
 
 **プレゼンテーションを TIFF に変換する際、スライド数に制限はありますか？**
 
-いいえ、Aspose.Slides にはスライド数の制限はありません。任意のサイズのプレゼンテーションを TIFF 形式に変換できます。
+いいえ、Aspose.Slides にはスライド数に対する制限はありません。任意のサイズのプレゼンテーションを TIFF 形式に変換できます。
 
 **スライドを TIFF に変換すると、PowerPoint のアニメーションやトランジション効果は保持されますか？**
 
-いいえ、TIFF は静的画像形式です。そのため、アニメーションやトランジション効果は保持されず、スライドの静止スナップショットのみがエクスポートされます。
+保持されません。TIFF は静的画像フォーマットです。そのため、アニメーションやトランジション効果は保存されず、スライドの静止画がエクスポートされます。

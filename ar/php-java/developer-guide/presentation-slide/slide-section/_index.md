@@ -1,5 +1,5 @@
 ---
-title: إدارة أقسام الشرائح في العروض باستخدام PHP
+title: إدارة أقسام الشرائح في العروض التقديمية باستخدام PHP
 linktitle: قسم الشريحة
 type: docs
 weight: 90
@@ -7,84 +7,207 @@ url: /ar/php-java/slide-section/
 keywords:
 - إنشاء قسم
 - إضافة قسم
-- تحرير قسم
+- تعديل قسم
 - تغيير قسم
 - اسم القسم
+- استرجاع شرائح القسم
+- معالجة شرائح القسم
 - PowerPoint
-- OpenDocument
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "قم بتبسيط أقسام الشرائح في PowerPoint وOpenDocument باستخدام Aspose.Slides للـ PHP عبر Java — قسم، أعد تسمية، ورتب لتطوير سير عمل ملفات PPTX وODP."
+description: "إدارة أقسام الشرائح باستخدام Aspose.Slides for PHP عبر Java: إنشاء، إعادة تسمية، إعادة ترتيب، استرجاع ومعالجة شرائح القسم في عروض PPTX التقديمية."
 ---
+## **المقدمة**
 
-مع Aspose.Slides للـ PHP عبر Java، يمكنك تنظيم عرض PowerPoint إلى أقسام. يمكنك إنشاء أقسام تحتوي على شرائح محددة.
+تنظم الأقسام الشرائح المتتالية في مجموعات مسماة دون تغيير محتوى الشريحة. باستخدام Aspose.Slides for PHP عبر Java، يمكنك إنشاء الأقسام وإعادة ترتيبها وإعادة تسميتها وفحصها وإزالتها من خلال طريقة [Presentation::getSections](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Presentation/#getSections).
 
-قد ترغب في إنشاء أقسام واستخدامها لتنظيم أو تقسيم الشرائح في العرض إلى أجزاء منطقية في هذه الحالات:
+تكون الأقسام مفيدة بشكل خاص عندما:
 
-- عندما تعمل على عرض كبير مع أشخاص آخرين أو فريق—وتحتاج إلى تعيين شرائح معينة لزميل أو بعض أعضاء الفريق. 
-- عندما تتعامل مع عرض يحتوي على many slides—وتكافح لإدارة أو تعديل محتواه كله دفعة واحدة.
+- يحتاج عرض تقديمي كبير إلى تقسيمه إلى مواضيع أو فصول منطقية؛
+- تُخصص مجموعات مختلفة من الشرائح لمتعاونين مختلفين؛
+- تحتاج الشرائح إلى معالجة أو نقل أو دمج كمجموعات.
 
-من المثالي أن تنشئ قسمًا يضم شرائح متشابهة—الشرائح لديها شيء مشترك أو يمكن أن تكون في مجموعة بناءً على قاعدة—وتعطي القسم اسمًا يصف الشرائح بداخله. 
+اختر أسماء أقسام مختصرة تصف هدف الشرائح المتجمعة. نظرًا لأن الأقسام هي جزء من بنية العرض التقديمي، استخدم واجهات برمجة تطبيقات الأقسام لتحديد العضوية بدلاً من استنتاجها من مواضع الشرائح.
 
-## **إنشاء أقسام في العروض**
+## **إنشاء وإدارة الأقسام**
 
-لإضافة قسم يضم شرائح في عرض، توفر Aspose.Slides للـ PHP عبر Java طريقة [addSection()](https://reference.aspose.com/slides/php-java/aspose.slides/sectioncollection/#addSection) التي تسمح لك بتحديد اسم القسم الذي تنوي إنشائه والشرائح التي يبدأ منها القسم.
+استخدم [SectionCollection::addSection](https://reference.aspose.com/slides/ar/php-java/aspose.slides/SectionCollection/#addSection) لإنشاء قسم عن طريق تحديد اسمه والشريحة التي يبدأ منها. تقوم Aspose.Slides بتحديد الشرائح التي تنتمي إلى القسم بناءً على بنية الأقسام الحالية في العرض.
 
-يعرض هذا المثال البرمجي كيفية إنشاء قسم في عرض :
+تتيح لك نفس [SectionCollection](https://reference.aspose.com/slides/ar/php-java/aspose.slides/SectionCollection/) أيضًا:
+
+- نقل قسم مع شرائحه باستخدام [SectionCollection::reorderSectionWithSlides](https://reference.aspose.com/slides/ar/php-java/aspose.slides/SectionCollection/#reorderSectionWithSlides)؛
+- إزالة تعريف القسم فقط باستخدام [SectionCollection::removeSection](https://reference.aspose.com/slides/ar/php-java/aspose.slides/SectionCollection/#removeSection)، مع الاحتفاظ بشرائحه؛
+- إزالة قسم وشراحه باستخدام [SectionCollection::removeSectionWithSlides](https://reference.aspose.com/slides/ar/php-java/aspose.slides/SectionCollection/#removeSectionWithSlides)؛
+- إضافة قسم فارغ في النهاية باستخدام [SectionCollection::appendEmptySection](https://reference.aspose.com/slides/ar/php-java/aspose.slides/SectionCollection/#appendEmptySection).
+
+المثال التالي ينشئ قسمين، ينقل أحدهما، يزيله مع شرائحه، ويضيف قسمًا فارغًا في النهاية:
+
 ```php
-  $pres = new Presentation();
-  try {
-    $defaultSlide = $pres->getSlides()->get_Item(0);
-    $newSlide1 = $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->get_Item(0));
-    $newSlide2 = $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->get_Item(0));
-    $newSlide3 = $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->get_Item(0));
-    $newSlide4 = $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->get_Item(0));
-    $section1 = $pres->getSections()->addSection("Section 1", $newSlide1);
-    $section2 = $pres->getSections()->addSection("Section 2", $newSlide3);// سيُنهى القسم 1 عند الشريحة newSlide2 وبعد ذلك سيبدأ القسم 2
+use aspose\slides\Presentation;
 
-    $pres->save("pres-sections.pptx", SaveFormat::Pptx);
-    $pres->getSections()->reorderSectionWithSlides($section2, 0);
-    $pres->save("pres-sections-moved.pptx", SaveFormat::Pptx);
-    $pres->getSections()->removeSectionWithSlides($section2);
-    $pres->getSections()->appendEmptySection("Last empty section");
-    $pres->save("pres-section-with-empty.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+$presentation = new Presentation();
+try {
+    $titleSlide = $presentation->getSlides()->get_Item(0);
+    $layoutSlide = $presentation->getLayoutSlides()->get_Item(0);
+    $presentation->getSlides()->addEmptySlide($layoutSlide);
+    $resultsSlide = $presentation->getSlides()->addEmptySlide($layoutSlide);
+    $presentation->getSlides()->addEmptySlide($layoutSlide);
+
+    $presentation->getSections()->addSection("Introduction", $titleSlide);
+    $resultsSection = $presentation->getSections()->addSection("Results", $resultsSlide);
+
+    $presentation->getSections()->reorderSectionWithSlides($resultsSection, 0);
+    $presentation->getSections()->removeSectionWithSlides($resultsSection);
+    $presentation->getSections()->appendEmptySection("Appendix");
+} finally {
+    $presentation->dispose();
+}
 ```
 
+بعد هذه العمليات، يحتوي العرض التقديمي على قسم `Introduction` مع شرائحه وقسم فارغ `Appendix`. تم إزالة قسم `Results` وشرائحه.
 
-## **تغيير أسماء الأقسام**
+## **إعادة تسمية الأقسام**
 
-بعد إنشاء قسم في عرض PowerPoint، قد تقرر تغيير اسمه. 
+لإعادة تسمية قسم، استدعِ طريقة [Section::setName](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Section/#setName) الخاصة به. تظل شرائح القسم وموقعه دون تغيير.
 
-يعرض هذا المثال البرمجي كيفية تغيير اسم قسم في عرض باستخدام Aspose.Slides:
+المثال التالي ينشئ قسمًا ويغيّر اسمه:
+
 ```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    $section = $pres->getSections()->get_Item(0);
-    $section->setName("My section");
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\Presentation;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $section = $presentation->getSections()->addSection("Overview", $slide);
+    $section->setName("Introduction");
+} finally {
+    $presentation->dispose();
+}
 ```
 
+## **استرجاع الشرائح من الأقسام**
 
-## **FAQ**
+ترجع طريقة [Presentation::getSections](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Presentation/#getSections) كائنًا من نوع [SectionCollection](https://reference.aspose.com/slides/ar/php-java/aspose.slides/SectionCollection/) يمكنك معالجته حسب الفهرس. لكل [Section](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Section/)، استدعِ [Section::getSlidesListOfSection](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Section/#getSlidesListOfSection) للحصول على الشرائح التي تنتمي إليه حاليًا. تُرجع الطريقة كائنًا من نوع [SectionSlideCollection](https://reference.aspose.com/slides/ar/php-java/aspose.slides/SectionSlideCollection/)، الذي يوفر العدد والوصول عبر الفهرس.
 
-**هل يتم حفظ الأقسام عند الحفظ بتنسيق PPT (PowerPoint 97–2003)؟**
+المثال التالي ينشئ قسمين مملوءين وقسمًا فارغًا، ثم يطبع لكل قسم [الاسم](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Section/#getName)، [المعرّف](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Section/#getSectionId)، [الشريحة البداية](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Section/#getStartedFromSlide)، عدد الشرائح، وأرقام الشرائح. يستخدم [SectionCollection::get_Item](https://reference.aspose.com/slides/ar/php-java/aspose.slides/SectionCollection/#get_Item) و[SectionSlideCollection::get_Item](https://reference.aspose.com/slides/ar/php-java/aspose.slides/SectionSlideCollection/#get_Item) للوصول المفهرس. بالنسبة للقسم الفارغ، يكون حجم المجموعة صفرًا ولا يُستدعى `get_Item`.
 
-لا. تنسيق PPT لا يدعم بيانات تعريف الأقسام، لذا يتم فقدان تجميع الأقسام عند الحفظ إلى .ppt.
+```php
+use aspose\slides\Presentation;
 
-**هل يمكن إخفاء قسم كامل؟**
+$presentation = new Presentation();
+try {
+    $firstSlide = $presentation->getSlides()->get_Item(0);
+    $layoutSlide = $presentation->getLayoutSlides()->get_Item(0);
+    $presentation->getSlides()->addEmptySlide($layoutSlide);
+    $thirdSlide = $presentation->getSlides()->addEmptySlide($layoutSlide);
 
-لا. يمكن إخفاء الشرائح الفردية فقط. لا يمتلك القسم ككيان حالة "مخفية".
+    $presentation->getSections()->addSection("Introduction", $firstSlide);
+    $presentation->getSections()->addSection("Details", $thirdSlide);
+    $presentation->getSections()->appendEmptySection("Appendix");
 
-**هل يمكنني العثور بسرعة على قسم عبر شريحة، وعكس ذلك، على الشريحة الأولى للقسم؟**
+    $sections = $presentation->getSections();
+    $sectionCount = java_values($sections->size());
+    for ($sectionIndex = 0; $sectionIndex < $sectionCount; $sectionIndex++) {
+        $section = $sections->get_Item($sectionIndex);
+        $sectionSlides = $section->getSlidesListOfSection();
+        $startingSlide = java_is_null($section->getStartedFromSlide()) ? "none" : java_values($section->getStartedFromSlide()->getSlideNumber());
+        $slideCount = java_values($sectionSlides->size());
 
-نعم. يتم تعريف القسم بشكل فريد بواسطة شريحته البداية؛ بناءً على شريحة يمكنك تحديد القسم الذي تنتمي إليه، وبالنسبة للقسم يمكنك الوصول إلى الشريحة الأولى له.
+        echo "Section: " . java_values($section->getName()) . PHP_EOL;
+        echo "ID: " . java_values($section->getSectionId()) . PHP_EOL;
+        echo "Starting slide: " . $startingSlide . PHP_EOL;
+        echo "Slide count: " . $slideCount . PHP_EOL;
+
+        if ($slideCount > 0) {
+            echo "First slide via get_Item: " . java_values($sectionSlides->get_Item(0)->getSlideNumber()) . PHP_EOL;
+        }
+
+        echo "Slide numbers:";
+        for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+            $slide = $sectionSlides->get_Item($slideIndex);
+            echo " " . java_values($slide->getSlideNumber());
+        }
+        echo PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+تُحدد عضوية القسم بناءً على بنية الأقسام في العرض التقديمي. لا تقم بحساب نطاق القسم يدويًا من [Section::getStartedFromSlide](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Section/#getStartedFromSlide)، فهارس الشرائح، وشريحة البداية للقسم التالي.
+
+يمكن للتحريرات الهيكلية أن تغير كلًا من الشرائح التي تُرجع للقسم وأرقامها. يشمل ذلك إعادة ترتيب الشرائح، استنساخ شريحة داخل قسم، نقل قسم مع شرائحه، إزالة الشرائح، وإزالة الأقسام. المثال التالي يستدعي [Section::getSlidesListOfSection](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Section/#getSlidesListOfSection) بعد كل تغيير من هذا النوع بدلاً من الاعتماد على افتراضات حول حدود القسم السابقة.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation();
+try {
+    $firstSlide = $presentation->getSlides()->get_Item(0);
+    $layoutSlide = $presentation->getLayoutSlides()->get_Item(0);
+    $presentation->getSlides()->addEmptySlide($layoutSlide);
+    $thirdSlide = $presentation->getSlides()->addEmptySlide($layoutSlide);
+    $presentation->getSlides()->addEmptySlide($layoutSlide);
+    $firstSection = $presentation->getSections()->addSection("First", $firstSlide);
+    $secondSection = $presentation->getSections()->addSection("Second", $thirdSlide);
+
+    $printSectionSlides = function ($label, $section) {
+        $sectionSlides = $section->getSlidesListOfSection();
+        $slideCount = java_values($sectionSlides->size());
+        echo $label . " (" . $slideCount . " slides):";
+        for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+            $slide = $sectionSlides->get_Item($slideIndex);
+            echo " " . java_values($slide->getSlideNumber());
+        }
+        echo PHP_EOL;
+    };
+
+    $printSectionSlides("Initially", $firstSection);
+
+    $slidesBeforeClone = $firstSection->getSlidesListOfSection();
+    $presentation->getSlides()->addClone($slidesBeforeClone->get_Item(0), $firstSection);
+    $printSectionSlides("After cloning into the section", $firstSection);
+
+    $slidesBeforeReorder = $firstSection->getSlidesListOfSection();
+    $firstSectionPosition = java_values($slidesBeforeReorder->get_Item(0)->getSlideNumber()) - 1;
+    $lastSlideIndex = java_values($slidesBeforeReorder->size()) - 1;
+    $presentation->getSlides()->reorder($firstSectionPosition, $slidesBeforeReorder->get_Item($lastSlideIndex));
+    $printSectionSlides("After reordering slides", $firstSection);
+
+    $presentation->getSections()->reorderSectionWithSlides($firstSection, 1);
+    $printSectionSlides("After moving the section", $firstSection);
+
+    $slidesBeforeRemoval = $firstSection->getSlidesListOfSection();
+    $presentation->getSlides()->remove($slidesBeforeRemoval->get_Item(0));
+    $printSectionSlides("After removing a slide", $firstSection);
+
+    $presentation->getSections()->removeSectionWithSlides($secondSection);
+    $remainingSections = $presentation->getSections();
+    $remainingSectionCount = java_values($remainingSections->size());
+    for ($sectionIndex = 0; $sectionIndex < $remainingSectionCount; $sectionIndex++) {
+        $section = $remainingSections->get_Item($sectionIndex);
+        $printSectionSlides("Remaining section", $section);
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+استدعِ [Section::getSlidesListOfSection](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Section/#getSlidesListOfSection) مرة أخرى كلما أُعيد ترتيب الشرائح أو الأقسام، أو استُنسِخت، أو نُقلت، أو أُزيلت. يضمن ذلك أن تكون المعالجة اللاحقة متوافقة مع بنية العرض الحالية.
+
+لا يحتفظ تنسيق PPT (PowerPoint 97–2003) ببيانات تعريف الأقسام. استخدم هذه العملية مع تنسيق يدعم الأقسام، مثل PPTX؛ فتحويل العرض إلى PPT يزيل بنية الأقسام المطلوبة للتكرار اللاحق.
+
+## **الأسئلة الشائعة**
+
+**هل تُحفظ الأقسام عند حفظ العرض بتنسيق PPT (PowerPoint 97–2003)؟**
+
+لا. تنسيق PPT لا يدعم بيانات تعريف الأقسام، لذلك تُفقد تجميعات الأقسام عند الحفظ كملف .ppt.
+
+**هل يمكن "إخفاء" قسم كامل؟**
+
+لا. لا يملك القسم حالة رؤية. لإخفاء محتوياته، استدعِ [Slide::setHidden](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Slide/#setHidden) لكل شريحة في القسم.
+
+**كيف يمكنني العثور على القسم الذي يحتوي على شريحة معينة؟**
+
+تجوّل عبر المجموعة التي تُرجعها [Presentation::getSections](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Presentation/#getSections)، استدعِ [Section::getSlidesListOfSection](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Section/#getSlidesListOfSection) لكل قسم، وقارن الشرائح المسترجعة مع الشريحة المستهدفة. بالنسبة لقسم غير فارغ، تُرجع [Section::getStartedFromSlide](https://reference.aspose.com/slides/ar/php-java/aspose.slides/Section/#getStartedFromSlide) شريحته الأولى؛ بالنسبة لقسم فارغ، تُرجع `null`.

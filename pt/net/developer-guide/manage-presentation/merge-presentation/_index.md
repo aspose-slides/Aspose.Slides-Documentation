@@ -1,6 +1,6 @@
 ---
-title: Mesclar apresentações de forma eficiente em .NET
-linktitle: Mesclar apresentações
+title: Mesclar Apresentações de Forma Eficiente no .NET
+linktitle: Mesclar Apresentações
 type: docs
 weight: 40
 url: /pt/net/merge-presentation/
@@ -20,19 +20,19 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aprenda como mesclar apresentações PowerPoint e OpenDocument em .NET clonando slides, controlando mestres e layouts, redimensionando o conteúdo dos slides, preservando seções e lidando com arquivos protegidos ou grandes."
+description: "Saiba como mesclar apresentações PowerPoint e OpenDocument no .NET clonando slides, controlando mestres e layouts, redimensionando o conteúdo dos slides, preservando seções e lidando com arquivos protegidos ou grandes."
 ---
 ## **Visão geral**
 
-Aspose.Slides for .NET mescla apresentações clonando slides de uma [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/) para outra. A operação principal é [ISlideCollection.AddClone](https://reference.aspose.com/slides/pt/net/aspose.slides/islidecollection/addclone/), que pode preservar a formatação do slide de origem ou anexar o slide clonado a um mestre ou layout na apresentação de destino.
+Aspose.Slides para .NET mescla apresentações clonando slides de um [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/) para outro. A operação principal é [ISlideCollection.AddClone](https://reference.aspose.com/slides/pt/net/aspose.slides/islidecollection/addclone/), que pode preservar a formatação do slide de origem ou anexar o slide clonado a um mestre ou layout na apresentação de destino.
 
 Este artigo cobre os fluxos de trabalho de mesclagem mais comuns:
 
-- mesclar todos os slides preservando a formatação de origem;
+- mesclar todos os slides preservando sua formatação original;
 - mesclar slides selecionados;
 - aplicar um mestre da apresentação de destino;
 - aplicar um layout específico da apresentação de destino;
-- normalizar diferentes tamanhos de slide antes da mesclagem;
+- normalizar diferentes tamanhos de slide antes de mesclar;
 - adicionar slides clonados a uma seção;
 - mesclar várias apresentações em um fluxo de trabalho de ponta a ponta;
 - tratar mestres, recursos, notas, comentários, mídia, fontes, senhas, arquivos grandes e questões de multithreading.
@@ -41,15 +41,15 @@ Este artigo cobre os fluxos de trabalho de mesclagem mais comuns:
 
 Um slide herda grande parte de sua aparência do layout e do mestre. Por esse motivo, a sobrecarga de clonagem que você escolher determina como o slide mesclado é integrado à apresentação de destino.
 
-Use [ISlideCollection.AddClone](https://reference.aspose.com/slides/pt/net/aspose.slides/islidecollection/addclone/) de uma destas maneiras:
+Use [ISlideCollection.AddClone](https://reference.aspose.com/slides/pt/net/aspose.slides/islidecollection/addclone/) de uma das seguintes maneiras:
 
-- `AddClone(sourceSlide)` — preserva o layout e a formatação do slide de origem. Quando necessário, o mestre de origem pode ser clonado automaticamente para a apresentação de destino. Aspose.Slides rastreia mestres clonados automaticamente para que slides repetidos que usam o mesmo mestre de origem não causem clonagem múltipla desse mestre.
-- `AddClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — anexa o slide clonado a um [IMasterSlide](https://reference.aspose.com/slides/pt/net/aspose.slides/imasterslide/) de destino específico. Aspose.Slides procura um layout correspondente sob esse mestre por tipo ou nome de layout.
+- `AddClone(sourceSlide)` — preserva o layout e a formatação do slide de origem. Quando necessário, o mestre de origem pode ser clonado automaticamente para a apresentação de destino. Aspose.Slides rastreia mestres clonados automaticamente para que slides repetidos que utilizam o mesmo mestre de origem não causem a clonagem repetida desse mestre.
+- `AddClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — anexa o slide clonado a um [IMasterSlide](https://reference.aspose.com/slides/pt/net/aspose.slides/imasterslide/) de destino específico. Aspose.Slides procura um layout correspondente sob esse mestre pelo tipo ou nome do layout.
 - `AddClone(sourceSlide, destinationLayout)` — anexa o slide clonado diretamente a um [ILayoutSlide](https://reference.aspose.com/slides/pt/net/aspose.slides/ilayoutslide/) de destino específico.
 
 O mestre ou layout passado para uma sobrecarga `AddClone` deve pertencer à **apresentação de destino**, não à apresentação de origem.
 
-## **Mesclar apresentações inteiras e preservar a formatação de origem**
+## **Mesclar apresentações inteiras e preservar a formatação da origem**
 
 A mesclagem mais simples copia cada slide da apresentação de origem para a apresentação de destino. Essa é a escolha apropriada quando os slides importados devem manter seu tema, mestre e relacionamentos de layout originais.
 
@@ -68,7 +68,7 @@ foreach (var slide in source.Slides)
 destination.Save("merged.pptx", SaveFormat.Pptx);
 ```
 
-A apresentação resultante pode conter vários mestres quando a origem e o destino usam designs diferentes. Isso é esperado quando a formatação de origem é intencionalmente preservada.
+A apresentação resultante pode conter vários mestres quando a origem e o destino usam designs diferentes. Isso é esperado quando a formatação da origem é intencionalmente preservada.
 
 ## **Mesclar slides selecionados**
 
@@ -91,7 +91,7 @@ foreach (var index in slideIndexes)
 destination.Save("merged-selected-slides.pptx", SaveFormat.Pptx);
 ```
 
-Valide os índices de slide antes de clonar quando eles vierem de entrada do usuário ou de configuração externa.
+Valide os índices de slide antes de clonar quando eles provêm de entrada do usuário ou de configuração externa.
 
 ## **Mesclar slides usando um mestre de destino**
 
@@ -114,13 +114,13 @@ foreach (var slide in source.Slides)
 destination.Save("merged-with-destination-master.pptx", SaveFormat.Pptx);
 ```
 
-Aspose.Slides seleciona um layout apropriado sob o mestre especificado correspondendo ao tipo ou nome do layout de origem. Se nenhum layout adequado existir e `allowCloneMissingLayout` for `true`, o layout de origem será clonado para que o slide possa ser adicionado. Se for `false`, uma [PptxEditException](https://reference.aspose.com/slides/pt/net/aspose.slides/pptxeditexception/) será lançada.
+Aspose.Slides seleciona um layout apropriado sob o mestre especificado correspondendo ao tipo ou nome do layout de origem. Se nenhum layout adequado existir e `allowCloneMissingLayout` for `true`, o layout de origem é clonado para que o slide possa ser adicionado. Se for `false`, uma [PptxEditException](https://reference.aspose.com/slides/pt/net/aspose.slides/pptxeditexception/) é lançada.
 
 Use `false` quando quiser que a mesclagem falhe em vez de introduzir um layout adicional no mestre de destino.
 
-## **Mesclar slides usando um layout de destino específico**
+## **Mesclar slides usando um layout específico de destino**
 
-Use a sobrecarga [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/pt/net/aspose.slides/islidecollection/addclone/) quando você souber exatamente qual layout de destino os slides importados devem usar.
+Use a sobrecarga [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/pt/net/aspose.slides/islidecollection/addclone/) quando souber exatamente qual layout de destino os slides importados devem usar.
 
 ```csharp
 using Aspose.Slides;
@@ -139,13 +139,13 @@ foreach (var slide in source.Slides)
 destination.Save("merged-with-destination-layout.pptx", SaveFormat.Pptx);
 ```
 
-Aplicar um layout de destino altera o relacionamento de layout herdado; não redesenha o conteúdo do slide de origem. Se os layouts de origem e destino possuem estruturas de espaço reservado diferentes, inspecione o resultado para confirmar que a formatação herdada e o comportamento dos espaços reservados são adequados.
+Aplicar um layout de destino altera o relacionamento de layout herdado; não redesenha o conteúdo do slide de origem. Se os layouts de origem e destino tiverem estruturas de marcadores diferentes, inspeccione o resultado para confirmar que a formatação herdada e o comportamento dos marcadores são adequados.
 
 ## **Mesclar apresentações com diferentes tamanhos de slide**
 
-Apresentações com dimensões de slide diferentes podem ser mescladas, mas clonar um slide em uma apresentação com outro tamanho de slide não redesenha automaticamente seu conteúdo para a nova área de desenho. Formas podem aparecer deslocadas, dimensionadas inesperadamente ou fora da área visível do slide.
+Apresentações com dimensões de slide diferentes podem ser mescladas, mas clonar um slide em uma apresentação com outro tamanho de slide não redesenha automaticamente seu conteúdo para o novo canvas. Formas podem aparecer deslocadas, escaladas inesperadamente ou fora da área visível do slide.
 
-Uma abordagem prática é redimensionar a apresentação de origem antes de clonar. O método [SlideSize.SetSize](https://reference.aspose.com/slides/pt/net/aspose.slides/slidesize/setsize/) pode escalar o conteúdo existente enquanto altera as dimensões do slide. [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/pt/net/aspose.slides/slidesizescaletype/) ajusta o conteúdo para caber no tamanho solicitado.
+Uma abordagem prática é redimensionar a apresentação de origem antes de clonar. O método [SlideSize.SetSize](https://reference.aspose.com/slides/pt/net/aspose.slides/slidesize/setsize/) pode dimensionar o conteúdo existente enquanto altera as dimensões do slide. [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/pt/net/aspose.slides/slidesizescaletype/) escala o conteúdo para caber no tamanho solicitado.
 
 ```csharp
 using Aspose.Slides;
@@ -171,11 +171,11 @@ foreach (var slide in source.Slides)
 destination.Save("merged-same-slide-size.pptx", SaveFormat.Pptx);
 ```
 
-Redimensionar altera o objeto da apresentação de origem na memória. Se precisar da apresentação de origem original inalterada para outras operações, abra uma instância separada para a mesclagem.
+O redimensionamento altera o objeto da apresentação de origem na memória. Se precisar da apresentação de origem original inalterada para outras operações, abra uma instância separada para a mesclagem.
 
 ## **Mesclar slides em uma seção de apresentação**
 
-O loop básico de clonagem de slides não recria a hierarquia de seções da apresentação de origem. Se as seções forem importantes na saída, crie ou selecione seções na apresentação de destino e clone os slides nelas explicitamente com [AddClone(ISlide, ISection)](https://reference.aspose.com/slides/pt/net/aspose.slides/islidecollection/addclone/).
+O loop básico de clonagem de slides não recria a hierarquia de seções da apresentação de origem. Se as seções importarem na saída, crie ou selecione seções na apresentação de destino e clone os slides nelas explicitamente com [AddClone(ISlide, ISection)](https://reference.aspose.com/slides/pt/net/aspose.slides/islidecollection/addclone/).
 
 ```csharp
 using Aspose.Slides;
@@ -194,7 +194,7 @@ foreach (var slide in source.Slides)
 destination.Save("merged-with-section.pptx", SaveFormat.Pptx);
 ```
 
-Os slides clonados são anexados à seção de destino especificada. Para preservar várias seções de origem, recrie essas seções no destino e mapeie cada slide de origem para a seção de destino correspondente.
+Os slides clonados são anexados à seção de destino especificada. Para preservar várias seções de origem, enumere [Presentation.Sections](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/sections/), recupere os slides atuais de cada seção de origem com [ISection.GetSlidesListOfSection](https://reference.aspose.com/slides/pt/net/aspose.slides/isection/getslideslistofsection/), recrie as seções no destino e clone cada slide retornado para sua respectiva seção de destino. Consulte [Manage Slide Sections](/slides/pt/net/slide-section/) para um exemplo completo de enumeração de seções, incluindo seções vazias e alterações estruturais.
 
 ## **Mesclar múltiplas apresentações com segurança**
 
@@ -230,35 +230,35 @@ for (var fileIndex = 1; fileIndex < inputFiles.Length; fileIndex++)
 merged.Save("merged.pptx", SaveFormat.Pptx);
 ```
 
-Este é um ponto de partida útil para preservar a formatação de origem dos slides importados. Se sua saída precisar usar um único tema de destino, substitua a chamada simples `AddClone(slide)` pela sobrecarga de mestre ou layout de destino apresentada anteriormente.
+Este é um ponto de partida útil para preservar a formatação de origem dos slides importados. Se sua saída precisar usar um único tema de destino, substitua a chamada simples `AddClone(slide)` pela sobrecarga de mestre ou layout de destino apropriada mostrada anteriormente.
 
 ## **Considerações práticas**
 
 ### **Mestres, layouts e fidelidade de formatação**
 
-A clonagem padrão de slides pode trazer automaticamente um mestre de origem necessário para a apresentação de destino. Aspose.Slides mantém um registro interno de mestres clonados automaticamente para evitar clonar o mesmo mestre repetidamente. Mestres clonados manualmente não são rastreados por esse registro, portanto evite pré-clonar mestres a menos que precise de controle explícito sobre a estrutura do mestre.
+A clonagem padrão de slides pode trazer automaticamente um mestre de origem necessário para a apresentação de destino. Aspose.Slides mantém um registro interno de mestres clonados automaticamente para evitar a clonagem repetida do mesmo mestre. Mestres clonados manualmente não são rastreados por esse registro, portanto evite pré-clonar mestres a menos que precise de controle explícito sobre a estrutura do mestre.
 
 Não presuma que dois mestres ou layouts com o mesmo nome sejam visualmente equivalentes. Se um modelo corporativo deve controlar a aparência final, escolha explicitamente um mestre ou layout de destino e verifique o resultado após a mesclagem.
 
 ### **Notas e comentários**
 
-Notas de apresentador e comentários de slide são associados ao conteúdo do slide e são copiados quando um slide é clonado. Aspose.Slides também expõe APIs dedicadas para [presentation notes](https://docs.aspose.com/slides/pt/net/presentation-notes/) e [presentation comments](https://docs.aspose.com/slides/pt/net/presentation-comments/).
+Notas do apresentador e comentários de slide estão associados ao conteúdo do slide e são copiados quando um slide é clonado. Aspose.Slides também expõe APIs dedicadas para [presentation notes](/slides/pt/net/presentation-notes/) e [presentation comments](/slides/pt/net/presentation-comments/).
 
-Se a formatação da página de notas for importante, verifique a apresentação mesclada porque mestres de notas são objetos de nível de apresentação e podem diferir entre arquivos de origem. Para fluxos de revisão, verifique também os autores dos comentários e comentários em threads após combinar arquivos de diferentes autores ou modelos.
+Se a formatação da página de notas for importante, verifique a apresentação mesclada, pois os mestres de notas são objetos de nível de apresentação e podem diferir entre arquivos de origem. Para fluxos de revisão, verifique também os autores dos comentários e os comentários encadeados após combinar arquivos de diferentes autores ou modelos.
 
 ### **Imagens, áudio, vídeo, objetos OLE e links externos**
 
-Slides podem referenciar recursos de nível de apresentação como imagens, áudio incorporado, vídeo incorporado e dados OLE. Clone o slide inteiro em vez de copiar apenas suas formas visíveis para que Aspose.Slides mantenha os relacionamentos do slide com seus recursos.
+Slides podem referenciar recursos de nível de apresentação, como imagens, áudio incorporado, vídeo incorporado e dados OLE. Clone o slide completo em vez de copiar apenas as formas visíveis para que Aspose.Slides mantenha os relacionamentos do slide com seus recursos.
 
-Recursos incorporados e vinculados devem ser tratados de forma diferente. Um áudio, vídeo, objeto OLE ou hiperlInk vinculado permanece dependente de seu alvo externo; clonar um slide não transforma um link externo em conteúdo incorporado. Teste caminhos e URLs de recursos vinculados no ambiente onde a apresentação mesclada será aberta.
+Recursos incorporados e vinculados devem ser tratados de forma diferente. Um áudio, vídeo, objeto OLE ou hyperlink vinculado permanece dependente de seu alvo externo; clonar um slide não transforma um link externo em conteúdo incorporado. Teste os caminhos e URLs de recursos vinculados no ambiente onde a apresentação mesclada será aberta.
 
-Aspose.Slides rastreia explicitamente mestres clonados automaticamente, mas isso não deve ser interpretado como garantia geral de que recursos binários idênticos de apresentações de origem distintas serão sempre deduplicados. Se o tamanho do arquivo de saída for importante, inspecione o pacote mesclado e meça o resultado em vez de contar com deduplicação implícita.
+Aspose.Slides rastreia explicitamente mestres clonados automaticamente, mas isso não deve ser interpretado como garantia geral de que recursos binários idênticos de apresentações de origem distintas serão sempre desduplicados. Se o tamanho do arquivo de saída for importante, inspecione o pacote mesclado e meça o resultado em vez de confiar na desduplicação implícita.
 
 ### **Fontes incorporadas e disponibilidade de fontes**
 
-Fontes são gerenciadas em nível de apresentação. Se a tipografia precisar permanecer consistente entre máquinas, não presuma que clonar slides sozinho garante que todas as fontes necessárias estejam disponíveis no ambiente de destino. Você pode inspecionar fontes incorporadas com [FontsManager.GetEmbeddedFonts](https://reference.aspose.com/slides/pt/net/aspose.slides/fontsmanager/getembeddedfonts/) e gerenciar a incorporação explicitamente como descrito em [Embed Fonts in Presentations](https://docs.aspose.com/slides/pt/net/embedded-font/).
+As fontes são gerenciadas a nível de apresentação. Se a tipografia deve permanecer consistente entre máquinas, não presuma que clonar slides sozinho garante que todas as fontes necessárias estejam disponíveis no ambiente de destino. Você pode inspecionar fontes incorporadas com [FontsManager.GetEmbeddedFonts](https://reference.aspose.com/slides/pt/net/aspose.slides/fontsmanager/getembeddedfonts/) e gerenciar a incorporação explicitamente conforme descrito em [Embed Fonts in Presentations](/slides/pt/net/embedded-font/).
 
-Também verifique se você tem permissão para incorporar as fontes usadas pelos arquivos de origem. Licenças de fonte podem restringir a incorporação.
+Também verifique se você tem permissão para incorporar as fontes usadas pelos arquivos de origem. Licenças de fontes podem restringir a incorporação.
 
 ### **Apresentações protegidas por senha**
 
@@ -276,27 +276,27 @@ Abrir uma origem criptografada não aplica automaticamente a mesma proteção à
 
 ### **Apresentações grandes e uso de memória**
 
-Apresentações grandes que contêm imagens de alta resolução, áudio, vídeo ou outros objetos binários volumosos podem consumir memória significativa. [LoadOptions.BlobManagementOptions](https://reference.aspose.com/slides/pt/net/aspose.slides/loadoptions/blobmanagementoptions/) fornece controles para manipulação de BLOBs e uso de arquivos temporários. Consulte [Manage Presentation BLOBs](https://docs.aspose.com/slides/pt/net/manage-blob/) para estratégias de arquivos grandes.
+Apresentações grandes contendo imagens de alta resolução, áudio, vídeo ou outros objetos binários volumosos podem consumir memória significativa. [LoadOptions.BlobManagementOptions](https://reference.aspose.com/slides/pt/net/aspose.slides/loadoptions/blobmanagementoptions/) fornece controles para o tratamento de BLOBs e uso de arquivos temporários. Consulte [Manage Presentation BLOBs](/slides/pt/net/manage-blob/) para estratégias com arquivos grandes.
 
-Para arquivos grandes, prefira carregar a partir de caminhos de arquivo quando possível, descarte cada apresentação de origem assim que ela for mesclada e evite salvar resultados intermediários repetidamente, a menos que o fluxo de trabalho exija pontos de verificação.
+Para arquivos grandes, prefira carregar a partir de caminhos de arquivo quando possível, descarte cada apresentação de origem assim que ela for mesclada e evite salvar resultados intermediários repetidamente, a menos que o fluxo exija pontos de verificação.
 
 ### **Segurança de threads**
 
-Não carregue, modifique, salve ou clone a mesma instância de [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/) simultaneamente a partir de múltiplas threads. Mantenha cada instância de apresentação confinada a uma operação de mesclagem. Se paralelizar tarefas independentes, use instâncias de apresentação independentes e siga as diretrizes de multithreading do [Aspose.Slides](https://docs.aspose.com/slides/pt/net/multithreading/).
+Não carregue, modifique, salve ou clone a mesma instância de [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/) simultaneamente em múltiplas threads. Mantenha cada instância de apresentação confinada a uma operação de mesclagem. Se paralelizar trabalhos independentes, use instâncias de apresentação independentes e siga as diretrizes de [Aspose.Slides multithreading](/slides/pt/net/multithreading/).
 
-## **FAQ**
+## **Perguntas frequentes**
 
 **Como mantenho o design original de cada apresentação de origem?**
 
-Use [`AddClone(sourceSlide)`](https://reference.aspose.com/slides/pt/net/aspose.slides/islidecollection/addclone/) sem fornecer um mestre ou layout de destino. Aspose.Slides pode clonar automaticamente o mestre de origem quando ele for necessário para o slide importado.
+Use [AddClone](https://reference.aspose.com/slides/pt/net/aspose.slides/islidecollection/addclone/) sem fornecer um mestre ou layout de destino. Aspose.Slides pode clonar automaticamente o mestre de origem quando ele for necessário para o slide importado.
 
-**Como faço os slides importados usarem o tema de destino?**
+**Como faço com que os slides importados usem o tema de destino?**
 
-Use a sobrecarga que aceita um mestre de destino. Passe um mestre da apresentação de destino, não da origem. Aspose.Slides tentará mapear cada slide de origem para um layout adequado sob esse mestre.
+Use a sobrecarga que aceita um mestre de destino. Passe um mestre da apresentação de destino, não da origem. Aspose.Slides tentará mapear cada slide de origem para um layout apropriado sob esse mestre.
 
-**Quando devo usar um layout de destino específico em vez de um mestre de destino?**
+**Quando devo usar um layout específico de destino em vez de um mestre de destino?**
 
-Use um layout específico quando cada slide importado deve usar um layout conhecido. Use um mestre quando quiser que Aspose.Slides selecione entre os layouts desse mestre com base no tipo ou nome do layout de origem.
+Use um layout específico quando cada slide importado deve usar um layout conhecido. Use um mestre quando desejar que Aspose.Slides selecione entre os layouts desse mestre com base no tipo ou nome do layout de origem.
 
 **É possível mesclar apresentações com diferentes tamanhos de slide?**
 
@@ -304,32 +304,32 @@ Sim, mas o conteúdo do slide não é redesenhado automaticamente para as dimens
 
 **Posso mesclar apresentações PPT, PPTX e ODP em um único arquivo?**
 
-Sim. Carregue cada apresentação de origem, clone os slides necessários em um destino e salve o destino em um formato de saída suportado. Como os formatos de apresentação não suportam exatamente o mesmo conjunto de recursos, verifique o conteúdo complexo após mesclagens entre formatos diferentes. Consulte [Supported File Formats](https://docs.aspose.com/slides/pt/net/supported-file-formats/).
+Sim. Carregue cada apresentação de origem, clone os slides necessários em um destino e salve o destino em um formato de saída suportado. Como os formatos de apresentação não suportam exatamente o mesmo conjunto de recursos, verifique conteúdo complexo após mesclar entre formatos diferentes. Consulte [Supported File Formats](/slides/pt/net/supported-file-formats/).
 
 **As seções de origem são preservadas automaticamente?**
 
 Não por um loop básico que apenas clona slides. Recrie as seções necessárias no destino e use a sobrecarga de seção de [AddClone](https://reference.aspose.com/slides/pt/net/aspose.slides/islidecollection/addclone/) quando a estrutura de seções precisar ser preservada.
 
-**Notas de apresentador e comentários são preservados?**
+**As notas de orador e comentários são preservados?**
 
-Eles são copiados com o slide clonado. Para fluxos que dependem do estilo do notes‑master, autores de comentários ou dados de revisão em threads, verifique o resultado mesclado porque esses cenários envolvem estruturas de nível de apresentação além do conteúdo de slide.
+Eles são copiados com o slide clonado. Para fluxos que dependem da estilização do mestre de notas, autores de comentários ou dados de revisão encadeados, verifique o resultado mesclado, pois esses cenários envolvem estruturas de nível de apresentação além do conteúdo de slide.
 
 **O que acontece com áudio, vídeo, objetos OLE e hyperlinks?**
 
-Conteúdo incorporado é transportado como parte dos relacionamentos de recursos do slide clonado. Links externos permanecem externos, de modo que seus arquivos ou URLs de destino ainda precisam estar disponíveis após a mesclagem.
+Conteúdos incorporados são transportados como parte dos relacionamentos de recursos do slide clonado. Links externos permanecem externos, portanto seus arquivos ou URLs de destino ainda devem estar disponíveis após a mesclagem.
 
-**Fontes incorporadas de todas as origens são garantidas no slide mesclado?**
+**As fontes incorporadas de cada origem são garantidas como disponíveis na apresentação mesclada?**
 
-Não confie apenas na clonagem de slides para implantação de fontes. Inspecione as fontes incorporadas no destino e gerencie explicitamente a incorporação ou disponibilidade externa de fontes quando a tipografia for importante.
+Não confie apenas na clonagem de slides para implantação de fontes. Inspecione as fontes incorporadas no destino e gerencie explicitamente a incorporação de fontes ou a disponibilidade externa de fontes quando a tipografia for importante.
 
-**Como mesclro um arquivo protegido por senha?**
+**Como mesclar um arquivo protegido por senha?**
 
-Abra-o com o [LoadOptions.Password](https://reference.aspose.com/slides/pt/net/aspose.slides/loadoptions/password/) correto, depois clone seus slides normalmente. A proteção de saída é configurada separadamente.
+Abra-o com a senha correta via [LoadOptions.Password](https://reference.aspose.com/slides/pt/net/aspose.slides/loadoptions/password/), depois clone seus slides normalmente. A proteção de saída é configurada separadamente.
 
-**Como devo tratar apresentações muito grandes?**
+**Como devo lidar com apresentações muito grandes?**
 
-Use a gestão de BLOBs quando objetos binários grandes dominarem o uso de memória, prefira carregamento por caminho de arquivo para arquivos muito grandes, descarte apresentações de origem prontamente e salve o resultado final apenas quando necessário.
+Use a gestão de BLOBs quando objetos binários grandes dominarem o uso de memória, prefira o carregamento por caminho de arquivo para arquivos muito grandes, descarte as apresentações de origem prontamente e salve o resultado final somente quando necessário.
 
-**Posso mesclar slides de múltiplas threads?**
+**Posso mesclar slides a partir de múltiplas threads?**
 
-Não use a mesma instância de [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/) simultaneamente em várias threads. Mantenha cada operação de mesclagem isolada em suas próprias instâncias de apresentação.
+Não use a mesma instância de [Presentation](https://reference.aspose.com/slides/pt/net/aspose.slides/presentation/) simultaneamente em múltiplas threads. Mantenha cada operação de mesclagem isolada em suas próprias instâncias de apresentação.

@@ -21,35 +21,39 @@ description: "قم بتخصيص الخطوط في شرائح PowerPoint باست
 ---
 ## **نظرة عامة**
 
-Aspose.Slides تسمح لك باستخدام الخطوط المخصصة في العروض التقديمية دون تثبيتها على نظام التشغيل. يمكنك تحميل الخطوط من مجلدات مخصصة، أو توفير الخطوط لعرض تقديمي معين عبر مصادر الخطوط على مستوى المستند، أو تحميل الخطوط الخارجية مباشرةً من بيانات ثنائية.
+Aspose.Slides يسمح لك باستخدام خطوط مخصصة في العروض التقديمية دون الحاجة لتثبيتها على نظام التشغيل. يمكنك تحميل الخطوط من مجلدات مخصصة، أو توفير خطوط لعروض تقديمية معينة عبر مصادر خطوط على مستوى المستند، أو تحميل خطوط خارجية مباشرة من بيانات ثنائية.
 
-يتم استخدام الخطوط التي تم تحميلها عندما يتم عرض أو تصدير العرض التقديمي، مثلاً إلى PDF أو صور أو صيغ أخرى مدعومة. يساعد ذلك في الحفاظ على تناسق مخرجات العرض عبر بيئات مختلفة. يتناول المقال أيضاً كيفية فحص مجلدات الخطوط التي يستخدمها Aspose.Slides وكيفية مسح ذاكرة التخزين المؤقت للخطوط بعد العمل مع الخطوط الخارجية.
+تُستخدم الخطوط المحملة عندما يتم عرض أو تصدير العرض التقديمي، على سبيل المثال إلى PDF أو صور أو صيغ أخرى مدعومة. يساعد ذلك في الحفاظ على تناسق مخرجات العرض عبر بيئات مختلفة. يشرح هذا المقال أيضًا كيفية فحص مجلدات الخطوط التي يستخدمها Aspose.Slides وكيفية مسح ذاكرة التخزين المؤقت للخطوط بعد العمل بالخطوط الخارجية.
 
-تسجيل الخطوط المخصصة للاستخدام في العرض مختلف عن دمج الخطوط في ملف PPTX. إذا كان لابد من تخزين الخط داخل العرض نفسه، استخدم ميزات دمج الخطوط صراحة.
+تسجيل الخطوط المخصصة للتصيير منفصل عن تضمين الخطوط في ملف PPTX. إذا كان يجب تخزين الخط داخل العرض نفسه، استخدم ميزات تضمين الخط بشكل صريح.
 
-{{% alert color="primary" %}} 
-Aspose Slides تسمح لك بتحميل هذه الخطوط باستخدام طريقة [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsloader/loadexternalfonts/) :
+يمكن لمظهر العرض الإشارة إلى عائلات خطوط مختلفة لأنظمة كتابة مختلفة. تُخزن هذه الخرائط أسماء الخطوط ولكنها لا تثبت أو تحمّل ملفات الخط. راجع [Script-Specific Theme Fonts](/slides/ar/net/script-specific-font-mappings/) لإدارة الخرائط، واستخدم خيارات التحميل أدناه لجعل الخطوط المشار إليها متاحة لتصيير متسق.
 
-* خطوط TrueType (.ttf) ومجموعة TrueType (.ttc). انظر [TrueType](https://en.wikipedia.org/wiki/TrueType).
-* خطوط OpenType (.otf). انظر [OpenType](https://en.wikipedia.org/wiki/OpenType).
+{{% alert color="info" title="ملاحظة" %}}
+
+Aspose Slides يسمح لك بتحميل هذه الخطوط باستخدام طريقة [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsloader/loadexternalfonts/):
+
+* خطوط TrueType (.ttf) ومجموعة TrueType (.ttc). راجع [TrueType](https://en.wikipedia.org/wiki/TrueType).
+* خطوط OpenType (.otf). راجع [OpenType](https://en.wikipedia.org/wiki/OpenType).
+
 {{% /alert %}}
 
 ## **تحميل الخطوط المخصصة**
 
-Aspose.Slides تسمح لك بتحميل الخطوط المستخدمة في عرض تقديمي دون تثبيتها على النظام. يؤثر ذلك على مخرجات التصدير — مثل PDF، الصور، والصيغ المدعومة الأخرى — بحيث تبدو المستندات الناتجة متسقة عبر البيئات. يتم تحميل الخطوط من دلائل مخصصة.
+Aspose.Slides يسمح لك بتحميل الخطوط المستخدمة في عرض تقديمي دون تثبيتها على النظام. يؤثر ذلك على مخرجات التصدير—مثل PDF أو صور أو صيغ أخرى مدعومة—لذلك تظهر المستندات الناتجة متسقة عبر البيئات. تُحمَّل الخطوط من دلائل مخصصة.
 
-1. حدد مجلدًا أو أكثر يحتوي على ملفات الخطوط.
+1. حدّد مجلدًا أو أكثر يحتوي على ملفات الخط.
 2. استدعِ الطريقة الساكنة [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsloader/loadexternalfonts/) لتحميل الخطوط من تلك المجلدات.
 3. حمّل واعرض/صدّر العرض التقديمي.
 4. استدعِ [FontsLoader.ClearCache](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsloader/clearcache/) لمسح ذاكرة التخزين المؤقت للخطوط.
 
-المثال التالي يوضح عملية تحميل الخطوط:
+يظهر المثال التالي عملية تحميل الخطوط:
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// تعريف المجلدات التي تحتوي على ملفات الخطوط المخصصة.
+// تعريف المجلدات التي تحتوي على ملفات خطوط مخصصة.
 string[] fontFolders = { @"C:\MyFonts", @"D:\Fonts" };
 
 // تحميل الخطوط المخصصة من المجلدات المحددة.
@@ -57,38 +61,41 @@ FontsLoader.LoadExternalFonts(fontFolders);
 
 using Presentation presentation = new Presentation("sample.pptx");
 
-// عرض/تصدير العرض التقديمي (مثل PDF أو الصور أو صيغ أخرى) باستخدام الخطوط التي تم تحميلها.
-presentation.Save("output.pdf", SaveFormat.Pdf);
+// عرض/تصدير العرض التقديمي (مثلاً إلى PDF أو صور أو صيغ أخرى) باستخدام الخطوط المحمَّلة.
+presentation.Save("output.pdf", SaveFormat.Pdf");
 
 // مسح ذاكرة التخزين المؤقت للخطوط بعد الانتهاء من العمل.
 FontsLoader.ClearCache();
 ```
 
-{{% alert color="info" title="Note" %}}
-[FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsloader/loadexternalfonts/) يضيف مجلدات إضافية إلى مسارات بحث الخطوط، لكنه لا يغيّر ترتيب تهيئة الخطوط.
-يتم تهيئة الخطوط بالترتيب التالي:
+{{% alert color="info" title="ملاحظة" %}}
+
+[FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsloader/loadexternalfonts/) يضيف دلائل إضافية إلى مسارات بحث الخطوط، لكنه لا يغيّر ترتيب تهيئة الخطوط. تُهيأ الخطوط بالترتيب التالي:
 
 1. مسار الخط الافتراضي لنظام التشغيل.
-1. المسارات التي تم تحميلها عبر [FontsLoader](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsloader/).
+2. المسارات التي تم تحميلها عبر [FontsLoader](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsloader/).
+
 {{%/alert %}}
 
 ## **الحصول على مجلدات الخطوط المخصصة**
-Aspose.Slides توفر طريقة [GetFontFolders](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsloader/getfontfolders/) لتسمح لك بالعثور على مجلدات الخطوط. تُعيد هذه الطريقة المجلدات التي أضيفت عبر طريقة `LoadExternalFonts` ومجلدات الخطوط الخاصة بالنظام.
 
-هذا الكود C# يوضح كيفية استخدام [GetFontFolders](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsloader/getfontfolders/):
+Aspose.Slides يوفر طريقة [GetFontFolders](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsloader/getfontfolders/) لتمكينك من العثور على مجلدات الخطوط. تُعيد هذه الطريقة المجلدات التي أضيفت عبر طريقة `LoadExternalFonts` ومجلدات الخطوط النظامية.
+
+يعرض الكود التالي بلغة C# كيفية استخدام [GetFontFolders](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsloader/getfontfolders/):
 
 ```c#
 using Aspose.Slides;
 
-// تقوم هذه السطر بإخراج المجلدات التي يتم فحصها لملفات الخطوط.
-// تلك هي المجلدات التي تمت إضافتها عبر طريقة LoadExternalFonts ومجلدات خطوط النظام.
+// هذا السطر يعرض المجلدات التي يتم التحقق منها لملفات الخطوط.
+// هذه هي المجلدات التي تمت إضافتها عبر طريقة LoadExternalFonts ومجلدات الخطوط النظامية.
 string[] fontFolders = FontsLoader.GetFontFolders();
 ```
 
-## **تحديد الخطوط المخصصة المستخدمة مع العرض التقديمي**
-Aspose.Slides توفر الخاصية [DocumentLevelFontSources](https://reference.aspose.com/slides/ar/net/aspose.slides/loadoptions/documentlevelfontsources/) لتسمح لك بتحديد الخطوط الخارجية التي سيتم استخدامها مع العرض التقديمي.
+## **تحديد الخطوط المخصصة المستخدمة مع عرض تقديمي**
 
-هذا الكود C# يوضح كيفية استخدام الخاصية [DocumentLevelFontSources](https://reference.aspose.com/slides/ar/net/aspose.slides/loadoptions/documentlevelfontsources/):
+Aspose.Slides يوفر الخاصية [DocumentLevelFontSources](https://reference.aspose.com/slides/ar/net/aspose.slides/loadoptions/documentlevelfontsources/) لتمكينك من تحديد الخطوط الخارجية التي سيتم استخدامها مع العرض التقديمي.
+
+يعرض الكود التالي بلغة C# كيفية استخدام الخاصية [DocumentLevelFontSources](https://reference.aspose.com/slides/ar/net/aspose.slides/loadoptions/documentlevelfontsources/):
 
 ```c#
 using Aspose.Slides;
@@ -102,15 +109,15 @@ loadOptions.DocumentLevelFontSources.MemoryFonts = new byte[][] { memoryFont1, m
 using (IPresentation presentation = new Presentation("MyPresentation.pptx", loadOptions))
 {
     // العمل مع العرض التقديمي
-    // الخط CustomFont1، الخط CustomFont2، والخطوط من مجلدات assets\fonts و global\fonts ومجلداتها الفرعية متاحة للعرض التقديمي
+    // CustomFont1، CustomFont2، والخطوط من مجلدات assets\fonts و global\fonts ومجلداتها الفرعية متاحة للعرض التقديمي
 }
 ```
 
 ## **إدارة الخطوط خارجيًا**
 
-Aspose.Slides توفر الطريقة [LoadExternalFont](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsloader/loadexternalfont/)(byte[] data) لتسمح لك بتحميل الخطوط الخارجية من بيانات ثنائية.
+Aspose.Slides يقدم الطريقة [LoadExternalFont](https://reference.aspose.com/slides/ar/net/aspose.slides/fontsloader/loadexternalfont/)(byte[] data) لتمكينك من تحميل خطوط خارجية من بيانات ثنائية.
 
-هذا الكود C# يوضح عملية تحميل الخط عبر مصفوفة البايتات:
+يعرض الكود التالي بلغة C# عملية تحميل الخط من مصفوفة بايت:
 
 ```c#
 using Aspose.Slides;
@@ -123,7 +130,7 @@ try
 {
     using (Presentation pres = new Presentation(""))
     {
-        // الخط الخارجي محمّل خلال عمر العرض التقديمي
+        // الخط الخارجي تم تحميله طوال عمر العرض التقديمي
     }
 }
 finally
@@ -134,24 +141,24 @@ finally
 
 ## **الأسئلة المتكررة**
 
-**هل تؤثر الخطوط المخصصة على التصدير إلى جميع الصيغ (PDF، PNG، SVG، HTML)؟**
+**هل تؤثر الخطوط المخصصة على التصدير إلى جميع الصيغ (PDF, PNG, SVG, HTML)؟**
 
-نعم. يتم استخدام الخطوط المتصلة من قبل المحرك في جميع صيغ التصدير.
+نعم. تُستخدم الخطوط المتصلة بواسطة المُعالج عبر جميع صيغ التصدير.
 
-**هل يتم دمج الخطوط المخصصة تلقائيًا في ملف PPTX الناتج؟**
+**هل يتم تضمين الخطوط المخصصة تلقائيًا في ملف PPTX الناتج؟**
 
-لا. تسجيل الخط للاستخدام في العرض ليس هو نفسه دمجه في PPTX. إذا كنت بحاجة إلى أن يُحمل الخط داخل ملف العرض، يجب عليك استخدام ميزات [الدمج الصريح](/slides/ar/net/embedded-font/).
+لا. تسجيل الخط للتصيير ليس هو نفسه تضمينه في PPTX. إذا كنت بحاجة إلى حمل الخط داخل ملف العرض، يجب عليك استخدام ميزات [التضمين](/slides/ar/net/embedded-font/) الصريحة.
 
-**هل يمكن التحكم في سلوك الاحتياطي عندما يفتقد الخط المخصص بعض الحروف؟**
+**هل يمكنني التحكم في سلوك السقوط عندما يفتقر الخط المخصص إلى بعض الأحرف؟**
 
-نعم. قم بتكوين [استبدال الخطوط](/slides/ar/net/font-substitution/)، [قواعد الاستبدال](/slides/ar/net/font-replacement/)، و[مجموعات الاحتياطي](/slides/ar/net/fallback-font/) لتحديد الخط الذي يُستخدم عندما يكون الحرف المطلوب مفقودًا.
+نعم. يمكنك تكوين [استبدال الخطوط](/slides/ar/net/font-substitution/)، و[قواعد الاستبدال](/slides/ar/net/font-replacement/)، و[مجموعات السقوط](/slides/ar/net/fallback-font/) لتحديد الخط الذي يُستخدم عند عدم وجود الحرف المطلوب.
 
 **هل يمكنني استخدام الخطوط في حاويات Linux/Docker دون تثبيتها على مستوى النظام؟**
 
-نعم. قم بالإشارة إلى مجلدات الخطوط الخاصة بك أو حمل الخطوط من مصفوفات البايت. يزيل ذلك أي اعتماد على مجلدات الخطوط النظامية في صورة الحاوية.
+نعم. قم بالإشارة إلى مجلدات الخطوط الخاصة بك أو حمّل الخطوط من مصفوفات بايت. هذا يزيل أي اعتماد على دلائل الخطوط النظامية في صورة الحاوية.
 
-> **ملاحظة لـ Linux/Docker**: عند استدعاء `FontsLoader.LoadExternalFonts`، تأكد من أن كل عنصر في مصفوفة `directories` يحتوي على مسار غير فارغ لمجلد موجود. إذا كان متغير بيئي يُستخدم لتكوين مسار الخط غير معرف أو فارغ، قد يحاول Aspose.Slides حل القيمة الفارغة كمسار كامل، ما ينتج عنه `System.ArgumentException`.
+> **ملاحظة لـ Linux/Docker**: عند استدعاء `FontsLoader.LoadExternalFonts`، تأكد من أن كل إدخال في مصفوفة `directories` يحتوي على مسار غير فارغ إلى دليل موجود. إذا كان المتغيّر البيئي المستخدم لإنشاء مسار الخط غير معرف أو فارغ، قد تحاول Aspose.Slides حل القيمة الفارغة كمسار كامل، مما ينتج عنه `System.ArgumentException`.
 
-**ماذا عن الترخيص — هل يمكنني دمج أي خط مخصص بدون قيود؟**
+**ماذا عن الترخيص—هل يمكنني تضمين أي خط مخصص دون قيود؟**
 
-أنت مسؤول عن الامتثال لترخيص الخط. تختلف الشروط؛ بعض التراخيص تحظر الدمج أو الاستخدام التجاري. راجع دائمًا اتفاقية ترخيص المستخدم النهائي (EULA) للخط قبل توزيع المخرجات.
+أنت المسؤول عن الالتزام بترخيص الخط. الشروط تختلف؛ بعض التراخيص تحظر التضمين أو الاستخدام التجاري. راجع دائمًا اتفاقية ترخيص المستخدم النهائي (EULA) للخط قبل توزيع المخرجات.

@@ -1,5 +1,5 @@
 ---
-title: Hatékony prezentáció egyesítés Pythonban
+title: Hatékonyan egyesítse a prezentációkat Pythonban
 linktitle: Prezentációk egyesítése
 type: docs
 weight: 40
@@ -11,46 +11,46 @@ keywords:
 - PPT egyesítése
 - PPTX egyesítése
 - ODP egyesítése
-- PowerPoint összevonása
-- prezentációk összevonása
-- diák összevonása
-- PPT összevonása
-- PPTX összevonása
-- ODP összevonása
+- PowerPoint kombinálása
+- prezentációk kombinálása
+- diák kombinálása
+- PPT kombinálása
+- PPTX kombinálása
+- ODP kombinálása
 - Python
 - Aspose.Slides
-description: "Tanulja meg, hogyan egyesítheti a PowerPoint és OpenDocument prezentációkat Pythonban dia klónozásával, a mesterek és elrendezések vezérlésével, a dia tartalom átméretezésével, a szakaszok megőrzésével, valamint a védett vagy nagy fájlok kezelésével."
+description: "Ismerje meg, hogyan egyesíthet PowerPoint és OpenDocument prezentációkat Pythonban a diák klónozásával, a master-ek és elrendezések szabályozásával, a diatartalom átméretezésével, a szekciók megőrzésével, valamint a védett vagy nagy fájlok kezelésével."
 ---
 ## **Áttekintés**
 
-Aspose.Slides for Python via .NET prezentációkat egyesít úgy, hogy diák másolatát egy [Prezentáció](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/)ból egy másikba klónozza. A fő művelet a [SlideCollection.add_clone](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidecollection/add_clone/), amely megőrizheti a forrásdia formázását, vagy a klónozott diát egy mesterhez vagy elrendezéshez csatolhatja a célprezentációban.
+Az Aspose.Slides for Python via .NET prezentációkat egyesít azáltal, hogy diát klónoz az egyik [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) helyéről egy másikba. A fő művelet a [SlideCollection.add_clone](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidecollection/add_clone/), amely megőrizheti a forrás dia formázását, vagy a klónozott diát egy masterhez vagy elrendezéshez csatolhatja a célnyúló prezentációban.
 
-Ez a cikk a leggyakoribb egyesítési munkafolyamatokat tárgyalja:
+Ez a cikk a leggyakoribb egyesítési munkafolyamatokat mutatja be:
 
-- az összes dia egyesítése a forrás formázásának megőrzésével;
-- kiválasztott diák egyesítése;
-- egy mester alkalmazása a célprezentációból;
-- egy adott elrendezés alkalmazása a célprezentációból;
+- összes dia egyesítése, miközben megőrzik a forrás formázását;
+- kijelölt diák egyesítése;
+- egy master alkalmazása a célnyúló prezentációból;
+- egy konkrét elrendezés alkalmazása a célnyúló prezentációból;
 - a különböző dia méretek normalizálása egyesítés előtt;
-- a klónozott diák hozzáadása egy szakaszhoz;
+- klónozott diák hozzáadása egy szekcióhoz;
 - több prezentáció egyesítése egy végponttól végpontig tartó munkafolyamatban;
-- mesterek, erőforrások, jegyzetek, megjegyzések, média, betűtípusok, jelszavak, nagy fájlok és többszálúság kezelése.
+- master-ek, erőforrások, jegyzetek, kommentárok, média, betűtípusok, jelszavak, nagy fájlok és több szálas feldolgozási kérdések kezelése.
 
-## **Hogyan befolyásolja a dia klónozása a mestereket és elrendezéseket**
+## **Hogyan befolyásolja a dia klónozása a master-eket és elrendezéseket**
 
-Egy dia megjelenésének nagy része az elrendezéséből és a mesteréből származik. Emiatt a választott klónozási overload határozza meg, hogy a beolvasott dia hogyan integrálódik a célprezentációba.
+Egy dia nagy részét megjelenéséről az elrendezés és a master adja. Ezért a választott klónozási túlterhelés határozza meg, hogyan integrálódik az egyesített dia a célnyúló prezentációba.
 
-Használja a [SlideCollection.add_clone](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidecollection/add_clone/) egyik következő módját:
+Használja a [SlideCollection.add_clone](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidecollection/add_clone/) egyik következő változatát:
 
-- `add_clone(source_slide)` — megőrzi a forrásdia elrendezését és formázását. Szükség esetén a forrásmester automatikusan klónozható a célprezentációba. Az Aspose.Slides automatikusan klónozott mestereket nyomon követ, így a ugyanazt a forrásmestert használó ismétlődő diák nem eredményeznek többszöri mesterklónozást.
-- `add_clone(source_slide, destination_master, allow_clone_missing_layout)` — a klónozott diát egy adott cél[IMasterSlide](https://reference.aspose.com/slides/hu/python-net/aspose.slides/imasterslide/)hez csatolja. Az Aspose.Slides a megadott mester alatt elrendezést keres típus vagy név alapján.
-- `add_clone(source_slide, destination_layout)` — a klónozott diát közvetlenül egy adott cél[ILayoutSlide](https://reference.aspose.com/slides/hu/python-net/aspose.slides/ilayoutslide/)hez csatolja.
+- `add_clone(source_slide)` — megőrzi a forrás dia elrendezését és formázását. Szükség esetén a forrás master automatikusan klónozódik a célnyúló prezentációba. Az Aspose.Slides nyomon követi az automatikusan klónozott master-eket, hogy ugyanaz a master többszörös használata ne klónozódjon újra.
+- `add_clone(source_slide, destination_master, allow_clone_missing_layout)` — a klónozott diát egy adott célnyúló [IMasterSlide](https://reference.aspose.com/slides/hu/python-net/aspose.slides/imasterslide/)‑hez csatolja. Az Aspose.Slides a megadott master alatt a layout típus vagy név alapján keres a megfelelő elrendezést.
+- `add_clone(source_slide, destination_layout)` — a klónozott diát közvetlenül egy adott célnyúló [ILayoutSlide](https://reference.aspose.com/slides/hu/python-net/aspose.slides/ilayoutslide/)‑hez csatolja.
 
-Az `add_clone` overloadnak átadott mester vagy elrendezés a **cél** prezentációból kell származzon, nem a forrásból.
+A `add_clone` túlterheléshez átadott master‑nek vagy layout‑nak a **cél** prezentációhoz kell tartoznia, nem a forráshoz.
 
-## **Teljes prezentációk egyesítése és a forrás formázásának megőrzése**
+## **Egész prezentációk egyesítése és a forrás formázásának megőrzése**
 
-A legegyszerűbb egyesítés minden diát lemásol a forrásprezentációból a célprezentációba. Ez a megfelelő választás, ha a beolvasott diáknak meg kell tartaniuk eredeti témájukat, mesterüket és elrendezésüket.
+A legegyszerűbb egyesítés minden diát átmásol a forrás prezentációból a célnyúló prezentációba. Ez a megfelelő választás, ha az importált diáknak meg kell tartaniuk az eredeti témát, master‑t és elrendezéskapcsolatokat.
 
 ```python
 import aspose.slides as slides
@@ -63,11 +63,11 @@ with slides.Presentation("destination.pptx") as destination:
         destination.save("merged.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Az eredményül kapott prezentáció több mestert is tartalmazhat, ha a forrás és a cél különböző tervezéseket használ. Ez várható, ha a forrás formázása szándékosan megmarad.
+Az eredményül kapott prezentáció több master‑t is tartalmazhat, ha a forrás és a cél különböző dizájnokat használ. Ez várható, ha a forrás formázását szándékosan megőrzik.
 
-## **Kiválasztott diák egyesítése**
+## **Kijelölt diák egyesítése**
 
-Nem kell minden diát klónozni. Az alábbi példa csak a kiválasztott diaindexek importálását mutatja a forrásprezentációból.
+Nem kell minden diát klónozni. A következő példa csak a forrás prezentáció kiválasztott diaindexeit importálja.
 
 ```python
 import aspose.slides as slides
@@ -82,11 +82,11 @@ with slides.Presentation("destination.pptx") as destination:
         destination.save("merged-selected-slides.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Érvényesítse a diaindexeket a klónozás előtt, ha felhasználói bemenetről vagy külső konfigurációból származnak.
+Ellenőrizze a dia indexeket a klónozás előtt, ha felhasználói bemenetből vagy külső konfigurációból származnak.
 
-## **Diák egyesítése célmesterrel**
+## **Diák egyesítése egy célmaster használatával**
 
-Használja a [add_clone(source_slide, destination_master, allow_clone_missing_layout)](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidecollection/add_clone/) overloadot, ha a beolvasott diáknak egy már a célprezentációban létező mesterhez kell illeszkedniük.
+Használja a [add_clone(source_slide, destination_master, allow_clone_missing_layout)](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidecollection/add_clone/) túlterhelést, ha az importált diáknak egy már a célnyúló prezentációhoz tartozó master‑t kell követniük.
 
 ```python
 import aspose.slides as slides
@@ -101,13 +101,13 @@ with slides.Presentation("destination.pptx") as destination:
         destination.save("merged-with-destination-master.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Az Aspose.Slides a megadott mester alá megfelelő elrendezést választ a forrás elrendezés típusának vagy nevének megfelelően. Ha nincs megfelelő elrendezés, és az `allow_clone_missing_layout` értéke `True`, a forráselrendezés klónozódik, így a dia hozzáadható. Ha `False`, egy [PptxEditException](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pptxeditexception/) kerül dobásra.
+Az Aspose.Slides a megadott master alatt a forrás layout típus vagy neve alapján választ megfelelő elrendezést. Ha nincs megfelelő elrendezés, és az `allow_clone_missing_layout` értéke `True`, a forrás layout klónozódik, hogy a dia hozzáadható legyen. Ha `False`, egy [PptxEditException](https://reference.aspose.com/slides/hu/python-net/aspose.slides/pptxeditexception/) keletkezik.
 
-Használja a `False` értéket, ha azt szeretné, hogy az egyesítés hibával álljon le ahelyett, hogy egy új elrendezést hozna létre a célmesterben.
+Használja a `False` értéket, ha azt szeretné, hogy az egyesítés hibával álljon le ahelyett, hogy további elrendezést hozna létre a célmasterben.
 
-## **Diák egyesítése egy adott célelrendezéssel**
+## **Diák egyesítése egy konkrét célelrendezés használatával**
 
-Használja a [add_clone(source_slide, destination_layout)](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidecollection/add_clone/) overloadot, ha pontosan tudja, melyik célelrendezést kell használniuk a beolvasott diáknak.
+Használja a [add_clone(source_slide, destination_layout)](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidecollection/add_clone/) túlterhelést, ha pontosan tudja, melyik célelrendezést kell az importált diáknak használniuk.
 
 ```python
 import aspose.slides as slides
@@ -122,13 +122,13 @@ with slides.Presentation("destination.pptx") as destination:
         destination.save("merged-with-destination-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-A célelrendezés alkalmazása megváltoztatja az örökölt elrendezéskapcsolatot; a forrásdia tartalma nem kerül újratervezésre. Ha a forrás és a cél elrendezései eltérő helyőrzőstruktúrával rendelkeznek, ellenőrizze az eredményt, hogy biztosan megfelelő legyen az örökölt formázás és a helyőrző viselkedés.
+A célelrendezés alkalmazása csak a dzszerződéses elrendezési kapcsolatot módosítja; a forrás dia tartalma nem kerül újratervezésre. Ha a forrás és a cél elrendezései különböző helyőrző struktúrákat tartalmaznak, ellenőrizze az eredményt, hogy a örökölt formázás és helyőrző viselkedés megfelelő legyen.
 
 ## **Prezentációk egyesítése különböző dia méretekkel**
 
-Különböző dia méretekkel rendelkező prezentációk egyesíthetők, de egy dia klónozása egy másik dia méretű prezentációba nem alakítja át automatikusan a tartalmat az új vászonra. Így a formák eltolódhatnak, váratlanul skálázódhatnak, vagy a látható dia területén kívül helyezkedhetnek el.
+Különböző dia méretű prezentációk egyesíthetők, de egy dia klónozása egy másik dia méretű prezentációba nem tervez meg automatikusan a tartalmat az új vászonhoz. Így a formák eltolódhatnak, váratlanul méreteződhetnek, vagy a látható dia területen kívül helyezkedhetnek el.
 
-Gyakorlati megközelítés a forrásprezentáció átméretezése a klónozás előtt. A [SlideSize.set_size](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidesize/set_size/) metódus skálázhatja a meglévő tartalmat a dia méretének módosítása közben. A [SlideSizeScaleType.ENSURE_FIT](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidesizescaletype/) a tartalmat a kért mérethez igazítja.
+Gyakorlati megoldás a forrás prezentáció átméretezése a klónozás előtt. A [SlideSize.set_size](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidesize/set_size/) metódus skálázhatja a meglévő tartalmat a dia méretének változtatása közben. A [SlideSizeScaleType.ENSURE_FIT](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidesizescaletype/) a tartalmat a kért mérethez illeszti.
 
 ```python
 import aspose.slides as slides
@@ -150,11 +150,11 @@ with slides.Presentation("destination.pptx") as destination:
         destination.save("merged-same-slide-size.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Az átméretezés a forrásprezentáció objektumát memóriában módosítja. Ha az eredeti forrásprezentációt változatlanul szeretné megtartani további műveletekhez, nyisson egy külön példányt az egyesítéshez.
+Az átméretezés a forrás prezentáció objektumot változtatja memóriában. Ha a forrás prezentációt eredetileg változatlanul kell hagyni más műveletekhez, nyisson egy külön példányt az egyesítéshez.
 
-## **Diák egyesítése egy prezentáció szakaszába**
+## **Diák egyesítése egy prezentáció szekciójába**
 
-Az alap dia-klónozási ciklus nem hozza létre a forrásprezentáció szakaszhierarchiáját. Ha a szakaszok fontosak a kimenetben, hozza létre vagy válassza ki a szakaszokat a célprezentációban, és klónozza a diákot kifejezetten a [SlideCollection.add_clone](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidecollection/add_clone/) segítségével.
+Az egyszerű dia‑klónozó ciklus nem hozza létre a forrás prezentáció szekcióhierarchiáját. Ha a szekciók számítanak a kimenetben, hozzon létre vagy válasszon ki szekciókat a célnyúló prezentációban, és explicit módon klónozza a diákat a [SlideCollection.add_clone](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidecollection/add_clone/)‑el a szekcióba.
 
 ```python
 import aspose.slides as slides
@@ -169,11 +169,11 @@ with slides.Presentation("destination.pptx") as destination:
         destination.save("merged-with-section.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-A klónozott diák a megadott cél-szakaszhoz lesz hozzáadva. Több forrás szakasz megőrzéséhez hozza létre ezeket a szakaszokat a célban a [SectionCollection.append_empty_section](https://reference.aspose.com/slides/hu/python-net/aspose.slides/sectioncollection/append_empty_section/) segítségével, és térképezze le minden forrásdiát a megfelelő cél-szakaszra.
+A klónozott diák a megadott célszekció végére kerülnek. Több forrás szekció megőrzéséhez iterálja a [Presentation.sections](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/sections/)‑t, szerezze be minden forrás szekció aktuális diáit a [Section.get_slides_list_of_section](https://reference.aspose.com/slides/hu/python-net/aspose.slides/section/get_slides_list_of_section/)‑vel, hozza létre a szekciókat a célban, és klónozza az egyes visszaadott diát a megfelelő célszekcióba. Lásd a [Manage Slide Sections](/slides/hu/python-net/slide-section/) példát a komplett szekció‑enumerációhoz, beleértve az üres szekciókat és a struktúraváltozásokat.
 
 ## **Több prezentáció biztonságos egyesítése**
 
-Az alábbi végponttól végpontig tartó példa az első prezentációt használja célként, normalizálja minden további forrás dia méretét, csak amíg másolja, nyitja meg a forrásokat, és egyszer menti a végleges fájlt.
+Az alábbi végponttól‑végpontig tartó példa az első prezentációt használja célként, normalizálja az egyes további források dia méretét, csak a másolás közben nyitja meg a forrást, és csak egyszer menti a végleges fájlt.
 
 ```python
 import aspose.slides as slides
@@ -198,39 +198,39 @@ with slides.Presentation(input_files[0]) as merged:
     merged.save("merged.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Ez egy hasznos kiindulási pont a beolvasott diák forrásformázásának megőrzéséhez. Ha a kimenetnek egyetlen céltema kell, cserélje ki az egyszerű `add_clone(slide)` hívást a korábban bemutatott megfelelő célmester vagy célelrendezés overloadra.
+Ez egy hasznos kiindulási alap a forrás formázás megőrzéséhez az importált diák esetén. Ha a kimenetnek egyetlen céltéma kell használnia, cserélje le az egyszerű `add_clone(slide)` hívást a korábban bemutatott megfelelő cél‑master vagy cél‑layout túlterhelésre.
 
 ## **Gyakorlati megfontolások**
 
-### **Mesterek, elrendezések és a formázás hűsége**
+### **Master‑ek, elrendezések és formázási hűség**
 
-Az alap dia-klónozás automatikusan behozhat egy szükséges forrás mestert a célprezentációba. Az Aspose.Slides belső nyilvántartást vezet az automatikusan klónozott mesterekről, hogy elkerülje ugyanazon mester többszöri klónozását. A manuálisan klónozott mestereket ez a nyilvántartás nem követi, ezért kerülje a mesterek előzetes klónozását, hacsak nem kell explicit módon irányítani a mesterstruktúrát.
+Az alapértelmezett dia‑klónozás automatikusan behozhat egy szükséges forrás master‑t a célnyúló prezentációba. Az Aspose.Slides egy belső nyilvántartást vezet az automatikusan klónozott master‑ekhez, hogy elkerülje ugyanaznak a master‑nek a többszöri klónozását. A kézzel klónozott master‑ek nincsenek nyilvántartva, ezért kerüljük a master‑ek előzetes klónozását, hacsak nem szükséges a master‑struktúra explicit irányítása.
 
-Ne feltételezze, hogy két azonos nevű mester vagy elrendezés vizuálisan ekvivalens. Ha egy vállalati sablonnak kell irányítania a végső megjelenést, válasszon explicit célmestert vagy -elrendezést, és ellenőrizze az egyesítés utáni eredményt.
+Ne feltételezze, hogy két azonos nevű master vagy elrendezés vizuálisan egyenértékű. Ha egy vállalati sablonnak kell meghatároznia a végső megjelenést, válasszon egy cél‑master‑t vagy -elrendezést kifejezetten, és ellenőrizze a végeredményt az egyesítés után.
 
-### **Jegyzetek és megjegyzések**
+### **Jegyzetek és kommentárok**
 
-Az előadói jegyzetek és dia megjegyzések a dia tartalmához kapcsolódnak, és a dia klónozásakor másolódnak. Az Aspose.Slides külön API‑kat kínál a [presentation notes](https://docs.aspose.com/slides/hu/python-net/presentation-notes/) és a [presentation comments](https://docs.aspose.com/slides/hu/python-net/presentation-comments/) kezelésére.
+Az előadói jegyzetek és dia‑kommentárok a dia tartalmához kapcsolódnak, és a dia klónozása során másolódnak. Az Aspose.Slides dedikált API‑kat is biztosít a [presentation notes](/slides/hu/python-net/presentation-notes/) és a [presentation comments](/slides/hu/python-net/presentation-comments/) kezeléséhez.
 
-Ha a jegyzetoldal formázása fontos, ellenőrizze az egyesített prezentációt, mivel a jegyzetmesterek prezentációszintű objektumok, és forrásfájlok között eltérhetnek. Felülvizsgálati munkafolyamatok esetén ellenőrizze a megjegyzés szerzőket és a szálas megjegyzéseket is, ha különböző szerzők vagy sablonok fájljait egyesíti.
+Ha a notes‑page formázása fontos, ellenőrizze az egyesített prezentációt, mivel a notes master‑ek prezentáció‑szintű objektumok, és forrás fájlok között eltérhetnek. Felülvizsgálati folyamatok esetén ellenőrizze a kommentárok szerzőit és a szálas kommentárokat, ha különböző szerzők vagy sablonok fájljait kombinálja.
 
-### **Képek, hang, videó, OLE‑objektumok és külső hivatkozások**
+### **Képek, hang, videó, OLE objektumok és külső hivatkozások**
 
-A diák hivatkozhat prezentációszintű erőforrásokra, például képekre, beágyazott hangra, beágyazott videóra és OLE‑adatokra. Klónozza a teljes diát, ne csak a látható alakzatokat, hogy az Aspose.Slides fenntarthassa a dia erőforráskapcsolatait.
+A diák hivatkozhat prezentáció‑szintű erőforrásokra, például képekre, beágyazott hangra, beágyazott videóra és OLE adatokra. Klónozza a diát magát, ne csak a látható alakzatokat, hogy az Aspose.Slides fenntarthassa a dia erőforrás‑kapcsolatait.
 
-A beágyazott és a hivatkozott erőforrásokat külön kell kezelni. Egy hivatkozott hang, videó, OLE‑objektum vagy hiperhivatkozás továbbra is külső célra támaszkodik; a dia klónozása nem változtatja a külső hivatkozást beágyazott tartalommá. Tesztelje a hivatkozott erőforrások útvonalait és URL‑jeit abban a környezetben, ahol az egyesített prezentációt megnyitják.
+A beágyazott és a hivatkozott erőforrásokat külön kell kezelni. Egy hivatkozott hang, videó, OLE objektum vagy hiperhivatkozás továbbra is külső célra támaszkodik; a dia klónozása nem változtatja a külső hivatkozást beágyazott tartalommá. Tesztelje a hivatkozott erőforrások útvonalait és URL‑jeit abban a környezetben, ahol az egyesített prezentációt megnyitják.
 
-Az Aspose.Slides automatikusan klónozott mestereket követ, de ez nem jelent általános garanciát arra, hogy az egymástól független forrásprezentációk azonos bináris erőforrásait mindig deduplikálja. Ha a kimeneti fájlméret fontos, ellenőrizze a csomagot és mérje meg az eredményt a gyenge deduplikációra való támaszkodás helyett.
+Az Aspose.Slides automatikusan klónozott master‑eket nyomon követ, de ez nem jelenti azt, hogy az egymástól független forrás prezentációk azonos bináris erőforrásai mindig deduplikálódnak. Ha a kimeneti fájlméret fontos, ellenőrizze a kombinált csomagot és mérje az eredményt ahelyett, hogy implicit deduplikációra támaszkodna.
 
 ### **Beágyazott betűtípusok és betűtípus‑elérhetőség**
 
-A betűtípusok a prezentáció szintjén vannak kezelve. Ha a tipográfiának gépek között konzisztensnek kell maradnia, ne feltételezze, hogy a dia klónozása önmagában garantálja a szükséges betűtípusok rendelkezésre állását a célkörnyezetben. A beágyazott betűtípusok ellenőrizhetők a [FontsManager.get_embedded_fonts](https://reference.aspose.com/slides/hu/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) segítségével, a beágyazás explicit kezeléséről pedig a [Embed Fonts in Presentations](https://docs.aspose.com/slides/hu/python-net/embedded-font/) ír.
+A betűtípusok a prezentáció szintjén vannak kezelve. Ha a tipográfiának konzisztensnek kell lennie több gépen, ne feltételezze, hogy a dia‑klónozás önmagában biztosítja, hogy minden szükséges betűtípus elérhető legyen a célkörnyezetben. A [FontsManager.get_embedded_fonts](https://reference.aspose.com/slides/hu/python-net/aspose.slides/fontsmanager/get_embedded_fonts/)‑vel ellenőrizheti a beágyazott betűtípusokat, és a [Embed Fonts in Presentations](/slides/hu/python-net/embedded-font/) útmutató szerint explicit módon kezelheti a beágyazást.
 
-Ellenőrizze, hogy van‑e joga a forrásfájlokban használt betűtípusok beágyazásához. A betűtípus‑licencek korlátozhatják a beágyazást.
+Ellenőrizze továbbá, hogy jogosult‑e a forrás fájlokban használt betűtípusok beágyazására. A betűtípus‑licencek korlátozhatják a beágyazást.
 
 ### **Jelszóval védett prezentációk**
 
-A jelszóval védett forrást sikeresen meg kell nyitni, mielőtt a diákat klónozni lehetne. Adja meg a jelszót a [LoadOptions.password](https://reference.aspose.com/slides/hu/python-net/aspose.slides/loadoptions/password/) segítségével.
+A jelszóval védett forrást sikeresen meg kell nyitni, mielőtt a diákat klónozná. Adja meg a jelszót a [LoadOptions.password](https://reference.aspose.com/slides/hu/python-net/aspose.slides/loadoptions/password/)‑en keresztül.
 
 ```python
 import aspose.slides as slides
@@ -242,64 +242,64 @@ with slides.Presentation("protected.pptx", load_options) as source:
     print(len(source.slides))
 ```
 
-A titkosított forrás megnyitása nem alkalmazza automatikusan ugyanazt a védelmet a célprezentációra. A kimeneti védelem beállítása különállóan szükséges.
+A titkosított forrás megnyitása nem alkalmazza automatikusan ugyanazt a védelmet a célnyúló prezentációra. Szükség esetén külön konfigurálja a kimeneti védelmet.
 
 ### **Nagy prezentációk és memóriahasználat**
 
-A nagy felbontású képeket, hangot, videót vagy egyéb nagy bináris objektumokat tartalmazó prezentációk jelentős memóriát fogyaszthatnak. A [LoadOptions.blob_management_options](https://reference.aspose.com/slides/hu/python-net/aspose.slides/loadoptions/blob_management_options/) szabályozza a BLOB‑kezelést és az ideiglenes fájlok használatát. Lásd a [Manage Presentation BLOBs](https://docs.aspose.com/slides/hu/python-net/manage-blob/) témát a nagy fájlokra vonatkozó stratégiákért.
+A nagy felbontású képeket, hangot, videót vagy más nagy bináris objektumokat tartalmazó prezentációk jelentős memóriát fogyaszthatnak. A [LoadOptions.blob_management_options](https://reference.aspose.com/slides/hu/python-net/aspose.slides/loadoptions/blob_management_options/) lehetővé teszi a BLOB kezelésének és az ideiglenes fájlok használatának szabályozását. Lásd a [Manage Presentation BLOBs](/slides/hu/python-net/manage-blob/) útmutatót nagy fájl stratégiákhoz.
 
-Nagy fájlok esetén részesítse előnyben az elérési útvonal‑alapú betöltést, zárja be minden forrás‑prezentációt, amint az beolvasásra került, és kerülje a köztes eredmények ismételt mentését, hacsak a munkafolyamat nem igényel ellenőrzőpontokat. A `with slides.Presentation(...)` használata biztosítja, hogy a prezentáció erőforrásai felszabaduljanak a kontextus kilépésekor.
+Nagy fájlok esetén részesítse előnyben a fájl útvonalról történő betöltést, ha lehetséges, zárja be minden forrás prezentációt, amint az be lett egyesítve, és kerülje el a köztes eredmények többszöri mentését, hacsak a munkafolyamat nem igényel ellenőrzőpontokat. A `with slides.Presentation(...)` használata biztosítja, hogy a prezentáció erőforrásai a kontextus kilépésekor felszabadulnak.
 
 ### **Szálbiztonság**
 
-Ne töltse be, mentse vagy klónozza egy [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) példányt egyszerre több szálból. Tartsa az egyesített műveleteket egy szálas módon. Ha független egyesítési feladatokat kíván párhuzamosan futtatni, használjon különálló egy‑szálas folyamatokat és független prezentáció‑példányokat, ahogyan az [Aspose.Slides többszálú útmutatóban](https://docs.aspose.com/slides/hu/python-net/multithreading/) le van írva.
+Ne töltsön be, mentse vagy klónozza a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) példányt egyidejűleg több szálból. Tartsa minden egyes egyesítési műveletet egy szálon. Ha független egyesítési feladatokat párhuzamosít, használjon különálló egy‑szálas folyamatokat és független prezentáció‑példányokat, ahogy az [Aspose.Slides multithreading guidance](/slides/hu/python-net/multithreading/) leírja.
 
 ## **GYIK**
 
-**Hogyan őrizhetem meg minden forrásprezentáció eredeti dizájnját?**
+**Hogyan tarthatom meg minden forrás prezentáció eredeti dizájnját?**
 
-Használja a [`add_clone(source_slide)`](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidecollection/add_clone/) hívást, anélkül, hogy célmestert vagy elrendezést adna meg. Az Aspose.Slides automatikusan klónozhatja a forrás mestert, ha a beolvasott diához szükséges.
+Használja a [add_clone](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidecollection/add_clone/)‑et, anélkül, hogy célnyúló master‑t vagy elrendezést adna meg. Az Aspose.Slides automatikusan klónozhatja a forrás master‑t, ha a dia számára szükséges.
 
-**Hogyan kényszeríthetem a beolvasott diákat a cél témára?**
+**Hogyan kényszeríthetem az importált diákat a cél‑témára?**
 
-Használja azt az overloadot, amely célmestert fogad. Adjon meg egy mestert a célprezentációból, ne a forrásból. Az Aspose.Slides megpróbálja minden forrásdiát a megfelelő elrendezéshez rendelni a megadott mester alatt.
+Használja azt a túlterhelést, amely egy cél‑master‑t fogad el. Adjon meg egy master‑t a célnyúló prezentációból, nem a forrásból. Az Aspose.Slides megpróbálja a forrás diát a megfelelő elrendezésre map‑elni az adott master alatt.
 
-**Mikor érdemes egy adott célelrendezést használni a célmester helyett?**
+**Mikor használjak konkrét cél‑elrendezést a cél‑master helyett?**
 
-Használjon konkrét elrendezést, ha minden beolvasott diának egy ismert elrendezést kell használnia. Használjon mestert, ha azt szeretné, hogy az Aspose.Slides a forrás elrendezés típusa vagy neve alapján válasszon az adott mester elrendezései közül.
+Használjon konkrét elrendezést, ha minden importált diának egy ismert elrendezést kell használnia. Használjon master‑t, ha azt szeretné, hogy az Aspose.Slides a master elrendezései közül a forrás layout típus vagy név alapján válasszon.
 
-**Egyesíthetők-e a különböző dia méretekkel rendelkező prezentációk?**
+**Egyesíthetők-e különböző dia méretű prezentációk?**
 
-Igen, de a dia tartalma nem kerül automatikusan újratervezésre a cél méretekhez. Átméretezze a forrásprezentációt, ha kiszámítható elhelyezkedésre van szükség, például a [SlideSize.set_size](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidesize/set_size/) és a [SlideSizeScaleType.ENSURE_FIT](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidesizescaletype/) segítségével.
+Igen, de a dia tartalma nem kerül automatikusan újratervezésre a cél méretekhez. Először méretezze át a forrás prezentációt, ha előre meghatározott elhelyezkedésre van szükség, például a [SlideSize.set_size](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidesize/set_size/) és a [SlideSizeScaleType.ENSURE_FIT](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidesizescaletype/) használatával.
 
-**Egyesíthetek PPT, PPTX és ODP prezentációkat egy fájlba?**
+**Egyesíthetek-e PPT, PPTX és ODP prezentációkat egy fájlba?**
 
-Igen. Töltse be minden forrásprezentációt, klónozza a szükséges diákat egy célba, majd mentse a célt egy támogatott kimeneti formátumban. Mivel a formátumok nem támogatják pontosan ugyanazt a funkciókészletet, ellenőrizze a komplex tartalmat a keresztformátumú egyesítések után. Lásd a [Supported File Formats](https://docs.aspose.com/slides/hu/python-net/supported-file-formats/) oldalt.
+Igen. Töltse be minden forrás prezentációt, klónozza a szükséges diákat egyetlen célba, és mentse a célt egy támogatott kimeneti formátumban. Mivel a különböző formátumok nem támogatják pontosan ugyanazt a funkciókészletet, ellenőrizze a komplex tartalmakat a formátumok közötti egyesítések után. Lásd a [Supported File Formats](/slides/hu/python-net/supported-file-formats/).
 
-**Megmaradnak‑e automatikusan a forrás szakaszok?**
+**Megmaradnak-e automatikusan a forrás szekciók?**
 
-Nem egy alap ciklus esetén, amely csak a diák klónozását végzi. Hozza létre a szükséges szakaszokat a célban, és használja a [add_clone](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidecollection/add_clone/) szakasz‑overloadot, ha a szakaszstruktúrát meg kell őrizni.
+Nem egy alap ciklus, amely csak a diákat klónozza. Hozza létre a szükséges szekciókat a célnyúló prezentációban, és használja a [add_clone](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidecollection/add_clone/) szekció‑túlterhelést, ha a szekció struktúrát meg kell őrizni.
 
-**Megmaradnak‑e a jegyzetek és megjegyzések?**
+**Megmaradnak-e a előadói jegyzetek és kommentárok?**
 
-A klónozott diával együtt másolódnak. Olyan munkafolyamatoknál, amelyek a jegyzet‑mester stílusra, a megjegyzés szerzőkre vagy a szálas felülvizsgálati adatokra támaszkodnak, ellenőrizze az egyesített eredményt, mivel ezek a forgatókönyvek prezentáció‑szintű struktúrákat is érintenek.
+Másolódnak a klónozott diával együtt. Azoknál a munkafolyamatoknál, amelyek a notes‑master stílusra, kommentár‑szerzőkre vagy szálas felülvizsgálati adatokra támaszkodnak, ellenőrizze az egyesített eredményt, mivel ezek a forgatókönyvek prezentáció‑szintű struktúrákat is érintenek a dia‑szintű tartalom mellett.
 
-**Mi történik a hanggal, videóval, OLE‑objektumokkal és hiperhivatkozásokkal?**
+**Mi történik a hanggal, videóval, OLE objektumokkal és hiperlinkekkel?**
 
-A beágyazott tartalom a klónozott dia erőforráskapcsolataiban marad. A külső hivatkozások továbbra is külsőek, ezért a cél‑prezentáció megnyitásakor továbbra is elérhetőnek kell lenniük.
+A beágyazott tartalom a klónozott dia erőforrás‑kapcsolataik részeként kerül továbbításra. A külső linkek továbbra is külsőek maradnak, ezért a célfájloknak vagy URL‑eknek elérhetőnek kell maradniuk az egyesítés után.
 
-**Garantált‑e, hogy minden forrás beágyazott betűtípusa elérhető lesz az egyesített prezentációban?**
+**Garantált, hogy minden forrásból származó beágyazott betűtípus elérhető lesz az egyesített prezentációban?**
 
-Ne támaszkodjon csak a dia klónozására a betűtípus‑telepítéshez. Ellenőrizze a cél beágyazott betűtípusait, és szükség esetén kezelje explicit módon a betűtípus‑beágyazást vagy a külső betűtípus‑elérhetőséget, ha a tipográfia fontos.
+Ne támaszkodjon csak a dia‑klónozásra a betűtípus‑telepítéshez. Ellenőrizze a célban lévő beágyazott betűtípusokat, és szükség esetén explicit módon kezelje a betűtípus‑beágyazást vagy a külső betűtípus‑elérhetőséget, ha a tipográfia kritikus.
 
 **Hogyan egyesíthetek jelszóval védett fájlt?**
 
-Nyissa meg a megfelelő [LoadOptions.password](https://reference.aspose.com/slides/hu/python-net/aspose.slides/loadoptions/password/) megadásával, majd klónozza a diákat a szokásos módon. A kimeneti védelem külön álló beállítás.
+Nyissa meg a helyes [LoadOptions.password](https://reference.aspose.com/slides/hu/python-net/aspose.slides/loadoptions/password/)‑nel, majd klónozza a diákat a szokásos módon. A kimeneti védelem külön konfigurálható.
 
 **Hogyan kezeljem a nagyon nagy prezentációkat?**
 
-Használja a BLOB‑kezelést, ha nagy bináris objektumok dominálják a memóriahasználatot, részesítse előnyben a fájl‑útvonal‑alapú betöltést nagyon nagy fájlok esetén, zárja be a forrás‑prezentációkat, amint azok beolvasásra kerültek, és csak a végleges eredményt mentse el, amikor szükséges.
+Használjon BLOB‑kezelést, ha nagy bináris objektumok dominálják a memóriahasználatot, részesítse előnyben a fájl‑útvonal‑betöltést nagyon nagy fájlok esetén, zárja be a forrás prezentációkat a lehető leghamarabb, és csak a végleges eredményt mentse el, ha szükséges.
 
-**Klónozhatom‑e a diákot több szálból?**
+**Klónozhatok‑e diákot több szálból?**
 
-Ne töltse be, mentse vagy klónozza a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) példányokat több szálból egyszerre. Tartsa az egyesítés műveleteket egy‑szálas módon; ha különálló egyesítési feladatokat kell párhuzamosan futtatni, használjon független egy‑szálas folyamatokat és külön prezentáció‑példányokat.
+Ne töltse be, mentse vagy klónozza a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) példányokat több szálból. Tartsa minden egyes egyesítési műveletet egy szálon; ha párhuzamosan kell futtatni független egyesítési feladatokat, használjon különálló egy‑szálas folyamatokat és független prezentáció‑példányokat, ahogy az [Aspose.Slides multithreading guidance](/slides/hu/python-net/multithreading/) leírja.

@@ -5,10 +5,10 @@ type: docs
 weight: 20
 url: /cs/cpp/convert-ppt-to-pptx/
 keywords:
-- převést PowerPoint
-- převést prezentaci
-- převést snímek
-- převést PPT
+- převod PowerPoint
+- převod prezentace
+- převod snímku
+- převod PPT
 - PPT na PPTX
 - uložit PPT jako PPTX
 - exportovat PPT do PPTX
@@ -16,15 +16,15 @@ keywords:
 - prezentace
 - C++
 - Aspose.Slides
-description: "Převod starých souborů PPT na PPTX v C++ pomocí Aspose.Slides. Obsahuje příklady v C++ pro převod jednotlivých souborů i dávkový převod, zpracování chyb a poznámky o věrnosti."
+description: "Převod starších souborů PPT na PPTX v C++ pomocí Aspose.Slides. Obsahuje ukázky C++ pro převod jednoho souboru i dávkový převod, zpracování chyb a poznámky o věrnosti."
 ---
 ## **Přehled**
 
-PPT je starší binární formát PowerPointu, zatímco PPTX je novější formát Open XML. Aspose.Slides pro C++ dokáže načíst soubor PPT a uložit jej jako PPTX bez Microsoft PowerPoint. Tento článek ukazuje, jak převést jeden soubor nebo adresář souborů a vysvětluje, co zkontrolovat po převodu.
+PPT je starší binární formát PowerPointu, zatímco PPTX je novější formát Open XML. Aspose.Slides for C++ může načíst soubor PPT a uložit jej jako PPTX bez Microsoft PowerPoint. Tento článek ukazuje, jak převést jeden soubor nebo adresář souborů a vysvětluje, co zkontrolovat po konverzi.
 
 ## **Převod souboru PPT na PPTX**
 
-Načtěte zdrojový soubor pomocí třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/) , poté zavolejte [Presentation::Save](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/save/) s argumentem [SaveFormat::Pptx](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/saveformat/) . Uvolněte prezentaci, když již není potřeba, aby se uvolnily její prostředky.
+Načtěte zdrojový soubor pomocí třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/), poté zavolejte [Presentation::Save](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/save/) s [SaveFormat::Pptx](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/saveformat/). Uvolněte prezentaci, když ji již nepotřebujete, aby se uvolnily její prostředky.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -42,11 +42,11 @@ presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Přípona souboru sama o sobě nevybírá výstupní formát; argument [SaveFormat::Pptx](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/saveformat/) to provádí. Udržujte vstupní a výstupní cesty odlišné, pokud potřebujete zachovat originální soubor PPT.
+Přípona souboru sama o sobě nevybírá výstupní formát; argument [SaveFormat::Pptx](https://reference.aspose.com/slides/cs/cpp/aspose.slides.export/saveformat/) to dělá. Pokud potřebujete zachovat původní soubor PPT, udržujte vstupní a výstupní cesty odlišné.
 
 ## **Převod více souborů PPT**
 
-Následující příklad převádí každý soubor `.ppt` v jednom adresáři. Každý soubor je zpracován nezávisle, takže jeden selhaný převod nezastaví zbytek dávky.
+Následující příklad převádí každý soubor `.ppt` v jednom adresáři. Každý soubor je zpracován nezávisle, takže selhání jedné konverze nezastaví zbytek dávky.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -87,46 +87,46 @@ for (const auto& inputPath : inputPaths)
 }
 ```
 
-Pro produkční úlohy zaznamenejte úplnou výjimku, rozhodněte, zda může být existující výstupní soubor přepsán, a zapište názvy neúspěšných souborů do fronty pro opakování nebo revizi. Poškozené soubory, soubory chráněné heslem otevřené bez potřebného hesla, nedostupné cesty a nepodporovaný obsah mohou způsobit selhání převodu. Viz [Prezentace chráněné heslem](/cpp/password-protected-presentation/) pro načítání šifrovaných souborů.
+Pro produkční úlohy zaznamenejte úplnou výjimku, rozhodněte, zda lze existující výstupní soubor přepsat, a zapište názvy neúspěšných souborů do fronty pro opakování nebo revizi. Poškozené soubory, soubory chráněné heslem otevřené bez požadovaného hesla, nedostupné cesty a nepodporovaný obsah mohou způsobit selhání konverze. Viz [Password-Protected Presentations](/slides/cs/cpp/password-protected-presentation/) pro načítání šifrovaných souborů.
 
 ## **Věrnost a starší funkce**
 
-Převod obvykle zachovává snímky, hlavní šablony, rozvržení, text, tvary, obrázky, tabulky a grafy. Nicméně PPT a PPTX nevyjadřují každou funkci přesně stejným způsobem. Starší funkce, která nemá ekvivalent v PPTX nebo není knihovnou podporována, může být normalizována, vynechána nebo zobrazena odlišně.
+Konverze obvykle zachovává snímky, mastery, rozvržení, text, tvary, obrázky, tabulky a grafy. Nicméně PPT a PPTX nepředstavují každou funkci přesně stejným způsobem. Starší funkce, která nemá ekvivalent v PPTX nebo není knihovnou podporována, může být normalizována, vynechána nebo zobrazena odlišně.
 
-Zkontrolujte převedený soubor, pokud obsahuje animace, přechody, vložené nebo propojené OLE objekty, ActiveX ovládací prvky, vložená média, neobvyklá písma nebo VBA makra. Prostý soubor PPTX není formát podporující makra, proto použijte vhodný workflow podporující makra, pokud musí být VBA dostupné. Také ověřte, že požadovaná písma a externí zdroje jsou přítomny v prostředí, kde bude převedená prezentace otevřena nebo vykreslena.
+Zkontrolujte převedený soubor, pokud obsahuje animace, přechody, vložené nebo propojené OLE objekty, ActiveX ovládací prvky, vložená média, neobvyklá písma nebo VBA makra. Běžný soubor PPTX není formát s podporou maker, takže použijte vhodný pracovní postup s podporou maker, pokud musí být VBA k dispozici. Také ověřte, že požadovaná písma a externí zdroje jsou přítomny v prostředí, ve kterém bude převedená prezentace otevřena nebo vykreslena.
 
-Pro důležité dokumenty znovu programově otevřete vygenerovaný PPTX a zkontrolujte klíčové počty snímků a obsah, poté porovnejte vzhled a chování prezentace ve zamýšleném prohlížeči. Nepovažujte úspěšné volání [Presentation::Save](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/save/) za důkaz, že každá starší funkce má přesnou reprezentaci v PPTX.
+U důležitých dokumentů znovu otevřete vygenerovaný PPTX programově a prověřte klíčové počty snímků a jejich obsah, poté porovnejte jeho vzhled a chování prezentace v zamýšleném prohlížeči. Nepovažujte úspěšné volání [Presentation::Save](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/save/) za důkaz, že každá starší funkce má přesnou reprezentaci v PPTX.
 
 ## **Kdy použít PPTX**
 
-PPTX použijte, pokud bude prezentace upravována v aktuálních verzích PowerPointu, vyměňována se systémy pracujícími s balíčky Open XML, nebo uložena ve formátu, který je snazší prozkoumat a obnovit než starší binární PPT. Uchovávejte originální PPT jako archivní nebo záložní kopii, dokud převedená prezentace neprojde vašimi kontrolami věrnosti.
+Používejte PPTX, když bude prezentace upravována v aktuálních verzích PowerPointu, vyměňována se systémy pracujícími s balíčky Open XML, nebo ukládána ve formátu, který je snazší prozkoumat a obnovit než starý binární PPT. Uchovávejte původní PPT jako archivní nebo záložní kopii, dokud převedená prezentace neprojde vašimi kontrolami věrnosti.
 
-Pokud místo toho potřebujete PDF, HTML, obrázky, XPS nebo jiný výstupní typ, použijte specifické pokyny pro formát v [Převod prezentací do více formátů](/cpp/convert-presentation/) místo předpokladu, že všechny cíle zachovávají editovatelné funkce PowerPointu.
+Pokud místo toho potřebujete PDF, HTML, obrázky, XPS nebo jiný výstupní typ, použijte specifické pokyny pro formát v [Convert Presentations to Multiple Formats](/slides/cs/cpp/convert-presentation/) místo předpokladu, že všechny cíle zachovají editovatelné funkce PowerPointu.
 
-## **Online konvertor**
+## **Online převodník**
 
-Pro občasný soubor nebo rychlé srovnání můžete použít [online PPT na PPTX konvertor](https://products.aspose.app/slides/cs/conversion/ppt-to-pptx). Pro opakované převody, dávkové zpracování nebo zpracování chyb na úrovni aplikace použijte C++ API.
+Pro občasný soubor nebo rychlé srovnání můžete použít [online PPT to PPTX converter](https://products.aspose.app/slides/cs/conversion/ppt-to-pptx). Pro opakované konverze, dávkové zpracování nebo zpracování chyb na úrovni aplikace použijte C++ API.
 
 ## **Související články**
 
-- [Uložit prezentace v C++](/cpp/save-presentation/)
-- [Podporované formáty souborů](/cpp/supported-file-formats/)
-- [Otevřít prezentace v C++](/cpp/open-presentation/)
+- [Uložení prezentací v C++](/slides/cs/cpp/save-presentation/)
+- [Podporované formáty souborů](/slides/cs/cpp/supported-file-formats/)
+- [Otevření prezentací v C++](/slides/cs/cpp/open-presentation/)
 
-## **FAQ**
+## **Často kladené otázky**
 
 **Mohu převést PPT na PPTX bez nainstalovaného Microsoft PowerPoint?**
 
-Ano. Aspose.Slides pro C++ načítá a ukládá soubory prezentací bez potřeby Microsoft PowerPoint.
+Ano. Aspose.Slides for C++ načítá a ukládá soubory prezentací bez potřeby Microsoft PowerPoint.
 
-**Zachová převod PPT na PPTX veškerý obsah přesně?**
+**Zachová konverze PPT na PPTX veškerý obsah přesně?**
 
-Zachovává běžný obsah prezentace, ale přesná věrnost není zaručena pro každou starší nebo nepodporovanou funkci. Zkontrolujte vygenerovaný soubor, pokud obsahuje makra, OLE nebo ActiveX objekty, média, specializované animace nebo neobvyklá písma.
+Zachovává běžný obsah prezentace, ale přesná věrnost není zaručena pro každou starší nebo nepodporovanou funkci. Prohlédněte vygenerovaný soubor, pokud obsahuje makra, OLE nebo ActiveX objekty, média, specializované animace nebo neobvyklá písma.
 
 **Mohu převést soubor PPT chráněný heslem?**
 
 Ano, pokud při načítání souboru zadáte správné heslo. Chybějící nebo nesprávné heslo způsobí selhání operace načtení.
 
-**Mám po převodu smazat soubor PPT?**
+**Mám po konverzi smazat soubor PPT?**
 
-Uchovávejte originál, dokud neověříte PPTX v prohlížečích a pracovních postupech, které jsou pro vás důležité. To poskytuje záložní kopii v případě, že starší funkce převádí jinak.
+Uchovávejte originál, dokud neověříte PPTX ve prohlížečích a pracovních postupech, které jsou pro vás důležité. To poskytuje záložní kopii pro případ, že se starší funkce převede odlišně.

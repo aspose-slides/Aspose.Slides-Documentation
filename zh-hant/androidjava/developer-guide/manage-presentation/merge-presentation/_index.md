@@ -20,38 +20,38 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "了解如何在 Android 上透過複製投影片、控制母片與版面配置、調整投影片內容大小、保留區段，以及處理受保護或大型檔案，來合併 PowerPoint 與 OpenDocument 簡報。"
+description: "了解如何在 Android 上透過克隆投影片、控制母版與布局、調整投影片內容大小、保留章節，並處理受保護或大型檔案，以合併 PowerPoint 與 OpenDocument 簡報。"
 ---
-## **概覽**
+## **概述**
 
-Aspose.Slides for Android via Java 透過從一個 [簡報](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/) 複製投影片到另一個簡報的方式合併簡報。主要操作是 [ISlideCollection.addClone](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-)，它可保留來源投影片的格式，或將複製的投影片附加至目標簡報的母片或版面配置。
+Aspose.Slides for Android via Java 通过克隆幻灯片将演示文稿从一个 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/) 合并到另一个。主要操作是 [ISlideCollection.addClone](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-)，它可以保留源幻灯片的格式，或将克隆的幻灯片附加到目标演示文稿的母版或布局。
 
-本文說明最常見的合併工作流程：
+本文介绍最常见的合并工作流：
 
-- 合併所有投影片並保留其來源格式；
-- 合併選取的投影片；
-- 套用目標簡報的母片；
-- 套用目標簡報的特定版面配置；
-- 在合併前正規化不同的投影片尺寸；
-- 將複製的投影片加入區段；
-- 在一次端對端的工作流程中合併多個簡報；
-- 處理母片、資源、備註、評論、媒體、字型、密碼、大檔案與多執行緒相關問題。
+- 合并所有幻灯片并保留其源格式；
+- 合并选定的幻灯片；
+- 应用目标演示文稿的母版；
+- 应用目标演示文稿的特定布局；
+- 在合并前规范化不同的幻灯片尺寸；
+- 将克隆的幻灯片添加到章节；
+- 在一个端到端工作流中合并多个演示文稿；
+- 处理母版、资源、备注、批注、媒体、字体、密码、大文件和多线程相关问题。
 
-## **投影片複製對母片與版面配置的影響**
+## **幻灯片克隆如何影响母版和布局**
 
-投影片的外觀大部分繼承自其版面配置與母片。因此，選擇的複製重載方式會決定合併投影片在目標簡報中的整合方式。
+幻灯片的大部分外观继承自其布局和母版。因此，您选择的克隆重载决定了合并后幻灯片在目标演示文稿中的集成方式。
 
-使用 [ISlideCollection.addClone](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/islidecollection/) 可採取以下方式：
+使用 [ISlideCollection.addClone](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/islidecollection/) 的以下方式之一：
 
-- `addClone(sourceSlide)` — 保留來源投影片的版面配置與格式。必要時，來源母片會自動複製到目標簡報。Aspose.Slides 會追蹤自動複製的母片，避免重複複製相同的來源母片。
-- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — 將複製的投影片附加至特定的目標 [IMasterSlide](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imasterslide/)。Aspose.Slides 會依版面類型或名稱在該母片下尋找相符的版面配置。
-- `addClone(sourceSlide, destinationLayout)` — 直接將複製的投影片附加至特定的目標 [ILayoutSlide](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ilayoutslide/)。
+- `addClone(sourceSlide)` — 保持源幻灯片的布局和格式。必要时，源母版会自动克隆到目标演示文稿。Aspose.Slides 会跟踪自动克隆的母版，以免对使用相同源母版的重复幻灯片进行多次克隆。
+- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — 将克隆的幻灯片附加到特定的目标 [IMasterSlide](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imasterslide/)。Aspose.Slides 会在该母版下按布局类型或名称查找匹配的布局。
+- `addClone(sourceSlide, destinationLayout)` — 将克隆的幻灯片直接附加到特定的目标 [ILayoutSlide](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ilayoutslide/)。
 
-傳遞給 `addClone` 重載的母片或版面配置必須屬於 **目標** 簡報，而非來源簡報。
+传递给 `addClone` 重载的母版或布局必须属于 **目标** 演示文稿，而不是源演示文稿。
 
-## **合併整個簡報並保留來源格式**
+## **合并整个演示文稿并保留源格式**
 
-最簡單的合併方式是將來源簡報的每一張投影片複製到目標簡報。當匯入的投影片應保留其原始主題、母片與版面配置關係時，這是最合適的選擇。
+最简单的合并方式是将源演示文稿的每一张幻灯片复制到目标演示文稿。这是在导入的幻灯片应保持原始主题、母版和布局关系时的合适选择。
 
 ```java
 import com.aspose.slides.*;
@@ -70,11 +70,11 @@ try {
 }
 ```
 
-如果來源與目標使用不同的設計，最終簡報可能會包含多個母片。這在有意保留來源格式時是正常現象。
+当源和目标使用不同设计时，生成的演示文稿可能包含多个母版。这在有意保留源格式时是预期行为。
 
-## **合併選取的投影片**
+## **合并选定的幻灯片**
 
-不必複製每張投影片。以下範例僅從來源簡報匯入選取的投影片索引。
+您不必克隆每张幻灯片。下面的示例仅从源演示文稿导入选定的幻灯片索引。
 
 ```java
 import com.aspose.slides.*;
@@ -95,11 +95,11 @@ try {
 }
 ```
 
-在從使用者輸入或外部組態取得索引時，請先驗證投影片索引的有效性。
+在克隆之前对幻灯片索引进行验证，尤其是这些索引来自用户输入或外部配置时。
 
-## **使用目標母片合併投影片**
+## **使用目标母版合并幻灯片**
 
-當匯入的投影片應遵循已屬於目標簡報的母片時，請使用 [addClone(ISlide, IMasterSlide, boolean)](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) 重載。
+当导入的幻灯片应遵循已属于目标演示文稿的母版时，使用 [addClone(ISlide, IMasterSlide, boolean)](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) 重载。
 
 ```java
 import com.aspose.slides.*;
@@ -120,13 +120,13 @@ try {
 }
 ```
 
-Aspose.Slides 會根據來源版面的類型或名稱，在指定的母片下選取適當的版面配置。若不存在相符的版面且 `allowCloneMissingLayout` 為 `true`，則會複製來源版面以便加入投影片；若為 `false`，則拋出 [PptxEditException](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/pptxeditexception/)。
+Aspose.Slides 会通过匹配源布局的类型或名称，在指定的母版下选择合适的布局。如果不存在匹配的布局且 `allowCloneMissingLayout` 为 `true`，则会克隆源布局以便添加幻灯片；如果为 `false`，则会抛出 [PptxEditException](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/pptxeditexception/)。
 
-若希望合併失敗而不是在目標母片中加入額外版面，請使用 `false`。
+在希望合并失败而不是向目标母版引入额外布局时，请使用 `false`。
 
-## **使用特定目標版面配置合併投影片**
+## **使用特定目标布局合并幻灯片**
 
-當您明確知道匯入的投影片應使用哪個目標版面配置時，請使用 [addClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) 重載。
+当您明确知道导入的幻灯片应使用哪个目标布局时，使用 [addClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISSlide-com.aspose.slides.ILayoutSlide-) 重载。
 
 ```java
 import com.aspose.slides.*;
@@ -147,13 +147,13 @@ try {
 }
 ```
 
-套用目標版面配置會變更繼承的版面關係；不會重新設計來源投影片的內容。若來源與目標版面配置的占位元結構不同，請檢查結果以確認繼承的格式與占位元行為是否符合預期。
+应用目标布局会更改继承的布局关系；它不会重新设计源幻灯片的内容。如果源布局与目标布局的占位符结构不同，请检查结果，以确认继承的格式和占位符行为是否符合预期。
 
-## **合併具有不同投影片尺寸的簡報**
+## **合并不同幻灯片尺寸的演示文稿**
 
-尺寸不同的簡報可以合併，但將投影片複製到尺寸不同的簡報時，內容不會自動重新設計以符合新畫布。形狀可能會出現偏移、縮放異常或超出可見投影片範圍。
+尺寸不同的演示文稿可以合并，但将幻灯片克隆到具有另一尺寸的演示文稿时，内容不会自动为新画布重新设计。因此形状可能出现位置偏移、意外缩放，或超出可见幻灯片区域。
 
-實務做法是在複製前先調整來源簡報的尺寸。可使用 [SlideSize.setSize](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/slidesize/#setSize-float-float-int-) 方法在變更投影片尺寸的同時縮放現有內容。[SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/slidesizescaletype/) 會將內容縮放至符合指定尺寸。
+一种实用方法是先调整源演示文稿的尺寸再进行克隆。`[SlideSize.setSize](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/slidesize/#setSize-float-float-int-)` 方法可以在更改幻灯片尺寸的同时缩放已有内容。`[SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/slidesizescaletype/)` 会将内容缩放以适应指定尺寸。
 
 ```java
 import com.aspose.slides.*;
@@ -184,11 +184,11 @@ try {
 }
 ```
 
-調整尺寸會在記憶體中變更來源簡報物件。若需要保留原始來源簡報以供其他操作，請為合併開啟另一個實例。
+调整尺寸会修改内存中的源演示文稿对象。如果需要在其他操作中保持源演示文稿不变，请为合并打开单独的实例。
 
-## **將投影片合併至簡報區段**
+## **将幻灯片合并到演示文稿章节**
 
-基本的投影片複製迴圈不會重新建立來源簡報的區段層級。若輸出需要保留區段，請在目標簡報中建立或選取區段，並使用 [addClone(ISlide, ISection)](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-) 明確將投影片複製至該區段。
+基本的幻灯片克隆循环不会重新创建源演示文稿的章节层级。如果章节在输出中很重要，请在目标演示文稿中创建或选择章节，并使用 `[addClone(ISlide, ISection)](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISSlide-com.aspose.slides.ISection-)` 显式将幻灯片克隆到相应章节。
 
 ```java
 import com.aspose.slides.*;
@@ -209,11 +209,11 @@ try {
 }
 ```
 
-複製的投影片會附加至指定的目標區段。若需保留多個來源區段，請在目標簡報中重新建立這些區段，並將每張來源投影片對應至相應的目標區段。
+克隆的幻灯片会附加到指定的目标章节。若要保留多个源章节，请遍历 `[Presentation.getSections](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/#getSections--)`，使用 `[ISection.getSlidesListOfSection](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/isection/#getSlidesListOfSection--)` 获取每个源章节的当前幻灯片，在目标中重新创建章节，并将每个返回的幻灯片克隆到对应的目标章节。完整的章节枚举示例请参见 [管理幻灯片章节](/slides/zh-hant/androidjava/slide-section/)，其中包括空章节和结构更改的处理。
 
-## **安全合併多個簡報**
+## **安全地合并多个演示文稿**
 
-以下端對端範例以第一個簡報作為目標，對每個額外的來源正規化投影片尺寸，僅在複製期間開啟來源，並在最後一次儲存檔案。
+下面的端到端示例使用第一个演示文稿作为目标，规范化每个额外源的幻灯片尺寸，仅在复制时打开每个源，并在最后一次保存文件。
 
 ```java
 import com.aspose.slides.*;
@@ -252,39 +252,39 @@ try {
 }
 ```
 
-這是保留匯入投影片來源格式的實用基礎。如果輸出必須使用單一目標主題，請將簡單的 `addClone(slide)` 呼叫換成先前示範的目標母片或目標版面配置重載。
+这是一种保留导入幻灯片源格式的有用基线。如果输出必须使用单一目标主题，请将简单的 `addClone(slide)` 调用替换为前面展示的适当的目标母版或目标布局重载。
 
-## **實務考量**
+## **实用注意事项**
 
-### **母片、版面配置與格式保真度**
+### **母版、布局与格式保真度**
 
-預設的投影片複製會自動將所需的來源母片帶入目標簡報。Aspose.Slides 會為自動複製的母片維護內部註冊表，以避免重複複製同一母片。手動複製的母片不會被此註冊表追蹤，除非需要明確控制母片結構，否則請避免事先複製母片。
+默认的幻灯片克隆可以自动将所需的源母版带入目标演示文稿。Aspose.Slides 为自动克隆的母版维护内部注册表，以避免对同一母版进行重复克隆。手动克隆的母版不会被该注册表跟踪，因此除非需要对母版结构进行显式控制，否则请避免预先克隆母版。
 
-不要認為名稱相同的兩個母片或版面配置在視覺上等同。若企業模板必須控制最終外觀，請明確選擇目標母片或版面配置，並在合併後驗證結果。
+不要假设同名的两个母版或布局在视觉上是等价的。如果企业模板必须控制最终外观，请显式选择目标母版或布局，并在合并后验证结果。
 
-### **備註與評論**
+### **备注和批注**
 
-演講者備註與投影片評論與投影片內容相關聯，會在投影片被複製時一起複製。Aspose.Slides 亦提供專門的 API 用於 [簡報備註](https://docs.aspose.com/slides/zh-hant/androidjava/presentation-notes/) 與 [簡報評論](https://docs.aspose.com/slides/zh-hant/androidjava/presentation-comments/)。
+演讲者备注和幻灯片批注与幻灯片内容关联，克隆幻灯片时会一起复制。Aspose.Slides 还提供专用 API 用于 [演示文稿备注](/slides/zh-hant/androidjava/presentation-notes/) 和 [演示文稿批注](/slides/zh-hant/androidjava/presentation-comments/)。
 
-若備註頁面的格式很重要，請驗證合併後的簡報，因為備註母片是簡報層級的物件，可能在來源檔案之間有所差異。對於審閱流程，也請在合併來自不同作者或模板的檔案後，驗證評論作者與串列評論。
+如果备注页的格式很重要，请检查合并后的演示文稿，因为备注母版是演示文稿级对象，可能在源文件之间存在差异。对于评审工作流，还需在合并来自不同作者或模板的文件后验证批注作者和线程批注。
 
-### **圖片、音訊、視訊、OLE 物件與外部連結**
+### **图像、音频、视频、OLE 对象和外部链接**
 
-投影片可能引用簡報層級的資源，如圖片、嵌入式音訊、嵌入式視訊與 OLE 資料。請複製整張投影片，而非僅複製可見的圖形，讓 Aspose.Slides 能維持投影片與其資源的關聯。
+幻灯片可以引用演示文稿级资源，如图像、嵌入式音频、嵌入式视频和 OLE 数据。请克隆整个幻灯片，而不是仅复制可见形状，以便 Aspose.Slides 能维护幻灯片与其资源的关系。
 
-嵌入式與連結式資源的處理方式應不同。連結的音訊、視訊、OLE 物件或超連結仍依賴外部目標；複製投影片不會將外部連結轉為嵌入內容。請在最終開啟合併簡報的環境中測試連結資源的路徑與 URL。
+嵌入式资源与链接资源应区别对待。链接的音频、视频、OLE 对象或超链接仍依赖其外部目标；克隆幻灯片不会将外部链接转换为嵌入内容。请在合并后在实际打开环境中测试链接资源的路径和 URL。
 
-Aspose.Slides 會追蹤自動複製的母片，但不應視為對不相關來源簡報之相同二進位資源一定會被去除重複的保證。若文件大小重要，請檢查合併後的套件並自行測量結果，而非依賴隱式的去重機制。
+Aspose.Slides 会显式跟踪自动克隆的母版，但这不应被视为对不相关源演示文稿中相同二进制资源始终去重的通用保证。如果输出文件大小重要，请检查合并后的包并自行测量结果，而不是依赖隐式去重。
 
-### **嵌入字型與字型可用性**
+### **嵌入字体与字体可用性**
 
-字型在簡報層級管理。若排版必須在不同機器間保持一致，請勿僅依賴投影片複製就假設所有必要字型已在目標環境中可用。您可以使用 [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) 檢查嵌入字型，並依照 [在簡報中嵌入字型](https://docs.aspose.com/slides/zh-hant/androidjava/embedded-font/) 的說明明確管理嵌入。
+字体在演示文稿级别管理。如果排版必须在不同机器上保持一致，不要仅凭克隆幻灯片就假设所有必需字体在目标环境中可用。您可以使用 `[FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/fontsmanager/#getEmbeddedFonts--)` 检查嵌入的字体，并按照 [在演示文稿中嵌入字体](/slides/zh-hant/androidjava/embedded-font/) 的说明显式管理嵌入。
 
-同時也要確認您有權利嵌入來源檔案所使用的字型。字型授權可能限制嵌入行為。
+同时，请确认您有权嵌入源文件使用的字体。字体许可证可能限制嵌入。
 
-### **受密碼保護的簡報**
+### **受密码保护的演示文稿**
 
-必須先成功開啟受密碼保護的來源，才能複製其投影片。請透過 [LoadOptions.setPassword](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) 提供密碼。
+在克隆幻灯片之前，必须成功打开受密码保护的源文件。请通过 `[LoadOptions.setPassword](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-)` 提供密码。
 
 ```java
 import com.aspose.slides.*;
@@ -294,70 +294,70 @@ loadOptions.setPassword("YOUR_PASSWORD");
 
 Presentation source = new Presentation("protected.pptx", loadOptions);
 try {
-    // 在已解密的簡報上進行操作。
+    // 處理已解密的簡報。
 } finally {
     source.dispose();
 }
 ```
 
-開啟加密來源不會自動將相同保護套用到目標簡報。若需要，請另行設定輸出保護。
+打开加密的源文件并不会自动将相同的保护应用到目标演示文稿。需要时请单独配置输出保护。
 
-### **大型簡報與記憶體使用**
+### **大文件演示文稿与内存使用**
 
-包含高解析度圖片、音訊、視訊或其他大型二進位物件的簡報會消耗大量記憶體。[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/loadoptions/#getBlobManagementOptions--) 提供 BLOB 處理與暫存檔使用的控制。請參考 [管理簡報 BLOB](https://docs.aspose.com/slides/zh-hant/androidjava/manage-blob/) 以取得大型檔案的最佳做法。
+包含高分辨率图像、音频、视频或其他大二进制对象的大型演示文稿可能会占用大量内存。`[LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/loadoptions/#getBlobManagementOptions--)` 提供对 BLOB 处理和临时文件使用的控制。有关大文件策略，请参见 [管理演示文稿 BLOB](/slides/zh-hant/androidjava/manage-blob/)。
 
-對於大型檔案，盡可能使用檔案路徑載入，於合併完成後立即釋放每個來源簡報，且除非工作流程需要檢查點，否則避免多次儲存中間結果。
+对于大文件，尽可能使用文件路径加载，在合并完成后立即释放每个源演示文稿，并避免反复保存中间结果，除非工作流需要检查点。
 
-### **執行緒安全性**
+### **线程安全**
 
-請勿在多執行緒同時載入、修改、儲存或複製同一個 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/) 實例。每個簡報實例應僅用於單一合併作業。若平行處理獨立工作，請使用獨立的簡報實例，並遵循 [Aspose.Slides 多執行緒指引](https://docs.aspose.com/slides/zh-hant/androidjava/multithreading/)。
+不要在多个线程中同时加载、修改、保存或克隆同一个 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/) 实例。将每个演示文稿实例限制在单个合并操作中。如果并行处理独立任务，请使用独立的演示文稿实例，并遵循 [Aspose.Slides 多线程指南](/slides/zh-hant/androidjava/multithreading/)。
 
-## **常見問題**
+## **常见问题解答**
 
-**如何保留每個來源簡報的原始設計？**
+**如何保持每个源演示文稿的原始设计？**
 
-使用 [`addClone(sourceSlide)`](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-)，不要提供目標母片或版面配置。Aspose.Slides 會在需要時自動複製來源母片。
+使用不提供目标母版或布局的 [addClone](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISSlide-)。Aspose.Slides 可以在导入的幻灯片需要时自动克隆源母版。
 
-**如何讓匯入的投影片使用目標主題？**
+**如何让导入的幻灯片使用目标主题？**
 
-使用接受目標母片的重載。傳入目標簡報的母片，而非來源母片。Aspose.Slides 會嘗試將每張來源投影片對應至該母片下的適當版面配置。
+使用接受目标母版的重载。传入目标演示文稿中的母版，而不是来源的。Aspose.Slides 将尝试将每个源幻灯片映射到该母版下的合适布局。
 
-**何時應使用特定的目標版面配置而非目標母片？**
+**何时应使用特定的目标布局而不是目标母版？**
 
-當每張匯入的投影片都必須使用同一已知版面配置時使用版面配置；當希望 Aspose.Slides 依據來源版面類型或名稱在該母片的版面中自動選擇時，使用母片。
+当每个导入的幻灯片都应使用已知的单一布局时使用特定布局；当希望 Aspose.Slides 根据源布局的类型或名称在该母版的布局中进行选择时使用母版。
 
-**不同投影片尺寸的簡報可以合併嗎？**
+**不同幻灯片尺寸的演示文稿能合并吗？**
 
-可以，但投影片內容不會自動重新設計以符合目標尺寸。若需要可預測的版面，請先使用 [SlideSize.setSize](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/slidesize/#setSize-float-float-int-) 與 [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/slidesizescaletype/) 重新調整來源簡報。
+可以，但幻灯片内容不会自动为目标尺寸重新设计。需要可预期的布局时，请先使用 `[SlideSize.setSize](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/slidesize/#setSize-float-float-int-)` 和 `[SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/slidesizescaletype/)` 调整源演示文稿。
 
-**我可以將 PPT、PPTX 與 ODP 簡報合併成同一個檔案嗎？**
+**可以将 PPT、PPTX 和 ODP 演示文稿合并为一个文件吗？**
 
-可以。載入每個來源簡報，將所需投影片複製至同一目標簡報，並以支援的輸出格式儲存。由於簡報格式的功能集合不完全相同，請在跨格式合併後驗證複雜內容。請參閱 [支援的檔案格式](https://docs.aspose.com/slides/zh-hant/androidjava/supported-file-formats/)。
+可以。加载每个源演示文稿，将所需幻灯片克隆到同一目标中，并以支持的输出格式保存。由于各演示文稿格式的功能集并不完全相同，跨格式合并后请验证复杂内容。参见 [受支持的文件格式](/slides/zh-hant/androidjava/supported-file-formats/)。
 
-**來源區段會自動保留嗎？**
+**源章节会自动保留吗？**
 
-基本只複製投影片的迴圈不會保留區段。若需要保留區段結構，請在目標簡報重新建立必要的區段，並使用 [addClone](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-) 的區段重載。
+基本只克隆幻灯片的循环不会保留章节。请在目标中重新创建所需章节，并在需要保留章节结构时使用 `[addClone](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISSlide-com.aspose.slides.ISection-)` 的章节重载。
 
-**演講者備註與評論會被保留嗎？**
+**演讲者备注和批注会被保留吗？**
 
-它們會隨複製的投影片一起被複製。對於依賴備註母片樣式、評論作者或串列審閱資料的工作流程，請驗證合併結果，因為這些情境涉及簡報層級結構與投影片層級內容。
+它们会随克隆的幻灯片一起复制。对于依赖备注母版样式、批注作者或线程审阅数据的工作流，请在合并后验证结果，因为这些场景涉及演示文稿级结构以及幻灯片级内容。
 
-**音訊、視訊、OLE 物件與超連結會發生什麼事？**
+**音频、视频、OLE 对象和超链接会怎样处理？**
 
-嵌入式內容會隨複製的投影片資源關聯一起帶入。外部連結仍保持外部狀態，合併後其目標檔案或 URL 必須仍然可用。
+嵌入的内容会随克隆的幻灯片资源关系一起携带。外部链接仍保持外部状态，合并后其目标文件或 URL 必须仍然可用。
 
-**所有來源的嵌入字型是否都會在合併簡報中可用？**
+**是否保证所有源的嵌入字体在合并后可用？**
 
-不要僅依賴投影片複製來部署字型。請檢查目標簡報的嵌入字型，並在排版重要時明確管理字型嵌入或外部字型的可用性。
+仅凭幻灯片克隆不能保证字体部署。请检查目标的嵌入字体，并在排版重要时显式管理字体嵌入或外部字体的可用性。
 
-**如何合併受密碼保護的檔案？**
+**如何合并受密码保护的文件？**
 
-使用正確的 [LoadOptions.setPassword](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) 開啟檔案，然後正常複製投影片。輸出保護需另行設定。
+使用正确的 `[LoadOptions.setPassword](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-)` 打开文件，然后正常克隆其幻灯片。输出保护需另行配置。
 
-**如何處理非常大的簡報？**
+**如何处理非常大的演示文稿？**
 
-在大型二進位物件佔用記憶體的情況下使用 BLOB 管理，對於極大檔案盡量使用檔案路徑載入，及時釋放來源簡報，且僅在必要時儲存最終結果。
+在大型二进制对象占用内存较多的情况下使用 BLOB 管理，尽可能采用文件路径加载，及时释放源演示文稿，并仅在需要时保存最终结果。
 
-**我可以從多個執行緒合併投影片嗎？**
+**可以从多个线程合并幻灯片吗？**
 
-請勿在多執行緒同時使用同一個 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/) 實例。每個合併作業應使用獨立的簡報實例。
+不要在多个线程中并发使用同一个 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/) 实例。每个合并操作应使用各自独立的演示文稿实例。

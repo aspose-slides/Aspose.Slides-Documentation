@@ -1,11 +1,11 @@
 ---
-title: عملیات ارائه کدکم در PHP
-linktitle: API کدکم
+title: عملیات‌های ارائه کم‌کد در PHP
+linktitle: API کم‌کد
 type: docs
 weight: 50
 url: /fa/php-java/low-code-presentation-operations/
 keywords:
-- API ارائه کدکم
+- API ارائه کم‌کد
 - تبدیل ارائه
 - ادغام ارائه‌ها
 - تکرار اسلایدها
@@ -13,8 +13,8 @@ keywords:
 - تکرار متن
 - جمع‌آوری اشکال
 - فشرده‌سازی ارائه
-- حذف اسلایدهای مستر بدون استفاده
-- حذف اسلایدهای لایه بدون استفاده
+- حذف مسترهای استفاده‌نشده
+- حذف لایه‌های استفاده‌نشده
 - فشرده‌سازی قلم‌های توکار
 - PowerPoint
 - OpenDocument
@@ -23,25 +23,25 @@ keywords:
 - Aspose.Slides
 description: "از API کم‌کد Aspose.Slides در PHP برای تبدیل و ادغام ارائه‌ها، تکرار محتوا، جمع‌آوری اشکال و کاهش اندازه ارائه استفاده کنید."
 ---
-## **بررسی کلی**
+## **بررسی اجمالی**
 
-فضای‌نام [aspose.slides](https://reference.aspose.com/slides/fa/php-java/aspose.slides/) کلاس‌های کمکی استاتیک برای عملیات‌های رایج ارائه را فراهم می‌کند. این کمکی‌ها جریان‌کارهای مدل شیء پرکاربرد را در متدهای متمرکز می‌پیچند، به‌طوری‌که می‌توانید فایل‌ها را تبدیل یا ادغام کنید، عناصر ارائه را پردازش کنید، اشکال را جمع‌آوری کنید و محتوای بدون استفاده را با کد کمتر حذف کنید.
+فضای نام [aspose.slides](https://reference.aspose.com/slides/fa/php-java/aspose.slides/) کلاس‌های استاتیک کمکی برای عملیات‌های رایج ارائه‌ها را فراهم می‌کند. این کمکی‌ها جریان‌های کاری پرکاربرد شیء‑مدل را در متدهای متمرکز می‌پیچند، بنابراین می‌توانید فایل‌ها را تبدیل یا ترکیب کنید، عناصر ارائه را پردازش کنید، اشکال را جمع‌آوری کنید و محتوای استفاده‑نشده را با کد کمتر حذف کنید.
 
-کمکی‌های کدکم وقتی مفیدترند که عملیات بر یک فایل یا ارائه کامل اعمال شود و جریان‌کار پیش‌فرض با نیازهای شما مطابقت داشته باشد. زمانی که به کنترل دقیق بر اسلایدهای منفرد، مسترها، لایه‌ها، اشکال، تنظیمات خروجی یا روابط بین عناصر ارائه نیاز دارید، از مدل شیء کامل [Aspose.Slides object model](https://reference.aspose.com/slides/fa/php-java/aspose.slides/) استفاده کنید.
+کمکی‌های کم‑کد وقتی که عملیات بر کل فایل یا ارائه اعمال می‌شود و جریان کاری پیش‌فرض با نیازهای شما منطبق است، بیشترین کاربرد را دارند. زمانی که نیاز به کنترل دقیق بر اسلایدهای منفرد، مسترها، لایه‌ها، اشکال، تنظیمات خروجی یا روابط بین عناصر ارائه دارید، از [Aspose.Slides object model](https://reference.aspose.com/slides/fa/php-java/aspose.slides/) کامل استفاده کنید.
 
-جدول زیر دستیارهای موجود را خلاصه می‌کند:
+جدول زیر خلاصه‌ای از کمکی‌های موجود را نشان می‌دهد:
 
-| کمکی | موارد استفاده |
+| کمک‌کننده | موارد استفاده |
 | --- | --- |
-| [Convert](https://reference.aspose.com/slides/fa/php-java/aspose.slides/convert/) | تبدیل یک ارائه به فرمت دیگر با فراخوانی مستقیم فایل به فایل. |
-| [Merger](https://reference.aspose.com/slides/fa/php-java/aspose.slides/merger/) | ترکیب کامل فایل‌های ارائه‌ای با همان فرمت. |
-| [ForEach_](https://reference.aspose.com/slides/fa/php-java/aspose.slides/foreach_/) | اجرای یک فراخوانی برای هر اسلاید، شکل، پاراگراف یا بخش متن. |
-| [Collect](https://reference.aspose.com/slides/fa/php-java/aspose.slides/collect/) | بازیابی اشکال از کل ارائه برای پردازش یا تجزیه و تحلیل مکرر. |
-| [Compress](https://reference.aspose.com/slides/fa/php-java/aspose.slides/compress/) | حذف مسترها و لایه‌های بدون استفاده و کاهش داده‌های قلم‌های توکار. |
+| [Convert](https://reference.aspose.com/slides/fa/php-java/aspose.slides/convert/) | تبدیل یک ارائه به قالب دیگر با فراخوانی مستقیم فایل‑به‑فایل. |
+| [Merger](https://reference.aspose.com/slides/fa/php-java/aspose.slides/merger/) | ترکیب کامل فایل‌های ارائه‌ای با همان قالب. |
+| [ForEach_](https://reference.aspose.com/slides/fa/php-java/aspose.slides/foreach_/) | اجرای یک callback برای هر اسلاید، شکل، پاراگراف یا بخش متن. |
+| [Collect](https://reference.aspose.com/slides/fa/php-java/aspose.slides/collect/) | بازیابی اشکال از کل ارائه برای پردازش یا تحلیل مکرر. |
+| [Compress](https://reference.aspose.com/slides/fa/php-java/aspose.slides/compress/) | حذف مسترها و لایه‌های استفاده‌نشده و کاهش داده‌های قلم‌های توکار. |
 
 ## **تبدیل یک ارائه**
 
-هنگامی که پسوند فایل خروجی برای انتخاب فرمت خروجی کافی است، از [Convert::autoByExtension](https://reference.aspose.com/slides/fa/php-java/aspose.slides/convert/#autoByExtension) استفاده کنید. این متد ارائه منبع را باز می‌کند، فرمت مورد نیاز را از مسیر خروجی تعیین می‌نماید و نتیجه را می‌نویسد.
+زمانی که پسوند فایل خروجی برای انتخاب قالب خروجی کافی است، از [Convert::autoByExtension](https://reference.aspose.com/slides/fa/php-java/aspose.slides/convert/#autoByExtension) استفاده کنید. این متد ارائه منبع را باز می‌کند، قالب مورد نیاز را از مسیر خروجی تعیین می‌کند و نتیجه را می‌نویسد.
 
 ```php
 use aspose\slides\Convert;
@@ -49,11 +49,11 @@ use aspose\slides\Convert;
 Convert::autoByExtension("input.pptx", "output.pdf");
 ```
 
-کلاس [Convert](https://reference.aspose.com/slides/fa/php-java/aspose.slides/convert/) همچنین متدهای ویژه‌ای برای خروجی PDF، SVG، JPEG، PNG و TIFF فراهم می‌کند. زمانی که لازم است پیش از خروجی‌گیری ارائه را بررسی یا تغییر دهید یا گزینه‌ای خروجی را تنظیم کنید که توسط کمکی انتخاب‌شده در دسترس نیست، از مدل شیء کامل استفاده کنید. برای گردش‌کارها و گزینه‌های مخصوص هر فرمت، به [Convert Presentation](/php-java/convert-presentation/) مراجعه کنید.
+کلاس [Convert](https://reference.aspose.com/slides/fa/php-java/aspose.slides/convert/) همچنین متدهای اختصاصی برای خروجی PDF، SVG، JPEG، PNG و TIFF فراهم می‌کند. زمانی که نیاز به بررسی یا تغییر ارائه پیش از خروجی یا تنظیم گزینه‌ای دارید که توسط کمکی انتخاب‑شده در دسترس نیست، از مدل شیء کامل استفاده کنید. برای گردش‌کارها و گزینه‌های خاص قالب، به صفحه [تبدیل ارائه](/slides/fa/php-java/convert-presentation/) مراجعه کنید.
 
-## **ادغام ارائه‌ها**
+## **ترکیب ارائه‌ها**
 
-برای ترکیب کامل فایل‌های ارائه با یک فراخوانی، از [Merger::process](https://reference.aspose.com/slides/fa/php-java/aspose.slides/merger/#process) استفاده کنید. ارائه‌های ورودی باید دارای همان فرمت فایل باشند.
+برای ترکیب کامل فایل‌های ارائه‌ای با یک فراخوانی، از [Merger::process](https://reference.aspose.com/slides/fa/php-java/aspose.slides/merger/#process) استفاده کنید. ارائه‌های ورودی باید دارای همان قالب فایل باشند.
 
 ```php
 use aspose\slides\Merger;
@@ -62,13 +62,13 @@ $inputFiles = ["part-1.pptx", "part-2.pptx"];
 Merger::process($inputFiles, "merged.pptx");
 ```
 
-این کمکی زمانی مناسب است که همه اسلایدها باید بدون انتخاب یا نگاشت مجدد به یک نتیجه اضافه شوند. وقتی نیاز به ادغام اسلایدهای منتخب، اعمال مستر یا لایه مقصد، حفظ بخش‌ها به‌صورت صریح یا سازگارسازی اندازه‌های متفاوت اسلاید دارید، از مدل شیء کامل استفاده کنید. برای این سناریوها، به [Merge Presentations](/php-java/merge-presentation/) نگاه کنید.
+این کمکی زمانی مناسب است که همه اسلایدها باید بدون انتخاب یا بازنقش‌گذاری جداگانه، به یک نتیجه افزوده شوند. زمانی که نیاز به ترکیب اسلایدهای انتخابی، اعمال یک مستر یا لایه مقصد، حفظ بخش‌ها به‌صورت صریح یا تطبیق اندازه‌های اسلاید متفاوت دارید، از مدل شیء کامل استفاده کنید. برای این حالات، به صفحه [ترکیب ارائه‌ها](/slides/fa/php-java/merge-presentation/) مراجعه کنید.
 
 ## **تکرار در عناصر ارائه**
 
-کلاس [ForEach_](https://reference.aspose.com/slides/fa/php-java/aspose.slides/foreach_/) برای هر نوع عنصر ارائه‌ای که درخواست می‌شود، یک فراخوانی را اجرا می‌کند. این کار از حلقه‌های تو در توی جمع‌آوری جلوگیری می‌کند و برای بازرسی یا تغییر فرمت سراسری ارائه مناسب است.
+کلاس [ForEach_](https://reference.aspose.com/slides/fa/php-java/aspose.slides/foreach_/) برای هر نوع عنصر ارائه‌ای که درخواست می‌شود، یک callback فراخوانی می‌کند. این کار از حلقه‌های تو در توی جمع‌آوری جلوگیری می‌کند و برای بازرسی یا تغییرات فرمت‌گذاری در سطح کل ارائه مناسب است.
 
-مثال زیر از [ForEach_::slide](https://reference.aspose.com/slides/fa/php-java/aspose.slides/foreach_/#slide)، [ForEach_::shape](https://reference.aspose.com/slides/fa/php-java/aspose.slides/foreach_/#shape)، [ForEach_::paragraph](https://reference.aspose.com/slides/fa/php-java/aspose.slides/foreach_/#paragraph) و [ForEach_::portion](https://reference.aspose.com/slides/fa/php-java/aspose.slides/foreach_/#portion) برای بررسی عناصر مربوطه استفاده می‌کند:
+مثال زیر از متدهای [ForEach_::slide](https://reference.aspose.com/slides/fa/php-java/aspose.slides/foreach_/#slide)، [ForEach_::shape](https://reference.aspose.com/slides/fa/php-java/aspose.slides/foreach_/#shape)، [ForEach_::paragraph](https://reference.aspose.com/slides/fa/php-java/aspose.slides/foreach_/#paragraph) و [ForEach_::portion](https://reference.aspose.com/slides/fa/php-java/aspose.slides/foreach_/#portion) برای بازرسی عناصر مربوطه استفاده می‌کند:
 
 ```php
 use aspose\slides\ForEach_;
@@ -125,11 +125,11 @@ try {
 }
 ```
 
-به‌صورت پیش‌فرض، پیمایش اشکال و متون در سرتاسر ارائه شامل اسلایدهای عادی، مستر و لایه می‌شود. بارگذاری‌های دارای پارامتر `includeNotes` می‌توانند اسلایدهای یادداشت‌ها را نیز پردازش کنند. زمانی که ترتیب پیمایش، خروج زودهنگام، فیلتر کردن قبل از فراخوانی یا کنترل دقیق والد‑فرزند مهم باشد، از حلقه‌های مستقیم جمع‌آوری استفاده کنید.
+به‌طور پیش‌فرض، پیمایش اشکال و متن در سطح کلی ارائه شامل اسلایدهای معمولی، مستر و لایه است. بارگذاری‌های overload شده با پارامتر `includeNotes` می‌توانند اسلایدهای یادداشت‌ها را نیز پردازش کنند. وقتی ترتیب پیمایش، خروج زودهنگام، فیلتر قبل از فراخوانی callback یا کنترل دقیق والد‑فرزند مهم است، بهتر است از حلقه‌های مستقیم جمع‌آوری استفاده کنید.
 
 ## **جمع‌آوری اشکال**
 
-زمانی که به مجموعه‌ای از تمام اشکال موجود در یک ارائه نیاز دارید نه یک فراخوانی برای هر شکل، از [Collect::shapes](https://reference.aspose.com/slides/fa/php-java/aspose.slides/collect/#shapes) استفاده کنید. این کار هنگامی مفید است که همان مجموعه بارها فیلتر، شمارش یا پردازش شود.
+زمانی که به یک مجموعه از تمام اشکال موجود در یک ارائه نیاز دارید (به جای یک callback برای هر شکل)، از [Collect::shapes](https://reference.aspose.com/slides/fa/php-java/aspose.slides/collect/#shapes) استفاده کنید. این کار زمانی مفید است که همان مجموعه چندین بار فیلتر، شمارش یا پردازش شود.
 
 ```php
 use aspose\slides\Collect;
@@ -149,15 +149,15 @@ try {
 }
 ```
 
-به‌جای آن وقتی هر شکل می‌تواند بلافاصله در فراخوانی پردازش شود و نیازی به نگه‌داشتن نتیجهٔ جمع‌آوری‌شده ندارید، از [ForEach_::shape](https://reference.aspose.com/slides/fa/php-java/aspose.slides/foreach_/#shape) استفاده کنید.
+اگر هر شکل می‌تواند بلافاصله درون یک callback پردازش شود و نیازی به حفظ نتیجه جمع‌آوری‌شده ندارید، به جای آن از [ForEach_::shape](https://reference.aspose.com/slides/fa/php-java/aspose.slides/foreach_/#shape) استفاده کنید.
 
 ## **فشرده‌سازی محتوای ارائه**
 
-کلاس [Compress](https://reference.aspose.com/slides/fa/php-java/aspose.slides/compress/) می‌تواند عناصر ساختاری بدون استفاده را حذف کرده و داده‌های قلم توکار را کاهش دهد:
+کلاس [Compress](https://reference.aspose.com/slides/fa/php-java/aspose.slides/compress/) می‌تواند عناصر ساختاری استفاده‌نشده را حذف و داده‌های قلم‌های توکار را کاهش دهد:
 
-- [Compress::removeUnusedLayoutSlides](https://reference.aspose.com/slides/fa/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) اسلایدهای لایه‌ای را که هیچ اسلاید عادی به آن‌ها ارجاع نمی‌دهد، حذف می‌کند.
-- [Compress::removeUnusedMasterSlides](https://reference.aspose.com/slides/fa/php-java/aspose.slides/compress/#removeUnusedMasterSlides) مسترهای غیرقابل استفاده را حذف می‌کند.
-- [Compress::compressEmbeddedFonts](https://reference.aspose.com/slides/fa/php-java/aspose.slides/compress/#compressEmbeddedFonts) حروف استفاده‌نشده را از قلم‌های توکار حذف می‌کند.
+- [Compress::removeUnusedLayoutSlides](https://reference.aspose.com/slides/fa/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) لایه‌های اسلایدی را که هیچ اسلاید معمولی به آن‌ها ارجاع نمی‌دهد حذف می‌کند.
+- [Compress::removeUnusedMasterSlides](https://reference.aspose.com/slides/fa/php-java/aspose.slides/compress/#removeUnusedMasterSlides) مسترهای استفاده‌نشده را حذف می‌کند.
+- [Compress::compressEmbeddedFonts](https://reference.aspose.com/slides/fa/php-java/aspose.slides/compress/#compressEmbeddedFonts) کاراکترهای استفاده‌نشده را از قلم‌های توکار حذف می‌کند.
 
 ```php
 use aspose\slides\Compress;
@@ -176,32 +176,32 @@ try {
 }
 ```
 
-لایه‌های بدون استفاده را پیش از مسترهای بدون استفاده حذف کنید تا مستری که پس از پاک‌سازی لایه‌ها دیگر ارجاع داده نمی‌شود، نیز حذف شود. اگر ممکن است بعداً به مسترها، لایه‌ها یا داده‌های کامل قلم توکار اصلی نیاز داشته باشید، ارائه بهینه‌شده را در فایل جدیدی ذخیره کنید. برای جزئیات بیشتر، به [Slide Master](/php-java/slide-master/) و [Embedded Font](/php-java/embedded-font/) مراجعه کنید.
+ابتدا لایه‌های استفاده‌نشده را حذف کنید و سپس مسترهای استفاده‌نشده را، به‌طوری که مستری که پس از پاک‌سازی لایه‌ها دیگر ارجاع داده نمی‌شود نیز حذف شود. اگر ممکن است بعداً به مسترها، لایه‌ها یا داده‌های کامل قلم‌های توکار اصلی نیاز داشته باشید، ارائه بهینه‌شده را در فایلی جدید ذخیره کنید. برای جزئیات بیشتر به صفحات [Slide Master](/slides/fa/php-java/slide-master/) و [Embedded Font](/slides/fa/php-java/embedded-font/) مراجعه کنید.
 
-## **سوالات متداول**
+## **سؤالات متداول**
 
-**چه زمان‌هایی باید از API کدکم به‌جای مدل شیء کامل استفاده کنم؟**  
-هنگامی که یک عملیات استاندارد بر یک فایل یا ارائه کامل اعمال می‌شود و نیازی به کنترل دقیق بر عناصر منفرد ندارید، از کمک‌های کدکم استفاده کنید. وقتی نیاز به انتخاب اسلایدهای خاص، کنترل روابط مستر و لایه، بررسی وضعیت میانی یا پیکربندی رفتاری که کمکی آن را فراهم نمی‌کند دارید، از مدل شیء کامل استفاده کنید.
+**چه زمانی باید به‌جای مدل شیء کامل از API کم‑کد استفاده کنم؟**  
+وقتی یک عملیات استاندارد بر کل فایل یا ارائه اعمال می‌شود و نیازی به کنترل دقیق عناصر منفرد ندارد، از کمکی‌های کم‑کد استفاده کنید. زمانی که نیاز به انتخاب اسلایدهای خاص، کنترل روابط مستر و لایه، بازرسی وضعیت میانی یا تنظیم رفتارهایی دارید که کمکی دربرگیرند، از مدل شیء کامل استفاده کنید.
 
-**آیا Merger می‌تواند ارائه‌ها را در فرمت‌های فایل متفاوت ترکیب کند؟**  
-خیر. متد [Merger::process](https://reference.aspose.com/slides/fa/php-java/aspose.slides/merger/#process) نیاز دارد ارائه‌های ورودی هم‌فرمت باشند. ابتدا فایل‌های ورودی را به یک فرمت مشترک تبدیل کنید، برای مثال با [Convert::autoByExtension](https://reference.aspose.com/slides/fa/php-java/aspose.slides/convert/#autoByExtension)، سپس فایل‌های تبدیل‌شده را ادغام کنید.
+**آیا Merger می‌تواند ارائه‌ها را در قالب‌های فایل متفاوت ترکیب کند؟**  
+نه. متد [Merger::process](https://reference.aspose.com/slides/fa/php-java/aspose.slides/merger/#process) برای ترکیب فقط ارائه‌های با همان قالب فایل است. ابتدا فایل‌های ورودی را با استفاده از [Convert::autoByExtension](https://reference.aspose.com/slides/fa/php-java/aspose.slides/convert/#autoByExtension) به یک قالب مشترک تبدیل کنید و سپس فایل‌های تبدیل‑شده را ترکیب کنید.
 
-**آیا ForEach_ مستر، لایه و اسلایدهای یادداشت را پردازش می‌کند؟**  
-متد [ForEach_::slide](https://reference.aspose.com/slides/fa/php-java/aspose.slides/foreach_/#slide) فقط اسلایدهای عادی ارائه را مرور می‌کند. عملیات سراسری [ForEach_::shape](https://reference.aspose.com/slides/fa/php-java/aspose.slides/foreach_/#shape)، [ForEach_::paragraph](https://reference.aspose.com/slides/fa/php-java/aspose.slides/foreach_/#paragraph) و [ForEach_::portion](https://reference.aspose.com/slides/fa/php-java/aspose.slides/foreach_/#portion) به‌طور پیش‌فرض اسلایدهای عادی، مستر و لایه را شامل می‌شوند. برای شامل کردن اسلایدهای یادداشت، از بارگذاری‌هایشان با `includeNotes` برابر `true` استفاده کنید.
+**آیا ForEach_ می‌تواند اسلایدهای مستر، لایه و یادداشت‌ها را پردازش کند؟**  
+متد [ForEach_::slide](https://reference.aspose.com/slides/fa/php-java/aspose.slides/foreach_/#slide) فقط اسلایدهای معمولی ارائه را پیمایش می‌کند. عملیات‌های سطح‑کل مانند [ForEach_::shape](https://reference.aspose.com/slides/fa/php-java/aspose.slides/foreach_/#shape)، [ForEach_::paragraph](https://reference.aspose.com/slides/fa/php-java/aspose.slides/foreach_/#paragraph) و [ForEach_::portion](https://reference.aspose.com/slides/fa/php-java/aspose.slides/foreach_/#portion) به‌طور پیش‌فرض اسلایدهای معمولی، مستر و لایه را شامل می‌شوند. برای شامل کردن اسلایدهای یادداشت‌ها، از بارگذاری‌های overload شده با مقدار `includeNotes` برابر `true` استفاده کنید.
 
 **تفاوت بین ForEach_::shape و Collect::shapes چیست؟**  
-از [ForEach_::shape](https://reference.aspose.com/slides/fa/php-java/aspose.slides/foreach_/#shape) برای پردازش فوری هر شکل از طریق یک فراخوانی استفاده کنید. وقتی به یک نتیجه قابل تکرار نیاز دارید که بتوان آن را نگه‌داشت، فیلتر یا چندین بار پیمایش کرد، از [Collect::shapes](https://reference.aspose.com/slides/fa/php-java/aspose.slides/collect/#shapes) بهره ببرید.
+از [ForEach_::shape](https://reference.aspose.com/slides/fa/php-java/aspose.slides/foreach_/#shape) برای پردازش فوری هر شکل در یک callback استفاده کنید. وقتی به یک نتیجه قابل پیمایش نیاز دارید که بتوانید آن را حفظ، فیلتر یا چندین بار شمارش کنید، از [Collect::shapes](https://reference.aspose.com/slides/fa/php-java/aspose.slides/collect/#shapes) بهره ببرید.
 
 **آیا Compress همیشه اندازه فایل ارائه را کوچک می‌کند؟**  
-لزماً نیست. نتیجه به این بستگی دارد که آیا در ارائه لایه‌های بدون استفاده، مسترهای بدون استفاده یا قلم‌های توکار با کاراکترهای استفاده‌نشده وجود دارد یا خیر. اگر هیچ‌یک از این موارد موجود نباشد، عملیات‌های مربوط به [Compress](https://reference.aspose.com/slides/fa/php-java/aspose.slides/compress/) ممکن است اندازه فایل را کاهش ندهند.
+لزومی ندارد. نتیجه به این بستگی دارد که آیا ارائه شامل لایه‌های استفاده‌نشده، مسترهای استفاده‌نشده یا قلم‌های توکار با کاراکترهای استفاده‌نشده باشد. اگر هیچ‌یک از این موارد وجود نداشته باشد، عملیات‌های مربوط به [Compress](https://reference.aspose.com/slides/fa/php-java/aspose.slides/compress/) ممکن است اندازه فایل را کاهش ندهند.
 
-**آیا تغییرات اعمال‌شده توسط ForEach_ یا Compress به‌صورت خودکار ذخیره می‌شوند؟**  
-خیر. این کمک‌ها بر روی شیء [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) بارگذاری‌شده در حافظه عمل می‌کنند. پس از تغییر عناصر در فراخوانی [ForEach_](https://reference.aspose.com/slides/fa/php-java/aspose.slides/foreach_) یا اجرای [Compress](https://reference.aspose.com/slides/fa/php-java/aspose.slides/compress/)، برای نوشتن نتیجه باید از [Presentation::save](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/#save) استفاده کنید.
+**آیا تغییرات انجام شده توسط ForEach_ یا Compress به‌طور خودکار ذخیره می‌شوند؟**  
+نه. این کمکی‌ها بر روی شیء [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) بارگذاری شده در حافظه عمل می‌کنند. پس از تغییر عناصر در یک callback از [ForEach_](https://reference.aspose.com/slides/fa/php-java/aspose.slides/foreach_/) یا اجرای [Compress](https://reference.aspose.com/slides/fa/php-java/aspose.slides/compress/)، برای نوشتن نتیجه باید متد [Presentation::save](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/#save) را فراخوانی کنید.
 
 ## **مقالات مرتبط**
 
-- [Convert Presentation](/php-java/convert-presentation/)
-- [Merge Presentations](/php-java/merge-presentation/)
-- [Slide Master](/php-java/slide-master/)
-- [Manage Text Box](/php-java/manage-textbox/)
-- [Embedded Font](/php-java/embedded-font/)
+- [Convert Presentation](/slides/fa/php-java/convert-presentation/)
+- [Merge Presentations](/slides/fa/php-java/merge-presentation/)
+- [Slide Master](/slides/fa/php-java/slide-master/)
+- [Manage Text Box](/slides/fa/php-java/manage-textbox/)
+- [Embedded Font](/slides/fa/php-java/embedded-font/)

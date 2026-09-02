@@ -19,38 +19,38 @@ keywords:
 - combinar ODP
 - Python
 - Aspose.Slides
-description: "Saiba como mesclar apresentações PowerPoint e OpenDocument em Python clonando slides, controlando mestres e layouts, redimensionando o conteúdo dos slides, preservando seções e lidando com arquivos protegidos ou grandes."
+description: "Aprenda como mesclar apresentações PowerPoint e OpenDocument em Python clonando slides, controlando masters e layouts, redimensionando o conteúdo dos slides, preservando seções e lidando com arquivos protegidos ou grandes."
 ---
 ## **Visão geral**
 
-Aspose.Slides para Python via .NET mescla apresentações clonando slides de uma [Apresentação](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/) para outra. A operação principal é [SlideCollection.add_clone](https://reference.aspose.com/slides/pt/python-net/aspose.slides/slidecollection/add_clone/), que pode preservar a formatação do slide de origem ou anexar o slide clonado a um mestre ou layout na apresentação de destino.
+Aspose.Slides for Python via .NET mescla apresentações clonando slides de uma [Presentation](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/) para outra. A operação principal é [SlideCollection.add_clone](https://reference.aspose.com/slides/pt/python-net/aspose.slides/slidecollection/add_clone/), que pode preservar a formatação do slide de origem ou anexar o slide clonado a um master ou layout na apresentação de destino.
 
 Este artigo cobre os fluxos de trabalho de mesclagem mais comuns:
 
-- mesclar todos os slides preservando a formatação de origem;
+- mesclar todos os slides preservando sua formatação de origem;
 - mesclar slides selecionados;
-- aplicar um mestre da apresentação de destino;
+- aplicar um master da apresentação de destino;
 - aplicar um layout específico da apresentação de destino;
-- normalizar diferentes tamanhos de slide antes da mesclagem;
+- normalizar diferentes tamanhos de slide antes de mesclar;
 - adicionar slides clonados a uma seção;
 - mesclar várias apresentações em um fluxo de trabalho de ponta a ponta;
-- lidar com mestres, recursos, anotações, comentários, mídia, fontes, senhas, arquivos grandes e preocupações de multithreading.
+- tratar masters, recursos, notas, comentários, mídia, fontes, senhas, arquivos grandes e questões de multithreading.
 
-## **Como a clonagem de slide afeta mestres e layouts**
+## **Como a clonagem de slides afeta Masters e Layouts**
 
-Um slide herda grande parte de sua aparência do layout e do mestre. Por esse motivo, a sobrecarga de clonagem que você escolher determina como o slide mesclado é integrado na apresentação de destino.
+Um slide herda grande parte de sua aparência do layout e do master. Por esse motivo, a sobrecarga de clonagem que você escolher determina como o slide mesclado é integrado à apresentação de destino.
 
-Use [SlideCollection.add_clone](https://reference.aspose.com/slides/pt/python-net/aspose.slides/slidecollection/add_clone/) de uma destas maneiras:
+Use [SlideCollection.add_clone](https://reference.aspose.com/slides/pt/python-net/aspose.slides/slidecollection/add_clone/) de uma das seguintes maneiras:
 
-- `add_clone(source_slide)` — preserva o layout e a formatação do slide de origem. Quando necessário, o mestre de origem pode ser clonado automaticamente para a apresentação de destino. Aspose.Slides rastreia mestres clonados automaticamente para que slides repetidos que utilizam o mesmo mestre de origem não causem a clonagem desse mestre repetidamente.
-- `add_clone(source_slide, destination_master, allow_clone_missing_layout)` — anexa o slide clonado a um [IMasterSlide](https://reference.aspose.com/slides/pt/python-net/aspose.slides/imasterslide/) de destino específico. Aspose.Slides procura um layout correspondente sob esse mestre por tipo ou nome de layout.
+- `add_clone(source_slide)` — preserve o layout e a formatação do slide de origem. Quando necessário, o master de origem pode ser clonado automaticamente para a apresentação de destino. Aspose.Slides rastreia masters clonados automaticamente para que slides repetidos que usam o mesmo master de origem não causem a clonagem repetida desse master.
+- `add_clone(source_slide, destination_master, allow_clone_missing_layout)` — anexa o slide clonado a um [IMasterSlide](https://reference.aspose.com/slides/pt/python-net/aspose.slides/imasterslide/) de destino específico. Aspose.Slides procura um layout correspondente sob esse master pelo tipo ou nome do layout.
 - `add_clone(source_slide, destination_layout)` — anexa o slide clonado diretamente a um [ILayoutSlide](https://reference.aspose.com/slides/pt/python-net/aspose.slides/ilayoutslide/) de destino específico.
 
-O mestre ou layout passado para uma sobrecarga `add_clone` deve pertencer à apresentação **de destino**, não à apresentação de origem.
+O master ou layout passado para uma sobrecarga `add_clone` deve pertencer à apresentação **de destino**, não à apresentação de origem.
 
-## **Mesclar Apresentações Inteiras e Preservar a Formatação de Origem**
+## **Mesclar apresentações inteiras e preservar a formatação de origem**
 
-A mesclagem mais simples copia cada slide da apresentação de origem para a apresentação de destino. Essa é a escolha adequada quando os slides importados devem manter seu tema, mestre e relacionamentos de layout originais.
+A mescla mais simples copia cada slide da apresentação de origem para a apresentação de destino. Essa é a escolha apropriada quando os slides importados devem manter seu tema, master e relacionamentos de layout originais.
 
 ```python
 import aspose.slides as slides
@@ -63,11 +63,11 @@ with slides.Presentation("destination.pptx") as destination:
         destination.save("merged.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-A apresentação resultante pode conter múltiplos mestres quando a origem e o destino usam designs diferentes. Isso é esperado quando a formatação de origem é intencionalmente preservada.
+A apresentação resultante pode conter múltiplos masters quando a origem e o destino usam designs diferentes. Isso é esperado quando a formatação da origem é preservada intencionalmente.
 
-## **Mesclar Slides Selecionados**
+## **Mesclar slides selecionados**
 
-Você não precisa clonar todos os slides. O exemplo a seguir importa apenas os índices de slide selecionados da apresentação de origem.
+Você não precisa clonar todos os slides. O exemplo a seguir importa apenas índices de slides selecionados da apresentação de origem.
 
 ```python
 import aspose.slides as slides
@@ -82,11 +82,11 @@ with slides.Presentation("destination.pptx") as destination:
         destination.save("merged-selected-slides.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Valide os índices de slide antes de clonar quando eles vierem de entrada do usuário ou de configuração externa.
+Valide os índices de slides antes de clonar quando eles provêm de entrada do usuário ou configuração externa.
 
-## **Mesclar Slides Usando um Mestre de Destino**
+## **Mesclar slides usando um Master de destino**
 
-Use a sobrecarga [add_clone(source_slide, destination_master, allow_clone_missing_layout)](https://reference.aspose.com/slides/pt/python-net/aspose.slides/slidecollection/add_clone/) quando os slides importados devem seguir um mestre que já pertence à apresentação de destino.
+Use a sobrecarga [add_clone(source_slide, destination_master, allow_clone_missing_layout)](https://reference.aspose.com/slides/pt/python-net/aspose.slides/slidecollection/add_clone/) quando os slides importados devem seguir um master que já pertence à apresentação de destino.
 
 ```python
 import aspose.slides as slides
@@ -101,11 +101,11 @@ with slides.Presentation("destination.pptx") as destination:
         destination.save("merged-with-destination-master.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Aspose.Slides seleciona um layout apropriado sob o mestre especificado ao corresponder ao tipo ou nome do layout de origem. Se nenhum layout adequado existir e `allow_clone_missing_layout` for `True`, o layout de origem é clonado para que o slide possa ser adicionado. Se for `False`, uma [PptxEditException](https://reference.aspose.com/slides/pt/python-net/aspose.slides/pptxeditexception/) é lançada.
+Aspose.Slides seleciona um layout apropriado sob o master especificado correspondendo ao tipo ou nome do layout de origem. Se nenhum layout adequado existir e `allow_clone_missing_layout` for `True`, o layout de origem será clonado para que o slide possa ser adicionado. Se for `False`, uma [PptxEditException](https://reference.aspose.com/slides/pt/python-net/aspose.slides/pptxeditexception/) é lançada.
 
-Use `False` quando desejar que a mesclagem falhe em vez de introduzir um layout adicional no mestre de destino.
+Use `False` quando você quiser que a mescla falhe em vez de introduzir um layout adicional no master de destino.
 
-## **Mesclar Slides Usando um Layout de Destino Específico**
+## **Mesclar slides usando um Layout de destino específico**
 
 Use a sobrecarga [add_clone(source_slide, destination_layout)](https://reference.aspose.com/slides/pt/python-net/aspose.slides/slidecollection/add_clone/) quando você souber exatamente qual layout de destino os slides importados devem usar.
 
@@ -122,13 +122,13 @@ with slides.Presentation("destination.pptx") as destination:
         destination.save("merged-with-destination-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Aplicar um layout de destino altera a relação de layout herdada; não redesenha o conteúdo do slide de origem. Se os layouts de origem e destino tiverem estruturas de marcadores diferentes, inspecione o resultado para confirmar que a formatação herdada e o comportamento dos marcadores são adequados.
+Aplicar um layout de destino altera a relação de layout herdada; não redesenha o conteúdo do slide de origem. Se os layouts de origem e destino tiverem estruturas de placeholder diferentes, inspecione o resultado para confirmar que a formatação herdada e o comportamento dos placeholders estão adequados.
 
-## **Mesclar Apresentações com Diferentes Tamanhos de Slide**
+## **Mesclar apresentações com tamanhos de slide diferentes**
 
-Apresentações com dimensões de slide diferentes podem ser mescladas, mas clonar um slide em uma apresentação com outro tamanho de slide não redesenha automaticamente seu conteúdo para a nova tela. Formas podem aparecer deslocadas, escaladas inesperadamente ou fora da área visível do slide.
+Apresentações com dimensões de slide diferentes podem ser mescladas, mas clonar um slide em uma apresentação com outro tamanho de slide não redesenha automaticamente seu conteúdo para a nova tela. As formas podem aparecer deslocadas, dimensionadas inesperadamente ou fora da área visível do slide.
 
-Uma abordagem prática é redimensionar a apresentação de origem antes de clonar. O método [SlideSize.set_size](https://reference.aspose.com/slides/pt/python-net/aspose.slides/slidesize/set_size/) pode escalar o conteúdo existente enquanto altera as dimensões do slide. [SlideSizeScaleType.ENSURE_FIT](https://reference.aspose.com/slides/pt/python-net/aspose.slides/slidesizescaletype/) escala o conteúdo para caber no tamanho solicitado.
+Uma abordagem prática é redimensionar a apresentação de origem antes de clonar. O método [SlideSize.set_size](https://reference.aspose.com/slides/pt/python-net/aspose.slides/slidesize/set_size/) pode escalar o conteúdo existente ao mudar as dimensões do slide. [SlideSizeScaleType.ENSURE_FIT](https://reference.aspose.com/slides/pt/python-net/aspose.slides/slidesizescaletype/) escala o conteúdo para caber dentro do tamanho solicitado.
 
 ```python
 import aspose.slides as slides
@@ -150,9 +150,9 @@ with slides.Presentation("destination.pptx") as destination:
         destination.save("merged-same-slide-size.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-O redimensionamento altera o objeto da apresentação de origem na memória. Se precisar da apresentação de origem original inalterada para outras operações, abra uma instância separada para a mesclagem.
+Redimensionar altera o objeto da apresentação de origem na memória. Se você precisar da apresentação de origem original inalterada para outras operações, abra uma instância separada para a mescla.
 
-## **Mesclar Slides em uma Seção de Apresentação**
+## **Mesclar slides em uma seção de apresentação**
 
 O loop básico de clonagem de slides não recria a hierarquia de seções da apresentação de origem. Se as seções forem importantes na saída, crie ou selecione seções na apresentação de destino e clone os slides nelas explicitamente com [SlideCollection.add_clone](https://reference.aspose.com/slides/pt/python-net/aspose.slides/slidecollection/add_clone/).
 
@@ -169,11 +169,11 @@ with slides.Presentation("destination.pptx") as destination:
         destination.save("merged-with-section.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Os slides clonados são anexados à seção de destino especificada. Para preservar várias seções de origem, recrie essas seções no destino com [SectionCollection.append_empty_section](https://reference.aspose.com/slides/pt/python-net/aspose.slides/sectioncollection/append_empty_section/) e mapeie cada slide de origem para a seção de destino correspondente.
+Os slides clonados são acrescentados à seção de destino especificada. Para preservar várias seções de origem, enumere [Presentation.sections](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/sections/), recupere os slides atuais de cada seção de origem com [Section.get_slides_list_of_section](https://reference.aspose.com/slides/pt/python-net/aspose.slides/section/get_slides_list_of_section/), recrie as seções no destino e clone cada slide retornado para sua respectiva seção de destino. Veja [Manage Slide Sections](/slides/pt/python-net/slide-section/) para um exemplo completo de enumeração de seções, incluindo seções vazias e mudanças estruturais.
 
-## **Mesclar Várias Apresentações com Segurança**
+## **Mesclar múltiplas apresentações com segurança**
 
-O exemplo de ponta a ponta a seguir usa a primeira apresentação como destino, normaliza o tamanho de slide de cada origem adicional, mantém cada origem aberta apenas enquanto é copiada e salva o arquivo final uma única vez.
+O exemplo a seguir de ponta a ponta usa a primeira apresentação como destino, normaliza o tamanho de slide de cada fonte adicional, mantém cada fonte aberta somente enquanto está sendo copiada e salva o arquivo final uma única vez.
 
 ```python
 import aspose.slides as slides
@@ -198,37 +198,37 @@ with slides.Presentation(input_files[0]) as merged:
     merged.save("merged.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Este é um ponto de partida útil para preservar a formatação de origem dos slides importados. Se sua saída precisar usar um único tema de destino, substitua a chamada simples `add_clone(slide)` pela sobrecarga de mestre ou layout de destino apropriada mostrada anteriormente.
+Esta é uma base útil para preservar a formatação de origem dos slides importados. Se sua saída precisar usar um único tema de destino, substitua a chamada simples `add_clone(slide)` pela sobrecarga de master de destino ou layout de destino apropriada mostrada anteriormente.
 
-## **Considerações Práticas**
+## **Considerações práticas**
 
-### **Mestres, Layouts e Fidelidade de Formatação**
+### **Masters, Layouts e fidelidade de formatação**
 
-A clonagem padrão de slides pode trazer automaticamente um mestre de origem necessário para a apresentação de destino. Aspose.Slides mantém um registro interno de mestres clonados automaticamente para evitar a clonagem repetida do mesmo mestre. Mestres clonados manualmente não são rastreados por esse registro, portanto evite pré-clonar mestres a menos que precise de controle explícito sobre a estrutura do mestre.
+A clonagem padrão de slides pode trazer automaticamente um master de origem necessário para a apresentação de destino. Aspose.Slides mantém um registro interno para masters clonados automaticamente a fim de evitar clonar o mesmo master repetidamente. Masters clonados manualmente não são rastreados por esse registro, portanto evite pré-clonar masters a menos que você precise de controle explícito sobre a estrutura do master.
 
-Não presuma que dois mestres ou layouts com o mesmo nome sejam visualmente equivalentes. Se um modelo corporativo deve controlar a aparência final, escolha explicitamente um mestre ou layout de destino e verifique o resultado após a mesclagem.
+Não presuma que dois masters ou layouts com o mesmo nome sejam visualmente equivalentes. Se um modelo corporativo deve controlar a aparência final, escolha explicitamente um master ou layout de destino e verifique o resultado após a mescla.
 
-### **Anotações e Comentários**
+### **Notas e comentários**
 
-Anotações de apresentador e comentários de slide são associados ao conteúdo do slide e são copiados quando um slide é clonad​o. Aspose.Slides também expõe APIs dedicadas para [presentation notes](https://docs.aspose.com/slides/pt/python-net/presentation-notes/) e [presentation comments](https://docs.aspose.com/slides/pt/python-net/presentation-comments/).
+Notas de apresentador e comentários de slide estão associados ao conteúdo do slide e são copiados quando um slide é clonado. Aspose.Slides também expõe APIs dedicadas para [presentation notes](/slides/pt/python-net/presentation-notes/) e [presentation comments](/slides/pt/python-net/presentation-comments/).
 
-Se a formatação da página de anotações for importante, verifique a apresentação mesclada porque mestres de anotações são objetos de nível de apresentação e podem diferir entre arquivos de origem. Para fluxos de revisão, também verifique os autores dos comentários e comentários em cadeia após combinar arquivos de diferentes autores ou modelos.
+Se a formatação da página de notas for importante, verifique a apresentação mesclada porque os masters de notas são objetos ao nível da apresentação e podem diferir entre arquivos de origem. Para fluxos de revisão, também verifique os autores dos comentários e os comentários em thread após combinar arquivos de diferentes autores ou modelos.
 
-### **Imagens, Áudio, Vídeo, Objetos OLE e Links Externos**
+### **Imagens, áudio, vídeo, objetos OLE e links externos**
 
-Slides podem referenciar recursos de nível de apresentação como imagens, áudio incorporado, vídeo incorporado e dados OLE. Clone o slide inteiro em vez de copiar apenas suas formas visíveis para que Aspose.Slides possa manter os relacionamentos do slide com seus recursos.
+Os slides podem referenciar recursos ao nível da apresentação, como imagens, áudio incorporado, vídeo incorporado e dados OLE. Clone o próprio slide em vez de copiar apenas suas formas visíveis, para que Aspose.Slides possa manter os relacionamentos do slide com seus recursos.
 
 Recursos incorporados e vinculados devem ser tratados de forma diferente. Um áudio, vídeo, objeto OLE ou hyperlink vinculado permanece dependente de seu alvo externo; clonar um slide não transforma um link externo em conteúdo incorporado. Teste caminhos e URLs de recursos vinculados no ambiente onde a apresentação mesclada será aberta.
 
-Aspose.Slides rastreia explicitamente mestres clonados automaticamente, mas isso não deve ser interpretado como garantia geral de que recursos binários idênticos de apresentações de origem não relacionadas serão sempre desduplicados. Se o tamanho do arquivo de saída for importante, inspecione o pacote mesclado e meça o resultado em vez de confiar na desduplicação implícita.
+Aspose.Slides rastreia explicitamente masters clonados automaticamente, mas isso não deve ser tratado como garantia geral de que recursos binários idênticos de apresentações de origem não relacionadas serão sempre desduplicados. Se o tamanho do arquivo de saída for importante, inspeccione o pacote mesclado e meça o resultado em vez de confiar na desduplicação implícita.
 
-### **Fontes Incorporadas e Disponibilidade de Fontes**
+### **Fontes incorporadas e disponibilidade de fontes**
 
-Fontes são gerenciadas em nível de apresentação. Se a tipografia precisar permanecer consistente entre máquinas, não presuma que clonar slides sozinho garante que cada fonte necessária esteja disponível no ambiente de destino. Você pode inspecionar fontes incorporadas com [FontsManager.get_embedded_fonts](https://reference.aspose.com/slides/pt/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) e gerenciar a incorporação explicitamente conforme descrito em [Embed Fonts in Presentations](https://docs.aspose.com/slides/pt/python-net/embedded-font/).
+As fontes são gerenciadas ao nível da apresentação. Se a tipografia precisar permanecer consistente entre máquinas, não presuma que clonar apenas slides garante que toda fonte necessária esteja disponível no ambiente de destino. Você pode inspecionar fontes incorporadas com [FontsManager.get_embedded_fonts](https://reference.aspose.com/slides/pt/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) e gerenciar a incorporação explicitamente conforme descrito em [Embed Fonts in Presentations](/slides/pt/python-net/embedded-font/).
 
-Também verifique se tem permissão para incorporar as fontes usadas pelos arquivos de origem. Licenças de fontes podem restringir a incorporação.
+Também verifique se você tem permissão para incorporar as fontes usadas nos arquivos de origem. Licenças de fontes podem restringir a incorporação.
 
-### **Apresentações Protegidas por Senha**
+### **Apresentações protegidas por senha**
 
 Uma origem protegida por senha deve ser aberta com sucesso antes que seus slides possam ser clonados. Forneça a senha através de [LoadOptions.password](https://reference.aspose.com/slides/pt/python-net/aspose.slides/loadoptions/password/).
 
@@ -244,62 +244,62 @@ with slides.Presentation("protected.pptx", load_options) as source:
 
 Abrir uma origem criptografada não aplica automaticamente a mesma proteção à apresentação de destino. Configure a proteção de saída separadamente quando necessário.
 
-### **Apresentações Grandes e Uso de Memória**
+### **Apresentações grandes e uso de memória**
 
-Apresentações grandes contendo imagens de alta resolução, áudio, vídeo ou outros objetos binários volumosos podem consumir memória significativa. [LoadOptions.blob_management_options](https://reference.aspose.com/slides/pt/python-net/aspose.slides/loadoptions/blob_management_options/) fornece controles para manipulação de BLOBs e uso de arquivos temporários. Consulte [Manage Presentation BLOBs](https://docs.aspose.com/slides/pt/python-net/manage-blob/) para estratégias com arquivos grandes.
+Apresentações grandes contendo imagens de alta resolução, áudio, vídeo ou outros objetos binários grandes podem consumir memória significativa. [LoadOptions.blob_management_options](https://reference.aspose.com/slides/pt/python-net/aspose.slides/loadoptions/blob_management_options/) fornece controles para o tratamento de BLOBs e uso de arquivos temporários. Veja [Manage Presentation BLOBs](/slides/pt/python-net/manage-blob/) para estratégias de arquivos grandes.
 
-Para arquivos grandes, prefira carregar a partir de caminhos de arquivo quando possível, feche cada apresentação de origem assim que ela for mesclada e evite salvar resultados intermediários repetidamente, a menos que o fluxo exija pontos de verificação. Usar `with slides.Presentation(...)` garante que os recursos da apresentação sejam liberados quando o contexto termina.
+Para arquivos grandes, prefira carregar a partir de caminhos de arquivo quando possível, feche cada apresentação de origem assim que ela for mesclada e evite salvar repetidamente resultados intermediários a menos que o fluxo exija pontos de verificação. Usar `with slides.Presentation(...)` garante que os recursos da apresentação sejam liberados ao sair do contexto.
 
-### **Segurança em Threads**
+### **Segurança em threads**
 
-Não carregue, salve ou clone uma instância de [Presentation](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/) simultaneamente a partir de múltiplas threads. Mantenha cada operação de mesclagem em thread única. Se paralelizar trabalhos de mesclagem independentes, use processos separados de thread única e instâncias de apresentação independentes conforme descrito na [Aspose.Slides multithreading guidance](https://docs.aspose.com/slides/pt/python-net/multithreading/).
+Não carregue, salve ou clone uma instância de [Presentation](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/) simultaneamente a partir de múltiplas threads. Mantenha cada operação de mescla em thread única. Se você paralelizar trabalhos de mescla independentes, use processos separados de thread única e instâncias de apresentação independentes, conforme descrito na [Aspose.Slides multithreading guidance](/slides/pt/python-net/multithreading/).
 
-## **FAQ**
+## **Perguntas frequentes**
 
-**Como manter o design original de cada apresentação de origem?**
+**Como mantenho o design original de cada apresentação de origem?**
 
-Use [`add_clone(source_slide)`](https://reference.aspose.com/slides/pt/python-net/aspose.slides/slidecollection/add_clone/) sem fornecer um mestre ou layout de destino. Aspose.Slides pode clonar automaticamente o mestre de origem quando ele for necessário para o slide importado.
+Use [add_clone](https://reference.aspose.com/slides/pt/python-net/aspose.slides/slidecollection/add_clone/) sem fornecer um master ou layout de destino. Aspose.Slides pode clonar automaticamente o master de origem quando ele for necessário para o slide importado.
 
-**Como fazer com que os slides importados usem o tema de destino?**
+**Como faço os slides importados usarem o tema de destino?**
 
-Use a sobrecarga que aceita um mestre de destino. Passe um mestre da apresentação de destino, não da de origem. Aspose.Slides tentará mapear cada slide de origem para um layout adequado sob esse mestre.
+Use a sobrecarga que aceita um master de destino. Passe um master da apresentação de destino, não da origem. Aspose.Slides tentará mapear cada slide de origem para um layout apropriado sob esse master.
 
-**Quando devo usar um layout de destino específico em vez de um mestre de destino?**
+**Quando devo usar um layout de destino específico em vez de um master de destino?**
 
-Use um layout específico quando cada slide importado deve usar um layout conhecido. Use um mestre quando quiser que Aspose.Slides selecione entre os layouts daquele mestre com base no tipo ou nome do layout de origem.
+Use um layout específico quando cada slide importado deve usar um layout conhecido. Use um master quando você quiser que Aspose.Slides selecione entre os layouts desse master com base no tipo ou nome do layout de origem.
 
-**É possível mesclar apresentações com diferentes tamanhos de slide?**
+**Apresentações com tamanhos de slide diferentes podem ser mescladas?**
 
-Sim, porém o conteúdo do slide não é redesenhado automaticamente para as dimensões de destino. Redimensione a apresentação de origem primeiro quando precisar de posicionamento previsível, por exemplo com [SlideSize.set_size](https://reference.aspose.com/slides/pt/python-net/aspose.slides/slidesize/set_size/) e [SlideSizeScaleType.ENSURE_FIT](https://reference.aspose.com/slides/pt/python-net/aspose.slides/slidesizescaletype/).
+Sim, mas o conteúdo do slide não é redesenhado automaticamente para as dimensões de destino. Redimensione a apresentação de origem primeiro quando precisar de posicionamento previsível, por exemplo com [SlideSize.set_size](https://reference.aspose.com/slides/pt/python-net/aspose.slides/slidesize/set_size/) e [SlideSizeScaleType.ENSURE_FIT](https://reference.aspose.com/slides/pt/python-net/aspose.slides/slidesizescaletype/).
 
 **Posso mesclar apresentações PPT, PPTX e ODP em um único arquivo?**
 
-Sim. Carregue cada apresentação de origem, clone os slides necessários em um destino e salve o destino em um formato de saída suportado. Como os formatos de apresentação não suportam exatamente o mesmo conjunto de recursos, verifique o conteúdo complexo após mesclagens entre formatos diferentes. Consulte [Supported File Formats](https://docs.aspose.com/slides/pt/python-net/supported-file-formats/).
+Sim. Carregue cada apresentação de origem, clone os slides necessários em um único destino e salve o destino em um formato de saída suportado. Como os formatos de apresentação não suportam exatamente o mesmo conjunto de recursos, verifique o conteúdo complexo após mesclas entre formatos. Veja [Supported File Formats](/slides/pt/python-net/supported-file-formats/).
 
 **As seções de origem são preservadas automaticamente?**
 
 Não por um loop básico que apenas clona slides. Recrie as seções necessárias no destino e use a sobrecarga de seção de [add_clone](https://reference.aspose.com/slides/pt/python-net/aspose.slides/slidecollection/add_clone/) quando a estrutura de seções precisar ser preservada.
 
-**As anotações do apresentador e os comentários são preservados?**
+**Notas de apresentador e comentários são preservados?**
 
-Eles são copiados com o slide clonado. Para fluxos que dependem da estilização do mestre de anotações, autores de comentários ou dados de revisão em cadeia, verifique o resultado mesclado, pois esses cenários envolvem estruturas de nível de apresentação além do conteúdo de slide.
+Eles são copiados com o slide clonado. Para fluxos que dependem da estilização do master de notas, autores de comentários ou dados de revisão em thread, verifique o resultado mesclado porque esses cenários envolvem estruturas ao nível da apresentação além do conteúdo do slide.
 
 **O que acontece com áudio, vídeo, objetos OLE e hyperlinks?**
 
-Conteúdo incorporado é mantido como parte dos relacionamentos de recursos do slide clonado. Links externos permanecem externos, portanto seus arquivos ou URLs de destino devem continuar disponíveis após a mesclagem.
+Conteúdo incorporado é mantido como parte dos relacionamentos de recursos do slide clonado. Links externos permanecem externos, portanto seus arquivos ou URLs de destino ainda precisam estar disponíveis após a mescla.
 
-**As fontes incorporadas de todas as origens são garantidas no arquivo mesclado?**
+**As fontes incorporadas de todas as origens são garantidas como disponíveis na apresentação mesclada?**
 
-Não dependa apenas da clonagem de slides para implantação de fontes. Inspecione as fontes incorporadas no destino e gerencie explicitamente a incorporação de fontes ou a disponibilidade de fontes externas quando a tipografia for importante.
+Não confie apenas na clonagem de slides para implantar fontes. Inspecione as fontes incorporadas no destino e gerencie explicitamente a incorporação de fontes ou a disponibilidade de fontes externas quando a tipografia for importante.
 
 **Como mesclar um arquivo protegido por senha?**
 
-Abra-o com o [LoadOptions.password](https://reference.aspose.com/slides/pt/python-net/aspose.slides/loadoptions/password/) correto, depois clone seus slides normalmente. A proteção de saída é configurada separadamente.
+Abra-o com a [LoadOptions.password](https://reference.aspose.com/slides/pt/python-net/aspose.slides/loadoptions/password/) correta, então clone seus slides normalmente. A proteção de saída é configurada separadamente.
 
 **Como devo lidar com apresentações muito grandes?**
 
-Use gerenciamento de BLOBs quando objetos binários grandes dominarem o uso de memória, prefira carregamento por caminho de arquivo para arquivos muito grandes, feche rapidamente as apresentações de origem e salve o resultado final apenas quando necessário.
+Use o gerenciamento de BLOBs quando objetos binários grandes dominam o uso de memória, prefira carregar via caminho de arquivo para arquivos muito grandes, feche as apresentações de origem prontamente e salve o resultado final apenas quando necessário.
 
 **Posso mesclar slides de múltiplas threads?**
 
-Não carregue, salve ou clone instâncias de [Presentation](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/) em várias threads. Mantenha cada operação de mesclagem em thread única; use processos independentes de thread única se precisar paralelar trabalhos de mesclagem separados.
+Não carregue, salve ou clone instâncias de [Presentation](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/) em múltiplas threads. Mantenha cada operação de mescla em thread única; use processos independentes de thread única se precisar paralelizar trabalhos de mescla separados.

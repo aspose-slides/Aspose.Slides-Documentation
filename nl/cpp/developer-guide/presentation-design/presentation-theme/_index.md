@@ -12,7 +12,7 @@ keywords:
 - thema wijzigen
 - thema beheren
 - themakleur
-- extra palet
+- aanvullend palet
 - themalettertype
 - themastijl
 - thema-effect
@@ -21,23 +21,23 @@ keywords:
 - presentatie
 - C++
 - Aspose.Slides
-description: "Beheer presentatiethema's in Aspose.Slides voor C++ om PowerPoint-bestanden te maken, aanpassen en converteren met consistente branding."
+description: "Beheer presentatiethema's in Aspose.Slides voor C++ om PowerPoint-bestanden te maken, aan te passen en te converteren met een consistente branding."
 ---
 ## **Inleiding**
 
-Een presentatiethema definieert een gecoördineerde verzameling van kleuren, lettertypen, achtergrondstijlen, vullingen, lijnen en effecten. Theme‑bewuste objecten verwijzen naar deze gedeelde definities in plaats van elke visuele eigenschap als een vaste waarde op te slaan, zodat een themawijziging veel objecten in één keer kan bijwerken.
+Een presentatiethema definieert een gecoördineerde set van kleuren, lettertypen, achtergrondstijlen, vullingen, lijnen en effecten. Theme‑bewuste objecten verwijzen naar deze gedeelde definities in plaats van elke visuele eigenschap als een vaste waarde op te slaan, zodat een themawijziging veel objecten tegelijk kan bijwerken.
 
-In Aspose.Slides is het themaniveau van de presentatie beschikbaar via [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/get_mastertheme/). Een presentatie kan ook themabewijzigingen op lagere niveaus bevatten. Een master kan het presentatiethema overschrijven via [MasterThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/nl/cpp/aspose.slides.theme/masterthememanager/get_overridetheme/), terwijl een lay‑out of een individuele dia [IOverrideThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/nl/cpp/aspose.slides.theme/ioverridethememanager/get_overridetheme/) kan gebruiken. In de praktijk wordt het effectieve thema voor een dia opgelost via deze overervingsketen: presentatiethema, master‑override, lay‑out‑override en dia‑override.
+In Aspose.Slides is het thema op presentatieniveau beschikbaar via [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/get_mastertheme/). Een presentatie kan ook themaunderschrijvingen bevatten op lagere niveaus. Een master kan het presentatiethema overschrijven via [MasterThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/nl/cpp/aspose.slides.theme/masterthememanager/get_overridetheme/), terwijl een lay‑out of een individuele dia [IOverrideThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/nl/cpp/aspose.slides.theme/ioverridethememanager/get_overridetheme/) kan gebruiken. In de praktijk wordt het effectieve thema voor een dia opgelost via deze overervingsketen: presentatiethema, master‑override, lay‑out‑override en dia‑override.
 
-![Themagebieden: kleuren, lettertypen, achtergrondstijlen en effecten](theme-constituents.png)
+![Themacomponenten: kleuren, lettertypen, achtergrondstijlen en effecten](theme-constituents.png)
 
-De onderstaande secties tonen de meest voorkomende themaworkflows: een thema inspecteren, kleuren en lettertypen wijzigen, een thema kopiëren of toepassen, achtergrond‑ en effectstijlen bijwerken, en effectieve waarden lezen nadat overerving en overrides zijn verwerkt.
+De onderstaande secties laten de meest voorkomende thema‑workflows zien: een thema inspecteren, kleuren en lettertypen wijzigen, een thema kopiëren of toepassen, achtergrond‑ en effectstijlen bijwerken, en effectieve waarden lezen nadat overerving en overrides zijn opgelost.
 
-## **Een Thema Inspecteren**
+## **Inspecteer een thema**
 
-Het [MasterTheme](https://reference.aspose.com/slides/nl/cpp/aspose.slides.theme/mastertheme/)‑object biedt de methoden [get_ColorScheme()](https://reference.aspose.com/slides/nl/cpp/aspose.slides.theme/mastertheme/get_colorscheme/), [get_FontScheme()](https://reference.aspose.com/slides/nl/cpp/aspose.slides.theme/mastertheme/get_fontscheme/) en [get_FormatScheme()](https://reference.aspose.com/slides/nl/cpp/aspose.slides.theme/mastertheme/get_formatscheme/). Het inspecteren van deze collecties voordat ze worden gewijzigd, is vooral nuttig wanneer een presentatie uit een externe bron komt, omdat het aantal en de inhoud van stijl‑items kunnen variëren.
+Het [MasterTheme](https://reference.aspose.com/slides/nl/cpp/aspose.slides.theme/mastertheme/)‑object biedt toegang tot de thema‑methoden [get_ColorScheme()](https://reference.aspose.com/slides/nl/cpp/aspose.slides.theme/mastertheme/get_colorscheme/), [get_FontScheme()](https://reference.aspose.com/slides/nl/cpp/aspose.slides.theme/mastertheme/get_fontscheme/) en [get_FormatScheme()](https://reference.aspose.com/slides/nl/cpp/aspose.slides.theme/mastertheme/get_formatscheme/). Het inspecteren van deze collecties vóór aanpassing is vooral nuttig wanneer een presentatie uit een externe bron komt, omdat het aantal en de inhoud van stijlvermeldingen kan variëren.
 
-Het volgende voorbeeld leest de belangrijkste themaeigenschappen en meldt hoeveel achtergrond‑, vul‑, lijn‑ en effectstijlen in het thema zijn opgeslagen:
+Het volgende voorbeeld leest de hoofdthema‑eigenschappen en meldt hoeveel achtergrond‑, vul‑, lijn‑ en effectstijlen er in het thema zijn opgeslagen:
 
 ```cpp
 #include <DOM/IColorFormat.h>
@@ -69,13 +69,13 @@ Console::WriteLine(u"Line styles: {0}", formatScheme->get_LineStyles()->get_Coun
 Console::WriteLine(u"Effect styles: {0}", formatScheme->get_EffectStyles()->get_Count());
 ```
 
-Als een bestand meerdere masters gebruikt, ga er dan niet van uit dat elke dia hetzelfde effectieve thema heeft. Inspecteer de master die bij de dia hoort, en gebruik de effectieve‑thema‑workflow die later in dit artikel wordt getoond wanneer lay‑out‑ of dia‑overrides aanwezig kunnen zijn.
+Als een bestand meerdere masters gebruikt, ga er niet van uit dat elke dia hetzelfde effectieve thema heeft. Inspecteer de master die bij de dia hoort, en gebruik de effectieve‑thema‑workflow die later in dit artikel wordt getoond wanneer lay‑out‑ of dia‑overrides aanwezig kunnen zijn.
 
-## **Themakleuren Wijzigen**
+## **Wijzig themakleuren**
 
-Theme‑bewuste vullingen, lijnen en tekst kunnen verwijzen naar een logische kleur uit de [SchemeColor](https://reference.aspose.com/slides/nl/cpp/aspose.slides/schemecolor/)‑enumeratie. Wanneer u de overeenkomstige entry in de [IColorScheme](https://reference.aspose.com/slides/nl/cpp/aspose.slides.theme/icolorscheme/) van het thema wijzigt, worden alle objecten die nog steeds naar die themakleur verwijzen, bijgewerkt met de nieuwe waarde. Objecten die een directe RGB‑kleur gebruiken, worden niet gewijzigd door een themakleur‑update.
+Themagevoelige vullingen, lijnen en tekst kunnen verwijzen naar een logische kleur uit de [SchemeColor](https://reference.aspose.com/slides/nl/cpp/aspose.slides/schemecolor/)‑enumeratie. Wanneer je de overeenkomstige vermelding in het thema‑[IColorScheme](https://reference.aspose.com/slides/nl/cpp/aspose.slides.theme/icolorscheme/) wijzigt, worden alle objecten die nog naar die themakleur verwijzen, bijgewerkt naar de nieuwe waarde. Objecten die een directe RGB‑kleur gebruiken, worden niet aangepast door een thema‑kleurupdate.
 
-Het volgende end‑to‑end‑voorbeeld maakt een vorm die `Accent4` gebruikt, wijzigt de themakleur `Accent4` naar rood, slaat de presentatie op, opent deze opnieuw, en drukt de effectieve vulkleur af:
+Het volgende end‑to‑end‑voorbeeld maakt een vorm die `Accent4` gebruikt, wijzigt de themakleur `Accent4` naar rood, slaat de presentatie op, opent deze opnieuw, en print de effectieve vulkleur:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -114,16 +114,16 @@ auto effectiveFill = savedShape->get_FillFormat()->GetEffective();
 Console::WriteLine(u"Effective fill color: {0}", effectiveFill->get_SolidFillColor());
 ```
 
-Omdat het rechthoek nog steeds gekoppeld is aan `Accent4`, wordt de zichtbare kleur rood nadat het thema is gewijzigd. Als u de scheme‑color vervangt door een directe kleur op de vorm, hebben latere wijzigingen aan `Accent4` geen effect meer op die vul.
+Omdat het rechthoekje gekoppeld blijft aan `Accent4`, wordt de zichtbare kleur rood nadat het thema is gewijzigd. Als je de scheme‑color vervangt door een directe kleur op de vorm, zullen latere wijzigingen aan `Accent4` die vulkleur niet meer beïnvloeden.
 
-### **Kleuren uit het Extra Palet Gebruiken**
+### **Gebruik kleuren uit het aanvullende palet**
 
-PowerPoint genereert lichtere en donkerdere varianten van een themakleur door kleurovergangen toe te passen. Aspose.Slides maakt deze overgangen beschikbaar via [ColorTransformOperation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/colortransformoperation/).
+PowerPoint genereert lichtere en donkerdere varianten van een themakleur door kleurtransformaties toe te passen. Aspose.Slides stelt deze transformaties beschikbaar via [ColorTransformOperation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/colortransformoperation/).
 
-![Hoofdkleuren van het thema en lichtere en donkerdere kleuren gegenereerd uit het extra palet](additional-palette-colors.png)
+![Hoofdkleuren van het thema en lichter en donkerder kleuren gegenereerd uit het aanvullende palet](additional-palette-colors.png)
 
-**1** - Hoofdkleuren van het thema.  
-**2** - Lichtere en donkerdere varianten gegenereerd uit de hoofdkleuren.
+**1** – Hoofdkleuren van het thema.  
+**2** – Lichtere en donkerdere varianten die zijn geproduceerd uit de hoofdkleuren.
 
 Het volgende voorbeeld maakt zes rechthoeken gebaseerd op `Accent4`, past luminantie‑transformaties toe op vijf ervan, en slaat het resultaat op:
 
@@ -196,29 +196,29 @@ presentation->Save(u"theme-color-palette.pptx", SaveFormat::Pptx);
 
 Deze varianten blijven gebaseerd op de themakleur. Als `Accent4` later verandert, worden de getransformeerde kleuren opnieuw berekend op basis van de nieuwe `Accent4`‑waarde.
 
-### **`SchemeColor`‑Waarden Toewijzen aan `IColorScheme`‑Slots**
+### **Koppel `SchemeColor`‑waarden aan `IColorScheme`‑posities**
 
-De [SchemeColor](https://reference.aspose.com/slides/nl/cpp/aspose.slides/schemecolor/)‑enumeratie gebruikt `Text1`, `Background1`, `Text2` en `Background2`, terwijl [IColorScheme](https://reference.aspose.com/slides/nl/cpp/aspose.slides.theme/icolorscheme/) dezelfde themaslots exposeert als `Dark1`, `Light1`, `Dark2` en `Light2`. De mapping is vast:
+De [SchemeColor](https://reference.aspose.com/slides/nl/cpp/aspose.slides/schemecolor/)‑enumeratie gebruikt `Text1`, `Background1`, `Text2` en `Background2`, terwijl [IColorScheme](https://reference.aspose.com/slides/nl/cpp/aspose.slides.theme/icolorscheme/) dezelfde themaposities exposeert als `Dark1`, `Light1`, `Dark2` en `Light2`. De koppeling is vast:
 
 * `Text1` = `Dark1`  
 * `Background1` = `Light1`  
 * `Text2` = `Dark2`  
 * `Background2` = `Light2`
 
-Dit zijn alternatieve namen voor dezelfde themaslots; het zijn geen waarden die dynamisch van de ene vorm naar de andere worden geconverteerd.
+Dit zijn alternatieve namen voor dezelfde themaposities; het zijn geen waarden die dynamisch van de ene vorm naar de andere worden geconverteerd.
 
-## **Themale Lettertypen Wijzigen**
+## **Wijzig thema-lettertypen**
 
-Een thema‑lettertype‑schema bevat een hoofdlettertype‑set voor koppen en een secundaire lettertype‑set voor de hoofdtekst. De methoden [FontScheme::get_Major()](https://reference.aspose.com/slides/nl/cpp/aspose.slides.theme/fontscheme/get_major/) en [FontScheme::get_Minor()](https://reference.aspose.com/slides/nl/cpp/aspose.slides.theme/fontscheme/get_minor/) exposeren die sets.
+Een thema‑lettertype‑schema bevat een hoofdlettertype‑set voor koppen en een secundaire lettertype‑set voor bodytekst. De methoden [FontScheme::get_Major()](https://reference.aspose.com/slides/nl/cpp/aspose.slides.theme/fontscheme/get_major/) en [FontScheme::get_Minor()](https://reference.aspose.com/slides/nl/cpp/aspose.slides.theme/fontscheme/get_minor/) exposeren respectievelijk die sets.
 
-PowerPoint‑compatibele thema‑lettertype‑identifiers kunnen worden gebruikt bij tekstopmaak:
+PowerPoint‑compatibele thema‑lettertype‑identifiers kunnen in tekstopmaak worden gebruikt:
 
-* `+mn-lt` - Body Font Latin (Minor Latin Font)  
-* `+mj-lt` - Heading Font Latin (Major Latin Font)  
-* `+mn-ea` - Body Font East Asian (Minor East Asian Font)  
-* `+mj-ea` - Heading Font East Asian (Major East Asian Font)
+* `+mn-lt` – Body Font Latin (Minor Latin Font)  
+* `+mj-lt` – Heading Font Latin (Major Latin Font)  
+* `+mn-ea` – Body Font East Asian (Minor East Asian Font)  
+* `+mj-ea` – Heading Font East Asian (Major East Asian Font)
 
-Het volgende voorbeeld maakt één kop die het hoofd‑Latin‑themale lettertype gebruikt en één body‑regel die het secundaire Latin‑themale lettertype gebruikt. Het wijzigt vervolgens de thema‑lettertypen en slaat het resultaat op:
+Het volgende voorbeeld maakt één kop die het hoofd‑Latin‑themalettertype gebruikt en één body‑regel die het secundaire Latin‑themalettertype gebruikt. Vervolgens worden de thema‑lettertypen gewijzigd en wordt het resultaat opgeslagen:
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -258,19 +258,21 @@ presentation->get_MasterTheme()->get_FontScheme()->get_Minor()->set_LatinFont(Ma
 presentation->Save(u"theme-fonts.pptx", SaveFormat::Pptx);
 ```
 
-De kop volgt het hoofdlettertype en de body‑tekst volgt het secundaire lettertype. Tekst die een expliciete lettertype‑naam heeft in plaats van een thema‑identifier, zal niet automatisch wisselen wanneer het thema‑lettertype‑schema verandert.
+De kop volgt het hoofdlettertype en de bodytekst volgt het secundaire lettertype. Tekst die een expliciete lettertype‑naam heeft in plaats van een thema‑identifier, zal niet automatisch overschakelen wanneer het thema‑lettertype‑schema verandert.
+
+De hoofd‑ en secundaire lettertype‑collecties kunnen ook lettertype‑mappings bevatten voor individuele schriftsystemen, zoals Cyrillisch, Arabisch, Japans, Georgisch en Thaana. Om deze mappings te inspecteren, toe te voegen, te vervangen of te verwijderen, zie [Script‑Specific Theme Fonts](/slides/nl/cpp/script-specific-font-mappings/).
 
 {{% alert color="info" title="Tip" %}}
-Voor meer informatie over presentatietekst, zie [PowerPoint Fonts](/slides/nl/cpp/powerpoint-fonts/).
+Voor meer informatie over presentatiellettertypen, zie [PowerPoint Fonts](/slides/nl/cpp/powerpoint-fonts/).
 {{% /alert %}}
 
-## **Een Thema Kopiëren of Toepassen**
+## **Kopieer of pas een thema toe**
 
 Er zijn twee veelvoorkomende workflows, en ze lossen verschillende problemen op.
 
-### **Een Bron‑Thema Behouden bij het Verplaatsen van Dia’s**
+### **Behoud een bronthema bij het verplaatsen van dia's**
 
-Wilt u een dia naar een andere presentatie verplaatsen en het oorspronkelijke ontwerp behouden, kloon dan de bron‑master in de doelpresentatie met [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/nl/cpp/aspose.slides/imasterslidecollection/addclone/), en kloon daarna de dia met [ISlideCollection::AddClone()](https://reference.aspose.com/slides/nl/cpp/aspose.slides/islidecollection/addclone/) en de gekloonde master. Hierdoor worden de master, zijn lay‑outs en het bijbehorende thema samen meegenomen.
+Wil je een dia naar een andere presentatie verplaatsen en het oorspronkelijke ontwerp behouden, kloon dan de bron‑master in de doelpresentatie met [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/nl/cpp/aspose.slides/imasterslidecollection/addclone/), en kloon vervolgens de dia met [ISlideCollection::AddClone()](https://reference.aspose.com/slides/nl/cpp/aspose.slides/islidecollection/addclone/) en de gekloonde master. Hiermee worden de master, zijn lay‑outs en het bijbehorende thema samen meegenomen.
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -294,11 +296,11 @@ target->get_Slides()->AddClone(sourceSlide, clonedMaster, true);
 target->Save(u"theme-preserved.pptx", SaveFormat::Pptx);
 ```
 
-Dit is de aanbevolen workflow wanneer de bron‑dia er in de bestemming precies hetzelfde uit moet zien. Het simpelweg klonen van inhoud op een niet‑gerelateerde doel‑master kan themagestuurde kleuren, lettertypen, achtergronden en effecten wijzigen.
+Dit is de voorkeursworkflow wanneer de bron‑dia er in de bestemmingspresentatie precies hetzelfde uit moet zien. Het simpelweg klonen van inhoud op een niet‑gerelateerde doel‑master kan themagestuurde kleuren, lettertypen, achtergronden en effecten wijzigen.
 
-### **Thema‑Waarden Toepassen op een Bestaande Dia**
+### **Pas themawaarden toe op een bestaande dia**
 
-Moet de doel‑dia op zijn huidige master en lay‑out blijven, initialiseert u een dia‑niveau‑override vanuit het bron‑thema. De methoden [OverrideTheme::InitColorSchemeFrom()](https://reference.aspose.com/slides/nl/cpp/aspose.slides.theme/overridetheme/initcolorschemefrom/), [OverrideTheme::InitFontSchemeFrom()](https://reference.aspose.com/slides/nl/cpp/aspose.slides.theme/overridetheme/initfontschemefrom/) en [OverrideTheme::InitFormatSchemeFrom()](https://reference.aspose.com/slides/nl/cpp/aspose.slides.theme/overridetheme/initformatschemefrom/) kopiëren de drie hoofd‑thema‑componenten naar de override.
+Moet de doel‑dia op zijn huidige master en lay‑out blijven, initialiseert u dan een dia‑niveau‑override vanuit het themabron. De methoden [OverrideTheme::InitColorSchemeFrom()](https://reference.aspose.com/slides/nl/cpp/aspose.slides.theme/overridetheme/initcolorschemefrom/), [OverrideTheme::InitFontSchemeFrom()](https://reference.aspose.com/slides/nl/cpp/aspose.slides.theme/overridetheme/initfontschemefrom/) en [OverrideTheme::InitFormatSchemeFrom()](https://reference.aspose.com/slides/nl/cpp/aspose.slides.theme/overridetheme/initformatschemefrom/) kopiëren de drie hoofdelementen van het thema naar de override.
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -322,11 +324,11 @@ overrideTheme->InitFormatSchemeFrom(source->get_MasterTheme()->get_FormatScheme(
 target->Save(u"theme-applied-to-slide.pptx", SaveFormat::Pptx);
 ```
 
-Dit wijzigt het thema dat door die dia wordt gebruikt zonder het door andere dia’s geërfde thema te veranderen. Om de lokale override te verwijderen en terug te gaan naar geërfde waarden, roep [OverrideTheme::Clear()](https://reference.aspose.com/slides/nl/cpp/aspose.slides.theme/overridetheme/clear/) aan.
+Dit wijzigt het thema dat die dia gebruikt zonder het thema waar andere dia's van erven te veranderen. Om de lokale override te verwijderen en terug te keren naar de geërfde waarden, roep [OverrideTheme::Clear()](https://reference.aspose.com/slides/nl/cpp/aspose.slides.theme/overridetheme/clear/) aan.
 
-### **Een Thema‑Override Toepassen op een Lay‑out**
+### **Pas een thema‑override toe op een lay‑out**
 
-Een lay‑out‑niveau‑override geldt voor dia’s die die lay‑out gebruiken, tenzij een specifieke dia een eigen override heeft. Dezelfde initialisatiemethoden kunnen via de lay‑out‑[IOverrideThemeManager](https://reference.aspose.com/slides/nl/cpp/aspose.slides.theme/ioverridethememanager/) worden aangeroepen:
+Een lay‑out‑niveau‑override geldt voor alle dia's die die lay‑out gebruiken, tenzij een specifieke dia een eigen override heeft. Dezelfde initialisatiemethoden kunnen worden aangeroepen via de lay‑out‑[IOverrideThemeManager](https://reference.aspose.com/slides/nl/cpp/aspose.slides.theme/ioverridethememanager/):
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -352,17 +354,17 @@ overrideTheme->InitFormatSchemeFrom(source->get_MasterTheme()->get_FormatScheme(
 target->Save(u"theme-applied-to-layout.pptx", SaveFormat::Pptx);
 ```
 
-Gebruik een master‑ of presentatieniveau‑thema wanneer veel lay‑outs en dia’s hetzelfde basisonwerp moeten delen, een lay‑out‑override wanneer één lay‑outfamilie een andere styling nodig heeft, en een dia‑override alleen voor echte uitzonderingen. Overmatige dia‑niveau‑overrides maken latere globale themawijzigingen moeilijker te voorspellen.
+Gebruik een master‑ of presentatiethema wanneer veel lay‑outs en dia's hetzelfde basisonwerp moeten delen, een lay‑out‑override wanneer één lay‑outfamilie een andere vormgeving nodig heeft, en een dia‑override alleen voor echte uitzonderingen. Overmatig veel dia‑niveau‑overrides maken latere globale themawijzigingen moeilijker te voorspellen.
 
-## **Achtergrondstijlen van het Thema Bijwerken**
+## **Werk themachtegrondstijlen bij**
 
-De achtergrondvullingen van het thema worden opgeslagen in [FormatScheme::get_BackgroundFillStyles()](https://reference.aspose.com/slides/nl/cpp/aspose.slides.theme/formatscheme/get_backgroundfillstyles/). PowerPoint kan in de UI meer achtergrondkeuzes presenteren dan het aantal vuldefinities dat fysiek in deze collectie is opgeslagen, omdat de UI themavullingen kan combineren met themakleuren en overige stijl‑referenties.
+De achtergrondvullingen van het thema worden opgeslagen in [FormatScheme::get_BackgroundFillStyles()](https://reference.aspose.com/slides/nl/cpp/aspose.slides.theme/formatscheme/get_backgroundfillstyles/). PowerPoint kan meer achtergrondkeuzes presenteren in de UI dan het aantal vuldefinities dat fysiek in deze collectie is opgeslagen, omdat de UI thema‑vullingen kan combineren met themakleuren en andere stijl‑referenties.
 
-![PowerPoint‑achtergrondstijlgallerij voor een presentatiethema](presentation-design_8.png)
+![PowerPoint galerij voor achtergrondstijlen van een presentatiethema](presentation-design_8.png)
 
-Voordat u een achtergrondstijl gebruikt, inspecteer de opgeslagen collectie en de huidige [Background::get_StyleIndex()](https://reference.aspose.com/slides/nl/cpp/aspose.slides/background/get_styleindex/). `StyleIndex` gebruikt `0` voor geen themavulling; positieve waarden zijn referenties naar themabackground‑stijlen. Dit verschilt van het indexeren van een C++‑collectie met `idx_get(0)`, waarbij `0` het eerste opgeslagen item betekent. Ga niet ervan uit dat elke presentatie evenveel achtergrondvullingsstijlen bevat.
+Voordat je een achtergrondstijl gebruikt, inspecteer de opgeslagen collectie en de huidige [Background::get_StyleIndex()](https://reference.aspose.com/slides/nl/cpp/aspose.slides/background/get_styleindex/). `StyleIndex` gebruikt `0` voor geen themavulling; positieve waarden zijn themachtergrond‑stijl‑referenties. Dit verschilt van het indexeren van een C++‑collectie met `idx_get(0)`, waarbij `0` het eerste opgeslagen item betekent. Ga niet ervan uit dat elke presentatie evenveel achtergrondvullingsstijlen bevat.
 
-Het volgende voorbeeld meldt het beschikbare aantal achtergrondvullingen, kent een thematische achtergrondreferentie toe aan de eerste master, en slaat de presentatie op:
+Het volgende voorbeeld meldt het aantal beschikbare achtergrondvullingen, kent een themachtergrond‑referentie toe aan de eerste master, en slaat de presentatie op:
 
 ```cpp
 #include <DOM/BackgroundType.h>
@@ -392,25 +394,25 @@ if (backgroundStyles->get_Count() > 0)
 }
 ```
 
-Het zichtbare resultaat hangt af van de themareferentie die door de master wordt gebruikt en van eventuele achtergrond‑overrides op lay‑out‑ of dia‑niveau. Als een dia zijn eigen achtergrond heeft, kan het wijzigen van alleen de master‑achtergrond die dia niet beïnvloeden. Gebruik [Background::GetEffective()](https://reference.aspose.com/slides/nl/cpp/aspose.slides/background/geteffective/) wanneer u de uiteindelijke achtergrond na overerving wilt weten.
+Het zichtbare resultaat hangt af van de themaverwijzing die de master gebruikt en van eventuele achtergrond‑overrides op lay‑out‑ of dia‑niveau. Als een dia zijn eigen achtergrond heeft, kan het wijzigen van alleen de master‑achtergrond die dia niet beïnvloeden. Gebruik [Background::GetEffective()](https://reference.aspose.com/slides/nl/cpp/aspose.slides/background/geteffective/) wanneer je de uiteindelijke achtergrond na overerving moet weten.
 
-{{% alert color="warning" title="Waarschuwing" %}}
-Beschouw `StyleIndex` niet als een nul‑gebaseerde collectiesindex. Vermijd ook hard‑coderen van een stelnummer uit één bestand en aannemen dat het dezelfde weergave heeft in een ander bestand; themastijl‑definities zijn presentatiespecifiek.
+{{% alert color="warning" title="Warning" %}}
+Beschouw `StyleIndex` niet als een nul‑gebaseerde collectie‑index. Vermijd ook het hard‑coderen van een stijlnummer uit één bestand en ervan uitgaan dat het dezelfde weergave heeft in een ander bestand; themastijl‑definities zijn presentatiespecifiek.
 {{% /alert %}}
 
 {{% alert color="info" title="Tip" %}}
 Voor directe achtergrondopmaak en achtergrond‑overerving, zie [Presentation Background](/slides/nl/cpp/presentation-background/).
 {{% /alert %}}
 
-## **Thema‑Effecten Bijwerken**
+## **Werk thema‑effecten bij**
 
-Een thema‑format‑schema bevat afzonderlijke collecties voor [FormatScheme::get_FillStyles()](https://reference.aspose.com/slides/nl/cpp/aspose.slides.theme/formatscheme/get_fillstyles/), [FormatScheme::get_LineStyles()](https://reference.aspose.com/slides/nl/cpp/aspose.slides.theme/formatscheme/get_linestyles/) en [FormatScheme::get_EffectStyles()](https://reference.aspose.com/slides/nl/cpp/aspose.slides.theme/formatscheme/get_effectstyles/). Typische Office‑thema’s bevatten vaak drie hoofd‑stijl‑items die visueel overeenkomen met subtiele, matige en intense opmaak, maar de code moet elke collectie inspecteren in plaats van een vast aantal aan te nemen.
+Een thema‑formaatschema bevat aparte collecties voor [FormatScheme::get_FillStyles()](https://reference.aspose.com/slides/nl/cpp/aspose.slides.theme/formatscheme/get_fillstyles/), [FormatScheme::get_LineStyles()](https://reference.aspose.com/slides/nl/cpp/aspose.slides.theme/formatscheme/get_linestyles/) en [FormatScheme::get_EffectStyles()](https://reference.aspose.com/slides/nl/cpp/aspose.slides.theme/formatscheme/get_effectstyles/). Veel Office‑thema's bevatten vaak drie hoofdvermeldingen die visueel overeenkomen met subtiele, gematigde en intense opmaak, maar code moet elke collectie inspecteren in plaats van een vast aantal aan te nemen.
 
-![Subtiele, matige en intense themaeffecten toegepast op dezelfde vorm](presentation-design_10.png)
+![Subtiele, gematigde en intense thema‑effecten toegepast op dezelfde vorm](presentation-design_10.png)
 
-Wanneer u deze collecties in C++ benadert, is de collectie‑index nul‑gebaseerd: `idx_get(0)` is de eerste opgeslagen stijl en `idx_get(2)` de derde. Een vorm‑stijl‑referentie‑index is een apart concept, blootgelegd via [IShapeStyle](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishapestyle/). Het wijzigen van een themastijl beïnvloedt vormen die die themastijl refereren; vormen met directe opmaak kunnen ongewijzigd blijven.
+Wanneer je in C++ toegang krijgt tot deze collecties, is de collectie‑index nul‑gebaseerd: `idx_get(0)` is de eerste opgeslagen stijl en `idx_get(2)` de derde. Een vorm‑stijl‑referentie‑index is een apart concept, blootgelegd via [IShapeStyle](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishapestyle/). Het wijzigen van een themastijl beïnvloedt vormen die naar die stijl verwijzen; vormen met directe opmaak blijven mogelijk ongewijzigd.
 
-Het volgende voorbeeld controleert of de vereiste stijl‑items bestaan, wijzigt de eerste lijnstijl, wijzigt de derde vulstijl, schakelt een buitenste schaduw in bij de derde effectstijl, en slaat het resultaat op:
+Het volgende voorbeeld controleert of de benodigde stijlen bestaan, wijzigt de eerste lijnstijl, wijzigt de derde vulstijl, schakelt een buitenste schaduw in voor de derde effectstijl, en slaat het resultaat op:
 
 ```cpp
 #include <DOM/Effects/IOuterShadow.h>
@@ -463,15 +465,15 @@ else
 }
 ```
 
-Voor vormen die deze slots refereren, wordt de eerste themalijnstijl rood, de derde themavulstijl een effen bosgroen, en krijgt de derde effectstijl een buitenste schaduw met een afstand van 10 punten. Het exacte visuele resultaat blijft afhangen van welke stijl‑slots elke vorm referereert en of directe opmaak de themastijl overschrijft.
+Voor vormen die deze posities gebruiken, wordt de eerste themalijnstijl rood, de derde themavulstijl een effen bosgroen, en de derde effectstijl krijgt een buitenste schaduw met een afstand van 10 punten. Het exacte visuele resultaat hangt nog steeds af van welke stijlposities elke vorm refereert en of directe opmaak de thema‑instelling overschrijft.
 
 ![Thema‑effectstijlen na wijziging van lijn, vul en schaduwinstellingen](presentation-design_11.png)
 
-## **Effectieve Thema‑Waarden Lezen**
+## **Lees effectieve themawaarden**
 
-Ruwe thema‑objecten vertellen wat er op een bepaald niveau is gedefinieerd. Effectieve waarden vertellen wat een dia of vorm daadwerkelijk gebruikt nadat overerving en lokale overrides zijn verwerkt. Voor een dia, roep [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/nl/cpp/aspose.slides.theme/ithemeable/createthemeeffective/) aan. Voor een achtergrond, gebruik [Background::GetEffective()](https://reference.aspose.com/slides/nl/cpp/aspose.slides/background/geteffective/), en voor een vul, gebruik [FillFormat::GetEffective()](https://reference.aspose.com/slides/nl/cpp/aspose.slides/fillformat/geteffective/).
+Ruwe thema‑objecten vertellen je wat er op een bepaald niveau is gedefinieerd. Effectieve waarden vertellen je wat een dia of vorm daadwerkelijk gebruikt nadat overerving en lokale overrides zijn opgelost. Voor een dia roep je [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/nl/cpp/aspose.slides.theme/ithemeable/createthemeeffective/) aan. Voor een achtergrond gebruik je [Background::GetEffective()](https://reference.aspose.com/slides/nl/cpp/aspose.slides/background/geteffective/), en voor een vulopmaak [FillFormat::GetEffective()](https://reference.aspose.com/slides/nl/cpp/aspose.slides/fillformat/geteffective/).
 
-Het volgende voorbeeld leest het effectieve thema, de achtergrond, en de eerste vormvulling van een dia:
+Het volgende voorbeeld leest het effectieve thema, de achtergrond en de eerste vormvulling van een dia:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -511,18 +513,18 @@ if (slide->get_Shapes()->get_Count() > 0)
 }
 ```
 
-Gebruik effectieve data voor weergavediagnostiek, validatie en vergelijkingen. Als u alleen [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/get_mastertheme/) inspecteert, kunt u een master‑, lay‑out‑, dia‑ of vorm‑override missen die het uiteindelijke uiterlijk wijzigt.
+Gebruik effectieve data voor weergavediagnostiek, validatie en vergelijkingen. Als je alleen [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/get_mastertheme/) inspecteert, kun je een master‑, lay‑out‑, dia‑ of vorm‑override missen die de uiteindelijke weergave verandert.
 
 ## **FAQ**
 
 **Kan ik een thema toepassen op één dia zonder de master te wijzigen?**
 
-Ja. Gebruik de dia‑[IOverrideThemeManager](https://reference.aspose.com/slides/nl/cpp/aspose.slides.theme/ioverridethememanager/) en initialiseert zijn override‑thema. De wijziging blijft lokaal voor die dia; andere dia’s blijven hun bestaande thema’s erven.
+Ja. Gebruik de dia‑[IOverrideThemeManager](https://reference.aspose.com/slides/nl/cpp/aspose.slides.theme/ioverridethememanager/) en initialiseert zijn override‑thema. De wijziging blijft lokaal voor die dia; andere dia's blijven hun bestaande thema’s erven.
 
-**Wat is de veiligste manier om een thema van de ene presentatie naar de andere over te dragen?**
+**Wat is de veiligste manier om een thema van de ene presentatie naar de andere over te brengen?**
 
-Wanneer u een dia verplaatst en het bron‑ontwerp wilt behouden, kloont u de bron‑master naar de bestemming en kloont u de dia met die master via [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/nl/cpp/aspose.slides/imasterslidecollection/addclone/) en [ISlideCollection::AddClone()](https://reference.aspose.com/slides/nl/cpp/aspose.slides/islidecollection/addclone/). Hiermee blijven master, lay‑outs en thema samen.
+Wanneer je een dia verplaatst en het oorspronkelijke uiterlijk wilt behouden, kloon je de bron‑master in de doelpresentatie en kloon je de dia met die master via [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/nl/cpp/aspose.slides/imasterslidecollection/addclone/) en [ISlideCollection::AddClone()](https://reference.aspose.com/slides/nl/cpp/aspose.slides/islidecollection/addclone/). Hiermee blijven de master, lay‑outs en het thema samen.
 
 **Hoe kan ik de effectieve waarden zien na overerving en overrides?**
 
-Gebruik [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/nl/cpp/aspose.slides.theme/ithemeable/createthemeeffective/) voor een dia‑ of lay‑out‑thema en de corresponderende effectieve‑data‑methoden voor format‑objecten zoals [Background::GetEffective()](https://reference.aspose.com/slides/nl/cpp/aspose.slides/background/geteffective/) en [FillFormat::GetEffective()](https://reference.aspose.com/slides/nl/cpp/aspose.slides/fillformat/geteffective/). Deze API’s geven de opgeloste waarden terug nadat overerving en overrides zijn toegepast.
+Gebruik [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/nl/cpp/aspose.slides.theme/ithemeable/createthemeeffective/) voor een dia‑ of lay‑out‑thema en de overeenkomstige effectieve‑data‑methoden voor opmaakobjecten zoals [Background::GetEffective()](https://reference.aspose.com/slides/nl/cpp/aspose.slides/background/geteffective/) en [FillFormat::GetEffective()](https://reference.aspose.com/slides/nl/cpp/aspose.slides/fillformat/geteffective/). Deze API’s geven de opgeloste waarden terug nadat overerving en overrides zijn toegepast.

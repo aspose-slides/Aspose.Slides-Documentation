@@ -1,43 +1,43 @@
 ---
-title: Správa témat prezentací v C++
-linktitle: Téma prezentace
+title: Spravovat motivy prezentace v C++
+linktitle: Motiv prezentace
 type: docs
 weight: 10
 url: /cs/cpp/presentation-theme/
 keywords:
-- téma PowerPoint
-- téma prezentace
-- téma snímku
-- nastavit téma
-- změnit téma
-- spravovat téma
-- barva tématu
-- další paleta
-- písmo tématu
-- styl tématu
-- efekt tématu
+- Motiv PowerPoint
+- Motiv prezentace
+- Motiv snímku
+- Nastavit motiv
+- Změnit motiv
+- Spravovat motiv
+- Barva motivu
+- Dodatečná paleta
+- Písmo motivu
+- Styl motivu
+- Efekt motivu
 - PowerPoint
 - OpenDocument
-- prezentace
+- Prezentace
 - C++
 - Aspose.Slides
-description: "Hlavní témata prezentací v Aspose.Slides pro C++ k vytváření, přizpůsobení a konverzi souborů PowerPoint se sjednoceným brandingem."
+description: "Hlavní motivy prezentace v Aspose.Slides pro C++ pro vytváření, přizpůsobování a převod souborů PowerPoint s jednotnou značkou."
 ---
 ## **Úvod**
 
-Téma prezentace definuje koordinovanou sadu barev, písem, stylů pozadí, výplní, čar a efektů. Objektům, které jsou si vědomy tématu, odkazují na tyto sdílené definice místo toho, aby ukládaly každou vizuální vlastnost jako pevnou hodnotu, takže změna tématu může aktualizovat mnoho objektů najednou.
+Prezentační motiv definuje koordinovaný soubor barev, písem, stylů pozadí, výplní, čar a efektů. Objektům, které jsou si vědomy motivu, se odkazuje na tyto sdílené definice místo uložení každé vizuální vlastnosti jako pevné hodnoty, takže změna motivu může najednou aktualizovat mnoho objektů.
 
-V Aspose.Slides je téma na úrovni prezentace k dispozici pomocí [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/get_mastertheme/). Prezentace může také obsahovat přepsání tématu na nižších úrovních. Master může přepsat téma prezentace pomocí [MasterThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.theme/masterthememanager/get_overridetheme/), zatímco rozložení nebo jednotlivý snímek může použít [IOverrideThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.theme/ioverridethememanager/get_overridetheme/). V praxi je efektivní téma pro snímek řešeno tímto řetězcem dědičnosti: téma prezentace, přepsání masteru, přepsání rozložení a přepsání snímku.
+V Aspose.Slides je motiv na úrovni prezentace dostupný přes [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/get_mastertheme/). Prezentace může také obsahovat přepsání motivu na nižších úrovních. Master může přepsat motiv prezentace pomocí [MasterThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.theme/masterthememanager/get_overridetheme/), zatímco rozložení nebo jednotlivý snímek může použít [IOverrideThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.theme/ioverridethememanager/get_overridetheme/). V praxi je efektivní motiv pro snímek vyřešen pomocí tohoto řetězce dědičnosti: motiv prezentace, přepsání masteru, přepsání rozložení a přepsání snímku.
 
-![Komponenty tématu: barvy, písma, styly pozadí a efekty](theme-constituents.png)
+![Komponenty motivu: barvy, písma, styly pozadí a efekty](theme-constituents.png)
 
-V následujících sekcích jsou zobrazeny nejčastější pracovní postupy s tématem: kontrola tématu, změna barev a písem, kopírování nebo použití tématu, aktualizace stylů pozadí a efektů a čtení efektivních hodnot po vyřešení dědičnosti a přepsání.
+Níže uvedené sekce ukazují nejčastější pracovní postupy s motivem: prohlédnout motiv, změnit barvy a písma, zkopírovat nebo použít motiv, aktualizovat styly pozadí a efektů a přečíst efektivní hodnoty po vyřešení dědičnosti a přepisů.
 
-## **Prozkoumání tématu**
+## **Prohlédnutí motivu**
 
-Objekt [MasterTheme](https://reference.aspose.com/slides/cs/cpp/aspose.slides.theme/mastertheme/) poskytuje metody [get_ColorScheme()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.theme/mastertheme/get_colorscheme/), [get_FontScheme()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.theme/mastertheme/get_fontscheme/) a [get_FormatScheme()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.theme/mastertheme/get_formatscheme/). Kontrola těchto kolekcí před jejich změnou je zvláště užitečná, když prezentace pochází z externího zdroje, protože počet a obsah položek stylů se může lišit.
+Objekt [MasterTheme](https://reference.aspose.com/slides/cs/cpp/aspose.slides.theme/mastertheme/) poskytuje metody [get_ColorScheme()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.theme/mastertheme/get_colorscheme/), [get_FontScheme()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.theme/mastertheme/get_fontscheme/) a [get_FormatScheme()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.theme/mastertheme/get_formatscheme/). Prohlédnutí těchto kolekcí před jejich změnou je zvláště užitečné, když prezentace pochází z externího zdroje, protože počet a obsah položek stylu se mohou lišit.
 
-Následující příklad načte hlavní vlastnosti tématu a vypíše, kolik stylů pozadí, výplní, čar a efektů je v tématu uloženo:
+Následující příklad načte hlavní vlastnosti motivu a vypíše, kolik stylů pozadí, výplní, čar a efektů je v motiv uložených:
 
 ```cpp
 #include <DOM/IColorFormat.h>
@@ -69,13 +69,13 @@ Console::WriteLine(u"Line styles: {0}", formatScheme->get_LineStyles()->get_Coun
 Console::WriteLine(u"Effect styles: {0}", formatScheme->get_EffectStyles()->get_Count());
 ```
 
-Pokud soubor používá více masterů, nepředpokládejte, že každý snímek má stejné efektivní téma. Prozkoumejte master spojený se snímkem a použijte workflow efektivního tématu uvedený později v tomto článku, pokud mohou být přítomna přepsání rozložení nebo snímku.
+Pokud soubor používá více masterů, nepředpokládejte, že každý snímek má stejný efektivní motiv. Prohlédněte master přiřazený ke snímku a použijte pracovní postup efektivního motivu uvedený později v tomto článku, pokud mohou být přítomna přepsání rozložení nebo snímku.
 
-## **Změna barev tématu**
+## **Změna barev motivu**
 
-Výplně, čáry a text, které jsou si vědomy tématu, mohou odkazovat na logickou barvu z výčtu [SchemeColor](https://reference.aspose.com/slides/cs/cpp/aspose.slides/schemecolor/). Když změníte odpovídající položku v tématu [IColorScheme](https://reference.aspose.com/slides/cs/cpp/aspose.slides.theme/icolorscheme/), všechny objekty, které stále odkazují na tuto barvu tématu, jsou převedeny na novou hodnotu. Objektům, které používají přímou RGB barvu, se změna barvy tématu neaplikuje.
+Vyplněná místa, čáry a text, které jsou si vědomy motivu, mohou odkazovat na logickou barvu z enumerace [SchemeColor](https://reference.aspose.com/slides/cs/cpp/aspose.slides/schemecolor/). Když změníte odpovídající položku v [ IColorScheme](https://reference.aspose.com/slides/cs/cpp/aspose.slides.theme/icolorscheme/), všechny objekty, které stále odkazují na tuto barvu motivu, jsou rozděleny vůči nové hodnotě. Objektům, které používají přímou RGB barvu, se při aktualizaci barvy motivu nic nezmění.
 
-Následující kompletní příklad vytvoří tvar, který používá `Accent4`, změní barvu `Accent4` v tématu na červenou, uloží prezentaci, znovu ji otevře a vypíše efektivní barvu výplně:
+Následující end‑to‑end příklad vytvoří tvar používající `Accent4`, změní barvu motivu `Accent4` na červenou, uloží prezentaci, znovu ji otevře a vytiskne efektivní barvu výplně:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -114,18 +114,19 @@ auto effectiveFill = savedShape->get_FillFormat()->GetEffective();
 Console::WriteLine(u"Effective fill color: {0}", effectiveFill->get_SolidFillColor());
 ```
 
-Protože obdélník zůstává propojený s `Accent4`, jeho viditelná barva se po změně tématu stane červenou. Pokud nahradíte barvu ze schématu přímou barvou na tvaru, pozdější změny `Accent4` již tento výplň neovlivní.
+Protože obdélník zůstává spojen s `Accent4`, jeho viditelná barva se po změně motivu stane červenou. Pokud nahradíte barvu schématu přímou barvou na tvaru, pozdější změny `Accent4` již tento výplň neovlivní.
 
-### **Použití barev z další palety**
+### **Použití barev z dodatečné palety**
 
-PowerPoint odvozuje světlejší a tmavší varianty z barvy tématu aplikací transformací barvy. Aspose.Slides tyto transformace zpřístupňuje pomocí [ColorTransformOperation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/colortransformoperation/).
+PowerPoint odvozuje světlejší a tmavší varianty z barvy motivu aplikací transformačních operací. Aspose.Slides tato transformace exponuje prostřednictvím [ColorTransformOperation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/colortransformoperation/).
 
-![Hlavní barvy tématu a světlejší a tmavší barvy generované z další palety](additional-palette-colors.png)
+![Hlavní barvy motivu a světlejší a tmavší barvy vygenerované z dodatečné palety](additional-palette-colors.png)
 
-**1** - Hlavní barvy tématu.  
-**2** - Světlejší a tmavší varianty vytvořené z hlavních barev tématu.
+**1** – Hlavní barvy motivu.
 
-Následující příklad vytvoří šest obdélníků na základě `Accent4`, na pět z nich aplikuje transformace luminance a výsledek uloží:
+**2** – Světlejší a tmavší varianty vytvořené z hlavních barev motivu.
+
+Následující příklad vytvoří šest obdélníků založených na `Accent4`, na pět z nich aplikuje transformaci luminance a výsledek uloží:
 
 ```cpp
 #include <DOM/ColorTransformOperation.h>
@@ -194,31 +195,31 @@ solidFillColor6->get_ColorTransform()->Add(ColorTransformOperation::MultiplyLumi
 presentation->Save(u"theme-color-palette.pptx", SaveFormat::Pptx);
 ```
 
-Tyto varianty zůstávají založeny na barvě tématu. Pokud se `Accent4` později změní, transformované barvy se přepočítají z nové hodnoty `Accent4`.
+Tyto varianty zůstávají založeny na barvě motivu. Pokud se `Accent4` později změní, transformované barvy se přepočítají z nové hodnoty `Accent4`.
 
 ### **Mapování hodnot `SchemeColor` na sloty `IColorScheme`**
 
-Výčet [SchemeColor](https://reference.aspose.com/slides/cs/cpp/aspose.slides/schemecolor/) používá `Text1`, `Background1`, `Text2` a `Background2`, zatímco [IColorScheme](https://reference.aspose.com/slides/cs/cpp/aspose.slides.theme/icolorscheme/) poskytuje stejné sloty tématu jako `Dark1`, `Light1`, `Dark2` a `Light2`. Mapování je pevné:
+Enumerace [SchemeColor](https://reference.aspose.com/slides/cs/cpp/aspose.slides/schemecolor/) používá `Text1`, `Background1`, `Text2` a `Background2`, zatímco [IColorScheme](https://reference.aspose.com/slides/cs/cpp/aspose.slides.theme/icolorscheme/) vystavuje stejné sloty motivu jako `Dark1`, `Light1`, `Dark2` a `Light2`. Mapování je pevně dané:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-Toto jsou alternativní názvy pro stejné sloty tématu; nejsou to hodnoty, které jsou dynamicky převáděny z jedné podoby do druhé.
+Jedná se o alternativní názvy pro stejné sloty motivu; nejedná se o hodnoty dynamicky převáděné z jedné formy do druhé.
 
-## **Změna písem tématu**
+## **Změna písem motivu**
 
-Sada písem tématu obsahuje hlavní sadu písem pro nadpisy a vedlejší sadu písem pro tělo textu. Metody [FontScheme::get_Major()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.theme/fontscheme/get_major/) a [FontScheme::get_Minor()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.theme/fontscheme/get_minor/) tyto sady zpřístupňují.
+Schéma písem motivu obsahuje hlavní sadu písem pro nadpisy a vedlejší sadu pro tělo textu. Metody [FontScheme::get_Major()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.theme/fontscheme/get_major/) a [FontScheme::get_Minor()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.theme/fontscheme/get_minor/) tyto sady vystavují.
 
-Identifikátory písem kompatibilní s PowerPointem lze použít při formátování textu:
+Identifikátory písem kompatibilních s PowerPoint mohou být použity při formátování textu:
 
-* `+mn-lt` - Tělo písma Latin (Minor Latin Font)
-* `+mj-lt` - Nadpisové písmo Latin (Major Latin Font)
-* `+mn-ea` - Tělo písma Východní Asie (Minor East Asian Font)
-* `+mj-ea` - Nadpisové písmo Východní Asie (Major East Asian Font)
+* `+mn-lt` – tělo písma Latin (Minor Latin Font)
+* `+mj-lt` – nadpis písma Latin (Major Latin Font)
+* `+mn-ea` – tělo písma East Asian (Minor East Asian Font)
+* `+mj-ea` – nadpis písma East Asian (Major East Asian Font)
 
-Následující příklad vytvoří jeden nadpis, který používá hlavní latinské písmo tématu, a jednu řádku těla, která používá vedlejší latinské písmo tématu. Poté změní písma tématu a výsledek uloží:
+Následující příklad vytvoří jeden nadpis používající hlavní latinské písmo motivu a jeden řádek těla používající vedlejší latinské písmo. Poté změní písma motivu a výsledek uloží:
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -258,19 +259,21 @@ presentation->get_MasterTheme()->get_FontScheme()->get_Minor()->set_LatinFont(Ma
 presentation->Save(u"theme-fonts.pptx", SaveFormat::Pptx);
 ```
 
-Nadpis používá hlavní písmo a tělo textu používá vedlejší písmo. Text, který má explicitně nastavený název písma místo identifikátoru tématu, se při změně sady písem tématu automaticky nepřepne.
+Nadpis následuje hlavní písmo a tělo textu následuje vedlejší písmo. Text, který má explicitní název písma místo identifikátoru motivu, se automaticky nepřepne, když se změní schéma písem motivu.
+
+Hlavní a vedlejší kolekce písem mohou také obsahovat mapování písem pro jednotlivé psací systémy, jako jsou cyrilice, arabština, japonština, gruzínština a thaana. Pro prohlédnutí, přidání, nahrazení nebo odebrání těchto mapování viz [Script‑Specific Theme Fonts](/slides/cs/cpp/script-specific-font-mappings/).
 
 {{% alert color="info" title="Tip" %}}
-Pro více informací o písmech v prezentacích viz [PowerPoint Fonts](/slides/cs/cpp/powerpoint-fonts/).
+Pro více informací o písmenech v prezentacích viz [PowerPoint Fonts](/slides/cs/cpp/powerpoint-fonts/).
 {{% /alert %}}
 
-## **Kopírování nebo použití tématu**
+## **Kopírování nebo použití motivu**
 
-Existují dva běžné pracovní postupy, které řeší různé problémy.
+Existují dva běžné pracovní postupy a řeší odlišné problémy.
 
-### **Zachování zdrojového tématu při přesunu snímků**
+### **Zachování zdrojového motivu při přesunu snímků**
 
-Pokud chcete přesunout snímek do jiné prezentace a zachovat jeho původní design, naklonujte zdrojový master do cílové prezentace pomocí [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imasterslidecollection/addclone/), poté naklonujte snímek pomocí [ISlideCollection::AddClone()](https://reference.aspose.com/slides/cs/cpp/aspose.slides/islidecollection/addclone/) a naklonovaného masteru. Tím se přenese master, jeho rozložení a související téma dohromady.
+Pokud chcete přesunout snímek do jiné prezentace a zachovat jeho původní design, naklonujte zdrojový master do cílové prezentace pomocí [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imasterslidecollection/addclone/), poté naklonujte snímek pomocí [ISlideCollection::AddClone()](https://reference.aspose.com/slides/cs/cpp/aspose.slides/islidecollection/addclone/) a naklonovaného masteru. Tím se přenese master, jeho rozložení i související motiv.
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -294,11 +297,11 @@ target->get_Slides()->AddClone(sourceSlide, clonedMaster, true);
 target->Save(u"theme-preserved.pptx", SaveFormat::Pptx);
 ```
 
-Toto je preferovaný postup, když musí snímek ze zdroje v cíli vypadat stejně. Pouhé klonování obsahu na nesouvisející master v cíli může změnit barvy, písma, pozadí a efekty řízené tématem.
+Toto je preferovaný postup, když zdrojový snímek musí v cíli vypadat stejně. Pouhé klonování obsahu na nesouvisející cílový master může změnit barvy, písma, pozadí a efekty řízené motivem.
 
-### **Použití hodnot tématu na existující snímek**
+### **Použití hodnot motivu na existující snímek**
 
-Pokud cílový snímek musí zůstat na svém aktuálním masteru a rozložení, inicializujte přepsání na úrovni snímku ze zdrojového tématu. Metody [OverrideTheme::InitColorSchemeFrom()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.theme/overridetheme/initcolorschemefrom/), [OverrideTheme::InitFontSchemeFrom()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.theme/overridetheme/initfontschemefrom/) a [OverrideTheme::InitFormatSchemeFrom()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.theme/overridetheme/initformatschemefrom/) zkopírují tři hlavní komponenty tématu do přepsání.
+Pokud musí cílový snímek zůstat na svém současném masteru a rozložení, inicializujte přepsání na úrovni snímku ze zdrojového motivu. Metody [OverrideTheme::InitColorSchemeFrom()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.theme/overridetheme/initcolorschemefrom/), [OverrideTheme::InitFontSchemeFrom()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.theme/overridetheme/initfontschemefrom/) a [OverrideTheme::InitFormatSchemeFrom()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.theme/overridetheme/initformatschemefrom/) zkopírují tři hlavní komponenty motivu do přepsání.
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -322,11 +325,11 @@ overrideTheme->InitFormatSchemeFrom(source->get_MasterTheme()->get_FormatScheme(
 target->Save(u"theme-applied-to-slide.pptx", SaveFormat::Pptx);
 ```
 
-Tím se změní téma použité tímto snímkem, aniž by se změnilo téma děděné ostatními snímky. Pro odebrání lokálního přepsání a návrat k děděným hodnotám zavolejte [OverrideTheme::Clear()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.theme/overridetheme/clear/).
+Tím se změní motiv používaný tímto snímkem, aniž by se změnil motiv děděný ostatními snímky. Pro odebrání lokálního přepsání a návrat k děděným hodnotám zavolejte [OverrideTheme::Clear()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.theme/overridetheme/clear/).
 
-### **Použití přepsání tématu na rozložení**
+### **Použití přepsání motivu na rozložení**
 
-Přepsání na úrovni rozložení se aplikuje na snímky, které používají toto rozložení, pokud konkrétní snímek nemá vlastní přepsání. Stejné inicializační metody lze použít přes [IOverrideThemeManager](https://reference.aspose.com/slides/cs/cpp/aspose.slides.theme/ioverridethememanager/) rozložení:
+Přepsání na úrovni rozložení se vztahuje na snímky, které používají toto rozložení, pokud konkrétní snímek nemá vlastní přepsání. Stejné inicializační metody lze použít přes [IOverrideThemeManager](https://reference.aspose.com/slides/cs/cpp/aspose.slides.theme/ioverridethememanager/) rozložení:
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -352,17 +355,17 @@ overrideTheme->InitFormatSchemeFrom(source->get_MasterTheme()->get_FormatScheme(
 target->Save(u"theme-applied-to-layout.pptx", SaveFormat::Pptx);
 ```
 
-Použijte master nebo téma na úrovni prezentace, když mnoho rozložení a snímků má sdílet stejný základní design, přepsání rozložení, když jedna rodina rozložení potřebuje odlišné stylování, a přepsání snímku pouze pro skutečné výjimky. Nadměrná přepsání na úrovni snímku ztěžují předvídání pozdějších globálních změn tématu.
+Použijte motiv na úrovni masteru nebo prezentace, když má mnoho rozložení a snímků sdílet stejný základní design, přepsání rozložení, když jedna rodina rozložení potřebuje odlišné stylování, a přepsání snímku jen pro skutečné výjimky. Nadměrná přepsání na úrovni snímku ztěžují předvídání pozdějších globálních změn motivu.
 
-## **Aktualizace stylů pozadí tématu**
+## **Aktualizace stylů pozadí motivu**
 
-Výplně pozadí tématu jsou uloženy v [FormatScheme::get_BackgroundFillStyles()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.theme/formatscheme/get_backgroundfillstyles/). PowerPoint může v uživatelském rozhraní nabízet více možností pozadí, než je počet fyzicky uložených definic výplní v této kolekci, protože UI může kombinovat výplně tématu s barvami tématu a dalšími odkazy na styly.
+Výplně pozadí motivu jsou uloženy v [FormatScheme::get_BackgroundFillStyles()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.theme/formatscheme/get_backgroundfillstyles/). PowerPoint může v uživatelském rozhraní nabídnout více možností pozadí, než kolik výplní je fyzicky uloženo v této kolekci, protože UI může kombinovat výplně motivu s barvami motivu a dalšími referencemi stylů.
 
-![Galerie stylů pozadí PowerPointu pro téma prezentace](presentation-design_8.png)
+![Galerie stylů pozadí PowerPointu pro motiv prezentace](presentation-design_8.png)
 
-Před použitím stylu pozadí proveďte kontrolu uložené kolekce a aktuálního [Background::get_StyleIndex()](https://reference.aspose.com/slides/cs/cpp/aspose.slides/background/get_styleindex/). `StyleIndex` používá `0` pro žádnou výplň tématu; kladné hodnoty jsou odkazy na styly pozadí tématu. To se liší od indexování kolekce v C++ přímo pomocí `idx_get(0)`, kde `0` označuje první uloženou položku. Nepředpokládejte, že každá prezentace obsahuje stejný počet stylů výplní pozadí.
+Před použitím stylu pozadí prohlédněte uloženou kolekci a aktuální [Background::get_StyleIndex()](https://reference.aspose.com/slides/cs/cpp/aspose.slides/background/get_styleindex/). `StyleIndex` používá `0` pro žádnou tematickou výplň; kladné hodnoty jsou odkazy na styl pozadí motivu. To se liší od indexování C++ kolekce přímo pomocí `idx_get(0)`, kde `0` znamená první uloženou položku. Nepředpokládejte, že každá prezentace obsahuje stejný počet stylů výplní pozadí.
 
-Následující příklad vypíše počet dostupných výplní pozadí, přiřadí odkaz na tématické pozadí prvnímu masteru a uloží prezentaci:
+Následující příklad vypíše dostupný počet výplní pozadí, přiřadí tematický odkaz na pozadí k prvnímu masteru a prezentaci uloží:
 
 ```cpp
 #include <DOM/BackgroundType.h>
@@ -392,25 +395,25 @@ if (backgroundStyles->get_Count() > 0)
 }
 ```
 
-Viditelný výsledek závisí na položce tématu, na kterou odkazuje master, a na případných přepsáních pozadí na úrovni rozložení nebo snímku. Pokud snímek používá vlastní pozadí, změna pouze pozadí masteru nemusí tento snímek změnit. Použijte [Background::GetEffective()](https://reference.aspose.com/slides/cs/cpp/aspose.slides/background/geteffective/), když potřebujete znát konečné pozadí po aplikaci dědičnosti.
+Viditelný výsledek závisí na motivové položce, na kterou master odkazuje, a na případných přepsáních pozadí na úrovni rozložení nebo snímku. Pokud snímek používá vlastní pozadí, změna pouze pozadí masteru nemusí tento snímek změnit. Použijte [Background::GetEffective()](https://reference.aspose.com/slides/cs/cpp/aspose.slides/background/geteffective/), když potřebujete znát konečné pozadí po aplikaci dědičnosti.
 
-{{% alert color="warning" title="Warning" %}}
-Nepovažujte `StyleIndex` za index kolekce založený na nule. Také se vyhněte pevně zakódovanému číslu stylu z jednoho souboru s předpokladem, že bude mít stejný vzhled v jiném souboru; definice stylů tématu jsou specifické pro prezentaci.
+{{% alert color="warning" title="Varování" %}}
+Nevnímejte `StyleIndex` jako nulově‑indexovaný index kolekce. Také se vyhněte hardcodování čísla stylu z jednoho souboru s předpokladem, že bude mít stejný vzhled v jiném souboru; definice stylů motivu jsou specifické pro prezentaci.
 {{% /alert %}}
 
 {{% alert color="info" title="Tip" %}}
 Pro přímé formátování pozadí a dědičnost pozadí viz [Presentation Background](/slides/cs/cpp/presentation-background/).
 {{% /alert %}}
 
-## **Aktualizace efektů tématu**
+## **Aktualizace efektů motivu**
 
-Schéma formátování tématu obsahuje samostatné kolekce [FormatScheme::get_FillStyles()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.theme/formatscheme/get_fillstyles/), [FormatScheme::get_LineStyles()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.theme/formatscheme/get_linestyles/) a [FormatScheme::get_EffectStyles()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.theme/formatscheme/get_effectstyles/). Typická Office témata často obsahují tři hlavní položky stylu, které vizuálně odpovídají jemnému, střednímu a intenzivnímu formátování, ale kód by měl každou kolekci zkontrolovat místo předpokladu pevného počtu.
+Schéma formátů motivu obsahuje samostatné kolekce [FormatScheme::get_FillStyles()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.theme/formatscheme/get_fillstyles/), [FormatScheme::get_LineStyles()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.theme/formatscheme/get_linestyles/) a [FormatScheme::get_EffectStyles()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.theme/formatscheme/get_effectstyles/). Typické Office motivy často obsahují tři hlavní položky stylu, které vizuálně odpovídají subtilním, středním a intenzivním formátům, ale kód by měl kontrolovat každou kolekci místo předpokladu pevného počtu.
 
-![Jemné, střední a intenzivní efekty tématu aplikované na stejný tvar](presentation-design_10.png)
+![Subtilní, střední a intenzivní efekty motivu aplikované na stejný tvar](presentation-design_10.png)
 
-Když v C++ přistupujete k těmto kolekcím, index kolekce začíná od nuly: `idx_get(0)` je první uložený styl a `idx_get(2)` je třetí. Indexy odkazů stylu tvaru jsou odlišný pojem, zpřístupněný přes [IShapeStyle](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishapestyle/). Úprava stylu tématu ovlivní tvary, které na tento styl odkazují; tvary s přímým formátováním mohou zůstat nezměněny.
+Když v C++ přistupujete k těmto kolekcím, index kolekce je nulově‑založený: `idx_get(0)` je první uložený styl a `idx_get(2)` je třetí. Indexy referencí stylu tvaru jsou samostatný koncept, vystavený prostřednictvím [IShapeStyle](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishapestyle/). Změna stylu motivu ovlivní tvary, které na tento styl odkazují; tvary s přímým formátováním mohou zůstat nezměněny.
 
-Následující příklad ověří, že požadované položky stylu existují, změní první styl čáry, změní třetí styl výplně, povolí vnější stín ve třetím stylu efektu a výsledek uloží:
+Následující příklad ověří, že požadované položky stylu existují, změní první styl čáry, třetí styl výplně, povolí vnější stín ve třetím stylu efektu a výsledek uloží:
 
 ```cpp
 #include <DOM/Effects/IOuterShadow.h>
@@ -463,15 +466,15 @@ else
 }
 ```
 
-Pro tvary, které odkazují na tyto sloty, se první styl čáry tématu stane červeným, třetí styl výplně tématu se změní na plnou lesní zelenou a třetí styl efektu získá vnější stín s odstupem 10 bodů. Přesný vizuální výsledek stále závisí na tom, na které sloty stylu každý tvar odkazuje a zda přímé formátování přepíše téma.
+Pro tvary, které odkazují na tyto sloty, se první styl čáry motivu stane červeným, třetí styl výplně motivu se změní na plnou lesní zelenou a třetí styl efektu získá vnější stín s vzdáleností 10 bodů. Přesný vizuální výsledek stále závisí na tom, které sloty stylu každá forma používá a zda přímé formátování nepřepisuje motiv.
 
-![Styly efektů tématu po změně nastavení čáry, výplně a stínu](presentation-design_11.png)
+![Styly efektů motivu po změně nastavení čáry, výplně a stínu](presentation-design_11.png)
 
-## **Čtení efektivních hodnot tématu**
+## **Čtení efektivních hodnot motivu**
 
-Nezpracované objekty tématu vám ukazují, co je definováno na konkrétní úrovni. Efektivní hodnoty vám říkají, co snímek nebo tvar ve skutečnosti používá po vyřešení dědičnosti a lokálních přepsání. Pro snímek zavolejte [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.theme/ithemeable/createthemeeffective/). Pro pozadí použijte [Background::GetEffective()](https://reference.aspose.com/slides/cs/cpp/aspose.slides/background/geteffective/), a pro výplň [FillFormat::GetEffective()](https://reference.aspose.com/slides/cs/cpp/aspose.slides/fillformat/geteffective/).
+Surové objekty motivu vám řeknou, co je definováno na konkrétní úrovni. Efektivní hodnoty vám řeknou, co snímek nebo tvar skutečně používá po vyřešení dědičnosti a lokálních přepisů. Pro snímek zavolejte [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.theme/ithemeable/createthemeeffective/). Pro pozadí použijte [Background::GetEffective()](https://reference.aspose.com/slides/cs/cpp/aspose.slides/background/geteffective/), a pro výplň [FillFormat::GetEffective()](https://reference.aspose.com/slides/cs/cpp/aspose.slides/fillformat/geteffective/).
 
-Následující příklad načte efektivní téma, pozadí a první výplň tvaru ze snímku:
+Následující příklad načte efektivní motiv, pozadí a první výplň tvaru ze snímku:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -511,18 +514,18 @@ if (slide->get_Shapes()->get_Count() > 0)
 }
 ```
 
-Používejte efektivní data pro diagnostiku vykreslování, validaci a srovnání. Pokud kontrolujete pouze [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/get_mastertheme/), můžete přehlédnout přepsání na úrovni masteru, rozložení, snímku nebo tvaru, které mění konečný vzhled.
+Používejte efektivní data pro diagnostiku vykreslování, validaci a porovnávání. Pokud prohlížíte pouze [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/get_mastertheme/), můžete přehlédnout přepsání na úrovni masteru, rozložení, snímku nebo tvaru, které mění konečný vzhled.
 
 ## **Často kladené otázky**
 
-**Mohu použít téma na jeden snímek, aniž bych změnil master?**
+**Mohu použít motiv na jediný snímek bez změny masteru?**
 
-Ano. Použijte [IOverrideThemeManager](https://reference.aspose.com/slides/cs/cpp/aspose.slides.theme/ioverridethememanager/) snímku a inicializujte jeho přepsané téma. Změna zůstane lokální pro tento snímek; ostatní snímky nadále dědí svá stávající témata.
+Ano. Použijte [IOverrideThemeManager](https://reference.aspose.com/slides/cs/cpp/aspose.slides.theme/ioverridethememanager/) snímku a inicializujte jeho motiv přepsání. Změna zůstane lokální pro tento snímek; ostatní snímky budou nadále dědit své existující motivy.
 
-**Jaký je nejbezpečnější způsob, jak přenést téma z jedné prezentace do druhé?**
+**Jaký je nejbezpečnější způsob, jak přenést motiv z jedné prezentace do druhé?**
 
-Při přesunu snímku a zachování jeho zdrojového vzhledu naklonujte zdrojový master do cíle a naklonujte snímek s tímto masterem pomocí [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imasterslidecollection/addclone/) a [ISlideCollection::AddClone()](https://reference.aspose.com/slides/cs/cpp/aspose.slides/islidecollection/addclone/). Tím se zachová master, rozložení a téma dohromady.
+Při přesunu snímku a zachování jeho zdrojového vzhledu naklonujte zdrojový master do cíle a naklonujte snímek s tímto masterem pomocí [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/cs/cpp/aspose.slides/imasterslidecollection/addclone/) a [ISlideCollection::AddClone()](https://reference.aspose.com/slides/cs/cpp/aspose.slides/islidecollection/addclone/). Tím se udrží master, rozložení i motiv společně.
 
-**Jak mohu zobrazit efektivní hodnoty po dědičnosti a přepsáních?**
+**Jak mohu zobrazit efektivní hodnoty po dědičnosti a přepsání?**
 
-Použijte [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.theme/ithemeable/createthemeeffective/) pro téma snímku nebo rozložení a odpovídající metody efektivních dat pro formátovací objekty, jako jsou [Background::GetEffective()](https://reference.aspose.com/slides/cs/cpp/aspose.slides/background/geteffective/) a [FillFormat::GetEffective()](https://reference.aspose.com/slides/cs/cpp/aspose.slides/fillformat/geteffective/). Tyto API vrací hodnoty po vyřešení dědičnosti a přepsání.
+Použijte [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/cs/cpp/aspose.slides.theme/ithemeable/createthemeeffective/) pro motiv snímku nebo rozložení a odpovídající metody efektivních dat pro formátové objekty, např. [Background::GetEffective()](https://reference.aspose.com/slides/cs/cpp/aspose.slides/background/geteffective/) a [FillFormat::GetEffective()](https://reference.aspose.com/slides/cs/cpp/aspose.slides/fillformat/geteffective/). Tyto API vrací rozřešené hodnoty po aplikaci dědičnosti a přepisů.

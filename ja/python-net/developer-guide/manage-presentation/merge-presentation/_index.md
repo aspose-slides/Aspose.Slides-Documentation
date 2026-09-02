@@ -1,5 +1,5 @@
 ---
-title: Python でプレゼンテーションを効率的にマージ
+title: Python でプレゼンテーションを効率的にマージする
 linktitle: プレゼンテーションのマージ
 type: docs
 weight: 40
@@ -11,46 +11,46 @@ keywords:
 - PPT をマージ
 - PPTX をマージ
 - ODP をマージ
-- PowerPoint を統合
-- プレゼンテーションを統合
-- スライドを統合
-- PPT を統合
-- PPTX を統合
-- ODP を統合
+- PowerPoint を結合
+- プレゼンテーションを結合
+- スライドを結合
+- PPT を結合
+- PPTX を結合
+- ODP を結合
 - Python
 - Aspose.Slides
-description: "Python でスライドをクローンし、マスターやレイアウトを制御し、スライド コンテンツのサイズ変更、セクションの保持、保護されたファイルや大容量ファイルの処理を行いながら、PowerPoint および OpenDocument のプレゼンテーションをマージする方法を学びます。"
+description: "Python でスライドをクローンし、マスターとレイアウトを制御し、スライドコンテンツのサイズ変更やセクションの保持、保護されたファイルや大容量ファイルの取り扱いなどを行いながら、PowerPoint および OpenDocument プレゼンテーションをマージする方法を学びます。"
 ---
 ## **概要**
 
-Aspose.Slides for Python via .NET は、ある [Presentation](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/) から別のプレゼンテーションへスライドをクローンすることでプレゼンテーションをマージします。主な操作は [SlideCollection.add_clone](https://reference.aspose.com/slides/ja/python-net/aspose.slides/slidecollection/add_clone/) で、元のスライドの書式設定を保持したり、クローンしたスライドを宛先プレゼンテーションのマスターまたはレイアウトに添付したりできます。
+Aspose.Slides for Python via .NET は、スライドをクローンしてあるプレゼンテーションから別のプレゼンテーションへマージします。主な操作は[SlideCollection.add_clone](https://reference.aspose.com/slides/ja/python-net/aspose.slides/slidecollection/add_clone/)で、元のスライドの書式設定を保持したり、クローンしたスライドを宛先プレゼンテーションのマスターまたはレイアウトに添付したりできます。
 
-この記事では、最も一般的なマージ ワークフローを取り上げます。
+この項目では、最も一般的なマージ ワークフローを取り上げます。
 
-- 元の書式設定を保持しながらすべてのスライドをマージする；
-- 選択したスライドをマージする；
-- 宛先プレゼンテーションのマスターを適用する；
-- 宛先プレゼンテーションの特定のレイアウトを適用する；
-- マージ前に異なるスライドサイズを正規化する；
-- クローンしたスライドをセクションに追加する；
-- 複数のプレゼンテーションを1つのエンドツーエンド ワークフローでマージする；
-- マスター、リソース、ノート、コメント、メディア、フォント、パスワード、大きなファイル、マルチスレッドに関する問題を処理する。
+- すべてのスライドを元の書式を保持したままマージする
+- 選択したスライドだけをマージする
+- 宛先プレゼンテーションのマスターを適用する
+- 宛先プレゼンテーションの特定のレイアウトを適用する
+- マージ前に異なるスライドサイズを正規化する
+- クローンしたスライドをセクションに追加する
+- 複数のプレゼンテーションをエンドツーエンドのワークフローでマージする
+- マスター、リソース、ノート、コメント、メディア、フォント、パスワード、巨大ファイル、マルチスレッドに関する問題を処理する
 
 ## **スライド クローンがマスターとレイアウトに与える影響**
 
-スライドは、その外観の多くをレイアウトとマスターから継承します。そのため、選択するクローン オーバーロードにより、マージされたスライドが宛先プレゼンテーションにどのように統合されるかが決まります。
+スライドはレイアウトとマスターから多くの外観を継承します。そのため、選択するクローンのオーバーロードにより、マージされたスライドが宛先プレゼンテーションにどのように統合されるかが決まります。
 
-以下のいずれかの方法で [SlideCollection.add_clone](https://reference.aspose.com/slides/ja/python-net/aspose.slides/slidecollection/add_clone/) を使用します。
+[SlideCollection.add_clone](https://reference.aspose.com/slides/ja/python-net/aspose.slides/slidecollection/add_clone/) を以下のいずれかの方法で使用します。
 
-- `add_clone(source_slide)` — 元のスライドのレイアウトと書式設定を保持します。必要に応じて、元のマスターは自動的に宛先プレゼンテーションにクローンされます。Aspose.Slides は自動クローンされたマスターを追跡し、同じ元マスターを使用するスライドが繰り返しクローンされてもマスターが重複してクローンされないようにします。
-- `add_clone(source_slide, destination_master, allow_clone_missing_layout)` — クローンしたスライドを特定の宛先 [IMasterSlide](https://reference.aspose.com/slides/ja/python-net/aspose.slides/imasterslide/) に添付します。Aspose.Slides は、そのマスターの下でレイアウトのタイプまたは名前で一致するレイアウトを探します。
-- `add_clone(source_slide, destination_layout)` — クローンしたスライドを特定の宛先 [ILayoutSlide](https://reference.aspose.com/slides/ja/python-net/aspose.slides/ilayoutslide/) に直接添付します。
+- `add_clone(source_slide)` — 元のスライドのレイアウトと書式設定を保持します。必要に応じて、元のマスターが自動的に宛先プレゼンテーションにクローンされます。Aspose.Slides は自動的にクローンされたマスターを追跡し、同じ元マスターを使用するスライドが繰り返しクローンされてもマスターが重複してクローンされないようにします。
+- `add_clone(source_slide, destination_master, allow_clone_missing_layout)` — クローンしたスライドを特定の宛先[IMasterSlide](https://reference.aspose.com/slides/ja/python-net/aspose.slides/imasterslide/) に添付します。Aspose.Slides はそのマスター下でレイアウトの種類または名前で一致するレイアウトを検索します。
+- `add_clone(source_slide, destination_layout)` — クローンしたスライドを特定の宛先[ILayoutSlide](https://reference.aspose.com/slides/ja/python-net/aspose.slides/ilayoutslide/) に直接添付します。
 
-`add_clone` オーバーロードに渡すマスターまたはレイアウトは、ソース プレゼンテーションではなく **宛先** プレゼンテーションに属している必要があります。
+`add_clone` のオーバーロードに渡すマスターまたはレイアウトは、**宛先** プレゼンテーションに属している必要があり、元のプレゼンテーションには属していてはいけません。
 
-## **プレゼンテーション全体をマージし、元の書式設定を保持する**
+## **プレゼンテーション全体をマージし、元の書式を保持する**
 
-最も簡単なマージは、ソース プレゼンテーションのすべてのスライドを宛先プレゼンテーションにコピーすることです。インポートしたスライドが元のテーマ、マスター、レイアウトの関係を保持すべき場合に適した選択です。
+最も簡単なマージは、元のプレゼンテーションからすべてのスライドを宛先プレゼンテーションにコピーすることです。これは、インポートされたスライドが元のテーマ、マスター、レイアウトの関係を維持すべき場合に適した選択肢です。
 
 ```python
 import aspose.slides as slides
@@ -63,11 +63,11 @@ with slides.Presentation("destination.pptx") as destination:
         destination.save("merged.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-ソースと宛先が異なるデザインを使用している場合、結果として得られるプレゼンテーションには複数のマスターが含まれることがあります。これは、元の書式設定を意図的に保持している場合に期待される動作です。
+元と宛先でデザインが異なる場合、結果のプレゼンテーションには複数のマスターが含まれることがあります。これは、元の書式が意図的に保持されているため、期待通りの動作です。
 
 ## **選択したスライドをマージする**
 
-すべてのスライドをクローンする必要はありません。以下の例は、ソース プレゼンテーションから選択したスライド インデックスのみをインポートします。
+すべてのスライドをクローンする必要はありません。次の例は、元のプレゼンテーションから選択したスライドインデックスだけをインポートします。
 
 ```python
 import aspose.slides as slides
@@ -82,11 +82,11 @@ with slides.Presentation("destination.pptx") as destination:
         destination.save("merged-selected-slides.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-ユーザー入力や外部設定から取得したスライド インデックスは、クローンする前に検証してください。
+ユーザー入力や外部設定から取得したスライドインデックスは、クローンする前に検証してください。
 
 ## **宛先マスターを使用してスライドをマージする**
 
-インポートしたスライドが、すでに宛先プレゼンテーションに属しているマスターに従うべき場合は、[add_clone(source_slide, destination_master, allow_clone_missing_layout)](https://reference.aspose.com/slides/ja/python-net/aspose.slides/slidecollection/add_clone/) オーバーロードを使用します。
+インポートしたスライドがすでに宛先プレゼンテーションに存在するマスターに従うべき場合は、[add_clone(source_slide, destination_master, allow_clone_missing_layout)](https://reference.aspose.com/slides/ja/python-net/aspose.slides/slidecollection/add_clone/) オーバーロードを使用します。
 
 ```python
 import aspose.slides as slides
@@ -101,9 +101,9 @@ with slides.Presentation("destination.pptx") as destination:
         destination.save("merged-with-destination-master.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Aspose.Slides は、指定されたマスターの下でソース レイアウトのタイプまたは名前と一致する適切なレイアウトを選択します。適切なレイアウトが存在しない場合で `allow_clone_missing_layout` が `True` のときは、ソース レイアウトがクローンされスライドを追加できるようになります。`False` の場合は、[PptxEditException](https://reference.aspose.com/slides/ja/python-net/aspose.slides/pptxeditexception/) がスローされます。
+Aspose.Slides は、指定されたマスター下で元レイアウトの種類または名前に一致する適切なレイアウトを選択します。一致するレイアウトが存在せず、`allow_clone_missing_layout` が `True` の場合、元レイアウトがクローンされてスライドを追加できるようにします。`False` の場合は、[PptxEditException](https://reference.aspose.com/slides/ja/python-net/aspose.slides/pptxeditexception/) がスローされます。
 
-宛先マスターに余分なレイアウトを追加したくなく、マージを失敗させたい場合は `False` を使用してください。
+追加のレイアウトを宛先マスターに導入したくない場合は、マージが失敗するように `False` を使用してください。
 
 ## **特定の宛先レイアウトを使用してスライドをマージする**
 
@@ -122,13 +122,13 @@ with slides.Presentation("destination.pptx") as destination:
         destination.save("merged-with-destination-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-宛先レイアウトを適用すると、継承されたレイアウトの関係が変更されますが、ソース スライドのコンテンツは再設計されません。ソースと宛先のレイアウトでプレースホルダー構造が異なる場合、継承された書式設定とプレースホルダーの動作が適切かどうか結果を確認してください。
+宛先レイアウトを適用すると、継承されるレイアウトの関係が変更されますが、元スライドのコンテンツ自体が再設計されるわけではありません。元と宛先のレイアウトでプレースホルダーの構造が異なる場合は、継承された書式とプレースホルダーの動作が適切かどうか、結果を確認してください。
 
 ## **異なるスライドサイズのプレゼンテーションをマージする**
 
-スライド サイズが異なるプレゼンテーションでもマージできますが、別サイズのプレゼンテーションにスライドをクローンしただけでは、コンテンツが自動的に新しいキャンバスに合わせて再設計されません。そのため、図形が位置ずれしたり、予期せず拡大縮小されたり、表示領域外に出てしまうことがあります。
+スライドサイズが異なるプレゼンテーションでもマージは可能ですが、別サイズのプレゼンテーションにスライドをクローンしただけでは、コンテンツが新しいキャンバスに合わせて自動的に再設計されません。そのため、形状がずれたり、スケールが予期せず変わったり、スライド領域外に出てしまうことがあります。
 
-実用的なアプローチは、クローンする前にソース プレゼンテーションのサイズを変更することです。[SlideSize.set_size](https://reference.aspose.com/slides/ja/python-net/aspose.slides/slidesize/set_size/) メソッドは、スライドの寸法を変更しながら既存のコンテンツをスケーリングできます。[SlideSizeScaleType.ENSURE_FIT](https://reference.aspose.com/slides/ja/python-net/aspose.slides/slidesizescaletype/) は、要求されたサイズに収まるようにコンテンツをスケーリングします。
+実用的なアプローチは、クローンする前に元プレゼンテーションのサイズを変更することです。[SlideSize.set_size](https://reference.aspose.com/slides/ja/python-net/aspose.slides/slidesize/set_size/) メソッドは、スライドサイズを変更しながら既存のコンテンツをスケーリングできます。[SlideSizeScaleType.ENSURE_FIT](https://reference.aspose.com/slides/ja/python-net/aspose.slides/slidesizescaletype/) は、要求されたサイズに合わせてコンテンツを収めるようスケールします。
 
 ```python
 import aspose.slides as slides
@@ -150,11 +150,11 @@ with slides.Presentation("destination.pptx") as destination:
         destination.save("merged-same-slide-size.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-リサイズはメモリ内のソース プレゼンテーション オブジェクトを変更します。別の操作で元のソース プレゼンテーションを変更せずに使用する必要がある場合は、マージ用に別のインスタンスを開いてください。
+サイズ変更はメモリ内の元プレゼンテーションオブジェクトを変更します。元プレゼンテーションを他の操作でそのまま残しておく必要がある場合は、マージ用に別インスタンスを開いてください。
 
 ## **スライドをプレゼンテーションのセクションにマージする**
 
-基本的なスライド クローン ループでは、ソース プレゼンテーションのセクション階層は再現されません。出力でセクションが重要な場合は、宛先プレゼンテーションでセクションを作成または選択し、[SlideCollection.add_clone](https://reference.aspose.com/slides/ja/python-net/aspose.slides/slidecollection/add_clone/) を使用してスライドを明示的にそのセクションにクローンしてください。
+基本的なスライド クローン ループは、元プレゼンテーションのセクション階層を再現しません。出力でセクションが重要な場合は、宛先プレゼンテーションでセクションを作成または選択し、[SlideCollection.add_clone](https://reference.aspose.com/slides/ja/python-net/aspose.slides/slidecollection/add_clone/) を使用してスライドを明示的にそのセクションにクローンします。
 
 ```python
 import aspose.slides as slides
@@ -169,11 +169,11 @@ with slides.Presentation("destination.pptx") as destination:
         destination.save("merged-with-section.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-クローンされたスライドは、指定された宛先セクションに追加されます。複数のソース セクションを保持したい場合は、[SectionCollection.append_empty_section](https://reference.aspose.com/slides/ja/python-net/aspose.slides/sectioncollection/append_empty_section/) で宛先にそれらのセクションを再作成し、各ソース スライドを対応する宛先セクションにマップしてください。
+クローンされたスライドは指定された宛先セクションに追加されます。複数の元セクションを保持したい場合は、[Presentation.sections](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/sections/) を列挙し、各元セクションの現在のスライドを[Section.get_slides_list_of_section](https://reference.aspose.com/slides/ja/python-net/aspose.slides/section/get_slides_list_of_section/)で取得し、宛先でセクションを再作成し、返された各スライドを対応する宛先セクションにクローンしてください。[Manage Slide Sections](/slides/ja/python-net/slide-section/) には、空セクションや構造変更を含む完全なセクション列挙例が掲載されています。
 
 ## **複数のプレゼンテーションを安全にマージする**
 
-以下のエンドツーエンド例では、最初のプレゼンテーションを宛先として使用し、追加の各ソースのスライド サイズを正規化し、コピー中のみ各ソースを開いたままにし、最終的に一度だけファイルを保存します。
+以下のエンドツーエンド例では、最初のプレゼンテーションを宛先として使用し、追加の各ソースのスライドサイズを正規化し、コピー中のみ各ソースを開いたままにし、最後にファイルを保存します。
 
 ```python
 import aspose.slides as slides
@@ -198,39 +198,39 @@ with slides.Presentation(input_files[0]) as merged:
     merged.save("merged.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-これは、インポートしたスライドの元の書式設定を保持するための有用なベースラインです。出力で単一の宛先テーマを使用する必要がある場合は、シンプルな `add_clone(slide)` 呼び出しを、前述の適切な宛先マスターまたは宛先レイアウトのオーバーロードに置き換えてください。
+これは、インポートされたスライドの元書式を保持するための有用なベースラインです。出力で単一の宛先テーマを使用する必要がある場合は、シンプルな `add_clone(slide)` 呼び出しを、前述の宛先マスターまたは宛先レイアウトのオーバーロードに置き換えてください。
 
-## **実務的な考慮事項**
+## **実践的な考慮事項**
 
 ### **マスター、レイアウト、および書式忠実度**
 
-デフォルトのスライド クローンでは、必要なソース マスターを自動的に宛先プレゼンテーションに持ち込むことができます。Aspose.Slides は自動クローンされたマスターの内部レジストリを保持し、同じマスターが繰り返しクローンされるのを防ぎます。手動でクローンしたマスターはそのレジストリで追跡されないため、マスター構造を明示的に制御する必要がない限り、事前にマスターをクローンしないでください。
+デフォルトのスライド クローンは、必要な元マスターを自動的に宛先プレゼンテーションに持ち込みます。Aspose.Slides は自動クローンされたマスターを内部レジストリで管理し、同じマスターの重複クローンを防ぎます。手動でクローンしたマスターはこのレジストリで追跡されないため、マスター構造を明示的に制御する必要がない限り、事前にマスターをクローンしないでください。
 
-同名のマスターやレイアウトが視覚的に同等であると想定しないでください。企業テンプレートが最終的な外観を制御する必要がある場合は、宛先マスターまたはレイアウトを明示的に選択し、マージ後に結果を検証してください。
+同じ名前のマスターやレイアウトが視覚的に同等であると推測しないでください。企業テンプレートで最終的な外観を制御する必要がある場合は、宛先マスターまたはレイアウトを明示的に選択し、マージ後に結果を検証してください。
 
 ### **ノートとコメント**
 
-スピーカーノートとスライドコメントはスライド コンテンツに関連付けられており、スライドがクローンされるとコピーされます。Aspose.Slides は [presentation notes](https://docs.aspose.com/slides/ja/python-net/presentation-notes/) と [presentation comments](https://docs.aspose.com/slides/ja/python-net/presentation-comments/) 用の専用 API も提供しています。
+スピーカーノートとスライドコメントはスライドコンテンツに紐付いており、スライドをクローンするとコピーされます。Aspose.Slides は[プレゼンテーション ノート](/slides/ja/python-net/presentation-notes/) および[プレゼンテーション コメント](/slides/ja/python-net/presentation-comments/) 用の専用 API も提供しています。
 
-ノートページの書式設定が重要な場合は、ノートマスターがプレゼンテーション レベルのオブジェクトであり、ソース ファイル間で異なる可能性があるため、マージされたプレゼンテーションを確認してください。レビュー ワークフローでは、異なる作者やテンプレートからのファイルを結合した後、コメントの作者やスレッド化されたコメントも検証してください。
+ノートページの書式が重要な場合、ノートマスターはプレゼンテーションレベルのオブジェクトであり、ソースファイル間で異なることがあるため、マージされたプレゼンテーションを確認してください。レビュー ワークフローでは、異なる著者やテンプレートからのファイルを結合した後に、コメントの作者やスレッド コメントも検証してください。
 
-### **画像、オーディオ、ビデオ、OLE オブジェクト、外部リンク**
+### **画像、音声、動画、OLE オブジェクト、外部リンク**
 
-スライドは、画像、埋め込みオーディオ、埋め込みビデオ、OLE データなどのプレゼンテーション レベルのリソースを参照できます。可視形状だけをコピーせずにスライド自体をクローンすることで、Aspose.Slides はスライドとリソース間の関係を維持できます。
+スライドは画像、埋め込み音声、埋め込み動画、OLE データなど、プレゼンテーションレベルのリソースを参照できます。スライド自体をクローンし、可視形状だけをコピーしないことで、Aspose.Slides がリソースとの関係を保持できます。
 
-埋め込みリソースとリンクリソースは区別して取り扱う必要があります。リンクされたオーディオ、ビデオ、OLE オブジェクト、ハイパーリンクは外部ターゲットに依存したままであり、スライドをクローンしても外部リンクが埋め込みコンテンツに変換されません。マージされたプレゼンテーションが開かれる環境で、リンクリソースのパスや URL をテストしてください。
+埋め込みリソースとリンクリソースは別々に扱う必要があります。リンクされた音声、動画、OLE オブジェクト、ハイパーリンクは外部ターゲットに依存したままであり、スライドをクローンしても外部リンクが埋め込みコンテンツに変換されることはありません。マージされたプレゼンテーションが開かれる環境で、リンクリソースのパスや URL をテストしてください。
 
-Aspose.Slides は自動クローンされたマスターを明示的に追跡しますが、これは無関係なソース プレゼンテーションからの同一バイナリ リソースが常に重複除去されるという一般的な保証とはみなさないでください。出力ファイルのサイズが重要な場合は、暗黙的な重複除去に依存せず、マージされたパッケージを検査し、結果を測定してください。
+Aspose.Slides は自動クローンされたマスターを明示的に追跡しますが、これは無関係なソースプレゼンテーション間で同一バイナリリソースが常に重複除去されるという一般的な保証ではありません。出力ファイルサイズが重要な場合は、マージされたパッケージを検査し、結果を測定して暗黙の重複除去に依存しないでください。
 
 ### **埋め込みフォントとフォントの利用可能性**
 
-フォントはプレゼンテーション レベルで管理されます。タイポグラフィをマシン間で一貫させる必要がある場合、スライドのクローンだけで必ずすべての必要フォントが宛先環境で利用可能になるとは想定しないでください。[FontsManager.get_embedded_fonts](https://reference.aspose.com/slides/ja/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) で埋め込みフォントを確認でき、[Embed Fonts in Presentations](https://docs.aspose.com/slides/ja/python-net/embedded-font/) に記載されているように埋め込みを明示的に管理できます。
+フォントはプレゼンテーションレベルで管理されます。タイポグラフィをマシン間で一貫させる必要がある場合、スライドをクローンするだけでは目的のフォントが宛先環境に存在することは保証されません。[FontsManager.get_embedded_fonts](https://reference.aspose.com/slides/ja/python-net/aspose.slides/fontsmanager/get_embedded_fonts/) で埋め込みフォントを確認し、[プレゼンテーションへのフォント埋め込み](/slides/ja/python-net/embedded-font/) に記載の方法で明示的に管理してください。
 
-また、ソース ファイルで使用されているフォントを埋め込むことが許可されているか確認してください。フォント ライセンスにより埋め込みが制限される場合があります。
+また、ソースファイルで使用されているフォントを埋め込む権限があるか確認してください。フォントライセンスにより埋め込みが制限されることがあります。
 
-### **パスワード保護されたプレゼンテーション**
+### **パスワードで保護されたプレゼンテーション**
 
-パスワードで保護されたソースは、スライドをクローンする前に正常に開く必要があります。パスワードは [LoadOptions.password](https://reference.aspose.com/slides/ja/python-net/aspose.slides/loadoptions/password/) で指定します。
+パスワードで保護されたソースは、スライドをクローンする前に正常に開く必要があります。[LoadOptions.password](https://reference.aspose.com/slides/ja/python-net/aspose.slides/loadoptions/password/) でパスワードを指定してください。
 
 ```python
 import aspose.slides as slides
@@ -242,64 +242,64 @@ with slides.Presentation("protected.pptx", load_options) as source:
     print(len(source.slides))
 ```
 
-暗号化されたソースを開いても、同じ保護が自動的に宛先プレゼンテーションに適用されるわけではありません。必要に応じて、出力の保護は別途設定してください。
+暗号化されたソースを開いても、同じ保護が自動的に宛先プレゼンテーションに適用されるわけではありません。必要に応じて、出力の保護を別途設定してください。
 
 ### **大規模プレゼンテーションとメモリ使用量**
 
-高解像度画像、オーディオ、ビデオ、その他の大きなバイナリ オブジェクトを含む大規模なプレゼンテーションは、かなりのメモリを消費する可能性があります。[LoadOptions.blob_management_options](https://reference.aspose.com/slides/ja/python-net/aspose.slides/loadoptions/blob_management_options/) は BLOB の処理と一時ファイルの使用を制御します。大きなファイルに対する戦略については、[Manage Presentation BLOBs](https://docs.aspose.com/slides/ja/python-net/manage-blob/) を参照してください。
+高解像度画像、音声、動画、その他の大容量バイナリオブジェクトを含む大規模プレゼンテーションは、かなりのメモリを消費する可能性があります。[LoadOptions.blob_management_options](https://reference.aspose.com/slides/ja/python-net/aspose.slides/loadoptions/blob_management_options/) は BLOB の取り扱いと一時ファイル使用を制御するオプションを提供します。大容量ファイルの戦略については[プレゼンテーション BLOB の管理](/slides/ja/python-net/manage-blob/) を参照してください。
 
-大きなファイルの場合は、可能な限りファイル パスから読み込むことを優先し、マージが完了したらすぐに各ソース プレゼンテーションを閉じ、ワークフローでチェックポイントが必要な場合を除き、中間結果を繰り返し保存しないでください。`with slides.Presentation(...)` を使用すれば、コンテキストが終了したときにプレゼンテーション リソースが解放されます。
+大容量ファイルの場合は、可能な限りファイルパスから読み込み、各ソースプレゼンテーションをマージが完了したらすぐに閉じ、チェックポイントが必要でない限り中間結果を繰り返し保存しないでください。`with slides.Presentation(...)` を使用すると、コンテキスト終了時にプレゼンテーションリソースが解放されます。
 
 ### **スレッド安全性**
 
-[Presentation](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/) インスタンスを複数のスレッドから同時にロード、保存、クローンしないでください。各マージ操作はシングルスレッドで実行します。独立したマージ ジョブを並列化する場合は、別々のシングルスレッド プロセスと独立したプレゼンテーション インスタンスを使用してください。[Aspose.Slides multithreading guidance](https://docs.aspose.com/slides/ja/python-net/multithreading/) に記載されています。
+[Presentation](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/) インスタンスを複数スレッドから同時にロード、保存、またはクローンしないでください。各マージ操作はシングルスレッドで実行してください。独立したマージジョブを並列化する場合は、別々のシングルスレッドプロセスと独立したプレゼンテーションインスタンスを使用し、[Aspose.Slides のマルチスレッドガイダンス](/slides/ja/python-net/multithreading/) に従ってください。
 
 ## **FAQ**
 
-**各ソース プレゼンテーションの元のデザインを保持するには？**
+**各ソースプレゼンテーションの元デザインを保持するにはどうすればよいですか？**
 
-`add_clone(source_slide)` を、宛先マスターやレイアウトを指定せずに使用します。インポートされたスライドが必要とする場合、Aspose.Slides が自動的にソース マスターをクローンできます。
+宛先マスターやレイアウトを指定せずに[add_clone](https://reference.aspose.com/slides/ja/python-net/aspose.slides/slidecollection/add_clone/) を使用します。インポートされたスライドに必要な場合、Aspose.Slides が元マスターを自動的にクローンします。
 
-**インポートしたスライドに宛先テーマを使用させるには？**
+**インポートしたスライドに宛先テーマを適用するには？**
 
-宛先マスターを受け取るオーバーロードを使用します。ソースではなく、宛先プレゼンテーションのマスターを渡してください。Aspose.Slides は各ソース スライドをそのマスターの適切なレイアウトにマッピングしようとします。
+宛先マスターを受け取るオーバーロードを使用します。元ではなく宛先プレゼンテーションのマスターを渡してください。Aspose.Slides はそのマスター下で各元スライドに適切なレイアウトをマッピングしようとします。
 
-**宛先マスターではなく特定の宛先レイアウトを使用すべき場合は？**
+**特定の宛先レイアウトを使用すべきタイミングは？**
 
-すべてのインポートスライドが既知のレイアウトを使用すべき場合は、特定のレイアウトを使用します。ソースのレイアウトタイプや名前に基づいて Aspose.Slides にマスター内のレイアウトを選択させたい場合は、マスターを使用してください。
+すべてのインポートスライドが同一の既知レイアウトを使用すべき場合に使用します。レイアウトを指定したい場合は、元レイアウトの種類や名前に基づいてマスターのレイアウトを自動選択させたいときはマスターを使用します。
 
-**異なるスライドサイズのプレゼンテーションはマージできますか？**
+**スライドサイズが異なるプレゼンテーションはマージ可能ですか？**
 
-はい、可能ですが、スライド コンテンツは宛先の寸法に自動的に再設計されません。配置を予測可能にしたい場合は、ソース プレゼンテーションを先にリサイズしてください。例として [SlideSize.set_size](https://reference.aspose.com/slides/ja/python-net/aspose.slides/slidesize/set_size/) と [SlideSizeScaleType.ENSURE_FIT](https://reference.aspose.com/slides/ja/python-net/aspose.slides/slidesizescaletype/) を使用します。
+はい。ただし、スライドコンテンツは宛先の寸法に自動的に再設計されません。予測可能な配置が必要な場合は、[SlideSize.set_size](https://reference.aspose.com/slides/ja/python-net/aspose.slides/slidesize/set_size/) と[SlideSizeScaleType.ENSURE_FIT](https://reference.aspose.com/slides/ja/python-net/aspose.slides/slidesizescaletype/) を使用して、まず元プレゼンテーションのサイズを変更してください。
 
 **PPT、PPTX、ODP のプレゼンテーションを 1 つのファイルにマージできますか？**
 
-はい。各ソース プレゼンテーションを読み込み、必要なスライドを 1 つの宛先にクローンし、サポートされている出力形式で保存します。プレゼンテーション形式は完全に同じ機能セットをサポートしていないため、クロスフォーマットのマージ後に複雑なコンテンツを検証してください。[Supported File Formats](https://docs.aspose.com/slides/ja/python-net/supported-file-formats/) を参照してください。
+はい。各ソースプレゼンテーションを読み込み、必要なスライドを 1 つの宛先にクローンし、サポートされている出力形式で保存します。プレゼンテーション形式間で機能セットが完全に一致しないため、クロスフォーマットマージ後は複雑なコンテンツを検証してください。[Supported File Formats](/slides/ja/python-net/supported-file-formats/) を参照してください。
 
-**ソースのセクションは自動的に保持されますか？**
+**元セクションは自動的に保持されますか？**
 
-スライドだけをクローンする基本的なループでは保持されません。必要なセクションを宛先に再作成し、セクション構造を保持する必要がある場合は、[add_clone](https://reference.aspose.com/slides/ja/python-net/aspose.slides/slidecollection/add_clone/) のセクション オーバーロードを使用してください。
+基本的なスライドのみをクローンするループでは保持されません。必要なセクションを宛先に再作成し、[add_clone](https://reference.aspose.com/slides/ja/python-net/aspose.slides/slidecollection/add_clone/) のセクションオーバーロードを使用してセクション構造を保持してください。
 
-**スピーカーノートとコメントは保持されますか？**
+**スピーカー ノートやコメントは保持されますか？**
 
-クローンされたスライドと共にコピーされます。ノートマスターのスタイリング、コメント作者、スレッド化されたレビューデータに依存するワークフローの場合、これらはプレゼンテーション レベルの構造とスライド レベルのコンテンツの両方を含むため、マージ結果を検証してください。
+クローンされたスライドと共にコピーされます。ノートマスターのスタイリングやコメントの作者、スレッドレビュー データに依存するワークフローでは、プレゼンテーションレベルの構造とスライドレベルのコンテンツの両方を考慮して、マージ結果を検証してください。
 
-**オーディオ、ビデオ、OLE オブジェクト、ハイパーリンクはどうなりますか？**
+**音声、動画、OLE オブジェクト、ハイパーリンクはどうなりますか？**
 
-埋め込みコンテンツはクローンされたスライドのリソース関係の一部として保持されます。外部リンクは外部のままであるため、マージ後もターゲット ファイルや URL が利用可能である必要があります。
+埋め込みコンテンツはクローンされたスライドのリソース関係として保持されます。外部リンクは外部のままであり、ターゲットファイルや URL がマージ後も利用可能であることを確認してください。
 
-**すべてのソースからの埋め込みフォントは、マージされたプレゼンテーションで利用できることが保証されていますか？**
+**すべてのソースからの埋め込みフォントはマージされたプレゼンテーションで利用可能ですか？**
 
-フォント配布のためにスライドのクローンだけに依存しないでください。タイポグラフィが重要な場合は、宛先の埋め込みフォントを確認し、フォント埋め込みや外部フォントの利用可能性を明示的に管理してください。
+スライドクローンだけではフォント展開は保証できません。目的地の埋め込みフォントを確認し、必要に応じてフォント埋め込みや外部フォントの利用を明示的に管理してください。
 
 **パスワード保護されたファイルをマージするには？**
 
-正しい [LoadOptions.password](https://reference.aspose.com/slides/ja/python-net/aspose.slides/loadoptions/password/) で開き、通常通りスライドをクローンしてください。出力の保護は別途設定します。
+正しい[LoadOptions.password](https://reference.aspose.com/slides/ja/python-net/aspose.slides/loadoptions/password/) を使用して開き、通常どおりスライドをクローンします。出力の保護は別途設定してください。
 
-**非常に大きなプレゼンテーションはどのように扱うべきですか？**
+**大容量プレゼンテーションの取り扱いは？**
 
-大きなバイナリ オブジェクトがメモリ使用量の大部分を占める場合は BLOB 管理を使用し、非常に大きなファイルはファイル パスからの読み込みを優先し、ソース プレゼンテーションは速やかに閉じ、最終結果は必要なときにだけ保存してください。
+BLOB 管理を使用し、大容量バイナリがメモリ使用量を支配する場合に対応してください。非常に大きなファイルはファイルパスからのロードを優先し、ソースプレゼンテーションを速やかに閉じ、最終結果のみを保存してください。
 
-**複数のスレッドからスライドをマージできますか？**
+**スライドを複数のスレッドでマージできますか？**
 
-[Presentation](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/) インスタンスを複数のスレッドでロード、保存、クローンしないでください。各マージ操作はシングルスレッドで行い、別々のマージ ジョブを並列化する必要がある場合は、独立したシングルスレッド プロセスを使用してください。
+[Presentation](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/) インスタンスを複数スレッドで同時にロード、保存、またはクローンしないでください。各マージ操作はシングルスレッドで実行し、別々のシングルスレッドプロセスで独立したマージジョブを並列化してください。

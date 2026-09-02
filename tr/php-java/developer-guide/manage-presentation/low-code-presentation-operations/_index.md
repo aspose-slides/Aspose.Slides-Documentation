@@ -1,11 +1,11 @@
 ---
-title: PHP'de Düşük-Kod Sunum İşlemleri
-linktitle: Düşük-Kod API
+title: PHP'de Düşük Kodlu Sunum İşlemleri
+linktitle: Düşük Kodlu API
 type: docs
 weight: 50
 url: /tr/php-java/low-code-presentation-operations/
 keywords:
-- düşük-kod sunum API
+- düşük kodlu sunum API'si
 - sunumu dönüştür
 - sunumları birleştir
 - slaytları yinele
@@ -13,35 +13,35 @@ keywords:
 - metni yinele
 - şekilleri topla
 - sunumu sıkıştır
-- kullanılmayan ana slaytları kaldır
+- kullanılmayan master slaytları kaldır
 - kullanılmayan düzen slaytlarını kaldır
-- gömülü fontları sıkıştır
+- gömülü yazı tiplerini sıkıştır
 - PowerPoint
 - OpenDocument
 - sunum
 - PHP
 - Aspose.Slides
-description: "PHP'de Aspose.Slides düşük-kod API'sini kullanarak sunumları dönüştürüp birleştirin, içerikte dolaşın, şekilleri toplayın ve sunum boyutunu küçültün."
+description: "PHP'de Aspose.Slides düşük kodlu API'sini kullanarak sunumları dönüştürün ve birleştirin, içerikte dolaşın, şekilleri topla ve sunum boyutunu azaltın."
 ---
 ## **Genel Bakış**
 
-[aspose.slides](https://reference.aspose.com/slides/tr/php-java/aspose.slides/) ad alanı, yaygın sunum işlemleri için statik yardımcı sınıflar sağlar. Bu yardımcılar, sık kullanılan nesne‑model iş akışlarını odaklanmış metodlarda sarar, böylece dosyaları dönüştürebilir veya birleştirebilir, sunum öğelerini işleyebilir, şekilleri toplayabilir ve kullanılmayan içeriği daha az kodla kaldırabilirsiniz.
+[aspose.slides](https://reference.aspose.com/slides/tr/php-java/aspose.slides/) ad alanı, ortak sunum işlemleri için statik yardımcı sınıflar sağlar. Bu yardımcılar, sık kullanılan nesne‑model iş akışlarını odaklanmış yöntemlerle sarmalar; böylece dosyaları dönüştürebilir veya birleştirebilir, sunum öğelerini işleyebilir, şekilleri toplayabilir ve kullanılmayan içeriği daha az kodla kaldırabilirsiniz.
 
-Düşük‑kodlu yardımcılar, işlem tüm bir dosya veya sunuma uygulandığında ve varsayılan iş akışı gereksinimlerinize uyduğunda en faydalıdır. Bireysel slaytlar, masterlar, düzenler, şekiller, dışa aktarma ayarları veya sunum öğeleri arasındaki ilişkiler üzerinde ayrıntılı kontrol gerektiğinde tam [Aspose.Slides object model](https://reference.aspose.com/slides/tr/php-java/aspose.slides/) kullanın.
+Low-code yardımcılar, işlem tüm bir dosya veya sunum üzerine uygulandığında ve varsayılan iş akışı gereksinimlerinizi karşıladığında en yararlıdır. Bireysel slaytlar, master’lar, düzenler, şekiller, dışa aktarma ayarları veya sunum öğeleri arasındaki ilişkiler üzerinde ayrıntılı kontrol gerektiğinde tam [Aspose.Slides nesne modelini](https://reference.aspose.com/slides/tr/php-java/aspose.slides/) kullanın.
 
-Aşağıdaki tablo mevcut yardımcıları özetler:
+Aşağıdaki tablo mevcut yardımcıların özetini sunar:
 
-| Yardımcı | Ne İçin Kullanılır |
+| Yardımcı | Kullanım Amacı |
 | --- | --- |
-| [Convert](https://reference.aspose.com/slides/tr/php-java/aspose.slides/convert/) | Sunumu başka bir formata, doğrudan dosya‑dosya çağrısıyla dönüştürme. |
+| [Convert](https://reference.aspose.com/slides/tr/php-java/aspose.slides/convert/) | Bir sunumu doğrudan dosyadan dosyaya çağrı ile başka bir biçime dönüştürme. |
 | [Merger](https://reference.aspose.com/slides/tr/php-java/aspose.slides/merger/) | Aynı formatta tam sunum dosyalarını birleştirme. |
-| [ForEach_](https://reference.aspose.com/slides/tr/php-java/aspose.slides/foreach_/) | Her slayt, şekil, paragraf veya metin bölümü için bir geri çağırma çalıştırma. |
-| [Collect](https://reference.aspose.com/slides/tr/php-java/aspose.slides/collect/) | Tekrar tekrar işlemek veya analiz etmek için tüm sunumdan şekilleri alma. |
-| [Compress](https://reference.aspose.com/slides/tr/php-java/aspose.slides/compress/) | Kullanılmayan master ve düzenleri kaldırma ve gömülü font verilerini azaltma. |
+| [ForEach_](https://reference.aspose.com/slides/tr/php-java/aspose.slides/foreach_/) | Her slayt, şekil, paragraf veya metin parçası için geri arama çalıştırma. |
+| [Collect](https://reference.aspose.com/slides/tr/php-java/aspose.slides/collect/) | Tekrar işleme veya analiz için tüm sunumdan şekilleri alma. |
+| [Compress](https://reference.aspose.com/slides/tr/php-java/aspose.slides/compress/) | Kullanılmayan master ve düzenleri kaldırma ve gömülü yazı tipi verilerini azaltma. |
 
-## **Sunumu Dönüştürme**
+## **Bir Sunumu Dönüştürme**
 
-Çıktı dosya uzantısının dışa aktarma formatını seçmek için yeterli olduğu durumlarda [Convert::autoByExtension](https://reference.aspose.com/slides/tr/php-java/aspose.slides/convert/#autoByExtension) kullanın. Metot, kaynak sunumu açar, çıktının yolundan gerekli formatı belirler ve sonucu yazar.
+[Convert::autoByExtension](https://reference.aspose.com/slides/tr/php-java/aspose.slides/convert/#autoByExtension) çıktının dosya uzantısının dışa aktarım biçimini seçmek için yeterli olduğu durumlarda kullanın. Yöntem kaynak sunumu açar, çıkış yolundan gerekli biçimi belirler ve sonucu yazar.
 
 ```php
 use aspose\slides\Convert;
@@ -49,11 +49,11 @@ use aspose\slides\Convert;
 Convert::autoByExtension("input.pptx", "output.pdf");
 ```
 
-[Convert](https://reference.aspose.com/slides/tr/php-java/aspose.slides/convert/) sınıfı ayrıca PDF, SVG, JPEG, PNG ve TIFF çıktısı için özel metodlar sunar. Dışa aktarmadan önce sunumu incelemeniz veya değiştirmeniz ya da seçilen yardımcıda bulunmayan bir dışa aktarma seçeneğini yapılandırmanız gerektiğinde tam nesne modelini kullanın. Biçim‑özel iş akışları ve seçenekler için [Sunumu Dönüştür](/php-java/convert-presentation/) sayfasına bakın.
+[Convert](https://reference.aspose.com/slides/tr/php-java/aspose.slides/convert/) sınıfı ayrıca PDF, SVG, JPEG, PNG ve TIFF çıktısı için özel yöntemler sağlar. Dışa aktarmadan önce sunumu incelemeniz veya değiştirmeniz gerektiğinde ya da seçili yardımcı tarafından sunulmamış bir dışa aktarım seçeneği yapılandırmanız gerektiğinde tam nesne modelini kullanın. Biçime özgü iş akışları ve seçenekler için [Convert Presentation](/slides/tr/php-java/convert-presentation/) sayfasına bakın.
 
 ## **Sunumları Birleştirme**
 
-Tam bir çağrı ile tam sunum dosyalarını birleştirmek için [Merger::process](https://reference.aspose.com/slides/tr/php-java/aspose.slides/merger/#process) kullanın. Girdi sunumlarının aynı dosya biçiminde olması gerekir.
+[Merger::process](https://reference.aspose.com/slides/tr/php-java/aspose.slides/merger/#process) tam sunum dosyalarını tek bir çağrıyla birleştirmek için kullanılır. Girdi sunumlarının aynı dosya biçimine sahip olması gerekir.
 
 ```php
 use aspose\slides\Merger;
@@ -62,11 +62,11 @@ $inputFiles = ["part-1.pptx", "part-2.pptx"];
 Merger::process($inputFiles, "merged.pptx");
 ```
 
-Tüm slaytların tek bir sonuç dosyasına eklenmesi ve bireysel olarak seçilip yeniden eşlenmemesi gerektiğinde bu yardımcı uygundur. Seçili slaytları birleştirmeniz, hedef bir master veya düzen uygulamanız, bölümleri açıkça korumanız veya farklı slayt boyutlarını uzlaştırmanız gerektiğinde tam nesne modelini kullanın. Bu senaryolar için [Sunumları Birleştirme](/php-java/merge-presentation/) sayfasına bakın.
+Tüm slaytların tek bir sonuca eklenmesi gerektiğinde ve bireysel olarak seçilip yeniden eşleştirilmesi gerekmediğinde bu yardımcı uygundur. Seçili slaytları birleştirmeniz, hedef bir master veya düzen uygulamanız, bölümleri açıkça korumanız veya farklı slayt boyutlarını uzlaştırmanız gerektiğinde tam nesne modelini kullanın. Bu senaryolar için [Merge Presentations](/slides/tr/php-java/merge-presentation/) sayfasına bakın.
 
-## **Sunum Öğeleri Üzerinde Dolaşma**
+## **Sunum Öğeleri Üzerinde Dönme**
 
-[ForEach_](https://reference.aspose.com/slides/tr/php-java/aspose.slides/foreach_/) sınıfı, istenen sunum öğesi tipinin her örneği için bir geri çağırma yürütür. İç içe koleksiyon döngülerini önler ve sunum‑geneli denetim veya biçimlendirme değişiklikleri için kullanışlıdır.
+[ForEach_](https://reference.aspose.com/slides/tr/php-java/aspose.slides/foreach_/) sınıfı, istenen sunum öğesi türü için bir geri arama çağırır. İç içe koleksiyon döngülerini önler ve sunum geneli denetim veya biçimlendirme değişiklikleri için kullanışlıdır.
 
 Aşağıdaki örnek, ilgili öğeleri incelemek için [ForEach_::slide](https://reference.aspose.com/slides/tr/php-java/aspose.slides/foreach_/#slide), [ForEach_::shape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/foreach_/#shape), [ForEach_::paragraph](https://reference.aspose.com/slides/tr/php-java/aspose.slides/foreach_/#paragraph) ve [ForEach_::portion](https://reference.aspose.com/slides/tr/php-java/aspose.slides/foreach_/#portion) kullanır:
 
@@ -125,11 +125,11 @@ try {
 }
 ```
 
-Varsayılan olarak, sunum‑geneli şekil ve metin geçişi normal, master ve layout slaytlarını içerir. `includeNotes` parametresiyle aşırı yüklemeler, not slaytlarını da işleyebilir. Geçiş sırası, erken çıkış, geri çağırmadan önce filtreleme veya ayrıntılı ebeveyn‑çocuk kontrolü önemli olduğunda doğrudan koleksiyon döngüleri kullanın.
+Varsayılan olarak, sunum geneli şekil ve metin geçişi normal, master ve layout slaytlarını içerir. `includeNotes` parametresiyle aşırı yüklemeler not slaytlarını da işleyebilir. Geçiş sırası, erken çıkış, geri aramadan önce filtreleme veya ayrıntılı üst‑alt kontrolünün önemli olduğu durumlarda doğrudan koleksiyon döngüleri kullanın.
 
 ## **Şekilleri Toplama**
 
-Her şekil için bir geri çağırma yerine bir sunumdaki tüm şekillerin koleksiyonuna ihtiyacınız varsa [Collect::shapes](https://reference.aspose.com/slides/tr/php-java/aspose.slides/collect/#shapes) kullanın. Aynı küme birden çok kez filtrelenecek, sayılacak veya işlenecekse bu faydalıdır.
+[Collect::shapes](https://reference.aspose.com/slides/tr/php-java/aspose.slides/collect/#shapes) tüm sunumdaki şekillerin bir koleksiyonuna ihtiyacınız olduğunda ve her şekil için bir geri arama yerine bu koleksiyonu tekrar‑tekrar filtrelemek, saymak veya işlemek istediğinizde kullanın.
 
 ```php
 use aspose\slides\Collect;
@@ -149,15 +149,15 @@ try {
 }
 ```
 
-Her şekil anında işlenebiliyorsa ve toplanan sonucu tutmanıza gerek yoksa yerine [ForEach_::shape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/foreach_/#shape) kullanın.
+Her şekil anında işlenebiliyorsa ve toplanan sonucu tutmanız gerekmiyorsa bunun yerine [ForEach_::shape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/foreach_/#shape) kullanın.
 
 ## **Sunum İçeriğini Sıkıştırma**
 
-[Compress](https://reference.aspose.com/slides/tr/php-java/aspose.slides/compress/) sınıfı, kullanılmayan yapı öğelerini kaldırabilir ve gömülü font verilerini azaltabilir:
+[Compress](https://reference.aspose.com/slides/tr/php-java/aspose.slides/compress/) sınıfı kullanılmayan yapısal öğeleri kaldırabilir ve gömülü yazı tipi verilerini azaltabilir:
 
-- [Compress::removeUnusedLayoutSlides](https://reference.aspose.com/slides/tr/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) normal slaytların referans vermediği layout slaytlarını kaldırır.
-- [Compress::removeUnusedMasterSlides](https://reference.aspose.com/slides/tr/php-java/aspose.slides/compress/#removeUnusedMasterSlides) artık kullanılmayan master slaytlarını kaldırır.
-- [Compress::compressEmbeddedFonts](https://reference.aspose.com/slides/tr/php-java/aspose.slides/compress/#compressEmbeddedFonts) gömülü fontlardaki kullanılmayan karakterleri kaldırır.
+- [Compress::removeUnusedLayoutSlides](https://reference.aspose.com/slides/tr/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) normal bir slaytın referans vermediği düzen slaytlarını kaldırır.
+- [Compress::removeUnusedMasterSlides](https://reference.aspose.com/slides/tr/php-java/aspose.slides/compress/#removeUnusedMasterSlides) artık kullanılmayan master slaytları kaldırır.
+- [Compress::compressEmbeddedFonts](https://reference.aspose.com/slides/tr/php-java/aspose.slides/compress/#compressEmbeddedFonts) gömülü yazı tiplerinden kullanılmayan karakterleri kaldırır.
 
 ```php
 use aspose\slides\Compress;
@@ -176,38 +176,38 @@ try {
 }
 ```
 
-Kullanılmayan layoutları, kullanılmayan masterlardan önce kaldırın; böylece layout temizliğinden sonra referanssız kalan master da silinebilir. Orijinal master, layout veya tam gömülü font verilerine daha sonra ihtiyaç duyabilecekseniz optimize edilmiş sunumu yeni bir dosyaya kaydedin. Daha fazla ayrıntı için [Slide Master](/php-java/slide-master/) ve [Embedded Font](/php-java/embedded-font/) sayfalarına bakın.
+Kullanılmayan masterları da kaldırmak için önce kullanılmayan düzenleri kaldırın; böylece düzen temizliğinden sonra referanssız kalan bir master da silinebilir. Orijinal master, layout veya tam gömülü yazı tipi verilerine daha sonra ihtiyaç duyulabilecekse, optimize edilmiş sunumu yeni bir dosyaya kaydedin. Daha fazla ayrıntı için [Slide Master](/slides/tr/php-java/slide-master/) ve [Embedded Font](/slides/tr/php-java/embedded-font/) sayfalarına bakın.
 
 ## **SSS**
 
-**Düşük‑kodlu API'yi tam nesne modeline göre ne zaman kullanmalıyım?**
+**Low-code API'yi tam nesne modeline ne zaman kullanmalıyım?**
 
-Standart bir işlem tüm dosya ya da sunuma uygulanıyorsa ve bireysel öğeler üzerinde ayrıntılı kontrol gerektirmiyorsa düşük‑kodlu yardımcıları kullanın. Belirli slaytları seçmeniz, master‑layout ilişkilerini kontrol etmeniz, ara durumları incelemeniz veya yardımcı tarafından sunulmayan davranışları yapılandırmanız gerektiğinde tam nesne modelini tercih edin.
+Standart bir işlem tüm bir dosya veya sunum üzerine uygulandığında ve bireysel öğeler üzerinde ayrıntılı kontrol gerektirmediğinde low-code yardımcıları kullanın. Belirli slaytları seçmeniz, master‑layout ilişkilerini kontrol etmeniz, ara durumu incelemeniz veya yardımcı tarafından sunulmayan bir davranışı yapılandırmanız gerektiğinde tam nesne modelini tercih edin.
 
 **Merger farklı dosya biçimlerindeki sunumları birleştirebilir mi?**
 
-Hayır. [Merger::process](https://reference.aspose.com/slides/tr/php-java/aspose.slides/merger/#process) aynı biçimdeki giriş sunumlarını gerektirir. Önce giriş dosyalarını ortak bir formata dönüştürün; örneğin [Convert::autoByExtension](https://reference.aspose.com/slides/tr/php-java/aspose.slides/convert/#autoByExtension) ile, ardından dönüştürülmüş dosyaları birleştirin.
+Hayır. [Merger::process](https://reference.aspose.com/slides/tr/php-java/aspose.slides/merger/#process) giriş sunumlarının aynı biçimde olmasını şart koşar. Önce giriş dosyalarını ortak bir biçime dönüştürün; örneğin [Convert::autoByExtension](https://reference.aspose.com/slides/tr/php-java/aspose.slides/convert/#autoByExtension) kullanarak, ardından dönüştürülen dosyaları birleştirin.
 
 **ForEach_ master, layout ve not slaytlarını işliyor mu?**
 
-[ForEach_::slide](https://reference.aspose.com/slides/tr/php-java/aspose.slides/foreach_/#slide) normal sunum slaytları üzerinde dolaşır. Sunum‑geneli [ForEach_::shape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/foreach_/#shape), [ForEach_::paragraph](https://reference.aspose.com/slides/tr/php-java/aspose.slides/foreach_/#paragraph) ve [ForEach_::portion](https://reference.aspose.com/slides/tr/php-java/aspose.slides/foreach_/#portion) işlemleri varsayılan olarak normal, master ve layout slaytlarını içerir. Not slaytlarını dahil etmek için `includeNotes` parametresini `true` olarak ayarlayan aşırı yüklemelerini kullanın.
+[ForEach_::slide](https://reference.aspose.com/slides/tr/php-java/aspose.slides/foreach_/#slide) normal sunum slaytları üzerinde döner. Sunum geneli [ForEach_::shape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/foreach_/#shape), [ForEach_::paragraph](https://reference.aspose.com/slides/tr/php-java/aspose.slides/foreach_/#paragraph) ve [ForEach_::portion](https://reference.aspose.com/slides/tr/php-java/aspose.slides/foreach_/#portion) işlemleri varsayılan olarak normal, master ve layout slaytlarını içerir. Not slaytlarını dahil etmek için `includeNotes` parametresini `true` olarak ayarlayan aşırı yüklemelerini kullanın.
 
 **ForEach_::shape ile Collect::shapes arasındaki fark nedir?**
 
-Her şekli bir geri çağırma içinde hemen işlemek istiyorsanız [ForEach_::shape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/foreach_/#shape) kullanın. Şekilleri toplamak, daha sonra filtrelemek, saymak veya birden çok kez dolaşmak istiyorsanız [Collect::shapes](https://reference.aspose.com/slides/tr/php-java/aspose.slides/collect/#shapes) tercih edin.
+Her şekli anında bir geri arama ile işlemek istiyorsanız [ForEach_::shape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/foreach_/#shape) kullanın. Şekilleri daha sonra tutup filtreleyebileceğiniz, sayabileceğiniz veya birden çok kez dolaşabileceğiniz bir iterable sonuç gerektiğinde ise [Collect::shapes](https://reference.aspose.com/slides/tr/php-java/aspose.slides/collect/#shapes) tercih edin.
 
-**Compress her zaman sunum dosyasını küçültür mü?**
+**Compress sunum dosyasını her zaman küçültür mü?**
 
-Mutlaka değil. Sonuç, sunumda kullanılmayan layoutların, kullanılmayan masterların veya kullanılmayan karakterlere sahip gömülü fontların bulunup bulunmadığına bağlıdır. Bu öğeler yoksa ilgili [Compress](https://reference.aspose.com/slides/tr/php-java/aspose.slides/compress/) işlemleri dosya boyutunu azaltmayabilir.
+Mutlaka değil. Sonuç, sunumda kullanılmayan layout'lar, kullanılmayan master'lar veya kullanılmayan karakterlere sahip gömülü yazı tiplerinin bulunup bulunmadığına bağlıdır. Bu öğeler yoksa ilgili [Compress](https://reference.aspose.com/slides/tr/php-java/aspose.slides/compress/) işlemleri dosya boyutunu azaltmayabilir.
 
 **ForEach_ veya Compress tarafından yapılan değişiklikler otomatik olarak kaydedilir mi?**
 
-Hayır. Bu yardımcılar, bellekte yüklü olan [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) nesnesi üzerinde çalışır. Bir [ForEach_](https://reference.aspose.com/slides/tr/php-java/aspose.slides/foreach_/) geri çağırmasında öğeleri değiştirdikten veya [Compress](https://reference.aspose.com/slides/tr/php-java/aspose.slides/compress/) çalıştırdıktan sonra sonucu yazmak için [Presentation::save](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/#save) metodunu çağırın.
+Hayır. Bu yardımcılar bellekte yüklü [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) nesnesi üzerinde çalışır. Bir [ForEach_](https://reference.aspose.com/slides/tr/php-java/aspose.slides/foreach_/) geri aramasında ya da [Compress](https://reference.aspose.com/slides/tr/php-java/aspose.slides/compress/) çalıştırıldığında, sonucu yazmak için [Presentation::save](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/#save) çağırmanız gerekir.
 
 ## **İlgili Makaleler**
 
-- [Sunumu Dönüştür](/php-java/convert-presentation/)
-- [Sunumları Birleştirme](/php-java/merge-presentation/)
-- [Slide Master](/php-java/slide-master/)
-- [Manage Text Box](/php-java/manage-textbox/)
-- [Embedded Font](/php-java/embedded-font/)
+- [Convert Presentation](/slides/tr/php-java/convert-presentation/)
+- [Merge Presentations](/slides/tr/php-java/merge-presentation/)
+- [Slide Master](/slides/tr/php-java/slide-master/)
+- [Manage Text Box](/slides/tr/php-java/manage-textbox/)
+- [Embedded Font](/slides/tr/php-java/embedded-font/)

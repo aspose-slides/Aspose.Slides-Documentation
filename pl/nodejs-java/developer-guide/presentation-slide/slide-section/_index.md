@@ -10,82 +10,199 @@ keywords:
 - edytuj sekcję
 - zmień sekcję
 - nazwa sekcji
+- pobierz slajdy sekcji
+- przetwarzaj slajdy sekcji
 - PowerPoint
-- OpenDocument
 - prezentacja
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Usprawnij sekcje slajdów w PowerPoint i OpenDocument za pomocą Aspose.Slides dla Node.js — dziel, zmieniaj nazwy i przestawiaj, aby zoptymalizować przepływy pracy PPTX i ODP."
+description: "Zarządzaj sekcjami slajdów przy pomocy Aspose.Slides dla Node.js via Java: twórz, zmieniaj nazwę, zmieniaj kolejność, pobieraj i przetwarzaj slajdy sekcji w prezentacjach PPTX."
 ---
 ## **Wstęp**
 
-Za pomocą Aspose.Slides for Node.js via Java możesz organizować prezentację PowerPoint w sekcje. Możesz tworzyć sekcje, które zawierają określone slajdy.
+Sekcje organizują kolejne slajdy w nazwane grupy bez zmieniania treści slajdów. Za pomocą Aspose.Slides for Node.js poprzez Java możesz tworzyć, zmieniać kolejność, zmieniać nazwę, przeglądać i usuwać sekcje przy użyciu metody [Presentation.getSections](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/#getSections).
 
-Możesz chcieć tworzyć sekcje i używać ich do organizowania lub podziału slajdów w prezentacji na logiczne części w następujących sytuacjach:
+Sekcje są szczególnie przydatne, gdy:
 
-- Kiedy pracujesz nad dużą prezentacją z innymi osobami lub zespołem — i musisz przydzielić określone slajdy koledze lub niektórym członkom zespołu. 
-- Kiedy masz do czynienia z prezentacją zawierającą wiele slajdów — i masz problem z zarządzaniem lub edytowaniem jej zawartości jednocześnie.
+- duża prezentacja musi być podzielona na logiczne tematy lub rozdziały;
+- różne grupy slajdów są przydzielane różnym współpracownikom;
+- slajdy muszą być przetwarzane, przenoszone lub łączone jako grupy.
 
-Idealnie, powinieneś utworzyć sekcję, która grupuje podobne slajdy — slajdy mają coś wspólnego lub mogą tworzyć grupę na podstawie reguły — i nadać sekcji nazwę opisującą zawarte w niej slajdy. 
+Wybieraj zwięzłe nazwy sekcji, które opisują cel grupowanych slajdów. Ponieważ sekcje są częścią struktury prezentacji, używaj interfejsów API sekcji do określania przynależności zamiast wyprowadzania jej z pozycji slajdów.
 
-## **Tworzenie sekcji w prezentacjach**
+## **Tworzenie i zarządzanie sekcjami**
 
-Aby dodać sekcję, która będzie zawierała slajdy w prezentacji, Aspose.Slides for Node.js via Java udostępnia metodę [addSection()](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/SectionCollection#addSection-java.lang.String-aspose.slides.ISlide-) , która pozwala określić nazwę sekcji, którą chcesz utworzyć, oraz slajd, od którego sekcja się rozpoczyna.
+Użyj [SectionCollection.addSection](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/sectioncollection/#addSection) aby utworzyć sekcję, podając jej nazwę i slajd początkowy. Aspose.Slides określa, które slajdy należą do sekcji na podstawie bieżącej struktury sekcji w prezentacji.
 
-Ten przykładowy kod pokazuje, jak utworzyć sekcję w prezentacji w języku JavaScript:
+Ta sama [SectionCollection](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/sectioncollection/) pozwala także na:
+
+- przeniesienie sekcji wraz z jej slajdami, używając [SectionCollection.reorderSectionWithSlides](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/sectioncollection/#reorderSectionWithSlides);
+- usunięcie tylko definicji sekcji za pomocą [SectionCollection.removeSection](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/sectioncollection/#removeSection), zachowując jej slajdy;
+- usunięcie sekcji wraz z jej slajdami przy pomocy [SectionCollection.removeSectionWithSlides](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/sectioncollection/#removeSectionWithSlides);
+- dodanie pustej sekcji na końcu przy pomocy [SectionCollection.appendEmptySection](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/sectioncollection/#appendEmptySection).
+
+Poniższy przykład tworzy dwie sekcje, przenosi jedną z nich, usuwa ją wraz ze slajdami i dodaje pustą sekcję:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var defaultSlide = pres.getSlides().get_Item(0);
-    var newSlide1 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    var newSlide2 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    var newSlide3 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    var newSlide4 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    var section1 = pres.getSections().addSection("Section 1", newSlide1);
-    var section2 = pres.getSections().addSection("Section 2", newSlide3);// section1 zakończy się na newSlide2, a po nim rozpocznie się section2
-    pres.save("pres-sections.pptx", aspose.slides.SaveFormat.Pptx);
-    pres.getSections().reorderSectionWithSlides(section2, 0);
-    pres.save("pres-sections-moved.pptx", aspose.slides.SaveFormat.Pptx);
-    pres.getSections().removeSectionWithSlides(section2);
-    pres.getSections().appendEmptySection("Last empty section");
-    pres.save("pres-section-with-empty.pptx", aspose.slides.SaveFormat.Pptx);
+    const titleSlide = presentation.getSlides().get_Item(0);
+    const layoutSlide = presentation.getLayoutSlides().get_Item(0);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    const resultsSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+
+    presentation.getSections().addSection("Introduction", titleSlide);
+    const resultsSection = presentation.getSections().addSection("Results", resultsSlide);
+
+    presentation.getSections().reorderSectionWithSlides(resultsSection, 0);
+    presentation.getSections().removeSectionWithSlides(resultsSection);
+    presentation.getSections().appendEmptySection("Appendix");
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Zmiana nazw sekcji**
+Po tych operacjach prezentacja zawiera sekcję `Introduction` wraz ze swoimi slajdami oraz pustą sekcję `Appendix`. Sekcja `Results` i jej slajdy zostały usunięte.
 
-Po utworzeniu sekcji w prezentacji PowerPoint możesz zdecydować się na zmianę jej nazwy. 
+## **Zmienianie nazw sekcji**
 
-Ten przykładowy kod pokazuje, jak zmienić nazwę sekcji w prezentacji w języku JavaScript przy użyciu Aspose.Slides:
+Aby zmienić nazwę sekcji, wywołaj jej metodę [Section.setName](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/section/#setName). Slajdy sekcji i jej pozycja pozostają niezmienione.
+
+Poniższy przykład tworzy sekcję i zmienia jej nazwę:
 
 ```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var section = pres.getSections().get_Item(0);
-    section.setName("My section");
+    const slide = presentation.getSlides().get_Item(0);
+    const section = presentation.getSections().addSection("Overview", slide);
+    section.setName("Introduction");
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
+
+## **Pobieranie slajdów z sekcji**
+
+Metoda [Presentation.getSections](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/#getSections) zwraca [SectionCollection](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/sectioncollection/), którą można uzyskać przez indeks. Dla każdej [Section](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/section/) wywołaj [Section.getSlidesListOfSection](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/section/#getSlidesListOfSection), aby uzyskać slajdy, które aktualnie do niej należą. Metoda zwraca [SectionSlideCollection](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/sectionslidecollection/), które udostępnia liczbę elementów i dostęp indeksowy.
+
+Poniższy przykład tworzy dwie wypełnione sekcje i jedną pustą sekcję, a następnie wypisuje dla każdej sekcji jej [name](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/section/#getName), [identifier](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/section/#getSectionId), [starting slide](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/section/#getStartedFromSlide), liczbę slajdów oraz numery slajdów. Używa [SectionSlideCollection.get_Item](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/sectionslidecollection/#get_Item) do odczytu zarówno pierwszego slajdu, jak i każdego slajdu w kolekcji. Dla pustej sekcji zwrócona kolekcja ma rozmiar zero, dostęp indeksowy jest pomijany, a pętla nie wykonuje żadnych operacji.
+
+```javascript
+const aspose = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const firstSlide = presentation.getSlides().get_Item(0);
+    const layoutSlide = presentation.getLayoutSlides().get_Item(0);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    const thirdSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+
+    presentation.getSections().addSection("Introduction", firstSlide);
+    presentation.getSections().addSection("Details", thirdSlide);
+    presentation.getSections().appendEmptySection("Appendix");
+
+    const sections = presentation.getSections();
+    for (let sectionIndex = 0; sectionIndex < sections.size(); sectionIndex++) {
+        const section = sections.get_Item(sectionIndex);
+        const sectionSlides = section.getSlidesListOfSection();
+        const startingSlideObject = section.getStartedFromSlide();
+        const startingSlide = startingSlideObject === null ? "none" : startingSlideObject.getSlideNumber().toString();
+
+        console.log("Section: " + section.getName());
+        console.log("ID: " + section.getSectionId().toString());
+        console.log("Starting slide: " + startingSlide);
+        console.log("Slide count: " + sectionSlides.size());
+
+        if (sectionSlides.size() > 0) {
+            console.log("First slide via get_Item: " + sectionSlides.get_Item(0).getSlideNumber());
+        }
+
+        let slideNumbers = "Slide numbers:";
+        for (let slideIndex = 0; slideIndex < sectionSlides.size(); slideIndex++) {
+            slideNumbers += " " + sectionSlides.get_Item(slideIndex).getSlideNumber();
+        }
+        console.log(slideNumbers);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Przynależność do sekcji określana jest przez strukturę sekcji w prezentacji. Nie obliczaj zakresu sekcji ręcznie na podstawie [Section.getStartedFromSlide](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/section/#getStartedFromSlide), indeksów slajdów i slajdu początkowego kolejnej sekcji.
+
+Modyfikacje strukturalne mogą zmienić zarówno slajdy zwracane dla sekcji, jak i ich numery. Obejmuje to zmianę kolejności slajdów, klonowanie slajdu do sekcji, przenoszenie sekcji wraz ze slajdami, usuwanie slajdów oraz usuwanie sekcji. Następny przykład wywołuje [Section.getSlidesListOfSection](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/section/#getSlidesListOfSection) po każdej takiej zmianie zamiast polegać na wcześniejszych założeniach o granicach sekcji.
+
+```javascript
+const aspose = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const firstSlide = presentation.getSlides().get_Item(0);
+    const layoutSlide = presentation.getLayoutSlides().get_Item(0);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    const thirdSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    const firstSection = presentation.getSections().addSection("First", firstSlide);
+    const secondSection = presentation.getSections().addSection("Second", thirdSlide);
+
+    const printSectionSlides = (label, section) => {
+        const sectionSlides = section.getSlidesListOfSection();
+        let output = label + " (" + sectionSlides.size() + " slides):";
+        for (let slideIndex = 0; slideIndex < sectionSlides.size(); slideIndex++) {
+            output += " " + sectionSlides.get_Item(slideIndex).getSlideNumber();
+        }
+        console.log(output);
+    };
+
+    printSectionSlides("Initially", firstSection);
+
+    const slidesBeforeClone = firstSection.getSlidesListOfSection();
+    presentation.getSlides().addClone(slidesBeforeClone.get_Item(0), firstSection);
+    printSectionSlides("After cloning into the section", firstSection);
+
+    const slidesBeforeReorder = firstSection.getSlidesListOfSection();
+    const firstSectionPosition = slidesBeforeReorder.get_Item(0).getSlideNumber() - 1;
+    const lastSlideInSection = slidesBeforeReorder.get_Item(slidesBeforeReorder.size() - 1);
+    presentation.getSlides().reorder(firstSectionPosition, lastSlideInSection);
+    printSectionSlides("After reordering slides", firstSection);
+
+    presentation.getSections().reorderSectionWithSlides(firstSection, 1);
+    printSectionSlides("After moving the section", firstSection);
+
+    const slidesBeforeRemoval = firstSection.getSlidesListOfSection();
+    presentation.getSlides().remove(slidesBeforeRemoval.get_Item(0));
+    printSectionSlides("After removing a slide", firstSection);
+
+    presentation.getSections().removeSectionWithSlides(secondSection);
+    const remainingSections = presentation.getSections();
+    for (let sectionIndex = 0; sectionIndex < remainingSections.size(); sectionIndex++) {
+        printSectionSlides("Remaining section", remainingSections.get_Item(sectionIndex));
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Wywołuj [Section.getSlidesListOfSection](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/section/#getSlidesListOfSection) ponownie za każdym razem, gdy slajdy lub sekcje są przemieszczane, klonowane, przenoszone lub usuwane. Dzięki temu dalsze przetwarzanie pozostaje zgodne z bieżącą strukturą prezentacji.
+
+Format PPT (PowerPoint 97–2003) nie zachowuje metadanych sekcji. Używaj tego przepływu pracy z formatem obsługującym sekcje, takim jak PPTX; konwersja do PPT usuwa strukturę sekcji potrzebną do późniejszych iteracji.
 
 ## **FAQ**
 
-**Czy sekcje są zachowywane podczas zapisywania w formacie PPT (PowerPoint 97–2003)?**
+**Czy sekcje są zachowywane przy zapisywaniu w formacie PPT (PowerPoint 97–2003)?**
 
-Nie. Format PPT nie obsługuje metadanych sekcji, więc grupowanie sekcji jest tracone podczas zapisywania do .ppt.
+Nie. Format PPT nie obsługuje metadanych sekcji, więc grupowanie sekcji zostaje utracone przy zapisywaniu do .ppt.
 
-**Czy cała sekcja może być "ukryta"?**
+**Czy cała sekcja może być „ukryta”?**
 
-Nie. Ukryte mogą być jedynie poszczególne slajdy. Sekcja jako jednostka nie posiada stanu „ukryte”.
+Nie. Sekcja nie ma stanu widoczności. Aby ukryć jej zawartość, wywołaj [Slide.setHidden](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/slide/#setHidden) dla każdego slajdu w sekcji.
 
-**Czy mogę szybko znaleźć sekcję po slajdzie oraz, odwrotnie, pierwszy slajd sekcji?**
+**Jak mogę znaleźć sekcję zawierającą dany slajd?**
 
-Tak. Sekcja jest jednoznacznie określona przez swój slajd początkowy; mając slajd, możesz określić, do której sekcji należy, a dla sekcji możesz uzyskać dostęp do jej pierwszego slajdu.
+Uzyskaj dostęp do każdej sekcji w kolekcji zwróconej przez [Presentation.getSections](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/#getSections), wywołaj [Section.getSlidesListOfSection](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/section/#getSlidesListOfSection) dla każdej sekcji i porównaj zwrócone slajdy z docelowym slajdem. Dla niepustej sekcji [Section.getStartedFromSlide](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/section/#getStartedFromSlide) zwraca jej pierwszy slajd; dla pustej sekcji zwraca `null`.

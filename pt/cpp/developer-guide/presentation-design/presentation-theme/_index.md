@@ -1,11 +1,11 @@
 ---
 title: Gerenciar Temas de Apresentação em C++
-linktitle: Tema de Apresentação
+linktitle: Tema da Apresentação
 type: docs
 weight: 10
 url: /pt/cpp/presentation-theme/
 keywords:
-- tema PowerPoint
+- Tema PowerPoint
 - tema de apresentação
 - tema de slide
 - definir tema
@@ -21,23 +21,23 @@ keywords:
 - apresentação
 - C++
 - Aspose.Slides
-description: "Temas mestres de apresentação no Aspose.Slides para C++ para criar, personalizar e converter arquivos PowerPoint com marca consistente."
+description: "Domine temas de apresentação no Aspose.Slides para C++ para criar, personalizar e converter arquivos PowerPoint com identidade visual consistente."
 ---
 ## **Introdução**
 
-Um tema de apresentação define um conjunto coordenado de cores, fontes, estilos de fundo, preenchimentos, linhas e efeitos. Objetos que reconhecem o tema referem‑se a essas definições compartilhadas ao invés de armazenar cada propriedade visual como um valor fixo, de modo que uma alteração de tema pode atualizar muitos objetos de uma só vez.
+Um tema de apresentação define um conjunto coordenado de cores, fontes, estilos de plano de fundo, preenchimentos, linhas e efeitos. Objetos que reconhecem temas referem‑se a essas definições compartilhadas em vez de armazenar cada propriedade visual como um valor fixo, de modo que a alteração de um tema pode atualizar muitos objetos de uma só vez.
 
-No Aspose.Slides, o tema ao nível da apresentação está disponível através de [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/pt/cpp/aspose.slides/presentation/get_mastertheme/). Uma apresentação também pode conter substituições de tema em níveis inferiores. Um mestre pode substituir o tema da apresentação através de [MasterThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/pt/cpp/aspose.slides.theme/masterthememanager/get_overridetheme/), enquanto um layout ou um slide individual pode usar [IOverrideThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/pt/cpp/aspose.slides.theme/ioverridethememanager/get_overridetheme/). Na prática, o tema efetivo para um slide é resolvido através desta cadeia de herança: tema da apresentação, substituição do mestre, substituição do layout e substituição do slide.
+No Aspose.Slides, o tema ao nível da apresentação está disponível através de [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/pt/cpp/aspose.slides/presentation/get_mastertheme/). Uma apresentação também pode conter substituições de tema em níveis mais baixos. Um master pode substituir o tema da apresentação através de [MasterThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/pt/cpp/aspose.slides.theme/masterthememanager/get_overridetheme/), enquanto um layout ou um slide individual pode usar [IOverrideThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/pt/cpp/aspose.slides.theme/ioverridethememanager/get_overridetheme/). Na prática, o tema efetivo de um slide é resolvido por meio desta cadeia de herança: tema da apresentação, substituição de master, substituição de layout e substituição de slide.
 
-![Componentes do tema: cores, fontes, estilos de fundo e efeitos](theme-constituents.png)
+![Componentes do tema: cores, fontes, estilos de plano de fundo e efeitos](theme-constituents.png)
 
-As seções abaixo mostram os fluxos de trabalho de tema mais comuns: inspeccionar um tema, alterar cores e fontes, copiar ou aplicar um tema, atualizar estilos de fundo e de efeito, e ler valores efetivos após a herança e as substituições serem resolvidas.
+As seções abaixo mostram os fluxos de trabalho de tema mais comuns: inspecionar um tema, alterar cores e fontes, copiar ou aplicar um tema, atualizar estilos de plano de fundo e efeitos, e ler valores efetivos após a herança e as substituições serem resolvidas.
 
 ## **Inspecionar um Tema**
 
-O objeto [MasterTheme](https://reference.aspose.com/slides/pt/cpp/aspose.slides.theme/mastertheme/) expõe os métodos [get_ColorScheme()](https://reference.aspose.com/slides/pt/cpp/aspose.slides.theme/mastertheme/get_colorscheme/), [get_FontScheme()](https://reference.aspose.com/slides/pt/cpp/aspose.slides.theme/mastertheme/get_fontscheme/) e [get_FormatScheme()](https://reference.aspose.com/slides/pt/cpp/aspose.slides.theme/mastertheme/get_formatscheme/). Inspecionar essas coleções antes de alterá‑las é especialmente útil quando uma apresentação vem de uma fonte externa, pois o número e o conteúdo das entradas de estilo podem variar.
+O objeto [MasterTheme](https://reference.aspose.com/slides/pt/cpp/aspose.slides.theme/mastertheme/) expõe os métodos [get_ColorScheme()](https://reference.aspose.com/slides/pt/cpp/aspose.slides.theme/mastertheme/get_colorscheme/), [get_FontScheme()](https://reference.aspose.com/slides/pt/cpp/aspose.slides.theme/mastertheme/get_fontscheme/) e [get_FormatScheme()](https://reference.aspose.com/slides/pt/cpp/aspose.slides.theme/mastertheme/get_formatscheme/). Inspecionar essas coleções antes de alterá‑las é especialmente útil quando uma apresentação provém de uma fonte externa, pois o número e o conteúdo das entradas de estilo podem variar.
 
-O exemplo a seguir lê as propriedades principais do tema e relata quantos estilos de fundo, preenchimento, linha e efeito estão armazenados no tema:
+O exemplo a seguir lê as principais propriedades do tema e relata quantos estilos de plano de fundo, preenchimento, linha e efeito estão armazenados no tema:
 
 ```cpp
 #include <DOM/IColorFormat.h>
@@ -69,11 +69,11 @@ Console::WriteLine(u"Line styles: {0}", formatScheme->get_LineStyles()->get_Coun
 Console::WriteLine(u"Effect styles: {0}", formatScheme->get_EffectStyles()->get_Count());
 ```
 
-Se um arquivo usa múltiplos mestres, não presuma que cada slide tenha o mesmo tema efetivo. Inspecione o mestre associado ao slide e use o fluxo de trabalho de tema efetivo apresentado mais adiante neste artigo quando houver substituições de layout ou de slide.
+Se um arquivo usa vários masters, não presuma que cada slide tenha o mesmo tema efetivo. Inspecione o master associado ao slide e use o fluxo de trabalho de tema efetivo mostrado mais adiante neste artigo quando substituições de layout ou slide puderem estar presentes.
 
 ## **Alterar Cores do Tema**
 
-Preenchimentos, linhas e textos que reconhecem o tema podem referir‑se a uma cor lógica da enumeração [SchemeColor](https://reference.aspose.com/slides/pt/cpp/aspose.slides/schemecolor/). Quando você altera a entrada correspondente no [IColorScheme](https://reference.aspose.com/slides/pt/cpp/aspose.slides.theme/icolorscheme/) do tema, todos os objetos que ainda referenciam aquela cor do tema são resolvidos contra o novo valor. Objetos que usam uma cor RGB direta não são alterados por uma atualização de cor do tema.
+Preenchimentos, linhas e textos que reconhecem temas podem referir‑se a uma cor lógica da enumeração [SchemeColor](https://reference.aspose.com/slides/pt/cpp/aspose.slides/schemecolor/). Quando você altera a entrada correspondente no [IColorScheme](https://reference.aspose.com/slides/pt/cpp/aspose.slides.theme/icolorscheme/) do tema, todos os objetos que ainda referenciam essa cor de tema são resolvidos contra o novo valor. Objetos que usam uma cor RGB direta não são alterados por uma atualização de cor de tema.
 
 O exemplo completo a seguir cria uma forma que usa `Accent4`, altera a cor `Accent4` do tema para vermelho, salva a apresentação, reabre‑a e imprime a cor de preenchimento efetiva:
 
@@ -114,16 +114,17 @@ auto effectiveFill = savedShape->get_FillFormat()->GetEffective();
 Console::WriteLine(u"Effective fill color: {0}", effectiveFill->get_SolidFillColor());
 ```
 
-Como o retângulo continua vinculado a `Accent4`, sua cor visível torna‑se vermelha após a mudança do tema. Se você substituir a cor do esquema por uma cor direta na forma, alterações posteriores de `Accent4` não afetarão mais esse preenchimento.
+Como o retângulo continua ligado a `Accent4`, sua cor visível torna‑se vermelha após a alteração do tema. Se você substituir a cor do esquema por uma cor direta na forma, alterações posteriores em `Accent4` não afetarão mais esse preenchimento.
 
 ### **Usar Cores da Paleta Adicional**
 
-O PowerPoint gera variantes mais claras e mais escuras a partir de uma cor do tema aplicando transformações de cor. O Aspose.Slides expõe essas transformações por meio de [ColorTransformOperation](https://reference.aspose.com/slides/pt/cpp/aspose.slides/colortransformoperation/).
+O PowerPoint gera variantes mais claras e mais escuras de uma cor de tema aplicando transformações de cor. O Aspose.Slides expõe essas transformações por meio de [ColorTransformOperation](https://reference.aspose.com/slides/pt/cpp/aspose.slides/colortransformoperation/).
 
-![Cores principais do tema e cores claras e escuras geradas a partir da paleta adicional](additional-palette-colors.png)
+![Cores principais do tema e cores mais claras e mais escuras geradas a partir da paleta adicional](additional-palette-colors.png)
 
 **1** – Cores principais do tema.  
-**2** – Variantes claras e escuras produzidas a partir das cores principais do tema.
+
+**2** – Variantes mais claras e mais escuras produzidas a partir das cores principais do tema.
 
 O exemplo a seguir cria seis retângulos baseados em `Accent4`, aplica transformações de luminância a cinco deles e salva o resultado:
 
@@ -194,31 +195,31 @@ solidFillColor6->get_ColorTransform()->Add(ColorTransformOperation::MultiplyLumi
 presentation->Save(u"theme-color-palette.pptx", SaveFormat::Pptx);
 ```
 
-Essas variantes permanecem baseadas na cor do tema. Se `Accent4` mudar posteriormente, as cores transformadas são recalculadas a partir do novo valor de `Accent4`.
+Essas variantes permanecem baseadas na cor do tema. Se `Accent4` mudar mais tarde, as cores transformadas são recalculadas a partir do novo valor de `Accent4`.
 
 ### **Mapear Valores de `SchemeColor` para Slots de `IColorScheme`**
 
-A enumeração [SchemeColor](https://reference.aspose.com/slides/pt/cpp/aspose.slides/schemecolor/) usa `Text1`, `Background1`, `Text2` e `Background2`, enquanto [IColorScheme](https://reference.aspose.com/slides/pt/cpp/aspose.slides.theme/icolorscheme/) expõe os mesmos slots do tema como `Dark1`, `Light1`, `Dark2` e `Light2`. O mapeamento é fixo:
+A enumeração [SchemeColor](https://reference.aspose.com/slides/pt/cpp/aspose.slides/schemecolor/) usa `Text1`, `Background1`, `Text2` e `Background2`, enquanto [IColorScheme](https://reference.aspose.com/slides/pt/cpp/aspose.slides.theme/icolorscheme/) expõe os mesmos slots de tema como `Dark1`, `Light1`, `Dark2` e `Light2`. O mapeamento é fixo:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-São nomes alternativos para os mesmos slots de tema; não são valores convertidos dinamicamente de uma forma para outra.
+Esses são nomes alternativos para os mesmos slots de tema; não são valores convertidos dinamicamente de uma forma para outra.
 
 ## **Alterar Fontes do Tema**
 
-Um esquema de fontes do tema contém um conjunto de fontes principal para títulos e um conjunto de fontes secundário para o corpo do texto. Os métodos [FontScheme::get_Major()](https://reference.aspose.com/slides/pt/cpp/aspose.slides.theme/fontscheme/get_major/) e [FontScheme::get_Minor()](https://reference.aspose.com/slides/pt/cpp/aspose.slides.theme/fontscheme/get_minor/) expõem esses conjuntos.
+Um esquema de fontes de tema contém um conjunto de fontes principal para cabeçalhos e um conjunto secundário para o corpo do texto. Os métodos [FontScheme::get_Major()](https://reference.aspose.com/slides/pt/cpp/aspose.slides.theme/fontscheme/get_major/) e [FontScheme::get_Minor()](https://reference.aspose.com/slides/pt/cpp/aspose.slides.theme/fontscheme/get_minor/) expõem esses conjuntos.
 
 Identificadores de fontes de tema compatíveis com PowerPoint podem ser usados na formatação de texto:
 
-* `+mn-lt` – Fonte do corpo Latin (Minor Latin Font)
-* `+mj-lt` – Fonte de título Latin (Major Latin Font)
-* `+mn-ea` – Fonte do corpo East Asian (Minor East Asian Font)
-* `+mj-ea` – Fonte de título East Asian (Major East Asian Font)
+* `+mn-lt` – Fonte do Corpo Latin (Minor Latin Font)
+* `+mj-lt` – Fonte do Cabeçalho Latin (Major Latin Font)
+* `+mn-ea` – Fonte do Corpo East Asian (Minor East Asian Font)
+* `+mj-ea` – Fonte do Cabeçalho East Asian (Major East Asian Font)
 
-O exemplo a seguir cria um título que usa a fonte Latin principal do tema e uma linha de corpo que usa a fonte Latin secundária do tema. Em seguida altera as fontes do tema e salva o resultado:
+O exemplo a seguir cria um cabeçalho que usa a fonte Latin principal do tema e uma linha de corpo que usa a fonte Latin secundária do tema. Em seguida, altera as fontes do tema e salva o resultado:
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -258,12 +259,12 @@ presentation->get_MasterTheme()->get_FontScheme()->get_Minor()->set_LatinFont(Ma
 presentation->Save(u"theme-fonts.pptx", SaveFormat::Pptx);
 ```
 
-O título segue a fonte principal e o texto do corpo segue a fonte secundária. Texto que tem um nome de fonte explícito ao invés de um identificador de tema não mudará automaticamente quando o esquema de fontes do tema for alterado.
+O cabeçalho segue a fonte principal e o texto do corpo segue a fonte secundária. Texto que possui um nome de fonte explícito em vez de um identificador de tema não mudará automaticamente quando o esquema de fontes do tema for alterado.
+
+As coleções de fontes principal e secundária também podem conter mapeamentos de fontes para sistemas de escrita individuais, como cirílico, árabe, japonês, georgiano e thaana. Para inspecionar, adicionar, substituir ou remover esses mapeamentos, veja [Script‑Specific Theme Fonts](/slides/pt/cpp/script-specific-font-mappings/).
 
 {{% alert color="info" title="Dica" %}}
-
-Para mais informações sobre fontes em apresentações, consulte [PowerPoint Fonts](/slides/pt/cpp/powerpoint-fonts/).
-
+Para obter mais informações sobre fontes em apresentações, consulte [Fontes do PowerPoint](/slides/pt/cpp/powerpoint-fonts/).
 {{% /alert %}}
 
 ## **Copiar ou Aplicar um Tema**
@@ -272,7 +273,7 @@ Existem dois fluxos de trabalho comuns, e eles resolvem problemas diferentes.
 
 ### **Preservar um Tema de Origem ao Mover Slides**
 
-Se você quiser mover um slide para outra apresentação e preservar seu design original, clone o mestre de origem na apresentação de destino com [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/pt/cpp/aspose.slides/imasterslidecollection/addclone/), então clone o slide com [ISlideCollection::AddClone()](https://reference.aspose.com/slides/pt/cpp/aspose.slides/islidecollection/addclone/) e o mestre clonado. Isso transporta o mestre, seus layouts e o tema associado juntos.
+Se você deseja mover um slide para outra apresentação e preservar seu design original, clone o master de origem na apresentação de destino com [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/pt/cpp/aspose.slides/imasterslidecollection/addclone/), depois clone o slide com [ISlideCollection::AddClone()](https://reference.aspose.com/slides/pt/cpp/aspose.slides/islidecollection/addclone/) e o master clonado. Isso transporta o master, seus layouts e o tema associado juntos.
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -296,11 +297,11 @@ target->get_Slides()->AddClone(sourceSlide, clonedMaster, true);
 target->Save(u"theme-preserved.pptx", SaveFormat::Pptx);
 ```
 
-Este é o fluxo de trabalho preferido quando o slide de origem deve ter a mesma aparência no destino. Simplesmente clonar o conteúdo em um mestre de destino não relacionado pode mudar cores, fontes, fundos e efeitos controlados pelo tema.
+Esse é o fluxo de trabalho preferido quando o slide de origem deve ter a mesma aparência no destino. Clonar apenas o conteúdo em um master de destino não relacionado pode mudar cores, fontes, planos de fundo e efeitos controlados pelo tema.
 
 ### **Aplicar Valores de Tema a um Slide Existente**
 
-Se o slide de destino deve permanecer no seu mestre e layout atuais, inicialize uma substituição ao nível do slide a partir do tema de origem. Os métodos [OverrideTheme::InitColorSchemeFrom()](https://reference.aspose.com/slides/pt/cpp/aspose.slides.theme/overridetheme/initcolorschemefrom/), [OverrideTheme::InitFontSchemeFrom()](https://reference.aspose.com/slides/pt/cpp/aspose.slides.theme/overridetheme/initfontschemefrom/) e [OverrideTheme::InitFormatSchemeFrom()](https://reference.aspose.com/slides/pt/cpp/aspose.slides.theme/overridetheme/initformatschemefrom/) copiam os três principais componentes do tema para a substituição.
+Se o slide de destino deve permanecer no seu master e layout atuais, inicialize uma substituição ao nível do slide a partir do tema de origem. Os métodos [OverrideTheme::InitColorSchemeFrom()](https://reference.aspose.com/slides/pt/cpp/aspose.slides.theme/overridetheme/initcolorschemefrom/), [OverrideTheme::InitFontSchemeFrom()](https://reference.aspose.com/slides/pt/cpp/aspose.slides.theme/overridetheme/initfontschemefrom/) e [OverrideTheme::InitFormatSchemeFrom()](https://reference.aspose.com/slides/pt/cpp/aspose.slides.theme/overridetheme/initformatschemefrom/) copiam os três principais componentes do tema para a sobrescrita.
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -324,11 +325,11 @@ overrideTheme->InitFormatSchemeFrom(source->get_MasterTheme()->get_FormatScheme(
 target->Save(u"theme-applied-to-slide.pptx", SaveFormat::Pptx);
 ```
 
-Isso altera o tema usado por esse slide sem mudar o tema herdado pelos demais slides. Para remover a substituição local e voltar aos valores herdados, chame [OverrideTheme::Clear()](https://reference.aspose.com/slides/pt/cpp/aspose.slides.theme/overridetheme/clear/).
+Isso altera o tema usado por aquele slide sem mudar o tema herdado pelos demais slides. Para remover a sobrescrita local e retornar aos valores herdados, chame [OverrideTheme::Clear()](https://reference.aspose.com/slides/pt/cpp/aspose.slides.theme/overridetheme/clear/).
 
 ### **Aplicar uma Substituição de Tema a um Layout**
 
-Uma substituição ao nível de layout aplica‑se aos slides que usam esse layout, a menos que um slide específico tenha sua própria substituição. Os mesmos métodos de inicialização podem ser usados através do [IOverrideThemeManager](https://reference.aspose.com/slides/pt/cpp/aspose.slides.theme/ioverridethememanager/) do layout:
+Uma substituição ao nível do layout se aplica aos slides que usam esse layout, a menos que um slide específico tenha sua própria substituição. Os mesmos métodos de inicialização podem ser usados através do [IOverrideThemeManager](https://reference.aspose.com/slides/pt/cpp/aspose.slides.theme/ioverridethememanager/) do layout:
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -354,17 +355,17 @@ overrideTheme->InitFormatSchemeFrom(source->get_MasterTheme()->get_FormatScheme(
 target->Save(u"theme-applied-to-layout.pptx", SaveFormat::Pptx);
 ```
 
-Use um tema ao nível de mestre ou apresentação quando muitos layouts e slides devem compartilhar o mesmo design base, uma substituição de layout quando uma família de layouts precisar de estilo diferente, e uma substituição de slide apenas para exceções reais. Substituições excessivas ao nível de slide tornam mudanças globais de tema posteriores mais difíceis de prever.
+Use um tema ao nível de master ou de apresentação quando muitos layouts e slides devem compartilhar o mesmo design básico, uma substituição de layout quando uma família de layouts precisar de estilização diferente, e uma substituição de slide apenas para exceções reais. Substituições excessivas ao nível de slide tornam mudanças globais de tema posteriores mais difíceis de prever.
 
-## **Atualizar Estilos de Fundo do Tema**
+## **Atualizar Estilos de Plano de Fundo do Tema**
 
-Os preenchimentos de fundo do tema são armazenados em [FormatScheme::get_BackgroundFillStyles()](https://reference.aspose.com/slides/pt/cpp/aspose.slides.theme/formatscheme/get_backgroundfillstyles/). O PowerPoint pode apresentar mais opções de fundo em sua interface do que o número de definições de preenchimento fisicamente armazenadas nesta coleção, pois a UI pode combinar preenchimentos de tema com cores de tema e outras referências de estilo.
+Os preenchimentos de plano de fundo do tema são armazenados em [FormatScheme::get_BackgroundFillStyles()](https://reference.aspose.com/slides/pt/cpp/aspose.slides.theme/formatscheme/get_backgroundfillstyles/). O PowerPoint pode apresentar mais opções de plano de fundo em sua UI do que o número de definições de preenchimento realmente armazenadas nesta coleção, porque a UI pode combinar preenchimentos de tema com cores de tema e outras referências de estilo.
 
-![Galeria de estilos de fundo do PowerPoint para um tema de apresentação](presentation-design_8.png)
+![Galeria de estilos de plano de fundo do PowerPoint para um tema de apresentação](presentation-design_8.png)
 
-Antes de usar um estilo de fundo, inspecione a coleção armazenada e o [Background::get_StyleIndex()](https://reference.aspose.com/slides/pt/cpp/aspose.slides/background/get_styleindex/). `StyleIndex` usa `0` para nenhum preenchimento tematizado; valores positivos são referências a estilos de fundo do tema. Isso difere de indexar diretamente uma coleção C++ com `idx_get(0)`, onde `0` significa o primeiro item armazenado. Não presuma que todas as apresentações contenham o mesmo número de estilos de preenchimento de fundo.
+Antes de usar um estilo de plano de fundo, inspecione a coleção armazenada e o [Background::get_StyleIndex()](https://reference.aspose.com/slides/pt/cpp/aspose.slides/background/get_styleindex/). `StyleIndex` usa `0` para nenhum preenchimento temático; valores positivos são referências a estilos de plano de fundo do tema. Isso difere de indexar diretamente uma coleção C++ com `idx_get(0)`, onde `0` significa o primeiro item armazenado. Não presuma que toda apresentação contenha o mesmo número de estilos de preenchimento de plano de fundo.
 
-O exemplo a seguir relata a quantidade de preenchimentos de fundo disponíveis, atribui uma referência de fundo tematizado ao primeiro mestre e salva a apresentação:
+O exemplo a seguir relata a contagem de preenchimentos de plano de fundo disponíveis, atribui uma referência de plano de fundo temático ao primeiro master e salva a apresentação:
 
 ```cpp
 #include <DOM/BackgroundType.h>
@@ -394,27 +395,23 @@ if (backgroundStyles->get_Count() > 0)
 }
 ```
 
-O resultado visível depende da entrada de tema referenciada pelo mestre e de quaisquer substituições de fundo no layout ou no slide. Se um slide usar seu próprio fundo, mudar apenas o fundo do mestre pode não alterar esse slide. Use [Background::GetEffective()](https://reference.aspose.com/slides/pt/cpp/aspose.slides/background/geteffective/) quando precisar saber o fundo final após a herança ser aplicada.
+O resultado visível depende da entrada de tema referenciada pelo master e de quaisquer sobrescritas de plano de fundo no layout ou no nível de slide. Se um slide usar seu próprio plano de fundo, alterar apenas o plano de fundo do master pode não mudar esse slide. Use [Background::GetEffective()](https://reference.aspose.com/slides/pt/cpp/aspose.slides/background/geteffective/) quando precisar conhecer o plano de fundo final após a herança ser aplicada.
 
 {{% alert color="warning" title="Aviso" %}}
-
-Não trate `StyleIndex` como um índice de coleção baseado em zero. Também evite codificar um número de estilo de um arquivo e presumir que ele terá a mesma aparência em outro; as definições de estilo de tema são específicas da apresentação.
-
+Não trate `StyleIndex` como um índice de coleção baseado em zero. Também evite codificar um número de estilo de um arquivo e presumir que ele terá a mesma aparência em outro arquivo; definições de estilo de tema são específicas da apresentação.
 {{% /alert %}}
 
 {{% alert color="info" title="Dica" %}}
-
-Para formatação direta de fundo e herança de fundo, consulte [Presentation Background](/slides/pt/cpp/presentation-background/).
-
+Para formatação direta de plano de fundo e herança de plano de fundo, veja [Presentation Background](/slides/pt/cpp/presentation-background/).
 {{% /alert %}}
 
 ## **Atualizar Efeitos do Tema**
 
-Um esquema de formato do tema contém coleções separadas de [FormatScheme::get_FillStyles()](https://reference.aspose.com/slides/pt/cpp/aspose.slides.theme/formatscheme/get_fillstyles/), [FormatScheme::get_LineStyles()](https://reference.aspose.com/slides/pt/cpp/aspose.slides.theme/formatscheme/get_linestyles/) e [FormatScheme::get_EffectStyles()](https://reference.aspose.com/slides/pt/cpp/aspose.slides.theme/formatscheme/get_effectstyles/). Temas típicos do Office costumam conter três entradas principais de estilo que correspondem visualmente a formatação sutil, moderada e intensa, mas o código deve inspecionar cada coleção ao invés de presumir uma contagem fixa.
+Um esquema de formato de tema contém coleções separadas de [FormatScheme::get_FillStyles()](https://reference.aspose.com/slides/pt/cpp/aspose.slides.theme/formatscheme/get_fillstyles/), [FormatScheme::get_LineStyles()](https://reference.aspose.com/slides/pt/cpp/aspose.slides.theme/formatscheme/get_linestyles/) e [FormatScheme::get_EffectStyles()](https://reference.aspose.com/slides/pt/cpp/aspose.slides.theme/formatscheme/get_effectstyles/). Temas típicos do Office costumam conter três entradas de estilo principais que correspondem visualmente a formatações sutil, moderada e intensa, mas o código deve inspecionar cada coleção em vez de assumir uma contagem fixa.
 
-![Efeitos sutis, moderados e intensos do tema aplicados à mesma forma](presentation-design_10.png)
+![Efeitos de tema sutis, moderados e intensos aplicados à mesma forma](presentation-design_10.png)
 
-Ao acessar essas coleções em C++, o índice da coleção é baseado em zero: `idx_get(0)` é o primeiro estilo armazenado e `idx_get(2)` é o terceiro. Os índices de referência de estilo de uma forma são um conceito separado, exposto através de [IShapeStyle](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ishapestyle/). Modificar um estilo de tema afeta as formas que referenciam esse estilo; formas com formatação direta podem permanecer inalteradas.
+Ao acessar essas coleções em C++, o índice da coleção é baseado em zero: `idx_get(0)` é o primeiro estilo armazenado e `idx_get(2)` é o terceiro. Os índices de referência de estilo de uma forma são um conceito separado, exposto por [IShapeStyle](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ishapestyle/). Modificar um estilo de tema afeta formas que referenciam aquele estilo; formas com formatação direta podem permanecer inalteradas.
 
 O exemplo a seguir verifica se as entradas de estilo necessárias existem, altera o primeiro estilo de linha, altera o terceiro estilo de preenchimento, habilita uma sombra externa no terceiro estilo de efeito e salva o resultado:
 
@@ -469,15 +466,15 @@ else
 }
 ```
 
-Para as formas que referenciam esses slots, o primeiro estilo de linha do tema torna‑se vermelho, o terceiro estilo de preenchimento do tema torna‑se verde floresta sólido, e o terceiro estilo de efeito ganha uma sombra externa com distância de 10 pontos. O resultado visual exato ainda depende de quais slots cada forma referencia e se a formatação direta sobrescreve o tema.
+Para formas que referenciam esses slots, o primeiro estilo de linha do tema torna‑se vermelho, o terceiro estilo de preenchimento do tema torna‑se verde floresta sólido, e o terceiro estilo de efeito ganha uma sombra externa com distância de 10 pontos. O resultado visual exato ainda depende de quais slots de estilo cada forma referencia e se a formatação direta sobrescreve o tema.
 
-![Estilos de efeito do tema após a alteração de linha, preenchimento e sombra](presentation-design_11.png)
+![Estilos de efeito do tema após alterar configurações de linha, preenchimento e sombra](presentation-design_11.png)
 
 ## **Ler Valores Efetivos do Tema**
 
-Objetos de tema brutos indicam o que está definido em um determinado nível. Valores efetivos indicam o que um slide ou forma realmente usa após a herança e as substituições locais serem resolvidas. Para um slide, chame [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/pt/cpp/aspose.slides.theme/ithemeable/createthemeeffective/). Para um fundo, use [Background::GetEffective()](https://reference.aspose.com/slides/pt/cpp/aspose.slides/background/geteffective/), e para um preenchimento, use [FillFormat::GetEffective()](https://reference.aspose.com/slides/pt/cpp/aspose.slides/fillformat/geteffective/).
+Objetos de tema bruto informam o que está definido em um nível específico. Valores efetivos informam o que um slide ou forma realmente usa após a herança e as sobrescrições locais serem resolvidas. Para um slide, chame [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/pt/cpp/aspose.slides.theme/ithemeable/createthemeeffective/). Para um plano de fundo, use [Background::GetEffective()](https://reference.aspose.com/slides/pt/cpp/aspose.slides/background/geteffective/), e para um preenchimento, use [FillFormat::GetEffective()](https://reference.aspose.com/slides/pt/cpp/aspose.slides/fillformat/geteffective/).
 
-O exemplo a seguir lê o tema efetivo, o fundo e o preenchimento da primeira forma de um slide:
+O exemplo a seguir lê o tema efetivo, o plano de fundo e o primeiro preenchimento de forma de um slide:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -517,18 +514,18 @@ if (slide->get_Shapes()->get_Count() > 0)
 }
 ```
 
-Use dados efetivos para diagnósticos de renderização, validação e comparações. Se você inspecionar apenas [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/pt/cpp/aspose.slides/presentation/get_mastertheme/), pode perder uma substituição de mestre, layout, slide ou forma que altere a aparência final.
+Use dados efetivos para diagnóstico de renderização, validação e comparações. Se você inspecionar apenas [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/pt/cpp/aspose.slides/presentation/get_mastertheme/), pode perder uma sobrescrita de master, layout, slide ou forma que altere a aparência final.
 
 ## **FAQ**
 
-**Posso aplicar um tema a um único slide sem mudar o mestre?**
+**Posso aplicar um tema a um único slide sem mudar o master?**
 
 Sim. Use o [IOverrideThemeManager](https://reference.aspose.com/slides/pt/cpp/aspose.slides.theme/ioverridethememanager/) do slide e inicialize seu tema de substituição. A alteração permanece local a esse slide; os demais slides continuam herdando seus temas atuais.
 
 **Qual é a maneira mais segura de transportar um tema de uma apresentação para outra?**
 
-Ao mover um slide preservando sua aparência original, clone o mestre de origem na destinação e clone o slide com esse mestre usando [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/pt/cpp/aspose.slides/imasterslidecollection/addclone/) e [ISlideCollection::AddClone()](https://reference.aspose.com/slides/pt/cpp/aspose.slides/islidecollection/addclone/). Isso mantém o mestre, os layouts e o tema juntos.
+Ao mover um slide e preservar sua aparência original, clone o master de origem no destino e clone o slide com esse master usando [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/pt/cpp/aspose.slides/imasterslidecollection/addclone/) e [ISlideCollection::AddClone()](https://reference.aspose.com/slides/pt/cpp/aspose.slides/islidecollection/addclone/). Isso mantém o master, os layouts e o tema juntos.
 
-**Como posso ver os valores efetivos após herança e substituições?**
+**Como posso ver os valores efetivos após herança e sobrescrições?**
 
-Use [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/pt/cpp/aspose.slides.theme/ithemeable/createthemeeffective/) para um slide ou tema de layout e os métodos correspondentes de dados efetivos para objetos de formato como [Background::GetEffective()](https://reference.aspose.com/slides/pt/cpp/aspose.slides/background/geteffective/) e [FillFormat::GetEffective()](https://reference.aspose.com/slides/pt/cpp/aspose.slides/fillformat/geteffective/). Essas APIs retornam os valores resolvidos após a aplicação da herança e das substituições.
+Use [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/pt/cpp/aspose.slides.theme/ithemeable/createthemeeffective/) para um slide ou tema de layout e os métodos de dados efetivos correspondentes para objetos de formato, como [Background::GetEffective()](https://reference.aspose.com/slides/pt/cpp/aspose.slides/background/geteffective/) e [FillFormat::GetEffective()](https://reference.aspose.com/slides/pt/cpp/aspose.slides/fillformat/geteffective/). Essas APIs retornam os valores resolvidos após a aplicação de herança e sobrescrições.

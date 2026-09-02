@@ -1,13 +1,13 @@
 ---
-title: AndroidでPPTをPPTXに変換
+title: Android で PPT を PPTX に変換
 linktitle: PPT から PPTX
 type: docs
 weight: 20
 url: /ja/androidjava/convert-ppt-to-pptx/
 keywords:
 - PowerPoint を変換
-- プレゼンテーション を変換
-- スライド を変換
+- プレゼンテーションを変換
+- スライドを変換
 - PPT を変換
 - PPT から PPTX
 - PPT を PPTX として保存
@@ -17,18 +17,18 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides を使用して Android 上でレガシー PPT ファイルを PPTX に変換します。単一ファイルおよびバッチ変換の Java 例、エラーハンドリング、忠実度に関する注意点が含まれています。"
+description: "Aspose.Slides を使用して Android でレガシー PPT ファイルを PPTX に変換します。単一ファイルとバッチ変換の Java サンプル、エラーハンドリング、忠実度に関する注意点を含みます。"
 ---
 ## **概要**
 
-PPT はレガシーのバイナリ PowerPoint フォーマットで、PPTX は新しい Open XML フォーマットです。Aspose.Slides for Android via Java は Microsoft PowerPoint がなくても PPT ファイルを読み込み、PPTX として保存できます。この記事では、単一ファイルまたはディレクトリ内のファイルを変換する方法と、変換後に確認すべき事項を説明します。
+PPT はレガシーなバイナリ PowerPoint 形式で、PPTX は新しい Open XML 形式です。Aspose.Slides for Android via Java は Microsoft PowerPoint を使用せずに PPT ファイルを読み込み、PPTX として保存できます。本記事では、単一ファイルまたはディレクトリ内のファイルを変換する方法と、変換後に確認すべき項目について説明します。
 
 ## **PPT ファイルを PPTX に変換する**
 
-ソース ファイルは [Presentation](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/) クラスで読み込み、次に [Presentation.save](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) を [SaveFormat.Pptx](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/saveformat/#Pptx) と共に呼び出します。`finally` ブロックはプレゼンテーションを破棄し、そのリソースを解放します。
+ソースファイルは [Presentation](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/) クラスでロードし、次に [Presentation.save](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) に [SaveFormat.Pptx](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/saveformat/#Pptx) を指定して呼び出します。`finally` ブロックでプレゼンテーションを破棄し、リソースを解放します。
 
 ```java
-// レガシー PPT プレゼンテーションをロードします。
+// レガシー PPT プレゼンテーションを読み込みます。
 com.aspose.slides.Presentation presentation = new com.aspose.slides.Presentation("presentation.ppt");
 try {
     // プレゼンテーションを PPTX 形式で保存します。
@@ -38,11 +38,11 @@ try {
 }
 ```
 
-ファイル拡張子だけでは出力フォーマットは選択されません。[SaveFormat.Pptx](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/saveformat/#Pptx) 引数がそれを指定します。元の PPT ファイルを保持する必要がある場合は、入力パスと出力パスを別々にしてください。
+ファイル拡張子だけでは出力形式は決定されません。[SaveFormat.Pptx](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/saveformat/#Pptx) 引数が形式を指定します。元の PPT ファイルを保持する必要がある場合は、入力パスと出力パスを別々にしてください。
 
 ## **複数の PPT ファイルを変換する**
 
-以下の例は、1 つのディレクトリ内のすべての `.ppt` ファイルを変換します。各ファイルは個別に処理されるため、変換に失敗してもバッチの残りは続行されます。
+以下の例は、1 つのディレクトリ内のすべての `.ppt` ファイルを変換します。各ファイルは個別に処理されるため、1 つの変換が失敗してもバッチ全体は停止しません。
 
 ```java
 java.io.File inputDirectory = new java.io.File("input");
@@ -77,47 +77,47 @@ for (java.io.File inputFile : inputFiles) {
 }
 ```
 
-本番環境では、例外の全内容をログに記録し、既存の出力ファイルを上書きしてよいか判断し、失敗したファイル名を再試行またはレビューキューに書き込んでください。破損したファイル、必要なパスワードなしで開いたパスワード保護ファイル、アクセスできないパス、サポートされていないコンテンツはすべて変換失敗の原因となります。暗号化ファイルの読み込みについては [Password-Protected Presentations](/androidjava/password-protected-presentation/) を参照してください。
+本番環境では、例外全文をログに記録し、既存の出力ファイルを上書きしてよいか判断し、失敗したファイル名を再試行キューまたはレビューキューに書き出してください。破損したファイル、必要なパスワードなしで開いたパスワード保護ファイル、アクセスできないパス、サポートされていないコンテンツは、すべて変換失敗の原因となります。暗号化されたファイルの読み込みについては、[Password-Protected Presentations](/androidjava/password-protected-presentation/) を参照してください。
 
 ## **忠実度とレガシー機能**
 
-変換は通常、スライド、マスター、レイアウト、テキスト、シェイプ、画像、テーブル、チャートを保持します。ただし、PPT と PPTX はすべての機能を完全に同一に表現できるわけではありません。PPTX に対応するものがなく、ライブラリでもサポートされていないレガシー機能は、正規化されたり、除外されたり、別の形で表示されたりすることがあります。
+変換では通常、スライド、マスタ、レイアウト、テキスト、シェイプ、画像、テーブル、チャートが保持されます。ただし、PPT と PPTX はすべての機能を同一の形で表現しているわけではありません。PPTX に対応するものがないレガシー機能や、ライブラリがサポートしていない機能は、正規化、除外、または別の表示になる可能性があります。
 
-変換後のファイルにアニメーション、トランジション、埋め込みまたはリンクされた OLE オブジェクト、ActiveX コントロール、埋め込みメディア、マイナーなフォント、VBA マクロが含まれる場合は確認してください。普通の PPTX ファイルはマクロ有効形式ではないため、VBA を保持する必要がある場合は適切なマクロ有効ワークフローを使用してください。また、変換されたプレゼンテーションが開かれるまたはレンダリングされる環境に必要なフォントや外部リソースが存在することも確認してください。
+変換後のファイルにアニメーション、トランジション、埋め込みまたはリンクされた OLE オブジェクト、ActiveX コントロール、埋め込みメディア、特殊なフォント、VBA マクロが含まれる場合は確認してください。標準の PPTX ファイルはマクロ有効形式ではないため、VBA を保持する必要がある場合はマクロ有効なワークフローを使用してください。また、変換されたプレゼンテーションが開かれるまたはレンダリングされる環境に、必要なフォントや外部リソースが存在することも確認してください。
 
-重要なドキュメントについては、生成された PPTX をプログラムから再度開き、主要なスライド数やコンテンツを検査し、意図したビューアでの外観やスライドショーの動作と比較してください。成功した [Presentation.save](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) 呼び出しが、すべてのレガシー機能が正確に PPTX に変換されたことの証明になるとはみなさないでください。
+重要なドキュメントについては、生成された PPTX をプログラムで再度開き、スライド数や主要コンテンツを確認したうえで、目的のビューアでの外観やスライドショーの動作と比較してください。成功した [Presentation.save](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) 呼び出しだけで、すべてのレガシー機能が正確に PPTX に変換されたと判断しないでください。
 
-## **PPTX を使用すべき時**
+## **PPTX を使用すべきとき**
 
-現在の PowerPoint バージョンで編集される、Open XML パッケージを扱うシステムとやり取りされる、またはレガシーのバイナリ PPT よりも検査や復元が容易な形式で保存される場合は PPTX を使用してください。変換されたプレゼンテーションが忠実度チェックを通過するまで、元の PPT をアーカイブやロールバック用のコピーとして保持してください。
+現在の PowerPoint バージョンで編集する場合、Open XML パッケージを扱うシステムとやり取りする場合、またはレガシーなバイナリ PPT よりも検査や復元が容易な形式で保存する場合は、PPTX を使用してください。変換されたプレゼンテーションが忠実度チェックを通過するまで、元の PPT をアーカイブまたはロールバック用のコピーとして保持してください。
 
-PDF、HTML、画像、XPS、またはその他の出力形式が必要な場合は、すべてのターゲットが編集可能な PowerPoint 機能を保持すると仮定せずに、[Convert Presentations to Multiple Formats](/androidjava/convert-presentation/) の形式別ガイダンスを使用してください。
+PDF、HTML、画像、XPS など別の出力形式が必要な場合は、すべてのターゲットが編集可能な PowerPoint 機能を保持すると仮定せず、[Convert Presentations to Multiple Formats](/slides/ja/androidjava/convert-presentation/) の形式別ガイダンスを利用してください。
 
-## **オンライン コンバータ**
+## **オンラインコンバータ**
 
-たまにファイルを変換する、またはすばやく比較したい場合は、[online PPT to PPTX converter](https://products.aspose.app/slides/ja/conversion/ppt-to-pptx) を利用できます。繰り返しの変換やバッチ処理、アプリケーションレベルのエラーハンドリングが必要な場合は、Android via Java API を使用してください。
+たまにファイルを変換したり簡単に比較したい場合は、[online PPT to PPTX converter](https://products.aspose.app/slides/ja/conversion/ppt-to-pptx) を使用できます。繰り返しの変換、バッチ処理、またはアプリケーションレベルのエラーハンドリングが必要な場合は、Android via Java API を使用してください。
 
 ## **関連記事**
 
-- [PPT と PPTX](/androidjava/ppt-vs-pptx/)
-- [Android でプレゼンテーションを保存](/androidjava/save-presentation/)
-- [サポートされているファイル形式](/androidjava/supported-file-formats/)
-- [Android でプレゼンテーションを開く](/androidjava/open-presentation/)
+- [PPT と PPTX](/slides/ja/androidjava/ppt-vs-pptx/)
+- [Android でプレゼンテーションを保存する](/slides/ja/androidjava/save-presentation/)
+- [サポートされているファイル形式](/slides/ja/androidjava/supported-file-formats/)
+- [Android でプレゼンテーションを開く](/slides/ja/androidjava/open-presentation/)
 
 ## **よくある質問**
 
-**Microsoft PowerPoint がインストールされていなくても PPT を PPTX に変換できますか？**
+**Microsoft PowerPoint をインストールせずに PPT を PPTX に変換できますか？**
 
-はい。Aspose.Slides for Android via Java は Microsoft PowerPoint を必要とせずにプレゼンテーション ファイルの読み込みと保存が可能です。
+はい。Aspose.Slides for Android via Java は Microsoft PowerPoint を必要とせずにプレゼンテーションファイルを読み込み、保存できます。
 
-**PPT から PPTX への変換はすべてのコンテンツを正確に保持しますか？**
+**PPT から PPTX への変換はすべてのコンテンツを完全に保持しますか？**
 
-一般的なプレゼンテーション コンテンツは保持されますが、すべてのレガシー機能や未サポート機能が正確に再現される保証はありません。マクロ、OLE または ActiveX オブジェクト、メディア、特殊なアニメーション、マイナーなフォントが含まれる場合は、生成されたファイルを確認してください。
+一般的なプレゼンテーションコンテンツは保持されますが、すべてのレガシー機能やサポート外の機能が正確に保持される保証はありません。マクロ、OLE または ActiveX オブジェクト、メディア、特殊なアニメーション、特殊フォントが含まれる場合は、生成されたファイルを確認してください。
 
 **パスワード保護された PPT ファイルを変換できますか？**
 
-はい、ファイルの読み込み時に正しいパスワードを提供すれば可能です。パスワードがない、または間違っていると読み込み操作は失敗します。
+はい、ファイルを読み込む際に正しいパスワードを指定すれば変換できます。パスワードが欠如しているか誤っている場合、読み込み操作は失敗します。
 
 **変換後に PPT ファイルを削除すべきですか？**
 
-重要なビューアやワークフローで PPTX を確認するまで、元のファイルは保持してください。レガシー機能が異なる形で変換された場合のロールバック コピーとして役立ちます。
+対象のビューアやワークフローで PPTX を確認できるまで、元のファイルは保持してください。レガシー機能が異なる形で変換された場合に備えて、ロールバック用のコピーとして残しておくことが重要です。

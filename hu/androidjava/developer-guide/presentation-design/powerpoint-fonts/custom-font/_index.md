@@ -1,103 +1,113 @@
 ---
-title: "PowerPoint betűtípusok testreszabása Androidon"
-linktitle: "Egyedi betűtípus"
+title: Androidon a PowerPoint betűtípusok testreszabása
+linktitle: Egyéni betűtípus
 type: docs
 weight: 20
 url: /hu/androidjava/custom-font/
 keywords:
 - betűtípus
-- egyedi betűtípus
+- egyéni betűtípus
 - külső betűtípus
 - betűtípus betöltése
 - betűtípusok kezelése
-- betűtípus-mappa
+- betűtípus mappa
 - PowerPoint
 - OpenDocument
-- bemutató
+- prezentáció
 - Android
 - Java
 - Aspose.Slides
-description: "Testreszabja a betűtípusokat a PowerPoint diákon az Androidra készült Aspose.Slides segítségével Java-ban, hogy bemutatói élesek és következetesek legyenek bármilyen eszközön."
+description: "Testreszabja a betűtípusokat a PowerPoint diákon az Aspose.Slides for Android segítségével Java nyelven, hogy prezentációi élesek és következetesek legyenek minden eszközön."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides lehetővé teszi egyéni betűtípusok használatát a bemutatókban anélkül, hogy azokat az operációs rendszerre telepítené. Betűtípusokat tölthet fel egyéni mappákból, megadhat betűtípusokat egy adott bemutatóhoz dokumentumszintű betűtípus-források segítségével, vagy betöltheti a külső betűtípusokat közvetlenül bináris adatokból.
+Az Aspose.Slides lehetővé teszi egyéni betűtípusok használatát a prezentációkban anélkül, hogy telepítené őket az operációs rendszerre. Betűtípusokat tölthet be egyéni mappákból, megadhat betűtípusokat egy adott prezentációhoz dokumentumszintű betűforrások segítségével, vagy külső betűtípusokat tölthet be közvetlenül bináris adatokból.
 
-A betöltött betűtípusok akkor kerülnek felhasználásra, amikor a bemutatót renderelik vagy exportálják, például PDF-be, képekbe és más támogatott formátumokba. Ez segít a bemutató kimenetének konzisztens maradásában különböző környezetekben. A cikk azt is bemutatja, hogyan ellenőrizheti az Aspose.Slides által használt betűtípus-mappákat, és hogyan tisztíthatja a betűtípus-gyorsítót a külső betűtípusok használata után.
+A betöltött betűtípusok a prezentáció megjelenítésekor vagy exportálásakor kerülnek felhasználásra, például PDF, képek és más támogatott formátumok esetén. Ez segít azonos megjelenést biztosítani a különböző környezetekben. A cikk azt is bemutatja, hogyan vizsgálhatja meg az Aspose.Slides által használt betűtípus-mappákat, és hogyan tisztíthatja meg a betűtípus-gyorsítót a külső betűtípusok használata után.
 
-Az egyéni betűtípusok regisztrálása a rendereléshez elkülönül a betűtípusok PPTX-fájlba ágyazásától. Ha egy betűtípust a bemutatóba kell tárolni, használja a betűtípus-ágyazás funkciókat kifejezetten.
+Az egyéni betűtípusok regisztrálása a megjelenítéshez különálló a betűtípusok PPTX fájlba ágyazásától. Ha a betűtípust magában a prezentációban kell tárolni, használja a betűtípus-ágyazási funkciókat kifejezetten.
 
-{{% alert color="primary" %}} 
+Egy prezentáció témája különböző írásrendszerekhez külön betűcsaládokat hivatkozhat. Ezek a leképezések csak a betűtípusok nevét tárolják, de nem telepítik vagy töltik be a betűtípusfájlokat. Lásd a [Script-Specific Theme Fonts](/slides/hu/androidjava/script-specific-font-mappings/) oldalt a leképezések kezeléséhez, és használja az alábbi betöltési beállításokat a hivatkozott betűtípusok elérhetővé tételéhez a konzisztens megjelenítéshez.
 
-Az Aspose Slides lehetővé teszi ezen betűtípusok betöltését a [loadExternalFonts](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) metódus segítségével:
+{{% alert color="info" title="Note" %}}
+Az Aspose Slides lehetővé teszi ezen betűtípusok betöltését a [loadExternalFonts](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) metódussal:
 
-* TrueType (.ttf) és TrueType Collection (.ttc) betűtípusok. Lásd a [TrueType](https://en.wikipedia.org/wiki/TrueType) oldalt.
-
-* OpenType (.otf) betűtípusok. Lásd a [OpenType](https://en.wikipedia.org/wiki/OpenType) oldalt.
-
+* TrueType (.ttf) és TrueType Collection (.ttc) betűtípusok. Lásd a [TrueType](https://en.wikipedia.org/wiki/TrueType) cikket.
+* OpenType (.otf) betűtípusok. Lásd a [OpenType](https://en.wikipedia.org/wiki/OpenType) cikket.
 {{% /alert %}}
 
 ## **Egyéni betűtípusok betöltése**
 
-Az Aspose.Slides lehetővé teszi a bemutatóban használt betűtípusok betöltését anélkül, hogy azokat a rendszerbe telepítené. Ez befolyásolja az export kimenetet – például PDF-et, képeket és más támogatott formátumokat – így a létrehozott dokumentumok környezetek között konzisztensnek tűnnek. A betűtípusok egyéni könyvtárakból töltődnek be.
+Az Aspose.Slides lehetővé teszi a prezentációban használt betűtípusok betöltését anélkül, hogy azokat a rendszerre telepítené. Ez befolyásolja az exportálási kimenetet – például PDF, képek és más támogatott formátumok – így a létrehozott dokumentumok minden környezetben egységesen jelennek meg. A betűtípusok egyéni könyvtárakból töltődnek be.
 
-1. Adjon meg egy vagy több olyan mappát, amely a betűtípus-fájlokat tartalmazza.
-2. Hívja meg a statikus [FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) metódust a betűtípusok betöltéséhez az adott mappákból.
-3. Töltse be és renderelje/exportálja a bemutatót.
-4. Hívja meg a [FontsLoader.clearCache](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/FontsLoader#clearCache--) metódust a betűtípus-gyorsítót törléséhez.
+1. Adja meg egy vagy több mappát, amely a betűtípus‑fájlokat tartalmazza.
+2. Hívja meg a statikus [FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) metódust a megadott mappák betöltéséhez.
+3. Töltse be és jelenítse meg/exportálja a prezentációt.
+4. Hívja meg a [FontsLoader.clearCache](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/FontsLoader#clearCache--) metódust a betűtípus‑gyorsítótörléshez.
 
-A következő kódrészlet bemutatja a betűtípus betöltési folyamatát:
+Az alábbi kódrészlet bemutatja a betűtípus‑betöltési folyamatot:
 
 ```java
-// Határozza meg az egyéni betűtípus fájlokat tartalmazó mappákat.
+import com.aspose.slides.*;
+
+// Határozza meg az egyéni betűtípusfájlokat tartalmazó mappákat.
+String externalFontFolder1 = "assets/fonts";
+String externalFontFolder2 = "global/fonts";
+
 String[] fontFolders = new String[] { externalFontFolder1, externalFontFolder2 };
 
-// Töltsön be egyéni betűtípusokat a megadott mappákból.
+// Töltse be az egyéni betűtípusokat a megadott mappákból.
 FontsLoader.loadExternalFonts(fontFolders);
 
 Presentation presentation = null;
 try {
     presentation = new Presentation("sample.pptx");
-    
-    // Renderelje/exportálja a bemutatót (pl. PDF-be, képekbe vagy más formátumokba) a betöltött betűtípusokkal.
+
+    // Renderelje/exportálja a prezentációt (például PDF-be, képekbe vagy más formátumokba) a betöltött betűtípusok használatával.
     presentation.save("output.pdf", SaveFormat.Pdf);
 } finally {
     if (presentation != null) presentation.dispose();
 
-    // Törölje a betűtípus gyorsítót a munka befejezése után.
+    // Törölje a betűtípus-gyorsítót a munka befejezése után.
     FontsLoader.clearCache();
 }
 ```
 
 {{% alert color="info" title="Note" %}}
+[FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) további mappákat ad a betűtípus‑keresési útvonalakhoz, de nem változtatja meg a betűtípus‑inicializálási sorrendet.
+A betűtípusok ezen a sorrenden inicializálódnak:
 
-[FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) további mappákat ad a betűtípus-keresési útvonalakhoz, de nem változtatja meg a betűtípusok inicializálási sorrendjét.
-A betűtípusok ebben a sorrendben inicializálódnak:
-
-1. Az alapértelmezett operációs rendszer betűtípus útvonala.
+1. Az operációs rendszer alapértelmezett betűtípus‑útvonala.
 1. A [FontsLoader](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/fontsloader/) által betöltött útvonalak.
-
 {{%/alert %}}
 
-## **Egyéni betűtípusmappák lekérdezése**
-Az Aspose.Slides biztosítja a [getFontFolders](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/fontsloader/#getFontFolders--) metódust, amely lehetővé teszi a betűtípus-mappák megtalálását. Ez a metódus visszaadja a `LoadExternalFonts` metóduson keresztül hozzáadott mappákat és a rendszer betűtípus-mappákat.
+## **Egyéni betűtípus‑mappák lekérése**
 
-Ez a Java kód bemutatja, hogyan kell használni a [getFontFolders](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/fontsloader/#getFontFolders--) metódust:
+Az Aspose.Slides a [getFontFolders](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/fontsloader/#getFontFolders--) metódust biztosítja, amely lehetővé teszi a betűtípus‑mappák megtalálását. Ez a metódus a `LoadExternalFonts` metódussal hozzáadott mappákat és a rendszer betűtípus‑mappákat adja vissza.
+
+Az alábbi Java‑kód bemutatja a [getFontFolders](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/fontsloader/#getFontFolders--) használatát:
 
 ```java
-// Ez a sor kiírja azokat a mappákat, ahol a betűtípus fájlok keresése történik.
-// Ezek a LoadExternalFonts metóduson keresztül hozzáadott mappák és a rendszer betűtípus mappák.
+import com.aspose.slides.*;
+
+// Ez a sor kiírja azokat a mappákat, ahol a betűtípusfájlok keresése történik.
+// Ezek a LoadExternalFonts metóduson keresztül hozzáadott mappák és a rendszer betűtípus-mappái.
 String[] fontFolders = FontsLoader.getFontFolders();
 ```
 
-## **Egyéni betűtípusok megadása egy bemutatóhoz**
-Az Aspose.Slides biztosítja a [setDocumentLevelFontSources](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) tulajdonságot, amely lehetővé teszi a bemutatóhoz használandó külső betűtípusok megadását.
+## **Egy prezentációval használt egyéni betűtípusok megadása**
 
-Ez a Java kód bemutatja, hogyan kell használni a [setDocumentLevelFontSources](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) tulajdonságot:
+Az Aspose.Slides a [setDocumentLevelFontSources](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) tulajdonságot biztosítja, amely lehetővé teszi a prezentációval együtt használandó külső betűtípusok megadását.
+
+Az alábbi Java‑kód mutatja, hogyan kell használni a [setDocumentLevelFontSources](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iloadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) tulajdonságot:
 
 ```java
-byte[] memoryFont1 = Files.readAllBytes("customfonts/CustomFont1.ttf");
-byte[] memoryFont2 = Files.readAllBytes("customfonts/CustomFont2.ttf");
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+byte[] memoryFont1 = Files.readAllBytes(Paths.get("customfonts/CustomFont1.ttf"));
+byte[] memoryFont2 = Files.readAllBytes(Paths.get("customfonts/CustomFont2.ttf"));
 
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.getDocumentLevelFontSources().setFontFolders(new String[] { "assets/fonts", "global/fonts" });
@@ -105,8 +115,8 @@ loadOptions.getDocumentLevelFontSources().setMemoryFonts(new byte[][] { memoryFo
 
 Presentation pres = new Presentation("MyPresentation.pptx", loadOptions);
 try {
-    // Dolgozzon a bemutatóval
-    // A CustomFont1, a CustomFont2 és az assets\fonts & global\fonts mappákból (és azok almappáiból) származó betűtípusok elérhetők a bemutatóban
+    // A prezentációval dolgozás
+    // A CustomFont1, CustomFont2 és az assets\fonts & global\fonts mappákból és azok alkönyvtáraiból származó betűtípusok elérhetők a prezentáció számára
 } finally {
     if (pres != null) pres.dispose();
 }
@@ -114,11 +124,15 @@ try {
 
 ## **Betűtípusok külső kezelése**
 
-Az Aspose.Slides biztosítja a [loadExternalFont](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) metódust, amely lehetővé teszi külső betűtípusok betöltését bináris adatokból.
+Az Aspose.Slides a [loadExternalFont](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) metódust biztosítja, amely lehetővé teszi külső betűtípusok betöltését bináris adatokból.
 
-Ez a Java kód bemutatja a byte tömbből történő betűtípus betöltési folyamatot:
+Az alábbi Java‑kód bemutatja a bájt‑tömbös betűtípus‑betöltési folyamatot:
 
 ```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 FontsLoader.loadExternalFont(Files.readAllBytes(Paths.get("ARIALN.TTF")));
 FontsLoader.loadExternalFont(Files.readAllBytes(Paths.get("ARIALNBI.TTF")));
 FontsLoader.loadExternalFont(Files.readAllBytes(Paths.get("ARIALNI.TTF")));
@@ -127,7 +141,7 @@ try
 {
     Presentation pres = new Presentation("");
     try {
-        // külső betűtípus betöltve a bemutató élettartama alatt
+        //        külső betűtípus betöltve a prezentáció életciklusa során
     } finally {
         
     }
@@ -140,22 +154,22 @@ finally
 
 ## **GYIK**
 
-**Az egyéni betűtípusok hatnak-e az összes formátumba történő exportálásra (PDF, PNG, SVG, HTML)?**
+### Befolyásolják a saját betűtípusok az exportálást minden formátumba (PDF, PNG, SVG, HTML)?
 
-Igen. A kapcsolódó betűtípusokat a renderelő minden exportformátumban felhasználja.
+Igen. A csatolt betűtípusok a renderelő által minden export formátumban használatra kerülnek.
 
-**Az egyéni betűtípusok automatikusan be vannak ágyazva a létrejövő PPTX-be?**
+### A saját betűtípusok automatikusan beágyazódnak a létrejött PPTX‑be?
 
-Nem. A betűtípus regisztrálása a rendereléshez nem ugyanaz, mint a PPTX-be ágyazás. Ha a betűtípust a bemutató fájlba be kell ágyazni, explicit módon a [beágyazási funkciókat](/slides/hu/androidjava/embedded-font/) kell használnia.
+Nem. A betűtípus regisztrálása a megjelenítéshez nem azonos a PPTX‑be ágyazással. Ha a betűtípust a prezentáció fájljában szeretné tárolni, használja a kifejezett [embedding features](/slides/hu/androidjava/embedded-font/) lehetőséget.
 
-**Irányíthatom-e a visszaeső (fallback) viselkedést, ha egy egyéni betűtípus hiányos bizonyos glifekkel?**
+### Szabályozhatom a fallback viselkedést, ha egy saját betűtípusból hiányoznak bizonyos glifyek?
 
-Igen. Konfigurálja a [betűtípus helyettesítést](/slides/hu/androidjava/font-substitution/), a [csere szabályokat](/slides/hu/androidjava/font-replacement/) és a [visszalépő készleteket](/slides/hu/androidjava/fallback-font/) annak meghatározásához, hogy melyik betűtípus legyen használva, ha a kért glif hiányzik.
+Igen. Konfigurálja a [font substitution](/slides/hu/androidjava/font-substitution/), [replacement rules](/slides/hu/androidjava/font-replacement/) és [fallback sets](/slides/hu/androidjava/fallback-font/) beállításokat, hogy pontosan meghatározza, melyik betűtípus kerüljön felhasználásra hiányzó glif esetén.
 
-**Használhatok-e betűtípusokat Linux/Docker konténerekben anélkül, hogy rendszerszinten telepíteném őket?**
+### Használhatok betűtípusokat Linux/Docker konténerekben anélkül, hogy a rendszeren telepíteném őket?
 
-Igen. Hivatkozzon saját betűtípus-mappáira, vagy töltse be a betűtípusokat byte tömbökből. Ez eltávolítja a konténer képen lévő rendszermappákra való függőséget.
+Igen. Hivatkozhat saját betűtípus‑mappákra, vagy betöltheti a betűtípusokat bájt‑tömbökből. Ez eltávolítja a konténer‑image rendszer‑betűtípus‑könyvtárakra való függőséget.
 
-**Mi van a licenceléssel – beágyazhatok bármilyen egyéni betűtípust korlátozások nélkül?**
+### Mi a helyzet a licenceléssel – beágyazhatok bármilyen saját betűtípust korlátozások nélkül?
 
-Ön felelős a betűtípusok licencelési követelményeinek betartásáért. A feltételek változhatnak; egyes licencek tiltják az ágyazást vagy a kereskedelmi felhasználást. Mindig ellenőrizze a betűtípus EULA-ját, mielőtt a kimeneteket terjesztené.
+Ön felelős a betűtípus‑licenc megfelelőségért. A feltételek változóak; egyes licencek tiltják az ágyazást vagy a kereskedelmi felhasználást. Mindig ellenőrizze a betűtípus EULA‑ját, mielőtt a kimeneteket terjesztené.

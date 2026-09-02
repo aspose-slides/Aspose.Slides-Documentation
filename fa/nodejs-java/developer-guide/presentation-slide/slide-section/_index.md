@@ -1,5 +1,5 @@
 ---
-title: مدیریت بخش‌های اسلاید در ارائه‌ها با استفاده از JavaScript
+title: مدیریت بخش‌های اسلاید در ارائه‌ها با JavaScript
 linktitle: بخش اسلاید
 type: docs
 weight: 90
@@ -10,82 +10,199 @@ keywords:
 - ویرایش بخش
 - تغییر بخش
 - نام بخش
+- دریافت اسلایدهای بخش
+- پردازش اسلایدهای بخش
 - PowerPoint
-- OpenDocument
-- ارائه
+- presentation
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "بهینه‌سازی بخش‌های اسلاید در PowerPoint و OpenDocument با Aspose.Slides برای Node.js — تقسیم، تغییر نام و ترتیب‌دهی مجدد برای بهبود گردش کار PPTX و ODP."
+description: "مدیریت بخش‌های اسلاید با Aspose.Slides برای Node.js از طریق Java: ایجاد، تغییر نام، بازآرایی، دریافت و پردازش اسلایدهای بخش در ارائه‌های PPTX."
 ---
-## **مقدمه**
+## **معرفی**
 
-با Aspose.Slides برای Node.js از طریق Java می‌توانید یک ارائه PowerPoint را به بخش‌ها تقسیم کنید. می‌توانید بخش‌هایی ایجاد کنید که شامل اسلایدهای خاصی باشند.
+بخش‌ها اسلایدهای متوالی را در گروه‌های نام‌گذاری‌شده سازماندهی می‌کنند بدون تغییر در محتوای اسلاید. با Aspose.Slides برای Node.js از طریق Java، می‌توانید با استفاده از متد [Presentation.getSections](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/#getSections) بخش‌ها را ایجاد، دوباره ترتیب دهید، نام‌گذاری مجدد کنید، بررسی کنید و حذف کنید.
 
-ممکن است بخواهید بخش‌ها را ایجاد کنید و از آن‌ها برای سازماندهی یا تقسیم اسلایدهای یک ارائه به قسمت‌های منطقی در این موارد استفاده کنید:
+بخش‌ها به‌ویژه زمانی مفید هستند که:
 
-- هنگامی که روی یک ارائه بزرگ با دیگران یا یک تیم کار می‌کنید و نیاز دارید برخی اسلایدها را به همکار یا برخی اعضای تیم اختصاص دهید.  
-- هنگامی که با یک ارائه حاوی اسلایدهای بسیار زیاد سرو کار دارید و در مدیریت یا ویرایش محتوای آن به صورت کلی دچار مشکل می‌شوید.
+- یک ارائه بزرگ نیاز به تقسیم به موضوعات یا فصول منطقی دارد؛
+- گروه‌های مختلفی از اسلایدها به همکاران مختلف اختصاص داده می‌شوند؛
+- اسلایدها نیاز به پردازش، جابجا شدن یا ترکیب به‌عنوان گروه‌ها دارند.
 
-در ایده‌آل، باید یک بخشی ایجاد کنید که اسلایدهای مشابه را در خود جای دهد — اسلایدها چیزی مشترک دارند یا می‌توانند بر اساس یک قانون در یک گروه قرار بگیرند — و برای آن بخش نامی انتخاب کنید که اسلایدهای داخل آن را توصیف کند.
+نام‌های بخش کوتاه و واضحی انتخاب کنید که هدف اسلایدهای گروه‌بندی‌شده را توصیف کنند. از آنجا که بخش‌ها بخشی از ساختار ارائه هستند، برای تعیین عضویت از APIهای بخش استفاده کنید به‌جای استخراج آن از موقعیت‌های اسلاید.
 
-## **ایجاد بخش‌ها در ارائه‌ها**
+## **ایجاد و مدیریت بخش‌ها**
 
-برای افزودن بخشی که اسلایدها را در یک ارائه در بر می‌گیرد، Aspose.Slides برای Node.js از طریق Java متد [addSection()](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/SectionCollection#addSection-java.lang.String-aspose.slides.ISlide-) را فراهم می‌کند که به شما امکان می‌دهد نام بخشی که قصد ایجاد آن را دارید و اسلایدی که بخش از آن آغاز می‌شود را مشخص کنید.
+از [SectionCollection.addSection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/sectioncollection/#addSection) برای ایجاد یک بخش با مشخص کردن نام و اسلاید شروع استفاده کنید. Aspose.Slides تعیین می‌کند که کدام اسلایدها به بخش تعلق دارند بر اساس ساختار فعلی بخش‌های ارائه.
 
-این کد نمونه نشان می‌دهد چگونه در JavaScript یک بخش در یک ارائه ایجاد کنید:
+همین [SectionCollection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/sectioncollection/) به شما امکان می‌دهد:
+
+- یک بخش را به همراه اسلایدهایش با استفاده از [SectionCollection.reorderSectionWithSlides](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/sectioncollection/#reorderSectionWithSlides) جابجا کنید؛
+- تنها تعریف بخش را با [SectionCollection.removeSection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/sectioncollection/#removeSection) حذف کنید، در حالی که اسلایدهای آن حفظ می‌شوند؛
+- یک بخش و اسلایدهای آن را با [SectionCollection.removeSectionWithSlides](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/sectioncollection/#removeSectionWithSlides) حذف کنید؛
+- یک بخش خالی را در انتها با [SectionCollection.appendEmptySection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/sectioncollection/#appendEmptySection) اضافه کنید.
+
+مثال زیر دو بخش ایجاد می‌کند، یکی از آن‌ها را جابجا می‌نماید، آن را همراه اسلایدهایش حذف می‌کند و یک بخش خالی اضافه می‌کند:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var defaultSlide = pres.getSlides().get_Item(0);
-    var newSlide1 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    var newSlide2 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    var newSlide3 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    var newSlide4 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    var section1 = pres.getSections().addSection("Section 1", newSlide1);
-    var section2 = pres.getSections().addSection("Section 2", newSlide3);// section1 در newSlide2 پایان می‌یابد و پس از آن section2 شروع می‌شود
-    pres.save("pres-sections.pptx", aspose.slides.SaveFormat.Pptx);
-    pres.getSections().reorderSectionWithSlides(section2, 0);
-    pres.save("pres-sections-moved.pptx", aspose.slides.SaveFormat.Pptx);
-    pres.getSections().removeSectionWithSlides(section2);
-    pres.getSections().appendEmptySection("Last empty section");
-    pres.save("pres-section-with-empty.pptx", aspose.slides.SaveFormat.Pptx);
+    const titleSlide = presentation.getSlides().get_Item(0);
+    const layoutSlide = presentation.getLayoutSlides().get_Item(0);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    const resultsSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+
+    presentation.getSections().addSection("Introduction", titleSlide);
+    const resultsSection = presentation.getSections().addSection("Results", resultsSlide);
+
+    presentation.getSections().reorderSectionWithSlides(resultsSection, 0);
+    presentation.getSections().removeSectionWithSlides(resultsSection);
+    presentation.getSections().appendEmptySection("Appendix");
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
+
+پس از این عملیات، ارائه شامل بخش `Introduction` به همراه اسلایدهای آن و یک بخش خالی `Appendix` می‌شود. بخش `Results` و اسلایدهای آن حذف شده‌اند.
 
 ## **تغییر نام بخش‌ها**
 
-پس از ایجاد یک بخش در یک ارائه PowerPoint، ممکن است تصمیم بگیرید نام آن را تغییر دهید.
+برای تغییر نام یک بخش، متد [Section.setName](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/section/#setName) آن را فراخوانی کنید. اسلایدهای بخش و موقعیت آن بدون تغییر باقی می‌مانند.
 
-این کد نمونه نشان می‌دهد چگونه با استفاده از Aspose.Slides در JavaScript نام یک بخش در یک ارائه را تغییر دهید:
+مثال زیر یک بخش ایجاد می‌کند و نام آن را تغییر می‌دهد:
 
 ```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var section = pres.getSections().get_Item(0);
-    section.setName("My section");
+    const slide = presentation.getSlides().get_Item(0);
+    const section = presentation.getSections().addSection("Overview", slide);
+    section.setName("Introduction");
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **پرسش‌های متداول**
+## **دریافت اسلایدها از بخش‌ها**
 
-**آیا بخش‌ها هنگام ذخیره در فرمت PPT (PowerPoint 97–2003) حفظ می‌شوند؟**
+متد [Presentation.getSections](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/#getSections) یک [SectionCollection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/sectioncollection/) را برمی‌گرداند که می‌توانید با ایندکس به آن دسترسی داشته باشید. برای هر [Section](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/section/)، متد [Section.getSlidesListOfSection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/section/#getSlidesListOfSection) را صدا بزنید تا اسلایدهای فعلی تعلق‌دار به آن را به دست آورید. این متد یک [SectionSlideCollection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/sectionslidecollection/) را برمی‌گرداند که شمارش و دسترسی بر پایه ایندکس را فراهم می‌کند.
 
-خیر. فرمت PPT از متادیتای بخش پشتیبانی نمی‌کند، بنابراین گروه‌بندی بخش‌ها هنگام ذخیره به .ppt از دست می‌رود.
+مثال زیر دو بخش پرشده و یک بخش خالی ایجاد می‌کند، سپس نام [name](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/section/#getName)، شناسه [identifier](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/section/#getSectionId)، اسلاید شروع [starting slide](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/section/#getStartedFromSlide)، شمارش اسلایدها و شماره‌های اسلاید هر بخش را چاپ می‌کند. از [SectionSlideCollection.get_Item](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/sectionslidecollection/#get_Item) برای خواندن هم اسلاید اول و هم هر اسلاید در مجموعه استفاده می‌شود. برای بخش خالی، مجموعه برگشتی اندازه صفر دارد، دسترسی بر پایه ایندکس رد می‌شود و حلقه عملی انجام نمی‌دهد.
+
+```javascript
+const aspose = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const firstSlide = presentation.getSlides().get_Item(0);
+    const layoutSlide = presentation.getLayoutSlides().get_Item(0);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    const thirdSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+
+    presentation.getSections().addSection("Introduction", firstSlide);
+    presentation.getSections().addSection("Details", thirdSlide);
+    presentation.getSections().appendEmptySection("Appendix");
+
+    const sections = presentation.getSections();
+    for (let sectionIndex = 0; sectionIndex < sections.size(); sectionIndex++) {
+        const section = sections.get_Item(sectionIndex);
+        const sectionSlides = section.getSlidesListOfSection();
+        const startingSlideObject = section.getStartedFromSlide();
+        const startingSlide = startingSlideObject === null ? "none" : startingSlideObject.getSlideNumber().toString();
+
+        console.log("Section: " + section.getName());
+        console.log("ID: " + section.getSectionId().toString());
+        console.log("Starting slide: " + startingSlide);
+        console.log("Slide count: " + sectionSlides.size());
+
+        if (sectionSlides.size() > 0) {
+            console.log("First slide via get_Item: " + sectionSlides.get_Item(0).getSlideNumber());
+        }
+
+        let slideNumbers = "Slide numbers:";
+        for (let slideIndex = 0; slideIndex < sectionSlides.size(); slideIndex++) {
+            slideNumbers += " " + sectionSlides.get_Item(slideIndex).getSlideNumber();
+        }
+        console.log(slideNumbers);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+عضویت بخش بر اساس ساختار بخش‌های ارائه تعیین می‌شود. محدوده یک بخش را به‌صورت دستی از [Section.getStartedFromSlide](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/section/#getStartedFromSlide)، ایندکس‌های اسلاید و اسلاید شروع بخش بعدی محاسبه نکنید.
+
+ویرایش‌های ساختاری می‌توانند هم اسلایدهای بازگردانده‌شده برای یک بخش و هم شماره‌های اسلاید آن‌ها را تغییر دهند. این شامل بازآرایی اسلایدها، تکثیر یک اسلاید در یک بخش، جابجا کردن یک بخش به همراه اسلایدهای آن، حذف اسلایدها و حذف بخش‌ها می‌شود. مثال بعدی پس از هر تغییر، به جای حفظ فرضیات درباره مرزهای قبلی بخش، متد [Section.getSlidesListOfSection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/section/#getSlidesListOfSection) را فراخوانی می‌کند.
+
+```javascript
+const aspose = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const firstSlide = presentation.getSlides().get_Item(0);
+    const layoutSlide = presentation.getLayoutSlides().get_Item(0);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    const thirdSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    const firstSection = presentation.getSections().addSection("First", firstSlide);
+    const secondSection = presentation.getSections().addSection("Second", thirdSlide);
+
+    const printSectionSlides = (label, section) => {
+        const sectionSlides = section.getSlidesListOfSection();
+        let output = label + " (" + sectionSlides.size() + " slides):";
+        for (let slideIndex = 0; slideIndex < sectionSlides.size(); slideIndex++) {
+            output += " " + sectionSlides.get_Item(slideIndex).getSlideNumber();
+        }
+        console.log(output);
+    };
+
+    printSectionSlides("Initially", firstSection);
+
+    const slidesBeforeClone = firstSection.getSlidesListOfSection();
+    presentation.getSlides().addClone(slidesBeforeClone.get_Item(0), firstSection);
+    printSectionSlides("After cloning into the section", firstSection);
+
+    const slidesBeforeReorder = firstSection.getSlidesListOfSection();
+    const firstSectionPosition = slidesBeforeReorder.get_Item(0).getSlideNumber() - 1;
+    const lastSlideInSection = slidesBeforeReorder.get_Item(slidesBeforeReorder.size() - 1);
+    presentation.getSlides().reorder(firstSectionPosition, lastSlideInSection);
+    printSectionSlides("After reordering slides", firstSection);
+
+    presentation.getSections().reorderSectionWithSlides(firstSection, 1);
+    printSectionSlides("After moving the section", firstSection);
+
+    const slidesBeforeRemoval = firstSection.getSlidesListOfSection();
+    presentation.getSlides().remove(slidesBeforeRemoval.get_Item(0));
+    printSectionSlides("After removing a slide", firstSection);
+
+    presentation.getSections().removeSectionWithSlides(secondSection);
+    const remainingSections = presentation.getSections();
+    for (let sectionIndex = 0; sectionIndex < remainingSections.size(); sectionIndex++) {
+        printSectionSlides("Remaining section", remainingSections.get_Item(sectionIndex));
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+هر زمان اسلایدها یا بخش‌ها بازآرایی، تکثیر، جابجا یا حذف شوند، دوباره متد [Section.getSlidesListOfSection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/section/#getSlidesListOfSection) را صدا بزنید. این کار پردازش‌های بعدی را با ساختار فعلی ارائه هم‌راستا نگه می‌دارد.
+
+قالب PPT (PowerPoint 97–2003) متادیتای بخش‌ها را حفظ نمی‌کند. از این جریان کار با قالبی که از بخش‌ها پشتیبانی می‌کند، مانند PPTX، استفاده کنید؛ تبدیل به PPT ساختار بخش را که برای تکرارهای بعدی لازم است، حذف می‌کند.
+
+## **سوالات متداول**
+
+**آیا بخش‌ها هنگام ذخیره در قالب PPT (PowerPoint 97–2003) حفظ می‌شوند؟**
+
+خیر. قالب PPT از متادیتای بخش پشتیبانی نمی‌کند، بنابراین گروه‌بندی بخش‌ها هنگام ذخیره به .ppt از بین می‌رود.
 
 **آیا می‌توان یک بخش کامل را «پنهان» کرد؟**
 
-خیر. فقط می‌توان اسلایدهای فردی را پنهان کرد. یک بخش به عنوان یک موجودیت وضعیت «پنهان» ندارد.
+خیر. یک بخش حالت visibility ندارد. برای پنهان کردن محتویات آن، برای هر اسلاید در بخش، متد [Slide.setHidden](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slide/#setHidden) را فراخوانی کنید.
 
-**آیا می‌توانم به سرعت یک بخش را با یک اسلاید پیدا کنم و بالعکس، اولین اسلاید یک بخش را پیدا کنم؟**
+**چگونه می‌توانم بخشی که شامل یک اسلاید است را پیدا کنم؟**
 
-بله. یک بخش به‌طور یکتا توسط اسلاید شروع‌کننده‌اش تعریف می‌شود؛ با داشتن یک اسلاید می‌توانید تعیین کنید که به کدام بخش تعلق دارد و برای یک بخش می‌توانید به اولین اسلاید آن دسترسی پیدا کنید.
+به هر بخش در مجموعه‌ای که توسط [Presentation.getSections](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/#getSections) برگردانده می‌شود دسترسی پیدا کنید، برای هر بخش متد [Section.getSlidesListOfSection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/section/#getSlidesListOfSection) را صدا بزنید و اسلایدهای برگشتی را با اسلاید هدف مقایسه کنید. برای یک بخش غیرخالی، [Section.getStartedFromSlide](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/section/#getStartedFromSlide) اولین اسلاید آن را برمی‌گرداند؛ برای یک بخش خالی، `null` برمی‌گرداند.

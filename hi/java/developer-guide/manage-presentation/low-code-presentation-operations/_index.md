@@ -1,47 +1,47 @@
 ---
-title: जावा में लो-कोड प्रस्तुति संचालन
-linktitle: लो-कोड एपीआई
+title: Java में लो-कोड प्रस्तुति संचालन
+linktitle: लो-कोड API
 type: docs
 weight: 50
 url: /hi/java/low-code-presentation-operations/
 keywords:
-- लो-कोड प्रस्तुति एपीआई
-- प्रेज़ेंटेशन परिवर्तित करें
-- प्रेज़ेंटेशन मिलाएँ
-- स्लाइड्स पर इटररेट करें
-- शेप्स पर इटररेट करें
-- टेक्स्ट पर इटररेट करें
+- लो-कोड प्रस्तुति API
+- प्रस्तुति रूपांतरण
+- प्रस्तुति मिलाएँ
+- स्लाइड्स पर पुनरावृति
+- शेप्स पर पुनरावृति
+- टेक्स्ट पर पुनरावृति
 - शेप्स एकत्र करें
-- प्रेज़ेंटेशन संकुचित करें
-- अप्रयुक्त मास्टर स्लाइड्स हटाएँ
-- अप्रयुक्त लेआउट स्लाइड्स हटाएँ
-- एम्बेडेड फ़ॉन्ट्स संकुचित करें
+- प्रस्तुति संपीड़न
+- अनावश्यक मास्टर स्लाइड्स हटाएँ
+- अनावश्यक लेआउट स्लाइड्स हटाएँ
+- एम्बेडेड फ़ॉन्ट संपीड़न
 - PowerPoint
 - OpenDocument
-- प्रेज़ेंटेशन
+- प्रस्तुति
 - Java
 - Aspose.Slides
-description: "जावा में Aspose.Slides लो-कोड एपीआई का उपयोग करके प्रेज़ेंटेशन को परिवर्तित और मिलाएँ, सामग्री पर इटररेट करें, शेप्स एकत्र करें, और प्रेज़ेंटेशन का आकार घटाएँ।"
+description: "Java में Aspose.Slides लो-कोड API का उपयोग करके प्रस्तुतियों को रूपांतरित और मिलाएँ, सामग्री पर पुनरावृति करें, शेप्स एकत्र करें, और प्रस्तुति का आकार घटाएँ।"
 ---
 ## **अवलोकन**
 
-[com.aspose.slides](https://reference.aspose.com/slides/hi/java/com.aspose.slides/) पैकेज सामान्य प्रस्तुति संचालन के लिए स्थैतिक हेल्पर क्लासेज़ प्रदान करता है। ये हेल्पर्स अक्सर उपयोग किए जाने वाले ऑब्जेक्ट- मॉडल कार्यप्रवाह को केंद्रित मेथड्स में लपेटते हैं, जिससे आप कम कोड के साथ फ़ाइलें बदल सकते हैं या मर्ज कर सकते हैं, प्रस्तुति तत्वों को प्रोसेस कर सकते हैं, शेप्स एकत्र कर सकते हैं, और अप्रयुक्त सामग्री को हटा सकते हैं।
+The [com.aspose.slides](https://reference.aspose.com/slides/hi/java/com.aspose.slides/) पैकेज सामान्य प्रस्तुति संचालन के लिए स्थैतिक हेल्पर क्लासेस प्रदान करता है। ये हेल्पर अक्सर उपयोग किए जाने वाले ऑब्जेक्ट‑मॉडल वर्कफ़्लो को केंद्रित मेथड्स में लपेटते हैं, जिससे आप फ़ाइलों को परिवर्तित या मर्ज कर सकते हैं, प्रस्तुति तत्वों को प्रोसेस कर सकते हैं, शैप्स एकत्र कर सकते हैं, और कम कोड के साथ अनावश्यक सामग्री हटा सकते हैं।
 
-जब ऑपरेशन पूरे फ़ाइल या प्रस्तुति पर लागू होता है और डिफ़ॉल्ट कार्यप्रवाह आपकी आवश्यकताओं से मेल खाता है, तब लो-कोड हेल्पर्स सबसे उपयोगी होते हैं। जब आपको व्यक्तिगत स्लाइड्स, मास्टर्स, लेआउट्स, शेप्स, एक्सपोर्ट सेटिंग्स, या प्रस्तुति तत्वों के बीच संबंधों पर सूक्ष्म नियंत्रण चाहिए, तो पूर्ण [Aspose.Slides object model](https://reference.aspose.com/slides/hi/java/com.aspose.slides/) का उपयोग करें।
+Low‑code हेल्पर्स सबसे उपयोगी तब होते हैं जब ऑपरेशन पूरी फ़ाइल या प्रस्तुति पर लागू होता है और डिफ़ॉल्ट वर्कफ़्लो आपकी आवश्यकताओं से मेल खाता है। विस्तृत नियंत्रण की आवश्यकता होने पर individual स्लाइड्स, मास्टर्स, लेआउट्स, शैप्स, एक्सपोर्ट सेटिंग्स, या प्रस्तुति तत्वों के बीच संबंधों के लिए पूर्ण [Aspose.Slides object model](https://reference.aspose.com/slides/hi/java/com.aspose.slides/) का उपयोग करें।
 
-निम्न तालिका उपलब्ध हेल्पर्स का सारांश प्रस्तुत करती है:
+निम्न तालिका उपलब्ध हेल्पर्स को सारांशित करती है:
 
-| हेल्पर | उपयोग हेतु |
+| हेल्पर | किनके लिए उपयोग करें |
 | --- | --- |
-| [Convert](https://reference.aspose.com/slides/hi/java/com.aspose.slides/convert/) | एक प्रस्तुति को सीधे फ़ाइल-से-फ़ाइल कॉल के साथ दूसरे फ़ॉर्मेट में परिवर्तित करना। |
-| [Merger](https://reference.aspose.com/slides/hi/java/com.aspose.slides/merger/) | एक ही फ़ॉर्मेट की संपूर्ण प्रस्तुति फ़ाइलों को मिलाना। |
-| [ForEach](https://reference.aspose.com/slides/hi/java/com.aspose.slides/foreach/) | प्रत्येक स्लाइड, शेप, पैराग्राफ या टेक्स्ट भाग के लिए एक्शन चलाना। |
-| [Collect](https://reference.aspose.com/slides/hi/java/com.aspose.slides/collect/) | बार-बार प्रोसेसिंग या विश्लेषण के लिए पूरी प्रस्तुति से शेप्स प्राप्त करना। |
-| [Compress](https://reference.aspose.com/slides/hi/java/com.aspose.slides/compress/) | अप्रयुक्त मास्टर्स और लेआउट्स को हटाना तथा एम्बेडेड फ़ॉन्ट डेटा को कम करना। |
+| [Convert](https://reference.aspose.com/slides/hi/java/com.aspose.slides/convert/) | एक प्रस्तुति को सीधे फ़ाइल‑से‑फ़ाइल कॉल के साथ अन्य फ़ॉर्मेट में परिवर्तित करना। |
+| [Merger](https://reference.aspose.com/slides/hi/java/com.aspose.slides/merger/) | एक ही फ़ॉर्मेट की पूरी प्रस्तुति फ़ाइलों को मिलाना। |
+| [ForEach](https://reference.aspose.com/slides/hi/java/com.aspose.slides/foreach/) | प्रत्येक स्लाइड, शैप, पैराग्राफ, या टेक्स्ट पोर्शन के लिए एक्शन चलाना। |
+| [Collect](https://reference.aspose.com/slides/hi/java/com.aspose.slides/collect/) | पूरी प्रस्तुति से शैप्स को पुनः प्रोसेसिंग या विश्लेषण के लिए एकत्र करना। |
+| [Compress](https://reference.aspose.com/slides/hi/java/com.aspose.slides/compress/) | अनावश्यक मास्टर और लेआउट हटाना और एम्बेडेड फ़ॉन्ट डेटा को कम करना। |
 
-## **प्रेज़ेंटेशन बदलें**
+## **एक प्रस्तुति को परिवर्तित करें**
 
-[Convert.autoByExtension](https://reference.aspose.com/slides/hi/java/com.aspose.slides/convert/#autoByExtension-java.lang.String-java.lang.String-) का उपयोग करें जब आउटपुट फ़ाइल एक्स्टेंशन एक्सपोर्ट फ़ॉर्मेट चुनने के लिए पर्याप्त हो। यह मेथड स्रोत प्रस्तुति को खोलता है, आउटपुट पाथ से आवश्यक फ़ॉर्मेट निर्धारित करता है, और परिणाम लिखता है।
+Use [Convert.autoByExtension](https://reference.aspose.com/slides/hi/java/com.aspose.slides/convert/#autoByExtension-java.lang.String-java.lang.String-) when the output file extension is sufficient to select the export format. The method opens the source presentation, determines the required format from the output path, and writes the result.
 
 ```java
 import com.aspose.slides.Convert;
@@ -49,11 +49,11 @@ import com.aspose.slides.Convert;
 Convert.autoByExtension("input.pptx", "output.pdf");
 ```
 
-[Convert](https://reference.aspose.com/slides/hi/java/com.aspose.slides/convert/) क्लास PDF, SVG, JPEG, PNG, और TIFF आउटपुट के लिए समर्पित मेथड्स भी प्रदान करता है। जब आपको एक्सपोर्ट से पहले प्रस्तुति का निरीक्षण या संशोधन करने की आवश्यकता हो या चयनित हेल्पर द्वारा उपलब्ध नहीं किए गए एक्सपोर्ट विकल्प को कॉन्फ़िगर करने की आवश्यकता हो, तो पूर्ण ऑब्जेक्ट मॉडल का उपयोग करें। फ़ॉर्मेट-विशिष्ट कार्यप्रवाह और विकल्पों के लिए [Convert Presentation](/java/convert-presentation/) देखें।
+The [Convert](https://reference.aspose.com/slides/hi/java/com.aspose.slides/convert/) class also provides dedicated methods for PDF, SVG, JPEG, PNG, and TIFF output. Use the full object model when you need to inspect or modify the presentation before export or configure an export option that is not exposed by the selected helper. See [Convert Presentation](/slides/hi/java/convert-presentation/) for format-specific workflows and options.
 
-## **प्रस्तुति मर्ज करें**
+## **प्रस्तुतियों को मिलाएं**
 
-[Merger.process](https://reference.aspose.com/slides/hi/java/com.aspose.slides/merger/#process-java.lang.String:A-java.lang.String-) का उपयोग एक कॉल में संपूर्ण प्रस्तुति फ़ाइलों को मिलाने के लिए करें। इनपुट प्रस्तुतियों का फ़ाइल फ़ॉर्मेट समान होना चाहिए।
+Use [Merger.process](https://reference.aspose.com/slides/hi/java/com.aspose.slides/merger/#process-java.lang.String:A-java.lang.String-) to combine complete presentation files with one call. The input presentations must have the same file format.
 
 ```java
 import com.aspose.slides.Merger;
@@ -62,13 +62,13 @@ String[] inputFiles = { "part-1.pptx", "part-2.pptx" };
 Merger.process(inputFiles, "merged.pptx");
 ```
 
-जब सभी स्लाइड्स को व्यक्तिगत रूप से चयन या पुनःमैप किए बिना एक परिणाम में जोड़ना हो, तो यह हेल्पर उपयुक्त है। जब आपको चयनित स्लाइड्स को मर्ज करना हो, लक्ष्य मास्टर या लेआउट लागू करना हो, सेक्शन स्पष्ट रूप से संरक्षित करने हों, या विभिन्न स्लाइड आकारों को समायोजित करना हो, तो पूर्ण ऑब्जेक्ट मॉडल का उपयोग करें। उन परिदृश्यों के लिए [Merge Presentations](/java/merge-presentation/) देखें।
+The helper is appropriate when all slides should be appended to one result without selecting or remapping them individually. Use the full object model when you need to merge selected slides, apply a destination master or layout, preserve sections explicitly, or reconcile different slide sizes. See [Merge Presentations](/slides/hi/java/merge-presentation/) for those scenarios.
 
-## **प्रेज़ेंटेशन तत्वों पर इटररेट करें**
+## **प्रस्तुति तत्वों के माध्यम से पुनरावृत्ति करें**
 
-[ForEach](https://reference.aspose.com/slides/hi/java/com.aspose.slides/foreach/) क्लास प्रत्येक अनुरोधित प्रस्तुति तत्व प्रकार के लिए कॉलबैक को कॉल करती है। यह नेस्टेड कलेक्शन लूप्स से बचती है और पूरी प्रस्तुति की जाँच या फ़ॉर्मेटिंग परिवर्तन के लिए सुविधाजनक है।
+The [ForEach](https://reference.aspose.com/slides/hi/java/com.aspose.slides/foreach/) class invokes a callback for each requested type of presentation element. It avoids nested collection loops and is convenient for presentation-wide inspection or formatting changes.
 
-निम्न उदाहरण [ForEach.slide], [ForEach.shape], [ForEach.paragraph] और [ForEach.portion] का उपयोग करके संबंधित तत्वों की जाँच करता है:
+The following example uses [ForEach.slide](https://reference.aspose.com/slides/hi/java/com.aspose.slides/foreach/#slide-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachSlideCallback-), [ForEach.shape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-), [ForEach.paragraph](https://reference.aspose.com/slides/hi/java/com.aspose.slides/foreach/#paragraph-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachParagraphCallback-), and [ForEach.portion](https://reference.aspose.com/slides/hi/java/com.aspose.slides/foreach/#portion-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachPortionCallback-) to inspect the corresponding elements:
 
 ```java
 import com.aspose.slides.*;
@@ -95,11 +95,11 @@ try {
 }
 ```
 
-डिफ़ॉल्ट रूप से, पूरी प्रस्तुति में शेप और टेक्स्ट ट्रैवर्सल में सामान्य, मास्टर, और लेआउट स्लाइड्स शामिल होते हैं। `includeNotes` पैरामीटर वाले ओवरलोड्स नोट्स स्लाइड्स को भी प्रोसेस कर सकते हैं। जब ट्रैवर्सल क्रम, जल्दी निकलना, कॉलबैक कॉल से पहले फ़िल्टरिंग, या विस्तृत पेरेंट-चाइल्ड नियंत्रण महत्वपूर्ण हो, तो सीधे कलेक्शन लूप्स का उपयोग करें।
+By default, presentation-wide shape and text traversal includes normal, master, and layout slides. Overloads with an `includeNotes` parameter can also process notes slides. Use direct collection loops when traversal order, early exit, filtering before callback invocation, or detailed parent-child control is important.
 
-## **शेप्स एकत्र करें**
+## **शैप्स एकत्र करें**
 
-[Collect.shapes](https://reference.aspose.com/slides/hi/java/com.aspose.slides/collect/#shapes-com.aspose.slides.Presentation-) का उपयोग तब करें जब आपको प्रत्येक शेप के लिए कॉलबैक के बजाय पूरी प्रस्तुति में सभी शेप्स का संग्रह चाहिए। यह तब उपयोगी है जब वही सेट कई बार फ़िल्टर, गिना या प्रोसेस किया जाना हो।
+Use [Collect.shapes](https://reference.aspose.com/slides/hi/java/com.aspose.slides/collect/#shapes-com.aspose.slides.Presentation-) when you need a collection of all shapes in a presentation rather than a callback for each shape. This is useful when the same set will be filtered, counted, or processed more than once.
 
 ```java
 import com.aspose.slides.*;
@@ -116,15 +116,15 @@ try {
 }
 ```
 
-जब प्रत्येक शेप को तुरंत हैंडल किया जा सकता है और आप संग्रहित परिणाम को बनाए रखने की आवश्यकता नहीं रखते, तो इसके बजाय [ForEach.shape] का उपयोग करें।
+Use [ForEach.shape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-) instead when each shape can be handled immediately and you do not need to retain the collected result.
 
-## **प्रेज़ेंटेशन सामग्री को संकुचित करें**
+## **प्रस्तुति सामग्री को संपीड़ित करें**
 
-[Compress](https://reference.aspose.com/slides/hi/java/com.aspose.slides/compress/) क्लास अप्रयुक्त संरचनात्मक तत्वों को हटाने और एम्बेडेड फ़ॉन्ट डेटा को कम करने में सक्षम है:
+The [Compress](https://reference.aspose.com/slides/hi/java/com.aspose.slides/compress/) class can remove unused structural elements and reduce embedded font data:
 
-- [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/hi/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) उन लेआउट स्लाइड्स को हटाता है जिन्हें कोई सामान्य स्लाइड संदर्भित नहीं करती।
-- [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/hi/java/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) उन मास्टर स्लाइड्स को हटाता है जो अब उपयोग नहीं होतीं।
-- [Compress.compressEmbeddedFonts](https://reference.aspose.com/slides/hi/java/com.aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) एम्बेडेड फ़ॉन्ट्स से अप्रयुक्त कैरेक्टर को हटाता है।
+- [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/hi/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) removes layout slides that no normal slide references.
+- [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/hi/java/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) removes master slides that are no longer used.
+- [Compress.compressEmbeddedFonts](https://reference.aspose.com/slides/hi/java/com.aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) removes unused characters from embedded fonts.
 
 ```java
 import com.aspose.slides.*;
@@ -141,38 +141,32 @@ try {
 }
 ```
 
-अप्रयुक्त लेआउट्स को अप्रयुक्त मास्टर्स से पहले हटाएँ ताकि लेआउट सफ़ाई के बाद जो मास्टर अप्रसंदर्भित हो जाए उसे भी हटाया जा सके। यदि आपको बाद में मूल मास्टर्स, लेआउट्स, या पूरी एम्बेडेड फ़ॉन्ट डेटा की आवश्यकता पड़ सकती है, तो अनुकूलित प्रस्तुति को नई फ़ाइल में सहेजें। अधिक विवरण के लिए [Slide Master](/java/slide-master/) और [Embedded Font](/java/embedded-font/) देखें।
+Remove unused layouts before unused masters so a master that becomes unreferenced after layout cleanup can also be removed. Save the optimized presentation to a new file if you may need the original masters, layouts, or complete embedded font data later. For more detail, see [Slide Master](/slides/hi/java/slide-master/) and [Embedded Font](/slides/hi/java/embedded-font/).
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**मैं कब लो-कोड API का उपयोग पूर्ण ऑब्जेक्ट मॉडल के बजाय करना चाहिए?**
+**When should I use the low-code API instead of the full object model?**  
+Use low-code helpers when a standard operation applies to a complete file or presentation and does not require detailed control over individual elements. Use the full object model when you need to select specific slides, control master and layout relationships, inspect intermediate state, or configure behavior that the helper does not expose.
 
-जब कोई मानक ऑपरेशन पूरी फ़ाइल या प्रस्तुति पर लागू हो और व्यक्तिगत तत्वों के ऊपर विस्तृत नियंत्रण की आवश्यकता न हो, तब लो-कोड हेल्पर्स का उपयोग करें। जब आपको विशिष्ट स्लाइड्स का चयन करना हो, मास्टर और लेआउट संबंधों को नियंत्रित करना हो, मध्यवर्ती अवस्था की जाँच करनी हो, या वह व्यवहार कॉन्फ़िगर करना हो जो हेल्पर प्रदान नहीं करता, तो पूर्ण ऑब्जेक्ट मॉडल का उपयोग करें।
+**Can Merger combine presentations in different file formats?**  
+No. [Merger.process](https://reference.aspose.com/slides/hi/java/com.aspose.slides/merger/#process-java.lang.String:A-java.lang.String-) requires input presentations in the same format. Convert the input files to a common format first, for example with [Convert.autoByExtension](https://reference.aspose.com/slides/hi/java/com.aspose.slides/convert/#autoByExtension-java.lang.String-java.lang.String-), and then merge the converted files.
 
-**क्या Merger विभिन्न फ़ाइल फ़ॉर्मेट्स की प्रस्तुतियों को मिलाना सकता है?**
+**Does ForEach process master, layout, and notes slides?**  
+[ForEach.slide](https://reference.aspose.com/slides/hi/java/com.aspose.slides/foreach/#slide-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachSlideCallback-) iterates through normal presentation slides. Presentation-wide [ForEach.shape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-), [ForEach.paragraph](https://reference.aspose.com/slides/hi/java/com.aspose.slides/foreach/#paragraph-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachParagraphCallback-), and [ForEach.portion](https://reference.aspose.com/slides/hi/java/com.aspose.slides/foreach/#portion-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachPortionCallback-) operations include normal, master, and layout slides by default. Use their overloads with `includeNotes` set to `true` to include notes slides.
 
-नहीं। [Merger.process] को इनपुट प्रस्तुतियों का एक ही फ़ॉर्मेट होना आवश्यक है। पहले इनपुट फ़ाइलों को सामान्य फ़ॉर्मेट में परिवर्तित करें, उदाहरण के लिए [Convert.autoByExtension] के साथ, और फिर परिवर्तित फ़ाइलों को मर्ज करें।
+**What is the difference between ForEach.shape and Collect.shapes?**  
+Use [ForEach.shape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-) to process each shape immediately through a callback. Use [Collect.shapes](https://reference.aspose.com/slides/hi/java/com.aspose.slides/collect/#shapes-com.aspose.slides.Presentation-) when you need an iterable result that can be retained, filtered, counted, or traversed multiple times.
 
-**क्या ForEach मास्टर, लेआउट, और नोट्स स्लाइड्स को प्रोसेस करता है?**
+**Does Compress always make the presentation file smaller?**  
+Not necessarily. The result depends on whether the presentation contains unused layouts, unused masters, or embedded fonts with unused characters. If none of those are present, the corresponding [Compress](https://reference.aspose.com/slides/hi/java/com.aspose.slides/compress/) operations may not reduce the file size.
 
-[ForEach.slide] सामान्य प्रस्तुति स्लाइड्स पर इटररेट करता है। पूरी प्रस्तुति में [ForEach.shape], [ForEach.paragraph] और [ForEach.portion] डिफ़ॉल्ट रूप से सामान्य, मास्टर और लेआउट स्लाइड्स को शामिल करते हैं। नोट्स स्लाइड्स को शामिल करने के लिए उनके ओवरलोड में `includeNotes` को `true` सेट करें।
-
-**ForEach.shape और Collect.shapes में क्या अंतर है?**
-
-प्रत्येक शेप को तुरंत कॉलबैक के द्वारा प्रोसेस करने के लिए [ForEach.shape] का उपयोग करें। जब आपको एक इटेरेबल परिणाम चाहिए जो बरकरार रखा सके, फ़िल्टर किया सके, गिना सके या कई बार ट्रैवर्स किया सके, तो [Collect.shapes] का उपयोग करें।
-
-**क्या Compress हमेशा प्रस्तुति फ़ाइल को छोटा बनाता है?**
-
-ज़रूरी नहीं। परिणाम इस बात पर निर्भर करता है कि प्रस्तुति में अप्रयुक्त लेआउट्स, अप्रयुक्त मास्टर्स, या अप्रयुक्त कैरेक्टर्स वाले एम्बेडेड फ़ॉन्ट्स हैं या नहीं। यदि इनमें से कोई भी नहीं है, तो संबंधित [Compress] ऑपरेशन्स फ़ाइल का आकार घटा नहीं सकते।
-
-**क्या ForEach या Compress द्वारा किए गए बदलाव स्वचालित रूप से सहेजे जाते हैं?**
-
-नहीं। ये हेल्पर्स मेमोरी में लोड किए गए [Presentation] ऑब्जेक्ट पर कार्य करते हैं। [ForEach] कॉलबैक में तत्व बदलने या [Compress] चलाने के बाद, परिणाम लिखने के लिए [Presentation.save] को कॉल करें।
+**Are changes made by ForEach or Compress saved automatically?**  
+No. These helpers operate on the loaded [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/) object in memory. After changing elements in a [ForEach](https://reference.aspose.com/slides/hi/java/com.aspose.slides/foreach/) callback or running [Compress](https://reference.aspose.com/slides/hi/java/com.aspose.slides/compress/), call [Presentation.save](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/#save-java.lang.String-int-) to write the result.
 
 ## **संबंधित लेख**
 
-- [प्रेज़ेंटेशन बदलें](/java/convert-presentation/)
-- [प्रेज़ेंटेशन मिलाएँ](/java/merge-presentation/)
-- [स्लाइड मास्टर](/java/slide-master/)
-- [टेक्स्ट बॉक्स प्रबंधित करें](/java/manage-textbox/)
-- [एम्बेडेड फ़ॉन्ट](/java/embedded-font/)
+- [Convert Presentation](/slides/hi/java/convert-presentation/)
+- [Merge Presentations](/slides/hi/java/merge-presentation/)
+- [Slide Master](/slides/hi/java/slide-master/)
+- [Manage Text Box](/slides/hi/java/manage-textbox/)
+- [Embedded Font](/slides/hi/java/embedded-font/)

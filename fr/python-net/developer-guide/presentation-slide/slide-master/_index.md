@@ -1,55 +1,55 @@
 ---
-title: Gérer les masters de diapositives de présentation en Python
-linktitle: Master de diapositive
+title: Gérer les maîtres de diapositives de présentation en Python
+linktitle: Diapos maître
 type: docs
 weight: 80
 url: /fr/python-net/slide-master/
 keywords:
-- master de diapositive
+- maître de diapositive
 - diapositive maître
 - diapositive maître PPT
-- plusieurs masters de diapositives
-- comparer les masters de diapositives
+- plusieurs diapositives maîtres
+- comparer les diapositives maîtres
 - arrière-plan
 - espace réservé
 - cloner la diapositive maître
 - copier la diapositive maître
 - dupliquer la diapositive maître
-- master de diapositive inutilisé
+- diapositive maître inutilisée
 - PowerPoint
 - OpenDocument
 - présentation
 - Python
 - Aspose.Slides
-description: "Gérez les masters de diapositives dans Aspose.Slides pour Python via .NET : accédez, modifiez, clonez, comparez et supprimez les masters de diapositives dans les présentations PowerPoint et OpenDocument."
+description: "Gérer les maîtres de diapositives dans Aspose.Slides pour Python via .NET : accéder, modifier, cloner, comparer et supprimer les diapositives maîtres dans les présentations PowerPoint et OpenDocument."
 ---
 ## **Vue d'ensemble**
 
-Un **slide master** définit des paramètres de conception partagés pour un groupe de diapositives. Il peut contenir des formes communes, des logos, des arrière‑plans, des styles de texte, des paramètres de thème et des paramètres de pied de page. Dans PowerPoint, modifier un slide master est la façon habituelle de maintenir la cohérence d’une présentation sans répéter le même formatage sur chaque diapositive.
+Un **slide master** définit des paramètres de conception partagés pour un groupe de diapositives. Il peut contenir des formes communes, des logos, des arrière-plans, des styles de texte, des paramètres de thème et des paramètres de pied de page. Dans PowerPoint, modifier un slide master est la façon habituelle de garantir la cohérence d’une présentation sans répéter le même formatage sur chaque diapositive.
 
-Aspose.Slides for Python via .NET prend en charge le même modèle. Une présentation peut contenir une ou plusieurs master slides, et chaque master slide peut contenir plusieurs layout slides. Les diapositives normales ne font généralement pas référence directement à une master slide. Au lieu de cela, une diapositive normale utilise une layout slide, et cette layout slide appartient à une master slide.
+Aspose.Slides for Python via .NET prend en charge le même modèle. Une présentation peut contenir une ou plusieurs diapositives maîtres, et chaque diapositive maître peut contenir plusieurs diapositives de mise en page. Les diapositives normales ne font généralement pas directement référence à une diapositive maître. Au lieu de cela, une diapositive normale utilise une diapositive de mise en page, et cette diapositive de mise en page appartient à une diapositive maître.
 
 La hiérarchie est :
 
-1. **Slide master** – définit la conception et le thème partagés.  
-1. **Layout slide** – définit un agencement spécifique d’espaces réservés et de formatage au niveau de la disposition.  
-1. **Normal slide** – contient le contenu réel de la présentation et utilise une layout slide.
+1. **Slide master** - définit la conception et le thème partagés.
+1. **Layout slide** - définit une disposition spécifique de zones réservées et de formatage au niveau de la mise en page.
+1. **Normal slide** - contient le contenu réel de la présentation et utilise une diapositive de mise en page.
 
-![La hiérarchie des master slides, layout slides et slides normales](slide-master_2.jpg)
+![La hiérarchie des diapositives maîtres, des diapositives de mise en page et des diapositives normales](slide-master_2.jpg)
 
-Dans Aspose.Slides, un slide master est représenté par la classe [MasterSlide](https://reference.aspose.com/slides/fr/python-net/aspose.slides/masterslide/). Toutes les master slides d’une présentation sont accessibles via la collection `Presentation.masters`.
+Dans Aspose.Slides, un slide master est représenté par la classe [MasterSlide](https://reference.aspose.com/slides/fr/python-net/aspose.slides/masterslide/). Toutes les diapositives maîtres d’une présentation sont accessibles via la collection `Presentation.masters`.
 
 {{% alert color="info" title="Héritage" %}}
-Lorsque la même propriété est définie à plusieurs niveaux, le niveau le plus spécifique l’emporte. Par exemple, si une master slide et une layout slide définissent toutes deux un arrière‑plan, les diapositives basées sur cette disposition utilisent l’arrière‑plan de la disposition. Pour plus d’informations sur les layout slides, voir [Appliquer ou modifier les dispositions de diapositives](/python-net/slide-layout/).
+Lorsque la même propriété est définie à plusieurs niveaux, le niveau le plus spécifique l’emporte. Par exemple, si une diapositive maître et une diapositive de mise en page définissent toutes deux un arrière‑plan, les diapositives basées sur cette mise en page utilisent l’arrière‑plan de la mise en page. Pour plus d’informations sur les diapositives de mise en page, consultez [Apply or Change Slide Layouts](/slides/fr/python-net/slide-layout/).
 {{% /alert %}}
 
-## **Accéder aux slide masters**
+## **Accéder aux Slide Masters**
 
-Dans PowerPoint, vous pouvez ouvrir la vue Slide Master depuis **Affichage** > **Slide Master**.
+Dans PowerPoint, vous pouvez ouvrir la vue Slide Master via **View** > **Slide Master**.
 
 ![La commande Slide Master dans l’onglet Affichage de PowerPoint](slide-master_3.jpg)
 
-Dans Aspose.Slides, utilisez la collection `masters` pour accéder aux master slides :
+Dans Aspose.Slides, utilisez la collection `masters` pour accéder aux diapositives maîtres :
 
 ```python
 import aspose.slides as slides
@@ -63,7 +63,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     print("Layouts in the first master: " + str(first_master_layout_slide_count))
 ```
 
-Vous pouvez également obtenir la master slide utilisée par une diapositive normale via sa disposition :
+Vous pouvez également obtenir la diapositive maître utilisée par une diapositive normale via sa mise en page :
 
 ```python
 import aspose.slides as slides
@@ -77,26 +77,26 @@ with slides.Presentation("presentation.pptx") as presentation:
     print(master_slide_name)
 ```
 
-## **Ce qu’une Slide Master contient**
+## **Ce que contient un Slide Master**
 
-Une master slide est un objet de type diapositive. Elle hérite du comportement commun des diapositives à partir de la classe [BaseSlide](https://reference.aspose.com/slides/fr/python-net/aspose.slides/baseslide/), ainsi elle expose de nombreuses propriétés de diapositive utilisées par les diapositives normales et de disposition. Les membres spécifiques aux master sont répertoriés sur la page API [MasterSlide](https://reference.aspose.com/slides/fr/python-net/aspose.slides/masterslide/).
+Une diapositive maître est un objet similaire à une diapositive. Elle hérite du comportement commun des diapositives depuis la classe [BaseSlide](https://reference.aspose.com/slides/fr/python-net/aspose.slides/baseslide/), ce qui lui donne accès à de nombreuses propriétés de diapositive utilisées par les diapositives normales et de mise en page. Les membres spécifiques aux maîtres sont répertoriés sur la page d’API [MasterSlide](https://reference.aspose.com/slides/fr/python-net/aspose.slides/masterslide/).
 
-Les membres de master slide les plus couramment utilisés incluent :
+Les membres de slide master les plus couramment utilisés incluent :
 
 | Membre | Objectif |
 | --- | --- |
-| `background` | Définit l’arrière‑plan de la diapositive au niveau du master. |
-| `shapes` | Stocke les formes placées sur le master, comme les logos, les cadres d’image et le texte partagé. |
-| `layout_slides` | Stocke les layout slides qui appartiennent au master. |
-| `theme_manager` | Fournit l’accès aux API du thème du master. |
-| `header_footer_manager` | Contrôle les en‑têtes, pieds de page, dates et numéros de diapositive pour le master et ses mises en page enfants. |
-| `get_depending_slides` | Renvoie les diapositives normales qui dépendent du master via leurs layouts. |
+| `background` | Définit l’arrière‑plan de la diapositive au niveau du maître. |
+| `shapes` | Stocke les formes placées sur le maître, telles que les logos, les cadres d’image et le texte partagé. |
+| `layout_slides` | Stocke les diapositives de mise en page qui appartiennent au maître. |
+| `theme_manager` | Fournit l’accès aux API du thème du maître. |
+| `header_footer_manager` | Contrôle les en‑têtes, pieds de page, dates et numéros de diapositive pour le maître et ses mises en page enfants. |
+| `get_depending_slides` | Renvoie les diapositives normales qui dépendent du maître via leurs mises en page. |
 
 ## **Ajouter une image à un Slide Master**
 
-Lorsque vous ajoutez une image à un master slide, elle apparaît sur les diapositives qui utilisent les layouts de ce master. Cela est utile pour les logos, filigranes, bandes décoratives et autres éléments visuels répétés.
+Lorsque vous ajoutez une image à une diapositive maître, elle apparaît sur les diapositives qui utilisent les mises en page de ce maître. C’est pratique pour les logos, filigranes, bandes décoratives et autres éléments visuels répétés.
 
-L’exemple suivant ajoute un logo au premier master slide :
+L’exemple suivant ajoute un logo à la première diapositive maître :
 
 ```python
 import aspose.slides as slides
@@ -120,17 +120,17 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-with-logo.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Pour plus d’informations sur les cadres d’image, voir [Cadre d’image](/python-net/picture-frame/).
+Pour plus d’informations sur les cadres d’image, consultez [Picture Frame](/slides/fr/python-net/picture-frame/).
 
-## **Travailler avec les espaces réservés**
+## **Travailler avec les zones réservées**
 
-Les espaces réservés sont généralement définis sur les layout slides. Le master slide fournit le style et le thème partagés que ces layouts héritent, tandis que chaque layout décide quels espaces réservés sont disponibles et où ils sont placés.
+Les zones réservées sont généralement définies sur les diapositives de mise en page. Le slide master fournit le style et le thème partagés que ces mises en page héritent, tandis que chaque mise en page décide quelles zones réservées sont disponibles et où elles sont placées.
 
-Dans PowerPoint, les commandes d’espace réservé sont disponibles dans la vue Slide Master.
+Dans PowerPoint, les commandes de zone réservée sont disponibles en mode Slide Master.
 
-![La commande Insérer un espace réservé dans la vue Slide Master de PowerPoint](slide-master_5.png)
+![La commande Insérer une zone réservée dans la vue Slide Master de PowerPoint](slide-master_5.png)
 
-Pour ajouter de nouveaux espaces réservés avec Aspose.Slides, travaillez avec la layout slide qui appartient au master :
+Pour ajouter de nouvelles zones réservées avec Aspose.Slides, travaillez sur la diapositive de mise en page qui appartient au maître :
 
 ```python
 import aspose.slides as slides
@@ -151,7 +151,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-with-placeholder.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Vous pouvez également mettre en forme les formes d’espace réservé déjà présentes sur un master slide. L’exemple suivant trouve l’espace réservé de titre et applique un remplissage en dégradé linéaire :
+Vous pouvez également mettre en forme les formes de zones réservées déjà présentes sur une diapositive maître. L’exemple suivant trouve la zone réservée du titre et applique un remplissage en dégradé linéaire :
 
 ```python
 import aspose.pydrawing as draw
@@ -178,18 +178,18 @@ with slides.Presentation("presentation.pptx") as presentation:
         title_placeholder.fill_format.fill_type = slides.FillType.GRADIENT
         title_placeholder.fill_format.gradient_format.gradient_shape = slides.GradientShape.LINEAR
         title_placeholder.fill_format.gradient_format.gradient_stops.add(0, red_gradient_color)
-        title_placeholder.fill_format.gradient_format.gradient_stops.add(255, purple_gradient_color)
+        title_placeholder.fill_format.gradient_format.gradient_stops.add(1, purple_gradient_color)
 
     presentation.save("presentation-title-style.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Espace réservé de titre formaté hérité par les diapositives normales](slide-master_8.png)
+![Zone réservée titre formatée héritée par les diapositives normales](slide-master_8.png)
 
-Pour plus d’options de mise en forme des espaces réservés et du texte, voir [Définir le texte d’invite dans l’espace réservé](/python-net/manage-placeholder/) et [Mise en forme du texte](/python-net/text-formatting/).
+Pour plus d’options de mise en forme des zones réservées et du texte, consultez [Set Prompt Text in Placeholder](/slides/fr/python-net/manage-placeholder/) et [Text Formatting](/slides/fr/python-net/text-formatting/).
 
 ## **Modifier l’arrière‑plan d’un Slide Master**
 
-Un arrière‑plan de master est hérité par les layouts et les diapositives qui ne le remplacent pas. L’exemple suivant définit une couleur d’arrière‑plan unie pour le premier master slide :
+Un arrière‑plan maître est hérité par les mises en page et les diapositives qui ne le remplacent pas. L’exemple suivant définit une couleur d’arrière‑plan unie pour la première diapositive maître :
 
 ```python
 import aspose.pydrawing as draw
@@ -205,11 +205,11 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-master-background.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Pour les sujets associés, voir [Arrière‑plan de la présentation](/python-net/presentation-background/) et [Thème de la présentation](/python-net/presentation-theme/).
+Pour des sujets connexes, consultez [Presentation Background](/slides/fr/python-net/presentation-background/) et [Presentation Theme](/slides/fr/python-net/presentation-theme/).
 
-## **Cloner un Slide Master vers une autre présentation**
+## **Cloner un Slide Master dans une autre présentation**
 
-Utilisez la méthode `add_clone` de la classe [MasterSlideCollection](https://reference.aspose.com/slides/fr/python-net/aspose.slides/masterslidecollection/) pour copier un master slide dans une autre présentation. Le master copié peut alors être utilisé par les layouts et les diapositives de la présentation de destination.
+Utilisez la méthode `add_clone` sur la classe [MasterSlideCollection](https://reference.aspose.com/slides/fr/python-net/aspose.slides/masterslidecollection/) pour copier une diapositive maître dans une autre présentation. Le maître copié peut alors être utilisé par les mises en page et les diapositives de la présentation cible.
 
 ```python
 import aspose.slides as slides
@@ -222,15 +222,15 @@ with slides.Presentation("source.pptx") as source_presentation:
         destination_presentation.save("destination-with-master.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Si vous devez cloner des diapositives normales avec leur master, voir [Cloner des diapositives](/python-net/clone-slides/).
+Si vous devez cloner des diapositives normales avec leur maître, consultez [Clone Slides](/slides/fr/python-net/clone-slides/).
 
 ## **Ajouter plusieurs Slide Masters**
 
-Une présentation peut contenir plusieurs master slides. Cela est utile lorsque différentes sections nécessitent un branding, une structure de page ou des paramètres de thème différents.
+Une présentation peut contenir plusieurs diapositives maîtres. C’est utile lorsque différentes sections nécessitent une identité visuelle, une structure de page ou des paramètres de thème différents.
 
-![Commandes PowerPoint pour insérer et gérer les master slides](slide-master_9.jpg)
+![Commandes PowerPoint pour insérer et gérer les diapositives maîtres](slide-master_9.jpg)
 
-L’exemple suivant clone le master par défaut, donne au clone un arrière‑plan différent, récupère un layout vide sous ce master cloné, et ajoute une nouvelle diapositive basée sur ce layout :
+L’exemple suivant clone le maître par défaut, donne au clone un arrière‑plan différent, obtient une mise en page vierge sous ce maître cloné, puis ajoute une nouvelle diapositive basée sur cette mise en page :
 
 ```python
 import aspose.pydrawing as draw
@@ -258,7 +258,7 @@ with slides.Presentation("presentation.pptx") as presentation:
 
 ## **Comparer les Slide Masters**
 
-Les master slides peuvent être comparés avec la méthode `equals` héritée de la classe [BaseSlide](https://reference.aspose.com/slides/fr/python-net/aspose.slides/baseslide/). La comparaison vérifie la structure et le contenu statique, comme les formes, le texte, le formatage, les animations et d’autres paramètres de diapositive. Elle ne compare pas les identifiants uniques, comme les ID de diapositives, ou les valeurs dynamiques des espaces réservés, comme la date actuelle.
+Les diapositives maîtres peuvent être comparées avec la méthode `equals` héritée de la classe [BaseSlide](https://reference.aspose.com/slides/fr/python-net/aspose.slides/baseslide/). La comparaison vérifie la structure et le contenu statique, tels que les formes, le texte, la mise en forme, les animations et d’autres paramètres de diapositive. Elle ne compare pas les identifiants uniques, comme les IDs de diapositive, ni les valeurs dynamiques des zones réservées, comme la date actuelle.
 
 ```python
 import aspose.slides as slides
@@ -281,11 +281,11 @@ with slides.Presentation("first.pptx") as first_presentation:
                             second_master_index))
 ```
 
-Pour plus d’informations, voir [Comparer les diapositives de présentation](/python-net/compare-slides/).
+Pour plus d’informations, consultez [Compare Presentation Slides](/slides/fr/python-net/compare-slides/).
 
 ## **Définir la vue Slide Master comme vue par défaut**
 
-Utilisez la propriété `last_view` sur les [ViewProperties](https://reference.aspose.com/slides/fr/python-net/aspose.slides/viewproperties/) de la présentation pour contrôler la vue que PowerPoint ouvre en premier. L’exemple suivant ouvre la présentation en vue Slide Master :
+Utilisez la propriété `last_view` sur l’objet [ViewProperties](https://reference.aspose.com/slides/fr/python-net/aspose.slides/viewproperties/) de la présentation pour contrôler la vue que PowerPoint ouvre en premier. L’exemple suivant ouvre la présentation en vue Slide Master :
 
 ```python
 import aspose.slides as slides
@@ -295,13 +295,13 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-master-view.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Pour plus de paramètres d’affichage, voir [Enregistrer la présentation](/python-net/save-presentation/).
+Pour plus de paramètres d’affichage, consultez [Save Presentation](/slides/fr/python-net/save-presentation/).
 
-## **Supprimer les master slides inutilisés**
+## **Supprimer les Slide Masters inutilisés**
 
-Les présentations contiennent parfois des master slides qui ne sont plus utilisés par aucune diapositive normale. Supprimer les masters inutilisés peut réduire la taille du fichier et simplifier la maintenance du modèle.
+Les présentations contiennent parfois des diapositives maîtres qui ne sont plus utilisées par aucune diapositive normale. Supprimer les maîtres inutilisés peut réduire la taille du fichier et simplifier la maintenance du modèle.
 
-Utilisez `remove_unused` pour supprimer les masters inutilisés de la collection `masters` :
+Utilisez `remove_unused` pour supprimer les maîtres inutilisés de la collection `masters` :
 
 ```python
 import aspose.slides as slides
@@ -323,18 +323,18 @@ with slides.Presentation("presentation.pptx") as presentation:
 
 ## **FAQ**
 
-**Quelle est la différence entre un slide master et une layout slide ?**
+### Quelle est la différence entre un slide master et une diapositive de mise en page ?
 
-Un slide master définit des paramètres de conception partagés tels que le thème, l’arrière‑plan, les formes communes et les styles de texte. Une layout slide appartient à un slide master et définit un agencement spécifique d’espaces réservés. Une diapositive normale utilise une layout slide, donc elle hérite à la fois de la disposition et du master.
+Un slide master définit les paramètres de conception partagés tels que le thème, l’arrière‑plan, les formes communes et les styles de texte. Une diapositive de mise en page appartient à un slide master et définit une disposition spécifique de zones réservées. Une diapositive normale utilise une diapositive de mise en page, et hérite ainsi à la fois de la mise en page et du maître.
 
-**Une présentation peut‑elle contenir plusieurs slide masters ?**
+### Une présentation peut‑elle contenir plusieurs slide masters ?
 
-Oui. Une présentation peut contenir plusieurs slide masters. Utilisez plusieurs masters lorsque différentes sections nécessitent des systèmes visuels ou un branding différents.
+Oui. Une présentation peut contenir plusieurs slide masters. Utilisez plusieurs maîtres lorsque différentes sections nécessitent des systèmes visuels ou une identité de marque différents.
 
-**Devrais‑je ajouter des espaces réservés à un master slide ou à une layout slide ?**
+### Dois‑je ajouter des zones réservées à une diapositive maître ou à une diapositive de mise en page ?
 
-Dans la plupart des cas, ajoutez les espaces réservés aux layout slides. Placez les éléments visuels partagés et le formatage partagé sur le master slide, puis placez les espaces réservés de contenu sur les layouts que les diapositives normales utiliseront.
+Dans la plupart des cas, ajoutez les zones réservées aux diapositives de mise en page. Placez les éléments visuels partagés et le formatage commun sur le slide master, puis placez les zones réservées de contenu sur les mises en page que les diapositives normales utiliseront.
 
-**Puis‑je supprimer un master slide qui est encore utilisé ?**
+### Puis‑je supprimer une diapositive maître qui est encore utilisée ?
 
-Non. Un master slide qui possède des diapositives dépendantes ne peut pas être supprimé directement en toute sécurité. Déplacez d’abord ces diapositives vers des layouts sous un autre master, ou utilisez une méthode de nettoyage des masters inutilisés qui ne supprime que les masters qui ne sont pas utilisés.
+Non. Une diapositive maître qui possède des diapositives dépendantes ne peut pas être supprimée en toute sécurité. Déplacez d’abord ces diapositives vers des mises en page d’un autre maître, ou utilisez une méthode de nettoyage des maîtres inutilisés qui ne supprime que les maîtres qui ne sont pas en cours d’utilisation.

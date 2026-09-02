@@ -16,15 +16,15 @@ keywords:
 - prezentacja
 - Python
 - Aspose.Slides
-description: "Konwertuj starsze pliki PPT do PPTX w Pythonie przy użyciu Aspose.Slides. Zawiera przykłady konwersji pojedynczych plików i wsadowej, obsługę błędów oraz uwagi dotyczące wierności."
+description: "Konwertuj starsze pliki PPT na PPTX w Pythonie przy użyciu Aspose.Slides. Zawiera przykłady konwersji pojedynczych plików i partii, obsługę błędów oraz informacje o wierności."
 ---
 ## **Przegląd**
 
-PPT to starszy binarny format PowerPoint, natomiast PPTX jest nowszym formatem Open XML. Aspose.Slides for Python via .NET może wczytać plik PPT i zapisać go jako PPTX bez Microsoft PowerPoint. Ten artykuł pokazuje, jak konwertować jeden plik lub katalog plików oraz wyjaśnia, co należy zweryfikować po konwersji.
+PPT jest starszym binarnym formatem PowerPoint, natomiast PPTX jest nowszym formatem Open XML. Aspose.Slides dla Pythona przez .NET może wczytać plik PPT i zapisać go jako PPTX bez Microsoft PowerPoint. Ten artykuł pokazuje, jak skonwertować pojedynczy plik lub katalog plików oraz wyjaśnia, co należy zweryfikować po konwersji.
 
-## **Konwertowanie pliku PPT do PPTX**
+## **Konwersja pliku PPT do PPTX**
 
-Wczytaj plik źródłowy przy użyciu klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/), a następnie wywołaj [Presentation.save](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/save/) z [SaveFormat.PPTX](https://reference.aspose.com/slides/pl/python-net/aspose.slides.export/saveformat/). Instrukcja `with` zwalnia prezentację i zwalnia jej zasoby po zakończeniu bloku.
+Wczytaj plik źródłowy za pomocą klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/), a następnie wywołaj [Presentation.save](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/save/) z [SaveFormat.PPTX](https://reference.aspose.com/slides/pl/python-net/aspose.slides.export/saveformat/). Instrukcja `with` zwalnia prezentację i zwalnia jej zasoby po zakończeniu bloku.
 
 ```python
 import aspose.slides as slides
@@ -35,11 +35,11 @@ with slides.Presentation("presentation.ppt") as presentation:
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Rozszerzenie pliku nie określa formatu wyjściowego samo w sobie; parametr [SaveFormat.PPTX](https://reference.aspose.com/slides/pl/python-net/aspose.slides.export/saveformat/) to robi. Utrzymuj różne ścieżki wejścia i wyjścia, jeśli potrzebujesz zachować oryginalny plik PPT.
+Rozszerzenie pliku nie wybiera formatu wyjściowego samo w sobie; robi to argument [SaveFormat.PPTX](https://reference.aspose.com/slides/pl/python-net/aspose.slides.export/saveformat/). Utrzymuj różne ścieżki wejścia i wyjścia, jeśli musisz zachować oryginalny plik PPT.
 
-## **Konwertowanie wielu plików PPT**
+## **Konwersja wielu plików PPT**
 
-Poniższy przykład konwertuje każdy plik `.ppt` w jednym katalogu. Każdy plik jest przetwarzany niezależnie, więc jedna nieudana konwersja nie zatrzyma pozostałych w partii.
+Poniższy przykład konwertuje każdy plik `.ppt` w jednym katalogu. Każdy plik jest przetwarzany niezależnie, więc niepowodzenie jednej konwersji nie zatrzymuje pozostałych w partii.
 
 ```python
 from pathlib import Path
@@ -61,47 +61,47 @@ for input_path in input_directory.glob("*.ppt"):
         print(f"Failed: {input_path} ({exception})")
 ```
 
-W środowiskach produkcyjnych rejestruj pełny wyjątek, zdecyduj, czy istniejący plik wyjściowy może zostać nadpisany, i zapisuj nazwy nieudanych plików do kolejki ponownego przetworzenia lub przeglądu. Uszkodzone pliki, pliki zabezpieczone hasłem otwierane bez wymaganego hasła, niedostępne ścieżki oraz nieobsługiwana zawartość mogą spowodować niepowodzenie konwersji. Zobacz [Password-Protected Presentations](/python-net/password-protected-presentation/) w celu wczytania zaszyfrowanych plików.
+W środowiskach produkcyjnych należy rejestrować pełne wyjątki, zdecydować, czy istniejący plik wyjściowy może zostać nadpisany, oraz zapisywać nazwy nieudanych plików do kolejki ponownych prób lub przeglądu. Uszkodzone pliki, pliki chronione hasłem otwierane bez wymaganego hasła, niedostępne ścieżki i nieobsługiwana zawartość mogą spowodować niepowodzenie konwersji. Zobacz [Password-Protected Presentations](/slides/pl/python-net/password-protected-presentation/) w celu wczytania zaszyfrowanych plików.
 
-## **Wierność i funkcje starsze**
+## **Wierność i funkcje dziedziczone**
 
-Konwersja zazwyczaj zachowuje slajdy, mastery, układy, tekst, kształty, obrazy, tabele i wykresy. Jednak PPT i PPTX nie reprezentują każdej funkcji w dokładnie ten sam sposób. Funkcja starsza, która nie ma odpowiednika w PPTX lub nie jest obsługiwana przez bibliotekę, może zostać znormalizowana, pominięta lub wyświetlona inaczej.
+Konwersja zazwyczaj zachowuje slajdy, wzorce, układy, tekst, kształty, obrazy, tabele i wykresy. Jednak PPT i PPTX nie reprezentują każdej funkcji w dokładnie taki sam sposób. Funkcja starsza, która nie ma odpowiednika w PPTX lub nie jest obsługiwana przez bibliotekę, może zostać znormalizowana, pominięta lub wyświetlona inaczej.
 
-Sprawdź skonwertowany plik, gdy zawiera animacje, przejścia, osadzone lub powiązane obiekty OLE, kontrolki ActiveX, osadzone multimedia, rzadkie czcionki lub makra VBA. Zwykły plik PPTX nie jest formatem obsługującym makra, więc użyj odpowiedniego przepływu pracy obsługującego makra, gdy VBA musi pozostać dostępne. Zweryfikuj także, czy wymagane czcionki i zasoby zewnętrzne są dostępne w środowisku, w którym skonwertowana prezentacja zostanie otwarta lub renderowana.
+Sprawdź przekonwertowany plik, gdy zawiera animacje, przejścia, osadzone lub połączone obiekty OLE, kontrolki ActiveX, osadzone multimedia, rzadkie czcionki lub makra VBA. Zwykły plik PPTX nie jest formatem obsługującym makra, więc użyj odpowiedniego przepływu pracy obsługującego makra, gdy VBA musi pozostać dostępne. Zweryfikuj również, czy wymagane czcionki i zasoby zewnętrzne są dostępne w środowisku, w którym przekonwertowana prezentacja zostanie otwarta lub renderowana.
 
-W przypadku ważnych dokumentów ponownie otwórz wygenerowany PPTX programowo i sprawdź kluczowe liczby slajdów oraz zawartość, a następnie porównaj jego wygląd i zachowanie pokazu slajdów w docelowej przeglądarce. Nie traktuj udanego wywołania [Presentation.save](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/save/) jako dowodu, że każda starsza funkcja ma dokładny odpowiednik w PPTX.
+W przypadku ważnych dokumentów otwórz ponownie wygenerowany plik PPTX programowo i sprawdź kluczowe liczby slajdów oraz zawartość, a następnie porównaj jego wygląd i zachowanie pokazu slajdów w docelowej aplikacji. Nie traktuj udanego wywołania [Presentation.save](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/save/) jako dowodu, że każda starsza funkcja ma dokładny odpowiednik w PPTX.
 
 ## **Kiedy używać PPTX**
 
-Używaj PPTX, gdy prezentacja będzie edytowana w aktualnych wersjach PowerPoint, wymieniana z systemami pracującymi z pakietami Open XML lub przechowywana w formacie łatwiejszym do przeglądania i odzyskiwania niż starszy binarny PPT. Zachowaj oryginalny PPT jako archiwalną lub przywracalną kopię, dopóki skonwertowana prezentacja nie przejdzie Twoich kontroli wierności.
+Używaj PPTX, gdy prezentacja będzie edytowana w aktualnych wersjach PowerPoint, wymieniana z systemami pracującymi z pakietami Open XML lub przechowywana w formacie łatwiejszym do analizy i odzyskania niż starszy binarny PPT. Zachowaj oryginalny plik PPT jako kopię archiwalną lub przywracającą, dopóki przekonwertowana prezentacja nie przejdzie Twoich testów wierności.
 
-Jeśli potrzebujesz PDF, HTML, obrazów, XPS lub innego typu wyjścia, skorzystaj z wytycznych specyficznych dla formatu w [Convert Presentations to Multiple Formats](/python-net/convert-presentation/) zamiast zakładać, że wszystkie cele zachowują edytowalne funkcje PowerPoint.
+Jeśli potrzebujesz zamiast tego PDF, HTML, obrazów, XPS lub innego typu wyjścia, użyj wskazówek specyficznych dla formatu w [Convert Presentations to Multiple Formats](/slides/pl/python-net/convert-presentation/), zamiast zakładać, że wszystkie cele zachowują edytowalne funkcje PowerPoint.
 
 ## **Konwerter online**
 
-W przypadku pojedynczego pliku lub szybkiego porównania możesz użyć [online PPT to PPTX converter](https://products.aspose.app/slides/pl/conversion/ppt-to-pptx). Do powtarzalnych konwersji, przetwarzania wsadowego lub obsługi błędów na poziomie aplikacji użyj API Pythona.
+Do okazjonalnego pliku lub szybkiego porównania możesz użyć [online PPT to PPTX converter](https://products.aspose.app/slides/pl/conversion/ppt-to-pptx). Do powtarzalnych konwersji, przetwarzania wsadowego lub obsługi błędów na poziomie aplikacji użyj interfejsu API w Pythonie.
 
 ## **Powiązane artykuły**
 
-- [PPT vs PPTX](/python-net/ppt-vs-pptx/)
-- [Save Presentations in Python](/python-net/save-presentation/)
-- [Supported File Formats](/python-net/supported-file-formats/)
-- [Open Presentations in Python](/python-net/open-presentation/)
+- [PPT vs PPTX](/slides/pl/python-net/ppt-vs-pptx/)
+- [Zapis prezentacji w Pythonie](/slides/pl/python-net/save-presentation/)
+- [Obsługiwane formaty plików](/slides/pl/python-net/supported-file-formats/)
+- [Otwieranie prezentacji w Pythonie](/slides/pl/python-net/open-presentation/)
 
 ## **FAQ**
 
-**Czy mogę konwertować PPT do PPTX bez zainstalowanego Microsoft PowerPoint?**
+**Czy mogę konwertować PPT na PPTX bez zainstalowanego Microsoft PowerPoint?**
 
-Tak. Aspose.Slides for Python via .NET wczytuje i zapisuje pliki prezentacji bez wymogu posiadania Microsoft PowerPoint.
+Tak. Aspose.Slides dla Pythona przez .NET wczytuje i zapisuje pliki prezentacji bez wymogu posiadania Microsoft PowerPoint.
 
 **Czy konwersja PPT do PPTX zachowa całą zawartość dokładnie?**
 
-Zachowuje ona typową zawartość prezentacji, ale dokładna wierność nie jest gwarantowana dla każdej starszej lub nieobsługiwanej funkcji. Przejrzyj wygenerowany plik, gdy zawiera makra, obiekty OLE lub ActiveX, multimedia, specjalistyczne animacje lub rzadkie czcionki.
+Zachowuje ona typową zawartość prezentacji, ale pełna wierność nie jest gwarantowana dla każdej starszej lub nieobsługiwanej funkcji. Przejrzyj wygenerowany plik, gdy zawiera makra, obiekty OLE lub ActiveX, multimedia, specjalistyczne animacje lub rzadkie czcionki.
 
-**Czy mogę konwertować plik PPT zabezpieczony hasłem?**
+**Czy mogę konwertować plik PPT chroniony hasłem?**
 
-Tak, jeśli podasz poprawne hasło podczas wczytywania pliku. Brak lub nieprawidłowe hasło powoduje niepowodzenie operacji wczytywania.
+Tak, pod warunkiem podania poprawnego hasła podczas wczytywania pliku. Brak lub nieprawidłowe hasło powoduje niepowodzenie operacji wczytywania.
 
 **Czy powinienem usunąć plik PPT po konwersji?**
 
-Zachowaj oryginał, dopóki nie zweryfikujesz PPTX w przeglądarkach i przepływach pracy, które są dla Ciebie istotne. Zapewnia to kopię przywracania w razie różnic w konwersji starszych funkcji.
+Zachowaj oryginał, dopóki nie zweryfikujesz PPTX w przeglądarkach i przepływach pracy, które są dla Ciebie istotne. To zapewnia kopię przywracającą, jeśli starsza funkcja zostanie skonwertowana w inny sposób.

@@ -1,5 +1,5 @@
 ---
-title: PowerPoint Sunumlarını .NET'te TIFF'e Dönüştürme
+title: PowerPoint Sunumlarını .NET'te TIFF'e Dönüştür
 titlelink: PowerPoint'ten TIFF'e
 type: docs
 weight: 90
@@ -18,30 +18,30 @@ keywords:
 - PPTX'ten TIFF'e
 - PPT'yi TIFF olarak kaydet
 - PPTX'i TIFF olarak kaydet
-- PPT'yi TIFF'e dışa aktar
-- PPTX'i TIFF'e dışa aktar
+- PPT'yi TIFF'e aktar
+- PPTX'i TIFF'e aktar
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET kullanarak PowerPoint (PPT, PPTX) sunumlarını yüksek kaliteli TIFF görüntülerine kolayca dönüştürmeyi öğrenin. C# kod örnekleri."
+description: "Aspose.Slides for .NET kullanarak PowerPoint (PPT, PPTX) sunumlarını yüksek kaliteli TIFF görüntülerine nasıl kolayca dönüştüreceğinizi öğrenin. C# kod örnekleri."
 ---
 ## **Giriş**
 
-TIFF (**Tagged Image File Format**) yaygın olarak kullanılan, kayıpsız bir raster görüntü formatıdır ve olağanüstü kalitesi ve grafiklerin ayrıntılı korunmasıyla bilinir. Tasarımcılar, fotoğrafçılar ve masaüstü yayıncıları, görüntülerinde katmanları, renk doğruluğunu ve orijinal ayarları korumak için genellikle TIFF'i seçer.
+TIFF (**Tagged Image File Format**) yüksek kaliteli ve grafiklerin ayrıntılı korunmasıyla bilinen, yaygın olarak kullanılan kayıpsız bir raster görüntü formatıdır. Tasarımcılar, fotoğrafçılar ve masaüstü yayıncılar genellikle görüntülerindeki katmanları, renk doğruluğunu ve orijinal ayarları korumak için TIFF'i tercih eder.
 
-Aspose.Slides kullanarak, PowerPoint slaytlarınızı (PPT, PPTX) ve OpenDocument slaytlarınızı (ODP) doğrudan yüksek kaliteli TIFF görüntülerine sorunsuz bir şekilde dönüştürebilir, sunumlarınızın en yüksek görsel doğruluğu korumasını sağlayabilirsiniz. 
+Aspose.Slides kullanarak PowerPoint slaytlarınızı (PPT, PPTX) ve OpenDocument slaytlarınızı (ODP) doğrudan yüksek kaliteli TIFF görüntülerine sorunsuz bir şekilde dönüştürebilir, sunumlarınızın maksimum görsel sadeliğini koruyabilirsiniz. 
 
-## **Sunumu TIFF'e Dönüştürme**
+## **Sunumu TIFF'e Dönüştür**
 
-[Save](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/save/) yöntemini [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfı üzerinden kullanarak, bir PowerPoint sunumunu tamamen TIFF'e hızlıca dönüştürebilirsiniz. Oluşan TIFF görüntüleri varsayılan slayt boyutuna göre oluşturulur.
+[Save](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/save/) metodunu, [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) sınıfı ile birlikte kullanarak tüm bir PowerPoint sunumunu hızlıca TIFF'e dönüştürebilirsiniz. Oluşturulan TIFF görüntüleri varsayılan slayt boyutuna karşılık gelir.
 
-Bu C# kodu, bir PowerPoint sunumunu TIFF'e nasıl dönüştüreceğinizi gösterir:
+Aşağıdaki C# kodu bir PowerPoint sunumunu TIFF'e nasıl dönüştüreceğinizi gösterir:
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Presentation sınıfını örnekleyin; bu sınıf bir sunum dosyasını (PPT, PPTX, ODP, vb.) temsil eder.
+// Sunum dosyasını (PPT, PPTX, ODP vb.) temsil eden Presentation sınıfının bir örneğini oluşturun.
 using (Presentation presentation = new Presentation("Demo_File.pptx"))
 {
     // Sunumu TIFF olarak kaydedin.
@@ -49,13 +49,13 @@ using (Presentation presentation = new Presentation("Demo_File.pptx"))
 }
 ```
 
-## **Sunumu Siyah-Beyaz TIFF'e Dönüştürme**
+## **Sunumu Siyah-Beyaz TIFF'e Dönüştür**
 
-[TiffOptions](https://reference.aspose.com/slides/tr/net/aspose.slides.export/tiffoptions/) sınıfındaki [BwConversionMode](https://reference.aspose.com/slides/tr/net/aspose.slides.export/tiffoptions/bwconversionmode/) özelliği, renkli bir slayt veya resmi siyah-beyaz TIFF'e dönüştürürken kullanılacak algoritmayı belirlemenizi sağlar. Bu ayarın yalnızca [CompressionType](https://reference.aspose.com/slides/tr/net/aspose.slides.export/tiffoptions/compressiontype/) özelliği `CCITT4` veya `CCITT3` olarak ayarlandığında geçerli olduğunu unutmayın.
+[TiffOptions](https://reference.aspose.com/slides/tr/net/aspose.slides.export/tiffoptions/) sınıfındaki [BwConversionMode](https://reference.aspose.com/slides/tr/net/aspose.slides.export/tiffoptions/bwconversionmode/) özelliği, renkli bir slaytı veya görüntüyü siyah-beyaz TIFF'e dönüştürürken kullanılacak algoritmayı belirlemenizi sağlar. Bu ayarın yalnızca [CompressionType](https://reference.aspose.com/slides/tr/net/aspose.slides.export/tiffoptions/compressiontype/) özelliği `CCITT4` veya `CCITT3` olarak ayarlandığında geçerli olduğunu unutmayın.
 
 {{% alert color="info" title="Not" %}}
 
-[TiffOptions.BwConversionMode](https://reference.aspose.com/slides/tr/net/aspose.slides.export/tiffoptions/bwconversionmode/) bir dışa aktarma düzeyi ayarıdır ve tüm TIFF görüntüsü için piksel dönüşüm algoritmasını seçer. Tek bir şeklin siyah-beyaz görüntü modunda nasıl görüneceğini tanımlamak için [IShape.BlackWhiteMode](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/blackwhitemode/) kullanın. Örnekler için [Şekiller İçin Siyah-Beyaz İşleme Kontrolü](/net/shape-formatting/#control-black-and-white-rendering-for-shapes) bölümüne bakın.
+[TiffOptions.BwConversionMode](https://reference.aspose.com/slides/tr/net/aspose.slides.export/tiffoptions/bwconversionmode/) tamamen TIFF görüntüsü için piksel dönüşüm algoritmasını seçen bir dışa aktarma seviyesindeki ayardır. Tek bir şeklin siyah-beyaz görüntü modunda nasıl görünmesi gerektiğini tanımlamak için [IShape.BlackWhiteMode](https://reference.aspose.com/slides/tr/net/aspose.slides/ishape/blackwhitemode/) kullanın. Örnekler için [/slides/tr/net/shape-formatting/#control-black-and-white-rendering-for-shapes](https://reference.aspose.com/slides/tr/net/shape-formatting/#control-black-and-white-rendering-for-shapes) adresindeki **Control Black-and-White Rendering for Shapes** bölümüne bakın.
 
 {{% /alert %}}
 
@@ -63,7 +63,7 @@ Diyelim ki aşağıdaki slaytı içeren bir "sample.pptx" dosyamız var:
 
 ![Bir sunum slaytı](slide_black_and_white.png)
 
-Bu C# kodu, renkli slaytı siyah-beyaz TIFF'e nasıl dönüştüreceğinizi gösterir:
+Bu C# kodu renkli slaytı siyah-beyaz TIFF'e nasıl dönüştüreceğinizi gösterir:
 
 ```cs
 using Aspose.Slides;
@@ -85,18 +85,18 @@ Sonuç:
 
 ![Siyah-Beyaz TIFF](TIFF_black_and_white.png)
 
-## **Sunumu Özelleştirilmiş Boyutlu TIFF'e Dönüştürme**
+## **Sunumu Özel Boyutlu TIFF'e Dönüştür**
 
-Belirli boyutlarda bir TIFF görüntüsü gerekiyorsa, [TiffOptions](https://reference.aspose.com/slides/tr/net/aspose.slides.export/tiffoptions/) sınıfındaki ilgili özellikleri kullanarak istediğiniz değerleri ayarlayabilirsiniz. Örneğin, [ImageSize](https://reference.aspose.com/slides/tr/net/aspose.slides.export/tiffoptions/imagesize/) özelliği, oluşturulan görüntünün boyutunu tanımlamanıza olanak verir.
+Belirli boyutlarda bir TIFF görüntüsü istiyorsanız, [TiffOptions](https://reference.aspose.com/slides/tr/net/aspose.slides.export/tiffoptions/) içinde bulunan özellikleri kullanarak istediğiniz değerleri ayarlayabilirsiniz. Örneğin, [ImageSize](https://reference.aspose.com/slides/tr/net/aspose.slides.export/tiffoptions/imagesize/) özelliği oluşturulan görüntünün boyutunu tanımlamanıza olanak verir.
 
-Bu C# kodu, bir PowerPoint sunumunu özelleştirilmiş boyutlu TIFF görüntülerine nasıl dönüştüreceğinizi gösterir:
+Aşağıdaki C# kodu PowerPoint sunumunu özel boyutlu TIFF görüntülerine nasıl dönüştüreceğinizi gösterir:
 
 ```cs
 using System.Drawing;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Presentation sınıfını örnekleyin; bu sınıf bir sunum dosyasını (PPT, PPTX, ODP, vb.) temsil eder.
+// Presentation sınıfının bir sunum dosyasını (PPT, PPTX, ODP, vb.) temsil eden bir örneğini oluşturun.
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     TiffOptions tiffOptions = new TiffOptions();
@@ -106,7 +106,7 @@ using (Presentation presentation = new Presentation("sample.pptx"))
     /* 
     Sıkıştırma türleri:
         Default - Varsayılan sıkıştırma şemasını (LZW) belirtir.
-        None - Sıkıştırma kullanılmadığını belirtir.
+        None - Sıkıştırma olmadığını belirtir.
         CCITT3
         CCITT4
         LZW
@@ -115,7 +115,7 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 
     // Derinlik, sıkıştırma türüne bağlıdır ve manuel olarak ayarlanamaz.
 
-    // Görüntü DPI'sını ayarlayın.
+    // Görüntü DPI'ını ayarlayın.
     tiffOptions.DpiX = 200;
     tiffOptions.DpiY = 200;
 
@@ -132,29 +132,29 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-## **Sunumu Özelleştirilmiş Görüntü Piksel Biçimiyle TIFF'e Dönüştürme**
+## **Sunumu Özel Piksel Formatlı TIFF'e Dönüştür**
 
-[TiffOptions](https://reference.aspose.com/slides/tr/net/aspose.slides.export/tiffoptions) sınıfındaki [PixelFormat](https://reference.aspose.com/slides/tr/net/aspose.slides.export/tiffoptions/pixelformat/) özelliğini kullanarak, elde edilen TIFF görüntüsü için tercih ettiğiniz piksel biçimini belirtebilirsiniz.
+[TiffOptions](https://reference.aspose.com/slides/tr/net/aspose.slides.export/tiffoptions) sınıfındaki [PixelFormat](https://reference.aspose.com/slides/tr/net/aspose.slides.export/tiffoptions/pixelformat/) özelliğini kullanarak ortaya çıkan TIFF görüntüsü için tercih ettiğiniz piksel formatını belirtebilirsiniz.
 
-Bu C# kodu, bir PowerPoint sunumunu özelleştirilmiş piksel biçimli TIFF görüntüsüne nasıl dönüştüreceğinizi gösterir:
+Aşağıdaki C# kodu PowerPoint sunumunu özel piksel formatlı bir TIFF görüntüsüne nasıl dönüştüreceğinizi gösterir:
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Sunum dosyasını (PPT, PPTX, ODP, vb.) temsil eden Presentation sınıfını örnekleyin.
+// Sunum dosyasını (PPT, PPTX, ODP, vb.) temsil eden Presentation sınıfının bir örneğini oluşturun.
 using (Presentation presentation = new Presentation("Demo_File.pptx"))
 {
     TiffOptions tiffOptions = new TiffOptions();
    
     tiffOptions.PixelFormat = ImagePixelFormat.Format8bppIndexed;
     /*
-    ImagePixelFormat, belgelerde belirtildiği gibi aşağıdaki değerleri içerir:
-        Format1bppIndexed - 1 bit piksel başına, indeksli.
-        Format4bppIndexed - 4 bit piksel başına, indeksli.
-        Format8bppIndexed - 8 bit piksel başına, indeksli.
-        Format24bppRgb    - 24 bit piksel başına, RGB.
-        Format32bppArgb   - 32 bit piksel başına, ARGB.
+    ImagePixelFormat aşağıdaki değerleri içerir (belgelendirmede belirtildiği gibi):
+        Format1bppIndexed - Piksel başına 1 bit, indeksli.
+        Format4bppIndexed - Piksel başına 4 bit, indeksli.
+        Format8bppIndexed - Piksel başına 8 bit, indeksli.
+        Format24bppRgb    - Piksel başına 24 bit, RGB.
+        Format32bppArgb   - Piksel başına 32 bit, ARGB.
     */
 
     // Sunumu belirtilen görüntü boyutuyla TIFF olarak kaydedin.
@@ -164,20 +164,20 @@ using (Presentation presentation = new Presentation("Demo_File.pptx"))
 
 {{% alert title="İpucu" color="info" %}}
 
-Aspose'un [ÜCRETSİZ PowerPoint'ten Poster dönüştürücüsü](https://products.aspose.app/slides/tr/conversion/convert-ppt-to-poster-online) sayfasına göz atın.
+Aspose'un [ÜCRETSİZ PowerPoint Poster Dönüştürücüsü](https://products.aspose.app/slides/tr/conversion/convert-ppt-to-poster-online) hizmetine bir göz atın.
 
 {{% /alert %}}
 
 ## **SSS**
 
-**Bireysel bir slaytı, tüm PowerPoint sunumu yerine TIFF'e dönüştürebilir miyim?**
+**Bireysel bir slaytı tüm PowerPoint sunumu yerine TIFF'e dönüştürebilir miyim?**
 
 Evet. Aspose.Slides, PowerPoint ve OpenDocument sunumlarından tek tek slaytları ayrı ayrı TIFF görüntülerine dönüştürmenize olanak tanır.
 
-**Sunumu TIFF'e dönüştürürken slayt sayısı üzerinde bir sınırlama var mı?**
+**Sunumu TIFF'e dönüştürürken slayt sayısında bir sınırlama var mı?**
 
-Hayır, Aspose.Slides slayt sayısı üzerinde herhangi bir kısıtlama getirmez. Sunumun boyutu ne olursa olsun TIFF formatına dönüştürebilirsiniz.
+Hayır, Aspose.Slides slayt sayısı üzerinde herhangi bir kısıtlama getirmez. Her boyuttaki sunumu TIFF formatına dönüştürebilirsiniz.
 
-**PowerPoint animasyonları ve geçiş efektleri slaytları TIFF'e dönüştürürken korunur mu?**
+**PowerPoint animasyonları ve geçiş efektleri slaytlar TIFF'e dönüştürülürken korunur mu?**
 
-Hayır, TIFF sabit bir görüntü formatıdır. Bu nedenle animasyonlar ve geçiş efektleri korunmaz; yalnızca slaytların statik anlık görüntüleri dışa aktarılır.
+Hayır, TIFF statik bir görüntü formatıdır. Bu nedenle animasyonlar ve geçiş efektleri korunmaz; sadece slaytların statik anlık görüntüleri dışa aktarılır.

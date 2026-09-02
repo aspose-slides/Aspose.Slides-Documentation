@@ -1,5 +1,5 @@
 ---
-title: Správa témat PowerPoint prezentací v Pythonu
+title: Spravujte témata PowerPoint prezentací v Pythonu
 linktitle: Téma prezentace
 type: docs
 weight: 10
@@ -12,7 +12,7 @@ keywords:
 - změnit téma
 - spravovat téma
 - barva tématu
-- doplněná paleta
+- další paleta
 - písmo tématu
 - styl tématu
 - efekt tématu
@@ -21,21 +21,21 @@ keywords:
 - prezentace
 - Python
 - Aspose.Slides
-description: "Hlavní témata prezentací v Aspose.Slides pro Python pomocí .NET k vytváření, přizpůsobení a konverzi souborů PowerPoint s jednotnou značkou."
+description: "Hlavní témata prezentací v Aspose.Slides pro Python přes .NET k vytváření, přizpůsobení a převodu souborů PowerPoint s konzistentním brandováním."
 ---
 ## **Úvod**
 
-Téma prezentace definuje koordinovanou sadu barev, písem, stylů pozadí, výplní, čar a efektů. Objekty pracující s tématem odkazují na tyto sdílené definice místo ukládání každé vizuální vlastnosti jako pevné hodnoty, takže změna tématu může najednou aktualizovat mnoho objektů.
+Téma prezentace definuje koordinovaný soubor barev, písem, stylů pozadí, výplní, čar a efektů. Objektům, které jsou „theme‑aware“, se místo pevně uložených vizuálních vlastností odkazuje na tato sdílená definice, takže změna tématu může aktualizovat mnoho objektů najednou.
 
-V Aspose.Slides je téma úrovně prezentace k dispozici prostřednictvím vlastnosti [Presentation.master_theme](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/master_theme/). Prezentace může také obsahovat přepsání tématu na nižších úrovních. Master může přepsat téma prezentace pomocí [MasterThemeManager.override_theme](https://reference.aspose.com/slides/cs/python-net/aspose.slides.theme/masterthememanager/override_theme/), layout může přepsat své zděděné téma pomocí [BaseOverrideThemeManager.override_theme](https://reference.aspose.com/slides/cs/python-net/aspose.slides.theme/baseoverridethememanager/override_theme/), a jednotlivý snímek může udělat totéž. V praxi je efektivní téma pro snímek získáno přes tento řetězec dědičnosti: téma prezentace, přepsání masteru, přepsání layoutu a přepsání snímku.
+V Aspose.Slides je téma na úrovni prezentace dostupné prostřednictvím vlastnosti [Presentation.master_theme](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/master_theme/). Prezentace může také obsahovat přepisy tématu na nižších úrovních. Master může přepsat téma prezentace pomocí [MasterThemeManager.override_theme](https://reference.aspose.com/slides/cs/python-net/aspose.slides.theme/masterthememanager/override_theme/), rozvržení může přepsat své zděděné téma pomocí [BaseOverrideThemeManager.override_theme](https://reference.aspose.com/slides/cs/python-net/aspose.slides.theme/baseoverridethememanager/override_theme/), a jednotlivý snímek může udělat totéž. V praxi je efektivní téma pro snímek vyřešeno touto řetězovou dědičností: téma prezentace, přepis masteru, přepis rozvržení a přepis snímku.
 
 ![Komponenty tématu: barvy, písma, styly pozadí a efekty](theme-constituents.png)
 
-Níže uvedené sekce ukazují nejběžnější pracovní postupy s tématem: prozkoumání tématu, změna barev a písem, kopírování nebo aplikace tématu, aktualizace stylů pozadí a efektů a čtení efektivních hodnot po vyřešení dědičnosti a přepisů.
+Níže uvedené sekce ukazují nejčastější pracovní postupy s tématy: prozkoumat téma, změnit barvy a písma, kopírovat nebo použít téma, aktualizovat styly pozadí a efektů a číst efektivní hodnoty po vyřešení dědičnosti a přepisů.
 
 ## **Prozkoumání tématu**
 
-Objekt [MasterTheme](https://reference.aspose.com/slides/cs/python-net/aspose.slides.theme/mastertheme/) vystavuje vlastnosti tématu [color_scheme](https://reference.aspose.com/slides/cs/python-net/aspose.slides.theme/mastertheme/color_scheme/), [font_scheme](https://reference.aspose.com/slides/cs/python-net/aspose.slides.theme/mastertheme/font_scheme/) a [format_scheme](https://reference.aspose.com/slides/cs/python-net/aspose.slides.theme/mastertheme/format_scheme/). Prohlížení těchto kolekcí před jejich změnou je zvláště užitečné, když prezentace pochází z externího zdroje, protože počet a obsah položek stylu se může lišit.
+Objekt [MasterTheme](https://reference.aspose.com/slides/cs/python-net/aspose.slides.theme/mastertheme/) poskytuje přístup k vlastnostem [color_scheme](https://reference.aspose.com/slides/cs/python-net/aspose.slides.theme/mastertheme/color_scheme/), [font_scheme](https://reference.aspose.com/slides/cs/python-net/aspose.slides.theme/mastertheme/font_scheme/) a [format_scheme](https://reference.aspose.com/slides/cs/python-net/aspose.slides.theme/mastertheme/format_scheme/). Prozkoumávání těchto kolekcí před jejich změnou je zvláště užitečné, když prezentace pochází z externího zdroje, protože počet a obsah položek stylu se může lišit.
 
 Následující příklad načte hlavní vlastnosti tématu a vypíše, kolik stylů pozadí, výplní, čar a efektů je v tématu uloženo:
 
@@ -54,13 +54,13 @@ with slides.Presentation("input.pptx") as presentation:
     print(f"Effect styles: {len(theme.format_scheme.effect_styles)}")
 ```
 
-Pokud soubor používá více masterů, nepředpokládejte, že každý snímek má stejné efektivní téma. Prozkoumejte master přiřazený ke snímku a použijte pracovní postup s efektivním tématem uvedený později v tomto článku, pokud mohou být přítomna přepsání layoutu nebo snímku.
+Pokud soubor používá více masterů, nepředpokládejte, že každý snímek má stejné efektivní téma. Prozkoumejte master přiřazený k snímku a použijte pracovní postup s efektivním tématem uvedený později v tomto článku, když mohou být přítomny přepisy rozvržení nebo snímku.
 
 ## **Změna barev tématu**
 
-Objekty pracující s tématem (výplně, čáry a text) mohou odkazovat na logickou barvu z výčtu [SchemeColor](https://reference.aspose.com/slides/cs/python-net/aspose.slides/schemecolor/). Když změníte odpovídající položku v [ColorScheme](https://reference.aspose.com/slides/cs/python-net/aspose.slides.theme/colorscheme/) tématu, všechny objekty, které stále odkazují na tuto barvu tématu, jsou vyřešeny vůči nové hodnotě. Objekty používající přímou RGB barvu nejsou změněny aktualizací barvy tématu.
+Theme‑aware výplně, čáry a text mohou odkazovat na logickou barvu z výčtu [SchemeColor](https://reference.aspose.com/slides/cs/python-net/aspose.slides/schemecolor/). Když změníte odpovídající položku v [ColorScheme](https://reference.aspose.com/slides/cs/python-net/aspose.slides.theme/colorscheme/) tématu, všechny objekty, které stále odkazují na tuto barvu tématu, jsou přepočítány na novou hodnotu. Objektům, které používají přímou RGB barvu, změna barvy tématu neovlivní.
 
-Následující kompletní příklad vytvoří tvar používající `ACCENT4`, změní barvu `accent4` tématu na červenou, uloží prezentaci, znovu ji otevře a vypíše efektivní barvu výplně:
+Následující end‑to‑end příklad vytvoří tvar, který používá `ACCENT4`, změní barvu `accent4` tématu na červenou, uloží prezentaci, znovu ji otevře a vytiskne efektivní barvu výplně:
 
 ```python
 import aspose.pydrawing as draw
@@ -81,7 +81,7 @@ with slides.Presentation("theme-color.pptx") as saved_presentation:
     print(f"Effective fill color: {effective_fill.solid_fill_color}")
 ```
 
-Protože obdélník zůstává spojen s `ACCENT4`, jeho viditelná barva se po změně tématu stane červenou. Pokud nahradíte barvu schématu přímou barvou na tvaru, pozdější změny `accent4` už tento výplň neovlivní.
+Protože obdélník zůstává spojený s `ACCENT4`, jeho viditelná barva se po změně tématu stane červenou. Pokud nahradíte barvu schématu přímou barvou na tvaru, pozdější změny `accent4` už tento výplň neovlivní.
 
 ### **Použití barev z doplňkové palety**
 
@@ -89,8 +89,8 @@ PowerPoint odvozuje světlejší a tmavší varianty z barvy tématu aplikací t
 
 ![Hlavní barvy tématu a světlejší a tmavší barvy generované z doplňkové palety](additional-palette-colors.png)
 
-**1** - Hlavní barvy tématu.  
-**2** - Světlejší a tmavší varianty vytvořené z hlavních barev tématu.
+**1** – Hlavní barvy tématu.  
+**2** – Světlejší a tmavší varianty vytvořené z hlavních barev tématu.
 
 Následující příklad vytvoří šest obdélníků založených na `ACCENT4`, aplikuje na pět z nich transformace jasu a uloží výsledek:
 
@@ -128,29 +128,29 @@ with slides.Presentation() as presentation:
     presentation.save("theme-color-palette.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Tyto varianty zůstávají založeny na barvě tématu. Pokud se `accent4` později změní, transformované barvy jsou přepočítány z nové hodnoty `accent4`.
+Tyto varianty zůstávají založeny na barvě tématu. Pokud se `accent4` později změní, transformované barvy budou přepočítány z nové hodnoty `accent4`.
 
 ### **Mapování hodnot `SchemeColor` na sloty `ColorScheme`**
 
-Výčet [SchemeColor](https://reference.aspose.com/slides/cs/python-net/aspose.slides/schemecolor/) používá `TEXT1`, `BACKGROUND1`, `TEXT2` a `BACKGROUND2`, zatímco [ColorScheme](https://reference.aspose.com/slides/cs/python-net/aspose.slides.theme/colorscheme/) vystavuje stejné sloty tématu jako `dark1`, `light1`, `dark2` a `light2`. Mapování je pevné:
+Výčet [SchemeColor](https://reference.aspose.com/slides/cs/python-net/aspose.slides/schemecolor/) používá `TEXT1`, `BACKGROUND1`, `TEXT2` a `BACKGROUND2`, zatímco [ColorScheme](https://reference.aspose.com/slides/cs/python-net/aspose.slides.theme/colorscheme/) vystavuje stejné sloty tématu jako `dark1`, `light1`, `dark2` a `light2`. Mapování je pevně dané:
 
 * `TEXT1` = `dark1`
 * `BACKGROUND1` = `light1`
 * `TEXT2` = `dark2`
 * `BACKGROUND2` = `light2`
 
-Jedná se o alternativní názvy pro stejné sloty tématu; nejsou to hodnoty dynamicky převáděné z jednoho formátu do druhého.
+Jedná se o alternativní názvy pro stejné sloty tématu; nejsou to hodnoty, které by se dynamicky převáděly z jednoho tvaru do druhého.
 
 ## **Změna písem tématu**
 
-Schéma písem tématu obsahuje hlavní sadu písem pro nadpisy a vedlejší sadu pro tělo textu. Vlastnosti [FontScheme.major](https://reference.aspose.com/slides/cs/python-net/aspose.slides.theme/fontscheme/major/) a [FontScheme.minor](https://reference.aspose.com/slides/cs/python-net/aspose.slides.theme/fontscheme/minor/) vystavují tyto sady.
+Schéma písem tématu obsahuje hlavní sadu písem pro nadpisy a vedlejší sadu písem pro tělo textu. Vlastnosti [FontScheme.major](https://reference.aspose.com/slides/cs/python-net/aspose.slides.theme/fontscheme/major/) a [FontScheme.minor](https://reference.aspose.com/slides/cs/python-net/aspose.slides.theme/fontscheme/minor/) tyto sady vystavují.
 
-PowerPoint‑kompatibilní identifikátory písem tématu lze použít při formátování textu:
+Identifikátory písem kompatibilní s PowerPointem lze použít ve formátování textu:
 
-* `+mn‑lt` – Písmo těla Latin (Minor Latin Font)
-* `+mj‑lt` – Písmo nadpisu Latin (Major Latin Font)
-* `+mn‑ea` – Písmo těla East Asian (Minor East Asian Font)
-* `+mj‑ea` – Písmo nadpisu East Asian (Major East Asian Font)
+* `+mn-lt` – tělo písmo Latin (Minor Latin Font)
+* `+mj-lt` – nadpis písmo Latin (Major Latin Font)
+* `+mn-ea` – tělo písmo East Asian (Minor East Asian Font)
+* `+mj-ea` – nadpis písmo East Asian (Major East Asian Font)
 
 Následující příklad vytvoří jeden nadpis používající hlavní latinské písmo tématu a jeden řádek těla používající vedlejší latinské písmo tématu. Poté změní písma tématu a uloží výsledek:
 
@@ -170,19 +170,21 @@ with slides.Presentation() as presentation:
     presentation.save("theme-fonts.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Nadpis používá hlavní písmo a tělo textu používá vedlejší písmo. Text, který má explicitně nastavený název písma místo identifikátoru tématu, se automaticky nepřepne, když se změní schéma písem tématu.
+Nadpis následuje hlavní písmo a tělo textu následuje vedlejší písmo. Text, který má explicitní název písma namísto identifikátoru tématu, se automaticky nepřepne, když se změní schéma písem tématu.
+
+Hlavní a vedlejší kolekce písem mohou také obsahovat mapování písem pro jednotlivé psací systémy, jako jsou cyrilice, arabština, japonština, gruzínština a thaana. Pro prozkoumání, přidání, nahrazení nebo odebrání těchto mapování viz [Script‑Specific Theme Fonts](/slides/cs/python-net/script-specific-font-mappings/).
 
 {{% alert color="info" title="Tip" %}}
-Pro více informací o písmech v prezentaci si přečtěte [PowerPoint Fonts](/slides/cs/python-net/powerpoint-fonts/).
+Pro více informací o písmenech v prezentacích viz [PowerPoint Fonts](/slides/cs/python-net/powerpoint-fonts/).
 {{% /alert %}}
 
-## **Kopírování nebo aplikace tématu**
+## **Kopírování nebo použití tématu**
 
 Existují dva běžné pracovní postupy a řeší různé problémy.
 
 ### **Zachování zdrojového tématu při přesunu snímků**
 
-Pokud chcete přesunout snímek do jiné prezentace a zachovat jeho původní návrh, naklonujte zdrojový master do cílové prezentace pomocí [MasterSlideCollection.add_clone](https://reference.aspose.com/slides/cs/python-net/aspose.slides/masterslidecollection/add_clone/), poté naklonujte snímek pomocí [SlideCollection.add_clone](https://reference.aspose.com/slides/cs/python-net/aspose.slides/slidecollection/add_clone/) a naklonovaného masteru. Tím se přenese master, jeho rozvržení a související téma spolu.
+Pokud chcete přesunout snímek do jiné prezentace a zachovat jeho původní návrh, naklonujte zdrojový master do cílové prezentace pomocí [MasterSlideCollection.add_clone](https://reference.aspose.com/slides/cs/python-net/aspose.slides/masterslidecollection/add_clone/), poté naklonujte snímek pomocí [SlideCollection.add_clone](https://reference.aspose.com/slides/cs/python-net/aspose.slides/slidecollection/add_clone/) a klonovaného masteru. Tím se přenese master, jeho rozvržení a související téma společně.
 
 ```python
 import aspose.slides as slides
@@ -196,11 +198,11 @@ with slides.Presentation("source-theme.pptx") as source:
         target.save("theme-preserved.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Toto je preferovaný postup, když musí zdrojový snímek v cíli vypadat stejně. Pouhé klonování obsahu na nesouvisející master cíle může změnit barvy, písma, pozadí a efekty řízené tématem.
+Toto je preferovaný postup, když musí zdrojový snímek v cíli vypadat stejně. Pouhé klonování obsahu na nesouvisející master v cílové prezentaci může změnit barvy, písma, pozadí a efekty řízené tématem.
 
-### **Aplikace hodnot tématu na existující snímek**
+### **Použití hodnot tématu na existujícím snímku**
 
-Pokud musí cílový snímek zůstat na svém aktuálním masteru a layoutu, inicializujte přepsání na úrovni snímku ze zdrojového tématu. Metody [OverrideTheme.init_color_scheme_from](https://reference.aspose.com/slides/cs/python-net/aspose.slides.theme/overridetheme/init_color_scheme_from/), [OverrideTheme.init_font_scheme_from](https://reference.aspose.com/slides/cs/python-net/aspose.slides.theme/overridetheme/init_font_scheme_from/) a [OverrideTheme.init_format_scheme_from](https://reference.aspose.com/slides/cs/python-net/aspose.slides.theme/overridetheme/init_format_scheme_from/) zkopírují tři hlavní komponenty tématu do přepsání.
+Pokud cílový snímek musí zůstat na svém současném masteru a rozvržení, inicializujte úroveň snímku přepisem z tématu zdroje. Metody [OverrideTheme.init_color_scheme_from](https://reference.aspose.com/slides/cs/python-net/aspose.slides.theme/overridetheme/init_color_scheme_from/), [OverrideTheme.init_font_scheme_from](https://reference.aspose.com/slides/cs/python-net/aspose.slides.theme/overridetheme/init_font_scheme_from/) a [OverrideTheme.init_format_scheme_from](https://reference.aspose.com/slides/cs/python-net/aspose.slides.theme/overridetheme/init_format_scheme_from/) zkopírují tři hlavní komponenty tématu do přepisu.
 
 ```python
 import aspose.slides as slides
@@ -215,11 +217,11 @@ with slides.Presentation("source-theme.pptx") as source:
         target.save("theme-applied-to-slide.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Tím se změní téma použité tímto snímkem, aniž by se změnilo téma zděděné ostatními snímky. Pro odebrání lokálního přepsání a návrat k zděděným hodnotám zavolejte [OverrideTheme.clear](https://reference.aspose.com/slides/cs/python-net/aspose.slides.theme/overridetheme/clear/).
+Tím se změní téma použité tímto snímkem, aniž by se změnilo téma zděděné ostatními snímky. Pro odstranění lokálního přepisu a návrat k zděděným hodnotám zavolejte [OverrideTheme.clear](https://reference.aspose.com/slides/cs/python-net/aspose.slides.theme/overridetheme/clear/).
 
-### **Aplikace přepsání tématu na rozvržení**
+### **Použití přepisu tématu na rozvržení**
 
-Přepsání na úrovni layoutu se použije na snímky, které používají toto rozvržení, pokud konkrétní snímek nemá vlastní přepsání. Stejné inicializační metody lze použít přes [LayoutSlideThemeManager](https://reference.aspose.com/slides/cs/python-net/aspose.slides.theme/layoutslidethememanager/):
+Přepis na úrovni rozvržení se aplikuje na snímky, které toto rozvržení používají, pokud nemá konkrétní snímek vlastní přepis. Stejné inicializační metody lze použít prostřednictvím [LayoutSlideThemeManager](https://reference.aspose.com/slides/cs/python-net/aspose.slides.theme/layoutslidethememanager/):
 
 ```python
 import aspose.slides as slides
@@ -234,15 +236,17 @@ with slides.Presentation("source-theme.pptx") as source:
         target.save("theme-applied-to-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Použijte master nebo téma na úrovni prezentace, když má mnoho layoutů a snímků sdílet stejný základní návrh, přepsání layoutu, když jedna rodina layoutů potřebuje odlišné stylování, a přepsání snímku jen pro skutečné výjimky. Nadměrná přepsání na úrovni snímku ztěžují předvídání pozdějších globálních změn tématu.
+Použijte master nebo téma na úrovni prezentace, když má mnoho rozvržení a snímků sdílet stejný základní návrh, přepis rozvržení, když jedna rodina rozvržení potřebuje odlišné stylování, a přepis snímku jen pro skutečné výjimky. Nadměrné přepisy na úrovni snímku ztěžují předvídání pozdějších globálních změn tématu.
 
 ## **Aktualizace stylů pozadí tématu**
 
-Výplně pozadí tématu jsou uloženy v [FormatScheme.background_fill_styles](https://reference.aspose.com/slides/cs/python-net/aspose.slides.theme/formatscheme/background_fill_styles/). PowerPoint může v UI nabídnout více možností pozadí než je počet fyzicky uložených definic výplní v této kolekci, protože UI může kombinovat výplně tématu s barvami tématu a dalšími odkazy na styly.
+Výplně pozadí tématu jsou uloženy v [FormatScheme.background_fill_styles](https://reference.aspose.com/slides/cs/python-net/aspose.slides.theme/formatscheme/background_fill_styles/). PowerPoint může v uživatelském rozhraní nabídnout více možností pozadí, než kolik výplní je fyzicky uloženo v této kolekci, protože UI může kombinovat výplně tématu s barvami tématu a dalšími referencemi stylů.
 
 ![Galerie stylů pozadí PowerPointu pro téma prezentace](presentation-design_8.png)
 
-Před použitím stylu pozadí prohlédněte uloženou kolekci a aktuální [Background.style_index](https://reference.aspose.com/slides/cs/python-net/aspose.slides/background/style_index/). `style_index` používá `0` pro žádnou výplň z tématu; kladné hodnoty jsou odkazy na styly pozadí tématu. To se liší od indexování Python kolekce přímo, kde `[0]` označuje první uloženou položku. Nepředpokládejte, že každá prezentace obsahuje stejný počet stylů výplní pozadí.
+Před použitím stylu pozadí prozkoumejte uloženou kolekci a aktuální [Background.style_index](https://reference.aspose.com/slides/cs/python-net/aspose.slides/background/style_index/). `style_index` používá `0` pro žádnou tematickou výplň; kladné hodnoty jsou odkazy na styl pozadí tématu. To se liší od indexování Python kolekce přímo, kde `[0]` znamená první uloženou položku. Nepředpokládejte, že každá prezentace obsahuje stejný počet stylů výplní pozadí.
+
+Následující příklad vypíše počet dostupných výplní pozadí, přiřadí odkaz na tematické pozadí prvnímu masteru a uloží prezentaci:
 
 ```python
 import aspose.slides as slides
@@ -258,23 +262,25 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("theme-background.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Viditelný výsledek závisí na položce tématu, na kterou odkazuje master, a na případných přepsáních pozadí na úrovni layoutu nebo snímku. Pokud snímek používá vlastní pozadí, změna jen pozadí masteru nemusí tento snímek změnit. Použijte [Background.get_effective](https://reference.aspose.com/slides/cs/python-net/aspose.slides/background/get_effective/) když potřebujete znát finální pozadí po aplikaci dědičnosti.
+Viditelný výsledek závisí na tématu, na které se odkazuje master, a na případných přepsáních pozadí na úrovni rozvržení nebo snímku. Pokud snímek používá vlastní pozadí, změna pouze pozadí masteru nemusí tento snímek změnit. Použijte [Background.get_effective](https://reference.aspose.com/slides/cs/python-net/aspose.slides/background/get_effective/) když potřebujete znát finální pozadí po aplikaci dědičnosti.
 
 {{% alert color="warning" title="Warning" %}}
-Nepořádejte `style_index` jako nulový index kolekce. Také se vyhněte tvrdému kódování čísla stylu z jednoho souboru a předpokladu, že bude mít stejný vzhled v jiném souboru; definice stylů tématu jsou specifické pro prezentaci.
+Nevnímejte `style_index` jako nulový index kolekce. Také se vyhněte hardcodingu čísla stylu z jednoho souboru a předpokládání, že bude mít stejný vzhled v jiném souboru; definice stylů tématu jsou specifické pro konkrétní prezentaci.
 {{% /alert %}}
 
 {{% alert color="info" title="Tip" %}}
-Pro přímé formátování pozadí a dědičnost pozadí si prostudujte [Presentation Background](/slides/cs/python-net/presentation-background/).
+Pro přímé formátování pozadí a dědičnost pozadí viz [Presentation Background](/slides/cs/python-net/presentation-background/).
 {{% /alert %}}
 
 ## **Aktualizace efektů tématu**
 
-Schéma formátování tématu obsahuje samostatné kolekce [FormatScheme.fill_styles](https://reference.aspose.com/slides/cs/python-net/aspose.slides.theme/formatscheme/fill_styles/), [FormatScheme.line_styles](https://reference.aspose.com/slides/cs/python-net/aspose.slides.theme/formatscheme/line_styles/) a [FormatScheme.effect_styles](https://reference.aspose.com/slides/cs/python-net/aspose.slides.theme/formatscheme/effect_styles/). Typická office témata často obsahují tři hlavní položky stylu, které vizuálně odpovídají jemnému, střednímu a intenzivnímu formátování, ale kód by měl každou kolekci prozkoumat místo předpokladu pevného počtu.
+Formátovací schéma tématu obsahuje samostatné kolekce [FormatScheme.fill_styles](https://reference.aspose.com/slides/cs/python-net/aspose.slides.theme/formatscheme/fill_styles/), [FormatScheme.line_styles](https://reference.aspose.com/slides/cs/python-net/aspose.slides.theme/formatscheme/line_styles/) a [FormatScheme.effect_styles](https://reference.aspose.com/slides/cs/python-net/aspose.slides.theme/formatscheme/effect_styles/). Typické Office témata často obsahují tři hlavní položky stylu, které vizuálně odpovídají jemnému, střednímu a intenzivnímu formátování, ale kód by měl každou kolekci prozkoumat místo předpokládání pevného počtu.
 
 ![Jemné, střední a intenzivní efekty tématu aplikované na stejný tvar](presentation-design_10.png)
 
-Když v Pythonu přistupujete k těmto kolekcím, index kolekce je nulový: `[0]` je první uložený styl a `[2]` je třetí. Indexy odkazů na styl tvaru jsou samostatný koncept, vystavený přes [IShapeStyle](https://reference.aspose.com/slides/cs/python-net/aspose.slides/ishapestyle/). Úprava stylu tématu ovlivní tvary, které na něj odkazují; tvary s přímým formátováním mohou zůstat nezměněny.
+Když v Pythonu přistupujete k těmto kolekcím, index kolekce je nulový: `[0]` je první uložený styl a `[2]` je třetí. Indexy odkazů na styly tvaru jsou samostatným konceptem, vystaveným přes [IShapeStyle](https://reference.aspose.com/slides/cs/python-net/aspose.slides/ishapestyle/). Úprava stylu tématu ovlivní tvary, které tento styl odkazují; tvary s přímým formátováním mohou zůstat nezměněny.
+
+Následující příklad kontroluje, že požadované položky stylu existují, mění první styl čáry, mění třetí styl výplně, povoluje vnější stín ve třetím stylu efektu a ukládá výsledek:
 
 ```python
 import aspose.pydrawing as draw
@@ -293,13 +299,15 @@ with slides.Presentation("Subtle_Moderate_Intense.pptx") as presentation:
     presentation.save("theme-effects.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Pro tvary, které odkazují na tyto sloty, se první styl čáry tématu stane červeným, třetí styl výplně tématu se stane pevnou lesní zelenou a třetí styl efektu získá vnější stín s vzdáleností 10 bodů. Přesný vizuální výsledek stále závisí na tom, které sloty stylu každý tvar odkazuje a zda přímé formátování přepisuje téma.
+Pro tvary, které odkazují na tyto sloty, se první styl čáry tématu stane červeným, třetí styl výplně tématu se stane plnou lesní zelenou a třetí styl efektu získá vnější stín s vzdáleností 10 bodů. Přesný vizuální výsledek stále závisí na tom, které sloty stylu každé těleso odkazuje, a zda přímé formátování nepřepisuje téma.
 
 ![Styly efektů tématu po změně nastavení čáry, výplně a stínu](presentation-design_11.png)
 
 ## **Čtení efektivních hodnot tématu**
 
-Surová témata vám říkají, co je definováno na konkrétní úrovni. Efektivní hodnoty vám říkají, co snímek nebo tvar skutečně používá po vyřešení dědičnosti a lokálních přepisů. Pro snímek zavolejte [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/cs/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/). Pro pozadí použijte [Background.get_effective](https://reference.aspose.com/slides/cs/python-net/aspose.slides/background/get_effective/), a pro výplň [FillFormat.get_effective](https://reference.aspose.com/slides/cs/python-net/aspose.slides/fillformat/get_effective/).
+Syrové objekty tématu vám říkají, co je definováno na konkrétní úrovni. Efektivní hodnoty vám říkají, co snímek nebo tvar skutečně používá po vyřešení dědičnosti a lokálních přepisů. Pro snímek zavolejte [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/cs/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/). Pro pozadí použijte [Background.get_effective](https://reference.aspose.com/slides/cs/python-net/aspose.slides/background/get_effective/), a pro výplň [FillFormat.get_effective](https://reference.aspose.com/slides/cs/python-net/aspose.slides/fillformat/get_effective/).
+
+Následující příklad načte efektivní téma, pozadí a první výplň tvaru ze snímku:
 
 ```python
 import aspose.slides as slides
@@ -318,18 +326,18 @@ with slides.Presentation("input.pptx") as presentation:
             print(f"First shape effective fill color: {effective_fill.solid_fill_color}")
 ```
 
-Používejte efektivní data pro diagnostiku vykreslování, validaci a porovnání. Pokud prozkoumáte jen [Presentation.master_theme](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/master_theme/), můžete přehlédnout přepsání masteru, layoutu, snímku nebo tvaru, které mění finální vzhled.
+Používejte efektivní data pro diagnostiku vykreslování, validaci a porovnání. Pokud prozkoumáte jen [Presentation.master_theme](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/master_theme/), můžete přehlédnout přepis masteru, rozvržení, snímku nebo tvaru, který mění finální vzhled.
 
 ## **Často kladené otázky**
 
-**Mohu aplikovat téma na jediný snímek bez změny masteru?**
+**Mohu použít téma na jeden snímek bez změny masteru?**
 
-Ano. Použijte [SlideThemeManager](https://reference.aspose.com/slides/cs/python-net/aspose.slides.theme/slidethememanager/) snímku a inicializujte jeho přepsání tématu. Změna zůstane lokální pro tento snímek; ostatní snímky nadále dědí své existující témata.
+Ano. Použijte [SlideThemeManager](https://reference.aspose.com/slides/cs/python-net/aspose.slides.theme/slidethememanager/) snímku a inicializujte jeho přepis tématu. Změna zůstane lokální pro tento snímek; ostatní snímky nadále dědí svá existující témata.
 
 **Jaký je nejbezpečnější způsob, jak přenést téma z jedné prezentace do druhé?**
 
-Při přesunu snímku a zachování jeho zdrojového vzhledu naklonujte zdrojový master do cíle a naklonujte snímek s tímto masterem pomocí [MasterSlideCollection.add_clone](https://reference.aspose.com/slides/cs/python-net/aspose.slides/masterslidecollection/add_clone/) a [SlideCollection.add_clone](https://reference.aspose.com/slides/cs/python-net/aspose.slides/slidecollection/add_clone/). Tím se master, rozvržení a téma udrží pohromadě.
+Při přesunu snímku a zachování jeho původního vzhledu naklonujte zdrojový master do cílové destinace a naklonujte snímek s tímto masterem pomocí [MasterSlideCollection.add_clone](https://reference.aspose.com/slides/cs/python-net/aspose.slides/masterslidecollection/add_clone/) a [SlideCollection.add_clone](https://reference.aspose.com/slides/cs/python-net/aspose.slides/slidecollection/add_clone/). Tím se master, rozvržení a téma přenesou společně.
 
 **Jak mohu zobrazit efektivní hodnoty po dědičnosti a přepsání?**
 
-Použijte [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/cs/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/) pro téma snímku nebo layoutu a odpovídající metody efektivních dat pro formátovací objekty, jako jsou [Background.get_effective](https://reference.aspose.com/slides/cs/python-net/aspose.slides/background/get_effective/) a [FillFormat.get_effective](https://reference.aspose.com/slides/cs/python-net/aspose.slides/fillformat/get_effective/). Tyto API vrátí vyřešené hodnoty po aplikaci dědičnosti a přepsání.
+Použijte [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/cs/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/) pro téma snímku nebo rozvržení a odpovídající metody pro efektivní data formátovacích objektů, jako jsou [Background.get_effective](https://reference.aspose.com/slides/cs/python-net/aspose.slides/background/get_effective/) a [FillFormat.get_effective](https://reference.aspose.com/slides/cs/python-net/aspose.slides/fillformat/get_effective/). Tyto API vrací vyřešené hodnoty po aplikaci dědičnosti a přepisů.

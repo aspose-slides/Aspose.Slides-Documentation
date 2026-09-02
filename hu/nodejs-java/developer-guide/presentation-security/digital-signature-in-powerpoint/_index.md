@@ -1,5 +1,5 @@
 ---
-title: Digitális aláírások hozzáadása prezentációkhoz JavaScript-ben
+title: Digitális aláírások hozzáadása bemutatókhoz JavaScript-ben
 linktitle: Digitális aláírás
 type: docs
 weight: 10
@@ -7,45 +7,45 @@ url: /hu/nodejs-java/digital-signature-in-powerpoint/
 keywords:
 - digitális aláírás
 - digitális tanúsítvány
-- tanúsítvány kibocsátó
+- tanúsítványkiadó
 - PFX tanúsítvány
 - PKCS#12
 - aláírás ellenőrzése
 - PowerPoint
 - PPTX
-- prezentációbiztonság
+- bemutató biztonság
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Ismerje meg, hogyan lehet meglévő PPTX prezentációkat aláírni PFX tanúsítványokkal, és hogyan használhatja az Aspose.Slides for Node.js‑t Java‑ban a digitális aláírások ellenőrzésére vagy eltávolítására."
+description: "Ismerje meg, hogyan lehet aláírni meglévő PPTX bemutatókat PFX tanúsítványokkal, és hogyan használhatja az Aspose.Slides for Node.js-t Java segítségével a digitális aláírások ellenőrzésére vagy eltávolítására."
 ---
-## **Overview**
+## **Áttekintés**
 
-A digitális aláírás segít a címzettnek meghatározni, ki írta alá a prezentációt, és hogy az aláírt tartalom megváltozott‑e. Három kapcsolódó biztonsági fogalom fontos itt:
+A digitális aláírás segít a címzettnek meghatározni, ki írta alá a bemutatót, és hogy a aláírt tartalom megváltozott-e. Itt három kapcsolódó biztonsági fogalom fontos:
 
-- A **digital certificate** egy elektronikus hitelesítő, amely egy azonosítót összekapcsol egy nyilvános kulccsal. Egy megbízható tanúsítvány kibocsátó (CA) kiadhat tanúsítványt, vagy egy szervezet önaláírt tanúsítványt használhat belső munkafolyamatokhoz.
-- A **digital signature** a prezentáció tartalmából és a tanúsítvány tulajdonosának privát kulcsából jön létre. A tanúsítvány nyilvános kulcsa ezután felhasználható az aláírás ellenőrzésére. Egy aláírás bizonyítja a származást és az integritást; nem titkosítja a prezentációt.
-- **Password protection** szabályozza, hogy a felhasználó megnyithat‑e vagy módosíthat‑e egy prezentációt. Ez különálló a digitális aláírástól, és le van írva a [Password-Protected Presentations](/nodejs-java/password-protected-presentation/)-ben.
+- A **digitális tanúsítvány** egy elektronikus hitelesítő adat, amely egy személyazonosságot köt egy nyilvános kulcshoz. Egy megbízható tanúsítványkibocsátó (CA) kibocsáthat tanúsítványt, vagy egy szervezet használhat önaláírt tanúsítványt belső munkafolyamatokhoz.
+- A **digitális aláírás** a bemutató tartalmából és a tanúsítvány tulajdonosának privát kulcsából jön létre. A tanúsítvány nyilvános kulcsával ezután ellenőrizhető az aláírás. Az aláírás a származás és az integritás bizonyítékát nyújtja; nem titkosítja a bemutatót.
+- **Jelszóvédelem** szabályozza, hogy egy felhasználó megnyithatja vagy módosíthatja a bemutatót. Ez különálló a digitális aláírástól, és le van írva a [Jelszóval védett bemutatók](/slides/hu/nodejs-java/password-protected-presentation/) részben.
 
-A PowerPoint a **Add a Digital Signature** parancsot a **File > Info > Protect Presentation** menüben kínálja.
+A PowerPoint a **Add a Digital Signature** parancsot a **File > Info > Protect Presentation** menüben biztosítja.
 
-![PowerPoint Protect Presentation menü, ahol a Digitális aláírás hozzáadása ki van emelve](add-digital-signature-in-powerpoint.png)
+![PowerPoint Védje a bemutatót menü, a Add a Digital Signature kiemelve](add-digital-signature-in-powerpoint.png)
 
-Egy aláírt prezentáció megnyitása után a PowerPoint megjeleníthet egy aláírás‑állapot értesítést.
+Aláírt bemutató megnyitása után a PowerPoint megjeleníthet egy aláírás‑állapot értesítést.
 
-![PowerPoint értesítés, amely szerint a prezentáció érvényes aláírásokat tartalmaz](digital-signature-status-in-powerpoint.png)
+![PowerPoint értesítés, amely azt jelzi, hogy a bemutató érvényes aláírásokat tartalmaz](digital-signature-status-in-powerpoint.png)
 
-Aspose.Slides a [Presentation.getDigitalSignatures](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/#getDigitalSignatures--) segítségével teszi elérhetővé az aláírásokat, amely egy [DigitalSignatureCollection](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/digitalsignaturecollection/)‑t ad vissza, benne [DigitalSignature](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/digitalsignature/) objektumokkal. Egy prezentáció több aláírást is tartalmazhat.
+Az Aspose.Slides a aláírásokat a [Presentation.getDigitalSignatures](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/#getDigitalSignatures--) metódussal teszi elérhetővé, amely egy [DigitalSignatureCollection](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/digitalsignaturecollection/) objektumot ad vissza, benne [DigitalSignature](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/digitalsignature/) objektumokkal. Egy bemutató több aláírást is tartalmazhat.
 
-## **Értse meg a PFX tanúsítványokat és jelszavakat**
+## **A PFX tanúsítványok és jelszavak megértése**
 
-Egy PFX fájl, más néven PKCS#12 fájl, gyakran .pfx vagy .p12 kiterjesztéssel, tartalmazhat X.509 tanúsítványt, annak privát kulcsát és a tanúsítványláncot. A privát kulcs teszi lehetővé a tulajdonos számára az aláírás létrehozását. Egy tanúsítvány, amelyhez nem férhető hozzá privát kulcs, nem használható prezentáció aláírására.
+A PFX fájl, amelyet PKCS#12 fájlnak is neveznek, és általában `.pfx` vagy `.p12` kiterjesztéssel rendelkezik, tartalmazhat egy X.509 tanúsítványt, annak privát kulcsát és a tanúsítványláncot. A privát kulcs teszi lehetővé a tulajdonos számára a aláírás létrehozását. Egy tanúsítvány, amelyhez nem férhető hozzá a privát kulcs, nem használható bemutató aláírására.
 
-A PFX jelszó védi a tanúsítványcsomagot és a privát kulcsot. **Nem** jelszó a prezentáció megnyitásához vagy szerkesztéséhez. Ne adja hozzá a PFX fájlokat vagy jelszavaikat a forráskód‑kezelőhöz. Éles környezetben korlátozza a tanúsítványfájl hozzáférését, és szerezze be a jelszót egy titkos tárolóból vagy más védett konfigurációs forrásból. Az alábbi példák csak környezeti változót használnak, hogy elkerüljék a jelszó kódban való beágyazását.
+A PFX jelszó védi a tanúsítványcsomagot és a privát kulcsot. **Nem** jelszó a bemutató megnyitásához vagy szerkesztéséhez. Ne helyezze a PFX fájlokat vagy azok jelszavait forráskód‑kezelő rendszerbe. Éles környezetben korlátozza a tanúsítványfájl hozzáférését, és szerezze be a jelszót egy titkos tárolóból vagy más védett konfigurációs forrásból. Az alábbi példák környezeti változót használnak csak azért, hogy a jelszó ne legyen kódban ágyazva.
 
-## **Digitális aláírás hozzáadása egy prezentációhoz**
+## **Digitális aláírás hozzáadása egy bemutatóhoz**
 
-Egy valós aláírási munkafolyamatban töltse be a meglévő PPTX fájlt, hozza létre a [DigitalSignature](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/digitalsignature/) objektumot egy PFX tanúsítvány és annak jelszava alapján, adja hozzá az aláírást a prezentáció gyűjteményéhez, majd mentse PPTX‑ként.
+Egy valódi bemutató aláírásához töltse be a meglévő PPTX fájlt, hozzon létre egy [DigitalSignature](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/digitalsignature/) objektumot egy PFX tanúsítványból és annak jelszavából, adja hozzá az aláírást a bemutató kollekciójához, majd mentse PPTX fájlba.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -67,13 +67,13 @@ try {
 }
 ```
 
-Az eredmény új néven való mentése megőrzi az aláíratlan forrásfájlt. A [DigitalSignature.setComments](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/digitalsignature/) által beállított érték leírja az aláírás célját; ez nem biztonsági ellenőrzés.
+Az eredmény új néven való mentése megőrzi az aláíratlan forrásfájlt. A [DigitalSignature.setComments](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/digitalsignature/) által beállított érték leírja az aláírás célját; nem biztonsági szabályozás.
 
 ## **Digitális aláírások ellenőrzése**
 
-Aláírt PPTX fájl betöltésekor vizsgálja meg minden elemet, amelyet a [Presentation.getDigitalSignatures](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/#getDigitalSignatures--) visszaad. A [DigitalSignature.isValid](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/digitalsignature/) módszer jelzi, hogy a beágyazott aláírás érvényes‑e a jelenlegi prezentáció tartalmához képest.
+Aláírt PPTX fájl betöltésekor vizsgálja meg minden elemet, amelyet a [Presentation.getDigitalSignatures](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/#getDigitalSignatures--) visszaad. A [DigitalSignature.isValid](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/digitalsignature/) metódus jelzi, hogy a beágyazott aláírás érvényes‑e az aktuális bemutató tartalmához képest.
 
-A következő példa a Node.js `X509Certificate` osztályt is használja, hogy kiolvassa az alany nevét minden beágyazott tanúsítványból.
+Az alábbi példa a Node.js `X509Certificate` osztályt is használja, hogy kiolvassa minden beágyazott tanúsítvány alanynevet.
 
 ```javascript
 const { X509Certificate } = require("node:crypto");
@@ -115,13 +115,13 @@ try {
 }
 ```
 
-Az érvénytelen eredmény általában azt jelenti, hogy az aláírt prezentáció tartalma vagy az aláírás adatcsomagja megváltozott az aláírás után, vagy a fájl sérült. Minden aláírás eltávolítása aláíratlan prezentációt eredményez, így csak az elemek érvényességének ellenőrzése nem elegendő: egy biztonságérzetes munkafolyamatnak ellenőriznie kell a várt aláírások számát és a várt aláírók személyazonosságát is.
+Egy érvénytelen eredmény általában azt jelenti, hogy az aláírt bemutató tartalma vagy az aláírás adatcsomagja az aláírás után megváltozott, vagy a fájl sérült. Minden aláírás eltávolítása aláíratlan bemutatót eredményez, ezért csak az elemek érvényességének ellenőrzése nem elegendő: egy biztonságkritikus munkafolyamatnak továbbá ellenőriznie kell a várt aláírások számát és a várt aláírók személyazonosságát is.
 
-Ez az érvényességi eredmény nem tekinthető teljes tanúsítvány‑bizalom döntésnek. Biztonsági politikájától függően alkalmazásának esetleg fel kell építenie és ellenőriznie az X.509 tanúsítványláncot, ellenőriznie kell a tanúsítvány érvényességi dátumait és visszavonási állapotát, megerősíteni a várt alanyt vagy ujjlenyomatot, ellenőrizni a kulcshasználatot, valamint értékelni egy megbízható időbélyeget. A [DigitalSignature.getSignTime](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/digitalsignature/) értéke önmagában nem bizonyíték megbízható időbélyegző hatóságtól.
+Ez az érvényességi eredmény nem tekinthető teljes tanúsítvány‑bizalmi döntésnek. Biztonsági házirendjétől függően az alkalmazásának fel kell tudnia építeni és ellenőrizni az X.509 tanúsítványláncot, ellenőrizni a tanúsítvány érvényességi dátumait és visszavonási állapotát, megerősíteni a várt alanyt vagy ujjlenyomatot, ellenőrizni a kulcs felhasználását, valamint értékelni egy megbízható időbélyeget. A [DigitalSignature.getSignTime](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/digitalsignature/) értéke önmagában nem bizonyíték megbízható időbélyeg‑hatóságtól.
 
 ## **Digitális aláírások eltávolítása**
 
-Az aláírások eltávolítása megváltoztatja a prezentáció biztonsági állapotát. Az alábbi példa betölt egy aláírt PPTX fájlt, eltávolítja az összes aláírást a [DigitalSignatureCollection.clear](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/digitalsignaturecollection/clear/) segítségével, majd elment egy aláíratlan másolatot.
+Az aláírások eltávolítása megváltoztatja a bemutató biztonsági állapotát. Az alábbi példa betölt egy aláírt PPTX fájlt, az összes aláírást eltávolítja a [DigitalSignatureCollection.clear](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/digitalsignaturecollection/clear/) metódussal, és elment egy aláíratlan másolatot.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -135,54 +135,54 @@ try {
 }
 ```
 
-Csak egy aláírás eltávolításához hívja meg a [DigitalSignatureCollection.removeAt](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/digitalsignaturecollection/removeat/) metódust a nulla‑alapú indexével. Mentse egy új fájlba, hacsak nem szándékosan felülírja az eredeti aláírt fájlt a munkafolyamat részeként.
+Egyetlen aláírás eltávolításához hívja meg a [DigitalSignatureCollection.removeAt](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/digitalsignaturecollection/removeat/) metódust a nulla‑bázisú indexével. Mentse új fájlba, hacsak nem szándékosan írja felül az eredeti aláírt fájlt a munkafolyamat részeként.
 
-## **Szerkesztés és formátum‑szempontok**
+## **Szerkesztési és formátum szempontok**
 
-- Egy aláírás nem teszi a prezentációt csak‑olvasásra. A felhasználók és alkalmazások továbbra is szerkeszthetik a fájlt, de a aláírt tartalom módosítása általában érvényteleníti a meglévő aláírást.
-- Végezze el az összes kívánt szerkesztést aláírás előtt. Ha a prezentációt módosítani kell, mentse el a módosított változatot, és írja alá újra.
-- Tartsa meg a végső kimenetet PPTX formátumban. Egy aláírt prezentáció más formátumba konvertálása nem adja át az eredeti PPTX aláírást érvényes aláírásként a konvertált fájlra.
-- Kezelje a tanúsítvány privát kulcsát érzékeny információként. Akárki, aki megszerzi a privát kulcsot és annak jelszavát, képes lehet olyan aláírásokat létrehozni, amelyek úgy tűnnek, mintha a tanúsítvány tulajdonosától származnának.
-- Tartsa meg az aláíratlan forrást vagy egy másik kontrollált példányt, ha a dokumentumtartási politikája ezt megköveteli.
+- Egy aláírás nem teszi a bemutatót csak‑olvasásra. A felhasználók és alkalmazások továbbra is szerkeszthetik a fájlt, de a aláírt tartalom módosítása általában érvényteleníti a meglévő aláírást.
+- Végezze el az összes kívánt módosítást az aláírás előtt. Ha a bemutatót módosítani kell, mentse el a javított változatot, és írja alá újra azt a verziót.
+- Tartsa a végső kimenetet PPTX formátumban. Egy aláírt bemutató más formátumba konvertálása nem viszi át az eredeti PPTX aláírást érvényes aláírásként a konvertált fájlra.
+- A tanúsítvány privát kulcsát kezelje bizalmas információnak. Akárki, aki megszerzi a privát kulcsot és annak jelszavát, képes lehet olyan aláírásokat létrehozni, amelyek úgy tűnnek, mintha a tanúsítvány tulajdonosától származnának.
+- Tartsa meg az aláíratlan forrást vagy egy másik ellenőrzött másolatot, ha a dokumentum‑megtartási szabályzat ezt megköveteli.
 
 ## **GYIK**
 
-**Titkosítja a digitális aláírás a prezentációt?**
+**Titkosítja-e a digitális aláírás a bemutatót?**
 
-Nem. A digitális aláírás bizonyítékot nyújt a származásra és az integritásra, de a prezentáció tartalma olvasható marad, hacsak nem alkalmaznak külön titkosítást. Használja a [password protection](/nodejs-java/password-protected-presentation/) lehetőséget, ha a tartalomhoz való hozzáférést korlátozni kell.
+Nem. A digitális aláírás a származásról és az integritásról ad bizonyítékot, de a bemutató tartalma olvasható marad, ha külön titkosítás nem kerül alkalmazásra. Használja a [jelszóvédelmet](/slides/hu/nodejs-java/password-protected-presentation/), ha a tartalomhoz való hozzáférést korlátozni kell.
 
-**Ugyanaz a jelszó, mint a prezentáció jelszava?**
+**Ugyanaz a jelszó, mint a bemutató jelszava?**
 
-Nem. A PFX jelszó a tanúsítványcsomagban tárolt privát kulcs feloldásához szükséges. Nem szabályozza, hogy ki nyithatja meg vagy szerkesztheti a PPTX fájlt.
+Nem. A PFX jelszó a tanúsítványcsomagban tárolt privát kulcs feloldására szolgál. Nem szabályozza, hogy ki nyithatja meg vagy szerkesztheti a PPTX fájlt.
 
 **Használhatok önaláírt tanúsítványt?**
 
-Technikailag egy önaláírt tanúsítvány használható, ha tartalmaz elérhető privát kulcsot. A címzettek azonban nem fogják automatikusan megbízni benne, hacsak a tanúsítványt nem adják hozzá kifejezetten a megbízható környezetükhöz. Nyilvános vagy kereszt‑szervezeti munkafolyamatok általában megbízható CA‑tól kiállított tanúsítványt használnak.
+Technikailag igen, ha a tanúsítvány tartalmaz egy elérhető privát kulcsot. A címzettek azonban nem fogják automatikusan megbízni benne, hacsak a tanúsítványt nem adták hozzá kifejezetten a megbízható környezethez. Nyilvános vagy szervezetek közötti munkafolyamatok általában megbízható CA‑tól kiállított tanúsítványt használnak.
 
 **Mi tesz egy aláírást érvénytelené?**
 
-Az aláírt prezentáció tartalmának vagy az aláírás adatának módosítása az aláírás után érvénytelenítheti azt. A fájl sérülése is okozhat sikertelen ellenőrzést. Ha az összes aláírást eltávolítják, a prezentáció aláíratlan lesz, nem egy érvénytelen aláírást tartalmazó fájl.
+Az aláírt bemutató tartalmának vagy az aláírás adatainak az aláírás után történt módosítása érvénytelenítheti az aláírást. A fájl sérülése is okozhat sikertelen ellenőrzést. Ha az összes aláírás eltávolításra kerül, a bemutató aláíratlan, nem pedig egy érvénytelen aláírást tartalmazó fájl lesz.
 
-**Jelenti-e egy érvényes aláírás, hogy megbízhatok az aláírón?**
+**Jelent-e egy érvényes aláírás, hogy megbízhatok a feladóban?**
 
-Nem önmagában. Az aláírás integritása és az aláíró megbízhatósága külön döntések. Egy éles környezetben használt ellenőrzési szabályzatnak ellenőriznie kell a tanúsítványláncot, érvényességi időszakot, visszavonási állapotot, várt személyazonosságot, kulcshasználatot és minden megbízható időbélyegző‑követelményt.
+Nem önmagában. Az aláírás integritása és a feladó megbízhatósága külön döntések. Egy éles környezetben alkalmazott ellenőrzési házirendnek továbbá ellenőriznie kell a tanúsítványláncot, a lejárati időszakot, a visszavonási állapotot, a várt személyazonosságot, a kulcs felhasználását, valamint a megbízható időbélyeg‑követelményeket.
 
 **Mi történik, ha a tanúsítvány lejár?**
 
-A tanúsítvány lejárta nem változtatja meg a prezentáció bájtjait, de befolyásolja a tanúsítvány‑bizalom értékelését. Az, hogy egy aláírás még elfogadható‑e, a szabályzattól és attól függ, hogy egy érvényes megbízható időbélyeg bizonyítja‑e, hogy az aláírás a tanúsítvány érvényes időszaka alatt történt. Ne csak a megjelenített aláírási időt tekintse megbízható időbélyegnek.
+A tanúsítvány lejárta nem változtatja meg a bemutató bájtjait, de befolyásolja a tanúsítvány‑bizalom értékelését. Az, hogy egy aláírás továbbra is elfogadható‑e, a házirendtől és attól függ, hogy egy érvényes megbízható időbélyeg bizonyítja‑e, hogy az aláírás a tanúsítvány érvényességi ideje alatt történt. Ne támaszkodjon kizárólag a megjelenített aláírási időre megbízható időbélyegként.
 
-**Módosítható még egy aláírt prezentáció?**
+**Módosítható-e egy aláírt bemutató?**
 
-Igen. Az aláírás nem zárolja a fájlt. Az aláírt tartalom szerkesztése általában érvényteleníti a meglévő aláírást, ezért először fejezze be a prezentációt, majd írja alá a végső verziót.
+Igen. Az aláírás nem zárja le a fájlt. Az aláírt tartalom módosítása általában érvényteleníti a meglévő aláírást, ezért előbb fejezze be a bemutatót, majd írja alá a végleges revíziót.
 
-**Tartalmazhat egy prezentáció több aláírást?**
+**Tartalmazhat-e egy bemutató több aláírást?**
 
-Igen. Adja hozzá minden aláírást a [Presentation.getDigitalSignatures](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/#getDigitalSignatures--) által visszaadott gyűjteményhez a mentés előtt. Az ellenőrzés során vizsgálja meg minden aláírást, és erősítse meg, hogy minden szükséges aláíró jelen van.
+Igen. Adja hozzá az egyes aláírásokat a [Presentation.getDigitalSignatures](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/#getDigitalSignatures--) által visszaadott kollekcióhoz a mentés előtt. Az ellenőrzés során vizsgálja meg minden aláírást, és erősítse meg, hogy minden szükséges aláíró jelen van.
 
-**Mely prezentációs formátumok támogatják ezeket a műveleteket?**
+**Mely bemutatóformátumok támogatják ezeket a műveleteket?**
 
-Az Aspose.Slides csak PPTX formátumban támogatja a leírt digitális‑aláírási műveleteket. A PPT és OpenDocument prezentációs formátumok nincsenek támogatva ezzel az API‑val.
+Az Aspose.Slides itt leírt digitális‑aláírás műveleteket csak PPTX formátumra támogatja. A PPT és az OpenDocument bemutatóformátumok nem támogatottak ezen API‑munkafolyamatban.
 
-**Eltávolíthatok egy aláírást anélkül, hogy a diákra hatással lenne?**
+**Eltávolítható-e egy aláírás anélkül, hogy a diákra hatással lenne?**
 
-Igen. Eltávolíthat egy aláírást vagy kiürítheti az egész gyűjteményt, majd mentheti a prezentációt. A diákkönyvtár tartalma megmarad, de a mentett fájl már nem tartalmazza a eltávolított aláírás bizonyítékát.
+Igen. Eltávolíthat egyetlen aláírást, vagy kiürítheti az egész kollekciót, majd elmentheti a bemutatót. A diák tartalma megmarad, de a mentett fájl már nem tartalmazza az eltávolított aláírás bizonyítékát.

@@ -11,37 +11,37 @@ keywords:
 - diák bejárása
 - alakzatok bejárása
 - szöveg bejárása
-- alakzatok gyűjtése
+- alakzatok összegyűjtése
 - prezentáció tömörítése
-- használaton kívüli master diák eltávolítása
-- használaton kívüli elrendezés diák eltávolítása
-- beágyazott betűtípusok tömörítése
+- nem használt mesterdiák eltávolítása
+- nem használt elrendezési diák eltávolítása
+- beágyazott betűkészletek tömörítése
 - PowerPoint
 - OpenDocument
 - prezentáció
 - PHP
 - Aspose.Slides
-description: "Használja az Aspose.Slides alacsony kódú API-t PHP-ben a prezentációk konvertálásához és egyesítéséhez, a tartalom bejárásához, az alakzatok gyűjtéséhez, valamint a prezentáció méretének csökkentéséhez."
+description: "Használja az Aspose.Slides alacsony kódú API-t PHP-ben a prezentációk konvertálásához és egyesítéséhez, a tartalom bejárásához, alakzatok összegyűjtéséhez és a prezentáció méretének csökkentéséhez."
 ---
 ## **Áttekintés**
 
-A [aspose.slides](https://reference.aspose.com/slides/hu/php-java/aspose.slides/) névtér statikus segédosztályokat biztosít a gyakori bemutató‑műveletekhez. Ezek a segédek a gyakran használt objektummodell munkafolyamatokat összpontosított metódusokba csomagolják, így fájlokat konvertálhat vagy egyesíthet, feldolgozhatja a bemutató elemeit, gyűjtheti az alakzatokat, és kevesebb kóddal eltávolíthatja a nem használt tartalmat.
+A [aspose.slides](https://reference.aspose.com/slides/hu/php-java/aspose.slides/) névtér statikus segédosztályokat biztosít a gyakori prezentációs műveletekhez. Ezek a segédek a gyakran használt objektummodell munkafolyamatokat fókuszált metódusokba csomagolják, így kevesebb kóddal konvertálhat vagy egyesíthet fájlokat, feldolgozhatja a prezentáció elemeit, összegyűjtheti az alakzatokat, és eltávolíthatja a nem használt tartalmat.
 
-Az alacsony kódú segédek leginkább akkor hasznosak, ha a művelet egy teljes fájlra vagy bemutatóra vonatkozik, és az alapértelmezett munkafolyamat megfelel az igényeinek. Használja a teljes [Aspose.Slides objektummodellt](https://reference.aspose.com/slides/hu/php-java/aspose.slides/), ha finom vezérlésre van szüksége az egyes diák, masterek, elrendezések, alakzatok, exportbeállítások vagy a bemutatóelemek közötti kapcsolatok felett.
+Az alacsony kódú segédek akkor a leghasznosabbak, amikor a művelet egy teljes fájlra vagy prezentációra vonatkozik, és az alapértelmezett munkafolyamat megfelel az igényeinek. Használja a teljes [Aspose.Slides objektummodellt], ha finomhangolt vezérlésre van szüksége egyedi diák, mesteroldalak, elrendezések, alakzatok, exportbeállítások vagy a prezentációelemek közötti kapcsolatok felett.
 
-Az alábbi táblázat összegzi a rendelkezésre álló segédeket:
+Az alábbi táblázat összefoglalja a rendelkezésre álló segédeket:
 
-| Segédprogram | Mire használható |
+| Segéd | Mire használható |
 | --- | --- |
-| [Convert](https://reference.aspose.com/slides/hu/php-java/aspose.slides/convert/) | Prezentáció átalakítása más formátumba közvetlen fájl‑fájl hívással. |
-| [Merger](https://reference.aspose.com/slides/hu/php-java/aspose.slides/merger/) | Ugyanazon formátumú teljes bemutatófájlok összevonása. |
-| [ForEach_](https://reference.aspose.com/slides/hu/php-java/aspose.slides/foreach_/) | Visszahívás végrehajtása minden diára, alakzatra, bekezdésre vagy szövegrészre. |
-| [Collect](https://reference.aspose.com/slides/hu/php-java/aspose.slides/collect/) | Alakzatok lekérése a teljes bemutatóból ismételt feldolgozás vagy elemzés céljából. |
-| [Compress](https://reference.aspose.com/slides/hu/php-java/aspose.slides/compress/) | Használaton kívüli masterek és elrendezések eltávolítása, valamint a beágyazott betűadatok csökkentése. |
+| [Convert](https://reference.aspose.com/slides/hu/php-java/aspose.slides/convert/) | Prezentáció konvertálása másik formátumba közvetlen fájl‑fájl hívással. |
+| [Merger](https://reference.aspose.com/slides/hu/php-java/aspose.slides/merger/) | Ugyanazon formátumú teljes prezentációfájlok egyesítése. |
+| [ForEach_](https://reference.aspose.com/slides/hu/php-java/aspose.slides/foreach_/) | Visszahívás futtatása minden diára, alakzatra, bekezdésre vagy szövegrészre. |
+| [Collect](https://reference.aspose.com/slides/hu/php-java/aspose.slides/collect/) | Alakzatok lekérdezése a teljes prezentációból ismételt feldolgozás vagy elemzés céljából. |
+| [Compress](https://reference.aspose.com/slides/hu/php-java/aspose.slides/compress/) | Nem használt mesterelemek és elrendezések eltávolítása, valamint a beágyazott betűkészlet adatainak csökkentése. |
 
 ## **Prezentáció konvertálása**
 
-A [Convert::autoByExtension](https://reference.aspose.com/slides/hu/php-java/aspose.slides/convert/#autoByExtension) használatával, ha a kimeneti fájl kiterjesztése elegendő az exportformátum kiválasztásához. A metódus megnyitja a forrás bemutatót, meghatározza a szükséges formátumot a kimeneti útvonal alapján, és kiírja az eredményt.
+Használja a [Convert::autoByExtension](https://reference.aspose.com/slides/hu/php-java/aspose.slides/convert/#autoByExtension) metódust, ha a kimeneti fájlkiterjesztés elegendő az export formátum kiválasztásához. A metódus megnyitja a forrás prezentációt, meghatározza a szükséges formátumot a kimeneti útvonal alapján, és kiírja az eredményt.
 
 ```php
 use aspose\slides\Convert;
@@ -49,11 +49,11 @@ use aspose\slides\Convert;
 Convert::autoByExtension("input.pptx", "output.pdf");
 ```
 
-A [Convert](https://reference.aspose.com/slides/hu/php-java/aspose.slides/convert/) osztály dedikált metódusokat is kínál a PDF, SVG, JPEG, PNG és TIFF kimenetekhez. Használja a teljes objektummodellt, ha a exportálás előtt ellenőrizni vagy módosítani kell a bemutatót, vagy ha egy olyan exportbeállítást kell konfigurálni, amely a kiválasztott segédprogramban nincs elérhető. Lásd a [Prezentáció konvertálása](/php-java/convert-presentation/) oldalt a formátumspecifikus munkafolyamatok és beállítások megtekintéséhez.
+A [Convert](https://reference.aspose.com/slides/hu/php-java/aspose.slides/convert/) osztály további dedikált metódusokat kínál a PDF, SVG, JPEG, PNG és TIFF kimenethez. Használja a teljes objektummodellt, ha export előtt meg kell vizsgálnia vagy módosítania a prezentációt, vagy olyan exportbeállítást kell konfigurálnia, amelyet a kiválasztott segéd nem biztosít. Lásd a [Convert Presentation](/slides/hu/php-java/convert-presentation/) oldalt a formátumspecifikus munkafolyamatokért és beállításokért.
 
-## **Bemutatók egyesítése**
+## **Prezentációk egyesítése**
 
-A [Merger::process](https://reference.aspose.com/slides/hu/php-java/aspose.slides/merger/#process) használatával egy hívással kombinálhatók a teljes bemutatófájlok. A bemenetként megadott bemutatóknak azonos fájlformátummal kell rendelkezniük.
+Használja a [Merger::process](https://reference.aspose.com/slides/hu/php-java/aspose.slides/merger/#process) metódust, hogy egy hívással egyesítsen teljes prezentációfájlokat. A bemeneti prezentációknak ugyanazzal a fájlformátummal kell rendelkezniük.
 
 ```php
 use aspose\slides\Merger;
@@ -62,13 +62,13 @@ $inputFiles = ["part-1.pptx", "part-2.pptx"];
 Merger::process($inputFiles, "merged.pptx");
 ```
 
-A segédprogram megfelelő, ha az összes diát egy eredménybe szeretné hozzáfűzni anélkül, hogy egyenként visszaválasztaná vagy újratervezné őket. Használja a teljes objektummodellt, ha kiválasztott diák egyesítésére, célmaster vagy -elrendezés alkalmazására, szekciók kifejezett megőrzésére, vagy különböző diaméretek egyeztetésére van szükség. Lásd a [Bemutatók egyesítése](/php-java/merge-presentation/) oldalt ezekhez a forgatókönyvekhez.
+Ez a segéd akkor megfelelő, ha minden diát egyetlen eredményhez kell hozzáfűzni anélkül, hogy egyenként kiválasztaná vagy újraképezné őket. Használja a teljes objektummodellt, ha kiválasztott diákat kell egyesíteni, célmesteroldalt vagy elrendezést kell alkalmazni, szekciókat kifejezetten megőrizni, vagy különböző diaméreteket egyeztetni. Lásd a [Merge Presentations](/slides/hu/php-java/merge-presentation/) oldalt ezekhez a forgatókönyvekhez.
 
-## **Iterálás a bemutatóelemeken**
+## **Prezentációelemek bejárása**
 
-A [ForEach_](https://reference.aspose.com/slides/hu/php-java/aspose.slides/foreach_/) osztály visszahívást hív meg minden kért típusú bemutatóelemre. Elkerüli a beágyazott gyűjteményciklusokat, és kényelmes a bemutató‑szintű ellenőrzéshez vagy formázási módosításokhoz.
+A [ForEach_](https://reference.aspose.com/slides/hu/php-java/aspose.slides/foreach_/) osztály visszahívást hív meg minden kért típusú prezentációelemre. Elkerüli a beágyazott gyűjteményciklusokat, és kényelmes a teljes prezentációs vizsgálathoz vagy formázási módosításokhoz.
 
-Az alábbi példa a [ForEach_::slide](https://reference.aspose.com/slides/hu/php-java/aspose.slides/foreach_/#slide), [ForEach_::shape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/foreach_/#shape), [ForEach_::paragraph](https://reference.aspose.com/slides/hu/php-java/aspose.slides/foreach_/#paragraph) és [ForEach_::portion](https://reference.aspose.com/slides/hu/php-java/aspose.slides/foreach_/#portion) használatával vizsgálja meg a megfelelő elemeket:
+Az alábbi példa a [ForEach_::slide](https://reference.aspose.com/slides/hu/php-java/aspose.slides/foreach_/#slide), a [ForEach_::shape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/foreach_/#shape), a [ForEach_::paragraph](https://reference.aspose.com/slides/hu/php-java/aspose.slides/foreach_/#paragraph) és a [ForEach_::portion](https://reference.aspose.com/slides/hu/php-java/aspose.slides/foreach_/#portion) metódusokat használja a megfelelő elemek ellenőrzésére:
 
 ```php
 use aspose\slides\ForEach_;
@@ -125,11 +125,11 @@ try {
 }
 ```
 
-Alapértelmezésben a bemutató‑szintű alakzat‑ és szövegvégigjárás a normál, master és layout diákat is tartalmazza. Az `includeNotes` paraméterrel rendelkező túlterhelések a jegyzetdiákat is feldolgozhatják. Használjon közvetlen gyűjteményciklusokat, ha a végigjárás sorrendje, korai kilépés, a visszahívás előtti szűrés vagy a szülő‑gyermek részletes szabályozása fontos.
+Alapértelmezés szerint a teljes prezentáción belüli alakzat és szöveg bejárás magában foglalja a normál, mester és elrendezési diát is. Az `includeNotes` paraméterrel rendelkező túlterhelések a jegyzetdia feldolgozását is lehetővé teszik. Használjon közvetlen gyűjteményciklusokat, ha a bejárási sorrend, a korai kilépés, a visszahívás előtti szűrés vagy a részletes szülő‑gyermek vezérlés fontos.
 
-## **Alakzatok gyűjtése**
+## **Alakzatok összegyűjtése**
 
-Használja a [Collect::shapes](https://reference.aspose.com/slides/hu/php-java/aspose.slides/collect/#shapes) metódust, ha a teljes bemutató összes alakzatának gyűjteményére van szüksége, nem pedig egy visszahívásra minden egyes alakzatra. Ez akkor hasznos, ha ugyanazt a halmazt többször kell szűrni, számlálni vagy feldolgozni.
+Használja a [Collect::shapes](https://reference.aspose.com/slides/hu/php-java/aspose.slides/collect/#shapes) metódust, ha a prezentáció összes alakzatának gyűjteményére van szüksége, ahelyett hogy minden alakzatra visszahívást kapna. Ez akkor hasznos, ha ugyanazt a halmazt többször szűrni, számolni vagy feldolgozni kívánja.
 
 ```php
 use aspose\slides\Collect;
@@ -149,14 +149,14 @@ try {
 }
 ```
 
-Használja helyette a [ForEach_::shape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/foreach_/#shape) metódust, ha minden alakzatra azonnal be tud lépni, és nincs szüksége a gyűjtött eredmény megtartására.
+Használja inkább a [ForEach_::shape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/foreach_/#shape) metódust, ha az egyes alakzatok azonnal kezelhetők, és nincs szükség az összegyűjtött eredmény megtartására.
 
-## **Bemutató tartalmának tömörítése**
+## **Prezentáció tartalmának tömörítése**
 
-A [Compress](https://reference.aspose.com/slides/hu/php-java/aspose.slides/compress/) osztály eltávolíthatja a nem használt szerkezeti elemeket, és csökkentheti a beágyazott betűadatokat:
+A [Compress](https://reference.aspose.com/slides/hu/php-java/aspose.slides/compress/) osztály eltávolíthatja a nem használt szerkezeti elemeket és csökkentheti a beágyazott betűkészlet adatait:
 
-- [Compress::removeUnusedLayoutSlides](https://reference.aspose.com/slides/hu/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) eltávolítja azokat a layout diákat, amelyeket semmilyen normál dia nem hivatkozik.
-- [Compress::removeUnusedMasterSlides](https://reference.aspose.com/slides/hu/php-java/aspose.slides/compress/#removeUnusedMasterSlides) eltávolítja azokat a master diákat, amelyek már nem használtak.
+- [Compress::removeUnusedLayoutSlides](https://reference.aspose.com/slides/hu/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) eltávolítja azokat az elrendezési diát, amelyeket egyetlen normál dia sem hivatkozik.
+- [Compress::removeUnusedMasterSlides](https://reference.aspose.com/slides/hu/php-java/aspose.slides/compress/#removeUnusedMasterSlides) eltávolítja a már nem használt mesterdiákat.
 - [Compress::compressEmbeddedFonts](https://reference.aspose.com/slides/hu/php-java/aspose.slides/compress/#compressEmbeddedFonts) eltávolítja a beágyazott betűkészletekből a nem használt karaktereket.
 
 ```php
@@ -176,38 +176,38 @@ try {
 }
 ```
 
-Távolítsa el előbb a használaton kívüli elrendezéseket, majd a használaton kívüli mastereket, így egy elrendezés tisztítása után fel nem hivatkozott master is eltávolítható lesz. Mentse az optimalizált bemutatót új fájlba, ha később szüksége lehet az eredeti masterekre, elrendezésekre vagy a teljes beágyazott betűadatokra. További részletekért lásd a [Dia master](/php-java/slide-master/) és az [Beágyazott betűtípus](/php-java/embedded-font/) oldalakat.
+Először távolítsa el a nem használt elrendezéseket, majd a nem használt mesterelemeket, hogy az elrendezés tisztítása után hivatkozás nélkül maradt mester is eltávolítható legyen. Mentse az optimalizált prezentációt új fájlba, ha később szüksége lehet az eredeti mesterelemekre, elrendezésekre vagy a teljes beágyazott betűkészlet adatra. További részletekért lásd a [Slide Master](/slides/hu/php-java/slide-master/) és [Embedded Font](/slides/hu/php-java/embedded-font/) oldalakat.
 
-## **GYIK**
+## **FAQ**
 
 **Mikor kell az alacsony kódú API-t használni a teljes objektummodell helyett?**
 
-Használja az alacsony kódú segédeket, ha egy szabványos művelet egy teljes fájlra vagy bemutatóra vonatkozik, és nem igényel részletes vezérlést az egyes elemek felett. Használja a teljes objektummodellt, ha konkrét diák kiválasztására, master‑ és elrendezés‑kapcsolatok irányítására, köztes állapot ellenőrzésére vagy olyan viselkedés beállítására van szükség, amelyet a segédelem nem biztosít.
+Használjon alacsony kódú segédeket, ha egy szabványos művelet egy teljes fájlra vagy prezentációra vonatkozik, és nem igényel részletes vezérlést az egyedi elemek felett. Használja a teljes objektummodellt, ha konkrét diákat kell kiválasztania, a mester‑ és elrendezés‑kapcsolatokat kell irányítania, közbenső állapotot kell ellenőriznie, vagy olyan viselkedést kell beállítania, amelyet a segéd nem biztosít.
 
-**Össze tud-e egyesítő különböző fájlformátumú bemutatókat?**
+**Össze tudja-e a Merger különböző fájlformátumú prezentációkat?**
 
-Nem. A [Merger::process](https://reference.aspose.com/slides/hu/php-java/aspose.slides/merger/#process) megköveteli, hogy a bemeneti bemutatók ugyanabban a formátumban legyenek. Először konvertálja a bemeneti fájlokat közös formátumba, például a [Convert::autoByExtension](https://reference.aspose.com/slides/hu/php-java/aspose.slides/convert/#autoByExtension) használatával, majd egyesítse a konvertált fájlokat.
+Nem. A [Merger::process](https://reference.aspose.com/slides/hu/php-java/aspose.slides/merger/#process) megköveteli, hogy a bemeneti prezentációk ugyanabban a formátumban legyenek. Először konvertálja a bemeneti fájlokat közös formátumba, például a [Convert::autoByExtension](https://reference.aspose.com/slides/hu/php-java/aspose.slides/convert/#autoByExtension) segítségével, majd egyesítse a konvertált fájlokat.
 
-**A ForEach_ feldolgozza a master, layout és jegyzet diákat?**
+**A ForEach_ feldolgozza a mester, elrendezés és jegyzet diákat?**
 
-A [ForEach_::slide](https://reference.aspose.com/slides/hu/php-java/aspose.slides/foreach_/#slide) a normál bemutatódiákon iterál. A bemutató‑szintű [ForEach_::shape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/foreach_/#shape), [ForEach_::paragraph](https://reference.aspose.com/slides/hu/php-java/aspose.slides/foreach_/#paragraph) és [ForEach_::portion](https://reference.aspose.com/slides/hu/php-java/aspose.slides/foreach_/#portion) műveletek alapértelmezésben a normál, master és layout diákot is tartalmazzák. Az `includeNotes` paramétert `true`‑ra állítva a jegyzetdiák is bekerülnek.
+A [ForEach_::slide](https://reference.aspose.com/slides/hu/php-java/aspose.slides/foreach_/#slide) a normál prezentációs diákon iterál. A teljes prezentációra kiterjedő [ForEach_::shape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/foreach_/#shape), [ForEach_::paragraph](https://reference.aspose.com/slides/hu/php-java/aspose.slides/foreach_/#paragraph) és [ForEach_::portion](https://reference.aspose.com/slides/hu/php-java/aspose.slides/foreach_/#portion) műveletek alapértelmezés szerint a normál, mester és elrendezési diákot is tartalmazzák. Használja a túlterheléseiket, ahol az `includeNotes` paraméter `true` értékre van állítva, hogy a jegyzetdiák is bekerüljenek.
 
 **Mi a különbség a ForEach_::shape és a Collect::shapes között?**
 
-Használja a [ForEach_::shape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/foreach_/#shape) metódust, ha minden alakzatot azonnal egy visszahíváson keresztül szeretne feldolgozni. Használja a [Collect::shapes](https://reference.aspose.com/slides/hu/php-java/aspose.slides/collect/#shapes) metódust, ha egy iterálható eredményre van szüksége, amelyet megtarthat, szűrhet, számlálhat vagy többször bejárhat.
+A [ForEach_::shape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/foreach_/#shape)-t használja, ha minden alakzatot azonnal egy visszahívásban kíván feldolgozni. A [Collect::shapes](https://reference.aspose.com/slides/hu/php-java/aspose.slides/collect/#shapes)-t akkor használja, ha egy iterálható eredményre van szüksége, amely megtartható, szűrhető, számlálható vagy többször bejárható.
 
-**A Compress mindig kisebbre teszi a bemutatófájlt?**
+**A Compress mindig kisebbre csökkenti a prezentáció fájlját?**
 
-Nem feltétlenül. Az eredmény attól függ, hogy a bemutató tartalmaz‑e használaton kívüli elrendezéseket, használaton kívüli mastereket vagy beágyazott betűkészleteket nem használt karakterekkel. Ha egyik sem áll fenn, a megfelelő [Compress](https://reference.aspose.com/slides/hu/php-java/aspose.slides/compress/) műveletek nem csökkenthetik a fájlméretet.
+Nem feltétlenül. Az eredmény attól függ, hogy a prezentáció tartalmaz‑e nem használt elrendezéseket, nem használt mesterelemeket vagy beágyazott betűket nem használt karakterekkel. Ha ezek egyike sem található, a megfelelő [Compress](https://reference.aspose.com/slides/hu/php-java/aspose.slides/compress/) műveletek nem feltétlenül csökkentik a fájlméretet.
 
-**A ForEach_ vagy a Compress által végrehajtott módosítások automatikusan mentődnek?**
+**A ForEach_ vagy a Compress által végrehajtott módosítások automatikusan mentésre kerülnek?**
 
-Nem. Ezek a segédelemek a betöltött [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) objektumon memóriában működnek. A [ForEach_](https://reference.aspose.com/slides/hu/php-java/aspose.slides/foreach_/) visszahívásában vagy a [Compress](https://reference.aspose.com/slides/hu/php-java/aspose.slides/compress/) futtatása után hívja meg a [Presentation::save](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/#save) metódust a változtatások kiírásához.
+Nem. Ezek a segédek a betöltött [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) objektumon memóriában dolgoznak. A [ForEach_] visszahívásban végzett módosítások vagy a [Compress](https://reference.aspose.com/slides/hu/php-java/aspose.slides/compress/) futtatása után hívja meg a [Presentation::save](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/#save) metódust az eredmény írásához.
 
 ## **Kapcsolódó cikkek**
 
-- [Prezentáció konvertálása](/php-java/convert-presentation/)
-- [Bemutatók egyesítése](/php-java/merge-presentation/)
-- [Dia master](/php-java/slide-master/)
-- [Szövegdoboz kezelése](/php-java/manage-textbox/)
-- [Beágyazott betűtípus](/php-java/embedded-font/)
+- [Prezentáció konvertálása](/slides/hu/php-java/convert-presentation/)
+- [Prezentációk egyesítése](/slides/hu/php-java/merge-presentation/)
+- [Slide Master](/slides/hu/php-java/slide-master/)
+- [Manage Text Box](/slides/hu/php-java/manage-textbox/)
+- [Embedded Font](/slides/hu/php-java/embedded-font/)

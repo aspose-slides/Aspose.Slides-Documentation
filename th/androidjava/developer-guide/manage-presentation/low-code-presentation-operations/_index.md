@@ -1,48 +1,48 @@
 ---
-title: การดำเนินการการนำเสนอแบบ Low-Code บน Android
+title: การดำเนินการพรีเซนเทชันแบบ Low-Code บน Android
 linktitle: API Low-Code
 type: docs
 weight: 50
 url: /th/androidjava/low-code-presentation-operations/
 keywords:
-- API การนำเสนอแบบ low-code
-- แปลงการนำเสนอ
-- ผสานการนำเสนอ
-- วนลูปสไลด์
-- วนลูปรูปทรง
-- วนลูปข้อความ
+- API พรีเซนเทชัน low-code
+- แปลงพรีเซนเทชัน
+- รวมพรีเซนเทชัน
+- วนสไลด์
+- วนรูปทรง
+- วนข้อความ
 - รวบรวมรูปทรง
-- บีบอัดการนำเสนอ
+- บีบอัดพรีเซนเทชัน
 - ลบมาสเตอร์สไลด์ที่ไม่ได้ใช้
 - ลบเลย์เอาต์สไลด์ที่ไม่ได้ใช้
-- บีบอัดฟอนท์ที่ฝังไว้
+- บีบอัดฟอนต์ที่ฝังอยู่
 - PowerPoint
 - OpenDocument
-- การนำเสนอ
+- พรีเซนเทชัน
 - Android
 - Java
 - Aspose.Slides
-description: "ใช้ API low-code ของ Aspose.Slides บน Android เพื่อแปลงและผสานการนำเสนอ, วนลูปผ่านเนื้อหา, รวบรวมรูปทรง, และลดขนาดการนำเสนอ."
+description: "ใช้ API low-code ของ Aspose.Slides บน Android เพื่อแปลงและรวมพรีเซนเทชัน, วนผ่านเนื้อหา, รวบรวมรูปทรง, และลดขนาดพรีเซนเทชัน."
 ---
 ## **ภาพรวม**
 
-แพคเกจ [com.aspose.slides](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/) ให้คลาสตช่วยเหลือแบบสแตติกสำหรับการทำงานทั่วไปกับการนำเสนอ ตัวช่วยเหล่านี้ห่อหุ้มกระบวนการทำงานของอ็อบเจ็กต์โมเดลที่ใช้บ่อยในเมธอดที่มุ่งเน้น ทำให้คุณสามารถแปลงหรือผสานไฟล์, ประมวลผลองค์ประกอบของการนำเสนอ, รวบรวมรูปทรง, และลบเนื้อหาที่ไม่ได้ใช้ได้ด้วยโค้ดที่สั้นลง
+แพ็กเกจ [com.aspose.slides](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/) มีคลาสตัวช่วยแบบสถิตสำหรับการดำเนินการพรีเซนเทชันทั่วไป ตัวช่วยเหล่านี้บรรจุ workflow ของโมเดลวัตถุที่ใช้บ่อยในเมธอดที่มุ่งเน้น ทำให้คุณสามารถแปลงหรือรวมไฟล์, ประมวลผลองค์ประกอบพรีเซนเทชัน, รวบรวมรูปทรง, และลบเนื้อหาที่ไม่ได้ใช้ด้วยโค้ดที่น้อยลง
 
-ตัวช่วยแบบ low‑code มีประโยชน์ที่สุดเมื่อการดำเนินการใช้กับไฟล์หรือการนำเสนอทั้งหมดและกระบวนการทำงานเริ่มต้นตรงกับความต้องการของคุณ ใช้ [Aspose.Slides object model](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/) แบบเต็มเมื่อคุณต้องการการควบคุมละเอียดต่อสไลด์, มาสเตอร์, เลย์เอาต์, รูปทรง, การตั้งค่าการส่งออก, หรือความสัมพันธ์ระหว่างองค์ประกอบของการนำเสนอ
+ตัวช่วยแบบ low-code จะมีประโยชน์ที่สุดเมื่อการดำเนินการใช้กับไฟล์หรือพรีเซนเทชันทั้งหมดและ workflow เริ่มต้นตรงกับความต้องการของคุณ ใช้ [Aspose.Slides object model](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/) เต็มรูปแบบเมื่อคุณต้องการการควบคุมระดับละเอียดบนสไลด์แต่ละสไลด์, มาสเตอร์, เลย์เอาต์, รูปทรง, การตั้งค่าการส่งออก, หรือความสัมพันธ์ระหว่างองค์ประกอบของพรีเซนเทชัน
 
-ตารางต่อไปสรุปตัวช่วยที่มีให้:
+ตารางต่อไปนี้สรุปตัวช่วยที่พร้อมใช้งาน:
 
 | ตัวช่วย | ใช้สำหรับ |
 | --- | --- |
-| [Convert](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/convert/) | การแปลงการนำเสนอเป็นรูปแบบอื่นด้วยการเรียกไฟล์‑ต่อ‑ไฟล์โดยตรง |
-| [Merger](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/merger/) | การรวมไฟล์การนำเสนอเต็มรูปแบบที่มีรูปแบบเดียวกัน |
-| [ForEach](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/foreach/) | การดำเนินการต่อสไลด์, รูปทรง, ย่อหน้า หรือส่วนของข้อความแต่ละรายการ |
-| [Collect](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/collect/) | การดึงรูปทรงจากการนำเสนอทั้งหมดเพื่อการประมวลผลหรือวิเคราะห์ซ้ำ |
-| [Compress](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/compress/) | การลบมาสเตอร์และเลย์เอาต์ที่ไม่ได้ใช้และลดข้อมูลฟอนท์ที่ฝังไว้ |
+| [Convert](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/convert/) | การแปลงพรีเซนเทชันเป็นรูปแบบอื่นโดยเรียกโดยตรงจากไฟล์ไปยังไฟล์ |
+| [Merger](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/merger/) | การรวมไฟล์พรีเซนเทชันเต็มรูปแบบที่มีรูปแบบเดียวกัน |
+| [ForEach](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/foreach/) | การทำงานกับแต่ละสไลด์, รูปทรง, ย่อหน้า, หรือส่วนของข้อความ |
+| [Collect](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/collect/) | การดึงรูปทรงทั้งหมดจากพรีเซนเทชันสำหรับการประมวลผลหรือวิเคราะห์ซ้ำ |
+| [Compress](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/compress/) | การลบมาสเตอร์และเลย์เอาต์ที่ไม่ได้ใช้และลดข้อมูลฟอนต์ที่ฝังไว้ |
 
-## **แปลงการนำเสนอ**
+## **แปลงพรีเซนเทชัน**
 
-ใช้ [Convert.autoByExtension](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/convert/#autoByExtension-java.lang.String-java.lang.String-) เมื่อส่วนขยายไฟล์ผลลัพธ์เพียงพอที่จะเลือกรูปแบบการส่งออก เมธอดจะเปิดการนำเสนอแหล่งที่มา, กำหนดรูปแบบที่ต้องการจากเส้นทางผลลัพธ์, และเขียนผลลัพธ์ออกมา
+ใช้ [Convert.autoByExtension](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/convert/#autoByExtension-java.lang.String-java.lang.String-) เมื่อส่วนขยายไฟล์ผลลัพธ์เพียงพอที่จะเลือกรูปแบบการส่งออก เมธอดจะเปิดพรีเซนเทชันต้นฉบับ, กำหนดรูปแบบที่ต้องการจากเส้นทางไฟล์ผลลัพธ์, และเขียนผลลัพธ์ออกไป
 
 ```java
 import com.aspose.slides.Convert;
@@ -50,11 +50,11 @@ import com.aspose.slides.Convert;
 Convert.autoByExtension("input.pptx", "output.pdf");
 ```
 
-คลาส [Convert](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/convert/) ยังมีเมธอดเฉพาะสำหรับการส่งออกเป็น PDF, SVG, JPEG, PNG, และ TIFF ใช้โมเดลอ็อบเจ็กต์เต็มเมื่อคุณต้องการตรวจสอบหรือแก้ไขการนำเสนอก่อนส่งออกหรือกำหนดค่าตัวเลือกการส่งออกที่ตัวช่วยไม่ได้เปิดเผย ดู [Convert Presentation](/androidjava/convert-presentation/) สำหรับกระบวนการทำงานและตัวเลือกตามรูปแบบ
+คลาส [Convert](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/convert/) ยังมีเมธอดเฉพาะสำหรับการส่งออกเป็น PDF, SVG, JPEG, PNG, และ TIFF อีกด้วย ใช้โมเดลวัตถุเต็มรูปแบบเมื่อคุณต้องการตรวจสอบหรือแก้ไขพรีเซนเทชันก่อนการส่งออกหรือกำหนดตัวเลือกการส่งออกที่ตัวช่วยไม่สนับสนุน ดูที่ [Convert Presentation](/slides/th/androidjava/convert-presentation/) สำหรับ workflow และตัวเลือกเฉพาะรูปแบบ
 
-## **ผสานการนำเสนอ**
+## **รวมพรีเซนเทชัน**
 
-ใช้ [Merger.process](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/merger/#process-java.lang.String:A-java.lang.String-) เพื่อรวมไฟล์การนำเสนอเต็มรูปแบบด้วยการเรียกครั้งเดียว การนำเสนอที่นำเข้าต้องมีรูปแบบไฟล์เดียวกัน
+ใช้ [Merger.process](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/merger/#process-java.lang.String:A-java.lang.String-) เพื่อรวมไฟล์พรีเซนเทชันเต็มรูปแบบด้วยการเรียกครั้งเดียว พรีเซนเทชันอินพุตต้องมีรูปแบบไฟล์เดียวกัน
 
 ```java
 import com.aspose.slides.Merger;
@@ -63,13 +63,13 @@ String[] inputFiles = { "part-1.pptx", "part-2.pptx" };
 Merger.process(inputFiles, "merged.pptx");
 ```
 
-ตัวช่วยนี้เหมาะเมื่อสไลด์ทั้งหมดควรต่อเนื่องเป็นผลลัพธ์เดียวโดยไม่ต้องเลือกหรือแมปแต่ละสไลด์เอง ใช้โมเดลอ็อบเจ็กต์เต็มเมื่อคุณต้องการผสานสไลด์ที่เลือก, ใส่มาสเตอร์หรือเลย์เอาต์ปลายทาง, รักษาส่วนเฉพาะอย่างชัดเจน, หรือจัดการขนาดสไลด์ที่แตกต่างกัน ดู [Merge Presentations](/androidjava/merge-presentation/) สำหรับสถานการณ์เหล่านั้น
+ตัวช่วยนี้เหมาะเมื่อสไลด์ทั้งหมดควรต่อท้ายผลลัพธ์หนึ่งโดยไม่ต้องเลือกหรือแมปใหม่แต่ละสไลด์ ใช้โมเดลวัตถุเต็มรูปแบบเมื่อคุณต้องการรวมสไลด์ที่เลือก, ใช้มาสเตอร์หรือเลย์เอาต์ปลายทาง, เก็บส่วนต่างๆ อย่างชัดเจน, หรือปรับขนาดสไลด์ที่แตกต่างกัน ดูที่ [Merge Presentations](/slides/th/androidjava/merge-presentation/) สำหรับสถานการณ์เหล่านั้น
 
-## **วนลูปผ่านองค์ประกอบการนำเสนอ**
+## **วนซ้ำผ่านองค์ประกอบพรีเซนเทชัน**
 
-คลาส [ForEach](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/foreach/) เรียกคอลแบ็กสำหรับองค์ประกอบการนำเสนอแต่ละประเภทที่ร้องขอ ช่วยหลีกเลี่ยงการทำลูปคอลเลกชันซ้อนกันและสะดวกสำหรับการตรวจสอบหรือการเปลี่ยนแปลงรูปแบบทั่วทั้งการนำเสนอ
+คลาส [ForEach](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/foreach/) จะเรียก callback สำหรับแต่ละประเภทขององค์ประกอบพรีเซนเทชันที่ร้องขอ ซึ่งช่วยหลีกเลี่ยงลูปการเก็บรวบรวมซ้อนกันและสะดวกสำหรับการตรวจสอบหรือการเปลี่ยนแปลงรูปแบบทั่วพรีเซนเทชัน
 
-ตัวอย่างต่อไปใช้ [ForEach.slide](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/foreach/#slide-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachSlideCallback-), [ForEach.shape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-), [ForEach.paragraph](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/foreach/#paragraph-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachParagraphCallback-), และ [ForEach.portion](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/foreach/#portion-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachPortionCallback-) เพื่อตรวจสอบองค์ประกอบที่สอดคล้องกัน:
+ตัวอย่างต่อไปนี้ใช้ [ForEach.slide](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/foreach/#slide-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachSlideCallback-), [ForEach.shape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-), [ForEach.paragraph](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/foreach/#paragraph-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachParagraphCallback-), และ [ForEach.portion](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/foreach/#portion-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachPortionCallback-) เพื่อสอบถามองค์ประกอบที่สอดคล้องกัน:
 
 ```java
 import com.aspose.slides.*;
@@ -96,11 +96,11 @@ try {
 }
 ```
 
-โดยค่าเริ่มต้น การเดินทางทั่วการนำเสนอสำหรับรูปทรงและข้อความจะรวมสไลด์ปกติ, มาสเตอร์, และเลย์เอาต์ การโอเวอร์โหลดที่มีพารามิเตอร์ `includeNotes` ยังสามารถประมวลผลสไลด์โน้ตได้ ใช้ลูปคอลเลกชันโดยตรงเมื่อการเรียงลำดับการเดินทาง, การออกก่อนเวลา, การกรองก่อนเรียกคอลแบ็ก, หรือการควบคุมพาเรนท์‑เชิลด์อย่างละเอียดมีความสำคัญ
+โดยค่าเริ่มต้น การไล่รูปทรงและข้อความทั่วพรีเซนเทชันจะรวมสไลด์ปกติ, มาสเตอร์, และเลย์เอาต์ไว้ด้วย พารามิเตอร์ `includeNotes` ในการโอเวอร์โหลดสามารถประมวลผลสไลด์บันทึกย่อได้เช่นกัน ใช้ลูปการเก็บรวบรวมโดยตรงเมื่อลำดับการไหล, การออกก่อนเวลา, การกรองก่อนเรียก callback, หรือการควบคุมความสัมพันธ์พาเรนท์-ชิลด์อย่างละเอียดมีความสำคัญ
 
 ## **รวบรวมรูปทรง**
 
-ใช้ [Collect.shapes](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/collect/#shapes-com.aspose.slides.Presentation-) เมื่อคุณต้องการคอลเลกชันของรูปทรงทั้งหมดในการนำเสนอแทนการใช้คอลแบ็กสำหรับแต่ละรูปทรง สิ่งนี้มีประโยชน์เมื่อชุดเดียวกันต้องถูกกรอง, นับ, หรือประมวลผลหลายครั้ง
+ใช้ [Collect.shapes](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/collect/#shapes-com.aspose.slides.Presentation-) เมื่อคุณต้องการคอลเลกชันของรูปทรงทั้งหมดในพรีเซนเทชันแทนการใช้ callback สำหรับแต่ละรูปทรง ซึ่งมีประโยชน์เมื่อต้องทำการกรอง, นับ, หรือประมวลผลชุดเดียวกันหลายครั้ง
 
 ```java
 import com.aspose.slides.*;
@@ -117,15 +117,15 @@ try {
 }
 ```
 
-ใช้ [ForEach.shape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-) แทนเมื่อรูปทรงแต่ละอันสามารถจัดการได้ทันทีและคุณไม่จำเป็นต้องเก็บผลลัพธ์ที่รวบรวมไว้
+ใช้ [ForEach.shape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-) แทนเมื่อแต่ละรูปทรงสามารถจัดการได้ทันทีและคุณไม่จำเป็นต้องเก็บผลลัพธ์ที่รวบรวมไว้
 
-## **บีบอัดเนื้อหาในการนำเสนอ**
+## **บีบอัดเนื้อหาพรีเซนเทชัน**
 
-คลาส [Compress](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/compress/) สามารถลบองค์ประกอบโครงสร้างที่ไม่ได้ใช้และลดข้อมูลฟอนท์ที่ฝังไว้:
+คลาส [Compress](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/compress/) สามารถลบองค์ประกอบโครงสร้างที่ไม่ได้ใช้และลดข้อมูลฟอนต์ที่ฝังไว้:
 
-- [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) ลบเลย์เอาต์สไลด์ที่ไม่มีสไลด์ปกติอ้างอิง
+- [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) ลบสไลด์เลย์เอาต์ที่ไม่มีสไลด์ปกติอ้างอิง
 - [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) ลบมาสเตอร์สไลด์ที่ไม่ถูกใช้แล้ว
-- [Compress.compressEmbeddedFonts](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) ลบอักขระที่ไม่ได้ใช้จากฟอนท์ที่ฝังไว้
+- [Compress.compressEmbeddedFonts](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) ลบอักขระที่ไม่ได้ใช้จากฟอนต์ที่ฝังไว้
 
 ```java
 import com.aspose.slides.*;
@@ -142,38 +142,38 @@ try {
 }
 ```
 
-ให้ลบเลย์เอาต์ที่ไม่ได้ใช้ก่อนมาสเตอร์ที่ไม่ได้ใช้ เพื่อให้มาสเตอร์ที่กลายเป็นไม่มีการอ้างอิงหลังจากทำความสะอาดเลย์เอาต์ก็สามารถลบได้ด้วย จัดเก็บการนำเสนอที่ปรับแต่งแล้วลงไฟล์ใหม่หากคุณอาจต้องการมาสเตอร์, เลย์เอาต์, หรือข้อมูลฟอนท์ที่ฝังไว้ทั้งหมดในภายหลัง ดูรายละเอียดเพิ่มเติมที่ [Slide Master](/androidjava/slide-master/) และ [Embedded Font](/androidjava/embedded-font/)
+ให้ลบเลย์เอาต์ที่ไม่ได้ใช้ก่อนมาสเตอร์ที่ไม่ได้ใช้ เพื่อให้มาสเตอร์ที่กลายเป็นไม่มีการอ้างอิงหลังจากทำความสะอาดเลย์เอาต์ถูกลบด้วย บันทึกพรีเซนเทชันที่ปรับแต่งแล้วเป็นไฟล์ใหม่หากคุณอาจต้องการมาสเตอร์, เลย์เอาต์, หรือข้อมูลฟอนต์ฝังเต็มรูปแบบในภายหลัง ดูรายละเอียดเพิ่มเติมที่ [Slide Master](/slides/th/androidjava/slide-master/) และ [Embedded Font](/slides/th/androidjava/embedded-font/)
 
 ## **คำถามที่พบบ่อย**
 
-**ควรใช้ API low‑code แทนโมเดลอ็อบเจ็กต์เต็มเมื่อไหร่?**
+**เมื่อใดควรใช้ API low-code แทนโมเดลวัตถุเต็มรูปแบบ?**
 
-ใช้ตัวช่วย low‑code เมื่อการดำเนินการมาตรฐานใช้กับไฟล์หรือการนำเสนอทั้งหมดและไม่ต้องการการควบคุมละเอียดต่อแต่ละองค์ประกอบ ใช้โมเดลอ็อบเจ็กต์เต็มเมื่อคุณต้องการเลือกสไลด์เฉพาะ, ควบคุมความสัมพันธ์ของมาสเตอร์และเลย์เอาต์, ตรวจสอบสถานะกลาง, หรือกำหนดพฤติกรรมที่ตัวช่วยไม่ได้เปิดเผย
+ใช้ตัวช่วย low-code เมื่อการดำเนินการมาตรฐานใช้กับไฟล์หรือพรีเซนเทชันทั้งหมดและไม่ต้องการการควบคุมละเอียดบนองค์ประกอบแต่ละตัว ใช้โมเดลวัตถุเต็มรูปแบบเมื่อคุณต้องการเลือกสไลด์เฉพาะ, ควบคุมความสัมพันธ์ของมาสเตอร์และเลย์เอาต์, ตรวจสอบสถานะกลาง, หรือกำหนดพฤติกรรมที่ตัวช่วยไม่เปิดเผย
 
-**Merger สามารถผสานการนำเสนอที่มีรูปแบบไฟล์ต่างกันได้หรือไม่?**
+**Merger สามารถรวมพรีเซนเทชันที่มีรูปแบบไฟล์ต่างกันได้หรือไม่?**
 
-ไม่ได้ ตัวช่วย [Merger.process](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/merger/#process-java.lang.String:A-java.lang.String-) ต้องการไฟล์การนำเข้าที่มีรูปแบบเดียวกัน ก่อนนั้นควรแปลงไฟล์อินพุตเป็นรูปแบบเดียวกันก่อน เช่นใช้ [Convert.autoByExtension](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/convert/#autoByExtension-java.lang.String-java.lang.String-) แล้วจึงผสานไฟล์ที่แปลงแล้ว
+ไม่ได้. [Merger.process](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/merger/#process-java.lang.String:A-java.lang.String-) ต้องการพรีเซนเทชันอินพุตที่มีรูปแบบเดียวกัน แปลงไฟล์อินพุตเป็นรูปแบบทั่วไปก่อน เช่นโดยใช้ [Convert.autoByExtension](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/convert/#autoByExtension-java.lang.String-java.lang.String-) แล้วจึงรวมไฟล์ที่แปลงแล้ว
 
-**ForEach ประมวลผลสไลด์มาสเตอร์, เลย์เอาต์, และโน้ตหรือไม่?**
+**ForEach ประมวลผลมาสเตอร์, เลย์เอาต์, และสไลด์บันทึกย่อหรือไม่?**
 
-[ForEach.slide](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/foreach/#slide-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachSlideCallback-) จะวนลูปผ่านสไลด์การนำเสนอปกติ ส่วนการดำเนินการทั่วการนำเสนอของ [ForEach.shape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-), [ForEach.paragraph](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/foreach/#paragraph-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachParagraphCallback-), และ [ForEach.portion](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/foreach/#portion-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachPortionCallback-) จะรวมสไลด์ปกติ, มาสเตอร์, และเลย์เอาต์โดยค่าเริ่มต้น ใช้โอเวอร์โหลดที่ตั้งค่า `includeNotes` เป็น `true` เพื่อรวมสไลด์โน้ต
+[ForEach.slide](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/foreach/#slide-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachSlideCallback-) จะวนผ่านสไลด์พรีเซนเทชันปกติ ส่วนการทำงานของ [ForEach.shape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-), [ForEach.paragraph](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/foreach/#paragraph-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachParagraphCallback-), และ [ForEach.portion](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/foreach/#portion-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachPortionCallback-) จะรวมสไลด์ปกติ, มาสเตอร์, และเลย์เอาต์โดยค่าเริ่มต้น ใช้โอเวอร์โหลดที่มี `includeNotes` เป็น `true` เพื่อรวมสไลด์บันทึกย่อ
 
-**ความแตกต่างระหว่าง ForEach.shape กับ Collect.shapes คืออะไร?**
+**ความแตกต่างระหว่าง ForEach.shape และ Collect.shapes คืออะไร?**
 
-ใช้ [ForEach.shape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-) เพื่อประมวลผลแต่ละรูปทรงทันทีผ่านคอลแบ็ก ใช้ [Collect.shapes](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/collect/#shapes-com.aspose.slides.Presentation-) เมื่อคุณต้องการผลลัพธ์ที่เป็นอิเทอเรเบิลซึ่งสามารถเก็บไว้, กรอง, นับ, หรือเดินทางหลายครั้งได้
+ใช้ [ForEach.shape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-) เพื่อประมวลผลแต่ละรูปทรงทันทีผ่าน callback ใช้ [Collect.shapes](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/collect/#shapes-com.aspose.slides.Presentation-) เมื่อคุณต้องการผลลัพธ์ที่สามารถเก็บไว้, กรอง, นับ, หรือไล่หลายครั้ง
 
-**Compress ทำให้ไฟล์การนำเสนอลดขนาดเสมอหรือไม่?**
+**Compress จะทำให้ไฟล์พรีเซนเทชันเล็กลงเสมอหรือไม่?**
 
-ไม่จำเป็น ผลลัพธ์ขึ้นอยู่กับว่าการนำเสนอมีเลย์เอาต์ที่ไม่ได้ใช้, มาสเตอร์ที่ไม่ได้ใช้, หรือฟอนท์ที่ฝังไว้ที่มีอักขระที่ไม่ได้ใช้หรือไม่ หากไม่มีสิ่งเหล่านี้ การดำเนินการ [Compress](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/compress/) อาจไม่ลดขนาดไฟล์
+ไม่จำเป็น ผลลัพธ์ขึ้นอยู่กับว่าพรีเซนเทชันมีเลย์เอาต์ที่ไม่ได้ใช้, มาสเตอร์ที่ไม่ได้ใช้, หรือฟอนต์ฝังที่มีอักขระที่ไม่ได้ใช้หรือไม่ หากไม่มีส่วนเหล่านี้ การทำงานของ [Compress](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/compress/) อาจไม่ลดขนาดไฟล์
 
-**การเปลี่ยนแปลงโดย ForEach หรือ Compress จะบันทึกโดยอัตโนมัติหรือไม่?**
+**การเปลี่ยนแปลงที่ทำโดย ForEach หรือ Compress จะถูกบันทึกอัตโนมัติหรือไม่?**
 
-ไม่ ตัวช่วยเหล่านี้ทำงานบนอ็อบเจ็กต์ [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/) ที่โหลดอยู่ในหน่วยความจำ หลังจากแก้ไของค์ประกอบในคอลแบ็กของ [ForEach](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/foreach/) หรือรัน [Compress](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/compress/) ให้เรียก [Presentation.save](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) เพื่อเขียนผลลัพธ์
+ไม่ ตัวช่วยเหล่านี้ทำงานบนวัตถุ [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/) ที่โหลดอยู่ในหน่วยความจำ หลังจากแก้ไของค์ประกอบใน callback ของ [ForEach](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/foreach/) หรือเรียกใช้ [Compress](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/compress/) ให้เรียก [Presentation.save](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) เพื่อเขียนผลลัพธ์
 
 ## **บทความที่เกี่ยวข้อง**
 
-- [Convert Presentation](/androidjava/convert-presentation/)
-- [Merge Presentations](/androidjava/merge-presentation/)
-- [Slide Master](/androidjava/slide-master/)
-- [Manage Text Box](/androidjava/manage-textbox/)
-- [Embedded Font](/androidjava/embedded-font/)
+- [แปลงพรีเซนเทชัน](/slides/th/androidjava/convert-presentation/)
+- [รวมพรีเซนเทชัน](/slides/th/androidjava/merge-presentation/)
+- [มาสเตอร์สไลด์](/slides/th/androidjava/slide-master/)
+- [จัดการกล่องข้อความ](/slides/th/androidjava/manage-textbox/)
+- [ฟอนต์ฝัง](/slides/th/androidjava/embedded-font/)

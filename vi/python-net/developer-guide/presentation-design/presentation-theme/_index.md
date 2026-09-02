@@ -1,43 +1,43 @@
 ---
-title: Quản lý giao diện bản trình bày PowerPoint trong Python
-linktitle: Giao diện Bản trình bày
+title: Quản lý Theme Bản trình chiếu PowerPoint trong Python
+linktitle: Theme Bản trình chiếu
 type: docs
 weight: 10
 url: /vi/python-net/presentation-theme/
 keywords:
-- giao diện PowerPoint
-- giao diện bản trình bày
-- giao diện slide
-- cài đặt giao diện
-- thay đổi giao diện
-- quản lý giao diện
-- màu giao diện
-- bảng màu bổ sung
-- phông chữ giao diện
-- kiểu giao diện
-- hiệu ứng giao diện
+- Theme PowerPoint
+- Theme bản trình chiếu
+- Theme slide
+- Đặt theme
+- Thay đổi theme
+- Quản lý theme
+- Màu theme
+- Bảng màu bổ sung
+- Phông theme
+- Kiểu theme
+- Hiệu ứng theme
 - PowerPoint
 - OpenDocument
-- bản trình bày
+- Bản trình chiếu
 - Python
 - Aspose.Slides
-description: "Quản lý giao diện bản trình bày trong Aspose.Slides cho Python thông qua .NET để tạo, tùy chỉnh và chuyển đổi tệp PowerPoint với thương hiệu nhất quán."
+description: "Quản lý các theme bản trình chiếu trong Aspose.Slides cho Python qua .NET để tạo, tùy chỉnh và chuyển đổi tệp PowerPoint với thương hiệu nhất quán."
 ---
 ## **Giới thiệu**
 
-Một giao diện bài thuyết trình xác định một tập hợp phối hợp các màu sắc, phông chữ, kiểu nền, màu nền, đường và hiệu ứng. Các đối tượng nhận thức giao diện tham chiếu tới các định nghĩa chia sẻ này thay vì lưu trữ mỗi thuộc tính hiển thị dưới dạng giá trị cố định, do đó việc thay đổi giao diện có thể cập nhật nhiều đối tượng cùng lúc.
+Một theme của bản trình chiếu xác định một tập hợp đồng bộ các màu sắc, phông chữ, kiểu nền, màu nền, đường viền và hiệu ứng. Các đối tượng nhận thức theme tham chiếu đến các định nghĩa chung này thay vì lưu trữ mỗi thuộc tính trực quan như một giá trị cố định, do đó việc thay đổi theme có thể cập nhật nhiều đối tượng cùng lúc.
 
-Trong Aspose.Slides, giao diện ở mức trình bày có sẵn thông qua thuộc tính [Presentation.master_theme](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/master_theme/) . Một bản trình bày cũng có thể chứa các ghi đè giao diện ở các mức thấp hơn. Một master có thể ghi đè giao diện trình bày qua [MasterThemeManager.override_theme](https://reference.aspose.com/slides/vi/python-net/aspose.slides.theme/masterthememanager/override_theme/), một layout có thể ghi đè giao diện kế thừa của nó qua [BaseOverrideThemeManager.override_theme](https://reference.aspose.com/slides/vi/python-net/aspose.slides.theme/baseoverridethememanager/override_theme/), và một slide riêng lẻ cũng có thể làm tương tự. Trên thực tế, giao diện hiệu quả cho một slide được xác định qua chuỗi kế thừa này: giao diện trình bày, ghi đè master, ghi đè layout và ghi đè slide.
+Trong Aspose.Slides, theme ở mức bản trình chiếu có thể truy cập thông qua thuộc tính [Presentation.master_theme](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/master_theme/). Một bản trình chiếu cũng có thể chứa các ghi đè theme ở các cấp thấp hơn. Một master có thể ghi đè theme của bản trình chiếu thông qua [MasterThemeManager.override_theme](https://reference.aspose.com/slides/vi/python-net/aspose.slides.theme/masterthememanager/override_theme/), một layout có thể ghi đè theme kế thừa của nó thông qua [BaseOverrideThemeManager.override_theme](https://reference.aspose.com/slides/vi/python-net/aspose.slides.theme/baseoverridethememanager/override_theme/), và một slide riêng lẻ cũng có thể làm tương tự. Trong thực tế, theme thực tế cho một slide được xác định qua chuỗi kế thừa này: theme của bản trình chiếu, ghi đè master, ghi đè layout và ghi đè slide.
 
-![Các thành phần của giao diện: màu sắc, phông chữ, kiểu nền và hiệu ứng](theme-constituents.png)
+![Các thành phần của Theme: màu sắc, phông chữ, kiểu nền và hiệu ứng](theme-constituents.png)
 
-Các phần dưới đây trình bày các quy trình giao diện phổ biến nhất: kiểm tra một giao diện, thay đổi màu sắc và phông chữ, sao chép hoặc áp dụng một giao diện, cập nhật kiểu nền và hiệu ứng, và đọc các giá trị hiệu quả sau khi kế thừa và ghi đè đã được giải quyết.
+Các phần dưới đây trình bày các quy trình làm việc với theme phổ biến nhất: kiểm tra một theme, thay đổi màu và phông chữ, sao chép hoặc áp dụng theme, cập nhật kiểu nền và hiệu ứng, và đọc các giá trị thực tế sau khi kế thừa và ghi đè đã được giải quyết.
 
-## **Kiểm tra giao diện**
+## **Kiểm tra Theme**
 
-Đối tượng [MasterTheme](https://reference.aspose.com/slides/vi/python-net/aspose.slides.theme/mastertheme/) hiển thị các thuộc tính [color_scheme](https://reference.aspose.com/slides/vi/python-net/aspose.slides.theme/mastertheme/color_scheme/), [font_scheme](https://reference.aspose.com/slides/vi/python-net/aspose.slides.theme/mastertheme/font_scheme/) và [format_scheme](https://reference.aspose.com/slides/vi/python-net/aspose.slides.theme/mastertheme/format_scheme/) của giao diện. Việc kiểm tra các bộ sưu tập này trước khi thay đổi chúng đặc biệt hữu ích khi một bản trình bày đến từ nguồn bên ngoài vì số lượng và nội dung của các mục kiểu có thể thay đổi.
+Đối tượng [MasterTheme](https://reference.aspose.com/slides/vi/python-net/aspose.slides.theme/mastertheme/) cung cấp các thuộc tính [color_scheme](https://reference.aspose.com/slides/vi/python-net/aspose.slides.theme/mastertheme/color_scheme/), [font_scheme](https://reference.aspose.com/slides/vi/python-net/aspose.slides.theme/mastertheme/font_scheme/), và [format_scheme](https://reference.aspose.com/slides/vi/python-net/aspose.slides.theme/mastertheme/format_scheme/) của theme. Kiểm tra các bộ sưu tập này trước khi thay đổi chúng đặc biệt hữu ích khi bản trình chiếu đến từ nguồn bên ngoài vì số lượng và nội dung của các mục kiểu có thể khác nhau.
 
-Ví dụ sau đọc các thuộc tính chính của giao diện và báo cáo có bao nhiêu kiểu nền, màu nền, đường và hiệu ứng được lưu trong giao diện:
+Ví dụ sau đọc các thuộc tính theme chính và báo cáo số lượng style nền, màu nền, đường viền và hiệu ứng được lưu trong theme:
 
 ```python
 import aspose.slides as slides
@@ -54,13 +54,13 @@ with slides.Presentation("input.pptx") as presentation:
     print(f"Effect styles: {len(theme.format_scheme.effect_styles)}")
 ```
 
-Nếu một tệp sử dụng nhiều master, đừng giả định rằng mọi slide đều có cùng giao diện hiệu quả. Kiểm tra master liên quan tới slide, và sử dụng quy trình làm việc giao diện hiệu quả được trình bày sau trong bài viết khi có thể có ghi đè layout hoặc slide.
+Nếu một tệp sử dụng nhiều master, không nên giả định mọi slide có cùng theme thực tế. Kiểm tra master liên kết với slide, và sử dụng quy trình theme thực tế được mô tả sau trong bài viết khi có thể có ghi đè layout hoặc slide.
 
-## **Thay đổi màu sắc giao diện**
+## **Thay đổi màu Theme**
 
-Các màu nền, đường và văn bản nhận thức giao diện có thể tham chiếu tới một màu logic từ danh sách [SchemeColor](https://reference.aspose.com/slides/vi/python-net/aspose.slides/schemecolor/). Khi bạn thay đổi mục tương ứng trong [ColorScheme](https://reference.aspose.com/slides/vi/python-net/aspose.slides.theme/colorscheme/) của giao diện, tất cả các đối tượng vẫn tham chiếu tới màu giao diện đó sẽ được áp dụng giá trị mới. Các đối tượng sử dụng màu RGB trực tiếp sẽ không bị thay đổi bởi cập nhật màu giao diện.
+Các màu nền, đường viền và văn bản nhận thức theme có thể tham chiếu tới một màu logic từ liệt kê [SchemeColor](https://reference.aspose.com/slides/vi/python-net/aspose.slides/schemecolor/). Khi bạn thay đổi mục tương ứng trong [ColorScheme](https://reference.aspose.com/slides/vi/python-net/aspose.slides.theme/colorscheme/) của theme, tất cả các đối tượng vẫn tham chiếu đến màu theme đó sẽ được giải quyết dựa trên giá trị mới. Các đối tượng sử dụng màu RGB trực tiếp sẽ không bị thay đổi khi cập nhật màu theme.
 
-Ví dụ end-to-end sau tạo một hình dạng sử dụng `ACCENT4`, thay đổi màu `accent4` của giao diện thành màu đỏ, lưu bản trình bày, mở lại và in màu nền hiệu quả:
+Ví dụ toàn diện sau tạo một shape sử dụng `ACCENT4`, thay đổi màu `accent4` của theme thành màu đỏ, lưu bản trình chiếu, mở lại và in màu nền thực tế:
 
 ```python
 import aspose.pydrawing as draw
@@ -81,18 +81,18 @@ with slides.Presentation("theme-color.pptx") as saved_presentation:
     print(f"Effective fill color: {effective_fill.solid_fill_color}")
 ```
 
-Vì hình chữ nhật vẫn được liên kết với `ACCENT4`, màu hiển thị của nó sẽ trở thành đỏ sau khi giao diện được thay đổi. Nếu bạn thay thế màu scheme bằng màu trực tiếp trên hình dạng, các thay đổi sau này đối với `accent4` sẽ không còn ảnh hưởng tới màu nền đó.
+Vì hình chữ nhật vẫn được liên kết tới `ACCENT4`, màu hiển thị của nó sẽ trở thành đỏ sau khi theme được thay đổi. Nếu bạn thay thế màu scheme bằng màu trực tiếp trên shape, các thay đổi sau này của `accent4` sẽ không còn ảnh hưởng đến màu nền đó.
 
 ### **Sử dụng màu từ Bảng màu bổ sung**
 
-PowerPoint tạo ra các biến thể sáng hơn và tối hơn từ một màu giao diện bằng cách áp dụng các biến đổi màu. Aspose.Slides cung cấp các biến đổi này thông qua danh sách [ColorTransformOperation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/colortransformoperation/) .
+PowerPoint tạo ra các biến thể nhẹ hơn và tối hơn từ một màu theme bằng cách áp dụng các biến đổi màu. Aspose.Slides cung cấp các biến đổi này qua liệt kê [ColorTransformOperation](https://reference.aspose.com/slides/vi/python-net/aspose.slides/colortransformoperation/).
 
-![Các màu giao diện chính và các màu sáng/tối được tạo từ bảng màu bổ sung](additional-palette-colors.png)
+![Màu theme chính và các màu nhẹ hơn, tối hơn được tạo từ bảng màu bổ sung](additional-palette-colors.png)
 
-**1** – Các màu giao diện chính.  
-**2** – Các biến thể sáng hơn và tối hơn được tạo từ các màu giao diện chính.
+**1** - Màu theme chính.  
+**2** - Các biến thể nhẹ hơn và tối hơn được tạo từ màu theme chính.
 
-Ví dụ sau tạo sáu hình chữ nhật dựa trên `ACCENT4`, áp dụng các biến đổi độ sáng cho năm trong số chúng, và lưu kết quả:
+Ví dụ sau tạo sáu hình chữ nhật dựa trên `ACCENT4`, áp dụng các biến đổi độ sáng cho năm hình, và lưu kết quả:
 
 ```python
 import aspose.slides as slides
@@ -128,31 +128,31 @@ with slides.Presentation() as presentation:
     presentation.save("theme-color-palette.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Các biến thể này vẫn dựa trên màu giao diện. Nếu `accent4` thay đổi sau này, các màu đã biến đổi sẽ được tính lại từ giá trị `accent4` mới.
+Các biến thể này vẫn dựa trên màu theme. Nếu `accent4` thay đổi sau này, các màu đã biến đổi sẽ được tính lại từ giá trị `accent4` mới.
 
-### **Ánh xạ giá trị `SchemeColor` tới các ô `ColorScheme`**
+### **Ánh xạ các giá trị `SchemeColor` tới các vị trí `ColorScheme`**
 
-Danh sách [SchemeColor](https://reference.aspose.com/slides/vi/python-net/aspose.slides/schemecolor/) sử dụng `TEXT1`, `BACKGROUND1`, `TEXT2` và `BACKGROUND2`, trong khi [ColorScheme](https://reference.aspose.com/slides/vi/python-net/aspose.slides.theme/colorscheme/) cung cấp cùng các ô giao diện dưới dạng `dark1`, `light1`, `dark2` và `light2`. Ánh xạ này cố định:
+Liệt kê [SchemeColor](https://reference.aspose.com/slides/vi/python-net/aspose.slides/schemecolor/) sử dụng `TEXT1`, `BACKGROUND1`, `TEXT2` và `BACKGROUND2`, trong khi [ColorScheme](https://reference.aspose.com/slides/vi/python-net/aspose.slides.theme/colorscheme/) mở ra các vị trí theme tương ứng là `dark1`, `light1`, `dark2` và `light2`. Ánh xạ cố định:
 
-* `TEXT1` = `dark1`  
-* `BACKGROUND1` = `light1`  
-* `TEXT2` = `dark2`  
+* `TEXT1` = `dark1`
+* `BACKGROUND1` = `light1`
+* `TEXT2` = `dark2`
 * `BACKGROUND2` = `light2`
 
-Đây là các tên thay thế cho cùng các ô giao diện; chúng không phải là các giá trị được chuyển đổi động từ dạng này sang dạng khác.
+Đây là các tên thay thế cho cùng một vị trí theme; chúng không phải là giá trị được chuyển đổi động từ dạng này sang dạng khác.
 
-## **Thay đổi phông chữ giao diện**
+## **Thay đổi phông chữ Theme**
 
-Một bộ phông chữ giao diện chứa một bộ phông chữ chính cho tiêu đề và một bộ phụ cho nội dung. Các thuộc tính [FontScheme.major](https://reference.aspose.com/slides/vi/python-net/aspose.slides.theme/fontscheme/major/) và [FontScheme.minor](https://reference.aspose.com/slides/vi/python-net/aspose.slides.theme/fontscheme/minor/) hiển thị các bộ này.
+Một scheme phông chữ theme chứa bộ phông chính cho tiêu đề và bộ phông phụ cho nội dung. Các thuộc tính [FontScheme.major](https://reference.aspose.com/slides/vi/python-net/aspose.slides.theme/fontscheme/major/) và [FontScheme.minor](https://reference.aspose.com/slides/vi/python-net/aspose.slides.theme/fontscheme/minor/) đưa ra các bộ này.
 
-Các định danh phông chữ giao diện tương thích với PowerPoint có thể được sử dụng trong định dạng văn bản:
+Các định danh phông chữ theme tương thích PowerPoint có thể được sử dụng trong định dạng văn bản:
 
-* `+mn-lt` – Phông chữ nội dung Latin (Minor Latin Font)  
-* `+mj-lt` – Phông chữ tiêu đề Latin (Major Latin Font)  
-* `+mn-ea` – Phông chữ nội dung Đông Á (Minor East Asian Font)  
-* `+mj-ea` – Phông chữ tiêu đề Đông Á (Major East Asian Font)
+* `+mn-lt` - Phông chữ thân văn bản Latin (Phông chữ Latin phụ)
+* `+mj-lt` - Phông chữ tiêu đề Latin (Phông chữ Latin chính)
+* `+mn-ea` - Phông chữ thân văn bản Đông Á (Phông chữ Đông Á phụ)
+* `+mj-ea` - Phông chữ tiêu đề Đông Á (Phông chữ Đông Á chính)
 
-Ví dụ sau tạo một tiêu đề sử dụng phông chữ Latin chính và một dòng nội dung sử dụng phông chữ Latin phụ. Sau đó thay đổi các phông chữ giao diện và lưu kết quả:
+Ví dụ sau tạo một tiêu đề sử dụng phông Latin chính và một dòng nội dung sử dụng phông Latin phụ. Sau đó thay đổi các phông chữ theme và lưu kết quả:
 
 ```python
 import aspose.slides as slides
@@ -170,19 +170,21 @@ with slides.Presentation() as presentation:
     presentation.save("theme-fonts.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Tiêu đề tuân theo phông chữ chính và văn bản nội dung tuân theo phông chữ phụ. Văn bản có tên phông chữ rõ ràng thay vì định danh giao diện sẽ không tự động chuyển khi bộ phông chữ giao diện thay đổi.
+Tiêu đề tuân theo phông chính và nội dung tuân theo phông phụ. Văn bản có tên phông chữ rõ ràng thay vì định danh theme sẽ không tự động chuyển khi scheme phông chữ theme thay đổi.
+
+Các bộ phông chính và phụ cũng có thể chứa ánh xạ phông cho các hệ thống viết riêng lẻ, như Cyrillic, Arabic, Japanese, Georgian và Thaana. Để kiểm tra, thêm, thay thế hoặc xóa các ánh xạ này, xem mục [Script-Specific Theme Fonts](/slides/vi/python-net/script-specific-font-mappings/).
 
 {{% alert color="info" title="Tip" %}}
-Để biết thêm thông tin về phông chữ trong bản trình bày, xem [PowerPoint Fonts](/slides/vi/python-net/powerpoint-fonts/).
+Để biết thêm thông tin về phông chữ trong bản trình chiếu, xem [Phông chữ PowerPoint](/slides/vi/python-net/powerpoint-fonts/).
 {{% /alert %}}
 
-## **Sao chép hoặc áp dụng một giao diện**
+## **Sao chép hoặc Áp dụng Theme**
 
-Có hai quy trình thường gặp, và chúng giải quyết các vấn đề khác nhau.
+Có hai quy trình làm việc phổ biến, và chúng giải quyết các vấn đề khác nhau.
 
-### **Bảo tồn giao diện nguồn khi di chuyển slide**
+### **Bảo toàn Theme nguồn khi di chuyển Slides**
 
-Nếu muốn di chuyển một slide sang bản trình bày khác và giữ nguyên thiết kế gốc, sao chép master nguồn vào bản trình bày đích bằng [MasterSlideCollection.add_clone](https://reference.aspose.com/slides/vi/python-net/aspose.slides/masterslidecollection/add_clone/), sau đó sao chép slide bằng [SlideCollection.add_clone](https://reference.aspose.com/slides/vi/python-net/aspose.slides/slidecollection/add_clone/) và master đã sao chép. Điều này mang theo master, các layout và giao diện liên quan.
+Nếu bạn muốn di chuyển một slide sang bản trình chiếu khác và bảo toàn thiết kế gốc, sao chép master nguồn vào bản đích bằng [MasterSlideCollection.add_clone](https://reference.aspose.com/slides/vi/python-net/aspose.slides/masterslidecollection/add_clone/), rồi sao chép slide bằng [SlideCollection.add_clone](https://reference.aspose.com/slides/vi/python-net/aspose.slides/slidecollection/add_clone/) và master đã sao chép. Điều này mang theo master, các layout và theme liên quan.
 
 ```python
 import aspose.slides as slides
@@ -196,11 +198,11 @@ with slides.Presentation("source-theme.pptx") as source:
         target.save("theme-preserved.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Đây là quy trình ưu tiên khi slide nguồn phải trông giống hệt ở đích. Chỉ sao chép nội dung lên một master đích không liên quan có thể thay đổi các màu, phông chữ, nền và hiệu ứng dựa trên giao diện.
+Đây là quy trình ưu tiên khi slide nguồn cần trông giống hệt ở đích. Chỉ sao chép nội dung lên một master đích không liên quan có thể làm thay đổi các màu, phông chữ, nền và hiệu ứng dựa trên theme.
 
-### **Áp dụng giá trị giao diện cho một slide hiện có**
+### **Áp dụng giá trị Theme cho Slide hiện có**
 
-Nếu slide đích phải ở trên master và layout hiện tại, khởi tạo một ghi đè cấp slide từ giao diện nguồn. Các phương thức [OverrideTheme.init_color_scheme_from](https://reference.aspose.com/slides/vi/python-net/aspose.slides.theme/overridetheme/init_color_scheme_from/), [OverrideTheme.init_font_scheme_from](https://reference.aspose.com/slides/vi/python-net/aspose.slides.theme/overridetheme/init_font_scheme_from/), và [OverrideTheme.init_format_scheme_from](https://reference.aspose.com/slides/vi/python-net/aspose.slides.theme/overridetheme/init_format_scheme_from/) sao chép ba thành phần chính của giao diện vào ghi đè.
+Nếu slide đích phải giữ nguyên master và layout hiện tại, khởi tạo một ghi đè ở mức slide từ theme nguồn. Các phương thức [OverrideTheme.init_color_scheme_from](https://reference.aspose.com/slides/vi/python-net/aspose.slides.theme/overridetheme/init_color_scheme_from/), [OverrideTheme.init_font_scheme_from](https://reference.aspose.com/slides/vi/python-net/aspose.slides.theme/overridetheme/init_font_scheme_from/), và [OverrideTheme.init_format_scheme_from](https://reference.aspose.com/slides/vi/python-net/aspose.slides.theme/overridetheme/init_format_scheme_from/) sao chép ba thành phần chính của theme vào ghi đè.
 
 ```python
 import aspose.slides as slides
@@ -215,11 +217,11 @@ with slides.Presentation("source-theme.pptx") as source:
         target.save("theme-applied-to-slide.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Điều này thay đổi giao diện được slide đó sử dụng mà không làm thay đổi giao diện kế thừa bởi các slide khác. Để xóa ghi đè cục bộ và trở lại giá trị kế thừa, gọi [OverrideTheme.clear](https://reference.aspose.com/slides/vi/python-net/aspose.slides.theme/overridetheme/clear/) .
+Điều này thay đổi theme được slide này sử dụng mà không ảnh hưởng đến theme được các slide khác kế thừa. Để xóa ghi đè cục bộ và quay lại giá trị kế thừa, gọi [OverrideTheme.clear](https://reference.aspose.com/slides/vi/python-net/aspose.slides.theme/overridetheme/clear/).
 
-### **Áp dụng ghi đè giao diện cho một layout**
+### **Áp dụng ghi đè Theme cho Layout**
 
-Ghi đè cấp layout áp dụng cho các slide dùng layout đó, trừ khi một slide cụ thể có ghi đè riêng. Các phương thức khởi tạo tương tự có thể được sử dụng qua [LayoutSlideThemeManager](https://reference.aspose.com/slides/vi/python-net/aspose.slides.theme/layoutslidethememanager/) của layout:
+Ghi đè ở mức layout áp dụng cho các slide sử dụng layout đó, trừ khi một slide cụ thể có ghi đè riêng. Các phương thức khởi tạo tương tự có thể được sử dụng qua [LayoutSlideThemeManager](https://reference.aspose.com/slides/vi/python-net/aspose.slides.theme/layoutslidethememanager/):
 
 ```python
 import aspose.slides as slides
@@ -234,17 +236,17 @@ with slides.Presentation("source-theme.pptx") as source:
         target.save("theme-applied-to-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Sử dụng giao diện cấp master hoặc trình bày khi nhiều layout và slide nên chia sẻ cùng một thiết kế nền, ghi đè layout khi một nhóm layout cần kiểu dáng khác nhau, và ghi đè slide chỉ cho các trường hợp ngoại lệ thực sự. Việc lạm dụng ghi đè cấp slide khiến các thay đổi giao diện toàn cục sau này khó dự đoán.
+Sử dụng theme ở mức master hoặc bản trình chiếu khi nhiều layout và slide nên chia sẻ cùng một thiết kế cơ bản, ghi đè layout khi một nhóm layout cần kiểu dáng khác, và ghi đè slide chỉ cho những ngoại lệ thực sự. Quá nhiều ghi đè ở mức slide khiến các thay đổi theme toàn cục sau này khó dự đoán.
 
-## **Cập nhật kiểu nền giao diện**
+## **Cập nhật kiểu nền Theme**
 
-Các màu nền của giao diện được lưu trong [FormatScheme.background_fill_styles](https://reference.aspose.com/slides/vi/python-net/aspose.slides.theme/formatscheme/background_fill_styles/). PowerPoint có thể hiển thị nhiều lựa chọn nền hơn trong giao diện người dùng so với số lượng định nghĩa màu nền thực tế trong bộ sưu tập này vì UI có thể kết hợp màu nền giao diện với màu giao diện và các tham chiếu kiểu khác.
+Các màu nền của theme được lưu trong [FormatScheme.background_fill_styles](https://reference.aspose.com/slides/vi/python-net/aspose.slides.theme/formatscheme/background_fill_styles/). PowerPoint có thể hiển thị nhiều lựa chọn nền hơn so với số định nghĩa màu nền thực tế trong bộ sưu tập này vì UI có thể kết hợp màu nền theme với màu theme và các tham chiếu kiểu khác.
 
-![Bộ sưu tập kiểu nền PowerPoint cho một giao diện trình bày](presentation-design_8.png)
+![Bộ sưu tập kiểu nền PowerPoint cho theme bản trình chiếu](presentation-design_8.png)
 
-Trước khi sử dụng một kiểu nền, kiểm tra bộ sưu tập đã lưu và thuộc tính [Background.style_index](https://reference.aspose.com/slides/vi/python-net/aspose.slides/background/style_index/) hiện tại. `style_index` dùng `0` cho không có màu nền giao diện; các giá trị dương là tham chiếu tới kiểu nền giao diện. Điều này khác với việc đánh chỉ mục một bộ sưu tập Python trực tiếp, nơi `[0]` nghĩa là mục đầu tiên được lưu. Đừng giả định rằng mọi bản trình bày đều có cùng số lượng kiểu nền.
+Trước khi sử dụng một kiểu nền, kiểm tra bộ sưu tập đã lưu và thuộc tính [Background.style_index](https://reference.aspose.com/slides/vi/python-net/aspose.slides/background/style_index/). `style_index` dùng `0` cho không có màu nền theme; các giá trị dương là tham chiếu kiểu nền theme. Điều này khác với việc đánh chỉ mục một bộ sưu tập Python trực tiếp, nơi `[0]` nghĩa là mục đầu tiên được lưu. Không nên giả định mọi bản trình chiếu có cùng số lượng style nền.
 
-Ví dụ sau báo cáo số lượng màu nền có sẵn, gán một tham chiếu nền giao diện cho master đầu tiên, và lưu bản trình bày:
+Ví dụ dưới đây báo cáo số lượng màu nền có sẵn, gán một tham chiếu nền theme cho master đầu tiên, và lưu bản trình chiếu:
 
 ```python
 import aspose.slides as slides
@@ -260,25 +262,25 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("theme-background.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Kết quả hiển thị phụ thuộc vào mục giao diện được master tham chiếu và bất kỳ ghi đè nền nào ở cấp layout hoặc slide. Nếu một slide có nền riêng, việc chỉ thay đổi nền master có thể không ảnh hưởng đến slide đó. Sử dụng [Background.get_effective](https://reference.aspose.com/slides/vi/python-net/aspose.slides/background/get_effective/) khi bạn cần biết nền cuối cùng sau khi đã áp dụng kế thừa.
+Kết quả hiển thị phụ thuộc vào mục theme mà master tham chiếu và bất kỳ ghi đè nền nào ở mức layout hoặc slide. Nếu một slide sử dụng nền riêng, việc chỉ thay đổi nền master có thể không ảnh hưởng tới slide đó. Sử dụng [Background.get_effective](https://reference.aspose.com/slides/vi/python-net/aspose.slides/background/get_effective/) khi bạn cần biết nền cuối cùng sau khi kế thừa đã được áp dụng.
 
 {{% alert color="warning" title="Warning" %}}
-Đừng coi `style_index` là một chỉ mục bộ sưu tập bắt đầu từ 0. Cũng tránh mã cứng một số kiểu từ một tệp và giả định nó sẽ có cùng ngoại hình trong tệp khác; các định nghĩa kiểu giao diện là đặc thù cho mỗi bản trình bày.
+Không coi `style_index` như một chỉ mục bộ sưu tập dựa trên chỉ số 0. Cũng tránh mã cứng một số style từ một tệp và cho rằng nó sẽ có cùng giao diện trong tệp khác; các định nghĩa style theme là riêng cho từng bản trình chiếu.
 {{% /alert %}}
 
 {{% alert color="info" title="Tip" %}}
-Đối với định dạng nền trực tiếp và kế thừa nền, xem [Presentation Background](/slides/vi/python-net/presentation-background/) .
+Đối với định dạng nền trực tiếp và kế thừa nền, xem mục [Presentation Background](/slides/vi/python-net/presentation-background/).
 {{% /alert %}}
 
-## **Cập nhật hiệu ứng giao diện**
+## **Cập nhật hiệu ứng Theme**
 
-Một bộ format giao diện chứa các bộ sưu tập riêng biệt [FormatScheme.fill_styles](https://reference.aspose.com/slides/vi/python-net/aspose.slides.theme/formatscheme/fill_styles/), [FormatScheme.line_styles](https://reference.aspose.com/slides/vi/python-net/aspose.slides.theme/formatscheme/line_styles/), và [FormatScheme.effect_styles](https://reference.aspose.com/slides/vi/python-net/aspose.slides.theme/formatscheme/effect_styles/) . Các giao diện Office điển hình thường có ba mục kiểu chính tương ứng với định dạng tinh tế, trung bình và mạnh, nhưng mã nên kiểm tra từng bộ sưu tập thay vì giả định số lượng cố định.
+Một scheme định dạng theme chứa các bộ sưu tập riêng biệt [FormatScheme.fill_styles](https://reference.aspose.com/slides/vi/python-net/aspose.slides.theme/formatscheme/fill_styles/), [FormatScheme.line_styles](https://reference.aspose.com/slides/vi/python-net/aspose.slides.theme/formatscheme/line_styles/), và [FormatScheme.effect_styles](https://reference.aspose.com/slides/vi/python-net/aspose.slides.theme/formatscheme/effect_styles/). Các theme Office điển hình thường chứa ba mục style chính tương ứng với định dạng nhẹ, vừa và mạnh, nhưng mã nên kiểm tra từng bộ sưu tập thay vì giả định số lượng cố định.
 
-![Hiệu ứng giao diện tinh tế, trung bình và mạnh được áp dụng cho cùng một hình dạng](presentation-design_10.png)
+![Hiệu ứng Theme nhẹ, vừa và mạnh được áp dụng lên cùng một hình](presentation-design_10.png)
 
-Khi truy cập các bộ sưu tập này trong Python, chỉ mục bộ sưu tập bắt đầu từ 0: `[0]` là kiểu đầu tiên được lưu và `[2]` là kiểu thứ ba. Các chỉ mục tham chiếu kiểu của hình dạng là một khái niệm riêng, được mở rộng thông qua [IShapeStyle](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ishapestyle/). Việc sửa đổi một kiểu giao diện ảnh hưởng tới các hình dạng tham chiếu tới kiểu đó; các hình dạng có định dạng trực tiếp có thể không thay đổi.
+Khi truy cập các bộ sưu tập này trong Python, chỉ mục bộ sưu tập bắt đầu từ 0: `[0]` là style đầu tiên được lưu và `[2]` là style thứ ba. Các chỉ mục tham chiếu style của shape là một khái niệm riêng, được mở ra qua [IShapeStyle](https://reference.aspose.com/slides/vi/python-net/aspose.slides/ishapestyle/). Việc sửa đổi một style theme ảnh hưởng tới các shape tham chiếu style đó; các shape có định dạng trực tiếp có thể không thay đổi.
 
-Ví dụ sau kiểm tra sự tồn tại của các mục kiểu bắt buộc, thay đổi kiểu đường đầu tiên, thay đổi kiểu màu nền thứ ba, bật bóng đổ ngoài trong kiểu hiệu ứng thứ ba, và lưu kết quả:
+Ví dụ dưới đây kiểm tra sự tồn tại của các mục style yêu cầu, thay đổi style đường viền đầu tiên, thay đổi style màu nền thứ ba, bật bóng ngoài trong style hiệu ứng thứ ba, và lưu kết quả:
 
 ```python
 import aspose.pydrawing as draw
@@ -297,15 +299,15 @@ with slides.Presentation("Subtle_Moderate_Intense.pptx") as presentation:
     presentation.save("theme-effects.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Đối với các hình dạng tham chiếu các ô này, kiểu đường đầu tiên của giao diện sẽ trở thành màu đỏ, kiểu màu nền thứ ba sẽ thành xanh rừng đặc, và kiểu hiệu ứng thứ ba sẽ có bóng đổ ngoài với khoảng cách 10 điểm. Kết quả hình ảnh chính xác vẫn phụ thuộc vào mỗi hình dạng tham chiếu ô nào và liệu định dạng trực tiếp có ghi đè giao diện hay không.
+Đối với các shape tham chiếu các vị trí này, style đường viền theme đầu tiên sẽ trở thành đỏ, style màu nền theme thứ ba sẽ trở thành màu xanh rừng đặc, và style hiệu ứng thứ ba sẽ có bóng ngoài với khoảng cách 10 điểm. Kết quả hình ảnh vẫn phụ thuộc vào mỗi shape tham chiếu vị trí nào và liệu định dạng trực tiếp có ghi đè theme hay không.
 
-![Các kiểu hiệu ứng giao diện sau khi thay đổi đường, màu nền và cài đặt bóng đổ](presentation-design_11.png)
+![Kiểu hiệu ứng Theme sau khi thay đổi cài đặt đường viền, màu nền và bóng](presentation-design_11.png)
 
-## **Đọc các giá trị giao diện hiệu quả**
+## **Đọc giá trị Theme thực tế**
 
-Các đối tượng giao diện thô cho bạn biết những gì được định nghĩa ở mức cụ thể. Các giá trị hiệu quả cho bạn biết slide hoặc hình dạng thực sự sử dụng gì sau khi kế thừa và ghi đè cục bộ đã được giải quyết. Đối với một slide, gọi [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/vi/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/). Đối với nền, sử dụng [Background.get_effective](https://reference.aspose.com/slides/vi/python-net/aspose.slides/background/get_effective/), và đối với màu nền, sử dụng [FillFormat.get_effective](https://reference.aspose.com/slides/vi/python-net/aspose.slides/fillformat/get_effective/) .
+Các đối tượng theme thô cho bạn biết những gì được định nghĩa ở mức cụ thể. Các giá trị thực tế cho bạn biết slide hoặc shape thực sự sử dụng gì sau khi kế thừa và ghi đè cục bộ đã được giải quyết. Đối với một slide, gọi [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/vi/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/). Đối với nền, sử dụng [Background.get_effective](https://reference.aspose.com/slides/vi/python-net/aspose.slides/background/get_effective/), và đối với màu nền, sử dụng [FillFormat.get_effective](https://reference.aspose.com/slides/vi/python-net/aspose.slides/fillformat/get_effective/).
 
-Ví dụ sau đọc giao diện hiệu quả, nền và màu nền của hình dạng đầu tiên từ một slide:
+Ví dụ dưới đây đọc theme thực tế, nền và màu nền shape đầu tiên từ một slide:
 
 ```python
 import aspose.slides as slides
@@ -324,18 +326,18 @@ with slides.Presentation("input.pptx") as presentation:
             print(f"First shape effective fill color: {effective_fill.solid_fill_color}")
 ```
 
-Sử dụng dữ liệu hiệu quả để chẩn đoán hiển thị, xác thực và so sánh. Nếu chỉ kiểm tra [Presentation.master_theme](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/master_theme/), bạn có thể bỏ qua một master, layout, slide hoặc ghi đè hình dạng thay đổi giao diện cuối cùng.
+Sử dụng dữ liệu thực tế cho việc chẩn đoán, xác thực và so sánh. Nếu bạn chỉ kiểm tra [Presentation.master_theme](https://reference.aspose.com/slides/vi/python-net/aspose.slides/presentation/master_theme/), có thể bỏ lỡ một master, layout, slide hoặc ghi đè shape thay đổi giao diện cuối cùng.
 
 ## **Câu hỏi thường gặp**
 
-**Tôi có thể áp dụng một giao diện cho một slide duy nhất mà không thay đổi master không?**
+**Có thể áp dụng theme cho một slide duy nhất mà không thay đổi master không?**
 
-Có. Sử dụng [SlideThemeManager](https://reference.aspose.com/slides/vi/python-net/aspose.slides.theme/slidethememanager/) của slide và khởi tạo ghi đè giao diện của nó. Thay đổi sẽ chỉ giới hạn ở slide đó; các slide khác vẫn kế thừa giao diện hiện tại.
+Có. Sử dụng [SlideThemeManager](https://reference.aspose.com/slides/vi/python-net/aspose.slides.theme/slidethememanager/) của slide và khởi tạo theme ghi đè của nó. Thay đổi sẽ chỉ áp dụng cho slide đó; các slide khác vẫn kế thừa theme hiện có.
 
-**Cách an toàn nhất để chuyển giao diện từ bản trình bày này sang bản trình bày khác là gì?**
+**Cách an toàn nhất để chuyển theme từ bản trình chiếu này sang bản khác là gì?**
 
-Khi di chuyển một slide và muốn giữ nguyên giao diện nguồn, sao chép master nguồn vào bản đích và sao chép slide với master đó bằng [MasterSlideCollection.add_clone](https://reference.aspose.com/slides/vi/python-net/aspose.slides/masterslidecollection/add_clone/) và [SlideCollection.add_clone](https://reference.aspose.com/slides/vi/python-net/aspose.slides/slidecollection/add_clone/) . Điều này giữ nguyên master, các layout và giao diện cùng nhau.
+Khi di chuyển một slide và bảo toàn thiết kế nguồn, sao chép master nguồn vào bản đích và sao chép slide với master đó bằng [MasterSlideCollection.add_clone](https://reference.aspose.com/slides/vi/python-net/aspose.slides/masterslidecollection/add_clone/) và [SlideCollection.add_clone](https://reference.aspose.com/slides/vi/python-net/aspose.slides/slidecollection/add_clone/). Điều này giữ lại master, các layout và theme cùng nhau.
 
-**Làm sao tôi có thể xem các giá trị hiệu quả sau khi kế thừa và ghi đè?**
+**Làm sao để xem các giá trị thực tế sau khi kế thừa và ghi đè?**
 
-Sử dụng [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/vi/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/) cho một slide hoặc giao diện layout và các phương thức dữ liệu hiệu quả tương ứng cho các đối tượng định dạng như [Background.get_effective](https://reference.aspose.com/slides/vi/python-net/aspose.slides/background/get_effective/) và [FillFormat.get_effective](https://reference.aspose.com/slides/vi/python-net/aspose.slides/fillformat/get_effective/) . Các API này trả về các giá trị đã được giải quyết sau khi áp dụng kế thừa và ghi đè.
+Sử dụng [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/vi/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/) cho theme của slide hoặc layout và các phương thức dữ liệu thực tế tương ứng cho các đối tượng định dạng như [Background.get_effective](https://reference.aspose.com/slides/vi/python-net/aspose.slides/background/get_effective/) và [FillFormat.get_effective](https://reference.aspose.com/slides/vi/python-net/aspose.slides/fillformat/get_effective/). Các API này trả về các giá trị đã được giải quyết sau khi kế thừa và ghi đè được áp dụng.

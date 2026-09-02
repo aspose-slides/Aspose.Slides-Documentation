@@ -1,5 +1,5 @@
 ---
-title: Přizpůsobení písem PowerPointu v C++
+title: Přizpůsobení písem v PowerPointu v C++
 linktitle: Vlastní písmo
 type: docs
 weight: 20
@@ -16,42 +16,54 @@ keywords:
 - prezentace
 - C++
 - Aspose.Slides
-description: "Přizpůsobte písma v PowerPoint slidech pomocí Aspose.Slides pro C++, aby vaše prezentace byly ostřejší a konzistentní na jakémkoli zařízení."
+description: "Přizpůsobte písma v PowerPoint slidech pomocí Aspose.Slides pro C++, aby vaše prezentace byly ostré a konzistentní na jakémkoli zařízení."
 ---
 ## **Přehled**
 
-Aspose.Slides vám umožňuje používat vlastní písma v prezentacích, aniž byste je instalovali do operačního systému. Písma můžete načítat z vlastních složek, poskytnout písma pro konkrétní prezentaci prostřednictvím zdrojů písem na úrovni dokumentu, nebo načíst externí písma přímo z binárních dat.
+Aspose.Slides vám umožňuje používat vlastní písma v prezentacích bez jejich instalace do operačního systému. Písma můžete načíst z vlastních složek, poskytnout písma pro konkrétní prezentaci prostřednictvím zdrojů písem na úrovni dokumentu nebo načíst externí písma přímo z binárních dat.
 
-Načtená písma jsou používána při vykreslování nebo exportu prezentace, například do PDF, obrazů a dalších podporovaných formátů. To pomáhá zachovat konzistentní výstup prezentace napříč různými prostředími. Článek také vysvětluje, jak prozkoumat složky s písmy používané Aspose.Slides a jak po práci s externími písmy vyprázdnit mezipaměť písem.
+Načtená písma jsou používána při vykreslování nebo exportu prezentace, například do PDF, obrázků a dalších podporovaných formátů. To pomáhá zachovat konzistentní výstup prezentace v různých prostředích. Článek také vysvětluje, jak zkontrolovat složky písem používané Aspose.Slides a jak po práci s externími písmy vyprázdnit mezipaměť písem.
 
-Registrace vlastních písem pro vykreslování je oddělená od vkládání písem do souboru PPTX. Pokud musí být písmo uloženo přímo v prezentaci, použijte funkce vkládání písem explicitně.
+Registrace vlastních písem pro vykreslování je oddělena od vkládání písem do souboru PPTX. Pokud musí být písmo uloženo přímo v prezentaci, použijte výslovně funkce vkládání písem.
 
-{{% alert color="primary" %}} 
+Motiv prezentace může odkazovat na různé rodiny písem pro jednotlivé psané systémy. Tato mapování ukládají názvy písem, ale neinstalují ani nenačítají soubory písem. Viz [Script-Specific Theme Fonts](/slides/cs/cpp/script-specific-font-mappings/) pro správu mapování a použijte níže uvedené možnosti načítání, aby byly odkazovaná písma k dispozici pro konzistentní vykreslování.
+
+{{% alert color="info" title="Poznámka" %}}
 
 Aspose Slides vám umožňuje načíst tato písma pomocí [FontsLoader::LoadExternalFonts](https://reference.aspose.com/slides/cs/cpp/aspose.slides/fontsloader/loadexternalfonts/):
 
-* Písma TrueType (.ttf) a TrueType Collection (.ttc). Viz [TrueType](https://en.wikipedia.org/wiki/TrueType).
+* TrueType (.ttf) a TrueType Collection (.ttc) písma. Viz [TrueType](https://en.wikipedia.org/wiki/TrueType).
 
-* Písma OpenType (.otf). Viz [OpenType](https://en.wikipedia.org/wiki/OpenType).
+* OpenType (.otf) písma. Viz [OpenType](https://en.wikipedia.org/wiki/OpenType).
 
 {{% /alert %}}
 
 ## **Načíst vlastní písma**
 
-Aspose.Slides vám umožňuje načíst písma používaná v prezentaci, aniž byste je instalovali v systému. To ovlivňuje výstup exportu – například PDF, obrázky a další podporované formáty – takže výsledné dokumenty vypadají konzistentně napříč prostředími. Písma jsou načítána z vlastních adresářů.
+Aspose.Slides vám umožňuje načíst písma používaná v prezentaci bez instalace do systému. To ovlivňuje výstup exportu – například PDF, obrázky a další podporované formáty – takže výsledné dokumenty vypadají konzistentně napříč prostředími. Písma jsou načítána z vlastních adresářů.
 
-1. Zadejte jednu nebo více složek obsahujících soubory písem.
-2. Zavolejte statickou metodu [FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/cs/cpp/aspose.slides/fontsloader/loadexternalfonts/), abyste načetli písma z těchto složek.
+1. Zadejte jednu nebo více složek, které obsahují soubory písem.
+2. Zavolejte statickou metodu [FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/cs/cpp/aspose.slides/fontsloader/loadexternalfonts/) pro načtení písem z těchto složek.
 3. Načtěte a vykreslete/exportujte prezentaci.
-4. Zavolejte [FontsLoader.clearCache](https://reference.aspose.com/slides/cs/cpp/aspose.slides/fontsloader/clearcache/), abyste vyprázdnili mezipaměť písem.
+4. Zavolejte [FontsLoader.clearCache](https://reference.aspose.com/slides/cs/cpp/aspose.slides/fontsloader/clearcache/) pro vyprázdnění mezipaměti písem.
 
 Následující ukázkový kód demonstruje proces načítání písem:
 
 ```cpp
-// Definujte složky, které obsahují vlastní soubory písem.
+#include <DOM/Fonts/FontsLoader.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+// Definujte složky, které obsahují soubory vlastních písem.
+String externalFontFolder = u"assets/fonts";
 auto fontFolders = MakeObject<Array<String>>(1, externalFontFolder );
 
-// Načtěte vlastní písma ze specifikovaných složek.
+// Načtěte vlastní písma ze zadaných složek.
 FontsLoader::LoadExternalFonts(fontFolders);
 
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
@@ -64,33 +76,47 @@ presentation->Dispose();
 FontsLoader::ClearCache();
 ```
 
-{{% alert color="info" title="Note" %}}
+{{% alert color="info" title="Poznámka" %}}
 
-[FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/cs/cpp/aspose.slides/fontsloader/loadexternalfonts/) přidává další složky do cest pro vyhledávání písem, ale nemění pořadí inicializace písem.
+[FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/cs/cpp/aspose.slides/fontsloader/loadexternalfonts/) přidává další složky do cest pro hledání písem, ale nemění pořadí inicializace písem.
 Písma jsou inicializována v tomto pořadí:
 
 1. Výchozí cesta k písmům operačního systému.
-1. Cesty načtené pomocí [FontsLoader](https://reference.aspose.com/slides/cs/cpp/aspose.slides/fontsloader/).
+1. Cesty načtené přes [FontsLoader](https://reference.aspose.com/slides/cs/cpp/aspose.slides/fontsloader/).
 
 {{%/alert %}}
 
-## **Získat vlastní složky s písmy**
-Aspose.Slides poskytuje [FontsLoader::GetFontFolders()](https://reference.aspose.com/slides/cs/cpp/aspose.slides/fontsloader/getfontfolders/), který vám umožní najít složky s písmy. Tato metoda vrací složky přidané pomocí metody `LoadExternalFonts` a systémové složky s písmy.
+## **Získat složky vlastních písem**
 
-Tento C++ kód vám ukazuje, jak použít metodu [FontsLoader::GetFontFolders()](https://reference.aspose.com/slides/cs/cpp/aspose.slides/fontsloader/getfontfolders/) :
+Aspose.Slides poskytuje [FontsLoader::GetFontFolders()](https://reference.aspose.com/slides/cs/cpp/aspose.slides/fontsloader/getfontfolders/) pro nalezení složek písem. Tato metoda vrací složky přidané pomocí metody `LoadExternalFonts` a systémové složky písem.
+
+Tento C++ kód ukazuje, jak použít metodu [FontsLoader::GetFontFolders()](https://reference.aspose.com/slides/cs/cpp/aspose.slides/fontsloader/getfontfolders/):
 
 ``` cpp
+#include <DOM/Fonts/FontsLoader.h>
+using namespace Aspose::Slides;
+
 // Tento řádek vypisuje složky, které jsou kontrolovány pro soubory písem.
-// Jedná se o složky přidané metodou LoadExternalFonts a systémové složky s písmy.
+// Jedná se o složky přidané metodou LoadExternalFonts a systémové složky písem.
 auto fontFolders = FontsLoader::GetFontFolders();
 ```
 
 ## **Zadat vlastní písma používaná v prezentaci**
-Aspose.Slides poskytuje vlastnost [LoadOptions::set_DocumentLevelFontSources](https://reference.aspose.com/slides/cs/cpp/aspose.slides/loadoptions/set_documentlevelfontsources/), která vám umožní určit externí písma, která budou použita s prezentací.
 
-Tento C++ kód vám ukazuje, jak použít vlastnost [LoadOptions::set_DocumentLevelFontSources](https://reference.aspose.com/slides/cs/cpp/aspose.slides/loadoptions/set_documentlevelfontsources/) :
+Aspose.Slides poskytuje vlastnost [LoadOptions::set_DocumentLevelFontSources](https://reference.aspose.com/slides/cs/cpp/aspose.slides/loadoptions/set_documentlevelfontsources/) pro určení externích písem, která budou použita s prezentací.
+
+Tento C++ kód ukazuje, jak použít vlastnost [LoadOptions::set_DocumentLevelFontSources](https://reference.aspose.com/slides/cs/cpp/aspose.slides/loadoptions/set_documentlevelfontsources/):
 
 ``` cpp
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <IFontSources.h>
+#include <system/io/file.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 auto memoryFont1 = File::ReadAllBytes(u"customfonts\\CustomFont1.ttf");
 auto memoryFont2 = File::ReadAllBytes(u"customfonts\\CustomFont2.ttf");
 
@@ -99,17 +125,27 @@ loadOptions->get_DocumentLevelFontSources()->set_FontFolders(System::MakeArray<S
 loadOptions->get_DocumentLevelFontSources()->set_MemoryFonts(System::MakeArray<ArrayPtr<uint8_t>>({memoryFont1, memoryFont2}));
 {
     auto presentation = System::MakeObject<Presentation>(u"MyPresentation.pptx", loadOptions);
-    //pracujte s prezentací
-    //CustomFont1, CustomFont2 i fonty ze složek assets\fonts & global\fonts a jejich podsložek jsou k dispozici pro prezentaci
+    //práce s prezentací
+    //CustomFont1, CustomFont2 i fonty ze složek assets\fonts a global\fonts a jejich podsložek jsou k dispozici pro prezentaci
 }
 ```
 
 ## **Spravovat písma externě**
-Aspose.Slides poskytuje metodu [FontsLoader::LoadExternalFont](https://reference.aspose.com/slides/cs/cpp/aspose.slides/fontsloader/loadexternalfont/), která vám umožní načíst externí písma do pole bajtů.
+
+Aspose.Slides poskytuje metodu [FontsLoader::LoadExternalFont](https://reference.aspose.com/slides/cs/cpp/aspose.slides/fontsloader/loadexternalfont/) pro načtení externích písem do pole bajtů.
 
 Tento C++ kód demonstruje proces načítání písem do pole bajtů:
 
 ```cpp
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <IFontSources.h>
+#include <system/io/file.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 // Cesta k adresáři dokumentů
 const String outPath = u"../out/SpecifyFontsUsedWithPresentation.pptx";
 const String templatePath = u"../templates/AccessSlides.pptx";
@@ -125,24 +161,24 @@ loadOptions->get_DocumentLevelFontSources()->set_MemoryFonts(memoryfontsLocation
 SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath, loadOptions);
 ```
 
-## **Často kladené otázky**
+## **FAQ**
 
-**Ovlivňují vlastní písma export do všech formátů (PDF, PNG, SVG, HTML)?**
+### Ovlivňují vlastní písma export do všech formátů (PDF, PNG, SVG, HTML)?
 
 Ano. Připojená písma jsou rendererem používána ve všech exportních formátech.
 
-**Jsou vlastní písma automaticky vkládána do výsledného PPTX?**
+### Jsou vlastní písma automaticky vložena do výsledného PPTX?
 
-Ne. Registrace písma pro vykreslování není totéž jako jeho vložení do PPTX. Pokud potřebujete, aby bylo písmo zahrnuto přímo v souboru prezentace, musíte použít explicitní [embedding features](/slides/cs/cpp/embedded-font/).
+Ne. Registrace písma pro vykreslování není totéž jako vložení do PPTX. Pokud potřebujete, aby bylo písmo součástí souboru prezentace, musíte použít výslovné [embedding features](/slides/cs/cpp/embedded-font/).
 
-**Mohu řídit chování fallbacku, když vlastní písmo postrádá některé glify?**
+### Mohu řídit chování náhradního písma, když vlastní písmo postrádá určité glify?
 
-Ano. Nakonfigurujte [font substitution](/slides/cs/cpp/font-substitution/), [replacement rules](/slides/cs/cpp/font-replacement/) a [fallback sets](/slides/cs/cpp/fallback-font/), abyste přesně určili, které písmo se použije, když požadovaný glif chybí.
+Ano. Nakonfigurujte [font substitution](/slides/cs/cpp/font-substitution/), [replacement rules](/slides/cs/cpp/font-replacement/) a [fallback sets](/slides/cs/cpp/fallback-font/) pro přesné určení, které písmo se použije, když požadovaný glyph chybí.
 
-**Mohu používat písma v Linux/Docker kontejnerech, aniž bych je instaloval na úrovni systému?**
+### Mohu používat písma v kontejnerech Linux/Docker bez jejich instalace na úrovni systému?
 
-Ano. Odkazujte na své vlastní složky s písmy nebo načítejte písma z pole bajtů. Tím odstraníte jakoukoli závislost na systémových složkách s písmy v obrazu kontejneru.
+Ano. Odkazujte na své vlastní složky s písmy nebo načítejte písma z polí bajtů. Tím odstraníte jakoukoli závislost na systémových složkách písem v obrazu kontejneru.
 
-**Co se týče licencí – mohu vložit jakékoli vlastní písmo bez omezení?**
+### Co licence – mohu vložit jakékoli vlastní písmo bez omezení?
 
-Vy jste zodpovědní za dodržování licencí písem. Podmínky se liší; některé licence zakazují vkládání nebo komerční použití. Vždy si před distribucí výstupů přečtěte EULA daného písma.
+Jste zodpovědní za dodržování licenčních podmínek písem. Podmínky se liší; některé licence zakazují vkládání nebo komerční využití. Vždy si před distribucí výstupů přečtěte EULA daného písma.

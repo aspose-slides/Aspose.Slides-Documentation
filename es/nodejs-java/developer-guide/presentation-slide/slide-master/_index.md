@@ -1,58 +1,61 @@
 ---
-title: Gestionar maestros de diapositivas de presentación en JavaScript
-linktitle: Maestro de diapositiva
+title: Gestionar masters de diapositivas de presentación en JavaScript
+linktitle: Master de diapositiva
 type: docs
 weight: 70
 url: /es/nodejs-java/slide-master/
 keywords:
-- maestro de diapositiva
+- master de diapositiva
 - diapositiva maestra
 - diapositiva maestra PPT
-- diapositivas maestras múltiples
+- varias diapositivas maestras
 - comparar diapositivas maestras
 - fondo
 - marcador de posición
 - clonar diapositiva maestra
 - copiar diapositiva maestra
 - duplicar diapositiva maestra
-- diapositiva maestra sin uso
+- diapositiva maestra no utilizada
 - PowerPoint
 - OpenDocument
 - presentación
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Gestiona los maestros de diapositivas en Aspose.Slides para Node.js mediante Java: accede, edita, clona, compara y elimina diapositivas maestras en presentaciones de PowerPoint y OpenDocument."
+description: "Gestiona los masters de diapositivas en Aspose.Slides para Node.js a través de Java: accede, edita, clona, compara y elimina masters de diapositivas en presentaciones PowerPoint y OpenDocument."
 ---
-## **Visión general**
+## **Descripción general**
 
-Un **slide master** define configuraciones de diseño compartidas para un grupo de diapositivas. Puede contener formas comunes, logotipos, fondos, estilos de texto, configuraciones de tema y configuraciones de pie de página. En PowerPoint, editar un slide master es la forma habitual de mantener una presentación coherente sin repetir el mismo formato en cada diapositiva.
+Un **slide master** define los ajustes de diseño compartidos para un grupo de diapositivas. Puede contener formas comunes, logotipos, fondos, estilos de texto, ajustes de tema y ajustes de pie de página. En PowerPoint, editar un slide master es la forma habitual de mantener una presentación coherente sin repetir el mismo formato en cada diapositiva.
 
-Aspose.Slides para Node.js mediante Java admite el mismo modelo. Una presentación puede contener una o más diapositivas master, y cada diapositiva master puede contener varias diapositivas de diseño. Las diapositivas normales normalmente no hacen referencia a una diapositiva master directamente. En su lugar, una diapositiva normal utiliza una diapositiva de diseño, y esa diapositiva de diseño pertenece a una diapositiva master.
+Aspose.Slides para Node.js a través de Java es compatible con el mismo modelo. Una presentación puede contener una o más master slides, y cada master slide puede contener varias layout slides. Normalmente, las diapositivas normales no hacen referencia directamente a un master slide. En su lugar, una diapositiva normal utiliza una layout slide, y esa layout slide pertenece a un master slide.
 
 La jerarquía es:
 
 1. **Slide master** - define el diseño y tema compartidos.  
 1. **Layout slide** - define una disposición específica de marcadores de posición y formato a nivel de diseño.  
-1. **Normal slide** - contiene el contenido real de la presentación y utiliza una diapositiva de diseño.
+1. **Normal slide** - contiene el contenido real de la presentación y utiliza una layout slide.
 
-![La jerarquía de diapositivas master, diapositivas de diseño y diapositivas normales](slide-master_2.jpg)
+![Jerarquía de master slides, layout slides y normal slides](slide-master_2.jpg)
 
-En Aspose.Slides, un slide master está representado por la clase [MasterSlide](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/masterslide/). Todas las diapositivas master en una presentación están disponibles mediante la colección `Presentation.getMasters()`.
+En Aspose.Slides, un slide master se representa mediante la clase [MasterSlide](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/masterslide/) . Todas las master slides de una presentación están disponibles a través de la colección `Presentation.getMasters()`.
 
 {{% alert color="info" title="Inheritance" %}}
-Cuando la misma propiedad se define en más de un nivel, el nivel más específico gana. Por ejemplo, si una diapositiva master y una diapositiva de diseño ambos definen un fondo, las diapositivas basadas en ese diseño usan el fondo del diseño. Para obtener más información sobre las diapositivas de diseño, consulte [Aplicar o cambiar diseños de diapositivas](/nodejs-java/slide-layout/).
+Cuando la misma propiedad se define en más de un nivel, gana el nivel más específico. Por ejemplo, si un master slide y una layout slide ambos definen un fondo, las diapositivas basadas en esa layout usarán el fondo de la layout. Para obtener más información sobre las layout slides, consulte [Apply or Change Slide Layouts](/nodejs-java/slide-layout/).
 {{% /alert %}}
 
 ## **Acceder a los slide masters**
 
-En PowerPoint, puedes abrir la vista Slide Master desde **View** > **Slide Master**.
+En PowerPoint, puede abrir la vista Slide Master desde **View** > **Slide Master**.
 
-![El comando Slide Master en la pestaña View de PowerPoint](slide-master_3.jpg)
+![El comando Slide Master en la pestaña Vista de PowerPoint](slide-master_3.jpg)
 
-En Aspose.Slides, usa la colección `getMasters()` para acceder a las diapositivas master:
+En Aspose.Slides, use la colección `getMasters()` para acceder a los master slides:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let firstMasterSlide = presentation.getMasters().get_Item(0);
@@ -66,9 +69,12 @@ try {
 }
 ```
 
-También puedes obtener la diapositiva master utilizada por una diapositiva normal a través de su diseño:
+También puede obtener el master slide utilizado por una diapositiva normal a través de su layout:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -82,28 +88,31 @@ try {
 }
 ```
 
-## **Qué contiene un slide master**
+## **Qué contiene un Slide Master**
 
-Una diapositiva master es un objeto similar a una diapositiva. Hereda el comportamiento común de diapositivas de [BaseSlide](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/baseslide/), por lo que expone muchas de las mismas propiedades de diapositiva utilizadas por diapositivas normales y de diseño. Los miembros específicos de master se enumeran en la página API de [MasterSlide](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/masterslide/).
+Un master slide es un objeto similar a una diapositiva. Hereda el comportamiento común de las diapositivas de [BaseSlide](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/baseslide/), por lo que expone muchas de las mismas propiedades de diapositiva que usan las diapositivas normales y de layout. Los miembros específicos del master se enumeran en la página API de [MasterSlide](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/masterslide/).
 
-Los miembros de diapositiva master más usados incluyen:
+Los miembros de master slide más usados incluyen:
 
 | Miembro | Propósito |
 | --- | --- |
-| `getBackground()` | Establece el fondo de diapositiva a nivel de master. |
-| `getShapes()` | Almacena las formas colocadas en el master, como logotipos, marcos de imagen y texto compartido. |
-| `getLayoutSlides()` | Almacena las diapositivas de diseño que pertenecen al master. |
-| `getThemeManager()` | Proporciona acceso a las API del tema del master. |
+| `getBackground()` | Establece el fondo de la diapositiva a nivel de master. |
+| `getShapes()` | Almacena las formas colocadas en el master, como logotipos, marcos de imágenes y texto compartido. |
+| `getLayoutSlides()` | Almacena las layout slides que pertenecen al master. |
+| `getThemeManager()` | Proporciona acceso a las API de tema del master. |
 | `getHeaderFooterManager()` | Controla encabezados, pies de página, fechas y números de diapositiva para el master y sus diseños hijos. |
-| `getDependingSlides()` | Devuelve las diapositivas normales que dependen del master a través de sus diseños. |
+| `getDependingSlides()` | Devuelve las diapositivas normales que dependen del master a través de sus layouts. |
 
-## **Agregar una imagen a un slide master**
+## **Añadir una imagen a un Slide Master**
 
-Cuando añades una imagen a una diapositiva master, aparece en las diapositivas que usan diseños de ese master. Esto es útil para logotipos, marcas de agua, bandas decorativas y otros elementos visuales repetidos.
+Cuando añade una imagen a un master slide, aparece en las diapositivas que usan layouts de ese master. Esto es útil para logotipos, marcas de agua, bandas decorativas y otros elementos visuales repetidos.
 
-El siguiente ejemplo agrega un logotipo a la primera diapositiva master:
+El siguiente ejemplo añade un logotipo al primer master slide:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let masterSlide = presentation.getMasters().get_Item(0);
@@ -129,19 +138,23 @@ try {
 }
 ```
 
-Para obtener más información sobre los marcos de imagen, consulte [Marco de imagen](/nodejs-java/picture-frame/).
+Para más información sobre los marcos de imágenes, consulte [Picture Frame](/nodejs-java/picture-frame/).
 
 ## **Trabajar con marcadores de posición**
 
-Los marcadores de posición normalmente se definen en las diapositivas de diseño. La diapositiva master proporciona el estilo y tema compartidos que esos diseños heredan, mientras que cada diseño decide qué marcadores de posición están disponibles y dónde se colocan.
+Los marcadores de posición se definen normalmente en las layout slides. El master slide proporciona el estilo y tema compartidos que esos layouts heredan, mientras que cada layout decide qué marcadores de posición están disponibles y dónde se colocan.
 
 En PowerPoint, los comandos de marcador de posición están disponibles en la vista Slide Master.
 
 ![El comando Insertar marcador de posición en la vista Slide Master de PowerPoint](slide-master_5.png)
 
-Para agregar nuevos marcadores de posición con Aspose.Slides, trabaja con la diapositiva de diseño que pertenece al master:
+Para añadir nuevos marcadores de posición con Aspose.Slides, trabaje con la layout slide que pertenece al master:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let masterSlide = presentation.getMasters().get_Item(0);
@@ -161,9 +174,13 @@ try {
 }
 ```
 
-También puedes dar formato a las formas de marcador de posición que ya existen en una diapositiva master. El siguiente ejemplo encuentra el marcador de posición de título y aplica un relleno de degradado lineal:
+También puede dar formato a las formas de marcador de posición que ya existen en un master slide. El siguiente ejemplo encuentra el marcador de posición de título y le aplica un relleno de degradado lineal:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let masterSlide = presentation.getMasters().get_Item(0);
@@ -193,7 +210,7 @@ try {
         titlePlaceholder.getFillFormat().setFillType(gradientFillType);
         titlePlaceholder.getFillFormat().getGradientFormat().setGradientShape(linearGradientShape);
         titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(0.0, redGradientColor);
-        titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(255.0, purpleGradientColor);
+        titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(1.0, purpleGradientColor);
     }
 
     presentation.save("presentation-title-style.pptx", aspose.slides.SaveFormat.Pptx);
@@ -204,13 +221,17 @@ try {
 
 ![Marcador de posición de título formateado heredado por diapositivas normales](slide-master_8.png)
 
-Para obtener más opciones de marcadores de posición y formato de texto, consulte [Establecer texto de solicitud en marcador de posición](/nodejs-java/manage-placeholder/) y [Formato de texto](/nodejs-java/text-formatting/).
+Para más opciones de formato de marcadores de posición y texto, consulte [Set Prompt Text in Placeholder](/nodejs-java/manage-placeholder/) y [Text Formatting](/nodejs-java/text-formatting/).
 
-## **Cambiar el fondo de un slide master**
+## **Cambiar el fondo de un Slide Master**
 
-Un fondo de master es heredado por los diseños y diapositivas que no lo sobrescriben. El siguiente ejemplo establece un color de fondo sólido para la primera diapositiva master:
+Un fondo de master se hereda por los layouts y las diapositivas que no lo sobrescriben. El siguiente ejemplo establece un color de fondo sólido para el primer master slide:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let masterSlide = presentation.getMasters().get_Item(0);
@@ -228,13 +249,16 @@ try {
 }
 ```
 
-Para temas relacionados, consulte [Fondo de presentación](/nodejs-java/presentation-background/) y [Tema de presentación](/nodejs-java/presentation-theme/).
+Para temas relacionados, consulte [Presentation Background](/nodejs-java/presentation-background/) y [Presentation Theme](/nodejs-java/presentation-theme/).
 
-## **Clonar un slide master en otra presentación**
+## **Clonar un Slide Master a otra presentación**
 
-Utiliza `MasterSlideCollection.addClone` para copiar una diapositiva master a otra presentación. El master copiado puede entonces ser utilizado por los diseños y diapositivas en la presentación de destino.
+Utilice `MasterSlideCollection.addClone` para copiar un master slide a otra presentación. El master copiado puede entonces ser usado por layouts y diapositivas en la presentación de destino.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let sourcePresentation = new aspose.slides.Presentation("source.pptx");
 let destinationPresentation = new aspose.slides.Presentation("destination.pptx");
 try {
@@ -248,17 +272,21 @@ try {
 }
 ```
 
-Si necesitas clonar diapositivas normales junto con su master, consulta [Clonar diapositivas](/nodejs-java/clone-slides/).
+Si necesita clonar diapositivas normales junto con su master, consulte [Clone Slides](/nodejs-java/clone-slides/).
 
-## **Agregar varios slide masters**
+## **Añadir varios Slide Masters**
 
-Una presentación puede contener varias diapositivas master. Esto es útil cuando diferentes secciones requieren diferentes marcas, estructuras de página o configuraciones de tema.
+Una presentación puede contener varios master slides. Esto es útil cuando diferentes secciones requieren distintas marcas, estructuras de página o ajustes de tema.
 
-![Comandos de PowerPoint para insertar y gestionar diapositivas master](slide-master_9.jpg)
+![Comandos de PowerPoint para insertar y gestionar master slides](slide-master_9.jpg)
 
-El siguiente ejemplo clona el master predeterminado, le asigna al clon un fondo diferente, crea un diseño bajo ese master clonado y agrega una nueva diapositiva basada en ese diseño:
+El siguiente ejemplo clona el master predeterminado, asigna al clon un fondo diferente, crea una layout bajo ese master clonado y añade una nueva diapositiva basada en esa layout:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let defaultMasterSlide = presentation.getMasters().get_Item(0);
@@ -286,11 +314,14 @@ try {
 }
 ```
 
-## **Comparar slide masters**
+## **Comparar Slide Masters**
 
-Las diapositivas master pueden compararse con el método `equals` heredado de [BaseSlide](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/baseslide/). La comparación verifica la estructura y el contenido estático, como formas, texto, formato, animaciones y otras configuraciones de diapositiva. No compara identificadores únicos, como los IDs de diapositiva, ni valores dinámicos de marcadores de posición, como la fecha actual.
+Los master slides pueden compararse con el método `equals` heredado de [BaseSlide](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/baseslide/). La comparación verifica la estructura y el contenido estático, como formas, texto, formato, animaciones y otros ajustes de la diapositiva. No compara identificadores únicos, como los IDs de diapositiva, ni valores dinámicos de marcadores de posición, como la fecha actual.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let firstPresentation = new aspose.slides.Presentation("first.pptx");
 let secondPresentation = new aspose.slides.Presentation("second.pptx");
 try {
@@ -316,13 +347,17 @@ try {
 }
 ```
 
-Para obtener más información, consulte [Comparar diapositivas de presentación](/nodejs-java/compare-slides/).
+Para más información, consulte [Compare Presentation Slides](/slides/es/nodejs-java/compare-slides/).
 
 ## **Establecer la vista Slide Master como vista predeterminada**
 
-Utiliza el método `setLastView` en [ViewProperties](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/viewproperties/) para controlar la vista que PowerPoint abre primero. El siguiente ejemplo abre la presentación en la vista Slide Master:
+Utilice el método `setLastView` en [ViewProperties](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/viewproperties/) para controlar la vista que PowerPoint abre primero. El siguiente ejemplo abre la presentación en la vista Slide Master:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let slideMasterViewType = java.newByte(aspose.slides.ViewType.SlideMasterView);
@@ -334,15 +369,18 @@ try {
 }
 ```
 
-Para más ajustes de vista, consulte [Guardar presentación](/nodejs-java/save-presentation/).
+Para más ajustes de vista, consulte [Save Presentation](/slides/es/nodejs-java/save-presentation/).
 
-## **Eliminar diapositivas master no usadas**
+## **Eliminar master slides no utilizados**
 
-A veces las presentaciones contienen diapositivas master que ya no son usadas por ninguna diapositiva normal. Eliminar masters no usados puede reducir el tamaño del archivo y simplificar el mantenimiento de la plantilla.
+A veces las presentaciones contienen master slides que ya no son usados por ninguna diapositiva normal. Eliminar los masters no utilizados puede reducir el tamaño del archivo y simplificar el mantenimiento de plantillas.
 
-Utiliza `removeUnused` para eliminar los masters no usados de la colección `getMasters()`:
+Utilice `removeUnused` para eliminar los masters no usados de la colección `getMasters()`:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     presentation.getMasters().removeUnused(true);
@@ -352,9 +390,12 @@ try {
 }
 ```
 
-También puedes usar el método de bajo código `Compress.removeUnusedMasterSlides`:
+También puede usar el método de bajo código `Compress.removeUnusedMasterSlides`:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     aspose.slides.Compress.removeUnusedMasterSlides(presentation);
@@ -366,18 +407,18 @@ try {
 
 ## **FAQ**
 
-**¿Cuál es la diferencia entre un slide master y una diapositiva de diseño?**
+### ¿Cuál es la diferencia entre un slide master y una layout slide?
 
-Un slide master define configuraciones de diseño compartidas como tema, fondo, formas comunes y estilos de texto. Una diapositiva de diseño pertenece a un slide master y define una disposición específica de marcadores de posición. Una diapositiva normal usa una diapositiva de diseño, por lo que hereda tanto del diseño como del master.
+Un slide master define los ajustes de diseño compartidos, como tema, fondo, formas comunes y estilos de texto. Una layout slide pertenece a un master slide y define una disposición específica de marcadores de posición. Una diapositiva normal usa una layout slide, por lo que hereda tanto del layout como del master.
 
-**¿Puede una presentación contener varios slide masters?**
+### ¿Puede una presentación contener varios slide masters?
 
-Sí. Una presentación puede contener varios slide masters. Utiliza varios masters cuando diferentes secciones necesitan sistemas visuales o marcas diferentes.
+Sí. Una presentación puede contener varios slide masters. Utilice múltiples masters cuando diferentes secciones necesiten sistemas visuales o marcas distintas.
 
-**¿Debo añadir marcadores de posición a una diapositiva master o a una diapositiva de diseño?**
+### ¿Debo añadir marcadores de posición a un master slide o a una layout slide?
 
-En la mayoría de los casos, agrega marcadores de posición a las diapositivas de diseño. Coloca los elementos visuales compartidos y el formato compartido en la diapositiva master, y luego pon los marcadores de posición de contenido en los diseños que usarán las diapositivas normales.
+En la mayoría de los casos, añada marcadores de posición a las layout slides. Coloque los elementos visuales y formatos compartidos en el master slide y los marcadores de posición de contenido en los layouts que usarán las diapositivas normales.
 
-**¿Puedo eliminar una diapositiva master que todavía está en uso?**
+### ¿Puedo eliminar un master slide que todavía se utiliza?
 
-No. Una diapositiva master que tiene diapositivas dependientes no puede eliminarse de forma segura directamente. Primero mueve esas diapositivas a diseños bajo otro master, o utiliza un método de limpieza de masters no usados que elimine solo los masters que no están en uso.
+No. Un master slide que tiene diapositivas dependientes no puede eliminarse de forma segura. Primero mueva esas diapositivas a layouts bajo otro master, o utilice un método de limpieza de masters no usados que elimine sólo los masters que no están en uso.

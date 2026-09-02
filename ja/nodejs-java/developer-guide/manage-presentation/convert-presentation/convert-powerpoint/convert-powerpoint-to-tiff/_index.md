@@ -12,10 +12,10 @@ keywords:
 - PPT を変換
 - PPTX を変換
 - PowerPoint から TIFF へ
-- プレゼンテーションから TIFF へ
-- スライドから TIFF へ
-- PPT から TIFF へ
-- PPTX から TIFF へ
+- プレゼンテーションを TIFF に変換
+- スライドを TIFF に変換
+- PPT を TIFF に変換
+- PPTX を TIFF に変換
 - PPT を TIFF として保存
 - PPTX を TIFF として保存
 - PPT を TIFF にエクスポート
@@ -25,21 +25,23 @@ keywords:
 - Aspose.Slides
 description: "Aspose.Slides for Node.js を使用し、JavaScript のコード例とともに、PowerPoint（PPT、PPTX）プレゼンテーションを高品質な TIFF 画像に簡単に変換する方法を学びます。"
 ---
-## **Introduction**
+## **概要**
 
-TIFF（**Tagged Image File Format**）は、卓越した画質とグラフィックの詳細な保存が特徴の、広く使用されているロスレスラスター画像フォーマットです。デザイナー、写真家、デスクトップ出版者は、画像のレイヤー、色精度、元の設定を保持するために TIFF を選択することが多いです。
+TIFF（**Tagged Image File Format**）は、卓越した品質とグラフィックの詳細な保存で知られる、広く使用されているロスレスラスター画像フォーマットです。デザイナー、写真家、デスクトップパブリッシャーは、画像のレイヤー、色精度、元の設定を維持するためにTIFFを選択することが多いです。
 
-Aspose.Slides を使用すれば、PowerPoint スライド（PPT、PPTX）や OpenDocument スライド（ODP）を直接高品質な TIFF 画像に簡単に変換でき、プレゼンテーションの視覚的忠実度を最大限に保つことができます。
+Aspose.Slides を使用すると、PowerPoint スライド（PPT、PPTX）や OpenDocument スライド（ODP）を直接高品質な TIFF 画像に簡単に変換でき、プレゼンテーションの視覚的忠実度を最大限に保つことができます。
 
-## **Convert a Presentation to TIFF**
+## **プレゼンテーションをTIFFに変換**
 
-[Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/) クラスが提供する [save](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/#save-java.lang.String-int-) メソッドを使用すると、PowerPoint プレゼンテーション全体を迅速に TIFF に変換できます。生成される TIFF 画像はデフォルトのスライドサイズに対応しています。
+[Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/) クラスが提供する [save](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/#save-java.lang.String-int-) メソッドを使用すると、PowerPoint プレゼンテーション全体をすばやく TIFF に変換できます。生成される TIFF 画像はデフォルトのスライドサイズに対応します。
+
+この JavaScript コードは、PowerPoint プレゼンテーションを TIFF に変換する方法を示しています。
 
 ```js
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 
-// プレゼンテーション ファイル（PPT、PPTX、ODP など）を表す Presentation クラスのインスタンスを作成します。
+// Instantiate the Presentation class that represents a presentation file (PPT, PPTX, ODP, etc.).
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     // プレゼンテーションを TIFF として保存します。
@@ -49,17 +51,19 @@ try {
 }
 ```
 
-## **Convert a Presentation to Black-and-White TIFF**
+## **プレゼンテーションを白黒TIFFに変換**
 
-[TiffOptions](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/tiffoptions/) クラスの [setBwConversionMode](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/tiffoptions/#setBwConversionMode-int-) メソッドを使用すると、カラーのスライドや画像を白黒 TIFF に変換する際に使用するアルゴリズムを指定できます。この設定は、[setCompressionType](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/tiffoptions/#setCompressionType-int-) メソッドが `CCITT4` または `CCITT3` に設定されている場合にのみ適用されます。
+[TiffOptions](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/tiffoptions/) クラスの [setBwConversionMode](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/tiffoptions/#setBwConversionMode-int-) メソッドを使用すると、カラー スライドまたは画像を白黒 TIFF に変換する際に使用するアルゴリズムを指定できます。この設定は、[setCompressionType](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/tiffoptions/#setCompressionType-int-) メソッドが `CCITT4` または `CCITT3` に設定されている場合にのみ適用されます。
 
-{{% alert color="info" title="注意" %}}
-[TiffOptions.setBwConversionMode](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/tiffoptions/#setBwConversionMode-int-) は、完全な TIFF 画像に対してピクセル変換アルゴリズムを選択するエクスポートレベルの設定です。白黒表示モードが有効なときに個々のシェイプの表示方法を定義するには、[Shape.setBlackWhiteMode](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/shape/#setBlackWhiteMode) を使用します。例については、[Control Black-and-White Rendering for Shapes](/nodejs-java/shape-formatting/#control-black-and-white-rendering-for-shapes) を参照してください。
+{{% alert color="info" title="注" %}}
+[TiffOptions.setBwConversionMode](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/tiffoptions/#setBwConversionMode-int-) は、完全な TIFF 画像に対してピクセル変換アルゴリズムを選択するエクスポート レベルの設定です。個々のシェイプが白黒表示モードでどのように表示されるかを定義するには、[Shape.setBlackWhiteMode](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/shape/#setBlackWhiteMode) を使用します。例については [Control Black-and-White Rendering for Shapes](/slides/ja/nodejs-java/shape-formatting/#control-black-and-white-rendering-for-shapes) を参照してください。
 {{% /alert %}}
 
-例として、以下のスライドを含む "sample.pptx" ファイルがあるとします。
+たとえば、次のようなスライドを含む「sample.pptx」ファイルがあるとします。
 
-![プレゼンテーションスライド](slide_black_and_white.png)
+![プレゼンテーションのスライド](slide_black_and_white.png)
+
+この JavaScript コードは、カラー スライドを白黒 TIFF に変換する方法を示しています。
 
 ```js
 var aspose = aspose || {};
@@ -79,11 +83,13 @@ try {
 
 結果:
 
-![白黒 TIFF](TIFF_black_and_white.png)
+![白黒TIFF](TIFF_black_and_white.png)
 
-## **Convert a Presentation to TIFF with Custom Size**
+## **カスタムサイズのTIFFにプレゼンテーションを変換**
 
-特定のサイズの TIFF 画像が必要な場合は、[TiffOptions](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/tiffoptions/) に用意されているメソッドを使用して希望の値を設定できます。たとえば、[setImageSize](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/tiffoptions/#setImageSize) メソッドを使うと、生成される画像のサイズを指定できます。
+特定の寸法の TIFF 画像が必要な場合は、[TiffOptions](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/tiffoptions/) で利用可能なメソッドを使用して希望の値を設定できます。たとえば、[setImageSize](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/tiffoptions/#setImageSize) メソッドを使用すると、生成される画像のサイズを定義できます。
+
+この JavaScript コードは、PowerPoint プレゼンテーションをカスタムサイズの TIFF 画像に変換する方法を示しています。
 
 ```js
 var aspose = aspose || {};
@@ -99,15 +105,15 @@ try {
     tiffOptions.setCompressionType(aspose.slides.TiffCompressionTypes.Default);
     /*
     圧縮タイプ:
-        Default - デフォルトの圧縮方式 (LZW) を指定します。
-        None - 圧縮しないことを指定します。
+        Default - デフォルトの圧縮方式（LZW）を指定します。
+        None - 圧縮なしを指定します。
         CCITT3
         CCITT4
         LZW
         RLE
     */
 
-    // 色深度はピクセルフォーマットで制御されます（以下の例を参照）。CCITT3 と CCITT4 は常に 1 ビット/ピクセルになります。
+    // カラーデプスはピクセル形式で制御されます（以下の例をご参照ください）。CCITT3 および CCITT4 は常に 1 ビット/ピクセルになります。
 
     // 画像の DPI を設定します。
     tiffOptions.setDpiX(200);
@@ -127,25 +133,27 @@ try {
 }
 ```
 
-## **Convert a Presentation to TIFF with Custom Image Pixel Format**
+## **カスタム画像ピクセル形式のTIFFにプレゼンテーションを変換**
 
-[TiffOptions](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/tiffoptions/) クラスの [setPixelFormat](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/tiffoptions/#setPixelFormat) メソッドを使用すると、生成される TIFF 画像のピクセルフォーマットを任意に指定できます。
+[TiffOptions](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/tiffoptions/) クラスの [setPixelFormat](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/tiffoptions/#setPixelFormat) メソッドを使用すると、生成される TIFF 画像のピクセル形式を好きなものに指定できます。
+
+この JavaScript コードは、カスタムピクセル形式の TIFF 画像に PowerPoint プレゼンテーションを変換する方法を示しています。
 
 ```js
 var aspose = aspose || {};
 aspose.slides = require("aspose.slides.via.java");
 
-// プレゼンテーション ファイル（PPT、PPTX、ODP など）を表す Presentation クラスのインスタンスを作成します。
+// プレゼンテーション ファイル（PPT、PPTX、ODP など）を表す Presentation クラスのインスタンスを生成します。
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let tiffOptions = new aspose.slides.TiffOptions();
 
     tiffOptions.setPixelFormat(aspose.slides.ImagePixelFormat.Format8bppIndexed);
     /*
-    ImagePixelFormat には以下の値が含まれています（ドキュメント記載のとおり）:
-        Format1bppIndexed - 1 ビット/ピクセル、インデックス形式。
-        Format4bppIndexed - 4 ビット/ピクセル、インデックス形式。
-        Format8bppIndexed - 8 ビット/ピクセル、インデックス形式。
+    ImagePixelFormat には次の値が含まれます（ドキュメントに記載されている通り）:
+        Format1bppIndexed - 1 ビット/ピクセル、インデックスカラー。
+        Format4bppIndexed - 4 ビット/ピクセル、インデックスカラー。
+        Format8bppIndexed - 8 ビット/ピクセル、インデックスカラー。
         Format24bppRgb    - 24 ビット/ピクセル、RGB。
         Format32bppArgb   - 32 ビット/ピクセル、ARGB。
     */
@@ -158,19 +166,19 @@ try {
 ```
 
 {{% alert title="ヒント" color="info" %}}
-Aspose の [無料 PowerPoint からポスターへのコンバータ](https://products.aspose.app/slides/ja/conversion/convert-ppt-to-poster-online) をご覧ください。
+Aspose の [FREE PowerPoint to Poster converter](https://products.aspose.app/slides/ja/conversion/convert-ppt-to-poster-online) をぜひご利用ください。
 {{% /alert %}}
 
-## **FAQ**
+## **よくある質問**
 
-**PowerPoint プレゼンテーション全体ではなく、個々のスライドだけを TIFF に変換できますか？**
+**個々のスライドだけを TIFF に変換できますか？**
 
-はい。Aspose.Slides を使用すると、PowerPoint および OpenDocument プレゼンテーションから個々のスライドを別々に TIFF 画像に変換できます。
+はい。Aspose.Slides を使用すると、PowerPoint および OpenDocument プレゼンテーションから個々のスライドを別々の TIFF 画像として変換できます。
 
 **プレゼンテーションを TIFF に変換する際、スライド数に制限はありますか？**
 
-いいえ、Aspose.Slides にはスライド数に関する制限はありません。任意のサイズのプレゼンテーションを TIFF 形式に変換できます。
+いいえ、Aspose.Slides はスライド数に制限を設けていません。任意のサイズのプレゼンテーションを TIFF 形式に変換できます。
 
-**スライドを TIFF に変換する際、PowerPoint のアニメーションやトランジション効果は保持されますか？**
+**スライドを TIFF に変換すると、PowerPoint のアニメーションやトランジション効果は保持されますか？**
 
-いいえ、TIFF は静的画像フォーマットです。そのため、アニメーションやトランジション効果は保持されず、スライドの静止画スナップショットのみがエクスポートされます。
+保持されません。TIFF は静的画像形式です。そのため、アニメーションやトランジション効果は保持されず、スライドの静止画がエクスポートされます。

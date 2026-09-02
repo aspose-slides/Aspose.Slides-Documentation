@@ -1,58 +1,58 @@
 ---
-title: سفارشی‌سازی فونت‌های PowerPoint در PHP
-linktitle: فونت سفارشی
+title: سفارشی‌سازی قلم‌های پاورپوینت در PHP
+linktitle: قلم سفارشی
 type: docs
 weight: 20
 url: /fa/php-java/custom-font/
 keywords:
-- فونت
-- فونت سفارشی
-- فونت خارجی
-- بارگذاری فونت
-- مدیریت فونت‌ها
-- پوشه فونت
-- PowerPoint
+- قلم
+- قلم سفارشی
+- قلم خارجی
+- بارگذاری قلم
+- مدیریت قلم‌ها
+- پوشه قلم
+- پاورپوینت
 - OpenDocument
 - ارائه
 - PHP
 - Aspose.Slides
-description: "فونت‌ها را در اسلایدهای PowerPoint با Aspose.Slides برای PHP از طریق Java سفارشی کنید تا ارائه‌های شما در هر دستگاهی واضح و سازگار باشند."
+description: "قلم‌ها را در اسلایدهای پاورپوینت با Aspose.Slides برای PHP از طریق جاوا سفارشی کنید تا ارائه‌های شما در هر دستگاهی واضح و سازگار باشند."
 ---
 ## **بررسی کلی**
 
-Aspose.Slides به شما امکان می‌دهد فونت‌های سفارشی را در ارائه‌ها بدون نصب آن‌ها بر روی سیستم عامل استفاده کنید. می‌توانید فونت‌ها را از پوشه‌های سفارشی بارگذاری کنید، فونت‌ها را برای یک ارائه خاص از طریق منابع فونت در سطح سند فراهم کنید، یا فونت‌های خارجی را مستقیماً از داده‌های باینری بارگیری کنید.
+Aspose.Slides به شما امکان می‌دهد تا در ارائه‌ها از قلم‌های سفارشی استفاده کنید بدون آن‌که نیاز به نصب آنها بر روی سیستم عامل داشته باشید. می‌توانید قلم‌ها را از پوشه‌های سفارشی بارگذاری کنید، قلم‌ها را برای یک ارائه خاص از طریق منبع‌های قلم در سطح سند فراهم کنید، یا قلم‌های خارجی را مستقیماً از داده‌های باینری بارگذاری کنید.
 
-فونت‌های بارگذاری شده هنگام رندر یا صادرات ارائه، مثلاً به PDF، تصاویر و سایر فرمت‌های پشتیبانی‌شده، استفاده می‌شوند. این به حفظ سازگاری خروجی ارائه در محیط‌های مختلف کمک می‌کند. این مقاله همچنین نحوه بررسی پوشه‌های فونت مورد استفاده توسط Aspose.Slides و چگونگی پاک‌کردن کش فونت پس از کار با فونت‌های خارجی را توضیح می‌دهد.
+قلم‌های بارگذاری شده هنگام رندر یا صادرات یک ارائه استفاده می‌شوند، برای مثال به PDF، تصویرها و سایر فرمت‌های پشتیبانی‌شده. این کار به حفظ سازگاری خروجی ارائه در محیط‌های مختلف کمک می‌کند. مقاله همچنین توضیح می‌دهد چگونه می‌توانید پوشه‌های قلم مورد استفاده توسط Aspose.Slides را بررسی کرده و پس از کار با قلم‌های خارجی، کش قلم را پاک کنید.
 
-ثبت فونت‌های سفارشی برای رندر کردن جدا از جاسازی فونت‌ها در فایل PPTX است. اگر لازم است فونت داخل خود ارائه ذخیره شود، از امکانات جاسازی فونت به‌صورت صریح استفاده کنید.
+ثبت قلم‌های سفارشی برای رندر کردن، جدا از جاسازی قلم‌ها در فایل PPTX است. اگر نیازی باشد که یک قلم داخل خود ارائه ذخیره شود، باید از ویژگی‌های جاسازی قلم به‌صورت صریح استفاده کنید.
 
-{{% alert color="primary" %}} 
+یک تم ارائه می‌تواند خانواده‌های قلم مختلفی را برای سیستم‌های نوشتاری جداگانه ارجاع دهد. این نگاشت‌ها نام‌های قلم را ذخیره می‌کنند اما قلم‌ها را نصب یا بارگذاری نمی‌کنند. برای مدیریت این نگاشت‌ها، به [Script-Specific Theme Fonts](/slides/fa/php-java/script-specific-font-mappings/) مراجعه کنید و از گزینه‌های بارگذاری زیر استفاده کنید تا قلم‌های ارجاع‌شده برای رندر سازگار در دسترس باشند.
 
-Aspose Slides به شما امکان می‌دهد این فونت‌ها را با استفاده از متد [loadExternalFonts](https://reference.aspose.com/slides/fa/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) بارگذاری کنید:
+{{% alert color="info" title="Note" %}}
+Aspose Slides به شما امکان می‌دهد این قلم‌ها را با استفاده از متد [loadExternalFonts](https://reference.aspose.com/slides/fa/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) بارگذاری کنید:
 
-* فونت‌های TrueType (.ttf) و TrueType Collection (.ttc). برای اطلاعات بیشتر به [TrueType](https://en.wikipedia.org/wiki/TrueType) مراجعه کنید.
-* فونت‌های OpenType (.otf). برای اطلاعات بیشتر به [OpenType](https://en.wikipedia.org/wiki/OpenType) مراجعه کنید.
-
+* قلم‌های TrueType (.ttf) و TrueType Collection (.ttc). برای اطلاعات بیشتر به [TrueType](https://en.wikipedia.org/wiki/TrueType) مراجعه کنید.
+* قلم‌های OpenType (.otf). برای اطلاعات بیشتر به [OpenType](https://en.wikipedia.org/wiki/OpenType) مراجعه کنید.
 {{% /alert %}}
 
-## **بارگذاری فونت‌های سفارشی**
+## **بارگذاری قلم‌های سفارشی**
 
-Aspose.Slides به شما امکان می‌دهد فونت‌های استفاده‌شده در یک ارائه را بدون نصب آن‌ها بر روی سیستم بارگذاری کنید. این بر خروجی صادرات—مانند PDF، تصاویر و سایر فرمت‌های پشتیبانی‌شده—تاثیر می‌گذارد، بنابراین اسناد حاصل در محیط‌های مختلف یکدست به‌نظر می‌رسند. فونت‌ها از دایرکتوری‌های سفارشی بارگذاری می‌شوند.
+Aspose.Slides به شما امکان می‌دهد قلم‌های استفاده‌شده در یک ارائه را بدون نصب بر روی سیستم بارگذاری کنید. این موضوع بر خروجی‌های صادراتی—مانند PDF، تصویرها و سایر فرمت‌های پشتیبانی‌شده—تأثیر می‌گذارد تا اسناد حاصل در محیط‌های مختلف سازگار به نظر برسند. قلم‌ها از پوشه‌های سفارشی بارگذاری می‌شوند.
 
-1. یک یا چند پوشه که شامل فایل‌های فونت هستند را مشخص کنید.
-2. متد استاتیک [FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/fa/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) را فراخوانی کنید تا فونت‌ها از آن پوشه‌ها بارگذاری شوند.
-3. ارائه را بارگذاری و رندر/صادر کنید.
-4. برای پاک‌کردن کش فونت، متد [FontsLoader::clearCache](https://reference.aspose.com/slides/fa/php-java/aspose.slides/fontsloader/#clearCache--) را فراخوانی کنید.
+1. یک یا چند پوشه که شامل فایل‌های قلم هستند را مشخص کنید.
+2. متد استاتیک [FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/fa/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) را فراخوانی کنید تا قلم‌ها از آن پوشه‌ها بارگذاری شوند.
+3. ارائه را بارگذاری و رندر/صادرات کنید.
+4. متد [FontsLoader::clearCache](https://reference.aspose.com/slides/fa/php-java/aspose.slides/fontsloader/#clearCache--) را فراخوانی کنید تا کش قلم پاک شود.
 
-مثال کد زیر فرآیند بارگذاری فونت را نشان می‌دهد:
+مثال کد زیر فرآیند بارگذاری قلم را نشان می‌دهد:
 
 ```php
-// Define folders that contain custom font files.
+// پوشه‌هایی که شامل فایل‌های قلم سفارشی هستند را تعریف کنید.
 $externalFontFolder1 = __DIR__ . "/external-fonts-1";
 $externalFontFolder2 = __DIR__ . "/external-fonts-2";
 $fontFolders = array($externalFontFolder1, $externalFontFolder2);
 
-// Load custom fonts from the specified folders.
+// قلم‌های سفارشی را از پوشه‌های مشخص‌شده بارگذاری کنید.
 FontsLoader::loadExternalFonts($fontFolders);
 
 $presentation = null;
@@ -60,41 +60,40 @@ try {
     $presentationPath = __DIR__ . "/sample.pptx";
     $presentation = new Presentation($presentationPath);
     
-    // Render/export the presentation (e.g., to PDF, images, or other formats) using the loaded fonts.
+    // ارائه را رندر/صادر کنید (مثلاً به PDF، تصویرها یا فرمت‌های دیگر) با استفاده از قلم‌های بارگذاری‌شده.
     $outputPath = __DIR__ . "/output.pdf";
     $presentation->save($outputPath, SaveFormat::Pdf);
 } finally {
     if ($presentation != null) $presentation->dispose();
 
-    // Clear the font cache after the work is finished.
+    // پس از اتمام کار کش قلم را پاک کنید.
     FontsLoader::clearCache();
 }
 ```
 
-
 {{% alert color="info" title="Note" %}}
+[FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/fa/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) پوشه‌های اضافی به مسیرهای جستجوی قلم اضافه می‌کند، اما ترتیب اولیه‌سازی قلم را تغییر نمی‌دهد.
+قلم‌ها به ترتیب زیر اولیه‌سازی می‌شوند:
 
-[FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/fa/php-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---) پوشه‌های اضافی به مسیرهای جستجوی فونت اضافه می‌کند، اما ترتیب مقداردهی اولیه فونت‌ها را تغییر نمی‌دهد.  
-فونت‌ها به این ترتیب مقداردهی می‌شوند:
-
-1. مسیر پیش‌فرض فونت‌های سیستم عامل.
+1. مسیر پیش‌فرض قلم‌های سیستم‌عامل.
 1. مسیرهایی که از طریق [FontsLoader](https://reference.aspose.com/slides/fa/php-java/aspose.slides/fontsloader/) بارگذاری شده‌اند.
-
 {{%/alert %}}
 
-## **دریافت پوشه‌های فونت سفارشی**
-Aspose.Slides متد [getFontFolders](https://reference.aspose.com/slides/fa/php-java/aspose.slides/fontsloader/#getFontFolders--) را برای یافتن پوشه‌های فونت فراهم می‌کند. این متد پوشه‌هایی که از طریق متد `LoadExternalFonts` اضافه شده‌اند و پوشه‌های فونت سیستم را باز می‌گرداند.
+## **دریافت پوشه‌های قلم سفارشی**
+
+Aspose.Slides متد [getFontFolders](https://reference.aspose.com/slides/fa/php-java/aspose.slides/fontsloader/#getFontFolders--) را فراهم می‌کند تا به شما اجازه دهد پوشه‌های قلم را پیدا کنید. این متد پوشه‌های اضافه‌شده از طریق متد `LoadExternalFonts` و پوشه‌های قلم سیستم را برمی‌گرداند.
 
 این کد PHP نشان می‌دهد چگونه از [getFontFolders](https://reference.aspose.com/slides/fa/php-java/aspose.slides/fontsloader/#getFontFolders--) استفاده کنید:
 
 ```php
-# این خط پوشه‌هایی را که فایل‌های فونت در آن جستجو می‌شوند، خروجی می‌دهد.
-# این‌ها پوشه‌هایی هستند که از طریق متد LoadExternalFonts اضافه شده‌اند و پوشه‌های فونت سیستم.
+# این خط پوشه‌هایی را که در آن‌ها فایل‌های قلم جستجو می‌شوند، خروجی می‌دهد.
+# این‌ها پوشه‌هایی هستند که از طریق متد LoadExternalFonts اضافه شده‌اند و پوشه‌های قلم سیستم.
 $fontFolders = FontsLoader::getFontFolders();
 ```
 
-## **مشخص کردن فونت‌های سفارشی مورد استفاده در یک ارائه**
-Aspose.Slides متد [LoadOptions.setDocumentLevelFontSources](https://reference.aspose.com/slides/fa/java/com.aspose.slides/loadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) را برای مشخص کردن فونت‌های خارجی که با ارائه استفاده خواهند شد، فراهم می‌کند.
+## **مشخص کردن قلم‌های سفارشی استفاده‌شده با یک ارائه**
+
+Aspose.Slides متد [LoadOptions.setDocumentLevelFontSources](https://reference.aspose.com/slides/fa/java/com.aspose.slides/loadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) را فراهم می‌کند تا بتوانید قلم‌های خارجی که با ارائه استفاده می‌شوند را مشخص کنید.
 
 این کد PHP نشان می‌دهد چگونه از متد [LoadOptions.setDocumentLevelFontSources](https://reference.aspose.com/slides/fa/java/com.aspose.slides/loadoptions/#setDocumentLevelFontSources-com.aspose.slides.IFontSources-) استفاده کنید:
 
@@ -139,7 +138,7 @@ $presentationPath = __DIR__ . "/MyPresentation.pptx";
 $presentation = new Presentation($presentationPath, $loadOptions);
 try {
     # کار با ارائه
-    # CustomFont1، CustomFont2 و فونت‌های موجود در پوشه‌های assets\fonts و global\fonts و زیرفولدرهای آن‌ها برای ارائه در دسترس هستند
+    # قلم‌های CustomFont1 و CustomFont2 و قلم‌های موجود در پوشه‌های assets\fonts و global\fonts و زیرپوشه‌های آن‌ها برای ارائه در دسترس هستند
 } finally {
     if (!java_is_null($presentation)) {
         $presentation->dispose();
@@ -147,11 +146,11 @@ try {
 }
 ```
 
-## **مدیریت فونت‌ها به‌صورت خارجی**
+## **مدیریت قلم‌ها به‌صورت خارجی**
 
-Aspose.Slides متد [loadExternalFont](https://reference.aspose.com/slides/fa/php-java/aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) را برای بارگذاری فونت‌های خارجی از داده‌های باینری فراهم می‌کند.
+Aspose.Slides متد [loadExternalFont](https://reference.aspose.com/slides/fa/php-java/aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) را فراهم می‌کند تا بتوانید قلم‌های خارجی را از داده‌های باینری بارگذاری کنید.
 
-این کد PHP فرآیند بارگذاری فونت از آرایه بایت را نشان می‌دهد:
+این کد PHP فرآیند بارگذاری قلم از آرایه بایت را نشان می‌دهد:
 
 ```php
 $javaArray = new JavaClass("java.lang.reflect.Array");
@@ -197,7 +196,7 @@ FontsLoader::loadExternalFont($fontBytes);
 try {
     $presentation = new Presentation();
     try {
-        # فونت خارجی در طول مدت زمان ارائه بارگذاری شده است
+        # قلم خارجی در طول عمر ارائه بارگذاری شده است
     } finally {
         if (!java_is_null($presentation)) {
             $presentation->dispose();
@@ -208,19 +207,24 @@ try {
 }
 ```
 
-## **پرسش‌های متداول**
+## **FAQ**
 
-**آیا فونت‌های سفارشی بر صادرات به همه قالب‌ها (PDF, PNG, SVG, HTML) تاثیر می‌گذارند؟**  
-بله. فونت‌های متصل توسط رندرکننده در تمام قالب‌های خروجی استفاده می‌شوند.
+### آیا قلم‌های سفارشی بر خروجی به تمام فرمت‌ها (PDF, PNG, SVG, HTML) تأثیر می‌گذارند؟
 
-**آیا فونت‌های سفارشی به‌صورت خودکار در PPTX نهایی جاسازی می‌شوند؟**  
-خیر. ثبت یک فونت برای رندر کردن همانند جاسازی آن در PPTX نیست. اگر نیاز دارید فونت داخل فایل ارائه نگهداری شود، باید از ویژگی‌های [جاسازی صریح](/slides/fa/php-java/embedded-font/) استفاده کنید.
+بله. قلم‌های متصل توسط رندرر در تمام فرمت‌های صادراتی استفاده می‌شوند.
 
-**آیا می‌توانم رفتار fallback را وقتی یک فونت سفارشی گلیف‌های خاصی ندارد، کنترل کنم؟**  
-بله. می‌توانید [جایگزینی فونت](/slides/fa/php-java/font-substitution/)، [قواعد جایگزینی](/slides/fa/php-java/font-replacement/) و [مجموعه‌های fallback](/slides/fa/php-java/fallback-font/) را پیکربندی کنید تا دقیقاً تعیین کنید در صورت نبود گلیف مورد نظر از چه فونتی استفاده شود.
+### آیا قلم‌های سفارشی به‌صورت خودکار در PPTX نهایی جاسازی می‌شوند؟
 
-**آیا می‌توانم فونت‌ها را در کانتینرهای Linux/Docker بدون نصب سراسری استفاده کنم؟**  
-بله. می‌توانید به پوشه‌های فونت خود اشاره کنید یا فونت‌ها را از آرایه‌های بایت بارگذاری کنید. این کار وابستگی به پوشه‌های فونت سیستم در تصویر کانتینر را حذف می‌کند.
+نه. ثبت یک قلم برای رندر کردن همانند جاسازی آن در PPTX نیست. اگر نیاز دارید قلم داخل فایل ارائه باشد، باید از ویژگی‌های واضح [embedding features](/slides/fa/php-java/embedded-font/) استفاده کنید.
 
-**در مورد لایسنس—آیا می‌توانم هر فونت سفارشی را بدون محدودیت جاسازی کنم؟**  
-شما مسئول تبعیت از شرایط لایسنس فونت هستید. شرایط متفاوت است؛ برخی لایسنس‌ها جاسازی یا استفاده تجاری را ممنوع می‌کنند. همیشه قبل از توزیع خروجی‌ها، توافق‌نامه کاربری نهایی (EULA) فونت را مرور کنید.
+### آیا می‌توانم رفتار fallback را هنگام عدم وجود برخی گلیف‌ها در قلم سفارشی کنترل کنم؟
+
+بله. می‌توانید [font substitution](/slides/fa/php-java/font-substitution/)، [replacement rules](/slides/fa/php-java/font-replacement/) و [fallback sets](/slides/fa/php-java/fallback-font/) را پیکربندی کنید تا دقیقاً مشخص کنید در صورت نبود گلیف درخواست‌شده از چه قلمی استفاده شود.
+
+### آیا می‌توانم در کانتینرهای Linux/Docker بدون نصب سیستم‌عامل قلم‌ها استفاده کنم؟
+
+بله. می‌توانید به پوشه‌های قلم خود اشاره کنید یا قلم‌ها را از آرایه‌های بایت بارگذاری کنید. این کار هرگونه وابستگی به مسیرهای قلم سیستم در تصویر کانتینر را حذف می‌کند.
+
+### درباره مجوزها—آیا می‌توانم هر قلم سفارشی را بدون محدودیت جاسازی کنم؟
+
+شما مسئول رعایت مجوزهای قلم هستید. شرایط متفاوت است؛ برخی مجوزها جاسازی یا استفاده تجاری را ممنوع می‌کنند. همواره قبل از توزیع خروجی‌ها، قرارداد کاربری نهایی (EULA) قلم را مرور کنید.

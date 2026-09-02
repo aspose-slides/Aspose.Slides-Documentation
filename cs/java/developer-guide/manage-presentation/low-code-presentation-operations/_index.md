@@ -1,11 +1,11 @@
 ---
-title: Low-Code operace prezentací v Java
-linktitle: Low-Code API
+title: Operace s prezentacemi s nízkým kódem v Javě
+linktitle: API s nízkým kódem
 type: docs
 weight: 50
 url: /cs/java/low-code-presentation-operations/
 keywords:
-- low-code API pro prezentace
+- API prezentace s nízkým kódem
 - převod prezentace
 - sloučení prezentací
 - iterace snímků
@@ -13,21 +13,21 @@ keywords:
 - iterace textu
 - sběr tvarů
 - komprese prezentace
-- odstranění nepoužitých master snímků
-- odstranění nepoužitých rozvržení snímků
+- odstranění nepoužívaných hlavních snímků
+- odstranění nepoužívaných rozvržení snímků
 - komprese vložených fontů
 - PowerPoint
 - OpenDocument
 - prezentace
 - Java
 - Aspose.Slides
-description: "Použijte low-code API Aspose.Slides v jazyce Java k převodu a sloučení prezentací, iteraci obsahu, sběru tvarů a snížení velikosti prezentace."
+description: "Použijte low-code API Aspose.Slides v Javě k převodu a sloučení prezentací, iteraci obsahu, sběru tvarů a snížení velikosti prezentace."
 ---
 ## **Přehled**
 
-Balíček [com.aspose.slides](https://reference.aspose.com/slides/cs/java/com.aspose.slides/) poskytuje statické pomocné třídy pro běžné operace s prezentacemi. Tyto pomocníky zabalí často používané pracovní postupy objektového modelu do zaměřených metod, takže můžete převádět nebo slučovat soubory, zpracovávat prvky prezentace, sbírat tvary a odstraňovat nepoužitý obsah s méně kódem.
+Balíček [com.aspose.slides](https://reference.aspose.com/slides/cs/java/com.aspose.slides/) poskytuje statické pomocné třídy pro běžné operace s prezentacemi. Tyto pomocníky zapouzdřují často používané pracovní postupy objektového modelu do zaměřených metod, takže můžete konvertovat nebo slučovat soubory, zpracovávat prvky prezentace, sbírat tvary a odstraňovat nepoužívaný obsah s menším množstvím kódu.
 
-Low-code pomocníci jsou nejužitečnější, když se operace vztahuje na celý soubor nebo prezentaci a výchozí pracovní postup odpovídá vašim požadavkům. Použijte plný [Aspose.Slides object model](https://reference.aspose.com/slides/cs/java/com.aspose.slides/) když potřebujete jemnou kontrolu nad jednotlivými snímky, mastery, rozvrženími, tvary, nastavením exportu nebo vztahy mezi prvky prezentace.
+Nástroje s nízkým kódem jsou nejužitečnější, když se operace vztahuje na celý soubor nebo prezentaci a výchozí pracovní postup odpovídá vašim požadavkům. Použijte plný [Aspose.Slides object model](https://reference.aspose.com/slides/cs/java/com.aspose.slides/), pokud potřebujete jemnozrnnou kontrolu nad jednotlivými snímky, hlavními snímky, rozvržením, tvary, nastavením exportu nebo vztahy mezi prvky prezentace.
 
 Následující tabulka shrnuje dostupné pomocníky:
 
@@ -37,11 +37,11 @@ Následující tabulka shrnuje dostupné pomocníky:
 | [Merger](https://reference.aspose.com/slides/cs/java/com.aspose.slides/merger/) | Kombinování kompletních souborů prezentací stejného formátu. |
 | [ForEach](https://reference.aspose.com/slides/cs/java/com.aspose.slides/foreach/) | Spuštění akce pro každý snímek, tvar, odstavec nebo část textu. |
 | [Collect](https://reference.aspose.com/slides/cs/java/com.aspose.slides/collect/) | Získání tvarů z celé prezentace pro opakované zpracování nebo analýzu. |
-| [Compress](https://reference.aspose.com/slides/cs/java/com.aspose.slides/compress/) | Odstranění nepoužitých masterů a rozvržení a zmenšení vložených dat fontů. |
+| [Compress](https://reference.aspose.com/slides/cs/java/com.aspose.slides/compress/) | Odstranění nepoužívaných hlavních snímků a rozvržení a zmenšení vložených dat fontů. |
 
 ## **Převod prezentace**
 
-Použijte [Convert.autoByExtension](https://reference.aspose.com/slides/cs/java/com.aspose.slides/convert/#autoByExtension-java.lang.String-java.lang.String-) když je přípona výstupního souboru dostatečná pro výběr formátu exportu. Metoda otevře zdrojovou prezentaci, určí požadovaný formát z výstupní cesty a zapíše výsledek.
+Použijte [Convert.autoByExtension](https://reference.aspose.com/slides/cs/java/com.aspose.slides/convert/#autoByExtension-java.lang.String-java.lang.String-) když je přípona výstupního souboru dostačující pro výběr formátu exportu. Metoda otevře zdrojovou prezentaci, určí požadovaný formát z výstupní cesty a zapíše výsledek.
 
 ```java
 import com.aspose.slides.Convert;
@@ -49,11 +49,11 @@ import com.aspose.slides.Convert;
 Convert.autoByExtension("input.pptx", "output.pdf");
 ```
 
-Třída [Convert](https://reference.aspose.com/slides/cs/java/com.aspose.slides/convert/) také poskytuje dedikované metody pro výstup do PDF, SVG, JPEG, PNG a TIFF. Použijte plný objektový model, když potřebujete před exportem prezentaci prohlédnout nebo upravit, nebo nakonfigurovat volbu exportu, která není vybraným pomocníkem zpřístupněna. Viz [Convert Presentation](/java/convert-presentation/) pro workflow a možnosti specifické pro formát.
+[Convert](https://reference.aspose.com/slides/cs/java/com.aspose.slides/convert/) třída také poskytuje specializované metody pro výstup do PDF, SVG, JPEG, PNG a TIFF. Použijte plný objektový model, pokud potřebujete před exportem prezentaci prohlédnout nebo upravit či nakonfigurovat volbu exportu, která není poskytována vybraným pomocníkem. Viz [Convert Presentation](/slides/cs/java/convert-presentation/) pro pracovně‑specifické postupy a možnosti.
 
 ## **Sloučení prezentací**
 
-Použijte [Merger.process](https://reference.aspose.com/slides/cs/java/com.aspose.slides/merger/#process-java.lang.String:A-java.lang.String-) k sloučení kompletních souborů prezentací jedním voláním. Vstupní prezentace musí mít stejný formát souboru.
+Použijte [Merger.process](https://reference.aspose.com/slides/cs/java/com.aspose.slides/merger/#process-java.lang.String:A-java.lang.String-) pro sloučení kompletních souborů prezentací jedním voláním. Vstupní prezentace musí mít stejný formát souboru.
 
 ```java
 import com.aspose.slides.Merger;
@@ -62,13 +62,13 @@ String[] inputFiles = { "part-1.pptx", "part-2.pptx" };
 Merger.process(inputFiles, "merged.pptx");
 ```
 
-Pomocník je vhodný, když mají být všechny snímky připojeny k jednomu výsledku bez individuálního výběru nebo přemapování. Použijte plný objektový model, když potřebujete sloučit vybrané snímky, aplikovat cílový master nebo rozvržení, explicitně zachovat sekce nebo sladit různé velikosti snímků. Viz [Merge Presentations](/java/merge-presentation/) pro tyto scénáře.
+Tento pomocník je vhodný, když mají být všechny snímky připojeny k jednomu výsledku bez individuálního výběru nebo přemapování. Použijte plný objektový model, pokud potřebujete sloučit vybrané snímky, použít cílový hlavní snímek nebo rozvržení, explicitně zachovat sekce nebo sladit různé velikosti snímků. Viz [Merge Presentations](/slides/cs/java/merge-presentation/) pro tyto scénáře.
 
 ## **Iterace přes prvky prezentace**
 
-Třída [ForEach](https://reference.aspose.com/slides/cs/java/com.aspose.slides/foreach/) vyvolá zpětné volání pro každý požadovaný typ prvku prezentace. Vyhýbá se zanořovaným smyčkám sběru a je pohodlná pro celoprezentační inspekci nebo změny formátování.
+Třída [ForEach](https://reference.aspose.com/slides/cs/java/com.aspose.slides/foreach/) volá zpětnou funkci pro každý požadovaný typ prvku prezentace. Vyhýbá se vnořeným smyčkám sbírek a je pohodlná pro celoprezentační kontrolu nebo změny formátování.
 
-Následující příklad používá [ForEach.slide](https://reference.aspose.com/slides/cs/java/com.aspose.slides/foreach/#slide-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachSlideCallback-), [ForEach.shape](https://reference.aspose.com/slides/cs/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-), [ForEach.paragraph](https://reference.aspose.com/slides/cs/java/com.aspose.slides/foreach/#paragraph-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachParagraphCallback-) a [ForEach.portion](https://reference.aspose.com/slides/cs/java/com.aspose.slides/foreach/#portion-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachPortionCallback-) k inspekci odpovídajících elementů:
+Následující příklad používá [ForEach.slide](https://reference.aspose.com/slides/cs/java/com.aspose.slides/foreach/#slide-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachSlideCallback-), [ForEach.shape](https://reference.aspose.com/slides/cs/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-), [ForEach.paragraph](https://reference.aspose.com/slides/cs/java/com.aspose.slides/foreach/#paragraph-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachParagraphCallback-), a [ForEach.portion](https://reference.aspose.com/slides/cs/java/com.aspose.slides/foreach/#portion-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachPortionCallback-) k prozkoumání odpovídajících prvků:
 
 ```java
 import com.aspose.slides.*;
@@ -95,11 +95,11 @@ try {
 }
 ```
 
-Ve výchozím nastavení projde celoprezentační průchod tvarů a textu normální, master i rozvržení snímky. Přetížení s parametrem `includeNotes` může také zpracovat poznámkové snímky. Použijte přímé smyčky sběru, když je důležitý pořadí průchodu, brzký výstup, filtrování před voláním zpětného volání nebo podrobná kontrola rodič‑potomka.
+Ve výchozím nastavení procházení tvarů a textu v celé prezentaci zahrnuje normální, hlavní a rozvržené snímky. Přetížení s parametrem `includeNotes` mohou také zpracovávat snímky poznámek. Použijte přímé smyčky sbírek, když je důležitý pořadí procházení, předčasný ukončení, filtrování před voláním zpětné funkce nebo podrobná kontrola rodič‑potomka.
 
 ## **Sbírání tvarů**
 
-Použijte [Collect.shapes](https://reference.aspose.com/slides/cs/java/com.aspose.slides/collect/#shapes-com.aspose.slides.Presentation-) když potřebujete kolekci všech tvarů v prezentaci místo zpětného volání pro každý tvar. Toto je užitečné, pokud bude stejná sada filtrována, počítána nebo zpracována vícekrát.
+Použijte [Collect.shapes](https://reference.aspose.com/slides/cs/java/com.aspose.slides/collect/#shapes-com.aspose.slides.Presentation-) pokud potřebujete kolekci všech tvarů v prezentaci místo zpětné funkce pro každý tvar. To je užitečné, když bude stejná sada filtrována, počítána nebo zpracovávána více než jednou.
 
 ```java
 import com.aspose.slides.*;
@@ -116,15 +116,15 @@ try {
 }
 ```
 
-Použijte [ForEach.shape](https://reference.aspose.com/slides/cs/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-) místo toho, když může být každý tvar zpracován okamžitě a není potřeba uchovávat shromážděný výsledek.
+Použijte [ForEach.shape](https://reference.aspose.com/slides/cs/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-) místo toho, když lze každý tvar zpracovat okamžitě a není potřeba uchovávat shromážděný výsledek.
 
 ## **Komprese obsahu prezentace**
 
-Třída [Compress](https://reference.aspose.com/slides/cs/java/com.aspose.slides/compress/) může odstranit nepoužité strukturované elementy a zmenšit vložená data fontů:
+Třída [Compress](https://reference.aspose.com/slides/cs/java/com.aspose.slides/compress/) může odstranit nepoužívané strukturální prvky a snížit data vložených fontů:
 
-- [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/cs/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) odstraňuje snímky rozvržení, na které neodkazuje žádný normální snímek.
-- [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/cs/java/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) odstraňuje mastery, které už nejsou používány.
-- [Compress.compressEmbeddedFonts](https://reference.aspose.com/slides/cs/java/com.aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) odstraňuje nepoužité znaky z vložených fontů.
+- [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/cs/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) odstraňuje rozvržení snímků, na které neodkazuje žádný normální snímek.
+- [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/cs/java/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) odstraňuje hlavní snímky, které již nejsou používány.
+- [Compress.compressEmbeddedFonts](https://reference.aspose.com/slides/cs/java/com.aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) odstraňuje nepoužívané znaky z vložených fontů.
 
 ```java
 import com.aspose.slides.*;
@@ -141,38 +141,38 @@ try {
 }
 ```
 
-Odstraňujte nepoužité rozvržení před nepoužitými mastery, aby master, který se po vyčištění rozvržení stane nepřipojeným, mohl být také odstraněn. Uložte optimalizovanou prezentaci do nového souboru, pokud budete později potřebovat původní mastery, rozvržení nebo kompletní vložená data fontů. Pro více detailů viz [Slide Master](/java/slide-master/) a [Embedded Font](/java/embedded-font/).
+Odstraňte nepoužívaná rozvržení před nepoužívanými hlavními snímky, aby hlavní snímek, který se po úklidu rozvržení stane neodkazovaným, mohl být také odstraněn. Uložte optimalizovanou prezentaci do nového souboru, pokud budete později potřebovat původní hlavní snímky, rozvržení nebo kompletní data vložených fontů. Další podrobnosti najdete v [Slide Master](/slides/cs/java/slide-master/) a [Embedded Font](/slides/cs/java/embedded-font/).
 
 ## **Často kladené otázky**
 
-**Kdy bych měl použít low-code API místo plného objektového modelu?**
+**Kdy bych měl použít low-code API místo kompletního objektového modelu?**
 
-Používejte low-code pomocníky, když standardní operace platí pro celý soubor nebo prezentaci a nevyžaduje podrobnou kontrolu nad jednotlivými elementy. Použijte plný objektový model, když potřebujete vybrat konkrétní snímky, řídit vztahy mezi mastery a rozvrženími, inspektovat mezivýsledky nebo konfigurovat chování, které pomocník neexponuje.
+Používejte low-code pomocníky, když standardní operace platí pro celý soubor či prezentaci a nevyžaduje podrobnou kontrolu jednotlivých prvků. Použijte kompletní objektový model, pokud potřebujete vybrat konkrétní snímky, řídit vztahy hlavních snímků a rozvržení, prohlédnout mezistav nebo nakonfigurovat chování, které pomocník neexponuje.
 
 **Může Merger kombinovat prezentace v různých formátech souborů?**
 
-Ne. [Merger.process](https://reference.aspose.com/slides/cs/java/com.aspose.slides/merger/#process-java.lang.String:A-java.lang.String-) vyžaduje vstupní prezentace ve stejném formátu. Nejprve převeďte vstupní soubory do společného formátu, například pomocí [Convert.autoByExtension](https://reference.aspose.com/slides/cs/java/com.aspose.slides/convert/#autoByExtension-java.lang.String-java.lang.String-), a pak sloučte převedené soubory.
+Ne. [Merger.process](https://reference.aspose.com/slides/cs/java/com.aspose.slides/merger/#process-java.lang.String:A-java.lang.String-) vyžaduje vstupní prezentace ve stejném formátu. Nejprve převeďte vstupní soubory do společného formátu, například pomocí [Convert.autoByExtension](https://reference.aspose.com/slides/cs/java/com.aspose.slides/convert/#autoByExtension-java.lang.String-java.lang.String-), a poté spojte převedené soubory.
 
-**Zpracovává ForEach master, layout a poznámkové snímky?**
+**Zpracovává ForEach hlavní, rozvržené a poznámkové snímky?**
 
-[ForEach.slide](https://reference.aspose.com/slides/cs/java/com.aspose.slides/foreach/#slide-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachSlideCallback-) iteruje přes normální snímky prezentace. Celoprezentační [ForEach.shape](https://reference.aspose.com/slides/cs/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-), [ForEach.paragraph](https://reference.aspose.com/slides/cs/java/com.aspose.slides/foreach/#paragraph-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachParagraphCallback-) a [ForEach.portion](https://reference.aspose.com/slides/cs/java/com.aspose.slides/foreach/#portion-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachPortionCallback-) zahrnují ve výchozím nastavení normální, master i layout snímky. Použijte jejich přetížení s `includeNotes` nastaveným na `true`, pokud chcete zahrnout i poznámkové snímky.
+[ForEach.slide](https://reference.aspose.com/slides/cs/java/com.aspose.slides/foreach/#slide-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachSlideCallback-) prochází normální snímky prezentace. Celoprezentační operace [ForEach.shape](https://reference.aspose.com/slides/cs/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-), [ForEach.paragraph](https://reference.aspose.com/slides/cs/java/com.aspose.slides/foreach/#paragraph-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachParagraphCallback-) a [ForEach.portion](https://reference.aspose.com/slides/cs/java/com.aspose.slides/foreach/#portion-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachPortionCallback-) zahrnují ve výchozím nastavení normální, hlavní a rozvržené snímky. Použijte jejich přetížení s parametrem `includeNotes` nastaveným na `true`, pokud chcete zahrnout i snímky poznámek.
 
 **Jaký je rozdíl mezi ForEach.shape a Collect.shapes?**
 
-Použijte [ForEach.shape](https://reference.aspose.com/slides/cs/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-) k okamžitému zpracování každého tvaru prostřednictvím zpětného volání. Použijte [Collect.shapes](https://reference.aspose.com/slides/cs/java/com.aspose.slides/collect/#shapes-com.aspose.slides.Presentation-) když potřebujete iterovatelný výsledek, který může být uložen, filtrován, počítán nebo procházen vícekrát.
+Použijte [ForEach.shape](https://reference.aspose.com/slides/cs/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-), pokud chcete každý tvar zpracovat okamžitě pomocí zpětné funkce. Použijte [Collect.shapes](https://reference.aspose.com/slides/cs/java/com.aspose.slides/collect/#shapes-com.aspose.slides.Presentation-), pokud potřebujete iterovatelný výsledek, který lze uchovat, filtrovat, počítat nebo procházet vícekrát.
 
 **Zmenšuje Compress vždy velikost souboru prezentace?**
 
-Ne nutně. Výsledek závisí na tom, zda prezentace obsahuje nepoužité rozvržení, nepoužité mastery nebo vložené fonty s nepoužitými znaky. Pokud žádné z těchto položek chybí, odpovídající operace [Compress](https://reference.aspose.com/slides/cs/java/com.aspose.slides/compress/) nemusí zmenšit velikost souboru.
+Ne nutně. Výsledek závisí na tom, zda prezentace obsahuje nepoužívaná rozvržení, nepoužívané hlavní snímky nebo vložené fonty s nepoužívanými znaky. Pokud žádné z nich nejsou, odpovídající operace [Compress] nemusí velikost souboru zmenšit.
 
 **Ukládají se změny provedené pomocí ForEach nebo Compress automaticky?**
 
-Ne. Tyto pomocníky pracují s načteným objektem [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/) v paměti. Po změně elementů v zpětném volání [ForEach](https://reference.aspose.com/slides/cs/java/com.aspose.slides/foreach/) nebo po spuštění [Compress](https://reference.aspose.com/slides/cs/java/com.aspose.slides/compress/) zavolejte [Presentation.save](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/#save-java.lang.String-int-) k zapsání výsledku.
+Ne. Títo pomocníci pracují s načteným objektem [Presentation] v paměti. Po změně prvků v zpětné funkci [ForEach] nebo spuštění [Compress] zavolejte [Presentation.save](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/#save-java.lang.String-int-) pro zápis výsledku.
 
 ## **Související články**
 
-- [Convert Presentation](/java/convert-presentation/)
-- [Merge Presentations](/java/merge-presentation/)
-- [Slide Master](/java/slide-master/)
-- [Manage Text Box](/java/manage-textbox/)
-- [Embedded Font](/java/embedded-font/)
+- [Convert Presentation](/slides/cs/java/convert-presentation/)
+- [Merge Presentations](/slides/cs/java/merge-presentation/)
+- [Slide Master](/slides/cs/java/slide-master/)
+- [Manage Text Box](/slides/cs/java/manage-textbox/)
+- [Embedded Font](/slides/cs/java/embedded-font/)

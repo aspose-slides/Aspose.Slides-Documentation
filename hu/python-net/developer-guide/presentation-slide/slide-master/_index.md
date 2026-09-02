@@ -1,55 +1,55 @@
 ---
-title: Prezentációs diákmesterek kezelése Pythonban
-linktitle: Diákmester
+title: Prezentáció slide master-ek kezelése Pythonban
+linktitle: Dia Master
 type: docs
 weight: 80
 url: /hu/python-net/slide-master/
 keywords:
-- diákmester
-- mesterdia
-- PPT mesterdia
-- több mesterdia
-- mesterdiák összehasonlítása
+- dia master
+- master dia
+- PPT master dia
+- több master dia
+- master diák összehasonlítása
 - háttér
-- helyettesítő
-- mesterdia klónozása
-- mesterdia másolása
-- mesterdia megkettőzése
-- használaton kívüli mesterdia
+- helyőrző
+- master dia klónozása
+- master dia másolása
+- master dia megkettőzése
+- nem használt master dia
 - PowerPoint
 - OpenDocument
 - prezentáció
 - Python
 - Aspose.Slides
-description: "Az Aspose.Slides for Python via .NET segítségével kezelje a diákmestereket: hozzáférjen, szerkessze, klónozza, hasonlítsa össze és távolítsa el a mesterdiákat PowerPoint és OpenDocument prezentációkban."
+description: "Az Aspose.Slides for Python via .NET segítségével kezelje a slide master-eket: hozzáférés, szerkesztés, klónozás, összehasonlítás és a master diák eltávolítása PowerPoint és OpenDocument prezentációkban."
 ---
 ## **Áttekintés**
 
-Egy **diákmester** közös tervezési beállításokat határoz meg egy diacsoport számára. Tartalmazhat közös alakzatokat, logókat, háttérképeket, szövegstílusokat, sablonszabályokat és láblécbeállításokat. A PowerPointban a diákmester szerkesztése a szokásos módja annak, hogy a prezentáció egységes maradjon anélkül, hogy minden dián meg kellene ismételni ugyanazt a formázást.
+A **slide master** meghatározza a közös tervezési beállításokat egy diárcsoport számára. Tartalmazhat közös alakzatokat, logókat, háttérképeket, szövegstílusokat, téma‑beállításokat és lábléc‑beállításokat. A PowerPointban a slide master szerkesztése a szokásos módja annak, hogy egy bemutató egységes maradjon anélkül, hogy minden dián ugyanazt a formázást ismételnénk.
 
-Az Aspose.Slides for Python via .NET ugyanezt a modellt támogatja. Egy prezentáció egy vagy több diákmestert tartalmazhat, és minden diákmester több elrendezési diát (layout slide) is magában foglalhat. A normál diák általában nem hivatkoznak közvetlenül egy diákmesterre. Ehelyett egy normál dia egy elrendezési diát használ, amely egy diákmesterhez tartozik.
+Az Aspose.Slides for Python via .NET ugyanazt a modellt támogatja. Egy prezentáció egy vagy több master diát tartalmazhat, és minden master dia több elrendezésdát is tartalmazhat. A normál diák általában nem hivatkoznak közvetlenül egy master diára. Ehelyett egy normál dia egy elrendezésdiát használ, és az elrendezésdia egy master diához tartozik.
 
 A hierarchia:
 
-1. **Diákmester** – meghatározza a közös tervezést és sablont.
-1. **Elrendezési dia** – meghatároz egy adott helykitöltő- és elrendezési szintű formázást.
-1. **Normál dia** – a tényleges prezentációs tartalmat tartalmazza, és egy elrendezési diát használ.
+1. **Slide master** – meghatározza a közös tervezést és a témát.  
+1. **Layout slide** – meghatároz egy adott helyőrző‑elrendezést és elrendezési‑szintű formázást.  
+1. **Normal slide** – a tényleges bemutatótartalmat tartalmazza, és egy elrendezésdiát használ.
 
-![A diákmesterek, elrendezési diák és normál diák hierarchiája](slide-master_2.jpg)
+![A master diák, elrendezésdiák és normál diák hierarchiája](slide-master_2.jpg)
 
-Az Aspose.Slides-ban a diákmestert a [MasterSlide](https://reference.aspose.com/slides/hu/python-net/aspose.slides/masterslide/) osztály képviseli. A prezentáció összes diákmestere a `Presentation.masters` gyűjteményen keresztül érhető el.
+Az Aspose.Slidesban egy slide master a [MasterSlide](https://reference.aspose.com/slides/hu/python-net/aspose.slides/masterslide/) osztállyal van reprezentálva. A prezentáció összes master diája a `Presentation.masters` gyűjteményen keresztül érhető el.
 
-{{% alert color="info" title="Öröklődés" %}}
-Amikor egy tulajdonság több szinten is meghatározásra kerül, a specifikusabb szint nyer. Például ha egy diákmester és egy elrendezési dia is meghatároz egy háttérszínt, akkor a layout-ot alapuló diákok a layout hátterét használják. Az elrendezési diákról további információk a [Diákelrendezések alkalmazása vagy módosítása](/python-net/slide-layout/) oldalon találhatók.
+{{% alert color="info" title="Inheritance" %}}
+Amikor ugyanaz a tulajdonság több szinten is definiálva van, a specifikusabb szint nyer. Például, ha egy master dia és egy elrendezésdia is meghatároz egy hátteret, akkor az arra épülő diák az elrendezés háttérét használják. A elrendezésdiákról további információkat a [Apply or Change Slide Layouts](/slides/hu/python-net/slide-layout/) oldalon talál.
 {{% /alert %}}
 
-## **Diákmesterek elérése**
+## **A Slide Master elérése**
 
-A PowerPointban a **Nézet** > **Diákmester** menüpontból nyithatja meg a Diákmester nézetet.
+PowerPointban a **Nézet** > **Dia Master** menüponttal nyithatja meg a Slide Master nézetet.
 
-![A Diákmester parancs a PowerPoint Nézet lapon](slide-master_3.jpg)
+![A Slide Master parancs a PowerPoint Nézet lapján](slide-master_3.jpg)
 
-Az Aspose.Slides-ban a `masters` gyűjteményt használja a diákmesterek eléréséhez:
+Az Aspose.Slidesban a `masters` gyűjtemény segítségével érheti el a master diákat:
 
 ```python
 import aspose.slides as slides
@@ -63,7 +63,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     print("Layouts in the first master: " + str(first_master_layout_slide_count))
 ```
 
-A normál dia által használt diákmestert a layoutján keresztül is lekérdezheti:
+A normál dia által használt master diát a saját elrendezésén keresztül is lekérdezheti:
 
 ```python
 import aspose.slides as slides
@@ -77,26 +77,26 @@ with slides.Presentation("presentation.pptx") as presentation:
     print(master_slide_name)
 ```
 
-## **Mi található egy diákmesterben**
+## **Mi található egy Slide Masterben**
 
-A diákmester egy dia-szerű objektum. A [BaseSlide](https://reference.aspose.com/slides/hu/python-net/aspose.slides/baseslide/) osztályból örökli a közös dia viselkedést, ezért sok olyan dia tulajdonságot is tartalmaz, amely a normál és az elrendezési diákon is elérhető. A diákmester-specifikus tagok a [MasterSlide](https://reference.aspose.com/slides/hu/python-net/aspose.slides/masterslide/) API oldalon vannak felsorolva.
+A master dia egy dia‑szerű objektum. A [BaseSlide](https://reference.aspose.com/slides/hu/python-net/aspose.slides/baseslide/) osztálytól örököl közös dia‑viselkedést, ezért számos, a normál és elrendezésdíáknál használt dia‑tulajdonságot is elérhetővé tesz. A master‑specifikus tagok a [MasterSlide](https://reference.aspose.com/slides/hu/python-net/aspose.slides/masterslide/) API oldalon vannak felsorolva.
 
-A leggyakrabban használt diákmester tagok:
+Gyakran használt master dia tagok:
 
 | Tag | Cél |
 | --- | --- |
-| `background` | A diákmester szintű diaháttér beállítása. |
-| `shapes` | A diákmesten elhelyezett alakzatok tárolása, például logók, képkeretek és megosztott szöveg. |
-| `layout_slides` | A diákmesterhez tartozó elrendezési diák tárolása. |
-| `theme_manager` | Hozzáférés a diákmester témához kapcsolódó API-khoz. |
-| `header_footer_manager` | Fejlécek, láblécek, dátumok és diaszámok kezelése a diákmester és annak aláértelmezett elrendezései számára. |
-| `get_depending_slides` | Visszaadja a normál diákokat, amelyek a diákmesterhez layoutjaikon keresztül kapcsolódnak. |
+| `background` | Beállítja a master‑szintű dia hátterét. |
+| `shapes` | A masterre helyezett alakzatokat tárolja, például logókat, képkockákat és megosztott szöveget. |
+| `layout_slides` | A masterhez tartozó elrendezésdíákat tárolja. |
+| `theme_manager` | Hozzáférést biztosít a master téma API‑khoz. |
+| `header_footer_manager` | A master és annak gyermekelrendezései fejlécét, láblécét, dátumát és dia számait szabályozza. |
+| `get_depending_slides` | Visszaadja azokat a normál diákat, amelyek elrendezésükön keresztül a masterre támaszkodnak. |
 
-## **Kép hozzáadása egy diákmesterhez**
+## **Kép hozzáadása egy Slide Masterhez**
 
-Amikor képet ad hozzá egy diákmesterhez, az megjelenik azon diákokon, amelyek az adott mesterhez tartozó layoutokat használják. Ez logók, vízjelek, díszbannerek és egyéb ismétlődő vizuális elemek esetén hasznos.
+Amikor egy képet ad hozzá egy master diához, az a master‑hez tartozó elrendezéseket használó diákon is megjelenik. Ez logók, vízjelekkel, díszbannerekkel és egyéb ismétlődő vizuális elemek esetén hasznos.
 
-Az alábbi példa egy logót ad az első diákmesterhez:
+Az alábbi példa egy logót ad az első master diához:
 
 ```python
 import aspose.slides as slides
@@ -120,17 +120,17 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-with-logo.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-A képkeretekkel kapcsolatos további információk a [Képkeret](/python-net/picture-frame/) oldalon érhetők el.
+A képkockákról további információkat a [Picture Frame](/slides/hu/python-net/picture-frame/) oldalon talál.
 
-## **Helyettesítő objektumok kezelése**
+## **Munkavégzés a helyőrzőkkel**
 
-A helyettesítő objektumok (placeholder) általában az elrendezési diákon vannak definiálva. A diákmester biztosítja a közös stílust és sablont, amelyet a layoutok örökölnek, míg minden layout eldönti, hogy mely helyettesítők állnak rendelkezésre és hol helyezkednek el.
+A helyőrzőket általában az elrendezésdíákon definiálják. A master dia biztosítja a közös stílust és témát, amelyet az elrendezések örökölnek, míg minden elrendezés dönti el, hogy milyen helyőrzők állnak rendelkezésre és hová kerülnek.
 
-PowerPointban a helyettesítő parancsok a Diákmester nézetben érhetők el.
+PowerPointban a helyőrző‑parancsok a Slide Master nézetben érhetők el.
 
-![A Helyettesítő beszúrása parancs a PowerPoint Diákmester nézetben](slide-master_5.png)
+![A Helyőrző Beszúrása parancs a PowerPoint Slide Master nézetben](slide-master_5.png)
 
-Új helyettesítő objektumok hozzáadásához az Aspose.Slides-ban a diákmesterhez tartozó elrendezési diát kell módosítania:
+Új helyőrzők hozzáadásához az Aspose.Slides használatával dolgozzon a masterhez tartozó elrendezésdíával:
 
 ```python
 import aspose.slides as slides
@@ -151,7 +151,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-with-placeholder.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Már létező helyettesítő alakzatok formázása is lehetséges. Az alábbi példa megtalálja a cím helyettesítőt és lineáris színátmenetes kitöltést alkalmaz rá:
+Már meglévő helyőrző alakzatok formázása is lehetséges egy master dián. Az alábbi példa megtalálja a címsor‑helyőrzőt és lineáris színátmenetes kitöltést alkalmaz rá:
 
 ```python
 import aspose.pydrawing as draw
@@ -178,18 +178,18 @@ with slides.Presentation("presentation.pptx") as presentation:
         title_placeholder.fill_format.fill_type = slides.FillType.GRADIENT
         title_placeholder.fill_format.gradient_format.gradient_shape = slides.GradientShape.LINEAR
         title_placeholder.fill_format.gradient_format.gradient_stops.add(0, red_gradient_color)
-        title_placeholder.fill_format.gradient_format.gradient_stops.add(255, purple_gradient_color)
+        title_placeholder.fill_format.gradient_format.gradient_stops.add(1, purple_gradient_color)
 
     presentation.save("presentation-title-style.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Formázott címhelyettesítő, amely a normál diákon öröklődik](slide-master_8.png)
+![Formázott címsor‑helyőrző, amelyet a normál diák örökölnek](slide-master_8.png)
 
-A helyettesítők és a szövegformázás további lehetőségeiről lásd a [Helyettesítő szöveg beállítása](/python-net/manage-placeholder/) és a [Szövegformázás](/python-net/text-formatting/) oldalakat.
+További helyőrző- és szövegformázási lehetőségekért lásd a [Set Prompt Text in Placeholder](/slides/hu/python-net/manage-placeholder/) és a [Text Formatting](/slides/hu/python-net/text-formatting/) oldalakat.
 
-## **Diákmester háttér módosítása**
+## **Slide Master háttér módosítása**
 
-A diákmester háttér öröklődik az elrendezések és azok a diák számára, amelyek nem felülírják azt. Az alábbi példa egy egységes háttérszínt állít be az első diákmesterhez:
+A master háttér öröklődik az elrendezésekre és a diákra, amelyik nem írja felül. Az alábbi példa egy egyszínű háttérszínt állít be az első master diára:
 
 ```python
 import aspose.pydrawing as draw
@@ -205,11 +205,11 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-master-background.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Kapcsolódó témák: [Prezentáció háttér](/python-net/presentation-background/) és [Prezentációs sablon](/python-net/presentation-theme/).
+Kapcsolódó témák: [Presentation Background](/slides/hu/python-net/presentation-background/) és [Presentation Theme](/slides/hu/python-net/presentation-theme/).
 
-## **Diákmester klónozása egy másik prezentációba**
+## **Slide Master klónozása egy másik prezentációba**
 
-A [MasterSlideCollection](https://reference.aspose.com/slides/hu/python-net/aspose.slides/masterslidecollection/) osztály `add_clone` metódusával másolhat egy diákmestert egy másik prezentációba. A másolt mester ezután használható a célprezentáció elrendezései és diái számára.
+Használja a `add_clone` metódust a [MasterSlideCollection](https://reference.aspose.com/slides/hu/python-net/aspose.slides/masterslidecollection/) osztályon, hogy egy master diát egy másik prezentációba másoljon. A másolt master ezután az új prezentáció elrendezései és diái által használható.
 
 ```python
 import aspose.slides as slides
@@ -222,15 +222,15 @@ with slides.Presentation("source.pptx") as source_presentation:
         destination_presentation.save("destination-with-master.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Ha normál diákokat is szeretne klónozni a mesterükkel együtt, lásd a [Diákok klónozása](/python-net/clone-slides/) oldalt.
+Ha normál diákot is klónozni kell a saját masterével együtt, lásd a [Clone Slides](/slides/hu/python-net/clone-slides/) oldalt.
 
-## **Több diákmester hozzáadása**
+## **Több Slide Master hozzáadása**
 
-Egy prezentáció több diákmestert is tartalmazhat. Ez akkor hasznos, ha a különböző szakaszok eltérő márkázást, oldalstruktúrát vagy sablonbeállításokat igényelnek.
+Egy prezentáció több master diát is tartalmazhat. Ez akkor hasznos, ha különböző szakaszok különböző márkaarculatot, oldalstruktúrát vagy téma‑beállításokat igényelnek.
 
-![PowerPoint parancsok diákmesterek beszúrásához és kezeléséhez](slide-master_9.jpg)
+![PowerPoint parancsok master diák beszúrásához és kezeléséhez](slide-master_9.jpg)
 
-Az alábbi példa klónozza az alapértelmezett mestert, a klónnak másik hátteret ad, egy üres elrendezést kér le a klónozott mester alá, és egy új diát hoz létre ezen elrendezésből:
+Az alábbi példa a visszairányított master klónozását, más háttérrel ellátását, egy üres elrendezés lekérését a klónozott master alatt, majd egy új dia hozzáadását a szóban forgó elrendezés alapján mutatja be:
 
 ```python
 import aspose.pydrawing as draw
@@ -256,9 +256,9 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-with-multiple-masters.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Diákmesterek összehasonlítása**
+## **Slide Master összehasonlítása**
 
-A diákmestereket a [BaseSlide](https://reference.aspose.com/slides/hu/python-net/aspose.slides/baseslide/) osztályból örökölt `equals` metódussal lehet összehasonlítani. Az összehasonlítás ellenőrzi a szerkezetet és a statikus tartalmat, például alakzatokat, szöveget, formázást, animációkat és egyéb dia beállításokat. Nem hasonlítja össze az egyedi azonosítókat, mint a dia ID-k, vagy a dinamikus helyettesítő értékeket, például az aktuális dátumot.
+A master diák összehasonlíthatók a [BaseSlide](https://reference.aspose.com/slides/hu/python-net/aspose.slides/baseslide/) osztályból örökölt `equals` metódussal. Az összehasonlítás a szerkezetet és a statikus tartalmat (alakzatok, szöveg, formázás, animációk, egyéb dia‑beállítások) vizsgálja. Nem hasonlítja össze az egyedi azonosítókat, például a dia‑azonosítókat, vagy a dinamikus helyőrző‑értékeket, például az aktuális dátumot.
 
 ```python
 import aspose.slides as slides
@@ -281,11 +281,11 @@ with slides.Presentation("first.pptx") as first_presentation:
                             second_master_index))
 ```
 
-További információk: [Prezentációs diák összehasonlítása](/python-net/compare-slides/).
+További információkért lásd a [Compare Presentation Slides](/slides/hu/python-net/compare-slides/) oldalt.
 
-## **Diákmester nézet beállítása alapértelmezett nézetnek**
+## **Slide Master nézet beállítása alapértelmezett nézetnek**
 
-A prezentáció [ViewProperties](https://reference.aspose.com/slides/hu/python-net/aspose.slides/viewproperties/) osztályának `last_view` tulajdonságával szabályozhatja, hogy a PowerPoint mely nézetet nyissa meg először. Az alábbi példa a prezentációt Diákmester nézetben nyitja meg:
+A prezentáció [ViewProperties](https://reference.aspose.com/slides/hu/python-net/aspose.slides/viewproperties/) osztályának `last_view` tulajdonságával szabályozható, hogy a PowerPoint milyen nézetben nyissa meg a fájlt először. Az alábbi példa a prezentációt Slide Master nézetben nyitja meg:
 
 ```python
 import aspose.slides as slides
@@ -295,13 +295,13 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-master-view.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-További nézetbeállítások: [Prezentáció mentése](/python-net/save-presentation/).
+További nézetbeállításokért lásd a [Save Presentation](/slides/hu/python-net/save-presentation/) oldalt.
 
-## **Használaton kívüli diákmesterek eltávolítása**
+## **Nem használt master diákok eltávolítása**
 
-Előfordulhat, hogy egy prezentáció olyan diákmestereket tartalmaz, amelyeket már egyetlen normál dia sem használ. A használaton kívüli mesterek eltávolítása csökkentheti a fájlméretet és egyszerűsítheti a sablonkarbantartást.
+Előfordulhat, hogy egy prezentáció olyan master diákat tartalmaz, amelyeket már egyetlen normál dia sem használ. A nem használt master diák eltávolítása csökkentheti a fájlméretet és egyszerűsítheti a sablonkarbantartást.
 
-Használja a `remove_unused` metódust a `masters` gyűjteményből a használaton kívüli mesterek eltávolításához:
+Használja a `remove_unused` metódust a `masters` gyűjteményből a nem használt master diák eltávolítására:
 
 ```python
 import aspose.slides as slides
@@ -311,7 +311,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-clean.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-A low‑code `remove_unused_master_slides` metódus a [Compress](https://reference.aspose.com/slides/hu/python-net/aspose.slides.lowcode/compress/) osztályban is elérhető:
+Alacsony‑kódszintű megoldásként használhatja a [Compress](https://reference.aspose.com/slides/hu/python-net/aspose.slides.lowcode/compress/) osztály `remove_unused_master_slides` metódusát is:
 
 ```python
 import aspose.slides as slides
@@ -323,18 +323,18 @@ with slides.Presentation("presentation.pptx") as presentation:
 
 ## **GYIK**
 
-**Mi a különbség a diákmester és az elrendezési dia között?**
+### Mi a különbség a slide master és az layout slide között?
 
-A diákmester a közös tervezési beállításokat, például a sablont, hátteret, közös alakzatokat és szövegstílusokat határozza meg. Az elrendezési dia egy diákmesterhez tartozik, és egy konkrét helykitöltő elrendezést definiál. A normál dia egy elrendezési diát használ, így mind az elrendezés, mind a mester beállításait örökli.
+A slide master közös tervezési beállításokat határoz meg, például témát, hátteret, közös alakzatokat és szövegstílusokat. Egy layout slide egy master diához tartozik, és egy adott helyőrző‑elrendezést definiál. Egy normál dia egy layout slide‑ot használ, így a layout és a master is öröklődik.
 
-**Tartalmazhat egy prezentáció több diákmestert is?**
+### Tartalmazhat egy prezentáció több slide mastert is?
 
-Igen. Egy prezentáció több diákmestert is tartalmazhat. Használjon több mestert, ha a különböző szakaszok eltérő vizuális rendszereket vagy márkázást igényelnek.
+Igen. Egy prezentáció több slide mastert is tartalmazhat. Több master használata akkor ajánlott, ha különböző szakaszok különböző vizuális rendszereket vagy márkaarculatot igényelnek.
 
-**Hol kell helyettesítő objektumokat hozzáadni – a diákmesterhez vagy az elrendezési diához?**
+### Hol helyezzek elhelyezőket – a master diába vagy az layout diába?
 
-A legtöbb esetben az elrendezési diákhoz kell hozzáadni a helyettesítőket. A közös vizuális elemeket és formázásokat a diákmesteren helyezze el, a tartalmi helyettesítőket pedig az elrendezéseken, amelyeket a normál diákok használnak.
+A legtöbb esetben az elrendezésdíákba helyezzen elhelyezőket. A közös vizuális elemeket és a közös formázást a master diába tegye, a tartalom helyőrzőket pedig azokra az elrendezésdíákra, amelyeket a normál diák használnak.
 
-**Törölhetek olyan diákmestert, amelyik még használatban van?**
+### Törölhetem-e egy master diát, amelyet még használnak?
 
-Nem. Egy diákmester, amelynek vannak függő diái, nem távolítható el biztonságosan. Először mozgassa át ezeket a diákat egy másik mester alá tartozó layoutokra, vagy használja a használaton kívüli mesterek tisztító módszert, amely csak a nem használt mestereket távolítja el.
+Nem. Egy master diát, amelynek függő diái vannak, nem lehet biztonságosan közvetlenül eltávolítani. Előbb mozgassa át azokat a diákat egy másik masterhez tartozó elrendezés alá, vagy használjon olyan tisztító módszert, amely csak a nem használt master diákat távolítja el.

@@ -10,47 +10,48 @@ keywords:
 - externí písmo
 - načíst písmo
 - spravovat písma
-- složka písem
+- složka s pímy
 - PowerPoint
 - OpenDocument
 - prezentace
 - .NET
 - C#
 - Aspose.Slides
-description: "Přizpůsobte písma v slidech PowerPointu pomocí Aspose.Slides pro .NET, aby vaše prezentace byly ostré a konzistentní na jakémkoli zařízení."
+description: "Přizpůsobte písma v PowerPoint snímcích pomocí Aspose.Slides pro .NET, aby vaše prezentace byly ostré a konzistentní na jakémkoli zařízení."
 ---
 ## **Přehled**
 
-Aspose.Slides vám umožňuje používat vlastní písma v prezentacích, aniž byste je instalovali do operačního systému. Písma můžete načítat z vlastních složek, poskytnout písma pro konkrétní prezentaci prostřednictvím zdrojů písem na úrovni dokumentu, nebo načíst externí písma přímo z binárních dat.
+Aspose.Slides umožňuje používat vlastní písma v prezentacích bez jejich instalace do operačního systému. Můžete načíst písma z vlastních složek, poskytnout písma pro konkrétní prezentaci pomocí zdrojů písem na úrovni dokumentu, nebo načíst externí písma přímo z binárních dat.
 
-Načtená písma jsou použita při vykreslování nebo exportu prezentace, například do PDF, obrázků a dalších podporovaných formátů. To pomáhá zachovat konzistentní výstup prezentace napříč různými prostředími. Článek také vysvětluje, jak zkontrolovat složky písem používané Aspose.Slides a jak vymazat mezipaměť písem po práci s externími písmy.
+Nahraná písma jsou použita při vykreslování nebo exportu prezentace, například do PDF, obrázků a dalších podporovaných formátů. To pomáhá udržet výstup prezentace konzistentní napříč různými prostředími. Článek také vysvětluje, jak zobrazit složky písem používané Aspose.Slides a jak po práci s externími písmy vyprázdnit mezipaměť písem.
 
-Registrace vlastních písem pro vykreslování je oddělena od vkládání písem do souboru PPTX. Pokud je potřeba, aby písmo bylo uloženo přímo v prezentaci, použijte explicitně funkce vkládání písem.
+Registrace vlastních písem pro vykreslování je oddělena od vkládání písem do souboru PPTX. Pokud je nutné písmo uložit přímo v prezentaci, použijte funkce pro vložení písem výslovně.
 
-{{% alert color="primary" %}} 
-Aspose Slides vám umožňuje načíst tato písma pomocí metody [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/cs/net/aspose.slides/fontsloader/loadexternalfonts/):
+Téma prezentace může odkazovat na různé rodiny písem pro jednotlivé psací systémy. Tato mapování ukládají názvy písem, ale neinstalují ani nenačítají soubory písem. Viz [Script-Specific Theme Fonts](/slides/cs/net/script-specific-font-mappings/) pro správu mapování a použijte níže uvedené možnosti načítání, aby odkazovaná písma byla k dispozici pro konzistentní vykreslování.
 
-* Písma TrueType (.ttf) a TrueType Collection (.ttc). Viz [TrueType](https://en.wikipedia.org/wiki/TrueType).
-* Písma OpenType (.otf). Viz [OpenType](https://en.wikipedia.org/wiki/OpenType).
+{{% alert color="info" title="Poznámka" %}}
+Aspose Slides umožňuje načíst tato písma pomocí metody [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/cs/net/aspose.slides/fontsloader/loadexternalfonts/):
+
+* TrueType (.ttf) a TrueType Collection (.ttc) písma. Viz [TrueType](https://en.wikipedia.org/wiki/TrueType).
+
+* OpenType (.otf) písma. Viz [OpenType](https://en.wikipedia.org/wiki/OpenType).
 
 {{% /alert %}}
 
 ## **Načíst vlastní písma**
 
-Aspose.Slides vám umožňuje načíst písma použité v prezentaci, aniž byste je instalovali v systému. To ovlivňuje výstup exportu – například PDF, obrázky a další podporované formáty – takže výsledné dokumenty vypadají konzistentně napříč prostředími. Písma jsou načítána z vlastních adresářů.
+Aspose.Slides umožňuje načíst písma používaná v prezentaci bez jejich instalace v systému. To ovlivňuje výstup exportu – jako PDF, obrázky a další podporované formáty – takže výsledné dokumenty vypadají konzistentně napříč prostředími. Písma jsou načítána z vlastních adresářů.
 
-1. Zadejte jeden nebo více adresářů, které obsahují soubory písem.
-2. Zavolejte statickou metodu [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/cs/net/aspose.slides/fontsloader/loadexternalfonts/), která načte písma z těchto adresářů.
+1. Zadejte jednu nebo více složek, které obsahují soubory písem.
+2. Zavolejte statickou metodu [FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/cs/net/aspose.slides/fontsloader/loadexternalfonts/) pro načtení písem z těchto složek.
 3. Načtěte a vykreslete/exportujte prezentaci.
-4. Zavolejte [FontsLoader.ClearCache](https://reference.aspose.com/slides/cs/net/aspose.slides/fontsloader/clearcache/), abyste vymazali mezipaměť písem.
-
-Následující příklad kódu ukazuje proces načítání písem:
+4. Zavolejte [FontsLoader.ClearCache](https://reference.aspose.com/slides/cs/net/aspose.slides/fontsloader/clearcache/) pro vyprázdnění mezipaměti písem.
 
 ```cs
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Definujte složky, které obsahují soubory vlastních písem.
+// Definujte složky, které obsahují vlastní soubory písem.
 string[] fontFolders = { @"C:\MyFonts", @"D:\Fonts" };
 
 // Načtěte vlastní písma ze zadaných složek.
@@ -61,38 +62,36 @@ using Presentation presentation = new Presentation("sample.pptx");
 // Vykreslete/exportujte prezentaci (např. do PDF, obrázků nebo jiných formátů) pomocí načtených písem.
 presentation.Save("output.pdf", SaveFormat.Pdf);
 
-// Vymažte mezipaměť písem po dokončení práce.
+// Vyprázdněte mezipaměť písem po dokončení práce.
 FontsLoader.ClearCache();
 ```
 
 {{% alert color="info" title="Poznámka" %}}
-[FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/cs/net/aspose.slides/fontsloader/loadexternalfonts/) přidává další složky do cest pro hledání písem, ale nemění pořadí inicializace písem.  
+[FontsLoader.LoadExternalFonts](https://reference.aspose.com/slides/cs/net/aspose.slides/fontsloader/loadexternalfonts/) přidává další složky do cest pro vyhledávání písem, ale nemění pořadí inicializace písem.
 Písma jsou inicializována v tomto pořadí:
 
-1. Výchozí cesta k písmům operačního systému.  
+1. Výchozí cesta k písmům operačního systému.
 1. Cesty načtené přes [FontsLoader](https://reference.aspose.com/slides/cs/net/aspose.slides/fontsloader/).
 
 {{%/alert %}}
 
-## **Získat složky vlastních písem**
+## **Získat vlastní složky písem**
+Aspose.Slides poskytuje metodu [GetFontFolders](https://reference.aspose.com/slides/cs/net/aspose.slides/fontsloader/getfontfolders/) pro umožnění nalezení složek písem. Tato metoda vrací složky přidané metodou `LoadExternalFonts` a systémové složky písem.
 
-Aspose.Slides poskytuje metodu [GetFontFolders](https://reference.aspose.com/slides/cs/net/aspose.slides/fontsloader/getfontfolders/), která vám umožňuje najít složky s písmy. Tato metoda vrací složky přidané pomocí metody `LoadExternalFonts` a systémové složky s písmy.
-
-Tento kód v C# ukazuje, jak použít [GetFontFolders](https://reference.aspose.com/slides/cs/net/aspose.slides/fontsloader/getfontfolders/):
+Tento C# kód vám ukazuje, jak použít [GetFontFolders](https://reference.aspose.com/slides/cs/net/aspose.slides/fontsloader/getfontfolders/):
 
 ```c#
 using Aspose.Slides;
 
 // Tento řádek vypisuje složky, které jsou kontrolovány pro soubory písem.
-// Jedná se o složky přidané pomocí metody LoadExternalFonts a systémové složky s písmy.
+// Jedná se o složky přidané metodou LoadExternalFonts a systémové složky písem.
 string[] fontFolders = FontsLoader.GetFontFolders();
 ```
 
-## **Určit vlastní písma používaná v prezentaci**
+## **Zadání vlastních písem používaných v prezentaci**
+Aspose.Slides poskytuje vlastnost [DocumentLevelFontSources](https://reference.aspose.com/slides/cs/net/aspose.slides/loadoptions/documentlevelfontsources/) pro umožnění zadání externích písem, která budou použita s prezentací.
 
-Aspose.Slides poskytuje vlastnost [DocumentLevelFontSources](https://reference.aspose.com/slides/cs/net/aspose.slides/loadoptions/documentlevelfontsources/), která vám umožňuje specifikovat externí písma, která budou v prezentaci použita.
-
-Tento kód v C# ukazuje, jak použít vlastnost [DocumentLevelFontSources](https://reference.aspose.com/slides/cs/net/aspose.slides/loadoptions/documentlevelfontsources/):
+Tento C# kód vám ukazuje, jak použít vlastnost [DocumentLevelFontSources](https://reference.aspose.com/slides/cs/net/aspose.slides/loadoptions/documentlevelfontsources/):
 
 ```c#
 using Aspose.Slides;
@@ -106,15 +105,15 @@ loadOptions.DocumentLevelFontSources.MemoryFonts = new byte[][] { memoryFont1, m
 using (IPresentation presentation = new Presentation("MyPresentation.pptx", loadOptions))
 {
     // Pracujte s prezentací
-    // CustomFont1, CustomFont2 a písma ze složek assets\fonts a global\fonts a jejich podsložek jsou k dispozici pro prezentaci
+    // CustomFont1, CustomFont2 a písma ze složek assets\fonts & global\fonts a jejich podadresářů jsou k dispozici pro prezentaci
 }
 ```
 
 ## **Spravovat písma externě**
 
-Aspose.Slides poskytuje metodu [LoadExternalFont](https://reference.aspose.com/slides/cs/net/aspose.slides/fontsloader/loadexternalfont/)(byte[] data), která vám umožňuje načíst externí písma z binárních dat.
+Aspose.Slides poskytuje metodu [LoadExternalFont](https://reference.aspose.com/slides/cs/net/aspose.slides/fontsloader/loadexternalfont/)(byte[] data) pro umožnění načíst externí písma z binárních dat.
 
-Tento kód v C# demonstruje proces načítání písem z pole bytů:
+Tento C# kód demonstruje proces načítání písem z pole bytů:
 
 ```c#
 using Aspose.Slides;
@@ -136,26 +135,26 @@ finally
 }
 ```
 
-## **Často kladené dotazy**
+## **Často kladené otázky**
 
 **Ovlivňují vlastní písma export do všech formátů (PDF, PNG, SVG, HTML)?**
 
-Ano. Připojená písma používá vykreslovací engine napříč všemi exportními formáty.
+Ano. Připojená písma jsou používána rendererem ve všech exportních formátech.
 
-**Jsou vlastní písma automaticky vkládána do výsledného souboru PPTX?**
+**Jsou vlastní písma automaticky vložena do výsledného PPTX?**
 
-Ne. Registrace písma pro vykreslování není totéž jako jeho vložení do PPTX. Pokud potřebujete, aby bylo písmo uloženo uvnitř souboru prezentace, musíte použít explicitní [embedding features](/slides/cs/net/embedded-font/).
+Ne. Registrace písma pro vykreslování není totéž jako jeho vložení do PPTX. Pokud potřebujete, aby písmo bylo součástí souboru prezentace, musíte použít explicitní [embedding features](/slides/cs/net/embedded-font/).
 
-**Mohu řídit chování náhrad, když vlastní písmo postrádá určité glyphy?**
+**Mohu kontrolovat chování při nedostatku některých glyfů ve vlastním písmu?**
 
-Ano. Nakonfigurujte [font substitution](/slides/cs/net/font-substitution/), [replacement rules](/slides/cs/net/font-replacement/) a [fallback sets](/slides/cs/net/fallback-font/), abyste přesně určili, které písmo se použije, když požadovaný glyph chybí.
+Ano. Nakonfigurujte [font substitution](/slides/cs/net/font-substitution/), [replacement rules](/slides/cs/net/font-replacement/) a [fallback sets](/slides/cs/net/fallback-font/) pro přesné určení, které písmo se použije, když požadovaný glyf chybí.
 
-**Mohu používat písma v kontejnerech Linux/Docker bez jejich instalace v celém systému?**
+**Mohu používat písma v kontejnerech Linux/Docker bez jejich instalace do celého systému?**
 
-Ano. Odkazujte na své vlastní složky s písmy nebo načítejte písma z bytových polí. Tím odstraníte jakoukoli závislost na systémových složkách s písmy v obrazu kontejneru.
+Ano. Odkazujte na své vlastní složky písem nebo načítejte písma z bajtových polí. Tím odstraníte jakoukoli závislost na systémových složkách písem v kontejnerovém obrazu.
 
-> **Poznámka pro Linux/Docker**: Při volání `FontsLoader.LoadExternalFonts` se ujistěte, že každý prvek v poli `directories` obsahuje ne‑prázdnou cestu k existujícímu adresáři. Pokud je proměnná prostředí použita pro sestavení cesty k písmu nedefinovaná nebo prázdná, Aspose.Slides se může pokusit vyřešit prázdnou hodnotu jako úplnou cestu, což vede k `System.ArgumentException`.
+> **Poznámka pro Linux/Docker**: Při volání `FontsLoader.LoadExternalFonts` zajistěte, aby každý prvek v poli `directories` obsahoval neprázdnou cestu k existujícímu adresáři. Pokud je proměnná prostředí použita pro vytvoření cesty k písmu nedefinovaná nebo prázdná, Aspose.Slides může zkusit prázdnou hodnotu vyhodnotit jako úplnou cestu, což vede k `System.ArgumentException`.
 
-**Co licenciování – mohu vložit jakékoli vlastní písmo bez omezení?**
+**Co licencování—mohu vložit jakékoli vlastní písmo bez omezení?**
 
-Jste zodpovědní za dodržování licenčních podmínek písem. Podmínky se liší; některé licence zakazují vkládání nebo komerční použití. Vždy si před distribucí výstupů prostudujte licenční smlouvu (EULA) daného písma.
+Jste zodpovědní za dodržování licencí písem. Podmínky se liší; některé licence zakazují vkládání nebo komerční použití. Vždy si před šířením výstupů přečtěte EULA daného písma.

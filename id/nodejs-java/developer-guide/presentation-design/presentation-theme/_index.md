@@ -1,5 +1,5 @@
 ---
-title: Kelola Tema Presentasi di JavaScript
+title: Kelola Tema Presentasi dalam JavaScript
 linktitle: Tema Presentasi
 type: docs
 weight: 10
@@ -18,17 +18,17 @@ keywords:
 - Efek tema
 - PowerPoint
 - OpenDocument
-- Presentasi
+- presentasi
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Kuasai tema presentasi di JavaScript dengan Aspose.Slides untuk Node.js untuk membuat, menyesuaikan, dan mengonversi file PowerPoint dengan merek yang konsisten."
+description: "Kelola tema presentasi master dalam JavaScript dengan Aspose.Slides untuk Node.js untuk membuat, menyesuaikan, dan mengonversi file PowerPoint dengan branding yang konsisten."
 ---
 ## **Pendahuluan**
 
-Tema presentasi mendefinisikan sekumpulan warna, font, gaya latar belakang, isian, garis, dan efek yang terkoordinasi. Objek yang menyadari tema merujuk pada definisi bersama ini alih‑alih menyimpan setiap properti visual sebagai nilai tetap, sehingga perubahan tema dapat memperbarui banyak objek sekaligus.
+Tema presentasi mendefinisikan satu set warna, font, gaya latar belakang, isian, garis, dan efek yang terkoordinasi. Objek yang sadar tema merujuk pada definisi bersama ini alih‑alih menyimpan setiap properti visual sebagai nilai tetap, sehingga perubahan tema dapat memperbarui banyak objek sekaligus.
 
-Dalam Aspose.Slides, tema tingkat presentasi tersedia melalui [Presentation.getMasterTheme](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/getmastertheme/). Sebuah presentasi juga dapat berisi penimpaan tema pada tingkat yang lebih rendah. Master dapat menimpa tema presentasi melalui [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/masterthememanager/), sementara tata letak atau slide individu dapat menimpa tema yang diwarisi melalui [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/baseoverridethememanager/). Pada praktiknya, tema efektif untuk sebuah slide diselesaikan melalui rantai pewarisan ini: tema presentasi, penimpaan master, penimpaan tata letak, dan penimpaan slide.
+Di Aspose.Slides, tema tingkat presentasi tersedia melalui [Presentation.getMasterTheme](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/getmastertheme/). Sebuah presentasi juga dapat berisi penimpaan tema pada tingkat yang lebih rendah. Master dapat menimpa tema presentasi melalui [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/masterthememanager/), sementara tata letak atau slide individual dapat menimpa tema yang diwariskan melalui [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/baseoverridethememanager/). Pada praktiknya, tema efektif untuk sebuah slide diselesaikan melalui rantai pewarisan berikut: tema presentasi, penimpaan master, penimpaan tata letak, dan penimpaan slide.
 
 ![Komponen tema: warna, font, gaya latar belakang, dan efek](theme-constituents.png)
 
@@ -36,7 +36,7 @@ Bagian‑bagian di bawah ini menunjukkan alur kerja tema yang paling umum: memer
 
 ## **Memeriksa Tema**
 
-Objek [MasterTheme](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/mastertheme/) mengekspos skema warna, skema font, dan skema format tema melalui [MasterTheme.getColorScheme](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/mastertheme/), dan [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/mastertheme/). Memeriksa koleksi ini sebelum mengubahnya sangat berguna ketika sebuah presentasi berasal dari sumber eksternal karena jumlah dan isi entri gaya dapat bervariasi.
+Objek [MasterTheme](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/mastertheme/) mengekspor skema warna, skema font, dan skema format tema melalui [MasterTheme.getColorScheme](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/mastertheme/), dan [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/mastertheme/). Memeriksa koleksi‑koleksi ini sebelum mengubahnya sangat berguna ketika presentasi berasal dari sumber eksternal karena jumlah dan isi entri gaya dapat bervariasi.
 
 Contoh berikut membaca properti utama tema dan melaporkan berapa banyak gaya latar belakang, isian, garis, dan efek yang disimpan dalam tema:
 
@@ -60,11 +60,11 @@ try {
 }
 ```
 
-Jika sebuah berkas menggunakan beberapa master, jangan mengasumsikan bahwa setiap slide memiliki tema efektif yang sama. Periksa master yang terkait dengan slide, dan gunakan alur kerja tema‑efektif yang ditunjukkan nanti dalam artikel ini ketika penimpaan tata letak atau slide mungkin ada.
+Jika sebuah berkas menggunakan beberapa master, jangan mengasumsikan bahwa setiap slide memiliki tema efektif yang sama. Periksa master yang terkait dengan slide, dan gunakan alur kerja tema‑efektif yang ditunjukkan kemudian dalam artikel ini ketika penimpaan tata letak atau slide mungkin hadir.
 
 ## **Mengubah Warna Tema**
 
-Isian, garis, dan teks yang menyadari tema dapat merujuk pada warna logis dari enumerasi [SchemeColor](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/schemecolor/). Saat Anda mengubah entri yang bersesuaian dalam [ColorScheme](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/colorscheme/), semua objek yang masih merujuk pada warna tema tersebut akan diselesaikan terhadap nilai baru. Objek yang menggunakan warna RGB langsung tidak akan berubah oleh pembaruan warna tema.
+Isian, garis, dan teks yang sadar tema dapat merujuk pada warna logis dari enumerasi [SchemeColor](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/schemecolor/). Ketika Anda mengubah entri yang bersesuaian dalam [ColorScheme](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/colorscheme/), semua objek yang masih merujuk pada warna tema tersebut akan diselesaikan terhadap nilai baru. Objek yang menggunakan warna RGB langsung tidak akan berubah oleh pembaruan warna tema.
 
 Contoh end‑to‑end berikut membuat sebuah bentuk yang menggunakan `Accent4`, mengubah warna `Accent4` tema menjadi merah, menyimpan presentasi, membukanya kembali, dan mencetak warna isian efektif:
 
@@ -96,7 +96,7 @@ try {
 }
 ```
 
-Karena persegi panjang tetap terhubung ke `Accent4`, warna yang terlihat menjadi merah setelah tema diubah. Jika Anda mengganti warna skema dengan warna langsung pada bentuk, perubahan selanjutnya pada `Accent4` tidak akan memengaruhi isian tersebut lagi.
+Karena persegi tetap terhubung ke `Accent4`, warna yang terlihat menjadi merah setelah tema diubah. Jika Anda mengganti warna skema dengan warna langsung pada bentuk, perubahan selanjutnya pada `Accent4` tidak akan lagi memengaruhi isian tersebut.
 
 ### **Gunakan Warna dari Palet Tambahan**
 
@@ -104,8 +104,7 @@ PowerPoint menghasilkan varian lebih terang dan lebih gelap dari warna tema deng
 
 ![Warna tema utama serta warna lebih terang dan lebih gelap yang dihasilkan dari palet tambahan](additional-palette-colors.png)
 
-**1** – Warna tema utama.
-
+**1** – Warna tema utama.  
 **2** – Varian lebih terang dan lebih gelap yang dihasilkan dari warna tema utama.
 
 Contoh berikut membuat enam persegi panjang berdasarkan `Accent4`, menerapkan transformasi luminansi pada lima di antaranya, dan menyimpan hasilnya:
@@ -157,11 +156,11 @@ try {
 }
 ```
 
-Varian‑varian ini tetap berbasis pada warna tema. Jika `Accent4` berubah nanti, warna yang ditransformasi akan dihitung ulang dari nilai `Accent4` yang baru.
+Varian‑varian ini tetap berbasis pada warna tema. Jika `Accent4` berubah nanti, warna yang ditransformasi akan dihitung kembali dari nilai `Accent4` yang baru.
 
 ### **Pemetaan Nilai `SchemeColor` ke Slot `ColorScheme`**
 
-Enumerasi [SchemeColor](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/schemecolor/) menggunakan `Text1`, `Background1`, `Text2`, dan `Background2`, sementara [ColorScheme](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/colorscheme/) mengekspos slot tema yang sama sebagai `Dark1`, `Light1`, `Dark2`, dan `Light2`. Pemetaan bersifat tetap:
+Enumerasi [SchemeColor](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/schemecolor/) menggunakan `Text1`, `Background1`, `Text2`, dan `Background2`, sementara [ColorScheme](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/colorscheme/) mengekspor slot tema yang sama sebagai `Dark1`, `Light1`, `Dark2`, dan `Light2`. Pemetaan ini tetap:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
@@ -172,16 +171,16 @@ Ini adalah nama alternatif untuk slot tema yang sama; bukan nilai yang dikonvers
 
 ## **Mengubah Font Tema**
 
-Skema font tema berisi satu set font utama untuk judul dan satu set font minor untuk teks tubuh. Metode [FontScheme.getMajor](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/fontscheme/) dan [FontScheme.getMinor](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/fontscheme/) mengekspos set tersebut.
+Skema font tema berisi satu set font utama untuk judul dan satu set font sekunder untuk teks tubuh. Metode [FontScheme.getMajor](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/fontscheme/) dan [FontScheme.getMinor](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/fontscheme/) mengekspor kedua set tersebut.
 
-Identifier font tema yang kompatibel dengan PowerPoint dapat digunakan dalam pemformatan teks:
+Pengidentifikasi font tema yang kompatibel dengan PowerPoint dapat digunakan dalam pemformatan teks:
 
 * `+mn-lt` – Font Tubuh Latin (Minor Latin Font)
 * `+mj-lt` – Font Judul Latin (Major Latin Font)
 * `+mn-ea` – Font Tubuh Asia Timur (Minor East Asian Font)
 * `+mj-ea` – Font Judul Asia Timur (Major East Asian Font)
 
-Contoh berikut membuat satu judul yang menggunakan font Latin utama tema dan satu baris tubuh yang menggunakan font Latin minor tema. Kemudian mengubah font tema dan menyimpan hasilnya:
+Contoh berikut membuat satu judul yang menggunakan font tema Latin utama dan satu baris tubuh yang menggunakan font tema Latin sekunder. Kemudian mengubah font tema dan menyimpan hasilnya:
 
 ```javascript
 const aspose = {};
@@ -207,7 +206,9 @@ try {
 }
 ```
 
-Judul mengikuti font utama dan teks tubuh mengikuti font minor. Teks yang memiliki nama font eksplisit alih‑alih identifier tema tidak akan beralih secara otomatis ketika skema font tema berubah.
+Judul mengikuti font utama dan teks tubuh mengikuti font sekunder. Teks yang memiliki nama font eksplisit alih‑alih pengidentifikasi tema tidak akan otomatis beralih ketika skema font tema berubah.
+
+Koleksi font utama dan sekunder juga dapat berisi pemetaan font untuk sistem penulisan individu, seperti Cyrillic, Arab, Jepang, Georgia, dan Thaana. Untuk memeriksa, menambah, mengganti, atau menghapus pemetaan ini, lihat [Script‑Specific Theme Fonts](/slides/id/nodejs-java/script-specific-font-mappings/).
 
 {{% alert color="info" title="Tip" %}}
 Untuk informasi lebih lanjut tentang font presentasi, lihat [PowerPoint Fonts](/slides/id/nodejs-java/powerpoint-fonts/).
@@ -217,9 +218,9 @@ Untuk informasi lebih lanjut tentang font presentasi, lihat [PowerPoint Fonts](/
 
 Ada dua alur kerja umum, dan keduanya menyelesaikan masalah yang berbeda.
 
-### **Menjaga Tema Sumber Saat Memindahkan Slide**
+### **Mempertahankan Tema Sumber Saat Memindahkan Slide**
 
-Jika Anda ingin memindahkan slide ke presentasi lain dan mempertahankan desain aslinya, kloning master sumber ke presentasi target dengan [MasterSlideCollection.addClone](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/masterslidecollection/), lalu kloning slide dengan [SlideCollection.addClone](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slidecollection/) dan master yang sudah dikloning. Ini membawa bersamaan master, tata letaknya, dan tema terkait.
+Jika Anda ingin memindahkan slide ke presentasi lain dan mempertahankan desain aslinya, klon master sumber ke dalam presentasi target dengan [MasterSlideCollection.addClone](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/masterslidecollection/), lalu klon slide dengan [SlideCollection.addClone](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slidecollection/) dan master yang diklon. Ini membawa master, tata letaknya, dan tema yang terkait bersamaan.
 
 ```javascript
 const aspose = {};
@@ -241,11 +242,11 @@ try {
 }
 ```
 
-Ini adalah alur kerja yang disarankan ketika slide sumber harus tampak sama di tujuan. Sekadar mengkloning konten ke master tujuan yang tidak terkait dapat mengubah warna, font, latar belakang, dan efek yang dipengaruhi tema.
+Ini adalah alur kerja yang disarankan ketika slide sumber harus tampak sama di tujuan. Hanya mengklon konten ke master tujuan yang tidak terkait dapat mengubah warna, font, latar belakang, dan efek yang dipengaruhi tema.
 
-### **Menerapkan Nilai Tema ke Slide yang Ada**
+### **Menerapkan Nilai Tema ke Slide yang Sudah Ada**
 
-Jika slide target harus tetap berada pada master dan tata letak saat ini, inisialisasikan penimpaan tingkat slide dari tema sumber. Metode [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/overridetheme/), dan [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/overridetheme/) menyalin tiga komponen utama tema ke dalam penimpaan.
+Jika slide target harus tetap pada master dan tata letak yang sedang dipakai, inisialisasi penimpaan tingkat slide dari tema sumber. Metode [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/overridetheme/), dan [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/overridetheme/) menyalin tiga komponen utama tema ke dalam penimpaan.
 
 ```javascript
 const aspose = {};
@@ -270,7 +271,7 @@ try {
 }
 ```
 
-Ini mengubah tema yang digunakan oleh slide tersebut tanpa mengubah tema yang diwarisi oleh slide lain. Untuk menghapus penimpaan lokal dan kembali ke nilai yang diwarisi, panggil [OverrideTheme.clear](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/overridetheme/).
+Ini mengubah tema yang digunakan oleh slide tersebut tanpa mengubah tema yang diwariskan oleh slide lain. Untuk menghapus penimpaan lokal dan kembali ke nilai yang diwariskan, panggil [OverrideTheme.clear](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/overridetheme/).
 
 ### **Menerapkan Penimpaan Tema ke Tata Letak**
 
@@ -299,15 +300,15 @@ try {
 }
 ```
 
-Gunakan tema master atau tingkat presentasi ketika banyak tata letak dan slide harus berbagi desain dasar yang sama, penimpaan tata letak ketika satu keluarga tata letak memerlukan gaya yang berbeda, dan penimpaan slide hanya untuk pengecualian yang nyata. Penimpaan tingkat slide yang berlebihan membuat perubahan tema global di kemudian hari menjadi sulit diprediksi.
+Gunakan tema master atau tingkat presentasi ketika banyak tata letak dan slide harus berbagi desain dasar yang sama, penimpaan tata letak ketika satu keluarga tata letak memerlukan gaya yang berbeda, dan penimpaan slide hanya untuk pengecualian yang sebenarnya. Penimpaan tingkat slide yang berlebihan membuat perubahan tema global di kemudian hari menjadi sulit diprediksi.
 
 ## **Memperbarui Gaya Latar Belakang Tema**
 
-Isian latar belakang tema disimpan dalam [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/formatscheme/). PowerPoint dapat menyajikan lebih banyak pilihan latar belakang di UI‑nya daripada jumlah definisi isian yang secara fisik disimpan dalam koleksi ini karena UI dapat menggabungkan isian tema dengan warna tema dan referensi gaya lainnya.
+Isian latar belakang tema disimpan dalam [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/formatscheme/). PowerPoint dapat menampilkan lebih banyak pilihan latar belakang di UI dibandingkan jumlah definisi isian yang secara fisik disimpan dalam koleksi ini karena UI dapat menggabungkan isian tema dengan warna tema dan referensi gaya lainnya.
 
 ![Galeri gaya latar belakang PowerPoint untuk tema presentasi](presentation-design_8.png)
 
-Sebelum menggunakan gaya latar belakang, periksa koleksi yang disimpan dan [Background.getStyleIndex](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/background/) saat ini. Indeks gaya `0` berarti tidak ada isian bertema; nilai positif merupakan referensi gaya latar belakang tema. Ini berbeda dari mengindeks koleksi JavaScript secara langsung, di mana indeks `0` berarti item pertama yang disimpan. Jangan mengasumsikan bahwa setiap presentasi berisi jumlah gaya isian latar belakang yang sama.
+Sebelum menggunakan gaya latar belakang, periksa koleksi yang disimpan dan [Background.getStyleIndex](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/background/) saat ini. Indeks gaya `0` berarti tidak ada isian yang di‑tema; nilai positif adalah referensi gaya latar belakang tema. Ini berbeda dari pengindeksan koleksi JavaScript secara langsung, di mana indeks `0` berarti item pertama yang disimpan. Jangan mengasumsikan setiap presentasi memiliki jumlah gaya isian latar belakang yang sama.
 
 Contoh berikut melaporkan jumlah isian latar belakang yang tersedia, menetapkan referensi latar belakang bertema ke master pertama, dan menyimpan presentasi:
 
@@ -333,10 +334,10 @@ try {
 }
 ```
 
-Hasil yang terlihat tergantung pada entri tema yang direferensikan oleh master dan pada penimpaan latar belakang di tingkat tata letak atau slide. Jika sebuah slide menggunakan latar belakangnya sendiri, mengubah hanya latar belakang master mungkin tidak mengubah slide tersebut. Gunakan [Background.getEffective](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/background/) ketika Anda perlu mengetahui latar belakang final setelah pewarisan diterapkan.
+Hasil yang terlihat tergantung pada entri tema yang dirujuk oleh master serta penimpaan latar belakang pada tata letak atau tingkat slide. Jika slide menggunakan latar belakangnya sendiri, mengubah hanya latar belakang master mungkin tidak mengubah slide tersebut. Gunakan [Background.getEffective](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/background/) ketika Anda perlu mengetahui latar belakang akhir setelah pewarisan diterapkan.
 
 {{% alert color="warning" title="Warning" %}}
-Jangan memperlakukan indeks gaya sebagai indeks koleksi berbasis nol. Hindari pula meng‑hard‑code nomor gaya dari satu berkas dan mengasumsikan tampilannya sama di berkas lain; definisi gaya tema bersifat spesifik presentasi.
+Jangan memperlakukan indeks gaya sebagai indeks koleksi berbasis nol. Hindari juga meng‑hard‑code nomor gaya dari satu berkas dan mengasumsikan tampilannya sama di berkas lain; definisi gaya tema bersifat spesifik pada presentasi.
 {{% /alert %}}
 
 {{% alert color="info" title="Tip" %}}
@@ -345,11 +346,11 @@ Untuk pemformatan latar belakang langsung dan pewarisan latar belakang, lihat [P
 
 ## **Memperbarui Efek Tema**
 
-Skema format tema berisi koleksi terpisah untuk isian, garis, dan efek yang diekspos melalui [FormatScheme.getFillStyles](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/formatscheme/), [FormatScheme.getLineStyles](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/formatscheme/), dan [FormatScheme.getEffectStyles](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/formatscheme/). Tema Office tipikal sering berisi tiga entri gaya utama yang secara visual mewakili pemformatan halus, sedang, dan intens, tetapi kode harus memeriksa setiap koleksi alih‑alih mengasumsikan jumlah tetap.
+Skema format tema berisi koleksi terpisah untuk isian, garis, dan efek yang diekspos melalui [FormatScheme.getFillStyles](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/formatscheme/), [FormatScheme.getLineStyles](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/formatscheme/), dan [FormatScheme.getEffectStyles](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/formatscheme/). Tema Office biasanya berisi tiga entri gaya utama yang secara visual berhubungan dengan pemformatan halus, sedang, dan intens, tetapi kode harus memeriksa setiap koleksi alih‑alih mengasumsikan hitungan tetap.
 
 ![Efek tema halus, sedang, dan intens yang diterapkan pada bentuk yang sama](presentation-design_10.png)
 
-Saat Anda mengakses koleksi ini di JavaScript, indeks koleksi berbasis nol: indeks `0` adalah gaya pertama yang disimpan dan indeks `2` adalah gaya ketiga. Indeks referensi gaya pada sebuah bentuk merupakan konsep terpisah, diekspos melalui [ShapeStyle](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shapestyle/). Memodifikasi gaya tema memengaruhi bentuk yang merujuk pada gaya tema tersebut; bentuk dengan pemformatan langsung mungkin tetap tidak berubah.
+Saat Anda mengakses koleksi‑koleksi ini dalam JavaScript, indeks koleksi bersifat berbasis nol: indeks `0` adalah gaya pertama yang disimpan dan indeks `2` adalah gaya ketiga. Indeks‑indeks referensi gaya sebuah bentuk adalah konsep terpisah, diekspos melalui [ShapeStyle](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shapestyle/). Mengubah gaya tema memengaruhi bentuk yang merujuk ke gaya tema tersebut; bentuk dengan pemformatan langsung mungkin tetap tidak berubah.
 
 Contoh berikut memeriksa keberadaan entri gaya yang diperlukan, mengubah gaya garis pertama, mengubah gaya isian ketiga, mengaktifkan bayangan luar pada gaya efek ketiga, dan menyimpan hasilnya:
 
@@ -378,13 +379,13 @@ try {
 }
 ```
 
-Untuk bentuk yang merujuk ke slot‑slot ini, gaya garis tema pertama menjadi merah, gaya isian tema ketiga menjadi hijau hutan padat, dan gaya efek ketiga memperoleh bayangan luar dengan jarak 10 poin. Hasil visual akhir tetap bergantung pada slot gaya yang dirujuk tiap bentuk dan apakah pemformatan langsung menimpa tema.
+Untuk bentuk yang merujuk ke slot‑slot ini, gaya garis tema pertama menjadi merah, gaya isian tema ketiga menjadi hijau hutan solid, dan gaya efek ketiga memperoleh bayangan luar dengan jarak 10 poin. Hasil visual tepat masih tergantung pada slot gaya yang dirujuk masing‑masing bentuk dan apakah pemformatan langsung menimpa tema.
 
 ![Gaya efek tema setelah mengubah pengaturan garis, isian, dan bayangan](presentation-design_11.png)
 
 ## **Membaca Nilai Tema Efektif**
 
-Objek tema mentah memberi tahu apa yang didefinisikan pada tingkat tertentu. Nilai efektif memberi tahu apa yang sebenarnya digunakan slide atau bentuk setelah pewarisan dan penimpaan lokal diselesaikan. Untuk slide, panggil [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/baseoverridethememanager/). Untuk latar belakang, gunakan [Background.getEffective](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/background/), dan untuk isian, gunakan [FillFormat.getEffective](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/fillformat/).
+Objek tema mentah memberi tahu Anda apa yang didefinisikan pada tingkat tertentu. Nilai efektif memberi tahu apa yang sebenarnya digunakan oleh slide atau bentuk setelah pewarisan dan penimpaan lokal diselesaikan. Untuk slide, panggil [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/baseoverridethememanager/). Untuk latar belakang, gunakan [Background.getEffective](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/background/), dan untuk isian, gunakan [FillFormat.getEffective](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/fillformat/).
 
 Contoh berikut membaca tema efektif, latar belakang, dan isian bentuk pertama dari sebuah slide:
 
@@ -412,18 +413,18 @@ try {
 }
 ```
 
-Gunakan data efektif untuk diagnostik rendering, validasi, dan perbandingan. Jika Anda hanya memeriksa [Presentation.getMasterTheme](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/getmastertheme/), Anda dapat melewatkan penimpaan master, tata letak, slide, atau bentuk yang mengubah penampilan akhir.
+Gunakan data efektif untuk diagnostik rendering, validasi, dan perbandingan. Jika Anda hanya memeriksa [Presentation.getMasterTheme](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/getmastertheme/), Anda dapat melewatkan penimpaan master, tata letak, slide, atau bentuk yang mengubah tampilan akhir.
 
 ## **FAQ**
 
 **Apakah saya dapat menerapkan tema ke satu slide tanpa mengubah master?**
 
-Ya. Gunakan [SlideThemeManager](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slidethememanager/) milik slide dan inisialisasikan tema penimpaanannya. Perubahan tetap lokal pada slide tersebut; slide lain tetap mewarisi tema yang ada.
+Ya. Gunakan [SlideThemeManager](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slidethememanager/) slide tersebut dan inisialisasi tema penimpaan-nya. Perubahan tetap lokal pada slide itu; slide lain tetap mewarisi tema yang ada.
 
 **Apa cara paling aman untuk membawa tema dari satu presentasi ke presentasi lain?**
 
-Saat memindahkan slide dan mempertahankan tampilan sumbernya, kloning master sumber ke tujuan dan kloning slide dengan master tersebut menggunakan [MasterSlideCollection.addClone](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/masterslidecollection/) serta [SlideCollection.addClone](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slidecollection/). Ini menjaga master, tata letak, dan tema tetap bersama.
+Saat memindahkan slide dan mempertahankan tampilan sumbernya, klon master sumber ke tujuan dan klon slide dengan master tersebut menggunakan [MasterSlideCollection.addClone](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/masterslidecollection/) serta [SlideCollection.addClone](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slidecollection/). Ini menjaga master, tata letak, dan tema bersamaan.
 
 **Bagaimana saya dapat melihat nilai efektif setelah pewarisan dan penimpaan?**
 
-Gunakan [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/baseoverridethememanager/) untuk tema slide atau tata letak dan metode data‑efektif yang bersangkutan untuk objek format seperti [Background.getEffective](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/background/) dan [FillFormat.getEffective](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/fillformat/). API‑API ini mengembalikan nilai yang telah diselesaikan setelah pewarisan dan penimpaan diterapkan.
+Gunakan [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/baseoverridethememanager/) untuk slide atau tema tata letak dan metode data‑efektif yang bersesuaian untuk objek format seperti [Background.getEffective](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/background/) dan [FillFormat.getEffective](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/fillformat/). API ini mengembalikan nilai yang telah diselesaikan setelah pewarisan dan penimpaan diterapkan.

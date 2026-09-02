@@ -1,11 +1,11 @@
 ---
-title: Operace prezentací s nízkým kódem v .NET
-linktitle: Low-Code API
+title: Operace prezentace s nízkým kódem v .NET
+linktitle: API s nízkým kódem
 type: docs
 weight: 50
 url: /cs/net/low-code-presentation-operations/
 keywords:
-- Low-Code API pro prezentace
+- API prezentace s nízkým kódem
 - převod prezentace
 - sloučení prezentací
 - iterace snímků
@@ -13,8 +13,8 @@ keywords:
 - iterace textu
 - shromáždění tvarů
 - komprese prezentace
-- odstranění nepoužívaných master snímků
-- odstranění nepoužívaných rozvržení snímků
+- odstranění nepoužitých mistrů snímků
+- odstranění nepoužitých rozložení snímků
 - komprese vložených fontů
 - PowerPoint
 - OpenDocument
@@ -22,27 +22,27 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Použijte low-code API Aspose.Slides v .NET k převodu a sloučení prezentací, iteraci obsahu, shromažďování tvarů a snížení velikosti prezentace."
+description: "Použijte low-code API Aspose.Slides v .NET k převodu a sloučení prezentací, iteraci obsahu, shromažďování tvarů a zmenšení velikosti prezentace."
 ---
 ## **Přehled**
 
-Jmenný prostor [Aspose.Slides.LowCode] poskytuje statické pomocné třídy pro běžné operace s prezentacemi. Tyto pomocníky zapouštějí často používané pracovní postupy objektového modelu do cílených metod, takže můžete převádět nebo slučovat soubory, zpracovávat prvky prezentace, shromažďovat tvary a odstraňovat nepoužitý obsah s menším množstvím kódu.
+Namespace [Aspose.Slides.LowCode](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/) poskytuje statické pomocné třídy pro běžné operace s prezentacemi. Tyto pomocníky zapouzdřují často používané workflow objektového modelu do zaměřených metod, takže můžete konvertovat nebo slučovat soubory, zpracovávat prvky prezentace, shromažďovat tvary a odstraňovat nepoužité položky s méně kódem.
 
-Pomocníky low-code jsou nejužitečnější, když se operace vztahuje na celý soubor nebo prezentaci a výchozí pracovní postup odpovídá vašim požadavkům. Použijte celý objektový model [Aspose.Slides] když potřebujete jemnozrnné řízení jednotlivých snímků, masterů, rozvržení, tvarů, nastavení exportu nebo vztahů mezi prvky prezentace.
+Low‑code pomocníky jsou nejvíce užitečné, když operace platí pro celý soubor nebo prezentaci a výchozí workflow odpovídá vašim požadavkům. Použijte kompletní [Aspose.Slides objektový model](https://reference.aspose.com/slides/cs/net/aspose.slides/), když potřebujete detailní kontrolu nad jednotlivými snímky, mistry, rozloženími, tvary, nastaveními exportu nebo vztahy mezi prvky prezentace.
 
 Následující tabulka shrnuje dostupné pomocníky:
 
-| Pomocník | Kdy použít |
+| Pomocník | Použijte pro |
 | --- | --- |
-| [Convert](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/convert/) | Převod prezentace do jiného formátu pomocí přímého volání soubor‑na‑soubor. |
-| [Merger](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/merger/) | Kombinování kompletních souborů prezentací ve stejném formátu. |
-| [ForEach](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/foreach/) | Spuštění akce pro každý snímek, tvar, odstavec nebo část textu. |
+| [Convert](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/convert/) | Konverzi prezentace do jiného formátu přímým voláním soubor‑na‑soubor. |
+| [Merger](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/merger/) | Kombinaci kompletních souborů prezentací stejného formátu. |
+| [ForEach](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/foreach/) | Provedení akce pro každý snímek, tvar, odstavec nebo část textu. |
 | [Collect](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/collect/) | Získání tvarů z celé prezentace pro opakované zpracování nebo analýzu. |
-| [Compress](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/compress/) | Odstranění nepoužívaných masterů a rozvržení a snížení vložených dat fontů. |
+| [Compress](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/compress/) | Odstranění nepoužívaných mistrů a rozložení a zmenšení vložených dat fontů. |
 
-## **Převést prezentaci**
+## **Konverze prezentace**
 
-Použijte [Convert.AutoByExtension](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/convert/autobyextension/) když je přípona výstupního souboru dostatečná k výběru exportního formátu. Metoda otevře zdrojovou prezentaci, určí požadovaný formát z výstupní cesty a zapíše výsledek.
+Použijte [Convert.AutoByExtension](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/convert/autobyextension/) když je přípona výstupního souboru dostačující k výběru formátu exportu. Metoda otevře zdrojovou prezentaci, určí požadovaný formát z výstupní cesty a zapíše výsledek.
 
 ```csharp
 using Aspose.Slides.LowCode;
@@ -50,11 +50,11 @@ using Aspose.Slides.LowCode;
 Convert.AutoByExtension("input.pptx", "output.pdf");
 ```
 
-[Convert] třída také poskytuje specializované metody pro výstup do PDF, SVG, JPEG, PNG a TIFF. Použijte celý objektový model, když potřebujete před exportem prezentaci zkontrolovat nebo upravit nebo nakonfigurovat exportní možnost, která není vybraným pomocníkem zpřístupněna. Viz [Convert Presentation](/net/convert-presentation/) pro pracovní postupy a možnosti specifické pro formáty.
+Třída [Convert](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/convert/) také poskytuje vyhrazené metody pro výstup PDF, SVG, JPEG, PNG a TIFF. Použijte úplný objektový model, když potřebujete před exportem prohlédnout nebo upravit prezentaci nebo nastavit volbu exportu, která není pomocníkem zpřístupněna. Viz [Convert Presentation](/slides/cs/net/convert-presentation/) pro workflow a možnosti specifické pro formát.
 
-## **Sloučit prezentace**
+## **Sloučení prezentací**
 
-Použijte [Merger.Process](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/merger/process/) k propojení kompletních souborů prezentací jedním voláním. Vstupní prezentace musí mít stejný formát souboru.
+Použijte [Merger.Process](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/merger/process/) pro kombinaci kompletních souborů prezentací jedním voláním. Vstupní prezentace musí mít stejný formát souboru.
 
 ```csharp
 using Aspose.Slides.LowCode;
@@ -63,13 +63,13 @@ var inputFiles = new[] { "part-1.pptx", "part-2.pptx" };
 Merger.Process(inputFiles, "merged.pptx");
 ```
 
-Tento pomocník je vhodný, když mají být všechny snímky připojeny k jednomu výsledku bez individuálního výběru nebo přemapování. Použijte celý objektový model, když potřebujete sloučit vybrané snímky, použít cílový master nebo rozvržení, explicitně zachovat sekce nebo sladit různé velikosti snímků. Viz [Merge Presentations](/net/merge-presentation/) pro tyto scénáře.
+Tento pomocník je vhodný, když mají být všechny snímky připojeny k jednomu výsledku bez individuálního výběru nebo přemapování. Použijte úplný objektový model, když potřebujete sloučit vybrané snímky, použít cílový mistr nebo rozložení, explicitně zachovat sekce nebo sladit různé velikosti snímků. Viz [Merge Presentations](/slides/cs/net/merge-presentation/) pro tyto scénáře.
 
-## **Iterovat přes prvky prezentace**
+## **Iterace přes prvky prezentace**
 
-Třída [ForEach] vyvolá zpětné volání pro každý požadovaný typ prvku prezentace. Vyhýbá se vnořeným cyklům kolekcí a je vhodná pro celoprezentační kontrolu nebo změny formátování.
+Třída [ForEach](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/foreach/) volá zpětné volání pro každý požadovaný typ prvku prezentace. Vyhýbá se vnořeným smyčkám sbírek a je pohodlná pro kontrolu nebo změny formátování v celé prezentaci.
 
-Následující příklad používá [ForEach.Slide](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/foreach/slide/), [ForEach.Shape](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/foreach/shape/), [ForEach.Paragraph](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/foreach/paragraph/), a [ForEach.Portion](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/foreach/portion/) k prozkoumání odpovídajících prvků:
+Následující příklad používá [ForEach.Slide](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/foreach/slide/), [ForEach.Shape](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/foreach/shape/), [ForEach.Paragraph](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/foreach/paragraph/) a [ForEach.Portion](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/foreach/portion/) k prozkoumání odpovídajících prvků:
 
 ```csharp
 using System;
@@ -99,11 +99,11 @@ ForEach.Portion(presentation, (portion, paragraph, slide, index) =>
 });
 ```
 
-Ve výchozím nastavení procházení tvarů a textu v celé prezentaci zahrnuje normální, master a rozvržení snímky. Přetížení s parametrem `includeNotes` mohou také zpracovávat snímky poznámek. Použijte přímé cykly kolekcí, když je důležitý pořadí procházení, předčasný odchod, filtrování před vyvoláním zpětného volání nebo podrobná kontrola rodič‑potomek.
+Ve výchozím nastavení zahrnuje průchod tvary a text v celé prezentaci normální, mistr a layout snímky. Přetížení s parametrem `includeNotes` může zpracovávat i snímky poznámek. Použijte přímé smyčky sbírek, když je důležitý pořadí průchodu, předčasný výstup, filtrování před voláním zpětné funkce nebo podrobná kontrola rodič‑dítě.
 
-## **Shromažďovat tvary**
+## **Shromažďování tvarů**
 
-Použijte [Collect.Shapes](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/collect/shapes/) když potřebujete kolekci všech tvarů v prezentaci místo zpětného volání pro každý tvar. To je užitečné, když bude stejné množství filtrované, počítané nebo zpracovávané vícekrát.
+Použijte [Collect.Shapes](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/collect/shapes/) když potřebujete kolekci všech tvarů v prezentaci místo zpětného volání pro každý tvar. To je užitečné, pokud bude stejná sada filtrována, počítána nebo zpracována vícekrát.
 
 ```csharp
 using System;
@@ -119,14 +119,14 @@ foreach (var shape in shapes)
 }
 ```
 
-Použijte místo toho [ForEach.Shape](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/foreach/shape/), když může být každý tvar zpracován okamžitě a nepotřebujete uchovat shromážděný výsledek.
+Použijte místo toho [ForEach.Shape](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/foreach/shape/) pokud lze každý tvar zpracovat okamžitě a není potřeba uchovávat shromážděný výsledek.
 
-## **Komprimovat obsah prezentace**
+## **Komprese obsahu prezentace**
 
-Třída [Compress](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/compress/) může odstranit nepoužívané strukturální prvky a snížit vložená data fontů:
+Třída [Compress](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/compress/) může odstranit nepoužívané strukturální prvky a zmenšit vložená data fontů:
 
-- [Compress.RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) odstraňuje rozvržení snímků, na které neodkazuje žádný normální snímek.
-- [Compress.RemoveUnusedMasterSlides](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/compress/removeunusedmasterslides/) odstraňuje master snímky, které již nejsou používány.
+- [Compress.RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) odstraňuje layout snímky, na které neodkazuje žádný normální snímek.
+- [Compress.RemoveUnusedMasterSlides](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/compress/removeunusedmasterslides/) odstraňuje mistr snímky, které už nejsou používány.
 - [Compress.CompressEmbeddedFonts](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/compress/compressembeddedfonts/) odstraňuje nepoužívané znaky z vložených fontů.
 
 ```csharp
@@ -143,38 +143,38 @@ Compress.CompressEmbeddedFonts(presentation);
 presentation.Save("compressed.pptx", SaveFormat.Pptx);
 ```
 
-Odstraňte nejprve nepoužívaná rozvržení před nepoužívanými mastery, aby master, který se po vyčištění rozvržení stane nepoužívaným, mohl být také odstraněn. Uložte optimalizovanou prezentaci do nového souboru, pokud budete později potřebovat původní mastery, rozvržení nebo kompletní vložená data fontů. Podrobnější informace najdete v [Slide Master](/net/slide-master/) a [Embedded Font](/net/embedded-font/).
+Odstraňujte nejprve nepoužívaná rozložení a až potom nepoužívané mistry, aby mohl být mistr, který se po úklidu rozložení stane nepřipojeným, také odstraněn. Uložte optimalizovanou prezentaci do nového souboru, pokud můžete později potřebovat původní mistry, rozložení nebo kompletní data vložených fontů. Pro podrobnosti viz [Slide Master](/slides/cs/net/slide-master/) a [Embedded Font](/slides/cs/net/embedded-font/).
 
 ## **Často kladené otázky**
 
-**Kdy bych měl použít low-code API místo kompletního objektového modelu?**
+**Kdy mám použít low‑code API místo úplného objektového modelu?**
 
-Používejte low-code pomocníky, když standardní operace platí pro celý soubor nebo prezentaci a nevyžaduje podrobnou kontrolu jednotlivých prvků. Použijte kompletní objektový model, když potřebujete vybrat konkrétní snímky, řídit vztahy masterů a rozvržení, zkontrolovat mezistav nebo nakonfigurovat chování, které pomocník neexponuje.
+Používejte low‑code pomocníky, když standardní operace platí pro celý soubor nebo prezentaci a nevyžaduje detailní kontrolu nad jednotlivými prvky. Použijte úplný objektový model, když potřebujete vybrat konkrétní snímky, řídit vztahy mistr‑layout, prověřit mezistav nebo nastavit chování, které pomocník neodhaluje.
 
-**Může Merger kombinovat prezentace v různých formátech souborů?**
+**Může Merger sloučit prezentace v různých formátech souborů?**
 
 Ne. [Merger.Process](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/merger/process/) vyžaduje vstupní prezentace ve stejném formátu. Nejprve převěďte vstupní soubory do společného formátu, například pomocí [Convert.AutoByExtension](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/convert/autobyextension/), a pak sloučte převedené soubory.
 
-**Zpracovává ForEach master, rozvržení a poznámkové snímky?**
+**Zpracovává ForEach mistry, layouty a snímky poznámek?**
 
-[ForEach.Slide](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/foreach/slide/) iteruje přes normální snímky prezentace. Celoprezentační operace [ForEach.Shape](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/foreach/shape/), [ForEach.Paragraph](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/foreach/paragraph/), a [ForEach.Portion](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/foreach/portion/) zahrnují standardní, master a rozvržení snímky ve výchozím nastavení. Použijte jejich přetížení s `includeNotes` nastaveným na `true`, aby byly zahrnuty i poznámkové snímky.
+[ForEach.Slide](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/foreach/slide/) iteruje přes normální snímky prezentace. Operace [ForEach.Shape](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/foreach/shape/), [ForEach.Paragraph](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/foreach/paragraph/) a [ForEach.Portion](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/foreach/portion/) zahrnují ve výchozím nastavení normální, mistr a layout snímky. Použijte jejich přetížení s `includeNotes` nastaveným na `true`, aby zahrnovaly i snímky poznámek.
 
 **Jaký je rozdíl mezi ForEach.Shape a Collect.Shapes?**
 
-Použijte [ForEach.Shape](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/foreach/shape/) k okamžitému zpracování každého tvaru pomocí zpětného volání. Použijte [Collect.Shapes](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/collect/shapes/) když potřebujete výsledek v podobě IEnumerable, který lze uchovat, filtrovat, počítat nebo procházet vícekrát.
+Použijte [ForEach.Shape](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/foreach/shape/) k okamžitému zpracování každého tvaru pomocí zpětného volání. Použijte [Collect.Shapes](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/collect/shapes/) když potřebujete výsledek jako enumerable, který můžete uchovat, filtrovat, počítat nebo procházet vícekrát.
 
 **Zmenšuje Compress vždy velikost souboru prezentace?**
 
-Není to nutně pravda. Výsledek závisí na tom, zda prezentace obsahuje nepoužívaná rozvržení, nepoužívané mastery nebo vložené fonty s nepoužitými znaky. Pokud žádné z těchto položek nejsou přítomny, odpovídající operace [Compress](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/compress/) nemusí zmenšit velikost souboru.
+Ne nutně. Výsledek závisí na tom, zda prezentace obsahuje nepoužívaná rozložení, nepoužívané mistry nebo vložené fonty s nepoužívanými znaky. Pokud žádné z těchto položek chybí, příslušné operace [Compress](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/compress/) nemusí velikost souboru snížit.
 
-**Ukládají se změny provedené pomocí ForEach nebo Compress automaticky?**
+**Ukládají se změny provedené pomocníky ForEach nebo Compress automaticky?**
 
-Ne. Tito pomocníci pracují s načteným objektem [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/) v paměti. Po úpravě prvků v zpětném volání [ForEach](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/foreach/) nebo po spuštění [Compress](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/compress/), zavolejte [Presentation.Save](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/save/), aby byl výsledek zapsán.
+Ne. Tyto pomocníky pracují s načteným objektem [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/) v paměti. Po změně prvků v zpětném volání [ForEach](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/foreach/) nebo po spuštění [Compress](https://reference.aspose.com/slides/cs/net/aspose.slides.lowcode/compress/) zavolejte [Presentation.Save](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/save/), abyste výsledek zapsali.
 
 ## **Související články**
 
-- [Convert Presentation](/net/convert-presentation/)
-- [Merge Presentations](/net/merge-presentation/)
-- [Slide Master](/net/slide-master/)
-- [Manage Text Box](/net/manage-textbox/)
-- [Embedded Font](/net/embedded-font/)
+- [Convert Presentation](/slides/cs/net/convert-presentation/)
+- [Merge Presentations](/slides/cs/net/merge-presentation/)
+- [Slide Master](/slides/cs/net/slide-master/)
+- [Manage Text Box](/slides/cs/net/manage-textbox/)
+- [Embedded Font](/slides/cs/net/embedded-font/)

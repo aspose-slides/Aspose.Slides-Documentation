@@ -1,5 +1,5 @@
 ---
-title: Adicionar Assinaturas Digitais a Apresentações no Android
+title: Adicionar assinaturas digitais a apresentações no Android
 linktitle: Assinatura Digital
 type: docs
 weight: 10
@@ -17,7 +17,7 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aprenda a assinar apresentações PPTX existentes com certificados PFX e usar Aspose.Slides para Android via Java para validar ou remover assinaturas digitais."
+description: "Aprenda como assinar apresentações PPTX existentes com certificados PFX e usar Aspose.Slides para Android via Java para validar ou remover assinaturas digitais."
 ---
 ## **Visão geral**
 
@@ -25,27 +25,27 @@ Uma assinatura digital ajuda o destinatário a determinar quem assinou uma apres
 
 - Um **certificado digital** é uma credencial eletrônica que associa uma identidade a uma chave pública. Uma autoridade certificadora (CA) confiável pode emitir um certificado, ou uma organização pode usar um certificado autoassinado para fluxos de trabalho internos.
 - Uma **assinatura digital** é criada a partir do conteúdo da apresentação e da chave privada do titular do certificado. A chave pública do certificado pode então ser usada para verificar a assinatura. Uma assinatura fornece evidência de origem e integridade; não criptografa a apresentação.
-- **Proteção por senha** controla se um usuário pode abrir ou modificar uma apresentação. É separada da assinatura digital e é descrita em [Apresentações Protegidas por Senha](/androidjava/password-protected-presentation/).
+- **Proteção por senha** controla se um usuário pode abrir ou modificar uma apresentação. É separada da assinatura digital e é descrita em [Apresentações protegidas por senha](/slides/pt/androidjava/password-protected-presentation/).
 
-PowerPoint fornece o comando **Adicionar uma Assinatura Digital** em **Arquivo > Informações > Proteger Apresentação**.
+O PowerPoint fornece o comando **Adicionar uma assinatura digital** em **Arquivo > Informações > Proteger apresentação**.
 
-![Menu Proteger Apresentação do PowerPoint com Adicionar uma Assinatura Digital destacado](add-digital-signature-in-powerpoint.png)
+![Menu Proteger Apresentação do PowerPoint com Adicionar uma assinatura digital destacado](add-digital-signature-in-powerpoint.png)
 
 Depois que uma apresentação assinada é aberta, o PowerPoint pode exibir uma notificação de status da assinatura.
 
-![Notificação do PowerPoint indicando que a apresentação contém assinaturas válidas](digital-signature-status-in-powerpoint.png)
+![Notificação do PowerPoint afirmando que a apresentação contém assinaturas válidas](digital-signature-status-in-powerpoint.png)
 
-Aspose.Slides expõe assinaturas através de [IPresentation.getDigitalSignatures](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ipresentation/#getDigitalSignatures--), que retorna um [IDigitalSignatureCollection](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/idigitalsignaturecollection/) cujos itens implementam [IDigitalSignature](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/idigitalsignature/). Uma apresentação pode conter várias assinaturas.
+Aspose.Slides expõe assinaturas através de [IPresentation.getDigitalSignatures](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ipresentation/#getDigitalSignatures--), que retorna uma [IDigitalSignatureCollection](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/idigitalsignaturecollection/) cujos itens implementam [IDigitalSignature](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/idigitalsignature/). Uma apresentação pode conter várias assinaturas.
 
-## **Entenda Certificados PFX e Senhas**
+## **Entender certificados PFX e senhas**
 
-Um arquivo PFX, também conhecido como arquivo PKCS#12 e normalmente com extensão `.pfx` ou `.p12`, pode conter um certificado X.509, sua chave privada e a cadeia de certificados. A chave privada é o que permite ao titular criar uma assinatura. Um certificado sem uma chave privada acessível não pode ser usado para assinar uma apresentação.
+Um arquivo PFX, também conhecido como arquivo PKCS#12 e comumente com extensão `.pfx` ou `.p12`, pode conter um certificado X.509, sua chave privada e a cadeia de certificados. A chave privada é o que permite ao titular criar uma assinatura. Um certificado sem uma chave privada acessível não pode ser usado para assinar uma apresentação.
 
-A senha PFX protege o pacote de certificado e a chave privada. Ela **não** é uma senha para abrir ou editar a apresentação. Não faça commit de arquivos PFX ou de suas senhas no controle de versão. Em produção, limite o acesso ao arquivo de certificado e obtenha sua senha de um cofre de segredos ou outra fonte de configuração protegida. Os exemplos abaixo usam uma variável de ambiente apenas para evitar incorporar a senha no código.
+A senha PFX protege o pacote de certificado e a chave privada. Ela **não** é uma senha para abrir ou editar a apresentação. Não faça commit de arquivos PFX ou suas senhas no controle de versão. Em produção, limite o acesso ao arquivo de certificado e obtenha sua senha de um armazenamento de segredos ou outra fonte de configuração protegida. Os exemplos abaixo usam uma variável de ambiente apenas para evitar incorporar a senha no código.
 
-## **Adicionar uma Assinatura Digital a uma Apresentação**
+## **Adicionar uma assinatura digital a uma apresentação**
 
-Para assinar um fluxo de trabalho real, carregue um arquivo PPTX existente, crie um [DigitalSignature](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/digitalsignature/) a partir de um certificado PFX e sua senha, adicione a assinatura à coleção da apresentação e salve em um arquivo PPTX.
+Para assinar um fluxo de trabalho de apresentação real, carregue um arquivo PPTX existente, crie um [DigitalSignature](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/digitalsignature/) a partir de um certificado PFX e sua senha, adicione a assinatura à coleção da apresentação e salve em um arquivo PPTX.
 
 ```java
 import com.aspose.slides.*;
@@ -67,9 +67,9 @@ try {
 }
 ```
 
-Salvar o resultado com um novo nome preserva o arquivo de origem não assinado. O valor definido por [IDigitalSignature.setComments](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/idigitalsignature/#setComments-java.lang.String-) descreve o propósito da assinatura; não é um controle de segurança.
+Salvar o resultado com um novo nome preserva o arquivo fonte não assinado. O valor definido por [IDigitalSignature.setComments](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/idigitalsignature/#setComments-java.lang.String-) descreve o propósito da assinatura; não é um controle de segurança.
 
-## **Validar Assinaturas Digitais**
+## **Validar assinaturas digitais**
 
 Ao carregar um arquivo PPTX assinado, inspecione cada item retornado por [IPresentation.getDigitalSignatures](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ipresentation/#getDigitalSignatures--). O método [IDigitalSignature.isValid](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/idigitalsignature/#isValid--) indica se a assinatura incorporada é válida para o conteúdo atual da apresentação.
 
@@ -116,11 +116,11 @@ try {
 }
 ```
 
-Um resultado inválido geralmente significa que o conteúdo da apresentação assinado ou os dados da assinatura foram alterados após a assinatura, ou que o arquivo está danificado. Remover todas as assinaturas produz uma apresentação não assinada, portanto verificar apenas a validade dos itens não é suficiente: um fluxo de trabalho sensível à segurança também deve verificar se o número esperado de assinaturas e as identidades esperadas dos assinantes estão presentes.
+Um resultado inválido geralmente significa que o conteúdo da apresentação assinada ou os dados da assinatura foram alterados após a assinatura, ou que o arquivo está danificado. Remover todas as assinaturas produz uma apresentação não assinada, portanto verificar apenas a validade dos itens não é suficiente: um fluxo de trabalho sensível à segurança também deve verificar se o número esperado de assinaturas e as identidades esperadas dos signatários estão presentes.
 
-Esse resultado de validade não deve ser tratado como uma decisão completa de confiança no certificado. Dependendo da sua política de segurança, sua aplicação pode precisar também construir e validar a cadeia de certificados X.509, verificar datas de validade e status de revogação, confirmar o assunto ou impressão digital esperada, validar o uso da chave e avaliar um carimbo de tempo confiável. O valor retornado por [IDigitalSignature.getSignTime](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/idigitalsignature/#getSignTime--) por si só não é prova de uma autoridade de carimbo de tempo confiável.
+Esse resultado de validade não deve ser tratado como uma decisão completa de confiança no certificado. Dependendo da sua política de segurança, sua aplicação pode também precisar construir e validar a cadeia de certificados X.509, verificar datas de validade e status de revogação do certificado, confirmar o sujeito ou impressão digital esperada, verificar o uso da chave e avaliar um carimbo de tempo confiável. O valor de [IDigitalSignature.getSignTime](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/idigitalsignature/#getSignTime--) por si só não é prova de uma autoridade de carimbo de tempo confiável.
 
-## **Remover Assinaturas Digitais**
+## **Remover assinaturas digitais**
 
 Remover assinaturas altera o estado de segurança da apresentação. O exemplo a seguir carrega um arquivo PPTX assinado, remove todas as assinaturas com [IDigitalSignatureCollection.clear](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/idigitalsignaturecollection/#clear--), e salva uma cópia não assinada.
 
@@ -134,49 +134,49 @@ try {
 }
 ```
 
-Para remover apenas uma assinatura, chame [IDigitalSignatureCollection.removeAt](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/idigitalsignaturecollection/#removeAt-int-) com seu índice base zero. Salve em um novo arquivo, a menos que sobrescrever o original assinado seja parte explícita do seu fluxo de trabalho.
+Para remover apenas uma assinatura, chame [IDigitalSignatureCollection.removeAt](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/idigitalsignaturecollection/#removeAt-int-) com seu índice baseado em zero. Salve em um novo arquivo a menos que sobrescrever o original assinado seja uma parte explícita do seu fluxo de trabalho.
 
-## **Considerações de Edição e Formato**
+## **Considerações de edição e formato**
 
-- Uma assinatura não torna a apresentação somente leitura. Usuários e aplicações ainda podem editar o arquivo, mas alterações no conteúdo assinado normalmente invalidam a assinatura existente.
-- Conclua todas as edições desejadas antes de assinar. Se a apresentação precisar ser alterada, salve a versão revisada e assine essa revisão novamente.
-- Mantenha a saída final no formato PPTX. Converter uma apresentação assinada para outro formato não transfere a assinatura original PPTX como assinatura válida para o arquivo convertido.
-- Trate a chave privada do certificado como sensível. Qualquer pessoa que obtenha a chave privada e sua senha pode criar assinaturas que aparentam ser do titular do certificado.
-- Preserve a fonte não assinada ou outra cópia controlada quando sua política de retenção de documentos exigir.
+- Uma assinatura não torna a apresentação somente leitura. Usuários e aplicações ainda podem editar o arquivo, mas mudanças no conteúdo assinado normalmente invalidam a assinatura existente.
+- Conclua todas as edições previstas antes de assinar. Se a apresentação precisar ser alterada, salve a apresentação revisada e assine essa revisão novamente.
+- Mantenha a saída final no formato PPTX. Converter uma apresentação assinada para outro formato não transfere a assinatura original PPTX como uma assinatura válida para o arquivo convertido.
+- Trate a chave privada do certificado como sensível. Qualquer pessoa que obtenha a chave privada e sua senha pode ser capaz de criar assinaturas que parecem vir do titular do certificado.
+- Preserve o arquivo fonte não assinado ou outra cópia controlada quando sua política de retenção de documentos exigir.
 
 ## **FAQ**
 
 **A assinatura digital criptografa a apresentação?**
 
-Não. Uma assinatura digital fornece evidência sobre a origem e integridade, mas o conteúdo da apresentação permanece legível, a menos que uma criptografia separada seja aplicada. Use [proteção por senha](/androidjava/password-protected-presentation/) quando o acesso ao conteúdo precisar ser restrito.
+Não. Uma assinatura digital fornece evidência sobre a origem e a integridade, mas o conteúdo da apresentação permanece legível a menos que uma criptografia separada seja aplicada. Use [proteção por senha](/slides/pt/androidjava/password-protected-presentation/) quando o acesso ao conteúdo precisar ser restrito.
 
 **A senha PFX é a mesma que a senha da apresentação?**
 
-Não. A senha PFX desbloqueia a chave privada armazenada no pacote de certificado. Ela não controla quem pode abrir ou editar o arquivo PPTX.
+Não. A senha PFX desbloqueia a chave privada armazenada no pacote do certificado. Ela não controla quem pode abrir ou editar o arquivo PPTX.
 
 **Posso usar um certificado autoassinado?**
 
-Tecnicamente, um certificado autoassinado pode ser usado quando inclui uma chave privada acessível. Os destinatários não o confiarão automaticamente, a menos que o certificado tenha sido explicitamente adicionado ao ambiente confiável deles. Fluxos de trabalho públicos ou interorganizacionais geralmente utilizam um certificado emitido por uma CA confiável.
+Tecnicamente, um certificado autoassinado pode ser usado quando inclui uma chave privada acessível. Os destinatários não o confiarão automaticamente, a menos que o certificado tenha sido explicitamente adicionado ao ambiente confiável deles. Fluxos de trabalho públicos ou entre organizações geralmente utilizam um certificado emitido por uma CA confiável.
 
 **O que torna uma assinatura inválida?**
 
-Alterar o conteúdo da apresentação assinada ou os dados da assinatura após a assinatura pode invalidar a assinatura. Corrupção de arquivo também pode causar falha na validação. Se todas as assinaturas forem removidas, a apresentação fica não assinada, e não contém uma assinatura inválida.
+Alterar o conteúdo assinado da apresentação ou os dados da assinatura após a assinatura pode invalidar a assinatura. Danos ao arquivo também podem fazer a validação falhar. Se todas as assinaturas forem removidas, a apresentação ficará não assinada, não contendo uma assinatura inválida.
 
 **Uma assinatura válida significa que devo confiar no assinante?**
 
-Não por si só. A integridade da assinatura e a confiança no assinante são decisões separadas. Uma política de validação em produção deve também verificar a cadeia de certificados, período de validade, status de revogação, identidade esperada, uso da chave e quaisquer requisitos de carimbo de tempo confiável.
+Não por si só. A integridade da assinatura e a confiança no assinante são decisões distintas. Uma política de validação em produção deve também verificar a cadeia de certificados, período de validade, status de revogação, identidade esperada, uso da chave e quaisquer requisitos de carimbo de tempo confiável.
 
 **O que acontece quando o certificado expira?**
 
-A expiração do certificado não altera os bytes da apresentação, mas afeta a avaliação de confiança do certificado. Se uma assinatura permanece aceitável depende da sua política e de se um carimbo de tempo confiável prova que a assinatura ocorreu enquanto o certificado era válido. Não confie apenas no horário de assinatura exibido como um carimbo de tempo confiável.
+A expiração do certificado não altera os bytes da apresentação, mas afeta a avaliação de confiança do certificado. Se uma assinatura permanece aceitável depende da sua política e de se um carimbo de tempo confiável prova que a assinatura foi feita enquanto o certificado ainda era válido. Não confie apenas no horário de assinatura exibido como carimbo de tempo confiável.
 
 **Uma apresentação assinada ainda pode ser editada?**
 
-Sim. Assinar não bloqueia o arquivo. Editar conteúdo assinado geralmente torna a assinatura existente inválida, portanto finalize a apresentação primeiro e assine a revisão final.
+Sim. A assinatura não bloqueia o arquivo. Editar o conteúdo assinado geralmente invalida a assinatura existente, portanto finalize a apresentação primeiro e assine a revisão final.
 
 **Uma apresentação pode conter mais de uma assinatura?**
 
-Sim. Adicione cada assinatura à coleção retornada por [IPresentation.getDigitalSignatures](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ipresentation/#getDigitalSignatures--) antes de salvar. Durante a validação, inspecione cada assinatura e confirme que todos os assinantes necessários estão presentes.
+Sim. Adicione cada assinatura à coleção retornada por [IPresentation.getDigitalSignatures](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ipresentation/#getDigitalSignatures--) antes de salvar. Durante a validação, inspecione cada assinatura e confirme que todos os signatários requeridos estão presentes.
 
 **Quais formatos de apresentação suportam essas operações?**
 

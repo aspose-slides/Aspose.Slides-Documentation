@@ -1,5 +1,5 @@
 ---
-title: Efficiënt presentaties samenvoegen in PHP
+title: Presentaties efficiënt samenvoegen in PHP
 linktitle: Presentaties samenvoegen
 type: docs
 weight: 40
@@ -19,38 +19,38 @@ keywords:
 - ODP combineren
 - PHP
 - Aspose.Slides
-description: "Leer hoe u PowerPoint- en OpenDocument-presentaties kunt samenvoegen in PHP door dia's te klonen, masters en lay-outs te beheren, dia-inhoud te schalen, secties te behouden en beschermde of grote bestanden af te handelen."
+description: "Leer hoe u PowerPoint- en OpenDocument-presentaties in PHP kunt samenvoegen door dia's te klonen, masters en lay-outs te beheren, dia-inhoud te schalen, secties te behouden en beveiligde of grote bestanden te verwerken."
 ---
 ## **Overzicht**
 
-Aspose.Slides voor PHP via Java voegt presentaties samen door dia's te klonen van één [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/) naar een andere. De hoofdoperatie is [SlideCollection::addClone()](https://reference.aspose.com/slides/nl/php-java/aspose.slides/slidecollection/addclone/), die de opmaak van de bron‑dia kan behouden of de gekloonde dia kan koppelen aan een master of lay‑out in de doelpresentatie.
+Aspose.Slides for PHP via Java voegt presentaties samen door dia's te klonen van één [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/) naar een andere. De hoofdoperatie is [SlideCollection::addClone()](https://reference.aspose.com/slides/nl/php-java/aspose.slides/slidecollection/addclone/), die de opmaak van de bron‑dia kan behouden of de gekloonde dia kan koppelen aan een master of lay‑out in de doel‑presentatie.
 
-Dit artikel behandelt de meest voorkomende samenvoegworkflows:
+Dit artikel behandelt de meest voorkomende samenvoeg‑werkstromen:
 
-- alle dia's samenvoegen met behoud van de bronopmaak;
+- alle dia's samenvoegen met behoud van hun bron‑opmaak;
 - geselecteerde dia's samenvoegen;
-- een master uit de doelpresentatie toepassen;
-- een specifieke lay‑out uit de doelpresentatie toepassen;
-- verschillende diaformaten normaliseren vóór het samenvoegen;
-- gekloonde dia's toevoegen aan een sectie;
-- meerdere presentaties samenvoegen in één end‑to‑end workflow;
-- masters, bronnen, notities, opmerkingen, media, lettertypen, wachtwoorden, grote bestanden en multithreading‑aspecten afhandelen.
+- een master van de doel‑presentatie toepassen;
+- een specifieke lay‑out van de doel‑presentatie toepassen;
+- verschillende dia‑groottes normaliseren vóór het samenvoegen;
+- gekloonde dia's aan een sectie toevoegen;
+- meerdere presentaties in één end‑to‑end‑workflow samenvoegen;
+- omgaan met masters, resources, notities, opmerkingen, media, lettertypen, wachtwoorden, grote bestanden en multithreading‑aspecten.
 
-## **Hoe Dia‑klonen Masters en Lay‑outs Beïnvloedt**
+## **Hoe Dia‑Klonen Masters en Lay‑outs Beïnvloedt**
 
-Een dia erft een groot deel van zijn uiterlijk van zijn lay‑out en master. Om die reden bepaalt de overload voor klonen die u kiest hoe de samengevoegde dia wordt geïntegreerd in de doelpresentatie.
+Een dia erft een groot deel van zijn uiterlijk van zijn lay‑out en master. Om die reden bepaalt de overload van het klonen die je kiest hoe de samengevoegde dia in de doel‑presentatie wordt geïntegreerd.
 
 Gebruik [SlideCollection::addClone()](https://reference.aspose.com/slides/nl/php-java/aspose.slides/slidecollection/addclone/) op een van de volgende manieren:
 
-- `addClone(sourceSlide)` — behoudt de lay‑out en opmaak van de bron‑dia. Indien nodig kan de bron‑master automatisch in de doelpresentatie worden gekloond. Aspose.Slides houdt bij welke masters automatisch zijn gekloond zodat herhaalde dia's die dezelfde bron‑master gebruiken die master niet herhaaldelijk klonen.
-- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — koppel de gekloonde dia aan een specifieke doel-[MasterSlide](https://reference.aspose.com/slides/nl/php-java/aspose.slides/masterslide/). Aspose.Slides zoekt een overeenkomende lay‑out onder die master op basis van lay‑outtype of naam.
-- `addClone(sourceSlide, destinationLayout)` — koppel de gekloonde dia rechtstreeks aan een specifieke doel-[LayoutSlide](https://reference.aspose.com/slides/nl/php-java/aspose.slides/layoutslide/).
+- `addClone(sourceSlide)` — behoudt de lay‑out en opmaak van de bron‑dia. Indien nodig kan de bron‑master automatisch in de doel‑presentatie worden gekloond. Aspose.Slides houdt automatisch gekloonde masters bij zodat herhaalde dia's die dezelfde bron‑master gebruiken die master niet meerdere keren klonen.
+- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — koppelt de gekloonde dia aan een specifieke doel‑[MasterSlide](https://reference.aspose.com/slides/nl/php-java/aspose.slides/masterslide/). Aspose.Slides zoekt onder die master naar een overeenkomstige lay‑out op type of naam.
+- `addClone(sourceSlide, destinationLayout)` — koppelt de gekloonde dia rechtstreeks aan een specifieke doel‑[LayoutSlide](https://reference.aspose.com/slides/nl/php-java/aspose.slides/layoutslide/).
 
-De master of lay‑out die aan een `addClone`‑overload wordt doorgegeven, moet tot de **doel**‑presentatie behoren, niet tot de bron‑presentatie.
+De master of lay‑out die aan een `addClone`‑overload wordt doorgegeven, moet tot de **doel‑**presentatie behoren, niet tot de bron‑presentatie.
 
-## **Volledige Presentaties Samenvoegen en Bronopmaak Behouden**
+## **Gehele Presentaties Samenvoegen en Bron‑Opmaak Behouden**
 
-De eenvoudigste samenvoeging kopieert elke dia van de bron‑presentatie naar de doel‑presentatie. Dit is de juiste keuze wanneer de geïmporteerde dia's hun oorspronkelijke thema, master en lay‑outrelaties moeten behouden.
+De simpelste samenvoeging kopieert elke dia van de bron‑presentatie naar de doel‑presentatie. Dit is de juiste keuze wanneer de geïmporteerde dia's hun oorspronkelijke thema, master en lay‑outrelaties moeten behouden.
 
 ```php
 require_once("Java.inc");
@@ -76,11 +76,11 @@ try {
 }
 ```
 
-De resulterende presentatie kan meerdere masters bevatten wanneer de bron en het doel verschillende ontwerpen gebruiken. Dit is te verwachten wanneer de bronopmaak opzettelijk wordt behouden.
+De resulterende presentatie kan meerdere masters bevatten wanneer bron‑ en doel‑presentatie verschillende designs gebruiken. Dit is te verwachten wanneer bron‑opmaak bewust wordt behouden.
 
 ## **Geselecteerde Dia's Samenvoegen**
 
-U hoeft niet elke dia te klonen. Het volgende voorbeeld importeert alleen geselecteerde dia‑indexen uit de bron‑presentatie.
+Je hoeft niet elke dia te klonen. Het onderstaande voorbeeld importeert alleen geselecteerde dia‑indexen uit de bron‑presentatie.
 
 ```php
 require_once("Java.inc");
@@ -108,7 +108,7 @@ try {
 }
 ```
 
-Valideer dia‑indexen vóór het klonen wanneer deze afkomstig zijn van gebruikersinvoer of externe configuratie.
+Valideer dia‑indexen vóór het klonen wanneer ze afkomstig zijn van gebruikersinvoer of externe configuratie.
 
 ## **Dia's Samenvoegen met een Doel‑Master**
 
@@ -140,13 +140,13 @@ try {
 }
 ```
 
-Aspose.Slides selecteert een geschikte lay‑out onder de opgegeven master door het type of de naam van de bron‑lay‑out te vergelijken. Als er geen passende lay‑out bestaat en `allowCloneMissingLayout` is `true`, wordt de bron‑lay‑out gekloond zodat de dia kan worden toegevoegd. Is deze `false`, dan wordt een [PptxEditException](https://reference.aspose.com/slides/nl/php-java/aspose.slides/pptxeditexception/) gegooid.
+Aspose.Slides selecteert een passende lay‑out onder de opgegeven master door het type of de naam van de bron‑lay‑out te vergelijken. Als er geen geschikte lay‑out bestaat en `allowCloneMissingLayout` is `true`, wordt de bron‑lay‑out gekloond zodat de dia kan worden toegevoegd. Als deze `false` is, wordt een [PptxEditException](https://reference.aspose.com/slides/nl/php-java/aspose.slides/pptxeditexception/) gegooid.
 
-Gebruik `false` wanneer u wilt dat de samenvoeging faalt in plaats van een extra lay‑out toe te voegen aan de doel‑master.
+Gebruik `false` wanneer je wilt dat de samenvoeging faalt in plaats van een extra lay‑out aan de doel‑master toe te voegen.
 
 ## **Dia's Samenvoegen met een Specifieke Doel‑Lay‑out**
 
-Gebruik de overload [addClone(Slide, LayoutSlide)](https://reference.aspose.com/slides/nl/php-java/aspose.slides/slidecollection/addclone/) wanneer u precies weet welke doel‑lay‑out de geïmporteerde dia's moeten gebruiken.
+Gebruik de overload [addClone(Slide, LayoutSlide)](https://reference.aspose.com/slides/nl/php-java/aspose.slides/slidecollection/addclone/) wanneer je precies weet welke doel‑lay‑out de geïmporteerde dia's moeten gebruiken.
 
 ```php
 require_once("Java.inc");
@@ -174,13 +174,13 @@ try {
 }
 ```
 
-Het toepassen van een doel‑lay‑out wijzigt de geërfde lay‑outrelatie; het herziet de inhoud van de bron‑dia niet. Als de bron‑ en doel‑lay‑outs verschillende placeholder‑structuren hebben, inspecteer dan het resultaat om te bevestigen dat de geërfde opmaak en placeholder‑gedrag passend zijn.
+Het toepassen van een doel‑lay‑out wijzigt de geërfde lay‑outrelatie; het ontwerpt de inhoud van de bron‑dia niet opnieuw. Als bron‑ en doel‑lay‑outs verschillende placeholder‑structuren hebben, inspecteer dan het resultaat om te bevestigen dat de overgenomen opmaak en placeholder‑gedrag passend zijn.
 
-## **Presentaties Met Verschillende Dia‑groottes Samenvoegen**
+## **Presentaties Met Verschillende Dia‑Grootten Samenvoegen**
 
-Presentaties met verschillende dia‑afmetingen kunnen worden samengevoegd, maar het klonen van een dia naar een presentatie met een andere dia‑grootte herontwerpt de inhoud niet automatisch voor het nieuwe canvas. Vormen kunnen daardoor verschoven, onverwacht geschaald of buiten het zichtbare dia‑gebied verschijnen.
+Presentaties met verschillende dia‑afmetingen kunnen worden samengevoegd, maar een dia klonen naar een presentatie met een andere dia‑grootte herontwerpt de inhoud niet automatisch voor het nieuwe canvas. Vormen kunnen daardoor verschoven, onverwacht geschaald of buiten het zichtbare dia‑gebied terechtkomen.
 
-Een praktische aanpak is het aanpassen van de grootte van de bron‑presentatie vóór het klonen. De methode [SlideSize::setSize()](https://reference.aspose.com/slides/nl/php-java/aspose.slides/slidesize/setsize/) kan bestaande inhoud schalen terwijl de dia‑afmetingen worden gewijzigd. [SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/nl/php-java/aspose.slides/slidesizescaletype/) schaalt inhoud zodat deze binnen de gevraagde grootte past.
+Een praktische aanpak is om de bron‑presentatie eerst te schalen. De methode [SlideSize::setSize()](https://reference.aspose.com/slides/nl/php-java/aspose.slides/slidesize/setsize/) kan bestaande inhoud schalen terwijl de dia‑afmetingen worden aangepast. [SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/nl/php-java/aspose.slides/slidesizescaletype/) schaalt de inhoud zodat deze in de gevraagde grootte past.
 
 ```php
 require_once("Java.inc");
@@ -216,11 +216,11 @@ try {
 }
 ```
 
-Het aanpassen van de grootte wijzigt het bron‑presentatie‑object in het geheugen. Als u de originele bron‑presentatie ongewijzigd wilt houden voor andere bewerkingen, open dan een aparte instantie voor de samenvoeging.
+Schalen wijzigt het bron‑presentatieobject in het geheugen. Als je de originele bron‑presentatie ongewijzigd wilt houden voor andere bewerkingen, open dan een aparte instantie voor de samenvoeging.
 
 ## **Dia's Samenvoegen in een Presentatie‑Sectie**
 
-De basis‑dia‑klonlus reproduiceert de sectie‑hiërarchie van de bron‑presentatie niet. Als secties belangrijk zijn in de uitvoer, maak of selecteer dan secties in de doel‑presentatie en kloon dia's expliciet naar deze secties met [addClone(Slide, Section)](https://reference.aspose.com/slides/nl/php-java/aspose.slides/slidecollection/addclone/).
+De basale dia‑klonlus recreateert niet de sectiehiera­chie van de bron‑presentatie. Als secties van belang zijn in de output, creëer of selecteer dan secties in de doel‑presentatie en kloon dia's expliciet naar hen met [addClone(Slide, Section)](https://reference.aspose.com/slides/nl/php-java/aspose.slides/slidecollection/addclone/).
 
 ```php
 require_once("Java.inc");
@@ -248,11 +248,11 @@ try {
 }
 ```
 
-De gekloonde dia's worden toegevoegd aan de opgegeven doel‑sectie. Om meerdere bron‑secties te behouden, maak die secties opnieuw aan in de doel‑presentatie en koppel elke bron‑dia aan de overeenkomstige doel‑sectie.
+De gekloonde dia's worden toegevoegd aan de opgegeven doel‑sectie. Om meerdere bron‑secties te behouden, doorloop [Presentation::getSections](https://reference.aspose.com/slides/nl/php-java/aspose.slides/Presentation/#getSections), haal de huidige dia's van elke bron‑sectie op met [Section::getSlidesListOfSection](https://reference.aspose.com/slides/nl/php-java/aspose.slides/Section/#getSlidesListOfSection), recreëer de secties in de doel‑presentatie en kloon elke opgehaalde dia naar de corresponderende doel‑sectie. Zie [Manage Slide Sections](/slides/nl/php-java/slide-section/) voor een compleet voorbeeld van sectie‑enumeratie, inclusief lege secties en structurele wijzigingen.
 
 ## **Meerdere Presentaties Veilig Samenvoegen**
 
-Het volgende end‑to‑end voorbeeld gebruikt de eerste presentatie als doel, normaliseert de dia‑grootte van elke extra bron, houdt elke bron alleen open zolang deze wordt gekopieerd, en slaat het uiteindelijke bestand één keer op.
+Het volgende end‑to‑end‑voorbeeld gebruikt de eerste presentatie als doel, normaliseert de dia‑grootte van elke extra bron, houdt elke bron alleen geopend zolang deze wordt gekopieerd, en slaat het eind‑bestand één keer op.
 
 ```php
 require_once("Java.inc");
@@ -293,39 +293,39 @@ try {
 }
 ```
 
-Dit vormt een nuttige basis voor het behouden van de bronopmaak van geïmporteerde dia's. Als uw uitvoer één enkel doel‑thema moet gebruiken, vervang dan de eenvoudige `addClone($slide)`‑aanroep door de eerder getoonde overload voor doel‑master of doel‑lay‑out.
+Dit vormt een nuttige basis voor het behouden van de bron‑opmaak van geïmporteerde dia's. Als je output een enkel doel‑thema moet gebruiken, vervang dan de eenvoudige `addClone($slide)`‑aanroep door de eerder getoonde overload die een doel‑master of doel‑lay‑out accepteert.
 
 ## **Praktische Overwegingen**
 
-### **Masters, Lay‑outs en Opmaakkwaliteit**
+### **Masters, Lay‑outs en Opmaak‑Fideliteit**
 
-Standaard dia‑klonen kan automatisch een benodigde bron‑master in de doel‑presentatie brengen. Aspose.Slides houdt een interne register bij voor automatisch gekloonde masters om te voorkomen dat dezelfde master herhaaldelijk wordt gekloond. Handmatig gekloonde masters worden niet in dat register bijgehouden, dus vermijd vooraf klonen van masters tenzij u expliciete controle over de master‑structuur nodig heeft.
+Standaard dia‑klonen kan een benodigde bron‑master automatisch naar de doel‑presentatie brengen. Aspose.Slides houdt een intern register bij van automatisch gekloonde masters om te voorkomen dat dezelfde master herhaaldelijk wordt geklond. Handmatig gekloonde masters worden niet bijgehouden door dat register, dus vermijd het vooraf klonen van masters tenzij je expliciete controle over de master‑structuur nodig hebt.
 
-Ga er niet van uit dat twee masters of lay‑outs met dezelfde naam visueel gelijk zijn. Als een bedrijfs­template het uiteindelijke uiterlijk moet bepalen, kies dan expliciet een doel‑master of -lay‑out en verifieer het resultaat na het samenvoegen.
+Ga er niet van uit dat twee masters of lay‑outs met dezelfde naam visueel gelijk zijn. Als een bedrijfs‑template het uiteindelijke uiterlijk moet bepalen, kies dan expliciet een doel‑master of -lay‑out en controleer het resultaat na het samenvoegen.
 
 ### **Notities en Opmerkingen**
 
-Sprekers‑notities en dia‑commentaren zijn gekoppeld aan de dia‑inhoud en worden gekopieerd wanneer een dia wordt gekloond. Aspose.Slides biedt ook speciale API’s voor [presentation notes](https://docs.aspose.com/slides/nl/php-java/presentation-notes/) en [presentation comments](https://docs.aspose.com/slides/nl/php-java/presentation-comments/).
+Sprekersnotities en dia‑commentaren zijn gekoppeld aan de dia‑inhoud en worden gekopieerd wanneer een dia wordt gekloond. Aspose.Slides biedt ook specifieke API's voor [presentation notes](/slides/nl/php-java/presentation-notes/) en [presentation comments](/slides/nl/php-java/presentation-comments/).
 
-Als de opmaak van de notitie‑pagina belangrijk is, controleer dan de samengevoegde presentatie omdat note‑masters presentatie‑niveau objecten zijn en kunnen verschillen tussen bronbestanden. Voor review‑workflows controleer ook de auteurs van opmerkingen en geneste commentaren na het combineren van bestanden van verschillende auteurs of templates.
+Als de opmaak van de notitie‑pagina belangrijk is, controleer dan de samengevoegde presentatie omdat notitie‑masters presentatieniveau‑objecten zijn en kunnen verschillen tussen bron‑bestanden. Voor review‑werkstromen, controleer ook de auteurs van opmerkingen en geneste discussies nadat bestanden van verschillende auteurs of templates zijn gecombineerd.
 
 ### **Afbeeldingen, Audio, Video, OLE‑objecten en Externe Links**
 
-Dia’s kunnen verwijzen naar presentatie‑niveau bronnen zoals afbeeldingen, ingesloten audio, ingesloten video en OLE‑data. Kloon de dia zelf i.p.v. alleen de zichtbare vormen te kopiëren zodat Aspose.Slides de relaties van de dia met zijn bronnen kan behouden.
+Dia's kunnen verwijzen naar presentatieniveau‑resources zoals afbeeldingen, ingebedde audio, ingebedde video en OLE‑gegevens. Kloon de hele dia in plaats van alleen de zichtbare vormen zodat Aspose.Slides de relaties van de dia naar zijn resources kan behouden.
 
-Ingesloten en gekoppelde bronnen moeten anders behandeld worden. Een gekoppelde audio, video, OLE‑object of hyperlink blijft afhankelijk van het externe doel; het klonen van een dia maakt van een externe link geen ingesloten inhoud. Test de paden en URL‑s van gekoppelde bronnen in de omgeving waarin de samengevoegde presentatie wordt geopend.
+Ingebedde en gelinkte resources moeten verschillend worden behandeld. Een gelinkte audio, video, OLE‑object of hyperlink blijft afhankelijk van zijn externe doel; het klonen van een dia maakt een externe link niet tot ingebedde inhoud. Test gelinkte‑resource‑paden en URL's in de omgeving waarin de samengevoegde presentatie wordt geopend.
 
-Aspose.Slides houdt expliciet bij welke masters automatisch zijn gekloond, maar dit moet niet worden gezien als een algemene garantie dat identieke binaire bronnen uit niet‑gerelateerde bron‑presentaties altijd worden gededupliceerd. Als de bestandsgrootte van de uitvoer belangrijk is, inspecteer dan het samengevoegde pakket en meet het resultaat in plaats van te vertrouwen op impliciete deduplicatie.
+Aspose.Slides houdt automatisch gekloonde masters bij, maar dit moet niet worden gezien als een algemene garantie dat identieke binaire resources uit niet‑gerelateerde bron‑presentaties altijd worden gede‑dupliseerd. Als de bestandsgrootte van belang is, inspecteer dan het samengevoegde pakket en meet het resultaat in plaats van te vertrouwen op impliciete deduplicatie.
 
-### **Ingesloten Lettertypen en Beschikbaarheid van Lettertypen**
+### **Ingebedde Lettertypen en Beschikbaarheid van Lettertypen**
 
-Lettertypen worden op presentatie‑niveau beheerd. Als typografie consistent moet blijven over verschillende machines, ga er dan niet van uit dat alleen het klonen van dia’s garandeert dat elk benodigd lettertype beschikbaar is in de doelomgeving. U kunt ingesloten lettertypen inspecteren met [FontsManager::getEmbeddedFonts()](https://reference.aspose.com/slides/nl/php-java/aspose.slides/fontsmanager/getembeddedfonts/) en het insluiten expliciet beheren zoals beschreven in [Embed Fonts in Presentations](https://docs.aspose.com/slides/nl/php-java/embedded-font/).
+Lettertypen worden op presentatieniveau beheerd. Als typografie consistent moet blijven over verschillende machines, ga er niet van uit dat alleen dia‑klonen garandeert dat elk nodig lettertype beschikbaar is in de doel‑omgeving. Je kunt ingebedde lettertypen bekijken met [FontsManager::getEmbeddedFonts()](https://reference.aspose.com/slides/nl/php-java/aspose.slides/fontsmanager/getembeddedfonts/) en expliciet beheren zoals beschreven in [Embed Fonts in Presentations](/slides/nl/php-java/embedded-font/).
 
-Controleer ook of u toestemming heeft om de lettertypen die door de bronbestanden worden gebruikt in te sluiten. Lettertype‑licenties kunnen het insluiten beperken.
+Controleer ook dat je toestemming hebt om de lettertypen die in de bron‑bestanden worden gebruikt, in te sluiten. Licenties kunnen het insluiten van lettertypen beperken.
 
-### **Wachtwoord‑beveiligde Presentaties**
+### **Wachtwoord‑Beschermde Presentaties**
 
-Een wachtwoord‑beveiligde bron moet succesvol worden geopend voordat de dia’s gekloond kunnen worden. Geef het wachtwoord door via [LoadOptions::setPassword()](https://reference.aspose.com/slides/nl/php-java/aspose.slides/loadoptions/setpassword/).
+Een wachtwoord‑beschermde bron moet succesvol worden geopend voordat de dia's kunnen worden gekloond. Geef het wachtwoord door via [LoadOptions::setPassword()](https://reference.aspose.com/slides/nl/php-java/aspose.slides/loadoptions/setpassword/).
 
 ```php
 require_once("Java.inc");
@@ -339,58 +339,70 @@ $loadOptions->setPassword("YOUR_PASSWORD");
 
 $source = new Presentation("protected.pptx", $loadOptions);
 try {
-    // Werk met de ontcijferde presentatie.
+    // Werk met de gedecodeerde presentatie.
 } finally {
     $source->dispose();
 }
 ```
 
-Het openen van een versleutelde bron past de dezelfde bescherming niet automatisch toe op de doel‑presentatie. Configureer de uitvoerbeveiliging separaat wanneer dat vereist is.
+Het openen van een versleutelde bron past de bescherming niet automatisch toe op de doel‑presentatie. Configureer de output‑bescherming afzonderlijk wanneer dit vereist is.
 
 ### **Grote Presentaties en Geheugengebruik**
 
-Grote presentaties met hoge‑resolutie afbeeldingen, audio, video of andere grote binaire objecten kunnen veel geheugen verbruiken. [LoadOptions::getBlobManagementOptions()](https://reference.aspose.com/slides/nl/php-java/aspose.slides/loadoptions/getblobmanagementoptions/) biedt controle over BLOB‑verwerking en gebruik van tijdelijke bestanden. Zie [Open Presentations](https://docs.aspose.com/slides/nl/php-java/open-presentation/#open-large-presentations) voor een PHP‑via‑Java voorbeeld met grote bestanden.
+Grote presentaties met hoge resolutie‑afbeeldingen, audio, video of andere grote binaire objecten kunnen veel geheugen verbruiken. [LoadOptions::getBlobManagementOptions()](https://reference.aspose.com/slides/nl/php-java/aspose.slides/loadoptions/getblobmanagementoptions/) biedt controle over BLOB‑afhandeling en tijdelijk‑bestandgebruik. Zie [Open Presentations](/slides/nl/php-java/open-presentation/#open-large-presentations) voor een PHP‑via‑Java‑voorbeeld met grote bestanden.
 
-Voor grote bestanden heeft het de voorkeur om te laden vanaf bestandspaden wanneer mogelijk, elke bron‑presentatie direct na het samenvoegen vrij te geven, en herhaaldelijk opslaan van tussenresultaten te vermijden tenzij de workflow checkpoints vereist.
+Voor grote bestanden, laad bij voorkeur via bestandspaden, verwijder elke bron‑presentatie zodra deze is samengevoegd, en vermijd herhaaldelijk opslaan van tussentijdse resultaten tenzij de workflow checkpoints vereist.
 
-### **Thread Safety**
+### **Thread‑Veiligheid**
 
-Laad, wijzig, sla op of kloon geen [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/)‑instanties in meerdere threads. Deze bewerkingen worden niet ondersteund voor multithreaded gebruik in PHP via Java. Als u parallelle samenvoeg‑taken nodig hebt, voer ze uit in afzonderlijke single‑threaded processen, waarbij elk proces zijn eigen presentatie‑instanties gebruikt, en volg de [Aspose.Slides multithreading guidance](https://docs.aspose.com/slides/nl/php-java/multithreading/).
+Laad, wijzig, sla op of kloon geen [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/)‑instanties in meerdere threads. Deze bewerkingen worden niet ondersteund voor multithreaded gebruik in PHP via Java. Als je parallelle samenvoeg‑taken nodig hebt, voer ze dan uit in afzonderlijke single‑threaded processen, elk met eigen presentatie‑instanties, en volg de [Aspose.Slides multithreading guidance](/slides/nl/php-java/multithreading/).
 
 ## **FAQ**
 
-**Hoe behoud ik het oorspronkelijke ontwerp van elke bron‑presentatie?**  
-Gebruik [`addClone(sourceSlide)`](https://reference.aspose.com/slides/nl/php-java/aspose.slides/slidecollection/addclone/) zonder een doel‑master of -lay‑out op te geven. Aspose.Slides kan de benodigde bron‑master automatisch klonen wanneer de geïmporteerde dia dit vereist.
+**Hoe behoud ik het oorspronkelijke ontwerp van elke bron‑presentatie?**
 
-**Hoe laat ik geïmporteerde dia’s het doel‑thema gebruiken?**  
-Gebruik de overload die een doel‑master accepteert. Geef een master uit de doel‑presentatie op, niet uit de bron. Aspose.Slides probeert elke bron‑dia aan een passende lay‑out onder die master te koppelen.
+Gebruik [SlideCollection::addClone](https://reference.aspose.com/slides/nl/php-java/aspose.slides/slidecollection/addclone/) zonder een doel‑master of -lay‑out op te geven. Aspose.Slides kan de bron‑master automatisch klonen wanneer deze door de geïmporteerde dia nodig is.
 
-**Wanneer moet ik een specifieke doel‑lay‑out gebruiken in plaats van een doel‑master?**  
-Gebruik een specifieke lay‑out wanneer elke geïmporteerde dia één bekende lay‑out moet gebruiken. Gebruik een master wanneer u wilt dat Aspose.Slides een lay‑out kiest op basis van het type of de naam van de bron‑lay‑out.
+**Hoe zorg ik dat geïmporteerde dia's het doel‑thema gebruiken?**
 
-**Kunnen presentaties met verschillende dia‑groottes worden samengevoegd?**  
-Ja, maar de inhoud van de dia wordt niet automatisch herontworpen voor de bestemmingsafmetingen. Pas eerst de bron‑presentatie aan in grootte wanneer u voorspelbare plaatsing nodig heeft, bijvoorbeeld met [SlideSize::setSize()](https://reference.aspose.com/slides/nl/php-java/aspose.slides/slidesize/setsize/) en [SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/nl/php-java/aspose.slides/slidesizescaletype/).
+Gebruik de overload die een doel‑master accepteert. Geef een master uit de doel‑presentatie op, niet uit de bron. Aspose.Slides zal proberen elke bron‑dia toe te wijzen aan een geschikte lay‑out onder die master.
 
-**Kan ik PPT, PPTX en ODP presentaties tot één bestand combineren?**  
-Ja. Laad elke bron‑presentatie, kloon de benodigde dia’s naar één doel‑presentatie en sla de doel‑presentatie op in een ondersteund uitvoerformaat. Omdat presentatie‑formaten niet exact dezelfde functionaliteit bieden, controleer complexe inhoud na cross‑format samenvoegingen. Zie [Supported File Formats](https://docs.aspose.com/slides/nl/php-java/supported-file-formats/).
+**Wanneer moet ik een specifieke doel‑lay‑out gebruiken in plaats van een doel‑master?**
 
-**Worden bron‑secties automatisch behouden?**  
-Niet door een eenvoudige lus die alleen dia’s kloont. Maak de benodigde secties in de doel‑presentatie opnieuw aan en gebruik de sectie‑overload van [addClone](https://reference.aspose.com/slides/nl/php-java/aspose.slides/slidecollection/addclone/) wanneer de sectiestructuur moet worden behouden.
+Gebruik een specifieke lay‑out wanneer elke geïmporteerde dia één bekende lay‑out moet gebruiken. Gebruik een master wanneer je wilt dat Aspose.Slides kiest tussen de lay‑outs van die master op basis van het type of de naam van de bron‑lay‑out.
 
-**Worden sprekernotities en opmerkingen behouden?**  
-Ja, ze worden meegekopieerd met de gekloonde dia. Controleer bij workflows die afhankelijk zijn van note‑master styling, commentauteurs of geneste review‑data het samengevoegde resultaat, omdat deze scenario’s zowel presentatie‑niveau als dia‑niveau structuren omvatten.
+**Kunnen presentaties met verschillende dia‑groottes worden samengevoegd?**
 
-**Wat gebeurt er met audio, video, OLE‑objecten en hyperlinks?**  
-Ingesloten content wordt meegenomen als onderdeel van de gekloonde dia‑resource‑relaties. Externe links blijven extern, dus de doel‑bestanden of URL’s moeten nog steeds beschikbaar zijn na de samenvoeging.
+Ja, maar de inhoud van de dia wordt niet automatisch herontworpen voor de doel‑afmetingen. Schaal de bron‑presentatie eerst wanneer je voorspelbare plaatsing nodig hebt, bijvoorbeeld met [SlideSize::setSize()](https://reference.aspose.com/slides/nl/php-java/aspose.slides/slidesize/setsize/) en [SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/nl/php-java/aspose.slides/slidesizescaletype/).
 
-**Zijn ingesloten lettertypen van elke bron gegarandeerd beschikbaar in de samengevoegde presentatie?**  
-Vertrouw niet uitsluitend op dia‑klonen voor lettertype‑distributie. Inspecteer de ingesloten lettertypen van de doel‑presentatie en beheer het insluiten of de beschikbaarheid van externe lettertypen expliciet wanneer typografie belangrijk is.
+**Kan ik PPT, PPTX en ODP presentaties in één bestand samenvoegen?**
 
-**Hoe voeg ik een wachtwoord‑beveiligd bestand samen?**  
-Open het met het juiste [LoadOptions::setPassword()](https://reference.aspose.com/slides/nl/php-java/aspose.slides/loadoptions/setpassword/), kloon daarna de dia’s normaal. De bescherming van de uitvoer wordt apart geconfigureerd.
+Ja. Laad elke bron‑presentatie, kloon de benodigde dia's naar één doel‑presentatie en sla de doel‑presentatie op in een ondersteund output‑formaat. Omdat presentaties verschillende featuresets hebben, controleer complexe inhoud na cross‑format samenvoegingen. Zie [Supported File Formats](/slides/nl/php-java/supported-file-formats/).
 
-**Hoe ga ik om met zeer grote presentaties?**  
-Gebruik BLOB‑beheer wanneer grote binaire objecten het geheugen belasten, laad grote bestanden bij voorkeur via bestandspaden, maak bron‑presentaties direct na samenvoegen vrij en sla het eindresultaat pas op wanneer dat nodig is.
+**Worden bron‑secties automatisch behouden?**
 
-**Kan ik dia’s vanuit meerdere threads samenvoegen?**  
-Het laden, opslaan of kloont van presentaties in meerdere threads wordt niet ondersteund in PHP via Java. Voor parallelle taken gebruik u afzonderlijke single‑threaded processen en houd u de presentatie‑instanties gescheiden binnen elk proces.
+Niet door een eenvoudige lus die alleen dia's kloont. Creëer de benodigde secties in de doel‑presentatie en gebruik de sectie‑overload van [addClone](https://reference.aspose.com/slides/nl/php-java/aspose.slides/slidecollection/addclone/) wanneer de sectiestructuur behouden moet blijven.
+
+**Worden sprekersnotities en opmerkingen behouden?**
+
+Ze worden gekopieerd met de gekloonde dia. Voor workflows die afhankelijk zijn van notitie‑master‑styling, opmerking‑auteurs of geneste review‑data, controleer het samengevoegde resultaat omdat deze scenario's zowel presentatieniveau‑structuren als dia‑niveau‑inhoud betreffen.
+
+**Wat gebeurt er met audio, video, OLE‑objecten en hyperlinks?**
+
+Ingebedde content wordt meegenomen als onderdeel van de resource‑relaties van de gekloonde dia. Externe links blijven extern, dus hun doelbestanden of URL’s moeten nog steeds beschikbaar zijn na het samenvoegen.
+
+**Zijn ingebedde lettertypen van elke bron gegarandeerd beschikbaar in de samengevoegde presentatie?**
+
+Vertrouw niet alleen op dia‑klonen voor lettertype‑distributie. Inspecteer de ingebedde lettertypen van de doel‑presentatie en beheer het insluiten of de beschikbaarheid van externe lettertypen expliciet wanneer typografie belangrijk is.
+
+**Hoe merge ik een wachtwoord‑beschermd bestand?**
+
+Open het met het juiste [LoadOptions::setPassword()](https://reference.aspose.com/slides/nl/php-java/aspose.slides/loadoptions/setpassword/), kloon daarna de dia's normaal. De output‑bescherming wordt apart geconfigureerd.
+
+**Hoe ga ik om met zeer grote presentaties?**
+
+Gebruik BLOB‑beheer wanneer grote binaire objecten het geheugen belasten, laad bij voorkeur via bestandspaden voor zeer grote bestanden, verwijder bron‑presentaties direct na gebruik en sla het eindresultaat alleen op wanneer dat nodig is.
+
+**Kan ik dia's uit meerdere threads samenvoegen?**
+
+Het laden, opslaan of klonen van presentaties in meerdere threads wordt niet ondersteund in PHP via Java. Voor parallelle taken, gebruik afzonderlijke single‑threaded processen en houd presentatie‑instanties geïsoleerd binnen elk proces.

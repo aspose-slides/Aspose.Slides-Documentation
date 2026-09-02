@@ -9,81 +9,184 @@ keywords:
 - aggiungere sezione
 - modificare sezione
 - cambiare sezione
-- nome della sezione
+- nome sezione
+- recuperare diapositive della sezione
+- elaborare diapositive della sezione
 - PowerPoint
-- OpenDocument
 - presentazione
 - .NET
 - C#
 - Aspose.Slides
-description: "Semplifica le sezioni delle diapositive in PowerPoint e OpenDocument con Aspose.Slides per .NET — dividi, rinomina e riordina per ottimizzare i flussi di lavoro PPTX e ODP."
+description: "Gestisci le sezioni delle diapositive con Aspose.Slides per .NET: crea, rinomina, riordina, recupera ed elabora le diapositive delle sezioni in presentazioni PPTX."
 ---
 ## **Introduzione**
 
-Con Aspose.Slides per .NET, è possibile organizzare una presentazione PowerPoint in sezioni. Puoi creare sezioni che contengono diapositive specifiche. 
+Le sezioni organizzano le diapositive consecutive in gruppi denominati senza modificare il contenuto della diapositiva. Con Aspose.Slides per .NET, è possibile creare, riordinare, rinominare, ispezionare e rimuovere le sezioni tramite la proprietà [Presentation.Sections](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/sections/).
 
-Potresti voler creare sezioni e usarle per organizzare o dividere le diapositive di una presentazione in parti logiche in queste situazioni:
+Le sezioni sono particolarmente utili quando:
 
-- Quando lavori su una presentazione di grandi dimensioni con altre persone o un team—e devi assegnare determinate diapositive a un collega o a dei membri del team. 
-- Quando hai a che fare con una presentazione che contiene molte diapositive—e fai fatica a gestire o modificare tutto il contenuto in una volta.
+- una presentazione di grandi dimensioni deve essere suddivisa in argomenti o capitoli logici;
+- gruppi diversi di diapositive sono assegnati a collaboratori differenti;
+- le diapositive devono essere elaborate, spostate o unite come gruppi.
 
-Idealmente, dovresti creare una sezione che raggruppi diapositive simili—le diapositive hanno qualcosa in comune o possono esistere in un gruppo basato su una regola—e dare alla sezione un nome che descriva le diapositive al suo interno. 
+Scegli nomi di sezione concisi che descrivano lo scopo delle diapositive raggruppate. Poiché le sezioni fanno parte della struttura della presentazione, utilizza le API delle sezioni per determinare l’appartenenza anziché derivarla dalle posizioni delle diapositive.
 
-## **Creare sezioni nelle presentazioni**
+## **Creare e gestire le sezioni**
 
-Per aggiungere una sezione che conterrà diapositive in una presentazione, Aspose.Slides per .NET fornisce il metodo AddSection che consente di specificare il nome della sezione da creare e la diapositiva da cui la sezione inizia. 
+Usa [ISectionCollection.AddSection](https://reference.aspose.com/slides/it/net/aspose.slides/sectioncollection/addsection/) per creare una sezione specificando il suo nome e la diapositiva iniziale. Aspose.Slides determina quali diapositive appartengono alla sezione dalla struttura delle sezioni corrente della presentazione.
 
-Questo esempio di codice mostra come creare una sezione in una presentazione in C#:
+La stessa [ISectionCollection](https://reference.aspose.com/slides/it/net/aspose.slides/isectioncollection/) consente anche di:
 
-```c#
-using (Presentation pres = new Presentation())
+- spostare una sezione insieme alle sue diapositive usando [ISectionCollection.ReorderSectionWithSlides](https://reference.aspose.com/slides/it/net/aspose.slides/sectioncollection/reordersectionwithslides/);
+- rimuovere solo la definizione della sezione con [ISectionCollection.RemoveSection](https://reference.aspose.com/slides/it/net/aspose.slides/sectioncollection/removesection/), mantenendo le sue diapositive;
+- rimuovere una sezione e le sue diapositive con [ISectionCollection.RemoveSectionWithSlides](https://reference.aspose.com/slides/it/net/aspose.slides/sectioncollection/removesectionwithslides/);
+- aggiungere una sezione vuota alla fine con [ISectionCollection.AppendEmptySection](https://reference.aspose.com/slides/it/net/aspose.slides/sectioncollection/appendemptysection/).
+
+Il seguente esempio crea due sezioni, ne sposta una, la rimuove insieme alle sue diapositive e aggiunge una sezione vuota:
+
+```csharp
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var titleSlide = presentation.Slides[0];
+presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+var resultsSlide = presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+
+presentation.Sections.AddSection("Introduction", titleSlide);
+var resultsSection = presentation.Sections.AddSection("Results", resultsSlide);
+
+presentation.Sections.ReorderSectionWithSlides(resultsSection, 0);
+presentation.Sections.RemoveSectionWithSlides(resultsSection);
+presentation.Sections.AppendEmptySection("Appendix");
+```
+
+Dopo queste operazioni, la presentazione contiene la sezione `Introduction` con le sue diapositive e una sezione vuota `Appendix`. La sezione `Results` e le sue diapositive sono state rimosse.
+
+## **Rinominare le sezioni**
+
+Per rinominare una sezione, imposta la sua proprietà [ISection.Name](https://reference.aspose.com/slides/it/net/aspose.slides/isection/name/). Le diapositive della sezione e la sua posizione rimangono inalterate.
+
+Il seguente esempio crea una sezione e ne cambia il nome:
+
+```csharp
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var section = presentation.Sections.AddSection("Overview", slide);
+section.Name = "Introduction";
+```
+
+## **Recuperare le diapositive dalle sezioni**
+
+La proprietà [Presentation.Sections](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/sections/) restituisce una [ISectionCollection](https://reference.aspose.com/slides/it/net/aspose.slides/isectioncollection/) che puoi enumerare. Per ogni [ISection](https://reference.aspose.com/slides/it/net/aspose.slides/isection/), chiama [ISection.GetSlidesListOfSection](https://reference.aspose.com/slides/it/net/aspose.slides/isection/getslideslistofsection/) per ottenere le diapositive che attualmente vi appartengono. Il metodo restituisce una [ISectionSlideCollection](https://reference.aspose.com/slides/it/net/aspose.slides/isectionslidecollection/), che fornisce il conteggio, l'accesso indicizzato e l'enumerazione.
+
+Il seguente esempio crea due sezioni popolate e una sezione vuota, poi stampa per ogni sezione il suo [name](https://reference.aspose.com/slides/it/net/aspose.slides/isection/name/), [identifier](https://reference.aspose.com/slides/it/net/aspose.slides/isection/sectionid/), [starting slide](https://reference.aspose.com/slides/it/net/aspose.slides/isection/startedfromslide/), il conteggio delle diapositive e i numeri delle diapositive. Usa l'indicizzatore della collezione per leggere la prima diapositiva e `foreach` per elaborare ogni diapositiva. Per la sezione vuota, la collezione restituita ha un conteggio pari a zero, l'indicizzatore non viene accesso e l'enumerazione non esegue iterazioni.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation();
+var firstSlide = presentation.Slides[0];
+presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+var thirdSlide = presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+
+presentation.Sections.AddSection("Introduction", firstSlide);
+presentation.Sections.AddSection("Details", thirdSlide);
+presentation.Sections.AppendEmptySection("Appendix");
+
+foreach (var section in presentation.Sections)
 {
-    ISlide defaultSlide = pres.Slides[0];
-    ISlide newSlide1 = pres.Slides.AddEmptySlide(pres.LayoutSlides[0]);
-    ISlide newSlide2 = pres.Slides.AddEmptySlide(pres.LayoutSlides[0]);
-    ISlide newSlide3 = pres.Slides.AddEmptySlide(pres.LayoutSlides[0]);
-    ISlide newSlide4 = pres.Slides.AddEmptySlide(pres.LayoutSlides[0]);
+    var sectionSlides = section.GetSlidesListOfSection();
+    var startingSlide = section.StartedFromSlide == null ? "none" : section.StartedFromSlide.SlideNumber.ToString();
 
-    ISection section1 = pres.Sections.AddSection("Section 1", newSlide1);
-    ISection section2 = pres.Sections.AddSection("Section 2", newSlide3); // section1 terminerà a newSlide2 e dopo di esso inizierà section2   
-    
-    pres.Save("pres-sections.pptx", SaveFormat.Pptx);
-    
-    pres.Sections.ReorderSectionWithSlides(section2, 0);
-    pres.Save("pres-sections-moved.pptx", SaveFormat.Pptx);
-    
-    pres.Sections.RemoveSectionWithSlides(section2);
-    
-    pres.Sections.AppendEmptySection("Last empty section");
-    
-    pres.Save("pres-section-with-empty.pptx",SaveFormat.Pptx);
+    Console.WriteLine($"Section: {section.Name}");
+    Console.WriteLine($"ID: {section.SectionId}");
+    Console.WriteLine($"Starting slide: {startingSlide}");
+    Console.WriteLine($"Slide count: {sectionSlides.Count}");
+
+    if (sectionSlides.Count > 0)
+    {
+        Console.WriteLine($"First slide via indexer: {sectionSlides[0].SlideNumber}");
+    }
+
+    Console.Write("Slide numbers:");
+    foreach (var slide in sectionSlides)
+    {
+        Console.Write($" {slide.SlideNumber}");
+    }
+    Console.WriteLine();
 }
 ```
 
-## **Modificare i nomi delle sezioni**
+L’appartenenza a una sezione è determinata dalla struttura delle sezioni della presentazione. Non calcolare manualmente l’intervallo di una sezione da [ISection.StartedFromSlide](https://reference.aspose.com/slides/it/net/aspose.slides/isection/startedfromslide/), dagli indici delle diapositive e dalla diapositiva iniziale della sezione successiva.
 
-Dopo aver creato una sezione in una presentazione PowerPoint, potresti decidere di cambiarne il nome. 
+Le modifiche strutturali possono cambiare sia le diapositive restituite per una sezione sia i loro numeri. Ciò include il riordino delle diapositive, la clonazione di una diapositiva in una sezione, lo spostamento di una sezione insieme alle sue diapositive, la rimozione di diapositive e la rimozione di sezioni. Il prossimo esempio chiama [ISection.GetSlidesListOfSection](https://reference.aspose.com/slides/it/net/aspose.slides/isection/getslideslistofsection/) dopo ogni modifica di questo tipo anziché mantenere ipotesi sui confini precedenti della sezione.
 
-Questo esempio di codice mostra come modificare il nome di una sezione in una presentazione in C# usando Aspose.Slides:
+```csharp
+using System;
+using Aspose.Slides;
 
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+using var presentation = new Presentation();
+var firstSlide = presentation.Slides[0];
+presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+var thirdSlide = presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+var firstSection = presentation.Sections.AddSection("First", firstSlide);
+var secondSection = presentation.Sections.AddSection("Second", thirdSlide);
+
+static void PrintSectionSlides(string label, ISection section)
 {
-   ISection section = pres.Sections[0];
-   section.Name = "My section";
+    var sectionSlides = section.GetSlidesListOfSection();
+    Console.Write($"{label} ({sectionSlides.Count} slides):");
+    foreach (var slide in sectionSlides)
+    {
+        Console.Write($" {slide.SlideNumber}");
+    }
+    Console.WriteLine();
+}
+
+PrintSectionSlides("Initially", firstSection);
+
+var slidesBeforeClone = firstSection.GetSlidesListOfSection();
+presentation.Slides.AddClone(slidesBeforeClone[0], firstSection);
+PrintSectionSlides("After cloning into the section", firstSection);
+
+var slidesBeforeReorder = firstSection.GetSlidesListOfSection();
+var firstSectionPosition = slidesBeforeReorder[0].SlideNumber - 1;
+presentation.Slides.Reorder(firstSectionPosition, slidesBeforeReorder[slidesBeforeReorder.Count - 1]);
+PrintSectionSlides("After reordering slides", firstSection);
+
+presentation.Sections.ReorderSectionWithSlides(firstSection, 1);
+PrintSectionSlides("After moving the section", firstSection);
+
+var slidesBeforeRemoval = firstSection.GetSlidesListOfSection();
+presentation.Slides.Remove(slidesBeforeRemoval[0]);
+PrintSectionSlides("After removing a slide", firstSection);
+
+presentation.Sections.RemoveSectionWithSlides(secondSection);
+foreach (var section in presentation.Sections)
+{
+    PrintSectionSlides("Remaining section", section);
 }
 ```
+
+Chiama nuovamente [ISection.GetSlidesListOfSection](https://reference.aspose.com/slides/it/net/aspose.slides/isection/getslideslistofsection/) ogni volta che diapositive o sezioni vengono riordinate, clonate, spostate o rimosse. In questo modo l’elaborazione successiva rimane allineata alla struttura corrente della presentazione.
+
+Il formato PPT (PowerPoint 97–2003) non conserva i metadati delle sezioni. Usa questo flusso di lavoro con un formato che supporta le sezioni, come PPTX; la conversione in PPT rimuove la struttura delle sezioni necessaria per le successive enumerazioni.
 
 ## **FAQ**
 
-**Le sezioni vengono conservate quando si salva nel formato PPT (PowerPoint 97–2003)?**
+**Le sezioni vengono mantenute quando si salva nel formato PPT (PowerPoint 97–2003)?**
 
 No. Il formato PPT non supporta i metadati delle sezioni, quindi il raggruppamento delle sezioni viene perso quando si salva in .ppt.
 
-**È possibile "nascondere" un'intera sezione?**
+**È possibile “nascondere” un’intera sezione?**
 
-No. È possibile nascondere solo diapositive individuali. Una sezione come entità non ha uno stato "nascosto".
+No. Una sezione non ha uno stato di visibilità. Per nascondere il suo contenuto, imposta la proprietà [ISlide.Hidden](https://reference.aspose.com/slides/it/net/aspose.slides/islide/hidden/) per ogni diapositiva nella sezione.
 
-**Posso trovare rapidamente una sezione a partire da una diapositiva e, viceversa, la prima diapositiva di una sezione?**
+**Come posso trovare la sezione che contiene una diapositiva?**
 
-Sì. Una sezione è definita univocamente dalla sua diapositiva iniziale; data una diapositiva è possibile determinare a quale sezione appartiene, e per una sezione è possibile accedere alla sua prima diapositiva.
+Enumera [Presentation.Sections](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/sections/), chiama [ISection.GetSlidesListOfSection](https://reference.aspose.com/slides/it/net/aspose.slides/isection/getslideslistofsection/) per ogni sezione e confronta le diapositive restituite con la diapositiva target. Per una sezione non vuota, [ISection.StartedFromSlide](https://reference.aspose.com/slides/it/net/aspose.slides/isection/startedfromslide/) restituisce la sua prima diapositiva; per una sezione vuota, restituisce `null`.

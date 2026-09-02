@@ -6,38 +6,38 @@ weight: 10
 url: /ru/php-java/presentation-theme/
 keywords:
 - Тема PowerPoint
-- Тема презентации
-- Тема слайда
-- Установить тему
-- Изменить тему
-- Управлять темой
-- Цвет темы
-- Дополнительная палитра
-- Шрифт темы
-- Стиль темы
-- Эффект темы
+- тема презентации
+- тема слайда
+- установить тему
+- изменить тему
+- управлять темой
+- цвет темы
+- дополнительная палитра
+- шрифт темы
+- стиль темы
+- эффект темы
 - PowerPoint
 - OpenDocument
 - презентация
 - PHP
 - Aspose.Slides
-description: "Основные темы презентаций в Aspose.Slides для PHP через Java для создания, настройки и конвертации файлов PowerPoint с единым брендингом."
+description: "Управляйте темами презентаций в Aspose.Slides для PHP через Java, создавайте, кастомизируйте и конвертируйте файлы PowerPoint с единообразным брендингом."
 ---
 ## **Введение**
 
-Тема презентации определяет согласованный набор цветов, шрифтов, стилей фона, заливок, линий и эффектов. Объекты, поддерживающие темы, ссылаются на эти общие определения, а не хранят каждое визуальное свойство как фиксированное значение, поэтому изменение темы может обновить множество объектов сразу.
+Тема презентации определяет согласованный набор цветов, шрифтов, стилей фона, заливок, линий и эффектов. Объекты, учитывающие тему, ссылаются на эти общие определения вместо того, чтобы хранить каждое визуальное свойство как фиксированное значение, поэтому изменение темы может обновить множество объектов одновременно.
 
-В Aspose.Slides тема уровня презентации доступна через [Presentation.getMasterTheme](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/). Презентация также может содержать переопределения темы на более низких уровнях. Master может переопределять тему презентации через [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/ru/php-java/aspose.slides/masterthememanager/), а макет или отдельный слайд могут переопределять унаследованную тему через [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/ru/php-java/aspose.slides/baseoverridethememanager/). На практике эффективная тема для слайда определяется по этой цепочке наследования: тема презентации, переопределение master, переопределение макета и переопределение слайда.
+В Aspose.Slides тема уровня презентации доступна через [Presentation.getMasterTheme](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/). Презентация также может содержать переопределения темы на более низких уровнях. Мастер может переопределять тему презентации через [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/ru/php-java/aspose.slides/masterthememanager/), тогда как макет или отдельный слайд может переопределять наследуемую тему через [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/ru/php-java/aspose.slides/baseoverridethememanager/). На практике эффективная тема для слайда определяется через эту цепочку наследования: тема презентации, переопределение мастера, переопределение макета и переопределение слайда.
 
-![Theme components: colors, fonts, background styles, and effects](theme-constituents.png)
+![Компоненты темы: цвета, шрифты, стили фона и эффекты](theme-constituents.png)
 
-Ниже показаны наиболее распространённые рабочие процессы с темами: просмотр темы, изменение цветов и шрифтов, копирование или применение темы, обновление стилей фона и эффектов, а также чтение эффективных значений после разрешения наследования и переопределений.
+Ниже показаны наиболее распространённые сценарии работы с темой: просмотр темы, изменение цветов и шрифтов, копирование или применение темы, обновление стилей фона и эффектов, а также чтение эффективных значений после разрешения наследования и переопределений.
 
 ## **Просмотр темы**
 
-Объект [MasterTheme](https://reference.aspose.com/slides/ru/php-java/aspose.slides/mastertheme/) предоставляет доступ к цветовой схеме темы, схеме шрифтов и схеме форматов через [MasterTheme.getColorScheme](https://reference.aspose.com/slides/ru/php-java/aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/ru/php-java/aspose.slides/mastertheme/) и [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/ru/php-java/aspose.slides/mastertheme/). Просмотр этих коллекций перед их изменением особенно полезен, когда презентация поступает из внешнего источника, поскольку количество и содержание элементов стилей могут различаться.
+Объект [MasterTheme](https://reference.aspose.com/slides/ru/php-java/aspose.slides/mastertheme/) раскрывает схему цветов, схему шрифтов и схему форматов темы через [MasterTheme.getColorScheme](https://reference.aspose.com/slides/ru/php-java/aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/ru/php-java/aspose.slides/mastertheme/) и [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/ru/php-java/aspose.slides/mastertheme/). Просмотр этих коллекций перед их изменением особенно полезен, когда презентация поступает из внешнего источника, поскольку количество и содержание записей стилей могут различаться.
 
-Следующий пример читает основные свойства темы и сообщает, сколько стилей фона, заливки, линий и эффектов хранится в теме:
+Следующий пример читает основные свойства темы и сообщает, сколько стилей фона, заливки, линии и эффекта хранится в теме:
 
 ```php
 use aspose\slides\Presentation;
@@ -58,13 +58,13 @@ try {
 }
 ```
 
-Если файл использует несколько master‑ов, не следует предполагать, что каждый слайд имеет одну и ту же эффективную тему. Просмотрите master, связанный со слайдом, и используйте рабочий процесс с эффективной темой, показанный ниже в статье, когда могут присутствовать переопределения макета или слайда.
+Если файл использует несколько мастеров, не следует предполагать, что каждый слайд имеет одну и ту же эффективную тему. Просмотрите мастер, связанный со слайдом, и используйте рабочий процесс эффективной темы, показанный ниже, когда могут быть переопределения макета или слайда.
 
 ## **Изменение цветов темы**
 
-Заливки, линии и текст, поддерживающие темы, могут ссылаться на логический цвет из перечисления [SchemeColor](https://reference.aspose.com/slides/ru/php-java/aspose.slides/schemecolor/). Когда вы меняете соответствующий элемент в [ColorScheme](https://reference.aspose.com/slides/ru/php-java/aspose.slides/colorscheme/), все объекты, которые всё ещё ссылаются на этот цвет темы, получают новое значение. Объекты, использующие прямой RGB‑цвет, не меняются при обновлении цвета темы.
+Заливки, линии и текст, учитывающие тему, могут ссылаться на логический цвет из перечисления [SchemeColor](https://reference.aspose.com/slides/ru/php-java/aspose.slides/schemecolor/). Когда вы меняете соответствующую запись в [ColorScheme](https://reference.aspose.com/slides/ru/php-java/aspose.slides/colorscheme/), все объекты, которые всё ещё ссылаются на этот цвет темы, получают новое значение. Объекты, использующие прямой RGB‑цвет, не изменяются при обновлении цвета темы.
 
-Следующий сквозной пример создаёт фигуру, использующую `Accent4`, меняет цвет `Accent4` темы на красный, сохраняет презентацию, открывает её заново и выводит эффективный цвет заливки:
+Следующий сквозной пример создаёт форму, использующую `Accent4`, меняет цвет темы `Accent4` на красный, сохраняет презентацию, открывает её вновь и выводит эффективный цвет заливки:
 
 ```php
 use aspose\slides\FillType;
@@ -96,19 +96,19 @@ try {
 }
 ```
 
-Поскольку прямоугольник остаётся связанным с `Accent4`, его видимый цвет становится красным после изменения темы. Если заменить цвет схемы на прямой цвет в фигуре, последующие изменения `Accent4` больше не будут влиять на эту заливку.
+Поскольку прямоугольник остаётся привязанным к `Accent4`, его видимый цвет становится красным после изменения темы. Если заменить цвет схемы на прямой цвет в форме, последующие изменения `Accent4` больше не будут влиять на эту заливку.
 
 ### **Использование цветов из дополнительной палитры**
 
-PowerPoint формирует более светлые и более тёмные варианты из цвета темы, применяя трансформации цвета. Aspose.Slides предоставляет эти трансформации через перечисление [ColorTransformOperation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/colortransformoperation/).
+PowerPoint получает более светлые и более тёмные варианты из цвета темы, применяя трансформации цвета. Aspose.Slides раскрывает эти трансформации через перечисление [ColorTransformOperation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/colortransformoperation/).
 
-![Main theme colors and lighter and darker colors generated from the additional palette](additional-palette-colors.png)
+![Основные цвета темы и более светлые и более тёмные цвета, сгенерированные из дополнительной палитры](additional-palette-colors.png)
 
-**1** – Основные цвета темы.
+**1** – Основные цвета темы.  
 
 **2** – Более светлые и более тёмные варианты, полученные из основных цветов темы.
 
-Следующий пример создаёт шесть прямоугольников на основе `Accent4`, применяет трансформации яркости к пяти из них и сохраняет результат:
+Следующий пример создаёт шесть прямоугольников на основе `Accent4`, применяет к пяти из них трансформации яркости и сохраняет результат:
 
 ```php
 use aspose\slides\ColorTransformOperation;
@@ -160,29 +160,29 @@ try {
 }
 ```
 
-Эти варианты остаются основанными на цветовом схеме темы. Если позже `Accent4` изменится, преобразованные цвета будут пересчитаны из нового значения `Accent4`.
+Эти варианты остаются основанными на цвете темы. Если позже `Accent4` изменится, преобразованные цвета будут пересчитаны из нового значения `Accent4`.
 
-### **Отображение значений `SchemeColor` в ячейки `ColorScheme`**
+### **Отображение значений `SchemeColor` в слоты `ColorScheme`**
 
-Перечисление [SchemeColor](https://reference.aspose.com/slides/ru/php-java/aspose.slides/schemecolor/) использует `Text1`, `Background1`, `Text2` и `Background2`, тогда как [ColorScheme](https://reference.aspose.com/slides/ru/php-java/aspose.slides/colorscheme/) представляет те же ячейки темы как `Dark1`, `Light1`, `Dark2` и `Light2`. Сопоставление фиксировано:
+Перечисление [SchemeColor](https://reference.aspose.com/slides/ru/php-java/aspose.slides/schemecolor/) использует `Text1`, `Background1`, `Text2` и `Background2`, тогда как [ColorScheme](https://reference.aspose.com/slides/ru/php-java/aspose.slides/colorscheme/) раскрывает те же слоты темы как `Dark1`, `Light1`, `Dark2` и `Light2`. Соответствие фиксировано:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-Это альтернативные названия одних и тех же ячеек темы; они не являются значениями, динамически преобразуемыми из одной формы в другую.
+Это альтернативные названия одних и тех же слотов темы; они не являются значениями, динамически преобразуемыми из одной формы в другую.
 
 ## **Изменение шрифтов темы**
 
-Схема шрифтов темы содержит основной набор шрифтов для заголовков и вспомогательный набор шрифтов для основного текста. Методы [FontScheme.getMajor](https://reference.aspose.com/slides/ru/php-java/aspose.slides/fontscheme/) и [FontScheme.getMinor](https://reference.aspose.com/slides/ru/php-java/aspose.slides/fontscheme/) предоставляют эти наборы.
+Схема шрифтов темы содержит основной набор шрифтов для заголовков и вспомогательный набор шрифтов для основного текста. Методы [FontScheme.getMajor](https://reference.aspose.com/slides/ru/php-java/aspose.slides/fontscheme/) и [FontScheme.getMinor](https://reference.aspose.com/slides/ru/php-java/aspose.slides/fontscheme/) раскрывают эти наборы.
 
 Идентификаторы шрифтов темы, совместимые с PowerPoint, могут использоваться в форматировании текста:
 
-* `+mn-lt` – Основной шрифт Latin (Minor Latin Font)
-* `+mj-lt` – Шрифт заголовка Latin (Major Latin Font)
-* `+mn-ea` – Основной шрифт East Asian (Minor East Asian Font)
-* `+mj-ea` – Шрифт заголовка East Asian (Major East Asian Font)
+* `+mn-lt` – Основной шрифт латиницы (Minor Latin Font)
+* `+mj-lt` – Шрифт заголовков латиницы (Major Latin Font)
+* `+mn-ea` – Основной шрифт восточно‑азиатский (Minor East Asian Font)
+* `+mj-ea` – Шрифт заголовков восточно‑азиатский (Major East Asian Font)
 
 Следующий пример создаёт один заголовок, использующий основной латинский шрифт темы, и одну строку основного текста, использующую вспомогательный латинский шрифт темы. Затем меняет шрифты темы и сохраняет результат:
 
@@ -212,19 +212,21 @@ try {
 }
 ```
 
-Заголовок следует за основным шрифтом, а основной текст – за вспомогательным. Текст, у которого явно указан имя шрифта вместо идентификатора темы, не будет автоматически переключаться при изменении схемы шрифтов темы.
+Заголовок следует за основным шрифтом, а основной текст – за вспомогательным шрифтом. Текст, содержащий явное название шрифта вместо идентификатора темы, не будет автоматически переключаться при изменении схемы шрифтов темы.
+
+Коллекции основных и вспомогательных шрифтов могут также содержать сопоставления шрифтов для отдельных систем письма, таких как кириллица, арабский, японский, грузинский и таана. Чтобы просмотреть, добавить, заменить или удалить эти сопоставления, см. [Script-Specific Theme Fonts](/slides/ru/php-java/script-specific-font-mappings/).
 
 {{% alert color="info" title="Совет" %}}
-Для получения более подробной информации о шрифтах презентации см. [PowerPoint Fonts](/slides/ru/php-java/powerpoint-fonts/).
+Для получения дополнительной информации о шрифтах презентаций, см. [Шрифты PowerPoint](/slides/ru/php-java/powerpoint-fonts/).
 {{% /alert %}}
 
 ## **Копирование или применение темы**
 
-Существует два распространённых рабочего процесса, решающих разные задачи.
+Существует два распространённых сценария, решающих разные задачи.
 
-### **Сохранение исходной темы при перемещении слайдов**
+### **Сохранить исходную тему при перемещении слайдов**
 
-Если необходимо переместить слайд в другую презентацию и сохранить его оригинальный дизайн, клонируйте исходный master в целевую презентацию с помощью [MasterSlideCollection.addClone](https://reference.aspose.com/slides/ru/php-java/aspose.slides/masterslidecollection/), затем клонируйте слайд с помощью [SlideCollection.addClone](https://reference.aspose.com/slides/ru/php-java/aspose.slides/slidecollection/) и клонированного master. Это переносит master, его макеты и связанную тему вместе.
+Если нужно переместить слайд в другую презентацию и сохранить его оригинальный дизайн, клонируйте исходный мастер в целевую презентацию с помощью [MasterSlideCollection.addClone](https://reference.aspose.com/slides/ru/php-java/aspose.slides/masterslidecollection/), затем клонируйте слайд с помощью [SlideCollection.addClone](https://reference.aspose.com/slides/ru/php-java/aspose.slides/slidecollection/) и клонированного мастера. Это переносит мастер, его макеты и связанную тему вместе.
 
 ```php
 use aspose\slides\Presentation;
@@ -247,11 +249,11 @@ try {
 }
 ```
 
-Это предпочтительный рабочий процесс, когда исходный слайд должен выглядеть одинаково в целевой презентации. Простое клонирование содержимого на несвязанный master‑дестинации может изменить цвета, шрифты, фоны и эффекты, управляемые темой.
+Это предпочтительный рабочий процесс, когда исходный слайд должен выглядеть одинаково в целевом документе. Простое клонирование содержимого на несвязанный мастер назначения может изменить цвета, шрифты, фоны и эффекты, управляемые темой.
 
-### **Применение значений темы к существующему слайду**
+### **Применить значения темы к существующему слайду**
 
-Если целевой слайд должен оставаться на текущем master и макете, инициализируйте переопределение уровня слайда из исходной темы. Методы [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/ru/php-java/aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/ru/php-java/aspose.slides/overridetheme/) и [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/ru/php-java/aspose.slides/overridetheme/) копируют три основных компонента темы в переопределение.
+Если целевой слайд должен оставаться на текущем мастере и макете, инициализируйте переопределение уровня слайда из исходной темы. Методы [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/ru/php-java/aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/ru/php-java/aspose.slides/overridetheme/) и [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/ru/php-java/aspose.slides/overridetheme/) копируют три основных компонента темы в переопределение.
 
 ```php
 use aspose\slides\Presentation;
@@ -275,11 +277,11 @@ try {
 }
 ```
 
-Это меняет тему, используемую этим слайдом, без изменения темы, наследуемой другими слайдами. Чтобы удалить локальное переопределение и вернуться к наследуемым значениям, вызовите [OverrideTheme.clear](https://reference.aspose.com/slides/ru/php-java/aspose.slides/overridetheme/).
+Это меняет тему, используемую этим слайдом, не меняя тему, унаследованную другими слайдами. Чтобы удалить локальное переопределение и вернуться к унаследованным значениям, вызовите [OverrideTheme.clear](https://reference.aspose.com/slides/ru/php-java/aspose.slides/overridetheme/).
 
-### **Применение переопределения темы к макету**
+### **Применить переопределение темы к макету**
 
-Переопределение уровня макета применяется к слайдам, использующим этот макет, если только конкретный слайд не имеет собственного переопределения. Те же методы инициализации можно использовать через [LayoutSlideThemeManager](https://reference.aspose.com/slides/ru/php-java/aspose.slides/layoutslidethememanager/):
+Переопределение уровня макета применяется к слайдам, использующим этот макет, если только конкретный слайд не имеет собственного переопределения. Те же методы инициализации могут использоваться через [LayoutSlideThemeManager](https://reference.aspose.com/slides/ru/php-java/aspose.slides/layoutslidethememanager/):
 
 ```php
 use aspose\slides\Presentation;
@@ -303,17 +305,17 @@ try {
 }
 ```
 
-Используйте тему уровня master или презентации, когда многие макеты и слайды должны делить один базовый дизайн; переопределение макета – когда одной семье макетов требуется отдельное оформление; а переопределение слайда – только для истинных исключений. Чрезмерные переопределения уровня слайда делают последующие глобальные изменения темы трудно прогнозируемыми.
+Используйте тему мастера или уровня презентации, когда многие макеты и слайды должны совместно использовать один базовый дизайн; переопределение макета – когда одной семье макетов нужен иной стиль; и переопределение слайда – только для истинных исключений. Чрезмерные переопределения на уровне слайда усложняют прогнозирование последующих глобальных изменений темы.
 
 ## **Обновление стилей фона темы**
 
-Заливки фона темы хранятся в [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/ru/php-java/aspose.slides/formatscheme/). PowerPoint может предлагать в интерфейсе больше вариантов фона, чем реально хранится в этой коллекции, поскольку UI может комбинировать темы заливок с цветовыми темами и другими ссылками стилей.
+Фоновые заливки темы хранятся в [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/ru/php-java/aspose.slides/formatscheme/). PowerPoint может предлагать больше вариантов фона в пользовательском интерфейсе, чем количество фактически сохранённых определений заливки в этой коллекции, потому что UI может комбинировать фоновые заливки темы с цветовыми и другими ссылками стилей.
 
-![PowerPoint background style gallery for a presentation theme](presentation-design_8.png)
+![Галерея стилей фона PowerPoint для темы презентации](presentation-design_8.png)
 
-Перед использованием стиля фона просмотрите сохранённую коллекцию и текущий [Background.getStyleIndex](https://reference.aspose.com/slides/ru/php-java/aspose.slides/background/). Индекс стиля `0` означает отсутствие тематической заливки; положительные значения – ссылки на стили фона темы. Это отличается от прямой индексации PHP‑коллекции, где `get_Item(0)` означает первый сохранённый элемент. Не предполагаете, что каждая презентация содержит одинаковое количество стилей заливки фона.
+Перед использованием стиля фона просмотрите сохранённую коллекцию и текущий [Background.getStyleIndex](https://reference.aspose.com/slides/ru/php-java/aspose.slides/background/). Индекс стиля `0` означает отсутствие темной заливки; положительные значения – ссылки на стили фона темы. Это отличается от индексации PHP‑коллекции напрямую, где `get_Item(0)` означает первый сохранённый элемент. Не следует предполагать, что каждая презентация содержит одинаковое количество стилей фоновой заливки.
 
-Следующий пример сообщает количество доступных стилей заливки фона, назначает тематическую ссылку на фон первому master и сохраняет презентацию:
+Следующий пример сообщает количество доступных фоновых заливок, назначает ссылку на тематический фон первому мастеру и сохраняет презентацию:
 
 ```php
 use aspose\slides\BackgroundType;
@@ -337,10 +339,10 @@ try {
 }
 ```
 
-Видимый результат зависит от темы, на которую ссылается master, и от любых переопределений фона на уровне макета или слайда. Если слайд использует собственный фон, изменение только фона master может не изменить этот слайд. Используйте [Background.getEffective](https://reference.aspose.com/slides/ru/php-java/aspose.slides/background/), когда нужно узнать окончательный фон после применения наследования.
+Видимый результат зависит от записи темы, на которую ссылается мастер, и от любых переопределений фона на уровне макета или слайда. Если слайд использует свой собственный фон, изменение только фона мастера может не затронуть этот слайд. Используйте [Background.getEffective](https://reference.aspose.com/slides/ru/php-java/aspose.slides/background/), когда необходимо знать окончательный фон после применения наследования.
 
-{{% alert color="warning" title="Внимание" %}}
-Не рассматривайте индекс стиля как нулевой индекс коллекции. Также избегайте жёсткого кодирования номера стиля из одного файла и предположения, что он имеет тот же вид в другом файле; определения стилей темы зависят от конкретной презентации.
+{{% alert color="warning" title="Предупреждение" %}}
+Не рассматривайте индекс стиля как нулевой индекс коллекции. Также избегайте жёсткого кодирования номера стиля из одного файла и предположения, что он будет выглядеть так же в другом файле; определения стилей темы специфичны для каждой презентации.
 {{% /alert %}}
 
 {{% alert color="info" title="Совет" %}}
@@ -349,13 +351,13 @@ try {
 
 ## **Обновление эффектов темы**
 
-Схема форматов темы содержит отдельные коллекции заливок, линий и эффектов, доступные через [FormatScheme.getFillStyles](https://reference.aspose.com/slides/ru/php-java/aspose.slides/formatscheme/), [FormatScheme.getLineStyles](https://reference.aspose.com/slides/ru/php-java/aspose.slides/formatscheme/) и [FormatScheme.getEffectStyles](https://reference.aspose.com/slides/ru/php-java/aspose.slides/formatscheme/). Типичные темы Office часто включают три основных стиля, визуально соответствующие «тонким», «средним» и «интенсивным» форматированиям, но код должен проверять каждую коллекцию вместо предположения фиксированного количества элементов.
+Схема форматов темы содержит отдельные коллекции стилей заливки, линии и эффектов, раскрытые через [FormatScheme.getFillStyles](https://reference.aspose.com/slides/ru/php-java/aspose.slides/formatscheme/), [FormatScheme.getLineStyles](https://reference.aspose.com/slides/ru/php-java/aspose.slides/formatscheme/) и [FormatScheme.getEffectStyles](https://reference.aspose.com/slides/ru/php-java/aspose.slides/formatscheme/). Типичные офисные темы часто содержат три основных стиля, визуально соответствующие «деликатному», «умеренно‑насыщенному» и «интенсивному» форматированию, но код должен проверять каждую коллекцию вместо предположения фиксированного количества.
 
-![Subtle, moderate, and intense theme effects applied to the same shape](presentation-design_10.png)
+![Деликатные, умеренные и интенсивные эффекты темы, применённые к одной форме](presentation-design_10.png)
 
-При доступе к этим коллекциям в PHP индекс коллекции начинается с нуля: `get_Item(0)` – первая сохранённая стилица, `get_Item(2)` – третья. Индексы ссылок стиля фигуры – отдельная концепция, представляемая через [ShapeStyle](https://reference.aspose.com/slides/ru/php-java/aspose.slides/shapestyle/). Изменение стиля темы влияет на фигуры, которые ссылаются на этот стиль; фигуры с прямым форматированием могут оставаться без изменений.
+При доступе к этим коллекциям в PHP индекс коллекции начинается с нуля: `get_Item(0)` – первая сохранённая стиль, `get_Item(2)` – третий. Индексы ссылки стиля формы – отдельная концепция, раскрытая через [ShapeStyle](https://reference.aspose.com/slides/ru/php-java/aspose.slides/shapestyle/). Изменение стиля темы влияет на формы, ссылающиеся на этот стиль; формы с прямым форматированием могут остаться без изменений.
 
-Следующий пример проверяет наличие нужных стилей, меняет первый стиль линии, третий стиль заливки, включает внешнюю тень в третьем стиле эффекта и сохраняет результат:
+Следующий пример проверяет наличие необходимых записей стилей, меняет первый линейный стиль, третий стиль заливки, включает внешнюю тень в третьем стиле эффекта и сохраняет результат:
 
 ```php
 use aspose\slides\FillType;
@@ -382,15 +384,15 @@ try {
 }
 ```
 
-Для фигур, ссылающихся на эти ячейки, первый стиль линии темы становится красным, третий стиль заливки темы становится сплошным лесным зелёным, а третий стиль эффекта получает внешнюю тень с расстоянием 10 пунктов. Точный визуальный результат всё ещё зависит от того, какие слоты стилей каждая фигура использует и переопределяется ли прямое форматирование.
+Для форм, ссылающихся на эти слоты, первый линейный стиль темы становится красным, третий стиль заливки темы – сплошным тёмно‑зелёным, а третий стиль эффекта получает внешнюю тень с расстоянием 10 пунктов. Точный визуальный результат всё равно зависит от того, какие слоты стилей каждая форма использует и переопределяется ли прямое форматирование темы.
 
-![Theme effect styles after changing line, fill, and shadow settings](presentation-design_11.png)
+![Стили эффектов темы после изменения настроек линии, заливки и тени](presentation-design_11.png)
 
 ## **Чтение эффективных значений темы**
 
-Необработанные объекты темы показывают, что определено на конкретном уровне. Эффективные значения показывают, что слайд или фигура действительно используют после разрешения наследования и локальных переопределений. Для слайда вызовите [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/ru/php-java/aspose.slides/baseoverridethememanager/). Для фона используйте [Background.getEffective](https://reference.aspose.com/slides/ru/php-java/aspose.slides/background/), а для заливки – [FillFormat.getEffective](https://reference.aspose.com/slides/ru/php-java/aspose.slides/fillformat/).
+Необработанные объекты темы показывают, что определено на конкретном уровне. Эффективные значения показывают, что слайд или форма действительно используют после разрешения наследования и локальных переопределений. Для слайда вызовите [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/ru/php-java/aspose.slides/baseoverridethememanager/). Для фона используйте [Background.getEffective](https://reference.aspose.com/slides/ru/php-java/aspose.slides/background/), а для заливки – [FillFormat.getEffective](https://reference.aspose.com/slides/ru/php-java/aspose.slides/fillformat/).
 
-Следующий пример читает эффективную тему, фон и первую заливку фигуры со слайда:
+Следующий пример читает эффективную тему, фон и первую заливку формы со слайда:
 
 ```php
 use aspose\slides\FillType;
@@ -417,18 +419,18 @@ try {
 }
 ```
 
-Используйте эффективные данные для диагностики рендеринга, валидации и сравнения. Если вы проверяете только [Presentation.getMasterTheme](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/), вы можете упустить переопределения master, макета, слайда или фигуры, изменяющие окончательный вид.
+Используйте эффективные данные для диагностики визуализации, проверки и сравнения. Если вы проверяете только [Presentation.getMasterTheme](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/), можете пропустить переопределение мастера, макета, слайда или формы, которое меняет окончательный внешний вид.
 
 ## **FAQ**
 
-**Можно ли применить тему к отдельному слайду без изменения master?**
+**Можно ли применить тему к отдельному слайду без изменения мастера?**
 
 Да. Используйте [SlideThemeManager](https://reference.aspose.com/slides/ru/php-java/aspose.slides/slidethememanager/) слайда и инициализируйте его переопределение темы. Изменение останется локальным для этого слайда; остальные слайды продолжат наследовать свои текущие темы.
 
-**Какой способ самый надёжный для переноса темы из одной презентации в другую?**
+**Какой самый надёжный способ перенести тему из одной презентации в другую?**
 
-При перемещении слайда и сохранении его исходного оформления клонируйте исходный master в целевую презентацию и клонируйте слайд с этим master, используя [MasterSlideCollection.addClone](https://reference.aspose.com/slides/ru/php-java/aspose.slides/masterslidecollection/) и [SlideCollection.addClone](https://reference.aspose.com/slides/ru/php-java/aspose.slides/slidecollection/). Это сохраняет master, макеты и тему вместе.
+При перемещении слайда и сохранении его исходного внешнего вида клонируйте исходный мастер в целевую презентацию и клонируйте слайд с этим мастером, используя [MasterSlideCollection.addClone](https://reference.aspose.com/slides/ru/php-java/aspose.slides/masterslidecollection/) и [SlideCollection.addClone](https://reference.aspose.com/slides/ru/php-java/aspose.slides/slidecollection/). Это сохраняет мастер, макеты и тему вместе.
 
 **Как увидеть эффективные значения после наследования и переопределений?**
 
-Используйте [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/ru/php-java/aspose.slides/baseoverridethememanager/) для темы слайда или макета и соответствующие методы эффективных данных для форматных объектов, таких как [Background.getEffective](https://reference.aspose.com/slides/ru/php-java/aspose.slides/background/) и [FillFormat.getEffective](https://reference.aspose.com/slides/ru/php-java/aspose.slides/fillformat/). Эти API возвращают значения после применения наследования и переопределений.
+Используйте [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/ru/php-java/aspose.slides/baseoverridethememanager/) для темы слайда или макета и соответствующие методы получения эффективных данных для объектных форматов, таких как [Background.getEffective](https://reference.aspose.com/slides/ru/php-java/aspose.slides/background/) и [FillFormat.getEffective](https://reference.aspose.com/slides/ru/php-java/aspose.slides/fillformat/). Эти API возвращают разрешённые значения после применения наследования и переопределений.

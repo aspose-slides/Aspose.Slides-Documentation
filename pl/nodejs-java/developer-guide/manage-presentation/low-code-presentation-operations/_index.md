@@ -1,48 +1,48 @@
 ---
-title: Operacje niskokodowe na prezentacjach w JavaScript
+title: Operacje prezentacji niskokodowych w JavaScript
 linktitle: API niskokodowe
 type: docs
 weight: 50
 url: /pl/nodejs-java/low-code-presentation-operations/
 keywords:
-- API niskokodowych prezentacji
-- konwertowanie prezentacji
-- scalanie prezentacji
-- iteracja slajdów
-- iteracja kształtów
-- iteracja tekstu
-- zbieranie kształtów
-- kompresja prezentacji
-- usuwanie nieużywanych slajdów wzorcowych
-- usuwanie nieużywanych slajdów układu
-- kompresja osadzonych czcionek
+- API niskokodowe prezentacji
+- konwertuj prezentację
+- scal prezentacje
+- iteruj slajdy
+- iteruj kształty
+- iteruj tekst
+- zbieraj kształty
+- kompresuj prezentację
+- usuń nieużywane master slajdy
+- usuń nieużywane slajdy układu
+- kompresuj osadzone czcionki
 - PowerPoint
 - OpenDocument
 - prezentacja
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Użyj niskokodowego API Aspose.Slides w JavaScript, aby konwertować i scalać prezentacje, iterować zawartość, zbierać kształty oraz zmniejszać rozmiar prezentacji."
+description: "Użyj niskokodowego API Aspose.Slides w JavaScript, aby konwertować i scalać prezentacje, iterować po zawartości, zbierać kształty oraz zmniejszać rozmiar prezentacji."
 ---
 ## **Przegląd**
 
-Przestrzeń nazw `aspose.slides` udostępnia statyczne klasy pomocnicze do typowych operacji na prezentacjach. Te pomocnice kapsułkują często używane przepływy pracy modelu obiektowego w skoncentrowanych metodach, dzięki czemu możesz konwertować lub scalać pliki, przetwarzać elementy prezentacji, zbierać kształty i usuwać nieużywaną zawartość przy mniejszej ilości kodu.
+`aspose.slides` namespace provides static helper classes for common presentation operations. These helpers wrap frequently used object-model workflows in focused methods, so you can convert or merge files, process presentation elements, collect shapes, and remove unused content with less code.
 
-Pomocnice niskokodowe są najbardziej przydatne, gdy operacja dotyczy całego pliku lub prezentacji i domyślny przepływ pracy spełnia Twoje wymagania. Użyj pełnego [modelu obiektowego Aspose.Slides](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/) , gdy potrzebujesz precyzyjnej kontroli nad poszczególnymi slajdami, wzorcami, układami, kształtami, ustawieniami eksportu lub powiązaniami między elementami prezentacji.
+Low-code helpers are most useful when the operation applies to an entire file or presentation and the default workflow matches your requirements. Use the full [Aspose.Slides object model](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/) when you need fine-grained control over individual slides, masters, layouts, shapes, export settings, or relationships between presentation elements.
 
-Poniższa tabela podsumowuje dostępne pomocnice:
+The following table summarizes the available helpers:
 
-| Pomocnica | Zastosowanie |
+| Pomocnik | Zastosowanie |
 | --- | --- |
-| [Convert](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/convert/) | Konwertowanie prezentacji do innego formatu za pomocą bezpośredniego wywołania plik-do-pliku. |
-| [Merger](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/merger/) | Łączenie kompletnych plików prezentacji tego samego formatu. |
-| [ForEach](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/foreach/) | Wykonywanie akcji dla każdego slajdu, kształtu, akapitu lub części tekstu. |
-| [Collect](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/collect/) | Pobieranie kształtów z całej prezentacji w celu powtórnego przetwarzania lub analizy. |
-| [Compress](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/compress/) | Usuwanie nieużywanych wzorców i układów oraz zmniejszanie danych osadzonych czcionek. |
+| [Convert](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/convert/) | Konwertowanie prezentacji do innego formatu przy użyciu bezpośredniego wywołania plik-do-pliku. |
+| [Merger](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/merger/) | Łączenie pełnych plików prezentacji tego samego formatu. |
+| [ForEach](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/foreach/) | Wykonywanie akcji dla każdego slajdu, kształtu, akapitu lub fragmentu tekstu. |
+| [Collect](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/collect/) | Pobieranie kształtów z całej prezentacji w celu wielokrotnego przetwarzania lub analizy. |
+| [Compress](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/compress/) | Usuwanie nieużywanych masterów i układów oraz redukcja osadzonych danych czcionek. |
 
 ## **Konwertowanie prezentacji**
 
-Użyj [Convert.autoByExtension](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/convert/#autoByExtension), gdy rozszerzenie pliku wyjściowego wystarczy, aby wybrać format eksportu. Metoda otwiera prezentację źródłową, określa wymaganego formatu na podstawie ścieżki wyjściowej i zapisuje wynik.
+Użyj [Convert.autoByExtension](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/convert/#autoByExtension), gdy wystarczające jest określenie formatu eksportu na podstawie rozszerzenia pliku wyjściowego. Metoda otwiera źródłową prezentację, określa wymaganą formatę na podstawie ścieżki wyjściowej i zapisuje wynik.
 
 ```javascript
 var aspose = aspose || {};
@@ -51,11 +51,11 @@ aspose.slides = require("aspose.slides.via.java");
 aspose.slides.Convert.autoByExtension("input.pptx", "output.pdf");
 ```
 
-Klasa [Convert](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/convert/) udostępnia również dedykowane metody dla wyjścia PDF, SVG, JPEG, PNG i TIFF. Użyj pełnego modelu obiektowego, gdy musisz sprawdzić lub zmodyfikować prezentację przed eksportem lub skonfigurować opcję eksportu, której nie udostępnia wybrana pomocnica. Zobacz [Konwertowanie prezentacji](/nodejs-java/convert-presentation/) po szczegółowe przepływy pracy i opcje zależne od formatu.
+Klasa [Convert](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/convert/) oferuje także dedykowane metody dla wyjść PDF, SVG, JPEG, PNG i TIFF. Użyj pełnego modelu obiektowego, gdy musisz sprawdzić lub zmodyfikować prezentację przed eksportem lub skonfigurować opcję eksportu, której nie udostępnia wybrany pomocnik. Zobacz [Convert Presentation](/slides/pl/nodejs-java/convert-presentation/) aby poznać przepływy pracy i opcje specyficzne dla formatu.
 
 ## **Scalanie prezentacji**
 
-Użyj [Merger.process](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/merger/#process), aby połączyć kompletne pliki prezentacji jednym wywołaniem. Prezentacje wejściowe muszą mieć ten sam format pliku.
+Użyj [Merger.process](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/merger/#process), aby połączyć pełne pliki prezentacji jednym wywołaniem. Prezentacje wejściowe muszą mieć ten sam format pliku.
 
 ```javascript
 var aspose = aspose || {};
@@ -65,13 +65,13 @@ const inputFiles = ["first.pptx", "second.pptx"];
 aspose.slides.Merger.process(inputFiles, "merged.pptx");
 ```
 
-Ta pomocnica jest odpowiednia, gdy wszystkie slajdy mają być dołączone do jednego wyniku bez indywidualnego wybierania lub przemapowywania. Użyj pełnego modelu obiektowego, gdy potrzebujesz scalić wybrane slajdy, zastosować docelowy wzorzec lub układ, zachować sekcje w sposób jawny lub dopasować różne rozmiary slajdów. Zobacz [Merge Presentations](/nodejs-java/merge-presentation/) dla tych scenariuszy.
+Ten pomocnik jest właściwy, gdy wszystkie slajdy mają zostać dołączone do jednego wyniku bez indywidualnego wybierania lub przemapowywania. Użyj pełnego modelu obiektowego, gdy potrzebujesz scalania wybranych slajdów, zastosowania docelowego mastera lub układu, jawnego zachowania sekcji lub dopasowania różnych rozmiarów slajdów. Zobacz [Merge Presentations](/slides/pl/nodejs-java/merge-presentation/) dla tych scenariuszy.
 
 ## **Iterowanie po elementach prezentacji**
 
-Klasa [ForEach](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/foreach/) wywołuje funkcję zwrotną dla każdego żądanego typu elementu prezentacji. Unika zagnieżdżonych pętli kolekcji i jest wygodna przy inspekcji całej prezentacji lub zmianach formatowania. W Node.js twórz implementacje interfejsów zwrotnych za pomocą `java.newProxy`.
+Klasa [ForEach](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/foreach/) wywołuje funkcję zwrotną dla każdego żądanego typu elementu prezentacji. Unika zagnieżdżonych pętli kolekcji i jest wygodna przy inspekcji lub zmianach formatowania na poziomie całej prezentacji. W Node.js twórz implementacje interfejsów zwrotnych przy użyciu `java.newProxy`.
 
-Poniższy przykład używa [ForEach.slide](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/foreach/#slide), [ForEach.shape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/foreach/#shape), [ForEach.paragraph](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/foreach/#paragraph) i [ForEach.portion](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/foreach/#portion), aby zbadać odpowiednie elementy:
+Poniższy przykład używa [ForEach.slide](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/foreach/#slide), [ForEach.shape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/foreach/#shape), [ForEach.paragraph](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/foreach/#paragraph) i [ForEach.portion](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/foreach/#portion) do inspekcji odpowiadających elementów:
 
 ```javascript
 const java = require("java");
@@ -112,11 +112,11 @@ try {
 }
 ```
 
-Domyślnie przeglądanie kształtów i tekstu w całej prezentacji obejmuje zwykłe, wzorcowe i układowe slajdy. Przeciążenia z parametrem `includeNotes` mogą również przetwarzać slajdy notatek. Użyj bezpośrednich pętli kolekcji, gdy istotny jest kolejność przeglądania, wczesne zakończenie, filtrowanie przed wywołaniem funkcji zwrotnej lub szczegółowa kontrola relacji rodzic-dziecko.
+Domyślnie przeglądanie kształtów i tekstu na poziomie całej prezentacji obejmuje slajdy normalne, master i układy. Przeciążenia z parametrem `includeNotes` mogą również przetwarzać slajdy notatek. Użyj bezpośrednich pętli kolekcji, gdy ważna jest kolejność przeglądania, wczesne zakończenie, filtrowanie przed wywołaniem funkcji zwrotnej lub szczegółowa kontrola rodzic-dziecko.
 
 ## **Zbieranie kształtów**
 
-Użyj [Collect.shapes](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/collect/#shapes), gdy potrzebujesz kolekcji wszystkich kształtów w prezentacji zamiast funkcji zwrotnej dla każdego kształtu. Jest to przydatne, gdy ten sam zestaw będzie filtrowany, zliczany lub przetwarzany wielokrotnie.
+Użyj [Collect.shapes](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/collect/#shapes), gdy potrzebujesz kolekcji wszystkich kształtów w prezentacji, a nie funkcji zwrotnej dla każdego kształtu. Jest to przydatne, gdy ten sam zestaw będzie filtrowany, liczony lub przetwarzany wielokrotnie.
 
 ```javascript
 var aspose = aspose || {};
@@ -136,14 +136,14 @@ try {
 }
 ```
 
-Użyj [ForEach.shape] zamiast tego, gdy każdy kształt może być obsłużony od razu i nie musisz zachowywać zebranego wyniku.
+Użyj [ForEach.shape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/foreach/#shape), gdy każdy kształt może być obsłużony natychmiast i nie musisz przechowywać zebranego wyniku.
 
 ## **Kompresja zawartości prezentacji**
 
-Klasa [Compress](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/compress/) może usuwać nieużywane elementy strukturalne i zmniejszać dane osadzonych czcionek:
+Klasa [Compress](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/compress/) może usuwać nieużywane elementy strukturalne i redukować osadzone dane czcionek:
 
-- [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) usuwa slajdy układu, do których nie odwołuje żaden normalny slajd.
-- [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/compress/#removeUnusedMasterSlides) usuwa nieużywane slajdy wzorcowe.
+- [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) usuwa slajdy układu, które nie są referencjonowane przez żadne normalne slajdy.
+- [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/compress/#removeUnusedMasterSlides) usuwa master slajdy, które nie są już używane.
 - [Compress.compressEmbeddedFonts](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/compress/#compressEmbeddedFonts) usuwa nieużywane znaki z osadzonych czcionek.
 
 ```javascript
@@ -162,38 +162,38 @@ try {
 }
 ```
 
-Usuń nieużywane układy przed nieużywanymi wzorcami, aby wzorzec, który po czyszczeniu układów stanie się nieodwołany, również został usunięty. Zapisz zoptymalizowaną prezentację do nowego pliku, jeśli później możesz potrzebować oryginalnych wzorców, układów lub kompletnych danych osadzonych czcionek. Po więcej szczegółów zobacz [Slide Master](/nodejs-java/slide-master/) oraz [Embedded Font](/nodejs-java/embedded-font/).
+Usuń nieużywane układy przed nieużywanymi masterami, aby master, który stanie się nieodwoływany po czyszczeniu układów, mógł również zostać usunięty. Zapisz zoptymalizowaną prezentację do nowego pliku, jeśli później możesz potrzebować oryginalnych masterów, układów lub pełnych danych osadzonych czcionek. Po więcej szczegółów zobacz [Slide Master](/slides/pl/nodejs-java/slide-master/) i [Embedded Font](/slides/pl/nodejs-java/embedded-font/).
 
 ## **FAQ**
 
-**Kiedy powinienem używać API niskokodowego zamiast pełnego modelu obiektowego?**
+**Kiedy powinienem używać API low-code zamiast pełnego modelu obiektowego?**
 
-Używaj pomocnic niskokodowych, gdy standardowa operacja dotyczy całego pliku lub prezentacji i nie wymaga szczegółowej kontroli nad poszczególnymi elementami. Używaj pełnego modelu obiektowego, gdy musisz wybrać konkretne slajdy, kontrolować powiązania wzorców i układów, sprawdzić stan pośredni lub skonfigurować zachowanie, którego pomocnica nie udostępnia.
+Używaj pomocników low-code, gdy standardowa operacja dotyczy całego pliku lub prezentacji i nie wymaga szczegółowej kontroli nad poszczególnymi elementami. Użyj pełnego modelu obiektowego, gdy musisz wybrać konkretne slajdy, kontrolować zależności mastera i układu, sprawdzić stan pośredni lub skonfigurować zachowanie, które nie jest udostępnione przez pomocnika.
 
 **Czy Merger może łączyć prezentacje w różnych formatach plików?**
 
-Nie. [Merger.process](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/merger/#process) wymaga, aby prezentacje wejściowe były w tym samym formacie. Najpierw skonwertuj pliki wejściowe do wspólnego formatu, na przykład za pomocą [Convert.autoByExtension](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/convert/#autoByExtension), a następnie scal je.
+Nie. [Merger.process](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/merger/#process) wymaga, aby prezentacje wejściowe były w tym samym formacie. Najpierw przekonwertuj pliki wejściowe do wspólnego formatu, na przykład przy użyciu [Convert.autoByExtension](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/convert/#autoByExtension), a następnie scali skonwertowane pliki.
 
-**Czy ForEach przetwarza slajdy wzorcowe, układowe i notatek?**
+**Czy ForEach przetwarza slajdy master, układ i notatki?**
 
-[ForEach.slide](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/foreach/#slide) iteruje przez normalne slajdy prezentacji. Operacje [ForEach.shape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/foreach/#shape), [ForEach.paragraph](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/foreach/#paragraph) i [ForEach.portion](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/foreach/#portion) obejmują domyślnie slajdy normalne, wzorcowe i układowe. Użyj ich przeciążeń z parametrem `includeNotes` ustawionym na `true`, aby uwzględnić slajdy notatek.
+[ForEach.slide](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/foreach/#slide) iteruje przez normalne slajdy prezentacji. Operacje [ForEach.shape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/foreach/#shape), [ForEach.paragraph](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/foreach/#paragraph) i [ForEach.portion](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/foreach/#portion) obejmują domyślnie slajdy normalne, master i układy. Użyj ich przeciążeń z parametrem `includeNotes` ustawionym na `true`, aby uwzględnić slajdy notatek.
 
 **Jaka jest różnica między ForEach.shape a Collect.shapes?**
 
-Użyj [ForEach.shape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/foreach/#shape), aby natychmiast przetwarzać każdy kształt za pomocą funkcji zwrotnej. Użyj [Collect.shapes](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/collect/#shapes), gdy potrzebujesz iterowalnego wyniku, który może być zachowany, filtrowany, zliczany lub przeglądany wielokrotnie.
+Użyj [ForEach.shape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/foreach/#shape), aby przetworzyć każdy kształt natychmiast za pomocą funkcji zwrotnej. Użyj [Collect.shapes](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/collect/#shapes), gdy potrzebujesz iterowalnego wyniku, który może być przechowywany, filtrowany, liczony lub przeglądany wielokrotnie.
 
 **Czy Compress zawsze zmniejsza rozmiar pliku prezentacji?**
 
-Nie zawsze. Wynik zależy od tego, czy prezentacja zawiera nieużywane układy, nieużywane wzorce lub osadzone czcionki z nieużywanymi znakami. Jeśli żadne z tych elementów nie występują, odpowiednie operacje [Compress](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/compress/) mogą nie zmniejszyć rozmiaru pliku.
+Nie. Wynik zależy od tego, czy prezentacja zawiera nieużywane układy, nieużywane mastery lub osadzone czcionki z nieużywanymi znakami. Jeśli żadne z tych elementów nie występują, odpowiednie operacje [Compress](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/compress/) mogą nie zmniejszyć rozmiaru pliku.
 
 **Czy zmiany wprowadzone przez ForEach lub Compress są zapisywane automatycznie?**
 
-Nie. Te pomocnice działają na załadowanym obiekcie [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/) w pamięci. Po zmianie elementów w funkcji zwrotnej [ForEach] lub po uruchomieniu [Compress], wywołaj [Presentation.save](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/#save), aby zapisać wynik.
+Nie. Te pomocniki działają na załadowanym w pamięci obiekcie [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/). Po zmianie elementów w wywołaniu zwrotnym [ForEach](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/foreach/) lub po uruchomieniu [Compress](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/compress/), wywołaj [Presentation.save](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/#save), aby zapisać wynik.
 
 ## **Powiązane artykuły**
 
-- [Konwertowanie prezentacji](/nodejs-java/convert-presentation/)
-- [Scalanie prezentacji](/nodejs-java/merge-presentation/)
-- [Wzorzec slajdu](/nodejs-java/slide-master/)
-- [Zarządzanie polem tekstowym](/nodejs-java/manage-textbox/)
-- [Osadzona czcionka](/nodejs-java/embedded-font/)
+- [Konwertowanie prezentacji](/slides/pl/nodejs-java/convert-presentation/)
+- [Scalanie prezentacji](/slides/pl/nodejs-java/merge-presentation/)
+- [Master slajdu](/slides/pl/nodejs-java/slide-master/)
+- [Zarządzanie polem tekstowym](/slides/pl/nodejs-java/manage-textbox/)
+- [Osadzona czcionka](/slides/pl/nodejs-java/embedded-font/)

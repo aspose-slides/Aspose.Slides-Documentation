@@ -1,60 +1,61 @@
 ---
-title: Správa hlavních vzorů snímků v JavaScriptu
-linktitle: Hlavní vzor snímku
+title: Spravovat master snímky prezentace v JavaScriptu
+linktitle: Master snímku
 type: docs
 weight: 70
 url: /cs/nodejs-java/slide-master/
 keywords:
-- hlavní vzor snímku
-- hlavní snímek
-- PPT hlavní snímek
-- více hlavních snímků
-- porovnání hlavních snímků
+- master snímku
+- master snímek
+- PPT master snímek
+- více master snímků
+- porovnat master snímky
 - pozadí
 - zástupný objekt
-- klonovat hlavní snímek
-- kopírovat hlavní snímek
-- duplikovat hlavní snímek
-- nepoužívaný hlavní snímek
+- klonovat master snímek
+- kopírovat master snímek
+- duplikovat master snímek
+- nepoužívaný master snímek
 - PowerPoint
 - OpenDocument
 - prezentace
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Spravujte hlavní vzory snímků v Aspose.Slides pro Node.js via Java: přístup, úprava, klonování, porovnání a odstraňování hlavních snímků v prezentacích PowerPoint a OpenDocument."
+description: "Spravovat master snímky v Aspose.Slides pro Node.js via Java: přístup, úpravy, klonování, porovnání a odstraňování master snímků v prezentacích PowerPoint a OpenDocument."
 ---
 ## **Přehled**
 
-**master snímku** definuje sdílená nastavení designu pro skupinu snímků. Může obsahovat společné tvary, loga, pozadí, styly textu, nastavení motivu a nastavení zápatí. V PowerPointu je úprava hlavního vzoru obvyklým způsobem, jak udržet prezentaci konzistentní, aniž by se opakovalo stejné formátování na každém snímku.
+**slide master** definuje sdílená nastavení návrhu pro skupinu snímků. Může obsahovat společné tvary, loga, pozadí, styly textu, nastavení motivu a nastavení zápatí. V PowerPointu je úprava slide masteru obvyklý způsob, jak udržet prezentaci konzistentní, aniž by se opakovalo stejné formátování na každém snímku.
 
-Aspose.Slides for Node.js via Java podporuje stejný model. Prezentace může obsahovat jeden nebo více hlavních vzorů a každý hlavní vzor může obsahovat několik rozložení snímků. Běžné snímky obvykle neodkazují přímo na hlavní vzor. Místo toho běžný snímek používá rozložení snímku a toto rozložení patří k hlavnímu vzoru.
+Aspose.Slides for Node.js via Java podporuje stejný model. Prezentace může obsahovat jeden nebo více master snímků a každý master snímek může obsahovat několik layout snímků. Běžné snímky se obvykle nepřipojují přímo k master snímku. Místo toho běžný snímek používá layout snímek, který patří k master snímku.
 
 Hierarchie je:
 
-1. **Slide master** – definuje sdílený design a motiv.  
-1. **Layout slide** – definuje konkrétní uspořádání zástupných objektů a formátování na úrovni rozložení.  
-1. **Normal slide** – obsahuje skutečný obsah prezentace a používá jedno rozložení snímku.
+1. **Slide master** – definuje sdílený design a motiv.
+1. **Layout slide** – definuje konkrétní uspořádání zástupných objektů a formátování na úrovni layoutu.
+1. **Normal slide** – obsahuje skutečný obsah prezentace a používá jeden layout snímek.
 
-![Hierarchie hlavních vzorů, rozložení a běžných snímků](slide-master_2.jpg)
+![Hierarchie master snímků, layout snímků a běžných snímků](slide-master_2.jpg)
 
-V Aspose.Slides je hlavní vzor reprezentován třídou [MasterSlide](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/masterslide/) . Všechny hlavní vzory v prezentaci jsou dostupné přes kolekci `Presentation.getMasters()`.
+V Aspose.Slides je slide master reprezentován třídou [MasterSlide](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/masterslide/). Všechny master snímky v prezentaci jsou dostupné prostřednictvím kolekce `Presentation.getMasters()`.
 
 {{% alert color="info" title="Inheritance" %}}
-
-Když je stejná vlastnost definována na více úrovních, vyhrává konkrétnější úroveň. Například pokud hlavní vzor i rozložení definují pozadí, snímky založené na tomto rozložení použijí pozadí rozložení. Další informace o rozloženích najdete v [Apply or Change Slide Layouts](/nodejs-java/slide-layout/).
-
+Když je stejná vlastnost definována na více úrovních, vyhrává konkrétnější úroveň. Například pokud master snímek i layout snímek oba definují pozadí, snímky založené na tomto layoutu použijí pozadí layoutu. Další informace o layout snímcích najdete v [Použít nebo změnit rozložení snímků](/nodejs-java/slide-layout/).
 {{% /alert %}}
 
-## **Přístup k hlavním vzorům**
+## **Přístup k master snímkům**
 
-V PowerPointu můžete otevřít zobrazení **Hlavní vzor** přes **View** > **Slide Master**.
+V PowerPointu můžete otevřít zobrazení Slide Master z **View** > **Slide Master**.
 
 ![Příkaz Slide Master na kartě View v PowerPointu](slide-master_3.jpg)
 
-V Aspose.Slides použijte kolekci `getMasters()` k přístupu k hlavním vzorům:
+V Aspose.Slides použijte kolekci `getMasters()` pro přístup k master snímkům:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let firstMasterSlide = presentation.getMasters().get_Item(0);
@@ -68,9 +69,12 @@ try {
 }
 ```
 
-Můžete také získat hlavní vzor použité běžným snímkem prostřednictvím jeho rozložení:
+Můžete také získat master snímek použité běžným snímkem prostřednictvím jeho layoutu:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -84,28 +88,31 @@ try {
 }
 ```
 
-## **Co obsahuje hlavní vzor**
+## **Co obsahuje slide master**
 
-Hlavní vzor je objekt podobný snímku. Dědí běžné chování snímku z [BaseSlide](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/baseslide/), takže poskytuje mnoho stejných vlastností použivaných běžnými a rozloženími snímků. Členové specifické pro hlavní vzor jsou uvedeni na stránce API [MasterSlide](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/masterslide/) .
+Master snímek je objekt podobný snímku. Dědí běžné chování snímku z [BaseSlide](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/baseslide/), takže vystavuje mnoho stejných vlastností snímku používaných běžnými a layout snímky. Členy specifické pro master jsou uvedeny na stránce API [MasterSlide](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/masterslide/).
 
-Běžně používaní členové hlavního vzoru zahrnují:
+Běžně používané členy master snímku zahrnují:
 
 | Člen | Účel |
 | --- | --- |
-| `getBackground()` | Nastavuje pozadí snímku na úrovni hlavního vzoru. |
-| `getShapes()` | Ukládá tvary umístěné na hlavním vzoru, jako jsou loga, rámečky obrázků a sdílený text. |
-| `getLayoutSlides()` | Ukládá rozložení snímků, která patří k hlavnímu vzoru. |
-| `getThemeManager()` | Poskytuje přístup k API motivu hlavního vzoru. |
-| `getHeaderFooterManager()` | Řídí záhlaví, zápatí, data a čísla snímků pro hlavní vzor a jeho podřízená rozložení. |
-| `getDependingSlides()` | Vrací běžné snímky, které závisí na hlavním vzoru prostřednictvím jejich rozložení. |
+| `getBackground()` | Nastavuje pozadí snímku na úrovni masteru. |
+| `getShapes()` | Ukládá tvary umístěné na master, jako jsou loga, rámy obrázků a sdílený text. |
+| `getLayoutSlides()` | Ukládá layout snímky, které patří k masteru. |
+| `getThemeManager()` | Poskytuje přístup k API motivu masteru. |
+| `getHeaderFooterManager()` | Řídí záhlaví, zápatí, data a čísla snímků pro master a jeho podřízené layouty. |
+| `getDependingSlides()` | Vrací běžné snímky, které závisí na masteru přes jejich layouty. |
 
-## **Přidání obrázku do hlavního vzoru**
+## **Přidání obrázku do slide masteru**
 
-Když přidáte obrázek do hlavního vzoru, objeví se na snímcích, které používají rozložení z tohoto vzoru. To je užitečné pro loga, vodoznaky, dekorativní pásy a další opakující se vizuální prvky.
+Když přidáte obrázek do master snímku, objeví se na snímcích, které používají layouty z tohoto masteru. To je užitečné pro loga, vodoznaky, dekorativní pásy a další opakující se vizuální prvky.
 
-Následující příklad přidává logo do prvního hlavního vzoru:
+Následující příklad přidává logo do prvního master snímku:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let masterSlide = presentation.getMasters().get_Item(0);
@@ -131,19 +138,23 @@ try {
 }
 ```
 
-Další informace o rámečcích obrázků najdete v [Picture Frame](/nodejs-java/picture-frame/).
+Další informace o rámech obrázků najdete v [Rámec obrázku](/nodejs-java/picture-frame/).
 
 ## **Práce se zástupnými objekty**
 
-Zástupné objekty jsou obvykle definovány na rozložení snímků. Hlavní vzor poskytuje sdílený styl a motiv, který tyto rozložení dědí, zatímco každé rozložení rozhoduje, které zástupné objekty jsou k dispozici a kde jsou umístěny.
+Zástupné objekty jsou normálně definovány na layout snímcích. Master snímek poskytuje sdílený styl a motiv, které layouty dědí, zatímco každý layout rozhoduje, které zástupné objekty jsou k dispozici a kde jsou umístěny.
 
-V PowerPointu jsou příkazy pro zástupné objekty dostupné v režimu **Slide Master**.
+V PowerPointu jsou příkazy pro zástupné objekty dostupné v zobrazení Slide Master.
 
-![Příkaz Insert Placeholder v režimu Slide Master v PowerPointu](slide-master_5.png)
+![Příkaz Vložit zástupný objekt v zobrazení Slide Master v PowerPointu](slide-master_5.png)
 
-Pro přidání nových zástupných objektů s Aspose.Slides pracujte s rozložením, které patří k hlavnímu vzoru:
+Pro přidání nových zástupných objektů s Aspose.Slides pracujte s layout snímkem, který patří k masteru:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let masterSlide = presentation.getMasters().get_Item(0);
@@ -163,9 +174,13 @@ try {
 }
 ```
 
-Můžete také formátovat tvary zástupných objektů, které již na hlavním vzoru existují. Následující příklad najde zástupný objekt nadpisu a použije lineární gradientní výplň:
+Můžete také formátovat tvary zástupných objektů, které již na master snímku existují. Následující příklad najde zástupný objekt nadpisu a použije lineární gradientní výplň:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let masterSlide = presentation.getMasters().get_Item(0);
@@ -195,7 +210,7 @@ try {
         titlePlaceholder.getFillFormat().setFillType(gradientFillType);
         titlePlaceholder.getFillFormat().getGradientFormat().setGradientShape(linearGradientShape);
         titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(0.0, redGradientColor);
-        titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(255.0, purpleGradientColor);
+        titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(1.0, purpleGradientColor);
     }
 
     presentation.save("presentation-title-style.pptx", aspose.slides.SaveFormat.Pptx);
@@ -204,15 +219,19 @@ try {
 }
 ```
 
-![Formátovaný nadpisový zástupný objekt zděděný běžnými snímky](slide-master_8.png)
+![Formátovaný zástupný objekt nadpisu zděděný běžnými snímky](slide-master_8.png)
 
-Další možnosti formátování zástupných objektů a textu najdete v [Set Prompt Text in Placeholder](/nodejs-java/manage-placeholder/) a [Text Formatting](/nodejs-java/text-formatting/).
+Další možnosti formátování zástupných objektů a textu najdete v [Nastavit výzvu v zástupném objektu](/nodejs-java/manage-placeholder/) a [Formátování textu](/nodejs-java/text-formatting/).
 
-## **Změna pozadí hlavního vzoru**
+## **Změna pozadí slide masteru**
 
-Pozadí hlavního vzoru je zděděno rozloženími a snímky, které jej nepřepíší. Následující příklad nastaví jednotnou barvu pozadí pro první hlavní vzor:
+Master pozadí je děděno layouty a snímky, které jej nepřepíší. Následující příklad nastaví jednotnou barvu pozadí pro první master snímek:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let masterSlide = presentation.getMasters().get_Item(0);
@@ -230,13 +249,16 @@ try {
 }
 ```
 
-Související témata jsou [Presentation Background](/nodejs-java/presentation-background/) a [Presentation Theme](/nodejs-java/presentation-theme/).
+Pro související témata viz [Pozadí prezentace](/nodejs-java/presentation-background/) a [Motiv prezentace](/nodejs-java/presentation-theme/).
 
-## **Klonování hlavního vzoru do jiné prezentace**
+## **Klonování slide masteru do jiné prezentace**
 
-Použijte `MasterSlideCollection.addClone` pro zkopírování hlavního vzoru do jiné prezentace. Zkopírovaný hlavní vzor pak může být použit rozloženími a snímky v cílové prezentaci.
+Použijte `MasterSlideCollection.addClone` pro zkopírování master snímku do jiné prezentace. Zkopírovaný master pak může být použit layouty a snímky v cílové prezentaci.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let sourcePresentation = new aspose.slides.Presentation("source.pptx");
 let destinationPresentation = new aspose.slides.Presentation("destination.pptx");
 try {
@@ -250,17 +272,21 @@ try {
 }
 ```
 
-Pokud potřebujete klonovat běžné snímky společně s jejich hlavním vzorem, viz [Clone Slides](/nodejs-java/clone-slides/).
+Pokud potřebujete klonovat běžné snímky spolu s jejich masterem, viz [Klonovat snímky](/nodejs-java/clone-slides/).
 
-## **Přidání více hlavních vzorů**
+## **Přidání více slide masterů**
 
-Prezentace může obsahovat více hlavních vzorů. To je užitečné, když různé sekce vyžadují odlišnou značku, strukturu stránky nebo nastavení motivu.
+Prezentace může obsahovat více master snímků. To je užitečné, když různé sekce vyžadují odlišnou značku, strukturu stránky nebo nastavení motivu.
 
-![Příkazy PowerPointu pro vkládání a správu hlavních vzorů](slide-master_9.jpg)
+![Příkazy PowerPointu pro vkládání a správu master snímků](slide-master_9.jpg)
 
-Následující příklad klonuje výchozí hlavní vzor, dá klonu jiné pozadí, vytvoří rozložení pod tímto klonovaným hlavním vzorem a přidá nový snímek založený na tomto rozložení:
+Následující příklad klonuje výchozí master, přiřadí klonu jiné pozadí, vytvoří layout pod tímto klonovaným masterem a přidá nový snímek založený na tomto layoutu:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let defaultMasterSlide = presentation.getMasters().get_Item(0);
@@ -288,11 +314,14 @@ try {
 }
 ```
 
-## **Porovnání hlavních vzorů**
+## **Porovnání slide masterů**
 
-Hlavní vzory lze porovnat pomocí metody `equals` zděděné z [BaseSlide](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/baseslide/). Porovnání kontroluje strukturu a statický obsah, jako jsou tvary, text, formátování, animace a další nastavení snímku. Nekontroluje jedinečné identifikátory, jako jsou ID snímků, ani dynamické hodnoty zástupných objektů, jako je aktuální datum.
+Master snímky lze porovnat metodou `equals` zděděnou z [BaseSlide](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/baseslide/). Porovnání kontroluje strukturu a statický obsah, jako jsou tvary, text, formátování, animace a další nastavení snímku. Nekontroluje jedinečné identifikátory, jako jsou ID snímků, ani dynamické hodnoty zástupných objektů, například aktuální datum.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let firstPresentation = new aspose.slides.Presentation("first.pptx");
 let secondPresentation = new aspose.slides.Presentation("second.pptx");
 try {
@@ -318,13 +347,17 @@ try {
 }
 ```
 
-Další informace najdete v [Compare Presentation Slides](/nodejs-java/compare-slides/).
+Další informace najdete v [Porovnat snímky prezentace](/slides/cs/nodejs-java/compare-slides/).
 
-## **Nastavení zobrazení hlavního vzoru jako výchozího zobrazení**
+## **Nastavení zobrazení Slide Master jako výchozího zobrazení**
 
-Použijte metodu `setLastView` na [ViewProperties](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/viewproperties/) pro nastavení výchozího zobrazení, které PowerPoint otevře jako první. Následující příklad otevře prezentaci v režimu Slide Master:
+Použijte metodu `setLastView` na [ViewProperties](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/viewproperties/) k řízení zobrazení, které PowerPoint otevře jako první. Následující příklad otevře prezentaci v zobrazení Slide Master:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let slideMasterViewType = java.newByte(aspose.slides.ViewType.SlideMasterView);
@@ -336,15 +369,18 @@ try {
 }
 ```
 
-Další nastavení zobrazení najdete v [Save Presentation](/nodejs-java/save-presentation/).
+Další nastavení zobrazení viz [Uložit prezentaci](/slides/cs/nodejs-java/save-presentation/).
 
-## **Odstranění nepoužívaných hlavních vzorů**
+## **Odstranění nepoužívaných master snímků**
 
-Prezentace někdy obsahují hlavní vzory, které již nejsou použity žádnými běžnými snímky. Odstranění nepoužívaných hlavních vzorů může zmenšit velikost souboru a usnadnit údržbu šablony.
+Prezentace někdy obsahují master snímky, které již nejsou použity žádnými běžnými snímky. Odstranění nepoužívaných masterů může zmenšit velikost souboru a zjednodušit údržbu šablon.
 
-Použijte `removeUnused` k odstranění nepoužívaných hlavních vzorů ze sbírky `getMasters()`:
+Použijte `removeUnused` pro odstranění nepoužívaných masterů z kolekce `getMasters()`:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     presentation.getMasters().removeUnused(true);
@@ -354,9 +390,12 @@ try {
 }
 ```
 
-Můžete také použít low‑code metodu `Compress.removeUnusedMasterSlides`:
+Můžete také použít low-code metodu `Compress.removeUnusedMasterSlides`:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     aspose.slides.Compress.removeUnusedMasterSlides(presentation);
@@ -368,18 +407,18 @@ try {
 
 ## **Často kladené otázky**
 
-**Jaký je rozdíl mezi hlavním vzorem a rozložením snímku?**
+### Jaký je rozdíl mezi slide masterem a layout snímkem?
 
-Hlavní vzor definuje sdílená nastavení designu, jako je motiv, pozadí, společné tvary a styly textu. Rozložení snímku patří k hlavnímu vzoru a definuje konkrétní uspořádání zástupných objektů. Běžný snímek používá rozložení snímku, takže dědí jak z rozložení, tak z hlavního vzoru.
+Slide master definuje sdílená nastavení návrhu, jako je motiv, pozadí, společné tvary a styly textu. Layout snímek patří k masteru a definuje konkrétní uspořádání zástupných objektů. Běžný snímek používá layout snímek, takže dědí jak z layoutu, tak z masteru.
 
-**Může jedna prezentace obsahovat několik hlavních vzorů?**
+### Může jedna prezentace obsahovat několik slide masterů?
 
-Ano. Prezentace může obsahovat několik hlavních vzorů. Používejte více hlavních vzorů, když různé sekce vyžadují odlišné vizuální systémy nebo značkování.
+Ano. Prezentace může obsahovat několik slide masterů. Použijte více masterů, když různé sekce potřebují odlišné vizuální systémy nebo značku.
 
-**Mám přidávat zástupné objekty do hlavního vzoru nebo do rozložení?**
+### Mám přidávat zástupné objekty do master snímku či do layout snímku?
 
-Ve většině případů přidávejte zástupné objekty do rozložení. Sdílené vizuální prvky a společné formátování umístěte na hlavní vzor a obsahové zástupné objekty umístěte na rozložení, která budou používána běžnými snímky.
+Ve většině případů přidávejte zástupné objekty do layout snímků. Sdílené vizuální prvky a formátování umístěte na master snímek a obsahové zástupné objekty na layouty, které budou použity běžnými snímky.
 
-**Mohu smazat hlavní vzor, který je stále používán?**
+### Můžu smazat master snímek, který je stále používán?
 
-Ne. Hlavní vzor, ke kterému existují závislé snímky, nelze bezpečně odstranit přímo. Nejprve přesunte tyto snímky do rozložení pod jiným hlavním vzorem nebo použijte metodu pro úklid nepoužívaných hlavních vzorů, která odstraní pouze ty, které nejsou v žádném snímku použity.
+Ne. Master snímek, který má závislé snímky, nelze bezpečně odstranit přímo. Nejprve přesuňte tyto snímky do layoutů pod jiný master nebo použijte metodu úklidu nepoužívaných masterů, která odstraní jen ty, které nejsou v použití.

@@ -9,7 +9,7 @@ keywords:
 - mesclar apresentações
 - mesclar slides
 - mesclar PPT
-- mescler PPTX
+- mesclar PPTX
 - mesclar ODP
 - combinar PowerPoint
 - combinar apresentações
@@ -19,11 +19,11 @@ keywords:
 - combinar ODP
 - PHP
 - Aspose.Slides
-description: "Aprenda como mesclar apresentações PowerPoint e OpenDocument em PHP clonando slides, controlando mestres e layouts, redimensionando o conteúdo dos slides, preservando seções e lidando com arquivos protegidos ou grandes."
+description: "Aprenda como mesclar apresentações PowerPoint e OpenDocument em PHP clonando slides, controlando mestres e layouts, redimensionando o conteúdo dos slides, preservando seções e tratando arquivos protegidos ou grandes."
 ---
 ## **Visão geral**
 
-Aspose.Slides for PHP via Java mescla apresentações clonando slides de uma [Apresentação](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentation/) para outra. A operação principal é [SlideCollection::addClone()](https://reference.aspose.com/slides/pt/php-java/aspose.slides/slidecollection/addclone/), que pode preservar a formatação do slide de origem ou anexar o slide clonado a um mestre ou layout na apresentação de destino.
+Aspose.Slides for PHP via Java mescla apresentações clonando slides de uma [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentation/) para outra. A operação principal é [SlideCollection::addClone()](https://reference.aspose.com/slides/pt/php-java/aspose.slides/slidecollection/addclone/), que pode preservar a formatação do slide de origem ou anexar o slide clonado a um mestre ou layout na apresentação de destino.
 
 Este artigo cobre os fluxos de trabalho de mesclagem mais comuns:
 
@@ -31,26 +31,26 @@ Este artigo cobre os fluxos de trabalho de mesclagem mais comuns:
 - mesclar slides selecionados;
 - aplicar um mestre da apresentação de destino;
 - aplicar um layout específico da apresentação de destino;
-- normalizar tamanhos de slide diferentes antes da mesclagem;
+- normalizar diferentes tamanhos de slide antes da mesclagem;
 - adicionar slides clonados a uma seção;
 - mesclar várias apresentações em um fluxo de trabalho de ponta a ponta;
-- lidar com mestres, recursos, anotações, comentários, mídia, fontes, senhas, arquivos grandes e questões de multithreading.
+- tratar mestres, recursos, notas, comentários, mídia, fontes, senhas, arquivos grandes e questões de multithreading.
 
 ## **Como a clonagem de slides afeta mestres e layouts**
 
-Um slide herda grande parte de sua aparência do layout e do mestre. Por esse motivo, a sobrecarga de clonagem que você escolher determina como o slide mesclado é integrado na apresentação de destino.
+Um slide herda grande parte de sua aparência de seu layout e mestre. Por esse motivo, a sobrecarga de clonagem que você escolher determina como o slide mesclado é integrado na apresentação de destino.
 
 Use [SlideCollection::addClone()](https://reference.aspose.com/slides/pt/php-java/aspose.slides/slidecollection/addclone/) de uma das seguintes maneiras:
 
-- `addClone(sourceSlide)` — preserva o layout e a formatação do slide de origem. Quando necessário, o mestre de origem pode ser clonado automaticamente para a apresentação de destino. Aspose.Slides rastreia mestres clonados automaticamente para que slides repetidos que utilizem o mesmo mestre de origem não causem clonagem repetida desse mestre.
-- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — anexa o slide clonado a um [MasterSlide](https://reference.aspose.com/slides/pt/php-java/aspose.slides/masterslide/) de destino específico. Aspose.Slides procura um layout correspondente sob esse mestre pelo tipo ou nome do layout.
-- `addClone(sourceSlide, destinationLayout)` — anexa o slide clonado diretamente a um [LayoutSlide](https://reference.aspose.com/slides/pt/php-java/aspose.slides/layoutslide/) de destino específico.
+- `addClone(sourceSlide)` — preserva o layout e a formatação do slide de origem. Quando necessário, o mestre de origem pode ser clonado automaticamente para a apresentação de destino. Aspose.Slides rastreia mestres clonados automaticamente para que slides repetidos que utilizam o mesmo mestre de origem não causem a clonagem repetida desse mestre.
+- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — anexa o slide clonado a um [MasterSlide](https://reference.aspose.com/slides/pt/php-java/aspose.slides/masterslide/) específico de destino. Aspose.Slides procura um layout correspondente sob esse mestre por tipo ou nome de layout.
+- `addClone(sourceSlide, destinationLayout)` — anexa o slide clonado diretamente a um [LayoutSlide](https://reference.aspose.com/slides/pt/php-java/aspose.slides/layoutslide/) específico de destino.
 
-O mestre ou layout passado para uma sobrecarga `addClone` deve pertencer à **apresentação de destino**, não à apresentação de origem.
+O mestre ou layout passado para uma sobrecarga `addClone` deve pertencer à apresentação **de destino**, não à apresentação de origem.
 
 ## **Mesclar apresentações inteiras e preservar a formatação de origem**
 
-A mesclagem mais simples copia cada slide da apresentação de origem para a apresentação de destino. Esta é a escolha apropriada quando os slides importados devem manter seu tema, mestre e relacionamentos de layout originais.
+A mesclagem mais simples copia cada slide da apresentação de origem para a apresentação de destino. Essa é a escolha apropriada quando os slides importados devem manter seu tema original, mestre e relacionamentos de layout.
 
 ```php
 require_once("Java.inc");
@@ -76,11 +76,11 @@ try {
 }
 ```
 
-A apresentação resultante pode conter múltiplos mestres quando a origem e o destino usam designs diferentes. Isso é esperado quando a formatação de origem é intencionalmente preservada.
+A apresentação resultante pode conter múltiplos mestres quando a origem e o destino utilizam designs diferentes. Isso é esperado quando a formatação de origem é preservada intencionalmente.
 
 ## **Mesclar slides selecionados**
 
-Você não precisa clonar todos os slides. O exemplo a seguir importa apenas os índices de slide selecionados da apresentação de origem.
+Você não precisa clonar todos os slides. O exemplo a seguir importa apenas índices de slides selecionados da apresentação de origem.
 
 ```php
 require_once("Java.inc");
@@ -108,7 +108,7 @@ try {
 }
 ```
 
-Valide os índices de slide antes da clonagem quando eles vierem de entrada do usuário ou de configuração externa.
+Valide os índices de slides antes de cloná‑los quando eles provêm de entrada do usuário ou de configuração externa.
 
 ## **Mesclar slides usando um mestre de destino**
 
@@ -140,9 +140,9 @@ try {
 }
 ```
 
-Aspose.Slides seleciona um layout apropriado sob o mestre especificado ao corresponder ao tipo ou nome do layout de origem. Se nenhum layout adequado existir e `allowCloneMissingLayout` for `true`, o layout de origem será clonado para que o slide possa ser adicionado. Se for `false`, uma [PptxEditException](https://reference.aspose.com/slides/pt/php-java/aspose.slides/pptxeditexception/) será lançada.
+Aspose.Slides seleciona um layout adequado sob o mestre especificado correspondendo ao tipo ou nome do layout de origem. Se nenhum layout adequado existir e `allowCloneMissingLayout` for `true`, o layout de origem é clonado para que o slide possa ser adicionado. Se for `false`, uma [PptxEditException](https://reference.aspose.com/slides/pt/php-java/aspose.slides/pptxeditexception/) é lançada.
 
-Use `false` quando desejar que a mesclagem falhe em vez de introduzir um layout adicional no mestre de destino.
+Use `false` quando você quiser que a mesclagem falhe em vez de introduzir um layout adicional no mestre de destino.
 
 ## **Mesclar slides usando um layout de destino específico**
 
@@ -174,13 +174,13 @@ try {
 }
 ```
 
-Aplicar um layout de destino altera a relação de layout herdada; não redesenha o conteúdo do slide de origem. Se os layouts de origem e destino tiverem estruturas de marcadores diferentes, inspecione o resultado para confirmar que a formatação herdada e o comportamento dos marcadores são adequados.
+Aplicar um layout de destino altera o relacionamento de layout herdado; não redesenha o conteúdo do slide de origem. Se os layouts de origem e destino possuem estruturas de placeholders diferentes, inspecione o resultado para confirmar que a formatação herdada e o comportamento dos placeholders estão adequados.
 
-## **Mesclar apresentações com tamanhos de slide diferentes**
+## **Mesclar apresentações com diferentes tamanhos de slide**
 
-Apresentações com dimensões de slide distintas podem ser mescladas, mas clonar um slide em uma apresentação com outro tamanho de slide não redesenha automaticamente seu conteúdo para a nova tela. As formas podem então aparecer deslocadas, escaladas de forma inesperada ou fora da área visível do slide.
+Apresentações com diferentes dimensões de slide podem ser mescladas, mas clonar um slide em uma apresentação com outro tamanho de slide não redesenha automaticamente seu conteúdo para a nova tela. Assim, formas podem aparecer deslocadas, dimensionadas inesperadamente ou fora da área visível do slide.
 
-Uma abordagem prática é redimensionar a apresentação de origem antes da clonagem. O método [SlideSize::setSize()](https://reference.aspose.com/slides/pt/php-java/aspose.slides/slidesize/setsize/) pode escalar o conteúdo existente ao alterar as dimensões do slide. [SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/pt/php-java/aspose.slides/slidesizescaletype/) escala o conteúdo para caber no tamanho solicitado.
+Uma abordagem prática é redimensionar a apresentação de origem antes de clonar. O método [SlideSize::setSize()](https://reference.aspose.com/slides/pt/php-java/aspose.slides/slidesize/setsize/) pode dimensionar o conteúdo existente ao mudar as dimensões do slide. [SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/pt/php-java/aspose.slides/slidesizescaletype/) dimensiona o conteúdo para caber no tamanho solicitado.
 
 ```php
 require_once("Java.inc");
@@ -216,7 +216,7 @@ try {
 }
 ```
 
-Redimensionar altera o objeto da apresentação de origem na memória. Se precisar da apresentação de origem original intacta para outras operações, abra uma instância separada para a mesclagem.
+Redimensionar altera o objeto da apresentação de origem na memória. Se precisar da apresentação de origem original inalterada para outras operações, abra uma instância separada para a mesclagem.
 
 ## **Mesclar slides em uma seção de apresentação**
 
@@ -248,7 +248,7 @@ try {
 }
 ```
 
-Os slides clonados são acrescentados à seção de destino especificada. Para preservar várias seções de origem, recrie essas seções no destino e mapeie cada slide de origem para a seção de destino correspondente.
+Os slides clonados são acrescentados à seção de destino especificada. Para preservar várias seções de origem, enumere [Presentation::getSections](https://reference.aspose.com/slides/pt/php-java/aspose.slides/Presentation/#getSections), recupere os slides atuais de cada seção de origem com [Section::getSlidesListOfSection](https://reference.aspose.com/slides/pt/php-java/aspose.slides/Section/#getSlidesListOfSection), recrie as seções no destino e clone cada slide retornado para sua respectiva seção de destino. Consulte [Manage Slide Sections](/slides/pt/php-java/slide-section/) para um exemplo completo de enumeração de seções, incluindo seções vazias e alterações estruturais.
 
 ## **Mesclar várias apresentações com segurança**
 
@@ -293,39 +293,39 @@ try {
 }
 ```
 
-Este é um ponto de partida útil para preservar a formatação de origem dos slides importados. Se sua saída precisar usar um único tema de destino, substitua a chamada simples `addClone($slide)` pela sobrecarga de mestre ou layout de destino apropriada mostrada anteriormente.
+Esta é uma base útil para preservar a formatação de origem dos slides importados. Se sua saída precisar usar um único tema de destino, substitua a chamada simples `addClone($slide)` pela sobrecarga de mestre de destino ou layout de destino apropriada mostrada anteriormente.
 
 ## **Considerações práticas**
 
 ### **Mestres, layouts e fidelidade de formatação**
 
-A clonagem padrão de slides pode trazer automaticamente um mestre de origem necessário para a apresentação de destino. Aspose.Slides mantém um registro interno de mestres clonados automaticamente para evitar a clonagem repetida do mesmo mestre. Mestres clonados manualmente não são rastreados por esse registro, portanto evite pré-clonar mestres a menos que precise de controle explícito sobre a estrutura do mestre.
+A clonagem padrão de slides pode trazer automaticamente um mestre de origem necessário para a apresentação de destino. Aspose.Slides mantém um registro interno de mestres clonados automaticamente para evitar clonar o mesmo mestre repetidamente. Mestres clonados manualmente não são rastreados por esse registro, portanto evite pré-clonar mestres a menos que precise de controle explícito sobre a estrutura de mestres.
 
 Não presuma que dois mestres ou layouts com o mesmo nome sejam visualmente equivalentes. Se um modelo corporativo deve controlar a aparência final, escolha explicitamente um mestre ou layout de destino e verifique o resultado após a mesclagem.
 
-### **Anotações e comentários**
+### **Notas e comentários**
 
-Anotações de orador e comentários de slide estão associados ao conteúdo do slide e são copiados quando um slide é clonado. Aspose.Slides também expõe APIs dedicadas para [presentation notes](https://docs.aspose.com/slides/pt/php-java/presentation-notes/) e [presentation comments](https://docs.aspose.com/slides/pt/php-java/presentation-comments/).
+As notas do apresentador e os comentários de slide estão associados ao conteúdo do slide e são copiados quando um slide é clonado. Aspose.Slides também expõe APIs dedicadas para [presentation notes](/slides/pt/php-java/presentation-notes/) e [presentation comments](/slides/pt/php-java/presentation-comments/).
 
-Se a formatação da página de notas for importante, verifique a apresentação mesclada porque mestres de notas são objetos ao nível da apresentação e podem diferir entre arquivos de origem. Para fluxos de revisão, também verifique autores de comentários e comentários encadeados após combinar arquivos de diferentes autores ou modelos.
+Se a formatação da página de notas for importante, verifique a apresentação mesclada porque os mestres de notas são objetos ao nível da apresentação e podem diferir entre arquivos de origem. Para fluxos de revisão, também verifique os autores dos comentários e os comentários encadeados após combinar arquivos de diferentes autores ou modelos.
 
 ### **Imagens, áudio, vídeo, objetos OLE e links externos**
 
-Slides podem referenciar recursos ao nível da apresentação, como imagens, áudio incorporado, vídeo incorporado e dados OLE. Clone o próprio slide em vez de copiar apenas suas formas visíveis para que Aspose.Slides mantenha os relacionamentos do slide com seus recursos.
+Slides podem referenciar recursos ao nível da apresentação, como imagens, áudio incorporado, vídeo incorporado e dados OLE. Clone o próprio slide ao invés de copiar apenas suas formas visíveis para que Aspose.Slides possa manter os relacionamentos do slide com seus recursos.
 
-Recursos incorporados e vinculados devem ser tratados de forma diferente. Um áudio, vídeo, objeto OLE ou hyperlink vinculado permanece dependente de seu destino externo; clonar um slide não transforma um link externo em conteúdo incorporado. Teste caminhos e URLs de recursos vinculados no ambiente onde a apresentação mesclada será aberta.
+Recursos incorporados e vinculados devem ser tratados de forma diferente. Um áudio, vídeo, objeto OLE ou hyperlink vinculado continua dependente de seu alvo externo; clonar um slide não transforma um link externo em conteúdo incorporado. Teste os caminhos e URLs de recursos vinculados no ambiente onde a apresentação mesclada será aberta.
 
-Aspose.Slides rastreia explicitamente mestres clonados automaticamente, mas isso não deve ser interpretado como garantia geral de que recursos binários idênticos de apresentações de origem não relacionadas serão sempre desduplicados. Se o tamanho do arquivo de saída for importante, inspecione o pacote mesclado e meça o resultado em vez de contar com desduplicação implícita.
+Aspose.Slides rastreia explicitamente mestres clonados automaticamente, mas isso não deve ser tratado como garantia geral de que recursos binários idênticos de apresentações de origem não relacionadas serão sempre deduplicados. Se o tamanho do arquivo de saída for importante, inspecione o pacote mesclado e meça o resultado ao invés de confiar na deduplicação implícita.
 
 ### **Fontes incorporadas e disponibilidade de fontes**
 
-Fontes são gerenciadas ao nível da apresentação. Se a tipografia precisar permanecer consistente entre máquinas, não presuma que clonar slides sozinho garante que todas as fontes necessárias estejam disponíveis no ambiente de destino. Você pode inspecionar fontes incorporadas com [FontsManager::getEmbeddedFonts()](https://reference.aspose.com/slides/pt/php-java/aspose.slides/fontsmanager/getembeddedfonts/) e gerenciar a incorporação explicitamente conforme descrito em [Embed Fonts in Presentations](https://docs.aspose.com/slides/pt/php-java/embedded-font/).
+As fontes são gerenciadas ao nível da apresentação. Se a tipografia deve permanecer consistente entre máquinas, não presuma que clonar slides sozinho garante que todas as fontes necessárias estejam disponíveis no ambiente de destino. Você pode inspecionar fontes incorporadas com [FontsManager::getEmbeddedFonts()](https://reference.aspose.com/slides/pt/php-java/aspose.slides/fontsmanager/getembeddedfonts/) e gerenciar a incorporação explicitamente como descrito em [Embed Fonts in Presentations](/slides/pt/php-java/embedded-font/).
 
 Também verifique se você tem permissão para incorporar as fontes usadas pelos arquivos de origem. Licenças de fontes podem restringir a incorporação.
 
 ### **Apresentações protegidas por senha**
 
-Uma fonte protegida por senha deve ser aberta com sucesso antes que seus slides possam ser clonados. Forneça a senha através de [LoadOptions::setPassword()](https://reference.aspose.com/slides/pt/php-java/aspose.slides/loadoptions/setpassword/).
+Uma origem protegida por senha deve ser aberta com sucesso antes que seus slides possam ser clonados. Forneça a senha através de [LoadOptions::setPassword()](https://reference.aspose.com/slides/pt/php-java/aspose.slides/loadoptions/setpassword/).
 
 ```php
 require_once("Java.inc");
@@ -345,64 +345,64 @@ try {
 }
 ```
 
-Abrir uma fonte criptografada não aplica automaticamente a mesma proteção à apresentação de destino. Configure a proteção de saída separadamente quando necessário.
+Abrir uma origem criptografada não aplica automaticamente a mesma proteção à apresentação de destino. Configure a proteção de saída separadamente quando necessário.
 
 ### **Apresentações grandes e uso de memória**
 
-Apresentações grandes contendo imagens de alta resolução, áudio, vídeo ou outros objetos binários grandes podem consumir memória significativa. [LoadOptions::getBlobManagementOptions()](https://reference.aspose.com/slides/pt/php-java/aspose.slides/loadoptions/getblobmanagementoptions/) fornece controles para o tratamento de BLOBs e uso de arquivos temporários. Consulte [Open Presentations](https://docs.aspose.com/slides/pt/php-java/open-presentation/#open-large-presentations) para um exemplo de arquivo grande em PHP via Java.
+Apresentações grandes contendo imagens de alta resolução, áudio, vídeo ou outros objetos binários grandes podem consumir memória significativa. [LoadOptions::getBlobManagementOptions()](https://reference.aspose.com/slides/pt/php-java/aspose.slides/loadoptions/getblobmanagementoptions/) fornece controles para o manejo de BLOBs e uso de arquivos temporários. Veja [Open Presentations](/slides/pt/php-java/open-presentation/#open-large-presentations) para um exemplo de arquivo grande em PHP via Java.
 
-Para arquivos grandes, prefira carregar a partir de caminhos de arquivo quando possível, libere cada apresentação de origem assim que ela for mesclada e evite salvar resultados intermediários repetidamente, a menos que o fluxo de trabalho exija pontos de verificação.
+Para arquivos grandes, prefira carregar a partir de caminhos de arquivo quando possível, descarte cada apresentação de origem assim que for mesclada e evite salvar repetidamente resultados intermediários a menos que o fluxo de trabalho exija pontos de verificação.
 
-### **Segurança em threads**
+### **Segurança de thread**
 
-Não carregue, modifique, salve ou clone instâncias de [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentation/) em múltiplas threads. Essas operações não são suportadas para uso multithread em PHP via Java. Se precisar de trabalhos de mesclagem paralelos, execute-os em processos individuais de thread única, com cada processo usando suas próprias instâncias de apresentação, e siga as diretrizes de [Aspose.Slides multithreading guidance](https://docs.aspose.com/slides/pt/php-java/multithreading/).
+Não carregue, modifique, salve ou clone instâncias de [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentation/) em múltiplas threads. Essas operações não são suportadas para uso multithread em PHP via Java. Se precisar de trabalhos de mesclagem paralelos, execute-os em processos separados monothread, com cada processo usando suas próprias instâncias de apresentação, e siga as diretrizes de multithreading do [Aspose.Slides](/slides/pt/php-java/multithreading/).
 
 ## **FAQ**
 
-**Como manter o design original de cada apresentação de origem?**
+**Como mantenho o design original de cada apresentação de origem?**
 
-Use [`addClone(sourceSlide)`](https://reference.aspose.com/slides/pt/php-java/aspose.slides/slidecollection/addclone/) sem fornecer um mestre ou layout de destino. Aspose.Slides pode clonar automaticamente o mestre de origem quando ele for necessário para o slide importado.
+Use [SlideCollection::addClone](https://reference.aspose.com/slides/pt/php-java/aspose.slides/slidecollection/addclone/) sem fornecer um mestre ou layout de destino. Aspose.Slides pode clonar automaticamente o mestre de origem quando ele for necessário para o slide importado.
 
-**Como fazer os slides importados usarem o tema do destino?**
+**Como faço os slides importados usarem o tema de destino?**
 
 Use a sobrecarga que aceita um mestre de destino. Passe um mestre da apresentação de destino, não da origem. Aspose.Slides tentará mapear cada slide de origem para um layout adequado sob esse mestre.
 
-**Quando devo usar um layout de destino específico em vez de um mestre de destino?**
+**Quando devo usar um layout de destino específico ao invés de um mestre de destino?**
 
-Use um layout específico quando cada slide importado deve usar um layout conhecido. Use um mestre quando desejar que Aspose.Slides selecione entre os layouts desse mestre com base no tipo ou nome do layout de origem.
+Use um layout específico quando cada slide importado deve usar um layout conhecido. Use um mestre quando quiser que Aspose.Slides selecione entre os layouts daquele mestre com base no tipo ou nome do layout de origem.
 
 **Apresentações com tamanhos de slide diferentes podem ser mescladas?**
 
-Sim, mas o conteúdo do slide não é redesenhado automaticamente para as dimensões de destino. Redimensione a apresentação de origem primeiro quando precisar de posicionamento previsível, por exemplo com [SlideSize::setSize()](https://reference.aspose.com/slides/pt/php-java/aspose.slides/slidesize/setsize/) e [SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/pt/php-java/aspose.slides/slidesizescaletype/).
+Sim, mas o conteúdo do slide não é automaticamente redesenhado para as dimensões de destino. Redimensione a apresentação de origem primeiro quando precisar de posicionamento previsível, por exemplo com [SlideSize::setSize()](https://reference.aspose.com/slides/pt/php-java/aspose.slides/slidesize/setsize/) e [SlideSizeScaleType::EnsureFit](https://reference.aspose.com/slides/pt/php-java/aspose.slides/slidesizescaletype/).
 
 **Posso mesclar apresentações PPT, PPTX e ODP em um único arquivo?**
 
-Sim. Carregue cada apresentação de origem, clone os slides necessários em um destino e salve o destino em um formato de saída suportado. Como os formatos de apresentação não suportam exatamente o mesmo conjunto de recursos, verifique o conteúdo complexo após mesclagens entre formatos diferentes. Consulte [Supported File Formats](https://docs.aspose.com/slides/pt/php-java/supported-file-formats/).
+Sim. Carregue cada apresentação de origem, clone os slides necessários em um destino único e salve o destino em um formato de saída suportado. Como os formatos de apresentação não suportam exatamente o mesmo conjunto de recursos, verifique o conteúdo complexo após mesclagens entre formatos. Consulte [Supported File Formats](/slides/pt/php-java/supported-file-formats/).
 
 **As seções de origem são preservadas automaticamente?**
 
 Não por um loop básico que apenas clona slides. Recrie as seções necessárias no destino e use a sobrecarga de seção de [addClone](https://reference.aspose.com/slides/pt/php-java/aspose.slides/slidecollection/addclone/) quando a estrutura de seções precisar ser preservada.
 
-**Anotações de orador e comentários são preservados?**
+**As notas do apresentador e os comentários são preservados?**
 
-Eles são copiados com o slide clonado. Para fluxos que dependem da estilização do mestre de notas, autores de comentários ou dados de revisão encadeada, verifique o resultado mesclado, pois esses cenários envolvem estruturas ao nível da apresentação assim como conteúdo ao nível do slide.
+Eles são copiados com o slide clonado. Para fluxos que dependem da estilização do mestre de notas, autores de comentários ou dados de revisão encadeados, verifique o resultado mesclado pois esses cenários envolvem estruturas ao nível da apresentação e também conteúdo ao nível do slide.
 
 **O que acontece com áudio, vídeo, objetos OLE e hyperlinks?**
 
-Conteúdos incorporados são transportados como parte dos relacionamentos de recursos do slide clonado. Links externos permanecem externos, portanto seus arquivos ou URLs de destino ainda precisam estar disponíveis após a mesclagem.
+Conteúdo incorporado é mantido como parte dos relacionamentos de recursos do slide clonado. Links externos permanecem externos, portanto seus arquivos ou URLs de destino ainda devem estar disponíveis após a mesclagem.
 
-**Fontes incorporadas de todas as origens são garantidas no arquivo mesclado?**
+**As fontes incorporadas de todas as fontes são garantidas como disponíveis na apresentação mesclada?**
 
-Não confie apenas na clonagem de slides para implantação de fontes. Inspecione as fontes incorporadas no destino e gerencie explicitamente a incorporação de fontes ou a disponibilidade de fontes externas quando a tipografia for importante.
+Não dependa apenas da clonagem de slides para implantação de fontes. Inspecione as fontes incorporadas no destino e gerencie explicitamente a incorporação de fontes ou a disponibilidade de fontes externas quando a tipografia for importante.
 
-**Como mesclar um arquivo protegido por senha?**
+**Como mesclo um arquivo protegido por senha?**
 
-Abra-o com o [LoadOptions::setPassword()](https://reference.aspose.com/slides/pt/php-java/aspose.slides/loadoptions/setpassword/) correto e, em seguida, clone seus slides normalmente. A proteção de saída é configurada separadamente.
+Abra-o com a [LoadOptions::setPassword()](https://reference.aspose.com/slides/pt/php-java/aspose.slides/loadoptions/setpassword/) correta, então clone seus slides normalmente. A proteção de saída é configurada separadamente.
 
 **Como devo lidar com apresentações muito grandes?**
 
-Use o gerenciamento de BLOBs quando objetos binários grandes dominarem o uso de memória, prefira o carregamento por caminho de arquivo para arquivos muito grandes, libere rapidamente as apresentações de origem e salve o resultado final somente quando necessário.
+Use o gerenciamento de BLOB quando objetos binários grandes dominam o uso de memória, prefira carregamento por caminho de arquivo para arquivos muito grandes, descarte as apresentações de origem prontamente e salve o resultado final somente quando necessário.
 
-**Posso mesclar slides a partir de múltiplas threads?**
+**Posso mesclar slides de múltiplas threads?**
 
-Carregar, salvar ou clonar apresentações em múltiplas threads não é suportado em PHP via Java. Para trabalhos paralelos, use processos individuais de thread única e mantenha as instâncias de apresentação isoladas dentro de cada processo.
+Carregar, salvar ou clonar apresentações em múltiplas threads não é suportado em PHP via Java. Para trabalho paralelo, use processos monothread separados e mantenha as instâncias de apresentações isoladas dentro de cada processo.

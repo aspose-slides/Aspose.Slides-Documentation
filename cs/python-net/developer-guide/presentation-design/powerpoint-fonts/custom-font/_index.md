@@ -9,17 +9,19 @@ keywords:
 - vlastní písmo
 - externí písmo
 - načíst písmo
-- spravovat písma
+- správa písem
 - složka s písmy
 - PowerPoint
 - prezentace
 - Python
 - Aspose.Slides
-description: "Vložte vlastní písma do snímků PowerPointu pomocí Aspose.Slides for Python přes .NET, aby byly vaše prezentace ostře a konzistentně zobrazeny na všech zařízeních."
+description: "Vložte vlastní písma do snímků PowerPointu pomocí Aspose.Slides pro Python přes .NET, aby vaše prezentace byly ostré a konzistentní na jakémkoli zařízení."
 ---
 ## **Přehled**
 
-Aspose.Slides pro Python vám umožňuje poskytovat vlastní písma za běhu, aby se prezentace vykreslovaly správně i v případě, že požadovaná písma nejsou nainstalována v hostitelském systému. Během exportu do PDF nebo obrázků můžete poskytnout složky s písmy nebo data písem v paměti, aby byl zachován rozvrh textu, metriky glifů a typografie. To dělá vykreslování na serveru předvídatelným napříč různými prostředími, odstraňuje závislosti na písmech na úrovni operačního systému a zabraňuje nechtěným náhradám nebo přeskupení textu. Článek ukazuje, jak zaregistrovat zdroje písem.
+Aspose.Slides pro Python vám umožňuje poskytovat vlastní písma za běhu, takže prezentace jsou vykresleny správně i v případě, že požadovaná písma nejsou nainstalována v hostitelském systému. Při exportu do PDF nebo obrázků můžete dodat složky s písmy nebo data písem v paměti, aby byl zachován rozvrh textu, metriky glifů a typografie. To činí vykreslování na serveru předvídatelným napříč různými prostředími, odstraňuje závislosti na písmenech na úrovni OS a zabraňuje nechtěným náhradám nebo přetékání. Článek ukazuje, jak zaregistrovat zdroje písem.
+
+Motiv prezentace může odkazovat na různé rodiny písem pro jednotlivé písmo systémy. Tyto mapování ukládají názvy písem, ale neinstalují ani nenačítají soubory písem. Viz [Script-Specific Theme Fonts](/slides/cs/python-net/script-specific-font-mappings/) pro správu mapování a použijte níže uvedené možnosti načítání, aby byly odkazované fonty k dispozici pro konzistentní vykreslování.
 
 Aspose.Slides vám umožňuje načíst následující písma pomocí metod `load_external_font` a `load_external_fonts` třídy [FontsLoader](https://reference.aspose.com/slides/cs/python-net/aspose.slides/fontsloader/):
 
@@ -28,45 +30,45 @@ Aspose.Slides vám umožňuje načíst následující písma pomocí metod `load
 
 ## **Načíst vlastní písma**
 
-Aspose.Slides vám umožňuje načíst písma použitá v prezentaci bez jejich instalace do systému. To ovlivňuje výstup při exportu – například PDF, obrázky a další podporované formáty – takže výsledné dokumenty vypadají konzistentně napříč prostředími. Písma jsou načítána z vlastních adresářů.
+Aspose.Slides vám umožňuje načíst písma použité v prezentaci, aniž byste je instalovali do systému. To ovlivňuje výstup exportu – například PDF, obrázky a další podporované formáty – takže výsledné dokumenty vypadají konzistentně napříč prostředími. Písma jsou načítána z vlastních adresářů.
 
-1. Zadejte jeden nebo více adresářů, které obsahují soubory písem.
-2. Zavolejte statickou metodu [FontsLoader.load_external_fonts](https://reference.aspose.com/slides/cs/python-net/aspose.slides/fontsloader/load_external_fonts/), která načte písma z těchto adresářů.
+1. Uveďte jeden nebo více složek, které obsahují soubory písem.
+2. Zavolejte statickou metodu [FontsLoader.load_external_fonts](https://reference.aspose.com/slides/cs/python-net/aspose.slides/fontsloader/load_external_fonts/) pro načtení písem z těchto složek.
 3. Načtěte a vykreslete/exportujte prezentaci.
 4. Zavolejte [FontsLoader.clear_cache](https://reference.aspose.com/slides/cs/python-net/aspose.slides/fontsloader/clear_cache/) pro vymazání mezipaměti písem.
 
-Následující ukázkový kód demonstruje proces načítání písem:
+Následující příklad kódu demonstruje proces načítání písem:
 
 ```py
 import aspose.slides as slides
 
 # Definujte složky, které obsahují vlastní soubory písem.
-font_folders = [ external_font_folder1, external_font_folder2 ]
+font_folders = ["fonts", "external_fonts"]
 
-# Načíst vlastní písma ze specifikovaných složek.
+# Načtěte vlastní písma ze specifikovaných složek.
 slides.FontsLoader.load_external_fonts(font_folders)
 
 with slides.Presentation("sample.pptx") as presentation:
-    # Vykreslit/exportovat prezentaci (např. do PDF, obrázků nebo jiných formátů) pomocí načtených písem.
+    # Vykreslete/exportujte prezentaci (např. do PDF, obrázků nebo jiných formátů) pomocí načtených písem.
     presentation.save("output.pdf", slides.export.SaveFormat.PDF)
 
-# Vyčistit mezipaměť písem po dokončení práce.
+# Vymažte mezipaměť písem po dokončení práce.
 slides.FontsLoader.clear_cache()
 ```
 
-{{% alert color="info" title="Poznámka" %}}
-[FontsLoader.load_external_fonts](https://reference.aspose.com/slides/cs/python-net/aspose.slides/fontsloader/load_external_fonts/) přidává další adresáře do cest pro vyhledávání písem, ale nemění pořadí inicializace písem.
+{{% alert color="info" title="Note" %}}
+[FontsLoader.load_external_fonts](https://reference.aspose.com/slides/cs/python-net/aspose.slides/fontsloader/load_external_fonts/) přidává další složky do cest pro vyhledávání písem, ale nemění pořadí inicializace písem.
 Písma jsou inicializována v tomto pořadí:
 
 1. Výchozí cesta k písmům operačního systému.
-1. Cesty načtené pomocí [FontsLoader](https://reference.aspose.com/slides/cs/python-net/aspose.slides/fontsloader/).
+1. Cesty načtené prostřednictvím [FontsLoader](https://reference.aspose.com/slides/cs/python-net/aspose.slides/fontsloader/).
 {{%/alert %}}
 
-## **Získat složku vlastních písem**
+## **Získat složku s vlastními písmy**
 
-Aspose.Slides poskytuje metodu `get_font_folders` pro získání složek s písmy. Vrací jak složky přidané pomocí `load_external_fonts`, tak systémové složky písem.
+Aspose.Slides poskytuje metodu `get_font_folders` pro získání složek s písmy. Vrací jak složky přidané pomocí `load_external_fonts`, tak systémové složky s písmy.
 
-Následující Python kód ukazuje, jak použít `get_font_folders`:
+Následující kód v Pythonu ukazuje, jak použít `get_font_folders`:
 
 ```python
 import aspose.slides as slides
@@ -76,11 +78,11 @@ import aspose.slides as slides
 font_folders = slides.FontsLoader.get_font_folders()
 ```
 
-## **Zadat vlastní písma pro prezentaci**
+## **Určit vlastní písma pro prezentaci**
 
-Aspose.Slides poskytuje vlastnost `document_level_font_sources`, která vám umožní zadat externí písma pro použití v prezentaci.
+Aspose.Slides poskytuje vlastnost `document_level_font_sources`, která vám umožňuje určit externí písma k použití v prezentaci.
 
-Následující Python příklad ukazuje, jak použít `document_level_font_sources`:
+Následující příklad v Pythonu ukazuje, jak použít `document_level_font_sources`:
 
 ```python
 import aspose.slides as slides
@@ -97,8 +99,8 @@ load_options.document_level_font_sources.memory_fonts = [font1_data, font2_data]
 
 with slides.Presentation("Fonts.pptx", load_options) as presentation:
     # ...
-    # Práce s prezentací.
-    # CustomFont1, CustomFont2 a písma ze složek assets\fonts a global\fonts (a jejich podsložek) jsou dostupná v prezentaci.
+    # Pracujte s prezentací.
+    # CustomFont1, CustomFont2 a písma ze složek assets\fonts a global\fonts (včetně jejich podsložek) jsou k dispozici v prezentaci.
     # ...
     print(len(presentation.slides))
 ```
@@ -107,7 +109,7 @@ with slides.Presentation("Fonts.pptx", load_options) as presentation:
 
 Aspose.Slides poskytuje metodu `load_external_font` pro načtení externích písem z binárních dat.
 
-Následující Python příklad demonstruje načtení písma z pole bajtů:
+Následující příklad v Pythonu demonstruje načtení písma z pole bytů:
 
 ```python
 import aspose.slides as slides
@@ -117,14 +119,14 @@ def read_all_bytes(file_path):
         file_data = file_stream.read()
     return file_data
 
-# Načíst externí písma z bytových polí.
+# Načtěte externí písma z pole bytů.
 slides.FontsLoader.load_external_font(read_all_bytes("ARIALN.TTF"))
 slides.FontsLoader.load_external_font(read_all_bytes("ARIALNBI.TTF"))
 slides.FontsLoader.load_external_font(read_all_bytes("ARIALNI.TTF"))
 
 try:
     with slides.Presentation() as presentation:
-        # Externí písma jsou k dispozici po celou dobu životnosti této instance prezentace.
+        # Externí písma jsou k dispozici po celou životnost této instance prezentace.
         print("processing")
 finally:
     slides.FontsLoader.clear_cache()
@@ -132,22 +134,22 @@ finally:
 
 ## **Často kladené otázky**
 
-**Ovlivňují vlastní písma export do všech formátů (PDF, PNG, SVG, HTML)?**
+### Do custom fonts affect export to all formats (PDF, PNG, SVG, HTML)?
 
 Ano. Připojená písma jsou používána rendererem ve všech exportních formátech.
 
-**Jsou vlastní písma automaticky vložena do výsledného PPTX?**
+### Are custom fonts automatically embedded into the resulting PPTX?
 
-Ne. Registrace písma pro vykreslování není totéž jako jeho vložení do PPTX. Pokud potřebujete, aby bylo písmo součástí souboru prezentace, musíte použít explicitní [funkce vložení](/slides/cs/python-net/embedded-font/).
+Ne. Zaregistrování písma pro vykreslení není totéž jako jeho vložení do PPTX. Pokud potřebujete, aby písmo bylo součástí souboru prezentace, musíte použít explicitní [embedding features](/slides/cs/python-net/embedded-font/).
 
-**Mohu řídit chování náhrad při absenci určitých glifů ve vlastním písmu?**
+### Can I control fallback behavior when a custom font lacks certain glyphs?
 
-Ano. Nakonfigurujte [substituce písem](/slides/cs/python-net/font-substitution/), [pravidla nahrazení](/slides/cs/python-net/font-replacement/) a [sady náhrad](/slides/cs/python-net/fallback-font/), abyste přesně určili, které písmo se použije, když požadovaný glif chybí.
+Ano. Nakonfigurujte [font substitution](/slides/cs/python-net/font-substitution/), [replacement rules](/slides/cs/python-net/font-replacement/), a [fallback sets](/slides/cs/python-net/fallback-font/), abyste přesně definovali, které písmo se použije, když požadovaný glif chybí.
 
-**Mohu používat písma v kontejnerech Linux/Docker bez jejich systémové instalace?**
+### Can I use fonts in Linux/Docker containers without installing them system-wide?
 
-Ano. Ukazujte na vlastní složky s písmy nebo načítejte písma z polí bajtů. Tím se odstraní jakákoli závislost na systémových adresářích s písmy v obrazu kontejneru.
+Ano. Odkazujte na vlastní složky s písmy nebo načítejte písma z polí bytů. Tím se odstraní jakákoli závislost na systémových adresářích s písmy v obrazu kontejneru.
 
-**Co licenci — mohu vložit libovolné vlastní písmo bez omezení?**
+### What about licensing—can I embed any custom font without restrictions?
 
-Jste zodpovědní za dodržování licenčních podmínek písem. Podmínky se liší; některé licence zakazují vkládání nebo komerční použití. Vždy si před šířením výstupů přečtěte licenční smlouvu (EULA) daného písma.
+Jste zodpovědní za dodržování licencí písem. Podmínky se liší; některé licence zakazují vkládání nebo komerční používání. Vždy si před distribucí výstupů prostudujte EULA daného písma.

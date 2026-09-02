@@ -1,60 +1,61 @@
 ---
-title: Hantera slide masters för presentationer i JavaScript
-linktitle: Slide master
+title: "Hantera presentationens slide-mästare i JavaScript"
+linktitle: "Slide-mästare"
 type: docs
 weight: 70
 url: /sv/nodejs-java/slide-master/
 keywords:
-- slide master
-- masterbild
-- PPT masterbild
-- flera masterbilder
-- jämför masterbilder
-- bakgrund
-- platshållare
-- klona masterbild
-- kopiera masterbild
-- duplicera masterbild
-- oanvänd masterbild
-- PowerPoint
-- OpenDocument
-- presentation
-- Node.js
-- JavaScript
-- Aspose.Slides
-description: "Hantera slide masters i Aspose.Slides för Node.js via Java: komma åt, redigera, klona, jämföra och ta bort masterbilder i PowerPoint- och OpenDocument-presentationer."
+- "bildmaster"
+- "masterbild"
+- "PPT masterbild"
+- "flera masterbilder"
+- "jämför masterbilder"
+- "bakgrund"
+- "platshållare"
+- "klona masterbild"
+- "kopiera masterbild"
+- "duplicera masterbild"
+- "oanvänd masterbild"
+- "PowerPoint"
+- "OpenDocument"
+- "presentation"
+- "Node.js"
+- "JavaScript"
+- "Aspose.Slides"
+description: "Hantera slide masters i Aspose.Slides för Node.js via Java: åtkomst, redigering, kloning, jämförelse och borttagning av masterbilder i PowerPoint‑ och OpenDocument‑presentationer."
 ---
 ## **Översikt**
 
-En **slide master** definierar delade designinställningar för en grupp bildspel. Den kan innehålla gemensamma former, logotyper, bakgrunder, textstilar, temainställningar och sidfotinställningar. I PowerPoint är redigering av en slide master det vanliga sättet att hålla en presentation konsekvent utan att upprepa samma formatering på varje bild.
+En **slide master** definierar gemensamma designinställningar för en grupp bilder. Den kan innehålla gemensamma former, logotyper, bakgrunder, textstilar, temainställningar och sidfotinställningar. I PowerPoint är redigering av en slide master det vanliga sättet att hålla en presentation konsekvent utan att upprepa samma formatering på varje bild.
 
-Aspose.Slides för Node.js via Java stöder samma modell. En presentation kan innehålla en eller flera master‑bilder, och varje master‑bild kan innehålla flera layout‑bilder. Vanliga bilder hänvisar normalt inte direkt till en master‑bild. Istället använder en vanlig bild en layout‑bild, och den layout‑bilden tillhör en master‑bild.
+Aspose.Slides för Node.js via Java stöder samma modell. En presentation kan innehålla en eller flera masterbilder, och varje masterbild kan innehålla flera layoutbilder. Vanliga bilder refererar normalt inte direkt till en masterbild. Istället använder en vanlig bild en layoutbild, och den layoutbilden tillhör en masterbild.
 
 Hierarkin är:
 
-1. **Slide master** – definierar den delade designen och temat.  
-1. **Layout‑bild** – definierar en specifik placering av platshållare och layout‑nivåformatering.  
-1. **Normal bild** – innehåller det faktiska presentationsinnehållet och använder en layout‑bild.
+1. **Slide master** – definierar den gemensamma designen och temat.  
+1. **Layout slide** – definierar en specifik placering av platshållare och layout‑nivåformatering.  
+1. **Normal slide** – innehåller själva presentationsinnehållet och använder en layoutbild.
 
-![Hierarkin av master‑bilder, layout‑bilder och normala bilder](slide-master_2.jpg)
+![Hierarkin av masterbilder, layoutbilder och normala bilder](slide-master_2.jpg)
 
-I Aspose.Slides representeras en slide master av klassen [MasterSlide](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/masterslide/). Alla master‑bilder i en presentation är tillgängliga via samlingen `Presentation.getMasters()`.
+I Aspose.Slides representeras en slide master av klassen [MasterSlide](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/masterslide/). Alla masterbilder i en presentation är tillgängliga via samlingen `Presentation.getMasters()`.
 
-{{% alert color="info" title="Inheritance" %}}
-
-När samma egenskap definieras på mer än en nivå vinner den mer specifika nivån. Till exempel, om en master‑bild och en layout‑bild båda definierar en bakgrund, använder bilder baserade på den layouten layout‑bakgrunden. För mer information om layout‑bilder, se [Apply or Change Slide Layouts](/nodejs-java/slide-layout/).
-
+{{% alert color="info" title="Arv" %}}
+När samma egenskap definieras på mer än en nivå vinner den mer specifika nivån. Till exempel, om en masterbild och en layoutbild båda definierar en bakgrund, använder bilder baserade på den layouten layoutens bakgrund. För mer information om layoutbilder, se [Apply or Change Slide Layouts](/nodejs-java/slide-layout/).
 {{% /alert %}}
 
-## **Åtkomst till Slide Masters**
+## **Åtkomst till slide master**
 
-I PowerPoint kan du öppna Slide Master‑vyn via **View** > **Slide Master**.
+I PowerPoint kan du öppna vy för Slide Master via **View** > **Slide Master**.
 
 ![Slide Master‑kommandot på PowerPoint‑fliken View](slide-master_3.jpg)
 
-I Aspose.Slides använder du samlingen `getMasters()` för att komma åt master‑bilder:
+I Aspose.Slides använder du samlingen `getMasters()` för att komma åt masterbilder:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let firstMasterSlide = presentation.getMasters().get_Item(0);
@@ -68,9 +69,12 @@ try {
 }
 ```
 
-Du kan också hämta master‑bilden som används av en normal bild via dess layout:
+Du kan också hämta masterbilden som används av en normal bild via dess layout:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -84,28 +88,31 @@ try {
 }
 ```
 
-## **Vad en Slide Master Innehåller**
+## **Vad en slide master innehåller**
 
-En master‑bild är ett bild‑liknande objekt. Den ärver gemensamt bildbeteende från [BaseSlide](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/baseslide/), så den exponerar många av samma bildegenskaper som används av normala och layout‑bilder. Master‑specifika medlemmar listas på API‑sidan för [MasterSlide](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/masterslide/).
+En masterbild är ett bild‑likt objekt. Den ärver vanligt bildbeteende från [BaseSlide](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/baseslide/), så den exponerar många av samma bildegenskaper som används av normala och layoutbilder. Master‑specifika medlemmar listas på API‑sidan för [MasterSlide](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/masterslide/).
 
-Vanligt använda master‑bildmedlemmar inkluderar:
+Vanligt använda master‑medlemmar inkluderar:
 
 | Medlem | Syfte |
 | --- | --- |
 | `getBackground()` | Ställer in master‑nivåns bildbakgrund. |
-| `getShapes()` | Lagrar former placerade på mastern, såsom logotyper, bildramar och delad text. |
-| `getLayoutSlides()` | Lagrar layout‑bilderna som tillhör mastern. |
-| `getThemeManager()` | Ger åtkomst till master‑tema‑API:erna. |
-| `getHeaderFooterManager()` | Kontrollerar sidhuvuden, sidfötter, datum och bildnummer för mastern och dess underliggande layouter. |
-| `getDependingSlides()` | Returnerar normala bilder som beror på mastern genom sina layouter. |
+| `getShapes()` | Lagrar former som placerats på masteren, såsom logotyper, bildramar och gemensam text. |
+| `getLayoutSlides()` | Lagrar layoutbilderna som tillhör masteren. |
+| `getThemeManager()` | Ger åtkomst till master‑tema‑API:er. |
+| `getHeaderFooterManager()` | Kontrollerar sidhuvuden, sidfot, datum och bildnummer för masteren och dess underliggande layouter. |
+| `getDependingSlides()` | Returnerar normala bilder som beror på masteren via sina layouter. |
 
-## **Lägg till en Bild i en Slide Master**
+## **Lägg till en bild i en slide master**
 
-När du lägger till en bild i en master‑bild visas den på bilder som använder layouter från den mastern. Detta är användbart för logotyper, vattenstämplar, dekorativa band och andra återkommande visuella element.
+När du lägger till en bild i en masterbild visas den på bilder som använder layouter från den masteren. Detta är användbart för logotyper, vattenstämplar, dekorativa band och andra återkommande visuella element.
 
-Följande exempel lägger till en logotyp på den första master‑bilden:
+Följande exempel lägger till en logotyp på den första masterbilden:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let masterSlide = presentation.getMasters().get_Item(0);
@@ -133,17 +140,21 @@ try {
 
 För mer information om bildramar, se [Picture Frame](/nodejs-java/picture-frame/).
 
-## **Arbeta med Platshållare**
+## **Arbeta med platshållare**
 
-Platshållare definieras normalt på layout‑bilder. Master‑bilden tillhandahåller den gemensamma stilen och temat som dessa layouter ärver, medan varje layout bestämmer vilka platshållare som är tillgängliga och var de placeras.
+Platshållare definieras normalt på layoutbilder. Masterbilden tillhandahåller den gemensamma stilen och temat som dessa layouter ärver, medan varje layout bestämmer vilka platshållare som är tillgängliga och var de placeras.
 
 I PowerPoint finns platshållarkommandon i Slide Master‑vyn.
 
-![Infoga platshållarkommandot i PowerPoint Slide Master‑vy](slide-master_5.png)
+![Infoga platshållare‑kommandot i PowerPoint Slide Master‑vyn](slide-master_5.png)
 
-För att lägga till nya platshållare med Aspose.Slides, arbeta med layout‑bilden som tillhör mastern:
+För att lägga till nya platshållare med Aspose.Slides arbetar du med layoutbilden som tillhör masteren:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let masterSlide = presentation.getMasters().get_Item(0);
@@ -163,9 +174,13 @@ try {
 }
 ```
 
-Du kan också formatera platshållarformer som redan finns på en master‑bild. Följande exempel hittar titel‑platshållaren och tillämpar en linjär gradientfyllning:
+Du kan också formatera platshållarformer som redan finns på en masterbild. Följande exempel hittar titel‑platshållaren och applicerar en linjär gradientfyllning:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let masterSlide = presentation.getMasters().get_Item(0);
@@ -195,7 +210,7 @@ try {
         titlePlaceholder.getFillFormat().setFillType(gradientFillType);
         titlePlaceholder.getFillFormat().getGradientFormat().setGradientShape(linearGradientShape);
         titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(0.0, redGradientColor);
-        titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(255.0, purpleGradientColor);
+        titlePlaceholder.getFillFormat().getGradientFormat().getGradientStops().add(1.0, purpleGradientColor);
     }
 
     presentation.save("presentation-title-style.pptx", aspose.slides.SaveFormat.Pptx);
@@ -208,11 +223,15 @@ try {
 
 För fler alternativ för platshållare och textformatering, se [Set Prompt Text in Placeholder](/nodejs-java/manage-placeholder/) och [Text Formatting](/nodejs-java/text-formatting/).
 
-## **Ändra Bakgrund för en Slide Master**
+## **Ändra bakgrund för en slide master**
 
-En master‑bakgrund ärvs av layouter och bilder som inte åsidosätter den. Följande exempel sätter en solid bakgrundsfärg för den första master‑bilden:
+En masterbakgrund ärvs av layouter och bilder som inte åsidosätter den. Följande exempel sätter en solid bakgrundsfärg för den första masterbilden:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let masterSlide = presentation.getMasters().get_Item(0);
@@ -232,11 +251,14 @@ try {
 
 För relaterade ämnen, se [Presentation Background](/nodejs-java/presentation-background/) och [Presentation Theme](/nodejs-java/presentation-theme/).
 
-## **Klona en Slide Master till En Annan Presentation**
+## **Klona en slide master till en annan presentation**
 
-Använd `MasterSlideCollection.addClone` för att kopiera en master‑bild till en annan presentation. Den kopierade mastern kan sedan användas av layouter och bilder i destinationspresentationen.
+Använd `MasterSlideCollection.addClone` för att kopiera en masterbild till en annan presentation. Den kopierade masteren kan sedan användas av layouter och bilder i destinationspresentationen.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let sourcePresentation = new aspose.slides.Presentation("source.pptx");
 let destinationPresentation = new aspose.slides.Presentation("destination.pptx");
 try {
@@ -252,15 +274,19 @@ try {
 
 Om du behöver klona normala bilder tillsammans med deras master, se [Clone Slides](/nodejs-java/clone-slides/).
 
-## **Lägg till Flera Slide Masters**
+## **Lägg till flera slide masters**
 
-En presentation kan innehålla flera master‑bilder. Detta är användbart när olika avsnitt kräver olika varumärkesprofil, sidstruktur eller temainställningar.
+En presentation kan innehålla flera masterbilder. Detta är användbart när olika avsnitt kräver olika varumärkesprofil, sidstruktur eller temainställningar.
 
-![PowerPoint‑kommandon för att infoga och hantera master‑bilder](slide-master_9.jpg)
+![PowerPoint‑kommandon för att infoga och hantera masterbilder](slide-master_9.jpg)
 
-Följande exempel klonar standard‑mastern, ger kopian en annan bakgrund, skapar en layout under den klonade mastern och lägger till en ny bild baserad på den layouten:
+Följande exempel klonar standard‑masteren, ger klonen en annan bakgrund, skapar en layout under den klonade masteren och lägger till en ny bild baserad på den layouten:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let defaultMasterSlide = presentation.getMasters().get_Item(0);
@@ -288,11 +314,14 @@ try {
 }
 ```
 
-## **Jämför Slide Masters**
+## **Jämför slide masters**
 
-Master‑bilder kan jämföras med `equals`‑metoden som ärvd från [BaseSlide](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/baseslide/). Jämförelsen kontrollerar struktur och statiskt innehåll, såsom former, text, formatering, animationer och andra bildinställningar. Den jämför inte unika identifierare, såsom bild‑ID:n, eller dynamiska platshållarvärden, såsom aktuellt datum.
+Masterbilder kan jämföras med metoden `equals` som ärvd från [BaseSlide](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/baseslide/). Jämförelsen kontrollerar struktur och statiskt innehåll, såsom former, text, formatering, animationer och andra bildinställningar. Den jämför inte unika identifierare, såsom bild‑ID:n, eller dynamiska platshållarvärden, såsom aktuellt datum.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let firstPresentation = new aspose.slides.Presentation("first.pptx");
 let secondPresentation = new aspose.slides.Presentation("second.pptx");
 try {
@@ -318,13 +347,17 @@ try {
 }
 ```
 
-För mer information, se [Compare Presentation Slides](/nodejs-java/compare-slides/).
+För mer information, se [Compare Presentation Slides](/slides/sv/nodejs-java/compare-slides/).
 
-## **Ställ in Slide Master‑vyn som Standardvy**
+## **Ange Slide Master‑vyn som standardvy**
 
-Använd `setLastView`‑metoden på [ViewProperties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/viewproperties/) för att styra vilken vy PowerPoint öppnar först. Följande exempel öppnar presentationen i Slide Master‑vyn:
+Använd metoden `setLastView` på [ViewProperties](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/viewproperties/) för att styra vilken vy PowerPoint öppnar först. Följande exempel öppnar presentationen i Slide Master‑vyn:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     let slideMasterViewType = java.newByte(aspose.slides.ViewType.SlideMasterView);
@@ -336,15 +369,18 @@ try {
 }
 ```
 
-För fler vyinställningar, se [Save Presentation](/nodejs-java/save-presentation/).
+För fler vy‑inställningar, se [Save Presentation](/slides/sv/nodejs-java/save-presentation/).
 
-## **Ta Bort Oanvända Master‑bilder**
+## **Ta bort oanvända masterbilder**
 
-Presentationer kan ibland innehålla master‑bilder som inte längre används av några normala bilder. Att ta bort oanvända master‑bilder kan minska filstorleken och förenkla underhållet av mallar.
+Presentationer kan ibland innehålla masterbilder som inte längre används av några normala bilder. Att ta bort oanvända masterbilder kan minska filstorleken och förenkla underhållet av mallar.
 
-Använd `removeUnused` för att ta bort oanvända master‑bilder från samlingen `getMasters()`:
+Använd `removeUnused` för att ta bort oanvända masterbilder från samlingen `getMasters()`:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     presentation.getMasters().removeUnused(true);
@@ -354,9 +390,12 @@ try {
 }
 ```
 
-Du kan också använda low‑code‑metoden `Compress.removeUnusedMasterSlides`:
+Du kan också använda den låga‑kod‑metoden `Compress.removeUnusedMasterSlides`:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
     aspose.slides.Compress.removeUnusedMasterSlides(presentation);
@@ -368,18 +407,18 @@ try {
 
 ## **FAQ**
 
-**Vad är skillnaden mellan en slide master och en layout‑bild?**
+### Vad är skillnaden mellan en slide master och en layoutbild?
 
-En slide master definierar delade designinställningar som tema, bakgrund, gemensamma former och textstilar. En layout‑bild tillhör en master‑bild och definierar en specifik placering av platshållare. En normal bild använder en layout‑bild, så den ärver både från layouten och master‑bilden.
+En slide master definierar gemensamma designinställningar såsom tema, bakgrund, gemensamma former och textstilar. En layoutbild tillhör en masterbild och definierar en specifik placering av platshållare. En normal bild använder en layoutbild, så den ärver både från layouten och masteren.
 
-**Kan en presentation innehålla flera slide masters?**
+### Kan en presentation innehålla flera slide masters?
 
-Ja. En presentation kan innehålla flera slide masters. Använd flera master‑bilder när olika avsnitt behöver olika visuella system eller varumärkesprofiler.
+Ja. En presentation kan innehålla flera slide masters. Använd flera masterbilder när olika avsnitt behöver olika visuella system eller varumärkesprofiler.
 
-**Ska jag lägga till platshållare på en master‑bild eller en layout‑bild?**
+### Ska jag lägga till platshållare i en masterbild eller en layoutbild?
 
-I de flesta fall lägger du till platshållare på layout‑bilder. Sätt delade visuella element och gemensam formatering på master‑bilden, och placera innehålls‑platshållare på de layouter som normala bilder kommer att använda.
+I de flesta fall lägger du till platshållare i layoutbilder. Placera delade visuella element och gemensam formatering på masterbilden, och lägg sedan innehålls‑platshållare på de layouter som de normala bilderna kommer att använda.
 
-**Kan jag ta bort en master‑bild som fortfarande används?**
+### Kan jag ta bort en masterbild som fortfarande används?
 
-Nej. En master‑bild som har beroende bilder kan inte tas bort säkert direkt. Flytta först dessa bilder till layouter under en annan master, eller använd en metod för att rensa oanvända master‑bilder som endast tar bort master‑bilder som inte används.
+Nej. En masterbild som har beroende bilder kan inte tas bort säkert direkt. Flytta först dessa bilder till layouter under en annan master, eller använd en städmetod för oanvända masterbilder som bara tar bort masterbilder som inte är i bruk.

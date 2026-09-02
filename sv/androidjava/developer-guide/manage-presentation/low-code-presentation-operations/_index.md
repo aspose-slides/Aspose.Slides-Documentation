@@ -1,5 +1,5 @@
 ---
-title: Low-Code-presentationoperationer på Android
+title: Low-Code presentationoperationer på Android
 linktitle: Low-Code API
 type: docs
 weight: 50
@@ -13,36 +13,36 @@ keywords:
 - iterera text
 - samla former
 - komprimera presentation
-- ta bort oanvända master-bilder
-- ta bort oanvända layout-bilder
-- komprimera inbäddade typsnitt
+- ta bort oanvända masterbilder
+- ta bort oanvända layoutbilder
+- komprimera inbäddade teckensnitt
 - PowerPoint
 - OpenDocument
 - presentation
 - Android
 - Java
 - Aspose.Slides
-description: "Använd Aspose.Slides low-code API på Android för att konvertera och slå ihop presentationer, iterera genom innehåll, samla former och minska presentationens storlek."
+description: "Använd Aspose.Slides low-code API på Android för att konvertera och slå ihop presentationer, iterera genom innehåll, samla former och minska presentationsstorleken."
 ---
 ## **Översikt**
 
-Paketet [com.aspose.slides](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/) tillhandahåller statiska hjälparklasser för vanliga presentationsoperationer. Dessa hjälpare omsluter ofta använda objektmodellarbetsflöden i fokuserade metoder, så att du kan konvertera eller slå ihop filer, bearbeta presentationselement, samla former och ta bort oanvänd innehåll med mindre kod.
+Paketet [com.aspose.slides](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/) levererar statiska hjälparklasser för vanliga presentation operationer. Dessa hjälpare omsluter ofta använda objekt‑modell arbetsflöden i fokuserade metoder, så att du kan konvertera eller slå ihop filer, bearbeta presentationselement, samla former och ta bort oanvänt innehåll med mindre kod.
 
-Low-code-hjälpare är mest användbara när operationen gäller en hel fil eller presentation och standardarbetsflödet motsvarar dina krav. Använd hela [Aspose.Slides-objektmodellen](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/) när du behöver finstämma kontroll över enskilda bilder, master, layouter, former, exportinställningar eller relationer mellan presentationselement.
+Low‑code‑hjälpare är mest användbara när operationen gäller en hel fil eller presentation och standardarbetsflödet motsvarar dina krav. Använd den fullständiga [Aspose.Slides object model](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/) när du behöver fin‑granulär kontroll över enskilda bilder, master‑bilder, layouter, former, exportinställningar eller relationer mellan presentationselement.
 
 Följande tabell sammanfattar de tillgängliga hjälparna:
 
-| Hjälpare | Använd för |
+| Hjälpare | Använd den för |
 | --- | --- |
 | [Convert](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/convert/) | Konvertera en presentation till ett annat format med ett direkt fil‑till‑fil‑anrop. |
 | [Merger](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/merger/) | Kombinera kompletta presentationsfiler av samma format. |
-| [ForEach](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/foreach/) | Kör en åtgärd för varje bild, form, stycke eller textdel. |
-| [Collect](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/collect/) | Hämta former från hela presentationen för återkommande bearbetning eller analys. |
-| [Compress](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/compress/) | Ta bort oanvända master‑ och layout‑bilder samt minska inbäddad teckensnittsdata. |
+| [ForEach](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/foreach/) | Köra en åtgärd för varje bild, form, stycke eller textdel. |
+| [Collect](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/collect/) | Hämta former från hela presentationen för upprepad bearbetning eller analys. |
+| [Compress](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/compress/) | Ta bort oanvända master‑bilder och layouter samt minska inbäddade teckensnittsdata. |
 
 ## **Konvertera en presentation**
 
-Använd [Convert.autoByExtension](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/convert/#autoByExtension-java.lang.String-java.lang.String-) när filändelsen för utdata är tillräcklig för att välja exportformat. Metoden öppnar källpresentationen, bestämmer det erforderliga formatet från utsökvägen och skriver resultatet.
+Använd [Convert.autoByExtension](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/convert/#autoByExtension-java.lang.String-java.lang.String-) när filändelsen på utdata är tillräcklig för att välja exportformatet. Metoden öppnar källpresentationen, bestämmer det erforderliga formatet från sökvägen för utdata och skriver resultatet.
 
 ```java
 import com.aspose.slides.Convert;
@@ -50,7 +50,7 @@ import com.aspose.slides.Convert;
 Convert.autoByExtension("input.pptx", "output.pdf");
 ```
 
-Klassen [Convert](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/convert/) tillhandahåller även dedikerade metoder för PDF-, SVG‑, JPEG‑, PNG‑ och TIFF‑utdata. Använd hela objektmodellen när du behöver inspektera eller modifiera presentationen innan export eller konfigurera ett exportalternativ som inte exponeras av den valda hjälparen. Se [Convert Presentation](/androidjava/convert-presentation/) för format‑specifika arbetsflöden och alternativ.
+Klassen [Convert](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/convert/) erbjuder även dedikerade metoder för PDF-, SVG-, JPEG-, PNG- och TIFF‑utdata. Använd den fullständiga objektmodellen när du behöver granska eller ändra presentationen innan export eller konfigurera ett exportalternativ som inte exponeras av den valda hjälparen. Se [Konvertera presentation](/slides/sv/androidjava/convert-presentation/) för format‑specifika arbetsflöden och alternativ.
 
 ## **Slå ihop presentationer**
 
@@ -63,11 +63,11 @@ String[] inputFiles = { "part-1.pptx", "part-2.pptx" };
 Merger.process(inputFiles, "merged.pptx");
 ```
 
-Hjälparen är lämplig när alla bilder ska läggas till i ett resultat utan att välja eller ommappa dem individuellt. Använd hela objektmodellen när du behöver slå ihop utvalda bilder, tillämpa ett mål‑master‑ eller layout‑objekt, bevara sektioner explicit, eller anpassa olika bildstorlekar. Se [Merge Presentations](/androidjava/merge-presentation/) för dessa scenarier.
+Hjälparen är lämplig när alla bilder ska läggas till i ett resultat utan att välja eller ommappa dem individuellt. Använd den fullständiga objektmodellen när du behöver slå ihop valda bilder, applicera ett mål‑master‑ eller layout, bevara sektioner explicit, eller anpassa olika bildstorlekar. Se [Slå ihop presentationer](/slides/sv/androidjava/merge-presentation/) för dessa scenarier.
 
-## **Iterera genom presentations‑element**
+## **Iterera genom presentationselement**
 
-Klassen [ForEach](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/foreach/) anropar en återuppringning för varje begärd typ av presentations‑element. Den undviker nästlade samlingsloopar och är bekväm för presentations‑omfattande inspektion eller formateringsändringar.
+Klassen [ForEach](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/foreach/) anropar en återuppringning för varje begärd typ av presentationselement. Den undviker nästlade samlingsloopar och är bekväm för presentations‑omfattande inspektion eller formateringsändringar.
 
 Följande exempel använder [ForEach.slide](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/foreach/#slide-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachSlideCallback-), [ForEach.shape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-), [ForEach.paragraph](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/foreach/#paragraph-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachParagraphCallback-), och [ForEach.portion](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/foreach/#portion-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachPortionCallback-) för att inspektera motsvarande element:
 
@@ -96,11 +96,11 @@ try {
 }
 ```
 
-Som standard inkluderar presentations‑omfattande form‑ och text‑traversering normala, master‑ och layout‑bilder. Överlagringar med en `includeNotes`‑parameter kan även bearbeta notes‑bilder. Använd direkta samlingsloopar när traverseringsordning, tidig avbrytning, filtrering före återuppringning eller detaljerad föräldra‑barn‑kontroll är viktig.
+Som standard omfattar presentations‑omfattande form- och texttraversering vanliga, master‑ och layout‑bilder. Överlagringar med en `includeNotes`‑parameter kan också bearbeta notisbilder. Använd direkta samlingsloopar när traverseringsordning, tidig avbrytning, filtrering före återuppringning, eller detaljerad förälder‑barn‑kontroll är viktig.
 
 ## **Samla former**
 
-Använd [Collect.shapes](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/collect/#shapes-com.aspose.slides.Presentation-) när du behöver en samling av alla former i en presentation snarare än en återuppringning för varje form. Detta är användbart när samma uppsättning ska filtreras, räknas eller bearbetas mer än en gång.
+Använd [Collect.shapes](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/collect/#shapes-com.aspose.slides.Presentation-) när du behöver en samling av alla former i en presentation istället för en återuppringning för varje form. Detta är användbart när samma uppsättning ska filtreras, räknas eller bearbetas flera gånger.
 
 ```java
 import com.aspose.slides.*;
@@ -121,9 +121,9 @@ Använd [ForEach.shape](https://reference.aspose.com/slides/sv/androidjava/com.a
 
 ## **Komprimera presentationsinnehåll**
 
-Klassen [Compress](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/compress/) kan ta bort oanvända strukturella element och minska inbäddad teckensnittsdata:
+Klassen [Compress](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/compress/) kan ta bort oanvända strukturella element och minska inbäddade teckensnittsdata:
 
-- [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) tar bort layout‑bilder som ingen normal bild refererar till.
+- [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) tar bort layoutbilder som ingen normal bild refererar till.
 - [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) tar bort master‑bilder som inte längre används.
 - [Compress.compressEmbeddedFonts](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) tar bort oanvända tecken från inbäddade teckensnitt.
 
@@ -142,21 +142,21 @@ try {
 }
 ```
 
-Ta bort oanvända layouter innan oanvända master‑bilder så att en master som blir orefererad efter layout‑rensning också kan tas bort. Spara den optimerade presentationen i en ny fil om du kan behöva de ursprungliga master‑bilderna, layouterna eller fullständig inbäddad teckensnittsdata senare. För mer detaljer, se [Slide Master](/androidjava/slide-master/) och [Embedded Font](/androidjava/embedded-font/).
+Ta bort oanvända layouter innan oanvända master‑bilder så att en master som blir orefererad efter rensning av layouter också kan tas bort. Spara den optimerade presentationen till en ny fil om du kan behöva de ursprungliga master‑bilderna, layouterna eller komplett inbäddad teckensnittdata senare. För mer detaljer, se [Slide Master](/slides/sv/androidjava/slide-master/) och [Embedded Font](/slides/sv/androidjava/embedded-font/).
 
 ## **Vanliga frågor**
 
-**När bör jag använda low-code‑API:t istället för hela objektmodellen?**
+**När bör jag använda low‑code‑API:t istället för hela objektmodellen?**
 
-Använd low-code‑hjälpare när en standardoperation gäller en komplett fil eller presentation och inte kräver detaljerad kontroll över enskilda element. Använd hela objektmodellen när du behöver välja specifika bilder, kontrollera master‑ och layout‑relationer, inspektera mellanliggande tillstånd eller konfigurera beteende som hjälparen inte exponerar.
+Använd low‑code‑hjälpare när en standardoperation gäller en komplett fil eller presentation och inte kräver detaljerad kontroll över enskilda element. Använd den fullständiga objektmodellen när du behöver välja specifika bilder, kontrollera master‑ och layout‑relationer, inspektera mellanliggande tillstånd eller konfigurera beteende som hjälparen inte exponerar.
 
 **Kan Merger kombinera presentationer i olika filformat?**
 
 Nej. [Merger.process](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/merger/#process-java.lang.String:A-java.lang.String-) kräver att inmatningspresentationerna har samma format. Konvertera indatafilerna till ett gemensamt format först, till exempel med [Convert.autoByExtension](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/convert/#autoByExtension-java.lang.String-java.lang.String-), och slå sedan ihop de konverterade filerna.
 
-**Bearbetar ForEach master‑, layout‑ och notes‑bilder?**
+**Bearbetar ForEach master‑, layout‑ och notisbilder?**
 
-[ForEach.slide](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/foreach/#slide-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachSlideCallback-) itererar genom normala presentationsbilder. Presentations‑omfattande [ForEach.shape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-), [ForEach.paragraph](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/foreach/#paragraph-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachParagraphCallback-), och [ForEach.portion](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/foreach/#portion-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachPortionCallback-) inkluderar normala, master‑ och layout‑bilder som standard. Använd deras överlagringar med `includeNotes` satt till `true` för att inkludera notes‑bilder.
+[ForEach.slide](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/foreach/#slide-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachSlideCallback-) itererar genom vanliga presentationsbilder. Presentation‑omfattande [ForEach.shape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-), [ForEach.paragraph](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/foreach/#paragraph-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachParagraphCallback-) och [ForEach.portion](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/foreach/#portion-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachPortionCallback-)-operationer inkluderar vanliga, master‑ och layout‑bilder som standard. Använd deras överlagringar med `includeNotes` satt till `true` för att inkludera notisbilder.
 
 **Vad är skillnaden mellan ForEach.shape och Collect.shapes?**
 
@@ -164,16 +164,16 @@ Använd [ForEach.shape](https://reference.aspose.com/slides/sv/androidjava/com.a
 
 **Gör Compress alltid presentationsfilen mindre?**
 
-Inte nödvändigtvis. Resultatet beror på om presentationen innehåller oanvända layouter, oanvända master‑bilder eller inbäddade teckensnitt med oanvända tecken. Om inga av dessa finns kan de motsvarande [Compress](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/compress/)-operationerna eventuellt inte minska filstorleken.
+Inte nödvändigtvis. Resultatet beror på om presentationen innehåller oanvända layouter, oanvända master‑bilder eller inbäddade teckensnitt med oanvända tecken. Om ingen av dessa finns, kan de motsvarande [Compress](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/compress/)-operationerna kanske inte minska filstorleken.
 
-**Sparas ändringar som görs av ForEach eller Compress automatiskt?**
+**Sparas ändringar gjorda av ForEach eller Compress automatiskt?**
 
-Nej. Dessa hjälpare arbetar på det inlästa [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/)-objektet i minnet. Efter att ha ändrat element i ett [ForEach](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/foreach/)-callback eller kört [Compress](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/compress/), anropa [Presentation.save](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) för att skriva resultatet.
+Nej. Dessa hjälpare arbetar på det inlästa [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/)‑objektet i minnet. Efter att ha ändrat element i en [ForEach](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/foreach/)‑återuppringning eller kör [Compress](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/compress/), anropa [Presentation.save](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) för att skriva resultatet.
 
 ## **Relaterade artiklar**
 
-- [Konvertera presentation](/androidjava/convert-presentation/)
-- [Slå ihop presentationer](/androidjava/merge-presentation/)
-- [Slide Master](/androidjava/slide-master/)
-- [Hantera textruta](/androidjava/manage-textbox/)
-- [Embedded Font](/androidjava/embedded-font/)
+- [Konvertera presentation](/slides/sv/androidjava/convert-presentation/)
+- [Slå ihop presentationer](/slides/sv/androidjava/merge-presentation/)
+- [Slide Master](/slides/sv/androidjava/slide-master/)
+- [Hantera textruta](/slides/sv/androidjava/manage-textbox/)
+- [Embedded Font](/slides/sv/androidjava/embedded-font/)

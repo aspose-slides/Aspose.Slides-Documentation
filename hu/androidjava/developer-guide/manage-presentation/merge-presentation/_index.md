@@ -1,5 +1,5 @@
 ---
-title: Hatékonyan egyesítse a prezentációkat Androidon
+title: Hatékonyan egyesíts prezentációkat Androidon
 linktitle: Prezentációk egyesítése
 type: docs
 weight: 40
@@ -20,38 +20,38 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Ismerje meg, hogyan egyesítheti a PowerPoint és OpenDocument prezentációkat Androidon dia klónozással, a mesterek és elrendezések szabályozásával, a dia tartalom átméretezésével, a szekciók megőrzésével, valamint a védett vagy nagy fájlok kezelése révén."
+description: "Ismerje meg, hogyan egyesíthet PowerPoint és OpenDocument prezentációkat Androidon diák klónozásával, a mesterek és elrendezések szabályozásával, a dia tartalom átméretezésével, a szekciók megőrzésével, valamint a védett vagy nagy fájlok kezelésével."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides for Android via Java prezentációkat egyesíti a diák másolásával az egyik [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) egy másikba. A fő művelet a [ISlideCollection.addClone](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-), amely megőrizheti a forrásdia formázását, vagy a klónozott diát egy mesterhez vagy elrendezéshez csatolhatja a célprezentációban.
+Az Aspose.Slides for Android via Java prezentációkat egyesíti úgy, hogy diák másolatát egy [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/)-ból egy másikba klónozza. A fő művelet a [ISlideCollection.addClone](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-), amely megőrizheti a forrásdia formázását, vagy a klónozott diát egy mesterhez vagy elrendezéshez csatolhatja a célprezentációban.
 
-Ez a cikk a leggyakoribb egyesítési munkafolyamatokat tárgyalja:
+Ez a cikk a leggyakoribb egyesítési munkafolyamatokat mutatja be:
 
-- az összes dia egyesítése a forrásformázás megőrzése mellett;
-- kijelölt diák egyesítése;
-- a célprezentáció egy mesterének alkalmazása;
-- a célprezentáció egy konkrét elrendezésének alkalmazása;
-- az eltérő dia méretek normalizálása egyesítés előtt;
-- a klónozott diák hozzáadása egy szekcióhoz;
-- több prezentáció egyesítése egy átfogó munkafolyamatban;
-- a mesterek, erőforrások, jegyzetek, megjegyzések, média, betűtípusok, jelszavak, nagy fájlok és több szálas feldolgozás kezelése.
+- az összes dia egyesítése a forrás formázásának megőrzésével;
+- kiválasztott diák egyesítése;
+- egy mester alkalmazása a célprezentációból;
+- egy adott elrendezés alkalmazása a célprezentációból;
+- a különböző dia méretek normalizálása egyesítés előtt;
+- klónozott diák hozzáadása egy szekcióhoz;
+- több prezentáció egyesítése egy végponttól végpontig folyamatban;
+- mesterek, erőforrások, jegyzetek, megjegyzések, média, betűtípusok, jelszavak, nagy fájlok és több szálas kérdések kezelése.
 
-## **A dia klónozása hatása a mesterekre és elrendezésekre**
+## **Hogyan befolyásolja a dia klónozása a mestereket és az elrendezéseket**
 
-Egy dia megjelenésének nagy részét az elrendezés és a mester határozza meg. Emiatt a választott klónozási felülterhelés dönti el, hogyan kerül be a egyesített dia a célprezentációba.
+Egy dia megjelenésének nagy részét a saját elrendezése és mestere határozza meg. Ezért a választott klónozási metódus határozza meg, hogyan integrálódik az egyesített dia a célprezentációba.
 
-Használja a [ISlideCollection.addClone](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islidecollection/) egyik változatát az alábbi módokon:
+Használja a [ISlideCollection.addClone](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islidecollection/) metódust az alábbi módok egyikével:
 
-- `addClone(sourceSlide)` — megőrzi a forrásdia elrendezését és formázását. Szükség esetén a forrásmester automatikusan klónozható a célprezentációba. Az Aspose.Slides automatikusan klónozott mestereket nyomon követ, így ugyanazt a mestert használó ismétlődő diák nem okoznak többszöri klónozást.
-- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — a klónozott diát egy konkrét cél [IMasterSlide](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imasterslide/) alá csatolja. Az Aspose.Slides a mester alatt a layout típus vagy név alapján keres egyező elrendezést.
-- `addClone(sourceSlide, destinationLayout)` — a klónozott diát közvetlenül egy konkrét cél [ILayoutSlide](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ilayoutslide/) alá csatolja.
+- `addClone(sourceSlide)` — megőrzi a forrásdia elrendezését és formázását. Szükség esetén a forrásmester automatikusan klónozható a célprezentációba. Az Aspose.Slides automatikusan klónozott mestereket nyomon követ, így az ugyanazt a forrásmestert használó ismétlődő diák nem okozzák a mester többszöri klónozását.
+- `addClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — a klónozott diát egy adott cél-[IMasterSlide](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imasterslide/)-hez csatolja. Az Aspose.Slides a megfelelő elrendezést keresi az adott mester alatt elrendezéstípus vagy név alapján.
+- `addClone(sourceSlide, destinationLayout)` — a klónozott diát közvetlenül egy adott cél-[ILayoutSlide](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ilayoutslide/)-hez csatolja.
 
-Az `addClone` felülterhelésnek átadott mesternek vagy elrendezésnek a **cél** prezentációhoz kell tartoznia, nem a forráshoz.
+Az `addClone` metódusnak átadott mesternek vagy elrendezésnek a **cél** prezentációhoz kell tartoznia, nem a forráshez.
 
 ## **Teljes prezentációk egyesítése és a forrás formázásának megőrzése**
 
-A legegyszerűbb egyesítés minden diát átmásol a forrás prezentációból a cél prezentációba. Ez a megfelelő választás, ha a importált diáknak meg kell őrizniük eredeti témájukat, mesterüket és elrendezéskapcsolataikat.
+A legegyszerűbb egyesítés minden diát átmásol a forrásprezentációból a célprezentációba. Ez a megfelelő választás, ha a importált diáknak meg kell tartaniuk eredeti témájukat, mesterüket és elrendezéskapcsolataikat.
 
 ```java
 import com.aspose.slides.*;
@@ -70,11 +70,11 @@ try {
 }
 ```
 
-Az eredményes prezentáció több mestert tartalmazhat, ha a forrás és a cél különböző terveket használ. Ez várható, ha a forrásformázás szándékosan megmarad.
+A keletkezett prezentáció több mestert is tartalmazhat, ha a forrás és a cél különböző tervezéseket használ. Ez várható, ha a forrás formázását szándékosan megőrzik.
 
-## **Kijelölt diák egyesítése**
+## **Kiválasztott diák egyesítése**
 
-Nem szükséges minden diát klónozni. Az alábbi példa csak a forrás prezentáció kiválasztott diaindexeit importálja.
+Nem kell minden diát klónozni. Az alábbi példa csak a forrásprezentáció kiválasztott diaindexeit importálja.
 
 ```java
 import com.aspose.slides.*;
@@ -95,11 +95,11 @@ try {
 }
 ```
 
-Érvényesítse a diaindexeket a klónozás előtt, ha felhasználói bemenetből vagy külső konfigurációból származnak.
+Ellenőrizze a diaindexeket a klónozás előtt, ha azok felhasználói bemenetből vagy külső konfigurációból származnak.
 
-## **Diák egyesítése célmesterrel**
+## **Diák egyesítése egy célmesterrel**
 
-Használja a [addClone(ISlide, IMasterSlide, boolean)](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) felülterhelést, ha az importált diáknak egy már a célprezentációban lévő mesterhez kell illeszkedniük.
+Használja a [addClone(ISlide, IMasterSlide, boolean)](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.IMasterSlide-boolean-) metódust, ha az importált diáknak egy már a célprezentációhoz tartozó mesterhez kell illeszkedniük.
 
 ```java
 import com.aspose.slides.*;
@@ -120,13 +120,13 @@ try {
 }
 ```
 
-Az Aspose.Slides a megadott mester alatt a forrás elrendezés típusának vagy nevének megfelelő elrendezést választja. Ha nincs megfelelő elrendezés és az `allowCloneMissingLayout` **true**, a forráselrendezés klónozódik, így a dia hozzáadható. Ha **false**, [PptxEditException](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/pptxeditexception/) keletkezik.
+Az Aspose.Slides a megadott mester alatt egy megfelelő elrendezést választ ki a forrás elrendezés típusának vagy nevének egyezése alapján. Ha nincs megfelelő elrendezés és az `allowCloneMissingLayout` **true**, akkor a forráselrendezés klónozódik, hogy a dia hozzáadható legyen. Ha **false**, akkor egy [PptxEditException](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/pptxeditexception/) kerül dobásra.
 
-Használja a **false** értéket, ha inkább azt akarja, hogy az egyesítés hibára fusson, ahelyett, hogy további elrendezést hozna létre a célmesterben.
+Használja a **false** értéket, ha azt szeretné, hogy az egyesítés hibával leálljon ahelyett, hogy további elrendezést hozna létre a célmesterben.
 
-## **Diák egyesítése konkrét célelrendezéssel**
+## **Diák egyesítése egy adott célelrendezéssel**
 
-Használja a [addClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) felülterhelést, ha pontosan tudja, melyik célelrendezést kell az importált diáknak használniuk.
+Használja a [addClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ILayoutSlide-) metódust, ha pontosan tudja, melyik célelrendezést kell az importált diák használniuk.
 
 ```java
 import com.aspose.slides.*;
@@ -147,13 +147,13 @@ try {
 }
 ```
 
-A célelrendezés alkalmazása megváltoztatja az örökölt elrendezéskapcsolatot; a forrásdia tartalma nem kerül újratervezésre. Ha a forrás- és célelrendezések különböző helyőrző struktúrával rendelkeznek, ellenőrizze az eredményt, hogy az örökölt formázás és a helyőrző viselkedés megfelelő-e.
+A célelrendezés alkalmazása megváltoztatja az örökölt elrendezéskapcsolatot; a forrásdia tartalmát nem alakítja át. Ha a forrás és a cél elrendezések különböző helyőrző struktúrával rendelkeznek, ellenőrizze az eredményt, hogy az örökölt formázás és helyőrző viselkedés megfelelő legyen.
 
-## **Prezentációk egyesítése eltérő dia méretekkel**
+## **Prezentációk egyesítése különböző dia méretekkel**
 
-Eltérő dia mérettel rendelkező prezentációk egyesíthetők, de egy dia klónozása egy másik mérettel rendelkező prezentációba nem alakítja át automatikusan a tartalmat az új vászonra. Ennek következtében alakzatok eltolódhatnak, váratlanul méreteződhetnek, vagy a látható dia területén kívülre kerülhetnek.
+Különböző dia méretekkel rendelkező prezentációk egyesíthetők, de egy dia klónozása másik dia méretű prezentációba nem alakítja át automatikusan a tartalmat az új vászonra. Ennek következtében az alakzatok eltolódhatnak, méreteződhetnek váratlanul vagy a látható dia területén kívülre kerülhetnek.
 
-Gyakorlati megoldásként a forrás prezentációt méretezze át a klónozás előtt. A [SlideSize.setSize](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/slidesize/#setSize-float-float-int-) metódus méretezheti a meglévő tartalmat, miközben a dia mérete változik. A [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/slidesizescaletype/) a tartalmat a kért mérethez igazítja.
+Egy gyakorlati megközelítés, hogy a forrásprezentációt átméretezzük klónozás előtt. A [SlideSize.setSize](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/slidesize/#setSize-float-float-int-) metódus skálázhatja a meglévő tartalmat a dia méretének megváltoztatása közben. A [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/slidesizescaletype/) a tartalmat a kért mérethez igazítja.
 
 ```java
 import com.aspose.slides.*;
@@ -184,11 +184,11 @@ try {
 }
 ```
 
-A méretezés a forrás prezentáció objektumot módosítja a memóriában. Ha az eredeti forrás prezentációt más műveletekhez változatlanul kell hagyni, nyisson egy külön példányt az egyesítéshez.
+Az átméretezés megváltoztatja a forrásprezentáció objektumát a memóriában. Ha az eredeti forrásprezentációnak változatlanul kell maradnia további műveletekhez, nyisson egy külön példányt az egyesítéshez.
 
 ## **Diák egyesítése egy prezentáció szekciójába**
 
-Az alapvető dia-klónozási ciklus nem hozza létre a forrás prezentáció szekcióhierarchiáját. Ha a szekciók fontosak a kimenetben, hozzon létre vagy válasszon ki szekciókat a cél prezentációban, és a diákot explicite klónozza bele a [addClone(ISlide, ISection)](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-) metódussal.
+Az alap dia‑klónozó ciklus nem hozza létre a forrásprezentáció szekcióhierarchiáját. Ha a szekciók fontosak a kimenetben, hozzon létre vagy válasszon ki szekciókat a célprezentációban, és klónozza a diákot kifejezetten a [addClone(ISlide, ISection)](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-) metódussal.
 
 ```java
 import com.aspose.slides.*;
@@ -209,11 +209,11 @@ try {
 }
 ```
 
-A klónozott diák a megadott cél szekció végére kerülnek. Több forrás szekció megőrzéséhez hozza létre ezeket a szekciókat a célban, és térképezze a forrás diát a megfelelő cél szekcióra.
+A klónozott diák a megadott cél szekcióhoz lesz hozzáfűzve. Több forrás szekció megőrzéséhez iterálja végig a [Presentation.getSections](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/#getSections--) metódust, szerezze be minden forrás szekció aktuális diáit a [ISection.getSlidesListOfSection](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/isection/#getSlidesListOfSection--) segítségével, hozza létre a szekciókat a célban, és klónozza az egyes diát a megfelelő cél szekcióba. Lásd a [Manage Slide Sections](/slides/hu/androidjava/slide-section/) oldalt a komplett szekció‑enumerációs példáért, beleértve az üres szekciókat és a struktúraváltozásokat.
 
 ## **Több prezentáció biztonságos egyesítése**
 
-Az alábbi végponttól végpontig terjedő példa az első prezentációt használja célként, normalizálja az egyes további források dia méretét, minden forrást csak a másolás ideje alatt nyit meg, és a végleges fájlt egyszer menti.
+Az alábbi végponttól‑végpontig példában az első prezentációt használja célként, normalizálja minden további forrás dia méretét, minden forrást csak a másolás ideje alatt nyit nyitva, és a végén egyszer menti a fájlt.
 
 ```java
 import com.aspose.slides.*;
@@ -252,39 +252,39 @@ try {
 }
 ```
 
-Ez egy hasznos kiindulási pont a forrásformázás megőrzéséhez. Ha a kimenetnek egyetlen cél témát kell használnia, cserélje le az egyszerű `addClone(slide)` hívást a korábban bemutatott megfelelő célmester vagy célelrendezés felülterhelésre.
+Ez egy hasznos alapvonal a forrás formázásának megőrzéséhez az importált diák esetén. Ha a kimenetnek egyetlen cél téma kell, cserélje le az egyszerű `addClone(slide)` hívást a korábban bemutatott megfelelő cél‑mester vagy cél‑elrendezés overloadra.
 
 ## **Gyakorlati megfontolások**
 
-### **Mesterek, elrendezések és a formázás pontossága**
+### **Mesterek, elrendezések és a formázási hűség**
 
-Az alapértelmezett dia-klónozás automatikusan behozhat egy szükséges forrás mestert a cél prezentációba. Az Aspose.Slides belső regisztert vezet az automatikusan klónozott mesterek számára, hogy elkerülje ugyanazon mester többszöri klónozását. A manuálisan klónozott mestereket ez a regiszter nem követi, ezért kerüljük a mesterek előzetes klónozását, hacsak nem szükséges a mester struktúrájának explicit irányítása.
+Az alap dia‑klónozás automatikusan behozhat egy szükséges forrásmestert a célprezentációba. Az Aspose.Slides egy belső regisztert vezet az automatikusan klónozott mesterek nyomon követésére, hogy ugyanaz a mester ne legyen többször klónozva. A manuálisan klónozott mestereket ez a regiszter nem követi, ezért kerüljük a mesterek előzetes klónozását, hacsak nem szükséges a mester struktúra explicit irányítása.
 
-Ne feltételezzük, hogy két azonos névű mester vagy elrendezés vizuálisan ekvivalens. Ha egy vállalati sablonnak kell irányítania a végső megjelenést, válasszon explicit cél mestert vagy elrendezést, és ellenőrizze az eredményt az egyesítés után.
+Ne tételezzük fel, hogy két azonos nevű mester vagy elrendezés vizuálisan egyenértékű. Ha egy vállalati sablonnak kell határoznia a végső megjelenést, válasszon explicit célmestert vagy elrendezést, és ellenőrizze az egyesítés utáni eredményt.
 
 ### **Jegyzetek és megjegyzések**
 
-Az előadói jegyzetek és a dia megjegyzések a dia tartalmához kapcsolódnak, és a dia klónozásakor másolódnak. Az Aspose.Slides dedikált API‑kat is biztosít a [presentation notes](https://docs.aspose.com/slides/hu/androidjava/presentation-notes/) és a [presentation comments](https://docs.aspose.com/slides/hu/androidjava/presentation-comments/) kezelésére.
+A előadói jegyzetek és dia megjegyzések a dia tartalmához kapcsolódnak, és másolásra kerülnek, amikor egy diát klónoznak. Az Aspose.Slides dedikált API‑kat is kínál a [presentation notes](/slides/hu/androidjava/presentation-notes/) és a [presentation comments](/slides/hu/androidjava/presentation-comments/) kezeléséhez.
 
-Ha a notes‑oldal formázása fontos, ellenőrizze az egyesített prezentációt, mert a notes mesterek prezentáció‑szintű objektumok, és forrás fájlok között eltérhetnek. Felülvizsgálati folyamatoknál ellenőrizze a megjegyzés szerzőket és a szálas megjegyzéseket is, ha különböző szerzők vagy sablonok fájljait egyesíti.
+Ha a jegyzetoldal formázása fontos, ellenőrizze az egyesített prezentációt, mert a jegyzetmesterek prezentáció‑szintű objektumok, és különbözhetnek a forrásfájlok között. Áttekintési munkafolyamatoknál ellenőrizze a megjegyzés szerzőket és a szálas megjegyzéseket is különböző szerzők vagy sablonok kombinálása után.
 
 ### **Képek, hang, videó, OLE objektumok és külső hivatkozások**
 
-A diák hivatkozhat prezentáció‑szintű erőforrásokra, például képekre, beágyazott hangra, beágyazott videóra és OLE adatokra. Klónozza magát a diát, ne csak a látható alakzatokat, hogy az Aspose.Slides megőrizhesse a dia erőforráskapcsolatait.
+A diák hivatkozhatnak prezentáció‑szintű erőforrásokra, mint képek, beágyazott hang, beágyazott videó és OLE adatok. Klónozza a teljes diát, ne csak a látható alakzatokat, hogy az Aspose.Slides megőrizhesse a dia erőforráskapcsolatait.
 
-A beágyazott és a hivatkozott erőforrásokat külön kell kezelni. Egy hivatkozott hang, videó, OLE objektum vagy hiperhivatkozás továbbra is külső célra támaszkodik; a dia klónozása nem alakítja át a külső hivatkozást beágyazott tartalommá. Tesztelje a hivatkozott erőforrások útvonalait és URL‑jeit abban a környezetben, ahol az egyesített prezentációt megnyitják.
+A beágyazott és a hivatkozott erőforrásokat külön kell kezelni. Egy hivatkozott hang, videó, OLE objektum vagy hyperlink továbbra is a külső célra támaszkodik; a dia klónozása nem alakítja át a külső hivatkozást beágyazott tartalommá. Tesztelje a hivatkozott erőforrások útvonalait és URL‑jeit abban a környezetben, ahol az egyesített prezentációt meg fogják nyitni.
 
-Az Aspose.Slides automatikusan klónozott mestereket nyomon követ, de ez nem jelent általános garanciát arra, hogy az unrelated forrás prezentációkból származó azonos bináris erőforrások mindig deduplikálódnak. Ha a kimeneti fájlméret fontos, vizsgálja meg az egyesített csomagot és mérje le a méretet ahelyett, hogy implicit deduplikációra támaszkodna.
+Az Aspose.Slides nyomon követi az automatikusan klónozott mestereket, de ez nem jelent általános garanciát arra, hogy az egymástól független forrásprezentációkból származó azonos bináris erőforrások mindig deduplikálódnak. Ha a kimeneti fájlméret fontos, ellenőrizze a csomagot és mérje az eredményt, ahelyett, hogy a rejtett deduplikálásra támaszkodna.
 
-### **Beágyazott betűtípusok és betűtípus‑elérhetőség**
+### **Beágyazott betűtípusok és betűtípus elérhetőség**
 
-A betűtípusok a prezentáció szintjén kezelhetők. Ha a tipográfiának gépek között konzisztensnek kell maradnia, ne feltételezze, hogy a dia klónozása egyedül garantálja a szükséges betűtípusok meglétét a cél környezetben. A beágyazott betűtípusokat a [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) metódussal ellenőrizheti, és a [Embed Fonts in Presentations](https://docs.aspose.com/slides/hu/androidjava/embedded-font/) útmutatóban leírt módon kezelheti a beágyazást.
+A betűtípusok a prezentáció‑szinten vannak kezelve. Ha a tipográfiának gépek között konzisztensnek kell maradnia, ne feltételezze, hogy a diák klónozása önmagában garantálja, hogy minden szükséges betűtípus elérhető a célkörnyezetben. Ellenőrizheti a beágyazott betűtípusokat a [FontsManager.getEmbeddedFonts](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/fontsmanager/#getEmbeddedFonts--) segítségével, és kezelheti a beágyazást a [Embed Fonts in Presentations](/slides/hu/androidjava/embedded-font/) útmutató szerint.
 
-Ellenőrizze továbbá, hogy jogosult‑e a forrás fájlokban használt betűtípusok beágyazására. A betűtípus‑licencek korlátozhatják a beágyazást.
+Ellenőrizze továbbá, hogy jogosult-e beágyazni a forrásfájlok által használt betűtípusokat. A betűtípus licencek korlátozhatják a beágyazást.
 
-### **Jelszó‑védett prezentációk**
+### **Jelszóval védett prezentációk**
 
-A jelszó‑védett forrást sikeresen meg kell nyitni, mielőtt a diái klónozhatók. A jelszót a [LoadOptions.setPassword](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) metódussal adja meg.
+A jelszóval védett forrást sikeresen meg kell nyitni, mielőtt a diák klónozhatók. Adja meg a jelszót a [LoadOptions.setPassword](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) segítségével.
 
 ```java
 import com.aspose.slides.*;
@@ -300,64 +300,64 @@ try {
 }
 ```
 
-A titkosított forrás megnyitása nem alkalmaz automatikusan ugyanazt a védelmet a cél prezentációra. A kimeneti védelem beállítása külön kell, ha szükséges.
+A titkosított forrás megnyitása nem alkalmazza automatikusan ugyanazt a védelmet a célprezentációra. A kimeneti védekezést külön kell konfigurálni, ha szükséges.
 
 ### **Nagy prezentációk és memóriahasználat**
 
-Nagy prezentációk, amelyek nagy felbontású képeket, hangot, videót vagy egyéb nagy bináris objektumokat tartalmaznak, jelentős memóriát fogyaszthatnak. A [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/loadoptions/#getBlobManagementOptions--) lehetőséget kínál a BLOB‑kezelés és a temporary‑file használat szabályozására. Lásd a [Manage Presentation BLOBs](https://docs.aspose.com/slides/hu/androidjava/manage-blob/) anyagot a nagy fájlokra vonatkozó stratégiákról.
+Nagy prezentációk, amelyek nagy felbontású képeket, hangot, videót vagy egyéb nagy bináris objektumokat tartalmaznak, jelentős memóriát fogyaszthatnak. A [LoadOptions.getBlobManagementOptions](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/loadoptions/#getBlobManagementOptions--) beállítások vezérlik a BLOB kezelését és az ideiglenes fájlok használatát. Lásd a [Manage Presentation BLOBs](/slides/hu/androidjava/manage-blob/) oldalt a nagy fájlokra vonatkozó stratégiákért.
 
-Nagy fájlok esetén részesítse előnyben a fájlúton való betöltést, amint lehetséges, szabadítsa fel minden forrás prezentációt, amint az be lett másolva, és kerülje el a köztes eredmények ismételt mentését, hacsak a munkafolyamat nem igényel ellenőrző pontokat.
+Nagy fájlok esetén részesítsen előnyben a fájlúton történő betöltést, ha lehetséges, és a forrásprezentációkat azonnal bontsa le, miután azok egyesítésre kerültek. Kerülje a köztes eredmények ismételt mentését, hacsak a munkafolyamat nem igényel ellenőrző pontokat.
 
 ### **Szálbiztonság**
 
-Ne töltsön be, módosítson, mentse vagy klónozza ugyanazt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) példányt párhuzamosan több szálról. Tartsa az egyes prezentációs példányokat egyetlen egyesítési művelethez. Ha független feladatokat párhuzamosít, használjon független prezentációs példányokat, és kövesse az [Aspose.Slides multithreading guidance](https://docs.aspose.com/slides/hu/androidjava/multithreading/) útmutatót.
+Ne töltsön be, módosítson, mentessen vagy klónozzon ugyanazt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) példányt párhuzamosan több szálról. Tartsa minden prezentáció példányt egyetlen egyesítési műveleten belül. Ha független feladatokat párhuzamosít, használjon különálló prezentáció példányokat, és kövesse az [Aspose.Slides több szálas irányelveit](/slides/hu/androidjava/multithreading/).
 
 ## **GYIK**
 
-**Hogyan tarthatom meg minden forrás prezentáció eredeti dizájnját?**
+**Hogyan őrizhetem meg minden forrásprezentáció eredeti dizájnját?**
 
-Használja a [`addClone(sourceSlide)`](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) hívást a célmester vagy –elrendezés megadása nélkül. Az Aspose.Slides automatikusan klónozhatja a forrás mestert, ha a importált diához szükség van rá.
+Használja a [addClone](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-) metódust, anélkül, hogy célmestert vagy elrendezést adna meg. Az Aspose.Slides automatikusan klónozhatja a forrásmestert, ha az importált diáknak szüksége van rá.
 
-**Hogyan tudom, hogy az importált diák a cél téma szerint legyen formázva?**
+**Hogyan tehetem, hogy az importált diák a cél téma szerint jelenjenek meg?**
 
-Használja azt a felülterhelést, amely egy cél mestert fogad. Adjon át egy mestert a cél prezentációból, nem a forrásból. Az Aspose.Slides megpróbálja minden forrásdiát a megfelelő elrendezéshez rendelni a megadott mester alatt.
+Használja azt a overloadot, amely egy célmestert fogad. Adjunk meg egy mestert a célprezentációból, nem a forrásból. Az Aspose.Slides minden forrásdiát megpróbál a megfelelő elrendezéshez társítani az adott mester alatt.
 
-**Mikor kell konkrét célelrendezést használni a célmester helyett?**
+**Mikor használjak konkrét célelrendezést a célmester helyett?**
 
-Használjon konkrét elrendezést, ha minden importált diának egy ismert elrendezést kell használnia. Használjon mestert, ha azt akarja, hogy az Aspose.Slides a forrás elrendezés típus vagy név alapján válasszon a mester elrendezései közül.
+Használjon konkrét elrendezést, ha minden importált diáknak egy ismert elrendezést kell használnia. Használjon mestert, ha azt akarja, hogy az Aspose.Slides a forrás elrendezés típusának vagy nevének megfelelően válasszon elrendezést a mesterből.
 
-**Egyesíthetők-e különböző dia mérettel rendelkező prezentációk?**
+**Egyesíthetők-e különböző dia méretekkel rendelkező prezentációk?**
 
-Igen, de a dia tartalma nem kerül automatikusan újratervezésre a cél méretekhez. Méretezze át a forrás prezentációt először, például a [SlideSize.setSize](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/slidesize/#setSize-float-float-int-) és a [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/slidesizescaletype/) használatával.
+Igen, de a dia tartalma nem kerül automatikusan újratervezésre a cél méretekhez. Átméretezze a forrásprezentációt, ha előre meghatározott elhelyezkedésre van szükség, például a [SlideSize.setSize](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/slidesize/#setSize-float-float-int-) és a [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/slidesizescaletype/) használatával.
 
 **Egyesíthetek-e PPT, PPTX és ODP prezentációkat egy fájlba?**
 
-Igen. Töltsön be minden forrás prezentációt, klónozza a szükséges diákot egy célba, és mentse a célt egy támogatott kimeneti formátumban. Mivel a prezentációformátumok nem támogatják pontosan ugyanazt a funkciókészletet, ellenőrizze a bonyolult tartalmat a kereszt‑formátumú egyesítések után. Lásd a [Supported File Formats](https://docs.aspose.com/slides/hu/androidjava/supported-file-formats/).
+Igen. Töltse be minden forrásprezentációt, klónozza a szükséges diákat egy célba, és mentse a célt egy támogatott kimeneti formátumban. Mivel a prezentációformátumok nem támogatják pontosan ugyanazt a funkciókészletet, ellenőrizze a bonyolult tartalmat a formátumok közti egyesítések után. Lásd a [Supported File Formats](/slides/hu/androidjava/supported-file-formats/) oldalt.
 
-**Automatikusan megmaradnak-e a forrás szekciók?**
+**Megmaradnak-e automatikusan a forrás szekciók?**
 
-Nem egy egyszerű ciklus, amely csak diákot klónoz, nem őrzi meg a szekciókat. Hozza létre a szükséges szekciókat a célban, és használja a [addClone](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISlide-com.aspose.slides.ISection-) szekció‑felülterhelést, ha a szekcióstruktúrát meg kell őrizni.
+Nem egy egyszerű ciklus, amely csak diákot klónoz, nem. Hozza létre a szükséges szekciókat a célban, és használja a [addClone](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islidecollection/#addClone-com.aspose.slides.ISSlide-com.aspose.slides.ISection-) szekció overloadot, amikor a szekció struktúra megőrzése szükséges.
 
-**Megmaradnak‑e az előadói jegyzetek és megjegyzések?**
+**Megmaradnak-e a beszélői jegyzetek és megjegyzések?**
 
-Másolódnak a klónozott diával együtt. Az olyan munkafolyamatok esetén, amelyek a notes‑master stílusra, a megjegyzés‑szerzőkre vagy a szálas felülvizsgálati adatokra támaszkodnak, ellenőrizze az egyesített eredményt, mert ezek a forgatókönyvek prezentáció‑szintű struktúrákat is érintenek.
+Másolásra kerülnek a klónozott diákkal együtt. Azoknál a munkafolyamatoknál, amelyek a jegyzetmester stílusát, a megjegyzés szerzőket vagy a szálas felülvizsgálati adatokat érintik, ellenőrizze az egyesített eredményt, mivel ezek a scenáriók prezentáció‑szintű struktúrákat is érintenek a dia‑szintű tartalom mellett.
 
 **Mi történik a hanggal, videóval, OLE objektumokkal és hiperhivatkozásokkal?**
 
-A beágyazott tartalom a klónozott dia erőforrás‑kapcsolatához tartozik. A külső hivatkozások továbbra is külsőek, ezért a cél fájloknak vagy URL‑eknek elérhetőnek kell maradniuk az egyesítés után.
+A beágyazott tartalom a klónozott dia erőforráskapcsolatainak részévé válik. A külső hivatkozások továbbra is külsőek maradnak, ezért a célfájloknak vagy URL‑eknek elérhetőnek kell maradniuk az egyesítés után.
 
-**Garantált‑e, hogy minden forrásból származó beágyazott betűtípus elérhető lesz az egyesített prezentációban?**
+**Garantált-e, hogy minden forrás beágyazott betűtípusa elérhető lesz az egyesített prezentációban?**
 
-Ne hagyatkozzon kizárólag a dia‑klónozásra a betűtípus‑telepítéshez. Ellenőrizze a cél beágyazott betűtípusait, és szükség esetén explicit módon kezelje a betűtípus‑beágyazást vagy a külső betűtípus‑elérhetőséget, ha a tipográfia fontos.
+Ne támaszkodjon csak a dia‑klónozásra a betűtípus‑telepítéshez. Ellenőrizze a cél beágyazott betűtípusait, és kezelje kifejezetten a betűtípus‑beágyazást vagy a külső betűtípus‑elérhetőséget, ha a tipográfia fontos.
 
-**Hogyan egyesíthetek jelszó‑védett fájlt?**
+**Hogyan egyesíthetek egy jelszóval védett fájlt?**
 
-Nyissa meg a megfelelő [LoadOptions.setPassword](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) használatával, majd a diákat a szokásos módon klónozza. A kimeneti védelem külön konfigurálandó.
+Nyissa meg a megfelelő [LoadOptions.setPassword](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/loadoptions/#setPassword-java.lang.String-) használatával, majd klónozza a diákot a szokásos módon. A kimeneti védelem külön van beállítva.
 
 **Hogyan kezeljem a nagyon nagy prezentációkat?**
 
-Használja a BLOB‑kezelést, ha nagy bináris objektumok dominálják a memóriahasználatot, részesítse előnyben a fájl‑útvonalas betöltést nagyon nagy fájlok esetén, szabadítsa fel a forrás prezentációkat időben, és csak a végső eredményt mentse el, amikor szükséges.
+Használja a BLOB kezelést, amikor nagy bináris objektumok dominálják a memóriahasználatot, részesítse előnyben a fájl‑úton történő betöltést nagyon nagy fájlok esetén, gyorsan bontsa le a forrásprezentációkat, és csak akkor mentse a végleges eredményt, amikor szükséges.
 
 **Klónozhatok‑e diákot több szálról?**
 
-Ne használjon egy [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) példányt párhuzamosan több szálról. Tartsa minden egyes egyesítési műveletet egy saját prezentációs példányhoz.
+Ne használjon egy [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) példányt egyszerre több szálról. Tartsa minden egyes egyesítési műveletet elkülönített prezentáció‑példányokon.

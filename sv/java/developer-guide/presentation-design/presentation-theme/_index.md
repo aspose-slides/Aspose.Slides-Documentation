@@ -8,12 +8,12 @@ keywords:
 - PowerPoint-tema
 - presentationstema
 - bildtema
-- sätt tema
+- ange tema
 - ändra tema
 - hantera tema
 - temafärg
 - extra palett
-- temateckensnitt
+- tematypsnitt
 - temastil
 - temaeffekt
 - PowerPoint
@@ -21,23 +21,23 @@ keywords:
 - presentation
 - Java
 - Aspose.Slides
-description: "Behärska presentations‑teman i Aspose.Slides för Java för att skapa, anpassa och konvertera PowerPoint‑filer med konsekvent varumärkesprofil."
+description: "Behärska presentationsteman i Aspose.Slides för Java för att skapa, anpassa och konvertera PowerPoint-filer med konsekvent varumärkesprofil."
 ---
 ## **Introduktion**
 
-Ett presentationstema definierar en samordnad uppsättning färger, teckensnitt, bakgrundsstilar, fyllningar, linjer och effekter. Temamedvetna objekt refererar till dessa delade definitioner istället för att lagra varje visuellt attribut som ett fast värde, så en temabyte kan uppdatera många objekt på en gång.
+Ett presentationstema definierar en koordinerad uppsättning färger, typsnitt, bakgrundsstilar, fyllningar, linjer och effekter. Temamedvetna objekt refererar till dessa delade definitioner istället för att lagra varje visuellt attribut som ett fast värde, så en temaförändring kan uppdatera många objekt på en gång.
 
-I Aspose.Slides är temat på presentationsnivå tillgängligt via [Presentation.getMasterTheme](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/). En presentation kan också innehålla temaarvoden på lägre nivåer. En master kan åsidosätta presentations‑temat via [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/sv/java/com.aspose.slides/masterthememanager/), medan en layout eller en enskild bild kan åsidosätta sitt ärvda tema via [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/sv/java/com.aspose.slides/baseoverridethememanager/). I praktiken löses det effektiva temat för en bild upp genom denna arvskedja: presentationstema, master‑åsidosättning, layout‑åsidosättning och bild‑åsidosättning.
+I Aspose.Slides är temat på presentationsnivå tillgängligt via [Presentation.getMasterTheme](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/). En presentation kan också innehålla temaversättningar på lägre nivåer. En master kan åsidosätta presentations‑temat via [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/sv/java/com.aspose.slides/masterthememanager/), medan en layout eller en enskild bild kan åsidosätta det ärvda temat via [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/sv/java/com.aspose.slides/baseoverridethememanager/). I praktiken löses det effektiva temat för en bild upp genom denna arvskedja: presentations‑tema, master‑åsidosättning, layout‑åsidosättning och bild‑åsidosättning.
 
-![Tema‑komponenter: färger, teckensnitt, bakgrundsstilar och effekter](theme-constituents.png)
+![Temakomponenter: färger, typsnitt, bakgrundsstilar, och effekter](theme-constituents.png)
 
-Avsnitten nedan visar de vanligaste temaarbetsflödena: inspektera ett tema, ändra färger och teckensnitt, kopiera eller tillämpa ett tema, uppdatera bakgrunds‑ och effektstilar samt läsa av effektiva värden efter att arv och åsidosättningar har lösts.
+Avsnitten nedan visar de vanligaste temaarbetsflödena: inspektera ett tema, ändra färger och typsnitt, kopiera eller tillämpa ett tema, uppdatera bakgrunds‑ och effektstilar samt läsa effektiva värden efter att arv och åsidosättningar har lösts.
 
 ## **Inspektera ett tema**
 
-Objektet [MasterTheme](https://reference.aspose.com/slides/sv/java/com.aspose.slides/mastertheme/) exponerar temats färgschema, teckensnittsschema och format­schema via [MasterTheme.getColorScheme](https://reference.aspose.com/slides/sv/java/com.aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/sv/java/com.aspose.slides/mastertheme/) och [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/sv/java/com.aspose.slides/mastertheme/). Att inspektera dessa samlingar innan de ändras är särskilt användbart när en presentation kommer från en extern källa eftersom antalet och innehållet i stil‑poster kan variera.
+[MasterTheme](https://reference.aspose.com/slides/sv/java/com.aspose.slides/mastertheme/)-objektet exponerar temats färgschema, typsnittsschema och format‑schema via [MasterTheme.getColorScheme](https://reference.aspose.com/slides/sv/java/com.aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/sv/java/com.aspose.slides/mastertheme/) och [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/sv/java/com.aspose.slides/mastertheme/). Att inspektera dessa samlingar innan de ändras är särskilt användbart när en presentation kommer från en extern källa, eftersom antalet och innehållet i stilposter kan variera.
 
-Följande exempel läser huvudtemats egenskaper och rapporterar hur många bakgrunds‑, fyllnings‑, linje‑ och effektstilar som lagras i temat:
+Det följande exemplet läser huvudtemats egenskaper och rapporterar hur många bakgrunds‑, fyllnings‑, linje‑ och effektstilar som lagras i temat:
 
 ```java
 import com.aspose.slides.*;
@@ -58,13 +58,13 @@ try {
 }
 ```
 
-Om en fil använder flera masters, anta inte att varje bild har samma effektiva tema. Inspektera den master som är kopplad till bilden och använd arbetsflödet för effektiva teman som visas senare i den här artikeln när layout‑ eller bild‑åsidosättningar kan finnas.
+Om en fil använder flera masters, anta inte att varje bild har samma effektiva tema. Inspektera den master som är kopplad till bilden och använd arbetsflödet för effektiva teman som visas senare i artikeln när layout‑ eller bild‑åsidosättningar kan finnas.
 
 ## **Ändra temafärger**
 
-Temamedvetna fyllningar, linjer och text kan referera till en logisk färg från uppräkningen [SchemeColor](https://reference.aspose.com/slides/sv/java/com.aspose.slides/schemecolor/). När du ändrar motsvarande post i [IColorScheme](https://reference.aspose.com/slides/sv/java/com.aspose.slides/icolorscheme/), löses alla objekt som fortfarande refererar till den temafärgen mot det nya värdet. Objekt som använder en direkt RGB‑färg påverkas inte av en temafärgsuppdatering.
+Temamedvetna fyllningar, linjer och text kan referera till en logisk färg från [SchemeColor](https://reference.aspose.com/slides/sv/java/com.aspose.slides/schemecolor/)-enumerationen. När du ändrar motsvarande post i [IColorScheme](https://reference.aspose.com/slides/sv/java/com.aspose.slides/icolorscheme/), löses alla objekt som fortfarande refererar till den temafärgen mot det nya värdet. Objekt som använder en direkt RGB‑färg ändras inte av en temafärgsuppdatering.
 
-Följande end‑to‑end‑exempel skapar en form som använder `Accent4`, ändrar temats `Accent4`‑färg till röd, sparar presentationen, öppnar den igen och skriver ut den effektiva fyllningsfärgen:
+Det följande end‑to‑end‑exemplet skapar en form som använder `Accent4`, ändrar temats `Accent4`‑färg till röd, sparar presentationen, öppnar den igen och skriver ut den effektiva fyllningsfärgen:
 
 ```java
 import com.aspose.slides.*;
@@ -93,19 +93,19 @@ try {
 }
 ```
 
-Eftersom rektangeln förblir länkad till `Accent4` blir dess synliga färg röd efter att temat har ändrats. Om du ersätter schemafärgen med en direkt färg på formen kommer senare förändringar av `Accent4` inte längre påverka den fyllningen.
+Eftersom rektangeln förblir länkad till `Accent4` blir dess synliga färg röd efter temaförändringen. Om du ersätter schemafärgen med en direkt färg på formen, påverkas inte fyllningen längre av senare ändringar av `Accent4`.
 
 ### **Använd färger från den extra paletten**
 
-PowerPoint härleder ljusare och mörkare varianter från en temafärg genom att tillämpa färgtransformationer. Aspose.Slides exponerar dessa transformationer via uppräkningen [ColorTransformOperation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/colortransformoperation/).
+PowerPoint härleder ljusare och mörkare varianter från en temafärg genom att tillämpa färgtransformeringar. Aspose.Slides exponerar dessa transformationer via [ColorTransformOperation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/colortransformoperation/)-enumerationen.
 
-![Huvudtemafärger samt ljusare och mörkare färger genererade från den extra paletten](additional-palette-colors.png)
+![Huvudtemafärger och ljusare samt mörkare färger genererade från den extra paletten](additional-palette-colors.png)
 
 **1** – Huvudtemafärger.
 
-**2** – Ljusare och mörkare varianter som produceras från huvudtemafärgerna.
+**2** – Ljusare och mörkare varianter framtagna från huvudtemafärgerna.
 
-Följande exempel skapar sex rektanglar baserade på `Accent4`, tillämpar luminans‑transformationer på fem av dem och sparar resultatet:
+Det följande exemplet skapar sex rektanglar baserade på `Accent4`, applicerar luminans‑transformeringar på fem av dem och sparar resultatet:
 
 ```java
 import com.aspose.slides.*;
@@ -152,31 +152,31 @@ try {
 }
 ```
 
-Dessa varianter förblir baserade på temafärgen. Om `Accent4` ändras senare beräknas de transformerade färgerna om från det nya `Accent4`‑värdet.
+Dessa varianter förblir baserade på temafärgen. Om `Accent4` ändras senare räknas de transformerade färgerna om från det nya `Accent4`‑värdet.
 
-### **Karta `SchemeColor`‑värden till `IColorScheme`‑platser**
+### **Mappa `SchemeColor`‑värden till `IColorScheme`‑platser**
 
-Uppräkningen [SchemeColor](https://reference.aspose.com/slides/sv/java/com.aspose.slides/schemecolor/) använder `Text1`, `Background1`, `Text2` och `Background2`, medan [IColorScheme](https://reference.aspose.com/slides/sv/java/com.aspose.slides/icolorscheme/) exponerar samma temaplatser som `Dark1`, `Light1`, `Dark2` och `Light2`. Mappningen är fast:
+[SchemeColor](https://reference.aspose.com/slides/sv/java/com.aspose.slides/schemecolor/)-enumerationen använder `Text1`, `Background1`, `Text2` och `Background2`, medan [IColorScheme](https://reference.aspose.com/slides/sv/java/com.aspose.slides/icolorscheme/) exponerar samma temaplatser som `Dark1`, `Light1`, `Dark2` och `Light2`. Mappningen är fast:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-Detta är alternativa namn för samma temaplatser; de är inte värden som konverteras dynamiskt från en form till en annan.
+Detta är alternativa namn för samma temaplatser; de är inte värden som dynamiskt konverteras från en form till en annan.
 
-## **Ändra temateckensnitt**
+## **Ändra tematypsnitt**
 
-Ett temateckensnittsschema innehåller en huvudteckensnittssats för rubriker och en bi‑teckensnittssats för brödtext. Metoderna [IFontScheme.getMajor](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ifontscheme/) och [IFontScheme.getMinor](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ifontscheme/) exponerar dessa satser.
+Ett tematypsnittsschema innehåller en huvudtypsnittssamling för rubriker och en mindre typsnittssamling för brödtext. Metoderna [IFontScheme.getMajor](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ifontscheme/) och [IFontScheme.getMinor](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ifontscheme/) exponerar dessa samlingar.
 
-PowerPoint‑kompatibla temateckensnittsidentifierare kan användas i textformatering:
+PowerPoint‑kompatibla tematypsnittsidentifierare kan användas i textformatering:
 
-* `+mn-lt` – Brödtext Latin (Minor Latin Font)
+* `+mn-lt` – Brödtext Font Latin (Minor Latin Font)
 * `+mj-lt` – Rubrikfont Latin (Major Latin Font)
-* `+mn-ea` – Brödtext Östasiatiskt (Minor East Asian Font)
-* `+mj-ea` – Rubrikfont Östasiatiskt (Major East Asian Font)
+* `+mn-ea` – Brödtext Font East Asian (Minor East Asian Font)
+* `+mj-ea` – Rubrikfont East Asian (Major East Asian Font)
 
-Följande exempel skapar en rubrik som använder det stora Latin‑temateckensnittet och en brödtext‑rad som använder det lilla Latin‑temateckensnittet. Därefter ändras temateckensnitten och resultatet sparas:
+Det följande exemplet skapar en rubrik som använder huvud‑Latin‑tematypsnittet och en brödtextlinje som använder det mindre Latin‑tematypsnittet. Det ändrar sedan tematypsnitten och sparar resultatet:
 
 ```java
 import com.aspose.slides.*;
@@ -201,10 +201,12 @@ try {
 }
 ```
 
-Rubriken följer det stora teckensnittet och brödtexten följer det lilla teckensnittet. Text som har ett explicit teckensnittsnamn istället för en temaidentifierare byter inte automatiskt när temateckensnittsschemat ändras.
+Rubriken följer huvudtypsnittet och brödtexten följer det mindre typsnittet. Text som har ett explicit typsnittsnamn istället för en temidentifierare byter inte automatiskt när tematypsnittsschemat ändras.
 
-{{% alert color="info" title="Tips" %}}
-För mer information om presentations‑teckensnitt, se [PowerPoint Fonts](/slides/sv/java/powerpoint-fonts/).
+De stora och små typsnittssamlingarna kan också innehålla typsnittsmappningar för enskilda skriftsystem, såsom kyrilliska, arabiska, japanska, georgiska och thaana. För att inspektera, lägga till, ersätta eller ta bort dessa mappningar, se [Script‑Specific Theme Fonts](/slides/sv/java/script-specific-font-mappings/).
+
+{{% alert color="info" title="Tip" %}}
+För mer information om presentations‑typsnitt, se [PowerPoint Fonts](/slides/sv/java/powerpoint-fonts/).
 {{% /alert %}}
 
 ## **Kopiera eller tillämpa ett tema**
@@ -213,7 +215,7 @@ Det finns två vanliga arbetsflöden, och de löser olika problem.
 
 ### **Bevara ett källtema när du flyttar bilder**
 
-Om du vill flytta en bild till en annan presentation och bevara dess ursprungliga design, klona käll‑master till mål‑presentationen med [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imasterslidecollection/), klona sedan bilden med [ISlideCollection.addClone](https://reference.aspose.com/slides/sv/java/com.aspose.slides/islidecollection/) och den klonade master‑bilden. Detta för med sig master‑bilden, dess layouter och det associerade temat tillsammans.
+Om du vill flytta en bild till en annan presentation och bevara dess ursprungliga design, klona käll‑mastern till mål‑presentationen med [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imasterslidecollection/), klona sedan bilden med [ISlideCollection.addClone](https://reference.aspose.com/slides/sv/java/com.aspose.slides/islidecollection/) och den klonade mastern. Detta tar med mastern, dess layouter och det associerade temat.
 
 ```java
 import com.aspose.slides.*;
@@ -235,11 +237,11 @@ try {
 }
 ```
 
-Detta är det föredragna arbetsflödet när käll‑bilden måste se likadan ut i destinationen. Att bara klona innehåll till en orelaterad destinations‑master kan ändra temadrivna färger, teckensnitt, bakgrunder och effekter.
+Detta är det föredragna arbetsflödet när käll‑bilden måste se likadan ut i destinationen. Att bara klona innehåll på en orelaterad destinations‑master kan ändra temadrivna färger, typsnitt, bakgrunder och effekter.
 
 ### **Tillämpa temavärden på en befintlig bild**
 
-Om mål‑bilden måste stanna på sin nuvarande master och layout, initiera ett bild‑nivå‑åsidosättnings‑tema från källtemat. Metoderna [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/sv/java/com.aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/sv/java/com.aspose.slides/overridetheme/) och [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/sv/java/com.aspose.slides/overridetheme/) kopierar de tre huvudtema‑komponenterna till åsidosättningen.
+Om mål‑bilden måste stanna på sin nuvarande master och layout, initiera en bild‑nivå‑åsidosättning från källtemat. Metoderna [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/sv/java/com.aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/sv/java/com.aspose.slides/overridetheme/) och [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/sv/java/com.aspose.slides/overridetheme/) kopierar de tre huvudtemakomponenterna till åsidosättningen.
 
 ```java
 import com.aspose.slides.*;
@@ -262,7 +264,7 @@ try {
 }
 ```
 
-Detta förändrar temat som används av den bilden utan att ändra temat som ärvt av andra bilder. För att ta bort den lokala åsidosättningen och återgå till ärvda värden, anropa [OverrideTheme.clear](https://reference.aspose.com/slides/sv/java/com.aspose.slides/overridetheme/).
+Detta ändrar temat som den bilden använder utan att ändra temat som ärvt av andra bilder. För att ta bort den lokala åsidosättningen och återgå till ärvda värden, anropa [OverrideTheme.clear](https://reference.aspose.com/slides/sv/java/com.aspose.slides/overridetheme/).
 
 ### **Tillämpa en temåsåsidosättning på en layout**
 
@@ -290,17 +292,17 @@ try {
 }
 ```
 
-Använd ett master‑ eller presentations‑tema när många layouter och bilder bör dela samma grunddesign, en layout‑åsidosättning när en layoutfamilj behöver annan styling, och en bild‑åsidosättning endast för egentliga undantag. Överdrivna bild‑nivå‑åsidosättningar gör senare globala temaförändringar svårare att förutsäga.
+Använd ett master‑ eller presentations‑tema när många layouter och bilder ska dela samma grunddesign, en layout‑åsidosättning när en layoutfamilj behöver annan styling, och en bild‑åsidosättning endast för verkliga undantag. Överdrivna bild‑nivå‑åsidosättningar gör senare globala temaförändringar svårare att förutse.
 
 ## **Uppdatera temats bakgrundsstilar**
 
-Temats bakgrundsfyllningar lagras i [IFormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iformatscheme/). PowerPoint kan presentera fler bakgrundsalternativ i sitt UI än antalet fyllningsdefinitioner som fysiskt lagras i denna samling, eftersom UI kan kombinera temafyllningar med temafärger och andra stilreferenser.
+Temats bakgrundsfyllningar lagras i [IFormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iformatscheme/). PowerPoint kan presentera fler bakgrundsval i sitt gränssnitt än antalet fyllningsdefinitioner som fysiskt lagras i denna samling eftersom UI kan kombinera temafyllningar med temafärger och andra stilreferenser.
 
-![PowerPoint‑bakgrundsgalleri för ett presentations‑tema](presentation-design_8.png)
+![PowerPoint‑bakgrundsstilsgalleri för ett presentationstema](presentation-design_8.png)
 
-Innan du använder en bakgrundsstil, inspektera den lagrade samlingen och den aktuella [Background.getStyleIndex](https://reference.aspose.com/slides/sv/java/com.aspose.slides/background/). Ett stil‑index på `0` betyder ingen temafyllning; positiva värden är temabakgrund‑stilreferenser. Detta skiljer sig från att indexera Java‑samlingen direkt, där `get_Item(0)` betyder den första lagrade posten. Anta inte att varje presentation innehåller samma antal bakgrundsfyllningsstilar.
+Innan du använder en bakgrundsstil, inspektera den lagrade samlingen och den aktuella [Background.getStyleIndex](https://reference.aspose.com/slides/sv/java/com.aspose.slides/background/). Ett stilindex på `0` betyder ingen temafyllning; positiva värden är temabakgrund‑stilreferenser. Detta skiljer sig från att indexera Java‑samlingen direkt, där `get_Item(0)` betyder det första lagrade objektet. Anta inte att varje presentation innehåller samma antal bakgrundsfyllningsstilar.
 
-Följande exempel rapporterar antalet tillgängliga bakgrundsfyllningar, tilldelar en temabakgrundsreferens till den första master‑bilden och sparar presentationen:
+Det följande exemplet rapporterar antalet tillgängliga bakgrundsfyllningar, tilldelar en temabakgrundsreferens till den första mastern och sparar presentationen:
 
 ```java
 import com.aspose.slides.*;
@@ -322,25 +324,25 @@ try {
 }
 ```
 
-Det synliga resultatet beror på temaposten som master‑bilden refererar till samt eventuella bakgrundsåsidosättningar på layout‑ eller bildnivå. Om en bild använder sin egen bakgrund kanske en ändring enbart av master‑bakgrunden inte påverkar den bilden. Använd [Background.getEffective](https://reference.aspose.com/slides/sv/java/com.aspose.slides/background/) när du behöver veta den slutgiltiga bakgrunden efter att arv har tillämpats.
+Det synliga resultatet beror på temaposten som mastern refererar till samt eventuella bakgrundsåsidosättningar på layout‑ eller bildnivå. Om en bild använder sin egen bakgrund kan en förändring av enbart master‑bakgrunden lämna bilden oförändrad. Använd [Background.getEffective](https://reference.aspose.com/slides/sv/java/com.aspose.slides/background/) när du måste veta den slutgiltiga bakgrunden efter att arv har tillämpats.
 
-{{% alert color="warning" title="Varning" %}}
-Behandla inte stil‑indexet som ett nollbaserat samlingsindex. Undvik också att hårdkoda ett stilnummer från en fil och anta att det har samma utseende i en annan fil; temastildefinitioner är presentationsspecifika.
+{{% alert color="warning" title="Warning" %}}
+Behandla inte stilindexet som ett nollbaserat samlingsindex. Undvik också att hårdkoda ett stilnummer från en fil och anta att det har samma utseende i en annan fil; temastildefinitioner är presentationsspecifika.
 {{% /alert %}}
 
-{{% alert color="info" title="Tips" %}}
+{{% alert color="info" title="Tip" %}}
 För direkt bakgrundsformatering och bakgrundsarv, se [Presentation Background](/slides/sv/java/presentation-background/).
 {{% /alert %}}
 
 ## **Uppdatera temats effekter**
 
-Ett temaformat‑schema innehåller separata samlingar för fyllning, linje och effekt‑stilar som exponeras via [IFormatScheme.getFillStyles](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iformatscheme/), [IFormatScheme.getLineStyles](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iformatscheme/) och [IFormatScheme.getEffectStyles](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iformatscheme/). Typiska Office‑teman innehåller ofta tre huvudstil‑poster som visuellt motsvarar subtil, medel och intensiv formatering, men kod bör inspektera varje samling istället för att anta ett fast antal.
+Ett temats format‑schema innehåller separata samlingar för fyllning, linje och effekt‑stilar som exponeras via [IFormatScheme.getFillStyles](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iformatscheme/), [IFormatScheme.getLineStyles](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iformatscheme/) och [IFormatScheme.getEffectStyles](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iformatscheme/). Vanliga Office‑teman innehåller ofta tre huvudstilposter som visuellt motsvarar subtil, måttlig och intensiv formatering, men koden bör inspektera varje samling i stället för att anta ett fast antal.
 
-![Subtila, medelstora och intensiva temaeffekter tillämpade på samma form](presentation-design_10.png)
+![Subtila, måttliga och intensiva temaeffekter applicerade på samma form](presentation-design_10.png)
 
-När du får åtkomst till dessa samlingar i Java är samlings‑indexet nollbaserat: `get_Item(0)` är den första lagrade stilen och `get_Item(2)` den tredje. En formes stil‑referens‑index är ett separat koncept, exponerat via [IShapeStyle](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ishapestyle/). Att modifiera en temastil påverkar former som refererar den temastilen; former med direkt formatering kan förbli oförändrade.
+När du får åtkomst till dessa samlingar i Java är samlingsindexet nollbaserat: `get_Item(0)` är den första lagrade stilen och `get_Item(2)` är den tredje. En forms stil‑referensindex är ett separat koncept, exponerat via [IShapeStyle](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ishapestyle/). Att ändra en temastil påverkar former som refererar till den stilen; former med direkt formatering kan förbli oförändrade.
 
-Följande exempel kontrollerar att de nödvändiga stil‑posterna finns, ändrar den första linjestilen, den tredje fyllningsstilen, aktiverar en yttre skugga i den tredje effektstilen och sparar resultatet:
+Det följande exemplet kontrollerar att de nödvändiga stilposterna finns, ändrar den första linjestilen, ändrar den tredje fyllningsstilen, aktiverar ett yttre skuggelement i den tredje effektstilen och sparar resultatet:
 
 ```java
 import com.aspose.slides.*;
@@ -365,15 +367,15 @@ try {
 }
 ```
 
-För former som refererar dessa platser blir den första temalinjestilen röd, den tredje temafyllningsstilen blir solid skoggrön, och den tredje effektstilen får en yttre skugga med ett avstånd på 10 punkter. Det exakta visuella resultatet beror fortfarande på vilka stil‑platser varje form refererar till och om direkt formatering åsidosätter temat.
+För former som refererar till dessa platser blir den första temalinjestilen röd, den tredje temafyllningsstilen blir solid skoggrön och den tredje effektstilen får en yttre skugga med ett avstånd på 10 punkter. Det exakta visuella resultatet beror fortfarande på vilka stilplatser varje form refererar till och om direkt formatering åsidosätter temat.
 
-![Temaeffektstilar efter ändring av linje-, fyllnings- och skuggeinställningar](presentation-design_11.png)
+![Temaeffektstilar efter ändring av linje-, fyllnings‑ och skugginställningar](presentation-design_11.png)
 
 ## **Läs effektiva temavärden**
 
-Råa temaignjekt berättar vad som är definierat på en viss nivå. Effektiva värden visar vad en bild eller form faktiskt använder efter att arv och lokala åsidosättningar har lösts. För en bild, anropa [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/sv/java/com.aspose.slides/baseoverridethememanager/). För en bakgrund, använd [Background.getEffective](https://reference.aspose.com/slides/sv/java/com.aspose.slides/background/), och för en fyllning, använd [FillFormat.getEffective](https://reference.aspose.com/slides/sv/java/com.aspose.slides/fillformat/).
+Råa temobjekt visar vad som är definierat på en viss nivå. Effektiva värden visar vad en bild eller form faktiskt använder efter att arv och lokala åsidosättningar har lösts. För en bild, anropa [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/sv/java/com.aspose.slides/baseoverridethememanager/). För en bakgrund, använd [Background.getEffective](https://reference.aspose.com/slides/sv/java/com.aspose.slides/background/), och för en fyllning, använd [FillFormat.getEffective](https://reference.aspose.com/slides/sv/java/com.aspose.slides/fillformat/).
 
-Följande exempel läser det effektiva temat, bakgrunden och den första formens fyllning från en bild:
+Det följande exemplet läser det effektiva temat, bakgrunden och den första formens fyllning från en bild:
 
 ```java
 import com.aspose.slides.*;
@@ -398,18 +400,18 @@ try {
 }
 ```
 
-Använd effektiva data för renderingsdiagnostik, validering och jämförelser. Om du bara inspekterar [Presentation.getMasterTheme](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/), kan du missa en master‑, layout‑, bild‑ eller form‑åsidosättning som förändrar det slutgiltiga utseendet.
+Använd effektiva data för renderingdiagnostik, validering och jämförelser. Om du enbart inspekterar [Presentation.getMasterTheme](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/), kan du missa en master‑, layout‑, bild‑ eller form‑åsidosättning som förändrar det slutgiltiga utseendet.
 
 ## **FAQ**
 
-**Kan jag tillämpa ett tema på en enskild bild utan att ändra master?**
+**Kan jag tillämpa ett tema på en enskild bild utan att ändra mastern?**
 
-Ja. Använd bildens [SlideThemeManager](https://reference.aspose.com/slides/sv/java/com.aspose.slides/slidethememanager/) och initiera dess åsidosättnings‑tema. Ändringen förblir lokal för den bilden; andra bilder fortsätter att ärva sina befintliga teman.
+Ja. Använd bildens [SlideThemeManager](https://reference.aspose.com/slides/sv/java/com.aspose.slides/slidethememanager/) och initiera dess åsidosättningstema. Ändringen förblir lokal för den bilden; andra bilder fortsätter att ärva sina befintliga teman.
 
 **Vad är det säkraste sättet att föra ett tema från en presentation till en annan?**
 
-När du flyttar en bild och bevarar dess ursprungliga utseende, klona käll‑master till destinationen och klona bilden med den master‑bilden med [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imasterslidecollection/) och [ISlideCollection.addClone](https://reference.aspose.com/slides/sv/java/com.aspose.slides/islidecollection/). Detta behåller master‑bilden, layouterna och temat tillsammans.
+När du flyttar en bild och bevarar dess ursprungliga utseende, klona käll‑mastern till destinationen och klona bilden med den mastern med [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imasterslidecollection/) och [ISlideCollection.addClone](https://reference.aspose.com/slides/sv/java/com.aspose.slides/islidecollection/). Detta håller mastern, layouterna och temat tillsammans.
 
 **Hur kan jag se de effektiva värdena efter arv och åsidosättningar?**
 
-Använd [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/sv/java/com.aspose.slides/baseoverridethememanager/) för en bild‑ eller layout‑tema och motsvarande effektiva‑data‑metoder för formatobjekt såsom [Background.getEffective](https://reference.aspose.com/slides/sv/java/com.aspose.slides/background/) och [FillFormat.getEffective](https://reference.aspose.com/slides/sv/java/com.aspose.slides/fillformat/). Dessa API:er returnerar de lösta värdena efter att arv och åsidosättningar har tillämpats.
+Använd [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/sv/java/com.aspose.slides/baseoverridethememanager/) för en bild‑ eller layout‑tema och motsvarande effektiva‑datametoder för formatobjekt såsom [Background.getEffective](https://reference.aspose.com/slides/sv/java/com.aspose.slides/background/) och [FillFormat.getEffective](https://reference.aspose.com/slides/sv/java/com.aspose.slides/fillformat/). Dessa API‑er returnerar de lösta värdena efter att arv och åsidosättningar har tillämpats.

@@ -1,61 +1,71 @@
 ---
-title: PowerPoint betűtípusok testreszabása С++-ban
-linktitle: Egyedi betűtípus
+title: "PowerPoint betűtípusok testreszabása C++-ban"
+linktitle: "Egyedi betűtípus"
 type: docs
 weight: 20
 url: /hu/cpp/custom-font/
 keywords:
-- betűtípus
-- egyedi betűtípus
-- külső betűtípus
-- betűtípus betöltése
-- betűtípusok kezelése
-- betűtípus mappa
-- PowerPoint
-- OpenDocument
-- prezentáció
-- С++
-- Aspose.Slides
-description: "Testreszabott betűtípusok PowerPoint diákon az Aspose.Slides for С++ segítségével, hogy a bemutatók minden eszközön élesek és konzisztens megjelenésűek legyenek."
+- "betűtípus"
+- "egyedi betűtípus"
+- "külső betűtípus"
+- "betűtípus betöltése"
+- "betűtípusok kezelése"
+- "betűtípus mappa"
+- "PowerPoint"
+- "OpenDocument"
+- "prezentáció"
+- "C++"
+- "Aspose.Slides"
+description: "Testreszabja a betűtípusokat a PowerPoint diákon az Aspose.Slides for C++ segítségével, hogy prezentációi élesek és konzisztensak legyenek minden eszközön."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides lehetővé teszi egyéni betűtípusok használatát a prezentációkban anélkül, hogy azokat a operációs rendszerre telepítené. Betűtípusokat tölthet be egyéni mappákból, betűtípusokat biztosíthat egy adott prezentációhoz dokumentumszintű betűtípusforrások segítségével, vagy külső betűtípusokat tölthet be közvetlenül bináris adatból.
+Aspose.Slides lehetővé teszi egyedi betűtípusok használatát a bemutatókban az operációs rendszerre való telepítés nélkül. Betűtípusokat tölthet be egyéni mappákból, biztosíthat betűtípusokat egy adott prezentációhoz dokumentumszintű betűtípusforrásokon keresztül, vagy külső betűtípusokat tölthet be közvetlenül bináris adatból.
 
-A betöltött betűtípusok akkor kerülnek felhasználásra, amikor egy prezentációt renderelnek vagy exportálnak, például PDF, képek és más támogatott formátumok esetén. Ez segít a prezentációk kimenetének konzisztens maradásában különböző környezetekben. A cikk továbbá bemutatja, hogyan lehet megvizsgálni az Aspose.Slides által használt betűtípus-mappákat, és hogyan lehet törölni a betűtípus-gyorsítót a külső betűtípusok használata után.
+A betöltött betűtípusok a prezentáció renderelésekor vagy exportálásakor kerülnek felhasználásra, például PDF, képek és egyéb támogatott formátumok esetén. Ez segít az előállítás konzisztensnek tartásában különböző környezetekben. A cikk azt is elmagyarázza, hogyan ellenőrizheti az Aspose.Slides által használt betűtípus-mappákat, és hogyan törölheti a betűtípus-gyorsítót a külső betűtípusok használata után.
 
-Az egyéni betűtípusok regisztrálása a rendereléshez különálló a betűtípusok PPTX-fájlba ágyazásától. Ha egy betűtípust magában a prezentációban kell tárolni, expliciten használja a betűtípus-ágyazási funkciókat.
+A saját betűtípusok regisztrálása a rendereléshez különbözik a betűtípusok PPTX fájlba ágyazásától. Ha a betűtípust magában a prezentációban kell tárolni, használja a betűtípus-átágyazási funkciókat kifejezetten.
 
-{{% alert color="primary" %}} 
+Egy prezentáció témája különböző betűcsaládokra hivatkozhat az egyes írásrendszerekhez. Ezek a leképezések csak a betűtípusneveket tárolják, de nem telepítik vagy töltik be a betűtípusfájlokat. Tekintse meg a [Script-Specific Theme Fonts](/slides/hu/cpp/script-specific-font-mappings/) oldalt a leképezések kezeléséhez, és használja az alábbi betöltési lehetőségeket a hivatkozott betűtípusok rendelkezésre állásához a konzisztens renderelés érdekében.
 
-Az Aspose Slides lehetővé teszi ezen betűtípusok betöltését a [FontsLoader::LoadExternalFonts](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontsloader/loadexternalfonts/) használatával:
+{{% alert color="info" title="Megjegyzés" %}}
+Aspose Slides lehetővé teszi ezen betűtípusok betöltését a [FontsLoader::LoadExternalFonts](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontsloader/loadexternalfonts/) használatával:
 
 * TrueType (.ttf) és TrueType Collection (.ttc) betűtípusok. Lásd a [TrueType](https://en.wikipedia.org/wiki/TrueType).
 * OpenType (.otf) betűtípusok. Lásd a [OpenType](https://en.wikipedia.org/wiki/OpenType).
-
 {{% /alert %}}
 
-## **Egyéni betűtípusok betöltése**
+## **Egyedi betűtípusok betöltése**
 
-Aspose.Slides lehetővé teszi a prezentációban használt betűtípusok betöltését anélkül, hogy a rendszeren telepítené őket. Ez befolyásolja az exportált kimenetet – például PDF, képek és más támogatott formátumok – így a kész dokumentumok környezetek között konzisztensen jelennek meg. A betűtípusok egyéni könyvtárakból töltődnek be.
+Aspose.Slides lehetővé teszi, hogy betöltse a prezentációban használt betűtípusokat a rendszerre való telepítés nélkül. Ez befolyásolja az export kimenetet – például PDF, képek és egyéb támogatott formátumok – így a keletkezett dokumentumok konzisztensnek mutatnak különböző környezetekben. A betűtípusok egyéni könyvtárakból töltődnek be.
 
-1. Adjon meg egy vagy több mappát, amely a betűtípus fájlokat tartalmazza.
+1. Adjon meg egy vagy több mappát, amely a betűtípusfájlokat tartalmazza.
 2. Hívja meg a statikus [FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontsloader/loadexternalfonts/) metódust a betűtípusok betöltéséhez ezekből a mappákból.
-3. Töltsön be és rendereljen/exportáljon egy prezentációt.
-4. Hívja a [FontsLoader.clearCache](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontsloader/clearcache/) metódust a betűtípus-gyorsítótörléshez.
+3. Töltse be és renderelje/exportálja a prezentációt.
+4. Hívja meg a [FontsLoader.clearCache](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontsloader/clearcache/) metódust a betűtípus-gyorsítótár törléséhez.
 
 A következő kódrészlet bemutatja a betűtípus betöltési folyamatát:
 
 ```cpp
-// Határozza meg az egyéni betűtípus fájlokat tartalmazó mappákat.
+#include <DOM/Fonts/FontsLoader.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+// Határozza meg az egyedi betűtípus fájlokat tartalmazó mappákat.
+String externalFontFolder = u"assets/fonts";
 auto fontFolders = MakeObject<Array<String>>(1, externalFontFolder );
 
-// Töltsön be egyéni betűtípusokat a megadott mappákból.
+// Töltsön be egyedi betűtípusokat a megadott mappákból.
 FontsLoader::LoadExternalFonts(fontFolders);
 
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-// Renderelje/exportálja a prezentációt (például PDF-re, képekre vagy más formátumokra) a betöltött betűtípusok használatával.
+// Renderelje/exportálja a prezentációt (például PDF‑be, képekbe vagy egyéb formátumokba) a betöltött betűtípusok használatával.
 presentation->Save(u"output.pdf", SaveFormat::Pdf);
 presentation->Dispose();
 
@@ -63,33 +73,43 @@ presentation->Dispose();
 FontsLoader::ClearCache();
 ```
 
-{{% alert color="info" title="Note" %}}
+{{% alert color="info" title="Megjegyzés" %}}
+[FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontsloader/loadexternalfonts/) további mappákat ad a betűtípus-keresési útvonalakhoz, de nem módosítja a betűtípus inicializálási sorrendjét.
+A betűtípusok a következő sorrendben inicializálódnak:
 
-[FontsLoader::loadExternalFonts](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontsloader/loadexternalfonts/) az extra mappákat adja a betűtípus-keresési útvonalakhoz, de nem változtatja meg a betűtípus inicializálási sorrendjét.
-Betűtípusok ebben a sorrendben inicializálódnak:
-
-1. Az alapértelmezett operációs rendszer betűtípus útvonal.
-1. A [FontsLoader](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontsloader/) segítségével betöltött útvonalak.
-
+1. Az operációs rendszer alapértelmezett betűtípus útvonala.
+1. A [FontsLoader](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontsloader/) által betöltött útvonalak.
 {{%/alert %}}
 
 ## **Egyéni betűtípus-mappák lekérése**
-Aspose.Slides biztosítja a [FontsLoader::GetFontFolders()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontsloader/getfontfolders/) metódust, amely lehetővé teszi, hogy megtalálja a betűtípus-mappákat. Ez a metódus visszaadja a `LoadExternalFonts` metódus által hozzáadott mappákat, valamint a rendszer betűtípus-mappákat.
+Aspose.Slides biztosítja a [FontsLoader::GetFontFolders()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontsloader/getfontfolders/) metódust, amely lehetővé teszi a betűtípus-mappák megtalálását. Ez a metódus visszaadja a `LoadExternalFonts` metóduson keresztül hozzáadott mappákat és a rendszer betűtípus-mappáit.
 
-Ez a C++ kód megmutatja, hogyan kell használni a [FontsLoader::GetFontFolders()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontsloader/getfontfolders/) metódust:
+Ez a C++ kód bemutatja, hogyan használja a [FontsLoader::GetFontFolders()](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontsloader/getfontfolders/) metódust:
 
 ``` cpp
-// Ez a sor kiírja azokat a mappákat, amelyeket betűtípus fájlok keresésére ellenőriznek.
-// Ezek a LoadExternalFonts metódus által hozzáadott mappák és a rendszer betűtípus mappái.
+#include <DOM/Fonts/FontsLoader.h>
+using namespace Aspose::Slides;
+
+// Ez a sor kiírja azokat a mappákat, amelyekben a betűtípus fájlok keresése történik.
+// Ezek a LoadExternalFonts metóduson keresztül hozzáadott mappák és a rendszer betűtípus mappái.
 auto fontFolders = FontsLoader::GetFontFolders();
 ```
 
-## **Egy prezentációval használt egyéni betűtípusok megadása**
-Aspose.Slides biztosítja a [LoadOptions::set_DocumentLevelFontSources](https://reference.aspose.com/slides/hu/cpp/aspose.slides/loadoptions/set_documentlevelfontsources/) tulajdonságot, amely lehetővé teszi, hogy külső betűtípusokat adjon meg a prezentációhoz.
+## **Egyéni betűtípusok megadása a prezentációhoz**
+Aspose.Slides biztosítja a [LoadOptions::set_DocumentLevelFontSources](https://reference.aspose.com/slides/hu/cpp/aspose.slides/loadoptions/set_documentlevelfontsources/) tulajdonságot, amely lehetővé teszi külső betűtípusok megadását, melyek a prezentációval együtt lesznek használva.
 
-Ez a C++  kód megmutatja, hogyan kell használni a [LoadOptions::set_DocumentLevelFontSources](https://reference.aspose.com/slides/hu/cpp/aspose.slides/loadoptions/set_documentlevelfontsources/) tulajdonságot:
+Ez a C++ kód bemutatja, hogyan használja a [LoadOptions::set_DocumentLevelFontSources](https://reference.aspose.com/slides/hu/cpp/aspose.slides/loadoptions/set_documentlevelfontsources/) tulajdonságot:
 
 ``` cpp
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <IFontSources.h>
+#include <system/io/file.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 auto memoryFont1 = File::ReadAllBytes(u"customfonts\\CustomFont1.ttf");
 auto memoryFont2 = File::ReadAllBytes(u"customfonts\\CustomFont2.ttf");
 
@@ -99,16 +119,25 @@ loadOptions->get_DocumentLevelFontSources()->set_MemoryFonts(System::MakeArray<A
 {
     auto presentation = System::MakeObject<Presentation>(u"MyPresentation.pptx", loadOptions);
     //munka a prezentációval
-    //A CustomFont1, a CustomFont2, valamint az assets\fonts és a global\fonts mappák és almappáik betűtípusai elérhetők a prezentáció számára
+    //CustomFont1, CustomFont2, valamint az assets\fonts és a global\fonts mappákban és azok almappáiban található betűtípusok elérhetők a prezentáció számára
 }
 ```
 
 ## **Betűtípusok külső kezelése**
-Aspose.Slides biztosítja a [FontsLoader::LoadExternalFont](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontsloader/loadexternalfont/) metódust, amely lehetővé teszi külső betűtípusok betöltését egy bájt tömbbe.
+Aspose.Slides biztosítja a [FontsLoader::LoadExternalFont](https://reference.aspose.com/slides/hu/cpp/aspose.slides/fontsloader/loadexternalfont/) metódust, amely lehetővé teszi a külső betűtípusok betöltését egy bájt tömbbe.
 
-Ez a C++ kód demonstrálja a bájt tömbös betűtípus betöltési folyamatot:
+Ez a C++ kód bemutatja a bájt tömb betűtípus betöltési folyamatát:
 
 ```cpp
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <IFontSources.h>
+#include <system/io/file.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
 // A dokumentumok könyvtárának elérési útja
 const String outPath = u"../out/SpecifyFontsUsedWithPresentation.pptx";
 const String templatePath = u"../templates/AccessSlides.pptx";
@@ -126,22 +155,17 @@ SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath, loadOption
 
 ## **GYIK**
 
-**Hatással vannak az egyéni betűtípusok az összes formátum exportjára (PDF, PNG, SVG, HTML)?**
+### Az egyedi betűtípusok érintik az összes formátumba történő exportálást (PDF, PNG, SVG, HTML)?
+Igen. A csatlakoztatott betűtípusokat a renderelő az összes export formátumban használja.
 
-Igen. A csatlakoztatott betűtípusokat a renderelő minden export formátumnál használja.
+### Az egyedi betűtípusok automatikusan beágyazódnak a keletkezett PPTX-be?
+Nem. A betűtípus rendereléshez történő regisztrálása nem ugyanaz, mint a PPTX-be történő beágyazás. Ha a betűtípust a prezentáció fájljában kell tárolni, akkor az explicit [embedding features](/slides/hu/cpp/embedded-font/) segítségét kell igénybe venni.
 
-**Ágyazódnak‑e automatikusan az egyéni betűtípusok a létrejövő PPTX‑be?**
+### Szabályozhatom a helyettesítő viselkedést, ha egy egyedi betűtípus bizonyos glifekkel nem rendelkezik?
+Igen. Konfigurálja a [font substitution](/slides/hu/cpp/font-substitution/), a [replacement rules](/slides/hu/cpp/font-replacement/) és a [fallback sets](/slides/hu/cpp/fallback-font/) beállításait, hogy pontosan meghatározza, melyik betűtípust használja a kért glif hiányában.
 
-Nem. A betűtípus regisztrálása a rendereléshez nem ugyanaz, mint a betűtípus PPTX‑be ágyazása. Ha a betűtípust a prezentáció fájlon belül kell hordozni, explicit módon a [beágyazási funkciókat](/slides/hu/cpp/embedded-font/) kell használni.
+### Használhatok betűtípusokat Linux/Docker konténerekben anélkül, hogy a rendszer szintjén telepíteném őket?
+Igen. Mutasson a saját betűtípus-mappáira, vagy töltse be a betűtípusokat bájt tömbökből. Ez eltávolítja a rendszer betűtípus könyvtárakra való függőséget a konténer képből.
 
-**Irányíthatom a visszalépési viselkedést, ha egy egyéni betűtípus bizonyos glifek hiányoznak?**
-
-Igen. Konfigurálja a [betűtípus helyettesítést](/slides/hu/cpp/font-substitution/), a [helyettesítő szabályokat](/slides/hu/cpp/font-replacement/) és a [fallback készleteket](/slides/hu/cpp/fallback-font/) beállításait, hogy pontosan meghatározza, melyik betűtípust kell használni, ha a kért glif hiányzik.
-
-**Használhatok betűtípusokat Linux/Docker konténerekben anélkül, hogy rendszer szinten telepíteném őket?**
-
-Igen. Mutasson a saját betűtípus‑mappáira vagy töltse be a betűtípusokat bájt tömbökből. Ez eltávolítja a konténer képből a rendszer betűtárakra való függőséget.
-
-**Mi a helyzet a licenceléssel – ágyazhatok bármilyen egyéni betűtípust korlátozások nélkül?**
-
-Ön felelős a betűtípus licencelésének betartásáért. A feltételek változóak; egyes licencek tilthatják az ágyazást vagy a kereskedelmi felhasználást. Mindig ellenőrizze a betűtípus EULA‑ját, mielőtt a kimenetet közzétenné.
+### Mi a helyzet a licencelésével — beágyazhatok bármilyen egyedi betűtípust korlátozás nélkül?
+Ön felelős a betűtípus-licenc megfeleléséért. A feltételek változóak; egyes licencek tiltják a beágyazást vagy a kereskedelmi felhasználást. Mindig ellenőrizze a betűtípus EULA‑ját, mielőtt a kimenetet terjesztené.

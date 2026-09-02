@@ -1,43 +1,43 @@
 ---
-title: Správa témat prezentace v PHP
-linktitle: Téma prezentace
+title: Správa motivů prezentace v PHP
+linktitle: Motiv prezentace
 type: docs
 weight: 10
 url: /cs/php-java/presentation-theme/
 keywords:
-- Téma PowerPoint
-- téma prezentace
-- téma snímku
-- nastavit téma
-- změnit téma
-- spravovat téma
-- barva tématu
-- další paleta
-- písmo tématu
-- styl tématu
-- efekt tématu
+- motiv PowerPoint
+- motiv prezentace
+- motiv snímku
+- nastavit motiv
+- změnit motiv
+- spravovat motiv
+- barva motivu
+- doplňková paleta
+- písmo motivu
+- styl motivu
+- efekt motivu
 - PowerPoint
 - OpenDocument
 - prezentace
 - PHP
 - Aspose.Slides
-description: "Hlavní témata prezentací v Aspose.Slides pro PHP přes Java pro vytváření, úpravu a konverzi souborů PowerPoint s jednotnou značkou."
+description: "Spravujte hlavní motivy prezentací v Aspose.Slides pro PHP pomocí Javy pro vytváření, úpravu a konverzi souborů PowerPoint se sjednoceným brandováním."
 ---
 ## **Úvod**
 
-Téma prezentace definuje koordinovaný soubor barev, písem, stylů pozadí, výplní, čar a efektů. Objektům, které jsou sirotky tématu, se odkazuje na tyto sdílené definice místo ukládání každé vizuální vlastnosti jako pevné hodnoty, takže změna tématu může aktualizovat mnoho objektů najednou.
+Motiv prezentace definuje koordinovanou sadu barev, písem, stylů pozadí, výplní, čar a efektů. Objekty citlivé na motiv odkazují na tato sdílená definice místo uložení každé vizuální vlastnosti jako pevné hodnoty, takže změna motivu může aktualizovat mnoho objektů najednou.
 
-V Aspose.Slides je téma na úrovni prezentace k dispozici prostřednictvím [Presentation.getMasterTheme](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/). Prezentace může také obsahovat přepsání tématu na nižších úrovních. Master může přepsat téma prezentace pomocí [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/cs/php-java/aspose.slides/masterthememanager/), zatímco rozložení nebo jednotlivý snímek může přepsat své zděděné téma pomocí [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/cs/php-java/aspose.slides/baseoverridethememanager/). V praxi je efektivní téma pro snímek vyřešeno touto řetězovou dědičností: téma prezentace, přepsání masteru, přepsání rozložení a přepsání snímku.
+V Aspose.Slides je motiv na úrovni prezentace dostupný pomocí [Presentation.getMasterTheme](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/). Prezentace může také obsahovat přepsání motivu na nižších úrovních. Master může přebít motiv prezentace pomocí [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/cs/php-java/aspose.slides/masterthememanager/), zatímco rozložení nebo jednotlivý snímek může přebít svůj zděděný motiv pomocí [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/cs/php-java/aspose.slides/baseoverridethememanager/). V praxi je efektivní motiv pro snímek řešen touto řetězovou dědičností: motiv prezentace, přepsání masteru, přepsání rozložení a přepsání snímku.
 
-![Theme components: colors, fonts, background styles, and effects](theme-constituents.png)
+![Komponenty motivu: barvy, písma, styly pozadí a efekty](theme-constituents.png)
 
-Níže uvedené sekce ukazují nejčastější pracovní postupy s tématy: prohlédnutí tématu, změna barev a písem, kopírování nebo použití tématu, aktualizace stylů pozadí a efektů a čtení efektivních hodnot po vyřešení dědičnosti a přepisů.
+Níže uvedené sekce ukazují nejběžnější pracovní postupy s motivy: kontrola motivu, změna barev a písem, kopírování nebo aplikace motivu, aktualizace stylů pozadí a efektů a čtení efektivních hodnot po řešení dědičnosti a přepsání.
 
-## **Prohlédnutí tématu**
+## **Prozkoumání motivu**
 
-Objekt [MasterTheme](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mastertheme/) zpřístupňuje barevné schéma tématu, schéma písem a schéma formátů pomocí [MasterTheme.getColorScheme](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mastertheme/) a [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mastertheme/). Prohlédnutí těchto kolekcí před jejich úpravou je zvláště užitečné, když prezentace pochází z externího zdroje, protože počet a obsah položek stylů se může lišit.
+Objekt [MasterTheme](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mastertheme/) poskytuje schéma barev motivu, schéma písem a schéma formátů prostřednictvím [MasterTheme.getColorScheme](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mastertheme/) a [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mastertheme/). Prozkoumání těchto kolekcí před jejich změnou je obzvláště užitečné, když prezentace pochází z externího zdroje, protože počet a obsah položek stylu se může lišit.
 
-Následující příklad načte hlavní vlastnosti tématu a vypíše, kolik stylů pozadí, výplní, čar a efektů je v tématu uloženo:
+Následující příklad čte hlavní vlastnosti motivu a uvádí, kolik stylů pozadí, výplní, čar a efektů je v motivu uloženo:
 
 ```php
 use aspose\slides\Presentation;
@@ -58,13 +58,13 @@ try {
 }
 ```
 
-Pokud soubor používá více masterů, nepředpokládejte, že každý snímek má stejné efektivní téma. Prohlédněte master přiřazený ke snímku a použijte pracovní postup s efektivním tématem uvedený později v tomto článku, pokud mohou být přítomny přepsání rozložení nebo snímku.
+Pokud soubor používá více masterů, nepředpokládejte, že každý snímek má stejný efektivní motiv. Prozkoumejte master přiřazený ke snímku a použijte pracovní postup efektivního motivu uvedený později v tomto článku, když mohou existovat přepsání na úrovni rozložení nebo snímku.
 
-## **Změna barev tématu**
+## **Změna barev motivu**
 
-Tématem orientované výplně, čáry a text mohou odkazovat na logickou barvu z výčtu [SchemeColor](https://reference.aspose.com/slides/cs/php-java/aspose.slides/schemecolor/). Když změníte odpovídající položku v [ColorScheme](https://reference.aspose.com/slides/cs/php-java/aspose.slides/colorscheme/), všechny objekty, které ještě odkazují na tuto barvu tématu, jsou vyřešeny proti nové hodnotě. Objektům, které používají přímou RGB barvu, změna barvy tématu neovlivní.
+Výplně, čáry a text citlivé na motiv mohou odkazovat na logickou barvu z výčtu [SchemeColor](https://reference.aspose.com/slides/cs/php-java/aspose.slides/schemecolor/). Když změníte odpovídající položku v [ColorScheme](https://reference.aspose.com/slides/cs/php-java/aspose.slides/colorscheme/), všechny objekty, které stále odkazují na tuto barvu motivu, jsou vyhodnoceny proti nové hodnotě. Objekty, které používají přímou RGB barvu, nejsou změněny aktualizací barvy motivu.
 
-Následující end-to-end příklad vytvoří tvar, který používá `Accent4`, změní barvu tématu `Accent4` na červenou, uloží prezentaci, znovu ji otevře a vytiskne efektivní barvu výplně:
+Následující end-to-end příklad vytvoří tvar, který používá `Accent4`, změní barvu motivu `Accent4` na červenou, uloží prezentaci, znovu ji otevře a vytiskne efektivní barvu výplně:
 
 ```php
 use aspose\slides\FillType;
@@ -96,19 +96,19 @@ try {
 }
 ```
 
-Protože obdélník zůstává propojený s `Accent4`, jeho viditelná barva se po změně tématu stane červenou. Pokud nahradíte barvu schématu přímou barvou na tvaru, pozdější změny `Accent4` již tento výplň neovlivní.
+Protože obdélník zůstává propojen s `Accent4`, jeho viditelná barva se po změně motivu stane červenou. Pokud nahradíte barvu schématu přímou barvou na tvaru, pozdější změny `Accent4` již tento výplň neovlivní.
 
 ### **Použití barev z doplňkové palety**
 
-PowerPoint odvozuje světlejší a tmavší varianty z barvy tématu aplikací transformací barev. Aspose.Slides zpřístupňuje tyto transformace pomocí výčtu [ColorTransformOperation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/colortransformoperation/).
+PowerPoint odvozuje světlejší a tmavší varianty z barvy motivu aplikací transformací barev. Aspose.Slides tuto transformaci vystavuje prostřednictvím výčtu [ColorTransformOperation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/colortransformoperation/).
 
-![Main theme colors and lighter and darker colors generated from the additional palette](additional-palette-colors.png)
+![Hlavní barvy motivu a světlejší a tmavší barvy generované z doplňkové palety](additional-palette-colors.png)
 
-**1** – Hlavní barvy tématu.
+**1** – Hlavní barvy motivu.
 
-**2** – Světlejší a tmavší varianty vytvořené z hlavních barev tématu.
+**2** – Světlejší a tmavší varianty vytvořené z hlavních barev motivu.
 
-Následující příklad vytvoří šest obdélníků založených na `Accent4`, použije luminanční transformace na pět z nich a výsledek uloží:
+Následující příklad vytvoří šest obdélníků založených na `Accent4`, použije na pět z nich transformace luminance a uloží výsledek:
 
 ```php
 use aspose\slides\ColorTransformOperation;
@@ -160,31 +160,31 @@ try {
 }
 ```
 
-Tyto varianty zůstávají založeny na barvě tématu. Pokud se `Accent4` později změní, transformované barvy se přepočítají z nové hodnoty `Accent4`.
+Tyto varianty zůstávají založeny na barvě motivu. Pokud se `Accent4` později změní, transformované barvy se přepočítají z nové hodnoty `Accent4`.
 
 ### **Mapování hodnot `SchemeColor` na sloty `ColorScheme`**
 
-Výčet [SchemeColor](https://reference.aspose.com/slides/cs/php-java/aspose.slides/schemecolor/) používá `Text1`, `Background1`, `Text2` a `Background2`, zatímco [ColorScheme](https://reference.aspose.com/slides/cs/php-java/aspose.slides/colorscheme/) zpřístupňuje stejné sloty tématu jako `Dark1`, `Light1`, `Dark2` a `Light2`. Mapování je pevně dané:
+Výčet [SchemeColor](https://reference.aspose.com/slides/cs/php-java/aspose.slides/schemecolor/) používá `Text1`, `Background1`, `Text2` a `Background2`, zatímco [ColorScheme](https://reference.aspose.com/slides/cs/php-java/aspose.slides/colorscheme/) vystavuje stejné sloty motivu jako `Dark1`, `Light1`, `Dark2` a `Light2`. Mapování je pevné:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-Jedná se o alternativní názvy pro stejné sloty tématu; nejsou to hodnoty dynamicky převáděné z jednoho tvaru do druhého.
+Jedná se o alternativní názvy pro stejné sloty motivu; nejsou to hodnoty, které se dynamicky převádějí z jednoho tvaru do druhého.
 
-## **Změna písem tématu**
+## **Změna písem motivu**
 
-Schéma písem tématu obsahuje hlavní sadu písem pro nadpisy a vedlejší sadu písem pro tělo textu. Metody [FontScheme.getMajor](https://reference.aspose.com/slides/cs/php-java/aspose.slides/fontscheme/) a [FontScheme.getMinor](https://reference.aspose.com/slides/cs/php-java/aspose.slides/fontscheme/) tyto sady zpřístupňují.
+Schéma písem motivu obsahuje hlavní sadu písem pro nadpisy a vedlejší sadu písem pro tělo textu. Metody [FontScheme.getMajor](https://reference.aspose.com/slides/cs/php-java/aspose.slides/fontscheme/) a [FontScheme.getMinor](https://reference.aspose.com/slides/cs/php-java/aspose.slides/fontscheme/) vystavují tyto sady.
 
-Identifikátory písem kompatibilních s PowerPoint mohou být použity ve formátování textu:
+Identifikátory písem kompatibilních s PowerPointem lze použít při formátování textu:
 
 * `+mn-lt` – Tělo písmo Latin (Minor Latin Font)
 * `+mj-lt` – Nadpis písmo Latin (Major Latin Font)
-* `+mn-ea` – Tělo písmo East Asian (Minor East Asian Font)
-* `+mj-ea` – Nadpis písmo East Asian (Major East Asian Font)
+* `+mn-ea` – Tělo písmo Východní Asie (Minor East Asian Font)
+* `+mj-ea` – Nadpis písmo Východní Asie (Major East Asian Font)
 
-Následující příklad vytvoří jeden nadpis, který používá hlavní latinské písmo tématu, a jeden řádek těla, který používá vedlejší latinské písmo tématu. Pak změní písma tématu a výsledek uloží:
+Následující příklad vytvoří jeden nadpis, který používá hlavní latinské písmo motivu, a jeden řádek těla, který používá vedlejší latinské písmo motivu. Poté změní písma motivu a uloží výsledek:
 
 ```php
 use aspose\slides\FontData;
@@ -212,19 +212,23 @@ try {
 }
 ```
 
-Nadpis následuje hlavní písmo a tělo textu následuje vedlejší písmo. Text, který má explicitně uvedený název písma místo identifikátoru tématu, se automaticky nepřepne, když se změní schéma písem tématu.
+Nadpis následuje hlavní písmo a tělo textu následuje vedlejší písmo. Text, který má explicitní název písma místo identifikátoru motivu, se automaticky nepřepne, když se změní schéma písem motivu.
+
+Hlavní a vedlejší kolekce písem mohou také obsahovat mapování písem pro jednotlivé psací systémy, jako jsou cyrilice, arabština, japonština, gruzínština a thaana. Pro prohlížení, přidání, nahrazení nebo odebrání těchto mapování viz [Script-Specific Theme Fonts](/slides/cs/php-java/script-specific-font-mappings/).
 
 {{% alert color="info" title="Tip" %}}
-Pro více informací o písmech v prezentaci viz [PowerPoint Fonts](/slides/cs/php-java/powerpoint-fonts/).
+
+Pro více informací o písmenech v prezentacích viz [PowerPoint Fonts](/slides/cs/php-java/powerpoint-fonts/).
+
 {{% /alert %}}
 
-## **Kopírování nebo použití tématu**
+## **Kopírování nebo aplikace motivu**
 
 Existují dva běžné pracovní postupy a řeší různé problémy.
 
-### **Zachovat zdrojové téma při přesunu snímků**
+### **Zachování zdrojového motivu při přesunu snímků**
 
-Pokud chcete přesunout snímek do jiné prezentace a zachovat jeho původní design, naklonujte zdrojový master do cílové prezentace pomocí [MasterSlideCollection.addClone](https://reference.aspose.com/slides/cs/php-java/aspose.slides/masterslidecollection/), poté naklonujte snímek pomocí [SlideCollection.addClone](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slidecollection/) a naklonovaného masteru. Tím se přenese master, jeho rozložení a související téma spolu.
+Pokud chcete přesunout snímek do jiné prezentace a zachovat jeho původní design, naklonujte zdrojový master do cílové prezentace pomocí [MasterSlideCollection.addClone](https://reference.aspose.com/slides/cs/php-java/aspose.slides/masterslidecollection/), poté naklonujte snímek pomocí [SlideCollection.addClone](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slidecollection/) a naklonovaného masteru. Tím se přenese master, jeho rozložení i související motiv.
 
 ```php
 use aspose\slides\Presentation;
@@ -247,11 +251,11 @@ try {
 }
 ```
 
-Toto je preferovaný postup, když musí zdrojový snímek v cíli vypadat stejně. Pouhé klonování obsahu na nesouvisející master v cíli může změnit barvy, písma, pozadí a efekty řízené tématem.
+Toto je preferovaný pracovní postup, když musí zdrojový snímek v cíli vypadat stejně. Pouhé klonování obsahu na nesouvisející cílový master může změnit barvy, písma, pozadí a efekty řízené motivem.
 
-### **Použít hodnoty tématu na existující snímek**
+### **Aplikace hodnot motivu na existující snímek**
 
-Pokud musí cílový snímek zůstat na svém aktuálním masteru a rozložení, inicializujte přepsání na úrovni snímku ze zdrojového tématu. Metody [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/cs/php-java/aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/cs/php-java/aspose.slides/overridetheme/) a [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/cs/php-java/aspose.slides/overridetheme/) kopírují tři hlavní komponenty tématu do přepsání.
+Pokud cílový snímek musí zůstat na svém aktuálním masteru a rozložení, inicializujte přepsání na úrovni snímku ze zdrojového motivu. Metody [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/cs/php-java/aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/cs/php-java/aspose.slides/overridetheme/) a [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/cs/php-java/aspose.slides/overridetheme/) kopírují tři hlavní komponenty motivu do přepsání.
 
 ```php
 use aspose\slides\Presentation;
@@ -275,11 +279,11 @@ try {
 }
 ```
 
-Tím se změní téma použité tímto snímkem bez změny tématu zděděného ostatními snímky. Pro odebrání lokálního přepsání a návrat k zděděným hodnotám zavolejte [OverrideTheme.clear](https://reference.aspose.com/slides/cs/php-java/aspose.slides/overridetheme/).
+Tím se změní motiv použitý tímto snímkem bez změny motivu zděděného ostatními snímky. Pro odebrání místního přepsání a návrat k zděděným hodnotám zavolejte [OverrideTheme.clear](https://reference.aspose.com/slides/cs/php-java/aspose.slides/overridetheme/).
 
-### **Použít přepsání tématu na rozložení**
+### **Aplikace přepsání motivu na rozložení**
 
-Přepsání na úrovni rozložení se vztahuje na snímky, které toto rozložení používají, pokud konkrétní snímek nemá vlastní přepsání. Stejné inicializační metody lze použít přes [LayoutSlideThemeManager](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutslidethememanager/):
+Přepsání na úrovni rozložení se aplikuje na snímky, které používají toto rozložení, pokud konkrétní snímek nemá vlastní přepsání. Stejné inicializační metody lze použít přes [LayoutSlideThemeManager](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutslidethememanager/):
 
 ```php
 use aspose\slides\Presentation;
@@ -303,17 +307,17 @@ try {
 }
 ```
 
-Použijte téma na úrovni masteru nebo prezentace, když mnoho rozložení a snímků má sdílet stejný základní design, přepsání rozložení, když jedna rodina rozložení potřebuje odlišné stylování, a přepsání snímku jen pro skutečné výjimky. Nadměrná přepsání na úrovni snímku ztěžují předvídání globálních změn tématu.
+Použijte motiv na úrovni masteru nebo prezentace, když mnoho rozložení a snímků má sdílet stejný základní design, přepsání rozložení, když jedna rodina rozložení potřebuje odlišné stylování, a přepsání snímku jen pro skutečné výjimky. Nadměrné přepsání na úrovni snímku ztěžuje předvídat pozdější globální změny motivu.
 
-## **Aktualizace stylů pozadí tématu**
+## **Aktualizace stylů pozadí motivu**
 
-Výplně pozadí tématu jsou uloženy v [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/cs/php-java/aspose.slides/formatscheme/). PowerPoint může v UI nabídnout více možností pozadí, než kolik výplní je fyzicky uloženo v této kolekci, protože UI může kombinovat výplně tématu s barvami tématu a dalšími referencemi stylů.
+Styly výplní pozadí motivu jsou uloženy v [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/cs/php-java/aspose.slides/formatscheme/). PowerPoint může v uživatelském rozhraní nabídnout více možností pozadí, než kolik výplňových definic je fyzicky uloženo v této kolekci, protože UI může kombinovat výplně motivu s barvami motivu a dalšími referencemi stylu.
 
-![PowerPoint background style gallery for a presentation theme](presentation-design_8.png)
+![Galerie stylů pozadí PowerPointu pro motiv prezentace](presentation-design_8.png)
 
-Před použitím stylu pozadí prohlédněte uloženou kolekci a aktuální [Background.getStyleIndex](https://reference.aspose.com/slides/cs/php-java/aspose.slides/background/). Index stylu `0` znamená žádnou výplň tématu; kladné hodnoty jsou odkazy na styl pozadí tématu. To se liší od indexování PHP kolekce přímo, kde `get_Item(0)` znamená první uloženou položku. Nepředpokládejte, že každá prezentace obsahuje stejný počet stylů výplně pozadí.
+Před použitím stylu pozadí prozkoumejte uloženou kolekci a aktuální [Background.getStyleIndex](https://reference.aspose.com/slides/cs/php-java/aspose.slides/background/). Index stylu `0` znamená žádnou motivovou výplň; kladné hodnoty jsou odkazy na motivové styly pozadí. To se liší od indexování PHP kolekce přímo, kde `get_Item(0)` znamená první uloženou položku. Nepředpokládejte, že každá prezentace obsahuje stejné množství stylů výplní pozadí.
 
-Následující příklad nahlásí dostupný počet výplní pozadí, přiřadí tematický odkaz na pozadí prvnímu masteru a uloží prezentaci:
+Následující příklad uvádí počet dostupných výplní pozadí, přiřadí odkaz na motivové pozadí prvnímu masteru a uloží prezentaci:
 
 ```php
 use aspose\slides\BackgroundType;
@@ -337,25 +341,29 @@ try {
 }
 ```
 
-Viditelný výsledek závisí na položce tématu, na kterou odkazuje master, a na případných přepsáním pozadí na úrovni rozložení nebo snímku. Pokud snímek používá vlastní pozadí, změna pouze pozadí masteru nemusí tento snímek změnit. Použijte [Background.getEffective](https://reference.aspose.com/slides/cs/php-java/aspose.slides/background/) když potřebujete znát finální pozadí po aplikaci dědičnosti.
+Viditelný výsledek závisí na motivovém záznamu, na který odkazuje master, a na případných přepsáních pozadí na úrovni rozložení nebo snímku. Pokud snímek používá vlastní pozadí, změna pouze pozadí masteru nemusí tento snímek změnit. Použijte [Background.getEffective](https://reference.aspose.com/slides/cs/php-java/aspose.slides/background/) když potřebujete znát finální pozadí po aplikaci dědičnosti.
 
 {{% alert color="warning" title="Warning" %}}
-Nevnímejte index stylu jako nulově založený index kolekce. Také se vyhněte hardcodování čísla stylu z jednoho souboru a předpokládání, že bude mít stejný vzhled v jiném souboru; definice stylů tématu jsou specifické pro prezentaci.
+
+Nevnímejte index stylu jako nulově založený index kolekce. Také se vyhněte hardcódování čísla stylu z jednoho souboru a předpokládání, že má stejný vzhled v jiném souboru; definice stylů motivu jsou specifické pro prezentaci.
+
 {{% /alert %}}
 
 {{% alert color="info" title="Tip" %}}
+
 Pro přímé formátování pozadí a dědičnost pozadí viz [Presentation Background](/slides/cs/php-java/presentation-background/).
+
 {{% /alert %}}
 
-## **Aktualizace efektů tématu**
+## **Aktualizace efektů motivu**
 
-Schéma formátů tématu obsahuje oddělené kolekce výplní, čar a efektů zpřístupněné přes [FormatScheme.getFillStyles](https://reference.aspose.com/slides/cs/php-java/aspose.slides/formatscheme/), [FormatScheme.getLineStyles](https://reference.aspose.com/slides/cs/php-java/aspose.slides/formatscheme/) a [FormatScheme.getEffectStyles](https://reference.aspose.com/slides/cs/php-java/aspose.slides/formatscheme/). Typické kancelářské téma často obsahuje tři hlavní položky stylů, které vizuálně odpovídají jemnému, střednímu a intenzivnímu formátování, ale kód by měl každou kolekci zkontrolovat místo předpokládání pevného počtu.
+Schéma formátu motivu obsahuje samostatné kolekce výplní, čar a stylů efektů vystavené přes [FormatScheme.getFillStyles](https://reference.aspose.com/slides/cs/php-java/aspose.slides/formatscheme/), [FormatScheme.getLineStyles](https://reference.aspose.com/slides/cs/php-java/aspose.slides/formatscheme/), a [FormatScheme.getEffectStyles](https://reference.aspose.com/slides/cs/php-java/aspose.slides/formatscheme/). Typické kancelářské motivy často obsahují tři hlavní položky stylu, které vizuálně odpovídají jemnému, střednímu a intenzivnímu formátování, ale kód by měl prozkoumat každou kolekci místo předpokladu pevného počtu.
 
-![Subtle, moderate, and intense theme effects applied to the same shape](presentation-design_10.png)
+![Jemné, střední a intenzivní efekty motivu aplikované na stejný tvar](presentation-design_10.png)
 
-Když přistupujete k těmto kolekcím v PHP, index kolekce je nulově založený: `get_Item(0)` je první uložený styl a `get_Item(2)` je třetí. Indexy referencí stylu tvaru jsou samostatný pojem, zpřístupněný pomocí [ShapeStyle](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shapestyle/). Úprava stylu tématu ovlivní tvary, které na něj odkazují; tvary s přímým formátováním mohou zůstat nezměněny.
+Když přistupujete k těmto kolekcím v PHP, index kolekce je nulově založený: `get_Item(0)` je první uložený styl a `get_Item(2)` je třetí. Indexy referencí stylu tvaru jsou samostatný koncept, vystavený přes [ShapeStyle](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shapestyle/). Úprava stylu motivu ovlivní tvary, které odkazují na tento styl motivu; tvary s přímým formátováním mohou zůstat nezměněny.
 
-Následující příklad zkontroluje, že požadované položky stylu existují, změní první styl čáry, třetí styl výplně, povolí vnější stín ve třetím stylu efektu a výsledek uloží:
+Následující příklad ověří, že požadované položky stylu existují, změní první styl čáry, změní třetí styl výplně, povolí vnější stín ve třetím stylu efektu a uloží výsledek:
 
 ```php
 use aspose\slides\FillType;
@@ -382,15 +390,15 @@ try {
 }
 ```
 
-Pro tvary, které odkazují na tyto sloty, se první styl čáry tématu stane červeným, třetí styl výplně tématu se stane plnou lesní zelenou a třetí styl efektu získá vnější stín s vzdáleností 10 bodů. Konečný vizuální výsledek stále závisí na tom, které sloty stylu každá forma odkazuje a zda přímé formátování nepřepisuje téma.
+U tvarů, které odkazují na tyto sloty, se první styl čáry motivu změní na červenou, třetí styl výplně motivu se změní na solidní lesní zelenou a třetí styl efektu získá vnější stín s vzdáleností 10 bodů. Přesný vizuální výsledek stále závisí na tom, které sloty stylu každá forma referencuje a zda přímé formátování nepřepisuje motiv.
 
-![Theme effect styles after changing line, fill, and shadow settings](presentation-design_11.png)
+![Styly efektů motivu po změně nastavení čáry, výplně a stínu](presentation-design_11.png)
 
-## **Čtení efektivních hodnot tématu**
+## **Čtení efektivních hodnot motivu**
 
-Surové objekty tématu říkají, co je definováno na konkrétní úrovni. Efektivní hodnoty říkají, co snímek nebo tvar skutečně používá po vyřešení dědičnosti a lokálních přepisů. Pro snímek zavolejte [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/cs/php-java/aspose.slides/baseoverridethememanager/). Pro pozadí použijte [Background.getEffective](https://reference.aspose.com/slides/cs/php-java/aspose.slides/background/), a pro výplň použijte [FillFormat.getEffective](https://reference.aspose.com/slides/cs/php-java/aspose.slides/fillformat/).
+Surové objekty motivu vám řeknou, co je definováno na konkrétní úrovni. Efektivní hodnoty vám řeknou, co snímek nebo tvar skutečně používá po vyřešení dědičnosti a lokálních přepsání. Pro snímek zavolejte [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/cs/php-java/aspose.slides/baseoverridethememanager/). Pro pozadí použijte [Background.getEffective](https://reference.aspose.com/slides/cs/php-java/aspose.slides/background/), a pro výplň použijte [FillFormat.getEffective](https://reference.aspose.com/slides/cs/php-java/aspose.slides/fillformat/).
 
-Následující příklad načte efektivní téma, pozadí a výplň prvního tvaru ze snímku:
+Následující příklad čte efektivní motiv, pozadí a první výplň tvaru ze snímku:
 
 ```php
 use aspose\slides\FillType;
@@ -417,18 +425,18 @@ try {
 }
 ```
 
-Používejte efektivní data pro diagnostiku vykreslování, validaci a srovnání. Pokud prohlížíte jen [Presentation.getMasterTheme](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/), můžete přehlédnout přepsání na úrovni masteru, rozložení, snímku nebo tvaru, které mění finální vzhled.
+Používejte efektivní data pro diagnostiku renderování, validaci a srovnání. Pokud prozkoumáte jen [Presentation.getMasterTheme](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/), můžete přehlédnout master, rozložení, snímek nebo přepsání tvaru, které mění konečný vzhled.
 
 ## **Často kladené otázky**
 
-**Mohu použít téma na jediný snímek bez změny masteru?**
+**Mohu aplikovat motiv na jediný snímek bez změny masteru?**
 
-Ano. Použijte [SlideThemeManager](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slidethememanager/) snímku a inicializujte jeho přepsání tématu. Změna zůstane lokální pro tento snímek; ostatní snímky nadále zdědí svá existující témata.
+Ano. Použijte [SlideThemeManager](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slidethememanager/) snímku a inicializujte jeho přepsání motivu. Změna zůstane lokální pro tento snímek; ostatní snímky nadále dědí své stávající motivy.
 
-**Jaký je nejbezpečnější způsob, jak přenést téma z jedné prezentace do druhé?**
+**Jaký je nejbezpečnější způsob, jak přenést motiv z jedné prezentace do druhé?**
 
-Při přesunu snímku a zachování jeho původního vzhledu naklonujte zdrojový master do cílové prezentace a naklonujte snímek s tímto masterem pomocí [MasterSlideCollection.addClone](https://reference.aspose.com/slides/cs/php-java/aspose.slides/masterslidecollection/) a [SlideCollection.addClone](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slidecollection/). Tím se master, rozložení a téma udrží společně.
+Při přesunu snímku a zachování jeho původního vzhledu naklonujte zdrojový master do cíle a naklonujte snímek s tímto masterem pomocí [MasterSlideCollection.addClone](https://reference.aspose.com/slides/cs/php-java/aspose.slides/masterslidecollection/) a [SlideCollection.addClone](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slidecollection/). Tím se master, rozložení a motiv přenesou společně.
 
 **Jak mohu zobrazit efektivní hodnoty po dědičnosti a přepsání?**
 
-Použijte [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/cs/php-java/aspose.slides/baseoverridethememanager/) pro téma snímku nebo rozložení a odpovídající metody efektivních dat pro formátové objekty, jako jsou [Background.getEffective](https://reference.aspose.com/slides/cs/php-java/aspose.slides/background/) a [FillFormat.getEffective](https://reference.aspose.com/slides/cs/php-java/aspose.slides/fillformat/). Tyto API vrací vyřešené hodnoty po aplikaci dědičnosti a přepisů.
+Použijte [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/cs/php-java/aspose.slides/baseoverridethememanager/) pro motiv snímku nebo rozložení a odpovídající efektivní‑data metody pro formátovací objekty jako [Background.getEffective](https://reference.aspose.com/slides/cs/php-java/aspose.slides/background/) a [FillFormat.getEffective](https://reference.aspose.com/slides/cs/php-java/aspose.slides/fillformat/). Tyto API vracejí vyřešené hodnoty po aplikaci dědičnosti a přepsání.

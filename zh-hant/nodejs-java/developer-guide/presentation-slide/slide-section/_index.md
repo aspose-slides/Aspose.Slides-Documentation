@@ -1,5 +1,5 @@
 ---
-title: 使用 JavaScript 在簡報中管理投影片章節
+title: 使用 JavaScript 管理簡報中的投影片章節
 linktitle: 投影片章節
 type: docs
 weight: 90
@@ -10,82 +10,199 @@ keywords:
 - 編輯章節
 - 變更章節
 - 章節名稱
+- 取得章節投影片
+- 處理章節投影片
 - PowerPoint
-- OpenDocument
 - 簡報
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "使用 Aspose.Slides for Node.js 簡化 PowerPoint 與 OpenDocument 中的投影片章節 — 分割、重新命名與重新排序，以優化 PPTX 與 ODP 工作流程。"
+description: "使用 Aspose.Slides for Node.js via Java 管理 PPTX 簡報中的投影片章節：建立、重新命名、重新排序、取得以及處理章節投影片。"
 ---
 ## **簡介**
 
-使用 Aspose.Slides for Node.js via Java，您可以將 PowerPoint 簡報組織成多個章節。您可以建立包含特定投影片的章節。
+章節將連續的投影片組織成具名稱的群組，而不會更改投影片內容。使用 Aspose.Slides for Node.js via Java，您可以透過 [Presentation.getSections](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/#getSections) 方法建立、重新排序、重新命名、檢查和移除章節。
 
-在以下情況下，您可能想要建立章節並使用它們來組織或劃分簡報中的投影片，使其成為邏輯上的部分：
+章節在以下情況特別有用：
 
-- 當您與其他人或團隊共同處理大型簡報時，且需要將特定投影片指派給同事或某些團隊成員。 
-- 當您面對包含大量投影片的簡報，且難以一次管理或編輯其內容時。
+- 大型簡報需要劃分為邏輯主題或章節；
+- 不同的投影片群組分配給不同的協作者；
+- 投影片需要以群組方式處理、移動或合併。
 
-理想情況下，您應該建立一個容納相似投影片的章節——這些投影片具有共通點或可根據某種規則分組——並為該章節命名，以描述其內部的投影片。 
+選擇簡潔的章節名稱以描述該群組投影片的用途。由於章節是簡報結構的一部份，請使用章節 API 來判斷歸屬，而非從投影片位置推算。
 
-## **在簡報中建立章節**
+## **建立與管理章節**
 
-若要在簡報中加入容納投影片的章節，Aspose.Slides for Node.js via Java 提供了 [addSection()](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/SectionCollection#addSection-java.lang.String-aspose.slides.ISlide-) 方法，允許您指定欲建立章節的名稱以及章節開始的投影片。
+使用 [SectionCollection.addSection](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/sectioncollection/#addSection) 透過指定名稱與起始投影片來建立章節。Aspose.Slides 會根據簡報目前的章節結構判斷哪些投影片屬於該章節。
 
-以下範例程式碼示範如何在 JavaScript 中於簡報建立章節：
+相同的 [SectionCollection](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/sectioncollection/) 也提供以下功能：
+
+- 使用 [SectionCollection.reorderSectionWithSlides](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/sectioncollection/#reorderSectionWithSlides) 移動章節及其投影片；
+- 僅使用 [SectionCollection.removeSection](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/sectioncollection/#removeSection) 移除章節定義，保留其投影片；
+- 使用 [SectionCollection.removeSectionWithSlides](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/sectioncollection/#removeSectionWithSlides) 同時移除章節及其投影片；
+- 使用 [SectionCollection.appendEmptySection](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/sectioncollection/#appendEmptySection) 在末尾新增空章節。
+
+以下範例建立兩個章節，移動其中一個，將其與投影片一起移除，並附加一個空章節：
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var defaultSlide = pres.getSlides().get_Item(0);
-    var newSlide1 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    var newSlide2 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    var newSlide3 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    var newSlide4 = pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
-    var section1 = pres.getSections().addSection("Section 1", newSlide1);
-    var section2 = pres.getSections().addSection("Section 2", newSlide3);// section1 將在 newSlide2 結束，之後 section2 將開始
-    pres.save("pres-sections.pptx", aspose.slides.SaveFormat.Pptx);
-    pres.getSections().reorderSectionWithSlides(section2, 0);
-    pres.save("pres-sections-moved.pptx", aspose.slides.SaveFormat.Pptx);
-    pres.getSections().removeSectionWithSlides(section2);
-    pres.getSections().appendEmptySection("Last empty section");
-    pres.save("pres-section-with-empty.pptx", aspose.slides.SaveFormat.Pptx);
+    const titleSlide = presentation.getSlides().get_Item(0);
+    const layoutSlide = presentation.getLayoutSlides().get_Item(0);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    const resultsSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+
+    presentation.getSections().addSection("Introduction", titleSlide);
+    const resultsSection = presentation.getSections().addSection("Results", resultsSlide);
+
+    presentation.getSections().reorderSectionWithSlides(resultsSection, 0);
+    presentation.getSections().removeSectionWithSlides(resultsSection);
+    presentation.getSections().appendEmptySection("Appendix");
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **變更章節名稱**
+這些操作完成後，簡報包含帶有投影片的 `Introduction` 章節以及空的 `Appendix` 章節。`Results` 章節及其投影片已被移除。
 
-在 PowerPoint 簡報中建立章節後，您可能會決定更改其名稱。 
+## **重新命名章節**
 
-以下範例程式碼示範如何使用 Aspose.Slides 在 JavaScript 中變更簡報章節的名稱：
+若要重新命名章節，請呼叫其 [Section.setName](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/section/#setName) 方法。章節的投影片與位置將保持不變。
+
+以下範例建立一個章節並變更其名稱：
 
 ```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
+const aspose = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var section = pres.getSections().get_Item(0);
-    section.setName("My section");
+    const slide = presentation.getSlides().get_Item(0);
+    const section = presentation.getSections().addSection("Overview", slide);
+    section.setName("Introduction");
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
+
+## **從章節取得投影片**
+
+[Presentation.getSections](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/#getSections) 方法會回傳一個 [SectionCollection](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/sectioncollection/)，您可以依索引存取。對每個 [Section](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/section/)，呼叫 [Section.getSlidesListOfSection](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/section/#getSlidesListOfSection) 以取得目前屬於該章節的投影片。此方法回傳一個 [SectionSlideCollection](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/sectionslidecollection/)，提供計數與索引存取功能。
+
+以下範例建立兩個已填充的章節和一個空章節，然後列印每個章節的 [name](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/section/#getName)、[identifier](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/section/#getSectionId)、[starting slide](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/section/#getStartedFromSlide)、投影片計數與投影片編號。它使用 [SectionSlideCollection.get_Item](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/sectionslidecollection/#get_Item) 讀取第一張投影片以及集合中的每一張投影片。對於空章節，回傳的集合大小為零，跳過索引存取，迴圈不執行任何操作。
+
+```javascript
+const aspose = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const firstSlide = presentation.getSlides().get_Item(0);
+    const layoutSlide = presentation.getLayoutSlides().get_Item(0);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    const thirdSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+
+    presentation.getSections().addSection("Introduction", firstSlide);
+    presentation.getSections().addSection("Details", thirdSlide);
+    presentation.getSections().appendEmptySection("Appendix");
+
+    const sections = presentation.getSections();
+    for (let sectionIndex = 0; sectionIndex < sections.size(); sectionIndex++) {
+        const section = sections.get_Item(sectionIndex);
+        const sectionSlides = section.getSlidesListOfSection();
+        const startingSlideObject = section.getStartedFromSlide();
+        const startingSlide = startingSlideObject === null ? "none" : startingSlideObject.getSlideNumber().toString();
+
+        console.log("Section: " + section.getName());
+        console.log("ID: " + section.getSectionId().toString());
+        console.log("Starting slide: " + startingSlide);
+        console.log("Slide count: " + sectionSlides.size());
+
+        if (sectionSlides.size() > 0) {
+            console.log("First slide via get_Item: " + sectionSlides.get_Item(0).getSlideNumber());
+        }
+
+        let slideNumbers = "Slide numbers:";
+        for (let slideIndex = 0; slideIndex < sectionSlides.size(); slideIndex++) {
+            slideNumbers += " " + sectionSlides.get_Item(slideIndex).getSlideNumber();
+        }
+        console.log(slideNumbers);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+章節成員關係由簡報的章節結構決定。不要從 [Section.getStartedFromSlide](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/section/#getStartedFromSlide)、投影片索引以及下一個章節的起始投影片手動計算章節範圍。
+
+結構編輯可能會更改章節返回的投影片以及它們的投影片編號。這包括重新排序投影片、將投影片複製到章節、移動章節及其投影片、移除投影片以及移除章節。以下範例在每次此類變更後呼叫 [Section.getSlidesListOfSection](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/section/#getSlidesListOfSection)，而非依賴先前的章節邊界假設。
+
+```javascript
+const aspose = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const firstSlide = presentation.getSlides().get_Item(0);
+    const layoutSlide = presentation.getLayoutSlides().get_Item(0);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    const thirdSlide = presentation.getSlides().addEmptySlide(layoutSlide);
+    presentation.getSlides().addEmptySlide(layoutSlide);
+    const firstSection = presentation.getSections().addSection("First", firstSlide);
+    const secondSection = presentation.getSections().addSection("Second", thirdSlide);
+
+    const printSectionSlides = (label, section) => {
+        const sectionSlides = section.getSlidesListOfSection();
+        let output = label + " (" + sectionSlides.size() + " slides):";
+        for (let slideIndex = 0; slideIndex < sectionSlides.size(); slideIndex++) {
+            output += " " + sectionSlides.get_Item(slideIndex).getSlideNumber();
+        }
+        console.log(output);
+    };
+
+    printSectionSlides("Initially", firstSection);
+
+    const slidesBeforeClone = firstSection.getSlidesListOfSection();
+    presentation.getSlides().addClone(slidesBeforeClone.get_Item(0), firstSection);
+    printSectionSlides("After cloning into the section", firstSection);
+
+    const slidesBeforeReorder = firstSection.getSlidesListOfSection();
+    const firstSectionPosition = slidesBeforeReorder.get_Item(0).getSlideNumber() - 1;
+    const lastSlideInSection = slidesBeforeReorder.get_Item(slidesBeforeReorder.size() - 1);
+    presentation.getSlides().reorder(firstSectionPosition, lastSlideInSection);
+    printSectionSlides("After reordering slides", firstSection);
+
+    presentation.getSections().reorderSectionWithSlides(firstSection, 1);
+    printSectionSlides("After moving the section", firstSection);
+
+    const slidesBeforeRemoval = firstSection.getSlidesListOfSection();
+    presentation.getSlides().remove(slidesBeforeRemoval.get_Item(0));
+    printSectionSlides("After removing a slide", firstSection);
+
+    presentation.getSections().removeSectionWithSlides(secondSection);
+    const remainingSections = presentation.getSections();
+    for (let sectionIndex = 0; sectionIndex < remainingSections.size(); sectionIndex++) {
+        printSectionSlides("Remaining section", remainingSections.get_Item(sectionIndex));
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+每當投影片或章節重新排序、複製、移動或移除時，請再次呼叫 [Section.getSlidesListOfSection](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/section/#getSlidesListOfSection)。這可確保後續處理與當前簡報結構保持一致。
+
+PPT（PowerPoint 97–2003）格式不會保留章節中繼資料。請使用支援章節的格式（例如 PPTX）執行此工作流程；轉換為 PPT 會移除後續迭代所需的章節結構。
 
 ## **常見問題**
 
-**將章節儲存為 PPT（PowerPoint 97–2003）格式時會保留嗎？**
+**Are sections preserved when saving to the PPT (PowerPoint 97–2003) format?**
 
-不會。PPT 格式不支援章節的中繼資料，儲存為 .ppt 時會遺失章節分組。
+不會。PPT 格式不支援章節中繼資料，因此在儲存為 .ppt 時會遺失章節分組。
 
-**整個章節可以「隱藏」嗎？**
+**Can an entire section be "hidden"?**
 
-不行。只能隱藏單一投影片。章節作為實體沒有「隱藏」狀態。
+不行。章節沒有可見性狀態。若要隱藏其內容，需對章節內的每張投影片呼叫 [Slide.setHidden](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/slide/#setHidden)。
 
-**我可以透過投影片快速找到其所屬的章節，或反過來取得章節的第一張投影片嗎？**
+**How can I find the section that contains a slide?**
 
-可以。章節是以其起始投影片唯一定義的；給定一張投影片即可判斷其屬於哪個章節，而對於章節也可以取得其第一張投影片。
+先取得 [Presentation.getSections](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/#getSections) 回傳的集合中的每個章節，對每個章節呼叫 [Section.getSlidesListOfSection](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/section/#getSlidesListOfSection)，並將返回的投影片與目標投影片進行比較。對於非空的章節，[Section.getStartedFromSlide](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/section/#getStartedFromSlide) 會返回其第一張投影片；對於空章節，則返回 `null`。

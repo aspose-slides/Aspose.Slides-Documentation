@@ -9,39 +9,39 @@ keywords:
 - تبدیل ارائه
 - ادغام ارائه‌ها
 - تکرار اسلایدها
-- تکرار اشکال
+- تکرار شکل‌ها
 - تکرار متن
-- جمع‌آوری اشکال
+- جمع‌آوری شکل‌ها
 - فشرده‌سازی ارائه
-- حذف مسترهای استفاده‌نشده
-- حذف طرح‌بندی‌های استفاده‌نشده
-- فشرده‌سازی فونت‌های توکار
+- حذف اسلایدهای مستر غیرقابل استفاده
+- حذف اسلایدهای طرح‌بندی غیرقابل استفاده
+- فشرده‌سازی فونت‌های جاسازی‌شده
 - PowerPoint
 - OpenDocument
 - ارائه
 - Java
 - Aspose.Slides
-description: "از API کد کم Aspose.Slides در جاوا برای تبدیل و ادغام ارائه‌ها، تکرار محتوا، جمع‌آوری اشکال و کاهش اندازه ارائه استفاده کنید."
+description: "از API کم‌کد Aspose.Slides در جاوا برای تبدیل و ادغام ارائه‌ها، تکرار محتوا، جمع‌آوری شکل‌ها و کاهش اندازهٔ ارائه استفاده کنید."
 ---
-## **مرور کلی**
+## **بررسی‌کلی**
 
-پکیج [com.aspose.slides](https://reference.aspose.com/slides/fa/java/com.aspose.slides/) کلاس‌های کمکی استاتیک برای عملیات رایج ارائه فراهم می‌کند. این کمکی‌ها فرآیندهای پرکاربرد مدل شیء را در متدهای متمرکز می‌پیچند، به طوری که می‌توانید فایل‌ها را تبدیل یا ترکیب کنید، عناصر ارائه را پردازش کنید، اشکال را جمع‌آوری کنید و محتوای استفاده‌نشده را با کد کمتر حذف کنید.
+پکیج [com.aspose.slides](https://reference.aspose.com/slides/fa/java/com.aspose.slides/) کلاس‌های کمکی ایستاتیك برای عملیات رایج روی ارائه‌ها فراهم می‌كند. این کمك‌ها گردش‌کارهای مدل‌اشیاءی که به‌صورت مكرّر استفاده می‌شوند را در روش‌های متمركز می‌پیچند، به‌طوری‌كه بتوانید فایل‌ها را تبدیل یا ادغام کنید، عناصر ارائه را پردازش کنید، شکل‌ها را جمع‌آوری کنید و محتوای غيراستفاده را با كد كمتری حذف کنید.
 
-کمک‌کننده‌های کم‌کد هنگامی مفیدترین هستند که عملیات بر روی کل فایل یا ارائه اعمال می‌شود و جریان کار پیش‌فرض با نیازهای شما مطابقت دارد. زمانی که به کنترل دقیق بر روی اسلایدهای منفرد، مسترها، طرح‌بندی‌ها، اشکال، تنظیمات خروجی یا روابط بین عناصر ارائه نیاز دارید، از مدل کامل شیء [Aspose.Slides object model](https://reference.aspose.com/slides/fa/java/com.aspose.slides/) استفاده کنید.
+كمك‌های «كد کم» زمانی بیش از حد مفید می‌شوند كه عملیات بر روی یک فایل یا ارائه‌ی كامل اعمال می‌شود و گردش‌کار پيش‌فرض با نیازهای شما مطابقت دارد. هنگام نیاز به کنترل جزئی بر اسلایدهای فردی، مسترها، طرح‌بندی‌ها، شكل‌ها، تنظیمات خروجی یا روابط بین عناصر ارائه، از مدل‌اشیاء كامل [Aspose.Slides](https://reference.aspose.com/slides/fa/java/com.aspose.slides/) استفاده کنید.
 
-جدول زیر خلاصه‌ای از کمکی‌های موجود را ارائه می‌دهد:
+جدول زیر خلاصه‌ای از كمك‌های موجود را ارائه می‌دهد:
 
-| Helper | Use it for |
+| كمك | موارد استفاده |
 | --- | --- |
-| [Convert](https://reference.aspose.com/slides/fa/java/com.aspose.slides/convert/) | تبدیل یک ارائه به فرمت دیگر با فراخوانی مستقیم file-to-file. |
-| [Merger](https://reference.aspose.com/slides/fa/java/com.aspose.slides/merger/) | ترکیب کامل فایل‌های ارائه با فرمت یکسان. |
-| [ForEach](https://reference.aspose.com/slides/fa/java/com.aspose.slides/foreach/) | اجرای یک عمل برای هر اسلاید، شکل، پاراگراف یا بخش متن. |
-| [Collect](https://reference.aspose.com/slides/fa/java/com.aspose.slides/collect/) | بازگرداندن اشکال از کل ارائه برای پردازش یا تحلیل مکرر. |
-| [Compress](https://reference.aspose.com/slides/fa/java/com.aspose.slides/compress/) | حذف مسترها و طرح‌بندی‌های استفاده‌نشده و کاهش داده‌های فونت توکار. |
+| [تبدیل](https://reference.aspose.com/slides/fa/java/com.aspose.slides/convert/) | تبدیل یک ارائه به فرمت دیگر با فراخوانی مستقیم فایل‑به‑فایل. |
+| [ادغام](https://reference.aspose.com/slides/fa/java/com.aspose.slides/merger/) | ترکیب فایل‌های ارائه كامل با فرمت یکسان. |
+| [ForEach](https://reference.aspose.com/slides/fa/java/com.aspose.slides/foreach/) | انجام یک عمل برای هر اسلاید، شكل، پاراگراف یا بخش متنی. |
+| [Collect](https://reference.aspose.com/slides/fa/java/com.aspose.slides/collect/) | بازیابی شكل‌ها از تمام ارائه برای پردازش یا تحلیل مكرّر. |
+| [Compress](https://reference.aspose.com/slides/fa/java/com.aspose.slides/compress/) | حذف مسترها و طرح‌بندی‌های غيراستفاده و کاهش داده‌های فونت جاسازی‌شده. |
 
 ## **تبدیل یک ارائه**
 
-از [Convert.autoByExtension](https://reference.aspose.com/slides/fa/java/com.aspose.slides/convert/#autoByExtension-java.lang.String-java.lang.String-) زمانی استفاده کنید که پسوند فایل خروجی برای انتخاب فرمت خروجی کافی باشد. این متد ارائه منبع را باز می‌کند، فرمت مورد نیاز را از مسیر خروجی تعیین می‌کند و نتیجه را می‌نویسد.
+هنگامی كه پسوند فایل خروجی به تنهایی برای انتخاب فرمت خروجی کافی است، از [Convert.autoByExtension](https://reference.aspose.com/slides/fa/java/com.aspose.slides/convert/#autoByExtension-java.lang.String-java.lang.String-) استفاده کنید. این متد ارائه‌ی منبع را باز می‌كند، فرمت مورد نیاز را از مسیر خروجی تعیین می‌كند و نتیجه را می‌نویسد.
 
 ```java
 import com.aspose.slides.Convert;
@@ -49,11 +49,11 @@ import com.aspose.slides.Convert;
 Convert.autoByExtension("input.pptx", "output.pdf");
 ```
 
-کلاس [Convert](https://reference.aspose.com/slides/fa/java/com.aspose.slides/convert/) همچنین متدهای اختصاصی برای خروجی PDF، SVG، JPEG، PNG و TIFF ارائه می‌دهد. زمانی که نیاز به بررسی یا تغییر ارائه پیش از خروجی یا پیکربندی گزینه‌ای دارید که توسط کمکی انتخاب‌شده در دسترس نیست، از مدل کامل شیء استفاده کنید. برای جریان‌های کاری و گزینه‌های مخصوص به فرمت، به [تبدیل ارائه](/java/convert-presentation/) مراجعه کنید.
+کلاس [Convert](https://reference.aspose.com/slides/fa/java/com.aspose.slides/convert/) همچنین روش‌های اختصاصی برای خروجی PDF، SVG، JPEG، PNG و TIFF فراهم می‌كند. هنگام نیاز به بررسی یا تغییر ارائه قبل از خروجی یا تنظیم گزینه‌ای که توسط كمك انتخابی در دسترس نیست، از مدل‌اشیاء كامل استفاده کنید. برای گردش‌کارها و گزینه‌های مخصوص فرمت به صفحهٔ [Convert Presentation](/slides/fa/java/convert-presentation/) مراجعه کنید.
 
-## **ترکیب ارائه‌ها**
+## **ادغام ارائه‌ها**
 
-از [Merger.process](https://reference.aspose.com/slides/fa/java/com.aspose.slides/merger/#process-java.lang.String:A-java.lang.String-) برای ترکیب کامل فایل‌های ارائه با یک فراخوانی استفاده کنید. ارائه‌های ورودی باید همان فرمت فایل را داشته باشند.
+برای ترکیب فایل‌های ارائه كامل با یک فراخوانی، از [Merger.process](https://reference.aspose.com/slides/fa/java/com.aspose.slides/merger/#process-java.lang.String:A-java.lang.String-) استفاده کنید. ارائه‌های ورودی باید دارای همان فرمت فایل باشند.
 
 ```java
 import com.aspose.slides.Merger;
@@ -62,13 +62,13 @@ String[] inputFiles = { "part-1.pptx", "part-2.pptx" };
 Merger.process(inputFiles, "merged.pptx");
 ```
 
-کمک‌کننده مناسب است زمانی که تمام اسلایدها باید بدون انتخاب یا بازنقشه‌برداری جداگانه به یک نتیجه اضافه شوند. زمانی که نیاز به ترکیب اسلایدهای انتخابی، اعمال مستر یا طرح‌بندی مقصد، حفظ بخش‌ها به‌صورت صریح، یا تطبیق اندازه‌های اسلاید متفاوت دارید، از مدل کامل شیء استفاده کنید. برای این سناریوها، به [ترکیب ارائه‌ها](/java/merge-presentation/) مراجعه کنید.
+این کمك زمانی مناسب است كه تمام اسلایدها بدون انتخاب یا بازنگری فردی به یک نتیجه اضافه شوند. وقتی نیاز به ادغام اسلایدهای انتخابی، اعمال مستر یا طرح‌بندی مقصد، حفظ بخش‌ها به‌صورت صریح یا سازگاری اندازه‌های متفاوت اسلاید دارید، از مدل‌اشیاء كامل استفاده کنید. برای این سناریوها به صفحهٔ [Merge Presentations](/slides/fa/java/merge-presentation/) نگاه کنید.
 
 ## **تکرار در عناصر ارائه**
 
-کلاس [ForEach](https://reference.aspose.com/slides/fa/java/com.aspose.slides/foreach/) برای هر نوع عنصر ارائه درخواست‌شده یک فراخوانی بازخورد (callback) اعمال می‌کند. این کار از حلقه‌های تو در تو جلوگیری می‌کند و برای بازرسی یا تغییرات فرمت‌بندی در سراسر ارائه مناسب است.
+کلاس [ForEach](https://reference.aspose.com/slides/fa/java/com.aspose.slides/foreach/) برای هر نوع عنصر درخواست‌شده فراخوانی‌گری را اجرا می‌كند. این کار از حلقه‌های تودرتوی جمع‌آوری جلوگیری می‌كند و برای بررسی یا تغییر فرمت در سطح تمام ارائه مناسب است.
 
-مثال زیر از [ForEach.slide](https://reference.aspose.com/slides/fa/java/com.aspose.slides/foreach/#slide-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachSlideCallback-)، [ForEach.shape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-)، [ForEach.paragraph](https://reference.aspose.com/slides/fa/java/com.aspose.slides/foreach/#paragraph-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachParagraphCallback-)، و [ForEach.portion](https://reference.aspose.com/slides/fa/java/com.aspose.slides/foreach/#portion-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachPortionCallback-) برای بازرسی عناصر مربوطه استفاده می‌کند:
+مثال زیر از [ForEach.slide](https://reference.aspose.com/slides/fa/java/com.aspose.slides/foreach/#slide-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachSlideCallback-)، [ForEach.shape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-)، [ForEach.paragraph](https://reference.aspose.com/slides/fa/java/com.aspose.slides/foreach/#paragraph-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachParagraphCallback-)، و [ForEach.portion](https://reference.aspose.com/slides/fa/java/com.aspose.slides/foreach/#portion-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachPortionCallback-) برای بررسی عناصر مربوطه استفاده می‌كند:
 
 ```java
 import com.aspose.slides.*;
@@ -95,11 +95,11 @@ try {
 }
 ```
 
-به‌طور پیش‌فرض، پیمایش اشکال و متن در سراسر ارائه شامل اسلایدهای عادی، مستر و طرح‌بندی می‌شود. بارگذاری‌های دیگر با پارامتر `includeNotes` می‌توانند اسلایدهای یادداشت‌ها را نیز پردازش کنند. زمانی که ترتیب پیمایش، خروج زودهنگام، فیلتر قبل از فراخوانی بازخشت یا کنترل دقیق والد‑فرزند مهم است، از حلقه‌های مستقیم مجموعه استفاده کنید.
+به‌صورت پیش‌فرض، عبور از شكل‌ها و متن در سراسر ارائه شامل اسلایدهای عادی، مستر و طرح‌بندی می‌شود. بارگذاری‌های دارای پارامتر `includeNotes` می‌توانند اسلایدهای یادداشت‌ها را نیز پردازش كند. هنگامی که ترتیب عبور، خروج زودهنگام، فیلتر قبل از فراخوانی یا کنترل دقیق والد‑فرزندی مهم است، از حلقه‌های جمع‌آوری مستقیم استفاده کنید.
 
-## **جمع‌آوری اشکال**
+## **جمع‌آوری شكل‌ها**
 
-از [Collect.shapes](https://reference.aspose.com/slides/fa/java/com.aspose.slides/collect/#shapes-com.aspose.slides.Presentation-) زمانی استفاده کنید که به مجموعه‌ای از تمام اشکال در یک ارائه نیاز دارید نه یک بازخشت برای هر شکل. این برای مواقعی مفید است که همان مجموعه چندین بار فیلتر، شمارش یا پردازش می‌شود.
+هنگامی كه به یک مجموعه از تمام شكل‌ها در یک ارائه نیاز دارید نه یک فراخوانی برای هر شكل، از [Collect.shapes](https://reference.aspose.com/slides/fa/java/com.aspose.slides/collect/#shapes-com.aspose.slides.Presentation-) استفاده کنید. این روش زمانی مفید است كه مجموعهٔ یکسان نیاز به فیلتر، شمارش یا پردازش بیش از یک بار داشته باشد.
 
 ```java
 import com.aspose.slides.*;
@@ -116,15 +116,15 @@ try {
 }
 ```
 
-به جای آن وقتی هر شکل می‌تواند بلافاصله پردازش شود و نیازی به نگه‌دار کردن نتیجه جمع‌آوری‌شده ندارید، از [ForEach.shape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-) استفاده کنید.
+به جای آن می‌توانید از [ForEach.shape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-) استفاده کنید وقتی هر شكل می‌تواند بلافاصله پردازش شود و نیازی به نگهداری نتیجهٔ جمع‌آوری‌شده نیست.
 
 ## **فشرده‌سازی محتوای ارائه**
 
-کلاس [Compress](https://reference.aspose.com/slides/fa/java/com.aspose.slides/compress/) می‌تواند عناصر ساختاری استفاده‌نشده را حذف کند و داده‌های فونت توکار را کاهش دهد:
+کلاس [Compress](https://reference.aspose.com/slides/fa/java/com.aspose.slides/compress/) می‌تواند عناصر ساختاری غيراستفاده را حذف و داده‌های فونت جاسازی‌شده را کاهش دهد:
 
-- [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/fa/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) اسلایدهای طرح‌بندی را که هیچ اسلاید عادی به آن ارجاع نمی‌دهد حذف می‌کند.
-- [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/fa/java/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) مسترهای دیگر استفاده‌نشده را حذف می‌کند.
-- [Compress.compressEmbeddedFonts](https://reference.aspose.com/slides/fa/java/com.aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) کاراکترهای استفاده‌نشده از فونت‌های توکار را حذف می‌کند.
+- [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/fa/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) اسلایدهای طرح‌بندی را حذف می‌كند که هیچ اسلاید عادی به آن‌ها ارجاع نمی‌دهد.
+- [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/fa/java/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) مسترهایی را حذف می‌كند که دیگر استفاده نمی‌شوند.
+- [Compress.compressEmbeddedFonts](https://reference.aspose.com/slides/fa/java/com.aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) کاراکترهای غيراستفاده در فونت‌های جاسازی‌شده را حذف می‌كند.
 
 ```java
 import com.aspose.slides.*;
@@ -141,38 +141,38 @@ try {
 }
 ```
 
-قبل از حذف مسترهای استفاده‌نشده، طرح‌بندی‌های استفاده‌نشده را حذف کنید تا مستری که پس از پاک‌سازی طرح‌بندی به‌طور غیرمستقیم خالی شد، نیز حذف شود. اگر ممکن است بعداً به مسترها، طرح‌بندی‌ها یا داده‌های کامل فونت‌های توکار اصلی نیاز داشته باشید، ارائه بهینه‌شده را در یک فایل جدید ذخیره کنید. برای جزئیات بیشتر، به [مستر اسلاید](/java/slide-master/) و [فونت توکار](/java/embedded-font/) مراجعه کنید.
+ابتدا طرح‌بندی‌های غيراستفاده را حذف کنید و سپس مسترهای غيراستفاده را؛ به این ترتیب مستری که پس از تمیزکردن طرح‌بندی‌ها دیگر ارجاع داده نمی‌شود، نیز حذف می‌شود. ارائه بهینه‌شده را در فایل جدیدی ذخیره کنید اگر ممکن است بعدها به مسترها، طرح‌بندی‌ها یا داده‌های كامل فونت جاسازی‌شده نیاز داشته باشید. برای جزئیات بیشتر به صفحات [Slide Master](/slides/fa/java/slide-master/) و [Embedded Font](/slides/fa/java/embedded-font/) مراجعه کنید.
 
-## **سوالات متداول**
+## **پرسش‌های متداول**
 
-**چه زمانی باید از API کم‌کد به جای مدل کامل شیء استفاده کنم؟**
+**چه زمانی باید به‌جای مدل‌اشیاء كامل از API كد‑كم استفاده كنم؟**
 
-وقتی یک عملیات استاندارد بر روی یک فایل یا ارائه کامل اعمال می‌شود و نیازی به کنترل دقیق بر عناصر منفرد نیست، از کمک‌کننده‌های کم‌کد استفاده کنید. وقتی باید اسلایدهای خاصی را انتخاب کنید، روابط مستر و طرح‌بندی را کنترل کنید، وضعیت میانی را بررسی کنید یا رفتارهایی را پیکربندی کنید که کمکی در معرض آن‌ها قرار نمی‌دهد، از مدل کامل شیء استفاده کنید.
+وقتی یک عملیات استاندارد بر روی یک فایل یا ارائه کامل اعمال می‌شود و نیازی به کنترل دقیق روی عناصر فردی نیست، از كمك‌های كد‑كم استفاده کنید. وقتی نیاز به انتخاب اسلایدهای خاص، کنترل روابط مستر و طرح‌بندی، بررسی وضعیت میانی یا تنظیم رفتاری دارید که توسط كمك نمایان نیست، از مدل‌اشیاء كامل استفاده کنید.
 
-**آیا Merger می‌تواند ارائه‌ها را در فرمت‌های فایل مختلف ترکیب کند؟**
+**آیا Merger می‌تواند ارائه‌ها را در فرمت‌های متفاوت ترکیب كند؟**
 
-نه. [Merger.process](https://reference.aspose.com/slides/fa/java/com.aspose.slides/merger/#process-java.lang.String:A-java.lang.String-) نیاز دارد که ارائه‌های ورودی همان فرمت را داشته باشند. ابتدا فایل‌های ورودی را با مثال [Convert.autoByExtension](https://reference.aspose.com/slides/fa/java/com.aspose.slides/convert/#autoByExtension-java.lang.String-java.lang.String-) به یک فرمت مشترک تبدیل کنید و سپس فایل‌های تبدیل‌شده را ترکیب کنید.
+نه. متد [Merger.process](https://reference.aspose.com/slides/fa/java/com.aspose.slides/merger/#process-java.lang.String:A-java.lang.String-) فقط ورودی‌های با فرمت یکسان را می‌پذیرد. ابتدا فایل‌های ورودی را به یک فرمت مشترک تبدیل کنید، برای مثال با استفاده از [Convert.autoByExtension](https://reference.aspose.com/slides/fa/java/com.aspose.slides/convert/#autoByExtension-java.lang.String-java.lang.String-)، سپس فایل‌های تبدیل‌شده را ادغام كنید.
 
-**آیا ForEach اسلایدهای مستر، طرح‌بندی و یادداشت‌ها را پردازش می‌کند؟**
+**آیا ForEach مستر، طرح‌بندی و اسلایدهای یادداشت را پردازش می‑كند؟**
 
-[ForEach.slide](https://reference.aspose.com/slides/fa/java/com.aspose.slides/foreach/#slide-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachSlideCallback-) بر روی اسلایدهای عادی ارائه تکرار می‌کند. [ForEach.shape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-)، [ForEach.paragraph](https://reference.aspose.com/slides/fa/java/com.aspose.slides/foreach/#paragraph-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachParagraphCallback-)، و [ForEach.portion](https://reference.aspose.com/slides/fa/java/com.aspose.slides/foreach/#portion-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachPortionCallback-) به‌طور پیش‌فرض اسلایدهای عادی، مستر و طرح‌بندی را شامل می‌شوند. برای شامل کردن اسلایدهای یادداشت‌ها، از بارگذاری‌های آن‌ها با `includeNotes` برابر `true` استفاده کنید.
+متد [ForEach.slide](https://reference.aspose.com/slides/fa/java/com.aspose.slides/foreach/#slide-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachSlideCallback-) فقط اسلایدهای عادی ارائه را پیمایش می‌كند. عملیات‌های سطح‑کلان [ForEach.shape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-)، [ForEach.paragraph](https://reference.aspose.com/slides/fa/java/com.aspose.slides/foreach/#paragraph-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachParagraphCallback-)، و [ForEach.portion](https://reference.aspose.com/slides/fa/java/com.aspose.slides/foreach/#portion-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachPortionCallback-) به‌صورت پیش‌فرض شامل اسلایدهای عادی، مستر و طرح‌بندی می‌شوند. برای شامل کردن اسلایدهای یادداشت، بارگذاری‌های آن‌ها را با `includeNotes` برابر `true` صدا بزنید.
 
-**تفاوت Between ForEach.shape و Collect.shapes چیست؟**
+**تفاوت بین ForEach.shape و Collect.shapes چیست؟**
 
-از [ForEach.shape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-) برای پردازش هر شکل به‌صورت فوری از طریق یک بازخشت استفاده کنید. از [Collect.shapes](https://reference.aspose.com/slides/fa/java/com.aspose.slides/collect/#shapes-com.aspose.slides.Presentation-) وقتی به نتیجه‌ای قابل تکرار نیاز دارید که می‌تواند حفظ، فیلتر یا چندبار شمارش شود، استفاده کنید.
+از [ForEach.shape](https://reference.aspose.com/slides/fa/java/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-) برای پردازش فوری هر شكل از طریق یک فراخوانی استفاده کنید. زمانی که به یک نتیجهٔ قابل تکرار نیاز دارید که بتوانید آن را نگه‌دارید، فیلتر کنید یا چندبار شمارش و پیمایش کنید، از [Collect.shapes](https://reference.aspose.com/slides/fa/java/com.aspose.slides/collect/#shapes-com.aspose.slides.Presentation-) استفاده کنید.
 
-**آیا Compress همیشه فایل ارائه را کوچکتر می‌کند؟**
+**آیا Compress همیشه فایل ارائه را کوچک‌تر می‌كند؟**
 
-ضروری نیست. نتیجه به این بستگی دارد که آیا ارائه شامل طرح‌بندی‌های استفاده‌نشده، مسترهای استفاده‌نشده یا فونت‌های توکار با کاراکترهای استفاده‌نشده است یا خیر. اگر هیچ‌یک از این موارد وجود نداشته باشد، عملیات مربوط به [Compress](https://reference.aspose.com/slides/fa/java/com.aspose.slides/compress/) ممکن است اندازه فایل را کاهش ندهد.
+لزوم کوچک‌تر شدن فایل به این بستگی دارد که آیا ارائه شامل طرح‌بندی‌های غيراستفاده، مسترهای غيراستفاده یا فونت‌های جاسازی‌شده با کاراکترهای غيراستفاده است یا نه. اگر هیچ‌یک از این موارد وجود نداشته باشد، عملیات‌های مربوط به [Compress](https://reference.aspose.com/slides/fa/java/com.aspose.slides/compress/) ممکن است اندازهٔ فایل را کاهش ندهند.
 
-**آیا تغییرات ایجادشده توسط ForEach یا Compress به‌صورت خودکار ذخیره می‌شوند؟**
+**آیا تغییرات ایجاد شده توسط ForEach یا Compress به‌صورت خودکار ذخیره می‌شوند؟**
 
-نه. این کمک‌کننده‌ها بر روی شیء [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/) بارگذاری‌شده در حافظه کار می‌کنند. پس از تغییر عناصر در یک بازخشت [ForEach](https://reference.aspose.com/slides/fa/java/com.aspose.slides/foreach/) یا اجرای [Compress](https://reference.aspose.com/slides/fa/java/com.aspose.slides/compress/)، برای نوشتن نتیجه باید از [Presentation.save](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/#save-java.lang.String-int-) استفاده کنید.
+خیر. این كمك‌ها بر روی شیء [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/) بارگذاری‌شده در حافظه عمل می‌كنند. پس از تغییر عناصر در یک فراخوانی [ForEach] یا اجرای [Compress]، برای نوشتن نتیجه باید از متد [Presentation.save](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/#save-java.lang.String-int-) استفاده کنید.
 
 ## **مقالات مرتبط**
 
-- [تبدیل ارائه](/java/convert-presentation/)
-- [ترکیب ارائه‌ها](/java/merge-presentation/)
-- [مستر اسلاید](/java/slide-master/)
-- [مدیریت جعبه متن](/java/manage-textbox/)
-- [فونت توکار](/java/embedded-font/)
+- [Convert Presentation](/slides/fa/java/convert-presentation/)
+- [Merge Presentations](/slides/fa/java/merge-presentation/)
+- [Slide Master](/slides/fa/java/slide-master/)
+- [Manage Text Box](/slides/fa/java/manage-textbox/)
+- [Embedded Font](/slides/fa/java/embedded-font/)

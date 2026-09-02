@@ -1,86 +1,88 @@
 ---
-title: Anpassa PowerPoint-typsnitt i Python
-linktitle: Anpassat typsnitt
+title: Anpassa PowerPoint‑teckensnitt i Python
+linktitle: Anpassat teckensnitt
 type: docs
 weight: 20
 url: /sv/python-net/custom-font/
 keywords:
-- typsnitt
-- anpassat typsnitt
-- externt typsnitt
-- ladda typsnitt
-- hantera typsnitt
-- typsnittsmapp
+- teckensnitt
+- anpassat teckensnitt
+- externt teckensnitt
+- ladda teckensnitt
+- hantera teckensnitt
+- teckensnittsmapp
 - PowerPoint
 - presentation
 - Python
 - Aspose.Slides
-description: "Bädda in anpassade typsnitt i PowerPoint-bilder med Aspose.Slides för Python via .NET för att hålla dina presentationer skarpa och konsistenta på alla enheter."
+description: "Bädda in anpassade teckensnitt i PowerPoint‑bilder med Aspose.Slides för Python via .NET för att hålla dina presentationer skarpa och konsekventa på alla enheter."
 ---
 ## **Översikt**
 
-Aspose.Slides för Python låter dig tillhandahålla anpassade typsnitt vid körning så att presentationer renderas korrekt även när de nödvändiga typsnitten inte är installerade på värdsystemet. Vid export till PDF eller bilder kan du ange typsnittsmappor eller typsnitt i minnet för att bevara textlayout, glyfmetriker och typografi. Detta gör server‑sidigerendering förutsägbar över olika miljöer, tar bort OS‑nivå typsnittsberoenden och förhindrar oönskade reservtypsnitt eller omslagning. Artikeln visar hur du registrerar typsnittskällor.
+Aspose.Slides för Python låter dig tillhandahålla anpassade teckensnitt vid körning så att presentationer renderas korrekt även när de erforderliga teckensnitten inte är installerade på värdsystemet. Vid export till PDF eller bilder kan du ange teckensnittsmappor eller teckensnitt i minnet för att bevara textlayout, glyf-mått och typografi. Detta gör server‑sidans rendering förutsägbar i olika miljöer, tar bort OS‑nivå beroenden på teckensnitt och förhindrar oönskade återgångar eller omläggning. Artikeln visar hur du registrerar teckensnittskällor.
 
-Aspose.Slides låter dig ladda följande typsnitt med metoderna `load_external_font` och `load_external_fonts` i klassen [FontsLoader](https://reference.aspose.com/slides/sv/python-net/aspose.slides/fontsloader/):
+Ett presentations‑tema kan referera till olika teckensnittsfamiljer för enskilda skriftsystem. Dessa mappningar lagrar teckensnittsnamn men installerar eller laddar inte teckensnittsfilerna. Se [Script‑Specific Theme Fonts](/slides/sv/python-net/script-specific-font-mappings/) för att hantera mappningarna, och använd laddningsalternativen nedan för att göra de refererade teckensnitten tillgängliga för konsekvent rendering.
 
-- TrueType (.ttf) och TrueType Collection (.ttc) typsnitt. Se [TrueType](https://en.wikipedia.org/wiki/TrueType).
-- OpenType (.otf) typsnitt. Se [OpenType](https://en.wikipedia.org/wiki/OpenType).
+Aspose.Slides låter dig ladda följande teckensnitt med metoderna `load_external_font` och `load_external_fonts` i klassen [FontsLoader](https://reference.aspose.com/slides/sv/python-net/aspose.slides/fontsloader/):
 
-## **Ladda anpassade typsnitt**
+- TrueType‑ (.ttf) och TrueType Collection‑ (.ttc) teckensnitt. Se [TrueType](https://en.wikipedia.org/wiki/TrueType).
+- OpenType‑ (.otf) teckensnitt. Se [OpenType](https://en.wikipedia.org/wiki/OpenType).
 
-Aspose.Slides gör det möjligt att ladda typsnitt som används i en presentation utan att installera dem på systemet. Detta påverkar exportutdata—t.ex. PDF, bilder och andra stödjade format—så att de resulterande dokumenten ser konsekventa ut över miljöer. Typsnitt laddas från anpassade kataloger.
+## **Ladda anpassade teckensnitt**
 
-1. Ange en eller flera mappar som innehåller typsnittsfilerna.
-2. Anropa den statiska metoden [FontsLoader.load_external_fonts](https://reference.aspose.com/slides/sv/python-net/aspose.slides/fontsloader/load_external_fonts/) för att ladda typsnitt från dessa mappar.
-3. Ladda och rendera/exportera presentationen.
-4. Anropa [FontsLoader.clear_cache](https://reference.aspose.com/slides/sv/python-net/aspose.slides/fontsloader/clear_cache/) för att rensa typsnittscachen.
+Aspose.Slides gör det möjligt att ladda teckensnitt som används i en presentation utan att installera dem på systemet. Detta påverkar exportresultatet – såsom PDF, bilder och andra stödda format – så att de resulterande dokumenten ser enhetliga ut i olika miljöer. Teckensnitt laddas från anpassade kataloger.
 
-Följande kodexempel demonstrerar processen för att ladda typsnitt:
+1. Ange en eller flera mappar som innehåller teckensnittsfilerna.  
+2. Anropa den statiska metoden [FontsLoader.load_external_fonts](https://reference.aspose.com/slides/sv/python-net/aspose.slides/fontsloader/load_external_fonts/) för att ladda teckensnitt från dessa mappar.  
+3. Ladda och rendera/exportera presentationen.  
+4. Anropa [FontsLoader.clear_cache](https://reference.aspose.com/slides/sv/python-net/aspose.slides/fontsloader/clear_cache/) för att tömma teckensnittscachen.
+
+Följande kodexempel demonstrerar teckensnittsladdningsprocessen:
 
 ```py
 import aspose.slides as slides
 
-# Definiera mappar som innehåller anpassade typsnittsfiler.
-font_folders = [ external_font_folder1, external_font_folder2 ]
+# Definiera mappar som innehåller anpassade teckensnittsfiler.
+font_folders = ["fonts", "external_fonts"]
 
-# Ladda anpassade typsnitt från de angivna mapparna.
+# Ladda anpassade teckensnitt från de angivna mapparna.
 slides.FontsLoader.load_external_fonts(font_folders)
 
 with slides.Presentation("sample.pptx") as presentation:
-    # Rendera/exportera presentationen (t.ex. till PDF, bilder eller andra format) med de inlästa typsnitten.
+    # Rendera/exportera presentationen (t.ex. till PDF, bilder eller andra format) med de inlästa teckensnitten.
     presentation.save("output.pdf", slides.export.SaveFormat.PDF)
 
-# Rensa typsnittscachen när arbetet är slutfört.
+# Rensa teckensnittscachen när arbetet är klart.
 slides.FontsLoader.clear_cache()
 ```
 
 {{% alert color="info" title="Note" %}}
-[FontsLoader.load_external_fonts](https://reference.aspose.com/slides/sv/python-net/aspose.slides/fontsloader/load_external_fonts/) lägger till ytterligare mappar i typsnittssökvägarna, men ändrar inte ordningen för typsnittsininitiering.
-Typsnitt initieras i följande ordning:
+[FontsLoader.load_external_fonts](https://reference.aspose.com/slides/sv/python-net/aspose.slides/fontsloader/load_external_fonts/) lägger till extra mappar i teckensnittssökvägarna, men ändrar inte ordningen för teckensnittsinitering.  
+Teckensnitt initieras i följande ordning:
 
-1. Standard‑operativsystemets typsnittsväg.
-1. Vägarna som laddas via [FontsLoader](https://reference.aspose.com/slides/sv/python-net/aspose.slides/fontsloader/).
+1. Operativsystemets standard‑teckensnittssökväg.  
+1. Sökvägarna som laddats via [FontsLoader](https://reference.aspose.com/slides/sv/python-net/aspose.slides/fontsloader/).  
 {{%/alert %}}
 
-## **Hämta mappen för anpassade typsnitt**
+## **Hämta mappen för anpassade teckensnitt**
 
-Aspose.Slides tillhandahåller metoden `get_font_folders` för att hämta typsnittsmappar. Den returnerar både de mappar som lagts till via `load_external_fonts` och systemets typsnittsmappar.
+Aspose.Slides tillhandahåller metoden `get_font_folders` för att hämta teckensnittsmappar. Den returnerar både de mappar som lagts till via `load_external_fonts` och systemets teckensnittsmappar.
 
-Denna Python‑kod visar hur man använder `get_font_folders`:
+Denna Python‑kod visar hur du använder `get_font_folders`:
 
 ```python
 import aspose.slides as slides
 
-# Detta anrop returnerar mapparna som kontrolleras för typsnittsfiler.
-# Dessa inkluderar mappar som lagts till via load_external_fonts-metoden och systemets typsnittsmappor.
+# Detta anrop returnerar mapparna som kontrolleras för teckensnittsfiler.
+# Dessa inkluderar mappar som lagts till via load_external_fonts-metoden och systemets teckensnittsmapp.
 font_folders = slides.FontsLoader.get_font_folders()
 ```
 
-## **Ange anpassade typsnitt för en presentation**
+## **Ange anpassade teckensnitt för en presentation**
 
-Aspose.Slides erbjuder egenskapen `document_level_font_sources`, som låter dig ange externa typsnitt att använda med en presentation.
+Aspose.Slides tillhandahåller egenskapen `document_level_font_sources`, som låter dig ange externa teckensnitt som ska användas med en presentation.
 
-Följande Python‑exempel visar hur man använder `document_level_font_sources`:
+Följande Python‑exempel visar hur du använder `document_level_font_sources`:
 
 ```python
 import aspose.slides as slides
@@ -98,16 +100,16 @@ load_options.document_level_font_sources.memory_fonts = [font1_data, font2_data]
 with slides.Presentation("Fonts.pptx", load_options) as presentation:
     # ...
     # Arbeta med presentationen.
-    # CustomFont1, CustomFont2 och typsnitt från mapparna assets\fonts och global\fonts (och deras undermappar) är tillgängliga för presentationen.
+    # CustomFont1, CustomFont2 och teckensnitt från mapparna assets\fonts och global\fonts (och deras undermappar) är tillgängliga för presentationen.
     # ...
     print(len(presentation.slides))
 ```
 
-## **Ladda externa typsnitt från binär data**
+## **Ladda externa teckensnitt från binär data**
 
-Aspose.Slides tillhandahåller metoden `load_external_font` för att ladda externa typsnitt från binär data.
+Aspose.Slides erbjuder metoden `load_external_font` för att ladda externa teckensnitt från binär data.
 
-Följande Python‑exempel demonstrerar hur man laddar ett typsnitt från en byte‑array:
+Följande Python‑exempel demonstrerar hur ett teckensnitt laddas från en byte‑array:
 
 ```python
 import aspose.slides as slides
@@ -117,14 +119,14 @@ def read_all_bytes(file_path):
         file_data = file_stream.read()
     return file_data
 
-# Ladda externa typsnitt från byte-arrayer.
+# Ladda externa teckensnitt från byte-arrayer.
 slides.FontsLoader.load_external_font(read_all_bytes("ARIALN.TTF"))
 slides.FontsLoader.load_external_font(read_all_bytes("ARIALNBI.TTF"))
 slides.FontsLoader.load_external_font(read_all_bytes("ARIALNI.TTF"))
 
 try:
     with slides.Presentation() as presentation:
-        # Externa typsnitt är tillgängliga under hela livslängden för detta presentationsobjekt.
+        # Externa teckensnitt är tillgängliga under hela livstiden för detta presentations‑objekt.
         print("processing")
 finally:
     slides.FontsLoader.clear_cache()
@@ -132,22 +134,22 @@ finally:
 
 ## **FAQ**
 
-**Påverkar anpassade typsnitt export till alla format (PDF, PNG, SVG, HTML)?**
+### Påverkar anpassade teckensnitt export till alla format (PDF, PNG, SVG, HTML)?
 
-Ja. Anslutna typsnitt används av renderaren i alla exportformat.
+Ja. Anslutna teckensnitt används av renderaren i alla exportformat.
 
-**Bäddas anpassade typsnitt automatiskt i den resulterande PPTX‑filen?**
+### Bäddar anpassade teckensnitt automatiskt in i den resulterande PPTX‑filen?
 
-Nej. Att registrera ett typsnitt för rendering är inte detsamma som att bädda in det i en PPTX. Om du behöver att typsnittet finns i presentationsfilen måste du använda de explicita [inbäddningsfunktionerna](/slides/sv/python-net/embedded-font/).
+Nej. Att registrera ett teckensnitt för rendering är inte detsamma som att bädda in det i en PPTX. Om du behöver att teckensnittet bäddas in i presentationsfilen måste du använda de explicita [inbäddningsfunktionerna](/slides/sv/python-net/embedded-font/).
 
-**Kan jag styra fallback‑beteendet när ett anpassat typsnitt saknar vissa glyfer?**
+### Kan jag styra återgångsbeteende när ett anpassat teckensnitt saknar vissa glyfer?
 
-Ja. Konfigurera [font substitution](/slides/sv/python-net/font-substitution/), [replacement rules](/slides/sv/python-net/font-replacement/) och [fallback sets](/slides/sv/python-net/fallback-font/) för att exakt ange vilket typsnitt som ska användas när den begärda glyfen saknas.
+Ja. Konfigurera [teckensnittssubstitution](/slides/sv/python-net/font-substitution/), [ersättningsregler](/slides/sv/python-net/font-replacement/) och [återgångsset](/slides/sv/python-net/fallback-font/) för att exakt ange vilket teckensnitt som ska användas när den begärda glyfen saknas.
 
-**Kan jag använda typsnitt i Linux/Docker‑behållare utan att installera dem systemomfattande?**
+### Kan jag använda teckensnitt i Linux/Docker‑behållare utan att installera dem systemomfattande?
 
-Ja. Peka på dina egna typsnittsmappar eller ladda typsnitt från byte‑arrayer. Detta tar bort alla beroenden av systemets typsnittskataloger i container‑avbilden.
+Ja. Peka på dina egna teckensnittsmappar eller ladda teckensnitt från byte‑arrayer. Detta tar bort alla beroenden på systemteckensnittskataloger i behållaravbilden.
 
-**Hur är det med licensiering—kan jag bädda in vilket anpassat typsnitt som helst utan restriktioner?**
+### Vad gäller licensiering—kan jag bädda in vilket anpassat teckensnitt som helst utan restriktioner?
 
-Du är ansvarig för att följa typsnittens licensvillkor. Villkoren varierar; vissa licenser förbjuder inbäddning eller kommersiell användning. Granska alltid typsnittets EULA innan du distribuerar resultat.
+Du ansvarar för att följa teckensnittens licensvillkor. Villkoren varierar; vissa licenser förbjuder inbäddning eller kommersiell användning. Granska alltid teckensnittets EULA innan du distribuerar resultat.

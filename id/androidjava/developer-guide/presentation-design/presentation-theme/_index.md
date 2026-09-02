@@ -1,5 +1,5 @@
 ---
-title: Kelola Tema Presentasi di Android
+title: Mengelola Tema Presentasi di Android
 linktitle: Tema Presentasi
 type: docs
 weight: 10
@@ -22,23 +22,23 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Kuasai tema presentasi di Aspose.Slides untuk Android melalui Java untuk membuat, menyesuaikan, dan mengonversi file PowerPoint dengan branding yang konsisten."
+description: "Kelola tema presentasi master di Aspose.Slides untuk Android via Java untuk membuat, menyesuaikan, dan mengonversi file PowerPoint dengan branding yang konsisten."
 ---
 ## **Pendahuluan**
 
-Tema presentasi mendefinisikan serangkaian warna, font, gaya latar belakang, isian, garis, dan efek yang terkoordinasi. Objek yang menyadari tema merujuk ke definisi bersama ini alih‑alih menyimpan setiap properti visual sebagai nilai tetap, sehingga perubahan tema dapat memperbarui banyak objek sekaligus.
+Tema presentasi mendefinisikan satu set warna, font, gaya latar belakang, isian, garis, dan efek yang terkoordinasi. Objék yang sadar tema merujuk ke definisi bersama ini alih-alih menyimpan setiap properti visual sebagai nilai tetap, sehingga perubahan tema dapat memperbarui banyak objék sekaligus.
 
-Di Aspose.Slides, tema tingkat presentasi tersedia melalui [Presentation.getMasterTheme](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/). Sebuah presentasi juga dapat berisi penimpaan tema pada tingkat yang lebih rendah. Sebuah master dapat menimpa tema presentasi melalui [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/masterthememanager/), sementara layout atau slide individu dapat menimpa tema yang diwarisi melalui [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/baseoverridethememanager/). Pada praktiknya, tema efektif untuk sebuah slide diselesaikan melalui rantai pewarisan ini: tema presentasi, penimpaan master, penimpaan layout, dan penimpaan slide.
+Di Aspose.Slides, tema tingkat presentasi tersedia melalui [Presentation.getMasterTheme](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/). Sebuah presentasi juga dapat berisi penimpaan tema pada tingkatan yang lebih rendah. Master dapat menimpa tema presentasi melalui [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/masterthememanager/), sementara tata letak atau slide individual dapat menimpa tema warisannya melalui [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/baseoverridethememanager/). Pada praktiknya, tema efektif untuk sebuah slide diselesaikan melalui rantai pewarisan ini: tema presentasi, penimpaan master, penimpaan tata letak, dan penimpaan slide.
 
 ![Komponen tema: warna, font, gaya latar belakang, dan efek](theme-constituents.png)
 
-Bagian‑bagian di bawah ini menunjukkan alur kerja tema yang paling umum: memeriksa tema, mengubah warna dan font, menyalin atau menerapkan tema, memperbarui gaya latar belakang dan efek, serta membaca nilai efektif setelah pewarisan dan penimpaan diselesaikan.
+Bagian di bawah ini menunjukkan alur kerja tema yang paling umum: memeriksa tema, mengubah warna dan font, menyalin atau menerapkan tema, memperbarui gaya latar belakang dan efek, serta membaca nilai efektif setelah pewarisan dan penimpaan diselesaikan.
 
 ## **Memeriksa Tema**
 
-Objek [MasterTheme](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/mastertheme/) menampilkan skema warna tema, skema font, dan skema format melalui [MasterTheme.getColorScheme](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/mastertheme/), dan [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/mastertheme/). Memeriksa koleksi‑koleksi ini sebelum mengubahnya sangat berguna ketika sebuah presentasi berasal dari sumber eksternal karena jumlah dan isi entri gaya dapat bervariasi.
+Objék [MasterTheme](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/mastertheme/) mengekspose skema warna, skema font, dan skema format tema melalui [MasterTheme.getColorScheme](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/mastertheme/), dan [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/mastertheme/). Memeriksa koleksi ini sebelum mengubahnya sangat berguna ketika presentasi berasal dari sumber eksternal karena jumlah dan isi entri gaya dapat bervariasi.
 
-Contoh berikut membaca properti tema utama dan melaporkan berapa banyak gaya latar belakang, isian, garis, dan efek yang disimpan dalam tema:
+Contoh berikut membaca properti tema utama dan melaporkan berapa banyak gaya latar belakang, isi, garis, dan efek yang disimpan dalam tema:
 
 ```java
 import com.aspose.slides.*;
@@ -61,13 +61,13 @@ try {
 }
 ```
 
-Jika sebuah file menggunakan beberapa master, jangan mengasumsikan setiap slide memiliki tema efektif yang sama. Periksa master yang terkait dengan slide, dan gunakan alur kerja tema‑efektif yang ditunjukkan nanti dalam artikel ini ketika penimpaan layout atau slide mungkin ada.
+Jika sebuah file menggunakan beberapa master, jangan mengasumsikan bahwa setiap slide memiliki tema efektif yang sama. Periksa master yang terkait dengan slide, dan gunakan alur kerja tema-efektif yang ditunjukkan nanti dalam artikel ini ketika penimpaan tata letak atau slide mungkin ada.
 
 ## **Mengubah Warna Tema**
 
-Isian, garis, dan teks yang menyadari tema dapat merujuk ke warna logis dari enumerasi [SchemeColor](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/schemecolor/). Ketika Anda mengubah entri yang bersangkutan dalam [IColorScheme](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/icolorscheme/), semua objek yang masih merujuk ke warna tema tersebut diselesaikan terhadap nilai baru. Objek yang menggunakan warna RGB langsung tidak akan berubah oleh pembaruan warna tema.
+Isian, garis, dan teks yang sadar tema dapat merujuk ke warna logis dari enumerasi [SchemeColor](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/schemecolor/). Saat Anda mengubah entri yang bersangkutan dalam [IColorScheme](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/icolorscheme/), semua objék yang masih merujuk ke warna tema tersebut akan diselesaikan terhadap nilai baru. Objék yang menggunakan warna RGB langsung tidak diubah oleh pembaruan warna tema.
 
-Contoh end‑to‑end berikut membuat sebuah shape yang menggunakan `Accent4`, mengubah warna `Accent4` tema menjadi merah, menyimpan presentasi, membukanya kembali, dan mencetak warna isian yang efektif:
+Contoh ujung-ke-ujung berikut membuat sebuah bentuk yang menggunakan `Accent4`, mengubah warna `Accent4` tema menjadi merah, menyimpan presentasi, membuka kembali, dan mencetak warna isi efektif:
 
 ```java
 import com.aspose.slides.*;
@@ -97,19 +97,19 @@ try {
 }
 ```
 
-Karena persegi tetap terhubung ke `Accent4`, warnanya menjadi merah setelah tema diubah. Jika Anda mengganti warna skema dengan warna langsung pada shape, perubahan selanjutnya pada `Accent4` tidak akan memengaruhi isian tersebut lagi.
+Karena persegi panjang tetap terhubung ke `Accent4`, warnanya yang terlihat menjadi merah setelah tema diubah. Jika Anda mengganti warna skema dengan warna langsung pada bentuk, perubahan selanjutnya pada `Accent4` tidak akan memengaruhi isian itu lagi.
 
 ### **Gunakan Warna dari Palet Tambahan**
 
-PowerPoint menghasilkan varian lebih terang dan lebih gelap dari warna tema dengan menerapkan transformasi warna. Aspose.Slides menampilkan transformasi ini melalui enumerasi [ColorTransformOperation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/colortransformoperation/).
+PowerPoint menghasilkan varian lebih terang dan lebih gelap dari warna tema dengan menerapkan transformasi warna. Aspose.Slides mengekspose transformasi ini melalui enumerasi [ColorTransformOperation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/colortransformoperation/).
 
-![Warna tema utama dan warna lebih terang serta lebih gelap yang dihasilkan dari palet tambahan](additional-palette-colors.png)
+![Warna tema utama serta warna lebih terang dan lebih gelap yang dihasilkan dari palet tambahan](additional-palette-colors.png)
 
-**1** – Warna tema utama.
+**1** - Warna tema utama.
 
-**2** – Varian lebih terang dan lebih gelap yang dihasilkan dari warna tema utama.
+**2** - Varian lebih terang dan lebih gelap yang dihasilkan dari warna tema utama.
 
-Contoh berikut membuat enam persegi berdasarkan `Accent4`, menerapkan transformasi luminansi pada lima di antaranya, dan menyimpan hasilnya:
+Contoh berikut membuat enam persegi panjang berdasarkan `Accent4`, menerapkan transformasi luminansi pada lima di antaranya, dan menyimpan hasilnya:
 
 ```java
 import com.aspose.slides.*;
@@ -156,31 +156,31 @@ try {
 }
 ```
 
-Varian‑varian ini tetap berbasis pada warna tema. Jika `Accent4` berubah nanti, warna yang ditransformasi akan dihitung ulang dari nilai `Accent4` yang baru.
+Varian ini tetap berbasis pada warna tema. Jika `Accent4` berubah nanti, warna yang ditransformasi dihitung ulang dari nilai `Accent4` yang baru.
 
-### **Pemetaan Nilai `SchemeColor` ke Slot `IColorScheme`**
+### **Petakan Nilai `SchemeColor` ke Slot `IColorScheme`**
 
-Enumerasi [SchemeColor](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/schemecolor/) menggunakan `Text1`, `Background1`, `Text2`, dan `Background2`, sementara [IColorScheme](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/icolorscheme/) menampilkan slot tema yang sama sebagai `Dark1`, `Light1`, `Dark2`, dan `Light2`. Pemetaan bersifat tetap:
+Enumerasi [SchemeColor](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/schemecolor/) menggunakan `Text1`, `Background1`, `Text2`, dan `Background2`, sementara [IColorScheme](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/icolorscheme/) mengekspose slot tema yang sama sebagai `Dark1`, `Light1`, `Dark2`, dan `Light2`. Pemetaan ini tetap:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-Ini adalah nama alternatif untuk slot tema yang sama; mereka bukan nilai yang dikonversi secara dinamis dari satu bentuk ke bentuk lain.
+Ini adalah nama alternatif untuk slot tema yang sama; bukan nilai yang dikonversi secara dinamis dari satu bentuk ke bentuk lain.
 
 ## **Mengubah Font Tema**
 
-Skema font tema berisi satu set font utama untuk judul dan satu set font minor untuk teks tubuh. Metode [IFontScheme.getMajor](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ifontscheme/) dan [IFontScheme.getMinor](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ifontscheme/) menampilkan set tersebut.
+Skema font tema berisi satu set font utama untuk tajuk dan satu set font minor untuk teks tubuh. Metode [IFontScheme.getMajor](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ifontscheme/) dan [IFontScheme.getMinor](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ifontscheme/) mengekspose set tersebut.
 
 Pengidentifikasi font tema yang kompatibel dengan PowerPoint dapat digunakan dalam pemformatan teks:
 
-* `+mn‑lt` – Font Tubuh Latin (Font Latin Minor)
-* `+mj‑lt` – Font Judul Latin (Font Latin Mayor)
-* `+mn‑ea` – Font Tubuh Asia Timur (Font Asia Timur Minor)
-* `+mj‑ea` – Font Judul Asia Timur (Font Asia Timur Mayor)
+* `+mn-lt` - Font Tubuh Latin (Minor Latin Font)
+* `+mj-lt` - Font Tajuk Latin (Major Latin Font)
+* `+mn-ea` - Font Tubuh Asia Timur (Minor East Asian Font)
+* `+mj-ea` - Font Tajuk Asia Timur (Major East Asian Font)
 
-Contoh berikut membuat satu judul yang menggunakan font tema Latin mayor dan satu baris tubuh yang menggunakan font tema Latin minor. Kemudian mengubah font tema dan menyimpan hasilnya:
+Contoh berikut membuat satu tajuk yang menggunakan font Latin mayor tema dan satu baris tubuh yang menggunakan font Latin minor tema. Kemudian mengubah font tema dan menyimpan hasilnya:
 
 ```java
 import com.aspose.slides.*;
@@ -205,7 +205,9 @@ try {
 }
 ```
 
-Judul mengikuti font mayor dan teks tubuh mengikuti font minor. Teks yang memiliki nama font eksplisit alih‑alih identifikasi tema tidak akan beralih secara otomatis ketika skema font tema berubah.
+Tajuk mengikuti font mayor dan teks tubuh mengikuti font minor. Teks yang memiliki nama font eksplisit alih-alih pengidentifikasi tema tidak akan beralih secara otomatis ketika skema font tema berubah.
+
+Koleksi font mayor dan minor juga dapat berisi pemetaan font untuk sistem penulisan individu, seperti Cyrillic, Arab, Jepang, Georgia, dan Thaana. Untuk memeriksa, menambahkan, mengganti, atau menghapus pemetaan ini, lihat [Script-Specific Theme Fonts](/slides/id/androidjava/script-specific-font-mappings/).
 
 {{% alert color="info" title="Tip" %}}
 Untuk informasi lebih lanjut tentang font presentasi, lihat [PowerPoint Fonts](/slides/id/androidjava/powerpoint-fonts/).
@@ -217,7 +219,7 @@ Ada dua alur kerja umum, dan keduanya menyelesaikan masalah yang berbeda.
 
 ### **Mempertahankan Tema Sumber Saat Memindahkan Slide**
 
-Jika Anda ingin memindahkan slide ke presentasi lain dan mempertahankan desain aslinya, klon master sumber ke dalam presentasi target dengan [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imasterslidecollection/), lalu klon slide dengan [ISlideCollection.addClone](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/islidecollection/) dan master yang diklon. Ini membawa master, layout‑layoutnya, dan tema yang terkait bersama-sama.
+Jika Anda ingin memindahkan slide ke presentasi lain dan mempertahankan desain aslinya, klon master sumber ke presentasi target dengan [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imasterslidecollection/), lalu klon slide dengan [ISlideCollection.addClone](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/islidecollection/) dan master yang diklon. Ini membawa master, tata letaknya, dan tema terkait bersamaan.
 
 ```java
 import com.aspose.slides.*;
@@ -239,11 +241,11 @@ try {
 }
 ```
 
-Ini adalah alur kerja yang disarankan ketika slide sumber harus terlihat sama di tujuan. Hanya mengklon konten ke master tujuan yang tidak terkait dapat mengubah warna, font, latar belakang, dan efek yang dipengaruhi tema.
+Ini adalah alur kerja yang disarankan ketika slide sumber harus tampak sama di tujuan. Sekadar mengklon konten ke master tujuan yang tidak berhubungan dapat mengubah warna, font, latar belakang, dan efek yang dipengaruhi tema.
 
 ### **Menerapkan Nilai Tema ke Slide yang Ada**
 
-Jika slide target harus tetap pada master dan layout saat ini, inisialisasi penimpaan tingkat slide dari tema sumber. Metode [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/overridetheme/), dan [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/overridetheme/) menyalin tiga komponen utama tema ke dalam penimpaan.
+Jika slide target harus tetap pada master dan tata letak saat ini, inisialisasi penimpaan tingkat slide dari tema sumber. Metode [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/overridetheme/), dan [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/overridetheme/) menyalin tiga komponen utama tema ke penimpaan.
 
 ```java
 import com.aspose.slides.*;
@@ -266,9 +268,9 @@ try {
 }
 ```
 
-Ini mengubah tema yang digunakan oleh slide tersebut tanpa mengubah tema yang diwarisi oleh slide lain. Untuk menghapus penimpaan lokal dan kembali ke nilai yang diwarisi, panggil [OverrideTheme.clear](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/overridetheme/).
+Ini mengubah tema yang digunakan slide tersebut tanpa mengubah tema yang diwarisi oleh slide lain. Untuk menghapus penimpaan lokal dan kembali ke nilai yang diwarisi, panggil [OverrideTheme.clear](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/overridetheme/).
 
-### **Menerapkan Override Tema ke Tata Letak**
+### **Menerapkan Penimpaan Tema ke Tata Letak**
 
 Penimpaan tingkat tata letak berlaku untuk slide yang menggunakan tata letak tersebut, kecuali slide tertentu memiliki penimpaan sendiri. Metode inisialisasi yang sama dapat digunakan melalui [LayoutSlideThemeManager](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/layoutslidethememanager/):
 
@@ -294,15 +296,15 @@ try {
 }
 ```
 
-Gunakan tema tingkat master atau presentasi ketika banyak layout dan slide harus berbagi desain dasar yang sama, penimpaan layout ketika satu keluarga layout memerlukan gaya yang berbeda, dan penimpaan slide hanya untuk pengecualian yang nyata. Penimpaan tingkat slide yang berlebihan membuat perubahan tema global di kemudian hari menjadi lebih sulit diprediksi.
+Gunakan tema tingkat master atau presentasi ketika banyak tata letak dan slide harus berbagi desain dasar yang sama, penimpaan tata letak ketika satu keluarga tata letak memerlukan gaya yang berbeda, dan penimpaan slide hanya untuk pengecualian yang nyata. Penimpaan tingkat slide yang berlebihan membuat perubahan tema global di kemudian hari menjadi sulit diprediksi.
 
 ## **Memperbarui Gaya Latar Belakang Tema**
 
-Isian latar belakang tema disimpan dalam [IFormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iformatscheme/). PowerPoint dapat menampilkan lebih banyak pilihan latar belakang di UI‑nya daripada jumlah definisi isian yang secara fisik disimpan dalam koleksi ini karena UI dapat menggabungkan isian tema dengan warna tema dan referensi gaya lain.
+Isian latar belakang tema disimpan dalam [IFormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iformatscheme/). PowerPoint dapat menampilkan lebih banyak pilihan latar belakang di UI‑nya daripada jumlah definisi isian yang secara fisik disimpan dalam koleksi ini karena UI dapat menggabungkan isian tema dengan warna tema dan referensi gaya lainnya.
 
 ![Galeri gaya latar belakang PowerPoint untuk tema presentasi](presentation-design_8.png)
 
-Sebelum menggunakan gaya latar belakang, periksa koleksi yang disimpan dan [Background.getStyleIndex](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/background/) saat ini. Indeks gaya `0` berarti tidak ada isian bertema; nilai positif merupakan referensi gaya latar belakang tema. Ini berbeda dari mengindeks koleksi Java secara langsung, di mana `get_Item(0)` berarti item pertama yang disimpan. Jangan mengasumsikan setiap presentasi berisi jumlah gaya isian latar belakang yang sama.
+Sebelum menggunakan gaya latar belakang, periksa koleksi yang disimpan dan [Background.getStyleIndex](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/background/) saat ini. Indeks gaya `0` berarti tidak ada isian bertema; nilai positif adalah referensi gaya latar belakang tema. Ini berbeda dari mengindeks koleksi Java secara langsung, di mana `get_Item(0)` berarti item pertama yang disimpan. Jangan mengasumsikan bahwa setiap presentasi memiliki jumlah gaya isian latar belakang yang sama.
 
 Contoh berikut melaporkan jumlah isian latar belakang yang tersedia, menetapkan referensi latar belakang bertema ke master pertama, dan menyimpan presentasi:
 
@@ -326,10 +328,10 @@ try {
 }
 ```
 
-Hasil yang terlihat tergantung pada entri tema yang direferensikan oleh master serta penimpaan latar belakang pada level layout atau slide. Jika sebuah slide menggunakan latar belakangnya sendiri, mengubah hanya latar belakang master mungkin tidak mengubah slide tersebut. Gunakan [Background.getEffective](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/background/) ketika Anda perlu mengetahui latar belakang akhir setelah pewarisan diterapkan.
+Hasil yang terlihat tergantung pada entri tema yang dirujuk oleh master dan pada penimpaan latar belakang di tingkat tata letak atau slide. Jika sebuah slide menggunakan latar belakangnya sendiri, mengubah hanya latar belakang master mungkin tidak mengubah slide tersebut. Gunakan [Background.getEffective](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/background/) ketika Anda perlu mengetahui latar belakang final setelah pewarisan diterapkan.
 
 {{% alert color="warning" title="Warning" %}}
-Jangan memperlakukan indeks gaya sebagai indeks koleksi berbasis nol. Juga hindari mengkodekan nomor gaya dari satu file dan mengasumsikan tampilannya sama di file lain; definisi gaya tema bersifat spesifik presentasi.
+Jangan memperlakukan indeks gaya sebagai indeks koleksi berbasis nol. Hindari juga mengodekan nomor gaya dari satu file dan mengasumsikan tampilannya sama di file lain; definisi gaya tema bersifat spesifik presentasi.
 {{% /alert %}}
 
 {{% alert color="info" title="Tip" %}}
@@ -338,13 +340,13 @@ Untuk pemformatan latar belakang langsung dan pewarisan latar belakang, lihat [P
 
 ## **Memperbarui Efek Tema**
 
-Skema format tema berisi koleksi terpisah untuk isian, garis, dan gaya efek yang ditampilkan melalui [IFormatScheme.getFillStyles](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iformatscheme/), [IFormatScheme.getLineStyles](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iformatscheme/), dan [IFormatScheme.getEffectStyles](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iformatscheme/). Tema Office biasanya mengandung tiga entri gaya utama yang secara visual berkorespondensi dengan pemformatan halus, sedang, dan intens, namun kode harus memeriksa setiap koleksi alih‑alih mengasumsikan jumlah tetap.
+Skema format tema berisi koleksi isian, garis, dan efek terpisah yang diekspos melalui [IFormatScheme.getFillStyles](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iformatscheme/), [IFormatScheme.getLineStyles](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iformatscheme/), dan [IFormatScheme.getEffectStyles](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iformatscheme/). Tema Office tipikal sering berisi tiga entri gaya utama yang secara visual bersesuaian dengan pemformatan halus, sedang, dan intens, tetapi kode harus memeriksa setiap koleksi alih-alih mengasumsikan jumlah tetap.
 
 ![Efek tema halus, sedang, dan intens yang diterapkan pada bentuk yang sama](presentation-design_10.png)
 
-Saat Anda mengakses koleksi‑koleksi ini di Java, indeks koleksi berbasis nol: `get_Item(0)` adalah gaya pertama yang disimpan dan `get_Item(2)` adalah yang ketiga. Indeks referensi gaya pada shape merupakan konsep terpisah, ditampilkan melalui [IShapeStyle](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ishapestyle/). Memodifikasi gaya tema memengaruhi shape yang merujuk ke gaya tema tersebut; shape dengan pemformatan langsung mungkin tetap tidak berubah.
+Saat Anda mengakses koleksi ini di Java, indeks koleksi berbasis nol: `get_Item(0)` adalah gaya pertama yang disimpan dan `get_Item(2)` adalah gaya ketiga. Indeks referensi gaya sebuah bentuk adalah konsep terpisah, diekspos melalui [IShapeStyle](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ishapestyle/). Memodifikasi gaya tema memengaruhi bentuk yang merujuk ke gaya tema tersebut; bentuk dengan pemformatan langsung mungkin tetap tidak berubah.
 
-Contoh berikut memeriksa keberadaan entri gaya yang diperlukan, mengubah gaya garis pertama, mengubah gaya isian ketiga, mengaktifkan bayangan luar pada gaya efek ketiga, dan menyimpan hasilnya:
+Contoh berikut memeriksa bahwa entri gaya yang diperlukan ada, mengubah gaya garis pertama, mengubah gaya isian ketiga, mengaktifkan bayangan luar pada gaya efek ketiga, dan menyimpan hasilnya:
 
 ```java
 import com.aspose.slides.*;
@@ -369,15 +371,15 @@ try {
 }
 ```
 
-Untuk shape yang merujuk ke slot‑slot ini, gaya garis tema pertama menjadi merah, gaya isian tema ketiga menjadi hijau hutan solid, dan gaya efek ketiga memperoleh bayangan luar dengan jarak 10 poin. Hasil visual pasti masih bergantung pada slot gaya mana yang dirujuk oleh setiap shape dan apakah pemformatan langsung menimpa tema.
+Untuk bentuk yang merujuk ke slot ini, gaya garis tema pertama menjadi merah, gaya isian tema ketiga menjadi hijau hutan solid, dan gaya efek ketiga memperoleh bayangan luar dengan jarak 10 poin. Hasil visual tepat tetap bergantung pada slot gaya mana yang dirujuk masing‑masing bentuk dan apakah pemformatan langsung menimpa tema.
 
-![Gaya efek tema setelah mengubah pengaturan garis, isi, dan bayangan](presentation-design_11.png)
+![Gaya efek tema setelah mengubah pengaturan garis, isian, dan bayangan](presentation-design_11.png)
 
 ## **Membaca Nilai Tema Efektif**
 
-Objek tema mentah memberi tahu Anda apa yang didefinisikan pada tingkat tertentu. Nilai efektif memberi tahu apa yang sebenarnya digunakan slide atau shape setelah pewarisan dan penimpaan lokal diselesaikan. Untuk slide, panggil [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/baseoverridethememanager/). Untuk latar belakang, gunakan [Background.getEffective](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/background/), dan untuk isian, gunakan [FillFormat.getEffective](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/fillformat/).
+Objék tema mentah memberi tahu Anda apa yang didefinisikan pada tingkat tertentu. Nilai efektif memberi tahu apa yang sebenarnya digunakan slide atau bentuk setelah pewarisan dan penimpaan lokal diselesaikan. Untuk sebuah slide, panggil [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/baseoverridethememanager/). Untuk latar belakang, gunakan [Background.getEffective](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/background/), dan untuk isian, gunakan [FillFormat.getEffective](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/fillformat/).
 
-Contoh berikut membaca tema efektif, latar belakang, dan isian shape pertama dari sebuah slide:
+Contoh berikut membaca tema efektif, latar belakang, dan isian bentuk pertama dari sebuah slide:
 
 ```java
 import com.aspose.slides.*;
@@ -404,18 +406,18 @@ try {
 }
 ```
 
-Gunakan data efektif untuk diagnostik rendering, validasi, dan perbandingan. Jika Anda hanya memeriksa [Presentation.getMasterTheme](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/), Anda dapat melewatkan penimpaan master, layout, slide, atau shape yang mengubah tampilan akhir.
+Gunakan data efektif untuk diagnostik render, validasi, dan perbandingan. Jika Anda hanya memeriksa [Presentation.getMasterTheme](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/), Anda dapat melewatkan penimpaan master, tata letak, slide, atau bentuk yang mengubah tampilan akhir.
 
 ## **FAQ**
 
-**Apakah saya dapat menerapkan tema ke satu slide saja tanpa mengubah master?**
+**Apakah saya dapat menerapkan tema ke satu slide tanpa mengubah master?**
 
-Ya. Gunakan [SlideThemeManager](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/slidethememanager/) slide tersebut dan inisialisasi tema penimpaannya. Perubahan tetap lokal pada slide itu; slide lain tetap mewarisi tema yang ada.
+Ya. Gunakan [SlideThemeManager](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/slidethememanager/) slide dan inisialisasi tema penimpaan-nya. Perubahan tetap lokal pada slide tersebut; slide lain tetap mewarisi tema yang ada.
 
-**Apa cara paling aman untuk membawa tema dari satu presentasi ke presentasi lain?**
+**Apa cara paling aman untuk membawa tema dari satu presentasi ke yang lain?**
 
-Saat memindahkan slide dan mempertahankan tampilan sumbernya, klon master sumber ke tujuan dan klon slide dengan master itu menggunakan [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imasterslidecollection/) serta [ISlideCollection.addClone](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/islidecollection/). Ini menjaga master, layout, dan tema tetap bersama.
+Saat memindahkan slide dan mempertahankan tampilan sumbernya, klon master sumber ke tujuan dan klon slide dengan master itu menggunakan [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imasterslidecollection/) serta [ISlideCollection.addClone](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/islidecollection/). Ini menjaga master, tata letak, dan tema bersamaan.
 
 **Bagaimana saya dapat melihat nilai efektif setelah pewarisan dan penimpaan?**
 
-Gunakan [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/baseoverridethememanager/) untuk slide atau tema layout serta metode data‑efektif yang bersangkutan untuk objek format seperti [Background.getEffective](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/background/) dan [FillFormat.getEffective](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/fillformat/). API‑API ini mengembalikan nilai yang telah diselesaikan setelah pewarisan dan penimpaan diterapkan.
+Gunakan [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/baseoverridethememanager/) untuk slide atau tema tata letak dan metode data‑efektif yang bersangkutan untuk objek format seperti [Background.getEffective](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/background/) dan [FillFormat.getEffective](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/fillformat/). API‑API ini mengembalikan nilai yang telah diselesaikan setelah pewarisan dan penimpaan diterapkan.

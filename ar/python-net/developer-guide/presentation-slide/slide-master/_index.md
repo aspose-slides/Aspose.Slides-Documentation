@@ -1,57 +1,55 @@
 ---
-title: إدارة شرائح الرئيس في بايثون
-linktitle: شريحة رئيس
+title: إدارة شرائح الماستر في العرض التقديمي باستخدام Python
+linktitle: الشريحة الرئيسية
 type: docs
 weight: 80
 url: /ar/python-net/slide-master/
 keywords:
-- شريحة رئيس
 - شريحة رئيسية
-- شريحة رئيسية PPT
-- شرائح رئيسية متعددة
-- مقارنة شرائح رئيسية
-- خلفية
-- عنصر نائب
-- استنساخ شريحة رئيسية
-- نسخ شريحة رئيسية
-- تكرار شريحة رئيسية
-- شريحة رئيس غير مستخدمة
+- شريحة ماستر
+- شريحة ماستر PPT
+- عدة شرائح ماستر
+- مقارنة شرائح ماستر
+- الخلفية
+- العنصر النائب
+- استنساخ شريحة ماستر
+- نسخ شريحة ماستر
+- تكرار شريحة ماستر
+- شريحة ماستر غير مستخدمة
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - Python
 - Aspose.Slides
-description: "إدارة شرائح الرئيس في Aspose.Slides للغة Python عبر .NET: الوصول، التحرير، الاستنساخ، المقارنة، وإزالة شرائح الرئيس في عروض PowerPoint وOpenDocument."
+description: "إدارة شرائح الماستر في Aspose.Slides لبايثون عبر .NET: الوصول، التعديل، الاستنساخ، المقارنة، وإزالة شرائح الماستر في عروض PowerPoint وOpenDocument."
 ---
 ## **نظرة عامة**
 
-يُعرّف **شريحة الرئيس** (slide master) إعدادات التصميم المشتركة لمجموعة من الشرائح. يمكنه احتواء الأشكال الشائعة، والشعارات، والخلفيات، وأنماط النص، وإعدادات السمة، وإعدادات التذييل. في PowerPoint، يُعد تحرير شريحة الرئيس الطريقة المعتادة للحفاظ على اتساق العرض التقديمي دون تكرار نفس التنسيق في كل شريحة.
+يعرّف **الشريحة الرئيسية** إعدادات التصميم المشتركة لمجموعة من الشرائح. يمكن أن تحتوي على أشكال مشتركة، شعارات، خلفيات، أنماط نص، إعدادات سمة، وإعدادات تذييل. في PowerPoint، تعديل الشريحة الرئيسية هو الطريقة المعتادة للحفاظ على تناسق العرض التقديمي دون تكرار نفس التنسيق في كل شريحة.
 
-يدعم Aspose.Slides للغة Python عبر .NET نفس النموذج. يمكن للعرض التقديمي أن يحتوي على شريحة رئيس واحدة أو أكثر، ويمكن لكل شريحة رئيس أن تحتوي على عدة شرائح تخطيط. عادةً لا تشير الشرائح العادية إلى شريحة رئيس مباشرةً. بدلاً من ذلك، تستخدم الشريحة العادية شريحة تخطيط، وتلك الشريحة التخطيطية تنتمي إلى شريحة رئيس.
+يدعم Aspose.Slides للغة Python عبر .NET نفس النموذج. يمكن للعروض التقديمية أن تحتوي على شريحة رئيسية واحدة أو أكثر، ويمكن لكل شريحة رئيسية أن تحتوي على عدة شرائح تخطيط. عادةً لا تشير الشرائح العادية إلى شريحة رئيسية مباشرة. بدلاً من ذلك، تستخدم الشريحة العادية شريحة تخطيط، وتكون تلك الشريحة التخطيطية تابعة لشريحة رئيسية.
 
 التسلسل الهرمي هو:
 
-1. **شريحة الرئيس** - تُعرّف التصميم والسمة المشتركة.  
-1. **شريحة التخطيط** - تُعرّف ترتيبًا محددًا للعناصر النائبة وتنسيق المستوى التخطيطي.  
+1. **الشريحة الرئيسية** - تحدد التصميم والسمة المشتركة.
+1. **شريحة التخطيط** - تحدد ترتيبًا محددًا للعنصر النائب وتنسيق على مستوى التخطيط.
 1. **الشريحة العادية** - تحتوي على محتوى العرض الفعلي وتستخدم شريحة تخطيط واحدة.
 
-![The hierarchy of master slides, layout slides, and normal slides](slide-master_2.jpg)
+![تسلسل شريحة رئيسية، شرائح تخطيط، وشريحة عادية](slide-master_2.jpg)
 
-في Aspose.Slides، تُمثَّل شريحة الرئيس بالفئة [MasterSlide](https://reference.aspose.com/slides/ar/python-net/aspose.slides/masterslide/). جميع شرائح الرئيس في العرض التقديمي متاحة عبر مجموعة `Presentation.masters`.
+في Aspose.Slides، تُمثَّل الشريحة الرئيسية بالفئة [MasterSlide](https://reference.aspose.com/slides/ar/python-net/aspose.slides/masterslide/) . جميع الشرائح الرئيسية في عرض تقديمي متاحة عبر مجموعة `Presentation.masters`.
 
-{{% alert color="info" title="الوراثة" %}}
-
-عند تعريف الخاصية نفسها في أكثر من مستوى، يفلُح المستوى الأكثر تحديدًا. على سبيل المثال، إذا عرّفت شريحة الرئيس وشريحة التخطيط خلفيةً، فإن الشرائح المستندة إلى ذلك التخطيط تستخدم خلفية التخطيط. لمزيد من المعلومات حول شرائح التخطيط، راجع [Apply or Change Slide Layouts](/python-net/slide-layout/).
-
+{{% alert color="info" title="Inheritance" %}}
+عند تعريف الخاصية نفسها على أكثر من مستوى، ينتصر المستوى الأكثر تحديدًا. على سبيل المثال، إذا عرّفت شريحة رئيسية وشريحة تخطيط خلفية، فإن الشرائح المستندة إلى ذلك التخطيط تستخدم خلفية التخطيط. للمزيد من المعلومات حول شرائح التخطيط، راجع [Apply or Change Slide Layouts](/slides/ar/python-net/slide-layout/).
 {{% /alert %}}
 
-## **الوصول إلى شرائح الرئيس**
+## **الوصول إلى الشرائح الرئيسية**
 
-في PowerPoint، يمكنك فتح عرض شريحة الرئيس من **View** > **Slide Master**.
+في PowerPoint، يمكنك فتح عرض الشريحة الرئيسية من **View** > **Slide Master**.
 
-![The Slide Master command on the PowerPoint View tab](slide-master_3.jpg)
+![أمر Slide Master في علامة تبويب View ببرنامج PowerPoint](slide-master_3.jpg)
 
-في Aspose.Slides، استخدم مجموعة `masters` للوصول إلى شرائح الرئيس:
+في Aspose.Slides، استخدم مجموعة `masters` للوصول إلى الشرائح الرئيسية:
 
 ```python
 import aspose.slides as slides
@@ -65,7 +63,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     print("Layouts in the first master: " + str(first_master_layout_slide_count))
 ```
 
-يمكنك أيضًا الحصول على شريحة الرئيس التي تستخدمها شريحة عادية عبر تخطيطها:
+يمكنك أيضًا الحصول على الشريحة الرئيسية المستخدمة من قِبل شريحة عادية عبر تخطيطها:
 
 ```python
 import aspose.slides as slides
@@ -79,26 +77,26 @@ with slides.Presentation("presentation.pptx") as presentation:
     print(master_slide_name)
 ```
 
-## **ما الذي تحتويه شريحة الرئيس**
+## **ما يحتويه الشريحة الرئيسية**
 
-شريحة الرئيس هي كائن شبيه بالشريحة. تُورث سلوك الشريحة العام من الفئة [BaseSlide](https://reference.aspose.com/slides/ar/python-net/aspose.slides/baseslide/)، لذا تُظهر العديد من خصائص الشريحة نفسها المستخدمة في الشرائح العادية وشرائح التخطيط. تُدرج الأعضاء الخاصة بالشريحة الرئيس على صفحة واجهة برمجة التطبيقات [MasterSlide](https://reference.aspose.com/slides/ar/python-net/aspose.slides/masterslide/).
+الشريحة الرئيسية هي كائن شبيه بالشريحة. إنها ترث سلوك الشريحة الشائع من الفئة [BaseSlide](https://reference.aspose.com/slides/ar/python-net/aspose.slides/baseslide/) ، لذا فهي تعرض العديد من خصائص الشريحة نفسها المستخدمة في الشرائح العادية وشرائح التخطيط. تُدرج الأعضاء الخاصة بالشريحة الرئيسية في صفحة API الخاصة بـ [MasterSlide](https://reference.aspose.com/slides/ar/python-net/aspose.slides/masterslide/) .
 
-تشمل الأعضاء الشائعة الاستخدام في شريحة الرئيس:
+الأعضاء الشائعة في الشريحة الرئيسية تشمل:
 
 | العضو | الغرض |
 | --- | --- |
-| `background` | يحدّد خلفية الشريحة على مستوى الرئيس. |
-| `shapes` | يخزن الأشكال الموضوعة على الرئيس، مثل الشعارات، وإطارات الصور، والنص المشترك. |
-| `layout_slides` | يخزن شرائح التخطيط التي تنتمي إلى الرئيس. |
-| `theme_manager` | يوفّر الوصول إلى واجهات برمجة تطبيقات سمة الرئيس. |
-| `header_footer_manager` | يتحكم في رؤوس وتذييلات وتواريخ وأرقام الشرائح للرئيس وتخطيطاته الفرعية. |
-| `get_depending_slides` | يُرجع الشرائح العادية التي تعتمد على الرئيس من خلال تخطيطاتها. |
+| `background` | يحدد خلفية الشريحة على مستوى الشريحة الرئيسية. |
+| `shapes` | يخزن الأشكال الموضوعة على الشريحة الرئيسية، مثل الشعارات، إطارات الصور، والنص المشترك. |
+| `layout_slides` | يخزن شرائح التخطيط التي تنتمي إلى الشريحة الرئيسية. |
+| `theme_manager` | يوفر الوصول إلى واجهات برمجة تطبيقات سمة الشريحة الرئيسية. |
+| `header_footer_manager` | يتحكم في رؤوس وتذييلات وتواريخ وأرقام الشرائح للشريحة الرئيسية وتخطيطاتها الفرعية. |
+| `get_depending_slides` | يُرجع الشرائح العادية التي تعتمد على الشريحة الرئيسية عبر تخطيطاتها. |
 
-## **إضافة صورة إلى شريحة الرئيس**
+## **إضافة صورة إلى الشريحة الرئيسية**
 
-عند إضافة صورة إلى شريحة الرئيس، تظهر على الشرائح التي تستخدم تخطيطات من ذلك الرئيس. وهذا مفيد للشعارات، وعلامات المائية، والشعارات الزخرفية، وغيرها من العناصر البصرية المتكررة.
+عند إضافة صورة إلى شريحة رئيسية، تظهر على الشرائح التي تستخدم تخطيطات من تلك الشريحة. هذا مفيد للشعارات، العلامات المائية، الشرائط الزخرفية، وعناصر بصرية أخرى متكررة.
 
-المثال التالي يضيف شعارًا إلى أول شريحة رئيس:
+المثال التالي يضيف شعارًا إلى الشريحة الرئيسية الأولى:
 
 ```python
 import aspose.slides as slides
@@ -122,17 +120,17 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-with-logo.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-لمزيد من المعلومات حول إطارات الصور، راجع [Picture Frame](/python-net/picture-frame/).
+للمزيد من المعلومات حول إطارات الصور، راجع [Picture Frame](/slides/ar/python-net/picture-frame/).
 
-## **العمل مع العناصر النائبة**
+## **العمل مع العنصر النائب**
 
-عادةً ما تُعرّف العناصر النائبة في شرائح التخطيط. تُوفر شريحة الرئيس النمط والسمة المشتركة التي يرثها تلك التخطيطات، بينما يقرر كل تخطيط أي العناصر النائبة متاحة وأين تُوضع.
+عادةً ما تُعرّف العناصر النائبة على شرائح التخطيط. توفر الشريحة الرئيسية النمط والسمة المشتركة التي يرثها تلك التخطيطات، بينما يحدد كل تخطيط أي العناصر النائبة متاحة وأين توضع.
 
-في PowerPoint، تتوفر أوامر العنصر النائب في عرض شريحة الرئيس.
+في PowerPoint، أوامر العنصر النائب متوفرة في عرض الشريحة الرئيسية.
 
-![The Insert Placeholder command in PowerPoint Slide Master view](slide-master_5.png)
+![أمر Insert Placeholder في عرض Slide Master ببرنامج PowerPoint](slide-master_5.png)
 
-لإضافة عناصر نائبة جديدة باستخدام Aspose.Slides، اعمل مع شريحة التخطيط التي تنتمي إلى الرئيس:
+لإضافة عناصر نائب جديدة باستخدام Aspose.Slides، اعمل مع شريحة التخطيط التابعة للشريحة الرئيسية:
 
 ```python
 import aspose.slides as slides
@@ -153,7 +151,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-with-placeholder.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-يمكنك أيضًا تنسيق أشكال العناصر النائبة الموجودة بالفعل على شريحة الرئيس. المثال التالي يجد العنصر النائب للعنوان ويطبق تعبئة تدرج خطية:
+يمكنك أيضًا تنسيق أشكال العنصر النائب الموجودة بالفعل على شريحة رئيسية. المثال التالي يجد العنصر النائب للعنوان ويطبق تعبئة تدرج لوني خطي:
 
 ```python
 import aspose.pydrawing as draw
@@ -180,18 +178,18 @@ with slides.Presentation("presentation.pptx") as presentation:
         title_placeholder.fill_format.fill_type = slides.FillType.GRADIENT
         title_placeholder.fill_format.gradient_format.gradient_shape = slides.GradientShape.LINEAR
         title_placeholder.fill_format.gradient_format.gradient_stops.add(0, red_gradient_color)
-        title_placeholder.fill_format.gradient_format.gradient_stops.add(255, purple_gradient_color)
+        title_placeholder.fill_format.gradient_format.gradient_stops.add(1, purple_gradient_color)
 
     presentation.save("presentation-title-style.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Formatted title placeholder inherited by normal slides](slide-master_8.png)
+![العنوان المنسق الموروث من الشرائح العادية](slide-master_8.png)
 
-لمزيد من خيارات تنسيق العناصر النائبة والنص، راجع [Set Prompt Text in Placeholder](/python-net/manage-placeholder/) و[Text Formatting](/python-net/text-formatting/).
+للمزيد من خيارات تنسيق العنصر النائب والنص، راجع [Set Prompt Text in Placeholder](/slides/ar/python-net/manage-placeholder/) و[Text Formatting](/slides/ar/python-net/text-formatting/).
 
-## **تغيير خلفية شريحة الرئيس**
+## **تغيير خلفية الشريحة الرئيسية**
 
-تُورّث خلفية الرئيس من قبل التخطيطات والشرائح التي لا تُعيد تعريفها. المثال التالي يحدد لون خلفية صلب لأول شريحة رئيس:
+تُورّث خلفية الشريحة الرئيسية إلى التخطيطات والشرائح التي لا تتجاوزها. المثال التالي يضبط لون خلفية ثابت للشريحة الرئيسية الأولى:
 
 ```python
 import aspose.pydrawing as draw
@@ -207,11 +205,11 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-master-background.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-للمواضيع ذات الصلة، راجع [Presentation Background](/python-net/presentation-background/) و[Presentation Theme](/python-net/presentation-theme/).
+للمواضيع ذات الصلة، راجع [Presentation Background](/slides/ar/python-net/presentation-background/) و[Presentation Theme](/slides/ar/python-net/presentation-theme/).
 
-## **استنساخ شريحة الرئيس إلى عرض تقديمي آخر**
+## **استنساخ شريحة رئيسية إلى عرض تقديمي آخر**
 
-استخدم طريقة `add_clone` على الفئة [MasterSlideCollection](https://reference.aspose.com/slides/ar/python-net/aspose.slides/masterslidecollection/) لنسخ شريحة رئيس إلى عرض تقديمي آخر. يمكن بعد ذلك استخدام الرئيس المنسوخ بواسطة التخطيطات والشرائح في العرض الهدف.
+استخدم الطريقة `add_clone` على فئة [MasterSlideCollection](https://reference.aspose.com/slides/ar/python-net/aspose.slides/masterslidecollection/) لنسخ شريحة رئيسية إلى عرض تقديمي آخر. يمكن بعد ذلك استخدام الشريحة المستنسخة من قبل التخطيطات والشرائح في العرض الوجهة.
 
 ```python
 import aspose.slides as slides
@@ -224,15 +222,15 @@ with slides.Presentation("source.pptx") as source_presentation:
         destination_presentation.save("destination-with-master.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-إذا كنت بحاجة إلى استنساخ الشرائح العادية مع الرئيس الخاص بها، راجع [Clone Slides](/python-net/clone-slides/).
+إذا كنت بحاجة إلى استنساخ الشرائح العادية مع شريحتها الرئيسية، راجع [Clone Slides](/slides/ar/python-net/clone-slides/).
 
-## **إضافة عدة شرائح رئيس**
+## **إضافة عدة شرائح رئيسية**
 
-يمكن للعرض التقديمي أن يحتوي على عدة شرائح رئيس. هذا مفيد عندما تتطلب الأقسام المختلفة هوية بصرية أو هيكل صفحة أو إعدادات سمة مختلفة.
+يمكن للعرض التقديمي أن يحتوي على عدة شرائح رئيسية. هذا مفيد عندما تتطلب الأقسام المختلفة هوية بصرية، هيكل صفحة، أو إعدادات سمة مختلفة.
 
-![PowerPoint commands for inserting and managing master slides](slide-master_9.jpg)
+![أوامر PowerPoint لإدراج وإدارة الشرائح الرئيسية](slide-master_9.jpg)
 
-المثال التالي يستنسخ الرئيس الافتراضي، يمنح النسخة المستنسخة خلفية مختلفة، يحصل على تخطيط فارغ تحت ذلك الرئيس المستنسخ، ثم يضيف شريحة جديدة بناءً على ذلك التخطيط:
+المثال التالي يستنسخ الشريحة الرئيسية الافتراضية، يمنح النسخة المستنسخة خلفية مختلفة، يحصل على تخطيط فارغ تحت تلك الشريحة المستنسخة، ويضيف شريحة جديدة بناءً على ذلك التخطيط:
 
 ```python
 import aspose.pydrawing as draw
@@ -258,9 +256,9 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-with-multiple-masters.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **مقارنة شرائح الرئيس**
+## **مقارنة الشرائح الرئيسية**
 
-يمكن مقارنة شرائح الرئيس باستخدام طريقة `equals` الموروثة من الفئة [BaseSlide](https://reference.aspose.com/slides/ar/python-net/aspose.slides/baseslide/). تتحقق المقارنة من البنية والمحتوى الثابت، مثل الأشكال والنص والتنسيق والرسوم المتحركة وإعدادات الشريحة الأخرى. لا تُقارن المعرفات الفريدة مثل معرفات الشرائح، ولا قيم العناصر النائبة الديناميكية مثل التاريخ الحالي.
+يمكن مقارنة الشرائح الرئيسية باستخدام الطريقة `equals` الموروثة من فئة [BaseSlide](https://reference.aspose.com/slides/ar/python-net/aspose.slides/baseslide/) . تتحقق المقارنة من البنية والمحتوى الثابت، مثل الأشكال، النص، التنسيق، الحركات، وإعدادات الشرائح الأخرى. لا تقارن المعرفات الفريدة، مثل معرفات الشرائح، أو قيم العناصر النائبة الديناميكية، مثل التاريخ الحالي.
 
 ```python
 import aspose.slides as slides
@@ -283,11 +281,11 @@ with slides.Presentation("first.pptx") as first_presentation:
                             second_master_index))
 ```
 
-لمزيد من المعلومات، راجع [Compare Presentation Slides](/python-net/compare-slides/).
+للمزيد من المعلومات، راجع [Compare Presentation Slides](/slides/ar/python-net/compare-slides/).
 
-## **تعيين عرض شريحة الرئيس كعرض افتراضي**
+## **تعيين عرض الشريحة الرئيسية كعرض افتراضي**
 
-استخدم خاصية `last_view` على كائن العرض [ViewProperties](https://reference.aspose.com/slides/ar/python-net/aspose.slides/viewproperties/) للتحكم في العرض الذي يفتحه PowerPoint أولًا. المثال التالي يفتح العرض في عرض شريحة الرئيس:
+استخدم الخاصية `last_view` على ميزات العرض [ViewProperties](https://reference.aspose.com/slides/ar/python-net/aspose.slides/viewproperties/) للتحكم في العرض الذي يفتح PowerPoint أولًا. المثال التالي يفتح العرض في وضع الشريحة الرئيسية:
 
 ```python
 import aspose.slides as slides
@@ -297,13 +295,13 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-master-view.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-لمزيد من إعدادات العرض، راجع [Save Presentation](/python-net/save-presentation/).
+لإعدادات العرض الإضافية، راجع [Save Presentation](/slides/ar/python-net/save-presentation/).
 
-## **إزالة شرائح الرئيس غير المستخدمة**
+## **إزالة الشرائح الرئيسية غير المستخدمة**
 
-في بعض الأحيان تحتوي العروض التقديمية على شرائح رئيس لم تعد مستخدمة من قبل أي شريحة عادية. يمكن أن يقلل حذف الرؤساء غير المستعملة من حجم الملف ويبسط صيانة القالب.
+في بعض الأحيان يحتوي العرض على شرائح رئيسية لم تعد تُستَخدم من قبل أي شريحة عادية. إزالة الشرائح غير المستخدمة يمكن أن يقلل من حجم الملف ويسهل صيانة القالب.
 
-استخدم `remove_unused` لإزالة الرؤساء غير المستعملة من مجموعة `masters`:
+استخدم `remove_unused` لإزالة الشرائح الرئيسية غير المستخدمة من مجموعة `masters`:
 
 ```python
 import aspose.slides as slides
@@ -313,7 +311,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-clean.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-يمكنك أيضًا استخدام طريقة `remove_unused_master_slides` منخفضة الكود من الفئة [Compress](https://reference.aspose.com/slides/ar/python-net/aspose.slides.lowcode/compress/):
+يمكنك أيضًا استخدام الطريقة منخفضة الشيفرة `remove_unused_master_slides` من فئة [Compress](https://reference.aspose.com/slides/ar/python-net/aspose.slides.lowcode/compress/) :
 
 ```python
 import aspose.slides as slides
@@ -323,20 +321,20 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-clean.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **الأسئلة المتداولة**
+## **الأسئلة المتكررة**
 
-**ما الفرق بين شريحة الرئيس وشريحة التخطيط؟**
+### ما الفرق بين الشريحة الرئيسية وشريحة التخطيط؟
 
-تُعرّف شريحة الرئيس إعدادات التصميم المشتركة مثل السمة، والخلفية، والأشكال المشتركة، وأنماط النص. شريحة التخطيط تنتمي إلى شريحة الرئيس وتُحدد ترتيبًا محددًا للعناصر النائبة. الشريحة العادية تستخدم شريحة التخطيط، وبالتالي ترث من كل من التخطيط والرئيس.
+تُعرّف الشريحة الرئيسية إعدادات التصميم المشتركة مثل السمة، الخلفية، الأشكال المشتركة، وأنماط النص. شريحة التخطيط تنتمي إلى شريحة رئيسية وتحدد ترتيبًا محددًا للعناصر النائبة. الشريحة العادية تستخدم شريحة تخطيط، وبالتالي ترث من كل من التخطيط والشريحة الرئيسية.
 
-**هل يمكن للعرض التقديمي أن يحتوي على عدة شرائح رئيس؟**
+### هل يمكن أن يحتوي عرض تقديمي على عدة شرائح رئيسية؟
 
-نعم. يمكن للعرض التقديمي أن يحتوي على عدة شرائح رئيس. استخدم عدة رؤساء عندما تحتاج الأقسام المختلفة إلى أنظمة بصرية أو هوية علامة تجارية مختلفة.
+نعم. يمكن للعرض التقديمي أن يحتوي على عدة شرائح رئيسية. استخدم عدة شرائح رئيسية عندما تحتاج أقسام مختلفة إلى أنظمة بصرية أو هوية علامة تجارية مختلفة.
 
-**هل يجب إضافة العناصر النائبة إلى شريحة الرئيس أم إلى شريحة التخطيط؟**
+### هل يجب إضافة العناصر النائبة إلى الشريحة الرئيسية أم إلى شريحة التخطيط؟
 
-في معظم الحالات، أضف العناصر النائبة إلى شرائح التخطيط. ضع العناصر البصرية المشتركة والتنسيق المشترك على شريحة الرئيس، ثم ضع عناصر المحتوى النائبة على التخطيطات التي ستستخدمها الشرائح العادية.
+في معظم الحالات، أضف العناصر النائبة إلى شرائح التخطيط. ضع العناصر البصرية المشتركة والتنسيق المشترك على الشريحة الرئيسية، ثم ضع عناصر النائب الخاصة بالمحتوى على التخطيطات التي ستستخدمها الشرائح العادية.
 
-**هل يمكن حذف شريحة رئيس لا تزال مستخدمة؟**
+### هل يمكنني حذف شريحة رئيسية ما زالت قيد الاستخدام؟
 
-لا. لا يمكن حذف شريحة رئيس لها شرائح معتمدة بأمان مباشرةً. لنقل تلك الشرائح إلى تخطيطات تحت رئيس آخر، أو استخدم طريقة تنظيف الرؤساء غير المستخدمة التي تحذف فقط الرؤساء غير المستعملة.
+لا. لا يمكن حذف شريحة رئيسية لديها شرائح تعتمد عليها بأمان مباشرة. يجب أولاً نقل تلك الشرائح إلى تخطيطات تحت شريحة رئيسية أخرى، أو استخدام طريقة تنظيف الشرائح الرئيسية غير المستخدمة التي تزيل فقط الشرائح التي لا تُستَخدم.

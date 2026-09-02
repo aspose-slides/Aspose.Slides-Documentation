@@ -16,21 +16,21 @@ keywords:
 - apresentação
 - Java
 - Aspose.Slides
-description: "Converter arquivos PPT legados para PPTX em Java com Aspose.Slides. Inclui exemplos Java para conversão de arquivo único e em lote, tratamento de erros e notas de fidelidade."
+description: "Converta arquivos PPT legados para PPTX em Java com Aspose.Slides. Inclui exemplos Java para conversão de arquivo único e em lote, tratamento de erros e notas de fidelidade."
 ---
 ## **Visão geral**
 
-PPT é o formato binário legado do PowerPoint, enquanto PPTX é o formato Open XML mais recente. Aspose.Slides para Java pode carregar um arquivo PPT e salvá‑lo como PPTX sem o Microsoft PowerPoint. Este artigo mostra como converter um arquivo ou um diretório de arquivos e explica o que verificar após a conversão.
+PPT é o formato binário legado do PowerPoint, enquanto PPTX é o formato Open XML mais recente. Aspose.Slides for Java pode carregar um arquivo PPT e salvá‑lo como PPTX sem o Microsoft PowerPoint. Este artigo mostra como converter um arquivo ou um diretório de arquivos e explica o que verificar após a conversão.
 
 ## **Converter um arquivo PPT para PPTX**
 
-Carregue o arquivo de origem com a classe [Presentation](https://reference.aspose.com/slides/pt/java/com.aspose.slides/presentation/), então chame [Presentation.save](https://reference.aspose.com/slides/pt/java/com.aspose.slides/presentation/#save-java.lang.String-int-) com [SaveFormat.Pptx](https://reference.aspose.com/slides/pt/java/com.aspose.slides/saveformat/#Pptx). O bloco `finally` descarta a apresentação e libera seus recursos.
+Carregue o arquivo de origem com a classe [Presentation](https://reference.aspose.com/slides/pt/java/com.aspose.slides/presentation/), depois chame [Presentation.save](https://reference.aspose.com/slides/pt/java/com.aspose.slides/presentation/#save-java.lang.String-int-) com [SaveFormat.Pptx](https://reference.aspose.com/slides/pt/java/com.aspose.slides/saveformat/#Pptx). O bloco `finally` libera a apresentação e seus recursos.
 
 ```java
-// Carregar a apresentação PPT legada.
+// Carregue a apresentação PPT legada.
 com.aspose.slides.Presentation presentation = new com.aspose.slides.Presentation("presentation.ppt");
 try {
-    // Salvar a apresentação no formato PPTX.
+    // Salve a apresentação no formato PPTX.
     presentation.save("presentation.pptx", com.aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -41,7 +41,7 @@ A extensão do arquivo não seleciona o formato de saída por si só; o argument
 
 ## **Converter vários arquivos PPT**
 
-O exemplo a seguir converte cada arquivo `.ppt` em um diretório. Cada arquivo é processado de forma independente, portanto uma conversão com falha não interrompe o restante do lote.
+O exemplo a seguir converte cada arquivo `.ppt` em um diretório. Cada arquivo é processado independentemente, de modo que uma conversão falhada não interrompe o restante do lote.
 
 ```java
 java.io.File inputDirectory = new java.io.File("input");
@@ -76,47 +76,47 @@ for (java.io.File inputFile : inputFiles) {
 }
 ```
 
-Para cargas de trabalho de produção, registre a exceção completa, decida se um arquivo de saída existente pode ser sobrescrito e escreva os nomes dos arquivos que falharam em uma fila de nova tentativa ou revisão. Arquivos corrompidos, arquivos protegidos por senha abertos sem a senha necessária, caminhos inacessíveis e conteúdo não suportado podem causar falha na conversão. Consulte [Password-Protected Presentations](/java/password-protected-presentation/) para carregar arquivos criptografados.
+Para cargas de trabalho de produção, registre a exceção completa, decida se um arquivo de saída existente pode ser sobrescrito e grave os nomes dos arquivos que falharam em uma fila de re‑tentativa ou revisão. Arquivos corrompidos, arquivos protegidos por senha abertos sem a senha necessária, caminhos inacessíveis e conteúdo não suportado podem causar falha na conversão. Veja [Apresentações protegidas por senha](/slides/pt/java/password-protected-presentation/) para carregar arquivos criptografados.
 
 ## **Fidelidade e recursos legados**
 
-A conversão normalmente preserva slides, mestres, layouts, texto, formas, imagens, tabelas e gráficos. Contudo, PPT e PPTX não representam todos os recursos da mesma forma exata. Um recurso legado que não possui equivalente PPTX, ou que não é suportado pela biblioteca, pode ser normalizado, omitido ou exibido de maneira diferente.
+A conversão normalmente preserva slides, mestres, layouts, texto, formas, imagens, tabelas e gráficos. No entanto, PPT e PPTX não representam todos os recursos exatamente da mesma maneira. Um recurso legado que não tem equivalente PPTX ou que não é suportado pela biblioteca pode ser normalizado, omitido ou exibido de forma diferente.
 
-Verifique o arquivo convertido quando ele contiver animações, transições, objetos OLE incorporados ou vinculados, controles ActiveX, mídia incorporada, fontes incomuns ou macros VBA. Um arquivo PPTX simples não é um formato habilitado para macros, portanto use um fluxo de trabalho adequado para macros quando o VBA precisar permanecer disponível. Também verifique se as fontes necessárias e os recursos externos estão presentes no ambiente onde a apresentação convertida será aberta ou renderizada.
+Verifique o arquivo convertido quando ele contiver animações, transições, objetos OLE incorporados ou vinculados, controles ActiveX, mídia incorporada, fontes incomuns ou macros VBA. Um arquivo PPTX simples não é um formato habilitado para macros, portanto use um fluxo de trabalho apropriado habilitado para macros quando o VBA precisar permanecer disponível. Também verifique se as fontes necessárias e os recursos externos estão presentes no ambiente onde a apresentação convertida será aberta ou renderizada.
 
-Para documentos importantes, reabra programaticamente o PPTX gerado e inspecione contagens de slides e conteúdo-chave, depois compare sua aparência e comportamento de apresentação no visualizador pretendido. Não trate uma chamada bem‑sucedida a [Presentation.save](https://reference.aspose.com/slides/pt/java/com.aspose.slides/presentation/#save-java.lang.String-int-) como prova de que todo recurso legado tem uma representação PPTX exata.
+Para documentos importantes, reabra o PPTX gerado programaticamente e inspecione contagens chave de slides e conteúdo, depois compare sua aparência e comportamento de apresentação no visualizador previsto. Não trate uma chamada bem‑sucedida a [Presentation.save](https://reference.aspose.com/slides/pt/java/com.aspose.slides/presentation/#save-java.lang.String-int-) como prova de que cada recurso legado tem uma representação PPTX exata.
 
 ## **Quando usar PPTX**
 
-Use PPTX quando a apresentação será editada nas versões atuais do PowerPoint, trocada com sistemas que trabalham com pacotes Open XML ou armazenada em um formato mais fácil de inspecionar e recuperar do que o binário legado PPT. Mantenha o PPT original como cópia de arquivo ou de reversão até que a apresentação convertida tenha passado suas verificações de fidelidade.
+Use PPTX quando a apresentação for editada nas versões atuais do PowerPoint, trocada com sistemas que trabalham com pacotes Open XML ou armazenada em um formato mais fácil de inspecionar e recuperar do que o binário legado PPT. Mantenha o PPT original como cópia de arquivamento ou de reversão até que a apresentação convertida passe em seus testes de fidelidade.
 
-Se precisar de PDF, HTML, imagens, XPS ou outro tipo de saída, use as orientações específicas de formato em [Convert Presentations to Multiple Formats](/java/convert-presentation/) em vez de presumir que todos os destinos preservam recursos editáveis do PowerPoint.
+Se precisar de PDF, HTML, imagens, XPS ou outro tipo de saída, use as orientações específicas de formato em [Converter apresentações para vários formatos](/slides/pt/java/convert-presentation/) em vez de supor que todos os destinos preservam recursos editáveis do PowerPoint.
 
 ## **Conversor online**
 
-Para um arquivo ocasional ou uma comparação rápida, você pode usar o [online PPT to PPTX converter](https://products.aspose.app/slides/pt/conversion/ppt-to-pptx). Para conversões repetíveis, processamento em lote ou tratamento de erros em nível de aplicação, use a API Java.
+Para um arquivo ocasional ou uma comparação rápida, você pode usar o [conversor online de PPT para PPTX](https://products.aspose.app/slides/pt/conversion/ppt-to-pptx). Para conversões repetíveis, processamento em lote ou tratamento de erros em nível de aplicação, use a API Java.
 
 ## **Artigos relacionados**
 
-- [PPT vs PPTX](/java/ppt-vs-pptx/)
-- [Save Presentations in Java](/java/save-presentation/)
-- [Supported File Formats](/java/supported-file-formats/)
-- [Open Presentations in Java](/java/open-presentation/)
+- [PPT vs PPTX](/slides/pt/java/ppt-vs-pptx/)
+- [Salvar apresentações em Java](/slides/pt/java/save-presentation/)
+- [Formatos de arquivo suportados](/slides/pt/java/supported-file-formats/)
+- [Abrir apresentações em Java](/slides/pt/java/open-presentation/)
 
 ## **FAQ**
 
 **Posso converter PPT para PPTX sem o Microsoft PowerPoint instalado?**
 
-Sim. Aspose.Slides para Java carrega e salva arquivos de apresentação sem exigir o Microsoft PowerPoint.
+Sim. Aspose.Slides for Java carrega e salva arquivos de apresentação sem exigir o Microsoft PowerPoint.
 
-**A conversão de PPT para PPTX preserva todo o conteúdo exatamente?**
+**A conversão de PPT para PPTX preservará todo o conteúdo exatamente?**
 
-Ela preserva o conteúdo comum das apresentações, mas a fidelidade exata não é garantida para todos os recursos legados ou não suportados. Revise o arquivo gerado quando ele contiver macros, objetos OLE ou ActiveX, mídia, animações especializadas ou fontes incomuns.
+Ela preserva o conteúdo comum das apresentações, mas a fidelidade exata não é garantida para cada recurso legado ou não suportado. Revise o arquivo gerado quando ele contiver macros, objetos OLE ou ActiveX, mídia, animações especializadas ou fontes incomuns.
 
 **Posso converter um arquivo PPT protegido por senha?**
 
-Sim, se você fornecer a senha correta ao carregar o arquivo. Uma senha ausente ou incorreta faz com que a operação de carregamento falhe.
+Sim, se você fornecer a senha correta ao carregar o arquivo. Falta ou senha incorreta faz a operação de carregamento falhar.
 
 **Devo excluir o arquivo PPT após a conversão?**
 
-Mantenha o original até verificar o PPTX nos visualizadores e fluxos de trabalho que são importantes para você. Isso fornece uma cópia de reversão caso um recurso legado seja convertido de forma diferente.
+Mantenha o original até que você tenha verificado o PPTX nos visualizadores e fluxos de trabalho que são importantes para você. Isso fornece uma cópia de reversão caso um recurso legado seja convertido de forma diferente.

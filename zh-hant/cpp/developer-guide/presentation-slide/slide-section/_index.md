@@ -1,86 +1,231 @@
 ---
-title: 使用 C++ 管理簡報中的投影片章節
-linktitle: 投影片章節
+title: 使用 C++ 管理簡報中的投影片區段
+linktitle: 投影片區段
 type: docs
 weight: 100
 url: /zh-hant/cpp/slide-section/
 keywords:
-- 建立章節
-- 新增章節
-- 編輯章節
-- 變更章節
-- 章節名稱
+- 建立區段
+- 新增區段
+- 編輯區段
+- 變更區段
+- 區段名稱
+- 擷取區段投影片
+- 處理區段投影片
 - PowerPoint
-- OpenDocument
 - 簡報
 - C++
 - Aspose.Slides
-description: "使用 Aspose.Slides for C++ 精簡 PowerPoint 與 OpenDocument 的投影片章節——分割、重新命名與重新排序，以最佳化 PPTX 與 ODP 工作流程。"
+description: "使用 Aspose.Slides for C++ 管理投影片區段：在 PPTX 簡報中建立、重新命名、重新排序、擷取與處理區段投影片。"
 ---
 ## **簡介**
 
-使用 Aspose.Slides for C++，您可以將 PowerPoint 簡報劃分為章節。您可以建立包含特定投影片的章節。
+Sections 會將連續的投影片組織成具名的群組，且不會更改投影片內容。使用 Aspose.Slides for C++，您可以透過 [Presentation::get_Sections](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/get_sections/) 方法建立、重新排序、重新命名、檢查與移除節。
 
-在以下情況下，您可能需要建立章節並使用它們來組織或劃分簡報中的投影片：
+Sections 在以下情況特別有用：
 
-- 當您與其他人或團隊共同處理大型簡報，且需要將特定投影片指派給同事或團隊成員時。 
-- 當您面對包含大量投影片的簡報，且難以一次管理或編輯其內容時。
+- 大型簡報需要分割成邏輯主題或章節；
+- 不同的投影片群組指派給不同的協作者；
+- 投影片需要以群組方式處理、搬移或合併。
 
-理想的情況是建立一個容納相似投影片的章節——這些投影片在某些方面具有共同點，或可根據規則歸為一組——並為該章節命名，以描述其內部的投影片。
+請選擇能說明所組合投影片目的的簡潔節名稱。因為節是簡報結構的一部份，請使用節的 API 來判斷所屬關係，而不要根據投影片位置推算。
 
-## **在簡報中建立章節**
+## **建立與管理節**
 
-若要在簡報中加入容納投影片的章節，Aspose.Slides for C++ 提供 AddSection 方法，允許您指定欲建立章節的名稱以及章節起始的投影片。
+使用 [ISectionCollection::AddSection](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/isectioncollection/addsection/) 依名稱與起始投影片建立節。Aspose.Slides 從簡報目前的節結構判斷哪些投影片屬於該節。
 
-以下範例程式碼示範如何在 C++ 中於簡報建立章節：
+相同的 [ISectionCollection](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/isectioncollection/) 也允許您：
 
-``` cpp
-auto pres = System::MakeObject<Presentation>();
+- 使用 [ISectionCollection::ReorderSectionWithSlides](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/isectioncollection/reordersectionwithslides/) 搬移節與其投影片；
+- 只使用 [ISectionCollection::RemoveSection](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/isectioncollection/removesection/) 移除節定義，保留其投影片；
+- 使用 [ISectionCollection::RemoveSectionWithSlides](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/isectioncollection/removesectionwithslides/) 移除節及其投影片；
+- 使用 [ISectionCollection::AppendEmptySection](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/isectioncollection/appendemptysection/) 在最後新增空白節。
 
-auto defaultSlide = pres->get_Slides()->idx_get(0);
-auto newSlide1 = pres->get_Slides()->AddEmptySlide(pres->get_LayoutSlides()->idx_get(0));
-auto newSlide2 = pres->get_Slides()->AddEmptySlide(pres->get_LayoutSlides()->idx_get(0));
-auto newSlide3 = pres->get_Slides()->AddEmptySlide(pres->get_LayoutSlides()->idx_get(0));
-auto newSlide4 = pres->get_Slides()->AddEmptySlide(pres->get_LayoutSlides()->idx_get(0));
+以下範例建立兩個節、搬移其中一個、將其與投影片一起移除，並在最後新增一個空白節：
 
-auto section1 = pres->get_Sections()->AddSection(u"Section 1", newSlide1);
-auto section2 = pres->get_Sections()->AddSection(u"Section 2", newSlide3);
-// section1 將在 newSlide2 結束，之後 section2 將開始   
+```cpp
+#include <DOM/ISectionCollection.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
 
-pres->Save(u"pres-sections.pptx", SaveFormat::Pptx);
+using namespace Aspose::Slides;
 
-pres->get_Sections()->ReorderSectionWithSlides(section2, 0);
-pres->Save(u"pres-sections-moved.pptx", SaveFormat::Pptx);
+auto presentation = System::MakeObject<Presentation>();
+auto layoutSlide = presentation->get_LayoutSlide(0);
+auto titleSlide = presentation->get_Slide(0);
+presentation->get_Slides()->AddEmptySlide(layoutSlide);
+auto resultsSlide = presentation->get_Slides()->AddEmptySlide(layoutSlide);
+presentation->get_Slides()->AddEmptySlide(layoutSlide);
 
-pres->get_Sections()->RemoveSectionWithSlides(section2);
+auto sections = presentation->get_Sections();
+sections->AddSection(u"Introduction", titleSlide);
+auto resultsSection = sections->AddSection(u"Results", resultsSlide);
 
-pres->get_Sections()->AppendEmptySection(u"Last empty section");
-
-pres->Save(u"pres-section-with-empty.pptx", SaveFormat::Pptx);
+sections->ReorderSectionWithSlides(resultsSection, 0);
+sections->RemoveSectionWithSlides(resultsSection);
+sections->AppendEmptySection(u"Appendix");
 ```
 
-## **變更章節名稱**
+執行這些操作後，簡報包含帶有投影片的 `Introduction` 節以及空的 `Appendix` 節。`Results` 節及其投影片已被移除。
 
-在 PowerPoint 簡報中建立章節後，您可能會決定變更其名稱。
+## **重新命名節**
 
-以下範例程式碼示範如何使用 Aspose.Slides 在 C++ 中變更簡報章節的名稱：
+若要重新命名節，請呼叫 [ISection::set_Name](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/isection/set_name/)。節的投影片與位置保持不變。
 
-``` cpp
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-auto section = pres->get_Sections()->idx_get(0);
-section->set_Name(u"My section");
+以下範例建立一個節並變更其名稱：
+
+```cpp
+#include <DOM/ISection.h>
+#include <DOM/ISectionCollection.h>
+#include <DOM/Presentation.h>
+
+using namespace Aspose::Slides;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto section = presentation->get_Sections()->AddSection(u"Overview", slide);
+section->set_Name(u"Introduction");
 ```
+
+## **從節中擷取投影片**
+
+[Presentation::get_Sections](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/get_sections/) 方法會回傳可列舉的 [ISectionCollection](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/isectioncollection/)。對每個 [ISection](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/isection/)，呼叫 [ISection::GetSlidesListOfSection](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/isection/getslideslistofsection/) 以取得目前屬於該節的投影片。此方法回傳 [ISectionSlideCollection](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/isectionslidecollection/)，提供計數、索引存取與列舉功能。
+
+以下範例建立兩個已填充的節與一個空白節，然後印出每個節的 [name](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/isection/get_name/)、[identifier](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/isection/get_sectionid/)、[starting slide](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/isection/get_startedfromslide/)、投影片計數與投影片編號。它使用索引存取讀取第一張投影片，並以基於範圍的 `for` 迴圈處理每張投影片。對於空白節，回傳的集合計數為零，未使用索引存取，列舉亦不會執行任何迭代。
+
+```cpp
+#include <DOM/ISection.h>
+#include <DOM/ISectionCollection.h>
+#include <DOM/ISectionSlideCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+
+auto presentation = System::MakeObject<Presentation>();
+auto layoutSlide = presentation->get_LayoutSlide(0);
+auto firstSlide = presentation->get_Slide(0);
+presentation->get_Slides()->AddEmptySlide(layoutSlide);
+auto thirdSlide = presentation->get_Slides()->AddEmptySlide(layoutSlide);
+
+auto sections = presentation->get_Sections();
+sections->AddSection(u"Introduction", firstSlide);
+sections->AddSection(u"Details", thirdSlide);
+sections->AppendEmptySection(u"Appendix");
+
+for (const auto& section : sections)
+{
+    auto sectionSlides = section->GetSlidesListOfSection();
+    auto startingSlide = section->get_StartedFromSlide();
+
+    System::Console::WriteLine(u"Section: {0}", section->get_Name());
+    System::Console::WriteLine(u"ID: {0}", section->get_SectionId().ToString());
+    if (startingSlide == nullptr)
+    {
+        System::Console::WriteLine(u"Starting slide: none");
+    }
+    else
+    {
+        System::Console::WriteLine(u"Starting slide: {0}", startingSlide->get_SlideNumber());
+    }
+    System::Console::WriteLine(u"Slide count: {0}", sectionSlides->get_Count());
+
+    if (sectionSlides->get_Count() > 0)
+    {
+        System::Console::WriteLine(u"First slide via index: {0}", sectionSlides->idx_get(0)->get_SlideNumber());
+    }
+
+    System::Console::Write(u"Slide numbers:");
+    for (const auto& slide : sectionSlides)
+    {
+        System::Console::Write(u" {0}", slide->get_SlideNumber());
+    }
+    System::Console::WriteLine();
+}
+```
+
+節的成員關係由簡報的節結構決定。請勿自行從 [ISection::get_StartedFromSlide](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/isection/get_startedfromslide/)、投影片索引以及下一節的起始投影片計算節的範圍。
+
+結構性編輯可能會同時變更某節回傳的投影片與其投影片編號。這包括重新排序投影片、將投影片複製到節、搬移帶有投影片的節、移除投影片與移除節。下一個範例在每次此類變更後呼叫 [ISection::GetSlidesListOfSection](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/isection/getslideslistofsection/)，而非保留對先前範圍的假設。
+
+```cpp
+#include <DOM/ISection.h>
+#include <DOM/ISectionCollection.h>
+#include <DOM/ISectionSlideCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+
+auto presentation = System::MakeObject<Presentation>();
+auto layoutSlide = presentation->get_LayoutSlide(0);
+auto firstSlide = presentation->get_Slide(0);
+presentation->get_Slides()->AddEmptySlide(layoutSlide);
+auto thirdSlide = presentation->get_Slides()->AddEmptySlide(layoutSlide);
+presentation->get_Slides()->AddEmptySlide(layoutSlide);
+
+auto sections = presentation->get_Sections();
+auto firstSection = sections->AddSection(u"First", firstSlide);
+auto secondSection = sections->AddSection(u"Second", thirdSlide);
+
+auto printSectionSlides = [](const System::String& label, const System::SharedPtr<ISection>& section)
+{
+    auto sectionSlides = section->GetSlidesListOfSection();
+    System::Console::Write(u"{0} ({1} slides):", label, sectionSlides->get_Count());
+    for (const auto& slide : sectionSlides)
+    {
+        System::Console::Write(u" {0}", slide->get_SlideNumber());
+    }
+    System::Console::WriteLine();
+};
+
+printSectionSlides(u"Initially", firstSection);
+
+auto slidesBeforeClone = firstSection->GetSlidesListOfSection();
+presentation->get_Slides()->AddClone(slidesBeforeClone->idx_get(0), firstSection);
+printSectionSlides(u"After cloning into the section", firstSection);
+
+auto slidesBeforeReorder = firstSection->GetSlidesListOfSection();
+auto firstSlideInSection = slidesBeforeReorder->idx_get(0);
+auto lastSlideInSection = slidesBeforeReorder->idx_get(slidesBeforeReorder->get_Count() - 1);
+auto firstSectionPosition = firstSlideInSection->get_SlideNumber() - 1;
+presentation->get_Slides()->Reorder(firstSectionPosition, lastSlideInSection);
+printSectionSlides(u"After reordering slides", firstSection);
+
+sections->ReorderSectionWithSlides(firstSection, 1);
+printSectionSlides(u"After moving the section", firstSection);
+
+auto slidesBeforeRemoval = firstSection->GetSlidesListOfSection();
+presentation->get_Slides()->Remove(slidesBeforeRemoval->idx_get(0));
+printSectionSlides(u"After removing a slide", firstSection);
+
+sections->RemoveSectionWithSlides(secondSection);
+for (const auto& section : sections)
+{
+    printSectionSlides(u"Remaining section", section);
+}
+```
+
+每當投影片或節被重新排序、複製、搬移或移除時，請再次呼叫 [ISection::GetSlidesListOfSection](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/isection/getslideslistofsection/)。這可確保後續處理與目前的簡報結構保持一致。
+
+PPT（PowerPoint 97–2003）格式不會保留節的中繼資料。請在支援節的格式（如 PPTX）下使用此工作流程；轉換為 PPT 會移除後續列舉所需的節結構。
 
 ## **常見問題**
 
-**將簡報另存為 PPT（PowerPoint 97–2003）格式時，章節會被保留嗎？**
+**將簡報儲存為 PPT（PowerPoint 97–2003）格式時，是否會保留節？**
 
-否。PPT 格式不支援章節中繼資料，因此儲存為 .ppt 時會失去章節分組。
+不會。PPT 格式不支援節的中繼資料，儲存為 .ppt 時會失去節的分組。
 
-**整個章節可以「隱藏」嗎？**
+**整個節可以被「隱藏」嗎？**
 
-否。只能隱藏個別投影片。章節作為實體並沒有「隱藏」狀態。
+不行。節本身沒有可見性狀態。若要隱藏其內容，需對該節中的每張投影片呼叫 [ISlide::set_Hidden](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/islide/set_hidden/)。
 
-**我能快速透過投影片找出其所屬章節，或找出章節的第一張投影片嗎？**
+**如何找出包含特定投影片的節？**
 
-是。章節以其起始投影片唯一定義；給定投影片即可判斷其所屬章節，亦可取得章節的第一張投影片。
+列舉 [Presentation::get_Sections](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/get_sections/)，對每個節呼叫 [ISection::GetSlidesListOfSection](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/isection/getslideslistofsection/)，並將回傳的投影片與目標投影片比較。對於非空白節，[ISection::get_StartedFromSlide](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/isection/get_startedfromslide/) 會回傳其第一張投影片；對於空白節，則回傳 `nullptr`。

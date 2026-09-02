@@ -1,5 +1,5 @@
 ---
-title: PPT konvertálása PPTX-re PHP‑ban
+title: PPT konvertálása PPTX-re PHP-ben
 linktitle: PPT PPTX-re
 type: docs
 weight: 20
@@ -16,21 +16,21 @@ keywords:
 - prezentáció
 - PHP
 - Aspose.Slides
-description: "Konvertálja a régi PPT fájlokat PPTX-re PHP‑val az Aspose.Slides segítségével. Tartalmaz PHP példákat egyedi fájl és kötegelt konverzióra, hibakezelésre és pontossági megjegyzésekre."
+description: "Örökölt PPT fájlok konvertálása PPTX-re PHP-ben az Aspose.Slides segítségével. Tartalmaz PHP példákat egyedi és kötegelt konverzióra, hibakezelésre és pontossági megjegyzésekre."
 ---
 ## **Áttekintés**
 
-A PPT a régi bináris PowerPoint formátum, míg a PPTX az újabb Open XML formátum. Az Aspose.Slides for PHP via Java képes betölteni egy PPT fájlt és PPTX‑ként menteni anélkül, hogy Microsoft PowerPointra lenne szükség. Ez a cikk bemutatja, hogyan lehet egyetlen fájlt vagy egy fájlok könyvtárát átalakítani, és elmagyarázza, mit kell ellenőrizni a konverzió után.
+A PPT a régi bináris PowerPoint formátum, míg a PPTX az újabb Open XML formátum. Az Aspose.Slides for PHP via Java képes betölteni egy PPT fájlt és PPTX‑ként elmenteni Microsoft PowerPoint nélkül. Ez a cikk bemutatja, hogyan konvertálhat egy fájlt vagy egy könyvtárban lévő fájlokat, és elmagyarázza, mit kell ellenőrizni a konverzió után.
 
-## **PPT fájl konvertálása PPTX-re**
+## **PPT fájl konvertálása PPTX‑re**
 
-Töltsd be a forrásfájlt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztállyal, majd hívd meg a [Presentation::save](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/#save) metódust a [SaveFormat::Pptx](https://reference.aspose.com/slides/hu/php-java/aspose.slides/saveformat/#Pptx) argumentummal. A `finally` blokk felszabadítja a prezentációt és felszabadítja az erőforrásait.
+Töltse be a forrásfájlt a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) osztállyal, majd hívja meg a [Presentation::save](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/#save) metódust a [SaveFormat::Pptx](https://reference.aspose.com/slides/hu/php-java/aspose.slides/saveformat/#Pptx) argumentummal. A `finally` blokk felszabadítja a prezentációt és elengedi annak erőforrásait.
 
 ```php
 use aspose\slides\Presentation;
 use aspose\slides\SaveFormat;
 
-// Töltsd be a régi PPT prezentációt.
+// Töltse be az örökölt PPT prezentációt.
 $presentation = new Presentation("presentation.ppt");
 try {
     // Mentse a prezentációt PPTX formátumban.
@@ -40,11 +40,11 @@ try {
 }
 ```
 
-A fájlkiterjesztés önmagában nem határozza meg a kimeneti formátumot; ezt a [SaveFormat::Pptx](https://reference.aspose.com/slides/hu/php-java/aspose.slides/saveformat/#Pptx) argumentum biztosítja. Tartsd a bemeneti és kimeneti útvonalakat külön, ha meg szeretnéd őrizni az eredeti PPT fájlt.
+A fájlkiterjesztés önmagában nem határozza meg a kimeneti formátumot; ezt a [SaveFormat::Pptx](https://reference.aspose.com/slides/hu/php-java/aspose.slides/saveformat/#Pptx) argumentum végzi. Tartsa külön a bemeneti és kimeneti útvonalakat, ha meg kell őrizni az eredeti PPT fájlt.
 
 ## **Több PPT fájl konvertálása**
 
-Az alábbi példa minden egyes `.ppt` fájlt konvertál egy könyvtárban. Minden fájlt önállóan dolgoz fel, ezért egy sikertelen konverzió sem állítja le a többi feldolgozását.
+A következő példa minden egyes `.ppt` fájlt konvertál egy könyvtárban. Minden fájlt önállóan dolgoz fel, így egy sikertelen konverzió sem állítja le a többi feldolgozását.
 
 ```php
 use aspose\slides\Presentation;
@@ -82,47 +82,47 @@ foreach ($inputFiles as $inputPath) {
 }
 ```
 
-Éles környezetben naplózd a teljes kivételt, dönts arról, hogy felülírható‑e egy meglévő kimeneti fájl, és írd a sikertelen fájlneveket egy újrapróbálási vagy ellenőrzési sorba. Sérült fájlok, a szükséges jelszó nélkül megnyitott jelszóvédett fájlok, elérhetetlen útvonalak és nem támogatott tartalom is a konverzió hibáját eredményezhetik. Lásd a [Password-Protected Presentations](/php-java/password-protected-presentation/) oldalt a titkosított fájlok betöltéséhez.
+Termelési környezetben naplózza a teljes kivételt, döntse el, hogy a meglévő kimeneti fájl felülírható-e, és írja a sikertelen fájlneveket egy újrapróbálási vagy felülvizsgálati sorba. Sérült fájlok, jelszóval védett fájlok, amelyek a szükséges jelszó nélkül próbálják megnyitni, a hozzá nem férhető útvonalak és a nem támogatott tartalom mind a konverzió hibájához vezethetnek. Lásd a [Jelszóval védett prezentációk](/slides/hu/php-java/password-protected-presentation/) oldalt a titkosított fájlok betöltéséhez.
 
-## **Pontosság és örökölt funkciók**
+## **Hűség és örökölt funkciók**
 
-A konverzió általában megőrzi a diák, mesterlapok, elrendezések, szöveg, alakzatok, képek, táblák és diagramok tartalmát. Azonban a PPT és a PPTX nem minden funkciót ábrázol pontosan ugyanúgy. Egy örökölt funkció, amelynek nincs PPTX megfelelője, vagy amelyet a könyvtár nem támogat, normalizálva, kihagyva vagy másképp megjelenítve jelenhet meg.
+A konverzió általában megőrzi a diák, fővázlatok, elrendezések, szöveg, alakzatok, képek, táblázatok és diagramok tartalmát. Azonban a PPT és a PPTX nem minden funkciót ábrázol pontosan ugyanúgy. Egy olyan örökölt funkció, amelynek nincs PPTX megfelelője, vagy amelyet a könyvtár nem támogat, normalizálásra, kihagyásra vagy eltérő megjelenítésre kerülhet.
 
-Ellenőrizd a konvertált fájlt, ha animációkat, áttűnéseket, beágyazott vagy hivatkozott OLE objektumokat, ActiveX vezérlőket, beágyazott médiafájlokat, ritka betűtípusokat vagy VBA makrókat tartalmaz. Egy egyszerű PPTX fájl nem makró‑kompatibilis formátum, ezért használj megfelelő makró‑támogatott munkafolyamatot, ha a VBA‑nak elérhetőnek kell maradnia. Emellett ellenőrizd, hogy a szükséges betűtípusok és külső erőforrások rendelkezésre állnak‑e abban a környezetben, ahol a konvertált prezentációt megnyitják vagy megjelenítik.
+Ellenőrizze a konvertált fájlt, ha animációkat, áttűnéseket, beágyazott vagy hivatkozott OLE objektumokat, ActiveX vezérlőket, beágyazott médiafájlokat, ritka betűtípusokat vagy VBA makrókat tartalmaz. Egy sima PPTX fájl nem makró‑támogatott formátum, ezért használjon megfelelő makró‑támogatott munkafolyamatot, ha a VBA-nak elérhetőnek kell maradnia. Emellett ellenőrizze, hogy a szükséges betűtípusok és külső erőforrások jelen vannak-e abban a környezetben, ahol a konvertált prezentációt megnyitják vagy megjelenítik.
 
-Fontos dokumentumok esetén nyisd meg a generált PPTX‑et programozottan, ellenőrizd a kulcsfontosságú diák számát és tartalmát, majd hasonlítsd össze megjelenését és diavetítés‑viselkedését a kívánt megjelenítőben. Ne tekintsd a sikeres [Presentation::save](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/#save) hívást bizonyítékul arra, hogy minden örökölt funkció pontos PPTX megfelelővel rendelkezik.
+Fontos dokumentumok esetén programozottan nyissa meg újra a létrehozott PPTX-et, ellenőrizze a kulcsfontosságú diák számát és tartalmát, majd hasonlítsa össze a megjelenését és a diavetítés viselkedését a célzott megjelenítőben. Ne tekintse a sikeres [Presentation::save](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/#save) hívást bizonyítéknak arra, hogy minden örökölt funkció pontos PPTX reprezentációval rendelkezik.
 
 ## **Mikor használjuk a PPTX-et**
 
-Használd a PPTX-et, ha a prezentációt a jelenlegi PowerPoint verziókban szerkesztik, Open XML csomagokkal dolgozó rendszerek között cserélik, vagy olyan formátumban tárolják, amely könnyebben ellenőrizhető és helyreállítható, mint a régi bináris PPT. Tartsd meg az eredeti PPT‑t archiválási vagy visszaállítási másolatként, amíg a konvertált prezentáció át nem esik a pontossági ellenőrzéseiden.
+Használjon PPTX-et, ha a prezentációt a jelenlegi PowerPoint verziókban szerkesztik, Open XML csomagokkal dolgozó rendszerekkel cserélik, vagy olyan formátumban tárolják, amely könnyebben ellenőrizhető és visszaállítható, mint a régi bináris PPT. Tartsa meg az eredeti PPT-et archiválási vagy visszaállítási másolatként, amíg a konvertált prezentáció át nem esik a pontossági ellenőrzéseken.
 
-Ha PDF‑re, HTML‑re, képekre, XPS‑re vagy más kimeneti típusra van szükséged, használd a [Convert Presentations to Multiple Formats](/php-java/convert-presentation/) formátumspecifikus útmutatót, ahelyett, hogy azt feltételeznéd, hogy minden célformátum megőrzi a szerkeszthető PowerPoint funkciókat.
+Ha PDF‑re, HTML‑re, képekre, XPS‑re vagy más kimeneti típusra van szüksége, használja a [Prezentációk konvertálása több formátumba](/slides/hu/php-java/convert-presentation/) formátum‑specifikus útmutatót, ahelyett, hogy azt feltételezné, hogy minden cél megőrzi a szerkeszthető PowerPoint funkciókat.
 
 ## **Online konverter**
 
-Ritka fájlokhoz vagy gyors összehasonlításhoz használhatod az [online PPT to PPTX converter](https://products.aspose.app/slides/hu/conversion/ppt-to-pptx) szolgáltatást. Ismételt konverziókhoz, kötegelt feldolgozáshoz vagy alkalmazásszintű hiba‑kezeléshez használd a PHP API‑t.
+Egy alkalmi fájl vagy gyors összehasonlítás esetén használhatja az [online PPT to PPTX converter](https://products.aspose.app/slides/hu/conversion/ppt-to-pptx) szolgáltatást. Ismétlődő konverziókhoz, kötegelt feldolgozáshoz vagy alkalmazásszintű hibakezeléshez használja a PHP API‑t.
 
 ## **Kapcsolódó cikkek**
 
-- [PPT vs PPTX](/php-java/ppt-vs-pptx/)
-- [Save Presentations in PHP](/php-java/save-presentation/)
-- [Supported File Formats](/php-java/supported-file-formats/)
-- [Open Presentations in PHP](/php-java/open-presentation/)
+- [PPT vs PPTX](/slides/hu/php-java/ppt-vs-pptx/)
+- [Prezentációk mentése PHP‑ben](/slides/hu/php-java/save-presentation/)
+- [Támogatott fájlformátumok](/slides/hu/php-java/supported-file-formats/)
+- [Prezentációk megnyitása PHP‑ben](/slides/hu/php-java/open-presentation/)
 
 ## **GYIK**
 
-**Átalakíthatok PPT‑t PPTX‑re Microsoft PowerPoint telepítése nélkül?**
+**Átkonvertálhatom a PPT‑t PPTX‑re anélkül, hogy a Microsoft PowerPoint telepítve lenne?**
 
-Igen. Az Aspose.Slides for PHP via Java betölti és menti a prezentációs fájlokat anélkül, hogy Microsoft PowerPointra lenne szükség.
+Igen. Az Aspose.Slides for PHP via Java betölti és menti a prezentációs fájlokat anélkül, hogy a Microsoft PowerPointra szükség lenne.
 
-**A PPT‑ról PPTX‑re konvertálás pontosan megőrzi az összes tartalmat?**
+**A PPT‑ről PPTX‑re konvertálás pontosan megőrzi az összes tartalmat?**
 
-Megőrzi a szokásos prezentációs tartalmat, de a teljes pontosság nem garantált minden örökölt vagy nem támogatott funkcióra vonatkozóan. Tekintsd át a generált fájlt, ha makrókat, OLE vagy ActiveX objektumokat, médiát, speciális animációkat vagy ritka betűtípusokat tartalmaz.
+Megőrzi a gyakori prezentációtartalmakat, de a teljes pontosság nem garantált minden örökölt vagy nem támogatott funkció esetén. Tekintse át a generált fájlt, ha makrókat, OLE‑ vagy ActiveX‑objektumokat, médiafájlokat, speciális animációkat vagy ritka betűtípusokat tartalmaz.
 
-**Átalakíthatok jelszóval védett PPT fájlt?**
+**Átkonvertálhatok jelszóval védett PPT fájlt?**
 
-Igen, ha a betöltéskor megadod a helyes jelszót. Hiányzó vagy helytelen jelszó esetén a betöltés meghiúsul.
+Igen, ha a fájl betöltésekor megadja a helyes jelszót. Hiányzó vagy helytelen jelszó esetén a betöltés meghiúsul.
 
 **Töröljem a PPT fájlt a konverzió után?**
 
-Tartsd meg az eredetit addig, amíg a PPTX‑et a számodra fontos megjelenítőkben és munkafolyamatokban ellenőrizted. Ez visszaállítási másolatot biztosít, ha egy örökölt funkció másként konvertálódik.
+Tartsa meg az eredetit, amíg a PPTX-et a fontos nézőkben és munkafolyamatokban ellenőrizte. Ez egy visszaállítási másolatot biztosít, ha egy örökölt funkció másként konvertálódik.

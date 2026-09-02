@@ -1,5 +1,5 @@
 ---
-title: Dodawanie podpisów cyfrowych do prezentacji na Androidzie
+title: Dodaj podpisy cyfrowe do prezentacji na Androidzie
 linktitle: Podpis cyfrowy
 type: docs
 weight: 10
@@ -7,7 +7,7 @@ url: /pl/androidjava/digital-signature-in-powerpoint/
 keywords:
 - podpis cyfrowy
 - certyfikat cyfrowy
-- urząd certyfikacji
+- organ certyfikacji
 - certyfikat PFX
 - PKCS#12
 - weryfikacja podpisu
@@ -17,35 +17,35 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Dowiedz się, jak podpisywać istniejące prezentacje PPTX przy użyciu certyfikatów PFX oraz korzystać z Aspose.Slides dla Androida w Javie, aby weryfikować lub usuwać podpisy cyfrowe."
+description: "Dowiedz się, jak podpisywać istniejące prezentacje PPTX przy użyciu certyfikatów PFX i używać Aspose.Slides dla Androida w Javie do weryfikacji lub usuwania podpisów cyfrowych."
 ---
 ## **Przegląd**
 
-Podpis cyfrowy pomaga odbiorcy ustalić, kto podpisał prezentację i czy podpisana treść uległa zmianie. Ważne są trzy powiązane pojęcia bezpieczeństwa:
+Podpis cyfrowy pomaga odbiorcy określić, kto podpisał prezentację i czy podpisana treść uległa zmianie. Trzy powiązane pojęcia bezpieczeństwa są tutaj istotne:
 
-- **Certyfikat cyfrowy** to elektroniczne poświadczenie, które wiąże tożsamość z kluczem publicznym. Zaufany urząd certyfikacji (CA) może wydać certyfikat, albo organizacja może używać certyfikatu samopodpisanego w wewnętrznych procesach.
-- **Podpis cyfrowy** jest tworzony z treści prezentacji i klucza prywatnego posiadacza certyfikatu. Następnie klucz publiczny certyfikatu może służyć do weryfikacji podpisu. Podpis dostarcza dowodów pochodzenia i integralności; nie szyfruje prezentacji.
-- **Ochrona hasłem** kontroluje, czy użytkownik może otworzyć lub modyfikować prezentację. Jest ona oddzielna od podpisu cyfrowego i jest opisana w [Prezentacje chronione hasłem](/androidjava/password-protected-presentation/).
+- **certyfikat cyfrowy** to elektroniczny dowód, który łączy tożsamość z kluczem publicznym. Zaufany organ certyfikacji (CA) może wydać certyfikat, albo organizacja może używać certyfikatu samopodpisanego w wewnętrznych przepływach pracy.
+- **podpis cyfrowy** jest tworzony z treści prezentacji oraz klucza prywatnego posiadacza certyfikatu. Klucz publiczny certyfikatu może być następnie użyty do weryfikacji podpisu. Podpis dostarcza dowodu pochodzenia i integralności; nie szyfruje prezentacji.
+- **ochrona hasłem** kontroluje, czy użytkownik może otworzyć lub modyfikować prezentację. Jest odrębna od podpisu cyfrowego i jest opisana w [Password-Protected Presentations](/slides/pl/androidjava/password-protected-presentation/).
 
-PowerPoint udostępnia polecenie **Add a Digital Signature** w menu **File > Info > Protect Presentation**.
+PowerPoint udostępnia polecenie **Add a Digital Signature** w sekcji **File > Info > Protect Presentation**.
 
-![Menu PowerPoint – Ochrona prezentacji z podświetnioną opcją Add a Digital Signature highlighted](add-digital-signature-in-powerpoint.png)
+![Menu PowerPoint Protect Presentation z podświetnionym poleceniem Add a Digital Signature highlighted](add-digital-signature-in-powerpoint.png)
 
 Po otwarciu podpisanej prezentacji PowerPoint może wyświetlić powiadomienie o stanie podpisu.
 
-![Powiadomienie PowerPoint informujące, że prezentacja zawiera ważne podpisy](digital-signature-status-in-powerpoint.png)
+![Powiadomienie PowerPoint informujące, że prezentacja zawiera prawidłowe podpisy](digital-signature-status-in-powerpoint.png)
 
-Aspose.Slides udostępnia podpisy poprzez [IPresentation.getDigitalSignatures](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipresentation/#getDigitalSignatures--), które zwraca [IDigitalSignatureCollection](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/idigitalsignaturecollection/) zawierającą elementy implementujące [IDigitalSignature](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/idigitalsignature/). Prezentacja może zawierać wiele podpisów.
+Aspose.Slides udostępnia podpisy poprzez [IPresentation.getDigitalSignatures](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipresentation/#getDigitalSignatures--), który zwraca [IDigitalSignatureCollection](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/idigitalsignaturecollection/) zawierającą elementy implementujące [IDigitalSignature](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/idigitalsignature/). Prezentacja może zawierać wiele podpisów.
 
 ## **Zrozumienie certyfikatów PFX i haseł**
 
-Plik PFX, znany również jako plik PKCS#12 i często o rozszerzeniu `.pfx` lub `.p12`, może zawierać certyfikat X.509, jego klucz prywatny oraz łańcuch certyfikatów. Klucz prywatny umożliwia posiadaczowi tworzenie podpisu. Certyfikat bez dostępnego klucza prywatnego nie może być użyty do podpisania prezentacji.
+Plik PFX, znany również jako plik PKCS#12 i zwykle z rozszerzeniem `.pfx` lub `.p12`, może zawierać certyfikat X.509, jego klucz prywatny oraz łańcuch certyfikatów. Klucz prywatny umożliwia posiadaczowi stworzenie podpisu. Certyfikat bez dostępnego klucza prywatnego nie może być użyty do podpisania prezentacji.
 
-Hasło PFX chroni pakiet certyfikatu i klucz prywatny. Nie jest to hasło do otwierania lub edycji prezentacji. Nie zapisuj plików PFX ani ich haseł w systemie kontroli wersji. W środowisku produkcyjnym ogranicz dostęp do pliku certyfikatu i pobieraj hasło z magazynu tajemnic lub innego chronionego źródła konfiguracji. Poniższe przykłady używają zmiennej środowiskowej wyłącznie po to, aby nie osadzać hasła w kodzie.
+Hasło PFX chroni pakiet certyfikatu i klucz prywatny. Nie jest to hasło do otwierania lub edytowania prezentacji. Nie zapisuj plików PFX ani ich haseł w systemie kontroli wersji. W środowisku produkcyjnym ogranicz dostęp do pliku certyfikatu i pobieraj hasło z magazynu tajemnic lub innego zabezpieczonego źródła konfiguracji. Poniższe przykłady używają zmiennej środowiskowej wyłącznie w celu uniknięcia umieszczania hasła w kodzie.
 
-## **Dodanie podpisu cyfrowego do prezentacji**
+## **Dodaj podpis cyfrowy do prezentacji**
 
-Aby podpisać rzeczywistą prezentację, wczytaj istniejący plik PPTX, utwórz [DigitalSignature](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/digitalsignature/) z certyfikatu PFX i jego hasła, dodaj podpis do kolekcji prezentacji i zapisz do pliku PPTX.
+Aby podpisać rzeczywisty przepływ pracy, wczytaj istniejący plik PPTX, utwórz [DigitalSignature](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/digitalsignature/) z certyfikatu PFX i jego hasła, dodaj podpis do kolekcji prezentacji i zapisz jako plik PPTX.
 
 ```java
 import com.aspose.slides.*;
@@ -67,11 +67,11 @@ try {
 }
 ```
 
-Zapis wyniku pod nową nazwą zachowuje niepodpisane źródło. Wartość ustawiona za pomocą [IDigitalSignature.setComments](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/idigitalsignature/#setComments-java.lang.String-) opisuje cel podpisu; nie jest to mechanizm kontroli bezpieczeństwa.
+Zapisanie wyniku pod nową nazwą zachowuje niepodpisane źródło. Wartość ustawiona przez [IDigitalSignature.setComments](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/idigitalsignature/#setComments-java.lang.String-) opisuje cel podpisu; nie jest to mechanizm zabezpieczający.
 
 ## **Weryfikacja podpisów cyfrowych**
 
-Kiedy wczytujesz podpisany plik PPTX, sprawdź każdy element zwrócony przez [IPresentation.getDigitalSignatures](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipresentation/#getDigitalSignatures--). Metoda [IDigitalSignature.isValid](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/idigitalsignature/#isValid--) wskazuje, czy wbudowany podpis jest ważny dla bieżącej treści prezentacji.
+Podczas wczytywania podpisanego pliku PPTX, przejrzyj każdy element zwrócony przez [IPresentation.getDigitalSignatures](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipresentation/#getDigitalSignatures--). Metoda [IDigitalSignature.isValid](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/idigitalsignature/#isValid--) wskazuje, czy osadzony podpis jest prawidłowy dla bieżącej treści prezentacji.
 
 ```java
 import com.aspose.slides.*;
@@ -116,13 +116,13 @@ try {
 }
 ```
 
-Nieprawidłowy wynik zazwyczaj oznacza, że treść podpisanej prezentacji lub dane podpisu uległy zmianie po podpisaniu, albo że plik jest uszkodzony. Usunięcie wszystkich podpisów powoduje utworzenie niepodpisanej prezentacji, więc sprawdzenie jedynie ważności elementów nie wystarczy: wrażliwy proces musi także zweryfikować, czy występuje oczekiwana liczba podpisów i oczekiwane tożsamości podpisujących.
+Nieprawidłowy wynik zazwyczaj oznacza, że treść prezentacji lub dane podpisu zostały zmienione po podpisaniu, albo że plik jest uszkodzony. Usunięcie wszystkich podpisów tworzy niepodpisaną prezentację, więc sprawdzanie jedynie poprawności elementów nie wystarcza: przepływ pracy wymagający bezpieczeństwa musi również weryfikować, czy oczekiwana liczba podpisów i tożsamości podpisujących jest obecna.
 
-Ten wynik nie powinien być traktowany jako pełna decyzja o zaufaniu do certyfikatu. W zależności od polityki bezpieczeństwa aplikacja może także budować i weryfikować łańcuch certyfikatów X.509, sprawdzać daty ważności i status odwołania certyfikatu, potwierdzać oczekiwany podmiot lub odcisk palca, weryfikować użycie klucza oraz oceniać zaufany znacznik czasu. Wartość zwracana przez [IDigitalSignature.getSignTime](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/idigitalsignature/#getSignTime--) sama w sobie nie jest dowodem pochodzącym od zaufanego dostawcy znacznika czasu.
+Ten wynik nie powinien być traktowany jako pełna decyzja o zaufaniu do certyfikatu. W zależności od polityki bezpieczeństwa, aplikacja może także budować i weryfikować łańcuch certyfikatów X.509, sprawdzać daty ważności i status odwołania, potwierdzać oczekiwany podmiot lub odcisk palca, weryfikować użycie klucza oraz oceniać zaufany znacznik czasu. Wartość zwrócona przez [IDigitalSignature.getSignTime](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/idigitalsignature/#getSignTime--) sama w sobie nie jest dowodem z zaufanego urzędu czasu.
 
 ## **Usuwanie podpisów cyfrowych**
 
-Usunięcie podpisów zmienia stan bezpieczeństwa prezentacji. Poniższy przykład wczytuje podpisany plik PPTX, usuwa wszystkie podpisy przy użyciu [IDigitalSignatureCollection.clear](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/idigitalsignaturecollection/#clear--), i zapisuje niepodpisaną kopię.
+Usunięcie podpisów zmienia stan bezpieczeństwa prezentacji. Poniższy przykład wczytuje podpisany plik PPTX, usuwa wszystkie podpisy przy pomocy [IDigitalSignatureCollection.clear](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/idigitalsignaturecollection/#clear--), i zapisuje niepodpisaną kopię.
 
 ```java
 Presentation presentation = new Presentation("InputPresentation-signed.pptx");
@@ -134,54 +134,54 @@ try {
 }
 ```
 
-Aby usunąć tylko jeden podpis, wywołaj [IDigitalSignatureCollection.removeAt](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/idigitalsignaturecollection/#removeAt-int-) z jego indeksu bazowanego na zero. Zapisz do nowego pliku, chyba że nadpisanie podpisanego oryginału jest wyraźną częścią Twojego procesu.
+Aby usunąć tylko jeden podpis, wywołaj [IDigitalSignatureCollection.removeAt](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/idigitalsignaturecollection/#removeAt-int-) z jego indeksem bazującym na zerze. Zapisz do nowego pliku, chyba że nadpisanie podpisanego oryginału jest wyraźną częścią Twojego przepływu pracy.
 
-## **Rozważania dotyczące edycji i formatu**
+## **Rozważania dotyczące edycji i formatów**
 
-- Podpis nie sprawia, że prezentacja staje się tylko do odczytu. Użytkownicy i aplikacje nadal mogą edytować plik, ale zmiany w podpisanej treści zwykle unieważniają istniejący podpis.
-- Dokonaj wszystkich zamierzonych edycji przed podpisaniem. Jeśli prezentację trzeba zmienić, zapisz zaktualizowaną wersję i ponownie podpisz tę wersję.
-- Zachowaj ostateczny plik w formacie PPTX. Konwersja podpisanej prezentacji do innego formatu nie przenosi oryginalnego podpisu PPTX jako ważnego podpisu w pliku po konwersji.
-- Traktuj klucz prywatny certyfikatu jako wrażliwy. Ktokolwiek uzyska klucz prywatny i jego hasło może tworzyć podpisy wyglądające na pochodzące od tego posiadacza certyfikatu.
+- Podpis nie sprawia, że prezentacja jest tylko do odczytu. Użytkownicy i aplikacje nadal mogą edytować plik, ale zmiany w podpisanej treści zazwyczaj unieważniają istniejący podpis.
+- Dokonaj wszystkich planowanych edycji przed podpisaniem. Jeśli prezentacja musi zostać zmieniona, zapisz zrewidowaną wersję i ponownie ją podpisz.
+- Zachowaj końcowy plik w formacie PPTX. Konwersja podpisanej prezentacji do innego formatu nie przenosi oryginalnego podpisu PPTX jako ważnego podpisu w przekonwertowanym pliku.
+- Traktuj klucz prywatny certyfikatu jako wrażliwy. Każdy, kto zdobędzie klucz prywatny i jego hasło, może tworzyć podpisy, które wydają się pochodzić od posiadacza certyfikatu.
 - Zachowaj niepodpisane źródło lub inną kontrolowaną kopię, gdy polityka przechowywania dokumentów tego wymaga.
 
 ## **FAQ**
 
 **Czy podpis cyfrowy szyfruje prezentację?**
 
-Nie. Podpis cyfrowy dostarcza dowodów dotyczących pochodzenia i integralności, ale treść prezentacji pozostaje czytelna, chyba że zastosowano oddzielne szyfrowanie. Użyj [password protection](/androidjava/password-protected-presentation/), gdy dostęp do treści musi być ograniczony.
+Nie. Podpis cyfrowy dostarcza dowodu o pochodzeniu i integralności, ale treść prezentacji pozostaje czytelna, chyba że zastosowano oddzielne szyfrowanie. Użyj [password protection](/slides/pl/androidjava/password-protected-presentation/), gdy dostęp do treści musi być ograniczony.
 
-**Czy hasło PFX jest tym samym, co hasło prezentacji?**
+**Czy hasło PFX jest takie samo jak hasło do prezentacji?**
 
 Nie. Hasło PFX odblokowuje klucz prywatny przechowywany w pakiecie certyfikatu. Nie kontroluje ono, kto może otworzyć lub edytować plik PPTX.
 
 **Czy mogę używać certyfikatu samopodpisanego?**
 
-Technicznie tak, pod warunkiem że zawiera dostępny klucz prywatny. Odbiorcy nie będą go automatycznie ufać, chyba że certyfikat zostanie wyraźnie dodany do ich zaufanego środowiska. W typowych procesach między organizacjami używa się certyfikatów wydanych przez zaufany CA.
+Technicznie tak, pod warunkiem że zawiera dostępny klucz prywatny. Odbiorcy nie będą automatycznie mu ufać, chyba że certyfikat zostanie wyraźnie dodany do ich zaufanego środowiska. Przepływy pracy publiczne lub międzyorganizacyjne zazwyczaj korzystają z certyfikatu wydanego przez zaufany organ CA.
 
-**Co powoduje, że podpis jest nieważny?**
+**Co sprawia, że podpis jest nieważny?**
 
-Zmiana treści podpisanej prezentacji lub danych podpisu po podpisaniu może unieważnić podpis. Uszkodzenie pliku również może spowodować niepowodzenie weryfikacji. Jeśli wszystkie podpisy zostaną usunięte, prezentacja po prostu pozostaje niepodpisana, a nie zawiera nieważnego podpisu.
+Zmiana podpisanej treści prezentacji lub danych podpisu po podpisaniu może unieważnić podpis. Uszkodzenie pliku również może spowodować niepowodzenie weryfikacji. Jeśli wszystkie podpisy zostaną usunięte, prezentacja jest niepodpisana, a nie zawiera nieważnego podpisu.
 
 **Czy ważny podpis oznacza, że powinienem ufać podpisującemu?**
 
-Nie sam w sobie. Integralność podpisu i zaufanie do podpisującego to odrębne decyzje. Polityka weryfikacji produkcyjnej powinna także sprawdzać łańcuch certyfikatów, okres ważności, status odwołania, oczekiwaną tożsamość, użycie klucza oraz ewentualne wymagania dotyczące zaufanego znacznika czasu.
+Nie samodzielnie. Integralność podpisu i zaufanie do podpisującego to odrębne decyzje. Polityka walidacji w produkcji powinna także sprawdzać łańcuch certyfikatów, okres ważności, status odwołania, oczekiwaną tożsamość, użycie klucza oraz wymagania dotyczące zaufanego znacznika czasu.
 
 **Co się dzieje, gdy certyfikat wygaśnie?**
 
-Wygaśnięcie certyfikatu nie zmienia bajtów prezentacji, ale wpływa na ocenę zaufania do certyfikatu. Czy podpis pozostaje akceptowalny, zależy od Twojej polityki i od tego, czy ważny zaufany znacznik czasu potwierdza, że podpis został złożony w okresie ważności certyfikatu. Nie polegaj wyłącznie na wyświetlonym czasie podpisu jako na zaufanym znaczniku czasu.
+Wygaśnięcie certyfikatu nie zmienia bajtów prezentacji, ale wpływa na ocenę zaufania do certyfikatu. Czy podpis pozostaje akceptowalny, zależy od polityki i od tego, czy ważny zaufany znacznik czasu potwierdza, że podpisanie nastąpiło w czasie, gdy certyfikat był ważny. Nie polegaj wyłącznie na wyświetlanym czasie podpisu jako na zaufanym znaczniku czasu.
 
-**Czy podpisana prezentacja może być dalej edytowana?**
+**Czy podpisana prezentacja nadal może być edytowana?**
 
-Tak. Podpis nie blokuje pliku. Edycja podpisanej treści zazwyczaj unieważnia istniejący podpis, więc najpierw zakończ edycję, a dopiero potem podpisz ostateczną wersję.
+Tak. Podpis nie blokuje pliku. Edycja podpisanej treści zazwyczaj unieważnia istniejący podpis, więc zakończ edycję prezentacji przed jej podpisaniem.
 
 **Czy prezentacja może zawierać więcej niż jeden podpis?**
 
-Tak. Dodaj każdy podpis do kolekcji zwróconej przez [IPresentation.getDigitalSignatures](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipresentation/#getDigitalSignatures--) przed zapisaniem. Podczas weryfikacji sprawdź każdy podpis i potwierdź, że wszyscy wymagani podpisujący są obecni.
+Tak. Dodaj każdy podpis do kolekcji zwróconej przez [IPresentation.getDigitalSignatures](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ipresentation/#getDigitalSignatures--) przed zapisaniem. Podczas walidacji sprawdź każdy podpis i potwierdź, że wszyscy wymagani podpisujący są obecni.
 
 **Jakie formaty prezentacji obsługują te operacje?**
 
-Aspose.Slides obsługuje opisane tutaj operacje związane z podpisem cyfrowym wyłącznie dla formatu PPTX. Format PPT oraz OpenDocument nie są obsługiwane przez ten interfejs API.
+Aspose.Slides obsługuje opisane operacje podpisu cyfrowego wyłącznie dla PPTX. Format PPT oraz OpenDocument nie są obsługiwane przez ten interfejs API.
 
 **Czy mogę usunąć podpis bez wpływu na slajdy?**
 
-Tak. Możesz usunąć pojedynczy podpis lub wyczyścić całą kolekcję, a następnie zapisać prezentację. Zawartość slajdów pozostaje nienaruszona, ale zapisany plik nie zawiera już dowodu usuniętego podpisu.
+Tak. Możesz usunąć jeden podpis lub wyczyścić całą kolekcję, a następnie zapisać prezentację. Zawartość slajdów pozostaje dostępna, ale zapisany plik nie zawiera już dowodu usuniętego podpisu.

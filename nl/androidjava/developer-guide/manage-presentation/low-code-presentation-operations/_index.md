@@ -1,48 +1,48 @@
 ---
-title: Low-Code presentatiewerkzaamheden op Android
+title: Low-Code presentatietaken op Android
 linktitle: Low-Code API
 type: docs
 weight: 50
 url: /nl/androidjava/low-code-presentation-operations/
 keywords:
-- low-code presentatiewerk API
+- low-code presentatiewerkset API
 - presentatie converteren
 - presentaties samenvoegen
-- dia's itereren
+- "dia's itereren"
 - vormen itereren
 - tekst itereren
 - vormen verzamelen
 - presentatie comprimeren
-- ongebruikte masterdia's verwijderen
-- ongebruikte lay-outdia's verwijderen
-- ingesloten lettertypen comprimeren
+- "onbruikte masterdia's verwijderen"
+- "onbruikte lay-outdia's verwijderen"
+- ingebedde lettertypen comprimeren
 - PowerPoint
 - OpenDocument
 - presentatie
 - Android
 - Java
 - Aspose.Slides
-description: "Gebruik de Aspose.Slides low-code API op Android om presentaties te converteren en samen te voegen, door content te itereren, vormen te verzamelen en de presentatiegrootte te verkleinen."
+description: "Gebruik de Aspose.Slides low-code API op Android om presentaties te converteren en samen te voegen, door de inhoud te itereren, vormen te verzamelen en de presentatiegrootte te verkleinen."
 ---
 ## **Overzicht**
 
-Het [com.aspose.slides](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/) pakket biedt statische helperklassen voor veelvoorkomende presentatie‑bewerkingen. Deze helpers verpakken vaak gebruikte object‑modelworkflows in gerichte methoden, zodat u bestanden kunt converteren of samenvoegen, presentatie‑elementen kunt verwerken, vormen kunt verzamelen en ongebruikte inhoud kunt verwijderen met minder code.
+Het [com.aspose.slides](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/) pakket levert statische hulpprogrammaklassen voor veelvoorkomende presentatietaken. Deze helpers verpakken vaak gebruikte objectmodel‑workflows in gerichte methoden, zodat u bestanden kunt converteren of samenvoegen, presentatie‑elementen kunt verwerken, shapes kunt verzamelen en ongebruikte inhoud kunt verwijderen met minder code.
 
-Low‑code‑helpers zijn het meest bruikbaar wanneer de bewerking van toepassing is op een heel bestand of een hele presentatie en de standaardworkflow aan uw eisen voldoet. Gebruik het volledige [Aspose.Slides object model](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/) wanneer u fijne controle nodig heeft over individuele dia's, masters, lay‑outs, vormen, exportinstellingen of relaties tussen presentatie‑elementen.
+Low-code helpers zijn vooral handig wanneer de bewerking wordt toegepast op een volledig bestand of een volledige presentatie en de standaardworkflow aan uw eisen voldoet. Gebruik het volledige [Aspose.Slides object model](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/) wanneer u fijne controle nodig heeft over individuele dia's, masters, lay‑outs, shapes, exportinstellingen of relaties tussen presentatie‑elementen.
 
 De onderstaande tabel geeft een overzicht van de beschikbare helpers:
 
-| Helper | Doel |
+| Helper | Toepassing |
 | --- | --- |
-| [Convert](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/convert/) | Een presentatie naar een ander formaat converteren met een directe bestand‑naar‑bestand‑aanroep. |
+| [Convert](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/convert/) | Een presentatie converteren naar een ander formaat met een directe file‑to‑file‑aanroep. |
 | [Merger](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/merger/) | Volledige presentatiebestanden van hetzelfde formaat combineren. |
-| [ForEach](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/foreach/) | Een actie uitvoeren voor elke dia, vorm, alinea of tekstdeler. |
-| [Collect](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/collect/) | Vormen ophalen uit de gehele presentatie voor herhaalde verwerking of analyse. |
-| [Compress](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/compress/) | Ongebruikte masters en lay‑outs verwijderen en ingesloten lettertype‑gegevens verkleinen. |
+| [ForEach](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/foreach/) | Een actie uitvoeren voor elke dia, shape, alinea of tekstgedeelte. |
+| [Collect](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/collect/) | Shapes ophalen uit de volledige presentatie voor herhaalde verwerking of analyse. |
+| [Compress](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/compress/) | Ongebruikte masters en lay‑outs verwijderen en ingebedde lettertype‑data verkleinen. |
 
-## **Converteer een presentatie**
+## **Presentatie converteren**
 
-Gebruik [Convert.autoByExtension](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/convert/#autoByExtension-java.lang.String-java.lang.String-) wanneer de bestandsextensie van de uitvoer voldoende is om het exportformaat te selecteren. De methode opent de bronpresentatie, bepaalt het vereiste formaat aan de hand van het uitvoerpad en schrijft het resultaat.
+Gebruik [Convert.autoByExtension](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/convert/#autoByExtension-java.lang.String-java.lang.String-) wanneer de extensie van het uitvoerbestand voldoende is om het exportformaat te selecteren. De methode opent de bronpresentatie, bepaalt het vereiste formaat op basis van het uitvoerpad en schrijft het resultaat.
 
 ```java
 import com.aspose.slides.Convert;
@@ -50,11 +50,11 @@ import com.aspose.slides.Convert;
 Convert.autoByExtension("input.pptx", "output.pdf");
 ```
 
-De [Convert](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/convert/) klasse biedt ook specifieke methoden voor PDF-, SVG-, JPEG-, PNG- en TIFF‑output. Gebruik het volledige objectmodel wanneer u de presentatie moet inspecteren of aanpassen vóór export of een exportoptie moet configureren die niet door de geselecteerde helper wordt blootgesteld. Zie [Presentatie converteren](/androidjava/convert-presentation/) voor formaat‑specifieke workflows en opties.
+De [Convert]‑klasse biedt ook specifieke methoden voor PDF-, SVG-, JPEG-, PNG- en TIFF‑output. Gebruik het volledige objectmodel wanneer u de presentatie moet inspecteren of wijzigen vóór export of een exportoptie moet configureren die niet door de geselecteerde helper wordt blootgesteld. Zie [Convert Presentation](/slides/nl/androidjava/convert-presentation/) voor formaat‑specifieke workflows en opties.
 
 ## **Presentaties samenvoegen**
 
-Gebruik [Merger.process](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/merger/#process-java.lang.String:A-java.lang.String-) om volledige presentatiebestanden met één oproep te combineren. De invoer‑presentaties moeten hetzelfde bestandsformaat hebben.
+Gebruik [Merger.process](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/merger/#process-java.lang.String:A-java.lang.String-) om volledige presentatiebestanden met één aanroep samen te voegen. De invoerpresentaties moeten hetzelfde bestandsformaat hebben.
 
 ```java
 import com.aspose.slides.Merger;
@@ -63,13 +63,13 @@ String[] inputFiles = { "part-1.pptx", "part-2.pptx" };
 Merger.process(inputFiles, "merged.pptx");
 ```
 
-De helper is geschikt wanneer alle dia's moeten worden toegevoegd aan één resultaat zonder ze individueel te selecteren of opnieuw toe te wijzen. Gebruik het volledige objectmodel wanneer u geselecteerde dia's moet samenvoegen, een bestemmings‑master of -lay‑out moet toepassen, secties expliciet wilt behouden, of verschillende dia‑groottes wilt harmoniseren. Zie [Presentaties samenvoegen](/androidjava/merge-presentation/) voor die scenario's.
+De helper is geschikt wanneer alle dia's moeten worden toegevoegd aan één resultaat zonder ze individueel te selecteren of te remappen. Gebruik het volledige objectmodel wanneer u geselecteerde dia's moet samenvoegen, een doel‑master of -lay‑out wilt toepassen, secties expliciet wilt behouden, of verschillende diaformaten wilt harmoniseren. Zie [Merge Presentations](/slides/nl/androidjava/merge-presentation/) voor die scenario's.
 
-## **Itereer door presentatie‑elementen**
+## **Itereren door presentatie‑elementen**
 
-De [ForEach](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/foreach/) klasse roept een callback aan voor elk aangevraagd type presentatie‑element. Het voorkomt geneste verzamelingslussen en is handig voor inspectie of opmaakwijzigingen over de gehele presentatie.
+De [ForEach]‑klasse roept een callback aan voor elk aangevraagd type presentatie‑element. Het voorkomt geneste verzamelings‑lussen en is handig voor inspectie of opmaakwijzigingen op presentatie‑niveau.
 
-Het onderstaande voorbeeld gebruikt [ForEach.slide](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/foreach/#slide-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachSlideCallback-), [ForEach.shape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-), [ForEach.paragraph](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/foreach/#paragraph-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachParagraphCallback-), en [ForEach.portion](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/foreach/#portion-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachPortionCallback-) om de overeenkomstige elementen te inspecteren:
+Het volgende voorbeeld gebruikt [ForEach.slide](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/foreach/#slide-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachSlideCallback-), [ForEach.shape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-), [ForEach.paragraph](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/foreach/#paragraph-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachParagraphCallback-), en [ForEach.portion](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/foreach/#portion-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachPortionCallback-) om de overeenkomstige elementen te inspecteren:
 
 ```java
 import com.aspose.slides.*;
@@ -96,11 +96,11 @@ try {
 }
 ```
 
-Standaard omvat de vorm‑ en tekstdoorloop over de gehele presentatie normale, master‑ en lay‑out‑dia's. Overloads met een `includeNotes`‑parameter kunnen ook notitiedia's verwerken. Gebruik directe verzamelingslussen wanneer de doorloopvolgorde, vroegtijdig stoppen, filteren vóór de callback‑aanroep, of gedetailleerde ouder‑kind‑controle belangrijk is.
+Standaard omvat traverseren van shapes en tekst over de hele presentatie normale, master‑ en lay‑out‑dia’s. Overloads met een `includeNotes`‑parameter kunnen ook notitiedia’s verwerken. Gebruik directe collectielussen wanneer de volgorde van traverseren, vroegtijdig stoppen, filteren vóór de callback‑aanroep of gedetailleerde ouder‑kind‑controle belangrijk is.
 
-## **Verzamel vormen**
+## **Shapes verzamelen**
 
-Gebruik [Collect.shapes](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/collect/#shapes-com.aspose.slides.Presentation-) wanneer u een collectie van alle vormen in een presentatie nodig heeft in plaats van een callback voor elke vorm. Dit is nuttig wanneer dezelfde set meerdere keren gefilterd, geteld of verwerkt zal worden.
+Gebruik [Collect.shapes](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/collect/#shapes-com.aspose.slides.Presentation-) wanneer u een verzameling van alle shapes in een presentatie nodig heeft in plaats van een callback voor elke shape. Dit is handig wanneer dezelfde set later gefilterd, geteld of meermaals verwerkt moet worden.
 
 ```java
 import com.aspose.slides.*;
@@ -117,15 +117,15 @@ try {
 }
 ```
 
-Gebruik in plaats daarvan [ForEach.shape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-) wanneer elke vorm direct kan worden verwerkt en u het verzamelde resultaat niet hoeft te behouden.
+Gebruik [ForEach.shape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-) in plaats daarvan wanneer elke shape onmiddellijk kan worden verwerkt en u de verzamelde resultaten niet hoeft te behouden.
 
-## **Comprimeer presentatiew inhoud**
+## **Presentatie‑inhoud comprimeren**
 
-De [Compress](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/compress/) klasse kan ongebruikte structurele elementen verwijderen en ingesloten lettertype‑gegevens verkleinen:
+De [Compress]‑klasse kan ongebruikte structurele elementen verwijderen en de ingebedde lettertype‑data verkleinen:
 
-- [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) verwijdert lay‑out‑dia's die door geen enkele normale dia worden gebruikt.
-- [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) verwijdert masters die niet meer worden gebruikt.
-- [Compress.compressEmbeddedFonts](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) verwijdert ongebruikte tekens uit ingesloten lettertypen.
+- [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) verwijdert lay‑out‑dia’s die door geen enkele normale dia worden gerefereerd.
+- [Compress.removeUnusedMasterSlides](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/compress/#removeUnusedMasterSlides-com.aspose.slides.Presentation-) verwijdert master‑dia’s die niet meer worden gebruikt.
+- [Compress.compressEmbeddedFonts](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/compress/#compressEmbeddedFonts-com.aspose.slides.Presentation-) verwijdert ongebruikte tekens uit ingebedde lettertypen.
 
 ```java
 import com.aspose.slides.*;
@@ -142,38 +142,38 @@ try {
 }
 ```
 
-Verwijder eerst ongebruikte lay-outs voordat u ongebruikte masters verwijdert, zodat een master die na het opruimen van lay-outs niet meer wordt gerefereerd ook kan worden verwijderd. Sla de geoptimaliseerde presentatie op in een nieuw bestand als u later de oorspronkelijke masters, lay-outs of de volledige ingesloten lettertype‑gegevens nodig heeft. Zie voor meer details [Slide Master](/androidjava/slide-master/) en [Embedded Font](/androidjava/embedded-font/).
+Verwijder ongebruikte lay‑outs vóór ongebruikte masters, zodat een master die na het opschonen van lay‑outs niet meer wordt gerefereerd, ook kan worden verwijderd. Sla de geoptimaliseerde presentatie op in een nieuw bestand als u later de originele masters, lay‑outs of volledige ingebedde lettertype‑data nodig heeft. Voor meer details, zie [Slide Master](/slides/nl/androidjava/slide-master/) en [Embedded Font](/slides/nl/androidjava/embedded-font/).
 
 ## **FAQ**
 
-**Wanneer moet ik de low‑code‑API gebruiken in plaats van het volledige objectmodel?**
+**Wanneer moet ik de low-code‑API gebruiken in plaats van het volledige objectmodel?**
 
-Gebruik low‑code‑helpers wanneer een standaardbewerking van toepassing is op een volledig bestand of een hele presentatie en geen gedetailleerde controle over individuele elementen vereist. Gebruik het volledige objectmodel wanneer u specifieke dia's moet selecteren, master‑ en lay‑outrelaties moet beheersen, de tussenliggende status moet inspecteren, of gedrag moet configureren dat de helper niet biedt.
+Gebruik low‑code helpers wanneer een standaardbewerking wordt toegepast op een volledig bestand of een volledige presentatie en geen gedetailleerde controle over individuele elementen vereist is. Gebruik het volledige objectmodel wanneer u specifieke dia’s moet selecteren, relaties tussen master en lay‑out moet beheersen, de intermediaire status wilt inspecteren, of gedrag wilt configureren dat de helper niet blootlegt.
 
 **Kan Merger presentaties combineren in verschillende bestandsformaten?**
 
-Nee. [Merger.process](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/merger/#process-java.lang.String:A-java.lang.String-) vereist dat invoer‑presentaties hetzelfde formaat hebben. Converteer de invoerbestanden eerst naar een gemeenschappelijk formaat, bijvoorbeeld met [Convert.autoByExtension](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/convert/#autoByExtension-java.lang.String-java.lang.String-), en voeg daarna de geconverteerde bestanden samen.
+Nee. [Merger.process] vereist invoerpresentaties in hetzelfde formaat. Converteer de invoerbestanden eerst naar een gemeenschappelijk formaat, bijvoorbeeld met [Convert.autoByExtension](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/convert/#autoByExtension-java.lang.String-java.lang.String-), en voeg vervolgens de geconverteerde bestanden samen.
 
-**Verwerkt ForEach master‑, lay‑out‑ en notitiedia's?**
+**Verwerkt ForEach master-, lay‑out- en notitiedia’s?**
 
-[ForEach.slide](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/foreach/#slide-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachSlideCallback-) doorloopt de normale presentatiedia's. Presentatie‑brede [ForEach.shape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-), [ForEach.paragraph](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/foreach/#paragraph-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachParagraphCallback-), en [ForEach.portion](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/foreach/#portion-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachPortionCallback-) operaties omvatten standaard normale, master‑ en lay‑out‑dia's. Gebruik hun overloads met `includeNotes` ingesteld op `true` om notitiedia's op te nemen.
+[ForEach.slide] doorloopt normale presentatiedia’s. Door de hele presentatie heen omvatten [ForEach.shape], [ForEach.paragraph] en [ForEach.portion] standaard normale, master‑ en lay‑out‑dia’s. Gebruik de overloads met `includeNotes` ingesteld op `true` om notitiedia’s mee te nemen.
 
 **Wat is het verschil tussen ForEach.shape en Collect.shapes?**
 
-Gebruik [ForEach.shape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/foreach/#shape-com.aspose.slides.Presentation-com.aspose.slides.ForEach.ForEachShapeCallback-) om elke vorm direct via een callback te verwerken. Gebruik [Collect.shapes](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/collect/#shapes-com.aspose.slides.Presentation-) wanneer u een iterabel resultaat nodig hebt dat kan worden bewaard, gefilterd, geteld of meerdere keren kan worden doorlopen.
+Gebruik [ForEach.shape] om elke shape onmiddellijk via een callback te verwerken. Gebruik [Collect.shapes] wanneer u een itereerbaar resultaat nodig heeft dat kan worden bewaard, gefilterd, geteld of meerdere keren kan worden doorlopen.
 
-**Maakt Compress altijd het presentatiebestand kleiner?**
+**Vermindert Compress altijd de bestandsgrootte van de presentatie?**
 
-Niet per se. Het resultaat hangt af van of de presentatie ongebruikte lay-outs, ongebruikte masters of ingesloten lettertypen met ongebruikte tekens bevat. Als geen van deze aanwezig is, zullen de bijbehorende [Compress]‑operaties mogelijk de bestandsgrootte niet verkleinen.
+Niet noodzakelijk. Het resultaat hangt af van of de presentatie ongebruikte lay‑outs, ongebruikte masters of ingebedde lettertypen met ongebruikte tekens bevat. Als geen van deze aanwezig is, kunnen de bijbehorende [Compress]‑operaties de bestandsgrootte mogelijk niet verkleinen.
 
-**Worden wijzigingen gemaakt door ForEach of Compress automatisch opgeslagen?**
+**Worden wijzigingen die door ForEach of Compress worden aangebracht automatisch opgeslagen?**
 
-Nee. Deze helpers werken op het geladen [Presentation]‑object in het geheugen. Nadat u elementen in een [ForEach]‑callback hebt gewijzigd of [Compress] hebt uitgevoerd, roept u [Presentation.save](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentation/#save-java.lang.String-int-) aan om het resultaat weg te schrijven.
+Nee. Deze helpers werken op het geladen [Presentation]‑object in het geheugen. Na het wijzigen van elementen in een [ForEach]‑callback of het uitvoeren van [Compress], roep [Presentation.save] aan om het resultaat weg te schrijven.
 
 ## **Gerelateerde artikelen**
 
-- [Presentatie converteren](/androidjava/convert-presentation/)
-- [Presentaties samenvoegen](/androidjava/merge-presentation/)
-- [Dia master](/androidjava/slide-master/)
-- [Tekstvak beheren](/androidjava/manage-textbox/)
-- [Ingesloten lettertype](/androidjava/embedded-font/)
+- [Presentatie converteren](/slides/nl/androidjava/convert-presentation/)
+- [Presentaties samenvoegen](/slides/nl/androidjava/merge-presentation/)
+- [Dia‑master](/slides/nl/androidjava/slide-master/)
+- [Tekstvak beheren](/slides/nl/androidjava/manage-textbox/)
+- [Ingebed lettertype](/slides/nl/androidjava/embedded-font/)

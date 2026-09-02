@@ -1,48 +1,48 @@
 ---
-title: عمليات عرض منخفضة الشيفرة في .NET
+title: عمليات العرض منخفضة الشيفرة في .NET
 linktitle: واجهة برمجة التطبيقات منخفضة الشيفرة
 type: docs
 weight: 50
 url: /ar/net/low-code-presentation-operations/
 keywords:
-- واجهة برمجة تطبيقات العرض منخفضة الشيفرة
+- واجهة برمجة التطبيقات للعرض منخفضة الشيفرة
 - تحويل العرض
-- دمج العروض التقديمية
-- التكرار على الشرائح
-- التكرار على الأشكال
-- التكرار على النص
+- دمج العروض
+- التكرار عبر الشرائح
+- التكرار عبر الأشكال
+- التكرار عبر النص
 - جمع الأشكال
 - ضغط العرض
-- إزالة القوالب الرئيسية غير المستخدمة
+- إزالة قوالب الشرائح غير المستخدمة
 - إزالة تخطيطات الشرائح غير المستخدمة
-- ضغط الخطوط المضمنة
+- ضغط الخطوط المضمَّنة
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "استخدم واجهة Aspose.Slides منخفضة الشيفرة في .NET لتحويل ودمج العروض التقديمية، والتكرار عبر المحتوى، وجمع الأشكال، وتقليل حجم العرض."
+description: "استخدم واجهة برمجة التطبيقات منخفضة الشيفرة لـ Aspose.Slides في .NET لتحويل ودمج العروض، التكرار عبر المحتوى، جمع الأشكال، وتقليل حجم العرض."
 ---
 ## **نظرة عامة**
 
-توفر مساحة الأسماء [Aspose.Slides.LowCode](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/) فئات مساعدة ثابتة للعمليات الشائعة على العروض التقديمية. تُغلف هذه المساعدات سير عمل نموذج الكائنات المتكرر في طرق مركزة، بحيث يمكنك تحويل أو دمج الملفات، ومعالجة عناصر العرض، وجمع الأشكال، وإزالة المحتوى غير المستخدم بأقل كمية من الشيفرة.
+توفر الفضاء الاسمي [Aspose.Slides.LowCode](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/) فئات مساعدة ثابتة للعمليات الشائعة على العروض التقديمية. تقوم هذه المساعدات بلف تدفقات العمل المتكررة في نموذج الكائن في طرق مركزة، بحيث يمكنك تحويل أو دمج الملفات، معالجة عناصر العرض، جمع الأشكال، وإزالة المحتوى غير المستخدم بكمية أقل من الكود.
 
-تكون المساعدات قليلة الشيفرة أكثر فائدة عندما ينطبق العملاق على ملف أو عرض تقديمي كامل ويتطابق سير العمل الافتراضي مع متطلباتك. استخدم نموذج كائنات [Aspose.Slides](https://reference.aspose.com/slides/ar/net/aspose.slides/) الكامل عندما تحتاج إلى تحكم دقيق على الشرائح الفردية أو القوالب أو التخطيطات أو الأشكال أو إعدادات التصدير أو العلاقات بين عناصر العرض.
+تكون المساعدات منخفضة الشيفرة مفيدة عندما تنطبق العملية على ملف أو عرض تقديمي كامل وتطابق سير العمل الافتراضي متطلباتك. استخدم نموذج كائن [Aspose.Slides الكامل](https://reference.aspose.com/slides/ar/net/aspose.slides/) عندما تحتاج إلى تحكم دقيق في الشرائح الفردية أو القوالب أو التخطيطات أو الأشكال أو إعدادات التصدير أو العلاقات بين عناصر العرض.
 
-الجدول التالي يلخّص المساعدات المتاحة:
+الجدول التالي يلخص المساعدات المتاحة:
 
-| المساعد | الاستخدام |
+| المساعد | ما يُستخدم من أجله |
 | --- | --- |
-| [Convert](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/convert/) | تحويل عرض تقديمي إلى صيغة أخرى باستدعاء مباشر من ملف إلى ملف. |
-| [Merger](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/merger/) | دمج ملفات عروض تقديمية كاملة من نفس الصيغة. |
-| [ForEach](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/foreach/) | تنفيذ إجراء لكل شريحة أو شكل أو فقرة أو جزء نصي. |
-| [Collect](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/collect/) | استرجاع الأشكال من العرض التقديمي بأكمله للمعالجة المتكررة أو التحليل. |
-| [Compress](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/compress/) | إزالة القوالب والتخطيطات غير المستخدمة وتقليل بيانات الخطوط المضمّنة. |
+| [Convert](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/convert/) | تحويل عرض تقديمي إلى تنسيق آخر باستخدام استدعاء مباشر من ملف إلى ملف. |
+| [Merger](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/merger/) | دمج ملفات عروض تقديمية كاملة من نفس التنسيق. |
+| [ForEach](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/foreach/) | تشغيل إجراء لكل شريحة أو شكل أو فقرة أو جزء نصي. |
+| [Collect](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/collect/) | استرجاع الأشكال من العرض بالكامل للمعالجة المتكررة أو التحليل. |
+| [Compress](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/compress/) | إزالة القوالب والتخطيطات غير المستخدمة وتقليل بيانات الخطوط المضمَّنة. |
 
 ## **تحويل عرض تقديمي**
 
-استخدم [Convert.AutoByExtension](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/convert/autobyextension/) عندما يكون امتداد ملف الإخراج كافيًا لتحديد صيغة التصدير. تفتح الطريقة العرض المصدر، تحدد الصيغة المطلوبة من مسار الإخراج، وتكتب النتيجة.
+استخدم [Convert.AutoByExtension](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/convert/autobyextension/) عندما يكون امتداد ملف الإخراج كافياً لتحديد تنسيق التصدير. تقوم الطريقة بفتح العرض المصدر، وتحديد التنسيق المطلوب من مسار الإخراج، وكتابة النتيجة.
 
 ```csharp
 using Aspose.Slides.LowCode;
@@ -50,11 +50,11 @@ using Aspose.Slides.LowCode;
 Convert.AutoByExtension("input.pptx", "output.pdf");
 ```
 
-توفر الفئة [Convert](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/convert/) أيضًا طرقًا مخصصة لإخراج PDF وSVG وJPEG وPNG وTIFF. استخدم نموذج الكائنات الكامل عندما تحتاج إلى فحص أو تعديل العرض قبل التصدير أو تكوين خيار تصدير غير مُعرض بواسطة المساعد المحدد. راجع [Convert Presentation](/net/convert-presentation/) للحصول على سير عمل وخيارات خاصة بالصيغة.
+تقدم فئة [Convert](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/convert/) أيضاً طرقاً مخصصة لإخراج PDF وSVG وJPEG وPNG وTIFF. استخدم نموذج الكائن الكامل عندما تحتاج إلى فحص أو تعديل العرض قبل التصدير أو تكوين خيار تصدير غير معروض بواسطة المساعد المختار. راجع [تحويل العرض](/slides/ar/net/convert-presentation/) للحصول على سير عمل وخيارات خاصة بكل تنسيق.
 
-## **دمج عروض تقديمية**
+## **دمج العروض التقديمية**
 
-استخدم [Merger.Process](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/merger/process/) لدمج ملفات عروض تقديمية كاملة باستدعاء واحد. يجب أن تكون العروض المدخلة ذات نفس صيغة الملف.
+استخدم [Merger.Process](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/merger/process/) لدمج ملفات عروض تقديمية كاملة بمستدعي واحد. يجب أن تكون الصيغ المتدخلة هي نفسها.
 
 ```csharp
 using Aspose.Slides.LowCode;
@@ -63,13 +63,13 @@ var inputFiles = new[] { "part-1.pptx", "part-2.pptx" };
 Merger.Process(inputFiles, "merged.pptx");
 ```
 
-المساعد مناسب عندما يجب إلحاق جميع الشرائح بنتيجة واحدة دون تحديدها أو إعادة تعيينها فرديًا. استخدم نموذج الكائنات الكامل عندما تحتاج إلى دمج شرائح محددة، أو تطبيق قالب أو تخطيط هدف، أو حفظ الأقسام صراحة، أو التوفيق بين أحجام شرائح مختلفة. راجع [Merge Presentations](/net/merge-presentation/) لهذه السيناريوهات.
+المساعد مناسب عندما ينبغي إلحاق جميع الشرائح إلى نتيجة واحدة دون الحاجة إلى اختيارها أو إعادة تعيينها بشكل فردي. استخدم نموذج الكائن الكامل عندما تحتاج إلى دمج شرائح محددة، أو تطبيق قالب أو تخطيط وجهة، أو الحفاظ على الأقسام بشكل صريح، أو توفيق أحجام الشرائح المختلفة. راجع [دمج العروض](/slides/ar/net/merge-presentation/) لتلك السيناريوهات.
 
-## **التكرار عبر عناصر العرض**
+## **التكرار عبر عناصر العرض التقديمي**
 
-تستدعي الفئة [ForEach](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/foreach/) دالة رد نداء لكل نوع مطلوب من عناصر العرض. يتجنّب ذلك حلقات الجمع المتداخلة وهو ملائم لتفتيش أو تغييرات تنسيق على مستوى العرض كله.
+تستدعي فئة [ForEach](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/foreach/) ردًا خلفيًا لكل نوع مطلوب من عناصر العرض. إنها تتجنب الحلقات المتداخلة للمجموعات وتكون مريحة للتفتيش أو تعديل الصيغ على مستوى العرض كله.
 
-المثال التالي يستخدم [ForEach.Slide](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/foreach/slide/)، [ForEach.Shape](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/foreach/shape/)، [ForEach.Paragraph](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/foreach/paragraph/)، و[ForEach.Portion](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/foreach/portion/) لتفتيش العناصر المقابلة:
+المثال التالي يستخدم [ForEach.Slide](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/foreach/slide/)، [ForEach.Shape](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/foreach/shape/)، [ForEach.Paragraph](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/foreach/paragraph/)، و[ForEach.Portion](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/foreach/portion/) لتفحص العناصر المقابلة:
 
 ```csharp
 using System;
@@ -99,11 +99,11 @@ ForEach.Portion(presentation, (portion, paragraph, slide, index) =>
 });
 ```
 
-بشكل افتراضي، يشمل استعراض الأشكال والنص على مستوى العرض الشرائح العادية والقوالب والتخطيطات. يمكن للتحميلات التي تحتوي على معامل `includeNotes` أيضًا معالجة شرائح الملاحظات. استخدم حلقات الجمع المباشرة عندما تكون порядок الاستعراض أو الخروج المبكر أو التصفية قبل استدعاء رد النداء أو التحكم التفصيلي في العلاقة بين الأبواب والأبناء أمرًا مهمًا.
+بشكل افتراضي، يشمل التجول عبر الأشكال والنصوص على مستوى العرض الشرائح العادية، وقوالب الشرائح، وتخطيطاتها. يمكن للتحميلات التي تتضمن معلمة `includeNotes` أيضًا معالجة شرائح الملاحظات. استخدم حلقات جمع مباشرة عندما يكون ترتيب التجول أو الخروج المبكر أو الترشيح قبل استدعاء الرد الخلفي أو التحكم التفصيلي في علاقة الأب بالابن مهمًا.
 
 ## **جمع الأشكال**
 
-استخدم [Collect.Shapes](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/collect/shapes/) عندما تحتاج إلى مجموعة من جميع الأشكال في عرض تقديمي بدلاً من رد نداء لكل شكل. هذا مفيد عندما سيتم تصفية المجموعة نفسها أو عدّها أو معالجتها أكثر من مرة.
+استخدم [Collect.Shapes](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/collect/shapes/) عندما تحتاج إلى مجموعة من جميع الأشكال في عرض تقديمي بدلاً من رد خلفي لكل شكل. هذا مفيد عندما سيتم ترشيح المجموعة نفسها أو عدّها أو معالجتها أكثر من مرة.
 
 ```csharp
 using System;
@@ -119,15 +119,15 @@ foreach (var shape in shapes)
 }
 ```
 
-استخدم [ForEach.Shape](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/foreach/shape/) بدلاً من ذلك عندما يمكن التعامل مع كل شكل فورًا ولا تحتاج إلى الاحتفاظ بالنتيجة المجمّعة.
+استخدم [ForEach.Shape](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/foreach/shape/) بدلاً من ذلك عندما يمكن معالجة كل شكل فورًا ولا تحتاج إلى الاحتفاظ بالنتيجة المجمعة.
 
-## **ضغط محتوى العرض**
+## **ضغط محتوى العرض التقديمي**
 
-يمكن للفئة [Compress](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/compress/) إزالة العناصر الهيكلية غير المستخدمة وتقليل بيانات الخطوط المضمّنة:
+يمكن لفئة [Compress](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/compress/) إزالة العناصر الهيكلية غير المستخدمة وتقليل بيانات الخطوط المضمَّنة:
 
-- [Compress.RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) يزيل شرائح التخطيط التي لا تشير إليها أي شريحة عادية.
-- [Compress.RemoveUnusedMasterSlides](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/compress/removeunusedmasterslides/) يزيل القوالب التي لم تعد مستخدمة.
-- [Compress.CompressEmbeddedFonts](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/compress/compressembeddedfonts/) يزيل الأحرف غير المستخدمة من الخطوط المضمّنة.
+- [Compress.RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) يزيل تخطيطات الشرائح التي لا تشير إليها أي شريحة عادية.
+- [Compress.RemoveUnusedMasterSlides](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/compress/removeunusedmasterslides/) يزيل قوالب الشرائح التي لم تعد مستخدمة.
+- [Compress.CompressEmbeddedFonts](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/compress/compressembeddedfonts/) يزيل الحروف غير المستخدمة من الخطوط المضمَّنة.
 
 ```csharp
 using Aspose.Slides;
@@ -143,38 +143,38 @@ Compress.CompressEmbeddedFonts(presentation);
 presentation.Save("compressed.pptx", SaveFormat.Pptx);
 ```
 
-قم بإزالة التخطيطات غير المستخدمة قبل القوالب غير المستخدمة بحيث يمكن أيضًا حذف القالب الذي يصبح غير مرجع بعد تنظيف التخطيطات. احفظ العرض المحسّن في ملف جديد إذا قد تحتاج القوالب أو التخطيطات الأصلية أو بيانات الخط المضمّن كاملة لاحقًا. لمزيد من التفاصيل، انظر [Slide Master](/net/slide-master/) و[Embedded Font](/net/embedded-font/).
+أزل التخطيطات غير المستخدمة قبل القوالب غير المستخدمة بحيث يمكن أيضًا إزالة القالب الذي يصبح غير مُشار إليه بعد تنظيف التخطيطات. احفظ العرض المحسّن إلى ملف جديد إذا كنت قد تحتاج إلى القوالب أو التخطيطات الأصلية أو بيانات الخط المضمَّنة بالكامل لاحقًا. لمزيد من التفاصيل، راجع [Slide Master](/slides/ar/net/slide-master/) و[Embedded Font](/slides/ar/net/embedded-font/).
 
 ## **الأسئلة المتكررة**
 
-**متى يجب استخدام API قليلة الشيفرة بدلاً من نموذج الكائنات الكامل؟**
+**متى يجب علي استخدام واجهة برمجة التطبيقات low-code بدلاً من نموذج الكائن الكامل؟**
 
-استخدم المساعدات قليلة الشيفرة عندما ينطبق إجراء قياسي على ملف أو عرض كامل ولا يتطلب تحكمًا مفصلاً في العناصر الفردية. استخدم نموذج الكائنات الكامل عندما تحتاج إلى اختيار شرائح محددة، التحكم في علاقات القالب والتخطيط، فحص الحالة المتوسطة، أو تكوين سلوك لا يExposeه المساعد.
+استخدم المساعدات منخفضة الشيفرة عندما تنطبق عملية قياسية على ملف أو عرض تقديمي كامل ولا تتطلب تحكمًا مفصلاً في العناصر الفردية. استخدم نموذج الكائن الكامل عندما تحتاج إلى تحديد شرائح معينة، أو التحكم في علاقات القالب والتخطيط، أو فحص الحالة المتوسطة، أو تكوين سلوك لا يكشفه المساعد.
 
 **هل يمكن لـ Merger دمج عروض تقديمية بصيغ ملفات مختلفة؟**
 
-لا. يتطلب [Merger.Process](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/merger/process/) أن تكون العروض المدخلة بنفس الصيغة. قم بتحويل الملفات المدخلة إلى صيغة مشتركة أولًا، مثلاً باستخدام [Convert.AutoByExtension](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/convert/autobyextension/)، ثم دمج الملفات المحوّلة.
+لا. يتطلب [Merger.Process](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/merger/process/) أن تكون العروض المدخلة بنفس الصيغة. قم بتحويل الملفات المدخلة إلى صيغة مشتركة أولاً، على سبيل المثال باستخدام [Convert.AutoByExtension](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/convert/autobyextension/)، ثم دمج الملفات المحولة.
 
-**هل يقوم ForEach بمعالجة شرائح القالب والتخطيط والملاحظات؟**
+**هل يعالج ForEach القوالب وتخطيطات الشرائح وشريحة الملاحظات؟**
 
-[ForEach.Slide](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/foreach/slide/) يكرّر عبر الشرائح العادية في العرض. تشمل عمليات [ForEach.Shape](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/foreach/shape/)، [ForEach.Paragraph](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/foreach/paragraph/)، و[ForEach.Portion](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/foreach/portion/) بشكل افتراضي الشرائح العادية والقوالب والتخطيطات. استخدم تحميلاتهم مع `includeNotes` مضبوطة على `true` لتضمين شرائح الملاحظات.
+[ForEach.Slide](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/foreach/slide/) يتكرر عبر الشرائح العادية للعرض. تشمل عمليات [ForEach.Shape](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/foreach/shape/)، [ForEach.Paragraph](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/foreach/paragraph/)، و[ForEach.Portion](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/foreach/portion/) الشرائح العادية، والقوالب، والتخطيطات بشكل افتراضي. استخدم التحميلات التي تحتوي على `includeNotes` مضبوطة على `true` لتضمين شرائح الملاحظات.
 
 **ما الفرق بين ForEach.Shape و Collect.Shapes؟**
 
-استخدم [ForEach.Shape](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/foreach/shape/) لمعالجة كل شكل فورًا عبر رد نداء. استخدم [Collect.Shapes](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/collect/shapes/) عندما تحتاج إلى نتيجة قابلة للتكرار يمكن الاحتفاظ بها، تصفيتها، عدّها، أو استعراضها عدة مرات.
+استخدم [ForEach.Shape](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/foreach/shape/) لمعالجة كل شكل فورًا من خلال رد خلفي. استخدم [Collect.Shapes](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/collect/shapes/) عندما تحتاج إلى نتيجة قابلة للتعداد يمكن الاحتفاظ بها، وترشيحها، أو عدّها، أو المرور عليها عدة مرات.
 
-**هل يجعل Compress الملف أصغر دائمًا؟**
+**هل يجعل Compress حجم ملف العرض أصغر دائمًا؟**
 
-ليس بالضرورة. تعتمد النتيجة على ما إذا كان العرض يحتوي على تخطيطات غير مستخدمة أو قوالب غير مستخدمة أو خطوط مضمنة بأحرف غير مستخدمة. إذا لم يتوفر أي من هذه العناصر، قد لا تقلل عمليات [Compress](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/compress/) حجم الملف.
+ليس بالضرورة. تعتمد النتيجة على ما إذا كان العرض يحتوي على تخطيطات غير مستخدمة أو قوالب غير مستخدمة أو خطوط مضمَّنة بحروف غير مستخدمة. إذا لم تتوفر أي من هذه العناصر، قد لا تقلل عمليات [Compress](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/compress/) حجم الملف.
 
 **هل يتم حفظ التغييرات التي يجريها ForEach أو Compress تلقائيًا؟**
 
-لا. تعمل هذه المساعدات على كائن [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/) المحمل في الذاكرة. بعد تعديل العناصر في رد نداء [ForEach](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/foreach/) أو تشغيل [Compress](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/compress/)، استدعِ [Presentation.Save](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/save/) لكتابة النتيجة.
+لا. تعمل هذه المساعدات على كائن [Presentation](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/) المحمَّل في الذاكرة. بعد تعديل العناصر في رد خلفي لـ [ForEach](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/foreach/) أو تشغيل [Compress](https://reference.aspose.com/slides/ar/net/aspose.slides.lowcode/compress/)، استدعِ [Presentation.Save](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/save/) لكتابة النتيجة.
 
 ## **مقالات ذات صلة**
 
-- [Convert Presentation](/net/convert-presentation/)
-- [Merge Presentations](/net/merge-presentation/)
-- [Slide Master](/net/slide-master/)
-- [Manage Text Box](/net/manage-textbox/)
-- [Embedded Font](/net/embedded-font/)
+- [تحويل العرض](/slides/ar/net/convert-presentation/)
+- [دمج العروض](/slides/ar/net/merge-presentation/)
+- [Slide Master](/slides/ar/net/slide-master/)
+- [Manage Text Box](/slides/ar/net/manage-textbox/)
+- [Embedded Font](/slides/ar/net/embedded-font/)

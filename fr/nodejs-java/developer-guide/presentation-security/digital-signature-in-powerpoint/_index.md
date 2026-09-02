@@ -19,33 +19,33 @@ keywords:
 - Aspose.Slides
 description: "Apprenez comment signer des présentations PPTX existantes avec des certificats PFX et utiliser Aspose.Slides pour Node.js via Java pour valider ou supprimer des signatures numériques."
 ---
-## **Vue d'ensemble**
+## **Aperçu**
 
-Une signature numérique aide le destinataire à determiner qui a signe une presentation et si le contenu signe a change. Trois concepts de securite lies sont importants ici :
+Une signature numérique aide le destinataire à déterminer qui a signé une présentation et si le contenu signé a été modifié. Trois concepts de sécurité liés sont importants ici :
 
-- Un **certificat numerique** est un document d'identite electronique qui associe une identite a une cle publique. Une autorite de certification (CA) de confiance peut delivrer un certificat, ou une organisation peut utiliser un certificat auto-signe pour les flux de travail internes.
-- Une **signature numerique** est creee a partir du contenu de la presentation et de la cle privee du titulaire du certificat. La cle publique du certificat peut alors etre utilisee pour verifier la signature. Une signature fournit une preuve d'origine et d'integrite ; elle n'encrypte pas la presentation.
-- La **protection par mot de passe** controle si un utilisateur peut ouvrir ou modifier une presentation. Elle est distincte de la signature numerique et est describee dans [Presentations protegees par mot de passe](/nodejs-java/password-protected-presentation/).
+- Un **certificat numérique** est un justificatif électronique qui associe une identité à une clé publique. Une autorité de certification (CA) fiable peut délivrer un certificat, ou une organisation peut utiliser un certificat auto‑signé pour des flux de travail internes.
+- Une **signature numérique** est créée à partir du contenu de la présentation et de la clé privée du détenteur du certificat. La clé publique du certificat peut alors être utilisée pour vérifier la signature. Une signature fournit la preuve d’origine et d’intégrité ; elle n’encrypte pas la présentation.
+- **Protection par mot de passe** contrôle si un utilisateur peut ouvrir ou modifier une présentation. Elle est distincte de la signature numérique et est décrite dans [Présentations protégées par mot de passe](/slides/fr/nodejs-java/password-protected-presentation/).
 
-PowerPoint propose la commande **Ajouter une signature numerique** sous **Fichier > Infos > Proteger la presentation**.
+PowerPoint propose la commande **Add a Digital Signature** sous **File > Info > Protect Presentation**.
 
-![Menu Proteger la presentation de PowerPoint avec Ajouter une signature numerique mis en évidence](add-digital-signature-in-powerpoint.png)
+![Menu Protéger la présentation de PowerPoint avec Ajouter une signature numérique mis en évidence](add-digital-signature-in-powerpoint.png)
 
-Apres l'ouverture d'une presentation signe, PowerPoint peut afficher une notification d'etat de la signature.
+Après l’ouverture d’une présentation signée, PowerPoint peut afficher une notification d’état de signature.
 
-![Notification PowerPoint indiquant que la presentation contient des signatures valides](digital-signature-status-in-powerpoint.png)
+![Notification PowerPoint indiquant que la présentation contient des signatures valides](digital-signature-status-in-powerpoint.png)
 
-Aspose.Slides expose les signatures via [Presentation.getDigitalSignatures](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation/#getDigitalSignatures--), qui renvoie une [DigitalSignatureCollection](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/digitalsignaturecollection/) contenant des objets [DigitalSignature](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/digitalsignature/). Une presentation peut contenir plusieurs signatures.
+Aspose.Slides expose les signatures via [Presentation.getDigitalSignatures](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation/#getDigitalSignatures--), qui renvoie une [DigitalSignatureCollection](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/digitalsignaturecollection/) contenant des objets [DigitalSignature](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/digitalsignature/). Une présentation peut contenir plusieurs signatures.
 
 ## **Comprendre les certificats PFX et les mots de passe**
 
-Un fichier PFX, egalement appele fichier PKCS#12 et généralement doté d'une extension `.pfx` ou `.p12`, peut contenir un certificat X.509, sa cle privee et la chaine de certificats. La cle privee permet au titulaire de creer une signature. Un certificat sans cle privee accessible ne peut pas etre utilise pour signer une presentation.
+Un fichier PFX, également appelé fichier PKCS#12 et généralement doté de l’extension `.pfx` ou `.p12`, peut contenir un certificat X.509, sa clé privée et la chaîne de certificats. La clé privée est ce qui permet au détenteur de créer une signature. Un certificat sans clé privée accessible ne peut pas être utilisé pour signer une présentation.
 
-Le mot de passe PFX protege le paquet de certificat et la cle privee. Il n'est **pas** un mot de passe pour ouvrir ou modifier la presentation. Ne pas commettre les fichiers PFX ni leurs mots de passe dans le controle de source. En production, limitez l'acces au fichier de certificat et recuperer son mot de passe depuis un magasin de secrets ou une autre source de configuration protegee. Les exemples ci-dessous utilisent une variable d'environnement uniquement pour eviter d'embedder le mot de passe dans le code.
+Le mot de passe PFX protège le paquet du certificat et la clé privée. Ce n’est **pas** un mot de passe pour ouvrir ou modifier la présentation. Ne validez pas les fichiers PFX ou leurs mots de passe dans le contrôle de version. En production, limitez l’accès au fichier de certificat et récupérez son mot de passe depuis un magasin de secrets ou une autre source de configuration protégée. Les exemples ci‑dessous utilisent une variable d’environnement uniquement pour éviter d’insérer le mot de passe dans le code.
 
-## **Ajouter une signature numerique a une presentation**
+## **Ajouter une signature numérique à une présentation**
 
-Pour signer une presentation reale, chargez un fichier PPTX existant, creez un [DigitalSignature](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/digitalsignature/) a partir d'un certificat PFX et de son mot de passe, ajoutez la signature a la collection de la presentation, puis enregistrez dans un fichier PPTX.
+Pour signer un flux de travail de présentation réel, chargez un fichier PPTX existant, créez une [DigitalSignature](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/digitalsignature/) à partir d’un certificat PFX et de son mot de passe, ajoutez la signature à la collection de la présentation, puis enregistrez‑la dans un fichier PPTX.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -67,13 +67,13 @@ try {
 }
 ```
 
-Enregistrer le resultat sous un nouveau nom preserve le fichier source non signe. La valeur definie par [DigitalSignature.setComments](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/digitalsignature/) décrit le but de la signature ; ce n'est pas un controle de securite.
+En enregistrant le résultat sous un nouveau nom, le fichier source non signé est conservé. La valeur définie par [DigitalSignature.setComments](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/digitalsignature/) décrit le but de la signature ; ce n’est pas un contrôle de sécurité.
 
-## **Valider les signatures numeriques**
+## **Valider les signatures numériques**
 
-Lorsque vous chargez un fichier PPTX signe, inspectez chaque element renvoye par [Presentation.getDigitalSignatures](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation/#getDigitalSignatures--). La methode [DigitalSignature.isValid](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/digitalsignature/) indique si la signature integree est valide pour le contenu actuel de la presentation.
+Lorsque vous chargez un fichier PPTX signé, examinez chaque élément renvoyé par [Presentation.getDigitalSignatures](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation/#getDigitalSignatures--). La méthode [DigitalSignature.isValid](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/digitalsignature/) indique si la signature incorporée est valide pour le contenu actuel de la présentation.
 
-L'exemple suivant utilise egalement la classe Node.js `X509Certificate` pour lire le nom du sujet de chaque certificat integre.
+L’exemple suivant utilise également la classe Node.js `X509Certificate` pour lire le nom du sujet de chaque certificat incorporé.
 
 ```javascript
 const { X509Certificate } = require("node:crypto");
@@ -115,13 +115,13 @@ try {
 }
 ```
 
-Un resultat invalide signifie généralement que le contenu signe de la presentation ou les donnees de la signature ont change après la signature, ou que le fichier est endommage. Supprimer chaque signature produit une presentation non signe, donc verifier uniquement la validite des elements n'est pas suffisant : un flux de travail sensible a la securite doit egalement verifier que le nombre attendu de signatures et les identities des signataires attends sont presentes.
+Un résultat invalide signifie généralement que le contenu signé de la présentation ou les données de la signature ont été modifiés après la signature, ou que le fichier est endommagé. Supprimer toutes les signatures produit une présentation non signée, de sorte que vérifier uniquement la validité des éléments n’est pas suffisant : un flux de travail sensible à la sécurité doit aussi vérifier que le nombre attendu de signatures et les identités des signataires attendus sont présents.
 
-Ce resultat de validite ne doit pas etre considere comme une decision complete de confiance du certificat. Selon votre politique de securite, votre application peut egalement devoir construire et valider la chaine de certificats X.509, verifier les dates de validite et le statut de revocation du certificat, confirmer le sujet ou l'empreinte attends, verifier l'usage de la cle, et evaluer un horodatage de confiance. La valeur [DigitalSignature.getSignTime](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/digitalsignature/) a elle seule n'est pas une preuve d'une autorite d'horodatage de confiance.
+Ce résultat de validité ne doit pas être traité comme une décision complète de confiance du certificat. Selon votre politique de sécurité, votre application peut également devoir construire et valider la chaîne de certificats X.509, vérifier les dates de validité et le statut de révocation du certificat, confirmer le sujet ou l’empreinte attendu·e, vérifier l’usage de la clé et évaluer un horodatage de confiance. La valeur [DigitalSignature.getSignTime](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/digitalsignature/) seule n’est pas une preuve provenant d’une autorité d’horodatage de confiance.
 
-## **Supprimer les signatures numeriques**
+## **Supprimer les signatures numériques**
 
-Supprimer les signatures modifie l'etat de securite de la presentation. L'exemple suivant charge un fichier PPTX signe, supprime toutes les signatures avec [DigitalSignatureCollection.clear](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/digitalsignaturecollection/clear/), et enregistre une copie non signe.
+Supprimer des signatures modifie l’état de sécurité de la présentation. L’exemple suivant charge un fichier PPTX signé, supprime toutes les signatures avec [DigitalSignatureCollection.clear](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/digitalsignaturecollection/clear/), puis enregistre une copie non signée.
 
 ```javascript
 const slides = require("aspose.slides.via.java");
@@ -135,54 +135,54 @@ try {
 }
 ```
 
-Pour ne supprimer qu'une signature, appelez [DigitalSignatureCollection.removeAt](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/digitalsignaturecollection/removeat/) avec son indice base sur zero. Enregistrez dans un nouveau fichier sauf si l'ecrasement du fichier signe original fait explicitement partie de votre flux de travail.
+Pour ne supprimer qu’une seule signature, appelez [DigitalSignatureCollection.removeAt](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/digitalsignaturecollection/removeat/) avec son index basé sur zéro. Enregistrez dans un nouveau fichier, sauf si l’écrasement du fichier signé original fait explicitement partie de votre flux de travail.
 
-## **Considerations d'edition et de format**
+## **Édition et considérations de format**
 
-- Une signature ne rend pas une presentation en lecture seule. Les utilisateurs et les applications peuvent toujours modifier le fichier, mais les modifications du contenu signe invalident généralement la signature existante.
-- Effectuez toutes les modifications prevues avant de signer. Si une presentation doit etre modifiee, enregistrez la version revisee et signez a nouveau cette revision.
-- Conservez la sortie finale au format PPTX. Convertir une presentation signe vers un autre format ne transfere pas la signature PPTX originale comme signature valide pour le fichier converti.
-- Traitez la cle privee du certificat comme sensible. Toute personne qui obtient la cle privee et son mot de passe peut creer des signatures semblant provenir du titulaire du certificat.
-- Conservez la source non signe ou une autre copie controlee lorsque votre politique de retention de documents l'exige.
+- Une signature ne rend pas une présentation en lecture seule. Les utilisateurs et les applications peuvent toujours modifier le fichier, mais les changements apportés au contenu signé invalident normalement la signature existante.
+- Effectuez toutes les modifications prévues avant de signer. Si une présentation doit être modifiée, enregistrez la version révisée et signez à nouveau cette révision.
+- Conservez le résultat final au format PPTX. Convertir une présentation signée vers un autre format ne transfère pas la signature PPTX d’origine en tant que signature valide pour le fichier converti.
+- Traitez la clé privée du certificat comme sensible. Toute personne qui obtient la clé privée et son mot de passe pourra créer des signatures qui semblent provenir du détenteur du certificat.
+- Conservez la source non signée ou une autre copie contrôlée lorsque votre politique de conservation des documents l’exige.
 
 ## **FAQ**
 
-**Une signature numerique chiffre-t-elle la presentation?**
+**Une signature numérique chiffre‑t‑elle la présentation ?**
 
-Non. Une signature numerique fournit une preuve d'origine et d'integrite, mais le contenu de la presentation reste lisible sauf si un chiffrement separe est applique. Utilisez [protection par mot de passe](/nodejs-java/password-protected-presentation/) lorsque l'acces au contenu doit etre restreint.
+Non. Une signature numérique fournit des preuves d’origine et d’intégrité, mais le contenu de la présentation reste lisible à moins qu’un chiffrement distinct ne soit appliqué. Utilisez la [protection par mot de passe](/slides/fr/nodejs-java/password-protected-presentation/) lorsque l’accès au contenu doit être restreint.
 
-**Le mot de passe PFX est-il le meme que le mot de passe d'une presentation?**
+**Le mot de passe PFX est‑il identique au mot de passe de la présentation ?**
 
-Non. Le mot de passe PFX deverrouille la cle privee contenue dans le paquet de certificat. Il ne controle pas qui peut ouvrir ou modifier le fichier PPTX.
+Non. Le mot de passe PFX déverrouille la clé privée stockée dans le paquet du certificat. Il ne contrôle pas qui peut ouvrir ou modifier le fichier PPTX.
 
-**Puis-je utiliser un certificat auto-signe?**
+**Puis‑je utiliser un certificat auto‑signé ?**
 
-Techniquement, un certificat auto-signe peut etre utilise lorsqu'il inclut une cle privee accessible. Cependant, les destinataires ne le feront pas automatiquement confiance, sauf si ce certificat a ete explicitement ajoute a leur environnement de confiance. Les flux de travail publics ou inter-organisationnels utilisent généralement un certificat delivre par une autorite de certification de confiance.
+Techniquement, un certificat auto‑signé peut être utilisé lorsqu’il inclut une clé privée accessible. Les destinataires ne le feront pas automatiquement confiance, cependant, à moins que ce certificat n’ait été explicitement ajouté à leur environnement de confiance. Les flux de travail publics ou inter‑organisations utilisent généralement un certificat émis par une CA de confiance.
 
-**Qu’est-ce qui rend une signature invalide?**
+**Qu’est‑ce qui rend une signature invalide ?**
 
-Modifier le contenu signe de la presentation ou les donnees de la signature apres la signature peut invalider la signature. La corruption du fichier peut egalement entraîner un echec de validation. Si toutes les signatures sont supprimees, la presentation est non signe plutot qu'un fichier contenant une signature invalide.
+Modifier le contenu signé de la présentation ou les données de la signature après la signature peut invalider la signature. La corruption du fichier peut également entraîner un échec de validation. Si toutes les signatures sont supprimées, la présentation devient non signée plutôt que contenant une signature invalide.
 
-**Une signature valide signifie-t-elle que je devrais faire confiance au signataire?**
+**Une signature valide signifie‑t‑elle que je dois faire confiance au signataire ?**
 
-Pas uniquement. L'integrite de la signature et la confiance envers le signataire sont des decisions separees. Une politique de validation en production doit egalement verifier la chaine de certificats, la periode de validite, le statut de revocation, l'identite attendue, l'usage de la cle et toute exigence d'horodatage de confiance.
+Pas uniquement. L’intégrité de la signature et la confiance envers le signataire sont des décisions distinctes. Une politique de validation en production doit également vérifier la chaîne de certificats, la période de validité, le statut de révocation, l’identité attendue, l’usage de la clé et toute exigence d’horodatage de confiance.
 
-**Que se passe-t-il lorsque le certificat expire?**
+**Que se passe‑t‑il lorsque le certificat expire ?**
 
-L'expiration du certificat n'altere pas les octets de la presentation, mais elle affecte l'evaluation de la confiance du certificat. La validite d'une signature depend de votre politique et du fait qu'un horodatage de confiance valide prouve que la signature a ete effectuee alors que le certificat etait valide. Ne vous fiez pas uniquement a l'heure de signature affichee comme horodatage de confiance.
+L’expiration du certificat n’altère pas les octets de la présentation, mais elle affecte l’évaluation de la confiance du certificat. Le fait qu’une signature reste acceptable dépend de votre politique et du fait qu’un horodatage de confiance valide prouve que la signature a eu lieu alors que le certificat était valide. Ne vous fiez pas uniquement à l’heure de signature affichée comme horodatage de confiance.
 
-**Une presentation signe peut-elle encore etre modifiee?**
+**Une présentation signée peut‑elle encore être modifiée ?**
 
-Oui. La signature ne verouille pas le fichier. Modifier le contenu signe rend généralement la signature existante invalide, il faut donc terminer la presentation d'abord et signer la version finale.
+Oui. La signature ne verrouille pas le fichier. Modifier le contenu signé rend généralement la signature existante invalide, il faut donc terminer la présentation avant de la signer.
 
-**Une presentation peut-elle contenir plusieurs signatures?**
+**Une présentation peut‑elle contenir plusieurs signatures ?**
 
-Oui. Ajoutez chaque signature a la collection renvoyee par [Presentation.getDigitalSignatures](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation/#getDigitalSignatures--) avant d'enregistrer. Lors de la validation, inspectez chaque signature et confirmez que tous les signataires requis sont presents.
+Oui. Ajoutez chaque signature à la collection renvoyée par [Presentation.getDigitalSignatures](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation/#getDigitalSignatures--) avant d’enregistrer. Lors de la validation, examinez chaque signature et confirmez que tous les signataires requis sont présents.
 
-**Quels formats de presentation prennent en charge ces operations?**
+**Quels formats de présentation prennent en charge ces opérations ?**
 
-Aspose.Slides ne prend en charge les operations de signature numerique décrites ici que pour le format PPTX. Les formats PPT et OpenDocument ne sont pas supports par ce flux de travail API.
+Aspose.Slides prend en charge les opérations de signature numérique décrites ici uniquement pour le format PPTX. Les formats PPT et OpenDocument ne sont pas pris en charge par ce flux de travail API.
 
-**Puis-je supprimer une signature sans affecter les diapositives?**
+**Puis‑je supprimer une signature sans affecter les diapositives ?**
 
-Oui. Vous pouvez supprimer une signature ou vider toute la collection, puis enregistrer la presentation. Le contenu des diapositives reste disponible, mais le fichier enregistre ne contient plus la preuve de la signature supprimee.
+Oui. Vous pouvez supprimer une signature ou nettoyer toute la collection, puis enregistrer la présentation. Le contenu des diapositives reste disponible, mais le fichier enregistré ne comporte plus la preuve de signature supprimée.

@@ -16,7 +16,7 @@ keywords:
 - apresentação
 - Python
 - Aspose.Slides
-description: "Converta arquivos PPT legados para PPTX em Python com Aspose.Slides. Inclui exemplos de conversão de arquivo único e em lote, tratamento de erros e notas de fidelidade."
+description: "Converter arquivos PPT legados para PPTX em Python com Aspose.Slides. Inclui exemplos para conversão de arquivo único e em lote, tratamento de erros e notas de fidelidade."
 ---
 ## **Visão geral**
 
@@ -24,7 +24,7 @@ PPT é o formato binário legado do PowerPoint, enquanto PPTX é o formato Open 
 
 ## **Converter um arquivo PPT para PPTX**
 
-Carregue o arquivo de origem com a classe [Presentation](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/), depois chame [Presentation.save](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/save/) com [SaveFormat.PPTX](https://reference.aspose.com/slides/pt/python-net/aspose.slides.export/saveformat/). A instrução `with` descarrega a apresentação e libera seus recursos quando o bloco termina.
+Carregue o arquivo de origem com a classe [Presentation](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/) e, em seguida, chame [Presentation.save](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/save/) passando [SaveFormat.PPTX](https://reference.aspose.com/slides/pt/python-net/aspose.slides.export/saveformat/). A instrução `with` libera a apresentação e seus recursos quando o bloco termina.
 
 ```python
 import aspose.slides as slides
@@ -39,7 +39,7 @@ A extensão do arquivo não seleciona o formato de saída por si só; o argument
 
 ## **Converter vários arquivos PPT**
 
-O exemplo a seguir converte cada arquivo `.ppt` em um diretório. Cada arquivo é processado de forma independente, de modo que uma conversão falhada não interrompe o restante do lote.
+O exemplo a seguir converte cada arquivo `.ppt` em um diretório. Cada arquivo é processado independentemente, de modo que uma conversão com falha não interrompe o restante do lote.
 
 ```python
 from pathlib import Path
@@ -61,32 +61,32 @@ for input_path in input_directory.glob("*.ppt"):
         print(f"Failed: {input_path} ({exception})")
 ```
 
-Para cargas de trabalho de produção, registre a exceção completa, decida se um arquivo de saída existente pode ser sobrescrito e grave os nomes dos arquivos que falharam em uma fila de tentativa ou revisão. Arquivos corrompidos, arquivos protegidos por senha abertos sem a senha necessária, caminhos inacessíveis e conteúdo não suportado podem fazer a conversão falhar. Consulte [Password-Protected Presentations](/python-net/password-protected-presentation/) para carregar arquivos criptografados.
+Para cargas de trabalho de produção, registre a exceção completa, decida se um arquivo de saída existente pode ser sobrescrito e grave os nomes dos arquivos que falharam em uma fila de nova tentativa ou revisão. Arquivos corrompidos, arquivos protegidos por senha abertos sem a senha correta, caminhos inacessíveis e conteúdo não suportado podem fazer a conversão falhar. Consulte [Password-Protected Presentations](/slides/pt/python-net/password-protected-presentation/) para carregar arquivos criptografados.
 
 ## **Fidelidade e recursos legados**
 
-A conversão normalmente preserva slides, mestres, layouts, texto, formas, imagens, tabelas e gráficos. No entanto, PPT e PPTX não representam todos os recursos exatamente da mesma forma. Um recurso legado que não tem equivalente PPTX ou que não é suportado pela biblioteca pode ser normalizado, omitido ou exibido de maneira diferente.
+A conversão normalmente preserva slides, mestres, layouts, texto, formas, imagens, tabelas e gráficos. No entanto, PPT e PPTX não representam todos os recursos exatamente da mesma maneira. Um recurso legado que não tem equivalente PPTX ou que não é suportado pela biblioteca pode ser normalizado, omitido ou exibido de forma diferente.
 
-Verifique o arquivo convertido quando ele contiver animações, transições, objetos OLE incorporados ou vinculados, controles ActiveX, mídia incorporada, fontes pouco comuns ou macros VBA. Um arquivo PPTX simples não é um formato que permite macros, portanto use um fluxo de trabalho adequado que suporte macros quando o VBA precisar permanecer disponível. Também verifique se as fontes necessárias e os recursos externos estão presentes no ambiente onde a apresentação convertida será aberta ou renderizada.
+Verifique o arquivo convertido quando ele contiver animações, transições, objetos OLE incorporados ou vinculados, controles ActiveX, mídia incorporada, fontes incomuns ou macros VBA. Um arquivo PPTX simples não é um formato que aceita macros, portanto use um fluxo de trabalho adequado a macros quando o VBA precisar permanecer disponível. Também verifique se as fontes necessárias e os recursos externos estão presentes no ambiente onde a apresentação convertida será aberta ou renderizada.
 
-Para documentos importantes, reabra o PPTX gerado programaticamente e inspecione a contagem de slides e o conteúdo principais, depois compare sua aparência e comportamento de apresentação no visualizador desejado. Não trate uma chamada bem‑sucedida a [Presentation.save](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/save/) como prova de que todo recurso legado tem uma representação PPTX exata.
+Para documentos importantes, reabra o PPTX gerado programaticamente e inspecione contagens e conteúdo de slides chave, depois compare sua aparência e comportamento de exibição de slides no visualizador pretendido. Não trate uma chamada bem‑sucedida a [Presentation.save](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/save/) como prova de que cada recurso legado tem uma representação PPTX exata.
 
 ## **Quando usar PPTX**
 
-Use PPTX quando a apresentação for editada nas versões atuais do PowerPoint, trocada com sistemas que trabalham com pacotes Open XML ou armazenada em um formato mais fácil de inspecionar e recuperar que o PPT binário legado. Mantenha o PPT original como uma cópia de arquivamento ou de reversão até que a apresentação convertida tenha passado em suas verificações de fidelidade.
+Use PPTX quando a apresentação será editada nas versões atuais do PowerPoint, trocada com sistemas que trabalham com pacotes Open XML ou armazenada em um formato mais fácil de inspecionar e recuperar do que o binário legado PPT. Mantenha o PPT original como cópia de arquivamento ou rollback até que a apresentação convertida passe em suas verificações de fidelidade.
 
-Se precisar de PDF, HTML, imagens, XPS ou outro tipo de saída, use as orientações específicas de formato em [Convert Presentations to Multiple Formats](/python-net/convert-presentation/) em vez de assumir que todos os destinos preservam recursos editáveis do PowerPoint.
+Se precisar de PDF, HTML, imagens, XPS ou outro tipo de saída, utilize as orientações específicas de formato em [Convert Presentations to Multiple Formats](/slides/pt/python-net/convert-presentation/) em vez de presumir que todos os destinos preservam recursos editáveis do PowerPoint.
 
 ## **Conversor online**
 
-Para um arquivo ocasional ou uma comparação rápida, você pode usar o [conversor online de PPT para PPTX](https://products.aspose.app/slides/pt/conversion/ppt-to-pptx). Para conversões repetíveis, processamento em lote ou tratamento de erros em nível de aplicação, use a API Python.
+Para um arquivo ocasional ou uma comparação rápida, você pode usar o [online PPT to PPTX converter](https://products.aspose.app/slides/pt/conversion/ppt-to-pptx). Para conversões repetíveis, processamento em lote ou tratamento de erros em nível de aplicação, use a API Python.
 
 ## **Artigos relacionados**
 
-- [PPT vs PPTX](/python-net/ppt-vs-pptx/)
-- [Salvar apresentações em Python](/python-net/save-presentation/)
-- [Formatos de arquivo suportados](/python-net/supported-file-formats/)
-- [Abrir apresentações em Python](/python-net/open-presentation/)
+- [PPT vs PPTX](/slides/pt/python-net/ppt-vs-pptx/)
+- [Salvar apresentações em Python](/slides/pt/python-net/save-presentation/)
+- [Formatos de arquivo suportados](/slides/pt/python-net/supported-file-formats/)
+- [Abrir apresentações em Python](/slides/pt/python-net/open-presentation/)
 
 ## **FAQ**
 
@@ -96,12 +96,12 @@ Sim. Aspose.Slides for Python via .NET carrega e salva arquivos de apresentaçã
 
 **A conversão de PPT para PPTX preservará todo o conteúdo exatamente?**
 
-Ele preserva o conteúdo comum das apresentações, mas a fidelidade exata não é garantida para cada recurso legado ou não suportado. Revise o arquivo gerado quando ele contiver macros, objetos OLE ou ActiveX, mídia, animações especializadas ou fontes pouco comuns.
+Ela preserva o conteúdo comum da apresentação, mas a fidelidade exata não é garantida para cada recurso legado ou não suportado. Revise o arquivo gerado quando ele contiver macros, objetos OLE ou ActiveX, mídia, animações especializadas ou fontes incomuns.
 
 **Posso converter um arquivo PPT protegido por senha?**
 
-Sim, se você fornecer a senha correta ao carregar o arquivo. Uma senha ausente ou incorreta faz com que a operação de carregamento falhe.
+Sim, se você fornecer a senha correta ao carregar o arquivo. Uma senha ausente ou incorreta faz a operação de carregamento falhar.
 
 **Devo excluir o arquivo PPT após a conversão?**
 
-Mantenha o original até que você tenha verificado o PPTX nos visualizadores e fluxos de trabalho que são importantes para você. Isso fornece uma cópia de reversão caso um recurso legado seja convertido de forma diferente.
+Mantenha o original até verificar o PPTX nos visualizadores e fluxos de trabalho que são importantes para você. Isso fornece uma cópia de rollback caso um recurso legado seja convertido de forma diferente.

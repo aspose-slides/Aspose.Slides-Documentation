@@ -1,5 +1,5 @@
 ---
-title: Přizpůsobení písem PowerPointu v JavaScriptu
+title: Přizpůsobení fontů PowerPoint v JavaScriptu
 linktitle: Vlastní písmo
 type: docs
 weight: 20
@@ -17,42 +17,49 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Přizpůsobte písma v PowerPoint slidech pomocí JavaScriptu a Aspose.Slides pro Node.js přes Java, aby vaše prezentace byly ostré a konzistentní na jakémkoli zařízení."
+description: "Přizpůsobte písma ve snímcích PowerPoint pomocí JavaScriptu a Aspose.Slides pro Node.js přes Java, aby vaše prezentace byly ostré a konzistentní na každém zařízení."
 ---
 ## **Přehled**
 
-Aspose.Slides vám umožňuje používat vlastní písma v prezentacích, aniž byste je museli instalovat v operačním systému. Písma můžete načíst ze vlastních složek, poskytnout písma pro konkrétní prezentaci prostřednictvím zdrojů písem na úrovni dokumentu nebo načíst externí písma přímo z binárních dat.
+Aspose.Slides umožňuje používat vlastní písma v prezentacích, aniž byste je museli instalovat do operačního systému. Písma můžete načíst z vlastních složek, poskytnout písma pro konkrétní prezentaci prostřednictvím zdrojů písem na úrovni dokumentu nebo načíst externí písma přímo z binárních dat.
 
-Načtená písma jsou používána při vykreslování nebo exportu prezentace, například do PDF, obrázků a dalších podporovaných formátů. To pomáhá udržet výstup prezentace konzistentní napříč různými prostředími. Článek také vysvětluje, jak prozkoumat složky písem používané knihovnou Aspose.Slides a jak po práci s externími písmy vyčistit mezipaměť písem.
+Načtená písma jsou použita při vykreslování nebo exportu prezentace, například do PDF, obrázků a dalších podporovaných formátů. To pomáhá zachovat konzistentní výstup prezentace napříč různými prostředími. Článek také vysvětluje, jak zkontrolovat složky písem používané Aspose.Slides a jak vyprázdnit mezipaměť písem po práci s externími písmy.
 
-Registrace vlastních písem pro vykreslování je oddělena od vkládání písem do souboru PPTX. Pokud je písmo potřeba uložit přímo v samotné prezentaci, použijte explicitně funkce pro vkládání písem.
+Registrace vlastních písem pro vykreslování je oddělená od vložení písem do souboru PPTX. Pokud je nutné, aby písmo bylo uloženo přímo v prezentaci, použijte funkce vložení písem výslovně.
 
-{{% alert color="primary" %}} 
+Téma prezentace může odkazovat na různé rodiny písem pro jednotlivé psací systémy. Tyto mapování ukládají názvy písem, ale neinstalují ani nenačítají soubory písem. Viz [Script-Specific Theme Fonts](/slides/cs/nodejs-java/script-specific-font-mappings/) pro správu mapování a použijte níže uvedené možnosti načítání, aby byly odkazovaná písma k dispozici pro konzistentní vykreslování.
 
-Aspose Slides vám umožňuje načíst tato písma pomocí metody [loadExternalFonts](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---):
+{{% alert color="info" title="Poznámka" %}}
+
+Aspose Slides umožňuje načíst tato písma pomocí metody [loadExternalFonts](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/fontsloader/#loadExternalFonts-java.lang.String---):
 
 * TrueType (.ttf) a TrueType Collection (.ttc) písma. Viz [TrueType](https://en.wikipedia.org/wiki/TrueType).
-
 * OpenType (.otf) písma. Viz [OpenType](https://en.wikipedia.org/wiki/OpenType).
 
 {{% /alert %}}
 
 ## **Načíst vlastní písma**
 
-Aspose.Slides vám umožňuje načíst písma používaná v prezentaci, aniž byste je instalovali v systému. To ovlivňuje výstup exportu – například PDF, obrázky a další podporované formáty – takže výsledné dokumenty vypadají konzistentně napříč prostředími. Písma jsou načítána z vlastních adresářů.
+Aspose.Slides umožňuje načíst písma použité v prezentaci, aniž byste je instalovali do systému. To ovlivňuje výstup exportu – například PDF, obrázky a další podporované formáty – takže výsledné dokumenty vypadají konzistentně napříč prostředími. Písma se načítají z vlastních adresářů.
 
 1. Zadejte jednu nebo více složek, které obsahují soubory písem.
-2. Zavolejte statickou metodu [FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/fontsloader/loadexternalfonts/), která načte písma z těchto složek.
+2. Zavolejte statickou metodu [FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/fontsloader/loadexternalfonts/) pro načtení písem z těchto složek.
 3. Načtěte a vykreslete/exportujte prezentaci.
-4. Zavolejte [FontsLoader.clearCache](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/fontsloader/clearcache/), abyste vyprázdnili mezipaměť písem.
+4. Zavolejte [FontsLoader.clearCache](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/fontsloader/clearcache/) pro vyprázdnění mezipaměti písem.
 
 Následující ukázkový kód demonstruje proces načítání písem:
 
 ```js
-// Definujte složky, které obsahují vlastní soubory písem.
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+// Definujte složky, které obsahují soubory vlastních písem.
+let externalFontFolder1 = "fonts";
+let externalFontFolder2 = "extra-fonts";
 let fontFolders = java.newArray("java.lang.String", [externalFontFolder1, externalFontFolder2]);
 
-// Načtěte vlastní písma ze zadaných složek.
+// Načtěte vlastní písma ze specifikovaných složek.
 aspose.slides.FontsLoader.loadExternalFonts(fontFolders);
 
 let presentation = null;
@@ -64,38 +71,47 @@ try {
 } finally {
     if (presentation != null) presentation.dispose();
 
-    // Vymažte mezipaměť písem po dokončení práce.
+    // Vyprázdněte mezipaměť písem po dokončení práce.
     aspose.slides.FontsLoader.clearCache();
 }
 ```
 
-{{% alert color="info" title="Note" %}}
+{{% alert color="info" title="Poznámka" %}}
 
-[FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/fontsloader/loadexternalfonts/) přidává další složky do cest pro vyhledávání písem, ale nemění pořadí inicializace písem.
+[FontsLoader.loadExternalFonts](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/fontsloader/loadexternalfonts/) přidává další složky do vyhledávacích cest písem, ale nemění pořadí inicializace písem.  
 Písma jsou inicializována v tomto pořadí:
 
-1. Výchozí cesta k písmům operačního systému.
+1. Výchozí cesta písem operačního systému.  
 1. Cesty načtené pomocí [FontsLoader](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/fontsloader/).
 
 {{%/alert %}}
 
-## **Získat složku s vlastními písmy**
-Aspose.Slides poskytuje metodu [getFontFolders](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/fontsloader/#getFontFolders--) pro vyhledání složek s písmy. Tato metoda vrací složky přidané pomocí metody `LoadExternalFonts` a systémové složky písem.
+## **Získat složku vlastních písem**
 
-Tento JavaScriptový kód ukazuje, jak použít [getFontFolders](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/fontsloader/#getFontFolders--):
+Aspose.Slides poskytuje metodu [getFontFolders](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/fontsloader/#getFontFolders--) umožňující najít složky písem. Tato metoda vrací složky přidané metodou `LoadExternalFonts` a systémové složky písem.
+
+Tento kód JavaScriptu ukazuje, jak použít [getFontFolders](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/fontsloader/#getFontFolders--):
 
 ```javascript
-// Tento řádek vypisuje složky, ve kterých se hledají soubory písem.
-// Jedná se o složky přidané metodou LoadExternalFonts a systémové složky s písmy.
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// Tento řádek vypisuje složky, kde se hledají soubory písem.
+// Jedná se o složky přidané metodou LoadExternalFonts a systémové složky písem.
 var fontFolders = aspose.slides.FontsLoader.getFontFolders();
 ```
 
-## **Zadat vlastní písma použitá v prezentaci**
-Aspose.Slides poskytuje vlastnost [setDocumentLevelFontSources](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/loadoptions/#setDocumentLevelFontSources-aspose.slides.IFontSources-) pro určení externích písem, která budou použita v prezentaci.
+## **Zadat vlastní písma používaná v prezentaci**
 
-Tento JavaScriptový kód ukazuje, jak použít vlastnost [setDocumentLevelFontSources](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/loadoptions/#setDocumentLevelFontSources-aspose.slides.IFontSources-):
+Aspose.Slides poskytuje vlastnost [setDocumentLevelFontSources](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/loadoptions/#setDocumentLevelFontSources-aspose.slides.IFontSources-) umožňující specifikovat externí písma, která budou použita s prezentací.
+
+Tento kód JavaScriptu ukazuje, jak použít vlastnost [setDocumentLevelFontSources](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/loadoptions/#setDocumentLevelFontSources-aspose.slides.IFontSources-):
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var memoryFont1 = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "customfonts/CustomFont1.ttf"));
 var memoryFont2 = java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "customfonts/CustomFont2.ttf"));
 var loadOptions = new aspose.slides.LoadOptions();
@@ -104,7 +120,7 @@ loadOptions.getDocumentLevelFontSources().setMemoryFonts(java.newArray("[B", [ja
 var pres = new aspose.slides.Presentation("MyPresentation.pptx", loadOptions);
 try {
     // Práce s prezentací
-    // CustomFont1, CustomFont2 a písma ze složek assets\fonts a global\fonts a jejich podadresářů jsou k dispozici pro prezentaci
+    // CustomFont1, CustomFont2 a písma ze složek assets\fonts a global\fonts a jejich podadresářů jsou k dispozici prezentaci
 } finally {
     if (pres != null) {
         pres.dispose();
@@ -114,11 +130,15 @@ try {
 
 ## **Spravovat písma externě**
 
-Aspose.Slides poskytuje metodu [loadExternalFont](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) pro načtení externích písem z binárních dat.
+Aspose.Slides poskytuje metodu [loadExternalFont](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/fontsloader/#loadExternalFont-byte---)(byte[] data) umožňující načíst externí písma z binárních dat.
 
-Tento JavaScriptový kód demonstruje proces načítání písem z pole bajtů:
+Tento kód JavaScriptu demonstruje proces načítání písem z pole bajtů:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 java.callStaticMethodSync("com.aspose.slides.FontsLoader", "loadExternalFonts", java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "ARIALN.TTF")));
 java.callStaticMethodSync("com.aspose.slides.FontsLoader", "loadExternalFonts", java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "ARIALNBI.TTF")));
 java.callStaticMethodSync("com.aspose.slides.FontsLoader", "loadExternalFonts", java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "ARIALNI.TTF")));
@@ -135,22 +155,22 @@ try {
 
 ## **Často kladené otázky**
 
-**Ovlivňují vlastní písma export do všech formátů (PDF, PNG, SVG, HTML)?**
+### Ovlivňují vlastní písma export do všech formátů (PDF, PNG, SVG, HTML)?
 
-Ano. Připojená písma jsou používána vykreslovacím systémem ve všech exportních formátech.
+Ano. Připojená písma používá vykreslovací engin ve všech exportních formátech.
 
-**Jsou vlastní písma automaticky vložena do výsledného souboru PPTX?**
+### Jsou vlastní písma automaticky vložena do výsledného souboru PPTX?
 
-Ne. Registrace písma pro vykreslování není totéž jako jeho vložení do souboru PPTX. Pokud potřebujete, aby písmo bylo součástí prezentace, musíte použít explicitní [funkce pro vkládání písem](/slides/cs/nodejs-java/embedded-font/).
+Ne. Registrace písma pro vykreslování není totéž jako vložení do PPTX. Pokud potřebujete, aby písmo bylo součástí souboru prezentace, musíte použít výslovné [funkce vložení](/slides/cs/nodejs-java/embedded-font/).
 
-**Mohu ovládat chování náhradního písma, když vlastní písmo postrádá některé glyfy?**
+### Mohu řídit chování náhrad, když vlastním písmem chybí některé glyfy?
 
-Ano. Nakonfigurujte [náhradu písem](/slides/cs/nodejs-java/font-substitution/), [pravidla nahrazování](/slides/cs/nodejs-java/font-replacement/) a [sady náhrad](/slides/cs/nodejs-java/fallback-font/), abyste přesně určili, které písmo se použije, když požadovaný glyf chybí.
+Ano. Nastavte [náhradu písem](/slides/cs/nodejs-java/font-substitution/), [pravidla nahrazování](/slides/cs/nodejs-java/font-replacement/) a [sady náhrad](/slides/cs/nodejs-java/fallback-font/) pro přesné určení, které písmo se použije, když požadovaný glyf chybí.
 
-**Mohu používat písma v Linux/Docker kontejnerech bez jejich instalace do systému?**
+### Mohu používat písma v kontejnerech Linux/Docker bez jejich instalace na úrovni systému?
 
-Ano. Odkazujte na své vlastní složky s písmy nebo načtěte písma z polí bajtů. Tím odstraníte jakoukoli závislost na systémových složkách písem v obrazci kontejneru.
+Ano. Odkazujte na své vlastní složky s písmy nebo načtěte písma z pole bajtů. Tím se odstraní jakákoliv závislost na systémových složkách s písmy v obrazu kontejneru.
 
-**Co licence – mohu vložit jakékoli vlastní písmo bez omezení?**
+### Co licenci – mohu vložit libovolné vlastní písmo bez omezení?
 
-Jste odpovědní za dodržování licencí písem. Podmínky se liší; některé licence zakazují vložení nebo komerční použití. Vždy si před distribucí výstupů přečtěte EULA daného písma.
+Jste zodpovědní za soulad s licencemi písem. Podmínky se liší; některé licence zakazují vložení nebo komerční použití. Vždy si před distribucí výstupů prostudujte licenční smlouvu (EULA) daného písma.
