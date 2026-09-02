@@ -1,116 +1,260 @@
 ---
-title: Adatpontok testreszabása Treemap és Sunburst diagramokban JavaScript használatával
-linktitle: Adatpontok Treemap és Sunburst diagramokban
+title: Adatsorok testreszabása Treemap és Sunburst diagramokban JavaScript használatával
+linktitle: Adatsorok Treemap és Sunburst diagramokban
 type: docs
 url: /hu/nodejs-java/data-points-of-treemap-and-sunburst-chart/
 weight: 40
 keywords:
 - treemap diagram
 - sunburst diagram
-- adatpont
-- címke színe
+- hierarchikus diagram
+- adatsor
+- adatcímke
 - ág színe
 - PowerPoint
 - prezentáció
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Ismerje meg, hogyan kezelhetők az adatpontok treemap és sunburst diagramokban JavaScript és Aspose.Slides for Node.js via Java segítségével, kompatibilis a PowerPoint formátumokkal."
+description: "Ismerje meg, hogyan hozhat létre hierarchikus adatokat, és testreszabhatja a szinteket, címkéket és színeket a Treemap és Sunburst diagramokban az Aspose.Slides for Node.js via Java segítségével."
 ---
-## **Bevezetés**
+## **Áttekintés**
 
-A PowerPoint diagramok közül két „hierarchikus” típus létezik – a **Treemap** és a **Sunburst** diagram (más néven Sunburst grafikon, Sunburst diagram, Radiális diagram, Radiális grafikon vagy Többszintű kördiagram). Ezek a diagramok hierarchikus adatokat jelenítenek meg fa struktúrában – a levelektől az ág tetejéig. A leveleket a sorozat adatpontjai definiálják, és minden további egymásba ágyazott csoportosítási szint a megfelelő kategóriával határozható meg. Az Aspose.Slides for Node.js via Java lehetővé teszi a Sunburst és Treemap diagram adatpontjainak formázását JavaScriptben.
+A Treemap és a Sunburst diagramok ugyanazt a hierarchikus adatot jelenítik meg, de eltérő elrendezéseket használnak. A Treemap a hierarchiát egymásba ágyazott téglalapokként ábrázolja, ahol a terület a levél értékét jelzi. A Sunburst koncentrikus gyűrűkkel ábrázolja: a felső szintű csoportok a középpont közelében, a levélkategóriák pedig a külső gyűrűben vannak.
 
-Itt egy Sunburst diagram, ahol a Series1 oszlop adatai határozzák meg a levélcsomópontokat, míg a többi oszlop a hierarchikus adatpontokat definiálja:
+Az Aspose.Slides for Node.js via Java esetén minden numerikus érték egy [ChartDataPoint](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdatapoint/). A [ChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdatapoint/#getDataPointLevels) metódusa hozzáférést biztosít a levélhez és a szülőcsoportjaihoz. Ez a cikk elmagyarázza ezt a leképezést, és bemutatja, hogyan hozhatók létre és formázhatók mindkét diagramtípus ugyanabból a mintaadatból.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
+![A Treemap diagram a Consumer és Business ágakkal](treemap-hierarchy.png)
 
-Kezdjük egy új Sunburst diagram hozzáadásával a prezentációhoz:
+![Egy Sunburst diagram ugyanazzal a Consumer és Business hierarchiával](sunburst-hierarchy.png)
+
+## **Kategóriák, adatsorok és szintek megértése**
+
+Az alábbi példa három kategória szintet és egy numerikus sorozatot tartalmaz:
+
+| Ágazat | Ág | Levél | Bevétel |
+| --- | --- | --- | ---: |
+| Consumer | Computers | Laptops | 12 |
+| Consumer | Computers | Desktops | 8 |
+| Consumer | Mobile | Phones | 15 |
+| Consumer | Mobile | Tablets | 6 |
+| Business | Services | Consulting | 10 |
+| Business | Services | Support | 7 |
+| Business | Software | Licenses | 11 |
+| Business | Software | Subscriptions | 14 |
+
+Minden sor egy levélkategóriát és egy adatsort hoz létre. A kategóriacsoportosítási szintek leírják az útvonalat a levélről a szülőire. Az első sor esetén az útvonal `Consumer > Computers > Laptops`.
+
+A [ChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdatapoint/#getDataPointLevels) által visszaadott indexek a levélről felfelé haladnak:
+
+| `getDataPointLevels()` index | Logikai szint | Treemap ábrázolás | Sunburst ábrázolás |
+| ---: | --- | --- | --- |
+| `0` | Levél | Érték téglalap | Külső gyűrű szegmens |
+| `1` | Ág | Szülő téglalap vagy fejléc | Középső gyűrű szegmens |
+| `2` | Ágazat | Legfelső téglalap vagy fejléc | Belső gyűrű szegmens |
+
+Ez a sorrend mindkét diagramtípusnál ugyanaz, bár a vizuális elrendezésük különbözik. Egy szülő szegmens több levél által közösen használt. Formázásához használja a csoport első adatpontjának megfelelő szintjét. Például a `Consumer` ágazat a `Laptops` ponttal kezdődik, míg a `Software` ág a `Licenses` ponttal. Az ezen pontokra való hivatkozások megtartása egyértelműbb és biztonságosabb, mint a `dataPoints.get_Item(0)` vagy `dataPoints.get_Item(6)` típusú, magyarázat nélküli kifejezések használata.
+
+## **Mindkét diagramtípus létrehozása és testreszabása**
+
+Az alábbi teljes példa egy Treemap diagramot hoz létre az első dián, egy Sunburst diagramot a másodikon. Felépíti a hierarchiát, megjeleníti a `Tablets` értékét, rögzített színeket alkalmaz a kiválasztott szintekre, formáz egy ágazatcímkét, és elmenti a prezentációt.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Sunburst, 100, 100, 450, 400);
-    // ...
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const worksheetIndex = 0;
+    const leafLevelIndex = 0;
+    const stemLevelIndex = 1;
+    const branchLevelIndex = 2;
+
+    const branchNames = [
+        "Consumer", "Consumer", "Consumer", "Consumer",
+        "Business", "Business", "Business", "Business"
+    ];
+    const stemNames = [
+        "Computers", "Computers", "Mobile", "Mobile",
+        "Services", "Services", "Software", "Software"
+    ];
+    const leafNames = [
+        "Laptops", "Desktops", "Phones", "Tablets",
+        "Consulting", "Support", "Licenses", "Subscriptions"
+    ];
+    const revenues = [12, 8, 15, 6, 10, 7, 11, 14];
+    const dataPointCount = leafNames.length;
+
+    const chartTypes = [
+        aspose.slides.ChartType.Treemap,
+        aspose.slides.ChartType.Sunburst
+    ];
+    const chartCount = chartTypes.length;
+    const layoutSlide = presentation.getLayoutSlides().get_Item(0);
+
+    for (let chartIndex = 0; chartIndex < chartCount; chartIndex++) {
+        const chartType = chartTypes[chartIndex];
+        let slide;
+
+        if (chartIndex === 0) {
+            slide = presentation.getSlides().get_Item(0);
+        } else {
+            slide = presentation.getSlides().addEmptySlide(layoutSlide);
+        }
+
+        const chart = slide.getShapes().addChart(chartType, 40, 40, 640, 440);
+        chart.setTitle(false);
+        chart.setLegend(false);
+
+        const chartData = chart.getChartData();
+        chartData.getCategories().clear();
+        chartData.getSeries().clear();
+
+        const workbook = chartData.getChartDataWorkbook();
+        workbook.clear(worksheetIndex);
+
+        // Adja hozzá a levélkategóriákat. Csoportosító elemet csak akkor állítanak be, amikor egy új csoport kezdődik;
+        // a következő kategóriák ebben a csoportban maradnak, amíg egy másik elemet nem állítanak be.
+        for (let dataIndex = 0; dataIndex < dataPointCount; dataIndex++) {
+            const rowIndex = dataIndex + 1;
+            const leafName = leafNames[dataIndex];
+            const categoryCell = workbook.getCell(worksheetIndex, rowIndex, 2, leafName);
+            const category = chartData.getCategories().add(categoryCell);
+
+            const stemName = stemNames[dataIndex];
+            const startsNewStem = dataIndex === 0 || stemName !== stemNames[dataIndex - 1];
+            if (startsNewStem) {
+                category.getGroupingLevels().setGroupingItem(stemLevelIndex, stemName);
+            }
+
+            const branchName = branchNames[dataIndex];
+            const startsNewBranch = dataIndex === 0 || branchName !== branchNames[dataIndex - 1];
+            if (startsNewBranch) {
+                category.getGroupingLevels().setGroupingItem(branchLevelIndex, branchName);
+            }
+        }
+
+        const seriesNameCell = workbook.getCell(worksheetIndex, 0, 3, "Revenue");
+        const series = chartData.getSeries().add(seriesNameCell, chartType);
+        series.getLabels().getDefaultDataLabelFormat().setShowCategoryName(true);
+
+        let laptopsDataPoint = null;
+        let tabletsDataPoint = null;
+        let licensesDataPoint = null;
+
+        for (let dataIndex = 0; dataIndex < dataPointCount; dataIndex++) {
+            const rowIndex = dataIndex + 1;
+            const leafName = leafNames[dataIndex];
+            const revenue = revenues[dataIndex];
+            const valueCell = workbook.getCell(worksheetIndex, rowIndex, 3, revenue);
+            let dataPoint;
+
+            if (chartType === aspose.slides.ChartType.Treemap) {
+                dataPoint = series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+            } else {
+                dataPoint = series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+            }
+
+            if (leafName === "Laptops") {
+                laptopsDataPoint = dataPoint;
+            } else if (leafName === "Tablets") {
+                tabletsDataPoint = dataPoint;
+            } else if (leafName === "Licenses") {
+                licensesDataPoint = dataPoint;
+            }
+        }
+
+        // Mutassa a kategóriát és az értéket a Tabletek levélén.
+        const tabletsLeafLevel = tabletsDataPoint.getDataPointLevels().get_Item(leafLevelIndex);
+        const tabletsLabelFormat = tabletsLeafLevel.getLabel().getDataLabelFormat();
+        tabletsLabelFormat.setShowCategoryName(true);
+        tabletsLabelFormat.setShowValue(true);
+        tabletsLabelFormat.setSeparator("\n");
+        tabletsLabelFormat.setNumberFormat("$0");
+
+        // Formázza a Consumer ágat az adott ág első levéljén keresztül.
+        const consumerBranchLevel = laptopsDataPoint.getDataPointLevels().get_Item(branchLevelIndex);
+        const consumerBranchFill = consumerBranchLevel.getFormat().getFill();
+        const consumerBranchColor = java.newInstanceSync("java.awt.Color", 31, 78, 121);
+        consumerBranchFill.setFillType(java.newByte(aspose.slides.FillType.Solid));
+        consumerBranchFill.getSolidFillColor().setColor(consumerBranchColor);
+
+        const consumerLabelFormat = consumerBranchLevel.getLabel().getDataLabelFormat();
+        consumerLabelFormat.setShowCategoryName(true);
+        consumerLabelFormat.setShowSeriesName(false);
+        const consumerLabelTextFill = consumerLabelFormat.getTextFormat().getPortionFormat().getFillFormat();
+        const whiteColor = java.getStaticFieldValue("java.awt.Color", "WHITE");
+        consumerLabelTextFill.setFillType(java.newByte(aspose.slides.FillType.Solid));
+        consumerLabelTextFill.getSolidFillColor().setColor(whiteColor);
+
+        // Formázza a Software ágat az adott ág első levéljén keresztül.
+        const softwareStemLevel = licensesDataPoint.getDataPointLevels().get_Item(stemLevelIndex);
+        const softwareStemFill = softwareStemLevel.getFormat().getFill();
+        const softwareStemColor = java.newInstanceSync("java.awt.Color", 112, 173, 71);
+        softwareStemFill.setFillType(java.newByte(aspose.slides.FillType.Solid));
+        softwareStemFill.getSolidFillColor().setColor(softwareStemColor);
+
+        // A ParentLabelLayout hatással van a Treemap szülőcímkékre; a Sunburst gyűrűszegmenseket használ.
+        if (chartType === aspose.slides.ChartType.Treemap) {
+            series.setParentLabelLayout(aspose.slides.ParentLabelLayoutType.Overlapping);
+        }
     }
+
+    presentation.save("hierarchical-charts.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
-{{% alert color="primary" title="See also" %}} 
-- [**PowerPoint prezentáció diagramok létrehozása vagy frissítése JavaScriptben**](/slides/hu/nodejs-java/create-chart/)
-{{% /alert %}}
+A kategória- és értécellák ugyanazt a munkalap-sort használják, ezért a gyűjteményük pozíciói összehangoltak maradnak. Ha meglévő diagrammal dolgozik, a létrehozás helyett először ellenőrizze a kategória sorokat, és tároljon névvel hivatkozásokat az adatpontokra és a formázni kívánt szintekre.
 
-Ha szükség van a diagram adatpontjainak formázására, a következőket kell használni:
+## **Viselkedés és gyakorlati megfontolások**
 
-[**ChartDataPointLevelsManager**](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/ChartDataPointLevelsManager), 
-[ChartDataPointLevel](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/ChartDataPointLevel) osztályok 
-és [**ChartDataPoint.getDataPointLevels**](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/ChartDataPoint#getDataPointLevels--) metódus biztosítja a Treemap és Sunburst diagramok adatpontjainak formázásához való hozzáférést. 
-[**ChartDataPointLevelsManager**](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/ChartDataPointLevelsManager) a több szintű kategóriák elérésére szolgál – ez a 
-[**ChartDataPointLevel**](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/ChartDataPointLevel) objektumok tárolója. 
-Lényegében egy [**ChartCategoryLevelsManager**](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/ChartCategoryLevelsManager) csomagoló, amely az adatpontokra specifikus tulajdonságokat ad hozzá. 
-A [**ChartDataPointLevel**](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/ChartDataPointLevel) osztálynak két metódusa van: [**getFormat**](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/ChartDataPointLevel#getFormat--) és [**getDataLabel**](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/ChartDataPointLevel#getLabel--) , amelyek hozzáférést biztosítanak a megfelelő beállításokhoz.
+### **Treemap és Sunburst különbségek**
 
-## **Adatpont értékének megjelenítése**
-„Leaf 4” adatpont értékének megjelenítése:
+- A Treemap a területet használja az érték közvetítésére, a beágyazott téglalapokat pedig a hierarchia jelzésére. A [ChartSeries.setParentLabelLayout](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartseries/#setParentLabelLayout) metódus szabályozza, hogyan jelennek meg a szülőcímkék ebben a diagramtípusban.
+- A Sunburst a szöget használja az érték közvetítésére, a gyűrűmélységet a hierarchia jelzésére. A [ChartSeries.setParentLabelLayout](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartseries/#setParentLabelLayout) nem befolyásolja a gyűrűcímkéket.
+- Mindkét diagramtípus ugyanazt a kategóriacsoportosítási szinteket és a levél‑szülő sorrendet használja, amelyet a [ChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdatapoint/#getDataPointLevels) ad vissza, ezért a adatépítő és szint‑formázó kód megosztható.
+- A szülő értékek a leszármazott levelekből számítódnak ki. Ne adjon hozzá külön numerikus pontokat az ágazatokhoz vagy ágakhoz.
 
-```javascript
-var dataPoints = chart.getChartData().getSeries().get_Item(0).getDataPoints();
-dataPoints.get_Item(3).getDataPointLevels().get_Item(0).getLabel().getDataLabelFormat().setShowValue(true);
-```
+### **Rendezés és szegmens sorrend**
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
+A diagram elrendező motorja határozza meg a téglalapok és gyűrűszegmensek végső helyét. Helyezze egymáshoz kapcsolódó kategóriasorokat együtt, mielőtt hozzáadná őket, de ne támaszkodjon egy konkrét téglalappozícióra vagy kezdőszögre. Ha a sorozat jelentéssel bír, tüntesse fel a címkékben vagy használjon olyan diagramtípust, amely kifejezett kategória‑tengelyt biztosít.
 
-## **Adatpont címke és szín beállítása**
-Állítsa be a „Branch 1” adatcímkét úgy, hogy a sorozat neve („Series1”) jelenjen meg a kategória neve helyett. Ezután állítsa a szövegszínt sárgára:
+### **Téma és rögzített színek**
 
-```javascript
-var branch1Label = dataPoints.get_Item(0).getDataPointLevels().get_Item(0).getLabel();
-branch1Label.getDataLabelFormat().setShowCategoryName(false);
-branch1Label.getDataLabelFormat().setShowSeriesName(true);
-branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
-```
+Formázatlan diagramszintek a prezentáció téma színeit öröklik. A példa kifejezett RGB kitöltéseket használ a kiszámítható kimenet érdekében. Ha a diagramnak a téma változásait kell követnie, használjon séma‑színeket a rögzített RGB értékek helyett, és kerülje minden szint felülírását. Emellett ellenőrizze a címke kontrasztját egy ágazat vagy ág kitöltésének módosítása után.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
+### **Címkék és rendelkezésre álló hely**
 
-## **Adatpont ág színének beállítása**
-„Steam 4” ág színének módosítása:
+A PowerPoint elrejtheti vagy csonkolhatja a címkéket, ha egy szegmens túl kicsi. A diagram méretének növelése, a kategórianév rövidítése vagy a megjelenített címkefields számának csökkentése általában tisztább eredményt ad. Egy címke kombinálhatja a kategórianév, sorozatnév és érték megjelenítését a [DataLabelFormat](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/datalabelformat/) segítségével, de minden mező engedélyezése gyakran nehezen olvasható hierarchikus diagramot eredményez.
 
-```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Sunburst, 100, 100, 450, 400);
-    var dataPoints = chart.getChartData().getSeries().get_Item(0).getDataPoints();
-    var stem4branch = dataPoints.get_Item(9).getDataPointLevels().get_Item(1);
-    stem4branch.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    stem4branch.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+### **Exportálás és renderelés**
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/Zll4cpQ5tTDdgwmJ4yuupolfGaANR8SWWTU3XaJav_ZVXVstV1pI1z1OFH-gov6FxPoDz1cxmMyrgjsdYGS24PlhaYa2daKzlNuL1a0xYcqEiyyO23AE6JMOLavWpvqA6SzOCA6_)
+A PPTX formátumba mentés megőrzi a diagram szerkeszthetőségét. Amikor az Aspose.Slides a prezentációt PDF‑be vagy képfájlba rendereli, a támogatott kitöltések és címke‑beállítások a diagramon jelennek meg. A betűtípus‑helyettesítés és a rendelkezésre álló elrendezési hely apró eltérései befolyásolhatják a sortörést vagy a címke láthatóságát, ezért telepítse a szükséges betűtípusokat, és ellenőrizze a fontos exportcélokat.
 
 ## **GYIK**
 
-**Módosíthatom a szegmensek sorrendjét (rendezését) a Sunburst/Treemap diagramokban?**
+**Miért befolyásolja egy szülő szint módosítása több levél megjelenését?**
 
-Nincs. A PowerPoint automatikusan rendezi a szegmenseket (általában csökkenő értékek szerint, az óramutató járásával megegyező irányban). Az Aspose.Slides ezt a viselkedést tükrözi: a sorrendet közvetlenül nem lehet módosítani; ezt az adatok előfeldolgozásával érheti el.
+Egy ágazat vagy ág közös vizuális szegmens. A [ChartDataPointLevel](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdatapointlevel/) egy leszármazott levélről érhető el, de a formázás a megosztott szülő szegmenshez tartozik, nem csak a konkrét levélhez.
 
-**Hogyan befolyásolja a prezentáció témája a szegmensek és címkék színeit?**
+**Miért hiányzik egy adatcímke?**
 
-A diagram színei öröklik a prezentáció [téma/paletta](/slides/hu/nodejs-java/presentation-theme/) beállításait, hacsak nem állítja be kifeexplicit módon a kitöltéseket/fontokat. A konzisztens eredmények eléréséhez rögzítse a szilárd kitöltéseket és a szövegformázást a szükséges szinteken.
+Először engedélyezze a szükséges mezőket a címke [DataLabelFormat](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/datalabelformat/) objektumában. Ezután ellenőrizze, hogy a szegmensnek elegendő helye van‑e. A Treemap szülőcímke‑elrendezés, a diagram méretei, a címke hossza, betűmérete és a bekapcsolt mezők száma mind hatással van arra, hogy a címke megjeleníthető‑e.
 
-**A PDF/PNG exportálás megőrzi az egyedi ág színeket és címke beállításokat?**
+**Beállíthatom a szegmensek pontos sorrendjét vagy koordinátáit?**
 
-Igen. A prezentáció exportálásakor a diagram beállításai (kitöltések, címkék) megmaradnak a kimeneti formátumokban, mivel az Aspose.Slides a diagram formázását alkalmazva renderel.
+Igen, szabályozhatja a forrás‑sorok sorrendjét, és megtartja minden csoport egymás mellett lévő elrendezését, de nem adhat meg pontos Treemap téglalapokat vagy Sunburst szögeket. A diagram elrendező motorja a hierarchiából, az értékekből és a rendelkezésre álló helyből számítja ki ezeket.
 
-**Kiszámíthatom a címke/elem tényleges koordinátáit az egyéni átfedés elhelyezéséhez a diagram felett?**
+**Miért változnak a színek a prezentáció téma módosítása után?**
 
-Igen. A diagram elrendezésének ellenőrzése után az elemek (például egy [DataLabel](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/datalabel/)) tényleges X és tényleges Y koordinátái elérhetők, ami segíti a pontos átfedések elhelyezését.
+A téma‑alapú kitöltések a prezentáció palettáját követik. Alkalmazzon kifejezett RGB színeket azokra a szintekre, amelyeknek rögzítve kell maradniuk, vagy használjon séma‑színeket, ha az új témahoz való alkalmazkodás a kívánt.
+
+**Megmarad a saját formázás PDF‑ és kép‑exportokban?**
+
+Igen, a támogatott diagram‑kitöltések és címke‑beállítások a renderelés során bennemaradnak. A konzisztens eredmény érdekében biztosítsa a szükséges betűtípusok elérhetőségét, és tesztelje a végső export méretét, mert a címke‑illeszkedés az elrendezéstől függ.
+
+## **Lásd még**
+
+- [Treemap diagramok létrehozása](/slides/hu/nodejs-java/create-chart/#creating-tree-map-charts)
+- [Sunburst diagramok létrehozása](/slides/hu/nodejs-java/create-chart/#creating-sunburst-charts)
+- [Prezentációs diagramok exportálása](/slides/hu/nodejs-java/export-chart/)
+- [Prezentációs témák kezelése](/slides/hu/nodejs-java/presentation-theme/)

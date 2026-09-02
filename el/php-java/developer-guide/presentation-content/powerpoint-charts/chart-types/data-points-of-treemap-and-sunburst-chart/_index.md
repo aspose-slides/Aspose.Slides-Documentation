@@ -1,124 +1,261 @@
 ---
-title: Προσαρμογή Σημείων Δεδομένων σε Διαγράμματα Treemap και Sunburst χρησιμοποιώντας PHP
+title: Προσαρμογή Σημείων Δεδομένων σε Διαγράμματα Treemap και Sunburst σε PHP
 linktitle: Σημεία Δεδομένων σε Διαγράμματα Treemap και Sunburst
 type: docs
 url: /el/php-java/data-points-of-treemap-and-sunburst-chart/
 weight: 40
 keywords:
-- διάγραμμα Treemap
-- διάγραμμα Sunburst
+- διάγραμμα treemap
+- διάγραμμα sunburst
+- ιεραρχικό διάγραμμα
 - σημείο δεδομένων
-- χρώμα ετικέτας
-- χρώμα κλαδίου
+- ετικέτα δεδομένων
+- χρώμα κλαδιού
 - PowerPoint
 - παρουσίαση
 - PHP
 - Aspose.Slides
-description: "Μάθετε πώς να διαχειρίζεστε σημεία δεδομένων σε διαγράμματα Treemap και Sunburst με το Aspose.Slides για PHP μέσω Java, συμβατό με μορφές PowerPoint."
+description: "Μάθετε πώς να δημιουργείτε ιεραρχικά δεδομένα και να προσαρμόζετε επίπεδα, ετικέτες και χρώματα σε διαγράμματα Treemap και Sunburst με το Aspose.Slides για PHP μέσω Java."
 ---
-## **Εισαγωγή**
+## **Επισκόπηση**
 
-Μεταξύ άλλων τύπων διαγραμμάτων PowerPoint, υπάρχουν δύο «ιεραρχικοί» τύποι – **Treemap** και **Sunburst** διάγραμμα (επίσης γνωστά ως Sunburst Graph, Sunburst Diagram, Radial Chart, Radial Graph ή Multi Level Pie Chart). Αυτά τα διαγράμματα εμφανίζουν ιεραρχικά δεδομένα οργανωμένα ως δέντρο – από τα φύλλα μέχρι την κορυφή του κλαδιού. Τα φύλλα ορίζονται από τα σημεία δεδομένων της σειράς, και κάθε επακόλουθο ενσωματωμένο επίπεδο ομαδοποίησης ορίζεται από την αντίστοιχη κατηγορία. Aspose.Slides για PHP μέσω Java επιτρέπει τη μορφοποίηση σημείων δεδομένων του διαγράμματος Sunburst και Treemap.
+Τα διαγράμματα Treemap και Sunburst εμφανίζουν τον ίδιο τύπο ιεραρχικών δεδομένων, αλλά χρησιμοποιούν διαφορετικές διατάξεις. Ένα Treemap σχεδιάζει την ιεραρχία ως ένθετα ορθογώνια των οποίων οι περιοχές αντιπροσωπεύουν τις τιμές των φύλλων. Ένα Sunburst το απεικονίζει ως συγκεντρικούς δακτυλίους: οι ομάδες κορυφαίου επιπέδου βρίσκονται κοντά στο κέντρο, και οι κατηγορίες φύλλων βρίσκονται στον εξωτερικό δακτύλιο.
 
-Ακολουθεί ένα διάγραμμα Sunburst, όπου τα δεδομένα στη στήλη Series1 ορίζουν τους κόμβους φύλλων, ενώ οι άλλες στήλες ορίζουν ιεραρχικά σημεία δεδομένων:
+Στο Aspose.Slides για PHP μέσω Java, κάθε αριθμητική τιμή είναι ένα [ChartDataPoint](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdatapoint/). Η μέθοδος [ChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdatapoint/#getDataPointLevels) παρέχει πρόσβαση στο φύλλο και στις γονικές του ομάδες. Αυτό το άρθρο εξηγεί αυτή τη χαρτογράφηση και δείχνει πώς να δημιουργήσετε και να μορφοποιήσετε και τα δύο είδη διαγράμματος από τα ίδια δεδομένα δείγματος.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
+![Διάγραμμα Treemap με κλαδιά Consumer και Business](treemap-hierarchy.png)
 
-Ας ξεκινήσουμε προσθέτοντας ένα νέο διάγραμμα Sunburst στην παρουσίαση:
+![Διάγραμμα Sunburst με την ίδια ιεραρχία Consumer και Business](sunburst-hierarchy.png)
+
+## **Κατανόηση Κατηγοριών, Σημείων Δεδομένων και Επιπέδων**
+
+Το παρακάτω παράδειγμα έχει τρία επίπεδα κατηγοριών και μία αριθμητική σειρά:
+
+| Κλαδί | Κόμβος | Φύλλο | Έσοδα |
+| --- | --- | --- | ---: |
+| Consumer | Computers | Laptops | 12 |
+| Consumer | Computers | Desktops | 8 |
+| Consumer | Mobile | Phones | 15 |
+| Consumer | Mobile | Tablets | 6 |
+| Business | Services | Consulting | 10 |
+| Business | Services | Support | 7 |
+| Business | Software | Licenses | 11 |
+| Business | Software | Subscriptions | 14 |
+
+Κάθε γραμμή δημιουργεί μία κατηγορία φύλλου και ένα σημείο δεδομένων. Τα επίπεδα ομαδοποίησης κατηγοριών περιγράφουν τη διαδρομή από αυτό το φύλλο προς τους γονείς του. Για την πρώτη γραμμή, η διαδρομή είναι `Consumer > Computers > Laptops`.
+
+Οι δείκτες που επιστρέφει η μέθοδος [ChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdatapoint/#getDataPointLevels) τρέχουν από το φύλλο προς τα πάνω:
+
+| `getDataPointLevels()` index | Logical level | Treemap representation | Sunburst representation |
+| ---: | --- | --- | --- |
+| `0` | Φύλλο | Value rectangle | Outer-ring segment |
+| `1` | Κόμβος | Parent rectangle or header | Middle-ring segment |
+| `2` | Κλαδί | Top-level rectangle or header | Inner-ring segment |
+
+Αυτή η σειρά είναι η ίδια και για τους δύο τύπους διαγράμματος, ακόμη κι αν οι οπτικές διατάξεις διαφέρουν. Ένα τμήμα γονέα μοιράζεται από πολλά φύλλα. Για να το μορφοποιήσετε, χρησιμοποιήστε το αντίστοιχο επίπεδο του πρώτου σημείου δεδομένων στην ομάδα. Για παράδειγμα, το κλαδί `Consumer` ξεκινά με το σημείο `Laptops`, ενώ το κλαδί `Software` ξεκινά με το σημείο `Licenses`. Η διατήρηση αναφορών σε αυτά τα σημεία είναι πιο σαφής και ασφαλής από τη χρήση ανεξήγητων εκφράσεων όπως `$dataPoints->get_Item(0)` ή `$dataPoints->get_Item(6)`.
+
+## **Δημιουργία και Προσαρμογή Και των Δύο Τύπων Διαγράμματος**
+
+Το παρακάτω πλήρες παράδειγμα δημιουργεί ένα Treemap στην πρώτη διαφάνεια και ένα Sunburst στη δεύτερη διαφάνεια. Κατασκευάζει την ιεραρχία, εμφανίζει την τιμή για `Tablets`, εφαρμόζει σταθερά χρώματα σε επιλεγμένα επίπεδα, μορφοποιεί μια ετικέτα κλαδιού και αποθηκεύει την παρουσίαση.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Sunburst, 100, 100, 450, 400);
-    # ...
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+$presentation = new Presentation();
+try {
+    $worksheetIndex = 0;
+    $leafLevelIndex = 0;
+    $stemLevelIndex = 1;
+    $branchLevelIndex = 2;
+
+    $branchNames = [
+        "Consumer", "Consumer", "Consumer", "Consumer",
+        "Business", "Business", "Business", "Business"
+    ];
+    $stemNames = [
+        "Computers", "Computers", "Mobile", "Mobile",
+        "Services", "Services", "Software", "Software"
+    ];
+    $leafNames = [
+        "Laptops", "Desktops", "Phones", "Tablets",
+        "Consulting", "Support", "Licenses", "Subscriptions"
+    ];
+    $revenues = [12, 8, 15, 6, 10, 7, 11, 14];
+    $dataPointCount = count($leafNames);
+
+    $chartTypes = [ChartType::Treemap, ChartType::Sunburst];
+    $chartCount = count($chartTypes);
+    $layoutSlide = $presentation->getLayoutSlides()->get_Item(0);
+
+    for ($chartIndex = 0; $chartIndex < $chartCount; $chartIndex++) {
+        $chartType = $chartTypes[$chartIndex];
+
+        if ($chartIndex === 0) {
+            $slide = $presentation->getSlides()->get_Item(0);
+        } else {
+            $slide = $presentation->getSlides()->addEmptySlide($layoutSlide);
+        }
+
+        $chart = $slide->getShapes()->addChart($chartType, 40, 40, 640, 440);
+        $chart->setTitle(false);
+        $chart->setLegend(false);
+
+        $chartData = $chart->getChartData();
+        $chartData->getCategories()->clear();
+        $chartData->getSeries()->clear();
+
+        $workbook = $chartData->getChartDataWorkbook();
+        $workbook->clear($worksheetIndex);
+
+        // Προσθέστε τις κατηγορίες φύλλων. Ένα στοιχείο ομαδοποίησης ορίζεται μόνο όταν ξεκινάει μια νέα ομάδα.
+        for ($dataIndex = 0; $dataIndex < $dataPointCount; $dataIndex++) {
+            $rowIndex = $dataIndex + 1;
+            $leafName = $leafNames[$dataIndex];
+            $categoryCell = $workbook->getCell($worksheetIndex, $rowIndex, 2, $leafName);
+            $category = $chartData->getCategories()->add($categoryCell);
+
+            $stemName = $stemNames[$dataIndex];
+            $startsNewStem = $dataIndex === 0;
+            if ($dataIndex > 0) {
+                $previousStemName = $stemNames[$dataIndex - 1];
+                $startsNewStem = $stemName !== $previousStemName;
+            }
+            if ($startsNewStem) {
+                $category->getGroupingLevels()->setGroupingItem($stemLevelIndex, $stemName);
+            }
+
+            $branchName = $branchNames[$dataIndex];
+            $startsNewBranch = $dataIndex === 0;
+            if ($dataIndex > 0) {
+                $previousBranchName = $branchNames[$dataIndex - 1];
+                $startsNewBranch = $branchName !== $previousBranchName;
+            }
+            if ($startsNewBranch) {
+                $category->getGroupingLevels()->setGroupingItem($branchLevelIndex, $branchName);
+            }
+        }
+
+        $seriesNameCell = $workbook->getCell($worksheetIndex, 0, 3, "Revenue");
+        $series = $chartData->getSeries()->add($seriesNameCell, $chartType);
+        $series->getLabels()->getDefaultDataLabelFormat()->setShowCategoryName(true);
+
+        $laptopsDataPoint = null;
+        $tabletsDataPoint = null;
+        $licensesDataPoint = null;
+
+        for ($dataIndex = 0; $dataIndex < $dataPointCount; $dataIndex++) {
+            $rowIndex = $dataIndex + 1;
+            $leafName = $leafNames[$dataIndex];
+            $revenue = $revenues[$dataIndex];
+            $valueCell = $workbook->getCell($worksheetIndex, $rowIndex, 3, $revenue);
+
+            if ($chartType === ChartType::Treemap) {
+                $dataPoint = $series->getDataPoints()->addDataPointForTreemapSeries($valueCell);
+            } else {
+                $dataPoint = $series->getDataPoints()->addDataPointForSunburstSeries($valueCell);
+            }
+
+            if ($leafName === "Laptops") {
+                $laptopsDataPoint = $dataPoint;
+            } elseif ($leafName === "Tablets") {
+                $tabletsDataPoint = $dataPoint;
+            } elseif ($leafName === "Licenses") {
+                $licensesDataPoint = $dataPoint;
+            }
+        }
+
+        // Εμφανίστε την κατηγορία και την τιμή στο φύλλο Tablets.
+        $tabletsLeafLevel = $tabletsDataPoint->getDataPointLevels()->get_Item($leafLevelIndex);
+        $tabletsLabelFormat = $tabletsLeafLevel->getLabel()->getDataLabelFormat();
+        $tabletsLabelFormat->setShowCategoryName(true);
+        $tabletsLabelFormat->setShowValue(true);
+        $tabletsLabelFormat->setSeparator("\n");
+        $tabletsLabelFormat->setNumberFormat('$0');
+
+        // Μορφοποιήστε το κλαδί Consumer μέσω του πρώτου φύλλου σε αυτό το κλαδί.
+        $consumerBranchLevel = $laptopsDataPoint->getDataPointLevels()->get_Item($branchLevelIndex);
+        $consumerBranchFill = $consumerBranchLevel->getFormat()->getFill();
+        $consumerBranchColor = new java("java.awt.Color", 31, 78, 121);
+        $consumerBranchFill->setFillType(FillType::Solid);
+        $consumerBranchFill->getSolidFillColor()->setColor($consumerBranchColor);
+
+        $consumerLabelFormat = $consumerBranchLevel->getLabel()->getDataLabelFormat();
+        $consumerLabelFormat->setShowCategoryName(true);
+        $consumerLabelFormat->setShowSeriesName(false);
+        $consumerLabelTextFill = $consumerLabelFormat->getTextFormat()->getPortionFormat()->getFillFormat();
+        $white = java("java.awt.Color")->WHITE;
+        $consumerLabelTextFill->setFillType(FillType::Solid);
+        $consumerLabelTextFill->getSolidFillColor()->setColor($white);
+
+        // Μορφοποιήστε τον κόμβο Software μέσω του πρώτου φύλλου σε αυτόν τον κόμβο.
+        $softwareStemLevel = $licensesDataPoint->getDataPointLevels()->get_Item($stemLevelIndex);
+        $softwareStemFill = $softwareStemLevel->getFormat()->getFill();
+        $softwareStemColor = new java("java.awt.Color", 112, 173, 71);
+        $softwareStemFill->setFillType(FillType::Solid);
+        $softwareStemFill->getSolidFillColor()->setColor($softwareStemColor);
+
+        // ParentLabelLayout επηρεάζει τις ετικέτες γονέα του Treemap; το Sunburst χρησιμοποιεί τμήματα δακτυλίου.
+        if ($chartType === ChartType::Treemap) {
+            $series->setParentLabelLayout(ParentLabelLayoutType::Overlapping);
+        }
     }
-  }
+
+    $presentation->save("hierarchical-charts.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-{{% alert color="primary" title="Δείτε επίσης" %}} 
-- [**Δημιουργία ή Ενημέρωση Διαγραμμάτων Παρουσίασης PowerPoint σε PHP**](/slides/el/php-java/create-chart/)
-{{% /alert %}}
+Τα κελιά κατηγορίας και τα κελιά τιμής χρησιμοποιούν την ίδια σειρά φύλλου εργασίας, ώστε οι θέσεις των συλλογών τους να παραμένουν ευθυγραμμισμένες. Όταν εργάζεστε με ένα υπάρχον διάγραμμα αντί να δημιουργήσετε ένα, ελέγξτε πρώτα τις σειρές κατηγορίας και αποθηκεύστε ονομαστικές αναφορές στα σημεία δεδομένων και στα επίπεδα που προτίθεστε να μορφοποιήσετε.
 
-Εάν υπάρχει ανάγκη μορφοποίησης σημείων δεδομένων του διαγράμματος, θα πρέπει να χρησιμοποιήσουμε τα εξής:
+## **Συμπεριφορά και Πρακτικά Ζητήματα**
 
-[**ChartDataPointLevelsManager**](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdatapointlevelsmanager/), 
-[**ChartDataPointLevel**](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdatapointlevel/) κλάσεις 
-και [**ChartDataPoint::getDataPointLevels**](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdatapoint/#getDataPointLevels) μέθοδος 
-παρέχουν πρόσβαση στη μορφοποίηση σημείων δεδομένων των διαγραμμάτων Treemap και Sunburst. 
-Η [**ChartDataPointLevelsManager**](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdatapointlevelsmanager/)
-χρησιμοποιείται για την πρόσβαση σε κατηγορίες πολλαπλών επιπέδων – αντιπροσωπεύει το δοχείο των
-[**ChartDataPointLevel**](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdatapointlevel/) αντικειμένων.
-Βασικά είναι ένας wrapper για την
-[**ChartCategoryLevelsManager**](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartcategorylevelsmanager/) με
-τις ιδιότητες που προστέθηκαν ειδικά για τα σημεία δεδομένων. 
-Η κλάση [**ChartDataPointLevel**](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdatapointlevel/) διαθέτει δύο μεθόδους: [**getFormat**](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdatapointlevel/#getFormat) και 
-[**getDataLabel**](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdatapointlevel/#getLabel) που
-παρέχουν πρόσβαση στις αντίστοιχες ρυθμίσεις.
+### **Διαφορές μεταξύ Treemap και Sunburst**
 
-## **Προβολή Τιμής Σημείου Δεδομένων**
+- Ένα Treemap χρησιμοποιεί την περιοχή για να μεταφέρει την τιμή και ένθετα ορθογώνια για να μεταφέρει την ιεραρχία. Η μέθοδος [ChartSeries.setParentLabelLayout](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartseries/#setParentLabelLayout) ελέγχει τον τρόπο εμφάνισης των ετικετών γονέων σε αυτόν τον τύπο διαγράμματος.
+- Ένα Sunburst χρησιμοποιεί τη γωνία για να μεταφέρει την τιμή και το βάθος του δακτυλίου για να μεταφέρει την ιεραρχία. Η [ChartSeries.setParentLabelLayout](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartseries/#setParentLabelLayout) δεν ελέγχει τις ετικέτες των δακτυλίων του.
+- Και οι δύο τύποι διαγράμματος χρησιμοποιούν τα ίδια επίπεδα ομαδοποίησης κατηγοριών και την ίδια σειρά φύλλου‑προς‑γονέα που επιστρέφει η [ChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdatapoint/#getDataPointLevels), έτσι ο κώδικας δημιουργίας δεδομένων και μορφοποίησης επιπέδων μπορεί να μοιραστεί.
+- Οι τιμές των γονέων υπολογίζονται από τα υποκατωφύλλα τους. Μην προσθέτετε ξεχωριστά αριθμητικά σημεία για κλαδιά ή κόμβους.
 
-Εμφάνιση τιμής του σημείου δεδομένων «Leaf 4»:
+### **Ταξινόμηση και Σειρά Τμημάτων**
 
-```php
-  $dataPoints = $chart->getChartData()->getSeries()->get_Item(0)->getDataPoints();
-  $dataPoints->get_Item(3)->getDataPointLevels()->get_Item(0)->getLabel()->getDataLabelFormat()->setShowValue(true);
-```
+Η μηχανή διάταξης του διαγράμματος καθορίζει την τελική τοποθέτηση των ορθογωνίων και των τμημάτων δακτυλίου. Οργανώστε σχετικές σειρές κατηγορίας μαζί πριν τις προσθέσετε, αλλά μην βασίζεστε σε μια συγκεκριμένη θέση ορθογωνίου ή σε γωνία έναρξης. Εάν η ακολουθία έχει νόημα, συμπεριλάβετε την στις ετικέτες ή χρησιμοποιήστε έναν τύπο διαγράμματος με ρητή άξονα κατηγορίας.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
+### **Θέμα και Σταθερά Χρώματα**
 
-## **Ορισμός Ετικέτας και Χρώματος Σημείου Δεδομένων**
+Τα μη μορφοποιημένα επίπεδα του διαγράμματος κληρονομούν χρώματα από το θέμα της παρουσίασης. Το παράδειγμα χρησιμοποιεί ρητές γεμίσεις RGB για προβλέψιμο αποτέλεσμα. Εάν το διάγραμμα πρέπει να ακολουθεί τις αλλαγές θέματος, χρησιμοποιήστε χρώματα του σχήματος αντί για σταθερές τιμές RGB και αποφύγετε την υπερβολική αντικατάσταση κάθε επιπέδου. Επίσης, ελέγξτε την αντίθεση των ετικετών μετά την αλλαγή γεμίσματος κλαδιού ή κόμβου.
 
-Ορίστε την ετικέτα δεδομένων του «Branch 1» ώστε να εμφανίζει το όνομα σειράς («Series1») αντί του ονόματος κατηγορίας. Στη συνέχεια ορίστε το χρώμα κειμένου σε κίτρινο:
+### **Ετικέτες και Διαθέσιμος Χώρος**
 
-```php
-  $branch1Label = $dataPoints->get_Item(0)->getDataPointLevels()->get_Item(0)->getLabel();
-  $branch1Label->getDataLabelFormat()->setShowCategoryName(false);
-  $branch1Label->getDataLabelFormat()->setShowSeriesName(true);
-  $branch1Label->getDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-  $branch1Label->getDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->YELLOW);
-```
+Το PowerPoint μπορεί να κρύψει ή να περικόψει ετικέτες όταν ένα τμήμα είναι πολύ μικρό. Η αύξηση του μεγέθους του διαγράμματος, η συντόμευση των ονομάτων κατηγορίας ή η εμφάνιση λιγότερων πεδίων ετικέτας συνήθως παράγει πιο καθαρό αποτέλεσμα. Μια ετικέτα μπορεί να συνδυάσει το όνομα της κατηγορίας, το όνομα σειράς και την τιμή μέσω του [DataLabelFormat](https://reference.aspose.com/slides/el/php-java/aspose.slides/datalabelformat/), αλλά η ενεργοποίηση όλων των πεδίων συχνά καθιστά τα ιεραρχικά διαγράμματα δύσκολα στην ανάγνωση.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
+### **Εξαγωγή και Απόδοση**
 
-## **Ορισμός Χρώματος Κλαδίου Σημείου Δεδομένων**
-
-Αλλάξτε το χρώμα του κλαδίου «Steam 4»:
-
-```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Sunburst, 100, 100, 450, 400);
-    $dataPoints = $chart->getChartData()->getSeries()->get_Item(0)->getDataPoints();
-    $stem4branch = $dataPoints->get_Item(9)->getDataPointLevels()->get_Item(1);
-    $stem4branch->getFormat()->getFill()->setFillType(FillType::Solid);
-    $stem4branch->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-![todo:image_alt_text](https://lh5.googleusercontent.com/Zll4cpQ5tTDdgwmJ4yuupolfGaANR8SWWTU3XaJav_ZVXVstV1pI1z1OFH-gov6FxPoDz1cxmMyrgjsdYGS24PlhaYa2daKzlNuL1a0xYcqEiyyO23AE6JMOLavWpvqA6SzOCA6_)
+Η αποθήκευση σε PPTX διατηρεί το διάγραμμα επεξεργάσιμο. Όταν το Aspose.Slides αποδίδει την παρουσίαση σε PDF ή εικόνα, τα υποστηριζόμενα γεμίσματα και οι ρυθμίσεις ετικετών αποτυπώνονται στο διάγραμμα. Η αντικατάσταση γραμματοσειρών και μικρές διαφορές στον διαθέσιμο χώρο διάταξης μπορούν να αλλάξουν τη συρραφή κειμένου ή την ορατότητα της ετικέτας, γι' αυτό εγκαταστήστε τις απαιτούμενες γραμματοσειρές και ελέγξτε τους σημαντικούς προορισμούς εξαγωγής.
 
 ## **Συχνές Ερωτήσεις**
 
-**Μπορώ να αλλάξω τη σειρά (ταξινόμηση) των τμημάτων σε Sunburst/Treemap;**
+**Γιατί η αλλαγή ενός επιπέδου γονέα επηρεάζει πολλά φύλλα;**
 
-Όχι. Το PowerPoint ταξινομεί αυτόματα τα τμήματα (συνήθως κατά φθίνουσες τιμές, δεξιόστροφα). Η Aspose.Slides αντιγράφει αυτή τη συμπεριφορά: δεν μπορείτε να αλλάξετε τη σειρά απευθείας· μπορείτε να το επιτύχετε με προεπεξεργασία των δεδομένων.
+Το κλαδί ή ο κόμβος αποτελεί κοινό οπτικό τμήμα. Το [ChartDataPointLevel](https://reference.aspose.com/slides/el/php-java/aspose.slides/chartdatapointlevel/) του μπορεί να προσεγγιστεί μέσω ενός υποκατωφύλλου, αλλά η μορφοποίηση ανήκει στο κοινό τμήμα γονέα, όχι μόνο στο συγκεκριμένο φύλλο.
 
-**Πώς επηρεάζει το θέμα της παρουσίασης τα χρώματα των τμημάτων και των ετικετών;**
+**Γιατί λείπει μια ετικέτα δεδομένων;**
 
-Τα χρώματα του διαγράμματος κληρονομούν το [theme/palette](/slides/el/php-java/presentation-theme/) της παρουσίασης εκτός εάν ορίσετε ρητά γεμίσματα/γραμματοσειρές. Για συνεπή αποτελέσματα, καθορίστε συμπαγή γεμίσματα και μορφοποίηση κειμένου στα απαιτούμενα επίπεδα.
+Πρώτα ενεργοποιήστε τα απαιτούμενα πεδία στο αντικείμενο [DataLabelFormat](https://reference.aspose.com/slides/el/php-java/aspose.slides/datalabelformat/) της ετικέτας. Στη συνέχεια ελέγξτε αν το τμήμα διαθέτει αρκετό χώρο. Η διάταξη ετικέτας γονέα Treemap, οι διαστάσεις του διαγράμματος, το μήκος της ετικέτας, το μέγεθος γραμματοσειράς και ο αριθμός των ενεργοποιημένων πεδίων επηρεάζουν το αν η ετικέτα μπορεί να εμφανιστεί.
 
-**Θα διατηρήσει η εξαγωγή σε PDF/PNG τα προσαρμοσμένα χρώματα κλάδων και τις ρυθμίσεις ετικετών;**
+**Μπορώ να ορίσω την ακριβή σειρά ή τις συντεταγμένες των τμημάτων;**
 
-Ναι. Κατά την εξαγωγή της παρουσίασης, οι ρυθμίσεις του διαγράμματος (γεμίσματα, ετικέτες) διατηρούνται στις μορφές εξόδου επειδή η Aspose.Slides αποδίδει με την εφαρμοσμένη μορφοποίηση του διαγράμματος.
+Μπορείτε να ελέγξετε τη σειρά των σειρών‑πηγής και να κρατήσετε κάθε ομάδα αδιάσπαστη, αλλά δεν μπορείτε να ορίσετε ακριβείς ορθογώνιες περιοχές Treemap ή γωνίες Sunburst. Η μηχανή διάταξης του διαγράμματος τις υπολογίζει από την ιεραρχία, τις τιμές και το διαθέσιμο χώρο.
 
-**Μπορώ να υπολογίσω τις πραγματικές συντεταγμένες μιας ετικέτας/στοιχείου για προσαρμοσμένη τοποθέτηση επικάλυψης πάνω στο διάγραμμα;**
+**Γιατί αλλάζουν τα χρώματα μετά την αλλαγή του θέματος παρουσίασης;**
 
-Ναι. Μετά την επικύρωση της διάταξης του διαγράμματος, οι πραγματικές *x* και *y* είναι διαθέσιμες για τα στοιχεία (για παράδειγμα, ένα [DataLabel](https://reference.aspose.com/slides/el/php-java/aspose.slides/datalabel/)), κάτι που βοηθά στην ακριβή τοποθέτηση των επικαλύψεων.
+Τα γεμίσματα βάσει θέματος σχεδιάζονται να ακολουθούν την παλέτα της παρουσίασης. Εφαρμόστε ρητά χρώματα RGB στα επίπεδα που πρέπει να παραμείνουν σταθερά, ή διατηρήστε χρώματα του σχήματος όταν η προσαρμογή σε νέο θέμα είναι προτιμώμενη.
+
+**Θα διατηρηθεί η προσαρμοσμένη μορφοποίηση σε εξαγωγές PDF και εικόνας;**
+
+Ναι, τα υποστηριζόμενα γεμίσματα διαγράμματος και οι ρυθμίσεις ετικετών περιλαμβάνονται κατά την απόδοση. Για συνεπή αποτελέσματα σε όλα τα συστήματα, κάντε διαθέσιμες τις απαιτούμενες γραμματοσειρές και ελέγξτε το τελικό μέγεθος εξαγωγής, επειδή η προσαρμογή ετικετών εξαρτάται από τη διάταξη.
+
+## **Δείτε επίσης**
+
+- [Δημιουργία διαγραμμάτων Treemap](/slides/el/php-java/create-chart/#create-tree-map-charts)
+- [Δημιουργία διαγραμμάτων Sunburst](/slides/el/php-java/create-chart/#create-sunburst-charts)
+- [Εξαγωγή διαγραμμάτων παρουσίασης](/slides/el/php-java/export-chart/)
+- [Διαχείριση θεμάτων παρουσίασης](/slides/el/php-java/presentation-theme/)

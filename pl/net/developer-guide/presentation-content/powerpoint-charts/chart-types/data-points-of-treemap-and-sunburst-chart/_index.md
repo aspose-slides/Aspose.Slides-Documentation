@@ -6,105 +6,238 @@ url: /pl/net/data-points-of-treemap-and-sunburst-chart/
 keywords:
 - wykres treemap
 - wykres sunburst
+- wykres hierarchiczny
 - punkt danych
-- kolor etykiety
+- etykieta danych
 - kolor gałęzi
 - PowerPoint
 - prezentacja
 - .NET
 - C#
 - Aspose.Slides
-description: "Dowiedz się, jak zarządzać punktami danych w wykresach treemap i sunburst za pomocą Aspose.Slides dla .NET, zgodnie z formatami PowerPoint."
+description: "Dowiedz się, jak tworzyć dane hierarchiczne i dostosowywać poziomy, etykiety oraz kolory w wykresach Treemap i Sunburst przy użyciu Aspose.Slides dla .NET."
 ---
-## **Wprowadzenie**
+## **Przegląd**
 
-Wśród innych typów wykresów PowerPoint istnieją dwa typy „hierarchiczne” – **Treemap** i **Sunburst** (chart (also known as Sunburst Graph, Sunburst Diagram, Radial Chart, Radial Graph or Multi Level Pie Chart)). Te wykresy wyświetlają dane hierarchiczne uporządkowane jako drzewo – od liści do wierzchołka gałęzi. Liście są definiowane przez punkty danych serii, a każdy kolejny poziom zagnieżdżonej grupy jest definiowany przez odpowiednią kategorię. Aspose.Slides for .NET umożliwia formatowanie punktów danych wykresu Sunburst i Treemap w C#.
+Treemap i Sunburst wyświetlają te same dane hierarchiczne, ale używają różnych układów. Treemap rysuje hierarchię jako zagnieżdżone prostokąty, których pola reprezentują wartości liści. Sunburst rysuje ją jako koncentryczne pierścienie: grupy najwyższego poziomu znajdują się blisko środka, a kategorie liści na zewnętrznym pierścieniu.
 
-To jest wykres Sunburst, w którym dane w kolumnie Series1 definiują węzły liści, a inne kolumny definiują punkty danych hierarchicznych:
+W Aspose.Slides for .NET każda wartość liczbowa jest [IChartDataPoint](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdatapoint/). Jej kolekcja [IChartDataPoint.DataPointLevels](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdatapoint/datapointlevels/) zapewnia dostęp do liścia i jego grup nadrzędnych. Ten artykuł wyjaśnia to mapowanie i pokazuje, jak tworzyć i formatować oba typy wykresów na podstawie tych samych danych przykładowych.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
+![Wykres Treemap z gałęziami Consumer i Business](treemap-hierarchy.png)
 
-Rozpocznijmy od dodania nowego wykresu Sunburst do prezentacji:
+![Wykres Sunburst z tą samą hierarchią Consumer i Business](sunburst-hierarchy.png)
 
-```c#
-using (Presentation pres = new Presentation())
-{
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Sunburst, 100, 100, 450, 400);
-    // ...
-}
-```
+## **Zrozumienie kategorii, punktów danych i poziomów**
 
-{{% alert color="primary" title="Zobacz także" %}} 
-- [**Tworzenie wykresu Sunburst**](/slides/pl/net/adding-charts/#addingcharts-creatingsunburstchart)
-{{% /alert %}}
+Przykład użyty poniżej ma trzy poziomy kategorii i jedną serię liczbową:
 
-Jeśli istnieje potrzeba formatowania punktów danych wykresu, należy użyć następujących:
+| Gałąź | Pion | Liść | Przychód |
+| --- | --- | --- | ---: |
+| Consumer | Computers | Laptops | 12 |
+| Consumer | Computers | Desktops | 8 |
+| Consumer | Mobile | Phones | 15 |
+| Consumer | Mobile | Tablets | 6 |
+| Business | Services | Consulting | 10 |
+| Business | Services | Support | 7 |
+| Business | Software | Licenses | 11 |
+| Business | Software | Subscriptions | 14 |
 
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/IChartDataPointLevelsManager), 
-[IChartDataPointLevel](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdatapointlevel) klasy oraz właściwość [**IChartDataPoint.DataPointLevels**](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdatapoint/properties/datapointlevels) zapewniają dostęp do formatowania punktów danych wykresów Treemap i Sunburst. [**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/IChartDataPointLevelsManager) jest używany do dostępu do kategorii wielopoziomowych – reprezentuje kontener obiektów [**IChartDataPointLevel**](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/IChartDataPointLevel). W zasadzie jest to opakowanie dla [**IChartCategoryLevelsManager**](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/IChartCategoryLevelsManager) z dodatkowymi właściwościami specyficznymi dla punktów danych. Klasa [**IChartDataPointLevel**](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/IChartDataPointLevel) posiada dwie właściwości: [**Format**](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdatapointlevel/properties/format) oraz [**DataLabel**](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdatapointlevel/properties/label), które zapewniają dostęp do odpowiednich ustawień.
+Każdy wiersz tworzy jedną kategorię liścia i jeden punkt danych. Poziomy grupowania opisują ścieżkę od tego liścia do jego rodziców. Dla pierwszego wiersza ścieżka to `Consumer > Computers > Laptops`.
 
-## **Pokaż wartość punktu danych**
+Indeksy w [IChartDataPoint.DataPointLevels](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdatapoint/datapointlevels/) liczą się od liścia w górę:
 
-Pokaż wartość punktu danych „Leaf 4”:
+| `DataPointLevels` indeks | Poziom logiczny | Reprezentacja w Treemap | Reprezentacja w Sunburst |
+| ---: | --- | --- | --- |
+| `0` | Liść | Prostokąt wartości | Segment zewnętrznego pierścienia |
+| `1` | Pion | Prostokąt nadrzędny lub nagłówek | Segment środkowego pierścienia |
+| `2` | Gałąź | Prostokąt najwyższego poziomu lub nagłówek | Segment wewnętrznego pierścienia |
 
-```c#
-IChartDataPointCollection dataPoints = chart.ChartData.Series[0].DataPoints;
-dataPoints[3].DataPointLevels[0].Label.DataLabelFormat.ShowValue = true;
-```
+Ta kolejność jest taka sama dla obu typów wykresów, mimo że ich układy wizualne różnią się. Segment nadrzędny jest współdzielony przez kilka liści. Aby go sformatować, użyj odpowiedniego poziomu pierwszego punktu danych w tej grupie. Na przykład gałąź `Consumer` zaczyna się od punktu `Laptops`, a pion `Software` od punktu `Licenses`. Przechowywanie odwołań do tych punktów jest jaśniejsze i bezpieczniejsze niż używanie niezrozumiałych wyrażeń typu `dataPoints[0]` czy `dataPoints[6]`.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
+## **Utwórz i dostosuj oba typy wykresów**
 
-## **Ustaw etykietę i kolor punktu danych**
-
-Ustaw etykietę danych „Branch 1”, aby wyświetlała nazwę serii („Series1”) zamiast nazwy kategorii. Następnie ustaw kolor tekstu na żółty:
-
-```c#
-IDataLabel branch1Label = dataPoints[0].DataPointLevels[2].Label;
-branch1Label.DataLabelFormat.ShowCategoryName = false;
-branch1Label.DataLabelFormat.ShowSeriesName = true;
-
-branch1Label.DataLabelFormat.TextFormat.PortionFormat.FillFormat.FillType = FillType.Solid;
-branch1Label.DataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.Yellow;
-```
-
-![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
-
-## **Ustaw kolor gałęzi punktu danych**
-
-Zmień kolor gałęzi „Stem 4”:
+Poniższy kompletny przykład tworzy Treemap na pierwszym slajdzie i Sunburst na drugim slajdzie. Buduje hierarchię, wyświetla wartość dla `Tablets`, stosuje stałe kolory do wybranych poziomów, formatuje etykietę gałęzi i zapisuje prezentację.
 
 ```csharp
-using (Presentation pres = new Presentation())
-{
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Sunburst, 100, 100, 450, 400);
-    
-    IChartDataPointCollection dataPoints = chart.ChartData.Series[0].DataPoints;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-    IChartDataPointLevel stem4branch = dataPoints[9].DataPointLevels[1];
-    
-    stem4branch.Format.Fill.FillType = FillType.Solid;
-    stem4branch.Format.Fill.SolidFillColor.Color = Color.Red;
-      
-    pres.Save("pres.pptx", SaveFormat.Pptx);
+using var presentation = new Presentation();
+
+var treemapSlide = presentation.Slides[0];
+AddHierarchyChart(treemapSlide, ChartType.Treemap);
+
+var layoutSlide = presentation.LayoutSlides[0];
+var sunburstSlide = presentation.Slides.AddEmptySlide(layoutSlide);
+AddHierarchyChart(sunburstSlide, ChartType.Sunburst);
+
+presentation.Save("hierarchical-charts.pptx", SaveFormat.Pptx);
+
+static void AddHierarchyChart(ISlide slide, ChartType chartType)
+{
+    const int worksheetIndex = 0;
+    const int leafLevelIndex = 0;
+    const int stemLevelIndex = 1;
+    const int branchLevelIndex = 2;
+
+    var chart = slide.Shapes.AddChart(chartType, 40, 40, 640, 440);
+    chart.HasTitle = false;
+    chart.HasLegend = false;
+    chart.ChartData.Categories.Clear();
+    chart.ChartData.Series.Clear();
+
+    var workbook = chart.ChartData.ChartDataWorkbook;
+    workbook.Clear(worksheetIndex);
+
+    // Dodaj kategorie liści. Element grupowania jest ustawiany tylko wtedy, gdy rozpoczyna się nowa grupa;
+    // kolejne kategorie pozostają w tej grupie, aż zostanie ustawiony kolejny element.
+    var laptopsCategory = AddCategory(1, "Laptops");
+    laptopsCategory.GroupingLevels.SetGroupingItem(stemLevelIndex, "Computers");
+    laptopsCategory.GroupingLevels.SetGroupingItem(branchLevelIndex, "Consumer");
+
+    AddCategory(2, "Desktops");
+
+    var phonesCategory = AddCategory(3, "Phones");
+    phonesCategory.GroupingLevels.SetGroupingItem(stemLevelIndex, "Mobile");
+
+    AddCategory(4, "Tablets");
+
+    var consultingCategory = AddCategory(5, "Consulting");
+    consultingCategory.GroupingLevels.SetGroupingItem(stemLevelIndex, "Services");
+    consultingCategory.GroupingLevels.SetGroupingItem(branchLevelIndex, "Business");
+
+    AddCategory(6, "Support");
+
+    var licensesCategory = AddCategory(7, "Licenses");
+    licensesCategory.GroupingLevels.SetGroupingItem(stemLevelIndex, "Software");
+
+    AddCategory(8, "Subscriptions");
+
+    var seriesNameCell = workbook.GetCell(worksheetIndex, 0, 3, "Revenue");
+    var series = chart.ChartData.Series.Add(seriesNameCell, chartType);
+    series.Labels.DefaultDataLabelFormat.ShowCategoryName = true;
+
+    var laptopsDataPoint = AddDataPoint(1, 12);
+    AddDataPoint(2, 8);
+    AddDataPoint(3, 15);
+    var tabletsDataPoint = AddDataPoint(4, 6);
+    AddDataPoint(5, 10);
+    AddDataPoint(6, 7);
+    var licensesDataPoint = AddDataPoint(7, 11);
+    AddDataPoint(8, 14);
+
+    // Pokaż kategorię i wartość w liściu Tablets.
+    var tabletsLabelFormat = tabletsDataPoint.DataPointLevels[leafLevelIndex]
+        .Label.DataLabelFormat;
+    tabletsLabelFormat.ShowCategoryName = true;
+    tabletsLabelFormat.ShowValue = true;
+    tabletsLabelFormat.Separator = "\n";
+    tabletsLabelFormat.NumberFormat = "$0";
+
+    // Sformatuj gałąź Consumer za pomocą pierwszego liścia w tej gałęzi.
+    var consumerBranchLevel = laptopsDataPoint.DataPointLevels[branchLevelIndex];
+    var consumerBranchFill = consumerBranchLevel.Format.Fill;
+    var consumerBranchColor = Color.FromArgb(31, 78, 121);
+    SetSolidFill(consumerBranchFill, consumerBranchColor);
+
+    var consumerLabelFormat = consumerBranchLevel.Label.DataLabelFormat;
+    consumerLabelFormat.ShowCategoryName = true;
+    consumerLabelFormat.ShowSeriesName = false;
+    var consumerLabelTextFill = consumerLabelFormat.TextFormat.PortionFormat.FillFormat;
+    SetSolidFill(consumerLabelTextFill, Color.White);
+
+    // Sformatuj pion Software za pomocą pierwszego liścia w tym pionie.
+    var softwareStemLevel = licensesDataPoint.DataPointLevels[stemLevelIndex];
+    var softwareStemFill = softwareStemLevel.Format.Fill;
+    var softwareStemColor = Color.FromArgb(112, 173, 71);
+    SetSolidFill(softwareStemFill, softwareStemColor);
+
+    // ParentLabelLayout wpływa na etykiety rodziców w Treemap; Sunburst używa segmentów pierścieni.
+    if (chartType == ChartType.Treemap)
+    {
+        series.ParentLabelLayout = ParentLabelLayoutType.Overlapping;
+    }
+
+    IChartCategory AddCategory(int rowIndex, string leafName)
+    {
+        var categoryCell = workbook.GetCell(worksheetIndex, rowIndex, 2, leafName);
+        return chart.ChartData.Categories.Add(categoryCell);
+    }
+
+    IChartDataPoint AddDataPoint(int rowIndex, double value)
+    {
+        var valueCell = workbook.GetCell(worksheetIndex, rowIndex, 3, value);
+
+        if (chartType == ChartType.Treemap)
+        {
+            return series.DataPoints.AddDataPointForTreemapSeries(valueCell);
+        }
+
+        return series.DataPoints.AddDataPointForSunburstSeries(valueCell);
+    }
+
+    static void SetSolidFill(IFillFormat fillFormat, Color color)
+    {
+        fillFormat.FillType = FillType.Solid;
+        fillFormat.SolidFillColor.Color = color;
+    }
 }
 ```
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/Zll4cpQ5tTDdgwmJ4yuupolfGaANR8SWWTU3XaJav_ZVXVstV1pI1z1OFH-gov6FxPoDz1cxmMyrgjsdYGS24PlhaYa2daKzlNuL1a0xYcqEiyyO23AE6JMOLavWpvqA6SzOCA6_)
+Komórki kategorii i komórki wartości używają tego samego wiersza arkusza, więc ich pozycje w kolekcji pozostają wyrównane. Gdy pracujesz z istniejącym wykresem zamiast go tworzyć, najpierw sprawdź wiersze kategorii i zapisz nazwane odwołania do punktów danych oraz poziomów, które zamierzasz formatować.
+
+## **Zachowanie i praktyczne uwagi**
+
+### **Różnice między wykresami Treemap i Sunburst**
+
+- Treemap używa pola, aby przekazać wartość, oraz zagnieżdżonych prostokątów, aby przedstawić hierarchię. Właściwość [IChartSeries.ParentLabelLayout](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartseries/parentlabellayout/) steruje tym, jak wyświetlane są etykiety rodziców w tym typie wykresu.
+- Sunburst używa kąta, aby przekazać wartość, oraz głębokości pierścienia, aby przedstawić hierarchię. [IChartSeries.ParentLabelLayout](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartseries/parentlabellayout/) nie steruje jego etykietami pierścieni.
+- Oba typy wykresów używają tych samych poziomów grupowania kategorii i tej samej kolejności liść‑do‑rodzica w `DataPointLevels`, więc kod budujący dane i formatujący poziomy może być współdzielony.
+- Wartości rodziców są obliczane z ich liści potomnych. Nie dodawaj oddzielnych punktów liczbowych dla gałęzi lub pionów.
+
+### **Sortowanie i kolejność segmentów**
+
+Silnik układu wykresu określa ostateczne położenie prostokątów i segmentów pierścieni. Ułóż powiązane wiersze kategorii razem przed ich dodaniem, ale nie polegaj na konkretnym położeniu prostokąta ani kącie początkowym. Jeśli kolejność ma znaczenie, uwzględnij ją w etykietach lub użyj typu wykresu z wyraźną osią kategorii.
+
+### **Motyw i stałe kolory**
+
+Niesformatowane poziomy wykresu dziedziczą kolory z motywu prezentacji. Przykład używa explicite wypełnień RGB dla przewidywalnego wyniku. Jeśli wykres ma podążać za zmianami motywu, użyj kolorów ze schematu zamiast stałych wartości RGB i unikaj nadpisywania każdego poziomu. Sprawdź także kontrast etykiet po zmianie wypełnienia gałęzi lub pionu.
+
+### **Etykiety i dostępna przestrzeń**
+
+PowerPoint może ukrywać lub obcinać etykiety, gdy segment jest zbyt mały. Powiększenie wykresu, skrócenie nazw kategorii lub wyświetlenie mniejszej liczby pól etykiet zazwyczaj daje czytelniejszy rezultat. Etykieta może łączyć nazwę kategorii, nazwę serii i wartość przy użyciu [IDataLabelFormat](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/idatalabelformat/), ale włączanie wszystkich pól często utrudnia odczyt wykresów hierarchicznych.
+
+### **Eksport i renderowanie**
+
+Zapis do PPTX pozostawia wykres edytowalny. Gdy Aspose.Slides renderuje prezentację do PDF lub obrazu, obsługiwane wypełnienia i ustawienia etykiet są renderowane razem z wykresem. Substitucja czcionek oraz niewielkie różnice w dostępnej przestrzeni układu mogą zmienić łamanie linii lub widoczność etykiet, więc zainstaluj wymagane czcionki i zweryfikuj ważne cele eksportu.
 
 ## **FAQ**
 
-**Czy mogę zmienić kolejność (sortowanie) segmentów w wykresie Sunburst/Treemap?**
+**Dlaczego zmiana poziomu rodzica wpływa na kilka liści?**
 
-Nie. PowerPoint sortuje segmenty automatycznie (zazwyczaj malejąco, zgodnie z ruchem wskazówek zegara). Aspose.Slides odzwierciedla to zachowanie: nie można zmienić kolejności bezpośrednio; należy to zrobić poprzez wstępne przetworzenie danych.
+Gałąź lub pion jest współdzielonym segmentem wizualnym. Jego [IChartDataPointLevel](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/ichartdatapointlevel/) można osiągnąć przez liść potomny, ale formatowanie należy do współdzielonego segmentu rodzica, a nie tylko do tego liścia.
 
-**Jak motyw prezentacji wpływa na kolory segmentów i etykiet?**
+**Dlaczego brak jest etykiety danych?**
 
-Kolory wykresu dziedziczą [motyw/palettę](/slides/pl/net/presentation-theme/) prezentacji, chyba że wyraźnie ustawisz wypełnienia/czcionki. Aby uzyskać spójne wyniki, zastosuj stałe wypełnienia i formatowanie tekstu na wymaganych poziomach.
+Najpierw włącz wymagane pola w obiekcie [IDataLabelFormat](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/idatalabelformat/) etykiety. Następnie sprawdź, czy segment ma wystarczająco miejsca. Układ etykiet rodzica w Treemap, wymiary wykresu, długość etykiety, rozmiar czcionki i liczba włączonych pól wpływają na to, czy etykieta może być wyświetlona.
 
-**Czy eksport do PDF/PNG zachowa niestandardowe kolory gałęzi i ustawienia etykiet?**
+**Czy mogę ustawić dokładną kolejność lub współrzędne segmentów?**
 
-Tak. Podczas eksportu prezentacji ustawienia wykresu (wypełnienia, etykiety) są zachowywane w formatach wyjściowych, ponieważ Aspose.Slides renderuje wykres z zastosowanym formatowaniem.
+Możesz kontrolować kolejność wierszy źródłowych i utrzymywać każdą grupę spójną, ale nie możesz przypisać dokładnych prostokątów Treemap ani kątów Sunburst. Silnik układu wykresu oblicza je na podstawie hierarchii, wartości i dostępnej przestrzeni.
 
-**Czy mogę obliczyć rzeczywiste współrzędne etykiety/elementu w celu umieszczenia własnej nakładki na wykresie?**
+**Dlaczego kolory zmieniają się po zmianie motywu prezentacji?**
 
-Tak. Po zweryfikowaniu układu wykresu dostępne są właściwości `ActualX`/`ActualY` dla elementów (na przykład dla [DataLabel](https://reference.aspose.com/slides/pl/net/aspose.slides.charts/datalabel/)), co ułatwia precyzyjne pozycjonowanie nakładek.
+Wypełnienia oparte na motywie mają podążać za paletą prezentacji. Zastosuj explicite kolory RGB do poziomów, które muszą pozostać stałe, lub zachowaj kolory ze schematu, jeśli preferujesz dostosowanie się do nowego motywu.
+
+**Czy niestandardowe formatowanie zostanie zachowane w eksportach PDF i obrazach?**
+
+Tak, obsługiwane wypełnienia wykresów i ustawienia etykiet są uwzględniane podczas renderowania. Aby uzyskać spójne wyniki na różnych systemach, udostępnij wymagane czcionki i przetestuj ostateczny rozmiar eksportu, ponieważ dopasowanie etykiet zależy od układu.
+
+## **Zobacz także**
+
+- [Create Treemap charts](/slides/pl/net/create-chart/#create-tree-map-charts)
+- [Create Sunburst charts](/slides/pl/net/create-chart/#create-sunburst-charts)
+- [Export presentation charts](/slides/pl/net/export-chart/)
+- [Manage presentation themes](/slides/pl/net/presentation-theme/)

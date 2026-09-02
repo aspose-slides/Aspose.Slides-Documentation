@@ -1,115 +1,263 @@
 ---
-title: Java を使用した Treemap および Sunburst チャートのデータ ポイントのカスタマイズ
-linktitle: Treemap および Sunburst チャートのデータ ポイント
+title: Java の Treemap および Sunburst チャートにおけるデータポイントのカスタマイズ
+linktitle: Treemap と Sunburst チャートのデータポイント
 type: docs
 url: /ja/java/data-points-of-treemap-and-sunburst-chart/
 weight: 40
 keywords:
-- ツリーマップ チャート
-- サンバースト チャート
-- データ ポイント
-- ラベル色
-- ブランチ色
+- Treemap チャート
+- Sunburst チャート
+- 階層チャート
+- データポイント
+- データラベル
+- ブランチカラー
 - PowerPoint
 - プレゼンテーション
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java を使用して、PowerPoint 形式に対応した Treemap および Sunburst チャートのデータ ポイントを管理する方法を学びます。"
+description: "Aspose.Slides for Java を使用して、階層データの作成と Treemap および Sunburst チャートにおけるレベル、ラベル、色のカスタマイズ方法を学びます。"
 ---
+## **概要**
 
-PowerPoint の他のチャート タイプの中で、2 つの「階層」タイプがあります — **Treemap** と **Sunburst** チャート（Sunburst Graph、Sunburst Diagram、Radial Chart、Radial Graph、Multi Level Pie Chart とも呼ばれます）。これらのチャートは、ツリー構造として整理された階層データを表示します — 葉から枝の先端まで。葉はシリーズのデータ ポイントで定義され、以降の各ネストされたグループ化レベルは対応するカテゴリで定義されます。Aspose.Slides for Java は、Java で Sunburst Chart と Treemap のデータ ポイントの書式設定を可能にします。
+Treemap と Sunburst のチャートは同じ種類の階層データを表示しますが、レイアウトが異なります。Treemap は階層をネストされた矩形として描画し、矩形の面積がリーフの値を表します。Sunburst は同心円状のリングとして描画し、最上位のグループが中心付近に、リーフカテゴリが外側のリングに配置されます。
 
-以下は Sunburst Chart で、Series1 列のデータが葉ノードを定義し、他の列が階層データ ポイントを定義します:
+Aspose.Slides for Java では、各数値は [IChartDataPoint](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdatapoint/) です。その [IChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdatapoint/#getDataPointLevels--) メソッドでリーフとその親グループにアクセスできます。本記事ではそのマッピングを説明し、同じサンプルデータから両方のチャートタイプを作成および書式設定する方法を示します。
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
+![Consumer と Business のブランチを持つ Treemap チャート](treemap-hierarchy.png)
 
-プレゼンテーションに新しい Sunburst チャートを追加しましょう:
+![同じ Consumer と Business の階層を持つ Sunburst チャート](sunburst-hierarchy.png)
+
+## **カテゴリ、データポイント、およびレベルの理解**
+
+以下で使用するサンプルは 3 つのカテゴリレベルと 1 つの数値系列で構成されています。
+
+| ブランチ | ステム | リーフ | 売上 |
+| --- | --- | --- | ---: |
+| Consumer | Computers | Laptops | 12 |
+| Consumer | Computers | Desktops | 8 |
+| Consumer | Mobile | Phones | 15 |
+| Consumer | Mobile | Tablets | 6 |
+| Business | Services | Consulting | 10 |
+| Business | Services | Support | 7 |
+| Business | Software | Licenses | 11 |
+| Business | Software | Subscriptions | 14 |
+
+各行は 1 つのリーフカテゴリと 1 つのデータポイントを作成します。カテゴリのグルーピングレベルは、リーフからその親までのパスを表します。最初の行の場合、パスは `Consumer > Computers > Laptops` です。
+
+[IChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdatapoint/#getDataPointLevels--) が返すインデックスはリーフから上方向に進みます。
+
+| `getDataPointLevels()` インデックス | 論理レベル | Treemap の表現 | Sunburst の表現 |
+| ---: | --- | --- | --- |
+| `0` | リーフ | 値矩形 | 外側リングのセグメント |
+| `1` | ステム | 親矩形またはヘッダー | 中間リングのセグメント |
+| `2` | ブランチ | 最上位矩形またはヘッダー | 内側リングのセグメント |
+
+この順序は両方のチャートタイプで同じですが、視覚的レイアウトは異なります。親セグメントは複数のリーフで共有されます。書式設定するには、そのグループ内の最初のデータポイントの対応レベルを使用します。たとえば、`Consumer` ブランチは `Laptops` ポイントで開始し、`Software` ステムは `Licenses` ポイントで開始します。これらのポイントへの参照を保持する方が、`dataPoints.get_Item(0)` や `dataPoints.get_Item(6)` などの説明のない式を使用するよりも明確で安全です。
+
+## **両方のチャート タイプの作成とカスタマイズ**
+
+以下の完全なサンプルは、最初のスライドに Treemap、2 番目のスライドに Sunburst を作成します。階層を構築し、`Tablets` の値を表示し、選択したレベルに固定色を適用し、ブランチ ラベルを書式設定し、プレゼンテーションを保存します。
+
 ```java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Sunburst, 100, 100, 450, 400);
+    final int worksheetIndex = 0;
+    final int leafLevelIndex = 0;
+    final int stemLevelIndex = 1;
+    final int branchLevelIndex = 2;
 
-    // 省略
+    String[] branchNames = {
+        "Consumer", "Consumer", "Consumer", "Consumer",
+        "Business", "Business", "Business", "Business"
+    };
+    String[] stemNames = {
+        "Computers", "Computers", "Mobile", "Mobile",
+        "Services", "Services", "Software", "Software"
+    };
+    String[] leafNames = {
+        "Laptops", "Desktops", "Phones", "Tablets",
+        "Consulting", "Support", "Licenses", "Subscriptions"
+    };
+    double[] revenues = {12, 8, 15, 6, 10, 7, 11, 14};
+    int dataPointCount = leafNames.length;
+
+    int[] chartTypes = {ChartType.Treemap, ChartType.Sunburst};
+    int chartCount = chartTypes.length;
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().get_Item(0);
+
+    for (int chartIndex = 0; chartIndex < chartCount; chartIndex++) {
+        int chartType = chartTypes[chartIndex];
+        ISlide slide;
+
+        if (chartIndex == 0) {
+            slide = presentation.getSlides().get_Item(0);
+        } else {
+            slide = presentation.getSlides().addEmptySlide(layoutSlide);
+        }
+
+        IChart chart = slide.getShapes().addChart(chartType, 40, 40, 640, 440);
+        chart.setTitle(false);
+        chart.setLegend(false);
+
+        IChartData chartData = chart.getChartData();
+        chartData.getCategories().clear();
+        chartData.getSeries().clear();
+
+        IChartDataWorkbook workbook = chartData.getChartDataWorkbook();
+        workbook.clear(worksheetIndex);
+
+        // リーフカテゴリを追加します。グループ化アイテムは新しいグループが開始されたときのみ設定されます；
+        // 後続のカテゴリは別のアイテムが設定されるまでそのグループに留まります。
+        for (int dataIndex = 0; dataIndex < dataPointCount; dataIndex++) {
+            int rowIndex = dataIndex + 1;
+            String leafName = leafNames[dataIndex];
+            IChartDataCell categoryCell = workbook.getCell(worksheetIndex, rowIndex, 2, leafName);
+            IChartCategory category = chartData.getCategories().add(categoryCell);
+
+            String stemName = stemNames[dataIndex];
+            boolean startsNewStem = dataIndex == 0;
+            if (dataIndex > 0) {
+                String previousStemName = stemNames[dataIndex - 1];
+                startsNewStem = !stemName.equals(previousStemName);
+            }
+            if (startsNewStem) {
+                category.getGroupingLevels().setGroupingItem(stemLevelIndex, stemName);
+            }
+
+            String branchName = branchNames[dataIndex];
+            boolean startsNewBranch = dataIndex == 0;
+            if (dataIndex > 0) {
+                String previousBranchName = branchNames[dataIndex - 1];
+                startsNewBranch = !branchName.equals(previousBranchName);
+            }
+            if (startsNewBranch) {
+                category.getGroupingLevels().setGroupingItem(branchLevelIndex, branchName);
+            }
+        }
+
+        IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 3, "Revenue");
+        IChartSeries series = chartData.getSeries().add(seriesNameCell, chartType);
+        series.getLabels().getDefaultDataLabelFormat().setShowCategoryName(true);
+
+        IChartDataPoint laptopsDataPoint = null;
+        IChartDataPoint tabletsDataPoint = null;
+        IChartDataPoint licensesDataPoint = null;
+
+        for (int dataIndex = 0; dataIndex < dataPointCount; dataIndex++) {
+            int rowIndex = dataIndex + 1;
+            String leafName = leafNames[dataIndex];
+            double revenue = revenues[dataIndex];
+            IChartDataCell valueCell = workbook.getCell(worksheetIndex, rowIndex, 3, revenue);
+            IChartDataPoint dataPoint;
+
+            if (chartType == ChartType.Treemap) {
+                dataPoint = series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+            } else {
+                dataPoint = series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+            }
+
+            if ("Laptops".equals(leafName)) {
+                laptopsDataPoint = dataPoint;
+            } else if ("Tablets".equals(leafName)) {
+                tabletsDataPoint = dataPoint;
+            } else if ("Licenses".equals(leafName)) {
+                licensesDataPoint = dataPoint;
+            }
+        }
+
+        // Tablets のリーフにカテゴリと値を表示します。
+        IChartDataPointLevel tabletsLeafLevel = tabletsDataPoint.getDataPointLevels().get_Item(leafLevelIndex);
+        IDataLabelFormat tabletsLabelFormat = tabletsLeafLevel.getLabel().getDataLabelFormat();
+        tabletsLabelFormat.setShowCategoryName(true);
+        tabletsLabelFormat.setShowValue(true);
+        tabletsLabelFormat.setSeparator("\n");
+        tabletsLabelFormat.setNumberFormat("$0");
+
+        // そのブランチの最初のリーフを通じて Consumer ブランチの書式を設定します。
+        IChartDataPointLevel consumerBranchLevel = laptopsDataPoint.getDataPointLevels().get_Item(branchLevelIndex);
+        IFillFormat consumerBranchFill = consumerBranchLevel.getFormat().getFill();
+        Color consumerBranchColor = new Color(31, 78, 121);
+        consumerBranchFill.setFillType(FillType.Solid);
+        consumerBranchFill.getSolidFillColor().setColor(consumerBranchColor);
+
+        IDataLabelFormat consumerLabelFormat = consumerBranchLevel.getLabel().getDataLabelFormat();
+        consumerLabelFormat.setShowCategoryName(true);
+        consumerLabelFormat.setShowSeriesName(false);
+        IFillFormat consumerLabelTextFill = consumerLabelFormat.getTextFormat().getPortionFormat().getFillFormat();
+        consumerLabelTextFill.setFillType(FillType.Solid);
+        consumerLabelTextFill.getSolidFillColor().setColor(Color.WHITE);
+
+        // そのステムの最初のリーフを通じて Software ステムの書式を設定します。
+        IChartDataPointLevel softwareStemLevel = licensesDataPoint.getDataPointLevels().get_Item(stemLevelIndex);
+        IFillFormat softwareStemFill = softwareStemLevel.getFormat().getFill();
+        Color softwareStemColor = new Color(112, 173, 71);
+        softwareStemFill.setFillType(FillType.Solid);
+        softwareStemFill.getSolidFillColor().setColor(softwareStemColor);
+
+        // ParentLabelLayout は Treemap の親ラベルに影響し、Sunburst はリングセグメントを使用します。
+        if (chartType == ChartType.Treemap) {
+            series.setParentLabelLayout(ParentLabelLayoutType.Overlapping);
+        }
+    }
+
+    presentation.save("hierarchical-charts.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+カテゴリセルと値セルは同じワークシート行を使用するため、コレクションの位置が揃ったままです。既存のチャートを操作する場合は、まずカテゴリ行を確認し、書式設定しようとするデータポイントとレベルへの名前付き参照を保存してください。
 
-{{% alert color="primary" title="参考" %}} 
-- [**Java で PowerPoint プレゼンテーションのチャートを作成または更新**](/slides/ja/java/create-chart/)
-{{% /alert %}}
+## **動作と実用的な考慮事項**
 
-チャートのデータ ポイントを書式設定する必要がある場合は、次のものを使用します:
+### **Treemap と Sunburst の違い**
 
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataPointLevelsManager)、 
-[IChartDataPointLevel](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataPointLevel) クラス 
-および [**IChartDataPoint.getDataPointLevels**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataPoint#getDataPointLevels--) メソッドは、Treemap と Sunburst チャートのデータ ポイントの書式設定へのアクセスを提供します。 
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataPointLevelsManager) は、マルチレベル カテゴリへのアクセスに使用され、[**IChartDataPointLevel**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataPointLevel) オブジェクトのコンテナを表します。 
-基本的にこれは、データ ポイント固有のプロパティが追加された [**IChartCategoryLevelsManager**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartCategoryLevelsManager) のラッパーです。 
-[**IChartDataPointLevel**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataPointLevel) クラスには、[**getFormat**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataPointLevel#getFormat--) と [**getDataLabel**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataPointLevel#getLabel--) の 2 つのメソッドがあり、対応する設定へのアクセスを提供します。
+- Treemap は面積で値を示し、ネストされた矩形で階層を示します。[`IChartSeries.setParentLabelLayout`](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartseries/#setParentLabelLayout-int-) メソッドでこのチャートタイプの親ラベルの表示方法を制御します。
+- Sunburst は角度で値を示し、リングの深さで階層を示します。[`IChartSeries.setParentLabelLayout`](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartseries/#setParentLabelLayout-int-) はリングラベルには影響しません。
+- 両方のチャートタイプは同じカテゴリグルーピングレベルと、[`IChartDataPoint.getDataPointLevels`](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdatapoint/#getDataPointLevels--) が返すリーフから親への順序を使用するため、データ構築およびレベル書式設定コードを共有できます。
+- 親の値は子孫リーフから計算されます。ブランチやステム用に別個の数値ポイントを追加しないでください。
 
-## **データ ポイントの値を表示**
-"Leaf 4" データ ポイントの値を表示します:
-```java
-IChartDataPointCollection dataPoints = chart.getChartData().getSeries().get_Item(0).getDataPoints();
-dataPoints.get_Item(3).getDataPointLevels().get_Item(0).getLabel().getDataLabelFormat().setShowValue(true);
-```
+### **ソートとセグメント順序**
 
+チャート レイアウト エンジンが矩形やリング セグメントの最終配置を決定します。関連するカテゴリ行をまとめてから追加してください。ただし、特定の矩形位置や開始角度に依存しないでください。順序に意味がある場合は、ラベルに含めるか、明示的なカテゴリ軸を持つチャートタイプを使用してください。
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
+### **テーマと固定色**
 
-## **データ ポイントのラベルと色を設定**
-"Branch 1" のデータ ラベルをカテゴリ名ではなくシリーズ名 ("Series1") を表示するように設定し、テキストの色を黄色に設定します:
-```java
-IDataLabel branch1Label = dataPoints.get_Item(0).getDataPointLevels().get_Item(0).getLabel();
-branch1Label.getDataLabelFormat().setShowCategoryName(false);
-branch1Label.getDataLabelFormat().setShowSeriesName(true);
+書式設定されていないチャートレベルはプレゼンテーションのテーマから色を継承します。例では予測可能な出力のために明示的な RGB 塗りを使用しています。テーマ変更に追従させたい場合は、固定 RGB 値の代わりにスキームカラーを使用し、すべてのレベルを上書きしないようにしてください。また、ブランチやステムの塗りを変更した後はラベルのコントラストも確認してください。
 
-branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
-```
+### **ラベルと利用可能スペース**
 
+セグメントが小さすぎると PowerPoint はラベルを非表示または切り捨てることがあります。チャート サイズを大きくする、カテゴリ名を短くする、または表示フィールドを減らすと、結果がより明瞭になります。ラベルは [IDataLabelFormat](https://reference.aspose.com/slides/ja/java/com.aspose.slides/idatalabelformat/) を通じてカテゴリ名、系列名、値を組み合わせられますが、すべてのフィールドを有効にすると階層チャートの可読性が低下することがあります。
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
+### **エクスポートとレンダリング**
 
-## **データ ポイントのブランチ色を設定**
-"Steam 4" ブランチの色を変更します:
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Sunburst, 100, 100, 450, 400);
+PPTX に保存するとチャートは編集可能なままです。Aspose.Slides がプレゼンテーションを PDF や画像にレンダリングする際、サポートされている塗りとラベル設定がチャートと共に描画されます。フォントの置換や利用可能レイアウトスペースの微細な違いにより改行やラベルの可視性が変わることがあるため、必要なフォントをインストールし、重要なエクスポート先で確認してください。
 
-    IChartDataPointCollection dataPoints = chart.getChartData().getSeries().get_Item(0).getDataPoints();
+## **よくある質問**
 
-    IChartDataPointLevel stem4branch = dataPoints.get_Item(9).getDataPointLevels().get_Item(1);
+**親レベルを変更すると複数のリーフに影響が出るのはなぜですか？**
 
-    stem4branch.getFormat().getFill().setFillType(FillType.Solid);
-    stem4branch.getFormat().getFill().getSolidFillColor().setColor(Color.RED);
+ブランチやステムは共有される視覚セグメントです。その [`IChartDataPointLevel`](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdatapointlevel/) は子孫リーフから取得できますが、書式設定はそのリーフだけでなく共有された親セグメント全体に適用されます。
 
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+**データラベルが表示されません。どうすればよいですか？**
 
+まずラベルの [`IDataLabelFormat`](https://reference.aspose.com/slides/ja/java/com.aspose.slides/idatalabelformat/) オブジェクトで必要なフィールドを有効にしてください。次に、そのセグメントに十分なスペースがあるか確認します。Treemap の親ラベルレイアウト、チャート のサイズ、ラベルの長さ、フォントサイズ、そして有効化したフィールド数がラベル表示に影響します。
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/Zll4cpQ5tTDdgwmJ4yuupolfGaANR8SWWTU3XaJav_ZVXVstV1pI1z1OFH-gov6FxPoDz1cxmMyrgjsdYGS24PlhaYa2daKzlNuL1a0xYcqEiyyO23AE6JMOLavWpvqA6SzOCA6_)
+**セグメントの正確な順序や座標を設定できますか？**
 
-## **FAQ**
+ソース 行の順序を制御し、各グループを連続させることはできますが、Treemap の矩形や Sunburst の角度を正確に指定することはできません。チャート レイアウト エンジンが階層、値、利用可能スペースから自動的に計算します。
 
-**Sunburst/Treemap のセグメントの順序（ソート）を変更できますか？**
+**プレゼンテーションのテーマを変更すると色が変わりますか？**
 
-いいえ。PowerPoint はセグメントを自動的に並べ替えます（通常は降順で時計回り）。Aspose.Slides はこの動作を反映します。直接順序を変更することはできず、データを事前に処理することで実現します。
+テーマベースの塗りはプレゼンテーションのパレットに従うよう設計されています。固定したいレベルには明示的な RGB 色を適用するか、テーマ変更に合わせてスキームカラーを使用してください。
 
-**プレゼンテーションのテーマはセグメントとラベルの色にどのように影響しますか？**
+**PDF や画像へのエクスポートでカスタム書式設定は保持されますか？**
 
-チャートの色は、明示的に塗りつぶしやフォントを設定しない限り、プレゼンテーションの[テーマ/パレット](/slides/ja/java/presentation-theme/)を継承します。一定の結果を得るには、必要なレベルで実体の塗りつぶしとテキスト書式を設定してください。
+はい、サポートされているチャート塗りとラベル設定はレンダリング時に含まれます。システム間で一貫した結果を得るには、必要なフォントを利用可能にし、ラベルのフィットはレイアウトに依存するため最終エクスポートサイズでテストしてください。
 
-**PDF/PNG へのエクスポートはカスタムのブランチ色とラベル設定を保持しますか？**
+## **関連項目**
 
-はい。プレゼンテーションをエクスポートすると、チャート設定（塗りつぶし、ラベル）は出力フォーマットに保持されます。Aspose.Slides はチャートの書式設定を適用した状態でレンダリングします。
-
-**チャート上にカスタムオーバーレイを配置するために、ラベル/要素の実際の座標を計算できますか？**
-
-はい。チャートのレイアウトが確定した後、要素（例: [DataLabel](https://reference.aspose.com/slides/java/com.aspose.slides/datalabel/)）の実際の *x* と *y* が取得でき、オーバーレイの正確な位置決めに利用できます。
+- [Create Treemap charts](/slides/ja/java/create-chart/#create-tree-map-charts)
+- [Create Sunburst charts](/slides/ja/java/create-chart/#create-sunburst-charts)
+- [Export presentation charts](/slides/ja/java/export-chart/)
+- [Manage presentation themes](/slides/ja/java/presentation-theme/)

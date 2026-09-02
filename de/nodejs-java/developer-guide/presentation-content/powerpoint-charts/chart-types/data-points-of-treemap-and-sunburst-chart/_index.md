@@ -1,121 +1,260 @@
 ---
-title: Datenpunkte in Treemap- und Sunburst-Diagrammen mit JavaScript anpassen
-linktitle: Datenpunkte in Treemap- und Sunburst-Diagrammen
+title: "Anpassen von Datenpunkten in Treemap- und Sunburst-Diagrammen mit JavaScript"
+linktitle: "Datenpunkte in Treemap- und Sunburst-Diagrammen"
 type: docs
 url: /de/nodejs-java/data-points-of-treemap-and-sunburst-chart/
 weight: 40
 keywords:
-- treemap-Diagramm
-- sunburst-Diagramm
+- Treemap-Diagramm
+- Sunburst-Diagramm
+- Hierarchisches Diagramm
 - Datenpunkt
-- Beschriftungsfarbe
-- Astfarbe
+- Datenbeschriftung
+- Zweigfarbe
 - PowerPoint
 - Präsentation
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Datenpunkte in Treemap- und Sunburst-Diagrammen mit JavaScript und Aspose.Slides für Node.js via Java verwalten, kompatibel mit PowerPoint-Formaten."
+description: "Erfahren Sie, wie Sie hierarchische Daten erstellen und Ebenen, Beschriftungen und Farben in Treemap- und Sunburst-Diagrammen mit Aspose.Slides für Node.js über Java anpassen."
 ---
+## **Übersicht**
 
-Unter den anderen PowerPoint‑Diagrammtypen gibt es zwei „hierarchische“ Typen – **Treemap** und **Sunburst**‑Diagramm (auch bekannt als Sunburst‑Graph, Sunburst‑Diagramm, Radial‑Diagramm, Radial‑Graph oder Mehrstufiges Kreis‑Diagramm). Diese Diagramme stellen hierarchische Daten dar, die als Baum strukturiert sind – von den Blättern bis zur Spitze des Astes. Blätter werden durch die Datenpunkte der Serie definiert, und jede nachfolgende verschachtelte Gruppierungsebene wird durch die entsprechende Kategorie bestimmt. Aspose.Slides für Node.js via Java ermöglicht das Formatieren von Datenpunkten des Sunburst‑Diagramms und des Treemap‑Diagramms in JavaScript.
+Treemap- und Sunburst-Diagramme zeigen dieselbe Art hierarchischer Daten an, verwenden jedoch unterschiedliche Layouts. Ein Treemap stellt die Hierarchie als verschachtelte Rechtecke dar, deren Flächen die Blattwerte repräsentieren. Ein Sunburst stellt sie als konzentrische Ringe dar: Oberste Gruppen befinden sich in der Nähe des Zentrums, und Blattkategorien liegen auf dem Außenring.
 
-Hier ein Sunburst‑Diagramm, bei dem die Daten in der Spalte Series1 die Blattknoten definieren, während die anderen Spalten hierarchische Datenpunkte definieren:
+In Aspose.Slides für Node.js über Java stellt jeder numerische Wert ein [ChartDataPoint](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdatapoint/). Seine [ChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdatapoint/#getDataPointLevels)‑Methode ermöglicht den Zugriff auf das Blatt und seine übergeordneten Gruppen. Dieser Artikel erklärt diese Zuordnung und zeigt, wie beide Diagrammtypen aus denselben Beispieldaten erstellt und formatiert werden können.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
+![Ein Treemap-Diagramm mit den Zweigen Consumer und Business](treemap-hierarchy.png)
 
-Lassen Sie uns ein neues Sunburst‑Diagramm zur Präsentation hinzufügen:
+![Ein Sunburst-Diagramm mit derselben Consumer- und Business-Hierarchie](sunburst-hierarchy.png)
+
+## **Verstehen von Kategorien, Datenpunkten und Ebenen**
+
+Das unten verwendete Beispiel hat drei Kategorieebenen und eine numerische Serie:
+
+| Zweig | Stamm | Blatt | Umsatz |
+| --- | --- | --- | ---: |
+| Consumer | Computers | Laptops | 12 |
+| Consumer | Computers | Desktops | 8 |
+| Consumer | Mobile | Phones | 15 |
+| Consumer | Mobile | Tablets | 6 |
+| Business | Services | Consulting | 10 |
+| Business | Services | Support | 7 |
+| Business | Software | Licenses | 11 |
+| Business | Software | Subscriptions | 14 |
+
+Jede Zeile erzeugt eine Blattkategorie und einen Datenpunkt. Die Gruppierungsebenen der Kategorien beschreiben den Pfad von diesem Blatt zu seinen übergeordneten Elementen. Für die erste Zeile ist der Pfad `Consumer > Computers > Laptops`.
+
+Die von [ChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdatapoint/#getDataPointLevels) zurückgegebenen Indizes laufen vom Blatt aufwärts:
+
+| Index (`getDataPointLevels()`) | Logische Ebene | Treemap-Darstellung | Sunburst-Darstellung |
+| ---: | --- | --- | --- |
+| `0` | Blatt | Wertrechteck | Außenringsegment |
+| `1` | Stamm | Elternrechteck oder -überschrift | Mittelringsegment |
+| `2` | Zweig | Oberste Rechteck oder Überschrift | Innenringsegment |
+
+Diese Reihenfolge ist für beide Diagrammtypen gleich, obwohl sich ihre visuellen Layouts unterscheiden. Ein übergeordnetes Segment wird von mehreren Blättern gemeinsam genutzt. Um es zu formatieren, verwenden Sie die entsprechende Ebene des ersten Datenpunkts in dieser Gruppe. Zum Beispiel beginnt der `Consumer`‑Zweig mit dem `Laptops`‑Punkt, während der `Software`‑Stamm mit dem `Licenses`‑Punkt beginnt. Verweise auf diese Punkte zu behalten ist klarer und sicherer, als ungeklärte Ausdrücke wie `dataPoints.get_Item(0)` oder `dataPoints.get_Item(6)` zu verwenden.
+
+## **Erstellen und Anpassen beider Diagrammtypen**
+
+Das folgende vollständige Beispiel erstellt ein Treemap auf der ersten Folie und ein Sunburst auf der zweiten Folie. Es baut die Hierarchie auf, zeigt den Wert für `Tablets` an, wendet feste Farben auf ausgewählte Ebenen an, formatiert ein Zweig‑Label und speichert die Präsentation.
+
 ```javascript
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Sunburst, 100, 100, 450, 400);
-    // ...
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const worksheetIndex = 0;
+    const leafLevelIndex = 0;
+    const stemLevelIndex = 1;
+    const branchLevelIndex = 2;
+
+    const branchNames = [
+        "Consumer", "Consumer", "Consumer", "Consumer",
+        "Business", "Business", "Business", "Business"
+    ];
+    const stemNames = [
+        "Computers", "Computers", "Mobile", "Mobile",
+        "Services", "Services", "Software", "Software"
+    ];
+    const leafNames = [
+        "Laptops", "Desktops", "Phones", "Tablets",
+        "Consulting", "Support", "Licenses", "Subscriptions"
+    ];
+    const revenues = [12, 8, 15, 6, 10, 7, 11, 14];
+    const dataPointCount = leafNames.length;
+
+    const chartTypes = [
+        aspose.slides.ChartType.Treemap,
+        aspose.slides.ChartType.Sunburst
+    ];
+    const chartCount = chartTypes.length;
+    const layoutSlide = presentation.getLayoutSlides().get_Item(0);
+
+    for (let chartIndex = 0; chartIndex < chartCount; chartIndex++) {
+        const chartType = chartTypes[chartIndex];
+        let slide;
+
+        if (chartIndex === 0) {
+            slide = presentation.getSlides().get_Item(0);
+        } else {
+            slide = presentation.getSlides().addEmptySlide(layoutSlide);
+        }
+
+        const chart = slide.getShapes().addChart(chartType, 40, 40, 640, 440);
+        chart.setTitle(false);
+        chart.setLegend(false);
+
+        const chartData = chart.getChartData();
+        chartData.getCategories().clear();
+        chartData.getSeries().clear();
+
+        const workbook = chartData.getChartDataWorkbook();
+        workbook.clear(worksheetIndex);
+
+        // Fügen Sie die Blattkategorien hinzu. Ein Gruppierungselement wird nur gesetzt, wenn eine neue Gruppe beginnt;
+        // die folgenden Kategorien bleiben in dieser Gruppe, bis ein weiteres Element gesetzt wird.
+        for (let dataIndex = 0; dataIndex < dataPointCount; dataIndex++) {
+            const rowIndex = dataIndex + 1;
+            const leafName = leafNames[dataIndex];
+            const categoryCell = workbook.getCell(worksheetIndex, rowIndex, 2, leafName);
+            const category = chartData.getCategories().add(categoryCell);
+
+            const stemName = stemNames[dataIndex];
+            const startsNewStem = dataIndex === 0 || stemName !== stemNames[dataIndex - 1];
+            if (startsNewStem) {
+                category.getGroupingLevels().setGroupingItem(stemLevelIndex, stemName);
+            }
+
+            const branchName = branchNames[dataIndex];
+            const startsNewBranch = dataIndex === 0 || branchName !== branchNames[dataIndex - 1];
+            if (startsNewBranch) {
+                category.getGroupingLevels().setGroupingItem(branchLevelIndex, branchName);
+            }
+        }
+
+        const seriesNameCell = workbook.getCell(worksheetIndex, 0, 3, "Revenue");
+        const series = chartData.getSeries().add(seriesNameCell, chartType);
+        series.getLabels().getDefaultDataLabelFormat().setShowCategoryName(true);
+
+        let laptopsDataPoint = null;
+        let tabletsDataPoint = null;
+        let licensesDataPoint = null;
+
+        for (let dataIndex = 0; dataIndex < dataPointCount; dataIndex++) {
+            const rowIndex = dataIndex + 1;
+            const leafName = leafNames[dataIndex];
+            const revenue = revenues[dataIndex];
+            const valueCell = workbook.getCell(worksheetIndex, rowIndex, 3, revenue);
+            let dataPoint;
+
+            if (chartType === aspose.slides.ChartType.Treemap) {
+                dataPoint = series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+            } else {
+                dataPoint = series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+            }
+
+            if (leafName === "Laptops") {
+                laptopsDataPoint = dataPoint;
+            } else if (leafName === "Tablets") {
+                tabletsDataPoint = dataPoint;
+            } else if (leafName === "Licenses") {
+                licensesDataPoint = dataPoint;
+            }
+        }
+
+        // Zeige die Kategorie und den Wert im Blatt Tablets an.
+        const tabletsLeafLevel = tabletsDataPoint.getDataPointLevels().get_Item(leafLevelIndex);
+        const tabletsLabelFormat = tabletsLeafLevel.getLabel().getDataLabelFormat();
+        tabletsLabelFormat.setShowCategoryName(true);
+        tabletsLabelFormat.setShowValue(true);
+        tabletsLabelFormat.setSeparator("\n");
+        tabletsLabelFormat.setNumberFormat("$0");
+
+        // Formatiere den Consumer‑Zweig über das erste Blatt in diesem Zweig.
+        const consumerBranchLevel = laptopsDataPoint.getDataPointLevels().get_Item(branchLevelIndex);
+        const consumerBranchFill = consumerBranchLevel.getFormat().getFill();
+        const consumerBranchColor = java.newInstanceSync("java.awt.Color", 31, 78, 121);
+        consumerBranchFill.setFillType(java.newByte(aspose.slides.FillType.Solid));
+        consumerBranchFill.getSolidFillColor().setColor(consumerBranchColor);
+
+        const consumerLabelFormat = consumerBranchLevel.getLabel().getDataLabelFormat();
+        consumerLabelFormat.setShowCategoryName(true);
+        consumerLabelFormat.setShowSeriesName(false);
+        const consumerLabelTextFill = consumerLabelFormat.getTextFormat().getPortionFormat().getFillFormat();
+        const whiteColor = java.getStaticFieldValue("java.awt.Color", "WHITE");
+        consumerLabelTextFill.setFillType(java.newByte(aspose.slides.FillType.Solid));
+        consumerLabelTextFill.getSolidFillColor().setColor(whiteColor);
+
+        // Formatiere den Software‑Stamm über das erste Blatt in diesem Stamm.
+        const softwareStemLevel = licensesDataPoint.getDataPointLevels().get_Item(stemLevelIndex);
+        const softwareStemFill = softwareStemLevel.getFormat().getFill();
+        const softwareStemColor = java.newInstanceSync("java.awt.Color", 112, 173, 71);
+        softwareStemFill.setFillType(java.newByte(aspose.slides.FillType.Solid));
+        softwareStemFill.getSolidFillColor().setColor(softwareStemColor);
+
+        // ParentLabelLayout beeinflusst die übergeordneten Beschriftungen bei Treemap; Sunburst verwendet Ringsegmente.
+        if (chartType === aspose.slides.ChartType.Treemap) {
+            series.setParentLabelLayout(aspose.slides.ParentLabelLayoutType.Overlapping);
+        }
     }
+
+    presentation.save("hierarchical-charts.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
+Die Zellen für Kategorien und Werte verwenden dieselbe Arbeitsblattzeile, sodass ihre Sammelpositionen ausgerichtet bleiben. Wenn Sie mit einem bestehenden Diagramm arbeiten, anstatt eines zu erstellen, prüfen Sie zunächst die Kategorierreihen und speichern Sie benannte Verweise auf die Datenpunkte und Ebenen, die Sie formatieren möchten.
 
-{{% alert color="primary" title="Siehe auch" %}} 
-- [**Create or Update PowerPoint Presentation Charts in JavaScript**](/slides/de/nodejs-java/create-chart/)
-{{% /alert %}}
+## **Verhalten und praktische Überlegungen**
 
-Falls Datenpunkte des Diagramms formatiert werden müssen, sollten die folgenden Klassen verwendet werden:
+### **Unterschiede zwischen Treemap und Sunburst**
 
-[**ChartDataPointLevelsManager**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPointLevelsManager), 
-[ChartDataPointLevel](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPointLevel) Klassen 
-und [**ChartDataPoint.getDataPointLevels**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPoint#getDataPointLevels--) Methode 
-bieten Zugriff zum Formatieren von Datenpunkten von Treemap‑ und Sunburst‑Diagrammen. 
-[**ChartDataPointLevelsManager**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPointLevelsManager) 
-wird zum Zugriff auf mehrstufige Kategorien verwendet – er stellt den Container für 
-[**ChartDataPointLevel**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPointLevel)‑Objekte dar.
-Im Grunde ist er ein Wrapper für 
-[**ChartCategoryLevelsManager**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartCategoryLevelsManager) 
-mit Eigenschaften, die speziell für Datenpunkte hinzugefügt wurden. 
-Die Klasse [**ChartDataPointLevel**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPointLevel) 
-verfügt über zwei Methoden: [**getFormat**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPointLevel#getFormat--) und 
-[**getDataLabel**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPointLevel#getLabel--) – sie ermöglichen den Zugriff auf die jeweiligen Einstellungen.
+- Ein Treemap verwendet die Fläche, um den Wert zu vermitteln, und verschachtelte Rechtecke, um die Hierarchie darzustellen. Die [ChartSeries.setParentLabelLayout](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartseries/#setParentLabelLayout)‑Methode steuert, wie übergeordnete Beschriftungen in diesem Diagrammtyp angezeigt werden.
+- Ein Sunburst verwendet den Winkel, um den Wert zu vermitteln, und die Ringtiefe, um die Hierarchie darzustellen. [ChartSeries.setParentLabelLayout](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartseries/#setParentLabelLayout) steuert nicht die Ringbeschriftungen.
+- Beide Diagrammtypen verwenden dieselben Kategorie‑Gruppierungsebenen und dieselbe Blatt‑zu‑Eltern‑Reihenfolge, die von [ChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdatapoint/#getDataPointLevels) zurückgegeben wird, sodass der Code zum Erstellen der Daten und zum Formatieren der Ebenen gemeinsam genutzt werden kann.
+- Übergeordnete Werte werden aus ihren nachgelagerten Blättern berechnet. Fügen Sie keine separaten numerischen Punkte für Zweige oder Stämme hinzu.
 
-## **Show Data Point Value**
-Wert des Datenpunkts „Leaf 4“ anzeigen:
-```javascript
-var dataPoints = chart.getChartData().getSeries().get_Item(0).getDataPoints();
-dataPoints.get_Item(3).getDataPointLevels().get_Item(0).getLabel().getDataLabelFormat().setShowValue(true);
-```
+### **Sortierung und Segmentreihenfolge**
 
+Die Layout‑Engine des Diagramms bestimmt die endgültige Platzierung von Rechtecken und Ringsegmenten. Ordnen Sie verwandte Kategorierreihen zusammen, bevor Sie sie hinzufügen, aber verlassen Sie sich nicht auf eine bestimmte Rechteckposition oder einen Startwinkel. Wenn die Reihenfolge eine Bedeutung hat, integrieren Sie sie in die Beschriftungen oder verwenden Sie einen Diagrammtyp mit einer expliziten Kategorienachse.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
+### **Thema und feste Farben**
 
-## **Set Data Point Label and Color**
-Datenbeschriftung von „Branch 1“ so einstellen, dass der Serienname („Series1“) anstelle des Kategorienamens angezeigt wird. Anschließend die Textfarbe auf Gelb setzen:
-```javascript
-var branch1Label = dataPoints.get_Item(0).getDataPointLevels().get_Item(0).getLabel();
-branch1Label.getDataLabelFormat().setShowCategoryName(false);
-branch1Label.getDataLabelFormat().setShowSeriesName(true);
-branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
-```
+Unformatierte Diagrammebenen übernehmen Farben aus dem Präsentationsthema. Das Beispiel verwendet explizite RGB‑Füllungen für vorhersehbare Ergebnisse. Wenn das Diagramm Theme‑Änderungen folgen soll, verwenden Sie Farbschemas anstelle fester RGB‑Werte und vermeiden Sie das Überschreiben jeder Ebene. Überprüfen Sie zudem den Kontrast der Beschriftungen, nachdem Sie die Füllung eines Zweigs oder Stamms geändert haben.
 
+### **Beschriftungen und verfügbarer Platz**
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
+PowerPoint kann Beschriftungen ausblenden oder abschneiden, wenn ein Segment zu klein ist. Die Vergrößerung des Diagramms, das Kürzen von Kategorienamen oder das Anzeigen weniger Beschriftungsfelder führt in der Regel zu einem klareren Ergebnis. Eine Beschriftung kann den Kategorienamen, den Seriennamen und den Wert über [DataLabelFormat](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/datalabelformat/) kombinieren, aber das Aktivieren aller Felder macht hierarchische Diagramme oft schwer lesbar.
 
-## **Set Data Point Branch Color**
-Farbe des Astes „Steam 4“ ändern:
-```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Sunburst, 100, 100, 450, 400);
-    var dataPoints = chart.getChartData().getSeries().get_Item(0).getDataPoints();
-    var stem4branch = dataPoints.get_Item(9).getDataPointLevels().get_Item(1);
-    stem4branch.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    stem4branch.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+### **Export und Rendering**
 
-
-![todo:image_alt_text](https://lh5.googleusercontent.com/Zll4cpQ5tTDdgwmJ4yuupolfGaANR8SWWTU3XaJav_ZVXVstV1pI1z1OFH-gov6FxPoDz1cxmMyrgjsdYGS24PlhaYa2daKzlNuL1a0xYcqEiyyO23AE6JMOLavWpvqA6SzOCA6_)
+Das Speichern im PPTX-Format hält das Diagramm editierbar. Wenn Aspose.Slides die Präsentation zu PDF oder einem Bild rendert, werden die unterstützten Füllungen und Beschriftungseinstellungen zusammen mit dem Diagramm gerendert. Schriftartersetzungen und kleine Unterschiede im verfügbaren Layout‑Raum können Zeilenumbrüche oder die Sichtbarkeit von Beschriftungen ändern, daher sollten die erforderlichen Schriftarten installiert und wichtige Exportziele überprüft werden.
 
 ## **FAQ**
 
-**Kann ich die Reihenfolge (Sortierung) der Segmente in Sunburst/Treemap ändern?**
+**Warum wirkt sich das Ändern einer übergeordneten Ebene auf mehrere Blätter aus?**
 
-Nein. PowerPoint sortiert die Segmente automatisch (in der Regel absteigend, im Uhrzeigersinn). Aspose.Slides spiegelt dieses Verhalten wider: Die Reihenfolge kann nicht direkt geändert werden; sie wird durch Vorverarbeitung der Daten erreicht.
+Ein Zweig oder Stamm ist ein gemeinsam genutztes visuelles Segment. Sein [ChartDataPointLevel](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/chartdatapointlevel/) kann über ein nachgelagertes Blatt erreicht werden, aber die Formatierung gehört zum gemeinsamen übergeordneten Segment und nicht nur zu diesem Blatt.
 
-**Wie wirkt sich das Präsentationsthema auf die Farben von Segmenten und Beschriftungen aus?**
+**Warum fehlt ein Datenbeschriftung?**
 
-Diagramm‑Farben erben das [Thema/Palette](/slides/de/nodejs-java/presentation-theme/) der Präsentation, sofern nicht ausdrücklich Füllungen/Schriften gesetzt werden. Für konsistente Ergebnisse sollten feste Füllungen und Textformatierungen auf den erforderlichen Ebenen festgelegt werden.
+Aktivieren Sie zunächst die erforderlichen Felder im [DataLabelFormat](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/datalabelformat/)‑Objekt der Beschriftung. Überprüfen Sie dann, ob das Segment genügend Platz hat. Das Treemap‑Parent‑Label‑Layout, die Diagrammgröße, die Beschriftungslänge, die Schriftgröße und die Anzahl aktivierter Felder beeinflussen alle, ob eine Beschriftung angezeigt werden kann.
 
-**Werden beim Export nach PDF/PNG benutzerdefinierte Ast‑Farben und Beschriftungseinstellungen erhalten?**
+**Kann ich die genaue Reihenfolge oder Koordinaten von Segmenten festlegen?**
 
-Ja. Beim Export der Präsentation werden Diagramm‑Einstellungen (Füllungen, Beschriftungen) in den Ausgabedateien beibehalten, weil Aspose.Slides das Diagramm mit den angewendeten Formatierungen rendert.
+Sie können die Reihenfolge der Quellzeilen steuern und jede Gruppe zusammenhängend halten, aber Sie können keine genauen Treemap‑Rechtecke oder Sunburst‑Winkel zuweisen. Die Layout‑Engine des Diagramms berechnet sie aus der Hierarchie, den Werten und dem verfügbaren Raum.
 
-**Kann ich die tatsächlichen Koordinaten einer Beschriftung/eines Elements berechnen, um ein benutzerdefiniertes Overlay über dem Diagramm zu platzieren?**
+**Warum ändern sich Farben, nachdem das Präsentationsthema geändert wurde?**
 
-Ja. Nach der Validierung des Diagrammlayouts stehen die tatsächlichen X‑ und Y‑Werte für Elemente (z. B. ein [DataLabel](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/)) zur Verfügung, was eine präzise Positionierung von Overlays ermöglicht.
+Theme‑basierte Füllungen sind dafür vorgesehen, der Präsentationspalette zu folgen. Verwenden Sie explizite RGB‑Farben für die Ebenen, die fest bleiben sollen, oder behalten Sie Farbschemas bei, wenn das Anpassen an ein neues Theme bevorzugt wird.
+
+**Wird benutzerdefinierte Formatierung bei PDF‑ und Bildexporten beibehalten?**
+
+Ja, unterstützte Diagrammfüllungen und Beschriftungseinstellungen werden beim Rendern berücksichtigt. Für konsistente Ergebnisse auf verschiedenen Systemen stellen Sie die erforderlichen Schriftarten bereit und testen Sie die endgültige Exportgröße, da die Anpassung der Beschriftung vom Layout abhängt.
+
+## **Siehe auch**
+
+- [Treemap-Diagramme erstellen](/slides/de/nodejs-java/create-chart/#creating-tree-map-charts)
+- [Sunburst-Diagramme erstellen](/slides/de/nodejs-java/create-chart/#creating-sunburst-charts)
+- [Präsentationsdiagramme exportieren](/slides/de/nodejs-java/export-chart/)
+- [Präsentationsthemen verwalten](/slides/de/nodejs-java/presentation-theme/)

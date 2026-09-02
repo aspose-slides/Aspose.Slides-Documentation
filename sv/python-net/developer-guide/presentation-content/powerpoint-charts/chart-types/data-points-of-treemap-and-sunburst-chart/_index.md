@@ -1,116 +1,230 @@
 ---
-title: Anpassa datapunkter i Treemap- och Sunburst-diagram i Python
-linktitle: Datapunkter i Treemap- och Sunburst-diagram
+title: Anpassa datapunkter i Treemap och Sunburst diagram i Python
+linktitle: Datapunkter i Treemap och Sunburst diagram
 type: docs
 url: /sv/python-net/data-points-of-treemap-and-sunburst-chart/
 keywords:
 - treemap-diagram
 - sunburst-diagram
+- hierarkiskt diagram
 - datapunkt
-- etikettfärg
+- datamärkning
 - grenfärg
 - PowerPoint
-- OpenDocument
 - presentation
 - Python
 - Aspose.Slides
-description: "Lär dig hur du hanterar datapunkter i treemap- och sunburst-diagram med Aspose.Slides för Python via .NET, kompatibel med PowerPoint- och OpenDocument-format."
+description: "Lär dig hur du skapar hierarkisk data och anpassar nivåer, etiketter och färger i Treemap och Sunburst diagram med Aspose.Slides för Python via .NET."
 ---
-## **Introduktion**
+## **Översikt**
 
-Bland andra PowerPoint-diagramtyper finns det två hierarkiska — **Treemap** och **Sunburst** (även kända som Sunburst Graph, Sunburst Diagram, Radial Chart, Radial Graph eller Multi-Level Pie Chart). Dessa diagram visar hierarkisk data organiserad som ett träd — från blad till toppen av en gren. Bladen definieras av serie‑datapunkterna, och varje efterföljande inbäddad gruppering definieras av motsvarande kategori. Aspose.Slides for Python via .NET låter dig formatera datapunkter i Sunburst‑diagram och Treemap‑diagram i Python.
+Treemap‑ och Sunburst‑diagram visar samma typ av hierarkisk data, men de använder olika layouter. En Treemap ritar hierarkin som nästlade rektanglar vars områden representerar lövvärden. En Sunburst ritar den som koncentriska ringar: top‑nivågrupper är nära centrum och lövkategorierna ligger på den yttre ringen.
 
-Här är ett Sunburst‑diagram där data i kolumnen Series1 definierar bladnoderna, medan de andra kolumnerna definierar hierarkiska datapunkter:
+I Aspose.Slides for Python via .NET är varje numeriskt värde ett [ChartDataPoint](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdatapoint/). Dess [ChartDataPoint.data_point_levels](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdatapoint/data_point_levels/)‑samling ger åtkomst till lövet och dess föräldragrupper. Den här artikeln förklarar den mappningen och visar hur du skapar och formaterar båda diagramtyperna från samma exempeldata.
 
-![Sunburst chart example](sunburst_example.png)
+![Ett Treemap‑diagram med förgreningarna Consumer och Business](treemap-hierarchy.png)
 
-Låt oss börja med att lägga till ett nytt Sunburst‑diagram i presentationen:
+![Ett Sunburst‑diagram med samma Consumer‑ och Business‑hierarki](sunburst-hierarchy.png)
 
-```py
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-    chart = slide.shapes.add_chart(charts.ChartType.SUNBURST, 30, 30, 450, 400)
-```
+## **Förstå kategorier, datapunkter och nivåer**
 
-{{% alert color="primary" title="Se även" %}}
-- [**Create Sunburst Charts**](/slides/sv/python-net/create-chart/#create-sunburst-charts)
-{{% /alert %}}
+Exemplet nedan har tre kategorinivåer och en numerisk serie:
 
-Om du behöver formatera diagramdatapunkter, använd följande API:
+| Gren | Stam | Löv | Intäkt |
+| --- | --- | --- | ---: |
+| Consumer | Computers | Laptops | 12 |
+| Consumer | Computers | Desktops | 8 |
+| Consumer | Mobile | Phones | 15 |
+| Consumer | Mobile | Tablets | 6 |
+| Business | Services | Consulting | 10 |
+| Business | Services | Support | 7 |
+| Business | Software | Licenses | 11 |
+| Business | Software | Subscriptions | 14 |
 
-[ChartDataPointLevelsManager](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdatapointlevelsmanager/), [ChartDataPointLevel](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdatapointlevel/), och egenskapen [ChartDataPoint.data_point_levels](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdatapoint/data_point_levels/). De ger åtkomst till formatering av datapunkter i Treemap‑ och Sunburst‑diagram. [ChartDataPointLevelsManager](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdatapointlevelsmanager/) används för att komma åt flernivåkategorier; den representerar en behållare av [ChartDataPointLevel](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdatapointlevel/)‑objekt. Den är i praktiken ett omslag runt [ChartCategoryLevelsManager](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartcategorylevelsmanager/) med ytterligare egenskaper som är specifika för datapunkter. Typen [ChartDataPointLevel](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdatapointlevel/) exponeras med två egenskaper — [format](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdatapointlevel/format/) och [label](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdatapointlevel/label/) — som ger åtkomst till motsvarande inställningar.
+Varje rad skapar en lövkategori och en datapunkt. Kategorigrupperingsnivåerna beskriver vägen från det lövet till dess föräldrar. För den första raden är vägen `Consumer > Computers > Laptops`.
 
-## **Visa värden för datapunkter**
+Indexen i [ChartDataPoint.data_point_levels](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdatapoint/data_point_levels/) går från lövet uppåt:
 
-Detta avsnitt visar hur du visar värdet för enskilda datapunkter i Treemap‑ och Sunburst‑diagram. Du får se hur du aktiverar värdelappar för valda punkter.
+| `data_point_levels`‑index | Logisk nivå | Treemap‑representation | Sunburst‑representation |
+| ---: | --- | --- | --- |
+| `0` | Löv | Värderektangel | Segment i ytterring |
+| `1` | Stam | Föräldrarektangel eller rubrik | Segment i mellanföring |
+| `2` | Gren | Rektangel eller rubrik på top‑nivå | Segment i innerring |
 
-Visa värdet för datapunkten "Leaf 4":
+Denna ordning är densamma för båda diagramtyperna även om deras visuella layouter skiljer sig. Ett föräldrasegment delas av flera löv. För att formatera det, använd motsvarande nivå från den första datapunkten i gruppen. Till exempel börjar grenen `Consumer` med datapunkten `Laptops`, medan stammen `Software` börjar med datapunkten `Licenses`. Att hålla referenser till dessa punkter är tydligare och säkrare än att använda oklara uttryck som `data_points[0]` eller `data_points[6]`.
 
-```py
-data_points = chart.chart_data.series[0].data_points
-data_points[3].data_point_levels[0].label.data_label_format.show_value = True
-```
+## **Skapa och anpassa båda diagramtyperna**
 
-![Data point value](data_point_value.png)
-
-## **Ange etiketter och färger för datapunkter**
-
-Detta avsnitt visar hur du anger anpassade etiketter och färger för enskilda datapunkter i Treemap‑ och Sunburst‑diagram. Du kommer att lära dig hur du får åtkomst till en specifik datapunkt, tilldelar en etikett och tillämpar en solid fyllning för att markera viktiga noder.
-
-Ange dataetiketten för "Branch 1" så att den visar serienamnet ("Series1") istället för kategorinamnet, och sätt sedan textfärgen till gult:
+Det följande kompletta exemplet skapar en Treemap på den första bilden och en Sunburst på den andra bilden. Det bygger hierarkin, visar värdet för `Tablets`, tillämpar fasta färger på utvalda nivåer, formaterar en grenetikett och sparar presentationen.
 
 ```py
-branch1_label = data_points[0].data_point_levels[2].label
-branch1_label.data_label_format.show_category_name = False
-branch1_label.data_label_format.show_series_name = True
-
-branch1_label.data_label_format.text_format.portion_format.fill_format.fill_type = slides.FillType.SOLID
-branch1_label.data_label_format.text_format.portion_format.fill_format.solid_fill_color.color = draw.Color.yellow
-```
-
-![Data point's label and color](data_point_color.png)
-
-## **Ange grenfärger för datapunkter**
-
-Använd grenfärger för att kontrollera hur föräldra‑ och barnnoder grupperas visuellt i Treemap‑ och Sunburst‑diagram. Detta avsnitt visar hur du anger en anpassad grenfärg för en specifik datapunkt så att du kan markera viktiga underträd och förbättra diagrammets läsbarhet.
-
-Ändra färgen på grenen "Stem 4":
-
-```py
+import aspose.pydrawing as drawing
 import aspose.slides as slides
 import aspose.slides.charts as charts
-import aspose.pydrawing as draw
+
+
+def set_solid_fill(fill_format, color):
+    fill_format.fill_type = slides.FillType.SOLID
+    fill_format.solid_fill_color.color = color
+
+
+def add_hierarchy_chart(slide, chart_type):
+    worksheet_index = 0
+    leaf_level_index = 0
+    stem_level_index = 1
+    branch_level_index = 2
+
+    chart = slide.shapes.add_chart(chart_type, 40, 40, 640, 440)
+    chart.has_title = False
+    chart.has_legend = False
+    chart.chart_data.categories.clear()
+    chart.chart_data.series.clear()
+
+    workbook = chart.chart_data.chart_data_workbook
+    workbook.clear(worksheet_index)
+
+    def add_category(row_index, leaf_name):
+        category_cell = workbook.get_cell(worksheet_index, row_index, 2, leaf_name)
+        return chart.chart_data.categories.add(category_cell)
+
+    # Lägg till lövkategorierna. Ett grupperingselement sätts endast när en ny grupp påbörjas;
+    # de följande kategorierna förblir i den gruppen tills ett annat element sätts.
+    laptops_category = add_category(1, "Laptops")
+    laptops_category.grouping_levels.set_grouping_item(stem_level_index, "Computers")
+    laptops_category.grouping_levels.set_grouping_item(branch_level_index, "Consumer")
+
+    add_category(2, "Desktops")
+
+    phones_category = add_category(3, "Phones")
+    phones_category.grouping_levels.set_grouping_item(stem_level_index, "Mobile")
+
+    add_category(4, "Tablets")
+
+    consulting_category = add_category(5, "Consulting")
+    consulting_category.grouping_levels.set_grouping_item(stem_level_index, "Services")
+    consulting_category.grouping_levels.set_grouping_item(branch_level_index, "Business")
+
+    add_category(6, "Support")
+
+    licenses_category = add_category(7, "Licenses")
+    licenses_category.grouping_levels.set_grouping_item(stem_level_index, "Software")
+
+    add_category(8, "Subscriptions")
+
+    series_name_cell = workbook.get_cell(worksheet_index, 0, 3, "Revenue")
+    series = chart.chart_data.series.add(series_name_cell, chart_type)
+    series.labels.default_data_label_format.show_category_name = True
+
+    def add_data_point(row_index, value):
+        value_cell = workbook.get_cell(worksheet_index, row_index, 3, value)
+
+        if chart_type == charts.ChartType.TREEMAP:
+            return series.data_points.add_data_point_for_treemap_series(value_cell)
+
+        return series.data_points.add_data_point_for_sunburst_series(value_cell)
+
+    laptops_data_point = add_data_point(1, 12)
+    add_data_point(2, 8)
+    add_data_point(3, 15)
+    tablets_data_point = add_data_point(4, 6)
+    add_data_point(5, 10)
+    add_data_point(6, 7)
+    licenses_data_point = add_data_point(7, 11)
+    add_data_point(8, 14)
+
+    # Visa kategorin och värdet på Tablets-lövet.
+    tablets_label_format = tablets_data_point.data_point_levels[leaf_level_index].label.data_label_format
+    tablets_label_format.show_category_name = True
+    tablets_label_format.show_value = True
+    tablets_label_format.separator = "\n"
+    tablets_label_format.number_format = "$0"
+
+    # Formatera Consumer-grenen via det första lövet i den grenen.
+    consumer_branch_level = laptops_data_point.data_point_levels[branch_level_index]
+    consumer_branch_fill = consumer_branch_level.format.fill
+    consumer_branch_color = drawing.Color.from_argb(31, 78, 121)
+    set_solid_fill(consumer_branch_fill, consumer_branch_color)
+
+    consumer_label_format = consumer_branch_level.label.data_label_format
+    consumer_label_format.show_category_name = True
+    consumer_label_format.show_series_name = False
+    consumer_label_text_fill = consumer_label_format.text_format.portion_format.fill_format
+    set_solid_fill(consumer_label_text_fill, drawing.Color.white)
+
+    # Formatera Software-stammen via det första lövet i den stammen.
+    software_stem_level = licenses_data_point.data_point_levels[stem_level_index]
+    software_stem_fill = software_stem_level.format.fill
+    software_stem_color = drawing.Color.from_argb(112, 173, 71)
+    set_solid_fill(software_stem_fill, software_stem_color)
+
+    # parent_label_layout påverkar föräldraetiketter i Treemap; Sunburst använder ringsegment.
+    if chart_type == charts.ChartType.TREEMAP:
+        series.parent_label_layout = charts.ParentLabelLayoutType.OVERLAPPING
+
 
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+    treemap_slide = presentation.slides[0]
+    add_hierarchy_chart(treemap_slide, charts.ChartType.TREEMAP)
 
-    chart = slide.shapes.add_chart(charts.ChartType.SUNBURST, 30, 30, 450, 400)
-    data_points = chart.chart_data.series[0].data_points
+    layout_slide = presentation.layout_slides[0]
+    sunburst_slide = presentation.slides.add_empty_slide(layout_slide)
+    add_hierarchy_chart(sunburst_slide, charts.ChartType.SUNBURST)
 
-    stem4_branch = data_points[9].data_point_levels[1]
-    
-    stem4_branch.format.fill.fill_type = slides.FillType.SOLID
-    stem4_branch.format.fill.solid_fill_color.color = draw.Color.red
-      
-    presentation.save("branch_color.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("hierarchical-charts.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Branch color](branch_color.png)
+Kategoricellerna och värdecellerna använder samma rad i kalkylbladet, så deras positionssamlingar förblir synkroniserade. När du arbetar med ett befintligt diagram istället för att skapa ett, inspektera först kategori‑raderna och lagra namngivna referenser till datapunkterna och nivåerna du avser att formatera.
+
+## **Beteende och praktiska överväganden**
+
+### **Skillnader mellan Treemap och Sunburst**
+
+- En Treemap använder area för att kommunicera värde och nästlade rektanglar för att kommunicera hierarki. Egenskapen [ChartSeries.parent_label_layout](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartseries/parent_label_layout/) styr hur föräldraetiketter visas i den här diagramtypen.
+- En Sunburst använder vinkel för att kommunicera värde och ringdjup för att kommunicera hierarki. [ChartSeries.parent_label_layout](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartseries/parent_label_layout/) styr inte ringetiketterna.
+- Båda diagramtyperna använder samma kategorigrupperingsnivåer och samma löv‑till‑förälder‑ordning i `data_point_levels`, så kod för databyggande och nivåformatering kan delas.
+- Föräldravärden beräknas från deras underliggande löv. Lägg inte till separata numeriska punkter för grenar eller stammar.
+
+### **Sortering och segmentordning**
+
+Diagramlayoutmotorn bestämmer den slutgiltiga placeringen av rektanglar och ringsegment. Gruppera relaterade kategorirader tillsammans innan du lägger till dem, men förlita dig inte på en specifik rektangelposition eller startvinkel. Om sekvensen har betydelse, inkludera den i etiketterna eller använd en diagramtyp med en explicit kategori‑axel.
+
+### **Tema och fasta färger**
+
+Oformaterade diagramnivåer ärver färger från presentationens tema. Exemplet använder explicita RGB‑fyllningar för förutsägbart resultat. Om diagrammet ska följa temaförändringar, använd schemafärger istället för fasta RGB‑värden och undvik att åsidosätta varje nivå. Kontrollera även etikettkontrast efter att du ändrat en gren‑ eller stam‑fyllning.
+
+### **Etiketter och tillgängligt utrymme**
+
+PowerPoint kan dölja eller trunkera etiketter när ett segment är för litet. Att öka diagrammets storlek, förkorta kategorinamnen eller visa färre etikettfält ger oftast ett tydligare resultat. En etikett kan kombinera kategorinamnet, serienamnet och värdet via [DataLabelFormat](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/datalabelformat/), men att aktivera varje fält gör ofta hierarkiska diagram svåra att läsa.
+
+### **Export och rendering**
+
+Att spara som PPTX behåller diagrammet redigerbart. När Aspose.Slides renderar presentationen till PDF eller en bild, renderas de stödda fyllningarna och etikettinställningarna tillsammans med diagrammet. Teckensnittsersättning och små skillnader i tillgängligt layoututrymme kan förändra radbrytning eller etikettens synlighet, så installera de nödvändiga teckensnitten och verifiera viktiga exportmål.
 
 ## **FAQ**
 
-**Kan jag ändra ordningen (sorteringen) av segment i Sunburst/Treemap?**
+**Varför påverkar en förändring av en föräldranivå flera löv?**
 
-Nej. PowerPoint sorterar segment automatiskt (vanligtvis efter fallande värden, medurs). Aspose.Slides speglar detta beteende: du kan inte ändra ordningen direkt; du uppnår det genom att förbehandla data.
+En gren eller stam är ett delat visuellt segment. Dess [ChartDataPointLevel](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/chartdatapointlevel/) kan nås via ett underliggande löv, men formatering gäller det delade föräldrasegmentet snarare än bara det lövet.
 
-**Hur påverkar presentationstemat färgerna på segment och etiketter?**
+**Varför saknas en datalabel?**
 
-Diagrammets färger ärver presentationens [theme/palette](/slides/sv/python-net/presentation-theme/) om du inte explicit anger fyllningar/typsnitt. För konsekventa resultat, lås fast solida fyllningar och textformatering på de nödvändiga nivåerna.
+Aktivera först de behövda fälten på label‑objektets [DataLabelFormat](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/datalabelformat/). Kontrollera sedan om segmentet har tillräckligt med utrymme. Treemap‑föräldra‑etikettlayout, diagramdimensioner, etikettlängd, teckensnittsstorlek och antalet aktiverade fält påverkar alla om en etikett kan visas.
 
-**Kommer export till PDF/PNG att bevara anpassade grenfärger och etikettinställningar?**
+**Kan jag ange exakt ordning eller koordinater för segmenten?**
 
-Ja. Vid export av presentationen bevaras diagraminställningarna (fyllningar, etiketter) i de exporterade formaten eftersom Aspose.Slides renderar med diagrammets formatering tillämpad.
+Du kan styra källradens ordning och hålla varje grupp sammanhängande, men du kan inte tilldela exakta Treemap‑rektanglar eller Sunburst‑vinklar. Diagramlayoutmotorn beräknar dem utifrån hierarkin, värdena och tillgängligt utrymme.
 
-**Kan jag beräkna de faktiska koordinaterna för en etikett/element för anpassad överlagring ovanpå diagrammet?**
+**Varför ändras färgerna efter att presentationens tema har bytts?**
 
-Ja. Efter att diagrammets layout har validerats är `actual_x`/`actual_y` tillgängliga för element (till exempel en [DataLabel](https://reference.aspose.com/slides/sv/python-net/aspose.slides.charts/datalabel/)), vilket underlättar exakt positionering av överlagringar.
+Tema‑baserade fyllningar är avsedda att följa presentationens palett. Applicera explicita RGB‑färger på nivåer som måste förbli fasta, eller behåll schemafärger när anpassning till ett nytt tema är önskad.
+
+**Behålls anpassad formatering i PDF‑ och bildexport?**
+
+Ja, stödda diagramfyllningar och etikettinställningar inkluderas vid rendering. För konsistenta resultat på olika system, se till att nödvändiga teckensnitt är tillgängliga och testa den slutgiltiga exportstorleken eftersom etikettpassning är layout‑beroende.
+
+## **Se även**
+
+- [Create Treemap charts](/slides/sv/python-net/create-chart/#create-tree-map-charts)
+- [Create Sunburst charts](/slides/sv/python-net/create-chart/#create-sunburst-charts)
+- [Export presentation charts](/slides/sv/python-net/export-chart/)
+- [Manage presentation themes](/slides/sv/python-net/presentation-theme/)

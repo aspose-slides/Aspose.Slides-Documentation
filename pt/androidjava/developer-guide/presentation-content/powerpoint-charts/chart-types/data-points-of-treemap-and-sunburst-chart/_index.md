@@ -7,109 +7,258 @@ weight: 40
 keywords:
 - gráfico treemap
 - gráfico sunburst
-- ponto de dado
-- cor do rótulo
-- cor do ramo
+- gráfico hierárquico
+- ponto de dados
+- rótulo de dados
+- cor de ramo
 - PowerPoint
 - apresentação
 - Android
 - Java
 - Aspose.Slides
-description: "Aprenda como gerenciar pontos de dados em gráficos treemap e sunburst com Aspose.Slides para Android via Java, compatível com formatos PowerPoint."
+description: "Aprenda como criar dados hierárquicos e personalizar níveis, rótulos e cores em gráficos Treemap e Sunburst com Aspose.Slides para Android via Java."
 ---
-## **Introdução**
+## **Visão Geral**
 
-Entre outros tipos de gráficos do PowerPoint, existem dois tipos “hierárquicos” – **Treemap** e **Sunburst** (chart (também conhecido como Sunburst Graph, Sunburst Diagram, Gráfico Radial, Gráfico Radial ou Gráfico de Pizza de Níveis Múltiplos)). Esses gráficos exibem dados hierárquicos organizados como uma árvore – das folhas até o topo do ramo. As folhas são definidas pelos pontos de dados da série, e cada nível de agrupamento aninhado subsequente é definido pela categoria correspondente. Aspose.Slides for Android via Java permite formatar pontos de dados dos gráficos Sunburst e Treemap em Java.
+Os gráficos Treemap e Sunburst exibem o mesmo tipo de dados hierárquicos, mas utilizam layouts diferentes. Um Treemap desenha a hierarquia como retângulos aninhados cujas áreas representam os valores das folhas. Um Sunburst desenha‑a como anéis concêntricos: grupos de nível superior ficam próximos ao centro e as categorias das folhas ficam no anel externo.
 
-Aqui está um gráfico Sunburst, onde os dados na coluna Series1 definem os nós folha, enquanto as outras colunas definem pontos de dados hierárquicos:
+No Aspose.Slides for Android via Java, cada valor numérico é um [IChartDataPoint](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ichartdatapoint/). Seu método [IChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ichartdatapoint/#getDataPointLevels--) fornece acesso à folha e aos seus grupos pais. Este artigo explica esse mapeamento e mostra como criar e formatar ambos os tipos de gráfico a partir dos mesmos dados de exemplo.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
+![Um gráfico Treemap com ramificações Consumer e Business](treemap-hierarchy.png)
 
-Vamos começar adicionando um novo gráfico Sunburst à apresentação:
+![Um gráfico Sunburst com a mesma hierarquia Consumer e Business](sunburst-hierarchy.png)
+
+## **Entender Categorias, Pontos de Dados e Níveis**
+
+O exemplo usado abaixo tem três níveis de categoria e uma série numérica:
+
+| Ramo | Tronco | Folha | Receita |
+| --- | --- | --- | ---: |
+| Consumer | Computers | Laptops | 12 |
+| Consumer | Computers | Desktops | 8 |
+| Consumer | Mobile | Phones | 15 |
+| Consumer | Mobile | Tablets | 6 |
+| Business | Services | Consulting | 10 |
+| Business | Services | Support | 7 |
+| Business | Software | Licenses | 11 |
+| Business | Software | Subscriptions | 14 |
+
+Cada linha cria uma categoria de folha e um ponto de dados. Os níveis de agrupamento de categoria descrevem o caminho dessa folha até seus pais. Para a primeira linha, o caminho é `Consumer > Computers > Laptops`.
+
+Os índices retornados por [IChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ichartdatapoint/#getDataPointLevels--) vão da folha para cima:
+
+| índice `getDataPointLevels()` | Nível lógico | Representação Treemap | Representação Sunburst |
+| ---: | --- | --- | --- |
+| `0` | Folha | Retângulo de valor | Segmento do anel externo |
+| `1` | Tronco | Retângulo ou cabeçalho pai | Segmento do anel médio |
+| `2` | Ramo | Retângulo ou cabeçalho de nível superior | Segmento do anel interno |
+
+Essa ordem é a mesma para ambos os tipos de gráfico, embora seus layouts visuais diferam. Um segmento pai é compartilhado por várias folhas. Para formatá‑lo, use o nível correspondente do primeiro ponto de dados naquele grupo. Por exemplo, o ramo `Consumer` começa com o ponto `Laptops`, enquanto o tronco `Software` começa com o ponto `Licenses`. Manter referências a esses pontos é mais claro e seguro do que usar expressões não explicadas como `dataPoints.get_Item(0)` ou `dataPoints.get_Item(6)`.
+
+## **Criar e Personalizar Ambos os Tipos de Gráfico**
+
+O exemplo completo abaixo cria um Treemap no primeiro slide e um Sunburst no segundo slide. Ele constrói a hierarquia, exibe o valor para `Tablets`, aplica cores fixas a níveis selecionados, formata um rótulo de ramo e salva a apresentação.
 
 ```java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Sunburst, 100, 100, 450, 400);
+    final int worksheetIndex = 0;
+    final int leafLevelIndex = 0;
+    final int stemLevelIndex = 1;
+    final int branchLevelIndex = 2;
 
-    // ...
+    String[] branchNames = {
+        "Consumer", "Consumer", "Consumer", "Consumer",
+        "Business", "Business", "Business", "Business"
+    };
+    String[] stemNames = {
+        "Computers", "Computers", "Mobile", "Mobile",
+        "Services", "Services", "Software", "Software"
+    };
+    String[] leafNames = {
+        "Laptops", "Desktops", "Phones", "Tablets",
+        "Consulting", "Support", "Licenses", "Subscriptions"
+    };
+    double[] revenues = {12, 8, 15, 6, 10, 7, 11, 14};
+    int dataPointCount = leafNames.length;
+
+    int[] chartTypes = {ChartType.Treemap, ChartType.Sunburst};
+    int chartCount = chartTypes.length;
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().get_Item(0);
+
+    for (int chartIndex = 0; chartIndex < chartCount; chartIndex++) {
+        int chartType = chartTypes[chartIndex];
+        ISlide slide;
+
+        if (chartIndex == 0) {
+            slide = presentation.getSlides().get_Item(0);
+        } else {
+            slide = presentation.getSlides().addEmptySlide(layoutSlide);
+        }
+
+        IChart chart = slide.getShapes().addChart(chartType, 40, 40, 640, 440);
+        chart.setTitle(false);
+        chart.setLegend(false);
+
+        IChartData chartData = chart.getChartData();
+        chartData.getCategories().clear();
+        chartData.getSeries().clear();
+
+        IChartDataWorkbook workbook = chartData.getChartDataWorkbook();
+        workbook.clear(worksheetIndex);
+
+        // Adicione as categorias de folhas. Um item de agrupamento é definido somente quando um novo grupo começa;
+        // as categorias seguintes permanecem nesse grupo até que outro item seja definido.
+        for (int dataIndex = 0; dataIndex < dataPointCount; dataIndex++) {
+            int rowIndex = dataIndex + 1;
+            String leafName = leafNames[dataIndex];
+            IChartDataCell categoryCell = workbook.getCell(worksheetIndex, rowIndex, 2, leafName);
+            IChartCategory category = chartData.getCategories().add(categoryCell);
+
+            String stemName = stemNames[dataIndex];
+            boolean startsNewStem = dataIndex == 0;
+            if (dataIndex > 0) {
+                String previousStemName = stemNames[dataIndex - 1];
+                startsNewStem = !stemName.equals(previousStemName);
+            }
+            if (startsNewStem) {
+                category.getGroupingLevels().setGroupingItem(stemLevelIndex, stemName);
+            }
+
+            String branchName = branchNames[dataIndex];
+            boolean startsNewBranch = dataIndex == 0;
+            if (dataIndex > 0) {
+                String previousBranchName = branchNames[dataIndex - 1];
+                startsNewBranch = !branchName.equals(previousBranchName);
+            }
+            if (startsNewBranch) {
+                category.getGroupingLevels().setGroupingItem(branchLevelIndex, branchName);
+            }
+        }
+
+        IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 3, "Revenue");
+        IChartSeries series = chartData.getSeries().add(seriesNameCell, chartType);
+        series.getLabels().getDefaultDataLabelFormat().setShowCategoryName(true);
+
+        IChartDataPoint laptopsDataPoint = null;
+        IChartDataPoint tabletsDataPoint = null;
+        IChartDataPoint licensesDataPoint = null;
+
+        for (int dataIndex = 0; dataIndex < dataPointCount; dataIndex++) {
+            int rowIndex = dataIndex + 1;
+            String leafName = leafNames[dataIndex];
+            double revenue = revenues[dataIndex];
+            IChartDataCell valueCell = workbook.getCell(worksheetIndex, rowIndex, 3, revenue);
+            IChartDataPoint dataPoint;
+
+            if (chartType == ChartType.Treemap) {
+                dataPoint = series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+            } else {
+                dataPoint = series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+            }
+
+            if ("Laptops".equals(leafName)) {
+                laptopsDataPoint = dataPoint;
+            } else if ("Tablets".equals(leafName)) {
+                tabletsDataPoint = dataPoint;
+            } else if ("Licenses".equals(leafName)) {
+                licensesDataPoint = dataPoint;
+            }
+        }
+
+        // Exiba a categoria e o valor na folha Tablets.
+        IChartDataPointLevel tabletsLeafLevel = tabletsDataPoint.getDataPointLevels().get_Item(leafLevelIndex);
+        IDataLabelFormat tabletsLabelFormat = tabletsLeafLevel.getLabel().getDataLabelFormat();
+        tabletsLabelFormat.setShowCategoryName(true);
+        tabletsLabelFormat.setShowValue(true);
+        tabletsLabelFormat.setSeparator("\n");
+        tabletsLabelFormat.setNumberFormat("$0");
+
+        // Formate o ramo Consumer através da primeira folha desse ramo.
+        IChartDataPointLevel consumerBranchLevel = laptopsDataPoint.getDataPointLevels().get_Item(branchLevelIndex);
+        IFillFormat consumerBranchFill = consumerBranchLevel.getFormat().getFill();
+        int consumerBranchColor = Color.rgb(31, 78, 121);
+        consumerBranchFill.setFillType(FillType.Solid);
+        consumerBranchFill.getSolidFillColor().setColor(consumerBranchColor);
+
+        IDataLabelFormat consumerLabelFormat = consumerBranchLevel.getLabel().getDataLabelFormat();
+        consumerLabelFormat.setShowCategoryName(true);
+        consumerLabelFormat.setShowSeriesName(false);
+        IFillFormat consumerLabelTextFill = consumerLabelFormat.getTextFormat().getPortionFormat().getFillFormat();
+        consumerLabelTextFill.setFillType(FillType.Solid);
+        consumerLabelTextFill.getSolidFillColor().setColor(Color.WHITE);
+
+        // Formate o tronco Software através da primeira folha desse tronco.
+        IChartDataPointLevel softwareStemLevel = licensesDataPoint.getDataPointLevels().get_Item(stemLevelIndex);
+        IFillFormat softwareStemFill = softwareStemLevel.getFormat().getFill();
+        int softwareStemColor = Color.rgb(112, 173, 71);
+        softwareStemFill.setFillType(FillType.Solid);
+        softwareStemFill.getSolidFillColor().setColor(softwareStemColor);
+
+        // ParentLabelLayout afeta os rótulos de pais do Treemap; Sunburst usa segmentos de anel.
+        if (chartType == ChartType.Treemap) {
+            series.setParentLabelLayout(ParentLabelLayoutType.Overlapping);
+        }
+    }
+
+    presentation.save("hierarchical-charts.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert color="primary" title="Veja também" %}} 
-- [**Create or Update PowerPoint Presentation Charts on Android**](/slides/pt/androidjava/create-chart/)
-{{% /alert %}}
+As células de categoria e as células de valor usam a mesma linha da planilha, de modo que suas posições nas coleções permanecem alinhadas. Quando você trabalha com um gráfico existente em vez de criar um, inspecione primeiro as linhas de categoria e armazene referências nomeadas aos pontos de dados e níveis que pretende formatar.
 
-Se houver necessidade de formatar os pontos de dados do gráfico, devemos usar o seguinte:
+## **Comportamento e Considerações Práticas**
 
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/IChartDataPointLevelsManager), [**IChartDataPointLevel**](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/IChartDataPointLevel) classes e o método [**IChartDataPoint.getDataPointLevels**](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/IChartDataPoint#getDataPointLevels--) fornecem acesso para formatar os pontos de dados dos gráficos Treemap e Sunburst. [**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/IChartDataPointLevelsManager) é usado para acessar categorias de múltiplos níveis – ele representa o contêiner de objetos [**IChartDataPointLevel**](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/IChartDataPointLevel). Basicamente, ele é um wrapper para [**IChartCategoryLevelsManager**](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/IChartCategoryLevelsManager) com propriedades adicionadas específicas para pontos de dados. A classe [**IChartDataPointLevel**](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/IChartDataPointLevel) possui dois métodos: [**getFormat**](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/IChartDataPointLevel#getFormat--) e [**getDataLabel**](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/IChartDataPointLevel#getLabel--) que fornecem acesso às configurações correspondentes.
+### **Diferenças entre Treemap e Sunburst**
 
-## **Mostrar o Valor de um Ponto de Dados**
+- Um Treemap usa área para comunicar o valor e retângulos aninhados para comunicar a hierarquia. O método IChartSeries.setParentLabelLayout controla como os rótulos dos pais aparecem neste tipo de gráfico.
+- Um Sunburst usa ângulo para comunicar o valor e profundidade do anel para comunicar a hierarquia. IChartSeries.setParentLabelLayout não controla os rótulos dos anéis.
+- Ambos os tipos de gráfico usam os mesmos níveis de agrupamento de categoria e a mesma ordem folha‑para‑pai retornada por IChartDataPoint.getDataPointLevels, portanto o código de construção de dados e formatação de níveis pode ser compartilhado.
+- Os valores dos pais são calculados a partir de suas folhas descendentes. Não adicione pontos numéricos separados para ramos ou troncos.
 
-Mostrar o valor do ponto de dados "Leaf 4":
+### **Ordenação e Ordem dos Segmentos**
 
-```java
-IChartDataPointCollection dataPoints = chart.getChartData().getSeries().get_Item(0).getDataPoints();
-dataPoints.get_Item(3).getDataPointLevels().get_Item(0).getLabel().getDataLabelFormat().setShowValue(true);
-```
+O mecanismo de layout do gráfico determina a posição final dos retângulos e segmentos de anel. Agrupe linhas de categoria relacionadas antes de adicioná‑las, mas não dependa de uma posição de retângulo ou ângulo inicial específico. Se a sequência tiver significado, inclua‑a nos rótulos ou use um tipo de gráfico com eixo de categoria explícito.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
+### **Tema e Cores Fixas**
 
-## **Definir Rótulo e Cor de um Ponto de Dados**
+Níveis de gráfico não formatados herdados as cores do tema da apresentação. O exemplo usa preenchimentos RGB explícitos para saída previsível. Se o gráfico precisar seguir alterações de tema, use cores de esquema em vez de valores RGB fixos e evite substituir cada nível. Também verifique o contraste dos rótulos após mudar o preenchimento de um ramo ou tronco.
 
-Defina o rótulo de dados de "Branch 1" para exibir o nome da série ("Series1") em vez do nome da categoria. Em seguida, defina a cor do texto para amarelo:
+### **Rótulos e Espaço Disponível**
 
-```java
-IDataLabel branch1Label = dataPoints.get_Item(0).getDataPointLevels().get_Item(0).getLabel();
-branch1Label.getDataLabelFormat().setShowCategoryName(false);
-branch1Label.getDataLabelFormat().setShowSeriesName(true);
+O PowerPoint pode ocultar ou truncar rótulos quando um segmento é muito pequeno. Aumentar o tamanho do gráfico, encurtar nomes de categoria ou mostrar menos campos de rótulo costuma produzir um resultado mais claro. Um rótulo pode combinar o nome da categoria, o nome da série e o valor através de [IDataLabelFormat](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/idatalabelformat/), mas habilitar todos os campos frequentemente torna gráficos hierárquicos difíceis de ler.
 
-branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
-```
+### **Exportação e Renderização**
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
-
-## **Definir a Cor do Ramo do Ponto de Dados**
-
-Alterar a cor do ramo "Steam 4":
-
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Sunburst, 100, 100, 450, 400);
-
-    IChartDataPointCollection dataPoints = chart.getChartData().getSeries().get_Item(0).getDataPoints();
-
-    IChartDataPointLevel stem4branch = dataPoints.get_Item(9).getDataPointLevels().get_Item(1);
-
-    stem4branch.getFormat().getFill().setFillType(FillType.Solid);
-    stem4branch.getFormat().getFill().getSolidFillColor().setColor(Color.RED);
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-![todo:image_alt_text](https://lh5.googleusercontent.com/Zll4cpQ5tTDdgwmJ4yuupolfGaANR8SWWTU3XaJav_ZVXVstV1pI1z1OFH-gov6FxPoDz1cxmMyrgjsdYGS24PlhaYa2daKzlNuL1a0xYcqEiyyO23AE6JMOLavWpvqA6SzOCA6_)
+Salvar como PPTX mantém o gráfico editável. Quando Aspose.Slides renderiza a apresentação para PDF ou imagem, os preenchimentos e configurações de rótulo suportados são renderizados com o gráfico. Substituição de fontes e pequenas diferenças no espaço de layout disponível podem mudar a quebra de linha ou a visibilidade do rótulo, portanto instale as fontes necessárias e verifique os destinos de exportação principais.
 
 ## **FAQ**
 
-**Posso alterar a ordem (classificação) dos segmentos em Sunburst/Treemap?**
+**Por que a alteração de um nível pai afeta várias folhas?**
 
-Não. O PowerPoint ordena os segmentos automaticamente (geralmente por valores decrescentes, no sentido horário). O Aspose.Slides reproduz esse comportamento: não é possível alterar a ordem diretamente; você deve fazê-lo pré‑processando os dados.
+Um ramo ou tronco é um segmento visual compartilhado. Seu [IChartDataPointLevel](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ichartdatapointlevel/) pode ser acessado através de uma folha descendente, mas a formatação pertence ao segmento pai compartilhado, não apenas àquela folha.
 
-**Como o tema da apresentação afeta as cores dos segmentos e rótulos?**
+**Por que um rótulo de dados está ausente?**
 
-As cores dos gráficos herdam o [tema/paleta](/slides/pt/androidjava/presentation-theme/) da apresentação, a menos que você defina explicitamente preenchimentos ou fontes. Para resultados consistentes, fixe preenchimentos sólidos e formatação de texto nos níveis necessários.
+Primeiro habilite os campos necessários no objeto [IDataLabelFormat](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/idatalabelformat/) do rótulo. Depois verifique se o segmento tem espaço suficiente. O layout de rótulo de pai do Treemap, as dimensões do gráfico, o comprimento do rótulo, o tamanho da fonte e o número de campos habilitados afetam se um rótulo pode ser exibido.
 
-**A exportação para PDF/PNG preserva cores de ramo personalizadas e configurações de rótulo?**
+**Posso definir a ordem exata ou coordenadas dos segmentos?**
 
-Sim. Ao exportar a apresentação, as configurações do gráfico (preenchimentos, rótulos) são preservadas nos formatos de saída, pois o Aspose.Slides renderiza com a formatação do gráfico aplicada.
+Você pode controlar a ordem das linhas‑fonte e manter cada grupo contíguo, mas não pode atribuir retângulos Treemap ou ângulos Sunburst exatos. O mecanismo de layout do gráfico os calcula a partir da hierarquia, dos valores e do espaço disponível.
 
-**Posso calcular as coordenadas reais de um rótulo/elemento para posicionamento de sobreposição personalizada sobre o gráfico?**
+**Por que as cores mudam após alterações no tema da apresentação?**
 
-Sim. Após a disposição do gráfico ser validada, os valores reais de *x* e *y* ficam disponíveis para os elementos (por exemplo, um [DataLabel](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/datalabel/)), o que auxilia no posicionamento preciso de sobreposições.
+Preenchimentos baseados em tema são projetados para seguir a paleta da apresentação. Aplique cores RGB explícitas aos níveis que devem permanecer fixas ou mantenha cores de esquema quando a adaptação a um novo tema for preferida.
+
+**A formatação personalizada será preservada em exportações para PDF e imagem?**
+
+Sim, preenchimentos de gráfico e configurações de rótulo suportados são incluídos durante a renderização. Para resultados consistentes entre sistemas, disponibilize as fontes necessárias e teste o tamanho final da exportação, pois o ajuste de rótulo depende do layout.
+
+## **Veja Também**
+
+- [Criar gráficos Treemap](/slides/pt/androidjava/create-chart/#create-tree-map-charts)
+- [Criar gráficos Sunburst](/slides/pt/androidjava/create-chart/#create-sunburst-charts)
+- [Exportar gráficos de apresentação](/slides/pt/androidjava/export-chart/)
+- [Gerenciar temas de apresentação](/slides/pt/androidjava/presentation-theme/)

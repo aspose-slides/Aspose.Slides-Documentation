@@ -1,109 +1,260 @@
 ---
-title: Настройка точек данных в диаграммах Treemap и Sunburst с использованием JavaScript
-linktitle: Точки данных в диаграммах Treemap и Sunburst
+title: "Настройка точек данных в диаграммах Treemap и Sunburst с использованием JavaScript"
+linktitle: "Точки данных в диаграммах Treemap и Sunburst"
 type: docs
 url: /ru/nodejs-java/data-points-of-treemap-and-sunburst-chart/
 weight: 40
 keywords:
-- диаграмма treemap
-- диаграмма sunburst
-- точка данных
-- цвет метки
-- цвет ветви
-- PowerPoint
-- презентация
-- Node.js
-- JavaScript
-- Aspose.Slides
-description: "Узнайте, как управлять точками данных в диаграммах treemap и sunburst с помощью JavaScript и Aspose.Slides для Node.js через Java, совместимо с форматами PowerPoint."
+  - диаграмма Treemap
+  - диаграмма Sunburst
+  - иерархическая диаграмма
+  - точка данных
+  - подпись данных
+  - цвет ветки
+  - PowerPoint
+  - презентация
+  - Node.js
+  - JavaScript
+  - Aspose.Slides
+description: "Узнайте, как создавать иерархические данные и настраивать уровни, подписи и цвета в диаграммах Treemap и Sunburst с помощью Aspose.Slides для Node.js via Java."
 ---
+## **Обзор**
 
-Среди других типов диаграмм PowerPoint есть два «иерархических» типа - **Treemap** и **Sunburst** диаграмма (также известные как Sunburst Graph, Sunburst Diagram, Radial Chart, Radial Graph или Multi Level Pie Chart). Эти диаграммы отображают иерархические данные, организованные как дерево - от листьев к вершине ветки. Листья определяются точками данных серии, а каждый последующий вложенный уровень группировки определяется соответствующей категорией. Aspose.Slides for Node.js via Java позволяет форматировать точки данных Sunburst Chart и Treemap на JavaScript.
+Диаграммы Treemap и Sunburst отображают один и тот же тип иерархических данных, но используют разные макеты. Treemap рисует иерархию в виде вложенных прямоугольников, площади которых представляют значения листьев. Sunburst отображает её как концентрические кольца: группы верхнего уровня находятся ближе к центру, а категории‑листья — на внешнем кольце.
 
-Вот диаграмма Sunburst, где данные в столбце Series1 определяют листовые узлы, а остальные столбцы определяют иерархические точки данных:
-![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
+В Aspose.Slides for Node.js via Java каждый числовой показатель представляет собой [ChartDataPoint](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdatapoint/). Его метод [ChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdatapoint/#getDataPointLevels) предоставляет доступ к листу и его родительским группам. В этой статье объясняется это отображение и показано, как создать и отформатировать оба типа диаграмм из одних и тех же образцовых данных.
 
-Начнём с добавления новой диаграммы Sunburst в презентацию:
+![Диаграмма Treemap с ветвями Consumer и Business](treemap-hierarchy.png)
+
+![Диаграмма Sunburst с той же иерархией Consumer и Business](sunburst-hierarchy.png)
+
+## **Понимание категорий, точек данных и уровней**
+
+Ниже приведён пример с тремя уровнями категорий и одной числовой серией:
+
+| Раздел | Подраздел | Элемент | Выручка |
+| --- | --- | --- | ---: |
+| Consumer | Computers | Laptops | 12 |
+| Consumer | Computers | Desktops | 8 |
+| Consumer | Mobile | Phones | 15 |
+| Consumer | Mobile | Tablets | 6 |
+| Business | Services | Consulting | 10 |
+| Business | Services | Support | 7 |
+| Business | Software | Licenses | 11 |
+| Business | Software | Subscriptions | 14 |
+
+Каждая строка создаёт одну категорию‑лист и одну точку данных. Уровни группировки категорий описывают путь от этого листа к его родителям. Для первой строки путь выглядит так: `Consumer > Computers > Laptops`.
+
+Индексы, возвращаемые [ChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdatapoint/#getDataPointLevels), идут от листа вверх:
+
+| `getDataPointLevels()` индекс | Логический уровень | Отображение Treemap | Отображение Sunburst |
+| ---: | --- | --- | --- |
+| `0` | Leaf | Прямоугольник значения | Сегмент внешнего кольца |
+| `1` | Stem | Прямоугольник или заголовок родителя | Сегмент среднего кольца |
+| `2` | Branch | Прямоугольник или заголовок верхнего уровня | Сегмент внутреннего кольца |
+
+Этот порядок одинаков для обоих типов диаграмм, хотя их визуальные макеты различаются. Родительский сегмент используется несколькими листами. Чтобы отформатировать его, используйте соответствующий уровень первой точки данных в этой группе. Например, ветка `Consumer` начинается с точки `Laptops`, а стебель `Software` — с точки `Licenses`. Хранить ссылки на эти точки безопаснее, чем использовать необъяснённые выражения вроде `dataPoints.get_Item(0)` или `dataPoints.get_Item(6)`.
+
+## **Создание и настройка обоих типов диаграмм**
+
+Следующий полный пример создаёт Treemap на первом слайде и Sunburst на втором слайде. Он строит иерархию, отображает значение для `Tablets`, применяет фиксированные цвета к выбранным уровням, форматирует подпись ветки и сохраняет презентацию.
+
 ```javascript
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Sunburst, 100, 100, 450, 400);
-    // ...
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const worksheetIndex = 0;
+    const leafLevelIndex = 0;
+    const stemLevelIndex = 1;
+    const branchLevelIndex = 2;
+
+    const branchNames = [
+        "Consumer", "Consumer", "Consumer", "Consumer",
+        "Business", "Business", "Business", "Business"
+    ];
+    const stemNames = [
+        "Computers", "Computers", "Mobile", "Mobile",
+        "Services", "Services", "Software", "Software"
+    ];
+    const leafNames = [
+        "Laptops", "Desktops", "Phones", "Tablets",
+        "Consulting", "Support", "Licenses", "Subscriptions"
+    ];
+    const revenues = [12, 8, 15, 6, 10, 7, 11, 14];
+    const dataPointCount = leafNames.length;
+
+    const chartTypes = [
+        aspose.slides.ChartType.Treemap,
+        aspose.slides.ChartType.Sunburst
+    ];
+    const chartCount = chartTypes.length;
+    const layoutSlide = presentation.getLayoutSlides().get_Item(0);
+
+    for (let chartIndex = 0; chartIndex < chartCount; chartIndex++) {
+        const chartType = chartTypes[chartIndex];
+        let slide;
+
+        if (chartIndex === 0) {
+            slide = presentation.getSlides().get_Item(0);
+        } else {
+            slide = presentation.getSlides().addEmptySlide(layoutSlide);
+        }
+
+        const chart = slide.getShapes().addChart(chartType, 40, 40, 640, 440);
+        chart.setTitle(false);
+        chart.setLegend(false);
+
+        const chartData = chart.getChartData();
+        chartData.getCategories().clear();
+        chartData.getSeries().clear();
+
+        const workbook = chartData.getChartDataWorkbook();
+        workbook.clear(worksheetIndex);
+
+        // Добавьте категории листьев. Элемент группировки устанавливается только когда начинается новая группа;
+        // следующие категории остаются в этой группе, пока не будет установлен другой элемент.
+        for (let dataIndex = 0; dataIndex < dataPointCount; dataIndex++) {
+            const rowIndex = dataIndex + 1;
+            const leafName = leafNames[dataIndex];
+            const categoryCell = workbook.getCell(worksheetIndex, rowIndex, 2, leafName);
+            const category = chartData.getCategories().add(categoryCell);
+
+            const stemName = stemNames[dataIndex];
+            const startsNewStem = dataIndex === 0 || stemName !== stemNames[dataIndex - 1];
+            if (startsNewStem) {
+                category.getGroupingLevels().setGroupingItem(stemLevelIndex, stemName);
+            }
+
+            const branchName = branchNames[dataIndex];
+            const startsNewBranch = dataIndex === 0 || branchName !== branchNames[dataIndex - 1];
+            if (startsNewBranch) {
+                category.getGroupingLevels().setGroupingItem(branchLevelIndex, branchName);
+            }
+        }
+
+        const seriesNameCell = workbook.getCell(worksheetIndex, 0, 3, "Revenue");
+        const series = chartData.getSeries().add(seriesNameCell, chartType);
+        series.getLabels().getDefaultDataLabelFormat().setShowCategoryName(true);
+
+        let laptopsDataPoint = null;
+        let tabletsDataPoint = null;
+        let licensesDataPoint = null;
+
+        for (let dataIndex = 0; dataIndex < dataPointCount; dataIndex++) {
+            const rowIndex = dataIndex + 1;
+            const leafName = leafNames[dataIndex];
+            const revenue = revenues[dataIndex];
+            const valueCell = workbook.getCell(worksheetIndex, rowIndex, 3, revenue);
+            let dataPoint;
+
+            if (chartType === aspose.slides.ChartType.Treemap) {
+                dataPoint = series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+            } else {
+                dataPoint = series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+            }
+
+            if (leafName === "Laptops") {
+                laptopsDataPoint = dataPoint;
+            } else if (leafName === "Tablets") {
+                tabletsDataPoint = dataPoint;
+            } else if (leafName === "Licenses") {
+                licensesDataPoint = dataPoint;
+            }
+        }
+
+        // Показать категорию и значение на листе Tablets.
+        const tabletsLeafLevel = tabletsDataPoint.getDataPointLevels().get_Item(leafLevelIndex);
+        const tabletsLabelFormat = tabletsLeafLevel.getLabel().getDataLabelFormat();
+        tabletsLabelFormat.setShowCategoryName(true);
+        tabletsLabelFormat.setShowValue(true);
+        tabletsLabelFormat.setSeparator("\n");
+        tabletsLabelFormat.setNumberFormat("$0");
+
+        // Отформатировать ветку Consumer через первый лист в этой ветке.
+        const consumerBranchLevel = laptopsDataPoint.getDataPointLevels().get_Item(branchLevelIndex);
+        const consumerBranchFill = consumerBranchLevel.getFormat().getFill();
+        const consumerBranchColor = java.newInstanceSync("java.awt.Color", 31, 78, 121);
+        consumerBranchFill.setFillType(java.newByte(aspose.slides.FillType.Solid));
+        consumerBranchFill.getSolidFillColor().setColor(consumerBranchColor);
+
+        const consumerLabelFormat = consumerBranchLevel.getLabel().getDataLabelFormat();
+        consumerLabelFormat.setShowCategoryName(true);
+        consumerLabelFormat.setShowSeriesName(false);
+        const consumerLabelTextFill = consumerLabelFormat.getTextFormat().getPortionFormat().getFillFormat();
+        const whiteColor = java.getStaticFieldValue("java.awt.Color", "WHITE");
+        consumerLabelTextFill.setFillType(java.newByte(aspose.slides.FillType.Solid));
+        consumerLabelTextFill.getSolidFillColor().setColor(whiteColor);
+
+        // Отформатировать стебель Software через первый лист в этом стебле.
+        const softwareStemLevel = licensesDataPoint.getDataPointLevels().get_Item(stemLevelIndex);
+        const softwareStemFill = softwareStemLevel.getFormat().getFill();
+        const softwareStemColor = java.newInstanceSync("java.awt.Color", 112, 173, 71);
+        softwareStemFill.setFillType(java.newByte(aspose.slides.FillType.Solid));
+        softwareStemFill.getSolidFillColor().setColor(softwareStemColor);
+
+        // ParentLabelLayout влияет на метки родителей в Treemap; Sunburst использует сегменты колец.
+        if (chartType === aspose.slides.ChartType.Treemap) {
+            series.setParentLabelLayout(aspose.slides.ParentLabelLayoutType.Overlapping);
+        }
     }
+
+    presentation.save("hierarchical-charts.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
+Ячейки категорий и ячейки значений используют одну и ту же строку листа, поэтому их позиции в коллекции остаются согласованными. Когда вы работаете с существующей диаграммой, а не создаёте новую, сначала проверьте строки категорий и сохраните именованные ссылки на точки данных и уровни, которые планируете форматировать.
 
-{{% alert color="primary" title="См. также" %}} 
-- [**Создать или обновить диаграммы PowerPoint презентации на JavaScript**](/slides/ru/nodejs-java/create-chart/)
-{{% /alert %}}
+## **Поведение и практические соображения**
 
-Если необходимо отформатировать точки данных диаграммы, следует использовать следующее:
+### **Различия Treemap и Sunburst**
 
-[**ChartDataPointLevelsManager**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPointLevelsManager), [ChartDataPointLevel](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPointLevel) классы и [**ChartDataPoint.getDataPointLevels**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPoint#getDataPointLevels--) метод дают доступ к форматированию точек данных Treemap и Sunburst диаграмм. 
-[**ChartDataPointLevelsManager**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPointLevelsManager) используется для доступа к многуровневым категориям - это контейнер для объектов [**ChartDataPointLevel**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPointLevel). По сути это оболочка для [**ChartCategoryLevelsManager**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartCategoryLevelsManager) с добавленными специфичными для точек данных свойствами. Класс [**ChartDataPointLevel**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPointLevel) имеет два метода: [**getFormat**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPointLevel#getFormat--) и [**getDataLabel**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataPointLevel#getLabel--) , которые дают доступ к соответствующим настройкам.
+- Treemap использует площадь для передачи значения и вложенные прямоугольники для передачи иерархии. Метод [ChartSeries.setParentLabelLayout](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartseries/#setParentLabelLayout) управляет отображением меток родителей в этом типе диаграммы.
+- Sunburst использует угол для передачи значения и глубину кольца для передачи иерархии. [ChartSeries.setParentLabelLayout](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartseries/#setParentLabelLayout) не управляет метками её колец.
+- Оба типа диаграмм используют одни и те же уровни группировки категорий и одинаковый порядок лист‑родитель, возвращаемый [ChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdatapoint/#getDataPointLevels), поэтому код построения данных и форматирования уровней можно использовать совместно.
+- Значения родительских сегментов рассчитываются из их дочерних листьев. Не добавляйте отдельные числовые точки для веток или стеблей.
 
-## **Показать значение точки данных**
-Показать значение точки данных «Leaf 4»:
-```javascript
-var dataPoints = chart.getChartData().getSeries().get_Item(0).getDataPoints();
-dataPoints.get_Item(3).getDataPointLevels().get_Item(0).getLabel().getDataLabelFormat().setShowValue(true);
-```
+### **Сортировка и порядок сегментов**
 
+Движок размещения диаграмм определяет финальное расположение прямоугольников и кольцевых сегментов. Сгруппируйте связанные строки категорий вместе перед их добавлением, но не полагайтесь на конкретную позицию прямоугольника или начальный угол. Если порядок имеет смысл, включите его в метки или используйте тип диаграммы с явно выраженной категорией по оси.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
+### **Тема и фиксированные цвета**
 
-## **Установить метку и цвет точки данных**
-Установить метку данных «Branch 1» так, чтобы отображалось имя серии («Series1») вместо имени категории. Затем установить цвет текста в желтый:
-```javascript
-var branch1Label = dataPoints.get_Item(0).getDataPointLevels().get_Item(0).getLabel();
-branch1Label.getDataLabelFormat().setShowCategoryName(false);
-branch1Label.getDataLabelFormat().setShowSeriesName(true);
-branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
-```
+Неотформатированные уровни диаграммы наследуют цвета из темы презентации. В примере использованы явные RGB‑заливки для предсказуемого результата. Если диаграмма должна следовать изменению темы, используйте схемные цвета вместо фиксированных RGB‑значений и избегайте переопределения каждого уровня. Также проверяйте контраст меток после изменения заливки ветки или стебля.
 
+### **Метки и доступное пространство**
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
+PowerPoint может скрывать или обрезать метки, если сегмент слишком мал. Увеличение размеров диаграммы, сокращение названий категорий или отображение меньшего количества полей меток обычно дают более чёткий результат. Метка может комбинировать название категории, название серии и значение через [DataLabelFormat](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/datalabelformat/), но включение всех полей часто делает иерархические диаграммы трудными для чтения.
 
-## **Установить цвет ветви точки данных**
-Изменить цвет ветви «Steam 4»:
-```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Sunburst, 100, 100, 450, 400);
-    var dataPoints = chart.getChartData().getSeries().get_Item(0).getDataPoints();
-    var stem4branch = dataPoints.get_Item(9).getDataPointLevels().get_Item(1);
-    stem4branch.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    stem4branch.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+### **Экспорт и рендеринг**
 
-
-![todo:image_alt_text](https://lh5.googleusercontent.com/Zll4cpQ5tTDdgwmJ4yuupolfGaANR8SWWTU3XaJav_ZVXVstV1pI1z1OFH-gov6FxPoDz1cxmMyrgjsdYGS24PlhaYa2daKzlNuL1a0xYcqEiyyO23AE6JMOLavWpvqA6SzOCA6_)
+Сохранение в PPTX оставляет диаграмму редактируемой. При рендеринге презентации Aspose.Slides в PDF или изображение поддерживаемые заливки и настройки меток отображаются вместе с диаграммой. Подстановка шрифтов и небольшие различия в доступном пространстве могут изменить перенос строк или видимость меток, поэтому установите необходимые шрифты и проверьте важные цели экспорта.
 
 ## **FAQ**
 
-**Могу ли я изменить порядок (сортировку) сегментов в Sunburst/Treemap?**
+**Почему изменение уровня родителя влияет на несколько листьев?**
 
-Нет. PowerPoint автоматически сортирует сегменты (обычно по убывающим значениям, по часовой стрелке). Aspose.Slides повторяет это поведение: изменить порядок напрямую нельзя; его можно добиться предварительной обработкой данных.
+Ветка или стебель — это общий визуальный сегмент. Его [ChartDataPointLevel](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdatapointlevel/) можно достичь через дочерний лист, но форматирование относится к общему родительскому сегменту, а не только к этому листу.
 
-**Как тема презентации влияет на цвета сегментов и меток?**
+**Почему отсутствует метка данных?**
 
-Цвета диаграмм наследуют [тему/палитру](/slides/ru/nodejs-java/presentation-theme/) презентации, если вы явно не задаёте заливки/шрифты. Для согласованных результатов фиксируйте сплошные заливки и форматирование текста на нужных уровнях.
+Сначала включите необходимые поля в объекте [DataLabelFormat](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/datalabelformat/) метки. Затем проверьте, достаточно ли места у сегмента. Раскладка родительских меток Treemap, размеры диаграммы, длина метки, размер шрифта и количество включённых полей влияют на возможность отображения метки.
 
-**Сохранит ли экспорт в PDF/PNG пользовательские цвета ветвей и настройки меток?**
+**Можно ли задать точный порядок или координаты сегментов?**
 
-Да. При экспорте презентации настройки диаграммы (заливки, метки) сохраняются в выходных форматах, поскольку Aspose.Slides рендерит диаграмму с применённым форматированием.
+Можно управлять порядком строк‑источников и сохранять каждую группу сплошной, но нельзя задавать точные прямоугольники Treemap или углы Sunburst. Движок размещения диаграмм вычисляет их из иерархии, значений и доступного пространства.
 
-**Могу ли я вычислить фактические координаты метки/элемента для пользовательского размещения наложения поверх диаграммы?**
+**Почему цвета меняются после изменения темы презентации?**
 
-Да. После проверки компоновки диаграммы доступны фактические X и Y для элементов (например, [DataLabel](https://reference.aspose.com/slides/nodejs-java/aspose.slides/datalabel/)), что помогает точно позиционировать наложения.
+Заливки, основанные на теме, предназначены следовать цветовой палитре презентации. Применяйте явные RGB‑цвета к уровням, которые должны оставаться фиксированными, либо используйте схемные цвета, если предпочтительно адаптировать их к новой теме.
+
+**Сохранится ли пользовательское форматирование при экспорте в PDF и изображения?**
+
+Да, поддерживаемые заливки диаграмм и параметры меток включаются в процесс рендеринга. Для согласованного результата на разных системах обеспечьте наличие требуемых шрифтов и протестируйте конечный размер экспорта, поскольку размещение меток зависит от макета.
+
+## **Смотрите также**
+
+- [Create Treemap charts](/slides/ru/nodejs-java/create-chart/#creating-tree-map-charts)
+- [Create Sunburst charts](/slides/ru/nodejs-java/create-chart/#creating-sunburst-charts)
+- [Export presentation charts](/slides/ru/nodejs-java/export-chart/)
+- [Manage presentation themes](/slides/ru/nodejs-java/presentation-theme/)
