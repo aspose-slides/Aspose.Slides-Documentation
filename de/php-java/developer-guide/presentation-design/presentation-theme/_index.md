@@ -1,14 +1,14 @@
 ---
-title: Verwalten von Präsentationsthemen in PHP
+title: Präsentationsthemen in PHP verwalten
 linktitle: Präsentationsthema
 type: docs
 weight: 10
 url: /de/php-java/presentation-theme/
 keywords:
-- PowerPoint-Theme
+- PowerPoint-Thema
 - Präsentationsthema
 - Folienthema
-- Theme festlegen
+- Theme setzen
 - Theme ändern
 - Theme verwalten
 - externes Theme
@@ -23,23 +23,23 @@ keywords:
 - Präsentation
 - PHP
 - Aspose.Slides
-description: "Master-Präsentationsthemen in Aspose.Slides für PHP über Java erstellen, anpassen und PowerPoint-Dateien mit konsistentem Branding konvertieren."
+description: "Master-Präsentationsthemen in Aspose.Slides für PHP via Java erstellen, anpassen und PowerPoint-Dateien mit konsistenter Markenführung konvertieren."
 ---
-## **Einführung**
+## **Einleitung**
 
-Ein Präsentations‑Theme definiert ein abgestimmtes Set aus Farben, Schriftarten, Hintergrundstilen, Füllungen, Linien und Effekten. Theme‑bewusste Objekte verweisen auf diese geteilten Definitionen, anstatt jede visuelle Eigenschaft als festen Wert zu speichern, sodass ein Theme‑Wechsel viele Objekte gleichzeitig aktualisieren kann.
+Ein Präsentationsthema definiert einen koordinierten Satz von Farben, Schriftarten, Hintergrundstilen, Füllungen, Linien und Effekten. Themenaware Objekte verweisen auf diese gemeinsamen Definitionen, anstatt jede visuelle Eigenschaft als festen Wert zu speichern, sodass ein Themenwechsel viele Objekte gleichzeitig aktualisieren kann.
 
-In Aspose.Slides ist das Theme auf Präsentationsebene über [Presentation.getMasterTheme](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/) verfügbar. Eine Präsentation kann zudem Theme‑Überschreibungen auf niedrigeren Ebenen enthalten. Ein Master kann das Präsentations‑Theme über [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/de/php-java/aspose.slides/masterthememanager/) überschreiben, während ein Layout oder eine einzelne Folie ihr geerbtes Theme über [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/de/php-java/aspose.slides/baseoverridethememanager/) überschreiben kann. In der Praxis wird das wirksame Theme für eine Folie über diese Vererbungskette aufgelöst: Präsentations‑Theme, Master‑Überschreibung, Layout‑Überschreibung und Folien‑Überschreibung.
+In Aspose.Slides ist das themenbezogene Präsentations‑Theme über [Presentation.getMasterTheme](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/) verfügbar. Eine Präsentation kann außerdem Theme‑Overrides auf tieferen Ebenen enthalten. Ein Master kann das Präsentationsthema über [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/de/php-java/aspose.slides/masterthememanager/) überschreiben, während ein Layout oder eine einzelne Folie ihr vererbtes Theme über [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/de/php-java/aspose.slides/baseoverridethememanager/) überschreiben kann. In der Praxis wird das effektive Theme einer Folie über diese Vererbungskette aufgelöst: Präsentationstheme, Master‑Override, Layout‑Override und Folien‑Override.
 
 ![Theme‑Komponenten: Farben, Schriftarten, Hintergrundstile und Effekte](theme-constituents.png)
 
-Die nachfolgenden Abschnitte zeigen die am häufigsten vorkommenden Theme‑Arbeitsabläufe: ein Theme inspizieren, Farben und Schriftarten ändern, ein Theme kopieren oder anwenden, Hintergrund‑ und Effekt‑Stile aktualisieren und wirksame Werte nach Auflösung von Vererbung und Überschreibungen lesen.
+Die nachfolgenden Abschnitte zeigen die gängigsten Theme‑Workflows: ein Theme inspizieren, Farben und Schriftarten ändern, ein Theme kopieren oder anwenden, Hintergrund‑ und Effektstile aktualisieren und effektive Werte nach Vererbung und Overrides auslesen.
 
-## **Ein Theme inspizieren**
+## **Thema untersuchen**
 
-Das [MasterTheme](https://reference.aspose.com/slides/de/php-java/aspose.slides/mastertheme/)‑Objekt stellt das Farbschema, das Schriftartenschema und das Format‑Schema des Themes über [MasterTheme.getColorScheme](https://reference.aspose.com/slides/de/php-java/aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/de/php-java/aspose.slides/mastertheme/) und [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/de/php-java/aspose.slides/mastertheme/) bereit. Diese Sammlungen zu inspizieren, bevor Sie sie ändern, ist besonders nützlich, wenn eine Präsentation aus einer externen Quelle stammt, da die Anzahl und der Inhalt der Stileinträge variieren können.
+Das [MasterTheme](https://reference.aspose.com/slides/de/php-java/aspose.slides/mastertheme/)‑Objekt stellt das Farbschema, das Schriftartenschema und das Formatschema über [MasterTheme.getColorScheme](https://reference.aspose.com/slides/de/php-java/aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/de/php-java/aspose.slides/mastertheme/) und [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/de/php-java/aspose.slides/mastertheme/) bereit. Das Inspizieren dieser Sammlungen, bevor Änderungen vorgenommen werden, ist besonders nützlich, wenn die Präsentation aus einer externen Quelle stammt, weil die Anzahl und der Inhalt der Stileinträge variieren können.
 
-Im folgenden Beispiel werden die Haupteigenschaften des Themes ausgelesen und angezeigt, wie viele Hintergrund‑, Füll‑, Linien‑ und Effekt‑Stile im Theme gespeichert sind:
+Das folgende Beispiel liest die wichtigsten Theme‑Eigenschaften aus und gibt an, wie viele Hintergrund‑, Füll‑, Linien‑ und Effektstile im Theme gespeichert sind:
 
 ```php
 use aspose\slides\Presentation;
@@ -60,13 +60,13 @@ try {
 }
 ```
 
-Verwendet eine Datei mehrere Master, dürfen Sie nicht davon ausgehen, dass jede Folie dasselbe wirksame Theme hat. Inspizieren Sie den dem jeweiligen Folien‑Master zugeordneten Master und benutzen Sie den im weiteren Verlauf dieses Artikels gezeigten wirksamen‑Theme‑Arbeitsablauf, wenn Layout‑ oder Folien‑Überschreibungen vorhanden sein können.
+Verwendet eine Datei mehrere Master, darf man nicht davon ausgehen, dass jede Folie dasselbe effektive Theme hat. Untersuchen Sie den Master, der der Folie zugeordnet ist, und verwenden Sie den im weiteren Verlauf gezeigten effektiven‑Theme‑Workflow, wenn Layout‑ oder Folien‑Overrides vorhanden sein können.
 
 ## **Theme‑Farben ändern**
 
-Theme‑bewusste Füllungen, Linien und Texte können sich auf eine logische Farbe aus der Aufzählung [SchemeColor](https://reference.aspose.com/slides/de/php-java/aspose.slides/schemecolor/) beziehen. Wenn Sie den entsprechenden Eintrag im [ColorScheme](https://reference.aspose.com/slides/de/php-java/aspose.slides/colorscheme/) ändern, werden alle Objekte, die noch auf diese Theme‑Farbe verweisen, gegen den neuen Wert aufgelöst. Objekte, die eine direkte RGB‑Farbe verwenden, werden durch eine Theme‑Farb‑Aktualisierung nicht geändert.
+Themenaware Füllungen, Linien und Texte können auf eine logische Farbe aus der Aufzählung [SchemeColor](https://reference.aspose.com/slides/de/php-java/aspose.slides/schemecolor/) verweisen. Wenn Sie den entsprechenden Eintrag im [ColorScheme](https://reference.aspose.com/slides/de/php-java/aspose.slides/colorscheme/) ändern, werden alle Objekte, die noch auf diese Theme‑Farbe verweisen, gegen den neuen Wert aufgelöst. Objekte, die eine direkte RGB‑Farbe verwenden, werden von einem Theme‑Farb‑Update nicht beeinflusst.
 
-Das folgende End‑to‑End‑Beispiel erstellt eine Form, die `Accent4` verwendet, ändert die Theme‑Farbe `Accent4` zu Rot, speichert die Präsentation, öffnet sie erneut und gibt die wirksame Füllfarbe aus:
+Das folgende End‑to‑End‑Beispiel erstellt eine Form, die `Accent4` verwendet, ändert die Theme‑Farbe `Accent4` zu Rot, speichert die Präsentation, öffnet sie erneut und gibt die effektive Füllfarbe aus:
 
 ```php
 use aspose\slides\FillType;
@@ -98,19 +98,18 @@ try {
 }
 ```
 
-Da das Rechteck weiterhin mit `Accent4` verknüpft ist, wird seine sichtbare Farbe nach der Theme‑Änderung Rot. Wenn Sie die Schema‑Farbe durch eine direkte Farbe in der Form ersetzen, beeinflussen spätere Änderungen an `Accent4` diese Füllung nicht mehr.
+Da das Rechteck weiterhin mit `Accent4` verknüpft ist, wird seine sichtbare Farbe nach der Themenänderung Rot. Ersetzen Sie die Schemafarbe durch eine direkte Farbe auf der Form, wirken spätere Änderungen an `Accent4` nicht mehr auf diese Füllung.
 
 ### **Farben aus der zusätzlichen Palette verwenden**
 
-PowerPoint leitet hellere und dunklere Varianten von einer Theme‑Farbe ab, indem Farb‑Transformationen angewendet werden. Aspose.Slides stellt diese Transformationen über die Aufzählung [ColorTransformOperation](https://reference.aspose.com/slides/de/php-java/aspose.slides/colortransformoperation/) bereit.
+PowerPoint erzeugt hellere und dunklere Varianten einer Theme‑Farbe durch Farbtransformationen. Aspose.Slides stellt diese Transformationen über die Aufzählung [ColorTransformOperation](https://reference.aspose.com/slides/de/php-java/aspose.slides/colortransformoperation/) bereit.
 
-![Haupt‑Theme‑Farben und hellere sowie dunklere Farben, die aus der zusätzlichen Palette erzeugt wurden](additional-palette-colors.png)
+![Haupt‑Theme‑Farben sowie hellere und dunklere Farben, die aus der zusätzlichen Palette erzeugt wurden](additional-palette-colors.png)
 
-**1** – Haupt‑Theme‑Farben.
-
+**1** – Haupt‑Theme‑Farben.  
 **2** – Hellere und dunklere Varianten, die aus den Haupt‑Theme‑Farben erzeugt wurden.
 
-Das folgende Beispiel erstellt sechs Rechtecke basierend auf `Accent4`, wendet Luminanz‑Transformationen auf fünf davon an und speichert das Ergebnis:
+Das folgende Beispiel erstellt sechs Rechtecke basierend auf `Accent4`, wendet Luminanz‑Transformationen auf fünf von ihnen an und speichert das Ergebnis:
 
 ```php
 use aspose\slides\ColorTransformOperation;
@@ -162,11 +161,11 @@ try {
 }
 ```
 
-Diese Varianten bleiben an die Theme‑Farbe gekoppelt. Ändert sich `Accent4` später, werden die transformierten Farben aus dem neuen `Accent4`‑Wert neu berechnet.
+Diese Varianten bleiben auf der Theme‑Farbe basiert. Ändert sich `Accent4` später, werden die transformierten Farben aus dem neuen `Accent4`‑Wert neu berechnet.
 
 ### **`SchemeColor`‑Werte den `ColorScheme`‑Plätzen zuordnen**
 
-Die Aufzählung [SchemeColor](https://reference.aspose.com/slides/de/php-java/aspose.slides/schemecolor/) verwendet `Text1`, `Background1`, `Text2` und `Background2`, während das [ColorScheme](https://reference.aspose.com/slides/de/php-java/aspose.slides/colorscheme/) dieselben Theme‑Plätze als `Dark1`, `Light1`, `Dark2` und `Light2` bereitstellt. Die Zuordnung ist fest:
+Die Aufzählung [SchemeColor](https://reference.aspose.com/slides/de/php-java/aspose.slides/schemecolor/) verwendet `Text1`, `Background1`, `Text2` und `Background2`, während das [ColorScheme](https://reference.aspose.com/slides/de/php-java/aspose.slides/colorscheme/) dieselben Theme‑Plätze als `Dark1`, `Light1`, `Dark2` und `Light2` exponiert. Die Zuordnung ist fest:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
@@ -177,16 +176,16 @@ Dies sind alternative Bezeichnungen für dieselben Theme‑Plätze; sie sind kei
 
 ## **Theme‑Schriftarten ändern**
 
-Ein Theme‑Schriftartenschema enthält einen Haupt‑Schriftartensatz für Überschriften und einen Neben‑Schriftartensatz für Fließtext. Die Methoden [FontScheme.getMajor](https://reference.aspose.com/slides/de/php-java/aspose.slides/fontscheme/) und [FontScheme.getMinor](https://reference.aspose.com/slides/de/php-java/aspose.slides/fontscheme/) geben diese Sätze zurück.
+Ein Theme‑Schriftartenschema enthält einen Hauptschriftset für Überschriften und einen Neben‑Schriftset für Fließtext. Die Methoden [FontScheme.getMajor](https://reference.aspose.com/slides/de/php-java/aspose.slides/fontscheme/) und [FontScheme.getMinor](https://reference.aspose.com/slides/de/php-java/aspose.slides/fontscheme/) geben diese Sets frei.
 
-PowerPoint‑kompatible Theme‑Schriftart‑Kennungen können in der Textformatierung verwendet werden:
+PowerPoint‑kompatible Theme‑Schriftart‑Identifier können in der Textformatierung verwendet werden:
 
-* `+mn‑lt` – Body Font Latin (Minor Latin Font)
-* `+mj‑lt` – Heading Font Latin (Major Latin Font)
-* `+mn‑ea` – Body Font East Asian (Minor East Asian Font)
-* `+mj‑ea` – Heading Font East Asian (Major East Asian Font)
+* `+mn-lt` – Body‑Font Latin (Minor Latin Font)
+* `+mj-lt` – Heading‑Font Latin (Major Latin Font)
+* `+mn-ea` – Body‑Font East Asian (Minor East Asian Font)
+* `+mj-ea` – Heading‑Font East Asian (Major East Asian Font)
 
-Das folgende Beispiel erstellt eine Überschrift, die die Haupt‑Latein‑Theme‑Schrift verwendet, und eine Textzeile, die die Neben‑Latein‑Theme‑Schrift verwendet. Anschließend werden die Theme‑Schriftarten geändert und das Ergebnis gespeichert:
+Das folgende Beispiel erstellt eine Überschrift, die die Haupt‑Latin‑Theme‑Schriftart verwendet, und eine Textzeile, die die Neben‑Latin‑Theme‑Schriftart verwendet. Anschließend werden die Theme‑Schriftarten geändert und das Ergebnis gespeichert:
 
 ```php
 use aspose\slides\FontData;
@@ -214,30 +213,28 @@ try {
 }
 ```
 
-Die Überschrift folgt der Haupt‑Schrift und der Fließtext folgt der Neben‑Schrift. Text, der einen expliziten Schriftartnamen anstelle einer Theme‑Kennung enthält, wechselt nicht automatisch, wenn das Theme‑Schriftartenschema geändert wird.
+Die Überschrift folgt der Hauptschriftart und der Fließtext der Neben­schriftart. Text, der einen expliziten Schriftartnamen anstelle eines Theme‑Identifiers enthält, wechselt nicht automatisch, wenn das Theme‑Schriftartenschema geändert wird.
 
-Die Haupt‑ und Neben‑Schriftartensammlungen können außerdem Schriftzuordnungen für einzelne Schriftsysteme enthalten, etwa Kyrillisch, Arabisch, Japanisch, Georgisch und Thaana. Zum Inspizieren, Hinzufügen, Ersetzen oder Entfernen dieser Zuordnungen siehe [Script‑Specific Theme Fonts](/slides/de/php-java/script-specific-font-mappings/).
+Die Haupt‑ und Neben‑Schriftartensammlungen können zudem Zuordnungen für einzelne Schriftsysteme enthalten, z. B. Kyrillisch, Arabisch, Japanisch, Georgisch und Thaana. Zum Untersuchen, Hinzufügen, Ersetzen oder Entfernen dieser Zuordnungen siehe [Script‑Specific Theme Fonts](/slides/de/php-java/script-specific-font-mappings/).
 
-{{% alert color="info" title="Tip" %}}
-
+{{% alert color="info" title="Hinweis" %}}
 Weitere Informationen zu Präsentations‑Schriftarten finden Sie unter [PowerPoint Fonts](/slides/de/php-java/powerpoint-fonts/).
-
 {{% /alert %}}
 
 ## **Ein Theme kopieren oder anwenden**
 
-Die nachfolgenden Arbeitsabläufe lösen verschiedene Theme‑bezogene Probleme.
+Die nachfolgenden Workflows lösen verschiedene themenbezogene Probleme.
 
-### **Ein externes Theme auf Folien anwenden, die von einem Master abhängen**
+### **Ein externes Theme auf die von einem Master abhängigen Folien anwenden**
 
-Verwenden Sie [MasterSlide::applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/de/php-java/aspose.slides/masterslide/), wenn Sie eine PowerPoint‑Theme‑Datei (`.thmx`) besitzen und jeden Folie, die von einem bestimmten Master abhängt, neu gestalten möchten. Wählen Sie den Master aus der [Presentation::getMasters](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/)‑Sammlung, die durch [MasterSlideCollection](https://reference.aspose.com/slides/de/php-java/aspose.slides/masterslidecollection/) repräsentiert wird, und übergeben Sie den Pfad zur Theme‑Datei an die Methode.
+Verwenden Sie [MasterSlide::applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/de/php-java/aspose.slides/masterslide/), wenn Sie eine PowerPoint‑Theme‑Datei (`.thmx`) besitzen und jede Folie, die von einem bestimmten Master abhängt, neu stylen wollen. Wählen Sie den Master aus der [Presentation::getMasters](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/)‑Sammlung, die durch [MasterSlideCollection](https://reference.aspose.com/slides/de/php-java/aspose.slides/masterslidecollection/) repräsentiert wird, und übergeben Sie den Pfad zur Theme‑Datei an die Methode.
 
 Die Methode führt folgende Schritte aus:
 
-1. Erstellt eine neue Master‑Folie basierend auf dem ausgewählten Master.
-1. Wendet das externe Theme auf den neuen Master an.
-1. Ordnet den neuen Master allen Folien zu, die zuvor vom ausgewählten Master abhingen.
-1. Gibt den neu erstellten [MasterSlide](https://reference.aspose.com/slides/de/php-java/aspose.slides/masterslide/) zurück.
+1. Erstellt eine neue Master‑Folien‑Instanz basierend auf dem ausgewählten Master.  
+1. Wendet das externe Theme auf den neuen Master an.  
+1. Ordnet den neuen Master allen Folien zu, die zuvor vom ausgewählten Master abhingen.  
+1. Gibt das neu erstellte [MasterSlide](https://reference.aspose.com/slides/de/php-java/aspose.slides/masterslide/) zurück.
 
 Das folgende Beispiel wendet ein externes Theme auf die Folien an, die vom ersten Master abhängen, und speichert die Präsentation:
 
@@ -257,19 +254,19 @@ try {
 }
 ```
 
-Ein ungültiges, beschädigtes oder nicht unterstütztes Theme kann eine [PptxReadException](https://reference.aspose.com/slides/de/php-java/aspose.slides/pptxreadexception/) auslösen. Validieren Sie Pfade, die von Benutzern bereitgestellt werden, behandeln Sie Dateisystem‑Zugriffsfehler und speichern Sie die Präsentation erst, nachdem das Theme erfolgreich angewendet wurde.
+Ein ungültiges, beschädigtes oder nicht unterstütztes Theme kann eine [PptxReadException](https://reference.aspose.com/slides/de/php-java/aspose.slides/pptxreadexception/) auslösen. Validieren Sie Pfade, die von Benutzern bereitgestellt werden, behandeln Sie Zugriffsfehler auf das Dateisystem und speichern Sie die Präsentation erst, nachdem das Theme erfolgreich angewendet wurde.
 
-Nur die Folien, die vom ausgewählten Master abhingen, werden neu zugeordnet. Folien, die anderen Mastern zugeordnet sind, behalten ihre bestehenden Master und Themes. Theme‑bewusste Farben, Schriftarten, Füllungen, Linien, Hintergründe und Effekte werden gegen das externe Theme aufgelöst. Direkt zugewiesene Farben, Schriftarten, Füllungen und andere explizite Formatierungen können unverändert bleiben. Layout‑ und Folien‑Überschreibungen können ebenfalls Vorrang vor Werten haben, die vom neuen Master geerbt wurden.
+Nur die Folien, die vom gewählten Master abhingen, werden neu zugeordnet. Folien, die anderen Mastern zugeordnet sind, behalten ihre bestehenden Master und Themes. Theme‑aware Farben, Schriftarten, Füllungen, Linien, Hintergründe und Effekte werden gegen das externe Theme aufgelöst. Direkt zugewiesene Farben, Schriftarten, Füllungen und andere explizite Formate können unverändert bleiben. Overrides auf Layout‑ und Folien‑Ebene können ebenfalls Vorrang vor den vom neuen Master geerbten Werten haben.
 
-Das Theme kann Schriftarten referenzieren, die in der Laufzeitumgebung nicht verfügbar sind. Für konsistentes Rendern und Exportieren installieren Sie die benötigten Schriftarten, stellen Sie sie über [custom font sources](/slides/de/php-java/custom-font/) bereit oder konfigurieren Sie [font substitution](/slides/de/php-java/font-substitution/).
+Das Theme kann Schriftarten referenzieren, die in der Laufzeitumgebung nicht verfügbar sind. Für konsistente Darstellung und Export installieren Sie die erforderlichen Schriftarten, stellen Sie sie über [custom font sources](/slides/de/php-java/custom-font/) bereit oder konfigurieren Sie [font substitution](/slides/de/php-java/font-substitution/).
 
-Dies ist ein direkter Master‑Level‑Arbeitsablauf: Die Methode akzeptiert einen Dateipfad zu einer `.thmx`‑Datei und erfordert kein manuelles Erstellen von Folien‑ oder Layout‑Theme‑Überschreibungen.
+Dies ist ein direkter Master‑Level‑Workflow: Die Methode akzeptiert einen Dateipfad zu einer `.thmx`‑Datei und erfordert kein manuelles Erstellen von Folien‑ oder Layout‑Overrides.
 
 ### **Unterschiedliche externe Themes in einer Multi‑Master‑Präsentation anwenden**
 
-Wenn der relevante Master nicht im Voraus bekannt ist, erhalten Sie ihn über eine repräsentative Folie mit [Slide::getLayoutSlide](https://reference.aspose.com/slides/de/php-java/aspose.slides/slide/) und [LayoutSlide::getMasterSlide](https://reference.aspose.com/slides/de/php-java/aspose.slides/layoutslide/). Speichern Sie die ursprünglichen Master‑Referenzen, bevor Sie Themes anwenden, da jeder Aufruf einen weiteren Master in der Präsentation erzeugt.
+Wenn der relevante Master nicht im Voraus bekannt ist, ermitteln Sie ihn über eine repräsentative Folie mittels [Slide::getLayoutSlide](https://reference.aspose.com/slides/de/php-java/aspose.slides/slide/) und [LayoutSlide::getMasterSlide](https://reference.aspose.com/slides/de/php-java/aspose.slides/layoutslide/). Speichern Sie die ursprünglichen Master‑Referenzen, bevor Sie Themes anwenden, da jeder Aufruf einen weiteren Master in der Präsentation erzeugt.
 
-Das folgende Beispiel verwendet Folien aus zwei Abschnitten, um deren Master zu ermitteln, und wendet für jede Gruppe ein unterschiedliches externes Theme an:
+Das folgende Beispiel verwendet Folien aus zwei Abschnitten, um deren Master zu finden, und wendet jedem Abschnitt ein unterschiedliches externes Theme an:
 
 ```php
 use aspose\slides\Presentation;
@@ -299,11 +296,11 @@ try {
 }
 ```
 
-Der erste Aufruf betrifft nur Folien, die von `$firstGroupMaster` abhängen, der zweite Aufruf betrifft nur Folien, die von `$secondGroupMaster` abhängen. Folien, die zu einem anderen Master gehören, werden nicht neu gestaltet.
+Der erste Aufruf wirkt nur auf Folien, die von `$firstGroupMaster` abhängen, der zweite Aufruf nur auf Folien, die von `$secondGroupMaster` abhängen. Folien, die zu einem anderen Master gehören, bleiben unverändert.
 
 ### **Ein Quell‑Theme beim Verschieben von Folien erhalten**
 
-Wenn Sie eine Folie in eine andere Präsentation verschieben und ihr ursprüngliches Design beibehalten möchten, klonen Sie den Quell‑Master in die Ziel‑Präsentation mit [MasterSlideCollection.addClone](https://reference.aspose.com/slides/de/php-java/aspose.slides/masterslidecollection/), klonen Sie anschließend die Folie mit [SlideCollection.addClone](https://reference.aspose.com/slides/de/php-java/aspose.slides/slidecollection/) und dem geklonten Master. Dadurch werden Master, Layouts und das zugehörige Theme zusammen übertragen.
+Möchten Sie eine Folie in eine andere Präsentation verschieben und ihr ursprüngliches Design beibehalten, klonen Sie den Quell‑Master in die Ziel‑Präsentation mit [MasterSlideCollection.addClone](https://reference.aspose.com/slides/de/php-java/aspose.slides/masterslidecollection/), anschließend klonen Sie die Folie mit [SlideCollection.addClone](https://reference.aspose.com/slides/de/php-java/aspose.slides/slidecollection/) und dem geklonten Master. Dadurch werden Master, seine Layouts und das zugehörige Theme gemeinsam übertragen.
 
 ```php
 use aspose\slides\Presentation;
@@ -326,11 +323,11 @@ try {
 }
 ```
 
-Dies ist der bevorzugte Arbeitsablauf, wenn die Quell‑Folie im Ziel exakt gleich aussehen muss. Das reine Klonen von Inhalten auf einen nicht verwandten Ziel‑Master kann Theme‑gesteuerte Farben, Schriftarten, Hintergründe und Effekte ändern.
+Dies ist der empfohlene Workflow, wenn die Quell‑Folie im Ziel exakt gleich aussehen muss. Das reine Klonen von Inhalten auf einen fremden Ziel‑Master kann Theme‑abhängige Farben, Schriftarten, Hintergründe und Effekte verändern.
 
-### **Theme‑Werte auf einer vorhandenen Folie anwenden**
+### **Theme‑Werte auf eine bestehende Folie anwenden**
 
-Wenn die Ziel‑Folie auf ihrem aktuellen Master und Layout bleiben soll, initialisieren Sie eine Folien‑Überschreibung aus dem Quell‑Theme. Die Methoden [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/de/php-java/aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/de/php-java/aspose.slides/overridetheme/) und [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/de/php-java/aspose.slides/overridetheme/) kopieren die drei Haupt‑Theme‑Komponenten in die Überschreibung.
+Muss die Ziel‑Folie auf ihrem aktuellen Master und Layout verbleiben, initialisieren Sie einen Folien‑Level‑Override aus dem Quell‑Theme. Die Methoden [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/de/php-java/aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/de/php-java/aspose.slides/overridetheme/) und [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/de/php-java/aspose.slides/overridetheme/) kopieren die drei Haupt‑Theme‑Komponenten in den Override.
 
 ```php
 use aspose\slides\Presentation;
@@ -354,11 +351,11 @@ try {
 }
 ```
 
-Damit wird das Theme dieser Folie geändert, ohne das von anderen Folien geerbte Theme zu beeinflussen. Um die lokale Überschreibung zu entfernen und zu den geerbten Werten zurückzukehren, rufen Sie [OverrideTheme.clear](https://reference.aspose.com/slides/de/php-java/aspose.slides/overridetheme/) auf.
+Damit wird das von dieser Folie genutzte Theme geändert, ohne das von anderen Folien geerbte Theme zu beeinflussen. Um den lokalen Override zu entfernen und zu den geerbten Werten zurückzukehren, rufen Sie [OverrideTheme.clear](https://reference.aspose.com/slides/de/php-java/aspose.slides/overridetheme/) auf.
 
 ### **Ein Theme‑Override auf ein Layout anwenden**
 
-Eine Layout‑Überschreibung gilt für alle Folien, die dieses Layout verwenden, sofern nicht eine bestimmte Folie eine eigene Überschreibung besitzt. Die gleichen Initialisierungsmethoden können über den [LayoutSlideThemeManager](https://reference.aspose.com/slides/de/php-java/aspose.slides/layoutslidethememanager/) verwendet werden:
+Ein Layout‑Level‑Override gilt für alle Folien, die dieses Layout verwenden, sofern eine bestimmte Folie keinen eigenen Override besitzt. Die gleichen Initialisierungsmethoden können über den [LayoutSlideThemeManager](https://reference.aspose.com/slides/de/php-java/aspose.slides/layoutslidethememanager/) verwendet werden:
 
 ```php
 use aspose\slides\Presentation;
@@ -382,17 +379,17 @@ try {
 }
 ```
 
-Verwenden Sie ein Master‑ oder Präsentations‑Theme, wenn viele Layouts und Folien dasselbe Grunddesign teilen sollen, eine Layout‑Überschreibung, wenn eine Layout‑Familie ein anderes Styling benötigt, und eine Folien‑Überschreibung nur für echte Ausnahmefälle. Übermäßige Folien‑Überschreibungen erschweren die Vorhersagbarkeit späterer globaler Theme‑Änderungen.
+Verwenden Sie ein Master‑ oder Präsentations‑Theme, wenn viele Layouts und Folien dasselbe Basiskonzept teilen sollen; ein Layout‑Override, wenn eine Layout‑Familie ein anderes Styling benötigt; und ein Folien‑Override nur für echte Ausnahmen. Zu viele Folien‑Overrides erschweren spätere globale Theme‑Änderungen.
 
-## **Theme‑Hintergrund‑Stile aktualisieren**
+## **Theme‑Hintergrundstile aktualisieren**
 
-Die Hintergrund‑Füllungen eines Themes werden in [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/de/php-java/aspose.slides/formatscheme/) gespeichert. PowerPoint kann im UI mehr Hintergrund‑Optionen präsentieren, als tatsächlich in dieser Sammlung definiert sind, weil das UI Theme‑Füllungen mit Theme‑Farben und anderen Stil‑Referenzen kombinieren kann.
+Die Hintergrund‑Füllungen eines Themes werden in [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/de/php-java/aspose.slides/formatscheme/) gespeichert. PowerPoint kann im UI mehr Hintergrund‑Optionen anbieten, als tatsächlich Füllungsdefinitionen in dieser Sammlung vorhanden sind, weil das UI Theme‑Füllungen mit Theme‑Farben und anderen Stil‑Referenzen kombinieren kann.
 
 ![PowerPoint‑Hintergrundstil‑Galerie für ein Präsentations‑Theme](presentation-design_8.png)
 
-Bevor Sie einen Hintergrund‑Stil verwenden, inspizieren Sie die gespeicherte Sammlung und den aktuellen [Background.getStyleIndex](https://reference.aspose.com/slides/de/php-java/aspose.slides/background/). Ein Stil‑Index von `0` bedeutet keine thematische Füllung; positive Werte verweisen auf Theme‑Hintergrund‑Stil‑Referenzen. Das unterscheidet sich vom direkten Indexieren der PHP‑Sammlung, bei dem `get_Item(0)` das erste gespeicherte Element bedeutet. Gehen Sie nicht davon aus, dass jede Präsentation dieselbe Anzahl von Hintergrund‑Füllungs‑Stilen enthält.
+Bevor Sie einen Hintergrundstil verwenden, inspizieren Sie die gespeicherte Sammlung und den aktuellen [Background.getStyleIndex](https://reference.aspose.com/slides/de/php-java/aspose.slides/background/). Ein Stil‑Index von `0` bedeutet keine themenbasierte Füllung; positive Werte sind Referenzen auf Theme‑Hintergrundstile. Das unterscheidet sich von der direkten Indizierung der PHP‑Sammlung, bei der `get_Item(0)` das erste gespeicherte Element liefert. Gehen Sie nicht davon aus, dass jede Präsentation dieselbe Anzahl von Hintergrund‑Füllstilen enthält.
 
-Das folgende Beispiel gibt die Anzahl verfügbarer Hintergrund‑Füllungen aus, weist dem ersten Master eine thematische Hintergrund‑Referenz zu und speichert die Präsentation:
+Das folgende Beispiel gibt die verfügbare Anzahl an Hintergrund‑Füllungen aus, weist dem ersten Master eine themenbasierte Hintergrund‑Referenz zu und speichert die Präsentation:
 
 ```php
 use aspose\slides\BackgroundType;
@@ -416,29 +413,25 @@ try {
 }
 ```
 
-Das sichtbare Ergebnis hängt vom Theme‑Eintrag ab, auf den der Master verweist, sowie von etwaigen Hintergrund‑Überschreibungen auf Layout‑ oder Folien‑Ebene. Verwendet eine Folie einen eigenen Hintergrund, ändert das Ändern nur des Master‑Hintergrunds diese Folie möglicherweise nicht. Verwenden Sie [Background.getEffective](https://reference.aspose.com/slides/de/php-java/aspose.slides/background/), wenn Sie den endgültigen Hintergrund nach Anwendung der Vererbung wissen müssen.
+Das sichtbare Ergebnis hängt vom Theme‑Eintrag ab, den der Master referenziert, sowie von möglichen Hintergrund‑Overrides auf Layout‑ oder Folien‑Ebene. Verwendet eine Folie ihren eigenen Hintergrund, ändert das Anpassen des Master‑Hintergrunds möglicherweise nicht diese Folie. Nutzen Sie [Background.getEffective](https://reference.aspose.com/slides/de/php-java/aspose.slides/background/), wenn Sie den endgültigen Hintergrund nach Vererbung kennen müssen.
 
-{{% alert color="warning" title="Warning" %}}
-
-Betrachten Sie den Stil‑Index nicht als nullbasierten Sammlungs‑Index. Vermeiden Sie außerdem das Hard‑Coden einer Stil‑Nummer aus einer Datei und die Annahme, dass sie in einer anderen Datei gleich aussieht; Theme‑Stil‑Definitionen sind präsentationsspezifisch.
-
+{{% alert color="warning" title="Warnung" %}}
+Behandeln Sie den Stil‑Index nicht als nullbasierten Sammlungs‑Index. Vermeiden Sie außerdem das Hard‑Coden einer Stild‑Nummer aus einer Datei und die Annahme, dass sie in einer anderen Datei identisch aussieht; Theme‑Stil‑Definitionen sind presentationsspezifisch.
 {{% /alert %}}
 
-{{% alert color="info" title="Tip" %}}
-
-Für direkte Hintergrund‑Formatierung und Hintergrund‑Vererbung siehe [Presentation Background](/slides/de/php-java/presentation-background/).
-
+{{% alert color="info" title="Hinweis" %}}
+Für direkte Hintergrundformatierung und Hintergrund‑Vererbung siehe [Presentation Background](/slides/de/php-java/presentation-background/).
 {{% /alert %}}
 
 ## **Theme‑Effekte aktualisieren**
 
-Ein Theme‑Format‑Schema enthält separate Sammlungen für Füll‑, Linien‑ und Effekt‑Stile, die über [FormatScheme.getFillStyles](https://reference.aspose.com/slides/de/php-java/aspose.slides/formatscheme/), [FormatScheme.getLineStyles](https://reference.aspose.com/slides/de/php-java/aspose.slides/formatscheme/) und [FormatScheme.getEffectStyles](https://reference.aspose.com/slides/de/php-java/aspose.slides/formatscheme/) bereitgestellt werden. Typische Office‑Themes enthalten häufig drei Haupteinträge, die visuell subtilen, moderaten und intensiven Formatierungen entsprechen, aber der Code sollte jede Sammlung inspizieren, anstatt von einer festen Anzahl auszugehen.
+Ein Theme‑Formatschema enthält separate Sammlungen für Füll‑, Linien‑ und Effektstile, die über [FormatScheme.getFillStyles](https://reference.aspose.com/slides/de/php-java/aspose.slides/formatscheme/), [FormatScheme.getLineStyles](https://reference.aspose.com/slides/de/php-java/aspose.slides/formatscheme/) und [FormatScheme.getEffectStyles](https://reference.aspose.com/slides/de/php-java/aspose.slides/formatscheme/) bereitgestellt werden. Typische Office‑Themes enthalten häufig drei Haupteinträge, die visuell subtil, moderat und intensiv formatiert sind, aber der Code sollte jede Sammlung prüfen, anstatt von einer festen Anzahl auszugehen.
 
-![Subtile, moderate und intensive Theme‑Effekte, die auf dieselbe Form angewendet wurden](presentation-design_10.png)
+![Subtile, moderate und intensive Theme‑Effekte, die auf dieselbe Form angewendet werden](presentation-design_10.png)
 
-Beim Zugriff auf diese Sammlungen in PHP ist der Sammlungs‑Index nullbasiert: `get_Item(0)` ist der zuerst gespeicherte Stil und `get_Item(2)` der dritte. Die Stil‑Referenz‑Indizes einer Form sind ein separates Konzept, das über [ShapeStyle](https://reference.aspose.com/slides/de/php-java/aspose.slides/shapestyle/) bereitgestellt wird. Das Ändern eines Theme‑Stils wirkt sich auf Formen aus, die diesen Theme‑Stil referenzieren; Formen mit direkter Formatierung können unverändert bleiben.
+Greift man in PHP auf diese Sammlungen zu, ist der Sammlungs‑Index nullbasiert: `get_Item(0)` ist der erste gespeicherte Stil, `get_Item(2)` der dritte. Die Stil‑Referenz‑Indizes einer Form bilden ein separates Konzept, das über [ShapeStyle](https://reference.aspose.com/slides/de/php-java/aspose.slides/shapestyle/) zugänglich ist. Das Ändern eines Theme‑Stils wirkt sich auf Formen aus, die diesen Stil referenzieren; Formen mit direkter Formatierung bleiben unverändert.
 
-Das folgende Beispiel prüft, ob die erforderlichen Stileinträge existieren, ändert den ersten Linien‑Stil, den dritten Füll‑Stil, aktiviert einen äußeren Schatten im dritten Effekt‑Stil und speichert das Ergebnis:
+Das folgende Beispiel prüft, ob die benötigten Stile vorhanden sind, ändert den ersten Linienstil, den dritten Füllstil, aktiviert einen äußeren Schatten im dritten Effektstil und speichert das Ergebnis:
 
 ```php
 use aspose\slides\FillType;
@@ -465,15 +458,89 @@ try {
 }
 ```
 
-Für Formen, die diese Plätze referenzieren, wird der erste Theme‑Linien‑Stil rot, der dritte Theme‑Füll‑Stil wird zu einem satten Waldgrün und der dritte Effekt‑Stil erhält einen äußeren Schatten mit einer Distanz von 10 Punkten. Das genaue visuelle Ergebnis hängt weiterhin davon ab, welche Stil‑Plätze jede Form referenziert und ob direkte Formatierung die Theme‑Werte überschreibt.
+Für Formen, die diese Plätze referenzieren, wird der erste Theme‑Linienstil rot, der dritte Theme‑Füllstil einfarbig Waldgrün und der dritte Effektstil erhält einen äußeren Schatten mit einem Abstand von 10 Punkten. Das genaue visuelle Ergebnis hängt weiterhin davon ab, welche Stil‑Plätze jede Form referenziert und ob direkte Formatierung den Theme‑Stil überschreibt.
 
-![Theme‑Effekt‑Stile nach Änderung von Linien‑, Füll‑ und Schatten‑Einstellungen](presentation-design_11.png)
+![Theme‑Effektstile nach Änderung von Linie, Füllung und Schatteneinstellungen](presentation-design_11.png)
 
-## **Wirksame Theme‑Werte lesen**
+## **Ermitteln, ob eine effektive einfarbige Füllung ein Theme‑Farb verwendet**
 
-Roh‑Theme‑Objekte zeigen, was auf einer bestimmten Ebene definiert ist. Wirksame Werte zeigen, was eine Folie oder Form tatsächlich nach Vererbung und lokalen Überschreibungen verwendet. Für eine Folie rufen Sie [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/de/php-java/aspose.slides/baseoverridethememanager/) auf. Für einen Hintergrund verwenden Sie [Background.getEffective](https://reference.aspose.com/slides/de/php-java/aspose.slides/background/), und für eine Füllung [FillFormat.getEffective](https://reference.aspose.com/slides/de/php-java/aspose.slides/fillformat/).
+Eine Füllung kann direkt auf einem Objekt gespeichert sein oder von einem Absatz, Layout, Master, Theme‑Stil oder einer anderen Formatierungsebene geerbt werden. Rufen Sie [FillFormat::getEffective](https://reference.aspose.com/slides/de/php-java/aspose.slides/fillformat/) auf, um diese Hierarchie in unveränderliche effektive Fülldaten aufzulösen. Prüfen Sie zuerst das Ergebnis von `getFillType`. Nur wenn es `FillType::Solid` ist, sollten Sie die einfarbigen Füllparameter auslesen.
 
-Das folgende Beispiel liest das wirksame Theme, den Hintergrund und die erste Form‑Füllung einer Folie:
+Für eine einfarbige Füllung liefert `getSolidFillColor` den endgültigen gerenderten RGB‑Wert nach Vererbung, Theme‑Lookup und Farb‑Transformationen. Die Methode `getSolidFillSchemeColor` gibt das entsprechende logische [SchemeColor](https://reference.aspose.com/slides/de/php-java/aspose.slides/schemecolor/)‑Slot zurück, z. B. `Text1` oder `Accent6`. Ein Wert von `SchemeColor::NotDefined` bedeutet, dass die effektive einfarbige Füllung nicht auf einer Schema‑Farbe basiert. In einem Workflow, bei dem Füllungen entweder Theme‑Farben oder direkte RGB‑Farben sind, kennzeichnet dieser Wert eine direkte RGB‑Füllung.
+
+Verwenden Sie nicht allein den lokalen [ColorFormat::getSchemeColor](https://reference.aspose.com/slides/de/php-java/aspose.slides/colorformat/)‑Wert, um eine Füllung zu klassifizieren. Beispielsweise kann ein Textabschnitt keinen lokal definierten SchemeColor haben (`NotDefined`), während seine effektive Füllung ein Theme‑Farb‑Slot wie `Text1` oder `Accent6` ist. Umgekehrt gibt `getSolidFillSchemeColor` an, welches logische Theme‑Slot die effektive Farbe erzeugt hat, jedoch nicht, von welcher Ebene (Objekt, Absatz, Layout, Master usw.) es stammt.
+
+Das folgende Beispiel lädt eine Präsentation, prüft sowohl Form‑Füllungen als auch Text‑Abschnitts‑Füllungen, gibt jeden endgültigen RGB‑Wert und das zugehörige Scheme‑Color aus und markiert einfarbige Füllungen, die Theme‑Farbänderungen nicht folgen:
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SchemeColor;
+
+$auditFill = function (string $objectName, $localFill): void {
+    $effectiveFill = $localFill->getEffective();
+
+    if (java_values($effectiveFill->getFillType()) != FillType::Solid) {
+        echo $objectName . ": fill type = " . java_values($effectiveFill->getFillType()) . "; not a solid fill." . PHP_EOL;
+        return;
+    }
+
+    $rgb = $effectiveFill->getSolidFillColor();
+    $effectiveSchemeColor = java_values($effectiveFill->getSolidFillSchemeColor());
+    $localSchemeColor = java_values($localFill->getSolidFillColor()->getSchemeColor());
+
+    echo sprintf("%s: RGB = #%02X%02X%02X", $objectName, java_values($rgb->getRed()), java_values($rgb->getGreen()), java_values($rgb->getBlue())) . PHP_EOL;
+    echo $objectName . ": local scheme = " . $localSchemeColor . ", effective scheme = " . $effectiveSchemeColor . PHP_EOL;
+
+    if ($effectiveSchemeColor == SchemeColor::NotDefined) {
+        echo $objectName . ": direct RGB or another non-scheme fill; audit as theme-independent." . PHP_EOL;
+    } else {
+        echo $objectName . ": theme-dependent through " . $effectiveSchemeColor . "." . PHP_EOL;
+    }
+};
+
+$autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+$presentation = new Presentation("input.pptx");
+try {
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+
+        $shapeCount = java_values($slide->getShapes()->size());
+        for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+            $shape = $slide->getShapes()->get_Item($shapeIndex);
+            $shapeName = "Slide " . ($slideIndex + 1) . ", shape " . ($shapeIndex + 1);
+            $auditFill($shapeName, $shape->getFillFormat());
+
+            if (java_instanceof($shape, $autoShapeClass)) {
+                $paragraphCount = java_values($shape->getTextFrame()->getParagraphs()->getCount());
+                for ($paragraphIndex = 0; $paragraphIndex < $paragraphCount; $paragraphIndex++) {
+                    $paragraph = $shape->getTextFrame()->getParagraphs()->get_Item($paragraphIndex);
+
+                    $portionCount = java_values($paragraph->getPortions()->getCount());
+                    for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
+                        $portion = $paragraph->getPortions()->get_Item($portionIndex);
+                        $portionName = $shapeName . ", paragraph " . ($paragraphIndex + 1) . ", portion " . ($portionIndex + 1);
+                        $auditFill($portionName, $portion->getPortionFormat()->getFillFormat());
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Der `NotDefined`‑Zweig liefert eine Prüf­liste einfarbiger Füllungen, die nicht auf Theme‑Farben reagieren. Prüfen Sie diese Objekte, wenn eine Präsentation einer neuen Marken‑Palette folgen muss. Der gemeldete RGB‑Wert zeigt weiterhin das aktuelle Erscheinungsbild, während der Scheme‑Wert erklärt, ob das Erscheinungsbild mit dem Theme verbunden ist.
+
+Effektive‑Format‑Objekte sind Momentaufnahmen. Nach einer Änderung des Präsentations‑Themes, eines Theme‑Overrides oder beliebiger vererbter Formatierungen rufen Sie erneut `getEffective` auf und lesen die neuen effektiven Fülldaten, bevor Sie Farben vergleichen oder melden.
+
+## **Effektive Theme‑Werte auslesen**
+
+Roh‑Theme‑Objekte zeigen, was auf einer bestimmten Ebene definiert ist. Effektive Werte zeigen, was eine Folie oder Form tatsächlich nach Vererbung und lokalen Overrides verwendet. Für eine Folie rufen Sie [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/de/php-java/aspose.slides/baseoverridethememanager/) auf. Für einen Hintergrund verwenden Sie [Background.getEffective](https://reference.aspose.com/slides/de/php-java/aspose.slides/background/), und für eine Füllung [FillFormat.getEffective](https://reference.aspose.com/slides/de/php-java/aspose.slides/fillformat/).
+
+Das folgende Beispiel liest das effektive Theme, den Hintergrund und die erste Form‑Füllung einer Folie aus:
 
 ```php
 use aspose\slides\FillType;
@@ -500,22 +567,22 @@ try {
 }
 ```
 
-Verwenden Sie wirksame Daten für Rendering‑Diagnosen, Validierung und Vergleiche. Wenn Sie nur [Presentation.getMasterTheme](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/) inspizieren, können Sie einen Master‑, Layout‑, Folien‑ oder Form‑Override übersehen, der das endgültige Aussehen ändert.
+Verwenden Sie effektive Daten für Rendering‑Diagnosen, Validierung und Vergleiche. Wenn Sie nur [Presentation.getMasterTheme](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/) inspizieren, können Sie einen Master‑, Layout‑, Folien‑ oder Form‑Override übersehen, der das endgültige Erscheinungsbild ändert.
 
 ## **FAQ**
 
-**Wirkt das Anwenden eines externen Themes auf jede Folie der Präsentation?**
+**Hat das Anwenden eines externen Themes Auswirkungen auf jede Folie der Präsentation?**
 
-Nein. [MasterSlide::applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/de/php-java/aspose.slides/masterslide/) weist nur die Folien neu zu, die vom ausgewählten Master abhängen. Folien, die andere Master verwenden, behalten ihre bestehenden Themes.
+Nein. [MasterSlide::applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/de/php-java/aspose.slides/masterslide/) weist nur die Folien zu, die vom ausgewählten Master abhängen. Folien, die andere Master verwenden, behalten ihre bestehenden Themes.
 
 **Kann ich ein Theme auf eine einzelne Folie anwenden, ohne den Master zu ändern?**
 
-Ja. Verwenden Sie den [SlideThemeManager](https://reference.aspose.com/slides/de/php-java/aspose.slides/slidethememanager/) der Folie und initialisieren Sie dessen Override‑Theme. Die Änderung bleibt lokal für diese Folie; andere Folien erben weiterhin ihre bestehenden Themes.
+Ja. Verwenden Sie den [SlideThemeManager](https://reference.aspose.com/slides/de/php-java/aspose.slides/slidethememanager/) der Folie und initialisieren Sie dessen Override‑Theme. Die Änderung bleibt lokal auf dieser Folie; andere Folien erben weiterhin ihre bestehenden Themes.
 
-**Wie übertrage ich ein Theme am sichersten von einer Präsentation in eine andere?**
+**Was ist der sicherste Weg, ein Theme von einer Präsentation in eine andere zu übertragen?**
 
-Wenn Sie eine Folie verschieben und ihr ursprüngliches Aussehen bewahren möchten, klonen Sie den Quell‑Master in das Ziel und klonen Sie die Folie mit diesem Master mittels [MasterSlideCollection.addClone](https://reference.aspose.com/slides/de/php-java/aspose.slides/masterslidecollection/) und [SlideCollection.addClone](https://reference.aspose.com/slides/de/php-java/aspose.slides/slidecollection/). Damit bleiben Master, Layouts und Theme gemeinsam erhalten.
+Beim Verschieben einer Folie und dem Erhalt ihres Quell‑Erscheinungsbildes klonen Sie den Quell‑Master in das Ziel und klonen die Folie mit diesem Master mittels [MasterSlideCollection.addClone](https://reference.aspose.com/slides/de/php-java/aspose.slides/masterslidecollection/) und [SlideCollection.addClone](https://reference.aspose.com/slides/de/php-java/aspose.slides/slidecollection/). Dadurch bleiben Master, Layouts und Theme zusammen.
 
-**Wie kann ich die wirksamen Werte nach Vererbung und Überschreibungen sehen?**
+**Wie kann ich die effektiven Werte nach Vererbung und Overrides sehen?**
 
-Verwenden Sie [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/de/php-java/aspose.slides/baseoverridethememanager/) für ein Folien‑ oder Layout‑Theme sowie die entsprechenden wirksamen‑Daten‑Methoden für Format‑Objekte wie [Background.getEffective](https://reference.aspose.com/slides/de/php-java/aspose.slides/background/) und [FillFormat.getEffective](https://reference.aspose.com/slides/de/php-java/aspose.slides/fillformat/). Diese APIs geben die aufgelösten Werte nach Anwendung von Vererbung und Überschreibungen zurück.
+Verwenden Sie [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/de/php-java/aspose.slides/baseoverridethememanager/) für ein Folien‑ oder Layout‑Theme sowie die zugehörigen effektiven‑Daten‑Methoden für Format‑Objekte wie [Background.getEffective](https://reference.aspose.com/slides/de/php-java/aspose.slides/background/) und [FillFormat.getEffective](https://reference.aspose.com/slides/de/php-java/aspose.slides/fillformat/). Diese APIs geben die aufgelösten Werte nach Anwendung von Vererbung und Overrides zurück.

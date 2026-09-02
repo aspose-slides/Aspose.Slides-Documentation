@@ -14,33 +14,33 @@ keywords:
 - ธีมภายนอก
 - THMX
 - สีธีม
-- พาเลตเพิ่มเติม
+- พาเล็ตเพิ่มเติม
 - ฟอนต์ธีม
 - สไตล์ธีม
-- เอฟเฟ็กต์ธีม
+- เอฟเฟกต์ธีม
 - PowerPoint
 - OpenDocument
 - การนำเสนอ
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "ควบคุมธีมการนำเสนอใน JavaScript ด้วย Aspose.Slides สำหรับ Node.js เพื่อสร้าง ปรับแต่ง และแปลงไฟล์ PowerPoint พร้อมการสร้างแบรนด์ที่สอดคล้องกัน"
+description: "ควบคุมธีมการนำเสนอใน JavaScript ด้วย Aspose.Slides สำหรับ Node.js เพื่อสร้าง ปรับแต่ง และแปลงไฟล์ PowerPoint ให้มีการสร้างแบรนด์ที่สอดคล้องกัน"
 ---
-## **บทนำ**
+## **Introduction**
 
-ธีมการนำเสนอกำหนดชุดสี, ฟอนต์, สไตล์พื้นหลัง, เติมสี, เส้น และเอฟเฟ็กต์ที่ประสานกัน วัตถุที่รับรู้ธีมจะอ้างอิงคำนิยามที่แชร์นี้แทนการเก็บค่าคุณสมบัติวิสูอัลแต่ละอย่างเป็นค่าคงที่ ดังนั้นการเปลี่ยนธีมจึงสามารถอัปเดตวัตถุหลายรายการพร้อมกันได้
+ธีมของงานนำเสนอกำหนดชุดสี, ฟอนต์, รูปแบบพื้นหลัง, การเติม, เส้นและเอฟเฟกต์ที่ประสานกัน. วัตถุที่รับรู้ธีมจะอ้างอิงคำนิยามที่ใช้ร่วมกันเหล่านี้แทนการจัดเก็บคุณสมบัติดีไซน์แต่ละอย่างเป็นค่าคงที่, ดังนั้นการเปลี่ยนธีมสามารถอัปเดตวัตถุมากมายได้พร้อมกัน.
 
-ใน Aspose.Slides ธีมระดับการนำเสนอสามารถเข้าถึงได้ผ่าน [Presentation.getMasterTheme](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/getmastertheme/)。การนำเสนออาจมีการแทนที่ธีมในระดับที่ต่ำลงได้ มาสเตอร์สามารถแทนที่ธีมการนำเสนอผ่าน [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/masterthememanager/)，ขณะที่เลเอาต์หรือสไลด์แต่ละสไลด์สามารถแทนที่ธีมที่สืบทอดมาผ่าน [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/baseoverridethememanager/)。โดยปฏิบัติ ธีมที่มีผลต่อสไลด์จะถูกกำหนดตามลำดับการสืบทอดนี้: ธีมการนำเสนอ → การแทนที่มาสเตอร์ → การแทนที่เลเอาต์ → การแทนที่สไลด์
+ใน Aspose.Slides, ธีมระดับการนำเสนอสามารถเข้าถึงได้ผ่าน[Presentation.getMasterTheme](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/getmastertheme/). งานนำเสนอยังสามารถมีการแทนที่ธีมในระดับที่ต่ำกว่าได้. มาสเตอร์สามารถแทนที่ธีมของงานนำเสนอผ่าน[MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/masterthememanager/), ในขณะที่เลย์เอาท์หรือสไลด์เดี่ยวสามารถแทนที่ธีมที่สืบทอดมาผ่าน[BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/baseoverridethememanager/). โดยปฏิบัติ, ธีมที่แท้จริงของสไลด์จะถูกกำหนดผ่านสายการสืบทอดนี้: ธีมของงานนำเสนอ, การแทนที่ของมาสเตอร์, การแทนที่ของเลย์เอาท์, และการแทนที่ของสไลด์.
 
-![ส่วนประกอบของธีม: สี, ฟอนต์, สไตล์พื้นหลัง, และเอฟเฟ็กต์](theme-constituents.png)
+![ส่วนประกอบของธีม: สี, ฟอนต์, รูปแบบพื้นหลัง, และเอฟเฟกต์](theme-constituents.png)
 
-ส่วนต่อไปนี้แสดงกระบวนการทำงานกับธีมที่พบบ่อยที่สุด: ตรวจสอบธีม, เปลี่ยนสีและฟอนต์, คัดลอกหรือใช้ธีม, อัปเดตสไตล์พื้นหลังและเอฟเฟ็กต์, และอ่านค่าที่มีผลหลังจากการสืบทอดและการแทนที่ได้รับการแก้ไขแล้ว
+ส่วนต่อไปนี้แสดงขั้นตอนการทำงานกับธีมที่พบบ่อยที่สุด: ตรวจสอบธีม, เปลี่ยนสีและฟอนต์, คัดลอกหรือใช้ธีม, อัพเดตสไตล์พื้นหลังและเอฟเฟกต์, และอ่านค่าที่แท้จริงหลังจากสืบทอดและการแทนที่ได้รับการแก้ไข.
 
-## **ตรวจสอบธีม**
+## **Inspect a Theme**
 
-อ็อบเจกต์ [MasterTheme](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/mastertheme/) เปิดเผยสกีมสี, สกีมฟอนต์, และสกีมฟอร์แมตของธีมผ่าน [MasterTheme.getColorScheme](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/mastertheme/), และ [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/mastertheme/)。การตรวจสอบคอลเลกชันเหล่านี้ก่อนเปลี่ยนแปลงมีประโยชน์อย่างยิ่งเมื่อการนำมาจากแหล่งภายนอก เนื่องจากจำนวนและเนื้อหาของรายการสไตล์สามารถแตกต่างกันได้
+วัตถุ[MasterTheme](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/mastertheme/) เปิดเผยโครงสร้างสีของธีม, โครงสร้างฟอนต์, และโครงสร้างรูปแบบผ่าน[MasterTheme.getColorScheme](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/mastertheme/),[MasterTheme.getFontScheme](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/mastertheme/),และ[MasterTheme.getFormatScheme](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/mastertheme/). การตรวจสอบคอลเลกชันเหล่านี้ก่อนทำการเปลี่ยนแปลงมีประโยชน์เป็นพิเศษเมื่อไฟล์งานนำเข้ามาจากแหล่งภายนอก เพราะจำนวนและเนื้อหาของรายการสไตล์อาจแตกต่างกัน.
 
-ตัวอย่างต่อไปนี้อ่านคุณสมบัติธีมหลักและรายงานจำนวนสไตล์พื้นหลัง, เติมสี, เส้น, และเอฟเฟ็กต์ที่เก็บไว้ในธีม:
+ตัวอย่างต่อไปนี้อ่านคุณสมบัติหลักของธีมและรายงานจำนวนสไตล์พื้นหลัง, การเติม, เส้น, และเอฟเฟกต์ที่จัดเก็บในธีม:
 
 ```javascript
 const aspose = {};
@@ -62,13 +62,13 @@ try {
 }
 ```
 
-หากไฟล์ใช้มาสเตอร์หลายตัว อย่าสรุปว่าแต่ละสไลด์มีธีมที่มีผลเท่ากัน ตรวจสอบมาสเตอร์ที่เชื่อมโยงกับสไลด์และใช้กระบวนการธีมที่มีผลตามที่แสดงต่อไปในบทความเมื่ออาจมีการแทนที่ที่เลเอาต์หรือสไลด์
+หากไฟล์ใช้มาสเตอร์หลายอัน, อย่าถือว่าทุกสไลด์มีธีมที่แท้จริงเดียวกัน. ตรวจสอบมาสเตอร์ที่เชื่อมกับสไลด์, แล้วใช้ขั้นตอนการทำงานกับธีมที่แท้จริงที่แสดงต่อไปนี้เมื่ออาจมีการแทนที่ของเลย์เอาท์หรือสไลด์.
 
-## **เปลี่ยนสีของธีม**
+## **Change Theme Colors**
 
-การเติมสี, เส้น, และข้อความที่รับรู้ธีมสามารถอ้างอิงสีตรรกะจาก enumeration [SchemeColor](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/schemecolor/) เมื่อคุณเปลี่ยนรายการที่สอดคล้องใน [ColorScheme](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/colorscheme/) วัตถุทั้งหมดที่ยังอ้างอิงสีธีมนั้นจะได้รับการแก้ไขด้วยค่าที่ใหม่ วัตถุที่ใช้สี RGB โดยตรงจะไม่ถูกเปลี่ยนแปลงโดยการอัปเดตสีธีม
+การเติม, เส้น, และข้อความที่รับรู้ธีมสามารถอ้างอิงสีเชิงตรรกะจาก enumeration[SchemeColor](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/schemecolor/) ได้. เมื่อคุณเปลี่ยนรายการที่สอดคล้องใน[ColorScheme](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/colorscheme/), ทุกวัตถุที่ยังอ้างอิงสีธีมนั้นจะถูกประมวลผลกับค่าที่ใหม่. วัตถุที่ใช้สี RGB โดยตรงจะไม่ถูกเปลี่ยนแปลงโดยการอัปเดตสีธีม.
 
-ตัวอย่างต่อจากต้นจนจบนี้สร้างรูปทรงที่ใช้ `Accent4`, เปลี่ยนสีของธีม `Accent4` เป็นสีแดง, บันทึกการนำเสนอ, เปิดใหม่อีกครั้ง, แล้วแสดงสีเติมที่มีผล:
+ตัวอย่างต่อไปนี้สร้างรูปทรงที่ใช้ `Accent4`, เปลี่ยนสี `Accent4` ของธีมเป็นสีแดง, บันทึกงานนำเสนอ, เปิดใหม่, แล้วพิมพ์สีการเติมที่แท้จริง:
 
 ```javascript
 const aspose = {};
@@ -98,19 +98,19 @@ try {
 }
 ```
 
-เนื่องจากสี่เหลี่ยมยังคงเชื่อมโยงกับ `Accent4` สีที่มองเห็นจึงกลายเป็นสีแดงหลังจากเปลี่ยนธีม หากคุณเปลี่ยนสีสกีมเป็นสีโดยตรงบนรูปทรง การเปลี่ยนแปลงต่อไปของ `Accent4` จะไม่มีผลต่อการเติมนั้นอีกต่อไป
+เนื่องจากสี่เหลี่ยมยังคงเชื่อมโยงกับ `Accent4`, สีที่มองเห็นจะกลายเป็นสีแดงหลังจากธีมถูกเปลี่ยน. หากคุณแทนที่สีสกีมด้วยสีตรงบนรูปทรง, การเปลี่ยน `Accent4` ต่อไปจะไม่ส่งผลต่อการเติมนั้นอีกต่อไป.
 
-### **ใช้สีจากพาเลตเพิ่มเติม**
+### **Use Colors from the Additional Palette**
 
-PowerPoint สร้างสีที่อ่อนและเข้มจากสีธีมโดยใช้การแปลงสี Aspose.Slides เปิดเผยการแปลงเหล่านี้ผ่าน enumeration [ColorTransformOperation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/colortransformoperation/)
+PowerPoint สร้างสีที่อ่อนกว่าและเข้มกว่าโดยการแปลงสีจากสีธีม. Aspose.Slides เปิดเผยการแปลงเหล่านี้ผ่าน enumeration[ColorTransformOperation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/colortransformoperation/).
 
-![สีธีมหลักและสีอ่อน‑เข้มที่สร้างจากพาเลตเพิ่มเติม](additional-palette-colors.png)
+![สีธีมหลักและสีอ่อน/เข้มที่สร้างจากพาเลตเพิ่มเติม](additional-palette-colors.png)
 
-**1** – สีธีมหลัก  
+**1** - สีธีมหลัก.
 
-**2** – สีอ่อน‑เข้มที่สร้างจากสีธีมหลัก  
+**2** - สีอ่อนและสีเข้มที่ผลิตจากสีธีมหลัก.
 
-ตัวอย่างต่อไปนี้สร้างสี่เหลี่ยมหกรูปโดยอิงจาก `Accent4`, ใช้การแปลงความสว่างกับห้ารูปแล้วบันทึกผลลัพธ์:
+ตัวอย่างต่อไปนี้สร้างสี่เหลี่ยมหกลูกที่อิงจาก `Accent4`, ใช้การแปลงความสว่างกับห้าตัว, และบันทึกผลลัพธ์:
 
 ```javascript
 const aspose = {};
@@ -159,31 +159,31 @@ try {
 }
 ```
 
-รูปแบบเหล่านี้ยังคงอิงตามสีธีม หาก `Accent4` เปลี่ยนในภายหลัง สีที่แปลงจะถูกคำนวณใหม่จากค่าของ `Accent4` ใหม่
+ตัวแปรเหล่านี้ยังคงอิงจากสีธีม. หาก `Accent4` เปลี่ยนในภายหลัง, สีที่แปลงแล้วจะถูกคำนวนใหม่จากค่า `Accent4` ใหม่.
 
-### **แมปค่า `SchemeColor` ไปยังช่อง `ColorScheme`**
+### **Map `SchemeColor` Values to `ColorScheme` Slots**
 
-enumeration [SchemeColor](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/schemecolor/) ใช้ `Text1`, `Background1`, `Text2`, และ `Background2` ในขณะที่ [ColorScheme](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/colorscheme/) เปิดเผยช่องธีมเดียวกันเป็น `Dark1`, `Light1`, `Dark2`, และ `Light2` การแมปเป็นค่าคงที่:
+enumeration[SchemeColor](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/schemecolor/) ใช้ `Text1`, `Background1`, `Text2`, และ `Background2`, ในขณะที่[ColorScheme](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/colorscheme/) แสดงช่องธีมเดียวกันเป็น `Dark1`, `Light1`, `Dark2`, และ `Light2`. การแมพนี้คงที่:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-เหล่านี้เป็นชื่อทางเลือกของช่องธีมเดียวกัน ไม่ได้เป็นค่าที่แปลงแบบไดนามิกจากรูปแบบหนึ่งไปยังอีกรูปแบบหนึ่ง
+เหล่านี้เป็นชื่อแทนของช่องธีมเดียวกัน; ไม่ได้เป็นค่าที่แปลงแบบไดนามิกจากรูปแบบหนึ่งเป็นอีกรูปแบบหนึ่ง.
 
-## **เปลี่ยนฟอนต์ของธีม**
+## **Change Theme Fonts**
 
-สกีมฟอนต์ของธีมมีชุดฟอนต์หลักสำหรับหัวเรื่องและชุดฟอนต์รองสำหรับข้อความตัว본문 วิธี [FontScheme.getMajor](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/fontscheme/) และ [FontScheme.getMinor](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/fontscheme/) เปิดเผยชุดเหล่านั้น
+โครงสร้างฟอนต์ของธีมประกอบด้วยชุดฟอนต์หลักสำหรับหัวเรื่องและชุดฟอนต์รองสำหรับเนื้อหา. วิธีการ[FontScheme.getMajor](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/fontscheme/)และ[FontScheme.getMinor](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/fontscheme/)เปิดเผยชุดเหล่านี้.
 
 ตัวระบุฟอนต์ธีมที่เข้ากันกับ PowerPoint สามารถใช้ในการจัดรูปแบบข้อความได้:
 
-* `+mn‑lt` – ฟอนต์ตัว본문 ลาติน (Minor Latin Font)
-* `+mj‑lt` – ฟอนต์หัวเรื่อง ลาติน (Major Latin Font)
-* `+mn‑ea` – ฟอนต์ตัว본문 เอเชียตะวันออก (Minor East Asian Font)
-* `+mj‑ea` – ฟอนต์หัวเรื่อง เอเชียตะวันออก (Major East Asian Font)
+* `+mn-lt` - ฟอนต์ตัวอักษรหลัก Latin (ฟอนต์ Latin รอง)
+* `+mj-lt` - ฟอนต์หัวเรื่อง Latin (ฟอนต์ Latin หลัก)
+* `+mn-ea` - ฟอนต์ตัวอักษรหลัก East Asian (ฟอนต์ East Asian รอง)
+* `+mj-ea` - ฟอนต์หัวเรื่อง East Asian (ฟอนต์ East Asian หลัก)
 
-ตัวอย่างต่อไปนี้สร้างหัวเรื่องหนึ่งบรรทัดที่ใช้ฟอนต์ธีมลาตินหลักและบรรทัดข้อความตัว본문หนึ่งบรรทัดที่ใช้ฟอนต์ธีมลาตินรอง จากนั้นเปลี่ยนฟอนต์ธีมและบันทึกผลลัพธ์:
+ตัวอย่างต่อไปนี้สร้างหัวเรื่องหนึ่งที่ใช้ฟอนต์ Latin หลักของธีมและบรรทัดเนื้อหาหนึ่งที่ใช้ฟอนต์ Latin รองของธีม. จากนั้นเปลี่ยนฟอนต์ของธีมและบันทึกผลลัพธ์:
 
 ```javascript
 const aspose = {};
@@ -209,30 +209,30 @@ try {
 }
 ```
 
-หัวเรื่องปฏิบัติตามฟอนต์หลักและข้อความตัว본문ปฏิบัติตามฟอนต์รอง ข้อความที่ระบุชื่อฟอนต์อย่างชัดเจนแทนตัวระบุธีมจะไม่สลับโดยอัตโนมัติเมื่อสกีมฟอนต์ธีมเปลี่ยน
+หัวเรื่องจะใช้ฟอนต์หลักและข้อความเนื้อหาจะใช้ฟอนต์รอง. ข้อความที่มีชื่อฟอนต์ระบุโดยตรงแทนอักษรธีมจะไม่สลับอัตโนมัติเมื่อโครงสร้างฟอนต์ธีมเปลี่ยน.
 
-คอลเลกชันฟอนต์หลักและรองยังสามารถบรรจุการแมปฟอนต์สำหรับระบบเขียนต่าง ๆ เช่น ซีริลลิก, อาหรับ, ญี่ปุ่น, จอร์เจีย, และทานา ดูวิธีตรวจสอบ, เพิ่ม, แทนที่ หรือเอาการแมปเหล่านี้ออกได้ที่ [Script‑Specific Theme Fonts](/slides/th/nodejs-java/script-specific-font-mappings/)
+ชุดฟอนต์หลักและรองยังสามารถบรรจุการแมพฟอนต์สำหรับระบบเขียนที่แตกต่างกัน, เช่น Cyrillic, Arabic, Japanese, Georgian, และ Thaana. เพื่อดู, เพิ่ม, แทนที่, หรือเอาการแมพเหล่านี้ออก, ดู[Script-Specific Theme Fonts](/slides/th/nodejs-java/script-specific-font-mappings/).
 
-{{% alert color="info" title="Tip" %}}
-สำหรับข้อมูลเพิ่มเติมเกี่ยวกับฟอนต์ในการนำเสนอ ดูที่ [PowerPoint Fonts](/slides/th/nodejs-java/powerpoint-fonts/) 
+{{% alert color="info" title="เคล็ดลับ" %}}
+สำหรับข้อมูลเพิ่มเติมเกี่ยวกับฟอนต์ในงานนำเสนอ, ดู[PowerPoint Fonts](/slides/th/nodejs-java/powerpoint-fonts/).
 {{% /alert %}}
 
-## **คัดลอกหรือใช้ธีม**
+## **Copy or Apply a Theme**
 
-กระบวนการต่อไปนี้แก้ปัญหาต่าง ๆ ที่เกี่ยวกับธีม
+ขั้นตอนต่อไปนี้แก้ปัญหาเรื่องธีมที่แตกต่างกัน.
 
-### **ใช้ธีมภายนอกกับสไลด์ที่พึ่งพามาสเตอร์**
+### **Apply an External Theme to a Master's Dependent Slides**
 
-ใช้ [MasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/masterslide/) เมื่อคุณมีไฟล์ธีม PowerPoint (`.thmx`) และต้องการปรับสไตล์ทุกสไลด์ที่พึ่งพามาสเตอร์เฉพาะ เลือกมาสเตอร์จากคอลเลกชัน [Presentation.getMasters](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/) ซึ่งเป็นอ็อบเจกต์ [MasterSlideCollection](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/masterslidecollection/) แล้วส่งเส้นทางไฟล์ธีมไปยังเมธอด
+ใช้[MasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/masterslide/)เมื่อคุณมีไฟล์ธีม PowerPoint (`.thmx`) และต้องการปรับสไตล์สไลด์ทั้งหมดที่ขึ้นกับมาสเตอร์เฉพาะ. เลือกมาสเตอร์จากคอลเลกชัน[Presentation.getMasters](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/)ที่แสดงโดย[MasterSlideCollection](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/masterslidecollection/), แล้วส่งพาธไฟล์ธีมให้เมธอด.
 
 เมธอดทำงานดังต่อไปนี้:
 
-1. สร้างสไลด์มาสเตอร์ใหม่ตามมาสเตอร์ที่เลือก
-1. ใช้ธีมภายนอกกับมาสเตอร์ใหม่
-1. มอบมาสเตอร์ใหม่ให้กับสไลด์ทั้งหมดที่เคยพึ่งพามาสเตอร์ที่เลือก
-1. คืนค่า [MasterSlide](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/masterslide/) ที่สร้างใหม่
+1. สร้างมาสเตอร์สไลด์ใหม่บนพื้นมาสเตอร์ที่เลือก.
+1. ใช้ธีมภายนอกกับมาสเตอร์ใหม่.
+1. กำหนดมาสเตอร์ใหม่ให้กับสไลด์ทั้งหมดที่เคยขึ้นกับมาสเตอร์ที่เลือก.
+1. คืนค่า[MasterSlide](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/masterslide/)ที่สร้างใหม่.
 
-ตัวอย่างต่อไปนี้ใช้ธีมภายนอกกับสไลด์ที่พึ่งพามาสเตอร์แรกและบันทึกการนำเสนอ:
+ตัวอย่างต่อไปนี้ใช้ธีมภายนอกกับสไลด์ที่ขึ้นกับมาสเตอร์ตัวแรกและบันทึกงานนำเสนอ:
 
 ```javascript
 const aspose = {};
@@ -250,19 +250,19 @@ try {
 }
 ```
 
-ธีมที่ไม่ถูกต้อง, เสียหาย, หรือไม่รองรับอาจทำให้เกิด [PptxReadException](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/pptxreadexception/) ตรวจสอบเส้นทางที่ผู้ใช้ระบุ, จัดการข้อผิดพลาดการเข้าถึงไฟล์ระบบ, แล้วบันทึกการนำเสนอเฉพาะหลังจากธีมถูกใช้สำเร็จ
+ธีมที่ไม่ถูกต้อง, เสียหาย, หรือไม่รองรับอาจทำให้เกิด[PptxReadException](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/pptxreadexception/). ตรวจสอบพาธที่ผู้ใช้ป้อน, จัดการข้อผิดพลาดการเข้าถึงไฟล์ระบบ, และบันทึกงานนำเสนอเฉพาะเมือธีมถูกใช้สำเร็จ.
 
-เฉพาะสไลด์ที่พึ่งพามาสเตอร์ที่เลือกเท่านั้นที่ถูกกำหนดค่าใหม่ สไลด์ที่เชื่อมโยงกับมาสเตอร์อื่นจะคงมาสเตอร์และธีมเดิมไว้ สี, ฟอนต์, เติมสี, เส้น, พื้นหลัง, และเอฟเฟ็กต์ที่รับรู้ธีมจะถูกแก้ไขตามธีมภายนอก สี, ฟอนต์, เติมสี, และการจัดรูปแบบที่กำหนดโดยตรงอาจคงเดิม การแทนที่ระดับเลเอาต์และระดับสไลด์ก็อาจมีลำดับความสำคัญเหนือค่าที่สืบทอดจากมาสเตอร์ใหม่
+เฉพาะสไลด์ที่ขึ้นกับมาสเตอร์ที่เลือกเท่านั้นที่ถูกกำหนดใหม่. สไลด์ที่เชื่อมกับมาสเตอร์อื่นจะคงมาสเตอร์และธีมเดิม. สี, ฟอนต์, การเติม, เส้น, พื้นหลัง, และเอฟเฟกต์ที่รับรู้ธีมจะถูกประมวลผลกับธีมภายนอก. สี, ฟอนต์, การเติม, และการจัดรูปแบบที่กำหนดโดยตรงอาจคงเดิม. การแทนที่ระดับเลย์เอาท์และสไลด์ยังอาจมีลำดับความสำคัญเหนือค่าที่สืบทอดจากมาสเตอร์ใหม่.
 
-ธีมอาจอ้างอิงฟอนต์ที่ไม่มีในสภาพแวดล้อมรันไทม์ เพื่อให้การแสดงผลและการส่งออกสอดคล้องกัน ให้ติดตั้งฟอนต์ที่ต้องการ, ให้บริการผ่าน [custom font sources](/slides/th/nodejs-java/custom-font/), หรือกำหนดค่า [font substitution](/slides/th/nodejs-java/font-substitution/)
+ธีมอาจอ้างอิงฟอนต์ที่ไม่มีในสภาพแวดล้อมรันไทม์. เพื่อให้การเรนเดอร์และการส่งออกสม่ำเสมอ, ให้ติดตั้งฟอนต์ที่จำเป็น, จัดหาไฟล์ผ่าน[custom font sources](/slides/th/nodejs-java/custom-font/), หรือกำหนดค่า[font substitution](/slides/th/nodejs-java/font-substitution/).
 
-นี่เป็นกระบวนการทำงานระดับมาสเตอร์โดยตรง: เมธอดรับเส้นทางไฟล์ `.thmx` และไม่ต้องสร้างการแทนที่ธีมระดับสไลด์หรือเลเอาต์ด้วยตนเอง
+นี่เป็นขั้นตอนระดับมาสเตอร์โดยตรง: เมธอดรับพาธไฟล์ `.thmx` และไม่ได้ต้องสร้างการแทนที่ธีมระดับสไลด์หรือเลย์เอาท์ด้วยตนเอง.
 
-### **ใช้ธีมภายนอกต่างกันในงานนำเสนอหลายมาสเตอร์**
+### **Apply Different External Themes in a Multi-Master Presentation**
 
-เมื่อไม่ทราบมาสเตอร์ที่เกี่ยวข้องล่วงหน้า ให้ดึงมาสเตอร์จากสไลด์ตัวอย่างผ่าน [Slide.getLayoutSlide](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slide/) และ [LayoutSlide.getMasterSlide](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/layoutslide/) เก็บอ้างอิงมาสเตอร์ดั้งเดิมไว้ก่อนใช้ธีมใด ๆ เพราะแต่ละครั้งที่เรียกจะสร้างมาสเตอร์ใหม่ในงานนำเสนอ
+เมื่อมาสเตอร์ที่เกี่ยวข้องไม่ทราบล่วงหน้า, ให้ดึงมาสเตอร์จากสไลด์ตัวแทนผ่าน[Slide.getLayoutSlide](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slide/)และ[LayoutSlide.getMasterSlide](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/layoutslide/). เก็บอ้างอิงมาสเตอร์ต้นฉบับไว้ก่อนทำการใช้ธีมใด ๆ เพราะแต่ละครั้งที่เรียกจะสร้างมาสเตอร์ใหม่ในงานนำเสนอ.
 
-ตัวอย่างต่อไปนี้ใช้สไลด์จากสองส่วนเพื่อค้นหามาสเตอร์ของแต่ละส่วนและใช้ธีมภายนอกที่แตกต่างกันกับแต่ละกลุ่ม:
+ตัวอย่างต่อไปนี้ใช้สไลด์จากสองส่วนเพื่อหามาสเตอร์ของพวกมันและใช้ธีมภายนอกที่ต่างกันกับแต่ละกลุ่ม:
 
 ```javascript
 const aspose = {};
@@ -292,11 +292,11 @@ try {
 }
 ```
 
-การเรียกครั้งแรกส่งผลต่อสไลด์ที่พึ่งพา `firstGroupMaster` เท่านั้น, การเรียกครั้งที่สองส่งผลต่อสไลด์ที่พึ่งพา `secondGroupMaster` เท่านั้น สไลด์ที่เชื่อมโยงกับมาสเตอร์อื่นจะไม่ถูกปรับสไตล์ใหม่
+การเรียกแรกมีผลต่อสไลด์ที่ขึ้นกับ `firstGroupMaster` เท่านั้น, ส่วนการเรียกที่สองมีผลต่อสไลด์ที่ขึ้นกับ `secondGroupMaster` เท่านั้น. สไลด์ที่เชื่อมกับมาสเตอร์อื่นจะไม่ถูกปรับสไตล์ใหม่.
 
-### **คงธีมต้นทางเมื่อนำสไลด์ไปยังงานนำเสนออื่น**
+### **Preserve a Source Theme When Moving Slides**
 
-หากต้องการย้ายสไลด์ไปยังงานนำเสนออื่นและคงการออกแบบเดิมให้คัดลอกมาสเตอร์ต้นทางเข้าสู่งานนำเป้าหมายด้วย [MasterSlideCollection.addClone](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/masterslidecollection/), แล้วคัดลอกสไลด์ด้วย [SlideCollection.addClone](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slidecollection/) พร้อมมาสเตอร์ที่คัดลอกไว้ วิธีนี้จะพามาสเตอร์, เลเอาต์, และธีมที่เกี่ยวข้องไปด้วย
+หากต้องการย้ายสไลด์ไปยังงานนำเสนออื่นและคงการออกแบบเดิม, ให้โคลนมาสเตอร์ต้นฉบับไปยังงานนำหมายโดยใช้[MasterSlideCollection.addClone](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/masterslidecollection/), แล้วโคลนสไลด์ด้วย[SlideCollection.addClone](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slidecollection/)และมาสเตอร์ที่โคลนไว้. วิธีนี้จะพิมพ์มาสเตอร์, เลย์เอาท์, และธีมที่เกี่ยวข้องทั้งหมดไปด้วย.
 
 ```javascript
 const aspose = {};
@@ -318,11 +318,11 @@ try {
 }
 ```
 
-นี่เป็นกระบวนการทำงานที่แนะนำเมื่อสไลด์ต้นทางต้องแสดงผลเดียวกันในปลายทาง การคัดลอกเนื้อหาไปยังมาสเตอร์ปลายทางที่ไม่มีความสัมพันธ์อาจทำให้สี, ฟอนต์, พื้นหลัง, และเอฟเฟ็กต์ที่ขับเคลื่อนด้วยธีมเปลี่ยนแปลงได้
+นี่เป็นขั้นตอนที่แนะนำเมือสไลด์ต้นฉบับต้องดูเหมือนกันในปลายทาง. การโคลนเนื้อหาไปยังมาสเตอร์ปลายทางที่ไม่เกี่ยวข้องอาจทำให้สี, ฟอนต์, พื้นหลัง, และเอฟเฟกต์ที่ขับโดยธีมเปลี่ยนแปลง.
 
-### **ใช้ค่าธีมกับสไลด์ที่มีอยู่**
+### **Apply Theme Values to an Existing Slide**
 
-หากสไลด์เป้าหมายต้องคงมาสเตอร์และเลเอาต์ปัจจุบัน ให้เริ่มต้นการแทนที่ระดับสไลด์จากธีมต้นทาง เมธอด [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/overridetheme/), และ [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/overridetheme/) จะคัดลอกส่วนประกอบธีมหลักสามส่วนเข้าสู่การแทนที่
+หากสไลด์เป้าหมายต้องคงอยู่บนมาสเตอร์และเลย์เอาท์ปัจจุบัน, เริ่มการแทนที่ระดับสไลด์จากธีมต้นทาง. เมธอด[OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/overridetheme/),[OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/overridetheme/),และ[OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/overridetheme/)คัดลอกสามองค์ประกอบหลักของธีมเข้าสู่การแทนที่.
 
 ```javascript
 const aspose = {};
@@ -347,11 +347,11 @@ try {
 }
 ```
 
-การทำเช่นนี้เปลี่ยนธีมที่สไลด์นั้นใช้โดยไม่กระทบต่อธีมที่สไลด์อื่นสืบทอด หากต้องการลบการแทนที่ระดับท้องถิ่นและคืนค่าเป็นค่าที่สืบทอด ให้เรียก [OverrideTheme.clear](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/overridetheme/)
+วิธีนี้เปลี่ยนธีมที่สไลด์ใช้โดยไม่กระทบธีมที่สืบทอดโดยสไลด์อื่น. เพื่อเอาการแทนที่ในระดับท้องถิ่นออกและคืนค่าเป็นค่าที่สืบทอด, เรียก[OverrideTheme.clear](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/overridetheme/).
 
-### **ใช้การแทนที่ธีมกับเลเอาต์**
+### **Apply a Theme Override to a Layout**
 
-การแทนที่ระดับเลเอาต์จะใช้กับสไลด์ที่ใช้เลเอาต์นั้น เว้นแต่สไลด์ใดสไลด์หนึ่งจะมีการแทนที่ของตนเอง วิธีการเริ่มต้นเดียวกันสามารถใช้ผ่าน [LayoutSlideThemeManager](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/layoutslidethememanager/):
+การแทนที่ระดับเลย์เอาท์ใช้กับสไลด์ที่ใช้เลย์เอาท์นั้น, ยกเว้นสไลด์ที่มีการแทนที่ของตนเอง. วิธีการเริ่มต้นเดียวกันสามารถใช้ผ่าน[LayoutSlideThemeManager](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/layoutslidethememanager/):
 
 ```javascript
 const aspose = {};
@@ -376,17 +376,17 @@ try {
 }
 ```
 
-ใช้ธีมระดับมาสเตอร์หรือการนำเสนอเมื่อหลายเลเอาต์และสไลด์ต้องการแชร์การออกแบบฐานเดียวกัน, ใช้การแทนที่เลเอาต์เมื่อครอบครัวเลเอาต์หนึ่งต้องการสไตล์ที่ต่างออกไป, และใช้การแทนที่สไลด์เฉพาะกรณีที่เป็นข้อยกเว้นจริง การแทนที่ระดับสไลด์มากเกินไปทำให้การเปลี่ยนแปลงธีมระดับทั่วโลกในภายหลังทำนายได้ยากขึ้น
+ใช้ธีมระดับมาสเตอร์หรือระดับงานนำเสนอเมือหลายเลย์เอาท์และสไลด์ต้องแชร์การออกแบบฐานเดียวกัน, ใช้การแทนที่ระดับเลย์เอาท์เมือกลุ่มเลย์เอาท์หนึ่งต้องการสไตล์ที่ต่างกัน, และใช้การแทนที่ระดับสไลด์เฉพาะสำหรับกรณีพิเศษเท่านั้น. การมีการแทนที่ระดับสไลด์มากเกินไปทำให้การเปลี่ยนธีมทั่วโลกในภายหลังคาดเดาได้ยาก.
 
-## **อัปเดตสไตล์พื้นหลังของธีม**
+## **Update Theme Background Styles**
 
-การเติมพื้นหลังของธีมถูกเก็บไว้ใน [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/formatscheme/)。PowerPoint สามารถแสดงตัวเลือกพื้นหลังมากกว่าที่จำนวนคำนิยามการเติมที่เก็บอยู่ในคอลเลกชันนี้ เนื่องจาก UI สามารถผสานการเติมธีมกับสีธีมและการอ้างอิงสไตล์อื่นได้
+สไตล์การเติมพื้นหลังของธีมจัดเก็บใน[FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/formatscheme/). PowerPoint สามารถแสดงตัวเลือกพื้นหลังมากกว่าใน UI กว่าจำนวนการกำหนดการเติมที่จัดเก็บจริงในคอลเลกชันนี้ เพราะ UI สามารถรวมการเติมธีมกับสีธีมและการอ้างอิงสไตล์อื่น ๆ.
 
-![แกลเลอรีสไตล์พื้นหลังของ PowerPoint สำหรับธีมการนำเสนอ](presentation-design_8.png)
+![แกลเลอรีสไตล์พื้นหลัง PowerPoint สำหรับธีมงานนำเสนอ](presentation-design_8.png)
 
-ก่อนใช้สไตล์พื้นหลัง ให้ตรวจสอบคอลเลกชันที่เก็บและค่า [Background.getStyleIndex](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/background/) ปัจจุบัน ดัชนีสไตล์ `0` หมายถึงไม่มีการเติมที่มีธีม; ค่าบวกหมายถึงการอ้างอิงสไตล์พื้นหลังธีม นี่แตกต่างจากการอ้างอิงดัชนีของคอลเลกชัน JavaScript โดยตรงที่ดัชนี `0` หมายถึงรายการแรกที่เก็บไว้ อย่าสรุปว่าการนำเสนอทุกไฟล์มีจำนวนสไตล์เติมพื้นหลังเดียวกัน
+ก่อนใช้สไตล์พื้นหลัง, ตรวจสอบคอลเลกชันที่จัดเก็บและค่า[Background.getStyleIndex](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/background/). ดัชนีสไตล์ `0` หมายถึงไม่มีการเติมตามธีม; ค่าบวกเป็นการอ้างอิงสไตล์พื้นหลังของธีม. สิ่งนี้ต่างจากการอ้างอิงดัชนีของคอลเลกชัน JavaScript โดยตรง, ที่ดัชนี `0` หมายถึงรายการแรกที่จัดเก็บ. อย่าถือว่าทุกงานนำเสนอมีจำนวนสไตล์การเติมพื้นหลังเท่ากัน.
 
-ตัวอย่างต่อไปนี้รายงานจำนวนการเติมพื้นหลังที่มี, มอบการอ้างอิงพื้นหลังธีมให้กับมาสเตอร์แรก, แล้วบันทึกการนำเสนอ:
+ตัวอย่างต่อไปนี้รายงานจำนวนการเติมพื้นหลังที่มี, กำหนดการอ้างอิงพื้นหลังตามธีมให้กับมาสเตอร์แรก, และบันทึกงานนำเสนอ:
 
 ```javascript
 const aspose = {};
@@ -410,25 +410,25 @@ try {
 }
 ```
 
-ผลลัพธ์ที่มองเห็นขึ้นอยู่กับรายการธีมที่มาสเตอร์อ้างอิงและการแทนที่พื้นหลังระดับเลเอตหรือสไลด์ หากสไลด์ใช้พื้นหลังของตนเอง การเปลี่ยนเฉพาะพื้นหลังมาสเตอร์อาจไม่กระทบต่อสไลด์นั้น ใช้ [Background.getEffective](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/background/) เมื่อจำเป็นต้องทราบพื้นหลังสุดท้ายหลังจากการสืบทอดได้ถูกนำมาใช้
+ผลลัพธ์ที่มองเห็นขึ้นอยู่กับรายการธีมที่มาสเตอร์อ้างอิงและการแทนที่พื้นหลังที่เลย์เอาท์หรือระดับสไลด์. หากสไลด์ใช้พื้นหลังของตนเอง, การเปลี่ยนเฉพาะพื้นหลังของมาสเตอร์อาจไม่กระทบสไลด์นั้น. ใช้[Background.getEffective](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/background/)เมือคุณต้องการทราบพื้นหลังสุดท้ายหลังจากการสืบทอดถูกนำไปใช้.
 
-{{% alert color="warning" title="Warning" %}}
-อย่าปฏิบัติดัชนีสไตล์เป็นดัชนีคอลเลกชันแบบศูนย์‑ฐาน นอกจากนี้ควรหลีกเลี่ยงการกำหนดหมายเลขสไตล์จากไฟล์หนึ่งและสันนิษฐานว่ามีลักษณะเดียวกันในไฟล์อื่น; คำนิยามสไตล์ธีมเป็นเอกลักษณ์ของการนำเสนอแต่ละไฟล์
+{{% alert color="warning" title="คำเตือน" %}}
+อย่าปฏิบัติดัชนีสไตล์เป็นดัชนีคอลเลกชันที่เริ่มจากศูนย์. อีกทั้งหลีกเลี่ยงการกำหนดค่าดัชนีสไตล์จากไฟล์หนึ่งแล้วถือว่าปรากฏเดียวกันในไฟล์อื่น; คำจำกัดความสไตล์ของธีมเป็นแบบจำเพาะตามงานนำเสนอ.
 {{% /alert %}}
 
-{{% alert color="info" title="Tip" %}}
-สำหรับการจัดรูปแบบพื้นหลังโดยตรงและการสืบทอดพื้นหลัง ดูที่ [Presentation Background](/slides/th/nodejs-java/presentation-background/)
+{{% alert color="info" title="เคล็ดลับ" %}}
+สำหรับการฟอร์แมตพื้นหลังโดยตรงและการสืบทอดพื้นหลัง, ดู[Presentation Background](/slides/th/nodejs-java/presentation-background/).
 {{% /alert %}}
 
-## **อัปเดตเอฟเฟ็กต์ของธีม**
+## **Update Theme Effects**
 
-สกีมฟอร์แมตของธีมมีคอลเลกชันเติม, เส้น, และเอฟเฟ็กต์แยกกันที่เปิดเผยผ่าน [FormatScheme.getFillStyles](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/formatscheme/), [FormatScheme.getLineStyles](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/formatscheme/), และ [FormatScheme.getEffectStyles](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/formatscheme/)。ธีมของ Office ทั่วไปมักมีสามรายการสไตล์หลักที่สอดคล้องกับการจัดรูปแบบแบบละเอียด, ปานกลาง, และเข้ม แต่โค้ดควรตรวจสอบแต่ละคอลเลกชันแทนการสันนิษฐานว่ามีจำนวนคงที่
+โครงสร้างรูปแบบของธีมมีคอลเลกชันการเติม, เส้น, และเอฟเฟกต์แยกกันที่เปิดเผยผ่าน[FormatScheme.getFillStyles](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/formatscheme/),[FormatScheme.getLineStyles](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/formatscheme/),และ[FormatScheme.getEffectStyles](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/formatscheme/). ธีม Office ปกติมักมีรายการสไตล์หลักสามรายการที่สอดคล้องกับการจัดรูปแบบที่ละเอียด, ปานกลาง, และเข้ม, แต่โค้ดควรตรวจสอบแต่ละคอลเลกชันแทนการสันนิษฐานจำนวนคงที่.
 
-![เอฟเฟ็กต์ธีมแบบละเอียด, ปานกลาง, และเข้มที่ใช้กับรูปทรงเดียวกัน](presentation-design_10.png)
+![เอฟเฟกต์ธีมละเอียด, ปานกลาง, และเข้มที่ใช้กับรูปทรงเดียวกัน](presentation-design_10.png)
 
-เมื่อคุณเข้าถึงคอลเลกชันเหล่านี้ใน JavaScript ดัชนีคอลเลกชันเป็นศูนย์‑ฐาน: ดัชนี `0` คือสไตล์แรกที่เก็บ และดัชนี `2` คือสไตล์ที่สาม ดัชนีอ้างอิงสไตล์ของรูปทรงเป็นแนวคิดแยกต่างหาก เปิดเผยผ่าน [ShapeStyle](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shapestyle/)。การแก้ไขสไตล์ธีมส่งผลต่อรูปทรงที่อ้างอิงสไตล์ธีมนั้น; รูปทรงที่กำหนดรูปแบบโดยตรงอาจคงเดิม
+เมื่อเข้าถึงคอลเลกชันเหล่านี้ใน JavaScript, ดัชนีคอลเลกชันเริ่มจากศูนย์: ดัชนี `0` คือสไตล์ที่จัดเก็บเป็นรายการแรกและดัชนี `2` คือรายการที่สาม. ดัชนีอ้างอิงสไตล์ของรูปทรงเป็นแนวคิดแยกต่างหาก, เปิดเผยผ่าน[ShapeStyle](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shapestyle/). การแก้ไขสไตล์ธีมจะส่งผลต่อรูปทรงที่อ้างอิงสไตล์ธีมนั้น; รูปทรงที่มีการฟอร์แมตโดยตรงอาจคงเดิม.
 
-ตัวอย่างต่อไปนี้ตรวจสอบว่ามีรายการสไตล์ที่ต้องการหรือไม่, เปลี่ยนสไตล์เส้นแรก, เปลี่ยนสไตล์เติมที่สาม, เปิดใช้งานเงานอกในสไตล์เอฟเฟ็กต์ที่สาม, แล้วบันทึกผลลัพธ์:
+ตัวอย่างต่อไปนี้ตรวจสอบว่ามีรายการสไตล์ที่จำเป็นหรือไม่, เปลี่ยนสไตล์เส้นแรก, เปลี่ยนสไตล์เติมที่สาม, เปิดเงานอกในสไตล์เอฟเฟกต์ที่สาม, และบันทึกผลลัพธ์:
 
 ```javascript
 const aspose = {};
@@ -455,13 +455,95 @@ try {
 }
 ```
 
-สำหรับรูปทรงที่อ้างอิงช่องเหล่านี้ สไตล์เส้นธีมแรกจะเป็นสีแดง, สไตล์เติมธีมที่สามจะเป็นสีเขียวป่าแบบทึบ, และสไตล์เอฟเฟ็กต์ที่สามจะเพิ่มเงานอกที่ระยะ 10 จุด ผลลัพธ์ที่เห็นอาจยังคงขึ้นกับว่ารูปทรงใดอ้างอิงช่องใดและว่าการจัดรูปแบบโดยตรงได้แทนที่ธีมหรือไม่
+สำหรับรูปทรงที่อ้างอิงช่องเหล่านี้, สไตล์เส้นธีมแรกจะกลายเป็นสีแดง, สไตล์เติมธีมที่สามจะเป็นสีเขียวป่าเข้ม, และสไตล์เอฟเฟกต์ที่สามจะเพิ่มเงานอกด้วยระยะ 10 จุด. ผลลัพธ์ภาพที่แน่นอนยังคงขึ้นกับว่ารูปทรงอ้างอิงช่องสไตล์ใดและการฟอร์แมตโดยตรงอาจทับซ้อนธีมหรือไม่.
 
-## **อ่านค่าธีมที่มีผล**
+![สไตล์เอฟเฟกต์ของธีมหลังจากเปลี่ยนเส้น, เติม, และการตั้งค่าเงา](presentation-design_11.png)
 
-อ็อบเจกต์ธีมดิบบอกว่ามีการกำหนดอะไรที่ระดับใดระดับหนึ่ง ค่าที่มีผลบอกว่าสไลด์หรือรูปทรงใช้ค่าใดจริงหลังจากการสืบทอดและการแทนที่ในระดับท้องถิ่นได้รับการแก้ไขแล้ว สำหรับสไลด์ให้เรียก [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/baseoverridethememanager/)。สำหรับพื้นหลังใช้ [Background.getEffective](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/background/), และสำหรับการเติมใช้ [FillFormat.getEffective](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/fillformat/)
+## **Determine Whether an Effective Solid Fill Uses a Theme Color**
 
-ตัวอย่างต่อไปนี้อ่านธีมที่มีผล, พื้นหลัง, และการเติมของรูปทรงแรกจากสไลด์:
+การเติมอาจจัดเก็บโดยตรงบนวัตถุหรือสืบทอดจากย่อหน้า, เลย์เอาท์, มาสเตอร์, ธีมสไตล์, หรือระดับการฟอร์แมตอื่น. เรียก[FillFormat.getEffective](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/fillformat/)เพื่อแปลงลำดับชั้นนั้นเป็นสแนปช็อตการเติมที่ไม่เปลี่ยนแปลง. ตรวจสอบค่าของ `getFillType` ก่อน. เฉพาะเมื่อเป็น `FillType.Solid` จึงอ่านคุณสมบัติการเติมแบบของแข็งได้.
+
+สำหรับการเติมแบบของแข็ง, `getSolidFillColor` คืนค่า RGB ที่เรนเดอร์สุดท้ายหลังจากสืบทอด, การค้นหาธีม, และการแปลงสี. เมธอด `getSolidFillSchemeColor` คืนช่อง[SchemeColor](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/schemecolor/)เชิงตรรกะที่สอดคล้อง, เช่น `Text1` หรือ `Accent6`. ค่า `SchemeColor.NotDefined` หมายถึงการเติมของแข็งที่แท้จริงไม่ได้อิงจากสีสกีม. ในขั้นตอนที่การเติมเป็นสีธีมหรือสี RGB โดยตรง, ค่านี้บ่งบอกว่าการเติมเป็นสี RGB โดยตรง.
+
+อย่าใช้ค่า[ColorFormat.getSchemeColor](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/colorformat/)ในระดับท้องถิ่นเพียงอย่างเดียวเพื่อจำแนกการเติม. ตัวอย่างเช่น, ส่วนข้อความอาจไม่มีสีสกีมที่กำหนดในระดับท้องถิ่น, ทำให้ค่าท้องถิ่นเป็น `NotDefined`, ขณะที่การเติมที่แท้จริงสืบทอดสีธีมและสอดคล้องกับ `Text1` หรือ `Accent6`. ในทางกลับกัน, `getSolidFillSchemeColor` บอกว่าช่องธีมเชิงตรรกะใดที่สร้างสีที่แท้จริง, แต่ไม่ได้บอกว่าช่องนั้นมาจากวัตถุ, ย่อหน้า, เลย์เอาท์, มาสเตอร์ หรือระดับอื่นของลำดับชั้นฟอร์แมต.
+
+ตัวอย่างต่อไปนี้โหลดงานนำเสนอ, ตรวจสอบการเติมของรูปทรงและส่วนข้อความ, พิมพ์ค่า RGB สุดท้ายและสีสกีมที่เกี่ยวข้อง, และทำเครื่องหมายการเติมแบบของแข็งที่ไม่ติดตามการเปลี่ยนแปลงสีธีม:
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+function toHexColor(color) {
+    const red = color.getRed().toString(16).padStart(2, "0");
+    const green = color.getGreen().toString(16).padStart(2, "0");
+    const blue = color.getBlue().toString(16).padStart(2, "0");
+    return `#${red}${green}${blue}`.toUpperCase();
+}
+
+function auditFill(objectName, localFill) {
+    const effectiveFill = localFill.getEffective();
+
+    if (effectiveFill.getFillType() !== aspose.slides.FillType.Solid) {
+        console.log(objectName + ": fill type = " + effectiveFill.getFillType() + "; not a solid fill.");
+        return;
+    }
+
+    const rgb = effectiveFill.getSolidFillColor();
+    const effectiveSchemeColor = effectiveFill.getSolidFillSchemeColor();
+    const localSchemeColor = localFill.getSolidFillColor().getSchemeColor();
+
+    console.log(objectName + ": RGB = " + toHexColor(rgb));
+    console.log(objectName + ": local scheme = " + localSchemeColor + ", effective scheme = " + effectiveSchemeColor);
+
+    if (effectiveSchemeColor === aspose.slides.SchemeColor.NotDefined) {
+        console.log(objectName + ": direct RGB or another non-scheme fill; audit as theme-independent.");
+    } else {
+        console.log(objectName + ": theme-dependent through " + effectiveSchemeColor + ".");
+    }
+}
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slideCount = presentation.getSlides().size();
+    for (let slideIndex = 0; slideIndex < slideCount; slideIndex++) {
+        const slide = presentation.getSlides().get_Item(slideIndex);
+
+        const shapeCount = slide.getShapes().size();
+        for (let shapeIndex = 0; shapeIndex < shapeCount; shapeIndex++) {
+            const shape = slide.getShapes().get_Item(shapeIndex);
+            const shapeName = "Slide " + (slideIndex + 1) + ", shape " + (shapeIndex + 1);
+            auditFill(shapeName, shape.getFillFormat());
+
+            if (java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
+                const paragraphCount = shape.getTextFrame().getParagraphs().getCount();
+                for (let paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++) {
+                    const paragraph = shape.getTextFrame().getParagraphs().get_Item(paragraphIndex);
+
+                    const portionCount = paragraph.getPortions().getCount();
+                    for (let portionIndex = 0; portionIndex < portionCount; portionIndex++) {
+                        const portion = paragraph.getPortions().get_Item(portionIndex);
+                        const portionName = shapeName + ", paragraph " + (paragraphIndex + 1) + ", portion " + (portionIndex + 1);
+                        auditFill(portionName, portion.getPortionFormat().getFillFormat());
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+สาขา `NotDefined` ให้รายชื่อการเติมแบบของแข็งที่ไม่ตอบสนองต่อการเปลี่ยนแปลงในช่องสีธีม. ตรวจสอบวัตถุเหล่านี้เมื่อการนำเสนอจำเป็นต้องปฏิบัติตามพาเลตแบรนด์ใหม่. ค่า RGB ที่รายงานยังแสดงลักษณะปัจจุบัน, ส่วนค่าช่องสีอธิบายว่าลักษณะนั้นเชื่อมต่อกับธีมหรือไม่.
+
+วัตถุฟอร์แมตที่เป็นผลลัพธ์เป็นสแนปช็อต. หลังจากเปลี่ยนธีมของงานนำเสนอ, การแทนที่ธีม, หรือการฟอร์แมตที่สืบทอด, เรียก `getEffective` อีกครั้งและอ่านวัตถุการเติมที่แท้จริงใหม่ก่อนเปรียบเทียบหรือรายงานสี.
+
+## **Read Effective Theme Values**
+
+วัตถุธีมดิบบอกคุณว่ามีการกำหนดอะไรไว้ที่ระดับใด. ค่าที่แท้จริงบอกว่าผลลัพธ์ที่สไลด์หรือรูปทรงใช้จริงหลังจากสืบทอดและการแทนที่ในระดับท้องถิ่นได้รับการแก้ไข. สำหรับสไลด์, เรียก[BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/baseoverridethememanager/). สำหรับพื้นหลัง, ใช้[Background.getEffective](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/background/), และสำหรับการเติม, ใช้[FillFormat.getEffective](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/fillformat/).
+
+ตัวอย่างต่อไปนี้อ่านธีมที่แท้จริง, พื้นหลัง, และการเติมรูปทรงแรกจากสไลด์:
 
 ```javascript
 const aspose = {};
@@ -487,22 +569,22 @@ try {
 }
 ```
 
-ใช้ข้อมูลที่มีผลสำหรับการตรวจสอบการเรนเดอร์, การตรวจสอบความถูกต้อง, และการเปรียบเทียบ หากคุณตรวจสอบเฉพาะ [Presentation.getMasterTheme](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/getmastertheme/) คุณอาจพลาดมาสเตอร์, เลเอาต์, สไลด์, หรือการแทนที่รูปทรงที่เปลี่ยนลักษณะที่สุดท้าย
+ใช้ข้อมูลที่แท้จริงสำหรับการวินิจฉัยการเรนเดอร์, การตรวจสอบ, และการเปรียบเทียบ. หากคุณตรวจสอบเฉพาะ[Presentation.getMasterTheme](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/getmastertheme/), คุณอาจพลาดมาสเตอร์, เลย์เอาท์, สไลด์, หรือการแทนที่รูปทรงที่เปลี่ยนลักษณะสุดท้าย.
 
 ## **FAQ**
 
-**การใช้ธีมภายนอกส่งผลต่อทุกสไลด์ในงานนำเสนอหรือไม่?**
+**Does applying an external theme affect every slide in the presentation?**
 
-ไม่. [MasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/masterslide/) จะกำหนดใหม่เฉพาะสไลด์ที่พึ่งพามาสเตอร์ที่เลือก สไลด์ที่ใช้มาสเตอร์อื่นจะคงธีมเดิมไว้
+ไม่. [MasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/masterslide/) จะกำหนดใหม่เฉพาะสไลด์ที่ขึ้นกับมาสเตอร์ที่เลือก. สไลด์ที่ใช้มาสเตอร์อื่นคงธีมเดิมไว้.
 
-**ฉันสามารถใช้ธีมกับสไลด์เดียวโดยไม่เปลี่ยนมาสเตอร์ได้หรือไม่?**
+**Can I apply a theme to a single slide without changing the master?**
 
-ได้. ใช้ [SlideThemeManager](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slidethememanager/) ของสไลด์และเริ่มต้นการแทนที่ธีมของมัน การเปลี่ยนแปลงจะอยู่เฉพาะสไลด์นั้น; สไลด์อื่นจะสืบทอดธีมตามที่มีอยู่
+ได้. ใช้[SlideThemeManager](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slidethememanager/)ของสไลด์และเริ่มต้นธีมแทนที่ของสไลด์. การเปลี่ยนแปลงจะอยู่ภายในสไลด์นั้นเท่านั้น; สไลด์อื่นจะยังคงสืบทอดธีมที่มีอยู่.
 
-**วิธีที่ปลอดภัยที่สุดในการย้ายธีมจากงานนำเสนอหนึ่งไปยังอีกงานนำเสนอหนึ่งคืออะไร?**
+**What is the safest way to carry a theme from one presentation to another?**
 
-เมื่อย้ายสไลด์และต้องคงลักษณะต้นฉบับ ให้คัดลอกมาสเตอร์ต้นทางเข้าสู่ปลายทางและคัดลอกสไลด์ด้วยมาสเตอร์นั้นโดยใช้ [MasterSlideCollection.addClone](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/masterslidecollection/) และ [SlideCollection.addClone](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slidecollection/)。วิธีนี้จะรักษามาสเตอร์, เลเอาต์, และธีมไว้ด้วยกัน
+เมือย้ายสไลด์และคงลักษณะต้นฉบับ, โคลนมาสเตอร์ต้นทางไปยังปลายทางและโคลนสไลด์ด้วยมาสเตอร์นั้นโดยใช้[MasterSlideCollection.addClone](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/masterslidecollection/)และ[SlideCollection.addClone](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/slidecollection/). วิธีนี้ทำให้มาสเตอร์, เลย์เอาท์, และธีมอยู่ด้วยกัน.
 
-**ฉันจะดูค่าที่มีผลหลังจากการสืบทอดและการแทนที่ได้อย่างไร?**
+**How can I see the effective values after inheritance and overrides?**
 
-ใช้ [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/baseoverridethememanager/) สำหรับสไลด์หรือธีมเลเอาต์และเมธอดข้อมูลที่มีผลที่สอดคล้องสำหรับอ็อบเจกต์ฟอร์แมต เช่น [Background.getEffective](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/background/) และ [FillFormat.getEffective](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/fillformat/)。 API เหล่านี้คืนค่าที่แก้ไขแล้วหลังจากการสืบทอดและการแทนที่ถูกนำมาใช้  
+ใช้[BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/baseoverridethememanager/)สำหรับสไลด์หรือธีมเลย์เอาท์และเมธอดข้อมูลที่แท้จริงที่สอดคล้องสำหรับวัตถุรูปแบบเช่น[Background.getEffective](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/background/)และ[FillFormat.getEffective](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/fillformat/). API เหล่านี้คืนค่าที่ได้จากการสืบทอดและการแทนที่ที่ได้ประมวลผลแล้ว.

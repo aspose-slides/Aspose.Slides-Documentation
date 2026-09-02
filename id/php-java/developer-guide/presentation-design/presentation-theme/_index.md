@@ -1,5 +1,5 @@
 ---
-title: Mengelola Tema Presentasi dalam PHP
+title: Kelola Tema Presentasi di PHP
 linktitle: Tema Presentasi
 type: docs
 weight: 10
@@ -23,21 +23,21 @@ keywords:
 - presentasi
 - PHP
 - Aspose.Slides
-description: "Kelola tema presentasi master di Aspose.Slides untuk PHP via Java untuk membuat, menyesuaikan, dan mengonversi file PowerPoint dengan branding yang konsisten."
+description: "Menguasai tema presentasi dalam Aspose.Slides untuk PHP via Java untuk membuat, menyesuaikan, dan mengonversi file PowerPoint dengan merek yang konsisten."
 ---
 ## **Pendahuluan**
 
-Tema presentasi mendefinisikan kumpulan terkoordinasi warna, font, gaya latar belakang, isian, garis, dan efek. Objek yang sadar tema merujuk ke definisi bersama ini alih-alih menyimpan setiap properti visual sebagai nilai tetap, sehingga perubahan tema dapat memperbarui banyak objek sekaligus.
+Tema presentasi mendefinisikan sekumpulan warna, font, gaya latar belakang, isian, garis, dan efek yang terkoordinasi. Objek yang sadar tema merujuk pada definisi bersama ini alih-alih menyimpan setiap properti visual sebagai nilai tetap, sehingga perubahan tema dapat memperbarui banyak objek sekaligus.
 
-Di Aspose.Slides, tema tingkat presentasi tersedia melalui [Presentation.getMasterTheme](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/). Sebuah presentasi juga dapat berisi penimpaan tema pada tingkatan yang lebih rendah. Sebuah master dapat menimpa tema presentasi melalui [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/id/php-java/aspose.slides/masterthememanager/), sementara layout atau slide individu dapat menimpa tema yang diwariskan melalui [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/id/php-java/aspose.slides/baseoverridethememanager/). Pada praktiknya, tema efektif untuk sebuah slide diselesaikan melalui rantai pewarisan ini: tema presentasi, penimpaan master, penimpaan layout, dan penimpaan slide.
+Di Aspose.Slides, tema tingkat presentasi tersedia melalui [Presentation.getMasterTheme](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/). Sebuah presentasi juga dapat berisi penimpaan tema pada tingkat yang lebih rendah. Sebuah master dapat menimpa tema presentasi melalui [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/id/php-java/aspose.slides/masterthememanager/), sementara sebuah tata letak atau slide individu dapat menimpa tema yang diwarisi melalui [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/id/php-java/aspose.slides/baseoverridethememanager/). Pada praktiknya, tema efektif untuk sebuah slide diselesaikan melalui rantai pewarisan ini: tema presentasi, penimpaan master, penimpaan tata letak, dan penimpaan slide.
 
 ![Komponen tema: warna, font, gaya latar belakang, dan efek](theme-constituents.png)
 
-Bagian-bagian di bawah ini menunjukkan alur kerja tema yang paling umum: memeriksa tema, mengubah warna dan font, menyalin atau menerapkan tema, memperbarui gaya latar belakang dan efek, serta membaca nilai efektif setelah pewarisan dan penimpaan diselesaikan.
+Bagian di bawah ini menunjukkan alur kerja tema yang paling umum: memeriksa tema, mengubah warna dan font, menyalin atau menerapkan tema, memperbarui gaya latar belakang dan efek, serta membaca nilai efektif setelah pewarisan dan penimpaan diselesaikan.
 
 ## **Memeriksa Tema**
 
-Objek [MasterTheme](https://reference.aspose.com/slides/id/php-java/aspose.slides/mastertheme/) mengekspos skema warna, skema font, dan skema format tema melalui [MasterTheme.getColorScheme](https://reference.aspose.com/slides/id/php-java/aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/id/php-java/aspose.slides/mastertheme/) , dan [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/id/php-java/aspose.slides/mastertheme/). Memeriksa koleksi ini sebelum mengubahnya sangat berguna ketika presentasi berasal dari sumber eksternal karena jumlah dan isi entri gaya dapat bervariasi.
+Objek [MasterTheme](https://reference.aspose.com/slides/id/php-java/aspose.slides/mastertheme/) menampilkan skema warna tema, skema font, dan skema format melalui [MasterTheme.getColorScheme](https://reference.aspose.com/slides/id/php-java/aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/id/php-java/aspose.slides/mastertheme/), dan [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/id/php-java/aspose.slides/mastertheme/). Memeriksa koleksi ini sebelum mengubahnya sangat berguna ketika sebuah presentasi berasal dari sumber eksternal karena jumlah dan isi entri gaya dapat bervariasi.
 
 Contoh berikut membaca properti tema utama dan melaporkan berapa banyak gaya latar belakang, isian, garis, dan efek yang disimpan dalam tema:
 
@@ -60,13 +60,13 @@ try {
 }
 ```
 
-Jika sebuah file menggunakan beberapa master, jangan menganggap bahwa setiap slide memiliki tema efektif yang sama. Periksa master yang terkait dengan slide, dan gunakan alur kerja tema-efektif yang ditunjukkan nanti dalam artikel ini ketika penimpaan layout atau slide mungkin ada.
+Jika sebuah file menggunakan beberapa master, jangan mengasumsikan bahwa setiap slide memiliki tema efektif yang sama. Periksa master yang terkait dengan slide, dan gunakan alur kerja tema‑efektif yang ditunjukkan nanti dalam artikel ini ketika penimpaan tata letak atau slide mungkin ada.
 
-## **Mengubah Warna Tema**
+## **Ubah Warna Tema**
 
-Isian, garis, dan teks yang sadar tema dapat merujuk ke warna logis dari enumerasi [SchemeColor](https://reference.aspose.com/slides/id/php-java/aspose.slides/schemecolor/). Ketika Anda mengubah entri yang sesuai dalam [ColorScheme](https://reference.aspose.com/slides/id/php-java/aspose.slides/colorscheme/), semua objek yang masih merujuk ke warna tema tersebut diselesaikan terhadap nilai baru. Objek yang menggunakan warna RGB langsung tidak berubah oleh pembaruan warna tema.
+Isian, garis, dan teks yang sadar tema dapat merujuk ke warna logis dari enumerasi [SchemeColor](https://reference.aspose.com/slides/id/php-java/aspose.slides/schemecolor/). Ketika Anda mengubah entri yang bersesuaian dalam [ColorScheme](https://reference.aspose.com/slides/id/php-java/aspose.slides/colorscheme/), semua objek yang masih merujuk ke warna tema tersebut akan diselesaikan terhadap nilai baru. Objek yang menggunakan warna RGB langsung tidak akan diubah oleh pembaruan warna tema.
 
-Contoh end-to-end berikut membuat bentuk yang menggunakan `Accent4`, mengubah warna `Accent4` tema menjadi merah, menyimpan presentasi, membuka kembali, dan mencetak warna isian efektif:
+Contoh end‑to‑end berikut membuat sebuah bentuk yang menggunakan `Accent4`, mengubah warna `Accent4` tema menjadi merah, menyimpan presentasi, membukanya kembali, dan mencetak warna isian efektif:
 
 ```php
 use aspose\slides\FillType;
@@ -98,19 +98,18 @@ try {
 }
 ```
 
-Karena persegi tetap terhubung ke `Accent4`, warnanya menjadi merah setelah tema diubah. Jika Anda mengganti warna skema dengan warna langsung pada bentuk, perubahan selanjutnya pada `Accent4` tidak akan memengaruhi isian tersebut lagi.
+Karena persegi panjang tetap terhubung ke `Accent4`, warna yang terlihat menjadi merah setelah tema diubah. Jika Anda mengganti warna skema dengan warna langsung pada bentuk, perubahan selanjutnya pada `Accent4` tidak akan memengaruhi isian tersebut lagi.
 
 ### **Gunakan Warna dari Palet Tambahan**
 
-PowerPoint menghasilkan varian lebih terang dan lebih gelap dari warna tema dengan menerapkan transformasi warna. Aspose.Slides mengekspos transformasi ini melalui enumerasi [ColorTransformOperation](https://reference.aspose.com/slides/id/php-java/aspose.slides/colortransformoperation/).
+PowerPoint menghasilkan varian lebih terang dan lebih gelap dari warna tema dengan menerapkan transformasi warna. Aspose.Slides menampilkan transformasi ini melalui enumerasi [ColorTransformOperation](https://reference.aspose.com/slides/id/php-java/aspose.slides/colortransformoperation/).
 
-![Warna tema utama dan warna lebih terang serta lebih gelap yang dihasilkan dari palet tambahan](additional-palette-colors.png)
+![Warna tema utama serta warna lebih terang dan lebih gelap yang dihasilkan dari palet tambahan](additional-palette-colors.png)
 
-**1** - Warna tema utama.
+**1** - Warna tema utama.  
+**2** - Variasi lebih terang dan lebih gelap yang dihasilkan dari warna tema utama.
 
-**2** - Varian lebih terang dan lebih gelap yang diproduksi dari warna tema utama.
-
-Contoh berikut membuat enam persegi berdasarkan `Accent4`, menerapkan transformasi luminansi pada lima di antaranya, dan menyimpan hasilnya:
+Contoh berikut membuat enam persegi panjang berdasarkan `Accent4`, menerapkan transformasi luminansi pada lima di antaranya, dan menyimpan hasilnya:
 
 ```php
 use aspose\slides\ColorTransformOperation;
@@ -162,22 +161,22 @@ try {
 }
 ```
 
-Varian ini tetap berbasis pada warna tema. Jika `Accent4` berubah nanti, warna yang telah ditransformasi akan dihitung ulang dari nilai `Accent4` yang baru.
+Varian ini tetap berbasis pada warna tema. Jika `Accent4` berubah kemudian, warna yang telah ditransformasi akan dihitung ulang dari nilai `Accent4` yang baru.
 
-### **Pemetaan Nilai `SchemeColor` ke Slot `ColorScheme`**
+### **Peta Nilai `SchemeColor` ke Slot `ColorScheme`**
 
-Enumerasi [SchemeColor](https://reference.aspose.com/slides/id/php-java/aspose.slides/schemecolor/) menggunakan `Text1`, `Background1`, `Text2`, dan `Background2`, sementara [ColorScheme](https://reference.aspose.com/slides/id/php-java/aspose.slides/colorscheme/) mengekspose slot tema yang sama sebagai `Dark1`, `Light1`, `Dark2`, dan `Light2`. Pemetaan bersifat tetap:
+Enumerasi [SchemeColor](https://reference.aspose.com/slides/id/php-java/aspose.slides/schemecolor/) menggunakan `Text1`, `Background1`, `Text2`, dan `Background2`, sementara [ColorScheme](https://reference.aspose.com/slides/id/php-java/aspose.slides/colorscheme/) menampilkan slot tema yang sama sebagai `Dark1`, `Light1`, `Dark2`, dan `Light2`. Pemetaan bersifat tetap:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-Ini adalah nama alternatif untuk slot tema yang sama; bukan nilai yang dikonversi secara dinamis dari satu bentuk ke bentuk lain.
+Ini adalah nama alternatif untuk slot tema yang sama; bukan nilai yang secara dinamis diubah dari satu bentuk ke bentuk lain.
 
-## **Mengubah Font Tema**
+## **Ubah Font Tema**
 
-Skema font tema berisi satu set font utama untuk judul dan satu set font minor untuk teks isi. Metode [FontScheme.getMajor](https://reference.aspose.com/slides/id/php-java/aspose.slides/fontscheme/) dan [FontScheme.getMinor](https://reference.aspose.com/slides/id/php-java/aspose.slides/fontscheme/) mengekspos set tersebut.
+Skema font tema berisi satu set font utama untuk judul dan satu set font minor untuk teks isi. Metode [FontScheme.getMajor](https://reference.aspose.com/slides/id/php-java/aspose.slides/fontscheme/) dan [FontScheme.getMinor](https://reference.aspose.com/slides/id/php-java/aspose.slides/fontscheme/) menampilkan set tersebut.
 
 Pengidentifikasi font tema yang kompatibel dengan PowerPoint dapat digunakan dalam pemformatan teks:
 
@@ -186,7 +185,7 @@ Pengidentifikasi font tema yang kompatibel dengan PowerPoint dapat digunakan dal
 * `+mn-ea` - Font Tubuh Asia Timur (Minor East Asian Font)
 * `+mj-ea` - Font Judul Asia Timur (Major East Asian Font)
 
-Contoh berikut membuat satu judul yang menggunakan font Latin utama tema dan satu baris isi yang menggunakan font Latin minor tema. Kemudian mengubah font tema dan menyimpan hasilnya:
+Contoh berikut membuat satu judul yang menggunakan font tema Latin mayor dan satu baris tubuh yang menggunakan font tema Latin minor. Kemudian contoh mengubah font tema dan menyimpan hasilnya:
 
 ```php
 use aspose\slides\FontData;
@@ -214,28 +213,28 @@ try {
 }
 ```
 
-Judul mengikuti font utama dan teks isi mengikuti font minor. Teks yang memiliki nama font eksplisit alih-alih pengidentifikasi tema tidak akan beralih secara otomatis ketika skema font tema berubah.
+Judul mengikuti font mayor dan teks isi mengikuti font minor. Teks yang memiliki nama font eksplisit alih‑alih pengidentifikasi tema tidak akan beralih secara otomatis ketika skema font tema berubah.
 
-Koleksi font utama dan minor juga dapat berisi pemetaan font untuk sistem penulisan individual, seperti Cyrillic, Arab, Jepang, Georgia, dan Thaana. Untuk memeriksa, menambahkan, mengganti, atau menghapus pemetaan ini, lihat [Script-Specific Theme Fonts](/slides/id/php-java/script-specific-font-mappings/).
+Koleksi font mayor dan minor juga dapat berisi pemetaan font untuk sistem penulisan individu, seperti Cyrillic, Arab, Jepang, Georgia, dan Thaana. Untuk memeriksa, menambah, mengganti, atau menghapus pemetaan ini, lihat [Script‑Specific Theme Fonts](/slides/id/php-java/script-specific-font-mappings/).
 
 {{% alert color="info" title="Tip" %}}
 Untuk informasi lebih lanjut tentang font presentasi, lihat [PowerPoint Fonts](/slides/id/php-java/powerpoint-fonts/).
 {{% /alert %}}
 
-## **Menyalin atau Menerapkan Tema**
+## **Salin atau Terapkan Tema**
 
-Alur kerja di bawah ini menyelesaikan masalah berbeda terkait tema.
+Alur kerja di bawah ini menyelesaikan berbagai masalah terkait tema.
 
 ### **Terapkan Tema Eksternal ke Slide yang Bergantung pada Master**
 
-Gunakan [MasterSlide::applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/id/php-java/aspose.slides/masterslide/) ketika Anda memiliki file tema PowerPoint (`.thmx`) dan ingin mengubah gaya semua slide yang bergantung pada master tertentu. Pilih master dari koleksi [Presentation::getMasters](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/), yang direpresentasikan oleh [MasterSlideCollection](https://reference.aspose.com/slides/id/php-java/aspose.slides/masterslidecollection/), dan berikan path file tema ke metode tersebut.
+Gunakan [MasterSlide::applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/id/php-java/aspose.slides/masterslide/) ketika Anda memiliki file tema PowerPoint (`.thmx`) dan ingin menata ulang setiap slide yang bergantung pada master tertentu. Pilih master dari koleksi [Presentation::getMasters](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/), yang direpresentasikan oleh [MasterSlideCollection](https://reference.aspose.com/slides/id/php-java/aspose.slides/masterslidecollection/), dan berikan jalur file tema ke metode tersebut.
 
 Metode melakukan operasi berikut:
 
-1. Membuat master slide baru berdasarkan master yang dipilih.
-1. Menerapkan tema eksternal ke master baru.
-1. Menetapkan master baru ke semua slide yang sebelumnya bergantung pada master yang dipilih.
-1. Mengembalikan [MasterSlide](https://reference.aspose.com/slides/id/php-java/aspose.slides/masterslide/) yang baru dibuat.
+1. Membuat slide master baru berdasarkan master yang dipilih.  
+2. Menerapkan tema eksternal ke master baru.  
+3. Menetapkan master baru ke semua slide yang sebelumnya bergantung pada master yang dipilih.  
+4. Mengembalikan [MasterSlide](https://reference.aspose.com/slides/id/php-java/aspose.slides/masterslide/) yang baru dibuat.
 
 Contoh berikut menerapkan tema eksternal ke slide yang bergantung pada master pertama dan menyimpan presentasi:
 
@@ -255,19 +254,19 @@ try {
 }
 ```
 
-Tema yang tidak valid, rusak, atau tidak didukung dapat menyebabkan [PptxReadException](https://reference.aspose.com/slides/id/php-java/aspose.slides/pptxreadexception/). Validasi path yang diberikan pengguna, tangani kegagalan akses sistem file, dan simpan presentasi hanya setelah tema berhasil diterapkan.
+Tema yang tidak valid, rusak, atau tidak didukung dapat menyebabkan [PptxReadException](https://reference.aspose.com/slides/id/php-java/aspose.slides/pptxreadexception/). Validasi jalur yang diberikan pengguna, tangani kegagalan akses sistem berkas, dan simpan presentasi hanya setelah tema berhasil diterapkan.
 
-Hanya slide yang bergantung pada master yang dipilih yang akan dipindahkan. Slide yang terkait dengan master lain mempertahankan master dan tema mereka yang ada. Warna, font, isian, garis, latar belakang, dan efek yang sadar tema diselesaikan terhadap tema eksternal. Warna, font, isian, dan pemformatan eksplisit yang ditetapkan secara langsung mungkin tetap tidak berubah. Penimpaan tingkat layout dan tingkat slide juga dapat mengambil prioritas atas nilai yang diwariskan dari master baru.
+Hanya slide yang bergantung pada master yang dipilih yang dipindahkan. Slide yang terkait dengan master lain tetap mempertahankan master dan tema mereka yang ada. Warna, font, isian, garis, latar belakang, dan efek yang sadar tema diselesaikan terhadap tema eksternal. Warna, font, isian, dan pemformatan eksplisit yang ditetapkan secara langsung mungkin tetap tidak berubah. Penimpaan pada tingkat tata letak dan slide juga dapat mengatasi nilai yang diwarisi dari master baru.
 
 Tema dapat merujuk ke font yang tidak tersedia di lingkungan runtime. Untuk rendering dan ekspor yang konsisten, instal font yang diperlukan, sediakan melalui [custom font sources](/slides/id/php-java/custom-font/), atau konfigurasikan [font substitution](/slides/id/php-java/font-substitution/).
 
-Ini adalah alur kerja tingkat master langsung: metode menerima path file `.thmx` dan tidak memerlukan pembuatan manual penimpaan tema tingkat slide atau layout.
+Ini adalah alur kerja tingkat master langsung: metode menerima jalur berkas `.thmx` dan tidak memerlukan pembuatan penimpaan tema secara manual pada tingkat slide atau tata letak.
 
-### **Terapkan Tema Eksternal Berbeda dalam Presentasi Multi-Master**
+### **Terapkan Tema Eksternal Berbeda dalam Presentasi Multi‑Master**
 
-Ketika master yang relevan tidak diketahui sebelumnya, dapatkan dari slide perwakilan melalui [Slide::getLayoutSlide](https://reference.aspose.com/slides/id/php-java/aspose.slides/slide/) dan [LayoutSlide::getMasterSlide](https://reference.aspose.com/slides/id/php-java/aspose.slides/layoutslide/). Simpan referensi master asli sebelum menerapkan tema apa pun karena setiap pemanggilan membuat master lain dalam presentasi.
+Ketika master yang relevan tidak diketahui sebelumnya, peroleh dari slide representatif melalui [Slide::getLayoutSlide](https://reference.aspose.com/slides/id/php-java/aspose.slides/slide/) dan [LayoutSlide::getMasterSlide](https://reference.aspose.com/slides/id/php-java/aspose.slides/layoutslide/). Simpan referensi master asli sebelum menerapkan tema apa pun karena setiap panggilan membuat master lain dalam presentasi.
 
-Contoh berikut menggunakan slide dari dua bagian untuk menemukan master mereka dan menerapkan tema eksternal yang berbeda ke setiap grup:
+Contoh berikut menggunakan slide dari dua bagian untuk menemukan master mereka dan menerapkan tema eksternal yang berbeda untuk masing‑masing grup:
 
 ```php
 use aspose\slides\Presentation;
@@ -297,11 +296,11 @@ try {
 }
 ```
 
-Pemanggilan pertama memengaruhi hanya slide yang bergantung pada `$firstGroupMaster`, dan pemanggilan kedua memengaruhi hanya slide yang bergantung pada `$secondGroupMaster`. Slide yang termasuk dalam master lain tidak diubah gaya.
+Panggilan pertama memengaruhi hanya slide yang bergantung pada `$firstGroupMaster`, dan panggilan kedua memengaruhi hanya slide yang bergantung pada `$secondGroupMaster`. Slide yang termasuk dalam master lain tidak diubah gaya.
 
 ### **Pertahankan Tema Sumber Saat Memindahkan Slide**
 
-Jika Anda ingin memindahkan slide ke presentasi lain dan mempertahankan desain aslinya, kloning master sumber ke presentasi target dengan [MasterSlideCollection.addClone](https://reference.aspose.com/slides/id/php-java/aspose.slides/masterslidecollection/), lalu kloning slide dengan [SlideCollection.addClone](https://reference.aspose.com/slides/id/php-java/aspose.slides/slidecollection/) dan master yang dikloning. Ini membawa master, layout-nya, dan tema terkait bersama-sama.
+Jika Anda ingin memindahkan slide ke presentasi lain dan mempertahankan desain aslinya, kloning master sumber ke dalam presentasi target dengan [MasterSlideCollection.addClone](https://reference.aspose.com/slides/id/php-java/aspose.slides/masterslidecollection/), kemudian kloning slide dengan [SlideCollection.addClone](https://reference.aspose.com/slides/id/php-java/aspose.slides/slidecollection/) bersama master yang dikloning. Ini membawa master, tata letaknya, dan tema terkait secara bersamaan.
 
 ```php
 use aspose\slides\Presentation;
@@ -324,11 +323,11 @@ try {
 }
 ```
 
-Ini adalah alur kerja yang disarankan ketika slide sumber harus tampak sama di tujuan. Hanya mengkloning konten ke master tujuan yang tidak terkait dapat mengubah warna, font, latar belakang, dan efek yang didorong tema.
+Ini adalah alur kerja yang disarankan ketika slide sumber harus tampak sama di tujuan. Hanya mengkloning konten ke master tujuan yang tidak terkait dapat mengubah warna, font, latar belakang, dan efek yang digerakkan oleh tema.
 
 ### **Terapkan Nilai Tema ke Slide yang Ada**
 
-Jika slide target harus tetap pada master dan layoutnya saat ini, inisialisasi penimpaan tingkat slide dari tema sumber. Metode [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/id/php-java/aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/id/php-java/aspose.slides/overridetheme/) , dan [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/id/php-java/aspose.slides/overridetheme/) menyalin tiga komponen utama tema ke penimpaan.
+Jika slide target harus tetap pada master dan tata letak saat ini, inisialisasi penimpaan pada tingkat slide dari tema sumber. Metode [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/id/php-java/aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/id/php-java/aspose.slides/overridetheme/), dan [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/id/php-java/aspose.slides/overridetheme/) menyalin tiga komponen utama tema ke dalam penimpaan.
 
 ```php
 use aspose\slides\Presentation;
@@ -352,11 +351,11 @@ try {
 }
 ```
 
-Ini mengubah tema yang digunakan oleh slide itu tanpa mengubah tema yang diwarisi oleh slide lain. Untuk menghapus penimpaan lokal dan kembali ke nilai yang diwariskan, panggil [OverrideTheme.clear](https://reference.aspose.com/slides/id/php-java/aspose.slides/overridetheme/).
+Ini mengubah tema yang digunakan oleh slide tersebut tanpa mengubah tema yang diwarisi oleh slide lain. Untuk menghapus penimpaan lokal dan kembali ke nilai yang diwarisi, panggil [OverrideTheme.clear](https://reference.aspose.com/slides/id/php-java/aspose.slides/overridetheme/).
 
-### **Terapkan Penimpaan Tema ke Layout**
+### **Terapkan Penimpaan Tema ke Tata Letak**
 
-Penimpaan tingkat layout diterapkan ke slide yang menggunakan layout tersebut, kecuali slide tertentu memiliki penimpaan sendiri. Metode inisialisasi yang sama dapat digunakan melalui [LayoutSlideThemeManager](https://reference.aspose.com/slides/id/php-java/aspose.slides/layoutslidethememanager/):
+Penimpaan pada tingkat tata letak berlaku untuk slide yang menggunakan tata letak tersebut, kecuali slide tertentu memiliki penimpaan sendiri. Metode inisialisasi yang sama dapat digunakan melalui [LayoutSlideThemeManager](https://reference.aspose.com/slides/id/php-java/aspose.slides/layoutslidethememanager/):
 
 ```php
 use aspose\slides\Presentation;
@@ -380,17 +379,17 @@ try {
 }
 ```
 
-Gunakan tema tingkat master atau presentasi ketika banyak layout dan slide harus berbagi desain dasar yang sama, penimpaan layout ketika satu keluarga layout membutuhkan gaya berbeda, dan penimpaan slide hanya untuk pengecualian sejati. Penimpaan tingkat slide yang berlebihan membuat perubahan tema global di kemudian hari menjadi sulit diprediksi.
+Gunakan tema pada tingkat master atau presentasi ketika banyak tata letak dan slide harus berbagi desain dasar yang sama, penimpaan tata letak ketika satu keluarga tata letak memerlukan gaya berbeda, dan penimpaan slide hanya untuk pengecualian sejati. Penimpaan pada tingkat slide yang berlebihan membuat perubahan tema global di kemudian hari menjadi sulit diprediksi.
 
-## **Memperbarui Gaya Latar Belakang Tema**
+## **Perbarui Gaya Latar Belakang Tema**
 
-Isian latar belakang tema disimpan dalam [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/id/php-java/aspose.slides/formatscheme/). PowerPoint dapat menyajikan lebih banyak pilihan latar belakang di UI-nya daripada jumlah definisi isian yang secara fisik disimpan dalam koleksi ini karena UI dapat mengombinasikan isian tema dengan warna tema dan referensi gaya lainnya.
+Isian latar belakang tema disimpan dalam [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/id/php-java/aspose.slides/formatscheme/). PowerPoint dapat menampilkan lebih banyak pilihan latar belakang di UI‑nya dibandingkan jumlah definisi isian yang secara fisik disimpan dalam koleksi ini karena UI dapat menggabungkan isian tema dengan warna tema dan referensi gaya lainnya.
 
 ![Galeri gaya latar belakang PowerPoint untuk tema presentasi](presentation-design_8.png)
 
-Sebelum menggunakan gaya latar belakang, periksa koleksi yang disimpan dan [Background.getStyleIndex](https://reference.aspose.com/slides/id/php-java/aspose.slides/background/) saat ini. Indeks gaya `0` berarti tidak ada isian bertema; nilai positif adalah referensi gaya latar belakang tema. Ini berbeda dari mengindeks koleksi PHP secara langsung, di mana `get_Item(0)` berarti item pertama yang disimpan. Jangan menganggap bahwa setiap presentasi berisi jumlah gaya isian latar belakang yang sama.
+Sebelum menggunakan gaya latar belakang, periksa koleksi yang disimpan dan [Background.getStyleIndex](https://reference.aspose.com/slides/id/php-java/aspose.slides/background/) saat ini. Indeks gaya `0` berarti tidak ada isian tema; nilai positif merupakan referensi gaya latar belakang tema. Ini berbeda dari mengindeks koleksi PHP secara langsung, di mana `get_Item(0)` berarti item pertama yang disimpan. Jangan mengasumsikan setiap presentasi memiliki jumlah gaya isian latar belakang yang sama.
 
-Contoh berikut melaporkan jumlah isian latar belakang yang tersedia, menetapkan referensi latar belakang bertema ke master pertama, dan menyimpan presentasi:
+Contoh berikut melaporkan jumlah isian latar belakang yang tersedia, menetapkan referensi latar belakang tema ke master pertama, dan menyimpan presentasi:
 
 ```php
 use aspose\slides\BackgroundType;
@@ -414,23 +413,23 @@ try {
 }
 ```
 
-Hasil yang terlihat bergantung pada entri tema yang dirujuk oleh master dan pada penimpaan latar belakang di tingkat layout atau slide. Jika slide menggunakan latar belakangnya sendiri, mengubah hanya latar belakang master mungkin tidak mengubah slide tersebut. Gunakan [Background.getEffective](https://reference.aspose.com/slides/id/php-java/aspose.slides/background/) ketika Anda perlu mengetahui latar belakang akhir setelah pewarisan diterapkan.
+Hasil yang terlihat bergantung pada entri tema yang dirujuk oleh master serta pada penimpaan latar belakang di tingkat tata letak atau slide. Jika sebuah slide menggunakan latar belakangnya sendiri, mengubah hanya latar belakang master mungkin tidak mengubah slide tersebut. Gunakan [Background.getEffective](https://reference.aspose.com/slides/id/php-java/aspose.slides/background/) ketika Anda perlu mengetahui latar belakang final setelah pewarisan diterapkan.
 
 {{% alert color="warning" title="Warning" %}}
-Jangan memperlakukan indeks gaya sebagai indeks koleksi berbasis nol. Selain itu hindari mengkodekan nomor gaya dari satu file dan mengasumsikan tampilannya sama di file lain; definisi gaya tema bersifat spesifik presentasi.
+Jangan memperlakukan indeks gaya sebagai indeks koleksi berbasis nol. Hindari juga mengodekan nomor gaya dari satu berkas dan mengasumsikan tampilannya sama di berkas lain; definisi gaya tema bersifat spesifik presentasi.
 {{% /alert %}}
 
 {{% alert color="info" title="Tip" %}}
 Untuk pemformatan latar belakang langsung dan pewarisan latar belakang, lihat [Presentation Background](/slides/id/php-java/presentation-background/).
 {{% /alert %}}
 
-## **Memperbarui Efek Tema**
+## **Perbarui Efek Tema**
 
-Skema format tema berisi koleksi isian, garis, dan efek terpisah yang diekspos melalui [FormatScheme.getFillStyles](https://reference.aspose.com/slides/id/php-java/aspose.slides/formatscheme/), [FormatScheme.getLineStyles](https://reference.aspose.com/slides/id/php-java/aspose.slides/formatscheme/), dan [FormatScheme.getEffectStyles](https://reference.aspose.com/slides/id/php-java/aspose.slides/formatscheme/). Tema Office tipikal sering berisi tiga entri gaya utama yang secara visual sesuai dengan pemformatan halus, sedang, dan intens, tetapi kode harus memeriksa setiap koleksi alih-alih mengasumsikan jumlah tetap.
+Skema format tema berisi koleksi terpisah untuk isian, garis, dan efek yang ditampilkan melalui [FormatScheme.getFillStyles](https://reference.aspose.com/slides/id/php-java/aspose.slides/formatscheme/), [FormatScheme.getLineStyles](https://reference.aspose.com/slides/id/php-java/aspose.slides/formatscheme/), dan [FormatScheme.getEffectStyles](https://reference.aspose.com/slides/id/php-java/aspose.slides/formatscheme/). Tema Office tipikal sering berisi tiga entri gaya utama yang secara visual sesuai dengan pemformatan halus, sedang, dan intens, tetapi kode harus memeriksa setiap koleksi alih‑alih mengasumsikan hitungan tetap.
 
 ![Efek tema halus, sedang, dan intens yang diterapkan pada bentuk yang sama](presentation-design_10.png)
 
-Saat mengakses koleksi ini di PHP, indeks koleksi berbasis nol: `get_Item(0)` adalah gaya pertama yang disimpan dan `get_Item(2)` adalah gaya ketiga. Indeks referensi gaya pada bentuk adalah konsep terpisah, diekspos melalui [ShapeStyle](https://reference.aspose.com/slides/id/php-java/aspose.slides/shapestyle/). Mengubah gaya tema memengaruhi bentuk yang merujuk ke gaya tema tersebut; bentuk dengan pemformatan langsung mungkin tetap tidak berubah.
+Saat Anda mengakses koleksi ini di PHP, indeks koleksi berbasis nol: `get_Item(0)` adalah gaya pertama yang disimpan dan `get_Item(2)` adalah gaya ketiga. Indeks referensi gaya pada sebuah bentuk merupakan konsep terpisah, ditampilkan melalui [ShapeStyle](https://reference.aspose.com/slides/id/php-java/aspose.slides/shapestyle/). Memodifikasi gaya tema memengaruhi bentuk yang merujuk ke gaya tema tersebut; bentuk dengan pemformatan langsung mungkin tetap tidak berubah.
 
 Contoh berikut memeriksa keberadaan entri gaya yang diperlukan, mengubah gaya garis pertama, mengubah gaya isian ketiga, mengaktifkan bayangan luar pada gaya efek ketiga, dan menyimpan hasilnya:
 
@@ -459,13 +458,87 @@ try {
 }
 ```
 
-Untuk bentuk yang merujuk ke slot ini, gaya garis tema pertama menjadi merah, gaya isian tema ketiga menjadi hijau hutan padat, dan gaya efek ketiga mendapatkan bayangan luar dengan jarak 10 poin. Hasil visual tepat tetap bergantung pada slot gaya mana yang dirujuk masing-masing bentuk dan apakah pemformatan langsung menimpa tema.
+Untuk bentuk yang merujuk ke slot ini, gaya garis tema pertama menjadi merah, gaya isian tema ketiga menjadi hijau hutan solid, dan gaya efek ketiga memperoleh bayangan luar dengan jarak 10 poin. Hasil visual tepat tetap bergantung pada slot gaya yang dirujuk masing‑masing bentuk dan apakah pemformatan langsung menimpa tema.
 
-![Gaya efek tema setelah mengubah pengaturan garis, isian, dan bayangan](presentation-design_11.png)
+![Gaya efek tema setelah mengubah garis, isian, dan pengaturan bayangan](presentation-design_11.png)
 
-## **Membaca Nilai Tema Efektif**
+## **Tentukan Apakah Isian Solid Efektif Menggunakan Warna Tema**
 
-Objek tema mentah memberi tahu Anda apa yang didefinisikan pada tingkat tertentu. Nilai efektif memberi tahu apa yang sebenarnya digunakan slide atau bentuk setelah pewarisan dan penimpaan lokal diselesaikan. Untuk slide, panggil [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/id/php-java/aspose.slides/baseoverridethememanager/). Untuk latar belakang, gunakan [Background.getEffective](https://reference.aspose.com/slides/id/php-java/aspose.slides/background/), dan untuk isian, gunakan [FillFormat.getEffective](https://reference.aspose.com/slides/id/php-java/aspose.slides/fillformat/).
+Sebuah isian dapat disimpan langsung pada objek atau diwarisi dari paragraf, tata letak, master, gaya tema, atau level pemformatan lain. Panggil [FillFormat::getEffective](https://reference.aspose.com/slides/id/php-java/aspose.slides/fillformat/) untuk menyelesaikan hirarki itu menjadi data isian efektif yang tidak dapat diubah. Pertama periksa hasil `getFillType`. Hanya ketika hasilnya `FillType::Solid` Anda harus membaca properti isian solid.
+
+Untuk isian solid, `getSolidFillColor` mengembalikan nilai RGB akhir setelah pewarisan, pencarian tema, dan transformasi warna diterapkan. Metode `getSolidFillSchemeColor` mengembalikan slot logis [SchemeColor](https://reference.aspose.com/slides/id/php-java/aspose.slides/schemecolor/) yang bersesuaian, seperti `Text1` atau `Accent6`. Nilai `SchemeColor::NotDefined` berarti isian solid efektif tidak didasarkan pada warna skema. Dalam alur kerja di mana isian berupa warna tema atau warna RGB langsung, nilai ini mengidentifikasi isian RGB langsung.
+
+Jangan gunakan nilai lokal [ColorFormat::getSchemeColor](https://reference.aspose.com/slides/id/php-java/aspose.slides/colorformat/) saja untuk mengklasifikasikan isian. Misalnya, bagian teks dapat tidak memiliki warna skema yang didefinisikan secara lokal, sehingga nilai lokalnya `NotDefined`, sementara isian efektifnya mewarisi warna tema dan terurai menjadi `Text1` atau `Accent6`. Sebaliknya, `getSolidFillSchemeColor` memberi tahu Anda slot tema logis mana yang menghasilkan warna efektif, tetapi tidak memberi tahu apakah slot itu berasal dari objek, paragraf, tata letak, master, atau level hierarki pemformatan lain.
+
+Contoh berikut memuat presentasi, mengaudit baik isian bentuk maupun isian bagian teks, mencetak setiap nilai RGB akhir serta skema warna terkait, dan menandai isian solid yang tidak akan melacak perubahan warna tema:
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SchemeColor;
+
+$auditFill = function (string $objectName, $localFill): void {
+    $effectiveFill = $localFill->getEffective();
+
+    if (java_values($effectiveFill->getFillType()) != FillType::Solid) {
+        echo $objectName . ": fill type = " . java_values($effectiveFill->getFillType()) . "; not a solid fill." . PHP_EOL;
+        return;
+    }
+
+    $rgb = $effectiveFill->getSolidFillColor();
+    $effectiveSchemeColor = java_values($effectiveFill->getSolidFillSchemeColor());
+    $localSchemeColor = java_values($localFill->getSolidFillColor()->getSchemeColor());
+
+    echo sprintf("%s: RGB = #%02X%02X%02X", $objectName, java_values($rgb->getRed()), java_values($rgb->getGreen()), java_values($rgb->getBlue())) . PHP_EOL;
+    echo $objectName . ": local scheme = " . $localSchemeColor . ", effective scheme = " . $effectiveSchemeColor . PHP_EOL;
+
+    if ($effectiveSchemeColor == SchemeColor::NotDefined) {
+        echo $objectName . ": direct RGB or another non-scheme fill; audit as theme-independent." . PHP_EOL;
+    } else {
+        echo $objectName . ": theme-dependent through " . $effectiveSchemeColor . "." . PHP_EOL;
+    }
+};
+
+$autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+$presentation = new Presentation("input.pptx");
+try {
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+
+        $shapeCount = java_values($slide->getShapes()->size());
+        for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+            $shape = $slide->getShapes()->get_Item($shapeIndex);
+            $shapeName = "Slide " . ($slideIndex + 1) . ", shape " . ($shapeIndex + 1);
+            $auditFill($shapeName, $shape->getFillFormat());
+
+            if (java_instanceof($shape, $autoShapeClass)) {
+                $paragraphCount = java_values($shape->getTextFrame()->getParagraphs()->getCount());
+                for ($paragraphIndex = 0; $paragraphIndex < $paragraphCount; $paragraphIndex++) {
+                    $paragraph = $shape->getTextFrame()->getParagraphs()->get_Item($paragraphIndex);
+
+                    $portionCount = java_values($paragraph->getPortions()->getCount());
+                    for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
+                        $portion = $paragraph->getPortions()->get_Item($portionIndex);
+                        $portionName = $shapeName . ", paragraph " . ($paragraphIndex + 1) . ", portion " . ($portionIndex + 1);
+                        $auditFill($portionName, $portion->getPortionFormat()->getFillFormat());
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Cabang `NotDefined` menyediakan daftar audit isian solid yang tidak akan merespons perubahan slot warna tema. Tinjau objek‑objek tersebut ketika sebuah presentasi harus mengikuti palet merek baru. Nilai RGB yang dilaporkan tetap menunjukkan tampilan saat ini, sementara nilai skema menjelaskan apakah tampilan tersebut terhubung ke tema.
+
+Objek format‑efektif adalah cuplikan. Setelah mengubah tema presentasi, penimpaan tema, atau pemformatan yang diwarisi, panggil `getEffective` lagi dan baca data isian efektif baru sebelum membandingkan atau melaporkan warna.
+
+## **Baca Nilai Tema Efektif**
+
+Objek tema mentah memberi tahu apa yang didefinisikan pada level tertentu. Nilai efektif memberi tahu apa yang sebenarnya digunakan slide atau bentuk setelah pewarisan dan penimpaan lokal diselesaikan. Untuk sebuah slide, panggil [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/id/php-java/aspose.slides/baseoverridethememanager/). Untuk latar belakang, gunakan [Background.getEffective](https://reference.aspose.com/slides/id/php-java/aspose.slides/background/), dan untuk isian, gunakan [FillFormat.getEffective](https://reference.aspose.com/slides/id/php-java/aspose.slides/fillformat/).
 
 Contoh berikut membaca tema efektif, latar belakang, dan isian bentuk pertama dari sebuah slide:
 
@@ -494,22 +567,22 @@ try {
 }
 ```
 
-Gunakan data efektif untuk diagnostik rendering, validasi, dan perbandingan. Jika Anda hanya memeriksa [Presentation.getMasterTheme](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/), Anda dapat melewatkan penimpaan master, layout, slide, atau bentuk yang mengubah penampilan akhir.
+Gunakan data efektif untuk diagnostik rendering, validasi, dan perbandingan. Jika Anda hanya memeriksa [Presentation.getMasterTheme](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/), Anda bisa melewatkan penimpaan master, tata letak, slide, atau bentuk yang mengubah tampilan akhir.
 
 ## **FAQ**
 
 **Apakah menerapkan tema eksternal memengaruhi setiap slide dalam presentasi?**
 
-Tidak. [MasterSlide::applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/id/php-java/aspose.slides/masterslide/) hanya menugaskan kembali slide yang bergantung pada master yang dipilih. Slide yang menggunakan master lain mempertahankan tema yang ada.
+Tidak. [MasterSlide::applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/id/php-java/aspose.slides/masterslide/) hanya memindahkan slide yang bergantung pada master yang dipilih. Slide yang menggunakan master lain tetap mempertahankan tema yang ada.
 
-**Dapatkah saya menerapkan tema ke satu slide tanpa mengubah master?**
+**Bisakah saya menerapkan tema ke satu slide tanpa mengubah master?**
 
-Ya. Gunakan [SlideThemeManager](https://reference.aspose.com/slides/id/php-java/aspose.slides/slidethememanager/) slide dan inisialisasi tema penimpaan-nya. Perubahan tetap lokal untuk slide tersebut; slide lain terus mewarisi tema yang ada.
+Ya. Gunakan [SlideThemeManager](https://reference.aspose.com/slides/id/php-java/aspose.slides/slidethememanager/) slide tersebut dan inisialisasi tema penimpaanannya. Perubahan tetap lokal pada slide itu; slide lain terus mewarisi tema yang ada.
 
 **Apa cara paling aman untuk memindahkan tema dari satu presentasi ke presentasi lain?**
 
-Saat memindahkan slide dan mempertahankan tampilan sumbernya, kloning master sumber ke tujuan dan kloning slide dengan master tersebut menggunakan [MasterSlideCollection.addClone](https://reference.aspose.com/slides/id/php-java/aspose.slides/masterslidecollection/) serta [SlideCollection.addClone](https://reference.aspose.com/slides/id/php-java/aspose.slides/slidecollection/). Ini menjaga master, layout, dan tema tetap bersama.
+Saat memindahkan slide dan mempertahankan tampilan sumber, kloning master sumber ke dalam tujuan dan kloning slide dengan master tersebut menggunakan [MasterSlideCollection.addClone](https://reference.aspose.com/slides/id/php-java/aspose.slides/masterslidecollection/) dan [SlideCollection.addClone](https://reference.aspose.com/slides/id/php-java/aspose.slides/slidecollection/). Ini menjaga master, tata letak, dan tema bersama.
 
 **Bagaimana saya dapat melihat nilai efektif setelah pewarisan dan penimpaan?**
 
-Gunakan [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/id/php-java/aspose.slides/baseoverridethememanager/) untuk tema slide atau layout serta metode data-efektif yang bersangkutan untuk objek format seperti [Background.getEffective](https://reference.aspose.com/slides/id/php-java/aspose.slides/background/) dan [FillFormat.getEffective](https://reference.aspose.com/slides/id/php-java/aspose.slides/fillformat/). API ini mengembalikan nilai yang telah diselesaikan setelah pewarisan dan penimpaan diterapkan.
+Gunakan [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/id/php-java/aspose.slides/baseoverridethememanager/) untuk slide atau tema tata letak serta metode data‑efektif yang bersangkutan untuk objek format seperti [Background.getEffective](https://reference.aspose.com/slides/id/php-java/aspose.slides/background/) dan [FillFormat.getEffective](https://reference.aspose.com/slides/id/php-java/aspose.slides/fillformat/). API ini mengembalikan nilai yang telah diselesaikan setelah pewarisan dan penimpaan diterapkan.

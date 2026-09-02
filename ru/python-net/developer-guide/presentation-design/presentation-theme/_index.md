@@ -1,45 +1,45 @@
 ---
-title: Управление темами PowerPoint презентаций в Python
+title: Управление темами презентаций PowerPoint в Python
 linktitle: Тема презентации
 type: docs
 weight: 10
 url: /ru/python-net/presentation-theme/
 keywords:
 - Тема PowerPoint
-- тема презентации
-- тема слайда
-- установить тему
-- изменить тему
-- управлять темой
-- внешняя тема
+- Тема презентации
+- Тема слайда
+- Установить тему
+- Изменить тему
+- Управлять темой
+- Внешняя тема
 - THMX
-- цвет темы
-- дополнительная палитра
-- шрифт темы
-- стиль темы
-- эффект темы
+- Цвет темы
+- Дополнительная палитра
+- Шрифт темы
+- Стиль темы
+- Эффект темы
 - PowerPoint
 - OpenDocument
-- презентация
+- Презентация
 - Python
 - Aspose.Slides
-description: "Управляйте темами презентаций в Aspose.Slides для Python через .NET, чтобы создавать, настраивать и конвертировать файлы PowerPoint с единым брендингом."
+description: "Управление темами презентаций в Aspose.Slides для Python через .NET для создания, настройки и конвертации файлов PowerPoint с единым брендингом."
 ---
 ## **Введение**
 
-Тема презентации определяет согласованный набор цветов, шрифтов, стилей фона, заливок, линий и эффектов. Объекты, учитывающие тему, ссылаются на эти общие определения вместо хранения каждого визуального свойства как фиксированного значения, поэтому изменение темы может обновить множество объектов одновременно.
+Тема презентации определяет согласованный набор цветов, шрифтов, стилей фона, заливок, линий и эффектов. Объекты, учитывающие тему, ссылаются на эти общие определения вместо того, чтобы хранить каждое визуальное свойство как фиксированное значение, поэтому изменение темы может обновить множество объектов одновременно.
 
-В Aspose.Slides тема уровня презентации доступна через свойство [Presentation.master_theme](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/master_theme/). Презентация также может содержать переопределения темы на более низких уровнях. Master может переопределять тему презентации с помощью [MasterThemeManager.override_theme](https://reference.aspose.com/slides/ru/python-net/aspose.slides.theme/masterthememanager/override_theme/), макет может переопределять унаследованную тему через [BaseOverrideThemeManager.override_theme](https://reference.aspose.com/slides/ru/python-net/aspose.slides.theme/baseoverridethememanager/override_theme/), и отдельный слайд может делать то же самое. На практике эффективная тема для слайда определяется по этой цепочке наследования: тема презентации, переопределение мастера, переопределение макета и переопределение слайда.
+В Aspose.Slides тема уровня презентации доступна через свойство [Presentation.master_theme](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/master_theme/). Презентация также может содержать переопределения темы на более низких уровнях. Мастер может переопределять тему презентации через [MasterThemeManager.override_theme](https://reference.aspose.com/slides/ru/python-net/aspose.slides.theme/masterthememanager/override_theme/), макет может переопределять унаследованную тему через [BaseOverrideThemeManager.override_theme](https://reference.aspose.com/slides/ru/python-net/aspose.slides.theme/baseoverridethememanager/override_theme/), и отдельный слайд может делать то же самое. На практике эффективная тема для слайда определяется через эту цепочку наследования: тема презентации, переопределение мастера, переопределение макета и переопределение слайда.
 
-![Компоненты темы: цвета, шрифты, стили фона и эффекты](theme-constituents.png)
+![Theme components: colors, fonts, background styles, and effects](theme-constituents.png)
 
-Разделы ниже показывают самые распространённые сценарии работы с темой: просмотр темы, изменение цветов и шрифтов, копирование или применение темы, обновление стилей фона и эффектов, а также чтение эффективных значений после применения наследования и переопределений.
+Ниже показаны наиболее распространённые сценарии работы с темой: просмотр темы, изменение цветов и шрифтов, копирование или применение темы, обновление стилей фона и эффектов, а также чтение эффективных значений после применения наследования и переопределений.
 
 ## **Просмотр темы**
 
-Объект [MasterTheme](https://reference.aspose.com/slides/ru/python-net/aspose.slides.theme/mastertheme/) раскрывает свойства темы — [color_scheme](https://reference.aspose.com/slides/ru/python-net/aspose.slides.theme/mastertheme/color_scheme/), [font_scheme](https://reference.aspose.com/slides/ru/python-net/aspose.slides.theme/mastertheme/font_scheme/) и [format_scheme](https://reference.aspose.com/slides/ru/python-net/aspose.slides.theme/mastertheme/format_scheme/). Осмотр этих коллекций перед изменением особенно полезен, когда презентация поступает из внешнего источника, поскольку количество и содержимое записей стилей могут различаться.
+Объект [MasterTheme](https://reference.aspose.com/slides/ru/python-net/aspose.slides.theme/mastertheme/) предоставляет доступ к свойствам темы: [color_scheme](https://reference.aspose.com/slides/ru/python-net/aspose.slides.theme/mastertheme/color_scheme/), [font_scheme](https://reference.aspose.com/slides/ru/python-net/aspose.slides.theme/mastertheme/font_scheme/) и [format_scheme](https://reference.aspose.com/slides/ru/python-net/aspose.slides.theme/mastertheme/format_scheme/). Просмотр этих коллекций перед их изменением особенно полезен, когда презентация получена из внешнего источника, поскольку количество и содержание записей стилей могут различаться.
 
-Следующий пример считывает основные свойства темы и сообщает, сколько стилей фона, заливки, линии и эффекта хранится в теме:
+Следующий пример считывает основные свойства темы и сообщает, сколько стилей фона, заливки, линий и эффектов хранится в теме:
 
 ```python
 import aspose.slides as slides
@@ -56,13 +56,13 @@ with slides.Presentation("input.pptx") as presentation:
     print(f"Effect styles: {len(theme.format_scheme.effect_styles)}")
 ```
 
-Если файл использует несколько мастеров, не следует предполагать, что каждый слайд имеет одну и ту же эффективную тему. Исследуйте мастер, связанный со слайдом, и используйте рабочий процесс с эффективной темой, показанный позже в этой статье, когда могут присутствовать переопределения макета или слайда.
+Если файл использует несколько мастеров, не следует предполагать, что каждый слайд имеет одну и ту же эффективную тему. Просмотрите мастер, связанный со слайдом, и используйте рабочий процесс эффективной темы, показанный позже в статье, когда могут присутствовать переопределения макета или слайда.
 
 ## **Изменение цветов темы**
 
-Заливки, линии и текст, учитывающие тему, могут ссылаться на логический цвет из перечисления [SchemeColor](https://reference.aspose.com/slides/ru/python-net/aspose.slides/schemecolor/). Когда вы меняете соответствующую запись в [ColorScheme](https://reference.aspose.com/slides/ru/python-net/aspose.slides.theme/colorscheme/) темы, все объекты, продолжающие ссылаться на этот цвет темы, получают новое значение. Объекты, использующие прямой RGB‑цвет, не меняются при обновлении цвета темы.
+Заполнения, линии и текст, учитывающие тему, могут ссылаться на логический цвет из перечисления [SchemeColor](https://reference.aspose.com/slides/ru/python-net/aspose.slides/schemecolor/). Когда вы меняете соответствующую запись в [ColorScheme](https://reference.aspose.com/slides/ru/python-net/aspose.slides.theme/colorscheme/) темы, все объекты, которые всё ещё ссылаются на этот цвет темы, получают новое значение. Объекты, использующие прямой RGB‑цвет, не меняются при обновлении цвета темы.
 
-Следующий сквозной пример создаёт фигуру, использующую `ACCENT4`, меняет цвет темы `accent4` на красный, сохраняет презентацию, открывает её вновь и выводит эффективный цвет заливки:
+Следующий сквозной пример создаёт фигуру, использующую `ACCENT4`, меняет цвет `accent4` темы на красный, сохраняет презентацию, открывает её вновь и выводит эффективный цвет заливки:
 
 ```python
 import aspose.pydrawing as draw
@@ -83,18 +83,19 @@ with slides.Presentation("theme-color.pptx") as saved_presentation:
     print(f"Effective fill color: {effective_fill.solid_fill_color}")
 ```
 
-Поскольку прямоугольник остаётся привязанным к `ACCENT4`, его видимый цвет становится красным после изменения темы. Если заменить цвет схемы прямым цветом на фигуре, последующие изменения `accent4` больше не будут влиять на эту заливку.
+Поскольку прямоугольник остаётся связанным с `ACCENT4`, его видимый цвет становится красным после изменения темы. Если заменить цвет схемы на прямой цвет фигуры, последующие изменения `accent4` больше не будут влиять на эту заливку.
 
 ### **Использование цветов из дополнительной палитры**
 
-PowerPoint генерирует более светлые и более тёмные варианты из цвета темы, применяя трансформации цвета. Aspose.Slides раскрывает эти трансформации через перечисление [ColorTransformOperation](https://reference.aspose.com/slides/ru/python-net/aspose.slides/colortransformoperation/).
+PowerPoint получает более светлые и более тёмные варианты из цветовой схемы темы, применяя трансформации цвета. Aspose.Slides предоставляет эти трансформации через перечисление [ColorTransformOperation](https://reference.aspose.com/slides/ru/python-net/aspose.slides/colortransformoperation/).
 
-![Основные цвета темы и более светлые и более тёмные цвета, сгенерированные из дополнительной палитры](additional-palette-colors.png)
+![Main theme colors and lighter and darker colors generated from the additional palette](additional-palette-colors.png)
 
-**1** - Основные цвета темы.  
-**2** - Более светлые и более тёмные варианты, полученные из основных цветов темы.
+**1** – Основные цвета темы.
 
-Следующий пример создаёт шесть прямоугольников на основе `ACCENT4`, применяет к пяти из них трансформации яркости и сохраняет результат:
+**2** – Более светлые и более тёмные варианты, полученные из основных цветов темы.
+
+Следующий пример создаёт шесть прямоугольников на основе `ACCENT4`, применяет к пяти из них преобразования яркости и сохраняет результат:
 
 ```python
 import aspose.slides as slides
@@ -130,7 +131,7 @@ with slides.Presentation() as presentation:
     presentation.save("theme-color-palette.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Эти варианты остаются основанными на цвете темы. Если `accent4` изменится позже, трансформированные цвета будут пересчитаны из нового значения `accent4`.
+Эти варианты остаются основанными на цветовом элементе темы. Если `accent4` изменится позже, преобразованные цвета будут пересчитаны из нового значения `accent4`.
 
 ### **Отображение значений `SchemeColor` в слоты `ColorScheme`**
 
@@ -141,18 +142,18 @@ with slides.Presentation() as presentation:
 * `TEXT2` = `dark2`
 * `BACKGROUND2` = `light2`
 
-Это альтернативные названия одних и тех же слотов темы; они не являются значениями, динамически преобразуемыми из одной формы в другую.
+Это альтернативные названия одних и тех же слотов темы; они не являются значениями, которые динамически преобразуются из одной формы в другую.
 
 ## **Изменение шрифтов темы**
 
-Схема шрифтов темы содержит основной набор шрифтов для заголовков и вспомогательный набор для основного текста. Свойства [FontScheme.major](https://reference.aspose.com/slides/ru/python-net/aspose.slides.theme/fontscheme/major/) и [FontScheme.minor](https://reference.aspose.com/slides/ru/python-net/aspose.slides.theme/fontscheme/minor/) раскрывают эти наборы.
+Схема шрифтов темы содержит основной набор шрифтов для заголовков и вспомогательный набор для основного текста. Свойства [FontScheme.major](https://reference.aspose.com/slides/ru/python-net/aspose.slides.theme/fontscheme/major/) и [FontScheme.minor](https://reference.aspose.com/slides/ru/python-net/aspose.slides.theme/fontscheme/minor/) предоставляют доступ к этим наборам.
 
-Идентификаторы шрифтов темы, совместимые с PowerPoint, могут использоваться при форматировании текста:
+Идентификаторы шрифтов темы, совместимые с PowerPoint, могут использоваться в форматировании текста:
 
-* `+mn-lt` — шрифт тела Latin (Minor Latin Font)
-* `+mj-lt` — шрифт заголовка Latin (Major Latin Font)
-* `+mn-ea` — шрифт тела East Asian (Minor East Asian Font)
-* `+mj-ea` — шрифт заголовка East Asian (Major East Asian Font)
+* `+mn-lt` – Основной шрифт Latin (Minor Latin Font)
+* `+mj-lt` – Шрифт заголовка Latin (Major Latin Font)
+* `+mn-ea` – Основной шрифт East Asian (Minor East Asian Font)
+* `+mj-ea` – Шрифт заголовка East Asian (Major East Asian Font)
 
 Следующий пример создаёт один заголовок, использующий основной латинский шрифт темы, и одну строку основного текста, использующую вспомогательный латинский шрифт темы. Затем он меняет шрифты темы и сохраняет результат:
 
@@ -172,27 +173,27 @@ with slides.Presentation() as presentation:
     presentation.save("theme-fonts.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Заголовок следует за основным шрифтом, а основной текст — за вспомогательным. Текст, у которого явно указано имя шрифта вместо идентификатора темы, не переключится автоматически при изменении схемы шрифтов темы.
+Заголовок следует за основным шрифтом, а основной текст – за вспомогательным. Текст, у которого явно указано имя шрифта вместо идентификатора темы, не переключится автоматически при изменении схемы шрифтов темы.
 
-Основные и вспомогательные наборы шрифтов могут также содержать сопоставления шрифтов для отдельных систем письма, таких как кириллица, арабский, японский, грузинский и таана. Чтобы просмотреть, добавить, заменить или удалить такие сопоставления, см. [Script-Specific Theme Fonts](/slides/ru/python-net/script-specific-font-mappings/).
+Основные и вспомогательные наборы шрифтов также могут содержать сопоставления шрифтов для отдельных систем письма, таких как кириллица, арабский, японский, грузинский и таана. Чтобы просмотреть, добавить, заменить или удалить такие сопоставления, см. раздел [Script-Specific Theme Fonts](/slides/ru/python-net/script-specific-font-mappings/).
 
-{{% alert color="info" title="Подсказка" %}}
-Для получения дополнительной информации о шрифтах презентации см. [Шрифты PowerPoint](/slides/ru/python-net/powerpoint-fonts/).
+{{% alert color="info" title="Tip" %}}
+Для получения дополнительной информации о шрифтах презентаций см. [PowerPoint Fonts](/slides/ru/python-net/powerpoint-fonts/).
 {{% /alert %}}
 
 ## **Копирование или применение темы**
 
-Ниже представлены рабочие процессы, решающие разные задачи, связанные с темой.
+Ниже приведены сценарии решения различных проблем, связанных с темами.
 
 ### **Применение внешней темы к слайдам, зависящим от мастера**
 
-Используйте [IMasterSlide.apply_external_theme_to_depending_slides](https://reference.aspose.com/slides/ru/python-net/aspose.slides/imasterslide/apply_external_theme_to_depending_slides/), когда у вас есть файл темы PowerPoint (`.thmx`) и требуется переоформить каждый слайд, зависящий от конкретного мастера. Выберите мастер из коллекции [Presentation.masters](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/masters/), реализующей [MasterSlideCollection](https://reference.aspose.com/slides/ru/python-net/aspose.slides/masterslidecollection/), и передайте путь к файлу темы в метод.
+Используйте [IMasterSlide.apply_external_theme_to_depending_slides](https://reference.aspose.com/slides/ru/python-net/aspose.slides/imasterslide/apply_external_theme_to_depending_slides/), когда у вас есть файл темы PowerPoint (`.thmx`) и нужно изменить стиль всех слайдов, зависящих от конкретного мастера. Выберите мастер из коллекции [Presentation.masters](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/masters/), реализующей [MasterSlideCollection](https://reference.aspose.com/slides/ru/python-net/aspose.slides/masterslidecollection/), и передайте путь к файлу темы методу.
 
 Метод выполняет следующие операции:
 
-1. Создаёт новый мастер‑слайд на основе выбранного мастера.  
+1. Создаёт новый слайд‑мастер на основе выбранного мастера.  
 2. Применяет внешнюю тему к новому мастеру.  
-3. Присваивает новый мастер всем слайдам, ранее зависевшим от выбранного мастера.  
+3. Назначает новый мастер всем слайдам, ранее зависявшим от выбранного мастера.  
 4. Возвращает созданный объект [IMasterSlide](https://reference.aspose.com/slides/ru/python-net/aspose.slides/imasterslide/).
 
 Следующий пример применяет внешнюю тему к слайдам, зависящим от первого мастера, и сохраняет презентацию:
@@ -208,19 +209,19 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-with-external-theme.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Недопустимая, повреждённая или неподдерживаемая тема может вызвать [PptxException](https://reference.aspose.com/slides/ru/python-net/aspose.slides/pptxexception/) или один из её подклассов, связанных с форматом. Проверяйте пути, введённые пользователями, обрабатывайте ошибки доступа к файловой системе и сохраняйте презентацию только после успешного применения темы.
+Недопустимая, повреждённая или неподдерживаемая тема может вызвать [PptxException](https://reference.aspose.com/slides/ru/python-net/aspose.slides/pptxexception/) или один из её подклассов, связанных с форматом. Проверяйте пути, вводимые пользователями, обрабатывайте ошибки доступа к файловой системе и сохраняйте презентацию только после успешного применения темы.
 
-Переназначаются только слайды, зависевшие от выбранного мастера. Слайды, связанные с другими мастерами, сохраняют свои текущие мастеры и темы. Цвета, шрифты, заливки, линии, фоны и эффекты, зависящие от темы, разрешаются с учётом внешней темы. Прямо назначенные цвета, шрифты, заливки и другое явное форматирование могут остаться без изменений. Переопределения на уровне макета и слайда могут также иметь приоритет над значениями, унаследованными от нового мастера.
+Переприсваиваются только слайды, зависевшие от выбранного мастера. Слайды, связанные с другими мастерами, сохраняют свои мастера и темы. Цвета, шрифты, заливки, линии, фоны и эффекты, учитывающие тему, разрешаются по внешней теме. Прямо назначенные цвета, шрифты, заливки и другое явное форматирование могут остаться без изменений. Переопределения уровня макета и уровня слайда также могут иметь приоритет над значениями, унаследованными от нового мастера.
 
-Тема может ссылаться на шрифты, недоступные в среде выполнения. Для согласованного отображения и экспорта установите требуемые шрифты, предоставьте их через [custom font sources](/slides/ru/python-net/custom-font/), либо настройте [font substitution](/slides/ru/python-net/font-substitution/).
+Тема может ссылаться на шрифты, недоступные в среде выполнения. Для согласованного рендеринга и экспорта установите необходимые шрифты, предоставьте их через [custom font sources](/slides/ru/python-net/custom-font/), или настройте [font substitution](/slides/ru/python-net/font-substitution/).
 
-Это прямой рабочий процесс уровня мастера: метод принимает путь к файлу `.thmx` и не требует ручного создания переопределений темы на уровне слайда или макета.
+Это прямой рабочий процесс уровня мастера: метод принимает путь к файлу `.thmx` и не требует вручную создавать переопределения темы уровня слайда или макета.
 
 ### **Применение разных внешних тем в презентации с несколькими мастерами**
 
-Когда нужный мастер неизвестен заранее, получайте его из представительного слайда через [Slide.layout_slide](https://reference.aspose.com/slides/ru/python-net/aspose.slides/slide/layout_slide/) и [LayoutSlide.master_slide](https://reference.aspose.com/slides/ru/python-net/aspose.slides/layoutslide/master_slide/). Сохраните оригинальные ссылки на мастеров перед применением любых тем, поскольку каждый вызов создаёт новый мастер в презентации.
+Когда нужный мастер неизвестен заранее, получите его из представительного слайда через [Slide.layout_slide](https://reference.aspose.com/slides/ru/python-net/aspose.slides/slide/layout_slide/) и [LayoutSlide.master_slide](https://reference.aspose.com/slides/ru/python-net/aspose.slides/layoutslide/master_slide/). Сохраните исходные ссылки на мастера перед применением любых тем, так как каждый вызов создаёт ещё один мастер в презентации.
 
-Следующий пример использует слайды из двух секций, определяет их мастера и применяет к каждой группе различную внешнюю тему:
+Следующий пример использует слайды из двух разделов, чтобы найти их мастера, и применяет различную внешнюю тему к каждой группе:
 
 ```python
 import aspose.slides as slides
@@ -243,11 +244,11 @@ with slides.Presentation("multi-master-presentation.pptx") as presentation:
             presentation.save("multi-master-with-external-themes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Первый вызов затрагивает только слайды, зависящие от `first_group_master`, второй — только слайды, зависящие от `second_group_master`. Слайды, принадлежащие другим мастерам, не переоформляются.
+Первый вызов затрагивает только слайды, зависевшие от `first_group_master`, а второй – только слайды, зависевшие от `second_group_master`. Слайды, принадлежащие другим мастерам, не перекрашиваются.
 
 ### **Сохранение исходной темы при перемещении слайдов**
 
-Если необходимо переместить слайд в другую презентацию и сохранить его оригинальный дизайн, клонируйте исходный мастер в целевую презентацию с помощью [MasterSlideCollection.add_clone](https://reference.aspose.com/slides/ru/python-net/aspose.slides/masterslidecollection/add_clone/), затем клонируйте слайд с помощью [SlideCollection.add_clone](https://reference.aspose.com/slides/ru/python-net/aspose.slides/slidecollection/add_clone/) и клонированного мастера. Это переносит мастер, его макеты и связанную тему вместе.
+Если нужно переместить слайд в другую презентацию и сохранить его оригинальный дизайн, клонируйте исходный мастер в целевую презентацию с помощью [MasterSlideCollection.add_clone](https://reference.aspose.com/slides/ru/python-net/aspose.slides/masterslidecollection/add_clone/), затем клонируйте слайд с помощью [SlideCollection.add_clone](https://reference.aspose.com/slides/ru/python-net/aspose.slides/slidecollection/add_clone/) и клонированного мастера. Это перенесёт мастер, его макеты и связанную тему вместе.
 
 ```python
 import aspose.slides as slides
@@ -261,11 +262,11 @@ with slides.Presentation("source-theme.pptx") as source:
         target.save("theme-preserved.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Это предпочтительный подход, когда исходный слайд должен выглядеть одинаково в целевом документе. Простое копирование содержимого на несвязанный мастер‑назначения может изменить цвета, шрифты, фоны и эффекты, зависящие от темы.
+Этот подход предпочтителен, когда исходный слайд должен выглядеть одинаково в целевом документе. Простое копирование содержимого на несвязанный мастер получателя может изменить цвета, шрифты, фоны и эффекты, управляемые темой.
 
 ### **Применение значений темы к существующему слайду**
 
-Если целевому слайду необходимо остаться на текущем мастере и макете, инициализируйте переопределение уровня слайда из исходной темы. Методы [OverrideTheme.init_color_scheme_from](https://reference.aspose.com/slides/ru/python-net/aspose.slides.theme/overridetheme/init_color_scheme_from/), [OverrideTheme.init_font_scheme_from](https://reference.aspose.com/slides/ru/python-net/aspose.slides.theme/overridetheme/init_font_scheme_from/) и [OverrideTheme.init_format_scheme_from](https://reference.aspose.com/slides/ru/python-net/aspose.slides.theme/overridetheme/init_format_scheme_from/) копируют три основных компонента темы в переопределение.
+Если целевой слайд должен остаться на текущем мастере и макете, инициализируйте переопределение уровня слайда из исходной темы. Методы [OverrideTheme.init_color_scheme_from](https://reference.aspose.com/slides/ru/python-net/aspose.slides.theme/overridetheme/init_color_scheme_from/), [OverrideTheme.init_font_scheme_from](https://reference.aspose.com/slides/ru/python-net/aspose.slides.theme/overridetheme/init_font_scheme_from/) и [OverrideTheme.init_format_scheme_from](https://reference.aspose.com/slides/ru/python-net/aspose.slides.theme/overridetheme/init_format_scheme_from/) копируют три основных компонента темы в переопределение.
 
 ```python
 import aspose.slides as slides
@@ -280,11 +281,11 @@ with slides.Presentation("source-theme.pptx") as source:
         target.save("theme-applied-to-slide.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Это изменяет тему, используемую конкретным слайдом, без изменения темы, унаследованной другими слайдами. Чтобы удалить локальное переопределение и вернуть унаследованные значения, вызовите [OverrideTheme.clear](https://reference.aspose.com/slides/ru/python-net/aspose.slides.theme/overridetheme/clear/).
+Это меняет тему, используемую этим слайдом, не затрагивая тему, унаследованную другими слайдами. Чтобы удалить локальное переопределение и вернуть наследуемые значения, вызовите [OverrideTheme.clear](https://reference.aspose.com/slides/ru/python-net/aspose.slides.theme/overridetheme/clear/).
 
 ### **Применение переопределения темы к макету**
 
-Переопределение уровня макета применяется к слайдам, использующим этот макет, если только у отдельного слайда нет собственного переопределения. Те же методы инициализации можно вызвать через [LayoutSlideThemeManager](https://reference.aspose.com/slides/ru/python-net/aspose.slides.theme/layoutslidethememanager/) макета:
+Переопределение уровня макета применяется к слайдам, использующим этот макет, если только у конкретного слайда нет собственного переопределения. Те же методы инициализации можно вызвать через [LayoutSlideThemeManager](https://reference.aspose.com/slides/ru/python-net/aspose.slides.theme/layoutslidethememanager/) макета:
 
 ```python
 import aspose.slides as slides
@@ -299,17 +300,17 @@ with slides.Presentation("source-theme.pptx") as source:
         target.save("theme-applied-to-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Используйте тему мастера или презентации, когда многие макеты и слайды должны делить один базовый дизайн; используйте переопределение макета, когда одна семья макетов требует отдельного оформления; и переопределение слайда — только для истинных исключений. Чрезмерное количество переопределений уровня слайда усложняет предсказуемость последующих глобальных изменений темы.
+Используйте тему мастера или презентации, когда многие макеты и слайды должны делить один базовый дизайн; используйте переопределение макета, когда одной семье макетов нужен иной стиль; и переопределение слайда – только для истинных исключений. Чрезмерное количество переопределений уровня слайда усложняет предсказуемость последующих глобальных изменений темы.
 
-## **Обновление стилей фона темы**
+## **Обновление стилей фоновых заливок темы**
 
-Заливки фона темы хранятся в [FormatScheme.background_fill_styles](https://reference.aspose.com/slides/ru/python-net/aspose.slides.theme/formatscheme/background_fill_styles/). PowerPoint может предлагать в пользовательском интерфейсе больше вариантов фона, чем реально хранится в этой коллекции, поскольку UI может комбинировать заливки темы с цветовыми ссылками и другими стилями.
+Фоновые заливки темы хранятся в [FormatScheme.background_fill_styles](https://reference.aspose.com/slides/ru/python-net/aspose.slides.theme/formatscheme/background_fill_styles/). PowerPoint может показывать в интерфейсе больше вариантов фона, чем количество определений заливок, физически хранящихся в этой коллекции, потому что UI может комбинировать заливки темы с цветовыми элементами темы и другими ссылками стилей.
 
-![Галерея стилей фона PowerPoint для темы презентации](presentation-design_8.png)
+![PowerPoint background style gallery for a presentation theme](presentation-design_8.png)
 
-Перед использованием стиля фона проверьте сохранённую коллекцию и текущий [Background.style_index](https://reference.aspose.com/slides/ru/python-net/aspose.slides/background/style_index/). `style_index` использует `0` для отсутствия тематической заливки; положительные значения — это ссылки на стили фоновой темы. Это отличается от прямого индекса массива Python, где `[0]` означает первый элемент. Не предполагаете, что каждая презентация содержит одинаковое количество стилей фоновых заливок.
+Перед использованием фонового стиля изучите сохранённую коллекцию и текущее значение [Background.style_index](https://reference.aspose.com/slides/ru/python-net/aspose.slides/background/style_index/). `style_index` использует `0` для отсутствия темной заливки; положительные значения являются ссылками на стили фоновых заливок темы. Это отличается от индексации Python‑коллекции, где `[0]` означает первый элемент. Не предполагаете, что у каждой презентации одинаковое количество фоновых заливок.
 
-Следующий пример сообщает количество доступных фоновых заливок, назначает тематическую ссылку фона первому мастеру и сохраняет презентацию:
+Следующий пример выводит количество доступных фоновых заливок, назначает тематическую ссылку на фон первому мастеру и сохраняет презентацию:
 
 ```python
 import aspose.slides as slides
@@ -325,25 +326,25 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("theme-background.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Видимый результат зависит от записи темы, на которую ссылается мастер, и от любых переопределений фона на уровне макета или слайда. Если слайд использует собственный фон, изменение только фонового стиля мастера может не отразиться на этом слайде. Используйте [Background.get_effective](https://reference.aspose.com/slides/ru/python-net/aspose.slides/background/get_effective/), когда требуется узнать окончательный фон после применения наследования.
+Видимый результат зависит от записи темы, на которую ссылается мастер, а также от любых переопределений фона на уровне макета или слайда. Если слайд использует собственный фон, изменение только фонового стиля мастера может не изменить этот слайд. Используйте [Background.get_effective](https://reference.aspose.com/slides/ru/python-net/aspose.slides/background/get_effective/), когда нужно узнать окончательный фон после применения наследования.
 
-{{% alert color="warning" title="Предупреждение" %}}
-Не рассматривайте `style_index` как нулевой индекс коллекции. Также избегайте жёсткого задания номера стиля из одного файла и ожидания, что он будет выглядеть одинаково в другом файле; определения стилей темы специфичны для каждой презентации.
+{{% alert color="warning" title="Warning" %}}
+Не рассматривайте `style_index` как индекс, начинающийся с нуля. Также избегайте жёсткой привязки номера стиля из одного файла, предполагая, что в другом файле он будет выглядеть одинаково; определения стилей темы зависят от конкретной презентации.
 {{% /alert %}}
 
-{{% alert color="info" title="Подсказка" %}}
-Для прямого формата фона и наследования фона см. [Presentation Background](/slides/ru/python-net/presentation-background/).
+{{% alert color="info" title="Tip" %}}
+Для прямого форматирования фона и наследования фона см. раздел [Presentation Background](/slides/ru/python-net/presentation-background/).
 {{% /alert %}}
 
 ## **Обновление эффектов темы**
 
-Схема формата темы содержит отдельные коллекции [FormatScheme.fill_styles](https://reference.aspose.com/slides/ru/python-net/aspose.slides.theme/formatscheme/fill_styles/), [FormatScheme.line_styles](https://reference.aspose.com/slides/ru/python-net/aspose.slides.theme/formatscheme/line_styles/) и [FormatScheme.effect_styles](https://reference.aspose.com/slides/ru/python-net/aspose.slides.theme/formatscheme/effect_styles/). Типичные офисные темы часто включают три основных стиля, визуально соответствующие «тонкому», «умеренному» и «интенсивному» форматированию, но код должен проверять каждую коллекцию, а не полагаться на фиксированное количество записей.
+Схема формата темы содержит отдельные коллекции [FormatScheme.fill_styles](https://reference.aspose.com/slides/ru/python-net/aspose.slides.theme/formatscheme/fill_styles/), [FormatScheme.line_styles](https://reference.aspose.com/slides/ru/python-net/aspose.slides.theme/formatscheme/line_styles/) и [FormatScheme.effect_styles](https://reference.aspose.com/slides/ru/python-net/aspose.slides.theme/formatscheme/effect_styles/). Типичные офисные темы часто включают три основных стиля, визуально соответствующие «тонким», «средним» и «интенсивным» форматам, но код должен проверять каждую коллекцию вместо предположения фиксированного количества.
 
-![Тонкие, умеренные и интенсивные эффекты темы, применённые к одной и той же фигуре](presentation-design_10.png)
+![Subtle, moderate, and intense theme effects applied to the same shape](presentation-design_10.png)
 
-При доступе к этим коллекциям в Python индексация нулевая: `[0]` — первый сохранённый стиль, `[2]` — третий. Индексы ссылок стилей фигур — это отдельное понятие, раскрытое через [IShapeStyle](https://reference.aspose.com/slides/ru/python-net/aspose.slides/ishapestyle/). Изменение стиля темы влияет на фигуры, ссылающиеся на этот стиль; фигуры с прямым форматированием могут остаться без изменений.
+При доступе к этим коллекциям в Python индексация начинается с нуля: `[0]` – первая сохранённая запись, `[2]` – третья. Индексы ссылок стиля фигуры – отдельная концепция, представляемая через [IShapeStyle](https://reference.aspose.com/slides/ru/python-net/aspose.slides/ishapestyle/). Изменение стиля темы воздействует на фигуры, ссылающиеся на этот стиль; фигуры с прямым форматированием могут остаться без изменений.
 
-Следующий пример проверяет наличие требуемых записей стилей, меняет первый линейный стиль, третий заливочный стиль, включает внешнюю тень в третьем эффекте и сохраняет результат:
+Следующий пример проверяет наличие требуемых записей стилей, изменяет первый линейный стиль, третий заливочный стиль, включает внешнюю тень в третьем стиль‑эффекте и сохраняет результат:
 
 ```python
 import aspose.pydrawing as draw
@@ -362,15 +363,66 @@ with slides.Presentation("Subtle_Moderate_Intense.pptx") as presentation:
     presentation.save("theme-effects.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Для фигур, ссылающихся на эти слоты, первый линейный стиль темы становится красным, третий заливочный стиль темы — сплошным тёмно‑зелёным, а третий эффект получает внешнюю тень с расстоянием 10 пунктов. Точный визуальный результат всё равно зависит от того, какие слоты стилей каждая фигура использует и переопределяется ли прямым форматированием.
+Для фигур, ссылающихся на эти слоты, первый линейный стиль темы станет красным, третий заливочный стиль – сплошным темно‑зелёным, а в третьем стиле эффекта появится внешняя тень с расстоянием 10 пунктов. Точный визуальный результат всё равно зависит от того, какие слоты стилей каждая фигура использует и не переопределяется ли её прямым форматированием.
 
-![Стили эффектов темы после изменения настроек линии, заливки и теней](presentation-design_11.png)
+![Theme effect styles after changing line, fill, and shadow settings](presentation-design_11.png)
+
+## **Определение, использует ли эффективная сплошная заливка цвет темы**
+
+Заливка может быть записана непосредственно в объекте или наследоваться от абзаца, макета, мастера, стиля темы или другого уровня форматирования. Вызовите [FillFormat.get_effective](https://reference.aspose.com/slides/ru/python-net/aspose.slides/fillformat/get_effective/) для получения иерархии в виде неизменяемого объекта [IFillFormatEffectiveData](https://reference.aspose.com/slides/ru/python-net/aspose.slides/ifillformateffectivedata/). Сначала проверьте свойство [IFillFormatEffectiveData.fill_type](https://reference.aspose.com/slides/ru/python-net/aspose.slides/ifillformateffectivedata/fill_type/). Только если оно равно `FillType.SOLID`, следует читать свойства сплошной заливки.
+
+Для сплошной заливки [IFillFormatEffectiveData.solid_fill_color](https://reference.aspose.com/slides/ru/python-net/aspose.slides/ifillformateffectivedata/solid_fill_color/) возвращает окончательное отрисованное RGB‑значение после наследования, поиска в теме и применения цветовых трансформаций. [IFillFormatEffectiveData.solid_fill_scheme_color](https://reference.aspose.com/slides/ru/python-net/aspose.slides/ifillformateffectivedata/solid_fill_scheme_color/) возвращает соответствующий логический слот [SchemeColor](https://reference.aspose.com/slides/ru/python-net/aspose.slides/schemecolor/), например `TEXT1` или `ACCENT6`. Значение `SchemeColor.NOT_DEFINED` означает, что эффективная сплошная заливка не основана на цветовом элементе схемы. В рабочем процессе, где заливки либо являются цветовыми элементами темы, либо прямыми RGB‑цветами, это значение указывает на прямую RGB‑заливку.
+
+Не используйте только локальное значение [IColorFormat.scheme_color](https://reference.aspose.com/slides/ru/python-net/aspose.slides/icolorformat/scheme_color/) для классификации заливки. Например, у части текста может не быть локального определения схемного цвета, поэтому его локальное значение `NOT_DEFINED`, тогда как её эффективная заливка наследует цвет темы и разрешается в `TEXT1` или `ACCENT6`. С другой стороны, `solid_fill_scheme_color` сообщает, какой логический слот темы сформировал эффективный цвет, но не указывает, откуда этот слот пришёл – объект, абзац, макет, мастер или другой уровень иерархии.
+
+Следующий пример загружает презентацию, проверяет заливки фигур и частей текста, выводит каждый окончательный RGB‑цвет и соответствующий цвет схемы, а также помечает сплошные заливки, которые не будут отслеживать изменения цветов темы:
+
+```python
+import aspose.slides as slides
+
+
+def audit_fill(object_name, local_fill):
+    effective_fill = local_fill.get_effective()
+
+    if effective_fill.fill_type != slides.FillType.SOLID:
+        print(f"{object_name}: fill type = {effective_fill.fill_type}; not a solid fill.")
+        return
+
+    rgb = effective_fill.solid_fill_color
+    effective_scheme_color = effective_fill.solid_fill_scheme_color
+    local_scheme_color = local_fill.solid_fill_color.scheme_color
+
+    print(f"{object_name}: RGB = #{rgb.r:02X}{rgb.g:02X}{rgb.b:02X}")
+    print(f"{object_name}: local scheme = {local_scheme_color}, effective scheme = {effective_scheme_color}")
+
+    if effective_scheme_color == slides.SchemeColor.NOT_DEFINED:
+        print(f"{object_name}: direct RGB or another non-scheme fill; audit as theme-independent.")
+    else:
+        print(f"{object_name}: theme-dependent through {effective_scheme_color}.")
+
+
+with slides.Presentation("input.pptx") as presentation:
+    for slide_index, slide in enumerate(presentation.slides):
+        for shape_index, shape in enumerate(slide.shapes):
+            shape_name = f"Slide {slide_index + 1}, shape {shape_index + 1}"
+            audit_fill(shape_name, shape.fill_format)
+
+            if isinstance(shape, slides.AutoShape):
+                for paragraph_index, paragraph in enumerate(shape.text_frame.paragraphs):
+                    for portion_index, portion in enumerate(paragraph.portions):
+                        portion_name = f"{shape_name}, paragraph {paragraph_index + 1}, portion {portion_index + 1}"
+                        audit_fill(portion_name, portion.portion_format.fill_format)
+```
+
+Ветка `NOT_DEFINED` предоставляет список сплошных заливок, которые не будут реагировать на изменения слотов цвета темы. При необходимости соответствовать новой бренд‑палитре проверьте эти объекты. Отображаемое RGB‑значение всё равно показывает текущий внешний вид, а значение схемы объясняет, связано ли он с темой.
+
+Эффективные объекты – это снимки. После изменения темы презентации, переопределения темы или любого унаследованного форматирования вызовите `get_effective` ещё раз и получите новый объект `IFillFormatEffectiveData` перед сравнением или выводом цветов.
 
 ## **Чтение эффективных значений темы**
 
-Необработанные объекты темы показывают, что определено на конкретном уровне. Эффективные значения показывают, что слайд или фигура действительно используют после применения наследования и локальных переопределений. Для слайда вызовите [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/ru/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/). Для фона используйте [Background.get_effective](https://reference.aspose.com/slides/ru/python-net/aspose.slides/background/get_effective/), а для заливки — [FillFormat.get_effective](https://reference.aspose.com/slides/ru/python-net/aspose.slides/fillformat/get_effective/).
+Необработанные объекты темы показывают, что определено на конкретном уровне. Эффективные значения показывают, что слайд или фигура действительно используют после применения наследования и локальных переопределений. Для слайда вызовите [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/ru/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/). Для фона используйте [Background.get_effective](https://reference.aspose.com/slides/ru/python-net/aspose.slides/background/get_effective/), а для заливки – [FillFormat.get_effective](https://reference.aspose.com/slides/ru/python-net/aspose.slides/fillformat/get_effective/).
 
-Следующий пример считывает эффективную тему, фон и заливку первой фигуры со слайда:
+Следующий пример читает эффективную тему, фон и первую заливку фигуры со слайда:
 
 ```python
 import aspose.slides as slides
@@ -389,22 +441,22 @@ with slides.Presentation("input.pptx") as presentation:
             print(f"First shape effective fill color: {effective_fill.solid_fill_color}")
 ```
 
-Используйте эффективные данные для диагностики рендеринга, валидации и сравнения. Если вы проверяете только [Presentation.master_theme](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/master_theme/), можно пропустить переопределения мастера, макета, слайда или фигуры, меняющие окончательный вид.
+Используйте эффективные данные для диагностики рендеринга, валидации и сравнения. Если вы проверяете только [Presentation.master_theme](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/master_theme/), вы можете упустить переопределения мастера, макета, слайда или фигуры, которые меняют окончательный внешний вид.
 
-## **Вопросы и ответы**
+## **FAQ**
 
-**Применение внешней темы влияет на каждый слайд в презентации?**
+**Применяет ли внешняя тема каждую страницу презентации?**
 
-Нет. [IMasterSlide.apply_external_theme_to_depending_slides](https://reference.aspose.com/slides/ru/python-net/aspose.slides/imasterslide/apply_external_theme_to_depending_slides/) переназначает только те слайды, которые зависят от выбранного мастера. Слайды, использующие другие мастеры, сохраняют свои текущие темы.
+Нет. [IMasterSlide.apply_external_theme_to_depending_slides](https://reference.aspose.com/slides/ru/python-net/aspose.slides/imasterslide/apply_external_theme_to_depending_slides/) переприсваивает только те слайды, которые зависят от выбранного мастера. Слайды, использующие другие мастеры, сохраняют свои существующие темы.
 
-**Можно ли применить тему к отдельному слайду без изменения мастера?**
+**Могу ли я применить тему к отдельному слайду, не меняя мастер?**
 
-Да. Используйте менеджер темы слайда — [SlideThemeManager](https://reference.aspose.com/slides/ru/python-net/aspose.slides.theme/slidethememanager/) — и инициализируйте его переопределение темы. Изменение останется локальным для данного слайда; остальные слайды продолжат наследовать свои текущие темы.
+Да. Используйте [SlideThemeManager](https://reference.aspose.com/slides/ru/python-net/aspose.slides.theme/slidethememanager/) слайда и инициализируйте его переопределение темы. Изменение останется локальным для этого слайда; остальные слайды продолжат наследовать свои текущие темы.
 
-**Какой способ наиболее надёжен для переноса темы из одной презентации в другую?**
+**Какой самый безопасный способ перенести тему из одной презентации в другую?**
 
-При перемещении слайда и сохранении его исходного вида клонируйте исходный мастер в целевую презентацию и клонируйте сам слайд с этим мастером, используя [MasterSlideCollection.add_clone](https://reference.aspose.com/slides/ru/python-net/aspose.slides/masterslidecollection/add_clone/) и [SlideCollection.add_clone](https://reference.aspose.com/slides/ru/python-net/aspose.slides/slidecollection/add_clone/). Это сохраняет мастер, макеты и тему вместе.
+При перемещении слайда и сохранении его исходного внешнего вида клонируйте исходный мастер в целевую презентацию с помощью [MasterSlideCollection.add_clone](https://reference.aspose.com/slides/ru/python-net/aspose.slides/masterslidecollection/add_clone/) и затем клонируйте слайд с этим мастером, используя [SlideCollection.add_clone](https://reference.aspose.com/slides/ru/python-net/aspose.slides/slidecollection/add_clone/). Это сохраняет мастер, макеты и тему вместе.
 
 **Как увидеть эффективные значения после наследования и переопределений?**
 
-Для слайда или макета темы используйте [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/ru/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/), а для объектов формата — соответствующие методы получения эффективных данных, такие как [Background.get_effective](https://reference.aspose.com/slides/ru/python-net/aspose.slides/background/get_effective/) и [FillFormat.get_effective](https://reference.aspose.com/slides/ru/python-net/aspose.slides/fillformat/get_effective/). Эти API возвращают разрешённые значения после применения всех наследований и переопределений.
+Используйте [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/ru/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/) для слайда или темы макета и соответствующие методы получения эффективных данных для форматных объектов, таких как [Background.get_effective](https://reference.aspose.com/slides/ru/python-net/aspose.slides/background/get_effective/) и [FillFormat.get_effective](https://reference.aspose.com/slides/ru/python-net/aspose.slides/fillformat/get_effective/). Эти API возвращают разрешённые значения после применения наследования и переопределений.

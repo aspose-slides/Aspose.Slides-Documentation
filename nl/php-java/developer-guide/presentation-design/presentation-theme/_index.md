@@ -1,5 +1,5 @@
 ---
-title: Thema's van presentaties beheren in PHP
+title: Thema's voor presentaties beheren in PHP
 linktitle: Presentatiethema
 type: docs
 weight: 10
@@ -7,7 +7,7 @@ url: /nl/php-java/presentation-theme/
 keywords:
 - PowerPoint-thema
 - presentatiethema
-- dia-thema
+- diathema
 - thema instellen
 - thema wijzigen
 - thema beheren
@@ -15,31 +15,31 @@ keywords:
 - THMX
 - themakleur
 - extra palet
-- themalettertype
+- themaletters
 - themastijl
-- themeffect
+- thema‑effect
 - PowerPoint
 - OpenDocument
 - presentatie
 - PHP
 - Aspose.Slides
-description: "Beheer master-presentatiethema's in Aspose.Slides voor PHP via Java om PowerPoint-bestanden te creëren, aanpassen en converteren met consistente branding."
+description: "Beheer master‑presentatiethema's in Aspose.Slides voor PHP via Java om PowerPoint‑bestanden te maken, aanpassen en converteren met een consistente huisstijl."
 ---
 ## **Introductie**
 
-Een presentatie‑thema definieert een gecoördineerde set van kleuren, lettertypen, achtergrondstijlen, vullingen, lijnen en effecten. Thema‑bewuste objecten verwijzen naar deze gedeelde definities in plaats van elke visuele eigenschap als een vaste waarde op te slaan, waardoor een thema‑wijziging veel objecten in één keer kan bijwerken.
+Een presentatiethema definieert een gecoördineerde set van kleuren, lettertypen, achtergrondstijlen, vullingen, lijnen en effecten. Thema‑bewuste objecten verwijzen naar deze gedeelde definities in plaats van elke visuele eigenschap als een vaste waarde op te slaan, zodat een themawijziging vele objecten tegelijk kan bijwerken.
 
-In Aspose.Slides is het thema op presentatie‑niveau beschikbaar via [Presentation.getMasterTheme](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/). Een presentatie kan ook thema‑overschrijvingen bevatten op lagere niveaus. Een master kan het presentatiethema overschrijven via [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/nl/php-java/aspose.slides/masterthememanager/), terwijl een lay‑out of een individuele dia zijn geërfde thema kan overschrijven via [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/nl/php-java/aspose.slides/baseoverridethememanager/). In de praktijk wordt het effectieve thema voor een dia bepaald via deze erfenisketen: presentatiethema, master‑overschrijving, lay‑out‑overschrijving en dia‑overschrijving.
+In Aspose.Slides is het thema op presentatieniveau beschikbaar via [Presentation.getMasterTheme](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/). Een presentatie kan ook themaunderbrekingen op lagere niveaus bevatten. Een master kan het presentatiethema overschrijven via [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/nl/php-java/aspose.slides/masterthememanager/), terwijl een lay‑out of een individuele dia zijn geërfde thema kan overschrijven via [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/nl/php-java/aspose.slides/baseoverridethememanager/). In de praktijk wordt het effectieve thema voor een dia bepaald via deze erfketen: presentatiethema, master‑override, lay‑out‑override en dia‑override.
 
-![Thema‑componenten: kleuren, lettertypen, achtergrondstijlen en effecten](theme-constituents.png)
+![Themacomponenten: kleuren, lettertypen, achtergrondstijlen en effecten](theme-constituents.png)
 
-De onderstaande secties tonen de meest voorkomende thema‑werkstromen: een thema inspecteren, kleuren en lettertypen wijzigen, een thema kopiëren of toepassen, achtergrond‑ en effectstijlen bijwerken, en effectieve waarden lezen nadat erfenis en overschrijvingen zijn verwerkt.
+De onderstaande secties laten de meest voorkomende thema‑workflows zien: een thema inspecteren, kleuren en lettertypen wijzigen, een thema kopiëren of toepassen, achtergrond‑ en effectstijlen bijwerken, en effectieve waarden lezen nadat er geërfd en onderbroken is.
 
-## **Een thema inspecteren**
+## **Inspecteer een thema**
 
-De [MasterTheme](https://reference.aspose.com/slides/nl/php-java/aspose.slides/mastertheme/) object maakt het kleurenpalet, lettertypepalet en formatpalet van het thema beschikbaar via [MasterTheme.getColorScheme](https://reference.aspose.com/slides/nl/php-java/aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/nl/php-java/aspose.slides/mastertheme/), en [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/nl/php-java/aspose.slides/mastertheme/). Het inspecteren van deze collecties voordat ze worden gewijzigd is vooral nuttig wanneer een presentatie afkomstig is van een externe bron, omdat het aantal en de inhoud van stijlitems kan variëren.
+Het [MasterTheme](https://reference.aspose.com/slides/nl/php-java/aspose.slides/mastertheme/)‑object geeft toegang tot het kleuren‑, lettertype‑ en opmaakschema van het thema via [MasterTheme.getColorScheme](https://reference.aspose.com/slides/nl/php-java/aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/nl/php-java/aspose.slides/mastertheme/) en [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/nl/php-java/aspose.slides/mastertheme/). Het inspecteren van deze collecties vóór wijziging is vooral handig wanneer een presentatie uit een externe bron komt, omdat het aantal en de inhoud van stijl‑items kunnen variëren.
 
-Het volgende voorbeeld leest de belangrijkste themaeigenschappen en meldt hoeveel achtergrond-, vul-, lijn‑ en effectstijlen er in het thema zijn opgeslagen:
+Het volgende voorbeeld leest de hoofdthema‑eigenschappen en meldt hoeveel achtergrond‑, vullings‑, lijn‑ en effectstijlen er in het thema zijn opgeslagen:
 
 ```php
 use aspose\slides\Presentation;
@@ -60,13 +60,13 @@ try {
 }
 ```
 
-Als een bestand meerdere masters gebruikt, ga er dan niet van uit dat elke dia hetzelfde effectieve thema heeft. Inspecteer de master die bij de dia hoort, en gebruik de effectieve‑thema‑werkstroom die later in dit artikel wordt getoond wanneer er lay‑out‑ of dia‑overschrijvingen aanwezig kunnen zijn.
+Als een bestand meerdere masters gebruikt, ga er dan niet van uit dat elke dia hetzelfde effectieve thema heeft. Inspecteer de master die bij de dia hoort en gebruik de later in dit artikel getoonde effectieve‑thema‑workflow wanneer lay‑out‑ of dia‑overrides aanwezig kunnen zijn.
 
-## **Thema‑kleuren wijzigen**
+## **Themakleuren wijzigen**
 
-Theme‑bewuste vullingen, lijnen en tekst kunnen verwijzen naar een logische kleur uit de [SchemeColor](https://reference.aspose.com/slides/nl/php-java/aspose.slides/schemecolor/) enumeratie. Wanneer u het overeenkomende item in de [ColorScheme](https://reference.aspose.com/slides/nl/php-java/aspose.slides/colorscheme/) wijzigt, worden alle objecten die nog steeds naar die themakleur verwijzen, herberekend op basis van de nieuwe waarde. Objecten die een directe RGB‑kleur gebruiken, worden niet gewijzigd door een themakleur‑update.
+Thema‑bewuste vullingen, lijnen en tekst kunnen verwijzen naar een logische kleur uit de [SchemeColor](https://reference.aspose.com/slides/nl/php-java/aspose.slides/schemecolor/)-enumeratie. Wanneer u de bijbehorende vermelding in de [ColorScheme](https://reference.aspose.com/slides/nl/php-java/aspose.slides/colorscheme/) wijzigt, worden alle objecten die nog naar die themakleur verwijzen, opgelost tegen de nieuwe waarde. Objecten die een directe RGB‑kleur gebruiken, worden niet aangepast door een themakleur‑update.
 
-Het volgende end‑to‑end voorbeeld maakt een vorm die `Accent4` gebruikt, wijzigt de `Accent4`‑kleur van het thema naar rood, slaat de presentatie op, opent deze opnieuw, en drukt de effectieve vulkleur af:
+Het volgende end‑to‑end‑voorbeeld maakt een vorm die `Accent4` gebruikt, wijzigt de themakleur `Accent4` naar rood, slaat de presentatie op, opent deze opnieuw en drukt de effectieve vulkleur af:
 
 ```php
 use aspose\slides\FillType;
@@ -98,18 +98,19 @@ try {
 }
 ```
 
-Omdat het rechthoek nog steeds gekoppeld is aan `Accent4`, wordt de zichtbare kleur rood nadat het thema is gewijzigd. Als u de schemacleur vervangt door een directe kleur op de vorm, zullen latere wijzigingen van `Accent4` die vulkleur niet meer beïnvloeden.
+Omdat het rechthoekje nog steeds gekoppeld is aan `Accent4`, wordt de zichtbare kleur rood nadat het thema is gewijzigd. Als u de schema‑kleur vervangt door een directe kleur op de vorm, zullen latere wijzigingen in `Accent4` die vulkleur niet meer beïnvloeden.
 
-### **Kleuren gebruiken uit het extra palet**
+### **Gebruik kleuren uit het extra palet**
 
-PowerPoint genereert lichtere en donkere varianten van een themakleur door kleurtransformaties toe te passen. Aspose.Slides maakt deze transformaties beschikbaar via de [ColorTransformOperation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/colortransformoperation/) enumeratie.
+PowerPoint genereert lichtere en donkerdere varianten van een themakleur door kleurtransformaties toe te passen. Aspose.Slides maakt deze transformaties beschikbaar via de [ColorTransformOperation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/colortransformoperation/)-enumeratie.
 
-![Hoofdkleuren van het thema en lichtere en donkere kleuren gegenereerd vanuit het extra palet](additional-palette-colors.png)
+![Hoofdkleuren van het thema en lichtere en donkerdere kleuren gegenereerd uit het extra palet](additional-palette-colors.png)
 
-**1** – Hoofdkleuren van het thema.  
-**2** – Lichtere en donkere varianten geproduceerd uit de hoofdkleuren van het thema.
+**1** – Hoofdkleuren van het thema.
 
-Het volgende voorbeeld maakt zes rechthoeken gebaseerd op `Accent4`, past luminantie‑transformaties toe op vijf ervan, en slaat het resultaat op:
+**2** – Lichtere en donkerdere varianten geproduceerd uit de hoofdkleuren van het thema.
+
+Het volgende voorbeeld maakt zes rechthoeken gebaseerd op `Accent4`, past luminantie‑transformaties toe op vijf ervan en slaat het resultaat op:
 
 ```php
 use aspose\slides\ColorTransformOperation;
@@ -161,31 +162,31 @@ try {
 }
 ```
 
-Deze varianten blijven gebaseerd op de themakleur. Als `Accent4` later verandert, worden de getransformeerde kleuren opnieuw berekend op basis van de nieuwe `Accent4`‑waarde.
+Deze varianten blijven gebaseerd op de themakleur. Als `Accent4` later verandert, worden de getransformeerde kleuren opnieuw berekend vanaf de nieuwe `Accent4`‑waarde.
 
-### **`SchemeColor`‑waarden toewijzen aan `ColorScheme`‑slots**
+### **Map `SchemeColor`‑waarden naar `ColorScheme`‑slots**
 
-De [SchemeColor](https://reference.aspose.com/slides/nl/php-java/aspose.slides/schemecolor/)‑enumeratie gebruikt `Text1`, `Background1`, `Text2` en `Background2`, terwijl de [ColorScheme](https://reference.aspose.com/slides/nl/php-java/aspose.slides/colorscheme/) dezelfde themaslots exposeert als `Dark1`, `Light1`, `Dark2` en `Light2`. De toewijzing is vast:
+De [SchemeColor](https://reference.aspose.com/slides/nl/php-java/aspose.slides/schemecolor/)-enumeratie gebruikt `Text1`, `Background1`, `Text2` en `Background2`, terwijl de [ColorScheme](https://reference.aspose.com/slides/nl/php-java/aspose.slides/colorscheme/)-enumeratie dezelfde themaslots exposeert als `Dark1`, `Light1`, `Dark2` en `Light2`. De mapping is vast:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-Dit zijn alternatieve namen voor dezelfde themaslots; het zijn geen waarden die dynamisch van de ene vorm naar de andere worden omgezet.
+Dit zijn alternatieve namen voor dezelfde themaslots; het zijn geen waarden die dynamisch van de ene vorm naar de andere worden geconverteerd.
 
-## **Thema‑lettertypen wijzigen**
+## **Themalettertypen wijzigen**
 
-Een thema‑lettertypepalet bevat een hoofdlettertype‑set voor koppen en een onderlettertype‑set voor body‑tekst. De methoden [FontScheme.getMajor](https://reference.aspose.com/slides/nl/php-java/aspose.slides/fontscheme/) en [FontScheme.getMinor](https://reference.aspose.com/slides/nl/php-java/aspose.slides/fontscheme/) geven die sets bloot.
+Een thema‑lettertypeschema bevat een hoofdlettertype‑set voor koppen en een secundaire lettertype‑set voor de bodytekst. De methoden [FontScheme.getMajor](https://reference.aspose.com/slides/nl/php-java/aspose.slides/fontscheme/) en [FontScheme.getMinor](https://reference.aspose.com/slides/nl/php-java/aspose.slides/fontscheme/) geven die sets bloot.
 
-PowerPoint‑compatibele thema‑lettertype‑identifiers kunnen worden gebruikt in tekstopmaak:
+PowerPoint‑compatibele thema‑lettertype‑identificatoren kunnen in tekstopmaak worden gebruikt:
 
-* `+mn-lt` – Body‑lettertype Latin (Minor Latin Font)
-* `+mj-lt` – Kop‑lettertype Latin (Major Latin Font)
-* `+mn-ea` – Body‑lettertype East Asian (Minor East Asian Font)
-* `+mj-ea` – Kop‑lettertype East Asian (Major East Asian Font)
+* `+mn-lt` – Bodylettertype Latin (Minor Latin Font)
+* `+mj-lt` – Koplettertype Latin (Major Latin Font)
+* `+mn-ea` – Bodylettertype East Asian (Minor East Asian Font)
+* `+mj-ea` – Koplettertype East Asian (Major East Asian Font)
 
-Het volgende voorbeeld maakt een kop die het hoofd‑Latin‑themalettertype gebruikt en een body‑regel die het onder‑Latin‑themalettertype gebruikt. Vervolgens wijzigt het de thema‑lettertypen en slaat het resultaat op:
+Het volgende voorbeeld maakt één kop die het hoofd‑Latin‑themalettertype gebruikt en één body‑regel die het secundaire Latin‑themalettertype gebruikt. Vervolgens wijzigt het de thema‑lettertypen en slaat het resultaat op:
 
 ```php
 use aspose\slides\FontData;
@@ -213,28 +214,28 @@ try {
 }
 ```
 
-De kop volgt het hoofdlettertype en de body‑tekst volgt het onderlettertype. Tekst die een expliciete lettertype‑naam heeft in plaats van een thema‑identifier, zal niet automatisch wisselen wanneer het thema‑lettertype‑palet verandert.
+De kop volgt het hoofdlettertype en de bodytekst volgt het secundaire lettertype. Tekst die een expliciete lettertype‑naam heeft in plaats van een thema‑identificator zal niet automatisch wisselen wanneer het thema‑lettertype‑schema verandert.
 
-De hoofd‑ en onder‑lettertypecollecties kunnen ook lettertype‑toewijzingen bevatten voor individuele schriftsystemen, zoals Cyrillisch, Arabisch, Japans, Georgisch en Thaana. Om deze toewijzingen te inspecteren, toe te voegen, te vervangen of te verwijderen, zie [Script‑Specific Theme Fonts](/slides/nl/php-java/script-specific-font-mappings/).
+De hoofd‑ en secundaire lettertype‑collecties kunnen ook lettertype‑toewijzingen bevatten voor afzonderlijke schrijfsystemen, zoals Cyrillisch, Arabisch, Japans, Georgisch en Thaana. Zie [Script‑Specific Theme Fonts](/slides/nl/php-java/script-specific-font-mappings/) om deze toewijzingen te inspecteren, toe te voegen, te vervangen of te verwijderen.
 
 {{% alert color="info" title="Tip" %}}
-Voor meer informatie over presentatietekstlettertypen, zie [PowerPoint Fonts](/slides/nl/php-java/powerpoint-fonts/).
+Voor meer informatie over presentatielettertypen, zie [PowerPoint Fonts](/slides/nl/php-java/powerpoint-fonts/).
 {{% /alert %}}
 
 ## **Een thema kopiëren of toepassen**
 
-De onderstaande werkstromen lossen verschillende thema‑gerelateerde problemen op.
+De onderstaande workflows lossen verschillende thema‑gerelateerde problemen op.
 
-### **Een extern thema toepassen op dia's die afhankelijk zijn van een master**
+### **Pas een extern thema toe op dia's die afhankelijk zijn van een master**
 
-Gebruik [MasterSlide::applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/nl/php-java/aspose.slides/masterslide/) wanneer u een PowerPoint‑themabestand (`.thmx`) hebt en elke dia die afhankelijk is van een bepaalde master opnieuw wilt stijlen. Selecteer de master uit de [Presentation::getMasters](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/)‑collectie, die wordt weergegeven door [MasterSlideCollection](https://reference.aspose.com/slides/nl/php-java/aspose.slides/masterslidecollection/), en geef het pad naar het themabestand door aan de methode.
+Gebruik [MasterSlide::applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/nl/php-java/aspose.slides/masterslide/) wanneer u een PowerPoint‑thema‑bestand (`.thmx`) heeft en elke dia die afhankelijk is van een bepaalde master wilt restylen. Selecteer de master uit de [Presentation::getMasters](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/)-collectie, die wordt vertegenwoordigd door [MasterSlideCollection](https://reference.aspose.com/slides/nl/php-java/aspose.slides/masterslidecollection/), en geef het pad van het themabestand door aan de methode.
 
 De methode voert de volgende bewerkingen uit:
 
-1. Maakt een nieuwe masterslide aan op basis van de geselecteerde master.
+1. Maakt een nieuwe master‑dia gebaseerd op de geselecteerde master.
 2. Past het externe thema toe op de nieuwe master.
-3. Wijst de nieuwe master toe aan alle dia's die voorheen afhankelijk waren van de geselecteerde master.
-4. Retourneert de nieuw aangemaakte [MasterSlide](https://reference.aspose.com/slides/nl/php-java/aspose.slides/masterslide/).
+3. Koppelt de nieuwe master aan alle dia's die voorheen afhankelijk waren van de geselecteerde master.
+4. Retourneert de nieuw gemaakte [MasterSlide](https://reference.aspose.com/slides/nl/php-java/aspose.slides/masterslide/).
 
 Het volgende voorbeeld past een extern thema toe op de dia's die afhankelijk zijn van de eerste master en slaat de presentatie op:
 
@@ -254,19 +255,19 @@ try {
 }
 ```
 
-Een ongeldig, beschadigd of niet‑ondersteund thema kan [PptxReadException](https://reference.aspose.com/slides/nl/php-java/aspose.slides/pptxreadexception/) veroorzaken. Valideer paden die door gebruikers worden opgegeven, verwerk fouten bij bestands‑systeemtoegang, en sla de presentatie pas op nadat het thema met succes is toegepast.
+Een ongeldig, beschadigd of niet‑ondersteund thema kan een [PptxReadException](https://reference.aspose.com/slides/nl/php-java/aspose.slides/pptxreadexception/) veroorzaken. Valideer door gebruikers opgegeven paden, behandel fouten bij bestands‑systeemtoegang en sla de presentatie pas op nadat het thema succesvol is toegepast.
 
-Alleen de dia's die afhankelijk waren van de geselecteerde master worden opnieuw toegewezen. Dia's die zijn gekoppeld aan andere masters behouden hun bestaande masters en thema's. Thema‑bewuste kleuren, lettertypen, vullingen, lijnen, achtergronden en effecten worden afgehandeld ten opzichte van het externe thema. Direct toegewezen kleuren, lettertypen, vullingen en andere expliciete opmaak kunnen ongewijzigd blijven. Overschrijvingen op lay‑out‑niveau en dia‑niveau kunnen ook voorrang krijgen boven waarden die van de nieuwe master zijn geërfd.
+Alleen de dia's die afhankelijk waren van de geselecteerde master worden opnieuw toegewezen. Dia's die aan andere masters zijn gekoppeld behouden hun bestaande masters en thema’s. Thema‑bewuste kleuren, lettertypen, vullingen, lijnen, achtergronden en effecten worden opgelost tegen het externe thema. Direct toegewezen kleuren, lettertypen, vullingen en andere expliciete opmaak kunnen ongewijzigd blijven. Overrides op lay‑out‑ en dia‑niveau kunnen ook voorrang hebben op waarden die zijn geërfd van de nieuwe master.
 
-Het thema kan lettertypen verwijzen die niet beschikbaar zijn in de runtime‑omgeving. Voor consistente weergave en export, installeer de benodigde lettertypen, lever ze via [custom font sources](/slides/nl/php-java/custom-font/), of configureer [font substitution](/slides/nl/php-java/font-substitution/).
+Het thema kan verwijzen naar lettertypen die niet beschikbaar zijn in de runtime‑omgeving. Installeer voor consistente weergave en export de benodigde lettertypen, maak ze beschikbaar via [custom font sources](/slides/nl/php-java/custom-font/), of configureer [font substitution](/slides/nl/php-java/font-substitution/).
 
-Dit is een directe workflow op master‑niveau: de methode accepteert een bestandspad naar een `.thmx`‑bestand en vereist geen handmatige creatie van dia‑ of lay‑out‑thema‑overschrijvingen.
+Dit is een directe master‑niveau workflow: de methode accepteert een bestandspad naar een `.thmx`‑bestand en vereist geen handmatige creatie van thema‑overrides op dia‑ of lay‑out‑niveau.
 
-### **Verschillende externe thema's toepassen in een presentatie met meerdere masters**
+### **Pas verschillende externe thema’s toe in een presentatie met meerdere masters**
 
-Wanneer de relevante master niet van tevoren bekend is, verkrijg deze dan via een representatieve dia met [Slide::getLayoutSlide](https://reference.aspose.com/slides/nl/php-java/aspose.slides/slide/) en [LayoutSlide::getMasterSlide](https://reference.aspose.com/slides/nl/php-java/aspose.slides/layoutslide/). Sla de oorspronkelijke master‑referenties op voordat u thema's toepast, omdat elke aanroep een extra master in de presentatie creëert.
+Wanneer de relevante master niet van tevoren bekend is, haal deze dan op via een representatieve dia met [Slide::getLayoutSlide](https://reference.aspose.com/slides/nl/php-java/aspose.slides/slide/) en [LayoutSlide::getMasterSlide](https://reference.aspose.com/slides/nl/php-java/aspose.slides/layoutslide/). Sla de oorspronkelijke master‑referenties op vóór het toepassen van thema’s, want elke aanroep maakt een extra master in de presentatie.
 
-Het volgende voorbeeld gebruikt dia's uit twee secties om hun masters te vinden en past een verschillend extern thema toe op elke groep:
+Het volgende voorbeeld gebruikt dia’s uit twee secties om hun masters te vinden en past een verschillend extern thema toe op elke groep:
 
 ```php
 use aspose\slides\Presentation;
@@ -296,11 +297,11 @@ try {
 }
 ```
 
-De eerste aanroep beïnvloedt alleen dia's die afhankelijk waren van `$firstGroupMaster`, en de tweede aanroep beïnvloedt alleen dia's die afhankelijk waren van `$secondGroupMaster`. Dia's die tot een andere master behoren, worden niet opnieuw gestyled.
+De eerste aanroep heeft alleen invloed op dia’s die afhankelijk waren van `$firstGroupMaster`, en de tweede aanroep alleen op dia’s die afhankelijk waren van `$secondGroupMaster`. Dia’s die bij een andere master horen, worden niet opnieuw gestyled.
 
-### **Een bron‑thema behouden bij het verplaatsen van dia's**
+### **Behoud een bronthema bij het verplaatsen van dia’s**
 
-Als u een dia naar een andere presentatie wilt verplaatsen en het oorspronkelijke ontwerp wilt behouden, kloont u de bron‑master naar de doelpresentatie met [MasterSlideCollection.addClone](https://reference.aspose.com/slides/nl/php-java/aspose.slides/masterslidecollection/), kloont u vervolgens de dia met [SlideCollection.addClone](https://reference.aspose.com/slides/nl/php-java/aspose.slides/slidecollection/) en de gekloonde master. Hiermee wordt de master, zijn lay‑outs en het bijbehorende thema samen meegenomen.
+Als u een dia wilt verplaatsen naar een andere presentatie en het oorspronkelijke ontwerp wilt behouden, kloont u de bron‑master in de doelpresentatie met [MasterSlideCollection.addClone](https://reference.aspose.com/slides/nl/php-java/aspose.slides/masterslidecollection/), en kloont u vervolgens de dia met [SlideCollection.addClone](https://reference.aspose.com/slides/nl/php-java/aspose.slides/slidecollection/) en de gekloonde master. Hierdoor worden de master, de lay‑outs en het bijbehorende thema meegenomen.
 
 ```php
 use aspose\slides\Presentation;
@@ -323,11 +324,11 @@ try {
 }
 ```
 
-Dit is de voorkeur‑workflow wanneer de bron‑dia er in de doelpresentatie precies hetzelfde uit moet zien. Het simpelweg klonen van inhoud op een niet‑gerelateerde bestemming‑master kan themagestuurde kleuren, lettertypen, achtergronden en effecten wijzigen.
+Dit is de voorkeur‑workflow wanneer de bron‑dia er in de bestemming exact hetzelfde uit moet zien. Het simpelweg klonen van inhoud naar een niet‑gerelateerde doel‑master kan thema‑gedreven kleuren, lettertypen, achtergronden en effecten wijzigen.
 
-### **Thema‑waarden toepassen op een bestaande dia**
+### **Pas themawaarden toe op een bestaande dia**
 
-Als de doel‑dia op zijn huidige master en lay‑out moet blijven, initialiseert u een dia‑niveau‑overschrijving vanuit het bron‑thema. De methoden [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/nl/php-java/aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/nl/php-java/aspose.slides/overridetheme/), en [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/nl/php-java/aspose.slides/overridetheme/) kopi­eren de drie belangrijkste thema‑componenten naar de overschrijving.
+Als de doel‑dia op zijn huidige master en lay‑out moet blijven, initialiseert u een dia‑niveau override vanuit het bronthema. De methoden [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/nl/php-java/aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/nl/php-java/aspose.slides/overridetheme/) en [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/nl/php-java/aspose.slides/overridetheme/) kopiëren de drie hoofdthema‑componenten naar de override.
 
 ```php
 use aspose\slides\Presentation;
@@ -351,11 +352,11 @@ try {
 }
 ```
 
-Dit wijzigt het thema dat door die dia wordt gebruikt zonder het thema dat andere dia's erven te wijzigen. Om de lokale overschrijving te verwijderen en terug te keren naar geërfde waarden, roep [OverrideTheme.clear](https://reference.aspose.com/slides/nl/php-java/aspose.slides/overridetheme/) aan.
+Dit wijzigt het thema dat die dia gebruikt zonder het thema dat andere dia’s erven te wijzigen. Roep [OverrideTheme.clear](https://reference.aspose.com/slides/nl/php-java/aspose.slides/overridetheme/) aan om de lokale override te verwijderen en terug te keren naar de geërfde waarden.
 
-### **Een thema‑overschrijving toepassen op een lay‑out**
+### **Pas een thema‑override toe op een lay‑out**
 
-Een lay‑out‑niveau‑overschrijving geldt voor dia's die die lay‑out gebruiken, tenzij een specifieke dia zijn eigen overschrijving heeft. Dezelfde initialisatiemethoden kunnen worden gebruikt via de [LayoutSlideThemeManager](https://reference.aspose.com/slides/nl/php-java/aspose.slides/layoutslidethememanager/):
+Een lay‑out‑niveau override is van toepassing op dia’s die die lay‑out gebruiken, tenzij een specifieke dia zijn eigen override heeft. Dezelfde initialisatiemethoden kunnen worden gebruikt via de [LayoutSlideThemeManager](https://reference.aspose.com/slides/nl/php-java/aspose.slides/layoutslidethememanager/):
 
 ```php
 use aspose\slides\Presentation;
@@ -379,17 +380,17 @@ try {
 }
 ```
 
-Gebruik een master‑ of presentatie‑niveau‑thema wanneer veel lay‑outs en dia's hetzelfde basisonwerp moeten delen, een lay‑out‑overschrijving wanneer één lay‑outfamilie een andere opmaak nodig heeft, en een dia‑overschrijving alleen voor echte uitzonderingen. Overmatige dia‑niveau‑overschrijvingen maken latere globale thema‑wijzigingen moeilijker te voorspellen.
+Gebruik een master‑ of presentatie‑niveau thema wanneer veel lay‑outs en dia’s hetzelfde basisonwerp moeten delen, een lay‑out‑override wanneer één lay‑outfamilie een andere styling nodig heeft, en een dia‑override alleen voor echte uitzonderingen. Overmatige dia‑niveau overrides maken latere globale themawijzigingen moeilijker te voorspellen.
 
-## **Thematische achtergrondstijlen bijwerken**
+## **Thema‑achtergrondstijlen bijwerken**
 
-De achtergrondvullingen van het thema worden opgeslagen in [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/nl/php-java/aspose.slides/formatscheme/). PowerPoint kan meer achtergrondkeuzes weergeven in de UI dan het aantal vullingsdefinities dat fysiek in deze collectie is opgeslagen, omdat de UI thema‑vullingen kan combineren met themakleuren en andere stijl‑referenties.
+De achtergrondvullingen van het thema worden opgeslagen in [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/nl/php-java/aspose.slides/formatscheme/). PowerPoint kan in de UI meer achtergrondopties tonen dan het aantal vullingdefinities dat feitelijk in deze collectie is opgeslagen, omdat de UI thema‑vullingen kan combineren met themakleuren en andere stijl‑referenties.
 
-![PowerPoint‑achtergrondstijlgallerij voor een presentatiethema](presentation-design_8.png)
+![PowerPoint-achtergrondstijlgalerij voor een presentatiethema](presentation-design_8.png)
 
-Voordat u een achtergrondstijl gebruikt, inspecteert u de opgeslagen collectie en de huidige [Background.getStyleIndex](https://reference.aspose.com/slides/nl/php-java/aspose.slides/background/). Een stijl‑index van `0` betekent geen themavulling; positieve waarden zijn verwijzingen naar themabackground‑stijlen. Dit verschilt van het rechtstreeks indexeren van de PHP‑collectie, waarbij `get_Item(0)` het eerste opgeslagen item betekent. Ga er niet van uit dat elke presentatie hetzelfde aantal achtergrondvullingsstijlen bevat.
+Voordat u een achtergrondstijl gebruikt, inspecteert u de opgeslagen collectie en de huidige [Background.getStyleIndex](https://reference.aspose.com/slides/nl/php-java/aspose.slides/background/). Een stijl‑index van `0` betekent geen themavulling; positieve waarden zijn verwijzingen naar themabackground‑stijlen. Dit verschilt van het indexeren van de PHP‑collectie zelf, waarbij `get_Item(0)` het eerste opgeslagen item betekent. Ga er niet van uit dat elke presentatie evenveel achtergrondvullingsstijlen bevat.
 
-Het volgende voorbeeld meldt het beschikbare aantal achtergrondvullingen, wijst een thematische achtergrond‑referentie toe aan de eerste master, en slaat de presentatie op:
+Het volgende voorbeeld meldt het aantal beschikbare achtergrondvullingen, kent een thematische achtergrondreferentie toe aan de eerste master en slaat de presentatie op:
 
 ```php
 use aspose\slides\BackgroundType;
@@ -413,25 +414,25 @@ try {
 }
 ```
 
-Het zichtbare resultaat hangt af van de themavermelding die door de master wordt gerefereerd en van eventuele achtergrond‑overschrijvingen op lay‑out‑ of dia‑niveau. Als een dia een eigen achtergrond gebruikt, kan het wijzigen van alleen de master‑achtergrond die dia niet veranderen. Gebruik [Background.getEffective](https://reference.aspose.com/slides/nl/php-java/aspose.slides/background/) wanneer u de uiteindelijke achtergrond wilt weten nadat erfenis is toegepast.
+Het zichtbare resultaat hangt af van de themavermelding waar de master naar verwijst en van eventuele achtergrond‑overrides op lay‑out‑ of dia‑niveau. Als een dia een eigen achtergrond gebruikt, verandert alleen de master‑achtergrond die dia mogelijk niet. Gebruik [Background.getEffective](https://reference.aspose.com/slides/nl/php-java/aspose.slides/background/) wanneer u de uiteindelijke achtergrond na erf‑ en override‑toepassing moet weten.
 
 {{% alert color="warning" title="Waarschuwing" %}}
-Behandel de stijl‑index niet als een nul‑gebaseerde collectie‑index. Vermijd ook het hard‑coderen van een stijl‑nummer uit één bestand en aannemen dat het dezelfde weergave heeft in een ander bestand; thema‑stijldefinities zijn presentatiespecifiek.
+Behandel de stijl‑index niet als een nulgebaseerde collectie‑index. Vermijd ook het hard‑coderen van een stijlnummer uit één bestand en ervan uitgaan dat het dezelfde weergave heeft in een ander bestand; themastijldefinities zijn presentatiespecifiek.
 {{% /alert %}}
 
 {{% alert color="info" title="Tip" %}}
-Voor directe achtergrondopmaak en achtergrond‑erfenis, zie [Presentation Background](/slides/nl/php-java/presentation-background/).
+Voor directe achtergrondopmaak en achtergrond‑erf kun je [Presentation Background](/slides/nl/php-java/presentation-background/) raadplegen.
 {{% /alert %}}
 
-## **Thematische effecten bijwerken**
+## **Thema‑effecten bijwerken**
 
-Een thema‑formatschema bevat aparte vul-, lijn- en effect‑stijlcollecties, beschikbaar via [FormatScheme.getFillStyles](https://reference.aspose.com/slides/nl/php-java/aspose.slides/formatscheme/), [FormatScheme.getLineStyles](https://reference.aspose.com/slides/nl/php-java/aspose.slides/formatscheme/), en [FormatScheme.getEffectStyles](https://reference.aspose.com/slides/nl/php-java/aspose.slides/formatscheme/). Typische Office‑thema's bevatten vaak drie hoofd‑stijlitems die visueel overeenkomen met subtiele, matige en intensieve opmaak, maar code moet elke collectie inspecteren in plaats van een vast aantal aan te nemen.
+Een themaschema bevat gescheiden collecties voor vul‑, lijn‑ en effectstijlen, toegankelijk via [FormatScheme.getFillStyles](https://reference.aspose.com/slides/nl/php-java/aspose.slides/formatscheme/), [FormatScheme.getLineStyles](https://reference.aspose.com/slides/nl/php-java/aspose.slides/formatscheme/) en [FormatScheme.getEffectStyles](https://reference.aspose.com/slides/nl/php-java/aspose.slides/formatscheme/). Veel Office‑thema’s bevatten drie hoofdstijl‑items die visueel overeenkomen met subtiele, matige en intense opmaak, maar code moet elke collectie inspecteren in plaats van uit te gaan van een vast aantal items.
 
-![Subtiele, matige en intense thema‑effecten toegepast op dezelfde vorm](presentation-design_10.png)
+![Subtiele, matige en intense themaeffecten toegepast op dezelfde vorm](presentation-design_10.png)
 
-Wanneer u deze collecties in PHP benadert, is de collectie‑index nul‑gebaseerd: `get_Item(0)` is de eerste opgeslagen stijl en `get_Item(2)` is de derde. De stijl‑referentie‑indexen van een vorm zijn een apart concept, blootgesteld via [ShapeStyle](https://reference.aspose.com/slides/nl/php-java/aspose.slides/shapestyle/). Het wijzigen van een themastijl beïnvloedt vormen die die themastijl refereren; vormen met directe opmaak kunnen ongewijzigd blijven.
+Wanneer u deze collecties in PHP benadert, is de collectie‑index nulgebaseerd: `get_Item(0)` is de eerste opgeslagen stijl en `get_Item(2)` de derde. Indexen die een vorm‑stijl‑referentie aangeven, vormen een apart concept, toegankelijk via [ShapeStyle](https://reference.aspose.com/slides/nl/php-java/aspose.slides/shapestyle/). Het wijzigen van een themastijl beïnvloedt vormen die naar die stijl verwijzen; vormen met directe opmaak blijven mogelijk onveranderd.
 
-Het volgende voorbeeld controleert of de vereiste stijlitems bestaan, wijzigt de eerste lijnstijl, wijzigt de derde vulstijl, schakelt een buitenschaduw in bij de derde effectstijl, en slaat het resultaat op:
+Het volgende voorbeeld controleert of de vereiste stijl‑items bestaan, wijzigt de eerste lijnstijl, wijzigt de derde vulstijl, activeert een externe schaduw in de derde effectstijl, en slaat het resultaat op:
 
 ```php
 use aspose\slides\FillType;
@@ -458,15 +459,89 @@ try {
 }
 ```
 
-Voor vormen die naar deze slots refereren, wordt de eerste themalijnstijl rood, de derde themavulstijl wordt een solide bosgroen, en de derde effectstijl krijgt een buitenschaduw met een afstand van 10 punten. Het exacte visuele resultaat hangt nog steeds af van welke stijl‑slots elke vorm referereert en of directe opmaak de thema‑instelling overschrijft.
+Voor vormen die naar deze slots verwijzen, wordt de eerste themalijnstijl rood, de derde themavulstijl een effen bosgroen, en krijgt de derde effectstijl een externe schaduw met een afstand van 10 punten. Het exacte visuele resultaat blijft afhangen van welke stijl‑slots elke vorm raadpleegt en of directe opmaak de themastijl overschrijft.
 
-![Thema‑effectstijlen na het wijzigen van lijn-, vul- en schaduwinstellingen](presentation-design_11.png)
+![Thematische effectstijlen na wijziging van lijn-, vul‑ en schaduwinstellingen](presentation-design_11.png)
 
-## **Effectieve thema‑waarden lezen**
+## **Bepalen of een effectieve effen vulkleur een themakleur gebruikt**
 
-Ruwe thema‑objecten vertellen wat er op een bepaald niveau is gedefinieerd. Effectieve waarden vertellen wat een dia of vorm werkelijk gebruikt nadat erfenis en lokale overschrijvingen zijn verwerkt. Voor een dia roept u [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/nl/php-java/aspose.slides/baseoverridethememanager/) aan. Voor een achtergrond gebruikt u [Background.getEffective](https://reference.aspose.com/slides/nl/php-java/aspose.slides/background/), en voor een vul gebruikt u [FillFormat.getEffective](https://reference.aspose.com/slides/nl/php-java/aspose.slides/fillformat/).
+Een vul kan direct op een object worden opgeslagen of geërfd van een alinea, lay‑out, master, themastijl of een ander formatieniveau. Roep [FillFormat::getEffective](https://reference.aspose.com/slides/nl/php-java/aspose.slides/fillformat/) aan om die hiërarchie op te lossen tot een onveranderlijke effectieve vuldata. Controleer eerst het resultaat van `getFillType`. Alleen wanneer dit `FillType::Solid` is, lees je de eigenschappen van de effen vul.
 
-Het volgende voorbeeld leest het effectieve thema, de achtergrond en de eerste vormvulling van een dia:
+Voor een effen vul geeft `getSolidFillColor` de definitieve RGB‑waarde terug na erf‑, themazoek‑ en kleurtransformatietoepassingen. De methode `getSolidFillSchemeColor` geeft de bijbehorende logische [SchemeColor](https://reference.aspose.com/slides/nl/php-java/aspose.slides/schemecolor/)-slot terug, zoals `Text1` of `Accent6`. Een waarde van `SchemeColor::NotDefined` betekent dat de effectieve effen vul niet gebaseerd is op een scheme‑kleur. In een workflow waarin vullingen ofwel themakleuren ofwel directe RGB‑kleuren zijn, identificeert deze waarde een directe RGB‑vul.
+
+Gebruik de lokale [ColorFormat::getSchemeColor](https://reference.aspose.com/slides/nl/php-java/aspose.slides/colorformat/)‑waarde niet alleen om een vul te classificeren. Bijvoorbeeld, een tekstdeel kan geen lokaal gedefinieerde scheme‑kleur hebben, waardoor de lokale waarde `NotDefined` is, terwijl de effectieve vul een themakleur erft en zich vertaalt naar `Text1` of `Accent6`. Omgekeerd vertelt `getSolidFillSchemeColor` u welke logische themaslot de effectieve kleur heeft geproduceerd, maar niet van welk niveau (object, alinea, lay‑out, master, etc.) deze afkomstig is.
+
+Het volgende voorbeeld laadt een presentatie, controleert zowel vorm‑vullingen als tekst‑deel‑vullingen, drukt elke uiteindelijke RGB‑waarde en bijbehorende scheme‑kleur af, en markeert effen vullingen die geen themakleur‑wijzigingen volgen:
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SchemeColor;
+
+$auditFill = function (string $objectName, $localFill): void {
+    $effectiveFill = $localFill->getEffective();
+
+    if (java_values($effectiveFill->getFillType()) != FillType::Solid) {
+        echo $objectName . ": fill type = " . java_values($effectiveFill->getFillType()) . "; not a solid fill." . PHP_EOL;
+        return;
+    }
+
+    $rgb = $effectiveFill->getSolidFillColor();
+    $effectiveSchemeColor = java_values($effectiveFill->getSolidFillSchemeColor());
+    $localSchemeColor = java_values($localFill->getSolidFillColor()->getSchemeColor());
+
+    echo sprintf("%s: RGB = #%02X%02X%02X", $objectName, java_values($rgb->getRed()), java_values($rgb->getGreen()), java_values($rgb->getBlue())) . PHP_EOL;
+    echo $objectName . ": local scheme = " . $localSchemeColor . ", effective scheme = " . $effectiveSchemeColor . PHP_EOL;
+
+    if ($effectiveSchemeColor == SchemeColor::NotDefined) {
+        echo $objectName . ": direct RGB or another non-scheme fill; audit as theme-independent." . PHP_EOL;
+    } else {
+        echo $objectName . ": theme-dependent through " . $effectiveSchemeColor . "." . PHP_EOL;
+    }
+};
+
+$autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+$presentation = new Presentation("input.pptx");
+try {
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+
+        $shapeCount = java_values($slide->getShapes()->size());
+        for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+            $shape = $slide->getShapes()->get_Item($shapeIndex);
+            $shapeName = "Slide " . ($slideIndex + 1) . ", shape " . ($shapeIndex + 1);
+            $auditFill($shapeName, $shape->getFillFormat());
+
+            if (java_instanceof($shape, $autoShapeClass)) {
+                $paragraphCount = java_values($shape->getTextFrame()->getParagraphs()->getCount());
+                for ($paragraphIndex = 0; $paragraphIndex < $paragraphCount; $paragraphIndex++) {
+                    $paragraph = $shape->getTextFrame()->getParagraphs()->get_Item($paragraphIndex);
+
+                    $portionCount = java_values($paragraph->getPortions()->getCount());
+                    for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
+                        $portion = $paragraph->getPortions()->get_Item($portionIndex);
+                        $portionName = $shapeName . ", paragraph " . ($paragraphIndex + 1) . ", portion " . ($portionIndex + 1);
+                        $auditFill($portionName, $portion->getPortionFormat()->getFillFormat());
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+De `NotDefined`‑tak levert een audit‑lijst van effen vullingen die niet reageren op wijzigingen in themakleur‑slots. Bekijk die objecten wanneer een presentatie een nieuw merkpallet moet volgen. De gerapporteerde RGB‑waarde toont nog steeds het huidige uiterlijk, terwijl de scheme‑waarde verklaart of dat uiterlijk gekoppeld is aan het thema.
+
+Effectieve‑formatobjecten zijn momentopnames. Nadat u het presentatiethema, een thema‑override of enige geërfde opmaak hebt gewijzigd, roep opnieuw `getEffective` aan en lees de nieuwe effectieve vuldata vóór vergelijking of rapportage.
+
+## **Effectieve themawaarden lezen**
+
+Ruwe thema‑objecten vertellen u wat er op een bepaald niveau is gedefinieerd. Effectieve waarden vertellen u wat een dia of vorm werkelijk gebruikt na erf‑ en lokale overrides. Voor een dia roept u [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/nl/php-java/aspose.slides/baseoverridethememanager/) aan. Voor een achtergrond gebruikt u [Background.getEffective](https://reference.aspose.com/slides/nl/php-java/aspose.slides/background/), en voor een vul [FillFormat.getEffective](https://reference.aspose.com/slides/nl/php-java/aspose.slides/fillformat/).
+
+Het volgende voorbeeld leest het effectieve thema, de achtergrond en de eerste vormvul van een dia:
 
 ```php
 use aspose\slides\FillType;
@@ -493,22 +568,22 @@ try {
 }
 ```
 
-Gebruik effectieve gegevens voor weergave‑diagnostiek, validatie en vergelijkingen. Als u alleen [Presentation.getMasterTheme](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/) inspecteert, kunt u een master‑, lay‑out‑, dia‑ of vorm‑overschrijving missen die de uiteindelijke weergave wijzigt.
+Gebruik effectieve data voor weergavediagnostiek, validatie en vergelijkingen. Als u alleen [Presentation.getMasterTheme](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/) inspecteert, kunt u een master, lay‑out, dia‑ of vorm‑override missen die het uiteindelijke uiterlijk wijzigt.
 
 ## **FAQ**
 
-**Heeft het toepassen van een extern thema effect op elke dia in de presentatie?**
+**Heeft het toepassen van een extern thema invloed op elke dia in de presentatie?**
 
-Nee. [MasterSlide::applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/nl/php-java/aspose.slides/masterslide/) wijst alleen de dia's opnieuw toe die afhankelijk zijn van de geselecteerde master. Dia's die andere masters gebruiken behouden hun bestaande thema's.
+Nee. [MasterSlide::applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/nl/php-java/aspose.slides/masterslide/) wijzigt alleen de dia’s die afhankelijk zijn van de geselecteerde master. Dia’s die andere masters gebruiken behouden hun bestaande thema’s.
 
-**Kan ik een thema toepassen op één enkele dia zonder de master te wijzigen?**
+**Kan ik een thema toepassen op één dia zonder de master te veranderen?**
 
-Ja. Gebruik de [SlideThemeManager](https://reference.aspose.com/slides/nl/php-java/aspose.slides/slidethememanager/) van de dia en initialiseert zijn overschrijvingsthema. De wijziging blijft lokaal voor die dia; andere dia's blijven hun bestaande thema's erven.
+Ja. Gebruik de [SlideThemeManager](https://reference.aspose.com/slides/nl/php-java/aspose.slides/slidethememanager/) van de dia en initialiseert zijn override‑thema. De wijziging blijft lokaal voor die dia; andere dia’s blijven hun bestaande thema’s erven.
 
-**Wat is de veiligste manier om een thema van de ene presentatie naar de andere over te brengen?**
+**Wat is de veiligste manier om een thema van de ene presentatie naar de andere over te dragen?**
 
-Wanneer u een dia verplaatst en het oorspronkelijke uiterlijk behoudt, kloont u de bron‑master naar de bestemming en kloont u de dia met die master via [MasterSlideCollection.addClone](https://reference.aspose.com/slides/nl/php-java/aspose.slides/masterslidecollection/) en [SlideCollection.addClone](https://reference.aspose.com/slides/nl/php-java/aspose.slides/slidecollection/). Hiermee blijft de master, de lay‑outs en het thema samen.
+Wanneer u een dia verplaatst en de oorspronkelijke opmaak wilt behouden, kloont u de bron‑master in de bestemming en kloont u de dia met die master via [MasterSlideCollection.addClone](https://reference.aspose.com/slides/nl/php-java/aspose.slides/masterslidecollection/) en [SlideCollection.addClone](https://reference.aspose.com/slides/nl/php-java/aspose.slides/slidecollection/). Zo blijven de master, lay‑outs en het thema samen.
 
-**Hoe kan ik de effectieve waarden zien na erfenis en overschrijvingen?**
+**Hoe kan ik de effectieve waarden zien na erf‑ en override‑toepassingen?**
 
-Gebruik [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/nl/php-java/aspose.slides/baseoverridethememanager/) voor een dia‑ of lay‑out‑thema en de corresponderende effectieve‑datamethoden voor formatobjecten zoals [Background.getEffective](https://reference.aspose.com/slides/nl/php-java/aspose.slides/background/) en [FillFormat.getEffective](https://reference.aspose.com/slides/nl/php-java/aspose.slides/fillformat/). Deze API's retourneren de verwerkte waarden nadat erfenis en overschrijvingen zijn toegepast.
+Gebruik [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/nl/php-java/aspose.slides/baseoverridethememanager/) voor een dia‑ of lay‑out‑thema en de bijbehorende effectieve‑data‑methoden voor formatobjecten zoals [Background.getEffective](https://reference.aspose.com/slides/nl/php-java/aspose.slides/background/) en [FillFormat.getEffective](https://reference.aspose.com/slides/nl/php-java/aspose.slides/fillformat/). Deze API’s geven de geresolueerde waarden na erf‑ en override‑toepassingen.

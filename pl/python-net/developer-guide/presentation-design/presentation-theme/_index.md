@@ -1,23 +1,23 @@
 ---
-title: Zarządzanie motywami prezentacji PowerPoint w Python
+title: Zarządzanie motywami prezentacji PowerPoint w Pythonie
 linktitle: Motyw prezentacji
 type: docs
 weight: 10
 url: /pl/python-net/presentation-theme/
 keywords:
-- Motyw PowerPoint
-- Motyw prezentacji
-- Motyw slajdu
-- Ustaw motyw
-- Zmień motyw
-- Zarządzaj motywem
-- Zewnętrzny motyw
+- motyw PowerPoint
+- motyw prezentacji
+- motyw slajdu
+- ustaw motyw
+- zmień motyw
+- zarządzaj motywem
+- zewnętrzny motyw
 - THMX
-- Kolor motywu
-- Dodatkowa paleta
-- Czcionka motywu
-- Styl motywu
-- Efekt motywu
+- kolor motywu
+- dodatkowa paleta
+- czcionka motywu
+- styl motywu
+- efekt motywu
 - PowerPoint
 - OpenDocument
 - prezentacja
@@ -27,19 +27,19 @@ description: "Główne motywy prezentacji w Aspose.Slides dla Pythona poprzez .N
 ---
 ## **Wprowadzenie**
 
-Motyw prezentacji definiuje skoordynowany zestaw kolorów, czcionek, stylów tła, wypełnień, linii i efektów. Obiekty świadome motywu odwołują się do tych współdzielonych definicji zamiast przechowywać każdą właściwość wizualną jako stałą wartość, dzięki czemu zmiana motywu może jednocześnie zaktualizować wiele obiektów.
+Motyw prezentacji definiuje skoordynowany zestaw kolorów, czcionek, stylów tła, wypełnień, linii i efektów. Obiekty świadome motywu odwołują się do tych wspólnych definicji zamiast przechowywać każdą właściwość wizualną jako stałą wartość, dzięki czemu zmiana motywu może zaktualizować wiele obiektów jednocześnie.
 
-W Aspose.Slides motyw na poziomie prezentacji jest dostępny poprzez właściwość [Presentation.master_theme](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/master_theme/). Prezentacja może także zawierać nadpisania motywu na niższych poziomach. Master może nadpisać motyw prezentacji za pomocą [MasterThemeManager.override_theme](https://reference.aspose.com/slides/pl/python-net/aspose.slides.theme/masterthememanager/override_theme/), layout może nadpisać dziedziczony motyw poprzez [BaseOverrideThemeManager.override_theme](https://reference.aspose.com/slides/pl/python-net/aspose.slides.theme/baseoverridethememanager/override_theme/), a pojedynczy slajd może zrobić to samo. W praktyce skuteczny motyw slajdu jest ustalany w łańcuchu dziedziczenia: motyw prezentacji, nadpisanie mastera, nadpisanie layoutu i nadpisanie slajdu.
+W Aspose.Slides motyw na poziomie prezentacji jest dostępny poprzez właściwość [Presentation.master_theme](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/master_theme/). Prezentacja może także zawierać nadpisania motywu na niższych poziomach. Master może nadpisać motyw prezentacji za pomocą [MasterThemeManager.override_theme](https://reference.aspose.com/slides/pl/python-net/aspose.slides.theme/masterthememanager/override_theme/), układ może nadpisać odziedziczony motyw za pomocą [BaseOverrideThemeManager.override_theme](https://reference.aspose.com/slides/pl/python-net/aspose.slides.theme/baseoverridethememanager/override_theme/), a pojedynczy slajd może zrobić to samo. W praktyce skuteczny motyw slajdu jest rozwiązywany w następującym łańcuchu dziedziczenia: motyw prezentacji, nadpisanie mastera, nadpisanie układu i nadpisanie slajdu.
 
 ![Komponenty motywu: kolory, czcionki, style tła i efekty](theme-constituents.png)
 
-Poniższe sekcje przedstawiają najczęstsze scenariusze pracy z motywem: przeglądanie motywu, zmiana kolorów i czcionek, kopiowanie lub zastosowanie motywu, aktualizacja stylów tła i efektów oraz odczyt skutecznych wartości po rozwiązaniu dziedziczenia i nadpisań.
+Poniższe sekcje przedstawiają najczęstsze scenariusze związane z motywem: inspekcję motywu, zmianę kolorów i czcionek, kopiowanie lub zastosowanie motywu, aktualizację stylów tła i efektów oraz odczyt skutecznych wartości po rozpatrzeniu dziedziczenia i nadpisań.
 
 ## **Inspekcja motywu**
 
-Obiekt [MasterTheme](https://reference.aspose.com/slides/pl/python-net/aspose.slides.theme/mastertheme/) udostępnia właściwości [color_scheme](https://reference.aspose.com/slides/pl/python-net/aspose.slides.theme/mastertheme/color_scheme/), [font_scheme](https://reference.aspose.com/slides/pl/python-net/aspose.slides.theme/mastertheme/font_scheme/) i [format_scheme](https://reference.aspose.com/slides/pl/python-net/aspose.slides.theme/mastertheme/format_scheme/). Przeglądanie tych kolekcji przed ich zmianą jest szczególnie przydatne, gdy prezentacja pochodzi ze źródła zewnętrznego, ponieważ liczba i zawartość wpisów stylów może się różnić.
+Obiekt [MasterTheme](https://reference.aspose.com/slides/pl/python-net/aspose.slides.theme/mastertheme/) udostępnia własności [color_scheme](https://reference.aspose.com/slides/pl/python-net/aspose.slides.theme/mastertheme/color_scheme/), [font_scheme](https://reference.aspose.com/slides/pl/python-net/aspose.slides.theme/mastertheme/font_scheme/) i [format_scheme](https://reference.aspose.com/slides/pl/python-net/aspose.slides.theme/mastertheme/format_scheme/). Inspekcja tych kolekcji przed ich modyfikacją jest szczególnie przydatna, gdy prezentacja pochodzi ze źródła zewnętrznego, ponieważ liczba i zawartość wpisów stylów mogą się różnić.
 
-Poniższy przykład odczytuje główne właściwości motywu i raportuje, ile stylów tła, wypełnienia, linii i efektów jest przechowywanych w motywie:
+Poniższy przykład odczytuje główne własności motywu i raportuje, ile stylów tła, wypełnień, linii i efektów jest przechowywanych w motywie:
 
 ```python
 import aspose.slides as slides
@@ -56,13 +56,13 @@ with slides.Presentation("input.pptx") as presentation:
     print(f"Effect styles: {len(theme.format_scheme.effect_styles)}")
 ```
 
-Jeśli plik używa wielu masterów, nie zakładaj, że każdy slajd ma ten sam skuteczny motyw. Przeanalizuj master powiązany ze slajdem i użyj opisanej później procedury pracy ze skutecznym motywem, gdy mogą występować nadpisania layoutu lub slajdu.
+Jeśli plik używa wielu masterów, nie zakładaj, że każdy slajd ma taki sam skuteczny motyw. Zbadaj master powiązany ze slajdem i użyj przepływu pracy „skuteczny motyw” przedstawionego dalej w tym artykule, gdy mogą występować nadpisania układu lub slajdu.
 
 ## **Zmiana kolorów motywu**
 
-Wypełnienia, linie i tekst świadome motywu mogą odwoływać się do logicznego koloru z wyliczenia [SchemeColor](https://reference.aspose.com/slides/pl/python-net/aspose.slides/schemecolor/). Kiedy zmienisz odpowiedni wpis w [ColorScheme](https://reference.aspose.com/slides/pl/python-net/aspose.slides.theme/colorscheme/) motywu, wszystkie obiekty, które nadal odwołują się do tego koloru motywu, zostaną rozwiązywane względem nowej wartości. Obiekty używające bezpośredniego koloru RGB nie zostaną zmienione przez aktualizację koloru motywu.
+Wypełnienia, linie i tekst świadome motywu mogą odwoływać się do logicznego koloru z wyliczenia [SchemeColor](https://reference.aspose.com/slides/pl/python-net/aspose.slides/schemecolor/). Gdy zmienisz odpowiedni wpis w [ColorScheme](https://reference.aspose.com/slides/pl/python-net/aspose.slides.theme/colorscheme/) motywu, wszystkie obiekty nadal odwołujące się do tego koloru motywu zostaną rozwiążone względem nowej wartości. Obiekty używające bezpośredniego koloru RGB nie zostaną zmienione przez aktualizację koloru motywu.
 
-Poniższy przykład end‑to‑end tworzy kształt używający `ACCENT4`, zmienia kolor motywu `accent4` na czerwony, zapisuje prezentację, otwiera ją ponownie i wypisuje skuteczny kolor wypełnienia:
+Poniższy przykład end‑to‑end tworzy kształt używający `ACCENT4`, zmienia kolor `accent4` motywu na czerwony, zapisuje prezentację, otwiera ją ponownie i wypisuje skuteczny kolor wypełnienia:
 
 ```python
 import aspose.pydrawing as draw
@@ -85,14 +85,15 @@ with slides.Presentation("theme-color.pptx") as saved_presentation:
 
 Ponieważ prostokąt pozostaje powiązany z `ACCENT4`, jego widoczny kolor staje się czerwony po zmianie motywu. Jeśli zamienisz kolor schematu na bezpośredni kolor w kształcie, późniejsze zmiany `accent4` nie będą już wpływać na to wypełnienie.
 
-### **Używanie kolorów z dodatkowej palety**
+### **Użycie kolorów z dodatkowej palety**
 
 PowerPoint generuje jaśniejsze i ciemniejsze warianty z koloru motywu, stosując transformacje kolorów. Aspose.Slides udostępnia te transformacje poprzez wyliczenie [ColorTransformOperation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/colortransformoperation/).
 
 ![Główne kolory motywu oraz jaśniejsze i ciemniejsze kolory wygenerowane z dodatkowej palety](additional-palette-colors.png)
 
-**1** - Główne kolory motywu.  
-**2** - Jaśniejsze i ciemniejsze warianty wyprodukowane z głównych kolorów motywu.
+**1** – Główne kolory motywu.  
+
+**2** – Jaśniejsze i ciemniejsze warianty wyprodukowane z głównych kolorów motywu.
 
 Poniższy przykład tworzy sześć prostokątów opartych na `ACCENT4`, stosuje transformacje luminancji do pięciu z nich i zapisuje wynik:
 
@@ -130,31 +131,31 @@ with slides.Presentation() as presentation:
     presentation.save("theme-color-palette.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Warianty te pozostają oparte na kolorze motywu. Jeśli `accent4` zmieni się później, przekształcone kolory zostaną ponownie obliczone na podstawie nowej wartości `accent4`.
+Warianty te pozostają oparte na kolorze motywu. Jeśli później `accent4` ulegnie zmianie, przekształcone kolory zostaną przeliczone z nowej wartości `accent4`.
 
-### **Mapowanie wartości `SchemeColor` na pozycje `ColorScheme`**
+### **Mapowanie wartości `SchemeColor` na sloty `ColorScheme`**
 
-Wyliczenie [SchemeColor](https://reference.aspose.com/slides/pl/python-net/aspose.slides/schemecolor/) używa `TEXT1`, `BACKGROUND1`, `TEXT2` i `BACKGROUND2`, podczas gdy [ColorScheme](https://reference.aspose.com/slides/pl/python-net/aspose.slides.theme/colorscheme/) udostępnia te same pozycje motywu jako `dark1`, `light1`, `dark2` i `light2`. Mapowanie jest stałe:
+Wyliczenie [SchemeColor](https://reference.aspose.com/slides/pl/python-net/aspose.slides/schemecolor/) używa `TEXT1`, `BACKGROUND1`, `TEXT2` i `BACKGROUND2`, podczas gdy [ColorScheme](https://reference.aspose.com/slides/pl/python-net/aspose.slides.theme/colorscheme/) udostępnia te same sloty motywu jako `dark1`, `light1`, `dark2` i `light2`. Mapowanie jest stałe:
 
 * `TEXT1` = `dark1`
 * `BACKGROUND1` = `light1`
 * `TEXT2` = `dark2`
 * `BACKGROUND2` = `light2`
 
-Są to alternatywne nazwy tych samych pozycji motywu; nie są to wartości dynamicznie konwertowane z jednej formy na drugą.
+Są to alternatywne nazwy tych samych slotów motywu; nie są to wartości dynamicznie konwertowane z jednej formy na inną.
 
 ## **Zmiana czcionek motywu**
 
-Schemat czcionek motywu zawiera zestaw głównych czcionek dla nagłówków oraz zestaw pomocniczych czcionek dla tekstu głównego. Właściwości [FontScheme.major](https://reference.aspose.com/slides/pl/python-net/aspose.slides.theme/fontscheme/major/) i [FontScheme.minor](https://reference.aspose.com/slides/pl/python-net/aspose.slides.theme/fontscheme/minor/) udostępniają te zestawy.
+Schemat czcionek motywu zawiera zestaw głównych czcionek dla nagłówków oraz zestaw pomocniczych czcionek dla tekstu podstawowego. Własności [FontScheme.major](https://reference.aspose.com/slides/pl/python-net/aspose.slides.theme/fontscheme/major/) i [FontScheme.minor](https://reference.aspose.com/slides/pl/python-net/aspose.slides.theme/fontscheme/minor/) udostępniają te zestawy.
 
-Identyfikatory czcionek kompatybilne z PowerPoint mogą być używane w formatowaniu tekstu:
+Identyfikatory czcionek tematycznych zgodne z PowerPoint mogą być używane w formatowaniu tekstu:
 
-* `+mn-lt` – Czcionka ciała tekstu łacińska (Minor Latin Font)
+* `+mn-lt` – Czcionka podstawowa łacińska (Minor Latin Font)
 * `+mj-lt` – Czcionka nagłówka łacińska (Major Latin Font)
-* `+mn-ea` – Czcionka ciała tekstu wschodnio‑azjatycka (Minor East Asian Font)
+* `+mn-ea` – Czcionka podstawowa wschodnio‑azjatycka (Minor East Asian Font)
 * `+mj-ea` – Czcionka nagłówka wschodnio‑azjatycka (Major East Asian Font)
 
-Poniższy przykład tworzy jeden nagłówek używający głównej łacińskiej czcionki motywu oraz jedną linię tekstu ciała używającą pomocniczej łacińskiej czcionki motywu. Następnie zmienia czcionki motywu i zapisuje wynik:
+Poniższy przykład tworzy jeden nagłówek używający głównej łacińskiej czcionki motywu oraz jedną linię tekstu podstawowego używającą pomocniczej łacińskiej czcionki motywu. Następnie zmienia czcionki motywu i zapisuje wynik:
 
 ```python
 import aspose.slides as slides
@@ -172,9 +173,9 @@ with slides.Presentation() as presentation:
     presentation.save("theme-fonts.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Nagłówek podąża za czcionką główną, a tekst ciała za czcionką pomocniczą. Tekst, który ma wyraźnie określoną nazwę czcionki zamiast identyfikatora motywu, nie przełączy się automatycznie po zmianie schematu czcionek motywu.
+Nagłówek podąża za czcionką główną, a tekst podstawowy za czcionką pomocniczą. Tekst, który ma explicite określoną nazwę czcionki zamiast identyfikatora tematycznego, nie zmieni się automatycznie po zmianie schematu czcionek motywu.
 
-Zestawy czcionek głównych i pomocniczych mogą także zawierać mapowania czcionek dla poszczególnych systemów pisma, takich jak cyrylica, arabski, japoński, gruziński i thaana. Aby przeglądać, dodawać, zastępować lub usuwać te mapowania, zobacz [Script‑Specific Theme Fonts](/slides/pl/python-net/script-specific-font-mappings/).
+Zbiory czcionek głównej i pomocniczej mogą także zawierać mapowania czcionek dla poszczególnych systemów pisma, takich jak cyrylica, arabski, japoński, gruziński i thaana. Aby przeglądać, dodawać, wymieniać lub usuwać te mapowania, zobacz [Script‑Specific Theme Fonts](/slides/pl/python-net/script-specific-font-mappings/).
 
 {{% alert color="info" title="Wskazówka" %}}
 Więcej informacji o czcionkach w prezentacjach znajdziesz w [PowerPoint Fonts](/slides/pl/python-net/powerpoint-fonts/).
@@ -182,18 +183,18 @@ Więcej informacji o czcionkach w prezentacjach znajdziesz w [PowerPoint Fonts](
 
 ## **Kopiowanie lub zastosowanie motywu**
 
-Poniższe przepływy rozwiązują różne problemy związane z motywem.
+Poniższe przepływy pracy rozwiązują różne problemy związane z motywem.
 
 ### **Zastosowanie zewnętrznego motywu do slajdów zależnych od mastera**
 
-Użyj [IMasterSlide.apply_external_theme_to_depending_slides](https://reference.aspose.com/slides/pl/python-net/aspose.slides/imasterslide/apply_external_theme_to_depending_slides/) gdy posiadasz plik motywu PowerPoint (`.thmx`) i chcesz ponownie ostylizować każdy slajd zależny od konkretnego mastera. Wybierz master z kolekcji [Presentation.masters](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/masters/), która implementuje [MasterSlideCollection](https://reference.aspose.com/slides/pl/python-net/aspose.slides/masterslidecollection/), i przekaż ścieżkę do pliku motywu metodzie.
+Użyj [IMasterSlide.apply_external_theme_to_depending_slides](https://reference.aspose.com/slides/pl/python-net/aspose.slides/imasterslide/apply_external_theme_to_depending_slides/) gdy masz plik motywu PowerPoint (`.thmx`) i chcesz przystylizować każdy slajd zależny od konkretnego mastera. Wybierz master z kolekcji [Presentation.masters](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/masters/), która implementuje [MasterSlideCollection](https://reference.aspose.com/slides/pl/python-net/aspose.slides/masterslidecollection/), i przekaż ścieżkę do pliku motywu metodzie.
 
 Metoda wykonuje następujące operacje:
 
 1. Tworzy nowy slajd master na podstawie wybranego mastera.  
 1. Zastosowuje zewnętrzny motyw do nowego mastera.  
-1. Przypisuje nowego mastera wszystkim slajdom, które wcześniej zależały od wybranego mastera.  
-1. Zwraca nowo utworzony [IMasterSlide](https://reference.aspose.com/slides/pl/python-net/aspose.slides/imasterslide/).
+1. Przypisuje nowy master do wszystkich slajdów, które wcześniej zależały od wybranego mastera.  
+1. Zwraca nowo utworzony obiekt [IMasterSlide](https://reference.aspose.com/slides/pl/python-net/aspose.slides/imasterslide/).
 
 Poniższy przykład stosuje zewnętrzny motyw do slajdów zależnych od pierwszego mastera i zapisuje prezentację:
 
@@ -208,19 +209,19 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-with-external-theme.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Nieprawidłowy, uszkodzony lub nieobsługiwany motyw może spowodować [PptxException](https://reference.aspose.com/slides/pl/python-net/aspose.slides/pptxexception/) lub jedną z jego podklas związanych z formatem. Waliduj ścieżki podawane przez użytkowników, obsługuj błędy dostępu do systemu plików i zapisuj prezentację dopiero po pomyślnym zastosowaniu motywu.
+Nieprawidłowy, uszkodzony lub nieobsługiwany motyw może spowodować wyjątek [PptxException](https://reference.aspose.com/slides/pl/python-net/aspose.slides/pptxexception/) lub jeden z jego podklas związanych z formatem. Waliduj ścieżki podawane przez użytkowników, obsługuj błędy dostępu do systemu plików i zapisuj prezentację dopiero po pomyślnym zastosowaniu motywu.
 
-Tylko slajdy zależne od wybranego mastera są ponownie przypisywane. Slajdy powiązane z innymi masterami zachowują swoje istniejące mastery i motywy. Kolory, czcionki, wypełnienia, linie, tła i efekty świadome motywu są rozwiązywane względem zewnętrznego motywu. Bezpośrednio przypisane kolory, czcionki, wypełnienia i inne explicite formatowanie mogą pozostać niezmienione. Nadpisania na poziomie layoutu i slajdu mogą również mieć pierwszeństwo przed wartościami dziedziczonymi z nowego mastera.
+Tylko slajdy zależne od wybranego mastera zostaną ponownie przypisane. Slajdy powiązane z innymi masterami zachowają istniejące mastery i motywy. Kolory, czcionki, wypełnienia, linie, tła i efekty świadome motywu zostaną rozwiążone względem zewnętrznego motywu. Bezpośrednio przypisane kolory, czcionki, wypełnienia i inne formatowanie mogą pozostać niezmienione. Nadpisania na poziomie układu i slajdu mogą również przeważać nad wartościami odziedziczonymi z nowego mastera.
 
 Motyw może odwoływać się do czcionek, które nie są dostępne w środowisku uruchomieniowym. Dla spójnego renderowania i eksportu zainstaluj wymagane czcionki, udostępnij je przez [custom font sources](/slides/pl/python-net/custom-font/), lub skonfiguruj [font substitution](/slides/pl/python-net/font-substitution/).
 
-Jest to bezpośredni przepływ na poziomie mastera: metoda przyjmuje ścieżkę do pliku `.thmx` i nie wymaga ręcznego tworzenia nadpisań motywu na poziomie slajdu czy layoutu.
+To jest bezpośredni przepływ pracy na poziomie mastera: metoda przyjmuje ścieżkę do pliku `.thmx` i nie wymaga ręcznego tworzenia nadpisań motywu na poziomie slajdu czy układu.
 
-### **Zastosowanie różnych zewnętrznych motywów w prezentacji z wieloma masterami**
+### **Zastosowanie różnych zewnętrznych motywów w prezentacji wielomasterowej**
 
-Gdy odpowiedni master nie jest znany z góry, uzyskaj go z reprezentatywnego slajdu poprzez [Slide.layout_slide](https://reference.aspose.com/slides/pl/python-net/aspose.slides/slide/layout_slide/) i [LayoutSlide.master_slide](https://reference.aspose.com/slides/pl/python-net/aspose.slides/layoutslide/master_slide/). Przechowaj odniesienia do oryginalnych masterów przed zastosowaniem jakichkolwiek motywów, ponieważ każde wywołanie tworzy kolejny master w prezentacji.
+Gdy odpowiedni master nie jest znany z góry, pobierz go z reprezentatywnego slajdu przy użyciu [Slide.layout_slide](https://reference.aspose.com/slides/pl/python-net/aspose.slides/slide/layout_slide/) oraz [LayoutSlide.master_slide](https://reference.aspose.com/slides/pl/python-net/aspose.slides/layoutslide/master_slide/). Przechowaj odniesienia do oryginalnych masterów przed zastosowaniem jakichkolwiek motywów, ponieważ każde wywołanie tworzy kolejny master w prezentacji.
 
-Poniższy przykład używa slajdów z dwóch sekcji, aby odnaleźć ich mastery i stosuje inny zewnętrzny motyw do każdej grupy:
+Poniższy przykład używa slajdów z dwóch sekcji, aby zlokalizować ich mastery i stosuje inny zewnętrzny motyw do każdej grupy:
 
 ```python
 import aspose.slides as slides
@@ -243,11 +244,11 @@ with slides.Presentation("multi-master-presentation.pptx") as presentation:
             presentation.save("multi-master-with-external-themes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Pierwsze wywołanie wpływa tylko na slajdy zależne od `first_group_master`, a drugie wywołanie wpływa tylko na slajdy zależne od `second_group_master`. Slajdy należące do jakiegokolwiek innego mastera nie są przestylizowane.
+Pierwsze wywołanie wpływa wyłącznie na slajdy zależne od `first_group_master`, a drugie wywołanie tylko na slajdy zależne od `second_group_master`. Slajdy należące do innych masterów nie zostaną przystylizowane.
 
 ### **Zachowanie źródłowego motywu przy przenoszeniu slajdów**
 
-Jeśli chcesz przenieść slajd do innej prezentacji i zachować jego oryginalny projekt, sklonuj źródłowy master do prezentacji docelowej przy pomocy [MasterSlideCollection.add_clone](https://reference.aspose.com/slides/pl/python-net/aspose.slides/masterslidecollection/add_clone/), a następnie sklonuj slajd przy użyciu [SlideCollection.add_clone](https://reference.aspose.com/slides/pl/python-net/aspose.slides/slidecollection/add_clone/) i sklonowanego mastera. To przenosi master, jego layouty oraz powiązany motyw razem.
+Jeśli chcesz przenieść slajd do innej prezentacji i zachować jego pierwotny projekt, sklonuj źródłowy master do docelowej prezentacji przy użyciu [MasterSlideCollection.add_clone](https://reference.aspose.com/slides/pl/python-net/aspose.slides/masterslidecollection/add_clone/), a następnie sklonuj slajd przy użyciu [SlideCollection.add_clone](https://reference.aspose.com/slides/pl/python-net/aspose.slides/slidecollection/add_clone/) i sklonowanego mastera. To przenosi master, jego układy i powiązany motyw razem.
 
 ```python
 import aspose.slides as slides
@@ -261,11 +262,11 @@ with slides.Presentation("source-theme.pptx") as source:
         target.save("theme-preserved.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Jest to preferowany przepływ, gdy źródłowy slajd musi wyglądać tak samo w miejscu docelowym. Proste klonowanie zawartości na niezwiązany master docelowy może zmienić kolory, czcionki, tła i efekty napędzane przez motyw.
+Jest to preferowany przepływ pracy, gdy źródłowy slajd musi wyglądać identycznie w miejscu docelowym. Samo klonowanie treści na niepowiązany master docelowy może zmienić kolory, czcionki, tła i efekty sterowane przez motyw.
 
 ### **Zastosowanie wartości motywu do istniejącego slajdu**
 
-Jeśli docelowy slajd musi pozostać na bieżącym masterze i layoutcie, zainicjuj nadpisanie na poziomie slajdu z źródłowego motywu. Metody [OverrideTheme.init_color_scheme_from](https://reference.aspose.com/slides/pl/python-net/aspose.slides.theme/overridetheme/init_color_scheme_from/), [OverrideTheme.init_font_scheme_from](https://reference.aspose.com/slides/pl/python-net/aspose.slides.theme/overridetheme/init_font_scheme_from/) i [OverrideTheme.init_format_scheme_from](https://reference.aspose.com/slides/pl/python-net/aspose.slides.theme/overridetheme/init_format_scheme_from/) kopiują trzy główne komponenty motywu do nadpisania.
+Jeśli docelowy slajd musi pozostać na bieżącym masterze i układzie, zainicjuj nadpisanie na poziomie slajdu na podstawie źródłowego motywu. Metody [OverrideTheme.init_color_scheme_from](https://reference.aspose.com/slides/pl/python-net/aspose.slides.theme/overridetheme/init_color_scheme_from/), [OverrideTheme.init_font_scheme_from](https://reference.aspose.com/slides/pl/python-net/aspose.slides.theme/overridetheme/init_font_scheme_from/) i [OverrideTheme.init_format_scheme_from](https://reference.aspose.com/slides/pl/python-net/aspose.slides.theme/overridetheme/init_format_scheme_from/) kopiują trzy główne komponenty motywu do nadpisania.
 
 ```python
 import aspose.slides as slides
@@ -280,11 +281,11 @@ with slides.Presentation("source-theme.pptx") as source:
         target.save("theme-applied-to-slide.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Zmienia to motyw używany przez ten slajd bez zmiany motywu dziedziczonego przez inne slajdy. Aby usunąć lokalne nadpisanie i powrócić do wartości dziedziczonych, wywołaj [OverrideTheme.clear](https://reference.aspose.com/slides/pl/python-net/aspose.slides.theme/overridetheme/clear/).
+To zmienia motyw używany przez ten slajd bez zmiany motywu dziedziczonego przez inne slajdy. Aby usunąć lokalne nadpisanie i powrócić do wartości dziedziczonych, wywołaj [OverrideTheme.clear](https://reference.aspose.com/slides/pl/python-net/aspose.slides.theme/overridetheme/clear/).
 
-### **Zastosowanie nadpisania motywu do layoutu**
+### **Zastosowanie nadpisania motywu do układu**
 
-Nadpisanie na poziomie layoutu ma zastosowanie do slajdów używających tego layoutu, chyba że konkretny slajd ma własne nadpisanie. Te same metody inicjalizacji mogą być użyte poprzez [LayoutSlideThemeManager](https://reference.aspose.com/slides/pl/python-net/aspose.slides.theme/layoutslidethememanager/) layoutu:
+Nadpisanie na poziomie układu dotyczy slajdów korzystających z tego układu, chyba że konkretny slajd ma własne nadpisanie. Te same metody inicjalizacji mogą być użyte poprzez [LayoutSlideThemeManager](https://reference.aspose.com/slides/pl/python-net/aspose.slides.theme/layoutslidethememanager/) układu:
 
 ```python
 import aspose.slides as slides
@@ -299,17 +300,17 @@ with slides.Presentation("source-theme.pptx") as source:
         target.save("theme-applied-to-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Użyj motywu na poziomie mastera lub prezentacji, gdy wiele layoutów i slajdów ma współdzielić tę samą bazową konstrukcję, nadpisania layoutu, gdy jedna rodzina layoutów potrzebuje odmiennego stylu, oraz nadpisania slajdu wyłącznie dla prawdziwych wyjątków. Nadmierna liczba nadpisań na poziomie slajdu utrudnia późniejsze globalne zmiany motywu.
+Używaj motywu na poziomie mastera lub prezentacji, gdy wiele układów i slajdów ma współdzielić ten sam podstawowy projekt, nadpisania układu, gdy rodzina układów wymaga innego stylu, oraz nadpisania slajdu tylko w prawdziwych wyjątkach. Nadmierna liczba nadpisań na poziomie slajdu utrudnia późniejsze globalne zmiany motywu.
 
 ## **Aktualizacja stylów tła motywu**
 
-Wypełnienia tła motywu są przechowywane w [FormatScheme.background_fill_styles](https://reference.aspose.com/slides/pl/python-net/aspose.slides.theme/formatscheme/background_fill_styles/). PowerPoint może prezentować w UI więcej opcji tła niż liczba definicji wypełnień fizycznie zapisanych w tej kolekcji, ponieważ UI może łączyć wypełnienia motywu z kolorami motywu i innymi odniesieniami stylów.
+Wypełnienia tła motywu są przechowywane w [FormatScheme.background_fill_styles](https://reference.aspose.com/slides/pl/python-net/aspose.slides.theme/formatscheme/background_fill_styles/). PowerPoint może prezentować więcej opcji tła w interfejsie niż liczba definicji wypełnień fizycznie przechowywanych w tej kolekcji, ponieważ UI może łączyć wypełnienia motywu z kolorami motywu i innymi odniesieniami stylów.
 
 ![Galeria stylów tła PowerPoint dla motywu prezentacji](presentation-design_8.png)
 
-Przed użyciem stylu tła przeanalizuj przechowywaną kolekcję oraz bieżącą wartość [Background.style_index](https://reference.aspose.com/slides/pl/python-net/aspose.slides/background/style_index/). `style_index` używa `0` dla braku tematycznego wypełnienia; dodatnie wartości są odwołaniami do stylów tła motywu. To różni się od indeksowania kolekcji w Pythonie, gdzie `[0]` oznacza pierwszy zapisany element. Nie zakładaj, że każda prezentacja zawiera taką samą liczbę stylów wypełnień tła.
+Przed użyciem stylu tła sprawdź przechowywaną kolekcję i bieżącą własność [Background.style_index](https://reference.aspose.com/slides/pl/python-net/aspose.slides/background/style_index/). `style_index` używa `0` dla braku tematycznego wypełnienia; dodatnie wartości są odwołaniami do stylów tła motywu. To różni się od indeksowania kolekcji Pythona, gdzie `[0]` oznacza pierwszy przechowywany element. Nie zakładaj, że każda prezentacja zawiera taką samą liczbę stylów wypełnień tła.
 
-Poniższy przykład raportuje dostępny licznik wypełnień tła, przypisuje odwołanie do tematycznego tła pierwszemu masterowi i zapisuje prezentację:
+Poniższy przykład raportuje liczbę dostępnych wypełnień tła, przypisuje odwołanie do tematycznego tła pierwszemu masterowi i zapisuje prezentację:
 
 ```python
 import aspose.slides as slides
@@ -325,25 +326,25 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("theme-background.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Widoczny wynik zależy od wpisu motywu, na który wskazuje master, oraz od ewentualnych nadpisań tła na poziomie layoutu lub slajdu. Jeśli slajd używa własnego tła, zmiana jedynie tła mastera może nie wpłynąć na ten slajd. Użyj [Background.get_effective](https://reference.aspose.com/slides/pl/python-net/aspose.slides/background/get_effective/) gdy potrzebujesz znać ostateczne tło po zastosowaniu dziedziczenia.
+Widoczny rezultat zależy od wpisu motywu, do którego odwołuje się master, oraz od ewentualnych nadpisań tła na poziomie układu lub slajdu. Jeśli slajd używa własnego tła, zmiana wyłącznie tła mastera może nie wpłynąć na ten slajd. Użyj [Background.get_effective](https://reference.aspose.com/slides/pl/python-net/aspose.slides/background/get_effective/) gdy potrzebujesz znać ostateczne tło po zastosowaniu dziedziczenia.
 
 {{% alert color="warning" title="Ostrzeżenie" %}}
-Nie traktuj `style_index` jako indeks kolekcji zerowy. Unikaj także twardego kodowania numeru stylu z jednego pliku i zakładania, że będzie on wyglądał tak samo w innym pliku; definicje stylów motywu są specyficzne dla prezentacji.
+Nie traktuj `style_index` jako indeksu zero‑bazowego kolekcji. Unikaj także twardego kodowania numeru stylu z jednego pliku i zakładania, że będzie miał taki sam wygląd w innym pliku; definicje stylów motywu są specyficzne dla prezentacji.
 {{% /alert %}}
 
 {{% alert color="info" title="Wskazówka" %}}
-Informacje o bezpośrednim formatowaniu tła i dziedziczeniu tła znajdziesz w [Presentation Background](/slides/pl/python-net/presentation-background/).
+Więcej informacji o bezpośrednim formatowaniu tła i dziedziczeniu tła znajdziesz w [Presentation Background](/slides/pl/python-net/presentation-background/).
 {{% /alert %}}
 
 ## **Aktualizacja efektów motywu**
 
-Schemat formatu motywu zawiera oddzielne kolekcje [FormatScheme.fill_styles](https://reference.aspose.com/slides/pl/python-net/aspose.slides.theme/formatscheme/fill_styles/), [FormatScheme.line_styles](https://reference.aspose.com/slides/pl/python-net/aspose.slides.theme/formatscheme/line_styles/), oraz [FormatScheme.effect_styles](https://reference.aspose.com/slides/pl/python-net/aspose.slides.theme/formatscheme/effect_styles/). Typowe motywy Office często zawierają trzy główne wpisy stylów, które wizualnie odpowiadają subtelnemu, umiarkowanemu i intensywnemu formatowaniu, ale kod powinien sprawdzać każdą kolekcję zamiast zakładać stałą liczbę elementów.
+Schemat formatu motywu zawiera osobne kolekcje [FormatScheme.fill_styles](https://reference.aspose.com/slides/pl/python-net/aspose.slides.theme/formatscheme/fill_styles/), [FormatScheme.line_styles](https://reference.aspose.com/slides/pl/python-net/aspose.slides.theme/formatscheme/line_styles/) i [FormatScheme.effect_styles](https://reference.aspose.com/slides/pl/python-net/aspose.slides.theme/formatscheme/effect_styles/). Typowe motywy Office często zawierają trzy główne wpisy stylów, które wizualnie odpowiadają subtelnemu, umiarkowanemu i intensywnemu formatowaniu, ale kod powinien sprawdzać każdą kolekcję zamiast zakładać stałą liczbę.
 
-![Subtelne, umiarkowane i intensywne efekty motywu zastosowane do tego samego kształtu](presentation-design_10.png)
+![Subtelne, umiarkowane i intensywne efekty tematyczne zastosowane do tego samego kształtu](presentation-design_10.png)
 
-Kiedy odwołujesz się do tych kolekcji w Pythonie, indeks kolekcji jest zerowy: `[0]` to pierwszy zapisany styl, a `[2]` to trzeci. Indeksy referencji stylu w kształcie to odrębny koncept, udostępniany przez [IShapeStyle](https://reference.aspose.com/slides/pl/python-net/aspose.slides/ishapestyle/). Modyfikacja stylu motywu wpływa na kształty, które odwołują się do tego stylu; kształty z bezpośrednim formatowaniem mogą pozostać niezmienione.
+Kiedy uzyskujesz dostęp do tych kolekcji w Pythonie, indeks kolekcji jest zero‑bazowy: `[0]` to pierwszy przechowywany styl, a `[2]` to trzeci. Indeksy referencji stylu kształtu to odrębna koncepcja, udostępniana przez [IShapeStyle](https://reference.aspose.com/slides/pl/python-net/aspose.slides/ishapestyle/). Modyfikacja stylu motywu wpływa na kształty, które odwołują się do tego stylu; kształty z bezpośrednim formatowaniem mogą pozostać niezmienione.
 
-Poniższy przykład sprawdza, czy wymagane wpisy stylów istnieją, zmienia pierwszy styl linii, trzeci styl wypełnienia, włącza zewnętrzny cień w trzecim stylu efektu i zapisuje wynik:
+Poniższy przykład sprawdza, czy wymagane wpisy stylów istnieją, zmienia pierwszy styl linii, zmienia trzeci styl wypełnienia, włącza zewnętrzny cień w trzecim stylu efektu i zapisuje wynik:
 
 ```python
 import aspose.pydrawing as draw
@@ -362,13 +363,64 @@ with slides.Presentation("Subtle_Moderate_Intense.pptx") as presentation:
     presentation.save("theme-effects.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Dla kształtów odwołujących się do tych slotów, pierwszy tematowy styl linii staje się czerwony, trzeci tematowy styl wypełnienia staje się jednolitym zielonym lasem, a trzeci styl efektu zyskuje zewnętrzny cień o odległości 10 punktów. Dokładny efekt wizualny wciąż zależy od tego, które sloty stylu odwołują poszczególne kształty i czy bezpośrednie formatowanie nadpisuje motyw.
+Dla kształtów odwołujących się do tych slotów, pierwszy styl linii motywu staje się czerwony, trzeci styl wypełnienia motywu staje się jednolitym zielonym lasem, a trzeci styl efektu zyskuje zewnętrzny cień z odległością 10 punktów. Dokładny wygląd nadal zależy od tego, które sloty stylu referuje każdy kształt i czy bezpośrednie formatowanie nadpisuje motyw.
 
 ![Style efektów motywu po zmianie linii, wypełnienia i ustawień cienia](presentation-design_11.png)
 
+## **Określenie, czy skuteczne wypełnienie jednolite używa koloru motywu**
+
+Wypełnienie może być przechowywane bezpośrednio na obiekcie lub dziedziczone z akapitu, układu, mastera, stylu motywu lub innego poziomu formatowania. Wywołaj [FillFormat.get_effective](https://reference.aspose.com/slides/pl/python-net/aspose.slides/fillformat/get_effective/), aby rozwiązać tę hierarchię w niezmienny [IFillFormatEffectiveData](https://reference.aspose.com/slides/pl/python-net/aspose.slides/ifillformateffectivedata/). Najpierw sprawdź [IFillFormatEffectiveData.fill_type](https://reference.aspose.com/slides/pl/python-net/aspose.slides/ifillformateffectivedata/fill_type/). Tylko gdy jest on `FillType.SOLID`, odczytaj właściwości wypełnienia jednolitego.
+
+Dla wypełnienia jednolitego, [IFillFormatEffectiveData.solid_fill_color](https://reference.aspose.com/slides/pl/python-net/aspose.slides/ifillformateffectivedata/solid_fill_color/) zwraca ostateczną wartość RGB po zastosowaniu dziedziczenia, wyszukiwania w motywie i transformacji kolorów. [IFillFormatEffectiveData.solid_fill_scheme_color](https://reference.aspose.com/slides/pl/python-net/aspose.slides/ifillformateffectivedata/solid_fill_scheme_color/) zwraca odpowiadający logiczny slot [SchemeColor](https://reference.aspose.com/slides/pl/python-net/aspose.slides/schemecolor/), taki jak `TEXT1` lub `ACCENT6`. Wartość `SchemeColor.NOT_DEFINED` oznacza, że skuteczne wypełnienie jednolite nie opiera się na kolorze schematu. W przepływie pracy, w którym wypełnienia są albo kolorami tematycznymi, albo bezpośrednimi kolorami RGB, ta wartość identyfikuje wypełnienie RGB.
+
+Nie używaj wyłącznie lokalnej wartości [IColorFormat.scheme_color](https://reference.aspose.com/slides/pl/python-net/aspose.slides/icolorformat/scheme_color/) do klasyfikacji wypełnienia. Na przykład fragment tekstu może nie mieć lokalnie zdefiniowanego koloru schematu, więc jego lokalna wartość to `NOT_DEFINED`, podczas gdy jego skuteczne wypełnienie dziedziczy kolor motywu i rozwiązuje się do `TEXT1` lub `ACCENT6`. Natomiast `solid_fill_scheme_color` mówi, który logiczny slot motywu wygenerował skuteczny kolor, ale nie mówi, z którego poziomu (obiekt, akapit, układ, master czy inny) pochodzi.
+
+Poniższy przykład ładuje prezentację, audytuje zarówno wypełnienia kształtów, jak i wypełnienia fragmentów tekstu, wypisuje każdą końcową wartość RGB i powiązany kolor schematu oraz oznacza wypełnienia jednolite, które nie będą śledzić zmian kolorów motywu:
+
+```python
+import aspose.slides as slides
+
+
+def audit_fill(object_name, local_fill):
+    effective_fill = local_fill.get_effective()
+
+    if effective_fill.fill_type != slides.FillType.SOLID:
+        print(f"{object_name}: fill type = {effective_fill.fill_type}; not a solid fill.")
+        return
+
+    rgb = effective_fill.solid_fill_color
+    effective_scheme_color = effective_fill.solid_fill_scheme_color
+    local_scheme_color = local_fill.solid_fill_color.scheme_color
+
+    print(f"{object_name}: RGB = #{rgb.r:02X}{rgb.g:02X}{rgb.b:02X}")
+    print(f"{object_name}: local scheme = {local_scheme_color}, effective scheme = {effective_scheme_color}")
+
+    if effective_scheme_color == slides.SchemeColor.NOT_DEFINED:
+        print(f"{object_name}: direct RGB or another non-scheme fill; audit as theme-independent.")
+    else:
+        print(f"{object_name}: theme-dependent through {effective_scheme_color}.")
+
+
+with slides.Presentation("input.pptx") as presentation:
+    for slide_index, slide in enumerate(presentation.slides):
+        for shape_index, shape in enumerate(slide.shapes):
+            shape_name = f"Slide {slide_index + 1}, shape {shape_index + 1}"
+            audit_fill(shape_name, shape.fill_format)
+
+            if isinstance(shape, slides.AutoShape):
+                for paragraph_index, paragraph in enumerate(shape.text_frame.paragraphs):
+                    for portion_index, portion in enumerate(paragraph.portions):
+                        portion_name = f"{shape_name}, paragraph {paragraph_index + 1}, portion {portion_index + 1}"
+                        audit_fill(portion_name, portion.portion_format.fill_format)
+```
+
+Gałąź `NOT_DEFINED` dostarcza listę audytu wypełnień jednolitych, które nie będą reagować na zmiany w slotach kolorów motywu. Przejrzyj te obiekty, gdy prezentacja musi podążać za nową paletą firmową. Zgłoszona wartość RGB nadal pokazuje bieżący wygląd, a wartość schematu wyjaśnia, czy ten wygląd jest połączony z motywem.
+
+Obiekty skutecznego formatu są migawkami. Po zmianie motywu prezentacji, nadpisania motywu lub dowolnego formatowania dziedziczonego, wywołaj ponownie `get_effective` i odczytaj nowy obiekt `IFillFormatEffectiveData` przed porównaniem lub raportowaniem kolorów.
+
 ## **Odczyt skutecznych wartości motywu**
 
-Surowe obiekty motywu informują, co jest zdefiniowane na danym poziomie. Skuteczne wartości mówią, co slajd lub kształt faktycznie używa po rozwiązaniu dziedziczenia i lokalnych nadpisań. Dla slajdu wywołaj [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/pl/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/). Dla tła użyj [Background.get_effective](https://reference.aspose.com/slides/pl/python-net/aspose.slides/background/get_effective/), a dla wypełnienia [FillFormat.get_effective](https://reference.aspose.com/slides/pl/python-net/aspose.slides/fillformat/get_effective/).
+Surowe obiekty motywu informują, co jest zdefiniowane na danym poziomie. Skuteczne wartości informują, co slajd lub kształt faktycznie używa po rozpatrzeniu dziedziczenia i lokalnych nadpisań. Dla slajdu wywołaj [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/pl/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/). Dla tła użyj [Background.get_effective](https://reference.aspose.com/slides/pl/python-net/aspose.slides/background/get_effective/), a dla wypełnienia [FillFormat.get_effective](https://reference.aspose.com/slides/pl/python-net/aspose.slides/fillformat/get_effective/).
 
 Poniższy przykład odczytuje skuteczny motyw, tło i pierwsze wypełnienie kształtu ze slajdu:
 
@@ -389,22 +441,22 @@ with slides.Presentation("input.pptx") as presentation:
             print(f"First shape effective fill color: {effective_fill.solid_fill_color}")
 ```
 
-Używaj danych skutecznych do diagnostyki renderowania, walidacji i porównań. Jeśli analizujesz tylko [Presentation.master_theme](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/master_theme/), możesz przegapić nadpisania mastera, layoutu, slajdu lub kształtu, które zmieniają ostateczny wygląd.
+Używaj danych skutecznych do diagnostyki renderowania, walidacji i porównań. Jeśli sprawdzisz tylko [Presentation.master_theme](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/master_theme/), możesz pominąć master, układ, slajd lub nadpisanie kształtu, które zmieniają ostateczny wygląd.
 
 ## **FAQ**
 
 **Czy zastosowanie zewnętrznego motywu wpływa na każdy slajd w prezentacji?**
 
-Nie. [IMasterSlide.apply_external_theme_to_depending_slides](https://reference.aspose.com/slides/pl/python-net/aspose.slides/imasterslide/apply_external_theme_to_depending_slides/) przypisuje tylko slajdy zależne od wybranego mastera. Slajdy używające innych masterów zachowują swoje istniejące motywy.
+Nie. [IMasterSlide.apply_external_theme_to_depending_slides](https://reference.aspose.com/slides/pl/python-net/aspose.slides/imasterslide/apply_external_theme_to_depending_slides/) przypisuje tylko te slajdy, które zależą od wybranego mastera. Slajdy używające innych masterów zachowują istniejące motywy.
 
 **Czy mogę zastosować motyw do pojedynczego slajdu bez zmiany mastera?**
 
-Tak. Użyj [SlideThemeManager](https://reference.aspose.com/slides/pl/python-net/aspose.slides.theme/slidethememanager/) slajdu i zainicjuj jego nadpisanie motywu. Zmiana pozostaje lokalna dla tego slajdu; inne slajdy nadal dziedziczą swoje istniejące motywy.
+Tak. Użyj [SlideThemeManager](https://reference.aspose.com/slides/pl/python-net/aspose.slides.theme/slidethememanager/) slajdu i zainicjuj jego nadpisanie motywu. Zmiana pozostaje lokalna dla tego slajdu; inne slajdy nadal dziedziczą istniejące motywy.
 
 **Jaki jest najbezpieczniejszy sposób przeniesienia motywu z jednej prezentacji do drugiej?**
 
-Podczas przenoszenia slajdu i zachowania jego pierwotnego wyglądu, sklonuj źródłowy master do docelowej prezentacji oraz sklonuj slajd z tym masterem przy użyciu [MasterSlideCollection.add_clone](https://reference.aspose.com/slides/pl/python-net/aspose.slides/masterslidecollection/add_clone/) i [SlideCollection.add_clone](https://reference.aspose.com/slides/pl/python-net/aspose.slides/slidecollection/add_clone/). Dzięki temu master, layouty i motyw pozostają razem.
+Podczas przenoszenia slajdu i zachowania jego pierwotnego wyglądu, sklonuj źródłowy master do docelowej prezentacji i sklonuj slajd z tym masterem przy użyciu [MasterSlideCollection.add_clone](https://reference.aspose.com/slides/pl/python-net/aspose.slides/masterslidecollection/add_clone/) oraz [SlideCollection.add_clone](https://reference.aspose.com/slides/pl/python-net/aspose.slides/slidecollection/add_clone/). Dzięki temu master, układy i motyw pozostają razem.
 
 **Jak mogę zobaczyć skuteczne wartości po dziedziczeniu i nadpisaniach?**
 
-Użyj [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/pl/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/) dla motywu slajdu lub layoutu oraz odpowiednich metod danych skutecznych dla obiektów formatu, takich jak [Background.get_effective](https://reference.aspose.com/slides/pl/python-net/aspose.slides/background/get_effective/) i [FillFormat.get_effective](https://reference.aspose.com/slides/pl/python-net/aspose.slides/fillformat/get_effective/). Te API zwracają rozwiązywane wartości po zastosowaniu dziedziczenia i nadpisań.
+Użyj [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/pl/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/) dla motywu slajdu lub układu oraz odpowiadających metod danych skutecznych dla obiektów formatów, takich jak [Background.get_effective](https://reference.aspose.com/slides/pl/python-net/aspose.slides/background/get_effective/) i [FillFormat.get_effective](https://reference.aspose.com/slides/pl/python-net/aspose.slides/fillformat/get_effective/). Te API zwracają rozstrzygnięte wartości po zastosowaniu dziedziczenia i nadpisań.

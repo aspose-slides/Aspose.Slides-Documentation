@@ -1,6 +1,6 @@
 ---
-title: Διαχείριση θεμάτων παρουσίασης σε C++
-linktitle: Θέμα παρουσίασης
+title: Διαχείριση Θεμάτων Παρουσίασης σε C++
+linktitle: Θέμα Παρουσίασης
 type: docs
 weight: 10
 url: /el/cpp/presentation-theme/
@@ -14,32 +14,32 @@ keywords:
 - Εξωτερικό θέμα
 - THMX
 - Χρώμα θέματος
-- Πρόσθετη παλέτα
+- Επιπλέον παλέτα
 - Γραμματοσειρά θέματος
 - Στυλ θέματος
 - Εφέ θέματος
 - PowerPoint
 - OpenDocument
-- παρουσίαση
+- Παρουσίαση
 - C++
 - Aspose.Slides
-description: "Κύρια θέματα παρουσίασης στο Aspose.Slides για C++ για τη δημιουργία, προσαρμογή και μετατροπή αρχείων PowerPoint με συνεπή εταιρική ταυτότητα."
+description: "Κύρια θέματα παρουσίασης στο Aspose.Slides για C++ για δημιουργία, προσαρμογή και μετατροπή αρχείων PowerPoint με συνεπή επωνυμία."
 ---
 ## **Εισαγωγή**
 
-Ένα θέμα παρουσίασης ορίζει ένα συγχρονισμένο σύνολο χρωμάτων, γραμματοσειρών, στυλ φόντου, γεμίσματα, γραμμές και εφέ. Τα αντικείμενα που είναι ευαίσθητα στο θέμα αναφέρονται σε αυτές τις κοινές ορισμούς αντί να αποθηκεύουν κάθε οπτική ιδιότητα ως σταθερή τιμή, έτσι μια αλλαγή θέματος μπορεί να ενημερώσει πολλά αντικείμενα ταυτόχρονα.
+Ένα θέμα παρουσίασης ορίζει ένα συντονισμένο σύνολο χρωμάτων, γραμματοσειρών, στυλ φόντου, γεμίσματος, γραμμών και εφέ. Τα αντικείμενα που είναι ενήμερα για το θέμα αναφέρονται σε αυτούς τους κοινόχρηστους ορισμούς αντί να αποθηκεύουν κάθε οπτική ιδιότητα ως σταθερή τιμή, ώστε μια αλλαγή θέματος να μπορεί να ενημερώσει πολλά αντικείμενα ταυτόχρονα.
 
 Στο Aspose.Slides, το θέμα σε επίπεδο παρουσίασης είναι διαθέσιμο μέσω [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/get_mastertheme/). Μια παρουσίαση μπορεί επίσης να περιέχει παρακάμψεις θέματος σε χαμηλότερα επίπεδα. Ένας master μπορεί να παρακάμψει το θέμα παρουσίασης μέσω [MasterThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/masterthememanager/get_overridetheme/), ενώ μια διάταξη ή μια μεμονωμένη διαφάνεια μπορεί να χρησιμοποιήσει [IOverrideThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/ioverridethememanager/get_overridetheme/). Στην πράξη, το αποτελεσματικό θέμα για μια διαφάνεια επιλύεται μέσω αυτής της αλυσίδας κληρονομικότητας: θέμα παρουσίασης, παράκαμψη master, παράκαμψη διάταξης και παράκαμψη διαφάνειας.
 
-![Theme components: colors, fonts, background styles, and effects](theme-constituents.png)
+![Στοιχεία θέματος: χρώματα, γραμματοσειρές, στυλ φόντου και εφέ](theme-constituents.png)
 
-Οι παρακάτω ενότητες δείχνουν τις πιο συνηθισμένες ροές εργασίας με θέματα: έλεγχος θέματος, αλλαγή χρωμάτων και γραμματοσειρών, αντιγραφή ή εφαρμογή θέματος, ενημέρωση στυλ φόντου και εφέ, και ανάγνωση αποτελεσματικών τιμών μετά την κληρονομικότητα και τις παρακάμψεις.
+Οι παρακάτω ενότητες παρουσιάζουν τις πιο συνηθισμένες ροές εργασίας με θέματα: έλεγχος ενός θέματος, αλλαγή χρωμάτων και γραμματοσειρών, αντιγραφή ή εφαρμογή θέματος, ενημέρωση στυλ φόντου και εφέ, και ανάγνωση αποτελεσματικών τιμών μετά την κληρονομικότητα και τις παρακάμψεις.
 
-## **Έλεγχος θέματος**
+## **Έλεγχος Θέματος**
 
-Το αντικείμενο [MasterTheme](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/mastertheme/) εκθέτει τις μεθόδους [get_ColorScheme()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/mastertheme/get_colorscheme/), [get_FontScheme()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/mastertheme/get_fontscheme/) και [get_FormatScheme()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/mastertheme/get_formatscheme/). Η εξέταση αυτών των συλλογών πριν την τροποποίηση είναι ιδιαίτερα χρήσιμη όταν μια παρουσίαση προέρχεται από εξωτερική πηγή, επειδή ο αριθμός και το περιεχόμενο των καταχωρίσεων στυλ μπορεί να διαφέρουν.
+Το αντικείμενο [MasterTheme](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/mastertheme/) εκθέτει τις μεθόδους [get_ColorScheme()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/mastertheme/get_colorscheme/), [get_FontScheme()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/mastertheme/get_fontscheme/), και [get_FormatScheme()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/mastertheme/get_formatscheme/). Ο έλεγχος αυτών των συλλογών πριν την τροποποίηση είναι ιδιαίτερα χρήσιμος όταν μια παρουσίαση προέρχεται από εξωτερική πηγή, επειδή ο αριθμός και το περιεχόμενο των καταχωρίσεων στυλ μπορεί να διαφέρουν.
 
-Το παρακάτω παράδειγμα διαβάζει τις βασικές ιδιότητες του θέματος και αναφέρει πόσες στυλ φόντου, γεμίσματος, γραμμής και εφέ αποθηκεύονται στο θέμα:
+Το παρακάτω παράδειγμα διαβάζει τις κύριες ιδιότητες του θέματος και αναφέρει πόσες στυλ φόντου, γεμίσματος, γραμμής και εφέ είναι αποθηκευμένα στο θέμα:
 
 ```cpp
 #include <DOM/IColorFormat.h>
@@ -71,13 +71,13 @@ Console::WriteLine(u"Line styles: {0}", formatScheme->get_LineStyles()->get_Coun
 Console::WriteLine(u"Effect styles: {0}", formatScheme->get_EffectStyles()->get_Count());
 ```
 
-Αν ένα αρχείο χρησιμοποιεί πολλούς masters, μην υποθέτετε ότι κάθε διαφάνεια έχει το ίδιο αποτελεσματικό θέμα. Ελέγξτε τον master που σχετίζεται με τη διαφάνεια και χρησιμοποιήστε τη ροή εργασίας αποτελεσματικού‑θέματος που εμφανίζεται αργότερα σε αυτό το άρθρο όταν μπορεί να υπάρξουν παρακάμψεις διάταξης ή διαφάνειας.
+Αν ένα αρχείο χρησιμοποιεί πολλαπλούς masters, μην υποθέτετε ότι κάθε διαφάνεια έχει το ίδιο αποτελεσματικό θέμα. Ελέγξτε τον master που σχετίζεται με τη διαφάνεια και χρησιμοποιήστε τη ροή εργασίας αποτελεσματικού θέματος που παρουσιάζεται αργότερα σε αυτό το άρθρο όταν υπάρχουν παρακάμψεις διάταξης ή διαφάνειας.
 
-## **Αλλαγή χρωμάτων θέματος**
+## **Αλλαγή Χρωμάτων Θέματος**
 
-Τα γεμίσματα, οι γραμμές και το κείμενο που είναι ευαίσθητα στο θέμα μπορούν να αναφέρονται σε ένα λογικό χρώμα από την απαρίθμηση [SchemeColor](https://reference.aspose.com/slides/el/cpp/aspose.slides/schemecolor/). Όταν αλλάζετε την αντίστοιχη καταχώριση στην [IColorScheme](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/icolorscheme/) του θέματος, όλα τα αντικείμενα που εξακολουθούν να αναφέρονται σε αυτό το χρώμα θέματος επιλύονται ως προς τη νέα τιμή. Τα αντικείμενα που χρησιμοποιούν άμεσο χρώμα RGB δεν αλλάζουν με μια ενημέρωση χρώματος θέματος.
+Τα γεμίσματα, οι γραμμές και το κείμενο που είναι ενήμερα για το θέμα μπορούν να αναφέρονται σε λογικό χρώμα από την απαρίθμηση [SchemeColor](https://reference.aspose.com/slides/el/cpp/aspose.slides/schemecolor/). Όταν αλλάζετε την αντίστοιχη καταχώρηση στην [IColorScheme](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/icolorscheme/) του θέματος, όλα τα αντικείμενα που εξακολουθούν να αναφέρονται σε αυτό το χρώμα θέματος επιλύονται με τη νέα τιμή. Τα αντικείμενα που χρησιμοποιούν άμεσο χρώμα RGB δεν αλλάζουν με την ενημέρωση χρώματος θέματος.
 
-Το παρακάτω ολοκληρωμένο παράδειγμα δημιουργεί ένα σχήμα που χρησιμοποιεί το `Accent4`, αλλάζει το χρώμα `Accent4` του θέματος σε κόκκινο, αποθηκεύει την παρουσίαση, την ανοίγει ξανά και εκτυπώνει το αποτελεσματικό χρώμα γεμίσματος:
+Το παρακάτω ολοκληρωμένο παράδειγμα δημιουργεί ένα σχήμα που χρησιμοποιεί `Accent4`, αλλάζει το χρώμα `Accent4` του θέματος σε κόκκινο, αποθηκεύει την παρουσίαση, την ανοίγει ξανά και εκτυπώνει το αποτελεσματικό χρώμα γεμίσματος:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -116,17 +116,17 @@ auto effectiveFill = savedShape->get_FillFormat()->GetEffective();
 Console::WriteLine(u"Effective fill color: {0}", effectiveFill->get_SolidFillColor());
 ```
 
-Επειδή το ορθογώνιο παραμένει συνδεδεμένο με το `Accent4`, το ορατό του χρώμα γίνεται κόκκινο μετά την αλλαγή του θέματος. Εάν αντικαταστήσετε το χρώμα σχήματος με άμεσο χρώμα στο σχήμα, μελλοντικές αλλαγές στο `Accent4` δεν θα επηρεάσουν αυτό το γέμισμα.
+Επειδή το ορθογώνιο παραμένει συνδεδεμένο με το `Accent4`, το ορατό χρώμα του γίνεται κόκκινο μετά την αλλαγή του θέματος. Αν αντικαταστήσετε το χρώμα σχήματος με άμεσο χρώμα στο σχήμα, μελλοντικές αλλαγές στο `Accent4` δεν θα επηρεάσουν αυτό το γέμισμα.
 
-### **Χρήση χρωμάτων από την πρόσθετη παλέτα**
+### **Χρήση Χρωμάτων από την Επί πρόσθετη Παλέτα**
 
-Το PowerPoint παράγει απώτερο και σκούρο παραλλαγές από ένα χρώμα θέματος εφαρμόζοντας μετασχηματισμούς χρώματος. Το Aspose.Slides εκθέτει αυτούς τους μετασχηματισμούς μέσω του [ColorTransformOperation](https://reference.aspose.com/slides/el/cpp/aspose.slides/colortransformoperation/).
+Το PowerPoint δημιουργεί πιο ανοιχτές και πιο σκούρες παραλλαγές από ένα χρώμα θέματος εφαρμόζοντας μετασχηματισμούς χρώματος. Το Aspose.Slides εκθέτει αυτούς τους μετασχηματισμούς μέσω [ColorTransformOperation](https://reference.aspose.com/slides/el/cpp/aspose.slides/colortransformoperation/).
 
-![Main theme colors and lighter and darker colors generated from the additional palette](additional-palette-colors.png)
+![Κύρια χρώματα θέματος και πιο ανοιχτά/σκοτεινά χρώματα που δημιουργούνται από την πρόσθετη παλέτα](additional-palette-colors.png)
 
 **1** - Κύρια χρώματα θέματος.
 
-**2** - Απώτερες και σκούρες παραλλαγές που παράγονται από τα κύρια χρώματα θέματος.
+**2** - Πιο ανοιχτές και πιο σκούρες παραλλαγές που παράγονται από τα κύρια χρώματα θέματος.
 
 Το παρακάτω παράδειγμα δημιουργεί έξι ορθογώνια βασισμένα στο `Accent4`, εφαρμόζει μετασχηματισμούς φωτεινότητας σε πέντε από αυτά και αποθηκεύει το αποτέλεσμα:
 
@@ -197,31 +197,31 @@ solidFillColor6->get_ColorTransform()->Add(ColorTransformOperation::MultiplyLumi
 presentation->Save(u"theme-color-palette.pptx", SaveFormat::Pptx);
 ```
 
-Αυτές οι παραλλαγές παραμένουν βασισμένες στο χρώμα θέματος. Εάν το `Accent4` αλλάξει αργότερα, τα μετασχηματισμένα χρώματα επανυπολογίζονται από τη νέα τιμή `Accent4`.
+Αυτές οι παραλλαγές παραμένουν βασισμένες στο χρώμα θέματος. Αν το `Accent4` αλλάξει αργότερα, τα μετασχηματισμένα χρώματα υπολογίζονται ξανά από τη νέα τιμή του `Accent4`.
 
-### **Αντιστοίχιση τιμών `SchemeColor` σε θέσεις `IColorScheme`**
+### **Χαρτογράφηση Τιμών `SchemeColor` σε Θέσεις `IColorScheme`**
 
-Η απαρίθμηση [SchemeColor](https://reference.aspose.com/slides/el/cpp/aspose.slides/schemecolor/) χρησιμοποιεί τα `Text1`, `Background1`, `Text2` και `Background2`, ενώ η [IColorScheme](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/icolorscheme/) εκθέτει τις ίδιες θέσεις θέματος ως `Dark1`, `Light1`, `Dark2` και `Light2`. Η αντιστοίχηση είναι σταθερή:
+Η απαρίθμηση [SchemeColor](https://reference.aspose.com/slides/el/cpp/aspose.slides/schemecolor/) χρησιμοποιεί `Text1`, `Background1`, `Text2` και `Background2`, ενώ η [IColorScheme](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/icolorscheme/) εκθέτει τις ίδιες θέσεις θέματος ως `Dark1`, `Light1`, `Dark2` και `Light2`. Η αντιστοίχιση είναι σταθερή:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-Αυτά είναι εναλλακτικά ονόματα για τις ίδιες θέσεις θέματος· δεν πρόκειται για τιμές που μετατρέπονται δυναμικά από τη μία μορφή στην άλλη.
+Αυτά είναι εναλλακτικά ονόματα για τις ίδιες θέσεις θέματος· δεν είναι τιμές που μετατρέπονται δυναμικά από τη μία μορφή στην άλλη.
 
-## **Αλλαγή γραμματοσειρών θέματος**
+## **Αλλαγή Γραμματοσειρών Θέματος**
 
-Μια γραμματοσειρά θέματος περιλαμβάνει ένα κύριο σύνολο γραμματοσειρών για επικεφαλίδες και ένα δευτερεύον σύνολο για το κύριο κείμενο. Οι μέθοδοι [FontScheme::get_Major()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/fontscheme/get_major/) και [FontScheme::get_Minor()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/fontscheme/get_minor/) εκθέτουν αυτά τα σύνολα.
+Ένα σχήμα γραμματοσειρών θέματος περιλαμβάνει ένα σύνολο κύριων γραμματοσειρών για τίτλους και ένα σύνολο δευτερευουσών γραμματοσειρών για το κυρίως κείμενο. Οι μέθοδοι [FontScheme::get_Major()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/fontscheme/get_major/) και [FontScheme::get_Minor()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/fontscheme/get_minor/) εκθέτουν αυτά τα σύνολα.
 
-Οι αναγνωριστικοί γραμματοσειρών συμβατοί με το PowerPoint μπορούν να χρησιμοποιηθούν στη μορφοποίηση κειμένου:
+Οι ταυτοποιητές γραμματοσειρών συμβατοί με το PowerPoint μπορούν να χρησιμοποιηθούν στη μορφοποίηση κειμένου:
 
 * `+mn-lt` - Σώμα γραμματοσειράς Latin (Minor Latin Font)
-* `+mj-lt` - Γραμματοσειρά επικεφαλίδας Latin (Major Latin Font)
+* `+mj-lt` - Τίτλος γραμματοσειράς Latin (Major Latin Font)
 * `+mn-ea` - Σώμα γραμματοσειράς East Asian (Minor East Asian Font)
-* `+mj-ea` - Γραμματοσειρά επικεφαλίδας East Asian (Major East Asian Font)
+* `+mj-ea` - Τίτλος γραμματοσειράς East Asian (Major East Asian Font)
 
-Το παρακάτω παράδειγμα δημιουργεί μια επικεφαλίδα που χρησιμοποιεί τη κύρια Latin γραμματοσειρά θέματος και μια γραμμή σώματος που χρησιμοποιεί τη δευτερεύουσα Latin γραμματοσειρά. Στη συνέχεια αλλάζει τις γραμματοσειρές θέματος και αποθηκεύει το αποτέλεσμα:
+Το παρακάτω παράδειγμα δημιουργεί έναν τίτλο που χρησιμοποιεί τη κύρια λατινική γραμματοσειρά θέματος και μία γραμμή σώματος που χρησιμοποιεί τη δευτερεύουσα λατινική γραμματοσειρά θέματος. Στη συνέχεια αλλάζει τις γραμματοσειρές θέματος και αποθηκεύει το αποτέλεσμα:
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -261,30 +261,28 @@ presentation->get_MasterTheme()->get_FontScheme()->get_Minor()->set_LatinFont(Ma
 presentation->Save(u"theme-fonts.pptx", SaveFormat::Pptx);
 ```
 
-Η επικεφαλίδα ακολουθεί τη κύρια γραμματοσειρά και το κείμενο σώματος ακολουθεί τη δευτερεύουσα. Κείμενο που έχει σαφή ονομασία γραμματοσειράς αντί για αναγνωριστικό θέματος δεν θα αλλάξει αυτόματα όταν αλλάξει το σχήμα γραμματοσειράς του θέματος.
+Ο τίτλος ακολουθεί τη κύρια γραμματοσειρά και το σώμα ακολουθεί τη δευτερεύουσα γραμματοσειρά. Το κείμενο που έχει ρητό όνομα γραμματοσειράς αντί για ταυτοποιητή θέματος δεν θα αλλάξει αυτόματα όταν αλλάξει το σχήμα γραμματοσειρών θέματος.
 
-Οι κύριες και δευτερεύουσες συλλογές γραμματοσειρών μπορούν επίσης να περιέχουν αντιστοιχίσεις γραμματοσειρών για μεμονωμένα συστήματα γραφής, όπως κυριλλικά, αραβικά, ιαπωνικά, γεωργιανά και θάνα. Για έλεγχο, προσθήκη, αντικατάσταση ή αφαίρεση αυτών των αντιστοιχίσεων, δείτε [Script-Specific Theme Fonts](/slides/el/cpp/script-specific-font-mappings/).
+Οι συλλογές κύριας και δευτερεύουσας γραμματοσειράς μπορούν επίσης να περιέχουν αντιστοιχίσεις γραμματοσειρών για μεμονωμένα συστήματα γραφής, όπως Κυριλλικό, Αραβικό, Ιαπωνικό, Γεωργιανό και Θάανα. Για έλεγχο, προσθήκη, αντικατάσταση ή αφαίρεση αυτών των αντιστοιχίσεων, δείτε [Script-Specific Theme Fonts](/slides/el/cpp/script-specific-font-mappings/).
 
 {{% alert color="info" title="Tip" %}}
-
 Για περισσότερες πληροφορίες σχετικά με τις γραμματοσειρές παρουσίασης, δείτε [PowerPoint Fonts](/slides/el/cpp/powerpoint-fonts/).
-
 {{% /alert %}}
 
-## **Αντιγραφή ή Εφαρμογή θέματος**
+## **Αντιγραφή ή Εφαρμογή Θέματος**
 
-Οι παρακάτω ροές εργασίας λύνουν διαφορετικά προβλήματα σχετιζόμενα με θέματα.
+Οι παρακάτω ροές εργασίας λύνουν διαφορετικά προβλήματα που σχετίζονται με θέματα.
 
-### **Εφαρμογή εξωτερικού θέματος σε διαφάνειες που εξαρτώνται από έναν Master**
+### **Εφαρμογή Εξωτερικού Θέματος στις Διαφάνειες που Εξαρτώνται από Master**
 
-Χρησιμοποιήστε [IMasterSlide::ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/el/cpp/aspose.slides/imasterslide/applyexternalthemetodependingslides/) όταν έχετε ένα αρχείο θέματος PowerPoint (`.thmx`) και θέλετε να επανασχεδιάσετε κάθε διαφάνεια που εξαρτάται από έναν συγκεκριμένο master. Επιλέξτε τον master από τη συλλογή [Presentation::get_Masters](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/get_masters/), η οποία υλοποιεί το [IMasterSlideCollection](https://reference.aspose.com/slides/el/cpp/aspose.slides/imasterslidecollection/), και περάστε τη διαδρομή του αρχείου θέματος στη μέθοδο.
+Χρησιμοποιήστε [IMasterSlide::ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/el/cpp/aspose.slides/imasterslide/applyexternalthemetodependingslides/) όταν έχετε αρχείο θέματος PowerPoint (`.thmx`) και θέλετε να επαναστυλιζάσετε κάθε διαφάνεια που εξαρτάται από έναν συγκεκριμένο master. Επιλέξτε τον master από τη συλλογή [Presentation::get_Masters](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/get_masters/), η οποία υλοποιεί το [IMasterSlideCollection](https://reference.aspose.com/slides/el/cpp/aspose.slides/imasterslidecollection/), και περάστε τη διαδρομή του αρχείου θέματος στη μέθοδο.
 
 Η μέθοδος εκτελεί τις ακόλουθες εργασίες:
 
-1. Δημιουργεί μια νέα διαφάνεια master βασισμένη στον επιλεγμένο master.
-1. Εφαρμόζει το εξωτερικό θέμα στη νέα διαφάνεια master.
-1. Αντιστοιχεί τη νέα διαφάνεια master σε όλες τις διαφάνειες που προηγουμένως εξαρτώνταν από τον επιλεγμένο master.
-1. Επιστρέφει το νεοδημιουργημένο [IMasterSlide](https://reference.aspose.com/slides/el/cpp/aspose.slides/imasterslide/).
+1. Δημιουργεί νέο master slide βάσει του επιλεγμένου master.  
+2. Εφαρμόζει το εξωτερικό θέμα στο νέο master.  
+3. Εκχωρεί το νέο master σε όλες τις διαφάνειες που προηγουμένως εξαρτώνταν από τον επιλεγμένο master.  
+4. Επιστρέφει το νεοδημιουργημένο [IMasterSlide](https://reference.aspose.com/slides/el/cpp/aspose.slides/imasterslide/).
 
 Το παρακάτω παράδειγμα εφαρμόζει ένα εξωτερικό θέμα στις διαφάνειες που εξαρτώνται από τον πρώτο master και αποθηκεύει την παρουσίαση:
 
@@ -306,17 +304,17 @@ Console::WriteLine(u"Created master: {0}", themedMaster->get_Name());
 presentation->Save(u"presentation-with-external-theme.pptx", SaveFormat::Pptx);
 ```
 
-Ένα μη έγκυρο, κατεστραμμένο ή μη υποστηριζόμενο θέμα μπορεί να προκαλέσει [PptxException](https://reference.aspose.com/slides/el/cpp/aspose.slides/pptxexception/) ή μία από τις υποκλάσεις του που σχετίζονται με μορφή. Επικυρώστε τις διαδρομές που παρέχονται από χρήστες, διαχειριστείτε αποτυχίες πρόσβασης στο σύστημα αρχείων και αποθηκεύστε την παρουσίαση μόνο αφού το θέμα εφαρμοστεί επιτυχώς.
+Ένα μη έγκυρο, κατεστραμμένο ή μη υποστηριζόμενο θέμα μπορεί να προκαλέσει [PptxException](https://reference.aspose.com/slides/el/cpp/aspose.slides/pptxexception/) ή μία από τις υποκατηγορίες του που σχετίζονται με μορφή. Επικυρώστε τις διαδρομές που εισάγουν οι χρήστες, διαχειριστείτε αποτυχίες πρόσβασης στο σύστημα αρχείων και αποθηκεύστε την παρουσίαση μόνο αφού το θέμα εφαρμοστεί επιτυχώς.
 
-Μόνο οι διαφάνειες που εξαρτώνταν από τον επιλεγμένο master επανατοποθετούνται. Διαφάνειες που σχετίζονται με άλλους masters διατηρούν τους υπάρχοντες masters και θέματα. Τα χρώματα, οι γραμματογραφίες, τα γεμίσματα, οι γραμμές, τα φόντα και τα εφέ που είναι ευαίσθητα στο θέμα επιλύονται έναντι του εξωτερικού θέματος. Τα χρώματα, οι γραμματοσειρές, τα γεμίσματα και άλλες άμεσες μορφοποιήσεις που έχουν οριστεί ρητά μπορεί να παραμείνουν αμετάβλητα. Οι παρακάμψεις σε επίπεδο διάταξης ή διαφάνειας μπορεί επίσης να έχουν προτεραιότητα έναντι τιμών που κληρονομούνται από τον νέο master.
+Μόνο οι διαφάνειες που εξαρτώνταν από τον επιλεγμένο master επανακαθορίζονται. Διαφάνειες που σχετίζονται με άλλους masters διατηρούν τους υπάρχοντες masters και θέματα. Τα χρώματα, οι γραμματοσειρές, τα γεμίσματα, οι γραμμές, τα φόντα και τα εφέ που είναι ενήμερα για το θέμα επιλύονται με το εξωτερικό θέμα. Τα άμεσα ανατεθειμένα χρώματα, γραμματοσειρές, γεμίσματα και άλλες ρητές μορφοποιήσεις μπορεί να παραμείνουν αμετάβλητα. Παρακάμψεις σε επίπεδο διάταξης ή διαφάνειας μπορούν επίσης να υπερισχύσουν των τιμών που κληρονομούνται από το νέο master.
 
-Το θέμα μπορεί να αναφέρει γραμματοσειρές που δεν είναι διαθέσιμες στο περιβάλλον εκτέλεσης. Για συνεπή απόδοση και εξαγωγή, εγκαταστήστε τις απαιτούμενες γραμματοσειρές, παρέχετε τις μέσω [custom font sources](/slides/el/cpp/custom-font/), ή ρυθμίστε την [font substitution](/slides/el/cpp/font-substitution/).
+Το θέμα μπορεί να κάνει αναφορά σε γραμματοσειρές που δεν είναι διαθέσιμες στο χρόνο εκτέλεσης. Για συνεπή απόδοση και εξαγωγή, εγκαταστήστε τις απαιτούμενες γραμματοσειρές, παρέχετε τες μέσω [custom font sources](/slides/el/cpp/custom-font/), ή ρυθμίστε την [font substitution](/slides/el/cpp/font-substitution/).
 
-Αυτή είναι μια άμεση ροή εργασίας σε επίπεδο master: η μέθοδος δέχεται τη διαδρομή αρχείου `.thmx` και δεν απαιτεί χειροκίνητη δημιουργία παρακάμψεων θέματος σε επίπεδο διαφάνειας ή διάταξης.
+Αυτή είναι μια άμεση ροή εργασίας σε επίπεδο master: η μέθοδος δέχεται διαδρομή αρχείου `.thmx` και δεν απαιτεί τη χειροκίνητη δημιουργία παρακάμψεων θέματος σε επίπεδο διαφάνειας ή διάταξης.
 
-### **Εφαρμογή διαφορετικών εξωτερικών θεμάτων σε παρουσίαση πολλαπλών Masters**
+### **Εφαρμογή Διαφορετικών Εξωτερικών Θεμάτων σε Παρουσίαση με Πολλαπλούς Masters**
 
-Όταν ο σχετικός master δεν είναι γνωστός εκ των προτέρων, αποκτήστε τον από μια αντιπροσωπευτική διαφάνεια μέσω του [ISlide::get_LayoutSlide](https://reference.aspose.com/slides/el/cpp/aspose.slides/islide/get_layoutslide/) και του [ILayoutSlide::get_MasterSlide](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilayoutslide/get_masterslide/). Αποθηκεύστε τις αρχικές αναφορές master πριν εφαρμόσετε οποιαδήποτε θέματα, επειδή κάθε κλήση δημιουργεί έναν επιπλέον master στην παρουσίαση.
+Όταν ο σχετικός master δεν είναι γνωστός εκ των προτέρων, αποκτήστε τον από μια αντιπροσωπευτική διαφάνεια μέσω [ISlide::get_LayoutSlide](https://reference.aspose.com/slides/el/cpp/aspose.slides/islide/get_layoutslide/) και [ILayoutSlide::get_MasterSlide](https://reference.aspose.com/slides/el/cpp/aspose.slides/ilayoutslide/get_masterslide/). Αποθηκεύστε τις αρχικές αναφορές master πριν εφαρμόσετε οποιαδήποτε θέματα, επειδή κάθε κλήση δημιουργεί έναν νέο master στην παρουσίαση.
 
 Το παρακάτω παράδειγμα χρησιμοποιεί διαφάνειες από δύο ενότητες για να εντοπίσει τους masters τους και εφαρμόζει διαφορετικό εξωτερικό θέμα σε κάθε ομάδα:
 
@@ -358,11 +356,11 @@ else
 }
 ```
 
-Η πρώτη κλήση επηρεάζει μόνο τις διαφάνειες που εξαρτώνταν από το `firstGroupMaster`, ενώ η δεύτερη κλήση επηρεάζει μόνο τις διαφάνειες που εξαρτώνταν από το `secondGroupMaster`. Διαφάνειες που ανήκουν σε οποιονδήποτε άλλο master δεν επανασχεδιάζονται.
+Η πρώτη κλήση επηρεάζει μόνο τις διαφάνειες που εξαρτώνται από το `firstGroupMaster`, και η δεύτερη κλήση επηρεάζει μόνο τις διαφάνειες που εξαρτώνται από το `secondGroupMaster`. Διαφάνειες που ανήκουν σε οποιονδήποτε άλλο master δεν επαναστυλιζάνονται.
 
-### **Διατήρηση του πηγαίου θέματος κατά τη μετακίνηση διαφανειών**
+### **Διατήρηση Πηγής Θέματος Κατά τη Μετακίνηση Διαφανειών**
 
-Αν θέλετε να μεταφέρετε μια διαφάνεια σε άλλη παρουσίαση και να διατηρήσετε τον αρχικό της σχεδιασμό, κλωνοποιήστε τον πηγαίο master στην προοριστική παρουσίαση με τη μέθοδο [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/el/cpp/aspose.slides/imasterslidecollection/addclone/), έπειτα κλωνοποιήστε τη διαφάνεια με το [ISlideCollection::AddClone()](https://reference.aspose.com/slides/el/cpp/aspose.slides/islidecollection/addclone/) και τον κλωνοποιημένο master. Αυτό μεταφέρει τον master, τις διατάξεις του και το σχετικό θέμα μαζί.
+Αν θέλετε να μετακινήσετε μια διαφάνεια σε άλλη παρουσίαση και να διατηρήσετε το αρχικό της σχέδιο, κλωνοποιήστε τον source master στην προοριστική παρουσίαση με [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/el/cpp/aspose.slides/imasterslidecollection/addclone/), έπειτα κλωνοποιήστε τη διαφάνεια με [ISlideCollection::AddClone()](https://reference.aspose.com/slides/el/cpp/aspose.slides/islidecollection/addclone/) και τον κλωνοποιημένο master. Αυτό μεταφέρει τον master, τις διατάξεις του και το σχετικό θέμα μαζί.
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -386,11 +384,11 @@ target->get_Slides()->AddClone(sourceSlide, clonedMaster, true);
 target->Save(u"theme-preserved.pptx", SaveFormat::Pptx);
 ```
 
-Αυτή είναι η προτιμώμενη ροή εργασίας όταν η πηγαία διαφάνεια πρέπει να φαίνεται ακριβώς το ίδιο στον προορισμό. Η απλή κλωνοποίηση περιεχομένου πάνω σε έναν μη σχετικό master προορισμού μπορεί να αλλάξει χρώματα, γραμματοσειρές, φόντα και εφέ που προέρχονται από το θέμα.
+Αυτή είναι η προτεινόμενη ροή εργασίας όταν η πηγαία διαφάνεια πρέπει να φαίνεται ακριβώς όπως στην προοριστική. Η απλή κλωνοποίηση περιεχομένου πάνω σε έναν άσχετο master προορισμού μπορεί να αλλάξει χρώματα, γραμματοσειρές, φόντα και εφέ που καθορίζονται από το θέμα.
 
-### **Εφαρμογή τιμών θέματος σε υπάρχουσα διαφάνεια**
+### **Εφαρμογή Τιμών Θέματος σε Υπάρχουσα Διαφάνεια**
 
-Αν η διαφάνεια-στόχος πρέπει να παραμείνει στον τρέχοντα master και διάταξή της, αρχικοποιήστε μια παρακάμψη σε επίπεδο διαφάνειας από το πηγαίο θέμα. Οι μέθοδοι [OverrideTheme::InitColorSchemeFrom()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/overridetheme/initcolorschemefrom/), [OverrideTheme::InitFontSchemeFrom()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/overridetheme/initfontschemefrom/) και [OverrideTheme::InitFormatSchemeFrom()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/overridetheme/initformatschemefrom/) αντιγράφουν τα τρία κύρια συστατικά του θέματος στην παρακάμψη.
+Αν η διαφάνεια-στόχος πρέπει να παραμείνει στον τρέχοντα master και διάταξή της, αρχικοποιήστε μια παρακάμψη σε επίπεδο διαφάνειας από το source theme. Οι μέθοδοι [OverrideTheme::InitColorSchemeFrom()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/overridetheme/initcolorschemefrom/), [OverrideTheme::InitFontSchemeFrom()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/overridetheme/initfontschemefrom/) και [OverrideTheme::InitFormatSchemeFrom()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/overridetheme/initformatschemefrom/) αντιγράφουν τα τρία κύρια στοιχεία του θέματος στην παρακάμψη.
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -414,11 +412,11 @@ overrideTheme->InitFormatSchemeFrom(source->get_MasterTheme()->get_FormatScheme(
 target->Save(u"theme-applied-to-slide.pptx", SaveFormat::Pptx);
 ```
 
-Αυτό αλλάζει το θέμα που χρησιμοποιείται από εκείνη τη διαφάνεια χωρίς να επηρεάζει το θέμα που κληρονομείται από άλλες διαφάνειες. Για να αφαιρέσετε την τοπική παρακάμψη και να επιστρέψετε σε κληρονομημένες τιμές, καλέστε το [OverrideTheme::Clear()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/overridetheme/clear/).
+Αυτό αλλάζει το θέμα που χρησιμοποιείται από εκείνη τη διαφάνεια χωρίς να αλλάζει το θέμα που κληρονομείται από άλλες διαφάνειες. Για να αφαιρέσετε την τοπική παρακάμψη και να επιστρέψετε στις κληρονομημένες τιμές, καλέστε [OverrideTheme::Clear()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/overridetheme/clear/).
 
-### **Εφαρμογή παρακάμψης θέματος σε διάταξη**
+### **Εφαρμογή Παρακάμψης Θέματος σε Διάταξη**
 
-Μια παρακάμψη σε επίπεδο διάταξης ισχύει για τις διαφάνειες που χρησιμοποιούν εκείνη τη διάταξη, εκτός εάν μια συγκεκριμένη διαφάνεια έχει τη δική της παρακάμψη. Οι ίδιες μέθοδοι αρχικοποίησης μπορούν να χρησιμοποιηθούν μέσω του [IOverrideThemeManager](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/ioverridethememanager/) της διάταξης:
+Μια παρακάμψη σε επίπεδο διάταξης εφαρμόζεται σε διαφάνειες που χρησιμοποιούν αυτή τη διάταξη, εκτός εάν μια συγκεκριμένη διαφάνεια έχει τη δική της παρακάμψη. Οι ίδιες μέθοδοι αρχικοποίησης μπορούν να χρησιμοποιηθούν μέσω του [IOverrideThemeManager](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/ioverridethememanager/) της διάταξης:
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -444,17 +442,17 @@ overrideTheme->InitFormatSchemeFrom(source->get_MasterTheme()->get_FormatScheme(
 target->Save(u"theme-applied-to-layout.pptx", SaveFormat::Pptx);
 ```
 
-Χρησιμοποιήστε ένα θέμα σε επίπεδο master ή παρουσίασης όταν πολλές διατάξεις και διαφάνειες πρέπει να μοιράζονται τον ίδιο βασικό σχεδιασμό, μια παρακάμψη διάταξης όταν μια οικογένεια διατάξεων χρειάζεται διαφορετική μορφοποίηση, και μια παρακάμψη διαφάνειας μόνο για πραγματικές εξαιρέσεις. Πάρα πολλές παρακάμψεις σε επίπεδο διαφάνειας καθιστούν τις μελλοντικές παγκόσμιες αλλαγές θέματος πιο δύσκολο να προβλεφθούν.
+Χρησιμοποιήστε ένα θέμα σε επίπεδο master ή παρουσίασης όταν πολλοί layouts και διαφάνειες πρέπει να μοιράζονται το ίδιο βασικό σχέδιο, μια παρακάμψη διάταξης όταν μια οικογένεια layout χρειάζεται διαφορετικό στυλ, και μια παρακάμψη διαφάνειας μόνο για πραγματικές εξαιρέσεις. Υπερβολικές παρακάμψεις σε επίπεδο διαφάνειας καθιστούν πιο δύσκολη την πρόβλεψη μελλοντικών παγκόσμιων αλλαγών θέματος.
 
-## **Ενημέρωση στυλ φόντου θέματος**
+## **Ενημέρωση Στυλ Φόντου Θέματος**
 
-Τα γέμισματα φόντου του θέματος αποθηκεύονται στη μέθοδο [FormatScheme::get_BackgroundFillStyles()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/formatscheme/get_backgroundfillstyles/). Το PowerPoint μπορεί να προσφέρει περισσότερες επιλογές φόντου στη διεπαφή του από τον αριθμό των ορισμών γεμίσματος που αποθηκεύονται πραγματικά στη συλλογή, επειδή η διεπαφή μπορεί να συνδυάσει γεμίσματα θέματος με χρώματα θέματος και άλλες αναφορές στυλ.
+Τα φόντα θέματος αποθηκεύονται στο [FormatScheme::get_BackgroundFillStyles()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/formatscheme/get_backgroundfillstyles/). Το PowerPoint μπορεί να παρουσιάσει περισσότερες επιλογές φόντου στο UI του από τον αριθμό των ορισμών γεμίσματος που είναι πραγματικά αποθηκευμένα σε αυτή τη συλλογή, επειδή το UI μπορεί να συνδυάζει γεμίσματα θέματος με χρώματα θέματος και άλλες αναφορές στυλ.
 
-![PowerPoint background style gallery for a presentation theme](presentation-design_8.png)
+![Γκαλερί στυλ φόντου PowerPoint για θέμα παρουσίασης](presentation-design_8.png)
 
-Πριν χρησιμοποιήσετε ένα στυλ φόντου, ελέγξτε τη συλλογή που αποθηκεύεται και το τρέχον [Background::get_StyleIndex()](https://reference.aspose.com/slides/el/cpp/aspose.slides/background/get_styleindex/). Το `StyleIndex` χρησιμοποιεί `0` για κανένα θεματικό γέμισμα· θετικές τιμές είναι αναφορές στυλ φόντου θέματος. Αυτό διαφέρει από την απευθείας ένδειξη ενός C++ συλλογής με `idx_get(0)`, όπου το `0` σημαίνει το πρώτο αποθηκευμένο στοιχείο. Μην υποθέτετε ότι κάθε παρουσίαση περιέχει τον ίδιο αριθμό στυλ φόντου.
+Πριν χρησιμοποιήσετε ένα στυλ φόντου, ελέγξτε τη συλλογή που αποθηκεύεται και το τρέχον [Background::get_StyleIndex()](https://reference.aspose.com/slides/el/cpp/aspose.slides/background/get_styleindex/). Το `StyleIndex` χρησιμοποιεί το `0` για κανένα θεματικό γέμισμα· οι θετικές τιμές είναι αναφορές σε στυλ φόντου θέματος. Αυτό διαφέρει από την ευθεία δεικτοδότηση μιας συλλογής C++ με `idx_get(0)`, όπου το `0` σημαίνει το πρώτο αποθηκευμένο στοιχείο. Μην υποθέτετε ότι κάθε παρουσίαση περιέχει τον ίδιο αριθμό στυλ φόντου.
 
-Το παρακάτω παράδειγμα αναφέρει τον διαθέσιμο αριθμό γεμισμάτων φόντου, ορίζει μια θεματική αναφορά φόντου στον πρώτο master και αποθηκεύει την παρουσίαση:
+Το παρακάτω παράδειγμα αναφέρει τον αριθμό των διαθέσιμων γεμισμάτων φόντου, εκχωρεί μια αναφορά θεματικού φόντου στον πρώτο master και αποθηκεύει την παρουσίαση:
 
 ```cpp
 #include <DOM/BackgroundType.h>
@@ -484,29 +482,25 @@ if (backgroundStyles->get_Count() > 0)
 }
 ```
 
-Το οπτικό αποτέλεσμα εξαρτάται από την καταχώριση θέματος που αναφέρεται από τον master και από τυχόν παρακάμψεις φόντου σε επίπεδο διάταξης ή διαφάνειας. Εάν μια διαφάνεια χρησιμοποιεί το δικό της φόντο, η αλλαγή μόνο του φόντου του master μπορεί να μην αλλάξει εκείνη τη διαφάνεια. Χρησιμοποιήστε το [Background::GetEffective()](https://reference.aspose.com/slides/el/cpp/aspose.slides/background/geteffective/) όταν χρειάζεται να γνωρίζετε το τελικό φόντο μετά την εφαρμογή κληρονομικότητας.
+Το ορατό αποτέλεσμα εξαρτάται από την καταχώρηση θέματος που αναφέρεται από τον master και από τυχόν παρακάμψεις φόντου σε επίπεδο διάταξης ή διαφάνειας. Αν μια διαφάνεια χρησιμοποιεί το δικό της φόντο, η αλλαγή μόνο του φόντου του master μπορεί να μην επηρεάσει αυτή τη διαφάνεια. Χρησιμοποιήστε [Background::GetEffective()](https://reference.aspose.com/slides/el/cpp/aspose.slides/background/geteffective/) όταν χρειάζεστε το τελικό φόντο μετά την εφαρμογή κληρονομικότητας.
 
 {{% alert color="warning" title="Warning" %}}
-
-Μην θεωρείτε το `StyleIndex` ως δείκτη μηδενικής βάσης. Αποφύγετε επίσης την σκληρή κωδικοποίηση ενός αριθμού στυλ από ένα αρχείο και την υπόθεση ότι θα έχει την ίδια εμφάνιση σε άλλο αρχείο· οι ορισμοί στυλ θέματος είναι ειδικοί για κάθε παρουσίαση.
-
+Μην αντιμετωπίζετε το `StyleIndex` ως δείκτη συλλογής με βάση το μηδέν. Επίσης, αποφύγετε τον κωδικοποίηση ενός αριθμού στυλ από ένα αρχείο και την υπόθεση ότι έχει την ίδια εμφάνιση σε άλλο αρχείο· οι ορισμοί στυλ θέματος είναι ειδικοί για κάθε παρουσίαση.
 {{% /alert %}}
 
 {{% alert color="info" title="Tip" %}}
-
 Για άμεση μορφοποίηση φόντου και κληρονομικότητα φόντου, δείτε [Presentation Background](/slides/el/cpp/presentation-background/).
-
 {{% /alert %}}
 
-## **Ενημέρωση εφέ θέματος**
+## **Ενημέρωση Εφέ Θέματος**
 
-Ένα σχήμα μορφοποίησης θέματος περιλαμβάνει ξεχωριστές συλλογές [FormatScheme::get_FillStyles()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/formatscheme/get_fillstyles/), [FormatScheme::get_LineStyles()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/formatscheme/get_linestyles/), και [FormatScheme::get_EffectStyles()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/formatscheme/get_effectstyles/). Συνήθως τα Office θέματα περιέχουν τρεις κύριες καταχωρίσεις στυλ που αντιστοιχούν οπτικά σε ήπια, μέτρια και έντονη μορφοποίηση, αλλά ο κώδικας πρέπει να ελέγχει κάθε συλλογή αντί να υποθέτει σταθερό αριθμό.
+Ένα σχήμα μορφοποίησης θέματος περιλαμβάνει ξεχωριστές συλλογές [FormatScheme::get_FillStyles()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/formatscheme/get_fillstyles/), [FormatScheme::get_LineStyles()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/formatscheme/get_linestyles/), και [FormatScheme::get_EffectStyles()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/formatscheme/get_effectstyles/). Τυπικά θέματα Office περιέχουν τρία κύρια στοιχεία στυλ που αντιστοιχούν οπτικά σε διακριτό, μετριοπαθή και έντονο μορφοποίηση, αλλά ο κώδικας πρέπει να ελέγχει κάθε συλλογή αντί να υποθέτει σταθερό αριθμό.
 
-![Subtle, moderate, and intense theme effects applied to the same shape](presentation-design_10.png)
+![Διακριτά, μετριοπαθή και έντονα εφέ θέματος που εφαρμόζονται στο ίδιο σχήμα](presentation-design_10.png)
 
-Όταν προσπελάζετε αυτές τις συλλογές σε C++, ο δείκτης συλλογής είναι μηδενικής βάσης: `idx_get(0)` είναι το πρώτο αποθηκευμένο στυλ και `idx_get(2)` είναι το τρίτο. Οι δείκτες αναφοράς στυλ ενός σχήματος είναι ξεχωριστή έννοια, εκτεθειμένη μέσω του [IShapeStyle](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishapestyle/). Η τροποποίηση ενός στυλ θέματος επηρεάζει τα σχήματα που αναφέρονται σε αυτό· σχήματα με άμεση μορφοποίηση μπορεί να παραμείνουν αμετάβλητα.
+Όταν προσπελάζετε αυτές τις συλλογές σε C++, ο δείκτης της συλλογής είναι μηδενικής βάσης: `idx_get(0)` είναι το πρώτο αποθηκευμένο στυλ και `idx_get(2)` το τρίτο. Οι δείκτες αναφοράς στυλ ενός σχήματος αποτελούν ξεχωριστό θέμα, εκτεθειμένο μέσω του [IShapeStyle](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishapestyle/). Η τροποποίηση ενός στυλ θέματος επηρεάζει τα σχήματα που αναφέρονται σε αυτό το στυλ θέματος· σχήματα με άμεση μορφοποίηση μπορεί να παραμείνουν αμετάβλητα.
 
-Το παρακάτω παράδειγμα ελέγχει αν υπάρχουν οι απαιτούμενες καταχωρίσεις στυλ, αλλάζει το πρώτο στυλ γραμμής, αλλάζει το τρίτο στυλ γεμίσματος, ενεργοποιεί μια εξωτερική σκιά στο τρίτο στυλ εφέ, και αποθηκεύει το αποτέλεσμα:
+Το παρακάτω παράδειγμα ελέγχει αν υπάρχουν οι απαιτούμενες καταχωρήσεις στυλ, αλλάζει το πρώτο στυλ γραμμής, αλλάζει το τρίτο στυλ γεμίσματος, ενεργοποιεί μια εξωτερική σκιά στο τρίτο στυλ εφέ, και αποθηκεύει το αποτέλεσμα:
 
 ```cpp
 #include <DOM/Effects/IOuterShadow.h>
@@ -559,15 +553,113 @@ else
 }
 ```
 
-Για σχήματα που αναφέρονται σε αυτές τις θέσεις, το πρώτο στυλ γραμμής θέματος γίνεται κόκκινο, το τρίτο στυλ γεμίσματος γίνεται συμπαγές δάσος‑πράσινο, και το τρίτο στυλ εφέ κερδίζει εξωτερική σκιά με απόσταση 10 σημείων. Το ακριβές οπτικό αποτέλεσμα εξακολουθεί να εξαρτάται από το ποια θέσεις στυλ αναφέρονται κάθε σχήμα και εάν η άμεση μορφοποίηση παρακάμπτει το θέμα.
+Για σχήματα που αναφέρονται σε αυτές τις θέσεις, το πρώτο στυλ γραμμής του θέματος γίνεται κόκκινο, το τρίτο στυλ γεμίσματος του θέματος γίνεται συμπαγές δάσος πράσινο, και το τρίτο στυλ εφέ αποκτά εξωτερική σκιά με απόσταση 10 σημείων. Το ακριβές οπτικό αποτέλεσμα εξακολουθεί να εξαρτάται από το ποιο στυλ θέσης αναφέρεται κάθε σχήμα και αν η άμεση μορφοποίηση παρακάμπτει το θέμα.
 
-![Theme effect styles after changing line, fill, and shadow settings](presentation-design_11.png)
+![Στυλ εφέ θέματος μετά την αλλαγή ρυθμίσεων γραμμής, γεμίσματος και σκιάς](presentation-design_11.png)
 
-## **Ανάγνωση αποτελεσματικών τιμών θέματος**
+## **Καθορισμός Αν Ένα Αποτελεσματικό Συμπαγές Γέμισμα Χρησιμοποιεί Χρώμα Θέματος**
 
-Τα ακατέργαστα αντικείμενα θέματος σας λένε τι ορίζεται σε ένα συγκεκριμένο επίπεδο. Οι αποτελεσματικές τιμές σας λένε τι χρησιμοποιεί πραγματικά μια διαφάνεια ή σχήμα μετά την κληρονομικότητα και τις τοπικές παρακάμψεις. Για μια διαφάνεια, καλέστε το [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/ithemeable/createthemeeffective/). Για ένα φόντο, χρησιμοποιήστε το [Background::GetEffective()](https://reference.aspose.com/slides/el/cpp/aspose.slides/background/geteffective/), και για ένα γέμισμα, το [FillFormat::GetEffective()](https://reference.aspose.com/slides/el/cpp/aspose.slides/fillformat/geteffective/).
+Ένα γέμισμα μπορεί να αποθηκευτεί απευθείας σε ένα αντικείμενο ή να κληρονομηθεί από παράγραφο, διάταξη, master, στυλ θέματος ή άλλο επίπεδο μορφοποίησης. Καλέστε [IFillFormat::GetEffective](https://reference.aspose.com/slides/el/cpp/aspose.slides/ifillformat/geteffective/) για να μετατρέψετε αυτήν την ιεραρχία σε αμετάβλητο [IFillFormatEffectiveData](https://reference.aspose.com/slides/el/cpp/aspose.slides/ifillformateffectivedata/). Πρώτα ελέγξτε το [IFillFormatEffectiveData::get_FillType](https://reference.aspose.com/slides/el/cpp/aspose.slides/ifillformateffectivedata/get_filltype/). Μόνο όταν είναι `FillType::Solid` πρέπει να διαβάσετε τις ιδιότητες συμπαγούς γεμίσματος.
 
-Το παρακάτω παράδειγμα διαβάζει το αποτελεσματικό θέμα, το φόντο και το γέμισμα του πρώτου σχήματος από μια διαφάνεια:
+Για συμπαγές γέμισμα, το [IFillFormatEffectiveData::get_SolidFillColor](https://reference.aspose.com/slides/el/cpp/aspose.slides/ifillformateffectivedata/get_solidfillcolor/) επιστρέφει την τελική τιμή RGB μετά την κληρονομικότητα, αναζήτηση θέματος και εφαρμογή μετασχηματισμών χρώματος. Το [IFillFormatEffectiveData::get_SolidFillSchemeColor](https://reference.aspose.com/slides/el/cpp/aspose.slides/ifillformateffectivedata/get_solidfillschemecolor/) επιστρέφει τη σχετική λογική θέση [SchemeColor](https://reference.aspose.com/slides/el/cpp/aspose.slides/schemecolor/), όπως `Text1` ή `Accent6`. Μια τιμή `SchemeColor::NotDefined` σημαίνει ότι το αποτελεσματικό συμπαγές γέμισμα δεν βασίζεται σε χρώμα σχήματος. Σε μια ροή εργασίας όπου τα γεμίσματα είναι είτε χρώματα θέματος είτε άμεσες τιμές RGB, αυτή η τιμή ταυτοποιεί ένα άμεσο RGB γέμισμα.
+
+Μην χρησιμοποιείτε μόνο την τοπική τιμή [IColorFormat::get_SchemeColor](https://reference.aspose.com/slides/el/cpp/aspose.slides/icolorformat/get_schemecolor/) για την κατηγοριοποίηση ενός γεμίσματος. Για παράδειγμα, ένα τμήμα κειμένου μπορεί να μην έχει τοπικά ορισμένο χρώμα σχήματος, επομένως η τοπική του τιμή είναι `NotDefined`, ενώ το αποτελεσματικό του γέμισμα κληρονομεί χρώμα θέματος και επιλύεται σε `Text1` ή `Accent6`. Αντίθετα, το `get_SolidFillSchemeColor` σας λέει ποια λογική θέση θέματος παρήγαγε το αποτελεσματικό χρώμα, αλλά δεν σας λέει από ποιο επίπεδο (αντικείμενο, παράγραφος, διάταξη, master κ.λπ.) προέρχεται.
+
+Το παρακάτω παράδειγμα φορτώνει μια παρουσίαση, ελέγχει τόσο τα γεμίσματα σχήματος όσο και τα γεμίσματα τμημάτων κειμένου, εκτυπώνει κάθε τελική τιμή RGB και τη σχετική θέση σχήματος, και σημαδέψει τα συμπαγή γεμίσματα που δεν θα παρακολουθούν αλλαγές χρωμάτων θέματος:
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IFillFormatEffectiveData.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IShape.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/SchemeColor.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto auditFill = [](const String& objectName, const SharedPtr<IFillFormat>& localFill)
+{
+    auto effectiveFill = localFill->GetEffective();
+
+    if (effectiveFill->get_FillType() != FillType::Solid)
+    {
+        Console::WriteLine(u"{0}: fill type = {1}; not a solid fill.", objectName, effectiveFill->get_FillType());
+        return;
+    }
+
+    auto rgb = effectiveFill->get_SolidFillColor();
+    auto effectiveSchemeColor = effectiveFill->get_SolidFillSchemeColor();
+    auto localSchemeColor = localFill->get_SolidFillColor()->get_SchemeColor();
+
+    Console::WriteLine(u"{0}: RGB = #{1:X2}{2:X2}{3:X2}", objectName, rgb.get_R(), rgb.get_G(), rgb.get_B());
+    Console::WriteLine(u"{0}: local scheme = {1}, effective scheme = {2}", objectName, localSchemeColor, effectiveSchemeColor);
+
+    if (effectiveSchemeColor == SchemeColor::NotDefined)
+    {
+        Console::WriteLine(u"{0}: direct RGB or another non-scheme fill; audit as theme-independent.", objectName);
+    }
+    else
+    {
+        Console::WriteLine(u"{0}: theme-dependent through {1}.", objectName, effectiveSchemeColor);
+    }
+};
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+
+auto slideCount = presentation->get_Slides()->get_Count();
+for (int32_t slideIndex = 0; slideIndex < slideCount; slideIndex++)
+{
+    auto slide = presentation->get_Slide(slideIndex);
+
+    auto shapeCount = slide->get_Shapes()->get_Count();
+    for (int32_t shapeIndex = 0; shapeIndex < shapeCount; shapeIndex++)
+    {
+        auto shape = slide->get_Shape(shapeIndex);
+        auto shapeName = String::Format(u"Slide {0}, shape {1}", slideIndex + 1, shapeIndex + 1);
+        auditFill(shapeName, shape->get_FillFormat());
+
+        if (ObjectExt::Is<IAutoShape>(shape))
+        {
+            auto autoShape = ExplicitCast<IAutoShape>(shape);
+            auto textFrame = autoShape->get_TextFrame();
+            auto paragraphCount = textFrame->get_Paragraphs()->get_Count();
+            for (int32_t paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++)
+            {
+                auto paragraph = textFrame->get_Paragraph(paragraphIndex);
+
+                auto portionCount = paragraph->get_Portions()->get_Count();
+                for (int32_t portionIndex = 0; portionIndex < portionCount; portionIndex++)
+                {
+                    auto portion = paragraph->get_Portion(portionIndex);
+                    auto portionName = String::Format(u"{0}, paragraph {1}, portion {2}", shapeName, paragraphIndex + 1, portionIndex + 1);
+                    auditFill(portionName, portion->get_PortionFormat()->get_FillFormat());
+                }
+            }
+        }
+    }
+}
+```
+
+Το branch `NotDefined` παρέχει μια λίστα ελέγχου για συμπαγή γεμίσματα που δεν θα ανταποκριθούν σε αλλαγές στις θέσεις χρώματος θέματος. Εξετάστε αυτά τα αντικείμενα όταν μια παρουσίαση πρέπει να ακολουθεί μια νέα παλέτα μάρκας. Η αναφερόμενη τιμή RGB εξακολουθεί να δείχνει την τρέχουσα εμφάνιση, ενώ η τιμή σχήματος εξηγεί εάν αυτή η εμφάνιση είναι συνδεδεμένη με το θέμα.
+
+Τα αντικείμενα αποτελεσματικής μορφοποίησης είναι στιγμιότυπα. Αφού αλλάξετε το θέμα της παρουσίασης, μια παρακάμψη θέματος ή οποιαδήποτε κληρονομημένη μορφοποίηση, καλέστε ξανά το `GetEffective` και διαβάστε ένα νέο αντικείμενο `IFillFormatEffectiveData` πριν συγκρίνετε ή αναφέρετε χρώματα.
+
+## **Ανάγνωση Αποτελεσματικών Τιμών Θέματος**
+
+Τα ακατέργαστα αντικείμενα θέματος σας λένε τι έχει οριστεί σε συγκεκριμένο επίπεδο. Οι αποτελεσματικές τιμές σας λένε τι χρησιμοποιεί μια διαφάνεια ή σχήμα μετά την κληρονομικότητα και τις τοπικές παρακάμψεις. Για μια διαφάνεια, καλέστε [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/ithemeable/createthemeeffective/). Για ένα φόντο, χρησιμοποιήστε [Background::GetEffective()](https://reference.aspose.com/slides/el/cpp/aspose.slides/background/geteffective/), και για ένα γέμισμα, χρησιμοποιήστε [FillFormat::GetEffective()](https://reference.aspose.com/slides/el/cpp/aspose.slides/fillformat/geteffective/).
+
+Το παρακάτω παράδειγμα διαβάζει το αποτελεσματικό θέμα, το φόντο και το πρώτο γέμισμα σχήματος από μια διαφάνεια:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -607,22 +699,22 @@ if (slide->get_Shapes()->get_Count() > 0)
 }
 ```
 
-Χρησιμοποιήστε αποτελεσματικά δεδομένα για διαγνωστικές αποδόσεις, επικυρώσεις και συγκρίσεις. Εάν ελέγξετε μόνο το [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/get_mastertheme/), μπορείτε να χάσετε έναν master, διάταξη, διαφάνεια ή παρακάμψη σχήματος που αλλάζει την τελική εμφάνιση.
+Χρησιμοποιήστε τα αποτελεσματικά δεδομένα για διαγνωστικά απόδοσης, επικύρωση και συγκρίσεις. Αν ελέγξετε μόνο το [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/get_mastertheme/), μπορεί να χάσετε έναν master, διάταξη, διαφάνεια ή παρακάμψη σχήματος που αλλάζει την τελική εμφάνιση.
 
-## **Συχνές ερωτήσεις**
+## **ΣΥΝΕΧΕΣ ΕΡΩΤΗΣΕΙΣ (FAQ)**
 
-**Επηρεάζει η εφαρμογή ενός εξωτερικού θέματος κάθε διαφάνεια στην παρουσίαση;**
+**Επηρεάζει η εφαρμογή εξωτερικού θέματος κάθε διαφάνεια στην παρουσίαση;**
 
-Όχι. Το [IMasterSlide::ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/el/cpp/aspose.slides/imasterslide/applyexternalthemetodependingslides/) επανατοποθετεί μόνο τις διαφάνειες που εξαρτώνται από τον επιλεγμένο master. Οι διαφάνειες που χρησιμοποιούν άλλους masters διατηρούν τα υπάρχοντα θέματα τους.
+Όχι. Το [IMasterSlide::ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/el/cpp/aspose.slides/imasterslide/applyexternalthemetodependingslides/) επανακαθορίζει μόνο τις διαφάνειες που εξαρτώνται από τον επιλεγμένο master. Οι διαφάνειες που χρησιμοποιούν άλλους masters διατηρούν τα υπάρχοντα θέματα τους.
 
 **Μπορώ να εφαρμόσω θέμα σε μία μόνο διαφάνεια χωρίς να αλλάξω τον master;**
 
-Ναι. Χρησιμοποιήστε το [IOverrideThemeManager](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/ioverridethememanager/) της διαφάνειας και αρχικοποιήστε το θέμα παρακάμψης της. Η αλλαγή παραμένει τοπική σε αυτή τη διαφάνεια· οι άλλες διαφάνειες συνεχίζουν να κληρονομούν τα υπάρχοντα θέματα τους.
+Ναι. Χρησιμοποιήστε το [IOverrideThemeManager](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/ioverridethememanager/) της διαφάνειας και αρχικοποιήστε το override theme της. Η αλλαγή παραμένει τοπική στην εν λόγω διαφάνεια· οι άλλες διαφάνειες συνεχίζουν να κληρονομούν τα υπάρχοντα θέματα τους.
 
-**Ποιος είναι ο ασφαλέστερος τρόπος για να μεταφερθεί ένα θέμα από μία παρουσίαση σε άλλη;**
+**Ποιος είναι ο ασφαλέστερος τρόπος για μεταφορά θέματος από μία παρουσίαση σε άλλη;**
 
-Κατά τη μετακίνηση μιας διαφάνειας και τη διατήρηση του αρχικού της σχεδίου, κλωνοποιήστε τον πηγαίο master στην προοριστική παρουσίαση χρησιμοποιώντας το [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/el/cpp/aspose.slides/imasterslidecollection/addclone/) και κλωνοποιήστε τη διαφάνεια με το [ISlideCollection::AddClone()](https://reference.aspose.com/slides/el/cpp/aspose.slides/islidecollection/addclone/) μαζί με τον κλωνοποιημένο master. Αυτό διατηρεί τον master, τις διατάξεις και το θέμα μαζί.
+Κατά τη μετακίνηση μιας διαφάνειας και τη διατήρηση της αρχικής της εμφάνισης, κλωνοποιήστε τον source master στο προορισμό και κλωνοποιήστε τη διαφάνεια με αυτόν τον master χρησιμοποιώντας [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/el/cpp/aspose.slides/imasterslidecollection/addclone/) και [ISlideCollection::AddClone()](https://reference.aspose.com/slides/el/cpp/aspose.slides/islidecollection/addclone/). Αυτό διατηρεί τον master, τις διατάξεις και το θέμα μαζί.
 
 **Πώς μπορώ να δω τις αποτελεσματικές τιμές μετά την κληρονομικότητα και τις παρακάμψεις;**
 
-Χρησιμοποιήστε το [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/ithemeable/createthemeeffective/) για μια διαφάνεια ή θέμα διάταξης και τις αντίστοιχες μεθόδους αποτελεσματικών‑δεδομένων για αντικείμενα μορφοποίησης όπως το [Background::GetEffective()](https://reference.aspose.com/slides/el/cpp/aspose.slides/background/geteffective/) και το [FillFormat::GetEffective()](https://reference.aspose.com/slides/el/cpp/aspose.slides/fillformat/geteffective/). Αυτά τα API επιστρέφουν τις επιλυμένες τιμές μετά την εφαρμογή κληρονομικότητας και παρακάμψεων.
+Χρησιμοποιήστε το [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/ithemeable/createthemeeffective/) για μια διαφάνεια ή θέμα διάταξης και τις αντίστοιχες μεθόδους αποτελεσματικών δεδομένων για αντικείμενα μορφής όπως [Background::GetEffective()](https://reference.aspose.com/slides/el/cpp/aspose.slides/background/geteffective/) και [FillFormat::GetEffective()](https://reference.aspose.com/slides/el/cpp/aspose.slides/fillformat/geteffective/). Αυτά τα API επιστρέφουν τις επιλυμένες τιμές μετά την εφαρμογή κληρονομικότητας και παρακάμψεων.

@@ -23,23 +23,23 @@ keywords:
 - การนำเสนอ
 - PHP
 - Aspose.Slides
-description: "ควบคุมธีมการนำเสนอหลักใน Aspose.Slides สำหรับ PHP ผ่าน Java เพื่อสร้าง ปรับแต่ง และแปลงไฟล์ PowerPoint ด้วยการสร้างแบรนด์ที่สอดคล้องกัน."
+description: "ธีมการนำเสนอหลักใน Aspose.Slides สำหรับ PHP ผ่าน Java เพื่อสร้าง ปรับแต่ง และแปลงไฟล์ PowerPoint ด้วยการสร้างแบรนด์ที่สม่ำเสมอ."
 ---
 ## **บทนำ**
 
-ธีมการนำเสนอกำหนดชุดสี, แบบอักษร, สไตล์พื้นหลัง, การเติม, เส้น และเอฟเฟกต์ที่สอดคล้องกัน วัตถุที่รับรู้ธีมจะอ้างอิงถึงคำนิยามที่แชร์เหล่านี้แทนการเก็บคุณสมบัติวิดีโอทุกอย่างเป็นค่าคงที่ ดังนั้นการเปลี่ยนธีมจึงสามารถอัพเดตวัตถุหลายรายการพร้อมกันได้
+ธีมของการนำเสนอกำหนดชุดสี, ตัวอักษร, รูปแบบพื้นหลัง, การเติม, เส้น และเอฟเฟกต์ที่ประสานกัน ธีมที่อิงวัตถุจะอ้างอิงถึงคำนิยามที่ใช้ร่วมกันเหล่านี้ แทนการเก็บคุณสมบัติภาพแต่ละอย่างเป็นค่าคงที่ ดังนั้นการเปลี่ยนธีมจึงสามารถอัปเดตวัตถุหลาย ๆ ตัวพร้อมกัน
 
-ใน Aspose.Slides ธีมระดับการนำเสนอสามารถเข้าถึงได้ผ่าน [Presentation.getMasterTheme](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/). การนำเสนออาจมีการแทนที่ธีมในระดับที่ต่ำกว่าได้เช่นกัน มาสเตอร์สามารถแทนที่ธีมการนำเสนอผ่าน [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/th/php-java/aspose.slides/masterthememanager/), ส่วนเลย์เอาต์หรือสไลด์เดี่ยวสามารถแทนที่ธีมที่สืบทอดมาผ่าน [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/th/php-java/aspose.slides/baseoverridethememanager/). ในทางปฏิบัติ ธีมที่มีผลสำหรับสไลด์หนึ่งจะถูกแก้ไขผ่านโซ่การสืบทอดนี้: ธีมการนำเสนอ → การแทนที่ของมาสเตอร์ → การแทนที่ของเลย์เอาต์ → การแทนที่ของสไลด์
+ใน Aspose.Slides ธีมระดับการนำเสนอสามารถเข้าถึงได้ผ่าน [Presentation.getMasterTheme](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/)。การนำเสนออาจมีการละเมิดธีมในระดับที่ต่ำกว่า มาสเตอร์สามารถละเมิดธีมของการนำเสนอผ่าน [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/th/php-java/aspose.slides/masterthememanager/)，ในขณะที่เลเอาต์หรือสไลด์เดี่ยวสามารถละเมิดธีมที่สืบทอดมาผ่าน [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/th/php-java/aspose.slides/baseoverridethememanager/)。โดยปฏิบัติ ธีมที่มีผลสำหรับสไลด์หนึ่งจะได้รับการกำหนดผ่านโซ่การสืบทอดนี้: ธีมการนำเสนอ → มาสเตอร์ละเมิด → เลเอาต์ละเมิด → สไลด์ละเมิด
 
 ![Theme components: colors, fonts, background styles, and effects](theme-constituents.png)
 
-ส่วนต่อไปนี้แสดงการทำงานของธีมที่พบบ่อยที่สุด: ตรวจสอบธีม, เปลี่ยนสีและแบบอักษร, คัดลอกหรือใช้ธีม, อัปเดตสไตล์พื้นหลังและเอฟเฟกต์, และอ่านค่าที่มีผลหลังจากการสืบทอดและการแทนที่ถูกแก้ไขแล้ว
+ส่วนต่อไปนี้แสดงกระบวนการทำงานกับธีมที่พบบ่อยที่สุด: การตรวจสอบธีม, การเปลี่ยนสีและตัวอักษร, การคัดลอกหรือใช้ธีม, การอัปเดตสไตล์พื้นหลังและเอฟเฟกต์, และการอ่านค่าที่มีผลหลังจากการสืบทอดและการละเมิดได้รับการประมวลผล
 
-## **ตรวจสอบธีม**
+## **ตรวจธีม**
 
-อ็อบเจ็กต์ [MasterTheme](https://reference.aspose.com/slides/th/php-java/aspose.slides/mastertheme/) เปิดเผยสกีมสี, สกีมแบบอักษร, และสกีมรูปแบบของธีมผ่าน [MasterTheme.getColorScheme](https://reference.aspose.com/slides/th/php-java/aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/th/php-java/aspose.slides/mastertheme/), และ [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/th/php-java/aspose.slides/mastertheme/). การตรวจสอบคอลเลกชันเหล่านี้ก่อนเปลี่ยนเป็นประโยชน์อย่างยิ่งเมื่อการนำเข้ามาจากแหล่งภายนอก เนื่องจากจำนวนและเนื้อหาของรายการสไตล์อาจแตกต่างกัน
+อ็อบเจ็กต์ [MasterTheme](https://reference.aspose.com/slides/th/php-java/aspose.slides/mastertheme/) เปิดเผยสคีมสี, สคีมตัวอักษร, และสคีมรูปแบบของธีมผ่าน [MasterTheme.getColorScheme](https://reference.aspose.com/slides/th/php-java/aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/th/php-java/aspose.slides/mastertheme/), และ [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/th/php-java/aspose.slides/mastertheme/)。การตรวจสอบคอลเลกชันเหล่านี้ก่อนทำการเปลี่ยนแปลงมีประโยชน์เป็นพิเศษเมื่อการนำมาจากแหล่งภายนอก เนื่องจากจำนวนและเนื้อหาของรายการสไตล์อาจแตกต่างกัน
 
-ตัวอย่างต่อไปนี้อ่านคุณสมบัติหลักของธีมและรายงานว่ามีสไตล์พื้นหลัง, เติม, เส้น, และเอฟเฟกต์กี่รายการที่ถูกเก็บไว้ในธีม:
+ตัวอย่างต่อไปนี้อ่านคุณสมบัติหลักของธีมและรายงานจำนวนสไตล์พื้นหลัง, การเติม, เส้น, และเอฟเฟกต์ที่จัดเก็บในธีม:
 
 ```php
 use aspose\slides\Presentation;
@@ -60,13 +60,13 @@ try {
 }
 ```
 
-หากไฟล์ใช้มาสเตอร์หลายตัว อย่า assumes ว่าสไลด์ทุกสไลด์มีธีมที่มีผลเดียวกัน ตรวจสอบมาสเตอร์ที่เชื่อมโยงกับสไลด์ และใช้กระบวนการธีมที่มีผลที่แสดงต่อไปนี้เมื่อมีการแทนที่ที่เลย์เอาต์หรือสไลด์
+หากไฟล์ใช้หลายมาสเตอร์ อย่าอ assuming ว่าสไลด์ทุกสไลด์มีธีมที่มีผลเดียวกัน ตรวจสอบมาสเตอร์ที่เชื่อมโยงกับสไลด์ และใช้กระบวนการทำงานของธีมที่มีผลที่แสดงต่อไปนี้เมื่ออาจมีการละเมิดเลเอาต์หรือสไลด์
 
-## **เปลี่ยนสีของธีม**
+## **เปลี่ยนสีธีม**
 
-การเติม, เส้น, และข้อความที่รับรู้ธีมสามารถอ้างอิงสีเชิงตรรกะจาก enumeration [SchemeColor](https://reference.aspose.com/slides/th/php-java/aspose.slides/schemecolor/) ได้ เมื่อคุณเปลี่ยนรายการที่สอดคล้องกันใน [ColorScheme](https://reference.aspose.com/slides/th/php-java/aspose.slides/colorscheme/) วัตถุทั้งหมดที่ยังอ้างอิงสีธีมนั้นจะถูกแก้ไขให้ใช้ค่าที่ใหม่ วัตถุที่ใช้สี RGB โดยตรงจะไม่ถูกเปลี่ยนโดยการอัปเดตสีธีม
+การเติม, เส้น, และข้อความที่อิงธีมสามารถอ้างอิงสีเชิงตรรกะจาก enumeration [SchemeColor](https://reference.aspose.com/slides/th/php-java/aspose.slides/schemecolor/) เมื่อคุณเปลี่ยนรายการที่สอดคล้องใน [ColorScheme](https://reference.aspose.com/slides/th/php-java/aspose.slides/colorscheme/)，วัตถุทั้งหมดที่ยังอ้างอิงสีธีมนั้นจะได้รับการแก้ไขด้วยค่าที่ใหม่ วัตถุที่ใช้สี RGB โดยตรงจะไม่เปลี่ยนแปลงจากการอัปเดตสีธีม
 
-ตัวอย่างต่อไปนี้เป็นกระบวนการครบวงจรที่สร้างรูปร่างที่ใช้ `Accent4`, เปลี่ยนสี `Accent4` ของธีมเป็นสีแดง, บันทึกการนำเสนอ, เปิดใหม่อีกครั้ง, แล้วพิมพ์สีเติมที่มีผล:
+ตัวอย่างต่อไปนี้เป็นกระบวนการแบบต้นถึงปลายที่สร้างรูปทรงที่ใช้ `Accent4`, เปลี่ยนสี `Accent4` ของธีมเป็นสีแดง, บันทึกการนำเสนอ, เปิดใหม่อีกครั้ง, และพิมพ์สีการเติมที่มีผล:
 
 ```php
 use aspose\slides\FillType;
@@ -98,19 +98,19 @@ try {
 }
 ```
 
-เนื่องจากสี่เหลี่ยมยังคงเชื่อมโยงกับ `Accent4` สีที่มองเห็นจึงกลายเป็นสีแดงหลังจากธีมถูกเปลี่ยน หากคุณแทนที่สีสกีมด้วยสีโดยตรงบนรูปร่าง การเปลี่ยน `Accent4` ในภายหลังจะไม่ส่งผลต่อการเติมนั้นอีกต่อไป
+เนื่องจากสี่เหลี่ยมยังคงเชื่อมโยงกับ `Accent4` สีที่มองเห็นจะกลายเป็นสีแดงหลังจากธีมถูกเปลี่ยน หากคุณแทนที่สีสกีมด้วยสีโดยตรงบนรูปทรง การเปลี่ยนแปลงต่อมาใน `Accent4` จะไม่มีผลต่อการเติมนั้น
 
 ### **ใช้สีจากพาเลตเพิ่มเติม**
 
-PowerPoint สร้างเวอร์ชันสีอ่อนและเข้มจากสีธีมโดยใช้การแปลงสี Aspose.Slides เปิดเผยการแปลงเหล่านี้ผ่าน enumeration [ColorTransformOperation](https://reference.aspose.com/slides/th/php-java/aspose.slides/colortransformoperation/).
+PowerPoint สร้างเวอร์ชันสีอ่อนและเข้มจากสีธีมโดยใช้การแปลงสี Aspose.Slides เปิดเผยการแปลงเหล่านี้ผ่าน enumeration [ColorTransformOperation](https://reference.aspose.com/slides/th/php-java/aspose.slides/colortransformoperation/)
 
 ![Main theme colors and lighter and darker colors generated from the additional palette](additional-palette-colors.png)
 
-**1** - สีหลักของธีม  
+**1** - สีธีมหลัก
 
-**2** - เวอร์ชันสีอ่อนและเข้มที่สร้างจากสีหลักของธีม
+**2** - เวอร์ชันสีอ่อนและเข้มที่สร้างจากสีธีมหลัก
 
-ตัวอย่างต่อไปนี้สร้างสี่เหลี่ยมหกรูปโดยอิงจาก `Accent4`, ใช้การแปลงแสงสว่างต่อห้ารูป, แล้วบันทึกผลลัพธ์:
+ตัวอย่างต่อไปนี้สร้างสี่เหลี่ยมหกรูปโดยอิง `Accent4`, ใช้การแปลงความสว่างกับห้ารูป และบันทึกผลลัพธ์:
 
 ```php
 use aspose\slides\ColorTransformOperation;
@@ -162,31 +162,31 @@ try {
 }
 ```
 
-เวอร์ชันเหล่านี้ยังคงอิงจากสีธีม หาก `Accent4` เปลี่ยนในภายหลัง สีที่แปลงจะถูกคำนวณใหม่จากค่า `Accent4` ใหม่
+เวอร์ชันเหล่านี้ยังคงอิงสีธีม หาก `Accent4` เปลี่ยนในภายหลัง สีที่แปลงจะถูกคำนวณใหม่จากค่า `Accent4` ใหม่
 
-### **แมปค่าของ `SchemeColor` ไปยังสล็อตของ `ColorScheme`**
+### **แมปค่า `SchemeColor` ไปยังช่อง `ColorScheme`**
 
-enumeration [SchemeColor](https://reference.aspose.com/slides/th/php-java/aspose.slides/schemecolor/) ใช้ `Text1`, `Background1`, `Text2`, และ `Background2` ในขณะที่ [ColorScheme](https://reference.aspose.com/slides/th/php-java/aspose.slides/colorscheme/) เปิดเผยสล็อตธีมเดียวกันเป็น `Dark1`, `Light1`, `Dark2`, และ `Light2`. การแมปนี้คงที่:
+enumeration [SchemeColor](https://reference.aspose.com/slides/th/php-java/aspose.slides/schemecolor/) ใช้ `Text1`, `Background1`, `Text2`, และ `Background2` ส่วน [ColorScheme](https://reference.aspose.com/slides/th/php-java/aspose.slides/colorscheme/) เปิดเผยช่องธีมเดียวกันเป็น `Dark1`, `Light1`, `Dark2`, และ `Light2` การแมปเป็นค่าคงที่:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-นี่เป็นชื่อทางเลือกของสล็อตธีมเดียวกัน; ไม่ได้เป็นค่าที่แปลงแบบไดนามิกจากรูปแบบหนึ่งเป็นอีกรูปแบบหนึ่ง
+เหล่านี้เป็นชื่อทางเลือกของช่องธีมเดียวกัน; ไม่ได้เป็นค่าที่แปลงแบบไดนามิกจากรูปแบบหนึ่งเป็นอีกรูปแบบหนึ่ง
 
-## **เปลี่ยนแบบอักษรของธีม**
+## **เปลี่ยนฟอนต์ธีม**
 
-สกีมแบบอักษรของธีมประกอบด้วยชุดแบบอักษรหลักสำหรับหัวเรื่องและชุดแบบอักษรรองสำหรับข้อความตัว본문. วิธีการ [FontScheme.getMajor](https://reference.aspose.com/slides/th/php-java/aspose.slides/fontscheme/) และ [FontScheme.getMinor](https://reference.aspose.com/slides/th/php-java/aspose.slides/fontscheme/) เปิดเผยชุดเหล่านั้น
+สคีมฟอนต์ธีมประกอบด้วยชุดฟอนต์หลักสำหรับหัวเรื่องและชุดฟอนต์รองสำหรับข้อความ 본문 วิธี `FontScheme.getMajor` และ `FontScheme.getMinor` เปิดเผยชุดเหล่านั้น
 
-ตัวระบุแบบอักษรที่เข้ากันกับ PowerPoint สามารถใช้ในรูปแบบข้อความได้:
+ตัวระบุฟอนต์ธีมที่เข้ากันกับ PowerPoint สามารถใช้ในรูปแบบข้อความได้:
 
-* `+mn-lt` - แบบอักษรตัว本文 Latin (Minor Latin Font)
-* `+mj-lt` - แบบอักษรหัวเรื่อง Latin (Major Latin Font)
-* `+mn-ea` - แบบอักษรตัว本文 East Asian (Minor East Asian Font)
-* `+mj-ea` - แบบอักษรหัวเรื่อง East Asian (Major East Asian Font)
+* `+mn‑lt` - ฟอนต์ 본문 Latin (Minor Latin Font)
+* `+mj‑lt` - ฟอนต์หัวเรื่อง Latin (Major Latin Font)
+* `+mn‑ea` - ฟอนต์ 본문 East Asian (Minor East Asian Font)
+* `+mj‑ea` - ฟอนต์หัวเรื่อง East Asian (Major East Asian Font)
 
-ตัวอย่างต่อไปนี้สร้างหัวเรื่องหนึ่งที่ใช้แบบอักษร Latin หลักและบรรทัดตัว본문หนึ่งที่ใช้แบบอักษร Latin รอง จากนั้นเปลี่ยนแบบอักษรของธีมและบันทึกผลลัพธ์:
+ตัวอย่างต่อไปนี้สร้างหัวเรื่องหนึ่งที่ใช้ฟอนต์ Latin หลักของธีมและบรรทัด 본문หนึ่งที่ใช้ฟอนต์ Latin รองของธีม จากนั้นเปลี่ยนฟอนต์ธีมและบันทึกผลลัพธ์:
 
 ```php
 use aspose\slides\FontData;
@@ -214,25 +214,25 @@ try {
 }
 ```
 
-หัวเรื่องจะใช้แบบอักษรหลักและข้อความตัว본문จะใช้แบบอักษรรอง ข้อความที่ระบุชื่อแบบอักษรโดยตรงแทนตัวระบุธีมจะไม่สลับอัตโนมัติเมื่อสกีมแบบอักษรของธีมเปลี่ยน
+หัวเรื่องตามฟอนต์หลักและข้อความ 본문ตามฟอนต์รอง ข้อความที่ระบุชื่อฟอนต์โดยตรงแทนตัวระบุธีมจะไม่สลับอัตโนมัติเมื่อสคีมฟอนต์ธีมเปลี่ยน
 
-คอลเลกชันแบบอักษรหลักและรองยังสามารถมีการแมปแบบอักษรสำหรับระบบเขียนแต่ละระบบ เช่น Cyrillic, Arabic, Japanese, Georgian, และ Thaana เพื่อดู วิธีการตรวจสอบ, เพิ่ม, แทนที่หรือเอาการแมปเหล่านี้ออก, ดูที่ [Script-Specific Theme Fonts](/slides/th/php-java/script-specific-font-mappings/).
+คอลเลกชันฟอนต์หลักและรองสามารถมีแมปฟอนต์สำหรับ ระบบการเขียนแบบเฉพาะ เช่น Cyrillic, Arabic, Japanese, Georgian, และ Thaana เพื่อตรวจสอบ, เพิ่ม, แทนที่ หรือเอาแมปเหล่านี้ออก ให้ดูที่ [Script‑Specific Theme Fonts](/slides/th/php-java/script-specific-font-mappings/)
 
-{{% alert color="info" title="Tip" %}}
-สำหรับข้อมูลเพิ่มเติมเกี่ยวกับแบบอักษรของการนำเสนอ ดูที่ [PowerPoint Fonts](/slides/th/php-java/powerpoint-fonts/).
+{{% alert color="info" title="เคล็ดลับ" %}}
+สำหรับข้อมูลเพิ่มเติมเกี่ยวกับฟอนต์การนำเสนอ ดูที่ [PowerPoint Fonts](/slides/th/php-java/powerpoint-fonts/)
 {{% /alert %}}
 
 ## **คัดลอกหรือใช้ธีม**
 
-กระบวนการต่อไปนี้แก้ปัญหาที่เกี่ยวข้องกับธีมต่าง ๆ
+กระบวนการต่อไปนี้แก้ปัญหาเรื่องธีมที่แตกต่างกัน
 
 ### **ใช้ธีมภายนอกกับสไลด์ที่ขึ้นอยู่กับมาสเตอร์**
 
-ใช้ [MasterSlide::applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/th/php-java/aspose.slides/masterslide/) เมื่อคุณมีไฟล์ธีม PowerPoint (`.thmx`) และต้องการปรับสไตล์ทุกสไลด์ที่ขึ้นกับมาสเตอร์ที่กำหนด เลือกมาสเตอร์จากคอลเลกชัน [Presentation::getMasters](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/) ซึ่งเป็นส่วนของ [MasterSlideCollection](https://reference.aspose.com/slides/th/php-java/aspose.slides/masterslidecollection/) แล้วส่งพาธไฟล์ธีมไปยังเมธอด
+ใช้ [MasterSlide::applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/th/php-java/aspose.slides/masterslide/) เมื่อคุณมีไฟล์ธีม PowerPoint (`.thmx`) และต้องการปรับสไตล์สไลด์ทุกสไลด์ที่ขึ้นอยู่กับมาสเตอร์เฉพาะ เลือกมาสเตอร์จากคอลเลกชัน [Presentation::getMasters](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/) ที่แสดงโดย [MasterSlideCollection](https://reference.aspose.com/slides/th/php-java/aspose.slides/masterslidecollection/), แล้วส่งพาธไฟล์ธีมไปยังเมธอด
 
-เมธอดทำงานดังนี้:
+เมธอดทำขั้นตอนต่อไปนี้:
 
-1. สร้างสไลด์มาสเตอร์ใหม่จากมาสเตอร์ที่เลือก
+1. สร้างมาสเตอร์สไลด์ใหม่จากมาสเตอร์ที่เลือก
 1. ใช้ธีมภายนอกกับมาสเตอร์ใหม่
 1. กำหนดมาสเตอร์ใหม่ให้กับสไลด์ทั้งหมดที่เคยขึ้นกับมาสเตอร์ที่เลือก
 1. คืนค่า [MasterSlide](https://reference.aspose.com/slides/th/php-java/aspose.slides/masterslide/) ที่สร้างใหม่
@@ -255,19 +255,19 @@ try {
 }
 ```
 
-ธีมที่ไม่ถูกต้อง, เสียหาย, หรือไม่รองรับอาจทำให้เกิด [PptxReadException](https://reference.aspose.com/slides/th/php-java/aspose.slides/pptxreadexception/). ตรวจสอบพาธที่ผู้ใช้ส่งมา, จัดการความล้มเหลวในการเข้าถึงระบบไฟล์, และบันทึกการนำเสนอหลังจากธีมถูกนำไปใช้สำเร็จ
+ธีมที่ไม่ถูกต้อง, เสียหาย, หรือไม่รองรับอาจทำให้เกิด [PptxReadException](https://reference.aspose.com/slides/th/php-java/aspose.slides/pptxreadexception/) ตรวจสอบพาธที่ผู้ใช้ระบุ, จัดการความล้มเหลวในการเข้าถึงไฟล์ระบบ, และบันทึกการนำเสนอเฉพาะหลังจากธีมถูกใช้สำเร็จ
 
-เฉพาะสไลด์ที่ขึ้นกับมาสเตอร์ที่เลือกเท่านั้นที่จะถูกกำหนดใหม่ สไลด์ที่เชื่อมโยงกับมาสเตอร์อื่นจะรักษามาสเตอร์และธีมเดิมไว้ สี, แบบอักษร, เติม, เส้น, พื้นหลัง, และเอฟเฟกต์ที่รับรู้ธีมจะถูกแก้ไขตามธีมภายนอก สี, แบบอักษร, เติม, และการจัดรูปแบบที่กำหนดโดยตรงอาจยังคงไม่เปลี่ยน การแทนที่ระดับเลย์เอาต์และระดับสไลด์อาจยังคงมีลำดับความสำคัญเหนือค่าที่สืบทอดจากมาสเตอร์ใหม่
+เฉพาะสไลด์ที่ขึ้นกับมาสเตอร์ที่เลือกเท่านั้นที่จะถูกกำหนดใหม่ สไลด์ที่เชื่อมกับมาสเตอร์อื่นจะรักษามาสเตอร์และธีมเดิมไว้ สี, ฟอนต์, การเติม, เส้น, พื้นหลัง, และเอฟเฟกต์ที่อิงธีมจะได้รับการแก้ไขตามธีมภายนอก สี, ฟอนต์, การเติมและการจัดรูปแบบที่กำหนดโดยตรงอาจไม่เปลี่ยน เลเอาต์‑ระดับและสไลด์‑ระดับที่ละเมิดอาจเหนือค่าที่สืบทอดจากมาสเตอร์ใหม่
 
-ธีมอาจอ้างอิงแบบอักษรที่ไม่มีในสภาพแวดล้อมการทำงาน สำหรับการเรนเดอร์และการส่งออกที่สม่ำเสมอ, ให้ติดตั้งแบบอักษรที่จำเป็น, จัดหาแบบอักษรผ่าน [custom font sources](/slides/th/php-java/custom-font/), หรือกำหนดค่า [font substitution](/slides/th/php-java/font-substitution/).
+ธีมอาจอ้างอิงฟอนต์ที่ไม่มีในสภาพแวดล้อมรันไทม์ เพื่อการเรนเดอร์และการส่งออกที่สอดคล้อง ให้ติดตั้งฟอนต์ที่จำเป็น, จัดหาให้ผ่าน [custom font sources](/slides/th/php-java/custom-font/), หรือกำหนดค่า [font substitution](/slides/th/php-java/font-substitution/)
 
-นี่คือการทำงานโดยตรงระดับมาสเตอร์: เมธอดรับพาธไฟล์ `.thmx` และไม่ต้องสร้างการแทนที่ธีมระดับสไลด์หรือเลย์เอาต์ด้วยตนเอง
+นี่คือกระบวนการระดับมาสเตอร์โดยตรง: เมธอดรับพาธไฟล์ `.thmx` และไม่ต้องสร้างการละเมิดธีมระดับสไลด์หรือเลเอาต์ด้วยตนเอง
 
-### **ใช้ธีมภายนอกที่แตกต่างในงานนำเสนอหลายมาสเตอร์**
+### **ใช้ธีมภายนอกต่างกันในงานนำเสนอหลายมาสเตอร์**
 
-เมื่อไม่ทราบมาสเตอร์ที่เกี่ยวข้องล่วงหน้า, หาได้จากสไลด์ตัวอย่างผ่าน [Slide::getLayoutSlide](https://reference.aspose.com/slides/th/php-java/aspose.slides/slide/) และ [LayoutSlide::getMasterSlide](https://reference.aspose.com/slides/th/php-java/aspose.slides/layoutslide/). เก็บอ้างอิงมาสเตอร์เดิมก่อนใช้ธีมใด ๆ เนื่องจากแต่ละครั้งที่เรียกจะสร้างมาสเตอร์ใหม่ในงานนำเสนอ
+เมื่อมาสเตอร์ที่เกี่ยวข้องไม่ทราบล่วงหน้า ให้ดึงมาสเตอร์จากสไลด์เป็นตัวแทนผ่าน [Slide::getLayoutSlide](https://reference.aspose.com/slides/th/php-java/aspose.slides/slide/) และ [LayoutSlide::getMasterSlide](https://reference.aspose.com/slides/th/php-java/aspose.slides/layoutslide/) เก็บอ้างอิงมาสเตอร์เดิมก่อนใช้ธีมใด ๆ เพราะแต่ละครั้งที่เรียกจะสร้างมาสเตอร์ใหม่ในงานนำเสนอ
 
-ตัวอย่างต่อไปนี้ใช้สไลด์จากสองส่วนเพื่อระบุมาสเตอร์และใช้ธีมภายนอกที่แตกต่างกันกับแต่ละกลุ่ม:
+ตัวอย่างต่อไปนี้ใช้สไลด์จากสองส่วนเพื่อค้นหามาสเตอร์ของพวกมันและใช้ธีมภายนอกที่แตกต่างกันกับแต่ละกลุ่ม:
 
 ```php
 use aspose\slides\Presentation;
@@ -297,11 +297,11 @@ try {
 }
 ```
 
-การเรียกครั้งแรกส่งผลเฉพาะสไลด์ที่ขึ้นกับ `$firstGroupMaster`, การเรียกครั้งที่สองส่งผลเฉพาะสไลด์ที่ขึ้นกับ `$secondGroupMaster`. สไลด์ที่อยู่ภายใต้มาสเตอร์อื่น ๆ จะไม่ถูกปรับสไตล์ใหม่
+การเรียกครั้งแรกมีผลต่อสไลด์ที่ขึ้นกับ `$firstGroupMaster` เท่านั้น, การเรียกครั้งที่สองมีผลต่อสไลด์ที่ขึ้นกับ `$secondGroupMaster` เท่านั้น สไลด์ที่เชื่อมกับมาสเตอร์อื่นไม่ได้รับการปรับสไตล์
 
-### **คงธีมต้นฉบับเมื่อย้ายสไลด์**
+### **รักษาธีมต้นฉบับเมื่อย้ายสไลด์**
 
-หากต้องการย้ายสไลด์ไปยังงานนำเสนออื่นและคงการออกแบบเดิม, ให้โคลนมาสเตอร์ต้นฉบับไปยังงานนำหมายาด้วย [MasterSlideCollection.addClone](https://reference.aspose.com/slides/th/php-java/aspose.slides/masterslidecollection/), แล้วโคลนสไลด์ด้วย [SlideCollection.addClone](https://reference.aspose.com/slides/th/php-java/aspose.slides/slidecollection/) พร้อมมาสเตอร์ที่โคลนไว้ วิธีนี้จะพิมพ์มาสเตอร์, เลย์เอาต์, และธีมที่เกี่ยวข้องไปด้วย
+หากต้องการย้ายสไลด์ไปยังงานนำเสนออื่นและรักษาการออกแบบเดิมไว้ ให้คัดลอกมาสเตอร์ต้นฉบับไปยังงานนำหมายด้วย [MasterSlideCollection.addClone](https://reference.aspose.com/slides/th/php-java/aspose.slides/masterslidecollection/), แล้วคัดลอกสไลด์ด้วย [SlideCollection.addClone](https://reference.aspose.com/slides/th/php-java/aspose.slides/slidecollection/) พร้อมมาสเตอร์ที่คัดลอกไว้ วิธีนี้จะนำมาสเตอร์, เลเอาต์, และธีมที่เกี่ยวข้องไปด้วย
 
 ```php
 use aspose\slides\Presentation;
@@ -324,11 +324,11 @@ try {
 }
 ```
 
-นี่เป็นวิธีที่แนะนำเมื่อสไลด์ต้นฉบับต้องการรูปลักษณ์เดียวกันในจุดหมาย การโคลนเนื้อหาไปยังมาสเตอร์ที่ไม่เกี่ยวข้องอาจทำให้สี, แบบอักษร, พื้นหลัง, และเอฟเฟกต์ที่ขับเคลื่อนด้วยธีมเปลี่ยนแปลงได้
+นี่เป็นกระบวนการที่แนะนำเมื่อสไลด์ต้นทางต้องแสดงผลเหมือนเดิมในปลายทาง การคัดลอกเนื้อหาไปยังมาสเตอร์ปลายทางที่ไม่เกี่ยวข้องอาจทำให้สี, ฟอนต์, พื้นหลัง, และเอฟเฟกต์ที่ขับเคลื่อนด้วยธีมเปลี่ยนแปลง
 
 ### **ใช้ค่าธีมกับสไลด์ที่มีอยู่**
 
-หากสไลด์เป้าหมายต้องคงมาสเตอร์และเลย์เอาต์เดิม, ให้เริ่มต้นการแทนที่ระดับสไลด์จากธีมต้นฉบับ วิธีการ [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/th/php-java/aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/th/php-java/aspose.slides/overridetheme/), และ [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/th/php-java/aspose.slides/overridetheme/) จะคัดลอกส่วนประกอบธีมหลักสามส่วนเข้าสู่การแทนที่
+หากสไลด์เป้าหมายต้องคงอยู่บนมาสเตอร์และเลเอาต์ปัจจุบัน ให้เริ่มการละเมิดระดับสไลด์จากธีมต้นทาง เมธอด [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/th/php-java/aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/th/php-java/aspose.slides/overridetheme/), และ [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/th/php-java/aspose.slides/overridetheme/) คัดลอกส่วนสำคัญสามส่วนของธีมเข้าสู่การละเมิด
 
 ```php
 use aspose\slides\Presentation;
@@ -352,11 +352,11 @@ try {
 }
 ```
 
-การทำเช่นนี้จะเปลี่ยนธีมที่สไลด์นั้นใช้โดยไม่กระทบธีมที่สืบทอดโดยสไลด์อื่น ๆ เพื่อลบการแทนที่ในระดับท้องถิ่นและคืนสู่ค่าที่สืบทอด, ให้เรียก [OverrideTheme.clear](https://reference.aspose.com/slides/th/php-java/aspose.slides/overridetheme/)
+วิธีนี้เปลี่ยนธีมที่สไลด์นั้นใช้โดยไม่กระทบธีมที่สืบทอดโดยสไลด์อื่น ๆ เพื่อลบการละเมิดท้องถิ่นและกลับไปใช้ค่าที่สืบทอด ให้เรียก [OverrideTheme.clear](https://reference.aspose.com/slides/th/php-java/aspose.slides/overridetheme/)
 
-### **ใช้การแทนที่ธีมกับเลย์เอาต์**
+### **ใช้การละเมิดธีมกับเลเอาต์**
 
-การแทนที่ระดับเลย์เอาต์จะส่งผลต่อสไลด์ที่ใช้เลย์เอาต์นั้น, ยกเว้นสไลด์ที่มีการแทนที่ของตนเอง วิธีการเริ่มต้นเดียวกันนี้สามารถใช้ผ่าน [LayoutSlideThemeManager](https://reference.aspose.com/slides/th/php-java/aspose.slides/layoutslidethememanager/):
+การละเมิดระดับเลเอาต์ใช้กับสไลด์ที่ใช้เลเอาต์นั้น เว้นแต่สไลด์เฉพาะจะมีการละเมิดของมันเอง วิธีการเริ่มต้นเดียวกันสามารถใช้ผ่าน [LayoutSlideThemeManager](https://reference.aspose.com/slides/th/php-java/aspose.slides/layoutslidethememanager/):
 
 ```php
 use aspose\slides\Presentation;
@@ -380,17 +380,17 @@ try {
 }
 ```
 
-ใช้ธีมระดับมาสเตอร์หรือการนำเสนอเมื่อหลายเลย์เอาต์และสไลด์ต้องการการออกแบบฐานเดียวกัน, ใช้การแทนที่ระดับเลย์เอาต์เมื่อครอบครัวเลย์เอาต์ต้องการสไตล์ต่างกัน, และใช้การแทนที่ระดับสไลด์เฉพาะเมื่อมีข้อยกเว้นจริง การแทนที่ระดับสไลด์มากเกินไปจะทำให้การเปลี่ยนแปลงธีมทั่วโลกในภายหลังคาดเดายาก
+ใช้ธีมระดับมาสเตอร์หรือการนำเสนอเมื่อหลายเลเอาต์และสไลด์ควรแชร์การออกแบบฐานเดียวกัน ใช้การละเมิดเลเอาต์เมื่อกลุ่มเลเอาต์ต้องการสไตล์ที่แตกต่าง และใช้การละเมิดสไลด์เฉพาะสำหรับข้อยกเว้นจริง การละเมิดระดับสไลด์มากเกินไปทำให้การเปลี่ยนธีมระดับโลกในภายหลังคาดเดายาก
 
 ## **อัปเดตสไตล์พื้นหลังของธีม**
 
-การเติมพื้นหลังของธีมถูกเก็บไว้ใน [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/th/php-java/aspose.slides/formatscheme/). PowerPoint สามารถแสดงตัวเลือกพื้นหลังมากกว่าจำนวนการเติมที่เก็บจริงในคอลเลกชันนี้ เพราะ UI สามารถผสานเติมธีมกับสีธีมและการอ้างอิงสไตล์อื่น ๆ
+การเติมพื้นหลังของธีมถูกจัดเก็บใน [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/th/php-java/aspose.slides/formatscheme/)。PowerPoint สามารถแสดงตัวเลือกพื้นหลังได้มากกว่า จำนวนการกำหนดเติมที่จัดเก็บในคอลเลกชันนี้ เนื่องจาก UI สามารถผสานการเติมธีมกับสีธีมและอ้างอิงสไตล์อื่น ๆ
 
 ![PowerPoint background style gallery for a presentation theme](presentation-design_8.png)
 
-ก่อนใช้สไตล์พื้นหลัง, ตรวจสอบคอลเลกชันที่เก็บและค่า [Background.getStyleIndex](https://reference.aspose.com/slides/th/php-java/aspose.slides/background/) ปัจจุบัน ค่าดัชนีสไตล์ `0` หมายถึงไม่มีการเติมที่มีธีม; ค่าบวกเป็นการอ้างอิงสไตล์พื้นหลังของธีม สิ่งนี้ต่างจากการดัชนีคอลเลกชัน PHP โดยตรงที่ `get_Item(0)` หมายถึงรายการแรกที่เก็บ อย่าสมมติว่าการนำเสนอทุกไฟล์มีจำนวนสไตล์เติมพื้นหลังเท่ากัน
+ก่อนใช้สไตล์พื้นหลัง ให้ตรวจสอบคอลเลกชันที่เก็บและค่า [Background.getStyleIndex](https://reference.aspose.com/slides/th/php-java/aspose.slides/background/) ปัจจุบัน ดัชนีสไตล์ `0` หมายถึงไม่มีการเติมที่อิงธีม; ค่าบวกเป็นอ้างอิงสไตล์พื้นหลังของธีม สิ่งนี้แตกต่างจากการเรียกดัชนีคอลเลกชัน PHP โดยตรงที่ `get_Item(0)` คือรายการแรกที่เก็บ อย่าสันนิษฐานว่าการนำเสนอทุกอันมีจำนวนสไตล์การเติมพื้นหลังเท่ากัน
 
-ตัวอย่างต่อไปนี้รายงานจำนวนการเติมพื้นหลังที่มี, กำหนดการอ้างอิงพื้นหลังที่มีธีมให้กับมาสเตอร์แรก, แล้วบันทึกการนำเสนอ:
+ตัวอย่างต่อไปนี้รายงานจำนวนการเติมพื้นหลังที่มี, กำหนดอ้างอิงพื้นหลังที่อิงธีมให้กับมาสเตอร์แรก, และบันทึกการนำเสนอ:
 
 ```php
 use aspose\slides\BackgroundType;
@@ -414,25 +414,25 @@ try {
 }
 ```
 
-ผลลัพธ์ที่มองเห็นขึ้นอยู่กับรายการธีมที่มาสเตอร์อ้างอิงและการแทนที่พื้นหลังที่ระดับเลย์เอาต์หรือสไลด์ หากสไลด์ใช้พื้นหลังของตนเอง การเปลี่ยนพื้นหลังของมาสเตอร์อย่างเดียวอาจไม่ส่งผลต่อสไลด์นั้น ใช้ [Background.getEffective](https://reference.aspose.com/slides/th/php-java/aspose.slides/background/) เมื่อคุณต้องการทราบพื้นหลังสุดท้ายหลังจากการสืบทอด
+ผลลัพธ์ที่มองเห็นขึ้นอยู่กับรายการธีมที่มาสเตอร์อ้างอิงและการละเมิดพื้นหลังที่เลเอาต์หรือสไลด์ระดับ หากสไลด์ใช้พื้นหลังของตนเอง การเปลี่ยนพื้นหลังมาสเตอร์อย่างเดียวอาจไม่ส่งผลต่อสไลด์นั้น ใช้ [Background.getEffective](https://reference.aspose.com/slides/th/php-java/aspose.slides/background/) เมื่อคุณต้องการทราบพื้นหลังสุดท้ายหลังจากการสืบทอด
 
-{{% alert color="warning" title="Warning" %}}
-อย่าอ้างอิงดัชนีสไตล์เป็นดัชนีของคอลเลกชันที่เริ่มจากศูนย์ อีกทั้งหลีกเลี่ยงการกำหนดหมายเลขสไตล์จากไฟล์หนึ่งและสมมติว่ามันมีลักษณะเดียวกันในไฟล์อื่น; คำกำหนดสไตล์ของธีมเป็นลักษณะเฉพาะของการนำเสนอ
+{{% alert color="warning" title="คำเตือน" %}}
+อย่าใช้ดัชนีสไตล์เป็นดัชนีคอลเลกชันแบบเริ่มต้นที่ 0 นอกจากนี้หลีกเลี่ยงการกำหนดหมายเลขสไตล์แบบคงที่จากไฟล์หนึ่งและสันนิษฐานว่ามันมีลักษณะเดียวกันในไฟล์อื่น; คำจำกัดความของสไตล์ธีมเป็นลักษณะเฉพาะของการนำเสนอ
 {{% /alert %}}
 
-{{% alert color="info" title="Tip" %}}
-สำหรับการจัดรูปแบบพื้นหลังโดยตรงและการสืบทอดพื้นหลัง, ดูที่ [Presentation Background](/slides/th/php-java/presentation-background/)
+{{% alert color="info" title="เคล็ดลับ" %}}
+สำหรับการจัดรูปแบบพื้นหลังโดยตรงและการสืบทอดพื้นหลัง ให้ดูที่ [Presentation Background](/slides/th/php-java/presentation-background/)
 {{% /alert %}}
 
 ## **อัปเดตเอฟเฟกต์ของธีม**
 
-สกีมรูปแบบของธีมมีคอลเลกชันเติม, เส้น, และเอฟเฟกต์แยกกันที่เปิดเผยผ่าน [FormatScheme.getFillStyles](https://reference.aspose.com/slides/th/php-java/aspose.slides/formatscheme/), [FormatScheme.getLineStyles](https://reference.aspose.com/slides/th/php-java/aspose.slides/formatscheme/), และ [FormatScheme.getEffectStyles](https://reference.aspose.com/slides/th/php-java/aspose.slides/formatscheme/). ธีม Office ทั่วไปมักมีรายการสไตล์หลักสามรายการที่สอดคล้องกับการจัดรูปแบบละเอียด, ปานกลาง, และเข้ม, แต่โค้ดควรตรวจสอบแต่ละคอลเลกชันแทนการสันนิษฐานว่ามีจำนวนคงที่
+สคีมรูปแบบของธีมมีคอลเลกชันการเติม, เส้น, และเอฟเฟกต์ที่แยกกัน เปิดเผยผ่าน [FormatScheme.getFillStyles](https://reference.aspose.com/slides/th/php-java/aspose.slides/formatscheme/), [FormatScheme.getLineStyles](https://reference.aspose.com/slides/th/php-java/aspose.slides/formatscheme/), และ [FormatScheme.getEffectStyles](https://reference.aspose.com/slides/th/php-java/aspose.slides/formatscheme/)。ธีมของ Office ส่วนใหญ่มีรายการสไตล์หลักสามรายการที่สอดคล้องกับการจัดรูปแบบแบบ Subtle, Moderate, และ Intense อย่างไรก็ตามโค้ดควรตรวจสอบแต่ละคอลเลกชันแทนการสันนิษฐานจำนวนคงที่
 
 ![Subtle, moderate, and intense theme effects applied to the same shape](presentation-design_10.png)
 
-เมื่อเข้าถึงคอลเลกชันเหล่านี้ใน PHP, ดัชนีคอลเลกชันเริ่มที่ศูนย์: `get_Item(0)` คือสไตล์ที่เก็บเป็นแรกและ `get_Item(2)` คือสไตล์ลำดับที่สาม ดัชนีการอ้างอิงสไตล์ของรูปร่างเป็นแนวคิดแยกต่างหาก, เปิดเผยผ่าน [ShapeStyle](https://reference.aspose.com/slides/th/php-java/aspose.slides/shapestyle/). การแก้ไขสไตล์ธีมจะส่งผลต่อรูปร่างที่อ้างอิงสไตล์นั้น; รูปร่างที่มีการจัดรูปแบบโดยตรงอาจไม่เปลี่ยน
+เมื่อเข้าถึงคอลเลกชันเหล่านี้ใน PHP ดัชนีคอลเลกชันเริ่มจากศูนย์: `get_Item(0)` คือสไตล์แรกที่เก็บและ `get_Item(2)` คือสไตล์ที่สาม ดัชนีอ้างอิงสไตล์ของรูปทรงเป็นแนวคิดแยกที่เปิดเผยผ่าน [ShapeStyle](https://reference.aspose.com/slides/th/php-java/aspose.slides/shapestyle/)。การแก้ไขสไตล์ธีมจะส่งผลต่อรูปทรงที่อ้างอิงสไตล์ธีมนั้น; รูปทรงที่มีการจัดรูปแบบโดยตรงอาจคงเดิม
 
-ตัวอย่างต่อไปนี้ตรวจสอบว่ามีรายการสไตล์ที่ต้องการหรือไม่, เปลี่ยนสไตล์เส้นแรก, เปลี่ยนสไตล์เติมที่สาม, เปิดใช้งานเงานอกในสไตล์เอฟเฟกต์ที่สาม, แล้วบันทึกผลลัพธ์:
+ตัวอย่างต่อไปนี้ตรวจสอบว่ามีรายการสไตล์ที่ต้องการหรือไม่, เปลี่ยนสไตล์เส้นแรก, เปลี่ยนสไตล์เติมที่สาม, เปิดเงานอกในสไตล์เอฟเฟกต์ที่สาม, และบันทึกผลลัพธ์:
 
 ```php
 use aspose\slides\FillType;
@@ -459,15 +459,89 @@ try {
 }
 ```
 
-สำหรับรูปร่างที่อ้างอิงสล็อตเหล่านี้, สไตล์เส้นธีมแรกจะกลายเป็นสีแดง, สไตล์เติมธีมที่สามจะเป็นสีเขียวป่าแบบทึบ, และสไตล์เอฟเฟกต์ที่สามจะเพิ่มเงานอกที่ระยะ 10 จุด ผลลัพธ์ที่มองเห็นจริงยังคงขึ้นกับสไตล์ที่แต่ละรูปร่างอ้างอิงและว่าการจัดรูปแบบโดยตรงจะทับธีมหรือไม่
+สำหรับรูปทรงที่อ้างอิงช่องเหล่านี้ สไตล์เส้นธีมแรกจะเป็นสีแดง, สไตล์เติมธีมที่สามจะเป็นสีเขียวป่าแบบทึบ, และสไตล์เอฟเฟกต์ที่สามจะเพิ่มเงานอกที่ระยะ 10 จุด ผลลัพธ์ภาพที่แน่นอนยังคงขึ้นอยู่กับว่ารูปทรงแต่ละอันอ้างอิงช่องใดและว่าการจัดรูปแบบโดยตรงละเมิดธีมหรือไม่
 
 ![Theme effect styles after changing line, fill, and shadow settings](presentation-design_11.png)
 
+## **ตรวจสอบว่าการเติมสีทึบที่มีผลใช้สีธีมหรือไม่**
+
+การเติมอาจถูกเก็บโดยตรงบนวัตถุหรือสืบทอดจากย่อหน้า, เลเอาต์, มาสเตอร์, สไตล์ธีม, หรือระดับการจัดรูปแบบอื่น ๆ เรียกใช้ [FillFormat::getEffective](https://reference.aspose.com/slides/th/php-java/aspose.slides/fillformat/) เพื่อแปลงลำดับชั้นนั้นเป็นข้อมูลการเติมที่เป็นคงที่แรก ตรวจสอบผล `getFillType` ก่อน หากผลเป็น `FillType::Solid` จึงอ่านคุณสมบัติการเติมสีทึบ
+
+สำหรับการเติมสีทึบ `getSolidFillColor` จะคืนค่า RGB ที่เรนเดอร์สุดท้ายหลังจากการสืบทอด, การค้นหาธีม, และการแปลงสี `getSolidFillSchemeColor` จะคืนค่าช่อง [SchemeColor](https://reference.aspose.com/slides/th/php-java/aspose.slides/schemecolor/) ที่สอดคล้อง เช่น `Text1` หรือ `Accent6` ค่า `SchemeColor::NotDefined` หมายถึงการเติมสีทึบที่มีผลไม่ได้อิงจากสีสกีม ในเวิร์คโฟลว์ที่การเติมเป็นสีธีมหรือสี RGB โดยตรง ค่านี้บ่งชี้ว่าการเติมเป็นสี RGB โดยตรง
+
+อย่าใช้ค่า [ColorFormat::getSchemeColor](https://reference.aspose.com/slides/th/php-java/aspose.slides/colorformat/) ที่เป็นค่าท้องถิ่นอย่างเดียวเพื่อจำแนกการเติม ตัวอย่างเช่น ส่วนข้อความอาจไม่มีการกำหนดสีสกีมท้องถิ่น จึงค่า `NotDefined` แต่การเติมที่มีผลอาจสืบทอดสีธีมและเป็น `Text1` หรือ `Accent6` ในทางกลับกัน `getSolidFillSchemeColor` บอกว่าช่องธีมเชิงตรรกะใดสร้างสีที่มีผล แต่ไม่บอกว่าช่องนั้นมาจากวัตถุ, ย่อหน้า, เลเอาต์, มาสเตอร์ หรือระดับอื่นของลำดับชั้นการจัดรูปแบบ
+
+ตัวอย่างต่อไปนี้โหลดการนำเสนอ, ตรวจสอบการเติมของทั้งรูปทรงและส่วนข้อความ, พิมพ์ค่า RGB สุดท้ายและสีสกีมที่เกี่ยวข้อง, และทำเครื่องหมายการเติมสีทึบที่ไม่ติดตามการเปลี่ยนแปลงสีธีม:
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SchemeColor;
+
+$auditFill = function (string $objectName, $localFill): void {
+    $effectiveFill = $localFill->getEffective();
+
+    if (java_values($effectiveFill->getFillType()) != FillType::Solid) {
+        echo $objectName . ": fill type = " . java_values($effectiveFill->getFillType()) . "; not a solid fill." . PHP_EOL;
+        return;
+    }
+
+    $rgb = $effectiveFill->getSolidFillColor();
+    $effectiveSchemeColor = java_values($effectiveFill->getSolidFillSchemeColor());
+    $localSchemeColor = java_values($localFill->getSolidFillColor()->getSchemeColor());
+
+    echo sprintf("%s: RGB = #%02X%02X%02X", $objectName, java_values($rgb->getRed()), java_values($rgb->getGreen()), java_values($rgb->getBlue())) . PHP_EOL;
+    echo $objectName . ": local scheme = " . $localSchemeColor . ", effective scheme = " . $effectiveSchemeColor . PHP_EOL;
+
+    if ($effectiveSchemeColor == SchemeColor::NotDefined) {
+        echo $objectName . ": direct RGB or another non-scheme fill; audit as theme-independent." . PHP_EOL;
+    } else {
+        echo $objectName . ": theme-dependent through " . $effectiveSchemeColor . "." . PHP_EOL;
+    }
+};
+
+$autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+$presentation = new Presentation("input.pptx");
+try {
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+
+        $shapeCount = java_values($slide->getShapes()->size());
+        for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+            $shape = $slide->getShapes()->get_Item($shapeIndex);
+            $shapeName = "Slide " . ($slideIndex + 1) . ", shape " . ($shapeIndex + 1);
+            $auditFill($shapeName, $shape->getFillFormat());
+
+            if (java_instanceof($shape, $autoShapeClass)) {
+                $paragraphCount = java_values($shape->getTextFrame()->getParagraphs()->getCount());
+                for ($paragraphIndex = 0; $paragraphIndex < $paragraphCount; $paragraphIndex++) {
+                    $paragraph = $shape->getTextFrame()->getParagraphs()->get_Item($paragraphIndex);
+
+                    $portionCount = java_values($paragraph->getPortions()->getCount());
+                    for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
+                        $portion = $paragraph->getPortions()->get_Item($portionIndex);
+                        $portionName = $shapeName . ", paragraph " . ($paragraphIndex + 1) . ", portion " . ($portionIndex + 1);
+                        $auditFill($portionName, $portion->getPortionFormat()->getFillFormat());
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+สาขา `NotDefined` ให้รายการการตรวจสอบของการเติมสีทึบที่ไม่ตอบสนองต่อการเปลี่ยนแปลงในช่องสีธีม ตรวจสอบวัตถุเหล่านั้นเมื่อการนำเสนอจะต้องปฏิบัติตามพาเลทแบรนด์ใหม่ ค่า RGB ที่รายงานยังแสดงล appearance ปัจจุบัน ขณะที่ค่าช่องอธิบายว่าการแสดงผลนั้นเชื่อมต่อกับธีมหรือไม่
+
+อ็อบเจ็กต์ที่มีรูปแบบที่มีผลเป็นสแน็ปชอต หลังจากเปลี่ยนธีมการนำเสนอ, การละเมิดธีม, หรือการจัดรูปแบบที่สืบทอดใด ๆ เรียก `getEffective` อีกครั้งและอ่านข้อมูลการเติมที่มีผลใหม่ก่อนเปรียบเทียบหรือรายงานสี
+
 ## **อ่านค่าธีมที่มีผล**
 
-อ็อบเจ็กต์ธีมดิบบอกว่ามีอะไรถูกกำหนดไว้ในระดับใดระดับหนึ่ง ค่าที่มีผลบอกว่าหน่วยหรือรูปร่างใช้ค่าอะไรจริง ๆ หลังจากการสืบทอดและการแทนที่ในระดับท้องถิ่นได้ถูกแก้ไขแล้ว สำหรับสไลด์, เรียก [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/th/php-java/aspose.slides/baseoverridethememanager/). สำหรับพื้นหลัง, ใช้ [Background.getEffective](https://reference.aspose.com/slides/th/php-java/aspose.slides/background/), และสำหรับการเติม, ใช้ [FillFormat.getEffective](https://reference.aspose.com/slides/th/php-java/aspose.slides/fillformat/)
+อ็อบเจ็กต์ธีมดิบบอกว่าอะไรถูกกำหนดในระดับใดระดับหนึ่ง ค่าที่มีผลบอกว่า สไลด์หรือรูปทรงใช้อะไรจริงหลังจากการสืบทอดและการละเมิดท้องถิ่นถูกประมวลผล สำหรับสไลด์ ให้เรียก [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/th/php-java/aspose.slides/baseoverridethememanager/)。สำหรับพื้นหลัง ใช้ [Background.getEffective](https://reference.aspose.com/slides/th/php-java/aspose.slides/background/), และสำหรับการเติม ใช้ [FillFormat.getEffective](https://reference.aspose.com/slides/th/php-java/aspose.slides/fillformat/)
 
-ตัวอย่างต่อไปนี้อ่านธีมที่มีผล, พื้นหลัง, และการเติมของรูปทรงแรกจากสไลด์:
+ตัวอย่างต่อไปนี้อ่านธีมที่มีผล, พื้นหลัง, และการเติมรูปทรงแรกจากสไลด์:
 
 ```php
 use aspose\slides\FillType;
@@ -494,22 +568,22 @@ try {
 }
 ```
 
-ใช้ข้อมูลที่มีผลสำหรับการวินิจฉัยการเรนเดอร์, การตรวจสอบ, และการเปรียบเทียบ หากคุณตรวจสอบเฉพาะ [Presentation.getMasterTheme](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/) คุณอาจพลาดการแทนที่จากมาสเตอร์, เลย์เอาต์, สไลด์, หรือรูปร่างที่เปลี่ยนลักษณะสุดท้าย
+ใช้ข้อมูลที่มีผลสำหรับการวินิจฉัยการเรนเดอร์, การตรวจสอบ, และการเปรียบเทียบ หากคุณตรวจสอบเฉพาะ [Presentation.getMasterTheme](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/) อาจพลาดมาสเตอร์, เลเอาต์, สไลด์, หรือการละเมิดรูปทรงที่เปลี่ยนล appearance สุดท้าย
 
 ## **คำถามที่พบบ่อย**
 
-**การใช้ธีมภายนอกมีผลต่อสไลด์ทุกสไลด์ในงานนำเสนอหรือไม่?**
+**การใช้ธีมภายนอกจะส่งผลต่อสไลด์ทุกสไลด์ในงานนำเสนอหรือไม่?**
 
-ไม่. [MasterSlide::applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/th/php-java/aspose.slides/masterslide/) จะกำหนดใหม่เฉพาะสไลด์ที่ขึ้นกับมาสเตอร์ที่เลือกเท่านั้น สไลด์ที่ใช้มาสเตอร์อื่นจะคงธีมเดิมไว้
+ไม่ใช่ [MasterSlide::applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/th/php-java/aspose.slides/masterslide/) จะกำหนดใหม่เฉพาะสไลด์ที่ขึ้นกับมาสเตอร์ที่เลือก สไลด์ที่ใช้มาสเตอร์อื่นจะรักษาธีมเดิมไว้
 
 **ฉันสามารถใช้ธีมกับสไลด์เดียวโดยไม่เปลี่ยนมาสเตอร์ได้หรือไม่?**
 
-ได้. ใช้ [SlideThemeManager](https://reference.aspose.com/slides/th/php-java/aspose.slides/slidethememanager/) ของสไลด์และเริ่มต้นธีมแทนที่ของมัน การเปลี่ยนแปลงจะอยู่เฉพาะสไลด์นั้น; สไลด์อื่น ๆ จะสืบทอดธีมเดิมต่อไป
+ได้ ใช้ [SlideThemeManager](https://reference.aspose.com/slides/th/php-java/aspose.slides/slidethememanager/) ของสไลด์และเริ่มต้นธีมละเมิดของมัน การเปลี่ยนแปลงจะอยู่ในระดับสไลด์เท่านั้น สไลด์อื่น ๆ ยังคงสืบทอดธีมเดิมต่อไป
 
 **วิธีที่ปลอดภัยที่สุดในการย้ายธีมจากงานนำเสนอหนึ่งไปยังอีกงานนำเสนอหนึ่งคืออะไร?**
 
-เมื่อต้องย้ายสไลด์และคงรูปลักษณ์ต้นฉบับ, ให้โคลนมาสเตอร์ต้นฉบับไปยังปลายทางและโคลนสไลด์พร้อมมาสเตอร์นั้นโดยใช้ [MasterSlideCollection.addClone](https://reference.aspose.com/slides/th/php-java/aspose.slides/masterslidecollection/) และ [SlideCollection.addClone](https://reference.aspose.com/slides/th/php-java/aspose.slides/slidecollection/). วิธีนี้ทำให้มาสเตอร์, เลย์เอาต์, และธีมอยู่ด้วยกัน
+เมื่อย้ายสไลด์และต้องการรักษารูปแบบต้นฉบับ ให้คัดลอกมาสเตอร์ต้นฉบับไปยังปลายทางและคัดลอกสไลด์ด้วยมาสเตอร์นั้นโดยใช้ [MasterSlideCollection.addClone](https://reference.aspose.com/slides/th/php-java/aspose.slides/masterslidecollection/) และ [SlideCollection.addClone](https://reference.aspose.com/slides/th/php-java/aspose.slides/slidecollection/) วิธีนี้ทำให้มาสเตอร์, เลเอาต์, และธีมอยู่ด้วยกัน
 
-**ฉันจะดูค่าที่มีผลหลังจากการสืบทอดและการแทนที่ได้อย่างไร?**
+**ฉันจะดูค่าที่มีผลหลังจากการสืบทอดและการละเมิดได้อย่างไร?**
 
-ใช้ [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/th/php-java/aspose.slides/baseoverridethememanager/) สำหรับสไลด์หรือธีมเลย์เอาต์และเมธอดข้อมูลที่มีผลที่สอดคล้องสำหรับอ็อบเจ็กต์รูปแบบ เช่น [Background.getEffective](https://reference.aspose.com/slides/th/php-java/aspose.slides/background/) และ [FillFormat.getEffective](https://reference.aspose.com/slides/th/php-java/aspose.slides/fillformat/). API เหล่านี้จะคืนค่าที่แก้ไขแล้วหลังจากการสืบทอดและการแทนที่ถูกนำไปใช้.
+ใช้ [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/th/php-java/aspose.slides/baseoverridethememanager/) สำหรับสไลด์หรือเลเอาต์ธีมและเมธอดข้อมูลที่มีผลที่สอดคล้องสำหรับอ็อบเจ็กต์รูปแบบ เช่น [Background.getEffective](https://reference.aspose.com/slides/th/php-java/aspose.slides/background/) และ [FillFormat.getEffective](https://reference.aspose.com/slides/th/php-java/aspose.slides/fillformat/) API เหล่านี้คืนค่าที่ได้รับการแก้ไขหลังจากการสืบทอดและการละเมิดถูกนำไปใช้

@@ -20,26 +20,26 @@ keywords:
 - Efekt motywu
 - PowerPoint
 - OpenDocument
-- prezentacja
+- Prezentacja
 - Java
 - Aspose.Slides
-description: "Główne motywy prezentacji w Aspose.Slides dla Javy, umożliwiające tworzenie, dostosowywanie i konwertowanie plików PowerPoint z zachowaniem spójnej marki."
+description: "Główne motywy prezentacji w Aspose.Slides dla Javy, umożliwiające tworzenie, dostosowywanie i konwertowanie plików PowerPoint z zachowaniem spójnej identyfikacji wizualnej."
 ---
 ## **Wprowadzenie**
 
-Motyw prezentacji definiuje skoordynowany zestaw kolorów, czcionek, stylów tła, wypełnień, linii i efektów. Obiekty świadome motywu odwołują się do tych wspólnych definicji zamiast przechowywać każdą właściwość wizualną jako stałą wartość, dzięki czemu zmiana motywu może jednocześnie zaktualizować wiele obiektów.
+Motyw prezentacji definiuje skoordynowany zestaw kolorów, czcionek, stylów tła, wypełnień, linii i efektów. Obiekty świadome motywu odwołują się do tych współdzielonych definicji zamiast przechowywać każdą właściwość wizualną jako stałą wartość, dzięki czemu zmiana motywu może jednocześnie zaktualizować wiele obiektów.
 
-W Aspose.Slides motyw na poziomie prezentacji jest dostępny za pośrednictwem [Presentation.getMasterTheme](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/). Prezentacja może również zawierać nadpisania motywu na niższych poziomach. Master może nadpisać motyw prezentacji poprzez [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/pl/java/com.aspose.slides/masterthememanager/), natomiast układ lub pojedynczy slajd może nadpisać odziedziczony motyw poprzez [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/pl/java/com.aspose.slides/baseoverridethememanager/). W praktyce efektywny motyw dla slajdu jest rozwiązywany według łańcucha dziedziczenia: motyw prezentacji, nadpisanie master, nadpisanie układu i nadpisanie slajdu.
+W Aspose.Slides motyw na poziomie prezentacji jest dostępny poprzez [Presentation.getMasterTheme](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/). Prezentacja może również zawierać nadpisania motywu na niższych poziomach. Master może nadpisać motyw prezentacji poprzez [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/pl/java/com.aspose.slides/masterthememanager/), podczas gdy układ lub pojedynczy slajd może nadpisać odziedziczony motyw poprzez [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/pl/java/com.aspose.slides/baseoverridethememanager/). W praktyce skuteczny motyw dla slajdu jest rozwiązywany w łańcuchu dziedziczenia: motyw prezentacji, nadpisanie mastera, nadpisanie układu i nadpisanie slajdu.
 
 ![Komponenty motywu: kolory, czcionki, style tła i efekty](theme-constituents.png)
 
-Poniższe sekcje pokazują najczęstsze przepływy pracy z motywem: inspekcję motywu, zmianę kolorów i czcionek, kopiowanie lub zastosowanie motywu, aktualizację stylów tła i efektów oraz odczyt wartości efektywnych po rozwiązaniu dziedziczenia i nadpisań.
+Poniższe sekcje przedstawiają najczęstsze przepływy pracy z motywami: przeglądanie motywu, zmiana kolorów i czcionek, kopiowanie lub zastosowanie motywu, aktualizacja stylów tła i efektów oraz odczytywanie wartości skutecznych po rozwiązywaniu dziedziczenia i nadpisań.
 
-## **Inspekcja motywu**
+## **Przeglądanie motywu**
 
-Obiekt [MasterTheme](https://reference.aspose.com/slides/pl/java/com.aspose.slides/mastertheme/) udostępnia schemat kolorów, schemat czcionek i schemat formatów motywu poprzez [MasterTheme.getColorScheme](https://reference.aspose.com/slides/pl/java/com.aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/pl/java/com.aspose.slides/mastertheme/) oraz [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/pl/java/com.aspose.slides/mastertheme/). Sprawdzenie tych kolekcji przed ich modyfikacją jest szczególnie przydatne, gdy prezentacja pochodzi z zewnętrznego źródła, ponieważ liczba i zawartość wpisów stylów może się różnić.
+Obiekt [MasterTheme](https://reference.aspose.com/slides/pl/java/com.aspose.slides/mastertheme/) udostępnia schemat kolorów, schemat czcionek i schemat formatowania motywu poprzez [MasterTheme.getColorScheme](https://reference.aspose.com/slides/pl/java/com.aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/pl/java/com.aspose.slides/mastertheme/) i [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/pl/java/com.aspose.slides/mastertheme/). Przeglądanie tych kolekcji przed ich modyfikacją jest szczególnie przydatne, gdy prezentacja pochodzi ze zewnętrznego źródła, ponieważ liczba i zawartość wpisów stylów mogą się różnić.
 
-Poniższy przykład odczytuje główne właściwości motywu i podaje, ile stylów tła, wypełnień, linii i efektów jest zapisanych w motywie:
+Poniższy przykład odczytuje główne właściwości motywu i raportuje, ile stylów tła, wypełnień, linii i efektów jest przechowywanych w motywie:
 
 ```java
 import com.aspose.slides.*;
@@ -60,13 +60,13 @@ try {
 }
 ```
 
-Jeśli plik używa wielu masterów, nie zakładaj, że każdy slajd ma ten sam efektywny motyw. Sprawdź master powiązany ze slajdem i użyj przepływu pracy z efektywnym motywem przedstawionego później w tym artykule, gdy mogą występować nadpisania układu lub slajdu.
+Jeśli plik używa wielu masterów, nie zakładaj, że każdy slajd ma taki sam skuteczny motyw. Przejrzyj master powiązany ze slajdem i użyj przepływu pracy ze skutecznym motywem przedstawionego później w tym artykule, gdy mogą występować nadpisania układu lub slajdu.
 
 ## **Zmiana kolorów motywu**
 
-Wypełnienia, linie i tekst świadome motywu mogą odwoływać się do logicznego koloru z wyliczenia [SchemeColor](https://reference.aspose.com/slides/pl/java/com.aspose.slides/schemecolor/). Po zmianie odpowiedniego wpisu w [IColorScheme](https://reference.aspose.com/slides/pl/java/com.aspose.slides/icolorscheme/) wszystkie obiekty, które nadal odwołują się do tego koloru motywu, zostaną rozwiązane względem nowej wartości. Obiekty używające bezpośredniego koloru RGB nie są zmieniane przez aktualizację koloru motywu.
+Wypełnienia, linie i tekst świadome motywu mogą odwoływać się do logicznego koloru z wyliczenia [SchemeColor](https://reference.aspose.com/slides/pl/java/com.aspose.slides/schemecolor/). Gdy zmienisz odpowiedni wpis w [IColorScheme](https://reference.aspose.com/slides/pl/java/com.aspose.slides/icolorscheme/), wszystkie obiekty, które nadal odwołują się do tego koloru motywu, są rozwiązywane względem nowej wartości. Obiekty używające bezpośredniego koloru RGB nie są zmieniane przez aktualizację koloru motywu.
 
-Poniższy przykład końcowy tworzy kształt używający `Accent4`, zmienia kolor motywu `Accent4` na czerwony, zapisuje prezentację, otwiera ją ponownie i wypisuje efektywny kolor wypełnienia:
+Poniższy przykład end‑to‑end tworzy kształt używający `Accent4`, zmienia kolor `Accent4` motywu na czerwony, zapisuje prezentację, otwiera ją ponownie i wypisuje skuteczny kolor wypełnienia:
 
 ```java
 import com.aspose.slides.*;
@@ -97,15 +97,14 @@ try {
 
 Ponieważ prostokąt pozostaje powiązany z `Accent4`, jego widoczny kolor staje się czerwony po zmianie motywu. Jeśli zamienisz kolor schematu na bezpośredni kolor w kształcie, późniejsze zmiany `Accent4` nie będą już wpływać na to wypełnienie.
 
-### **Użycie kolorów z dodatkowej palety**
+### **Użyj kolorów z dodatkowej palety**
 
-PowerPoint wyprowadza jaśniejsze i ciemniejsze warianty z koloru motywu, stosując przekształcenia kolorów. Aspose.Slides udostępnia te przekształcenia poprzez wyliczenie [ColorTransformOperation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/colortransformoperation/).
+PowerPoint generuje jaśniejsze i ciemniejsze warianty koloru motywu, stosując przekształcenia kolorów. Aspose.Slides udostępnia te przekształcenia poprzez wyliczenie [ColorTransformOperation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/colortransformoperation/).
 
 ![Główne kolory motywu oraz jaśniejsze i ciemniejsze kolory wygenerowane z dodatkowej palety](additional-palette-colors.png)
 
-**1** - Główne kolory motywu.
-
-**2** - Jaśniejsze i ciemniejsze warianty wyprodukowane z głównych kolorów motywu.
+**1** - Główne kolory motywu.  
+**2** - Jaśniejsze i ciemniejsze warianty wygenerowane z głównych kolorów motywu.
 
 Poniższy przykład tworzy sześć prostokątów opartych na `Accent4`, stosuje przekształcenia luminancji do pięciu z nich i zapisuje wynik:
 
@@ -154,31 +153,31 @@ try {
 }
 ```
 
-Te warianty pozostają oparte na kolorze motywu. Jeśli `Accent4` zmieni się później, przekształcone kolory zostaną ponownie przeliczone z nowej wartości `Accent4`.
+Te warianty pozostają oparte na kolorze motywu. Jeśli `Accent4` zmieni się później, przekształcone kolory zostaną przeliczone na podstawie nowej wartości `Accent4`.
 
-### **Mapowanie wartości `SchemeColor` na sloty `IColorScheme`**
+### **Mapowanie wartości `SchemeColor` na miejsca w `IColorScheme`**
 
-Wyliczenie [SchemeColor](https://reference.aspose.com/slides/pl/java/com.aspose.slides/schemecolor/) używa `Text1`, `Background1`, `Text2` i `Background2`, podczas gdy [IColorScheme](https://reference.aspose.com/slides/pl/java/com.aspose.slides/icolorscheme/) udostępnia te same sloty motywu jako `Dark1`, `Light1`, `Dark2` i `Light2`. Mapowanie jest stałe:
+Wyliczenie [SchemeColor](https://reference.aspose.com/slides/pl/java/com.aspose.slides/schemecolor/) używa `Text1`, `Background1`, `Text2` i `Background2`, podczas gdy [IColorScheme](https://reference.aspose.com/slides/pl/java/com.aspose.slides/icolorscheme/) udostępnia te same miejsca motywu jako `Dark1`, `Light1`, `Dark2` i `Light2`. Mapowanie jest stałe:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-Są to alternatywne nazwy tych samych slotów motywu; nie są to wartości dynamicznie konwertowane z jednej formy na drugą.
+Są to alternatywne nazwy tych samych miejsc w motywie; nie są to wartości dynamicznie konwertowane z jednej formy na drugą.
 
 ## **Zmiana czcionek motywu**
 
-Schemat czcionek motywu zawiera zestaw głównych czcionek dla nagłówków oraz zestaw pomocniczych czcionek dla tekstu głównego. Metody [IFontScheme.getMajor](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ifontscheme/) oraz [IFontScheme.getMinor](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ifontscheme/) udostępniają te zestawy.
+Schemat czcionek motywu zawiera zestaw głównych czcionek dla nagłówków oraz zestaw pomocniczych czcionek dla tekstu podstawowego. Metody [IFontScheme.getMajor](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ifontscheme/) i [IFontScheme.getMinor](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ifontscheme/) udostępniają te zestawy.
 
-Identyfikatory czcionek kompatybilnych z PowerPoint mogą być używane w formatowaniu tekstu:
+Identyfikatory czcionek motywu zgodne z PowerPoint można używać w formatowaniu tekstu:
 
-* `+mn-lt` - Czcionka ciała Latin (Minor Latin Font)
-* `+mj-lt` - Czcionka nagłówka Latin (Major Latin Font)
-* `+mn-ea` - Czcionka ciała East Asian (Minor East Asian Font)
-* `+mj-ea` - Czcionka nagłówka East Asian (Major East Asian Font)
+* `+mn-lt` – Czcionka podstawowa Latin (Minor Latin Font)
+* `+mj-lt` – Czcionka nagłówka Latin (Major Latin Font)
+* `+mn-ea` – Czcionka podstawowa East Asian (Minor East Asian Font)
+* `+mj-ea` – Czcionka nagłówka East Asian (Major East Asian Font)
 
-Poniższy przykład tworzy jeden nagłówek używający głównej czcionki Latin oraz jedną linię tekstu ciała używającą pomocniczej czcionki Latin. Następnie zmienia czcionki motywu i zapisuje wynik:
+Poniższy przykład tworzy jeden nagłówek używający głównej czcionki Latin oraz jedną linię tekstu podstawowego używającą pomocniczej czcionki Latin. Następnie zmienia czcionki motywu i zapisuje wynik:
 
 ```java
 import com.aspose.slides.*;
@@ -203,28 +202,28 @@ try {
 }
 ```
 
-Nagłówek podąża za główną czcionką, a tekst ciała za czcionką pomocniczą. Tekst, który ma explicite nazwę czcionki zamiast identyfikatora motywu, nie przełączy się automatycznie po zmianie schematu czcionek motywu.
+Nagłówek podąża za czcionką główną, a tekst podstawowy za czcionką pomocniczą. Tekst, który ma wyraźnie określoną nazwę czcionki zamiast identyfikatora motywu, nie przełączy się automatycznie po zmianie schematu czcionek motywu.
 
-Zbiory czcionek głównych i pomocniczych mogą także zawierać mapowania czcionek dla poszczególnych systemów pisma, takich jak cyrylica, arabski, japoński, gruziński i thaana. Aby sprawdzić, dodać, zastąpić lub usunąć te mapowania, zobacz [Script-Specific Theme Fonts](/slides/pl/java/script-specific-font-mappings/).
+Zbiory czcionek głównych i pomocniczych mogą również zawierać mapowania czcionek dla poszczególnych systemów pisma, takich jak cyrylica, arabski, japoński, gruziński i thaana. Aby przeglądać, dodawać, zamieniać lub usuwać te mapowania, zobacz [Czcionki motywu specyficzne dla skryptu](/slides/pl/java/script-specific-font-mappings/).
 
 {{% alert color="info" title="Porada" %}}
-Po więcej informacji o czcionkach w prezentacji zobacz [PowerPoint Fonts](/slides/pl/java/powerpoint-fonts/).
+Więcej informacji o czcionkach w prezentacji znajdziesz w sekcji [Czcionki PowerPoint](/slides/pl/java/powerpoint-fonts/).
 {{% /alert %}}
 
 ## **Kopiowanie lub zastosowanie motywu**
 
-Poniższe przepływy rozwiązuje różne problemy związane z motywem.
+Poniższe przepływy rozwiązują różne problemy związane z motywami.
 
-### **Zastosowanie zewnętrznego motywu do slajdów zależnych od Mastera**
+### **Zastosowanie zewnętrznego motywu do slajdów zależnych od mastera**
 
-Użyj [IMasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/pl/java/com.aspose.slides/imasterslide/) gdy posiadasz plik motywu PowerPoint (`.thmx`) i chcesz przeformatować każdy slajd zależny od konkretnego mastera. Wybierz master z kolekcji [Presentation.getMasters](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/), która implementuje [IMasterSlideCollection](https://reference.aspose.com/slides/pl/java/com.aspose.slides/imasterslidecollection/), i przekaż ścieżkę do pliku motywu metodzie.
+Użyj [IMasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/pl/java/com.aspose.slides/imasterslide/) gdy masz plik motywu PowerPoint (`.thmx`) i chcesz przestylizować każdy slajd zależny od konkretnego mastera. Wybierz master z kolekcji [Presentation.getMasters](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/), która implementuje [IMasterSlideCollection](https://reference.aspose.com/slides/pl/java/com.aspose.slides/imasterslidecollection/), i przekaż ścieżkę do pliku motywu metodzie.
 
 Metoda wykonuje następujące operacje:
 
-1. Tworzy nowy slajd master na podstawie wybranego mastera.
-2. Zastosowuje zewnętrzny motyw do nowego mastera.
-3. Przypisuje nowy master do wszystkich slajdów, które wcześniej zależały od wybranego mastera.
-4. Zwraca nowo utworzony [IMasterSlide](https://reference.aspose.com/slides/pl/java/com.aspose.slides/imasterslide/).
+1. Tworzy nowy slajd master oparty na wybranym masterze.  
+1. Zastosowuje zewnętrzny motyw do nowego mastera.  
+1. Przypisuje nowego mastera wszystkim slajdom, które wcześniej zależały od wybranego mastera.  
+1. Zwraca nowo utworzony [IMasterSlide](https://reference.aspose.com/slides/pl/java/com.aspose.slides/imasterslide/).
 
 Poniższy przykład stosuje zewnętrzny motyw do slajdów zależnych od pierwszego mastera i zapisuje prezentację:
 
@@ -243,17 +242,17 @@ try {
 }
 ```
 
-Nieprawidłowy, uszkodzony lub nieobsługiwany motyw może spowodować [PptxReadException](https://reference.aspose.com/slides/pl/java/com.aspose.slides/pptxreadexception/). Waliduj ścieżki podane przez użytkowników, obsługuj błędy dostępu do systemu plików i zapisuj prezentację dopiero po pomyślnym zastosowaniu motywu.
+Nieprawidłowy, uszkodzony lub nieobsługiwany motyw może spowodować [PptxReadException](https://reference.aspose.com/slides/pl/java/com.aspose.slides/pptxreadexception/). Waliduj ścieżki podawane przez użytkowników, obsługuj błędy dostępu do systemu plików i zapisuj prezentację dopiero po pomyślnym zastosowaniu motywu.
 
-Tylko slajdy zależne od wybranego mastera są ponownie przypisywane. Slajdy powiązane z innymi masterami zachowują swoje istniejące mastery i motywy. Kolory, czcionki, wypełnienia, linie, tła i efekty świadome motywu są rozwiązywane względem zewnętrznego motywu. Bezpośrednio przypisane kolory, czcionki, wypełnienia i inne explicite formatowanie mogą pozostać niezmienione. Nadpisania na poziomie układu i slajdu mogą również mieć pierwszeństwo przed wartościami odziedziczonymi z nowego mastera.
+Tylko slajdy zależne od wybranego mastera są ponownie przypisywane. Slajdy powiązane z innymi masterami zachowują swoje dotychczasowe mastery i motywy. Kolory, czcionki, wypełnienia, linie, tła i efekty świadome motywu są rozwiązywane względem zewnętrznego motywu. Bezpośrednio przypisane kolory, czcionki, wypełnienia i inne formatowanie mogą pozostać niezmienione. Nadpisania na poziomie układu i slajdu mogą również mieć pierwszeństwo przed wartościami odziedziczonymi z nowego mastera.
 
-Motyw może odwoływać się do czcionek, które nie są dostępne w środowisku uruchomieniowym. Dla spójnego renderowania i eksportu zainstaluj wymagane czcionki, udostępnij je poprzez [custom font sources](/slides/pl/java/custom-font/), lub skonfiguruj [font substitution](/slides/pl/java/font-substitution/).
+Motyw może odwoływać się do czcionek, które nie są dostępne w środowisku uruchomieniowym. Dla spójnego renderowania i eksportu zainstaluj wymagane czcionki, udostępnij je poprzez [niestandardowe źródła czcionek](/slides/pl/java/custom-font/), lub skonfiguruj [zastępowanie czcionek](/slides/pl/java/font-substitution/).
 
-Jest to bezpośredni przepływ na poziomie mastera: metoda przyjmuje ścieżkę do pliku `.thmx` i nie wymaga ręcznego tworzenia nadpisań motywu na poziomie slajdu lub układu.
+To jest bezpośredni przepływ na poziomie mastera: metoda przyjmuje ścieżkę do pliku `.thmx` i nie wymaga ręcznego tworzenia nadpisań motywu na poziomie slajdu lub układu.
 
 ### **Zastosowanie różnych zewnętrznych motywów w prezentacji z wieloma masterami**
 
-Gdy odpowiedni master nie jest znany z góry, pobierz go z reprezentatywnego slajdu za pomocą [ISlide.getLayoutSlide](https://reference.aspose.com/slides/pl/java/com.aspose.slides/islide/) i [ILayoutSlide.getMasterSlide](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ilayoutslide/). Zachowaj referencje do oryginalnych masterów przed zastosowaniem jakichkolwiek motywów, ponieważ każde wywołanie tworzy kolejny master w prezentacji.
+Gdy odpowiedni master nie jest znany z góry, pobierz go z reprezentatywnego slajdu przy pomocy [ISlide.getLayoutSlide](https://reference.aspose.com/slides/pl/java/com.aspose.slides/islide/) i [ILayoutSlide.getMasterSlide](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ilayoutslide/). Przechowaj oryginalne odwołania do masterów przed zastosowaniem jakichkolwiek motywów, ponieważ każde wywołanie tworzy kolejny master w prezentacji.
 
 Poniższy przykład używa slajdów z dwóch sekcji, aby zlokalizować ich mastery i stosuje inny zewnętrzny motyw do każdej grupy:
 
@@ -284,11 +283,11 @@ try {
 }
 ```
 
-Pierwsze wywołanie wpływa tylko na slajdy zależne od `firstGroupMaster`, a drugie wywołanie wpływa tylko na slajdy zależne od `secondGroupMaster`. Slajdy należące do jakiegokolwiek innego mastera nie są przetwarzane.
+Pierwsze wywołanie wpływa tylko na slajdy zależne od `firstGroupMaster`, a drugie wywołanie wpływa tylko na slajdy zależne od `secondGroupMaster`. Slajdy należące do innego mastera nie zostaną przestylizowane.
 
-### **Zachowanie motywu źródłowego przy przenoszeniu slajdów**
+### **Zachowanie źródłowego motywu przy przenoszeniu slajdów**
 
-Jeśli chcesz przenieść slajd do innej prezentacji i zachować jego oryginalny projekt, sklonuj master źródłowy do prezentacji docelowej przy pomocy [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/pl/java/com.aspose.slides/imasterslidecollection/), a następnie sklonuj slajd przy użyciu [ISlideCollection.addClone](https://reference.aspose.com/slides/pl/java/com.aspose.slides/islidecollection/) i sklonowanego mastera. To przenosi master, jego układy i powiązany motyw razem.
+Jeśli chcesz przenieść slajd do innej prezentacji i zachować jego pierwotny wygląd, sklonuj źródłowy master do prezentacji docelowej przy pomocy [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/pl/java/com.aspose.slides/imasterslidecollection/), a następnie sklonuj slajd z [ISlideCollection.addClone](https://reference.aspose.com/slides/pl/java/com.aspose.slides/islidecollection/) i sklonowanym masterem. To przenosi master, jego układy oraz powiązany motyw razem.
 
 ```java
 import com.aspose.slides.*;
@@ -310,11 +309,11 @@ try {
 }
 ```
 
-Jest to preferowany przepływ, gdy slajd źródłowy musi wyglądać tak samo w miejscu docelowym. Samo klonowanie treści na niepowiązany master docelowy może zmienić kolory, czcionki, tła i efekty sterowane przez motyw.
+Jest to preferowany przepływ, gdy źródłowy slajd musi wyglądać identycznie w miejscu docelowym. Proste kopiowanie treści na niepowiązany master docelowy może zmienić kolory, czcionki, tła i efekty sterowane przez motyw.
 
 ### **Zastosowanie wartości motywu do istniejącego slajdu**
 
-Jeśli docelowy slajd ma pozostać na bieżącym masterze i układzie, zainicjuj nadpisanie na poziomie slajdu z motywu źródłowego. Metody [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/pl/java/com.aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/pl/java/com.aspose.slides/overridetheme/), i [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/pl/java/com.aspose.slides/overridetheme/) kopiują trzy główne komponenty motywu do nadpisania.
+Jeśli docelowy slajd musi pozostać na bieżącym masterze i układzie, zainicjuj nadpisanie na poziomie slajdu z motywu źródłowego. Metody [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/pl/java/com.aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/pl/java/com.aspose.slides/overridetheme/) i [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/pl/java/com.aspose.slides/overridetheme/) kopiują trzy główne komponenty motywu do nadpisania.
 
 ```java
 import com.aspose.slides.*;
@@ -337,11 +336,11 @@ try {
 }
 ```
 
-To zmienia motyw używany przez ten slajd bez zmiany motywu odziedziczonego przez inne slajdy. Aby usunąć lokalne nadpisanie i powrócić do wartości odziedziczonych, wywołaj [OverrideTheme.clear](https://reference.aspose.com/slides/pl/java/com.aspose.slides/overridetheme/).
+To zmienia motyw używany przez ten slajd bez zmiany motywu dziedziczonego przez inne slajdy. Aby usunąć lokalne nadpisanie i powrócić do wartości dziedziczonych, wywołaj [OverrideTheme.clear](https://reference.aspose.com/slides/pl/java/com.aspose.slides/overridetheme/).
 
 ### **Zastosowanie nadpisania motywu do układu**
 
-Nadpisanie na poziomie układu dotyczy slajdów używających tego układu, chyba że konkretny slajd ma własne nadpisanie. Te same metody inicjalizacji mogą być użyte poprzez [LayoutSlideThemeManager](https://reference.aspose.com/slides/pl/java/com.aspose.slides/layoutslidethememanager/):
+Nadpisanie na poziomie układu dotyczy slajdów używających tego układu, chyba że konkretny slajd ma własne nadpisanie. Te same metody inicjalizacji można użyć przez [LayoutSlideThemeManager](https://reference.aspose.com/slides/pl/java/com.aspose.slides/layoutslidethememanager/):
 
 ```java
 import com.aspose.slides.*;
@@ -365,17 +364,17 @@ try {
 }
 ```
 
-Użyj motywu na poziomie mastera lub prezentacji, gdy wiele układów i slajdów ma współdzielić ten sam podstawowy projekt, nadpisania układu, gdy jedna rodzina układów potrzebuje innego stylu, i nadpisania slajdu jedynie dla rzeczywistych wyjątków. Nadmierne nadpisania na poziomie slajdu utrudniają późniejsze globalne zmiany motywu.
+Użyj motywu na poziomie mastera lub prezentacji, gdy wiele układów i slajdów ma współdzielić tę samą bazową konstrukcję, nadpisania układu, gdy jedna rodzina układów wymaga innego stylu, oraz nadpisania slajdu tylko w rzeczywistych wyjątkach. Nadmierna liczba nadpisań na poziomie slajdu utrudnia późniejsze globalne zmiany motywu.
 
 ## **Aktualizacja stylów tła motywu**
 
-Wypełnienia tła motywu są przechowywane w [IFormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iformatscheme/). PowerPoint może prezentować w interfejsie więcej opcji tła niż liczba definicji wypełnień fizycznie zapisanych w tej kolekcji, ponieważ UI może łączyć wypełnienia motywu z kolorami motywu i innymi odniesieniami stylów.
+Wypełnienia tła motywu są przechowywane w [IFormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iformatscheme/). PowerPoint może prezentować w interfejsie więcej opcji tła niż faktyczna liczba definicji wypełnień przechowywanych w tej kolekcji, ponieważ UI może łączyć wypełnienia motywu z kolorami motywu i innymi odniesieniami stylów.
 
 ![Galeria stylów tła PowerPoint dla motywu prezentacji](presentation-design_8.png)
 
-Przed użyciem stylu tła, sprawdź przechowywaną kolekcję i aktualny [Background.getStyleIndex](https://reference.aspose.com/slides/pl/java/com.aspose.slides/background/). Indeks stylu `0` oznacza brak wypełnienia tematycznego; wartości dodatnie są odwołaniami do stylu tła motywu. To różni się od indeksowania kolekcji Java bezpośrednio, gdzie `get_Item(0)` oznacza pierwszy zapisany element. Nie zakładaj, że każda prezentacja zawiera taką samą liczbę stylów wypełnień tła.
+Przed użyciem stylu tła przejrzyj przechowywaną kolekcję i aktualny [Background.getStyleIndex](https://reference.aspose.com/slides/pl/java/com.aspose.slides/background/). Indeks stylu `0` oznacza brak wypełnienia motywowego; wartości dodatnie są odniesieniami do stylu tła motywu. Jest to inne niż indeksowanie kolekcji Java, gdzie `get_Item(0)` oznacza pierwszy przechowywany element. Nie zakładaj, że każda prezentacja zawiera taką samą liczbę stylów wypełnienia tła.
 
-Poniższy przykład podaje liczbę dostępnych wypełnień tła, przypisuje odwołanie do tematycznego tła pierwszemu masterowi i zapisuje prezentację:
+Poniższy przykład raportuje dostępny licznik wypełnień tła, przypisuje odniesienie do motywowego tła pierwszemu masterowi i zapisuje prezentację:
 
 ```java
 import com.aspose.slides.*;
@@ -397,23 +396,23 @@ try {
 }
 ```
 
-Widoczny rezultat zależy od wpisu motywu odwołanego przez master oraz od ewentualnych nadpisań tła na poziomie układu lub slajdu. Jeśli slajd używa własnego tła, zmiana jedynie tła mastera może nie zmieni tego slajdu. Użyj [Background.getEffective](https://reference.aspose.com/slides/pl/java/com.aspose.slides/background/) kiedy potrzebujesz znać ostateczne tło po zastosowaniu dziedziczenia.
+Widoczny rezultat zależy od wpisu motywu, do którego odwołuje się master, oraz od wszelkich nadpisań tła na poziomie układu lub slajdu. Jeśli slajd używa własnego tła, zmiana samego tła mastera nie musi wpływać na ten slajd. Użyj [Background.getEffective](https://reference.aspose.com/slides/pl/java/com.aspose.slides/background/) gdy potrzebujesz znać ostateczne tło po zastosowaniu dziedziczenia.
 
 {{% alert color="warning" title="Ostrzeżenie" %}}
-Nie traktuj indeksu stylu jako zerowego indeksu kolekcji. Unikaj także twardego kodowania numeru stylu z jednego pliku i zakładania, że będzie miał taki sam wygląd w innym pliku; definicje stylów motywu są specyficzne dla prezentacji.
+Nie traktuj indeksu stylu jako indeksu kolekcji zaczynającego się od zera. Unikaj także twardego kodowania numeru stylu z jednego pliku i zakładania, że będzie miał taki sam wygląd w innym pliku; definicje stylów motywu są specyficzne dla prezentacji.
 {{% /alert %}}
 
 {{% alert color="info" title="Porada" %}}
-Po informacje o bezpośrednim formatowaniu tła i dziedziczeniu tła zobacz [Presentation Background](/slides/pl/java/presentation-background/).
+Więcej informacji o bezpośrednim formatowaniu tła i dziedziczeniu tła znajdziesz w sekcji [Tło prezentacji](/slides/pl/java/presentation-background/).
 {{% /alert %}}
 
 ## **Aktualizacja efektów motywu**
 
-Schemat formatu motywu zawiera osobne kolekcje stylów wypełnień, linii i efektów udostępniane przez [IFormatScheme.getFillStyles](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iformatscheme/), [IFormatScheme.getLineStyles](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iformatscheme/), i [IFormatScheme.getEffectStyles](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iformatscheme/). Typowe tematy Office często zawierają trzy główne wpisy stylów, które wizualnie odpowiadają subtelnemu, umiarkowanemu i intensywnemu formatowaniu, ale kod powinien sprawdzać każdą kolekcję zamiast zakładać stałą liczbę.
+Schemat formatowania motywu zawiera osobne kolekcje stylów wypełnień, linii i efektów udostępniane przez [IFormatScheme.getFillStyles](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iformatscheme/), [IFormatScheme.getLineStyles](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iformatscheme/) i [IFormatScheme.getEffectStyles](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iformatscheme/). Typowe motywy Office często zawierają trzy główne wpisy stylów, które wizualnie odpowiadają subtelnemu, umiarkowanemu i intensywnemu formatowaniu, ale kod powinien sprawdzać każdą kolekcję zamiast zakładać stałą liczbę.
 
 ![Subtelne, umiarkowane i intensywne efekty motywu zastosowane do tego samego kształtu](presentation-design_10.png)
 
-Gdy uzyskujesz dostęp do tych kolekcji w Javie, indeks kolekcji jest zerowy: `get_Item(0)` to pierwszy zapisany styl, a `get_Item(2)` to trzeci. Indeksy odwołań stylu kształtu to osobna koncepcja, udostępniona przez [IShapeStyle](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishapestyle/). Modyfikacja stylu motywu wpływa na kształty, które odwołują się do tego stylu; kształty z bezpośrednim formatowaniem mogą pozostać niezmienione.
+Gdy uzyskujesz dostęp do tych kolekcji w Javie, indeks kolekcji jest zerowo‑indeksowany: `get_Item(0)` to pierwszy przechowywany styl, a `get_Item(2)` to trzeci. Indeksy odwołań stylu kształtu to odrębny koncept, udostępniany przez [IShapeStyle](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishapestyle/). Modyfikacja stylu motywu wpływa na kształty, które odwołują się do tego stylu; kształty z bezpośrednim formatowaniem mogą pozostać niezmienione.
 
 Poniższy przykład sprawdza, czy wymagane wpisy stylów istnieją, zmienia pierwszy styl linii, zmienia trzeci styl wypełnienia, włącza zewnętrzny cień w trzecim stylu efektu i zapisuje wynik:
 
@@ -440,15 +439,89 @@ try {
 }
 ```
 
-Dla kształtów, które odwołują się do tych slotów, pierwszy styl linii motywu staje się czerwony, trzeci styl wypełnienia motywu staje się jednolitym zielonym lasem, a trzeci styl efektu zyskuje zewnętrzny cień o odległości 10 punktów. Dokładny wynik wizualny nadal zależy od tego, które sloty stylu każdy kształt referuje i czy bezpośrednie formatowanie nadpisuje motyw.
+Dla kształtów, które odwołują się do tych miejsc, pierwszy styl linii motywu staje się czerwony, trzeci styl wypełnienia motywu staje się jednolitym zielonym leśnym, a trzeci styl efektu zyskuje zewnętrzny cień o odległości 10 punktów. Dokładny wygląd nadal zależy od tego, które miejsca stylów odwołuje każdy kształt i czy bezpośrednie formatowanie nadpisuje motyw.
 
 ![Style efektów motywu po zmianie ustawień linii, wypełnienia i cienia](presentation-design_11.png)
 
-## **Odczyt efektywnych wartości motywu**
+## **Określenie, czy skuteczne wypełnienie jednolite używa koloru motywu**
 
-Surowe obiekty motywu mówią, co jest zdefiniowane na danym poziomie. Efektywne wartości mówią, co slajd lub kształt faktycznie używa po rozwiązaniu dziedziczenia i lokalnych nadpisań. Dla slajdu wywołaj [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/pl/java/com.aspose.slides/baseoverridethememanager/). Dla tła użyj [Background.getEffective](https://reference.aspose.com/slides/pl/java/com.aspose.slides/background/), a dla wypełnienia [FillFormat.getEffective](https://reference.aspose.com/slides/pl/java/com.aspose.slides/fillformat/).
+Wypełnienie może być przechowywane bezpośrednio na obiekcie lub dziedziczone z akapitu, układu, mastera, stylu motywu lub innego poziomu formatowania. Wywołaj [IFillFormat.getEffective](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ifillformat/) aby rozwiązać tę hierarchię w niezmienny [IFillFormatEffectiveData](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ifillformateffectivedata/). Najpierw sprawdź [IFillFormatEffectiveData.getFillType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ifillformateffectivedata/). Tylko gdy jest `FillType.Solid`, powinieneś odczytać właściwości wypełnienia jednolitego.
 
-Poniższy przykład odczytuje efektywny motyw, tło i pierwsze wypełnienie kształtu ze slajdu:
+Dla wypełnienia jednolitego, [IFillFormatEffectiveData.getSolidFillColor](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ifillformateffectivedata/) zwraca ostateczną wartość RGB po dziedziczeniu, wyszukiwaniu w motywie i zastosowanych przekształceniach kolorów. [IFillFormatEffectiveData.getSolidFillSchemeColor](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ifillformateffectivedata/) zwraca odpowiadające logiczne miejsce [SchemeColor](https://reference.aspose.com/slides/pl/java/com.aspose.slides/schemecolor/), takie jak `Text1` lub `Accent6`. Wartość `SchemeColor.NotDefined` oznacza, że skuteczne wypełnienie jednolite nie opiera się na kolorze schematu. W przepływie, w którym wypełnienia są albo kolorami motywu, albo bezpośrednimi kolorami RGB, ta wartość identyfikuje wypełnienie RGB.
+
+Nie używaj wyłącznie lokalnej wartości [IColorFormat.getSchemeColor](https://reference.aspose.com/slides/pl/java/com.aspose.slides/icolorformat/) do klasyfikacji wypełnienia. Na przykład fragment tekstu może nie mieć lokalnie zdefiniowanego koloru schematu, więc jego lokalna wartość to `NotDefined`, podczas gdy jego skuteczne wypełnienie dziedziczy kolor motywu i rozwiązuje się do `Text1` lub `Accent6`. Odwrotnie, `getSolidFillSchemeColor` informuje, które logiczne miejsce motywu wygenerowało skuteczny kolor, ale nie mówi, z którego poziomu (obiekt, akapit, układ, master, itp.) pochodzi to miejsce.
+
+Poniższy przykład ładuje prezentację, audytuje zarówno wypełnienia kształtów, jak i wypełnienia fragmentów tekstu, wypisuje każdą ostateczną wartość RGB i powiązany kolor schematu oraz oznacza wypełnienia jednolite, które nie będą śledzić zmian kolorów motywu:
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+import java.util.function.BiConsumer;
+
+BiConsumer<String, IFillFormat> auditFill = (objectName, localFill) -> {
+    IFillFormatEffectiveData effectiveFill = localFill.getEffective();
+
+    if (effectiveFill.getFillType() != FillType.Solid) {
+        System.out.println(objectName + ": fill type = " + effectiveFill.getFillType() + "; not a solid fill.");
+        return;
+    }
+
+    Color rgb = effectiveFill.getSolidFillColor();
+    int effectiveSchemeColor = effectiveFill.getSolidFillSchemeColor();
+    int localSchemeColor = localFill.getSolidFillColor().getSchemeColor();
+
+    System.out.printf("%s: RGB = #%02X%02X%02X%n", objectName, rgb.getRed(), rgb.getGreen(), rgb.getBlue());
+    System.out.println(objectName + ": local scheme = " + localSchemeColor + ", effective scheme = " + effectiveSchemeColor);
+
+    if (effectiveSchemeColor == SchemeColor.NotDefined) {
+        System.out.println(objectName + ": direct RGB or another non-scheme fill; audit as theme-independent.");
+    } else {
+        System.out.println(objectName + ": theme-dependent through " + effectiveSchemeColor + ".");
+    }
+};
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    int slideCount = presentation.getSlides().size();
+    for (int slideIndex = 0; slideIndex < slideCount; slideIndex++) {
+        ISlide slide = presentation.getSlides().get_Item(slideIndex);
+
+        int shapeCount = slide.getShapes().size();
+        for (int shapeIndex = 0; shapeIndex < shapeCount; shapeIndex++) {
+            IShape shape = slide.getShapes().get_Item(shapeIndex);
+            String shapeName = "Slide " + (slideIndex + 1) + ", shape " + (shapeIndex + 1);
+            auditFill.accept(shapeName, shape.getFillFormat());
+
+            if (shape instanceof IAutoShape) {
+                IAutoShape autoShape = (IAutoShape) shape;
+                int paragraphCount = autoShape.getTextFrame().getParagraphs().getCount();
+                for (int paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++) {
+                    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(paragraphIndex);
+
+                    int portionCount = paragraph.getPortions().getCount();
+                    for (int portionIndex = 0; portionIndex < portionCount; portionIndex++) {
+                        IPortion portion = paragraph.getPortions().get_Item(portionIndex);
+                        String portionName = shapeName + ", paragraph " + (paragraphIndex + 1) + ", portion " + (portionIndex + 1);
+                        auditFill.accept(portionName, portion.getPortionFormat().getFillFormat());
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Gałąź `NotDefined` dostarcza listę audytu wypełnień jednolitych, które nie będą reagować na zmiany w slotach kolorów motywu. Przejrzyj te obiekty, gdy prezentacja musi odpowiadać nowej palecie brandu. Zgłoszona wartość RGB nadal pokazuje aktualny wygląd, podczas gdy wartość schematu wyjaśnia, czy ten wygląd jest połączony z motywem.
+
+Obiekty skutecznego formatu są migawkami. Po zmianie motywu prezentacji, nadpisania motywu lub dowolnego formatowania dziedziczonego, wywołaj ponownie `getEffective` i odczytaj nowy obiekt `IFillFormatEffectiveData` przed porównaniem lub raportowaniem kolorów.
+
+## **Odczyt skutecznych wartości motywu**
+
+Surowe obiekty motywu mówią, co jest zdefiniowane na danym poziomie. Skuteczne wartości mówią, co slajd lub kształt faktycznie używa po rozwiązywaniu dziedziczenia i lokalnych nadpisań. Dla slajdu wywołaj [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/pl/java/com.aspose.slides/baseoverridethememanager/). Dla tła użyj [Background.getEffective](https://reference.aspose.com/slides/pl/java/com.aspose.slides/background/), a dla wypełnienia [FillFormat.getEffective](https://reference.aspose.com/slides/pl/java/com.aspose.slides/fillformat/).
+
+Poniższy przykład odczytuje skuteczny motyw, tło i pierwsze wypełnienie kształtu ze slajdu:
 
 ```java
 import com.aspose.slides.*;
@@ -473,13 +546,13 @@ try {
 }
 ```
 
-Używaj danych efektywnych do diagnostyki renderowania, walidacji i porównań. Jeśli sprawdzisz tylko [Presentation.getMasterTheme](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/), możesz przeoczyć nadpisanie mastera, układu, slajdu lub kształtu, które zmienia ostateczny wygląd.
+Używaj danych skutecznych do diagnostyki renderowania, walidacji i porównań. Jeśli przeglądasz tylko [Presentation.getMasterTheme](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/), możesz przeoczyć master, układ, slajd lub nadpisanie kształtu, które zmienia ostateczny wygląd.
 
 ## **FAQ**
 
 **Czy zastosowanie zewnętrznego motywu wpływa na każdy slajd w prezentacji?**
 
-Nie. [IMasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/pl/java/com.aspose.slides/imasterslide/) przypisuje ponownie tylko slajdy zależne od wybranego mastera. Slajdy używające innych masterów zachowują istniejące motywy.
+Nie. [IMasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/pl/java/com.aspose.slides/imasterslide/) przypisuje tylko slajdy zależne od wybranego mastera. Slajdy używające innych masterów zachowują istniejące motywy.
 
 **Czy mogę zastosować motyw do pojedynczego slajdu bez zmiany mastera?**
 
@@ -487,8 +560,8 @@ Tak. Użyj [SlideThemeManager](https://reference.aspose.com/slides/pl/java/com.a
 
 **Jaki jest najbezpieczniejszy sposób przeniesienia motywu z jednej prezentacji do drugiej?**
 
-Przy przenoszeniu slajdu i zachowaniu jego pierwotnego wyglądu, sklonuj master źródłowy do docelowej prezentacji przy użyciu [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/pl/java/com.aspose.slides/imasterslidecollection/) i sklonuj slajd wraz z tym masterem używając [ISlideCollection.addClone](https://reference.aspose.com/slides/pl/java/com.aspose.slides/islidecollection/). To utrzymuje razem master, układy i motyw.
+Podczas przenoszenia slajdu i zachowania jego pierwotnego wyglądu, sklonuj źródłowy master do docelowej prezentacji i sklonuj slajd z tym masterem przy pomocy [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/pl/java/com.aspose.slides/imasterslidecollection/) oraz [ISlideCollection.addClone](https://reference.aspose.com/slides/pl/java/com.aspose.slides/islidecollection/). To utrzymuje master, układy i motyw razem.
 
-**Jak mogę zobaczyć efektywne wartości po dziedziczeniu i nadpisaniach?**
+**Jak mogę zobaczyć skuteczne wartości po dziedziczeniu i nadpisaniach?**
 
-Użyj [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/pl/java/com.aspose.slides/baseoverridethememanager/) dla slajdu lub układu oraz odpowiednich metod danych efektywnych dla obiektów formatowania, takich jak [Background.getEffective](https://reference.aspose.com/slides/pl/java/com.aspose.slides/background/) i [FillFormat.getEffective](https://reference.aspose.com/slides/pl/java/com.aspose.slides/fillformat/). Te API zwracają rozwiązane wartości po zastosowaniu dziedziczenia i nadpisań.
+Użyj [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/pl/java/com.aspose.slides/baseoverridethememanager/) dla slajdu lub układu oraz odpowiednich metod zwracających dane skuteczne dla obiektów formatowania, takich jak [Background.getEffective](https://reference.aspose.com/slides/pl/java/com.aspose.slides/background/) i [FillFormat.getEffective](https://reference.aspose.com/slides/pl/java/com.aspose.slides/fillformat/). Te interfejsy zwracają rozwiązywane wartości po zastosowaniu dziedziczenia i nadpisań.

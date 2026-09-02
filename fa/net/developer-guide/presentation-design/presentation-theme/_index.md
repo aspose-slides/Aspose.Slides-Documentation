@@ -1,46 +1,46 @@
 ---
-title: مدیریت قالب‌های ارائه در .NET
-linktitle: قالب ارائه
+title: مدیریت تم‌های ارائه در .NET
+linktitle: تم ارائه
 type: docs
 weight: 10
 url: /fa/net/presentation-theme/
 keywords:
-- قالب PowerPoint
-- قالب ارائه
-- قالب اسلاید
-- تنظیم قالب
-- تغییر قالب
-- مدیریت قالب
-- قالب خارجی
+- تم PowerPoint
+- تم ارائه
+- تم اسلاید
+- تنظیم تم
+- تغییر تم
+- مدیریت تم
+- تم خارجی
 - THMX
-- رنگ قالب
-- پالت تکمیلی
-- قلم قالب
-- سبک قالب
-- افکت قالب
+- رنگ تم
+- پالت افزایشی
+- قلم تم
+- سبک تم
+- افکت تم
 - PowerPoint
 - OpenDocument
 - ارائه
 - .NET
 - C#
 - Aspose.Slides
-description: "قالب‌های ارائه اصلی در Aspose.Slides برای .NET برای ایجاد، سفارشی‌سازی و تبدیل فایل‌های PowerPoint با برندینگ یکسان."
+description: "تم‌های اصلی ارائه در Aspose.Slides برای .NET برای ایجاد، سفارشی‌سازی و تبدیل فایل‌های PowerPoint با برندینگ یکسان."
 ---
 ## **مقدمه**
 
-یک قالب ارائه مجموعه‌ای هماهنگ از رنگ‌ها، قلم‌ها، سبک‌های پس‌زمینه، پرکننده‌ها، خطوط و افکت‌ها را تعریف می‌کند. اشیای آگاه از قالب به این تعاریف مشترک ارجاع می‌دهند به جای اینکه هر ویژگی بصری را به عنوان مقدار ثابت ذخیره کنند، بنابراین تغییر قالب می‌تواند بسیاری از اشیا را به‌طور هم‌زمان به‌روزرسانی کند.
+یک تم ارائه مجموعه‌ای هماهنگ از رنگ‌ها، قلم‌ها، سبک‌های پس‌زمینه، پرکردن‌ها، خطوط و افکت‌ها را تعریف می‌کند. اشیای آگاهِ تم به‌جای ذخیره کردن هر ویژگی بصری به‌صورت مقدار ثابت، به این تعاریف مشترک ارجاع می‌دهند، به‌طوری که تغییر تم می‌تواند بسیاری از اشیا را به‌طور همزمان به‌روز کند.
 
-در Aspose.Slides، قالب در سطح ارائه از طریق ویژگی [Presentation.MasterTheme](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/mastertheme/) در دسترس است. یک ارائه همچنین می‌تواند بازنویسی‌های قالب را در سطوح پایین‌تر داشته باشد. یک مستر می‌تواند قالب ارائه را از طریق [MasterThemeManager.OverrideTheme](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/masterthememanager/overridetheme/) بازنویسی کند، یک لِی‌آوت می‌تواند قالب ارث‌برده خود را از طریق [BaseOverrideThemeManager.OverrideTheme](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/baseoverridethememanager/overridetheme/) بازنویسی کند و یک اسلاید جداگانه می‌تواند همین کار را انجام دهد. در عمل، قالب مؤثر برای یک اسلاید از طریق این زنجیره ارث‌بری حل می‌شود: قالب ارائه، بازنویسی مستر، بازنویسی لِی‌آوت و بازنویسی اسلاید.
+در Aspose.Slides، تم سطح ارائه از طریق ویژگی [Presentation.MasterTheme](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/mastertheme/) در دسترس است. یک ارائه می‌تواند نیز بازنویسی‌های تم در سطوح پایین‌تر داشته باشد. یک مستر می‌تواند تم ارائه را از طریق [MasterThemeManager.OverrideTheme](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/masterthememanager/overridetheme/) بازنویسی کند، یک لایه می‌تواند تم ارث‌برده‌شده خود را از طریق [BaseOverrideThemeManager.OverrideTheme](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/baseoverridethememanager/overridetheme/) بازنویسی کند، و یک اسلاید منفرد نیز می‌تواند همین کار را انجام دهد. در عمل، تم مؤثر برای یک اسلاید از طریق این زنجیره ارث‌بری حل می‌شود: تم ارائه، بازنویسی مستر، بازنویسی لایه، و بازنویسی اسلاید.
 
-![اجزای قالب: رنگ‌ها، قلم‌ها، سبک‌های پس‌زمینه و افکت‌ها](theme-constituents.png)
+![Theme components: colors, fonts, background styles, and effects](theme-constituents.png)
 
-بخش‌های زیر رایج‌ترین جریان‌های کاری مربوط به قالب را نشان می‌دهند: بررسی یک قالب، تغییر رنگ‌ها و قلم‌ها، کپی یا اعمال یک قالب، به‌روزرسانی سبک‌های پس‌زمینه و افکت‌ها، و خواندن مقادیر مؤثر پس از حل ارث‌بری و بازنویسی‌ها.
+بخش‌های زیر رایج‌ترین جریان‌های کاری تم را نشان می‌دهند: بررسی تم، تغییر رنگ‌ها و قلم‌ها، کپی یا اعمال تم، به‌روزرسانی سبک‌های پس‌زمینه و افکت‌ها، و خواندن مقادیر مؤثر پس از حل ارث‌بری و بازنویسی‌ها.
 
-## **بررسی یک قالب**
+## **بررسی یک تم**
 
-شیء [MasterTheme](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/mastertheme/) طرح‌واره‌های [ColorScheme](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/mastertheme/colorscheme/)، [FontScheme](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/mastertheme/fontscheme/) و [FormatScheme](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/mastertheme/formatscheme/) را در اختیار می‌گذارد. بررسی این مجموعه‌ها قبل از تغییرشان به‌ویژه زمانی مفید است که یک ارائه از منبع خارجی آمده باشد، زیرا تعداد و محتوای ورودی‌های سبک می‌تواند متفاوت باشد.
+شی [MasterTheme](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/mastertheme/) مجموعه‌های [ColorScheme](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/mastertheme/colorscheme/)، [FontScheme](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/mastertheme/fontscheme/)، و [FormatScheme](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/mastertheme/formatscheme/) تم را در اختیار می‌گذارد. بررسی این مجموعه‌ها پیش از تغییر آن‌ها زمانی مفید است که ارائه‌ای از منبع خارجی می‌آید، زیرا تعداد و محتوی ورودی‌های سبک می‌تواند متفاوت باشد.
 
-مثال زیر خصوصیات اصلی قالب را می‌خواند و گزارش می‌دهد که چند سبک پس‌زمینه، پرکننده، خط و افکت در قالب ذخیره شده‌اند:
+مثال زیر ویژگی‌های اصلی تم را می‌خواند و تعداد سبک‌های پس‌زمینه، پرکردن، خط و افکت ذخیره‌شده در تم را گزارش می‌کند:
 
 ```csharp
 using System;
@@ -59,13 +59,13 @@ Console.WriteLine($"Line styles: {theme.FormatScheme.LineStyles.Count}");
 Console.WriteLine($"Effect styles: {theme.FormatScheme.EffectStyles.Count}");
 ```
 
-اگر فایلی چند مستر داشته باشد، فرض نکنید که هر اسلاید همان قالب مؤثر را دارد. مستری که به اسلاید مرتبط است را بررسی کنید و هنگام وجود بازنویسی‌های لِی‌آوت یا اسلاید از جریان کاری «قالب مؤثر» نشان داده شده در ادامه این مقاله استفاده کنید.
+اگر فایلی از چند مستر استفاده کند، فرض نکنید که هر اسلاید همان تم مؤثر را دارد. مستر مرتبط با اسلاید را بررسی کنید و در صورتی که بازنویسی‌های لایه یا اسلاید ممکن است وجود داشته باشد، از جریان کاری تم مؤثر که در ادامه این مقاله آورده شده است استفاده کنید.
 
-## **تغییر رنگ‌های قالب**
+## **تغییر رنگ‌های تم**
 
-پرکننده‌ها، خطوط و متن‌های آگاه از قالب می‌توانند به یک رنگ منطقی از enumeration [SchemeColor](https://reference.aspose.com/slides/fa/net/aspose.slides/schemecolor/) ارجاع دهند. هنگامی که ورودی متناظر را در [IColorScheme](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/icolorscheme/) قالب تغییر می‌دهید، تمام اشیائی که هنوز به آن رنگ قالب ارجاع می‌دهند، بر اساس مقدار جدید محاسبه می‌شوند. اشیائی که از یک رنگ RGB مستقیم استفاده می‌کنند، توسط به‌روزرسانی رنگ قالب تغییر نمی‌کنند.
+پرکردن‌ها، خطوط و متن‌های آگاه از تم می‌توانند به یک رنگ منطقی از شمارش [SchemeColor](https://reference.aspose.com/slides/fa/net/aspose.slides/schemecolor/) ارجاع دهند. وقتی ورودی متناظر در [IColorScheme](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/icolorscheme/) تم را تغییر می‌دهید، تمام اشیایی که هنوز به آن رنگ تم ارجاع می‌دهند، با مقدار جدید حل می‌شوند. اشیایی که رنگ RGB مستقیم استفاده می‌کنند، توسط به‌روزرسانی رنگ تم تغییر نمی‌کنند.
 
-مثال زیر به‌صورت انتها‑به‑انتها یک شکل را ایجاد می‌کند که از `Accent4` استفاده می‌کند، رنگ `Accent4` قالب را به قرمز تغییر می‌دهد، ارائه را ذخیره می‌کند، دوباره باز می‌کند و رنگ پرکننده مؤثر را چاپ می‌کند:
+مثال انتها‑به‑انتها زیر یک شکل ایجاد می‌کند که از `Accent4` استفاده می‌کند، رنگ `Accent4` تم را به قرمز تغییر می‌دهد، ارائه را ذخیره می‌کند، دوباره باز می‌کند و رنگ پرکردن مؤثر را چاپ می‌کند:
 
 ```csharp
 using System;
@@ -88,18 +88,18 @@ var effectiveFill = savedShape.FillFormat.GetEffective();
 Console.WriteLine($"Effective fill color: {effectiveFill.SolidFillColor}");
 ```
 
-چون مستطیل همچنان به `Accent4` لینک شده است، رنگ قابل‌مشاهده آن پس از تغییر قالب به قرمز می‌شود. اگر رنگ طرح در شکل را با یک رنگ مستقیم جایگزین کنید، تغییرات بعدی `Accent4` دیگر روی آن پرکننده تأثیر نخواهد داشت.
+چون مستطیل به `Accent4` مرتبط باقی می‌ماند، رنگ قابل‌مشاهده‌اش پس از تغییر تم به قرمز تبدیل می‌شود. اگر رنگ طرح را با یک رنگ مستقیم روی شکل جایگزین کنید، تغییرات بعدی `Accent4` دیگر بر آن پرکردن تأثیر نخواهد گذاشت.
 
-### **استفاده از رنگ‌ها از پالت تکمیلی**
+### **استفاده از رنگ‌ها از پالت افزایشی**
 
-PowerPoint با اعمال تبدیل‌های رنگی، گونه‌های روشن‌تر و تیره‌تر را از یک رنگ قالب استخراج می‌کند. Aspose.Slides این تبدیل‌ها را از طریق [ColorTransformOperation](https://reference.aspose.com/slides/fa/net/aspose.slides/colortransformoperation/) در اختیار می‌گذارد.
+PowerPoint با اعمال تبدیل‌های رنگ، گونه‌های روشن‌تر و تیره‌تر را از یک رنگ تم استخراج می‌کند. Aspose.Slides این تبدیل‌ها را از طریق [ColorTransformOperation](https://reference.aspose.com/slides/fa/net/aspose.slides/colortransformoperation/) در دسترس می‌گذارد.
 
-![رنگ‌های اصلی قالب و رنگ‌های روشن‌تر و تیره‌تر تولید شده از پالت تکمیلی](additional-palette-colors.png)
+![Main theme colors and lighter and darker colors generated from the additional palette](additional-palette-colors.png)
 
-**1** - رنگ‌های اصلی قالب.  
-**2** - گونه‌های روشن‌تر و تیره‌تر تولید شده از رنگ‌های اصلی قالب.
+**1** – رنگ‌های اصلی تم.  
+**2** – گونه‌های روشن‌تر و تیره‌تر تولید شده از رنگ‌های اصلی تم.
 
-مثال زیر شش مستطیل بر پایه `Accent4` ایجاد می‌کند، برای پنج مورد از آن‌ها تبدیل روشنایی اعمال می‌کند و نتیجه را ذخیره می‌نماید:
+مثال زیر شش مستطیل بر پایه `Accent4` می‌سازد، بر پنج مورد از آن‌ها تبدیل روشنایی اعمال می‌کند و نتیجه را ذخیره می‌نماید:
 
 ```csharp
 using Aspose.Slides;
@@ -143,31 +143,31 @@ shape6.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.Mult
 presentation.Save("theme-color-palette.pptx", SaveFormat.Pptx);
 ```
 
-این گونه‌ها همچنان مبتنی بر رنگ قالب هستند. اگر `Accent4` بعداً تغییر کند، رنگ‌های تبدیل‌شده بر اساس مقدار جدید `Accent4` بازمحاسبه می‌شوند.
+این گونه‌ها مبتنی بر رنگ تم باقی می‌مانند. اگر `Accent4` بعدها تغییر کند، رنگ‌های تبدیل‌شده از مقدار جدید `Accent4` بازمحاسبه می‌شوند.
 
-### **نقشه‌برداری مقادیر `SchemeColor` به موقعیت‌های `IColorScheme`**
+### **نقشه‌برداری مقادیر `SchemeColor` به اسلات‌های `IColorScheme`**
 
-enumeration [SchemeColor](https://reference.aspose.com/slides/fa/net/aspose.slides/schemecolor/) از مقادیر `Text1`، `Background1`، `Text2` و `Background2` استفاده می‌کند، در حالی که [IColorScheme](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/icolorscheme/) همان موقعیت‌های قالب را به صورت `Dark1`، `Light1`، `Dark2` و `Light2` نمایش می‌دهد. نقشه‌برداری ثابت است:
+شمارش [SchemeColor](https://reference.aspose.com/slides/fa/net/aspose.slides/schemecolor/) از `Text1`، `Background1`، `Text2` و `Background2` استفاده می‌کند، در حالی که [IColorScheme](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/icolorscheme/) همان اسلات‌های تم را به صورت `Dark1`، `Light1`، `Dark2` و `Light2` در اختیار می‌گذارد. نقشه‌برداری ثابت است:
 
-* `Text1` = `Dark1`
-* `Background1` = `Light1`
-* `Text2` = `Dark2`
+* `Text1` = `Dark1`  
+* `Background1` = `Light1`  
+* `Text2` = `Dark2`  
 * `Background2` = `Light2`
 
-این‌ها نام‌های جایگزین برای همان موقعیت‌های قالب هستند؛ مقادیری نیستند که به‌صورت پویا از یک فرم به فرم دیگر تبدیل شوند.
+اینها نام‌های دیگر برای همان اسلات‌های تم هستند؛ مقادیر به‌صورت پویا از یک شکل به شکل دیگر تبدیل نمی‌شوند.
 
-## **تغییر قلم‌های قالب**
+## **تغییر قلم‌های تم**
 
-یک طرح‌واره قلم قالب شامل مجموعه‌ای اصلی برای سرفصل‌ها و مجموعه‌ای فرعی برای متن بدنه است. ویژگی‌های [FontScheme.Major](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/fontscheme/major/) و [FontScheme.Minor](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/fontscheme/minor/) این مجموعه‌ها را افشا می‌کنند.
+یک طرح قلم تم شامل مجموعه‌ای اصلی برای عناوین و مجموعه‌ای فرعی برای متن بدنه است. ویژگی‌های [FontScheme.Major](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/fontscheme/major/) و [FontScheme.Minor](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/fontscheme/minor/) این مجموعه‌ها را در اختیار می‌گذارند.
 
-شناسه‌های قلم قالب سازگار با PowerPoint می‌توانند در قالب‌بندی متن استفاده شوند:
+شناسه‌های قلم تم سازگار با PowerPoint می‌توانند در قالب‌بندی متن استفاده شوند:
 
-* `+mn-lt` - قلم بدنه لاتین (Minor Latin Font)
-* `+mj-lt` - قلم سرفصل لاتین (Major Latin Font)
-* `+mn-ea` - قلم بدنه آسیای شرقی (Minor East Asian Font)
-* `+mj-ea` - قلم سرفصل آسیای شرقی (Major East Asian Font)
+* `+mn‑lt` – قلم بدنه لاتین (Minor Latin Font)  
+* `+mj‑lt` – قلم عنوان لاتین (Major Latin Font)  
+* `+mn‑ea` – قلم بدنه آسیای شرقی (Minor East Asian Font)  
+* `+mj‑ea` – قلم عنوان آسیای شرقی (Major East Asian Font)
 
-مثال زیر یک سرفصل که از قلم لاتین اصلی قالب استفاده می‌کند و یک خط بدنه که از قلم لاتین فرعی قالب استفاده می‌کند، ایجاد می‌کند. سپس قلم‌های قالب را تغییر داده و نتیجه را ذخیره می‌کند:
+مثال زیر یک عنوان ایجاد می‌کند که از قلم لاتین اصلی تم استفاده می‌کند و یک خط بدنه که از قلم لاتین فرعی تم استفاده می‌کند. سپس قلم‌های تم را تغییر می‌دهد و نتیجه را ذخیره می‌کند:
 
 ```csharp
 using Aspose.Slides;
@@ -190,30 +190,30 @@ presentation.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
 presentation.Save("theme-fonts.pptx", SaveFormat.Pptx);
 ```
 
-سرفصل از قلم اصلی پیروی می‌کند و متن بدنه از قلم فرعی. متنی که یک نام قلم صریح به جای شناسه قالب داشته باشد، به‌طور خودکار هنگام تغییر طرح‌واره قلم قالب تغییر نمی‌کند.
+عنوان از قلم اصلی پیروی می‌کند و متن بدنه از قلم فرعی. متنی که به‌صورت صریح نام قلم را داشته باشد، به‌طور خودکار هنگام تغییر طرح قلم تم سوئیچ نمی‌شود.
 
-مجموعه‌های قلم اصلی و فرعی می‌توانند شامل نگاشت‌های قلم برای سیستم‌های نوشتاری خاص باشند، مانند سیریلیک، عربی، ژاپنی، گرجی و ثانا. برای بررسی، افزودن، جایگزینی یا حذف این نگاشت‌ها، به بخش [Script-Specific Theme Fonts](/slides/fa/net/script-specific-font-mappings/) مراجعه کنید.
+مجموعه‌های قلم اصلی و فرعی می‌توانند همچنین نگاشت‌های قلم برای سیستم‌های نوشتاری خاص مانند سیریلیک، عربی، ژاپنی، گرجی و ثان داشته باشند. برای بررسی، افزودن، جایگزینی یا حذف این نگاشت‌ها، به بخش [فونت‌های تم خاص اسکریپت](/slides/fa/net/script-specific-font-mappings/) مراجعه کنید.
 
-{{% alert color="info" title="Tip" %}}
-برای اطلاعات بیشتر درباره قلم‌های ارائه، به [PowerPoint Fonts](/slides/fa/net/powerpoint-fonts/) مراجعه کنید.
+{{% alert color="info" title="نکته" %}}
+برای اطلاعات بیشتر درباره قلم‌های ارائه، به [فونت‌های PowerPoint](/slides/fa/net/powerpoint-fonts/) مراجعه کنید.
 {{% /alert %}}
 
-## **کپی یا اعمال یک قالب**
+## **کپی یا اعمال تم**
 
-جریان‌های کاری زیر مشکلات مختلف مرتبط با قالب را حل می‌کنند.
+جریان‌های کاری زیر مشکلات مختلف مرتبط با تم را حل می‌کنند.
 
-### **اعمال یک قالب خارجی به اسلایدهای وابسته به مستر**
+### **اعمال تم خارجی به اسلایدهای وابسته به یک مستر**
 
-از [IMasterSlide.ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/fa/net/aspose.slides/imasterslide/applyexternalthemetodependingslides/) زمانی استفاده کنید که یک فایل قالب PowerPoint (`.thmx`) داشته باشید و بخواهید همه اسلایدهای وابسته به یک مستر خاص را دوباره سبک‌بندی کنید. مستر موردنظر را از مجموعه [Presentation.Masters](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/masters/) که پیاده‌ساز [IMasterSlideCollection](https://reference.aspose.com/slides/fa/net/aspose.slides/imasterslidecollection/) است، انتخاب کنید و مسیر فایل قالب را به متد پاس دهید.
+از [IMasterSlide.ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/fa/net/aspose.slides/imasterslide/applyexternalthemetodependingslides/) استفاده کنید وقتی که یک فایل تم PowerPoint (`.thmx`) دارید و می‌خواهید تمام اسلایدهایی که به مستر خاصی وابسته‌اند را بازطراحی کنید. مستر مورد نظر را از مجموعه [Presentation.Masters](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/masters/) که پیاده‌سازی‌کننده [IMasterSlideCollection](https://reference.aspose.com/slides/fa/net/aspose.slides/imasterslidecollection/) است، انتخاب کنید و مسیر فایل تم را به متد پاس دهید.
 
-متد عملیات زیر را انجام می‌دهد:
+این متد عملیات زیر را انجام می‌دهد:
 
-1. یک مستر اسلاید جدید بر پایه مستر منتخب ایجاد می‌کند.  
-1. قالب خارجی را به مستر جدید اعمال می‌کند.  
-1. مستر جدید را به همه اسلایدهایی که قبلاً به مستر منتخب وابسته بودند، اختصاص می‌دهد.  
-1. جدیداً ایجاد شدهٔ [IMasterSlide](https://reference.aspose.com/slides/fa/net/aspose.slides/imasterslide/) را برمی‌گرداند.
+1. یک اسلاید مستر جدید بر پایه مستر انتخاب‌شده ایجاد می‌کند.  
+1. تم خارجی را بر مستر جدید اعمال می‌کند.  
+1. مستر جدید را به تمام اسلایدهایی که قبلاً به مستر انتخاب‌شده وابسته بودند، اختصاص می‌دهد.  
+1. شیء جدید [IMasterSlide](https://reference.aspose.com/slides/fa/net/aspose.slides/imasterslide/) را باز می‌گرداند.
 
-مثال زیر یک قالب خارجی را بر اسلایدهای وابسته به اولین مستر اعمال می‌کند، ارائه را ذخیره می‌کند و نتیجه را دوباره باز می‌خواند:
+مثال زیر تم خارجی را بر اسلایدهایی که به اولین مستر وابسته‌اند اعمال می‌کند، ارائه را ذخیره می‌کند و نتیجه را دوباره باز می‌خواند:
 
 ```csharp
 using System;
@@ -228,19 +228,19 @@ Console.WriteLine($"Created master: {themedMaster.Name}");
 presentation.Save("presentation-with-external-theme.pptx", SaveFormat.Pptx);
 ```
 
-یک قالب نامعتبر، خراب یا نامپشتیبانی‌شده می‌تواند منجر به [PptxException](https://reference.aspose.com/slides/fa/net/aspose.slides/pptxexception/) یا یکی از زیرکلاس‌های مربوط به فرمت شود. مسیرهای ورودی کاربر را اعتبارسنجی کنید، شکست‌های دسترسی به سیستم‌فایل را مدیریت کنید و فقط پس از اعمال موفقیت‌آمیز قالب، ارائه را ذخیره نمایید.
+یک تم نامعتبر، خراب یا غیرقابل پشتیبانی می‌تواند باعث بروز [PptxException](https://reference.aspose.com/slides/fa/net/aspose.slides/pptxexception/) یا یکی از زیرکلاس‌های مرتبط با فرمت شود. مسیرهای ارائه‌شده توسط کاربر را اعتبارسنجی کنید، خطاهای دسترسی به فایل سیستم را مدیریت کنید و تنها پس از اعمال موفق تم، ارائه را ذخیره کنید.
 
-فقط اسلایدهایی که به مستر منتخب وابسته بودند، بازتخصیص می‌یابند. اسلایدهای مرتبط با مسترهای دیگر مستر و قالب موجود خود را حفظ می‌کنند. رنگ‌ها، قلم‌ها، پرکننده‌ها، خطوط، پس‌زمینه‌ها و افکت‌های آگاه از قالب در برابر قالب خارجی حل می‌شوند. رنگ‌ها، قلم‌ها، پرکننده‌ها و دیگر قالب‌بندی‌های صریحی که به‌صورت مستقیم اختصاص داده شده‌اند ممکن است بدون تغییر بمانند. بازنویسی‌های سطح لِی‌آوت و اسلاید نیز می‌توانند بر مقادیر ارث‌برده از مستر جدید اولویت داشته باشند.
+فقط اسلایدهایی که به مستر انتخاب‌شده وابسته بودند، بازتخصیص می‌یابند. اسلایدهای مرتبط با مسترهای دیگر مسترها و تم‌های موجود خود را حفظ می‌کنند. رنگ‌ها، قلم‌ها، پرکردن‌ها، خطوط، پس‌زمینه‌ها و افکت‌های آگاه از تم بر اساس تم خارجی حل می‌شوند. رنگ‌ها، قلم‌ها، پرکردن‌ها و سایر قالب‌بندی‌های صریح ممکن است بدون تغییر بمانند. بازنویسی‌های سطح لایه و اسلاید نیز می‌توانند بر مقادیر وارث‌شده از مستر جدید ارجحیت داشته باشند.
 
-قالب می‌تواند به قلم‌هایی اشاره کند که در محیط زمان اجرا موجود نیستند. برای رندرینگ و صادرات یکدست، قلم‌های مورد نیاز را نصب کنید، از [منابع قلم سفارشی](/slides/fa/net/custom-font/) ارائه دهید یا [جایگزینی قلم](/slides/fa/net/font-substitution/) را پیکربندی کنید.
+تم ممکن است به قلم‌هایی که در محیط زمان اجرا موجود نیستند ارجاع دهد. برای رندرینگ و خروجی یکنواخت، قلم‌های مورد نیاز را نصب کنید، از [منابع قلم سفارشی](/slides/fa/net/custom-font/) تأمین کنید یا [جایگزینی قلم](/slides/fa/net/font-substitution/) را پیکربندی کنید.
 
-این یک جریان کاری مستقیم در سطح مستر است: متد فقط مسیر فایل `.thmx` را می‌پذیرد و نیازی به ایجاد بازنویسی‌های سطح اسلاید یا لِی‌آوت به‌صورت دستی نیست.
+این یک جریان کاری مستقیم در سطح مستر است: متد مسیر فایل `.thmx` را می‌پذیرد و نیازی به ایجاد دستی بازنویسی‌های تم در سطح اسلاید یا لایه نیست.
 
-### **اعمال قالب‌های خارجی مختلف در یک ارائهٔ چندمستر**
+### **اعمال تم‌های خارجی متفاوت در ارائه چند‑مستری**
 
-زمانی که مستر موردنظر از پیش شناخته نشده باشد، آن را از یک اسلاید نماینده از طریق [ISlide.LayoutSlide](https://reference.aspose.com/slides/fa/net/aspose.slides/islide/layoutslide/) و [ILayoutSlide.MasterSlide](https://reference.aspose.com/slides/fa/net/aspose.slides/ilayoutslide/masterslide/) به‌دست آورید. پیش از اعمال هر قالب، مراجع مستر اصلی را ذخیره کنید، زیرا هر فراخوانی یک مستر دیگر در ارائه ایجاد می‌کند.
+زمانی که مستر مورد نظر از پیش مشخص نیست، آن را از یک اسلاید نماینده از طریق [ISlide.LayoutSlide](https://reference.aspose.com/slides/fa/net/aspose.slides/islide/layoutslide/) و [ILayoutSlide.MasterSlide](https://reference.aspose.com/slides/fa/net/aspose.slides/ilayoutslide/masterslide/) به‌دست آورید. قبل از اعمال هر تمی، مراجع مسترهای اصلی را ذخیره کنید، زیرا هر فراخوانی یک مستر دیگر در ارائه ایجاد می‌کند.
 
-مثال زیر اسلایدهای دو بخش را برای یافتن مسترهایشان استفاده می‌کند و برای هر گروه یک قالب خارجی متفاوت اعمال می‌نماید:
+مثال زیر اسلایدهایی از دو بخش را برای یافتن مسترهایشان استفاده می‌کند و تم خارجی متفاوتی را بر هر گروه اعمال می‌کند:
 
 ```csharp
 using System;
@@ -274,11 +274,11 @@ else
 }
 ```
 
-فراخوانی اول فقط بر اسلایدهایی که به `firstGroupMaster` وابسته بودند تأثیر می‌گذارد و فراخوانی دوم فقط بر اسلایدهایی که به `secondGroupMaster` وابسته بودند. اسلایدهایی که به هر مستر دیگری تعلق دارند، دوباره‌سبک‌بندی نمی‌شوند.
+فراخوانی اول تنها بر اسلایدهایی که به `firstGroupMaster` وابسته بودند تأثیر می‌گذارد و فراخوانی دوم تنها بر اسلایدهایی که به `secondGroupMaster` وابسته بودند. اسلایدهای متعلق به هر مستر دیگری بازطراحی نمی‌شوند.
 
-### **حفظ قالب منبع هنگام جابجایی اسلایدها**
+### **حفظ تم منبع هنگام جابه‌جائی اسلایدها**
 
-اگر می‌خواهید یک اسلاید را به ارائهٔ دیگری منتقل کنید و طراحی اصلی آن را حفظ کنید، مستر منبع را با استفاده از [IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/fa/net/aspose.slides/imasterslidecollection/addclone/) به ارائهٔ هدف کلون کنید، سپس اسلاید را با استفاده از [ISlideCollection.AddClone](https://reference.aspose.com/slides/fa/net/aspose.slides/islidecollection/addclone/) و مستر کلون‌شده کلون کنید. این کار مستر، لِی‌آوت‌ها و قالب مرتبط را همراه خود حمل می‌کند.
+اگر می‌خواهید اسلایدی را به ارائه دیگری منتقل کنید و طراحی اصلی آن را حفظ کنید، مستر منبع را به ارائه مقصد با [IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/fa/net/aspose.slides/imasterslidecollection/addclone/) کلون کنید، سپس اسلاید را با [ISlideCollection.AddClone](https://reference.aspose.com/slides/fa/net/aspose.slides/islidecollection/addclone/) و مستر کلون‌شده کلون کنید. این کار مستر، لایه‌ها و تم مرتبط را به‌صورت یکجا منتقل می‌کند.
 
 ```csharp
 using Aspose.Slides;
@@ -295,11 +295,11 @@ target.Slides.AddClone(sourceSlide, clonedMaster, true);
 target.Save("theme-preserved.pptx", SaveFormat.Pptx);
 ```
 
-این جریان کاری ترجیحی است وقتی اسلاید منبع باید در مقصد ظاهر یکسانی داشته باشد. صرفاً کلون کردن محتوا بر روی مستر مقصدی نامرتبط می‌تواند رنگ‌ها، قلم‌ها، پس‌زمینه‌ها و افکت‌های مبتنی بر قالب را تغییر دهد.
+این جریان کاری ترجیحی زمانی است که اسلاید منبع باید در مقصد همان شکل ظاهر شود. فقط کلون کردن محتوا روی مستر مقصد نامرتبط می‌تواند رنگ‌ها، قلم‌ها، پس‌زمینه‌ها و افکت‌های مبتنی بر تم را تغییر دهد.
 
-### **اعمال مقادیر قالب به یک اسلاید موجود**
+### **اعمال مقادیر تم به اسلاید موجود**
 
-اگر اسلاید هدف باید روی مستر و لِی‌آوت فعلی خود بماند، یک بازنویسی سطح اسلاید را از قالب منبع مقداردهی اولیه کنید. متدهای [OverrideTheme.InitColorSchemeFrom](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/overridetheme/initcolorschemefrom/)، [OverrideTheme.InitFontSchemeFrom](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/overridetheme/initfontschemefrom/) و [OverrideTheme.InitFormatSchemeFrom](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/overridetheme/initformatschemefrom/) سه مؤلفهٔ اصلی قالب را به بازنویسی کپی می‌کنند.
+اگر اسلاید هدف باید بر روی مستر و لایه فعلی خود بماند، بازنویسی سطح اسلاید را از تم منبع مقداردهی اولیه کنید. متدهای [OverrideTheme.InitColorSchemeFrom](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/overridetheme/initcolorschemefrom/)، [OverrideTheme.InitFontSchemeFrom](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/overridetheme/initfontschemefrom/) و [OverrideTheme.InitFormatSchemeFrom](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/overridetheme/initformatschemefrom/) سه مؤلفه اصلی تم را به بازنویسی کپی می‌کنند.
 
 ```csharp
 using Aspose.Slides;
@@ -317,11 +317,11 @@ overrideTheme.InitFormatSchemeFrom(source.MasterTheme.FormatScheme);
 target.Save("theme-applied-to-slide.pptx", SaveFormat.Pptx);
 ```
 
-این کار قالب مورد استفادهٔ آن اسلاید را بدون تغییر قالب ارث‌بردهٔ اسلایدهای دیگر تغییر می‌دهد. برای حذف بازنویسی محلی و بازگشت به مقادیر ارث‌برده، متد [OverrideTheme.Clear](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/overridetheme/clear/) را فراخوانی کنید.
+این کار تم مورد استفاده آن اسلاید را بدون تغییر تم وارث‌شده توسط سایر اسلایدها تغییر می‌دهد. برای حذف بازنویسی محلی و بازگشت به مقادیر وارث‌شده، [OverrideTheme.Clear](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/overridetheme/clear/) را فراخوانی کنید.
 
-### **اعمال بازنویسی قالب به یک لِی‌آوت**
+### **اعمال بازنویسی تم به یک لایه**
 
-یک بازنویسی سطح لِی‌آوت بر اسلایدهایی که از آن لِی‌آوت استفاده می‌کنند اعمال می‌شود، مگر این که اسلاید خاص خود بازنویسی داشته باشد. همان متدهای مقداردهی اولیه می‌توانند از طریق [LayoutSlideThemeManager](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/layoutslidethememanager/) لِی‌آوت استفاده شوند:
+بازنویسی سطح لایه بر اسلایدهایی که از آن لایه استفاده می‌کنند اعمال می‌شود، مگر این‌که اسلاید خاصی بازنویسی خود را داشته باشد. می‌توان از همان متدهای مقداردهی اولیه از طریق [LayoutSlideThemeManager](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/layoutslidethememanager/) لایه استفاده کرد:
 
 ```csharp
 using Aspose.Slides;
@@ -339,17 +339,17 @@ overrideTheme.InitFormatSchemeFrom(source.MasterTheme.FormatScheme);
 target.Save("theme-applied-to-layout.pptx", SaveFormat.Pptx);
 ```
 
-هنگامی که بسیاری از لِی‌آوت‌ها و اسلایدها باید همان طراحی پایه را به‌اشتراک بگذارند، از قالب در سطح مستر یا ارائه استفاده کنید؛ برای یک خانواده لِی‌آوت که به سبک متفاوتی نیاز دارد، یک بازنویسی لِی‌آوت کافی است؛ و برای موارد استثنایی واقعی، فقط یک بازنویسی اسلاید کافی است. استفاده بی‌رویه از بازنویسی‌های سطح اسلاید تغییرات کلی قالب را در آینده پیش‌بینی‌پذیرتر می‌کند.
+از تم مستر یا سطح ارائه استفاده کنید وقتی که بسیاری از لایه‌ها و اسلایدها باید طراحی پایه یکسانی داشته باشند؛ از بازنویسی لایه وقتی که یک خانواده لایه به سبک متفاوتی نیاز دارد؛ و از بازنویسی اسلاید فقط برای استثناهای واقعی. بازنویسی‌های بیش از حد در سطح اسلاید، اعمال تغییرات سراسری تم را دشوارتر می‌کند.
 
-## **به‌روزرسانی سبک‌های پس‌زمینهٔ قالب**
+## **به‌روزرسانی سبک‌های پس‌زمینه تم**
 
-پرکننده‌های پس‌زمینهٔ قالب در [FormatScheme.BackgroundFillStyles](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/formatscheme/backgroundfillstyles/) ذخیره می‌شوند. PowerPoint می‌تواند گزینه‌های پس‌زمینهٔ بیشتری را در رابط کاربری خود نسبت به تعداد تعریف‌های فیزیکی موجود در این مجموعه ارائه دهد، زیرا UI می‌تواند پرکننده‌های قالب را با رنگ‌های قالب و دیگر مراجع سبک ترکیب کند.
+پرکردن‌های پس‌زمینه تم در [FormatScheme.BackgroundFillStyles](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/formatscheme/backgroundfillstyles/) ذخیره می‌شوند. PowerPoint می‌تواند گزینه‌های پس‌زمینه بیشتری را نسبت به تعداد تعریف‌های پرکردن موجود در این مجموعه نشان دهد، زیرا UI می‌تواند پرکردن‌های تم را با رنگ‌های تم و مراجع سبک دیگر ترکیب کند.
 
-![گالری سبک پس‌زمینهٔ PowerPoint برای یک قالب ارائه](presentation-design_8.png)
+![PowerPoint background style gallery for a presentation theme](presentation-design_8.png)
 
-قبل از استفاده از یک سبک پس‌زمینه، مجموعه ذخیره‌شده و [Background.StyleIndex](https://reference.aspose.com/slides/fa/net/aspose.slides/background/styleindex/) جاری را بررسی کنید. `StyleIndex` برای عدم وجود پرکنندهٔ قالب مقدار `0` را دارد؛ مقادیر مثبت مرجع به سبک‌های پس‌زمینهٔ قالب هستند. این متفاوت از ایندکس‌گذاری مستقیم مجموعهٔ .NET است، جایی که `[0]` به اولین مورد ذخیره‌شده اشاره دارد. فرض نکنید که هر ارائه همان تعداد سبک پرکنندهٔ پس‌زمینه را دارد.
+قبل از استفاده از یک سبک پس‌زمینه، مجموعه ذخیره‌شده و [Background.StyleIndex](https://reference.aspose.com/slides/fa/net/aspose.slides/background/styleindex/) فعلی را بررسی کنید. `StyleIndex` مقدار `0` را برای عدم وجود پرکردن تم استفاده می‌کند؛ مقادیر مثبت ارجاع به سبک‌های پس‌زمینه تم هستند. این متفاوت از اندیس‌گذاری مستقیم مجموعه .NET است که در آن `[0]` اولین مورد ذخیره‌شده را نشان می‌دهد. فرض نکنید که هر ارائه تعداد یکسانی از سبک‌های پرکردن پس‌زمینه دارد.
 
-مثال زیر تعداد پرکننده‌های پس‌زمینهٔ موجود را گزارش می‌کند، یک مرجع پس‌زمینهٔ قالبی را به اولین مستر اختصاص می‌دهد و ارائه را ذخیره می‌کند:
+مثال زیر تعداد پرکردن‌های پس‌زمینه موجود را گزارش می‌دهد، یک ارجاع پس‌زمینه تم به اولین مستر تخصیص می‌دهد و ارائه را ذخیره می‌کند:
 
 ```csharp
 using System;
@@ -371,25 +371,25 @@ presentation.Masters[0].Background.StyleIndex = 1;
 presentation.Save("theme-background.pptx", SaveFormat.Pptx);
 ```
 
-نتیجهٔ قابل مشاهده به ورودی قالبی که مستر به آن ارجاع می‌دهد و به هر بازنویسی پس‌زمینهٔ لِی‌آوت یا اسلاید بستگی دارد. اگر اسلاید پس‌زمینهٔ خود را داشته باشد، تغییر فقط پس‌زمینهٔ مستر ممکن است آن اسلاید را تغییر ندهد. برای دانستن پس‌زمینهٔ نهایی پس از اعمال ارث‌بری، از [Background.GetEffective](https://reference.aspose.com/slides/fa/net/aspose.slides/background/geteffective/) استفاده کنید.
+نتیجهٔ قابل‌مشاهده به ورودی تم ارجاع‌داده‌شده توسط مستر و هر بازنویسی پس‌زمینه در سطح لایه یا اسلاید بستگی دارد. اگر اسلاید پس‌زمینهٔ خاص خود را داشته باشد، تغییر فقط پس‌زمینهٔ مستר ممکن است آن اسلاید را تغییر ندهد. برای دانستن پس‌زمینهٔ نهایی پس از اعمال ارث‌بری، از [Background.GetEffective](https://reference.aspose.com/slides/fa/net/aspose.slides/background/geteffective/) استفاده کنید.
 
-{{% alert color="warning" title="Warning" %}}
-`StyleIndex` را به‌عنوان ایندکس صفر‑پایه مجموعه در نظر نگیرید. همچنین از کدنویسی سخت‌افزاری که شمارهٔ یک سبک را از یک فایل می‌گیرد و فرض می‌کند در فایل دیگر همان ظاهر را دارد، خودداری کنید؛ تعاریف سبک قالب به‌صورت خاص به هر ارائه هستند.
+{{% alert color="warning" title="هشدار" %}}
+`StyleIndex` را به‌عنوان یک اندیس صفر‑پایه مجموعه در نظر نگیرید. همچنین از کدنویسی ثابت یک شماره سبک از یک فایل و فرض بر این‌که در فایل دیگر همان ظاهر را دارد خودداری کنید؛ تعریف‌های سبک تم خاص هر ارائه‌اند.
 {{% /alert %}}
 
-{{% alert color="info" title="Tip" %}}
-برای قالب‌بندی مستقیم پس‌زمینه و ارث‌بری پس‌زمینه، به بخش [Presentation Background](/slides/fa/net/presentation-background/) مراجعه کنید.
+{{% alert color="info" title="نکته" %}}
+برای قالب‌بندی مستقیم پس‌زمینه و وراثت پس‌زمینه، به [پس‌زمینهٔ ارائه](/slides/fa/net/presentation-background/) مراجعه کنید.
 {{% /alert %}}
 
-## **به‌روزرسانی افکت‌های قالب**
+## **به‌روزرسانی افکت‌های تم**
 
-یک طرح‌واره قالب شامل مجموعه‌های جداگانهٔ [FillStyles](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/formatscheme/fillstyles/)، [LineStyles](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/formatscheme/linestyles/)، و [EffectStyles](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/formatscheme/effectstyles/) است. قالب‌های Office معمولاً سه ورودی اصلی سبک دارند که به‌صورت بصری با قالب‌بندی‌های «ملایم»، «متوسط» و «قوی» متناظرند، اما کد باید هر مجموعه را بررسی کند و از فرض تعداد ثابت خودداری کند.
+یک طرح قالب تم شامل مجموعه‌های جداگانهٔ [FillStyles](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/formatscheme/fillstyles/)، [LineStyles](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/formatscheme/linestyles/)، و [EffectStyles](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/formatscheme/effectstyles/) است. تم‌های معمولی Office اغلب سه ورودی سبک اصلی دارند که به‌صورت بصری متناظر با قالب‌بندی‌های Subtle، Moderate و Intense هستند، اما کد باید هر مجموعه را بررسی کند و به‌جای فرض تعداد ثابت، از مقدار واقعی استفاده کند.
 
-![افکت‌های قالب ملایم، متوسط و قوی که بر روی یک شکل اعمال شده‌اند](presentation-design_10.png)
+![Subtle, moderate, and intense theme effects applied to the same shape](presentation-design_10.png)
 
-در C# ایندکس مجموعه پایه‌صفر است: `[0]` اولین سبک ذخیره‌شده و `[2]` سومین. ایندکس‌های مرجع سبک یک شکل مفهومی جداگانه است که از طریق [IShapeStyle](https://reference.aspose.com/slides/fa/net/aspose.slides/ishapestyle/) در دسترس است. تغییر یک سبک قالب بر اشکالی که به آن سبک ارجاع می‌دهند تأثیر می‌گذارد؛ اشکالی که قالب‌بندی مستقیم دارند ممکن است بدون تغییر بمانند.
+در C# دسترسی به این مجموعه‌ها صفر‑پایه است: `[0]` اولین سبک ذخیره‌شده و `[2]` سومین مورد است. اندیس‌های مرجع‑سبک یک شکل مفهومی جداگانه است که از طریق [IShapeStyle](https://reference.aspose.com/slides/fa/net/aspose.slides/ishapestyle/) در دسترس است. تغییر یک سبک تم بر شکل‌هایی که آن سبک را ارجاع می‌دهند تأثیر می‌گذارد؛ شکل‌های دارای قالب‌بندی مستقیم ممکن است بدون تغییر بمانند.
 
-مثال زیر بررسی می‌کند که ورودی‌های سبک موردنیاز وجود دارند، اولین سبک خط را تغییر می‌دهد، سومین سبک پرکننده را تغییر می‌دهد، یک سایهٔ خارجی را در سومین سبک افکت فعال می‌کند و نتیجه را ذخیره می‌کند:
+مثال زیر وجود ورودی‌های سبک موردنیاز را بررسی می‌کند، اولین سبک خط را تغییر می‌دهد، سومین سبک پرکردن را تغییر می‌دهد، یک سایهٔ بیرونی را در سومین سبک افکت فعال می‌کند و نتیجه را ذخیره می‌کند:
 
 ```csharp
 using System;
@@ -415,15 +415,94 @@ formatScheme.EffectStyles[2].EffectFormat.OuterShadowEffect.Distance = 10f;
 presentation.Save("theme-effects.pptx", SaveFormat.Pptx);
 ```
 
-برای اشکالی که به این موقعیت‌ها ارجاع می‌دهند، اولین سبک خط قالب به قرمز تغییر می‌یابد، سومین سبک پرکننده قالب به سبز جنگلی جامد تبدیل می‌شود و سومین سبک افکت یک سایهٔ خارجی با فاصلهٔ ۱۰ پوینت می‌گیرد. نتیجهٔ بصری دقیق همچنان به این بستگی دارد که هر شکل به کدام موقعیت‌های سبک ارجاع می‌دهد و آیا قالب‌بندی مستقیم بر قالب اولویت دارد یا نه.
+برای شکل‌هایی که این اسلات‌ها را ارجاع می‌دهند، اولین سبک خط تم قرمز می‌شود، سومین سبک پرکردن تم به رنگ سبز جنگلی جامد تغییر می‌کند و سومین سبک افکت یک سایهٔ بیرونی با فاصلهٔ ۱۰ پوینت به‌دست می‌آورد. نتیجهٔ بصری دقیق همچنان به این بستگی دارد که هر شکل کدام اسلات سبک را ارجاع می‌دهد و آیا قالب‌بندی مستقیم بر تم اولویت دارد یا خیر.
 
-![سبک‌های افکت قالب پس از تغییر تنظیمات خط، پرکننده و سایه](presentation-design_11.png)
+![Theme effect styles after changing line, fill, and shadow settings](presentation-design_11.png)
 
-## **خواندن مقادیر مؤثر قالب**
+## **تشخیص اینکه آیا یک پرکردن جامد مؤثر از رنگ تم استفاده می‌کند**
 
-شیءهای خام قالب به شما می‌گویند که در سطح خاص چه چیزی تعریف شده است. مقادیر مؤثر به شما می‌گویند که یک اسلاید یا شکل پس از حل ارث‌بری و بازنویسی‌های محلی واقعاً چه چیزی استفاده می‌کند. برای یک اسلاید، متد [BaseOverrideThemeManager.CreateThemeEffective](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/baseoverridethememanager/createthemeeffective/) را فراخوانی کنید. برای پس‌زمینه، از [Background.GetEffective](https://reference.aspose.com/slides/fa/net/aspose.slides/background/geteffective/) و برای پرکننده، از [FillFormat.GetEffective](https://reference.aspose.com/slides/fa/net/aspose.slides/fillformat/geteffective/) استفاده کنید.
+یک پرکردن می‌تواند به‌صورت مستقیم روی شیء ذخیره شود یا از یک پاراگراف، لایه، مستر، سبک تم یا سطح قالب‌بندی دیگری وارث شود. برای حل این سلسله‌مراتب به یک شیء نا‌قابل تغییر [IFillFormatEffectiveData](https://reference.aspose.com/slides/fa/net/aspose.slides/ifillformateffectivedata/) می‌توانید از [IFillFormat.GetEffective](https://reference.aspose.com/slides/fa/net/aspose.slides/ifillformat/geteffective/) استفاده کنید. ابتدا [IFillFormatEffectiveData.FillType](https://reference.aspose.com/slides/fa/net/aspose.slides/ifillformateffectivedata/filltype/) را بررسی کنید. فقط وقتی مقدار `FillType.Solid` باشد باید ویژگی‌های پرکردن جامد را بخوانید.
 
-مثال زیر قالب مؤثر، پس‌زمینه و پرکنندهٔ اولین شکل را از یک اسلاید می‌خواند:
+برای یک پرکردن جامد، [IFillFormatEffectiveData.SolidFillColor](https://reference.aspose.com/slides/fa/net/aspose.slides/ifillformateffectivedata/solidfillcolor/) مقدار نهایی RGB پس از وراثت، جست‌وجوی تم و اعمال تبدیل‌های رنگی را برمی‌گرداند. [IFillFormatEffectiveData.SolidFillSchemeColor](https://reference.aspose.com/slides/fa/net/aspose.slides/ifillformateffectivedata/solidfillschemecolor/) اسلات منطقی [SchemeColor](https://reference.aspose.com/slides/fa/net/aspose.slides/schemecolor/) مربوطه مانند `Text1` یا `Accent6` را برمی‌گرداند. مقدار `SchemeColor.NotDefined` به این معنی است که پرکردن جامد مؤثر بر پایه یک رنگ طرح نیست. در یک جریان کاری که پرکردن‌ها فقط رنگ‌های تم یا رنگ‌های RGB مستقیم هستند، این مقدار یک پرکردن RGB مستقیم را شناسایی می‌کند.
+
+از مقدار محلی [IColorFormat.SchemeColor](https://reference.aspose.com/slides/fa/net/aspose.slides/icolorformat/schemecolor/) به‌تنهایی برای طبقه‌بندی پرکردن استفاده نکنید. برای مثال، بخشی از متن ممکن است رنگ طرح محلی نداشته باشد، بنابراین مقدار محلی آن `NotDefined` است، در حالی که پرکردن مؤثر آن یک رنگ تم را وارث می‌شود و به `Text1` یا `Accent6` حل می‌شود. برعکس، `SolidFillSchemeColor` به شما می‌گوید که کدام اسلات منطقی تم رنگ مؤثر را تولید کرده است، اما نمی‌گوید این اسلات از شیء، پاراگراف، لایه، مستر یا سطح دیگر سلسله مراتب آمده است.
+
+مثال زیر ارائه‌ای را بارگذاری می‌کند، پرکردن‌های شکل‌ها و پرکردن‌های بخش‌های متن را حسابرسی می‌کند، هر مقدار RGB نهایی و رنگ طرح مربوطه را چاپ می‌کند و پرکردن‌های جامدی که تغییر رنگ تم را دنبال نمی‌کنند فلگ می‌کند:
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+
+var slideCount = presentation.Slides.Count;
+for (var slideIndex = 0; slideIndex < slideCount; slideIndex++)
+{
+    var slide = presentation.Slides[slideIndex];
+
+    var shapeCount = slide.Shapes.Count;
+    for (var shapeIndex = 0; shapeIndex < shapeCount; shapeIndex++)
+    {
+        var shape = slide.Shapes[shapeIndex];
+        var shapeName = $"Slide {slideIndex + 1}, shape {shapeIndex + 1}";
+        AuditFill(shapeName, shape.FillFormat);
+
+        if (shape is IAutoShape autoShape)
+        {
+            var paragraphCount = autoShape.TextFrame.Paragraphs.Count;
+            for (var paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++)
+            {
+                var paragraph = autoShape.TextFrame.Paragraphs[paragraphIndex];
+
+                var portionCount = paragraph.Portions.Count;
+                for (var portionIndex = 0; portionIndex < portionCount; portionIndex++)
+                {
+                    var portion = paragraph.Portions[portionIndex];
+                    var portionName = $"{shapeName}, paragraph {paragraphIndex + 1}, portion {portionIndex + 1}";
+                    AuditFill(portionName, portion.PortionFormat.FillFormat);
+                }
+            }
+        }
+    }
+}
+
+static void AuditFill(string objectName, IFillFormat localFill)
+{
+    var effectiveFill = localFill.GetEffective();
+
+    if (effectiveFill.FillType != FillType.Solid)
+    {
+        Console.WriteLine($"{objectName}: fill type = {effectiveFill.FillType}; not a solid fill.");
+        return;
+    }
+
+    var rgb = effectiveFill.SolidFillColor;
+    var effectiveSchemeColor = effectiveFill.SolidFillSchemeColor;
+    var localSchemeColor = localFill.SolidFillColor.SchemeColor;
+
+    Console.WriteLine($"{objectName}: RGB = #{rgb.R:X2}{rgb.G:X2}{rgb.B:X2}");
+    Console.WriteLine($"{objectName}: local scheme = {localSchemeColor}, effective scheme = {effectiveSchemeColor}");
+
+    if (effectiveSchemeColor == SchemeColor.NotDefined)
+    {
+        Console.WriteLine($"{objectName}: direct RGB or another non-scheme fill; audit as theme-independent.");
+    }
+    else
+    {
+        Console.WriteLine($"{objectName}: theme-dependent through {effectiveSchemeColor}.");
+    }
+}
+```
+
+شاخهٔ `NotDefined` فهرستی از پرکردن‌های جامد ارائه می‌دهد که به تغییرات در اسلات‌های رنگ تم واکنش نشان نمی‌دهند. این اشیا را زمانی بررسی کنید که ارائه باید با پالت برندی جدید هم‌خوانی داشته باشد. مقدار RGB گزارش‌شده هنوز ظاهر فعلی را نشان می‌دهد، در حالی که مقدار طرح توضیح می‌دهد آیا این ظاهر به تم مرتبط است یا نه.
+
+اشیای مؤثر‑فرمت اسنپ‌شات هستند. پس از تغییر تم ارائه، یک بازنویسی تم یا هر قالب‌بندی وارث‌شده، دوباره `GetEffective` را فراخوانی کنید و پیش از مقایسه یا گزارش رنگ‌ها، شیء جدید `IFillFormatEffectiveData` را بخوانید.
+
+## **خواندن مقادیر مؤثر تم**
+
+اشیای خام تم به شما می‌گویند در سطح خاص چه چیزی تعریف شده است. مقادیر مؤثر می‌گویند یک اسلاید یا شکل پس از ارث‌بری و بازنویسی‌های محلی واقعاً چه چیزی استفاده می‌کند. برای یک اسلاید، [BaseOverrideThemeManager.CreateThemeEffective](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/baseoverridethememanager/createthemeeffective/) را فراخوانی کنید. برای پس‌زمینه، از [Background.GetEffective](https://reference.aspose.com/slides/fa/net/aspose.slides/background/geteffective/) و برای پرکردن، از [FillFormat.GetEffective](https://reference.aspose.com/slides/fa/net/aspose.slides/fillformat/geteffective/) استفاده کنید.
+
+مثال زیر تم مؤثر، پس‌زمینه و اولین پرکردن شکل را از یک اسلاید می‌خواند:
 
 ```csharp
 using System;
@@ -449,22 +528,22 @@ if (slide.Shapes.Count > 0)
 }
 ```
 
-از داده‌های مؤثر برای تشخیص رندر، اعتبارسنجی و مقایسه استفاده کنید. اگر فقط [Presentation.MasterTheme](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/mastertheme/) را بررسی کنید، ممکن است یک بازنویسی مستر، لِی‌آوت، اسلاید یا شکل که ظاهر نهایی را تغییر می‌دهد، از دست برود.
+از داده‌های مؤثر برای تشخیص رندر، اعتبارسنجی و مقایسه‌ها استفاده کنید. اگر فقط به [Presentation.MasterTheme](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/mastertheme/) نگاه کنید، ممکن است بازنویسی‌های مستر، لایه، اسلاید یا شکل که ظاهر نهایی را تغییر می‌دهند، از دست بدهید.
 
-## **سوالات متداول**
+## **پرسش‌های متداول**
 
-**آیا اعمال یک قالب خارجی بر تمام اسلایدهای ارائه تأثیر می‌گذارد؟**
+**آیا اعمال تم خارجی بر همه اسلایدهای ارائه تأثیر می‌گذارد؟**
 
-خیر. متد [IMasterSlide.ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/fa/net/aspose.slides/imasterslide/applyexternalthemetodependingslides/) فقط اسلایدهایی را که به مستر منتخب وابسته هستند، بازتخصیص می‌دهد. اسلایدهایی که از مسترهای دیگر استفاده می‌کنند، قالب‌های موجود خود را حفظ می‌کنند.
+نه. [IMasterSlide.ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/fa/net/aspose.slides/imasterslide/applyexternalthemetodependingslides/) تنها اسلایدهایی را که به مستر انتخاب‌شده وابسته‌اند، بازتخصیص می‌دهد. اسلایدهایی که از مسترهای دیگر استفاده می‌کنند، تم‌های موجود خود را حفظ می‌کنند.
 
-**آیا می‌توانم یک قالب را فقط بر یک اسلاید بدون تغییر مستر اعمال کنم؟**
+**آیا می‌توانم تم را فقط بر یک اسلاید اعمال کنم بدون تغییر مستر؟**
 
-بله. از [SlideThemeManager](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/slidethememanager/) اسلاید استفاده کنید و بازنویسی قالب آن را مقداردهی اولیه کنید. تغییر فقط به‌صورت محلی روی آن اسلاید اعمال می‌شود؛ سایر اسلایدها به قالب‌های موجود خود ادامه می‌دهند.
+بله. از [SlideThemeManager](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/slidethememanager/) اسلاید استفاده کنید و بازنویسی تم آن را مقداردهی اولیه کنید. تغییر تنها به‌صورت محلی بر آن اسلاید اعمال می‌شود؛ سایر اسلایدها تم‌های موجود خود را ادامه می‌دهند.
 
-**ایمن‌ترین روش برای انتقال یک قالب از یک ارائه به ارائه دیگر چیست؟**
+**امن‌ترین راه برای انتقال تم از یک ارائه به ارائهٔ دیگر چیست؟**
 
-هنگامی که اسلایدی را جابجا می‌کنید و می‌خواهید ظاهر منبع را حفظ کنید، مستر منبع را به مقصد کلون کنید و سپس اسلاید را با آن مستر با استفاده از [IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/fa/net/aspose.slides/imasterslidecollection/addclone/) و [ISlideCollection.AddClone](https://reference.aspose.com/slides/fa/net/aspose.slides/islidecollection/addclone/) کلون کنید. این کار مستر، لِی‌آوت‌ها و قالب را با هم نگه می‌دارد.
+هنگام جابه‌جایی اسلاید و حفظ ظاهر منبع، مستر منبع را به مقصد کلون کنید و سپس اسلاید را با همان مستر با استفاده از [IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/fa/net/aspose.slides/imasterslidecollection/addclone/) و [ISlideCollection.AddClone](https://reference.aspose.com/slides/fa/net/aspose.slides/islidecollection/addclone/) کلون کنید. این کار مستر، لایه‌ها و تم را همراه هم نگه می‌دارد.
 
 **چگونه می‌توانم مقادیر مؤثر را پس از ارث‌بری و بازنویسی‌ها ببینم؟**
 
-برای یک اسلاید یا قالب لِی‌آوت از [BaseOverrideThemeManager.CreateThemeEffective](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/baseoverridethememanager/createthemeeffective/) و برای اشیای فرمت مانند [Background.GetEffective](https://reference.aspose.com/slides/fa/net/aspose.slides/background/geteffective/) و [FillFormat.GetEffective](https://reference.aspose.com/slides/fa/net/aspose.slides/fillformat/geteffective/) استفاده کنید. این APIها مقادیر حل‌شده پس از اعمال ارث‌بری و بازنویسی‌ها را برمی‌گردانند.
+از [BaseOverrideThemeManager.CreateThemeEffective](https://reference.aspose.com/slides/fa/net/aspose.slides.theme/baseoverridethememanager/createthemeeffective/) برای یک اسلاید یا تم لایه استفاده کنید و برای اشیای فرمت مربوطه، متدهای مؤثر‑دیتا مانند [Background.GetEffective](https://reference.aspose.com/slides/fa/net/aspose.slides/background/geteffective/) و [FillFormat.GetEffective](https://reference.aspose.com/slides/fa/net/aspose.slides/fillformat/geteffective/) را فراخوانی کنید. این APIها مقادیر حل‌شده پس از اعمال ارث‌بری و بازنویسی‌ها را برمی‌گردانند.

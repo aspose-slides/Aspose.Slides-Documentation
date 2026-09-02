@@ -1,5 +1,5 @@
 ---
-title: Správa témat prezentací v JavaScriptu
+title: Spravovat témata prezentací v JavaScriptu
 linktitle: Téma prezentace
 type: docs
 weight: 10
@@ -14,7 +14,7 @@ keywords:
 - externí téma
 - THMX
 - barva tématu
-- další paleta
+- dodatečná paleta
 - písmo tématu
 - styl tématu
 - efekt tématu
@@ -24,23 +24,23 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Spravujte hlavní témata prezentací v JavaScriptu pomocí Aspose.Slides pro Node.js k vytváření, přizpůsobení a konverzi souborů PowerPoint s jednotnou značkou."
+description: "Spravujte témata prezentací v JavaScriptu pomocí Aspose.Slides pro Node.js k vytváření, přizpůsobení a převodu souborů PowerPoint se sjednoceným brandováním."
 ---
 ## **Úvod**
 
-Téma prezentace definuje koordinovanou sadu barev, písem, stylů pozadí, výplní, čar a efektů. Objektům, které jsou téma‑vědomé, jsou přiřazeny tyto sdílené definice místo ukládání každé vizuální vlastnosti jako pevné hodnoty, takže změna tématu může aktualizovat mnoho objektů najednou.
+Téma prezentace definuje koordinovanou sadu barev, písem, stylů pozadí, výplní, čar a efektů. Objektům, které jsou „theme‑aware“, stačí odkazovat na tyto sdílené definice místo ukládání každé vizuální vlastnosti jako pevné hodnoty, takže změna tématu může najednou aktualizovat mnoho objektů.
 
-V Aspose.Slides je téma na úrovni prezentace dostupné pomocí [Presentation.getMasterTheme](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/getmastertheme/). Prezentace může také obsahovat přepsání tématu na nižších úrovních. Master může přepsat téma prezentace pomocí [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/masterthememanager/), zatímco rozložení nebo jednotlivý snímek může přepsat své zděděné téma pomocí [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/baseoverridethememanager/). V praxi je efektivní téma snímku řešeno touto řetězovou dědičností: téma prezentace, přepsání masteru, přepsání rozložení a přepsání snímku.
+V Aspose.Slides je téma úrovně prezentace k dispozici prostřednictvím [Presentation.getMasterTheme](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/getmastertheme/). Prezentace může také obsahovat přepsání tématu na nižších úrovních. Master může přepsat téma prezentace pomocí [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/masterthememanager/), zatímco rozložení nebo jednotlivý snímek může přepsat své zděděné téma pomocí [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/baseoverridethememanager/). V praxi je efektivní téma snímku vypočteno řetězcem dědičnosti: téma prezentace, přepsání masteru, přepsání rozložení a přepsání snímku.
 
 ![Komponenty tématu: barvy, písma, styly pozadí a efekty](theme-constituents.png)
 
-Níže uvedené sekce ukazují nejčastější workflow s tématy: prohlédnutí tématu, změna barev a písem, kopírování nebo aplikace tématu, aktualizace stylů pozadí a efektů a čtení efektivních hodnot po vyřešení dědičnosti a přepisů.
+Níže uvedené sekce ukazují nejčastější pracovní postupy s tématy: prozkoumání tématu, změna barev a písem, kopírování nebo aplikace tématu, aktualizace stylů pozadí a efektů a čtení efektivních hodnot po vyřešení dědičnosti a přepisů.
 
-## **Prohlédnutí tématu**
+## **Prozkoumat téma**
 
-Objekt [MasterTheme](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/mastertheme/) vystavuje schéma barev, schéma písem a schéma formátů tématu pomocí [MasterTheme.getColorScheme](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/mastertheme/) a [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/mastertheme/). Prohlédnutí těchto kolekcí před jejich změnou je zvláště užitečné, když prezentace pochází z externího zdroje, protože počet a obsah položek stylů se může lišit.
+Objekt [MasterTheme](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/mastertheme/) vystavuje schéma barev, schéma písem a schéma formátů prostřednictvím [MasterTheme.getColorScheme](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/mastertheme/) a [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/mastertheme/). Prozkoumání těchto kolekcí před jejich změnou je zvláště užitečné, když prezentace pochází z externího zdroje, protože počet a obsah položek stylů se může lišit.
 
-Následující příklad načte hlavní vlastnosti tématu a vykáže, kolik stylů pozadí, výplní, čar a efektů je v tématu uloženo:
+Následující příklad načte hlavní vlastnosti tématu a vypíše, kolik stylů pozadí, výplní, čar a efektů je v tématu uloženo:
 
 ```javascript
 const aspose = {};
@@ -62,13 +62,13 @@ try {
 }
 ```
 
-Pokud soubor používá více masterů, nepředpokládejte, že každý snímek má stejné efektivní téma. Prohlédněte master přiřazený ke snímku a použijte workflow s efektivním tématem uvedený později v tomto článku, pokud mohou existovat přepsání na úrovni rozložení nebo snímku.
+Pokud soubor používá více masterů, nepředpokládejte, že každý snímek má stejné efektivní téma. Prozkoumejte master přiřazený ke snímku a použijte pracovní postup efektivního tématu uvedený později v tomto článku, pokud mohou existovat přepsání na úrovni rozložení nebo snímku.
 
 ## **Změna barev tématu**
 
-Téma‑vědomé výplně, čáry a text mohou odkazovat na logickou barvu ze seznamu [SchemeColor](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/schemecolor/). Když změníte odpovídající položku v [ColorScheme](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/colorscheme/), všechny objekty, které stále odkazují na tuto barvu tématu, jsou vyhodnoceny vůči nové hodnotě. Objektům, které používají přímou RGB barvu, se změna barvy tématu neprojeví.
+Theme‑aware výplně, čáry a text mohou odkazovat na logickou barvu ze výčtu [SchemeColor](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/schemecolor/). Když změníte odpovídající položku v [ColorScheme](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/colorscheme/), všechny objekty, které stále odkazují na tuto barvu tématu, jsou vyhodnoceny vůči nové hodnotě. Objektům, které používají přímou barvu RGB, změna barvy tématu neovlivní.
 
-Následující end‑to‑end příklad vytvoří tvar používající `Accent4`, změní barvu `Accent4` tématu na červenou, uloží prezentaci, znovu ji otevře a vytiskne efektivní barvu výplně:
+Následující end‑to‑end příklad vytvoří tvar používající `Accent4`, změní barvu `Accent4` v tématu na červenou, uloží prezentaci, znovu ji otevře a vytiskne efektivní barvu výplně:
 
 ```javascript
 const aspose = {};
@@ -98,18 +98,18 @@ try {
 }
 ```
 
-Protože obdélník zůstává propojený s `Accent4`, jeho viditelná barva se po změně tématu stane červenou. Pokud nahradíte barvu schématu přímou barvou na tvaru, pozdější změny `Accent4` již nebudou tento výplň ovlivňovat.
+Protože obdélník zůstává propojen s `Accent4`, jeho viditelná barva se po změně tématu stane červenou. Pokud nahrajete barvu schématu přímou barvou na tvar, pozdější změny `Accent4` již tento výplň neovlivní.
 
-### **Použití barev z další palety**
+### **Použít barvy z dodatečné palety**
 
-PowerPoint vytváří světlejší a tmavší varianty z barvy tématu aplikací transformací barev. Aspose.Slides vystavuje tyto transformace pomocí výčtu [ColorTransformOperation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/colortransformoperation/).
+PowerPoint odvozuje světlejší a tmavší varianty z barvy tématu aplikací transformací barev. Aspose.Slides tyto transformace vystavuje prostřednictvím výčtu [ColorTransformOperation](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/colortransformoperation/).
 
-![Hlavní barvy tématu a světlejší a tmavší barvy vygenerované z další palety](additional-palette-colors.png)
+![Hlavní barvy tématu a světlejší a tmavší barvy generované z dodatečné palety](additional-palette-colors.png)
 
 **1** – Hlavní barvy tématu.  
 **2** – Světlejší a tmavší varianty vytvořené z hlavních barev tématu.
 
-Následující příklad vytvoří šest obdélníků založených na `Accent4`, aplikuje na pět z nich luminanční transformace a výsledek uloží:
+Následující příklad vytvoří šest obdélníků založených na `Accent4`, na pět z nich aplikuje transformace luminance a výsledek uloží:
 
 ```javascript
 const aspose = {};
@@ -160,29 +160,29 @@ try {
 
 Tyto varianty zůstávají založeny na barvě tématu. Pokud se `Accent4` později změní, transformované barvy se přepočítají z nové hodnoty `Accent4`.
 
-### **Mapování hodnot `SchemeColor` na sloty `ColorScheme`**
+### **Mapovat hodnoty `SchemeColor` na sloty `ColorScheme`**
 
-Výčet [SchemeColor](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/schemecolor/) používá `Text1`, `Background1`, `Text2` a `Background2`, zatímco [ColorScheme](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/colorscheme/) vystavuje stejné sloty tématu jako `Dark1`, `Light1`, `Dark2` a `Light2`. Mapování je pevně dané:
+Výčet [SchemeColor](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/schemecolor/) používá `Text1`, `Background1`, `Text2` a `Background2`, zatímco [ColorScheme](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/colorscheme/) vystavuje stejné sloty tématu jako `Dark1`, `Light1`, `Dark2` a `Light2`. Mapování je pevné:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-Jedná se o alternativní názvy pro stejné sloty tématu; nejsou to hodnoty dynamicky převáděné z jedné podoby do druhé.
+Jedná se o alternativní názvy pro stejné sloty tématu; nejsou to hodnoty, které by se dynamicky převáděly z jedné podoby do druhé.
 
 ## **Změna písem tématu**
 
-Schéma písem tématu obsahuje hlavní sadu písem pro nadpisy a pomocnou sadu pro tělo textu. Metody [FontScheme.getMajor](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/fontscheme/) a [FontScheme.getMinor](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/fontscheme/) tyto sady vystavují.
+Schéma písem tématu obsahuje hlavní sadu písem pro nadpisy a vedlejší sadu písem pro běžný text. Metody [FontScheme.getMajor](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/fontscheme/) a [FontScheme.getMinor](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/fontscheme/) tyto sady vystavují.
 
 Identifikátory písem kompatibilních s PowerPointem lze použít při formátování textu:
 
-* `+mn-lt` – Tělo písma Latin (Minor Latin Font)
-* `+mj-lt` – Nadpis písma Latin (Major Latin Font)
-* `+mn-ea` – Tělo písma Východní Asie (Minor East Asian Font)
-* `+mj-ea` – Nadpis písma Východní Asie (Major East Asian Font)
+* `+mn‑lt` – tělo textu Latin (Minor Latin Font)
+* `+mj‑lt` – nadpis Latin (Major Latin Font)
+* `+mn‑ea` – tělo East Asian (Minor East Asian Font)
+* `+mj‑ea` – nadpis East Asian (Major East Asian Font)
 
-Následující příklad vytvoří jeden nadpis používající hlavní latinské písmo tématu a jeden řádek těla používající pomocní latinský font. Pak změní písma tématu a výsledek uloží:
+Následující příklad vytvoří jeden nadpis používající hlavní latinské písmo tématu a jeden řádek těla používající vedlejší latinské písmo. Pak změní písma tématu a výsledek uloží:
 
 ```javascript
 const aspose = {};
@@ -208,30 +208,30 @@ try {
 }
 ```
 
-Nadpis následuje hlavní písmo a tělo textu následuje pomocní font. Text, který má explicitně nastavený název písma místo identifikátoru tématu, se automaticky nepřepne, když se změní schéma písem tématu.
+Nadpis následuje hlavní písmo a tělo textu následuje vedlejší písmo. Text, který má explicitně uvedeno jméno písma místo identifikátoru tématu, se automaticky nepřepne, když se změní schéma písem tématu.
 
-Hlavní a pomocní kolekce písem mohou také obsahovat mapování písem pro jednotlivé psací systémy, jako jsou cyrilice, arabština, japonština, gruzínština a thaana. Pro prohlédnutí, přidání, nahrazení nebo odebrání těchto mapování viz [Script‑Specific Theme Fonts](/slides/cs/nodejs-java/script-specific-font-mappings/).
+Hlavní a vedlejší kolekce písem mohou také obsahovat mapování písem pro jednotlivé psací systémy, např. cyrilici, arabštinu, japonštinu, gruzínštinu a thaana. Pro prozkoumání, přidání, nahrazení nebo odebrání těchto mapování viz [Script‑Specific Theme Fonts](/slides/cs/nodejs-java/script-specific-font-mappings/).
 
 {{% alert color="info" title="Tip" %}}
-Pro více informací o písmenech v prezentaci viz [PowerPoint Fonts](/slides/cs/nodejs-java/powerpoint-fonts/).
+Pro více informací o písech v prezentaci viz [PowerPoint Fonts](/slides/cs/nodejs-java/powerpoint-fonts/).
 {{% /alert %}}
 
-## **Kopírování nebo aplikace tématu**
+## **Kopírovat nebo použít téma**
 
-Níže uvedené workflow řeší různé problémy související s tématem.
+Níže uvedené pracovní postupy řeší různé problémy související s tématy.
 
-### **Aplikovat externí téma na snímky závislé na masteru**
+### **Použít externí téma na snímky závislé na hlavním snímku**
 
-Použijte [MasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/masterslide/) když máte soubor tématu PowerPoint (`.thmx`) a chcete přestylovat každý snímek, který závisí na konkrétním masteru. Vyberte master ze sbírky [Presentation.getMasters](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/), která je reprezentována objektem [MasterSlideCollection](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/masterslidecollection/), a předejte cestu k souboru tématu metodě.
+Použijte [MasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/masterslide/), když máte soubor tématu PowerPoint (`.thmx`) a chcete přeformátovat každý snímek, který závisí na konkrétním masteru. Vyberte master ze sbírky [Presentation.getMasters](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/), která je reprezentována [MasterSlideCollection](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/masterslidecollection/), a předejte cestu k souboru tématu metodě.
 
-Metoda provede následující operace:
+Metoda provádí následující operace:
 
-1. Vytvoří nový master‑snímek na základě vybraného masteru.  
+1. Vytvoří nový master slide na základě vybraného masteru.  
 2. Aplikuje externí téma na nový master.  
 3. Přiřadí nový master všem snímkům, které dříve závisely na vybraném masteru.  
 4. Vrátí nově vytvořený [MasterSlide](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/masterslide/).
 
-Následující příklad aplikuje externí téma na snímky, které závisí na první masteru, a uloží prezentaci:
+Následující příklad aplikuje externí téma na snímky, které závisí na prvním masteru, a uloží prezentaci:
 
 ```javascript
 const aspose = {};
@@ -249,19 +249,19 @@ try {
 }
 ```
 
-Neplatné, poškozené nebo nepodporované téma může způsobit [PptxReadException](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/pptxreadexception/). Ověřujte cesty dodané uživateli, ošetřete selhání přístupu k souborovému systému a uložte prezentaci až po úspěšné aplikaci tématu.
+Neplatné, poškozené nebo nepodporované téma může vyvolat [PptxReadException](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/pptxreadexception/). Ověřte cesty zadávané uživateli, ošetřete selhání přístupu k souborovému systému a uložte prezentaci až po úspěšném aplikování tématu.
 
-Přesunuty jsou pouze snímky, které závisely na vybraném masteru. Snímky přiřazené k jiným masterům si zachovají své existující mastery a témata. Téma‑vědomé barvy, písma, výplně, čáry, pozadí a efekty jsou vyhodnoceny vůči externímu tématu. Barvy, písma, výplně a další explicitní formátování přiřazené přímo mohou zůstat beze změny. Přepsání na úrovni rozložení a snímku může také mít přednost před hodnotami zděděnými z nového masteru.
+Přesunou se jen snímky, které závisely na vybraném masteru. Snímky spojené s jinými mastery si zachovají své stávající mastery a témata. Barvy, písma, výplně, čáry, pozadí a efekty „theme‑aware“ jsou vyhodnoceny vůči externímu tématu. Přímé barvy, písma, výplně a další explicitní formátování mohou zůstat nezměněny. Přepsání na úrovni rozložení a snímku může také mít přednost před hodnotami zděděnými z nového masteru.
 
-Téma může odkazovat na písma, která nejsou v běhovém prostředí dostupná. Pro konzistentní vykreslování a export nainstalujte požadovaná písma, poskytujte je přes [custom font sources](/slides/cs/nodejs-java/custom-font/) nebo nakonfigurujte [font substitution](/slides/cs/nodejs-java/font-substitution/).
+Téma může odkazovat na písma, která nejsou k dispozici v běhovém prostředí. Pro konzistentní vykreslování a export nainstalujte požadovaná písma, poskytněte je prostřednictvím [custom font sources](/slides/cs/nodejs-java/custom-font/), nebo nakonfigurujte [font substitution](/slides/cs/nodejs-java/font-substitution/).
 
-Toto je přímý workflow na úrovni masteru: metoda přijímá cestu k souboru `.thmx` a nevyžaduje ruční vytváření přepisů tématu na úrovni snímku nebo rozložení.
+Jedná se o přímý pracovně‑úrovňový postup: metoda přijímá cestu k souboru `.thmx` a nevyžaduje ruční vytváření přepisů tématu na úrovni snímku nebo rozložení.
 
-### **Aplikovat různá externí témata v prezentaci s více mastery**
+### **Použít různá externí témata v prezentaci s více mastery**
 
-Když není předem známý relevantní master, získejte jej z reprezentativního snímku pomocí [Slide.getLayoutSlide](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/slide/) a [LayoutSlide.getMasterSlide](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/layoutslide/). Před aplikací jakýchkoli témat uložte původní reference masterů, protože každé volání vytvoří v prezentaci další master.
+Když není předem známý relevantní master, získejte jej z reprezentativního snímku pomocí [Slide.getLayoutSlide](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/slide/) a [LayoutSlide.getMasterSlide](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/layoutslide/). Před aplikací jakýchkoli témat uložte původní reference masterů, protože každé volání vytvoří další master v prezentaci.
 
-Následující příklad použije snímky ze dvou sekcí k nalezení jejich masterů a aplikuje odlišné externí téma na každou skupinu:
+Následující příklad použije snímky ze dvou sekcí k určení jejich masterů a aplikuje každé skupině jiné externí téma:
 
 ```javascript
 const aspose = {};
@@ -291,11 +291,11 @@ try {
 }
 ```
 
-První volání ovlivní pouze snímky, které závisely na `firstGroupMaster`, a druhé volání pouze snímky, které závisely na `secondGroupMaster`. Snímky patřící k nějakému jinému masteru nebudou přestylovány.
+První volání ovlivní jen snímky, které závisí na `firstGroupMaster`, a druhé volání jen snímky, které závisí na `secondGroupMaster`. Snímky patřící k jakémukoli jinému masteru nebudou přeformátovány.
 
 ### **Zachovat zdrojové téma při přesunu snímků**
 
-Pokud chcete přesunout snímek do jiné prezentace a zachovat jeho původní návrh, klonujte zdrojový master do cílové prezentace pomocí [MasterSlideCollection.addClone](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/masterslidecollection/), potom klonujte snímek pomocí [SlideCollection.addClone](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/slidecollection/) a klonovaného masteru. Tím se přenese master, jeho rozložení i přidružené téma.
+Pokud chcete přesunout snímek do jiné prezentace a zachovat jeho původní design, naklonujte zdrojový master do cílové prezentace pomocí [MasterSlideCollection.addClone](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/masterslidecollection/), poté naklonujte snímek pomocí [SlideCollection.addClone](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/slidecollection/) a naklonovaného masteru. Tím se přenese master, jeho rozložení i přidružené téma.
 
 ```javascript
 const aspose = {};
@@ -317,11 +317,11 @@ try {
 }
 ```
 
-Toto je doporučený workflow, když musí zdrojový snímek v cíli vypadat stejně. Pouhé klonování obsahu na nesouvisející cílový master může změnit barvy, písma, pozadí a efekty řízené tématem.
+Jedná se o preferovaný postup, když musí zdrojový snímek v cílovém souboru vypadat stejně. Pouhé klonování obsahu na nesouvisející master může změnit barvy, písma, pozadí a efekty řízené tématem.
 
 ### **Aplikovat hodnoty tématu na existující snímek**
 
-Pokud cílový snímek musí zůstat na svém aktuálním masteru a rozložení, inicializujte přepisování na úrovni snímku ze zdrojového tématu. Metody [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/overridetheme/) a [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/overridetheme/) zkopírují tři hlavní komponenty tématu do přepisu.
+Pokud má cílový snímek zůstat na svém aktuálním masteru a rozložení, inicializujte přepsání na úrovni snímku ze zdrojového tématu. Metody [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/overridetheme/) a [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/overridetheme/) zkopírují tři hlavní komponenty tématu do přepsání.
 
 ```javascript
 const aspose = {};
@@ -346,11 +346,11 @@ try {
 }
 ```
 
-Tím se změní téma používané tímto snímkem, aniž by došlo ke změně tématu zděděného ostatními snímky. Pro odebrání lokálního přepisu a návrat k zděděným hodnotám zavolejte [OverrideTheme.clear](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/overridetheme/).
+Tím se změní téma použité tímto snímkem, aniž by se změnilo téma zděděné ostatními snímky. Pro odebrání lokálního přepsání a návrat k děděným hodnotám zavolejte [OverrideTheme.clear](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/overridetheme/).
 
-### **Aplikovat přepis tématu na rozložení**
+### **Aplikovat přepsání tématu na rozložení**
 
-Přepis na úrovni rozložení se použije na snímky, které používají toto rozložení, pokud nemá konkrétní snímek vlastní přepis. Stejné metody inicializace lze použít přes [LayoutSlideThemeManager](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/layoutslidethememanager/):
+Přepsání na úrovni rozložení se vztahuje na snímky, které používají toto rozložení, pokud konkrétní snímek nemá vlastní přepsání. Stejné inicializační metody lze použít prostřednictvím [LayoutSlideThemeManager](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/layoutslidethememanager/):
 
 ```javascript
 const aspose = {};
@@ -375,17 +375,17 @@ try {
 }
 ```
 
-Použijte téma na úrovni masteru nebo prezentace, když má mnoho rozložení a snímků sdílet stejný základní návrh, přepis rozložení, když jedna rodina rozložení potřebuje odlišné stylování, a přepis snímku jen pro skutečné výjimky. Nadměrné přepisy na úrovni snímku ztěžují předvídání následných globálních změn tématu.
+Použijte téma na úrovni masteru nebo prezentace, když mají mnoho rozložení a snímků sdílet stejný základní design, přepsání rozložení, když jedna rodina rozložení potřebuje odlišné stylování, a přepsání snímku jen pro skutečné výjimky. Nadměrné přepsání na úrovni snímku ztěžuje předvídání následných globálních změn tématu.
 
-## **Aktualizace stylů pozadí tématu**
+## **Aktualizovat styly pozadí tématu**
 
-Pozadí tématu jsou uložena v [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/formatscheme/). PowerPoint může v uživatelském rozhraní nabídnout více možností pozadí, než kolik výplní je fyzicky uloženo v této kolekci, protože UI může kombinovat výplně tématu s barvami tématu a dalšími referencemi stylů.
+Výplně pozadí tématu jsou uloženy v [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/formatscheme/). PowerPoint může v uživatelském rozhraní nabízet více možností pozadí, než kolik výplňových definic je fyzicky uloženo v této kolekci, protože UI může kombinovat výplně tématu s barvami tématu a dalšími odkazy na styly.
 
 ![Galerie stylů pozadí PowerPointu pro téma prezentace](presentation-design_8.png)
 
-Před použitím stylu pozadí prohlédněte uloženou kolekci a aktuální [Background.getStyleIndex](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/background/). Index stylu `0` znamená žádnou tematickou výplň; kladné hodnoty jsou reference na styl pozadí tématu. To se liší od indexování samotné JavaScript kolekce, kde `0` označuje první uloženou položku. Nepředpokládejte, že každá prezentace obsahuje stejný počet stylů výplní pozadí.
+Před použitím stylu pozadí prozkoumejte uloženou kolekci a aktuální [Background.getStyleIndex](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/background/). Index stylu `0` znamená žádnou tematickou výplň; kladné hodnoty představují odkazy na styl pozadí tématu. To se liší od indexování JavaScriptové kolekce přímo, kde `0` označuje první uloženou položku. Nepředpokládejte, že každá prezentace obsahuje stejný počet stylů výplně pozadí.
 
-Následující příklad vypíše dostupný počet výplní pozadí, přiřadí tematickou referenci pozadí prvnímu masteru a uloží prezentaci:
+Následující příklad vypíše počet dostupných výplní pozadí, přiřadí tematický odkaz na pozadí prvnímu masteru a uloží prezentaci:
 
 ```javascript
 const aspose = {};
@@ -409,25 +409,25 @@ try {
 }
 ```
 
-Viditelný výsledek závisí na položce tématu, na kterou odkazuje master, a na případných přepsáních pozadí na úrovni rozložení nebo snímku. Pokud snímek používá vlastní pozadí, změna pouze pozadí masteru nemusí tento snímek ovlivnit. Použijte [Background.getEffective](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/background/) když potřebujete znát finální pozadí po aplikaci dědičnosti.
+Viditelný výsledek závisí na položce tématu, na kterou master odkazuje, a na případných přepsáních pozadí na úrovni rozložení nebo snímku. Pokud snímek používá vlastní pozadí, změna pouze master pozadí nemusí tento snímek změnit. Použijte [Background.getEffective](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/background/), když potřebujete znát finální pozadí po aplikaci dědičnosti.
 
-{{% alert color="warning" title="Warning" %}}
-Nezpracovávejte index stylu jako nulový index kolekce. Také se vyhněte hard‑codování čísla stylu z jednoho souboru a předpokládejte, že bude mít stejný vzhled v jiném souboru; definice stylů tématu jsou specifické pro prezentaci.
+{{% alert color="warning" title="Varování" %}}
+Nevnímejte index stylu jako nulový index kolekce. Také se vyhněte pevně zakódovanému číslu stylu z jednoho souboru a předpokladu, že bude vypadat stejně v jiném souboru; definice stylů tématu jsou specifické pro prezentaci.
 {{% /alert %}}
 
 {{% alert color="info" title="Tip" %}}
 Pro přímé formátování pozadí a dědičnost pozadí viz [Presentation Background](/slides/cs/nodejs-java/presentation-background/).
 {{% /alert %}}
 
-## **Aktualizace efektů tématu**
+## **Aktualizovat efekty tématu**
 
-Schéma formátů tématu obsahuje oddělené kolekce výplní, čar a efektů, které jsou vystaveny přes [FormatScheme.getFillStyles](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/formatscheme/), [FormatScheme.getLineStyles](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/formatscheme/) a [FormatScheme.getEffectStyles](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/formatscheme/). Typické Office téma často obsahuje tři hlavní položky stylu, které vizuálně odpovídají jemnému, střednímu a výraznému formátování, ale kód by měl prozkoumat každou kolekci místo předpokladu pevného počtu.
+Schéma formátů tématu obsahuje samostatné kolekce výplní, čar a efektů vystavené prostřednictvím [FormatScheme.getFillStyles](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/formatscheme/), [FormatScheme.getLineStyles](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/formatscheme/) a [FormatScheme.getEffectStyles](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/formatscheme/). Typické kancelářské téma často obsahuje tři hlavní položky stylů, které vizuálně odpovídají jemnému, střednímu a intenzivnímu formátování, ale kód by měl každou kolekci prozkoumat místo předpokládání pevného počtu.
 
-![Jemné, střední a výrazné efekty tématu aplikované na stejný tvar](presentation-design_10.png)
+![Jemné, střední a intenzivní efekty tématu aplikované na stejný tvar](presentation-design_10.png)
 
-Při přístupu k těmto kolekcím v JavaScriptu je index kolekce nulový: index `0` je první uložený styl a index `2` je třetí. Indexy reference stylu tvaru jsou samostatným konceptem, který vystavuje [ShapeStyle](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/shapestyle/). Úprava stylu tématu ovlivní tvary, které na tento styl odkazují; tvary s přímým formátováním mohou zůstat beze změny.
+Při přístupu k těmto kolekcím v JavaScriptu je index kolekce nulový: index `0` je první uložený styl a index `2` je třetí. Indexy odkazů stylů tvaru jsou samostatný koncept, vystavený přes [ShapeStyle](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/shapestyle/). Úprava tématického stylu ovlivní tvary, které na tento styl odkazují; tvary s přímým formátováním mohou zůstat nezměněny.
 
-Následující příklad ověří, že požadované položky stylu existují, změní první čárový styl, změní třetí výplňový styl, povolí vnější stín ve třetím efektu a výsledek uloží:
+Následující příklad zkontroluje, že požadované položky stylů existují, změní první styl čáry, změní třetí styl výplně, povolí vnější stín ve třetím stylu efektu a výsledek uloží:
 
 ```javascript
 const aspose = {};
@@ -454,13 +454,93 @@ try {
 }
 ```
 
-Pro tvary, které odkazují na tyto sloty, se první čárový styl tématu změní na červený, třetí výplňový styl tématu se stane plnou lesní zelení a třetí efekt získá vnější stín s vzdáleností 10 bodů. Přesný vizuální výsledek stále závisí na tom, které sloty styly každého tvaru používají a zda přímé formátování nepřepisuje téma.
+Pro tvary, které odkazují na tyto sloty, se první tematická čára stane červenou, třetí tematická výplň se změní na plnou lesní zelenou a třetí efekt získá vnější stín s vzdáleností 10 bodů. Přesný vizuální výsledek stále závisí na tom, které sloty stylu každá figura používá a zda přímé formátování nepřepíše téma.
 
 ![Styly efektů tématu po změně čáry, výplně a nastavení stínu](presentation-design_11.png)
 
-## **Čtení efektivních hodnot tématu**
+## **Zjištění, zda efektivní plná výplň používá barvu tématu**
 
-Surové objekty tématu vám říkají, co je definováno na konkrétní úrovni. Efektivní hodnoty vám říkají, co snímek nebo tvar skutečně používá po vyřešení dědičnosti a lokálních přepisů. Pro snímek zavolejte [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/baseoverridethememanager/). Pro pozadí použijte [Background.getEffective](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/background/), a pro výplň [FillFormat.getEffective](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/fillformat/).
+Výplň může být uložena přímo na objektu nebo zděděna z odstavce, rozložení, masteru, stylu tématu nebo jiné úrovně formátování. Zavolejte [FillFormat.getEffective](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/fillformat/), aby se tato hierarchie vyřešila do neměnné snímkové výplně. Nejprve zkontrolujte hodnotu `getFillType`. Pouze pokud je `FillType.Solid`, měli byste číst vlastnosti plné výplně.
+
+U plné výplně `getSolidFillColor` vrací finální vykreslenou hodnotu RGB po aplikaci dědičnosti, vyhledání v tématu a transformací barev. Metoda `getSolidFillSchemeColor` vrací odpovídající logický slot [SchemeColor](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/schemecolor/), např. `Text1` nebo `Accent6`. Hodnota `SchemeColor.NotDefined` znamená, že efektivní plná výplň není založena na barvě schématu. V pracovním postupu, kde jsou výplně buď barvy tématu nebo přímé barvy RGB, tato hodnota identifikuje přímou RGB výplň.
+
+Nenavazujte pouze na lokální hodnotu [ColorFormat.getSchemeColor](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/colorformat/). Například část textu může nemít lokálně definovanou barvu schématu, takže její lokální hodnota je `NotDefined`, zatímco její efektivní výplň zdědí tematickou barvu a vyřeší se na `Text1` nebo `Accent6`. Naopak `getSolidFillSchemeColor` vám říká, který logický slot tématu vytvořil efektivní barvu, ale neříká, zda tento slot pochází z objektu, odstavce, rozložení, masteru nebo jiné úrovně hierarchie formátování.
+
+Následující příklad načte prezentaci, prověří výplně tvarů i výplně částí textu, vytiskne každou finální hodnotu RGB a související barvu schématu a označí plné výplně, které nebudou sledovat změny barev tématu:
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+function toHexColor(color) {
+    const red = color.getRed().toString(16).padStart(2, "0");
+    const green = color.getGreen().toString(16).padStart(2, "0");
+    const blue = color.getBlue().toString(16).padStart(2, "0");
+    return `#${red}${green}${blue}`.toUpperCase();
+}
+
+function auditFill(objectName, localFill) {
+    const effectiveFill = localFill.getEffective();
+
+    if (effectiveFill.getFillType() !== aspose.slides.FillType.Solid) {
+        console.log(objectName + ": fill type = " + effectiveFill.getFillType() + "; not a solid fill.");
+        return;
+    }
+
+    const rgb = effectiveFill.getSolidFillColor();
+    const effectiveSchemeColor = effectiveFill.getSolidFillSchemeColor();
+    const localSchemeColor = localFill.getSolidFillColor().getSchemeColor();
+
+    console.log(objectName + ": RGB = " + toHexColor(rgb));
+    console.log(objectName + ": local scheme = " + localSchemeColor + ", effective scheme = " + effectiveSchemeColor);
+
+    if (effectiveSchemeColor === aspose.slides.SchemeColor.NotDefined) {
+        console.log(objectName + ": direct RGB or another non-scheme fill; audit as theme-independent.");
+    } else {
+        console.log(objectName + ": theme-dependent through " + effectiveSchemeColor + ".");
+    }
+}
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slideCount = presentation.getSlides().size();
+    for (let slideIndex = 0; slideIndex < slideCount; slideIndex++) {
+        const slide = presentation.getSlides().get_Item(slideIndex);
+
+        const shapeCount = slide.getShapes().size();
+        for (let shapeIndex = 0; shapeIndex < shapeCount; shapeIndex++) {
+            const shape = slide.getShapes().get_Item(shapeIndex);
+            const shapeName = "Slide " + (slideIndex + 1) + ", shape " + (shapeIndex + 1);
+            auditFill(shapeName, shape.getFillFormat());
+
+            if (java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
+                const paragraphCount = shape.getTextFrame().getParagraphs().getCount();
+                for (let paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++) {
+                    const paragraph = shape.getTextFrame().getParagraphs().get_Item(paragraphIndex);
+
+                    const portionCount = paragraph.getPortions().getCount();
+                    for (let portionIndex = 0; portionIndex < portionCount; portionIndex++) {
+                        const portion = paragraph.getPortions().get_Item(portionIndex);
+                        const portionName = shapeName + ", paragraph " + (paragraphIndex + 1) + ", portion " + (portionIndex + 1);
+                        auditFill(portionName, portion.getPortionFormat().getFillFormat());
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Větve `NotDefined` poskytují auditní seznam plných výplní, které nebudou reagovat na změny v slotách barvy tématu. Přezkoumejte tyto objekty, když musí prezentace odpovídat nové paletě značky. Hlásená hodnota RGB stále ukazuje aktuální vzhled, zatímco hodnota schématu vysvětluje, zda je tento vzhled spojen s tématem.
+
+Efektivní objekty jsou snímky. Po změně tématu prezentace, přepsání tématu nebo jakéhokoli zděděného formátování opět zavolejte `getEffective` a přečtěte nový objekt efektivní výplně před porovnáním nebo hlášením barev.
+
+## **Číst efektivní hodnoty tématu**
+
+Raw objekty tématu říkají, co je definováno na konkrétní úrovni. Efektivní hodnoty říkají, co snímek nebo tvar skutečně používá po vyřešení dědičnosti a lokálních přepisů. Pro snímek zavolejte [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/baseoverridethememanager/). Pro pozadí použijte [Background.getEffective](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/background/), a pro výplň [FillFormat.getEffective](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/fillformat/).
 
 Následující příklad načte efektivní téma, pozadí a první výplň tvaru ze snímku:
 
@@ -488,22 +568,22 @@ try {
 }
 ```
 
-Používejte efektivní data pro diagnostiku vykreslování, validaci a porovnání. Pokud prohlížíte jen [Presentation.getMasterTheme](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/getmastertheme/), můžete přehlédnout přepis masteru, rozložení, snímku nebo tvaru, který mění finální vzhled.
+Používejte efektivní data pro diagnostiku vykreslování, validaci a srovnání. Pokud prozkoumáte pouze [Presentation.getMasterTheme](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/getmastertheme/), můžete postrádat přepsání v masteru, rozložení, snímku nebo tvaru, které mění finální vzhled.
 
 ## **Často kladené otázky**
 
 **Ovlivní aplikace externího tématu každý snímek v prezentaci?**
 
-Ne. [MasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/masterslide/) přepíše jen snímky, které závisí na vybraném masteru. Snímky používající jiné mastery si zachovají svá existující témata.
+Ne. [MasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/masterslide/) přepíše jen snímky, které závisí na vybraném masteru. Snímky používající jiné mastery si zachovají své stávající témata.
 
-**Mohu aplikovat téma na jediný snímek bez změny masteru?**
+**Mohu aplikovat téma na jeden snímek bez změny masteru?**
 
-Ano. Použijte [SlideThemeManager](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/slidethememanager/) snímku a inicializujte jeho přepis tématu. Změna zůstane lokální pro tento snímek; ostatní snímky nadále zdědí svá existující témata.
+Ano. Použijte [SlideThemeManager](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/slidethememanager/) snímku a inicializujte jeho přepsání tématu. Změna zůstane lokální pro tento snímek; ostatní snímky budou nadále dědit své stávající témata.
 
 **Jaký je nejbezpečnější způsob, jak přenést téma z jedné prezentace do druhé?**
 
-Při přesunu snímku a zachování jeho původního vzhledu klonujte zdrojový master do cíle a klonujte snímek s tímto masterem pomocí [MasterSlideCollection.addClone](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/masterslidecollection/) a [SlideCollection.addClone](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/slidecollection/). Tím se master, rozložení a téma přenesou společně.
+Při přesunu snímku a zachování jeho původního vzhledu naklonujte zdrojový master do cílové prezentace a naklonujte snímek s tímto masterem pomocí [MasterSlideCollection.addClone](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/masterslidecollection/) a [SlideCollection.addClone](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/slidecollection/). Tím se master, rozložení i téma přenesou společně.
 
 **Jak mohu zobrazit efektivní hodnoty po dědičnosti a přepsání?**
 
-Použijte [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/baseoverridethememanager/) pro snímek nebo rozložení tématu a odpovídající metody efektivních dat pro formátové objekty jako [Background.getEffective](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/background/) a [FillFormat.getEffective](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/fillformat/). Tyto API vrací vyřešené hodnoty po aplikaci dědičnosti a přepisů.
+Použijte [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/baseoverridethememanager/) pro téma snímku nebo rozložení a příslušné metody efektivních dat pro formátové objekty, jako jsou [Background.getEffective](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/background/) a [FillFormat.getEffective](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/fillformat/). Tyto API vracejí vyřešené hodnoty po aplikaci dědičnosti a přepisů.

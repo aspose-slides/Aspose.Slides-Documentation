@@ -8,13 +8,13 @@ keywords:
 - Tema PowerPoint
 - Tema della presentazione
 - Tema della diapositiva
-- Impostare il tema
-- Modificare il tema
-- Gestire il tema
+- Imposta tema
+- Cambia tema
+- Gestisci tema
 - Tema esterno
 - THMX
 - Colore del tema
-- Palette aggiuntiva
+- Tavolozza aggiuntiva
 - Carattere del tema
 - Stile del tema
 - Effetto del tema
@@ -23,23 +23,23 @@ keywords:
 - presentazione
 - Python
 - Aspose.Slides
-description: "Gestisci i temi principali delle presentazioni in Aspose.Slides per Python tramite .NET per creare, personalizzare e convertire file PowerPoint con un'identità visiva coerente."
+description: "Gestisci i temi master delle presentazioni in Aspose.Slides per Python via .NET per creare, personalizzare e convertire file PowerPoint con un branding coerente."
 ---
 ## **Introduzione**
 
-Un tema della presentazione definisce un insieme coordinato di colori, caratteri, stili di sfondo, riempimenti, linee ed effetti. Gli oggetti sensibili al tema fanno riferimento a queste definizioni condivise invece di memorizzare ogni proprietà visiva come valore fisso, così un cambiamento del tema può aggiornare molti oggetti contemporaneamente.
+Un tema di presentazione definisce un insieme coordinato di colori, caratteri, stili di sfondo, riempimenti, linee ed effetti. Gli oggetti sensibili al tema fanno riferimento a queste definizioni condivise anziché memorizzare ogni proprietà visiva come valore fisso, così una modifica del tema può aggiornare molti oggetti contemporaneamente.
 
-In Aspose.Slides, il tema a livello di presentazione è disponibile tramite la proprietà [Presentation.master_theme](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/master_theme/). Una presentazione può contenere anche sovrascritture del tema a livelli inferiori. Un master può sovrascrivere il tema della presentazione tramite [MasterThemeManager.override_theme](https://reference.aspose.com/slides/it/python-net/aspose.slides.theme/masterthememanager/override_theme/), un layout può sovrascrivere il tema ereditato tramite [BaseOverrideThemeManager.override_theme](https://reference.aspose.com/slides/it/python-net/aspose.slides.theme/baseoverridethememanager/override_theme/), e una singola diapositiva può fare lo stesso. In pratica, il tema effettivo per una diapositiva viene risolto attraverso questa catena di ereditarietà: tema della presentazione, sovrascrittura del master, sovrascrittura del layout e sovrascrittura della diapositiva.
+In Aspose.Slides, il tema a livello di presentazione è disponibile tramite la proprietà [Presentation.master_theme](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/master_theme/). Una presentazione può contenere anche sovrascritture del tema a livelli inferiori. Un master può sovrascrivere il tema della presentazione tramite [MasterThemeManager.override_theme](https://reference.aspose.com/slides/it/python-net/aspose.slides.theme/masterthememanager/override_theme/), un layout può sovrascrivere il tema ereditato tramite [BaseOverrideThemeManager.override_theme](https://reference.aspose.com/slides/it/python-net/aspose.slides.theme/baseoverridethememanager/override_theme/), e una diapositiva individuale può fare lo stesso. In pratica, il tema effettivo per una diapositiva è risolto attraverso questa catena di ereditarietà: tema della presentazione, sovrascrittura del master, sovrascrittura del layout e sovrascrittura della diapositiva.
 
 ![Componenti del tema: colori, caratteri, stili di sfondo ed effetti](theme-constituents.png)
 
-Le sezioni seguenti mostrano i flussi di lavoro più comuni sul tema: ispezionare un tema, modificare colori e caratteri, copiare o applicare un tema, aggiornare stili di sfondo ed effetti, e leggere i valori effettivi dopo che ereditarietà e sovrascritture sono state risolte.
+Le sezioni seguenti mostrano i flussi di lavoro più comuni sul tema: ispezionare un tema, modificare colori e caratteri, copiare o applicare un tema, aggiornare gli stili di sfondo ed effetti, e leggere i valori effettivi dopo che ereditarietà e sovrascritture sono state risolte.
 
-## **Ispezionare un tema**
+## **Ispezionare un Tema**
 
-L'oggetto [MasterTheme](https://reference.aspose.com/slides/it/python-net/aspose.slides.theme/mastertheme/) espone le proprietà [color_scheme](https://reference.aspose.com/slides/it/python-net/aspose.slides.theme/mastertheme/color_scheme/), [font_scheme](https://reference.aspose.com/slides/it/python-net/aspose.slides.theme/mastertheme/font_scheme/) e [format_scheme](https://reference.aspose.com/slides/it/python-net/aspose.slides.theme/mastertheme/format_scheme/). Ispezionare queste collezioni prima di modificarle è particolarmente utile quando una presentazione proviene da una fonte esterna, poiché il numero e il contenuto delle voci di stile possono variare.
+L’oggetto [MasterTheme](https://reference.aspose.com/slides/it/python-net/aspose.slides.theme/mastertheme/) espone le proprietà [color_scheme](https://reference.aspose.com/slides/it/python-net/aspose.slides.theme/mastertheme/color_scheme/), [font_scheme](https://reference.aspose.com/slides/it/python-net/aspose.slides.theme/mastertheme/font_scheme/) e [format_scheme](https://reference.aspose.com/slides/it/python-net/aspose.slides.theme/mastertheme/format_scheme/). Ispezionare queste collezioni prima di modificarle è particolarmente utile quando una presentazione proviene da una fonte esterna, poiché il numero e il contenuto delle voci di stile possono variare.
 
-L'esempio seguente legge le proprietà principali del tema e riporta quante voci di sfondo, riempimento, linea ed effetto sono memorizzate nel tema:
+L’esempio seguente legge le proprietà principali del tema e segnala quante impostazioni di sfondo, riempimento, linea ed effetto sono memorizzate nel tema:
 
 ```python
 import aspose.slides as slides
@@ -56,13 +56,13 @@ with slides.Presentation("input.pptx") as presentation:
     print(f"Effect styles: {len(theme.format_scheme.effect_styles)}")
 ```
 
-Se un file utilizza più master, non dare per scontato che ogni diapositiva abbia lo stesso tema effettivo. Ispeziona il master associato alla diapositiva e usa il flusso di lavoro sul tema effettivo mostrato più avanti in questo articolo quando potrebbero esserci sovrascritture a livello di layout o diapositiva.
+Se un file utilizza più master, non dare per scontato che ogni diapositiva abbia lo stesso tema effettivo. Ispeziona il master associato alla diapositiva e utilizza il flusso di lavoro sul tema efficace mostrato più avanti in questo articolo quando potrebbero essere presenti sovrascritture a livello di layout o diapositiva.
 
-## **Modificare i colori del tema**
+## **Modificare i Colori del Tema**
 
-I riempimenti, le linee e il testo sensibili al tema possono riferirsi a un colore logico dell'enumerazione [SchemeColor](https://reference.aspose.com/slides/it/python-net/aspose.slides/schemecolor/). Quando cambi la voce corrispondente nel [ColorScheme](https://reference.aspose.com/slides/it/python-net/aspose.slides.theme/colorscheme/) del tema, tutti gli oggetti che ancora fanno riferimento a quel colore del tema vengono risolti sul nuovo valore. Gli oggetti che usano un colore RGB diretto non vengono modificati da un aggiornamento del colore del tema.
+I riempimenti, le linee e il testo sensibili al tema possono fare riferimento a un colore logico presente nell’enumerazione [SchemeColor](https://reference.aspose.com/slides/it/python-net/aspose.slides/schemecolor/). Quando si modifica la voce corrispondente nella [ColorScheme](https://reference.aspose.com/slides/it/python-net/aspose.slides.theme/colorscheme/) del tema, tutti gli oggetti che ancora fanno riferimento a quel colore di tema sono risolti sul nuovo valore. Gli oggetti che usano un colore RGB diretto non vengono modificati da un aggiornamento del colore del tema.
 
-L'esempio end‑to‑end seguente crea una forma che utilizza `ACCENT4`, cambia il colore `accent4` del tema in rosso, salva la presentazione, la riapre e stampa il colore di riempimento effettivo:
+L’esempio end‑to‑end seguente crea una forma che utilizza `ACCENT4`, cambia il colore `accent4` del tema in rosso, salva la presentazione, la riapre e stampa il colore di riempimento effettivo:
 
 ```python
 import aspose.pydrawing as draw
@@ -83,18 +83,18 @@ with slides.Presentation("theme-color.pptx") as saved_presentation:
     print(f"Effective fill color: {effective_fill.solid_fill_color}")
 ```
 
-Poiché il rettangolo rimane collegato a `ACCENT4`, il suo colore visibile diventa rosso dopo il cambio del tema. Se sostituisci il colore dello schema con un colore diretto sulla forma, le modifiche successive a `accent4` non influenzeranno più quel riempimento.
+Poiché il rettangolo rimane collegato a `ACCENT4`, il suo colore visibile diventa rosso dopo che il tema è stato modificato. Se si sostituisce il colore di schema con un colore diretto sulla forma, le modifiche successive a `accent4` non influenzeranno più quel riempimento.
 
-### **Usare i colori dalla tavolozza aggiuntiva**
+### **Usare i Colori della Tavolozza Aggiuntiva**
 
-PowerPoint genera varianti più chiare e più scure da un colore del tema applicando trasformazioni di colore. Aspose.Slides espone queste trasformazioni tramite l'enumerazione [ColorTransformOperation](https://reference.aspose.com/slides/it/python-net/aspose.slides/colortransformoperation/).
+PowerPoint deriva varianti più chiare e più scure da un colore del tema applicando trasformazioni colore. Aspose.Slides espone queste trasformazioni tramite l’enumerazione [ColorTransformOperation](https://reference.aspose.com/slides/it/python-net/aspose.slides/colortransformoperation/).
 
-![Colori principali del tema e colori più chiari e più scuri generati dalla tavolozza aggiuntiva](additional-palette-colors.png)
+![Colori principali del tema e varianti più chiare e più scure generate dalla tavolozza aggiuntiva](additional-palette-colors.png)
 
-**1** - Colori principali del tema.  
-**2** - Varianti più chiare e più scure prodotte dai colori principali del tema.
+**1** – Colori principali del tema.  
+**2** – Varianti più chiare e più scure prodotte dai colori principali del tema.
 
-L'esempio seguente crea sei rettangoli basati su `ACCENT4`, applica trasformazioni di luminanza a cinque di essi e salva il risultato:
+L’esempio seguente crea sei rettangoli basati su `ACCENT4`, applica trasformazioni di luminanza a cinque di essi e salva il risultato:
 
 ```python
 import aspose.slides as slides
@@ -132,29 +132,29 @@ with slides.Presentation() as presentation:
 
 Queste varianti rimangono basate sul colore del tema. Se `accent4` cambia in seguito, i colori trasformati vengono ricalcolati dal nuovo valore `accent4`.
 
-### **Mappare i valori di `SchemeColor` negli slot di `ColorScheme`**
+### **Mappare i Valori di `SchemeColor` negli Slot di `ColorScheme`**
 
-L'enumerazione [SchemeColor](https://reference.aspose.com/slides/it/python-net/aspose.slides/schemecolor/) usa `TEXT1`, `BACKGROUND1`, `TEXT2` e `BACKGROUND2`, mentre [ColorScheme](https://reference.aspose.com/slides/it/python-net/aspose.slides.theme/colorscheme/) espone gli stessi slot del tema come `dark1`, `light1`, `dark2` e `light2`. La mappatura è fissa:
+L’enumerazione [SchemeColor](https://reference.aspose.com/slides/it/python-net/aspose.slides/schemecolor/) utilizza `TEXT1`, `BACKGROUND1`, `TEXT2` e `BACKGROUND2`, mentre [ColorScheme](https://reference.aspose.com/slides/it/python-net/aspose.slides.theme/colorscheme/) espone gli stessi slot del tema come `dark1`, `light1`, `dark2` e `light2`. La mappatura è fissa:
 
-* `TEXT1` = `dark1`
-* `BACKGROUND1` = `light1`
-* `TEXT2` = `dark2`
+* `TEXT1` = `dark1`  
+* `BACKGROUND1` = `light1`  
+* `TEXT2` = `dark2`  
 * `BACKGROUND2` = `light2`
 
-Questi sono nomi alternativi per gli stessi slot del tema; non sono valori convertiti dinamicamente da una forma all'altra.
+Questi sono nomi alternativi per gli stessi slot del tema; non sono valori convertiti dinamicamente da una forma all’altra.
 
-## **Modificare i caratteri del tema**
+## **Modificare i Caratteri del Tema**
 
-Uno schema di caratteri del tema contiene un set di caratteri principale per le intestazioni e un set secondario per il corpo del testo. Le proprietà [FontScheme.major](https://reference.aspose.com/slides/it/python-net/aspose.slides.theme/fontscheme/major/) e [FontScheme.minor](https://reference.aspose.com/slides/it/python-net/aspose.slides.theme/fontscheme/minor/) espongono tali set.
+Uno schema di caratteri del tema contiene un set di caratteri principale per i titoli e un set secondario per il corpo del testo. Le proprietà [FontScheme.major](https://reference.aspose.com/slides/it/python-net/aspose.slides.theme/fontscheme/major/) e [FontScheme.minor](https://reference.aspose.com/slides/it/python-net/aspose.slides.theme/fontscheme/minor/) espongono quei set.
 
 Gli identificatori di caratteri del tema compatibili con PowerPoint possono essere usati nella formattazione del testo:
 
-* `+mn-lt` - Font corpo Latin (Minor Latin Font)
-* `+mj-lt` - Font intestazione Latin (Major Latin Font)
-* `+mn-ea` - Font corpo East Asian (Minor East Asian Font)
-* `+mj-ea` - Font intestazione East Asian (Major East Asian Font)
+* `+mn-lt` – Carattere del corpo Latin (Minor Latin Font)  
+* `+mj-lt` – Carattere del titolo Latin (Major Latin Font)  
+* `+mn-ea` – Carattere del corpo East Asian (Minor East Asian Font)  
+* `+mj-ea` – Carattere del titolo East Asian (Major East Asian Font)
 
-L'esempio seguente crea un'intestazione che usa il carattere Latin principale del tema e una riga di corpo che usa il carattere Latin secondario del tema. Poi modifica i caratteri del tema e salva il risultato:
+L’esempio seguente crea un titolo che utilizza il carattere Latin principale del tema e una riga di corpo che utilizza il carattere Latin secondario. Quindi modifica i caratteri del tema e salva il risultato:
 
 ```python
 import aspose.slides as slides
@@ -172,30 +172,32 @@ with slides.Presentation() as presentation:
     presentation.save("theme-fonts.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-L'intestazione segue il carattere principale e il testo del corpo segue il carattere secondario. Il testo che ha un nome di carattere esplicito invece di un identificatore del tema non cambierà automaticamente quando lo schema di caratteri del tema cambia.
+Il titolo segue il carattere principale e il testo del corpo segue il carattere secondario. Il testo che ha un nome di carattere esplicito invece di un identificatore del tema non cambierà automaticamente quando lo schema di caratteri del tema varia.
 
-Le collezioni di caratteri principali e secondari possono contenere anche mappature di caratteri per sistemi di scrittura individuali, come cirillico, arabo, giapponese, georgiano e thaana. Per ispezionare, aggiungere, sostituire o rimuovere queste mappature, vedere [Script-Specific Theme Fonts](/slides/it/python-net/script-specific-font-mappings/).
+Le raccolte di caratteri principali e secondari possono anche contenere mappature di caratteri per singoli sistemi di scrittura, come cirilico, arabo, giapponese, georgiano e thaana. Per ispezionare, aggiungere, sostituire o rimuovere queste mappature, vedere [Script‑Specific Theme Fonts](/slides/it/python-net/script-specific-font-mappings/).
 
 {{% alert color="info" title="Suggerimento" %}}
-Per ulteriori informazioni sui caratteri della presentazione, vedere [PowerPoint Fonts](/slides/it/python-net/powerpoint-fonts/).
+
+Per ulteriori informazioni sui caratteri delle presentazioni, vedere [PowerPoint Fonts](/slides/it/python-net/powerpoint-fonts/).
+
 {{% /alert %}}
 
-## **Copiare o applicare un tema**
+## **Copiare o Applicare un Tema**
 
 I flussi di lavoro seguenti risolvono diversi problemi legati al tema.
 
-### **Applicare un tema esterno alle diapositive dipendenti da un master**
+### **Applicare un Tema Esterno alle Diapositive Dipendenti da un Master**
 
-Usa [IMasterSlide.apply_external_theme_to_depending_slides](https://reference.aspose.com/slides/it/python-net/aspose.slides/imasterslide/apply_external_theme_to_depending_slides/) quando hai un file tema PowerPoint (`.thmx`) e desideri ridisegnare ogni diapositiva che dipende da un master particolare. Seleziona il master dalla collezione [Presentation.masters](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/masters/), che implementa [MasterSlideCollection](https://reference.aspose.com/slides/it/python-net/aspose.slides/masterslidecollection/), e passa il percorso del file tema al metodo.
+Usare [IMasterSlide.apply_external_theme_to_depending_slides](https://reference.aspose.com/slides/it/python-net/aspose.slides/imasterslide/apply_external_theme_to_depending_slides/) quando si dispone di un file tema PowerPoint (`.thmx`) e si vuole riformattare ogni diapositiva che dipende da un master specifico. Selezionare il master dalla collezione [Presentation.masters](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/masters/), che implementa [MasterSlideCollection](https://reference.aspose.com/slides/it/python-net/aspose.slides/masterslidecollection/), e passare il percorso del file tema al metodo.
 
 Il metodo esegue le seguenti operazioni:
 
 1. Crea un nuovo master slide basato sul master selezionato.  
-2. Applica il tema esterno al nuovo master.  
-3. Assegna il nuovo master a tutte le diapositive che precedentemente dipendevano dal master selezionato.  
-4. Restituisce il nuovo [IMasterSlide](https://reference.aspose.com/slides/it/python-net/aspose.slides/imasterslide/).
+1. Applica il tema esterno al nuovo master.  
+1. Assegna il nuovo master a tutte le diapositive che in precedenza dipendevano dal master selezionato.  
+1. Restituisce il nuovo [IMasterSlide](https://reference.aspose.com/slides/it/python-net/aspose.slides/imasterslide/).
 
-L'esempio seguente applica un tema esterno alle diapositive che dipendono dal primo master e salva la presentazione:
+L’esempio seguente applica un tema esterno alle diapositive che dipendono dal primo master e salva la presentazione:
 
 ```python
 import aspose.slides as slides
@@ -208,19 +210,19 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-with-external-theme.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Un tema non valido, corrotto o non supportato può generare un [PptxException](https://reference.aspose.com/slides/it/python-net/aspose.slides/pptxexception/) o una delle sue sotto‑classi relative al formato. Convalida i percorsi forniti dagli utenti, gestisci gli errori di accesso al file system e salva la presentazione solo dopo che il tema è stato applicato con successo.
+Un tema non valido, corrotto o non supportato può generare una [PptxException](https://reference.aspose.com/slides/it/python-net/aspose.slides/pptxexception/) o una delle sue sottoclassi legate al formato. Convalidare i percorsi forniti dagli utenti, gestire i fallimenti di accesso al file system e salvare la presentazione solo dopo che il tema è stato applicato correttamente.
 
-Solo le diapositive che dipendevano dal master selezionato vengono riassegnate. Le diapositive associate ad altri master conservano i master e i temi esistenti. I colori, i caratteri, i riempimenti, le linee, gli sfondi e gli effetti sensibili al tema vengono risolti rispetto al tema esterno. I colori, i caratteri, i riempimenti e altre formattazioni assegnate direttamente possono rimanere invariati. Le sovrascritture a livello di layout e diapositiva possono anche avere la precedenza sui valori ereditati dal nuovo master.
+Solo le diapositive che dipendevano dal master selezionato vengono riassegnate. Le diapositive associate ad altri master mantengono i loro master e temi esistenti. I colori, i caratteri, i riempimenti, le linee, gli sfondi e gli effetti sensibili al tema vengono risolti rispetto al tema esterno. I colori, i caratteri, i riempimenti e altre formattazioni assegnate direttamente possono rimanere invariati. Le sovrascritture a livello di layout e diapositiva possono anche avere la precedenza sui valori ereditati dal nuovo master.
 
-Il tema può fare riferimento a caratteri non disponibili nell'ambiente di runtime. Per una resa ed esportazione coerenti, installa i caratteri richiesti, forniscili tramite [custom font sources](/slides/it/python-net/custom-font/), o configura la [font substitution](/slides/it/python-net/font-substitution/).
+Il tema può fare riferimento a caratteri non disponibili nell’ambiente di runtime. Per una resa ed esportazione coerenti, installare i caratteri richiesti, fornirli tramite [custom font sources](/slides/it/python-net/custom-font/), o configurare la [font substitution](/slides/it/python-net/font-substitution/).
 
-Questo è un flusso di lavoro diretto a livello di master: il metodo accetta un percorso a un file `.thmx` e non richiede la creazione manuale di sovrascritture di tema a livello di layout o diapositiva.
+Questo è un flusso di lavoro diretto a livello di master: il metodo accetta un percorso di file `.thmx` e non richiede la creazione manuale di sovrascritture a livello di layout o diapositiva.
 
-### **Applicare temi esterni diversi in una presentazione multi‑master**
+### **Applicare Temi Esterni Differenti in una Presentazione Multi‑Master**
 
-Quando il master rilevante non è noto in anticipo, ottienilo da una diapositiva rappresentativa tramite [Slide.layout_slide](https://reference.aspose.com/slides/it/python-net/aspose.slides/slide/layout_slide/) e [LayoutSlide.master_slide](https://reference.aspose.com/slides/it/python-net/aspose.slides/layoutslide/master_slide/). Conserva i riferimenti ai master originali prima di applicare i temi perché ogni chiamata crea un nuovo master nella presentazione.
+Quando il master pertinente non è noto in anticipo, ottenerlo da una diapositiva rappresentativa tramite [Slide.layout_slide](https://reference.aspose.com/slides/it/python-net/aspose.slides/slide/layout_slide/) e [LayoutSlide.master_slide](https://reference.aspose.com/slides/it/python-net/aspose.slides/layoutslide/master_slide/). Conservare i riferimenti ai master originali prima di applicare i temi, poiché ogni chiamata crea un nuovo master nella presentazione.
 
-L'esempio seguente usa diapositive di due sezioni per localizzare i loro master e applica un tema esterno diverso a ciascun gruppo:
+L’esempio seguente utilizza diapositive di due sezioni per individuare i rispettivi master e applica un tema esterno diverso a ciascun gruppo:
 
 ```python
 import aspose.slides as slides
@@ -243,11 +245,11 @@ with slides.Presentation("multi-master-presentation.pptx") as presentation:
             presentation.save("multi-master-with-external-themes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-La prima chiamata influisce solo sulle diapositive che dipendevano da `first_group_master`, e la seconda solo su quelle che dipendevano da `second_group_master`. Le diapositive appartenenti a qualsiasi altro master non vengono ridisegnate.
+La prima chiamata influisce solo sulle diapositive che dipendevano da `first_group_master`, e la seconda solo su quelle che dipendevano da `second_group_master`. Le diapositive appartenenti a qualsiasi altro master non vengono riformattate.
 
-### **Conservare il tema di origine durante lo spostamento di diapositive**
+### **Conservare il Tema di Origine Quando Si Spostano Diapositive**
 
-Se desideri spostare una diapositiva in un'altra presentazione conservando il design originale, clona il master di origine nella presentazione di destinazione con [MasterSlideCollection.add_clone](https://reference.aspose.com/slides/it/python-net/aspose.slides/masterslidecollection/add_clone/), quindi clona la diapositiva con [SlideCollection.add_clone](https://reference.aspose.com/slides/it/python-net/aspose.slides/slidecollection/add_clone/) e il master clonato. In questo modo master, layout e tema associato vengono trasferiti insieme.
+Se si desidera spostare una diapositiva in un’altra presentazione conservandone il design originale, clonare il master di origine nella presentazione di destinazione con [MasterSlideCollection.add_clone](https://reference.aspose.com/slides/it/python-net/aspose.slides/masterslidecollection/add_clone/), quindi clonare la diapositiva con [SlideCollection.add_clone](https://reference.aspose.com/slides/it/python-net/aspose.slides/slidecollection/add_clone/) e il master clonato. In questo modo il master, i suoi layout e il tema associato vengono trasferiti insieme.
 
 ```python
 import aspose.slides as slides
@@ -263,9 +265,9 @@ with slides.Presentation("source-theme.pptx") as source:
 
 Questo è il flusso di lavoro consigliato quando la diapositiva di origine deve apparire identica nella destinazione. Clonare semplicemente il contenuto su un master di destinazione non correlato può modificare colori, caratteri, sfondi ed effetti determinati dal tema.
 
-### **Applicare valori di tema a una diapositiva esistente**
+### **Applicare Valori di Tema a una Diapositiva Esistente**
 
-Se la diapositiva di destinazione deve rimanere sul master e layout correnti, inizializza una sovrascrittura a livello di diapositiva dal tema di origine. I metodi [OverrideTheme.init_color_scheme_from](https://reference.aspose.com/slides/it/python-net/aspose.slides.theme/overridetheme/init_color_scheme_from/), [OverrideTheme.init_font_scheme_from](https://reference.aspose.com/slides/it/python-net/aspose.slides.theme/overridetheme/init_font_scheme_from/) e [OverrideTheme.init_format_scheme_from](https://reference.aspose.com/slides/it/python-net/aspose.slides.theme/overridetheme/init_format_scheme_from/) copiano i tre componenti principali del tema nella sovrascrittura.
+Se la diapositiva di destinazione deve rimanere sul suo master e layout attuali, inizializzare una sovrascrittura a livello di diapositiva dal tema di origine. I metodi [OverrideTheme.init_color_scheme_from](https://reference.aspose.com/slides/it/python-net/aspose.slides.theme/overridetheme/init_color_scheme_from/), [OverrideTheme.init_font_scheme_from](https://reference.aspose.com/slides/it/python-net/aspose.slides.theme/overridetheme/init_font_scheme_from/) e [OverrideTheme.init_format_scheme_from](https://reference.aspose.com/slides/it/python-net/aspose.slides.theme/overridetheme/init_format_scheme_from/) copiano i tre componenti principali del tema nella sovrascrittura.
 
 ```python
 import aspose.slides as slides
@@ -280,11 +282,11 @@ with slides.Presentation("source-theme.pptx") as source:
         target.save("theme-applied-to-slide.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Ciò modifica il tema usato da quella diapositiva senza alterare il tema ereditato dalle altre diapositive. Per rimuovere la sovrascrittura locale e tornare ai valori ereditati, chiama [OverrideTheme.clear](https://reference.aspose.com/slides/it/python-net/aspose.slides.theme/overridetheme/clear/).
+Ciò modifica il tema usato da quella diapositiva senza alterare il tema ereditato dalle altre diapositive. Per rimuovere la sovrascrittura locale e tornare ai valori ereditati, chiamare [OverrideTheme.clear](https://reference.aspose.com/slides/it/python-net/aspose.slides.theme/overridetheme/clear/).
 
-### **Applicare una sovrascrittura di tema a un layout**
+### **Applicare una Sovrascrittura di Tema a un Layout**
 
-Una sovrascrittura a livello di layout si applica alle diapositive che usano quel layout, a meno che una diapositiva specifica non abbia la propria sovrascrittura. Gli stessi metodi di inizializzazione possono essere usati tramite il [LayoutSlideThemeManager](https://reference.aspose.com/slides/it/python-net/aspose.slides.theme/layoutslidethememanager/) del layout:
+Una sovrascrittura a livello di layout si applica alle diapositive che usano quel layout, a meno che una specifica diapositiva non abbia una sua sovrascrittura. Gli stessi metodi di inizializzazione possono essere usati tramite il [LayoutSlideThemeManager](https://reference.aspose.com/slides/it/python-net/aspose.slides.theme/layoutslidethememanager/) del layout:
 
 ```python
 import aspose.slides as slides
@@ -299,17 +301,17 @@ with slides.Presentation("source-theme.pptx") as source:
         target.save("theme-applied-to-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Usa un tema a livello di master o presentazione quando molti layout e diapositive devono condividere lo stesso design di base, una sovrascrittura di layout quando una famiglia di layout necessita di uno stile diverso, e una sovrascrittura di diapositiva solo per eccezioni reali. Troppe sovrascritture a livello di diapositiva rendono più difficili da prevedere i cambiamenti globali del tema.
+Usare un tema a livello di master o di presentazione quando molti layout e diapositive devono condividere lo stesso design di base, una sovrascrittura di layout quando una famiglia di layout richiede una stilistica diversa, e una sovrascrittura di diapositiva solo per eccezioni reali. Un eccesso di sovrascritture a livello di diapositiva rende più difficile prevedere le variazioni successive del tema globale.
 
-## **Aggiornare gli stili di sfondo del tema**
+## **Aggiornare gli Stili di Sfondo del Tema**
 
-Gli sfondi del tema sono memorizzati in [FormatScheme.background_fill_styles](https://reference.aspose.com/slides/it/python-net/aspose.slides.theme/formatscheme/background_fill_styles/). PowerPoint può presentare più scelte di sfondo nella sua interfaccia rispetto al numero di definizioni di riempimento effettivamente memorizzate in questa collezione, poiché l'interfaccia può combinare riempimenti del tema con colori del tema e altri riferimenti di stile.
+Gli sfondi del tema sono memorizzati in [FormatScheme.background_fill_styles](https://reference.aspose.com/slides/it/python-net/aspose.slides.theme/formatscheme/background_fill_styles/). PowerPoint può presentare più scelte di sfondo nella sua interfaccia rispetto al numero di definizioni di riempimento effettivamente memorizzate in questa collezione, perché l’interfaccia può combinare riempimenti di tema con colori di tema e altri riferimenti di stile.
 
 ![Galleria di stili di sfondo di PowerPoint per un tema di presentazione](presentation-design_8.png)
 
-Prima di usare uno stile di sfondo, ispeziona la collezione memorizzata e l'attuale [Background.style_index](https://reference.aspose.com/slides/it/python-net/aspose.slides/background/style_index/). `style_index` usa `0` per nessun riempimento tematico; i valori positivi sono riferimenti a stili di sfondo tematici. Questo è diverso dall'indicizzare direttamente una collezione Python, dove `[0]` indica il primo elemento memorizzato. Non dare per scontato che ogni presentazione contenga lo stesso numero di stili di riempimento di sfondo.
+Prima di utilizzare uno stile di sfondo, ispezionare la collezione memorizzata e l’attuale [Background.style_index](https://reference.aspose.com/slides/it/python-net/aspose.slides/background/style_index/). `style_index` utilizza `0` per nessun riempimento tematico; valori positivi sono riferimenti a stili di sfondo tematici. Questo è diverso dall’indicizzazione di una collezione Python, dove `[0]` indica il primo elemento memorizzato. Non assumere che ogni presentazione contenga lo stesso numero di stili di riempimento di sfondo.
 
-L'esempio seguente riporta il conteggio dei riempimenti di sfondo disponibili, assegna un riferimento di sfondo tematico al primo master e salva la presentazione:
+L’esempio seguente segnala il conteggio dei riempimenti di sfondo disponibili, assegna un riferimento di sfondo tematico al primo master e salva la presentazione:
 
 ```python
 import aspose.slides as slides
@@ -325,25 +327,29 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("theme-background.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Il risultato visibile dipende dalla voce del tema a cui il master fa riferimento e da eventuali sovrascritture di sfondo a livello di layout o diapositiva. Se una diapositiva usa il proprio sfondo, cambiare solo lo sfondo del master potrebbe non modificare quella diapositiva. Usa [Background.get_effective](https://reference.aspose.com/slides/it/python-net/aspose.slides/background/get_effective/) quando è necessario conoscere lo sfondo finale dopo l'applicazione dell'ereditarietà.
+Il risultato visibile dipende dalla voce del tema a cui il master fa riferimento e da eventuali sovrascritture di sfondo a livello di layout o diapositiva. Se una diapositiva utilizza un proprio sfondo, modificare solo lo sfondo del master potrebbe non influenzare quella diapositiva. Usare [Background.get_effective](https://reference.aspose.com/slides/it/python-net/aspose.slides/background/get_effective/) quando è necessario conoscere lo sfondo finale dopo l’applicazione dell’eredità.
 
-{{% alert color="warning" title="Avviso" %}}
-Non trattare `style_index` come un indice di collezione basato su zero. Evita inoltre di codificare in modo fisso un numero di stile da un file e presumere che abbia lo stesso aspetto in un altro file; le definizioni di stile del tema sono specifiche della presentazione.
+{{% alert color="warning" title="Attenzione" %}}
+
+Non trattare `style_index` come indice zero‑based di una collezione. Evita inoltre di codificare un numero di stile da un file e presumere che abbia lo stesso aspetto in un altro file; le definizioni di stile del tema sono specifiche della presentazione.
+
 {{% /alert %}}
 
 {{% alert color="info" title="Suggerimento" %}}
-Per la formattazione diretta dello sfondo e l'ereditarietà dello sfondo, vedere [Presentation Background](/slides/it/python-net/presentation-background/).
+
+Per formattazione diretta dello sfondo e ereditarietà dello sfondo, vedere [Presentation Background](/slides/it/python-net/presentation-background/).
+
 {{% /alert %}}
 
-## **Aggiornare gli effetti del tema**
+## **Aggiornare gli Effetti del Tema**
 
-Uno schema di formato del tema contiene collezioni separate di [FormatScheme.fill_styles](https://reference.aspose.com/slides/it/python-net/aspose.slides.theme/formatscheme/fill_styles/), [FormatScheme.line_styles](https://reference.aspose.com/slides/it/python-net/aspose.slides.theme/formatscheme/line_styles/) e [FormatScheme.effect_styles](https://reference.aspose.com/slides/it/python-net/aspose.slides.theme/formatscheme/effect_styles/). I temi tipici di Office spesso contengono tre voci di stile principali che corrispondono visivamente a formattazioni sottile, moderata e intensa, ma il codice dovrebbe ispezionare ogni collezione invece di assumere un conteggio fisso.
+Uno schema di formato del tema contiene collezioni separate per [FormatScheme.fill_styles](https://reference.aspose.com/slides/it/python-net/aspose.slides.theme/formatscheme/fill_styles/), [FormatScheme.line_styles](https://reference.aspose.com/slides/it/python-net/aspose.slides.theme/formatscheme/line_styles/) e [FormatScheme.effect_styles](https://reference.aspose.com/slides/it/python-net/aspose.slides.theme/formatscheme/effect_styles/). I temi tipici di Office spesso includono tre voci principali che corrispondono visivamente a formattazioni sottili, moderate e intense, ma il codice dovrebbe ispezionare ogni collezione invece di presumere un conteggio fisso.
 
-![Effetti tematici sottili, moderati e intensi applicati alla stessa forma](presentation-design_10.png)
+![Effetti del tema sottili, moderati e intensi applicati alla stessa forma](presentation-design_10.png)
 
-Quando accedi a queste collezioni in Python, l'indice della collezione è basato su zero: `[0]` è il primo stile memorizzato e `[2]` è il terzo. Gli indici di riferimento di stile di una forma sono un concetto separato, esposti tramite [IShapeStyle](https://reference.aspose.com/slides/it/python-net/aspose.slides/ishapestyle/). Modificare uno stile del tema influisce sulle forme che fanno riferimento a quello stile; le forme con formattazione diretta possono rimanere invariate.
+Quando si accede a queste collezioni in Python, l’indice della collezione è zero‑based: `[0]` è il primo stile memorizzato e `[2]` è il terzo. Gli indici di riferimento di stile di una forma sono un concetto separato, esposti tramite [IShapeStyle](https://reference.aspose.com/slides/it/python-net/aspose.slides/ishapestyle/). Modificare uno stile del tema influisce sulle forme che lo riferiscono; le forme con formattazione diretta possono rimanere invariate.
 
-L'esempio seguente verifica che le voci di stile richieste esistano, modifica il primo stile di linea, il terzo stile di riempimento, abilita un'ombra esterna nel terzo stile di effetto e salva il risultato:
+L’esempio seguente verifica che le voci di stile richieste esistano, modifica il primo stile di linea, il terzo stile di riempimento, abilita un’ombreggiatura esterna nel terzo stile di effetto e salva il risultato:
 
 ```python
 import aspose.pydrawing as draw
@@ -362,15 +368,66 @@ with slides.Presentation("Subtle_Moderate_Intense.pptx") as presentation:
     presentation.save("theme-effects.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Per le forme che fanno riferimento a questi slot, il primo stile di linea del tema diventa rosso, il terzo stile di riempimento del tema diventa verde foresta solido, e il terzo stile di effetto ottiene un'ombra esterna con distanza di 10 punti. Il risultato visivo esatto dipende comunque da quali slot di stile ogni forma riferisce e se la formattazione diretta sovrascrive il tema.
+Per le forme che fanno riferimento a questi slot, il primo stile di linea del tema diventa rosso, il terzo stile di riempimento del tema diventa verde foresta solido, e il terzo stile di effetto acquisisce un’ombreggiatura esterna con distanza di 10 punti. Il risultato visivo esatto dipende comunque da quali slot di stile ogni forma utilizza e se una formattazione diretta sovrascrive il tema.
 
-![Stili di effetto del tema dopo la modifica di linea, riempimento e ombra](presentation-design_11.png)
+![Stili di effetto del tema dopo la modifica di linea, riempimento e impostazioni di ombra](presentation-design_11.png)
 
-## **Leggere i valori effettivi del tema**
+## **Determinare Se un Riempimento Solido Effettivo Usa un Colore del Tema**
 
-Gli oggetti tema grezzi indicano ciò che è definito a un determinato livello. I valori effettivi indicano ciò che una diapositiva o una forma utilizza realmente dopo che ereditarietà e sovrascritture locali sono state risolte. Per una diapositiva, chiama [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/it/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/). Per uno sfondo, usa [Background.get_effective](https://reference.aspose.com/slides/it/python-net/aspose.slides/background/get_effective/), e per un riempimento, usa [FillFormat.get_effective](https://reference.aspose.com/slides/it/python-net/aspose.slides/fillformat/get_effective/).
+Un riempimento può essere memorizzato direttamente su un oggetto o ereditato da un paragrafo, layout, master, stile del tema o un altro livello di formattazione. Chiamare [FillFormat.get_effective](https://reference.aspose.com/slides/it/python-net/aspose.slides/fillformat/get_effective/) per risolvere quella gerarchia in un oggetto immutabile [IFillFormatEffectiveData](https://reference.aspose.com/slides/it/python-net/aspose.slides/ifillformateffectivedata/). Prima verificare [IFillFormatEffectiveData.fill_type](https://reference.aspose.com/slides/it/python-net/aspose.slides/ifillformateffectivedata/fill_type/). Solo quando è `FillType.SOLID` si devono leggere le proprietà del riempimento solido.
 
-L'esempio seguente legge il tema effettivo, lo sfondo e il primo riempimento della forma da una diapositiva:
+Per un riempimento solido, [IFillFormatEffectiveData.solid_fill_color](https://reference.aspose.com/slides/it/python-net/aspose.slides/ifillformateffectivedata/solid_fill_color/) restituisce il valore RGB finale dopo ereditarietà, ricerca nel tema e applicazione delle trasformazioni colore. [IFillFormatEffectiveData.solid_fill_scheme_color](https://reference.aspose.com/slides/it/python-net/aspose.slides/ifillformateffectivedata/solid_fill_scheme_color/) restituisce lo slot logico corrispondente di [SchemeColor](https://reference.aspose.com/slides/it/python-net/aspose.slides/schemecolor/), come `TEXT1` o `ACCENT6`. Un valore `SchemeColor.NOT_DEFINED` indica che il riempimento solido effettivo non si basa su un colore di schema. In un flusso di lavoro dove i riempimenti sono o colori di tema o colori RGB diretti, questo valore identifica un riempimento RGB diretto.
+
+Non utilizzare soltanto il valore locale [IColorFormat.scheme_color](https://reference.aspose.com/slides/it/python-net/aspose.slides/icolorformat/scheme_color/) per classificare un riempimento. Per esempio, una porzione di testo può non avere un colore di schema definito localmente, quindi il suo valore locale è `NOT_DEFINED`, mentre il suo riempimento effettivo eredita un colore di tema e si risolve in `TEXT1` o `ACCENT6`. Al contrario, `solid_fill_scheme_color` indica quale slot logico del tema ha prodotto il colore effettivo, ma non specifica se quello slot proviene dall’oggetto, dal paragrafo, dal layout, dal master o da un altro livello della gerarchia di formattazione.
+
+L’esempio seguente carica una presentazione, verifica i riempimenti di forme e di porzioni di testo, stampa ogni valore RGB finale e il colore di schema associato, e segna i riempimenti solidi che non seguiranno le modifiche ai colori del tema:
+
+```python
+import aspose.slides as slides
+
+
+def audit_fill(object_name, local_fill):
+    effective_fill = local_fill.get_effective()
+
+    if effective_fill.fill_type != slides.FillType.SOLID:
+        print(f"{object_name}: fill type = {effective_fill.fill_type}; not a solid fill.")
+        return
+
+    rgb = effective_fill.solid_fill_color
+    effective_scheme_color = effective_fill.solid_fill_scheme_color
+    local_scheme_color = local_fill.solid_fill_color.scheme_color
+
+    print(f"{object_name}: RGB = #{rgb.r:02X}{rgb.g:02X}{rgb.b:02X}")
+    print(f"{object_name}: local scheme = {local_scheme_color}, effective scheme = {effective_scheme_color}")
+
+    if effective_scheme_color == slides.SchemeColor.NOT_DEFINED:
+        print(f"{object_name}: direct RGB or another non-scheme fill; audit as theme-independent.")
+    else:
+        print(f"{object_name}: theme-dependent through {effective_scheme_color}.")
+
+
+with slides.Presentation("input.pptx") as presentation:
+    for slide_index, slide in enumerate(presentation.slides):
+        for shape_index, shape in enumerate(slide.shapes):
+            shape_name = f"Slide {slide_index + 1}, shape {shape_index + 1}"
+            audit_fill(shape_name, shape.fill_format)
+
+            if isinstance(shape, slides.AutoShape):
+                for paragraph_index, paragraph in enumerate(shape.text_frame.paragraphs):
+                    for portion_index, portion in enumerate(paragraph.portions):
+                        portion_name = f"{shape_name}, paragraph {paragraph_index + 1}, portion {portion_index + 1}"
+                        audit_fill(portion_name, portion.portion_format.fill_format)
+```
+
+Il ramo `NOT_DEFINED` fornisce un elenco di audit di riempimenti solidi che non risponderanno a cambiamenti negli slot di colore del tema. Revisionare quegli oggetti quando una presentazione deve adeguarsi a una nuova tavolozza di brand. Il valore RGB segnalato mostra ancora l’aspetto corrente, mentre il valore di schema spiega se tale aspetto è collegato al tema.
+
+Gli oggetti di formato effettivo sono istantanee. Dopo aver modificato il tema della presentazione, una sovrascrittura di tema, o qualsiasi formattazione ereditata, chiamare nuovamente `get_effective` e leggere un nuovo oggetto `IFillFormatEffectiveData` prima di confrontare o segnalare i colori.
+
+## **Leggere i Valori Effettivi del Tema**
+
+Gli oggetti tema grezzi indicano ciò che è definito a un determinato livello. I valori effettivi indicano ciò che una diapositiva o una forma utilizza realmente dopo l’eredità e le sovrascritture locali. Per una diapositiva, chiamare [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/it/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/). Per uno sfondo, usare [Background.get_effective](https://reference.aspose.com/slides/it/python-net/aspose.slides/background/get_effective/), e per un riempimento, usare [FillFormat.get_effective](https://reference.aspose.com/slides/it/python-net/aspose.slides/fillformat/get_effective/).
+
+L’esempio seguente legge il tema effettivo, lo sfondo e il primo riempimento della forma da una diapositiva:
 
 ```python
 import aspose.slides as slides
@@ -389,22 +446,22 @@ with slides.Presentation("input.pptx") as presentation:
             print(f"First shape effective fill color: {effective_fill.solid_fill_color}")
 ```
 
-Usa i dati effettivi per diagnostica di rendering, convalida e confronti. Se ispezioni solo [Presentation.master_theme](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/master_theme/), potresti perdere un master, layout, diapositiva o sovrascrittura di forma che modifica l'aspetto finale.
+Utilizzare i dati effettivi per diagnostica di rendering, convalida e confronti. Se si ispeziona solo [Presentation.master_theme](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/master_theme/), si possono trascurare master, layout, diapositive o sovrascritture di forma che modificano l’aspetto finale.
 
 ## **FAQ**
 
-**L'applicazione di un tema esterno influisce su tutte le diapositive della presentazione?**
+**L’applicazione di un tema esterno influisce su ogni diapositiva della presentazione?**
 
-No. [IMasterSlide.apply_external_theme_to_depending_slides](https://reference.aspose.com/slides/it/python-net/aspose.slides/imasterslide/apply_external_theme_to_depending_slides/) riassegna solo le diapositive che dipendono dal master selezionato. Le diapositive che usano altri master mantengono i loro temi esistenti.
+No. [IMasterSlide.apply_external_theme_to_depending_slides](https://reference.aspose.com/slides/it/python-net/aspose.slides/imasterslide/apply_external_theme_to_depending_slides/) riassegna solo le diapositive che dipendono dal master selezionato. Le diapositive che usano altri master conservano i loro temi esistenti.
 
-**Posso applicare un tema a una singola diapositiva senza cambiare il master?**
+**Posso applicare un tema a una singola diapositiva senza modificare il master?**
 
-Sì. Usa il [SlideThemeManager](https://reference.aspose.com/slides/it/python-net/aspose.slides.theme/slidethememanager/) della diapositiva e inizializza la sua sovrascrittura di tema. La modifica rimane locale a quella diapositiva; le altre diapositive continuano a ereditare i loro temi esistenti.
+Sì. Utilizzare il [SlideThemeManager](https://reference.aspose.com/slides/it/python-net/aspose.slides.theme/slidethememanager/) della diapositiva e inizializzare la sua sovrascrittura di tema. La modifica rimane locale a quella diapositiva; le altre diapositive continuano a ereditare i loro temi attuali.
 
-**Qual è il modo più sicuro per trasferire un tema da una presentazione all'altra?**
+**Qual è il modo più sicuro per trasferire un tema da una presentazione all’altra?**
 
-Quando si sposta una diapositiva conservando l'aspetto di origine, clona il master di origine nella destinazione e clona la diapositiva con quel master usando [MasterSlideCollection.add_clone](https://reference.aspose.com/slides/it/python-net/aspose.slides/masterslidecollection/add_clone/) e [SlideCollection.add_clone](https://reference.aspose.com/slides/it/python-net/aspose.slides/slidecollection/add_clone/). Questo mantiene insieme master, layout e tema.
+Quando si sposta una diapositiva e si conserva il design di origine, clonare il master di origine nella destinazione e clonare la diapositiva con quel master usando [MasterSlideCollection.add_clone](https://reference.aspose.com/slides/it/python-net/aspose.slides/masterslidecollection/add_clone/) e [SlideCollection.add_clone](https://reference.aspose.com/slides/it/python-net/aspose.slides/slidecollection/add_clone/). In questo modo il master, i layout e il tema rimangono insieme.
 
-**Come posso vedere i valori effettivi dopo ereditarietà e sovrascritture?**
+**Come posso vedere i valori effettivi dopo l’eredità e le sovrascritture?**
 
-Usa [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/it/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/) per un tema di diapositiva o layout e i metodi corrispondenti di dati effettivi per oggetti di formato come [Background.get_effective](https://reference.aspose.com/slides/it/python-net/aspose.slides/background/get_effective/) e [FillFormat.get_effective](https://reference.aspose.com/slides/it/python-net/aspose.slides/fillformat/get_effective/). Queste API restituiscono i valori risolti dopo l'applicazione di ereditarietà e sovrascritture.
+Usare [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/it/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/) per un tema di diapositiva o layout e i metodi corrispondenti per i dati effettivi di oggetti di formato, come [Background.get_effective](https://reference.aspose.com/slides/it/python-net/aspose.slides/background/get_effective/) e [FillFormat.get_effective](https://reference.aspose.com/slides/it/python-net/aspose.slides/fillformat/get_effective/). Queste API restituiscono i valori risolti dopo l’applicazione di ereditarietà e sovrascritture.

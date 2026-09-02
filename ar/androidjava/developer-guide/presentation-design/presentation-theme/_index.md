@@ -1,46 +1,46 @@
 ---
-title: إدارة سمة العرض على Android
-linktitle: سمة العرض
+title: إدارة أنماط العروض التقديمية على Android
+linktitle: نمط العرض التقديمي
 type: docs
 weight: 10
 url: /ar/androidjava/presentation-theme/
 keywords:
-- سمة PowerPoint
-- سمة العرض
-- سمة الشريحة
-- تعيين سمة
-- تغيير سمة
-- إدارة سمة
-- سمة خارجية
+- نمط PowerPoint
+- نمط العرض التقديمي
+- نمط الشريحة
+- تعيين النمط
+- تغيير النمط
+- إدارة النمط
+- نمط خارجي
 - THMX
-- لون السمة
-- لوحة إضافية
-- خط السمة
-- نمط السمة
-- تأثير السمة
+- لون النمط
+- لوحة ألوان إضافية
+- خط النمط
+- نمط التصميم
+- تأثير النمط
 - PowerPoint
 - OpenDocument
-- العرض
+- عرض تقديمي
 - Android
 - Java
 - Aspose.Slides
-description: "إدارة سَمات العروض الرئيسية في Aspose.Slides لنظام Android عبر Java لإنشاء وتخصيص وتحويل ملفات PowerPoint مع الحفاظ على الهوية التجارية المتسقة."
+description: "إدارة أنماط العروض التقديمية في Aspose.Slides لنظام Android عبر Java لإنشاء وتخصيص وتحويل ملفات PowerPoint مع الحفاظ على هوية العلامة التجارية المتسقة."
 ---
 ## **المقدمة**
 
-يحدد موضوع العرض مجموعة منسقة من الألوان والخطوط وأنماط الخلفية والتعبئات والخطوط والتأثيرات. تشير الكائنات المدركة للموضوع إلى هذه التعريفات المشتركة بدلاً من تخزين كل خاصية بصرية كقيمة ثابتة، بحيث يمكن لتغيير الموضوع تحديث العديد من الكائنات في آنٍ واحد.
+يحدد نمط العرض مجموعة منسقة من الألوان والخطوط وأنماط الخلفية والملء والخطوط والتأثيرات. تشير الكائنات التي تدعم النمط إلى هذه التعريفات المشتركة بدلاً من تخزين كل خاصية مرئية كقيمة ثابتة، وبالتالي يمكن لتغيير النمط تحديث العديد من الكائنات مرة واحدة.
 
-في Aspose.Slides، يتوفر موضوع مستوى العرض من خلال [Presentation.getMasterTheme](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/). يمكن أن يحتوي العرض أيضًا على تجاوزات للموضوع في مستويات أدنى. يمكن للماستر تجاوز موضوع العرض عبر [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/masterthememanager/)، بينما يمكن لتخطيط أو شريحة فردية تجاوز موضوعها الموروث عبر [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/baseoverridethememanager/). عمليًا، يتم حل الموضوع الفعلي للشريحة عبر سلسلة الإرث هذه: موضوع العرض، تجاوز الماستر، تجاوز التخطيط، وتجاوز الشريحة.
+في Aspose.Slides، يتوفر نمط مستوى العرض من خلال [Presentation.getMasterTheme](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/). يمكن للعرض أيضًا أن يحتوي على تجاوزات للنمط في مستويات أدنى. يمكن للماستر تجاوز نمط العرض من خلال [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/masterthememanager/)، بينما يمكن للتخطيط أو الشريحة الفردية تجاوز النمط الموروث من خلال [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/baseoverridethememanager/). عمليًا، يتم حل النمط الفعّال لشريحة عبر سلسلة الوراثة هذه: نمط العرض، تجاوز الماستر، تجاوز التخطيط، وتجاوز الشريحة.
 
-![مكونات الموضوع: الألوان، الخطوط، أنماط الخلفية، والتأثيرات](theme-constituents.png)
+![مكونات النمط: الألوان والخطوط وأنماط الخلفية والتأثيرات](theme-constituents.png)
 
-توضح الأقسام أدناه أكثر سير عمل شائع للموضوع: فحص موضوع، تغيير الألوان والخطوط، نسخ أو تطبيق موضوع، تحديث أنماط الخلفية والتأثيرات، وقراءة القيم الفعالة بعد حل الإرث والتجاوزات.
+توضح الأقسام أدناه أكثر سير عمل شائع للنمط: فحص النمط، تغيير الألوان والخطوط، نسخ أو تطبيق نمط، تحديث أنماط الخلفية والتأثيرات، وقراءة القيم الفعّالة بعد حل الوراثة والتجاوزات.
 
-## **فحص موضوع**
+## **فحص النمط**
 
-كائن [MasterTheme](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/mastertheme/) يعرض مخطط ألوان الموضوع، مخطط الخطوط، ومخطط التنسيق عبر [MasterTheme.getColorScheme](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/mastertheme/)، [MasterTheme.getFontScheme](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/mastertheme/)، و[MasterTheme.getFormatScheme](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/mastertheme/). فحص هذه التجميعات قبل تعديلها مفيد بشكل خاص عندما يأتي العرض من مصدر خارجي لأن عدد ومحتوى مدخلات الأنماط قد يختلف.
+يُظهر كائن [MasterTheme](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/mastertheme/) مخطط ألوان النمط، ومخطط الخطوط، ومخطط الصيغ عبر [MasterTheme.getColorScheme](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/mastertheme/)، [MasterTheme.getFontScheme](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/mastertheme/)، و[MasterTheme.getFormatScheme](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/mastertheme/). فحص هذه المجموعات قبل تعديلها مفيد خاصة عندما يأتي العرض من مصدر خارجي لأن عدد ومحتوى مداخل الأنماط قد يختلف.
 
-المثال التالي يقرأ الخصائص الرئيسية للموضوع ويبلغ عن عدد أنماط الخلفية، التعبئة، الخط، والتأثير المخزنة في الموضوع:
+المثال التالي يقرأ خصائص النمط الرئيسي ويبلغ عن عدد أنماط الخلفية، والملء، والخط، والتأثير المخزنة في النمط:
 
 ```java
 import com.aspose.slides.*;
@@ -63,13 +63,13 @@ try {
 }
 ```
 
-إذا كان الملف يستخدم عدة ماسترات، لا تفترض أن كل شريحة لها نفس الموضوع الفعلي. افحص الماستر المرتبط بالشريحة، واستخدم سير عمل الموضوع الفعال الموضح لاحقًا في هذا المقال عندما قد تكون هناك تجاوزات للتخطيط أو الشريحة.
+إذا كان الملف يستخدم العديد من الماسترات، لا تفترض أن كل شريحة لها نفس النمط الفعّال. افحص الماستر المرتبط بالشريحة، واستخدم سير عمل النمط الفعّال الموضح لاحقًا في هذه المقالة عندما قد تكون هناك تجاوزات للتخطيط أو الشريحة.
 
-## **تغيير ألوان الموضوع**
+## **تغيير ألوان النمط**
 
-يمكن أن تشير التعبئات والخطوط والنصوص المدركة للموضوع إلى لون منطقي من تعداد [SchemeColor](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/schemecolor/). عندما تغير المدخل المقابل في [IColorScheme](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/icolorscheme/)، يتم حل جميع الكائنات التي لا تزال تشير إلى ذلك اللون الثيم إلى القيمة الجديدة. الكائنات التي تستخدم لون RGB مباشر لا تتغير بتحديث لون الثيم.
+يمكن للملء، والخطوط، والنصوص الواعية للنمط أن تشير إلى لون منطقي من تعداد [SchemeColor](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/schemecolor/). عندما تغير المدخل المقابل في [IColorScheme](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/icolorscheme/)، تُعاد حل جميع الكائنات التي لا تزال تشير إلى ذلك اللون النمطي وفق القيمة الجديدة. الكائنات التي تستخدم لون RGB مباشر لا تتغير بتحديث لون النمط.
 
-المثال التالي من البداية إلى النهاية ينشئ شكلًا يستخدم `Accent4`، يغيّر لون `Accent4` في الموضوع إلى الأحمر، يحفظ العرض، يعيد فتحه، ويطبع لون التعبئة الفعلي:
+المثال التالي من البداية إلى النهاية ينشئ شكلًا يستخدم `Accent4`، يغير لون `Accent4` في النمط إلى الأحمر، يحفظ العرض، يفتحه مرة أخرى، ويطبع لون الملء الفعّال:
 
 ```java
 import com.aspose.slides.*;
@@ -99,18 +99,19 @@ try {
 }
 ```
 
-نظرًا لأن المستطيل يظل مرتبطًا بـ `Accent4`، يصبح لونه المرئي أحمر بعد تغيير الموضوع. إذا استبدلت لون المخطط بلون مباشر على الشكل، لن تؤثر التغييرات اللاحقة على `Accent4` على تلك التعبئة.
+لأن المستطيل لا يزال مرتبطًا بـ `Accent4`، يصبح لونه الظاهر أحمر بعد تغيير النمط. إذا استبدلت لون المخطط بلون مباشر على الشكل، سيتوقف التغيّر اللاحق لـ `Accent4` عن التأثير على ذلك الملء.
 
-### **استخدام ألوان من اللوحة الإضافية**
+### **استخدام الألوان من لوحة الألوان الإضافية**
 
-يستخلص PowerPoint تدرجات أخف وأغمق من لون الموضوع بتطبيق تحويلات اللون. تعرض Aspose.Slides هذه التحويلات عبر تعداد [ColorTransformOperation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/colortransformoperation/).
+PowerPoint يستخرج متغيرات أفتح وأغمق من لون النمط بتطبيق تحولات لونية. Aspose.Slides يكشف عن هذه التحولات من خلال تعداد [ColorTransformOperation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/colortransformoperation/).
 
-![الألوان الرئيسية للموضوع والألوان الأخف والأغمق المُولَّدة من اللوحة الإضافية](additional-palette-colors.png)
+![الألوان الرئيسية للنمط والألوان الفاتحة والغامقة المولدة من لوحة الألوان الإضافية](additional-palette-colors.png)
 
-**1** - الألوان الرئيسية للموضوع.  
-**2** - التدرجات الأخف والأغمق المُنتجة من الألوان الرئيسية للموضوع.
+**1** - الألوان الرئيسية للنمط.
 
-المثال التالي ينشئ ستة مستطيلات تعتمد على `Accent4`، يطبق تحويلات الإضاءة على خمسة منها، ويحفظ النتيجة:
+**2** - المتغيرات الفاتحة والغامقة المستخرجة من الألوان الرئيسية للنمط.
+
+المثال التالي ينشئ ستة مستطيلات تعتمد على `Accent4`، يطبق تحولات الإضاءة على خمسة منها، ويحفظ النتيجة:
 
 ```java
 import com.aspose.slides.*;
@@ -157,31 +158,31 @@ try {
 }
 ```
 
-هذه التدرجات تبقى مستندة إلى لون الموضوع. إذا تغير `Accent4` لاحقًا، يتم إعادة حساب الألوان المحوّلة من القيمة الجديدة لـ `Accent4`.
+هذه المتغيرات لا تزال مستندة إلى لون النمط. إذا تغير `Accent4` لاحقًا، تُعاد حساب الألوان المُحوَّلة وفق القيمة الجديدة لـ `Accent4`.
 
-### **تطابق قيم `SchemeColor` مع خانات `IColorScheme`**
+### **ربط قيم `SchemeColor` بالفتحات في `IColorScheme`**
 
-يستخدم تعداد [SchemeColor](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/schemecolor/) القيم `Text1`، `Background1`، `Text2`، و`Background2`، بينما يعرض [IColorScheme](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/icolorscheme/) نفس خانات الموضوع كـ `Dark1`، `Light1`، `Dark2`، و`Light2`. التطابق ثابت:
+تعداد [SchemeColor](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/schemecolor/) يستخدم `Text1`، `Background1`، `Text2`، و`Background2`، بينما يُظهر [IColorScheme](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/icolorscheme/) نفس فتحات النمط كـ `Dark1`، `Light1`، `Dark2`، و`Light2`. التوافق ثابت:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-هذه أسماء بديلة لنفس خانات الموضوع؛ ليست قيمًا تُحوَّل ديناميكيًا من شكل إلى آخر.
+هذه أسماء بديلة لنفس فتحات النمط؛ ليست قيمًا يتم تحويلها ديناميكيًا من شكل إلى آخر.
 
-## **تغيير خطوط الموضوع**
+## **تغيير خطوط النمط**
 
-يتضمن مخطط خطوط الموضوع مجموعة خطوط رئيسية لعناوين الصفحات ومجموعة خطوط ثانوية لنص الجسم. تكشف الطريقتان [IFontScheme.getMajor](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ifontscheme/) و[IFontScheme.getMinor](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ifontscheme/) عن هاتين المجموعتين.
+مخطط خطوط النمط يحتوي على مجموعة خطوط رئيسية للعناوين ومجموعة خطوط فرعية للنص الأساسي. طُرُق [IFontScheme.getMajor](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ifontscheme/) و[IFontScheme.getMinor](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ifontscheme/) تكشف عن تلك المجموعات.
 
-يمكن استخدام معرفات خطوط موضوع متوافقة مع PowerPoint في تنسيق النص:
+يمكن استخدام معرفات خطوط النمط المتوافقة مع PowerPoint في تنسيق النص:
 
-* `+mn-lt` - خط الجسم لاتيني (Minor Latin Font)
-* `+mj-lt` - خط العنوان لاتيني (Major Latin Font)
-* `+mn-ea` - خط الجسم شرق آسيوي (Minor East Asian Font)
-* `+mj-ea` - خط العنوان شرق آسيوي (Major East Asian Font)
+* `+mn-lt` - خط النص الأساسي اللاتيني (خط لاتيني فرعي)
+* `+mj-lt` - خط العنوان اللاتيني (خط لاتيني رئيسي)
+* `+mn-ea` - خط النص الأساسي الآسيوي الشرقي (خط آسيوي شرقي فرعي)
+* `+mj-ea` - خط العنوان الآسيوي الشرقي (خط آسيوي شرقي رئيسي)
 
-المثال التالي ينشئ عنوانًا يستخدم الخط اللاتيني الرئيسي وخطًا للنص الجسدي يستخدم الخط اللاتيني الثانوي. ثم يغيّر خطوط الموضوع ويحفظ النتيجة:
+المثال التالي ينشئ عنوانًا يستخدم خط النمط اللاتيني الرئيسي وسطرًا نصيًا يستخدم خط النمط اللاتيني الفرعي. بعد ذلك يغيّر خطوط النمط ويحفظ النتيجة:
 
 ```java
 import com.aspose.slides.*;
@@ -206,30 +207,30 @@ try {
 }
 ```
 
-العنوان يتبع الخط الرئيسي والنص الجسدي يتبع الخط الثانوي. النص الذي يحتوي على اسم خط صريح بدلاً من معرف موضوع لن يتغيّر تلقائيًا عندما يتغير مخطط خطوط الموضوع.
+العنوان يتبع الخط الرئيسي والنص الأساسي يتبع الخط الفرعي. النص الذي يحتوي على اسم خط صريح بدلاً من معرف النمط لن يتغير تلقائيًا عندما يتغير مخطط خطوط النمط.
 
-يمكن أن تحتوي مجموعات الخطوط الرئيسية والثانوية أيضًا على تعيينات خطوط لأنظمة كتابة فردية، مثل السيريالية، العربية، اليابانية، الجورجية، والثعانية. لتفقد أو إضافة أو استبدال أو إزالة هذه التعيينات، راجع [خطوط الموضوع الخاصة بالسكريبت](/slides/ar/androidjava/script-specific-font-mappings/).
+يمكن لمجموعات الخطوط الرئيسية والفرعية أن تحتوي أيضًا على تعيينات خطوط لأنظمة كتابة فردية، مثل السيريالية، والعربية، واليابانية، والجورجية، والثآنا. لفحص أو إضافة أو استبدال أو إزالة هذه التعيينات، راجع [Script-Specific Theme Fonts](/slides/ar/androidjava/script-specific-font-mappings/).
 
-{{% alert color="info" title="نصيحة" %}}
-لمزيد من المعلومات حول خطوط العرض، راجع [خطوط PowerPoint](/slides/ar/androidjava/powerpoint-fonts/).
+{{% alert color="info" title="Tip" %}}
+لمزيد من المعلومات حول خطوط العرض، راجع [PowerPoint Fonts](/slides/ar/androidjava/powerpoint-fonts/).
 {{% /alert %}}
 
-## **نسخ أو تطبيق موضوع**
+## **نسخ أو تطبيق نمط**
 
-تحل سير العمل أدناه مشكلات مختلفة متعلقة بالموضوع.
+تُحل سير العمل أدناه مشكلات مختلفة متعلقة بالنمط.
 
-### **تطبيق موضوع خارجي على الشرائح التابعة للماستر**
+### **تطبيق نمط خارجي على الشرائح التابعة للماستر**
 
-استخدم [IMasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imasterslide/) عندما يكون لديك ملف موضوع PowerPoint (`.thmx`) وتريد إعادة تنسيق كل شريحة تعتمد على ماستر معين. اختر الماستر من تجميع [Presentation.getMasters](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/)، الذي يطبق [IMasterSlideCollection](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imasterslidecollection/)، ومرّر مسار ملف الموضوع إلى الطريقة.
+استخدم [IMasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imasterslide/) عندما يكون لديك ملف نمط PowerPoint (`.thmx`) وتريد إعادة تنسيق كل شريحة تعتمد على ماستر معين. اختر الماستر من مجموعة [Presentation.getMasters](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/) التي تنفّذ [IMasterSlideCollection](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imasterslidecollection/)، ومرّر مسار ملف النمط إلى الطريقة.
 
 تقوم الطريقة بالعمليات التالية:
 
-1. تنشئ شريحة ماستر جديدة بناءً على الماستر المختار.  
-1. تطبق الموضوع الخارجي على الماستر الجديد.  
-1. تُعين الماستر الجديد لجميع الشرائح التي كانت تعتمد سابقًا على الماستر المختار.  
-1. ترجع الكائن [IMasterSlide](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imasterslide/) الجديد.
+1. تنشئ ماستر شريحة جديد بناءً على الماستر المختار.
+1. تطبق النمط الخارجي على الماستر الجديد.
+1. تُعيّن الماستر الجديد لجميع الشرائح التي كانت تعتمد على الماستر المختار مسبقًا.
+1. ترجع كائن [IMasterSlide](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imasterslide/) الذي تم إنشاؤه حديثًا.
 
-المثال التالي يطبق موضوعًا خارجيًا على الشرائح التي تعتمد على الماستر الأول ويحفظ العرض:
+المثال التالي يطبق نمطًا خارجيًا على الشرائح التي تعتمد على أول ماستر ويحفظ العرض:
 
 ```java
 import com.aspose.slides.*;
@@ -246,19 +247,19 @@ try {
 }
 ```
 
-قد يتسبب موضوع غير صالح أو فاسد أو غير مدعوم في حدوث [PptxReadException](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/pptxreadexception/). تحقق من صحة المسارات التي يقدمها المستخدمون، وتعامل مع فشل الوصول إلى نظام الملفات، واحفظ العرض فقط بعد تطبيق الموضوع بنجاح.
+قد يتسبب نمط غير صالح أو تالف أو غير مدعوم في حدوث استثناء [PptxReadException](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/pptxreadexception/). تحقق من صحة المسارات التي يقدمها المستخدمون، وتعامل مع فشل الوصول إلى نظام الملفات، واحفظ العرض فقط بعد تطبيق النمط بنجاح.
 
-يُعاد تعيين الشرائح التي كانت تعتمد على الماستر المختار فقط. الشرائح المرتبطة بماسترات أخرى تحتفظ بالماسترات والموضوعات الحالية. تُحل الألوان والخطوط والتعبئات والخطوط الخلفية والتأثيرات المدركة للموضوع مقابل الموضوع الخارجي. قد تبقى الألوان والخطوط والتعبئات والتنسيق الصريح المعين مباشرةً دون تغيير. يمكن لتجاوزات المستوى التخطيطي والمستوى الشريحي أيضًا أن تتفوق على القيم الموروثة من الماستر الجديد.
+فقط الشرائح التي كانت تعتمد على الماستر المختار يتم إعادة تعيينها. الشرائح المرتبطة بغيره من الماسترات تحتفظ بالماسترات والنُسق الحالية. تُحل الألوان، الخطوط، الملء، الخطوط، الخلفيات، والتأثيرات الواعية للنمط وفق النمط الخارجي. قد تظل الألوان، الخطوط، الملء، وغيرها من التنسيقات الصريحة دون تغيير. يمكن لتجاوزات مستوى التخطيط أو الشريحة أيضًا أن تتفوق على القيم الموروثة من الماستر الجديد.
 
-قد يشير الموضوع إلى خطوط غير متوفرة في بيئة التشغيل. لضمان عرض وتصدير ثابتين، قم بتثبيت الخطوط المطلوبة، أو وفّرها عبر [مصادر الخطوط المخصصة](/slides/ar/androidjava/custom-font/)، أو اضبط [استبدال الخطوط](/slides/ar/androidjava/font-substitution/).
+قد يشير النمط إلى خطوط غير متوفرة في بيئة التشغيل. للحصول على عرض وتصدير ثابت، قم بتثبيت الخطوط المطلوبة، أو وفّرها عبر [مصادر الخطوط المخصصة](/slides/ar/androidjava/custom-font/)، أو اضبط [استبدال الخطوط](/slides/ar/androidjava/font-substitution/).
 
-هذا سير عمل مباشر على مستوى الماستر: تقبل الطريقة مسار ملف `.thmx` ولا تحتاج إلى إنشاء تجاوزات موضوع على مستوى الشريحة أو التخطيط يدويًا.
+هذا سير عمل مباشر على مستوى الماستر: الطريقة تقبل مسار ملف `.thmx` ولا تتطلب إنشاء تجاوزات نمط على مستوى الشريحة أو التخطيط يدويًا.
 
-### **تطبيق موضوعات خارجية مختلفة في عرض متعدد الماسترات**
+### **تطبيق أنماط خارجية مختلفة في عرض متعدد الماسترات**
 
-عند عدم معرفة الماستر ذي الصلة مسبقًا، احصل عليه من شريحة تمثيلية عبر [ISlide.getLayoutSlide](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islide/) و[ILayoutSlide.getMasterSlide](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ilayoutslide/). احفظ مراجع الماسترات الأصلية قبل تطبيق أي موضوع لأن كل استدعاء ينشئ ماسترًا آخر في العرض.
+عندما لا يكون الماستر المناسب معروفًا مسبقًا، احصل عليه من شريحة تمثيلية عبر [ISlide.getLayoutSlide](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islide/) و[ILayoutSlide.getMasterSlide](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ilayoutslide/). احفظ مراجع الماسترات الأصلية قبل تطبيق أي نمط لأن كل استدعاء ينشئ ماسترًا آخر في العرض.
 
-المثال التالي يستخدم شرائح من قسمين لتحديد ماستراتهما ويطبق موضوعًا خارجيًا مختلفًا لكل مجموعة:
+المثال التالي يستخدم شرائح من قسمين لتحديد ماسترهم ويطبق نمطًا خارجيًا مختلفًا على كل مجموعة:
 
 ```java
 import com.aspose.slides.*;
@@ -289,9 +290,9 @@ try {
 
 الاستدعاء الأول يؤثر فقط على الشرائح التي تعتمد على `firstGroupMaster`، والاستدعاء الثاني يؤثر فقط على الشرائح التي تعتمد على `secondGroupMaster`. الشرائح التي تنتمي إلى أي ماستر آخر لا تُعاد تنسيقها.
 
-### **الحفاظ على موضوع المصدر عند نقل الشرائح**
+### **الحفاظ على نمط المصدر عند نقل الشرائح**
 
-إذا أردت نقل شريحة إلى عرض آخر مع الحفاظ على التصميم الأصلي، استنساخ الماستر المصدر في العرض الهدف باستخدام [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imasterslidecollection/)، ثم استنسخ الشريحة باستخدام [ISlideCollection.addClone](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islidecollection/) والماستر المستنسخ. ينقل هذا الماستر وتخطيطاته والموضوع المرتبط معه بالكامل.
+إذا أردت نقل شريحة إلى عرض آخر مع الحفاظ على تصميمها الأصلي، استنسخ الماستر المصدر إلى العرض الهدف باستخدام [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imasterslidecollection/)، ثم استنسخ الشريحة باستخدام [ISlideCollection.addClone](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islidecollection/) مع الماستر المستنسخ. هذا يحمل الماستر، وتخطيطاته، والنمط المرتبط معه معًا.
 
 ```java
 import com.aspose.slides.*;
@@ -313,11 +314,11 @@ try {
 }
 ```
 
-هذا هو سير العمل المفضَّل عندما يجب أن تبدو الشريحة المصدرية نفسها في الوجهة. مجرد استنساخ المحتوى إلى ماستر وجهة غير مرتبط قد يغيّر الألوان والخطوط والخلفيات والتأثيرات المدفوعة بالموضوع.
+هذا هو سير العمل المفضّل عندما يجب أن تبدو الشريحة المصدرية نفسها في الوجهة. مجرد نسخ المحتوى إلى ماستر غير متعلق قد يغيّر ألوان، خطوط، خلفيات، وتأثيرات النمط.
 
-### **تطبيق قيم الموضوع على شريحة موجودة**
+### **تطبيق قيم النمط على شريحة موجودة**
 
-إذا كان على الشريحة الهدف البقاء على الماستر والتخطيط الحاليين، قم بتهيئة تجاوز على مستوى الشريحة من الموضوع المصدر. تنسخ طرق [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/overridetheme/)، [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/overridetheme/)، و[OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/overridetheme/) المكونات الثلاثة الرئيسية للموضوع إلى التجاوز.
+إذا كان يجب أن تبقى الشريحة الهدف على ماسترها وتخطيطها الحالي، ابدئ تجاوزًا على مستوى الشريحة من النمط المصدر. تُنسخ طرق [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/overridetheme/)، [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/overridetheme/)، و[OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/overridetheme/) المكونات الثلاثة الرئيسية للنمط إلى التجاوز.
 
 ```java
 import com.aspose.slides.*;
@@ -340,11 +341,11 @@ try {
 }
 ```
 
-هذا يغيّر الموضوع المستخدم لتلك الشريحة دون تغيير الموضوع الموروث من الشرائح الأخرى. لإزالة التجاوز المحلي والعودة إلى القيم الموروثة، استدعِ [OverrideTheme.clear](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/overridetheme/).
+هذا يغيّر النمط المستخدم لتلك الشريحة دون تعديل النمط الموروث من الشرائح الأخرى. لإزالة التجاوز المحلي والعودة إلى القيم الموروثة، استدعِ [OverrideTheme.clear](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/overridetheme/).
 
-### **تطبيق تجاوز موضوع على تخطيط**
+### **تطبيق تجاوز النمط على تخطيط**
 
-تطبق التجاوزات على مستوى التخطيط على الشرائح التي تستخدم ذلك التخطيط، ما لم تكن شريحة معينة لها تجاوز خاص بها. يمكن استخدام نفس طرق التهيئة عبر [LayoutSlideThemeManager](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/layoutslidethememanager/):
+تجاوز على مستوى التخطيط يُطبق على الشرائح التي تستخدم ذلك التخطيط، إلا إذا كان للشفرة استبدال خاص بها. يمكن استخدام نفس طرق التهيئة عبر [LayoutSlideThemeManager](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/layoutslidethememanager/):
 
 ```java
 import com.aspose.slides.*;
@@ -368,17 +369,17 @@ try {
 }
 ```
 
-استخدم موضوعًا على مستوى الماستر أو العرض عندما يجب أن تشترك العديد من التخطيطات والشرائح في نفس التصميم الأساسي، واستخدم تجاوز التخطيط عندما تحتاج عائلة تخطيط واحدة إلى تنسيق مختلف، واستخدم تجاوز الشريحة فقط في حالات الاستثناء الحقيقية. تجعل التجاوزات الزائدة على مستوى الشريحة التغييرات العالمية للموضوع لاحقًا أصعب في التنبؤ.
+استخدم نمطًا على مستوى الماستر أو العرض عندما يجب أن تشترك العديد من التخطيطات والشرائح في نفس التصميم الأساسي، واستخدم تجاوز التخطيط عندما يحتاج عائلة تخطيط إلى تنسيق مختلف، واستخدم تجاوز الشريحة فقط للاستثناءات الحقيقية. وجود تجاوزات كثيرة على مستوى الشريحة يجعل تعديل النمط العام لاحقًا أصعب في التنبؤ.
 
-## **تحديث أنماط خلفية الموضوع**
+## **تحديث أنماط خلفية النمط**
 
-تُخزن تعبئات خلفية الموضوع في [IFormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iformatscheme/). يمكن لـ PowerPoint تقديم المزيد من خيارات الخلفية في واجهته مقارنةً بعدد تعريفات التعبئة المخزنة فعليًا في هذا التجميع، لأن الواجهة يمكنها دمج تعبئات الموضوع مع ألوان الموضوع ومراجع الأنماط الأخرى.
+تُخزن ملء خلفيات النمط في [IFormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iformatscheme/). يمكن لـ PowerPoint تقديم خيارات خلفية أكثر في واجهته مما يُخزن فعليًا من تعريفات ملء في هذه المجموعة، لأن الواجهة يمكنها دمج ملء النمط مع ألوان النمط ومراجع أنماط أخرى.
 
-![معرض أنماط خلفية PowerPoint لموضوع العرض](presentation-design_8.png)
+![معرض أنماط خلفية PowerPoint لنمط عرض تقديمي](presentation-design_8.png)
 
-قبل استخدام نمط خلفية، افحص التجميع المخزن والمؤشر الحالي عبر [Background.getStyleIndex](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/background/). قيمة المؤشر `0` تعني عدم وجود تعبئة موضوعية؛ القيم الموجبة هي مراجع لأنماط خلفية الموضوع. هذا يختلف عن فهرسة التجميع Java مباشرةً، حيث يعني `get_Item(0)` العنصر المخزن الأول. لا تفترض أن كل عرض يحتوي نفس عدد أنماط تعبئة الخلفية.
+قبل استخدام نمط خلفية، افحص المجموعة المخزنة و[Background.getStyleIndex](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/background/). مؤشر النمط `0` يعني عدم وجود ملء نمطي؛ القيم الموجبة هي مراجع أنماط خلفية النمط. هذا يختلف عن الفهرسة المباشرة لمجموعة Java حيث يعني `get_Item(0)` أول عنصر مخزن. لا تفترض أن كل عرض يحتوي على نفس عدد أنماط ملء الخلفية.
 
-المثال التالي يبلغ عن عدد تعبئات الخلفية المتاحة، يعيّن مرجع خلفية موضوعية للماستر الأول، ويحفظ العرض:
+المثال التالي يبلغ عن عدد ملء الخلفية المتاحة، يعيّن مرجع خلفية نمطي للماستر الأول، ويحفظ العرض:
 
 ```java
 import com.aspose.slides.*;
@@ -400,25 +401,25 @@ try {
 }
 ```
 
-النتيجة المرئية تعتمد على المدخل الموضوعي الذي يشيره الماستر وعلى أي تجاوزات خلفية على مستوى التخطيط أو الشريحة. إذا استخدمت شريحة خلفيتها الخاصة، قد لا يغيّر تغيير خلفية الماستر تلك الشريحة. استخدم [Background.getEffective](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/background/) عندما تحتاج لمعرفة الخلفية النهائية بعد تطبيق الإرث.
+النتيجة الظاهرية تعتمد على مدخل النمط الذي يشير إليه الماستر وأية تجاوزات خلفية على مستوى التخطيط أو الشريحة. إذا كانت شريحة تستخدم خلفية خاصة بها، قد لا يغيّر تغيير خلفية الماستر تلك الشريحة. استخدم [Background.getEffective](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/background/) عندما تحتاج إلى معرفة الخلفية النهائية بعد تطبيق الوراثة.
 
-{{% alert color="warning" title="تحذير" %}}
-لا تعامل مؤشر النمط كفهرس تجميع صفر‑قائم. تجنّب أيضًا ترميز رقم نمط من ملف واحد وافتراض أن له نفس المظهر في ملف آخر؛ تعريفات أنماط الموضوع خاصة بالعرض.
+{{% alert color="warning" title="Warning" %}}
+لا تُعامل مؤشر النمط كفهرس مجموعة يبدأ من الصفر. وتجنب أيضًا ترميز رقم نمط من ملف واحد واعتقاده أنه سيظهر بنفس الشكل في ملف آخر؛ تعريفات نمط العرض خاصة بالعرض نفسه.
 {{% /alert %}}
 
-{{% alert color="info" title="نصيحة" %}}
-للتنسيق المباشر للخلفية وإرث الخلفية، راجع [خلفية العرض](/slides/ar/androidjava/presentation-background/).
+{{% alert color="info" title="Tip" %}}
+للتنسيق المباشر للخلفية والوراثة، راجع [Presentation Background](/slides/ar/androidjava/presentation-background/).
 {{% /alert %}}
 
-## **تحديث تأثيرات الموضوع**
+## **تحديث تأثيرات النمط**
 
-يحتوي مخطط تنسيق الموضوع على تجميعات منفصلة للتعبئة والخط وتأثيرات الأنماط، يتم كشفها عبر [IFormatScheme.getFillStyles](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iformatscheme/)، [IFormatScheme.getLineStyles](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iformatscheme/)، و[IFormatScheme.getEffectStyles](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iformatscheme/). غالبًا ما تحتوي موضوعات Office النموذجية على ثلاث مدخلات أساسية تتطابق بصريًا مع تنسيقات دقيقة، ومتوسطة، ومكثفة، لكن يجب على الكود فحص كل تجميع بدلاً من افتراض عدد ثابت.
+يحتوي مخطط صيغ النمط على مجموعات منفصلة للملء، الخط، وتأثير الصيغة تُعرض عبر [IFormatScheme.getFillStyles](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iformatscheme/)، [IFormatScheme.getLineStyles](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iformatscheme/)، و[IFormatScheme.getEffectStyles](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/iformatscheme/). غالبًا ما تحتوي الأنماط المكتبية على ثلاثة مداخل رئيسية تتطابق بصريًا مع تنسيقات خفيفة، معتدلة، وشديدة، لكن يجب على الشيفرة فحص كل مجموعة بدلاً من افتراض عدد ثابت.
 
-![تأثيرات موضوع دقيقة، متوسطة، ومكثفة مطبقة على نفس الشكل](presentation-design_10.png)
+![تأثيرات النمط الخفيفة والمتوسطة والشديدة المطبقة على الشكل نفسه](presentation-design_10.png)
 
-عند الوصول إلى هذه التجميعات في Java، يكون فهرس التجميع صفر‑قائم: `get_Item(0)` هو النمط المخزن الأول و`get_Item(2)` هو الثالث. مؤشرات مرجع النمط للشكل مفهوم منفصل، تُكشف عبر [IShapeStyle](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishapestyle/). تعديل نمط موضوع يؤثر على الأشكال التي تشير إلى ذلك النمط؛ قد تظل الأشكال التي لها تنسيق مباشر دون تغيير.
+عند الوصول إلى هذه المجموعات في Java، يكون فهرس المجموعة يبدأ من الصفر: `get_Item(0)` هو أول نمط مخزن و`get_Item(2)` هو الثالث. فهارس مرجع النمط للشكل مفهوم منفصل، يُعرَض عبر [IShapeStyle](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishapestyle/). تعديل نمط النمط يؤثر على الأشكال التي تشير إلى ذلك النمط؛ قد تظل الأشكال ذات التنسيق المباشر دون تغيير.
 
-المثال التالي يتحقق من وجود مدخلات النمط المطلوبة، يغيّر أول نمط خط، يغيّر ثالث نمط تعبئة، يفعّل ظلًا خارجيًا في ثالث نمط تأثير، ويحفظ النتيجة:
+المثال التالي يتحقق من وجود المداخل المطلوبة، يغيّر نمط الخط الأول، يغيّر نمط الملء الثالث، يُفعّل ظلًا خارجيًا في نمط التأثير الثالث، ويحفظ النتيجة:
 
 ```java
 import com.aspose.slides.*;
@@ -443,15 +444,87 @@ try {
 }
 ```
 
-بالنسبة للأشكال التي تشير إلى هذه الخانات، يصبح أول نمط خط موضوع أحمر، والثالث نمط تعبئة موضوع أخضر غابي صلب، والثالث نمط تأثير يضيف ظلًا خارجيًا بمسافة 10 نقاط. لا يزال الشكل النهائي يعتمد على الخانات التي يشير إليها كل شكل وما إذا كان التنسيق المباشر يتجاوز الموضوع.
+للأشكال التي تشير إلى هذه الفتحات، يصبح أول نمط خط للنمط أحمر، ويصبح ثالث نمط ملء للنمط أخضر غابي صلب، ويضيف نمط التأثير الثالث ظلًا خارجيًا بمقدار 10 نقاط. لا يزال المظهر الفعلي يعتمد على الفتحات التي يشير إليها كل شكل وما إذا كان التنسيق المباشر يتجاوز النمط.
 
-![أنماط تأثيرات الموضوع بعد تعديل الخط، التعبئة، وإعدادات الظل](presentation-design_11.png)
+## **تحديد ما إذا كان الملء الصلب الفعلي يستخدم لون نمط**
 
-## **قراءة قيم الموضوع الفعالة**
+يمكن أن يُخزن الملء إما مباشرة على كائن أو يُورث من فقرة أو تخطيط أو ماستر أو نمط أو مستوى تنسيق آخر. استدعِ [IFillFormat.getEffective](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ifillformat/) لحل تلك السلسلة إلى كائن غير قابل للتغيير [IFillFormatEffectiveData](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ifillformateffectivedata/). أولًا تحقق من [IFillFormatEffectiveData.getFillType](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ifillformateffectivedata/). فقط عندما تكون `FillType.Solid` يجب قراءة خصائص الملء الصلب.
 
-توفر كائنات الموضوع الخام ما تم تعريفه على مستوى معين. القيم الفعالة تخبرك بما يستخدمه الشريحة أو الشكل فعليًا بعد حل الإرث والتجاوزات المحلية. لشريحة، استدعِ [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/baseoverridethememanager/). للخلفية، استخدم [Background.getEffective](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/background/)، وللتعبئة، استخدم [FillFormat.getEffective](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/fillformat/).
+بالنسبة للملء الصلب، تُرجع [IFillFormatEffectiveData.getSolidFillColor](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ifillformateffectivedata/) القيمة النهائية للـ RGB بعد الوراثة، والبحث في النمط، وتطبيق التحولات اللونية. تُرجع [IFillFormatEffectiveData.getSolidFillSchemeColor](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ifillformateffectivedata/) فتحة [SchemeColor](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/schemecolor/) المنطقية المقابلة، مثل `Text1` أو `Accent6`. القيمة `SchemeColor.NotDefined` تعني أن الملء الصلب الفعلي ليس مبنيًا على لون مخطط. في سير عمل يكون فيه الملء إما ألوان نمط أو ألوان RGB مباشرة، تحدد هذه القيمة ملءً مباشرًا بـ RGB.
 
-المثال التالي يقرأ الموضوع الفعال، الخلفية، وتعبئة الشكل الأول من شريحة:
+لا تستخدم قيمة [IColorFormat.getSchemeColor](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/icolorformat/) المحلية وحدها لتصنيف الملء. فمثلاً قد لا يحتوي جزء نص على لون مخطط معرف محليًا، لذا تكون قيمته المحلية `NotDefined`، بينما يرث ملءه الفعلي لون نمط ويُحل إلى `Text1` أو `Accent6`. على العكس، تُخبرك `getSolidFillSchemeColor` أي فتحة نمط منطقية أنتجت اللون الفعلي، لكنها لا تخبرك ما إذا كانت تلك الفتحة جاءت من الكائن، الفقرة، التخطيط، الماستر، أو مستوى آخر في شجرة التنسيق.
+
+المثال التالي يحمل عرضًا، يدقق كل ملء للأشكال وملء أجزاء النص، يطبع كل قيمة RGB نهائية واللون المخطط المرتبط، ويُعلِم الملء الصلب الذي لن يتتبع تغيّر ألوان النمط:
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+import java.util.function.BiConsumer;
+
+BiConsumer<String, IFillFormat> auditFill = (objectName, localFill) -> {
+    IFillFormatEffectiveData effectiveFill = localFill.getEffective();
+
+    if (effectiveFill.getFillType() != FillType.Solid) {
+        System.out.println(objectName + ": fill type = " + effectiveFill.getFillType() + "; not a solid fill.");
+        return;
+    }
+
+    int rgb = effectiveFill.getSolidFillColor();
+    int effectiveSchemeColor = effectiveFill.getSolidFillSchemeColor();
+    int localSchemeColor = localFill.getSolidFillColor().getSchemeColor();
+
+    System.out.printf("%s: RGB = #%02X%02X%02X%n", objectName, Color.red(rgb), Color.green(rgb), Color.blue(rgb));
+    System.out.println(objectName + ": local scheme = " + localSchemeColor + ", effective scheme = " + effectiveSchemeColor);
+
+    if (effectiveSchemeColor == SchemeColor.NotDefined) {
+        System.out.println(objectName + ": direct RGB or another non-scheme fill; audit as theme-independent.");
+    } else {
+        System.out.println(objectName + ": theme-dependent through " + effectiveSchemeColor + ".");
+    }
+};
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    int slideCount = presentation.getSlides().size();
+    for (int slideIndex = 0; slideIndex < slideCount; slideIndex++) {
+        ISlide slide = presentation.getSlides().get_Item(slideIndex);
+
+        int shapeCount = slide.getShapes().size();
+        for (int shapeIndex = 0; shapeIndex < shapeCount; shapeIndex++) {
+            IShape shape = slide.getShapes().get_Item(shapeIndex);
+            String shapeName = "Slide " + (slideIndex + 1) + ", shape " + (shapeIndex + 1);
+            auditFill.accept(shapeName, shape.getFillFormat());
+
+            if (shape instanceof IAutoShape) {
+                IAutoShape autoShape = (IAutoShape) shape;
+                int paragraphCount = autoShape.getTextFrame().getParagraphs().getCount();
+                for (int paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++) {
+                    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(paragraphIndex);
+
+                    int portionCount = paragraph.getPortions().getCount();
+                    for (int portionIndex = 0; portionIndex < portionCount; portionIndex++) {
+                        IPortion portion = paragraph.getPortions().get_Item(portionIndex);
+                        String portionName = shapeName + ", paragraph " + (paragraphIndex + 1) + ", portion " + (portionIndex + 1);
+                        auditFill.accept(portionName, portion.getPortionFormat().getFillFormat());
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+الفرع `NotDefined` يُوفر قائمة تدقيق للملء الصلب الذي لن يستجيب لتغيّر فتحات ألوان النمط. راجع تلك الكائنات عندما يجب أن يتبع العرض لوحة ألوان علامة تجارية جديدة. لا تزال قيمة RGB المعروضة تُظهر المظهر الحالي، بينما يوضح قيمة المخطط ما إذا كان هذا المظهر مرتبطًا بالنمط.
+
+الكائنات الفعّالة هي لقطات. بعد تغيير نمط العرض أو تجاوز النمط أو أي تنسيق موروث، استدعِ `getEffective` مرة أخرى واقرأ كائن `IFillFormatEffectiveData` جديد قبل المقارنة أو الإبلاغ عن الألوان.
+
+## **قراءة قيم النمط الفعّالة**
+
+تُظهر كائنات النمط الخام ما تم تعريفه على مستوى معين. القيم الفعّالة تُظهر ما تستخدمه الشريحة أو الشكل فعليًا بعد حل الوراثة والتجاوزات المحلية. للشريحة، استدعِ [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/baseoverridethememanager/). للخلفية، استخدم [Background.getEffective](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/background/)، وللملء استخدم [FillFormat.getEffective](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/fillformat/).
+
+المثال التالي يقرأ النمط الفعّال، الخلفية، وملء الشكل الأول من شريحة:
 
 ```java
 import com.aspose.slides.*;
@@ -478,22 +551,22 @@ try {
 }
 ```
 
-استخدم البيانات الفعالة لتشخيص العرض، والتحقق، والمقارنات. إذا فحصت فقط [Presentation.getMasterTheme](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/)، قد تفوتك تجاوزات ماستر أو تخطيط أو شريحة أو شكل تغير المظهر النهائي.
+استخدم البيانات الفعّالة للتشخيص، والتحقق، والمقارنات. إذا فحصت فقط [Presentation.getMasterTheme](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/presentation/)، قد تفوتك أي تجاوز ماستر أو تخطيط أو شريحة أو شكل يُغيّر المظهر النهائي.
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**هل يؤثر تطبيق موضوع خارجي على كل شريحة في العرض؟**
+**هل تطبيق نمط خارجي يؤثر على كل شريحة في العرض؟**
 
-لا. تقوم [IMasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imasterslide/) بإعادة تعيين فقط الشرائح التي تعتمد على الماستر المختار. الشرائح التي تستخدم ماسترات أخرى تحتفظ بموضوعاتها الحالية.
+لا. [IMasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imasterslide/) يعيد تعيين الشرائح التي تعتمد فقط على الماستر المحدد. الشرائح التي تستخدم ماسترات أخرى تحتفظ بأنماطها الحالية.
 
-**هل يمكنني تطبيق موضوع على شريحة واحدة دون تغيير الماستر؟**
+**هل يمكنني تطبيق نمط على شريحة واحدة دون تغيير الماستر؟**
 
-نعم. استخدم [SlideThemeManager](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/slidethememanager/) للشريحة وابدأ موضوع التجاوز الخاص بها. يبقى التغيير محليًا لتلك الشريحة؛ تظل الشرائح الأخرى ترث موضوعاتها الحالية.
+نعم. استخدم [SlideThemeManager](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/slidethememanager/) الخاص بالشريحة وابدأ بإنشاء تجاوز النمط لها. يبقى التغيير محليًا لتلك الشريحة؛ تستمر الشرائح الأخرى في وراثة أنماطها الحالية.
 
-**ما هي الطريقة الأكثر أمانًا لنقل موضوع من عرض إلى آخر؟**
+**ما هي الطريقة الأكثر أمانًا لنقل نمط من عرض إلى آخر؟**
 
-عند نقل شريحة والحفاظ على مظهرها الأصلي، استنسخ الماستر المصدر إلى الوجهة ثم استنسخ الشريحة مع ذلك الماستر باستخدام [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imasterslidecollection/) و[ISlideCollection.addClone](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islidecollection/). يحافظ هذا على الماستر والتخطيطات والموضوع معًا.
+عند نقل شريحة والحفاظ على مظهرها الأصلي، انسخ الماستر المصدر إلى الوجهة وانسخ الشريحة مع ذلك الماستر باستخدام [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/imasterslidecollection/) و[ISlideCollection.addClone](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/islidecollection/). يظل الماستر، وتخطيطاته، والنمط معًا.
 
-**كيف يمكنني رؤية القيم الفعالة بعد الإرث والتجاوزات؟**
+**كيف يمكنني رؤية القيم الفعّالة بعد الوراثة والتجاوزات؟**
 
-استخدم [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/baseoverridethememanager/) لموضوع شريحة أو تخطيط، والطُرُق الفعالة المقابلة لكائنات التنسيق مثل [Background.getEffective](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/background/) و[FillFormat.getEffective](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/fillformat/). تُعيد هذه الواجهات القيم المحلَّلة بعد تطبيق الإرث والتجاوزات.
+استخدم [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/baseoverridethememanager/) للنمط الخاص بشريحة أو تخطيط وطرق البيانات الفعّالة المقابلة لكائنات الصيغة مثل [Background.getEffective](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/background/) و[FillFormat.getEffective](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/fillformat/). تُعيد هذه الواجهات القيم المحلولة بعد تطبيق الوراثة والتجاوزات.

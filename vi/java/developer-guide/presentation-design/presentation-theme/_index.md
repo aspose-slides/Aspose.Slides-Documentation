@@ -1,43 +1,45 @@
 ---
-title: Quản lý các Theme của bản trình chiếu trong Java
-linktitle: Theme bản trình chiếu
+title: Quản lý chủ đề trình chiếu trong Java
+linktitle: Chủ đề Trình chiếu
 type: docs
 weight: 10
 url: /vi/java/presentation-theme/
 keywords:
-- Theme PowerPoint
-- theme bản trình chiếu
-- theme slide
-- đặt theme
-- thay đổi theme
-- quản lý theme
-- theme bên ngoài
+- chủ đề PowerPoint
+- chủ đề trình chiếu
+- chủ đề slide
+- đặt chủ đề
+- thay đổi chủ đề
+- quản lý chủ đề
+- chủ đề ngoại vi
 - THMX
-- màu theme
+- màu chủ đề
 - bảng màu bổ sung
-- phông theme
-- kiểu theme
-- hiệu ứng theme
+- phông chữ chủ đề
+- kiểu chủ đề
+- hiệu ứng chủ đề
 - PowerPoint
 - OpenDocument
-- bản trình chiếu
+- trình chiếu
 - Java
 - Aspose.Slides
-description: "Quản lý các theme bản trình chiếu trong Aspose.Slides cho Java để tạo, tùy chỉnh và chuyển đổi tệp PowerPoint với thương hiệu nhất quán."
+description: "Quản lý các chủ đề trình chiếu trong Aspose.Slides cho Java để tạo, tùy chỉnh và chuyển đổi các tệp PowerPoint với thương hiệu nhất quán."
 ---
 ## **Giới thiệu**
 
-Theme của bản trình chiếu xác định một tập hợp phối hợp các màu, phông chữ, kiểu nền, độ phủ, đường kẻ và hiệu ứng. Các đối tượng nhận thức theme tham chiếu tới các định nghĩa chia sẻ này thay vì lưu trữ mỗi thuộc tính trực quan như một giá trị cố định, do đó việc thay đổi theme có thể cập nhật nhiều đối tượng cùng lúc.
+Một chủ đề trình chiếu định nghĩa một tập hợp phối hợp các màu, phông chữ, kiểu nền, màu nền, đường nét và hiệu ứng. Các đối tượng nhận thức chủ đề tham chiếu đến những định nghĩa chung này thay vì lưu trữ mỗi thuộc tính trực quan dưới dạng giá trị cố định, vì vậy việc thay đổi chủ đề có thể cập nhật nhiều đối tượng cùng một lúc.
 
-Trong Aspose.Slides, theme ở mức bản trình chiếu có sẵn qua [Presentation.getMasterTheme](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/). Bản trình chiếu cũng có thể chứa các ghi đè theme ở mức thấp hơn. Một master có thể ghi đè theme của bản trình chiếu qua [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/vi/java/com.aspose.slides/masterthememanager/), trong khi một layout hoặc một slide riêng lẻ có thể ghi đè theme được kế thừa qua [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/vi/java/com.aspose.slides/baseoverridethememanager/). Trong thực tế, theme hiệu lực cho một slide được giải quyết qua chuỗi kế thừa này: theme bản trình chiếu, ghi đè master, ghi đè layout và ghi đè slide.
+Trong Aspose.Slides, chủ đề ở mức trình chiếu có sẵn thông qua [Presentation.getMasterTheme](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/). Một bản trình chiếu cũng có thể chứa các ghi đè chủ đề ở các mức thấp hơn. Một master có thể ghi đè chủ đề trình chiếu thông qua [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/vi/java/com.aspose.slides/masterthememanager/), trong khi một layout hoặc một slide riêng lẻ có thể ghi đè chủ đề được kế thừa thông qua [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/vi/java/com.aspose.slides/baseoverridethememanager/). Thực tế, chủ đề thực tế cho một slide được giải quyết qua chuỗi kế thừa này: chủ đề trình chiếu, ghi đè master, ghi đè layout và ghi đè slide.
 
-![Các thành phần của Theme: màu sắc, phông chữ, kiểu nền và hiệu ứng](theme-constituents.png)
+![Các thành phần của chủ đề: màu sắc, phông chữ, kiểu nền và hiệu ứng](theme-constituents.png)
 
-Các phần dưới đây trình bày các quy trình theme phổ biến nhất: kiểm tra theme, thay đổi màu và phông chữ, sao chép hoặc áp dụng theme, cập nhật kiểu nền và hiệu ứng, và đọc các giá trị hiệu lực sau khi kế thừa và ghi đè đã được giải quyết.
+Các phần dưới đây trình bày các quy trình làm việc với chủ đề phổ biến nhất: kiểm tra chủ đề, thay đổi màu và phông chữ, sao chép hoặc áp dụng một chủ đề, cập nhật kiểu nền và hiệu ứng, và đọc các giá trị thực tế sau khi kế thừa và ghi đè đã được giải quyết.
 
-## **Kiểm tra Theme**
+## **Kiểm tra một Chủ đề**
 
-Đối tượng [MasterTheme](https://reference.aspose.com/slides/vi/java/com.aspose.slides/mastertheme/) mở ra sơ đồ màu, sơ đồ phông chữ và sơ đồ định dạng của theme qua [MasterTheme.getColorScheme](https://reference.aspose.com/slides/vi/java/com.aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/vi/java/com.aspose.slides/mastertheme/), và [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/vi/java/com.aspose.slides/mastertheme/). Kiểm tra các bộ sưu tập này trước khi thay đổi chúng đặc biệt hữu ích khi bản trình chiếu đến từ nguồn bên ngoài vì số lượng và nội dung các mục kiểu có thể thay đổi.
+Đối tượng [MasterTheme](https://reference.aspose.com/slides/vi/java/com.aspose.slides/mastertheme/) cung cấp lược đồ màu, lược đồ phông chữ và lược đồ định dạng của chủ đề thông qua [MasterTheme.getColorScheme](https://reference.aspose.com/slides/vi/java/com.aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/vi/java/com.aspose.slides/mastertheme/) và [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/vi/java/com.aspose.slides/mastertheme/). Kiểm tra các bộ sưu tập này trước khi thay đổi chúng đặc biệt hữu ích khi một bản trình chiếu đến từ nguồn bên ngoài vì số lượng và nội dung của các mục kiểu có thể khác nhau.
+
+Ví dụ sau đọc các thuộc tính chủ đề chính và báo cáo số lượng kiểu nền, màu nền, đường nét và hiệu ứng được lưu trong chủ đề:
 
 ```java
 import com.aspose.slides.*;
@@ -58,13 +60,13 @@ try {
 }
 ```
 
-Nếu một tệp sử dụng nhiều master, đừng cho rằng mọi slide đều có cùng theme hiệu lực. Kiểm tra master liên kết với slide, và sử dụng quy trình theme hiệu lực được trình bày sau trong bài khi có thể có ghi đè layout hoặc slide.
+Nếu tệp sử dụng nhiều master, đừng giả định rằng mọi slide đều có cùng một chủ đề thực tế. Kiểm tra master liên kết với slide, và sử dụng quy trình làm việc với chủ đề thực tế được trình bày sau trong bài viết này khi có thể có ghi đè layout hoặc slide.
 
-## **Thay đổi màu Theme**
+## **Thay đổi màu sắc chủ đề**
 
-Các độ phủ, đường kẻ và văn bản nhận thức theme có thể tham chiếu tới một màu logic từ enum [SchemeColor](https://reference.aspose.com/slides/vi/java/com.aspose.slides/schemecolor/). Khi bạn thay đổi mục tương ứng trong [IColorScheme](https://reference.aspose.com/slides/vi/java/com.aspose.slides/icolorscheme/), tất cả các đối tượng vẫn tham chiếu tới màu theme đó sẽ được giải quyết dựa trên giá trị mới. Các đối tượng sử dụng màu RGB trực tiếp sẽ không bị thay đổi bởi cập nhật màu theme.
+Các màu nền, đường nét và văn bản nhận thức chủ đề có thể tham chiếu tới một màu logic trong liệt kê [SchemeColor](https://reference.aspose.com/slides/vi/java/com.aspose.slides/schemecolor/). Khi bạn thay đổi mục tương ứng trong [IColorScheme](https://reference.aspose.com/slides/vi/java/com.aspose.slides/icolorscheme/), tất cả các đối tượng vẫn tham chiếu đến màu chủ đề đó sẽ được cập nhật với giá trị mới. Các đối tượng sử dụng màu RGB trực tiếp sẽ không bị thay đổi bởi cập nhật màu chủ đề.
 
-Ví dụ end‑to‑end dưới đây tạo một hình dạng sử dụng `Accent4`, thay đổi màu `Accent4` của theme thành màu đỏ, lưu bản trình chiếu, mở lại và in màu độ phủ hiệu lực:
+Ví dụ toàn diện sau tạo một hình dạng dùng `Accent4`, thay đổi màu `Accent4` của chủ đề thành màu đỏ, lưu bản trình chiếu, mở lại và in màu nền thực tế:
 
 ```java
 import com.aspose.slides.*;
@@ -93,19 +95,19 @@ try {
 }
 ```
 
-Vì hình chữ nhật vẫn liên kết với `Accent4`, màu hiển thị của nó trở thành đỏ sau khi theme được thay đổi. Nếu bạn thay thế màu scheme bằng màu trực tiếp trên hình, các thay đổi sau này đối với `Accent4` sẽ không còn ảnh hưởng tới độ phủ đó.
+Vì hình chữ nhật vẫn liên kết với `Accent4`, màu hiển thị của nó sẽ trở thành màu đỏ sau khi chủ đề được thay đổi. Nếu bạn thay thế màu sơ đồ bằng màu trực tiếp trên hình dạng, các thay đổi sau này đối với `Accent4` sẽ không còn ảnh hưởng tới màu nền đó.
 
 ### **Sử dụng màu từ Bảng màu bổ sung**
 
-PowerPoint tạo ra các biến thể sáng hơn và tối hơn từ một màu theme bằng cách áp dụng các phép biến đổi màu. Aspose.Slides cung cấp các phép biến đổi này qua enum [ColorTransformOperation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/colortransformoperation/).
+PowerPoint tạo ra các biến thể sáng hơn và tối hơn từ một màu chủ đề bằng cách áp dụng các biến đổi màu. Aspose.Slides cung cấp các biến đổi này thông qua liệt kê [ColorTransformOperation](https://reference.aspose.com/slides/vi/java/com.aspose.slides/colortransformoperation/).
 
-![Màu chủ đề chính và các màu sáng hơn và tối hơn được tạo từ bảng màu bổ sung](additional-palette-colors.png)
+![Màu chủ đề chính và các màu sáng hơn, tối hơn được tạo từ bảng màu bổ sung](additional-palette-colors.png)
 
 **1** - Màu chủ đề chính.
 
 **2** - Các biến thể sáng hơn và tối hơn được tạo từ màu chủ đề chính.
 
-Ví dụ dưới đây tạo sáu hình chữ nhật dựa trên `Accent4`, áp dụng các biến đổi độ sáng cho năm trong số chúng, và lưu kết quả:
+Ví dụ sau tạo sáu hình chữ nhật dựa trên `Accent4`, áp dụng các biến đổi độ sáng cho năm trong số chúng và lưu kết quả:
 
 ```java
 import com.aspose.slides.*;
@@ -152,31 +154,31 @@ try {
 }
 ```
 
-Các biến thể này vẫn dựa trên màu theme. Nếu `Accent4` thay đổi sau này, các màu đã biến đổi sẽ được tính lại từ giá trị `Accent4` mới.
+Các biến thể này vẫn dựa trên màu chủ đề. Nếu `Accent4` thay đổi sau này, các màu đã biến đổi sẽ được tính lại từ giá trị `Accent4` mới.
 
-### **Ánh xạ giá trị `SchemeColor` tới các slot `IColorScheme`**
+### **Ánh xạ các giá trị `SchemeColor` tới các vị trí `IColorScheme`**
 
-Enum [SchemeColor](https://reference.aspose.com/slides/vi/java/com.aspose.slides/schemecolor/) sử dụng `Text1`, `Background1`, `Text2` và `Background2`, trong khi [IColorScheme](https://reference.aspose.com/slides/vi/java/com.aspose.slides/icolorscheme/) mở ra cùng các slot theme dưới dạng `Dark1`, `Light1`, `Dark2` và `Light2`. Ánh xạ này cố định:
+Liệt kê [SchemeColor](https://reference.aspose.com/slides/vi/java/com.aspose.slides/schemecolor/) sử dụng `Text1`, `Background1`, `Text2` và `Background2`, trong khi [IColorScheme](https://reference.aspose.com/slides/vi/java/com.aspose.slides/icolorscheme/) cung cấp cùng các vị trí chủ đề dưới dạng `Dark1`, `Light1`, `Dark2` và `Light2`. Bảng ánh xạ cố định:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-Đây là các tên thay thế cho cùng các slot theme; chúng không phải là giá trị được chuyển đổi động từ dạng này sang dạng khác.
+Đây là các tên thay thế cho cùng một vị trí chủ đề; chúng không phải là các giá trị được chuyển đổi động từ dạng này sang dạng khác.
 
-## **Thay đổi phông chữ Theme**
+## **Thay đổi phông chữ chủ đề**
 
-Một sơ đồ phông chữ theme chứa một bộ phông chữ chính cho tiêu đề và một bộ phông chữ phụ cho nội dung. Các phương thức [IFontScheme.getMajor](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ifontscheme/) và [IFontScheme.getMinor](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ifontscheme/) mở ra các bộ này.
+Một lược đồ phông chữ chủ đề chứa một bộ phông chữ chính cho tiêu đề và một bộ phụ cho nội dung. Các phương thức [IFontScheme.getMajor](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ifontscheme/) và [IFontScheme.getMinor](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ifontscheme/) cung cấp các bộ này.
 
-Các định danh phông chữ theme tương thích PowerPoint có thể được dùng trong định dạng văn bản:
+Các định danh phông chữ chủ đề tương thích PowerPoint có thể được sử dụng trong định dạng văn bản:
 
-* `+mn-lt` - Phông chữ nội dung Latin (Phông chữ Latin phụ)
-* `+mj-lt` - Phông chữ tiêu đề Latin (Phông chữ Latin chính)
-* `+mn-ea` - Phông chữ nội dung Đông Á (Phông chữ Đông Á phụ)
-* `+mj-ea` - Phông chữ tiêu đề Đông Á (Phông chữ Đông Á chính)
+* `+mn-lt` - Phông chữ nội dung Latin (Minor Latin Font)
+* `+mj-lt` - Phông chữ tiêu đề Latin (Major Latin Font)
+* `+mn-ea` - Phông chữ nội dung Đông Á (Minor East Asian Font)
+* `+mj-ea` - Phông chữ tiêu đề Đông Á (Major East Asian Font)
 
-Ví dụ dưới đây tạo một tiêu đề sử dụng phông chữ Latin chính của theme và một dòng nội dung sử dụng phông chữ Latin phụ của theme. Sau đó thay đổi phông chữ theme và lưu kết quả:
+Ví dụ sau tạo một tiêu đề sử dụng phông chữ Latin chính và một dòng nội dung sử dụng phông chữ Latin phụ. Sau đó thay đổi phông chữ chủ đề và lưu kết quả:
 
 ```java
 import com.aspose.slides.*;
@@ -201,30 +203,30 @@ try {
 }
 ```
 
-Tiêu đề tuân theo phông chữ chính và nội dung tuân theo phông chữ phụ. Văn bản có tên phông chữ cụ thể thay vì định danh theme sẽ không tự động chuyển khi sơ đồ phông chữ theme thay đổi.
+Tiêu đề tuân theo phông chữ chính và nội dung tuân theo phông chữ phụ. Văn bản có tên phông chữ cụ thể thay vì định danh chủ đề sẽ không tự động chuyển khi lược đồ phông chữ chủ đề thay đổi.
 
-Bộ phông chữ chính và phụ cũng có thể chứa các ánh xạ phông chữ cho các hệ thống viết riêng lẻ, chẳng hạn như Cyrillic, Arabic, Japanese, Georgian và Thaana. Để kiểm tra, thêm, thay thế hoặc loại bỏ các ánh xạ này, xem [Script-Specific Theme Fonts](/slides/vi/java/script-specific-font-mappings/).
+Các bộ sưu tập phông chữ chính và phụ cũng có thể chứa các ánh xạ phông chữ cho các hệ thống viết riêng lẻ, chẳng hạn Cyrillic, Arabic, Japanese, Georgian và Thaana. Để kiểm tra, thêm, thay thế hoặc xoá các ánh xạ này, xem [Script-Specific Theme Fonts](/slides/vi/java/script-specific-font-mappings/).
 
 {{% alert color="info" title="Tip" %}}
-Để biết thêm thông tin về phông chữ trong bản trình chiếu, xem [PowerPoint Fonts](/slides/vi/java/powerpoint-fonts/).
+Để biết thêm thông tin về phông chữ trong trình chiếu, xem [PowerPoint Fonts](/slides/vi/java/powerpoint-fonts/).
 {{% /alert %}}
 
-## **Sao chép hoặc Áp dụng Theme**
+## **Sao chép hoặc Áp dụng một Chủ đề**
 
-Các quy trình dưới đây giải quyết các vấn đề liên quan đến theme khác nhau.
+Các quy trình dưới đây giải quyết các vấn đề liên quan đến chủ đề khác nhau.
 
-### **Áp dụng Theme bên ngoài cho các Slide phụ thuộc vào Master**
+### **Áp dụng một Chủ đề Ngoại vi vào các Slide phụ thuộc vào Master**
 
-Sử dụng [IMasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imasterslide/) khi bạn có tệp theme PowerPoint (`.thmx`) và muốn thay đổi kiểu dáng của mọi slide phụ thuộc vào một master cụ thể. Chọn master từ bộ sưu tập [Presentation.getMasters](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) thực thi [IMasterSlideCollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imasterslidecollection/), và truyền đường dẫn tệp theme vào phương thức.
+Sử dụng [IMasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imasterslide/) khi bạn có một tệp chủ đề PowerPoint (`.thmx`) và muốn thay đổi kiểu dáng mọi slide phụ thuộc vào một master cụ thể. Chọn master từ bộ sưu tập [Presentation.getMasters](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/) mà thực thi [IMasterSlideCollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imasterslidecollection/), và truyền đường dẫn tệp chủ đề vào phương thức.
 
 Phương thức thực hiện các thao tác sau:
 
 1. Tạo một master slide mới dựa trên master đã chọn.
-1. Áp dụng theme bên ngoài vào master mới.
-1. Gán master mới cho tất cả các slide trước đây phụ thuộc vào master đã chọn.
+1. Áp dụng chủ đề ngoại vi vào master mới.
+1. Gán master mới cho tất cả các slide trước đó phụ thuộc vào master đã chọn.
 1. Trả về đối tượng [IMasterSlide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imasterslide/) mới tạo.
 
-Ví dụ dưới đây áp dụng theme bên ngoài cho các slide phụ thuộc vào master đầu tiên và lưu bản trình chiếu:
+Ví dụ sau áp dụng một chủ đề ngoại vi vào các slide phụ thuộc vào master đầu tiên và lưu bản trình chiếu:
 
 ```java
 import com.aspose.slides.*;
@@ -241,19 +243,19 @@ try {
 }
 ```
 
-Một theme không hợp lệ, bị hỏng hoặc không được hỗ trợ có thể gây ra [PptxReadException](https://reference.aspose.com/slides/vi/java/com.aspose.slides/pptxreadexception/). Xác thực đường dẫn do người dùng cung cấp, xử lý lỗi truy cập hệ thống tập tin, và chỉ lưu bản trình chiếu sau khi theme đã được áp dụng thành công.
+Một chủ đề không hợp lệ, bị hỏng hoặc không được hỗ trợ có thể gây ra [PptxReadException](https://reference.aspose.com/slides/vi/java/com.aspose.slides/pptxreadexception/). Hãy xác thực các đường dẫn do người dùng cung cấp, xử lý các lỗi truy cập hệ thống tệp, và chỉ lưu bản trình chiếu sau khi chủ đề đã được áp dụng thành công.
 
-Chỉ những slide phụ thuộc vào master đã chọn mới được gán lại. Các slide liên kết với các master khác giữ nguyên master và theme hiện tại. Các màu, phông chữ, độ phủ, đường kẻ, nền và hiệu ứng nhận thức theme sẽ được giải quyết dựa trên theme bên ngoài. Các màu, phông chữ, độ phủ và định dạng rõ ràng được gán trực tiếp có thể vẫn không thay đổi. Các ghi đè ở mức layout và slide cũng có thể có quyền ưu tiên hơn các giá trị kế thừa từ master mới.
+Chỉ các slide phụ thuộc vào master đã chọn mới được gán lại. Các slide liên kết với các master khác giữ nguyên master và chủ đề hiện tại. Các màu, phông chữ, màu nền, đường nét và hiệu ứng nhận thức chủ đề sẽ được giải quyết dựa trên chủ đề ngoại vi. Các định dạng màu, phông chữ, màu nền trực tiếp có thể không thay đổi. Các ghi đè ở mức layout và slide cũng có thể có ưu tiên hơn các giá trị kế thừa từ master mới.
 
-Theme có thể tham chiếu tới các phông chữ không có sẵn trong môi trường chạy. Để đảm bảo hiển thị và xuất khẩu nhất quán, hãy cài đặt các phông chữ cần thiết, cung cấp chúng qua [nguồn phông chữ tùy chỉnh](/slides/vi/java/custom-font/), hoặc cấu hình [thay thế phông chữ](/slides/vi/java/font-substitution/).
+Chủ đề có thể tham chiếu đến các phông chữ không có trong môi trường runtime. Để đảm bảo hiển thị và xuất khẩu nhất quán, hãy cài đặt các phông chữ cần thiết, cung cấp chúng qua [custom font sources](/slides/vi/java/custom-font/), hoặc cấu hình [font substitution](/slides/vi/java/font-substitution/).
 
-Đây là quy trình trực tiếp ở mức master: phương thức nhận đường dẫn tệp `.thmx` và không yêu cầu tạo thủ công các ghi đè theme ở mức slide hay layout.
+Đây là quy trình làm việc ở mức master trực tiếp: phương thức nhận đường dẫn tới tệp `.thmx` và không yêu cầu tạo thủ công các ghi đè chủ đề ở mức slide hoặc layout.
 
-### **Áp dụng các Theme bên ngoài khác nhau trong bản trình chiếu đa Master**
+### **Áp dụng các Chủ đề Ngoại vi Khác nhau trong một Bản Trình Chiếu Nhiều Master**
 
-Khi master liên quan không được biết trước, lấy nó từ một slide đại diện qua [ISlide.getLayoutSlide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islide/) và [ILayoutSlide.getMasterSlide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ilayoutslide/). Lưu trữ các tham chiếu master gốc trước khi áp dụng bất kỳ theme nào vì mỗi lần gọi sẽ tạo thêm một master trong bản trình chiếu.
+Khi master liên quan không biết trước, hãy lấy nó từ một slide đại diện qua [ISlide.getLayoutSlide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islide/) và [ILayoutSlide.getMasterSlide](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ilayoutslide/). Lưu các tham chiếu master gốc trước khi áp dụng bất kỳ chủ đề nào vì mỗi lần gọi sẽ tạo một master mới trong bản trình chiếu.
 
-Ví dụ dưới đây sử dụng các slide từ hai phần để xác định master của chúng và áp dụng một theme bên ngoài khác nhau cho mỗi nhóm:
+Ví dụ sau sử dụng các slide từ hai phần để xác định master của chúng và áp dụng một chủ đề ngoại vi khác nhau cho mỗi nhóm:
 
 ```java
 import com.aspose.slides.*;
@@ -282,11 +284,11 @@ try {
 }
 ```
 
-Lệnh gọi đầu tiên chỉ ảnh hưởng tới các slide phụ thuộc vào `firstGroupMaster`, và lệnh gọi thứ hai chỉ ảnh hưởng tới các slide phụ thuộc vào `secondGroupMaster`. Các slide thuộc bất kỳ master nào khác sẽ không bị thay đổi kiểu dáng.
+Lệnh gọi đầu tiên chỉ ảnh hưởng tới các slide phụ thuộc vào `firstGroupMaster`, lệnh gọi thứ hai chỉ ảnh hưởng tới các slide phụ thuộc vào `secondGroupMaster`. Các slide thuộc bất kỳ master nào khác sẽ không được thay đổi kiểu dáng.
 
-### **Bảo tồn Theme nguồn khi di chuyển Slides**
+### **Bảo tồn Chủ đề Nguồn Khi Di chuyển Slides**
 
-Nếu bạn muốn di chuyển một slide sang bản trình chiếu khác và giữ nguyên thiết kế gốc, hãy sao chép master nguồn vào bản đích bằng [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imasterslidecollection/), sau đó sao chép slide bằng [ISlideCollection.addClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islidecollection/) và master đã sao chép. Điều này mang theo master, các layout và theme liên quan cùng nhau.
+Nếu bạn muốn di chuyển một slide sang bản trình chiếu khác và giữ nguyên thiết kế gốc, hãy sao chép master nguồn vào bản trình chiếu đích bằng [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imasterslidecollection/), sau đó sao chép slide bằng [ISlideCollection.addClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islidecollection/) và master đã sao chép. Thao tác này mang theo master, các layout và chủ đề liên quan.
 
 ```java
 import com.aspose.slides.*;
@@ -308,11 +310,11 @@ try {
 }
 ```
 
-Đây là quy trình được ưu tiên khi slide nguồn phải trông giống hệt ở đích. Chỉ sao chép nội dung lên một master đích không liên quan có thể làm thay đổi các màu, phông chữ, nền và hiệu ứng dựa trên theme.
+Đây là quy trình được ưu tiên khi slide nguồn phải trông giống hệt trong đích. Việc chỉ sao chép nội dung lên một master đích không liên quan có thể làm thay đổi các màu, phông chữ, nền và hiệu ứng dựa trên chủ đề.
 
-### **Áp dụng giá trị Theme cho một Slide hiện có**
+### **Áp dụng Giá trị Chủ đề vào một Slide hiện có**
 
-Nếu slide đích phải ở lại master và layout hiện tại, khởi tạo một ghi đè ở mức slide từ theme nguồn. Các phương thức [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/vi/java/com.aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/vi/java/com.aspose.slides/overridetheme/), và [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/vi/java/com.aspose.slides/overridetheme/) sao chép ba thành phần chính của theme vào ghi đè.
+Nếu slide đích phải ở trên master và layout hiện tại, hãy khởi tạo một ghi đè ở mức slide từ chủ đề nguồn. Các phương thức [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/vi/java/com.aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/vi/java/com.aspose.slides/overridetheme/) và [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/vi/java/com.aspose.slides/overridetheme/) sao chép ba thành phần chính của chủ đề vào ghi đè.
 
 ```java
 import com.aspose.slides.*;
@@ -335,11 +337,11 @@ try {
 }
 ```
 
-Điều này thay đổi theme được sử dụng bởi slide đó mà không thay đổi theme mà các slide khác kế thừa. Để xóa ghi đè cục bộ và quay lại giá trị kế thừa, gọi [OverrideTheme.clear](https://reference.aspose.com/slides/vi/java/com.aspose.slides/overridetheme/).
+Điều này thay đổi chủ đề được slide sử dụng mà không ảnh hưởng tới chủ đề kế thừa của các slide khác. Để xóa ghi đè cục bộ và trở lại giá trị kế thừa, gọi [OverrideTheme.clear](https://reference.aspose.com/slides/vi/java/com.aspose.slides/overridetheme/).
 
-### **Áp dụng Theme Override cho Layout**
+### **Áp dụng Ghi đè Chủ đề cho một Layout**
 
-Một ghi đè ở mức layout áp dụng cho các slide sử dụng layout đó, trừ khi một slide cụ thể có ghi đè riêng. Các phương thức khởi tạo tương tự có thể được dùng qua [LayoutSlideThemeManager](https://reference.aspose.com/slides/vi/java/com.aspose.slides/layoutslidethememanager/):
+Một ghi đè ở mức layout áp dụng cho các slide sử dụng layout đó, trừ khi một slide cụ thể có ghi đè riêng. Các phương thức khởi tạo tương tự có thể được sử dụng thông qua [LayoutSlideThemeManager](https://reference.aspose.com/slides/vi/java/com.aspose.slides/layoutslidethememanager/):
 
 ```java
 import com.aspose.slides.*;
@@ -363,17 +365,17 @@ try {
 }
 ```
 
-Sử dụng theme ở mức master hoặc bản trình chiếu khi nhiều layout và slide nên chia sẻ cùng một thiết kế cơ bản, sử dụng ghi đè layout khi một họ layout cần kiểu dáng khác, và chỉ dùng ghi đè slide cho các ngoại lệ thực sự. Quá nhiều ghi đè ở mức slide sẽ khiến việc thay đổi theme toàn cục sau này khó dự đoán hơn.
+Sử dụng chủ đề ở mức master hoặc trình chiếu khi nhiều layout và slide cần chia sẻ cùng một thiết kế cơ bản, sử dụng ghi đè layout khi một họ layout cần kiểu dáng khác, và chỉ dùng ghi đè slide cho các ngoại lệ thực sự. Quá nhiều ghi đè ở mức slide sẽ khiến các thay đổi chủ đề toàn cục sau này khó dự đoán.
 
-## **Cập nhật Kiểu nền Theme**
+## **Cập nhật Kiểu nền Chủ đề**
 
-Các độ phủ nền của theme được lưu trong [IFormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iformatscheme/). PowerPoint có thể hiển thị nhiều lựa chọn nền hơn trong giao diện người dùng so với số lượng định nghĩa độ phủ thực tế được lưu trong bộ sưu tập này vì giao diện có thể kết hợp độ phủ theme với màu theme và các tham chiếu kiểu khác.
+Các màu nền của chủ đề được lưu trong [IFormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iformatscheme/). PowerPoint có thể hiển thị nhiều lựa chọn nền hơn trong giao diện người dùng so với số lượng định nghĩa màu nền thực tế trong bộ sưu tập này vì giao diện có thể kết hợp màu nền chủ đề với màu chủ đề và các tham chiếu kiểu khác.
 
-![Bộ sưu tập kiểu nền PowerPoint cho một theme bản trình chiếu](presentation-design_8.png)
+![Bộ sưu tập kiểu nền PowerPoint cho một chủ đề trình chiếu](presentation-design_8.png)
 
-Trước khi sử dụng một kiểu nền, kiểm tra bộ sưu tập đã lưu và giá trị hiện tại của [Background.getStyleIndex](https://reference.aspose.com/slides/vi/java/com.aspose.slides/background/). Chỉ số kiểu `0` có nghĩa là không có độ phủ theo theme; các giá trị dương là các tham chiếu kiểu nền theme. Điều này khác với việc truy cập bộ sưu tập Java trực tiếp, trong đó `get_Item(0)` nghĩa là mục đầu tiên được lưu. Đừng cho rằng mọi bản trình chiếu đều chứa cùng số lượng kiểu độ phủ nền.
+Trước khi sử dụng một kiểu nền, hãy kiểm tra bộ sưu tập đã lưu và [Background.getStyleIndex](https://reference.aspose.com/slides/vi/java/com.aspose.slides/background/). Chỉ số kiểu `0` có nghĩa là không có màu nền chủ đề; các giá trị dương là các tham chiếu kiểu nền chủ đề. Điều này khác với việc chỉ mục bộ sưu tập Java trực tiếp, nơi `get_Item(0)` là mục đầu tiên được lưu. Đừng giả định mỗi bản trình chiếu có cùng số lượng kiểu nền.
 
-Ví dụ dưới đây báo cáo số lượng độ phủ nền có sẵn, gán một tham chiếu nền theo theme cho master đầu tiên, và lưu bản trình chiếu:
+Ví dụ sau báo cáo số lượng màu nền có sẵn, gán một tham chiếu nền chủ đề cho master đầu tiên và lưu bản trình chiếu:
 
 ```java
 import com.aspose.slides.*;
@@ -395,25 +397,25 @@ try {
 }
 ```
 
-Kết quả hiển thị phụ thuộc vào mục theme mà master tham chiếu và bất kỳ ghi đè nền nào ở mức layout hoặc slide. Nếu một slide sử dụng nền riêng, việc chỉ thay đổi nền master có thể không làm thay đổi slide đó. Sử dụng [Background.getEffective](https://reference.aspose.com/slides/vi/java/com.aspose.slides/background/) khi bạn cần biết nền cuối cùng sau khi đã áp dụng kế thừa.
+Kết quả hiển thị phụ thuộc vào mục nhập chủ đề mà master tham chiếu và bất kỳ ghi đè nền nào ở mức layout hoặc slide. Nếu một slide sử dụng nền riêng, việc chỉ thay đổi nền master có thể không ảnh hưởng tới slide đó. Hãy sử dụng [Background.getEffective](https://reference.aspose.com/slides/vi/java/com.aspose.slides/background/) khi cần biết nền cuối cùng sau khi đã áp dụng kế thừa.
 
 {{% alert color="warning" title="Warning" %}}
-Không coi chỉ số kiểu như một chỉ số bộ sưu tập bắt đầu từ 0. Cũng tránh việc cứng mã một số kiểu từ một tệp và cho rằng nó sẽ có cùng giao diện trong tệp khác; các định nghĩa kiểu theme là riêng biệt cho mỗi bản trình chiếu.
+Đừng xem chỉ số kiểu như một chỉ mục bộ sưu tập bắt đầu từ 0. Cũng tránh mã hóa cứng một số kiểu từ một tệp và cho rằng nó sẽ có cùng giao diện trong tệp khác; các định nghĩa kiểu chủ đề là riêng cho mỗi bản trình chiếu.
 {{% /alert %}}
 
 {{% alert color="info" title="Tip" %}}
 Đối với định dạng nền trực tiếp và kế thừa nền, xem [Presentation Background](/slides/vi/java/presentation-background/).
 {{% /alert %}}
 
-## **Cập nhật Hiệu ứng Theme**
+## **Cập nhật Hiệu ứng Chủ đề**
 
-Một sơ đồ định dạng theme chứa các bộ sưu tập độ phủ, đường kẻ và hiệu ứng riêng biệt được mở ra qua [IFormatScheme.getFillStyles](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iformatscheme/), [IFormatScheme.getLineStyles](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iformatscheme/), và [IFormatScheme.getEffectStyles](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iformatscheme/). Các theme Office thông thường thường có ba mục kiểu chính tương ứng trực quan với định dạng nhẹ, vừa và mạnh, nhưng mã nên kiểm tra từng bộ sưu tập thay vì giả định số lượng cố định.
+Một lược đồ định dạng chủ đề chứa các bộ sưu tập màu nền, đường nét và hiệu ứng riêng biệt được cung cấp qua [IFormatScheme.getFillStyles](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iformatscheme/), [IFormatScheme.getLineStyles](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iformatscheme/) và [IFormatScheme.getEffectStyles](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iformatscheme/). Các chủ đề Office điển hình thường chứa ba mục kiểu chính tương ứng với định dạng nhẹ, trung bình và mạnh, nhưng mã nên kiểm tra mỗi bộ sưu tập thay vì giả định số lượng cố định.
 
-![Hiệu ứng Theme nhẹ, trung bình và mạnh được áp dụng lên cùng một hình dạng](presentation-design_10.png)
+![Hiệu ứng chủ đề nhẹ, trung bình và mạnh được áp dụng lên cùng một hình dạng](presentation-design_10.png)
 
-Khi truy cập các bộ sưu tập này trong Java, chỉ mục bộ sưu tập bắt đầu từ 0: `get_Item(0)` là kiểu đầu tiên được lưu và `get_Item(2)` là kiểu thứ ba. Các chỉ mục tham chiếu kiểu của hình dạng là một khái niệm riêng, được mở ra qua [IShapeStyle](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishapestyle/). Việc sửa đổi một kiểu theme ảnh hưởng tới các hình dạng tham chiếu kiểu theme đó; các hình dạng có định dạng trực tiếp có thể không thay đổi.
+Khi truy cập các bộ sưu tập này trong Java, chỉ mục bộ sưu tập bắt đầu từ 0: `get_Item(0)` là kiểu đầu tiên được lưu và `get_Item(2)` là kiểu thứ ba. Các chỉ mục tham chiếu kiểu của hình dạng là một khái niệm riêng, được cung cấp qua [IShapeStyle](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ishapestyle/). Thay đổi một kiểu chủ đề sẽ ảnh hưởng tới các hình dạng tham chiếu kiểu đó; các hình dạng có định dạng trực tiếp có thể không thay đổi.
 
-Ví dụ dưới đây kiểm tra tồn tại các mục kiểu cần thiết, thay đổi kiểu đường đầu tiên, thay đổi kiểu độ phủ thứ ba, bật bóng ngoài trong kiểu hiệu ứng thứ ba, và lưu kết quả:
+Ví dụ sau kiểm tra tồn tại các mục kiểu cần thiết, thay đổi kiểu đường nét đầu tiên, thay đổi kiểu màu nền thứ ba, kích hoạt bóng đổ ngoài trong kiểu hiệu ứng thứ ba và lưu kết quả:
 
 ```java
 import com.aspose.slides.*;
@@ -438,15 +440,89 @@ try {
 }
 ```
 
-Đối với các hình dạng tham chiếu các slot này, kiểu đường theme đầu tiên trở thành màu đỏ, kiểu độ phủ theme thứ ba trở thành màu xanh rừng đặc, và kiểu hiệu ứng thứ ba nhận bóng ngoài với khoảng cách 10 điểm. Kết quả hình ảnh chính xác vẫn phụ thuộc vào mỗi hình dạng tham chiếu slot nào và liệu định dạng trực tiếp có ghi đè theme hay không.
+Đối với các hình dạng tham chiếu các vị trí này, kiểu đường nét chủ đề đầu tiên sẽ trở thành màu đỏ, kiểu màu nền chủ đề thứ ba sẽ trở thành màu xanh rừng đặc, và kiểu hiệu ứng thứ ba sẽ có một bóng đổ ngoài với khoảng cách 10 điểm. Kết quả hình ảnh cuối cùng vẫn phụ thuộc vào mỗi hình dạng tham chiếu vị trí nào và liệu định dạng trực tiếp có ghi đè chủ đề hay không.
 
-![Kiểu hiệu ứng Theme sau khi thay đổi cài đặt đường, độ phủ và bóng](presentation-design_11.png)
+![Kiểu hiệu ứng chủ đề sau khi thay đổi đường nét, màu nền và cài đặt bóng đổ](presentation-design_11.png)
 
-## **Đọc Giá trị Theme Hiệu lực**
+## **Xác định liệu một Màu nền Rắn thực tế có sử dụng màu Chủ đề hay không**
 
-Các đối tượng theme thô cho bạn biết gì đã được định nghĩa ở mức nhất định. Các giá trị hiệu lực cho bạn biết slide hoặc hình dạng thực sự sử dụng gì sau khi kế thừa và các ghi đè cục bộ đã được giải quyết. Đối với một slide, gọi [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/vi/java/com.aspose.slides/baseoverridethememanager/). Đối với nền, dùng [Background.getEffective](https://reference.aspose.com/slides/vi/java/com.aspose.slides/background/), và đối với độ phủ, dùng [FillFormat.getEffective](https://reference.aspose.com/slides/vi/java/com.aspose.slides/fillformat/).
+Một màu nền có thể được lưu trực tiếp trên một đối tượng hoặc kế thừa từ đoạn văn, layout, master, kiểu chủ đề hoặc một mức định dạng khác. Gọi [IFillFormat.getEffective](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ifillformat/) để giải quyết chuỗi này thành một đối tượng bất biến [IFillFormatEffectiveData](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ifillformateffectivedata/). Đầu tiên kiểm tra [IFillFormatEffectiveData.getFillType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ifillformateffectivedata/). Chỉ khi nó là `FillType.Solid` bạn mới đọc các thuộc tính màu nền rắn.
 
-Ví dụ dưới đây đọc theme hiệu lực, nền và độ phủ của hình dạng đầu tiên từ một slide:
+Đối với màu nền rắn, [IFillFormatEffectiveData.getSolidFillColor](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ifillformateffectivedata/) trả về giá trị RGB cuối cùng sau khi đã áp dụng kế thừa, tra cứu chủ đề và các biến đổi màu. [IFillFormatEffectiveData.getSolidFillSchemeColor](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ifillformateffectivedata/) trả về vị trí logic [SchemeColor](https://reference.aspose.com/slides/vi/java/com.aspose.slides/schemecolor/) tương ứng, chẳng hạn `Text1` hoặc `Accent6`. Giá trị `SchemeColor.NotDefined` có nghĩa là màu nền rắn thực tế không dựa trên màu sơ đồ. Trong quy trình mà các màu nền chỉ là màu chủ đề hoặc màu RGB trực tiếp, giá trị này xác định màu nền RGB trực tiếp.
+
+Đừng chỉ dựa vào giá trị địa phương [IColorFormat.getSchemeColor](https://reference.aspose.com/slides/vi/java/com.aspose.slides/icolorformat/) để phân loại màu nền. Ví dụ, một đoạn văn bản có thể không có màu sơ đồ được định nghĩa cục bộ, vì vậy giá trị địa phương là `NotDefined`, trong khi màu nền thực tế kế thừa một màu chủ đề và giải quyết thành `Text1` hoặc `Accent6`. Ngược lại, `getSolidFillSchemeColor` cho biết vị trí logic nào đã tạo ra màu thực tế, nhưng không cho biết vị trí đó đến từ đối tượng, đoạn văn, layout, master hay mức định dạng nào khác.
+
+Ví dụ sau tải một bản trình chiếu, kiểm tra cả màu nền các hình dạng và các đoạn văn bản, in mỗi giá trị RGB cuối cùng và màu sơ đồ tương ứng, và đánh dấu các màu nền rắn sẽ không theo dõi các thay đổi màu chủ đề:
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+import java.util.function.BiConsumer;
+
+BiConsumer<String, IFillFormat> auditFill = (objectName, localFill) -> {
+    IFillFormatEffectiveData effectiveFill = localFill.getEffective();
+
+    if (effectiveFill.getFillType() != FillType.Solid) {
+        System.out.println(objectName + ": fill type = " + effectiveFill.getFillType() + "; not a solid fill.");
+        return;
+    }
+
+    Color rgb = effectiveFill.getSolidFillColor();
+    int effectiveSchemeColor = effectiveFill.getSolidFillSchemeColor();
+    int localSchemeColor = localFill.getSolidFillColor().getSchemeColor();
+
+    System.out.printf("%s: RGB = #%02X%02X%02X%n", objectName, rgb.getRed(), rgb.getGreen(), rgb.getBlue());
+    System.out.println(objectName + ": local scheme = " + localSchemeColor + ", effective scheme = " + effectiveSchemeColor);
+
+    if (effectiveSchemeColor == SchemeColor.NotDefined) {
+        System.out.println(objectName + ": direct RGB or another non-scheme fill; audit as theme-independent.");
+    } else {
+        System.out.println(objectName + ": theme-dependent through " + effectiveSchemeColor + ".");
+    }
+};
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    int slideCount = presentation.getSlides().size();
+    for (int slideIndex = 0; slideIndex < slideCount; slideIndex++) {
+        ISlide slide = presentation.getSlides().get_Item(slideIndex);
+
+        int shapeCount = slide.getShapes().size();
+        for (int shapeIndex = 0; shapeIndex < shapeCount; shapeIndex++) {
+            IShape shape = slide.getShapes().get_Item(shapeIndex);
+            String shapeName = "Slide " + (slideIndex + 1) + ", shape " + (shapeIndex + 1);
+            auditFill.accept(shapeName, shape.getFillFormat());
+
+            if (shape instanceof IAutoShape) {
+                IAutoShape autoShape = (IAutoShape) shape;
+                int paragraphCount = autoShape.getTextFrame().getParagraphs().getCount();
+                for (int paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++) {
+                    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(paragraphIndex);
+
+                    int portionCount = paragraph.getPortions().getCount();
+                    for (int portionIndex = 0; portionIndex < portionCount; portionIndex++) {
+                        IPortion portion = paragraph.getPortions().get_Item(portionIndex);
+                        String portionName = shapeName + ", paragraph " + (paragraphIndex + 1) + ", portion " + (portionIndex + 1);
+                        auditFill.accept(portionName, portion.getPortionFormat().getFillFormat());
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Nhánh `NotDefined` cung cấp danh sách kiểm tra các màu nền rắn sẽ không phản hồi khi các vị trí màu chủ đề thay đổi. Xem xét những đối tượng này khi một bản trình chiếu phải tuân theo bảng màu thương hiệu mới. Giá trị RGB được báo cáo vẫn hiển thị giao diện hiện tại, trong khi giá trị sơ đồ giải thích liệu giao diện đó có liên kết với chủ đề hay không.
+
+Các đối tượng định dạng thực tế là những ảnh chụp nhanh. Sau khi thay đổi chủ đề trình chiếu, ghi đè chủ đề hoặc bất kỳ định dạng kế thừa nào, hãy gọi `getEffective` lại và đọc một đối tượng `IFillFormatEffectiveData` mới trước khi so sánh hoặc báo cáo màu sắc.
+
+## **Đọc Các Giá trị Chủ đề Thực tế**
+
+Các đối tượng chủ đề thô cho bạn biết những gì được định nghĩa ở một mức nhất định. Các giá trị thực tế cho bạn biết slide hoặc hình dạng thực sự sử dụng gì sau khi đã giải quyết kế thừa và ghi đè cục bộ. Đối với một slide, gọi [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/vi/java/com.aspose.slides/baseoverridethememanager/). Đối với nền, dùng [Background.getEffective](https://reference.aspose.com/slides/vi/java/com.aspose.slides/background/), và đối với màu nền, dùng [FillFormat.getEffective](https://reference.aspose.com/slides/vi/java/com.aspose.slides/fillformat/).
+
+Ví dụ sau đọc chủ đề thực tế, nền và màu nền của hình dạng đầu tiên từ một slide:
 
 ```java
 import com.aspose.slides.*;
@@ -471,22 +547,22 @@ try {
 }
 ```
 
-Sử dụng dữ liệu hiệu lực cho việc chuẩn đoán render, xác thực và so sánh. Nếu bạn chỉ kiểm tra [Presentation.getMasterTheme](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/), bạn có thể bỏ lỡ một master, layout, slide hoặc ghi đè hình dạng làm thay đổi giao diện cuối cùng.
+Sử dụng dữ liệu thực tế cho việc chẩn đoán hiển thị, xác thực và so sánh. Nếu bạn chỉ kiểm tra [Presentation.getMasterTheme](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/), bạn có thể bỏ lỡ một master, layout, slide hoặc ghi đè hình dạng thay đổi giao diện cuối cùng.
 
 ## **FAQ**
 
-**Áp dụng một theme bên ngoài có ảnh hưởng đến mọi slide trong bản trình chiếu không?**
+**Áp dụng một chủ đề ngoại vi có ảnh hưởng tới mọi slide trong bản trình chiếu không?**
 
-Không. [IMasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imasterslide/) chỉ gán lại các slide phụ thuộc vào master đã chọn. Các slide sử dụng các master khác giữ nguyên theme hiện tại.
+Không. [IMasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imasterslide/) chỉ gán lại những slide phụ thuộc vào master đã chọn. Các slide sử dụng các master khác giữ nguyên chủ đề hiện tại.
 
-**Tôi có thể áp dụng một theme cho một slide duy nhất mà không thay đổi master không?**
+**Tôi có thể áp dụng một chủ đề cho một slide duy nhất mà không thay đổi master không?**
 
-Có. Sử dụng [SlideThemeManager](https://reference.aspose.com/slides/vi/java/com.aspose.slides/slidethememanager/) của slide và khởi tạo theme ghi đè của nó. Thay đổi sẽ chỉ áp dụng cục bộ cho slide đó; các slide khác vẫn kế thừa theme hiện tại.
+Có. Sử dụng [SlideThemeManager](https://reference.aspose.com/slides/vi/java/com.aspose.slides/slidethememanager/) của slide và khởi tạo ghi đè chủ đề của nó. Thay đổi sẽ chỉ áp dụng cho slide đó; các slide khác vẫn kế thừa chủ đề hiện có.
 
-**Cách an toàn nhất để mang một theme từ bản trình chiếu này sang bản khác là gì?**
+**Cách an toàn nhất để chuyển một chủ đề từ bản trình chiếu này sang bản khác là gì?**
 
-Khi di chuyển một slide và muốn giữ nguyên giao diện nguồn, sao chép master nguồn vào bản đích và sao chép slide cùng master đó bằng [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imasterslidecollection/) và [ISlideCollection.addClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islidecollection/). Điều này giữ lại master, các layout và theme cùng nhau.
+Khi di chuyển một slide và bảo tồn giao diện nguồn, sao chép master nguồn vào bản đích và sao chép slide với master đó bằng [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/imasterslidecollection/) và [ISlideCollection.addClone](https://reference.aspose.com/slides/vi/java/com.aspose.slides/islidecollection/). Điều này giữ nguyên master, các layout và chủ đề cùng nhau.
 
-**Làm sao tôi có thể xem các giá trị hiệu lực sau khi kế thừa và ghi đè?**
+**Làm sao tôi có thể xem các giá trị thực tế sau khi kế thừa và ghi đè?**
 
-Sử dụng [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/vi/java/com.aspose.slides/baseoverridethememanager/) cho theme của slide hoặc layout và các phương thức dữ liệu hiệu lực tương ứng cho các đối tượng định dạng như [Background.getEffective](https://reference.aspose.com/slides/vi/java/com.aspose.slides/background/) và [FillFormat.getEffective](https://reference.aspose.com/slides/vi/java/com.aspose.slides/fillformat/). Các API này trả về các giá trị đã được giải quyết sau khi áp dụng kế thừa và ghi đè.
+Sử dụng [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/vi/java/com.aspose.slides/baseoverridethememanager/) cho một slide hoặc layout và các phương thức dữ liệu thực tế tương ứng cho các đối tượng định dạng như [Background.getEffective](https://reference.aspose.com/slides/vi/java/com.aspose.slides/background/) và [FillFormat.getEffective](https://reference.aspose.com/slides/vi/java/com.aspose.slides/fillformat/). Các API này trả về các giá trị đã được giải quyết sau khi áp dụng kế thừa và ghi đè.

@@ -1,46 +1,46 @@
 ---
-title: "एंड्रॉइड पर प्रेज़ेंटेशन थीम्स को प्रबंधित करें"
-linktitle: "प्रेज़ेंटेशन थीम"
+title: Android पर प्रस्तुति थीम प्रबंधित करें
+linktitle: प्रेजेंटेशन थीम
 type: docs
 weight: 10
 url: /hi/androidjava/presentation-theme/
 keywords:
-- "PowerPoint थीम"
-- "प्रस्तुति थीम"
-- "स्लाइड थीम"
-- "थीम सेट करें"
-- "थीम बदलें"
-- "थीम प्रबंधित करें"
-- "बाहरी थीम"
-- "THMX"
-- "थीम रंग"
-- "अतिरिक्त पैलेट"
-- "थीम फ़ॉन्ट"
-- "थीम शैली"
-- "थीम प्रभाव"
-- "PowerPoint"
-- "OpenDocument"
-- "प्रस्तुति"
-- "एंड्रॉइड"
-- "Java"
-- "Aspose.Slides"
-description: "एंड्रॉइड के लिए Aspose.Slides में जावा के माध्यम से मास्टर प्रेज़ेंटेशन थीम्स को बनाना, कस्टमाइज़ करना और PowerPoint फाइलों को सुसंगत ब्रांडिंग के साथ परिवर्तित करना।"
+- PowerPoint थीम
+- प्रेजेंटेशन थीम
+- स्लाइड थीम
+- थीम सेट करें
+- थीम बदलें
+- थीम प्रबंधित करें
+- बाहरी थीम
+- THMX
+- थीम रंग
+- अतिरिक्त पैलेट
+- थीम फ़ॉन्ट
+- थीम शैली
+- थीम प्रभाव
+- PowerPoint
+- OpenDocument
+- प्रेजेंटेशन
+- Android
+- Java
+- Aspose.Slides
+description: "Aspose.Slides for Android में Java के माध्यम से प्रमुख प्रेजेंटेशन थीम को नियंत्रित करके PowerPoint फ़ाइलों को सुसंगत ब्रांडिंग के साथ बनाना, अनुकूलित करना और परिवर्तित करना।"
 ---
 ## **परिचय**
 
-एक प्रस्तुति थीम रंगों, फ़ॉन्ट्स, बैकग्राउंड शैलियों, फ़िल्स, लाइनों और इफ़ेक्ट्स का समन्वित सेट निर्धारित करती है। थीम‑सचेत ऑब्जेक्ट्स इन साझा परिभाषाओं को संदर्भित करते हैं न कि प्रत्येक दृश्य गुण को स्थिर मान के रूप में संग्रहीत करते हैं, इसलिए थीम बदलने से कई ऑब्जेक्ट्स एक साथ अपडेट हो सकते हैं।
+एक प्रस्तुति थीम रंगों, फ़ॉन्टों, पृष्ठभूमि शैलियों, भरावों, रेखाओं और प्रभावों का समन्वित सेट परिभाषित करती है। थीम‑सचेत ऑब्जेक्ट इन साझी परिभाषाओं को संदर्भित करते हैं न कि प्रत्येक दृश्य गुण को स्थायी मान के रूप में संग्रहीत करते हैं, इसलिए थीम बदलने पर कई ऑब्जेक्ट एक साथ अपडेट हो सकते हैं।
 
-Aspose.Slides में, प्रस्तुति‑स्तर की थीम उपलब्ध है [Presentation.getMasterTheme](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) के माध्यम से। एक प्रस्तुति में निचले स्तरों पर भी थीम ओवरराइड हो सकते हैं। एक मास्टर [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/masterthememanager/) के माध्यम से प्रस्तुति थीम को ओवरराइड कर सकता है, जबकि एक लेआउट या व्यक्तिगत स्लाइड [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/baseoverridethememanager/) के माध्यम से अपनी विरासत में मिली थीम को ओवरराइड कर सकती है। व्यावहारिक रूप से, एक स्लाइड के लिए प्रभावी थीम इस विरासत श्रृंखला के माध्यम से निर्धारित होती है: प्रस्तुति थीम, मास्टर ओवरराइड, लेआउट ओवरराइड, और स्लाइड ओवरराइड।
+Aspose.Slides में प्रस्तुति‑स्तर की थीम को [Presentation.getMasterTheme](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) के माध्यम से प्राप्त किया जा सकता है। एक प्रस्तुति में निम्न स्तरों पर भी थीम ओवरराइड हो सकते हैं। एक मास्टर अपने प्रस्तुति थीम को [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/masterthememanager/) के माध्यम से ओवरराइड कर सकता है, जबकि लेआउट या व्यक्तिगत स्लाइड अपनी विरासत में मिली थीम को [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/baseoverridethememanager/) से ओवरराइड कर सकते हैं। व्यावहारिक रूप से, किसी स्लाइड के लिए प्रभावी थीम इस विरासत श्रृंखला से तय होती है: प्रस्तुति थीम, मास्टर ओवरराइड, लेआउट ओवरराइड, और स्लाइड ओवरराइड।
 
-![थीम घटक: रंग, फ़ॉन्ट, बैकग्राउंड शैलियाँ और इफ़ेक्ट्स](theme-constituents.png)
+![थीम घटक: रंग, फ़ॉन्ट, पृष्ठभूमि शैलियाँ और प्रभाव](theme-constituents.png)
 
-नीचे के अनुभाग सबसे सामान्य थीम कार्यप्रवाह दिखाते हैं: थीम का निरीक्षण, रंग और फ़ॉन्ट बदलना, थीम को कॉपी या लागू करना, बैकग्राउंड और इफ़ेक्ट शैलियों को अपडेट करना, और विरासत और ओवरराइड के बाद प्रभावी मानों को पढ़ना।
+नीचे के अनुभाग में सबसे आम थीम कार्य‑प्रवाह दिखाए गए हैं: थीम का निरीक्षण, रंग और फ़ॉन्ट बदलना, थीम को कॉपी या लागू करना, पृष्ठभूमि और प्रभाव शैलियों को अपडेट करना, और विरासत व ओवरराइड के बाद प्रभावी मान पढ़ना।
 
-## **थीम का निरीक्षण करें**
+## **एक थीम देखें**
 
-[MasterTheme](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/mastertheme/) ऑब्जेक्ट थीम की रंग योजना, फ़ॉन्ट योजना, और फ़ॉर्मेट योजना को [MasterTheme.getColorScheme](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/mastertheme/), और [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/mastertheme/) के माध्यम से उजागर करता है। इन संग्रहों को बदलने से पहले निरीक्षण करना विशेष रूप से उपयोगी होता है जब प्रस्तुति बाहरी स्रोत से आयी हो, क्योंकि शैली प्रविष्टियों की संख्या और सामग्री भिन्न हो सकती है।
+[MasterTheme](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/mastertheme/) ऑब्जेक्ट अपनी रंग योजना, फ़ॉन्ट योजना और फॉर्मेट योजना को क्रमशः [MasterTheme.getColorScheme](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/mastertheme/) तथा [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/mastertheme/) के माध्यम से उजागर करता है। इन्हें बदलने से पहले इन संग्रहों की जाँच करना विशेष रूप से उपयोगी होता है जब प्रस्तुति बाहरी स्रोत से आती है क्योंकि शैली प्रविष्टियों की संख्या और सामग्री में विविधता हो सकती है।
 
-निम्न उदाहरण मुख्य थीम गुण पढ़ता है और बताता है कि थीम में कितनी बैकग्राउंड, फ़िल, लाइन और इफ़ेक्ट शैलियां संग्रहीत हैं:
+निम्न उदाहरण मुख्य थीम गुण पढ़ता है और रिपोर्ट करता है कि थीम में कितने पृष्ठभूमि, भराव, रेखा और प्रभाव शैलियाँ संग्रहीत हैं:
 
 ```java
 import com.aspose.slides.*;
@@ -63,13 +63,13 @@ try {
 }
 ```
 
-यदि किसी फ़ाइल में कई मास्टर उपयोग किए गए हैं, तो यह मानें नहीं कि प्रत्येक स्लाइड की प्रभावी थीम समान है। स्लाइड से संबंधित मास्टर का निरीक्षण करें, और लेआउट या स्लाइड ओवरराइड मौजूद होने पर इस लेख में बाद में दिखाए गए प्रभावी‑थीम कार्यप्रवाह का उपयोग करें।
+यदि फ़ाइल में कई मास्टर उपयोग होते हैं, तो यह न मानें कि प्रत्येक स्लाइड की प्रभावी थीम समान है। स्लाइड से संबंधित मास्टर को देखें, और लेआउट या स्लाइड ओवरराइड मौजूद होने पर बाद में दिखाए गए प्रभावी‑थीम कार्य‑प्रवाह को अपनाएँ।
 
-## **थीम के रंग बदलें**
+## **थीम रंग बदलें**
 
-थीम‑सचेत फ़िल, लाइन और टेक्स्ट [SchemeColor](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/schemecolor/) enumeration से एक तर्कसंगत रंग को संदर्भित कर सकता है। जब आप [IColorScheme](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/icolorscheme/) में संबंधित प्रविष्टि बदलते हैं, तो सभी ऑब्जेक्ट्स जो अभी भी उस थीम रंग को संदर्भित करते हैं, नए मान के विरुद्ध हल हो जाएंगे। सीधे RGB रंग का उपयोग करने वाले ऑब्जेक्ट्स थीम‑रंग अपडेट से नहीं बदलते।
+थीम‑सचेत भराव, रेखाएँ और पाठ [SchemeColor](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/schemecolor/) enumeration में मौजूद एक तर्कसंगत रंग को संदर्भित कर सकते हैं। जब आप [IColorScheme](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/icolorscheme/) में संबंधित प्रविष्टि बदलते हैं, तो सभी ऑब्जेक्ट जो अभी भी उस थीम रंग को संदर्भित कर रहे हैं, नया मान प्राप्त करेंगे। सीधे RGB रंग उपयोग करने वाले ऑब्जेक्ट थीम‑रंग अपडेट से नहीं बदलेंगे।
 
-निम्न अंत‑से‑अंत उदाहरण एक आकार बनाता है जो `Accent4` का उपयोग करता है, थीम के `Accent4` रंग को लाल में बदलता है, प्रस्तुति को सहेजता है, पुनः खोलता है, और प्रभावी फ़िल रंग प्रिंट करता है:
+निम्न संपूर्ण उदाहरण एक आकृति बनाता है जो `Accent4` का उपयोग करती है, थीम के `Accent4` रंग को लाल में बदलता है, प्रस्तुति को सहेजता है, पुनः खोलता है, और प्रभावी भराव रंग को प्रिंट करता है:
 
 ```java
 import com.aspose.slides.*;
@@ -99,19 +99,19 @@ try {
 }
 ```
 
-चूँकि आयत `Accent4` से जुड़ी रहती है, थीम बदलने के बाद उसका दिखने वाला रंग लाल हो जाता है। यदि आप रूपरेखा में स्कीम रंग को सीधे रंग से बदल देते हैं, तो बाद में `Accent4` में बदलाव उस फ़िल को और नहीं प्रभावित करेंगे।
+क्योंकि आयत `Accent4` से जुड़ी रहती है, थीम बदलने के बाद उसका दृश्य रंग लाल हो जाता है। यदि आप स्कीम रंग को आकृति पर सीधे रंग से बदलते हैं, तो बाद में `Accent4` में किए गए परिवर्तन उस भराव को प्रभावित नहीं करेंगे।
 
-### **अतिरिक्त पैलेट से रंगों का उपयोग करें**
+### **अतिरिक्त पैलेट से रंग उपयोग करना**
 
-PowerPoint थीम रंग से हल्के और गहरे वैरिएंट्स उत्पन्न करता है रंग रूपांतरणों को लागू करके। Aspose.Slides इन रूपांतरणों को [ColorTransformOperation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/colortransformoperation/) enumeration के माध्यम से उजागर करता है।
+PowerPoint थीम रंग से हल्के और गहरे वैरिएंट उत्पन्न करने के लिए रंग रूपांतरण लागू करती है। Aspose.Slides इन रूपांतरणों को [ColorTransformOperation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/colortransformoperation/) enumeration के माध्यम से उजागर करता है।
 
-![मुख्य थीम रंग और अतिरिक्त पैलेट से उत्पन्न हल्के तथा गहरे रंग](additional-palette-colors.png)
+![मुख्य थीम रंग तथा अतिरिक्त पैलेट से उत्पन्न हल्के व गहरे रंग](additional-palette-colors.png)
 
-**1** - मुख्य थीम रंग।
+**1** – मुख्य थीम रंग।
 
-**2** - मुख्य थीम रंगों से उत्पन्न हल्के और गहरे वैरिएंट्स।
+**2** – मुख्य थीम रंग से उत्पन्न हल्के और गहरे वैरिएंट।
 
-निम्न उदाहरण `Accent4` पर आधारित छह आयत बनाता है, उनमें से पाँच पर ल्यूमिनेंस रूपांतरण लागू करता है, और परिणाम को सहेजता है:
+निम्न उदाहरण `Accent4` पर आधारित छह आयतें बनाता है, उनमें से पाँच पर चमक रूपांतरण लागू करता है, और परिणाम सहेजता है:
 
 ```java
 import com.aspose.slides.*;
@@ -158,31 +158,31 @@ try {
 }
 ```
 
-ये वैरिएंट्स थीम रंग पर आधारित रहते हैं। यदि बाद में `Accent4` बदलता है, तो रूपांतरित रंग नए `Accent4` मान से पुनः गणना किए जाएंगे।
+ये वैरिएंट थीम रंग पर आधारित रहते हैं। यदि बाद में `Accent4` बदला जाता है, तो रूपांतरणित रंग नया `Accent4` मान से पुनः गणना होते हैं।
 
-### **`SchemeColor` मानों को `IColorScheme` स्लॉट्स में मानचित्रित करें**
+### **`SchemeColor` मानों को `IColorScheme` स्लॉट्स से मैप करना**
 
-[SchemeColor](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/schemecolor/) enumeration `Text1`, `Background1`, `Text2`, और `Background2` का उपयोग करती है, जबकि [IColorScheme](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/icolorscheme/) वही थीम स्लॉट्स `Dark1`, `Light1`, `Dark2`, और `Light2` के रूप में उजागर करता है। मानचित्रण स्थिर है:
+[SchemeColor](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/schemecolor/) enumeration `Text1`, `Background1`, `Text2` और `Background2` का उपयोग करता है, जबकि [IColorScheme](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/icolorscheme/) समान थीम स्लॉट को `Dark1`, `Light1`, `Dark2` और `Light2` के रूप में उजागर करता है। मैपिंग स्थिर है:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-ये समान थीम स्लॉट्स के वैकल्पिक नाम हैं; ये ऐसे मान नहीं हैं जो गतिशील रूप से एक रूप से दूसरे में बदलते हैं।
+ये वही थीम स्लॉट के वैकल्पिक नाम हैं; इन्हें किसी रूप में गतिशील रूप से परिवर्तित नहीं किया जाता।
 
 ## **थीम फ़ॉन्ट बदलें**
 
-एक थीम फ़ॉन्ट योजना में हेडिंग के लिए प्रमुख फ़ॉन्ट सेट और बॉडी टेक्स्ट के लिए लघु फ़ॉन्ट सेट होता है। `[IFontScheme.getMajor](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ifontscheme/)` और `[IFontScheme.getMinor](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ifontscheme/)` मेथड इन सेटों को उजागर करते हैं।
+एक थीम फ़ॉन्ट योजना में शीर्षक (major) फ़ॉन्ट सेट और शरीर (minor) फ़ॉन्ट सेट होता है। [IFontScheme.getMajor](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ifontscheme/) और [IFontScheme.getMinor](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ifontscheme/) विधियां इन सेटों को उजागर करती हैं।
 
-PowerPoint‑संगत थीम फ़ॉन्ट पहचानकर्ता टेक्स्ट फ़ॉर्मेटिंग में उपयोग किए जा सकते हैं:
+PowerPoint‑अनुकूल थीम फ़ॉन्ट पहचानकर्ताओं का उपयोग पाठ स्वरूपण में किया जा सकता है:
 
-* `+mn-lt` - बॉडी फ़ॉन्ट लैटिन (Minor Latin Font)
-* `+mj-lt` - हेडिंग फ़ॉन्ट लैटिन (Major Latin Font)
-* `+mn-ea` - बॉडी फ़ॉन्ट ईस्ट एशियन (Minor East Asian Font)
-* `+mj-ea` - हेडिंग फ़ॉन्ट ईस्ट एशियन (Major East Asian Font)
+* `+mn-lt` – बॉडी फ़ॉन्ट लैटिन (Minor Latin Font)
+* `+mj-lt` – हेडिंग फ़ॉन्ट लैटिन (Major Latin Font)
+* `+mn-ea` – बॉडी फ़ॉन्ट ईस्ट एशियन (Minor East Asian Font)
+* `+mj-ea` – हेडिंग फ़ॉन्ट ईस्ट एशियन (Major East Asian Font)
 
-निम्न उदाहरण एक हेडिंग बनाता है जो प्रमुख लैटिन थीम फ़ॉन्ट का उपयोग करता है और एक बॉडी लाइन जो लघु लैटिन थीम फ़ॉन्ट का उपयोग करती है। फिर यह थीम फ़ॉन्ट को बदलता है और परिणाम सहेजता है:
+निम्न उदाहरण एक शीर्षक बनाता है जो प्रमुख लैटिन थीम फ़ॉन्ट का उपयोग करता है और एक बॉडी पंक्ति जो किरासमान लैटिन थीम फ़ॉन्ट का उपयोग करती है। फिर थीम फ़ॉन्ट बदलता है और परिणाम सहेजता है:
 
 ```java
 import com.aspose.slides.*;
@@ -207,30 +207,32 @@ try {
 }
 ```
 
-हेडिंग प्रमुख फ़ॉन्ट का अनुसरण करती है और बॉडी टेक्स्ट लघु फ़ॉन्ट का। स्पष्ट फ़ॉन्ट नाम वाले टेक्स्ट, जो थीम पहचानकर्ता नहीं है, थीम फ़ॉन्ट योजना बदलने पर स्वतः नहीं बदलेंगे।
+शीर्षक प्रमुख फ़ॉन्ट का अनुसरण करता है और बॉडी टेक्स्ट किरासमान फ़ॉन्ट का। जिन पाठों में स्पष्ट फ़ॉन्ट नाम है, वह थीम पहचानकर्ता बदलने पर स्वचालित रूप से नहीं बदलता।
 
-मुख्य और लघु फ़ॉन्ट संग्रह में व्यक्तिगत लेखन प्रणालियों, जैसे Cyrillic, Arabic, Japanese, Georgian, और Thaana के लिए फ़ॉन्ट मैपिंग भी हो सकती है। इन्हें निरीक्षण, जोड़ने, बदलने या हटाने के लिए देखें [Script‑Specific Theme Fonts](/slides/hi/androidjava/script-specific-font-mappings/)।
+प्रमुख और किरासमान फ़ॉन्ट संग्रह में व्यक्तिगत लेखन प्रणालियों के लिये फ़ॉन्ट मैपिंग भी हो सकती है, जैसे कि सिरिलिक, अरबी, जापानी, जॉर्जियन और थाना। इन्हें देखना, जोड़ना, बदलना या हटाना हेतु देखें [Script‑Specific Theme Fonts](/slides/hi/androidjava/script-specific-font-mappings/)।
 
 {{% alert color="info" title="Tip" %}}
-प्रस्तुति फ़ॉन्ट के बारे में अधिक जानकारी के लिए देखें [PowerPoint Fonts](/slides/hi/androidjava/powerpoint-fonts/)।
+
+प्रेजेंटेशन फ़ॉन्ट के बारे में अधिक जानकारी के लिये देखें [PowerPoint Fonts](/slides/hi/androidjava/powerpoint-fonts/)।
+
 {{% /alert %}}
 
-## **थीम कॉपी या लागू करें**
+## **एक थीम कॉपी या लागू करें**
 
-नीचे के कार्यप्रवाह विभिन्न थीम‑संबंधी समस्याओं को हल करते हैं।
+नीचे दिए गए कार्य‑प्रवाह विभिन्न थीम‑संबंधी समस्याओं को हल करते हैं।
 
-### **बाहरी थीम को मास्टर की निर्भर स्लाइड्स पर लागू करें**
+### **एक मास्टर‑निर्भर स्लाइड्स पर बाहरी थीम लागू करें**
 
-जब आपके पास PowerPoint थीम फ़ाइल (`.thmx`) हो और आप किसी विशिष्ट मास्टर पर निर्भर सभी स्लाइड्स को पुनः शैलीबद्ध करना चाहते हों, तो उपयोग करें [IMasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imasterslide/)। चयनित मास्टर को [Presentation.getMasters](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) संग्रह से चुनें, जो [IMasterSlideCollection](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imasterslidecollection/) लागू करता है, और मेथड को थीम फ़ाइल पाथ पास करें।
+जब आपके पास PowerPoint थीम फ़ाइल (`.thmx`) हो और आप किसी विशेष मास्टर पर निर्भर सभी स्लाइड्स को पुनःशैली देना चाहते हों, तो [IMasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imasterslide/) का उपयोग करें। पहले [Presentation.getMasters](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) संग्रह से इच्छित मास्टर चुनें, जो [IMasterSlideCollection](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imasterslidecollection/) को लागू करता है, और विधि को थीम फ़ाइल पथ पास करें।
 
-मेथड निम्नलिखित कार्य करता है:
+विधि निम्न कार्य करती है:
 
-1. चयनित मास्टर के आधार पर एक नया मास्टर स्लाइड बनाता है।
-1. बाहरी थीम को नए मास्टर पर लागू करता है।
-1. पहले चयनित मास्टर पर निर्भर सभी स्लाइड्स को नए मास्टर को असाइन करता है।
-1. नए बनाए गए [IMasterSlide](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imasterslide/) को लौटाता है।
+1. चयनित मास्टर के आधार पर एक नया मास्टर स्लाइड बनाती है।
+2. बाहरी थीम को नए मास्टर पर लागू करती है।
+3. पहले चयनित मास्टर पर निर्भर सभी स्लाइड्स को नए मास्टर से जोड़ती है।
+4. नए बनाए गये [IMasterSlide](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imasterslide/) को लौटाती है।
 
-निम्न उदाहरण पहले मास्टर पर निर्भर स्लाइड्स पर बाहरी थीम लागू करता है और प्रस्तुति को सहेजता है:
+निम्न उदाहरण पहला मास्टर पर निर्भर स्लाइड्स पर बाहरी थीम लागू करता है और प्रस्तुति सहेजता है:
 
 ```java
 import com.aspose.slides.*;
@@ -247,19 +249,19 @@ try {
 }
 ```
 
-एक अमान्य, भ्रष्ट, या असमर्थित थीम से [PptxReadException](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/pptxreadexception/) उत्पन्न हो सकता है। उपयोगकर्ता द्वारा प्रदान किए गए पाथ को मान्य करें, फ़ाइल‑सिस्टम पहुँच विफलताओं को संभालें, और थीम सफलतापूर्वक लागू होने के बाद ही प्रस्तुति सहेजें।
+एक अमान्य, भ्रष्ट या असमर्थित थीम से [PptxReadException](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/pptxreadexception/) उत्पन्न हो सकता है। उपयोगकर्ता द्वारा प्रदान किए गए पथ को सत्यापित करें, फ़ाइल‑सिस्टम एक्सेस त्रुटियों को संभालें, और केवल तभी प्रस्तुति सहेजें जब थीम सफलतापूर्वक लागू हो गई हो।
 
-केवल उन स्लाइड्स को पुनः असाइन किया जाता है जो चयनित मास्टर पर निर्भर थीं। अन्य मास्टर से जुड़ी स्लाइड्स अपने मौजूदा मास्टर और थीम को बनाए रखती हैं। थीम‑सचेत रंग, फ़ॉन्ट, फ़िल, लाइन, बैकग्राउंड और इफ़ेक्ट्स बाहरी थीम के विरुद्ध हल हो जाते हैं। सीधे असाइन किए गए रंग, फ़ॉन्ट, फ़िल और अन्य स्पष्ट फ़ॉर्मेटिंग अपरिवर्तित रह सकते हैं। लेआउट‑स्तर और स्लाइड‑स्तर ओवरराइड भी नए मास्टर से विरासत में मिले मूल्यों पर प्राधान्य ले सकते हैं।
+केवल उन स्लाइड्स को पुनः‑सौंपा जाता है जो चयनित मास्टर पर निर्भर थीं। अन्य मास्टर‑संबंधित स्लाइड्स अपने मौजूदा मास्टर और थीम को बनाए रखती हैं। थीम‑सचेत रंग, फ़ॉन्ट, भराव, रेखाएँ, पृष्ठभूमि और प्रभाव बाहरी थीम के विरुद्ध हल किए जाते हैं। सीधे असाइन किए गए रंग, फ़ॉन्ट, भराव आदि अपरिवर्तित रह सकते हैं। लेआउट‑स्तर और स्लाइड‑स्तर के ओवरराइड नए मास्टर से विरासत में मिलें मानों पर प्राथमिकता ले सकते हैं।
 
-थीम ऐसे फ़ॉन्ट का संदर्भ दे सकती है जो रन‑टाइम पर्यावरण में उपलब्ध न हों। निरंतर रेंडरिंग और एक्सपोर्ट के लिए आवश्यक फ़ॉन्ट इंस्टॉल करें, उन्हें [कस्टम फ़ॉन्ट स्रोत](/slides/hi/androidjava/custom-font/) के माध्यम से प्रदान करें, या [फ़ॉन्ट प्रतिस्थापन](/slides/hi/androidjava/font-substitution/) कॉन्फ़िगर करें।
+थीम ऐसे फ़ॉन्ट भी संदर्भित कर सकती है जो रन‑टाइम परिवेश में उपलब्ध नहीं हैं। निरंतर रेंडरिंग और निर्यात के लिये आवश्यक फ़ॉन्ट स्थापित करें, उन्हें [कस्टम फ़ॉन्ट स्रोत](/slides/hi/androidjava/custom-font/) के माध्यम से उपलब्ध कराएँ, या [फ़ॉन्ट प्रतिस्थापन](/slides/hi/androidjava/font-substitution/) कॉन्फ़िगर करें।
 
-यह एक प्रत्यक्ष मास्टर‑स्तर कार्यप्रवाह है: मेथड एक `.thmx` फ़ाइल पाथ स्वीकार करता है और स्लाइड‑स्तर या लेआउट‑स्तर थीम ओवरराइड को मैन्युअल रूप से बनाने की आवश्यकता नहीं होती।
+यह एक प्रत्यक्ष मास्टर‑स्तर कार्य‑प्रवाह है: विधि `.thmx` फ़ाइल पथ को स्वीकार करती है और स्लाइड‑स्तर या लेआउट‑स्तर के थीम ओवरराइड को मैन्युअली बनाने की आवश्यकता नहीं होती।
 
 ### **बहु‑मास्टर प्रस्तुति में विभिन्न बाहरी थीम लागू करें**
 
-जब प्रासंगिक मास्टर पहले से ज्ञात न हो, तो इसे प्रतिनिधि स्लाइड से प्राप्त करें [ISlide.getLayoutSlide](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/islide/) और [ILayoutSlide.getMasterSlide](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ilayoutslide/) के माध्यम से। थीम लागू करने से पहले मूल मास्टर संदर्भों को संग्रहीत करें क्योंकि प्रत्येक कॉल प्रस्तुति में एक नया मास्टर बनाता है।
+जब प्रासंगिक मास्टर पहले से ज्ञात न हो, तो उसे प्रतिनिधि स्लाइड से [ISlide.getLayoutSlide](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/islide/) और [ILayoutSlide.getMasterSlide](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ilayoutslide/) के माध्यम से प्राप्त करें। थीम लागू करने से पहले मूल मास्टर संदर्भों को संग्रहीत करें क्योंकि प्रत्येक कॉल प्रस्तुति में एक नया मास्टर बनाती है।
 
-निम्न उदाहरण दो अनुभागों की स्लाइड्स का उपयोग करके उनके मास्टर ढूंढता है और प्रत्येक समूह पर अलग‑अलग बाहरी थीम लागू करता है:
+निम्न उदाहरण दो अनुभागों की स्लाइड्स के मास्टर लोकेट करता है और प्रत्येक समूह पर अलग‑अलग बाहरी थीम लागू करता है:
 
 ```java
 import com.aspose.slides.*;
@@ -288,11 +290,11 @@ try {
 }
 ```
 
-पहला कॉल केवल `firstGroupMaster` पर निर्भर स्लाइड्स को प्रभावित करता है, और दूसरा कॉल केवल `secondGroupMaster` पर निर्भर स्लाइड्स को प्रभावित करता है। अन्य मास्टर से जुड़ी स्लाइड्स पुनः शैलीबद्ध नहीं होतीं।
+पहली कॉल केवल उन स्लाइड्स को प्रभावित करती है जो `firstGroupMaster` पर निर्भर थीं, और दूसरी कॉल केवल उन स्लाइड्स को जो `secondGroupMaster` पर निर्भर थीं। अन्य किसी भी मास्टर की स्लाइड्स को पुनः‑शैली नहीं दी जाती।
 
-### **स्लाइड्स को स्थानांतरित करते समय स्रोत थीम को संरक्षित रखें**
+### **स्लाइड्स स्थानांतरित करते समय स्रोत थीम को संरक्षित रखें**
 
-यदि आप किसी स्लाइड को अन्य प्रस्तुति में स्थानांतरित करना चाहते हैं और उसकी मूल डिज़ाइन को बनाए रखना चाहते हैं, तो स्रोत मास्टर को लक्ष्य प्रस्तुति में [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imasterslidecollection/) के द्वारा क्लोन करें, फिर स्लाइड को क्लोन करें [ISlideCollection.addClone](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/islidecollection/) और क्लोन किए गए मास्टर के साथ। यह मास्टर, उसके लेआउट और संबंधित थीम को साथ ले जाता है।
+यदि आप किसी स्लाइड को अन्य प्रस्तुति में ले जाना चाहते हैं और उसकी मूल डिज़ाइन बरकरार रखना चाहते हैं, तो [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imasterslidecollection/) से स्रोत मास्टर को लक्ष्य प्रस्तुति में क्लोन करें, फिर [ISlideCollection.addClone](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/islidecollection/) और क्लोन किए गये मास्टर से स्लाइड को क्लोन करें। इस प्रकार मास्टर, उसके लेआउट और संबद्ध थीम एक साथ ले जाया जाता है।
 
 ```java
 import com.aspose.slides.*;
@@ -314,11 +316,11 @@ try {
 }
 ```
 
-यह वह वर्कफ़्लो है जब स्रोत स्लाइड को लक्ष्य में समान रूप से दिखना आवश्यक हो। केवल सामग्री को असंबद्ध लक्ष्य मास्टर पर क्लोन करने से थीम‑चालित रंग, फ़ॉन्ट, बैकग्राउंड और इफ़ेक्ट बदल सकते हैं।
+जब स्रोत स्लाइड को गंतव्य में वैसा ही दिखाना हो, यह सबसे अनुकूल कार्य‑प्रवाह है। केवल असंबंधित गंतव्य मास्टर पर कंटेंट क्लोन करने से थीम‑आधारित रंग, फ़ॉन्ट, पृष्ठभूमि और प्रभाव बदल सकते हैं।
 
 ### **मौजूदा स्लाइड पर थीम मान लागू करें**
 
-यदि लक्ष्य स्लाइड को अपने मौजूदा मास्टर और लेआउट पर बनाए रखना है, तो स्रोत थीम से स्लाइड‑स्तर ओवरराइड प्रारंभ करें। [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/overridetheme/), और [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/overridetheme/) मेथड तीन मुख्य थीम घटकों को ओवरराइड में कॉपी करते हैं।
+यदि लक्ष्य स्लाइड को अपना वर्तमान मास्टर और लेआउट बनाए रखना है, तो स्रोत थीम से स्लाइड‑स्तर ओवरराइड को प्रारंभ करें। [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/overridetheme/) तथा [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/overridetheme/) विधियां तीन प्रमुख थीम घटकों को ओवरराइड में कॉपी करती हैं।
 
 ```java
 import com.aspose.slides.*;
@@ -341,11 +343,11 @@ try {
 }
 ```
 
-यह अन्य स्लाइड्स द्वारा विरासत में मिलने वाली थीम को बदले बिना उस स्लाइड की थीम बदलता है। स्थानीय ओवरराइड हटाने और विरासत मानों पर लौटने के लिए कॉल करें [OverrideTheme.clear](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/overridetheme/)।
+यह अन्य स्लाइड्स द्वारा विरासत में ली गई थीम को बदले बिना उस स्लाइड की थीम बदल देता है। स्थानीय ओवरराइड हटाकर विरासत मानों पर वापस आने के लिये [OverrideTheme.clear](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/overridetheme/) को कॉल करें।
 
 ### **लेआउट पर थीम ओवरराइड लागू करें**
 
-लेआउट‑स्तर ओवरराइड उन स्लाइड्स पर लागू होता है जो उस लेआउट का उपयोग करती हैं, जब तक कि किसी विशेष स्लाइड की अपनी ओवरराइड न हो। वही प्रारंभिक मेथड [LayoutSlideThemeManager](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/layoutslidethememanager/) के माध्यम से उपयोग किए जा सकते हैं:
+लेआउट‑स्तर ओवरराइड उन स्लाइड्स पर लागू होता है जो उस लेआउट का उपयोग करती हैं, जब तक कि विशेष स्लाइड का अपना ओवरराइड न हो। वही प्रारंभिक विधियां [LayoutSlideThemeManager](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/layoutslidethememanager/) के माध्यम से उपयोग की जा सकती हैं:
 
 ```java
 import com.aspose.slides.*;
@@ -369,17 +371,17 @@ try {
 }
 ```
 
-जब कई लेआउट और स्लाइड एक ही बेस डिज़ाइन साझा करते हैं, तो मास्टर या प्रस्तुति‑स्तर थीम का उपयोग करें; जब केवल एक लेआउट समूह को अलग शैली चाहिए, तो लेआउट ओवरराइड उपयोग करें; और वास्तविक अपवादों के लिए केवल स्लाइड ओवरराइड उपयोग करें। अत्यधिक स्लाइड‑स्तर ओवरराइड बाद में ग्लोबल थीम बदलावों को पूर्वानुमानित करना कठिन बना देते हैं।
+जब कई लेआउट और स्लाइड्स को समान बेस डिज़ाइन साझा करना हो तो मास्टर या प्रस्तुति‑स्तर की थीम प्रयोग करें, एक लेआउट परिवार को अलग शैली की आवश्यकता हो तो लेआउट ओवरराइड, और केवल वास्तविक अपवादों के लिये स्लाइड ओवरराइड। अत्यधिक स्लाइड‑स्तर ओवरराइड भविष्य में वैश्विक थीम बदलावों की भविष्यवाणी को कठिन बना देते हैं।
 
-## **थीम बैकग्राउंड शैलियों को अपडेट करें**
+## **थीम पृष्ठभूमि शैलियों को अपडेट करें**
 
-थीम की बैकग्राउंड फ़िल्स को [IFormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iformatscheme/) में संग्रहीत किया जाता है। PowerPoint UI में उपलब्ध बैकग्राउंड विकल्प इस संग्रह में भौतिक रूप से संग्रहीत फ़िल परिभाषाओं से अधिक हो सकते हैं, क्योंकि UI थीम फ़िल को थीम रंग और अन्य शैली संदर्भों के साथ मिलाकर दिखा सकता है।
+थीम की पृष्ठभूमि भराव [IFormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iformatscheme/) में संग्रहीत होते हैं। PowerPoint UI में उपलब्ध पृष्ठभूमि विकल्पों की संख्या इस संग्रह में भौतिक रूप से मौजूद भराव परिभाषाओं से अधिक हो सकती है क्योंकि UI थीम भराव को थीम रंगों और अन्य शैली संदर्भों के साथ संयोजित कर सकती है।
 
-![प्रेज़ेंटेशन थीम के लिए PowerPoint बैकग्राउंड शैली गैलरी](presentation-design_8.png)
+![प्रेजेंटेशन थीम के लिये PowerPoint पृष्ठभूमि शैली गैलरी](presentation-design_8.png)
 
-बैकग्राउंड शैली का उपयोग करने से पहले, संग्रहीत संग्रह और वर्तमान [Background.getStyleIndex](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/background/) को निरीक्षण करें। `0` का शैली सूचकांक मतलब कोई थीम फ़िल नहीं; सकारात्मक मान थीम बैकग्राउंड‑शैली संदर्भ होते हैं। यह Java संग्रह को सीधे इंडेक्स करने से अलग है, जहाँ `get_Item(0)` पहला संग्रहीत आइटम होता है। यह मानें नहीं कि प्रत्येक प्रस्तुति में समान संख्या में बैकग्राउंड फ़िल शैलियां हों।
+पृष्ठभूमि शैली उपयोग करने से पहले संग्रह और वर्तमान [Background.getStyleIndex](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/background/) जाँचें। शैली सूचकांक `0` का अर्थ है कोई थीम भराव नहीं; सकारात्मक मान थीम पृष्ठभूमि‑शैली संदर्भ होते हैं। यह Java संग्रह के सीधे इंडेक्सिंग से अलग है, जहाँ `get_Item(0)` पहला संग्रहीत आइटम दर्शाता है। यह न मानें कि प्रत्येक प्रस्तुति में समान संख्या में पृष्ठभूमि भराव शैलियाँ होंगी।
 
-निम्न उदाहरण उपलब्ध बैकग्राउंड फ़िल गिनती रिपोर्ट करता है, पहले मास्टर को थीम‑बैकग्राउंड संदर्भ असाइन करता है, और प्रस्तुति को सहेजता है:
+निम्न उदाहरण उपलब्ध पृष्ठभूमि भराव गिनती रिपोर्ट करता है, पहले मास्टर को थीम‑पृष्ठभूमि संदर्भ असाइन करता है और प्रस्तुति सहेजता है:
 
 ```java
 import com.aspose.slides.*;
@@ -401,25 +403,29 @@ try {
 }
 ```
 
-दिखायी देने वाला परिणाम मास्टर द्वारा संदर्भित थीम प्रविष्टि और लेआउट या स्लाइड स्तर पर किसी भी बैकग्राउंड ओवरराइड पर निर्भर करता है। यदि कोई स्लाइड अपनी स्वयं की बैकग्राउंड उपयोग करती है, तो केवल मास्टर बैकग्राउंड बदलने से वह स्लाइड नहीं बदलेगी। विरासत लागू होने के बाद अंतिम बैकग्राउंड जानने के लिए उपयोग करें [Background.getEffective](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/background/)।
+दिखाया गया परिणाम मास्टर द्वारा संदर्भित थीम प्रविष्टि और लेआउट या स्लाइड स्तर पर मौजूद किसी भी पृष्ठभूमि ओवरराइड पर निर्भर करता है। यदि स्लाइड की अपनी पृष्ठभूमि है, तो केवल मास्टर पृष्ठभूमि बदलने से वह स्लाइड नहीं बदलेगी। विरासत लागू होने के बाद अंतिम पृष्ठभूमि जानने के लिये [Background.getEffective](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/background/) का उपयोग करें।
 
 {{% alert color="warning" title="Warning" %}}
-शैली सूचकांक को शून्य‑आधारित संग्रह सूचकांक न समझें। किसी एक फ़ाइल से शैली संख्या को हार्ड‑कोड न करें और यह मान कर न चलें कि वह दूसरी फ़ाइल में समान दिखेगी; थीम शैली परिभाषाएँ प्रस्तुति‑विशिष्ट होती हैं।
+
+शैली सूचकांक को शून्य‑आधारित संग्रह सूचकांक न समझें। किसी एक फ़ाइल से शैली संख्या को हार्ड‑कोड करके दूसरे फ़ाइल में मानने से बचें; थीम शैली परिभाषाएँ प्रस्तुति‑विशिष्ट होती हैं।
+
 {{% /alert %}}
 
 {{% alert color="info" title="Tip" %}}
-सीधे बैकग्राउंड फ़ॉर्मैटिंग और बैकग्राउंड विरासत के लिए देखें [Presentation Background](/slides/hi/androidjava/presentation-background/)।
+
+सीधे पृष्ठभूमि स्वरूपण और पृष्ठभूमि विरासत के लिये देखें [Presentation Background](/slides/hi/androidjava/presentation-background/)।
+
 {{% /alert %}}
 
-## **थीम इफ़ेक्ट्स को अपडेट करें**
+## **थीम प्रभावों को अपडेट करें**
 
-थीम फ़ॉर्मेट योजना में अलग‑अलग फ़िल, लाइन और इफ़ेक्ट शैली संग्रह होते हैं, जिन्हें [IFormatScheme.getFillStyles](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iformatscheme/), [IFormatScheme.getLineStyles](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iformatscheme/), और [IFormatScheme.getEffectStyles](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iformatscheme/) द्वारा उजागर किया जाता है। सामान्य Office थीम में अक्सर तीन प्रमुख शैली प्रविष्टियां होती हैं जो दृश्य रूप से सूक्ष्म, मध्यम और तीव्र फ़ॉर्मेटिंग से मेल खाती हैं, लेकिन कोड को प्रत्येक संग्रह की जांच करनी चाहिए न कि स्थिर संख्या मान लेनी चाहिए।
+एक थीम फॉर्मेट योजना में अलग‑अलग भराव, रेखा और प्रभाव शैली संग्रह होते हैं, जिन्हें क्रमशः [IFormatScheme.getFillStyles](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iformatscheme/), [IFormatScheme.getLineStyles](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iformatscheme/), और [IFormatScheme.getEffectStyles](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iformatscheme/) द्वारा उजागर किया जाता है। सामान्य Office थीम में अक्सर तीन प्रमुख शैली प्रविष्टियाँ होती हैं जो दृश्य रूप से सूक्ष्म, मध्यम और तीव्र स्वरूपण से मेल खाती हैं, पर कोड को प्रत्येक संग्रह की जाँच करनी चाहिए न कि निश्चित संख्या माननी चाहिए।
 
-![समान आकार पर सूक्ष्म, मध्यम और तीव्र थीम इफ़ेक्ट्स लागू किए गए](presentation-design_10.png)
+![एक ही आकृति पर लागू सूक्ष्म, मध्यम और तीव्र थीम प्रभाव](presentation-design_10.png)
 
-जब आप इन संग्रहों को Java में एक्सेस करते हैं, तो संग्रह सूचकांक शून्य‑आधारित होता है: `get_Item(0)` पहला संग्रहीत शैली है और `get_Item(2)` तीसरा। आकार की शैली‑संदर्भ सूचकांक एक अलग अवधारणा है, जिसे [IShapeStyle](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ishapestyle/) द्वारा उजागर किया जाता है। थीम शैली में संशोधन उन आकारों को प्रभावित करता है जो उस थीम शैली को संदर्भित करते हैं; सीधे फ़ॉर्मैटिंग वाले आकार अपरिवर्तित रह सकते हैं।
+Java में इन संग्रहों को एक्सेस करते समय संग्रह सूचकांक शून्य‑आधारित होता है: `get_Item(0)` पहला संग्रहीत शैली और `get_Item(2)` तीसरा। आकृति के शैली‑संदर्भ सूचकांक एक अलग अवधारणा है, जिसे [IShapeStyle](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ishapestyle/) द्वारा उजागर किया जाता है। थीम शैली में परिवर्तन उन आकृतियों को प्रभावित करता है जो उस थीम शैली को संदर्भित करती हैं; सीधे स्वरूपित आकृतियों पर कोई असर नहीं होता।
 
-निम्न उदाहरण जांचता है कि आवश्यक शैली प्रविष्टियां मौजूद हैं, पहली लाइन शैली बदलता है, तीसरी फ़िल शैली बदलता है, तीसरी इफ़ेक्ट शैली में बाहरी शैडो सक्षम करता है, और परिणाम सहेजता है:
+निम्न उदाहरण जाँचता है कि आवश्यक शैली प्रविष्टियाँ मौजूद हैं, पहले रेखा शैली, तीसरे भराव शैली को बदलता है, तीसरी प्रभाव शैली में बाहरी छाया सक्षम करता है और परिणाम सहेजता है:
 
 ```java
 import com.aspose.slides.*;
@@ -444,15 +450,89 @@ try {
 }
 ```
 
-इन स्लॉट्स को संदर्भित करने वाले आकारों के लिए, पहली थीम लाइन शैली लाल हो जाती है, तीसरी थीम फ़िल शैली ठोस फ़ॉरेस्ट ग्रीन हो जाती है, और तीसरी इफ़ेक्ट शैली को बाहर की छाया 10 पॉइंट की दूरी के साथ मिलती है। सटीक दृश्य परिणाम अभी भी इस बात पर निर्भर करता है कि प्रत्येक आकार कौन से शैली स्लॉट को संदर्भित करता है और क्या प्रत्यक्ष फ़ॉर्मैटिंग थीम को ओवरराइड करती है।
+इन स्लॉटों को संदर्भित करने वाली आकृतियों के लिये, पहली थीम रेखा शैली लाल हो जाएगी, तीसरी थीम भराव शैली ठोस फ़ॉरेस्ट ग्रीन, और तीसरी प्रभाव शैली में 10 पॉइंट की दूरी वाला बाहरी शैडो जुड़ जाएगा। सटीक दृश्य परिणाम इस बात पर निर्भर करता है कि प्रत्येक आकृति कौन से शैली स्लॉट को संदर्भित करती है और क्या सीधे स्वरूपण ने थीम को ओवरराइड किया है।
 
-![लाइन, फ़िल और शैडो सेटिंग्स बदलने के बाद थीम इफ़ेक्ट शैलियां](presentation-design_11.png)
+![लाइन, भराव और शैडो सेटिंग बदलने के बाद थीम प्रभाव शैलियाँ](presentation-design_11.png)
+
+## **निर्धारित करें कि प्रभावी सॉलिड भराव थीम रंग उपयोग करता है या नहीं**
+
+एक भराव ऑब्जेक्ट पर सीधे संग्रहीत या पैराग्राफ, लेआउट, मास्टर, थीम शैली या अन्य स्वरूपण स्तर से विरासत में मिली हो सकती है। उस पदानुक्रम को अपरिवर्तनीय [IFillFormatEffectiveData](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ifillformateffectivedata/) में बदलने के लिये [IFillFormat.getEffective](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ifillformat/) को कॉल करें। पहले [IFillFormatEffectiveData.getFillType](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ifillformateffectivedata/) देखें। केवल जब यह `FillType.Solid` हो, तभी सॉलिड‑भराव गुण पढ़ें।
+
+सॉलिड भराव के लिये, [IFillFormatEffectiveData.getSolidFillColor](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ifillformateffectivedata/) विरासत, थीम लुक‑अप और रंग रूपांतरण लागू करने के बाद अंतिम RGB मान लौटाता है। [IFillFormatEffectiveData.getSolidFillSchemeColor](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ifillformateffectivedata/) संबंधित तर्कसंगत [SchemeColor](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/schemecolor/) स्लॉट (जैसे `Text1` या `Accent6`) लौटाता है। `SchemeColor.NotDefined` का अर्थ है कि प्रभावी सॉलिड भराव स्कीम रंग पर आधारित नहीं है। ऐसी कार्य‑धारा में जहाँ भराव या तो थीम रंग होते हैं या सीधे RGB, यह मान सीधे RGB भराव का संकेत देता है।
+
+स्थानीय [IColorFormat.getSchemeColor](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/icolorformat/) मान केवल भराव को वर्गीकृत करने के लिये प्रयोग न करें। उदाहरण के लिये, किसी पाठ भाग के पास स्थानीय रूप से कोई स्कीम रंग नहीं हो सकता, इसलिए उसका स्थानीय मान `NotDefined` है, जबकि उसका प्रभावी भराव थीम रंग विरासत में लेता है और `Text1` या `Accent6` में बदल जाता है। इसके विपरीत, `getSolidFillSchemeColor` बताता है कि कौन सा तर्कसंगत थीम स्लॉट प्रभावी रंग उत्पन्न किया, लेकिन यह नहीं बताता कि वह स्लॉट ऑब्जेक्ट, पैराग्राफ, लेआउट, मास्टर या अन्य स्तर से आया है।
+
+निम्न उदाहरण प्रस्तुति लोड करता है, दोनों आकृति भराव और पाठ‑भाग भराव का ऑडिट करता है, प्रत्येक अंतिम RGB मान और संबंधित स्कीम रंग प्रिंट करता है, और उन सॉलिड भराव को फ्लैग करता है जो थीम रंग बदलावों को ट्रैक नहीं करेंगे:
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+import java.util.function.BiConsumer;
+
+BiConsumer<String, IFillFormat> auditFill = (objectName, localFill) -> {
+    IFillFormatEffectiveData effectiveFill = localFill.getEffective();
+
+    if (effectiveFill.getFillType() != FillType.Solid) {
+        System.out.println(objectName + ": fill type = " + effectiveFill.getFillType() + "; not a solid fill.");
+        return;
+    }
+
+    int rgb = effectiveFill.getSolidFillColor();
+    int effectiveSchemeColor = effectiveFill.getSolidFillSchemeColor();
+    int localSchemeColor = localFill.getSolidFillColor().getSchemeColor();
+
+    System.out.printf("%s: RGB = #%02X%02X%02X%n", objectName, Color.red(rgb), Color.green(rgb), Color.blue(rgb));
+    System.out.println(objectName + ": local scheme = " + localSchemeColor + ", effective scheme = " + effectiveSchemeColor);
+
+    if (effectiveSchemeColor == SchemeColor.NotDefined) {
+        System.out.println(objectName + ": direct RGB or another non-scheme fill; audit as theme-independent.");
+    } else {
+        System.out.println(objectName + ": theme-dependent through " + effectiveSchemeColor + ".");
+    }
+};
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    int slideCount = presentation.getSlides().size();
+    for (int slideIndex = 0; slideIndex < slideCount; slideIndex++) {
+        ISlide slide = presentation.getSlides().get_Item(slideIndex);
+
+        int shapeCount = slide.getShapes().size();
+        for (int shapeIndex = 0; shapeIndex < shapeCount; shapeIndex++) {
+            IShape shape = slide.getShapes().get_Item(shapeIndex);
+            String shapeName = "Slide " + (slideIndex + 1) + ", shape " + (shapeIndex + 1);
+            auditFill.accept(shapeName, shape.getFillFormat());
+
+            if (shape instanceof IAutoShape) {
+                IAutoShape autoShape = (IAutoShape) shape;
+                int paragraphCount = autoShape.getTextFrame().getParagraphs().getCount();
+                for (int paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++) {
+                    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(paragraphIndex);
+
+                    int portionCount = paragraph.getPortions().getCount();
+                    for (int portionIndex = 0; portionIndex < portionCount; portionIndex++) {
+                        IPortion portion = paragraph.getPortions().get_Item(portionIndex);
+                        String portionName = shapeName + ", paragraph " + (paragraphIndex + 1) + ", portion " + (portionIndex + 1);
+                        auditFill.accept(portionName, portion.getPortionFormat().getFillFormat());
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+`NotDefined` शाखा उन सॉलिड भरावों की ऑडिट सूची प्रदान करती है जो थीम रंग स्लॉट परिवर्तनों पर प्रतिक्रिया नहीं देंगे। जब प्रस्तुति को नई ब्रांड पैलेट का पालन करना हो, तो इन ऑब्जेक्ट्स की समीक्षा करें। रिपोर्ट किया गया RGB मान अभी भी वर्तमान दिखावट दर्शाता है, जबकि स्कीम मान बताता है कि वह दिखावट थीम से जुड़ी है या नहीं।
+
+प्रभावी‑फॉर्मेट ऑब्जेक्ट स्नैपशॉट होते हैं। प्रस्तुति थीम, थीम‑ओवरराइड या किसी विरासत स्वरूपण को बदलने के बाद, नई `IFillFormatEffectiveData` वस्तु पढ़ने से पहले `getEffective` को फिर से कॉल करें।
 
 ## **प्रभावी थीम मान पढ़ें**
 
-कच्चे थीम ऑब्जेक्ट केवल यह बताते हैं कि किसी विशिष्ट स्तर पर क्या परिभाषित है। प्रभावी मान बताते हैं कि कोई स्लाइड या आकार विरासत और स्थानीय ओवरराइड के बाद वास्तव में क्या उपयोग करता है। स्लाइड के लिए कॉल करें [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/baseoverridethememanager/)。 बैकग्राउंड के लिए उपयोग करें [Background.getEffective](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/background/), और फ़िल के लिए उपयोग करें [FillFormat.getEffective](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/fillformat/)।
+कच्चे थीम ऑब्जेक्ट बताते हैं कि किसी विशेष स्तर पर क्या परिभाषित है। प्रभावी मान बताते हैं कि विरासत और स्थानीय ओवरराइड के बाद स्लाइड या आकृति वास्तव में क्या उपयोग करती है। स्लाइड के लिये, [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/baseoverridethememanager/) को कॉल करें। पृष्ठभूमि के लिये, [Background.getEffective](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/background/) का उपयोग करें, और भराव के लिये, [FillFormat.getEffective](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/fillformat/) का।
 
-निम्न उदाहरण स्लाइड से प्रभावी थीम, बैकग्राउंड और पहले आकार की फ़िल पढ़ता है:
+निम्न उदाहरण स्लाइड से प्रभावी थीम, पृष्ठभूमि और पहली आकृति भराव पढ़ता है:
 
 ```java
 import com.aspose.slides.*;
@@ -479,22 +559,22 @@ try {
 }
 ```
 
-रेंडरिंग निदान, मान्यकरण और तुलना के लिए प्रभावी डेटा का उपयोग करें। यदि आप केवल [Presentation.getMasterTheme](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) का निरीक्षण करते हैं, तो आप किसी मास्टर, लेआउट, स्लाइड या आकार ओवरराइड को चूक सकते हैं जो अंतिम उपस्थिति को बदलता है।
+रेंडरिंग डायग्नॉस्टिक्स, वैधता और तुलना के लिये प्रभावी डेटा का उपयोग करें। यदि आप केवल [Presentation.getMasterTheme](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) को देखेंगे, तो आप ऐसे मास्टर, लेआउट, स्लाइड या आकृति ओवरराइड को चूक सकते हैं जो अंतिम दिखावट को बदलते हैं।
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+## **FAQ**
 
-**क्या बाहरी थीम लागू करने से प्रस्तुति की प्रत्येक स्लाइड प्रभावित होती है?**
+**क्या बाहरी थीम लागू करने से प्रस्तुति की हर स्लाइड प्रभावित होती है?**
 
-नहीं। [IMasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imasterslide/) केवल उन स्लाइड्स को पुनः असाइन करता है जो चयनित मास्टर पर निर्भर थीं। अन्य मास्टर का उपयोग करने वाली स्लाइड्स अपने मौजूदा थीम को बरकरार रखती हैं।
+नहीं। [IMasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imasterslide/) केवल उन स्लाइड्स को पुनः‑सौंपता है जो चयनित मास्टर पर निर्भर थीं। अन्य मास्टर उपयोग करने वाली स्लाइड्स अपनी मौजूदा थीम बरकरार रखती हैं।
 
-**क्या मैं मास्टर बदले बिना एकल स्लाइड पर थीम लागू कर सकता हूँ?**
+**क्या मैं मास्टर बदले बिना किसी एकल स्लाइड पर थीम लागू कर सकता हूँ?**
 
-हाँ। स्लाइड के [SlideThemeManager](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/slidethememanager/) का उपयोग करें और उसका ओवरराइड थीम प्रारंभ करें। परिवर्तन केवल उस स्लाइड तक सीमित रहता है; अन्य स्लाइड्स अपने मौजूदा थीम को विरासत में लेती रहती हैं।
+हां। स्लाइड के [SlideThemeManager](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/slidethememanager/) का उपयोग करें और उसका ओवरराइड थीम प्रारंभ करें। परिवर्तन केवल उस स्लाइड तक सीमित रहता है; अन्य स्लाइड्स अपने मौजूदा थीम को विरासत में लेती रहेंगी।
 
-**एक प्रस्तुति से दूसरी में थीम ले जाने का सबसे सुरक्षित तरीका क्या है?**
+**एक थीम को एक प्रस्तुति से दूसरी में सुरक्षित रूप से ले जाने का सबसे अच्छा तरीका क्या है?**
 
-जब स्लाइड को स्थानांतरित करते समय उसकी मूल उपस्थिति को संरक्षित करना हो, तो स्रोत मास्टर को लक्ष्य में क्लोन करें [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imasterslidecollection/) के द्वारा और फिर स्लाइड को उसी मास्टर के साथ क्लोन करें [ISlideCollection.addClone](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/islidecollection/) के द्वारा। यह मास्टर, उसके लेआउट और थीम को एक साथ रखता है।
+जब स्लाइड को ले जाकर उसकी स्रोत दिखावट को बनाए रखना हो, तो स्रोत मास्टर को गंतव्य में क्लोन करें और उस मास्टर के साथ स्लाइड को [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imasterslidecollection/) तथा [ISlideCollection.addClone](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/islidecollection/) से क्लोन करें। यह मास्टर, लेआउट और थीम को साथ रखता है।
 
-**मैं विरासत और ओवरराइड के बाद प्रभावी मान कैसे देख सकता हूँ?**
+**विरासत और ओवरराइड के बाद प्रभावी मान कैसे देखूँ?**
 
-स्लाइड या लेआउट थीम के लिए उपयोग करें [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/baseoverridethememanager/) और फ़ॉर्मेट ऑब्जेक्ट जैसे [Background.getEffective](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/background/) और [FillFormat.getEffective](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/fillformat/) के संबंधित प्रभावी‑डेटा मेथड। ये API विरासत और ओवरराइड लागू होने के बाद हल किए गए मान लौटाते हैं।
+स्लाइड या लेआउट थीम के लिये [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/baseoverridethememanager/) का उपयोग करें और फॉर्मेट ऑब्जेक्ट जैसे [Background.getEffective](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/background/) तथा [FillFormat.getEffective](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/fillformat/) के संबंधित प्रभावी‑डेटा विधियों को कॉल करें। ये API विरासत और ओवरराइड लागू होने के बाद हल किए गये मान लौटाते हैं।

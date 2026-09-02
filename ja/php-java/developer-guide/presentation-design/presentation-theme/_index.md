@@ -1,13 +1,13 @@
 ---
-title: PHPでプレゼンテーションテーマを管理する
+title: PHPでプレゼンテーションテーマを管理
 linktitle: プレゼンテーションテーマ
 type: docs
 weight: 10
 url: /ja/php-java/presentation-theme/
 keywords:
 - PowerPoint テーマ
-- プレゼンテーションテーマ
-- スライドテーマ
+- プレゼンテーション テーマ
+- スライド テーマ
 - テーマの設定
 - テーマの変更
 - テーマの管理
@@ -17,29 +17,29 @@ keywords:
 - 追加パレット
 - テーマフォント
 - テーマスタイル
-- テーマ効果
+- テーマエフェクト
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - PHP
 - Aspose.Slides
-description: "Java を介した Aspose.Slides for PHP でマスタープレゼンテーションテーマを作成、カスタマイズ、変換し、一貫したブランディングを実現します。"
+description: "Java 経由で PHP 用 Aspose.Slides のマスタープレゼンテーションテーマを使用し、PowerPoint ファイルを一貫したブランディングで作成、カスタマイズ、変換します。"
 ---
-## **概要**
+## **はじめに**
 
-プレゼンテーションのテーマは、色、フォント、背景スタイル、塗り、線、効果の統合されたセットを定義します。テーマ対応オブジェクトは、各視覚プロパティを固定値として保持するのではなく、これらの共有定義を参照するため、テーマを変更すると多数のオブジェクトが一度に更新されます。
+プレゼンテーションテーマは、色、フォント、背景スタイル、塗り、線、エフェクトの調和したセットを定義します。テーマ対応オブジェクトは、これらの共有定義を参照し、すべての視覚プロパティを固定値として保持しないため、テーマを変更すると多数のオブジェクトが一度に更新されます。
 
-Aspose.Slides では、プレゼンテーション レベルのテーマは [Presentation.getMasterTheme](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/) で取得できます。プレゼンテーションには下位レベルでテーマのオーバーライドを含めることもできます。マスターは [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/ja/php-java/aspose.slides/masterthememanager/) を使用してプレゼンテーションテーマをオーバーライドでき、レイアウトまたは個々のスライドは [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/ja/php-java/aspose.slides/baseoverridethememanager/) を使用して継承されたテーマをオーバーライドできます。実際には、スライドの有効テーマは次の継承チェーンで解決されます。プレゼンテーションテーマ → マスター オーバーライド → レイアウト オーバーライド → スライド オーバーライド。
+Aspose.Slides では、プレゼンテーション レベルのテーマは [Presentation.getMasterTheme](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/) で取得できます。プレゼンテーションは下位レベルでもテーマのオーバーライドを保持できます。マスターは [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/ja/php-java/aspose.slides/masterthememanager/) でプレゼンテーションテーマを上書きでき、レイアウトや個々のスライドは [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/ja/php-java/aspose.slides/baseoverridethememanager/) で継承されたテーマを上書きできます。実際には、スライドの有効テーマは次の継承チェーンで解決されます: プレゼンテーションテーマ、マスターオーバーライド、レイアウトオーバーライド、スライドオーバーライド。
 
-![テーマの構成要素: 色、フォント、背景スタイル、効果](theme-constituents.png)
+![テーマの構成要素: 色、フォント、背景スタイル、エフェクト](theme-constituents.png)
 
-以下のセクションでは、最も一般的なテーマのワークフローを示します。テーマの検査、色とフォントの変更、テーマのコピーまたは適用、背景と効果スタイルの更新、継承とオーバーライドが解決された後の有効な値の取得です。
+以下のセクションでは、最も一般的なテーマのワークフローを示します。テーマの検査、色とフォントの変更、テーマのコピーまたは適用、背景とエフェクト スタイルの更新、継承とオーバーライドが解決された後の実効値の取得です。
 
 ## **テーマの検査**
 
-[MasterTheme](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mastertheme/) オブジェクトは、[MasterTheme.getColorScheme](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mastertheme/)、[MasterTheme.getFontScheme](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mastertheme/)、[MasterTheme.getFormatScheme](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mastertheme/) を通じてテーマのカラー スキーム、フォント スキーム、フォーマット スキームを公開します。変更前にこれらのコレクションを検査することは、プレゼンテーションが外部ソースから取得された場合に特に有用です。スタイル エントリの数や内容は変わる可能性があります。
+[MasterTheme](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mastertheme/) オブジェクトは、[MasterTheme.getColorScheme](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mastertheme/)、[MasterTheme.getFontScheme](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mastertheme/)、[MasterTheme.getFormatScheme](https://reference.aspose.com/slides/ja/php-java/aspose.slides/mastertheme/) を通じてテーマのカラースキーム、フォントスキーム、フォーマットスキームを公開します。変更前にこれらのコレクションを検査することは、外部ソースから取得したプレゼンテーションの場合に特に有用です。スタイル エントリの数や内容は変わる可能性があります。
 
-次の例は、メイン テーマのプロパティを読み取り、テーマに格納されている背景、塗り、線、効果のスタイル数を報告します。
+次の例は、メインテーマのプロパティを読み取り、テーマに格納されている背景、塗り、線、エフェクト スタイルの数をレポートします。
 
 ```php
 use aspose\slides\Presentation;
@@ -60,13 +60,13 @@ try {
 }
 ```
 
-ファイルが複数のマスターを使用している場合、すべてのスライドが同じ有効テーマを持つとは限りません。スライドに関連付けられたマスターを検査し、レイアウトまたはスライドのオーバーライドが存在する可能性がある場合は、後述の有効テーマ ワークフローを使用してください。
+ファイルが複数のマスターを使用している場合、すべてのスライドが同じ実効テーマを持つとは限りません。スライドに関連付けられたマスターを検査し、レイアウトまたはスライド オーバーライドが存在する可能性がある場合は、後述の実効テーマ ワークフローを使用してください。
 
 ## **テーマの色の変更**
 
-テーマ対応の塗り、線、テキストは、[SchemeColor](https://reference.aspose.com/slides/ja/php-java/aspose.slides/schemecolor/) 列挙体の論理色を参照できます。[ColorScheme](https://reference.aspose.com/slides/ja/php-java/aspose.slides/colorscheme/) の該当エントリを変更すると、そのテーマ色を参照しているすべてのオブジェクトが新しい値に解決されます。直接 RGB 色を使用しているオブジェクトは、テーマ色の更新の影響を受けません。
+テーマ対応の塗り、線、テキストは [SchemeColor](https://reference.aspose.com/slides/ja/php-java/aspose.slides/schemecolor/) 列挙体の論理色を参照できます。[ColorScheme](https://reference.aspose.com/slides/ja/php-java/aspose.slides/colorscheme/) の該当エントリを変更すると、そのテーマ色を参照し続けているすべてのオブジェクトが新しい値に解決されます。直接 RGB 色を使用しているオブジェクトはテーマ色の更新の影響を受けません。
 
-次のエンドツーエンド例は、`Accent4` を使用するシェイプを作成し、テーマの `Accent4` 色を赤に変更し、プレゼンテーションを保存、再度開き、実際の塗り色を出力します。
+次のエンドツーエンド例は、`Accent4` を使用するシェイプを作成し、テーマの `Accent4` 色を赤に変更し、プレゼンテーションを保存、再度開き、実効塗り色を出力します。
 
 ```php
 use aspose\slides\FillType;
@@ -98,19 +98,19 @@ try {
 }
 ```
 
-矩形は `Accent4` にリンクされたままであるため、テーマが変更されると表示色は赤になります。シェイプ上のスキーム色を直接の色に置き換えると、以降の `Accent4` の変更はその塗りに影響しなくなります。
+矩形は `Accent4` にリンクされたままなので、テーマが変更された後に可視色は赤になります。シェイプ上で直接色に置き換えると、以降の `Accent4` の変更はその塗りに影響しなくなります。
 
-### **追加パレットからの色の使用**
+### **追加パレットから色を使用**
 
-PowerPoint は、テーマ色に対して色変換を適用することで、明るいバリエーションおよび暗いバリエーションを導出します。Aspose.Slides はこれらの変換を [ColorTransformOperation](https://reference.aspose.com/slides/ja/php-java/aspose.slides/colortransformoperation/) 列挙体で公開しています。
+PowerPoint はテーマ色に対して色変換を適用し、明るいバリエーションや暗いバリエーションを生成します。Aspose.Slides はこれらの変換を [ColorTransformOperation](https://reference.aspose.com/slides/ja/php-java/aspose.slides/colortransformoperation/) 列挙体で公開しています。
 
-![メイン テーマ色と追加パレットから生成された明るい色と暗い色](additional-palette-colors.png)
+![メインテーマ色と追加パレットから生成された明るい色・暗い色](additional-palette-colors.png)
 
-**1** - メイン テーマ色。
+**1** – メインテーマ色。
 
-**2** - メイン テーマ色から生成された明るいバリエーションと暗いバリエーション。
+**2** – メインテーマ色から生成された明るいバリエーションと暗いバリエーション。
 
-次の例は、`Accent4` に基づく 6 つの矩形を作成し、うち 5 つに輝度変換を適用し、結果を保存します。
+次の例は、`Accent4` を基にした 6 つの矩形を作成し、うち 5 つに輝度変換を適用し、結果を保存します。
 
 ```php
 use aspose\slides\ColorTransformOperation;
@@ -162,9 +162,9 @@ try {
 }
 ```
 
-これらのバリエーションはテーマ色に基づいたままです。後で `Accent4` が変更されると、変換された色は新しい `Accent4` 値から再計算されます。
+これらのバリエーションはテーマ色に基づいたままです。`Accent4` が後で変更されると、変換された色は新しい `Accent4` の値から再計算されます。
 
-### **`SchemeColor` 値を `ColorScheme` スロットにマップする**
+### **`SchemeColor` の値を `ColorScheme` スロットにマッピング**
 
 [SchemeColor](https://reference.aspose.com/slides/ja/php-java/aspose.slides/schemecolor/) 列挙体は `Text1`、`Background1`、`Text2`、`Background2` を使用し、[ColorScheme](https://reference.aspose.com/slides/ja/php-java/aspose.slides/colorscheme/) は同じテーマスロットを `Dark1`、`Light1`、`Dark2`、`Light2` として公開します。マッピングは固定です。
 
@@ -177,16 +177,16 @@ try {
 
 ## **テーマのフォントの変更**
 
-テーマのフォント スキームは、見出し用のメジャー フォント セットと本文用のマイナー フォント セットを含みます。[FontScheme.getMajor](https://reference.aspose.com/slides/ja/php-java/aspose.slides/fontscheme/) および [FontScheme.getMinor](https://reference.aspose.com/slides/ja/php-java/aspose.slides/fontscheme/) メソッドでそれらのセットを取得できます。
+テーマのフォントスキームは、見出し用のメジャーフォントセットと本文用のマイナーフォントセットを含みます。[FontScheme.getMajor](https://reference.aspose.com/slides/ja/php-java/aspose.slides/fontscheme/) と [FontScheme.getMinor](https://reference.aspose.com/slides/ja/php-java/aspose.slides/fontscheme/) メソッドでそれらのセットを取得できます。
 
-PowerPoint 互換のテーマ フォント 識別子はテキスト書式設定で使用できます。
+PowerPoint 互換のテーマフォント識別子はテキスト書式設定で使用できます。
 
-* `+mn-lt` - 本文フォント ラテン文字 (Minor Latin Font)
-* `+mj-lt` - 見出しフォント ラテン文字 (Major Latin Font)
-* `+mn-ea` - 本文フォント 東アジア文字 (Minor East Asian Font)
-* `+mj-ea` - 見出しフォント 東アジア文字 (Major East Asian Font)
+* `+mn-lt` – 本文フォント ラテン語 (Minor Latin Font)
+* `+mj-lt` – 見出しフォント ラテン語 (Major Latin Font)
+* `+mn-ea` – 本文フォント 東アジア語 (Minor East Asian Font)
+* `+mj-ea` – 見出しフォント 東アジア語 (Major East Asian Font)
 
-次の例は、メジャー ラテン テーマ フォントを使用した見出しと、マイナー ラテン テーマ フォントを使用した本文行を作成し、テーマフォントを変更して結果を保存します。
+次の例は、メジャー ラテン テーマフォントを使用する見出しと、マイナー ラテン テーマフォントを使用する本文行を作成し、テーマフォントを変更して結果を保存します。
 
 ```php
 use aspose\slides\FontData;
@@ -214,13 +214,13 @@ try {
 }
 ```
 
-見出しはメジャー フォントに従い、本文はマイナー フォントに従います。テーマ識別子ではなく明示的なフォント名が設定されているテキストは、テーマ フォント スキームが変更されても自動的に切り替わりません。
+見出しはメジャーフォントに従い、本文はマイナーフォントに従います。明示的にフォント名を指定したテキストは、テーマフォントスキームが変更されても自動的には切り替わりません。
 
-メジャー とマイナー のフォントコレクションには、キリル文字、アラビア文字、日本語、ジョージア文字、ターナ文字など、個々の文字体系向けのマッピングも含めることができます。これらのマッピングを検査、追加、置換、削除する方法は、[Script-Specific Theme Fonts](/slides/ja/php-java/script-specific-font-mappings/) を参照してください。
+メジャー・マイナーのフォント コレクションには、キリル文字、アラビア文字、日本語、ジョージア文字、タナ文字など、個々の記述体系向けのフォント マッピングを含めることもできます。これらのマッピングの検査、追加、置換、削除については、[スクリプト固有テーマフォント](/slides/ja/php-java/script-specific-font-mappings/) を参照してください。
 
-{{% alert color="info" title="ヒント" %}}
+{{% alert color="info" title="Tip" %}}
 
-プレゼンテーション フォントの詳細については、[PowerPoint Fonts](/slides/ja/php-java/powerpoint-fonts/) を参照してください。
+プレゼンテーション フォントの詳細については、[PowerPoint フォント](/slides/ja/php-java/powerpoint-fonts/) をご覧ください。
 
 {{% /alert %}}
 
@@ -228,15 +228,15 @@ try {
 
 以下のワークフローは、さまざまなテーマ関連の課題を解決します。
 
-### **外部テーマを特定マスターに依存するスライドに適用する**
+### **外部テーマを特定マスター依存スライドに適用**
 
-`.thmx` 形式の PowerPoint テーマ ファイルがあり、特定のマスターに依存するすべてのスライドのスタイルを変更したい場合は、[MasterSlide::applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/ja/php-java/aspose.slides/masterslide/) を使用します。対象のマスターは [Presentation::getMasters](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/) コレクション（[MasterSlideCollection](https://reference.aspose.com/slides/ja/php-java/aspose.slides/masterslidecollection/) で表現）から選択し、テーマ ファイルのパスをメソッドに渡します。
+PowerPoint テーマ ファイル (`.thmx`) があり、特定のマスターに依存するすべてのスライドのスタイルを変更したい場合は、[MasterSlide::applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/ja/php-java/aspose.slides/masterslide/) を使用します。対象マスターは [Presentation::getMasters](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/) コレクション ( [MasterSlideCollection](https://reference.aspose.com/slides/ja/php-java/aspose.slides/masterslidecollection/) で表現) から選択し、テーマ ファイル パスをメソッドに渡します。
 
-このメソッドは次の操作を行います。
+メソッドは次の操作を実行します。
 
-1. 選択したマスターを基に新しいマスタースライドを作成します。
-1. 外部テーマを新しいマスターに適用します。
-1. 以前に選択したマスターに依存していたすべてのスライドに新しいマスターを割り当てます。
+1. 選択したマスターを基に新しいマスタースライドを作成します。  
+1. 外部テーマを新しいマスターに適用します。  
+1. 従来そのマスターに依存していたすべてのスライドに新しいマスターを割り当てます。  
 1. 新しく作成された [MasterSlide](https://reference.aspose.com/slides/ja/php-java/aspose.slides/masterslide/) を返します。
 
 次の例は、最初のマスターに依存するスライドに外部テーマを適用し、プレゼンテーションを保存します。
@@ -257,19 +257,19 @@ try {
 }
 ```
 
-無効、破損、またはサポートされていないテーマは [PptxReadException](https://reference.aspose.com/slides/ja/php-java/aspose.slides/pptxreadexception/) をスローする可能性があります。ユーザーが指定したパスを検証し、ファイルシステムへのアクセス失敗を処理し、テーマが正常に適用された後にのみプレゼンテーションを保存してください。
+無効・破損・未対応のテーマは [PptxReadException](https://reference.aspose.com/slides/ja/php-java/aspose.slides/pptxreadexception/) をスローする可能性があります。ユーザーが提供したパスを検証し、ファイルシステムアクセスの失敗を処理し、テーマの適用が成功した後にのみプレゼンテーションを保存してください。
 
-選択したマスターに依存していたスライドだけが再割り当てされます。他のマスターに関連付けられたスライドは既存のマスターとテーマを保持します。テーマ対応の色、フォント、塗り、線、背景、効果は外部テーマに対して解決されます。直接割り当てられた色、フォント、塗り、その他の明示的な書式設定は変更されない場合があります。レイアウト レベルおよびスライド レベルのオーバーライドは、新しいマスターから継承された値よりも優先されることがあります。
+選択したマスターに依存していたスライドだけが再割り当てされます。他のマスターに紐付くスライドは既存のマスターとテーマを保持します。テーマ対応の色、フォント、塗り、線、背景、エフェクトは外部テーマに対して解決されます。直接割り当てられた色やフォント、塗りなどの明示的書式は変更されない場合があります。レイアウトレベルやスライドレベルのオーバーライドは、新しいマスターから継承された値よりも優先されることがあります。
 
-テーマは実行環境に存在しないフォントを参照することがあります。レンダリングとエクスポートの一貫性を保つために、必要なフォントをインストールするか、[カスタム フォント ソース](/slides/ja/php-java/custom-font/) を通じて提供するか、[フォント置換](/slides/ja/php-java/font-substitution/) を構成してください。
+テーマがランタイム環境に存在しないフォントを参照することがあります。一貫した描画とエクスポートのために、必要なフォントをインストールするか、[カスタム フォント ソース](/slides/ja/php-java/custom-font/) から提供するか、[フォント置換](/slides/ja/php-java/font-substitution/) を構成してください。
 
-これは、メソッドが `.thmx` ファイルへのパスを受け取り、スライド レベルまたはレイアウト レベルのテーマ オーバーライドを手動で作成する必要がない、直接的なマスター レベルのワークフローです。
+これは直接的なマスターレベルのワークフローです。メソッドは `.thmx` ファイルへのパスを受け取り、スライドレベルやレイアウトレベルのテーマ オーバーライドを手動で作成する必要はありません。
 
-### **マルチマスター プレゼンテーションで異なる外部テーマを適用する**
+### **マルチマスタープレゼンテーションで異なる外部テーマを適用**
 
-対象マスターが事前に分からない場合は、[Slide::getLayoutSlide](https://reference.aspose.com/slides/ja/php-java/aspose.slides/slide/) と [LayoutSlide::getMasterSlide](https://reference.aspose.com/slides/ja/php-java/aspose.slides/layoutslide/) を通じて代表的なスライドから取得します。テーマを適用する前に元のマスター参照を保存してください。呼び出しごとにプレゼンテーションに新しいマスターが作成されます。
+対象マスターが事前に分からない場合は、[Slide::getLayoutSlide](https://reference.aspose.com/slides/ja/php-java/aspose.slides/slide/) と [LayoutSlide::getMasterSlide](https://reference.aspose.com/slides/ja/php-java/aspose.slides/layoutslide/) を使用して代表的なスライドから取得します。テーマ適用前に元のマスター参照を保存してください。呼び出しごとにプレゼンテーションに新しいマスターが作成されます。
 
-次の例は、2 つのセクションのスライドからそれぞれのマスターを特定し、各グループに異なる外部テーマを適用します。
+次の例は、2 つのセクションのスライドからそれぞれのマスターを取得し、各グループに異なる外部テーマを適用します。
 
 ```php
 use aspose\slides\Presentation;
@@ -299,11 +299,11 @@ try {
 }
 ```
 
-最初の呼び出しは `$firstGroupMaster` に依存するスライドだけに影響し、2 番目の呼び出しは `$secondGroupMaster` に依存するスライドだけに影響します。他のマスターに所属するスライドは再スタイルされません。
+最初の呼び出しは `$firstGroupMaster` に依存するスライドのみを対象とし、2 回目の呼び出しは `$secondGroupMaster` に依存するスライドのみを対象とします。他のマスターに属するスライドは再スタイル化されません。
 
-### **スライドを移動するときに元のテーマを保持する**
+### **スライド移動時に元テーマを保持**
 
-スライドを別のプレゼンテーションに移動し、元のデザインを保持したい場合は、[MasterSlideCollection.addClone](https://reference.aspose.com/slides/ja/php-java/aspose.slides/masterslidecollection/) でソースマスターをターゲット プレゼンテーションにクローンし、続いて [SlideCollection.addClone](https://reference.aspose.com/slides/ja/php-java/aspose.slides/slidecollection/) とクローンしたマスターでスライドをクローンします。これによりマスター、レイアウト、関連テーマが一緒にコピーされます。
+スライドを別のプレゼンテーションに移動し、元のデザインを保持したい場合は、[MasterSlideCollection.addClone](https://reference.aspose.com/slides/ja/php-java/aspose.slides/masterslidecollection/) でソースマスターをターゲットプレゼンテーションにクローンし、続いて [SlideCollection.addClone](https://reference.aspose.com/slides/ja/php-java/aspose.slides/slidecollection/) とクローンしたマスターでスライドをクローンします。これによりマスター、レイアウト、関連テーマが一緒にコピーされます。
 
 ```php
 use aspose\slides\Presentation;
@@ -326,11 +326,11 @@ try {
 }
 ```
 
-これは、ソーススライドが宛先でも同じ外観になることが必要な場合に推奨されるワークフローです。無関係な宛先マスターにコンテンツだけをクローンすると、テーマ駆動の色、フォント、背景、効果が変わる可能性があります。
+このワークフローは、ソーススライドが宛先でも同一に見える必要がある場合に推奨されます。無関係な宛先マスターにコンテンツだけをクローンすると、テーマ駆動の色、フォント、背景、エフェクトが変わる可能性があります。
 
-### **既存スライドにテーマ値を適用する**
+### **既存スライドにテーマ値を適用**
 
-ターゲット スライドを現在のマスターとレイアウトのままにしたい場合は、ソーステーマからスライド レベルのオーバーライドを初期化します。[OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/ja/php-java/aspose.slides/overridetheme/)、[OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/ja/php-java/aspose.slides/overridetheme/)、[OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/ja/php-java/aspose.slides/overridetheme/) メソッドは、3 つの主要テーマコンポーネントをオーバーライドにコピーします。
+対象スライドを現在のマスター・レイアウトのままにしたい場合は、ソーステーマからスライドレベルのオーバーライドを初期化します。[OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/ja/php-java/aspose.slides/overridetheme/)、[OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/ja/php-java/aspose.slides/overridetheme/)、[OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/ja/php-java/aspose.slides/overridetheme/) メソッドが 3 つの主要テーマコンポーネントをオーバーライドにコピーします。
 
 ```php
 use aspose\slides\Presentation;
@@ -354,11 +354,11 @@ try {
 }
 ```
 
-この操作により、他のスライドが継承しているテーマは変更せずに、そのスライドだけのテーマが変更されます。ローカル オーバーライドを削除して継承値に戻すには、[OverrideTheme.clear](https://reference.aspose.com/slides/ja/php-java/aspose.slides/overridetheme/) を呼び出してください。
+この操作により、他のスライドが継承するテーマは変更せずに、対象スライドだけのテーマが変更されます。ローカルオーバーライドを削除し、継承値に戻すには [OverrideTheme.clear](https://reference.aspose.com/slides/ja/php-java/aspose.slides/overridetheme/) を呼び出してください。
 
-### **レイアウトにテーマ オーバーライドを適用する**
+### **レイアウトにテーマ オーバーライドを適用**
 
-レイアウト レベルのオーバーライドは、そのレイアウトを使用しているスライドに適用されます（ただし、個々のスライドに独自のオーバーライドがある場合は除く）。同じ初期化メソッドは [LayoutSlideThemeManager](https://reference.aspose.com/slides/ja/php-java/aspose.slides/layoutslidethememanager/) を介して使用できます。
+レイアウトレベルのオーバーライドは、そのレイアウトを使用するスライドすべてに適用されますが、個別スライドに独自オーバーライドがある場合はそちらが優先されます。同じ初期化メソッドは [LayoutSlideThemeManager](https://reference.aspose.com/slides/ja/php-java/aspose.slides/layoutslidethememanager/) から使用できます。
 
 ```php
 use aspose\slides\Presentation;
@@ -382,17 +382,17 @@ try {
 }
 ```
 
-多数のレイアウトやスライドが同一の基本デザインを共有すべき場合はマスターまたはプレゼンテーション レベルのテーマを使用し、特定のレイアウトファミリだけが別のスタイリングを必要とする場合はレイアウト オーバーライドを、真に例外的なケースだけはスライド オーバーライドを使用してください。過剰なスライド レベル オーバーライドは、後のグローバル テーマ変更を予測しにくくします。
+多くのレイアウトやスライドが同一のベース デザインを共有すべき場合はマスターまたはプレゼンテーションレベルのテーマを使用し、特定のレイアウト ファミリーに別スタイルが必要な場合はレイアウトオーバーライドを、例外的なスライドだけに適用したい場合はスライドオーバーライドを使用してください。過剰なスライドレベルのオーバーライドは、後続のグローバルテーマ変更を予測しにくくします。
 
-## **テーマの背景スタイルの更新**
+## **テーマ背景スタイルの更新**
 
-テーマの背景塗りは [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/ja/php-java/aspose.slides/formatscheme/) に格納されています。PowerPoint の UI では、このコレクションに実際に格納されている塗り定義以上の背景オプションを提示できることがあります。これは UI がテーマ塗りとテーマ色や他のスタイル参照を組み合わせられるためです。
+テーマの背景塗りは [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/ja/php-java/aspose.slides/formatscheme/) に格納されています。PowerPoint の UI では、このコレクションに物理的に保存されている塗り定義の数以上の背景選択肢を提示できます。これは、テーマ塗りをテーマ色や他のスタイル参照と組み合わせて表示できるためです。
 
 ![プレゼンテーション テーマの背景スタイル ギャラリー](presentation-design_8.png)
 
-背景スタイルを使用する前に、格納されたコレクションと現在の [Background.getStyleIndex](https://reference.aspose.com/slides/ja/php-java/aspose.slides/background/) を検査してください。`0` のスタイル インデックスはテーマ塗りがないことを意味し、正の値はテーマ背景スタイル参照です。これは PHP コレクションのインデックスとは異なり、`get_Item(0)` は最初に格納されたアイテムを指します。すべてのプレゼンテーションが同じ数の背景塗りスタイルを持つとは限りません。
+背景スタイルを使用する前に、格納されたコレクションと現在の [Background.getStyleIndex](https://reference.aspose.com/slides/ja/php-java/aspose.slides/background/) を検査してください。インデックスが `0` の場合はテーマ塗りなしを意味し、正の値はテーマ背景スタイル参照です。これは PHP コレクションのインデックス (`get_Item(0)` が最初の項目) とは異なります。すべてのプレゼンテーションが同じ数の背景塗りスタイルを持つとは限りません。
 
-次の例は利用可能な背景塗りの個数を報告し、最初のマスターにテーマ背景参照を割り当て、プレゼンテーションを保存します。
+次の例は、利用可能な背景塗り数を報告し、最初のマスターにテーマ背景参照を割り当て、プレゼンテーションを保存します。
 
 ```php
 use aspose\slides\BackgroundType;
@@ -416,29 +416,29 @@ try {
 }
 ```
 
-表示結果はマスターが参照するテーマ エントリと、レイアウトまたはスライド レベルの背景オーバーライドの有無に依存します。スライドが独自の背景を使用している場合、マスター背景だけを変更してもそのスライドは変わらないことがあります。継承後の最終背景が必要な場合は、[Background.getEffective](https://reference.aspose.com/slides/ja/php-java/aspose.slides/background/) を使用してください。
+表示結果は、マスターが参照するテーマエントリと、レイアウトまたはスライドレベルでの背景オーバーライドの有無に依存します。スライドが独自の背景を使用している場合、マスター背景だけを変更してもそのスライドは変わらないことがあります。継承後の最終背景を知りたいときは [Background.getEffective](https://reference.aspose.com/slides/ja/php-java/aspose.slides/background/) を使用してください。
 
-{{% alert color="warning" title="警告" %}}
+{{% alert color="warning" title="Warning" %}}
 
-スタイル インデックスをゼロベースのコレクション インデックスとみなさないでください。また、あるファイルでハードコーディングしたスタイル番号を別のファイルでも同じ外観と想定しないでください。テーマ スタイル定義はプレゼンテーション固有です。
-
-{{% /alert %}}
-
-{{% alert color="info" title="ヒント" %}}
-
-直接的な背景書式設定と背景の継承については、[Presentation Background](/slides/ja/php-java/presentation-background/) を参照してください。
+スタイルインデックスをゼロベースのコレクションインデックスとみなさないでください。また、あるファイルでのスタイル番号をハードコーディングし、別ファイルでも同じ外観になると期待しないでください。テーマスタイル定義はプレゼンテーション固有です。
 
 {{% /alert %}}
 
-## **テーマ効果の更新**
+{{% alert color="info" title="Tip" %}}
 
-テーマのフォーマット スキームは、[FormatScheme.getFillStyles](https://reference.aspose.com/slides/ja/php-java/aspose.slides/formatscheme/)、[FormatScheme.getLineStyles](https://reference.aspose.com/slides/ja/php-java/aspose.slides/formatscheme/)、[FormatScheme.getEffectStyles](https://reference.aspose.com/slides/ja/php-java/aspose.slides/formatscheme/) を介してそれぞれ塗り、線、効果スタイルのコレクションを公開します。一般的な Office テーマは、視覚的に微妙、適度、強烈な書式設定に対応する 3 つの主要スタイル エントリを含むことが多いですが、コードは固定数を前提にせず、各コレクションを検査すべきです。
+直接的な背景書式設定と背景継承については、[Presentation Background](/slides/ja/php-java/presentation-background/) を参照してください。
 
-![同じシェイプに適用された微妙、適度、強烈なテーマ効果](presentation-design_10.png)
+{{% /alert %}}
 
-PHP でこれらのコレクションにアクセスする場合、コレクション インデックスはゼロベースです。`get_Item(0)` が最初に格納されたスタイル、`get_Item(2)` が 3 番目のスタイルを指します。シェイプのスタイル参照インデックスは別概念で、[ShapeStyle](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shapestyle/) を通じて取得します。テーマ スタイルを変更すると、そのテーマ スタイルを参照しているシェイプに影響しますが、直接書式設定されたシェイプは変更されない可能性があります。
+## **テーマエフェクトの更新**
 
-次の例は、必要なスタイル エントリが存在することを確認し、最初の線スタイル、3 番目の塗りスタイルを変更し、3 番目の効果スタイルに外部シャドウを有効にして結果を保存します。
+テーマのフォーマットスキームは、[FormatScheme.getFillStyles](https://reference.aspose.com/slides/ja/php-java/aspose.slides/formatscheme/)、[FormatScheme.getLineStyles](https://reference.aspose.com/slides/ja/php-java/aspose.slides/formatscheme/)、[FormatScheme.getEffectStyles](https://reference.aspose.com/slides/ja/php-java/aspose.slides/formatscheme/) を通じて個別の塗り、線、エフェクト スタイル コレクションを公開します。典型的な Office テーマは、微妙、標準、強調という 3 つの主要スタイル エントリを持つことが多いですが、コード側では固定数を前提にせず、各コレクションを検査すべきです。
+
+![同一シェイプに適用された微妙、標準、強調のテーマエフェクト](presentation-design_10.png)
+
+PHP でこれらのコレクションへアクセスする際、コレクション インデックスはゼロベースです: `get_Item(0)` が最初のスタイル、`get_Item(2)` が 3 番目のスタイルです。シェイプのスタイル参照インデックスは別概念で、[ShapeStyle](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shapestyle/) で公開されます。テーマスタイルを変更すると、そのテーマスタイルを参照しているシェイプに影響しますが、直接書式設定されたシェイプは変わらない場合があります。
+
+次の例は、必要なスタイル エントリが存在することを確認し、最初の線スタイルを変更し、3 番目の塗りスタイルを変更し、3 番目のエフェクトスタイルに外側のシャドウを有効化して結果を保存します。
 
 ```php
 use aspose\slides\FillType;
@@ -465,15 +465,89 @@ try {
 }
 ```
 
-これらのスロットを参照しているシェイプでは、最初のテーマ線スタイルが赤に、3 番目のテーマ塗りスタイルが濃い森林緑に、3 番目の効果スタイルに距離 10 ポイントの外部シャドウが追加されます。最終的な視覚結果は、各シェイプがどのスロットを参照しているか、また直接書式設定がテーマを上書きしているかによって変わります。
+これらのスロットを参照するシェイプでは、最初のテーマ線スタイルが赤に、3 番目のテーマ塗りスタイルが濃い森林緑に、3 番目のエフェクトスタイルに距離 10 ポイントの外側シャドウが付与されます。最終的なビジュアルは、各シェイプが参照しているスタイル スロットと、直接書式設定がテーマを上書きしているかどうかに依存します。
 
-![線、塗り、シャドウ設定変更後のテーマ効果スタイル](presentation-design_11.png)
+![線、塗り、シャドウ設定変更後のテーマエフェクトスタイル](presentation-design_11.png)
 
-## **有効なテーマ値の取得**
+## **実効的な単色塗りがテーマ色を使用しているかの判定**
 
-生のテーマ オブジェクトは特定レベルで定義されている内容を示しますが、有効値は継承とローカル オーバーライドが解決された後にスライドやシェイプが実際に使用しているものを示します。スライドの場合は [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/ja/php-java/aspose.slides/baseoverridethememanager/) を呼び出します。背景の場合は [Background.getEffective](https://reference.aspose.com/slides/ja/php-java/aspose.slides/background/)、塗りの場合は [FillFormat.getEffective](https://reference.aspose.com/slides/ja/php-java/aspose.slides/fillformat/) を使用します。
+塗りはオブジェクトに直接格納されるか、段落、レイアウト、マスター、テーマスタイル、その他の書式レベルから継承されることがあります。`FillFormat::getEffective` を呼び出して階層を解決し、変更不可の実効塗りデータを取得します。まず `getFillType` の結果を確認してください。`FillType::Solid` の場合にのみ、単色塗りプロパティを読み取ります。
 
-次の例は、スライドから有効テーマ、背景、および最初のシェイプの塗りを読み取ります。
+単色塗りの場合、`getSolidFillColor` は継承、テーマ参照、色変換が適用された後の最終 RGB 値を返します。`getSolidFillSchemeColor` は対応する論理 [SchemeColor](https://reference.aspose.com/slides/ja/php-java/aspose.slides/schemecolor/) スロット (例: `Text1`、`Accent6`) を返します。`SchemeColor::NotDefined` は、実効単色塗りがスキーム色に基づいていないことを意味します。この値は、塗りが直接 RGB 色であることを示す指標として使用できます。
+
+ローカルの [ColorFormat::getSchemeColor](https://reference.aspose.com/slides/ja/php-java/aspose.slides/colorformat/) のみで塗りを分類しないでください。たとえば、テキストの一部はローカルでスキーム色が未定義 (`NotDefined`) でも、実効塗りはテーマ色を継承し `Text1` や `Accent6` に解決されることがあります。逆に、`getSolidFillSchemeColor` は実効色を生成した論理テーマスロットを示しますが、そのスロットがオブジェクト、段落、レイアウト、マスター、または別のレベルから来たかは示しません。
+
+次の例は、プレゼンテーションを読み込み、シェイプ塗りとテキスト部分塗りの両方を監査し、各最終 RGB 値と関連スキーム色を出力し、テーマ色の変更に追従しない単色塗りをフラグします。
+
+```php
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SchemeColor;
+
+$auditFill = function (string $objectName, $localFill): void {
+    $effectiveFill = $localFill->getEffective();
+
+    if (java_values($effectiveFill->getFillType()) != FillType::Solid) {
+        echo $objectName . ": fill type = " . java_values($effectiveFill->getFillType()) . "; not a solid fill." . PHP_EOL;
+        return;
+    }
+
+    $rgb = $effectiveFill->getSolidFillColor();
+    $effectiveSchemeColor = java_values($effectiveFill->getSolidFillSchemeColor());
+    $localSchemeColor = java_values($localFill->getSolidFillColor()->getSchemeColor());
+
+    echo sprintf("%s: RGB = #%02X%02X%02X", $objectName, java_values($rgb->getRed()), java_values($rgb->getGreen()), java_values($rgb->getBlue())) . PHP_EOL;
+    echo $objectName . ": local scheme = " . $localSchemeColor . ", effective scheme = " . $effectiveSchemeColor . PHP_EOL;
+
+    if ($effectiveSchemeColor == SchemeColor::NotDefined) {
+        echo $objectName . ": direct RGB or another non-scheme fill; audit as theme-independent." . PHP_EOL;
+    } else {
+        echo $objectName . ": theme-dependent through " . $effectiveSchemeColor . "." . PHP_EOL;
+    }
+};
+
+$autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+$presentation = new Presentation("input.pptx");
+try {
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+
+        $shapeCount = java_values($slide->getShapes()->size());
+        for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+            $shape = $slide->getShapes()->get_Item($shapeIndex);
+            $shapeName = "Slide " . ($slideIndex + 1) . ", shape " . ($shapeIndex + 1);
+            $auditFill($shapeName, $shape->getFillFormat());
+
+            if (java_instanceof($shape, $autoShapeClass)) {
+                $paragraphCount = java_values($shape->getTextFrame()->getParagraphs()->getCount());
+                for ($paragraphIndex = 0; $paragraphIndex < $paragraphCount; $paragraphIndex++) {
+                    $paragraph = $shape->getTextFrame()->getParagraphs()->get_Item($paragraphIndex);
+
+                    $portionCount = java_values($paragraph->getPortions()->getCount());
+                    for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
+                        $portion = $paragraph->getPortions()->get_Item($portionIndex);
+                        $portionName = $shapeName . ", paragraph " . ($paragraphIndex + 1) . ", portion " . ($portionIndex + 1);
+                        $auditFill($portionName, $portion->getPortionFormat()->getFillFormat());
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+`NotDefined` の分岐は、テーマカラー スロットの変更に反応しない単色塗りの監査リストを提供します。新しいブランド パレットに合わせてプレゼンテーションを調整する際に、これらのオブジェクトを確認してください。報告された RGB 値は現在の外観を示し、スキーム値はその外観がテーマに接続されているかどうかを説明します。
+
+実効書式オブジェクトはスナップショットです。プレゼンテーションテーマ、テーマオーバーライド、または任意の継承書式を変更した後は、再度 `getEffective` を呼び出し、新しい実効塗りデータを取得してから比較またはレポートしてください。
+
+## **実効テーマ値の取得**
+
+生のテーマオブジェクトは特定レベルで定義されている内容を示します。実効値は、継承とローカル オーバーライドが解決された後、スライドやシェイプが実際に使用している内容を示します。スライドの場合は [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/ja/php-java/aspose.slides/baseoverridethememanager/) を呼び出します。背景の場合は [Background.getEffective](https://reference.aspose.com/slides/ja/php-java/aspose.slides/background/)、塗りの場合は [FillFormat.getEffective](https://reference.aspose.com/slides/ja/php-java/aspose.slides/fillformat/) を使用します。
+
+次の例は、スライドから実効テーマ、背景、最初のシェイプ塗りを読み取ります。
 
 ```php
 use aspose\slides\FillType;
@@ -500,22 +574,22 @@ try {
 }
 ```
 
-有効データはレンダリング診断、検証、比較に使用します。[Presentation.getMasterTheme](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/) だけを検査すると、マスター、レイアウト、スライド、シェイプのオーバーライドで最終的な外観が変わっているケースを見逃す可能性があります。
+レンダリング診断、検証、比較には実効データを使用してください。[Presentation.getMasterTheme](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/) のみを検査すると、マスター、レイアウト、スライド、シェイプのオーバーライドで最終外観が変わるケースを見逃す可能性があります。
 
 ## **FAQ**
 
-**外部テーマを適用するとプレゼンテーション内のすべてのスライドに影響しますか？**
+**外部テーマを適用すると、プレゼンテーション内のすべてのスライドに影響しますか？**
 
-いいえ。[MasterSlide::applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/ja/php-java/aspose.slides/masterslide/) は、選択したマスターに依存するスライドだけを再割り当てします。他のマスターを使用しているスライドは既存のテーマを保持します。
+いいえ。[MasterSlide::applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/ja/php-java/aspose.slides/masterslide/) は選択したマスターに依存するスライドだけを再割り当てします。他のマスターを使用しているスライドは既存のテーマを保持します。
 
 **マスターを変更せずに単一スライドにテーマを適用できますか？**
 
-はい。スライドの [SlideThemeManager](https://reference.aspose.com/slides/ja/php-java/aspose.slides/slidethememanager/) を使用し、オーバーライドテーマを初期化します。この変更はそのスライドにのみローカルに適用され、他のスライドは既存のテーマを継承し続けます。
+はい。スライドの [SlideThemeManager](https://reference.aspose.com/slides/ja/php-java/aspose.slides/slidethememanager/) を使用し、オーバーライドテーマを初期化します。この変更はそのスライドにローカルに留まり、他のスライドは既存のテーマを継承し続けます。
 
-**テーマを別のプレゼンテーションに安全に持ち込む方法は何ですか？**
+**テーマを別のプレゼンテーションに安全に移行する方法は？**
 
-スライドを移動して元の外観を保持する場合は、[MasterSlideCollection.addClone](https://reference.aspose.com/slides/ja/php-java/aspose.slides/masterslidecollection/) でソースマスターを宛先にクローンし、[SlideCollection.addClone](https://reference.aspose.com/slides/ja/php-java/aspose.slides/slidecollection/) とそのクローンマスターでスライドをクローンします。これによりマスター、レイアウト、テーマが一緒に保持されます。
+スライドを移動して元の外観を保持する場合は、[MasterSlideCollection.addClone](https://reference.aspose.com/slides/ja/php-java/aspose.slides/masterslidecollection/) でソースマスターを宛先にクローンし、[SlideCollection.addClone](https://reference.aspose.com/slides/ja/php-java/aspose.slides/slidecollection/) でそのマスターと共にスライドをクローンしてください。これによりマスター、レイアウト、テーマが一緒に保持されます。
 
-**継承とオーバーライドの後の有効値はどうやって確認できますか？**
+**継承とオーバーライドの後の実効値はどうやって確認できますか？**
 
-スライドまたはレイアウトのテーマに対しては [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/ja/php-java/aspose.slides/baseoverridethememanager/) を使用し、[Background.getEffective](https://reference.aspose.com/slides/ja/php-java/aspose.slides/background/) や [FillFormat.getEffective](https://reference.aspose.com/slides/ja/php-java/aspose.slides/fillformat/) などの対応する有効データ メソッドを使用します。これらの API は継承とオーバーライドが適用された後の解決済み値を返します。
+スライドまたはレイアウトのテーマについては [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/ja/php-java/aspose.slides/baseoverridethememanager/) を、フォーマット オブジェクト (例: [Background.getEffective](https://reference.aspose.com/slides/ja/php-java/aspose.slides/background/) や [FillFormat.getEffective](https://reference.aspose.com/slides/ja/php-java/aspose.slides/fillformat/)) については対応する実効データ メソッドを使用してください。これらの API は継承とオーバーライドが適用された後の解決済み値を返します。

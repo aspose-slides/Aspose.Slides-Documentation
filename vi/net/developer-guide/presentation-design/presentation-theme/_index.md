@@ -6,41 +6,41 @@ weight: 10
 url: /vi/net/presentation-theme/
 keywords:
 - Chủ đề PowerPoint
-- chủ đề bản trình chiếu
-- chủ đề slide
-- đặt chủ đề
-- thay đổi chủ đề
-- quản lý chủ đề
-- chủ đề bên ngoài
+- Chủ đề bản trình chiếu
+- Chủ đề slide
+- Thiết lập chủ đề
+- Thay đổi chủ đề
+- Quản lý chủ đề
+- Chủ đề bên ngoài
 - THMX
-- màu chủ đề
-- bảng màu bổ sung
-- phông chữ chủ đề
-- kiểu chủ đề
-- hiệu ứng chủ đề
+- Màu chủ đề
+- Bảng màu bổ sung
+- Phông chữ chủ đề
+- Kiểu chủ đề
+- Hiệu ứng chủ đề
 - PowerPoint
 - OpenDocument
 - bản trình chiếu
 - .NET
 - C#
 - Aspose.Slides
-description: "Quản lý các chủ đề bản trình chiếu trong Aspose.Slides cho .NET để tạo, tùy chỉnh và chuyển đổi tệp PowerPoint với thương hiệu nhất quán."
+description: "Kiểm soát các chủ đề bản trình chiếu trong Aspose.Slides cho .NET để tạo, tùy chỉnh và chuyển đổi tệp PowerPoint với thương hiệu thống nhất."
 ---
 ## **Giới thiệu**
 
-Một chủ đề bản trình chiếu định nghĩa một tập hợp phối hợp các màu, phông chữ, kiểu nền, màu nền, đường kẻ và hiệu ứng. Các đối tượng nhận thức về chủ đề tham chiếu các định nghĩa chung này thay vì lưu mỗi thuộc tính trực quan dưới dạng giá trị cố định, vì vậy việc thay đổi chủ đề có thể cập nhật nhiều đối tượng cùng lúc.
+Một chủ đề bản trình chiếu xác định một tập hợp phối hợp các màu sắc, phông chữ, kiểu nền, màu nền, đường nét và hiệu ứng. Các đối tượng nhận thức chủ đề tham chiếu các định nghĩa chia sẻ này thay vì lưu trữ mỗi thuộc tính hình ảnh dưới dạng giá trị cố định, vì vậy việc thay đổi chủ đề có thể cập nhật nhiều đối tượng cùng lúc.
 
-Trong Aspose.Slides, chủ đề ở mức độ bản trình chiếu có sẵn qua thuộc tính [Presentation.MasterTheme](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/mastertheme/). Một bản trình chiếu cũng có thể chứa các ghi đè chủ đề ở các mức thấp hơn. Một master có thể ghi đè chủ đề bản trình chiếu thông qua [MasterThemeManager.OverrideTheme](https://reference.aspose.com/slides/vi/net/aspose.slides.theme/masterthememanager/overridetheme/), một layout có thể ghi đè chủ đề kế thừa thông qua [BaseOverrideThemeManager.OverrideTheme](https://reference.aspose.com/slides/vi/net/aspose.slides.theme/baseoverridethememanager/overridetheme/), và một slide riêng lẻ cũng có thể làm tương tự. Trong thực tế, chủ đề thực tế cho một slide được giải quyết qua chuỗi kế thừa này: chủ đề bản trình chiếu, ghi đè master, ghi đè layout và ghi đè slide.
+Trong Aspose.Slides, chủ đề cấp trình bày có sẵn thông qua thuộc tính [Presentation.MasterTheme](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/mastertheme/). Một bản trình chiếu cũng có thể chứa các ghi đè chủ đề ở các cấp thấp hơn. Một master có thể ghi đè chủ đề trình bày thông qua [MasterThemeManager.OverrideTheme](https://reference.aspose.com/slides/vi/net/aspose.slides.theme/masterthememanager/overridetheme/), một layout có thể ghi đè chủ đề kế thừa của nó thông qua [BaseOverrideThemeManager.OverrideTheme](https://reference.aspose.com/slides/vi/net/aspose.slides.theme/baseoverridethememanager/overridetheme/), và một slide riêng lẻ cũng có thể làm tương tự. Trong thực tế, chủ đề hiệu quả cho một slide được giải quyết qua chuỗi kế thừa này: chủ đề trình bày, ghi đè master, ghi đè layout và ghi đè slide.
 
-![Thành phần của chủ đề: màu sắc, phông chữ, kiểu nền và hiệu ứng](theme-constituents.png)
+![Theme components: colors, fonts, background styles, and effects](theme-constituents.png)
 
-Các phần dưới đây trình bày những quy trình làm việc với chủ đề phổ biến nhất: kiểm tra một chủ đề, thay đổi màu và phông chữ, sao chép hoặc áp dụng một chủ đề, cập nhật kiểu nền và hiệu ứng, và đọc các giá trị thực tế sau khi kế thừa và ghi đè đã được giải quyết.
+Các phần dưới đây trình bày các quy trình làm việc chủ đề phổ biến nhất: kiểm tra một chủ đề, thay đổi màu và phông chữ, sao chép hoặc áp dụng một chủ đề, cập nhật kiểu nền và hiệu ứng, và đọc các giá trị hiệu quả sau khi đã giải quyết kế thừa và ghi đè.
 
 ## **Kiểm tra một Chủ đề**
 
-Đối tượng [MasterTheme](https://reference.aspose.com/slides/vi/net/aspose.slides.theme/mastertheme/) cung cấp [ColorScheme](https://reference.aspose.com/slides/vi/net/aspose.slides.theme/mastertheme/colorscheme/), [FontScheme](https://reference.aspose.com/slides/vi/net/aspose.slides.theme/mastertheme/fontscheme/) và [FormatScheme](https://reference.aspose.com/slides/vi/net/aspose.slides.theme/mastertheme/formatscheme/). Kiểm tra các bộ sưu tập này trước khi thay đổi chúng đặc biệt hữu ích khi một bản trình chiếu đến từ nguồn bên ngoài vì số lượng và nội dung của các mục kiểu có thể khác nhau.
+Đối tượng [MasterTheme](https://reference.aspose.com/slides/vi/net/aspose.slides.theme/mastertheme/) cung cấp truy cập tới [ColorScheme](https://reference.aspose.com/slides/vi/net/aspose.slides.theme/mastertheme/colorscheme/), [FontScheme](https://reference.aspose.com/slides/vi/net/aspose.slides.theme/mastertheme/fontscheme/) và [FormatScheme](https://reference.aspose.com/slides/vi/net/aspose.slides.theme/mastertheme/formatscheme/). Kiểm tra các bộ sưu tập này trước khi thay đổi chúng đặc biệt hữu ích khi một bản trình chiếu đến từ nguồn bên ngoài vì số lượng và nội dung của các mục kiểu có thể thay đổi.
 
-Ví dụ sau đọc các thuộc tính chính của chủ đề và báo cáo có bao nhiêu kiểu nền, màu nền, đường kẻ và hiệu ứng được lưu trong chủ đề:
+Ví dụ dưới đây đọc các thuộc tính chủ đề chính và báo cáo số lượng kiểu nền, màu nền, đường nét và hiệu ứng được lưu trong chủ đề:
 
 ```csharp
 using System;
@@ -59,13 +59,13 @@ Console.WriteLine($"Line styles: {theme.FormatScheme.LineStyles.Count}");
 Console.WriteLine($"Effect styles: {theme.FormatScheme.EffectStyles.Count}");
 ```
 
-Nếu một tệp sử dụng nhiều master, không nên cho rằng mọi slide đều có cùng một chủ đề thực tế. Kiểm tra master liên quan đến slide, và sử dụng quy trình làm việc với chủ đề thực tế được mô tả sau trong bài khi có thể có ghi đè ở layout hoặc slide.
+Nếu một tệp sử dụng nhiều master, đừng giả định rằng mọi slide đều có cùng một chủ đề hiệu quả. Kiểm tra master liên kết với slide và sử dụng quy trình làm việc chủ đề‑hiệu quả được mô tả sau trong bài viết khi có khả năng có các ghi đè layout hoặc slide.
 
 ## **Thay đổi Màu Chủ đề**
 
-Các màu nền, đường kẻ và văn bản nhận thức về chủ đề có thể tham chiếu một màu logic từ enumeration [SchemeColor](https://reference.aspose.com/slides/vi/net/aspose.slides/schemecolor/). Khi bạn thay đổi mục tương ứng trong [IColorScheme](https://reference.aspose.com/slides/vi/net/aspose.slides.theme/icolorscheme/) của chủ đề, tất cả các đối tượng vẫn tham chiếu màu chủ đề đó sẽ được giải quyết dựa trên giá trị mới. Các đối tượng sử dụng màu RGB trực tiếp sẽ không bị thay đổi bởi cập nhật màu chủ đề.
+Các màu đầy, đường nét và văn bản nhận thức chủ đề có thể tham chiếu tới một màu logic từ liệt kê [SchemeColor](https://reference.aspose.com/slides/vi/net/aspose.slides/schemecolor/). Khi bạn thay đổi mục tương ứng trong [IColorScheme](https://reference.aspose.com/slides/vi/net/aspose.slides.theme/icolorscheme/) của chủ đề, tất cả các đối tượng vẫn tham chiếu màu chủ đề đó sẽ được giải quyết dựa trên giá trị mới. Các đối tượng sử dụng màu RGB trực tiếp sẽ không bị thay đổi bởi cập nhật màu chủ đề.
 
-Ví dụ toàn diện sau tạo một hình dạng sử dụng `Accent4`, thay đổi màu `Accent4` của chủ đề thành màu đỏ, lưu bản trình chiếu, mở lại và in màu nền thực tế:
+Ví dụ toàn diện dưới đây tạo một hình dạng sử dụng `Accent4`, thay đổi màu `Accent4` của chủ đề thành màu đỏ, lưu bản trình chiếu, mở lại và in màu đầy hiệu quả:
 
 ```csharp
 using System;
@@ -88,19 +88,18 @@ var effectiveFill = savedShape.FillFormat.GetEffective();
 Console.WriteLine($"Effective fill color: {effectiveFill.SolidFillColor}");
 ```
 
-Vì hình chữ nhật vẫn liên kết với `Accent4`, màu hiển thị của nó sẽ trở thành màu đỏ sau khi chủ đề được thay đổi. Nếu bạn thay thế màu lược đồ bằng màu trực tiếp trên hình dạng, các thay đổi sau này đối với `Accent4` sẽ không còn ảnh hưởng tới màu nền đó.
+Vì hình chữ nhật vẫn được liên kết tới `Accent4`, màu hiển thị của nó sẽ trở thành đỏ sau khi chủ đề được thay đổi. Nếu bạn thay thế màu scheme bằng một màu trực tiếp trên hình dạng, các thay đổi sau này đối với `Accent4` sẽ không còn ảnh hưởng tới màu đầy đó nữa.
 
-### **Sử dụng Màu từ Bảng màu Bổ sung**
+### **Sử dụng Màu từ Bảng Màu Bổ Sung**
 
-PowerPoint tạo ra các biến thể nhạt hơn và đậm hơn từ một màu chủ đề bằng cách áp dụng các phép biến đổi màu. Aspose.Slides cung cấp các biến đổi này qua [ColorTransformOperation](https://reference.aspose.com/slides/vi/net/aspose.slides/colortransformoperation/).
+PowerPoint tạo ra các biến thể nhẹ hơn và tối hơn từ một màu chủ đề bằng cách áp dụng các phép biến đổi màu. Aspose.Slides cung cấp các phép biến đổi này qua [ColorTransformOperation](https://reference.aspose.com/slides/vi/net/aspose.slides/colortransformoperation/).
 
-![Màu chủ đề chính và các màu nhạt hơn, đậm hơn được tạo từ bảng màu bổ sung](additional-palette-colors.png)
+![Main theme colors and lighter and darker colors generated from the additional palette](additional-palette-colors.png)
 
-**1** - Màu chủ đề chính.
+**1** - Các màu chủ đề chính.  
+**2** - Các biến thể nhẹ hơn và tối hơn được tạo ra từ các màu chủ đề chính.
 
-**2** - Các biến thể nhạt hơn và đậm hơn được tạo từ các màu chủ đề chính.
-
-Ví dụ sau tạo sáu hình chữ nhật dựa trên `Accent4`, áp dụng các phép biến đổi độ sáng cho năm hình và lưu kết quả:
+Ví dụ dưới đây tạo sáu hình chữ nhật dựa trên `Accent4`, áp dụng các phép biến đổi độ sáng cho năm trong số chúng và lưu kết quả:
 
 ```csharp
 using Aspose.Slides;
@@ -144,31 +143,31 @@ shape6.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.Mult
 presentation.Save("theme-color-palette.pptx", SaveFormat.Pptx);
 ```
 
-Các biến thể này vẫn dựa trên màu chủ đề. Nếu `Accent4` thay đổi sau này, các màu đã biến đổi sẽ được tính lại từ giá trị `Accent4` mới.
+Các biến thể này vẫn dựa trên màu chủ đề. Nếu `Accent4` thay đổi sau này, các màu đã biến đổi sẽ được tính lại dựa trên giá trị `Accent4` mới.
 
-### **Ánh xạ Giá trị `SchemeColor` tới Các vị trí `IColorScheme`**
+### **Ánh Xạ Giá Trị `SchemeColor` tới Các Vị Trí `IColorScheme`**
 
-Enumeration [SchemeColor](https://reference.aspose.com/slides/vi/net/aspose.slides/schemecolor/) sử dụng `Text1`, `Background1`, `Text2` và `Background2`, trong khi [IColorScheme](https://reference.aspose.com/slides/vi/net/aspose.slides.theme/icolorscheme/) cung cấp cùng các vị trí chủ đề dưới dạng `Dark1`, `Light1`, `Dark2` và `Light2`. Ánh xạ này cố định:
+Liệt kê [SchemeColor](https://reference.aspose.com/slides/vi/net/aspose.slides/schemecolor/) sử dụng `Text1`, `Background1`, `Text2` và `Background2`, trong khi [IColorScheme](https://reference.aspose.com/slides/vi/net/aspose.slides.theme/icolorscheme/) khai báo cùng các vị trí chủ đề dưới dạng `Dark1`, `Light1`, `Dark2` và `Light2`. Ánh xạ này cố định:
 
-* `Text1` = `Dark1`
-* `Background1` = `Light1`
-* `Text2` = `Dark2`
+* `Text1` = `Dark1`  
+* `Background1` = `Light1`  
+* `Text2` = `Dark2`  
 * `Background2` = `Light2`
 
-Đây là các tên thay thế cho cùng một vị trí chủ đề; chúng không phải là các giá trị được chuyển đổi động từ một dạng sang dạng khác.
+Đây là các tên thay thế cho cùng một vị trí chủ đề; chúng không phải là các giá trị được chuyển đổi động từ dạng này sang dạng kia.
 
 ## **Thay đổi Phông chữ Chủ đề**
 
-Một lược đồ phông chữ chủ đề chứa một bộ phông chữ chính cho tiêu đề và một bộ phụ cho nội dung. Các thuộc tính [FontScheme.Major](https://reference.aspose.com/slides/vi/net/aspose.slides.theme/fontscheme/major/) và [FontScheme.Minor](https://reference.aspose.com/slides/vi/net/aspose.slides.theme/fontscheme/minor/) cung cấp các bộ này.
+Một scheme phông chữ chủ đề chứa một bộ phông chữ chính cho tiêu đề và một bộ phụ cho nội dung. Các thuộc tính [FontScheme.Major](https://reference.aspose.com/slides/vi/net/aspose.slides.theme/fontscheme/major/) và [FontScheme.Minor](https://reference.aspose.com/slides/vi/net/aspose.slides.theme/fontscheme/minor/) cung cấp các bộ này.
 
-Các định danh phông chữ chủ đề tương thích PowerPoint có thể được sử dụng trong định dạng văn bản:
+Các định danh phông chữ chủ đề tương thích PowerPoint có thể được dùng trong định dạng văn bản:
 
-* `+mn-lt` - Phông chữ Thân văn bản Latin (Minor Latin Font)
-* `+mj-lt` - Phông chữ Tiêu đề Latin (Major Latin Font)
-* `+mn-ea` - Phông chữ Thân văn bản Đông Á (Minor East Asian Font)
+* `+mn-lt` - Phông chữ Thân văn Latin (Minor Latin Font)  
+* `+mj-lt` - Phông chữ Tiêu đề Latin (Major Latin Font)  
+* `+mn-ea` - Phông chữ Thân văn Đông Á (Minor East Asian Font)  
 * `+mj-ea` - Phông chữ Tiêu đề Đông Á (Major East Asian Font)
 
-Ví dụ sau tạo một tiêu đề sử dụng phông chữ Latin chính và một dòng nội dung sử dụng phông chữ Latin phụ. Sau đó thay đổi các phông chữ chủ đề và lưu kết quả:
+Ví dụ dưới đây tạo một tiêu đề sử dụng phông chữ Latin chính và một dòng nội dung sử dụng phông chữ Latin phụ. Sau đó thay đổi phông chữ chủ đề và lưu kết quả:
 
 ```csharp
 using Aspose.Slides;
@@ -191,32 +190,30 @@ presentation.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
 presentation.Save("theme-fonts.pptx", SaveFormat.Pptx);
 ```
 
-Tiêu đề tuân theo phông chữ chính và nội dung tuân theo phông chữ phụ. Văn bản có tên phông chữ cụ thể thay vì định danh chủ đề sẽ không tự động chuyển khi lược đồ phông chữ chủ đề thay đổi.
+Tiêu đề tuân theo phông chữ chính và nội dung tuân theo phông chữ phụ. Văn bản có tên phông chữ cụ thể thay vì định danh chủ đề sẽ không tự động chuyển khi scheme phông chữ chủ đề thay đổi.
 
-Bộ sưu tập phông chữ chính và phụ cũng có thể chứa các ánh xạ phông chữ cho các hệ thống viết riêng lẻ, như Cyrillic, Arabic, Japanese, Georgian và Thaana. Để kiểm tra, thêm, thay thế hoặc xóa các ánh xạ này, xem [Script-Specific Theme Fonts](/slides/vi/net/script-specific-font-mappings/).
+Các bộ phông chữ chính và phụ cũng có thể chứa ánh xạ phông cho các hệ thống viết riêng lẻ, chẳng hạn Cyrillic, Arabic, Japanese, Georgian và Thaana. Để kiểm tra, thêm, thay thế hoặc xóa các ánh xạ này, xem [Script-Specific Theme Fonts](/slides/vi/net/script-specific-font-mappings/).
 
 {{% alert color="info" title="Mẹo" %}}
-
 Để biết thêm thông tin về phông chữ trong bản trình chiếu, xem [PowerPoint Fonts](/slides/vi/net/powerpoint-fonts/).
-
 {{% /alert %}}
 
-## **Sao chép hoặc Áp dụng một Chủ đề**
+## **Sao chép hoặc Áp dụng Một Chủ đề**
 
-Các quy trình làm việc dưới đây giải quyết các vấn đề liên quan đến chủ đề khác nhau.
+Các quy trình dưới đây giải quyết các vấn đề khác nhau liên quan đến chủ đề.
 
-### **Áp dụng Chủ đề Bên ngoài cho Các Slide Phụ thuộc vào Master**
+### **Áp dụng Chủ đề Bên ngoài cho Các Slide Phụ Thuộc của Master**
 
-Sử dụng [IMasterSlide.ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/vi/net/aspose.slides/imasterslide/applyexternalthemetodependingslides/) khi bạn có tệp chủ đề PowerPoint (`.thmx`) và muốn thay đổi kiểu dáng của mọi slide phụ thuộc vào một master cụ thể. Chọn master từ bộ sưu tập [Presentation.Masters](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/masters/), bộ sưu tập này triển khai [IMasterSlideCollection](https://reference.aspose.com/slides/vi/net/aspose.slides/imasterslidecollection/), và truyền đường dẫn tệp chủ đề vào phương thức.
+Sử dụng [IMasterSlide.ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/vi/net/aspose.slides/imasterslide/applyexternalthemetodependingslides/) khi bạn có tệp chủ đề PowerPoint (`.thmx`) và muốn thay đổi kiểu dáng mọi slide phụ thuộc vào một master cụ thể. Chọn master từ bộ sưu tập [Presentation.Masters](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/masters/) (thực thi [IMasterSlideCollection](https://reference.aspose.com/slides/vi/net/aspose.slides/imasterslidecollection/)) và truyền đường dẫn tệp chủ đề cho phương thức.
 
-Phương thức thực hiện các bước sau:
+Phương thức thực hiện các thao tác sau:
 
-1. Tạo một slide master mới dựa trên master đã chọn.
-1. Áp dụng chủ đề bên ngoài cho master mới.
-1. Gán master mới cho tất cả các slide trước đây phụ thuộc vào master đã chọn.
-1. Trả về đối tượng [IMasterSlide](https://reference.aspose.com/slides/vi/net/aspose.slides/imasterslide/) mới được tạo.
+1. Tạo một master slide mới dựa trên master đã chọn.  
+1. Áp dụng chủ đề bên ngoài cho master mới.  
+1. Gán master mới cho tất cả slide trước đây phụ thuộc vào master đã chọn.  
+1. Trả về đối tượng [IMasterSlide](https://reference.aspose.com/slides/vi/net/aspose.slides/imasterslide/) mới tạo.
 
-Ví dụ sau áp dụng một chủ đề bên ngoài cho các slide phụ thuộc vào master đầu tiên, lưu bản trình chiếu và mở lại kết quả:
+Ví dụ dưới đây áp dụng một chủ đề bên ngoài cho các slide phụ thuộc vào master thứ nhất, lưu bản trình chiếu và mở lại kết quả:
 
 ```csharp
 using System;
@@ -231,19 +228,19 @@ Console.WriteLine($"Created master: {themedMaster.Name}");
 presentation.Save("presentation-with-external-theme.pptx", SaveFormat.Pptx);
 ```
 
-Một chủ đề không hợp lệ, bị hỏng hoặc không được hỗ trợ có thể gây ra [PptxException](https://reference.aspose.com/slides/vi/net/aspose.slides/pptxexception/) hoặc một trong các lớp con liên quan tới định dạng. Hãy xác thực các đường dẫn do người dùng cung cấp, xử lý các lỗi truy cập hệ thống tập tin, và chỉ lưu bản trình chiếu sau khi chủ đề đã được áp dụng thành công.
+Một chủ đề không hợp lệ, bị hỏng hoặc không được hỗ trợ có thể gây ra [PptxException](https://reference.aspose.com/slides/vi/net/aspose.slides/pptxexception/) hoặc một trong các lớp con liên quan đến định dạng. Hãy xác thực các đường dẫn do người dùng cung cấp, xử lý các lỗi truy cập hệ thống tệp và chỉ lưu bản trình chiếu sau khi chủ đề đã được áp dụng thành công.
 
-Chỉ những slide phụ thuộc vào master đã chọn mới được gán lại. Các slide liên kết với các master khác giữ nguyên master và chủ đề hiện tại. Các màu, phông chữ, màu nền, đường kẻ và hiệu ứng nhận thức về chủ đề sẽ được giải quyết dựa trên chủ đề bên ngoài. Các định dạng màu, phông chữ, màu nền và các định dạng rõ ràng khác có thể không thay đổi. Các ghi đè ở mức layout và slide cũng có thể có ưu tiên hơn các giá trị kế thừa từ master mới.
+Chỉ các slide phụ thuộc vào master đã chọn mới được gán lại. Các slide liên kết với các master khác giữ nguyên master và chủ đề hiện tại. Các màu, phông chữ, màu nền, đường nét và hiệu ứng nhận thức chủ đề sẽ được giải quyết dựa trên chủ đề bên ngoài. Các định dạng màu, phông chữ, màu nền và các thuộc tính định dạng rõ ràng khác có thể không thay đổi. Các ghi đè ở cấp layout và slide cũng có thể ưu tiên so với các giá trị kế thừa từ master mới.
 
-Chủ đề có thể tham chiếu đến các phông chữ không có sẵn trong môi trường runtime. Để đảm bảo việc hiển thị và xuất khẩu nhất quán, hãy cài đặt các phông chữ cần thiết, cung cấp chúng qua [nguồn phông chữ tùy chỉnh](/slides/vi/net/custom-font/), hoặc cấu hình [thay thế phông chữ](/slides/vi/net/font-substitution/).
+Chủ đề có thể tham chiếu tới các phông chữ không có trong môi trường runtime. Để hiển thị và xuất nhất quán, hãy cài đặt các phông chữ cần thiết, cung cấp chúng qua [nguồn phông chữ tùy chỉnh](/slides/vi/net/custom-font/), hoặc cấu hình [thay thế phông chữ](/slides/vi/net/font-substitution/).
 
-Đây là một quy trình làm việc trực tiếp ở mức master: phương thức nhận một đường dẫn tệp `.thmx` và không yêu cầu tạo thủ công các ghi đè chủ đề ở mức slide hay layout.
+Đây là quy trình làm việc cấp master trực tiếp: phương thức chỉ nhận đường dẫn tới tệp `.thmx` và không yêu cầu tạo thủ công các ghi đè chủ đề ở cấp slide hay layout.
 
-### **Áp dụng Các Chủ đề Bên ngoài Khác nhau trong Bản Trình chiếu Nhiều Master**
+### **Áp dụng Các Chủ đề Bên ngoài Khác nhau trong Bản Trình chiếu Nhiều‑Master**
 
-Khi master liên quan không được biết trước, lấy nó từ một slide đại diện thông qua [ISlide.LayoutSlide](https://reference.aspose.com/slides/vi/net/aspose.slides/islide/layoutslide/) và [ILayoutSlide.MasterSlide](https://reference.aspose.com/slides/vi/net/aspose.slides/ilayoutslide/masterslide/). Lưu trữ các tham chiếu master gốc trước khi áp dụng bất kỳ chủ đề nào vì mỗi lần gọi sẽ tạo thêm một master mới trong bản trình chiếu.
+Khi master liên quan không được biết trước, lấy nó từ một slide đại diện qua [ISlide.LayoutSlide](https://reference.aspose.com/slides/vi/net/aspose.slides/islide/layoutslide/) và [ILayoutSlide.MasterSlide](https://reference.aspose.com/slides/vi/net/aspose.slides/ilayoutslide/masterslide/). Lưu lại các tham chiếu master gốc trước khi áp dụng bất kỳ chủ đề nào vì mỗi lần gọi sẽ tạo một master mới trong bản trình chiếu.
 
-Ví dụ sau sử dụng các slide từ hai phần để xác định master của chúng và áp dụng một chủ đề bên ngoài khác nhau cho mỗi nhóm:
+Ví dụ dưới đây sử dụng slide từ hai phần để xác định master của chúng và áp dụng một chủ đề bên ngoài khác nhau cho mỗi nhóm:
 
 ```csharp
 using System;
@@ -277,11 +274,11 @@ else
 }
 ```
 
-Lần gọi đầu tiên chỉ ảnh hưởng tới các slide phụ thuộc vào `firstGroupMaster`, và lần gọi thứ hai chỉ ảnh hưởng tới các slide phụ thuộc vào `secondGroupMaster`. Các slide thuộc bất kỳ master nào khác sẽ không bị thay đổi kiểu dáng.
+Lệnh gọi đầu tiên chỉ ảnh hưởng tới các slide phụ thuộc vào `firstGroupMaster`, lệnh gọi thứ hai chỉ ảnh hưởng tới các slide phụ thuộc vào `secondGroupMaster`. Các slide thuộc bất kỳ master nào khác sẽ không được thay đổi kiểu dáng.
 
 ### **Bảo tồn Chủ đề Nguồn Khi Di chuyển Slides**
 
-Nếu bạn muốn di chuyển một slide sang bản trình chiếu khác và bảo tồn thiết kế gốc, hãy sao chép master nguồn vào bản trình chiếu đích bằng [IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/vi/net/aspose.slides/imasterslidecollection/addclone/), sau đó sao chép slide bằng [ISlideCollection.AddClone](https://reference.aspose.com/slides/vi/net/aspose.slides/islidecollection/addclone/) và master đã sao chép. Điều này sẽ mang theo master, các layout và chủ đề liên quan cùng nhau.
+Nếu bạn muốn di chuyển một slide sang bản trình chiếu khác và giữ nguyên thiết kế gốc, hãy sao chép master nguồn vào bản trình chiếu đích bằng [IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/vi/net/aspose.slides/imasterslidecollection/addclone/), sau đó sao chép slide bằng [ISlideCollection.AddClone](https://reference.aspose.com/slides/vi/net/aspose.slides/islidecollection/addclone/) và master đã sao chép. Điều này sẽ mang cả master, các layout và chủ đề liên quan cùng nhau.
 
 ```csharp
 using Aspose.Slides;
@@ -298,11 +295,11 @@ target.Slides.AddClone(sourceSlide, clonedMaster, true);
 target.Save("theme-preserved.pptx", SaveFormat.Pptx);
 ```
 
-Đây là quy trình làm việc được ưu tiên khi slide nguồn phải trông giống hệt ở nơi đích. Chỉ sao chép nội dung lên một master đích không liên quan có thể thay đổi màu, phông chữ, nền và hiệu ứng dựa trên chủ đề.
+Đây là quy trình làm việc được khuyến nghị khi slide nguồn cần hiển thị giống hệt trong bản đích. Chỉ sao chép nội dung lên một master đích không liên quan có thể làm thay đổi các màu, phông chữ, nền và hiệu ứng dựa trên chủ đề.
 
-### **Áp dụng Giá trị Chủ đề cho Một Slide hiện có**
+### **Áp dụng Giá trị Chủ đề cho Slide hiện có**
 
-Nếu slide đích phải ở lại master và layout hiện tại, khởi tạo một ghi đè ở mức slide từ chủ đề nguồn. Các phương thức [OverrideTheme.InitColorSchemeFrom](https://reference.aspose.com/slides/vi/net/aspose.slides.theme/overridetheme/initcolorschemefrom/), [OverrideTheme.InitFontSchemeFrom](https://reference.aspose.com/slides/vi/net/aspose.slides.theme/overridetheme/initfontschemefrom/) và [OverrideTheme.InitFormatSchemeFrom](https://reference.aspose.com/slides/vi/net/aspose.slides.theme/overridetheme/initformatschemefrom/) sao chép ba thành phần chính của chủ đề vào ghi đè.
+Nếu slide đích phải giữ master và layout hiện tại, hãy khởi tạo một ghi đè cấp slide từ chủ đề nguồn. Các phương thức [OverrideTheme.InitColorSchemeFrom](https://reference.aspose.com/slides/vi/net/aspose.slides.theme/overridetheme/initcolorschemefrom/), [OverrideTheme.InitFontSchemeFrom](https://reference.aspose.com/slides/vi/net/aspose.slides.theme/overridetheme/initfontschemefrom/) và [OverrideTheme.InitFormatSchemeFrom](https://reference.aspose.com/slides/vi/net/aspose.slides.theme/overridetheme/initformatschemefrom/) sao chép ba thành phần chính của chủ đề vào ghi đè.
 
 ```csharp
 using Aspose.Slides;
@@ -320,11 +317,11 @@ overrideTheme.InitFormatSchemeFrom(source.MasterTheme.FormatScheme);
 target.Save("theme-applied-to-slide.pptx", SaveFormat.Pptx);
 ```
 
-Điều này thay đổi chủ đề được sử dụng bởi slide đó mà không ảnh hưởng tới chủ đề kế thừa của các slide khác. Để xóa ghi đè cục bộ và quay lại các giá trị kế thừa, gọi [OverrideTheme.Clear](https://reference.aspose.com/slides/vi/net/aspose.slides.theme/overridetheme/clear/).
+Điều này thay đổi chủ đề được slide sử dụng mà không ảnh hưởng tới chủ đề kế thừa của các slide khác. Để xóa ghi đè cục bộ và quay lại giá trị kế thừa, gọi [OverrideTheme.Clear](https://reference.aspose.com/slides/vi/net/aspose.slides.theme/overridetheme/clear/).
 
-### **Áp dụng Ghi đè Chủ đề cho Một Layout**
+### **Áp dụng Ghi đè Chủ đề cho Layout**
 
-Một ghi đè ở mức layout áp dụng cho các slide sử dụng layout đó, trừ khi một slide cụ thể có ghi đè riêng. Các phương thức khởi tạo tương tự có thể được sử dụng qua [LayoutSlideThemeManager](https://reference.aspose.com/slides/vi/net/aspose.slides.theme/layoutslidethememanager/) của layout:
+Một ghi đè cấp layout áp dụng cho các slide sử dụng layout đó, trừ khi một slide cụ thể có ghi đè riêng. Các phương thức khởi tạo tương tự có thể được dùng thông qua [LayoutSlideThemeManager](https://reference.aspose.com/slides/vi/net/aspose.slides.theme/layoutslidethememanager/) của layout:
 
 ```csharp
 using Aspose.Slides;
@@ -342,17 +339,17 @@ overrideTheme.InitFormatSchemeFrom(source.MasterTheme.FormatScheme);
 target.Save("theme-applied-to-layout.pptx", SaveFormat.Pptx);
 ```
 
-Sử dụng một chủ đề ở mức master hoặc bản trình chiếu khi nhiều layout và slide nên chia sẻ cùng một thiết kế cơ bản, sử dụng ghi đè layout khi một nhóm layout cần kiểu dáng khác, và sử dụng ghi đè slide chỉ cho các trường hợp ngoại lệ thực sự. Việc ghi đè quá nhiều ở mức slide làm cho các thay đổi chủ đề toàn cục sau này khó dự đoán.
+Hãy dùng một chủ đề cấp master hoặc presentation khi nhiều layout và slide cần chia sẻ cùng một thiết kế nền, dùng ghi đè layout khi một nhóm layout cần kiểu dáng khác, và dùng ghi đè slide chỉ cho các ngoại lệ thực sự. Quá nhiều ghi đè slide sẽ làm cho các thay đổi chủ đề toàn cục sau này khó dự đoán.
 
-## **Cập nhật Kiểu nền Chủ đề**
+## **Cập nhật Kiểu Nền Chủ đề**
 
-Các màu nền của chủ đề được lưu trong [FormatScheme.BackgroundFillStyles](https://reference.aspose.com/slides/vi/net/aspose.slides.theme/formatscheme/backgroundfillstyles/). PowerPoint có thể hiển thị nhiều lựa chọn nền hơn trong giao diện người dùng so với số lượng định nghĩa màu nền thực tế trong bộ sưu tập này vì UI có thể kết hợp màu nền chủ đề với màu chủ đề và các tham chiếu kiểu khác.
+Các màu nền chủ đề được lưu trong [FormatScheme.BackgroundFillStyles](https://reference.aspose.com/slides/vi/net/aspose.slides.theme/formatscheme/backgroundfillstyles/). PowerPoint có thể hiển thị nhiều lựa chọn nền hơn trong giao diện người dùng so với số lượng định nghĩa màu nền thực tế trong bộ sưu tập này vì giao diện có thể kết hợp màu nền chủ đề với màu chủ đề và các tham chiếu kiểu khác.
 
-![Bộ sưu tập kiểu nền PowerPoint cho một chủ đề bản trình chiếu](presentation-design_8.png)
+![PowerPoint background style gallery for a presentation theme](presentation-design_8.png)
 
-Trước khi sử dụng một kiểu nền, hãy kiểm tra bộ sưu tập đã lưu và thuộc tính [Background.StyleIndex](https://reference.aspose.com/slides/vi/net/aspose.slides/background/styleindex/) hiện tại. `StyleIndex` dùng `0` để biểu thị không có màu nền chủ đề; các giá trị dương là các tham chiếu kiểu nền chủ đề. Điều này khác với việc đánh chỉ mục bộ sưu tập .NET trực tiếp, trong đó `[0]` có nghĩa là mục đầu tiên. Đừng giả định rằng mọi bản trình chiếu đều chứa cùng số lượng kiểu nền.
+Trước khi sử dụng một kiểu nền, hãy kiểm tra bộ sưu tập đã lưu và thuộc tính [Background.StyleIndex](https://reference.aspose.com/slides/vi/net/aspose.slides/background/styleindex/) hiện tại. `StyleIndex` dùng giá trị `0` cho không có màu nền chủ đề; các giá trị dương là các tham chiếu kiểu nền chủ đề. Điều này khác với việc chỉ mục bộ sưu tập .NET trực tiếp, trong đó `[0]` nghĩa là mục đầu tiên được lưu. Đừng giả định rằng mọi bản trình chiếu đều có cùng số lượng kiểu nền.
 
-Ví dụ sau báo cáo số lượng màu nền có sẵn, gán một tham chiếu nền chủ đề cho master đầu tiên, và lưu bản trình chiếu:
+Ví dụ dưới đây báo cáo số lượng màu nền có sẵn, gán một tham chiếu nền chủ đề cho master đầu tiên và lưu bản trình chiếu:
 
 ```csharp
 using System;
@@ -374,29 +371,25 @@ presentation.Masters[0].Background.StyleIndex = 1;
 presentation.Save("theme-background.pptx", SaveFormat.Pptx);
 ```
 
-Kết quả hiển thị phụ thuộc vào mục chủ đề được master tham chiếu và bất kỳ ghi đè nền nào ở mức layout hoặc slide. Nếu một slide sử dụng nền riêng, việc chỉ thay đổi nền master có thể không ảnh hưởng tới slide đó. Hãy dùng [Background.GetEffective](https://reference.aspose.com/slides/vi/net/aspose.slides/background/geteffective/) khi bạn cần biết nền cuối cùng sau khi đã áp dụng kế thừa.
+Kết quả hiển thị phụ thuộc vào mục nhập chủ đề được master tham chiếu và bất kỳ ghi đè nền nào ở cấp layout hoặc slide. Nếu một slide sử dụng nền riêng, việc chỉ thay đổi nền master có thể không làm thay đổi slide đó. Hãy dùng [Background.GetEffective](https://reference.aspose.com/slides/vi/net/aspose.slides/background/geteffective/) khi bạn cần biết nền cuối cùng sau khi đã áp dụng kế thừa.
 
 {{% alert color="warning" title="Cảnh báo" %}}
-
-Đừng xem `StyleIndex` như một chỉ số bộ sưu tập bắt đầu từ 0. Cũng tránh việc mã cứng một số kiểu từ một tệp và cho rằng nó sẽ có cùng giao diện trong tệp khác; các định nghĩa kiểu chủ đề là riêng biệt cho mỗi bản trình chiếu.
-
+Đừng xem `StyleIndex` như một chỉ mục bộ sưu tập bắt đầu từ 0. Cũng tránh việc mã hóa cứng một số kiểu từ một tệp và giả định nó sẽ có cùng diện mạo trong tệp khác; các định nghĩa kiểu chủ đề là riêng cho mỗi bản trình chiếu.
 {{% /alert %}}
 
 {{% alert color="info" title="Mẹo" %}}
-
 Đối với định dạng nền trực tiếp và kế thừa nền, xem [Presentation Background](/slides/vi/net/presentation-background/).
-
 {{% /alert %}}
 
 ## **Cập nhật Hiệu ứng Chủ đề**
 
-Một lược đồ định dạng chủ đề chứa các bộ sưu tập riêng biệt [FillStyles](https://reference.aspose.com/slides/vi/net/aspose.slides.theme/formatscheme/fillstyles/), [LineStyles](https://reference.aspose.com/slides/vi/net/aspose.slides.theme/formatscheme/linestyles/) và [EffectStyles](https://reference.aspose.com/slides/vi/net/aspose.slides.theme/formatscheme/effectstyles/). Các chủ đề Office điển hình thường chứa ba mục kiểu chính tương ứng với định dạng nhẹ, trung bình và mạnh, nhưng mã nên kiểm tra từng bộ sưu tập thay vì giả định số lượng cố định.
+Một scheme định dạng chủ đề chứa các bộ sưu tập riêng biệt [FillStyles](https://reference.aspose.com/slides/vi/net/aspose.slides.theme/formatscheme/fillstyles/), [LineStyles](https://reference.aspose.com/slides/vi/net/aspose.slides.theme/formatscheme/linestyles/) và [EffectStyles](https://reference.aspose.com/slides/vi/net/aspose.slides.theme/formatscheme/effectstyles/). Các chủ đề Office thường có ba mục kiểu chính tương ứng với kiểu nhẹ, trung bình và mạnh, nhưng mã nên kiểm tra từng bộ sưu tập thay vì giả định số lượng cố định.
 
-![Hiệu ứng chủ đề nhẹ, trung bình và mạnh được áp dụng cho cùng một hình dạng](presentation-design_10.png)
+![Subtle, moderate, and intense theme effects applied to the same shape](presentation-design_10.png)
 
-Khi truy cập các bộ sưu tập này trong C#, chỉ mục bộ sưu tập bắt đầu từ 0: `[0]` là kiểu đầu tiên được lưu và `[2]` là kiểu thứ ba. Các chỉ mục tham chiếu kiểu của hình dạng là một khái niệm riêng, được mở rộng qua [IShapeStyle](https://reference.aspose.com/slides/vi/net/aspose.slides/ishapestyle/). Thay đổi một kiểu chủ đề sẽ ảnh hưởng tới các hình dạng tham chiếu kiểu đó; các hình dạng có định dạng trực tiếp có thể không thay đổi.
+Khi truy cập các bộ sưu tập này trong C#, chỉ mục bộ sưu tập bắt đầu từ 0: `[0]` là kiểu đầu tiên lưu và `[2]` là kiểu thứ ba. Các chỉ mục tham chiếu kiểu của hình dạng là một khái niệm riêng, được biểu thị qua [IShapeStyle](https://reference.aspose.com/slides/vi/net/aspose.slides/ishapestyle/). Thay đổi một kiểu chủ đề sẽ ảnh hưởng tới các hình dạng tham chiếu kiểu đó; các hình dạng có định dạng trực tiếp có thể không thay đổi.
 
-Ví dụ sau kiểm tra sự tồn tại của các mục kiểu cần thiết, thay đổi kiểu đường kẻ đầu tiên, thay đổi kiểu màu nền thứ ba, bật bóng đổ ngoài cho kiểu hiệu ứng thứ ba, và lưu kết quả:
+Ví dụ dưới đây kiểm tra sự tồn tại của các mục kiểu cần thiết, thay đổi kiểu đường nét đầu tiên, thay đổi kiểu màu nền thứ ba, bật bóng đổ bên ngoài trong kiểu hiệu ứng thứ ba và lưu kết quả:
 
 ```csharp
 using System;
@@ -422,15 +415,94 @@ formatScheme.EffectStyles[2].EffectFormat.OuterShadowEffect.Distance = 10f;
 presentation.Save("theme-effects.pptx", SaveFormat.Pptx);
 ```
 
-Đối với các hình dạng tham chiếu các vị trí này, kiểu đường kẻ chủ đề đầu tiên sẽ trở thành màu đỏ, kiểu màu nền chủ đề thứ ba sẽ trở thành màu xanh rừng đặc, và kiểu hiệu ứng thứ ba sẽ có bóng đổ ngoài với khoảng cách 10 điểm. Kết quả hình ảnh cuối cùng vẫn phụ thuộc vào việc mỗi hình dạng tham chiếu vị trí kiểu nào và liệu định dạng trực tiếp có ghi đè chủ đề hay không.
+Đối với các hình dạng tham chiếu các vị trí này, kiểu đường nét chủ đề đầu tiên sẽ trở thành màu đỏ, kiểu màu nền chủ đề thứ ba sẽ trở thành màu xanh rừng đặc, và kiểu hiệu ứng thứ ba sẽ có một bóng đổ bên ngoài với khoảng cách 10 điểm. Kết quả hình ảnh cuối cùng vẫn phụ thuộc vào mỗi hình dạng tham chiếu vị trí nào và liệu định dạng trực tiếp có ghi đè lên chủ đề hay không.
 
-![Các kiểu hiệu ứng chủ đề sau khi thay đổi đường kẻ, màu nền và cài đặt bóng đổ](presentation-design_11.png)
+![Theme effect styles after changing line, fill, and shadow settings](presentation-design_11.png)
 
-## **Đọc Các Giá trị Chủ đề Thực tế**
+## **Xác định liệu Màu Đầy Đặc Ràng hiệu quả có sử dụng Màu Chủ đề hay không**
 
-Các đối tượng chủ đề thô cho bạn biết những gì được định nghĩa ở mức độ cụ thể. Các giá trị thực tế cho bạn biết slide hoặc hình dạng thực sự sử dụng gì sau khi kế thừa và ghi đè đã được giải quyết. Đối với một slide, gọi [BaseOverrideThemeManager.CreateThemeEffective](https://reference.aspose.com/slides/vi/net/aspose.slides.theme/baseoverridethememanager/createthemeeffective/). Đối với nền, dùng [Background.GetEffective](https://reference.aspose.com/slides/vi/net/aspose.slides/background/geteffective/), và đối với màu nền, dùng [FillFormat.GetEffective](https://reference.aspose.com/slides/vi/net/aspose.slides/fillformat/geteffective/).
+Màu đầy có thể được lưu trực tiếp trên đối tượng hoặc kế thừa từ đoạn văn, layout, master, kiểu chủ đề hoặc một cấp định dạng khác. Gọi [IFillFormat.GetEffective](https://reference.aspose.com/slides/vi/net/aspose.slides/ifillformat/geteffective/) để giải quyết chuỗi này thành một đối tượng bất biến [IFillFormatEffectiveData](https://reference.aspose.com/slides/vi/net/aspose.slides/ifillformateffectivedata/). Đầu tiên kiểm tra [IFillFormatEffectiveData.FillType](https://reference.aspose.com/slides/vi/net/aspose.slides/ifillformateffectivedata/filltype/). Chỉ khi giá trị là `FillType.Solid` thì mới đọc các thuộc tính màu đầy đặc.
 
-Ví dụ sau đọc chủ đề thực tế, nền và màu nền của hình dạng đầu tiên từ một slide:
+Đối với màu đầy đặc, [IFillFormatEffectiveData.SolidFillColor](https://reference.aspose.com/slides/vi/net/aspose.slides/ifillformateffectivedata/solidfillcolor/) trả về giá trị RGB cuối cùng sau khi đã áp dụng kế thừa, tra cứu chủ đề và các phép biến đổi màu. [IFillFormatEffectiveData.SolidFillSchemeColor](https://reference.aspose.com/slides/vi/net/aspose.slides/ifillformateffectivedata/solidfillschemecolor/) trả về vị trí logic [SchemeColor](https://reference.aspose.com/slides/vi/net/aspose.slides/schemecolor/) tương ứng, chẳng hạn `Text1` hoặc `Accent6`. Giá trị `SchemeColor.NotDefined` có nghĩa là màu đầy đặc hiệu quả không dựa trên màu scheme. Trong quy trình làm việc mà màu đầy chỉ là màu chủ đề hoặc màu RGB trực tiếp, giá trị này xác định màu RGB trực tiếp.
+
+Đừng chỉ dựa vào giá trị địa phương [IColorFormat.SchemeColor](https://reference.aspose.com/slides/vi/net/aspose.slides/icolorformat/schemecolor/) để phân loại màu đầy. Ví dụ, một đoạn văn bản có thể không có màu scheme được định nghĩa cục bộ, vì vậy giá trị địa phương là `NotDefined`, trong khi màu đầy hiệu quả kế thừa từ chủ đề và trả về `Text1` hoặc `Accent6`. Ngược lại, `SolidFillSchemeColor` cho biết vị trí logic nào của chủ đề đã tạo ra màu cuối cùng, nhưng không cho biết vị trí đó đến từ đối tượng, đoạn văn, layout, master hay cấp khác.
+
+Ví dụ dưới đây tải một bản trình chiếu, kiểm tra cả màu đầy của hình dạng và của các đoạn văn bản, in mỗi giá trị RGB cuối cùng và scheme color liên quan, đồng thời đánh dấu các màu đầy đặc sẽ không theo dõi sự thay đổi màu chủ đề:
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+
+var slideCount = presentation.Slides.Count;
+for (var slideIndex = 0; slideIndex < slideCount; slideIndex++)
+{
+    var slide = presentation.Slides[slideIndex];
+
+    var shapeCount = slide.Shapes.Count;
+    for (var shapeIndex = 0; shapeIndex < shapeCount; shapeIndex++)
+    {
+        var shape = slide.Shapes[shapeIndex];
+        var shapeName = $"Slide {slideIndex + 1}, shape {shapeIndex + 1}";
+        AuditFill(shapeName, shape.FillFormat);
+
+        if (shape is IAutoShape autoShape)
+        {
+            var paragraphCount = autoShape.TextFrame.Paragraphs.Count;
+            for (var paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++)
+            {
+                var paragraph = autoShape.TextFrame.Paragraphs[paragraphIndex];
+
+                var portionCount = paragraph.Portions.Count;
+                for (var portionIndex = 0; portionIndex < portionCount; portionIndex++)
+                {
+                    var portion = paragraph.Portions[portionIndex];
+                    var portionName = $"{shapeName}, paragraph {paragraphIndex + 1}, portion {portionIndex + 1}";
+                    AuditFill(portionName, portion.PortionFormat.FillFormat);
+                }
+            }
+        }
+    }
+}
+
+static void AuditFill(string objectName, IFillFormat localFill)
+{
+    var effectiveFill = localFill.GetEffective();
+
+    if (effectiveFill.FillType != FillType.Solid)
+    {
+        Console.WriteLine($"{objectName}: fill type = {effectiveFill.FillType}; not a solid fill.");
+        return;
+    }
+
+    var rgb = effectiveFill.SolidFillColor;
+    var effectiveSchemeColor = effectiveFill.SolidFillSchemeColor;
+    var localSchemeColor = localFill.SolidFillColor.SchemeColor;
+
+    Console.WriteLine($"{objectName}: RGB = #{rgb.R:X2}{rgb.G:X2}{rgb.B:X2}");
+    Console.WriteLine($"{objectName}: local scheme = {localSchemeColor}, effective scheme = {effectiveSchemeColor}");
+
+    if (effectiveSchemeColor == SchemeColor.NotDefined)
+    {
+        Console.WriteLine($"{objectName}: direct RGB or another non-scheme fill; audit as theme-independent.");
+    }
+    else
+    {
+        Console.WriteLine($"{objectName}: theme-dependent through {effectiveSchemeColor}.");
+    }
+}
+```
+
+Nhánh `NotDefined` cung cấp danh sách kiểm tra các màu đầy đặc sẽ không phản hồi khi thay đổi vị trí màu chủ đề. Hãy xem xét các đối tượng này khi bản trình chiếu phải tuân theo bảng màu thương hiệu mới. Giá trị RGB được báo cáo vẫn hiển thị diện mạo hiện tại, trong khi giá trị scheme giải thích liệu diện mạo đó có liên kết với chủ đề hay không.
+
+Các đối tượng định dạng hiệu quả là ảnh chụp nhanh. Sau khi thay đổi chủ đề bản trình chiếu, ghi đè chủ đề hoặc bất kỳ định dạng kế thừa nào, hãy gọi lại `GetEffective` và đọc một đối tượng `IFillFormatEffectiveData` mới trước khi so sánh hoặc báo cáo màu.
+
+## **Đọc Các Giá trị Chủ đề Hiệu quả**
+
+Các đối tượng chủ đề thô cho bạn biết gì đã được định nghĩa ở một cấp nhất định. Các giá trị hiệu quả cho bạn biết slide hoặc hình dạng thực sự sử dụng gì sau khi đã giải quyết kế thừa và ghi đè cục bộ. Đối với một slide, gọi [BaseOverrideThemeManager.CreateThemeEffective](https://reference.aspose.com/slides/vi/net/aspose.slides.theme/baseoverridethememanager/createthemeeffective/). Đối với nền, dùng [Background.GetEffective](https://reference.aspose.com/slides/vi/net/aspose.slides/background/geteffective/), và đối với màu đầy, dùng [FillFormat.GetEffective](https://reference.aspose.com/slides/vi/net/aspose.slides/fillformat/geteffective/).
+
+Ví dụ dưới đây đọc chủ đề hiệu quả, nền và màu đầy của hình dạng đầu tiên từ một slide:
 
 ```csharp
 using System;
@@ -456,22 +528,22 @@ if (slide.Shapes.Count > 0)
 }
 ```
 
-Sử dụng dữ liệu thực tế cho chẩn đoán render, xác thực và so sánh. Nếu bạn chỉ kiểm tra [Presentation.MasterTheme](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/mastertheme/), bạn có thể bỏ lỡ một ghi đè ở master, layout, slide hoặc hình dạng thay đổi giao diện cuối cùng.
+Sử dụng dữ liệu hiệu quả cho chẩn đoán hiển thị, xác thực và so sánh. Nếu bạn chỉ kiểm tra [Presentation.MasterTheme](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/mastertheme/), bạn có thể bỏ qua các ghi đè của master, layout, slide hoặc hình dạng thay đổi diện mạo cuối cùng.
 
 ## **Câu hỏi thường gặp**
 
-**Việc áp dụng một chủ đề bên ngoài có ảnh hưởng tới mọi slide trong bản trình chiếu không?**
+**Áp dụng một chủ đề bên ngoài có ảnh hưởng tới mọi slide trong bản trình chiếu không?**
 
-Không. [IMasterSlide.ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/vi/net/aspose.slides/imasterslide/applyexternalthemetodependingslides/) chỉ gán lại những slide phụ thuộc vào master đã chọn. Các slide sử dụng các master khác vẫn giữ nguyên chủ đề hiện tại.
+Không. [IMasterSlide.ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/vi/net/aspose.slides/imasterslide/applyexternalthemetodependingslides/) chỉ gán lại các slide phụ thuộc vào master đã chọn. Các slide sử dụng master khác giữ nguyên các chủ đề hiện có.
 
 **Tôi có thể áp dụng một chủ đề cho một slide duy nhất mà không thay đổi master không?**
 
-Có. Dùng [SlideThemeManager](https://reference.aspose.com/slides/vi/net/aspose.slides.theme/slidethememanager/) của slide và khởi tạo ghi đè chủ đề của nó. Thay đổi sẽ chỉ áp dụng cục bộ cho slide đó; các slide khác vẫn kế thừa chủ đề hiện có.
+Có. Sử dụng [SlideThemeManager](https://reference.aspose.com/slides/vi/net/aspose.slides.theme/slidethememanager/) của slide và khởi tạo ghi đè chủ đề cho nó. Thay đổi sẽ chỉ áp dụng cho slide đó; các slide khác vẫn kế thừa chủ đề hiện tại.
 
 **Cách an toàn nhất để chuyển một chủ đề từ bản trình chiếu này sang bản trình chiếu khác là gì?**
 
-Khi di chuyển một slide và muốn bảo tồn giao diện nguồn, sao chép master nguồn vào bản trình chiếu đích bằng [IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/vi/net/aspose.slides/imasterslidecollection/addclone/) và sao chép slide cùng master đã sao chép bằng [ISlideCollection.AddClone](https://reference.aspose.com/slides/vi/net/aspose.slides/islidecollection/addclone/). Điều này giữ nguyên master, layout và chủ đề cùng nhau.
+Khi di chuyển một slide và muốn giữ nguyên diện mạo nguồn, sao chép master nguồn vào đích và sao chép slide cùng master đó bằng [IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/vi/net/aspose.slides/imasterslidecollection/addclone/) và [ISlideCollection.AddClone](https://reference.aspose.com/slides/vi/net/aspose.slides/islidecollection/addclone/). Điều này giữ nguyên master, layout và chủ đề cùng nhau.
 
-**Làm sao tôi có thể xem các giá trị thực tế sau khi kế thừa và ghi đè?**
+**Làm sao tôi có thể xem các giá trị hiệu quả sau khi kế thừa và ghi đè?**
 
-Sử dụng [BaseOverrideThemeManager.CreateThemeEffective](https://reference.aspose.com/slides/vi/net/aspose.slides.theme/baseoverridethememanager/createthemeeffective/) cho một slide hoặc layout và các phương thức dữ liệu thực tế tương ứng cho các đối tượng định dạng như [Background.GetEffective](https://reference.aspose.com/slides/vi/net/aspose.slides/background/geteffective/) và [FillFormat.GetEffective](https://reference.aspose.com/slides/vi/net/aspose.slides/fillformat/geteffective/). Các API này trả về các giá trị đã được giải quyết sau khi áp dụng kế thừa và ghi đè.
+Sử dụng [BaseOverrideThemeManager.CreateThemeEffective](https://reference.aspose.com/slides/vi/net/aspose.slides.theme/baseoverridethememanager/createthemeeffective/) cho một slide hoặc layout và các phương thức dữ liệu‑hiệu quả tương ứng cho các đối tượng định dạng như [Background.GetEffective](https://reference.aspose.com/slides/vi/net/aspose.slides/background/geteffective/) và [FillFormat.GetEffective](https://reference.aspose.com/slides/vi/net/aspose.slides/fillformat/geteffective/). Những API này trả về các giá trị đã được giải quyết sau khi áp dụng kế thừa và ghi đè.

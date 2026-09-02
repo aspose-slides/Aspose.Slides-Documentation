@@ -1,5 +1,5 @@
 ---
-title: Presentatiethema's beheren op Android
+title: Beheer presentatiethema's op Android
 linktitle: Presentatiethema
 type: docs
 weight: 10
@@ -14,33 +14,33 @@ keywords:
 - extern thema
 - THMX
 - themakleur
-- extra palet
-- themalettertype
+- aanvullend palet
+- thema-lettertype
 - themastijl
-- thema-effect
+- themaeffect
 - PowerPoint
 - OpenDocument
 - presentatie
 - Android
 - Java
 - Aspose.Slides
-description: "Hoofdpresentatiethema's in Aspose.Slides voor Android via Java om PowerPoint-bestanden te maken, aan te passen en te converteren met consistente branding."
+description: "Beheer master-presentatiethema's in Aspose.Slides voor Android via Java om PowerPoint-bestanden te maken, aan te passen en te converteren met consistente branding."
 ---
-## **Introductie**
+## **Inleiding**
 
-Een presentatiethema definieert een gecoördineerde set van kleuren, lettertypes, achtergrondstijlen, vullingen, lijnen en effecten. Thema‑bewuste objecten verwijzen naar deze gedeelde definities in plaats van elke visuele eigenschap als een vaste waarde op te slaan, zodat een themawijziging veel objecten in één keer kan bijwerken.
+Een presentatiethema definieert een gecoördineerde reeks kleuren, lettertypen, achtergrondstijlen, vullingen, lijnen en effecten. Thema‑bewuste objecten verwijzen naar deze gedeelde definities in plaats van elke visuele eigenschap als een vaste waarde op te slaan, zodat een thema‑wijziging veel objecten tegelijk kan bijwerken.
 
-In Aspose.Slides is het thema op presentatieniveau beschikbaar via [Presentation.getMasterTheme](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentation/). Een presentatie kan ook themabijstellingen bevatten op lagere niveaus. Een master kan het presentatiethema overschrijven via [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/masterthememanager/), terwijl een lay‑out of een individuele dia haar geërfde thema kan overschrijven via [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/baseoverridethememanager/). In de praktijk wordt het effectieve thema voor een dia opgelost via deze erfketen: presentatiethema, master‑override, lay‑out‑override en dia‑override.
+In Aspose.Slides is het thema op presentatieniveau beschikbaar via [Presentation.getMasterTheme](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentation/). Een presentatie kan ook themaanse overschrijvingen op lagere niveaus bevatten. Een master kan het presentatiethema overschrijven via [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/masterthememanager/), terwijl een lay‑out of een individuele dia zijn geërfde thema kan overschrijven via [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/baseoverridethememanager/). In de praktijk wordt het effectieve thema voor een dia bepaald via deze erfketen: presentatiethema, master‑overschrijving, lay‑out‑overschrijving en dia‑overschrijving.
 
-![Thema‑componenten: kleuren, lettertypes, achtergrondstijlen en effecten](theme-constituents.png)
+![Themacomponenten: kleuren, lettertypen, achtergrondstijlen en effecten](theme-constituents.png)
 
-De onderstaande secties tonen de meest voorkomende thema‑werkstromen: een thema inspecteren, kleuren en lettertypes wijzigen, een thema kopiëren of toepassen, achtergrond‑ en effectstijlen bijwerken, en effectieve waarden lezen nadat erf‑ en overschrijvingsinstellingen zijn toegepast.
+De onderstaande secties tonen de meest voorkomende themaworkflows: inspecteer een thema, wijzig kleuren en lettertypen, kopieer of pas een thema toe, werk achtergrond‑ en effectstijlen bij, en lees effectieve waarden nadat erf‑ en overschrijvingsregels zijn toegepast.
 
-## **Een thema inspecteren**
+## **Inspecteer een thema**
 
-Het [MasterTheme](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/mastertheme/) object maakt het kleurschema, lettertypeschema en formatschema van het thema beschikbaar via [MasterTheme.getColorScheme](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/mastertheme/), en [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/mastertheme/). Het inspecteren van deze collecties voordat ze gewijzigd worden is bijzonder nuttig wanneer een presentatie afkomstig is uit een externe bron, omdat het aantal en de inhoud van stijl‑items kan variëren.
+Het [MasterTheme](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/mastertheme/)‑object maakt de kleurschema‑, lettertypeschema‑ en formatschema‑definities van het thema beschikbaar via [MasterTheme.getColorScheme](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/mastertheme/) en [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/mastertheme/). Het inspecteren van deze collecties voordat ze worden gewijzigd is vooral nuttig wanneer een presentatie uit een externe bron komt, omdat het aantal en de inhoud van stijl‑items kunnen variëren.
 
-Het volgende voorbeeld leest de hoofd‑themagegevens en meldt hoeveel achtergrond‑, vul‑, lijn‑ en effectstijlen er in het thema zijn opgeslagen:
+Het volgende voorbeeld leest de belangrijkste themaeigenschappen en meldt hoeveel achtergrond‑, vul‑, lijn‑ en effectstijlen in het thema zijn opgeslagen:
 
 ```java
 import com.aspose.slides.*;
@@ -63,13 +63,13 @@ try {
 }
 ```
 
-Als een bestand meerdere masters gebruikt, ga er dan niet van uit dat elke dia hetzelfde effectieve thema heeft. Inspecteer de master die aan de dia is gekoppeld en gebruik de effectieve‑thema‑werkstroom die later in dit artikel wordt getoond wanneer lay‑out‑ of dia‑overschrijvingen aanwezig kunnen zijn.
+Als een bestand meerdere masters gebruikt, ga er dan niet van uit dat elke dia hetzelfde effectieve thema heeft. Inspecteer de master die bij de dia hoort, en gebruik de effectieve‑thema‑workflow die later in dit artikel wordt getoond wanneer er lay‑out‑ of dia‑overschrijvingen aanwezig kunnen zijn.
 
-## **Themakleuren wijzigen**
+## **Thema‑kleuren wijzigen**
 
-Thema‑bewuste vullingen, lijnen en tekst kunnen verwijzen naar een logische kleur uit de [SchemeColor](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/schemecolor/) opsomming. Wanneer je het overeenkomstige item in de [IColorScheme](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/icolorscheme/) wijzigt, worden alle objecten die nog naar die themakleur verwijzen, afgeleid van de nieuwe waarde. Objecten die een directe RGB‑kleur gebruiken, worden niet aangepast door een thema‑kleurupdate.
+Thema‑bewuste vullingen, lijnen en tekst kunnen verwijzen naar een logische kleur uit de enumeratie [SchemeColor](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/schemecolor/). Wanneer u het overeenkomstige item in de [IColorScheme](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/icolorscheme/) wijzigt, worden alle objecten die nog steeds naar die themakleur verwijzen, op basis van de nieuwe waarde bijgewerkt. Objecten die een directe RGB‑kleur gebruiken, worden niet veranderd door een thema‑kleurupdate.
 
-Het volgende end‑to‑end voorbeeld maakt een vorm die `Accent4` gebruikt, wijzigt de thema‑kleur `Accent4` naar rood, slaat de presentatie op, opent deze opnieuw en drukt de effectieve vulkleur af:
+Het volgende end‑to‑end‑voorbeeld maakt een vorm die `Accent4` gebruikt, wijzigt de themakleur `Accent4` naar rood, slaat de presentatie op, opent deze opnieuw en drukt de effectieve vulkleur af:
 
 ```java
 import com.aspose.slides.*;
@@ -99,18 +99,18 @@ try {
 }
 ```
 
-Omdat het rechthoekje gekoppeld blijft aan `Accent4`, wordt de zichtbare kleur rood nadat het thema is gewijzigd. Als je de schema‑kleur vervangt door een directe kleur op de vorm, zullen latere wijzigingen aan `Accent4` die vul niet meer beïnvloeden.
+Omdat het rechthoek nog steeds gekoppeld is aan `Accent4`, wordt de zichtbare kleur rood nadat het thema is gewijzigd. Als u de schematische kleur vervangt door een directe kleur op de vorm, dan zullen latere wijzigingen aan `Accent4` die vulkleur niet meer beïnvloeden.
 
-### **Kleuren uit het extra palet gebruiken**
+### **Gebruik kleuren uit het aanvullende palet**
 
-PowerPoint haalt lichtere en donkerdere varianten af van een themakleur door kleurtransformaties toe te passen. Aspose.Slides maakt deze transformaties beschikbaar via de [ColorTransformOperation](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/colortransformoperation/) opsomming.
+PowerPoint maakt lichtere en donkerdere varianten van een themakleur door kle Transformaties toe te passen. Aspose.Slides maakt deze transformaties beschikbaar via de enumeratie [ColorTransformOperation](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/colortransformoperation/).
 
-![Hoofdkleuren van het thema en lichtere en donkerdere kleuren gegenereerd uit het extra palet](additional-palette-colors.png)
+![Hoofdkleuren van het thema en lichtere en donkerdere kleuren gegenereerd uit het aanvullende palet](additional-palette-colors.png)
 
 **1** – Hoofdkleuren van het thema.  
-**2** – Lichtere en donkerdere varianten afgeleid van de hoofdkleuren van het thema.
+**2** – Lichtere en donkerdere varianten die zijn geproduceerd uit de hoofdkleuren van het thema.
 
-Het volgende voorbeeld maakt zes rechthoeken gebaseerd op `Accent4`, past luminantietransformaties toe op vijf ervan en slaat het resultaat op:
+Het volgende voorbeeld maakt zes rechthoeken op basis van `Accent4`, past luminantie‑transformaties toe op vijf ervan, en slaat het resultaat op:
 
 ```java
 import com.aspose.slides.*;
@@ -159,29 +159,29 @@ try {
 
 Deze varianten blijven gebaseerd op de themakleur. Als `Accent4` later verandert, worden de getransformeerde kleuren opnieuw berekend op basis van de nieuwe `Accent4`‑waarde.
 
-### **`SchemeColor`‑waarden toewijzen aan `IColorScheme`‑posities**
+### **Map `SchemeColor`‑waarden naar `IColorScheme`‑slots**
 
-De [SchemeColor](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/schemecolor/) opsomming gebruikt `Text1`, `Background1`, `Text2` en `Background2`, terwijl de [IColorScheme](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/icolorscheme/) dezelfde themaposities blootlegt als `Dark1`, `Light1`, `Dark2` en `Light2`. De toewijzing is vast:
+De enumeratie [SchemeColor](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/schemecolor/) gebruikt `Text1`, `Background1`, `Text2` en `Background2`, terwijl de [IColorScheme](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/icolorscheme/) dezelfde themaslots exposeert als `Dark1`, `Light1`, `Dark2` en `Light2`. De toewijzing is vast:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-Dit zijn alternatieve namen voor dezelfde themaposities; het zijn geen waarden die dynamisch van de ene vorm naar de andere worden omgezet.
+Dit zijn alternatieve namen voor dezelfde themaslots; ze zijn geen waarden die dynamisch van de ene vorm naar de andere worden geconverteerd.
 
-## **Thema‑lettertypes wijzigen**
+## **Thema‑lettertypen wijzigen**
 
-Een thema‑lettertypeschema bevat een hoofd‑lettertype‑set voor kopteksten en een secundaire lettertype‑set voor de hoofdtekst. De methoden [IFontScheme.getMajor](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ifontscheme/) en [IFontScheme.getMinor](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ifontscheme/) geven die sets bloot.
+Een themaletterschema bevat een hoofdlettertype‑set voor koppen en een secundaire lettertype‑set voor body‑tekst. De methoden [IFontScheme.getMajor](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ifontscheme/) en [IFontScheme.getMinor](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ifontscheme/) geven die sets bloot.
 
-PowerPoint‑compatibele thema‑lettertype‑identifiers kunnen worden gebruikt in tekstopmaak:
+PowerPoint‑compatibele thema‑lettertype‑identifiers kunnen in tekstopmaak worden gebruikt:
 
-* `+mn-lt` – Body‑lettertype Latin (Secundair Latin lettertype)
-* `+mj-lt` – Koptekst‑lettertype Latin (Hoofd‑Latin lettertype)
-* `+mn-ea` – Body‑lettertype Oost‑Azië (Secundair Oost‑Aziatisch lettertype)
-* `+mj-ea` – Koptekst‑lettertype Oost‑Azië (Hoofd‑Oost‑Aziatisch lettertype)
+* `+mn‑lt` – Body‑lettertype Latin (Minor Latin Font)
+* `+mj‑lt` – Kop‑lettertype Latin (Major Latin Font)
+* `+mn‑ea` – Body‑lettertype East Asian (Minor East Asian Font)
+* `+mj‑ea` – Kop‑lettertype East Asian (Major East Asian Font)
 
-Het volgende voorbeeld maakt één koptekst die het hoofd‑Latin thema‑lettertype gebruikt en één lichaamsregel die het secundair Latin thema‑lettertype gebruikt. Daarna wijzigt het de thema‑lettertypes en slaat het resultaat op:
+Het volgende voorbeeld maakt één kop die het hoofd‑Latin‑themalettertype gebruikt en één body‑regel die het secundaire Latin‑themalettertype gebruikt. Vervolgens worden de thema‑lettertypen gewijzigd en wordt het resultaat opgeslagen:
 
 ```java
 import com.aspose.slides.*;
@@ -206,30 +206,30 @@ try {
 }
 ```
 
-De koptekst volgt het hoofdlettertype en de hoofdtekst volgt het secundaire lettertype. Tekst die een expliciete lettertype‑naam heeft in plaats van een thema‑identificator, zal niet automatisch veranderen wanneer het thema‑lettertypeschema wijzigt.
+De kop volgt het hoofdlettertype en de body‑tekst volgt het secundaire lettertype. Tekst die een expliciete lettertype‑naam heeft in plaats van een thema‑identifier, zal niet automatisch omschakelen wanneer het thema‑lettertypeschema verandert.
 
-De hoofd‑ en secundaire lettertype‑collecties kunnen ook lettertype‑toewijzingen bevatten voor individuele schrijfsystemen, zoals Cyrillisch, Arabisch, Japans, Georgiaans en Thaana. Voor het inspecteren, toevoegen, vervangen of verwijderen van deze toewijzingen, zie [Script‑Specific Theme Fonts](/slides/nl/androidjava/script-specific-font-mappings/).
+De hoofd‑ en secundaire lettertype‑collecties kunnen ook lettertype‑toewijzingen bevatten voor individuele schrijfsystemen, zoals Cyrillic, Arabisch, Japans, Georgisch en Thaana. Om deze toewijzingen te inspecteren, toe te voegen, te vervangen of te verwijderen, zie [Script‑Specific Theme Fonts](/slides/nl/androidjava/script-specific-font-mappings/).
 
 {{% alert color="info" title="Tip" %}}
-Voor meer informatie over presentatieteksten, zie [PowerPoint Fonts](/slides/nl/androidjava/powerpoint-fonts/).
+Voor meer informatie over presentatietekst, zie [PowerPoint Fonts](/slides/nl/androidjava/powerpoint-fonts/).
 {{% /alert %}}
 
 ## **Een thema kopiëren of toepassen**
 
-De onderstaande werkstromen lossen verschillende thema‑gerelateerde problemen op.
+De onderstaande workflows lossen verschillende thema‑gerelateerde problemen op.
 
-### **Een extern thema toepassen op dia's die afhankelijk zijn van een master**
+### **Een extern thema toepassen op dia’s die afhankelijk zijn van een master**
 
-Gebruik [IMasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imasterslide/) wanneer je een PowerPoint‑thema‑bestand (`.thmx`) hebt en elke dia die afhankelijk is van een bepaalde master opnieuw wilt opmaken. Selecteer de master uit de [Presentation.getMasters](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentation/) collectie, die [IMasterSlideCollection](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imasterslidecollection/) implementeert, en geef het pad naar het themabestand door aan de methode.
+Gebruik [IMasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imasterslide/) wanneer u een PowerPoint‑themabestand (`.thmx`) heeft en elke dia die afhankelijk is van een bepaalde master wilt herstylen. Selecteer de master uit de collectie [Presentation.getMasters](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentation/), die een [IMasterSlideCollection](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imasterslidecollection/) implementeert, en geef het pad van het themabestand door aan de methode.
 
 De methode voert de volgende handelingen uit:
 
-1. Maakt een nieuwe master‑dia aan op basis van de geselecteerde master.  
+1. Maakt een nieuwe master‑dia op basis van de geselecteerde master.  
 2. Past het externe thema toe op de nieuwe master.  
-3. Wijs de nieuwe master toe aan alle dia's die eerder afhankelijk waren van de geselecteerde master.  
-4. Retourneert de nieuw aangemaakte [IMasterSlide](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imasterslide/).
+3. Koppelt de nieuwe master aan alle dia’s die eerder afhankelijk waren van de geselecteerde master.  
+4. Retourneert de zojuist aangemaakte [IMasterSlide](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imasterslide/).
 
-Het volgende voorbeeld past een extern thema toe op de dia's die afhankelijk zijn van de eerste master en slaat de presentatie op:
+Het volgende voorbeeld past een extern thema toe op de dia’s die afhankelijk zijn van de eerste master en slaat de presentatie op:
 
 ```java
 import com.aspose.slides.*;
@@ -246,19 +246,19 @@ try {
 }
 ```
 
-Een ongeldige, corrupte of niet‑ondersteunde themabestand kan een [PptxReadException](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/pptxreadexception/) veroorzaken. Valideer paden die door gebruikers worden opgegeven, behandel fouten bij bestandsysteemtoegang, en sla de presentatie pas op nadat het thema succesvol is toegepast.
+Een ongeldig, beschadigd of niet‑ondersteund thema kan een [PptxReadException](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/pptxreadexception/) veroorzaken. Valideer paden die door gebruikers worden opgegeven, behandel fouten bij bestands‑systeemtoegang, en sla de presentatie alleen op nadat het thema met succes is toegepast.
 
-Alleen de dia's die afhankelijk waren van de geselecteerde master worden opnieuw toegewezen. Dia's die bij andere masters horen behouden hun bestaande masters en thema's. Thema‑bewuste kleuren, lettertypes, vullingen, lijnen, achtergronden en effecten worden afgeleid van het externe thema. Direct toegewezen kleuren, lettertypes, vullingen en andere expliciete opmaak kunnen ongewijzigd blijven. Overschrijvingen op lay‑out‑ of dia‑niveau kunnen ook voorrang krijgen boven de waarden die van de nieuwe master zijn geërfd.
+Alleen de dia’s die afhankelijk waren van de geselecteerde master worden opnieuw toegewezen. Dia’s die gekoppeld zijn aan andere masters behouden hun bestaande masters en themas. Thema‑bewuste kleuren, lettertypen, vullingen, lijnen, achtergronden en effecten worden geëvalueerd tegen het externe thema. Direct toegewezen kleuren, lettertypen, vullingen en andere expliciete opmaak kunnen ongewijzigd blijven. Lay‑out‑ en dia‑overschrijvingen kunnen eveneens voorrang hebben op waarden die zijn geërfd van de nieuwe master.
 
-Het thema kan lettertypes refereren die niet beschikbaar zijn in de runtime‑omgeving. Voor consistente weergave en export, installeer de vereiste lettertypes, lever ze via [custom font sources](/slides/nl/androidjava/custom-font/), of configureer [font substitution](/slides/nl/androidjava/font-substitution/).
+Het thema kan lettertypen refereren die niet beschikbaar zijn in de runtime‑omgeving. Voor consistente weergave en export, installeer de vereiste lettertypen, lever ze via [custom font sources](/slides/nl/androidjava/custom-font/), of configureer [font substitution](/slides/nl/androidjava/font-substitution/).
 
-Dit is een directe master‑niveau werkstroom: de methode accepteert een pad naar een `.thmx`‑bestand en vereist niet dat er handmatig dia‑ of lay‑out‑thema‑overschrijvingen worden aangemaakt.
+Dit is een directe master‑level workflow: de methode accepteert een pad naar een `.thmx`‑bestand en vereist geen handmatige creatie van lay‑out‑ of dia‑thema‑overschrijvingen.
 
-### **Verschillende externe thema's toepassen in een presentatie met meerdere masters**
+### **Verschillende externe thema’s toepassen in een presentatie met meerdere masters**
 
-Wanneer de relevante master niet vooraf bekend is, verkrijg deze dan via een representatieve dia met [ISlide.getLayoutSlide](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/islide/) en [ILayoutSlide.getMasterSlide](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ilayoutslide/). Sla de oorspronkelijke master‑referenties op voordat je thema’s toepast, omdat elke aanroep een extra master in de presentatie creëert.
+Wanneer de relevante master niet van tevoren bekend is, verkrijg deze dan via een representatieve dia met [ISlide.getLayoutSlide](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/islide/) en [ILayoutSlide.getMasterSlide](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ilayoutslide/). Sla de oorspronkelijke master‑referenties op voordat u thema’s toepast, omdat elke aanroep een nieuwe master in de presentatie creëert.
 
-Het volgende voorbeeld gebruikt dia's uit twee secties om hun masters te vinden en past een verschillend extern thema toe op elke groep:
+Het volgende voorbeeld gebruikt dia’s uit twee secties om hun masters te lokaliseren en past een verschillend extern thema toe op elke groep:
 
 ```java
 import com.aspose.slides.*;
@@ -287,11 +287,11 @@ try {
 }
 ```
 
-De eerste oproep heeft alleen invloed op de dia's die afhankelijk waren van `firstGroupMaster`, en de tweede oproep heeft alleen invloed op de dia's die afhankelijk waren van `secondGroupMaster`. Dia's die bij een andere master horen, worden niet opnieuw opgemaakt.
+De eerste aanroep beïnvloedt alleen dia’s die afhankelijk waren van `firstGroupMaster`, en de tweede aanroep alleen dia’s die afhankelijk waren van `secondGroupMaster`. Dia’s die tot een andere master behoren, worden niet opnieuw gestyled.
 
-### **Een bron‑thema behouden bij het verplaatsen van dia's**
+### **Een bron‑thema behouden bij het verplaatsen van dia’s**
 
-Als je een dia naar een andere presentatie wilt verplaatsen en het oorspronkelijke ontwerp wilt behouden, kloon dan de bron‑master naar de doelpresentatie met [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imasterslidecollection/), kloon vervolgens de dia met [ISlideCollection.addClone](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/islidecollection/) en de gekloonede master. Hiermee wordt de master, de lay‑outs en het bijbehorende thema samen meegenomen.
+Wilt u een dia naar een andere presentatie verplaatsen en het oorspronkelijke ontwerp behouden, kloon dan de bron‑master in de doelpresentatie met [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imasterslidecollection/), kloon vervolgens de dia met [ISlideCollection.addClone](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/islidecollection/) en de gekloonde master. Hiermee worden de master, de lay‑outs en het bijbehorende thema samen overgebracht.
 
 ```java
 import com.aspose.slides.*;
@@ -313,11 +313,11 @@ try {
 }
 ```
 
-Dit is de voorkeur‑werkstroom wanneer de bron‑dia er in de bestemming exact hetzelfde uit moet zien. Het simpelweg klonen van inhoud naar een niet‑gerelateerde doel‑master kan thema‑gedreven kleuren, lettertypes, achtergronden en effecten wijzigen.
+Dit is de aanbevolen workflow wanneer de bron‑dia er exact hetzelfde uit moet zien in de bestemmingspresentatie. Het simpelweg klonen van de inhoud naar een niet‑gerelateerde doel‑master kan thema‑gedreven kleuren, lettertypen, achtergronden en effecten wijzigen.
 
 ### **Thema‑waarden toepassen op een bestaande dia**
 
-Als de doel‑dia op zijn huidige master en lay‑out moet blijven, initialiseert u een dia‑niveau‑overschrijving vanuit het bron‑thema. De methoden [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/overridetheme/), en [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/overridetheme/) kopiëren de drie hoofd‑thema‑componenten naar de overschrijving.
+Wanneer de doel‑dia op zijn huidige master en lay‑out moet blijven, initialiseer dan een dia‑level overschrijving vanuit het bron‑thema. De methoden [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/overridetheme/) en [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/overridetheme/) kopiëren de drie hoofd‑thema‑componenten naar de overschrijving.
 
 ```java
 import com.aspose.slides.*;
@@ -340,11 +340,11 @@ try {
 }
 ```
 
-Dit wijzigt het thema dat door die dia wordt gebruikt zonder het thema dat andere dia's erven te veranderen. Om de lokale overschrijving te verwijderen en terug te keren naar de geërfde waarden, roep [OverrideTheme.clear](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/overridetheme/) aan.
+Dit wijzigt het thema dat die dia gebruikt zonder het thema dat andere dia’s erven te wijzigen. Om de lokale overschrijving te verwijderen en terug te keren naar geërfde waarden, roep [OverrideTheme.clear](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/overridetheme/) aan.
 
 ### **Een thema‑overschrijving toepassen op een lay‑out**
 
-Een lay‑out‑niveau‑overschrijving geldt voor dia's die die lay‑out gebruiken, tenzij een specifieke dia zijn eigen overschrijving heeft. Dezelfde initialisatiemethodes kunnen worden gebruikt via de [LayoutSlideThemeManager](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/layoutslidethememanager/):
+Een lay‑out‑level overschrijving geldt voor alle dia’s die die lay‑out gebruiken, tenzij een specifieke dia een eigen overschrijving heeft. Dezelfde initialisatiemethoden kunnen worden gebruikt via de [LayoutSlideThemeManager](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/layoutslidethememanager/):
 
 ```java
 import com.aspose.slides.*;
@@ -368,17 +368,17 @@ try {
 }
 ```
 
-Gebruik een master‑ of presentatie‑niveau‑thema wanneer veel lay‑outs en dia's hetzelfde basisontwerp moeten delen, een lay‑out‑overschrijving wanneer één lay‑out‑familie een andere stijl nodig heeft, en een dia‑overschrijving alleen voor echte uitzonderingen. Te veel dia‑niveau‑overschrijvingen maken latere globale thema‑wijzigingen moeilijker te voorspellen.
+Gebruik een master‑ of presentatiethema wanneer veel lay‑outs en dia’s hetzelfde basisonwerp moeten delen, een lay‑out‑overschrijving wanneer één lay‑outfamilie een andere opmaak nodig heeft, en alleen een dia‑overschrijving voor echte uitzonderingen. Overmatige dia‑level overschrijvingen maken latere globale thema‑wijzigingen moeilijker voorspelbaar.
 
 ## **Achtergrondstijlen van het thema bijwerken**
 
-De achtergrondvullingen van het thema worden opgeslagen in [IFormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iformatscheme/). PowerPoint kan meer achtergrondkeuzes tonen in de UI dan het aantal vullingen dat fysiek in deze collectie is opgeslagen, omdat de UI themavullingen kan combineren met themakleuren en andere stijloverzichten.
+De achtergrondvullingen van het thema worden opgeslagen in [IFormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iformatscheme/). PowerPoint kan in de UI meer achtergrondkeuzes aanbieden dan er fysiek in deze collectie zijn opgeslagen, omdat de UI thema‑vullingen kan combineren met themakleuren en andere stijl‑referenties.
 
-![PowerPoint galerij van achtergrondstijlen voor een presentatiethema](presentation-design_8.png)
+![PowerPoint‑achtergrondstijlgallerij voor een presentatiethema](presentation-design_8.png)
 
-Voordat u een achtergrondstijl gebruikt, inspecteer de opgeslagen collectie en de huidige [Background.getStyleIndex](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/background/). Een stijl‑index van `0` betekent geen themavulling; positieve waarden zijn verwijzingen naar themabackground‑stijlen. Dit verschilt van het direct indexeren van de Java‑collectie, waar `get_Item(0)` het eerste opgeslagen item betekent. Ga niet ervan uit dat elke presentatie hetzelfde aantal achtergrondvullingsstijlen bevat.
+Voordat u een achtergrondstijl gebruikt, inspecteert u de opgeslagen collectie en de huidige [Background.getStyleIndex](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/background/). Een stijl‑index van `0` betekent geen themavulling; positieve waarden zijn referenties naar themabackground‑stijlen. Dit verschilt van het indexeren van de Java‑collectie zelf, waarbij `get_Item(0)` het eerste opgeslagen item betekent. Ga er niet van uit dat elke presentatie evenveel achtergrondvullingen bevat.
 
-Het volgende voorbeeld meldt het aantal beschikbare achtergrondvullingen, wijst een thematische achtergrond‑referentie toe aan de eerste master, en slaat de presentatie op:
+Het volgende voorbeeld meldt het aantal beschikbare achtergrondvullingen, kent een thematische achtergrondreferentie toe aan de eerste master, en slaat de presentatie op:
 
 ```java
 import com.aspose.slides.*;
@@ -400,25 +400,25 @@ try {
 }
 ```
 
-Het zichtbare resultaat hangt af van de themaverwijzing die de master gebruikt en van eventuele achtergrond‑overschrijvingen op lay‑out‑ of dia‑niveau. Als een dia een eigen achtergrond gebruikt, zal het wijzigen van alleen de master‑achtergrond die dia mogelijk niet wijzigen. Gebruik [Background.getEffective](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/background/) wanneer u de uiteindelijke achtergrond wilt weten nadat erf‑ en overschrijvingsregels zijn toegepast.
+Het zichtbare resultaat hangt af van het thema‑item waarnaar de master verwijst en van eventuele achtergrond‑overschrijvingen op lay‑out‑ of dia‑niveau. Als een dia een eigen achtergrond heeft, verandert een wijziging alleen in de master‑achtergrond die dia mogelijk niet. Gebruik [Background.getEffective](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/background/) wanneer u de uiteindelijke achtergrond na erf‑ en overschrijvingsregels moet weten.
 
-{{% alert color="warning" title="Warning" %}}
-Beschouw de stijl‑index niet als een nulgebaseerde collectie‑index. Vermijd ook het hard‑coderen van een stijlnummer uit één bestand en ervan uitgaan dat het er in een ander bestand hetzelfde uitziet; themastijldefinities zijn presentatiespecifiek.
+{{% alert color="warning" title="Waarschuwing" %}}
+Beschouw de stijl‑index niet als een nul‑gebaseerde collectie‑index. Vermijd ook het hard‑coderen van een stelnr. uit één bestand en ervan uitgaan dat dit dezelfde uitstraling heeft in een ander bestand; themastijldefinities zijn presentatiespecifiek.
 {{% /alert %}}
 
 {{% alert color="info" title="Tip" %}}
-Voor directe achtergrondopmaak en achtergrond‑erfenis, zie [Presentation Background](/slides/nl/androidjava/presentation-background/).
+Voor directe achtergrondformattering en achtergrond‑erfenis, zie [Presentation Background](/slides/nl/androidjava/presentation-background/).
 {{% /alert %}}
 
-## **Thema‑effecten bijwerken**
+## **Thematische effecten bijwerken**
 
-Een thema‑formatschema bevat afzonderlijke collecties voor vul‑, lijn‑ en effectstijlen, toegankelijk via [IFormatScheme.getFillStyles](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iformatscheme/), [IFormatScheme.getLineStyles](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iformatscheme/), en [IFormatScheme.getEffectStyles](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iformatscheme/). Typische Office‑thema's bevatten vaak drie hoofd­stijlelementen die visueel overeenkomen met subtiele, matige en intensieve opmaak, maar code moet elke collectie inspecteren in plaats van een vaste telling aan te nemen.
+Een thematische formatscheme bevat afzonderlijke collecties voor vul‑, lijn‑ en effectstijlen, beschikbaar via [IFormatScheme.getFillStyles](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iformatscheme/), [IFormatScheme.getLineStyles](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iformatscheme/) en [IFormatScheme.getEffectStyles](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iformatscheme/). Typische Office‑thema’s bevatten vaak drie hoofd‑stijlitems die visueel overeenkomen met subtiele, gematigde en intense opmaak; de code dient echter elke collectie te inspecteren in plaats van een vast aantal te veronderstellen.
 
-![Subtiele, matige en intensieve themaeffecten toegepast op dezelfde vorm](presentation-design_10.png)
+![Subtiele, gematigde en intense thematische effecten toegepast op dezelfde vorm](presentation-design_10.png)
 
-Wanneer u deze collecties in Java benadert, is de collectie‑index nulgebaseerd: `get_Item(0)` is de eerste opgeslagen stijl en `get_Item(2)` is de derde. De stijl‑referentie‑indexen van een vorm vormen een apart concept, toegankelijk via [IShapeStyle](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ishapestyle/). Het wijzigen van een themastijl beïnvloedt vormen die naar die themastijl verwijzen; vormen met directe opmaak kunnen ongewijzigd blijven.
+Wanneer u in Java toegang krijgt tot deze collecties, is de collectie‑index nul‑gebaseerd: `get_Item(0)` is de eerste opgeslagen stijl en `get_Item(2)` de derde. De indexen waarmee een vorm naar een stijl‑referentie verwijst, vormen een apart concept, beschikbaar via [IShapeStyle](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ishapestyle/). Het wijzigen van een themastijl beïnvloedt alle vormen die naar die stijl verwijzen; vormen met directe opmaak kunnen ongewijzigd blijven.
 
-Het volgende voorbeeld controleert of de benodigde stijlelementen bestaan, wijzigt de eerste lijnstijl, wijzigt de derde vulstijl, schakelt een buitenste schaduw in bij de derde effectstijl, en slaat het resultaat op:
+Het volgende voorbeeld controleert of de vereiste stijl‑items bestaan, wijzigt de eerste lijnstijl, wijzigt de derde vulstijl, activeert een buitenste schaduw in de derde effectstijl, en slaat het resultaat op:
 
 ```java
 import com.aspose.slides.*;
@@ -443,13 +443,87 @@ try {
 }
 ```
 
-Voor vormen die naar deze posities verwijzen, wordt de eerste themalijnstijl rood, de derde themavulstijl wordt een solide bosgroen, en de derde effectstijl krijgt een buitenste schaduw met een afstand van 10 punten. Het exacte visuele resultaat hangt nog steeds af van welke stijlposities elke vorm refereert en of directe opmaak de themastijl overschrijft.
+Voor vormen die deze slots refereren, wordt de eerste themalijnstijl rood, de derde themavulstijl wordt een effen bosgroen, en de derde effectstijl krijgt een buitenste schaduw met een afstand van 10 punten. Het exacte visuele resultaat hangt nog steeds af van welke stijl‑slots elke vorm gebruikt en of directe opmaak die thema‑instelling overschrijft.
 
-![Thema‑effectstijlen na wijziging van lijn-, vul- en schaduwinstellingen](presentation-design_11.png)
+![Thematische effectstijlen na wijziging van lijn-, vul‑ en schaduwinstellingen](presentation-design_11.png)
 
-## **Effectieve themawaarden lezen**
+## **Bepalen of een effectieve effen vul een themakleur gebruikt**
 
-Ruwe themobjecten geven aan wat er op een bepaald niveau gedefinieerd is. Effectieve waarden geven aan wat een dia of vorm daadwerkelijk gebruikt nadat erf‑ en lokale overschrijvingen zijn toegepast. Voor een dia, roep [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/baseoverridethememanager/) aan. Voor een achtergrond, gebruik [Background.getEffective](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/background/), en voor een vulling, gebruik [FillFormat.getEffective](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/fillformat/).
+Een vul kan direct op een object worden opgeslagen of worden geërfd van een alinea, lay‑out, master, themastijl of een ander formatteringsniveau. Roep [IFillFormat.getEffective](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ifillformat/) aan om die hiërarchie om te vormen tot een onveranderlijke [IFillFormatEffectiveData](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ifillformateffectivedata/). Controleer eerst [IFillFormatEffectiveData.getFillType](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ifillformateffectivedata/). Alleen wanneer het `FillType.Solid` is, leest u de eigenschappen van de effen vul.
+
+Voor een effen vul geeft [IFillFormatEffectiveData.getSolidFillColor](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ifillformateffectivedata/) de definitieve gerenderde RGB‑waarde terug na erf‑, thema‑lookup‑ en kleurgtransformaties. [IFillFormatEffectiveData.getSolidFillSchemeColor](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ifillformateffectivedata/) geeft de overeenkomstige logische [SchemeColor](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/schemecolor/) slot terug, zoals `Text1` of `Accent6`. Een waarde van `SchemeColor.NotDefined` betekent dat de effectieve effen vul niet gebaseerd is op een schemacleur. In een workflow waarin vullingen ofwel themakleuren ofwel directe RGB‑kleuren zijn, identificeert deze waarde een directe RGB‑vul.
+
+Gebruik niet alleen de lokale [IColorFormat.getSchemeColor](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/icolorformat/)‑waarde om een vul te classificeren. Een tekstgedeelte kan bijvoorbeeld geen lokaal gedefinieerde schemacleur hebben, waardoor de lokale waarde `NotDefined` is, terwijl de effectieve vul een themakleur erft en wordt geresolveerd naar `Text1` of `Accent6`. Omgekeerd vertelt `getSolidFillSchemeColor` u welke logische themaslot de effectieve kleur heeft geproduceerd, maar niet van welk niveau (object, alinea, lay‑out, master of een andere formatteringslaag) deze afkomstig is.
+
+Het volgende voorbeeld laadt een presentatie, controleert zowel vorm‑vullingen als tekst‑deel‑vullingen, drukt elke uiteindelijke RGB‑waarde en bijbehorende schemacleur af, en markeert effen vullingen die geen thema‑kleurwijzigingen volgen:
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+import java.util.function.BiConsumer;
+
+BiConsumer<String, IFillFormat> auditFill = (objectName, localFill) -> {
+    IFillFormatEffectiveData effectiveFill = localFill.getEffective();
+
+    if (effectiveFill.getFillType() != FillType.Solid) {
+        System.out.println(objectName + ": fill type = " + effectiveFill.getFillType() + "; not a solid fill.");
+        return;
+    }
+
+    int rgb = effectiveFill.getSolidFillColor();
+    int effectiveSchemeColor = effectiveFill.getSolidFillSchemeColor();
+    int localSchemeColor = localFill.getSolidFillColor().getSchemeColor();
+
+    System.out.printf("%s: RGB = #%02X%02X%02X%n", objectName, Color.red(rgb), Color.green(rgb), Color.blue(rgb));
+    System.out.println(objectName + ": local scheme = " + localSchemeColor + ", effective scheme = " + effectiveSchemeColor);
+
+    if (effectiveSchemeColor == SchemeColor.NotDefined) {
+        System.out.println(objectName + ": direct RGB or another non-scheme fill; audit as theme-independent.");
+    } else {
+        System.out.println(objectName + ": theme-dependent through " + effectiveSchemeColor + ".");
+    }
+};
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    int slideCount = presentation.getSlides().size();
+    for (int slideIndex = 0; slideIndex < slideCount; slideIndex++) {
+        ISlide slide = presentation.getSlides().get_Item(slideIndex);
+
+        int shapeCount = slide.getShapes().size();
+        for (int shapeIndex = 0; shapeIndex < shapeCount; shapeIndex++) {
+            IShape shape = slide.getShapes().get_Item(shapeIndex);
+            String shapeName = "Slide " + (slideIndex + 1) + ", shape " + (shapeIndex + 1);
+            auditFill.accept(shapeName, shape.getFillFormat());
+
+            if (shape instanceof IAutoShape) {
+                IAutoShape autoShape = (IAutoShape) shape;
+                int paragraphCount = autoShape.getTextFrame().getParagraphs().getCount();
+                for (int paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++) {
+                    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(paragraphIndex);
+
+                    int portionCount = paragraph.getPortions().getCount();
+                    for (int portionIndex = 0; portionIndex < portionCount; portionIndex++) {
+                        IPortion portion = paragraph.getPortions().get_Item(portionIndex);
+                        String portionName = shapeName + ", paragraph " + (paragraphIndex + 1) + ", portion " + (portionIndex + 1);
+                        auditFill.accept(portionName, portion.getPortionFormat().getFillFormat());
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+De `NotDefined`‑tak levert een auditlijst op van effen vullingen die niet reageren op wijzigingen in themakleur‑slots. Bekijk die objecten wanneer een presentatie een nieuw merkpallet moet volgen. De gerapporteerde RGB‑waarde toont nog steeds het huidige uiterlijk, terwijl de schemacleur aangeeft of dat uiterlijk met het thema is verbonden.
+
+Effectieve formatteringsobjecten zijn momentopnames. Na het wijzigen van het presentatiethema, een themaverschrijving of enige geërfde opmaak, roep `getEffective` opnieuw aan en lees een nieuw `IFillFormatEffectiveData`‑object voordat u kleuren vergelijkt of rapporteert.
+
+## **Effectieve thema‑waarden lezen**
+
+Ruwe thema‑objecten geven aan wat op een bepaald niveau is gedefinieerd. Effectieve waarden laten zien wat een dia of vorm daadwerkelijk gebruikt na erf‑ en lokale overschrijvingsregels. Voor een dia roep [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/baseoverridethememanager/) aan. Voor een achtergrond gebruik [Background.getEffective](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/background/), en voor een vul [FillFormat.getEffective](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/fillformat/).
 
 Het volgende voorbeeld leest het effectieve thema, de achtergrond en de eerste vormvulling van een dia:
 
@@ -478,22 +552,22 @@ try {
 }
 ```
 
-Gebruik effectieve gegevens voor weergavediagnostiek, validatie en vergelijkingen. Als u alleen [Presentation.getMasterTheme](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentation/) inspecteert, kunt u een master‑, lay‑out‑, dia‑ of vorm‑overschrijving missen die de uiteindelijke weergave wijzigt.
+Gebruik effectieve gegevens voor weergave‑diagnostiek, validatie en vergelijkingen. Als u alleen [Presentation.getMasterTheme](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentation/) inspecteert, kunt u een master‑, lay‑out‑, dia‑ of vorm‑overschrijving missen die de uiteindelijke weergave verandert.
 
 ## **FAQ**
 
 **Heeft het toepassen van een extern thema invloed op elke dia in de presentatie?**
 
-Nee. [IMasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imasterslide/) wijst alleen de dia's opnieuw toe die afhankelijk zijn van de geselecteerde master. Dia's die andere masters gebruiken, behouden hun bestaande thema's.
+Nee. [IMasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imasterslide/) wijzigt alleen de dia’s die afhankelijk zijn van de geselecteerde master. Dia’s die andere masters gebruiken, behouden hun bestaande thema’s.
 
 **Kan ik een thema toepassen op één enkele dia zonder de master te wijzigen?**
 
-Ja. Gebruik de [SlideThemeManager](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/slidethememanager/) van de dia en initialiseert zijn overschrijvings‑thema. De wijziging blijft lokaal voor die dia; andere dia's blijven hun bestaande thema’s erven.
+Ja. Gebruik de [SlideThemeManager](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/slidethememanager/) van de dia en initialiseert de overschrijvende thema. De wijziging blijft lokaal voor die dia; andere dia’s blijven hun bestaande thema’s erven.
 
 **Wat is de veiligste manier om een thema van de ene presentatie naar de andere over te dragen?**
 
-Wanneer u een dia verplaatst en de oorspronkelijke weergave wilt behouden, kloont u de bron‑master naar de bestemming en kloont u de dia met die master via [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imasterslidecollection/) en [ISlideCollection.addClone](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/islidecollection/). Hiermee blijven master, lay‑outs en thema samen.
+Wanneer u een dia verplaatst en het oorspronkelijke uiterlijk wilt behouden, kloon dan de bron‑master naar de bestemming en kloon de dia met die master via [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imasterslidecollection/) en [ISlideCollection.addClone](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/islidecollection/). Hiermee blijven master, lay‑outs en thema samen.
 
 **Hoe kan ik de effectieve waarden zien na erf‑ en overschrijvingsregels?**
 
-Gebruik [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/baseoverridethememanager/) voor een dia‑ of lay‑out‑thema en de overeenkomstige effectieve‑datamethodes voor formatobjecten zoals [Background.getEffective](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/background/) en [FillFormat.getEffective](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/fillformat/). Deze API's geven de berekende waarden terug nadat erf‑ en overschrijvingsregels zijn toegepast.
+Gebruik [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/baseoverridethememanager/) voor een dia‑ of lay‑out‑thema en de corresponderende effectieve‑datamethoden voor format‑objecten zoals [Background.getEffective](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/background/) en [FillFormat.getEffective](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/fillformat/). Deze API’s retourneren de opgeloste waarden na erf‑ en overschrijvingsregels.

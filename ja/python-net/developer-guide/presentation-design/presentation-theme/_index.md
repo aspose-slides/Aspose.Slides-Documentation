@@ -1,11 +1,11 @@
 ---
-title: PythonでPowerPointプレゼンテーションテーマを管理
+title: Python で PowerPoint プレゼンテーションテーマを管理する
 linktitle: プレゼンテーションテーマ
 type: docs
 weight: 10
 url: /ja/python-net/presentation-theme/
 keywords:
-- PowerPointテーマ
+- PowerPoint テーマ
 - プレゼンテーションテーマ
 - スライドテーマ
 - テーマの設定
@@ -23,23 +23,23 @@ keywords:
 - プレゼンテーション
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET を使用して、ブランドを統一した PowerPoint ファイルの作成、カスタマイズ、変換のためにマスターテーマを管理します。"
+description: "Aspose.Slides for Python (via .NET) でマスタープレゼンテーションテーマを管理し、PowerPoint ファイルを一貫したブランドで作成、カスタマイズ、変換します。"
 ---
-## **イントロダクション**
+## **はじめに**
 
-プレゼンテーションのテーマは、色、フォント、背景スタイル、塗りつぶし、線、効果の調和したセットです。テーマ対応オブジェクトは、すべての視覚プロパティを固定値として保持するのではなく、これらの共有定義を参照します。そのため、テーマを変更すると多くのオブジェクトが一度に更新されます。
+プレゼンテーションのテーマは、色、フォント、背景スタイル、塗りつぶし、線、および効果の調整されたセットを定義します。テーマ対応オブジェクトは、すべての視覚プロパティを固定値として保持するのではなく、これらの共有定義を参照するため、テーマを変更すると多数のオブジェクトが一度に更新されます。
 
-Aspose.Slides では、プレゼンテーション レベルのテーマは [Presentation.master_theme](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/master_theme/) プロパティで取得できます。プレゼンテーションは下位レベルでもテーマのオーバーライドを保持できます。マスタは [MasterThemeManager.override_theme](https://reference.aspose.com/slides/ja/python-net/aspose.slides.theme/masterthememanager/override_theme/) でプレゼンテーションテーマを上書きでき、レイアウトは [BaseOverrideThemeManager.override_theme](https://reference.aspose.com/slides/ja/python-net/aspose.slides.theme/baseoverridethememanager/override_theme/) で継承されたテーマを上書きでき、個々のスライドも同様に上書きできます。実際には、スライドの有効テーマは次の継承チェーンで解決されます：プレゼンテーションテーマ、マスタオーバーライド、レイアウトオーバーライド、スライドオーバーライド。
+Aspose.Slidesでは、プレゼンテーションレベルのテーマは[Presentation.master_theme](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/master_theme/)プロパティから取得できます。プレゼンテーションは、下位レベルでもテーマのオーバーライドを保持できます。マスターは[MasterThemeManager.override_theme](https://reference.aspose.com/slides/ja/python-net/aspose.slides.theme/masterthememanager/override_theme/)でプレゼンテーションテーマをオーバーライドでき、レイアウトは[BaseOverrideThemeManager.override_theme](https://reference.aspose.com/slides/ja/python-net/aspose.slides.theme/baseoverridethememanager/override_theme/)で継承されたテーマをオーバーライドでき、個々のスライドも同様に行えます。実際には、スライドの有効テーマは次の継承チェーンで解決されます: プレゼンテーションテーマ、マスターオーバーライド、レイアウトオーバーライド、スライドオーバーライド。
 
-![テーマの構成要素: 色、フォント、背景スタイル、効果](theme-constituents.png)
+![テーマ要素: 色、フォント、背景スタイル、効果](theme-constituents.png)
 
-以下のセクションでは、最も一般的なテーマのワークフローを示します。テーマの検査、色とフォントの変更、テーマのコピーまたは適用、背景と効果スタイルの更新、継承とオーバーライドが解決された後の有効値の取得です。
+以下のセクションでは、最も一般的なテーマ操作フローを示します。テーマの検査、色とフォントの変更、テーマのコピーまたは適用、背景および効果スタイルの更新、継承とオーバーライドが解決された後の有効値の取得です。
 
 ## **テーマの検査**
 
-[MasterTheme](https://reference.aspose.com/slides/ja/python-net/aspose.slides.theme/mastertheme/) オブジェクトはテーマの [color_scheme](https://reference.aspose.com/slides/ja/python-net/aspose.slides.theme/mastertheme/color_scheme/)、[font_scheme](https://reference.aspose.com/slides/ja/python-net/aspose.slides.theme/mastertheme/font_scheme/)、[format_scheme](https://reference.aspose.com/slides/ja/python-net/aspose.slides.theme/mastertheme/format_scheme/) プロパティを公開します。変更前にこれらのコレクションを検査することは、外部ソースから取得したプレゼンテーションの場合に特に有用です。スタイル エントリの数と内容は変わる可能性があります。
+[MasterTheme](https://reference.aspose.com/slides/ja/python-net/aspose.slides.theme/mastertheme/)オブジェクトは、テーマの[color_scheme](https://reference.aspose.com/slides/ja/python-net/aspose.slides.theme/mastertheme/color_scheme/)、[font_scheme](https://reference.aspose.com/slides/ja/python-net/aspose.slides.theme/mastertheme/font_scheme/)、および[format_scheme](https://reference.aspose.com/slides/ja/python-net/aspose.slides.theme/mastertheme/format_scheme/)プロパティを公開します。これらのコレクションを変更前に検査することは、プレゼンテーションが外部ソースから来た場合に特に有用です。スタイルエントリの数や内容はファイルごとに異なる可能性があります。
 
-次の例はメインテーマのプロパティを読み取り、テーマに格納されている背景、塗りつぶし、線、効果スタイルの数を報告します。
+以下の例は、メインテーマのプロパティを読み取り、テーマに格納されている背景、塗りつぶし、線、効果スタイルの数を報告します。
 
 ```python
 import aspose.slides as slides
@@ -56,13 +56,13 @@ with slides.Presentation("input.pptx") as presentation:
     print(f"Effect styles: {len(theme.format_scheme.effect_styles)}")
 ```
 
-ファイルが複数のマスタを使用している場合、すべてのスライドが同じ有効テーマを持つとは限りません。スライドに関連付けられたマスタを検査し、レイアウトまたはスライドのオーバーライドが存在する可能性がある場合は、後述の有効テーマ ワークフローを使用してください。
+ファイルが複数のマスターを使用している場合、すべてのスライドが同じ有効テーマを持つとは限りません。スライドに関連付けられたマスターを検査し、レイアウトやスライドのオーバーライドが存在する可能性がある場合は、後述の有効テーマフローを使用してください。
 
-## **テーマの色の変更**
+## **テーマの色を変更する**
 
-テーマ対応の塗りつぶし、線、テキストは [SchemeColor](https://reference.aspose.com/slides/ja/python-net/aspose.slides/schemecolor/) 列挙体の論理色を参照できます。テーマの [ColorScheme](https://reference.aspose.com/slides/ja/python-net/aspose.slides.theme/colorscheme/) で該当エントリを変更すると、そのテーマ色を参照し続けているすべてのオブジェクトが新しい値に解決されます。直接 RGB 色を使用しているオブジェクトはテーマ色の更新の影響を受けません。
+テーマ対応の塗りつぶし、線、テキストは[SchemeColor](https://reference.aspose.com/slides/ja/python-net/aspose.slides/schemecolor/)列挙体の論理色を参照できます。テーマの[ColorScheme](https://reference.aspose.com/slides/ja/python-net/aspose.slides.theme/colorscheme/)で対応するエントリを変更すると、そのテーマカラーを参照しているすべてのオブジェクトが新しい値に解決されます。直接RGB色を使用しているオブジェクトは、テーマカラーの更新の影響を受けません。
 
-次のエンドツーエンドの例は、`ACCENT4` を使用するシェイプを作成し、テーマの `accent4` 色を赤に変更し、プレゼンテーションを保存して再度開き、実際の塗りつぶし色を出力します。
+以下のエンドツーエンド例は、`ACCENT4` を使用するシェイプを作成し、テーマの `accent4` 色を赤に変更し、プレゼンテーションを保存して再度開き、有効な塗りつぶし色を出力します。
 
 ```python
 import aspose.pydrawing as draw
@@ -83,18 +83,19 @@ with slides.Presentation("theme-color.pptx") as saved_presentation:
     print(f"Effective fill color: {effective_fill.solid_fill_color}")
 ```
 
-矩形は `ACCENT4` にリンクされたままで、テーマが変更されると表示色が赤になります。シェイプ上で直接色を設定すると、以降の `accent4` の変更はその塗りつぶしに影響しません。
+矩形が `ACCENT4` にリンクされたままであるため、テーマが変更されると表示色は赤になります。シェイプ上でスキームカラーを直接の色に置き換えると、以降の `accent4` の変更はその塗りつぶしに影響しなくなります。
 
-### **追加パレットからカラーを使用する**
+### **追加パレットから色を使用する**
 
-PowerPoint はテーマカラーから明るいバリエーションや暗いバリエーションを色変換で生成します。Aspose.Slides はこれらの変換を [ColorTransformOperation](https://reference.aspose.com/slides/ja/python-net/aspose.slides/colortransformoperation/) 列挙体で公開しています。
+PowerPoint はテーマカラーに対して色変換を適用し、明るいバリエーションと暗いバリエーションを生成します。Aspose.Slides はこれらの変換を[ColorTransformOperation](https://reference.aspose.com/slides/ja/python-net/aspose.slides/colortransformoperation/)列挙体で公開しています。
 
-![メインテーマカラーと追加パレットから生成された明るい・暗いカラー](additional-palette-colors.png)
+![追加パレットから生成されたメインテーマカラーと明暗色](additional-palette-colors.png)
 
-**1** – メインテーマカラー  
-**2** – メインテーマカラーから生成された明るい・暗いバリエーション
+**1** - メインテーマカラー。
 
-次の例は `ACCENT4` を基に 6 つの矩形を作成し、うち 5 つに輝度変換を適用して結果を保存します。
+**2** - メインテーマカラーから生成された明るい・暗いバリエーション。
+
+以下の例は、`ACCENT4` を基にした 6 つの矩形を作成し、そのうち 5 つに輝度変換を適用して結果を保存します。
 
 ```python
 import aspose.slides as slides
@@ -130,31 +131,31 @@ with slides.Presentation() as presentation:
     presentation.save("theme-color-palette.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-これらのバリエーションはテーマカラーに基づいています。`accent4` が後で変更されると、変換されたカラーは新しい `accent4` 値から再計算されます。
+これらのバリエーションはテーマカラーを基にしています。後で `accent4` が変更されると、変換された色は新しい `accent4` 値から再計算されます。
 
-### **`SchemeColor` の値を `ColorScheme` スロットにマッピングする**
+### **`SchemeColor` の値を `ColorScheme` のスロットにマッピングする**
 
-[SchemeColor](https://reference.aspose.com/slides/ja/python-net/aspose.slides/schemecolor/) 列挙体は `TEXT1`、`BACKGROUND1`、`TEXT2`、`BACKGROUND2` を使用し、[ColorScheme](https://reference.aspose.com/slides/ja/python-net/aspose.slides.theme/colorscheme/) は同じテーマスロットを `dark1`、`light1`、`dark2`、`light2` として公開します。マッピングは固定です。
+[SchemeColor](https://reference.aspose.com/slides/ja/python-net/aspose.slides/schemecolor/)列挙体は `TEXT1`、`BACKGROUND1`、`TEXT2`、`BACKGROUND2` を使用し、[ColorScheme](https://reference.aspose.com/slides/ja/python-net/aspose.slides.theme/colorscheme/)は同じテーマスロットを `dark1`、`light1`、`dark2`、`light2` として公開します。マッピングは固定です。
 
 * `TEXT1` = `dark1`
 * `BACKGROUND1` = `light1`
 * `TEXT2` = `dark2`
 * `BACKGROUND2` = `light2`
 
-これは同じテーマスロットの別名であり、動的に変換される値ではありません。
+これらは同一スロットの別名であり、動的に変換される値ではありません。
 
-## **テーマのフォントの変更**
+## **テーマフォントを変更する**
 
-テーマ フォント スキームは見出し用の主要フォントセットと本文用の副フォントセットを含みます。[FontScheme.major](https://reference.aspose.com/slides/ja/python-net/aspose.slides.theme/fontscheme/major/) と [FontScheme.minor](https://reference.aspose.com/slides/ja/python-net/aspose.slides.theme/fontscheme/minor/) プロパティでそれらのセットにアクセスできます。
+テーマフォントスキームには、見出し用のメジャーフォントセットと本文用のマイナーフォントセットが含まれます。[FontScheme.major](https://reference.aspose.com/slides/ja/python-net/aspose.slides.theme/fontscheme/major/) および [FontScheme.minor](https://reference.aspose.com/slides/ja/python-net/aspose.slides.theme/fontscheme/minor/) プロパティでそれらのセットにアクセスできます。
 
-PowerPoint 互換のテーマ フォント識別子はテキスト書式設定で使用できます。
+PowerPoint 互換のテーマフォント識別子はテキスト書式設定で使用できます。
 
-* `+mn-lt` – 本文フォント ラテン文字 (Minor Latin Font)
-* `+mj-lt` – 見出しフォント ラテン文字 (Major Latin Font)
-* `+mn-ea` – 本文フォント 東アジア文字 (Minor East Asian Font)
-* `+mj-ea` – 見出しフォント 東アジア文字 (Major East Asian Font)
+* `+mn-lt` - 本文フォント ラテン (Minor Latin Font)
+* `+mj-lt` - 見出しフォント ラテン (Major Latin Font)
+* `+mn-ea` - 本文フォント 東アジア (Minor East Asian Font)
+* `+mj-ea` - 見出しフォント 東アジア (Major East Asian Font)
 
-次の例は、主要ラテンテーマフォントを使用した見出しと、副ラテンテーマフォントを使用した本文行を作成し、テーマフォントを変更して結果を保存します。
+以下の例は、メジャーラテンテーマフォントを使用した見出しと、マイナラテンテーマフォントを使用した本文行を作成し、テーマフォントを変更して結果を保存します。
 
 ```python
 import aspose.slides as slides
@@ -172,30 +173,30 @@ with slides.Presentation() as presentation:
     presentation.save("theme-fonts.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-見出しは主要フォントに、本文は副フォントに従います。テーマ識別子ではなく明示的なフォント名が指定されているテキストは、テーマフォント スキームが変更されても自動的に切り替わりません。
+見出しはメジャーフォントに従い、本文テキストはマイナーフォントに従います。テーマ識別子ではなく明示的なフォント名が指定されているテキストは、テーマフォントスキームが変更されても自動的に切り替わりません。
 
-主要・副フォントコレクションには、キリル文字、アラビア文字、日本語、グルジア文字、ターナ語など、個々の書字システム向けのフォント マッピングも含められます。これらのマッピングを検査・追加・置換・削除する方法は、[Script-Specific Theme Fonts](/slides/ja/python-net/script-specific-font-mappings/) を参照してください。
+メジャーおよびマイナーフォントコレクションには、キリル文字、アラビア文字、日本語、ジョージア文字、ターナ文字など、個々の書字システム向けのフォントマッピングも含められます。これらのマッピングを検査、追加、置換、削除するには、[Script-Specific Theme Fonts](/slides/ja/python-net/script-specific-font-mappings/) を参照してください。
 
 {{% alert color="info" title="Tip" %}}
-プレゼンテーション フォントの詳細は、[PowerPoint Fonts](/slides/ja/python-net/powerpoint-fonts/) を参照してください。
+プレゼンテーションのフォントに関する詳細は、[PowerPoint Fonts](/slides/ja/python-net/powerpoint-fonts/)をご参照ください。
 {{% /alert %}}
 
 ## **テーマのコピーまたは適用**
 
 以下のワークフローは、さまざまなテーマ関連の課題を解決します。
 
-### **外部テーマをマスタ依存スライドに適用する**
+### **外部テーマをマスター依存スライドに適用する**
 
-PowerPoint テーマ ファイル（`.thmx`）があり、特定のマスタに依存するすべてのスライドのスタイルを変更したい場合は、[IMasterSlide.apply_external_theme_to_depending_slides](https://reference.aspose.com/slides/ja/python-net/aspose.slides/imasterslide/apply_external_theme_to_depending_slides/) を使用します。対象のマスタは [Presentation.masters](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/masters/) コレクション（[MasterSlideCollection](https://reference.aspose.com/slides/ja/python-net/aspose.slides/masterslidecollection/)）から選択し、メソッドにテーマ ファイル パスを渡します。
+PowerPoint テーマファイル（`.thmx`）があり、特定のマスターに依存するすべてのスライドのスタイルを変更したい場合は、[IMasterSlide.apply_external_theme_to_depending_slides](https://reference.aspose.com/slides/ja/python-net/aspose.slides/imasterslide/apply_external_theme_to_depending_slides/) を使用します。まず、[Presentation.masters](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/masters/) コレクション（[MasterSlideCollection](https://reference.aspose.com/slides/ja/python-net/aspose.slides/masterslidecollection/) を実装）からマスターを選択し、テーマファイルのパスをメソッドに渡します。
 
-メソッドは次の操作を実行します。
+メソッドは以下の操作を行います。
 
-1. 選択したマスタを基に新しいマスタ スライドを作成します。
-1. 外部テーマを新しいマスタに適用します。
-1. 以前に選択したマスタに依存していたすべてのスライドに新しいマスタを割り当てます。
-1. 作成された [IMasterSlide](https://reference.aspose.com/slides/ja/python-net/aspose.slides/imasterslide/) を返します。
+1. 選択したマスターを基に新しいマスタースライドを作成します。
+1. 外部テーマを新しいマスターに適用します。
+1. 以前に選択したマスターに依存していたすべてのスライドに新しいマスターを割り当てます。
+1. 新しく作成された[IMasterSlide](https://reference.aspose.com/slides/ja/python-net/aspose.slides/imasterslide/) を返します。
 
-次の例は、最初のマスタに依存するスライドに外部テーマを適用し、プレゼンテーションを保存します。
+以下の例は、最初のマスターに依存するスライドに外部テーマを適用し、プレゼンテーションを保存します。
 
 ```python
 import aspose.slides as slides
@@ -208,19 +209,19 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-with-external-theme.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-無効、破損、またはサポート外のテーマは [PptxException](https://reference.aspose.com/slides/ja/python-net/aspose.slides/pptxexception/) またはその派生例外をスローする可能性があります。ユーザーから提供されたパスを検証し、ファイルシステムへのアクセス失敗を処理し、テーマが正常に適用された後にのみプレゼンテーションを保存してください。
+無効、破損、またはサポートされていないテーマは[PptxException](https://reference.aspose.com/slides/ja/python-net/aspose.slides/pptxexception/) またはそのフォーマット系サブクラスをスローする可能性があります。ユーザーが提供したパスを検証し、ファイルシステムアクセスの失敗を処理し、テーマが正常に適用されたことを確認してからプレゼンテーションを保存してください。
 
-選択したマスタに依存していたスライドだけが再割り当てされます。他のマスタに関連付けられたスライドは既存のマスタとテーマを保持します。テーマ対応の色、フォント、塗りつぶし、線、背景、効果は外部テーマに対して解決されます。直接割り当てられた色やフォントなどの明示的書式は変更されない場合があります。レイアウトレベルやスライドレベルのオーバーライドは、新しいマスタから継承された値よりも優先されることがあります。
+選択したマスターに依存していたスライドのみが再割り当てされます。他のマスターに関連付けられたスライドは既存のマスターとテーマを保持します。テーマ対応の色、フォント、塗りつぶし、線、背景、効果は外部テーマに対して解決されます。直接割り当てられた色、フォント、塗りつぶし、その他の明示的な書式設定は変更されないまま残ることがあります。レイアウトレベルおよびスライドレベルのオーバーライドは、新しいマスターから継承された値よりも優先されることがあります。
 
-テーマがランタイム環境に存在しないフォントを参照することがあります。一定のレンダリングとエクスポートを保証するには、必要なフォントをインストールするか、[カスタム フォント ソース](/slides/ja/python-net/custom-font/) を通じて提供するか、[フォント置換](/slides/ja/python-net/font-substitution/) を設定してください。
+テーマが実行環境に存在しないフォントを参照している可能性があります。安定したレンダリングとエクスポートのために、必要なフォントをインストールするか、[カスタムフォント ソース](/slides/ja/python-net/custom-font/) を通じて提供するか、[フォント置換](/slides/ja/python-net/font-substitution/) を構成してください。
 
-この手順は直接的なマスタ レベルのワークフローです。メソッドは `.thmx` ファイルへのパスを受け取り、スライドレベルやレイアウトレベルのテーマ オーバーライドを手動で作成する必要はありません。
+この操作はマスター レベルの直接ワークフローです。メソッドは `.thmx` ファイルへのパスを受け取り、スライドレベルまたはレイアウトレベルのテーマオーバーライドを手動で作成する必要はありません。
 
-### **マルチマスタ プレゼンテーションで異なる外部テーマを適用する**
+### **マルチマスタープレゼンテーションで異なる外部テーマを適用する**
 
-対象のマスタが事前に分からない場合は、[Slide.layout_slide](https://reference.aspose.com/slides/ja/python-net/aspose.slides/slide/layout_slide/) と [LayoutSlide.master_slide](https://reference.aspose.com/slides/ja/python-net/aspose.slides/layoutslide/master_slide/) から代表的なスライドを通じて取得します。テーマを適用する前に元のマスタ参照を保存してください。各呼び出しはプレゼンテーションに別のマスタを作成します。
+対象マスターが事前に分からない場合は、[Slide.layout_slide](https://reference.aspose.com/slides/ja/python-net/aspose.slides/slide/layout_slide/) および [LayoutSlide.master_slide](https://reference.aspose.com/slides/ja/python-net/aspose.slides/layoutslide/master_slide/) を使用して代表的なスライドから取得します。テーマを適用する前に元のマスター参照を保存してください。呼び出しごとにプレゼンテーションに新しいマスターが作成されます。
 
-次の例は、2 つのセクションのスライドからそれぞれのマスタを特定し、各グループに異なる外部テーマを適用します。
+以下の例は、2 つのセクションのスライドからマスターを取得し、各グループに異なる外部テーマを適用します。
 
 ```python
 import aspose.slides as slides
@@ -243,11 +244,11 @@ with slides.Presentation("multi-master-presentation.pptx") as presentation:
             presentation.save("multi-master-with-external-themes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-最初の呼び出しは `first_group_master` に依存するスライドのみを対象とし、2 回目の呼び出しは `second_group_master` に依存するスライドのみを対象とします。他のマスタに属するスライドは再スタイル化されません。
+最初の呼び出しは `first_group_master` に依存するスライドのみを対象とし、2 回目の呼び出しは `second_group_master` に依存するスライドのみを対象とします。他のマスターに属するスライドは再スタイリングされません。
 
-### **スライドの移動時に元のテーマを保持する**
+### **スライド移動時に元テーマを保持する**
 
-スライドを別のプレゼンテーションに移動し、元のデザインを保持したい場合は、[MasterSlideCollection.add_clone](https://reference.aspose.com/slides/ja/python-net/aspose.slides/masterslidecollection/add_clone/) でソース マスタをターゲット プレゼンテーションにクローンし、続いて [SlideCollection.add_clone](https://reference.aspose.com/slides/ja/python-net/aspose.slides/slidecollection/add_clone/) でスライドとクローンしたマスタをクローンします。これによりマスタ、レイアウト、および関連テーマが一緒に持ち運ばれます。
+スライドを別のプレゼンテーションに移動し、元のデザインを保持したい場合は、[MasterSlideCollection.add_clone](https://reference.aspose.com/slides/ja/python-net/aspose.slides/masterslidecollection/add_clone/) でソースマスターをターゲットプレゼンテーションにクローンし、続いて [SlideCollection.add_clone](https://reference.aspose.com/slides/ja/python-net/aspose.slides/slidecollection/add_clone/) でスライドとクローンしたマスターをクローンします。これにより、マスターとそのレイアウト、関連テーマが一緒にコピーされます。
 
 ```python
 import aspose.slides as slides
@@ -261,11 +262,11 @@ with slides.Presentation("source-theme.pptx") as source:
         target.save("theme-preserved.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-この方法は、ソース スライドが宛先でも同一に見える必要がある場合に推奨されます。無関係な宛先マスタにコンテンツだけをクローンすると、テーマ駆動の色、フォント、背景、効果が変わる可能性があります。
+このワークフローは、ソーススライドが宛先でも同じ外観を保つ必要がある場合に推奨されます。無関係な宛先マスターにコンテンツだけをクローンすると、テーマ駆動のカラー、フォント、背景、効果が変わる可能性があります。
 
 ### **既存スライドにテーマ値を適用する**
 
-対象スライドを現在のマスタとレイアウトのままにしたい場合は、ソーステーマからスライドレベルのオーバーライドを初期化します。[OverrideTheme.init_color_scheme_from](https://reference.aspose.com/slides/ja/python-net/aspose.slides.theme/overridetheme/init_color_scheme_from/)、[OverrideTheme.init_font_scheme_from](https://reference.aspose.com/slides/ja/python-net/aspose.slides.theme/overridetheme/init_font_scheme_from/)、[OverrideTheme.init_format_scheme_from](https://reference.aspose.com/slides/ja/python-net/aspose.slides.theme/overridetheme/init_format_scheme_from/) メソッドが 3 つの主要テーマコンポーネントをオーバーライドにコピーします。
+対象スライドを現在のマスターとレイアウトのままにしたい場合は、ソーステーマからスライドレベルのオーバーライドを初期化します。[OverrideTheme.init_color_scheme_from](https://reference.aspose.com/slides/ja/python-net/aspose.slides.theme/overridetheme/init_color_scheme_from/)、[OverrideTheme.init_font_scheme_from](https://reference.aspose.com/slides/ja/python-net/aspose.slides.theme/overridetheme/init_font_scheme_from/)、および[OverrideTheme.init_format_scheme_from](https://reference.aspose.com/slides/ja/python-net/aspose.slides.theme/overridetheme/init_format_scheme_from/) メソッドが 3 つの主要テーマコンポーネントをオーバーライドにコピーします。
 
 ```python
 import aspose.slides as slides
@@ -280,11 +281,11 @@ with slides.Presentation("source-theme.pptx") as source:
         target.save("theme-applied-to-slide.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-この操作はそのスライドだけのテーマを変更し、他のスライドが継承しているテーマには影響しません。ローカル オーバーライドを削除して継承値に戻すには、[OverrideTheme.clear](https://reference.aspose.com/slides/ja/python-net/aspose.slides.theme/overridetheme/clear/) を呼び出してください。
+この操作により、他のスライドが継承しているテーマは変更せずに、そのスライドだけのテーマが変更されます。ローカルオーバーライドを削除して継承値に戻すには、[OverrideTheme.clear](https://reference.aspose.com/slides/ja/python-net/aspose.slides.theme/overridetheme/clear/) を呼び出してください。
 
 ### **レイアウトにテーマオーバーライドを適用する**
 
-レイアウトレベルのオーバーライドは、そのレイアウトを使用するスライドすべてに適用されます（ただし、個々のスライドが独自のオーバーライドを持っている場合は除く）。同様の初期化メソッドはレイアウトの [LayoutSlideThemeManager](https://reference.aspose.com/slides/ja/python-net/aspose.slides.theme/layoutslidethememanager/) を通じて使用できます。
+レイアウトレベルのオーバーライドは、そのレイアウトを使用するスライドすべてに適用されます（ただし、個別スライドに独自のオーバーライドがある場合は除く）。同じ初期化メソッドはレイアウトの[LayoutSlideThemeManager](https://reference.aspose.com/slides/ja/python-net/aspose.slides.theme/layoutslidethememanager/) を介して使用できます。
 
 ```python
 import aspose.slides as slides
@@ -299,17 +300,17 @@ with slides.Presentation("source-theme.pptx") as source:
         target.save("theme-applied-to-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-多くのレイアウトやスライドが同一の基本デザインを共有すべき場合はマスタまたはプレゼンテーション レベルのテーマを使用し、特定のレイアウト ファミリだけが異なるスタイルを必要とする場合はレイアウト オーバーライドを、例外的なケースだけはスライド オーバーライドを使用してください。過度のスライドレベル オーバーライドは、後でのグローバル テーマ変更を予測しにくくします。
+多数のレイアウトとスライドが同一の基本デザインを共有する必要がある場合はマスターまたはプレゼンテーションレベルのテーマを使用し、特定のレイアウトファミリが異なるスタイリングを必要とする場合はレイアウトオーバーライドを、真の例外のみを対象にする場合はスライドオーバーライドを使用してください。過度のスライドレベルオーバーライドは、後続のグローバルテーマ変更を予測しにくくします。
 
-## **テーマ背景スタイルの更新**
+## **テーマの背景スタイルを更新する**
 
-テーマの背景塗りつぶしは [FormatScheme.background_fill_styles](https://reference.aspose.com/slides/ja/python-net/aspose.slides.theme/formatscheme/background_fill_styles/) に格納されています。PowerPoint の UI では、実際にコレクションに格納されている塗りつぶし定義よりも多くの背景オプションが提示されます。これは UI がテーマ塗りつぶしとテーマ色、その他のスタイル参照を組み合わせられるためです。
+テーマの背景塗りつぶしは[FormatScheme.background_fill_styles](https://reference.aspose.com/slides/ja/python-net/aspose.slides.theme/formatscheme/background_fill_styles/)に格納されます。PowerPoint の UI は、このコレクションに実際に保存されている塗りつぶし定義の数以上の背景オプションを提示できることがあります。これは、テーマ塗りつぶしをテーマカラーや他のスタイル参照と組み合わせて表示できるためです。
 
 ![プレゼンテーションテーマの背景スタイル ギャラリー](presentation-design_8.png)
 
-背景スタイルを使用する前に、格納されているコレクションと現在の [Background.style_index](https://reference.aspose.com/slides/ja/python-net/aspose.slides/background/style_index/) を確認してください。`style_index` が `0` の場合はテーマ塗りつぶしなし、正の値はテーマ背景スタイルへの参照です。これは Python コレクションのインデックス（`[0]` が最初の要素）とは異なります。すべてのプレゼンテーションが同じ数の背景塗りつぶしスタイルを持つとは限りません。
+背景スタイルを使用する前に、格納されたコレクションと現在の[Background.style_index](https://reference.aspose.com/slides/ja/python-net/aspose.slides/background/style_index/) を検査してください。`style_index` はテーマ塗りつぶしなしを示す `0` を使用し、正の値はテーマ背景スタイル参照を表します。これは Python コレクションのインデックスとは異なり、`[0]` が最初の項目を意味します。すべてのプレゼンテーションが同じ数の背景塗りつぶしスタイルを持つとは限らないことに注意してください。
 
-次の例は利用可能な背景塗りつぶし数を報告し、最初のマスタにテーマ背景参照を割り当て、プレゼンテーションを保存します。
+以下の例は、利用可能な背景塗りつぶし数を報告し、最初のマスターにテーマ背景参照を割り当て、プレゼンテーションを保存します。
 
 ```python
 import aspose.slides as slides
@@ -325,25 +326,25 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("theme-background.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-可視結果はマスタが参照するテーマエントリと、レイアウトやスライドレベルでの背景オーバーライドの有無に依存します。スライドが独自の背景を使用している場合、マスタの背景だけを変更してもそのスライドは変わりません。継承後の最終背景を知りたいときは、[Background.get_effective](https://reference.aspose.com/slides/ja/python-net/aspose.slides/background/get_effective/) を使用してください。
+表示結果は、マスターが参照するテーマエントリと、レイアウトまたはスライドレベルでの背景オーバーライドの有無に依存します。スライドが独自の背景を使用している場合、マスター背景だけを変更してもそのスライドの表示は変わりません。継承が適用された後の最終背景を知りたい場合は、[Background.get_effective](https://reference.aspose.com/slides/ja/python-net/aspose.slides/background/get_effective/) を使用してください。
 
 {{% alert color="warning" title="Warning" %}}
-`style_index` をゼロベースのコレクションインデックスとみなさないでください。また、あるファイルでのスタイル番号をハードコーディングして別のファイルでも同じ外観になると想定しないでください。テーマ スタイル定義はプレゼンテーション固有です。
+`style_index` をゼロベースのコレクションインデックスとして扱わないでください。また、あるファイルで使用したスタイル番号をハードコーディングして別のファイルでも同じ外観になると想定しないでください。テーマスタイル定義はプレゼンテーション固有です。
 {{% /alert %}}
 
 {{% alert color="info" title="Tip" %}}
-直接的な背景書式設定と背景の継承については、[Presentation Background](/slides/ja/python-net/presentation-background/) を参照してください。
+直接的な背景書式設定と背景継承については、[Presentation Background](/slides/ja/python-net/presentation-background/) を参照してください。
 {{% /alert %}}
 
-## **テーマ効果の更新**
+## **テーマ効果を更新する**
 
-テーマのフォーマット スキームは、[FormatScheme.fill_styles](https://reference.aspose.com/slides/ja/python-net/aspose.slides.theme/formatscheme/fill_styles/)、[FormatScheme.line_styles](https://reference.aspose.com/slides/ja/python-net/aspose.slides.theme/formatscheme/line_styles/)、[FormatScheme.effect_styles](https://reference.aspose.com/slides/ja/python-net/aspose.slides.theme/formatscheme/effect_styles/) の別々のコレクションを含みます。一般的な Office テーマは、微妙、標準、強調という視覚的に区別できる 3 つの主要スタイルエントリを持つことが多いですが、コード側では固定数を想定せず各コレクションを検査してください。
+テーマのフォーマットスキームは、別々の[FormatScheme.fill_styles](https://reference.aspose.com/slides/ja/python-net/aspose.slides.theme/formatscheme/fill_styles/)、[FormatScheme.line_styles](https://reference.aspose.com/slides/ja/python-net/aspose.slides.theme/formatscheme/line_styles/)、および[FormatScheme.effect_styles](https://reference.aspose.com/slides/ja/python-net/aspose.slides.theme/formatscheme/effect_styles/)コレクションを含みます。一般的な Office テーマは、視覚的に微妙、適度、強いの 3 つの主要スタイルエントリを持つことが多いですが、コード側では固定数を想定せず、各コレクションを検査してください。
 
-![同一シェイプに適用された微妙、標準、強調のテーマ効果](presentation-design_10.png)
+![同一シェイプに適用された微妙、適度、強いテーマ効果](presentation-design_10.png)
 
-Python でこれらのコレクションにアクセスする際のインデックスはゼロベースです：`[0]` が最初のスタイル、`[2]` が 3 番目のスタイルです。シェイプのスタイル参照インデックスは別概念で、[IShapeStyle](https://reference.aspose.com/slides/ja/python-net/aspose.slides/ishapestyle/) によって公開されています。テーマスタイルを変更すると、そのテーマスタイルを参照しているシェイプに影響しますが、直接書式設定されたシェイプは変わらない場合があります。
+Python でこれらのコレクションにアクセスする場合、インデックスはゼロベースです: `[0]` が最初の保存スタイル、`[2]` が3番目です。シェイプのスタイル参照インデックスは別概念で、[IShapeStyle](https://reference.aspose.com/slides/ja/python-net/aspose.slides/ishapestyle/) で公開されます。テーマスタイルを変更すると、そのテーマスタイルを参照しているシェイプに影響しますが、直接書式設定されたシェイプは変更されないままです。
 
-次の例は必要なスタイルエントリの存在を確認し、最初の線スタイル、3 番目の塗りつぶしスタイルを変更し、3 番目の効果スタイルに外部シャドウ（距離 10 ポイント）を有効化して結果を保存します。
+以下の例は、必要なスタイルエントリが存在することを確認し、最初の線スタイルを変更し、3 番目の塗りつぶしスタイルを変更し、3 番目の効果スタイルに外側シャドウを有効にして結果を保存します。
 
 ```python
 import aspose.pydrawing as draw
@@ -362,15 +363,66 @@ with slides.Presentation("Subtle_Moderate_Intense.pptx") as presentation:
     presentation.save("theme-effects.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-これらのスロットを参照しているシェイプでは、最初のテーマ線スタイルが赤に、3 番目のテーマ塗りつぶしスタイルが濃いフォレスト グリーンに、3 番目の効果スタイルに外部シャドウが追加されます。最終的なビジュアルは、各シェイプがどのスロットを参照しているか、直接書式設定がテーマを上書きしているかに依存します。
+これらのスロットを参照するシェイプに対しては、最初のテーマ線スタイルが赤に、3 番目のテーマ塗りつぶしスタイルが濃い森林緑に、3 番目の効果スタイルに距離 10 ポイントの外側シャドウが追加されます。最終的な視覚結果は、各シェイプがどのスロットを参照しているか、そして直接書式設定がテーマを上書きしているかに依存します。
 
 ![線、塗りつぶし、シャドウ設定変更後のテーマ効果スタイル](presentation-design_11.png)
 
-## **有効テーマ値の取得**
+## **有効な単色塗りつぶしがテーマカラーを使用しているか判断する**
 
-生のテーマオブジェクトは特定レベルで定義されている内容を示します。有効値は継承とローカル オーバーライドが解決された後、スライドやシェイプが実際に使用している値を示します。スライドの場合は [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/ja/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/) を呼び出します。背景の場合は [Background.get_effective](https://reference.aspose.com/slides/ja/python-net/aspose.slides/background/get_effective/)、塗りつぶしの場合は [FillFormat.get_effective](https://reference.aspose.com/slides/ja/python-net/aspose.slides/fillformat/get_effective/) を使用します。
+塗りつぶしはオブジェクトに直接保存される場合や、段落、レイアウト、マスター、テーマスタイル、または他の書式レベルから継承される場合があります。階層を不変の[IFillFormatEffectiveData](https://reference.aspose.com/slides/ja/python-net/aspose.slides/ifillformateffectivedata/)に解決するには、[FillFormat.get_effective](https://reference.aspose.com/slides/ja/python-net/aspose.slides/fillformat/get_effective/) を呼び出します。まず[IFillFormatEffectiveData.fill_type](https://reference.aspose.com/slides/ja/python-net/aspose.slides/ifillformateffectivedata/fill_type/) を確認し、`FillType.SOLID` の場合にのみ単色塗りつぶしプロパティを読み取ります。
 
-次の例はスライドから有効テーマ、背景、最初のシェイプの塗りつぶしを取得します。
+単色塗りつぶしの場合、[IFillFormatEffectiveData.solid_fill_color](https://reference.aspose.com/slides/ja/python-net/aspose.slides/ifillformateffectivedata/solid_fill_color/) は継承、テーマ検索、色変換が適用された後の最終 RGB 値を返します。[IFillFormatEffectiveData.solid_fill_scheme_color](https://reference.aspose.com/slides/ja/python-net/aspose.slides/ifillformateffectivedata/solid_fill_scheme_color/) は対応する論理[SchemeColor](https://reference.aspose.com/slides/ja/python-net/aspose.slides/schemecolor/) スロット（例: `TEXT1`、`ACCENT6`）を返します。`SchemeColor.NOT_DEFINED` は、有効単色塗りつぶしがスキームカラーに基づいていないことを意味します。テーマカラーまたは直接 RGB 色のいずれかで塗りつぶしが行われているワークフローでは、この値が直接 RGB 塗りつぶしを識別します。
+
+ローカルの[IColorFormat.scheme_color](https://reference.aspose.com/slides/ja/python-net/aspose.slides/icolorformat/scheme_color/) 値だけで塗りつぶしを分類しないでください。たとえば、テキストの一部はローカルでスキームカラーが未定義（`NOT_DEFINED`）でも、実際の塗りつぶしはテーマカラーを継承して `TEXT1` や `ACCENT6` に解決されることがあります。逆に、`solid_fill_scheme_color` は有効色を生成した論理テーマスロットを示しますが、そのスロットがオブジェクト、段落、レイアウト、マスター、または他の書式階層のどこから来たかは示しません。
+
+以下の例はプレゼンテーションを読み込み、シェイプ塗りつぶしとテキスト部分塗りつぶしの両方を監査し、最終 RGB 値と関連スキームカラーを出力し、テーマカラー変更に追従しない単色塗りつぶしをフラグします。
+
+```python
+import aspose.slides as slides
+
+
+def audit_fill(object_name, local_fill):
+    effective_fill = local_fill.get_effective()
+
+    if effective_fill.fill_type != slides.FillType.SOLID:
+        print(f"{object_name}: fill type = {effective_fill.fill_type}; not a solid fill.")
+        return
+
+    rgb = effective_fill.solid_fill_color
+    effective_scheme_color = effective_fill.solid_fill_scheme_color
+    local_scheme_color = local_fill.solid_fill_color.scheme_color
+
+    print(f"{object_name}: RGB = #{rgb.r:02X}{rgb.g:02X}{rgb.b:02X}")
+    print(f"{object_name}: local scheme = {local_scheme_color}, effective scheme = {effective_scheme_color}")
+
+    if effective_scheme_color == slides.SchemeColor.NOT_DEFINED:
+        print(f"{object_name}: direct RGB or another non-scheme fill; audit as theme-independent.")
+    else:
+        print(f"{object_name}: theme-dependent through {effective_scheme_color}.")
+
+
+with slides.Presentation("input.pptx") as presentation:
+    for slide_index, slide in enumerate(presentation.slides):
+        for shape_index, shape in enumerate(slide.shapes):
+            shape_name = f"Slide {slide_index + 1}, shape {shape_index + 1}"
+            audit_fill(shape_name, shape.fill_format)
+
+            if isinstance(shape, slides.AutoShape):
+                for paragraph_index, paragraph in enumerate(shape.text_frame.paragraphs):
+                    for portion_index, portion in enumerate(paragraph.portions):
+                        portion_name = f"{shape_name}, paragraph {paragraph_index + 1}, portion {portion_index + 1}"
+                        audit_fill(portion_name, portion.portion_format.fill_format)
+```
+
+`NOT_DEFINED` ブランチは、テーマカラー スロットの変更に応答しない単色塗りつぶしの監査リストを提供します。新しいブランド パレットに合わせる必要があるプレゼンテーションでは、これらのオブジェクトを確認してください。報告された RGB 値は現在の外観を示し、スキーム値はその外観がテーマに接続されているかどうかを説明します。
+
+有効フォーマットオブジェクトはスナップショットです。プレゼンテーションテーマ、テーマオーバーライド、または任意の継承書式を変更した後、`get_effective` を再度呼び出し、新しい `IFillFormatEffectiveData` オブジェクトを取得してから色を比較または報告してください。
+
+## **有効なテーマ値を読み取る**
+
+生のテーマオブジェクトは特定レベルで定義されているものを示します。有効値は、継承とローカルオーバーライドが解決された後、スライドやシェイプが実際に使用しているものを示します。スライドの場合は[BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/ja/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/) を呼び出します。背景の場合は[Background.get_effective](https://reference.aspose.com/slides/ja/python-net/aspose.slides/background/get_effective/)、塗りつぶしの場合は[FillFormat.get_effective](https://reference.aspose.com/slides/ja/python-net/aspose.slides/fillformat/get_effective/) を使用します。
+
+以下の例は、スライドから有効テーマ、背景、および最初のシェイプ塗りつぶしを読み取ります。
 
 ```python
 import aspose.slides as slides
@@ -389,22 +441,22 @@ with slides.Presentation("input.pptx") as presentation:
             print(f"First shape effective fill color: {effective_fill.solid_fill_color}")
 ```
 
-有効データはレンダリング診断、検証、比較に使用してください。単に [Presentation.master_theme](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/master_theme/) を調べるだけでは、マスタ、レイアウト、スライド、シェイプのオーバーライドによる最終外観を見落とす可能性があります。
+有効データはレンダリング診断、検証、比較に使用します。[Presentation.master_theme](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/master_theme/) だけを検査すると、マスター、レイアウト、スライド、またはシェイプのオーバーライドで最終外観が変わるケースを見逃す可能性があります。
 
 ## **FAQ**
 
-**外部テーマを適用すると、プレゼンテーションのすべてのスライドに影響しますか？**
+**外部テーマを適用するとプレゼンテーション全体のスライドに影響しますか？**
 
-いいえ。[IMasterSlide.apply_external_theme_to_depending_slides](https://reference.aspose.com/slides/ja/python-net/aspose.slides/imasterslide/apply_external_theme_to_depending_slides/) は選択したマスタに依存するスライドだけを再割り当てします。他のマスタを使用しているスライドは既存のテーマを保持します。
+いいえ。[IMasterSlide.apply_external_theme_to_depending_slides](https://reference.aspose.com/slides/ja/python-net/aspose.slides/imasterslide/apply_external_theme_to_depending_slides/) は選択したマスターに依存するスライドだけを再割り当てします。他のマスターを使用しているスライドは既存のテーマを保持します。
 
-**マスタを変更せずに単一スライドにテーマを適用できますか？**
+**マスターを変更せずに単一のスライドにテーマを適用できますか？**
 
-はい。スライドの [SlideThemeManager](https://reference.aspose.com/slides/ja/python-net/aspose.slides.theme/slidethememanager/) を使用し、オーバーライドテーマを初期化します。この変更はそのスライドだけにローカルに適用され、他のスライドは既存のテーマを継承し続けます。
+はい。スライドの[SlideThemeManager](https://reference.aspose.com/slides/ja/python-net/aspose.slides.theme/slidethememanager/) を使用してオーバーライドテーマを初期化します。この変更はそのスライドにローカルに留まり、他のスライドは既存のテーマを継承し続けます。
 
-**テーマを別のプレゼンテーションに安全に持ち込む方法は？**
+**テーマを別のプレゼンテーションに安全に持ち込む方法は何ですか？**
 
-スライドを移動して元の外観を保ちたい場合は、[MasterSlideCollection.add_clone](https://reference.aspose.com/slides/ja/python-net/aspose.slides/masterslidecollection/add_clone/) でソースマスタをターゲットにクローンし、[SlideCollection.add_clone](https://reference.aspose.com/slides/ja/python-net/aspose.slides/slidecollection/add_clone/) でそのマスタを使用してスライドをクローンしてください。これによりマスタ、レイアウト、テーマが一緒に保持されます。
+スライドを移動して元の外観を保持する場合は、[MasterSlideCollection.add_clone](https://reference.aspose.com/slides/ja/python-net/aspose.slides/masterslidecollection/add_clone/) でソースマスターを宛先にクローンし、[SlideCollection.add_clone](https://reference.aspose.com/slides/ja/python-net/aspose.slides/slidecollection/add_clone/) でそのマスターと共にスライドをクローンします。これにより、マスター、レイアウト、テーマが一緒に保持されます。
 
-**継承とオーバーライド後の有効値はどうやって確認できますか？**
+**継承とオーバーライドの後の有効値はどうやって確認できますか？**
 
-スライドやレイアウトテーマについては [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/ja/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/) を、[Background.get_effective](https://reference.aspose.com/slides/ja/python-net/aspose.slides/background/get_effective/) や [FillFormat.get_effective](https://reference.aspose.com/slides/ja/python-net/aspose.slides/fillformat/get_effective/) などのフォーマットオブジェクト用の対応メソッドを使用してください。これらの API は継承とオーバーライドが適用された後の解決済み値を返します。
+スライドまたはレイアウトテーマには[BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/ja/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/) を、背景や塗りつぶしなどのフォーマットオブジェクトにはそれぞれ[Background.get_effective](https://reference.aspose.com/slides/ja/python-net/aspose.slides/background/get_effective/) と[FillFormat.get_effective](https://reference.aspose.com/slides/ja/python-net/aspose.slides/fillformat/get_effective/) を使用してください。これらの API は継承とオーバーライドが適用された後の解決された値を返します。

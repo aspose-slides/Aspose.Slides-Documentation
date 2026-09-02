@@ -24,7 +24,7 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Domina los temas de presentación en Aspose.Slides para .NET para crear, personalizar y convertir archivos PowerPoint con una identidad corporativa coherente."
+description: "Domine los temas de presentación en Aspose.Slides para .NET para crear, personalizar y convertir archivos de PowerPoint con una imagen de marca coherente."
 ---
 ## **Introducción**
 
@@ -34,11 +34,11 @@ En Aspose.Slides, el tema a nivel de presentación está disponible a través de
 
 ![Componentes del tema: colores, fuentes, estilos de fondo y efectos](theme-constituents.png)
 
-Las secciones a continuación muestran los flujos de trabajo de tema más comunes: inspeccionar un tema, cambiar colores y fuentes, copiar o aplicar un tema, actualizar estilos de fondo y de efectos, y leer valores efectivos después de que la herencia y las anulaciones se hayan resuelto.
+Las secciones siguientes muestran los flujos de trabajo de tema más comunes: inspeccionar un tema, cambiar colores y fuentes, copiar o aplicar un tema, actualizar estilos de fondo y efectos, y leer los valores efectivos después de que se haya resuelto la herencia y las anulaciones.
 
-## **Inspeccionar un Tema**
+## **Inspeccionar un tema**
 
-El objeto [MasterTheme](https://reference.aspose.com/slides/es/net/aspose.slides.theme/mastertheme/) expone el [ColorScheme](https://reference.aspose.com/slides/es/net/aspose.slides.theme/mastertheme/colorscheme/), [FontScheme](https://reference.aspose.com/slides/es/net/aspose.slides.theme/mastertheme/fontscheme/) y [FormatScheme](https://reference.aspose.com/slides/es/net/aspose.slides.theme/mastertheme/formatscheme/) del tema. Inspeccionar estas colecciones antes de modificarlas resulta especialmente útil cuando una presentación proviene de una fuente externa, ya que el número y el contenido de las entradas de estilo pueden variar.
+El objeto [MasterTheme](https://reference.aspose.com/slides/es/net/aspose.slides.theme/mastertheme/) expone el [ColorScheme](https://reference.aspose.com/slides/es/net/aspose.slides.theme/mastertheme/colorscheme/), [FontScheme](https://reference.aspose.com/slides/es/net/aspose.slides.theme/mastertheme/fontscheme/) y [FormatScheme](https://reference.aspose.com/slides/es/net/aspose.slides.theme/mastertheme/formatscheme/) del tema. Inspeccionar estas colecciones antes de modificarlas es especialmente útil cuando una presentación proviene de una fuente externa, ya que el número y contenido de las entradas de estilo pueden variar.
 
 El siguiente ejemplo lee las propiedades principales del tema e informa cuántos estilos de fondo, relleno, línea y efecto están almacenados en el tema:
 
@@ -59,13 +59,13 @@ Console.WriteLine($"Line styles: {theme.FormatScheme.LineStyles.Count}");
 Console.WriteLine($"Effect styles: {theme.FormatScheme.EffectStyles.Count}");
 ```
 
-Si un archivo utiliza varios maestros, no asuma que cada diapositiva tiene el mismo tema efectivo. Inspeccione el maestro asociado a la diapositiva y utilice el flujo de trabajo de tema efectivo que se muestra más adelante en este artículo cuando puedan existir anulaciones a nivel de diseño o diapositiva.
+Si un archivo utiliza varios maestros, no asuma que cada diapositiva tiene el mismo tema efectivo. Inspeccione el maestro asociado a la diapositiva y utilice el flujo de trabajo de tema efectivo mostrado más adelante en este artículo cuando puedan existir anulaciones de diseño o diapositiva.
 
-## **Cambiar los Colores del Tema**
+## **Cambiar colores del tema**
 
-Los rellenos, líneas y textos conscientes del tema pueden referirse a un color lógico del enumerado [SchemeColor](https://reference.aspose.com/slides/es/net/aspose.slides/schemecolor/). Cuando cambia la entrada correspondiente en el [IColorScheme](https://reference.aspose.com/slides/es/net/aspose.slides.theme/icolorscheme/) del tema, todos los objetos que todavía hacen referencia a ese color del tema se resuelven con el nuevo valor. Los objetos que usan un color RGB directo no se modifican con una actualización del color del tema.
+Los rellenos, líneas y texto conscientes del tema pueden referirse a un color lógico de la enumeración [SchemeColor](https://reference.aspose.com/slides/es/net/aspose.slides/schemecolor/). Cuando cambia la entrada correspondiente en el [IColorScheme](https://reference.aspose.com/slides/es/net/aspose.slides.theme/icolorscheme/) del tema, todos los objetos que aún referencian ese color del tema se resuelven contra el nuevo valor. Los objetos que usan un color RGB directo no se modifican con una actualización del color del tema.
 
-El siguiente ejemplo de extremo a extremo crea una forma que usa `Accent4`, cambia el color `Accent4` del tema a rojo, guarda la presentación, la vuelve a abrir y muestra el color de relleno efectivo:
+El siguiente ejemplo de extremo a extremo crea una forma que usa `Accent4`, cambia el color `Accent4` del tema a rojo, guarda la presentación, la vuelve a abrir e imprime el color de relleno efectivo:
 
 ```csharp
 using System;
@@ -88,15 +88,16 @@ var effectiveFill = savedShape.FillFormat.GetEffective();
 Console.WriteLine($"Effective fill color: {effectiveFill.SolidFillColor}");
 ```
 
-Como el rectángulo sigue vinculado a `Accent4`, su color visible pasa a ser rojo después de cambiar el tema. Si sustituye el color del esquema por un color directo en la forma, los cambios posteriores a `Accent4` ya no afectarán a ese relleno.
+Como el rectángulo sigue vinculado a `Accent4`, su color visible se vuelve rojo después de cambiar el tema. Si sustituye el color de esquema por un color directo en la forma, los cambios posteriores de `Accent4` ya no afectarán a ese relleno.
 
-### **Usar Colores de la Paleta Adicional**
+### **Usar colores de la paleta adicional**
 
 PowerPoint genera variantes más claras y más oscuras a partir de un color del tema aplicando transformaciones de color. Aspose.Slides expone estas transformaciones mediante [ColorTransformOperation](https://reference.aspose.com/slides/es/net/aspose.slides/colortransformoperation/).
 
 ![Colores principales del tema y colores más claros y oscuros generados a partir de la paleta adicional](additional-palette-colors.png)
 
-**1** - Colores principales del tema.  
+**1** - Colores principales del tema.
+
 **2** - Variantes más claras y más oscuras producidas a partir de los colores principales del tema.
 
 El siguiente ejemplo crea seis rectángulos basados en `Accent4`, aplica transformaciones de luminancia a cinco de ellos y guarda el resultado:
@@ -143,11 +144,11 @@ shape6.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.Mult
 presentation.Save("theme-color-palette.pptx", SaveFormat.Pptx);
 ```
 
-Estas variantes permanecen basadas en el color del tema. Si `Accent4` cambia más adelante, los colores transformados se recalculan a partir del nuevo valor de `Accent4`.
+Estas variantes siguen basadas en el color del tema. Si `Accent4` cambia más tarde, los colores transformados se recalculan a partir del nuevo valor de `Accent4`.
 
-### **Mapear Valores de `SchemeColor` a Ranuras de `IColorScheme`**
+### **Mapear valores de `SchemeColor` a ranuras de `IColorScheme`**
 
-El enumerado [SchemeColor](https://reference.aspose.com/slides/es/net/aspose.slides/schemecolor/) utiliza `Text1`, `Background1`, `Text2` y `Background2`, mientras que [IColorScheme](https://reference.aspose.com/slides/es/net/aspose.slides.theme/icolorscheme/) expone las mismas ranuras del tema como `Dark1`, `Light1`, `Dark2` y `Light2`. La asignación es fija:
+La enumeración [SchemeColor](https://reference.aspose.com/slides/es/net/aspose.slides/schemecolor/) utiliza `Text1`, `Background1`, `Text2` y `Background2`, mientras que [IColorScheme](https://reference.aspose.com/slides/es/net/aspose.slides.theme/icolorscheme/) expone las mismas ranuras del tema como `Dark1`, `Light1`, `Dark2` y `Light2`. La asignación es fija:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
@@ -156,18 +157,18 @@ El enumerado [SchemeColor](https://reference.aspose.com/slides/es/net/aspose.sli
 
 Estos son nombres alternativos para las mismas ranuras del tema; no son valores que se conviertan dinámicamente de una forma a otra.
 
-## **Cambiar las Fuentes del Tema**
+## **Cambiar fuentes del tema**
 
-Un esquema de fuentes del tema contiene un conjunto de fuentes principal para los encabezados y un conjunto de fuentes secundario para el cuerpo del texto. Las propiedades [FontScheme.Major](https://reference.aspose.com/slides/es/net/aspose.slides.theme/fontscheme/major/) y [FontScheme.Minor](https://reference.aspose.com/slides/es/net/aspose.slides.theme/fontscheme/minor/) exponen esos conjuntos.
+Un esquema de fuentes del tema contiene un conjunto de fuentes principal para encabezados y un conjunto de fuentes secundario para el cuerpo del texto. Las propiedades [FontScheme.Major](https://reference.aspose.com/slides/es/net/aspose.slides.theme/fontscheme/major/) y [FontScheme.Minor](https://reference.aspose.com/slides/es/net/aspose.slides.theme/fontscheme/minor/) exponen esos conjuntos.
 
-Los identificadores de fuentes de tema compatibles con PowerPoint pueden utilizarse en el formato de texto:
+Los identificadores de fuentes de tema compatibles con PowerPoint pueden usarse en el formato de texto:
 
-* `+mn-lt` - Fuente del cuerpo Latin (Minor Latin Font)
-* `+mj-lt` - Fuente del encabezado Latin (Major Latin Font)
-* `+mn-ea` - Fuente del cuerpo Este Asiático (Minor East Asian Font)
-* `+mj-ea` - Fuente del encabezado Este Asiático (Major East Asian Font)
+* `+mn-lt` - Fuente del cuerpo Latin (Fuente Latin menor)
+* `+mj-lt` - Fuente del encabezado Latin (Fuente Latin mayor)
+* `+mn-ea` - Fuente del cuerpo East Asian (Fuente East Asian menor)
+* `+mj-ea` - Fuente del encabezado East Asian (Fuente East Asian mayor)
 
-El siguiente ejemplo crea un encabezado que usa la fuente Latin mayor del tema y una línea de cuerpo que usa la fuente Latin menor del tema. Luego cambia las fuentes del tema y guarda el resultado:
+El siguiente ejemplo crea un encabezado que usa la fuente Latin mayor del tema y una línea de cuerpo que usa la fuente Latin menor del tema. A continuación cambia las fuentes del tema y guarda el resultado:
 
 ```csharp
 using Aspose.Slides;
@@ -190,28 +191,28 @@ presentation.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
 presentation.Save("theme-fonts.pptx", SaveFormat.Pptx);
 ```
 
-El encabezado sigue la fuente mayor y el texto del cuerpo sigue la fuente menor. El texto que tiene un nombre de fuente explícito en lugar de un identificador de tema no cambiará automáticamente cuando cambie el esquema de fuentes del tema.
+El encabezado sigue la fuente mayor y el texto del cuerpo sigue la fuente menor. El texto que tenga un nombre de fuente explícito en lugar de un identificador de tema no cambiará automáticamente cuando cambie el esquema de fuentes del tema.
 
-Las colecciones de fuentes mayor y menor también pueden contener asignaciones de fuentes para sistemas de escritura individuales, como Cirílico, Árabe, Japonés, Georgiano y Thaana. Para inspeccionar, añadir, reemplazar o eliminar estas asignaciones, consulte [Fuentes de Tema Específicas por Script](/slides/es/net/script-specific-font-mappings/).
+Las colecciones de fuentes mayor y menor también pueden contener asignaciones de fuentes para sistemas de escritura individuales, como cirílico, árabe, japonés, georgiano y thaana. Para inspeccionar, añadir, sustituir o eliminar estas asignaciones, consulte [Script-Specific Theme Fonts](/slides/es/net/script-specific-font-mappings/).
 
-{{% alert color="info" title="Consejo" %}}
-Para obtener más información sobre las fuentes en presentaciones, consulte [Fuentes de PowerPoint](/slides/es/net/powerpoint-fonts/).
+{{% alert color="info" title="Tip" %}}
+Para obtener más información sobre fuentes de presentación, consulte [PowerPoint Fonts](/slides/es/net/powerpoint-fonts/).
 {{% /alert %}}
 
-## **Copiar o Aplicar un Tema**
+## **Copiar o aplicar un tema**
 
-Los flujos de trabajo a continuación resuelven diferentes problemas relacionados con los temas.
+Los flujos de trabajo siguientes resuelven diferentes problemas relacionados con los temas.
 
-### **Aplicar un Tema Externo a las Diapositivas Dependientes de un Maestro**
+### **Aplicar un tema externo a las diapositivas dependientes de un maestro**
 
-Utilice [IMasterSlide.ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/es/net/aspose.slides/imasterslide/applyexternalthemetodependingslides/) cuando disponga de un archivo de tema de PowerPoint (`.thmx`) y desee restilizar cada diapositiva que dependa de un maestro concreto. Seleccione el maestro de la colección [Presentation.Masters](https://reference.aspose.com/slides/es/net/aspose.slides/presentation/masters/), que implementa [IMasterSlideCollection](https://reference.aspose.com/slides/es/net/aspose.slides/imasterslidecollection/), y pase la ruta del archivo de tema al método.
+Utilice [IMasterSlide.ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/es/net/aspose.slides/imasterslide/applyexternalthemetodependingslides/) cuando tenga un archivo de tema de PowerPoint (`.thmx`) y desee reestilizar cada diapositiva que depende de un maestro concreto. Seleccione el maestro de la colección [Presentation.Masters](https://reference.aspose.com/slides/es/net/aspose.slides/presentation/masters/), que implementa [IMasterSlideCollection](https://reference.aspose.com/slides/es/net/aspose.slides/imasterslidecollection/), y pase la ruta del archivo de tema al método.
 
 El método realiza las siguientes operaciones:
 
-1. Crea una nueva diapositiva maestra basada en el maestro seleccionado.  
-2. Aplica el tema externo a la nueva maestra.  
-3. Asigna la nueva maestra a todas las diapositivas que previamente dependían del maestro seleccionado.  
-4. Devuelve la nueva [IMasterSlide](https://reference.aspose.com/slides/es/net/aspose.slides/imasterslide/) creada.
+1. Crea una nueva diapositiva maestra basada en el maestro seleccionado.
+1. Aplica el tema externo al nuevo maestro.
+1. Asigna el nuevo maestro a todas las diapositivas que antes dependían del maestro seleccionado.
+1. Devuelve el nuevo [IMasterSlide](https://reference.aspose.com/slides/es/net/aspose.slides/imasterslide/) creado.
 
 El siguiente ejemplo aplica un tema externo a las diapositivas que dependen del primer maestro, guarda la presentación y vuelve a abrir el resultado:
 
@@ -228,19 +229,19 @@ Console.WriteLine($"Created master: {themedMaster.Name}");
 presentation.Save("presentation-with-external-theme.pptx", SaveFormat.Pptx);
 ```
 
-Un tema inválido, corrupto o no compatible puede provocar una [PptxException](https://reference.aspose.com/slides/es/net/aspose.slides/pptxexception/) o una de sus subclases relacionadas con el formato. Valide las rutas suministradas por los usuarios, gestione los fallos de acceso al sistema de archivos y guarde la presentación solo después de que el tema se haya aplicado con éxito.
+Un tema inválido, corrupto o no compatible puede provocar [PptxException](https://reference.aspose.com/slides/es/net/aspose.slides/pptxexception/) o una de sus subclases relacionadas con el formato. Valide las rutas proporcionadas por los usuarios, gestione los fallos de acceso al sistema de archivos y guarde la presentación solo después de que el tema se haya aplicado con éxito.
 
-Solo se reasignan las diapositivas que dependían del maestro seleccionado. Las diapositivas asociadas a otros maestros conservan sus maestros y temas existentes. Los colores, fuentes, rellenos, líneas, fondos y efectos conscientes del tema se resuelven con el tema externo. Los colores, fuentes, rellenos y demás formato asignado directamente pueden permanecer sin cambios. Las anulaciones a nivel de diseño y diapositiva también pueden tomar precedencia sobre los valores heredados del nuevo maestro.
+Solo se reasignan las diapositivas que dependían del maestro seleccionado. Las diapositivas asociadas a otros maestros conservan sus maestros y temas existentes. Los colores, fuentes, rellenos, líneas, fondos y efectos conscientes del tema se resuelven contra el tema externo. Los colores, fuentes, rellenos y demás formato asignados directamente pueden permanecer sin cambios. Las anulaciones a nivel de diseño y de diapositiva también pueden tener prioridad sobre los valores heredados del nuevo maestro.
 
-El tema puede referenciar fuentes que no estén disponibles en el entorno de ejecución. Para una renderización y exportación consistentes, instale las fuentes necesarias, proporciónelas mediante [fuentes personalizadas](/slides/es/net/custom-font/), o configure la [sustitución de fuentes](/slides/es/net/font-substitution/).
+El tema puede referenciar fuentes que no estén disponibles en el entorno de ejecución. Para una renderización y exportación consistentes, instale las fuentes requeridas, proporciónelas mediante [fuentes personalizadas](/slides/es/net/custom-font/), o configure la [sustitución de fuentes](/slides/es/net/font-substitution/).
 
-Este es un flujo de trabajo directo a nivel de maestro: el método acepta la ruta a un archivo `.thmx` y no requiere crear manualmente anulaciones de tema a nivel de diapositiva o de diseño.
+Este es un flujo de trabajo directo a nivel de maestro: el método acepta una ruta a un archivo `.thmx` y no requiere crear manualmente anulaciones de tema a nivel de diapositiva o de diseño.
 
-### **Aplicar Diferentes Temas Externos en una Presentación con Varios Maestros**
+### **Aplicar diferentes temas externos en una presentación con varios maestros**
 
-Cuando el maestro relevante no se conoce de antemano, obténgalo a partir de una diapositiva representativa mediante [ISlide.LayoutSlide](https://reference.aspose.com/slides/es/net/aspose.slides/islide/layoutslide/) y [ILayoutSlide.MasterSlide](https://reference.aspose.com/slides/es/net/aspose.slides/ilayoutslide/masterslide/). Guarde las referencias originales del maestro antes de aplicar cualquier tema, ya que cada llamada crea otro maestro en la presentación.
+Cuando el maestro relevante no se conoce de antemano, obténgalo a partir de una diapositiva representativa mediante [ISlide.LayoutSlide](https://reference.aspose.com/slides/es/net/aspose.slides/islide/layoutslide/) y [ILayoutSlide.MasterSlide](https://reference.aspose.com/slides/es/net/aspose.slides/ilayoutslide/masterslide/). Guarde las referencias originales a los maestros antes de aplicar cualquier tema porque cada llamada crea otro maestro en la presentación.
 
-El siguiente ejemplo utiliza diapositivas de dos secciones para localizar sus maestros y aplica un tema externo diferente a cada grupo:
+El siguiente ejemplo usa diapositivas de dos secciones para localizar sus maestros y aplica un tema externo diferente a cada grupo:
 
 ```csharp
 using System;
@@ -274,11 +275,11 @@ else
 }
 ```
 
-La primera llamada afecta solo a las diapositivas que dependían de `firstGroupMaster`, y la segunda llamada afecta solo a las diapositivas que dependían de `secondGroupMaster`. Las diapositivas pertenecientes a cualquier otro maestro no se restilizan.
+La primera llamada afecta solo a las diapositivas que dependían de `firstGroupMaster`, y la segunda llamada afecta solo a las que dependían de `secondGroupMaster`. Las diapositivas pertenecientes a cualquier otro maestro no se reestilizan.
 
-### **Conservar un Tema de Origen al Mover Diapositivas**
+### **Conservar un tema de origen al mover diapositivas**
 
-Si desea mover una diapositiva a otra presentación y conservar su diseño original, clone el maestro de origen en la presentación destino con [IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/es/net/aspose.slides/imasterslidecollection/addclone/), luego clone la diapositiva con [ISlideCollection.AddClone](https://reference.aspose.com/slides/es/net/aspose.slides/islidecollection/addclone/) y el maestro clonado. Así se trasladan el maestro, sus diseños y el tema asociado juntos.
+Si desea mover una diapositiva a otra presentación y conservar su diseño original, clone el maestro de origen en la presentación de destino con [IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/es/net/aspose.slides/imasterslidecollection/addclone/), luego clone la diapositiva con [ISlideCollection.AddClone](https://reference.aspose.com/slides/es/net/aspose.slides/islidecollection/addclone/) y el maestro clonado. Esto lleva el maestro, sus diseños y el tema asociado juntos.
 
 ```csharp
 using Aspose.Slides;
@@ -295,9 +296,9 @@ target.Slides.AddClone(sourceSlide, clonedMaster, true);
 target.Save("theme-preserved.pptx", SaveFormat.Pptx);
 ```
 
-Este es el flujo de trabajo preferido cuando la diapositiva de origen debe verse igual en el destino. Clonar simplemente el contenido sobre un maestro de destino no relacionado puede cambiar los colores, fuentes, fondos y efectos impulsados por el tema.
+Este es el flujo de trabajo preferido cuando la diapositiva origen debe verse idéntica en el destino. Simplemente clonar el contenido sobre un maestro de destino no relacionado puede cambiar los colores, fuentes, fondos y efectos controlados por el tema.
 
-### **Aplicar Valores de Tema a una Diapositiva Existente**
+### **Aplicar valores de tema a una diapositiva existente**
 
 Si la diapositiva objetivo debe permanecer en su maestro y diseño actuales, inicialice una anulación a nivel de diapositiva a partir del tema de origen. Los métodos [OverrideTheme.InitColorSchemeFrom](https://reference.aspose.com/slides/es/net/aspose.slides.theme/overridetheme/initcolorschemefrom/), [OverrideTheme.InitFontSchemeFrom](https://reference.aspose.com/slides/es/net/aspose.slides.theme/overridetheme/initfontschemefrom/) y [OverrideTheme.InitFormatSchemeFrom](https://reference.aspose.com/slides/es/net/aspose.slides.theme/overridetheme/initformatschemefrom/) copian los tres componentes principales del tema en la anulación.
 
@@ -317,11 +318,11 @@ overrideTheme.InitFormatSchemeFrom(source.MasterTheme.FormatScheme);
 target.Save("theme-applied-to-slide.pptx", SaveFormat.Pptx);
 ```
 
-Esto cambia el tema usado por esa diapositiva sin cambiar el tema heredado por otras diapositivas. Para eliminar la anulación local y volver a los valores heredados, llame a [OverrideTheme.Clear](https://reference.aspose.com/slides/es/net/aspose.slides.theme/overridetheme/clear/).
+Esto cambia el tema utilizado por esa diapositiva sin modificar el tema heredado por otras diapositivas. Para eliminar la anulación local y volver a los valores heredados, llame a [OverrideTheme.Clear](https://reference.aspose.com/slides/es/net/aspose.slides.theme/overridetheme/clear/).
 
-### **Aplicar una Anulación de Tema a un Diseño**
+### **Aplicar una anulación de tema a un diseño**
 
-Una anulación a nivel de diseño se aplica a las diapositivas que usan ese diseño, salvo que una diapositiva concreta tenga su propia anulación. Los mismos métodos de inicialización pueden usarse a través del [LayoutSlideThemeManager](https://reference.aspose.com/slides/es/net/aspose.slides.theme/layoutslidethememanager/) del diseño:
+Una anulación a nivel de diseño se aplica a las diapositivas que usan ese diseño, a menos que una diapositiva concreta tenga su propia anulación. Los mismos métodos de inicialización pueden usarse a través del [LayoutSlideThemeManager](https://reference.aspose.com/slides/es/net/aspose.slides.theme/layoutslidethememanager/) del diseño:
 
 ```csharp
 using Aspose.Slides;
@@ -339,17 +340,17 @@ overrideTheme.InitFormatSchemeFrom(source.MasterTheme.FormatScheme);
 target.Save("theme-applied-to-layout.pptx", SaveFormat.Pptx);
 ```
 
-Utilice un tema a nivel de maestro o presentación cuando muchos diseños y diapositivas deban compartir el mismo diseño base, una anulación de diseño cuando una familia de diseños necesite un estilo distinto, y una anulación de diapositiva solo para excepciones reales. Las anulaciones excesivas a nivel de diapositiva dificultan predecir los cambios globales posteriores del tema.
+Utilice un tema a nivel de maestro o presentación cuando muchos diseños y diapositivas deban compartir el mismo diseño base, una anulación de diseño cuando una familia de diseños necesite un estilo diferente, y una anulación de diapositiva solo para verdaderas excepciones. Un exceso de anulaciones a nivel de diapositiva dificulta la predicción de cambios de tema globales posteriores.
 
-## **Actualizar los Estilos de Fondo del Tema**
+## **Actualizar estilos de fondo del tema**
 
-Los rellenos de fondo del tema se almacenan en [FormatScheme.BackgroundFillStyles](https://reference.aspose.com/slides/es/net/aspose.slides.theme/formatscheme/backgroundfillstyles/). PowerPoint puede presentar más opciones de fondo en su interfaz de usuario que la cantidad de definiciones de relleno físicamente almacenadas en esta colección, porque la UI puede combinar rellenos de tema con colores de tema y otras referencias de estilo.
+Los rellenos de fondo del tema se almacenan en [FormatScheme.BackgroundFillStyles](https://reference.aspose.com/slides/es/net/aspose.slides.theme/formatscheme/backgroundfillstyles/). PowerPoint puede presentar más opciones de fondo en su interfaz que el número de definiciones de relleno almacenadas físicamente en esta colección, porque la UI puede combinar rellenos de tema con colores del tema y otras referencias de estilo.
 
 ![Galería de estilos de fondo de PowerPoint para un tema de presentación](presentation-design_8.png)
 
-Antes de usar un estilo de fondo, inspeccione la colección almacenada y el valor actual de [Background.StyleIndex](https://reference.aspose.com/slides/es/net/aspose.slides/background/styleindex/). `StyleIndex` usa `0` para indicar que no hay relleno tematizado; los valores positivos son referencias a estilos de fondo del tema. Esto difiere del índice de la colección .NET, donde `[0]` representa el primer elemento almacenado. No asuma que todas las presentaciones contienen la misma cantidad de estilos de relleno de fondo.
+Antes de usar un estilo de fondo, inspeccione la colección almacenada y el [Background.StyleIndex](https://reference.aspose.com/slides/es/net/aspose.slides/background/styleindex/) actual. `StyleIndex` usa `0` para indicar que no hay relleno temático; los valores positivos son referencias a estilos de fondo temáticos. Esto difiere del índice de la colección .NET directamente, donde `[0]` significa el primer elemento almacenado. No asuma que cada presentación contiene el mismo número de estilos de relleno de fondo.
 
-El siguiente ejemplo informa el número de rellenos de fondo disponibles, asigna una referencia de fondo tematizado al primer maestro y guarda la presentación:
+El siguiente ejemplo informa el recuento de rellenos de fondo disponibles, asigna una referencia de fondo temático al primer maestro y guarda la presentación:
 
 ```csharp
 using System;
@@ -371,25 +372,25 @@ presentation.Masters[0].Background.StyleIndex = 1;
 presentation.Save("theme-background.pptx", SaveFormat.Pptx);
 ```
 
-El resultado visible depende de la entrada del tema referenciada por el maestro y de cualquier anulación de fondo a nivel de diseño o diapositiva. Si una diapositiva usa su propio fondo, cambiar solo el fondo del maestro puede no afectar a esa diapositiva. Utilice [Background.GetEffective](https://reference.aspose.com/slides/es/net/aspose.slides/background/geteffective/) cuando necesite conocer el fondo final tras aplicar la herencia.
+El resultado visible depende de la entrada del tema referenciada por el maestro y de cualquier anulación de fondo a nivel de diseño o diapositiva. Si una diapositiva usa su propio fondo, cambiar solo el fondo del maestro puede no modificar esa diapositiva. Utilice [Background.GetEffective](https://reference.aspose.com/slides/es/net/aspose.slides/background/geteffective/) cuando necesite conocer el fondo final tras aplicar la herencia.
 
-{{% alert color="warning" title="Advertencia" %}}
-No trate `StyleIndex` como un índice de colección basado en cero. Asimismo, evite codificar un número de estilo de un archivo y suponer que tiene la misma apariencia en otro archivo; las definiciones de estilo del tema son específicas de cada presentación.
+{{% alert color="warning" title="Warning" %}}
+No trate `StyleIndex` como un índice de colección basado en cero. Además, evite codificar un número de estilo de un archivo y suponer que tiene la misma apariencia en otro archivo; las definiciones de estilo del tema son específicas de cada presentación.
 {{% /alert %}}
 
-{{% alert color="info" title="Consejo" %}}
-Para formateo directo de fondos y herencia de fondos, consulte [Fondo de Presentación](/slides/es/net/presentation-background/).
+{{% alert color="info" title="Tip" %}}
+Para formato directo de fondo y herencia de fondos, consulte [Presentation Background](/slides/es/net/presentation-background/).
 {{% /alert %}}
 
-## **Actualizar los Efectos del Tema**
+## **Actualizar efectos del tema**
 
-Un esquema de formato del tema contiene colecciones separadas de [FillStyles](https://reference.aspose.com/slides/es/net/aspose.slides.theme/formatscheme/fillstyles/), [LineStyles](https://reference.aspose.com/slides/es/net/aspose.slides.theme/formatscheme/linestyles/) y [EffectStyles](https://reference.aspose.com/slides/es/net/aspose.slides.theme/formatscheme/effectstyles/). Los temas típicos de Office suelen contener tres entradas de estilo principales que corresponden visualmente a formatos sutiles, moderados e intensos, pero el código debe inspeccionar cada colección en lugar de asumir un recuento fijo.
+Un esquema de formato del tema contiene colecciones separadas de [FillStyles](https://reference.aspose.com/slides/es/net/aspose.slides.theme/formatscheme/fillstyles/), [LineStyles](https://reference.aspose.com/slides/es/net/aspose.slides.theme/formatscheme/linestyles/) y [EffectStyles](https://reference.aspose.com/slides/es/net/aspose.slides.theme/formatscheme/effectstyles/). Los temas típicos de Office a menudo contienen tres entradas de estilo principales que corresponden visualmente a formatos sutil, moderado e intenso, pero el código debe inspeccionar cada colección en lugar de asumir un recuento fijo.
 
 ![Efectos de tema sutil, moderado e intenso aplicados a la misma forma](presentation-design_10.png)
 
-Al acceder a estas colecciones en C#, el índice de la colección es basado en cero: `[0]` es el primer estilo almacenado y `[2]` el tercero. Los índices de referencia de estilo de una forma son un concepto separado, expuesto mediante [IShapeStyle](https://reference.aspose.com/slides/es/net/aspose.slides/ishapestyle/). Modificar un estilo del tema afecta a las formas que hacen referencia a ese estilo; las formas con formato directo pueden permanecer sin cambios.
+Al acceder a estas colecciones en C#, el índice de la colección es basado en cero: `[0]` es el primer estilo almacenado y `[2]` el tercero. Los índices de referencia de estilo de una forma son un concepto separado, expuesto a través de [IShapeStyle](https://reference.aspose.com/slides/es/net/aspose.slides/ishapestyle/). Modificar un estilo del tema afecta a las formas que referencian ese estilo; las formas con formato directo pueden permanecer sin cambios.
 
-El siguiente ejemplo verifica que existan las entradas de estilo requeridas, cambia el primer estilo de línea, cambia el tercer estilo de relleno, habilita una sombra externa en el tercer estilo de efecto y guarda el resultado:
+El siguiente ejemplo verifica que existan las entradas de estilo necesarias, cambia el primer estilo de línea, cambia el tercer estilo de relleno, habilita una sombra externa en el tercer estilo de efecto y guarda el resultado:
 
 ```csharp
 using System;
@@ -415,13 +416,92 @@ formatScheme.EffectStyles[2].EffectFormat.OuterShadowEffect.Distance = 10f;
 presentation.Save("theme-effects.pptx", SaveFormat.Pptx);
 ```
 
-Para las formas que referencian estas ranuras, el primer estilo de línea del tema pasa a ser rojo, el tercer estilo de relleno del tema pasa a ser verde bosque sólido y el tercer estilo de efecto gana una sombra externa con una distancia de 10 puntos. El resultado visual exacto sigue dependiendo de qué ranuras de estilo referencia cada forma y de si el formato directo anula el tema.
+Para las formas que referencian estas ranuras, el primer estilo de línea del tema se vuelve rojo, el tercer estilo de relleno del tema se vuelve verde bosque sólido y el tercer estilo de efecto gana una sombra externa con una distancia de 10 puntos. El resultado visual exacto sigue dependiendo de qué ranuras de estilo referencie cada forma y de si el formato directo anula el tema.
 
 ![Estilos de efecto del tema después de cambiar línea, relleno y sombra](presentation-design_11.png)
 
-## **Leer Valores Efectivos del Tema**
+## **Determinar si un relleno sólido efectivo usa un color del tema**
 
-Los objetos de tema sin procesar le indican qué está definido en un nivel concreto. Los valores efectivos le indican qué usa realmente una diapositiva o forma tras resolver la herencia y las anulaciones locales. Para una diapositiva, llame a [BaseOverrideThemeManager.CreateThemeEffective](https://reference.aspose.com/slides/es/net/aspose.slides.theme/baseoverridethememanager/createthemeeffective/). Para un fondo, utilice [Background.GetEffective](https://reference.aspose.com/slides/es/net/aspose.slides/background/geteffective/), y para un relleno, use [FillFormat.GetEffective](https://reference.aspose.com/slides/es/net/aspose.slides/fillformat/geteffective/).
+Un relleno puede estar almacenado directamente en un objeto o heredado de un párrafo, diseño, maestro, estilo del tema u otro nivel de formato. Llame a [IFillFormat.GetEffective](https://reference.aspose.com/slides/es/net/aspose.slides/ifillformat/geteffective/) para resolver esa jerarquía en datos inmutables de [IFillFormatEffectiveData](https://reference.aspose.com/slides/es/net/aspose.slides/ifillformateffectivedata/). Primero verifique [IFillFormatEffectiveData.FillType](https://reference.aspose.com/slides/es/net/aspose.slides/ifillformateffectivedata/filltype/). Solo cuando sea `FillType.Solid` debe leer las propiedades del relleno sólido.
+
+Para un relleno sólido, [IFillFormatEffectiveData.SolidFillColor](https://reference.aspose.com/slides/es/net/aspose.slides/ifillformateffectivedata/solidfillcolor/) devuelve el valor RGB final renderizado después de la herencia, la búsqueda en el tema y la aplicación de transformaciones de color. [IFillFormatEffectiveData.SolidFillSchemeColor](https://reference.aspose.com/slides/es/net/aspose.slides/ifillformateffectivedata/solidfillschemecolor/) devuelve la ranura lógica correspondiente de [SchemeColor](https://reference.aspose.com/slides/es/net/aspose.slides/schemecolor/), como `Text1` o `Accent6`. Un valor de `SchemeColor.NotDefined` indica que el relleno sólido efectivo no se basa en un color de esquema. En un flujo de trabajo donde los rellenos son colores de tema o colores RGB directos, este valor identifica un relleno RGB directo.
+
+No utilice solo el valor local de [IColorFormat.SchemeColor](https://reference.aspose.com/slides/es/net/aspose.slides/icolorformat/schemecolor/) para clasificar un relleno. Por ejemplo, una porción de texto puede no tener un color de esquema definido localmente, por lo que su valor local es `NotDefined`, mientras que su relleno efectivo hereda un color de tema y se resuelve a `Text1` o `Accent6`. Por el contrario, `SolidFillSchemeColor` indica qué ranura lógica del tema produjo el color efectivo, pero no indica si esa ranura provino del objeto, párrafo, diseño, maestro u otro nivel de la jerarquía de formato.
+
+El siguiente ejemplo carga una presentación, audita tanto los rellenos de forma como los de porciones de texto, imprime cada valor RGB final y el color de esquema asociado, y marca los rellenos sólidos que no seguirán los cambios de color del tema:
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+
+var slideCount = presentation.Slides.Count;
+for (var slideIndex = 0; slideIndex < slideCount; slideIndex++)
+{
+    var slide = presentation.Slides[slideIndex];
+
+    var shapeCount = slide.Shapes.Count;
+    for (var shapeIndex = 0; shapeIndex < shapeCount; shapeIndex++)
+    {
+        var shape = slide.Shapes[shapeIndex];
+        var shapeName = $"Slide {slideIndex + 1}, shape {shapeIndex + 1}";
+        AuditFill(shapeName, shape.FillFormat);
+
+        if (shape is IAutoShape autoShape)
+        {
+            var paragraphCount = autoShape.TextFrame.Paragraphs.Count;
+            for (var paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++)
+            {
+                var paragraph = autoShape.TextFrame.Paragraphs[paragraphIndex];
+
+                var portionCount = paragraph.Portions.Count;
+                for (var portionIndex = 0; portionIndex < portionCount; portionIndex++)
+                {
+                    var portion = paragraph.Portions[portionIndex];
+                    var portionName = $"{shapeName}, paragraph {paragraphIndex + 1}, portion {portionIndex + 1}";
+                    AuditFill(portionName, portion.PortionFormat.FillFormat);
+                }
+            }
+        }
+    }
+}
+
+static void AuditFill(string objectName, IFillFormat localFill)
+{
+    var effectiveFill = localFill.GetEffective();
+
+    if (effectiveFill.FillType != FillType.Solid)
+    {
+        Console.WriteLine($"{objectName}: fill type = {effectiveFill.FillType}; not a solid fill.");
+        return;
+    }
+
+    var rgb = effectiveFill.SolidFillColor;
+    var effectiveSchemeColor = effectiveFill.SolidFillSchemeColor;
+    var localSchemeColor = localFill.SolidFillColor.SchemeColor;
+
+    Console.WriteLine($"{objectName}: RGB = #{rgb.R:X2}{rgb.G:X2}{rgb.B:X2}");
+    Console.WriteLine($"{objectName}: local scheme = {localSchemeColor}, effective scheme = {effectiveSchemeColor}");
+
+    if (effectiveSchemeColor == SchemeColor.NotDefined)
+    {
+        Console.WriteLine($"{objectName}: direct RGB or another non-scheme fill; audit as theme-independent.");
+    }
+    else
+    {
+        Console.WriteLine($"{objectName}: theme-dependent through {effectiveSchemeColor}.");
+    }
+}
+```
+
+La rama `NotDefined` proporciona una lista de auditoría de rellenos sólidos que no responderán a los cambios en las ranuras de color del tema. Revise esos objetos cuando una presentación deba seguir una nueva paleta de marca. El valor RGB informado sigue mostrando la apariencia actual, mientras que el valor de esquema explica si esa apariencia está conectada al tema.
+
+Los objetos de formato efectivo son instantáneas. Después de cambiar el tema de la presentación, una anulación de tema o cualquier formato heredado, llame a `GetEffective` nuevamente y lea un nuevo objeto `IFillFormatEffectiveData` antes de comparar o informar colores.
+
+## **Leer valores efectivos del tema**
+
+Los objetos de tema sin procesar indican lo que está definido en un nivel concreto. Los valores efectivos indican lo que una diapositiva o forma usa realmente después de que se resuelvan la herencia y las anulaciones locales. Para una diapositiva, llame a [BaseOverrideThemeManager.CreateThemeEffective](https://reference.aspose.com/slides/es/net/aspose.slides.theme/baseoverridethememanager/createthemeeffective/). Para un fondo, use [Background.GetEffective](https://reference.aspose.com/slides/es/net/aspose.slides/background/geteffective/), y para un relleno, use [FillFormat.GetEffective](https://reference.aspose.com/slides/es/net/aspose.slides/fillformat/geteffective/).
 
 El siguiente ejemplo lee el tema efectivo, el fondo y el primer relleno de forma de una diapositiva:
 
@@ -449,9 +529,9 @@ if (slide.Shapes.Count > 0)
 }
 ```
 
-Utilice los datos efectivos para diagnósticos de renderizado, validación y comparaciones. Si solo inspecciona [Presentation.MasterTheme](https://reference.aspose.com/slides/es/net/aspose.slides/presentation/mastertheme/), puede pasar por alto una anulación de maestro, diseño, diapositiva o forma que cambie la apariencia final.
+Utilice los datos efectivos para diagnóstico de renderizado, validación y comparaciones. Si solo inspecciona [Presentation.MasterTheme](https://reference.aspose.com/slides/es/net/aspose.slides/presentation/mastertheme/), podría pasar por alto una anulación de maestro, diseño, diapositiva o forma que modifique la apariencia final.
 
-## **Preguntas Frecuentes**
+## **Preguntas frecuentes**
 
 **¿Aplicar un tema externo afecta a todas las diapositivas de la presentación?**
 
@@ -459,12 +539,12 @@ No. [IMasterSlide.ApplyExternalThemeToDependingSlides](https://reference.aspose.
 
 **¿Puedo aplicar un tema a una sola diapositiva sin cambiar el maestro?**
 
-Sí. Utilice el [SlideThemeManager](https://reference.aspose.com/slides/es/net/aspose.slides.theme/slidethememanager/) de la diapositiva e inicialice su tema de anulación. El cambio permanece local a esa diapositiva; las demás continúan heredando sus temas actuales.
+Sí. Utilice el [SlideThemeManager](https://reference.aspose.com/slides/es/net/aspose.slides.theme/slidethememanager/) de la diapositiva e inicialice su tema de anulación. El cambio permanece local a esa diapositiva; las demás diapositivas continúan heredando sus temas actuales.
 
-**¿Cuál es la forma más segura de transportar un tema de una presentación a otra?**
+**¿Cuál es la forma más segura de trasladar un tema de una presentación a otra?**
 
-Al mover una diapositiva y conservar su apariencia original, clone el maestro de origen en el destino y clone la diapositiva con ese maestro usando [IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/es/net/aspose.slides/imasterslidecollection/addclone/) y [ISlideCollection.AddClone](https://reference.aspose.com/slides/es/net/aspose.slides/islidecollection/addclone/). Así se mantiene el maestro, los diseños y el tema juntos.
+Al mover una diapositiva y conservar su apariencia original, clone el maestro de origen en el destino y clone la diapositiva con ese maestro mediante [IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/es/net/aspose.slides/imasterslidecollection/addclone/) y [ISlideCollection.AddClone](https://reference.aspose.com/slides/es/net/aspose.slides/islidecollection/addclone/). Esto mantiene juntos al maestro, los diseños y el tema.
 
-**¿Cómo puedo ver los valores efectivos tras la herencia y las anulaciones?**
+**¿Cómo puedo ver los valores efectivos después de la herencia y las anulaciones?**
 
-Use [BaseOverrideThemeManager.CreateThemeEffective](https://reference.aspose.com/slides/es/net/aspose.slides.theme/baseoverridethememanager/createthemeeffective/) para un tema de diapositiva o diseño y los métodos de datos efectivos correspondientes para objetos de formato, como [Background.GetEffective](https://reference.aspose.com/slides/es/net/aspose.slides/background/geteffective/) y [FillFormat.GetEffective](https://reference.aspose.com/slides/es/net/aspose.slides/fillformat/geteffective/). Estas API devuelven los valores resueltos tras aplicar la herencia y las anulaciones.
+Utilice [BaseOverrideThemeManager.CreateThemeEffective](https://reference.aspose.com/slides/es/net/aspose.slides.theme/baseoverridethememanager/createthemeeffective/) para una diapositiva o tema de diseño y los métodos de datos efectivos correspondientes para objetos de formato, como [Background.GetEffective](https://reference.aspose.com/slides/es/net/aspose.slides/background/geteffective/) y [FillFormat.GetEffective](https://reference.aspose.com/slides/es/net/aspose.slides/fillformat/geteffective/). Estas API devuelven los valores resueltos tras aplicar la herencia y las anulaciones.

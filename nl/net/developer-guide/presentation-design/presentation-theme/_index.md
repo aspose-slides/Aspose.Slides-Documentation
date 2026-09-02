@@ -1,5 +1,5 @@
 ---
-title: Presentatiethema's beheren in .NET
+title: "Beheer presentatiethema's in .NET"
 linktitle: Presentatiethema
 type: docs
 weight: 10
@@ -7,7 +7,7 @@ url: /nl/net/presentation-theme/
 keywords:
 - PowerPoint-thema
 - presentatiethema
-- diathema
+- dia-thema
 - thema instellen
 - thema wijzigen
 - thema beheren
@@ -15,7 +15,7 @@ keywords:
 - THMX
 - themakleur
 - extra palet
-- thematisch lettertype
+- themalettertype
 - themastijl
 - thema-effect
 - PowerPoint
@@ -24,23 +24,23 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Beheer presentatiethema's in Aspose.Slides voor .NET om PowerPoint-bestanden te maken, aan te passen en te converteren met een consistente huisstijl."
+description: "Beheer presentatiethema's in Aspose.Slides voor .NET om PowerPoint-bestanden te creëren, aanpassen en converteren met consistente branding."
 ---
 ## **Introductie**
 
-Een presentatiethema definieert een gecoördineerde set van kleuren, lettertypen, achtergrondstijlen, vullingen, lijnen en effecten. Thema‑bewuste objecten verwijzen naar deze gedeelde definities in plaats van elke visuele eigenschap als een vaste waarde op te slaan, zodat een thema‑wijziging veel objecten in één keer kan bijwerken.
+Een presentatie‑thema definieert een gecoördineerde verzameling kleuren, lettertypen, achtergrondstijlen, opvullingen, lijnen en effecten. Thema‑bewuste objecten verwijzen naar deze gedeelde definities in plaats van elke visuele eigenschap als een vaste waarde op te slaan, zodat een themawijziging veel objecten tegelijk kan bijwerken.
 
-In Aspose.Slides is het thema op presentatieniveau beschikbaar via de [Presentation.MasterTheme](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/mastertheme/)‑eigenschap. Een presentatie kan ook thema‑overschrijvingen bevatten op lagere niveaus. Een master kan het presentatiethema overschrijven via [MasterThemeManager.OverrideTheme](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/masterthememanager/overridetheme/), een lay‑out kan zijn geërfde thema overschrijven via [BaseOverrideThemeManager.OverrideTheme](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/baseoverridethememanager/overridetheme/), en een individuele dia kan hetzelfde doen. In de praktijk wordt het effectieve thema voor een dia resolved via deze erfenisketen: presentatiethema, master‑overschrijving, lay‑out‑overschrijving en dia‑overschrijving.
+In Aspose.Slides is het thema op presentatieniveau beschikbaar via de eigenschap [Presentation.MasterTheme](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/mastertheme/). Een presentatie kan ook themabijschrijvingen op lagere niveaus bevatten. Een master kan het presentatie‑thema overschrijven via [MasterThemeManager.OverrideTheme](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/masterthememanager/overridetheme/), een lay‑out kan zijn geërfde thema overschrijven via [BaseOverrideThemeManager.OverrideTheme](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/baseoverridethememanager/overridetheme/), en een individuele dia kan hetzelfde doen. In de praktijk wordt het effectieve thema voor een dia bepaald via deze overervingsketen: presentatie‑thema, master‑overschrijving, lay‑out‑overschrijving en dia‑overschrijving.
 
-![Themake componenten: kleuren, lettertypen, achtergrondstijlen en effecten](theme-constituents.png)
+![Theme components: colors, fonts, background styles, and effects](theme-constituents.png)
 
-De secties hieronder tonen de meest voorkomende thema‑workflows: een thema inspecteren, kleuren en lettertypen wijzigen, een thema kopiëren of toepassen, achtergrond‑ en effectstijlen bijwerken, en effectieve waarden lezen nadat erfenis en overschrijvingen zijn verwerkt.
+De onderstaande secties tonen de meest voorkomende thema‑werkstromen: een thema inspecteren, kleuren en lettertypen wijzigen, een thema kopiëren of toepassen, achtergrond‑ en effectstijlen bijwerken, en effectieve waarden lezen nadat overerving en bijschrijvingen zijn toegepast.
 
-## **Een thema inspecteren**
+## **Inspecteer een thema**
 
-Het [MasterTheme](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/mastertheme/)‑object maakt de [ColorScheme](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/mastertheme/colorscheme/), [FontScheme](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/mastertheme/fontscheme/) en [FormatScheme](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/mastertheme/formatscheme/) van het thema bloot. Het inspecteren van deze collecties vóór wijziging is vooral nuttig wanneer een presentatie uit een externe bron komt, omdat het aantal en de inhoud van stijlinvoeren kan variëren.
+Het object [MasterTheme](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/mastertheme/) exposeert het [ColorScheme](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/mastertheme/colorscheme/), [FontScheme](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/mastertheme/fontscheme/) en [FormatScheme](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/mastertheme/formatscheme/) van het thema. Het inspecteren van deze collecties voordat ze worden gewijzigd is vooral nuttig wanneer een presentatie afkomstig is uit een externe bron, omdat het aantal en de inhoud van stijleinvoer kunnen variëren.
 
-Het volgende voorbeeld leest de belangrijkste themaparameters en meldt hoeveel achtergrond‑, vullings‑, lijn‑ en effectstijlen er in het thema zijn opgeslagen:
+Het volgende voorbeeld leest de belangrijkste themaproperties en rapporteert hoeveel achtergrond‑, opvul‑, lijn‑ en effectstijlen er in het thema zijn opgeslagen:
 
 ```csharp
 using System;
@@ -59,13 +59,13 @@ Console.WriteLine($"Line styles: {theme.FormatScheme.LineStyles.Count}");
 Console.WriteLine($"Effect styles: {theme.FormatScheme.EffectStyles.Count}");
 ```
 
-Als een bestand meerdere masters gebruikt, ga er dan niet van uit dat elke dia hetzelfde effectieve thema heeft. Inspecteer de master die aan de dia is gekoppeld, en gebruik de effectieve‑thema‑workflow die later in dit artikel wordt getoond wanneer lay‑out‑ of dia‑overschrijvingen aanwezig kunnen zijn.
+Als een bestand meerdere masters gebruikt, ga er dan niet vanuit dat elke dia hetzelfde effectieve thema heeft. Inspecteer de master die bij de dia hoort, en gebruik de effectieve‑thema‑werkstroom die later in dit artikel wordt getoond wanneer lay‑out‑ of dia‑bijschrijvingen aanwezig kunnen zijn.
 
 ## **Thema‑kleuren wijzigen**
 
-Thema‑bewuste vullingen, lijnen en tekst kunnen verwijzen naar een logische kleur uit de [SchemeColor](https://reference.aspose.com/slides/nl/net/aspose.slides/schemecolor/)‑enumeratie. Wanneer u de bijbehorende invoer in de [IColorScheme](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/icolorscheme/) van het thema wijzigt, worden alle objecten die nog naar die themakleur verwijzen, resolved tegen de nieuwe waarde. Objecten die een directe RGB‑kleur gebruiken, worden niet gewijzigd door een thema‑kleurupdate.
+Thema‑bewuste opvullingen, lijnen en tekst kunnen verwijzen naar een logische kleur uit de enumeratie [SchemeColor](https://reference.aspose.com/slides/nl/net/aspose.slides/schemecolor/). Wanneer je de overeenkomstige invoer in het themathema’s [IColorScheme](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/icolorscheme/) wijzigt, worden alle objecten die nog naar die themakleur verwijzen, bijgewerkt naar de nieuwe waarde. Objecten die een directe RGB‑kleur gebruiken, worden niet veranderd door een thema‑kleurupdate.
 
-Het volgende end‑to‑end‑voorbeeld maakt een vorm die `Accent4` gebruikt, wijzigt de `Accent4`‑kleur van het thema naar rood, slaat de presentatie op, opent deze opnieuw en drukt de effectieve vulkleur af:
+Het volgende end‑to‑end voorbeeld maakt een vorm die `Accent4` gebruikt, wijzigt de themakleur `Accent4` naar rood, slaat de presentatie op, opent deze opnieuw, en drukt de effectieve opvulkleur af:
 
 ```csharp
 using System;
@@ -88,19 +88,19 @@ var effectiveFill = savedShape.FillFormat.GetEffective();
 Console.WriteLine($"Effective fill color: {effectiveFill.SolidFillColor}");
 ```
 
-Omdat het rechthoek nog gekoppeld is aan `Accent4`, wordt de zichtbare kleur rood nadat het thema is gewijzigd. Als u de schemakleur vervangt door een directe kleur op de vorm, zullen latere wijzigingen aan `Accent4` die vulkleur niet meer beïnvloeden.
+Omdat het rechthoekige object nog aan `Accent4` is gekoppeld, wordt de zichtbare kleur rood nadat het thema is veranderd. Als je de schemakleur vervangt door een directe kleur op de vorm, zullen latere wijzigingen aan `Accent4` die opvulling niet meer beïnvloeden.
 
 ### **Kleuren uit het aanvullende palet gebruiken**
 
-PowerPoint genereert lichtere en donkerdere varianten van een themakleur door kleurtransformaties toe te passen. Aspose.Slides stelt deze transformaties bloot via [ColorTransformOperation](https://reference.aspose.com/slides/nl/net/aspose.slides/colortransformoperation/).
+PowerPoint genereert lichtere en donkerdere varianten van een themakleur door kleurtransformaties toe te passen. Aspose.Slides exposeert deze transformaties via [ColorTransformOperation](https://reference.aspose.com/slides/nl/net/aspose.slides/colortransformoperation/).
 
-![Hoofdkleuren van het thema en lichtere en donkerdere kleuren gegenereerd uit het aanvullende palet](additional-palette-colors.png)
+![Main theme colors and lighter and darker colors generated from the additional palette](additional-palette-colors.png)
 
-**1** – Hoofdkleuren van het thema.
+**1** - Hoofdkleuren van het thema.
 
-**2** – Lichtere en donkerdere varianten geproduceerd uit de hoofdkleuren van het thema.
+**2** - Lichtere en donkerdere varianten die zijn geproduceerd uit de hoofdkleuren van het thema.
 
-Het volgende voorbeeld maakt zes rechthoeken gebaseerd op `Accent4`, past luminantietransformaties toe op vijf ervan, en slaat het resultaat op:
+Het volgende voorbeeld maakt zes rechthoeken gebaseerd op `Accent4`, past luminantie‑transformaties toe op vijf ervan, en slaat het resultaat op:
 
 ```csharp
 using Aspose.Slides;
@@ -144,31 +144,31 @@ shape6.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.Mult
 presentation.Save("theme-color-palette.pptx", SaveFormat.Pptx);
 ```
 
-Deze varianten blijven gebaseerd op de themakleur. Als `Accent4` later wijzigt, worden de getransformeerde kleuren opnieuw berekend vanaf de nieuwe `Accent4`‑waarde.
+Deze varianten blijven gebaseerd op de themakleur. Als `Accent4` later verandert, worden de getransformeerde kleuren opnieuw berekend op basis van de nieuwe `Accent4`‑waarde.
 
-### **`SchemeColor`‑waarden toewijzen aan `IColorScheme`‑posities**
+### **`SchemeColor`‑waarden toewijzen aan `IColorScheme`‑slots**
 
-De [SchemeColor](https://reference.aspose.com/slides/nl/net/aspose.slides/schemecolor/)‑enumeratie gebruikt `Text1`, `Background1`, `Text2` en `Background2`, terwijl [IColorScheme](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/icolorscheme/) dezelfde themaposities blootlegt als `Dark1`, `Light1`, `Dark2` en `Light2`. De toewijzing is vast:
+De enumeratie [SchemeColor](https://reference.aspose.com/slides/nl/net/aspose.slides/schemecolor/) gebruikt `Text1`, `Background1`, `Text2` en `Background2`, terwijl [IColorScheme](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/icolorscheme/) dezelfde themaslots exposeert als `Dark1`, `Light1`, `Dark2` en `Light2`. De toewijzing is vast:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-Dit zijn alternatieve namen voor dezelfde themaposities; het zijn geen waarden die dynamisch van de ene vorm naar de andere worden geconverteerd.
+Dit zijn alternatieve namen voor dezelfde themaslots; ze zijn geen waarden die dynamisch van de ene vorm naar de andere worden geconverteerd.
 
 ## **Thema‑lettertypen wijzigen**
 
-Een thema‑lettertype‑schema bevat een hoofdlettertype‑set voor koppen en een secundaire lettertype‑set voor body‑tekst. De eigenschappen [FontScheme.Major](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/fontscheme/major/) en [FontScheme.Minor](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/fontscheme/minor/) exposeren die sets.
+Een thema‑lettertype‑schema bevat een hoofdlettertype‑set voor koppen en een sublettertype‑set voor de hoofdtekst. De eigenschappen [FontScheme.Major](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/fontscheme/major/) en [FontScheme.Minor](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/fontscheme/minor/) geven die sets weer.
 
-PowerPoint‑compatibele thema‑lettertype‑identifiers kunnen worden gebruikt in tekstopmaak:
+PowerPoint‑compatibele thema‑lettertype‑identifiers kunnen worden gebruikt bij tekstopmaak:
 
-* `+mn-lt` – Body‑lettertype Latin (Minor Latin Font)
-* `+mj-lt` – Kop‑lettertype Latin (Major Latin Font)
-* `+mn-ea` – Body‑lettertype East Asian (Minor East Asian Font)
-* `+mj-ea` – Kop‑lettertype East Asian (Major East Asian Font)
+* `+mn-lt` - Body Font Latin (Minor Latin Font)
+* `+mj-lt` - Heading Font Latin (Major Latin Font)
+* `+mn-ea` - Body Font East Asian (Minor East Asian Font)
+* `+mj-ea` - Heading Font East Asian (Major East Asian Font)
 
-Het volgende voorbeeld maakt één kop die het hoofd‑Latin‑themalettertype gebruikt en één body‑regel die het secundaire Latin‑themalettertype gebruikt. Vervolgens wijzigt het de thema‑lettertypen en slaat het resultaat op:
+Het volgende voorbeeld maakt één kop die het hoofd‑Latin‑thema‑lettertype gebruikt en één regel hoofdtekst die het sub‑Latin‑thema‑lettertype gebruikt. Vervolgens wijzigt het de thema‑lettertypen en slaat het resultaat op:
 
 ```csharp
 using Aspose.Slides;
@@ -191,32 +191,30 @@ presentation.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
 presentation.Save("theme-fonts.pptx", SaveFormat.Pptx);
 ```
 
-De kop volgt het hoofdlettertype en de body‑tekst volgt het secundaire lettertype. Tekst met een expliciete lettertype‑naam in plaats van een thema‑identifier zal niet automatisch omschakelen wanneer het thema‑lettertype‑schema wijzigt.
+De kop volgt het hoofdlettertype en de hoofdtekst volgt het sublettertype. Tekst die een expliciete lettertype‑naam heeft in plaats van een thema‑identifier zal niet automatisch wisselen wanneer het thema‑lettertype‑schema verandert.
 
-De hoofd‑ en secundaire lettertype‑collecties kunnen ook lettertype‑toewijzingen bevatten voor individuele schriftsystemen, zoals Cyrillisch, Arabisch, Japans, Georgisch en Thaana. Om deze toewijzingen te inspecteren, toe te voegen, te vervangen of te verwijderen, zie [Script‑Specific Theme Fonts](/slides/nl/net/script-specific-font-mappings/).
+De collecties voor hoofd‑ en sublettertypes kunnen ook lettertype‑toewijzingen bevatten voor individuele schriftsystemen, zoals Cyrillisch, Arabisch, Japans, Georgisch en Thaana. Om deze toewijzingen te inspecteren, toe te voegen, te vervangen of te verwijderen, zie [Script‑Specific Theme Fonts](/slides/nl/net/script-specific-font-mappings/).
 
 {{% alert color="info" title="Tip" %}}
-
 Voor meer informatie over presentatie‑lettertypen, zie [PowerPoint Fonts](/slides/nl/net/powerpoint-fonts/).
-
 {{% /alert %}}
 
 ## **Een thema kopiëren of toepassen**
 
-De onderstaande workflows lossen verschillende thema‑gerelateerde problemen op.
+De onderstaande werkstromen lossen verschillende thema‑gerelateerde problemen op.
 
-### **Een extern thema toepassen op dia's die afhankelijk zijn van een master**
+### **Een extern thema toepassen op dia’s die afhankelijk zijn van een master**
 
-Gebruik [IMasterSlide.ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/nl/net/aspose.slides/imasterslide/applyexternalthemetodependingslides/) wanneer u een PowerPoint‑thema‑bestand (`.thmx`) heeft en elke dia die afhankelijk is van een specifieke master wilt herstylen. Selecteer de master uit de [Presentation.Masters](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/masters/)‑collectie, die [IMasterSlideCollection](https://reference.aspose.com/slides/nl/net/aspose.slides/imasterslidecollection/) implementeert, en geef het pad naar het themabestand door aan de methode.
+Gebruik [IMasterSlide.ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/nl/net/aspose.slides/imasterslide/applyexternalthemetodependingslides/) wanneer je een PowerPoint‑themabestand (`.thmx`) hebt en elke dia die afhankelijk is van een bepaalde master wilt herontwerpen. Selecteer de master uit de collectie [Presentation.Masters](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/masters/) die [IMasterSlideCollection](https://reference.aspose.com/slides/nl/net/aspose.slides/imasterslidecollection/) implementeert, en geef het pad naar het themabestand door aan de methode.
 
 De methode voert de volgende handelingen uit:
 
-1. Maakt een nieuwe master‑dia op basis van de geselecteerde master.
+1. Maakt een nieuwe master‑dia gebaseerd op de geselecteerde master.
 1. Past het externe thema toe op de nieuwe master.
-1. Wijst de nieuwe master toe aan alle dia’s die eerder afhankelijk waren van de geselecteerde master.
+1. Wijst de nieuwe master toe aan alle dia’s die voorheen afhankelijk waren van de geselecteerde master.
 1. Retourneert de nieuw aangemaakte [IMasterSlide](https://reference.aspose.com/slides/nl/net/aspose.slides/imasterslide/).
 
-Het volgende voorbeeld past een extern thema toe op de dia’s die afhankelijk zijn van de eerste master, slaat de presentatie op en opent het resultaat opnieuw:
+Het volgende voorbeeld past een extern thema toe op de dia’s die afhankelijk zijn van de eerste master, slaat de presentatie op, en opent het resultaat opnieuw:
 
 ```csharp
 using System;
@@ -231,17 +229,17 @@ Console.WriteLine($"Created master: {themedMaster.Name}");
 presentation.Save("presentation-with-external-theme.pptx", SaveFormat.Pptx);
 ```
 
-Een ongeldig, beschadigd of niet‑ondersteund thema kan een [PptxException](https://reference.aspose.com/slides/nl/net/aspose.slides/pptxexception/) of een van zijn op‑formaat gerelateerde subklassen veroorzaken. Valideer paden die door gebruikers worden opgegeven, behandel fouten bij bestands‑systeemtoegang, en sla de presentatie alleen op nadat het thema met succes is toegepast.
+Een ongeldig, beschadigd of niet‑ondersteund thema kan een [PptxException](https://reference.aspose.com/slides/nl/net/aspose.slides/pptxexception/) of een van zijn formaat‑gerelateerde subklassen veroorzaken. Valideer door gebruikers opgegeven paden, beheer fouten bij bestandoverzicht, en sla de presentatie pas op nadat het thema succesvol is toegepast.
 
-Alleen de dia’s die afhankelijk waren van de geselecteerde master worden opnieuw toegewezen. Dia’s die aan andere masters zijn gekoppeld behouden hun bestaande masters en thema’s. Thema‑bewuste kleuren, lettertypen, vullingen, lijnen, achtergronden en effecten worden resolved tegen het externe thema. Direct toegewezen kleuren, lettertypen, vullingen en andere expliciete opmaak kunnen ongewijzigd blijven. Lay‑out‑niveau en dia‑niveau overschrijvingen kunnen ook voorrang krijgen boven waarden die van de nieuwe master zijn geërfd.
+Alleen de dia’s die afhankelijk waren van de geselecteerde master worden opnieuw toegewezen. Dia’s die aan andere masters zijn gekoppeld behouden hun bestaande masters en thema’s. Thema‑bewuste kleuren, lettertypen, opvullingen, lijnen, achtergronden en effecten worden afgehandeld ten opzichte van het externe thema. Direct toegekende kleuren, lettertypen, opvullingen en andere expliciete opmaak kunnen ongewijzigd blijven. Bijschrijvingen op lay‑out‑ of dia‑niveau kunnen eveneens voorrang krijgen op waarden die van de nieuwe master zijn geërfd.
 
-Het thema kan verwijzen naar lettertypen die niet beschikbaar zijn in de runtime‑omgeving. Voor consistente weergave en export, installeer de benodigde lettertypen, lever ze via [custom font sources](/slides/nl/net/custom-font/), of configureer [font substitution](/slides/nl/net/font-substitution/).
+Het thema kan lettertypen verwijzen die niet beschikbaar zijn in de runtime‑omgeving. Voor consistente weergave en export, installeer de vereiste lettertypen, stel ze beschikbaar via [custom font sources](/slides/nl/net/custom-font/), of configureer [font substitution](/slides/nl/net/font-substitution/).
 
-Dit is een directe master‑niveau workflow: de methode accepteert een bestands‑pad naar een `.thmx`‑bestand en vereist geen handmatige creatie van dia‑niveau of lay‑out‑niveau thema‑overschrijvingen.
+Dit is een directe master‑niveau werkstroom: de methode accepteert een bestandspad naar een `.thmx`‑bestand en vereist niet dat handmatig dia‑ of lay‑out‑thema‑bijschrijvingen worden gecreëerd.
 
 ### **Verschillende externe thema’s toepassen in een presentatie met meerdere masters**
 
-Wanneer de relevante master vooraf niet bekend is, haal deze dan op via een representatieve dia met [ISlide.LayoutSlide](https://reference.aspose.com/slides/nl/net/aspose.slides/islide/layoutslide/) en [ILayoutSlide.MasterSlide](https://reference.aspose.com/slides/nl/net/aspose.slides/ilayoutslide/masterslide/). Sla de oorspronkelijke master‑referenties op voordat u thema’s toepast, want elke aanroep creëert een nieuwe master in de presentatie.
+Wanneer de relevante master van tevoren niet bekend is, haal deze dan op via een representatieve dia met [ISlide.LayoutSlide](https://reference.aspose.com/slides/nl/net/aspose.slides/islide/layoutslide/) en [ILayoutSlide.MasterSlide](https://reference.aspose.com/slides/nl/net/aspose.slides/ilayoutslide/masterslide/). Sla de oorspronkelijke master‑referenties op voordat je thema’s toepast, omdat elke oproep een nieuwe master in de presentatie creëert.
 
 Het volgende voorbeeld gebruikt dia’s uit twee secties om hun masters te vinden en past een verschillend extern thema toe op elke groep:
 
@@ -277,11 +275,11 @@ else
 }
 ```
 
-De eerste aanroep beïnvloedt alleen dia’s die afhankelijk waren van `firstGroupMaster`, en de tweede aanroep beïnvloedt alleen dia’s die afhankelijk waren van `secondGroupMaster`. Dia’s die aan een andere master zijn gekoppeld, worden niet hergestyled.
+De eerste oproep heeft alleen effect op dia’s die afhankelijk waren van `firstGroupMaster`, en de tweede oproep alleen op dia’s die afhankelijk waren van `secondGroupMaster`. Dia’s die tot een andere master behoren worden niet herontworpen.
 
 ### **Een bron‑thema behouden bij het verplaatsen van dia’s**
 
-Wil u een dia naar een andere presentatie verplaatsen en het origineel design behouden, kloon dan de bron‑master naar de doelpresentatie met [IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/nl/net/aspose.slides/imasterslidecollection/addclone/), en kloon vervolgens de dia met [ISlideCollection.AddClone](https://reference.aspose.com/slides/nl/net/aspose.slides/islidecollection/addclone/) en de gekloonde master. Hierdoor worden de master, de lay‑outs en het bijbehorende thema samen meegenomen.
+Wil je een dia naar een andere presentatie verplaatsen en het oorspronkelijke ontwerp behouden, kloon dan de bron‑master in de doelpresentatie met [IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/nl/net/aspose.slides/imasterslidecollection/addclone/), kloon vervolgens de dia met [ISlideCollection.AddClone](https://reference.aspose.com/slides/nl/net/aspose.slides/islidecollection/addclone/) en de gekloonde master. Hiermee worden de master, zijn lay‑outs en het bijbehorende thema samen overgebracht.
 
 ```csharp
 using Aspose.Slides;
@@ -298,11 +296,11 @@ target.Slides.AddClone(sourceSlide, clonedMaster, true);
 target.Save("theme-preserved.pptx", SaveFormat.Pptx);
 ```
 
-Dit is de aanbevolen workflow wanneer de bron‑dia er exact hetzelfde uit moet zien in de bestemming. Het simpelweg klonen van inhoud naar een ongerelateerde doel‑master kan thema‑gedreven kleuren, lettertypen, achtergronden en effecten wijzigen.
+Dit is de aanbevolen werkstroom wanneer de bron‑dia er identiek uit moet zien in de bestemming. Het simpelweg klonen van inhoud naar een niet‑gerelateerde doelmaster kan themagestuurde kleuren, lettertypen, achtergronden en effecten wijzigen.
 
 ### **Thema‑waarden toepassen op een bestaande dia**
 
-Moet de doel‑dia op zijn huidige master en lay‑out blijven, initialiseert u dan een dia‑niveau overschrijving vanuit het bron‑thema. De methoden [OverrideTheme.InitColorSchemeFrom](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/overridetheme/initcolorschemefrom/), [OverrideTheme.InitFontSchemeFrom](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/overridetheme/initfontschemefrom/) en [OverrideTheme.InitFormatSchemeFrom](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/overridetheme/initformatschemefrom/) kopiëren de drie hoofd‑thema‑componenten naar de overschrijving.
+Wanneer de doel‑dia op zijn huidige master en lay‑out moet blijven, initialiseert u een dia‑niveau bijschrijving vanuit het bron‑thema. De methoden [OverrideTheme.InitColorSchemeFrom](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/overridetheme/initcolorschemefrom/), [OverrideTheme.InitFontSchemeFrom](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/overridetheme/initfontschemefrom/) en [OverrideTheme.InitFormatSchemeFrom](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/overridetheme/initformatschemefrom/) kopiëren de drie hoofd‑thema‑componenten naar de bijschrijving.
 
 ```csharp
 using Aspose.Slides;
@@ -320,11 +318,11 @@ overrideTheme.InitFormatSchemeFrom(source.MasterTheme.FormatScheme);
 target.Save("theme-applied-to-slide.pptx", SaveFormat.Pptx);
 ```
 
-Dit wijzigt het thema dat die dia gebruikt zonder het thema te wijzigen dat door andere dia’s wordt geërfd. Om de lokale overschrijving te verwijderen en terug te gaan naar geërfde waarden, roep [OverrideTheme.Clear](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/overridetheme/clear/) aan.
+Dit wijzigt het thema dat door die dia wordt gebruikt zonder het thema dat andere dia’s erven te veranderen. Om de lokale bijschrijving te verwijderen en terug te gaan naar geërfde waarden, roep [OverrideTheme.Clear](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/overridetheme/clear/) aan.
 
-### **Een thema‑overschrijving toepassen op een lay‑out**
+### **Een thema‑bijschrijving toepassen op een lay‑out**
 
-Een lay‑out‑niveau overschrijving geldt voor dia’s die die lay‑out gebruiken, tenzij een specifieke dia een eigen overschrijving heeft. Dezelfde initialisatiemethoden kunnen worden gebruikt via de [LayoutSlideThemeManager](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/layoutslidethememanager/) van de lay‑out:
+Een lay‑out‑niveau bijschrijving is van toepassing op dia’s die die lay‑out gebruiken, tenzij een specifieke dia zijn eigen bijschrijving heeft. Dezelfde initialisatiemethoden kunnen worden gebruikt via de lay‑out‑manager [LayoutSlideThemeManager](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/layoutslidethememanager/):
 
 ```csharp
 using Aspose.Slides;
@@ -342,17 +340,17 @@ overrideTheme.InitFormatSchemeFrom(source.MasterTheme.FormatScheme);
 target.Save("theme-applied-to-layout.pptx", SaveFormat.Pptx);
 ```
 
-Gebruik een master‑ of presentatie‑niveau thema wanneer veel lay‑outs en dia’s hetzelfde basisonderdeel moeten delen, een lay‑out‑overschrijving wanneer één lay‑out‑familie een andere styling nodig heeft, en een dia‑overschrijving alleen voor echte uitzonderingen. Overmatige dia‑niveau overschrijvingen maken latere globale thema‑wijzigingen moeilijker te voorspellen.
+Gebruik een master‑ of presentatie‑niveau thema wanneer veel lay‑outs en dia’s hetzelfde basisonderdeel moeten delen, een lay‑out‑bijschrijving wanneer één lay‑outfamilie een andere vormgeving nodig heeft, en een dia‑bijschrijving alleen voor echte uitzonderingen. Overmatige dia‑niveau bijschrijvingen bemoeilijken latere globale thema‑wijzigingen.
 
-## **Thema‑achtergrondstijlen bijwerken**
+## **Achtergrondstijlen van het thema bijwerken**
 
-De achtergrond‑vullingen van het thema worden opgeslagen in [FormatScheme.BackgroundFillStyles](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/formatscheme/backgroundfillstyles/). PowerPoint kan in de UI meer achtergrondkeuzes presenteren dan het aantal vullingdefinities dat fysiek in deze collectie is opgeslagen, omdat de UI thema‑vullingen kan combineren met themakleuren en andere stijl‑referenties.
+De achtergrond‑opvullingen van het thema worden opgeslagen in [FormatScheme.BackgroundFillStyles](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/formatscheme/backgroundfillstyles/). PowerPoint kan meer achtergrondkeuzes tonen in de gebruikersinterface dan het aantal opvuldefinities dat fysiek in deze collectie is opgeslagen, omdat de UI thema‑opvullingen kan combineren met themakleuren en andere stijl‑referenties.
 
-![PowerPoint galerij voor achtergrondstijlen van een presentatiethema](presentation-design_8.png)
+![PowerPoint background style gallery for a presentation theme](presentation-design_8.png)
 
-Voordat u een achtergrondstijl gebruikt, inspecteer de opgeslagen collectie en de huidige [Background.StyleIndex](https://reference.aspose.com/slides/nl/net/aspose.slides/background/styleindex/). `StyleIndex` gebruikt `0` voor geen thema‑vulling; positieve waarden zijn referenties naar thema‑achtergrondstijlen. Dit verschilt van indexering van de .NET‑collectie zelf, waarbij `[0]` het eerste opgeslagen item betekent. Ga niet ervan uit dat elke presentatie evenveel achtergrond‑vullingsstijlen bevat.
+Voordat je een achtergrondstijl gebruikt, inspecteer je de opgeslagen collectie en de huidige [Background.StyleIndex](https://reference.aspose.com/slides/nl/net/aspose.slides/background/styleindex/). `StyleIndex` gebruikt `0` voor geen thematische opvulling; positieve waarden zijn referenties naar thematische achtergrondstijlen. Dit verschilt van het indexeren van de .NET‑collectie zelf, waar `[0]` het eerste opgeslagen item betekent. Ga er niet van uit dat elke presentatie evenveel achtergrond‑opvullingsstijlen bevat.
 
-Het volgende voorbeeld meldt het aantal beschikbare achtergrondvullingen, wijst een thematische achtergrondreferentie toe aan de eerste master, en slaat de presentatie op:
+Het volgende voorbeeld meldt het beschikbare aantal achtergrond‑opvullingen, wijst een thematische achtergrondreferentie toe aan de eerste master, en slaat de presentatie op:
 
 ```csharp
 using System;
@@ -374,29 +372,25 @@ presentation.Masters[0].Background.StyleIndex = 1;
 presentation.Save("theme-background.pptx", SaveFormat.Pptx);
 ```
 
-Het zichtbare resultaat hangt af van de themainvoer die door de master wordt gerefereerd en van eventuele achtergrond‑overschrijvingen op lay‑out‑ of dia‑niveau. Als een dia een eigen achtergrond gebruikt, kan het wijzigen van alleen de master‑achtergrond die dia ongewijzigd laten. Gebruik [Background.GetEffective](https://reference.aspose.com/slides/nl/net/aspose.slides/background/geteffective/) wanneer u de uiteindelijke achtergrond na erfenis wilt weten.
+Het zichtbare resultaat hangt af van de thema‑invoer die door de master wordt gerefereerd en van eventuele achtergrond‑bijschrijvingen op lay‑out‑ of dia‑niveau. Als een dia zijn eigen achtergrond gebruikt, kan het wijzigen van alleen de master‑achtergrond die dia niet beïnvloeden. Gebruik [Background.GetEffective](https://reference.aspose.com/slides/nl/net/aspose.slides/background/geteffective/) wanneer je de uiteindelijke achtergrond na toepassen van overerving wilt weten.
 
-{{% alert color="warning" title="Waarschuwing" %}}
-
-Behandeld `StyleIndex` niet als een nul‑gebaseerde collectie‑index. Vermijd ook het hard‑coderen van een stijlnummer uit één bestand en veronderstel dat het dezelfde weergave heeft in een ander bestand; themastijl‑definities zijn presentatiespecifiek.
-
+{{% alert color="warning" title="Warning" %}}
+Beschouw `StyleIndex` niet als een nul‑gebaseerde collectie‑index. Vermijd ook het hard‑coderen van een stijlnummer uit één bestand en veronderstel dat het dezelfde weergave heeft in een ander bestand; themastijldefinities zijn presentatiespecifiek.
 {{% /alert %}}
 
 {{% alert color="info" title="Tip" %}}
-
-Voor directe achtergrond‑opmaak en achtergrond‑erfenis, zie [Presentation Background](/slides/nl/net/presentation-background/).
-
+Voor directe achtergrondopmaak en achtergrond‑overerving, zie [Presentation Background](/slides/nl/net/presentation-background/).
 {{% /alert %}}
 
 ## **Thema‑effecten bijwerken**
 
-Een thema‑format‑schema bevat afzonderlijke collecties voor [FillStyles](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/formatscheme/fillstyles/), [LineStyles](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/formatscheme/linestyles/) en [EffectStyles](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/formatscheme/effectstyles/). Typische Office‑thema’s bevatten vaak drie hoofd‑stijl‑invoeren die visueel overeenkomen met subtiele, matige en intensieve opmaak, maar code moet elke collectie inspecteren in plaats van uitgaan van een vast aantal.
+Een thema‑format‑schema bevat aparte collecties voor [FillStyles](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/formatscheme/fillstyles/), [LineStyles](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/formatscheme/linestyles/) en [EffectStyles](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/formatscheme/effectstyles/). Typische Office‑thema’s bevatten vaak drie hoofd‑stijlinvoeren die visueel overeenkomen met subtiele, matige en intensieve opmaak, maar de code moet elke collectie inspecteren in plaats van uit te gaan van een vast aantal.
 
-![Subtiele, matige en intensieve themaeffecten toegepast op dezelfde vorm](presentation-design_10.png)
+![Subtle, moderate, and intense theme effects applied to the same shape](presentation-design_10.png)
 
-Wanneer u deze collecties in C# benadert, is de collectie‑index nul‑gebaseerd: `[0]` is de eerste opgeslagen stijl en `[2]` is de derde. De stijl‑referentie‑indexen van een vorm vormen een apart concept, blootgelegd via [IShapeStyle](https://reference.aspose.com/slides/nl/net/aspose.slides/ishapestyle/). Het wijzigen van een themastijl beïnvloedt vormen die die themastijl refereren; vormen met directe opmaak blijven mogelijk ongewijzigd.
+Wanneer je deze collecties benadert in C#, is de collectie‑index nul‑gebaseerd: `[0]` is de eerste opgeslagen stijl en `[2]` de derde. De stijl‑referentie‑indexen van een vorm vormen een apart concept, blootgelegd via [IShapeStyle](https://reference.aspose.com/slides/nl/net/aspose.slides/ishapestyle/). Het wijzigen van een themastijl beïnvloedt vormen die die themastijl refereren; vormen met directe opmaak blijven eventueel ongewijzigd.
 
-Het volgende voorbeeld controleert of de vereiste stijl‑invoeren bestaan, wijzigt de eerste lijnstijl, wijzigt de derde vulstijl, schakelt een buitenste schaduw in bij de derde effectstijl, en slaat het resultaat op:
+Het volgende voorbeeld controleert of de vereiste stijlinvoeren bestaan, wijzigt de eerste lijnstijl, wijzigt de derde opvulstijl, schakelt een buitenste schaduw in bij de derde effectstijl, en slaat het resultaat op:
 
 ```csharp
 using System;
@@ -422,15 +416,94 @@ formatScheme.EffectStyles[2].EffectFormat.OuterShadowEffect.Distance = 10f;
 presentation.Save("theme-effects.pptx", SaveFormat.Pptx);
 ```
 
-Voor vormen die deze slots refereren, wordt de eerste themalijnstijl rood, de derde themavulstijl een egale bosgroene kleur, en krijgt de derde effectstijl een buitenste schaduw met een afstand van 10 punten. Het exacte visuele resultaat hangt nog steeds af van welke stijl‑slots elke vorm referereert en of directe opmaak de thema‑instelling overschrijft.
+Voor vormen die deze slots refereren, wordt de eerste themalijnstijl rood, de derde themapopvulstijl een effen bosgroen, en krijgt de derde effectstijl een buitenste schaduw met een afstand van 10 punten. Het exacte visuele resultaat blijft afhankelijk van welke stijl‑slots elke vorm referreert en of directe opmaak de thema‑instelling overschrijft.
 
-![Thema‑effectstijlen na wijziging van lijn, vul en schaduwinstellingen](presentation-design_11.png)
+![Theme effect styles after changing line, fill, and shadow settings](presentation-design_11.png)
+
+## **Bepalen of een effectieve effen opvulling een thema‑kleur gebruikt**
+
+Een opvulling kan direct op een object worden opgeslagen of geërfd van een alinea, lay‑out, master, themastijl of een andere opmaak‑laag. Roep [IFillFormat.GetEffective](https://reference.aspose.com/slides/nl/net/aspose.slides/ifillformat/geteffective/) aan om die hiërarchie om te zetten in een onwijzigbare [IFillFormatEffectiveData](https://reference.aspose.com/slides/nl/net/aspose.slides/ifillformateffectivedata/). Controleer eerst [IFillFormatEffectiveData.FillType](https://reference.aspose.com/slides/nl/net/aspose.slides/ifillformateffectivedata/filltype/). Alleen wanneer dit `FillType.Solid` is, mag je de effen‑opvullingseigenschappen lezen.
+
+Voor een effen opvulling geeft [IFillFormatEffectiveData.SolidFillColor](https://reference.aspose.com/slides/nl/net/aspose.slides/ifillformateffectivedata/solidfillcolor/) de uiteindelijke gerenderde RGB‑waarde terug na overerving, themazoek en kleurtransformaties. [IFillFormatEffectiveData.SolidFillSchemeColor](https://reference.aspose.com/slides/nl/net/aspose.slides/ifillformateffectivedata/solidfillschemecolor/) geeft de bijbehorende logische [SchemeColor](https://reference.aspose.com/slides/nl/net/aspose.slides/schemecolor/) slot terug, zoals `Text1` of `Accent6`. Een waarde van `SchemeColor.NotDefined` betekent dat de effectieve effen opvulling niet op een schemakleur is gebaseerd. In een werkstroom waarin opvullingen ofwel themakleuren ofwel directe RGB‑kleuren zijn, identificeert deze waarde een directe RGB‑opvulling.
+
+Gebruik niet alleen de lokale [IColorFormat.SchemeColor](https://reference.aspose.com/slides/nl/net/aspose.slides/icolorformat/schemecolor/)‑waarde om een opvulling te classificeren. Bijvoorbeeld, een tekstdeel kan geen lokaal gedefinieerde schemakleur hebben, waardoor de lokale waarde `NotDefined` is, terwijl de effectieve opvulling een themakleur erft en resolveert naar `Text1` of `Accent6`. Omgekeerd vertelt `SolidFillSchemeColor` je welke logische themaslot de effectieve kleur heeft voortgebracht, maar niet of die slot afkomstig is van het object, de alinea, lay‑out, master of een andere niveau van de opmaak‑hiërarchie.
+
+Het volgende voorbeeld laadt een presentatie, controleert zowel vorm‑opvullingen als tekst‑deel‑opvullingen, drukt elke uiteindelijke RGB‑waarde en bijbehorende schemakleur af, en markeert effen opvullingen die geen thema‑kleurwijzigingen volgen:
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+
+var slideCount = presentation.Slides.Count;
+for (var slideIndex = 0; slideIndex < slideCount; slideIndex++)
+{
+    var slide = presentation.Slides[slideIndex];
+
+    var shapeCount = slide.Shapes.Count;
+    for (var shapeIndex = 0; shapeIndex < shapeCount; shapeIndex++)
+    {
+        var shape = slide.Shapes[shapeIndex];
+        var shapeName = $"Slide {slideIndex + 1}, shape {shapeIndex + 1}";
+        AuditFill(shapeName, shape.FillFormat);
+
+        if (shape is IAutoShape autoShape)
+        {
+            var paragraphCount = autoShape.TextFrame.Paragraphs.Count;
+            for (var paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++)
+            {
+                var paragraph = autoShape.TextFrame.Paragraphs[paragraphIndex];
+
+                var portionCount = paragraph.Portions.Count;
+                for (var portionIndex = 0; portionIndex < portionCount; portionIndex++)
+                {
+                    var portion = paragraph.Portions[portionIndex];
+                    var portionName = $"{shapeName}, paragraph {paragraphIndex + 1}, portion {portionIndex + 1}";
+                    AuditFill(portionName, portion.PortionFormat.FillFormat);
+                }
+            }
+        }
+    }
+}
+
+static void AuditFill(string objectName, IFillFormat localFill)
+{
+    var effectiveFill = localFill.GetEffective();
+
+    if (effectiveFill.FillType != FillType.Solid)
+    {
+        Console.WriteLine($"{objectName}: fill type = {effectiveFill.FillType}; not a solid fill.");
+        return;
+    }
+
+    var rgb = effectiveFill.SolidFillColor;
+    var effectiveSchemeColor = effectiveFill.SolidFillSchemeColor;
+    var localSchemeColor = localFill.SolidFillColor.SchemeColor;
+
+    Console.WriteLine($"{objectName}: RGB = #{rgb.R:X2}{rgb.G:X2}{rgb.B:X2}");
+    Console.WriteLine($"{objectName}: local scheme = {localSchemeColor}, effective scheme = {effectiveSchemeColor}");
+
+    if (effectiveSchemeColor == SchemeColor.NotDefined)
+    {
+        Console.WriteLine($"{objectName}: direct RGB or another non-scheme fill; audit as theme-independent.");
+    }
+    else
+    {
+        Console.WriteLine($"{objectName}: theme-dependent through {effectiveSchemeColor}.");
+    }
+}
+```
+
+De `NotDefined`‑tak levert een audit‑lijst van effen opvullingen die geen respons geven op wijzigingen in themakleur‑slots. Beoordeel die objecten wanneer een presentatie een nieuw merkschema moet volgen. De gerapporteerde RGB‑waarde toont nog steeds het huidige uiterlijk, terwijl de schema‑waarde uitlegt of dat uiterlijk verbonden is met het thema.
+
+Effectieve‑format‑objecten zijn momentopnames. Na het wijzigen van het presentatiethema, een thema‑bijschrijving of enige geërfde opmaak, roep opnieuw `GetEffective` aan en lees een nieuwe `IFillFormatEffectiveData`‑object voordat je kleuren vergelijkt of rapporteert.
 
 ## **Effectieve themawaarden lezen**
 
-Ruwe thema‑objecten vertellen wat er op een bepaald niveau is gedefinieerd. Effectieve waarden tonen wat een dia of vorm daadwerkelijk gebruikt nadat erfenis en lokale overschrijvingen zijn verwerkt. Voor een dia, roep [BaseOverrideThemeManager.CreateThemeEffective](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/baseoverridethememanager/createthemeeffective/) aan. Voor een achtergrond, gebruik [Background.GetEffective](https://reference.aspose.com/slides/nl/net/aspose.slides/background/geteffective/), en voor een vulstijl, gebruik [FillFormat.GetEffective](https://reference.aspose.com/slides/nl/net/aspose.slides/fillformat/geteffective/).
+Ruwe thema‑objecten vertellen je wat er op een bepaald niveau is gedefinieerd. Effectieve waarden vertellen je wat een dia of vorm daadwerkelijk gebruikt na overerving en lokale bijschrijvingen. Voor een dia roep je [BaseOverrideThemeManager.CreateThemeEffective](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/baseoverridethememanager/createthemeeffective/) aan. Voor een achtergrond gebruik je [Background.GetEffective](https://reference.aspose.com/slides/nl/net/aspose.slides/background/geteffective/), en voor een opvulling [FillFormat.GetEffective](https://reference.aspose.com/slides/nl/net/aspose.slides/fillformat/geteffective/).
 
-Het volgende voorbeeld leest het effectieve thema, de achtergrond en de eerste vormvulling van een dia:
+Het volgende voorbeeld leest het effectieve thema, de achtergrond en de eerste vorm‑opvulling van een dia:
 
 ```csharp
 using System;
@@ -456,22 +529,22 @@ if (slide.Shapes.Count > 0)
 }
 ```
 
-Gebruik effectieve gegevens voor render‑diagnostiek, validatie en vergelijkingen. Als u alleen [Presentation.MasterTheme](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/mastertheme/) inspecteert, kunt u een master‑, lay‑out‑, dia‑ of vorm‑overschrijving missen die het uiteindelijke uiterlijk verandert.
+Gebruik effectieve data voor weergavediagnostiek, validatie en vergelijkingen. Als je alleen [Presentation.MasterTheme](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/mastertheme/) inspecteert, kun je een master‑, lay‑out‑, dia‑ of vorm‑bijschrijving missen die het uiteindelijke uiterlijk verandert.
 
 ## **FAQ**
 
-**Zorgt het toepassen van een extern thema ervoor dat elke dia in de presentatie wordt beïnvloed?**
+**Heeft het toepassen van een extern thema invloed op elke dia in de presentatie?**
 
 Nee. [IMasterSlide.ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/nl/net/aspose.slides/imasterslide/applyexternalthemetodependingslides/) wijzigt alleen de dia’s die afhankelijk zijn van de geselecteerde master. Dia’s die andere masters gebruiken behouden hun bestaande thema’s.
 
-**Kan ik een thema op één dia toepassen zonder de master te wijzigen?**
+**Kan ik een thema toepassen op één dia zonder de master te wijzigen?**
 
-Ja. Gebruik de [SlideThemeManager](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/slidethememanager/) van de dia en initialiseert zijn override‑thema. De wijziging blijft lokaal voor die dia; andere dia’s blijven hun bestaande thema’s erven.
+Ja. Gebruik de [SlideThemeManager](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/slidethememanager/) van de dia en initialiseert zijn bijschrift‑thema. De wijziging blijft lokaal voor die dia; andere dia’s blijven hun bestaande thema’s overerven.
 
-**Wat is de veiligste manier om een thema van de ene presentatie naar de andere over te brengen?**
+**Wat is de veiligste manier om een thema van de ene presentatie naar de andere over te dragen?**
 
-Wanneer u een dia verplaatst en het oorspronkelijke uiterlijk wilt behouden, kloon dan de bron‑master naar de bestemming en kloon de dia met die master via [IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/nl/net/aspose.slides/imasterslidecollection/addclone/) en [ISlideCollection.AddClone](https://reference.aspose.com/slides/nl/net/aspose.slides/islidecollection/addclone/). Dit houdt de master, lay‑outs en thema samen.
+Wanneer je een dia verplaatst en de oorspronkelijke opmaak wilt behouden, kloon je de bron‑master naar de bestemming en kloon je de dia met die master via [IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/nl/net/aspose.slides/imasterslidecollection/addclone/) en [ISlideCollection.AddClone](https://reference.aspose.com/slides/nl/net/aspose.slides/islidecollection/addclone/). Dit houdt de master, lay‑outs en thema samen.
 
-**Hoe kan ik de effectieve waarden zien na erfenis en overschrijvingen?**
+**Hoe kan ik de effectieve waarden zien na overerving en bijschrijvingen?**
 
-Gebruik [BaseOverrideThemeManager.CreateThemeEffective](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/baseoverridethememanager/createthemeeffective/) voor een dia‑ of lay‑out‑thema en de bijbehorende effectieve‑data‑methoden voor format‑objecten zoals [Background.GetEffective](https://reference.aspose.com/slides/nl/net/aspose.slides/background/geteffective/) en [FillFormat.GetEffective](https://reference.aspose.com/slides/nl/net/aspose.slides/fillformat/geteffective/). Deze API’s retourneren de opgeloste waarden na toepassing van erfenis en overschrijvingen.
+Gebruik [BaseOverrideThemeManager.CreateThemeEffective](https://reference.aspose.com/slides/nl/net/aspose.slides.theme/baseoverridethememanager/createthemeeffective/) voor een dia‑ of lay‑out‑thema en de overeenkomstige effectieve‑data‑methoden voor format‑objecten zoals [Background.GetEffective](https://reference.aspose.com/slides/nl/net/aspose.slides/background/geteffective/) en [FillFormat.GetEffective](https://reference.aspose.com/slides/nl/net/aspose.slides/fillformat/geteffective/). Deze API’s retourneren de opgeloste waarden na toepassing van overerving en bijschrijvingen.

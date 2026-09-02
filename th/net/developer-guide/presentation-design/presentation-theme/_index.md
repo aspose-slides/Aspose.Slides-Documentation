@@ -14,7 +14,7 @@ keywords:
 - ธีมภายนอก
 - THMX
 - สีธีม
-- พาเล็ตเพิ่มเติม
+- พาเลตเพิ่มเติม
 - แบบอักษรธีม
 - สไตล์ธีม
 - เอฟเฟ็กต์ธีม
@@ -24,23 +24,23 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "ควบคุมธีมการนำเสนอหลักใน Aspose.Slides สำหรับ .NET เพื่อสร้าง ปรับแต่ง และแปลงไฟล์ PowerPoint ให้มีการสร้างแบรนด์ที่สอดคล้องกัน."
+description: "ควบคุมธีมการนำเสนอใน Aspose.Slides สำหรับ .NET เพื่อสร้าง ปรับแต่ง และแปลงไฟล์ PowerPoint ด้วยการสร้างแบรนด์ที่สอดคล้องกัน."
 ---
-## **คำนำ**
+## **บทนำ**
 
-ธีมการนำเสนอกำหนดชุดของสี, แบบอักษร, สไตล์พื้นหลัง, การเติม, เส้น, และเอฟเฟ็กต์ที่สอดคล้องกัน วัตถุที่รับรู้ธีมจะอ้างอิงคำนิยามที่ใช้ร่วมกันเหล่านี้แทนการเก็บคุณสมบัติวิสัยทุกอย่างเป็นค่าคงที่ ดังนั้นการเปลี่ยนธีมสามารถอัปเดตหลายวัตถุพร้อมกันได้
+ธีมการนำเสนอกำหนดชุดสี, แบบอักษร, สไตล์พื้นหลัง, การเติม, เส้น, และเอฟเฟ็กต์ที่สอดคล้องกัน วัตถุที่รับรู้ธีมจะอ้างอิงคำนิยามที่ใช้ร่วมกันเหล่านี้แทนการเก็บคุณสมบัติวิสัยภาพทุกอย่างเป็นค่าคงที่ ดังนั้นการเปลี่ยนธีมจึงสามารถอัปเดตวัตถุหลายๆ ตัวพร้อมกัน
 
-ใน Aspose.Slides ธีมระดับการนำเสนอสามารถเข้าถึงได้ผ่านคุณสมบัติ [Presentation.MasterTheme](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/mastertheme/) . การนำเสนออาจมีการเขียนทับธีมในระดับที่ต่ำกว่าได้ มาสเตอร์สามารถเขียนทับธีมการนำเสนอผ่าน [MasterThemeManager.OverrideTheme](https://reference.aspose.com/slides/th/net/aspose.slides.theme/masterthememanager/overridetheme/) , เลย์เอาต์สามารถเขียนทับธีมที่สืบต่อมาผ่าน [BaseOverrideThemeManager.OverrideTheme](https://reference.aspose.com/slides/th/net/aspose.slides.theme/baseoverridethememanager/overridetheme/) , และสไลด์แต่ละสไลด์ก็ทำเช่นเดียวกัน ตามปฏิบัติ ธีมที่มีผลสำหรับสไลด์หนึ่งจะถูกกำหนดผ่านโซ่การสืบทอดนี้: ธีมการนำเสนอ → การเขียนทับโดยมาสเตอร์ → การเขียนทับโดยเลย์เอาต์ → การเขียนทับโดยสไลด์
+ใน Aspose.Slides ธีมระดับการนำเสนอสามารถเข้าถึงได้ผ่านคุณสมบัติ [Presentation.MasterTheme](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/mastertheme/) มาสเตอร์สามารถกำจัดค่าเดิมของธีมการนำเสนอได้โดยใช้ [MasterThemeManager.OverrideTheme](https://reference.aspose.com/slides/th/net/aspose.slides.theme/masterthememanager/overridetheme/) การจัดวางสามารถกำจัดธีมที่สืบทอดได้ผ่าน [BaseOverrideThemeManager.OverrideTheme](https://reference.aspose.com/slides/th/net/aspose.slides.theme/baseoverridethememanager/overridetheme/) และสไลด์แต่ละสไลด์ก็ทำได้เช่นกัน ในทางปฏิบัติ ธีมที่ใช้จริงสำหรับสไลด์จะถูกกำหนดผ่านลำดับการสืบทอดนี้: ธีมการนำเสนอ, การกำจัดมาสเตอร์, การกำจัดการจัดวาง, และการกำจัดสไลด์
 
 ![ส่วนประกอบของธีม: สี, แบบอักษร, สไตล์พื้นหลัง, และเอฟเฟ็กต์](theme-constituents.png)
 
-ส่วนต่อไปนี้แสดงการทำงานของธีมที่พบบ่อยที่สุด: ตรวจสอบธีม, เปลี่ยนสีและแบบอักษร, คัดลอกหรือใช้ธีม, อัปเดตสไตล์พื้นหลังและเอฟเฟ็กต์, และอ่านค่าที่มีผลหลังจากการสืบทอดและการเขียนทับได้รับการแก้ไข
+ส่วนต่อไปนี้แสดงกระบวนการทำงานกับธีมที่พบมากที่สุด: ตรวจสอบธีม, เปลี่ยนสีและแบบอักษร, คัดลอกหรือใช้ธีม, อัปเดตสไตล์พื้นหลังและเอฟเฟ็กต์, และอ่านค่าที่ใช้จริงหลังจากการสืบทอดและการกำจัดได้ถูกประมวลผล
 
 ## **ตรวจสอบธีม**
 
-วัตถุ [MasterTheme](https://reference.aspose.com/slides/th/net/aspose.slides.theme/mastertheme/) จะเปิดเผย [ColorScheme](https://reference.aspose.com/slides/th/net/aspose.slides.theme/mastertheme/colorscheme/), [FontScheme](https://reference.aspose.com/slides/th/net/aspose.slides.theme/mastertheme/fontscheme/), และ [FormatScheme](https://reference.aspose.com/slides/th/net/aspose.slides.theme/mastertheme/formatscheme/) ของธีม การตรวจสอบคอลเลกชันเหล่านี้ก่อนทำการเปลี่ยนแปลงเป็นประโยชน์โดยเฉพาะเมื่อนำเสนอมาจากแหล่งภายนอก เนื่องจากจำนวนและเนื้อหาของรายการสไตล์อาจแตกต่างกัน
+[MasterTheme](https://reference.aspose.com/slides/th/net/aspose.slides.theme/mastertheme/) จะเปิดเผย [ColorScheme](https://reference.aspose.com/slides/th/net/aspose.slides.theme/mastertheme/colorscheme/), [FontScheme](https://reference.aspose.com/slides/th/net/aspose.slides.theme/mastertheme/fontscheme/), และ [FormatScheme](https://reference.aspose.com/slides/th/net/aspose.slides.theme/mastertheme/formatscheme/) ของธีม การตรวจสอบคอลเลกชันเหล่านี้ก่อนการเปลี่ยนแปลงจะเป็นประโยชน์เป็นพิเศษเมื่อการนำเสนอมาจากแหล่งภายนอก เนื่องจากจำนวนและเนื้อหาของรายการสไตล์อาจแตกต่างกัน
 
-ตัวอย่างต่อไปนี้อ่านคุณสมบัติหลักของธีมและรายงานจำนวนสไตล์พื้นหลัง, การเติม, เส้น, และเอฟเฟ็กต์ที่จัดเก็บในธีม:
+ตัวอย่างต่อไปนี้อ่านคุณสมบัติหลักของธีมและรายงานจำนวนสไตล์พื้นหลัง, การเติม, เส้น, และเอฟเฟ็กต์ที่ถูกจัดเก็บในธีม:
 
 ```csharp
 using System;
@@ -59,13 +59,13 @@ Console.WriteLine($"Line styles: {theme.FormatScheme.LineStyles.Count}");
 Console.WriteLine($"Effect styles: {theme.FormatScheme.EffectStyles.Count}");
 ```
 
-หากไฟล์ใช้มาสเตอร์หลายตัว อย่าเชื่อว่าสไลด์แต่ละสไลด์มีธีมที่มีผลเดียวกัน ตรวจสอบมาสเตอร์ที่สัมพันธ์กับสไลด์ และใช้ขั้นตอนการทำงานของธีมที่มีผลที่อธิบายต่อไปนี้เมื่ออาจมีการเขียนทับโดยเลย์เอาต์หรือสไลด์
+หากไฟล์ใช้มาสเตอร์หลายชุด อย assumed ว่าสไลด์ทุกสไลด์มีธีมที่ใช้จริงเดียวกัน ตรวจสอบมาสเตอร์ที่เชื่อมโยงกับสไลด์และใช้กระบวนการทำงานธีมที่ใช้จริงตามที่แสดงต่อไปนี้เมื่ออาจมีการกำจัดระดับการจัดวางหรือสไลด์
 
 ## **เปลี่ยนสีของธีม**
 
-การเติม, เส้น, และข้อความที่รับรู้ธีมสามารถอ้างอิงสีตรรกะแบบลอจิกจาก enumeration [SchemeColor](https://reference.aspose.com/slides/th/net/aspose.slides/schemecolor/) ได้ เมื่อคุณเปลี่ยนรายการที่สอดคล้องกันใน [IColorScheme](https://reference.aspose.com/slides/th/net/aspose.slides.theme/icolorscheme/) ของธีม วัตถุที่ยังอ้างอิงสีธีมนั้นจะได้รับการแก้ไขด้วยค่าที่ใหม่ วัตถุที่ใช้สี RGB โดยตรงจะไม่ถูกเปลี่ยนแปลงโดยการอัปเดตสีธีม
+การเติม, เส้น, และข้อความที่รับรู้ธีมสามารถอ้างอิงสีเชิงตรรกะจาก enumeration [SchemeColor](https://reference.aspose.com/slides/th/net/aspose.slides/schemecolor/) เมื่อคุณเปลี่ยนรายการที่สอดคล้องใน [IColorScheme](https://reference.aspose.com/slides/th/net/aspose.slides.theme/icolorscheme/) ของธีม ทุกวัตถุที่ยังอ้างอิงสีธีมนั้นจะถูกประมวลผลกับค่าที่ใหม่ วัตถุที่ใช้สี RGB ตรงจะไม่ถูกเปลี่ยนแปลงโดยการอัปเดตสีธีม
 
-ตัวอย่างต่อไปนี้สร้างรูปร่างที่ใช้ `Accent4`, เปลี่ยนสีของธีม `Accent4` เป็นสีแดง, บันทึกการนำเสนอ, เปิดใหม่อีกครั้ง, และพิมพ์สีเติมที่มีผล:
+ตัวอย่างต่อไปนี้สร้างรูปทรงที่ใช้ `Accent4`, เปลี่ยนสี `Accent4` ของธีมเป็นสีแดง, บันทึกการนำเสนอ, เปิดใหม่, และพิมพ์สีการเติมที่ใช้จริง:
 
 ```csharp
 using System;
@@ -88,19 +88,19 @@ var effectiveFill = savedShape.FillFormat.GetEffective();
 Console.WriteLine($"Effective fill color: {effectiveFill.SolidFillColor}");
 ```
 
-เพราะสี่เหลี่ยมยังคงเชื่อมโยงกับ `Accent4` สีที่มองเห็นจึงกลายเป็นสีแดงหลังจากธีมถูกเปลี่ยน หากคุณแทนที่สีสคีมด้วยสีโดยตรงบนรูปร่าง การเปลี่ยนแปลง `Accent4` ในภายหลังจะไม่ส่งผลต่อการเติมนั้นอีกต่อไป
+เนื่องจากสี่เหลี่ยมยังคงเชื่อมโยงกับ `Accent4` สีที่มองเห็นจึงกลายเป็นสีแดงหลังจากธีมถูกเปลี่ยน หากคุณแทนที่สีสกีมด้วยสีตรงบนรูปทรง การเปลี่ยนแปลงต่อเนื่องของ `Accent4` จะไม่กระทบต่อการเติมนั้นอีกต่อไป
 
-### **ใช้สีจากพาเล็ตเพิ่มเติม**
+### **ใช้สีจากพาเลตเพิ่มเติม**
 
-PowerPoint สร้างสีที่อ่อนกว่าและเข้มกว่าจากสีธีมโดยใช้การแปลงสี Aspose.Slides เปิดเผยการแปลงเหล่านี้ผ่าน [ColorTransformOperation](https://reference.aspose.com/slides/th/net/aspose.slides/colortransformoperation/)
+PowerPoint สร้างเวอร์ชันสีอ่อนและสีเข้มจากสีธีมโดยใช้การแปลงสี Aspose.Slides เปิดเผยการแปลงเหล่านี้ผ่าน [ColorTransformOperation](https://reference.aspose.com/slides/th/net/aspose.slides/colortransformoperation/)
 
-![สีธีมหลักและสีอ่อน‑เข้มที่สร้างจากพาเล็ตเพิ่มเติม](additional-palette-colors.png)
+![สีธีมหลักและสีอ่อน‑สีเข้มที่สร้างจากพาเลตเพิ่มเติม](additional-palette-colors.png)
 
 **1** – สีธีมหลัก
 
-**2** – สีอ่อน‑เข้มที่สร้างจากสีธีมหลัก
+**2** – เวอร์ชันสีอ่อนและสีเข้มที่ผลิตจากสีธีมหลัก
 
-ตัวอย่างต่อไปนี้สร้างสี่เหลี่ยมหกรูปโดยอ้างอิง `Accent4`, ใช้การแปลงความสว่างกับห้ารูป และบันทึกผลลัพธ์:
+ตัวอย่างต่อไปนี้สร้างสี่เหลี่ยมหกรูปโดยอิงจาก `Accent4`, ใส่การแปลงความสว่างให้กับห้ารูป และบันทึกผลลัพธ์:
 
 ```csharp
 using Aspose.Slides;
@@ -144,31 +144,31 @@ shape6.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.Mult
 presentation.Save("theme-color-palette.pptx", SaveFormat.Pptx);
 ```
 
-รูปแบบเหล่านี้ยังคงอิงตามสีธีม หาก `Accent4` เปลี่ยนในภายหลัง สีที่แปลงแล้วจะถูกคำนวณใหม่จากค่า `Accent4` ใหม่
+เวอร์ชันเหล่านี้ยังคงอิงจากสีธีม หาก `Accent4` เปลี่ยนในภายหลัง สีที่แปลงแล้วจะถูกคำนวณใหม่จากค่า `Accent4` ใหม่
 
-### **แมปค่า `SchemeColor` ไปยังสล็อต `IColorScheme`**
+### **แมปค่า `SchemeColor` ไปยังช่อง `IColorScheme`**
 
-enumeration [SchemeColor](https://reference.aspose.com/slides/th/net/aspose.slides/schemecolor/) ใช้ `Text1`, `Background1`, `Text2`, และ `Background2` ขณะที่ [IColorScheme](https://reference.aspose.com/slides/th/net/aspose.slides.theme/icolorscheme/) เปิดเผยสล็อตของธีมเดียวกันเป็น `Dark1`, `Light1`, `Dark2`, และ `Light2` การแมปคงที่ดังนี้:
+enumeration [SchemeColor](https://reference.aspose.com/slides/th/net/aspose.slides/schemecolor/) ใช้ `Text1`, `Background1`, `Text2`, และ `Background2` ในขณะที่ [IColorScheme](https://reference.aspose.com/slides/th/net/aspose.slides.theme/icolorscheme/) เปิดเผยช่องธีมเดียวกันเป็น `Dark1`, `Light1`, `Dark2`, และ `Light2` การแมปคงที่ดังนี้
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-เหล่านี้เป็นชื่อทางเลือกสำหรับสล็อตธีมเดียวกัน; ไม่ได้เป็นค่าที่แปลงแบบไดนามิกจากรูปแบบหนึ่งเป็นอีกรูปแบบหนึ่ง
+เหล่านี้เป็นชื่อสลับของช่องธีมเดียวกัน; ไม่ได้เป็นค่าที่แปลงแบบไดนามิกจากรูปแบบหนึ่งไปยังอีกรูปแบบหนึ่ง
 
 ## **เปลี่ยนแบบอักษรของธีม**
 
-สคีมแบบอักษรของธีมประกอบด้วยชุดแบบอักษรหลักสำหรับหัวเรื่องและชุดแบบอักษรรองสำหรับข้อความหลัก คุณสมบัติ [FontScheme.Major](https://reference.aspose.com/slides/th/net/aspose.slides.theme/fontscheme/major/) และ [FontScheme.Minor](https://reference.aspose.com/slides/th/net/aspose.slides.theme/fontscheme/minor/) จะเปิดเผยชุดเหล่านั้น
+สกีมแบบอักษรของธีมประกอบด้วยชุดแบบอักษรหลักสำหรับหัวเรื่องและชุดแบบอักษรรองสำหรับข้อความเนื้อหา คุณสมบัติ [FontScheme.Major](https://reference.aspose.com/slides/th/net/aspose.slides.theme/fontscheme/major/) และ [FontScheme.Minor](https://reference.aspose.com/slides/th/net/aspose.slides.theme/fontscheme/minor/) จะเปิดเผยชุดเหล่านั้น
 
 ตัวระบุแบบอักษรธีมที่เข้ากันได้กับ PowerPoint สามารถใช้ในรูปแบบข้อความได้:
 
-* `+mn‑lt` – แบบอักษรเนื้อหา Latin (Minor Latin Font)
+* `+mn‑lt` – แบบอักษรตัว본문 Latin (Minor Latin Font)
 * `+mj‑lt` – แบบอักษรหัวเรื่อง Latin (Major Latin Font)
-* `+mn‑ea` – แบบอักษรเนื้อหา East Asian (Minor East Asian Font)
+* `+mn‑ea` – แบบอักษรตัว본문 East Asian (Minor East Asian Font)
 * `+mj‑ea` – แบบอักษรหัวเรื่อง East Asian (Major East Asian Font)
 
-ตัวอย่างต่อไปนี้สร้างหัวเรื่องหนึ่งบรรทัดที่ใช้แบบอักษร Latin หลัก และบรรทัดเนื้อหาหนึ่งบรรทัดที่ใช้แบบอักษร Latin รอง จากนั้นเปลี่ยนแบบอักษรของธีมและบันทึกผลลัพธ์:
+ตัวอย่างต่อไปนี้สร้างหัวเรื่องหนึ่งที่ใช้แบบอักษร Latin หลักและบรรทัดเนื้อหาหนึ่งที่ใช้แบบอักษร Latin รอง จากนั้นเปลี่ยนแบบอักษรธีมและบันทึกผลลัพธ์:
 
 ```csharp
 using Aspose.Slides;
@@ -191,28 +191,28 @@ presentation.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
 presentation.Save("theme-fonts.pptx", SaveFormat.Pptx);
 ```
 
-หัวเรื่องจะใช้แบบอักษรหลักและข้อความหลักจะใช้แบบอักษรรอง ข้อความที่มีการระบุชื่อแบบอักษรโดยตรงแทนตัวระบุธีมจะไม่สลับอัตโนมัติเมื่อสคีมแบบอักษรของธีมเปลี่ยน
+หัวเรื่องจะใช้แบบอักษรหลักและข้อความเนื้อหาจะใช้แบบอักษรรอง ข้อความที่ระบุชื่อแบบอักษรอย่างชัดเจนแทนตัวระบุธีมจะไม่สลับอัตโนมัติเมื่อสกีมแบบอักษรธีมเปลี่ยน
 
-คอลเลกชันแบบอักษรหลักและรองยังสามารถมีการแมปแบบอักษรสำหรับระบบการเขียนแยกต่างหาก เช่น Cyrillic, Arabic, Japanese, Georgian, และ Thaana เพื่อดู, เพิ่ม, แทนที่ หรือเอาการแมปเหล่านี้ออก โปรดดู [Script‑Specific Theme Fonts](/slides/th/net/script-specific-font-mappings/)
+ชุดแบบอักษรหลักและรองยังสามารถมีการแมปแบบอักษรสำหรับระบบเขียนข้อความต่างๆ เช่น Cyrillic, Arabic, Japanese, Georgian, และ Thaana เพื่อดู การเพิ่ม, แทนที่, หรือเอาออกให้ดูที่ [Script‑Specific Theme Fonts](/slides/th/net/script-specific-font-mappings/)
 
-{{% alert color="info" title="เคล็ดลับ" %}}
-สำหรับข้อมูลเพิ่มเติมเกี่ยวกับแบบอักษรของการนำเสนอ โปรดดู [แบบอักษร PowerPoint](/slides/th/net/powerpoint-fonts/)
+{{% alert color="info" title="Tip" %}}
+สำหรับข้อมูลเพิ่มเติมเกี่ยวกับแบบอักษรการนำเสนอ โปรดดู [PowerPoint Fonts](/slides/th/net/powerpoint-fonts/)
 {{% /alert %}}
 
 ## **คัดลอกหรือใช้ธีม**
 
-ขั้นตอนการทำงานด้านล่างแก้ปัญหาที่เกี่ยวข้องกับธีมต่าง ๆ
+กระบวนการต่อไปนี้แก้ปัญหาเรื่องธีมที่แตกต่างกัน
 
 ### **ใช้ธีมภายนอกกับสไลด์ที่ขึ้นกับมาสเตอร์**
 
-ใช้ [IMasterSlide.ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/th/net/aspose.slides/imasterslide/applyexternalthemetodependingslides/) เมื่อคุณมีไฟล์ธีม PowerPoint (`.thmx`) และต้องการปรับสไตล์ทุกสไลด์ที่ขึ้นกับมาสเตอร์เฉพาะ เลือกมาสเตอร์จากคอลเลกชัน [Presentation.Masters](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/masters/) ซึ่งทำงานเป็น [IMasterSlideCollection](https://reference.aspose.com/slides/th/net/aspose.slides/imasterslidecollection/) แล้วส่งพาธไฟล์ธีมไปยังเมธอด
+ใช้ [IMasterSlide.ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/th/net/aspose.slides/imasterslide/applyexternalthemetodependingslides/) เมื่อคุณมีไฟล์ธีม PowerPoint (`.thmx`) และต้องการจัดสไตล์สไลด์ทั้งหมดที่ขึ้นกับมาสเตอร์ใดมาสเตอร์หนึ่ง เลือกมาสเตอร์จากคอลเลกชัน [Presentation.Masters](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/masters/) ซึ่งทำงานเป็น [IMasterSlideCollection](https://reference.aspose.com/slides/th/net/aspose.slides/imasterslidecollection/) แล้วส่งพาธไฟล์ธีมไปยังเมธอด
 
-เมธอดทำงานดังต่อไปนี้:
+เมธอดทำการต่อไปนี้
 
-1. สร้างมาสเตอร์สไลด์ใหม่บนพื้นมาสเตอร์ที่เลือก
+1. สร้างสไลด์มาสเตอร์ใหม่จากมาสเตอร์ที่เลือก
 1. ใช้ธีมภายนอกกับมาสเตอร์ใหม่
-1. กำหนดมาสเตอร์ใหม่ให้กับสไลด์ทั้งหมดที่ก่อนหน้านี้ขึ้นกับมาสเตอร์ที่เลือก
-1. คืนค่า [IMasterSlide](https://reference.aspose.com/slides/th/net/aspose.slides/imasterslide/) ที่สร้างใหม่
+1. กำหนดมาสเตอร์ใหม่ให้กับสไลด์ทั้งหมดที่เคยขึ้นกับมาสเตอร์ที่เลือก
+1. ส่งคืน [IMasterSlide](https://reference.aspose.com/slides/th/net/aspose.slides/imasterslide/) ที่สร้างใหม่
 
 ตัวอย่างต่อไปนี้ใช้ธีมภายนอกกับสไลด์ที่ขึ้นกับมาสเตอร์แรก, บันทึกการนำเสนอ, และเปิดผลลัพธ์ใหม่:
 
@@ -229,19 +229,19 @@ Console.WriteLine($"Created master: {themedMaster.Name}");
 presentation.Save("presentation-with-external-theme.pptx", SaveFormat.Pptx);
 ```
 
-ธีมที่ไม่ถูกต้อง, เสียหาย, หรือไม่รองรับอาจทำให้เกิด [PptxException](https://reference.aspose.com/slides/th/net/aspose.slides/pptxexception/) หรือคลาสย่อยที่เกี่ยวกับรูปแบบอื่น ๆ ตรวจสอบพาธที่ผู้ใช้ป้อน, จัดการความล้มเหลวของการเข้าถึงระบบไฟล์, และบันทึกการนำเสนอเฉพาะหลังจากที่ธีมถูกใช้เรียบร้อย
+ธีมที่ไม่ถูกต้อง, เสียหาย, หรือไม่สนับสนุนอาจทำให้เกิด [PptxException](https://reference.aspose.com/slides/th/net/aspose.slides/pptxexception/) หรือคลาสย่อยที่เกี่ยวกับรูปแบบ ตรวจสอบพาธที่ผู้ใช้ป้อน, จัดการข้อผิดพลาดการเข้าถึงระบบไฟล์, และบันทึกการนำเสนอหลังจากธีมถูกใช้สำเร็จเท่านั้น
 
-เฉพาะสไลด์ที่ขึ้นกับมาสเตอร์ที่เลือกเท่านั้นที่จะถูกกำหนดใหม่ สไลด์ที่สัมพันธ์กับมาสเตอร์อื่นจะคงมาสเตอร์และธีมเดิมของตนไว้ สี, แบบอักษร, การเติม, เส้น, พื้นหลัง, และเอฟเฟ็กต์ที่รับรู้ธีมจะได้รับการแก้ไขตามธีมภายนอก สี, แบบอักษร, การเติม, และการจัดรูปแบบโดยตรงอาจคงเดิม การเขียนทับระดับเลย์เอาต์และระดับสไลด์ก็อาจมีอำนาจเหนือค่าที่สืบทอดจากมาสเตอร์ใหม่
+จะมีการกำหนดสไลด์ใหม่เฉพาะกับสไลด์ที่ขึ้นกับมาสเตอร์ที่เลือกเท่านั้น สไลด์ที่เชื่อมโยงกับมาสเตอร์อื่นจะคงมาสเตอร์และธีมเดิมไว้ สี, แบบอักษร, การเติม, เส้น, พื้นหลัง, และเอฟเฟ็กต์ที่รับรู้ธีมจะถูกประมวลผลกับธีมภายนอก ส่วนสี, แบบอักษร, การเติม และรูปแบบที่กำหนดโดยตรงอาจคงเดิม การกำจัดระดับการจัดวางและระดับสไลด์ก็อาจมีลำดับความสำคัญเหนือค่าที่สืบทอดจากมาสเตอร์ใหม่
 
-ธีมอาจอ้างอิงแบบอักษรที่ไม่มีในสภาพแวดล้อมการรันไทม์ เพื่อให้การเรนเดอร์และการส่งออกสอดคล้องกัน ให้ติดตั้งแบบอักษรที่ต้องการ, ให้บริการผ่าน [custom font sources](/slides/th/net/custom-font/), หรือกำหนดค่า [font substitution](/slides/th/net/font-substitution/)
+ธีมอาจอ้างอิงแบบอักษรที่ไม่มีในสภาพแวดล้อมรันไทม์ สำหรับการเรนเดอร์และการส่งออกที่สอดคล้องกัน ให้ติดตั้งแบบอักษรที่จำเป็น, จัดหาโดยผ่าน [custom font sources](/slides/th/net/custom-font/), หรือกำหนดค่า [font substitution](/slides/th/net/font-substitution/)
 
-นี่เป็นขั้นตอนทำงานระดับมาสเตอร์โดยตรง: เมธอดรับพาธไฟล์ `.thmx` และไม่ต้องสร้างการเขียนทับธีมระดับสไลด์หรือเลย์เอาต์ด้วยตนเอง
+นี่คือกระบวนการทำงานระดับมาสเตอร์โดยตรง: เมธอดรับพาธไฟล์ `.thmx` และไม่ต้องสร้างการกำจัดธีมระดับสไลด์หรือระดับการจัดวางด้วยตนเอง
 
-### **ใช้ธีมภายนอกที่ต่างกันในงานนำเสนอหลายมาสเตอร์**
+### **ใช้ธีมภายนอกที่แตกต่างกันในงานนำเสนอหลายมาสเตอร์**
 
-เมื่อมาสเตอร์ที่เกี่ยวข้องไม่ทราบล่วงหน้า ให้รับมาสเตอร์จากสไลด์แบบแทนที่ผ่าน [ISlide.LayoutSlide](https://reference.aspose.com/slides/th/net/aspose.slides/islide/layoutslide/) และ [ILayoutSlide.MasterSlide](https://reference.aspose.com/slides/th/net/aspose.slides/ilayoutslide/masterslide/) เก็บอ้างอิงมาสเตอร์ต้นฉบับไว้ก่อนทำการใช้ธีมใด ๆ เพราะแต่ละครั้งที่เรียกเมธอดจะสร้างมาสเตอร์ใหม่ในงานนำเสนอ
+เมื่อมาสเตอร์ที่เกี่ยวข้องไม่ทราบล่วงหน้า ให้รับมาสเตอร์จากสไลด์ตัวอย่างผ่าน [ISlide.LayoutSlide](https://reference.aspose.com/slides/th/net/aspose.slides/islide/layoutslide/) และ [ILayoutSlide.MasterSlide](https://reference.aspose.com/slides/th/net/aspose.slides/ilayoutslide/masterslide/) เก็บอ้างอิงมาสเตอร์เดิมก่อนใช้ธีมใดๆ เพราะแต่ละการเรียกจะสร้างมาสเตอร์ใหม่ในงานนำเสนอ
 
-ตัวอย่างต่อไปนี้ใช้สไลด์จากสองส่วนเพื่อหามาสเตอร์ของพวกเขาและใช้ธีมภายนอกที่ต่างกันกับแต่ละกลุ่ม:
+ตัวอย่างต่อไปนี้ใช้สไลด์จากสองส่วนเพื่อหามาสเตอร์และใช้ธีมภายนอกที่แตกต่างกันกับแต่ละกลุ่ม:
 
 ```csharp
 using System;
@@ -275,11 +275,11 @@ else
 }
 ```
 
-การเรียกครั้งแรกมีผลเฉพาะสไลด์ที่ขึ้นกับ `firstGroupMaster` เท่านั้น, ส่วนการเรียกครั้งที่สองมีผลเฉพาะสไลด์ที่ขึ้นกับ `secondGroupMaster` สไลด์ที่สัมพันธ์กับมาสเตอร์อื่นจะไม่ถูกปรับสไตล์ใหม่
+การเรียกแรกส่งผลต่อสไลด์ที่ขึ้นกับ `firstGroupMaster` เท่านั้น, การเรียกที่สองส่งผลต่อสไลด์ที่ขึ้นกับ `secondGroupMaster` เท่านั้น สไลด์ที่อยู่ภายใต้มาสเตอร์อื่นจะไม่ถูกจัดสไตล์ใหม่
 
-### **คงธีมต้นฉบับเมื่อย้ายสไลด์**
+### **รักษาธีมต้นฉบับเมื่ย้ายสไลด์**
 
-หากต้องการย้ายสไลด์ไปยังงานนำเสนออื่นและคงการออกแบบเดิม ให้คัดลอกมาสเตอร์ต้นฉบับเข้าไปในงานนำหมายปลายทางด้วย [IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/th/net/aspose.slides/imasterslidecollection/addclone/), แล้วคัดลอกสไลด์ด้วย [ISlideCollection.AddClone](https://reference.aspose.com/slides/th/net/aspose.slides/islidecollection/addclone/) พร้อมมาสเตอร์ที่คัดลอกแล้ว วิธีนี้จะพ้อมมาสเตอร์, เลย์เอาต์, และธีมที่สัมพันธ์กันไปด้วย
+หากต้องการย้ายสไลด์ไปยังงานนำเสนออื่นและรักษาการออกแบบเดิม ให้โคลนมาสเตอร์ต้นฉบับเข้าสู่งานนำหมายด้วย [IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/th/net/aspose.slides/imasterslidecollection/addclone/), จากนั้นโคลนสไลด์ด้วย [ISlideCollection.AddClone](https://reference.aspose.com/slides/th/net/aspose.slides/islidecollection/addclone/) และมาสเตอร์ที่โคลนไว้ วิธีนี้จะพามาสเตอร์, การจัดวาง, และธีมที่เชื่อมโยงมาด้วยกัน
 
 ```csharp
 using Aspose.Slides;
@@ -296,11 +296,11 @@ target.Slides.AddClone(sourceSlide, clonedMaster, true);
 target.Save("theme-preserved.pptx", SaveFormat.Pptx);
 ```
 
-นี่เป็นขั้นตอนทำงานที่แนะนำเมื่อสไลด์ต้นฉบับต้องแสดงผลเดียวกันในปลายทาง การคัดลอกเนื้อหาไปยังมาสเตอร์ปลายทางที่ไม่เกี่ยวข้องอาจทำให้สี, แบบอักษร, พื้นหลัง, และเอฟเฟ็กต์ที่ขับเคลื่อนด้วยธีมเปลี่ยนแปลง
+นี่เป็นกระบวนการที่แนะนำเมื่อสไลด์ต้นฉบับต้องดูเหมือนเดิมในปลายทาง การโคลนเนื้อหาไปยังมาสเตอร์ปลายทางที่ไม่เกี่ยวข้องอาจทำให้สี, แบบอักษร, พื้นหลัง, และเอฟเฟ็กต์ที่ขับเคลื่อนด้วยธีมเปลี่ยนไป
 
 ### **ใช้ค่าธีมกับสไลด์ที่มีอยู่**
 
-หากสไลด์เป้าหมายต้องคงอยู่บนมาสเตอร์และเลย์เอาต์ปัจจุบัน ให้เริ่มการเขียนทับระดับสไลด์จากธีมต้นฉบับ เมธอด [OverrideTheme.InitColorSchemeFrom](https://reference.aspose.com/slides/th/net/aspose.slides.theme/overridetheme/initcolorschemefrom/), [OverrideTheme.InitFontSchemeFrom](https://reference.aspose.com/slides/th/net/aspose.slides.theme/overridetheme/initfontschemefrom/), และ [OverrideTheme.InitFormatSchemeFrom](https://reference.aspose.com/slides/th/net/aspose.slides.theme/overridetheme/initformatschemefrom/) จะคัดลอกส่วนสำคัญของธีมสามส่วนเข้าไปในการเขียนทับ
+หากสไลด์เป้าหมายต้องอยู่บนมาสเตอร์และการจัดวางปัจจุบัน ให้เริ่มการกำจัดระดับสไลด์จากธีมต้นฉบับ วิธี [OverrideTheme.InitColorSchemeFrom](https://reference.aspose.com/slides/th/net/aspose.slides.theme/overridetheme/initcolorschemefrom/), [OverrideTheme.InitFontSchemeFrom](https://reference.aspose.com/slides/th/net/aspose.slides.theme/overridetheme/initfontschemefrom/), และ [OverrideTheme.InitFormatSchemeFrom](https://reference.aspose.com/slides/th/net/aspose.slides.theme/overridetheme/initformatschemefrom/) จะคัดลอกส่วนประกอบธีมหลักสามส่วนเข้าสู่การกำจัด
 
 ```csharp
 using Aspose.Slides;
@@ -318,11 +318,11 @@ overrideTheme.InitFormatSchemeFrom(source.MasterTheme.FormatScheme);
 target.Save("theme-applied-to-slide.pptx", SaveFormat.Pptx);
 ```
 
-การทำเช่นนี้เปลี่ยนธีมที่ใช้โดยสไลด์นั้นโดยไม่กระทบธีมที่สืบทอดโดยสไลด์อื่น ๆ เพื่อลบการเขียนทับในระดับท้องถิ่นและคืนค่าไปยังค่าที่สืบทอด ให้เรียก [OverrideTheme.Clear](https://reference.aspose.com/slides/th/net/aspose.slides.theme/overridetheme/clear/)
+วิธีนี้เปลี่ยนธีมที่สไลด์นั้นใช้โดยไม่เปลี่ยนธีมที่สืบทอดโดยสไลด์อื่น เพื่อเอาการกำจัดในระดับท้องถิ่นออกและกลับไปใช้ค่าที่สืบทอด ให้เรียก [OverrideTheme.Clear](https://reference.aspose.com/slides/th/net/aspose.slides.theme/overridetheme/clear/)
 
-### **ใช้การเขียนทับธีมกับเลย์เอาต์**
+### **ใช้การกำจัดธีมกับการจัดวาง**
 
-การเขียนทับระดับเลย์เอาต์จะมีผลต่อสไลด์ที่ใช้เลย์เอาต์นั้น ยกเว้นกรณีที่สไลด์ใด ๆ มีการเขียนทับของตนเอง วิธีการเริ่มต้นเดียวกันสามารถใช้ได้ผ่าน [LayoutSlideThemeManager](https://reference.aspose.com/slides/th/net/aspose.slides.theme/layoutslidethememanager/) ของเลย์เอาต์
+การกำจัดระดับการจัดวางจะใช้กับสไลด์ที่ใช้การจัดวางนั้น, ยกเว้นกรณีที่สไลด์นั้นมีการกำจัดของตนเอง วิธีการเริ่มต้นเดียวกันสามารถใช้ได้ผ่าน [LayoutSlideThemeManager](https://reference.aspose.com/slides/th/net/aspose.slides.theme/layoutslidethememanager/) ของการจัดวาง
 
 ```csharp
 using Aspose.Slides;
@@ -340,17 +340,17 @@ overrideTheme.InitFormatSchemeFrom(source.MasterTheme.FormatScheme);
 target.Save("theme-applied-to-layout.pptx", SaveFormat.Pptx);
 ```
 
-ใช้ธีมระดับมาสเตอร์หรือการนำเสนอเมื่อหลายเลย์เอาต์และสไลด์ควรใช้พื้นฐานการออกแบบเดียวกัน ใช้การเขียนทับระดับเลย์เอาต์เมื่อกลุ่มเลย์เอาต์หนึ่งต้องการสไตล์ที่แตกต่าง และใช้การเขียนทับระดับสไลด์เฉพาะในกรณียกเว้นจริง ๆ การเขียนทับระดับสไลด์มากเกินไปทำให้การเปลี่ยนธีมแบบรวมในภายหลังคาดเดาได้ยาก
+ใช้ธีมระดับมาสเตอร์หรือการนำเสนอเมื่อหลายการจัดวางและสไลด์ควรแชร์การออกแบบพื้นฐานเดียวกัน, ใช้การกำจัดระดับการจัดวางเมื่อกลุ่มการจัดวางต้องการสไตล์ที่แตกต่าง, และใช้การกำจัดระดับสไลด์เฉพาะกรณีพิเศษ การกำจัดระดับสไลด์เกินเกินทำให้การเปลี่ยนธีมทั่วโลกในภายหลังคาดเดาได้ยาก
 
 ## **อัปเดตสไตล์พื้นหลังของธีม**
 
-สไตล์การเติมพื้นหลังของธีมถูกจัดเก็บใน [FormatScheme.BackgroundFillStyles](https://reference.aspose.com/slides/th/net/aspose.slides.theme/formatscheme/backgroundfillstyles/) PowerPoint สามารถนำเสนอตัวเลือกพื้นหลังได้มากกว่าตัวเลขการเติมที่จัดเก็บจริงในคอลเลกชันนี้ เพราะ UI สามารถผสานการเติมธีมกับสีธีมและการอ้างอิงสไตล์อื่น ๆ
+การเติมพื้นหลังของธีมถูกเก็บใน [FormatScheme.BackgroundFillStyles](https://reference.aspose.com/slides/th/net/aspose.slides.theme/formatscheme/backgroundfillstyles/) PowerPoint สามารถแสดงตัวเลือกพื้นหลังมากกว่าจำนวนการกำหนดการเติมที่จัดเก็บจริงในคอลเลกชันนี้ เพราะ UI สามารถรวมการเติมธีมกับสีธีมและการอ้างอิงสไตล์อื่นได้
 
-![แกลลอรีสไตล์พื้นหลังของ PowerPoint สำหรับธีมการนำเสนอ](presentation-design_8.png)
+![แกลเลอรีสไตล์พื้นหลังของ PowerPoint สำหรับธีมการนำเสนอ](presentation-design_8.png)
 
-ก่อนใช้สไตล์พื้นหลัง ให้ตรวจสอบคอลเลกชันที่จัดเก็บและค่า [Background.StyleIndex](https://reference.aspose.com/slides/th/net/aspose.slides/background/styleindex/) ปัจจุบัน `StyleIndex` ใช้ค่า `0` สำหรับไม่มีการเติมธีม; ค่าบวกเป็นการอ้างอิงสไตล์พื้นหลังของธีม ซึ่งแตกต่างจากการใช้ดัชนีของคอลเลกชัน .NET โดยตรงที่ `[0]` หมายถึงรายการแรกที่จัดเก็บ อย่าถือว่าการนำเสนอทุกไฟล์มีจำนวนสไตล์การเติมพื้นหลังเท่ากัน
+ก่อนใช้สไตล์พื้นหลัง ให้ตรวจสอบคอลเลกชันที่จัดเก็บและค่า [Background.StyleIndex](https://reference.aspose.com/slides/th/net/aspose.slides/background/styleindex/) ปัจจุบัน `StyleIndex` ใช้ค่า `0` สำหรับไม่มีการเติมธีม; ค่าบวกเป็นการอ้างอิงสไตล์พื้นหลังของธีม นี้แตกต่างจากการใช้ดัชนีของคอลเลกชัน .NET โดยตรงที่ `[0]` หมายถึงรายการแรก อย่าสมมติว่าการนำเสนอทุกไฟล์มีจำนวนสไตล์การเติมพื้นหลังเท่าเดียวกัน
 
-ตัวอย่างต่อไปนี้รายงานจำนวนการเติมพื้นหลังที่พร้อมใช้งาน, กำหนดการอ้างอิงพื้นหลังของธีมให้กับมาสเตอร์แรก, และบันทึกการนำเสนอ:
+ตัวอย่างต่อไปนี้รายงานจำนวนการเติมพื้นหลังที่มี, กำหนดการอ้างอิงพื้นหลังของธีมให้กับมาสเตอร์แรก, และบันทึกการนำเสนอ:
 
 ```csharp
 using System;
@@ -372,25 +372,25 @@ presentation.Masters[0].Background.StyleIndex = 1;
 presentation.Save("theme-background.pptx", SaveFormat.Pptx);
 ```
 
-ผลลัพธ์ที่มองเห็นขึ้นอยู่กับรายการธีมที่มาสเตอร์อ้างอิงและการเขียนทับพื้นหลังที่ระดับเลย์เอ็ตหรือสไลด์ หากสไลด์ใช้พื้นหลังของตนเอง การเปลี่ยนพื้นหลังของมาสเตอร์เท่านั้นอาจไม่ส่งผลต่อสไลด์นั้น ใช้ [Background.GetEffective](https://reference.aspose.com/slides/th/net/aspose.slides/background/geteffective/) เมื่อคุณต้องการทราบพื้นหลังสุดท้ายหลังจากการสืบทอด
+ผลลัพธ์ที่มองเห็นขึ้นอยู่กับรายการธีมที่มาสเตอร์อ้างอิงและการกำจัดพื้นหลังที่ระดับการจัดวางหรือสไลด์ หากสไลด์ใช้พื้นหลังของตนเอง การเปลี่ยนพื้นหลังมาสเตอร์เพียงอย่างเดียวอาจไม่กระทบต่อสไลด์นั้น ใช้ [Background.GetEffective](https://reference.aspose.com/slides/th/net/aspose.slides/background/geteffective/) เมื่อคุณต้องการทราบพื้นหลังสุดท้ายหลังจากการสืบทอด
 
-{{% alert color="warning" title="คำเตือน" %}}
-อย่าใช้ `StyleIndex` เป็นดัชนีของคอลเลกชันที่เริ่มจากศูนย์ นอกจากนี้หลีกเลี่ยงการกำหนดหมายเลขสไตล์จากไฟล์หนึ่งแล้วถือว่าแสดงผลเดียวกันในไฟล์อื่น; คำจำกัดความของสไตล์ธีมเป็นแบบเฉพาะการนำเสนอ
+{{% alert color="warning" title="Warning" %}}
+อย่าปฏิบัติเช่น `StyleIndex` เป็นดัชนีคอลเลกชันที่เริ่มจากศูนย์ นอกจากนี้ หลีกเลี่ยงการกำหนดค่าตัวเลขสไตล์จากไฟล์หนึ่งและสมมติว่ามีลักษณะเดียวกันในไฟล์อื่น; คำจำกัดความของสไตล์ธีมเป็นเฉพาะของการนำเสนอ
 {{% /alert %}}
 
-{{% alert color="info" title="เคล็ดลับ" %}}
-สำหรับการจัดรูปแบบพื้นหลังโดยตรงและการสืบทอดพื้นหลัง โปรดดู [Presentation Background](/slides/th/net/presentation-background/)
+{{% alert color="info" title="Tip" %}}
+สำหรับการจัดรูปแบบพื้นหลังโดยตรงและการสืบทอดพื้นหลัง ให้ดู [Presentation Background](/slides/th/net/presentation-background/)
 {{% /alert %}}
 
 ## **อัปเดตเอฟเฟ็กต์ของธีม**
 
-สคีมรูปแบบของธีมมีคอลเลกชันแยกกันสำหรับ [FillStyles](https://reference.aspose.com/slides/th/net/aspose.slides.theme/formatscheme/fillstyles/), [LineStyles](https://reference.aspose.com/slides/th/net/aspose.slides.theme/formatscheme/linestyles/), และ [EffectStyles](https://reference.aspose.com/slides/th/net/aspose.slides.theme/formatscheme/effectstyles/) โดยทั่วไปธีม Office จะมีรายการสไตล์หลักสามรายการที่สอดคล้องกับการจัดรูปแบบแบบ Subtle, Moderate, และ Intense อย่างไรก็ตามโค้ดควรตรวจสอบแต่ละคอลเลกชันแทนการสมมติว่ามีจำนวนคงที่
+สกีมรูปแบบของธีมมีคอลเลกชันแยกต่างหากสำหรับ [FillStyles](https://reference.aspose.com/slides/th/net/aspose.slides.theme/formatscheme/fillstyles/), [LineStyles](https://reference.aspose.com/slides/th/net/aspose.slides.theme/formatscheme/linestyles/), และ [EffectStyles](https://reference.aspose.com/slides/th/net/aspose.slides.theme/formatscheme/effectstyles/) ปกติธีมของ Office จะมีรายการสไตล์หลักสามรายการที่สอดคล้องกับการจัดรูปแบบที่ Subtle, Moderate, และ Intense แต่โค้ดควรตรวจสอบแต่ละคอลเลกชันแทนการสมมติว่ามีจำนวนคงที่
 
-![เอฟเฟ็กต์ธีมแบบ Subtle, Moderate, และ Intense ที่ใช้กับรูปแบบเดียวกัน](presentation-design_10.png)
+![เอฟเฟ็กต์ธีม Subtle, Moderate, และ Intense ที่ใช้กับรูปทรงเดียวกัน](presentation-design_10.png)
 
-เมื่อเข้าถึงคอลเลกชันเหล่านี้ใน C# ดัชนีของคอลเลกชันเป็นแบบศูนย์‑ฐาน: `[0]` คือสไตล์แรกที่จัดเก็บและ `[2]` คือสไตล์ที่สาม ดัชนีอ้างอิงสไตล์ของรูปร่างเป็นแนวคิดแยกต่างหากที่เปิดเผยผ่าน [IShapeStyle](https://reference.aspose.com/slides/th/net/aspose.slides/ishapestyle/) การแก้ไขสไตล์ธีมจะส่งผลต่อรูปร่างที่อ้างอิงสไตล์ธีมนั้น; รูปร่างที่มีการจัดรูปแบบโดยตรงอาจคงเดิม
+เมื่อเข้าถึงคอลเลกชันเหล่านี้ใน C# ดัชนีของคอลเลกชันเริ่มจากศูนย์: `[0]` คือสไตล์แรกและ `[2]` คือสไตล์ที่สาม ดัชนีการอ้างอิงสไตล์ของรูปทรงเป็นแนวคิดแยกที่เปิดเผยผ่าน [IShapeStyle](https://reference.aspose.com/slides/th/net/aspose.slides/ishapestyle/) การแก้ไขสไตล์ธีมจะส่งผลต่อรูปทรงที่อ้างอิงสไตล์นั้น; รูปทรงที่มีการกำหนดรูปแบบโดยตรงอาจคงเดิม
 
-ตัวอย่างต่อไปนี้ตรวจสอบว่ามีรายการสไตล์ที่ต้องการหรือไม่, เปลี่ยนสไตล์เส้นแรก, เปลี่ยนสไตล์การเติมที่สาม, เปิดเงาแบบนอกในสไตล์เอฟเฟ็กต์ที่สาม, และบันทึกผลลัพธ์:
+ตัวอย่างต่อไปนี้ตรวจสอบว่ามีรายการสไตล์ที่ต้องการหรือไม่, เปลี่ยนสไตล์เส้นแรก, เปลี่ยนสไตล์การเติมที่สาม, เปิดเงานอกในสไตล์เอฟเฟ็กต์ที่สาม, และบันทึกผลลัพธ์:
 
 ```csharp
 using System;
@@ -416,15 +416,94 @@ formatScheme.EffectStyles[2].EffectFormat.OuterShadowEffect.Distance = 10f;
 presentation.Save("theme-effects.pptx", SaveFormat.Pptx);
 ```
 
-สำหรับรูปร่างที่อ้างอิงสล็อตเหล่านี้ สไตล์เส้นธีมแรกจะกลายเป็นสีแดง, สไตล์การเติมธีมที่สามจะเป็นสีเขียวป่าแบบ Solid, และสไตล์เอฟเฟ็กต์ที่สามจะเพิ่มเงานอกระยะ 10 จุด ผลลัพธ์ภาพสุดท้ายยังคงขึ้นอยู่กับว่ารูปร่างอ้างอิงสไตล์ใดและการจัดรูปแบบโดยตรงจะเขียนทับธีมหรือไม่
+สำหรับรูปทรงที่อ้างอิงช่องเหล่านี้ สไตล์เส้นธีมแรกจะกลายเป็นสีแดง, สไตล์การเติมธีมที่สามจะกลายเป็นสีเขียวป่าแบบทึบ, และสไตล์เอฟเฟ็กต์ที่สามจะมีเงานอกด้วยระยะ 10 points ผลลัพธ์ภาพที่แน่นอนยังคงขึ้นอยู่กับว่ารูปทรงอ้างอิงช่องสไตล์ใดและว่าการกำหนดรูปแบบโดยตรงได้กำจัดธีมหรือไม่
 
-![สไตล์เอฟเฟ็กต์ของธีมหลังจากการเปลี่ยนเส้น, การเติม, และการตั้งค่าเงา](presentation-design_11.png)
+![เอฟเฟ็กต์ธีมหลังจากเปลี่ยนเส้น, การเติม, และการตั้งค่าเงา](presentation-design_11.png)
 
-## **อ่านค่าธีมที่มีผล**
+## **ตรวจสอบว่าการเติมแบบทึบที่ใช้จริงใช้สีธีมหรือไม่**
 
-วัตถุธีมดิบบอกคุณว่าอะไรถูกกำหนดที่ระดับใด ค่าที่มีผลบอกคุณว่าสไลด์หรือรูปร่างใช้ค่าใดจริงหลังจากการสืบทอดและการเขียนทับในท้องถิ่นได้รับการแก้ไข สำหรับสไลด์ ให้เรียก [BaseOverrideThemeManager.CreateThemeEffective](https://reference.aspose.com/slides/th/net/aspose.slides.theme/baseoverridethememanager/createthemeeffective/) สำหรับพื้นหลัง ใช้ [Background.GetEffective](https://reference.aspose.com/slides/th/net/aspose.slides/background/geteffective/) และสำหรับการเติม ใช้ [FillFormat.GetEffective](https://reference.aspose.com/slides/th/net/aspose.slides/fillformat/geteffective/)
+การเติมอาจถูกเก็บโดยตรงบนวัตถุหรือสืบทอดจากย่อหน้า, การจัดวาง, มาสเตอร์, สไตล์ธีม, หรือระดับการจัดรูปแบบอื่น เรียก [IFillFormat.GetEffective](https://reference.aspose.com/slides/th/net/aspose.slides/ifillformat/geteffective/) เพื่อแปลงลำดับชั้นนั้นเป็น [IFillFormatEffectiveData](https://reference.aspose.com/slides/th/net/aspose.slides/ifillformateffectivedata/) ตรวจสอบ [IFillFormatEffectiveData.FillType](https://reference.aspose.com/slides/th/net/aspose.slides/ifillformateffectivedata/filltype/) ก่อน หากเป็น `FillType.Solid` จึงอ่านคุณสมบัติการเติมแบบทึบ
 
-ตัวอย่างต่อไปนี้อ่านธีมที่มีผล, พื้นหลัง, และการเติมรูปแบบแรกจากสไลด์:
+สำหรับการเติมแบบทึบ, [IFillFormatEffectiveData.SolidFillColor](https://reference.aspose.com/slides/th/net/aspose.slides/ifillformateffectivedata/solidfillcolor/) คืนค่ารหัส RGB ที่เรนเดอร์สุดท้ายหลังจากการสืบทอด, การค้นหาธีม, และการแปลงสี [IFillFormatEffectiveData.SolidFillSchemeColor](https://reference.aspose.com/slides/th/net/aspose.slides/ifillformateffectivedata/solidfillschemecolor/) คืนช่อง [SchemeColor](https://reference.aspose.com/slides/th/net/aspose.slides/schemecolor/) ที่สอดคล้อง เช่น `Text1` หรือ `Accent6` ค่า `SchemeColor.NotDefined` หมายความว่าการเติมแบบทึบที่ใช้จริงไม่อิงจากสีสกีม ในเวิร์กโฟลว์ที่การเติมเป็นสีธีมหรือสี RGB ตรง ค่านี้ระบุการเติม RGB ตรง
+
+อย่าใช้ค่า [IColorFormat.SchemeColor](https://reference.aspose.com/slides/th/net/aspose.slides/icolorformat/schemecolor/) ในระดับท้องถิ่นเพียงอย่างเดียวเพื่อจำแนกการเติม ตัวอย่างเช่น ส่วนของข้อความอาจไม่มีสีสกีมที่กำหนดในระดับท้องถิ่น ดังนั้นค่าท้องถิ่นจะเป็น `NotDefined` แต่การเติมที่ใช้จริงอาจสืบทอดสีธีมและแปลงเป็น `Text1` หรือ `Accent6` กลับกัน `SolidFillSchemeColor` บอกว่าช่องธีมเชิงตรรกะใดสร้างสีที่ใช้จริง, แต่ไม่ได้บอกว่าช่องนั้นมาจากวัตถุ, ย่อหน้า, การจัดวาง, มาสเตอร์ หรือระดับอื่นของลำดับการจัดรูปแบบ
+
+ตัวอย่างต่อไปนี้โหลดการนำเสนอ, ตรวจสอบการเติมของรูปทรงและส่วนข้อความ, พิมพ์ค่ารหัส RGB สุดท้ายและสีสกีมที่เกี่ยวข้อง, และทำเครื่องหมายการเติมแบบทึบที่ไม่ติดตามการเปลี่ยนแปลงสีธีม:
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+
+var slideCount = presentation.Slides.Count;
+for (var slideIndex = 0; slideIndex < slideCount; slideIndex++)
+{
+    var slide = presentation.Slides[slideIndex];
+
+    var shapeCount = slide.Shapes.Count;
+    for (var shapeIndex = 0; shapeIndex < shapeCount; shapeIndex++)
+    {
+        var shape = slide.Shapes[shapeIndex];
+        var shapeName = $"Slide {slideIndex + 1}, shape {shapeIndex + 1}";
+        AuditFill(shapeName, shape.FillFormat);
+
+        if (shape is IAutoShape autoShape)
+        {
+            var paragraphCount = autoShape.TextFrame.Paragraphs.Count;
+            for (var paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++)
+            {
+                var paragraph = autoShape.TextFrame.Paragraphs[paragraphIndex];
+
+                var portionCount = paragraph.Portions.Count;
+                for (var portionIndex = 0; portionIndex < portionCount; portionIndex++)
+                {
+                    var portion = paragraph.Portions[portionIndex];
+                    var portionName = $"{shapeName}, paragraph {paragraphIndex + 1}, portion {portionIndex + 1}";
+                    AuditFill(portionName, portion.PortionFormat.FillFormat);
+                }
+            }
+        }
+    }
+}
+
+static void AuditFill(string objectName, IFillFormat localFill)
+{
+    var effectiveFill = localFill.GetEffective();
+
+    if (effectiveFill.FillType != FillType.Solid)
+    {
+        Console.WriteLine($"{objectName}: fill type = {effectiveFill.FillType}; not a solid fill.");
+        return;
+    }
+
+    var rgb = effectiveFill.SolidFillColor;
+    var effectiveSchemeColor = effectiveFill.SolidFillSchemeColor;
+    var localSchemeColor = localFill.SolidFillColor.SchemeColor;
+
+    Console.WriteLine($"{objectName}: RGB = #{rgb.R:X2}{rgb.G:X2}{rgb.B:X2}");
+    Console.WriteLine($"{objectName}: local scheme = {localSchemeColor}, effective scheme = {effectiveSchemeColor}");
+
+    if (effectiveSchemeColor == SchemeColor.NotDefined)
+    {
+        Console.WriteLine($"{objectName}: direct RGB or another non-scheme fill; audit as theme-independent.");
+    }
+    else
+    {
+        Console.WriteLine($"{objectName}: theme-dependent through {effectiveSchemeColor}.");
+    }
+}
+```
+
+สาขา `NotDefined` ให้รายการตรวจสอบของการเติมแบบทึบที่ไม่ตอบสนองต่อการเปลี่ยนแปลงในช่องสีธีม ตรวจสอบวัตถุเหล่านั้นเมื่อการนำเสนอจำเป็นต้องสอดคล้องกับพาเลตแบรนด์ใหม่ ค่ารหัส RGB ที่รายงานยังคงแสดงลักษณะปัจจุบัน ส่วนค่าสกีมอธิบายว่าลักษณะนั้นเชื่อมต่อกับธีมหรือไม่
+
+วัตถุแบบฟอร์แมตที่ใช้จริงเป็นสแนปช็อต หลังจากเปลี่ยนธีมการนำเสนอ, การกำจัดธีม, หรือการจัดรูปแบบที่สืบทอดใดๆ ให้เรียก `GetEffective` อีกครั้งและอ่านอ็อบเจ็กต์ `IFillFormatEffectiveData` ใหม่ก่อนทำการเปรียบเทียบหรือรายงานสี
+
+## **อ่านค่าธีมที่ใช้จริง**
+
+อ็อบเจ็กต์ธีมดิบบอกสิ่งที่กำหนดในระดับใดระดับหนึ่ง ค่าที่ใช้จริงบอกสิ่งที่สไลด์หรือรูปทรงจริง ๆ ใช้หลังจากการสืบทอดและการกำจัดในระดับท้องถิ่นได้ถูกประมวลผล สำหรับสไลด์ ให้เรียก [BaseOverrideThemeManager.CreateThemeEffective](https://reference.aspose.com/slides/th/net/aspose.slides.theme/baseoverridethememanager/createthemeeffective/) สำหรับพื้นหลังใช้ [Background.GetEffective](https://reference.aspose.com/slides/th/net/aspose.slides/background/geteffective/) และสำหรับการเติมใช้ [FillFormat.GetEffective](https://reference.aspose.com/slides/th/net/aspose.slides/fillformat/geteffective/)
+
+ตัวอย่างต่อไปนี้อ่านธีมที่ใช้จริง, พื้นหลัง, และการเติมรูปทรงแรกจากสไลด์:
 
 ```csharp
 using System;
@@ -450,22 +529,22 @@ if (slide.Shapes.Count > 0)
 }
 ```
 
-ใช้ข้อมูลที่มีผลสำหรับการวินัยการเรนเดอร์, การตรวจสอบ, และการเปรียบเทียบ หากคุณตรวจสอบเฉพาะ [Presentation.MasterTheme](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/mastertheme/) เท่านั้น คุณอาจพลาดมาสเตอร์, เลย์เอ็ต, สไลด์, หรือการเขียนทับของรูปร่างที่เปลี่ยนลักษณะสุดท้าย
+ใช้ข้อมูลที่ใช้จริงสำหรับการวินิจฉัยการเรนเดอร์, การตรวจสอบ, และการเปรียบเทียบ หากคุณตรวจสอบเฉพาะ [Presentation.MasterTheme](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/mastertheme/) คุณอาจพลาดการกำจัดที่มาจากมาสเตอร์, การจัดวาง, สไลด์, หรือรูปทรงที่เปลี่ยนลักษณะสุดท้าย
 
 ## **คำถามที่พบบ่อย**
 
-**การใช้ธีมภายนอกส่งผลต่อทุกสไลด์ในงานนำเสนอหรือไม่?**
+**การใช้ธีมภายนอกส่งผลต่อสไลด์ทุกสไลด์ในงานนำเสนอหรือไม่?**
 
-ไม่ . [IMasterSlide.ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/th/net/aspose.slides/imasterslide/applyexternalthemetodependingslides/) จะกำหนดใหม่เฉพาะสไลด์ที่ขึ้นกับมาสเตอร์ที่เลือกเท่านั้น สไลด์ที่ใช้มาสเตอร์อื่นจะคงธีมเดิม
+ไม่. [IMasterSlide.ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/th/net/aspose.slides/imasterslide/applyexternalthemetodependingslides/) จะกำหนดสไลด์ที่ขึ้นกับมาสเตอร์ที่เลือกเท่านั้น สไลด์ที่ใช้มาสเตอร์อื่นจะคงธีมเดิม
 
-**ฉันสามารถใช้ธีมกับสไลด์เดียวโดยไม่เปลี่ยนมาสเตอร์ได้หรือไม่?**
+**ฉันสามารถใช้ธีมกับสไลด์เดี่ยวโดยไม่เปลี่ยนมาสเตอร์ได้หรือไม่?**
 
-ได้ . ใช้ [SlideThemeManager](https://reference.aspose.com/slides/th/net/aspose.slides.theme/slidethememanager/) ของสไลด์และเริ่มต้นการเขียนทับธีมของมัน การเปลี่ยนแปลงจะอยู่เฉพาะสไลด์นั้น; สไลด์อื่น ๆ ยังคงสืบทอดธีมเดิมต่อไป
+ได้. ใช้ [SlideThemeManager](https://reference.aspose.com/slides/th/net/aspose.slides.theme/slidethememanager/) ของสไลด์และเริ่มต้นการกำจัดธีม การเปลี่ยนแปลงจะอยู่ในระดับสไลด์นั้นเท่านั้น; สไลด์อื่นจะยังคงสืบทอดธีมเดิม
 
-**วิธีที่ปลอดภัยที่สุดในการถ่ายโอนธีมจากงานนำเสนอหนึ่งไปยังอีกงานนำเสนอคืออะไร?**
+**วิธีที่ปลอดภัยที่สุดในการพาธีมจากงานนำเสนอหนึ่งไปยังอีกงานนำเสนอคืออะไร?**
 
-เมื่อย้ายสไลด์และคงลักษณะเดิมของแหล่งให้คัดลอกมาสเตอร์ต้นฉบับไปยังปลายทางและคัดลอกสไลด์พร้อมมาสเตอร์นั้นด้วย [IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/th/net/aspose.slides/imasterslidecollection/addclone/) และ [ISlideCollection.AddClone](https://reference.aspose.com/slides/th/net/aspose.slides/islidecollection/addclone/) วิธีนี้จะรักษามาสเตอร์, เลย์เอ็ต, และธีมไว้ด้วยกัน
+เมื่อย้ายสไลด์และต้องการรักษาลักษณะต้นฉบับ ให้โคลนมาสเตอร์ต้นฉบับเข้าสู่ปลายทางและโคลนสไลด์ด้วยมาสเตอร์นั้นโดยใช้ [IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/th/net/aspose.slides/imasterslidecollection/addclone/) และ [ISlideCollection.AddClone](https://reference.aspose.com/slides/th/net/aspose.slides/islidecollection/addclone/) วิธีนี้ทำให้มาสเตอร์, การจัดวาง, และธีมคงอยู่ด้วยกัน
 
-**ฉันจะดูค่าที่มีผลหลังจากการสืบทอดและการเขียนทับได้อย่างไร?**
+**ฉันจะดูค่าที่ใช้จริงหลังจากการสืบทอดและการกำจัดได้อย่างไร?**
 
-ใช้ [BaseOverrideThemeManager.CreateThemeEffective](https://reference.aspose.com/slides/th/net/aspose.slides.theme/baseoverridethememanager/createthemeeffective/) สำหรับสไลด์หรือธีมเลย์เอ็ตและเมธอดข้อมูลที่มีผลที่สอดคล้องสำหรับอ็อบเจกต์รูปแบบ เช่น [Background.GetEffective](https://reference.aspose.com/slides/th/net/aspose.slides/background/geteffective/) และ [FillFormat.GetEffective](https://reference.aspose.com/slides/th/net/aspose.slides/fillformat/geteffective/) API เหล่านี้จะคืนค่าที่แก้ไขแล้วหลังจากการสืบทอดและการเขียนทับได้รับการนำไปใช้
+ใช้ [BaseOverrideThemeManager.CreateThemeEffective](https://reference.aspose.com/slides/th/net/aspose.slides.theme/baseoverridethememanager/createthemeeffective/) สำหรับสไลด์หรือธีมการจัดวางและเมธอดข้อมูลที่ใช้จริงที่สอดคล้องสำหรับอ็อบเจ็กต์รูปแบบ เช่น [Background.GetEffective](https://reference.aspose.com/slides/th/net/aspose.slides/background/geteffective/) และ [FillFormat.GetEffective](https://reference.aspose.com/slides/th/net/aspose.slides/fillformat/geteffective/) API เหล่านี้จะคืนค่าที่ประมวลผลแล้วหลังจากการสืบทอดและการกำจัดถูกนำไปใช้

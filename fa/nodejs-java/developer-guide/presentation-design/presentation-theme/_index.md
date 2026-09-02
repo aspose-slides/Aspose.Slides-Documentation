@@ -1,11 +1,11 @@
 ---
-title: مدیریت تم‌های ارائه در جاوااسکریپت
+title: مدیریت تم‌های ارائه در جاوا اسکریپت
 linktitle: تم ارائه
 type: docs
 weight: 10
 url: /fa/nodejs-java/presentation-theme/
 keywords:
-- تم PowerPoint
+- تم پاورپوینت
 - تم ارائه
 - تم اسلاید
 - تنظیم تم
@@ -18,29 +18,29 @@ keywords:
 - قلم تم
 - استایل تم
 - افکت تم
-- PowerPoint
+- پاورپوینت
 - OpenDocument
 - ارائه
 - Node.js
-- JavaScript
+- جاوا اسکریپت
 - Aspose.Slides
-description: "مدیریت تم‌های اصلی ارائه در جاوااسکریپت با Aspose.Slides برای Node.js به‌منظور ایجاد، سفارشی‌سازی و تبدیل فایل‌های PowerPoint با برندینگ یکسان."
+description: "تم‌های اصلی ارائه در جاوا اسکریپت با Aspose.Slides برای Node.js برای ایجاد، سفارشی‌سازی و تبدیل فایل‌های پاورپوینت با برندسازی یکسان."
 ---
 ## **مقدمه**
 
-یک تم ارائه مجموعه‌ای هماهنگ از رنگ‌ها، قلم‌ها، سبک‌های پس‌زمینه، پرکردن‌ها، خطوط و افکت‌ها را تعریف می‌کند. اشیاء آگاه به تم به‌جای ذخیرهٔ هر ویژگی بصری به‌عنوان مقدار ثابت، به این تعاریف مشترک ارجاع می‌دهند، بنابراین تغییر تم می‌تواند بسیاری از اشیاء را همزمان به‌روز کند.
+یک تم ارائه مجموعه‌ای هماهنگ از رنگ‌ها، قلم‌ها، سبک‌های پس‌زمینه، پرکننده‌ها، خطوط و افکت‌ها را تعریف می‌کند. اشیاء آگاه از تم به جای ذخیرهٔ هر ویژگی بصری به صورت مقدار ثابت، به این تعریف‌های مشترک ارجاع می‌دهند، بنابراین تغییر تم می‌تواند تعداد زیادی از اشیاء را به‌طور همزمان به‌روز کند.
 
-در Aspose.Slides، تم سطح ارائه از طریق [Presentation.getMasterTheme](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/getmastertheme/) در دسترس است. یک ارائه می‌تواند همچنین بازنویسی‌های تم را در سطوح پایین‌تر داشته باشد. یک مستر می‌تواند تم ارائه را از طریق [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/masterthememanager/) بازنویسی کند، در حالی که یک لایه یا یک اسلاید جداگانه می‌تواند تم وارث خود را از طریق [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/baseoverridethememanager/) بازنویسی کند. در عمل، تم مؤثر برای یک اسلاید از طریق این زنجیرهٔ وراثت حل می‌شود: تم ارائه، بازنویسی مستر، بازنویسی لایه، و بازنویسی اسلاید.
+در Aspose.Slides، تم سطح ارائه از طریق [Presentation.getMasterTheme](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/getmastertheme/) در دسترس است. یک ارائه می‌تواند بازنویسی‌های تم را در سطوح پایین‌تر نیز داشته باشد. یک مستر می‌تواند تم ارائه را از طریق [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/masterthememanager/) بازنویسی کند، در حالی که یک لایه یا یک اسلاید منفرد می‌تواند تم ارث‌بری خود را از طریق [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/baseoverridethememanager/) بازنویسی کند. به‌صورت عملی، تم مؤثر برای یک اسلاید از طریق این زنجیره وراثت حل می‌شود: تم ارائه، بازنویسی مستر، بازنویسی لایه و بازنویسی اسلاید.
 
-![Theme components: colors, fonts, background styles, and effects](theme-constituents.png)
+![اجزای تم: رنگ‌ها، قلم‌ها، سبک‌های پس‌زمینه و افکت‌ها](theme-constituents.png)
 
-بخش‌های زیر رایج‌ترین جریان‌های کاری تم را نشان می‌دهند: بازرسی یک تم، تغییر رنگ‌ها و قلم‌ها، کپی یا اعمال یک تم، به‌روزرسانی سبک‌های پس‌زمینه و افکت، و خواندن مقادیر مؤثر پس از حل وراثت و بازنویسی‌ها.
+بخش‌های زیر رایج‌ترین گردش‌کارهای تم را نشان می‌دهند: بازرسی یک تم، تغییر رنگ‌ها و قلم‌ها، کپی یا اعمال تم، به‌روزرسانی سبک‌های پس‌زمینه و افکت، و خواندن مقادیر مؤثر پس از حل وراثت و بازنویسی‌ها.
 
 ## **بازرسی یک تم**
 
-شیء [MasterTheme](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mastertheme/) طرح رنگ، طرح قلم و طرح فرمت تم را از طریق [MasterTheme.getColorScheme](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mastertheme/)، [MasterTheme.getFontScheme](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mastertheme/)، و [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mastertheme/) در معرض نمایش می‌گذارد. بازرسی این مجموعه‌ها پیش از تغییر آنها به‌خصوص وقتی ارائه از منبع خارجی می‌آید مفید است، زیرا تعداد و محتوای ورودی‌های سبک می‌تواند متفاوت باشد.
+ شیء [MasterTheme](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mastertheme/) طرح رنگ، طرح قلم و طرح فرمت تم را از طریق [MasterTheme.getColorScheme](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mastertheme/)، [MasterTheme.getFontScheme](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mastertheme/)، و [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mastertheme/) در دسترس می‌کند. بازرسی این مجموعه‌ها پیش از تغییرشان به‌ویژه وقتی ارائه از منبع خارجی می‌آید مفید است، زیرا تعداد و محتوای ورودی‌های سبک می‌تواند متفاوت باشد.
 
-مثال زیر ویژگی‌های اصلی تم را می‌خواند و تعداد سبک‌های پس‌زمینه، پرکردن، خط و افکت ذخیره‌شده در تم را گزارش می‌کند:
+مثال زیر ویژگی‌های اصلی تم را می‌خواند و گزارش می‌دهد که چند سبک پس‌زمینه، پرکننده، خط و افکت در تم ذخیره شده‌اند:
 
 ```javascript
 const aspose = {};
@@ -62,13 +62,13 @@ try {
 }
 ```
 
-اگر فایلی از چند مستر استفاده کند، فرض نکنید که هر اسلاید همان تم مؤثر را دارد. مستر مرتبط با اسلاید را بازرسی کنید و وقتی بازنویسی‌های لایه یا اسلاید ممکن است وجود داشته باشند، از جریان کاری تم مؤثر نشان‌داده‌شده در ادامهٔ این مقاله استفاده کنید.
+اگر فایلی چند مستر داشته باشد، فرض نکنید که هر اسلاید همان تم مؤثر را دارد. مستری که به اسلاید مربوط است را بازرسی کنید و از گردش‌کار تم مؤثر نشان‌داده‌شده در ادامهٔ این مقاله استفاده کنید وقتی بازنویسی‌های لایه یا اسلاید ممکن است وجود داشته باشند.
 
 ## **تغییر رنگ‌های تم**
 
-پرکردن‌ها، خطوط و متن‌های آگاه به تم می‌توانند به یک رنگ منطقی از شمارش‌گر [SchemeColor](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/schemecolor/) ارجاع دهند. هنگامی که ورودی متناظر را در [ColorScheme](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/colorscheme/) تغییر می‌دهید، تمام اشیائی که هنوز به آن رنگ تم ارجاع می‌دهند نسبت به مقدار جدید حل می‌شوند. اشیائی که رنگ RGB مستقیم استفاده می‌کنند توسط به‌روزرسانی رنگ تم تغییر نخواهند کرد.
+پرکننده‌ها، خطوط و متن‌های آگاه از تم می‌توانند به یک رنگ منطقی از شمارش‌گر [SchemeColor](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/schemecolor/) ارجاع دهند. هنگامی که ورودی متناظر در [ColorScheme](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/colorscheme/) را تغییر می‌دهید، تمام اشیائی که هنوز به آن رنگ تم ارجاع می‌دهند، نسبت به مقدار جدید حل می‌شوند. اشیائی که از یک رنگ RGB مستقیم استفاده می‌کنند توسط به‌روزرسانی رنگ تم تغییر نمی‌کنند.
 
-مثال کامل زیر یک شکل ایجاد می‌کند که از `Accent4` استفاده می‌کند، رنگ `Accent4` تم را به قرمز تغییر می‌دهد، ارائه را ذخیره می‌کند، دوباره باز می‌کند و رنگ پرکردن نهایی را چاپ می‌کند:
+مثال انتها‑به‑انتها زیر یک شکل ایجاد می‌کند که از `Accent4` استفاده می‌کند، رنگ `Accent4` تم را به قرمز تغییر می‌دهد، ارائه را ذخیره می‌کند، دوباره باز می‌کند و رنگ پرکنندهٔ مؤثر را چاپ می‌کند:
 
 ```javascript
 const aspose = {};
@@ -98,18 +98,18 @@ try {
 }
 ```
 
-از آنجا که مستطیل به `Accent4` متصل می‌ماند، رنگ قابل مشاهده آن پس از تغییر تم به قرمز می‌شود. اگر رنگ طرح را با یک رنگ مستقیم بر روی شکل جایگزین کنید، تغییرات بعدی `Accent4` دیگر بر آن پرکردن تأثیر نخواهد گذاشت.
+چون مستطیل همچنان به `Accent4` لینک دارد، رنگ قابل مشاهدهٔ آن پس از تغییر تم به قرمز می‌شود. اگر رنگ طرح را به یک رنگ مستقیم روی شکل جایگزین کنید، تغییرات بعدی `Accent4` دیگر بر آن پرکننده تأثیری نخواهد داشت.
 
 ### **استفاده از رنگ‌ها از پالت اضافی**
 
-PowerPoint با اعمال تبدیلات رنگ، نسخه‌های روشن‌تر و تیره‌تر را از یک رنگ تم استخراج می‌کند. Aspose.Slides این تبدیلات را از طریق شمارش‌گر [ColorTransformOperation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/colortransformoperation/) در دسترس می‌گذارد.
+PowerPoint با اعمال تبدیل‌های رنگی، انواع روشن‌تر و تاریک‌تر را از یک رنگ تم استخراج می‌کند. Aspose.Slides این تبدیل‌ها را از طریق شمارش‌گر [ColorTransformOperation](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/colortransformoperation/) در دسترس می‌گذارد.
 
-![Main theme colors and lighter and darker colors generated from the additional palette](additional-palette-colors.png)
+![رنگ‌های اصلی تم و رنگ‌های روشن‌تر و تیره‌تر تولید شده از پالت اضافی](additional-palette-colors.png)
 
 **1** - رنگ‌های اصلی تم.  
-**2** - نسخه‌های روشن‌تر و تیره‌تر تولید‌شده از رنگ‌های اصلی تم.
+**2** - گونه‌های روشن‌تر و تیره‌تر تولید شده از رنگ‌های اصلی تم.
 
-مثال زیر شش مستطیل بر پایه `Accent4` ایجاد می‌کند، برای پنج تا از آنها تبدیلات درخشانی را اعمال می‌کند و نتیجه را ذخیره می‌نماید:
+مثال زیر شش مستطیل بر پایهٔ `Accent4` ایجاد می‌کند، به پنج مورد از آن‌ها تبدیل روشنایی اعمال می‌کند و نتیجه را ذخیره می‌نماید:
 
 ```javascript
 const aspose = {};
@@ -158,31 +158,31 @@ try {
 }
 ```
 
-این نسخه‌ها همچنان بر پایه رنگ تم باقی می‌مانند. اگر `Accent4` بعدها تغییر کند، رنگ‌های تبدیل‌شده از مقدار جدید `Accent4` محاسبه مجدداً می‌شوند.
+این گونه‌ها همچنان بر پایهٔ رنگ تم باقی می‌مانند. اگر `Accent4` بعداً تغییر کند، رنگ‌های تبدیل‌شده بر پایهٔ مقدار جدید `Accent4` مجدداً محاسبه می‌شوند.
 
-### **نقشه‌برداری مقادیر `SchemeColor` به خانه‌های `ColorScheme`**
+### **نقشه‌برداری مقادیر `SchemeColor` به شکاف‌های `ColorScheme`**
 
-شمارش‌گر [SchemeColor](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/schemecolor/) از `Text1`، `Background1`، `Text2` و `Background2` استفاده می‌کند، در حالی که [ColorScheme](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/colorscheme/) همان اسلات‌های تم را به‌عنوان `Dark1`، `Light1`، `Dark2` و `Light2` در معرض نمایش می‌گذارد. نقشه‌بندی ثابت است:
+شمارش‌گر [SchemeColor](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/schemecolor/) از `Text1`، `Background1`، `Text2` و `Background2` استفاده می‌کند، در حالی که [ColorScheme](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/colorscheme/) همان شکاف‌های تم را به عنوان `Dark1`، `Light1`، `Dark2` و `Light2` نشان می‌دهد. نگاشت ثابت است:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-این‌ها نام‌های جایگزین برای همان اسلات‌های تم هستند؛ آنها مقادیری نیستند که به‌صورت پویا از یک فرم به فرم دیگر تبدیل شوند.
+این‌ها نام‌های جایگزین برای همان شکاف‌های تم هستند؛ مقادیری که به‌صورت دینامیک از یک شکل به شکل دیگر تبدیل می‌شوند نیستند.
 
 ## **تغییر قلم‌های تم**
 
-یک طرح قلم تم شامل یک مجموعهٔ اصلی برای عناوین و یک مجموعهٔ فرعی برای متن بدنه است. توابع [FontScheme.getMajor](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/fontscheme/) و [FontScheme.getMinor](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/fontscheme/) این مجموعه‌ها را در معرض نمایش می‌گذارند.
+یک طرح قلم تم شامل مجموعهٔ قلم اصلی برای عناوین و مجموعهٔ قلم فرعی برای متن بدنه است. روش‌های [FontScheme.getMajor](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/fontscheme/) و [FontScheme.getMinor](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/fontscheme/) این مجموعه‌ها را در دسترس می‌گذارند.
 
 شناسه‌های قلم تم سازگار با PowerPoint می‌توانند در قالب‌بندی متن استفاده شوند:
 
-* `+mn-lt` - قلم بدنه لاتین (Minor Latin Font)
-* `+mj-lt` - قلم عنوان لاتین (Major Latin Font)
-* `+mn-ea` - قلم بدنه آسیای شرقی (Minor East Asian Font)
-* `+mj-ea` - قلم عنوان آسیای شرقی (Major East Asian Font)
+* `+mn-lt` - Body Font Latin (Minor Latin Font)
+* `+mj-lt` - Heading Font Latin (Major Latin Font)
+* `+mn-ea` - Body Font East Asian (Minor East Asian Font)
+* `+mj-ea` - Heading Font East Asian (Major East Asian Font)
 
-مثال زیر یک عنوان که از قلم لاتین اصلی تم استفاده می‌کند و یک خط بدنه که از قلم لاتین فرعی تم استفاده می‌کند ایجاد می‌کند. سپس قلم‌های تم را تغییر داده و نتیجه را ذخیره می‌نماید:
+مثال زیر یک عنوان ایجاد می‌کند که از قلم لاتین اصلی تم استفاده می‌کند و یک خط بدنه که از قلم لاتین فرعی تم استفاده می‌کند. سپس قلم‌های تم را تغییر می‌دهد و نتیجه را ذخیره می‌کند:
 
 ```javascript
 const aspose = {};
@@ -208,26 +208,28 @@ try {
 }
 ```
 
-عنوان از قلم اصلی پیروی می‌کند و متن بدنه از قلم فرعی. متنی که به‌جای شناسهٔ تم نام قلم صریح دارد، به‌صورت خودکار هنگام تغییر طرح قلم تم تغییر نخواهد کرد.
+عنوان از قلم اصلی پیروی می‌کند و متن بدنه از قلم فرعی پیروی می‌کند. متنی که دارای نام قلم صریح به جای شناسهٔ تم باشد، به‌صورت خودکار زمانی که طرح قلم تم تغییر می‌کند، سوئیچ نخواهد شد.
 
-مجموعه‌های قلم اصلی و فرعی می‌توانند شامل نگاشت‌های قلم برای سیستم‌های نوشتاری خاص مانند سیریلیک، عربی، ژاپنی، گرجی و ثان هم باشند. برای بازرسی، افزودن، جایگزین یا حذف این نگاشت‌ها، به [Script-Specific Theme Fonts](/slides/fa/nodejs-java/script-specific-font-mappings/) مراجعه کنید.
+مجموعه‌های قلم اصلی و فرعی می‌توانند شامل نگاشت‌های قلم برای سیستم‌های نوشتاری متفاوتی مانند سیریلیک، عربی، ژاپنی، گرجی و ثانا نیز باشند. برای بازرسی، افزودن، جایگزینی یا حذف این نگاشت‌ها، به [فونت‌های تم مخصوص اسکریپت](/slides/fa/nodejs-java/script-specific-font-mappings/) مراجعه کنید.
 
-{{% alert color="info" title="Tip" %}}برای اطلاعات بیشتر درباره قلم‌های ارائه، به [PowerPoint Fonts](/slides/fa/nodejs-java/powerpoint-fonts/) نگاه کنید.{{% /alert %}}
+{{% alert color="info" title="نکته" %}}
+برای اطلاعات بیشتر درباره قلم‌های ارائه، به [PowerPoint Fonts](/slides/fa/nodejs-java/powerpoint-fonts/) مراجعه کنید.
+{{% /alert %}}
 
-## **کپی یا اعمال یک تم**
+## **کپی یا اعمال تم**
 
-جریان‌های کاری زیر مشکلات مختلف مرتبط با تم را حل می‌کنند.
+گردش‌کارهای زیر مشکلات مختلف مرتبط با تم را حل می‌کنند.
 
-### **اعمال تم خارجی به اسلایدهای وابسته به یک مستر**
+### **اعمال تم خارجی به اسلایدهای وابسته به مستر**
 
-از [MasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/masterslide/) وقتی فایل تم PowerPoint (`.thmx`) دارید و می‌خواهید تمام اسلایدهایی که به مستر خاصی وابسته‌اند را بازطراحی کنید، استفاده کنید. مستر را از مجموعهٔ [Presentation.getMasters](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) که توسط [MasterSlideCollection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/masterslidecollection/) نمایان می‌شود، انتخاب کنید و مسیر فایل تم را به متد پاس دهید.
+از [MasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/masterslide/) زمانی که یک فایل تم PowerPoint (`.thmx`) دارید و می‌خواهید تمام اسلایدهایی که به مستر خاصی وابسته‌اند را بازطراحی کنید، استفاده کنید. مستر مورد نظر را از مجموعهٔ [Presentation.getMasters](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/) که توسط [MasterSlideCollection](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/masterslidecollection/) نشان داده می‌شود، انتخاب کنید و مسیر فایل تم را به متد پاس دهید.
 
-متد عملیات زیر را انجام می‌دهد:
+این متد عملیات زیر را انجام می‌دهد:
 
-1. یک اسلاید مستر جدید بر پایه مستر انتخاب‌شده می‌سازد.  
-1. تم خارجی را به مستر جدید اعمال می‌کند.  
-1. مستر جدید را به تمام اسلایدهایی که پیش‌تر به مستر انتخاب‌شده وابسته بودند، اختصاص می‌دهد.  
-1. شیء [MasterSlide](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/masterslide/) تازه ایجاد‑شده را برمی‌گرداند.
+1. یک اسلاید مستر جدید بر پایهٔ مستر انتخاب‌شده ایجاد می‌کند.  
+2. تم خارجی را به مستر جدید اعمال می‌کند.  
+3. مستر جدید را به تمام اسلایدهایی که پیش‌تر به مستر انتخاب‌شده وابسته بودند، اختصاص می‌دهد.  
+4. مستر جدید [MasterSlide](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/masterslide/) را برمی‌گرداند.
 
 مثال زیر تم خارجی را بر اسلایدهایی که به اولین مستر وابسته‌اند اعمال می‌کند و ارائه را ذخیره می‌نماید:
 
@@ -247,19 +249,19 @@ try {
 }
 ```
 
-یک تم نامعتبر، خراب یا نام پشتیبانی‌شده می‌تواند موجب [PptxReadException](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/pptxreadexception/) شود. مسیرهای ارائه‌شده توسط کاربران را اعتبارسنجی کنید، شکست‌های دسترسی به سیستم‌فایل را مدیریت کنید و تنها پس از اعمال موفقیت‌آمیز تم، ارائه را ذخیره کنید.
+یک تم نامعتبر، خراب یا پشتیبانی‑نشده می‌تواند باعث [PptxReadException](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/pptxreadexception/) شود. مسیرهای ارائه‌شده توسط کاربر را اعتبارسنجی کنید، خطاهای دسترسی به سیستم فایل را مدیریت کنید و فقط پس از اعمال موفقیت‌آمیز تم، ارائه را ذخیره کنید.
 
-فقط اسلایدهایی که به مستر انتخاب‌شده وابسته بودند، مجدداً اختصاص می‌یابند. اسلایدهای مرتبط با مسترهای دیگر مستر و تم‌های موجود خود را حفظ می‌کنند. رنگ‌ها، قلم‌ها، پرکردن‌ها، خطوط، پس‌زمینه‌ها و افکت‌های آگاه به تم نسبت به تم خارجی حل می‌شوند. رنگ‌ها، قلم‌ها، پرکردن‌ها و فرمت‌های صریحی که مستقیماً اختصاص داده شده‌اند ممکن است بدون تغییر بمانند. بازنویسی‌های سطح لایه و اسلاید نیز می‌توانند بر مقادیر وارث‌شده از مستر جدید اولویت داشته باشند.
+تنها اسلایدهایی که به مستر انتخاب‌شده وابسته بودند بازاختصاص می‌شوند. اسلایدهای مرتبط با سایر مسترها مسترها و تم‌های موجود خود را حفظ می‌کنند. رنگ‌ها، قلم‌ها، پرکننده‌ها، خطوط، پس‌زمینه‌ها و افکت‌های آگاه از تم نسبت به تم خارجی حل می‌شوند. رنگ‌ها، قلم‌ها، پرکننده‌ها و قالب‌بندی صریحی که به‌صورت مستقیم اختصاص داده شده‌اند ممکن است بدون تغییر بمانند. بازنویسی‌های سطح لایه و اسلاید نیز می‌توانند بر مقادیر ارث‌بری‌شده از مستر جدید اولویت داشته باشند.
 
-تم می‌تواند قلم‌هایی را ارجاع دهد که در محیط اجرایی موجود نیستند. برای رندرینگ و خروجی سازگار، قلم‌های لازم را نصب کنید، از [منابع قلم سفارشی](/slides/fa/nodejs-java/custom-font/) استفاده کنید یا [جایگزینی قلم](/slides/fa/nodejs-java/font-substitution/) را پیکربندی کنید.
+تم ممکن است به قلم‌هایی ارجاع بدهد که در محیط اجرا موجود نیستند. برای رندرینگ و خروجی سازگار، قلم‌های مورد نیاز را نصب کنید، از طریق [منابع قلم سفارشی](/slides/fa/nodejs-java/custom-font/) فراهم کنید یا [جایگزینی قلم](/slides/fa/nodejs-java/font-substitution/) را پیکربندی کنید.
 
-این یک جریان کاری مستقیم سطح مستر است: متد مسیر فایلی با پسوند `.thmx` را می‌پذیرد و نیازی به ایجاد دستی بازنویسی‌های تم سطح اسلاید یا لایه ندارد.
+این یک گردش‌کار مستقیم سطح مستر است: متد مسیر فایل `.thmx` را می‌پذیرد و نیازی به ایجاد دستی بازنویسی‌های سطح اسلاید یا لایه نیست.
 
-### **اعمال تم‌های خارجی متفاوت در یک ارائه چندمستری**
+### **اعمال تم‌های خارجی مختلف در ارائه چند مستر**
 
-وقتی مستر مرتبط از پیش شناخته نشده باشد، از طریق [Slide.getLayoutSlide](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slide/) و [LayoutSlide.getMasterSlide](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/layoutslide/) یک نماینده اسلاید به دست آورید. پیش از اعمال هر تمی، ارجاع‌های اصلی مستر را ذخیره کنید، زیرا هر فراخوانی یک مستر دیگر در ارائه ایجاد می‌کند.
+زمانی که مستر مربوطه از پیش شناخته نشده است، آن را از یک اسلاید نماینده از طریق [Slide.getLayoutSlide](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slide/) و [LayoutSlide.getMasterSlide](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/layoutslide/) به دست آورید. قبل از اعمال هر تمی، مراجع مسترهای اصلی را ذخیره کنید زیرا هر فراخوانی یک مستر دیگر در ارائه ایجاد می‌کند.
 
-مثال زیر از اسلایدهای دو بخش برای یافتن مسترهایشان استفاده می‌کند و برای هر گروه تم خارجی متفاوتی اعمال می‌نماید:
+مثال زیر اسلایدهای دو بخش را برای یافتن مسترهایشان استفاده می‌کند و یک تم خارجی متفاوت را به هر گروه اعمال می‌نماید:
 
 ```javascript
 const aspose = {};
@@ -289,11 +291,11 @@ try {
 }
 ```
 
-فراخوانی اول فقط اسلایدهایی را تحت تأثیر `firstGroupMaster` تغییر می‌دهد و فراخوانی دوم فقط اسلایدهایی را تحت تأثیر `secondGroupMaster` تغییر می‌دهد. اسلایدهای متعلق به هر مستر دیگر بازطراحی نمی‌شوند.
+فراخوانی اول فقط اسلایدهایی که به `firstGroupMaster` وابسته‌اند را تحت تأثیر قرار می‌دهد و فراخوانی دوم فقط اسلایدهایی که به `secondGroupMaster` وابسته‌اند را تحت تأثیر قرار می‌دهد. اسلایدهای متعلق به هر مستر دیگری بازطراحی نمی‌شوند.
 
 ### **حفظ تم منبع هنگام جابه‌جایی اسلایدها**
 
-اگر می‌خواهید اسلایدی را به ارائه دیگری انتقال دهید و طراحی اصلی آن را حفظ کنید، مستر منبع را با [MasterSlideCollection.addClone](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/masterslidecollection/) به ارائه هدف اضافه کنید، سپس اسلاید را با [SlideCollection.addClone](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slidecollection/) و مستر کلون‌شده کپی کنید. این کار مستر، لایه‌های آن و تم مرتبط را به‌هم پیوسته می‌سازد.
+اگر می‌خواهید یک اسلاید را به ارائهٔ دیگری منتقل کنید و طراحی اصلی آن را حفظ کنید، مستر منبع را با استفاده از [MasterSlideCollection.addClone](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/masterslidecollection/) به ارائه هدف اضافه کنید، سپس اسلاید را با [SlideCollection.addClone](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slidecollection/) و مستر کلون‌شده کپی کنید. این کار مستر، لایه‌های آن و تم مرتبط را به‌صورت یک‌پارچه منتقل می‌نماید.
 
 ```javascript
 const aspose = {};
@@ -315,11 +317,11 @@ try {
 }
 ```
 
-این جریان کاری ترجیحاً وقتی اسلاید منبع باید دقیقاً همان ظاهر را در مقصد داشته باشد، استفاده می‌شود. فقط کپی محتوا به مستر مقصدی نامرتبط می‌تواند باعث تغییر رنگ‌ها، قلم‌ها، پس‌زمینه‌ها و افکت‌های مبتنی بر تم شود.
+این روش ترجیحی است وقتی اسلاید منبع باید در مقصد همان ظاهر را داشته باشد. فقط کپی محتوا بر روی مستری نامرتبط می‌تواند رنگ‌های مبتنی بر تم، قلم‌ها، پس‌زمینه‌ها و افکت‌ها را تغییر دهد.
 
-### **اعمال مقادیر تم به اسلاید موجود**
+### **اعمال مقادیر تم به یک اسلاید موجود**
 
-اگر اسلاید هدف باید بر روی مستر و لایهٔ فعلی خود بماند، یک بازنویسی سطح اسلایدی از تم منبع اولیه کنید. متدهای [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/overridetheme/)، [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/overridetheme/) و [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/overridetheme/) سه مؤلفهٔ اصلی تم را به بازنویسی کپی می‌کنند.
+اگر اسلاید هدف باید بر روی مستر و لایهٔ جاری خود بماند، یک بازنویسی سطح اسلاید از تم منبع مقداردهی اولیه کنید. متدهای [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/overridetheme/)، [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/overridetheme/)، و [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/overridetheme/) سه مؤلفهٔ اصلی تم را به بازنویسی کپی می‌کنند.
 
 ```javascript
 const aspose = {};
@@ -344,11 +346,11 @@ try {
 }
 ```
 
-این کار تم استفاده‌شده توسط آن اسلاید را بدون تغییر تم وارث‌شده توسط اسلایدهای دیگر تغییر می‌دهد. برای حذف بازنویسی محلی و بازگشت به مقادیر وارث‌شده، [OverrideTheme.clear](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/overridetheme/) را فراخوانی کنید.
+این کار تم استفاده‌شده توسط آن اسلاید را بدون تغییر تم ارث‌بری‌شده توسط اسلایدهای دیگر تغییر می‌دهد. برای حذف بازنویسی محلی و بازگشت به مقادیر ارث‌بری‌شده، [OverrideTheme.clear](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/overridetheme/) را فراخوانی کنید.
 
 ### **اعمال بازنویسی تم به یک لایه**
 
-یک بازنویسی سطح لایه بر اسلایدهایی که از آن لایه استفاده می‌کنند اعمال می‌شود، مگر اینکه اسلاید خاصی بازنویسی جداگانه داشته باشد. همان متدهای اولیه می‌توانند از طریق [LayoutSlideThemeManager](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/layoutslidethememanager/) استفاده شوند:
+یک بازنویسی سطح لایه بر اسلایدهایی که از آن لایه استفاده می‌کنند اعمال می‌شود، مگر اینکه اسلاید خاصی بازنویسی خودش را داشته باشد. همان متدهای مقداردهی اولیه می‌توانند از طریق [LayoutSlideThemeManager](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/layoutslidethememanager/) استفاده شوند:
 
 ```javascript
 const aspose = {};
@@ -373,17 +375,17 @@ try {
 }
 ```
 
-زمانی که بسیاری از لایه‌ها و اسلایدها باید همان طراحی پایه را به اشتراک بگذارند، از تم سطح مستر یا ارائه استفاده کنید؛ زمانی که یک خانوادهٔ لایه نیاز به استایل متفاوت دارد، از بازنویسی لایه؛ و فقط برای استثناهای واقعی از بازنویسی اسلایدی استفاده کنید. بازنویسی‌های بیش از حد سطح اسلاید، اعمال تغییرات سراسری تم را در آینده دشوار می‌کند.
+از تم سطح مستر یا ارائه استفاده کنید وقتی بسیاری از لایه‌ها و اسلایدها باید همان طرح پایه را به‌اشتراک بگذارند؛ از بازنویسی لایه وقتی یک خانواده لایه نیاز به استایل متفاوتی دارد؛ و از بازنویسی اسلاید فقط برای استثناهای واقعی. بازنویسی‌های بیش از حد سطح اسلاید، اعمال تغییرات جهانی تم را در آینده پیش‌بینی‌پذیرتر می‌کند.
 
 ## **به‌روزرسانی سبک‌های پس‌زمینه تم**
 
-پرکردن‌های پس‌زمینهٔ تم در [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/formatscheme/) ذخیره می‌شوند. PowerPoint می‌تواند گزینه‌های پس‌زمینه بیشتری در رابط کاربری خود نمایش دهد نسبت به تعداد تعاریف پرکردن فیزیکی موجود در این مجموعه، چرا که رابط می‌تواند پرکردن‌های تم را با رنگ‌های تم و مراجع سبک دیگر ترکیب کند.
+پرکننده‌های پس‌زمینهٔ تم در [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/formatscheme/) ذخیره می‌شوند. PowerPoint می‌تواند گزینه‌های پس‌زمینه بیشتری در رابط کاربری خود نشان دهد نسبت به تعداد تعریف‌های پرکننده فیزیکی موجود در این مجموعه، زیرا UI می‌تواند پرکننده‌های تم را با رنگ‌های تم و سایر مراجع سبک ترکیب کند.
 
-![PowerPoint background style gallery for a presentation theme](presentation-design_8.png)
+![گالری سبک پس‌زمینه PowerPoint برای تم ارائه](presentation-design_8.png)
 
-پیش از استفاده از یک سبک پس‌زمینه، مجموعهٔ ذخیره‌شده و مقدار فعلی [Background.getStyleIndex](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/background/) را بازرسی کنید. یک ایندکس سبک `0` به این معنی است که هیچ پرکردن تمی وجود ندارد؛ مقادیر مثبت به مراجع سبک پس‌زمینهٔ تم اشاره می‌کنند. این متفاوت از ایندکس‌گذاری مستقیم مجموعهٔ جاوااسکریپت است که در آن `0` اولین مورد ذخیره‌شده را نشان می‌دهد. فرض نکنید که هر ارائه همان تعداد سبک پرکردن پس‌زمینه را دارد.
+قبل از استفاده از یک سبک پس‌زمینه، مجموعه ذخیره‌شده و [Background.getStyleIndex](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/background/) فعلی را بررسی کنید. یک شاخص سبک برابر با `0` به معنای عدم وجود پرکنندهٔ تم است؛ مقادیر مثبت به مراجع سبک پس‌زمینهٔ تم اشاره دارند. این متفاوت از ایندکس‌گذاری مستقیم مجموعهٔ JavaScript است که در آن `0` به اولین مورد ذخیره‌شده اشاره می‌کند. فرض نکنید که هر ارائه تعداد یکسانی از سبک‌های پرکنندهٔ پس‌زمینه دارد.
 
-مثال زیر تعداد پرکردن‌های پس‌زمینهٔ موجود را گزارش می‌کند، یک مرجع پس‌زمینه تمی به اولین مستر اختصاص می‌دهد و ارائه را ذخیره می‌کند:
+مثال زیر تعداد پرکنندهٔ پس‌زمینهٔ موجود را گزارش می‌کند، یک مرجع پس‌زمینهٔ تم را به اولین مستر اختصاص می‌دهد و ارائه را ذخیره می‌کند:
 
 ```javascript
 const aspose = {};
@@ -407,21 +409,25 @@ try {
 }
 ```
 
-نتیجهٔ قابل مشاهده به ورودی تمی که مستر به آن ارجاع می‌دهد و هر بازنویسی پس‌زمینه در سطح لایه یا اسلاید بستگی دارد. اگر اسلاید پس‌زمینهٔ خودش را داشته باشد، تغییر تنها پس‌زمینهٔ مستر ممکن است بر آن اسلید تأثیر نگذارد. برای دانستن پس‌زمینهٔ نهایی پس از اعمال وراثت، از [Background.getEffective](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/background/) استفاده کنید.
+نتیجهٔ قابل مشاهده به ورودی تمی که توسط مستر ارجاع داده می‌شود و هر بازنویسی پس‌زمینه‌ای در سطح لایه یا اسلاید بستگی دارد. اگر یک اسلاید پس‌زمینهٔ خود را داشته باشد، تغییر فقط پس‌زمینهٔ مستر ممکن است آن اسلاید را تغییر ندهد. برای دانستن پس‌زمینهٔ نهایی پس از اعمال وراثت، از [Background.getEffective](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/background/) استفاده کنید.
 
-{{% alert color="warning" title="Warning" %}}ایندکس سبک را به‌عنوان یک ایندکس صفرپایهٔ مجموعه در نظر نگیرید. همچنین از استفادهٔ ثابت یک عدد سبک از یک فایل و فرض کردن ظاهر یکسان آن در فایل دیگر خودداری کنید؛ تعاریف سبک تم برای هر ارائه متفاوت است.{{% /alert %}}
+{{% alert color="warning" title="هشدار" %}}
+شاخص سبک را به‌عنوان یک ایندکس صفر‑پایه مجموعه درنظر نگرفته و از استفادهٔ سخت‌کد کردن یک شماره سبک از یک فایل و فرض داشتن همان ظاهر در فایل دیگر خودداری کنید؛ تعاریف سبک تم به‌صورت خاص به ارائه وابسته‌اند.
+{{% /alert %}}
 
-{{% alert color="info" title="Tip" %}}برای قالب‌بندی مستقیم پس‌زمینه و وراثت پس‌زمینه، به [Presentation Background](/slides/fa/nodejs-java/presentation-background/) مراجعه کنید.{{% /alert %}}
+{{% alert color="info" title="نکته" %}}
+برای قالب‌بندی مستقیم پس‌زمینه و وراثت پس‌زمینه، به [Presentation Background](/slides/fa/nodejs-java/presentation-background/) مراجعه کنید.
+{{% /alert %}}
 
 ## **به‌روزرسانی افکت‌های تم**
 
-یک طرح فرمت تم مجموعه‌های جداگانهٔ پرکردن، خط و افکت را از طریق [FormatScheme.getFillStyles](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/formatscheme/)، [FormatScheme.getLineStyles](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/formatscheme/)، و [FormatScheme.getEffectStyles](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/formatscheme/) در معرض نمایش می‌گذارد. تم‌های معمول اداری اغلب سه ورودی اصلی دارند که به‌صورت بصری به استایل‌های ملایم، متوسط و قوی متناظرند، اما کد باید هر مجموعه را بازرسی کند و به‌جای فرض تعداد ثابت، از موجودیت آن‌ها اطمینان حاصل کند.
+یک طرح فرمت تم شامل مجموعه‌های جداگانهٔ پرکننده، خط و افکت است که از طریق [FormatScheme.getFillStyles](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/formatscheme/)، [FormatScheme.getLineStyles](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/formatscheme/)، و [FormatScheme.getEffectStyles](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/formatscheme/) در دسترس هستند. تم‌های معمولی Office اغلب شامل سه ورودی اصلی سبک هستند که به‌صورت بصری به فرمت‌های جزئی، متوسط و شدید مطابقت دارند، اما کد باید هر مجموعه را بازرسی کند به‌جای فرض تعداد ثابت.
 
-![Subtle, moderate, and intense theme effects applied to the same shape](presentation-design_10.png)
+![افکت‌های تم ظریف، متوسط و شدید که بر یک شکل اعمال شده‌اند](presentation-design_10.png)
 
-زمانی که این مجموعه‌ها را در JavaScript دسترسی می‌کنید، ایندکس مجموعه صفرپایه است: `0` اولین سبک ذخیره‌شده و `2` سومین سبک است. ایندکس‌های ارجاع‑سبک یک شکل مفهوم جداگانه‌ای هستند که از طریق [ShapeStyle](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/shapestyle/) در دسترس‌اند. تغییر یک سبک تم بر شکل‌هایی که به آن ارجاع می‌دهند تأثیر می‌گذارد؛ شکل‌هایی که فرمت‌گذاری مستقیم دارند ممکن است بدون تغییر بمانند.
+هنگامی که این مجموعه‌ها را در JavaScript دسترسی می‌یابید، ایندکس مجموعه صفر‑پایه است: ایندکس `0` اولین سبک ذخیره‌شده و ایندکس `2` سومین است. ایندکس‌های ارجاع‑سبک یک شکل مفهومی جداگانه است که از طریق [ShapeStyle](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/shapestyle/) در دسترس است. تغییر یک سبک تم بر شکل‌هایی که به آن سبک ارجاع می‌دهند تأثیر می‌گذارد؛ شکل‌هایی که قالب‌بندی مستقیم دارند ممکن است بدون تغییر بمانند.
 
-مثال زیر بررسی می‌کند که ورودی‌های سبک لازم وجود دارند، اولین سبک خط را تغییر می‌دهد، سومین سبک پرکردن را تغییر می‌دهد، یک سایهٔ خارجی را در سومین سبک افکت فعال می‌کند و نتیجه را ذخیره می‌کند:
+مثال زیر بررسی می‌کند که ورودی‌های سبک مورد نیاز وجود دارند، اولین سبک خط را تغییر می‌دهد، سومین سبک پرکننده را تغییر می‌دهد، یک سایه بیرونی را در سومین سبک افکت فعال می‌کند و نتیجه را ذخیره می‌کند:
 
 ```javascript
 const aspose = {};
@@ -448,15 +454,95 @@ try {
 }
 ```
 
-برای شکل‌هایی که به این اسلات‌ها ارجاع می‌دهند، اولین سبک خط تم قرمز می‌شود، سومین سبک پرکردن تم به سبز جنگلی سفت تغییر می‌کند و سومین سبک افکت یک سایهٔ خارجی با فاصلهٔ 10 نقطه به‌دست می‌آورد. نتیجهٔ بصری دقیق همچنان به این که هر شکل به کدام اسلات‌ها ارجاع می‌دهد و آیا فرمت‌گذاری مستقیم بر تم غالب است، بستگی دارد.
+برای شکل‌هایی که به این شکاف‌ها ارجاع می‌دهند، اولین سبک خط تم به قرمز تبدیل می‌شود، سومین سبک پرکننده تم به سبز جنگلی محکم تبدیل می‌شود و سومین سبک افکت یک سایهٔ بیرونی با فاصلهٔ ۱۰ پوینت دریافت می‌کند. نتیجهٔ بصری دقیق همچنان به این که هر شکل به کدام شکاف‌های سبک ارجاع می‌دهد و آیا قالب‌بندی مستقیم بر تم اولویت دارد یا نه بستگی دارد.
 
-![Theme effect styles after changing line, fill, and shadow settings](presentation-design_11.png)
+![سبک‌های افکت تم پس از تغییر تنظیمات خط، پرکننده و سایه](presentation-design_11.png)
 
-## **خواندن مقادیر تم مؤثر**
+## **تعیین اینکه آیا پرکنندهٔ ثابت مؤثر از رنگ تم استفاده می‌کند**
 
-اشیاء خام تم به شما می‌گویند که در سطح خاصی چه چیزی تعریف شده است. مقادیر مؤثر به شما می‌گویند که یک اسلاید یا شکل بعد از حل وراثت و بازنویسی‌های محلی واقعاً چه چیزی استفاده می‌کند. برای یک اسلاید، [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/baseoverridethememanager/) را فراخوانی کنید. برای یک پس‌زمینه، از [Background.getEffective](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/background/) و برای یک پرکردن، از [FillFormat.getEffective](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/fillformat/) استفاده کنید.
+یک پرکننده می‌تواند به‌صورت مستقیم روی شیء ذخیره شود یا از یک پاراگراف، لایه، مستر، سبک تم یا سطح قالب‌بندی دیگر وراثت بگیرد. برای حل این سلسله مراتب به یک snapshot غیرقابل تغییر از پرکنندهٔ مؤثر، متد [FillFormat.getEffective](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/fillformat/) را فراخوانی کنید. ابتدا مقدار `getFillType` آن را بررسی کنید. فقط زمانی که مقدار `FillType.Solid` باشد باید ویژگی‌های پرکنندهٔ ثابت را بخوانید.
 
-مثال زیر تم مؤثر، پس‌زمینه و اولین پرکردن شکل را از یک اسلاید می‌خواند:
+برای یک پرکنندهٔ ثابت، `getSolidFillColor` مقدار نهایی RGB رندر شده پس از وراثت، جستجوی تم و اعمال تبدیل‌های رنگی را برمی‌گرداند. متد `getSolidFillSchemeColor` شکاف منطقی [SchemeColor](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/schemecolor/) مرتبط مانند `Text1` یا `Accent6` را برمی‌گرداند. مقدار `SchemeColor.NotDefined` به این معنی است که پرکنندهٔ ثابت مؤثر بر پایهٔ یک رنگ طرح تعریف نشده است. در یک گردش‌کار که پرکننده‌ها یا رنگ‌های تم یا رنگ‌های RGB مستقیم هستند، این مقدار یک پرکنندهٔ RGB مستقیم را شناسایی می‌کند.
+
+از مقدار محلی تنها [ColorFormat.getSchemeColor](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/colorformat/) برای طبقه‌بندی پرکننده استفاده نکنید. برای مثال، بخشی از متن ممکن است رنگ طرح محلی تعریف‌شده نداشته باشد، بنابراین مقدار محلی آن `NotDefined` است، در حالی که پرکنندهٔ مؤثر آن یک رنگ تم را وراثت می‌کند و به `Text1` یا `Accent6` حل می‌شود. برعکس، `getSolidFillSchemeColor` به شما می‌گوید کدام شکاف منطقی تم رنگ نهایی را تولید کرده است، اما این که آن شکاف از کجا (شیء، پاراگراف، لایه، مستر یا سطح دیگر) آمده است، را نشان نمی‌دهد.
+
+مثال زیر یک ارائه بارگذاری می‌کند، هم پرکننده‌های شکل و هم پرکننده‌های بخش‌های متن را بررسی می‌کند، هر مقدار RGB نهایی و رنگ طرح مرتبط را چاپ می‌کند و پرکننده‌های ثابت را که پیرو تغییرات رنگ تم نخواهند بود، علامت‌گذاری می‌کند:
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+function toHexColor(color) {
+    const red = color.getRed().toString(16).padStart(2, "0");
+    const green = color.getGreen().toString(16).padStart(2, "0");
+    const blue = color.getBlue().toString(16).padStart(2, "0");
+    return `#${red}${green}${blue}`.toUpperCase();
+}
+
+function auditFill(objectName, localFill) {
+    const effectiveFill = localFill.getEffective();
+
+    if (effectiveFill.getFillType() !== aspose.slides.FillType.Solid) {
+        console.log(objectName + ": fill type = " + effectiveFill.getFillType() + "; not a solid fill.");
+        return;
+    }
+
+    const rgb = effectiveFill.getSolidFillColor();
+    const effectiveSchemeColor = effectiveFill.getSolidFillSchemeColor();
+    const localSchemeColor = localFill.getSolidFillColor().getSchemeColor();
+
+    console.log(objectName + ": RGB = " + toHexColor(rgb));
+    console.log(objectName + ": local scheme = " + localSchemeColor + ", effective scheme = " + effectiveSchemeColor);
+
+    if (effectiveSchemeColor === aspose.slides.SchemeColor.NotDefined) {
+        console.log(objectName + ": direct RGB or another non-scheme fill; audit as theme-independent.");
+    } else {
+        console.log(objectName + ": theme-dependent through " + effectiveSchemeColor + ".");
+    }
+}
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slideCount = presentation.getSlides().size();
+    for (let slideIndex = 0; slideIndex < slideCount; slideIndex++) {
+        const slide = presentation.getSlides().get_Item(slideIndex);
+
+        const shapeCount = slide.getShapes().size();
+        for (let shapeIndex = 0; shapeIndex < shapeCount; shapeIndex++) {
+            const shape = slide.getShapes().get_Item(shapeIndex);
+            const shapeName = "Slide " + (slideIndex + 1) + ", shape " + (shapeIndex + 1);
+            auditFill(shapeName, shape.getFillFormat());
+
+            if (java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
+                const paragraphCount = shape.getTextFrame().getParagraphs().getCount();
+                for (let paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++) {
+                    const paragraph = shape.getTextFrame().getParagraphs().get_Item(paragraphIndex);
+
+                    const portionCount = paragraph.getPortions().getCount();
+                    for (let portionIndex = 0; portionIndex < portionCount; portionIndex++) {
+                        const portion = paragraph.getPortions().get_Item(portionIndex);
+                        const portionName = shapeName + ", paragraph " + (paragraphIndex + 1) + ", portion " + (portionIndex + 1);
+                        auditFill(portionName, portion.getPortionFormat().getFillFormat());
+                    }
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+شاخهٔ `NotDefined` فهرستی از پرکننده‌های ثابت که به تغییرات در شکاف‌های رنگ تم واکنش نشان نمی‌دهند، ارائه می‌دهد. هنگام نیاز به پیروی یک ارائه از یک پالت برند جدید، این اشیاء را مرور کنید. مقدار RGB گزارش‌شده هنوز ظاهر فعلی را نشان می‌دهد، در حالی که مقدار طرح توضیح می‌دهد که آیا این ظاهر به تم متصل است یا خیر.
+
+اشیاء قالب‌بندی مؤثر snapshots هستند. پس از تغییر تم ارائه، یک بازنویسی تم یا هر قالب‌بندی وراثتی، دوباره `getEffective` را فراخوانی کنید و قبل از مقایسه یا گزارش رنگ‌ها، شیء پرکنندهٔ مؤثر جدیدی بخوانید.
+
+## **خواندن مقادیر مؤثر تم**
+
+اشیاء تم خام به شما می‌گویند که در یک سطح خاص چه چیزی تعریف شده است. مقادیر مؤثر به شما می‌گویند که یک اسلاید یا شکل پس از حل وراثت و بازنویسی‌های محلی دقیقاً چه چیزی استفاده می‌کند. برای یک اسلاید، متد [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/baseoverridethememanager/) را فراخوانید. برای یک پس‌زمینه، از [Background.getEffective](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/background/) استفاده کنید و برای یک پرکننده، از [FillFormat.getEffective](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/fillformat/) استفاده کنید.
+
+مثال زیر تم مؤثر، پس‌زمینه و اولین پرکنندهٔ شکل را از یک اسلاید می‌خواند:
 
 ```javascript
 const aspose = {};
@@ -482,18 +568,22 @@ try {
 }
 ```
 
-از داده‌های مؤثر برای تشخیص رندر، اعتبارسنجی و مقایسه‌ها استفاده کنید. اگر فقط [Presentation.getMasterTheme](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/getmastertheme/) را بازرسی کنید، ممکن است یک بازنویسی مستر، لایه، اسلاید یا شکل را که ظاهر نهایی را تغییر می‌دهد، از دست بدهید.
+از داده‌های مؤثر برای تشخیص رندر، اعتبارسنجی و مقایسه‌ها استفاده کنید. اگر فقط [Presentation.getMasterTheme](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/getmastertheme/) را بازرسی کنید، ممکن است بازنویسی‌های مستر، لایه، اسلاید یا شکل که ظاهر نهایی را تغییر می‌دهند، از دست بدهید.
 
-## **پرسش‌های متداول**
+## **سوالات متداول**
 
-**آیا اعمال تم خارجی بر تمام اسلایدهای ارائه تأثیر می‌گذارد؟**  
-خیر. [MasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/masterslide/) فقط اسلایدهایی را که به مستر منتخب وابسته‌اند، دوباره اختصاص می‌دهد. اسلایدهایی که از مسترهای دیگر استفاده می‌کنند تم‌های موجود خود را حفظ می‌کنند.
+**آیا اعمال تم خارجی بر همه اسلایدهای ارائه تأثیر می‌گذارد؟**
 
-**آیا می‌توانم تم را بر روی یک اسلاید واحد بدون تغییر مستر اعمال کنم؟**  
-بله. از [SlideThemeManager](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slidethememanager/) اسلاید استفاده کنید و تم بازنویسی آن را مقداردهی اولیه کنید. تغییر فقط برای آن اسلاید محلی می‌ماند؛ اسلایدهای دیگر تم‌های موجود خود را وارث می‌گیرند.
+خیر. [MasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/masterslide/) فقط اسلایدهایی را که به مستر انتخاب‌شده وابسته‌اند، بازاختصاص می‌دهد. اسلایدهایی که از مسترهای دیگر استفاده می‌کنند تم‌های موجود خود را حفظ می‌کنند.
 
-**امن‌ترین روش برای انتقال تم از یک ارائه به ارائهٔ دیگر چیست؟**  
-وقتی اسلایدی را جابجا می‌کنید و می‌خواهید ظاهر منبع را حفظ کنید، مستر منبع را با [MasterSlideCollection.addClone](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/masterslidecollection/) به مقصد اضافه کنید و سپس اسلاید را با همان مستر با [SlideCollection.addClone](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slidecollection/) کلون کنید. این کار مستر، لایه‌ها و تم را با هم نگه می‌دارد.
+**آیا می‌توانم تم را به یک اسلاید منفرد اعمال کنم بدون اینکه مستر را تغییر دهم؟**
 
-**چگونه می‌توانم مقادیر مؤثر را پس از وراثت و بازنویسی‌ها ببینم؟**  
-از [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/baseoverridethememanager/) برای تم اسلاید یا لایه استفاده کنید و متدهای داده‌های مؤثر مربوطه را برای اشیاء فرمت مانند [Background.getEffective](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/background/) و [FillFormat.getEffective](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/fillformat/) فراخوانی کنید. این APIها مقادیر حل‑شده پس از اعمال وراثت و بازنویسی‌ها را برمی‌گردانند.
+بله. از [SlideThemeManager](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slidethememanager/) اسلاید استفاده کنید و تم بازنویسی‌شدهٔ آن را مقداردهی اولیه کنید. این تغییر به‌صورت محلی به آن اسلاید محدود می‌شود؛ اسلایدهای دیگر همچنان تم‌های موجود خود را وراثت می‌کنند.
+
+**امن‌ترین راه برای انتقال تم از یک ارائه به ارائهٔ دیگر چیست؟**
+
+هنگام جابه‌جایی یک اسلاید و حفظ ظاهر منبع، مستر منبع را به مقصد کلون کنید و سپس اسلاید را با آن مستر با استفاده از [MasterSlideCollection.addClone](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/masterslidecollection/) و [SlideCollection.addClone](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/slidecollection/) کلون کنید. این کار مستر، لایه‌ها و تم را به‌صورت یک‌پارچه نگه می‌دارد.
+
+**چگونه می‌توانم مقادیر مؤثر را پس از وراثت و بازنویسی‌ها مشاهده کنم؟**
+
+برای یک اسلاید یا تم لایه از [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/baseoverridethememanager/) استفاده کنید و برای اشیاء فرمت مانند [Background.getEffective](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/background/) و [FillFormat.getEffective](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/fillformat/) از متدهای داده‌های مؤثر مربوطه استفاده کنید. این APIها مقادیر حل‌شده پس از اعمال وراثت و بازنویسی‌ها را برمی‌گردانند.
