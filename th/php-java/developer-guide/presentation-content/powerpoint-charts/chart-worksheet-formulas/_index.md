@@ -1,22 +1,23 @@
 ---
-title: ใช้สูตร Worksheet ของแผนภูมิในงานนำเสนอด้วย PHP
-linktitle: สูตร Worksheet
+title: ใช้สูตรเวิร์กชีตแผนภูมิในงานนำเสนอด้วย PHP
+linktitle: สูตรเวิร์กชีต
 type: docs
 weight: 70
 url: /th/php-java/chart-worksheet-formulas/
 keywords:
-- สเปรดชีตของแผนภูมิ
-- แผ่นงานของแผนภูมิ
+- สเปรดชีตแผนภูมิ
+- เวิร์กชีตแผนภูมิ
 - สูตรแผนภูมิ
-- สูตร worksheet
+- สูตรเวิร์กชีต
 - สูตรสเปรดชีต
-- แหล่งข้อมูล
+- เวิร์กบุ๊กข้อมูลแผนภูมิ
+- การคำนวณสูตร
 - ค่าคงที่ตรรกะ
-- ค่าคงที่เชิงตัวเลข
+- ค่าคงที่จำนวน
 - ค่าคงที่สตริง
 - ค่าคงที่ข้อผิดพลาด
-- ค่าคงที่คณิตศาสตร์
-- ตัวดำเนินการเปรียบเทียบ
+- ผู้ดำเนินการคณิตศาสตร์
+- ผู้ดำเนินการเปรียบเทียบ
 - สไตล์ A1
 - สไตล์ R1C1
 - ฟังก์ชันที่กำหนดไว้ล่วงหน้า
@@ -24,233 +25,344 @@ keywords:
 - งานนำเสนอ
 - PHP
 - Aspose.Slides
-description: "ใช้สูตรสไตล์ Excel ใน Aspose.Slides สำหรับ PHP ผ่าน worksheet แผนภูมิของ Java และอัตโนมัติรายงานในไฟล์ PPT และ PPTX"
+description: "ใช้สูตรสไตล์ Excel ใน Aspose.Slides สำหรับ PHP ผ่าน Java แผนภูมิเวิร์กชีต, คำนวณค่าใหม่, และใช้ผลลัพธ์ในแผนภูมิ PowerPoint."
 ---
 ## **ภาพรวม**
 
-Worksheet ของแผนภูมิคือแหล่งข้อมูลที่อยู่เบื้องหลังแผนภูมิในงานนำเสนอ มันเก็บชื่อหมวดหมู่และชื่อชุดข้อมูลพร้อมกับค่าตัวเลขที่แผนภูมิแสดง ใน Aspose.Slides worksheet นี้สามารถเข้าถึงได้ผ่าน chart data workbook ซึ่งให้คุณทำงานกับข้อมูลแผนภูมิโดยใช้โปรแกรมได้  
+PowerPoint charts usually store their source data in an embedded worksheet. In Aspose.Slides for PHP via Java, you can access that worksheet through the chart data workbook, write input values, assign formulas to cells, calculate supported formulas, and use the calculated cells as chart data.
 
-บทความนี้อธิบายวิธีใช้สูตรใน worksheet ของข้อมูลแผนภูมิเพื่อให้ค่าของเซลล์ถูกคำนวณและอัปเดตโดยอัตโนมัติ แทนการป้อนค่าด้วยตนเอง จะแสดงวิธีกำหนดสูตร ใช้การอ้างอิงแบบ A1‑style และ R1C1‑style คำนวนสูตรใน workbook ใหม่ และทำงานกับค่าคงที่ ตัวดำเนินการ การอ้างอิงเซลล์ และฟังก์ชันที่กำหนดไว้ล่วงหน้าซึ่งสนับสนุนสำหรับ worksheet ของแผนภูมิในงานนำเสนอ  
+This article explains the complete formula workflow: create a chart, populate its worksheet, assign A1-style or R1C1-style formulas, recalculate them, read the calculated values, connect those cells to a chart series, and save the presentation. It also describes the supported formula syntax, the built-in function subset, cached values, unsupported formulas, and spreadsheet-specific errors.
 
-## **เกี่ยวกับสูตรสเปรดชีตของแผนภูมิในงานนำเสนอ**
-**Chart spreadsheet** (หรือ chart worksheet) ในงานนำเสนอคือแหล่งข้อมูลของแผนภูมิ Chart spreadsheet มีข้อมูลที่แสดงบนแผนภูมิในรูปแบบกราฟิก เมื่อคุณสร้างแผนภูมิใน PowerPoint worksheet ที่เชื่อมโยงกับแผนภูมินี้จะถูกสร้างโดยอัตโนมัติเช่นกัน Worksheet ของแผนภูมิถูกสร้างสำหรับทุกประเภทของแผนภูมิ: แผนภูมิเส้น, แผนภูมิแท่ง, แผนภูมิลูกศรแบบวงกลม, แผนภูมิวงกลม ฯลฯ เพื่อตรวจดู chart spreadsheet ใน PowerPoint ให้ดับเบิ้ลคลิกที่แผนภูมิ:
+## **เวิร์กชีตแผนภูมิและสูตร**
 
-![todo:image_alt_text](chart-worksheet-formulas_1.png)
+A chart worksheet contains the categories, series names, and values used by a chart. In PowerPoint, you can inspect the worksheet by opening the chart data editor:
 
+![แผนภูมิ PowerPoint พร้อมเวิร์กชีตที่ฝังอยู่เปิดอยู่ แสดงข้อมูลหมวดหมู่และซีรีส์](chart-worksheet-formulas_1.png)
 
-Chart spreadsheet มีชื่อขององค์ประกอบแผนภูมิ (Category Name: *Category1*, Serie Name) และตารางข้อมูลตัวเลขที่สอดคล้องกับหมวดหมู่และชุดข้อมูลเหล่านั้น โดยค่าเริ่มต้นเมื่อคุณสร้างแผนภูมิใหม่ – ข้อมูล chart spreadsheet จะถูกตั้งเป็นข้อมูลเริ่มต้น จากนั้นคุณสามารถเปลี่ยนข้อมูลใน worksheet ด้วยมือได้  
+In Aspose.Slides, the worksheet is exposed through the [ChartDataWorkbook](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdataworkbook/) class. Use [ChartDataCell::setFormula](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdatacell/#setFormula) for A1-style formulas and [ChartDataCell::setR1C1Formula](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdatacell/#setR1C1Formula) for R1C1-style formulas. After changing input cells or formulas, call [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) to recalculate supported formulas and update the corresponding cell values.
 
-โดยทั่วไปแผนภูมิแสดงข้อมูลที่ซับซ้อน (เช่น นักวิเคราะห์การเงิน, นักวิทยาศาสตร์) ซึ่งมีเซลล์ที่คำนวณจากค่าของเซลล์อื่นหรือจากข้อมูลแบบไดนามิก การคำนวณค่าของเซลล์ด้วยตนเองและใส่ค่าแบบคงที่ลงในเซลล์ทำให้การเปลี่ยนแปลงในอนาคตทำได้ยาก หากคุณเปลี่ยนค่าของเซลล์หนึ่ง เซลล์ที่พึ่งพิงค่าดังกล่าวทั้งหมดต้องได้รับการอัปเดตด้วย นอกจากนี้ข้อมูลในตารางอาจพึ่งพาข้อมูลจากตารางอื่น ทำให้โครงสร้างข้อมูลของงานนำเสนอซับซ้อนและต้องการการอัปเดตอย่างง่ายและยืดหยุ่น  
+A calculated cell still exposes its result through [ChartDataCell::getValue](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdatacell/#getValue). This is important when you need to inspect a formula result in code or use the cell as a chart data point.
 
-**Chart spreadsheet formula** ในงานนำเสนอคือ นิพจน์ที่คำนวณและอัปเดตข้อมูล chart spreadsheet โดยอัตโนมัติ สูตรสเปรดชีตกำหนดตรรกะการคำนวณข้อมูลสำหรับเซลล์หรือกลุ่มเซลล์หนึ่งๆ สูตรสเปรดชีตอาจเป็นสูตรคณิตศาสตร์หรือสูตรตรรกะ ซึ่งใช้: การอ้างอิงเซลล์, ฟังก์ชันคณิตศาสตร์, ตัวดำเนินการตรรกะ, ตัวดำเนินการคณิตศาสตร์, ฟังก์ชันการแปลง, ค่าคงที่สตริง ฯลฯ นิยามของสูตรจะเขียนลงในเซลล์ และเซลล์นั้นจะไม่บรรจุค่าธรรมดา สูตรสเปรดชีตคำนวณค่าและคืนค่ากลับ แล้วค่าที่ได้จะถูกกำหนดให้กับเซลล์ สูตรสเปรดชีตในงานนำเสนอเทียบเท่ากับสูตร Excel และสนับสนุนฟังก์ชัน, ตัวดำเนินการ, ค่าคงที่เริ่มต้นเดียวกันสำหรับการใช้งาน  
+## **สร้างแผนภูมิและคำนวณสูตรในเวิร์กชีต**
 
-ใน [**Aspose.Slides**](https://products.aspose.com/slides/th/php-java/) chart spreadsheet แทนด้วยเมธอด  
-[**ChartData::getChartDataWorkbook**](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdata/#getChartDataWorkbook) ของประเภท  
-[**ChartDataWorkbook**](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdataworkbook/)  
-สูตรสเปรดชีตสามารถกำหนดและเปลี่ยนได้ด้วยเมธอด  
-[**ChartDataCell::setFormula**](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdatacell/#setFormula)  
-ฟังก์ชันต่อไปนี้ได้รับการสนับสนุนสำหรับสูตรใน Aspose.Slides:
-
-- ค่าคงที่ตรรกะ
-- ค่าคงที่เชิงตัวเลข
-- ค่าคงที่สตริง
-- ค่าคงที่ข้อผิดพลาด
-- ตัวดำเนินการคณิตศาสตร์
-- ตัวดำเนินการเปรียบเทียบ
-- การอ้างอิงเซลล์แบบ A1‑style
-- การอ้างอิงเซลล์แบบ R1C1‑style
-- ฟังก์ชันที่กำหนดไว้ล่วงหน้า
-
-
-โดยทั่วไปสเปรดชีตจะเก็บค่าผลลัพธ์ของสูตรที่คำนวณล่าสุด หากหลังจากโหลดงานนำเสนอข้อมูลแผนภูมิไม่ได้เปลี่ยนแปลง – [**ChartDataCell::getValue**](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdatacell/#getValue) จะส่งค่าที่เก็บไว้เมื่ออ่านค่า แต่หากข้อมูลสเปรดชีตถูกเปลี่ยนแปลง ในระหว่างการอ่านค่า ระบบจะโยนข้อยกเว้น [**CellUnsupportedDataException**](https://reference.aspose.com/slides/th/php-java/aspose.slides/CellUnsupportedDataException) สำหรับสูตรที่ไม่รองรับ นั่นเป็นเพราะเมื่อสูตรถูกแยกวิเคราะห์สำเร็จ การกำหนดความขึ้นต่อกันของเซลล์จะถูกระบุและความถูกต้องของค่าที่สุดท้ายจะได้รับการตรวจสอบ แต่หากสูตรไม่สามารถแยกวิเคราะห์ได้ ความถูกต้องของค่าของเซลล์จะไม่สามารถรับประกันได้  
-
-## **เพิ่มสูตรสเปรดชีตของแผนภูมิในงานนำเสนอ**
-ขั้นแรกให้เพิ่มแผนภูมิไปยังสไลด์แรกของงานนำเสนอใหม่ด้วยเมธอด  
-[ShapeCollection::addChart](https://reference.aspose.com/slides/th/php-java/aspose.slides/shapecollection/#addChart)  
-Worksheet ของแผนภูมิจะแสดงขึ้นโดยอัตโนมัติและสามารถเข้าถึงได้ด้วยเมธอด  
-[**ChartData::getChartDataWorkbook**](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdata/#getChartDataWorkbook) :
+The following example demonstrates an end-to-end workflow. It creates a clustered column chart, clears the sample data, writes quarterly revenue and expense values, calculates profit with formulas, reads the results, uses the calculated cells as chart values, and saves the presentation.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 150, 150, 500, 300);
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 350);
     $workbook = $chart->getChartData()->getChartDataWorkbook();
-    # ...
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+    $worksheetIndex = 0;
+
+    $chart->getChartData()->getSeries()->clear();
+    $chart->getChartData()->getCategories()->clear();
+    $workbook->clear($worksheetIndex);
+
+    $category1 = $workbook->getCell($worksheetIndex, "A2", "Q1");
+    $category2 = $workbook->getCell($worksheetIndex, "A3", "Q2");
+    $category3 = $workbook->getCell($worksheetIndex, "A4", "Q3");
+
+    $workbook->getCell($worksheetIndex, "B1", "Revenue");
+    $workbook->getCell($worksheetIndex, "C1", "Expenses");
+    $workbook->getCell($worksheetIndex, "D1", "Profit");
+
+    $workbook->getCell($worksheetIndex, "B2")->setValue(120.0);
+    $workbook->getCell($worksheetIndex, "C2")->setValue(80.0);
+    $workbook->getCell($worksheetIndex, "B3")->setValue(150.0);
+    $workbook->getCell($worksheetIndex, "C3")->setValue(95.0);
+    $workbook->getCell($worksheetIndex, "B4")->setValue(135.0);
+    $workbook->getCell($worksheetIndex, "C4")->setValue(110.0);
+
+    $profit1 = $workbook->getCell($worksheetIndex, "D2");
+    $profit2 = $workbook->getCell($worksheetIndex, "D3");
+    $profit3 = $workbook->getCell($worksheetIndex, "D4");
+
+    $profit1->setFormula("B2-C2");
+    $profit2->setFormula("B3-C3");
+    $profit3->setFormula("B4-C4");
+
+    $workbook->calculateFormulas();
+
+    $q1Profit = java_values($profit1->getValue()); // 40
+    $q2Profit = java_values($profit2->getValue()); // 55
+    $q3Profit = java_values($profit3->getValue()); // 25
+
+    echo "Q1 profit: " . $q1Profit . PHP_EOL;
+    echo "Q2 profit: " . $q2Profit . PHP_EOL;
+    echo "Q3 profit: " . $q3Profit . PHP_EOL;
+
+    $chart->getChartData()->getCategories()->add($category1);
+    $chart->getChartData()->getCategories()->add($category2);
+    $chart->getChartData()->getCategories()->add($category3);
+
+    $profitSeries = $chart->getChartData()->getSeries()->add($workbook->getCell($worksheetIndex, "D1"), $chart->getType());
+    $profitSeries->getDataPoints()->addDataPointForBarSeries($profit1);
+    $profitSeries->getDataPoints()->addDataPointForBarSeries($profit2);
+    $profitSeries->getDataPoints()->addDataPointForBarSeries($profit3);
+    $profitSeries->getLabels()->getDefaultDataLabelFormat()->setShowValue(true);
+
+    $presentation->save("chart-formulas.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+The chart data points reference `D2:D4`, so the chart uses the calculated profit values. There is no separate chart-refresh call in this workflow: recalculate the workbook first, then use or save the chart data that points to the calculated cells.
+
+## **ใช้สูตรสไตล์ A1**
+
+A1 notation identifies columns with letters and rows with numbers. Assign A1-style expressions through [ChartDataCell::setFormula](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdatacell/#setFormula).
+
+```php
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 300);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+
+    $workbook->getCell(0, "C3")->setValue(10);
+    $workbook->getCell(0, "F2")->setValue(2);
+    $workbook->getCell(0, "G2")->setValue(3);
+    $workbook->getCell(0, "H2")->setValue(4);
+
+    $cell = $workbook->getCell(0, "A2");
+    $cell->setFormula("C3+SUM(F2:H2)");
+
+    $workbook->calculateFormulas();
+
+    $value = java_values($cell->getValue()); // 19
+} finally {
+    $presentation->dispose();
+}
+```
+
+รูปแบบการอ้างอิง A1 ที่พบบ่อยคือ:
+
+| อ้างอิง | สัมพัทธ์ | แน่นอน | ผสม |
+|---|---|---|---|
+| เซลล์ | `A2` | `$A$2` | `A$2`, `$A2` |
+| แถว | `2:2` | `$2:$2` | — |
+| คอลัมน์ | `A:A` | `$A:$A` | — |
+| ช่วง | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
+
+การอ้างอิงสัมพัทธ์อาจเปลี่ยนเมื่อสูตรถูกย้ายหรือคัดลอกโดยแอปพลิเคชันสเปรดชีต การอ้างอิงแน่นอนจะคงพิกัดทั้งสองคงที่, ส่วนการอ้างอิงผสมนั้นจะคงแถวหรือคอลัมน์เพียงอย่างเดียว.
+
+## **ใช้สูตรสไตล์ R1C1**
+
+R1C1 notation identifies both rows and columns numerically. Relative references use offsets in square brackets. Assign this syntax through [ChartDataCell::setR1C1Formula](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdatacell/#setR1C1Formula).
+
+```php
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 300);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+
+    $workbook->getCell(0, "B2")->setValue(12);
+    $workbook->getCell(0, "C2")->setValue(5);
+
+    $cell = $workbook->getCell(0, "D2");
+    $cell->setR1C1Formula("RC[-2]-RC[-1]");
+
+    $workbook->calculateFormulas();
+
+    $value = java_values($cell->getValue()); // 7
+} finally {
+    $presentation->dispose();
+}
+```
+
+รูปแบบการอ้างอิง R1C1 ที่พบบ่อยคือ:
+
+| อ้างอิง | สัมพัทธ์ | แน่นอน | ผสม |
+|---|---|---|---|
+| เซลล์ | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
+| แถว | `R[2]` | `R2` | — |
+| คอลัมน์ | `C[3]` | `C3` | — |
+| ช่วง | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
+
+For example, in cell `D2`, `RC[-2]` means the cell in the same row two columns to the left (`B2`).
+
+## **คอนสtant และผู้ดำเนินการของสูตร**
+
+The built-in formula evaluator supports logical values, numeric literals, strings, spreadsheet error values, arithmetic operators, and comparison operators.
+
+### **ค่าคงที่และลิเทรัล**
+
+| ประเภท | ตัวอย่าง | หมายเหตุ |
+|---|---|---|
+| ตรรกะ | `TRUE`, `FALSE` | สามารถใช้โดยตรงในนิพจน์ตรรกะเช่น `A2=TRUE`. |
+| ตัวเลข | `1`, `0.5`, `.3`, `1E-2` | รองรับการเขียนแบบทั่วไปและแบบวิทยาศาสตร์. |
+| สตริง | `"abc"`, `"2/3/2020 12:00"` | ลิเทรัลข้อความจะอยู่ในเครื่องหมายอัญประกาศคู่ภายในสูตร. |
+| ผลลัพธ์ข้อผิดพลาด | `#DIV/0!`, `#N/A`, `#REF!` | สูตรที่ถูกต้องอาจประเมินเป็นค่าข้อผิดพลาดของสเปรดชีตแทนผลลัพธ์ปกติ. |
+
+ตัวอย่างนี้ใช้หลายประเภทค่าคงที่:
+
+```php
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 300);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+
+    $workbook->getCell(0, "A2")->setValue(false);
+    $workbook->getCell(0, "B2")->setFormula("A2=TRUE");
+    $workbook->getCell(0, "C2")->setFormula("1+0.5");
+    $workbook->getCell(0, "D2")->setFormula(".3*1E-2");
+    $workbook->getCell(0, "E2")->setFormula("\"abc\"");
+    $workbook->getCell(0, "F2")->setFormula("2/0");
+
+    $workbook->calculateFormulas();
+
+    $logicalValue = java_values($workbook->getCell(0, "B2")->getValue()); // เท็จ
+    $numericValue = java_values($workbook->getCell(0, "C2")->getValue()); // 1.5
+    $scientificValue = java_values($workbook->getCell(0, "D2")->getValue()); // 0.003
+    $stringValue = java_values($workbook->getCell(0, "E2")->getValue()); // abc
+    $errorValue = java_values($workbook->getCell(0, "F2")->getValue()); // #DIV/0!
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **ผู้ดำเนินการคณิตศาสตร์**
+
+| ผู้ดำเนินการ | ความหมาย | ตัวอย่าง |
+|---|---|---|
+| `+` | บวกหรือบวกเอกเทศ | `2+3` |
+| `-` | ลบหรือเป็นลบ | `2-3`, `-3` |
+| `*` | คูณ | `2*3` |
+| `/` | หาร | `2/3` |
+| `%` | เปอร์เซ็นต์ | `30%` |
+| `^` | ยกกำลัง | `2^3` |
+
+Use parentheses to make evaluation order explicit, for example `(A2+B2)*C2`.
+
+### **ผู้ดำเนินการเปรียบเทียบ**
+
+Comparison expressions return logical values.
+
+| ผู้ดำเนินการ | ความหมาย | ตัวอย่าง |
+|---|---|---|
+| `=` | เท่ากับ | `A2=3` |
+| `<>` | ไม่เท่ากับ | `A2<>3` |
+| `>` | มากกว่า | `A2>3` |
+| `>=` | มากกว่าหรือเท่ากับ | `A2>=3` |
+| `<` | น้อยกว่า | `A2<3` |
+| `<=` | น้อยกว่าหรือเท่ากับ | `A2<=3` |
+
+## **ฟังก์ชันที่กำหนดไว้ล่วงหน้าที่รองรับ**
+
+Aspose.Slides includes a built-in formula evaluator for chart worksheets, but it is not a complete Excel calculation engine. The documented function set is limited to the functions below. Do not assume that an arbitrary Excel function can be recalculated by [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdataworkbook/#calculateFormulas).
+
+| ฟังก์ชัน | วัตถุประสงค์หรือรูปแบบที่สนับสนุน | ตัวอย่าง |
+|---|---|---|
+| `ABS` | ค่าสัมบูรณ์ | `ABS(A2)` |
+| `AVERAGE` | ค่าเฉลี่ยคณิตศาสตร์ | `AVERAGE(B2:B5)` |
+| `CEILING` | ปัดขึ้นเป็นหลายเท่า | `CEILING(A2,5)` |
+| `CHOOSE` | เลือกค่าโดยดัชนี | `CHOOSE(A2,"Low","High")` |
+| `CONCAT` | รวมข้อความ | `CONCAT(A2,B2)` |
+| `CONCATENATE` | รวมข้อความ | `CONCATENATE(A2," ",B2)` |
+| `DATE` | สร้างค่าระบุวันที่โดยใช้ระบบวันที่ 1900 | `DATE(2026,8,19)` |
+| `DAYS` | คืนจำนวนวันระหว่างวันที่ | `DAYS(B2,A2)` |
+| `FIND` | ค้นหาข้อความหนึ่งภายในอีกข้อความ | `FIND("-",A2)` |
+| `FINDB` | ค้นหาข้อความตามไบต์ | `FINDB("a",A2)` |
+| `IF` | ผลลัพธ์ตามเงื่อนไข | `IF(A2>0,A2,0)` |
+| `INDEX` | รูปแบบการอ้างอิง | `INDEX(A2:C4,2,3)` |
+| `LOOKUP` | รูปแบบเวกเตอร์ | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | รูปแบบเวกเตอร์ | `MATCH(A2,B2:B5,0)` |
+| `MAX` | ค่ามากที่สุด | `MAX(B2:B5)` |
+| `SUM` | ผลรวมค่า | `SUM(B2:B5)` |
+| `VLOOKUP` | ค้นหาแนวตั้ง | `VLOOKUP(A2,B2:D10,3,FALSE)` |
+
+## **การคำนวณใหม่และค่าที่แคชไว้**
+
+Spreadsheet files commonly store both a formula and its last calculated value. Aspose.Slides can therefore read a cached value from [ChartDataCell::getValue](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdatacell/#getValue) when a presentation is loaded and the relevant chart data has not been changed.
+
+After changing input cells or formulas, do not rely on an old cached result. Call [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) before reading calculated values or saving chart data that depends on them.
+
+For formulas outside the supported subset, Aspose.Slides may be unable to parse the formula or establish its dependencies. If the workbook has been modified, the previous cached value can no longer be considered reliable. In that situation, reading the value of a cell with unsupported data can raise [CellUnsupportedDataException](https://reference.aspose.com/slides/th/php-java/aspose.slides/cellunsupporteddataexception/).
+
+If your chart depends on Excel functions that Aspose.Slides does not evaluate, calculate those formulas with a spreadsheet engine that supports them and write the resulting values back to the chart workbook. Do not replace unsupported formulas with guessed values.
+
+## **จัดการข้อผิดพลาดของสูตร**
+
+There are two different kinds of problems to distinguish.
+
+A formula can be valid but produce a spreadsheet error result such as `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!`, or `#VALUE!`. In this case, the error token is a cell result and can be returned through [ChartDataCell::getValue](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdatacell/#getValue).
+
+A formula can also fail at the parsing, reference, dependency, or supported-data level. Aspose.Slides provides spreadsheet-specific exceptions for these cases: [CellInvalidFormulaException](https://reference.aspose.com/slides/th/php-java/aspose.slides/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/th/php-java/aspose.slides/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/th/php-java/aspose.slides/cellcircularreferenceexception/), and [CellUnsupportedDataException](https://reference.aspose.com/slides/th/php-java/aspose.slides/cellunsupporteddataexception/).
+
+In PHP via Java, Java exceptions are surfaced through `JavaException`. When formulas come from templates or user input, handle it around recalculation and value access. The Java exception reported in the stack trace identifies the specific spreadsheet failure:
+
+```php
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 500, 300);
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $cell = $workbook->getCell(0, "A2");
+    $cell->setFormula("SUM(B2:B5)");
+
+    try {
+        $workbook->calculateFormulas();
+        echo java_values($cell->getValue()) . PHP_EOL;
+    } catch (JavaException $ex) {
+        $ex->printStackTrace();
     }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-มาเขียนค่าบางอย่างลงในเซลล์ด้วยเมธอด  
-[**ChartDataCell::setValue**](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdatacell/#setValue) ของประเภท **Object** ซึ่งหมายความว่าคุณสามารถกำหนดค่าใดก็ได้:
+## **ข้อจำกัดเชิงปฏิบัติ**
 
-```php
-  $workbook->getCell(0, "F2")->setValue(-2.5);
-  $workbook->getCell(0, "G3")->setValue(6.3);
-  $workbook->getCell(0, "H4")->setValue(3);
+The formula support in chart worksheets is intended for a defined subset of spreadsheet calculations, not for full Excel compatibility. Keep these constraints in mind when designing a reporting workflow:
 
-```
+- Use only the documented constants, operators, references, and functions when you need Aspose.Slides to recalculate formulas.
+- Recalculate after changing cells that formula results depend on.
+- Treat cached values from loaded presentations as snapshots, not as a replacement for recalculation after edits.
+- Test formulas from existing templates before relying on their calculated values, especially when they use functions outside the documented list.
+- For formulas that require a full spreadsheet calculation engine, calculate them externally and then update the chart workbook with the resulting values.
 
-ตอนนี้เพื่อเขียนสูตรลงในเซลล์ คุณสามารถใช้เมธอด  
-[**ChartDataCell::setFormula**](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdatacell/#setFormula)  
+## **คำถามที่พบบ่อย**
 
-*Note*: เมธอด [**ChartDataCell::setFormula**](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdatacell/#setFormula) ใช้สำหรับกำหนดการอ้างอิงเซลล์แบบ A1‑style  
+**ความแตกต่างระหว่าง [ChartDataCell::setFormula](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdatacell/#setFormula) และ [ChartDataCell::setR1C1Formula](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdatacell/#setR1C1Formula) คืออะไร?**
 
-เพื่อกำหนดสูตรแบบ R1C1 คุณสามารถใช้เมธอด [**ChartDataCell::setR1C1Formula**](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdatacell/#setR1C1Formula)  
+[ChartDataCell::setFormula](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdatacell/#setFormula) เก็บนิพจน์สไตล์ A1 เช่น `B2-C2`. [ChartDataCell::setR1C1Formula](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdatacell/#setR1C1Formula) เก็บนิพจน์สไตล์ R1C1 เช่น `RC[-2]-RC[-1]`. ใช้รูปแบบที่ตรงกับวิธีที่คุณสร้างหรือคัดลอกสูตร.
 
-จากนั้นหากคุณลองอ่านค่าจากเซลล์ B2 และ C2 ค่าจะถูกคำนวณออกมา:
+**ฉันจำเป็นต้องอ่านเซลล์เองหรือค่าของมันหลังการคำนวณหรือไม่?**
 
-```php
-  $value1 = $cell1->getValue();// 7.8
+[ChartDataWorkbook::getCell](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdataworkbook/#getCell) คืนค่าเป็น [ChartDataCell](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdatacell/). เพื่อรับผลลัพธ์ที่คำนวณแล้ว, เรียกเมธอด [ChartDataCell::getValue](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdatacell/#getValue) ของเซลล์นั้นหลังการคำนวณใหม่.
 
-  $value2 = $cell2->getValue();// 2.1
+**เมื่อใดควรเรียก [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdataworkbook/#calculateFormulas)?**
 
+เรียก [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) หลังจากเปลี่ยนค่าป้อนหรือสูตรและก่อนที่คุณจะพึ่งพาผลลัพธ์ที่คำนวณ. วิธีนี้จะอัปเดตค่าของสูตรที่เครื่องมือประเมินในตัวรองรับ.
 
-```
+**Aspose.Slides รองรับทุกฟังก์ชันของ Excel หรือไม่?**
 
-## **ค่าคงที่ตรรกะ**
-คุณสามารถใช้ค่าคงที่ตรรกะเช่น *FALSE* และ *TRUE* ในสูตรของเซลล์ได้:
+No. The built-in evaluator supports a documented subset of functions. Functions outside that subset should not be assumed to recalculate correctly. If full Excel formula compatibility is required, perform the calculation with an appropriate spreadsheet engine and write the final values to the chart workbook.
 
-```php
-  $workbook->getCell(0, "A2")->setValue(false);
-  $cell = $workbook->getCell(0, "B2");
-  $cell->setFormula("A2 = TRUE");
-  $value = $cell->getValue();// ค่าที่ได้เป็นบูลีน "false"
+**ถ้างานนำเสนอที่โหลดมามีสูตรที่ไม่รองรับจะเกิดอะไรขึ้น?**
 
+If the chart data has not changed, the workbook may still contain a previously calculated cached value. After related data is modified, that cached value may no longer be valid. Accessing a cell whose formula cannot be handled can raise [CellUnsupportedDataException](https://reference.aspose.com/slides/th/php-java/aspose.slides/cellunsupporteddataexception/).
 
-```
+**ค่าข้อผิดพลาดของสูตรเท่ากับข้อยกเว้นของ PHP หรือไม่?**
 
-## **ค่าคงที่เชิงตัวเลข**
-สามารถใช้ตัวเลขในรูปแบบทั่วไปหรือรูปแบบเชิงวิทยาศาสตร์เพื่อสร้างสูตรสเปรดชีตของแผนภูมิได้:
+No. A result such as `#DIV/0!` is a spreadsheet value produced by a valid calculation. Spreadsheet-processing failures such as [CellInvalidFormulaException](https://reference.aspose.com/slides/th/php-java/aspose.slides/cellinvalidformulaexception/) or [CellCircularReferenceException](https://reference.aspose.com/slides/th/php-java/aspose.slides/cellcircularreferenceexception/) are Java exceptions surfaced to PHP through `JavaException`.
 
-```php
-  $workbook->getCell(0, "A2")->setFormula("1 + 0.5");
-  $workbook->getCell(0, "B2")->setFormula(".3 * 1E-2");
+**แผนภูมิมีการอัปเดตอัตโนมัติเมื่อเซลล์สูตรเปลี่ยนหรือไม่?**
 
-```
+A chart series can reference workbook cells. Recalculate the workbook first, then save or render the presentation. If the chart data points reference the calculated cells, the chart uses those updated cell values; no separate chart-refresh method is required for this workflow.
 
-## **ค่าคงที่สตริง**
-ค่าคงที่สตริง (หรือ literal) คือค่าที่ใช้ตามที่เป็นและไม่เปลี่ยนแปลง ค่าคงที่สตริงอาจเป็น: วันที่, ข้อความ, ตัวเลข ฯลฯ:
+**แผนภูมิสามารถใช้ไฟล์ Excel ภายนอกได้หรือไม่?**
 
-```php
-  $workbook->getCell(0, "A2")->setFormula("\"abc\"");
-  $workbook->getCell(0, "B2")->setFormula("\"2/3/2020 12:00\"");
+Yes, chart data can be configured to use an external workbook through the chart data API. However, the formula calculation workflow described in this article concerns the chart data workbook and the formula subset evaluated by Aspose.Slides. Do not assume that [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) provides full recalculation of arbitrary formulas in an external XLSX file.
 
-```
+**ฉันสามารถใช้สูตรที่อ้างอิงเวิร์กชีตหรือเวิร์กบุ๊กอื่นได้หรือไม่?**
 
-## **ค่าคงที่ข้อผิดพลาด**
-บางครั้งสูตรไม่สามารถคำนวณผลลัพธ์ได้ ในกรณีนั้น รหัสข้อผิดพลาดจะแสดงในเซลล์แทนค่าปกติ แต่ละประเภทของข้อผิดพลาดมีรหัสเฉพาะ:
+Excel-style references may exist in chart workbooks, but formula evaluation is limited by the supported parser and function set. If a cross-sheet or external reference is essential, validate that exact formula with your target Aspose.Slides version. For workflows that require broad Excel reference compatibility, calculate the workbook externally and write the resolved values back to the chart data.
 
-- #DIV/0! – สูตรพยายามหารด้วยศูนย์
-- #GETTING_DATA – อาจปรากฏบนเซลล์ขณะที่ค่ากำลังคำนวณอยู่
-- #N/A – ข้อมูลหายหรือไม่พร้อมใช้งาน สาเหตุอาจเป็น: เซลล์ที่ใช้ในสูตรว่างเปล่า, มีอักขระช่องว่างเพิ่ม, ตัวสะกดผิด ฯลฯ
-- #NAME? – ไม่พบเซลล์หรือวัตถุสูตรด้วยชื่อนั้น
-- #NULL! – เกิดขึ้นเมื่อสูตรมีข้อผิดพลาด เช่น (,) หรือมีอักขระช่องว่างแทนเครื่องหมายโคลอน (:)
-- #NUM! – ตัวเลขในสูตรอาจไม่ถูกต้อง ยาวเกินไป หรือสั้นเกินไป ฯลฯ
-- #REF! – การอ้างอิงเซลล์ไม่ถูกต้อง
-- #VALUE! – ชนิดค่าที่ไม่คาดคิด ตัวอย่างเช่น มีค่าสตริงใส่ในเซลล์ตัวเลข
+**สูตรควรเริ่มด้วย `=` หรือไม่?**
 
-```php
-  $cell = $workbook->getCell(0, "A2");
-  $cell->setFormula("2 / 0");
-  $value = $cell->getValue();// ค่าที่ได้เป็นสตริง "#DIV/0!"
-
-
-```
-
-## **ตัวดำเนินการคณิตศาสตร์**
-คุณสามารถใช้ตัวดำเนินการคณิตศาสตร์ทั้งหมดในสูตร worksheet ของแผนภูมิได้:
-
-|**Operator**|**Meaning**|**Example**|
-| :- | :- | :- |
-|+ (plus sign)|Addition or unary plus|2 + 3|
-|- (minus sign)|Subtraction or negation|2 - 3<br>-3|
-|* (asterisk)|Multiplication|2 * 3|
-|/ (forward slash)|Division|2 / 3|
-|% (percent sign)|Percent|30%|
-|^ (caret)|Exponentiation|2 ^ 3|
-
-*Note*: เพื่อเปลี่ยนลำดับการประมวลผล ให้ใส่วงเล็บครอบส่วนของสูตรที่ต้องการคำนวณก่อน
-
-## **ตัวดำเนินการเปรียบเทียบ**
-คุณสามารถเปรียบเทียบค่าของเซลล์ด้วยตัวดำเนินการเปรียบเทียบ เมื่อตัวดำเนินการเหล่านี้เปรียบเทียบค่า ผลลัพธ์จะเป็นค่าตรรกะ *TRUE* หรือ FALSE:
-
-|**Operator**|**Meaning**|**Meaning**|
-| :- | :- | :- |
-|= (equal sign)|Equal to|A2 = 3|
-|<> (not equal sign)|Not equal to|A2 <> 3|
-|> (greater than sign)|Greater than|A2 > 3|
-|>= (greater than or equal to sign)|Greater than or equal to|A2 >= 3|
-|< (less than sign)|Less than|A2 < 3|
-|<= (less than or equal to sign)|Less than or equal to|A2 <= 3|
-
-## **การอ้างอิงเซลล์แบบ A1‑Style**
-**A1‑style cell references** ใช้สำหรับ worksheet ที่คอลัมน์มีตัวอักษรเป็นตัวระบุ (เช่น "*A*") และแถวมีตัวเลขเป็นตัวระบุ (เช่น "*1*") การอ้างอิงแบบ A1‑style สามารถใช้ได้ตามรูปแบบต่อไปนี้:
-
-|**Cell reference**|**Example**|||
-| :- | :- | :- | :- |
-||Absolute|Relative|Mixed|
-|Cell|$A$2|A2|<p>A$2</p><p>$A2</p>|
-|Row|$2:$2|2:2|-|
-|Column|$A:$A|A:A|-|
-|Range|$A$2:$C$4|A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
-
-
-ตัวอย่างการใช้การอ้างอิงเซลล์แบบ A1‑style ในสูตร:
-
-```php
-  $workbook->getCell(0, "A2")->setFormula("C3 + SUM(F2:H5)");
-
-```
-
-## **การอ้างอิงเซลล์แบบ R1C1‑Style**
-**R1C1‑style cell references** ใช้สำหรับ worksheet ที่ทั้งแถวและคอลัมน์มีตัวเลขเป็นตัวระบุ การอ้างอิงแบบ R1C1‑style สามารถใช้ได้ตามรูปแบบต่อไปนี้:
-
-|**Cell reference**|**Example**|||
-| :- | :- | :- | :- |
-||Absolute|Relative|Mixed|
-|Cell|R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
-|Row|R2|R[2]|-|
-|Column|C3|C[3]|-|
-|Range|R2C3:R5C7|R[2]C[3]:R[5]C[7]|R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
-
-
-ตัวอย่างการใช้การอ้างอิงเซลล์แบบ A1‑style ในสูตร:
-
-```php
-  $workbook->getCell(0, "A2")->setR1C1Formula("R2C4 + SUM(R5C6:R7C9)");
-
-```
-
-## **ฟังก์ชันที่กำหนดไว้ล่วงหน้า**
-มีฟังก์ชันที่กำหนดไว้ล่วงหน้า ที่สามารถใช้ในสูตรเพื่อความง่ายในการใช้งาน ฟังก์ชันเหล่านี้สรุปการทำงานที่ใช้บ่อยที่สุด เช่น:
-
-- ABS
-- AVERAGE
-- CEILING
-- CHOOSE
-- CONCAT
-- CONCATENATE
-- DATE (ระบบวันที่ 1900)
-- DAYS
-- FIND
-- FINDB
-- IF
-- INDEX (reference form)
-- LOOKUP (vector form)
-- MATCH (vector form)
-- MAX
-- SUM
-- VLOOKUP
-
-## **FAQ**
-
-**สูตรแผนภูมิสามารถอ้างอิงไฟล์ Excel ภายนอกเป็นแหล่งข้อมูลได้หรือไม่?**
-
-ใช่ Aspose.Slides รองรับ workbook ภายนอกเป็น [chart's data source](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdatasourcetype/) ซึ่งทำให้คุณสามารถใช้สูตรจากไฟล์ XLSX นอกงานนำเสนอได้
-
-**สูตรของแผนภูมิสามารถอ้างอิงแผ่นงานภายใน workbook เดียวกันตามชื่อแผ่นได้หรือไม่?**
-
-ใช่ สูตรจะทำตามโมเดลการอ้างอิงของ Excel มาตรฐาน ดังนั้นคุณสามารถอ้างอิงแผ่นงานอื่นใน workbook เดียวกันหรือ workbook ภายนอกได้ สำหรับการอ้างอิงภายนอกให้ระบุเส้นทางและชื่อ workbook ตามไวยากรณ์ของ Excel
+The Aspose.Slides API examples assign expressions such as `B2-C2` or `SUM(B2:B5)` without a leading `=`. Using that form keeps generated formulas consistent with the documented API examples.

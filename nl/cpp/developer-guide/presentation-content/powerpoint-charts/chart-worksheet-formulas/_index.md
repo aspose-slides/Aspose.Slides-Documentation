@@ -1,259 +1,449 @@
 ---
-title: Grafiek‑werkbladformules toepassen in presentaties met С++
+title: Grafiekwerkbladformules toepassen in presentaties met C++
 linktitle: Werkbladformules
 type: docs
 weight: 70
 url: /nl/cpp/chart-worksheet-formulas/
 keywords:
-- grafiek‑spreadsheet
-- grafiek‑werkblad
+- grafiek spreadsheet
+- grafiek werkblad
 - grafiekformule
 - werkbladformule
-- spreadsheet‑formule
-- gegevensbron
+- spreadsheetformule
+- grafiekdataboek
+- formuleberekening
 - logische constante
 - numerieke constante
-- tekenreeks‑constante
+- stringconstante
 - foutconstante
-- rekenkundige constante
+- rekenkundige operator
 - vergelijkingsoperator
-- A1‑stijl
-- R1C1‑stijl
+- A1-stijl
+- R1C1-stijl
 - vooraf gedefinieerde functie
 - PowerPoint
 - presentatie
-- С++
+- C++
 - Aspose.Slides
-description: "Excel‑achtige formules toepassen in Aspose.Slides voor С++ grafiek‑werkbladen en rapporten automatiseren in PPT‑ en PPTX‑bestanden."
+description: "Pas Excel‑stijlformules toe in Aspose.Slides voor C++‑grafiekwerkbladen, bereken waarden opnieuw en gebruik de resultaten in PowerPoint‑grafieken."
 ---
 ## **Overzicht**
 
-Een chart‑werkblad is de gegevensbron achter een grafiek in een presentatie. Het slaat categorie‑ en serienaam op samen met de numerieke waarden die door de grafiek worden weergegeven. In Aspose.Slides is dit werkblad beschikbaar via de chart‑data‑workbook, waarmee je programmatisch met grafiekgegevens kunt werken.
+PowerPoint-diagrammen slaan hun brongegevens meestal op in een ingebed werkblad. In Aspose.Slides voor C++ kun je dat werkblad benaderen via het diagramgegevens‑werkboek, invoerwaarden schrijven, formules toewijzen aan cellen, ondersteunde formules berekenen en de berekende cellen gebruiken als diagramgegevens.
 
-Dit artikel legt uit hoe je werkbladsformules in grafiekgegevens kunt gebruiken zodat celwaarden automatisch kunnen worden berekend en bijgewerkt in plaats van handmatig ingevoerd. Het laat zien hoe je formules toewijst, zowel A1‑ als R1C1‑stijl referenties gebruikt, de werkboek‑formules opnieuw berekent, en werkt met de ondersteunde constanten, operatoren, celreferenties en vooraf gedefinieerde functies die beschikbaar zijn voor grafiek‑werkbladen in presentaties.
+Dit artikel legt de volledige formule‑workflow uit: een diagram maken, het werkblad vullen, A1‑ of R1C1‑formules toewijzen, ze opnieuw berekenen, de berekende waarden lezen, die cellen koppelen aan een diagramserie en de presentatie opslaan. Het beschrijft tevens de ondersteunde formule‑syntaxis, de ingebouwde functiebasis, gecachte waarden, niet‑ondersteunde formules en spreadsheet‑specifieke fouten.
 
-## **Over chart‑spreadsheet‑formules in presentaties**
-**Chart‑spreadsheet** (of chart‑werkblad) in een presentatie is de gegevensbron van de grafiek. Chart‑spreadsheet bevat gegevens die grafisch op de grafiek worden weergegeven. Wanneer je een grafiek maakt in PowerPoint, wordt het werkblad dat bij deze grafiek hoort automatisch aangemaakt. Een chart‑werkblad wordt aangemaakt voor alle typen grafieken: lijngrafiek, staafgrafiek, sunburst‑grafiek, cirkeldiagram, enz. Om de chart‑spreadsheet in PowerPoint te zien, dubbelklik je op de grafiek:
+## **Diagramwerkbladen en Formules**
 
-![todo:image_alt_text](chart-worksheet-formulas_1.png)
+Een diagramwerkblad bevat de categorieën, serienaam­en en waarden die een diagram gebruikt. In PowerPoint kun je het werkblad inspecteren door de diagramgegevens‑editor te openen:
 
-Chart‑spreadsheet bevat de namen van grafiekelementen (Category Name: *Category1*, Serie Name) en een tabel met numerieke data die bij deze categorieën en series passen. Standaard, wanneer je een nieuwe grafiek maakt, worden de chart‑spreadsheet‑gegevens ingesteld met de standaardgegevens. Daarna kun je de spreadsheet‑gegevens handmatig in het werkblad wijzigen.
+![PowerPoint-diagram met geopend ingebed werkblad, toont categorie‑ en seriedata](chart-worksheet-formulas_1.png)
 
-Meestal stelt de grafiek complexe gegevens voor (bijv. financiële analisten, wetenschappelijke analisten), waarbij cellen worden berekend op basis van waarden in andere cellen of uit andere dynamische data. Het handmatig berekenen van een celwaarde en deze hard‑coderen in de cel maakt het moeilijk om later wijzigingen door te voeren. Als je de waarde van een bepaalde cel wijzigt, moeten alle daarvan afhankelijke cellen ook worden bijgewerkt. Bovendien kunnen tabelgegevens afhankelijk zijn van data uit andere tabellen, waardoor een complex presentatiedataschema ontstaat dat op een gemakkelijke en flexibele manier moet worden bijgewerkt.
+In Aspose.Slides wordt het werkblad blootgesteld via de [IChartDataWorkbook](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ichartdataworkbook/)‑interface. Gebruik [IChartDataCell::set_Formula](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ichartdatacell/set_formula/) voor A1‑stijlfomules en [IChartDataCell::set_R1C1Formula](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ichartdatacell/set_r1c1formula/) voor R1C1‑stijlfomules. Na het wijzigen van invoercellen of formules, roep [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) aan om ondersteunde formules opnieuw te berekenen en de bijbehorende celwaarden bij te werken.
 
-**Chart‑spreadsheet‑formule** in een presentatie is een expressie om automatisch grafiek‑spreadsheet‑data te berekenen en bij te werken. Een spreadsheet‑formule definieert de databerekeningslogica voor een bepaalde cel of een set cellen. Een spreadsheet‑formule is een wiskundige of logische formule die gebruik maakt van: celreferenties, wiskundige functies, logische operatoren, rekenkundige operatoren, conversiefuncties, tekenreeks‑constant(e)n, enz. De definitie van de formule wordt in een cel geschreven, en deze cel bevat geen eenvoudige waarde. De spreadsheet‑formule berekent de waarde en geeft die terug; vervolgens wordt deze waarde aan de cel toegewezen. Chart‑spreadsheet‑formules in presentaties zijn eigenlijk dezelfde als Excel‑formules, en er worden dezelfde standaardfuncties, operatoren en constanten ondersteund voor hun implementatie.
+Een berekende cel geeft nog steeds zijn resultaat weer via [IChartDataCell::get_Value](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ichartdatacell/get_value/). Dit is belangrijk wanneer je een formuleresultaat in code moet inspecteren of de cel wilt gebruiken als diagramdatapunt.
 
-In [**Aspose.Slides**](https://products.aspose.com/slides/nl/cpp/) wordt de chart‑spreadsheet weergegeven met 
-[**ChartData::get_ChartDataWorkbook()**](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.charts.chart_data#a32097093561723a10df0a57dc91acaea)‑methode van het
-[**IChartDataWorkbook**](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.charts.i_chart_data_workbook)‑type. 
-Spreadsheet‑formules kunnen worden toegewezen en gewijzigd met 
-[**IChartDataCell::set_Formula()**](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.charts.i_chart_data_cell#a6806c6a40e025e6834c4c5f3af3cf692)‑methode. 
-De volgende functionaliteit wordt ondersteund voor formules in Aspose.Slides:
+## **Maak een Diagram en Bereken Werkbladformules**
 
-- Logische constanten
-- Numerieke constanten
-- Tekenreeks‑constanten
-- Fout‑constanten
-- Rekenkundige operatoren
-- Vergelijkingsoperatoren
-- A1‑stijl celreferenties
-- R1C1‑stijl celreferenties
-- Vooraf gedefinieerde functies
+Het volgende voorbeeld toont een end‑to‑end‑workflow. Het maakt een gegroepeerd kolomdiagram, wist de voorbeeldgegevens, schrijft kwartaalomzet‑ en kostenwaarden, berekent winst met formules, leest de resultaten, gebruikt de berekende cellen als diagramwaarden en slaat de presentatie op.
 
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/string.h>
 
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-Typisch slaan spreadsheets de laatst berekende formule‑waarden op. Als na het laden van de presentatie de grafiekgegevens niet zijn gewijzigd, retourneert **IChartDataCell.get_Value()** die waarden tijdens het lezen. Maar als de spreadsheet‑data is gewijzigd, gooit **ChartDataCell.get_Value()** een **CellUnsupportedDataException** voor de niet‑ondersteunde formules. Dit komt doordat wanneer formules succesvol worden geparseerd, de cel‑afhankelijkheden worden bepaald en de correctheid van de laatste waarden wordt vastgesteld. Als een formule niet kan worden geparseerd, kan de correctheid van de celwaarde niet gegarandeerd worden.
+auto presentation = MakeObject<Presentation>();
 
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 600.0f, 350.0f);
+auto chartData = chart->get_ChartData();
+auto workbook = chartData->get_ChartDataWorkbook();
+const int32_t worksheetIndex = 0;
 
-## **Een chart‑spreadsheet‑formule toevoegen aan een presentatie**
-Voeg eerst een grafiek toe aan de eerste dia van een nieuwe presentatie met 
-[IShapeCollection::AddChart()](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.i_shape_collection#a2cd4d47fc5c536012ee15b3a69486374). 
-Het werkblad van de grafiek wordt automatisch aangemaakt en kan benaderd worden met 
-[**ChartData::get_ChartDataWorkbook()**](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.charts.chart_data#a32097093561723a10df0a57dc91acaea)‑methode:
+chartData->get_Series()->Clear();
+chartData->get_Categories()->Clear();
+workbook->Clear(worksheetIndex);
 
+auto category1 = workbook->GetCell(worksheetIndex, u"A2", ObjectExt::Box<String>(u"Q1"));
+auto category2 = workbook->GetCell(worksheetIndex, u"A3", ObjectExt::Box<String>(u"Q2"));
+auto category3 = workbook->GetCell(worksheetIndex, u"A4", ObjectExt::Box<String>(u"Q3"));
 
+workbook->GetCell(worksheetIndex, u"B1", ObjectExt::Box<String>(u"Revenue"));
+workbook->GetCell(worksheetIndex, u"C1", ObjectExt::Box<String>(u"Expenses"));
+workbook->GetCell(worksheetIndex, u"D1", ObjectExt::Box<String>(u"Profit"));
 
-``` cpp
-auto presentation = System::MakeObject<Presentation>();
-    
-auto chart = presentation->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::ClusteredColumn, 150.0f, 150.0f, 500.0f, 300.0f);
+workbook->GetCell(worksheetIndex, u"B2")->set_Value(ObjectExt::Box<double>(120.0));
+workbook->GetCell(worksheetIndex, u"C2")->set_Value(ObjectExt::Box<double>(80.0));
+workbook->GetCell(worksheetIndex, u"B3")->set_Value(ObjectExt::Box<double>(150.0));
+workbook->GetCell(worksheetIndex, u"C3")->set_Value(ObjectExt::Box<double>(95.0));
+workbook->GetCell(worksheetIndex, u"B4")->set_Value(ObjectExt::Box<double>(135.0));
+workbook->GetCell(worksheetIndex, u"C4")->set_Value(ObjectExt::Box<double>(110.0));
+
+auto profit1 = workbook->GetCell(worksheetIndex, u"D2");
+auto profit2 = workbook->GetCell(worksheetIndex, u"D3");
+auto profit3 = workbook->GetCell(worksheetIndex, u"D4");
+
+profit1->set_Formula(u"B2-C2");
+profit2->set_Formula(u"B3-C3");
+profit3->set_Formula(u"B4-C4");
+
+workbook->CalculateFormulas();
+
+auto q1Profit = profit1->get_Value(); // 40
+auto q2Profit = profit2->get_Value(); // 55
+auto q3Profit = profit3->get_Value(); // 25
+
+chartData->get_Categories()->Add(category1);
+chartData->get_Categories()->Add(category2);
+chartData->get_Categories()->Add(category3);
+
+auto profitSeries = chartData->get_Series()->Add(workbook->GetCell(worksheetIndex, u"D1"), chart->get_Type());
+profitSeries->get_DataPoints()->AddDataPointForBarSeries(profit1);
+profitSeries->get_DataPoints()->AddDataPointForBarSeries(profit2);
+profitSeries->get_DataPoints()->AddDataPointForBarSeries(profit3);
+profitSeries->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
+
+presentation->Save(u"chart-formulas.pptx", SaveFormat::Pptx);
+```
+
+De diagramdatapunten verwijzen naar `D2:D4`, zodat het diagram de berekende winstwaarden gebruikt. Er is geen afzonderlijke diagram‑refresh‑aanroep in deze workflow: bereken eerst het werkboek, gebruik of sla daarna de diagramgegevens op die naar de berekende cellen wijzen.
+
+## **Gebruik A1‑Stijl Formules**
+
+A1‑notatie identificeert kolommen met letters en rijen met cijfers. Wijs A1‑stijl‑expressies toe via [IChartDataCell::set_Formula](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ichartdatacell/set_formula/).
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 500.0f, 300.0f);
 auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
 
-// ...
+workbook->GetCell(0, u"C3")->set_Value(ObjectExt::Box<int32_t>(10));
+workbook->GetCell(0, u"F2")->set_Value(ObjectExt::Box<int32_t>(2));
+workbook->GetCell(0, u"G2")->set_Value(ObjectExt::Box<int32_t>(3));
+workbook->GetCell(0, u"H2")->set_Value(ObjectExt::Box<int32_t>(4));
+
+auto cell = workbook->GetCell(0, u"A2");
+cell->set_Formula(u"C3+SUM(F2:H2)");
+
+workbook->CalculateFormulas();
+
+auto value = cell->get_Value(); // 19
 ```
 
+Veelvoorkomende A1‑referentie‑vormen zijn:
 
+| Referentie | Relatief | Absoluut | Gemengd |
+|---|---|---|---|
+| Cel | `A2` | `$A$2` | `A$2`, `$A2` |
+| Rij | `2:2` | `$2:$2` | — |
+| Kolom | `A:A` | `$A:$A` | — |
+| Bereik | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-Laten we enkele waarden in cellen schrijven met 
-[**IChartDataCell.set_Value()**](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.charts.i_chart_data_cell#ad85809f520195e09225abae9002635ec)‑methode 
-van het **Object**‑type, wat betekent dat je elke waarde aan de methode kunt doorgeven:
+Relatieve verwijzingen kunnen wijzigen wanneer een formule wordt verplaatst of gekopieerd door een spreadsheet‑toepassing. Absolute verwijzingen houden beide coördinaten vast, terwijl gemengde verwijzingen alleen een rij of een kolom fixeren.
 
+## **Gebruik R1C1‑Stijl Formules**
 
+R1C1‑notatie identificeert zowel rijen als kolommen numeriek. Relatieve verwijzingen gebruiken offsets tussen vierkante haken. Wijs deze syntaxis toe via [IChartDataCell::set_R1C1Formula](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ichartdatacell/set_r1c1formula/).
 
-``` cpp
-workbook->GetCell(0, u"F2")->set_Value(System::ObjectExt::Box<double>(-2.5));
-workbook->GetCell(0, u"G3")->set_Value(System::ObjectExt::Box<double>(6.3));
-workbook->GetCell(0, u"H4")->set_Value(System::ObjectExt::Box<int32_t>(3));
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 500.0f, 300.0f);
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+
+workbook->GetCell(0, u"B2")->set_Value(ObjectExt::Box<int32_t>(12));
+workbook->GetCell(0, u"C2")->set_Value(ObjectExt::Box<int32_t>(5));
+
+auto cell = workbook->GetCell(0, u"D2");
+cell->set_R1C1Formula(u"RC[-2]-RC[-1]");
+
+workbook->CalculateFormulas();
+
+auto value = cell->get_Value(); // 7
 ```
 
+Veelvoorkomende R1C1‑referentie‑vormen zijn:
 
+| Referentie | Relatief | Absoluut | Gemengd |
+|---|---|---|---|
+| Cel | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
+| Rij | `R[2]` | `R2` | — |
+| Kolom | `C[3]` | `C3` | — |
+| Bereik | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
 
-Om nu een formule in de cel te schrijven, kun je de 
-[**IChartDataCell::set_Formula()**](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.charts.i_chart_data_cell#a6806c6a40e025e6834c4c5f3af3cf692)‑methode gebruiken:
+Bijvoorbeeld, in cel `D2` betekent `RC[-2]` de cel in dezelfde rij twee kolommen naar links (`B2`).
 
+## **Formule‑Constanten en Operatoren**
 
+De ingebouwde formule‑evaluator ondersteunt logische waarden, numerieke literals, strings, spreadsheet‑foutwaarden, rekenkundige operatoren en vergelijkingsoperatoren.
 
+### **Constanten en Literalen**
 
+| Type | Voorbeelden | Opmerkingen |
+|---|---|---|
+| Logisch | `TRUE`, `FALSE` | Kan direct worden gebruikt in logische expressies zoals `A2=TRUE`. |
+| Numeriek | `1`, `0.5`, `.3`, `1E-2` | Gewone en wetenschappelijke notatie worden ondersteund. |
+| String | `"abc"`, `"2/3/2020 12:00"` | Tekst‑literals staan tussen dubbele aanhalingstekens binnen de formule. |
+| Foutresultaat | `#DIV/0!`, `#N/A`, `#REF!` | Een geldige formule kan resulteren in een spreadsheet‑foutwaarde in plaats van een normaal resultaat. |
 
-*Opmerking*: [**IChartDataCell::set_Formula()**](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.charts.i_chart_data_cell#a6806c6a40e025e6834c4c5f3af3cf692)‑methode wordt gebruikt om A1‑stijl celreferenties in te stellen. 
+Dit voorbeeld gebruikt verschillende constanttypen:
 
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/object_ext.h>
 
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
 
-Om de R1C1Formula‑celreferentie in te stellen, kun je de [**IChartDataCell::set_R1C1Formula()**](https://reference.aspose.com/slides/nl/cpp/class/aspose.slides.charts.i_chart_data_cell#a47f5825dd38d0dddb11ecc3a43d388c7)‑methode gebruiken:
+auto presentation = MakeObject<Presentation>();
 
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 500.0f, 300.0f);
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
 
+workbook->GetCell(0, u"A2")->set_Value(ObjectExt::Box<bool>(false));
+workbook->GetCell(0, u"B2")->set_Formula(u"A2=TRUE");
+workbook->GetCell(0, u"C2")->set_Formula(u"1+0.5");
+workbook->GetCell(0, u"D2")->set_Formula(u".3*1E-2");
+workbook->GetCell(0, u"E2")->set_Formula(u"\"abc\"");
+workbook->GetCell(0, u"F2")->set_Formula(u"2/0");
 
+workbook->CalculateFormulas();
 
-
-Als je vervolgens de waarden van de cellen B2 en C2 uitleest, worden ze berekend:
-
-
-
-``` cpp
-auto value1 = cell1->get_Value(); // 7.8
-auto value2 = cell2->get_Value(); // 2.1
+auto logicalValue = workbook->GetCell(0, u"B2")->get_Value(); // Onwaar
+auto numericValue = workbook->GetCell(0, u"C2")->get_Value(); // 1.5
+auto scientificValue = workbook->GetCell(0, u"D2")->get_Value(); // 0.003
+auto stringValue = workbook->GetCell(0, u"E2")->get_Value(); // abc
+auto errorValue = workbook->GetCell(0, u"F2")->get_Value(); // #DIV/0!
 ```
 
+### **Rekenkundige Operatoren**
 
-## **Logische constanten**
-Je kunt logische constanten zoals *FALSE* en *TRUE* gebruiken in cel‑formules:
+| Operator | Betekenis | Voorbeeld |
+|---|---|---|
+| `+` | Optelling of eenzijdig plus | `2+3` |
+| `-` | Aftrekking of negatie | `2-3`, `-3` |
+| `*` | Vermenigvuldiging | `2*3` |
+| `/` | Deling | `2/3` |
+| `%` | Procent | `30%` |
+| `^` | Exponentiation | `2^3` |
 
+Gebruik haakjes om de evaluatievolgorde expliciet te maken, bijvoorbeeld `(A2+B2)*C2`.
 
+### **Vergelijkingsoperatoren**
 
+Vergelijkingsexpressies geven logische waarden terug.
 
-## **Numerieke constanten**
-Nummers kunnen in gewone of wetenschappelijke notatie worden gebruikt om een chart‑spreadsheet‑formule te maken:
+| Operator | Betekenis | Voorbeeld |
+|---|---|---|
+| `=` | Gelijk aan | `A2=3` |
+| `<>` | Niet gelijk aan | `A2<>3` |
+| `>` | Groter dan | `A2>3` |
+| `>=` | Groter dan of gelijk aan | `A2>=3` |
+| `<` | Kleiner dan | `A2<3` |
+| `<=` | Kleiner dan of gelijk aan | `A2<=3` |
 
+## **Ondersteunde Vooraf Gedefinieerde Functies**
 
+Aspose.Slides bevat een ingebouwde formule‑evaluator voor diagramwerkbladen, maar het is geen volledige Excel‑rekenmachine. De gedocumenteerde functieverzameling is beperkt tot de functies hieronder. Ga er niet van uit dat een willekeurige Excel‑functie opnieuw kan worden berekend door [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/).
 
+| Functie | Doel of ondersteunde vorm | Voorbeeld |
+|---|---|---|
+| `ABS` | Absolute waarde | `ABS(A2)` |
+| `AVERAGE` | Gemiddelde | `AVERAGE(B2:B5)` |
+| `CEILING` | Rond een getal omhoog af op een veelvoud | `CEILING(A2,5)` |
+| `CHOOSE` | Selecteer een waarde op index | `CHOOSE(A2,"Low","High")` |
+| `CONCAT` | Voeg tekstwaarden samen | `CONCAT(A2,B2)` |
+| `CONCATENATE` | Voeg tekstwaarden samen | `CONCATENATE(A2," ",B2)` |
+| `DATE` | Maak een datumwaarde met het 1900‑datumsysteem | `DATE(2026,8,19)` |
+| `DAYS` | Retourneer het aantal dagen tussen datums | `DAYS(B2,A2)` |
+| `FIND` | Zoek een tekstwaarde in een andere | `FIND("-",A2)` |
+| `FINDB` | Byte‑georiënteerd zoeken | `FINDB("a",A2)` |
+| `IF` | Voorwaardelijk resultaat | `IF(A2>0,A2,0)` |
+| `INDEX` | Referentievorm | `INDEX(A2:C4,2,3)` |
+| `LOOKUP` | Vectorvorm | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | Vectorvorm | `MATCH(A2,B2:B5,0)` |
+| `MAX` | Maximumwaarde | `MAX(B2:B5)` |
+| `SUM` | Som van waarden | `SUM(B2:B5)` |
+| `VLOOKUP` | Verticaal zoeken | `VLOOKUP(A2,B2:D10,3,FALSE)` |
 
-## **Tekenreeks‑constanten**
-Een tekenreeks‑ (of literal‑) constante is een specifieke waarde die precies zo wordt gebruikt en niet verandert. Tekenreeks‑constanten kunnen zijn: datums, teksten, getallen, enz.:
+De beperkingen in de tabel zijn belangrijk: `INDEX` wordt gedocumenteerd in referentievorm, terwijl `LOOKUP` en `MATCH` in hun vectorvormen staan. `DATE` gebruikt het 1900‑datumsysteem. Functies die hier niet vermeld staan, moeten worden beschouwd als niet‑ondersteund door de Aspose.Slides‑formule‑evaluator, tenzij ze apart worden gedocumenteerd.
 
+## **Herberekening en Gecachte Waarden**
 
+Spreadsheet‑bestanden slaan doorgaans zowel een formule als de laatst berekende waarde op. Aspose.Slides kan daarom een gecachte waarde lezen via [IChartDataCell::get_Value](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ichartdatacell/get_value/) wanneer een presentatie wordt geladen en de relevante diagramgegevens niet zijn gewijzigd.
 
+Na het wijzigen van invoercellen of formules, moet je niet vertrouwen op een oude gecachte uitkomst. Roep [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) aan voordat je berekende waarden leest of diagramgegevens opslaat die ervan afhankelijk zijn.
 
-## **Fout‑constanten**
-Soms is het niet mogelijk het resultaat van een formule te berekenen. In dat geval wordt de foutcode in de cel weergegeven in plaats van de waarde. Elke fout heeft een specifieke code:
+Voor formules buiten de ondersteunde subset kan Aspose.Slides de formule mogelijk niet parseren of de afhankelijkheden niet vaststellen. Als het werkboek is gewijzigd, kan de eerdere gecachte waarde niet langer als betrouwbaar worden beschouwd. In dat geval kan het lezen van een cel met niet‑ondersteunde data een [CellUnsupportedDataException](https://reference.aspose.com/slides/nl/cpp/aspose.slides.spreadsheet/cellunsupporteddataexception/) veroorzaken.
 
-- #DIV/0! - formule probeert te delen door nul.
-- #GETTING_DATA - kan op een cel verschijnen terwijl de waarde nog wordt berekend.
-- #N/A - informatie ontbreekt of is niet beschikbaar. Mogelijke oorzaken: gebruikte cellen in de formule zijn leeg, een extra spatie, typefout, enz.
-- #NAME? - een bepaalde cel of andere formule‑objecten kunnen niet worden gevonden op naam. 
-- #NULL! - kan verschijnen bij een fout in de formule, zoals:  (,) of een spatie in plaats van een dubbelepunt (:).
-- #NUM! - het numerieke onderdeel in de formule is ongeldig, te lang of te klein, enz.
-- #REF! - ongeldige celreferentie.
-- #VALUE! - onverwacht type waarde. Bijvoorbeeld een tekenreekswaarde ingesteld op een numerieke cel.
+Als je diagram afhankelijk is van Excel‑functies die Aspose.Slides niet evalueert, bereken die formules dan met een spreadsheet‑engine die ze ondersteunt en schrijf de resulterende waarden terug naar het diagram‑werkboek. Vervang niet‑ondersteunde formules niet door geraden waarden.
 
+## **Formulefouten Verwerken**
 
+Er zijn twee verschillende soorten problemen te onderscheiden.
 
+Een formule kan geldig zijn maar een spreadsheet‑foutresultaat opleveren, zoals `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` of `#VALUE!`. In dat geval is het fout‑token een celresultaat en kan het worden geretourneerd via [IChartDataCell::get_Value](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ichartdatacell/get_value/).
 
-## **Rekenkundige operatoren**
-Je kunt alle rekenkundige operatoren gebruiken in formules van het chart‑werkblad:
+Een formule kan bovendien falen tijdens het parseren, bij referenties, afhankelijkheden of on‑ondersteunde data. Aspose.Slides biedt spreadsheet‑specifieke uitzonderingen voor deze gevallen: [CellInvalidFormulaException](https://reference.aspose.com/slides/nl/cpp/aspose.slides.spreadsheet/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/nl/cpp/aspose.slides.spreadsheet/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/nl/cpp/aspose.slides.spreadsheet/cellcircularreferenceexception/) en [CellUnsupportedDataException](https://reference.aspose.com/slides/nl/cpp/aspose.slides.spreadsheet/cellunsupporteddataexception/).
 
+Wanneer formules afkomstig zijn van sjablonen of gebruikersinvoer, behandel deze uitzonderingen rond herberekening en waardetoegang:
 
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Spreadsheet/CellCircularReferenceException.h>
+#include <Spreadsheet/CellInvalidFormulaException.h>
+#include <Spreadsheet/CellInvalidReferenceException.h>
+#include <Spreadsheet/CellUnsupportedDataException.h>
 
-|**Operator**|**Betekenis**|**Voorbeeld**|
-| :- | :- | :- |
-|+ (plus)|Optelling of unair plus|2 + 3|
-|- (min)|Aftrekking of negatie|2 - 3<br>-3|
-|* (asterisk)|Vermenigvuldiging|2 * 3|
-|/ (slash)|Deling|2 / 3|
-|% (percent)|Procent|30%|
-|^ (caret)|Exponentiatie|2 ^ 3|
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Spreadsheet;
+using namespace System;
 
+auto presentation = MakeObject<Presentation>();
 
-*Opmerking*: Om de volgorde van evaluatie te wijzigen, zet je het deel van de formule dat eerst moet worden berekend tussen haakjes.
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 500.0f, 300.0f);
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+auto cell = workbook->GetCell(0, u"A2");
+cell->set_Formula(u"SUM(B2:B5)");
 
+try
+{
+    workbook->CalculateFormulas();
+    auto value = cell->get_Value();
+}
+catch (CellInvalidFormulaException&)
+{
+    // Verwerk een ongeldige formule.
+}
+catch (CellInvalidReferenceException&)
+{
+    // Verwerk een ongeldige celreferentie.
+}
+catch (CellCircularReferenceException&)
+{
+    // Verwerk een cirkelreferentie.
+}
+catch (CellUnsupportedDataException&)
+{
+    // Verwerk niet‑ondersteunde spreadsheet‑gegevens.
+}
+```
 
-## **Vergelijkingsoperatoren**
-Je kunt de waarden van cellen vergelijken met de vergelijkingsoperatoren. Wanneer twee waarden met deze operatoren worden vergeleken, is het resultaat een logische waarde *TRUE* of *FALSE*:
+## **Praktische Beperkingen**
 
+De formule‑ondersteuning in diagramwerkbladen is bedoeld voor een gedefinieerde subset van spreadsheet‑berekeningen, niet voor volledige Excel‑compatibiliteit. Houd deze beperkingen in gedachten bij het ontwerpen van een rapportage‑workflow:
 
+- Gebruik alleen de gedocumenteerde constanten, operatoren, referenties en functies wanneer je wilt dat Aspose.Slides formules opnieuw berekent.
+- Herbereken na het wijzigen van cellen waar formule‑resultaten van afhankelijk zijn.
+- Beschouw gecachte waarden uit geladen presentaties als momentopnames, niet als vervanging voor herberekening na bewerkingen.
+- Test formules uit bestaande sjablonen voordat je vertrouwt op hun berekende waarden, vooral wanneer ze functies buiten de gedocumenteerde lijst gebruiken.
+- Voor formules die een volledige spreadsheet‑rekenmachine vereisen, bereken ze extern en werk vervolgens het diagram‑werkboek bij met de resulterende waarden.
 
-|**Operator**|**Betekenis**|**Voorbeeld**|
-| :- | :- | :- |
-|= (gelijk)|Gelijk aan|A2 = 3|
-|<> (niet‑gelijk)|Niet gelijk aan|A2 <> 3|
-|> (groter dan)|Groter dan|A2 > 3|
-|>= (groter‑of‑gelijk)|Groter dan of gelijk aan|A2 >= 3|
-|< (kleiner dan)|Kleiner dan|A2 < 3|
-|<= (kleiner‑of‑gelijk)|Kleiner dan of gelijk aan|A2 <= 3|
+## **FAQ**
 
+**Wat is het verschil tussen `set_Formula` en `set_R1C1Formula`?**
 
-## **A1‑stijl celreferenties**
-**A1‑stijl celreferenties** worden gebruikt voor werkbladen waarbij de kolom een letter‑identificatie heeft (bijv. "*A*") en de rij een numerieke identificatie (bijv. "*1*"). A1‑stijl celreferenties kunnen op de volgende manier worden gebruikt:
+[IChartDataCell::set_Formula](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ichartdatacell/set_formula/) slaat een A1‑stijl‑expressie op, bijvoorbeeld `B2-C2`. [IChartDataCell::set_R1C1Formula](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ichartdatacell/set_r1c1formula/) slaat een R1C1‑stijl‑expressie op, bijvoorbeeld `RC[-2]-RC[-1]`. Gebruik de notatie die het beste past bij hoe je formules genereert of kopieert.
 
+**Moet ik de cel zelf of de waarde ervan lezen na berekening?**
 
+[IChartDataWorkbook::GetCell](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) retourneert een `IChartDataCell`. Om het berekende resultaat te verkrijgen, lees je de [IChartDataCell::get_Value](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ichartdatacell/get_value/)‑waarde nadat je hebt herberekend.
 
-|**Celverwijzing**|**Absoluut**|**Relatief**|**Gemengd**|
-| :- | :- | :- | :- |
-|Cel|$A$2|A2|<p>A$2</p><p>$A2</p>|
-|Rij|$2:$2|2:2|-|
-|Kolom|$A:$A|A:A|-|
-|Bereik|$A$2:$C$4|A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
+**Wanneer moet ik `CalculateFormulas` aanroepen?**
 
+Roep [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) aan nadat je invoerwaarden of formules hebt gewijzigd en voordat je vertrouwt op de berekende resultaten. Dit werkt de waarden van formules bij die de ingebouwde evaluator ondersteunt.
 
-Hier is een voorbeeld van hoe een A1‑stijl celreferentie in een formule te gebruiken:
+**Ondersteunt Aspose.Slides elke Excel‑functie?**
 
+Nee. De ingebouwde evaluator ondersteunt alleen een gedocumenteerde subset van functies. Functies buiten die subset moeten niet worden verondersteld correct te worden herberekend. Als volledige Excel‑formule‑compatibiliteit vereist is, voer de berekening dan uit met een geschikte spreadsheet‑engine en schrijf de eindwaarden naar het diagram‑werkboek.
 
+**Wat gebeurt er als een geladen presentatie een niet‑ondersteunde formule bevat?**
 
+Als de diagramgegevens niet zijn gewijzigd, kan het werkboek nog steeds een eerder berekende gecachte waarde bevatten. Nadat gerelateerde data is aangepast, is die gecachte waarde mogelijk niet meer geldig. Het benaderen van een cel waarvan de formule niet kan worden verwerkt, kan een [CellUnsupportedDataException](https://reference.aspose.com/slides/nl/cpp/aspose.slides.spreadsheet/cellunsupporteddataexception/) veroorzaken.
 
-## **R1C1‑stijl celreferenties**
-**R1C1‑stijl celreferenties** worden gebruikt voor werkbladen waarbij zowel een rij als een kolom een numerieke identificatie heeft. R1C1‑stijl celreferenties kunnen op de volgende manier worden gebruikt:
+**Zijn formule‑foutwaarden hetzelfde als C++‑exceptions?**
 
+Nee. Een resultaat zoals `#DIV/0!` is een spreadsheet‑waarde die voortkomt uit een geldige berekening. Exceptions zoals [CellInvalidFormulaException](https://reference.aspose.com/slides/nl/cpp/aspose.slides.spreadsheet/cellinvalidformulaexception/) of [CellCircularReferenceException](https://reference.aspose.com/slides/nl/cpp/aspose.slides.spreadsheet/cellcircularreferenceexception/) geven aan dat de formule niet normaal kan worden verwerkt.
 
+**Werkt een diagram automatisch bij wanneer een formulecel verandert?**
 
-|**Celverwijzing**|**Absoluut**|**Relatief**|**Gemengd**|
-| :- | :- | :- | :- |
-|Cel|R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
-|Rij|R2|R[2]|-|
-|Kolom|C3|C[3]|-|
-|Bereik|R2C3:R5C7|R[2]C[3]:R[5]C[7]|R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
+Een diagramserie kan verwijzen naar werkboekcellen. Bereken eerst het werkboek, sla daarna de presentatie op of render deze. Als de diagramdatapunten naar de berekende cellen verwijzen, gebruikt het diagram die bijgewerkte waarden; een aparte diagram‑refresh‑methode is niet vereist voor deze workflow.
 
+**Kunnen diagrammen een extern Excel‑werkboek gebruiken?**
 
-Hier is een voorbeeld van hoe een R1C1‑stijl celreferentie in een formule te gebruiken:
+Ja, diagramgegevens kunnen worden geconfigureerd om een extern werkboek te gebruiken via de diagram‑data‑API. De hier beschreven formule‑berekeningsworkflow betreft echter het diagram‑werkboek en de formule‑subset die door Aspose.Slides wordt geëvalueerd. Ga er niet van uit dat [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) volledige herberekening van willekeurige formules in een extern XLSX‑bestand biedt.
 
+**Kan ik formules gebruiken die naar een ander werkblad of werkboek verwijzen?**
 
+Excel‑stijl verwijzingen kunnen bestaan in diagram‑werkboeken, maar formule‑evaluatie wordt beperkt door de ondersteunde parser en functieverzameling. Als een kruis‑sheet‑ of externe verwijzing essentieel is, valideer dan die exacte formule met jouw doel‑Aspose.Slides‑versie. Voor workflows die brede Excel‑referentie‑compatibiliteit vereisen, bereken het werkboek extern en schrijf de opgeloste waarden terug naar de diagramgegevens.
 
+**Moeten formule‑strings beginnen met `=`?**
 
-## **Vooraf gedefinieerde functies**
-Er zijn vooraf gedefinieerde functies die in formules kunnen worden gebruikt om hun implementatie te vereenvoudigen. Deze functies omvatten de meest gebruikte bewerkingen, zoals: 
-
-- ABS
-- AVERAGE
-- CEILING
-- CHOOSE
-- CONCAT
-- CONCATENATE
-- DATE (1900‑datumensysteem)
-- DAYS
-- FIND
-- FINDB
-- IF
-- INDEX (referentie‑vorm)
-- LOOKUP (vector‑vorm)
-- MATCH (vector‑vorm)
-- MAX
-- SUM
-- VLOOKUP
-
-## **Veelgestelde vragen**
-
-**Worden externe Excel‑bestanden ondersteund als gegevensbron voor een grafiek met formules?**
-
-Ja. Aspose.Slides ondersteunt externe werkboeken als een [chart’s data source](https://reference.aspose.com/slides/nl/cpp/aspose.slides.charts/chartdatasourcetype/), waardoor je formules uit een XLSX buiten de presentatie kunt gebruiken.
-
-**Kunnen grafiekformules verwijzen naar bladen binnen hetzelfde werkboek op blad‑naam?**
-
-Ja. Formules volgen het standaard Excel‑referentiemodel, zodat je andere bladen binnen hetzelfde werkboek of een extern werkboek kunt refereren. Voor externe referenties voeg je het pad en de werkboeknaam toe volgens de Excel‑syntaxis.
+De Aspose.Slides‑API‑voorbeelden wijzen expressies toe zoals `B2-C2` of `SUM(B2:B5)` zonder een leidende `=`. Het gebruik van die vorm houdt gegenereerde formules consistent met de gedocumenteerde API‑voorbeelden.

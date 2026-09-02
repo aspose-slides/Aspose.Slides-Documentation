@@ -1,21 +1,22 @@
 ---
-title: تطبيق صيغ ورقة عمل المخطط في العروض التقديمية باستخدام Java
+title: تطبيق صيغ ورقة عمل المخطط في العروض التقديمية بـ Java
 linktitle: صيغ ورقة العمل
 type: docs
 weight: 70
 url: /ar/java/chart-worksheet-formulas/
 keywords:
-- مخطط ورقة بيانات
-- مخطط ورقة عمل
+- مخطط جدول بيانات
+- ورقة عمل المخطط
 - صيغة المخطط
 - صيغة ورقة العمل
-- صيغة ورقة البيانات
-- مصدر البيانات
+- صيغة جدول البيانات
+- دفتر عمل بيانات المخطط
+- حساب الصيغة
 - ثابت منطقي
-- ثابت رقمي
+- ثابت عددي
 - ثابت نصي
 - ثابت خطأ
-- ثابت حسابي
+- عامل حسابي
 - عامل مقارنة
 - نمط A1
 - نمط R1C1
@@ -24,220 +25,362 @@ keywords:
 - عرض تقديمي
 - Java
 - Aspose.Slides
-description: "تطبيق صيغ على نمط Excel في Aspose.Slides للمخططات في ورقة عمل Java وتلقائيًا تقارير عبر ملفات PPT و PPTX."
+description: "تطبيق صيغ بنمط Excel في ورقات عمل مخططات Aspose.Slides for Java، إعادة حساب القيم، واستخدام النتائج في مخططات PowerPoint."
 ---
+## **نظرة عامة**
 
-## **حول صيغ جدول البيانات المخطط في العروض التقديمية**
-**جدول البيانات المخطط** (أو ورقة عمل المخطط) في العرض التقديمي هو مصدر بيانات المخطط. يحتوي جدول البيانات المخطط على البيانات التي يتم تمثيلها على المخطط بطريقة رسومية. عند إنشاء مخطط في PowerPoint، يتم إنشاء ورقة العمل المرتبطة بهذا المخطط تلقائيًا أيضًا. يتم إنشاء ورقة عمل المخطط لجميع أنواع المخططات: مخطط خطي، مخطط شريطي، مخطط شمسية، مخطط دائري، إلخ. لرؤية جدول البيانات المخطط في PowerPoint يجب النقر المزدوج على المخطط:
+عادةً ما تقوم مخططات PowerPoint بتخزين بيانات المصدر في ورقة عمل مضمّنة. في Aspose.Slides for Java، يمكنك الوصول إلى تلك الورقة عبر دفتر عمل بيانات المخطط، كتابة قيم الإدخال، تعيين صيغ إلى الخلايا، حساب الصيغ المدعومة، واستخدام الخلايا المحسوبة كبيانات مخطط.
 
-![todo:image_alt_text](chart-worksheet-formulas_1.png)
+تشرح هذه المقالة سير العمل الكامل للصيغ: إنشاء مخطط، تعبئة ورقة عمله، تعيين صيغ بنمط A1 أو R1C1، إعادة حسابها، قراءة القيم المحسوبة، ربط تلك الخلايا بسلسلة مخطط، وحفظ العرض التقديمي. كما تصف صyntax الصيغ المدعومة، مجموعة الدالات المدمجة، القيم المخزنة مؤقتًا، الصيغ غير المدعومة، وأخطاء جداول البيانات الخاصة.
 
+## **ورقات عمل المخطط والصيغ**
 
-يحتوي جدول البيانات المخطط على أسماء عناصر المخطط (اسم الفئة: *Category1*، اسم السلسلة) وجدول بالبيانات الرقمية المناسبة لهذه الفئات والسلاسل. بشكل افتراضي، عند إنشاء مخطط جديد - يتم تعيين بيانات جدول البيانات المخطط بالبيانات الافتراضية. ثم يمكنك تغيير بيانات جدول البيانات يدويًا في ورقة العمل.
+تحتوي ورقة عمل المخطط على الفئات، أسماء السلاسل، والقيم المستخدمة في المخطط. في PowerPoint، يمكنك فحص الورقة بفتح محرر بيانات المخطط:
 
-عادةً ما يمثل المخطط بيانات معقدة (مثل المحللين الماليين، المحللين العلميين)، حيث تكون الخلايا محسوبة من القيم في خلايا أخرى أو من بيانات ديناميكية أخرى. حساب قيمة الخلية يدويًا وتثبيتها داخل الخلية يجعل من الصعب تغييرها في المستقبل. إذا قمت بتغيير قيمة خلية معينة، سيتعين تحديث جميع الخلايا التابعة لها أيضًا. علاوةً على ذلك، قد تعتمد بيانات الجدول على بيانات من جداول أخرى، مما يخلق مخطط بيانات عرض تقديمي معقد يحتاج إلى تحديث سهل ومرن.
+![مخطط PowerPoint مع الورقة المضمّنة المفتوحة، يظهر بيانات الفئات والسلاسل](chart-worksheet-formulas_1.png)
 
-**صيغة جدول البيانات المخطط** في العرض التقديمي هي تعبير لحساب وتحديث بيانات جدول البيانات المخطط تلقائيًا. تعرف صيغة جدول البيانات منطق حساب البيانات لخلية معينة أو مجموعة خلايا. صيغة جدول البيانات هي صيغة رياضية أو منطقية، تستخدم: مراجع خلايا، دوال رياضية، عوامل منطقية، عوامل حسابية، دوال تحويل، ثوابت نصية، إلخ. تُكتب صيغة الخلية داخل خلية، وهذه الخلية لا تحتوي على قيمة بسيطة. تحسب صيغة جدول البيانات القيمة وتعيدها، ثم تُعطى هذه القيمة للخلية. صيغ جدول البيانات المخطط في العروض التقديمية هي نفسها صيغ Excel، وتدعم نفس الدوال الافتراضية والعوامل والثوابت لتطبيقها.
+في Aspose.Slides، يتم كشف الورقة من خلال واجهة [IChartDataWorkbook](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartdataworkbook/). استخدم [IChartDataCell.setFormula](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) لصيغ بنمط A1 و[IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) لصيغ بنمط R1C1. بعد تغيير خلايا الإدخال أو الصيغ، استدعِ [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) لإعادة حساب الصيغ المدعومة وتحديث قيم الخلايا المقابلة.
 
-في [**Aspose.Slides**](https://products.aspose.com/slides/java/) يُمثَّل جدول البيانات المخطط بـ
-[**Chart.getChartData.getChartDataWorkbook**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartData#getChartDataWorkbook--) الخاص بـ
-[**IChartDataWorkbook**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook). يمكن تعيين صيغة جدول البيانات وتغييرها باستخدام
-[**IChartDataCell.setFormula**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataCell#setFormula-java.lang.String-) . الوظيفة التالية مدعومة للصيغ في Aspose.Slides:
+لا تزال الخلية المحسوبة تكشف عن نتيجتها عبر [IChartDataCell.getValue](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartdatacell/#getValue--). هذا مهم عندما تحتاج إلى فحص نتيجة الصيغة في الكود أو استخدام الخلية كنقطة بيانات في المخطط.
 
-- ثوابت منطقية
-- ثوابت عددية
-- ثوابت نصية
-- ثوابت خطأ
-- عوامل حسابية
-- عوامل مقارنة
-- مراجع خلايا بنمط A1
-- مراجع خلايا بنمط R1C1
-- دوال معرفة مسبقًا
+## **إنشاء مخطط وحساب صيغ ورقة العمل**
 
+المثال التالي يوضح سير عمل كامل. ينشئ مخطط عمودي تجميعي، يمسح البيانات التجريبية، يكتب قيم الإيرادات والنفقات ربع السنوية، يحسب الربح باستخدام صيغ، يقرأ النتائج، يستخدم الخلايا المحسوبة كقيم مخطط، ويحفظ العرض التقديمي.
 
-عادةً ما تخزن جداول البيانات قيم الصيغ الأخيرة المحسوبة. إذا لم تتغير بيانات المخطط بعد تحميل العرض التقديمي - تُعيد طريقة
-[**IChartDataCell.getValue**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataCell#getValue--) تلك القيم أثناء القراءة. ولكن، إذا تم تغيير بيانات جدول البيانات، أثناء قراءة خاصية **ChartDataCell.Value** تُلقى
-[**CellUnsupportedDataException**](https://reference.aspose.com/slides/java/com.aspose.slides/CellUnsupportedDataException) للصيغ غير المدعومة. يحدث هذا لأن الصيغ التي تم تحليلها بنجاح تحدد تبعيات الخلايا وتتحقق صحة القيم الأخيرة. أما إذا لم يمكن تحليل الصيغة، فلا يمكن ضمان صحة قيمة الخلية.
-
-## **إضافة صيغة جدول بيانات مخطط إلى عرض تقديمي**
-أولاً، أضف مخططًا إلى الشريحة الأولى من عرض تقديمي جديد باستخدام
-[IShapeCollection.getShapes.addChart](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addChart-int-float-float-float-float-). 
-تُنشأ ورقة عمل المخطط تلقائيًا ويمكن الوصول إليها عبر
-[**Chart.getChartData.getChartDataWorkbook**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartData#getChartDataWorkbook--) :
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 150, 150, 500, 300);
-
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 350);
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    int worksheetIndex = 0;
 
-    // ...
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+    workbook.clear(worksheetIndex);
+
+    IChartDataCell category1 = workbook.getCell(worksheetIndex, "A2", "Q1");
+    IChartDataCell category2 = workbook.getCell(worksheetIndex, "A3", "Q2");
+    IChartDataCell category3 = workbook.getCell(worksheetIndex, "A4", "Q3");
+
+    workbook.getCell(worksheetIndex, "B1", "Revenue");
+    workbook.getCell(worksheetIndex, "C1", "Expenses");
+    workbook.getCell(worksheetIndex, "D1", "Profit");
+
+    workbook.getCell(worksheetIndex, "B2").setValue(120.0);
+    workbook.getCell(worksheetIndex, "C2").setValue(80.0);
+    workbook.getCell(worksheetIndex, "B3").setValue(150.0);
+    workbook.getCell(worksheetIndex, "C3").setValue(95.0);
+    workbook.getCell(worksheetIndex, "B4").setValue(135.0);
+    workbook.getCell(worksheetIndex, "C4").setValue(110.0);
+
+    IChartDataCell profit1 = workbook.getCell(worksheetIndex, "D2");
+    IChartDataCell profit2 = workbook.getCell(worksheetIndex, "D3");
+    IChartDataCell profit3 = workbook.getCell(worksheetIndex, "D4");
+
+    profit1.setFormula("B2-C2");
+    profit2.setFormula("B3-C3");
+    profit3.setFormula("B4-C4");
+
+    workbook.calculateFormulas();
+
+    double q1Profit = ((Number) profit1.getValue()).doubleValue(); // 40
+    double q2Profit = ((Number) profit2.getValue()).doubleValue(); // 55
+    double q3Profit = ((Number) profit3.getValue()).doubleValue(); // 25
+
+    System.out.println("Q1 profit: " + q1Profit);
+    System.out.println("Q2 profit: " + q2Profit);
+    System.out.println("Q3 profit: " + q3Profit);
+
+    chart.getChartData().getCategories().add(category1);
+    chart.getChartData().getCategories().add(category2);
+    chart.getChartData().getCategories().add(category3);
+
+    IChartSeries profitSeries = chart.getChartData().getSeries().add(workbook.getCell(worksheetIndex, "D1"), chart.getType());
+    profitSeries.getDataPoints().addDataPointForBarSeries(profit1);
+    profitSeries.getDataPoints().addDataPointForBarSeries(profit2);
+    profitSeries.getDataPoints().addDataPointForBarSeries(profit3);
+    profitSeries.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+
+    presentation.save("chart-formulas.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+تشير نقاط بيانات المخطط إلى `D2:D4`، لذا يستخدم المخطط قيم الربح المحسوبة. لا توجد استدعاءات منفصلة لتحديث المخطط في هذا سير العمل: أعد حساب دفتر العمل أولاً، ثم استخدم أو احفظ بيانات المخطط التي تشير إلى الخلايا المحسوبة.
 
-لنكتب بعض القيم في الخلايا باستخدام خاصية
-[**IChartDataCell.setValue**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataCell#setValue-java.lang.Object-) من النوع **Object**، مما يعني أنه يمكنك تعيين أي قيمة لهذه الخاصية:
+## **استخدام صيغ بنمط A1**
+
+تحدد توصية A1 الأعمدة بحروف والصفوف بأرقام. عيّن التعبيرات بنمط A1 عبر [IChartDataCell.setFormula](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-).
+
 ```java
-workbook.getCell(0, "F2").setValue(-2.5);
+import com.aspose.slides.*;
 
-workbook.getCell(0, "G3").setValue(6.3);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
 
-workbook.getCell(0, "H4").setValue(3);
+    workbook.getCell(0, "C3").setValue(10);
+    workbook.getCell(0, "F2").setValue(2);
+    workbook.getCell(0, "G2").setValue(3);
+    workbook.getCell(0, "H2").setValue(4);
+
+    IChartDataCell cell = workbook.getCell(0, "A2");
+    cell.setFormula("C3+SUM(F2:H2)");
+
+    workbook.calculateFormulas();
+
+    Object value = cell.getValue(); // 19
+} finally {
+    presentation.dispose();
+}
 ```
 
+أشكال الإشارة الشائعة بنمط A1 هي:
 
-الآن لكتابة صيغة إلى الخلية، يمكنك استخدام طريقة
-[**IChartDataCell.setFormula**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataCell#setFormula-java.lang.String-) :
+| المرجع | نسبي | مطلق | مختلط |
+|---|---|---|---|
+| الخلية | `A2` | `$A$2` | `A$2`, `$A2` |
+| الصف | `2:2` | `$2:$2` | — |
+| العمود | `A:A` | `$A:$A` | — |
+| النطاق | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-*Note*: طريقة [**IChartDataCell.setFormula**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataCell#setFormula-java.lang.String-) تُستخدم لتعيين مراجع خلايا بنمط A1. 
+يمكن أن تتغير الإشارات النسبية عندما يتم نقل الصيغة أو نسخها بواسطة تطبيق جدول بيانات. الإشارات المطلقة تثبت كلا الإحداثين، بينما الإشارات المختلطة تثبت إما الصف أو العمود فقط.
 
-لتعيين مرجع خلية [R1C1Formula](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataCell#getR1C1Formula--)، يمكنك استخدام طريقة
-[**IChartDataCell.setR1C1Formula**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataCell#setR1C1Formula-java.lang.String-) :
+## **استخدام صيغ بنمط R1C1**
 
-بعد ذلك إذا حاولت قراءة القيم من الخليتين B2 و C2، فستُحسب:
+تحدد توصية R1C1 كلا من الصفوف والأعمدة رقمياً. تستخدم الإشارات النسبية إزاحات داخل أقواس مربعة. عيّن هذه الصيغة عبر [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-).
+
 ```java
-Object value1 = cell1.getValue(); // 7.8
+import com.aspose.slides.*;
 
-Object value2 = cell2.getValue(); // 2.1
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "B2").setValue(12);
+    workbook.getCell(0, "C2").setValue(5);
+
+    IChartDataCell cell = workbook.getCell(0, "D2");
+    cell.setR1C1Formula("RC[-2]-RC[-1]");
+
+    workbook.calculateFormulas();
+
+    Object value = cell.getValue(); // 7
+} finally {
+    presentation.dispose();
+}
 ```
 
+أشكال الإشارة الشائعة بنمط R1C1 هي:
 
-## **ثوابت منطقية**
-يمكنك استخدام الثوابت المنطقية مثل *FALSE* و *TRUE* في صيغ الخلايا:
+| المرجع | نسبي | مطلق | مختلط |
+|---|---|---|---|
+| الخلية | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
+| الصف | `R[2]` | `R2` | — |
+| العمود | `C[3]` | `C3` | — |
+| النطاق | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
+
+على سبيل المثال، في الخلية `D2`، `RC[-2]` تعني الخلية في نفس الصف عمودين إلى اليسار (`B2`).
+
+## **ثوابت الصيغ والعوامل**
+
+يدعم مُقيم الصيغ المدمج القيم المنطقية، القيم العددية، السلاسل النصية، قيم أخطاء جداول البيانات، العوامل الحسابية، وعوامل المقارنة.
+
+### **الثوابت والأنواع الحرفية**
+
+| النوع | أمثلة | ملاحظات |
+|---|---|---|
+| منطقي | `TRUE`, `FALSE` | يمكن استخدامها مباشرة في تعبيرات منطقية مثل `A2=TRUE`. |
+| رقمى | `1`, `0.5`, `.3`, `1E-2` | يتم دعم الصيغة العادية والعلمية. |
+| نصى | `"abc"`, `"2/3/2020 12:00"` | تُحْتَوى السلاسل النصية داخل علامات اقتباس مزدوجة داخل الصيغة. |
+| نتيجة خطأ | `#DIV/0!`, `#N/A`, `#REF!` | يمكن أن تُقيم الصيغة إلى قيمة خطأ في جدول البيانات بدلاً من نتيجة عادية. |
+
+هذا المثال يستخدم عدة أنواع ثابتة:
+
 ```java
-workbook.getCell(0, "A2").setValue(false);
-IChartDataCell cell = workbook.getCell(0, "B2");
-cell.setFormula("A2 = TRUE");
-Object value = cell.getValue(); // القيمة تحتوي على قيمة منطقية "false"
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "A2").setValue(false);
+    workbook.getCell(0, "B2").setFormula("A2=TRUE");
+    workbook.getCell(0, "C2").setFormula("1+0.5");
+    workbook.getCell(0, "D2").setFormula(".3*1E-2");
+    workbook.getCell(0, "E2").setFormula("\"abc\"");
+    workbook.getCell(0, "F2").setFormula("2/0");
+
+    workbook.calculateFormulas();
+
+    Object logicalValue = workbook.getCell(0, "B2").getValue(); // خطأ
+    Object numericValue = workbook.getCell(0, "C2").getValue(); // 1.5
+    Object scientificValue = workbook.getCell(0, "D2").getValue(); // 0.003
+    Object stringValue = workbook.getCell(0, "E2").getValue(); // abc
+    Object errorValue = workbook.getCell(0, "F2").getValue(); // #DIV/0!
+} finally {
+    presentation.dispose();
+}
 ```
 
+### **العوامل الحسابية**
 
-## **ثوابت عددية**
-يمكن استخدام الأرقام بالنوتة العامة أو العلمية لإنشاء صيغة جدول بيانات المخطط:
+| العامل | المعنى | مثال |
+|---|---|---|
+| `+` | جمع أو علامة زائد أحادية | `2+3` |
+| `-` | طرح أو نفي | `2-3`, `-3` |
+| `*` | ضرب | `2*3` |
+| `/` | قسمة | `2/3` |
+| `%` | نسبة مئوية | `30%` |
+| `^` | أس | `2^3` |
+
+استخدم الأقواس لتحديد ترتيب التقييم صراحةً، مثل `(A2+B2)*C2`.
+
+### **عوامل المقارنة**
+
+تُعيد تعبيرات المقارنة قيماً منطقية.
+
+| العامل | المعنى | مثال |
+|---|---|---|
+| `=` | مساواة | `A2=3` |
+| `<>` | عدم مساواة | `A2<>3` |
+| `>` | أكبر من | `A2>3` |
+| `>=` | أكبر من أو مساوية | `A2>=3` |
+| `<` | أصغر من | `A2<3` |
+| `<=` | أصغر من أو مساوية | `A2<=3` |
+
+## **الدالات المعرفة مسبقاً المدعومة**
+
+يتضمن Aspose.Slides مُقيم صيغ مدمج لورقات عمل المخطط، لكنه ليس محرك حساب Excel كامل. مجموعة الدالات الموثقة محدودة إلى الدالات أدناه. لا تفترض أن أي دالة Excel عشوائية يمكن إعادة حسابها عبر [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartdataworkbook/#calculateFormulas--).
+
+| الدالة | الغرض أو الصيغة المدعومة | مثال |
+|---|---|---|
+| `ABS` | القيمة المطلقة | `ABS(A2)` |
+| `AVERAGE` | المتوسط الحسابي | `AVERAGE(B2:B5)` |
+| `CEILING` | تقريب الرقم إلى أعلى مضاعف | `CEILING(A2,5)` |
+| `CHOOSE` | اختيار قيمة حسب الفهرس | `CHOOSE(A2,"Low","High")` |
+| `CONCAT` | دمج قيم نصية | `CONCAT(A2,B2)` |
+| `CONCATENATE` | دمج قيم نصية | `CONCATENATE(A2," ",B2)` |
+| `DATE` | إنشاء قيمة تاريخ باستخدام نظام 1900 | `DATE(2026,8,19)` |
+| `DAYS` | إرجاع عدد الأيام بين تاريخين | `DAYS(B2,A2)` |
+| `FIND` | العثور على نص داخل نص آخر | `FIND("-",A2)` |
+| `FINDB` | بحث نصي على مستوى البايت | `FINDB("a",A2)` |
+| `IF` | نتيجة شرطية | `IF(A2>0,A2,0)` |
+| `INDEX` | صيغة إشارة | `INDEX(A2:C4,2,3)` |
+| `LOOKUP` | صيغة متجهة | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | صيغة متجهة | `MATCH(A2,B2:B5,0)` |
+| `MAX` | القيمة العظمى | `MAX(B2:B5)` |
+| `SUM` | مجموع القيم | `SUM(B2:B5)` |
+| `VLOOKUP` | بحث عمودي | `VLOOKUP(A2,B2:D10,3,FALSE)` |
+
+القيود الموضحة في الجدول مهمة: `INDEX` موثقة في صيغة إشارة، بينما `LOOKUP` و`MATCH` موثقتان في صيغهما المتجهة. `DATE` يستخدم نظام التاريخ 1900. يجب اعتبار الدالات غير المذكورة غير مدعومة من قِبَل مُقيم الصيغ في Aspose.Slides ما لم تُوثق بشكل منفصل.
+
+## **إعادة الحساب والقيم المخزنة مؤقتاً**
+
+عادةً ما تخزن ملفات جداول البيانات كلًا من الصيغة والقيمة المحسوبة الأخيرة. لذلك يمكن لـ Aspose.Slides قراءة قيمة مخزنة مؤقتاً من خلال [IChartDataCell.getValue](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartdatacell/#getValue--) عند تحميل العرض التقديمي ولم يتم تعديل بيانات المخطط ذات الصلة.
+
+بعد تغيير خلايا الإدخال أو الصيغ، لا تعتمد على نتيجة مخزنة قديمة. استدعِ [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) قبل قراءة القيم المحسوبة أو حفظ بيانات المخطط التي تعتمد عليها.
+
+بالنسبة للصيغ خارج المجموعة المدعومة، قد لا يتمكن Aspose.Slides من تحليل الصيغة أو تحديد تبعياتها. إذا تم تعديل دفتر العمل، لا يمكن الاعتماد على القيمة المخزنة السابقة. في تلك الحالة، قراءة قيمة خلية ذات بيانات غير مدعومة قد تُثير استثناء [CellUnsupportedDataException](https://reference.aspose.com/slides/ar/java/com.aspose.slides/cellunsupporteddataexception/).
+
+إذا كان مخططك يعتمد على دالات Excel لا يُقيمها Aspose.Slides، احسب تلك الصيغ باستخدام محرك جداول بيانات يدعمها واكتب القيم الناتجة مرة أخرى إلى دفتر عمل المخطط. لا تستبدل الصيغ غير المدعومة بقيم مُتَخَمَّنة.
+
+## **معالجة أخطاء الصيغ**
+
+هناك نوعان مختلفان من المشكلات يجب التمييز بينهما.
+
+يمكن أن تكون الصيغة صحيحة ولكن تُنتج نتيجة خطأ في جدول البيانات مثل `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!`, أو `#VALUE!`. في هذه الحالة، يُعتبر رمز الخطأ نتيجة خلية ويمكن إرجاعه عبر [IChartDataCell.getValue](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartdatacell/#getValue--).
+
+يمكن أيضاً أن تفشل الصيغة أثناء التحليل أو الإشارة أو التبعية أو مستوى البيانات المدعومة. يوفر Aspose.Slides استثناءات خاصة بجداول البيانات لهذه الحالات: [CellInvalidFormulaException](https://reference.aspose.com/slides/ar/java/com.aspose.slides/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/ar/java/com.aspose.slides/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/ar/java/com.aspose.slides/cellcircularreferenceexception/), و[CellUnsupportedDataException](https://reference.aspose.com/slides/ar/java/com.aspose.slides/cellunsupporteddataexception/).
+
+عند جلب الصيغ من القوالب أو إدخال المستخدم، عالج هذه الاستثناءات حول إعادة الحساب والوصول إلى القيمة:
+
 ```java
-workbook.getCell(0, "A2").setFormula("1 + 0.5");
-workbook.getCell(0, "B2").setFormula(".3 * 1E-2");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    IChartDataCell cell = workbook.getCell(0, "A2");
+    cell.setFormula("SUM(B2:B5)");
+
+    try {
+        workbook.calculateFormulas();
+        System.out.println(cell.getValue());
+    } catch (CellInvalidFormulaException ex) {
+        System.err.println("Invalid formula: " + ex.getMessage());
+    } catch (CellInvalidReferenceException ex) {
+        System.err.println("Invalid cell reference: " + ex.getMessage());
+    } catch (CellCircularReferenceException ex) {
+        System.err.println("Circular reference: " + ex.getMessage());
+    } catch (CellUnsupportedDataException ex) {
+        System.err.println("Unsupported spreadsheet data: " + ex.getMessage());
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
+## **القيود العملية**
 
-## **ثوابت نصية**
-الثابت النصي (أو الحرفي) هو قيمة محددة تُستخدم كما هي ولا تتغير. قد تكون الثوابت النصية: تواريخ، نصوص، أرقام، إلخ:
-```java
-workbook.getCell(0, "A2").setFormula("\"abc\"");
-workbook.getCell(0, "B2").setFormula("\"2/3/2020 12:00\"");
-```
+دعم الصيغ في أوراق عمل المخطط مخصص لمجموعة محدودة من حسابات جداول البيانات، وليس لتوافق كامل مع Excel. ضع هذه القيود في اعتبارك عند تصميم سير عمل إبلاغ:
 
+- استخدم فقط الثوابت، والعوامل، والإشارات، والدالات الموثقة عندما تحتاج إلى أن يعيد Aspose.Slides حساب الصيغ.
+- أعد الحساب بعد تغيير الخلايا التي تعتمد عليها نتائج الصيغ.
+- اعتبر القيم المخزنة مؤقتاً من العروض التقديمية المحملة لقطات، وليس كبديل لإعادة الحساب بعد التعديل.
+- اختبر الصيغ من القوالب الموجودة قبل الاعتماد على قيمها المحسوبة، خاصة إذا استخدمت دالات خارج القائمة الموثقة.
+- بالنسبة للصيغ التي تتطلب محرك حساب جداول بيانات كامل، احسبها خارجيًا ثم حدّث دفتر عمل المخطط بالقيم الناتجة.
 
-## **ثوابت خطأ**
-أحيانًا لا يمكن حساب النتيجة باستخدام الصيغة. في هذه الحالة يُظهر رمز الخطأ في الخلية بدلاً من قيمتها. لكل نوع خطأ رمز محدد:
+## **الأسئلة المتكررة**
 
-- #DIV/0! - تحاول الصيغة القسمة على الصفر.
-- #GETTING_DATA - قد يُظهر في خلية بينما لا يزال قيمتها تحسب.
-- #N/A - المعلومات مفقودة أو غير متاحة. بعض الأسباب قد تكون: الخلايا المستخدمة في الصيغة فارغة، وجود مساحة زائدة، أخطاء إملائية، إلخ.
-- #NAME? - لا يمكن العثور على خلية معينة أو كائن صيغة آخر باسمه. 
-- #NULL! - قد يظهر عندما يكون هناك خطأ في الصيغة، مثل:  (,) أو مساحة استُبدلت بالنقطتين (:).
-- #NUM! - الرقم في الصيغة قد يكون غير صالح، طويل جدًا أو قصير جدًا، إلخ.
-- #REF! - مرجع خلية غير صالح.
-- #VALUE! - نوع قيمة غير متوقع. على سبيل المثال، قيمة نصية مُعطاة لخلية رقمية.
-```java
-IChartDataCell cell = workbook.getCell(0, "A2");
-cell.setFormula("2 / 0");
-Object value = cell.getValue(); // القيمة تحتوي على السلسلة "#DIV/0!"
-```
+**ما الفرق بين [IChartDataCell.setFormula](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) و[IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-)?**
 
+[IChartDataCell.setFormula](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) يخزن تعبيرًا بنمط A1 مثل `B2-C2`. [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) يخزن تعبيرًا بنمط R1C1 مثل `RC[-2]-RC[-1]`. استخدم النمط الذي يتناسب مع طريقة توليد أو نسخ الصيغ لديك.
 
-## **العوامل الحسابية**
-يمكنك استخدام جميع العوامل الحسابية في صيغ ورقة عمل المخطط:
+**هل أحتاج إلى قراءة الخلية نفسها أم قيمتها بعد الحساب؟**
 
-|**العامل**|**المعنى**|**مثال**|
-| :- | :- | :- |
-|+ (علامة الجمع)|جمع أو موجب أحادي|2 + 3|
-|- (علامة الطرح)|طرح أو نفي|2 - 3<br>-3|
-|* (علامة النجمة)|ضرب|2 * 3|
-|/ (علامة القسمة)|قسمة|2 / 3|
-|% (علامة النسبة المئوية)|نسبة مئوية|30%|
-|^ (علامة الق caret)|رفع إلى القوة|2 ^ 3|
+[IChartDataWorkbook.getCell](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartdataworkbook/#getCell-int-java.lang.String-) يُعيد كائنًا من نوع [IChartDataCell](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartdatacell/). للحصول على النتيجة المحسوبة، استدعِ طريقة [IChartDataCell.getValue](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartdatacell/#getValue--) للخلية بعد إعادة الحساب.
 
-*Note*: لتغيير ترتيب التقييم، ضع الجزء الذي تريد حسابه أولًا بين أقواس.
+**متى يجب استدعاء [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartdataworkbook/#calculateFormulas--)?**
 
-## **العوامل المقارنة**
-يمكنك مقارنة قيم الخلايا باستخدام عوامل المقارنة. عند مقارنة قيمتين بهذه العوامل، تكون النتيجة قيمة منطقية إما *TRUE* أو FALSE:
+استدعِ [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) بعد تعديل قيم الإدخال أو الصيغ وقبل الاعتماد على النتائج المحسوبة. هذا يُحدّث قيم الصيغ التي يدعمها المُقيم المدمج.
 
-|**العامل**|**المعنى**|**المعنى**|
-| :- | :- | :- |
-|= (علامة المساواة)|مساوٍ لـ|A2 = 3|
-|<> (علامة عدم المساواة)|ليس مساويًا لـ|A2 <> 3|
-|> (علامة الأكبر من)|أكبر من|A2 > 3|
-|>= (علامة الأكبر أو يساوي)|أكبر أو يساوي|A2 >= 3|
-|< (علامة الأصغر من)|أصغر من|A2 < 3|
-|<= (علامة الأصغر أو يساوي)|أصغر أو يساوي|A2 <= 3|
+**هل يدعم Aspose.Slides كل دالات Excel؟**
 
-## **مراجع خلايا بنمط A1**
-**مراجع خلايا بنمط A1** تُستخدم للأوراق حيث العمود له معرف حرفي (مثال "*A*") والصف له معرف رقمي (مثال "*1*"). يمكن استخدام مراجع خلايا بنمط A1 بالطريقة التالية:
+لا. يدعم المُقيم المدمج مجموعة موثقة من الدالات. لا ينبغي افتراض أن الدالات خارج هذه المجموعة ستُعاد حسابها بشكل صحيح. إذا كانت هناك حاجة إلى توافق كامل مع صيغ Excel، قم بإجراء الحساب باستخدام محرك جداول بيانات مناسب واكتب القيم النهائية إلى دفتر عمل المخطط.
 
-|**مرجع الخلية**|**مثال**|||
-| :- | :- | :- | :- |
-||مطلق|نسبي|مختلط|
-|خلية|$A$2|A2|<p>A$2</p><p>$A2</p>|
-|صف|$2:$2|2:2|-|
-|عمود|$A:$A|A:A|-|
-|نطاق|$A$2:$C$4|A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
+**ماذا يحدث إذا كان العرض التقديمي المحمّل يحتوي على صيغة غير مدعومة؟**
 
+إذا لم تتغير بيانات المخطط، قد يظل دفتر العمل يحتوي على قيمة مخزنة مسبقًا. بعد تعديل البيانات ذات الصلة، قد لا تكون هذه القيمة المخزنة صالحة. الوصول إلى خلية لا يمكن معالجة صيغتها قد يثير استثناء [CellUnsupportedDataException](https://reference.aspose.com/slides/ar/java/com.aspose.slides/cellunsupporteddataexception/).
 
-إليك مثالًا على كيفية استخدام مرجع خلية بنمط A1 في صيغة:
-```java
-workbook.getCell(0, "A2").setFormula("C3 + SUM(F2:H5)");
-```
+**هل قيم أخطاء الصيغ هي نفسها استثناءات Java؟**
 
+لا. النتيجة مثل `#DIV/0!` هي قيمة جدول بيانات تنتج عن حساب صالح. الاستثناءات مثل [CellInvalidFormulaException](https://reference.aspose.com/slides/ar/java/com.aspose.slides/cellinvalidformulaexception/) أو [CellCircularReferenceException](https://reference.aspose.com/slides/ar/java/com.aspose.slides/cellcircularreferenceexception/) تشير إلى أن الصيغة لا يمكن معالجتها بصورة طبيعية.
 
-## **مراجع خلايا بنمط R1C1**
-**مراجع خلايا بنمط R1C1** تُستخدم للأوراق حيث كل من الصف والعمود لهما معرف رقمي. يمكن استخدام مراجع خلايا بنمط R1C1 بالطريقة التالية:
+**هل يتم تحديث المخطط تلقائيًا عندما تتغير خلية الصيغة؟**
 
-|**مرجع الخلية**|**مثال**|||
-| :- | :- | :- | :- |
-||مطلق|نسبي|مختلط|
-|خلية|R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
-|صف|R2|R[2]|-|
-|عمود|C3|C[3]|-|
-|نطاق|R2C3:R5C7|R[2]C[3]:R[5]C[7]|R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
+يمكن لسلسلة مخطط الإشارة إلى خلايا دفتر العمل. أعد حساب دفتر العمل أولًا، ثم احفظ أو شارِك العرض التقديمي. إذا كانت نقاط بيانات المخطط تشير إلى الخلايا المحسوبة، سيستخدم المخطط تلك القيم المحدثة؛ لا تحتاج إلى طريقة تحديث منفصلة للمخطط في هذا سير العمل.
 
+**هل يمكن للمخططات استخدام دفتر عمل Excel خارجي؟**
 
-إليك مثالًا على كيفية استخدام مرجع خلية بنمط R1C1 في صيغة:
-```java
-workbook.getCell(0, "A2").setR1C1Formula("R2C4 + SUM(R5C6:R7C9)");
-```
+نعم، يمكن تكوين بيانات المخطط لاستخدام دفتر عمل خارجي عبر واجهة برمجة بيانات المخطط. ومع ذلك، فإن سير عمل حساب الصيغ الموضح في هذه المقالة يخص دفتر عمل بيانات المخطط ومجموعة الصيغ التي يُقيّمها Aspose.Slides. لا تفترض أن [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) يوفر إعادة حساب كاملة لصيغ عشوائية في ملف XLSX خارجي.
 
+**هل يمكنني استخدام صيغ تُشير إلى ورقة عمل أو دفتر عمل آخر؟**
 
-## **دوال معرفة مسبقًا**
-هناك دوال معرفة مسبقًا يمكن استخدامها في الصيغ لتبسيط تنفيذها. هذه الدوال تُجمل العمليات الأكثر شيوعًا، مثل:
+قد توجد إشارات بنمط Excel في دفاتر عمل المخطط، لكن تقييم الصيغ يقتصر على المُحلل ومجموعة الدالات المدعومة. إذا كان الإشارة عبر ورقة أو ملف خارجي ضرورية، تحقق من صلاحية الصيغة الدقيقة مع إصدار Aspose.Slides المستهدف لديك. بالنسبة لسير العمل الذي يتطلب توافقًا واسعًا مع مراجع Excel، احسب دفتر العمل خارجيًا واكتب القيم المُست resolved مرة أخرى إلى بيانات المخطط.
 
-- ABS
-- AVERAGE
-- CEILING
-- CHOOSE
-- CONCAT
-- CONCATENATE
-- DATE (نظام التاريخ 1900)
-- DAYS
-- FIND
-- FINDB
-- IF
-- INDEX (صيغة المرجع)
-- LOOKUP (صيغة المتجه)
-- MATCH (صيغة المتجه)
-- MAX
-- SUM
-- VLOOKUP
+**هل يجب أن تبدأ سلاسل الصيغ بـ `=`؟**
 
-## **FAQ**
-
-**هل تدعم ملفات Excel الخارجية كمصدر بيانات لمخطط بصيغ؟**
-
-نعم. يدعم Aspose.Slides ملفات المصنفات الخارجية كمصدر بيانات [للمخطط](https://reference.aspose.com/slides/java/com.aspose.slides/chartdatasourcetype/)، مما يتيح لك استخدام صيغ من ملف XLSX خارج العرض التقديمي.
-
-**هل يمكن لصيغ المخطط الإشارة إلى أوراق داخل نفس المصنف باستخدام اسم الورقة؟**
-
-نعم. تتبع الصيغ نموذج الإشارة القياسي في Excel، لذا يمكنك الإشارة إلى أوراق أخرى داخل نفس المصنف أو إلى مصنف خارجي. بالنسبة للإشارات الخارجية، أدرج المسار واسم المصنف باستخدام صيغة Excel.
+أمثلة API في Aspose.Slides تعيين تعبيرات مثل `B2-C2` أو `SUM(B2:B5)` دون علامة `=` مسبقة. استخدام هذا الشكل يُحافظ على توافق الصيغ المنشأة مع أمثلة API الموضحة.

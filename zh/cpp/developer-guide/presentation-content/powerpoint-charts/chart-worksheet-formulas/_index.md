@@ -10,184 +10,440 @@ keywords:
 - 图表公式
 - 工作表公式
 - 电子表格公式
-- 数据源
-- 逻辑常量
-- 数值常量
-- 字符串常量
-- 错误常量
-- 算术常量
-- 比较运算符
-- A1 样式
-- R1C1 样式
-- 预定义函数
-- PowerPoint
-- 演示文稿
-- C++
-- Aspose.Slides
-description: "在 Aspose.Slides 中为 C++ 图表工作表应用 Excel 样式公式，并在 PPT 和 PPTX 文件中自动生成报告。"
----
-
-## **关于演示文稿中的图表电子表格公式**
-**Chart spreadsheet**（或 chart worksheet）在演示文稿中是图表的数据源。Chart spreadsheet 包含数据，这些数据以图形方式显示在图表上。当您在 PowerPoint 中创建图表时，关联的工作表会自动创建。Chart worksheet 为所有类型的图表创建：折线图、条形图、旭辉图、饼图等。要在 PowerPoint 中查看 chart spreadsheet，您应双击图表：
-
-![todo:image_alt_text](chart-worksheet-formulas_1.png)
-
-Chart spreadsheet 包含图表元素的名称（类别名称：*Category1*，系列名称）以及与这些类别和系列对应的数值数据表。默认情况下，创建新图表时，chart spreadsheet 数据使用默认数据。随后您可以手动在工作表中更改电子表格数据。
-
-通常，图表表示复杂数据（例如金融分析、科学分析），其中的单元格是根据其他单元格的值或其他动态数据计算得出的。手动计算单元格的值并硬编码到单元格中，未来更改会十分困难。如果更改某个单元格的值，所有依赖该单元格的单元格也需要更新。此外，表格数据可能依赖于其他表格的数据，形成一个复杂的演示文稿数据方案，需要以简便灵活的方式进行更新。
-
-演示文稿中的 **Chart spreadsheet formula** 是用于自动计算和更新 chart spreadsheet 数据的表达式。Spreadsheet formula 为特定单元格或一组单元格定义数据计算逻辑。Spreadsheet formula 是数学公式或逻辑公式，使用：单元格引用、数学函数、逻辑运算符、算术运算符、转换函数、字符串常量等。公式的定义写入单元格，该单元格不包含普通值。Spreadsheet formula 计算出数值并返回，然后该数值被赋给单元格。演示文稿中的 chart spreadsheet 公式实际上与 Excel 公式相同，并支持相同的默认函数、运算符和常量。
-
-在 [**Aspose.Slides**](https://products.aspose.com/slides/cpp/) 中，chart spreadsheet 由 
-[**ChartData::get_ChartDataWorkbook()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.chart_data#a32097093561723a10df0a57dc91acaea) 方法（属于 
-[**IChartDataWorkbook**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_workbook) 类型）表示。 
-可以使用 
-[**IChartDataCell::set_Formula()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_cell#a6806c6a40e025e6834c4c5f3af3cf692) 方法为电子表格公式赋值或更改。 
-Aspose.Slides 对公式支持以下功能：
+- 图表数据工作簿
+- 公式计算
 - 逻辑常量
 - 数值常量
 - 字符串常量
 - 错误常量
 - 算术运算符
 - 比较运算符
-- A1 样式单元格引用
-- R1C1 样式单元格引用
+- A1 形式
+- R1C1 形式
 - 预定义函数
+- PowerPoint
+- 演示文稿
+- C++
+- Aspose.Slides
+description: "在 Aspose.Slides for C++ 的图表工作表中应用 Excel 风格的公式，重新计算数值，并在 PowerPoint 图表中使用结果。"
+---
+## **概述**
 
-通常，电子表格会存储上一次计算的公式值。如果在加载演示文稿后，图表数据未被更改，**IChartDataCell.get_Value()** 方法在读取时会返回这些值。但如果电子表格数据已更改，在读取时调用 **ChartDataCell.get_Value()** 方法会抛出 **CellUnsupportedDataException**，因为不支持的公式。之所以会这样，是因为当公式成功解析时，会确定单元格依赖关系并确认上一次值的正确性；但如果公式无法解析，则无法保证单元格值的正确性。
+PowerPoint 图表通常将其源数据存储在嵌入的工作表中。在 Aspose.Slides for C++ 中，您可以通过图表数据工作簿访问该工作表，写入输入值，为单元格分配公式，计算受支持的公式，并将计算后的单元格用作图表数据。
 
-## **向演示文稿添加图表电子表格公式**
-首先，使用 [IShapeCollection::AddChart()](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_shape_collection#a2cd4d47fc5c536012ee15b3a69486374) 在新演示文稿的第一页添加图表。图表的工作表会自动创建，可通过 [**ChartData::get_ChartDataWorkbook()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.chart_data#a32097093561723a10df0a57dc91acaea) 方法访问：
-``` cpp
-auto presentation = System::MakeObject<Presentation>();
-    
-auto chart = presentation->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::ClusteredColumn, 150.0f, 150.0f, 500.0f, 300.0f);
+本文阐述完整的公式工作流：创建图表、填充其工作表、分配 A1 形式或 R1C1 形式的公式、重新计算、读取计算结果、将这些单元格连接到图表系列并保存演示文稿。还会介绍受支持的公式语法、内置函数子集、缓存值、不受支持的公式以及电子表格特定错误。
+
+## **图表工作表和公式**
+
+图表工作表包含图表使用的类别、系列名称和数值。在 PowerPoint 中，您可以通过打开图表数据编辑器来检查工作表：
+
+![PowerPoint 图表及其嵌入的工作表打开，显示类别和系列数据](chart-worksheet-formulas_1.png)
+
+在 Aspose.Slides 中，工作表通过[IChartDataWorkbook](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/ichartdataworkbook/) 接口暴露。使用[IChartDataCell::set_Formula](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/ichartdatacell/set_formula/) 处理 A1 形式公式，使用[IChartDataCell::set_R1C1Formula](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/ichartdatacell/set_r1c1formula/) 处理 R1C1 形式公式。更改输入单元格或公式后，调用[IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) 重新计算受支持的公式并更新对应的单元格值。
+
+已计算的单元格仍通过[IChartDataCell::get_Value](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/ichartdatacell/get_value/) 暴露其结果。当您需要在代码中检查公式结果或把单元格用作图表数据点时，这一点尤为重要。
+
+## **创建图表并计算工作表公式**
+
+下面的示例演示端到端工作流。它创建一个簇状柱形图，清除示例数据，写入季度收入和支出值，使用公式计算利润，读取结果，将计算后的单元格用作图表数值，并保存演示文稿。
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 600.0f, 350.0f);
+auto chartData = chart->get_ChartData();
+auto workbook = chartData->get_ChartDataWorkbook();
+const int32_t worksheetIndex = 0;
+
+chartData->get_Series()->Clear();
+chartData->get_Categories()->Clear();
+workbook->Clear(worksheetIndex);
+
+auto category1 = workbook->GetCell(worksheetIndex, u"A2", ObjectExt::Box<String>(u"Q1"));
+auto category2 = workbook->GetCell(worksheetIndex, u"A3", ObjectExt::Box<String>(u"Q2"));
+auto category3 = workbook->GetCell(worksheetIndex, u"A4", ObjectExt::Box<String>(u"Q3"));
+
+workbook->GetCell(worksheetIndex, u"B1", ObjectExt::Box<String>(u"Revenue"));
+workbook->GetCell(worksheetIndex, u"C1", ObjectExt::Box<String>(u"Expenses"));
+workbook->GetCell(worksheetIndex, u"D1", ObjectExt::Box<String>(u"Profit"));
+
+workbook->GetCell(worksheetIndex, u"B2")->set_Value(ObjectExt::Box<double>(120.0));
+workbook->GetCell(worksheetIndex, u"C2")->set_Value(ObjectExt::Box<double>(80.0));
+workbook->GetCell(worksheetIndex, u"B3")->set_Value(ObjectExt::Box<double>(150.0));
+workbook->GetCell(worksheetIndex, u"C3")->set_Value(ObjectExt::Box<double>(95.0));
+workbook->GetCell(worksheetIndex, u"B4")->set_Value(ObjectExt::Box<double>(135.0));
+workbook->GetCell(worksheetIndex, u"C4")->set_Value(ObjectExt::Box<double>(110.0));
+
+auto profit1 = workbook->GetCell(worksheetIndex, u"D2");
+auto profit2 = workbook->GetCell(worksheetIndex, u"D3");
+auto profit3 = workbook->GetCell(worksheetIndex, u"D4");
+
+profit1->set_Formula(u"B2-C2");
+profit2->set_Formula(u"B3-C3");
+profit3->set_Formula(u"B4-C4");
+
+workbook->CalculateFormulas();
+
+auto q1Profit = profit1->get_Value(); // 40
+auto q2Profit = profit2->get_Value(); // 55
+auto q3Profit = profit3->get_Value(); // 25
+
+chartData->get_Categories()->Add(category1);
+chartData->get_Categories()->Add(category2);
+chartData->get_Categories()->Add(category3);
+
+auto profitSeries = chartData->get_Series()->Add(workbook->GetCell(worksheetIndex, u"D1"), chart->get_Type());
+profitSeries->get_DataPoints()->AddDataPointForBarSeries(profit1);
+profitSeries->get_DataPoints()->AddDataPointForBarSeries(profit2);
+profitSeries->get_DataPoints()->AddDataPointForBarSeries(profit3);
+profitSeries->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
+
+presentation->Save(u"chart-formulas.pptx", SaveFormat::Pptx);
+```
+
+图表数据点引用 `D2:D4`，因此图表使用计算后的利润值。在此工作流中没有单独的图表刷新调用：先重新计算工作簿，然后使用或保存指向已计算单元格的图表数据。
+
+## **使用 A1 形式公式**
+
+A1 表示法使用字母标识列，数字标识行。通过[IChartDataCell::set_Formula](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/ichartdatacell/set_formula/) 分配 A1 形式表达式。
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 500.0f, 300.0f);
 auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
 
-// ...
+workbook->GetCell(0, u"C3")->set_Value(ObjectExt::Box<int32_t>(10));
+workbook->GetCell(0, u"F2")->set_Value(ObjectExt::Box<int32_t>(2));
+workbook->GetCell(0, u"G2")->set_Value(ObjectExt::Box<int32_t>(3));
+workbook->GetCell(0, u"H2")->set_Value(ObjectExt::Box<int32_t>(4));
+
+auto cell = workbook->GetCell(0, u"A2");
+cell->set_Formula(u"C3+SUM(F2:H2)");
+
+workbook->CalculateFormulas();
+
+auto value = cell->get_Value(); // 19
 ```
 
+常见的 A1 引用形式如下：
 
-让我们使用 **Object** 类型的 [**IChartDataCell.set_Value()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_cell#ad85809f520195e09225abae9002635ec) 方法向单元格写入一些值，这意味着您可以向该方法传入任意值：
-``` cpp
-workbook->GetCell(0, u"F2")->set_Value(System::ObjectExt::Box<double>(-2.5));
-workbook->GetCell(0, u"G3")->set_Value(System::ObjectExt::Box<double>(6.3));
-workbook->GetCell(0, u"H4")->set_Value(System::ObjectExt::Box<int32_t>(3));
+| 引用 | 相对 | 绝对 | 混合 |
+|---|---|---|---|
+| 单元格 | `A2` | `$A$2` | `A$2`, `$A2` |
+| 行 | `2:2` | `$2:$2` | — |
+| 列 | `A:A` | `$A:$A` | — |
+| 范围 | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
+
+相对引用在公式被电子表格应用移动或复制时会改变。绝对引用保持行列坐标固定，混合引用仅固定行或列。
+
+## **使用 R1C1 形式公式**
+
+R1C1 表示法使用数字标识行和列。相对引用在方括号中使用偏移量。通过[IChartDataCell::set_R1C1Formula](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/ichartdatacell/set_r1c1formula/) 分配此语法。
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 500.0f, 300.0f);
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+
+workbook->GetCell(0, u"B2")->set_Value(ObjectExt::Box<int32_t>(12));
+workbook->GetCell(0, u"C2")->set_Value(ObjectExt::Box<int32_t>(5));
+
+auto cell = workbook->GetCell(0, u"D2");
+cell->set_R1C1Formula(u"RC[-2]-RC[-1]");
+
+workbook->CalculateFormulas();
+
+auto value = cell->get_Value(); // 7
 ```
 
+常见的 R1C1 引用形式如下：
 
-现在，要向单元格写入公式，您可以使用 
-[**IChartDataCell::set_Formula()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_cell#a6806c6a40e025e6834c4c5f3af3cf692) 方法：
+| 引用 | 相对 | 绝对 | 混合 |
+|---|---|---|---|
+| 单元格 | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
+| 行 | `R[2]` | `R2` | — |
+| 列 | `C[3]` | `C3` | — |
+| 范围 | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
 
-*Note*: [**IChartDataCell::set_Formula()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_cell#a6806c6a40e025e6834c4c5f3af3cf692) 方法用于设置 A1 样式单元格引用。
+例如，在单元格 `D2` 中，`RC[-2]` 表示同一行向左两列的单元格，即 `B2`。
 
-要设置 R1C1Formula 单元格引用，您可以使用 [**IChartDataCell::set_R1C1Formula()**](https://reference.aspose.com/slides/cpp/class/aspose.slides.charts.i_chart_data_cell#a47f5825dd38d0dddb11ecc3a43d388c7) 方法：
+## **公式常量与运算符**
 
-然后如果您尝试读取单元格 B2 和 C2 的值，它们将被计算：
-``` cpp
-auto value1 = cell1->get_Value(); // 7.8
-auto value2 = cell2->get_Value(); // 2.1
+内置公式求值器支持逻辑值、数值文字、字符串、电子表格错误值、算术运算符和比较运算符。
+
+### **常量与文字**
+
+| 类型 | 示例 | 说明 |
+|---|---|---|
+| 逻辑 | `TRUE`, `FALSE` | 可直接用于逻辑表达式，如 `A2=TRUE`。 |
+| 数值 | `1`, `0.5`, `.3`, `1E-2` | 支持普通记数法和科学计数法。 |
+| 字符串 | `"abc"`, `"2/3/2020 12:00"` | 文本文字需在公式内部使用双引号括起。 |
+| 错误结果 | `#DIV/0!`, `#N/A`, `#REF!` | 有效公式可以求得电子表格错误值，而不是普通结果。 |
+
+以下示例使用了多种常量类型：
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 500.0f, 300.0f);
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+
+workbook->GetCell(0, u"A2")->set_Value(ObjectExt::Box<bool>(false));
+workbook->GetCell(0, u"B2")->set_Formula(u"A2=TRUE");
+workbook->GetCell(0, u"C2")->set_Formula(u"1+0.5");
+workbook->GetCell(0, u"D2")->set_Formula(u".3*1E-2");
+workbook->GetCell(0, u"E2")->set_Formula(u"\"abc\"");
+workbook->GetCell(0, u"F2")->set_Formula(u"2/0");
+
+workbook->CalculateFormulas();
+
+auto logicalValue = workbook->GetCell(0, u"B2")->get_Value(); // 假
+auto numericValue = workbook->GetCell(0, u"C2")->get_Value(); // 1.5
+auto scientificValue = workbook->GetCell(0, u"D2")->get_Value(); // 0.003
+auto stringValue = workbook->GetCell(0, u"E2")->get_Value(); // abc
+auto errorValue = workbook->GetCell(0, u"F2")->get_Value(); // #DIV/0!
 ```
 
+### **算术运算符**
 
-## **逻辑常量**
-您可以在单元格公式中使用逻辑常量，如 *FALSE* 和 *TRUE*：
+| 运算符 | 含义 | 示例 |
+|---|---|---|
+| `+` | 加法或一元加号 | `2+3` |
+| `-` | 减法或取负号 | `2-3`, `-3` |
+| `*` | 乘法 | `2*3` |
+| `/` | 除法 | `2/3` |
+| `%` | 百分比 | `30%` |
+| `^` | 幂运算 | `2^3` |
 
-## **数值常量**
-可以使用普通或科学计数法的数字来创建 chart spreadsheet 公式：
+使用圆括号可明确求值顺序，例如 `(A2+B2)*C2`。
 
-## **字符串常量**
-字符串（或文字）常量是按原样使用且不变的特定值。字符串常量可以是：日期、文本、数字等：
+### **比较运算符**
 
-## **错误常量**
-有时公式无法计算出结果，此时单元格会显示错误代码而非数值。每种错误都有特定的代码：
-- #DIV/0! - 公式尝试除以零。
-- #GETTING_DATA - 当单元格的值仍在计算时可能显示此错误。
-- #N/A - 信息缺失或不可用。可能原因包括：公式中使用的单元格为空、存在额外空格、拼写错误等。
-- #NAME? - 无法根据名称找到某个单元格或其他公式对象。
-- #NULL! - 当公式中有错误时可能出现，例如使用 (,) 或空格字符代替冒号 (:)。
-- #NUM! - 公式中的数字可能无效、过长或过小等。
-- #REF! - 单元格引用无效。
-- #VALUE! - 值类型不符合预期。例如，向数值单元格赋予字符串。
+比较表达式返回逻辑值。
 
-## **算术运算符**
-您可以在 chart worksheet 公式中使用所有算术运算符：
+| 运算符 | 含义 | 示例 |
+|---|---|---|
+| `=` | 等于 | `A2=3` |
+| `<>` | 不等于 | `A2<>3` |
+| `>` | 大于 | `A2>3` |
+| `>=` | 大于等于 | `A2>=3` |
+| `<` | 小于 | `A2<3` |
+| `<=` | 小于等于 | `A2<=3` |
 
-|**运算符**|**含义**|**示例**|
-| :- | :- | :- |
-|+ (plus sign)|加法或一元加号|2 + 3|
-|- (minus sign)|减法或取负号|2 - 3<br>-3|
-|* (asterisk)|乘法|2 * 3|
-|/ (forward slash)|除法|2 / 3|
-|% (percent sign)|百分比|30%|
-|^ (caret)|指数|2 ^ 3|
+## **受支持的预定义函数**
 
-*Note*: 若要更改求值顺序，请将需先计算的部分用括号括起来。
+Aspose.Slides 为图表工作表提供内置公式求值器，但它不是完整的 Excel 计算引擎。文档中列出的函数集仅限于以下函数。不要假设任意 Excel 函数都可以通过[IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) 重新计算。
 
-## **比较运算符**
-您可以使用比较运算符比较单元格的值。使用这些运算符比较两个值时，结果为逻辑值 *TRUE* 或 *FALSE*：
+| 函数 | 用途或支持形式 | 示例 |
+|---|---|---|
+| `ABS` | 绝对值 | `ABS(A2)` |
+| `AVERAGE` | 算术平均值 | `AVERAGE(B2:B5)` |
+| `CEILING` | 向上取整到指定倍数 | `CEILING(A2,5)` |
+| `CHOOSE` | 按索引选择值 | `CHOOSE(A2,"Low","High")` |
+| `CONCAT` | 合并文本值 | `CONCAT(A2,B2)` |
+| `CONCATENATE` | 合并文本值 | `CONCATENATE(A2," ",B2)` |
+| `DATE` | 使用 1900 日期系统创建日期值 | `DATE(2026,8,19)` |
+| `DAYS` | 返回两个日期之间的天数 | `DAYS(B2,A2)` |
+| `FIND` | 在另一个文本中查找文本 | `FIND("-",A2)` |
+| `FINDB` | 按字节搜索文本 | `FINDB("a",A2)` |
+| `IF` | 条件结果 | `IF(A2>0,A2,0)` |
+| `INDEX` | 引用形式 | `INDEX(A2:C4,2,3)` |
+| `LOOKUP` | 向量形式 | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | 向量形式 | `MATCH(A2,B2:B5,0)` |
+| `MAX` | 最大值 | `MAX(B2:B5)` |
+| `SUM` | 求和 | `SUM(B2:B5)` |
+| `VLOOKUP` | 垂直查找 | `VLOOKUP(A2,B2:D10,3,FALSE)` |
 
-|**运算符**|**含义**|**示例**|
-| :- | :- | :- |
-|= (equal sign)|等于|A2 = 3|
-|<> (not equal sign)|不等于|A2 <> 3|
-|> (greater than sign)|大于|A2 > 3|
-|>= (greater than or equal to sign)|大于或等于|A2 >= 3|
-|< (less than sign)|小于|A2 < 3|
-|<= (less than or equal to sign)|小于或等于|A2 <= 3|
+表中显示的限制非常重要：`INDEX` 以引用形式记录，而 `LOOKUP` 与 `MATCH` 以向量形式记录。`DATE` 使用 1900 日期系统。未在此列出的功能应视为 Aspose.Slides 公式求值器不支持，除非另有文档说明。
 
-## **A1 样式单元格引用**
-**A1 样式单元格引用** 用于列使用字母标识（例如 “*A*”）且行使用数字标识（例如 “*1*）的工作表。A1 样式单元格引用的使用方式如下：
+## **重新计算与缓存值**
 
-|**单元格引用**|**示例**|||
-| :- | :- | :- | :- |
-||绝对|相对|混合|
-|单元格|$A$2|A2|<p>A$2</p><p>$A2</p>|
-|行|$2:$2|2:2|-|
-|列|$A:$A|A:A|-|
-|范围|$A$2:$C$4|A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
+电子表格文件通常同时存储公式及其最近一次计算的值。加载演示文稿且相关图表数据未更改时，Aspose.Slides 可以通过[IChartDataCell::get_Value](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/ichartdatacell/get_value/) 读取缓存值。
 
-下面是一个在公式中使用 A1 样式单元格引用的示例：
+更改输入单元格或公式后，请在读取计算值或保存依赖这些值的图表数据之前调用[IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/)。
 
-## **R1C1 样式单元格引用**
-**R1C1 样式单元格引用** 用于行和列均使用数字标识的工作表。R1C1 样式单元格引用的使用方式如下：
+对于不在受支持子集中的公式，Aspose.Slides 可能无法解析公式或建立其依赖关系。如果工作簿已被修改，之前的缓存值将不再可靠。在这种情况下，读取包含不受支持数据的单元格可能会抛出[CellUnsupportedDataException](https://reference.aspose.com/slides/zh/cpp/aspose.slides.spreadsheet/cellunsupporteddataexception/)。
 
-|**单元格引用**|**示例**|||
-| :- | :- | :- | :- |
-||绝对|相对|混合|
-|单元格|R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
-|行|R2|R[2]|-|
-|列|C3|C[3]|-|
-|范围|R2C3:R5C7|R[2]C[3]:R[5]C[7]|R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
+如果您的图表依赖于 Aspose.Slides 未评估的 Excel 函数，请使用支持这些函数的电子表格引擎计算公式，然后将结果写回图表工作簿。不要用猜测的值替代不受支持的公式。
 
-下面是一个在公式中使用 R1C1 样式单元格引用的示例：
+## **处理公式错误**
 
-## **预定义函数**
-公式中可以使用预定义函数来简化实现。这些函数封装了最常用的操作，例如：
+需要区分两类问题。
 
-- ABS
-- AVERAGE
-- CEILING
-- CHOOSE
-- CONCAT
-- CONCATENATE
-- DATE (1900 date system)
-- DAYS
-- FIND
-- FINDB
-- IF
-- INDEX (reference form)
-- LOOKUP (vector form)
-- MATCH (vector form)
-- MAX
-- SUM
-- VLOOKUP
+公式本身有效，但产生如 `#DIV/0!`、`#N/A`、`#NAME?`、`#NULL!`、`#NUM!`、`#REF!`、`#VALUE!` 的电子表格错误结果。这时错误标记是单元格的结果，可通过[IChartDataCell::get_Value](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/ichartdatacell/get_value/) 返回。
 
-## **常见问题**
-**是否支持将外部 Excel 文件作为带公式的图表的数据源？**
+公式也可能在解析、引用、依赖或受支持数据层面失败。Aspose.Slides 为这些情况提供专属异常：[CellInvalidFormulaException](https://reference.aspose.com/slides/zh/cpp/aspose.slides.spreadsheet/cellinvalidformulaexception/)、[CellInvalidReferenceException](https://reference.aspose.com/slides/zh/cpp/aspose.slides.spreadsheet/cellinvalidreferenceexception/)、[CellCircularReferenceException](https://reference.aspose.com/slides/zh/cpp/aspose.slides.spreadsheet/cellcircularreferenceexception/) 和 [CellUnsupportedDataException](https://reference.aspose.com/slides/zh/cpp/aspose.slides.spreadsheet/cellunsupporteddataexception/)。
 
-是的。Aspose.Slides 支持将外部工作簿用作[图表的数据源](https://reference.aspose.com/slides/cpp/aspose.slides.charts/chartdatasourcetype/)，从而可以在演示文稿之外的 XLSX 中使用公式。
+当公式来源于模板或用户输入时，请在重新计算和访问值的代码块周围捕获这些异常：
 
-**图表公式能否通过工作表名称引用同一工作簿中的工作表？**
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Spreadsheet/CellCircularReferenceException.h>
+#include <Spreadsheet/CellInvalidFormulaException.h>
+#include <Spreadsheet/CellInvalidReferenceException.h>
+#include <Spreadsheet/CellUnsupportedDataException.h>
 
-是的。公式遵循标准的 Excel 引用模型，您可以引用同一工作簿或外部工作簿中的其他工作表。对于外部引用，请使用 Excel 语法包含路径和工作簿名称。
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Spreadsheet;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+
+auto slide = presentation->get_Slide(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 500.0f, 300.0f);
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+auto cell = workbook->GetCell(0, u"A2");
+cell->set_Formula(u"SUM(B2:B5)");
+
+try
+{
+    workbook->CalculateFormulas();
+    auto value = cell->get_Value();
+}
+catch (CellInvalidFormulaException&)
+{
+    // 处理无效公式。
+}
+catch (CellInvalidReferenceException&)
+{
+    // 处理无效的单元格引用。
+}
+catch (CellCircularReferenceException&)
+{
+    // 处理循环引用。
+}
+catch (CellUnsupportedDataException&)
+{
+    // 处理不受支持的电子表格数据。
+}
+```
+
+## **实际限制**
+
+图表工作表中的公式支持面向特定子集的电子表格计算，而非完整的 Excel 兼容性。设计报表工作流时请牢记以下约束：
+
+- 仅使用文档中列出的常量、运算符、引用和函数，以便 Aspose.Slides 能重新计算公式。
+- 在更改公式结果依赖的单元格后进行重新计算。
+- 将加载的演示文稿中的缓存值视为快照，而非编辑后重新计算的替代品。
+- 在依赖模板计算值之前先对现有模板的公式进行测试，尤其是使用了文档未列出的函数时。
+- 对于需要完整电子表格计算引擎的公式，请在外部计算后再更新图表工作簿的数值。
+
+## **常见问答**
+
+**`set_Formula` 与 `set_R1C1Formula` 有何区别？**
+
+[IChartDataCell::set_Formula](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/ichartdatacell/set_formula/) 存储 A1 形式的表达式，例如 `B2-C2`。[IChartDataCell::set_R1C1Formula](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/ichartdatacell/set_r1c1formula/) 存储 R1C1 形式的表达式，例如 `RC[-2]-RC[-1]`。使用最符合您生成或复制公式方式的记法。
+
+**计算后需要读取单元格本身还是其值？**
+
+[IChartDataWorkbook::GetCell](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) 返回 `IChartDataCell`。在重新计算后，读取该单元格的[IChartDataCell::get_Value](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/ichartdatacell/get_value/) 即可获得计算结果。
+
+**何时调用 `CalculateFormulas`？**
+
+在更改输入值或公式后、在依赖计算结果之前，调用[IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/)。这会更新内置求值器支持的公式值。
+
+**Aspose.Slides 是否支持所有 Excel 函数？**
+
+不支持。内置求值器仅支持文档中列出的子集。未列出的函数不应假设能够正确重新计算。若需完整的 Excel 公式兼容性，请使用相应的电子表格引擎进行计算并将最终值写入图表工作簿。
+
+**加载的演示文稿中包含不受支持的公式会怎样？**
+
+如果图表数据未更改，工作簿可能仍保留先前计算的缓存值。相关数据被修改后，该缓存值可能失效。访问无法处理的公式所在的单元格可能会抛出[CellUnsupportedDataException](https://reference.aspose.com/slides/zh/cpp/aspose.slides.spreadsheet/cellunsupporteddataexception/)。
+
+**公式错误值等同于 C++ 异常吗？**
+
+不等同。诸如 `#DIV/0!` 的结果是有效计算产生的电子表格值。像[CellInvalidFormulaException](https://reference.aspose.com/slides/zh/cpp/aspose.slides.spreadsheet/cellinvalidformulaexception/)或[CellCircularReferenceException](https://reference.aspose.com/slides/zh/cpp/aspose.slides.spreadsheet/cellcircularreferenceexception/)之类的异常表示公式无法正常处理。
+
+**公式单元格更改时图表会自动更新吗？**
+
+图表系列可以引用工作簿单元格。先重新计算工作簿，然后保存或渲染演示文稿。如果图表数据点引用了已计算的单元格，图表会使用这些更新后的数值；此工作流无需额外的图表刷新方法。
+
+**图表可以使用外部 Excel 工作簿吗？**
+
+可以，图表数据可通过图表数据 API 配置为使用外部工作簿。但本文讨论的公式计算工作流仅涉及图表数据工作簿及 Aspose.Slides 所评估的公式子集。不要假设[IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) 能对外部 XLSX 文件中的任意公式进行完整重新计算。
+
+**可以使用引用其他工作表或工作簿的公式吗？**
+
+Chart 工作簿中可能出现 Excel 风格的跨表或跨簿引用，但公式求值受限于解析器和函数集。如果跨表或外部引用是必需的，请在目标 Aspose.Slides 版本中验证该公式的可行性。对于需要广泛 Excel 引用兼容性的工作流，建议在外部计算工作簿并将解析后的数值写回图表数据。
+
+**公式字符串需要以 `=` 开头吗？**
+
+Aspose.Slides API 示例分配的表达式如 `B2-C2` 或 `SUM(B2:B5)` 并不以 `=` 开头。使用这种形式可使生成的公式与文档中的 API 示例保持一致。

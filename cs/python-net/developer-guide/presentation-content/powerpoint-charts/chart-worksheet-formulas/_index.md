@@ -1,200 +1,371 @@
 ---
-title: Použití vzorců listu grafu v prezentacích pomocí Pythonu
-linktitle: Vzorce listu
+title: Použití vzorců pracovního listu grafu v prezentacích s Pythonem
+linktitle: Vzorce pracovního listu
 type: docs
 weight: 70
 url: /cs/python-net/chart-worksheet-formulas/
 keywords:
-- tabulka grafu
-- list grafu
+- graf tabulkový list
+- graf pracovní list
 - vzorec grafu
-- vzorec listu
+- vzorec pracovního listu
 - vzorec tabulky
-- zdroj dat
+- sešit dat grafu
+- výpočet vzorce
 - logická konstanta
 - číselná konstanta
 - řetězcová konstanta
-- chybová konstanta
-- aritmetická konstanta
+- chybná konstanta
+- aritmetický operátor
 - porovnávací operátor
 - styl A1
 - styl R1C1
 - předdefinovaná funkce
 - PowerPoint
-- OpenDocument
 - prezentace
 - Python
 - Aspose.Slides
-description: "Použijte vzorce ve stylu Excel v Aspose.Slides pro Python pomocí .NET listů grafu a automatizujte zprávy v souborech PPT, PPTX a ODP."
+description: "Použijte vzorce ve stylu Excel v Aspose.Slides pro Python pomocí .NET pracovních listů grafů, přepočítejte hodnoty a použijte výsledky v grafech PowerPointu."
 ---
 ## **Přehled**
 
-List pracovního listu grafu je zdroj dat za grafem v prezentaci. Uchovává názvy kategorií a řad spolu s číselnými hodnotami zobrazenými v grafu. V Aspose.Slides je tento list dostupný prostřednictvím sešitu dat grafu, což umožňuje programově pracovat s daty grafu.
+Grafy v PowerPointu obvykle ukládají svá zdrojová data do vloženého pracovního listu. V Aspose.Slides for Python via .NET můžete k tomuto pracovnímu listu přistupovat pomocí sešitu dat grafu, zapisovat vstupní hodnoty, přiřazovat buňkám vzorce, vypočítávat podporované vzorce a používat vypočítané buňky jako data grafu.
 
-Tento článek vysvětluje, jak používat vzorce v listu grafu, aby hodnoty buněk mohly být vypočítány a aktualizovány automaticky místo ručního zadání. Ukazuje, jak přiřadit vzorce, používat reference ve stylu A1 i R1C1, přepočítat vzorce v sešitu a pracovat s podporovanými konstantami, operátory, odkazy na buňky a předdefinovanými funkcemi dostupnými pro listy grafů v prezentacích.
+Tento článek vysvětluje kompletní postup práce s vzorci: vytvořit graf, naplnit jeho pracovní list, přiřadit vzorce ve stylu A1 nebo R1C1, přepočítat je, přečíst vypočítané hodnoty, připojit tyto buňky k řadě grafu a uložit prezentaci. Také popisuje podporovanou syntaxi vzorců, podmnožinu vestavěných funkcí, uložené hodnoty, nepodporované vzorce a specifické chyby tabulkových procesorů.
 
-## **O vzorci tabulky grafu v prezentaci**
-**Tabulka grafu** (nebo list grafu) v prezentaci je zdrojem dat pro graf. Tabulka grafu obsahuje data, která jsou v grafu graficky znázorněna. Když vytvoříte graf v PowerPointu, automaticky se vytvoří i list spojený s tímto grafem. List grafu se vytváří pro všechny typy grafů: čárový graf, sloupcový graf, souhvězdí (sunburst) graf, koláčový graf atd. Chcete-li v PowerPointu zobrazit tabulku grafu, poklepejte na graf:
+## **Pracovní listy grafu a vzorce**
 
-![todo:image_alt_text](chart-worksheet-formulas_1.png)
+Pracovní list grafu obsahuje kategorie, názvy řad a hodnoty použité v grafu. V PowerPointu můžete pracovní list prohlédnout otevřením editoru dat grafu:
 
-Tabulka grafu obsahuje názvy prvků grafu (Název kategorie: *Category1*, Název řady) a tabulku s číselnými údaji odpovídajícími těmto kategoriím a řadám. Ve výchozím nastavení, když vytvoříte nový graf, jsou data tabulky grafu nastavena na výchozí hodnoty. Poté můžete data v listu upravit ručně.
+![Graf PowerPointu s otevřeným vloženým pracovním listem, zobrazující kategorie a data řad](chart-worksheet-formulas_1.png)
 
-Obvykle graf představuje složitá data (např. finanční analytici, vědecké analýzy), kde buňky jsou vypočítány z hodnot v jiných buňkách nebo z dalších dynamických dat. Ruční výpočet hodnoty buňky a její pevné zadání ztěžuje budoucí změny. Pokud změníte hodnotu určité buňky, všechny buňky na ní závislé budou také muset být aktualizovány. Navíc data v tabulce mohou záviset na datech z jiných tabulek, což vytváří složitý datový schéma prezentace, které je potřeba aktualizovat snadno a flexibilně.
+V Aspose.Slides je pracovní list zpřístupněn prostřednictvím [sešitu dat grafu](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/ichartdataworkbook/). Použijte vlastnost [formula](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/ichartdatacell/formula/) pro vzorce ve stylu A1 a vlastnost [r1c1_formula](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/ichartdatacell/r1c1_formula/) pro vzorce ve stylu R1C1. Po změně vstupních buněk nebo vzorců zavolejte [calculate_formulas](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/), aby se přepočítaly podporované vzorce a aktualizovaly odpovídající hodnoty buněk.
 
-**Vzorec tabulky grafu** v prezentaci je výraz, který automaticky vypočítá a aktualizuje data tabulky grafu. Vzorec v tabulce definuje logiku výpočtu dat pro určitou buňku nebo sadu buněk. Vzorec v tabulce je matematický nebo logický vzorec, který používá: odkazy na buňky, matematické funkce, logické operátory, aritmetické operátory, konverzní funkce, řetězcové konstanty atd. Definice vzorce je zapsána do buňky, která neobsahuje jednoduchou hodnotu. Vzorec vypočítá hodnotu a vrátí ji, pak je tato hodnota přiřazena buňce. Vzorce tabulky grafu v prezentacích jsou ve skutečnosti stejné jako Excelové vzorce a podporují stejné výchozí funkce, operátory a konstanty pro jejich implementaci.
+Vypočítaná buňka stále poskytuje svůj výsledek prostřednictvím vlastnosti [value](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/ichartdatacell/value/). To je důležité, když potřebujete v kódu zkontrolovat výsledek vzorce nebo použít buňku jako datový bod grafu.
 
-V [**Aspose.Slides**](https://products.aspose.com/slides/cs/python-net/) je tabulka grafu reprezentována vlastností [**Chart.ChartData.ChartDataWorkbook**](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/ichartdata/) typu [**IChartDataWorkbook**](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/ichartdataworkbook/). Vzorec v tabulce lze přiřadit a změnit pomocí vlastnosti [**formula**](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/ichartdatacell/). Pro vzorce v Aspose.Slides je podporována následující funkcionalita:
-- Logické konstanty
-- Číselné konstanty
-- Řetězcové konstanty
-- Chybové konstanty
-- Aritmetické operátory
-- Porovnávací operátory
-- Odkazy na buňky ve stylu A1
-- Odkazy na buňky ve stylu R1C1
-- Předdefinované funkce
+## **Vytvoření grafu a výpočet vzorců v pracovním listu**
 
-Typicky tabulky ukládají poslední vypočítané hodnoty vzorců. Pokud po načtení prezentace nebyla data grafu změněna, vlastnost **IChartDataCell.Value** vrací tyto hodnoty při čtení. Pokud však byla data v tabulce změněna, při čtení vlastnosti **ChartDataCell.Value** vyvolá **CellUnsupportedDataException** kvůli nepodporovaným vzorcům. Důvodem je, že když jsou vzorce úspěšně parsovány, jsou určeny závislosti buněk a správnost posledních hodnot. Pokud vzorec nelze parsovat, nelze zaručit správnost hodnoty buňky.
+Následující příklad ukazuje kompletní workflow. Vytváří seskupený sloupcový graf, vymaže ukázková data, zapíše čtvrtletní příjmy a výdaje, vypočítá zisk pomocí vzorců, přečte výsledky, použije vypočítané buňky jako hodnoty grafu a uloží prezentaci.
 
-## **Přidání vzorce tabulky grafu do prezentace**
-Nejprve přidejte graf s některými ukázkovými daty na první snímek nové prezentace pomocí [add_chart](https://reference.aspose.com/slides/cs/python-net/aspose.slides/ishapecollection/). List grafu je automaticky vytvořen a lze k němu přistupovat pomocí vlastnosti [**chart_data_workbook**](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/ichartdata/):
-
-```py
-import aspose.slides.charts as charts
+```python
 import aspose.slides as slides
+import aspose.slides.charts as charts
 
 with slides.Presentation() as presentation:
-    chart = presentation.slides[0].shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 150, 150, 500, 300)
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 600, 350)
     workbook = chart.chart_data.chart_data_workbook
-    # ...
-```
+    worksheet_index = 0
 
-Napišme některé hodnoty do buněk pomocí vlastnosti [**value**](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/ichartdatacell/) typu **Object**, což znamená, že můžete nastavit libovolnou hodnotu:
+    chart.chart_data.series.clear()
+    chart.chart_data.categories.clear()
+    workbook.clear(worksheet_index)
 
-```py
-    workbook.get_cell(0, "F2").value = -2.5
-    workbook.get_cell(0, "G3").value = 6.3
-    workbook.get_cell(0, "H4").value = 3
-```
+    category1 = workbook.get_cell(worksheet_index, "A2", "Q1")
+    category2 = workbook.get_cell(worksheet_index, "A3", "Q2")
+    category3 = workbook.get_cell(worksheet_index, "A4", "Q3")
 
-Nyní pro zápis vzorce do buňky můžete použít vlastnost [**formula**](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/ichartdatacell/):
+    workbook.get_cell(worksheet_index, "B1", "Revenue")
+    workbook.get_cell(worksheet_index, "C1", "Expenses")
+    workbook.get_cell(worksheet_index, "D1", "Profit")
 
-```py
-    workbook.get_cell(0, "B2").formula = "F2+G3+H4+1"
-```
+    workbook.get_cell(worksheet_index, "B2").value = 120.0
+    workbook.get_cell(worksheet_index, "C2").value = 80.0
+    workbook.get_cell(worksheet_index, "B3").value = 150.0
+    workbook.get_cell(worksheet_index, "C3").value = 95.0
+    workbook.get_cell(worksheet_index, "B4").value = 135.0
+    workbook.get_cell(worksheet_index, "C4").value = 110.0
 
-*Poznámka*: [**IChartDataCell.Formula**](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/ichartdatacell/) vlastnost se používá k nastavení odkazů na buňky ve stylu A1.
+    profit1 = workbook.get_cell(worksheet_index, "D2")
+    profit2 = workbook.get_cell(worksheet_index, "D3")
+    profit3 = workbook.get_cell(worksheet_index, "D4")
 
-Pro nastavení odkazu na buňku [r1c1_formula](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/ichartdatacell/) můžete použít vlastnost [**r1c1_formula**](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/ichartdatacell/):
+    profit1.formula = "B2-C2"
+    profit2.formula = "B3-C3"
+    profit3.formula = "B4-C4"
 
-```py
-    workbook.get_cell(0, "C2").r1c1_formula = "R[1]C[4]/R[2]C[5]"
-```
-
-Poté použijte metodu [**calculate_formulas**](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartdataworkbook/) k vypočítání všech vzorců v sešitu a aktualizaci odpovídajících hodnot buněk:
-
-```py
     workbook.calculate_formulas()
-    print(workbook.get_cell(0, "B2").value) # 7.8
-    print(workbook.get_cell(0, "C2").value) # 2.1
+
+    q1_profit = profit1.value  # 40
+    q2_profit = profit2.value  # 55
+    q3_profit = profit3.value  # 25
+
+    print(f"Q1 profit: {q1_profit}")
+    print(f"Q2 profit: {q2_profit}")
+    print(f"Q3 profit: {q3_profit}")
+
+    chart.chart_data.categories.add(category1)
+    chart.chart_data.categories.add(category2)
+    chart.chart_data.categories.add(category3)
+
+    profit_series = chart.chart_data.series.add(workbook.get_cell(worksheet_index, "D1"), chart.type)
+    profit_series.data_points.add_data_point_for_bar_series(profit1)
+    profit_series.data_points.add_data_point_for_bar_series(profit2)
+    profit_series.data_points.add_data_point_for_bar_series(profit3)
+    profit_series.labels.default_data_label_format.show_value = True
+
+    presentation.save("chart-formulas.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Logické konstanty**
-Můžete v buňkových vzorcích použít logické konstanty jako *FALSE* a *TRUE*:
+Datové body grafu odkazují na `D2:D4`, takže graf používá vypočítané hodnoty zisku. V tomto workflow není samostatné volání pro obnovu grafu: nejprve přepočtěte sešit, pak použijte nebo uložte data grafu, která ukazují na vypočítané buňky.
 
-## **Číselné konstanty**
-Čísla lze použít ve běžné nebo vědecké notaci k vytvoření vzorce tabulky grafu:
+## **Použití vzorců v A1 stylu**
 
-## **Řetězcové konstanty**
-Řetězcová (nebo literálová) konstanta je konkrétní hodnota, která se používá tak, jak je, a nemění se. Řetězcové konstanty mohou být: data, texty, čísla atd.:
+A1 zápis identifikuje sloupce písmeny a řádky čísly. Přiřaďte výrazy ve stylu A1 pomocí [IChartDataCell.formula](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/ichartdatacell/formula/).
 
-## **Chybové konstanty**
-Někdy není možné vypočítat výsledek pomocí vzorce. V takovém případě se v buňce místo hodnoty zobrazí chybový kód. Každý typ chyby má specifický kód:
-- #DIV/0! - vzorec se pokouší dělit nulou.
-- #GETTING_DATA - může se zobrazit v buňce, zatímco její hodnota se ještě počítá.
-- #N/A - informace chybí nebo není k dispozici. Důvody mohou být: buňky použité ve vzorci jsou prázdné, nadbytečný mezerník, překlep atd.
-- #NAME? - určitou buňku nebo jiný objekt vzorce nelze najít podle jména. 
-- #NULL! - může se objevit při chybě ve vzorci, jako je:  (,) nebo mezerník místo dvojtečky (:).
-- #NUM! - číselná hodnota ve vzorci může být neplatná, příliš dlouhá nebo příliš malá atd.
-- #REF! - neplatný odkaz na buňku.
-- #VALUE! - neočekávaný typ hodnoty. Například řetězcová hodnota v buňce určené pro číslo.
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
 
-## **Aritmetické operátory**
-Můžete ve vzorcích listu grafu použít všechny aritmetické operátory:
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 300)
+    workbook = chart.chart_data.chart_data_workbook
 
-|**Operátor**|**Význam**|**Příklad**|
-| :- | :- | :- |
-|+ (plus sign)|Sčítání nebo unární plus|2 + 3|
-|- (minus sign)|Odčítání nebo negace|2 - 3<br>-3|
-|* (asterisk)|Násobení|2 * 3|
-|/ (forward slash)|Dělení|2 / 3|
-|% (percent sign)|Procento|30%|
-|^ (caret)|Umocnění|2 ^ 3|
+    workbook.get_cell(0, "C3").value = 10
+    workbook.get_cell(0, "F2").value = 2
+    workbook.get_cell(0, "G2").value = 3
+    workbook.get_cell(0, "H2").value = 4
 
-*Poznámka*: Pro změnu pořadí vyhodnocení uzavřete část vzorce, která má být vypočítána první, do závorek.
+    cell = workbook.get_cell(0, "A2")
+    cell.formula = "C3+SUM(F2:H2)"
 
-## **Porovnávací operátory**
-Můžete porovnávat hodnoty buněk pomocí porovnávacích operátorů. Když jsou dvě hodnoty porovnány pomocí těchto operátorů, výsledek je logická hodnota *TRUE* nebo FALSE:
+    workbook.calculate_formulas()
 
-|**Operátor**|**Význam**|**Příklad**|
-| :- | :- | :- |
-|= (equal sign)|Rovná se|A2 = 3|
-|<> (not equal sign)|Nerovná se|A2 <> 3|
-|> (greater than sign)|Větší než|A2 > 3|
-|>= (greater than or equal to sign)|Větší nebo rovno|A2 >= 3|
-|< (less than sign)|Menší než|A2 < 3|
-|<= (less than or equal to sign)|Menší nebo rovno|A2 <= 3|
+    value = cell.value  # 19
+```
 
-## **Odkazy na buňky ve stylu A1**
-**Odkazy na buňky ve stylu A1** se používají v listách, kde sloupec má písmenový identifikátor (např. "*A*") a řádek má číselný identifikátor (např. "*1*"). Odkazy ve stylu A1 lze použít následujícím způsobem:
+Běžné formy odkazů v A1:
 
-|**Reference buňky**|**Příklad**|**Absolutní**|**Relativní**|**Smíšený**|
-| :- | :- | :- | :- | :- |
-|**Cell**|$A$2|A2|<p>A$2</p><p>$A2</p>|
-|**Row**|$2:$2|2:2|-|
-|**Column**|$A:$A|A:A|-|
-|**Range**|$A$2:$C$4|A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
+| Odkaz | Relativní | Absolutní | Smíšený |
+|---|---|---|---|
+| Buňka | `A2` | `$A$2` | `A$2`, `$A2` |
+| Řádek | `2:2` | `$2:$2` | — |
+| Sloupec | `A:A` | `$A:$A` | — |
+| Rozsah | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-Zde je příklad, jak použít odkaz na buňku ve stylu A1 ve vzorci:
+Relativní odkazy se mohou změnit, když je vzorec v tabulkovém procesoru přesunut nebo zkopírován. Absolutní odkazy zachovávají obě souřadnice pevně, zatímco smíšené odkazy fixují pouze řádek nebo sloupec.
 
-## **Odkazy na buňky ve stylu R1C1**
-**Odkazy na buňky ve stylu R1C1** se používají v listech, kde jak řádek, tak sloupec mají číselný identifikátor. Odkazy ve stylu R1C1 lze použít následujícím způsobem:
+## **Použití vzorců ve stylu R1C1**
 
-|**Reference buňky**|**Příklad**|**Absolutní**|**Relativní**|**Smíšený**|
-| :- | :- | :- | :- | :- |
-|**Cell**|R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
-|**Row**|R2|R[2]|-|
-|**Column**|C3|C[3]|-|
-|**Range**|R2C3:R5C7|R[2]C[3]:R[5]C[7]|R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
+R1C1 zápis identifikuje řádky i sloupce číselně. Relativní odkazy používají posuny v hranatých závorkách. Přiřaďte tuto syntaxi pomocí [IChartDataCell.r1c1_formula](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/ichartdatacell/r1c1_formula/).
 
-Zde je příklad, jak použít odkaz na buňku ve stylu R1C1 ve vzorci:
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
 
-## **Předdefinované funkce**
-Existují předdefinované funkce, které lze ve vzorcích použít pro zjednodušení jejich implementace. Tyto funkce zapouzdřují nejčastěji používané operace, například:
-- ABS
-- AVERAGE
-- CEILING
-- CHOOSE
-- CONCAT
-- CONCATENATE
-- DATE (1900 date system)
-- DAYS
-- FIND
-- FINDB
-- IF
-- INDEX (reference form)
-- LOOKUP (vector form)
-- MATCH (vector form)
-- MAX
-- SUM
-- VLOOKUP
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 300)
+    workbook = chart.chart_data.chart_data_workbook
 
-## **Často kladené otázky**
-**Jsou externí soubory Excel podporovány jako zdroj dat pro graf s vzorci?**
+    workbook.get_cell(0, "B2").value = 12
+    workbook.get_cell(0, "C2").value = 5
 
-Ano. Aspose.Slides podporuje externí sešity jako [zdroj dat grafu](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartdatasourcetype/), což umožňuje používat vzorce z XLSX mimo prezentaci.
+    cell = workbook.get_cell(0, "D2")
+    cell.r1c1_formula = "RC[-2]-RC[-1]"
 
-**Mohou vzorce grafu odkazovat na listy ve stejném sešitu podle názvu listu?**
+    workbook.calculate_formulas()
 
-Ano. Vzorce používají standardní model odkazování v Excelu, takže můžete odkazovat na jiné listy ve stejném sešitu nebo v externím sešitu. Pro externí odkazy uveďte cestu a název sešitu pomocí syntaxe Excelu.
+    value = cell.value  # 7
+```
+
+Běžné formy odkazů v R1C1:
+
+| Odkaz | Relativní | Absolutní | Smíšený |
+|---|---|---|---|
+| Buňka | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
+| Řádek | `R[2]` | `R2` | — |
+| Sloupec | `C[3]` | `C3` | — |
+| Rozsah | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
+
+Například v buňce `D2` znamená `RC[-2]` buňku ve stejném řádku dvě sloupce vlevo (`B2`).
+
+## **Konstanty a operátory ve vzorcích**
+
+Vestavěný vyhodnocovač vzorců podporuje logické hodnoty, číselné literály, řetězce, hodnoty chyb tabulkového procesoru, aritmetické operátory a porovnávací operátory.
+
+### **Konstanty a literály**
+
+| Typ | Příklady | Poznámky |
+|---|---|---|
+| Logická | `TRUE`, `FALSE` | Lze použít přímo v logických výrazech, např. `A2=TRUE`. |
+| Číselná | `1`, `0.5`, `.3`, `1E-2` | Jsou podporovány obvyklé i vědecké zápisy. |
+| Řetězec | `"abc"`, `"2/3/2020 12:00"` | Literály textu jsou ve vzorci uzavřeny do dvojitých uvozovek. |
+| Výsledek chyby | `#DIV/0!`, `#N/A`, `#REF!` | Platný vzorec může vyhodnotit chybu tabulky místo běžného výsledku. |
+
+Tento příklad používá několik typů konstant:
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 300)
+    workbook = chart.chart_data.chart_data_workbook
+
+    workbook.get_cell(0, "A2").value = False
+    workbook.get_cell(0, "B2").formula = "A2=TRUE"
+    workbook.get_cell(0, "C2").formula = "1+0.5"
+    workbook.get_cell(0, "D2").formula = ".3*1E-2"
+    workbook.get_cell(0, "E2").formula = "\"abc\""
+    workbook.get_cell(0, "F2").formula = "2/0"
+
+    workbook.calculate_formulas()
+
+    logical_value = workbook.get_cell(0, "B2").value  # False
+    numeric_value = workbook.get_cell(0, "C2").value  # 1.5
+    scientific_value = workbook.get_cell(0, "D2").value  # 0.003
+    string_value = workbook.get_cell(0, "E2").value  # abc
+    error_value = workbook.get_cell(0, "F2").value  # #DIV/0!
+```
+
+### **Aritmetické operátory**
+
+| Operátor | Význam | Příklad |
+|---|---|---|
+| `+` | Sčítání nebo jednorázové plus | `2+3` |
+| `-` | Odčítání nebo záporný | `2-3`, `-3` |
+| `*` | Násobení | `2*3` |
+| `/` | Dělení | `2/3` |
+| `%` | Procento | `30%` |
+| `^` | Mocnina | `2^3` |
+
+Používejte závorky pro explicitní určení pořadí vyhodnocení, např. `(A2+B2)*C2`.
+
+### **Porovnávací operátory**
+
+Porovnávací výrazy vrací logické hodnoty.
+
+| Operátor | Význam | Příklad |
+|---|---|---|
+| `=` | Rovná se | `A2=3` |
+| `<>` | Nerovná se | `A2<>3` |
+| `>` | Větší než | `A2>3` |
+| `>=` | Větší nebo rovno | `A2>=3` |
+| `<` | Menší než | `A2<3` |
+| `<=` | Menší nebo rovno | `A2<=3` |
+
+## **Podporované předdefinované funkce**
+
+Aspose.Slides obsahuje vestavěný vyhodnocovač vzorců pro pracovní listy grafů, ale není to kompletní výpočetní engine Excelu. Dokumentovaná sada funkcí je omezena na níže uvedené funkce. Nepředpokládejte, že libovolná funkce Excelu bude přepočítána pomocí [calculate_formulas](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/).
+
+| Funkce | Účel nebo podpořená forma | Příklad |
+|---|---|---|
+| `ABS` | Absolutní hodnota | `ABS(A2)` |
+| `AVERAGE` | Aritmetický průměr | `AVERAGE(B2:B5)` |
+| `CEILING` | Zaokrouhlení čísla nahoru na násobek | `CEILING(A2,5)` |
+| `CHOOSE` | Výběr hodnoty podle indexu | `CHOOSE(A2,"Low","High")` |
+| `CONCAT` | Spojení textových hodnot | `CONCAT(A2,B2)` |
+| `CONCATENATE` | Spojení textových hodnot | `CONCATENATE(A2," ",B2)` |
+| `DATE` | Vytvoření hodnoty data pomocí datového systému 1900 | `DATE(2026,8,19)` |
+| `DAYS` | Vrací počet dní mezi daty | `DAYS(B2,A2)` |
+| `FIND` | Vyhledá text uvnitř jiného textu | `FIND("-",A2)` |
+| `FINDB` | Vyhledávání textu po bajtech | `FINDB("a",A2)` |
+| `IF` | Podmíněný výsledek | `IF(A2>0,A2,0)` |
+| `INDEX` | Referenční forma | `INDEX(A2:C4,2,3)` |
+| `LOOKUP` | Vektorová forma | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | Vektorová forma | `MATCH(A2,B2:B5,0)` |
+| `MAX` | Maximální hodnota | `MAX(B2:B5)` |
+| `SUM` | Součet hodnot | `SUM(B2:B5)` |
+| `VLOOKUP` | Vertikální vyhledávání | `VLOOKUP(A2,B2:D10,3,FALSE)` |
+
+Ukázané omezení v tabulce jsou podstatná: `INDEX` je dokumentován ve formě reference, zatímco `LOOKUP` a `MATCH` jsou v vektorové formě. `DATE` používá systém dat 1900. Funkce a vlastnosti, které zde nejsou uvedeny, by měly být považovány za nepodporované vestavěným vyhodnocovačem Aspose.Slides, pokud nejsou dokumentovány zvlášť.
+
+## **Přepočet a uložené hodnoty**
+
+Soubory tabulek běžně ukládají jak vzorec, tak jeho naposledy vypočítanou hodnotu. Aspose.Slides může při načtení prezentace přečíst uloženou hodnotu z [IChartDataCell.value](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/ichartdatacell/value/), pokud se data grafu mezitím nezměnila.
+
+Po změně vstupních buněk nebo vzorců nespoléhejte na starý uložený výsledek. Před čtením vypočítaných hodnot nebo uložením grafu, který na nich závisí, zavolejte [ChartDataWorkbook.calculate_formulas](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/).
+
+U vzorců mimo podporovanou podmnožinu může Aspose.Slides být neschopen vzorec parsovat nebo zjistit jeho závislosti. Pokud byl sešit modifikován, předchozí uložená hodnota už není spolehlivá. V takové situaci může čtení hodnoty buňky s nepodporovanými daty vyvolat [CellUnsupportedDataException](https://reference.aspose.com/slides/cs/python-net/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+
+Pokud váš graf závisí na Excelových funkcích, které Aspose.Slides nevyhodnocuje, vypočítejte tyto vzorce externím enginem a zapište získané hodnoty zpět do sešitu grafu. Nepřepisujte nepodporované vzorce odhadovanými hodnotami.
+
+## **Zpracování chyb vzorců**
+
+Existují dva různé typy problémů, které je třeba rozlišovat.
+
+Vzorec může být platný, ale vrátit výsledek chyby tabulky, například `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` nebo `#VALUE!`. V tomto případě je chybový token výsledkem buňky a může být vrácen přes `value`.
+
+Vzorec může také selhat při parsování, referencování, závislostech nebo na úrovni podporovaných dat. Aspose.Slides poskytuje pro tyto případy specifické výjimky tabulkového procesoru: [CellInvalidFormulaException](https://reference.aspose.com/slides/cs/python-net/aspose.slides.spreadsheet/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/cs/python-net/aspose.slides.spreadsheet/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/cs/python-net/aspose.slides.spreadsheet/cellcircularreferenceexception/) a [CellUnsupportedDataException](https://reference.aspose.com/slides/cs/python-net/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+
+Když vzorce pocházejí ze šablon nebo uživatelského vstupu, ošetřete tyto výjimky kolem přepočtu a přístupu k hodnotě:
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+import aspose.slides.spreadsheet as spreadsheet
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 50, 50, 500, 300)
+    workbook = chart.chart_data.chart_data_workbook
+    cell = workbook.get_cell(0, "A2")
+    cell.formula = "SUM(B2:B5)"
+
+    try:
+        workbook.calculate_formulas()
+        print(cell.value)
+    except spreadsheet.CellInvalidFormulaException as ex:
+        print(f"Invalid formula: {ex}")
+    except spreadsheet.CellInvalidReferenceException as ex:
+        print(f"Invalid cell reference: {ex}")
+    except spreadsheet.CellCircularReferenceException as ex:
+        print(f"Circular reference: {ex}")
+    except spreadsheet.CellUnsupportedDataException as ex:
+        print(f"Unsupported spreadsheet data: {ex}")
+```
+
+## **Praktická omezení**
+
+Podpora vzorců v pracovních listech grafů je určena pro definovanou podmnožinu tabulkových výpočtů, nikoli pro úplnou kompatibilitu s Excelem. Mějte tato omezení na paměti při navrhování workflow reportování:
+
+- Používejte pouze dokumentované konstanty, operátory, odkazy a funkce, pokud chcete, aby Aspose.Slides přepočítal vzorce.
+- Přepočítejte po změně buněk, na nichž výsledek vzorce závisí.
+- Považujte uložené hodnoty z načtených prezentací za snímky, ne za náhradu přepočtu po úpravách.
+- Otestujte vzorce ze stávajících šablon před spolehnutím se na jejich vypočítané hodnoty, zejména pokud používají funkce mimo dokumentovaný seznam.
+- Pro vzorce, které vyžadují kompletní výpočetní engine tabulek, je vypočítejte externě a poté aktualizujte sešit grafu s výslednými hodnotami.
+
+## **FAQ**
+
+**Jaký je rozdíl mezi `formula` a `r1c1_formula`?**
+
+[formula](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/ichartdatacell/formula/) ukládá výraz ve stylu A1, např. `B2-C2`. [r1c1_formula](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/ichartdatacell/r1c1_formula/) ukládá výraz ve stylu R1C1, např. `RC[-2]-RC[-1]`. Použijte zápis, který nejlépe odpovídá tomu, jak vzorce generujete nebo kopírujete.
+
+**Musím po přepočtu číst buňku samotnou nebo jen její hodnotu?**
+
+[ChartDataWorkbook.get_cell](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) vrací objekt `IChartDataCell`. Pro získání vypočítaného výsledku přečtěte jeho vlastnost [value](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/ichartdatacell/value/) po přepočtu.
+
+**Kdy bych měl zavolat `calculate_formulas`?**
+
+Zavolejte [calculate_formulas](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) po změně vstupních hodnot nebo vzorců a před tím, než budete záviset na vypočítaných výsledcích. Tím se aktualizují hodnoty vzorců, které vestavěný vyhodnocovač podporuje.
+
+**Podporuje Aspose.Slides každou funkci Excelu?**
+
+Ne. Vestavěný vyhodnocovač podporuje jen dokumentovanou podmnožinu funkcí. Funkce mimo tuto podmnožinu by neměly být považovány za správně přepočítatelné. Pokud je vyžadována plná kompatibilita s Excelovými vzorci, proveďte výpočet vhodným tabulkovým enginem a výsledek zapište do sešitu grafu.
+
+**Co se stane, když načtená prezentace obsahuje nepodporovaný vzorec?**
+
+Pokud se data grafu nezměnila, může sešit stále obsahovat dříve vypočítanou uloženou hodnotu. Po úpravě souvisejících dat tato uložená hodnota může být neplatná. Přístup k buňce, jejíž vzorec nelze zpracovat, může vyvolat [CellUnsupportedDataException](https://reference.aspose.com/slides/cs/python-net/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+
+**Jsou hodnoty chyb vzorců stejné jako výjimky v Pythonu?**
+
+Ne. Výsledek jako `#DIV/0!` je hodnota tabulky vzniklá platným výpočtem. Výjimky jako [CellInvalidFormulaException](https://reference.aspose.com/slides/cs/python-net/aspose.slides.spreadsheet/cellinvalidformulaexception/) nebo [CellCircularReferenceException](https://reference.aspose.com/slides/cs/python-net/aspose.slides.spreadsheet/cellcircularreferenceexception/) signalizují, že vzorec nelze normálně zpracovat.
+
+**Aktualizuje se graf automaticky, když se změní buňka s vzorcem?**
+
+Řada grafu může odkazovat na buňky sešitu. Nejprve přepočtěte sešit, potom uložte nebo vykreslete prezentaci. Pokud datové body grafu odkazují na vypočítané buňky, graf použije tyto aktualizované hodnoty; samostatná metoda pro obnovu grafu není v tomto workflow vyžadována.
+
+**Mohou grafy využívat externí sešit Excel?**
+
+Ano, data grafu lze nastavit tak, aby používala externí sešit prostřednictvím API grafu. Nicméně workflow výpočtu vzorců popsané v tomto článku se týká sešitu dat grafu a podmnožiny vzorců vyhodnocovaných Aspose.Slides. Nepředpokládejte, že [calculate_formulas](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) poskytuje úplný přepočet libovolných vzorců v externím souboru XLSX.
+
+**Mohu používat vzorce, které odkazují na jiný pracovní list nebo sešit?**
+
+Odkazy ve stylu Excel mohou v sešitech grafů existovat, ale vyhodnocování vzorců je omezeno podporovaným parserem a sadou funkcí. Pokud je nezbytný odkaz napříč listy nebo externí odkaz, ověřte, že konkrétní vzorec funguje s vaší verzí Aspose.Slides. Pro workflow, které vyžadují širokou kompatibilitu odkazů Excelu, vypočítejte sešit externě a zapište vyřešené hodnoty zpět do dat grafu.
+
+**Měly by řetězce vzorců začínat `=`?**
+
+Příklady v API Aspose.Slides přiřazují výrazy jako `B2-C2` nebo `SUM(B2:B5)` bez úvodní `=`. Použití tohoto tvaru udržuje generované vzorce v souladu s dokumentovanými příklady API.

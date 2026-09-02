@@ -1,5 +1,5 @@
 ---
-title: Java を使用したプレゼンテーションでのチャートワークシート数式の適用
+title: Java でプレゼンテーションのチャート ワークシート数式を適用する
 linktitle: ワークシート数式
 type: docs
 weight: 70
@@ -7,237 +7,379 @@ url: /ja/java/chart-worksheet-formulas/
 keywords:
 - チャート スプレッドシート
 - チャート ワークシート
-- チャート数式
-- ワークシート数式
-- スプレッドシート数式
-- データ ソース
+- チャート 数式
+- ワークシート 数式
+- スプレッドシート 数式
+- チャート データ ワークブック
+- 数式 計算
 - 論理定数
 - 数値定数
 - 文字列定数
 - エラー定数
-- 算術定数
+- 算術演算子
 - 比較演算子
-- A1 スタイル
-- R1C1 スタイル
+- A1 形式
+- R1C1 形式
 - 組み込み関数
 - PowerPoint
 - プレゼンテーション
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java のチャートワークシートで Excel スタイルの数式を適用し、PPT および PPTX ファイル全体でレポートを自動化します。"
+description: "Aspose.Slides for Java のチャート ワークシートで Excel 形式の数式を適用し、値を再計算して、PowerPoint のチャートで結果を使用します。"
 ---
+## **概要**
 
-## **プレゼンテーションにおけるチャートスプレッドシート数式について**
-**Chart spreadsheet**（または chart worksheet）は、プレゼンテーション内のチャートのデータ ソースです。Chart spreadsheet には、チャート上にグラフィカルに表されるデータが含まれます。PowerPoint でチャートを作成すると、このチャートに関連付けられたワークシートも自動的に作成されます。Chart worksheet は、折れ線グラフ、棒グラフ、サンバースト グラフ、円グラフなど、すべての種類のチャートに対して作成されます。PowerPoint でチャートスプレッドシートを表示するには、チャートをダブルクリックしてください：
+PowerPoint のグラフは通常、埋め込みワークシートに元データを保存します。Aspose.Slides for Java では、チャート データ ワークブックを介してそのワークシートにアクセスし、入力値を書き込み、セルに数式を割り当て、サポートされている数式を計算し、計算されたセルをチャート データとして使用できます。
 
-![todo:image_alt_text](chart-worksheet-formulas_1.png)
+この記事では、完全な数式ワークフローを説明します。グラフを作成し、ワークシートにデータを入力し、A1 形式または R1C1 形式の数式を割り当て、再計算し、計算結果を読み取り、そのセルをチャート シリーズに接続し、プレゼンテーションを保存します。また、サポートされている数式構文、組み込み関数のサブセット、キャッシュされた値、未サポートの数式、スプレッドシート固有のエラーについても説明します。
 
+## **チャート ワークシートと数式**
 
-Chart spreadsheet には、チャート要素の名前（カテゴリ名: *Category1*、シリーズ名）と、これらのカテゴリとシリーズに対応する数値データの表が含まれます。デフォルトでは、新しいチャートを作成すると、チャートスプレッドシートのデータは既定のデータで設定されます。その後、ワークシート内のデータを手動で変更できます。
+チャート ワークシートには、グラフで使用されるカテゴリ、系列名、値が含まれます。PowerPoint では、チャート データ エディターを開くことでワークシートを確認できます。
 
-通常、チャートは複雑なデータ（例: 財務アナリスト、科学アナリスト）を表し、他のセルの値や動的データから計算されたセルを含みます。セルの値を手動で計算してハードコーディングすると、将来的に変更が難しくなります。特定のセルの値を変更すると、それに依存するすべてのセルも更新が必要になります。さらに、表データが他の表のデータに依存することがあり、プレゼンテーション データのスキーマが複雑になり、簡単かつ柔軟に更新できる必要があります。
+![PowerPoint の埋め込みワークシートを開いたチャート。カテゴリと系列データを表示](chart-worksheet-formulas_1.png)
 
-**Chart spreadsheet formula** は、チャートスプレッドシートのデータを自動的に計算・更新する式です。スプレッドシート数式は、特定のセルまたはセルのセットに対するデータ計算ロジックを定義します。スプレッドシート数式は、セル参照、数学関数、論理演算子、算術演算子、変換関数、文字列定数などを使用した数式または論理式です。数式の定義はセルに記述され、そのセルは単純な値を保持しません。スプレッドシート数式は値を計算して返し、その値がセルに割り当てられます。プレゼンテーション内のチャートスプレッドシート数式は Excel の数式と実質的に同じで、同じ既定の関数、演算子、定数がサポートされています。
+Aspose.Slides では、ワークシートは [IChartDataWorkbook](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdataworkbook/) インターフェイスを通じて公開されます。A1 形式の数式には [IChartDataCell.setFormula](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) を、R1C1 形式の数式には [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) を使用します。入力セルまたは数式を変更した後は、[IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) を呼び出してサポートされている数式を再計算し、対応するセル値を更新します。
 
-In [**Aspose.Slides**](https://products.aspose.com/slides/java/) chart spreadsheet is represented with 
-[**Chart.getChartData.getChartDataWorkbook**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartData#getChartDataWorkbook--) method of the
-[**IChartDataWorkbook**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataWorkbook) type. 
-Spreadsheet formula can be assigned and changed with 
-[**IChartDataCell.setFormula**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataCell#setFormula-java.lang.String-) method. 
-The following functionality is supported for formulas in Aspose.Slides:
+計算されたセルは依然として [IChartDataCell.getValue](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdatacell/#getValue--) で結果を取得できます。これは、コードで数式の結果を確認したり、セルをチャート データ ポイントとして使用したりする場合に重要です。
 
-- Logical constants
-- Numerical constants
-- String constants
-- Error constants
-- Arithmetic operators
-- Comparison operators
-- A1-style cell references
-- R1C1-style cell references
-- Predefined functions
+## **チャートの作成とワークシート数式の計算**
 
+以下の例はエンドツーエンドのワークフローを示します。クラスター化縦棒グラフを作成し、サンプル データをクリアし、四半期の売上と費用の値を書き込み、数式で利益を計算し、結果を読み取り、計算されたセルをチャートの値として使用し、プレゼンテーションを保存します。
 
-Typically, spreadsheets store the last calculated formula values. If after presentation loading, the chart data were not changed - [**IChartDataCell.getValue**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataCell#getValue--) method it returns those values while reading. But, if spreadsheet data had been changed, while reading **ChartDataCell.Value** property it throws the [**CellUnsupportedDataException**](https://reference.aspose.com/slides/java/com.aspose.slides/CellUnsupportedDataException) for the unsupported formulas. This is because when formulas are successfully parsed, the cell dependencies are determined and the correctness of the last values is determined. But, if the formula can not be parsed, the correctness of cell value cannot be guaranteed.
-
-## **Add a Chart Spreadsheet Formula to a Presentation**
-First, add a chart to the first slide of a new presentation with 
-[IShapeCollection.getShapes.addChart](https://reference.aspose.com/slides/java/com.aspose.slides/IShapeCollection#addChart-int-float-float-float-float-). 
-The worksheet of the chart is automatically created and can be accessed with 
-[**Chart.getChartData.getChartDataWorkbook**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartData#getChartDataWorkbook--) method:
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 150, 150, 500, 300);
-
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 350);
     IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    int worksheetIndex = 0;
 
-    // ...
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+    workbook.clear(worksheetIndex);
+
+    IChartDataCell category1 = workbook.getCell(worksheetIndex, "A2", "Q1");
+    IChartDataCell category2 = workbook.getCell(worksheetIndex, "A3", "Q2");
+    IChartDataCell category3 = workbook.getCell(worksheetIndex, "A4", "Q3");
+
+    workbook.getCell(worksheetIndex, "B1", "Revenue");
+    workbook.getCell(worksheetIndex, "C1", "Expenses");
+    workbook.getCell(worksheetIndex, "D1", "Profit");
+
+    workbook.getCell(worksheetIndex, "B2").setValue(120.0);
+    workbook.getCell(worksheetIndex, "C2").setValue(80.0);
+    workbook.getCell(worksheetIndex, "B3").setValue(150.0);
+    workbook.getCell(worksheetIndex, "C3").setValue(95.0);
+    workbook.getCell(worksheetIndex, "B4").setValue(135.0);
+    workbook.getCell(worksheetIndex, "C4").setValue(110.0);
+
+    IChartDataCell profit1 = workbook.getCell(worksheetIndex, "D2");
+    IChartDataCell profit2 = workbook.getCell(worksheetIndex, "D3");
+    IChartDataCell profit3 = workbook.getCell(worksheetIndex, "D4");
+
+    profit1.setFormula("B2-C2");
+    profit2.setFormula("B3-C3");
+    profit3.setFormula("B4-C4");
+
+    workbook.calculateFormulas();
+
+    double q1Profit = ((Number) profit1.getValue()).doubleValue(); // 40
+    double q2Profit = ((Number) profit2.getValue()).doubleValue(); // 55
+    double q3Profit = ((Number) profit3.getValue()).doubleValue(); // 25
+
+    System.out.println("Q1 profit: " + q1Profit);
+    System.out.println("Q2 profit: " + q2Profit);
+    System.out.println("Q3 profit: " + q3Profit);
+
+    chart.getChartData().getCategories().add(category1);
+    chart.getChartData().getCategories().add(category2);
+    chart.getChartData().getCategories().add(category3);
+
+    IChartSeries profitSeries = chart.getChartData().getSeries().add(workbook.getCell(worksheetIndex, "D1"), chart.getType());
+    profitSeries.getDataPoints().addDataPointForBarSeries(profit1);
+    profitSeries.getDataPoints().addDataPointForBarSeries(profit2);
+    profitSeries.getDataPoints().addDataPointForBarSeries(profit3);
+    profitSeries.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+
+    presentation.save("chart-formulas.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+チャート データ ポイントは `D2:D4` を参照するため、グラフは計算された利益の値を使用します。このワークフローでは別途グラフのリフレッシュ呼び出しは必要ありません。まずワークブックを再計算し、次に計算されたセルを指すチャート データを使用または保存します。
 
-Let's write some values in cells with 
-[**IChartDataCell.setValue**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataCell#setValue-java.lang.Object-) property 
-of the **Object** type, which means you can set any value to the property:
+## **A1 形式の数式の使用**
+
+A1 表記は列を文字、行を数字で識別します。A1 形式の式は [IChartDataCell.setFormula](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) で割り当てます。
+
 ```java
-workbook.getCell(0, "F2").setValue(-2.5);
+import com.aspose.slides.*;
 
-workbook.getCell(0, "G3").setValue(6.3);
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
 
-workbook.getCell(0, "H4").setValue(3);
+    workbook.getCell(0, "C3").setValue(10);
+    workbook.getCell(0, "F2").setValue(2);
+    workbook.getCell(0, "G2").setValue(3);
+    workbook.getCell(0, "H2").setValue(4);
+
+    IChartDataCell cell = workbook.getCell(0, "A2");
+    cell.setFormula("C3+SUM(F2:H2)");
+
+    workbook.calculateFormulas();
+
+    Object value = cell.getValue(); // 19
+} finally {
+    presentation.dispose();
+}
 ```
 
+一般的な A1 参照形態は次のとおりです。
 
-Now to write formula to the cell, you can use the 
-[**IChartDataCell.setFormula**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataCell#setFormula-java.lang.String-) method:
+| 参照 | 相対 | 絶対 | 混合 |
+|---|---|---|---|
+| セル | `A2` | `$A$2` | `A$2`, `$A2` |
+| 行 | `2:2` | `$2:$2` | — |
+| 列 | `A:A` | `$A:$A` | — |
+| 範囲 | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-*Note*: [**IChartDataCell.setFormula**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataCell#setFormula-java.lang.String-) method is used to set A1-style cell references. 
+相対参照は数式がスプレッドシート アプリケーションで移動またはコピーされたときに変化します。絶対参照は両方の座標を固定し、混合参照は行または列のいずれかだけを固定します。
 
-To set the [R1C1Formula](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataCell#getR1C1Formula--) cell reference, you can use the [**IChartDataCell.setR1C1Formula**](https://reference.aspose.com/slides/java/com.aspose.slides/IChartDataCell#setR1C1Formula-java.lang.String-) method:
+## **R1C1 形式の数式の使用**
 
-Then if you try to read the values from the cells B2 and C2, they will be calculated:
+R1C1 表記は行と列の両方を数値で識別します。相対参照は角括弧内のオフセットで表します。この構文は [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) を使用して割り当てます。
+
 ```java
-Object value1 = cell1.getValue(); // 7.8
+import com.aspose.slides.*;
 
-Object value2 = cell2.getValue(); // 2.1
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "B2").setValue(12);
+    workbook.getCell(0, "C2").setValue(5);
+
+    IChartDataCell cell = workbook.getCell(0, "D2");
+    cell.setR1C1Formula("RC[-2]-RC[-1]");
+
+    workbook.calculateFormulas();
+
+    Object value = cell.getValue(); // 7
+} finally {
+    presentation.dispose();
+}
 ```
 
+一般的な R1C1 参照形態は次のとおりです。
 
-## **Logical Constants**
-You can use logical constants such as *FALSE* and *TRUE* in cell formulas:
+| 参照 | 相対 | 絶対 | 混合 |
+|---|---|---|---|
+| セル | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
+| 行 | `R[2]` | `R2` | — |
+| 列 | `C[3]` | `C3` | — |
+| 範囲 | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
+
+例として、セル `D2` で `RC[-2]` は同じ行の左に 2 列あるセル (`B2`) を指します。
+
+## **数式定数と演算子**
+
+組み込みの数式評価エンジンは論理値、数値リテラル、文字列、スプレッドシート エラー値、算術演算子、比較演算子をサポートします。
+
+### **定数とリテラル**
+
+| 種類 | 例 | 注釈 |
+|---|---|---|
+| 論理 | `TRUE`, `FALSE` | `A2=TRUE` のような論理式で直接使用できます。 |
+| 数値 | `1`, `0.5`, `.3`, `1E-2` | 通常表記と指数表記の両方がサポートされます。 |
+| 文字列 | `"abc"`, `"2/3/2020 12:00"` | 文字列リテラルは式内で二重引用符で囲みます。 |
+| エラー結果 | `#DIV/0!`, `#N/A`, `#REF!` | 有効な数式は通常の結果ではなくスプレッドシート エラー値に評価されることがあります。 |
+
+この例は複数の定数タイプを使用しています。
+
 ```java
-workbook.getCell(0, "A2").setValue(false);
-IChartDataCell cell = workbook.getCell(0, "B2");
-cell.setFormula("A2 = TRUE");
-Object value = cell.getValue(); // 値にはブール "false" が含まれています
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "A2").setValue(false);
+    workbook.getCell(0, "B2").setFormula("A2=TRUE");
+    workbook.getCell(0, "C2").setFormula("1+0.5");
+    workbook.getCell(0, "D2").setFormula(".3*1E-2");
+    workbook.getCell(0, "E2").setFormula("\"abc\"");
+    workbook.getCell(0, "F2").setFormula("2/0");
+
+    workbook.calculateFormulas();
+
+    Object logicalValue = workbook.getCell(0, "B2").getValue(); // 偽
+    Object numericValue = workbook.getCell(0, "C2").getValue(); // 1.5
+    Object scientificValue = workbook.getCell(0, "D2").getValue(); // 0.003
+    Object stringValue = workbook.getCell(0, "E2").getValue(); // abc
+    Object errorValue = workbook.getCell(0, "F2").getValue(); // #DIV/0!
+} finally {
+    presentation.dispose();
+}
 ```
 
+### **算術演算子**
 
-## **Numerical Constants**
-Numbers can be used in common or scientific notations to create chart spreadsheet formula:
+| 演算子 | 意味 | 例 |
+|---|---|---|
+| `+` | 加算または単項プラス | `2+3` |
+| `-` | 減算または単項マイナス | `2-3`, `-3` |
+| `*` | 乗算 | `2*3` |
+| `/` | 除算 | `2/3` |
+| `%` | パーセンテージ | `30%` |
+| `^` | 累乗 | `2^3` |
+
+評価順序を明示するには括弧を使用します。例: `(A2+B2)*C2`.
+
+### **比較演算子**
+
+比較式は論理値を返します。
+
+| 演算子 | 意味 | 例 |
+|---|---|---|
+| `=` | 等しい | `A2=3` |
+| `<>` | 等しくない | `A2<>3` |
+| `>` | 大きい | `A2>3` |
+| `>=` | 大きいまたは等しい | `A2>=3` |
+| `<` | 小さい | `A2<3` |
+| `<=` | 小さいまたは等しい | `A2<=3` |
+
+## **サポートされている組み込み関数**
+
+Aspose.Slides にはチャート ワークシート用の組み込み数式評価エンジンが含まれていますが、完全な Excel 計算エンジンではありません。ドキュメント化された関数セットは以下に限定されています。[IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) が処理できる関数以外は再計算できないと想定してください。
+
+| 関数 | 用途またはサポート形式 | 例 |
+|---|---|---|
+| `ABS` | 絶対値 | `ABS(A2)` |
+| `AVERAGE` | 算術平均 | `AVERAGE(B2:B5)` |
+| `CEILING` | 指定した倍数へ切り上げ | `CEILING(A2,5)` |
+| `CHOOSE` | インデックスで値を選択 | `CHOOSE(A2,"Low","High")` |
+| `CONCAT` | テキスト結合 | `CONCAT(A2,B2)` |
+| `CONCATENATE` | テキスト結合 | `CONCATENATE(A2," ",B2)` |
+| `DATE` | 1900 日付システムで日付値を作成 | `DATE(2026,8,19)` |
+| `DAYS` | 2 つの日付間の日数を返す | `DAYS(B2,A2)` |
+| `FIND` | テキスト内で文字列を検索 | `FIND("-",A2)` |
+| `FINDB` | バイト指向テキスト検索 | `FINDB("a",A2)` |
+| `IF` | 条件付き結果 | `IF(A2>0,A2,0)` |
+| `INDEX` | 参照形式 | `INDEX(A2:C4,2,3)` |
+| `LOOKUP` | ベクトル形式 | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | ベクトル形式 | `MATCH(A2,B2:B5,0)` |
+| `MAX` | 最大値 | `MAX(B2:B5)` |
+| `SUM` | 合計 | `SUM(B2:B5)` |
+| `VLOOKUP` | 縦方向検索 | `VLOOKUP(A2,B2:D10,3,FALSE)` |
+
+表に示された制限は重要です。`INDEX` は参照形式で、`LOOKUP` と `MATCH` はベクトル形式でのみサポートされます。`DATE` は 1900 日付システムを使用します。ここに記載されていない機能は、Aspose.Slides の数式評価エンジンでは未サポートと見なしてください。
+
+## **再計算とキャッシュ値**
+
+スプレッドシート ファイルは通常、数式と最後に計算された値の両方を格納します。プレゼンテーションがロードされ、該当するチャート データが変更されていない場合、Aspose.Slides は [IChartDataCell.getValue](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdatacell/#getValue--) からキャッシュされた値を読み取れます。
+
+入力セルまたは数式を変更した後は、古いキャッシュ結果に依存しないでください。計算された値を読み取るか、数式に依存するチャート データを保存する前に、必ず [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) を呼び出してください。
+
+サポート外の数式については、Aspose.Slides が数式を解析できなかったり依存関係を特定できなかったりする可能性があります。ワークブックが変更された場合、以前のキャッシュ値は信頼できません。そのような状況で未サポートのデータを持つセルの値を取得しようとすると、[CellUnsupportedDataException](https://reference.aspose.com/slides/ja/java/com.aspose.slides/cellunsupporteddataexception/) がスローされることがあります。
+
+Excel の関数で Aspose.Slides が評価できないものがある場合は、対応するスプレッドシート エンジンで数式を計算し、結果の値をチャート ワークブックに書き戻してください。未サポートの数式を推測した値で置き換えてはいけません。
+
+## **数式エラーの処理**
+
+区別すべき問題は 2 種類あります。
+
+* 数式自体は有効だが、`#DIV/0!`、`#N/A`、`#NAME?`、`#NULL!`、`#NUM!`、`#REF!`、`#VALUE!` といったスプレッドシート エラー結果を生成する場合。 この場合エラー トークンはセルの結果として返され、[IChartDataCell.getValue](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdatacell/#getValue--) で取得できます。
+* 数式が構文エラー、参照エラー、依存関係エラー、または未サポートデータのレベルで失敗する場合。Aspose.Slides はこれらのケースに対して [CellInvalidFormulaException](https://reference.aspose.com/slides/ja/java/com.aspose.slides/cellinvalidformulaexception/)、[CellInvalidReferenceException](https://reference.aspose.com/slides/ja/java/com.aspose.slides/cellinvalidreferenceexception/)、[CellCircularReferenceException](https://reference.aspose.com/slides/ja/java/com.aspose.slides/cellcircularreferenceexception/)、[CellUnsupportedDataException](https://reference.aspose.com/slides/ja/java/com.aspose.slides/cellunsupporteddataexception/) といったスプレッドシート固有の例外を提供します。
+
+テンプレートやユーザー入力から数式が供給される場合は、再計算と値取得の周囲でこれらの例外をハンドルしてください。
+
 ```java
-workbook.getCell(0, "A2").setFormula("1 + 0.5");
-workbook.getCell(0, "B2").setFormula(".3 * 1E-2");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 500, 300);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    IChartDataCell cell = workbook.getCell(0, "A2");
+    cell.setFormula("SUM(B2:B5)");
+
+    try {
+        workbook.calculateFormulas();
+        System.out.println(cell.getValue());
+    } catch (CellInvalidFormulaException ex) {
+        System.err.println("Invalid formula: " + ex.getMessage());
+    } catch (CellInvalidReferenceException ex) {
+        System.err.println("Invalid cell reference: " + ex.getMessage());
+    } catch (CellCircularReferenceException ex) {
+        System.err.println("Circular reference: " + ex.getMessage());
+    } catch (CellUnsupportedDataException ex) {
+        System.err.println("Unsupported spreadsheet data: " + ex.getMessage());
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
+## **実務上の制限**
 
-## **String Constants**
-String (or literal) constant is a specific value that is used as it is and does not change. String constants may be: dates, texts, numbers, etc.:
-```java
-workbook.getCell(0, "A2").setFormula("\"abc\"");
-workbook.getCell(0, "B2").setFormula("\"2/3/2020 12:00\"");
-```
+チャート ワークシートにおける数式サポートは、完全な Excel 互換性を提供するものではなく、定義されたサブセットの計算に限定されています。レポーティング ワークフローを設計する際は、以下の点に留意してください。
 
-
-## **Error Constants**
-Sometimes its not possible to calculate the result by the formula. In that case, the error code is shown in the cell instead of its value. Each type of error has a specific code:
-
-- #DIV/0! - formula tries to divide by zero.
-- #GETTING_DATA - may be shown on a cell, while its value is still calculating.
-- #N/A - information is missing or not available. Some reasons can be: the cells used in the formula is empty, an extra space character, misspelling, etc.
-- #NAME? - a certain cell or other formula objects can not be found by its name. 
-- #NULL! - may appear when there is a mistake in the formula, like:  (,) or a space character used instead of a colon (:).
-- #NUM! - the numeric in the formula may be invalid, too long or too small, etc.
-- #REF! - invalid cell reference.
-- #VALUE! - unexpected value type. For example, string value set to numeric cell.
-```java
-IChartDataCell cell = workbook.getCell(0, "A2");
-cell.setFormula("2 / 0");
-Object value = cell.getValue(); // 値には文字列「#DIV/0!」が含まれています
-```
-
-
-## **Arithmetic Operators**
-You can use all the arithmetic operators in chart worksheet formulas:
-
-|**Operator** |**Meaning** |**Example**|
-| :- | :- | :- |
-|+ (plus sign) |Addition or unary plus|2 + 3|
-|- (minus sign) |Subtraction or negation |2 - 3<br>-3|
-|* (asterisk)|Multiplication |2 * 3|
-|/ (forward slash)|Division |2 / 3|
-|% (percent sign) |Percent |30%|
-|^ (caret) |Exponentiation |2 ^ 3|
-
-*Note*: To change the order of evaluation, enclose in parentheses the part of the formula to be calculated first.
-
-## **Comparison Operators**
-You can compare the values of cells with the comparison operators. When two values are compared by using these operators, the result is a logical value either *TRUE* or FALSE:
-
-|**Operator** |**Meaning** |**Meaning** |
-| :- | :- | :- |
-|= (equal sign) |Equal to |A2 = 3|
-|<> (not equal sign) |Not equal to|A2 <> 3|
-|> (greater than sign) |Greater than|A2 > 3|
-|>= (greater than or equal to sign)|Greater than or equal to|A2 >= 3|
-|< (less than sign)|Less than|A2 < 3|
-|<= (less than or equal to sign)|Less than or equal to|A2 <= 3|
-
-## **A1-style Cell References**
-**A1-style cell references** are used for the worksheets, where the column has a letter identifier (e.g. "*A*") and the row has a numeric identifier (e.g. "*1*"). A1-style cell references can be used in the following way:
-
-|**Cell reference**|**Example**|||
-| :- | :- | :- | :- |
-||Absolute |Relative |Mixed|
-|Cell |$A$2 |A2|<p>A$2</p><p>$A2</p>|
-|Row |$2:$2 |2:2 |-|
-|Column |$A:$A |A:A |-|
-|Range |$A$2:$C$4 |A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
-
-
-Here is an example how to use A1-style cell reference in formula:
-```java
-workbook.getCell(0, "A2").setFormula("C3 + SUM(F2:H5)");
-```
-
-
-## **R1C1-style Cell References**
-**R1C1-style cell references** are used for the worksheets, where both a row and a column has the numeric identifier. R1C1-style cell references can be used in the following way:
-
-|**Cell reference**|**Example**|||
-| :- | :- | :- | :- |
-||Absolute |Relative |Mixed|
-|Cell |R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
-|Row |R2|R[2]|-|
-|Column |C3|C[3]|-|
-|Range |R2C3:R5C7|R[2]C[3]:R[5]C[7] |R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
-
-
-Here is an example how to use A1-style cell reference in formula:
-```java
-workbook.getCell(0, "A2").setR1C1Formula("R2C4 + SUM(R5C6:R7C9)");
-```
-
-
-## **Predefined Functions**
-There are predefined functions, that can be used in the formulas to simplify their implementation. These functions encapsulate the most commonly used operations, like: 
-
-- ABS
-- AVERAGE
-- CEILING
-- CHOOSE
-- CONCAT
-- CONCATENATE
-- DATE (1900 date system)
-- DAYS
-- FIND
-- FINDB
-- IF
-- INDEX (reference form)
-- LOOKUP (vector form)
-- MATCH (vector form)
-- MAX
-- SUM
-- VLOOKUP
+* Aspose.Slides に数式を再計算させる必要がある場合は、ドキュメント化された定数、演算子、参照、関数のみを使用してください。
+* セルの変更後は必ず再計算してください。
+* 読み込んだプレゼンテーションからのキャッシュ値はスナップショットとして扱い、編集後の再計算の代替としないでください。
+* 既存テンプレートからの数式は、ドキュメント化されたリスト外の関数を使用している場合、計算結果を信頼する前に必ずテストしてください。
+* 完全なスプレッドシート計算エンジンが必要な数式は、外部で計算し、結果の値をチャート ワークブックに書き戻してください。
 
 ## **FAQ**
 
-**Are external Excel files supported as a data source for a chart with formulas?**
+**[IChartDataCell.setFormula](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) と [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) の違いは何ですか？**
 
-Yes. Aspose.Slides supports external workbooks as a [chart's data source](https://reference.aspose.com/slides/java/com.aspose.slides/chartdatasourcetype/), which lets you use formulas from an XLSX outside the presentation.
+[IChartDataCell.setFormula](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) は `B2-C2` のような A1 形式の式を保存し、[IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) は `RC[-2]-RC[-1]` のような R1C1 形式の式を保存します。数式を生成またはコピーする方法に最も適した表記を使用してください。
 
-**Can chart formulas reference sheets within the same workbook by sheet name?**
+**計算後はセル自体を読むべきですか、それとも値を読むべきですか？**
 
-Yes. Formulas follow the standard Excel reference model, so you can reference other sheets within the same workbook or an external workbook. For external references, include the path and workbook name using Excel syntax.
+[IChartDataWorkbook.getCell](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdataworkbook/#getCell-int-java.lang.String-) は [IChartDataCell](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdatacell/) を返します。再計算後に計算結果を取得するには、そのセルの [IChartDataCell.getValue](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdatacell/#getValue--) メソッドを呼び出してください。
+
+**[IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) はいつ呼び出すべきですか？**
+
+入力値または数式を変更した後、計算結果に依存する前に必ず [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) を呼び出してください。これにより組み込み評価エンジンがサポートする数式の値が更新されます。
+
+**Aspose.Slides はすべての Excel 関数をサポートしていますか？**
+
+いいえ。組み込み評価エンジンはドキュメント化されたサブセットのみをサポートします。サブセット外の関数は正しく再計算できると想定しないでください。完全な Excel 互換が必要な場合は、適切なスプレッドシート エンジンで計算し、最終的な値をチャート ワークブックに書き込んでください。
+
+**ロードされたプレゼンテーションに未サポートの数式が含まれていた場合はどうなりますか？**
+
+チャート データが変更されていなければ、ワークブックは以前に計算されたキャッシュ値を保持している可能性があります。関連データが変更された後は、そのキャッシュ値は無効になることがあります。処理できない数式を含むセルの値にアクセスしようとすると、[CellUnsupportedDataException](https://reference.aspose.com/slides/ja/java/com.aspose.slides/cellunsupporteddataexception/) がスローされることがあります。
+
+**数式エラー値は Java の例外と同じですか？**
+
+いいえ。`#DIV/0!` などの結果は、有効な数式の計算によって生成されたスプレッドシートの値です。[CellInvalidFormulaException](https://reference.aspose.com/slides/ja/java/com.aspose.slides/cellinvalidformulaexception/) や [CellCircularReferenceException](https://reference.aspose.com/slides/ja/java/com.aspose.slides/cellcircularreferenceexception/) といった例外は、数式を正常に処理できなかったことを示します。
+
+**数式セルが変更されたときにグラフは自動的に更新されますか？**
+
+グラフ 系列はワークブックのセルを参照できます。まずワークブックを再計算し、次にプレゼンテーションを保存またはレンダリングしてください。系列が計算されたセルを参照していれば、グラフは更新されたセル値を使用します。別途のグラフ リフレッシュ メソッドは不要です。
+
+**外部の Excel ワークブックをグラフに使用できますか？**
+
+はい、チャート データ API を使って外部ワークブックを使用するよう構成できます。ただし、本記事で説明する数式計算ワークフローはチャート データ ワークブックと Aspose.Slides が評価できる数式サブセットに限定されます。[IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) が外部 XLSX ファイルの任意の数式を完全に再計算するとは限らないことに注意してください。
+
+**別シートまたは別ブックを参照する数式は使用できますか？**
+
+チャート ワークブック内で Excel 形式の参照は可能ですが、評価はサポートされているパーサーと関数セットに制限されます。クロスシートや外部参照が必須の場合は、対象の Aspose.Slides バージョンで正確に動作するか検証してください。広範な Excel 参照互換が必要な場合は、ワークブックを外部で計算し、解決された値をチャート データに書き戻すことを推奨します。
+
+**数式文字列は `=` で始める必要がありますか？**
+
+Aspose.Slides の API サンプルは `B2-C2` や `SUM(B2:B5)` のように先頭の `=` を付けずに式を割り当てます。この形を使用すると、ドキュメント化された API 例と一貫性が保たれます。

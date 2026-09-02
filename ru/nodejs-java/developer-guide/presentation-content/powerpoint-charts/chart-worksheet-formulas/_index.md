@@ -1,220 +1,386 @@
 ---
-title: "Формулы листа диаграммы"
+title: Применение формул листа диаграммы в презентациях с использованием JavaScript
+linktitle: Формулы листа
 type: docs
 weight: 70
 url: /ru/nodejs-java/chart-worksheet-formulas/
-keywords: "уравнения PowerPoint, формулы электронных таблиц PowerPoint"
-description: "Уравнения и формулы электронных таблиц PowerPoint"
+keywords:
+- таблица диаграммы
+- лист диаграммы
+- формула диаграммы
+- формула листа
+- формула таблицы
+- рабочая книга данных диаграммы
+- вычисление формулы
+- логическая константа
+- числовая константа
+- строковая константа
+- константа ошибки
+- арифметический оператор
+- оператор сравнения
+- стиль A1
+- стиль R1C1
+- предопределённая функция
+- PowerPoint
+- презентация
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Применяйте формулы в стиле Excel в листах диаграмм Aspose.Slides для Node.js via Java, пересчитывайте значения и используйте результаты в диаграммах PowerPoint."
 ---
+## **Обзор**
 
-## **О Формуле Таблицы Диаграммы в Презентации**
-**Таблица диаграммы** (или лист диаграммы) в презентации является источником данных для диаграммы. Таблица диаграммы содержит данные, которые отображаются на диаграмме графически. При создании диаграммы в PowerPoint автоматически создаётся и лист, связанный с этой диаграммой. Лист создаётся для всех типов диаграмм: линейных, столбчатых, радиальных, круговых и т.д. Чтобы увидеть таблицу диаграммы в PowerPoint, дважды щёлкните по диаграмме:
+Диаграммы PowerPoint обычно хранят исходные данные во встроенном листе. В Aspose.Slides for Node.js via Java можно получить доступ к этому листу через workbook данных диаграммы, записать входные значения, присвоить ячейкам формулы, вычислить поддерживаемые формулы и использовать вычисленные ячейки в качестве данных диаграммы.
 
-![todo:image_alt_text](chart-worksheet-formulas_1.png)
+В этой статье описывается полный рабочий процесс с формулами: создание диаграммы, заполнение её листа, присвоение формул в стиле A1 или R1C1, их перерасчёт, чтение вычисленных значений, привязка этих ячеек к серии диаграммы и сохранение презентации. Также рассматриваются поддерживаемый синтаксис формул, набор встроенных функций, кэшированные значения, неподдерживаемые формулы и ошибки, специфичные для электронных таблиц.
 
+## **Листы диаграмм и формулы**
 
-Таблица диаграммы содержит имена элементов диаграммы (Category Name: *Category1*, Serie Name) и таблицу с числовыми данными, соответствующими этим категориям и сериям. По умолчанию, при создании новой диаграммы данные таблицы заполняются значениями по умолчанию. Затем вы можете изменить данные вручную в листе.
+Лист диаграммы содержит категории, имена рядов и значения, используемые диаграммой. В PowerPoint можно просмотреть лист, открыв редактор данных диаграммы:
 
-Обычно диаграмма представляет сложные данные (например, финансовые аналитики, научные аналитики), где ячейки рассчитываются из значений других ячеек или из динамических данных. Ручной расчёт значения ячейки и его «жёсткое» внесение в ячейку усложняет дальнейшее изменение. Если изменить значение определённой ячейки, все зависящие от неё ячейки также потребуют обновления. Более того, данные таблицы могут зависеть от данных из других таблиц, создавая сложную схему данных презентации, которую необходимо легко и гибко обновлять.
+![PowerPoint chart with its embedded worksheet open, showing category and series data](chart-worksheet-formulas_1.png)
 
-**Формула таблицы диаграммы** в презентации — это выражение для автоматического расчёта и обновления данных таблицы диаграммы. Формула определяет логику расчёта данных для одной ячейки или набора ячеек. Формула может быть математической или логической, используя ссылки на ячейки, математические функции, логические и арифметические операторы, функции преобразования, строковые константы и т.п. Определение формулы записывается в ячейку, и эта ячейка не содержит простого значения. Формула рассчитывает значение и возвращает его, после чего значение присваивается ячейке. Формулы таблиц диаграмм в презентациях фактически такие же, как формулы Excel, и поддерживают те же стандартные функции, операторы и константы.
+В Aspose.Slides лист доступен через класс [ChartDataWorkbook](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdataworkbook/). Используйте [ChartDataCell.setFormula](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdatacell/#setFormula-java.lang.String-) для формул в стиле A1 и [ChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdatacell/#setR1C1Formula-java.lang.String-) для формул в стиле R1C1. После изменения входных ячеек или формул вызывайте [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) для перерасчёта поддерживаемых формул и обновления соответствующих значений ячеек.
 
-В [**Aspose.Slides**](https://products.aspose.com/slides/nodejs-java/) таблица диаграммы представлена методом
-[**Chart.getChartData.getChartDataWorkbook**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartData#getChartDataWorkbook--) типа
-[**ChartDataWorkbook**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataWorkbook).
-Формулу можно задать и изменить с помощью
-[**ChartDataCell.setFormula**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataCell#setFormula-java.lang.String-) метода.
-Поддерживается следующая функциональность формул в Aspose.Slides:
+Вычисленная ячейка по‑прежнему предоставляет результат через [ChartDataCell.getValue](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdatacell/#getValue--). Это важно, когда нужно проверить результат формулы в коде или использовать ячейку как точку данных диаграммы.
 
-- Логические константы
-- Числовые константы
-- Строковые константы
-- Константы ошибок
-- Арифметические операторы
-- Операторы сравнения
-- Ссылки на ячейки в стиле A1
-- Ссылки на ячейки в стиле R1C1
-- Предопределённые функции
+## **Создание диаграммы и вычисление формул листа**
 
+Ниже приведён пример полного рабочего процесса. Он создаёт сгруппированную столбчатую диаграмму, очищает образцы данных, записывает квартальные доходы и расходы, вычисляет прибыль с помощью формул, читает результаты, использует вычисленные ячейки как значения диаграммы и сохраняет презентацию.
 
-Обычно листы хранят последние вычисленные значения формул. Если после загрузки презентации данные диаграммы не изменялись, метод
-[**ChartDataCell.getValue**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataCell#getValue--) возвращает эти значения при чтении. Но если данные листа были изменены, при чтении свойства **ChartDataCell.Value** будет выброшено исключение
-[**CellUnsupportedDataException**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/CellUnsupportedDataException) для неподдерживаемых формул. Это происходит потому, что при успешном разборе формул определяются зависимости ячеек и проверяется корректность последних значений. Если формулу нельзя разобрать, корректность значения ячейки гарантировать нельзя.
-
-## **Добавление Формулы Таблицы Диаграммы в Презентацию**
-Сначала добавьте диаграмму на первый слайд новой презентации с помощью
-[ShapeCollection.getShapes.addChart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ShapeCollection#addChart-int-float-float-float-float-).
-Лист диаграммы создаётся автоматически и к нему можно обратиться методом
-[**Chart.getChartData.getChartDataWorkbook**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartData#getChartDataWorkbook--):
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 150, 150, 500, 300);
-    var workbook = chart.getChartData().getChartDataWorkbook();
-    // ...
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 350);
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    const worksheetIndex = 0;
+
+    chart.getChartData().getSeries().clear();
+    chart.getChartData().getCategories().clear();
+    workbook.clear(worksheetIndex);
+
+    const category1 = workbook.getCell(worksheetIndex, "A2", "Q1");
+    const category2 = workbook.getCell(worksheetIndex, "A3", "Q2");
+    const category3 = workbook.getCell(worksheetIndex, "A4", "Q3");
+
+    workbook.getCell(worksheetIndex, "B1", "Revenue");
+    workbook.getCell(worksheetIndex, "C1", "Expenses");
+    workbook.getCell(worksheetIndex, "D1", "Profit");
+
+    workbook.getCell(worksheetIndex, "B2").setValue(120.0);
+    workbook.getCell(worksheetIndex, "C2").setValue(80.0);
+    workbook.getCell(worksheetIndex, "B3").setValue(150.0);
+    workbook.getCell(worksheetIndex, "C3").setValue(95.0);
+    workbook.getCell(worksheetIndex, "B4").setValue(135.0);
+    workbook.getCell(worksheetIndex, "C4").setValue(110.0);
+
+    const profit1 = workbook.getCell(worksheetIndex, "D2");
+    const profit2 = workbook.getCell(worksheetIndex, "D3");
+    const profit3 = workbook.getCell(worksheetIndex, "D4");
+
+    profit1.setFormula("B2-C2");
+    profit2.setFormula("B3-C3");
+    profit3.setFormula("B4-C4");
+
+    workbook.calculateFormulas();
+
+    const q1Profit = profit1.getValue(); // 40
+    const q2Profit = profit2.getValue(); // 55
+    const q3Profit = profit3.getValue(); // 25
+
+    console.log("Q1 profit: " + q1Profit);
+    console.log("Q2 profit: " + q2Profit);
+    console.log("Q3 profit: " + q3Profit);
+
+    chart.getChartData().getCategories().add(category1);
+    chart.getChartData().getCategories().add(category2);
+    chart.getChartData().getCategories().add(category3);
+
+    const profitSeries = chart.getChartData().getSeries().add(workbook.getCell(worksheetIndex, "D1"), chart.getType());
+    profitSeries.getDataPoints().addDataPointForBarSeries(profit1);
+    profitSeries.getDataPoints().addDataPointForBarSeries(profit2);
+    profitSeries.getDataPoints().addDataPointForBarSeries(profit3);
+    profitSeries.getLabels().getDefaultDataLabelFormat().setShowValue(true);
+
+    presentation.save("chart-formulas.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+Точки данных диаграммы ссылаются на `D2:D4`, поэтому диаграмма использует вычисленные значения прибыли. В этом процессе нет отдельного вызова обновления диаграммы: сначала перерасчитайте workbook, затем используйте или сохраните данные диаграммы, указывающие на вычисленные ячейки.
 
-Запишем некоторые значения в ячейки с помощью свойства
-[**ChartDataCell.setValue**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataCell#setValue-java.lang.Object-) типа **Object**, что означает возможность установить любое значение:
+## **Использование формул в стиле A1**
+
+Нотация A1 обозначает столбцы буквами, а строки числами. Присваивайте выражения в стиле A1 через [ChartDataCell.setFormula](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdatacell/#setFormula-java.lang.String-).
+
 ```javascript
-workbook.getCell(0, "F2").setValue(-2.5);
-workbook.getCell(0, "G3").setValue(6.3);
-workbook.getCell(0, "H4").setValue(3);
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 300);
+    const workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "C3").setValue(10);
+    workbook.getCell(0, "F2").setValue(2);
+    workbook.getCell(0, "G2").setValue(3);
+    workbook.getCell(0, "H2").setValue(4);
+
+    const cell = workbook.getCell(0, "A2");
+    cell.setFormula("C3+SUM(F2:H2)");
+
+    workbook.calculateFormulas();
+
+    const value = cell.getValue(); // 19
+} finally {
+    presentation.dispose();
+}
 ```
 
+Распространённые формы ссылок A1:
 
-Чтобы записать формулу в ячейку, используйте метод
-[**ChartDataCell.setFormula**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataCell#setFormula-java.lang.String-):
+| Ссылка | Относительная | Абсолютная | Смешанная |
+|---|---|---|---|
+| Ячейка | `A2` | `$A$2` | `A$2`, `$A2` |
+| Строка | `2:2` | `$2:$2` | — |
+| Столбец | `A:A` | `$A:$A` | — |
+| Диапазон | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-*Примечание*: метод [**ChartDataCell.setFormula**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataCell#setFormula-java.lang.String-) используется для задания ссылок в стиле A1.
+Относительные ссылки могут изменяться при перемещении или копировании формулы в таблице. Абсолютные ссылки фиксируют обе координаты, а смешанные фиксируют только строку или только столбец.
 
-Чтобы задать ссылку в виде [R1C1Formula](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataCell#getR1C1Formula--), используйте метод
-[**ChartDataCell.setR1C1Formula**](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ChartDataCell#setR1C1Formula-java.lang.String-):
+## **Использование формул в стиле R1C1**
 
-Тогда, если вы попытаетесь прочитать значения из ячеек B2 и C2, они будут вычислены:
+Нотация R1C1 обозначает как строки, так и столбцы численно. Относительные ссылки используют смещения в квадратных скобках. Присваивайте эту форму через [ChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdatacell/#setR1C1Formula-java.lang.String-).
+
 ```javascript
-var value1 = cell1.getValue();// 7.8
-var value2 = cell2.getValue();// 2.1
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 300);
+    const workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "B2").setValue(12);
+    workbook.getCell(0, "C2").setValue(5);
+
+    const cell = workbook.getCell(0, "D2");
+    cell.setR1C1Formula("RC[-2]-RC[-1]");
+
+    workbook.calculateFormulas();
+
+    const value = cell.getValue(); // 7
+} finally {
+    presentation.dispose();
+}
 ```
 
+Распространённые формы ссылок R1C1:
 
-## **Логические Константы**
-Вы можете использовать логические константы, такие как *FALSE* и *TRUE*, в формулах ячеек:
+| Ссылка | Относительная | Абсолютная | Смешанная |
+|---|---|---|---|
+| Ячейка | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
+| Строка | `R[2]` | `R2` | — |
+| Столбец | `C[3]` | `C3` | — |
+| Диапазон | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
+
+Например, в ячейке `D2` запись `RC[-2]` означает ячейку в той же строке на два столбца влево (`B2`).
+
+## **Константы и операторы формул**
+
+Встроенный оценщик формул поддерживает логические значения, числовые литералы, строки, ошибки электронных таблиц, арифметические и сравнительные операторы.
+
+### **Константы и литералы**
+
+| Тип | Примеры | Примечания |
+|---|---|---|
+| Логический | `TRUE`, `FALSE` | Можно использовать напрямую в логических выражениях, например `A2=TRUE`. |
+| Числовой | `1`, `0.5`, `.3`, `1E-2` | Поддерживаются обычная и научная запись. |
+| Строка | `"abc"`, `"2/3/2020 12:00"` | Текстовые литералы заключаются в двойные кавычки внутри формулы. |
+| Ошибка | `#DIV/0!`, `#N/A`, `#REF!` | Корректная формула может вернуть значение ошибки вместо обычного результата. |
+
+Этот пример использует несколько типов констант:
+
 ```javascript
-workbook.getCell(0, "A2").setValue(false);
-var cell = workbook.getCell(0, "B2");
-cell.setFormula("A2 = TRUE");
-var value = cell.getValue();// значение содержит логический "false"
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 300);
+    const workbook = chart.getChartData().getChartDataWorkbook();
+
+    workbook.getCell(0, "A2").setValue(false);
+    workbook.getCell(0, "B2").setFormula("A2=TRUE");
+    workbook.getCell(0, "C2").setFormula("1+0.5");
+    workbook.getCell(0, "D2").setFormula(".3*1E-2");
+    workbook.getCell(0, "E2").setFormula("\"abc\"");
+    workbook.getCell(0, "F2").setFormula("2/0");
+
+    workbook.calculateFormulas();
+
+    const logicalValue = workbook.getCell(0, "B2").getValue(); // ложь
+    const numericValue = workbook.getCell(0, "C2").getValue(); // 1.5
+    const scientificValue = workbook.getCell(0, "D2").getValue(); // 0.003
+    const stringValue = workbook.getCell(0, "E2").getValue(); // abc
+    const errorValue = workbook.getCell(0, "F2").getValue(); // #DIV/0!
+} finally {
+    presentation.dispose();
+}
 ```
 
+### **Арифметические операторы**
 
-## **Числовые Константы**
-Числа можно использовать в обычных или научных записях для создания формул таблицы диаграммы:
+| Оператор | Значение | Пример |
+|---|---|---|
+| `+` | Сложение или унарный плюс | `2+3` |
+| `-` | Вычитание или отрицание | `2-3`, `-3` |
+| `*` | Умножение | `2*3` |
+| `/` | Деление | `2/3` |
+| `%` | Процент | `30%` |
+| `^` | Возведение в степень | `2^3` |
+
+Используйте скобки, чтобы явно задать порядок вычисления, например `(A2+B2)*C2`.
+
+### **Операторы сравнения**
+
+Выражения сравнения возвращают логические значения.
+
+| Оператор | Значение | Пример |
+|---|---|---|
+| `=` | Равно | `A2=3` |
+| `<>` | Не равно | `A2<>3` |
+| `>` | Больше | `A2>3` |
+| `>=` | Больше или равно | `A2>=3` |
+| `<` | Меньше | `A2<3` |
+| `<=` | Меньше или равно | `A2<=3` |
+
+## **Поддерживаемые предопределённые функции**
+
+Aspose.Slides включает встроенный оценщик формул для листов диаграмм, но это не полноценный движок расчётов Excel. Документированный набор функций ограничен нижеуказанными. Не следует предполагать, что произвольная функция Excel может быть перерасчитана методом [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--).
+
+| Функция | Назначение или поддерживаемая форма | Пример |
+|---|---|---|
+| `ABS` | Абсолютное значение | `ABS(A2)` |
+| `AVERAGE` | Арифметическое среднее | `AVERAGE(B2:B5)` |
+| `CEILING` | Округление числа вверх до кратного | `CEILING(A2,5)` |
+| `CHOOSE` | Выбор значения по индексу | `CHOOSE(A2,"Low","High")` |
+| `CONCAT` | Объединение текстовых значений | `CONCAT(A2,B2)` |
+| `CONCATENATE` | Объединение текстовых значений | `CONCATENATE(A2," ",B2)` |
+| `DATE` | Создание даты по системе 1900‑го года | `DATE(2026,8,19)` |
+| `DAYS` | Количество дней между датами | `DAYS(B2,A2)` |
+| `FIND` | Поиск текста внутри текста | `FIND("-",A2)` |
+| `FINDB` | Поиск с учётом байтов | `FINDB("a",A2)` |
+| `IF` | Условный результат | `IF(A2>0,A2,0)` |
+| `INDEX` | Ссылка в виде формы | `INDEX(A2:C4,2,3)` |
+| `LOOKUP` | Векторная форма | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | Векторная форма | `MATCH(A2,B2:B5,0)` |
+| `MAX` | Максимальное значение | `MAX(B2:B5)` |
+| `SUM` | Суммирование | `SUM(B2:B5)` |
+| `VLOOKUP` | Вертикальный поиск | `VLOOKUP(A2,B2:D10,3,FALSE)` |
+
+Ограничения, указанные в таблице, важны: `INDEX` документирован в виде ссылки, а `LOOKUP` и `MATCH` — в их векторных формах. `DATE` использует систему 1900‑го года. Функции, не перечисленные здесь, следует считать неподдерживаемыми встроенным оценщиком Aspose.Slides, если они не документированы отдельно.
+
+## **Перерасчёт и кэшированные значения**
+
+Файлы электронных таблиц обычно хранят формулу и её последнее вычисленное значение. Поэтому Aspose.Slides может прочитать кэшированное значение через [ChartDataCell.getValue](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdatacell/#getValue--) при загрузке презентации, если соответствующие данные диаграммы не изменялись.
+
+После изменения входных ячеек или формул не полагайтесь на старый кэшированный результат. Вызовите [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) перед чтением вычисленных значений или сохранением данных диаграммы, зависящих от них.
+
+Для формул, выходящих за пределы поддерживаемого набора, Aspose.Slides может не суметь разобрать формулу или определить её зависимости. Если workbook был изменён, предыдущее кэшированное значение уже нельзя считать надёжным. В такой ситуации попытка чтения значения ячейки с неподдерживаемыми данными может вызвать [CellUnsupportedDataException](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/cellunsupporteddataexception/).
+
+Если ваша диаграмма зависит от функций Excel, которые Aspose.Slides не вычисляет, выполните расчёт этих формул с помощью движка, поддерживающего их, и запишите полученные значения обратно в workbook диаграммы. Не заменяйте неподдерживаемые формулы «угаданными» значениями.
+
+## **Обработка ошибок формул**
+
+Существует два разных типа проблем.
+
+Формула может быть корректной, но вернуть ошибку таблицы, например `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` или `#VALUE!`. В этом случае токен ошибки является результатом ячейки и может быть возвращён через [ChartDataCell.getValue](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdatacell/#getValue--).
+
+Формула также может не пройти разбор, проверку ссылок, зависимостей или поддерживаемых данных. Aspose.Slides предоставляет специальные исключения: [CellInvalidFormulaException](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/cellcircularreferenceexception/) и [CellUnsupportedDataException](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/cellunsupporteddataexception/).
+
+Когда формулы берутся из шаблонов или пользовательского ввода, отлавливайте ошибки при перерасчёте и доступе к значениям. Подробности ошибки указывают на конкретную проблему таблицы:
+
 ```javascript
-workbook.getCell(0, "A2").setFormula("1 + 0.5");
-workbook.getCell(0, "B2").setFormula(".3 * 1E-2");
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 500, 300);
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    const cell = workbook.getCell(0, "A2");
+    cell.setFormula("SUM(B2:B5)");
+
+    try {
+        workbook.calculateFormulas();
+        console.log(cell.getValue());
+    } catch (error) {
+        console.error("Formula processing error: " + error.message);
+    }
+} finally {
+    presentation.dispose();
+}
 ```
 
+## **Практические ограничения**
 
-## **Строковые Константы**
-Строковая (или буквальная) константа — это конкретное значение, которое используется как есть и не меняется. Строковые константы могут представлять даты, тексты, числа и т.п.:
-```javascript
-workbook.getCell(0, "A2").setFormula("\"abc\"");
-workbook.getCell(0, "B2").setFormula("\"2/3/2020 12:00\"");
-```
+Поддержка формул в листах диаграмм предназначена для ограниченного набора расчётов, а не для полной совместимости с Excel. Учтите эти ограничения при проектировании рабочего процесса отчётности:
 
-
-## **Константы Ошибок**
-Иногда невозможно вычислить результат формулы. В этом случае в ячейке отображается код ошибки вместо её значения. Каждый тип ошибки имеет свой код:
-
-- #DIV/0! — формула пытается делить на ноль.
-- #GETTING_DATA — может отображаться в ячейке, пока её значение всё ещё вычисляется.
-- #N/A — информация отсутствует или недоступна. Причины могут быть: пустые ячейки, лишний пробел, опечатка и т.п.
-- #NAME? — не удалось найти ячейку или другой объект формулы по имени.
-- #NULL! — может появиться при ошибке в формуле, например, (,) или пробел вместо двоеточия (:).
-- #NUM! — числовое значение в формуле недопустимо, слишком велико или слишком мало и т.п.
-- #REF! — неверная ссылка на ячейку.
-- #VALUE! — неожиданный тип значения. Например, строковое значение в числовой ячейке.
-```javascript
-var cell = workbook.getCell(0, "A2");
-cell.setFormula("2 / 0");
-var value = cell.getValue();// значение содержит строку "#DIV/0!"
-```
-
-
-## **Арифметические Операторы**
-Вы можете использовать все арифметические операторы в формулах листа диаграммы:
-
-|**Оператор**|**Значение**|**Пример**|
-| :- | :- | :- |
-|+ (плюс)|Сложение или унарный плюс|2 + 3|
-|- (минус)|Вычитание или отрицание|2 - 3<br>-3|
-|* (звёздочка)|Умножение|2 * 3|
-|/ (слеш)|Деление|2 / 3|
-|% (процент)|Процент|30%|
-|^ (карет)|Возведение в степень|2 ^ 3|
-
-*Примечание*: чтобы изменить порядок вычисления, заключите часть формулы, которую нужно вычислить первой, в скобки.
-
-## **Операторы Сравнения**
-Вы можете сравнивать значения ячеек с помощью операторов сравнения. При сравнении двух значений результатом будет логическое значение *TRUE* или *FALSE*:
-
-|**Оператор**|**Значение**|**Пример**|
-| :- | :- | :- |
-|= (знак равенства)|Равно|A2 = 3|
-|<> (знак неравенства)|Не равно|A2 <> 3|
-|> (знак больше)|Больше чем|A2 > 3|
-|>= (знак больше или равно)|Больше или равно|A2 >= 3|
-|< (знак меньше)|Меньше чем|A2 < 3|
-|<= (знак меньше или равно)|Меньше или равно|A2 <= 3|
-
-## **Ссылки на Ячейки в Стиле A1**
-**Ссылки в стиле A1** используются в листах, где столбец имеет буквенный идентификатор (например, "*A*"), а строка — числовой (например, "*1*"). Ссылки в стиле A1 могут использоваться следующим образом:
-
-|**Тип ссылки**|**Пример**|**Абсолютная**|**Относительная**|**Смешанная**|
-| :- | :- | :- | :- | :- |
-|Ячейка|$A$2|A2|<p>A$2</p><p>$A2</p>|
-|Строка|$2:$2|2:2|-|
-|Столбец|$A:$A|A:A|-|
-|Диапазон|$A$2:$C$4|A2:C4|<p>$A$2:C4</p><p>A$2:$C4</p>|
-
-
-Пример использования ссылки в стиле A1 в формуле:
-```javascript
-workbook.getCell(0, "A2").setFormula("C3 + SUM(F2:H5)");
-```
-
-
-## **Ссылки на Ячейки в Стиле R1C1**
-**Ссылки в стиле R1C1** используются в листах, где как строка, так и столбец имеют числовой идентификатор. Ссылки в стиле R1C1 могут использоваться следующим образом:
-
-|**Тип ссылки**|**Пример**|**Абсолютная**|**Относительная**|**Смешанная**|
-| :- | :- | :- | :- | :- |
-|Ячейка|R2C3|R[2]C[3]|R2C[3]<br>R[2]C3|
-|Строка|R2|R[2]|-|
-|Столбец|C3|C[3]|-|
-|Диапазон|R2C3:R5C7|R[2]C[3]:R[5]C[7]|R2C3:R[5]C[7]<br>R[2]C3:R5C[7]|
-
-
-Пример использования ссылки в стиле R1C1 в формуле:
-```javascript
-workbook.getCell(0, "A2").setR1C1Formula("R2C4 + SUM(R5C6:R7C9)");
-```
-
-
-## **Предопределённые Функции**
-Существует набор предопределённых функций, которые можно использовать в формулах для упрощения их реализации. Эти функции инкапсулируют наиболее часто используемые операции, такие как:
-
-- ABS
-- AVERAGE
-- CEILING
-- CHOOSE
-- CONCAT
-- CONCATENATE
-- DATE (система дат 1900)
-- DAYS
-- FIND
-- FINDB
-- IF
-- INDEX (форма ссылки)
-- LOOKUP (векторная форма)
-- MATCH (векторная форма)
-- MAX
-- SUM
-- VLOOKUP
+- Используйте только документированные константы, операторы, ссылки и функции, если требуется перерасчёт формул Aspose.Slides.
+- Перерасчитайте после изменения ячеек, от которых зависят результаты формул.
+- Рассматривайте кэшированные значения из загруженных презентаций как моментальные снимки, а не как замену перерасчёту после правок.
+- Тестируйте формулы из существующих шаблонов перед тем, как полагаться на их вычисленные значения, особенно если они используют функции, не входящие в документированный список.
+- Для формул, требующих полного движка расчётов, выполните их внешне и затем обновите workbook диаграммы полученными значениями.
 
 ## **FAQ**
 
-**Поддерживаются ли внешние файлы Excel в качестве источника данных для диаграммы с формулами?**
+**В чём разница между [ChartDataCell.setFormula](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdatacell/#setFormula-java.lang.String-) и [ChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdatacell/#setR1C1Formula-java.lang.String-)?**
 
-Да. Aspose.Slides поддерживает внешние книги как [источник данных диаграммы](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chartdatasourcetype/), что позволяет использовать формулы из XLSX-файла вне презентации.
+[ChartDataCell.setFormula](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdatacell/#setFormula-java.lang.String-) сохраняет выражение в стиле A1, например `B2-C2`. [ChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdatacell/#setR1C1Formula-java.lang.String-) сохраняет выражение в стиле R1C1, например `RC[-2]-RC[-1]`. Используйте нотацию, которая лучше соответствует способу генерации или копирования формул.
 
-**Могут ли формулы диаграммы ссылаться на листы внутри той же книги по имени листа?**
+**Нужно ли читать саму ячейку или её значение после расчёта?**
 
-Да. Формулы следуют стандартной модели ссылок Excel, поэтому вы можете ссылаться на другие листы внутри той же книги или внешней книги. Для внешних ссылок указывайте путь и имя книги, используя синтаксис Excel.
+[ChartDataWorkbook.getCell](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdataworkbook/#getCell-int-java.lang.String-) возвращает объект [ChartDataCell](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdatacell/). Чтобы получить вычисленный результат, вызовите метод этой ячейки [ChartDataCell.getValue](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdatacell/#getValue--) после перерасчёта.
+
+**Когда следует вызывать [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--)?**
+
+Вызывайте [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) после изменения входных значений или формул и перед тем, как использовать вычисленные результаты. Это обновит значения формул, поддерживаемых встроенным оценщиком.
+
+**Поддерживает ли Aspose.Slides все функции Excel?**
+
+Нет. Встроенный оценщик поддерживает только документированный подмножество функций. Функции, не входящие в этот набор, нельзя считать корректно перерасчитываемыми. Если требуется полная совместимость с формулами Excel, выполните расчёт внешним движком и запишите окончательные значения в workbook диаграммы.
+
+**Что происходит, если загруженная презентация содержит неподдерживаемую формулу?**
+
+Если данные диаграммы не изменялись, в workbook может оставаться ранее вычисленное кэшированное значение. После изменения связанных данных этот кэш может стать недействительным. Доступ к ячейке, формула которой не может быть обработана, может вызвать [CellUnsupportedDataException](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/cellunsupporteddataexception/).
+
+**Являются ли значения ошибок формул тем же, что и исключения?**
+
+Нет. Значение вроде `#DIV/0!` — это значение таблицы, полученное в результате корректного расчёта. Исключения, такие как [CellInvalidFormulaException](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/cellinvalidformulaexception/) или [CellCircularReferenceException](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/cellcircularreferenceexception/), указывают на то, что формула не может быть обработана обычным способом.
+
+**Обновляется ли диаграмма автоматически при изменении ячейки с формулой?**
+
+Серия диаграммы может ссылаться на ячейки workbook. Сначала перерасчитайте workbook, затем сохраните или отрендерите презентацию. Если точки данных диаграммы ссылаются на вычисленные ячейки, диаграмма использует обновлённые значения; отдельный метод обновления диаграммы не требуется.
+
+**Можно ли использовать внешнюю книгу Excel для диаграмм?**
+
+Да, данные диаграммы можно настроить для использования внешней книги через API данных диаграммы. Однако описанный в статье рабочий процесс расчёта формул относится к workbook данных диаграммы и поддерживаемому подмножеству формул Aspose.Slides. Не следует полагать, что [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) обеспечивает полное перерасчёт произвольных формул во внешнем файле XLSX.
+
+**Могу ли я использовать формулы, ссылающиеся на другой лист или книгу?**
+
+Ссылки в стиле Excel могут присутствовать в workbook диаграмм, но оценка формул ограничена поддерживаемым парсером и набором функций. Если требуется кросс‑листовая или внешняя ссылка, проверьте точность такой формулы с выбранной версией Aspose.Slides. Для рабочих процессов, требующих широкой совместимости ссылок Excel, выполните расчёт workbook внешне и запишите полученные значения обратно в данные диаграммы.
+
+**Должны ли строки формул начинаться с `=`?**
+
+Примеры API Aspose.Slides передают выражения такие как `B2-C2` или `SUM(B2:B5)` без начального `=`. Использование такой формы сохраняет согласованность с документированными примерами API.
