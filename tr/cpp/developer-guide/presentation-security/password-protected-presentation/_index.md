@@ -1,6 +1,6 @@
 ---
-title: C++'ta Parolalarla Güvenli Sunumlar
-linktitle: Parola Koruması
+title: Şifreli Sunumları C++ ile Güvence Altına Alın
+linktitle: Şifre Koruması
 type: docs
 weight: 20
 url: /tr/cpp/password-protected-presentation/
@@ -11,19 +11,19 @@ keywords:
 - sunum kilidini aç
 - PowerPoint koru
 - sunumu koru
-- parola belirle
-- parola ekle
+- şifre ayarla
+- şifre ekle
 - PowerPoint şifrele
 - sunumu şifrele
 - PowerPoint şifresini çöz
-- sunumu şifresini çöz
+- sunum şifresini çöz
 - yazma koruması
 - PowerPoint güvenliği
 - sunum güvenliği
-- parolayı kaldır
+- şifreyi kaldır
 - korumayı kaldır
 - şifrelemeyi kaldır
-- parolayı devre dışı bırak
+- şifreyi devre dışı bırak
 - korumayı devre dışı bırak
 - yazma korumasını kaldır
 - PowerPoint
@@ -31,78 +31,78 @@ keywords:
 - sunum
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ ile parola korumalı PowerPoint ve OpenDocument sunumlarını zahmetsizce kilitleme ve kilidini açma yöntemlerini öğrenin. Sunumlarınızı güvence altına alın."
+description: "Aspose.Slides for C++ kullanarak şifre korumalı PowerPoint ve OpenDocument sunumlarını sorunsuz bir şekilde kilitleyip açmayı öğrenin. Sunumlarınızı güvene alın."
 ---
 ## **Giriş**
 
-Bir sunumu şifreyle koruduğunuzda, sunuma belli kısıtlamalar getiren bir şifre belirlemiş olursunuz. Kısıtlamaları kaldırmak için şifre girilmelidir. Şifreyle korunan bir sunum kilitli bir sunum olarak kabul edilir.
+Bir sunumu şifreyle koruduğunuzda, sunuma bazı kısıtlamalar getiren bir şifre ayarladığınız anlamına gelir. Kısıtlamaları kaldırmak için şifre girilmelidir. Şifre korumalı bir sunum kilitli bir sunum olarak kabul edilir.
 
-Genellikle, bir sunuma aşağıdaki kısıtlamaları uygulamak için şifre ayarlayabilirsiniz:
+Genellikle, bir sunuma bu kısıtlamaları uygulamak için bir şifre ayarlayabilirsiniz:
 
 - **Değiştirme**
 
-  Sadece belirli kullanıcıların sunumunuzu değiştirmesini istiyorsanız, bir değiştirme kısıtlaması ayarlayabilirsiniz. Bu kısıtlama, kullanıcıların sunumunuzdaki içerikleri değiştirmesini, düzenlemesini veya kopyalamasını (şifreyi sağlamaları koşuluyla) engeller. 
+  Sadece belirli kullanıcıların sunumunuzu değiştirmesini istiyorsanız, bir değiştirme kısıtlaması ayarlayabilirsiniz. Bu kısıtlama, insanların sunumunuzdaki öğeleri değiştirmesini, düzenlemesini veya kopyalamasını (şifreyi sağlamaları koşuluyla) engeller.  
 
-  Ancak, bu durumda şifre olmadan da bir kullanıcı belgenize erişip açabilir. Bu sadece‑okuma modunda kullanıcı, sunumunuzdaki hiperlinkler, animasyonlar, efektler ve diğer öğeleri görüntüleyebilir; ancak öğeleri kopyalayamaz veya sunumu kaydedemez. 
+  Ancak bu durumda, şifre olmadan bile bir kullanıcı belgenize erişebilir ve açabilir. Bu yalnızca okuma modunda, kullanıcı sunumunuzdaki içerikleri—köprüler, animasyonlar, efektler ve diğerlerini—görebilir, ancak öğeleri kopyalayamaz veya sunumu kaydedemez. 
 
 - **Açma**
 
-  Sadece belirli kullanıcıların sunumunuzu açmasını istiyorsanız, bir açma kısıtlaması ayarlayabilirsiniz. Bu kısıtlama, kullanıcıların sunumunuzun içeriğini (şifreyi sağlamaları koşuluyla) görmesini engeller.
+  Sadece belirli kullanıcıların sunumunuzu açmasını istiyorsanız, bir açma kısıtlaması ayarlayabilirsiniz. Bu kısıtlama, insanların sunumunuzun içeriğini bile görüntülemesini (şifreyi sağlamaları koşuluyla) engeller.  
 
-  Teknik olarak, açma kısıtlaması aynı zamanda kullanıcıların sunumunuzu değiştirmesini de engeller: Kullanıcılar bir sunumu açamadıklarında, onu değiştiremezler. 
-  
-  **Not** bir sunumu açmayı engellemek için şifreyle koruduğunuzda, sunum dosyası şifrelenir.
+  Teknik olarak, açma kısıtlaması aynı zamanda kullanıcıların sunumlarınızı düzenlemesini de engeller: İnsanlar bir sunumu açamadıklarında, ona değişiklik yapamazlar.  
 
-## **Sunumu Çevrimiçi Şifreyle Korumak**
+  **Not**: Bir sunumu açılmasını engelleyecek şekilde şifreyle koruduğunuzda, sunum dosyası şifrelenir.
 
-1. **Aspose.Slides Kilitle** sayfamıza gidin: [**Aspose.Slides Kilitle**](https://products.aspose.app/slides/tr/lock).
+## **Sunumu Çevrimiçi Şifreyle Korumak Nasıl Yapılır**
+
+1. Bizim [**Aspose.Slides Lock**](https://products.aspose.app/slides/tr/lock) sayfamıza gidin. 
 
    ![todo:image_alt_text](slides-lock.png)
 
-2. **Dosyalarınızı sürükleyin veya yükleyin** üzerine tıklayın.
+2. **Dosyalarınızı bırakın veya yükleyin**.
 
-3. Bilgisayarınızdan şifrelemek istediğiniz dosyayı seçin.
+3. Bilgisayarınızda şifreyle korumak istediğiniz dosyayı seçin. 
 
-4. Düzenleme koruması için tercih ettiğiniz şifreyi girin; görüntüleme koruması için tercih ettiğiniz şifreyi girin.
+4. Düzenleme koruması için tercih ettiğiniz şifreyi girin; Görüntüleme koruması için tercih ettiğiniz şifreyi girin. 
 
-5. Kullanıcıların sunumunuzu son kopya olarak görmesini istiyorsanız **Nihai olarak işaretle** kutusunu işaretleyin.
+5. Kullanıcıların sunumunuzu son kopya olarak görmesini istiyorsanız, **Mark as final** kutusunu işaretleyin.
 
-6. **ŞİMDİ KORU** düğmesine tıklayın.
+6. **ŞİMDİ KORU**. 
 
-7. **ŞİMDİ İNDİR** düğmesine tıklayın.
+7. **ŞİMDİ İNDİR**.
 
-## **Aspose.Slides’ta Sunumlar İçin Şifre Koruması**
+## **Aspose.Slides'ta Sunumlar için Şifre Koruması**
 **Desteklenen formatlar**
 
-Aspose.Slides, aşağıdaki formatlardaki sunumlar için şifre koruması, şifreleme ve benzeri işlemleri destekler:
+Aspose.Slides, bu formatlardaki sunumlar için şifre koruması, şifreleme ve benzeri işlemleri destekler: 
 
-- PPTX ve PPT – Microsoft PowerPoint Sunumu  
-- ODP – OpenDocument Sunumu  
-- OTP – OpenDocument Sunumu Şablonu  
+- PPTX ve PPT - Microsoft PowerPoint Sunumu 
+- ODP - OpenDocument Sunumu 
+- OTP - OpenDocument Sunum Şablonu 
 
 **Desteklenen işlemler**
 
-Aspose.Slides, sunumları aşağıdaki yöntemlerle değiştirmeyi önlemek için şifre koruması kullanmanıza izin verir:
+Aspose.Slides, sunumlarda şifre korumasını şu yollarla değişiklikleri engellemek için kullanmanıza olanak tanır:
 
-- Sunumu şifreleme  
-- Sunuma yazma koruması uygulama  
+- Bir sunumu şifreleme
+- Sunuma yazma koruması ayarlama
 
 **Diğer işlemler**
 
-Aspose.Slides, şifre koruması ve şifreleme ile ilgili şu ek görevleri gerçekleştirmenizi sağlar:
+Aspose.Slides, şifre koruması ve şifreleme ile ilgili diğer görevleri şu şekilde yapmanıza olanak tanır:
 
-- Sunumu şifre çözme; şifreli bir sunumu açma  
-- Şifrelemeyi kaldırma; şifre korumasını devre dışı bırakma  
-- Bir sunumdan yazma korumasını kaldırma  
-- Şifreli bir sunumun özelliklerini alma  
-- Bir sunumun şifrelenip şifrelenmediğini kontrol etme  
+- Bir sunumu şifre çözme; şifreli bir sunumu açma
+- Şifrelemeyi kaldırma; şifre korumasını devre dışı bırakma
+- Sunumdan yazma korumasını kaldırma
+- Şifreli bir sunumun özelliklerini alma
+- Bir sunumun şifreli olup olmadığını kontrol etme
 - Bir sunumun şifreyle korunup korunmadığını kontrol etme.
 
-## **Bir Sunumu Şifrelemek**
+## **Bir Sunumu Şifrele**
 
-Bir şifre belirleyerek bir sunumu şifreleyebilirsiniz. Kilitli sunumu değiştirmek isteyen kullanıcının şifreyi sağlaması gerekir. 
+Bir sunumu şifre belirleyerek şifreleyebilirsiniz. Kilitli sunumu değiştirmek için kullanıcı şifreyi sağlamalıdır. 
 
-Bir sunumu şifrelemek veya şifreyle korumak için, [ProtectionManager](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.protection_manager) sınıfındaki `encrypt` metodunu kullanarak sunuma bir şifre atamanız gerekir. Şifreyi `encrypt` metoduna geçirip ardından `save` metoduyla şimdi şifreli olan sunumu kaydedersiniz. 
+Bir sunumu şifrelemek veya şifreyle korumak için, sunuma bir şifre ayarlamak amacıyla encrypt metodunu ([ProtectionManager](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.protection_manager)) kullanmalısınız. Şifreyi encrypt metoduna geçirirsiniz ve ardından kaydetme metodunu kullanarak şifrelenmiş sunumu kaydedersiniz. 
 
 Bu örnek kod, bir sunumu nasıl şifreleyeceğinizi gösterir:
 
@@ -113,13 +113,13 @@ presentation->get_ProtectionManager()->Encrypt(u"123123");
 presentation->Save(u"encrypted-pres.pptx", SaveFormat::Pptx);
 ```
 
-## **Bir Sunuma Yazma Koruması Ayarlama**
+## **Sunuma Yazma Koruması Ayarla** 
 
-Sunuma “Değiştirmeyin” işareti ekleyebilirsiniz. Böylece kullanıcılara sunumu değiştirmemelerini bildirirsiniz.  
+Sunuma “Değiştirmeyin” ibaresi ekleyebilirsiniz. Bu şekilde, kullanıcılarına sunumu değiştirmelerini istemediğinizi bildirirsiniz.  
 
-**Not** yazma koruma süreci sunumu şifrelemez. Bu nedenle, kullanıcılar – gerçekten isterlerse – sunumu değiştirebilir; ancak değişiklikleri kaydetmek için farklı bir adla yeni bir sunum oluşturmak zorunda kalırlar. 
+**Not**: Yazma koruma işlemi sunumu şifrelemez. Bu nedenle, kullanıcılar—gerçekten istediklerinde—sunumu değiştirebilir, ancak değişiklikleri kaydetmek için farklı bir adla sunum oluşturmak zorunda kalırlar. 
 
-Yazma koruması ayarlamak için `setWriteProtection` metodunu kullanmanız gerekir. Bu örnek kod, bir sunuma yazma koruması nasıl ekleyeceğinizi gösterir:
+Yazma koruması ayarlamak için setWriteProtection metodunu kullanmalısınız. Bu örnek kod, bir sunuma yazma koruması nasıl ayarlanacağını gösterir:
 
 ``` cpp
 auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
@@ -128,11 +128,11 @@ presentation->get_ProtectionManager()->SetWriteProtection(u"123123");
 presentation->Save(u"write-protected-pres.pptx", SaveFormat::Pptx);
 ```
 
-## **Şifreli Bir Sunumu Yükleme**
+## **Şifreli Bir Sunumu Yükle**
 
-Aspose.Slides, bir şifreyi geçerek şifreli bir dosyayı yüklemenize olanak tanır. Bir sunumu şifre çözmek için parametresiz olarak [RemoveEncryption](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.protection_manager#a422059278b430a0493680252aa975d4d) metodunu çağırmanız gerekir. Ardından sunumu yüklemek için doğru şifreyi girmeniz istenir. 
+Aspose.Slides, şifresini girerek şifreli bir dosyayı yüklemenize izin verir. Bir sunumu şifre çözmek için, parametresiz olarak [RemoveEncryption](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.protection_manager#a422059278b430a0493680252aa975d4d) metodunu çağırmalısınız. Daha sonra sunumu yüklemek için doğru şifreyi girmeniz gerekir. 
 
-Bu örnek kod, bir sunumu nasıl şifre çözeceğinizi gösterir: 
+Bu örnek kod, bir sunumu nasıl şifre çözeceğinizi gösterir:
 
 ``` cpp
 auto loadOptions = System::MakeObject<LoadOptions>();
@@ -143,11 +143,11 @@ System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>(
 // şifre çözülmüş sunumla çalış
 ```
 
-## **Bir Sunumdan Şifrelemeyi Kaldırma**
+## **Sunumdan Şifrelemeyi Kaldır**
 
-Bir sunumun şifrelemesini veya şifre korumasını kaldırabilirsiniz. Böylece kullanıcılar sunuma kısıtlama olmadan erişebilir veya değiştirebilir. 
+Bir sunum üzerindeki şifrelemeyi veya şifre korumasını kaldırabilirsiniz. Bu şekilde, kullanıcılar sunuma kısıtlama olmadan erişebilir veya değiştirebilir. 
 
-Şifrelemeyi veya şifre korumasını kaldırmak için [RemoveEncryption](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.protection_manager#a422059278b430a0493680252aa975d4d) metodunu çağırmanız gerekir. Bu örnek kod, bir sunumdan şifrelemeyi nasıl kaldıracağınızı gösterir:
+Şifrelemeyi veya şifre korumasını kaldırmak için [RemoveEncryption](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.protection_manager#a422059278b430a0493680252aa975d4d) metodunu çağırmalısınız. Bu örnek kod, bir sunumdan şifrelemeyi nasıl kaldıracağınızı gösterir:
 
 ``` cpp
 auto loadOptions = System::MakeObject<LoadOptions>();
@@ -159,11 +159,11 @@ presentation->get_ProtectionManager()->RemoveEncryption();
 presentation->Save(u"encryption-removed.pptx", SaveFormat::Pptx);
 ```
 
-## **Bir Sunumdan Yazma Korumasını Kaldırma**
+## **Sunumdan Yazma Korumasını Kaldır**
 
-Aspose.Slides kullanarak bir sunum dosyasındaki yazma korumasını kaldırabilirsiniz. Böylece kullanıcılar diledikleri gibi değiştirebilir ve bu işlemler sırasında hiçbir uyarı almazlar.
+Aspose.Slides'i kullanarak bir sunum dosyasındaki yazma korumasını kaldırabilirsiniz. Böylece, kullanıcılar istedikleri gibi değiştirebilir ve bu işlemleri yaparken herhangi bir uyarı almazlar.  
 
-Yazma korumasını kaldırmak için [RemoveWriteProtection](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.protection_manager#a9f9e6de5983965157dac0f270a0a9e50) metodunu kullanın. Bu örnek kod, bir sunumdan yazma korumasını nasıl kaldıracağınızı gösterir:
+Sunumdan yazma korumasını [RemoveWriteProtection](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.protection_manager#a9f9e6de5983965157dac0f270a0a9e50) metodunu kullanarak kaldırabilirsiniz. Bu örnek kod, bir sunumdan yazma korumasını nasıl kaldıracağınızı gösterir:
 
 ``` cpp
 auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
@@ -172,26 +172,64 @@ presentation->get_ProtectionManager()->RemoveWriteProtection();
 presentation->Save(u"write-protection-removed.pptx", SaveFormat::Pptx);
 ```
 
-## **Şifreli Bir Sunumun Özelliklerini Alma**
+## **Şifreli Bir Sunumun Özelliklerini Al**
 
-Genellikle kullanıcılar, şifreli veya şifreyle korunan bir sunumun belge özelliklerini almada zorluk çeker. Aspose.Slides ise, bir sunumu şifreyle korurken aynı zamanda kullanıcıların o sunumun özelliklerine erişebilmesini sağlayan bir mekanizma sunar.
+Genellikle, kullanıcılar şifreli veya şifre korumalı bir sunumun belge özelliklerini almada zorlanırlar. Ancak, Aspose.Slides, bir sunumu şifreyle korurken aynı zamanda belge özelliklerine erişim sağlayan bir mekanizma sunar.  
 
-**Not** Aspose.Slides bir sunumu şifrelediğinde, sunumun belge özellikleri de varsayılan olarak şifreyle korunur. Ancak, sunum şifrelendikten sonra bile özelliklerin erişilebilir olmasını istiyorsanız, Aspose.Slides bunu yapmanıza izin verir. 
+**Not:** Varsayılan olarak, Aspose.Slides bir sunumu şifrelediğinde, sunumun belge özellikleri de şifre korumalı olur. Şifreleme sonrası belge özelliklerinin erişilebilir olmasını istiyorsanız, Aspose.Slides bunu yapmanıza izin verir.  
 
-Kullanıcıların şifrelediğiniz bir sunumun özelliklerine erişebilmesini istiyorsanız, [set_EncryptDocumentProperties()](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.protection_manager#a67e041b432552969d106f72fa7fe5a1d) metoduna `true` parametresi geçirebilirsiniz. Bu örnek kod, kullanıcıların belge özelliklerine erişebildiği şekilde bir sunumu nasıl şifreleyeceğinizi gösterir:
+Kullanıcıların şifreli bir sunumun özelliklerine erişim yeteneğini korumalarını istiyorsanız, [IProtectionManager](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iprotectionmanager/) sınıfının `set_EncryptDocumentProperties` metoduna `false` değeri gönderin. Bu örnek kod, bir sunumu şifrelerken kullanıcıların belge özelliklerine erişimini nasıl sağlamayı gösterir:
 
 ``` cpp
 auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
 
-presentation->get_ProtectionManager()->set_EncryptDocumentProperties(true);
+presentation->get_ProtectionManager()->set_EncryptDocumentProperties(false);
 presentation->get_ProtectionManager()->Encrypt(u"123123");
+presentation->Save(u"encrypted-pres.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Bir Sunumun Şifreyle Korunup Korunmadığını Kontrol Etme**
+## **Şifreli Bir Sunumdan Yalnızca Belge Özelliklerini Yükle**
 
-Bir sunumu yüklemeden önce, sunumun şifreyle korunup korunmadığını kontrol etmek isteyebilirsiniz. Böylece şifre korumalı bir sunum şifresi olmadan yüklendiğinde ortaya çıkabilecek hataları ve benzeri sorunları önlersiniz.
+Şifreli bir sunumun slaytlarını veya diğer içeriklerini yüklemeden meta verilerini incelemek için bir [LoadOptions](https://reference.aspose.com/slides/tr/cpp/aspose.slides/loadoptions/) nesnesi oluşturun ve [set_OnlyLoadDocumentProperties](https://reference.aspose.com/slides/tr/cpp/aspose.slides/loadoptions/set_onlyloaddocumentproperties/) özelliğini `true` olarak ayarlayın. Bu modda, Aspose.Slides şifreyi görmezden gelir ve yalnızca herkese açık belge özelliklerini yükler.  
 
-Bu C++ kodu, bir sunumun şifreyle korunup korunmadığını (sunumu yüklemeden) nasıl inceleyeceğinizi gösterir:
+Aşağıdaki kod örneği, [IPresentation::get_DocumentProperties](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentation/get_documentproperties/) aracılığıyla yerleşik ve özel belge özelliklerini okur:
+
+``` cpp
+auto loadOptions = MakeObject<LoadOptions>();
+loadOptions->set_OnlyLoadDocumentProperties(true);
+
+auto presentation = MakeObject<Presentation>(u"encrypted-pres.pptx", loadOptions);
+auto documentProperties = presentation->get_DocumentProperties();
+
+// Read built-in document properties.
+auto title = documentProperties->get_Title();
+auto author = documentProperties->get_Author();
+Console::WriteLine(String(u"Title: ") + title);
+Console::WriteLine(String(u"Author: ") + author);
+
+// Read custom document properties.
+int customPropertyCount = documentProperties->get_CountOfCustomProperties();
+
+for (int propertyIndex = 0; propertyIndex < customPropertyCount; propertyIndex++)
+{
+    auto propertyName = documentProperties->GetCustomPropertyName(propertyIndex);
+    auto propertyValue = documentProperties->idx_get(propertyName);
+    auto propertyValueText = ObjectExt::ToString(propertyValue);
+
+    Console::WriteLine(propertyName + u": " + propertyValueText);
+}
+
+presentation->Dispose();
+```
+
+Bu iş akışı yalnızca sunum şifrelenirken belge özellikleri şifrelenmemiş (genel) bırakıldığında çalışır. Belge özellikleri şifrelenmişse, `LoadOptions::set_OnlyLoadDocumentProperties` değerini `true` yapmak bir istisna oluşturur çünkü bu modda şifre göz ardı edilir. Şifreli belge özelliklerine erişmek veya slaytlar ve diğer içerik dahil tam sunumu yüklemek için, doğru şifreyi `LoadOptions::set_Password` ile [LoadOptions](https://reference.aspose.com/slides/tr/cpp/aspose.slides/loadoptions/) içinde sağlayın.  
+
+## **Bir Sunumun Şifre Koruması Olup Olmadığını Kontrol Et**
+
+Bir sunumu yüklemeden önce, sunumun şifreyle korunup korunmadığını kontrol etmek ve doğrulamak isteyebilirsiniz. Bu sayede, şifre korumalı bir sunumun şifresi olmadan yüklendiğinde ortaya çıkan hatalar ve benzeri sorunlardan kaçınabilirsiniz.  
+
+Bu C++ kod, bir sunumu şifre korumalı olup olmadığını (sunumu kendisini yüklemeden) incelemenin yolunu gösterir:
 
 ```c++
 auto presentationInfo = PresentationFactory::get_Instance()->GetPresentationInfo(u"example.pptx");
@@ -199,9 +237,9 @@ System::Console::WriteLine(System::String(u"The presentation is password protect
                            presentationInfo->get_IsPasswordProtected());
 ```
 
-## **Bir Sunumun Şifrelenip Şifrelenmediğini Kontrol Etme**
+## **Bir Sunumun Şifrelenmiş Olup Olmadığını Kontrol Et**
 
-Aspose.Slides, bir sunumun şifreli olup olmadığını kontrol etmenizi sağlar. Bu görevi yerine getirmek için, sunum şifreli ise `true`, şifreli değilse `false` döndüren [get_IsEncrypted()](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.protection_manager#ad88b984e44b378f335317ded49b34e68) metodunu kullanabilirsiniz. 
+Aspose.Slides, bir sunumun şifrelenip şifrelenmediğini kontrol etmenizi sağlar. Bu görevi yerine getirmek için, sunum şifreli ise `true`, şifreli değilse `false` dönen [get_IsEncrypted()](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.protection_manager#ad88b984e44b378f335317ded49b34e68) metodunu kullanabilirsiniz.  
 
 Bu örnek kod, bir sunumun şifreli olup olmadığını nasıl kontrol edeceğinizi gösterir:
 
@@ -211,11 +249,11 @@ auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
 bool isEncrypted = presentation->get_ProtectionManager()->get_IsEncrypted();
 ```
 
-## **Bir Sunumun Yazma Koruması Altında Olup Olmadığını Kontrol Etme**
+## **Bir Sunumun Yazma Koruması Olup Olmadığını Kontrol Et**
 
-Aspose.Slides, bir sunumun yazma koruması altında olup olmadığını kontrol etmenizi sağlar. Bu görevi yerine getirmek için, sunum şifreli ise `true`, şifreli değilse `false` döndüren [get_IsWriteProtected()](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.protection_manager#a0b4a82c0f7b3a32ca5762c5fcc8844a2) metodunu kullanabilirsiniz. 
+Aspose.Slides, bir sunumun yazma korumalı olup olmadığını kontrol etmenizi sağlar. Bu görevi gerçekleştirmek için, sunum yazma korumalı ise `true`, değilse `false` dönen [get_IsWriteProtected()](https://reference.aspose.com/slides/tr/cpp/class/aspose.slides.protection_manager#a0b4a82c0f7b3a32ca5762c5fcc8844a2) metodunu kullanabilirsiniz.  
 
-Bu örnek kod, bir sunumun yazma koruması altında olup olmadığını nasıl kontrol edeceğinizi gösterir:
+Bu örnek kod, bir sunumun yazma korumalı olup olmadığını nasıl kontrol edeceğinizi gösterir:
 
 ``` cpp
 auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
@@ -223,35 +261,35 @@ auto presentation = System::MakeObject<Presentation>(u"pres.pptx");
 bool isEncrypted = presentation->get_ProtectionManager()->get_IsWriteProtected();
 ```
 
-## **Sunum Şifresi Kullanımını Doğrulama**
+## **Sunum Şifresi Kullanımını Doğrula**
 
-Belirli bir şifrenin bir sunum belgesini korumak için kullanılıp kullanılmadığını kontrol etmek ve onaylamak isteyebilirsiniz. Aspose.Slides, bir şifreyi doğrulamanıza olanak tanır. 
+Belirli bir şifrenin bir sunum belgesini korumak için kullanıldığını kontrol etmek ve doğrulamak isteyebilirsiniz. Aspose.Slides, bir şifreyi doğrulamanız için gerekli araçları sağlar.  
 
 Bu örnek kod, bir şifreyi nasıl doğrulayacağınızı gösterir:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 
-// "pass" ile eşleşip eşleşmediğini kontrol et
+// "pass" parolasının eşleşip eşleşmediğini kontrol et
 bool isWriteProtected = pres->get_ProtectionManager()->CheckWriteProtection(u"my_password");
 ```
 
-Şifre belirtilen şifreyle şifrelenmişse `true`, aksi takdirde `false` döndürür. 
+Belirtilen şifreyle sunum şifrelenmişse `true` döner. Aksi takdirde `false` döner.  
 
 {{% alert color="primary" title="See also" %}} 
-- [PowerPoint’te Dijital İmza](/slides/tr/cpp/digital-signature-in-powerpoint/)
+- [Digital Signature in PowerPoint](/slides/tr/cpp/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
 ## **SSS**
 
-**Aspose.Slides tarafından desteklenen şifreleme yöntemleri nelerdir?**
+**Aspose.Slides hangi şifreleme yöntemlerini destekliyor?**
 
-Aspose.Slides, modern şifreleme yöntemlerini, özellikle AES tabanlı algoritmaları destekler; bu da sunumlarınız için yüksek düzeyde veri güvenliği sağlar.
+Aspose.Slides, AES tabanlı algoritmalar dahil modern şifreleme yöntemlerini destekler ve sunumlarınız için yüksek düzeyde veri güvenliği sağlar.  
 
 **Bir sunumu açmaya çalışırken yanlış şifre girilirse ne olur?**
 
-Yanlış şifre kullanıldığında bir istisna fırlatılır ve sunuma erişimin reddedildiği bildirilir. Bu, yetkisiz erişimi önlemeye ve sunum içeriğini korumaya yardımcı olur.
+Yanlış bir şifre kullanılırsa bir istisna fırlatılır ve sunuma erişimin reddedildiği bildirilir. Bu, yetkisiz erişimi önlemeye ve sunum içeriğini korumaya yardımcı olur.  
 
-**Şifreyle korunan sunumlarla çalışırken performans açısından bir etkisi var mı?**
+**Şifre korumalı sunumlarla çalışırken performans üzerinde bir etkisi var mı?**
 
-Şifreleme ve şifre çözme işlemleri, açma ve kaydetme sırasında hafif bir ek yük oluşturabilir. Çoğu senaryoda bu performans etkisi en az seviyededir ve sunum görevlerinizin toplam işleme süresini önemli ölçüde etkilemez.
+Şifreleme ve şifre çözme işlemleri, açma ve kaydetme sırasında hafif bir ek yük oluşturabilir. Çoğu durumda, bu performans etkisi çok azdır ve sunum görevlerinizin genel işleme süresini önemli ölçüde etmez.

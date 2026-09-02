@@ -9,8 +9,8 @@ keywords:
 - zablokuj prezentację
 - odblokuj PowerPoint
 - odblokuj prezentację
-- ochroń PowerPoint
-- ochroń prezentację
+- chroń PowerPoint
+- chroń prezentację
 - ustaw hasło
 - dodaj hasło
 - zaszyfruj PowerPoint
@@ -32,62 +32,62 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Dowiedz się, jak łatwo blokować i odblokowywać prezentacje PowerPoint oraz OpenDocument zabezpieczone hasłem przy użyciu Aspose.Slides dla .NET. Zabezpiecz swoje prezentacje."
+description: "Dowiedz się, jak w prosty sposób blokować i odblokowywać hasłowo zabezpieczone prezentacje PowerPoint i OpenDocument za pomocą Aspose.Slides dla .NET. Zabezpiecz swoje prezentacje."
 ---
 ## **Wprowadzenie**
 
-Gdy zabezpieczasz prezentację hasłem, ustawiasz hasło, które narzuca określone ograniczenia na prezentację. Aby usunąć te ograniczenia, należy wprowadzić hasło. Prezentacja zabezpieczona hasłem jest uważana za zablokowaną prezentację.
+Kiedy zabezpieczasz prezentację hasłem, oznacza to, że ustawiasz hasło, które narzuca określone ograniczenia na prezentację. Aby usunąć te ograniczenia, należy wprowadzić hasło. Prezentacja zabezpieczona hasłem jest uznawana za zablokowaną prezentację.
 
 Zazwyczaj możesz ustawić hasło, aby wymusić te ograniczenia na prezentacji:
 
 - **Modyfikacja**
 
-Jeśli chcesz, aby tylko wybrani użytkownicy mogli modyfikować Twoją prezentację, możesz ustawić ograniczenie modyfikacji. To ograniczenie uniemożliwia osobom modyfikowanie, zmianę lub kopiowanie elementów w prezentacji, chyba że podadzą hasło.
+Jeśli chcesz, aby tylko określone osoby mogły modyfikować twoją prezentację, możesz ustawić ograniczenie modyfikacji. To ograniczenie uniemożliwia ludziom modyfikowanie, zmienianie lub kopiowanie elementów w twojej prezentacji, chyba że podadzą hasło.  
 
-Jednak nawet bez hasła użytkownik nadal będzie mógł uzyskać dostęp i otworzyć dokument. W trybie tylko do odczytu użytkownik może przeglądać zawartość — w tym hiperłącza, animacje, efekty i inne elementy — wewnątrz prezentacji, ale nie może kopiować elementów ani zapisać prezentacji.
+Jednakże, nawet bez hasła, użytkownik nadal będzie mógł uzyskać dostęp i otworzyć twój dokument. W tym trybie tylko do odczytu użytkownik może przeglądać zawartość — w tym hiperlinki, animacje, efekty i inne elementy — w twojej prezentacji, ale nie może kopiować elementów ani zapisywać prezentacji.
 
 - **Otwieranie**
 
-Jeśli chcesz, aby tylko wybrani użytkownicy mogli otwierać Twoją prezentację, możesz ustawić ograniczenie otwierania. To ograniczenie uniemożliwia osobom nawet podgląd zawartości prezentacji, chyba że podadzą hasło.
+Jeśli chcesz, aby tylko określone osoby mogły otworzyć twoją prezentację, możesz ustawić ograniczenie otwierania. To ograniczenie uniemożliwia ludziom nawet przeglądanie zawartości prezentacji, chyba że podadzą hasło.  
 
-Technicznie ograniczenie otwierania zapobiega również modyfikacji prezentacji — jeśli ludzie nie mogą otworzyć prezentacji, nie mogą jej modyfikować ani wprowadzać zmian.
+Technicznie, ograniczenie otwierania także uniemożliwia użytkownikom modyfikowanie prezentacji — jeśli osoby nie mogą otworzyć prezentacji, nie mogą jej modyfikować ani wprowadzać zmian do niej.
 
-**Uwaga:** Gdy zabezpieczasz prezentację hasłem przed otwarciem, plik prezentacji zostaje zaszyfrowany.
+**Uwaga:** Kiedy zabezpieczasz prezentację hasłem, aby uniemożliwić jej otwarcie, plik prezentacji zostaje zaszyfrowany.
 
-## **Zabezpieczanie hasłem w Aspose.Slides**
+## **Zabezpieczenie hasłem w Aspose.Slides**
 
 **Obsługiwane formaty**
 
-Aspose.Slides obsługuje zabezpieczanie hasłem, szyfrowanie i podobne operacje dla prezentacji w następujących formatach:
+Aspose.Slides obsługuje zabezpieczenie hasłem, szyfrowanie i podobne operacje dla prezentacji w tych formatach:
 
-- PPTX i PPT – prezentacje Microsoft PowerPoint  
-- ODP – prezentacje OpenDocument  
-- OTP – szablony prezentacji OpenDocument  
+- PPTX i PPT – Prezentacje Microsoft PowerPoint
+- ODP – Prezentacje OpenDocument
+- OTP – Szablony prezentacji OpenDocument
 
 **Obsługiwane operacje**
 
-Aspose.Slides umożliwia użycie zabezpieczenia hasłem w prezentacjach, aby zapobiec modyfikacjom na następujące sposoby:
+Aspose.Slides umożliwia użycie zabezpieczenia hasłem w prezentacjach, aby zapobiec modyfikacjom w następujący sposób:
 
-- Szyfrowanie prezentacji  
-- Ustawianie ochrony przed zapisem w prezentacji  
+- Szyfrowanie prezentacji
+- Ustawianie ochrony przed zapisem w prezentacji
 
 **Inne operacje**
 
-Aspose.Slides pozwala wykonać dodatkowe zadania związane z zabezpieczeniem hasłem i szyfrowaniem w następujący sposób:
+Aspose.Slides umożliwia wykonywanie dodatkowych zadań związanych z zabezpieczeniem hasłem i szyfrowaniem w następujący sposób:
 
-- odszyfrowywanie prezentacji; otwieranie zaszyfrowanej prezentacji  
-- usuwanie szyfrowania; wyłączanie zabezpieczenia hasłem  
-- usuwanie ochrony przed zapisem z prezentacji  
-- pobieranie właściwości zaszyfrowanej prezentacji  
-- sprawdzanie, czy prezentacja jest zabezpieczona hasłem przed jej załadowaniem  
-- sprawdzanie, czy prezentacja jest zaszyfrowana  
-- sprawdzanie, czy prezentacja jest zabezpieczona hasłem  
+- Deszyfrowanie prezentacji; otwieranie zaszyfrowanej prezentacji
+- Usuwanie szyfrowania; wyłączanie zabezpieczenia hasłem
+- Usuwanie ochrony przed zapisem z prezentacji
+- Pobieranie właściwości zaszyfrowanej prezentacji
+- Sprawdzanie, czy prezentacja jest zabezpieczona hasłem przed jej wczytaniem
+- Sprawdzanie, czy prezentacja jest zaszyfrowana
+- Sprawdzanie, czy prezentacja jest zabezpieczona hasłem
 
-## **Zabezpieczenie prezentacji hasłem**
+## **Zabezpiecz prezentację hasłem**
 
 Możesz zaszyfrować prezentację, ustawiając hasło. Następnie, aby zmodyfikować zablokowaną prezentację, użytkownik musi podać hasło.
 
-Aby zaszyfrować (lub zabezpieczyć hasłem) prezentację, użyj metody `Encrypt` z [ProtectionManager](https://reference.aspose.com/slides/pl/net/aspose.slides/protectionmanager), aby ustawić hasło. Przekaż hasło do metody `Encrypt`, a następnie użyj metody `Save`, aby zapisać teraz zaszyfrowaną prezentację.
+Aby zaszyfrować (lub zabezpieczyć hasłem) prezentację, użyj metody `Encrypt` z [ProtectionManager](https://reference.aspose.com/slides/pl/net/aspose.slides/protectionmanager) aby ustawić hasło. Przekaż hasło do metody `Encrypt`, a potem użyj metody `Save`, aby zapisać teraz zaszyfrowaną prezentację.
 
 Ten przykładowy kod pokazuje, jak zaszyfrować prezentację:
 
@@ -99,9 +99,9 @@ using (Presentation presentation = new Presentation("pres.pptx"))
 }
 ```
 
-## **Ustawienie ochrony przed zapisem w prezentacji** 
+## **Ustaw ochronę przed zapisem w prezentacji** 
 
-Możesz dodać znacznik „Nie modyfikować” do prezentacji. Informuje to użytkowników, że nie chcesz, aby wprowadzali zmiany w prezentacji.
+Możesz dodać znacznik informujący „Nie modyfikować” do prezentacji. To informuje użytkowników, że nie chcesz, aby wprowadzali zmiany w prezentacji.
 
 **Uwaga:** Proces ochrony przed zapisem nie szyfruje prezentacji. Dlatego użytkownicy — jeśli zechcą — mogą modyfikować prezentację, ale aby zapisać zmiany, będą musieli zapisać ją pod inną nazwą.
 
@@ -115,9 +115,9 @@ using (Presentation presentation = new Presentation("pres.pptx"))
 }
 ```
 
-## **Ładowanie zaszyfrowanej prezentacji**
+## **Wczytaj zaszyfrowaną prezentację**
 
-Aspose.Slides umożliwia ładowanie zaszyfrowanej prezentacji po przekazaniu właściwego hasła. Ten przykładowy kod pokazuje, jak załadować zaszyfrowaną prezentację:
+Aspose.Slides umożliwia wczytanie zaszyfrowanej prezentacji, podając prawidłowe hasło. Ten przykładowy kod pokazuje, jak wczytać zaszyfrowaną prezentację:
 
 ```c#
 LoadOptions loadOptions = new LoadOptions { Password = "123123" };
@@ -127,9 +127,9 @@ using (Presentation presentation = new Presentation("pres.pptx", loadOptions))
 }
 ```
 
-## **Usuwanie szyfrowania z prezentacji**
+## **Usuń szyfrowanie z prezentacji**
 
-Możesz usunąć szyfrowanie lub zabezpieczenie hasłem z prezentacji, umożliwiając użytkownikom dostęp lub modyfikację bez ograniczeń.
+Możesz usunąć szyfrowanie lub zabezpieczenie hasłem z prezentacji, pozwalając użytkownikom na dostęp lub modyfikację bez ograniczeń.
 
 Aby usunąć szyfrowanie lub zabezpieczenie hasłem, wywołaj metodę [RemoveEncryption](https://reference.aspose.com/slides/pl/net/aspose.slides/protectionmanager/methods/removeencryption). Ten przykładowy kod pokazuje, jak usunąć szyfrowanie z prezentacji:
 
@@ -142,11 +142,11 @@ using (Presentation presentation = new Presentation("pres.pptx", loadOptions))
 }
 ```
 
-## **Usuwanie ochrony przed zapisem z prezentacji**
+## **Usuń ochronę przed zapisem z prezentacji**
 
-Możesz użyć Aspose.Slides, aby usunąć ochronę przed zapisem z pliku prezentacji. Dzięki temu użytkownicy mogą modyfikować ją dowolnie — i nie otrzymają żadnych ostrzeżeń podczas wykonywania takich czynności.
+Możesz użyć Aspose.Slides, aby usunąć ochronę przed zapisem z pliku prezentacji. W ten sposób użytkownicy mogą modyfikować ją dowolnie — i nie otrzymają żadnych ostrzeżeń podczas wykonywania takich czynności.
 
-Ochronę przed zapisem możesz usunąć, używając metody [RemoveWriteProtection](https://reference.aspose.com/slides/pl/net/aspose.slides/protectionmanager/methods/removewriteprotection). Ten przykładowy kod pokazuje, jak usunąć ochronę przed zapisem z prezentacji:
+Możesz usunąć ochronę przed zapisem, używając metody [RemoveWriteProtection](https://reference.aspose.com/slides/pl/net/aspose.slides/protectionmanager/methods/removewriteprotection). Ten przykładowy kod pokazuje, jak usunąć ochronę przed zapisem z prezentacji:
 
 ```c#
 using (Presentation presentation = new Presentation("pres.pptx"))
@@ -156,36 +156,69 @@ using (Presentation presentation = new Presentation("pres.pptx"))
 }
 ```
 
-## **Pobieranie właściwości zaszyfrowanej prezentacji**
+## **Pobierz właściwości zaszyfrowanej prezentacji**
 
-Typowo użytkownicy mają trudności z pobraniem właściwości dokumentu zaszyfrowanej lub zabezpieczonej hasłem prezentacji. Aspose.Slides oferuje mechanizm, który umożliwia zabezpieczenie prezentacji hasłem przy jednoczesnym zachowaniu możliwości uzyskania dostępu do jej właściwości.
+Zwykle użytkownicy mają trudności z pobraniem właściwości dokumentu zaszyfrowanej lub zabezpieczonej hasłem prezentacji. Jednak Aspose.Slides oferuje mechanizm, który pozwala zabezpieczyć prezentację hasłem, jednocześnie zachowując możliwość dostępu do jej właściwości.
 
-**Uwaga:** Domyślnie, gdy Aspose.Slides szyfruje prezentację, właściwości dokumentu prezentacji również stają się zabezpieczone hasłem. Jeśli potrzebujesz, aby właściwości dokumentu były dostępne nawet po szyfrowaniu, Aspose.Slides pozwala to zrobić.
+**Uwaga:** Domyślnie, gdy Aspose.Slides szyfruje prezentację, właściwości dokumentu prezentacji są również zabezpieczone hasłem. Jeśli potrzebujesz, aby właściwości dokumentu były dostępne nawet po szyfrowaniu, Aspose.Slides umożliwia dokładnie to.
 
-Jeśli chcesz, aby użytkownicy zachowali możliwość dostępu do właściwości zaszyfrowanej prezentacji, możesz ustawić właściwość [EncryptDocumentProperties](https://reference.aspose.com/slides/pl/net/aspose.slides/protectionmanager/properties/encryptdocumentproperties) na `true`. Ten przykładowy kod pokazuje, jak szyfrować prezentację, jednocześnie umożliwiając dostęp do jej właściwości dokumentu:
+Jeśli chcesz, aby użytkownicy zachowali możliwość dostępu do właściwości zaszyfrowanej prezentacji, ustaw właściwość `EncryptDocumentProperties` interfejsu [IProtectionManager](https://reference.aspose.com/slides/pl/net/aspose.slides/iprotectionmanager/) na `false`. Ten przykładowy kod pokazuje, jak zaszyfrować prezentację, jednocześnie umożliwiając użytkownikom dostęp do jej właściwości dokumentu:
 
 ```c#
-using (Presentation presentation = new Presentation("pres.pptx"))
+using var presentation = new Presentation("pres.pptx");
+
+presentation.ProtectionManager.EncryptDocumentProperties = false;
+presentation.ProtectionManager.Encrypt("123123");
+presentation.Save("encrypted-pres.pptx", SaveFormat.Pptx);
+```
+
+## **Wczytaj tylko właściwości dokumentu z zaszyfrowanej prezentacji**
+
+Aby przejrzeć metadane zaszyfrowanej prezentacji bez wczytywania jej slajdów ani innej zawartości, utwórz obiekt [LoadOptions](https://reference.aspose.com/slides/pl/net/aspose.slides/loadoptions/) i ustaw [OnlyLoadDocumentProperties](https://reference.aspose.com/slides/pl/net/aspose.slides/loadoptions/onlyloaddocumentproperties/) na `true`. W tym trybie Aspose.Slides ignoruje hasło i wczytuje tylko właściwości dokumentu, które są publicznie dostępne.
+
+Poniższy przykład kodu odczytuje wbudowane i niestandardowe właściwości dokumentu za pomocą [IPresentation.DocumentProperties](https://reference.aspose.com/slides/pl/net/aspose.slides/ipresentation/documentproperties/):
+
+```c#
+var loadOptions = new LoadOptions
 {
-    presentation.ProtectionManager.EncryptDocumentProperties = true;
-    presentation.ProtectionManager.Encrypt("123123");
+    OnlyLoadDocumentProperties = true
+};
+
+using var presentation = new Presentation("encrypted-pres.pptx", loadOptions);
+var documentProperties = presentation.DocumentProperties;
+
+// Read built-in document properties.
+Console.WriteLine("Title: " + documentProperties.Title);
+Console.WriteLine("Author: " + documentProperties.Author);
+
+// Read custom document properties.
+var customPropertyCount = documentProperties.CountOfCustomProperties;
+
+for (var propertyIndex = 0; propertyIndex < customPropertyCount; propertyIndex++)
+{
+    var propertyName = documentProperties.GetCustomPropertyName(propertyIndex);
+    var propertyValue = documentProperties[propertyName];
+
+    Console.WriteLine(propertyName + ": " + propertyValue);
 }
 ```
 
-## **Sprawdzanie, czy prezentacja jest zabezpieczona hasłem**
+Ten przepływ pracy działa tylko wtedy, gdy właściwości dokumentu zostały pozostawione niezaszyfrowane (publiczne) w momencie szyfrowania prezentacji. Jeśli właściwości dokumentu są zaszyfrowane, ustawienie `OnlyLoadDocumentProperties` na `true` powoduje wyjątek, ponieważ hasło jest ignorowane w tym trybie. Aby uzyskać dostęp do zaszyfrowanych właściwości dokumentu lub wczytać pełną prezentację, włącznie ze slajdami i inną zawartością, podaj prawidłową wartość `Password` w [LoadOptions](https://reference.aspose.com/slides/pl/net/aspose.slides/loadoptions/).
 
-Przed załadowaniem prezentacji możesz chcieć sprawdzić, czy nie została zabezpieczona hasłem. To pomaga uniknąć błędów i podobnych problemów, które występują, gdy prezentacja zabezpieczona hasłem jest otwierana bez właściwego hasła.
+## **Sprawdź, czy prezentacja jest zabezpieczona hasłem**
 
-Ten kod C# pokazuje, jak zbadać prezentację, aby sprawdzić, czy jest zabezpieczona hasłem, bez jej rzeczywistego ładowania:
+Zanim wczytasz prezentację, możesz chcieć sprawdzić, czy nie została zabezpieczona hasłem. Pomaga to uniknąć błędów i podobnych problemów, które występują, gdy prezentacja zabezpieczona hasłem jest wczytywana bez właściwego hasła.
+
+Ten kod C# pokazuje, jak sprawdzić prezentację pod kątem zabezpieczenia hasłem bez jej faktycznego wczytywania:
 
 ```c#
 var presentationInfo = PresentationFactory.Instance.GetPresentationInfo("example.pptx");
 Console.WriteLine("The presentation is password protected: " + presentationInfo.IsPasswordProtected);
 ```
 
-## **Sprawdzanie, czy prezentacja jest zaszyfrowana**
+## **Sprawdź, czy prezentacja jest zaszyfrowana**
 
-Aspose.Slides umożliwia sprawdzenie, czy prezentacja jest zaszyfrowana. W tym celu możesz użyć właściwości [IsEncrypted](https://reference.aspose.com/slides/pl/net/aspose.slides/protectionmanager/properties/isencrypted), która zwraca `true`, jeśli prezentacja jest zaszyfrowana, lub `false`, jeśli nie jest.
+Aspose.Slides umożliwia sprawdzenie, czy prezentacja jest zaszyfrowana. Do wykonania tego zadania możesz użyć właściwości [IsEncrypted](https://reference.aspose.com/slides/pl/net/aspose.slides/protectionmanager/properties/isencrypted), która zwraca `true`, jeśli prezentacja jest zaszyfrowana, lub `false`, jeśli nie jest.
 
 Ten przykładowy kod pokazuje, jak sprawdzić, czy prezentacja jest zaszyfrowana:
 
@@ -196,9 +229,9 @@ using (Presentation presentation = new Presentation("pres.pptx"))
 }
 ```
 
-## **Sprawdzanie, czy prezentacja jest chroniona przed zapisem**
+## **Sprawdź, czy prezentacja jest chroniona przed zapisem**
 
-Aspose.Slides umożliwia sprawdzenie, czy prezentacja jest chroniona przed zapisem. W tym celu możesz użyć właściwości [IsWriteProtected](https://reference.aspose.com/slides/pl/net/aspose.slides/protectionmanager/properties/iswriteprotected), która zwraca `true`, jeśli prezentacja jest chroniona przed zapisem, lub `false`, jeśli nie jest.
+Aspose.Slides umożliwia sprawdzenie, czy prezentacja jest chroniona przed zapisem. Do wykonania tego zadania możesz użyć właściwości [IsWriteProtected](https://reference.aspose.com/slides/pl/net/aspose.slides/protectionmanager/properties/iswriteprotected), która zwraca `true`, jeśli prezentacja jest chroniona przed zapisem, lub `false`, jeśli nie jest.
 
 Ten przykładowy kod pokazuje, jak sprawdzić, czy prezentacja jest chroniona przed zapisem:
 
@@ -209,35 +242,35 @@ using (Presentation presentation = new Presentation("pres.pptx"))
 }
 ```
 
-## **Weryfikacja użycia hasła w prezentacji**
+## **Zweryfikuj użycie hasła w prezentacji**
 
-Możesz chcieć sprawdzić i potwierdzić, że określone hasło zostało użyte do zabezpieczenia dokumentu prezentacji. Aspose.Slides zapewnia środki do zweryfikowania hasła.
+Możesz chcieć sprawdzić i potwierdzić, że określone hasło zostało użyte do zabezpieczenia dokumentu prezentacji. Aspose.Slides zapewnia możliwość weryfikacji hasła.
 
 Ten przykładowy kod pokazuje, jak zweryfikować hasło:
 
 ```c#
 using (IPresentation presentation = new Presentation("pres.pptx"))
 {
-    // Sprawdź, czy hasło jest prawidłowe.
+    // Sprawdź, czy hasło jest zgodne.
     bool isWriteProtected = presentation.ProtectionManager.CheckWriteProtection("my_password");
 }
 ```
 
-Zwraca on `true`, jeśli prezentacja została zaszyfrowana podanym hasłem; w przeciwnym razie zwraca `false`.
+Zwraca `true`, jeśli prezentacja została zaszyfrowana podanym hasłem; w przeciwnym razie zwraca `false`.
 
-{{% alert color="primary" title="Zobacz również" %}} 
-- [Podpis cyfrowy w PowerPoint](/slides/pl/net/digital-signature-in-powerpoint/)
+{{% alert color="primary" title="See also" %}} 
+- [Digital Signature in PowerPoint](/slides/pl/net/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
-## **Zabezpieczanie prezentacji hasłem online**
+## **Zabezpiecz prezentację hasłem online**
 
-1. Przejdź do naszej strony [**Aspose.Slides Lock**](https://products.aspose.app/slides/pl/lock).  
-1. Kliknij **Drop or upload your files**.  
-1. Wybierz plik, który chcesz zabezpieczyć hasłem, na swoim komputerze.  
-1. Wprowadź preferowane hasło do ochrony edycji oraz preferowane hasło do ochrony podglądu.  
-1. Jeśli chcesz, aby użytkownicy widzieli Twoją prezentację jako wersję końcową, zaznacz pole wyboru **Mark as final**.  
-1. Kliknij **PROTECT NOW.**  
-1. Kliknij **DOWNLOAD NOW.**
+1. Przejdź do naszej strony [**Aspose.Slides Lock**](https://products.aspose.app/slides/pl/lock). 
+2. Kliknij **Drop or upload your files**. 
+3. Wybierz plik, który chcesz zabezpieczyć hasłem, na swoim komputerze. 
+4. Wprowadź preferowane hasło do ochrony edycji oraz preferowane hasło do ochrony podglądu. 
+5. Jeśli chcesz, aby użytkownicy widzieli twoją prezentację jako ostateczną kopię, zaznacz pole wyboru **Mark as final**. 
+6. Kliknij **PROTECT NOW.** 
+7. Kliknij **DOWNLOAD NOW.**
 
 ![Password protect PowerPoint presentations](slides-lock.png)
 
@@ -245,12 +278,12 @@ Zwraca on `true`, jeśli prezentacja została zaszyfrowana podanym hasłem; w pr
 
 **Jakie metody szyfrowania są obsługiwane przez Aspose.Slides?**
 
-Aspose.Slides obsługuje nowoczesne metody szyfrowania, w tym algorytmy oparte na AES, zapewniając wysoki poziom bezpieczeństwa danych w Twoich prezentacjach.
+Aspose.Slides obsługuje nowoczesne metody szyfrowania, w tym algorytmy oparte na AES, zapewniając wysoki poziom bezpieczeństwa danych Twoich prezentacji.
 
-**Co się stanie, jeśli wprowadzono niepoprawne hasło podczas próby otwarcia prezentacji?**
+**Co się dzieje, gdy wprowadzono nieprawidłowe hasło przy próbie otwarcia prezentacji?**
 
-Wystąpi wyjątek, informujący, że dostęp do prezentacji został odrzucony. Pomaga to zapobiegać nieautoryzowanemu dostępowi i chroni zawartość prezentacji.
+Zostaje rzucony wyjątek, jeśli użyto nieprawidłowego hasła, informując, że dostęp do prezentacji jest odrzucony. Pomaga to zapobiec nieautoryzowanemu dostępowi i chroni zawartość prezentacji.
 
-**Czy istnieją jakiekolwiek konsekwencje wydajnościowe przy pracy z prezentacjami zabezpieczonymi hasłem?**
+**Czy istnieją jakiekolwiek wpływy na wydajność przy pracy z prezentacjami zabezpieczonymi hasłem?**
 
-Proces szyfrowania i odszyfrowywania może wprowadzić niewielkie opóźnienie podczas operacji otwierania i zapisywania. W większości przypadków wpływ na wydajność jest minimalny i nie wpływa znacząco na całkowity czas przetwarzania zadań związanych z prezentacjami.
+Proces szyfrowania i deszyfrowania może wprowadzić niewielkie obciążenie podczas operacji otwierania i zapisu. W większości przypadków wpływ na wydajność jest minimalny i nie wpływa znacząco na ogólny czas przetwarzania zadań związanych z prezentacjami.
