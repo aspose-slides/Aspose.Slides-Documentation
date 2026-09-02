@@ -1,376 +1,384 @@
 ---
-title: 在 .NET 中管理簡報形狀
-linktitle: 形狀操作
+title: 在 .NET 中管理投影片圖形
+linktitle: 圖形操作
 type: docs
 weight: 40
 url: /zh-hant/net/shape-manipulations/
 keywords:
-- PowerPoint 形狀
-- 簡報形狀
-- 投影片上的形狀
-- 尋找形狀
-- 複製形狀
-- 移除形狀
-- 隱藏形狀
-- 變更形狀順序
-- 取得 Interop 形狀 ID
-- 形狀替代文字
-- 形狀版面配置格式
-- 形狀為 SVG
-- 形狀轉 SVG
-- 對齊形狀
+- PowerPoint 圖形
+- 簡報圖形
+- 投影片上的圖形
+- 尋找圖形
+- 複製圖形
+- 移除圖形
+- 隱藏圖形
+- 變更圖形順序
+- 取得 interop 圖形 ID
+- 圖形替代文字
+- 圖形版面格式
+- 圖形為 SVG
+- 圖形轉 SVG
+- 對齊圖形
+- 翻轉圖形
 - PowerPoint
 - 簡報
 - .NET
 - C#
 - Aspose.Slides
-description: "學習在 Aspose.Slides for .NET 中建立、編輯與最佳化形狀，並提供高效能的 PowerPoint 簡報。"
+description: "了解如何使用 Aspose.Slides for .NET 識別、複製、移除、隱藏、重新排序、匯出、對齊以及翻轉簡報圖形。"
 ---
-## **概述**
+## **概觀**
 
-本文說明如何使用 Aspose.Slides 在簡報中處理形狀。它展示了如何在投影片上尋找形狀、複製形狀、移除形狀、隱藏形狀、變更順序、取得 Interop 形狀 ID，並設定替代文字以供辨識與後續處理。
+Aspose.Slides for .NET 將投影片上的圖形表示為有順序的 [IShapeCollection](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishapecollection/)。此集合既是找尋與修改圖形的場所，也是它們堆疊順序的來源：索引 `0` 為最背面的圖形，而最後一個索引則為最前面的圖形。
 
-同時也涵蓋了如何存取形狀的版面配置、將形狀渲染為 SVG、在投影片上對齊形狀，以及使用翻轉屬性進行水平與垂直鏡像。文章最後還提供了關於形狀組合、堆疊順序與形狀鎖定的簡短 FAQ。
+本篇文章遵循此模型。首先說明如何可靠地識別圖形，接著展示如何複製、移除、隱藏與重新排序圖形。最後的章節涵蓋版面層級的格式設定、SVG 匯出、對齊與翻轉設定。每個範例皆獨立，您可以只使用工作流程所需的操作。
 
-## **在投影片上尋找形狀**
-本節將說明一種簡易技巧，讓開發人員在不使用內部 Id 的情況下，更容易在投影片上找到特定形狀。必須了解 PowerPoint 簡報檔案只能透過內部唯一 Id 來辨識形狀，直接以此 Id 搜尋對開發者相當困難。所有加入投影片的形狀皆具有替代文字 (Alt Text)。我們建議開發者使用替代文字來尋找特定形狀。您可以在 Microsoft PowerPoint 中為未來可能變更的物件定義替代文字。
+## **識別與尋找圖形**
 
-設定好任意形狀的替代文字後，即可使用 Aspose.Slides for .NET 開啟簡報，遍歷投影片中所有形狀。於每次迭代時檢查形狀的替代文字，符合的形狀即為您所需。為了更清楚說明此技巧，我們建立了方法[FindShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.util/slideutil/findshape/#findshape_1) 來在投影片中尋找特定形狀，並直接回傳該形狀。
+在處理已知檔案時，使用集合索引非常方便，但它們並非穩定的識別子。新增、移除或重新排序圖形都會改變其索引。請依據投影片的製作與維護方式選擇識別子：
 
-```c#
-public static void Run()
+- [Name](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishape/name/) 在開發者控制的範本中很有用，且可在 PowerPoint 的「選取窗格」中輕鬆檢視。名稱可編輯且不保證唯一，若程式碼依賴名稱，請建立命名規則。
+- [AlternativeText](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishape/alternativetext/) 在已提供可存取性描述或作者自行標記的情況下很有用。它對使用者可見，可能會本地化或為可存取性而重新編寫，但不保證唯一。不要將有意義的可存取性文字靜默用作資料庫鍵。
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishape/officeinteropshapeid/) 為唯讀識別子，在投影片內唯一，且對應 PowerPoint interop 使用的圖形 ID。當與 PowerPoint 整合或需要在圖形生命週期內取得明確參照時使用。已複製或重新建立的圖形視為不同圖形，會取得自己的 ID。
+
+相關的 [UniqueId](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishape/uniqueid/) 屬性範圍為整個投影片集，但僅供外掛使用，且可能被重新指派。它不應被視為永久的外部鍵。若長期身份識別至關重要，請將映射保留於應用程式資料中，並驗證預期的圖形仍然存在。
+
+以下範例使用 `Name` 以序數比較方式搜尋，並回報投影片範圍的 interop ID。當範本未包含預期圖形時，程式會回報此結果，而不是繼續使用錯誤的物件。
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
+
+IShape? targetShape = null;
+foreach (var shape in slide.Shapes)
 {
-    // 實例化一個代表簡報檔案的 Presentation 類別
-    using (Presentation p = new Presentation("FindingShapeInSlide.pptx"))
+    if (string.Equals(shape.Name, "RevenueChart", StringComparison.Ordinal))
     {
-
-        ISlide slide = p.Slides[0];
-        // 要尋找的形狀之替代文字
-        IShape shape = FindShape(slide, "Shape1");
-        if (shape != null)
-        {
-            Console.WriteLine("Shape Name: " + shape.Name);
-        }
-    }
-}
-        
-// 使用替代文字在投影片中尋找形狀的方法實作
-public static IShape FindShape(ISlide slide, string alttext)
-{
-    // 遍歷投影片內的所有形狀
-    for (int i = 0; i < slide.Shapes.Count; i++)
-    {
-        // 如果投影片的替代文字與所需的相符，則
-        // 返回該形狀
-        if (slide.Shapes[i].AlternativeText.CompareTo(alttext) == 0)
-            return slide.Shapes[i];
-    }
-    return null;
-}
-```
-
-## **複製形狀**
-使用 Aspose.Slides for .NET 複製形狀至投影片的步驟：
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation) 類別的實例。  
-1. 依索引取得投影片參考。  
-1. 取得來源投影片的形狀集合。  
-1. 向簡報新增投影片。  
-1. 從來源投影片的形狀集合複製形狀至新投影片。  
-1. 將修改後的簡報儲存為 PPTX 檔案。
-
-以下範例示範將群組形狀新增至投影片。
-
-```c#
- // 實例化 Presentation 類別
-using (Presentation srcPres = new Presentation("Source Frame.pptx"))
-{
-	IShapeCollection sourceShapes = srcPres.Slides[0].Shapes;
-	ILayoutSlide blankLayout = srcPres.Masters[0].LayoutSlides.GetByType(SlideLayoutType.Blank);
-	ISlide destSlide = srcPres.Slides.AddEmptySlide(blankLayout);
-	IShapeCollection destShapes = destSlide.Shapes;
-	destShapes.AddClone(sourceShapes[1], 50, 150 + sourceShapes[0].Height);
-	destShapes.AddClone(sourceShapes[2]);                 
-	destShapes.InsertClone(0, sourceShapes[0], 50, 150);
-
-	// 將 PPTX 檔案寫入磁碟
-	srcPres.Save("CloneShape_out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **移除形狀**
-Aspose.Slides for .NET 允許開發者移除任何形狀。要從投影片移除形狀，請依照下列步驟操作：
-
-1. 建立 `Presentation` 類別的實例。  
-1. 取得第一張投影片。  
-1. 以特定 AlternativeText 找到形狀。  
-1. 移除該形狀。  
-1. 將檔案儲存至磁碟。
-
-```c#
-// 建立 Presentation 物件
-Presentation pres = new Presentation();
-
-// 取得第一張投影片
-ISlide sld = pres.Slides[0];
-
-// 新增矩形類型的自動形狀
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-String alttext = "User Defined";
-int iCount = sld.Shapes.Count;
-for (int i = 0; i < iCount; i++)
-{
-    AutoShape ashp = (AutoShape)sld.Shapes[0];
-    if (String.Compare(ashp.AlternativeText, alttext, StringComparison.Ordinal) == 0)
-    {
-        sld.Shapes.Remove(ashp);
+        targetShape = shape;
+        break;
     }
 }
 
-// 將簡報儲存至磁碟
-pres.Save("RemoveShape_out.pptx", SaveFormat.Pptx);
-```
-
-## **隱藏形狀**
-Aspose.Slides for .NET 允許開發者隱藏任何形狀。要在投影片上隱藏形狀，請依照下列步驟操作：
-
-1. 建立 `Presentation` 類別的實例。  
-1. 取得第一張投影片。  
-1. 以特定 AlternativeText 找到形狀。  
-1. 隱藏該形狀。  
-1. 將檔案儲存至磁碟。
-
-```c#
-// 建立代表 PPTX 的 Presentation 類別實例
-Presentation pres = new Presentation();
-
-// 取得第一張投影片
-ISlide sld = pres.Slides[0];
-
-// 新增矩形類型的自動圖形
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-String alttext = "User Defined";
-int iCount = sld.Shapes.Count;
-for (int i = 0; i < iCount; i++)
+if (targetShape is null)
 {
-	AutoShape ashp = (AutoShape)sld.Shapes[i];
-	if (String.Compare(ashp.AlternativeText, alttext, StringComparison.Ordinal) == 0)
-	{
-		ashp.Hidden = true;
-	}
+    Console.WriteLine("The shape 'RevenueChart' was not found on slide 1.");
 }
-
-// 將簡報儲存至磁碟
-pres.Save("Hiding_Shapes_out.pptx", SaveFormat.Pptx);
-```
-
-## **變更形狀順序**
-Aspose.Slides for .NET 允許開發者重新排列形狀的順序。重新排序可決定哪個形狀位於前方、哪個位於後方。要在投影片上重新排序形狀，請依照下列步驟操作：
-
-1. 建立 `Presentation` 類別的實例。  
-1. 取得第一張投影片。  
-1. 新增一個形狀。  
-1. 在形狀的文字框中加入文字。  
-1. 再新增另一個座標相同的形狀。  
-1. 重新排序這些形狀。  
-1. 將檔案儲存至磁碟。
-
-```c#
-Presentation presentation1 = new Presentation("HelloWorld.pptx");
-ISlide slide = presentation1.Slides[0];
-IAutoShape shp3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 365, 400, 150);
-shp3.FillFormat.FillType = FillType.NoFill;
-shp3.AddTextFrame(" ");
-
-ITextFrame txtFrame = shp3.TextFrame;
-IParagraph para = txtFrame.Paragraphs[0];
-IPortion portion = para.Portions[0];
-portion.Text="Watermark Text Watermark Text Watermark Text";
-shp3 = slide.Shapes.AddAutoShape(ShapeType.Triangle, 200, 365, 400, 150);
-slide.Shapes.Reorder(2, shp3);
-presentation1.Save( "Reshape_out.pptx", SaveFormat.Pptx);
-```
-
-## **取得 Interop 形狀 ID**
-Aspose.Slides for .NET 允許開發者取得投影片範圍內的唯一形狀識別碼，這與 UniqueId 屬性在簡報範圍內取得唯一識別碼不同。`OfficeInteropShapeId` 屬性已加入 `IShape` 介面與 `Shape` 類別。此屬性回傳的值對應於 Microsoft.Office.Interop.PowerPoint.Shape 物件的 Id。以下提供範例程式碼。
-
-```c#
-public static void Run()
+else
 {
-	using (Presentation presentation = new Presentation("Presentation.pptx"))
-	{
-		// 在投影片範圍內取得唯一形狀識別碼
-		long officeInteropShapeId = presentation.Slides[0].Shapes[0].OfficeInteropShapeId;
-	}
+    Console.WriteLine($"Found {targetShape.Name}; interop ID: {targetShape.OfficeInteropShapeId}");
 }
 ```
 
-## **設定形狀的替代文字**
-Aspose.Slides for .NET 允許開發者設定任何形狀的 `AlternateText`。簡報中的形狀可透過 `AlternativeText` 或 Shape Name 屬性加以辨識。`AlternativeText` 屬性可由 Aspose.Slides 及 Microsoft PowerPoint 讀寫。利用此屬性，您可以為形狀加標籤，進而執行移除形狀、隱藏形狀或重新排序形狀等不同操作。設定形狀的 `AlternateText`，請依照下列步驟：
+當操作特定於圖形類型時，請在使用特定成員之前先檢查介面。本範例僅在命名物件為 [IAutoShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iautoshape/) 時才更新文字與替代文字。
 
-1. 建立 `Presentation` 類別的實例。  
-1. 取得第一張投影片。  
-1. 向投影片新增任意形狀。  
-1. 對新加入的形狀執行一些操作。  
-1. 逐一遍歷形狀以找到目標形狀。  
-1. 設定 `AlternativeText`。  
-1. 將檔案儲存至磁碟。
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-// 實例化代表 PPTX 的 Presentation 類別
-Presentation pres = new Presentation();
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
 
-// 取得第一張投影片
-ISlide sld = pres.Slides[0];
-
-// 新增矩形類型的自動形狀
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-shp2.FillFormat.FillType = FillType.Solid;
-shp2.FillFormat.SolidFillColor.Color = Color.Gray;
-
-for (int i = 0; i < sld.Shapes.Count; i++)
+IShape? candidate = null;
+foreach (var shape in slide.Shapes)
 {
-    var shape = sld.Shapes[i] as AutoShape;
-    if (shape != null)
+    if (string.Equals(shape.Name, "StatusLabel", StringComparison.Ordinal))
     {
-        AutoShape ashp = shape;
-        ashp.AlternativeText = "User Defined";
+        candidate = shape;
+        break;
     }
 }
 
-// 將簡報儲存至磁碟
-pres.Save("Set_AlternativeText_out.pptx", SaveFormat.Pptx);
-```
-
-## **存取形狀的版面配置格式**
-Aspose.Slides for .NET 提供簡易 API 以存取形狀的版面配置格式。本文示範如何取得這些格式。
-
-以下提供範例程式碼。
-
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+if (candidate is IAutoShape autoShape)
 {
-	foreach (ILayoutSlide layoutSlide in pres.LayoutSlides)
-	{
-		IFillFormat[] fillFormats = layoutSlide.Shapes.Select(shape => shape.FillFormat).ToArray();
-		ILineFormat[] lineFormats = layoutSlide.Shapes.Select(shape => shape.LineFormat).ToArray();
-	}
+    autoShape.TextFrame.Text = "Approved";
+    autoShape.AlternativeText = "Approval status: approved";
+    presentation.Save("identified-shape.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("'StatusLabel' is missing or is not an AutoShape.");
 }
 ```
 
-## **將形狀渲染為 SVG**
-現在 Aspose.Slides for .NET 已支援將形狀渲染為 SVG。`WriteAsSvg` 方法（以及其重載）已加入 `Shape` 類別與 `IShape` 介面。此方法可將形狀內容另存為 SVG 檔案。下方程式碼示範如何將投影片的形狀匯出為 SVG 檔案。
+## **修改圖形集合**
 
-```c#
-public static void Run()
+新增、複製、移除與重新排序的方法會立即作用於集合。如果操作改變了圖形的數量或順序，請勿再依賴先前捕獲的索引。
+
+### **複製圖形**
+
+[AddClone](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishapecollection/addclone/) 會建立獨立的副本並將其添加到目標集合的末端。 [InsertClone](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishapecollection/insertclone/) 也會建立副本，但會放置在指定的 Z 序索引位置。接受座標的重載會在不變更大小的情況下移動複製品；接受寬度與高度的重載則可以同時重新調整大小。
+
+範例建立一個目標投影片，將標記的矩形複製到最前面，並在背後插入第二個複製品。對任一複製品的變更不會影響來源圖形。
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var sourceSlide = presentation.Slides[0];
+var sourceShape = sourceSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 180, 60);
+sourceShape.Name = "SourceLabel";
+sourceShape.TextFrame.Text = "Source";
+
+var blankLayout = presentation.Masters[0].LayoutSlides.GetByType(SlideLayoutType.Blank);
+var destinationSlide = presentation.Slides.AddEmptySlide(blankLayout);
+
+var frontCloneShape = destinationSlide.Shapes.AddClone(sourceShape, 80, 80);
+frontCloneShape.Name = "FrontClone";
+if (frontCloneShape is IAutoShape frontClone)
 {
-	string outSvgFileName = "SingleShape.svg";
-	using (Presentation pres = new Presentation("TestExportShapeToSvg.pptx"))
-	{
-		using (Stream stream = new FileStream(outSvgFileName, FileMode.Create, FileAccess.Write))
-		{
-			pres.Slides[0].Shapes[0].WriteAsSvg(stream);
-		}
-	}
+    frontClone.TextFrame.Text = "Front clone";
+}
+else
+{
+    Console.WriteLine("The front clone is not an AutoShape; its text was not changed.");
+}
+
+var backCloneShape = destinationSlide.Shapes.InsertClone(0, sourceShape, 80, 180);
+backCloneShape.Name = "BackClone";
+if (backCloneShape is IAutoShape backClone)
+{
+    backClone.TextFrame.Text = "Back clone";
+}
+else
+{
+    Console.WriteLine("The back clone is not an AutoShape; its text was not changed.");
+}
+
+presentation.Save("cloned-shapes.pptx", SaveFormat.Pptx);
+```
+
+複製會將圖形的內容與格式（包括名稱與替代文字）一起複製。當這些值必須唯一時，請為複製品指派新的邏輯識別子。複雜圖形使用的資源由投影片處理，但複製品仍是集合中的新項目，具備新的圖形身分。
+
+### **移除圖形**
+
+[Remove](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishapecollection/remove/) 會從其集合中刪除特定圖形物件。當在索引迭代期間移除多個符合條件的圖形時，請從集合末端開始遍歷，以確保每個剩餘索引仍然有效。
+
+此範例移除所有具有指定名稱的圖形。它讀取 `slide.Shapes[i]`（而非固定的集合項目），且不會不必要地轉型圖形。
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var keepShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 140, 60);
+keepShape.Name = "Keep";
+
+var firstTemporaryShape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 220, 40, 80, 80);
+firstTemporaryShape.Name = "Temporary";
+
+var secondTemporaryShape = slide.Shapes.AddAutoShape(ShapeType.Triangle, 340, 40, 100, 80);
+secondTemporaryShape.Name = "Temporary";
+
+for (var i = slide.Shapes.Count - 1; i >= 0; i--)
+{
+    var shape = slide.Shapes[i];
+    if (string.Equals(shape.Name, "Temporary", StringComparison.Ordinal))
+    {
+        slide.Shapes.Remove(shape);
+    }
+}
+
+presentation.Save("removed-shapes.pptx", SaveFormat.Pptx);
+```
+
+移除後，圖形總數與之後圖形的索引皆會改變。對未受影響圖形的參照比已儲存的索引更可靠。此外，請考慮連接線、動畫及其他可能參照被移除物件的投影片功能；移除可見圖形可能會改變投影片的外觀以外的其他內容。
+
+### **隱藏圖形**
+
+將 [Hidden](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishape/hidden/) 設為 `true` 會保持圖形在集合中，但防止其在正常投影片放映中出現。其索引、格式與內容仍可由程式碼存取，因此隱藏適用於可能稍後恢復的可選元素。
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var visibleShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 160, 60);
+visibleShape.Name = "VisibleLabel";
+
+var optionalShape = slide.Shapes.AddAutoShape(ShapeType.Moon, 240, 40, 100, 100);
+optionalShape.Name = "OptionalDecoration";
+
+foreach (var shape in slide.Shapes)
+{
+    if (string.Equals(shape.Name, "OptionalDecoration", StringComparison.Ordinal))
+    {
+        shape.Hidden = true;
+    }
+}
+
+presentation.Save("hidden-shape.pptx", SaveFormat.Pptx);
+```
+
+隱藏並非刪除或安全機制。使用者或程式碼仍可發現並取消隱藏，圖形仍屬於投影片檔案的一部份。
+
+### **變更 Z 序**
+
+重疊的圖形會依集合順序繪製。[Reorder](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishapecollection/reorder/) 會將已存在的圖形移動到目標索引，且不會產生複製品。索引 `0` 為背面；`Count - 1` 為前面。
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var blueRectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 220, 120);
+blueRectangle.Name = "BlueRectangle";
+blueRectangle.FillFormat.FillType = FillType.Solid;
+blueRectangle.FillFormat.SolidFillColor.Color = Color.SteelBlue;
+
+var orangeEllipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 180, 140, 220, 120);
+orangeEllipse.Name = "OrangeEllipse";
+orangeEllipse.FillFormat.FillType = FillType.Solid;
+orangeEllipse.FillFormat.SolidFillColor.Color = Color.Orange;
+
+slide.Shapes.Reorder(slide.Shapes.Count - 1, blueRectangle);
+presentation.Save("reordered-shapes.pptx", SaveFormat.Pptx);
+```
+
+矩形最初被建立並位於橢圓形之後。將其移至最後一個索引後，便會出現在最前面。請在新增或複製所有相關圖形之後再最後確定 Z 序，因為這些操作會在集合中追加或插入新項目，可能改變原本的堆疊順序。
+
+## **檢查版面投影片上的圖形**
+
+普通投影片、版面投影片與母片投影片各自擁有獨立的圖形集合。版面集合中的圖形並非與普通投影片上相同位置的圖形同一個物件。當需要了解或變更版面提供的格式時，請檢查版面圖形。
+
+以下範例讀取每個版面圖形的 [FillFormat](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishape/fillformat/) 與 [LineFormat](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishape/lineformat/)，而不假設每個圖形都是 `AutoShape`。
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+
+foreach (var layoutSlide in presentation.LayoutSlides)
+{
+    foreach (var shape in layoutSlide.Shapes)
+    {
+        var fillType = shape.FillFormat.FillType;
+        var lineWidth = shape.LineFormat.Width;
+        Console.WriteLine($"{layoutSlide.Name} / {shape.Name}: fill={fillType}, line width={lineWidth}");
+    }
 }
 ```
 
-## **對齊形狀**
+編輯版面可能會影響使用該版面的多個投影片。在變更版面圖形之前，請先確認普通投影片是繼承該物件還是擁有本地覆寫，並測試所有使用該版面的投影片。
 
-透過[SlidesUtil.AlignShape()](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.util/slideutil/methods/alignshapes/index)的多載方法，您可以
+## **將圖形匯出為 SVG**
 
-* 依投影片的邊界對形狀進行對齊。請參考範例 1。  
-* 依形狀彼此之間對齊。請參考範例 2。
+[WriteAsSvg](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishape/writeassvg/) 會將單一圖形的渲染內容寫入串流。結果只包含該圖形，未包括整個投影片背景或鄰近圖形。
 
-[ShapesAlignmentType](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/shapesalignmenttype) 列舉定義了可用的對齊選項。
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
 
-**範例 1**
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
 
-以下 C# 程式碼示範如何將索引為 1、2 與 4 的形狀對齊至投影片上緣的邊框：
-
-``` csharp
-using (Presentation pres = new Presentation("example.pptx"))
+if (slide.Shapes.Count == 0)
 {
-     ISlide slide = pres.Slides[0];
-     IShape shape1 = slide.Shapes[1];
-     IShape shape2 = slide.Shapes[2];
-     IShape shape3 = slide.Shapes[4];
-     SlideUtil.AlignShapes(ShapesAlignmentType.AlignTop, true, pres.Slides[0], new int[]
-     {
-          slide.Shapes.IndexOf(shape1),
-          slide.Shapes.IndexOf(shape2),
-          slide.Shapes.IndexOf(shape3)
-     });
+    Console.WriteLine("Slide 1 does not contain a shape to export.");
+}
+else
+{
+    var shape = slide.Shapes[0];
+    using var svgStream = File.Create("shape.svg");
+    shape.WriteAsSvg(svgStream);
 }
 ```
 
-**範例 2**
+在渲染時保持投影片開啟。輸出取決於圖形的格式以及字型、圖片等資源。若需要整個構圖，請匯出投影片而非單一圖形。呼叫端擁有串流的所有權，必須自行釋放。
 
-以下 C# 程式碼示範如何將整個形狀集合相對於集合中最底部的形狀進行對齊：
+## **對齊圖形**
 
-``` csharp
-using (Presentation pres = new Presentation("example.pptx"))
+[SlideUtil.AlignShapes](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.util/slideutil/alignshapes/) 的重載可對齊全部圖形或指定的集合索引。 [ShapesAlignmentType](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/shapesalignmenttype/) 定義了對齊的邊緣、中心線或分布模式。將 `alignToSlide` 設為 `true` 以使用投影片邊緣；設為 `false` 則以相對於彼此的方式對齊所選圖形。
+
+此範例將三個圖形對齊至投影片的上緣。返回的圖形參考會在對齊前立即轉換為其當前索引。
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.Util;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var firstShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 60, 80, 120, 50);
+var secondShape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 240, 160, 120, 50);
+var thirdShape = slide.Shapes.AddAutoShape(ShapeType.Triangle, 420, 240, 120, 50);
+firstShape.Name = "FirstAlignedShape";
+secondShape.Name = "SecondAlignedShape";
+thirdShape.Name = "ThirdAlignedShape";
+
+var shapeIndexes = new[]
 {
-    SlideUtil.AlignShapes(ShapesAlignmentType.AlignBottom, false, pres.Slides[0].Shapes);
-}
+    slide.Shapes.IndexOf(firstShape),
+    slide.Shapes.IndexOf(secondShape),
+    slide.Shapes.IndexOf(thirdShape)
+};
+
+SlideUtil.AlignShapes(ShapesAlignmentType.AlignTop, true, slide, shapeIndexes);
+presentation.Save("aligned-shapes.pptx", SaveFormat.Pptx);
 ```
 
-## **翻轉屬性**
+對齊會改變位置，而非 Z 序。相對對齊通常至少需要兩個圖形，水平或垂直分布則需要足夠的圖形以定義間距。若在呼叫方法前修改了集合，請重新計算索引。
 
-在 Aspose.Slides 中，[ShapeFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/shapeframe/) 類別提供 `FlipH` 與 `FlipV` 屬性，以控制形狀的水平與垂直鏡像。兩個屬性皆為 [NullableBool](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/nullablebool/) 型別，可接受 `True`（翻轉）、`False`（不翻轉）或 `NotDefined`（使用預設行為）。此設定可透過形狀的 [Frame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishape/frame/) 取得。
+## **翻轉圖形**
 
-若要修改翻轉設定，可建立一個新的 [ShapeFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/shapeframe/) 實例，提供形狀目前的位置與大小、`FlipH` 與 `FlipV` 的期望值，及旋轉角度。將此實例指派給形狀的 [Frame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishape/frame/)，再儲存簡報，即可套用鏡像變換並寫入輸出檔案。
+[ShapeFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/shapeframe/) 類別儲存位置、大小、水平與垂直翻轉設定，以及旋轉角度。其 `FlipH` 與 `FlipV` 值使用 [NullableBool](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/nullablebool/)：`True` 表示啟用翻轉，`False` 表示停用，`NotDefined` 保留未指定/預設狀態。
 
-假設我們有一個 sample.pptx 檔案，其第一張投影片僅包含一個使用預設翻轉設定的形狀，如下圖所示。
+以下輸入投影片包含一個未翻轉的圖形。
 
-![The shape to be flipped](shape_to_be_flipped.png)
+![翻轉前的圖形](shape_to_be_flipped.png)
 
-以下程式碼範例取得該形狀目前的翻轉屬性，並同時進行水平與垂直翻轉。
+範例保留其他所有框架值，只取代兩個翻轉設定。這點很重要，因為指派新的 [Frame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishape/frame/) 會替換整個框架。
 
-```cs
-using (Presentation presentation = new Presentation("sample.pptx"))
-{
-    IShape shape = presentation.Slides[0].Shapes[0];
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // 取得形狀的水平翻轉屬性。
-    NullableBool horizontalFlip = shape.Frame.FlipH;
-    Console.WriteLine($"Horizontal flip: {horizontalFlip}");
+using var presentation = new Presentation("sample.pptx");
+var shape = presentation.Slides[0].Shapes[0];
+var frame = shape.Frame;
 
-    // 取得形狀的垂直翻轉屬性。
-    NullableBool verticalFlip = shape.Frame.FlipV;
-    Console.WriteLine($"Vertical flip: {verticalFlip}");
+Console.WriteLine($"Horizontal flip before change: {frame.FlipH}");
+Console.WriteLine($"Vertical flip before change: {frame.FlipV}");
 
-    float x = shape.Frame.X;
-    float y = shape.Frame.Y;
-    float width = shape.Frame.Width;
-    float height = shape.Frame.Height;
-    NullableBool flipH = NullableBool.True; // 水平翻轉。
-    NullableBool flipV = NullableBool.True; // 垂直翻轉。
-    float rotation = shape.Frame.Rotation;
+shape.Frame = new ShapeFrame(
+    frame.X, frame.Y, frame.Width, frame.Height,
+    NullableBool.True, NullableBool.True, frame.Rotation);
 
-    shape.Frame = new ShapeFrame(x, y, width, height, flipH, flipV, rotation);
-
-    presentation.Save("output.pptx", SaveFormat.Pptx);
-}
+presentation.Save("flipped-shape.pptx", SaveFormat.Pptx);
 ```
 
-結果如下：
+儲存的圖形在水平與垂直方向皆為鏡射，同時保留其位置、大小與旋轉。
 
-![The flipped shape](flipped_shape.png)
+![翻轉後的圖形](flipped_shape.png)
 
-## **FAQ**
+## **常見問答**
 
-**我可以在投影片上合併形狀（聯集/交集/相減）嗎？**
+**我應該使用集合索引作為圖形識別子嗎？**
 
-目前並未提供內建的布林運算 API。您可自行建構所需的輪廓，例如計算最終幾何（透過[GeometryPath](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/geometrypath/)），然後以該輪廓建立新形狀，必要時再移除原始形狀。
+僅在集合不會在使用索引前變更的短暫處理情境中可使用。對於有作者範本的情況，建議使用已驗證的 `Name` 或 `AlternativeText` 規則；對於投影片範圍的 interop 工作，則使用 `OfficeInteropShapeId`。
 
-**如何控制堆疊順序（z-order），讓形狀永遠顯示在最上層？**
+**隱藏圖形會從 Z 序中移除它嗎？**
 
-變更投影片 [shapes](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/baseslide/shapes/) 集合中的插入或移動順序即可。為取得可預測的結果，請在完成其他投影片修改後最後確定 z-order。
+不會。隱藏的圖形仍保留在集合中的相同索引。它仍可被找到、重新排序、編輯，或再次顯示。
 
-**我能「鎖定」形狀，以防使用者在 PowerPoint 中編輯它嗎？**
+**為什麼複製的圖形會出現在其他圖形的前面？**
 
-可以。設定[形狀層級的保護旗標](/slides/zh-hant/net/applying-protection-to-presentation/)，例如鎖定選取、移動、調整大小或文字編輯。若需要，亦可在母片或版面上鏡射相同限制。請注意這屬於 UI 級別的保護，並非安全機制；若需更高安全性，建議搭配檔案層級的限制，如[唯讀建議或密碼](/slides/zh-hant/net/password-protected-presentation/)。
+`AddClone` 會將複製品追加至集合的末端，而集合末端即為 Z 序的前端。若需自行決定初始索引，可使用 `InsertClone`，或在所有圖形加入後使用 `Reorder`。

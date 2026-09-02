@@ -1,401 +1,381 @@
 ---
-title: Beheer presentatievormen in Java
+title: Beheer presentatiesvormen in Java
 linktitle: Vormmanipulatie
 type: docs
 weight: 40
 url: /nl/java/shape-manipulations/
 keywords:
-- PowerPoint‑vorm
-- presentatie‑vorm
+- PowerPoint-vorm
+- presentatievorm
 - vorm op dia
 - vorm vinden
 - vorm klonen
 - vorm verwijderen
 - vorm verbergen
 - volgorde van vorm wijzigen
-- Interop‑vorm‑ID ophalen
+- interop-vorm-ID ophalen
 - alternatieve tekst van vorm
-- lay‑outformaten van vorm
+- vormlay-outformaten
 - vorm als SVG
 - vorm naar SVG
 - vorm uitlijnen
+- vorm spiegelen
 - PowerPoint
 - presentatie
 - Java
 - Aspose.Slides
-description: "Leer hoe u vormen maakt, bewerkt en optimaliseert in Aspose.Slides voor Java en hoogwaardige PowerPoint‑presentaties levert."
+description: "Leer hoe u presentatiesvormen kunt identificeren, klonen, verwijderen, verbergen, herschikken, exporteren, uitlijnen en spiegelen met Aspose.Slides voor Java."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe u met vormen in presentaties kunt werken met Aspose.Slides. Het laat zien hoe u een vorm op een dia kunt vinden, klonen, verwijderen, verbergen, de volgorde kunt wijzigen, de Interop‑vorm‑ID kunt ophalen en alternatieve tekst kunt instellen voor identificatie en verdere verwerking.
+Aspose.Slides for Java stelt de vormen op een dia voor als een geordende [IShapeCollection](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishapecollection/). De collectie is zowel de plaats waar je vormen vindt en wijzigt als de bron van hun stapelvolgorde: index `0` is de vorm die het verst achteraan staat, terwijl de laatste index de vorm is die het verst vooraan staat.
 
-Het behandelt ook hoe u lay‑outformaten voor vormen kunt benaderen, een vorm kunt renderen als SVG, vormen op een dia kunt uitlijnen en flip‑eigenschappen voor horizontaal en verticaal spiegelen kunt gebruiken. Bovendien bevat het artikel een korte FAQ over het combineren van vormen, stapelvolgorde en het vergrendelen van vormen.
+Dit artikel volgt dat model. Het legt eerst uit hoe je een vorm betrouwbaar kunt identificeren en toont vervolgens hoe je vormen kunt klonen, verwijderen, verbergen en herschikken. De laatste secties behandelen opmaak op lay-outniveau, SVG‑export, uitlijning en spiegelinstellingen. Elk voorbeeld staat op zichzelf, zodat je alleen die bewerkingen kunt gebruiken die jouw workflow vereist.
 
-## **Zoek een vorm op een dia**
-Dit onderwerp beschrijft een eenvoudige techniek om het voor ontwikkelaars gemakkelijker te maken een specifieke vorm op een dia te vinden zonder de interne Id te gebruiken. Het is belangrijk te weten dat PowerPoint‑presentatiebestanden geen andere manier hebben om vormen op een dia te identificeren dan een interne unieke Id. Het is vaak lastig voor ontwikkelaars om een vorm te vinden via die interne unieke Id. Alle toegevoegde vormen hebben enige alternatieve tekst. Wij raden ontwikkelaars aan alternatieve tekst te gebruiken om een specifieke vorm te vinden. U kunt in MS PowerPoint de alternatieve tekst definiëren voor objecten die u later wilt wijzigen.
+## **Identificeer en vind vormen**
 
-Na het instellen van de alternatieve tekst van de gewenste vorm kunt u de presentatie openen met Aspose.Slides for Java en alle vormen op een dia doorlopen. Tijdens elke iteratie controleert u de alternatieve tekst; de vorm met de overeenkomende alternatieve tekst is de door u gewenste vorm. Om deze techniek beter te demonstreren hebben we een methode, [findShape](https://reference.aspose.com/slides/nl/java/com.aspose.slides/SlideUtil#findShape-com.aspose.slides.IBaseSlide-java.lang.String-) gemaakt die een specifieke vorm in een dia vindt en vervolgens die vorm retourneert.
+Collectie‑indexen zijn handig bij het verwerken van een bekend bestand, maar ze zijn geen stabiele identifiers. Het toevoegen, verwijderen of herschikken van een vorm kan de index wijzigen. Kies een identifier op basis van hoe de presentatie is gemaakt en onderhouden:
 
-```java
-// Instantieer een Presentation‑klasse die het presentatiebestand vertegenwoordigt
-Presentation pres = new Presentation("FindingShapeInSlide.pptx");
-try {
+- [Name](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishape/#getName--) is handig voor door ontwikkelaars beheerde sjablonen en is gemakkelijk te bekijken in het selectiepaneel van PowerPoint. Namen kunnen worden aangepast en zijn niet gegarandeerd uniek, dus stel een naamconventie in als code ervan afhankelijk is.
+- [AlternativeText](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishape/#getAlternativeText--) is bruikbaar wanneer een toegankelijkheidsbeschrijving of een door de auteur toegevoegde tag de vorm al identificeert. Het is zichtbaar voor gebruikers, kan worden gelokaliseerd of herschreven voor toegankelijkheid, en is niet gegarandeerd uniek. Gebruik betekenisvolle toegankelijkheidstekst niet stilletjes als een databaseksleutel.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishape/#getOfficeInteropShapeId--) is een alleen‑lezen identifier die uniek is binnen een dia en overeenkomt met de shape‑ID die PowerPoint‑interop gebruikt. Gebruik deze wanneer je integreert met PowerPoint of wanneer je een ondubbelzinnige referentie nodig hebt gedurende de levensduur van een vorm. Een gekloonde of opnieuw aangemaakte vorm is een andere vorm en krijgt een eigen ID.
 
-    ISlide slide = pres.getSlides().get_Item(0);
-    // Alternatieve tekst van de vorm die moet worden gevonden
-    IShape shape = findShape(slide, "Shape1");
-    if (shape != null)
-    {
-        System.out.println("Shape Name: " + shape.getName());
-    }
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-```java
-// Methode-implementatie om een vorm op een dia te vinden via de alternatieve tekst
-public static IShape findShape(ISlide slide, String alttext)
-{
-    // Itereren door alle vormen op de dia
-    for (int i = 0; i < slide.getShapes().size(); i++)
-    {
-        // Als de alternatieve tekst van de vorm overeenkomt met de gevraagde, dan
-        // Retourneer de vorm
-        if (slide.getShapes().get_Item(i).getAlternativeText().compareTo(alttext) == 0)
-            return slide.getShapes().get_Item(i);
-    }
-    return null;
-}
-```
+De gerelateerde [getUniqueId](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishape/#getUniqueId--)‑methode retourneert een identifier met presentatieschaal, maar die identifier is bedoeld voor add‑ins en kan opnieuw worden toegewezen. Het mag niet worden behandeld als een permanente externe sleutel. Als een langetermijn‑identiteit essentieel is, bewaar dan de mapping in applicatiedata en controleer dat de verwachte vorm nog steeds bestaat.
 
-## **Kloon een vorm**
-Om een vorm te klonen naar een dia met Aspose.Slides for Java:
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Presentation)‑klasse.
-1. Haal de referentie van een dia op via de index.
-1. Benader de vormcollectie van de bron‑dia.
-1. Voeg een nieuwe dia toe aan de presentatie.
-1. Kloon vormen van de bron‑dia‑vormcollectie naar de nieuwe dia.
-1. Sla de aangepaste presentatie op als een PPTX‑bestand.
-
-Het voorbeeld hieronder voegt een groepsvorm toe aan een dia.
+Het volgende voorbeeld zoekt op naam met een exacte vergelijking en geeft de interop‑ID binnen de dia weer. Wanneer de sjabloon de verwachte vorm niet bevat, meldt de code dat resultaat in plaats van door te gaan met het verkeerde object.
 
 ```java
-// Instantieer Presentation‑klasse
-Presentation pres = new Presentation("Source Frame.pptx");
-try {
-    IShapeCollection sourceShapes = pres.getSlides().get_Item(0).getShapes();
-    ILayoutSlide blankLayout = pres.getMasters().get_Item(0).getLayoutSlides().getByType(SlideLayoutType.Blank);
-    ISlide destSlide = pres.getSlides().addEmptySlide(blankLayout);
-    IShapeCollection destShapes = destSlide.getShapes();
-    destShapes.addClone(sourceShapes.get_Item(1), 50, 150 + sourceShapes.get_Item(0).getHeight());
-    destShapes.addClone(sourceShapes.get_Item(2));
-    destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
+import com.aspose.slides.*;
 
-    // Schrijf het PPTX‑bestand naar schijf
-    pres.save("CloneShape_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Verwijder een vorm**
-Aspose.Slides for Java stelt ontwikkelaars in staat elke vorm te verwijderen. Volg de onderstaande stappen om de vorm van een dia te verwijderen:
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Presentation)‑klasse.
-1. Open de eerste dia.
-1. Zoek de vorm met specifieke AlternativeText.
-1. Verwijder de vorm.
-1. Sla het bestand op schijf.
-
-```java
-// Maak Presentation-object aan
-Presentation pres = new Presentation();
-try {
-    // Haal de eerste dia op
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Voeg autoshape van type rechthoek toe
-    sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-
-    String altText = "User Defined";
-    int iCount = sld.getShapes().size();
-    for (int i = 0; i < iCount; i++)
-    {
-        AutoShape ashp = (AutoShape)sld.getShapes().get_Item(0);
-        if (alttext.equals(ashp.getAlternativeText()))
-        {
-            sld.getShapes().remove(ashp);
-        }
-    }
-
-    // Sla de presentatie op schijf
-    pres.save("RemoveShape_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Verberg een vorm**
-Aspose.Slides for Java stelt ontwikkelaars in staat elke vorm te verbergen. Volg de onderstaande stappen om de vorm van een dia te verbergen:
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Presentation)‑klasse.
-1. Open de eerste dia.
-1. Zoek de vorm met specifieke AlternativeText.
-1. Verberg de vorm.
-1. Sla het bestand op schijf.
-
-```java
-// Instantieer Presentation‑klasse die de PPTX vertegenwoordigt
-Presentation pres = new Presentation();
-try {
-    // Haal de eerste dia op
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Voeg autoshape van type rechthoek toe
-    sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-
-    String alttext = "User Defined";
-    int iCount = sld.getShapes().size();
-    for (int i = 0; i < iCount; i++)
-    {
-        AutoShape ashp = (AutoShape)sld.getShapes().get_Item(i);
-        if (alttext.equals(ashp.getAlternativeText()))
-        {
-            ashp.setHidden(true);
-        }
-    }
-
-    // Sla de presentatie op schijf
-    pres.save("Hiding_Shapes_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Wijzig volgorde van een vorm**
-Aspose.Slides for Java stelt ontwikkelaars in staat vormen opnieuw te rangschikken. Het herschikken van een vorm bepaalt welke vorm voorop staat en welke achterop. Volg de onderstaande stappen om de volgorde van een vorm op een dia aan te passen:
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Presentation)‑klasse.
-1. Open de eerste dia.
-1. Voeg een vorm toe.
-1. Voeg tekst toe in het tekstframe van de vorm.
-1. Voeg een tweede vorm toe met dezelfde coördinaten.
-1. Rangschik de vormen.
-1. Sla het bestand op schijf.
-
-```java
-Presentation pres = new Presentation("ChangeShapeOrder.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IAutoShape shp3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 365, 400, 150);
-    shp3.getFillFormat().setFillType(FillType.NoFill);
-    shp3.addTextFrame(" ");
-
-    IParagraph para = shp3.getTextFrame().getParagraphs().get_Item(0);
-    IPortion portion = para.getPortions().get_Item(0);
-    portion.setText("Watermark Text Watermark Text Watermark Text");
-
-    shp3 = slide.getShapes().addAutoShape(ShapeType.Triangle, 200, 365, 400, 150);
-
-    slide.getShapes().reorder(2, shp3);
-
-    pres.save("Reshape_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Haal de Interop‑vorm‑ID op**
-Aspose.Slides for Java stelt ontwikkelaars in staat een unieke vorm‑identificator binnen de dia‑scope op te halen, in tegenstelling tot de [getUniqueId](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IShape#getUniqueId--)‑methode die een unieke identifier op presentatieniveau biedt. De methode [getOfficeInteropShapeId](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IShape#getOfficeInteropShapeId--) is toegevoegd aan de [IShape](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IShape)‑interface en de [Shape](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Shape)‑klasse. De waarde die door [getOfficeInteropShapeId](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IShape#getOfficeInteropShapeId--) wordt geretourneerd, correspondeert met de Id‑waarde van het Microsoft.Office.Interop.PowerPoint.Shape‑object. Hieronder staat een voorbeeldcode.
-
-```java
-Presentation pres = new Presentation("Presentation.pptx");
-try {
-    // Unieke vormidentificator ophalen binnen de dia-scope
-    long officeInteropShapeId = pres.getSlides().get_Item(0).getShapes().get_Item(0).getOfficeInteropShapeId();
-
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Stel alternatieve tekst in voor een vorm**
-Aspose.Slides for Java stelt ontwikkelaars in staat de AlternateText van elke vorm in te stellen. Vormen in een presentatie kunnen worden onderscheiden via de [AlternativeText](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) of [Shape Name](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IShape#setName-java.lang.String-)‑methode. De methoden [setAlternativeText](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) en [getAlternativeText](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IShape#getAlternativeText--) kunnen zowel met Aspose.Slides als met Microsoft PowerPoint gelezen of ingesteld worden. Met deze methode kunt u een vorm labelen en verschillende bewerkingen uitvoeren, zoals een vorm verwijderen, verbergen of rangschikken op een dia. Volg de onderstaande stappen om de AlternateText van een vorm in te stellen:
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Presentation)‑klasse.
-1. Open de eerste dia.
-1. Voeg een willekeurige vorm toe aan de dia.
-1. Voer bewerkingen uit met de nieuw toegevoegde vorm.
-1. Doorloop de vormen om een specifieke vorm te vinden.
-1. Stel de AlternativeText in.
-1. Sla het bestand op schijf.
-
-```java
-// Instantieer Presentation‑klasse die de PPTX vertegenwoordigt
-Presentation pres = new Presentation();
-try {
-    // Haal de eerste dia op
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Voeg autoshape van type rechthoek toe
-    IShape shp1 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-    IShape shp2 = sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-    shp2.getFillFormat().setFillType(FillType.Solid);
-    shp2.getFillFormat().getSolidFillColor().setColor(Color.GRAY);
-
-    for (int i = 0; i < sld.getShapes().size(); i++)
-    {
-        AutoShape shape = (AutoShape) sld.getShapes().get_Item(i);
-        if (shape != null)
-        {
-            shape.setAlternativeText("User Defined");
-        }
-    }
-
-    // Sla de presentatie op schijf
-    pres.save("Set_AlternativeText_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Benader lay‑outformaten voor een vorm**
-Aspose.Slides for Java biedt een eenvoudige API om lay‑outformaten voor een vorm te benaderen. Dit artikel demonstreert hoe u de lay‑outformaten kunt benaderen.
-
-Hieronder staat voorbeeldcode.
-
-```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    for (ILayoutSlide layoutSlide : pres.getLayoutSlides())
-    {
-        for (IShape shape : layoutSlide.getShapes())
-        {
-            IFillFormat fillFormats = shape.getFillFormat();
-            ILineFormat lineFormats = shape.getLineFormat();
-        }
-    }
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Render een vorm als SVG**
-Aspose.Slides for Java ondersteunt nu het renderen van een vorm als SVG. De methode [writeAsSvg](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IShape#writeAsSvg-java.io.OutputStream-) (en een overload) is toegevoegd aan de [Shape](https://reference.aspose.com/slides/nl/java/com.aspose.slides/Shape)‑klasse en de [IShape](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IShape)‑interface. Deze methode maakt het mogelijk de inhoud van de vorm op te slaan als een SVG‑bestand. De onderstaande code‑fragment toont hoe u de vorm van een dia exporteert naar een SVG‑bestand.
-
-```java
-Presentation pres = new Presentation("TestExportShapeToSvg.pptx");
-try {
-    FileOutputStream stream = new FileOutputStream("SingleShape.svg");
-    try {
-        pres.getSlides().get_Item(0).getShapes().get_Item(0).writeAsSvg(stream);
-    } finally {
-        if (stream != null) stream.close();
-    }
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Lijn een vorm uit**
-Aspose.Slides maakt het mogelijk vormen uit te lijnen ten opzichte van de dia‑randen of ten opzichte van elkaar. Hiervoor is de overladen methode [SlidesUtil.alignShape()](https://reference.aspose.com/slides/nl/java/com.aspose.slides/SlideUtil#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) toegevoegd. De enumeratie [ShapesAlignmentType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ShapesAlignmentType) definieert de mogelijke uitlijnopties.
-
-**Voorbeeld 1**
-
-De broncode hieronder lineert de vormen met index 1, 2 en 4 langs de bovenrand van de dia.
-
-```java
-Presentation pres = new Presentation("example.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IShape shape1 = slide.getShapes().get_Item(1);
-    IShape shape2 = slide.getShapes().get_Item(2);
-    IShape shape3 = slide.getShapes().get_Item(4);
-    SlideUtil.alignShapes(ShapesAlignmentType.AlignTop, true, pres.getSlides().get_Item(0), new int[]
-    {
-        slide.getShapes().indexOf(shape1),
-        slide.getShapes().indexOf(shape2),
-        slide.getShapes().indexOf(shape3)
-    });
-} finally {
-    if (pres != null) pres.dispose();
-}
-}
-```
-
-**Voorbeeld 2**
-
-Het voorbeeld hieronder laat zien hoe u de volledige collectie vormen uitlijnt ten opzichte van de onderste vorm in de collectie.
-
-```java
-Presentation pres = new Presentation("example.pptx");
-try {
-    SlideUtil.alignShapes(ShapesAlignmentType.AlignBottom, false, pres.getSlides().get_Item(0));
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Flip‑eigenschappen**
-
-In Aspose.Slides biedt de [ShapeFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides/shapeframe/)‑klasse controle over horizontaal en verticaal spiegelen van vormen via de eigenschappen `flipH` en `flipV`. Beide eigenschappen zijn van type `byte` en kunnen de waarden `1` (spiegelen), `0` (niet spiegelen) of `-1` (standaardgedrag) aannemen. Deze waarden zijn toegankelijk via het [Frame](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishape/#getFrame--) van een vorm.
-
-Om de flip‑instellingen te wijzigen, wordt een nieuw [ShapeFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides/shapeframe/)‑object gecreëerd met de huidige positie en afmeting van de vorm, de gewenste waarden voor `flipH` en `flipV` en de rotatiehoek. Door dit object toe te wijzen aan het [Frame](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishape/#getFrame--) van de vorm en de presentatie op te slaan, worden de spiegeltransformaties toegepast en vastgelegd in het uitvoerbestand.
-
-Stel dat we een bestand sample.pptx hebben waarin de eerste dia een enkele vorm bevat met standaard flip‑instellingen, zoals hieronder weergegeven.
-
-![The shape to be flipped](shape_to_be_flipped.png)
-
-De volgende code‑voorbeeld haalt de huidige flip‑eigenschappen van de vorm op en spiegelt deze zowel horizontaal als verticaal.
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
+Presentation presentation = new Presentation("input.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
 
-    // Haal de horizontale flip‑eigenschap van de vorm op.
-    byte horizontalFlip = shape.getFrame().getFlipH();
-    System.out.println("Horizontal flip: " + horizontalFlip);
+    IShape targetShape = null;
+    for (IShape shape : slide.getShapes()) {
+        if ("RevenueChart".equals(shape.getName())) {
+            targetShape = shape;
+            break;
+        }
+    }
 
-    // Haal de verticale flip‑eigenschap van de vorm op.
-    byte verticalFlip = shape.getFrame().getFlipV();
-    System.out.println("Vertical flip: " + verticalFlip);
-
-    float x = shape.getFrame().getX();
-    float y = shape.getFrame().getY();
-    float width = shape.getFrame().getWidth();
-    float height = shape.getFrame().getHeight();
-    byte flipH = NullableBool.True; // Flip horizontally.
-    byte flipV = NullableBool.True; // Flip horizontally.
-    float rotation = shape.getFrame().getRotation();
-
-    shape.setFrame(new ShapeFrame(x, y, width, height, flipH, flipV, rotation));
-
-    presentation.save("output.pptx", SaveFormat.Pptx);
+    if (targetShape == null) {
+        System.out.println("The shape 'RevenueChart' was not found on slide 1.");
+    } else {
+        System.out.println("Found " + targetShape.getName() + "; interop ID: " + targetShape.getOfficeInteropShapeId());
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-Het resultaat:
+Wanneer een bewerking specifiek is voor een type vorm, controleer dan de interface voordat je type‑specifieke leden gebruikt. Dit voorbeeld werkt tekst en alternatieve tekst bij alleen als het genoemde object een [IAutoShape](https://reference.aspose.com/slides/nl/java/com.aspose.slides/iautoshape/) is.
 
-![The flipped shape](flipped_shape.png)
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IShape candidate = null;
+    for (IShape shape : slide.getShapes()) {
+        if ("StatusLabel".equals(shape.getName())) {
+            candidate = shape;
+            break;
+        }
+    }
+
+    if (candidate instanceof IAutoShape) {
+        IAutoShape autoShape = (IAutoShape) candidate;
+        autoShape.getTextFrame().setText("Approved");
+        autoShape.setAlternativeText("Approval status: approved");
+        presentation.save("identified-shape.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("'StatusLabel' is missing or is not an AutoShape.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Wijzig de vormcollectie**
+
+De methoden om toe te voegen, te klonen, te verwijderen en te herschikken werken direct op de collectie. Als een bewerking het aantal of de volgorde van vormen verandert, vertrouw dan niet meer op indexen die vóór die bewerking zijn vastgelegd.
+
+### **Kloon een vorm**
+
+[addClone](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishapecollection/#addClone-com.aspose.slides.IShape-) maakt een onafhankelijk exemplaar en voegt het toe aan de doelcollectie. [insertClone](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishapecollection/#insertClone-int-com.aspose.slides.IShape-) maakt eveneens een kopie, maar plaatst deze op een opgegeven z‑order‑index. De overloads die coördinaten accepteren verplaatsen de kloon zonder de grootte te wijzigen; overloads met breedte en hoogte kunnen deze ook aanpassen.
+
+Het voorbeeld maakt een doeldia, kloont een gelabelde rechthoek naar de voorkant en voegt een tweede kloon toe aan de achterkant. Wijzigingen in een van de klonen wijzigen de oorspronkelijke vorm niet.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide sourceSlide = presentation.getSlides().get_Item(0);
+    IAutoShape sourceShape = sourceSlide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 180, 60);
+    sourceShape.setName("SourceLabel");
+    sourceShape.getTextFrame().setText("Source");
+
+    ILayoutSlide blankLayout = presentation.getMasters().get_Item(0).getLayoutSlides().getByType(SlideLayoutType.Blank);
+    ISlide destinationSlide = presentation.getSlides().addEmptySlide(blankLayout);
+
+    IShape frontCloneShape = destinationSlide.getShapes().addClone(sourceShape, 80, 80);
+    frontCloneShape.setName("FrontClone");
+    if (frontCloneShape instanceof IAutoShape) {
+        IAutoShape frontClone = (IAutoShape) frontCloneShape;
+        frontClone.getTextFrame().setText("Front clone");
+    } else {
+        System.out.println("The front clone is not an AutoShape; its text was not changed.");
+    }
+
+    IShape backCloneShape = destinationSlide.getShapes().insertClone(0, sourceShape, 80, 180);
+    backCloneShape.setName("BackClone");
+    if (backCloneShape instanceof IAutoShape) {
+        IAutoShape backClone = (IAutoShape) backCloneShape;
+        backClone.getTextFrame().setText("Back clone");
+    } else {
+        System.out.println("The back clone is not an AutoShape; its text was not changed.");
+    }
+
+    presentation.save("cloned-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Klonen kopieert de inhoud en opmaak van de vorm, inclusief de naam en alternatieve tekst. Ken nieuwe logische identifiers toe aan de kloon wanneer die waarden uniek moeten zijn. Resources die door complexe vormen worden gebruikt, worden beheerd door de presentatie, maar een kloon blijft een nieuw collectie‑item met een nieuwe vorm‑identiteit.
+
+### **Verwijder vormen**
+
+[remove](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) verwijdert een specifiek vormobject uit zijn collectie. Wanneer je meerdere overeenkomsten wilt verwijderen tijdens een geïndexeerde iteratie, loop dan van het einde zodat elke overgebleven index geldig blijft.
+
+Dit voorbeeld verwijdert elke vorm met een aangewezen naam. Het leest de vorm op de huidige index, niet een vaste collectie‑item, en cast de vorm niet onnodig.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape keepShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 140, 60);
+    keepShape.setName("Keep");
+
+    IAutoShape firstTemporaryShape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 220, 40, 80, 80);
+    firstTemporaryShape.setName("Temporary");
+
+    IAutoShape secondTemporaryShape = slide.getShapes().addAutoShape(ShapeType.Triangle, 340, 40, 100, 80);
+    secondTemporaryShape.setName("Temporary");
+
+    for (int i = slide.getShapes().size() - 1; i >= 0; i--) {
+        IShape shape = slide.getShapes().get_Item(i);
+        if ("Temporary".equals(shape.getName())) {
+            slide.getShapes().remove(shape);
+        }
+    }
+
+    presentation.save("removed-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Na verwijdering veranderen het aantal vormen en de indexen van de latere vormen. Verwijzingen naar niet‑aangedane vormen blijven betrouwbaarder dan opgeslagen indexen. Houd ook rekening met connectoren, animaties en andere presentatiefuncties die naar het verwijderde object kunnen verwijzen; het verwijderen van een zichtbare vorm kan meer dan alleen het uiterlijk van de dia wijzigen.
+
+### **Verberg een vorm**
+
+Het instellen van [Hidden](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishape/#setHidden-boolean-) op `true` houdt de vorm in de collectie, maar voorkomt dat deze verschijnt in de normale diavoorstelling. De index, opmaak en inhoud blijven beschikbaar voor code, dus verbergen is geschikt voor optionele elementen die later eventueel weer kunnen worden hersteld.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape visibleShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 160, 60);
+    visibleShape.setName("VisibleLabel");
+
+    IAutoShape optionalShape = slide.getShapes().addAutoShape(ShapeType.Moon, 240, 40, 100, 100);
+    optionalShape.setName("OptionalDecoration");
+
+    for (IShape shape : slide.getShapes()) {
+        if ("OptionalDecoration".equals(shape.getName())) {
+            shape.setHidden(true);
+        }
+    }
+
+    presentation.save("hidden-shape.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Verbergen is geen verwijdering of beveiliging. Het object kan nog steeds worden gevonden en onzichtbaar worden gemaakt door een gebruiker of door code, en blijft deel uitmaken van het presentatie‑bestand.
+
+### **Wijzig de Z‑order**
+
+Overlap‑vormen worden getekend in de volgorde van de collectie. [reorder](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) verplaatst een bestaande vorm naar een doel‑index zonder deze te klonen. Index `0` is de achterkant; `size() - 1` is de voorkant.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape blueRectangle = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 220, 120);
+    blueRectangle.setName("BlueRectangle");
+    blueRectangle.getFillFormat().setFillType(FillType.Solid);
+    blueRectangle.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+
+    IAutoShape orangeEllipse = slide.getShapes().addAutoShape(ShapeType.Ellipse, 180, 140, 220, 120);
+    orangeEllipse.setName("OrangeEllipse");
+    orangeEllipse.getFillFormat().setFillType(FillType.Solid);
+    orangeEllipse.getFillFormat().getSolidFillColor().setColor(Color.ORANGE);
+
+    slide.getShapes().reorder(slide.getShapes().size() - 1, blueRectangle);
+    presentation.save("reordered-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+De rechthoek wordt eerst aangemaakt en staat aanvankelijk achter de ellips. Door deze naar de laatste index te verplaatsen, komt hij voor. Finaliseer de z‑order nadat je alle gerelateerde vormen hebt toegevoegd of gekloond, want die bewerkingen voegen nieuwe collectie‑items toe of voegen ze in en kunnen de beoogde stapel wijzigen.
+
+## **Inspecteer vormen op lay‑outdia's**
+
+Normale dia's, lay‑outdia's en masters hebben aparte vormcollecties. Een vorm in een lay‑outcollectie is niet hetzelfde object als een vergelijkbaar gepositioneerde vorm op een normale dia. Inspecteer lay‑outvormen wanneer je de door een lay‑out geleverde opmaak moet begrijpen of wijzigen.
+
+Het volgende voorbeeld leest voor elke lay‑outvorm de [FillFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishape/#getFillFormat--) en [LineFormat](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishape/#getLineFormat--) zonder ervan uit te gaan dat elke vorm een `AutoShape` is.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    for (ILayoutSlide layoutSlide : presentation.getLayoutSlides()) {
+        for (IShape shape : layoutSlide.getShapes()) {
+            int fillType = shape.getFillFormat().getFillType();
+            double lineWidth = shape.getLineFormat().getWidth();
+            System.out.println(layoutSlide.getName() + " / " + shape.getName() + ": fill=" + fillType + ", line width=" + lineWidth);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Het bewerken van een lay‑out kan meerdere dia's die de lay‑out gebruiken beïnvloeden. Voordat je een lay‑outvorm wijzigt, bepaal of een normale dia het object erft of een lokale overschrijving bevat, en test elke dia die die lay‑out gebruikt.
+
+## **Exporteer een vorm naar SVG**
+
+[writeAsSvg](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) schrijft de gerenderde inhoud van één vorm naar een stream. Het resultaat bevat de vorm, niet de volledige dia‑achtergrond of naburige vormen.
+
+```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    if (slide.getShapes().size() == 0) {
+        System.out.println("Slide 1 does not contain a shape to export.");
+    } else {
+        IShape shape = slide.getShapes().get_Item(0);
+        try (FileOutputStream svgStream = new FileOutputStream("shape.svg")) {
+            shape.writeAsSvg(svgStream);
+        } catch (IOException exception) {
+            System.out.println("The SVG file could not be written: " + exception.getMessage());
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Houd de presentatie open tijdens het renderen. De output hangt af van de opmaak van de vorm en van resources zoals lettertypen en afbeeldingen. Als je de hele compositie nodig hebt, exporteer dan de dia in plaats van een individuele vorm. De aanroeper bezit de stream en moet deze sluiten.
+
+## **Lijn vormen uit**
+
+De [SlideUtil.alignShapes](https://reference.aspose.com/slides/nl/java/com.aspose.slides/slideutil/#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-)‑overloads lijnen ofwel alle vormen uit of geselecteerde collectie‑indexen. [ShapesAlignmentType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/shapesalignmenttype/) geeft de rand, middellijn of distributiemodus aan. Stel `alignToSlide` in op `true` om de dia‑randen te gebruiken; stel in op `false` om de geselecteerde vormen ten opzichte van elkaar uit te lijnen.
+
+Dit voorbeeld lijn drie vormen uit op de bovenrand van de dia. De geretourneerde vormreferenties worden direct vóór uitlijning omgezet naar hun huidige indexen.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape firstShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 60, 80, 120, 50);
+    IAutoShape secondShape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 240, 160, 120, 50);
+    IAutoShape thirdShape = slide.getShapes().addAutoShape(ShapeType.Triangle, 420, 240, 120, 50);
+    firstShape.setName("FirstAlignedShape");
+    secondShape.setName("SecondAlignedShape");
+    thirdShape.setName("ThirdAlignedShape");
+
+    int[] shapeIndexes = {slide.getShapes().indexOf(firstShape), slide.getShapes().indexOf(secondShape), slide.getShapes().indexOf(thirdShape)};
+
+    SlideUtil.alignShapes(ShapesAlignmentType.AlignTop, true, slide, shapeIndexes);
+    presentation.save("aligned-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Uitlijning wijzigt de posities, niet de z‑order. Relatieve uitlijning vereist doorgaans minstens twee vormen, terwijl horizontale of verticale distributie genoeg vormen nodig heeft om de afstand te bepalen. Herbereken de indexen als je de collectie wijzigt vóór het aanroepen van de methode.
+
+## **Spiegel een vorm**
+
+De [ShapeFrame](https://reference.aspose.com/slides/nl/java/com.aspose.slides/shapeframe/)‑klasse slaat positie, grootte, horizontale en verticale spiegelinstellingen en rotatie op. De `getFlipH`‑ en `getFlipV`‑waarden gebruiken [NullableBool](https://reference.aspose.com/slides/nl/java/com.aspose.slides/nullablebool/): `True` schakelt de spiegel in, `False` schakelt deze uit, en `NotDefined` behoudt de ongedefinieerde/standaard status.
+
+De invoerpresentatie hieronder bevat één niet‑gespiegelde vorm.
+
+![The shape before flipping](shape_to_be_flipped.png)
+
+Het voorbeeld behoudt alle andere frame‑waarden en vervangt alleen de twee spiegel‑instellingen. Dit is belangrijk omdat het toewijzen van een nieuw [Frame](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ishape/#setFrame-com.aspose.slides.IShapeFrame-) het volledige frame vervangt.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IShapeFrame frame = shape.getFrame();
+
+    System.out.println("Horizontal flip before change: " + frame.getFlipH());
+    System.out.println("Vertical flip before change: " + frame.getFlipV());
+
+    shape.setFrame(new ShapeFrame(frame.getX(), frame.getY(), frame.getWidth(), frame.getHeight(), NullableBool.True, NullableBool.True, frame.getRotation()));
+
+    presentation.save("flipped-shape.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+De opgeslagen vorm wordt horizontaal en verticaal gespiegeld terwijl positie, grootte en rotatie behouden blijven.
+
+![The shape after flipping](flipped_shape.png)
 
 ## **FAQ**
 
-**Kan ik vormen (union/intersect/subtract) op een dia combineren zoals in een desktop‑editor?**
+**Moet ik een collectie‑index gebruiken als vorm‑identifier?**
 
-Er is geen ingebouwde Boolean‑operatie‑API. U kunt een benadering maken door zelf de gewenste omtrek te construeren – bijvoorbeeld de resulterende geometrie berekenen (via [GeometryPath](https://reference.aspose.com/slides/nl/java/com.aspose.slides/geometrypath/)) en een nieuwe vorm met die contour maken, eventueel de originele vormen verwijderen.
+Alleen voor kort‑lopende verwerking wanneer de collectie niet verandert voordat de index wordt gebruikt. Geef de voorkeur aan een gevalideerde `Name`‑ of `AlternativeText`‑conventie voor vervaardigde sjablonen, of `OfficeInteropShapeId` voor interop‑werk op dia‑niveau.
 
-**Hoe kan ik de stapelvolgorde (z‑order) regelen zodat een vorm altijd \"bovenop\" blijft?**
+**Verwijdert het verbergen van een vorm deze uit de z‑order?**
 
-Wijzig de invoeg‑/verplaatsvolgorde binnen de [shapes](https://reference.aspose.com/slides/nl/java/com.aspose.slides/baseslide/#getShapes--)‑collectie van de dia. Voor voorspelbare resultaten finaliseert u de z‑order nadat alle andere dia‑wijzigingen zijn uitgevoerd.
+Nee. Een verborgen vorm blijft in de collectie op dezelfde index. Ze kan worden gevonden, herschikt, bewerkt of weer zichtbaar gemaakt.
 
-**Kan ik een vorm \"vergrendelen\" zodat gebruikers deze niet kunnen bewerken in PowerPoint?**
+**Waarom verscheen een gekloonde vorm voor een andere vorm?**
 
-Ja. Stel de [shape‑level protection flags](/slides/nl/java/applying-protection-to-presentation/) in (bijv. vergrendel selectie, verplaatsing, grootte wijzigen, tekstbewerking). Indien nodig kunt u vergelijkbare beperkingen op de master‑ of lay‑out instellen. Let op: dit is bescherming op UI‑niveau, geen beveiligingsfunctie; voor sterkere bescherming combineert u dit met bestands‑niveau restricties zoals [read‑only aanbevelingen of wachtwoorden](/slides/nl/java/password-protected-presentation/).
+`addClone` plakt de kloon aan het einde van de collectie, dat is de voorkant van de z‑order. Gebruik `insertClone` om de initiële index te kiezen of `reorder` nadat alle vormen zijn toegevoegd.

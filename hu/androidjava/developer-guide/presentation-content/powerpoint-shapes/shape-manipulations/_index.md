@@ -1,6 +1,6 @@
 ---
-title: Prezentációs alakzatok kezelése Androidon
-linktitle: Alakzat manipuláció
+title: Androidra vonatkozó prezentációs alakzatok kezelése
+linktitle: Alakzatkezelés
 type: docs
 weight: 40
 url: /hu/androidjava/shape-manipulations/
@@ -13,393 +13,370 @@ keywords:
 - alakzat eltávolítása
 - alakzat elrejtése
 - alakzat sorrendjének módosítása
-- Interop alakzat azonosito lekerese
-- alakzat alternativ szovege
-- alakzat elrendesitesi formatumai
-- alakzat SVG-kent
-- alakzat SVG-be
-- alakzat igazitasa
+- interop alakzat ID lekérése
+- alakzat alternatív szövege
+- alakzat elrendezési formátumok
+- alakzat SVG-ként
+- alakzat SVG-re
+- alakzat igazítása
+- alakzat tükrözése
 - PowerPoint
-- prezentacio
+- prezentáció
 - Android
 - Java
 - Aspose.Slides
-description: "Tanulja meg, hogyan hozhat letre, szerkeszthet es optimalizalhat alakzatokat az Aspose.Slides for Android via Java segitsegevel, es szallithat nagy teljesitmenyu PowerPoint prezentaciokat."
+description: "Ismerje meg, hogyan lehet azonosítani, klónozni, eltávolítani, elrejteni, átrendezni, exportálni, igazítani és tükrözni a prezentációs alakzatokat az Aspose.Slides for Android via Java segítségével."
 ---
 ## **Áttekintés**
 
-Ez a cikk ismerteti, hogyan lehet alakzatokkal dolgozni prezentációkban az Aspose.Slides használatával. Bemutatja, hogyan találhatunk meg egy alakzatot egy dián, klónozhatjuk, eltávolíthatjuk, elrejthetjük, módosíthatjuk a sorrendjét, lekérhetjük az Interop alakzat‑azonosítót, és hogyan állíthatunk be alternatív szöveget az azonosításhoz és a további feldolgozáshoz.
+Aspose.Slides for Android via Java a dián lévő alakzatokat egy rendezett [IShapeCollection](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishapecollection/) formájában reprezentálja. A gyűjtemény egyben azon a hely, ahol alakzatokat kereshet és módosíthat, valamint a rétegezési sorrend forrása: a `0` indexű alakzat a legháttalibb, míg az utolsó indexű a legelőlibb.
 
-Továbbá lefedi, hogyan érhetjük el az alakzatok elrendezési formátumait, hogyan renderelhetünk egy alakzatot SVG‑ként, hogyan igazíthatunk alakzatokat egy dián, és hogyan használhatók a vízszintes és függőleges tükrözéshez tartozó flip tulajdonságok. Emellett a cikk egy rövid GYIK‑ot is tartalmaz az alakzatok egyesítésével, rétegezési sorrendjével és zárolásával kapcsolatban.
+Ez a cikk e modell szerint jár el. Először bemutatja, hogyan lehet megbízhatóan azonosítani egy alakzatot, majd megmutatja, hogyan lehet klónozni, eltávolítani, elrejteni és átrendezni az alakzatokat. A végső szakaszok a layout szintű formázást, SVG exportot, igazítást és tükrözési beállításokat fedik le. Minden példa önálló, így csak a munkafolyamatához szükséges műveleteket használhatja.
 
-## **Alakzat keresése egy dián**
-Ez a téma egy egyszerű technikát mutat be, amely megkönnyíti a fejlesztők számára, hogy egy adott alakzatot megtaláljanak a dián anélkül, hogy a belső azonosítóját kellene használniuk. Fontos tudni, hogy a PowerPoint prezentációfájlok egyetlen módon sem tudják azonosítani az alakzatokat a dián kívül egy belső egyedi azonosítón kívül. A fejlesztők számára nehéz lehet egy alakzatot megtalálni a belső egyedi azonosítója alapján. Minden diára felvett alakzathoz van valamilyen Alternatív Szöveg. Javasoljuk, hogy a fejlesztők az Alternatív Szöveget használják egy adott alakzat megtalálásához. A Microsoft PowerPoint segítségével definiálhatja az objektumok alternatív szövegét, amelyeket később módosítani szeretne.
+## **Alakzatok azonosítása és keresése**
 
-Miután beállította a kívánt alakzat alternatív szövegét, megnyithatja a prezentációt az Aspose.Slides for Android via Java segítségével, és végigiterálhat a diára felvett összes alakzaton. Minden iteráció során ellenőrizheti az alakzat alternatív szövegét, és a megfelelő alternatív szöveggel rendelkező alakzat lesz a keresett alakzat. Ennek a technikának a jobb bemutatásához létrehoztunk egy [findShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/SlideUtil#findShape-com.aspose.slides.IBaseSlide-java.lang.String-) nevű metódust, amely megoldja egy adott alakzat megtalálását a dián, és egyszerűen visszaadja azt.
+Gyűjtemény indexek kényelmesek egy ismert fájl feldolgozásakor, de nem stabil azonosítók. Egy alakzat hozzáadása, eltávolítása vagy átrendezése megváltoztathatja az indexét. Válasszon egy azonosítót a bemutató létrehozásának és karbantartásának módja szerint:
 
-```java
-// Példányosít egy Presentation osztályt, amely a prezentáció fájlt képviseli
-Presentation pres = new Presentation("FindingShapeInSlide.pptx");
-try {
+- [Name](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/#getName--) hasznos fejlesztő-vezérelt sablonoknál, és könnyen ellenőrizhető a PowerPoint Kijelölés panelen. A nevek szerkeszthetők és nem garantált a egyediség, ezért állítson fel egy elnevezési konvenciót, ha a kód rájuk támaszkodik.
+- [AlternativeText](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/#getAlternativeText--) akkor hasznos, ha egy hozzáférhetőségi leírás vagy a szerző által megadott címke már azonosítja az alakzatot. A felhasználók számára látható, lokalizálható vagy átfogalmazható a hozzáférhetőség miatt, és nem garantált a egyediség. Ne használja csendben jelentős hozzáférhetőségi szöveget adatbáziskulcsként.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/#getOfficeInteropShapeId--) egy csak olvasható azonosító, amely egy dián belül egyedi, és megfelel a PowerPoint interop által használt alakzatazonosítónak. Használja, ha PowerPointtal integrál, vagy ha egyértelmű hivatkozásra van szükség egy alakzat életciklusa során. Egy klónozott vagy újra létrehozott alakzat másik alakzat, és saját azonosítót kap.
 
-    ISlide slide = pres.getSlides().get_Item(0);
-    // A megtalálandó alakzat alternatív szövege
-    IShape shape = findShape(slide, "Shape1");
-    if (shape != null)
-    {
-        System.out.println("Shape Name: " + shape.getName());
-    }
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-```java
-// Metódus implementációja egy alakzat megtalálásához egy dián az alternatív szöveg alapján
-public static IShape findShape(ISlide slide, String alttext)
-{
-    // A dián belüli összes alakzat iterálása
-    for (int i = 0; i < slide.getShapes().size(); i++)
-    {
-        // Ha a dián található alternatív szöveg megegyezik a keresettel
-        // Visszaadja az alakzatot
-        if (slide.getShapes().get_Item(i).getAlternativeText().compareTo(alttext) == 0)
-            return slide.getShapes().get_Item(i);
-    }
-    return null;
-}
-```
+Az ehhez kapcsolódó [getUniqueId](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/#getUniqueId--) metódus egy, a bemutatóra vonatkozó azonosítót ad vissza, de ez az azonosító kiegészítők számára készült, és újra hozzárendelhető. Nem szabad állandó külső kulcsként kezelni. Ha hosszú távú identitásra van szükség, tartsa a leképezést az alkalmazás adataiban, és ellenőrizze, hogy a várt alakzat még létezik-e.
 
-## **Alakzat klónozása**
-Alakzat klónozásához egy dián az Aspose.Slides for Android via Java használatával:
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Presentation) osztályból.
-1. Szerezze be a dia hivatkozását az indexe alapján.
-1. Érje el a forrásdia alakzatgyűjteményét.
-1. Adjon hozzá egy új diát a prezentációhoz.
-1. Klónozza az alakzatokat a forrásdia alakzatgyűjteményéből az új diára.
-1. Mentse a módosított prezentációt PPTX fájlként.
-
-Az alábbi példa egy csoport alakzatot ad egy diához.
+Az alábbi példa név alapján pontos összehasonlítással keres, és visszaadja a diára vonatkozó interop ID-t. Ha a sablon nem tartalmazza a várt alakzatot, a kód ezt az eredményt jelzi, ahelyett, hogy a hibás objektummal folytatná.
 
 ```java
-// Presentation osztály példányosítása
-Presentation pres = new Presentation("Source Frame.pptx");
-try {
-    IShapeCollection sourceShapes = pres.getSlides().get_Item(0).getShapes();
-    ILayoutSlide blankLayout = pres.getMasters().get_Item(0).getLayoutSlides().getByType(SlideLayoutType.Blank);
-    ISlide destSlide = pres.getSlides().addEmptySlide(blankLayout);
-    IShapeCollection destShapes = destSlide.getShapes();
-    destShapes.addClone(sourceShapes.get_Item(1), 50, 150 + sourceShapes.get_Item(0).getHeight());
-    destShapes.addClone(sourceShapes.get_Item(2));
-    destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
+import com.aspose.slides.*;
 
-    // PPTX fájl mentése a lemezen
-    pres.save("CloneShape_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Alakzat eltávolítása**
-Az Aspose.Slides for Android via Java lehetővé teszi, hogy a fejlesztők eltávolítsanak bármelyik alakzatot. Egy alakzat eltávolításához egy diáról kövesse az alábbi lépéseket:
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Presentation) osztályból.
-1. Érje el az első diát.
-1. Keresse meg az alakzatot a megadott AlternativeText érték alapján.
-1. Távolítsa el az alakzatot.
-1. Mentse a fájlt a lemezen.
-
-```java
-// Presentation objektum létrehozása
-Presentation pres = new Presentation();
-try {
-    // Az első dia lekérése
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Téglalap típusú autóalakzat hozzáadása
-    sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-
-    String altText = "User Defined";
-    int iCount = sld.getShapes().size();
-    for (int i = 0; i < iCount; i++)
-    {
-        AutoShape ashp = (AutoShape)sld.getShapes().get_Item(0);
-        if (alttext.equals(ashp.getAlternativeText()))
-        {
-            sld.getShapes().remove(ashp);
-        }
-    }
-
-    // Prezentáció mentése a lemezen
-    pres.save("RemoveShape_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Alakzat elrejtése**
-Az Aspose.Slides for Android via Java lehetővé teszi, hogy a fejlesztők elrejtsenek bármelyik alakzatot. Egy alakzat elrejtéséhez egy dián kövesse az alábbi lépéseket:
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Presentation) osztályból.
-1. Érje el az első diát.
-1. Keresse meg az alakzatot a megadott AlternativeText érték alapján.
-1. Rejtse el az alakzatot.
-1. Mentse a fájlt a lemezen.
-
-```java
-// Presentation osztály példányosítása, amely a PPTX-et képviseli
-Presentation pres = new Presentation();
-try {
-    // Az első dia lekérése
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Téglalap típusú autóalakzat hozzáadása
-    sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-
-    String alttext = "User Defined";
-    int iCount = sld.getShapes().size();
-    for (int i = 0; i < iCount; i++)
-    {
-        AutoShape ashp = (AutoShape)sld.getShapes().get_Item(i);
-        if (alttext.equals(ashp.getAlternativeText()))
-        {
-            ashp.setHidden(true);
-        }
-    }
-
-    // Prezentáció mentése a lemezen
-    pres.save("Hiding_Shapes_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Alakzat sorrendjének módosítása**
-Az Aspose.Slides for Android via Java lehetővé teszi, hogy a fejlesztők átrendezzék az alakzatokat. Az átrendezés meghatározza, melyik alakzat van elöl és melyik hátul. Egy alakzat átrendezéséhez egy dián kövesse az alábbi lépéseket:
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Presentation) osztályból.
-1. Érje el az első diát.
-1. Adjon hozzá egy alakzatot.
-1. Adjon szöveget az alakzat szövegkeretébe.
-1. Adjon hozzá egy másik alakzatot ugyanazzal a koordinátával.
-1. Rendezzük át az alakzatokat.
-1. Mentse a fájlt a lemezen.
-
-```java
-Presentation pres = new Presentation("ChangeShapeOrder.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IAutoShape shp3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 365, 400, 150);
-    shp3.getFillFormat().setFillType(FillType.NoFill);
-    shp3.addTextFrame(" ");
-
-    IParagraph para = shp3.getTextFrame().getParagraphs().get_Item(0);
-    IPortion portion = para.getPortions().get_Item(0);
-    portion.setText("Watermark Text Watermark Text Watermark Text");
-
-    shp3 = slide.getShapes().addAutoShape(ShapeType.Triangle, 200, 365, 400, 150);
-
-    slide.getShapes().reorder(2, shp3);
-
-    pres.save("Reshape_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Interop alakzat‑azonosító lekérése**
-Az Aspose.Slides for Android via Java lehetővé teszi, hogy a fejlesztők egyedi alakzat‑azonosítót kapjanak egy dián belül, szemben a [getUniqueId](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IShape#getUniqueId--) metódussal, amely a prezentáció szintjén ad egyedi azonosítót. A [getOfficeInteropShapeId](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IShape#getOfficeInteropShapeId--) metódus került fel a [IShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IShape) interfészhez és a [Shape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Shape) osztályhoz. A [getOfficeInteropShapeId](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IShape#getOfficeInteropShapeId--) metódus által visszaadott érték megfelel a Microsoft.Office.Interop.PowerPoint.Shape objektum Id‑jének. Az alábbiakban egy mintakód látható.
-
-```java
-Presentation pres = new Presentation("Presentation.pptx");
-try {
-    // Egyedi alakzat azonosító lekérése dián belül
-    long officeInteropShapeId = pres.getSlides().get_Item(0).getShapes().get_Item(0).getOfficeInteropShapeId();
-
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Alternatív szöveg beállítása egy alakzathoz**
-Az Aspose.Slides for Android via Java lehetővé teszi, hogy a fejlesztők beállítsák bármelyik alakzat AlternateText értékét. A prezentáció alakzatait megkülönböztethetjük a [AlternativeText](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) vagy a [Shape Name](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IShape#setName-java.lang.String-) metódussal.
-A [setAlternativeText](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) és a [getAlternativeText](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IShape#getAlternativeText--) metódusok olvashatók és írhatók az Aspose.Slides és a Microsoft PowerPoint segítségével egyaránt.
-Ezzel a módszerrel címkézhet alakzatot, és különböző műveleteket végezhet, például egy alakzat eltávolítása, elrejtése vagy átrendezése a dián.
-Az AlternateText beállításához kövesse az alábbi lépéseket:
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Presentation) osztályból.
-1. Érje el az első diát.
-1. Adjon hozzá bármilyen alakzatot a diához.
-1. Végezzen el némi munkát az újaként felvett alakzattal.
-1. Járja be az alakzatokat a kereséshez.
-1. Állítsa be az AlternativeText‑et.
-1. Mentse a fájlt a lemezen.
-
-```java
-// Presentation osztály példányosítása, amely a PPTX-et képviseli
-Presentation pres = new Presentation();
-try {
-    // Az első dia lekérése
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Téglalap típusú autóalakzat hozzáadása
-    IShape shp1 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-    IShape shp2 = sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-    shp2.getFillFormat().setFillType(FillType.Solid);
-    shp2.getFillFormat().getSolidFillColor().setColor(Color.GRAY);
-
-    for (int i = 0; i < sld.getShapes().size(); i++)
-    {
-        AutoShape shape = (AutoShape) sld.getShapes().get_Item(i);
-        if (shape != null)
-        {
-            shape.setAlternativeText("User Defined");
-        }
-    }
-
-    // Prezentáció mentése a lemezen
-    pres.save("Set_AlternativeText_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Alakzat elrendezési formátumainak elérése**
-Az Aspose.Slides for Android via Java egyszerű API‑t biztosít az alakzatok elrendezési formátumainak eléréséhez. Ez a cikk bemutatja, hogyan érheti el ezeket a formátumokat.
-
-Az alábbi mintakód látható.
-
-```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    for (ILayoutSlide layoutSlide : pres.getLayoutSlides())
-    {
-        for (IShape shape : layoutSlide.getShapes())
-        {
-            IFillFormat fillFormats = shape.getFillFormat();
-            ILineFormat lineFormats = shape.getLineFormat();
-        }
-    }
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Alakzat renderelése SVG‑ként**
-Az Aspose.Slides for Android via Java most már támogatja az alakzatok SVG‑ként történő renderelését. A [writeAsSvg](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IShape#writeAsSvg-java.io.OutputStream-) metódus (és annak túlterhelése) felkerült a [Shape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Shape) osztályba és az [IShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IShape) interfészbe. Ez a metódus lehetővé teszi, hogy az alakzat tartalmát SVG fájlként mentse. Az alábbi kódrészlet megmutatja, hogyan exportálhatja egy dia alakzatát SVG fájlba.
-
-```java
-Presentation pres = new Presentation("TestExportShapeToSvg.pptx");
-try {
-    FileOutputStream stream = new FileOutputStream("SingleShape.svg");
-    try {
-        pres.getSlides().get_Item(0).getShapes().get_Item(0).writeAsSvg(stream);
-    } finally {
-        if (stream != null) stream.close();
-    }
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Alakzat igazítása**
-Az Aspose.Slides lehetővé teszi az alakzatok igazítását akár a dia margóihoz, akár egymáshoz képest. Erre a célra hozzá lett adva az [SlidesUtil.alignShape()](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/SlideUtil#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) túlterhelt metódus. A [ShapesAlignmentType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ShapesAlignmentType) felsorolás definiálja a lehetséges igazítási lehetőségeket.
-
-**Példa 1**
-
-Az alábbi forráskód a 1., 2. és 4. indexű alakzatokat igazítja a dia felső szélén.
-
-```java
-Presentation pres = new Presentation("example.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IShape shape1 = slide.getShapes().get_Item(1);
-    IShape shape2 = slide.getShapes().get_Item(2);
-    IShape shape3 = slide.getShapes().get_Item(4);
-    SlideUtil.alignShapes(ShapesAlignmentType.AlignTop, true, pres.getSlides().get_Item(0), new int[]
-    {
-        slide.getShapes().indexOf(shape1),
-        slide.getShapes().indexOf(shape2),
-        slide.getShapes().indexOf(shape3)
-    });
-} finally {
-    if (pres != null) pres.dispose();
-}
-}
-```
-
-**Példa 2**
-
-A következő példa azt mutatja, hogyan igazítható a teljes alakzatgyűjtemény a gyűjtemény legalsó alakzata szerint.
-
-```java
-Presentation pres = new Presentation("example.pptx");
-try {
-    SlideUtil.alignShapes(ShapesAlignmentType.AlignBottom, false, pres.getSlides().get_Item(0));
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Flip tulajdonságok**
-
-Az Aspose.Slides‑ben a [ShapeFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/shapeframe/) osztály biztosítja a horizontális és vertikális tükrözés vezérlését a `flipH` és `flipV` tulajdonságokon keresztül. Mindkét tulajdonság `byte` típusú, ahol az `1` érték tükrözést jelent, a `0` nincs tükrözés, a `-1` pedig az alapértelmezett viselkedést alkalmazza. Ezek az értékek egy alakzat [Frame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/#getFrame--)‑jéből érhetők el.
-
-A flip beállítások módosításához egy új [ShapeFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/shapeframe/) példányt hozunk létre az alakzat jelenlegi pozíciójával és méretével, a kívánt `flipH` és `flipV` értékekkel, valamint a forgatási szöggel. Ennek a példánynak a [Frame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/#getFrame--)‑hez való hozzárendelése és a prezentáció mentése alkalmazza a tükörtranszformációkat, és elmenti azokat a kimeneti fájlba.
-
-Tegyük fel, hogy van egy sample.pptx fájlunk, amelynek az első diája egyetlen alakzatot tartalmaz alapértelmezett flip beállításokkal, ahogy az alább látható.
-
-![The shape to be flipped](shape_to_be_flipped.png)
-
-Az alábbi kódrészlet lekéri az alakzat aktuális flip tulajdonságait, és mind vízszintesen, mind függőlegesen tükrözi azt.
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
+Presentation presentation = new Presentation("input.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
 
-    // Az alakzat vízszintes tükrözési tulajdonságának lekérése.
-    byte horizontalFlip = shape.getFrame().getFlipH();
-    System.out.println("Horizontal flip: " + horizontalFlip);
+    IShape targetShape = null;
+    for (IShape shape : slide.getShapes()) {
+        if ("RevenueChart".equals(shape.getName())) {
+            targetShape = shape;
+            break;
+        }
+    }
 
-    // Az alakzat függőleges tükrözési tulajdonságának lekérése.
-    byte verticalFlip = shape.getFrame().getFlipV();
-    System.out.println("Vertical flip: " + verticalFlip);
-
-    float x = shape.getFrame().getX();
-    float y = shape.getFrame().getY();
-    float width = shape.getFrame().getWidth();
-    float height = shape.getFrame().getHeight();
-    byte flipH = NullableBool.True; // Vízszintesen tükröz.
-    byte flipV = NullableBool.True; // Vízszintesen tükröz.
-    float rotation = shape.getFrame().getRotation();
-
-    shape.setFrame(new ShapeFrame(x, y, width, height, flipH, flipV, rotation));
-
-    presentation.save("output.pptx", SaveFormat.Pptx);
+    if (targetShape == null) {
+        System.out.println("The shape 'RevenueChart' was not found on slide 1.");
+    } else {
+        System.out.println("Found " + targetShape.getName() + "; interop ID: " + targetShape.getOfficeInteropShapeId());
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-Az eredmény:
+Amikor egy művelet alakzattípustól függ, ellenőrizze az interfészt, mielőtt típus‑specifikus tagokat használna. Ez a példa csak akkor frissíti a szöveget és az alternatív szöveget, ha a név alapján megtalált objektum egy [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/).
 
-![The flipped shape](flipped_shape.png)
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IShape candidate = null;
+    for (IShape shape : slide.getShapes()) {
+        if ("StatusLabel".equals(shape.getName())) {
+            candidate = shape;
+            break;
+        }
+    }
+
+    if (candidate instanceof IAutoShape) {
+        IAutoShape autoShape = (IAutoShape) candidate;
+        autoShape.getTextFrame().setText("Approved");
+        autoShape.setAlternativeText("Approval status: approved");
+        presentation.save("identified-shape.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("'StatusLabel' is missing or is not an AutoShape.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Alakzatgyűjtemény módosítása**
+
+Az add, clone, remove és reorder metódusok azonnal a gyűjteményen működnek. Ha egy művelet megváltoztatja az alakzatok számát vagy sorrendjét, ne támaszkodjon tovább az előzőleg rögzített indexekre.
+
+### **Alakzat klónozása**
+
+[addClone](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishapecollection/#addClone-com.aspose.slides.IShape-) egy független másolatot hoz létre, és a célgyűjtemény végére fűzi. [insertClone](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishapecollection/#insertClone-int-com.aspose.slides.IShape-) szintén másolatot hoz létre, de egy megadott z‑sorrend indexre helyezi. A koordinátákat elfogadó túlterhelések a klónt áthelyezik a méret változtatása nélkül; a szélességet és magasságot megadó túlterhelések átméretezhetik is.
+
+A példa létrehoz egy cél diát, egy címkézett téglalapot klónoz a frontra, és a hátulra helyez egy második klónt. Bármely klón változtatása nem módosítja a forrás alakzatot.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide sourceSlide = presentation.getSlides().get_Item(0);
+    IAutoShape sourceShape = sourceSlide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 180, 60);
+    sourceShape.setName("SourceLabel");
+    sourceShape.getTextFrame().setText("Source");
+
+    ILayoutSlide blankLayout = presentation.getMasters().get_Item(0).getLayoutSlides().getByType(SlideLayoutType.Blank);
+    ISlide destinationSlide = presentation.getSlides().addEmptySlide(blankLayout);
+
+    IShape frontCloneShape = destinationSlide.getShapes().addClone(sourceShape, 80, 80);
+    frontCloneShape.setName("FrontClone");
+    if (frontCloneShape instanceof IAutoShape) {
+        IAutoShape frontClone = (IAutoShape) frontCloneShape;
+        frontClone.getTextFrame().setText("Front clone");
+    } else {
+        System.out.println("The front clone is not an AutoShape; its text was not changed.");
+    }
+
+    IShape backCloneShape = destinationSlide.getShapes().insertClone(0, sourceShape, 80, 180);
+    backCloneShape.setName("BackClone");
+    if (backCloneShape instanceof IAutoShape) {
+        IAutoShape backClone = (IAutoShape) backCloneShape;
+        backClone.getTextFrame().setText("Back clone");
+    } else {
+        System.out.println("The back clone is not an AutoShape; its text was not changed.");
+    }
+
+    presentation.save("cloned-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+A klónozás másolja az alakzat tartalmát és formázását, beleértve a nevét és az alternatív szöveget is. Ha ezeknek egyedinek kell lenniük, új logikai azonosítókat kell adni a klónnak. A komplex alakzatok által használt erőforrásokat a bemutató kezeli, de a klón egy új gyűjteményelemként új alakzatidentitással jelenik meg.
+
+### **Alakzatok eltávolítása**
+
+[remove](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) egy adott alakzat objektumot töröl a gyűjteményéből. Több egyező eltávolításakor indexelt iteráció során haladjon a vég felől, hogy a maradt indexek érvényesek maradjanak.
+
+Ez a példa eltávolít minden olyan alakzatot, amely meghatározott névvel rendelkezik. A jelenlegi indexnél lévő alakzatot olvassa, nem egy fix gyűjteményelemnél, és nem végez felesleges castot.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape keepShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 140, 60);
+    keepShape.setName("Keep");
+
+    IAutoShape firstTemporaryShape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 220, 40, 80, 80);
+    firstTemporaryShape.setName("Temporary");
+
+    IAutoShape secondTemporaryShape = slide.getShapes().addAutoShape(ShapeType.Triangle, 340, 40, 100, 80);
+    secondTemporaryShape.setName("Temporary");
+
+    for (int i = slide.getShapes().size() - 1; i >= 0; i--) {
+        IShape shape = slide.getShapes().get_Item(i);
+        if ("Temporary".equals(shape.getName())) {
+            slide.getShapes().remove(shape);
+        }
+    }
+
+    presentation.save("removed-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Eltávolítás után az alakzatok száma és a későbbi alakzatok indexei megváltoznak. A nem érintett alakzatokra mutató hivatkozások megbízhatóbbak, mint a mentett indexek. Vegye számításba továbbá a kapcsolókat, animációkat és egyéb bemutatóelemeket, amelyek a eltávolított objektumra hivatkozhatnak; egy látható alakzat eltávolítása több változást is okozhat, mint csak a dia megjelenését.
+
+### **Alakzat elrejtése**
+
+A [Hidden](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/#setHidden-boolean-) `true` értékre állítása az alakzatot a gyűjteményben hagyja, de megakadályozza, hogy a normál előadásban megjelenjen. Indexe, formázása és tartalma továbbra is elérhető a kódból, ezért az elrejtés alkalmas opcionális elemek számára, amelyek később visszaállíthatók.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape visibleShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 160, 60);
+    visibleShape.setName("VisibleLabel");
+
+    IAutoShape optionalShape = slide.getShapes().addAutoShape(ShapeType.Moon, 240, 40, 100, 100);
+    optionalShape.setName("OptionalDecoration");
+
+    for (IShape shape : slide.getShapes()) {
+        if ("OptionalDecoration".equals(shape.getName())) {
+            shape.setHidden(true);
+        }
+    }
+
+    presentation.save("hidden-shape.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Az elrejtés nem törlés vagy biztonsági intézkedés. Az objektum továbbra is felfedezhető és visszafejthető felhasználó vagy kód által, és része marad a bemutató fájlnak.
+
+### **Z‑sorrend módosítása**
+
+A átfedő alakzatok a gyűjtemény sorrendje szerint vannak megrajzolva. A [reorder](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) egy meglévő alakzatot a cél indexre mozgat klónozás nélkül. A `0` index a hátul, a `size() - 1` az elöl.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape blueRectangle = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 220, 120);
+    blueRectangle.setName("BlueRectangle");
+    blueRectangle.getFillFormat().setFillType(FillType.Solid);
+    blueRectangle.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+
+    IAutoShape orangeEllipse = slide.getShapes().addAutoShape(ShapeType.Ellipse, 180, 140, 220, 120);
+    orangeEllipse.setName("OrangeEllipse");
+    orangeEllipse.getFillFormat().setFillType(FillType.Solid);
+    orangeEllipse.getFillFormat().getSolidFillColor().setColor(Color.rgb(255, 165, 0));
+
+    slide.getShapes().reorder(slide.getShapes().size() - 1, blueRectangle);
+    presentation.save("reordered-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+A téglalap először létre van hozva, és kezdetben az ellipszis mögött helyezkedik el. A végső indexre történő áthelyezése az elől szerepléshez vezet. A z‑sorrendet a kapcsolódó alakzatok hozzáadása vagy klónozása után állítsa be, mivel ezek a műveletek új gyűjteményelemeket fűznek hozzá vagy szúrnak be, és módosíthatják a kívánt halmozást.
+
+## **Alakzatok vizsgálata elrendezési diákon**
+
+A normál diák, az elrendezési diák és a mesterdiák külön alakzategyüttesekkel rendelkeznek. Egy elrendezési gyűjteményben lévő alakzat nem ugyanaz az objektum, mint egy hasonló helyen lévő alakzat egy normál dián. Vizsgálja meg az elrendezési alakzatokat, ha meg kell érteni vagy meg kell változtatni egy elrendezés által biztosított formázást.
+
+Az alábbi példa minden elrendezési alakzat [FillFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/#getFillFormat--) és [LineFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/#getLineFormat--) tulajdonságát olvassa, anélkül, hogy feltételezné, hogy minden alakzat `AutoShape`.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    for (ILayoutSlide layoutSlide : presentation.getLayoutSlides()) {
+        for (IShape shape : layoutSlide.getShapes()) {
+            int fillType = shape.getFillFormat().getFillType();
+            double lineWidth = shape.getLineFormat().getWidth();
+            System.out.println(layoutSlide.getName() + " / " + shape.getName() + ": fill=" + fillType + ", line width=" + lineWidth);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Az elrendezés szerkesztése több diát is érinthet, amelyik használja. Mielőtt elrendezési alakzatot módosítana, határozza meg, hogy egy normál dia örököl‑e az objektumot vagy helyi felülbírálást tartalmaz, és tesztelje az összes olyan diát, amely az elrendezést használja.
+
+## **Alakzat exportálása SVG‑be**
+
+[writeAsSvg](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) egy alakzat renderelt tartalmát írja ki egy streambe. Az eredmény csak az alakzatot tartalmazza, nem az egész dia háttérét vagy a szomszédos alakzatokat.
+
+```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    if (slide.getShapes().size() == 0) {
+        System.out.println("Slide 1 does not contain a shape to export.");
+    } else {
+        IShape shape = slide.getShapes().get_Item(0);
+        try (FileOutputStream svgStream = new FileOutputStream("shape.svg")) {
+            shape.writeAsSvg(svgStream);
+        } catch (IOException exception) {
+            System.out.println("The SVG file could not be written: " + exception.getMessage());
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Tartsa nyitva a bemutatót a renderelés közben. A kimenet az alakzat formázásától és olyan erőforrásoktól függ, mint a betűtípusok és képek. Ha a teljes kompozícióra van szükség, exportálja a diát, nem egyetlen alakzatot. A hívó sajátja a streamet, és be kell zárnia.
+
+## **Alakzatok igazítása**
+
+A [SlideUtil.alignShapes](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/slideutil/#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) túlterhelései vagy az összes alakzatot, vagy a kiválasztott gyűjteményindexeket igazítják. A [ShapesAlignmentType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/shapesalignmenttype/) meghatározza a szél, középvonal vagy elosztási módot. Állítsa az `alignToSlide` értékét `true`‑ra, hogy a dia széleit használja; `false` esetén a kiválasztott alakzatokat egymáshoz viszonyítva igazítja.
+
+Ez a példa három alakzatot a dia felső széléhez igazít. A visszaadott alakzathivatkozásokat közvetlenül igazítás előtt az aktuális indexeikre konvertálja.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape firstShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 60, 80, 120, 50);
+    IAutoShape secondShape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 240, 160, 120, 50);
+    IAutoShape thirdShape = slide.getShapes().addAutoShape(ShapeType.Triangle, 420, 240, 120, 50);
+    firstShape.setName("FirstAlignedShape");
+    secondShape.setName("SecondAlignedShape");
+    thirdShape.setName("ThirdAlignedShape");
+
+    int[] shapeIndexes = {slide.getShapes().indexOf(firstShape), slide.getShapes().indexOf(secondShape), slide.getShapes().indexOf(thirdShape)};
+
+    SlideUtil.alignShapes(ShapesAlignmentType.AlignTop, true, slide, shapeIndexes);
+    presentation.save("aligned-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Az igazítás a pozíciókat változtatja, nem a z‑sorrendet. A relatív igazítás általában legalább két alakzatot igényel, míg a vízszintes vagy függőleges elosztáshoz elegendő alakzat kell legyen a távolság meghatározásához. Számolja újra az indexeket, ha a gyűjteményt módosítja a metódus hívása előtt.
+
+## **Alakzat tükrözése**
+
+[ShapeFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/shapeframe/) osztály tárolja a pozíciót, méretet, a vízszintes és függőleges tükrözési beállításokat, valamint a forgást. A `getFlipH` és `getFlipV` értékei a [NullableBool](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/nullablebool/) használatával működnek: `True` engedélyezi a tükrözést, `False` letiltja, a `NotDefined` pedig megőrzi a nem meghatározott/alapértelmezett állapotot.
+
+Az alábbi bemeneti bemutató egy nem tükrözött alakzatot tartalmaz.
+
+![Az alakzat a tükrözés előtt](shape_to_be_flipped.png)
+
+A példa megőrzi minden egyéb keretértéket, és csak a két tükrözési beállítást cseréli le. Ez fontos, mert egy új [Frame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/#setFrame-com.aspose.slides.IShapeFrame-) hozzárendelése a teljes keretet felülírja.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IShapeFrame frame = shape.getFrame();
+
+    System.out.println("Horizontal flip before change: " + frame.getFlipH());
+    System.out.println("Vertical flip before change: " + frame.getFlipV());
+
+    shape.setFrame(new ShapeFrame(frame.getX(), frame.getY(), frame.getWidth(), frame.getHeight(), NullableBool.True, NullableBool.True, frame.getRotation()));
+
+    presentation.save("flipped-shape.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+A mentett alakzat vízszintesen és függőlegesen tükröződik, miközben megtartja a pozícióját, méretét és forgását.
+
+![Az alakzat a tükrözés után](flipped_shape.png)
 
 ## **GYIK**
 
-**Kombinálhatok-e alakzatokat (unió/keresztezés/kivonás) egy dián, ahogy egy asztali szerkesztőben?**
+**Használjak gyűjtemény indexet alakzatazonosítóként?**
 
-Nincs beépített Boolean művelet API. Megközelíthető saját kontúr megalkotásával – például kiszámítva a végeredmény geometriáját a [GeometryPath](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/geometrypath/) segítségével, majd létrehozva egy új alakzatot ezzel a kontúrral, opcionálisan a régi alakzatok eltávolításával.
+Csak rövid életű feldolgozásnál, amikor a gyűjtemény nem változik az index használata előtt. Előnyben részesítsen egy ellenőrzött `Name` vagy `AlternativeText` konvenciót a szerkesztett sablonoknál, vagy `OfficeInteropShapeId`‑t a diára vonatkozó interop munkához.
 
-**Hogyan szabályozhatom a rétegezési sorrendet (z‑order), hogy egy alakzat mindig "felül" maradjon?**
+**Eltávolítja-e a rejtett alakzat a z‑sorrendből?**
 
-Módosítsa a beszúrási/áthelyezési sorrendet a dia [shapes](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/baseslide/#getShapes--) gyűjteményében. A kiszámítható eredményekért véglegesítse a z‑order‑t minden egyéb dia módosítás után.
+Nem. Egy rejtett alakzat a gyűjteményben marad ugyanazon az indexen. Megtalálható, átrendezhető, szerkeszthető vagy újra láthatóvá tehető.
 
-**Le tudom-e "zárolni" egy alakzatot, hogy a felhasználók ne szerkeszthessék PowerPointban?**
+**Miért jelent meg egy klónozott alakzat egy másik alakzat előtt?**
 
-Igen. Állítson be alakzatszintű védelmi jelzőket (például kijelölés, mozgás, átméretezés, szövegszerkesztés zárolása). Szükség esetén alkalmazzon korlátozásokat a mester vagy a layout szintjén is. Vegye figyelembe, hogy ez UI‑szintű védelem, nem biztonsági funkció; erősebb védelemhez kombinálja fájlszintű korlátozásokkal, például [read‑only ajánlásokkal vagy jelszavakkal](/slides/hu/androidjava/password-protected-presentation/).
+Az `addClone` a klónt a gyűjtemény végére fűzi, ami a z‑sorrend eleje. Használja az `insertClone`‑t a kezdeti index kiválasztásához, vagy a `reorder`‑t minden alakzat hozzáadása után.

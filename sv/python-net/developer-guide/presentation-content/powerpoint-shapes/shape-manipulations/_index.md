@@ -1,6 +1,6 @@
 ---
-title: Hantera former i presentationer med Python
-linktitle: Formmanipulering
+title: Hantera presentationsformer i Python
+linktitle: Formmanipulation
 type: docs
 weight: 40
 url: /sv/python-net/shape-manipulations/
@@ -13,313 +13,312 @@ keywords:
 - ta bort form
 - dölj form
 - ändra formordning
-- hämta interop-form-ID
-- formens alternativa text
+- hämta interop form-ID
+- form alternativ text
 - formlayoutformat
 - form som SVG
 - form till SVG
 - justera form
+- vänd form
 - PowerPoint
-- OpenDocument
 - presentation
 - Python
 - Aspose.Slides
-description: "Lär dig skapa, redigera och optimera former i Aspose.Slides för Python via .NET och leverera högpresterande PowerPoint- och OpenDocument-presentationer."
+description: "Lär dig hur du identifierar, klonar, tar bort, döljer, omordnar, exporterar, justerar och vänder presentationsformer med Aspose.Slides för Python via .NET."
 ---
 ## **Översikt**
 
-Den här guiden introducerar formmanipulation i Aspose.Slides för Python via .NET. Lär dig praktiska mönster för att hitta former (inklusive via Alternativ Text), duplicera, ta bort eller dölja, ändra ordning, justera och vända, läsa ID:n och layoutdriven formatering, samt exportera enskilda former till SVG med hjälp av [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/) och [Shape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shape/) API:erna.
+Aspose.Slides för Python via .NET representerar formerna på en bild som en ordnad [ShapeCollection](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shapecollection/). Samlingen är både platsen där du hittar och ändrar former samt källan till deras staplingsordning: index `0` är den bakre formen, medan det sista indexet är den främsta formen.
 
-## **Hitta former på bilder**
+Denna artikel följer den modellen. Den förklarar först hur man identifierar en form på ett tillförlitligt sätt, sedan visar hur man klonar, tar bort, döljer och omordnar former. De sista avsnitten täcker layoutnivåformatering, SVG-export, justering och vändningsinställningar. Varje exempel är oberoende, så du kan bara använda de operationer ditt arbetsflöde kräver.
 
-PowerPoint identifierar former endast med interna ID:n. Tilldela en unik Alt Text till målformen i PowerPoint, öppna sedan presentationen med Aspose.Slides för Python, iterera över bildens former och välj den vars Alt Text matchar. Metoden `find_shape` implementerar detta tillvägagångssätt och returnerar den matchande formen.
+## **Identifiera och hitta former**
 
-```py
+Samlingens index är praktiska när man bearbetar en känd fil, men de är inte stabila identifierare. Att lägga till, ta bort eller omordna en form kan ändra dess index. Välj en identifierare beroende på hur presentationen är skapad och underhållen:
+
+- [Shape.name](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shape/name/) är användbar för utvecklarkontrollerade mallar och är lätt att inspektera i PowerPoints urvals‑fönster. Namn kan redigeras och garanteras inte unika, så upprätta en namngivningskonvention om kod beror på dem.
+- [Shape.alternative_text](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shape/alternative_text/) är användbar när en tillgänglighetsbeskrivning eller en författarspecificerad tagg redan identifierar formen. Den är synlig för användare, kan lokaleras eller skrivas om för tillgänglighet, och garanteras inte unik. Använd inte tyst meningsfull tillgänglighetstext som en databassnyckel.
+- [Shape.office_interop_shape_id](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shape/office_interop_shape_id/) är en skrivskyddad identifierare som är unik inom en bild och motsvarar den form‑ID som används av PowerPoint‑interop. Använd den när du integrerar med PowerPoint eller när du behöver en entydig referens under en forms livstid. En klonad eller återskapad form är en annan form och får eget ID.
+
+Den relaterade [Shape.unique_id](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shape/unique_id/) egenskap har presentationsomfattning, men är avsedd för tillägg och kan omassigneras. Den bör inte behandlas som en permanent extern nyckel. Om långsiktig identitet är viktig, håll kartläggningen i programdata och validera att den förväntade formen fortfarande finns.
+
+Ett följande exempel söker efter `name` med en exakt jämförelse och rapporterar den bild‑specifika interop‑ID:n. När mallen inte innehåller den förväntade formen rapporterar koden det resultatet istället för att fortsätta med fel objekt.
+
+```python
 import aspose.slides as slides
 
-# Hittar en form på en bild via dess alternativa text.
-def find_shape(slide, alt_text):
-    for slide_shape in slide.shapes:
-        if slide_shape.alternative_text == alt_text:
-            return slide_shape
-    return None
-
-
-# Instansiera Presentation-klassen som representerar en presentationsfil.
-with slides.Presentation("sample.pptx") as presentation:
+with slides.Presentation("input.pptx") as presentation:
     slide = presentation.slides[0]
-    # Hitta formen med Alt Text "Shape1".
-    shape = find_shape(slide, "Shape1")
-    if shape is not None:
-        print("Shape name:", shape.name)
+
+    target_shape = None
+    for shape in slide.shapes:
+        if shape.name == "RevenueChart":
+            target_shape = shape
+            break
+
+    if target_shape is None:
+        print("The shape 'RevenueChart' was not found on slide 1.")
+    else:
+        print("Found {}; interop ID: {}".format(target_shape.name, target_shape.office_interop_shape_id))
 ```
 
-## **Klona former**
+När en operation är specifik för en formtyp, kontrollera typen innan typ‑specifika medlemmar används. Detta exempel uppdaterar text och alternativ text endast om det namngivna objektet är en [AutoShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/autoshape/).
 
-För att klona former från en källbild till en ny bild i Aspose.Slides, följ dessa steg:
-
-1. Skapa en [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/) från källfilen.
-1. Hämta källbilden efter index och dess samling av former.
-1. Hämta en tom layout från mastern.
-1. Lägg till en tom bild med den layouten och hämta dess former.
-1. Klona formerna till målbilden.
-1. Spara presentationen som PPTX.
-
-Följande kodexempel klonar former från en bild till en annan.
-
-```py
+```python
 import aspose.slides as slides
 
-# Instansiera Presentation-klassen.
-with slides.Presentation("sample.pptx") as presentation:
-    source_shapes = presentation.slides[0].shapes
+with slides.Presentation("input.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    candidate = None
+    for shape in slide.shapes:
+        if shape.name == "StatusLabel":
+            candidate = shape
+            break
+
+    if isinstance(candidate, slides.AutoShape):
+        candidate.text_frame.text = "Approved"
+        candidate.alternative_text = "Approval status: approved"
+        presentation.save("identified-shape.pptx", slides.export.SaveFormat.PPTX)
+    else:
+        print("'StatusLabel' is missing or is not an AutoShape.")
+```
+
+## **Ändra form‑samlingen**
+
+Metoderna add, clone, remove och reorder verkar på samlingen omedelbart. Om en operation ändrar antalet eller ordningen av former, fortsätt inte att förlita dig på index som togs innan den operationen.
+
+### **Klona en form**
+
+[ShapeCollection.add_clone](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shapecollection/add_clone/) skapar en oberoende kopia och lägger till den i mål‑samlingen. [ShapeCollection.insert_clone](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shapecollection/insert_clone/) skapar också en kopia men placerar den på ett specificerat z‑ordningsindex. Överlagringarna som tar emot koordinater flyttar klonen utan att ändra dess storlek; överlagringar med bredd och höjd kan även ändra storlek.
+
+Exemplet skapar en destinations‑bild, klonar en märkt rektangel till fronten och infogar en andra klon längst bak. Ändringar i någon av klonerna modifierar inte källformen.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    source_slide = presentation.slides[0]
+    source_shape = source_slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 40, 180, 60)
+    source_shape.name = "SourceLabel"
+    source_shape.text_frame.text = "Source"
+
     blank_layout = presentation.masters[0].layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+    destination_slide = presentation.slides.add_empty_slide(blank_layout)
 
-    target_slide = presentation.slides.add_empty_slide(blank_layout)
-    target_shapes = target_slide.shapes
-	
-    target_shapes.add_clone(source_shapes[1], 50, 150 + source_shapes[0].height)
-    target_shapes.add_clone(source_shapes[2])
-    target_shapes.insert_clone(0, source_shapes[0], 50, 150)
+    front_clone_shape = destination_slide.shapes.add_clone(source_shape, 80, 80)
+    front_clone_shape.name = "FrontClone"
+    if isinstance(front_clone_shape, slides.AutoShape):
+        front_clone_shape.text_frame.text = "Front clone"
+    else:
+        print("The front clone is not an AutoShape; its text was not changed.")
 
-    # Spara presentationen till disk.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    back_clone_shape = destination_slide.shapes.insert_clone(0, source_shape, 80, 180)
+    back_clone_shape.name = "BackClone"
+    if isinstance(back_clone_shape, slides.AutoShape):
+        back_clone_shape.text_frame.text = "Back clone"
+    else:
+        print("The back clone is not an AutoShape; its text was not changed.")
+
+    presentation.save("cloned-shapes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Ta bort former**
+Klonning kopierar formens innehåll och formatering, inklusive namn och alternativ text. Tilldela nya logiska identifierare till klonen när dessa värden måste vara unika. Resurser som används av komplexa former hanteras av presentationen, men en klon förblir ett nytt samlingsobjekt med en ny formidentitet.
 
-Aspose.Slides låter dig ta bort vilken form som helst från en bild. Till exempel, för att radera en form från den första bilden med dess alternativtext, följ dessa steg:
+### **Ta bort former**
 
-1. Skapa en [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/)‑instans och läs in filen.
-1. Öppna den första bilden från samlingen av bilder.
-1. Hitta formen efter alternativtextvärdet.
-1. Ta bort formen från bildens samling av former.
-1. Spara presentationen till disk i PPTX‑format.
+[ShapeCollection.remove](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shapecollection/remove/) tar bort ett specifikt formobjekt från dess samling. När du tar bort flera matchningar under indexerad iteration, gå bakifrån så att varje återstående index förblir giltigt.
 
-```py
+Detta exempel tar bort varje form med ett bestämt namn. Det läser `slide.shapes[index]`, inte ett fast samlingsobjekt, och kastar inte formen onödigt.
+
+```python
 import aspose.slides as slides
 
-# Hittar en form på en bild via dess alternativa text.
-def find_shape(slide, alt_text):
-    for slide_shape in slide.shapes:
-        if slide_shape.alternative_text == alt_text:
-            return slide_shape
-    return None
-
-
-# Instansiera Presentation-klassen som representerar en presentationsfil.
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    # Hitta formen med Alt Text "User Defined".
-    shape = find_shape(slide, "User Defined")
-    # Ta bort formen.
-    slide.shapes.remove(shape)
-    # Spara presentationen till disk.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Dölj former**
-
-Aspose.Slides låter dig dölja vilken form som helst på en bild. Till exempel, för att dölja en form på den första bilden med dess Alternativ Text, följ dessa steg:
-
-1. Skapa en [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/)‑instans och läs in filen.
-1. Öppna den första bilden från samlingen av bilder.
-1. Hitta formen efter Alternativ Text‑värdet.
-1. Dölj formen.
-1. Spara presentationen till disk i PPTX‑format.
-
-```py
-# Hittar en form på en bild via dess alternativa text.
-def find_shape(slide, alt_text):
-    for slide_shape in slide.shapes:
-        if slide_shape.alternative_text == alt_text:
-            return slide_shape
-    return None
-
-
-# Instansiera Presentation-klassen som representerar en presentationsfil.
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    # Hitta formen med Alt Text "User Defined".
-    shape = find_shape(slide, "User Defined")
-    # Dölj formen.
-    shape.hidden = True
-    # Spara presentationen till disk.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Ändra ordningen på former**
-
-Aspose.Slides låter utvecklare ändra ordningen på former (ändra deras z‑order). Omordning avgör vilken form som visas framför eller bakom. Till exempel, för att omordna två former på den första bilden, följ stegen nedan:
-
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/).
-1. Öppna den första bilden.
-1. Lägg till den första formen (till exempel en rektangel).
-1. Lägg till den andra formen (till exempel en triangel).
-1. Ändra ordningen på formerna genom att flytta den andra formen till den första positionen i samlingen.
-1. Spara presentationen till disk.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    # Lägg till två former på bilden.
-    shape1 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 200, 150)
-    shape2 = slide.shapes.add_auto_shape(slides.ShapeType.TRIANGLE, 20, 200, 200, 150)
-    # Flytta den andra formen till den första positionen.
-    slide.shapes.reorder(0, shape2)
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Hämta Interop‑form‑ID**
-
-Aspose.Slides låter dig hämta en forms unika identifierare på bildnivå, till skillnad från egenskapen `unique_id` som är unik för hela presentationen. Egendomen `office_interop_shape_id` finns på klassen [Shape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shape/). Dess värde motsvarar `Id` för objektet `Microsoft.Office.Interop.PowerPoint.Shape`. Ett exempel på kodsnutt visas nedan.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    # Hämta formens unika identifierare inom bilden.
-    officeInteropShapeId = presentation.slides[0].shapes[0].office_interop_shape_id
-```
-
-## **Ange alternativ text för former**
-
-Aspose.Slides låter utvecklare ange alternativ text för vilken form som helst. Du kan använda alternativ text för att identifiera och lokalisera former i en presentation. Egendomen för alternativ text kan läsas och skrivas både via Aspose.Slides och Microsoft PowerPoint. Genom att märka former med denna egendom kan du senare ta bort, dölja eller omordna dem på en bild.
-
-För att ange alternativ text för en form, följ dessa steg:
-
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/).
-1. Öppna den första bilden.
-1. Lägg till en form på bilden.
-1. Ange den alternativa texten.
-1. Spara presentationen till disk.
-
-```py
-import aspose.slides as slides
-
-# Instansiera Presentation-klassen som representerar en PPTX-fil.
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    # Lägg till en form.
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 40, 150, 50)
-    # Ange den alternativa texten för formen.
-    shape.alternative_text = "User Defined"
-    # Spara presentationen till disk.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+
+    keep_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 40, 140, 60)
+    keep_shape.name = "Keep"
+
+    first_temporary_shape = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 220, 40, 80, 80)
+    first_temporary_shape.name = "Temporary"
+
+    second_temporary_shape = slide.shapes.add_auto_shape(slides.ShapeType.TRIANGLE, 340, 40, 100, 80)
+    second_temporary_shape.name = "Temporary"
+
+    for index in range(len(slide.shapes) - 1, -1, -1):
+        shape = slide.shapes[index]
+        if shape.name == "Temporary":
+            slide.shapes.remove(shape)
+
+    presentation.save("removed-shapes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Åtkomst till layoutformat för former**
+Efter borttagning förändras antalet former och indexen för senare former. Referenser till opåverkade former förblir mer pålitliga än sparade index. Tänk även på anslutningar, animationer och andra presentationsfunktioner som kan referera till det borttagna objektet; att ta bort en synlig form kan förändra mer än bildens utseende.
 
-Aspose.Slides tillhandahåller ett enkelt API för att komma åt layoutformat för former. Detta avsnitt visar hur man får åtkomst till layoutformat.
+### **Dölj en form**
 
-```py
+Att sätta [Shape.hidden](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shape/hidden/) till `True` behåller formen i samlingen men förhindrar att den visas i den vanliga bildspelsvisningen. Dess index, formatering och innehåll förblir tillgängliga för kod, så dölja är lämpligt för valfria element som kan återställas senare.
+
+```python
 import aspose.slides as slides
 
-with slides.Presentation(folder_path + "sample.pptx") as presentation:
-    for layout_slide in presentation.layout_slides:
-        fill_formats = list(map(lambda shape: shape.fill_format, layout_slide.shapes))
-        line_formats = list(map(lambda shape: shape.line_format, layout_slide.shapes))
-```
-
-## **Rendera former som SVG**
-
-Aspose.Slides stödjer rendering av former som SVG. Metoden `write_as_svg` (och dess överlagringar) på klassen [Shape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shape/) låter dig spara en fas innehåll som en SVG‑bild. Kodsnutten nedan visar hur man exporterar en form till en SVG‑fil.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    with open("output.svg", "wb") as image_stream:
-        # Hämta den första formen på den första bilden.
-        shape = presentation.slides[0].shapes[0]
-        shape.write_as_svg(image_stream)
-```
-
-## **Justera form**
-
-Med metoden `align_shape` i klassen [SlidesUtil](https://reference.aspose.com/slides/sv/python-net/aspose.slides.util/slideutil/) kan du:
-
-* Justera former i förhållande till bildens marginaler (se Exempel 1).
-* Justera former i förhållande till varandra (se Exempel 2).
-
-Enumerationen [ShapesAlignmentType](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shapesalignmenttype/) definierar de tillgängliga justeringsalternativen.
-
-**Exempel 1**
-
-Denna Python‑kod visar hur man justerar formerna med index 1, 2 och 4 till bildens överkant:
-
-```py
-import aspose.slides as slides
-
-align_type = slides.ShapesAlignmentType.ALIGN_TOP
-slide_indices = [1, 2, 4]
-
-with slides.Presentation("sample.pptx") as presentation:
+with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    slides.util.SlideUtil.align_shapes(align_type, True, slide, slide_indices)
+
+    visible_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 40, 160, 60)
+    visible_shape.name = "VisibleLabel"
+
+    optional_shape = slide.shapes.add_auto_shape(slides.ShapeType.MOON, 240, 40, 100, 100)
+    optional_shape.name = "OptionalDecoration"
+
+    for shape in slide.shapes:
+        if shape.name == "OptionalDecoration":
+            shape.hidden = True
+
+    presentation.save("hidden-shape.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-**Exempel 2**
+Dölja är inte borttagning eller säkerhet. Objektet kan fortfarande upptäckas och avdöljas av en användare eller av kod, och det förblir en del av presentationsfilen.
 
-Detta Python‑exempel visar hur man justerar alla former i en samling i förhållande till den nedersta formen i samlingen:
+### **Ändra Z‑ordning**
 
-```py
+Överlappande former målas i samlingsordning. [ShapeCollection.reorder](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shapecollection/reorder/) flyttar en befintlig form till ett mål‑index utan att klona den. Index `0` är längst bak; `len(slide.shapes) - 1` är längst fram.
+
+```python
+import aspose.pydrawing as draw
 import aspose.slides as slides
 
-align_type = slides.ShapesAlignmentType.ALIGN_BOTTOM
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-with slides.Presentation("sample.pptx") as presentation:
-    slides.util.SlideUtil.align_shapes(align_type, False, presentation.slides[0])
+    blue_rectangle = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 220, 120)
+    blue_rectangle.name = "BlueRectangle"
+    blue_rectangle.fill_format.fill_type = slides.FillType.SOLID
+    blue_rectangle.fill_format.solid_fill_color.color = draw.Color.steel_blue
+
+    orange_ellipse = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 180, 140, 220, 120)
+    orange_ellipse.name = "OrangeEllipse"
+    orange_ellipse.fill_format.fill_type = slides.FillType.SOLID
+    orange_ellipse.fill_format.solid_fill_color.color = draw.Color.orange
+
+    slide.shapes.reorder(len(slide.shapes) - 1, blue_rectangle)
+    presentation.save("reordered-shapes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Vänd‑egenskaper**
+Rektangeln skapas först och sitter initialt bakom ellipsen. Att flytta den till det sista indexet placerar den framför. Slutför z‑ordning efter att du lagt till eller klonat alla relaterade former, eftersom dessa operationer lägger till eller infogar nya samlingsobjekt och kan ändra den avsedda stapeln.
 
-I Aspose.Slides ger klassen [ShapeFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shapeframe/) kontroll över horisontell och vertikal spegling av former via egenskaperna `flip_h` och `flip_v`. Båda egenskaperna är av typen [NullableBool](https://reference.aspose.com/slides/sv/python-net/aspose.slides/nullablebool/), vilket tillåter värdena `TRUE` för att indikera en vändning, `FALSE` för ingen vändning, eller `NOT_DEFINED` för att använda standardbeteende. Dessa värden är åtkomliga från en forms [Frame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shape/frame/).
+## **Inspektera former på layoutbilder**
 
-För att ändra vändinställningarna skapas en ny [ShapeFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shapeframe/)‑instans med formens aktuella position och storlek, önskade värden för `flip_h` och `flip_v` samt rotationsvinkeln. Genom att tilldela denna instans till formens [Frame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shape/frame/) och spara presentationen tillämpas speglings‑transformationerna och skrivs till utdatafilen.
+Normala bilder, layoutbilder och masternbilder har separata form‑samlingar. En form i en layoutsamling är inte samma objekt som en liknande positionerad form på en normal bild. Inspektera layoutformer när du behöver förstå eller ändra formatering som levereras av en layout.
 
-Anta att vi har en fil sample.pptx där den första bilden innehåller en enda form med standardvändningsinställningar, som visas nedan.
+Följande exempel läser varje layoutforms [Shape.fill_format](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shape/fill_format/) och [Shape.line_format](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shape/line_format/) utan att anta att varje form är en `AutoShape`.
 
-![Formen som ska vändas](shape_to_be_flipped.png)
+```python
+import aspose.slides as slides
 
-Följande kodexempel hämtar formens aktuella vändegenskaper och vänder den både horisontellt och vertikalt.
+with slides.Presentation("input.pptx") as presentation:
+    for layout_slide in presentation.layout_slides:
+        for shape in layout_slide.shapes:
+            fill_type = shape.fill_format.fill_type
+            line_width = shape.line_format.width
+            print("{} / {}: fill={}, line width={}".format(layout_slide.name, shape.name, fill_type, line_width))
+```
 
-```py
+Att redigera en layout kan påverka flera bilder som använder den. Innan du ändrar en layoutform, avgör om en normal bild ärver objektet eller innehåller en lokal överskrivning, och testa varje bild som använder den layouten.
+
+## **Exportera en form till SVG**
+
+[Shape.write_as_svg](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shape/write_as_svg/) skriver en forms renderade innehåll till en ström. Resultatet innehåller formen, inte hela bildbakgrunden eller grannformer.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("input.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    if len(slide.shapes) == 0:
+        print("Slide 1 does not contain a shape to export.")
+    else:
+        shape = slide.shapes[0]
+        with open("shape.svg", "wb") as svg_stream:
+            shape.write_as_svg(svg_stream)
+```
+
+Behåll presentationen öppen under rendering. Utdata beror på formens formatering samt resurser som teckensnitt och bilder. Om du behöver hela sammansättningen, exportera bilden snarare än en enskild form. Anroparen äger strömmen och måste stänga den.
+
+## **Justera former**
+
+[SlideUtil.align_shapes](https://reference.aspose.com/slides/sv/python-net/aspose.slides.util/slideutil/align_shapes/) överlagringarna justerar antingen alla former eller valda samlingsindex. [ShapesAlignmentType](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shapesalignmenttype/) specificerar kanten, mittlinjen eller fördelningsläget. Sätt `align_to_slide` till `True` för att använda bildens kanter; sätt den till `False` för att justera de valda formerna relativt varandra.
+
+Detta exempel justerar tre former till bildens överkant. Deras aktuella index löses upp omedelbart före justering.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    first_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 60, 80, 120, 50)
+    second_shape = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 240, 160, 120, 50)
+    third_shape = slide.shapes.add_auto_shape(slides.ShapeType.TRIANGLE, 420, 240, 120, 50)
+    first_shape.name = "FirstAlignedShape"
+    second_shape.name = "SecondAlignedShape"
+    third_shape.name = "ThirdAlignedShape"
+
+    shape_indexes = [
+        slide.shapes.index_of(first_shape),
+        slide.shapes.index_of(second_shape),
+        slide.shapes.index_of(third_shape)
+    ]
+
+    slides.util.SlideUtil.align_shapes(slides.ShapesAlignmentType.ALIGN_TOP, True, slide, shape_indexes)
+    presentation.save("aligned-shapes.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Justering ändrar positioner, inte z‑ordning. Relativ justering kräver normalt minst två former, medan horisontell eller vertikal fördelning kräver tillräckligt många former för att definiera avstånd. Räkna om indexen om du ändrar samlingen innan du anropar metoden.
+
+## **Vänd en form**
+
+[ShapeFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shapeframe/)‑klassen lagrar position, storlek, horisontella och vertikala vändinställningar samt rotation. Dess `flip_h` och `flip_v` värden använder [NullableBool](https://reference.aspose.com/slides/sv/python-net/aspose.slides/nullablebool/): `TRUE` aktiverar vändning, `FALSE` inaktiverar den, och `NOT_DEFINED` bevarar det ospecificerade eller standardtillståndet.
+
+Den inmatade presentationen nedan innehåller en ovänd form.
+
+![Formen före vändning](shape_to_be_flipped.png)
+
+Exemplet bevarar alla andra ramvärden och ersätter endast de två vändinställningarna. Detta är viktigt eftersom tilldelning av en ny [Shape.frame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shape/frame/) ersätter hela ramen.
+
+```python
+import aspose.slides as slides
+
 with slides.Presentation("sample.pptx") as presentation:
     shape = presentation.slides[0].shapes[0]
+    frame = shape.frame
 
-    # Hämta den horisontella vändningsegenskapen för formen.
-    horizontal_flip = shape.frame.flip_h
-    print("Horizontal flip:", horizontal_flip)
+    print("Horizontal flip before change:", frame.flip_h)
+    print("Vertical flip before change:", frame.flip_v)
 
-    # Hämta den vertikala vändningsegenskapen för formen.
-    vertical_flip = shape.frame.flip_v
-    print("Vertical flip:", vertical_flip)
+    shape.frame = slides.ShapeFrame(
+        frame.x, frame.y, frame.width, frame.height,
+        slides.NullableBool.TRUE, slides.NullableBool.TRUE, frame.rotation)
 
-    x, y = shape.frame.x, shape.frame.y
-    width, height = shape.frame.width, shape.frame.height
-    flip_h, flip_v = slides.NullableBool.TRUE, slides.NullableBool.TRUE  # Vänd horisontellt och vertikalt.
-    rotation = shape.frame.rotation
-
-    shape.frame = slides.ShapeFrame(x, y, width, height, flip_h, flip_v, rotation)
-
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("flipped-shape.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Den vända formen](flipped_shape.png)
+Den sparade formen är speglad horisontellt och vertikalt samtidigt som position, storlek och rotation behålls.
 
-## **FAQ**
+![Formen efter vändning](flipped_shape.png)
 
-**Kan jag kombinera former (union/intersect/subtract) på en bild som i en skrivbordsredigerare?**
+## **Vanliga frågor**
 
-Det finns inget inbyggt API för booleska operationer. Du kan approximera det genom att själva konstruera den önskade konturen – t.ex. beräkna den resulterande geometrin (via [GeometryPath](https://reference.aspose.com/slides/sv/python-net/aspose.slides/geometrypath/)) och skapa en ny form med den konturen, eventuellt ta bort de ursprungliga.
+**Bör jag använda ett samlings‑index som form‑identifierare?**
 
-**Hur kan jag kontrollera staplingsordningen (z‑order) så att en form alltid förblir "överst"?**
+Endast för kortlivad bearbetning när samlingen inte kommer att förändras innan indexet används. Föredra en validerad `name`‑ eller `alternative_text`‑konvention för skapade mallar, eller `office_interop_shape_id` för bild‑specifikt interop‑arbete.
 
-Ändra insättnings‑/flyttordningen inom bildens [shapes](https://reference.aspose.com/slides/sv/python-net/aspose.slides/slide/shapes/)‑samling. För förutsägbara resultat, avsluta z‑ordningen efter alla andra bildändringar.
+**Tar dölja av en form bort den från z‑ordningen?**
 
-**Kan jag "låsa" en form för att hindra användare från att redigera den i PowerPoint?**
+Nej. En dold form förblir i samlingen på samma index. Den kan hittas, omordnas, redigeras eller göras synlig igen.
 
-Ja. Ställ in [skyddflaggor på formnivå](/slides/sv/python-net/applying-protection-to-presentation/) (t.ex. lås urval, förflyttning, storleksändring, textredigering). Vid behov kan liknande restriktioner tillämpas på mastern eller layouten. Observera att detta är skydd på UI‑nivå, inte en säkerhetsfunktion; för starkare skydd, kombinera med fil‑nivårestriktioner som [rekommendationer för skrivskydd eller lösenord](/slides/sv/python-net/password-protected-presentation/).
+**Varför visades en klonad form framför en annan form?**
+
+`add_clone` lägger till klonen i slutet av samlingen, vilket är fronten av z‑ordningen. Använd `insert_clone` för att välja initialt index eller `reorder` efter att alla former har lagts till.

@@ -1,6 +1,6 @@
 ---
 title: Hantera presentationsformer i .NET
-linktitle: Formmanipulering
+linktitle: Formhantering
 type: docs
 weight: 40
 url: /sv/net/shape-manipulations/
@@ -11,370 +11,374 @@ keywords:
 - hitta form
 - klona form
 - ta bort form
-- dölj form
+- dölja form
 - ändra formordning
-- hämta Interop-form-ID
-- alternativ text för form
+- hämta interop-form-ID
+- formens alternativa text
 - formlayoutformat
 - form som SVG
 - form till SVG
 - justera form
+- vända form
 - PowerPoint
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Lär dig att skapa, redigera och optimera former i Aspose.Slides för .NET och leverera högpresterande PowerPoint-presentationer."
+description: "Lär dig hur du identifierar, klonar, tar bort, döljer, omordnar, exporterar, justerar och vänder presentationsformer med Aspose.Slides för .NET."
 ---
 ## **Översikt**
 
-Den här artikeln förklarar hur man arbetar med former i presentationer med Aspose.Slides. Den visar hur man hittar en form på en bild, klonar den, tar bort den, döljer den, ändrar dess ordning, får dess Interop-form-ID och anger alternativ text för identifiering och vidare bearbetning.
+Aspose.Slides for .NET representerar formerna på en bild som en ordnad [IShapeCollection](https://reference.aspose.com/slides/sv/net/aspose.slides/ishapecollection/). Kollektionen är både platsen där du hittar och ändrar former och källan för deras staplingsordning: index `0` är den bakre formen, medan det sista indexet är den främsta formen.
 
-Den täcker också hur man får åtkomst till layoutformat för former, renderar en form som SVG, justerar former på en bild och använder vändningsegenskaper för horisontell och vertikal spegling. Dessutom innehåller artikeln en kort FAQ om formkombination, staplingsordning och låsning av former.
+Denna artikel följer den modellen. Den förklarar först hur man på ett pålitligt sätt identifierar en form, och visar sedan hur man klonar, tar bort, döljer och ändrar ordning på former. De sista avsnitten behandlar layoutnivåformatering, SVG‑export, justering och vändinställningar. Varje exempel är fristående, så du kan använda bara de operationer ditt arbetsflöde kräver.
 
-## **Hitta en form på en bild**
-Det här ämnet beskriver en enkel teknik för att göra det enklare för utvecklare att hitta en specifik form på en bild utan att använda dess interna Id. Det är viktigt att veta att PowerPoint-presentationer inte har något sätt att identifiera former på en bild förutom ett internt unikt Id. Det verkar vara svårt för utvecklare att hitta en form med dess interna unika Id. Alla former som läggs till på bilderna har någon Alt‑text. Vi föreslår att utvecklare använder alternativ text för att hitta en specifik form. Du kan använda MS PowerPoint för att definiera den alternativa texten för objekt som du planerar att ändra i framtiden.
+## **Identifiera och hitta former**
 
-Efter att ha angett den alternativa texten för en önskad form kan du öppna presentationen med Aspose.Slides for .NET och iterera genom alla former som lagts till på en bild. Under varje iteration kan du kontrollera formens alternativa text och den form vars alternativa text matchar är den du söker. För att demonstrera denna teknik på ett bättre sätt har vi skapat en metod, [FindShape](https://reference.aspose.com/slides/sv/net/aspose.slides.util/slideutil/findshape/#findshape_1) som gör tricket att hitta en specifik form på en bild och sedan helt enkelt returnerar den formen.
+Kollektionsindex är praktiska när man bearbetar en känd fil, men de är inte stabila identifierare. Att lägga till, ta bort eller ändra ordning på en form kan ändra dess index. Välj en identifierare enligt hur presentationen skapas och underhålls:
 
-```c#
-public static void Run()
+- [Name](https://reference.aspose.com/slides/sv/net/aspose.slides/ishape/name/) är användbart för utvecklarkontrollerade mallar och är enkelt att inspektera i PowerPoints urvalspanel. Namn kan redigeras och är inte garanterade att vara unika, så etablera en namngivningskonvention om kod beror på dem.
+- [AlternativeText](https://reference.aspose.com/slides/sv/net/aspose.slides/ishape/alternativetext/) är användbart när en tillgänglighetsbeskrivning eller en författargiven tagg redan identifierar formen. Den är synlig för användare, kan lokaliseras eller skrivas om för tillgänglighet och är inte garanterad att vara unik. Återskapa inte tyst meningsfull tillgänglighetstext som en databasnyckel.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/sv/net/aspose.slides/ishape/officeinteropshapeid/) är en skrivskyddad identifierare som är unik inom en bild och motsvarar den form‑ID som används av PowerPoint‑interop. Använd den när du integrerar med PowerPoint eller när du behöver en entydig referens under hela formens livstid. En klonad eller återskapad form är en annan form och får sitt eget ID.
+
+Den relaterade egenskapen [UniqueId](https://reference.aspose.com/slides/sv/net/aspose.slides/ishape/uniqueid/) har presentationsomfång, men är avsedd för tillägg och kan återtilldelas. Den bör inte behandlas som en permanent extern nyckel. Om långsiktig identitet är väsentlig, håll kartläggningen i applikationsdata och validera att den förväntade formen fortfarande finns.
+
+Följande exempel söker efter `Name` med en ordinal jämförelse och rapporterar den bild‑specifika interop‑ID:n. När mallen inte innehåller den förväntade formen rapporterar koden det resultatet istället för att fortsätta med fel objekt.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
+
+IShape? targetShape = null;
+foreach (var shape in slide.Shapes)
 {
-    // Skapa en Presentation-klass som representerar presentationsfilen
-    using (Presentation p = new Presentation("FindingShapeInSlide.pptx"))
+    if (string.Equals(shape.Name, "RevenueChart", StringComparison.Ordinal))
     {
-
-        ISlide slide = p.Slides[0];
-        // Alternativ text för den form som ska hittas
-        IShape shape = FindShape(slide, "Shape1");
-        if (shape != null)
-        {
-            Console.WriteLine("Shape Name: " + shape.Name);
-        }
-    }
-}
-        
-// Metodimplementation för att hitta en form i en bild med dess alternativa text
-public static IShape FindShape(ISlide slide, string alttext)
-{
-    // Itererar genom alla former i bilden
-    for (int i = 0; i < slide.Shapes.Count; i++)
-    {
-        // Om den alternativa texten i bilden matchar den som krävs så
-        // Returnera formen
-        if (slide.Shapes[i].AlternativeText.CompareTo(alttext) == 0)
-            return slide.Shapes[i];
-    }
-    return null;
-}
-```
-
-## **Klona en form**
-För att klona en form till en bild med Aspose.Slides for .NET:
-
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation).
-2. Hämta referensen till en bild genom att använda dess index.
-3. Åtkomst till källbildens formsamling.
-4. Lägg till en ny bild i presentationen.
-5. Klona former från källbildens formsamling till den nya bilden.
-6. Spara den ändrade presentationen som en PPTX‑fil.
-
-Exemplet nedan lägger till en gruppform på en bild.
-
-```c#
-// Instansiera Presentation-klass
-using (Presentation srcPres = new Presentation("Source Frame.pptx"))
-{
-	IShapeCollection sourceShapes = srcPres.Slides[0].Shapes;
-	ILayoutSlide blankLayout = srcPres.Masters[0].LayoutSlides.GetByType(SlideLayoutType.Blank);
-	ISlide destSlide = srcPres.Slides.AddEmptySlide(blankLayout);
-	IShapeCollection destShapes = destSlide.Shapes;
-	destShapes.AddClone(sourceShapes[1], 50, 150 + sourceShapes[0].Height);
-	destShapes.AddClone(sourceShapes[2]);                 
-	destShapes.InsertClone(0, sourceShapes[0], 50, 150);
-
-	// Skriv PPTX-filen till disk
-	srcPres.Save("CloneShape_out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Ta bort en form**
-Aspose.Slides for .NET låter utvecklare ta bort valfri form. För att ta bort formen från en bild, följ stegen nedan:
-
-1. Skapa en instans av klassen `Presentation`.
-2. Åtkomst till den första bilden.
-3. Hitta formen med specifik AlternativeText.
-4. Ta bort formen.
-5. Spara filen till disk.
-
-```c#
-// Skapa Presentation-objekt
-Presentation pres = new Presentation();
-
-// Hämta den första bilden
-ISlide sld = pres.Slides[0];
-
-// Lägg till autoshape av rektangeltyp
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-String alttext = "User Defined";
-int iCount = sld.Shapes.Count;
-for (int i = 0; i < iCount; i++)
-{
-    AutoShape ashp = (AutoShape)sld.Shapes[0];
-    if (String.Compare(ashp.AlternativeText, alttext, StringComparison.Ordinal) == 0)
-    {
-        sld.Shapes.Remove(ashp);
+        targetShape = shape;
+        break;
     }
 }
 
-// Spara presentationen till disk
-pres.Save("RemoveShape_out.pptx", SaveFormat.Pptx);
-```
-
-## **Dölj en form**
-Aspose.Slides for .NET låter utvecklare dölja valfri form. För att dölja formen på en bild, följ stegen nedan:
-
-1. Skapa en instans av klassen `Presentation`.
-2. Åtkomst till den första bilden.
-3. Hitta formen med specifik AlternativeText.
-4. Dölj formen.
-5. Spara filen till disk.
-
-```c#
-// Instansiera Presentation-klass som representerar PPTX-filen
-Presentation pres = new Presentation();
-
-// Hämta den första bilden
-ISlide sld = pres.Slides[0];
-
-// Lägg till autoshape av rektangeltyp
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-String alttext = "User Defined";
-int iCount = sld.Shapes.Count;
-for (int i = 0; i < iCount; i++)
+if (targetShape is null)
 {
-	AutoShape ashp = (AutoShape)sld.Shapes[i];
-	if (String.Compare(ashp.AlternativeText, alttext, StringComparison.Ordinal) == 0)
-	{
-		ashp.Hidden = true;
-	}
+    Console.WriteLine("The shape 'RevenueChart' was not found on slide 1.");
 }
-
-// Spara presentationen till disk
-pres.Save("Hiding_Shapes_out.pptx", SaveFormat.Pptx);
-```
-
-## **Ändra formens ordning**
-Aspose.Slides for .NET låter utvecklare ändra ordningen på former. Att ändra ordning på en form anger vilken form som är längst fram eller längst bak. För att ändra ordningen på en form på en bild, följ stegen nedan:
-
-1. Skapa en instans av klassen `Presentation`.
-2. Åtkomst till den första bilden.
-3. Lägg till en form.
-4. Lägg till lite text i formens textram.
-5. Lägg till en annan form med samma koordinater.
-6. Ändra ordningen på formerna.
-7. Spara filen till disk.
-
-```c#
-Presentation presentation1 = new Presentation("HelloWorld.pptx");
-ISlide slide = presentation1.Slides[0];
-IAutoShape shp3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 200, 365, 400, 150);
-shp3.FillFormat.FillType = FillType.NoFill;
-shp3.AddTextFrame(" ");
-
-ITextFrame txtFrame = shp3.TextFrame;
-IParagraph para = txtFrame.Paragraphs[0];
-IPortion portion = para.Portions[0];
-portion.Text="Watermark Text Watermark Text Watermark Text";
-shp3 = slide.Shapes.AddAutoShape(ShapeType.Triangle, 200, 365, 400, 150);
-slide.Shapes.Reorder(2, shp3);
-presentation1.Save( "Reshape_out.pptx", SaveFormat.Pptx);
-```
-
-## **Hämta Interop-formens ID**
-Aspose.Slides for .NET låter utvecklare hämta en unik formidentifierare i bildnivå i motsats till UniqueId‑egenskapen, som ger ett unikt identifierare på presentationsnivå. Egenskapen OfficeInteropShapeId har lagts till IShape‑gränssnitten och Shape‑klassen. Värdet som returneras av OfficeInteropShapeId‑egenskapen motsvarar Id‑värdet för Microsoft.Office.Interop.PowerPoint.Shape‑objektet. Nedan ges ett exempel på kod.
-
-```c#
-public static void Run()
+else
 {
-	using (Presentation presentation = new Presentation("Presentation.pptx"))
-	{
-		// Hämtar unikt formidentifierare i bildomfång
-		long officeInteropShapeId = presentation.Slides[0].Shapes[0].OfficeInteropShapeId;
-	}
+    Console.WriteLine($"Found {targetShape.Name}; interop ID: {targetShape.OfficeInteropShapeId}");
 }
 ```
 
-## **Ange alternativ text för en form**
-Aspose.Slides for .NET låter utvecklare ange AlternateText för vilken form som helst. 
-Former i en presentation kan särskiljas med egenskapen AlternativeText eller formens namn. 
-AlternativeText‑egenskapen kan läsas eller skrivas med Aspose.Slides såväl som Microsoft PowerPoint. 
-Genom att använda denna egenskap kan du märka en form och utföra olika operationer som att ta bort en form, 
-dölja en form eller ändra ordningen på former på en bild. 
-För att ange AlternateText för en form, följ stegen nedan:
+När en operation är specifik för en formtyp, kontrollera gränssnittet innan du använder typ‑specifika medlemmar. Detta exempel uppdaterar text och alternativ text endast om det namngivna objektet är en [IAutoShape](https://reference.aspose.com/slides/sv/net/aspose.slides/iautoshape/).
 
-1. Skapa en instans av klassen `Presentation`.
-2. Åtkomst till den första bilden.
-3. Lägg till någon form på bilden.
-4. Utför någon åtgärd med den nyligen tillagda formen.
-5. Iterera genom formerna för att hitta en form.
-6. Ange AlternativeText.
-7. Spara filen till disk.
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-// Instansiera Presentation-klass som representerar PPTX-filen
-Presentation pres = new Presentation();
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
 
-// Hämta den första bilden
-ISlide sld = pres.Slides[0];
-
-// Lägg till autoshape av rektangeltyp
-IShape shp1 = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-IShape shp2 = sld.Shapes.AddAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-shp2.FillFormat.FillType = FillType.Solid;
-shp2.FillFormat.SolidFillColor.Color = Color.Gray;
-
-for (int i = 0; i < sld.Shapes.Count; i++)
+IShape? candidate = null;
+foreach (var shape in slide.Shapes)
 {
-    var shape = sld.Shapes[i] as AutoShape;
-    if (shape != null)
+    if (string.Equals(shape.Name, "StatusLabel", StringComparison.Ordinal))
     {
-        AutoShape ashp = shape;
-        ashp.AlternativeText = "User Defined";
+        candidate = shape;
+        break;
     }
 }
 
-// Spara presentationen till disk
-pres.Save("Set_AlternativeText_out.pptx", SaveFormat.Pptx);
-```
-
-## **Få åtkomst till layoutformat för en form**
-Aspose.Slides for .NET erbjuder ett enkelt API för att få åtkomst till layoutformat för en form. Denna artikel visar hur du kan nå layoutformat.
-
-Nedan ges exempel på kod.
-
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+if (candidate is IAutoShape autoShape)
 {
-	foreach (ILayoutSlide layoutSlide in pres.LayoutSlides)
-	{
-		IFillFormat[] fillFormats = layoutSlide.Shapes.Select(shape => shape.FillFormat).ToArray();
-		ILineFormat[] lineFormats = layoutSlide.Shapes.Select(shape => shape.LineFormat).ToArray();
-	}
+    autoShape.TextFrame.Text = "Approved";
+    autoShape.AlternativeText = "Approval status: approved";
+    presentation.Save("identified-shape.pptx", SaveFormat.Pptx);
+}
+else
+{
+    Console.WriteLine("'StatusLabel' is missing or is not an AutoShape.");
 }
 ```
 
-## **Rendera en form som SVG**
-Nu stödjer Aspose.Slides for .NET rendering av en form som SVG. Metoden WriteAsSvg (och dess överlagring) har lagts till i Shape‑klassen och IShape‑gränssnittet. Denna metod tillåter att spara formens innehåll som en SVG‑fil. Kodsnutten nedan visar hur man exporterar en bilds form till en SVG‑fil.
+## **Ändra formsamlingen**
 
-```c#
-public static void Run()
+Metoderna för att lägga till, klona, ta bort och ändra ordning opererar på kollektionen omedelbart. Om en operation ändrar antalet eller ordningen på former, fortsätt inte att förlita dig på index som fångades före den operationen.
+
+### **Klona en form**
+
+[AddClone](https://reference.aspose.com/slides/sv/net/aspose.slides/ishapecollection/addclone/) skapar en oberoende kopia och lägger till den i slutet av målkolelsen. [InsertClone](https://reference.aspose.com/slides/sv/net/aspose.slides/ishapecollection/insertclone/) skapar också en kopia men placerar den på ett specificerat z‑order‑index. Överlagringar som accepterar koordinater flyttar klonen utan att ändra dess storlek; överlagringar med bredd och höjd kan även ändra storlek.
+
+Exemplet skapar en mål‑bild, klonar en märkt rektangel till framsidan och infogar en andra klon längst bak. Ändringar i någon av klonerna påverkar inte källformen.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var sourceSlide = presentation.Slides[0];
+var sourceShape = sourceSlide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 180, 60);
+sourceShape.Name = "SourceLabel";
+sourceShape.TextFrame.Text = "Source";
+
+var blankLayout = presentation.Masters[0].LayoutSlides.GetByType(SlideLayoutType.Blank);
+var destinationSlide = presentation.Slides.AddEmptySlide(blankLayout);
+
+var frontCloneShape = destinationSlide.Shapes.AddClone(sourceShape, 80, 80);
+frontCloneShape.Name = "FrontClone";
+if (frontCloneShape is IAutoShape frontClone)
 {
-	string outSvgFileName = "SingleShape.svg";
-	using (Presentation pres = new Presentation("TestExportShapeToSvg.pptx"))
-	{
-		using (Stream stream = new FileStream(outSvgFileName, FileMode.Create, FileAccess.Write))
-		{
-			pres.Slides[0].Shapes[0].WriteAsSvg(stream);
-		}
-	}
+    frontClone.TextFrame.Text = "Front clone";
+}
+else
+{
+    Console.WriteLine("The front clone is not an AutoShape; its text was not changed.");
+}
+
+var backCloneShape = destinationSlide.Shapes.InsertClone(0, sourceShape, 80, 180);
+backCloneShape.Name = "BackClone";
+if (backCloneShape is IAutoShape backClone)
+{
+    backClone.TextFrame.Text = "Back clone";
+}
+else
+{
+    Console.WriteLine("The back clone is not an AutoShape; its text was not changed.");
+}
+
+presentation.Save("cloned-shapes.pptx", SaveFormat.Pptx);
+```
+
+Kloning kopierar formens innehåll och formatering, inklusive dess namn och alternativ text. Tilldela nya logiska identifierare till klonen när dessa värden måste vara unika. Resurser som används av komplexa former hanteras av presentationen, men en klon är ett nytt kollektionsobjekt med en ny formidentitet.
+
+### **Ta bort former**
+
+[Remove](https://reference.aspose.com/slides/sv/net/aspose.slides/ishapecollection/remove/) tar bort ett specifikt formobjekt från dess kollektion. När du tar bort flera matchningar under indexerad iteration, gå från slutet så att varje återstående index förblir giltigt.
+
+Detta exempel tar bort varje form med ett bestämt namn. Det läser `slide.Shapes[i]`, inte ett fast kollektionsobjekt, och det kastar inte formen onödigt.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var keepShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 140, 60);
+keepShape.Name = "Keep";
+
+var firstTemporaryShape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 220, 40, 80, 80);
+firstTemporaryShape.Name = "Temporary";
+
+var secondTemporaryShape = slide.Shapes.AddAutoShape(ShapeType.Triangle, 340, 40, 100, 80);
+secondTemporaryShape.Name = "Temporary";
+
+for (var i = slide.Shapes.Count - 1; i >= 0; i--)
+{
+    var shape = slide.Shapes[i];
+    if (string.Equals(shape.Name, "Temporary", StringComparison.Ordinal))
+    {
+        slide.Shapes.Remove(shape);
+    }
+}
+
+presentation.Save("removed-shapes.pptx", SaveFormat.Pptx);
+```
+
+Efter borttagning förändras antalet former och indexen för senare former. Referenser till opåverkade former förblir mer pålitliga än sparade index. Tänk också på anslutningar, animationer och andra presentationsfunktioner som kan referera till det borttagna objektet; att ta bort en synlig form kan ändra mer än bildens utseende.
+
+### **Dölj en form**
+
+Att sätta [Hidden](https://reference.aspose.com/slides/sv/net/aspose.slides/ishape/hidden/) till `true` behåller formen i kollektionen men hindrar den från att visas i den normala bildspelsvisningen. Dess index, formatering och innehåll förblir tillgängliga för kod, så dold är lämplig för valfria element som kan återställas senare.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var visibleShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 40, 40, 160, 60);
+visibleShape.Name = "VisibleLabel";
+
+var optionalShape = slide.Shapes.AddAutoShape(ShapeType.Moon, 240, 40, 100, 100);
+optionalShape.Name = "OptionalDecoration";
+
+foreach (var shape in slide.Shapes)
+{
+    if (string.Equals(shape.Name, "OptionalDecoration", StringComparison.Ordinal))
+    {
+        shape.Hidden = true;
+    }
+}
+
+presentation.Save("hidden-shape.pptx", SaveFormat.Pptx);
+```
+
+Döljning är inte borttagning eller säkerhet. Objektet kan fortfarande upptäckas och göras synligt igen av en användare eller av kod, och det förblir en del av presentationsfilen.
+
+### **Ändra Z‑ordning**
+
+Överlappande former målas i kollektionsordning. [Reorder](https://reference.aspose.com/slides/sv/net/aspose.slides/ishapecollection/reorder/) flyttar en befintlig form till ett mål‑index utan att klona den. Index `0` är bakåt; `Count - 1` är framåt.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var blueRectangle = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 220, 120);
+blueRectangle.Name = "BlueRectangle";
+blueRectangle.FillFormat.FillType = FillType.Solid;
+blueRectangle.FillFormat.SolidFillColor.Color = Color.SteelBlue;
+
+var orangeEllipse = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 180, 140, 220, 120);
+orangeEllipse.Name = "OrangeEllipse";
+orangeEllipse.FillFormat.FillType = FillType.Solid;
+orangeEllipse.FillFormat.SolidFillColor.Color = Color.Orange;
+
+slide.Shapes.Reorder(slide.Shapes.Count - 1, blueRectangle);
+presentation.Save("reordered-shapes.pptx", SaveFormat.Pptx);
+```
+
+Rektangeln skapas först och ligger initialt bakom ellipsen. Att flytta den till det sista indexet placerar den längst fram. Slutför z‑ordning efter att ha lagt till eller klonat alla relaterade former, eftersom dessa operationer lägger till eller infogar nya kollektionsobjekt och kan ändra den avsedda stapeln.
+
+## **Inspektera former på layoutbilder**
+
+Normala bilder, layoutbilder och maste­rbilder har separata form‑kollektioner. En form i en layout‑kollektion är inte samma objekt som en likadant placerad form på en normal bild. Inspektera layout‑former när du behöver förstå eller ändra formatering som levereras av en layout.
+
+Följande exempel läser varje layoutforms [FillFormat](https://reference.aspose.com/slides/sv/net/aspose.slides/ishape/fillformat/) och [LineFormat](https://reference.aspose.com/slides/sv/net/aspose.slides/ishape/lineformat/) utan att anta att varje form är en `AutoShape`.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("input.pptx");
+
+foreach (var layoutSlide in presentation.LayoutSlides)
+{
+    foreach (var shape in layoutSlide.Shapes)
+    {
+        var fillType = shape.FillFormat.FillType;
+        var lineWidth = shape.LineFormat.Width;
+        Console.WriteLine($"{layoutSlide.Name} / {shape.Name}: fill={fillType}, line width={lineWidth}");
+    }
 }
 ```
 
-## **Justera en form**
-Genom den överlagrade metoden [SlidesUtil.AlignShape()](https://reference.aspose.com/slides/sv/net/aspose.slides.util/slideutil/methods/alignshapes/index) kan du 
+Att redigera en layout kan påverka flera bilder som använder den. Innan du ändrar en layout‑form, avgör om en normal bild ärver objektet eller innehåller en lokal överskrivning, och testa varje bild som använder den layouten.
 
-* justera former relativt till bildens marginaler. Se Exempel 1. 
-* justera former relativt till varandra. Se Exempel 2. 
+## **Exportera en form till SVG**
 
-Enumen [ShapesAlignmentType](https://reference.aspose.com/slides/sv/net/aspose.slides/shapesalignmenttype) definierar de tillgängliga justeringsalternativen.
+[WriteAsSvg](https://reference.aspose.com/slides/sv/net/aspose.slides/ishape/writeassvg/) skriver en forms renderade innehåll till en ström. Resultatet innehåller bara formen, inte hela bildbakgrunden eller närliggande former.
 
-**Exempel 1**
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
 
-Den här C#‑koden visar hur du justerar former med index 1,2 och 4 längs den övre kanten på en bild:
-Källkoden nedan justerar former med index 1,2 och 4 längs bildens överkant.
+using var presentation = new Presentation("input.pptx");
+var slide = presentation.Slides[0];
 
-``` csharp
-using (Presentation pres = new Presentation("example.pptx"))
+if (slide.Shapes.Count == 0)
 {
-     ISlide slide = pres.Slides[0];
-     IShape shape1 = slide.Shapes[1];
-     IShape shape2 = slide.Shapes[2];
-     IShape shape3 = slide.Shapes[4];
-     SlideUtil.AlignShapes(ShapesAlignmentType.AlignTop, true, pres.Slides[0], new int[]
-     {
-          slide.Shapes.IndexOf(shape1),
-          slide.Shapes.IndexOf(shape2),
-          slide.Shapes.IndexOf(shape3)
-     });
+    Console.WriteLine("Slide 1 does not contain a shape to export.");
+}
+else
+{
+    var shape = slide.Shapes[0];
+    using var svgStream = File.Create("shape.svg");
+    shape.WriteAsSvg(svgStream);
 }
 ```
 
-**Exempel 2**
+Håll presentationen öppen under rendering. Utdata beror på formens formatering samt på resurser som teckensnitt och bilder. Om du behöver hela sammansättningen, exportera bilden istället för en enskild form. Den som anropar äger strömmen och måste disponera den.
 
-Den här C#‑koden visar hur du justerar en hel samling former relativt till den nedersta formen i samlingen:
+## **Justera former**
 
-``` csharp
-using (Presentation pres = new Presentation("example.pptx"))
+[SlideUtil.AlignShapes](https://reference.aspose.com/slides/sv/net/aspose.slides.util/slideutil/alignshapes/)‑överladdningar justerar antingen alla former eller valda kollektionsindex. [ShapesAlignmentType](https://reference.aspose.com/slides/sv/net/aspose.slides/shapesalignmenttype/) specificerar kant, mittlinje eller distributionsläge. Sätt `alignToSlide` till `true` för att använda bildens kanter; sätt den till `false` för att justera de valda formerna relativt varandra.
+
+Detta exempel justerar tre former till bildens överkant. De återvända formreferenserna konverteras till sina aktuella index omedelbart innan justering.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.Util;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var firstShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 60, 80, 120, 50);
+var secondShape = slide.Shapes.AddAutoShape(ShapeType.Ellipse, 240, 160, 120, 50);
+var thirdShape = slide.Shapes.AddAutoShape(ShapeType.Triangle, 420, 240, 120, 50);
+firstShape.Name = "FirstAlignedShape";
+secondShape.Name = "SecondAlignedShape";
+thirdShape.Name = "ThirdAlignedShape";
+
+var shapeIndexes = new[]
 {
-    SlideUtil.AlignShapes(ShapesAlignmentType.AlignBottom, false, pres.Slides[0].Shapes);
-}
+    slide.Shapes.IndexOf(firstShape),
+    slide.Shapes.IndexOf(secondShape),
+    slide.Shapes.IndexOf(thirdShape)
+};
+
+SlideUtil.AlignShapes(ShapesAlignmentType.AlignTop, true, slide, shapeIndexes);
+presentation.Save("aligned-shapes.pptx", SaveFormat.Pptx);
 ```
 
-## **Vändningsegenskaper**
-I Aspose.Slides ger klassen [ShapeFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/shapeframe/) kontroll över horisontell och vertikal spegling av former via dess egenskaper `FlipH` och `FlipV`. Båda egenskaperna är av typen [NullableBool](https://reference.aspose.com/slides/sv/net/aspose.slides/nullablebool/), vilket tillåter värdena `True` för att ange en spegling, `False` för ingen spegling, eller `NotDefined` för att använda standardbeteende. Dessa värden är åtkomliga via en forms [Frame](https://reference.aspose.com/slides/sv/net/aspose.slides/ishape/frame/). 
+Justering ändrar positioner, inte z‑ordning. Relativ justering kräver normalt minst två former, medan horisontell eller vertikal fördelning kräver tillräckligt många former för att definiera avstånd. Räkna om indexen om du ändrar kollektionen innan du anropar metoden.
 
-För att ändra vändningsinställningarna konstrueras en ny [ShapeFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/shapeframe/)-instans med formens aktuella position och storlek, önskade värden för `FlipH` och `FlipV` samt rotationsvinkeln. Genom att tilldela denna instans till formens [Frame](https://reference.aspose.com/slides/sv/net/aspose.slides/ishape/frame/) och spara presentationen appliceras spegeleffekterna och skrivs till utdatafilen.
+## **Vänd en form**
 
-Anta att vi har en fil sample.pptx där den första bilden innehåller en enda form med standardinställningarna för spegling, som visas nedan.
+[ShapeFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/shapeframe/)‑klassen lagrar position, storlek, horisontella och vertikala vändinställningar samt rotation. Dess `FlipH`‑ och `FlipV`‑värden använder [NullableBool](https://reference.aspose.com/slides/sv/net/aspose.slides/nullablebool/): `True` aktiverar vändning, `False` inaktiverar den, och `NotDefined` bevarar det odefinierade/std‑standardtillståndet.
 
-![Formen som ska speglas](shape_to_be_flipped.png)
+Den inkommande presentationen nedan innehåller en opåverkad form.
 
-```cs
-using (Presentation presentation = new Presentation("sample.pptx"))
-{
-    IShape shape = presentation.Slides[0].Shapes[0];
+![Formen före vändning](shape_to_be_flipped.png)
 
-    // Hämta den horisontella vändningsegenskapen för formen.
-    NullableBool horizontalFlip = shape.Frame.FlipH;
-    Console.WriteLine($"Horizontal flip: {horizontalFlip}");
+Exemplet bevarar alla andra ramvärden och ersätter endast de två vändinställningarna. Detta är viktigt eftersom en ny [Frame](https://reference.aspose.com/slides/sv/net/aspose.slides/ishape/frame/) ersätter hela ramen.
 
-    // Hämta den vertikala vändningsegenskapen för formen.
-    NullableBool verticalFlip = shape.Frame.FlipV;
-    Console.WriteLine($"Vertical flip: {verticalFlip}");
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    float x = shape.Frame.X;
-    float y = shape.Frame.Y;
-    float width = shape.Frame.Width;
-    float height = shape.Frame.Height;
-    NullableBool flipH = NullableBool.True; // Vänd horisontellt.
-    NullableBool flipV = NullableBool.True; // Vänd vertikalt.
-    float rotation = shape.Frame.Rotation;
+using var presentation = new Presentation("sample.pptx");
+var shape = presentation.Slides[0].Shapes[0];
+var frame = shape.Frame;
 
-    shape.Frame = new ShapeFrame(x, y, width, height, flipH, flipV, rotation);
+Console.WriteLine($"Horizontal flip before change: {frame.FlipH}");
+Console.WriteLine($"Vertical flip before change: {frame.FlipV}");
 
-    presentation.Save("output.pptx", SaveFormat.Pptx);
-}
+shape.Frame = new ShapeFrame(
+    frame.X, frame.Y, frame.Width, frame.Height,
+    NullableBool.True, NullableBool.True, frame.Rotation);
+
+presentation.Save("flipped-shape.pptx", SaveFormat.Pptx);
 ```
 
-Följande kodexempel hämtar formens aktuella vändningsegenskaper och speglar den både horisontellt och vertikalt.
+Den sparade formen är speglad horisontellt och vertikalt samtidigt som position, storlek och rotation behålls.
 
-Resultatet:
-
-![Den speglade formen](flipped_shape.png)
+![Formen efter vändning](flipped_shape.png)
 
 ## **FAQ**
 
-**Kan jag kombinera former (union/intersect/subtract) på en bild som i en skrivbordsredigerare?**
+**Should I use a collection index as a shape identifier?**
 
-Det finns inget inbyggt API för booleska operationer. Du kan approximera det genom att själv konstruera den önskade konturen—t.ex. beräkna den resulterande geometrin (via [GeometryPath](https://reference.aspose.com/slides/sv/net/aspose.slides/geometrypath/)) och skapa en ny form med den konturen, eventuellt ta bort de ursprungliga.
+Endast för kortlivad bearbetning när kollektionen inte kommer att förändras innan indexet används. Föredra en validerad `Name`‑ eller `AlternativeText`‑konvention för författade mallar, eller `OfficeInteropShapeId` för interop‑arbete på bildnivå.
 
-**Hur kan jag kontrollera staplingsordningen (z-order) så att en form alltid förblir "överst"?**
+**Does hiding a shape remove it from the z-order?**
 
-Ändra infognings‑/flyttningsordningen i bildens [shapes](https://reference.aspose.com/slides/sv/net/aspose.slides/baseslide/shapes/)-samling. För förutsägbara resultat, slutför z‑ordningen efter alla andra bildändringar.
+Nej. En dold form förblir i kollektionen på samma index. Den kan hittas, omordnas, redigeras eller göras synlig igen.
 
-**Kan jag "låsa" en form för att förhindra att användare redigerar den i PowerPoint?**
+**Why did a cloned shape appear in front of another shape?**
 
-Ja. Ställ in [formnivåns skyddsvflags](/slides/sv/net/applying-protection-to-presentation/) (t.ex. lås val, flytt, storleksändring, textredigering). Vid behov speglas restriktionerna på master- eller layoutnivå. Observera att detta är skydd på UI‑nivå, inte en säkerhetsfunktion; för starkare skydd kombinera med filnivårestriktioner som [rekommendationer för skrivskydd eller lösenord](/slides/sv/net/password-protected-presentation/).
+`AddClone` lägger till klonen i slutet av kollektionen, vilket är fronten av z‑ordningen. Använd `InsertClone` för att välja ett initialt index eller `Reorder` efter att alla former har lagts till.

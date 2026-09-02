@@ -1,6 +1,6 @@
 ---
 title: Verwalten von Präsentationsformen in Java
-linktitle: Formenmanipulation
+linktitle: Formmanipulation
 type: docs
 weight: 40
 url: /de/java/shape-manipulations/
@@ -14,383 +14,368 @@ keywords:
 - Form ausblenden
 - Formreihenfolge ändern
 - Interop-Form-ID abrufen
-- Form-Alternativtext
+- Alternativtext der Form
 - Form-Layoutformate
 - Form als SVG
 - Form zu SVG
 - Form ausrichten
+- Form spiegeln
 - PowerPoint
 - Präsentation
 - Java
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Formen in Aspose.Slides für Java erstellen, bearbeiten und optimieren und leistungsstarke PowerPoint-Präsentationen bereitstellen."
+description: "Erfahren Sie, wie Sie Präsentationsformen mit Aspose.Slides für Java identifizieren, duplizieren, entfernen, ausblenden, neu anordnen, exportieren, ausrichten und spiegeln."
 ---
+## **Übersicht**
 
-## **Eine Form auf einer Folie finden**
-Dieses Thema beschreibt eine einfache Technik, die es Entwicklern erleichtert, eine bestimmte Form auf einer Folie zu finden, ohne deren interne Id zu verwenden. Es ist wichtig zu wissen, dass PowerPoint‑Präsentationsdateien keine Möglichkeit haben, Formen auf einer Folie zu identifizieren, außer über eine interne eindeutige Id. Es scheint für Entwickler schwierig zu sein, eine Form anhand ihrer internen eindeutigen Id zu finden. Alle Formen, die zu den Folien hinzugefügt werden, besitzen einen Alternativtext. Wir empfehlen Entwicklern, den Alternativtext zu verwenden, um eine bestimmte Form zu finden. Sie können MS PowerPoint verwenden, um den Alternativtext für Objekte festzulegen, die Sie in Zukunft ändern möchten.
+Aspose.Slides for Java stellt die Formen auf einer Folie als geordnete [IShapeCollection](https://reference.aspose.com/slides/de/java/com.aspose.slides/ishapecollection/) dar. Die Sammlung ist sowohl der Ort, an dem Sie Formen finden und ändern, als auch die Quelle ihrer Stapelreihenfolge: Index `0` ist die hinterste Form, während der letzte Index die vorderste Form ist.
 
-Nachdem Sie den Alternativtext einer gewünschten Form festgelegt haben, können Sie die Präsentation mit Aspose.Slides for Java öffnen und über alle zu einer Folie hinzugefügten Formen iterieren. Bei jeder Iteration können Sie den Alternativtext der Form prüfen, und die Form mit dem passenden Alternativtext ist die von Ihnen gesuchte Form. Um diese Technik besser zu demonstrieren, haben wir eine Methode erstellt, [findShape](https://reference.aspose.com/slides/java/com.aspose.slides/SlideUtil#findShape-com.aspose.slides.IBaseSlide-java.lang.String-), die das Auffinden einer bestimmten Form in einer Folie ermöglicht und dann einfach diese Form zurückgibt.
-```java
-// Instanziiere eine Presentation-Klasse, die die Präsentationsdatei repräsentiert
-Presentation pres = new Presentation("FindingShapeInSlide.pptx");
-try {
+Dieser Artikel folgt diesem Modell. Zuerst wird erklärt, wie man eine Form zuverlässig identifiziert, dann wird gezeigt, wie man Formen klont, entfernt, ausblendet und neu anordnet. Die abschließenden Abschnitte behandeln Layout‑Ebene‑Formatierung, SVG‑Export, Ausrichtung und Spiegel‑Einstellungen. Jedes Beispiel ist unabhängig, sodass Sie nur die Vorgänge verwenden können, die Ihr Workflow erfordert.
 
-    ISlide slide = pres.getSlides().get_Item(0);
-    // Alternativtext der zu findenden Form
-    IShape shape = findShape(slide, "Shape1");
-    if (shape != null)
-    {
-        System.out.println("Shape Name: " + shape.getName());
-    }
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+## **Identifizieren und Finden von Formen**
+
+Sammlungsindizes sind praktisch, wenn eine bekannte Datei verarbeitet wird, aber sie sind keine stabilen Bezeichner. Das Hinzufügen, Entfernen oder Neuordnen einer Form kann ihren Index ändern. Wählen Sie einen Bezeichner gemäß der Art und Weise, wie die Präsentation erstellt und gepflegt wird:
+
+- [Name](https://reference.aspose.com/slides/de/java/com.aspose.slides/ishape/#getName--) ist nützlich für von Entwicklern gesteuerte Vorlagen und lässt sich leicht im Auswahl‑Bereich von PowerPoint inspizieren. Namen können bearbeitet werden und sind nicht garantiert eindeutig, daher sollten Sie eine Namenskonvention etablieren, wenn Code von ihnen abhängt.
+- [AlternativeText](https://reference.aspose.com/slides/de/java/com.aspose.slides/ishape/#getAlternativeText--) ist nützlich, wenn eine Barrierefreiheits‑Beschreibung oder ein vom Autor bereitgestelltes Tag die Form bereits identifiziert. Er ist für Benutzer sichtbar, kann lokalisiert oder für Barrierefreiheit umgeschrieben werden und ist nicht garantiert eindeutig. Verwenden Sie keinen bedeutungsvollen Barrierefreiheits‑Text stillschweigend als Datenbankschlüssel.
+- [OfficeInteropShapeId](https://reference.aspose.com/slides/de/java/com.aspose.slides/ishape/#getOfficeInteropShapeId--) ist ein schreibgeschützter Bezeichner, der innerhalb einer Folie eindeutig ist und der Shape‑ID entspricht, die von PowerPoint‑Interop verwendet wird. Verwenden Sie ihn, wenn Sie mit PowerPoint integrieren oder während der Lebensdauer einer Form eine eindeutige Referenz benötigen. Eine geklonte oder neu erstellte Form ist eine andere Form und erhält ihre eigene ID.
+
+Die zugehörige [getUniqueId](https://reference.aspose.com/slides/de/java/com.aspose.slides/ishape/#getUniqueId--)‑Methode gibt einen Bezeichner mit Präsentations‑Scope zurück, dieser ist jedoch für Add‑Ins gedacht und kann neu zugewiesen werden. Er sollte nicht als permanenter externer Schlüssel behandelt werden. Wenn langfristige Identität entscheidend ist, halten Sie die Zuordnung in Anwendungsdaten und prüfen Sie, ob die erwartete Form noch vorhanden ist.
+
+Das folgende Beispiel sucht nach Namen mit einem exakten Vergleich und gibt die interop‑ID im Folien‑Scope aus. Wenn die Vorlage die erwartete Form nicht enthält, meldet der Code dieses Ergebnis, anstatt mit dem falschen Objekt weiterzumachen.
 
 ```java
-// Methodenimplementierung zum Finden einer Form in einer Folie mithilfe ihres Alternativtexts
-public static IShape findShape(ISlide slide, String alttext)
-{
-    // Durchlaufen aller Formen innerhalb der Folie
-    for (int i = 0; i < slide.getShapes().size(); i++)
-    {
-        // Wenn der Alternativtext der Folie mit dem benötigten übereinstimmt, dann
-        // Rückgabe der Form
-        if (slide.getShapes().get_Item(i).getAlternativeText().compareTo(alttext) == 0)
-            return slide.getShapes().get_Item(i);
-    }
-    return null;
-}
-```
+import com.aspose.slides.*;
 
-
-## **Klonen einer Form**
-Um eine Form auf einer Folie mit Aspose.Slides for Java zu klonen:
-
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-1. Holen Sie die Referenz einer Folie über deren Index.
-1. Greifen Sie auf die Formensammlung der Quellfolie zu.
-1. Fügen Sie der Präsentation eine neue Folie hinzu.
-1. Klonen Sie Formen aus der Formensammlung der Quellfolie in die neue Folie.
-1. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
-
-Das folgende Beispiel fügt einer Folie eine Gruppierungsform hinzu.
-```java
-// Instanziiere Presentation-Klasse
-Presentation pres = new Presentation("Source Frame.pptx");
-try {
-    IShapeCollection sourceShapes = pres.getSlides().get_Item(0).getShapes();
-    ILayoutSlide blankLayout = pres.getMasters().get_Item(0).getLayoutSlides().getByType(SlideLayoutType.Blank);
-    ISlide destSlide = pres.getSlides().addEmptySlide(blankLayout);
-    IShapeCollection destShapes = destSlide.getShapes();
-    destShapes.addClone(sourceShapes.get_Item(1), 50, 150 + sourceShapes.get_Item(0).getHeight());
-    destShapes.addClone(sourceShapes.get_Item(2));
-    destShapes.insertClone(0, sourceShapes.get_Item(0), 50, 150);
-
-    // Schreibe die PPTX-Datei auf die Festplatte
-    pres.save("CloneShape_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **Eine Form entfernen**
-Aspose.Slides for Java ermöglicht es Entwicklern, jede Form zu entfernen. Um die Form von einer Folie zu entfernen, folgen Sie bitte den untenstehenden Schritten:
-
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-1. Greifen Sie auf die erste Folie zu.
-1. Suchen Sie die Form mit einem bestimmten AlternativeText.
-1. Entfernen Sie die Form.
-1. Speichern Sie die Datei auf dem Datenträger.
-```java
-// Presentation-Objekt erstellen
-Presentation pres = new Presentation();
-try {
-    // Erste Folie holen
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Autoform vom Typ Rechteck hinzufügen
-    sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-
-    String altText = "User Defined";
-    int iCount = sld.getShapes().size();
-    for (int i = 0; i < iCount; i++)
-    {
-        AutoShape ashp = (AutoShape)sld.getShapes().get_Item(0);
-        if (alttext.equals(ashp.getAlternativeText()))
-        {
-            sld.getShapes().remove(ashp);
-        }
-    }
-
-    // Präsentation auf die Festplatte speichern
-    pres.save("RemoveShape_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **Eine Form ausblenden**
-Aspose.Slides for Java ermöglicht es Entwicklern, jede Form auszublenden. Um die Form auf einer Folie auszublenden, folgen Sie bitte den untenstehenden Schritten:
-
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-1. Greifen Sie auf die erste Folie zu.
-1. Suchen Sie die Form mit einem bestimmten AlternativeText.
-1. Blenden Sie die Form aus.
-1. Speichern Sie die Datei auf dem Datenträger.
-```java
-// Instanziiere Presentation-Klasse, die die PPTX repräsentiert
-Presentation pres = new Presentation();
-try {
-    // Erste Folie holen
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Autoform vom Typ Rechteck hinzufügen
-    sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-    sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-
-    String alttext = "User Defined";
-    int iCount = sld.getShapes().size();
-    for (int i = 0; i < iCount; i++)
-    {
-        AutoShape ashp = (AutoShape)sld.getShapes().get_Item(i);
-        if (alttext.equals(ashp.getAlternativeText()))
-        {
-            ashp.setHidden(true);
-        }
-    }
-
-    // Präsentation auf die Festplatte speichern
-    pres.save("Hiding_Shapes_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **Reihenfolge von Formen ändern**
-Aspose.Slides for Java ermöglicht es Entwicklern, die Reihenfolge der Formen zu ändern. Das Ändern der Reihenfolge legt fest, welche Form im Vordergrund und welche im Hintergrund steht. Um die Reihenfolge der Formen auf einer Folie zu ändern, folgen Sie bitte den untenstehenden Schritten:
-
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-1. Greifen Sie auf die erste Folie zu.
-1. Fügen Sie eine Form hinzu.
-1. Fügen Sie dem Textfeld der Form Text hinzu.
-1. Fügen Sie eine weitere Form mit denselben Koordinaten hinzu.
-1. Ändern Sie die Reihenfolge der Formen.
-1. Speichern Sie die Datei auf dem Datenträger.
-```java
-Presentation pres = new Presentation("ChangeShapeOrder.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IAutoShape shp3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 365, 400, 150);
-    shp3.getFillFormat().setFillType(FillType.NoFill);
-    shp3.addTextFrame(" ");
-
-    IParagraph para = shp3.getTextFrame().getParagraphs().get_Item(0);
-    IPortion portion = para.getPortions().get_Item(0);
-    portion.setText("Watermark Text Watermark Text Watermark Text");
-
-    shp3 = slide.getShapes().addAutoShape(ShapeType.Triangle, 200, 365, 400, 150);
-
-    slide.getShapes().reorder(2, shp3);
-
-    pres.save("Reshape_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **Interop‑Shape‑ID abrufen**
-Aspose.Slides for Java ermöglicht es Entwicklern, einen eindeutigen Form‑Bezeichner im Folien‑Scope zu erhalten, im Gegensatz zur Methode [getUniqueId](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#getUniqueId--) , die einen eindeutigen Bezeichner im Präsentations‑Scope liefert. Die Methode [getOfficeInteropShapeId](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#getOfficeInteropShapeId--) wurde den Schnittstellen [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShape) und der Klasse [Shape](https://reference.aspose.com/slides/java/com.aspose.slides/Shape) hinzugefügt. Der von [getOfficeInteropShapeId](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#getOfficeInteropShapeId--) zurückgegebene Wert entspricht dem Id‑Wert des Microsoft.Office.Interop.PowerPoint.Shape‑Objekts. Nachfolgend wird ein Beispielcode gezeigt.
-```java
-Presentation pres = new Presentation("Presentation.pptx");
-try {
-    // Abrufen der eindeutigen Formkennung im Folienbereich
-    long officeInteropShapeId = pres.getSlides().get_Item(0).getShapes().get_Item(0).getOfficeInteropShapeId();
-
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **Alternativtext für eine Form festlegen**
-Aspose.Slides for Java ermöglicht es Entwicklern, den AlternateText einer beliebigen Form festzulegen. Formen in einer Präsentation können über die Methode [AlternativeText](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) oder [Shape Name](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#setName-java.lang.String-) unterschieden werden. Die Methoden [setAlternativeText](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#setAlternativeText-java.lang.String-) und [getAlternativeText](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#getAlternativeText--) können sowohl mit Aspose.Slides als auch mit Microsoft PowerPoint gelesen oder gesetzt werden. Mithilfe dieser Methode können Sie einer Form ein Tag zuweisen und verschiedene Vorgänge ausführen, wie das Entfernen einer Form, das Ausblenden einer Form oder das Ändern der Reihenfolge von Formen auf einer Folie. Um den AlternateText einer Form festzulegen, gehen Sie bitte wie folgt vor:
-
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-1. Greifen Sie auf die erste Folie zu.
-1. Fügen Sie der Folie eine beliebige Form hinzu.
-1. Arbeiten Sie mit der neu hinzugefügten Form.
-1. Durchsuchen Sie die Formen, um eine Form zu finden.
-1. Setzen Sie den AlternativeText.
-1. Speichern Sie die Datei auf dem Datenträger.
-```java
-// Instanziiere Presentation-Klasse, die die PPTX repräsentiert
-Presentation pres = new Presentation();
-try {
-    // Erste Folie holen
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Autoform vom Typ Rechteck hinzufügen
-    IShape shp1 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 50, 40, 150, 50);
-    IShape shp2 = sld.getShapes().addAutoShape(ShapeType.Moon, 160, 40, 150, 50);
-    shp2.getFillFormat().setFillType(FillType.Solid);
-    shp2.getFillFormat().getSolidFillColor().setColor(Color.GRAY);
-
-    for (int i = 0; i < sld.getShapes().size(); i++)
-    {
-        AutoShape shape = (AutoShape) sld.getShapes().get_Item(i);
-        if (shape != null)
-        {
-            shape.setAlternativeText("User Defined");
-        }
-    }
-
-    // Präsentation auf die Festplatte speichern
-    pres.save("Set_AlternativeText_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **Layout‑Formate für eine Form zugreifen**
-Aspose.Slides for Java bietet eine einfache API, um Layout‑Formate für eine Form zuzugreifen. Dieser Artikel zeigt, wie Sie auf Layout‑Formate zugreifen können.
-
-Im Folgenden wird ein Beispielcode angezeigt.
-```java
-Presentation pres = new Presentation("pres.pptx");
-try {
-    for (ILayoutSlide layoutSlide : pres.getLayoutSlides())
-    {
-        for (IShape shape : layoutSlide.getShapes())
-        {
-            IFillFormat fillFormats = shape.getFillFormat();
-            ILineFormat lineFormats = shape.getLineFormat();
-        }
-    }
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **Eine Form als SVG rendern**
-Jetzt unterstützt Aspose.Slides for Java das Rendern einer Form als SVG. Die Methode [writeAsSvg](https://reference.aspose.com/slides/java/com.aspose.slides/IShape#writeAsSvg-java.io.OutputStream-) (und ihre Überladung) wurde der Klasse [Shape](https://reference.aspose.com/slides/java/com.aspose.slides/Shape) und dem Interface [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/IShape) hinzugefügt. Diese Methode ermöglicht es, den Inhalt der Form als SVG‑Datei zu speichern. Das nachfolgende Code‑Snippet zeigt, wie Sie die Form einer Folie in eine SVG‑Datei exportieren.
-```java
-Presentation pres = new Presentation("TestExportShapeToSvg.pptx");
-try {
-    FileOutputStream stream = new FileOutputStream("SingleShape.svg");
-    try {
-        pres.getSlides().get_Item(0).getShapes().get_Item(0).writeAsSvg(stream);
-    } finally {
-        if (stream != null) stream.close();
-    }
-} catch (IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **Eine Form ausrichten**
-Aspose.Slides ermöglicht das Ausrichten von Formen entweder relativ zu den Folienrändern oder relativ zueinander. Zu diesem Zweck wurde die überladene Methode [SlidesUtil.alignShape()](https://reference.aspose.com/slides/java/com.aspose.slides/SlideUtil#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) hinzugefügt. Die Aufzählung [ShapesAlignmentType](https://reference.aspose.com/slides/java/com.aspose.slides/ShapesAlignmentType) definiert mögliche Ausrichtungsoptionen.
-
-**Example 1**
-
-Der Quellcode unten richtet Formen mit den Indizes 1, 2 und 4 am oberen Rand der Folie aus.
-```java
-Presentation pres = new Presentation("example.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IShape shape1 = slide.getShapes().get_Item(1);
-    IShape shape2 = slide.getShapes().get_Item(2);
-    IShape shape3 = slide.getShapes().get_Item(4);
-    SlideUtil.alignShapes(ShapesAlignmentType.AlignTop, true, pres.getSlides().get_Item(0), new int[]
-    {
-        slide.getShapes().indexOf(shape1),
-        slide.getShapes().indexOf(shape2),
-        slide.getShapes().indexOf(shape3)
-    });
-} finally {
-    if (pres != null) pres.dispose();
-}
-}
-```
-
-
-**Example 2**
-
-Das folgende Beispiel zeigt, wie die gesamte Formensammlung relativ zur untersten Form in der Sammlung ausgerichtet wird.
-```java
-Presentation pres = new Presentation("example.pptx");
-try {
-    SlideUtil.alignShapes(ShapesAlignmentType.AlignBottom, false, pres.getSlides().get_Item(0));
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **Flip‑Eigenschaften**
-In Aspose.Slides bietet die Klasse [ShapeFrame](https://reference.aspose.com/slides/java/com.aspose.slides/shapeframe/) Kontrolle über die horizontale und vertikale Spiegelung von Formen über die Eigenschaften `flipH` und `flipV`. Beide Eigenschaften vom Typ `byte` erlauben die Werte `1` für eine Spiegelung, `0` für keine Spiegelung oder `-1` für das Standardverhalten. Diese Werte sind über das [Frame](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getFrame--) einer Form zugänglich.
-
-Um die Flip‑Einstellungen zu ändern, wird eine neue Instanz von [ShapeFrame](https://reference.aspose.com/slides/java/com.aspose.slides/shapeframe/) mit der aktuellen Position und Größe der Form, den gewünschten Werten für `flipH` und `flipV` sowie dem Rotationswinkel erstellt. Durch Zuordnen dieser Instanz zum [Frame](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getFrame--) der Form und dem Speichern der Präsentation werden die Spiegelungs‑Transformationen angewendet und in die Ausgabedatei übernommen.
-
-Nehmen wir an, wir haben eine Datei sample.pptx, bei der die erste Folie eine einzelne Form mit den Standard‑Flip‑Einstellungen enthält, wie unten dargestellt.
-
-![The shape to be flipped](shape_to_be_flipped.png)
-
-Das folgende Code‑Beispiel ermittelt die aktuellen Flip‑Eigenschaften der Form und spiegelt sie sowohl horizontal als auch vertikal.
-```java
-Presentation presentation = new Presentation("sample.pptx");
+Presentation presentation = new Presentation("input.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
 
-    // Abrufen der horizontalen Flip‑Eigenschaft der Form.
-    byte horizontalFlip = shape.getFrame().getFlipH();
-    System.out.println("Horizontal flip: " + horizontalFlip);
+    IShape targetShape = null;
+    for (IShape shape : slide.getShapes()) {
+        if ("RevenueChart".equals(shape.getName())) {
+            targetShape = shape;
+            break;
+        }
+    }
 
-    // Abrufen der vertikalen Flip‑Eigenschaft der Form.
-    byte verticalFlip = shape.getFrame().getFlipV();
-    System.out.println("Vertical flip: " + verticalFlip);
-
-    float x = shape.getFrame().getX();
-    float y = shape.getFrame().getY();
-    float width = shape.getFrame().getWidth();
-    float height = shape.getFrame().getHeight();
-    byte flipH = NullableBool.True; // Horizontal spiegeln.
-    byte flipV = NullableBool.True; // Horizontal spiegeln.
-    float rotation = shape.getFrame().getRotation();
-
-    shape.setFrame(new ShapeFrame(x, y, width, height, flipH, flipV, rotation));
-
-    presentation.save("output.pptx", SaveFormat.Pptx);
+    if (targetShape == null) {
+        System.out.println("The shape 'RevenueChart' was not found on slide 1.");
+    } else {
+        System.out.println("Found " + targetShape.getName() + "; interop ID: " + targetShape.getOfficeInteropShapeId());
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
+Wenn ein Vorgang einer bestimmten Formart zugeordnet ist, prüfen Sie das Interface, bevor Sie typ­spezifische Member verwenden. Dieses Beispiel aktualisiert Text und Alternativ‑Text nur, wenn das benannte Objekt ein [IAutoShape](https://reference.aspose.com/slides/de/java/com.aspose.slides/iautoshape/) ist.
 
-Das Ergebnis:
+```java
+import com.aspose.slides.*;
 
-![The flipped shape](flipped_shape.png)
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IShape candidate = null;
+    for (IShape shape : slide.getShapes()) {
+        if ("StatusLabel".equals(shape.getName())) {
+            candidate = shape;
+            break;
+        }
+    }
+
+    if (candidate instanceof IAutoShape) {
+        IAutoShape autoShape = (IAutoShape) candidate;
+        autoShape.getTextFrame().setText("Approved");
+        autoShape.setAlternativeText("Approval status: approved");
+        presentation.save("identified-shape.pptx", SaveFormat.Pptx);
+    } else {
+        System.out.println("'StatusLabel' is missing or is not an AutoShape.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Formensammlung ändern**
+
+Die Methoden zum Hinzufügen, Klonen, Entfernen und Neuordnen wirken sofort auf die Sammlung. Wenn ein Vorgang die Anzahl oder Reihenfolge der Formen ändert, dürfen Sie nicht weiterhin auf zuvor erfasste Indizes vertrauen.
+
+### **Form duplizieren**
+
+[addClone](https://reference.aspose.com/slides/de/java/com.aspose.slides/ishapecollection/#addClone-com.aspose.slides.IShape-) erstellt eine unabhängige Kopie und fügt sie an das Ziel‑Collection‑Ende an. [insertClone](https://reference.aspose.com/slides/de/java/com.aspose.slides/ishapecollection/#insertClone-int-com.aspose.slides.IShape-) erstellt ebenfalls eine Kopie, platziert sie jedoch an einem angegebenen Z‑Order‑Index. Die Überladungen, die Koordinaten akzeptieren, verschieben den Klon, ohne seine Größe zu ändern; Überladungen mit Breite und Höhe können ihn ebenfalls skalieren.
+
+Das Beispiel erstellt eine Ziel‑Folien, klont ein beschriftetes Rechteck nach vorne und fügt einen zweiten Klon hinten ein. Änderungen an einem der Klone beeinflussen nicht die Quell‑Form.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide sourceSlide = presentation.getSlides().get_Item(0);
+    IAutoShape sourceShape = sourceSlide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 180, 60);
+    sourceShape.setName("SourceLabel");
+    sourceShape.getTextFrame().setText("Source");
+
+    ILayoutSlide blankLayout = presentation.getMasters().get_Item(0).getLayoutSlides().getByType(SlideLayoutType.Blank);
+    ISlide destinationSlide = presentation.getSlides().addEmptySlide(blankLayout);
+
+    IShape frontCloneShape = destinationSlide.getShapes().addClone(sourceShape, 80, 80);
+    frontCloneShape.setName("FrontClone");
+    if (frontCloneShape instanceof IAutoShape) {
+        IAutoShape frontClone = (IAutoShape) frontCloneShape;
+        frontClone.getTextFrame().setText("Front clone");
+    } else {
+        System.out.println("The front clone is not an AutoShape; its text was not changed.");
+    }
+
+    IShape backCloneShape = destinationSlide.getShapes().insertClone(0, sourceShape, 80, 180);
+    backCloneShape.setName("BackClone");
+    if (backCloneShape instanceof IAutoShape) {
+        IAutoShape backClone = (IAutoShape) backCloneShape;
+        backClone.getTextFrame().setText("Back clone");
+    } else {
+        System.out.println("The back clone is not an AutoShape; its text was not changed.");
+    }
+
+    presentation.save("cloned-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Das Klonen kopiert den Inhalt und die Formatierung der Form, einschließlich ihres Namens und Alternativ‑Texts. Weisen Sie dem Klon neue logische Bezeichner zu, wenn diese Werte eindeutig sein müssen. Ressourcen, die von komplexen Formen verwendet werden, werden von der Präsentation verwaltet, aber ein Klon bleibt ein neues Collection‑Element mit neuer Form‑Identität.
+
+### **Formen entfernen**
+
+[remove](https://reference.aspose.com/slides/de/java/com.aspose.slides/ishapecollection/#remove-com.aspose.slides.IShape-) löscht ein bestimmtes Form‑Objekt aus seiner Sammlung. Beim Entfernen mehrerer Treffer während einer indizierten Iteration traversieren Sie von hinten, damit jeder verbleibende Index gültig bleibt.
+
+Dieses Beispiel entfernt jede Form mit einem festgelegten Namen. Es liest die Form am aktuellen Index, nicht ein festes Collection‑Element, und wirft die Form nicht unnötig.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape keepShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 140, 60);
+    keepShape.setName("Keep");
+
+    IAutoShape firstTemporaryShape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 220, 40, 80, 80);
+    firstTemporaryShape.setName("Temporary");
+
+    IAutoShape secondTemporaryShape = slide.getShapes().addAutoShape(ShapeType.Triangle, 340, 40, 100, 80);
+    secondTemporaryShape.setName("Temporary");
+
+    for (int i = slide.getShapes().size() - 1; i >= 0; i--) {
+        IShape shape = slide.getShapes().get_Item(i);
+        if ("Temporary".equals(shape.getName())) {
+            slide.getShapes().remove(shape);
+        }
+    }
+
+    presentation.save("removed-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Nach dem Entfernen ändern sich die Form‑Anzahl und die Indizes späterer Formen. Verweise auf unbeeinflusste Formen bleiben zuverlässiger als gespeicherte Indizes. Berücksichtigen Sie außerdem Verbinder, Animationen und andere Präsentations‑Features, die auf das entfernte Objekt verweisen könnten; das Entfernen einer sichtbaren Form kann mehr als das Aussehen der Folie verändern.
+
+### **Form ausblenden**
+
+Das Setzen von [Hidden](https://reference.aspose.com/slides/de/java/com.aspose.slides/ishape/#setHidden-boolean-) auf `true` lässt die Form in der Sammlung, verhindert jedoch ihr Erscheinen in einer normalen Bildschirmpräsentation. Ihr Index, ihre Formatierung und ihr Inhalt bleiben für Code verfügbar, sodass das Ausblenden für optionale Elemente geeignet ist, die später wiederhergestellt werden können.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape visibleShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 40, 40, 160, 60);
+    visibleShape.setName("VisibleLabel");
+
+    IAutoShape optionalShape = slide.getShapes().addAutoShape(ShapeType.Moon, 240, 40, 100, 100);
+    optionalShape.setName("OptionalDecoration");
+
+    for (IShape shape : slide.getShapes()) {
+        if ("OptionalDecoration".equals(shape.getName())) {
+            shape.setHidden(true);
+        }
+    }
+
+    presentation.save("hidden-shape.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Ausblenden ist weder Löschung noch Sicherheit. Das Objekt kann weiterhin von einem Benutzer oder Code entdeckt und wieder eingeblendet werden und bleibt Teil der Präsentationsdatei.
+
+### **Z‑Reihenfolge ändern**
+
+Überlappende Formen werden in der Reihenfolge der Sammlung gezeichnet. [reorder](https://reference.aspose.com/slides/de/java/com.aspose.slides/ishapecollection/#reorder-int-com.aspose.slides.IShape-) verschiebt eine bestehende Form zu einem Ziel‑Index, ohne sie zu klonen. Index `0` ist hinten; `size() - 1` ist vorne.
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape blueRectangle = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 220, 120);
+    blueRectangle.setName("BlueRectangle");
+    blueRectangle.getFillFormat().setFillType(FillType.Solid);
+    blueRectangle.getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+
+    IAutoShape orangeEllipse = slide.getShapes().addAutoShape(ShapeType.Ellipse, 180, 140, 220, 120);
+    orangeEllipse.setName("OrangeEllipse");
+    orangeEllipse.getFillFormat().setFillType(FillType.Solid);
+    orangeEllipse.getFillFormat().getSolidFillColor().setColor(Color.ORANGE);
+
+    slide.getShapes().reorder(slide.getShapes().size() - 1, blueRectangle);
+    presentation.save("reordered-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Das Rechteck wird zuerst erstellt und liegt zunächst hinter der Ellipse. Das Verschieben zum letzten Index bringt es nach vorne. Finalisieren Sie die Z‑Reihenfolge, nachdem Sie alle zugehörigen Formen hinzugefügt oder geklont haben, da diese Vorgänge neue Collection‑Elemente anhängen oder einfügen und die beabsichtigte Stapelung ändern können.
+
+## **Formen auf Layout-Folien prüfen**
+
+Normale Folien, Layout‑Folien und Master‑Folien besitzen separate Form‑Sammlungen. Eine Form in einer Layout‑Sammlung ist nicht dasselbe Objekt wie eine ähnlich positionierte Form auf einer normalen Folie. Prüfen Sie Layout‑Formen, wenn Sie Formatierungen verstehen oder ändern müssen, die von einem Layout bereitgestellt werden.
+
+Das folgende Beispiel liest das [FillFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/ishape/#getFillFormat--) und [LineFormat](https://reference.aspose.com/slides/de/java/com.aspose.slides/ishape/#getLineFormat--) jeder Layout‑Form, ohne anzunehmen, dass jede Form eine `AutoShape` ist.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    for (ILayoutSlide layoutSlide : presentation.getLayoutSlides()) {
+        for (IShape shape : layoutSlide.getShapes()) {
+            int fillType = shape.getFillFormat().getFillType();
+            double lineWidth = shape.getLineFormat().getWidth();
+            System.out.println(layoutSlide.getName() + " / " + shape.getName() + ": fill=" + fillType + ", line width=" + lineWidth);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Das Bearbeiten eines Layouts kann mehrere Folien betreffen, die es verwenden. Bevor Sie eine Layout‑Form ändern, ermitteln Sie, ob eine normale Folie das Objekt erbt oder eine lokale Überschreibung enthält, und testen Sie jede Folie, die dieses Layout nutzt.
+
+## **Form als SVG exportieren**
+
+[writeAsSvg](https://reference.aspose.com/slides/de/java/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) schreibt den gerenderten Inhalt einer Form in einen Stream. Das Ergebnis enthält die Form, nicht den gesamten Folien‑Hintergrund oder benachbarte Formen.
+
+```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    if (slide.getShapes().size() == 0) {
+        System.out.println("Slide 1 does not contain a shape to export.");
+    } else {
+        IShape shape = slide.getShapes().get_Item(0);
+        try (FileOutputStream svgStream = new FileOutputStream("shape.svg")) {
+            shape.writeAsSvg(svgStream);
+        } catch (IOException exception) {
+            System.out.println("The SVG file could not be written: " + exception.getMessage());
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Halten Sie die Präsentation beim Rendern offen. Die Ausgabe hängt von der Formatierung der Form sowie von Ressourcen wie Schriften und Bildern ab. Wenn Sie die gesamte Komposition benötigen, exportieren Sie die Folie statt einer einzelnen Form. Der Aufrufer besitzt den Stream und muss ihn schließen.
+
+## **Formen ausrichten**
+
+Die Methode [SlideUtil.alignShapes](https://reference.aspose.com/slides/de/java/com.aspose.slides/slideutil/#alignShapes-int-boolean-com.aspose.slides.IBaseSlide-int:A-) überlädt entweder alle Formen oder ausgewählte Collection‑Indizes. [ShapesAlignmentType](https://reference.aspose.com/slides/de/java/com.aspose.slides/shapesalignmenttype/) bestimmt die Kante, Mittellinie oder den Verteilungsmodus. Setzen Sie `alignToSlide` auf `true`, um die Folienkanten zu verwenden; setzen Sie es auf `false`, um die ausgewählten Formen relativ zueinander auszurichten.
+
+Dieses Beispiel richtet drei Formen an der oberen Kante der Folie aus. Die zurückgegebenen Form‑Referenzen werden unmittelbar vor der Ausrichtung in ihre aktuellen Indizes konvertiert.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape firstShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 60, 80, 120, 50);
+    IAutoShape secondShape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 240, 160, 120, 50);
+    IAutoShape thirdShape = slide.getShapes().addAutoShape(ShapeType.Triangle, 420, 240, 120, 50);
+    firstShape.setName("FirstAlignedShape");
+    secondShape.setName("SecondAlignedShape");
+    thirdShape.setName("ThirdAlignedShape");
+
+    int[] shapeIndexes = {slide.getShapes().indexOf(firstShape), slide.getShapes().indexOf(secondShape), slide.getShapes().indexOf(thirdShape)};
+
+    SlideUtil.alignShapes(ShapesAlignmentType.AlignTop, true, slide, shapeIndexes);
+    presentation.save("aligned-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Ausrichtung ändert Positionen, nicht die Z‑Reihenfolge. Relative Ausrichtung erfordert normalerweise mindestens zwei Formen, während horizontale oder vertikale Verteilung genügend Formen benötigt, um Abstände zu definieren. Berechnen Sie die Indizes erneut, wenn Sie die Sammlung vor dem Aufruf der Methode modifizieren.
+
+## **Form spiegeln**
+
+Die Klasse [ShapeFrame](https://reference.aspose.com/slides/de/java/com.aspose.slides/shapeframe/) speichert Position, Größe, horizontale und vertikale Spiegel‑Einstellungen sowie Drehung. Ihre `getFlipH`‑ und `getFlipV`‑Werte verwenden [NullableBool](https://reference.aspose.com/slides/de/java/com.aspose.slides/nullablebool/): `True` aktiviert die Spiegelung, `False` deaktiviert sie, und `NotDefined` behält den undefinierten/Standard‑Zustand bei.
+
+Die untenstehende Eingabe‑Präsentation enthält eine nicht gespiegelte Form.
+
+![The shape before flipping](shape_to_be_flipped.png)
+
+Das Beispiel behält alle anderen Frame‑Werte bei und ersetzt nur die beiden Spiegel‑Einstellungen. Das ist wichtig, weil das Zuweisen eines neuen [Frame](https://reference.aspose.com/slides/de/java/com.aspose.slides/ishape/#setFrame-com.aspose.slides.IShapeFrame-) den gesamten Frame ersetzt.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("sample.pptx");
+try {
+    IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IShapeFrame frame = shape.getFrame();
+
+    System.out.println("Horizontal flip before change: " + frame.getFlipH());
+    System.out.println("Vertical flip before change: " + frame.getFlipV());
+
+    shape.setFrame(new ShapeFrame(frame.getX(), frame.getY(), frame.getWidth(), frame.getHeight(), NullableBool.True, NullableBool.True, frame.getRotation()));
+
+    presentation.save("flipped-shape.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Die gespeicherte Form ist horizontal und vertikal gespiegelt, während Position, Größe und Drehung unverändert bleiben.
+
+![The shape after flipping](flipped_shape.png)
 
 ## **FAQ**
 
-**Kann ich Formen (Vereinigung/Schnittmenge/Subtraktion) auf einer Folie wie in einem Desktop‑Editor kombinieren?**
+**Soll ich einen Collection‑Index als Form‑Bezeichner verwenden?**
 
-Es gibt keine integrierte API für boolesche Operationen. Sie können dies annähern, indem Sie die gewünschte Kontur selbst erstellen – z. B. die entstehende Geometrie über [GeometryPath](https://reference.aspose.com/slides/java/com.aspose.slides/geometrypath/) berechnen und eine neue Form mit dieser Kontur erzeugen, optional die Originale entfernen.
+Nur für kurzlebige Verarbeitung, bei der die Collection vor der Verwendung des Index nicht geändert wird. Bevorzugen Sie ein geprüftes `Name`‑ oder `AlternativeText`‑Konzept für erstellte Vorlagen oder `OfficeInteropShapeId` für slide‑bezogene Interop‑Arbeiten.
 
-**Wie kann ich die Stapelreihenfolge (z‑Order) steuern, sodass eine Form immer „oben“ bleibt?**
+**Entfernt das Ausblenden einer Form sie aus der Z‑Reihenfolge?**
 
-Ändern Sie die Einfüg‑/Verschiebereihenfolge innerhalb der [shapes](https://reference.aspose.com/slides/java/com.aspose.slides/baseslide/#getShapes--)‑Sammlung der Folie. Für vorhersehbare Ergebnisse sollten Sie die z‑Order nach allen anderen Folienänderungen abschließen.
+Nein. Eine ausgeblendete Form bleibt in der Collection am selben Index. Sie kann gefunden, neu sortiert, bearbeitet oder wieder sichtbar gemacht werden.
 
-**Kann ich eine Form „sperren“, um zu verhindern, dass Benutzer sie in PowerPoint bearbeiten?**
+**Warum erschien eine geklonte Form vor einer anderen Form?**
 
-Ja. Setzen Sie [shape-level protection flags](/slides/de/java/applying-protection-to-presentation/) (z. B. Auswahl, Verschiebung, Größenänderung, Textbearbeitung sperren). Bei Bedarf spiegeln Sie die Beschränkungen im Master oder Layout. Beachten Sie, dass dies ein UI‑basiertes Schutzmittel ist und keine Sicherheitsfunktion; für stärkeren Schutz kombinieren Sie es mit Dateischutz‑Beschränkungen wie [Leseempfehlungen oder Passwörtern](/slides/de/java/password-protected-presentation/).
+`addClone` hängt den Klon an das Ende der Collection an, das die Vorderseite der Z‑Reihenfolge ist. Verwenden Sie `insertClone`, um den Anfangs‑Index zu wählen, oder `reorder` nach dem Hinzufügen aller Formen.

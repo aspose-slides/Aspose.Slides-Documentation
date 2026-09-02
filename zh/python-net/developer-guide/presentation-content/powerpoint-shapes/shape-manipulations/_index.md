@@ -1,5 +1,5 @@
 ---
-title: 使用 Python 管理演示文稿中的形状
+title: 在 Python 中管理演示文稿形状
 linktitle: 形状操作
 type: docs
 weight: 40
@@ -13,316 +13,312 @@ keywords:
 - 删除形状
 - 隐藏形状
 - 更改形状顺序
-- 获取 Interop 形状 ID
+- 获取 interop 形状 ID
 - 形状替代文本
 - 形状布局格式
 - 形状为 SVG
 - 形状转 SVG
 - 对齐形状
+- 翻转形状
 - PowerPoint
-- OpenDocument
 - 演示文稿
 - Python
 - Aspose.Slides
-description: "学习在 Aspose.Slides for Python via .NET 中创建、编辑和优化形状，并交付高性能的 PowerPoint 和 OpenDocument 演示文稿。"
+description: "了解如何使用 Aspose.Slides for Python via .NET 对演示文稿形状进行识别、克隆、删除、隐藏、重新排序、导出、对齐和翻转。"
 ---
-
 ## **概述**
 
-本指南介绍了通过 .NET 在 Aspose.Slides for Python 中进行形状操作。了解查找形状（包括通过替代文本）、复制、删除或隐藏、重新排序、对齐和翻转、读取 ID 和基于布局的格式化，以及使用 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 和 [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) API 将单个形状导出为 SVG 的实用模式。
+Aspose.Slides for Python via .NET 将幻灯片上的形状表示为有序的[ShapeCollection](https://reference.aspose.com/slides/zh/python-net/aspose.slides/shapecollection/)。该集合既是查找和修改形状的所在，也是它们堆叠顺序的来源：索引 `0` 为最底层形状，最后一个索引为最前层形状。
 
-## **在幻灯片上查找形状**
+本文遵循此模型。首先说明如何可靠地识别形状，然后展示如何克隆、删除、隐藏和重新排序形状。最后的章节涵盖布局级格式、SVG 导出、对齐以及翻转设置。每个示例都是独立的，您可以只使用工作流中需要的操作。
 
-PowerPoint 仅通过内部 ID 标识形状。先在 PowerPoint 中为目标形状分配唯一的 Alt Text，然后使用 Aspose.Slides for Python 打开演示文稿，遍历幻灯片上的形状，选择 Alt Text 匹配的形状。`find_shape` 方法实现了此思路并返回匹配的形状。
-```py
+## **识别和查找形状**
+
+在处理已知文件时，集合索引很方便，但它们并不是稳定的标识符。添加、删除或重新排序形状都会改变其索引。请根据演示文稿的编写和维护方式选择标识符：
+
+- [Shape.name](https://reference.aspose.com/slides/zh/python-net/aspose.slides/shape/name/) 对于开发者可控的模板很有用，并且可以在 PowerPoint 的“选择窗格”中轻松检查。名称可以编辑，但不保证唯一，因此如果代码依赖名称，需建立命名约定。
+- [Shape.alternative_text](https://reference.aspose.com/slides/zh/python-net/aspose.slides/shape/alternative_text/) 在可访问性描述或作者提供的标签已经标识形状时很有用。它对用户可见，可能会本地化或为可访问性重写，也不保证唯一。不要在不显式检查的情况下将有意义的可访问性文本用作数据库键。
+- [Shape.office_interop_shape_id](https://reference.aspose.com/slides/zh/python-net/aspose.slides/shape/office_interop_shape_id/) 是只读标识符，在同一幻灯片内唯一，对应 PowerPoint interop 使用的形状 ID。将其用于与 PowerPoint 集成或在形状生命周期内需要明确引用的场景。克隆或重新创建的形状是不同的形状，拥有自己的 ID。
+
+相关的[Shape.unique_id](https://reference.aspose.com/slides/zh/python-net/aspose.slides/shape/unique_id/)属性具有演示文稿范围，但它面向插件，可能会被重新分配。不要将其视为永久的外部键。如果长期身份至关重要，请在应用程序数据中维护映射，并验证预期的形状仍然存在。
+
+下面的示例使用精确比较按 `name` 搜索，并报告幻灯片范围的 interop ID。当模板不包含预期形状时，代码会报告该结果而不是继续使用错误的对象。
+
+```python
 import aspose.slides as slides
 
-# 在幻灯片上通过替代文本查找形状。
-def find_shape(slide, alt_text):
-    for slide_shape in slide.shapes:
-        if slide_shape.alternative_text == alt_text:
-            return slide_shape
-    return None
-
-
-# 实例化代表演示文稿文件的 Presentation 类。
-with slides.Presentation("sample.pptx") as presentation:
+with slides.Presentation("input.pptx") as presentation:
     slide = presentation.slides[0]
-    # 查找 Alt Text 为 "Shape1" 的形状。
-    shape = find_shape(slide, "Shape1")
-    if shape is not None:
-        print("Shape name:", shape.name)
+
+    target_shape = None
+    for shape in slide.shapes:
+        if shape.name == "RevenueChart":
+            target_shape = shape
+            break
+
+    if target_shape is None:
+        print("The shape 'RevenueChart' was not found on slide 1.")
+    else:
+        print("Found {}; interop ID: {}".format(target_shape.name, target_shape.office_interop_shape_id))
 ```
 
+当操作特定于某种形状类型时，使用之前应先检查类型。本示例仅在命名对象是[AutoShape](https://reference.aspose.com/slides/zh/python-net/aspose.slides/autoshape/)时才更新文本和替代文本。
 
-## **克隆形状**
-
-要在 Aspose.Slides 中将形状从源幻灯片克隆到新幻灯片，请按以下步骤操作：
-
-1. 从源文件创建一个 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 实例。
-1. 按索引获取源幻灯片及其 shapes 集合。
-1. 从母版幻灯片检索一个空白布局。
-1. 使用该布局添加空白幻灯片并获取其 shapes。
-1. 将形状克隆到目标幻灯片。
-1. 将演示文稿另存为 PPTX。
-
-下面的代码示例演示了如何将形状从一个幻灯片克隆到另一个幻灯片。
-```py
+```python
 import aspose.slides as slides
 
-# 实例化 Presentation 类。
-with slides.Presentation("sample.pptx") as presentation:
-    source_shapes = presentation.slides[0].shapes
+with slides.Presentation("input.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    candidate = None
+    for shape in slide.shapes:
+        if shape.name == "StatusLabel":
+            candidate = shape
+            break
+
+    if isinstance(candidate, slides.AutoShape):
+        candidate.text_frame.text = "Approved"
+        candidate.alternative_text = "Approval status: approved"
+        presentation.save("identified-shape.pptx", slides.export.SaveFormat.PPTX)
+    else:
+        print("'StatusLabel' is missing or is not an AutoShape.")
+```
+
+## **修改形状集合**
+
+添加、克隆、删除和重新排序方法会立即作用于集合。如果一次操作改变了形状的数量或顺序，请不要继续依赖该操作前捕获的索引。
+
+### **克隆形状**
+
+[ShapeCollection.add_clone](https://reference.aspose.com/slides/zh/python-net/aspose.slides/shapecollection/add_clone/) 创建一个独立的副本并将其追加到目标集合。[ShapeCollection.insert_clone](https://reference.aspose.com/slides/zh/python-net/aspose.slides/shapecollection/insert_clone/) 也会创建副本，但将其放置在指定的 Z 顺序索引处。接受坐标的重载会在不改变大小的情况下移动克隆；带宽度和高度的重载还能对其进行缩放。
+
+示例创建目标幻灯片，将标记矩形克隆到前面，并在后面插入第二个克隆。对任一克隆的修改都不会影响源形状。
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    source_slide = presentation.slides[0]
+    source_shape = source_slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 40, 180, 60)
+    source_shape.name = "SourceLabel"
+    source_shape.text_frame.text = "Source"
+
     blank_layout = presentation.masters[0].layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+    destination_slide = presentation.slides.add_empty_slide(blank_layout)
 
-    target_slide = presentation.slides.add_empty_slide(blank_layout)
-    target_shapes = target_slide.shapes
-	
-    target_shapes.add_clone(source_shapes[1], 50, 150 + source_shapes[0].height)
-    target_shapes.add_clone(source_shapes[2])
-    target_shapes.insert_clone(0, source_shapes[0], 50, 150)
+    front_clone_shape = destination_slide.shapes.add_clone(source_shape, 80, 80)
+    front_clone_shape.name = "FrontClone"
+    if isinstance(front_clone_shape, slides.AutoShape):
+        front_clone_shape.text_frame.text = "Front clone"
+    else:
+        print("The front clone is not an AutoShape; its text was not changed.")
 
-    # 将演示文稿保存到磁盘。
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    back_clone_shape = destination_slide.shapes.insert_clone(0, source_shape, 80, 180)
+    back_clone_shape.name = "BackClone"
+    if isinstance(back_clone_shape, slides.AutoShape):
+        back_clone_shape.text_frame.text = "Back clone"
+    else:
+        print("The back clone is not an AutoShape; its text was not changed.")
+
+    presentation.save("cloned-shapes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+克隆会复制形状的内容和格式，包括名称和替代文本。当这些值必须唯一时，请为克隆分配新的逻辑标识符。复杂形状使用的资源由演示文稿统一管理，但克隆仍是集合中的新项，拥有全新的形状标识。
 
-## **删除形状**
+### **删除形状**
 
-Aspose.Slides 允许您删除幻灯片上的任何形状。例如，要通过其替代文本删除第一张幻灯片上的形状，请按以下步骤操作：
+[ShapeCollection.remove](https://reference.aspose.com/slides/zh/python-net/aspose.slides/shapecollection/remove/) 将特定形状对象从其集合中删除。在索引迭代期间删除多个匹配项时，请从末尾向前遍历，以保证剩余索引仍然有效。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 实例并加载文件。
-1. 从 slides 集合中访问第一张幻灯片。
-1. 通过 Alternative Text 值查找形状。
-1. 将该形状从幻灯片的 shapes 集合中移除。
-1. 将演示文稿保存为 PPTX 格式。
-```py
+本示例删除所有具有指定名称的形状。它读取 `slide.shapes[index]`，而不是固定的集合项，并且不会不必要地进行类型转换。
+
+```python
 import aspose.slides as slides
 
-# 在幻灯片上通过替代文本查找形状。
-def find_shape(slide, alt_text):
-    for slide_shape in slide.shapes:
-        if slide_shape.alternative_text == alt_text:
-            return slide_shape
-    return None
-
-
-# 实例化表示演示文稿文件的 Presentation 类。
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    # 查找 Alt Text 为 "User Defined" 的形状。
-    shape = find_shape(slide, "User Defined")
-    # 删除该形状。
-    slide.shapes.remove(shape)
-    # 将演示文稿保存到磁盘。
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-## **隐藏形状**
-
-Aspose.Slides 允许您隐藏幻灯片上的任何形状。例如，要通过其替代文本隐藏第一张幻灯片上的形状，请按以下步骤操作：
-
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 实例并加载文件。
-1. 从 slides 集合中访问第一张幻灯片。
-1. 通过 Alternative Text 值查找形状。
-1. 将该形状设置为隐藏。
-1. 将演示文稿保存为 PPTX 格式。
-```py
-# 在幻灯片上通过替代文本查找形状。
-def find_shape(slide, alt_text):
-    for slide_shape in slide.shapes:
-        if slide_shape.alternative_text == alt_text:
-            return slide_shape
-    return None
-
-
-# 实例化表示演示文稿文件的 Presentation 类。
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    # 查找 Alt Text 为 "User Defined" 的形状。
-    shape = find_shape(slide, "User Defined")
-    # 隐藏该形状。
-    shape.hidden = True
-    # 将演示文稿保存到磁盘。
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-## **更改形状的顺序**
-
-Aspose.Slides 允许开发者重新排列形状（更改 z‑order）。重新排序决定哪个形状位于前面或后面。例如，要在第一张幻灯片上重新排列两个形状，请按以下步骤操作：
-
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
-1. 访问第一张幻灯片。
-1. 添加第一个形状（例如矩形）。
-1. 添加第二个形状（例如三角形）。
-1. 通过将第二个形状移动到集合的第一位置来重新排序。
-1. 将演示文稿保存到磁盘。
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    slide = presentation.slides[0]
-    # 向幻灯片添加两个形状。
-    shape1 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 200, 150)
-    shape2 = slide.shapes.add_auto_shape(slides.ShapeType.TRIANGLE, 20, 200, 200, 150)
-    # 将第二个形状移动到第一个位置。
-    slide.shapes.reorder(0, shape2)
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-## **获取 Interop 形状 ID**
-
-Aspose.Slides 让您获取形状在幻灯片范围内的唯一标识符，与 `unique_id`（跨整个演示文稿唯一）不同。`office_interop_shape_id` 属性位于 [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) 类上。其值对应于 `Microsoft.Office.Interop.PowerPoint.Shape` 对象的 `Id`。下面展示了相应的示例代码。
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    # 获取形状在幻灯片中的唯一标识符。
-    officeInteropShapeId = presentation.slides[0].shapes[0].office_interop_shape_id
-```
-
-
-## **为形状设置替代文本**
-
-Aspose.Slides 允许开发者为任意形状设置替代文本。您可以使用替代文本在演示文稿中标识和定位形状。该属性可以通过 Aspose.Slides 和 Microsoft PowerPoint 读取或写入。通过为形状打上此标签，后续可以在幻灯片上删除、隐藏或重新排序它们。
-
-设置形状的替代文本，请按以下步骤操作：
-
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
-1. 访问第一张幻灯片。
-1. 向幻灯片添加一个形状。
-1. 设置替代文本。
-1. 将演示文稿保存到磁盘。
-```py
-import aspose.slides as slides
-
-# 实例化表示 PPTX 文件的 Presentation 类。
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    # 添加一个形状。
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 40, 150, 50)
-    # 设置形状的替代文本。
-    shape.alternative_text = "User Defined"
-    # 将演示文稿保存到磁盘。
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+
+    keep_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 40, 140, 60)
+    keep_shape.name = "Keep"
+
+    first_temporary_shape = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 220, 40, 80, 80)
+    first_temporary_shape.name = "Temporary"
+
+    second_temporary_shape = slide.shapes.add_auto_shape(slides.ShapeType.TRIANGLE, 340, 40, 100, 80)
+    second_temporary_shape.name = "Temporary"
+
+    for index in range(len(slide.shapes) - 1, -1, -1):
+        shape = slide.shapes[index]
+        if shape.name == "Temporary":
+            slide.shapes.remove(shape)
+
+    presentation.save("removed-shapes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+删除后，形状计数以及后续形状的索引会发生变化。对未受影响形状的引用比保存的索引更可靠。另外请考虑连接线、动画及其他可能引用被删除对象的演示文稿特性；删除可见形状可能会影响的不止是幻灯片外观。
 
-## **访问形状的布局格式**
+### **隐藏形状**
 
-Aspose.Slides 提供了简洁的 API 用于访问形状的布局格式。本节演示如何获取布局格式。
-```py
+将[Shape.hidden](https://reference.aspose.com/slides/zh/python-net/aspose.slides/shape/hidden/)设为 `True` 可使形状仍保留在集合中，但在普通幻灯片放映时不显示。其索引、格式和内容仍可被代码访问，因此隐藏适用于可能稍后恢复的可选元素。
+
+```python
 import aspose.slides as slides
 
-with slides.Presentation(folder_path + "sample.pptx") as presentation:
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    visible_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 40, 160, 60)
+    visible_shape.name = "VisibleLabel"
+
+    optional_shape = slide.shapes.add_auto_shape(slides.ShapeType.MOON, 240, 40, 100, 100)
+    optional_shape.name = "OptionalDecoration"
+
+    for shape in slide.shapes:
+        if shape.name == "OptionalDecoration":
+            shape.hidden = True
+
+    presentation.save("hidden-shape.pptx", slides.export.SaveFormat.PPTX)
+```
+
+隐藏并不是删除或安全措施。用户或代码仍然可以发现并取消隐藏该对象，它仍是演示文稿文件的一部分。
+
+### **更改 Z 顺序**
+
+重叠的形状按集合顺序绘制。[ShapeCollection.reorder](https://reference.aspose.com/slides/zh/python-net/aspose.slides/shapecollection/reorder/) 将已有形状移动到目标索引，而不进行克隆。索引 `0` 为最底层；`len(slide.shapes) - 1` 为最前层。
+
+```python
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    blue_rectangle = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 220, 120)
+    blue_rectangle.name = "BlueRectangle"
+    blue_rectangle.fill_format.fill_type = slides.FillType.SOLID
+    blue_rectangle.fill_format.solid_fill_color.color = draw.Color.steel_blue
+
+    orange_ellipse = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 180, 140, 220, 120)
+    orange_ellipse.name = "OrangeEllipse"
+    orange_ellipse.fill_format.fill_type = slides.FillType.SOLID
+    orange_ellipse.fill_format.solid_fill_color.color = draw.Color.orange
+
+    slide.shapes.reorder(len(slide.shapes) - 1, blue_rectangle)
+    presentation.save("reordered-shapes.pptx", slides.export.SaveFormat.PPTX)
+```
+
+矩形先创建，最初位于椭圆之后。将其移动到最后一个索引后会显示在前面。请在添加或克隆所有相关形状后再最终确定 Z 顺序，因为这些操作会追加或插入新集合项，可能改变预期的堆叠。
+
+## **检查布局幻灯片上的形状**
+
+普通幻灯片、布局幻灯片和母版幻灯片拥有各自的形状集合。布局集合中的形状并不是普通幻灯片上同位置形状的同一对象。需要了解或更改布局提供的格式时，请检查布局形状。
+
+下面的示例读取每个布局形状的[Shape.fill_format](https://reference.aspose.com/slides/zh/python-net/aspose.slides/shape/fill_format/)和[Shape.line_format](https://reference.aspose.com/slides/zh/python-net/aspose.slides/shape/line_format/)，而不假设每个形状都是 `AutoShape`。
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("input.pptx") as presentation:
     for layout_slide in presentation.layout_slides:
-        fill_formats = list(map(lambda shape: shape.fill_format, layout_slide.shapes))
-        line_formats = list(map(lambda shape: shape.line_format, layout_slide.shapes))
+        for shape in layout_slide.shapes:
+            fill_type = shape.fill_format.fill_type
+            line_width = shape.line_format.width
+            print("{} / {}: fill={}, line width={}".format(layout_slide.name, shape.name, fill_type, line_width))
 ```
 
+编辑布局可能会影响使用该布局的多个幻灯片。在更改布局形状之前，请确定普通幻灯片是继承该对象还是包含本地覆盖，并对所有使用该布局的幻灯片进行测试。
 
-## **将形状渲染为 SVG**
+## **将形状导出为 SVG**
 
-Aspose.Slides 支持将形状渲染为 SVG。`write_as_svg` 方法（及其重载）位于 [Shape](https://reference.aspose.com/slides/python-net/aspose.slides/shape/) 类上，可将形状内容保存为 SVG 图像。下面的代码片段展示了如何将形状导出为 SVG 文件。
-```py
+[Shape.write_as_svg](https://reference.aspose.com/slides/zh/python-net/aspose.slides/shape/write_as_svg/) 将单个形状的渲染内容写入流。结果只包含该形状，而不包括整个幻灯片背景或相邻形状。
+
+```python
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-    with open("output.svg", "wb") as image_stream:
-        # 获取第一张幻灯片上的第一个形状。
-        shape = presentation.slides[0].shapes[0]
-        shape.write_as_svg(image_stream)
+with slides.Presentation("input.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    if len(slide.shapes) == 0:
+        print("Slide 1 does not contain a shape to export.")
+    else:
+        shape = slide.shapes[0]
+        with open("shape.svg", "wb") as svg_stream:
+            shape.write_as_svg(svg_stream)
 ```
 
+渲染时请保持演示文稿打开。输出受形状格式以及字体、图像等资源的影响。如果需要整个组合，请导出整张幻灯片而不是单个形状。调用方拥有该流并必须负责关闭。
 
 ## **对齐形状**
 
-使用 [SlidesUtil](https://reference.aspose.com/slides/python-net/aspose.slides.util/slideutil/) 类中的 `align_shape` 方法，您可以：
+[SlideUtil.align_shapes](https://reference.aspose.com/slides/zh/python-net/aspose.slides.util/slideutil/align_shapes/) 的重载可以对全部形状或指定集合索引进行对齐。[ShapesAlignmentType](https://reference.aspose.com/slides/zh/python-net/aspose.slides/shapesalignmenttype/) 指定对齐的边缘、中心线或分布模式。将 `align_to_slide` 设为 `True` 使用幻灯片边缘；设为 `False` 则相对选中形状彼此对齐。
 
-* 相对于幻灯片边距对齐形状（参见 示例 1）。
-* 相互之间对齐形状（参见 示例 2）。
+本示例将三个形状对齐到幻灯片的顶部边缘。它们的当前索引在对齐前立即解析。
 
-[ShapesAlignmentType](https://reference.aspose.com/slides/python-net/aspose.slides/shapesalignmenttype/) 枚举定义了可用的对齐选项。
-
-**示例 1**
-
-下面的 Python 代码展示了如何将索引为 1、2、4 的形状对齐到幻灯片的顶部边缘：
-```py
+```python
 import aspose.slides as slides
 
-align_type = slides.ShapesAlignmentType.ALIGN_TOP
-slide_indices = [1, 2, 4]
-
-with slides.Presentation("sample.pptx") as presentation:
+with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    slides.util.SlideUtil.align_shapes(align_type, True, slide, slide_indices)
+
+    first_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 60, 80, 120, 50)
+    second_shape = slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 240, 160, 120, 50)
+    third_shape = slide.shapes.add_auto_shape(slides.ShapeType.TRIANGLE, 420, 240, 120, 50)
+    first_shape.name = "FirstAlignedShape"
+    second_shape.name = "SecondAlignedShape"
+    third_shape.name = "ThirdAlignedShape"
+
+    shape_indexes = [
+        slide.shapes.index_of(first_shape),
+        slide.shapes.index_of(second_shape),
+        slide.shapes.index_of(third_shape)
+    ]
+
+    slides.util.SlideUtil.align_shapes(slides.ShapesAlignmentType.ALIGN_TOP, True, slide, shape_indexes)
+    presentation.save("aligned-shapes.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+对齐会改变位置，而不改变 Z 顺序。相对对齐通常至少需要两个形状，水平或垂直分布则需要足够的形状来定义间距。若在调用方法前修改了集合，请重新计算索引。
 
-**示例 2**
+## **翻转形状**
 
-下面的 Python 示例展示了如何将集合中的所有形状相对于该集合中最底部的形状进行对齐：
-```py
+[ShapeFrame](https://reference.aspose.com/slides/zh/python-net/aspose.slides/shapeframe/) 类存储位置、大小、水平和垂直翻转设置以及旋转。其 `flip_h` 和 `flip_v` 值使用[NullableBool](https://reference.aspose.com/slides/zh/python-net/aspose.slides/nullablebool/)：`TRUE` 启用翻转，`FALSE` 禁用，`NOT_DEFINED` 保持未指定或默认状态。
+
+下面的输入演示文稿包含一个未翻转的形状。
+
+![翻转前的形状](shape_to_be_flipped.png)
+
+示例保留其他所有框架值，仅替换这两个翻转设置。这一点重要，因为为[Shape.frame](https://reference.aspose.com/slides/zh/python-net/aspose.slides/shape/frame/)分配新对象会替换整个框架。
+
+```python
 import aspose.slides as slides
 
-align_type = slides.ShapesAlignmentType.ALIGN_BOTTOM
-
-with slides.Presentation("sample.pptx") as presentation:
-    slides.util.SlideUtil.align_shapes(align_type, False, presentation.slides[0])
-```
-
-
-## **翻转属性**
-
-在 Aspose.Slides 中，[ShapeFrame](https://reference.aspose.com/slides/python-net/aspose.slides/shapeframe/) 类通过 `flip_h` 和 `flip_v` 属性提供对形状水平和垂直镜像的控制。这两个属性的类型为 [NullableBool](https://reference.aspose.com/slides/python-net/aspose.slides/nullablebool/)，可取 `TRUE`（翻转）、`FALSE`（不翻转）或 `NOT_DEFINED`（使用默认行为）。这些值可通过形状的 [Frame](https://reference.aspose.com/slides/python-net/aspose.slides/shape/frame/) 访问。
-
-要修改翻转设置，可构造一个新的 [ShapeFrame](https://reference.aspose.com/slides/python-net/aspose.slides/shapeframe/) 实例，传入形状当前的位置、大小以及期望的 `flip_h`、`flip_v` 值和旋转角度。将该实例分配给形状的 [Frame](https://reference.aspose.com/slides/python-net/aspose.slides/shape/frame/) 并保存演示文稿，即可应用镜像转换并写入输出文件。
-
-假设我们有一个 sample.pptx 文件，第一张幻灯片包含单个默认翻转设置的形状，如下所示。
-
-![要翻转的形状](shape_to_be_flipped.png)
-
-下面的代码示例获取该形状当前的翻转属性并同时进行水平和垂直翻转。
-```py
 with slides.Presentation("sample.pptx") as presentation:
     shape = presentation.slides[0].shapes[0]
+    frame = shape.frame
 
-    # 检索形状的水平翻转属性。
-    horizontal_flip = shape.frame.flip_h
-    print("Horizontal flip:", horizontal_flip)
+    print("Horizontal flip before change:", frame.flip_h)
+    print("Vertical flip before change:", frame.flip_v)
 
-    # 检索形状的垂直翻转属性。
-    vertical_flip = shape.frame.flip_v
-    print("Vertical flip:", vertical_flip)
+    shape.frame = slides.ShapeFrame(
+        frame.x, frame.y, frame.width, frame.height,
+        slides.NullableBool.TRUE, slides.NullableBool.TRUE, frame.rotation)
 
-    x, y = shape.frame.x, shape.frame.y
-    width, height = shape.frame.width, shape.frame.height
-    flip_h, flip_v = slides.NullableBool.TRUE, slides.NullableBool.TRUE  # 水平和垂直翻转。
-    rotation = shape.frame.rotation
-
-    shape.frame = slides.ShapeFrame(x, y, width, height, flip_h, flip_v, rotation)
-
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("flipped-shape.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
-结果：
+保存后的形状在水平和垂直方向上均为镜像，同时保持位置、大小和旋转不变。
 
 ![翻转后的形状](flipped_shape.png)
 
 ## **常见问题**
 
-**我可以像桌面编辑器一样在幻灯片上对形状进行合并（并集/交集/相减）吗？**
+**是否应该使用集合索引作为形状标识符？**
 
-目前没有内置的布尔运算 API。您可以自行构造所需的轮廓来近似实现，例如计算结果几何（通过 [GeometryPath](https://reference.aspose.com/slides/python-net/aspose.slides/geometrypath/)），然后使用该轮廓创建新形状，并可选择删除原始形状。
+仅在短暂处理且在使用索引前集合不会改变的情况下可以。对于已编写的模板，推荐使用经过验证的 `name` 或 `alternative_text` 约定；对于幻灯片范围的 interop 工作，使用 `office_interop_shape_id`。
 
-**如何控制堆叠顺序（z‑order），使形状始终保持在最上层？**
+**隐藏形状会从 Z 顺序中移除吗？**
 
-在幻灯片的 [shapes](https://reference.aspose.com/slides/python-net/aspose.slides/slide/shapes/) 集合中更改插入/移动顺序即可。为获得可预期的结果，建议在完成其他所有幻灯片修改后最后确定 z‑order。
+不会。隐藏的形状仍保留在集合中，索引不变。它仍然可以被查找、重新排序、编辑或再次显示。
 
-**我能“锁定”形状，以防止用户在 PowerPoint 中编辑它吗？**
+**为什么克隆的形状出现在另一形状的前面？**
 
-可以。设置 [shape-level protection flags](/slides/zh/python-net/applying-protection-to-presentation/)（例如锁定选择、移动、调整大小、文本编辑）。如有需要，可在母版或布局上镜像这些限制。请注意，这是一种 UI 级别的保护，而非安全特性；若需更强的保护，可结合文件级限制，例如 [只读建议或密码](/slides/zh/python-net/password-protected-presentation/)。
+`add_clone` 将克隆追加到集合末尾，而集合末尾对应 Z 顺序的最前层。使用 `insert_clone` 可以指定初始索引，或在所有形状添加完毕后调用 `reorder`。
