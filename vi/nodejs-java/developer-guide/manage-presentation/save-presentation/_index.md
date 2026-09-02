@@ -1,39 +1,42 @@
 ---
-title: Lưu Bài Thuyết Trình trong JavaScript
-linktitle: Lưu Bài Thuyết Trình
+title: Lưu Bản Trình Chiếu trong JavaScript
+linktitle: Lưu Bản Trình Chiếu
 type: docs
 weight: 80
 url: /vi/nodejs-java/save-presentation/
 keywords:
 - lưu PowerPoint
 - lưu OpenDocument
-- lưu bài thuyết trình
+- lưu bản trình chiếu
 - lưu slide
 - lưu PPT
 - lưu PPTX
 - lưu ODP
-- bài thuyết trình thành tập tin
-- bài thuyết trình thành luồng
-- kiểu xem được định nghĩa trước
+- bản trình chiếu thành tệp
+- bản trình chiếu thành stream
+- kiểu xem đã định nghĩa trước
 - định dạng Strict Office Open XML
 - chế độ Zip64
 - làm mới hình thu nhỏ
-- tiến độ lưu
+- tiến trình lưu
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Khám phá cách lưu các bài thuyết trình bằng Aspose.Slides cho Node.js qua Java - xuất ra PowerPoint hoặc OpenDocument đồng thời giữ nguyên bố cục, phông chữ và hiệu ứng."
+description: "Khám phá cách lưu bản trình chiếu bằng Aspose.Slides cho Node.js thông qua Java — xuất ra PowerPoint hoặc OpenDocument đồng thời giữ nguyên bố cục, phông chữ và hiệu ứng."
 ---
-## **Tổng Quan**
+## **Tổng quan**
 
-[Open Presentations in JavaScript](/slides/vi/nodejs-java/open-presentation/) mô tả cách sử dụng lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/) để mở một bài thuyết trình. Bài viết này giải thích cách tạo và lưu bài thuyết trình. Lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/) chứa nội dung của bài thuyết trình. Cho dù bạn đang tạo một bài thuyết trình từ đầu hay chỉnh sửa một bài đã có, bạn sẽ muốn lưu nó khi hoàn thành. Với Aspose.Slides cho Node.js, bạn có thể lưu thành **tập tin** hoặc **luồng**. Bài viết này giải thích các cách khác nhau để lưu một bài thuyết trình.
+[Open Presentations in JavaScript](/slides/vi/nodejs-java/open-presentation/) mô tả cách sử dụng lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/) để mở một bản trình chiếu. Bài viết này giải thích cách tạo và lưu bản trình chiếu. Lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/) chứa nội dung của bản trình chiếu. Cho dù bạn đang tạo một bản trình chiếu từ đầu hay chỉnh sửa một bản hiện có, bạn sẽ muốn lưu nó khi hoàn thành. Với Aspose.Slides cho Node.js, bạn có thể lưu vào **file** hoặc **stream**. Bài viết này giải thích các cách khác nhau để lưu một bản trình chiếu.
 
-## **Lưu Bài Thuyết Trình vào Tập Tin**
+## **Lưu bản trình chiếu vào Files**
 
-Lưu một bài thuyết trình vào tập tin bằng cách gọi phương thức `save` của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/). Truyền tên tập tin và định dạng lưu vào phương thức. Ví dụ sau cho thấy cách lưu một bài thuyết trình với Aspose.Slides.
+Lưu một bản trình chiếu vào tệp bằng cách gọi phương thức `save` của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/). Pass the file name and save format to the method. The following example show how to save a presentation with Aspose.Slides.
 
 ```js
-// Khởi tạo lớp Presentation đại diện cho tệp bản trình chiếu.
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// Khởi tạo lớp Presentation đại diện cho một tệp bản trình chiếu.
 let presentation = new aspose.slides.Presentation();
 try {
     // Thực hiện một số công việc ở đây...
@@ -45,17 +48,21 @@ try {
 }
 ```
 
-## **Lưu Bài Thuyết Trình vào Luồng**
+## **Lưu bản trình chiếu vào Streams**
 
-Bạn có thể lưu một bài thuyết trình vào luồng bằng cách truyền một luồng đầu ra vào phương thức `save` của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/). Một bài thuyết trình có thể được ghi vào nhiều loại luồng khác nhau. Trong ví dụ dưới, chúng ta tạo một bài thuyết trình mới và lưu nó vào một luồng tập tin.
+Bạn có thể lưu một bản trình chiếu vào stream bằng cách truyền một output stream vào phương thức `save` của lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/). Một bản trình chiếu có thể được ghi vào nhiều loại stream. Trong ví dụ dưới đây, chúng tôi tạo một bản trình chiếu mới và lưu nó vào một file stream.
 
 ```js
-// Khởi tạo lớp Presentation đại diện cho tệp bản trình chiếu.
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+// Khởi tạo lớp Presentation đại diện cho một tệp bản trình chiếu.
 let presentation = new aspose.slides.Presentation();
 try {
     let fileStream = java.newInstanceSync("java.io.FileOutputStream", "Output.pptx");
     try {
-        // Lưu bản trình chiếu vào luồng.
+        // Lưu bản trình chiếu vào stream.
         presentation.save(fileStream, aspose.slides.SaveFormat.Pptx);
     } finally {
         fileStream.close();
@@ -65,11 +72,14 @@ try {
 }
 ```
 
-## **Lưu Bài Thuyết Trình với Kiểu Xem Được Định Nghĩa Trước**
+## **Lưu bản trình chiếu với Kiểu xem đã định nghĩa trước**
 
-Aspose.Slides cho phép bạn đặt chế độ xem ban đầu mà PowerPoint sử dụng khi bài thuyết trình được mở qua lớp [ViewProperties](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/viewproperties/). Sử dụng phương thức [setLastView](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/viewproperties/#setLastView) với một giá trị từ enumeration [ViewType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/viewtype/).
+Aspose.Slides cho phép bạn đặt chế độ xem ban đầu mà PowerPoint sử dụng khi bản trình chiếu được mở qua lớp [ViewProperties](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/viewproperties/). Sử dụng phương thức [setLastView](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/viewproperties/#setLastView) với một giá trị từ enumeration [ViewType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/viewtype/).
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation();
 try {
     presentation.getViewProperties().setLastView(aspose.slides.ViewType.SlideMasterView);
@@ -79,17 +89,20 @@ try {
 }
 ```
 
-## **Lưu Bài Thuyết Trình ở Định Dạng Office Open XML Chặt Chẽ**
+## **Lưu bản trình chiếu ở định dạng Strict Office Open XML**
 
-Aspose.Slides cho phép bạn lưu một bài thuyết trình ở định dạng Strict Office Open XML. Sử dụng lớp [PptxOptions](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pptxoptions/) và đặt thuộc tính conformance khi lưu. Nếu bạn đặt [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/conformance/#Iso29500_2008_Strict), tệp đầu ra sẽ được lưu ở định dạng Strict Office Open XML.
+Aspose.Slides cho phép bạn lưu một bản trình chiếu ở định dạng Strict Office Open XML. Sử dụng lớp [PptxOptions](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pptxoptions/) và đặt thuộc tính conformance khi lưu. Nếu bạn đặt [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/conformance/#Iso29500_2008_Strict), tệp đầu ra sẽ được lưu ở định dạng Strict Office Open XML.
 
-Ví dụ dưới tạo một bài thuyết trình và lưu nó ở định dạng Strict Office Open XML.
+Ví dụ dưới đây tạo một bản trình chiếu và lưu nó ở định dạng Strict Office Open XML.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let options = new aspose.slides.PptxOptions();
 options.setConformance(aspose.slides.Conformance.Iso29500_2008_Strict);
 
-// Khởi tạo lớp Presentation đại diện cho tệp bản trình chiếu.
+// Khởi tạo lớp Presentation đại diện cho một tệp bản trình chiếu.
 let presentation = new aspose.slides.Presentation();
 try {
     // Lưu bản trình chiếu ở định dạng Strict Office Open XML.
@@ -99,21 +112,24 @@ try {
 }
 ```
 
-## **Lưu Bài Thuyết Trình ở Định Dạng Office Open XML trong Chế Độ Zip64**
+## **Lưu bản trình chiếu ở định dạng Office Open XML ở chế độ Zip64**
 
-Một tệp Office Open XML là một kho lưu ZIP áp chế giới hạn 4 GB (2^32 byte) cho kích thước không nén của bất kỳ tệp nào, kích thước nén của bất kỳ tệp nào và tổng kích thước của kho lưu, đồng thời giới hạn số tệp trong kho lưu là 65 535 (2^16‑1). Các phần mở rộng định dạng ZIP64 nâng các giới hạn này lên 2^64.
+Một tệp Office Open XML là một tập tin ZIP áp đặt giới hạn 4 GB (2^32 byte) cho kích thước chưa nén của bất kỳ tệp nào, kích thước đã nén của bất kỳ tệp nào và tổng kích thước của archive, đồng thời giới hạn số tệp trong archive là 65 535 (2^16‑1). Các phần mở rộng định dạng ZIP64 nâng những giới hạn này lên 2^64.
 
-Phương thức [PptxOptions.setZip64Mode](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pptxoptions/#getZip64Mode) cho phép bạn chọn khi nào sử dụng các phần mở rộng định dạng ZIP64 khi lưu tệp Office Open XML.
+Phương thức [PptxOptions.setZip64Mode](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pptxoptions/#getZip64Mode) cho phép bạn chọn khi nào sử dụng phần mở rộng định dạng ZIP64 khi lưu tệp Office Open XML.
 
 Phương thức này có thể được sử dụng với các chế độ sau:
 
-- [IfNecessary](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/zip64mode/#IfNecessary) chỉ sử dụng các phần mở rộng định dạng ZIP64 chỉ khi bài thuyết trình vượt quá các giới hạn trên. Đây là chế độ mặc định.
-- [Never](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/zip64mode/#Never) không bao giờ sử dụng các phần mở rộng định dạng ZIP64.
-- [Always](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/zip64mode/#Always) luôn luôn sử dụng các phần mở rộng định dạng ZIP64.
+- [IfNecessary](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/zip64mode/#IfNecessary) sử dụng phần mở rộng định dạng ZIP64 chỉ nếu bản trình chiếu vượt quá các giới hạn trên. Đây là chế độ mặc định.
+- [Never](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/zip64mode/#Never) không bao giờ sử dụng phần mở rộng định dạng ZIP64.
+- [Always](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/zip64mode/#Always) luôn luôn sử dụng phần mở rộng định dạng ZIP64.
 
-Đoạn mã sau minh họa cách lưu một bài thuyết trình dưới dạng PPTX với các phần mở rộng định dạng ZIP64 được bật:
+Mã dưới đây minh họa cách lưu một bản trình chiếu dưới dạng tệp PPTX với phần mở rộng định dạng ZIP64 được bật:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let pptxOptions = new aspose.slides.PptxOptions();
 pptxOptions.setZip64Mode(aspose.slides.Zip64Mode.Always);
 
@@ -125,20 +141,74 @@ try {
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-Khi bạn lưu với [Zip64Mode.Never](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/zip64mode/#Never), một [PptxException](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pptxexception/) sẽ được ném nếu bài thuyết trình không thể lưu ở định dạng ZIP32.
+{{% alert title="LƯU Ý" color="warning" %}}
+Khi bạn lưu với [Zip64Mode.Never](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/zip64mode/#Never), một [PptxException](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pptxexception/) sẽ được ném nếu bản trình chiếu không thể được lưu ở định dạng ZIP32.
 {{% /alert %}}
 
-## **Lưu Bài Thuyết Trình mà Không Làm Mới Hình Thu Nhỏ**
+## **Lưu bản trình chiếu ở định dạng Office Open XML với các mức nén**
 
-Phương thức [PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pptxoptions/#setRefreshThumbnail) điều khiển việc tạo hình thu nhỏ khi lưu một bài thuyết trình thành PPTX:
+Khi làm việc với các bản trình chiếu lớn, bạn có thể điều chỉnh mức nén để cân bằng giữa kích thước tệp và thời gian xử lý. Tùy thuộc vào yêu cầu, bạn có thể ưu tiên xử lý nhanh hơn hoặc tệp đầu ra nhỏ hơn.
 
-- Nếu đặt `true`, hình thu nhỏ được làm mới trong quá trình lưu. Đây là mặc định.
-- Nếu đặt `false`, hình thu nhỏ hiện tại được giữ nguyên. Nếu bài thuyết trình không có hình thu nhỏ, sẽ không tạo gì cả.
+Aspose.Slides cung cấp phương thức [PptxOptions.setCompressionLevel](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pptxoptions/#setCompressionLevel), cho phép bạn chỉ định mức nén được sử dụng khi lưu bản trình chiếu ở định dạng Office Open XML.
 
-Trong đoạn mã dưới, bài thuyết trình được lưu thành PPTX mà không làm mới hình thu nhỏ.
+Các mức nén sau đây có sẵn:
+
+- [**None**](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/compressionlevel/#None): Không áp dụng nén. Các tệp được lưu nguyên.
+- [**Level1**](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/compressionlevel/#Level1): Nén nhanh nhất với tỷ lệ nén thấp nhất.
+- [**Level2**](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/compressionlevel/#Level2): Nén nhanh hơn với tỷ lệ nén hơi tốt hơn **Level1**.
+- [**Level3**](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/compressionlevel/#Level3): Cung cấp nén tốt hơn **Level2** với ảnh hưởng vừa phải tới thời gian xử lý.
+- [**Level4**](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/compressionlevel/#Level4): Cung cấp nén tốt hơn **Level3**.
+- [**Level5**](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/compressionlevel/#Level5): Cải thiện nén hơn **Level4** với thời gian xử lý bổ sung.
+- [**Level6**](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/compressionlevel/#Level6): Nén tiêu chuẩn cung cấp cân bằng tốt giữa tốc độ xử lý và kích thước tệp. Đây là *mức nén mặc định*.
+- [**Level7**](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/compressionlevel/#Level7): Cung cấp nén tốt hơn **Level6** nhưng xử lý chậm hơn.
+- [**Level8**](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/compressionlevel/#Level8): Cung cấp nén tốt hơn **Level7**.
+- [**Level9**](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/compressionlevel/#Level9): Nén tối đa. Tạo kích thước tệp nhỏ nhất với thời gian xử lý lâu nhất.
+
+Ví dụ sau đây minh họa cách lưu một bản trình chiếu dưới dạng tệp PPTX *không có nén*:
 
 ```js
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const pptxOptions = new aspose.slides.PptxOptions();
+pptxOptions.setCompressionLevel(aspose.slides.CompressionLevel.None);
+
+const presentation = new aspose.slides.Presentation("Sample.pptx");
+try {
+    presentation.save("Sample-out.pptx", aspose.slides.SaveFormat.Pptx, pptxOptions);
+} finally {
+    presentation.dispose();
+}
+```
+
+Ví dụ này cho thấy cách lưu một bản trình chiếu dưới dạng tệp PPTX với *nén tối đa*:
+
+```js
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const pptxOptions = new aspose.slides.PptxOptions();
+pptxOptions.setCompressionLevel(aspose.slides.CompressionLevel.Level9);
+
+const presentation = new aspose.slides.Presentation("Sample.pptx");
+try {
+    presentation.save("Sample-level9.pptx", aspose.slides.SaveFormat.Pptx, pptxOptions);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Lưu bản trình chiếu mà không làm mới hình thu nhỏ**
+
+Phương thức [PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pptxoptions/#setRefreshThumbnail) kiểm soát việc tạo hình thu nhỏ khi lưu bản trình chiếu thành PPTX:
+
+- Nếu đặt `true`, hình thu nhỏ sẽ được làm mới trong quá trình lưu. Đây là mặc định.
+- Nếu đặt `false`, hình thu nhỏ hiện tại sẽ được giữ nguyên. Nếu bản trình chiếu không có hình thu nhỏ, sẽ không tạo hình nào.
+
+Trong đoạn mã dưới đây, bản trình chiếu được lưu thành PPTX mà không làm mới hình thu nhỏ của nó.
+
+```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let pptxOptions = new aspose.slides.PptxOptions();
 pptxOptions.setRefreshThumbnail(false);
 
@@ -151,17 +221,21 @@ finally {
 }
 ```
 
-{{% alert title="Info" color="info" %}}
-Tùy chọn này giúp giảm thời gian cần thiết để lưu một bài thuyết trình ở định dạng PPTX.
+{{% alert title="Thông tin" color="info" %}}
+Tùy chọn này giúp giảm thời gian cần thiết để lưu bản trình chiếu ở định dạng PPTX.
 {{% /alert %}}
 
-## **Lưu Cập Nhật Tiến Độ theo Phần Trăm**
+## **Lưu cập nhật tiến độ dưới dạng phần trăm**
 
-Báo cáo tiến độ lưu được cấu hình qua phương thức [setProgressCallback](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/saveoptions/#setProgressCallback) trên [SaveOptions](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/saveoptions/) và các lớp con của nó. Cung cấp một proxy Java triển khai giao diện [IProgressCallback](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iprogresscallback/); trong quá trình xuất, callback sẽ nhận các cập nhật phần trăm định kỳ.
+Báo cáo tiến độ lưu được cấu hình qua phương thức [setProgressCallback](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/saveoptions/#setProgressCallback) trên [SaveOptions](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/saveoptions/) và các lớp con của nó. Cung cấp một proxy Java thực thi giao diện [IProgressCallback](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iprogresscallback/); trong quá trình xuất, callback sẽ nhận các cập nhật phần trăm định kỳ.
 
 Các đoạn mã dưới đây cho thấy cách sử dụng `IProgressCallback`.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 const ExportProgressHandler = java.newProxy("com.aspose.slides.IProgressCallback", {
     reporting: function(progressValue) {
         // Sử dụng giá trị phần trăm tiến độ ở đây.
@@ -181,24 +255,24 @@ try {
 }
 ```
 
-{{% alert title="Info" color="info" %}}
-Aspose đã phát triển một [ứng dụng Splitter PowerPoint miễn phí](https://products.aspose.app/slides/vi/splitter) dựa trên API của mình. Ứng dụng này cho phép bạn tách một bài thuyết trình thành nhiều tệp bằng cách lưu các slide đã chọn dưới dạng tệp PPTX hoặc PPT mới.
+{{% alert title="Thông tin" color="info" %}}
+Aspose đã phát triển một ứng dụng [PowerPoint Splitter miễn phí](https://products.aspose.app/slides/vi/splitter) sử dụng API của mình. Ứng dụng cho phép bạn tách một bản trình chiếu thành nhiều tệp bằng cách lưu các slide đã chọn thành các tệp PPTX hoặc PPT mới.
 {{% /alert %}}
 
-## **FAQ**
+## **Câu hỏi thường gặp**
 
-**“Lưu nhanh” (lưu tăng dần) có được hỗ trợ để chỉ ghi những thay đổi không?**
+**Liệu “fast save” (lưu tăng dần) có được hỗ trợ để chỉ ghi các thay đổi không?**
 
-Không. Việc lưu luôn tạo ra toàn bộ tệp đích mỗi lần; “lưu nhanh” tăng dần không được hỗ trợ.
+Không. Mỗi lần lưu đều tạo ra tệp đích đầy đủ; “fast save” tăng dần không được hỗ trợ.
 
-**Có an toàn khi lưu cùng một đối tượng Presentation từ nhiều luồng không?**
+**Liệu có an toàn đa luồng khi lưu cùng một đối tượng Presentation từ nhiều luồng không?**
 
-Không. Một đối tượng [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/) **không** an toàn trong môi trường đa luồng; hãy lưu nó từ một luồng duy nhất.
+Không. Một đối tượng [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/) **không an toàn đa luồng**; hãy lưu nó từ một luồng duy nhất.
 
-**Liên kết siêu văn bản và các tệp được liên kết bên ngoài sẽ xảy ra gì khi lưu?**
+**Điều gì xảy ra với siêu liên kết và các tệp liên kết bên ngoài khi lưu?**
 
-[Hyperlinks](/slides/vi/nodejs-java/manage-hyperlinks/) được giữ nguyên. Các tệp được liên kết bên ngoài (ví dụ: video qua đường dẫn tương đối) sẽ không được sao chép tự động — hãy đảm bảo các đường dẫn tham chiếu vẫn có thể truy cập được.
+[Hyperlinks](/slides/vi/nodejs-java/manage-hyperlinks/) được giữ nguyên. Các tệp liên kết bên ngoài (ví dụ: video qua đường dẫn tương đối) không được sao chép tự động — hãy đảm bảo các đường dẫn tham chiếu vẫn có thể truy cập.
 
-**Có thể đặt/lưu siêu dữ liệu tài liệu (Tác giả, Tiêu đề, Công ty, Ngày) không?**
+**Tôi có thể đặt/lưu siêu dữ liệu tài liệu (Tác giả, Tiêu đề, Công ty, Ngày) không?**
 
-Có. Các [thuộc tính tài liệu chuẩn](/slides/vi/nodejs-java/presentation-properties/) được hỗ trợ và sẽ được ghi vào tệp khi lưu.
+Có. Các [thuộc tính tài liệu tiêu chuẩn](/slides/vi/nodejs-java/presentation-properties/) được hỗ trợ và sẽ được ghi vào tệp khi lưu.

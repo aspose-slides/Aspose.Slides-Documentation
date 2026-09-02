@@ -17,25 +17,25 @@ keywords:
 - fördefinierad vytyp
 - Strikt Office Open XML-format
 - Zip64-läge
-- uppdatera miniatyrbild
-- sparningsframsteg
+- uppdatera miniatyr
+- sparförlopp
 - PHP
 - Aspose.Slides
-description: "Upptäck hur du sparar presentationer med Aspose.Slides för PHP via Java — exportera till PowerPoint eller OpenDocument samtidigt som du behåller layouter, teckensnitt och effekter."
+description: "Upptäck hur du sparar presentationer med Aspose.Slides för PHP via Java — exportera till PowerPoint eller OpenDocument samtidigt som layouter, typsnitt och effekter bevaras."
 ---
 ## **Översikt**
 
-[Öppna presentationer i PHP](/slides/sv/php-java/open-presentation/) beskriver hur du använder klassen [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/) för att öppna en presentation. Denna artikel förklarar hur du skapar och sparar presentationer. Klassen [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/) innehåller en presentations innehåll. Oavsett om du skapar en presentation från början eller ändrar en befintlig, vill du spara den när du är klar. Med Aspose.Slides för PHP kan du spara till en **fil** eller **ström**. Denna artikel förklarar de olika sätten att spara en presentation.
+[Öppna presentationer i PHP](/slides/sv/php-java/open-presentation/) beskrev hur man använder klassen [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/) för att öppna en presentation. Denna artikel förklarar hur man skapar och sparar presentationer. Klassen [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/) innehåller en presentations innehåll. Oavsett om du skapar en presentation från grunden eller ändrar en befintlig, vill du spara den när du är klar. Med Aspose.Slides för PHP kan du spara till en **fil** eller **ström**. Denna artikel förklarar de olika sätten att spara en presentation.
 
 ## **Spara presentationer till filer**
 
-Spara en presentation till en fil genom att anropa klassens [Presentation] `save`‑metod. Skicka filnamnet och sparformatet till metoden. Följande exempel visar hur du sparar en presentation med Aspose.Slides.
+Spara en presentation till en fil genom att anropa klassens `save`‑metod på [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/). Skicka filnamnet och sparformatet till metoden. Följande exempel visar hur du sparar en presentation med Aspose.Slides.
 
 ```php
 // Instansiera Presentation-klassen som representerar en presentationsfil.
 $presentation = new Presentation();
 try {
-    // Utför något arbete här...
+    // Gör något arbete här...
 
     // Spara presentationen till en fil.
     $presentation->save("Output.pptx", SaveFormat::Pptx);
@@ -46,7 +46,7 @@ try {
 
 ## **Spara presentationer till strömmar**
 
-Du kan spara en presentation till en ström genom att skicka en utskriftsström till klassens [Presentation] `save`‑metod. En presentation kan skrivas till många olika strömtyper. I exemplet nedan skapar vi en ny presentation och sparar den till en filström.
+Du kan spara en presentation till enström genom att skicka en utmatningsström till klassens `save`‑metod på [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/). En presentation kan skrivas till många typer av strömmar. I exemplet nedan skapar vi en ny presentation och sparar den till en filström.
 
 ```php
 // Instansiera Presentation-klassen som representerar en presentationsfil.
@@ -64,9 +64,9 @@ try {
 }
 ```
 
-## **Spara presentationer med en fördefinierad vytyp**
+## **Spara presentationer med en fördefinierad vystypsinställning**
 
-Aspose.Slides låter dig ställa in den initiala vyn som PowerPoint använder när den genererade presentationen öppnas via klassen [ViewProperties]. Använd metoden [setLastView] med ett värde från uppräkningen [ViewType].
+Aspose.Slides låter dig ange den initiala vyn som PowerPoint använder när den genererade presentationen öppnas via klassen [ViewProperties](https://reference.aspose.com/slides/sv/php-java/aspose.slides/viewproperties/). Använd metoden [setLastView](https://reference.aspose.com/slides/sv/php-java/aspose.slides/viewproperties/#setLastView) med ett värde från uppräkningen [ViewType](https://reference.aspose.com/slides/sv/php-java/aspose.slides/viewtype/).
 
 ```php
 $presentation = new Presentation();
@@ -80,9 +80,9 @@ try {
 
 ## **Spara presentationer i strikt Office Open XML-format**
 
-Aspose.Slides låter dig spara en presentation i det strikta Office Open XML-formatet. Använd klassen [PptxOptions] och ange dess conformance‑egenskap vid sparande. Om du anger [Conformance.Iso29500_2008_Strict] sparas utdatafilen i det strikta Office Open XML-formatet.
+Aspose.Slides låter dig spara en presentation i det Strikta Office Open XML-formatet. Använd klassen [PptxOptions](https://reference.aspose.com/slides/sv/php-java/aspose.slides/pptxoptions/) och sätt dess egenskap *conformance* när du sparar. Om du sätter [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/sv/php-java/aspose.slides/conformance/#Iso29500_2008_Strict) sparas utdatafilen i Strikt Office Open XML-format.
 
-Exemplet nedan skapar en presentation och sparar den i det strikta Office Open XML-formatet.
+Exemplet nedan skapar en presentation och sparar den i Strikt Office Open XML-format.
 
 ```php
 $options = new PptxOptions();
@@ -91,7 +91,7 @@ $options->setConformance(Conformance::Iso29500_2008_Strict);
 // Instansiera Presentation-klassen som representerar en presentationsfil.
 $presentation = new Presentation();
 try {
-    // Spara presentationen i det strikta Office Open XML-formatet.
+    // Spara presentationen i det Strikta Office Open XML-formatet.
     $presentation->save("StrictOfficeOpenXml.pptx", SaveFormat::Pptx, $options);
 } finally {
     $presentation->dispose();
@@ -100,17 +100,17 @@ try {
 
 ## **Spara presentationer i Office Open XML-format i Zip64-läge**
 
-En Office Open XML-fil är ett ZIP-arkiv som har begränsningar på 4 GB (2^32 byte) för den okomprimerade storleken på varje fil, den komprimerade storleken på varje fil och den totala storleken på arkivet, samt begränsar arkivet till 65 535 (2^16‑1) filer. ZIP64-formatutökningar höjer dessa begränsningar till 2^64.
+En Office Open XML‑fil är ett ZIP‑arkiv som har begränsningar på 4 GB (2^32 byte) för den okomprimerade storleken på någon fil, den komprimerade storleken på någon fil och den totala storleken på arkivet, samt en begränsning på 65 535 (2^16‑1) filer. ZIP64‑formatutökningar höjer dessa gränser till 2^64.
 
-Metoden [PptxOptions.setZip64Mode] låter dig välja när ZIP64-formatutökningar ska användas vid sparande av en Office Open XML-fil.
+Metoden [PptxOptions.setZip64Mode](https://reference.aspose.com/slides/sv/php-java/aspose.slides/pptxoptions/#setZip64Mode) låter dig välja när ZIP64‑formatutökningar ska användas vid sparande av en Office Open XML‑fil.
 
 Denna metod kan användas med följande lägen:
 
-- [IfNecessary] använder ZIP64-formatutökningar endast om presentationen överskrider begränsningarna ovan. Detta är standardläget.
-- [Never] använder aldrig ZIP64-formatutökningar.
-- [Always] använder alltid ZIP64-formatutökningar.
+- [IfNecessary](https://reference.aspose.com/slides/sv/php-java/aspose.slides/zip64mode/#IfNecessary) använder ZIP64‑formatutökningar endast om presentationen överskrider begränsningarna ovan. Detta är standardläget.
+- [Never](https://reference.aspose.com/slides/sv/php-java/aspose.slides/zip64mode/#Never) använder aldrig ZIP64‑formatutökningar.
+- [Always](https://reference.aspose.com/slides/sv/php-java/aspose.slides/zip64mode/#Always) använder alltid ZIP64‑formatutökningar.
 
-Följande kod visar hur du sparar en presentation som PPTX med ZIP64-formatutökningar aktiverade:
+Följande kod demonstrerar hur du sparar en presentation som en PPTX‑fil med ZIP64‑formatutökningar aktiverade:
 
 ```php
 $pptxOptions = new PptxOptions();
@@ -125,17 +125,64 @@ try {
 ```
 
 {{% alert title="NOTE" color="warning" %}}
-När du sparar med [Zip64Mode.Never](https://reference.aspose.com/slides/sv/php-java/aspose.slides/zip64mode/#Never) kastas ett [PptxException](https://reference.aspose.com/slides/sv/php-java/aspose.slides/pptxexception/) om presentationen inte kan sparas i ZIP32-format.
+När du sparar med [Zip64Mode.Never](https://reference.aspose.com/slides/sv/php-java/aspose.slides/zip64mode/#Never) kastas ett [PptxException](https://reference.aspose.com/slides/sv/php-java/aspose.slides/pptxexception/) om presentationen inte kan sparas i ZIP32‑format.
 {{% /alert %}}
+
+## **Spara presentationer i Office Open XML-format med komprimeringsnivåer**
+
+När du arbetar med stora presentationer kan du justera komprimeringsnivån för att balansera filstorlek och bearbetningstid. Beroende på dina krav kan du föredra snabbare bearbetning eller mindre utdatafiler.
+
+Aspose.Slides tillhandahåller metoden [PptxOptions.setCompressionLevel](https://reference.aspose.com/slides/sv/php-java/aspose.slides/pptxoptions/#setCompressionLevel) som låter dig ange komprimeringsnivån som används när du sparar en presentation i Office Open XML-format.
+
+Följande komprimeringsnivåer finns tillgängliga:
+
+- [**None**](https://reference.aspose.com/slides/sv/php-java/aspose.slides/compressionlevel/#None): Ingen komprimering tillämpas. Filer lagras som de är.
+- [**Level1**](https://reference.aspose.com/slides/sv/php-java/aspose.slides/compressionlevel/#Level1): Snabbast komprimering med lägst komprimeringsgrad.
+- [**Level2**](https://reference.aspose.com/slides/sv/php-java/aspose.slides/compressionlevel/#Level2): Snabbare komprimering med något bättre komprimeringsgrad än **Level1**.
+- [**Level3**](https://reference.aspose.com/slides/sv/php-java/aspose.slides/compressionlevel/#Level3): Ger bättre komprimering än **Level2** med måttlig inverkan på bearbetningstid.
+- [**Level4**](https://reference.aspose.com/slides/sv/php-java/aspose.slides/compressionlevel/#Level4): Ger bättre komprimering än **Level3**.
+- [**Level5**](https://reference.aspose.com/slides/sv/php-java/aspose.slides/compressionlevel/#Level5): Ger förbättrad komprimering jämfört med **Level4** med extra bearbetningstid.
+- [**Level6**](https://reference.aspose.com/slides/sv/php-java/aspose.slides/compressionlevel/#Level6): Standardkomprimering som erbjuder en bra balans mellan hastighet och filstorlek. Detta är *standardkomprimeringsnivån*.
+- [**Level7**](https://reference.aspose.com/slides/sv/php-java/aspose.slides/compressionlevel/#Level7): Ger bättre komprimering än **Level6** men med långsammare bearbetning.
+- [**Level8**](https://reference.aspose.com/slides/sv/php-java/aspose.slides/compressionlevel/#Level8): Ger bättre komprimering än **Level7**.
+- [**Level9**](https://reference.aspose.com/slides/sv/php-java/aspose.slides/compressionlevel/#Level9): Maximal komprimering. Producerar minsta filstorlek på bekostnad av längst bearbetningstid.
+
+Följande exempel demonstrerar hur du sparar en presentation som en PPTX‑fil *utan komprimering*:
+
+```php
+$pptxOptions = new PptxOptions();
+$pptxOptions->setCompressionLevel(CompressionLevel::None);
+
+$presentation = new Presentation("Sample.pptx");
+try {
+    $presentation->save("Sample-out.pptx", SaveFormat::Pptx, $pptxOptions);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Detta exempel visar hur du sparar en presentation som en PPTX‑fil med *maximal komprimering*:
+
+```php
+$pptxOptions = new PptxOptions();
+$pptxOptions->setCompressionLevel(CompressionLevel::Level9);
+
+$presentation = new Presentation("Sample.pptx");
+try {
+    $presentation->save("Sample-level9.pptx", SaveFormat::Pptx, $pptxOptions);
+} finally {
+    $presentation->dispose();
+}
+```
 
 ## **Spara presentationer utan att uppdatera miniatyren**
 
-Metoden [PptxOptions.setRefreshThumbnail] styr genereringen av miniatyrbilder när en presentation sparas till PPTX:
+Metoden [PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/sv/php-java/aspose.slides/pptxoptions/#setRefreshThumbnail) styr miniatyrgenerering när en presentation sparas till PPTX:
 
-- Om den sätts till `true` uppdateras miniatyren under sparandet. Detta är standard.
-- Om den sätts till `false` bevaras den nuvarande miniatyren. Om presentationen saknar miniatyrbild genereras ingen.
+- Om den är `true` uppdateras miniatyren under sparandet. Detta är standardvärdet.
+- Om den är `false` bevaras den befintliga miniatyren. Om presentationen inte har någon miniatyr genereras ingen.
 
-I koden nedan sparas presentationen till PPTX utan att uppdatera dess miniatyrbild.
+I koden nedan sparas presentationen till PPTX utan att miniatyren uppdateras.
 
 ```php
 $pptxOptions = new PptxOptions();
@@ -151,12 +198,12 @@ finally {
 ```
 
 {{% alert title="Info" color="info" %}}
-Detta alternativ hjälper till att minska den tid som krävs för att spara en presentation i PPTX-format.
+Detta alternativ hjälper till att minska den tid som krävs för att spara en presentation i PPTX‑format.
 {{% /alert %}}
 
-## **Spara framstegsuppdateringar i procent**
+## **Spara förloppsuppdateringar i procent**
 
-Rapportering av sparningsframsteg konfigureras via metoden [setProgressCallback] på [SaveOptions] och dess underklasser. Tillhandahåll en Java‑proxy som implementerar gränssnittet [IProgressCallback]; under export får återuppringningen periodiska procentuella uppdateringar.
+Rapportering av sparförlopp konfigureras via metoden [setProgressCallback](https://reference.aspose.com/slides/sv/php-java/aspose.slides/saveoptions/#setProgressCallback) på [SaveOptions](https://reference.aspose.com/slides/sv/php-java/aspose.slides/saveoptions/) och dess subklasser. Tillhandahåll en Java‑proxy som implementerar gränssnittet [IProgressCallback](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iprogresscallback/); under export får återuppringningen periodiska procentuella uppdateringar.
 
 Följande kodsnuttar visar hur du använder `IProgressCallback`.
 
@@ -183,23 +230,23 @@ try {
 ```
 
 {{% alert title="Info" color="info" %}}
-Aspose har utvecklat en [gratis PowerPoint Splitter‑app](https://products.aspose.app/slides/sv/splitter) med sitt eget API. Appen låter dig dela en presentation i flera filer genom att spara valda bilder som nya PPTX‑ eller PPT‑filer.
+Aspose har utvecklat en [gratis PowerPoint Splitter‑app](https://products.aspose.app/slides/sv/splitter) med sitt eget API. Appen låter dig dela en presentation i flera filer genom att spara valda bildspel som nya PPTX‑ eller PPT‑filer.
 {{% /alert %}}
 
-## **Vanliga frågor**
+## **FAQ**
 
-**Stöds "snabb sparning" (inkrementell sparning) så att bara ändringar skrivs?**
+**Stöds “snabb sparning” (inkrementell sparning) så att endast ändringar skrivs?**
 
-Nej. Sparning skapar hela målfilen varje gång; inkrementell "snabb sparning" stöds inte.
+Nej. Sparning skapar hela målfilen varje gång; inkrementell “snabb sparning” stöds inte.
 
 **Är det trådsäkert att spara samma Presentation‑instans från flera trådar?**
 
-Nej. En [Presentation]‑instans [är inte trådsäker](/slides/sv/php-java/multithreading/); spara den från en enda tråd.
+Nej. En [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/)‑instans [är inte trådsäker](/slides/sv/php-java/multithreading/); spara den från en enda tråd.
 
 **Vad händer med hyperlänkar och externt länkade filer vid sparning?**
 
-[Hyperlinks](/slides/sv/php-java/manage-hyperlinks/) bevaras. Externt länkade filer (t.ex. videor via relativa sökvägar) kopieras inte automatiskt – se till att de refererade sökvägarna förblir tillgängliga.
+[Hyperlänkar](/slides/sv/php-java/manage-hyperlinks/) bevaras. Externt länkade filer (t.ex. videor via relativa sökvägar) kopieras inte automatiskt – se till att de refererade sökvägarna förblir tillgängliga.
 
 **Kan jag ange/spara dokumentmetadata (författare, titel, företag, datum)?**
 
-Ja. Standard [document properties](/slides/sv/php-java/presentation-properties/) stöds och kommer att skrivas till filen vid sparning.
+Ja. Standard [dokumentegenskaper](/slides/sv/php-java/presentation-properties/) stöds och kommer att skrivas till filen vid sparning.

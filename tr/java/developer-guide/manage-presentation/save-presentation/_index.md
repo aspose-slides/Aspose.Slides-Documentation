@@ -1,60 +1,66 @@
 ---
-title: Java'da Sunumları Kaydet
-linktitle: Sunumu Kaydet
+title: Java'da Sunuları Kaydet
+linktitle: Sunuyu Kaydet
 type: docs
 weight: 80
 url: /tr/java/save-presentation/
 keywords:
 - PowerPoint'i kaydet
 - OpenDocument'i kaydet
-- sunumu kaydet
+- sunuyu kaydet
 - slaytı kaydet
 - PPT'yi kaydet
 - PPTX'i kaydet
 - ODP'yi kaydet
-- sunumu dosyaya
-- sunumu akışa
+- sunuyu dosyaya
+- sunuyu akışa
 - önceden tanımlı görünüm türü
-- Katı Office Open XML Biçimi
+- Katı Office Open XML Formatı
 - Zip64 modu
 - küçük resmi yenileme
 - kaydetme ilerlemesi
 - Java
 - Aspose.Slides
-description: "Aspose.Slides kullanarak Java'da sunumları nasıl kaydedeceğinizi keşfedin—düzenleri, yazı tiplerini ve efektleri koruyarak PowerPoint veya OpenDocument olarak dışa aktarın."
+description: "Aspose.Slides kullanarak Java'da sunuları nasıl kaydedeceğinizi keşfedin—düzenleri, yazı tiplerini ve efektleri koruyarak PowerPoint veya OpenDocument formatına aktarın."
 ---
 ## **Genel Bakış**
 
-[Java'da Sunumları Açma](/slides/tr/java/open-presentation/) bir sunumu açmak için [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) sınıfının nasıl kullanılacağını açıkladı. Bu makale, sunumların nasıl oluşturulacağını ve kaydedileceğini açıklar. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) sınıfı bir sunumun içeriğini içerir. Sıfırdan bir sunum oluşturuyor ya da mevcut bir sunumu değiştiriyor olun, işiniz bittiğinde onu kaydetmek isteyeceksiniz. Aspose.Slides for Java ile bir **dosyaya** ya da **akışa** kaydedebilirsiniz. Bu makale, bir sunumu kaydetmenin farklı yollarını açıklar.
+[Java’da Sunuları Aç](/slides/tr/java/open-presentation/) açıklıyor, bir sunuyu açmak için [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) sınıfının nasıl kullanılacağını. Bu makale, sunuların nasıl oluşturulacağını ve kaydedileceğini anlatır. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) sınıfı bir sununun içeriğini tutar. Sıfırdan bir sunu oluşturuyor ya da var olanı değiştiriyor olun, işiniz bittiğinde kaydetmek isteyeceksiniz. Aspose.Slides for Java ile bir **dosya**ya ya da **akışa** kaydedebilirsiniz. Bu makale, bir sunuyu kaydetmenin farklı yollarını açıklar.
 
-## **Sunumları Dosyalara Kaydetme**
+## **Sunuları Dosyalara Kaydet**
 
-Presentation sınıfının `save` metodunu çağırarak bir sunumu dosyaya kaydedin. Metoda dosya adını ve kaydetme formatını geçin. Aşağıdaki örnek, Aspose.Slides ile bir sunumu nasıl kaydedeceğinizi gösterir.
+Bir sunuyu dosyaya kaydetmek için Presentation sınıfının `save` yöntemini çağırın. Yönteme dosya adını ve kaydetme formatını geçirin. Aşağıdaki örnek, Aspose.Slides ile bir sununun nasıl kaydedileceğini gösterir.
 
 ```java
-// Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
+import com.aspose.slides.*;
+
+// Sunum dosyasını temsil eden Presentation sınıfının bir örneğini oluştur.
 Presentation presentation = new Presentation();
 try {
-    // Burada bazı işlemler yapın...
+    // Burada bir takım işlemler yapın...
 
-    // Sunumu bir dosyaya kaydedin.
+    // Sunuyu bir dosyaya kaydedin.
     presentation.save("Output.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Sunumları Akışlara Kaydetme**
+## **Sunuları Akışlara Kaydet**
 
-Presentation sınıfının `save` metoduna bir çıktı akışı geçirerek bir sunumu akışa kaydedebilirsiniz. Bir sunum birçok akış tipine yazılabilir. Aşağıdaki örnekte yeni bir sunum oluşturuyor ve onu bir dosya akışına kaydediyoruz.
+Bir sunuyu akışa kaydetmek için Presentation sınıfının `save` yöntemine bir çıktı akışı geçirebilirsiniz. Sunu birçok akış türüne yazılabilir. Aşağıdaki örnekte yeni bir sunu oluşturup onu bir dosya akışına kaydediyoruz.
 
 ```java
-// Sunum dosyasını temsil eden Presentation sınıfını oluşturun.
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+
+// Sunum dosyasını temsil eden Presentation sınıfının bir örneğini oluştur.
 Presentation presentation = new Presentation();
 try {
     OutputStream fileStream = new FileOutputStream("Output.pptx");
     try {
-        // Sunumu akışa kaydedin.
+        // Sunuyu akışa kaydedin.
         presentation.save(fileStream, SaveFormat.Pptx);
     } finally {
         fileStream.close();
@@ -64,11 +70,13 @@ try {
 }
 ```
 
-## **Önceden Tanımlı Görünüm Türüyle Sunumları Kaydetme**
+## **Önceden Tanımlı Görünüm Türüyle Sunuları Kaydet**
 
-Aspose.Slides, oluşturulan sunum açıldığında PowerPoint'in kullandığı ilk görünümü ViewProperties sınıfı aracılığıyla ayarlamanıza izin verir. setLastView metodunu, ViewType (GörünümTürü) enumundan bir değerle kullanın.
+Aspose.Slides, oluşturulan sunu açıldığında PowerPoint’in kullandığı başlangıç görünümünü [ViewProperties](https://reference.aspose.com/slides/tr/java/com.aspose.slides/viewproperties/) sınıfı aracılığıyla ayarlamanıza izin verir. [ViewType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/viewtype/) enum’undan bir değerle `setLastView` yöntemini kullanın.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     presentation.getViewProperties().setLastView(ViewType.SlideMasterView);
@@ -78,41 +86,45 @@ try {
 }
 ```
 
-## **Sunumları Katı Office Open XML Biçiminde Kaydetme**
+## **Sunuları Katı Office Open XML Formatında Kaydet**
 
-Aspose.Slides, bir sunumu Katı Office Open XML biçiminde kaydetmenizi sağlar. Kaydederken PptxOptions sınıfını kullanın ve onun conformance (uyumluluk) özelliğini ayarlayın. Conformance.Iso29500_2008_Strict değerini ayarlarsanız, çıktı dosyası Katı Office Open XML biçiminde kaydedilir.
+Aspose.Slides, bir sunuyu Katı Office Open XML formatında kaydetmenize olanak tanır. Kaydederken [PptxOptions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/pptxoptions/) sınıfını kullanın ve `conformance` özelliğini ayarlayın. `Conformance.Iso29500_2008_Strict` değerini ayarlarsanız çıktı dosyası Katı Office Open XML formatında kaydedilir.
 
-Aşağıdaki örnek bir sunum oluşturur ve onu Katı Office Open XML biçiminde kaydeder.
+Aşağıdaki örnek bir sunu oluşturur ve Katı Office Open XML formatında kaydeder.
 
 ```java
+import com.aspose.slides.*;
+
 PptxOptions options = new PptxOptions();
 options.setConformance(Conformance.Iso29500_2008_Strict);
 
-// Sunum dosyasını temsil eden Presentation sınıfını oluşturun.
+// Sunum dosyasını temsil eden Presentation sınıfının bir örneğini oluştur.
 Presentation presentation = new Presentation();
 try {
-    // Sunumu Katı Office Open XML biçiminde kaydedin.
+    // Sunuyu Katı Office Open XML formatında kaydedin.
     presentation.save("StrictOfficeOpenXml.pptx", SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Sunumları Office Open XML Biçiminde Zip64 Modunda Kaydetme**
+## **Sunuları Office Open XML Formatında Zip64 Modunda Kaydet**
 
-Office Open XML dosyası, herhangi bir dosyanın sıkıştırılmamış boyutu, sıkıştırılmış boyutu ve arşivin toplam boyutu için 4 GB (2^32 bayt) sınırları getiren bir ZIP arşividir ve ayrıca arşivi 65.535 (2^16‑1) dosyayla sınırlamaktadır. ZIP64 format uzantıları bu sınırları 2^64'e yükseltir.
+Office Open XML dosyası, herhangi bir dosyanın sıkıştırılmamış boyutu, sıkıştırılmış boyutu ve arşivin toplam boyutu için 4 GB (2^32 bayt) sınırı koyan bir ZIP arşividir ve aynı zamanda arşivi 65 535 (2^16‑1) dosyayla sınırlar. Zip64 format uzantıları bu sınırlamaları 2^64’e yükseltir.
 
-IPptxOptions.setZip64Mode metodu, bir Office Open XML dosyasını kaydederken ZIP64 format uzantılarını ne zaman kullanacağınızı seçmenizi sağlar.
+[IPptxOptions.setZip64Mode](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ipptxoptions/#setZip64Mode-int-) yöntemi, bir Office Open XML dosyası kaydedilirken Zip64 format uzantılarının ne zaman kullanılacağını seçmenizi sağlar.
 
-Bu metod aşağıdaki modlarla kullanılabilir:
+Bu yöntem aşağıdaki modlarla kullanılabilir:
 
-- IfNecessary, yalnızca sunum yukarıdaki sınırlamaları aşıyorsa ZIP64 format uzantılarını kullanır. Bu varsayılan moddur.
-- Never, ZIP64 format uzantılarını asla kullanmaz.
-- Always, ZIP64 format uzantılarını her zaman kullanır.
+- [IfNecessary](https://reference.aspose.com/slides/tr/java/com.aspose.slides/zip64mode/#IfNecessary) sadece sunu yukarıdaki sınırlamaları aştığında Zip64 uzantılarını kullanır. Varsayılan moddur.
+- [Never](https://reference.aspose.com/slides/tr/java/com.aspose.slides/zip64mode/#Never) Zip64 uzantılarını asla kullanmaz.
+- [Always](https://reference.aspose.com/slides/tr/java/com.aspose.slides/zip64mode/#Always) her zaman Zip64 uzantılarını kullanır.
 
-Aşağıdaki kod, ZIP64 format uzantıları etkinleştirilmiş bir PPTX olarak bir sunumu nasıl kaydedeceğinizi gösterir:
+Aşağıdaki kod, Zip64 format uzantıları etkinleştirilmiş bir PPTX dosyası olarak sununun nasıl kaydedileceğini gösterir:
 
 ```java
+import com.aspose.slides.*;
+
 PptxOptions pptxOptions = new PptxOptions();
 pptxOptions.setZip64Mode(Zip64Mode.Always);
 
@@ -124,20 +136,73 @@ try {
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-Zip64Mode.Never ile kaydettiğinizde, sunum ZIP32 formatında kaydedilemezse bir PptxException fırlatılır.
+{{% alert title="NOT" color="warning" %}}
+[Zip64Mode.Never](https://reference.aspose.com/slides/tr/java/com.aspose.slides/zip64mode/#Never) ile kaydettiğinizde, sunu ZIP32 formatında kaydedilemezse bir [PptxException](https://reference.aspose.com/slides/tr/java/com.aspose.slides/pptxexception/) fırlatılır.
 {{% /alert %}}
 
-## **Sunumları Küçük Resmi Yenilemeden Kaydetme**
+## **Sunuları Office Open XML Formatında Sıkıştırma Düzeyleriyle Kaydet**
 
-PptxOptions.setRefreshThumbnail metodu, bir sunumu PPTX olarak kaydederken küçük resim oluşturulmasını kontrol eder:
+Büyük sunularla çalışırken dosya boyutu ve işleme süresi arasında denge kurmak için sıkıştırma düzeyini ayarlayabilirsiniz. Gereksinimlerinize bağlı olarak daha hızlı işleme ya da daha küçük çıktı dosyaları tercih edebilirsiniz.
 
-- `true` olarak ayarlanırsa, kaydetme sırasında küçük resim yenilenir. Bu varsayılandır.
-- `false` olarak ayarlanırsa, mevcut küçük resim korunur. Sunumun küçük resmi yoksa, hiç oluşturulmaz.
+Aspose.Slides, Office Open XML formatında bir sunu kaydederken kullanılan sıkıştırma düzeyini belirlemenizi sağlayan [IPptxOptions.setCompressionLevel](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ipptxoptions/#setCompressionLevel-int-) yöntemini sunar.
 
-Aşağıdaki kodda, sunum küçük resmi yenilenmeden PPTX olarak kaydedilir.
+Aşağıdaki sıkıştırma düzeyleri mevcuttur:
+
+- [**None**](https://reference.aspose.com/slides/tr/java/com.aspose.slides/compressionlevel/#None): Sıkıştırma uygulanmaz. Dosyalar olduğu gibi saklanır.
+- [**Level1**](https://reference.aspose.com/slides/tr/java/com.aspose.slides/compressionlevel/#Level1): En düşük sıkıştırma oranı ile en hızlı sıkıştırma.
+- [**Level2**](https://reference.aspose.com/slides/tr/java/com.aspose.slides/compressionlevel/#Level2): **Level1**’e göre biraz daha iyi sıkıştırma oranı, hâlâ hızlı.
+- [**Level3**](https://reference.aspose.com/slides/tr/java/com.aspose.slides/compressionlevel/#Level3): **Level2**’ye göre daha iyi sıkıştırma, işlem süresi orta seviyede.
+- [**Level4**](https://reference.aspose.com/slides/tr/java/com.aspose.slides/compressionlevel/#Level4): **Level3**’ten daha iyi sıkıştırma.
+- [**Level5**](https://reference.aspose.com/slides/tr/java/com.aspose.slides/compressionlevel/#Level5): **Level4**’e göre iyileştirilmiş sıkıştırma, ek işlem süresi.
+- [**Level6**](https://reference.aspose.com/slides/tr/java/com.aspose.slides/compressionlevel/#Level6): İşleme hızı ve dosya boyutu arasında iyi bir denge sunan standart sıkıştırma. *Varsayılan sıkıştırma düzeyidir*.
+- [**Level7**](https://reference.aspose.com/slides/tr/java/com.aspose.slides/compressionlevel/#Level7): **Level6**’dan daha iyi sıkıştırma, daha yavaş işleme.
+- [**Level8**](https://reference.aspose.com/slides/tr/java/com.aspose.slides/compressionlevel/#Level8): **Level7**’den daha iyi sıkıştırma.
+- [**Level9**](https://reference.aspose.com/slides/tr/java/com.aspose.slides/compressionlevel/#Level9): Azami sıkıştırma. En küçük dosya boyutunu üretir, ancak en uzun işlem süresine sahiptir.
+
+Aşağıdaki örnek, sıkıştırma **kullanılmadan** bir PPTX dosyası olarak sununun nasıl kaydedileceğini gösterir:
 
 ```java
+import com.aspose.slides.*;
+
+PptxOptions pptxOptions = new PptxOptions();
+pptxOptions.setCompressionLevel(CompressionLevel.None);
+
+Presentation presentation = new Presentation("Sample.pptx");
+try {
+    presentation.save("Sample-out.pptx", SaveFormat.Pptx, pptxOptions);
+} finally {
+    presentation.dispose();
+}
+```
+
+Bu örnek, **azami sıkıştırma** ile bir PPTX dosyası olarak sununun nasıl kaydedileceğini gösterir:
+
+```java
+import com.aspose.slides.*;
+
+PptxOptions pptxOptions = new PptxOptions();
+pptxOptions.setCompressionLevel(CompressionLevel.Level9);
+
+Presentation presentation = new Presentation("Sample.pptx");
+try {
+    presentation.save("Sample-level9.pptx", SaveFormat.Pptx, pptxOptions);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Küçük Resmi Yenilemeden Sunuları Kaydet**
+
+[PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/tr/java/com.aspose.slides/pptxoptions/#setRefreshThumbnail-boolean-) yöntemi, bir sunuyu PPTX olarak kaydederken küçük resim oluşturulmasını kontrol eder:
+
+- `true` olarak ayarlanırsa, kaydetme sırasında küçük resim yenilenir. Bu varsayılan değerdir.
+- `false` olarak ayarlanırsa, mevcut küçük resim korunur. Sununun küçük resmi yoksa hiç oluşturulmaz.
+
+Aşağıdaki kod, sununun küçük resmini yenilemeden PPTX olarak kaydedilmesini gösterir.
+
+```java
+import com.aspose.slides.*;
+
 PptxOptions pptxOptions = new PptxOptions();
 pptxOptions.setRefreshThumbnail(false);
 
@@ -150,17 +215,28 @@ finally {
 }
 ```
 
-{{% alert title="Info" color="info" %}}
-Bu seçenek, PPTX formatında bir sunumu kaydetme süresini azaltmaya yardımcı olur.
+{{% alert title="Bilgi" color="info" %}}
+Bu seçenek, PPTX formatında bir sunuyu kaydederken harcanan zamanı azaltmaya yardımcı olur.
 {{% /alert %}}
 
-## **Kaydetme İlerleme Güncellemelerini Yüzde Olarak Almak**
+## **Kaydetme İlerlemesini Yüzde Olarak Güncelle**
 
-IProgressCallback arayüzü, ISaveOptions arayüzü ve soyut SaveOptions sınıfı tarafından sunulan setProgressCallback metodu aracılığıyla kullanılır. setProgressCallback ile bir IProgressCallback uygulaması atayarak kaydetme ilerlemesi güncellemelerini yüzde olarak alabilirsiniz.
+[IProgressCallback](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iprogresscallback/) arabirimi, [ISaveOptions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/isaveoptions/) arabirimi tarafından sunulan `setProgressCallback` yöntemi ve soyut [SaveOptions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/saveoptions/) sınıfı aracılığıyla kullanılır. `setProgressCallback` ile bir [IProgressCallback](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iprogresscallback/) uygulaması atanır ve kaydetme ilerlemesi yüzde olarak alınır.
 
-Aşağıdaki kod parçacıkları, IProgressCallback kullanımı gösterir.
+Aşağıdaki kod parçacığı, `IProgressCallback` kullanımını gösterir:
 
 ```java
+import com.aspose.slides.*;
+
+class ExportProgressHandler implements IProgressCallback {
+    public void reporting(double progressValue) {
+        // İlerleme yüzde değerini burada kullanın.
+        int progress = (int) progressValue;
+
+        System.out.println(progress + "% of the file has been converted.");
+    }
+}
+
 ISaveOptions saveOptions = new PdfOptions();
 saveOptions.setProgressCallback(new ExportProgressHandler());
 
@@ -171,35 +247,25 @@ try {
     presentation.dispose();
 }
 ```
-```java
-class ExportProgressHandler implements IProgressCallback {
-    public void reporting(double progressValue) {
-        // Burada ilerleme yüzde değerini kullanın.
-        int progress = (int) progressValue;
 
-        System.out.println(progress + "% of the file has been converted.");
-    }
-}
-```
-
-{{% alert title="Info" color="info" %}}
-Aspose, kendi API'sini kullanarak ücretsiz bir PowerPoint Splitter uygulaması geliştirdi. Uygulama, seçilen slaytları yeni PPTX veya PPT dosyaları olarak kaydederek bir sunumu birden fazla dosyaya bölmenizi sağlar.
+{{% alert title="Bilgi" color="info" %}}
+Aspose, kendi API’sini kullanarak ücretsiz bir **PowerPoint Splitter** uygulaması geliştirdi. Bu uygulama, seçilen slaytları yeni PPTX ya da PPT dosyaları olarak kaydederek bir sunuyu birden çok dosyaya bölmenizi sağlar.
 {{% /alert %}}
 
 ## **SSS**
 
-**"Hızlı kaydet" (artımlı kaydet) sadece değişikliklerin yazılması için destekleniyor mu?**
+**“Hızlı kaydet” (artımlı kaydet) destekleniyor mu, sadece değişiklikler mi yazılıyor?**
 
-Hayır. Kaydetme her seferinde hedef dosyanın tamamını oluşturur; artımlı "hızlı kaydet" desteklenmez.
+Hayır. Kaydetme her seferinde tam hedef dosyasını oluşturur; artımlı “hızlı kaydet” desteklenmez.
 
-**Aynı Presentation örneğini birden çok thread'ten kaydetmek güvenli mi?**
+**Aynı Presentation örneğini birden çok thread’ten kaydetmek güvenli mi?**
 
-Hayır. Presentation örneği thread‑güvenli değildir; kaydetmeyi tek bir thread'den yapın.
+Hayır. Bir [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) örneği **thread‑safe** değildir; tek bir thread’den kaydedilmelidir.
 
-**Kaydederken köprüler ve harici bağlantılı dosyalar ne olur?**
+**Kaydederken köprüler ve dışa bağlı dosyalar ne olur?**
 
-[Köprüler](/slides/tr/java/manage-hyperlinks/) korunur. Harici bağlantılı dosyalar (ör. göreli yollarla videolar) otomatik olarak kopyalanmaz—referans verilen yolların erişilebilir olduğundan emin olun.
+[Hyperlinks](/slides/tr/java/manage-hyperlinks/) korunur. Dışa bağlı dosyalar (ör. göreceli yollarla eklenen videolar) otomatik olarak kopyalanmaz—referans verilen yolların erişilebilir olduğundan emin olun.
 
-**Belge meta verilerini (Yazar, Başlık, Şirket, Tarih) ayarlayabilir/kaydedebilir miyim?**
+**Belge meta verilerini (Yazar, Başlık, Şirket, Tarih) ayarlayıp kaydedebilir miyim?**
 
-Evet. Standart belge özellikleri desteklenir ve kaydetme sırasında dosyaya yazılır.
+Evet. Standart [belge özellikleri](/slides/tr/java/presentation-properties/) desteklenir ve kaydetme sırasında dosyaya yazılır.
