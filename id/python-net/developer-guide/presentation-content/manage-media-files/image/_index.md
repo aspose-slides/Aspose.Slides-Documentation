@@ -5,52 +5,47 @@ type: docs
 weight: 10
 url: /id/python-net/image/
 keywords:
-- menambahkan gambar
-- menambahkan foto
-- menambahkan bitmap
-- mengganti gambar
-- mengganti foto
+- menambah gambar
+- menambah gambar
+- menambah bitmap
+- ganti gambar
+- ganti gambar
 - dari web
 - latar belakang
-- menambahkan PNG
-- menambahkan JPG
-- menambahkan SVG
-- menambahkan EMF
-- menambahkan WMF
-- menambahkan TIFF
+- menambah PNG
+- menambah JPG
+- menambah SVG
+- menambah EMF
+- menambah WMF
+- menambah TIFF
 - PowerPoint
+- OpenDocument
 - presentasi
 - Python
 - Aspose.Slides
-description: "Permudah manajemen gambar di PowerPoint dan OpenDocument dengan Aspose.Slides untuk Python via .NET, mengoptimalkan kinerja dan mengotomatiskan alur kerja Anda."
+description: "Menyederhanakan manajemen gambar di PowerPoint dan OpenDocument dengan Aspose.Slides untuk Python via .NET, mengoptimalkan kinerja dan mengotomatisasi alur kerja Anda."
 ---
 ## **Pendahuluan**
 
-Gambar membuat presentasi lebih menarik dan hidup. Di Microsoft PowerPoint, Anda dapat menyisipkan foto dari file, internet, atau sumber lain ke slide. Demikian pula, Aspose.Slides memungkinkan Anda menambahkan gambar ke slide dengan beberapa cara.
+Gambar membuat presentasi lebih menarik dan menarik. Di Microsoft PowerPoint, Anda dapat menyisipkan gambar dari file, internet, atau sumber lain ke dalam slide. Demikian pula, Aspose.Slides memungkinkan Anda menambahkan gambar ke slide dengan beberapa cara.
 
 {{% alert  title="Tip" color="primary" %}}
-
-Aspose menyediakan konverter gratis—[JPEG to PowerPoint](https://products.aspose.app/slides/id/import/jpg-to-ppt) dan [PNG to PowerPoint](https://products.aspose.app/slides/id/import/png-to-ppt)—yang memungkinkan Anda dengan cepat membuat presentasi dari gambar.
-
+Aspose menyediakan konverter gratis—[JPEG ke PowerPoint](https://products.aspose.app/slides/id/import/jpg-to-ppt) dan [PNG ke PowerPoint](https://products.aspose.app/slides/id/import/png-to-ppt)—yang memungkinkan Anda dengan cepat membuat presentasi dari gambar.
 {{% /alert %}}
 
 {{% alert title="Info" color="info" %}}
-
-Jika Anda ingin menambahkan gambar sebagai objek frame—terutama jika Anda berencana menggunakan opsi pemformatan standar seperti mengubah ukuran atau menerapkan efek—lihat [Add Picture Frames to Presentations with Python](https://docs.aspose.com/slides/id/python-net/picture-frame/).
-
+Jika Anda ingin menambahkan gambar sebagai objek frame—khususnya jika Anda berencana menggunakan opsi pemformatan standar seperti mengubah ukuran atau menerapkan efek—lihat [Menambahkan Frame Gambar ke Presentasi dengan Python](https://docs.aspose.com/slides/id/python-net/picture-frame/).
 {{% /alert %}}
 
-{{% alert title="Note" color="warning" %}}
-
-Anda dapat menggunakan operasi I/O gambar dan presentasi untuk mengonversi gambar antar format. Lihat halaman ini: mengonversi [image to JPG](https://products.aspose.com/slides/id/python-net/conversion/image-to-jpg/); mengonversi [JPG to image](https://products.aspose.com/slides/id/python-net/conversion/jpg-to-image/); mengonversi [JPG to PNG](https://products.aspose.com/slides/id/python-net/conversion/jpg-to-png/); mengonversi [PNG to JPG](https://products.aspose.com/slides/id/python-net/conversion/png-to-jpg/); mengonversi [PNG to SVG](https://products.aspose.com/slides/id/python-net/conversion/png-to-svg/); dan mengonversi [SVG to PNG](https://products.aspose.com/slides/id/python-net/conversion/svg-to-png/).
-
+{{% alert title="Catatan" color="warning" %}}
+Anda dapat menggunakan operasi I/O gambar dan presentasi untuk mengonversi gambar antar format. Lihat halaman berikut: konversi [gambar ke JPG](https://products.aspose.com/slides/id/python-net/conversion/image-to-jpg/); konversi [JPG ke gambar](https://products.aspose.com/slides/id/python-net/conversion/jpg-to-image/); konversi [JPG ke PNG](https://products.aspose.com/slides/id/python-net/conversion/jpg-to-png/); konversi [PNG ke JPG](https://products.aspose.com/slides/id/python-net/conversion/png-to-jpg/); konversi [PNG ke SVG](https://products.aspose.com/slides/id/python-net/conversion/png-to-svg/); dan konversi [SVG ke PNG](https://products.aspose.com/slides/id/python-net/conversion/svg-to-png/).
 {{% /alert %}}
 
-Aspose.Slides mendukung penggunaan gambar dalam format populer seperti JPEG, PNG, BMP, GIF, dan lainnya.
+Aspose.Slides mendukung kerja dengan gambar dalam format populer seperti JPEG, PNG, BMP, GIF, dan lain-lain.
 
 ## **Menambahkan Gambar yang Disimpan Secara Lokal ke Slide**
 
-Anda dapat menambahkan satu atau beberapa gambar dari komputer ke slide dalam sebuah presentasi. Contoh Python berikut menunjukkan cara menambahkan gambar ke slide:
+Anda dapat menambahkan satu atau lebih gambar dari komputer Anda ke sebuah slide dalam presentasi. Contoh Python berikut menunjukkan cara menambahkan gambar ke slide:
 
 ```py
 import aspose.slides as slides
@@ -66,28 +61,30 @@ with slides.Presentation() as presentation:
 
 ## **Menambahkan Gambar dari Web ke Slide**
 
-Jika gambar yang ingin Anda tambahkan ke slide tidak tersedia di komputer, Anda dapat menyisipkannya langsung dari web.
+Jika gambar yang ingin Anda tambahkan ke slide tidak tersedia di komputer Anda, Anda dapat menyisipkannya langsung dari web.
 
 Contoh Python berikut menunjukkan cara menambahkan gambar dari URL ke slide:
 
 ```py
 import aspose.slides as slides
-import urllib2
-import base64
+from urllib.request import urlopen
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    image_data = base64.b64encode(urllib2.urlopen("[REPLACE WITH URL]").read())
+
+    # Unduh byte gambar mentah.
+    with urlopen("[REPLACE WITH URL]") as response:
+        image_data = response.read()
 
     image = presentation.images.add_image(image_data)
     slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
-    
+
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Menambahkan Gambar ke Slide Master**
 
-Slide master adalah slide tingkat atas yang menyimpan dan mengontrol informasi—tema, tata letak, dan sebagainya—untuk semua slide di bawahnya. Ketika Anda menambahkan gambar ke slide master, gambar tersebut muncul pada setiap slide yang menggunakan master tersebut.
+Slide master adalah slide tingkat atas yang menyimpan dan mengontrol informasi—tema, tata letak, dan sebagainya—untuk semua slide di bawahnya. Ketika Anda menambahkan gambar ke slide master, gambar tersebut muncul di setiap slide yang menggunakan master itu.
 
 Contoh Python berikut menunjukkan cara menambahkan gambar ke slide master:
 
@@ -106,42 +103,33 @@ with slides.Presentation() as presentation:
     presentation.save("master_with_image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Menetapkan Gambar sebagai Latar Belakang Slide**
+## **Menambahkan Gambar sebagai Latar Belakang Slide**
 
-Anda mungkin ingin menggunakan gambar sebagai latar belakang untuk satu slide tertentu atau beberapa slide. Untuk detailnya, lihat [Set an Image as the Background for a Slide](https://docs.aspose.com/slides/id/python-net/presentation-background/#set-image-as-background-for-slide).
+Anda dapat menggunakan gambar sebagai latar belakang untuk satu atau beberapa slide. Untuk detail, lihat *[Mengatur Gambar sebagai Latar Belakang Slide](/slides/id/python-net/presentation-background/#setting-images-as-background-for-slides)*.
 
 ## **Menambahkan SVG ke Presentasi**
 
-Anda dapat menyisipkan gambar apa pun ke presentasi menggunakan metode [add_picture_frame](https://reference.aspose.com/slides/id/python-net/aspose.slides/shapecollection/add_picture_frame/) dari kelas [ShapeCollection](https://reference.aspose.com/slides/id/python-net/aspose.slides/shapecollection/).
+Konten SVG dapat ditambahkan ke presentasi menggunakan kelas [SvgImage](https://reference.aspose.com/slides/id/python-net/aspose.slides/svgimage/). Gambar SVG yang dihasilkan kemudian dapat ditambahkan ke koleksi gambar presentasi dan digunakan untuk membuat frame gambar.
 
-Untuk membuat objek gambar dari SVG, ikuti langkah berikut:
-
-1. Buat sebuah [SvgImage](https://reference.aspose.com/slides/id/python-net/aspose.slides/svgimage/) dan tambahkan ke koleksi gambar presentasi.
-2. Buat objek [PPImage](https://reference.aspose.com/slides/id/python-net/aspose.slides/ppimage/) dari [SvgImage](https://reference.aspose.com/slides/id/python-net/aspose.slides/svgimage/).
-3. Buat objek [PictureFrame](https://reference.aspose.com/slides/id/python-net/aspose.slides/pictureframe/) menggunakan [PPImage](https://reference.aspose.com/slides/id/python-net/aspose.slides/ppimage/).
-
-Contoh Python berikut menunjukkan cara menambahkan gambar SVG ke presentasi menggunakan langkah-langkah tersebut:
-
-```py 
+```py
 import aspose.slides as slides
 
+svg_content = """
+<svg xmlns='http://www.w3.org/2000/svg' width='320' height='180'>
+    <rect width='320' height='180' fill='#4F81BD'/>
+    <circle cx='160' cy='90' r='55' fill='#F2F2F2'/>
+</svg>
+"""
+
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+    svg_image = slides.SvgImage(svg_content)
+    image = presentation.images.add_image(svg_image)
 
-    # Baca konten file SVG.
-    with open("sample.svg", "rt") as image_stream:
-        svg_content = image_stream.read()
-        # Buat objek SvgImage.
-        svg_image = slides.SvgImage(svg_content)
+    presentation.slides[0].shapes.add_picture_frame(
+        slides.ShapeType.RECTANGLE, 20, 20, image.width, image.height, image
+    )
 
-        # Buat objek PPImage.
-        pp_image = presentation.images.add_image(svg_image)
-
-        # Buat PictureFrame baru.
-        slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 200, 100, pp_image.width, pp_image.height, pp_image)
-
-        # Simpan presentasi dalam format PPTX.
-        presentation.save("presentation_with_SVG.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("self-contained-svg.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Mengonversi SVG menjadi Sekumpulan Bentuk**
@@ -150,9 +138,9 @@ Aspose.Slides mengonversi SVG menjadi sekumpulan bentuk dengan cara yang mirip d
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-Fungsionalitas ini disediakan oleh overload metode [add_group_shape](https://reference.aspose.com/slides/id/python-net/aspose.slides/shapecollection/add_group_shape/) dalam kelas [ShapeCollection](https://reference.aspose.com/slides/id/python-net/aspose.slides/shapecollection/) yang menerima sebuah [SvgImage](https://reference.aspose.com/slides/id/python-net/aspose.slides/svgimage/) sebagai argumen pertama.
+Fungsionalitas ini disediakan oleh overload metode [add_group_shape](https://reference.aspose.com/slides/id/python-net/aspose.slides/shapecollection/add_group_shape/) dalam kelas [ShapeCollection](https://reference.aspose.com/slides/id/python-net/aspose.slides/shapecollection/) yang menerima [SvgImage](https://reference.aspose.com/slides/id/python-net/aspose.slides/svgimage/) sebagai argumen pertama.
 
-Kode contoh di bawah ini menunjukkan cara mengonversi file SVG menjadi sekumpulan bentuk.
+Contoh kode di bawah ini menunjukkan cara mengonversi file SVG menjadi sekumpulan bentuk.
 
 ```py 
 import aspose.slides as slides
@@ -167,20 +155,22 @@ with slides.Presentation() as presentation:
         # Dapatkan ukuran slide.
         slide_size = presentation.slide_size.size
 
-        # Ubah gambar SVG menjadi grup bentuk dan skalakan ke ukuran slide.
+        # Konversi gambar SVG menjadi grup bentuk dan skala ke ukuran slide.
         presentation.slides[0].shapes.add_group_shape(svg_image, 0, 0, slide_size.width, slide_size.height)
 
         # Simpan presentasi dalam format PPTX.
         presentation.save("shapes_from_SVG.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Menambahkan Gambar sebagai EMF di Slide**
+## **Menambahkan Gambar sebagai EMF ke Slide**
 
-Aspose.Slides for Python memungkinkan Anda menyisipkan gambar Enhanced Metafile (EMF) ke dalam presentasi.
+Aspose.Slides untuk Python memungkinkan Anda menyisipkan gambar Enhanced Metafile (EMF) ke dalam presentasi.
 
-Contoh Python berikut mendemonstrasikan hal ini:
+Contoh Python berikut memperagakan hal ini:
 
 ```py 
+import aspose.slides as slides
+
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
     with open("image.emf", "rb") as image_stream:
@@ -191,26 +181,28 @@ with slides.Presentation() as presentation:
     presentation.save("presentation_with_EMF.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Mengganti Gambar di Koleksi Gambar**
+## **Mengganti Gambar dalam Koleksi Gambar**
 
-Aspose.Slides memungkinkan Anda mengganti gambar yang disimpan dalam koleksi gambar presentasi, termasuk yang digunakan oleh bentuk slide. Bagian ini menjelaskan beberapa pendekatan untuk memperbarui gambar dalam koleksi. API menyediakan metode sederhana untuk mengganti gambar dengan data byte mentah, instance [IImage](https://reference.aspose.com/slides/id/python-net/aspose.slides/iimage/), atau gambar lain yang sudah ada dalam koleksi.
+Aspose.Slides memungkinkan Anda mengganti gambar yang disimpan dalam koleksi gambar presentasi, termasuk yang digunakan oleh bentuk slide. Bagian ini menjelaskan beberapa pendekatan untuk memperbarui gambar dalam koleksi. API menyediakan metode sederhana untuk mengganti gambar dengan data byte mentah, sebuah instance [IImage](https://reference.aspose.com/slides/id/python-net/aspose.slides/iimage/), atau gambar lain yang sudah ada dalam koleksi.
 
 Ikuti langkah-langkah berikut:
 
 1. Muat presentasi yang berisi gambar menggunakan kelas [Presentation](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/).
-1. Muat gambar baru dari file ke dalam array byte.
-1. Ganti gambar target dengan gambar baru menggunakan array byte.
-1. Atau, muat gambar ke dalam objek [IImage](https://reference.aspose.com/slides/id/python-net/aspose.slides/iimage/) dan gantikan gambar target dengan objek tersebut.
-1. Atau ganti gambar target dengan gambar yang sudah ada dalam koleksi gambar presentasi.
-1. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
+2. Muat gambar baru dari file ke dalam array byte.
+3. Ganti gambar target dengan gambar baru menggunakan array byte.
+4. Atau, muat gambar ke dalam objek [IImage](https://reference.aspose.com/slides/id/python-net/aspose.slides/iimage/) dan ganti gambar target dengan objek tersebut.
+5. Atau ganti gambar target dengan gambar yang sudah ada dalam koleksi gambar presentasi.
+6. Simpan presentasi yang telah dimodifikasi sebagai file PPTX.
 
 ```py
+import aspose.slides as slides
+
 def read_all_bytes(file_name):
     with open(file_name, "rb") as stream:
         return stream.read()
 
 
-# Buat instance kelas Presentation yang mewakili file presentasi.
+# Instansiasi kelas Presentation yang mewakili berkas presentasi.
 with slides.Presentation("sample.pptx") as presentation:
 
     # Cara pertama.
@@ -227,34 +219,32 @@ with slides.Presentation("sample.pptx") as presentation:
     old_image = presentation.images[2]
     old_image.replace_image(presentation.images[3])
 
-    # Simpan presentasi ke file.
+    # Simpan presentasi ke berkas.
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 {{% alert title="Info" color="info" %}}
-
-Dengan konverter gratis Aspose [Text to GIF](https://products.aspose.app/slides/id/text-to-gif), Anda dapat dengan mudah menganimasikan teks dan membuat GIF dari teks.
-
+Dengan konverter gratis [Text to GIF](https://products.aspose.app/slides/id/text-to-gif) milik Aspose, Anda dapat dengan mudah menganimasikan teks dan membuat GIF dari teks.
 {{% /alert %}}
 
 ## **FAQ**
 
-**Apakah resolusi gambar asli tetap utuh setelah penyisipan?**
+**Apakah resolusi gambar asli tetap utuh setelah disisipkan?**
 
-Ya. Piksel sumber dipertahankan, tetapi tampilan akhir bergantung pada cara [picture](/slides/id/python-net/picture-frame/) diubah skalanya pada slide dan kompresi yang diterapkan saat menyimpan.
+Ya. Piksel sumber dipertahankan, namun tampilan akhir tergantung pada bagaimana [picture](/slides/id/python-net/picture-frame/) diskalakan pada slide dan kompresi yang diterapkan saat menyimpan.
 
 **Apa cara terbaik untuk mengganti logo yang sama di puluhan slide sekaligus?**
 
-Letakkan logo pada slide master atau layout dan ganti di koleksi gambar presentasi—perubahan akan menyebar ke semua elemen yang menggunakan sumber tersebut.
+Letakkan logo pada slide master atau tata letak dan ganti di koleksi gambar presentasi—perubahan akan menyebar ke semua elemen yang menggunakan sumber tersebut.
 
 **Apakah SVG yang disisipkan dapat diubah menjadi bentuk yang dapat diedit?**
 
-Ya. Anda dapat mengonversi SVG menjadi grup bentuk, setelah itu tiap bagian dapat diedit dengan properti bentuk standar.
+Ya. Anda dapat mengonversi SVG menjadi grup bentuk, setelah itu bagian‑bagian individu menjadi dapat diedit dengan properti bentuk standar.
 
-**Bagaimana cara menetapkan gambar sebagai latar belakang untuk beberapa slide sekaligus?**
+**Bagaimana cara mengatur gambar sebagai latar belakang untuk beberapa slide sekaligus?**
 
-[Assign the image as the background](/slides/id/python-net/presentation-background/) pada slide master atau layout yang relevan—semua slide yang menggunakan master/layout tersebut akan mewarisi latar belakang.
+[Tetapkan gambar sebagai latar belakang](/slides/id/python-net/presentation-background/) pada slide master atau tata letak yang relevan—setiap slide yang menggunakan master/tata letak tersebut akan mewarisi latar belakang.
 
-**Bagaimana mencegah ukuran presentasi “membengkak” karena banyak gambar?**
+**Bagaimana cara mencegah presentasi menjadi terlalu besar karena banyak gambar?**
 
-Gunakan kembali satu sumber gambar daripada duplikat, pilih resolusi yang wajar, terapkan kompresi saat menyimpan, dan simpan grafik berulang pada master bila memungkinkan.
+Gunakan kembali satu sumber gambar alih‑alih duplikat, pilih resolusi yang wajar, terapkan kompresi saat menyimpan, dan simpan grafik berulang pada master bila sesuai.

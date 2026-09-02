@@ -1,6 +1,6 @@
 ---
-title: Python के साथ PowerPoint में छवि प्रबंधन का अनुकूलन
-linktitle: छवियों का प्रबंधन
+title: "PowerPoint में Python के साथ छवि प्रबंधन को अनुकूलित करें"
+linktitle: "छवियों का प्रबंधन"
 type: docs
 weight: 10
 url: /hi/python-net/image/
@@ -19,32 +19,33 @@ keywords:
 - WMF जोड़ें
 - TIFF जोड़ें
 - PowerPoint
+- OpenDocument
 - प्रस्तुति
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET के साथ PowerPoint और OpenDocument में छवि प्रबंधन को सहज बनाएं, प्रदर्शन को अनुकूलित करें और अपने कार्यप्रवाह को स्वचालित करें।"
+description: "Aspose.Slides for Python द्वारा .NET के माध्यम से PowerPoint और OpenDocument में छवि प्रबंधन को सरल बनाएं, प्रदर्शन को अनुकूलित करें और अपने कार्यप्रवाह को स्वचालित करें।"
 ---
 ## **परिचय**
 
-छवियां प्रस्तुतियों को अधिक आकर्षक और रोचक बनाती हैं। Microsoft PowerPoint में, आप फ़ाइल, इंटरनेट या अन्य स्रोतों से तस्वीरें स्लाइड पर सम्मिलित कर सकते हैं। इसी प्रकार, Aspose.Slides आपको कई तरीकों से स्लाइड में छवियां जोड़ने की अनुमति देता है।
+छवियां प्रस्तुतियों को अधिक आकर्षक और रोचक बनाती हैं। Microsoft PowerPoint में, आप फ़ाइल, इंटरनेट या अन्य स्रोतों से चित्र स्लाइड्स पर सम्मिलित कर सकते हैं। इसी तरह, Aspose.Slides आपको कई तरीकों से स्लाइड्स पर छवियां जोड़ने की अनुमति देता है।
 
 {{% alert  title="Tip" color="primary" %}}
-Aspose मुफ्त कनवर्टर प्रदान करता है—[JPEG से PowerPoint](https://products.aspose.app/slides/hi/import/jpg-to-ppt) और [PNG से PowerPoint](https://products.aspose.app/slides/hi/import/png-to-ppt)—जो आपको छवियों से जल्दी प्रस्तुतियां बनाने में मदद करते हैं।
+Aspose मुफ्त रूपांतरक प्रदान करता है—[JPEG to PowerPoint](https://products.aspose.app/slides/hi/import/jpg-to-ppt) और [PNG to PowerPoint](https://products.aspose.app/slides/hi/import/png-to-ppt)—जो आपको छवियों से शीघ्रता से प्रस्तुतियां बनाने देते हैं।
 {{% /alert %}}
 
 {{% alert title="Info" color="info" %}}
-यदि आप छवि को फ्रेम ऑब्जेक्ट के रूप में जोड़ना चाहते हैं—विशेषकर जब आप आकार बदलने या प्रभाव लागू करने जैसे मानक स्वरूपण विकल्पों का उपयोग करने की योजना बनाते हैं—देखें [Add Picture Frames to Presentations with Python](https://docs.aspose.com/slides/hi/python-net/picture-frame/)।
+यदि आप छवि को एक फ्रेम ऑब्जेक्ट के रूप में जोड़ना चाहते हैं—विशेषकर यदि आप आकार बदलने या प्रभाव लागू करने जैसी मानक स्वरूपण विकल्पों का उपयोग करने की योजना बना रहे हैं—तो देखें [Add Picture Frames to Presentations with Python](https://docs.aspose.com/slides/hi/python-net/picture-frame/).
 {{% /alert %}}
 
 {{% alert title="Note" color="warning" %}}
-आप छवियों को विभिन्न स्वरूपों के बीच बदलने के लिए छवि और प्रस्तुति I/O ऑपरेशन्स का उपयोग कर सकते हैं। इन पृष्ठों को देखें: परिवर्तित करें [image to JPG](https://products.aspose.com/slides/hi/python-net/conversion/image-to-jpg/); परिवर्तित करें [JPG to image](https://products.aspose.com/slides/hi/python-net/conversion/jpg-to-image/); परिवर्तित करें [JPG to PNG](https://products.aspose.com/slides/hi/python-net/conversion/jpg-to-png/); परिवर्तित करें [PNG to JPG](https://products.aspose.com/slides/hi/python-net/conversion/png-to-jpg/); परिवर्तित करें [PNG to SVG](https://products.aspose.com/slides/hi/python-net/conversion/png-to-svg/); और परिवर्तित करें [SVG to PNG](https://products.aspose.com/slides/hi/python-net/conversion/svg-to-png/)।
+आप छवि और प्रस्तुति I/O ऑपरेशनों का उपयोग करके छवियों को स्वरूपों के बीच परिवर्तित कर सकते हैं। इन पृष्ठों को देखें: परिवर्तित करें [image to JPG](https://products.aspose.com/slides/hi/python-net/conversion/image-to-jpg/); परिवर्तित करें [JPG to image](https://products.aspose.com/slides/hi/python-net/conversion/jpg-to-image/); परिवर्तित करें [JPG to PNG](https://products.aspose.com/slides/hi/python-net/conversion/jpg-to-png/); परिवर्तित करें [PNG to JPG](https://products.aspose.com/slides/hi/python-net/conversion/png-to-jpg/); परिवर्तित करें [PNG to SVG](https://products.aspose.com/slides/hi/python-net/conversion/png-to-svg/); और परिवर्तित करें [SVG to PNG](https://products.aspose.com/slides/hi/python-net/conversion/svg-to-png/).
 {{% /alert %}}
 
-Aspose.Slides JPEG, PNG, BMP, GIF आदि जैसे लोकप्रिय स्वरूपों में छवियों के साथ काम करने का समर्थन करता है।
+Aspose.Slides JPEG, PNG, BMP, GIF आदि लोकप्रिय स्वरूपों में छवियों के साथ काम करने का समर्थन करता है।
 
-## **स्लाइड में स्थानीय रूप से संग्रहीत छवियां जोड़ें**
+## **स्थानी रूप से संग्रहीत छवियों को स्लाइड्स में जोड़ें**
 
-आप अपने कंप्यूटर से एक या अधिक छवियां प्रस्तुति में किसी स्लाइड में जोड़ सकते हैं। निम्नलिखित Python उदाहरण दिखाता है कि स्लाइड में छवि कैसे जोड़ें:
+आप अपने कंप्यूटर से एक या अधिक छवियों को प्रस्तुति की स्लाइड में जोड़ सकते हैं। निम्नलिखित Python उदाहरण दिखाता है कि स्लाइड में छवि कैसे जोड़ें:
 
 ```py
 import aspose.slides as slides
@@ -58,30 +59,32 @@ with slides.Presentation() as presentation:
     presentation.save("presentation_with_image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **वेब से छवियां स्लाइड में जोड़ें**
+## **वेब से छवियों को स्लाइड्स में जोड़ें**
 
-यदि आप जिस छवि को स्लाइड में जोड़ना चाहते हैं वह आपके कंप्यूटर पर उपलब्ध नहीं है, तो आप उसे सीधे वेब से सम्मिलित कर सकते हैं।
+यदि वह छवि जो आप स्लाइड में जोड़ना चाहते हैं आपके कंप्यूटर पर उपलब्ध नहीं है, तो आप उसे सीधे वेब से सम्मिलित कर सकते हैं।
 
 निम्नलिखित Python उदाहरण दिखाता है कि URL से छवि को स्लाइड में कैसे जोड़ें:
 
 ```py
 import aspose.slides as slides
-import urllib2
-import base64
+from urllib.request import urlopen
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    image_data = base64.b64encode(urllib2.urlopen("[REPLACE WITH URL]").read())
+
+    # कच्चे छवि बाइट्स डाउनलोड करें।
+    with urlopen("[REPLACE WITH URL]") as response:
+        image_data = response.read()
 
     image = presentation.images.add_image(image_data)
     slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
-    
+
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **स्लाइड मास्टर में छवियां जोड़ें**
+## **स्लाइड मास्टर में छवियों को जोड़ें**
 
-स्लाइड मास्टर शीर्ष‑स्तरीय स्लाइड है जो सभी नीचे की स्लाइड्स के लिए थीम, लेआउट आदि की जानकारी संग्रहीत और नियंत्रित करता है। जब आप एक छवि को स्लाइड मास्टर में जोड़ते हैं, तो वह छवि उस मास्टर को उपयोग करने वाली हर स्लाइड पर दिखाई देती है।
+स्लाइड मास्टर शीर्ष-स्तर की स्लाइड है जो सभी नीचे की स्लाइड्स के लिए जानकारी—थीम, लेआउट आदि—को संग्रहित और नियंत्रित करता है। जब आप स्लाइड मास्टर में एक छवि जोड़ते हैं, तो वह छवि उस मास्टर का उपयोग करने वाली प्रत्येक स्लाइड पर दिखाई देती है।
 
 निम्नलिखित Python उदाहरण दिखाता है कि स्लाइड मास्टर में छवि कैसे जोड़ें:
 
@@ -100,81 +103,76 @@ with slides.Presentation() as presentation:
     presentation.save("master_with_image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **छवि को स्लाइड पृष्ठभूमि के रूप में सेट करें**
+## **स्लाइड पृष्ठभूमि के रूप में छवियां जोड़ें**
 
-आप एक विशिष्ट स्लाइड या कई स्लाइडों की पृष्ठभूमि के रूप में छवि का उपयोग करना चाह सकते हैं। विस्तृत जानकारी के लिए देखें [Set an Image as the Background for a Slide](https://docs.aspose.com/slides/hi/python-net/presentation-background/#set-image-as-background-for-slide)।
+आप एक या अधिक स्लाइड्स की पृष्ठभूमि के रूप में चित्र का उपयोग कर सकते हैं। विवरण के लिए देखें *[Setting Images as Backgrounds for Slides](/slides/hi/python-net/presentation-background/#setting-images-as-background-for-slides)*।
 
 ## **प्रस्तुतियों में SVG जोड़ें**
 
-आप किसी भी छवि को प्रस्तुति में सम्मिलित कर सकते हैं, इसके लिए [ShapeCollection](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shapecollection/) क्लास की [add_picture_frame](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shapecollection/add_picture_frame/) विधि का उपयोग करें।
+SVG सामग्री को प्रस्तुति में [SvgImage](https://reference.aspose.com/slides/hi/python-net/aspose.slides/svgimage/) वर्ग का उपयोग करके जोड़ा जा सकता है। परिणामस्वरूप SVG छवि को फिर प्रस्तुति की इमेज कलेक्शन में जोड़ा जा सकता है और एक चित्र फ्रेम बनाने के लिए उपयोग किया जा सकता है।
 
-SVG से एक छवि ऑब्जेक्ट बनाने के लिए, इन चरणों का पालन करें:
+निम्नलिखित Python उदाहरण एक स्व-समाहित SVG स्ट्रिंग आयात करता है। इस SVG द्वारा उपयोग की गई सभी छवियां, शैलियां और अन्य संसाधन सीधे SVG सामग्री में स्थित होते हैं।
 
-1. एक [SvgImage](https://reference.aspose.com/slides/hi/python-net/aspose.slides/svgimage/) बनाकर उसे प्रस्तुति की इमेज कलेक्शन में जोड़ें।
-2. [SvgImage](https://reference.aspose.com/slides/hi/python-net/aspose.slides/svgimage/) से एक [PPImage](https://reference.aspose.com/slides/hi/python-net/aspose.slides/ppimage/) ऑब्जेक्ट बनाएं।
-3. [PPImage](https://reference.aspose.com/slides/hi/python-net/aspose.slides/ppimage/) का उपयोग करके एक [PictureFrame](https://reference.aspose.com/slides/hi/python-net/aspose.slides/pictureframe/) ऑब्जेक्ट बनाएं।
-
-निम्नलिखित Python नमूना दिखाता है कि इन चरणों के साथ प्रस्तुति में SVG छवि कैसे जोड़ें:
-
-```py 
+```py
 import aspose.slides as slides
 
+svg_content = """
+<svg xmlns='http://www.w3.org/2000/svg' width='320' height='180'>
+    <rect width='320' height='180' fill='#4F81BD'/>
+    <circle cx='160' cy='90' r='55' fill='#F2F2F2'/>
+</svg>
+"""
+
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+    svg_image = slides.SvgImage(svg_content)
+    image = presentation.images.add_image(svg_image)
 
-    # SVG फ़ाइल की सामग्री पढ़ें।
-    with open("sample.svg", "rt") as image_stream:
-        svg_content = image_stream.read()
-        # एक SvgImage ऑब्जेक्ट बनाएं।
-        svg_image = slides.SvgImage(svg_content)
+    presentation.slides[0].shapes.add_picture_frame(
+        slides.ShapeType.RECTANGLE, 20, 20, image.width, image.height, image
+    )
 
-        # एक PPImage ऑब्जेक्ट बनाएं।
-        pp_image = presentation.images.add_image(svg_image)
-
-        # एक नया PictureFrame बनाएं।
-        slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 200, 100, pp_image.width, pp_image.height, pp_image)
-
-        # प्रस्तुति को PPTX स्वरूप में सहेजें।
-        presentation.save("presentation_with_SVG.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("self-contained-svg.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **SVG को आकारों के सेट में परिवर्तित करें**
 
-Aspose.Slides SVG को ऐसे आकारों के सेट में परिवर्तित करता है जो PowerPoint के SVG हैंडलिंग के समान है।
+Aspose.Slides SVG को आकारों के एक सेट में इस प्रकार परिवर्तित करता है जो PowerPoint के SVG हैंडलिंग के समान है।
 
-![PowerPoint पॉपअप मेनू](img_01_01.png)
+![PowerPoint Popup Menu](img_01_01.png)
 
-यह कार्यक्षमता [ShapeCollection](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shapecollection/) क्लास की [add_group_shape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shapecollection/add_group_shape/) मेथड के एक ओवरलोड द्वारा प्रदान की जाती है, जो पहला आर्ग्यूमेंट के रूप में एक [SvgImage](https://reference.aspose.com/slides/hi/python-net/aspose.slides/svgimage/) लेता है।
+यह कार्यक्षमता [ShapeCollection](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shapecollection/) वर्ग में [add_group_shape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shapecollection/add_group_shape/) विधि के एक ओवरलोड द्वारा प्रदान की जाती है जो प्रथम तर्क के रूप में एक [SvgImage](https://reference.aspose.com/slides/hi/python-net/aspose.slides/svgimage/) लेती है।
 
-नीचे दिया गया नमूना कोड दिखाता है कि SVG फ़ाइल को आकारों के सेट में कैसे परिवर्तित करें।
+निम्नलिखित नमूना कोड दिखाता है कि SVG फ़ाइल को आकारों के सेट में कैसे परिवर्तित किया जाए।
 
 ```py 
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    # SVG फ़ाइल सामग्री पढ़ें।
+    # SVG फ़ाइल की सामग्री पढ़ें।
     with open("sample.svg","rt") as image_stream:
         svg_content = image_stream.read()
         # एक SvgImage ऑब्जेक्ट बनाएं।
         svg_image = slides.SvgImage(svg_content)
 
-        # स्लाइड आकार प्राप्त करें।
+        # स्लाइड का आकार प्राप्त करें।
         slide_size = presentation.slide_size.size
 
-        # SVG छवि को आकारों के समूह में परिवर्तित करें और स्लाइड आकार के अनुसार स्केल करें।
+        # SVG छवि को आकारों के समूह में परिवर्तित करें और इसे स्लाइड के आकार के अनुसार स्केल करें।
         presentation.slides[0].shapes.add_group_shape(svg_image, 0, 0, slide_size.width, slide_size.height)
 
-        # प्रस्तुति को PPTX स्वरूप में सहेजें।
+        # प्रस्तुति को PPTX प्रारूप में सहेजें।
         presentation.save("shapes_from_SVG.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **स्लाइड में EMF के रूप में छवियां जोड़ें**
+## **स्लाइड्स में EMF के रूप में छवियां जोड़ें**
 
-Aspose.Slides for Python आपको प्रस्तुति में Enhanced Metafile (EMF) छवियां सम्मिलित करने की अनुमति देता है।
+Aspose.Slides for Python आपको Enhanced Metafile (EMF) छवियों को प्रस्तुतियों में सम्मिलित करने की अनुमति देता है।
 
-निम्नलिखित Python उदाहरण इसमें आपकी मदद करता है:
+निम्नलिखित Python उदाहरण इसे प्रदर्शित करता है:
 
 ```py 
+import aspose.slides as slides
+
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
     with open("image.emf", "rb") as image_stream:
@@ -187,24 +185,26 @@ with slides.Presentation() as presentation:
 
 ## **छवि संग्रह में छवियों को बदलें**
 
-Aspose.Slides आपको प्रस्तुति के इमेज कलेक्शन में संग्रहीत छवियों को बदलने देता है, जिसमें स्लाइड शेप्स द्वारा उपयोग की गई छवियां भी शामिल हैं। यह अनुभाग संग्रह में छवियों को अपडेट करने के कई तरीकों को बताता है। API सरल मेथड्स प्रदान करता है जिससे आप किसी छवि को कच्चे बाइट डेटा, एक [IImage](https://reference.aspose.com/slides/hi/python-net/aspose.slides/iimage/) इंस्टेंस, या संग्रह में पहले से मौजूद दूसरी छवि से बदल सकते हैं।
+Aspose.Slides आपको प्रस्तुति के इमेज कलेक्शन में संग्रहीत छवियों को बदलने की अनुमति देता है, जिसमें स्लाइड आकारों द्वारा उपयोग की गई छवियां भी शामिल हैं। यह अनुभाग संग्रह में छवियों को अपडेट करने के कई तरीकों को रेखांकित करता है। API सहज विधियां प्रदान करता है ताकि आप किसी छवि को कच्चे बाइट डेटा, एक [IImage](https://reference.aspose.com/slides/hi/python-net/aspose.slides/iimage/) इंस्टेंस, या संग्रह में पहले से मौजूद दूसरी छवि से बदल सकें।
 
 इन चरणों का पालन करें:
 
-1. प्रस्तुतिकरण को [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) क्लास का उपयोग करके लोड करें जिसमें छवियां मौजूद हैं।
-2. फ़ाइल से नई छवि को बाइट एरे में लोड करें।
-3. बाइट एरे का उपयोग करके लक्ष्य छवि को नई छवि से बदलें।
+1. छवियों वाले प्रस्तुति को [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) वर्ग का उपयोग करके लोड करें।
+2. फ़ाइल से नई छवि को बाइट ऐरे में लोड करें।
+3. बाइट ऐरे का उपयोग करके लक्ष्य छवि को नई छवि से बदलें।
 4. वैकल्पिक रूप से, छवि को एक [IImage](https://reference.aspose.com/slides/hi/python-net/aspose.slides/iimage/) ऑब्जेक्ट में लोड करें और लक्ष्य छवि को उस ऑब्जेक्ट से बदलें।
 5. या लक्ष्य छवि को प्रस्तुति के इमेज कलेक्शन में पहले से मौजूद छवि से बदलें।
 6. संशोधित प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
 
 ```py
+import aspose.slides as slides
+
 def read_all_bytes(file_name):
     with open(file_name, "rb") as stream:
         return stream.read()
 
 
-# Presentation क्लास को इंस्टैंटिएट करें जो एक प्रस्तुति फ़ाइल को दर्शाता है।
+# Presentation क्लास को इंस्टैंसिएट करें जो एक प्रस्तुति फ़ाइल का प्रतिनिधित्व करता है।
 with slides.Presentation("sample.pptx") as presentation:
 
     # पहला तरीका।
@@ -226,27 +226,27 @@ with slides.Presentation("sample.pptx") as presentation:
 ```
 
 {{% alert title="Info" color="info" %}}
-Aspose के मुफ्त [Text to GIF](https://products.aspose.app/slides/hi/text-to-gif) कनवर्टर के साथ आप आसानी से पाठ को एनीमेट कर सकते हैं और पाठ से GIF बना सकते हैं।
+Aspose के मुफ्त [Text to GIF](https://products.aspose.app/slides/hi/text-to-gif) रूपांतरक के साथ, आप आसानी से पाठ को एनिमेट कर सकते हैं और पाठ से GIF बना सकते हैं।
 {{% /alert %}}
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या मूल छवि रिज़ॉल्यूशन सम्मिलन के बाद बना रहता है?**
+**क्या इन्सर्ट करने के बाद मूल छवि रिज़ॉल्यूशन अपरिवर्तित रहता है?**
 
-हां। स्रोत पिक्सेल संरक्षित रहते हैं, लेकिन अंतिम रूप इस बात पर निर्भर करता है कि स्लाइड पर [picture](/slides/hi/python-net/picture-frame/) कैसे स्केल किया गया है और सहेजते समय कौन सा संपीड़न लागू किया गया है।
+हाँ। मूल पिक्सेल सुरक्षित रखे जाते हैं, लेकिन अंतिम दिखावट इस बात पर निर्भर करती है कि स्लाइड पर [picture](/slides/hi/python-net/picture-frame/) कैसे स्केल किया गया है और सहेजते समय किस भी संपीड़न लागू किया गया है।
 
-**एक ही लोगो को साथ में दर्जन भर स्लाइड पर बदलने का सबसे अच्छा तरीका क्या है?**
+**दसियों स्लाइड्स में एक ही लोगो को एक साथ बदलने का सबसे अच्छा तरीका क्या है?**
 
-लोगो को मास्टर स्लाइड या लेआउट पर रखें और उसे प्रस्तुति के इमेज कलेक्शन में बदलें—अपडेट उन सभी तत्वों तक पहुंचेगा जो उस संसाधन का उपयोग कर रहे हैं।
+लोगो को मास्टर स्लाइड या लेआउट पर रखें और प्रस्तुति के इमेज कलेक्शन में इसे बदलें—अपडेट्स उन सभी तत्वों तक पहुँचेंगे जो उस संसाधन का उपयोग करते हैं।
 
-**क्या सम्मिलित SVG को संपादन योग्य आकारों में बदला जा सकता है?**
+**क्या सम्मिलित SVG को संपादन योग्य आकारों में परिवर्तित किया जा सकता है?**
 
-हां। आप SVG को आकारों के एक समूह में बदल सकते हैं, जिसके बाद व्यक्तिगत भाग मानक आकार गुणों के साथ संपादन योग्य हो जाते हैं।
+हाँ। आप SVG को आकारों के समूह में परिवर्तित कर सकते हैं, जिससे व्यक्तिगत भाग मानक आकार प्रॉपर्टीज़ के साथ संपादन योग्य हो जाते हैं।
 
-**मैं एक ही समय में कई स्लाइडों की पृष्ठभूमि के रूप में छवि कैसे सेट कर सकता हूं?**
+**मैं कैसे एक ही समय में कई स्लाइड्स की पृष्ठभूमि के रूप में चित्र सेट कर सकता हूँ?**
 
-[Assign the image as the background](/slides/hi/python-net/presentation-background/) को मास्टर स्लाइड या संबंधित लेआउट पर सेट करें—उस मास्टर/लेआउट का उपयोग करने वाली सभी स्लाइडें पृष्ठभूमि को विरासत में प्राप्त करेंगी।
+[इमेज को पृष्ठभूमि के रूप में असाइन करें](/slides/hi/python-net/presentation-background/) मास्टर स्लाइड या संबंधित लेआउट पर—उस मास्टर/लेआउट का उपयोग करने वाली सभी स्लाइड्स पृष्ठभूमि को विरासत में ले लेंगी।
 
-**बहुत सारी छवियों के कारण प्रस्तुति का आकार "बैलूनिंग" से कैसे बचाएं?**
+**कई चित्रों के कारण प्रस्तुति बहुत बड़ी होने से कैसे बचूँ?**
 
-डुप्लिकेट्स की बजाय एक ही छवि संसाधन का पुन: उपयोग करें, उचित रिज़ॉल्यूशन चुनें, सहेजते समय संपीड़न लागू करें, और जहाँ उपयुक्त हो दोहराए जाने वाले ग्राफिक्स को मास्टर पर रखें।
+डुप्लिकेट के बजाय एक ही इमेज संसाधन का पुन: उपयोग करें, उचित रिज़ॉल्यूशन चुनें, सहेजते समय संपीड़न लागू करें, और जहाँ उपयुक्त हो दोहराए गए ग्राफिक्स को मास्टर पर रखें।
