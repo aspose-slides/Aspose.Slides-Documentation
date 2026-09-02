@@ -1,6 +1,6 @@
 ---
 title: Lägg till matematiska ekvationer i PowerPoint-presentationer i .NET
-linktitle: PowerPoint-matematikekvationer
+linktitle: PowerPoint matematiska ekvationer
 type: docs
 weight: 80
 url: /sv/net/powerpoint-math-equations/
@@ -22,31 +22,31 @@ description: "Infoga och redigera matematiska ekvationer i PowerPoint PPT och PP
 ---
 ## **Översikt**
 
-PowerPoint lagrar ekvationer som Office Math Markup Language (OMML). Med Aspose.Slides för .NET kan du skapa samma typ av matematiskt innehåll programmässigt: bråk, radikaler, funktioner, gränsvärden, N-ära operatorer, matriser, arrayer och formaterade matematiksblock.
+PowerPoint lagrar ekvationer som Office Math Markup Language (OMML). Med Aspose.Slides för .NET kan du skapa samma typ av matematiskt innehåll programmässigt: bråktal, rötter, funktioner, gränsvärden, N-ära operatorer, matriser, arrayer och formaterade matematikblock.
 
-I PowerPoint lägger användare normalt till ekvationer via **Infoga > Ekvation**:
+I PowerPoint lägger användare normalt till ekvationer via **Insert > Equation**:
 
-![PowerPoint Infoga-flik med kommandot Ekvation markerat](powerpoint-math-equations_1.png)
+![PowerPoint-fliken Infoga med kommandot Ekvation markerat](powerpoint-math-equations_1.png)
 
 Resultatet är redigerbar matematisk text på bilden:
 
 ![En PowerPoint-bild som innehåller en redigerbar matematisk ekvation](powerpoint-math-equations_2.png)
 
-Aspose.Slides bygger den matematiken genom tre huvudobjekt:
+Aspose.Slides bygger den matematiska texten genom tre huvudobjekt:
 
-- En matematisk form, skapad med [AddMathShape](https://reference.aspose.com/slides/sv/net/aspose.slides/ishapecollection/addmathshape/), är formen som innehåller ekvationen.
-- [MathPortion](https://reference.aspose.com/slides/sv/net/aspose.slides.mathtext/mathportion/) lagrar matematiskt innehåll i formens textram.
+- En matematisk form, skapad med [AddMathShape](https://reference.aspose.com/slides/sv/net/aspose.slides/ishapecollection/addmathshape/), är den form som innehåller ekvationen.
+- [MathPortion](https://reference.aspose.com/slides/sv/net/aspose.slides.mathtext/mathportion/) lagrar matematikinnehåll i formens textruta.
 - [MathParagraph](https://reference.aspose.com/slides/sv/net/aspose.slides.mathtext/mathparagraph/) innehåller ett eller flera [MathBlock](https://reference.aspose.com/slides/sv/net/aspose.slides.mathtext/mathblock/)-objekt.
 
-De flesta exempel nedan använder [MathematicalText](https://reference.aspose.com/slides/sv/net/aspose.slides.mathtext/mathematicaltext/) och de flytande metoderna från [IMathElement](https://reference.aspose.com/slides/sv/net/aspose.slides.mathtext/imathelement/) för att hålla koden kort och läsbar.
+De flesta exempel nedan använder [MathematicalText](https://reference.aspose.com/slides/sv/net/aspose.slides.mathtext/mathematicaltext/) och de flödande metoderna från [IMathElement](https://reference.aspose.com/slides/sv/net/aspose.slides.mathtext/imathelement/) för att hålla koden kort och läsbar.
 
-För MathML‑exportscenarier, se [Exportera matematiska ekvationer från presentationer i .NET](/slides/sv/net/exporting-math-equations/).
+För MathML-exportscenarier, se [Exportera matematiska ekvationer från presentationer i .NET](/slides/sv/net/exporting-math-equations/).
 
 ## **Skapa en ekvation**
 
 Detta exempel skapar en matematisk form och lägger till Pythagoras sats:
 
-![Ekvationen c kvadrat är lika med a kvadrat plus b kvadrat](powerpoint-math-equations_3.png)
+![Ekvationen c² = a² + b²](powerpoint-math-equations_3.png)
 
 ```csharp
 using var presentation = new Presentation();
@@ -68,16 +68,14 @@ presentation.Save("pythagorean-theorem.pptx", SaveFormat.Pptx);
 ```
 
 {{% alert color="primary" %}}
-
-`AddMathShape` skapar en form som redan innehåller ett matematiskt stycke. Hämta den första `MathPortion`, få dess `MathParagraph` och lägg till matematiska block eller matematiska element i den.
-
+`AddMathShape` skapar en form som redan innehåller ett matematiskt stycke. Få åtkomst till den första `MathPortion`, hämta dess `MathParagraph` och lägg till matematiska block eller matematiska element i den.
 {{% /alert %}}
 
 ## **Lägg till bråk**
 
-Använd `Divide` för att skapa ett bråk. Du kan välja en bråkstil med [MathFractionTypes](https://reference.aspose.com/slides/sv/net/aspose.slides.mathtext/mathfractiontypes/).
+Använd `Divide` för att skapa ett bråk. Du kan välja en bråktalsstil med [MathFractionTypes](https://reference.aspose.com/slides/sv/net/aspose.slides.mathtext/mathfractiontypes/).
 
-![Ett snett matematiskt bråk som visar ett delat med x](powerpoint-math-equations_4.png)
+![Ett snedvridet matematiskt bråk som visar 1 delat med x](powerpoint-math-equations_4.png)
 
 ```csharp
 using var presentation = new Presentation();
@@ -100,11 +98,11 @@ För ett staplat bråk, använd `MathFractionTypes.Bar`:
 var stackedFraction = new MathematicalText("x + 1").Divide("y - 1", MathFractionTypes.Bar);
 ```
 
-## **Lägg till radikaler**
+## **Lägg till rötter**
 
 Använd `Radical` för att skapa en kvadratrot, kubrot eller annan rot. Det aktuella elementet blir basen och argumentet blir graden.
 
-![Ett n-te rotradicuttryck med x under radikaltecknet](powerpoint-math-equations_5.png)
+![Ett n‑te rotuttryck med x under rottecknet](powerpoint-math-equations_5.png)
 
 ```csharp
 using var presentation = new Presentation();
@@ -123,7 +121,7 @@ presentation.Save("radical.pptx", SaveFormat.Pptx);
 
 ## **Lägg till funktioner och gränsvärden**
 
-Använd `AsArgumentOfFunction` eller `Function` för funktioner som `sin(x)`, `log(x)` eller anpassade funktionsnamn. För gränsvärden, placera `lim` i en [MathLimit](https://reference.aspose.com/slides/sv/net/aspose.slides.mathtext/mathlimit/) eller använd `SetLowerLimit`.
+Använd `AsArgumentOfFunction` eller `Function` för funktioner såsom `sin(x)`, `log(x)` eller egna funktionsnamn. För gränsvärden, placera `lim` i en [MathLimit](https://reference.aspose.com/slides/sv/net/aspose.slides.mathtext/mathlimit/) eller använd `SetLowerLimit`.
 
 ![Gränsvärdet för x när x går mot oändligheten](powerpoint-math-equations_8.png)
 
@@ -143,17 +141,17 @@ mathParagraph.Add(new MathBlock(limit));
 presentation.Save("functions-and-limits.pptx", SaveFormat.Pptx);
 ```
 
-För ett anpassat funktionsnamn, gör funktionsnamnet till det aktuella elementet:
+För ett eget funktionsnamn, gör funktionsnamnet till det aktuella elementet:
 
 ```csharp
 var customFunction = new MathematicalText("f").Function("x + 1");
 ```
 
-## **Lägg till N-ära operatorer och integraler**
+## **Lägg till N‑ära operatorer och integraler**
 
-Använd `Nary` för summor, unioner, snitt och andra stora operatorer. Använd `Integral` för integraler. Båda metoderna låter dig ange lägre och övre gränser.
+Använd `Nary` för summor, unioner, snitt och andra stora operatorer. Använd `Integral` för integraler. Båda metoderna låter dig sätta låg‑ och högre begränsning.
 
-![En summa med lägre och övre gränser](powerpoint-math-equations_7.png)
+![En summa med lägre och högre gränser](powerpoint-math-equations_7.png)
 
 ```csharp
 using var presentation = new Presentation();
@@ -173,7 +171,7 @@ mathParagraph.Add(new MathBlock(summation));
 presentation.Save("nary-operators.pptx", SaveFormat.Pptx);
 ```
 
-N-ära operatorer är för stora operatorer med valfria gränser. Enkla operatorer som `+`, `-` och `=` läggs vanligtvis till som `MathematicalText` och slås ihop i uttrycket.
+N‑ära operatorer är för stora operatorer med valfria gränser. Enkla operatorer såsom `+`, `-` och `=` läggs vanligtvis till som `MathematicalText` och förenas i uttrycket.
 
 För en integral, använd `Integral`:
 
@@ -184,9 +182,9 @@ var integral = integralBase.Integral(MathIntegralTypes.Simple, "0", "1");
 
 ## **Lägg till matriser**
 
-Använd [MathMatrix](https://reference.aspose.com/slides/sv/net/aspose.slides.mathtext/mathmatrix/) för rader och kolumner. Matriser innehåller inte hakparenteser som standard, så omge matrisen när du behöver parenteser, hakparenteser eller klammer.
+Använd [MathMatrix](https://reference.aspose.com/slides/sv/net/aspose.slides.mathtext/mathmatrix/) för rader och kolumner. Matriser inkluderar inte hakparenteser som standard, så omge matrisen med parenteser, hakparenteser eller måsvingar när så behövs.
 
-![En tvåradermatris med en tom cell](powerpoint-math-equations_10.png)
+![En matris med två rader och en tom cell](powerpoint-math-equations_10.png)
 
 ```csharp
 using var presentation = new Presentation();
@@ -233,7 +231,7 @@ presentation.Save("equation-array.pptx", SaveFormat.Pptx);
 
 Använd `AsArgumentOfFunction` när argumentet är det aktuella elementet och funktionsnamnet är känt.
 
-![Den trigonometriska funktionen cos tillämpad på 2x](powerpoint-math-equations_6.png)
+![Den trigonometriska funktionen cos applicerad på 2x](powerpoint-math-equations_6.png)
 
 ```csharp
 using var presentation = new Presentation();
@@ -250,11 +248,11 @@ mathParagraph.Add(new MathBlock(cosine));
 presentation.Save("trigonometric-function.pptx", SaveFormat.Pptx);
 ```
 
-## **Lägg till nedsänkta och upphöjda**
+## **Lägg till subskript och superskript**
 
-Använd hjälpfunktionerna för nedsänkta och upphöjda för index och potenser. När indexen måste visas på vänster sida av basen, använd `SetSubSuperscriptOnTheLeft`.
+Använd hjälpmetoderna för subskript och superskript för index och exponenter. När indexen måste visas på vänster sida av basen, använd `SetSubSuperscriptOnTheLeft`.
 
-![Ett stort Y med nedsänkt index 1 till vänster och upphöjd n](powerpoint-math-equations_9.png)
+![En stor Y med subskript 1 och superskript n på vänster sida](powerpoint-math-equations_9.png)
 
 ```csharp
 using var presentation = new Presentation();
@@ -273,9 +271,9 @@ presentation.Save("subscript-superscript.pptx", SaveFormat.Pptx);
 
 ## **Lägg till avgränsare**
 
-Använd `Enclose` för att placera ett uttryck inom avgränsare. Du kan också ange ett separatorstecken för avgränsade uttryck som innehåller flera element.
+Använd `Enclose` för att placera ett uttryck inom avgränsare. Du kan också ange ett separations­tecken för avgränsare som innehåller flera element.
 
-![Ett avgränsat uttryck som innehåller x, y och z separerade med vertikala staplar](powerpoint-math-equations_13.png)
+![Ett avgränsningsexpansion som innehåller x, y och z separerade med vertikala streck](powerpoint-math-equations_13.png)
 
 ```csharp
 using var presentation = new Presentation();
@@ -297,9 +295,9 @@ presentation.Save("delimiters.pptx", SaveFormat.Pptx);
 
 ## **Lägg till en ramruta**
 
-Använd `ToBorderBox` när själva ekvationen ska ramas in.
+Använd `ToBorderBox` när själva ekvationen ska omges av en ram.
 
-![En inramad ekvation som visar a kvadrat är lika med b kvadrat plus c kvadrat](powerpoint-math-equations_12.png)
+![En inramad ekvation som visar c² = b² + a²](powerpoint-math-equations_12.png)
 
 ```csharp
 using var presentation = new Presentation();
@@ -323,9 +321,9 @@ presentation.Save("border-box.pptx", SaveFormat.Pptx);
 
 ## **Gruppera termer**
 
-Använd `Group` för att placera ett grupperingstecken ovanför eller under ett uttryck. Lägg till en gräns för att märka de grupperade termerna.
+Använd `Group` för att placera en grupperingstecken ovanför eller under ett uttryck. Lägg till en gräns för att märka de grupperade termerna.
 
-![Uttrycket x plus y grupperat med etiketten någon text nedanför](powerpoint-math-equations_15.png)
+![Uttrycket x + y grupperat med etiketten någon text under det](powerpoint-math-equations_15.png)
 
 ```csharp
 using var presentation = new Presentation();
@@ -345,7 +343,7 @@ presentation.Save("grouped-terms.pptx", SaveFormat.Pptx);
 
 ## **Formatera matematiska element**
 
-Använd formateringshjälp med endast där de förtydligar formeln. Till exempel placerar `Overbar` ett streck över ett matematiskt element.
+Använd formateringshjälpmedel endast där de klargör formeln. Till exempel placerar `Overbar` ett streck ovanför ett matematiskt element.
 
 ![Ett matematiskt uttryck ABC med ett överstreck](powerpoint-math-equations_14.png)
 
@@ -369,17 +367,17 @@ presentation.Save("overbar.pptx", SaveFormat.Pptx);
 | --- | --- |
 | Skapa matematisk text | [MathematicalText](https://reference.aspose.com/slides/sv/net/aspose.slides.mathtext/mathematicaltext/) |
 | Kombinera element | [IMathElement.Join](https://reference.aspose.com/slides/sv/net/aspose.slides.mathtext/imathelement/join/) |
-| Skapa bråk | [IMathElement.Divide](https://reference.aspose.com/slides/sv/net/aspose.slides.mathtext/imathelement/divide/) |
-| Lägg till upphöjd eller nedsänkt | [SetSuperscript](https://reference.aspose.com/slides/sv/net/aspose.slides.mathtext/imathelement/setsuperscript/), [SetSubscript](https://reference.aspose.com/slides/sv/net/aspose.slides.mathtext/imathelement/setsubscript/) |
+| Skapa bråktal | [IMathElement.Divide](https://reference.aspose.com/slides/sv/net/aspose.slides.mathtext/imathelement/divide/) |
+| Lägg till superskript eller subskript | [SetSuperscript](https://reference.aspose.com/slides/sv/net/aspose.slides.mathtext/imathelement/setsuperscript/), [SetSubscript](https://reference.aspose.com/slides/sv/net/aspose.slides.mathtext/imathelement/setsubscript/) |
 | Lägg till funktioner | [Function](https://reference.aspose.com/slides/sv/net/aspose.slides.mathtext/imathelement/function/), [AsArgumentOfFunction](https://reference.aspose.com/slides/sv/net/aspose.slides.mathtext/imathelement/asargumentoffunction/) |
-| Lägg till radikaler | [IMathElement.Radical](https://reference.aspose.com/slides/sv/net/aspose.slides.mathtext/imathelement/radical/) |
+| Lägg till rötter | [IMathElement.Radical](https://reference.aspose.com/slides/sv/net/aspose.slides.mathtext/imathelement/radical/) |
 | Lägg till gränsvärden | [SetLowerLimit](https://reference.aspose.com/slides/sv/net/aspose.slides.mathtext/imathelement/setlowerlimit/), [SetUpperLimit](https://reference.aspose.com/slides/sv/net/aspose.slides.mathtext/imathelement/setupperlimit/) |
-| Lägg till vänstersidiga index | [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/sv/net/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) |
+| Lägg till vänstersidiga skript | [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/sv/net/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) |
 | Lägg till summor och integraler | [Nary](https://reference.aspose.com/slides/sv/net/aspose.slides.mathtext/imathelement/nary/), [Integral](https://reference.aspose.com/slides/sv/net/aspose.slides.mathtext/imathelement/integral/) |
 | Lägg till matriser | [MathMatrix](https://reference.aspose.com/slides/sv/net/aspose.slides.mathtext/mathmatrix/) |
 | Lägg till ekvationsarrayer | [ToMathArray](https://reference.aspose.com/slides/sv/net/aspose.slides.mathtext/imathelement/tomatharray/) |
 | Lägg till avgränsare | [Enclose](https://reference.aspose.com/slides/sv/net/aspose.slides.mathtext/imathelement/enclose/) |
-| Lägg till överstreck och ramar | [Overbar](https://reference.aspose.com/slides/sv/net/aspose.slides.mathtext/imathelement/overbar/), [ToBorderBox](https://reference.aspose.com/slides/sv/net/aspose.slides.mathtext/imathelement/toborderbox/) |
+| Lägg till streck och ramar | [Overbar](https://reference.aspose.com/slides/sv/net/aspose.slides.mathtext/imathelement/overbar/), [ToBorderBox](https://reference.aspose.com/slides/sv/net/aspose.slides.mathtext/imathelement/toborderbox/) |
 | Gruppera termer | [Group](https://reference.aspose.com/slides/sv/net/aspose.slides.mathtext/imathelement/group/) |
 
 ## **FAQ**
@@ -388,10 +386,10 @@ presentation.Save("overbar.pptx", SaveFormat.Pptx);
 
 Ja. Öppna presentationen, hitta formen som innehåller en `MathPortion`, hämta dess `MathParagraph` och uppdatera de matematiska blocken i det stycket.
 
-**Sparas ekvationer som redigerbar PowerPoint‑matte?**
+**Sparas ekvationer som redigerbar PowerPoint‑matematik?**
 
 Ja. När du sparar till PPTX skriver Aspose.Slides ekvationen som redigerbart Office‑matematikinnehåll.
 
 **Kan jag exportera ekvationer till LaTeX?**
 
-Aspose.Slides exporterar matematiska ekvationer till MathML. Om du behöver LaTeX, exportera först till MathML och konvertera sedan MathML med ett verktyg som stödjer ditt mål‑LaTeX‑dialekt.
+Ja. Hämta ekvationens [IMathParagraph](https://reference.aspose.com/slides/sv/net/aspose.slides.mathtext/imathparagraph/) från dess [MathPortion](https://reference.aspose.com/slides/sv/net/aspose.slides.mathtext/mathportion/), och anropa [IMathParagraph.ToLatex](https://reference.aspose.com/slides/sv/net/aspose.slides.mathtext/imathparagraph/tolatex/) för att exportera den direkt. För ett komplett exempel, se [Exportera matematiska ekvationer från presentationer i .NET](/slides/sv/net/exporting-math-equations/#export-math-equations-to-latex).

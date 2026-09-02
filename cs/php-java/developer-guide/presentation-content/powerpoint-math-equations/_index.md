@@ -1,6 +1,6 @@
 ---
 title: Přidání matematických rovnic do prezentací PowerPoint v PHP
-linktitle: Matematické rovnice v PowerPointu
+linktitle: Matematické rovnice PowerPoint
 type: docs
 weight: 80
 url: /cs/php-java/powerpoint-math-equations/
@@ -17,17 +17,17 @@ keywords:
 - prezentace
 - PHP
 - Aspose.Slides
-description: "Vkládejte a upravujte matematické rovnice v PowerPoint PPT a PPTX pomocí Aspose.Slides pro PHP přes Java, s podporou OMML, ovládání formátování a srozumitelných ukázek kódu v PHP."
+description: "Vkládejte a upravujte matematické rovnice v PowerPoint PPT a PPTX pomocí Aspose.Slides pro PHP přes Java, podporuje OMML, ovládací prvky formátování a přehledné ukázky kódu v PHP."
 ---
 ## **Přehled**
 
-PowerPoint ukládá rovnice jako Office Math Markup Language (OMML). Pomocí Aspose.Slides pro PHP přes Java můžete programově vytvářet stejný typ matematického obsahu: zlomky, radikály, funkce, limity, N-ární operátory, matice, pole a formátované matematické bloky.
+PowerPoint ukládá rovnice jako Office Math Markup Language (OMML). S Aspose.Slides pro PHP přes Java můžete programově vytvářet stejný typ matematického obsahu: zlomky, radikály, funkce, limity, N-ární operátory, matice, pole a formátované matematické bloky.
 
-V PowerPointu uživatelé obvykle přidávají rovnice přes **Insert > Equation**:
+V PowerPointu uživatelé obvykle přidávají rovnice pomocí **Insert > Equation**:
 
-![Panel Insert v PowerPointu s vybraným příkazem Equation](powerpoint-math-equations_1.png)
+![Karta Insert v PowerPointu s vybraným příkazem Equation](powerpoint-math-equations_1.png)
 
-Výsledek je editovatelný matematický text na snímku:
+Výsledkem je editovatelný matematický text na snímku:
 
 ![Snímek PowerPointu obsahující editovatelnou matematickou rovnici](powerpoint-math-equations_2.png)
 
@@ -37,13 +37,13 @@ Aspose.Slides vytváří tento matematický text pomocí tří hlavních objekt�
 - [MathPortion](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathportion/) ukládá matematický obsah uvnitř textového rámce tvaru.
 - [MathParagraph](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathparagraph/) obsahuje jeden nebo více objektů [MathBlock](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathblock/).
 
-Většina níže uvedených příkladů používá [MathematicalText](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathematicaltext/) a řetězené metody z [MathElementBase](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/) pro stručný a čitelný kód.
+Většina níže uvedených příkladů používá [MathematicalText](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathematicaltext/) a plynulé metody z [MathElementBase](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/), aby byl kód stručný a čitelný.
 
-Pro scénáře exportu do MathML viz [Export matematických rovnic z prezentací v PHP přes Java](/slides/cs/php-java/exporting-math-equations/).
+Pro scénáře exportu MathML viz [Export rovnic z prezentací v PHP přes Java](/slides/cs/php-java/exporting-math-equations/).
 
-## **Vytvoření rovnice**
+## **Vytvořit rovnici**
 
-Tento příklad vytvoří matematický tvar a přidá Pythagorovu větu:
+Příklad vytváří matematický tvar a přidává Pythagorovu větu:
 
 ![Rovnice c na druhou rovná se a na druhou plus b na druhou](powerpoint-math-equations_3.png)
 
@@ -74,14 +74,14 @@ try {
 ```
 
 {{% alert color="primary" %}}
-`addMathShape` vytváří tvar, který již obsahuje matematický odstavec. Přistupte k prvnímu `MathPortion`, získejte jeho `MathParagraph` a přidejte matematické bloky nebo matematické prvky.
+`addMathShape` vytváří tvar, který již obsahuje matematický odstavec. Přistupte k prvnímu `MathPortion`, získejte jeho `MathParagraph` a přidejte matematické bloky nebo matematické elementy.
 {{% /alert %}}
 
-## **Přidání zlomků**
+## **Přidat zlomky**
 
-Použijte [`divide`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/) k vytvoření zlomku. Styl zlomku můžete zvolit pomocí [MathFractionTypes](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathfractiontypes/).
+Použijte [`divide`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/) k vytvoření zlomku. Můžete zvolit styl zlomku pomocí [MathFractionTypes](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathfractiontypes/).
 
-![Šikmý matematický zlomek zobrazující 1 děleno x](powerpoint-math-equations_4.png)
+![Zkosený matematický zlomek ukazující jedno děleno x](powerpoint-math-equations_4.png)
 
 ```php
 $presentation = new Presentation();
@@ -105,17 +105,17 @@ try {
 }
 ```
 
-Pro svislý zlomek použijte `MathFractionTypes::Bar`:
+Pro svislý (stacked) zlomek použijte `MathFractionTypes::Bar`:
 
 ```php
 $stackedFraction = (new MathematicalText("x + 1"))->divide("y - 1", MathFractionTypes::Bar);
 ```
 
-## **Přidání radikálů**
+## **Přidat radikály**
 
-Použijte [`radical`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/) k vytvoření druhé odmocniny, třetí odmocniny nebo jiného kořene. Aktuální prvek se stane základem a argument se stane stupněm.
+Použijte [`radical`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/) k vytvoření druhé odmocniny, třetí odmocniny nebo jiné odmocniny. Aktuální prvek se stane základem a argument se stane exponentem.
 
-![Výraz n-tého kořene s x pod radikálovým znakem](powerpoint-math-equations_5.png)
+![Výraz n-té odmocniny s x pod znakem odmocniny](powerpoint-math-equations_5.png)
 
 ```php
 $presentation = new Presentation();
@@ -139,11 +139,11 @@ try {
 }
 ```
 
-## **Přidání funkcí a limit**
+## **Přidat funkce a limity**
 
 Použijte [`asArgumentOfFunction`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/) nebo [`function`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/) pro funkce jako `sin(x)`, `log(x)` nebo vlastní názvy funkcí. Pro limity vložte `lim` do [MathLimit](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathlimit/) nebo použijte [`setLowerLimit`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/).
 
-![Limita x, když x směřuje k nekonečnu](powerpoint-math-equations_8.png)
+![Limit x, když x míří k nekonečnu](powerpoint-math-equations_8.png)
 
 ```php
 $presentation = new Presentation();
@@ -168,17 +168,17 @@ try {
 }
 ```
 
-Pro vlastní název funkce použijte název funkce jako aktuální prvek:
+Pro vlastní název funkce udělejte název funkce aktuálním prvkem:
 
 ```php
 $customFunction = (new MathematicalText("f"))->function("x + 1");
 ```
 
-## **Přidání N-árních operátorů a integrálů**
+## **Přidat N-ární operátory a integrály**
 
-Použijte [`nary`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/) pro součty, sjednocení, průniky a další velké operátory. Použijte [`integral`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/) pro integrály. Obě metody umožňují nastavit dolní a horní mez.
+Použijte [`nary`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/) pro součty, sjednocení, průniky a další velké operátory. Použijte [`integral`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/) pro integrály. Obě metody umožňují nastavit dolní a horní limity.
 
-![Součet s dolní a horní mezí](powerpoint-math-equations_7.png)
+![Součet s dolní a horní limitou](powerpoint-math-equations_7.png)
 
 ```php
 $presentation = new Presentation();
@@ -205,7 +205,7 @@ try {
 }
 ```
 
-N-ární operátory jsou určeny pro velké operátory s volitelnými mezemi. Jednoduché operátory jako `+`, `-` a `=` se obvykle přidávají jako `MathematicalText` a spojují do výrazu.
+N-ární operátory slouží k velkým operátorům s volitelnými limity. Jednoduché operátory jako `+`, `-` a `=` jsou obvykle přidávány jako `MathematicalText` a spojují se do výrazu.
 
 Pro integrál použijte `integral`:
 
@@ -214,9 +214,9 @@ $integralBase = (new MathematicalText("x"))->join((new MathematicalText("dx"))->
 $integral = $integralBase->integral(MathIntegralTypes::Simple, "0", "1");
 ```
 
-## **Přidání matic**
+## **Přidat matice**
 
-Použijte [MathMatrix](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathmatrix/) pro řádky a sloupce. Matice ve výchozím nastavení neobsahují závorky, takže je obalte, pokud potřebujete závorky, hranaté závorky nebo složené závorky.
+Použijte [MathMatrix](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathmatrix/) pro řádky a sloupce. Matice standardně neobsahují závorky, takže je uzavřete závorkami, hranatými závorkami nebo složenými závorkami podle potřeby.
 
 ![Matematická matice se dvěma řádky a jednou prázdnou buňkou](powerpoint-math-equations_10.png)
 
@@ -246,9 +246,9 @@ try {
 }
 ```
 
-## **Přidání polí rovnic**
+## **Přidat pole rovnic**
 
-Použijte [`toMathArray`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/) když potřebujete zarovnané rovnice nebo svislé uspořádání výrazů.
+Použijte [`toMathArray`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/) kdy potřebujete zarovnané rovnice nebo svislé uspořádání výrazů.
 
 ![Vertikální matematické pole s x nad y](powerpoint-math-equations_11.png)
 
@@ -275,7 +275,7 @@ try {
 }
 ```
 
-## **Přidání trigonometrických funkcí**
+## **Přidat trigonometrické funkce**
 
 Použijte [`asArgumentOfFunction`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/) když je argument aktuální prvek a název funkce je znám.
 
@@ -303,11 +303,11 @@ try {
 }
 ```
 
-## **Přidání indexů a exponentů**
+## **Přidat dolní a horní indexy**
 
-Použijte pomocníky pro dolní a horní index pro indexy a mocniny. Když se indexy mají objevit vlevo od základu, použijte [`setSubSuperscriptOnTheLeft`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/).
+Použijte pomocníky pro dolní a horní indexy pro indexy a mocniny. Když se indexy musí zobrazit na levé straně základu, použijte [`setSubSuperscriptOnTheLeft`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/).
 
-![Velké Y s levým indexem 1 a exponentem n](powerpoint-math-equations_9.png)
+![Velké Y s levým dolním indexem 1 a horním indexem n](powerpoint-math-equations_9.png)
 
 ```php
 $presentation = new Presentation();
@@ -331,11 +331,11 @@ try {
 }
 ```
 
-## **Přidání ohraničovačů**
+## **Přidat ohraničovače**
 
-Použijte [`enclose`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/) k umístění výrazu mezi ohraničovače. Můžete také nastavit oddělovač pro výrazy s více prvky.
+Použijte [`enclose`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/) abyste vložili výraz do ohraničovačů. Můžete také nastavit oddělovač pro výrazy v ohraničovačích, které obsahují několik prvků.
 
-![Výraz s ohraničovači obsahující x, y a z oddělené svislými čarami](powerpoint-math-equations_13.png)
+![Výraz v ohraničovačích obsahující x, y a z oddělené svislými čarami](powerpoint-math-equations_13.png)
 
 ```php
 $presentation = new Presentation();
@@ -362,11 +362,11 @@ try {
 }
 ```
 
-## **Přidání ohraničeného rámečku**
+## **Přidat rámečkový box**
 
-Použijte [`toBorderBox`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/) když má být rovnice ohraničena rámečkem.
+Použijte [`toBorderBox`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/) když má být rovnice sama ohraničena.
 
-![Rovnice v rámečku ukazující a na druhou rovná se b na druhou plus c na druhou](powerpoint-math-equations_12.png)
+![Rovnice v rámečku zobrazující a na druhou rovná se b na druhou plus c na druhou](powerpoint-math-equations_12.png)
 
 ```php
 $presentation = new Presentation();
@@ -395,9 +395,9 @@ try {
 }
 ```
 
-## **Seskupení výrazů**
+## **Seskupit výrazy**
 
-Použijte [`group`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/) k umístění skupinovacího znaku nad nebo pod výraz. Přidejte limitu pro popisek seskupených výrazů.
+Použijte [`group`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/) abyste umístili seskupovací znak nad nebo pod výraz. Přidejte limit pro označení seskupených výrazů.
 
 ![Výraz x plus y seskupený s popiskem libovolný text pod ním](powerpoint-math-equations_15.png)
 
@@ -424,9 +424,9 @@ try {
 }
 ```
 
-## **Formátování matematických prvků**
+## **Formátovat matematické elementy**
 
-Používejte pomocníky pro formátování jen tam, kde zjednodušují vzorec. Například [`overbar`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/) umístí čáru nad matematický prvek.
+Používejte pomocníky formátování pouze tam, kde objasňují vzorec. Například [`overbar`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/) umisťuje čáru nad matematický element.
 
 ![Matematický výraz ABC s horní čárou](powerpoint-math-equations_14.png)
 
@@ -451,35 +451,35 @@ try {
 }
 ```
 
-## **Rychlý přehled**
+## **Rychlý odkaz**
 
 | Úkol | Hlavní API |
 | --- | --- |
 | Vytvořit matematický text | [MathematicalText](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathematicaltext/) |
-| Kombinovat prvky | [join](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/) |
+| Kombinovat elementy | [join](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/) |
 | Vytvořit zlomky | [divide](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/) |
-| Přidat horní index nebo dolní index | [setSuperscript](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/), [setSubscript](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/) |
+| Přidat horní nebo dolní index | [setSuperscript](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/), [setSubscript](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/) |
 | Přidat funkce | [function](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/), [asArgumentOfFunction](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/) |
 | Přidat radikály | [radical](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/) |
 | Přidat limity | [setLowerLimit](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/), [setUpperLimit](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/) |
-| Přidat skripty na levé straně | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/) |
+| Přidat levostranné indexy | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/) |
 | Přidat součty a integrály | [nary](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/), [integral](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/) |
 | Přidat matice | [MathMatrix](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathmatrix/) |
 | Přidat pole rovnic | [toMathArray](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/) |
 | Přidat ohraničovače | [enclose](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/) |
-| Přidat čáry a rámečky | [overbar](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/), [toBorderBox](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/) |
+| Přidat čáry a okraje | [overbar](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/), [toBorderBox](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/) |
 | Seskupit výrazy | [group](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathelementbase/) |
 
-## **Často kladené otázky**
+## **Často kladené dotazy**
 
-**Mohu editovat existující rovnici v PowerPointu?**
+**Mohu upravit existující rovnici v PowerPointu?**
 
 Ano. Otevřete prezentaci, najděte tvar, který obsahuje `MathPortion`, získejte jeho `MathParagraph` a aktualizujte matematické bloky v tomto odstavci.
 
 **Ukládají se rovnice jako editovatelná matematika v PowerPointu?**
 
-Ano. Při uložení do PPTX Aspose.Slides zapisuje rovnici jako editovatelný obsah Office Math.
+Ano. Při uložení do PPTX Aspose.Slides zapíše rovnici jako editovatelný Office matematický obsah.
 
 **Mohu exportovat rovnice do LaTeXu?**
 
-Aspose.Slides exportuje matematické rovnice do MathML. Pokud potřebujete LaTeX, nejprve exportujte do MathML a poté převěďte MathML pomocí nástroje, který podporuje požadovaný LaTeXový dialekt.
+Ano. Získáte [MathParagraph](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathparagraph/) rovnice z jejího [MathPortion](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathportion/), a zavoláte [MathParagraph::toLatex](https://reference.aspose.com/slides/cs/php-java/aspose.slides/mathparagraph/#toLatex) pro přímý export. Kompletní příklad naleznete v [Export rovnic z prezentací v PHP přes Java](/slides/cs/php-java/exporting-math-equations/#export-math-equations-to-latex).

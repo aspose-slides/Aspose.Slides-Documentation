@@ -1,34 +1,79 @@
 ---
-title: صادر کردن معادلات ریاضی از ارائه‌ها در C++
-linktitle: صادر کردن معادلات
+title: صدور معادلات ریاضی از ارائه‌ها در C++
+linktitle: صدور معادلات
 type: docs
 weight: 30
 url: /fa/cpp/exporting-math-equations/
 keywords:
-- صادر کردن معادلات ریاضی
+- صدور معادلات ریاضی
+- صدور معادلات به LaTeX
+- PowerPoint به LaTeX
 - MathML
 - LaTeX
 - PowerPoint
 - ارائه
 - C++
 - Aspose.Slides
-description: "صادرات بدون درز معادلات ریاضی از PowerPoint به MathML با استفاده از Aspose.Slides برای C++ را فعال کنید — قالب‌بندی را حفظ کنید و سازگاری را افزایش دهید."
+description: "صدور معادلات ریاضی از ارائه‌های PowerPoint به LaTeX یا MathML به‌صورت مستقیم با Aspose.Slides برای C++."
 ---
 ## **مقدمه**
 
-Aspose.Slides for C++ به شما امکان می‌دهد معادلات ریاضی را از ارائه‌ها استخراج کنید. به عنوان مثال، ممکن است نیاز داشته باشید معادلات ریاضی موجود در اسلایدها (از یک ارائه خاص) را استخراج کرده و در برنامه یا پلتفرم دیگری استفاده کنید.
+Aspose.Slides برای C++ به شما امکان می‌دهد معادلات ریاضی را از ارائه‌ها استخراج کنید. به عنوان مثال، ممکن است نیاز داشته باشید معادلات ریاضی موجود در اسلایدها (از یک ارائه خاص) را استخراج کرده و در برنامه یا پلتفرم دیگری استفاده کنید. 
 
 {{% alert color="primary" %}} 
-
-شما می‌توانید معادلات را به MathML صادر کنید، که یک فرمت یا استاندارد محبوب برای معادلات ریاضی و محتوای مشابه است که در وب و بسیاری از برنامه‌ها مشاهده می‌شود.
-
+می‌توانید معادلات را به‌صورت مستقیم به LaTeX یا به MathML صادر کنید، که یک استاندارد محبوب برای محتوای ریاضی است که در وب و بسیاری از برنامه‌ها استفاده می‌شود.
 {{% /alert %}}
 
-## **ذخیره معادلات ریاضی به‌صورت MathML**
+## **صادر کردن معادلات ریاضی به LaTeX**
 
-در حالی که انسان‌ها به راحتی کد برخی فرمت‌های معادلات مانند LaTeX را می‌نویسند، نوشتن کد برای MathML برای آن‌ها دشوار است، زیرا این فرمت برای تولید خودکار توسط برنامه‌ها طراحی شده است. برنامه‌ها به راحتی MathML را می‌خوانند و تجزیه می‌کنند چون کد آن در قالب XML است، بنابراین MathML به‌طور معمول به عنوان فرمت خروجی و چاپ در بسیاری از حوزه‌ها استفاده می‌شود.
+Aspose.Slides می‌تواند معادله ریاضی PowerPoint را به‌صورت مستقیم به LaTeX تبدیل کند؛ نیازی به فایل MathML میانی یا مبدل خارجی نیست. یک معادله ریاضی در یک قاب متن به‌عنوان یک [IMathPortion](https://reference.aspose.com/slides/fa/cpp/aspose.slides.mathtext/imathportion/) ذخیره می‌شود. از [IMathPortion::get_MathParagraph](https://reference.aspose.com/slides/fa/cpp/aspose.slides.mathtext/imathportion/get_mathparagraph/) برای دریافت یک [IMathParagraph](https://reference.aspose.com/slides/fa/cpp/aspose.slides.mathtext/imathparagraph/) استفاده کنید، سپس [IMathParagraph::ToLatex](https://reference.aspose.com/slides/fa/cpp/aspose.slides.mathtext/imathparagraph/tolatex/) را فراخوانی کنید. این متد یک رشته برمی‌گرداند که می‌توانید آن را ذخیره، نمایش، به برنامه دیگری ارسال یا به‌طور بیشتری پردازش کنید.
 
-این نمونه کد نشان می‌دهد چگونه یک معادله ریاضی را از یک ارائه به MathML صادر کنید:
+مثال زیر هر قاب متن در هر اسلاید را بررسی می‌کند، تمام بخش‌های ریاضی را پیدا می‌کند و هر معادله را در یک فایل `.tex` جداگانه می‌نویسد:
+
+```cpp
+auto presentation = MakeObject<Presentation>(u"equations.pptx");
+
+auto slideCount = presentation->get_Slides()->get_Count();
+for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
+{
+    auto slide = presentation->get_Slide(slideIndex);
+    int slideNumber = slideIndex + 1;
+    int equationNumber = 1;
+    auto textFrames = SlideUtil::GetAllTextBoxes(slide);
+
+    for (const auto&& textFrame : textFrames)
+    {
+        for (const auto&& paragraph : textFrame->get_Paragraphs())
+        {
+            for (const auto&& portion : paragraph->get_Portions())
+            {
+                auto mathPortion = System::AsCast<IMathPortion>(portion);
+                if (mathPortion == nullptr)
+                    continue;
+
+                auto mathParagraph = mathPortion->get_MathParagraph();
+                auto latexPath = String::Format(u"slide_{0}_equation_{1}.tex", slideNumber, equationNumber);
+
+                auto latexText = mathParagraph->ToLatex();
+                File::WriteAllText(latexPath, latexText);
+                equationNumber++;
+            }
+        }
+    }
+}
+
+presentation->Dispose();
+```
+
+[SlideUtil::GetAllTextBoxes](https://reference.aspose.com/slides/fa/cpp/aspose.slides.util/slideutil/getalltextboxes/) تمام قاب‌های متنی یافت‌شده در یک اسلاید را برمی‌گرداند. بررسی نوع [IMathPortion](https://reference.aspose.com/slides/fa/cpp/aspose.slides.mathtext/imathportion/) معادلات قابل ویرایش واقعی را از متن و تصاویر عادی جدا می‌کند.
+
+موتورهای LaTeX و قالب‌های سند همگی از یک‌باره همان دستورات، بسته‌ها یا کاراکترهای یونیکد پشتیبانی نمی‌کنند. رشتهٔ بازگشتی را با موتور LaTeX مورد استفاده در برنامه‌تان آزمایش کنید. اگر نماد یا عنصر Office Math نمایانگر مناسبی در آن محیط نداشته باشد، آن را در رشتهٔ بازگشتی با یک دستور مخصوص پروژه جایگزین کنید یا معادله را نادیده بگیرید و مسئله را برای بازبینی ثبت کنید.
+
+## **ذخیره‌سازی معادلات ریاضی به عنوان MathML**
+
+در حالی که افراد به‌راحتی می‌توانند کد برخی فرمت‌های معادله مانند LaTeX را بنویسند، نوشتن کد برای MathML دشوار است زیرا این فرمت برای تولید خودکار توسط برنامه‌ها طراحی شده است. برنامه‌ها به‌راحتی MathML را می‌خوانند و تجزیه می‌کنند زیرا کد آن در XML است، بنابراین MathML به‌طور رایج به‌عنوان فرمت خروجی و چاپ در بسیاری از حوزه‌ها استفاده می‌شود. 
+
+این کد نمونه نشان می‌دهد چگونه یک معادله ریاضی را از یک ارائه به MathML صادر کنید:
 
 ``` cpp
 SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
@@ -53,22 +98,17 @@ mathParagraph->WriteAsMathMl(stream);
 
 ## **سوالات متداول**
 
-**دقیقاً چه چیزی به MathML صادر می‌شود—یک پاراگراف یا یک بلوک فرمول منفرد؟**
+**چه چیزی دقیقاً به MathML صادر می‌شود—یک پاراگراف یا یک بلوک فرمول تک‌تک؟**  
+می‌توانید یا یک کل پاراگراف ریاضی ([MathParagraph](https://reference.aspose.com/slides/fa/cpp/aspose.slides.mathtext/mathparagraph/)) یا یک بلوک جداگانه ([MathBlock](https://reference.aspose.com/slides/fa/cpp/aspose.slides.mathtext/mathblock/)) را به MathML صادر کنید. هر دو نوع روش نوشتن به MathML را ارائه می‌دهند.
 
-شما می‌توانید یا یک پاراگراف کامل ریاضی ([MathParagraph](https://reference.aspose.com/slides/fa/cpp/aspose.slides.mathtext/mathparagraph/)) یا یک بلوک منفرد ([MathBlock](https://reference.aspose.com/slides/fa/cpp/aspose.slides.mathtext/mathblock/)) را به MathML صادر کنید. هر دو نوع یک روش برای نوشتن به MathML فراهم می‌کنند.
+**چگونه می‌توانم تشخیص دهم که یک شیء روی اسلاید یک فرمول ریاضی است نه متن یا تصویر معمولی؟**  
+یک فرمول در یک [MathPortion](https://reference.aspose.com/slides/fa/cpp/aspose.slides.mathtext/mathportion/) قرار دارد و یک [MathParagraph](https://reference.aspose.com/slides/fa/cpp/aspose.slides.mathtext/mathparagraph/) دارد. تصاویر و بخش‌های متنی معمولی بدون یک [MathParagraph](https://reference.aspose.com/slides/fa/cpp/aspose.slides.mathtext/mathparagraph/) فرمول‌های قابل صادرات نیستند.
 
-**چگونه می‌توانم تشخیص دهم که یک شیء در اسلاید یک فرمول ریاضی است و نه متن عادی یا تصویر؟**
+**منبع MathML در یک ارائه چیست—آیا مخصوص PowerPoint است یا یک استاندارد؟**  
+صدور به MathML استاندارد (XML) هدف دارد. Aspose از Presentation MathML استفاده می‌کند—زیرمجموعهٔ ارائه‌ای استاندارد که به طور گسترده در برنامه‌ها و وب مورد استفاده قرار می‌گیرد.
 
-یک فرمول در یک [MathPortion](https://reference.aspose.com/slides/fa/cpp/aspose.slides.mathtext/mathportion/) زندگی می‌کند و دارای یک [MathParagraph](https://reference.aspose.com/slides/fa/cpp/aspose.slides.mathtext/mathparagraph/) است. تصاویر و بخش‌های متن عادی که [MathParagraph](https://reference.aspose.com/slides/fa/cpp/aspose.slides.mathtext/mathparagraph/) ندارند، فرمول‌های قابل صادر نیستند.
+**آیا صادر کردن فرمول‌ها داخل جداول، SmartArt، گروه‌ها و غیره پشتیبانی می‌شود؟**  
+بله، اگر آن اشیاء شامل بخش‌های متنی با یک [MathParagraph](https://reference.aspose.com/slides/fa/cpp/aspose.slides.mathtext/mathparagraph/) (یعنی فرمول‌های واقعی PowerPoint) باشند، صادر می‌شوند. اگر فرمول به‌صورت تصویر جاسازی شده باشد، صادر نمی‌شود.
 
-**منبع MathML در یک ارائه چیست—آیا مخصوص PowerPoint است یا یک استاندارد؟**
-
-صادرات به MathML استاندارد (XML) هدف دارد. Aspose از Presentation MathML استفاده می‌کند—زیرمجموعه ارائه‌ای استاندارد—که به‌طور گسترده‌ای در برنامه‌ها و وب استفاده می‌شود.
-
-**آیا صادرات فرمول‌ها داخل جداول، SmartArt، گروه‌ها و غیره پشتیبانی می‌شود؟**
-
-بله، اگر این اشیاء شامل بخش‌های متنی با یک [MathParagraph](https://reference.aspose.com/slides/fa/cpp/aspose.slides.mathtext/mathparagraph/) (یعنی فرمول‌های واقعی PowerPoint) باشند، صادر می‌شوند. اگر یک فرمول به‌صورت تصویر جاسازی شده باشد، صادر نمی‌شود.
-
-**آیا صادرات به MathML فایل ارائه اصلی را تغییر می‌دهد؟**
-
-خیر. نوشتن MathML یک سریال‌سازی از محتوای فرمول است؛ این کار فایل ارائه را تغییر نمی‌دهد.
+**آیا صادر کردن به MathML فایل ارائه اصلی را تغییر می‌دهد؟**  
+خیر. نوشتن MathML یک سریال‌سازی از محتوای فرمول است؛ فایل ارائه اصلی را تغییر نمی‌دهد.

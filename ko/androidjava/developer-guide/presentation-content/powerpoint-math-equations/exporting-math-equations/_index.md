@@ -6,6 +6,8 @@ weight: 30
 url: /ko/androidjava/exporting-math-equations/
 keywords:
 - 수학 방정식 내보내기
+- 방정식을 LaTeX로 내보내기
+- PowerPoint를 LaTeX로
 - MathML
 - LaTeX
 - PowerPoint
@@ -13,19 +15,68 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java를 사용하여 PowerPoint에서 MathML로 수학 방정식을 원활하게 내보내고, 형식을 보존하며 호환성을 향상시킵니다."
+description: "PowerPoint 프레젠테이션에서 수학 방정식을 LaTeX 또는 MathML로 직접 내보내기, Aspose.Slides for Android via Java 사용."
 ---
 ## **소개**
 
-Aspose.Slides for Android via Java를 사용하면 프레젠테이션에서 수학 방정식을 내보낼 수 있습니다. 예를 들어, 특정 프레젠테이션의 슬라이드에 있는 수학 방정식을 추출하여 다른 프로그램이나 플랫폼에서 사용할 수 있습니다.
+Aspose.Slides for Android via Java는 프레젠테이션에서 수학 방정식을 내보낼 수 있게 해줍니다. 예를 들어 특정 프레젠테이션의 슬라이드에 있는 수학 방정식을 추출하여 다른 프로그램이나 플랫폼에서 사용할 수 있습니다.
 
 {{% alert color="primary" %}} 
-수학 방정식을 MathML 형식으로 내보낼 수 있습니다. MathML은 웹 및 다양한 애플리케이션에서 볼 수 있는 수학 방정식 및 유사한 콘텐츠를 위한 널리 쓰이는 형식이자 표준입니다. 
+방정식을 LaTeX로 직접 내보내거나 웹 및 여러 애플리케이션에서 사용되는 대표적인 수학 콘텐츠 표준인 MathML로 내보낼 수 있습니다.
 {{% /alert %}}
 
-## **프레젠테이션에서 수학 방정식 내보내기**
+## **수학 방정식을 LaTeX로 내보내기**
 
-사용자는 LaTeX와 같은 일부 방정식 형식의 코드를 쉽게 작성할 수 있지만, MathML 코드는 앱에 의해 자동으로 생성되도록 설계되었기 때문에 작성하기 어렵습니다. MathML 코드는 XML 형태이므로 프로그램이 쉽게 읽고 구문 분석할 수 있으며, 이러한 이유로 많은 분야에서 출력 및 인쇄 형식으로 널리 사용됩니다. 
+Aspose.Slides는 PowerPoint 수학 방정식을 중간 MathML 파일이나 외부 변환기 없이 직접 LaTeX로 변환할 수 있습니다. 수학 방정식은 텍스트 프레임에 [IMathPortion](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/imathportion/) 형태로 저장됩니다. [IMathPortion.getMathParagraph](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/imathportion/#getMathParagraph--)를 사용해 [IMathParagraph](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/imathparagraph/)를 가져오고, 이어서 [IMathParagraph.toLatex](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/imathparagraph/#toLatex--)를 호출합니다. 이 메서드는 문자열을 반환하므로 저장하거나, 표시하거나, 다른 애플리케이션에 전달하거나, 추가로 처리할 수 있습니다.
+
+다음 예제는 모든 슬라이드의 모든 텍스트 프레임을 검사하고, 모든 수학 부분을 찾아 각 방정식을 별도의 `.tex` 파일에 기록합니다:
+
+```java
+Presentation presentation = new Presentation("equations.pptx");
+try {
+    int slideCount = presentation.getSlides().size();
+    for (int slideIndex = 0; slideIndex < slideCount; slideIndex++) {
+        ISlide slide = presentation.getSlides().get_Item(slideIndex);
+        int slideNumber = slideIndex + 1;
+        int equationNumber = 1;
+        ITextFrame[] textFrames = SlideUtil.getAllTextBoxes(slide);
+
+        for (ITextFrame textFrame : textFrames) {
+            for (IParagraph paragraph : textFrame.getParagraphs()) {
+                for (IPortion portion : paragraph.getPortions()) {
+                    if (!(portion instanceof IMathPortion))
+                        continue;
+
+                    IMathPortion mathPortion = (IMathPortion) portion;
+                    IMathParagraph mathParagraph = mathPortion.getMathParagraph();
+                    String latexFileName = "slide_" + slideNumber + "_equation_" + equationNumber + ".tex";
+
+                    String latexText = mathParagraph.toLatex();
+                    File latexFile = new File(latexFileName);
+                    byte[] latexBytes = latexText.getBytes(StandardCharsets.UTF_8);
+                    FileOutputStream outputStream = new FileOutputStream(latexFile);
+                    try {
+                        outputStream.write(latexBytes);
+                    } finally {
+                        outputStream.close();
+                    }
+                    equationNumber++;
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+[SlideUtil.getAllTextBoxes](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/slideutil/#getAllTextBoxes-com.aspose.slides.IBaseSlide-)는 슬라이드에서 발견된 모든 텍스트 프레임을 반환합니다. [IMathPortion](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/imathportion/) 타입 검사는 일반 텍스트와 이미지와 구분하여 실제 편집 가능한 방정식을 식별합니다.
+
+LaTeX 엔진과 문서 템플릿은 동일한 명령, 패키지 또는 유니코드 문자를 모두 지원하지 않을 수 있습니다. 반환된 문자열을 애플리케이션에서 사용하는 LaTeX 엔진으로 테스트하세요. 해당 환경에 적절한 표현이 없는 기호나 Office Math 요소가 있으면, 반환된 문자열에서 프로젝트 고유의 명령으로 교체하거나 방정식을 건너뛰고 문제를 기록해 검토하도록 합니다.
+
+## **MathML로 수학 방정식 저장**
+
+사람이 LaTeX와 같은 일부 방정식 형식 코드를 직접 작성하는 것은 비교적 쉽지만, MathML 코드는 자동으로 앱에서 생성하도록 설계되었기 때문에 직접 작성하기 어렵습니다. MathML은 코드가 XML 형태이므로 프로그램이 쉽게 읽고 구문 분석할 수 있어, 많은 분야에서 출력 및 인쇄 형식으로 널리 사용됩니다.
 
 다음 샘플 코드는 프레젠테이션에서 수학 방정식을 MathML로 내보내는 방법을 보여줍니다:
 
@@ -53,22 +104,22 @@ try {
 
 ## **FAQ**
 
-**MathML로 정확히 무엇이 내보내지나요—문단 전체인가 개별 수식 블록인가?**
+**MathML로 내보내는 대상은 전체 문단인가요, 아니면 개별 수식 블록인가요?**
 
-MathML로 내보낼 때 전체 수학 문단([MathParagraph](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/mathparagraph/))이나 개별 블록([MathBlock](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/mathblock/)) 중 하나를 선택할 수 있습니다. 두 유형 모두 MathML로 내보내는 메서드를 제공합니다.
+전체 수학 문단([MathParagraph](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/mathparagraph/))이나 개별 블록([MathBlock](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/mathblock/)) 중 선택해 MathML로 내보낼 수 있습니다. 두 타입 모두 MathML로 기록하는 메서드를 제공합니다.
 
-**슬라이드의 객체가 일반 텍스트나 이미지가 아니라 수학 수식임을 어떻게 판단하나요?**
+**슬라이드에서 객체가 일반 텍스트나 이미지가 아닌 수학 수식임을 어떻게 판단하나요?**
 
-수식은 [MathPortion](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/mathportion/)에 존재하며 [MathParagraph](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/mathparagraph/)를 가지고 있습니다. [MathParagraph](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/mathparagraph/)가 없는 이미지나 일반 텍스트는 내보낼 수 있는 수식이 아닙니다.
+수식은 [MathPortion](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/mathportion/)에 존재하고 [MathParagraph](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/mathparagraph/)와 연결됩니다. [MathParagraph](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/mathparagraph/)가 없는 이미지나 일반 텍스트 부분은 내보낼 수 있는 수식이 아닙니다.
 
-**프레젠테이션에서 MathML은 어디서 제공되나요—PowerPoint 전용인가요, 아니면 표준인가요?**
+**프레젠테이션의 MathML은 어디서 오는 건가요—PowerPoint 전용인가요, 표준인가요?**
 
-내보내기는 표준 MathML(XML)을 대상으로 합니다. Aspose는 프레젠테이션용 MathML(표준의 프레젠테이션 하위 집합)을 사용하며, 이는 애플리케이션 및 웹 전반에 널리 사용됩니다.
+내보내기는 표준 MathML(XML)을 대상으로 합니다. Aspose는 표준의 프레젠테이션 하위 집합인 Presentation MathML을 사용하며, 이는 다양한 애플리케이션과 웹에서 널리 사용됩니다.
 
-**표, SmartArt, 그룹 등 내부의 수식을 내보내는 것이 지원되나요?**
+**표, SmartArt, 그룹 등 내부에 있는 수식을 내보내는 것이 지원되나요?**
 
-예, 해당 객체에 [MathParagraph](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/mathparagraph/)가 포함된 텍스트 부분이 있으면(즉, 실제 PowerPoint 수식) 내보낼 수 있습니다. 수식이 이미지로 삽입된 경우에는 내보낼 수 없습니다.
+예, 해당 객체에 [MathParagraph](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/mathparagraph/)를 포함한 텍스트 부분이 있으면(즉, 실제 PowerPoint 수식인 경우) 내보낼 수 있습니다. 수식이 이미지로 삽입된 경우는 지원되지 않습니다.
 
-**MathML로 내보낼 때 원본 프레젠테이션이 변경되나요?**
+**MathML로 내보내면 원본 프레젠테이션이 변경되나요?**
 
-아니요. MathML을 기록하는 것은 수식 내용을 직렬화하는 것이며, 프레젠테이션 파일을 변경하지 않습니다.
+아니요. MathML을 기록하는 것은 수식 내용의 직렬화이며, 프레젠테이션 파일 자체를 수정하지 않습니다.

@@ -1,6 +1,6 @@
 ---
-title: Wiskundige vergelijkingen toevoegen aan PowerPoint‑presentaties in C++
-linktitle: PowerPoint‑wiskundige vergelijkingen
+title: Wiskundige vergelijkingen toevoegen aan PowerPoint-presentaties in C++
+linktitle: PowerPoint wiskundige vergelijkingen
 type: docs
 weight: 80
 url: /nl/cpp/powerpoint-math-equations/
@@ -17,15 +17,15 @@ keywords:
 - presentatie
 - C++
 - Aspose.Slides
-description: "Wiskundige vergelijkingen invoegen en bewerken in PowerPoint‑PPT en PPTX met Aspose.Slides voor C++, met ondersteuning voor OMML, opmaak‑besturingselementen en duidelijke C++‑codevoorbeelden."
+description: "Wiskundige vergelijkingen invoegen en bewerken in PowerPoint PPT en PPTX met Aspose.Slides voor C++, met ondersteuning voor OMML, opmaakbesturingen en duidelijke C++-codevoorbeelden."
 ---
 ## **Overzicht**
 
-PowerPoint slaat vergelijkingen op als Office Math Markup Language (OMML). Met Aspose.Slides for C++ kunt u hetzelfde soort wiskundige inhoud programmatisch maken: breuken, wortels, functies, limieten, N-aire operatoren, matrices, arrays en opgemaakte wiskundeblokken.
+PowerPoint slaat vergelijkingen op als Office Math Markup Language (OMML). Met Aspose.Slides for C++ kunt u dezelfde soort wiskundige inhoud programmatisch maken: breuken, wortels, functies, limieten, N-aire operatoren, matrices, arrays en opgemaakte wiskundige blokken.
 
-In PowerPoint voegen gebruikers normaal gesproken vergelijkingen in via **Invoegen > Vergelijking**:
+In PowerPoint voegen gebruikers normaal gesproken vergelijkingen toe via **Invoegen > Vergelijking**:
 
-![PowerPoint tab Invoegen met het commando Vergelijking geselecteerd](powerpoint-math-equations_1.png)
+![PowerPoint Invoegen-tab met de opdracht Vergelijking geselecteerd](powerpoint-math-equations_1.png)
 
 Het resultaat is bewerkbare wiskundige tekst op de dia:
 
@@ -34,18 +34,18 @@ Het resultaat is bewerkbare wiskundige tekst op de dia:
 Aspose.Slides bouwt die wiskundige tekst op via drie hoofdobjecten:
 
 - Een wiskundige vorm, gemaakt met [AddMathShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/shapecollection/), is de vorm die de vergelijking bevat.
-- [MathPortion](https://reference.aspose.com/slides/nl/cpp/aspose.slides.mathtext/mathportion/) slaat wiskundige inhoud op binnen het tekstframe van de vorm.
-- [MathParagraph](https://reference.aspose.com/slides/nl/cpp/aspose.slides.mathtext/mathparagraph/) bevat één of meer [MathBlock](https://reference.aspose.com/slides/nl/cpp/aspose.slides.mathtext/mathblock/)‑objecten.
+- [MathPortion](https://reference.aspose.com/slides/nl/cpp/aspose.slides.mathtext/mathportion/) slaat wiskundige inhoud op in het tekstvak van de vorm.
+- [MathParagraph](https://reference.aspose.com/slides/nl/cpp/aspose.slides.mathtext/mathparagraph/) bevat één of meer [MathBlock](https://reference.aspose.com/slides/nl/cpp/aspose.slides.mathtext/mathblock/) objecten.
 
-De meeste voorbeelden hieronder maken gebruik van [MathematicalText](https://reference.aspose.com/slides/nl/cpp/aspose.slides.mathtext/mathematicaltext/) en de fluent‑methoden van [IMathElement](https://reference.aspose.com/slides/nl/cpp/aspose.slides.mathtext/imathelement/) om de code kort en leesbaar te houden.
+De meeste voorbeelden hieronder gebruiken [MathematicalText](https://reference.aspose.com/slides/nl/cpp/aspose.slides.mathtext/mathematicaltext/) en de fluente methoden van [IMathElement](https://reference.aspose.com/slides/nl/cpp/aspose.slides.mathtext/imathelement/) om de code kort en leesbaar te houden.
 
-Voor MathML‑exportscenario’s, zie [Export Math Equations from Presentations in C++](/slides/nl/cpp/exporting-math-equations/).
+Voor MathML‑exportscenario's, zie [Exporteer wiskundige vergelijkingen vanuit presentaties in C++](/slides/nl/cpp/exporting-math-equations/).
 
 ## **Een vergelijking maken**
 
 Dit voorbeeld maakt een wiskundige vorm en voegt de stelling van Pythagoras toe:
 
-![De vergelijking c in het kwadraat gelijk aan a in het kwadraat plus b in het kwadraat](powerpoint-math-equations_3.png)
+![De vergelijking c² = a² + b²](powerpoint-math-equations_3.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -69,9 +69,7 @@ presentation->Dispose();
 ```
 
 {{% alert color="primary" %}}
-
-`AddMathShape` maakt een vorm die al een wiskundige alinea bevat. Benader de eerste `MathPortion`, haal de `MathParagraph` op, en voeg wiskundige blokken of elementen toe.
-
+`AddMathShape` maakt een vorm die al een wiskundige alinea bevat. Toegang tot de eerste `MathPortion`, haal zijn `MathParagraph` op, en voeg wiskundige blokken of wiskundige elementen toe.
 {{% /alert %}}
 
 ## **Breuken toevoegen**
@@ -105,9 +103,9 @@ auto stackedFraction = System::MakeObject<MathematicalText>(u"x + 1")->Divide(u"
 
 ## **Wortels toevoegen**
 
-Gebruik `Radical` om een vierkantswortel, kubieke wortel of andere wortel te maken. Het huidige element wordt de basis, en het argument wordt de graad.
+Gebruik `Radical` om een vierkantswortel, kubuswortel of andere wortel te maken. Het huidige element wordt de basis, en het argument wordt de graad.
 
-![Een n-de wortel met x onder het wortelteken](powerpoint-math-equations_5.png)
+![Een n-de wortelexpressie met x onder het wortelteken](powerpoint-math-equations_5.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -128,9 +126,9 @@ presentation->Dispose();
 
 ## **Functies en limieten toevoegen**
 
-Gebruik `AsArgumentOfFunction` of `Function` voor functies zoals `sin(x)`, `log(x)` of aangepaste functienamen. Voor limieten zet `lim` in een [MathLimit](https://reference.aspose.com/slides/nl/cpp/aspose.slides.mathtext/mathlimit/) of gebruik `SetLowerLimit`.
+Gebruik `AsArgumentOfFunction` of `Function` voor functies zoals `sin(x)`, `log(x)` of aangepaste functienamen. Voor limieten, plaats `lim` in een [MathLimit](https://reference.aspose.com/slides/nl/cpp/aspose.slides.mathtext/mathlimit/) of gebruik `SetLowerLimit`.
 
-![De limiet van x wanneer x naar oneindig gaat](powerpoint-math-equations_8.png)
+![De limiet van x terwijl x naar oneindig gaat](powerpoint-math-equations_8.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -150,17 +148,17 @@ presentation->Save(u"functions-and-limits.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Voor een aangepaste functienaam maakt u de functienaam het huidige element:
+Voor een aangepaste functienaam, maak de functienaam tot het huidige element:
 
 ```cpp
 auto customFunction = System::MakeObject<MathematicalText>(u"f")->Function(u"x + 1");
 ```
 
-## **N‑aire operatoren en integralen toevoegen**
+## **N-aire operatoren en integralen toevoegen**
 
-Gebruik `Nary` voor sommen, unies, intersecties en andere grote operatoren. Gebruik `Integral` voor integralen. Beide methoden laten u onder- en bovengrenzen instellen.
+Gebruik `Nary` voor sommaties, unies, doorsnedes en andere grote operatoren. Gebruik `Integral` voor integralen. Beide methoden laten u onder- en bovengrenzen instellen.
 
-![Een sommatie met onder‑ en bovengrenzen](powerpoint-math-equations_7.png)
+![Een som met onder- en bovengrenzen](powerpoint-math-equations_7.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -182,7 +180,7 @@ presentation->Save(u"nary-operators.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-N‑aire operatoren zijn voor grote operatoren met optionele grenzen. Simpele operatoren zoals `+`, `-` en `=` worden normaal gesproken toegevoegd als `MathematicalText` en samengevoegd in de expressie.
+N-aire operatoren zijn voor grote operatoren met optionele limieten. Simpele operatoren zoals `+`, `-` en `=` worden meestal toegevoegd als `MathematicalText` en aan de expressie gekoppeld.
 
 Voor een integraal, gebruik `Integral`:
 
@@ -193,9 +191,9 @@ auto integral = integralBase->Integral(MathIntegralTypes::Simple, u"0", u"1");
 
 ## **Matrices toevoegen**
 
-Gebruik [MathMatrix](https://reference.aspose.com/slides/nl/cpp/aspose.slides.mathtext/mathmatrix/) voor rijen en kolommen. Matrices bevatten standaard geen haakjes, dus omsluit de matrix wanneer u haakjes, vierkante haken of accolades nodig heeft.
+Gebruik [MathMatrix](https://reference.aspose.com/slides/nl/cpp/aspose.slides.mathtext/mathmatrix/) voor rijen en kolommen. Matrices bevatten standaard geen haakjes, dus zet de matrix tussen haakjes, vierkante haken of accolades wanneer dat nodig is.
 
-![Een matrix met twee rijen en één lege cel](powerpoint-math-equations_10.png)
+![Een wiskundige matrix met twee rijen en één lege cel](powerpoint-math-equations_10.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -220,7 +218,7 @@ presentation->Dispose();
 
 ## **Vergelijkingsarrays toevoegen**
 
-Gebruik `ToMathArray` wanneer u uitgelijnde vergelijkingen of een verticale stapel expressies nodig heeft.
+Gebruik `ToMathArray` wanneer u uitgelijnde vergelijkingen of een verticale stapel uitdrukkingen nodig heeft.
 
 ![Een verticale wiskundige array met x boven y](powerpoint-math-equations_11.png)
 
@@ -267,9 +265,9 @@ presentation->Dispose();
 
 ## **Subscripties en superscripties toevoegen**
 
-Gebruik de subscript‑ en superscript‑helpers voor indexen en machten. Wanneer de indexen links van de basis moeten verschijnen, gebruik `SetSubSuperscriptOnTheLeft`.
+Gebruik de subscript- en superscript-hulpmiddelen voor indexen en machten. Wanneer de indexen aan de linkerkant van de basis moeten verschijnen, gebruik `SetSubSuperscriptOnTheLeft`.
 
-![Een hoofdletter Y met links‑subscript 1 en superscript n](powerpoint-math-equations_9.png)
+![Een hoofdletter Y met subscript 1 aan de linkerkant en superscript n](powerpoint-math-equations_9.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -288,11 +286,11 @@ presentation->Save(u"subscript-superscript.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Delimiteren toevoegen**
+## **Scheidingstekens toevoegen**
 
-Gebruik `Enclose` om een expressie in delimiteren te plaatsen. U kunt ook een scheidingsteken instellen voor delimiter‑expressies die meerdere elementen bevatten.
+Gebruik `Enclose` om een expressie binnen scheidingstekens te plaatsen. U kunt ook een scheidingsteken instellen voor scheidingsteken‑expressies die meerdere elementen bevatten.
 
-![Een delimiter‑expressie met x, y en z gescheiden door verticale balken](powerpoint-math-equations_13.png)
+![Een scheidingsteken‑expressie met x, y en z gescheiden door verticale staven](powerpoint-math-equations_13.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -313,11 +311,11 @@ presentation->Save(u"delimiters.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Een kader‑box toevoegen**
+## **Een randvak toevoegen**
 
 Gebruik `ToBorderBox` wanneer de vergelijking zelf omlijnd moet worden.
 
-![Een omkaderde vergelijking die a in het kwadraat gelijk maakt aan b in het kwadraat plus c in het kwadraat](powerpoint-math-equations_12.png)
+![Een ingekaderde vergelijking die a² = b² + c² toont](powerpoint-math-equations_12.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -343,9 +341,9 @@ presentation->Dispose();
 
 ## **Termen groeperen**
 
-Gebruik `Group` om een groeperingskarakter boven of onder een expressie te plaatsen. Voeg een limiet toe om de gegroepeerde termen te labelen.
+Gebruik `Group` om een groepeer‑teken boven of onder een expressie te plaatsen. Voeg een limiet toe om de gegroepeerde termen te labelen.
 
-![De expressie x plus y gegroepeerd met het label enige tekst eronder](powerpoint-math-equations_15.png)
+![De expressie x + y gegroepeerd met het label enige tekst eronder](powerpoint-math-equations_15.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -365,11 +363,11 @@ presentation->Save(u"grouped-terms.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Wiskundige elementen opmaken**
+## **Wiskundige elementen formatteren**
 
-Gebruik opmaak‑helpers alleen waar ze de formule verduidelijken. Bijvoorbeeld, `Overbar` plaatst een streep boven een wiskundig element.
+Gebruik opmaakhulpmiddelen alleen waar ze de formule verduidelijken. Bijvoorbeeld, `Overbar` plaatst een balk boven een wiskundig element.
 
-![Een wiskundige expressie ABC met een overbar](powerpoint-math-equations_14.png)
+![Een wiskundige expressie ABC met een overstreping](powerpoint-math-equations_14.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -398,24 +396,24 @@ presentation->Dispose();
 | Functies toevoegen | [Function](https://reference.aspose.com/slides/nl/cpp/aspose.slides.mathtext/imathelement/function/), [AsArgumentOfFunction](https://reference.aspose.com/slides/nl/cpp/aspose.slides.mathtext/imathelement/asargumentoffunction/) |
 | Wortels toevoegen | [IMathElement.Radical](https://reference.aspose.com/slides/nl/cpp/aspose.slides.mathtext/imathelement/radical/) |
 | Limieten toevoegen | [SetLowerLimit](https://reference.aspose.com/slides/nl/cpp/aspose.slides.mathtext/imathelement/setlowerlimit/), [SetUpperLimit](https://reference.aspose.com/slides/nl/cpp/aspose.slides.mathtext/imathelement/setupperlimit/) |
-| Scripts aan de linkerkant toevoegen | [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/nl/cpp/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) |
-| Sommen en integralen toevoegen | [Nary](https://reference.aspose.com/slides/nl/cpp/aspose.slides.mathtext/imathelement/nary/), [Integral](https://reference.aspose.com/slides/nl/cpp/aspose.slides.mathtext/imathelement/integral/) |
+| Links‑scripts toevoegen | [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/nl/cpp/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) |
+| Sommaties en integralen toevoegen | [Nary](https://reference.aspose.com/slides/nl/cpp/aspose.slides.mathtext/imathelement/nary/), [Integral](https://reference.aspose.com/slides/nl/cpp/aspose.slides.mathtext/imathelement/integral/) |
 | Matrices toevoegen | [MathMatrix](https://reference.aspose.com/slides/nl/cpp/aspose.slides.mathtext/mathmatrix/) |
 | Vergelijkingsarrays toevoegen | [ToMathArray](https://reference.aspose.com/slides/nl/cpp/aspose.slides.mathtext/imathelement/tomatharray/) |
-| Delimiteren toevoegen | [Enclose](https://reference.aspose.com/slides/nl/cpp/aspose.slides.mathtext/imathelement/enclose/) |
-| Staven en kaders toevoegen | [Overbar](https://reference.aspose.com/slides/nl/cpp/aspose.slides.mathtext/imathelement/overbar/), [ToBorderBox](https://reference.aspose.com/slides/nl/cpp/aspose.slides.mathtext/imathelement/toborderbox/) |
+| Scheidingstekens toevoegen | [Enclose](https://reference.aspose.com/slides/nl/cpp/aspose.slides.mathtext/imathelement/enclose/) |
+| Strepen en randen toevoegen | [Overbar](https://reference.aspose.com/slides/nl/cpp/aspose.slides.mathtext/imathelement/overbar/), [ToBorderBox](https://reference.aspose.com/slides/nl/cpp/aspose.slides.mathtext/imathelement/toborderbox/) |
 | Termen groeperen | [Group](https://reference.aspose.com/slides/nl/cpp/aspose.slides.mathtext/imathelement/group/) |
 
 ## **FAQ**
 
 **Kan ik een bestaande PowerPoint‑vergelijking bewerken?**
 
-Ja. Open de presentatie, vind de vorm die een `MathPortion` bevat, haal de `MathParagraph` op en werk de wiskundige blokken in die alinea bij.
+Ja. Open de presentatie, vind de vorm die een `MathPortion` bevat, haal zijn `MathParagraph` op, en werk de wiskundige blokken in die alinea bij.
 
 **Worden vergelijkingen opgeslagen als bewerkbare PowerPoint‑wiskunde?**
 
-Ja. Wanneer u opslaat naar PPTX schrijft Aspose.Slides de vergelijking als bewerkbare Office‑wiskundige inhoud.
+Ja. Wanneer u opslaat als PPTX, schrijft Aspose.Slides de vergelijking als bewerkbare Office‑wiskundige inhoud.
 
 **Kan ik vergelijkingen exporteren naar LaTeX?**
 
-Aspose.Slides exporteert wiskundige vergelijkingen naar MathML. Als u LaTeX nodig heeft, exporteer dan eerst naar MathML en converteer vervolgens MathML met een tool die uw gewenste LaTeX‑dialect ondersteunt.
+Ja. Haal de [IMathParagraph](https://reference.aspose.com/slides/nl/cpp/aspose.slides.mathtext/imathparagraph/) van de vergelijking op via zijn [IMathPortion](https://reference.aspose.com/slides/nl/cpp/aspose.slides.mathtext/imathportion/), en roep [IMathParagraph::ToLatex](https://reference.aspose.com/slides/nl/cpp/aspose.slides.mathtext/imathparagraph/tolatex/) aan om deze direct te exporteren. Voor een volledig voorbeeld, zie [Exporteer wiskundige vergelijkingen vanuit presentaties in C++](/slides/nl/cpp/exporting-math-equations/#export-math-equations-to-latex).
