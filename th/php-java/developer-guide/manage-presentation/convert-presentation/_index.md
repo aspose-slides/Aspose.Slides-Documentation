@@ -31,81 +31,82 @@ keywords:
 - OpenDocument
 - PHP
 - Aspose.Slides
-description: "แปลงงานนำเสนอ PowerPoint และ OpenDocument ไปเป็น PPTX, PDF, HTML, ภาพ, XPS, TIFF และอื่น ๆ ด้วย Aspose.Slides for PHP via Java."
+description: "แปลงงานนำเสนอ PowerPoint และ OpenDocument เป็น PPTX, PDF, HTML, รูปภาพ, XPS, TIFF และอื่น ๆ ด้วย Aspose.Slides for PHP via Java."
 ---
 ## **ภาพรวม**
 
-Aspose.Slides for PHP via Java สามารถโหลดงานนำเสนอ PowerPoint และ OpenDocument แล้วบันทึกหรือเรนเดอร์เป็นรูปแบบอื่น ๆ ได้หลายรูปแบบโดยไม่ต้องใช้ Microsoft PowerPoint, OpenOffice หรือ LibreOffice คุณสามารถแปลงไฟล์ PPT เก่าเป็น PPTX สมัยใหม่, ส่งออกงานนำเสนอเป็นเอกสารแบบคงที่เช่น PDF และ XPS, เผยแพร่สไลด์เป็น HTML, หรือเรนเดอร์สไลด์เป็นไฟล์รูปภาพสำหรับพรีวิว, รูปย่อ, และการเก็บถาวร
+Aspose.Slides for PHP via Java สามารถโหลดงานนำเสนอ PowerPoint และ OpenDocument และบันทึกหรือเรนเดอร์เป็นรูปแบบอื่น ๆ ได้หลายรูปแบบโดยไม่ต้องใช้ Microsoft PowerPoint, OpenOffice หรือ LibreOffice คุณสามารถแปลงไฟล์ PPT แบบเก่าเป็น PPTX สมัยใหม่ ส่งออกงานนำเสนอเป็นเอกสารแบบเลย์เอาท์คงที่เช่น PDF และ XPS เผยแพร่สไลด์เป็น HTML หรือเรนเดอร์สไลด์เป็นไฟล์ภาพสำหรับการดูตัวอย่าง รูปขนาดย่อ และการเก็บถาวร
 
-การแปลงเอกสารส่วนใหญ่ใช้ขั้นตอนทั่วไปเดียวกัน: โหลดไฟล์ต้นฉบับ, เลือกรูปแบบผลลัพธ์ที่ต้องการ, และใช้ตัวเลือกเฉพาะรูปแบบเมื่อจำเป็น สำหรับรูปแบบภาพแต่ละสไลด์จะถูกเรนเดอร์แยกกันแล้วบันทึกเป็นภาพเรสเตอร์หรือเวกเตอร์ บทความเฉพาะที่ลิงก์ด้านล่างให้รายละเอียดการทำงานสำหรับแต่ละกรณี
+การแปลงเอกสารส่วนใหญ่ใช้กระบวนการทำงานทั่วไปเดียวกัน: โหลดไฟล์ต้นฉบับ เลือกรูปแบบผลลัพธ์ที่ต้องการ และใช้ตัวเลือกเฉพาะรูปแบบเมื่อจำเป็น สำหรับรูปแบบภาพ แต่ละสไลด์จะถูกเรนเดอร์แยกกันแล้วบันทึกเป็นภาพเรสเตอร์หรือเวกเตอร์ บทความเฉพาะที่เชื่อมต่อด้านล่างให้รายละเอียดการดำเนินการสำหรับแต่ละกรณี
 
 ## **เลือกสถานการณ์การแปลง**
 
-ใช้บทความด้านล่างสำหรับตัวอย่าง PHP ที่สมบูรณ์และตัวเลือกเฉพาะรูปแบบ
+ใช้บทความด้านล่างสำหรับตัวอย่าง PHP ครบถ้วนและตัวเลือกเฉพาะรูปแบบ
 
 | สถานการณ์ | ใช้เมื่อคุณต้องการ | บทความ |
 | --- | --- | --- |
-| PPT/PPTX/ODP to PPTX | ปรับปรุงไฟล์ PPT เก่า, ทำให้ไฟล์ PPTX ที่มีอยู่เป็นมาตรฐาน, หรือแปลงงานนำเสนอ OpenDocument เป็น PowerPoint PPTX | [แปลง PPT เป็น PPTX](/slides/th/php-java/convert-ppt-to-pptx/), [แปลง ODP เป็น PPTX](/slides/th/php-java/convert-odp-to-pptx/), [บันทึกงานนำเสนอ](/slides/th/php-java/save-presentation/) |
-| PPTX to PPT | บันทึกงานนำเสนอ PowerPoint สมัยใหม่เป็นรูปแบบไฟล์ไบนารี PPT เก่าสำหรับความเข้ากันกับเวิร์กโฟลว์เก่า | [แปลง PPTX เป็น PPT](/slides/th/php-java/convert-pptx-to-ppt/) |
-| PPT/PPTX/ODP to PDF | สร้างเอกสารแบบคงที่ที่พกพาได้, ค้นหาได้, สำหรับการแชร์, พิมพ์, หรือเก็บถาวร | [แปลง PowerPoint เป็น PDF](/slides/th/php-java/convert-powerpoint-to-pdf/) |
-| PPT/PPTX/ODP to PDF with notes | ส่งออกโน้ตผู้บรรยายพร้อมกับเนื้อหาสไลด์ | [แปลง PowerPoint เป็น PDF พร้อมโน้ต](/slides/th/php-java/convert-powerpoint-to-pdf-with-notes/) |
-| PPT/PPTX/ODP to HTML | เผยแพร่งานนำเสนอเป็นหน้า HTML และควบคุมรูปภาพ, แบบอักษร, โน้ต, และตัวเลือกการจัดวางแบบตอบสนอง | [แปลง PowerPoint เป็น HTML](/slides/th/php-java/convert-powerpoint-to-html/) |
-| PPT/PPTX/ODP to HTML5 | ส่งออกสไลด์เป็น HTML5 สำหรับการดูในเบราว์เซอร์พร้อมการจัดรูปแบบและการโต้ตอบที่คงไว้ | [แปลงงานนำเสนอเป็น HTML5](/slides/th/php-java/export-to-html5/) |
-| PPT/PPTX/ODP to PNG | เรนเดอร์แต่ละสไลด์เป็นรูป PNG สำหรับพรีวิว, รูปย่อ, หรือผลลัพธ์บนเว็บ | [แปลง PowerPoint เป็น PNG](/slides/th/php-java/convert-powerpoint-to-png/) |
-| PPT/PPTX/ODP to JPG | เรนเดอร์สไลด์เป็นรูป JPG และควบคุมขนาดและคุณภาพของภาพ | [แปลง PowerPoint เป็น JPG](/slides/th/php-java/convert-powerpoint-to-jpg/) |
+| PPT/PPTX/ODP ไปยัง PPTX | ทำให้ไฟล์ PPT เก่าเป็นสมัยใหม่ ปกติไฟล์ PPTX ที่มีอยู่ หรือแปลงงานนำเสนอ OpenDocument ไปเป็น PowerPoint PPTX. | [แปลง PPT เป็น PPTX](/slides/th/php-java/convert-ppt-to-pptx/), [แปลง ODP เป็น PPTX](/slides/th/php-java/convert-odp-to-pptx/), [บันทึกงานนำเสนอ](/slides/th/php-java/save-presentation/) |
+| PPTX ไปยัง PPT | บันทึกงานนำเสนอ PowerPoint สมัยใหม่เป็นรูปแบบไบนารี PPT เก่าสำหรับความเข้ากันได้กับกระบวนการทำงานเก่า | [แปลง PPTX เป็น PPT](/slides/th/php-java/convert-pptx-to-ppt/) |
+| PPT/PPTX/ODP ไปยัง PDF | สร้างเอกสารแบบพกพา ค้นหาได้และมีเลย์เอาท์คงที่สำหรับการแชร์ การพิมพ์ หรือการเก็บถาวร | [แปลง PowerPoint เป็น PDF](/slides/th/php-java/convert-powerpoint-to-pdf/) |
+| PPT/PPTX/ODP ไปยัง PDF พร้อมบันทึกย่อ | ส่งออกบันทึกย่อของผู้พูดพร้อมกับเนื้อหาสไลด์ | [แปลง PowerPoint เป็น PDF พร้อมบันทึกย่อ](/slides/th/php-java/convert-powerpoint-to-pdf-with-notes/) |
+| PPT/PPTX/ODP ไปยัง HTML | เผยแพร่งานนำเสนอเป็นหน้า HTML และควบคุมภาพ, ฟอนต์, บันทึกย่อ, และตัวเลือกเลย์เอาท์ที่ตอบสนอง | [แปลง PowerPoint เป็น HTML](/slides/th/php-java/convert-powerpoint-to-html/) |
+| PPT/PPTX/ODP ไปยัง HTML5 | ส่งออกสไลด์เป็น HTML5 เพื่อการดูบนเบราว์เซอร์พร้อมการจัดรูปแบบและการโต้ตอบที่คงไว้ | [แปลงงานนำเสนอเป็น HTML5](/slides/th/php-java/export-to-html5/) |
+| PPT/PPTX/ODP ไปยัง PNG | เรนเดอร์แต่ละสไลด์เป็นภาพ PNG สำหรับการดูตัวอย่าง รูปขนาดย่อ หรือผลลัพธ์เว็บ | [แปลง PowerPoint เป็น PNG](/slides/th/php-java/convert-powerpoint-to-png/) |
+| PPT/PPTX/ODP ไปยัง JPG | เรนเดอร์สไลด์เป็นภาพ JPG และควบคุมขนาดและคุณภาพของภาพ | [แปลง PowerPoint เป็น JPG](/slides/th/php-java/convert-powerpoint-to-jpg/) |
 | Slide to SVG | ส่งออกสไลด์เดี่ยวเป็นกราฟิกเวกเตอร์ที่ปรับขนาดได้ | [เรนเดอร์สไลด์เป็น SVG](/slides/th/php-java/render-a-slide-as-an-svg-image/) |
-| PPT/PPTX/ODP to XPS | สร้างเอกสาร XPS แบบคงที่ | [แปลง PowerPoint เป็น XPS](/slides/th/php-java/convert-powerpoint-to-xps/) |
-| PPT/PPTX/ODP to TIFF | บันทึกงานนำเสนอเป็นไฟล์ TIFF หลายหน้าเพื่อการพิมพ์, สแกน, แฟกซ์, หรือเวิร์กโฟลว์การเก็บถาวร | [แปลง PowerPoint เป็น TIFF](/slides/th/php-java/convert-powerpoint-to-tiff/) |
-| PPT/PPTX/ODP to TIFF with notes | บันทึกสไลด์พร้อมโน้ตผู้บรรยายเป็น TIFF | [แปลง PowerPoint เป็น TIFF พร้อมโน้ต](/slides/th/php-java/convert-powerpoint-to-tiff-with-notes/) |
-| PPT/PPTX to Markdown | ดึงเนื้อหางานนำเสนอออกเป็น Markdown สำหรับเอกสารและเวิร์กโฟลว์แบบข้อความ | [แปลง PowerPoint เป็น Markdown](/slides/th/php-java/convert-powerpoint-to-markdown/) |
-| PPT/PPTX to animated GIF | สร้าง GIF เคลื่อนไหวจากสไลด์ | [แปลง PowerPoint เป็น Animated GIF](/slides/th/php-java/convert-powerpoint-to-animated-gif/) |
-| PPT/PPTX to video | สร้างเวิร์กโฟลว์การส่งออกเป็นวิดีโอจากสไลด์งานนำเสนอ | [แปลง PowerPoint เป็น Video](/slides/th/php-java/convert-powerpoint-to-video/) |
+| PPT/PPTX/ODP ไปยัง XPS | สร้างเอกสาร XPS แบบเลย์เอาท์คงที่ | [แปลง PowerPoint เป็น XPS](/slides/th/php-java/convert-powerpoint-to-xps/) |
+| PPT/PPTX/ODP ไปยัง TIFF | บันทึกงานนำเสนอเป็นไฟล์ TIFF หลายหน้าเพื่อการพิมพ์ การสแกน แฟ็กซ์ หรือกระบวนการเก็บถาวร | [แปลง PowerPoint เป็น TIFF](/slides/th/php-java/convert-powerpoint-to-tiff/) |
+| PPT/PPTX/ODP ไปยัง TIFF พร้อมบันทึกย่อ | บันทึกสไลด์พร้อมบันทึกย่อของผู้พูดเป็น TIFF | [แปลง PowerPoint เป็น TIFF พร้อมบันทึกย่อ](/slides/th/php-java/convert-powerpoint-to-tiff-with-notes/) |
+| PPT/PPTX ไปยัง Markdown | ดึงเนื้อหางานนำเสนอเป็น Markdown สำหรับเอกสารและกระบวนการทำงานที่ใช้ข้อความ | [แปลง PowerPoint เป็น Markdown](/slides/th/php-java/convert-powerpoint-to-markdown/) |
+| PPT/PPTX/ODP ไปยัง XML | สร้างงานนำเสนอ PowerPoint XML แบบข้อความเพื่อการตรวจสอบ การเปรียบเทียบ การแก้ปัญหา หรือกระบวนการทำงานที่ใช้ XML | [แปลง PowerPoint เป็น XML](/slides/th/php-java/convert-powerpoint-to-xml/) |
+| PPT/PPTX ไปยัง Animated GIF | สร้าง GIF ที่เคลื่อนไหวจากสไลด์ | [แปลง PowerPoint เป็น Animated GIF](/slides/th/php-java/convert-powerpoint-to-animated-gif/) |
+| PPT/PPTX ไปยัง Video | สร้างกระบวนการส่งออกวิดีโอจากสไลด์งานนำเสนอ | [แปลง PowerPoint เป็น Video](/slides/th/php-java/convert-powerpoint-to-video/) |
 | Presentation to XAML | ส่งออกสไลด์เป็น XAML สำหรับสถานการณ์ UI ของ PHP หรือ Java | [ส่งออกงานนำเสนอเป็น XAML](/slides/th/php-java/export-to-xaml/) |
 
-สำหรับรายการรูปแบบไฟล์นำเข้าและส่งออกที่กว้างขวางกว่า ดูที่ [Supported File Formats](/slides/th/php-java/supported-file-formats/)
+สำหรับรายการรูปแบบอินพุตและเอาต์พุตที่กว้างขึ้น ดู [รูปแบบไฟล์ที่รองรับ](/slides/th/php-java/supported-file-formats/).
 
 ## **การแปลง PowerPoint และ OpenDocument**
 
-Aspose.Slides for PHP via Java รองรับการแปลงจากรูปแบบงานนำเสนอที่ใช้งานทั่วไป เช่น PPT, PPTX, PPS, PPSX, POT, POTX, และ ODP API การแปลงเดียวกันใช้ได้ทั้งไฟล์ PowerPoint และ OpenDocument ดังนั้นเวิร์กโฟลว์ที่บันทึกไฟล์ PPTX เป็น PDF สามารถนำไปใช้กับไฟล์ ODP ได้โดยเพียงเปลี่ยนไฟล์อินพุต
+Aspose.Slides for PHP via Java รองรับการแปลงจากรูปแบบงานนำเสนอที่ใช้บ่อยเช่น PPT, PPTX, PPS, PPSX, POT, POTX, และ ODP API การแปลงเดียวกันถูกใช้สำหรับไฟล์ PowerPoint และ OpenDocument ดังนั้นกระบวนการที่บันทึกไฟล์ PPTX เป็น PDF สามารถใช้กับไฟล์ ODP ได้โดยเปลี่ยนเฉพาะไฟล์อินพุต
 
-เมื่อแปลงไฟล์ ODP จำไว้ว่าแอปพลิเคชัน PowerPoint และ OpenDocument ไม่สนับสนุนทุกคุณลักษณะของการจัดวางและการฟอร์แมตในแบบเดียวกัน หากไฟล์ ODP ถูกสร้างใน LibreOffice หรือ OpenOffice Impress ควรตรวจสอบผลลัพธ์และใช้ตัวเลือกที่อธิบายใน [Convert OpenDocument Presentations](/slides/th/php-java/convert-openoffice-odp/) เมื่อคุณต้องการคำแนะนำเฉพาะรูปแบบ
+เมื่อต้องแปลงไฟล์ ODP จำไว้ว่าแอปพลิเคชัน PowerPoint และ OpenDocument ไม่รองรับทุกการจัดหน้าและคุณลักษณะการจัดรูปแบบในลักษณะเดียวกัน หากไฟล์ ODP ถูกสร้างใน LibreOffice หรือ OpenOffice Impress ให้ตรวจสอบผลลัพธ์และใช้ตัวเลือกที่อธิบายใน [แปลงงานนำเสนอ OpenDocument](/slides/th/php-java/convert-openoffice-odp/) เมื่อคุณต้องการคำแนะนำเฉพาะรูปแบบ
 
-## **การแปลง PPT เป็น PPTX**
+## **การแปลง PPT ไปยัง PPTX**
 
-PPT เป็นรูปแบบไฟล์ไบนารีเก่าของ PowerPoint ส่วน PPTX เป็นรูปแบบ Office Open XML สมัยใหม่ Aspose.Slides for PHP via Java รองรับการแปลง PPT เป็น PPTX ด้วยความแม่นยำสูงโดยคงโครงสร้างงานนำเสนอที่ซับซ้อน เช่น มาสเตอร์, เลย์เอาต์, สไลด์, ชาร์ต, รูปร่างที่รวมกลุ่ม, พื้นที่จัดเก็บ, กรอบข้อความ, เนื้อผ้า, และการเติมรูปภาพ
+PPT เป็นรูปแบบ PowerPoint แบบไบนารีเก่า ในขณะที่ PPTX เป็นรูปแบบ Office Open XML สมัยใหม่ Aspose.Slides for PHP via Java รองรับการแปลง PPT ไปยัง PPTX ด้วยความแม่นยำสูงพร้อมรักษาโครงสร้างงานนำเสนอที่ซับซ้อนเช่น มาสเตอร์, เลย์เอาต์, สไลด์, แผนภูมิ, รูปร่างที่จัดกลุ่ม, ตัวพัก, เฟรมข้อความ, เนื้อผิว, และการเติมรูปภาพ
 
-ดูรายละเอียดเพิ่มเติมที่ [Convert PPT to PPTX](/slides/th/php-java/convert-ppt-to-pptx/) และ [PPT vs PPTX](/slides/th/php-java/ppt-vs-pptx/)
+สำหรับรายละเอียดเพิ่มเติม ดู [แปลง PPT เป็น PPTX](/slides/th/php-java/convert-ppt-to-pptx/) และ [PPT vs PPTX](/slides/th/php-java/ppt-vs-pptx/)
 
-## **การส่งออกแบบคงที่**
+## **การส่งออกแบบเลย์เอาท์คงที่**
 
-PDF, XPS, และ TIFF มีประโยชน์เมื่อผลลัพธ์ต้องคงรูปลักษณ์เดียวกันบนอุปกรณ์ทุกชนิดและไม่ควรถูกแก้ไขเป็นงานนำเสนอ บทความ PDF, XPS, และ TIFF เฉพาะให้คำแนะนำในการควบคุมการสอดคล้อง, สไลด์ที่ซ่อน, โน้ต, คุณภาพภาพ, การบีบอัด, รูปแบบพิกเซล, และขนาดผลลัพธ์
+PDF, XPS และ TIFF มีประโยชน์เมื่อผลลัพธ์ต้องดูเหมือนกันในทุกอุปกรณ์และไม่ควรแก้ไขเป็นงานนำเสนอ บทความเฉพาะที่เกี่ยวกับ PDF, XPS และ TIFF อธิบายวิธีควบคุมการปฏิบัติตาม, สไลด์ที่ซ่อน, บันทึกย่อ, คุณภาพภาพ, การบีบอัด, รูปแบบพิกเซล, และขนาดผลลัพธ์
 
-## **การส่งออกเป็น HTML และภาพ**
+## **การส่งออก HTML และรูปภาพ**
 
-การส่งออกเป็น HTML และ HTML5 มีประโยชน์สำหรับการดูในเบราว์เซอร์, การเผยแพร่บนเว็บ, และการแชร์แบบเบา การส่งออกเป็นภาพมีประโยชน์เมื่อแต่ละสไลด์ต้องเป็นพรีวิว, รูปย่อ, หรือทรัพยากรเรสเตอร์ ใช้บทความ PNG, JPG, และ SVG เพื่อรับแนวทางการเรนเดอร์เฉพาะรูปแบบ
+การส่งออก HTML และ HTML5 มีประโยชน์สำหรับการดูบนเบราว์เซอร์, การเผยแพร่เว็บ, และการแชร์อย่างเบา การส่งออกรูปภาพเป็นประโยชน์เมื่อแต่ละสไลด์ต้องกลายเป็นการดูตัวอย่าง, รูปขนาดย่อ, หรือทรัพยากรเรสเตอร์ ใช้บทความ PNG, JPG, และ SVG เพื่อรับคำแนะนำการเรนเดอร์เฉพาะรูปแบบ
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**ต้องใช้ Microsoft PowerPoint เพื่อแปลงงานนำเสนอหรือไม่?**
+**ฉันต้องการ Microsoft PowerPoint เพื่อแปลงงานนำเสนอหรือไม่?**
 
-ไม่ Aspose.Slides for PHP via Java เป็นไลบรารีอิสระและไม่ต้องการ Microsoft PowerPoint หรือการทำงานอัตโนมัติของ Office
+ไม่ Aspose.Slides for PHP via Java เป็นไลบรารีแยกและไม่ต้องการ Microsoft PowerPoint หรือการทำงานอัตโนมัติของ Office
 
-**สามารถแปลงหลายงานนำเสนอพร้อมกันได้หรือไม่?**
+**ฉันสามารถแปลงหลายงานนำเสนอเป็นชุดได้หรือไม่?**
 
-ได้ โหลดงานนำเสนอแต่ละไฟล์, บันทึกเป็นรูปแบบที่ต้องการ, แล้วทำลายวัตถุงานนำเสนอหลังการประมวลผล สำหรับการประมวลผลแบบขนาน ใช้ตัวอย่างงานนำเสนอแยกกันและปฏิบัติตามคำแนะนำเกี่ยวกับ [multithreading](/slides/th/php-java/multithreading/)
+ใช่ โหลดงานนำเสนอแต่ละรายการ บันทึกเป็นรูปแบบที่ต้องการ แล้วทำลายอ็อบเจ็กต์งานนำหลังการประมวลผล สำหรับการประมวลผลแบบขนาน ใช้อ็อบเจ็กต์งานนำเสนอแยกกันและปฏิบัติตามคำแนะนำ [การทำงานหลายเธรด](/slides/th/php-java/multithreading/)
 
-**สามารถส่งออกเฉพาะสไลด์ที่เลือกได้หรือไม่?**
+**ฉันสามารถส่งออกเฉพาะสไลด์ที่เลือกได้หรือไม่?**
 
-ได้ วิธีการส่งออกหลายวิธีอนุญาตให้คุณกำหนดดัชนีสไลด์หรือเรนเดอร์สไลด์เดี่ยว ๆ ขึ้นอยู่กับรูปแบบผลลัพธ์ ดูบทความเฉพาะสำหรับรูปแบบเป้าหมาย
+ใช่ วิธีการส่งออกหลายวิธีให้คุณระบุดัชนีสไลด์หรือเรนเดอร์สไลด์เดี่ยว ขึ้นอยู่กับรูปแบบผลลัพธ์ ดูบทความเฉพาะสำหรับรูปแบบเป้าหมาย
 
-**สามารถรวมสไลด์ที่ซ่อนเมื่อส่งออกเป็น PDF หรือ XPS ได้หรือไม่?**
+**ฉันสามารถรวมสไลด์ที่ซ่อนเมื่อส่งออกเป็น PDF หรือ XPS ได้หรือไม่?**
 
-ได้ ใช้การตั้งค่าการส่งออกสไลด์ที่ซ่อนตามที่อธิบายในบทความ [PDF](/slides/th/php-java/convert-powerpoint-to-pdf/) และ [XPS](/slides/th/php-java/convert-powerpoint-to-xps/)
+ใช่ ใช้การตั้งค่าการส่งออกสไลด์ที่ซ่อนตามที่อธิบายในบทความการแปลง [PDF](/slides/th/php-java/convert-powerpoint-to-pdf/) และ [XPS](/slides/th/php-java/convert-powerpoint-to-xps/)
 
-**สามารถสร้างไฟล์ PDF/A ได้หรือไม่?**
+**ฉันสามารถสร้างเอาต์พุต PDF/A ได้หรือไม่?**
 
-ได้ มีการตั้งค่าการสอดคล้องของ PDF สำหรับการส่งออก PDF ดูที่ [Convert PowerPoint to PDF](/slides/th/php-java/convert-powerpoint-to-pdf/) สำหรับรายละเอียด
+ใช่ มีการตั้งค่าการปฏิบัติตาม PDF สำหรับการส่งออก PDF ดู [แปลง PowerPoint เป็น PDF](/slides/th/php-java/convert-powerpoint-to-pdf/) เพื่อดูรายละเอียด
 
-**แบบอักษรจัดการอย่างไรระหว่างการแปลง?**
+**ฟอนต์ถูกจัดการอย่างไรระหว่างการแปลง?**
 
-Aspose.Slides สามารถใช้แบบอักษรฝัง, การสำรองแบบอักษร, และการตั้งค่าการทดแทนแบบอักษร ดูที่ [Embedded Font](/slides/th/php-java/embedded-font/), [Fallback Font](/slides/th/php-java/fallback-font/), และ [Font Substitution](/slides/th/php-java/font-substitution/)
+Aspose.Slides สามารถใช้ฟอนต์ที่ฝังไว้, ฟอนต์สำรอง, และการตั้งค่าการแทนที่ฟอนต์ ดู [ฟอนต์ที่ฝัง](/slides/th/php-java/embedded-font/), [ฟอนต์สำรอง](/slides/th/php-java/fallback-font/), และ [การแทนที่ฟอนต์](/slides/th/php-java/font-substitution/)

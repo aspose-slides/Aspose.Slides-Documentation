@@ -1,113 +1,114 @@
 ---
-title: Prezentációk konvertálása több formátumba Androidon
-linktitle: Prezentáció konvertálása
+title: Prezentációk átalakítása több formátumba Androidon
+linktitle: Prezentáció átalakítása
 type: docs
 weight: 70
 url: /hu/androidjava/convert-presentation/
 keywords:
-- prezentáció konvertálása
+- prezentáció átalakítása
 - prezentáció exportálása
-- PPT PPTX-re
-- PPTX PPT-re
-- ODP PPTX-re
-- PPT PDF-re
-- PPTX PDF-re
-- ODP PDF-re
-- PPT HTML-re
-- PPTX HTML-re
-- ODP HTML-re
-- PPT PNG-re
-- PPTX PNG-re
-- ODP PNG-re
-- PPTX JPG-re
-- ODP JPG-re
-- PPT XPS-re
-- PPTX XPS-re
-- ODP XPS-re
-- PPT TIFF-re
-- PPTX TIFF-re
-- ODP TIFF-re
+- PPT → PPTX
+- PPTX → PPT
+- ODP → PPTX
+- PPT → PDF
+- PPTX → PDF
+- ODP → PDF
+- PPT → HTML
+- PPTX → HTML
+- ODP → HTML
+- PPT → PNG
+- PPTX → PNG
+- ODP → PNG
+- PPTX → JPG
+- ODP → JPG
+- PPT → XPS
+- PPTX → XPS
+- ODP → XPS
+- PPT → TIFF
+- PPTX → TIFF
+- ODP → TIFF
 - PowerPoint
 - OpenDocument
 - Android
 - Java
 - Aspose.Slides
-description: "Konvertálja a PowerPoint és OpenDocument prezentációkat PPTX, PDF, HTML, képek, XPS, TIFF és egyéb formátumokba az Aspose.Slides for Android via Java használatával."
+description: "Konvertálja a PowerPoint és OpenDocument prezentációkat PPTX, PDF, HTML, képek, XPS, TIFF és egyéb formátumokra az Aspose.Slides for Android via Java segítségével."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides for Android via Java képes betölteni PowerPoint és OpenDocument prezentációkat, és számos egyéb formátumba menteni vagy renderelni őket a Microsoft PowerPoint, OpenOffice vagy LibreOffice nélkül. A régi PPT fájlokat átalakíthatja modern PPTX formátumba, exportálhatja a prezentációkat rögzített elrendezésű dokumentumokba, például PDF és XPS formátumba, közzéteheti a diákat HTML‑ként, vagy renderelheti a diákat képfájlokként előnézetekhez, bélyegképekhez és archiváláshoz.
+Aspose.Slides for Android via Java képes betölteni PowerPoint és OpenDocument prezentációkat, és számos egyéb formátumba menteni vagy renderelni azokat anélkül, hogy Microsoft PowerPoint, OpenOffice vagy LibreOffice szükséges lenne. Átalakíthatja a régi PPT fájlokat modern PPTX formátumba, exportálhatja a prezentációkat rögzített elrendezésű dokumentumokként, például PDF vagy XPS, közzéteheti a diákot HTML-ként, vagy képfájlokként renderelheti a diákat előnézetek, bélyegképek és archívumok céljából.
 
-A legtöbb dokumentumkonverzió ugyanazt az általános munkafolyamatot használja: betölti a forrásfájlt, kiválasztja a kívánt kimeneti formátumot, és szükség esetén alkalmazza a formátumspecifikus beállításokat. Képformátumok esetén minden diákat külön renderel, majd raszteres vagy vektorképként menti. Az alább hivatkozott dedikált cikkek részletes megvalósítási útmutatót nyújtanak az egyes esetekhez.
+Általában a dokumentumkonverziók ugyanazt az általános munkafolyamatot követik: betöltik a forrásfájlt, kiválasztják a szükséges kimeneti formátumot, és szükség esetén alkalmazzák a formátumspecifikus beállításokat. Képek esetén minden diát külön renderelnek, majd raszter vagy vektor képként mentik. Az alább hivatkozott dedikált cikkek részletezik az egyes esetek megvalósítását.
 
-## **Válasszon egy konverziós forgatókönyvet**
+## **Válasszon konverziós forgatókönyvet**
 
 Használja az alábbi cikkeket a teljes Java példákhoz és a formátumspecifikus beállításokhoz.
 
-| Szenárió | Akkor használja, ha | Cikk |
+| Forgatókönyv | Használja, ha szüksége van rá | Cikk |
 | --- | --- | --- |
-| PPT/PPTX/ODP to PPTX | Modernizálja a régi PPT fájlokat, normalizálja a meglévő PPTX fájlokat, vagy alakítsa át az OpenDocument prezentációkat PowerPoint PPTX‑évé. | [PPT konvertálása PPTX‑be](/slides/hu/androidjava/convert-ppt-to-pptx/), [ODP konvertálása PPTX‑be](/slides/hu/androidjava/convert-odp-to-pptx/), [Prezentációk mentése](/slides/hu/androidjava/save-presentation/) |
-| PPTX to PPT | Modern PowerPoint prezentáció mentése a régebbi bináris PPT formátumba a régebbi munkafolyamatokhoz való kompatibilitás érdekében. | [PPTX konvertálása PPT‑be](/slides/hu/androidjava/convert-pptx-to-ppt/) |
-| PPT/PPTX/ODP to PDF | Hordozható, kereshető, rögzített elrendezésű dokumentumok létrehozása megosztáshoz, nyomtatáshoz vagy archiváláshoz. | [PowerPoint konvertálása PDF‑be](/slides/hu/androidjava/convert-powerpoint-to-pdf/) |
-| PPT/PPTX/ODP to PDF with notes | Előadói jegyzetek exportálása a diák tartalmával együtt. | [PowerPoint konvertálása PDF‑be jegyzetekkel](/slides/hu/androidjava/convert-powerpoint-to-pdf-with-notes/) |
-| PPT/PPTX/ODP to HTML | Prezentációk közzététele HTML oldalakon, és képek, betűtípusok, jegyzetek, valamint reszponzív elrendezés beállításainak vezérlése. | [PowerPoint konvertálása HTML‑re](/slides/hu/androidjava/convert-powerpoint-to-html/) |
-| PPT/PPTX/ODP to HTML5 | Diák exportálása HTML5‑be böngészőben történő megtekintéshez a formázás és interaktivitás megőrzésével. | [Prezentációk konvertálása HTML5‑re](/slides/hu/androidjava/export-to-html5/) |
-| PPT/PPTX/ODP to PNG | Minden diát PNG képpé renderel előnézetekhez, bélyegképekhez vagy webes kimenethez. | [PowerPoint konvertálása PNG‑re](/slides/hu/androidjava/convert-powerpoint-to-png/) |
-| PPT/PPTX/ODP to JPG | Diák renderelése JPG képekbe, és a kép méretének és minőségének szabályozása. | [PowerPoint konvertálása JPG‑re](/slides/hu/androidjava/convert-powerpoint-to-jpg/) |
-| Slide to SVG | Egyes diák exportálása skálázható vektorgrafikaként. | [Dia renderelése SVG‑ként](/slides/hu/androidjava/render-a-slide-as-an-svg-image/) |
-| PPT/PPTX/ODP to XPS | Rögzített elrendezésű XPS dokumentumok létrehozása. | [PowerPoint konvertálása XPS‑re](/slides/hu/androidjava/convert-powerpoint-to-xps/) |
-| PPT/PPTX/ODP to TIFF | Prezentáció mentése többoldalas TIFF fájlként nyomtatáshoz, szkenneléshez, faxhoz vagy archiváláshoz. | [PowerPoint konvertálása TIFF‑re](/slides/hu/androidjava/convert-powerpoint-to-tiff/) |
-| PPT/PPTX/ODP to TIFF with notes | Diák előadói jegyzetekkel történő mentése TIFF‑be. | [PowerPoint konvertálása TIFF‑be jegyzetekkel](/slides/hu/androidjava/convert-powerpoint-to-tiff-with-notes/) |
-| PPT/PPTX to Word | Diák konvertálása Word dokumentummá, ha dokumentum stílusú kimenetre van szükség. | [PowerPoint konvertálása Word‑re](/slides/hu/androidjava/convert-powerpoint-to-word/) |
-| PPT/PPTX to Markdown | Prezentáció tartalmának kinyerése Markdown formátumba dokumentációhoz és szöveges munkafolyamatokhoz. | [PowerPoint konvertálása Markdown‑ra](/slides/hu/androidjava/convert-powerpoint-to-markdown/) |
-| PPT/PPTX to animated GIF | Animált GIF létrehozása a diákból. | [PowerPoint konvertálása animált GIF‑be](/slides/hu/androidjava/convert-powerpoint-to-animated-gif/) |
-| PPT/PPTX to video | Videó export munkafolyamat létrehozása a prezentáció diákból. | [PowerPoint konvertálása videóra](/slides/hu/androidjava/convert-powerpoint-to-video/) |
-| Presentation to XAML | Diák exportálása XAML‑be Android vagy Java UI forgatókönyvekhez. | [Prezentációk exportálása XAML‑re](/slides/hu/androidjava/export-to-xaml/) |
+| PPT/PPTX/ODP to PPTX | Modernizálja a régi PPT fájlokat, normalizálja a meglévő PPTX fájlokat, vagy alakítsa át az OpenDocument prezentációkat PowerPoint PPTX formátumba. | [PPT átalakítása PPTX-re](/slides/hu/androidjava/convert-ppt-to-pptx/), [ODP átalakítása PPTX-re](/slides/hu/androidjava/convert-odp-to-pptx/), [Prezentációk mentése](/slides/hu/androidjava/save-presentation/) |
+| PPTX to PPT | Mentse a modern PowerPoint prezentációt a régebbi bináris PPT formátumba a régi munkafolyamatokkal való kompatibilitás érdekében. | [PPTX átalakítása PPT-re](/slides/hu/androidjava/convert-pptx-to-ppt/) |
+| PPT/PPTX/ODP to PDF | Hozzon létre hordozható, kereshető, rögzített elrendezésű dokumentumokat megosztáshoz, nyomtatáshoz vagy archiváláshoz. | [PowerPoint átalakítása PDF-re](/slides/hu/androidjava/convert-powerpoint-to-pdf/) |
+| PPT/PPTX/ODP to PDF with notes | Exportálja a jegyzetelődik megjegyzéseket a diák tartalmával együtt. | [PowerPoint átalakítása PDF-re jegyzetekkel](/slides/hu/androidjava/convert-powerpoint-to-pdf-with-notes/) |
+| PPT/PPTX/ODP to HTML | Közzéteszi a prezentációkat HTML oldalként, és szabályozhatja a képeket, betűtípusokat, jegyzeteket és a választható elrendezési beállításokat. | [PowerPoint átalakítása HTML-re](/slides/hu/androidjava/convert-powerpoint-to-html/) |
+| PPT/PPTX/ODP to HTML5 | Exportálja a diákat HTML5-re böngésző alapú megtekintéshez, megőrizve a formázást és az interaktivitást. | [Prezentációk átalakítása HTML5-re](/slides/hu/androidjava/export-to-html5/) |
+| PPT/PPTX/ODP to PNG | Renderelje minden diát PNG képre előnézetek, bélyegképek vagy webkimenet céljából. | [PowerPoint átalakítása PNG-re](/slides/hu/androidjava/convert-powerpoint-to-png/) |
+| PPT/PPTX/ODP to JPG | Renderelje a diákat JPG képekre, és szabályozza a képméreteket és a minőséget. | [PowerPoint átalakítása JPG-re](/slides/hu/androidjava/convert-powerpoint-to-jpg/) |
+| Slide to SVG | Exportálja az egyes diákat méretezhető vektoros grafikaként (SVG). | [Dia renderelése SVG-ként](/slides/hu/androidjava/render-a-slide-as-an-svg-image/) |
+| PPT/PPTX/ODP to XPS | Készítsen rögzített elrendezésű XPS dokumentumokat. | [PowerPoint átalakítása XPS-re](/slides/hu/androidjava/convert-powerpoint-to-xps/) |
+| PPT/PPTX/ODP to TIFF | Mentse a prezentációt többlapos TIFF fájlként nyomtatás, szkennelés, fax vagy archiválás céljából. | [PowerPoint átalakítása TIFF-re](/slides/hu/androidjava/convert-powerpoint-to-tiff/) |
+| PPT/PPTX/ODP to TIFF with notes | Mentse a diákat a jegyzetelődik megjegyzésekkel együtt TIFF-be. | [PowerPoint átalakítása TIFF-re jegyzetekkel](/slides/hu/androidjava/convert-powerpoint-to-tiff-with-notes/) |
+| PPT/PPTX to Word | Alakítsa a diákat Word dokumentummá, ha dokumentumszerű kimenetre van szükség. | [PowerPoint átalakítása Word-re](/slides/hu/androidjava/convert-powerpoint-to-word/) |
+| PPT/PPTX to Markdown | Extrahálja a prezentáció tartalmát Markdown formátumba dokumentációhoz és szövegalapú munkafolyamatokhoz. | [PowerPoint átalakítása Markdown-re](/slides/hu/androidjava/convert-powerpoint-to-markdown/) |
+| PPT/PPTX/ODP to XML | Hozzon létre szöveges alapú PowerPoint XML prezentációt ellenőrzéshez, összehasonlításhoz, hibaelhárításhoz vagy XML-alapú munkafolyamatokhoz. | [PowerPoint átalakítása XML-re](/slides/hu/androidjava/convert-powerpoint-to-xml/) |
+| PPT/PPTX to animated GIF | Készítsen animált GIF-et a diákról. | [PowerPoint átalakítása animált GIF-re](/slides/hu/androidjava/convert-powerpoint-to-animated-gif/) |
+| PPT/PPTX to video | Építsen videó export munkafolyamatot a prezentáció diákból. | [PowerPoint átalakítása videóra](/slides/hu/androidjava/convert-powerpoint-to-video/) |
+| Presentation to XAML | Exportálja a diákat XAML-be Android vagy Java UI szcenáriókhoz. | [Prezentációk exportálása XAML-be](/slides/hu/androidjava/export-to-xaml/) |
 
-A bemeneti és kimeneti formátumok szélesebb listájáért tekintse meg a [Támogatott fájlformátumok](/slides/hu/androidjava/supported-file-formats/) oldalt.
+A bemeneti és kimeneti formátumok szélesebb listájáért tekintse meg a [Támogatott fájlformátumok](/slides/hu/androidjava/supported-file-formats/).
 
 ## **PowerPoint és OpenDocument konverzió**
 
-Az Aspose.Slides for Android via Java támogatja a gyakran használt prezentációs formátumok, például a PPT, PPTX, PPS, PPSX, POT, POTX és ODP közötti konverziót. Ugyanazt a konverziós API‑t használja a PowerPoint és az OpenDocument fájlok esetén, így egy PPTX‑ből PDF‑be mentő munkafolyamat általában az ODP fájlra is alkalmazható, csak a bemeneti fájlt cserélve.
+Az Aspose.Slides for Android via Java támogatja a gyakran használt prezentációs formátumok, például PPT, PPTX, PPS, PPSX, POT, POTX és ODP közötti konverziót. Ugyanazt a konverziós API-t használja PowerPoint és OpenDocument fájlokhoz, így egy PPTX fájl PDF-re mentését végző munkafolyamat általában az ODP fájlra is alkalmazható, ha csak a bemeneti fájlt cseréljük.
 
-ODP fájlok konvertálásakor vegye figyelembe, hogy a PowerPoint és az OpenDocument alkalmazások nem támogatják minden elrendezési és formázási funkciót pontosan ugyanúgy. Ha egy ODP fájlt LibreOffice vagy OpenOffice Impressben hoztak létre, ellenőrizze a kimenetet, és használja a [OpenDocument prezentációk konvertálása](/slides/hu/androidjava/convert-openoffice-odp/) cikkben leírt opciókat, amikor formátumspecifikus útmutatásra van szüksége.
+ODP fájlok konvertálásakor ne feledje, hogy a PowerPoint és OpenDocument alkalmazások nem támogatják pontosan ugyanúgy az összes elrendezési és formázási funkciót. Ha egy ODP fájlt LibreOffice vagy OpenOffice Impress segítségével hoztak létre, ellenőrizze a kimenetet, és használja a [OpenDocument prezentációk konvertálása](/slides/hu/androidjava/convert-openoffice-odp/) cikkben leírt beállításokat, ha formátumspecifikus útmutatásra van szükség.
 
-## **PPT konvertálása PPTX‑be**
+## **PPT → PPTX konverzió**
 
-A PPT a régi bináris PowerPoint formátum, míg a PPTX a modern Office Open XML formátum. Az Aspose.Slides for Android via Java magas hűségű PPT‑t‑PPTX konverziót támogat, miközben megőrzi az összetett prezentációs struktúrákat, például master‑eket, elrendezéseket, diákat, diagramokat, csoportos alakzatokat, helyőrzőket, szövegkereteket, textúrákat és képpel kitöltéseket.
+A PPT a régebbi bináris PowerPoint formátum, míg a PPTX a modern Office Open XML formátum. Az Aspose.Slides for Android via Java magas hűségű PPT → PPTX konverziót támogat, miközben megőrzi a komplex prezentációs struktúrákat, mint például a masterek, elrendezések, diák, diagramok, csoportosított objektumok, helyőrzők, szövegkeretek, textúrák és képtöltések.
 
-Részletekért tekintse meg a [PPT konvertálása PPTX‑be](/slides/hu/androidjava/convert-ppt-to-pptx/) és a [PPT vs PPTX](/slides/hu/androidjava/ppt-vs-pptx/) cikkeket.
+A részletekért tekintse meg a [PPT átalakítása PPTX-re](/slides/hu/androidjava/convert-ppt-to-pptx/) és a [PPT vs PPTX](/slides/hu/androidjava/ppt-vs-pptx/) cikkeket.
 
-## **Rögzített elrendezésű export**
+## **Rögzített elrendezés exportálása**
 
-A PDF, XPS és TIFF akkor hasznos, ha a kimenetnek minden eszközön ugyanúgy kell kinéznie, és nem kell szerkeszteni prezentációként. A dedikált PDF, XPS és TIFF cikkek bemutatják, hogyan szabályozhatja a megfelelőséget, a rejtett diákat, a jegyzeteket, a képminőséget, a tömörítést, a pixelformátumot és a kimeneti méretet.
+A PDF, XPS és TIFF akkor hasznos, ha a kimenetnek minden eszközön ugyanolyannak kell lennie, és nem kell prezentációként szerkeszteni. A dedikált PDF, XPS és TIFF cikkek bemutatják, hogyan szabályozhatók a megfelelőség, a rejtett diák, a jegyzetek, a képi minőség, a tömörítés, a pixelformátum és a kimeneti méret.
 
-## **HTML és kép export**
+## **HTML és kép exportálása**
 
-A HTML és HTML5 export hasznos böngészőben való megtekintéshez, webes közzétételhez és könnyű megosztáshoz. A képexport akkor előnyös, ha minden diát külön előnézet, bélyegkép vagy raszteres eszköz kell. Használja a PNG, JPG és SVG cikkeket a formátumspecifikus renderelési útmutatóhoz.
+A HTML és HTML5 exportálás hasznos böngészőben történő megtekintéshez, webes közzétételhez és könnyű megosztáshoz. Kép exportálásra akkor van szükség, ha minden diát külön előnézet, bélyegkép vagy raszteres eszköz kell legyen. Használja a PNG, JPG és SVG cikkeket a formátumspecifikus renderelési útmutatáshoz.
 
 ## **GYIK**
 
-**Szükségem van a Microsoft PowerPointra a prezentációk konvertálásához?**
+**Szükségem van Microsoft PowerPoint-re a prezentációk konvertálásához?**
 
-Nem. Az Aspose.Slides for Android via Java önálló könyvtár, és nem igényli a Microsoft PowerPointot vagy az Office automatizálást.
+Nem. Az Aspose.Slides for Android via Java önálló könyvtár, és nem igényel Microsoft PowerPoint-et vagy Office automatizálást.
 
-**Konvertálhatok tömegesen sok prezentációt?**
+**Tömegesen konvertálhatok sok prezentációt?**
 
-Igen. Töltsön be minden prezentációt, mentse a kívánt formátumba, majd a feldolgozás után szabadítsa fel a prezentációobjektumot. Párhuzamos feldolgozáshoz használjon különálló prezentációs példányokat, és kövesse a [multithreading](/slides/hu/androidjava/multithreading/) útmutatót.
+Igen. Töltsön be minden prezentációt, mentse a kívánt formátumba, majd a feldolgozás után szabadítsa fel a prezentáció objektumot. Párhuzamos feldolgozáshoz használjon külön prezentációs példányokat, és kövesse a [többszálúság](/slides/hu/androidjava/multithreading/) útmutatót.
 
-**Exportálhatok csak a kiválasztott diákat?**
+**Exportálhatok csak kiválasztott diákat?**
 
-Igen. Számos exportálási módszer lehetővé teszi diák indexek megadását vagy egyes diák renderelését, a kimeneti formátumtól függően. Tekintse meg a célformátumra vonatkozó dedikált cikket.
+Igen. Számos exportálási módszer lehetővé teszi diák indexének megadását vagy egyedi diák renderelését a kimeneti formátumtól függően. Lásd a dedikált cikket a célformátumhoz.
 
-**Bele tudom-e foglalni a rejtett diákat PDF vagy XPS exportálásakor?**
+**Bele lehet foglalni a rejtett diákat PDF vagy XPS exportálásakor?**
 
-Igen. Használja a rejtett-diák exportálási beállításokat a [PDF](/slides/hu/androidjava/convert-powerpoint-to-pdf/) és [XPS](/slides/hu/androidjava/convert-powerpoint-to-xps/) konverziós cikkekben leírtak szerint.
+Igen. Használja a rejtett dia exportálási beállításokat, amelyek a [PDF](/slides/hu/androidjava/convert-powerpoint-to-pdf/) és a [XPS](/slides/hu/androidjava/convert-powerpoint-to-xps/) konverziós cikkekben vannak leírva.
 
-**Létrehozhatok PDF/A kimenetet?**
+**Készíthetek PDF/A kimenetet?**
 
-Igen. PDF megfelelőségi beállítások állnak rendelkezésre PDF exportáláshoz. Részletekért tekintse meg a [PowerPoint konvertálása PDF‑be](/slides/hu/androidjava/convert-powerpoint-to-pdf/) cikket.
+Igen. PDF megfelelőségi beállítások állnak rendelkezésre a PDF exportáláshoz. Részletekért tekintse meg a [PowerPoint átalakítása PDF-re](/slides/hu/androidjava/convert-powerpoint-to-pdf/) cikket.
 
 **Hogyan kezelődnek a betűtípusok a konverzió során?**
 
-Az Aspose.Slides beágyazott betűtípusokat, betűtípus‑helyettesítést és betűtípus‑utólagos beállításokat használhat. Tekintse meg a [Embedded Font](/slides/hu/androidjava/embedded-font/), [Fallback Font](/slides/hu/androidjava/fallback-font/) és [Font Substitution](/slides/hu/androidjava/font-substitution/) cikkeket.
+Az Aspose.Slides használhat beágyazott betűtípusokat, helyettesítő betűtípust és betűtípus helyettesítés beállításokat. Lásd a [Beágyazott betűtípus](/slides/hu/androidjava/embedded-font/), a [Helyettesítő betűtípus](/slides/hu/androidjava/fallback-font/) és a [Betűtípus helyettesítés](/slides/hu/androidjava/font-substitution/) cikkeket.

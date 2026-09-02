@@ -1,5 +1,5 @@
 ---
-title: Конвертировать презентации в различные форматы в .NET
+title: Конвертация презентаций в несколько форматов в .NET
 linktitle: Конвертировать презентацию
 type: docs
 weight: 70
@@ -32,82 +32,83 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Конвертируйте презентации PowerPoint и OpenDocument в PPTX, PDF, HTML, изображения, XPS, TIFF и многое другое с помощью Aspose.Slides для .NET."
+description: "Конвертировать презентации PowerPoint и OpenDocument в PPTX, PDF, HTML, изображения, XPS, TIFF и другие форматы с помощью Aspose.Slides for .NET."
 ---
 ## **Обзор**
 
-Aspose.Slides for .NET может загружать презентации PowerPoint и OpenDocument и сохранять или рендерить их в множество других форматов без Microsoft PowerPoint, OpenOffice или LibreOffice. Вы можете преобразовать устаревшие файлы PPT в современный PPTX, экспортировать презентации в фиксированные документы, такие как PDF и XPS, публиковать слайды как HTML или рендерить слайды в виде изображений для предварительного просмотра, миниатюр и архивов.
+Aspose.Slides for .NET может загружать презентации PowerPoint и OpenDocument и сохранять или преобразовывать их в многие другие форматы без Microsoft PowerPoint, OpenOffice или LibreOffice. Вы можете конвертировать устаревшие файлы PPT в современные PPTX, экспортировать презентации в документы фиксированного макета, такие как PDF и XPS, публиковать слайды в виде HTML или рендерить их в файлы изображений для предварительного просмотра, миниатюр и архивов.
 
-Большинство конвертаций документов используют один и тот же общий рабочий процесс: загрузить исходный файл, выбрать требуемый формат вывода и при необходимости применить параметры, специфичные для формата. Для графических форматов каждый слайд рендерится отдельно, а затем сохраняется как растровое или векторное изображение. Специальные статьи, ссылки на которые приведены ниже, содержат детали реализации для каждого случая.
+Большинство конвертаций документов используют общий рабочий процесс: загрузить исходный файл, выбрать требуемый формат вывода и при необходимости применить параметры, специфичные для формата. Для форматов изображений каждый слайд рендерится отдельно, а затем сохраняется как растровое или векторное изображение. Специальные статьи, указанные ниже, предоставляют детали реализации для каждого случая.
 
 ## **Выберите сценарий конвертации**
 
-Используйте статьи ниже для полных примеров C# и параметров, специфичных для формата.
+Используйте статьи ниже для полных примеров на C# и параметров, специфичных для формата.
 
-| Сценарий | Используйте, когда нужно | Статья |
+| Сценарий | Когда использовать | Статья |
 | --- | --- | --- |
-| PPT/PPTX/ODP в PPTX | Модернизировать устаревшие файлы PPT, нормализовать существующие файлы PPTX или преобразовать презентации OpenDocument в PowerPoint PPTX. | [Преобразовать PPT в PPTX](/slides/ru/net/convert-ppt-to-pptx/), [Преобразовать ODP в PPTX](/slides/ru/net/convert-odp-to-pptx/), [Сохранить презентации](/slides/ru/net/save-presentation/) |
-| PPTX в PPT | Сохранить современную презентацию PowerPoint в старый бинарный формат PPT для совместимости со старыми рабочими процессами. | [Преобразовать PPTX в PPT](/slides/ru/net/convert-pptx-to-ppt/) |
-| PPT/PPTX/ODP в PDF | Создать портативные, индексируемые документы фиксированного макета для обмена, печати или архивирования. | [Преобразовать PowerPoint в PDF](/slides/ru/net/convert-powerpoint-to-pdf/) |
-| PPT/PPTX/ODP в PDF с заметками | Экспортировать заметки докладчика вместе с содержимым слайда. | [Преобразовать PowerPoint в PDF с заметками](/slides/ru/net/convert-powerpoint-to-pdf-with-notes/) |
-| PPT/PPTX/ODP в HTML | Публиковать презентации как HTML‑страницы и управлять изображениями, шрифтами, заметками и параметрами адаптивного макета. | [Преобразовать PowerPoint в HTML](/slides/ru/net/convert-powerpoint-to-html/) |
-| PPT/PPTX/ODP в HTML5 | Экспортировать слайды в HTML5 для просмотра в браузере с сохранением форматирования и интерактивности. | [Экспортировать презентации в HTML5](/slides/ru/net/export-to-html5/) |
-| PPT/PPTX/ODP в PNG | Рендерить каждый слайд в изображение PNG для предварительного просмотра, миниатюр или веб‑вывода. | [Преобразовать PowerPoint в PNG](/slides/ru/net/convert-powerpoint-to-png/) |
-| PPT/PPTX/ODP в JPG | Рендерить слайды в изображения JPG и управлять размерами и качеством изображения. | [Преобразовать PowerPoint в JPG](/slides/ru/net/convert-powerpoint-to-jpg/) |
-| Слайд в SVG | Экспортировать отдельные слайды как масштабируемую векторную графику. | [Рендерить слайд как SVG](/slides/ru/net/render-a-slide-as-an-svg-image/) |
-| PPT/PPTX/ODP в XPS | Создавать документы XPS фиксированного макета. | [Преобразовать PowerPoint в XPS](/slides/ru/net/convert-powerpoint-to-xps/) |
-| PPT/PPTX/ODP в TIFF | Сохранить презентацию как многостраничный файл TIFF для печати, сканирования, факса или архивных процессов. | [Преобразовать PowerPoint в TIFF](/slides/ru/net/convert-powerpoint-to-tiff/) |
-| PPT/PPTX/ODP в TIFF с заметками | Сохранить слайды с заметками докладчика в TIFF. | [Преобразовать PowerPoint в TIFF с заметками](/slides/ru/net/convert-powerpoint-to-tiff-with-notes/) |
-| PPT/PPTX в Word | Преобразовать слайды в документ Word, когда нужен вывод в виде документа. | [Преобразовать PowerPoint в Word](/slides/ru/net/convert-powerpoint-to-word/) |
-| PPT/PPTX в Markdown | Извлечь содержимое презентации в Markdown для документации и текстовых процессов. | [Преобразовать PowerPoint в Markdown](/slides/ru/net/convert-powerpoint-to-markdown/) |
-| PPT/PPTX в анимированный GIF | Создать анимированный GIF из слайдов. | [Преобразовать PowerPoint в анимированный GIF](/slides/ru/net/convert-powerpoint-to-animated-gif/) |
-| PPT/PPTX в видео | Создать процесс экспорта презентации в видео. | [Преобразовать PowerPoint в видео](/slides/ru/net/convert-powerpoint-to-video/) |
-| Презентация в XAML | Экспортировать слайды в XAML для сценариев UI в .NET. | [Экспортировать презентации в XAML](/slides/ru/net/export-to-xaml/) |
+| PPT/PPTX/ODP в PPTX | Модернизация устаревших файлов PPT, нормализация существующих файлов PPTX или конвертация презентаций OpenDocument в PowerPoint PPTX. | [Convert PPT to PPTX](/slides/ru/net/convert-ppt-to-pptx/),[Convert ODP to PPTX](/slides/ru/net/convert-odp-to-pptx/),[Save Presentations](/slides/ru/net/save-presentation/) |
+| PPTX в PPT | Сохранить современную презентацию PowerPoint в более старый двоичный формат PPT для совместимости со старыми процессами. | [Convert PPTX to PPT](/slides/ru/net/convert-pptx-to-ppt/) |
+| PPT/PPTX/ODP в PDF | Создать портативные, поисковые, фиксированные документы для обмена, печати или архивирования. | [Convert PowerPoint to PDF](/slides/ru/net/convert-powerpoint-to-pdf/) |
+| PPT/PPTX/ODP в PDF с примечаниями | Экспортировать заметки докладчика вместе с содержимым слайдов. | [Convert PowerPoint to PDF with Notes](/slides/ru/net/convert-powerpoint-to-pdf-with-notes/) |
+| PPT/PPTX/ODP в HTML | Публиковать презентации как HTML‑страницы и управлять изображениями, шрифтами, заметками и параметрами адаптивного макета. | [Convert PowerPoint to HTML](/slides/ru/net/convert-powerpoint-to-html/) |
+| PPT/PPTX/ODP в HTML5 | Экспортировать слайды в HTML5 для просмотра в браузере с сохранением форматирования и интерактивности. | [Convert Presentations to HTML5](/slides/ru/net/export-to-html5/) |
+| PPT/PPTX/ODP в PNG | Рендерить каждый слайд в PNG‑изображение для предварительного просмотра, миниатюр или веб‑вывода. | [Convert PowerPoint to PNG](/slides/ru/net/convert-powerpoint-to-png/) |
+| PPT/PPTX/ODP в JPG | Рендерить слайды в JPG‑изображения и управлять их размерами и качеством. | [Convert PowerPoint to JPG](/slides/ru/net/convert-powerpoint-to-jpg/) |
+| Слайд в SVG | Экспортировать отдельные слайды как масштабируемую векторную графику. | [Render Slide as SVG](/slides/ru/net/render-a-slide-as-an-svg-image/) |
+| PPT/PPTX/ODP в XPS | Создать фиксированные XPS‑документы. | [Convert PowerPoint to XPS](/slides/ru/net/convert-powerpoint-to-xps/) |
+| PPT/PPTX/ODP в TIFF | Сохранить презентацию как многостраничный TIFF‑файл для печати, сканирования, факса или архивных процессов. | [Convert PowerPoint to TIFF](/slides/ru/net/convert-powerpoint-to-tiff/) |
+| PPT/PPTX/ODP в TIFF с примечаниями | Сохранить слайды с заметками докладчика в TIFF. | [Convert PowerPoint to TIFF with Notes](/slides/ru/net/convert-powerpoint-to-tiff-with-notes/) |
+| PPT/PPTX в Word | Конвертировать слайды в документ Word, когда требуется вывод в документальном стиле. | [Convert PowerPoint to Word](/slides/ru/net/convert-powerpoint-to-word/) |
+| PPT/PPTX в Markdown | Извлечь содержимое презентации в Markdown для документирования и текстовых процессов. | [Convert PowerPoint to Markdown](/slides/ru/net/convert-powerpoint-to-markdown/) |
+| PPT/PPTX/ODP в XML | Создать текстовый PowerPoint XML Presentation для инспекции, сравнения, отладки или XML‑ориентированных процессов. | [Convert PowerPoint to XML](/slides/ru/net/convert-powerpoint-to-xml/) |
+| PPT/PPTX в анимированный GIF | Создать анимированный GIF из слайдов. | [Convert PowerPoint to Animated GIF](/slides/ru/net/convert-powerpoint-to-animated-gif/) |
+| PPT/PPTX в видео | Сформировать процесс экспорта в видео из слайдов презентации. | [Convert PowerPoint to Video](/slides/ru/net/convert-powerpoint-to-video/) |
+| Презентация в XAML | Экспортировать слайды в XAML для сценариев UI в .NET. | [Export Presentations to XAML](/slides/ru/net/export-to-xaml/) |
 
-Для более полного списка входных и выходных форматов см. [Поддерживаемые форматы файлов](/slides/ru/net/supported-file-formats/).
+Для более полного списка поддерживаемых входных и выходных форматов см. [Supported File Formats](/slides/ru/net/supported-file-formats/).
 
 ## **Конвертация PowerPoint и OpenDocument**
 
-Aspose.Slides for .NET поддерживает конвертацию из широко используемых форматов презентаций, таких как PPT, PPTX, PPS, PPSX, POT, POTX и ODP. Один и тот же API конвертации используется для файлов PowerPoint и OpenDocument, поэтому рабочий процесс, сохраняющий файл PPTX в PDF, обычно можно применить к файлу ODP, изменив лишь входной файл.
+Aspose.Slides for .NET поддерживает конвертацию из широко используемых форматов презентаций, таких как PPT, PPTX, PPS, PPSX, POT, POTX и ODP. Один и тот же API конвертации используется как для файлов PowerPoint, так и для OpenDocument, поэтому рабочий процесс, сохраняющий файл PPTX в PDF, обычно можно применить к файлу ODP, изменив лишь входной файл.
 
-При конвертации файлов ODP помните, что приложения PowerPoint и OpenDocument не поддерживают каждый элемент макета и форматирования одинаково. Если файл ODP был создан в LibreOffice или OpenOffice Impress, проверьте результат и используйте параметры, описанные в [Convert OpenDocument Presentations](/slides/ru/net/convert-openoffice-odp/) при необходимости.
+При конвертации ODP‑файлов помните, что приложения PowerPoint и OpenDocument не поддерживают каждую компоновку и форматирование одинаково. Если ODP‑файл был создан в LibreOffice или OpenOffice Impress, проверьте результат и используйте параметры, описанные в [Convert OpenDocument Presentations](/slides/ru/net/convert-openoffice-odp/), когда требуется руководство по конкретному формату.
 
 ## **Конвертация PPT в PPTX**
 
-PPT — это старый бинарный формат PowerPoint, а PPTX — современный формат Office Open XML. Aspose.Slides for .NET поддерживает высокоточное преобразование PPT в PPTX с сохранением сложных структур презентации, таких как мастера, макеты, слайды, диаграммы, группы фигур, заполнители, текстовые фреймы, текстуры и заливки изображениями.
+PPT — это старый двоичный формат PowerPoint, тогда как PPTX — современный формат Office Open XML. Aspose.Slides for .NET обеспечивает высокоточная конвертация PPT в PPTX с сохранением сложных структур презентации, таких как мастера, макеты, слайды, диаграммы, группы фигур, заполнители, текстовые кадры, текстуры и заливки изображениями.
 
-Подробности см. в [Convert PPT to PPTX](/slides/ru/net/convert-ppt-to-pptx/) и [PPT vs PPTX](/slides/ru/net/ppt-vs-pptx/).
+Подробности смотрите в [Convert PPT to PPTX](/slides/ru/net/convert-ppt-to-pptx/) и [PPT vs PPTX](/slides/ru/net/ppt-vs-pptx/).
 
-## **Экспорт фиксированного макета**
+## **Экспорт в фиксированный макет**
 
-PDF, XPS и TIFF полезны, когда вывод должен выглядеть одинаково на всех устройствах и не должен редактироваться как презентация. Используйте [PdfOptions](https://reference.aspose.com/slides/ru/net/aspose.slides.export/pdfoptions/), [XpsOptions](https://reference.aspose.com/slides/ru/net/aspose.slides.export/xpsoptions/) и [TiffOptions](https://reference.aspose.com/slides/ru/net/aspose.slides.export/tiffoptions/) для управления соответствием, скрытыми слайдами, заметками, качеством изображений, компрессией, форматом пикселей и размером вывода.
+PDF, XPS и TIFF полезны, когда вывод должен выглядеть одинаково на всех устройствах и не подлежит редактированию как презентация. Используйте [PdfOptions](https://reference.aspose.com/slides/ru/net/aspose.slides.export/pdfoptions/), [XpsOptions](https://reference.aspose.com/slides/ru/net/aspose.slides.export/xpsoptions/) и [TiffOptions](https://reference.aspose.com/slides/ru/net/aspose.slides.export/tiffoptions/) для управления соответствием стандартам, скрытыми слайдами, примечаниями, качеством изображений, сжатием, пиксельным форматом и размером вывода.
 
-## **Экспорт HTML и изображений**
+## **Экспорт в HTML и изображения**
 
-Экспорт в HTML и HTML5 полезен для просмотра в браузере, веб‑публикаций и лёгкого обмена. Экспорт изображений нужен, когда каждый слайд должен стать отдельным предварительным просмотром, миниатюрой или растровым объектом. Используйте статьи о PNG, JPG и SVG для рекомендаций по рендерингу, специфичным для формата.
+Экспорт в HTML и HTML5 полезен для просмотра в браузере, публикации в сети и легкого обмена. Экспорт изображений удобен, когда каждый слайд должен стать отдельным предварительным просмотром, миниатюрой или растровым ресурсом. Используйте статьи о PNG, JPG и SVG для получения рекомендаций по рендерингу, специфическим для формата.
 
 ## **FAQ**
 
-**Нужен ли мне Microsoft PowerPoint для конвертации презентаций?**  
+**Нужен ли мне Microsoft PowerPoint для конвертации презентаций?**
 
-Нет. Aspose.Slides for .NET — это автономная библиотека и не требует Microsoft PowerPoint или автоматизации Office.
+Нет. Aspose.Slides for .NET — это автономная библиотека, не требующая Microsoft PowerPoint или автоматизации Office.
 
-**Могу ли я пакетно конвертировать множество презентаций?**  
+**Можно ли пакетно конвертировать множество презентаций?**
 
-Да. Загружайте каждую презентацию, сохраняйте её в требуемый формат и освобождайте объект `Presentation` после обработки. Для параллельной обработки используйте отдельные экземпляры презентаций и следуйте рекомендациям по [многопоточности](/slides/ru/net/multithreading/).
+Да. Загружайте каждую презентацию, сохраняйте её в требуемый формат и освобождайте объект `Presentation` после обработки. Для параллельной обработки используйте отдельные экземпляры презентаций и следуйте рекомендациям [multithreading](/slides/ru/net/multithreading/).
 
-**Могу ли я экспортировать только выбранные слайды?**  
+**Можно ли экспортировать только выбранные слайды?**
 
-Да. Некоторые методы экспорта позволяют передать индексы слайдов или рендерить отдельные слайды, в зависимости от формата вывода. Смотрите отдельную статью для целевого формата.
+Да. Несколько методов экспорта позволяют передать индексы слайдов или рендерить отдельные слайды, в зависимости от формата вывода. См. специальную статью для нужного формата.
 
-**Могу ли я включать скрытые слайды при экспорте в PDF или XPS?**  
+**Можно ли включить скрытые слайды при экспорте в PDF или XPS?**
 
-Да. Используйте свойство `ShowHiddenSlides` в [PdfOptions]https://reference.aspose.com/slides/ru/net/aspose.slides.export/pdfoptions/ или в [XpsOptions]https://reference.aspose.com/slides/ru/net/aspose.slides.export/xpsoptions/.
+Да. Используйте свойство `ShowHiddenSlides` в [PdfOptions](https://reference.aspose.com/slides/ru/net/aspose.slides.export/pdfoptions/) или [XpsOptions](https://reference.aspose.com/slides/ru/net/aspose.slides.export/xpsoptions/).
 
-**Могу ли я создать вывод PDF/A?**  
+**Можно ли создать вывод PDF/A?**
 
-Да. Параметры соответствия PDF доступны через [PdfOptions.Compliance]https://reference.aspose.com/slides/ru/net/aspose.slides.export/pdfoptions/compliance/ и [PdfCompliance]https://reference.aspose.com/slides/ru/net/aspose.slides.export/pdfcompliance/.
+Да. Параметры соответствия PDF доступны через [PdfOptions.Compliance](https://reference.aspose.com/slides/ru/net/aspose.slides.export/pdfoptions/compliance/) и [PdfCompliance](https://reference.aspose.com/slides/ru/net/aspose.slides.export/pdfcompliance/).
 
-**Как обрабатываются шрифты при конвертации?**  
+**Как обрабатываются шрифты при конвертации?**
 
-Aspose.Slides может использовать встроенные шрифты, запасные шрифты и параметры замены шрифтов. Смотрите [Встроенный шрифт](/slides/ru/net/embedded-font/), [Запасной шрифт](/slides/ru/net/fallback-font/) и [Замена шрифтов](/slides/ru/net/font-substitution/).
+Aspose.Slides может использовать встроенные шрифты, резервные шрифты и настройки подстановки шрифтов. См. [Embedded Font](/slides/ru/net/embedded-font/), [Fallback Font](/slides/ru/net/fallback-font/) и [Font Substitution](/slides/ru/net/font-substitution/).
