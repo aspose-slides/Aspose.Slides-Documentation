@@ -1,98 +1,107 @@
 ---
-title: Преобразовать PPT в PPTX на Python
+title: Конвертировать PPT в PPTX на Python
 linktitle: PPT в PPTX
 type: docs
 weight: 20
 url: /ru/python-net/convert-ppt-to-pptx/
 keywords:
-- преобразовать PPT
+- конвертировать PowerPoint
+- конвертировать презентацию
+- конвертировать слайд
+- конвертировать PPT
 - PPT в PPTX
+- сохранить PPT как PPTX
+- экспортировать PPT в PPTX
 - PowerPoint
 - презентация
 - Python
 - Aspose.Slides
-description: "Быстро преобразуйте устаревшие презентации PPT в современный формат PPTX с помощью Python и Aspose.Slides — понятный учебник, бесплатные примеры кода, без зависимости от Microsoft Office."
+description: "Конвертировать устаревшие файлы PPT в PPTX на Python с помощью Aspose.Slides. Включает примеры конвертации одного файла и пакетной конвертации, обработки ошибок и примечания о точности."
 ---
-
 ## **Обзор**
 
-В этой статье объясняется, как преобразовать презентацию PowerPoint в формате PPT в формат PPTX с помощью Python и онлайн‑приложения для конвертации PPT в PPTX. Рассматриваются следующие темы:
+PPT — это устаревший двоичный формат PowerPoint, а PPTX — более новый формат Open XML. Aspose.Slides for Python via .NET может загрузить файл PPT и сохранить его как PPTX без Microsoft PowerPoint. В этой статье показано, как конвертировать один файл или каталог файлов, и объяснено, что проверять после конвертации.
 
-- Конвертация PPT в PPTX в Python
+## **Конвертировать файл PPT в PPTX**
 
-## **Python: Конвертация PPT в PPTX**
+Загрузите исходный файл с помощью класса [Presentation](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/), затем вызовите [Presentation.save](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/save/) с аргументом [SaveFormat.PPTX](https://reference.aspose.com/slides/ru/python-net/aspose.slides.export/saveformat/). Оператор `with` освобождает презентацию и её ресурсы после завершения блока.
 
-Пример кода на Python для конвертации PPT в PPTX см. в разделе ниже, то есть [Convert PPT to PPTX](#convert-ppt-to-pptx). Он просто загружает файл PPT и сохраняет его в формате PPTX. Указывая различные форматы сохранения, вы также можете сохранить файл PPT в многих других форматах, таких как PDF, XPS, ODP, HTML и т.д., как описано в этих статьях:
-
-- [Convert PPT to PDF in Python](/slides/ru/python-net/convert-powerpoint-to-pdf/)
-- [Convert PPT to XPS in Python](/slides/ru/python-net/convert-powerpoint-to-xps/)
-- [Convert PPT to HTML in Python](/slides/ru/python-net/convert-powerpoint-to-html/)
-- [Convert PPT to ODP in Python](/slides/ru/python-net/save-presentation/)
-- [Convert PPT to PNG in Python](/slides/ru/python-net/convert-powerpoint-to-png/)
-
-## **О конвертации PPT в PPTX**
-Конвертируйте старый формат PPT в PPTX с помощью API Aspose.Slides. Если вам нужно конвертировать тысячи презентаций PPT в формат PPTX, лучшее решение — выполнить это программно. С API Aspose.Slides это возможно сделать всего в несколько строк кода. API обеспечивает полную совместимость при конвертации презентации PPT в PPTX, и позволяет:
-
-- Конвертировать сложные структуры мастеров, макетов и слайдов.
-- Конвертировать презентацию с диаграммами.
-- Конвертировать презентацию с групповыми фигурами, автофигурами (например, прямоугольниками и эллипсами) и фигурами с пользовательской геометрией.
-- Конвертировать презентацию с текстурами и заливкой изображениями для автофигур.
-- Конвертировать презентацию с заполнителями, текстовыми фреймами и текстовыми объектами.
-
-{{% alert color="primary" %}}
-
-Посмотрите приложение [**Aspose.Slides PPT to PPTX Conversion**](https://products.aspose.app/slides/conversion/ppt-to-pptx):
-
-[](https://products.aspose.app/slides/conversion/ppt-to-pptx)
-
-[![todo:image_alt_text](ppt-to-pptx.png)](https://products.aspose.app/slides/conversion/ppt-to-pptx)
-
-Это приложение построено на основе **Aspose.Slides API**, поэтому вы можете увидеть работающий пример базовых возможностей конвертации PPT в PPTX. Aspose.Slides Conversion — веб‑приложение, которое позволяет загрузить файл презентации в формате PPT и скачать его в формате PPTX.
-
-Найдите другие живые примеры [**Aspose.Slides Conversion**](https://products.aspose.app/slides/conversion/).
-{{% /alert %}}
-
-## **Конвертация PPT в PPTX**
-Чтобы конвертировать PPT в PPTX, просто передайте имя файла и формат сохранения в метод [**Save**](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) класса [**Presentation**](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/). Пример кода на Python ниже конвертирует презентацию из PPT в PPTX, используя параметры по умолчанию.
 ```python
 import aspose.slides as slides
 
-# Создайте объект Presentation, представляющий файл PPT
-pres = slides.Presentation("PPTtoPPTX.ppt")
-
-# Сохраните презентацию в формате PPTX
-pres.save("PPTtoPPTX_out.pptx", slides.export.SaveFormat.PPTX)
+# Загрузить устаревшую PPT презентацию.
+with slides.Presentation("presentation.ppt") as presentation:
+    # Сохранить презентацию в формате PPTX.
+    presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+Расширение файла не выбирает формат вывода само по себе; это делает аргумент [SaveFormat.PPTX](https://reference.aspose.com/slides/ru/python-net/aspose.slides.export/saveformat/). Держите пути входного и выходного файлов разными, если нужно сохранить оригинальный файл PPT.
 
-Читайте подробнее о форматах презентаций [**PPT vs PPTX**](/slides/ru/python-net/ppt-vs-pptx/) и о том, как [**Aspose.Slides поддерживает конвертацию PPT в PPTX**](/slides/ru/python-net/convert-ppt-to-pptx/).
+## **Конвертировать несколько файлов PPT**
+
+Следующий пример конвертирует каждый файл `.ppt` в указанном каталоге. Каждый файл обрабатывается независимо, поэтому сбой одной конвертации не останавливает остальные.
+
+```python
+from pathlib import Path
+
+import aspose.slides as slides
+
+input_directory = Path("input")
+output_directory = Path("output")
+output_directory.mkdir(parents=True, exist_ok=True)
+
+for input_path in input_directory.glob("*.ppt"):
+    output_path = output_directory / f"{input_path.stem}.pptx"
+
+    try:
+        with slides.Presentation(str(input_path)) as presentation:
+            presentation.save(str(output_path), slides.export.SaveFormat.PPTX)
+        print(f"Converted: {input_path}")
+    except Exception as exception:
+        print(f"Failed: {input_path} ({exception})")
+```
+
+Для производственных нагрузок регистрируйте полное исключение, решайте, можно ли перезаписать существующий файл вывода, и записывайте имена файлов с ошибкой в очередь повторных попыток или проверки. Повреждённые файлы, защищённые паролем файлы, открытые без нужного пароля, недоступные пути и неподдерживаемый контент могут привести к сбою конвертации. См. [Защищённые паролем презентации](/python-net/password-protected-presentation/) для загрузки зашифрованных файлов.
+
+## **Точность и устаревшие функции**
+
+Конверсия обычно сохраняет слайды, шаблоны, макеты, текст, фигуры, изображения, таблицы и диаграммы. Однако PPT и PPTX не представляют все функции одинаково. Устаревшая функция, не имеющая эквивалента в PPTX, или не поддерживаемая библиотекой, может быть нормализована, опущена или отображена иначе.
+
+Проверьте конвертированный файл, если в нём есть анимации, переходы, встроенные или связанные OLE‑объекты, элементы управления ActiveX, встроенные медиа‑файлы, редкие шрифты или VBA‑макросы. Обычный файл PPTX не является форматом с поддержкой макросов, поэтому используйте соответствующий рабочий процесс с поддержкой макросов, когда VBA должен оставаться доступным. Также убедитесь, что необходимые шрифты и внешние ресурсы присутствуют в среде, где будет открываться или рендериться презентация.
+
+Для важных документов откройте сгенерированный PPTX программно и проверьте количество слайдов и их содержимое, затем сравните внешний вид и поведение показа слайдов в целевом просмотрщике. Не рассматривайте успешный вызов [Presentation.save](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/save/) как доказательство того, что каждая устаревшая функция имеет точный аналог в PPTX.
+
+## **Когда использовать PPTX**
+
+Используйте PPTX, когда презентацию будут редактировать в текущих версиях PowerPoint, обмениваться с системами, работающими с пакетами Open XML, или хранить в формате, более лёгком для инспекции и восстановления, чем устаревший двоичный PPT. Сохраняйте оригинальный PPT как архивную или резервную копию, пока конвертированная презентация не пройдет проверки точности.
+
+Если вместо этого нужен PDF, HTML, изображения, XPS или другой тип вывода, используйте рекомендации по конкретному формату в статье [Конвертировать презентации в несколько форматов](/python-net/convert-presentation/), а не предполагая, что все цели сохраняют редактируемые функции PowerPoint.
+
+## **Онлайн‑конвертер**
+
+Для случайного файла или быстрой проверки вы можете воспользоваться [online PPT to PPTX converter](https://products.aspose.app/slides/ru/conversion/ppt-to-pptx). Для повторяющихся конверсий, пакетной обработки или обработки ошибок на уровне приложения используйте Python API.
+
+## **Связанные статьи**
+
+- [PPT vs PPTX](/python-net/ppt-vs-pptx/)
+- [Сохранить презентации в Python](/python-net/save-presentation/)
+- [Поддерживаемые форматы файлов](/python-net/supported-file-formats/)
+- [Открыть презентации в Python](/python-net/open-presentation/)
 
 ## **FAQ**
 
-**В чем разница между форматами PPT и PPTX?**
-
-PPT — старый двоичный формат файлов, используемый Microsoft PowerPoint, тогда как PPTX — более новый формат на основе XML, впервые представленный в Microsoft Office 2007. Файлы PPTX обеспечивают более высокую производительность, меньший размер и лучшую восстановимость данных.
-
-**Можно ли конвертировать PPT в PPTX с помощью Python?**
-
-Да, используя библиотеку Aspose.Slides for Python via .NET, вы можете легко загрузить файл PPT и сохранить его в формате PPTX всего несколькими строками кода.
-
-**Поддерживает ли Aspose.Slides пакетную конвертацию нескольких файлов PPT в PPTX?**
-
-Да, вы можете использовать Aspose.Slides в цикле для программной конвертации множества файлов PPT в PPTX, что подходит для сценариев пакетной обработки.
-
-**Сохранится ли содержание и форматирование после конвертации?**
-
-Aspose.Slides сохраняет высокую точность при конвертации презентаций. Макеты слайдов, анимации, фигуры, диаграммы и другие элементы дизайна сохраняются при преобразовании PPT в PPTX.
-
-**Можно ли конвертировать другие форматы, такие как PDF или HTML, из файлов PPT?**
-
-Да, Aspose.Slides поддерживает конвертацию файлов PPT в несколько форматов, включая PDF, XPS, HTML, ODP и графические форматы, такие как PNG и JPEG.
-
 **Можно ли конвертировать PPT в PPTX без установленного Microsoft PowerPoint?**
 
-Да, Aspose.Slides for Python via .NET — автономный API и не требует установки Microsoft PowerPoint или любого стороннего программного обеспечения для выполнения конвертации.
+Да. Aspose.Slides for Python via .NET загружает и сохраняет файлы презентаций без необходимости установки Microsoft PowerPoint.
 
-**Существует ли онлайн‑инструмент для конвертации PPT в PPTX?**
+**Сохранит ли конверсия PPT в PPTX весь контент точно?**
 
-Да, вы можете воспользоваться бесплатным веб‑приложением [Aspose.Slides PPT to PPTX Converter](https://products.aspose.app/slides/conversion/ppt-to-pptx) для выполнения конвертации прямо в браузере без написания кода.
+Она сохраняет обычный контент презентаций, но точная точность не гарантируется для каждой устаревшей или неподдерживаемой функции. Проверьте сгенерированный файл, если в нём есть макросы, OLE‑ или ActiveX‑объекты, медиа, специализированные анимации или редкие шрифты.
+
+**Можно ли конвертировать защищённый паролем файл PPT?**
+
+Да, если при загрузке файла указать правильный пароль. Отсутствие пароля или указание неверного пароля приводит к сбою загрузки.
+
+**Следует ли удалять файл PPT после конвертации?**
+
+Сохраняйте оригинал, пока не убедитесь, что PPTX работает в нужных просмотрщиках и рабочих процессах. Это обеспечивает возможность отката, если устаревшая функция конвертируется иначе.

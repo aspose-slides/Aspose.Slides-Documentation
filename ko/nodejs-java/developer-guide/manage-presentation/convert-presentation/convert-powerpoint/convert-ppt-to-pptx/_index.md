@@ -1,5 +1,5 @@
 ---
-title: JavaScript에서 PPT를 PPTX로 변환
+title: Node.js에서 PPT를 PPTX로 변환
 linktitle: PPT를 PPTX로
 type: docs
 weight: 20
@@ -17,98 +17,111 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js를 사용하여 레거시 PPT 프레젠테이션을 최신 PPTX로 빠르게 변환 — 명확한 튜토리얼, 무료 코드 샘플, Microsoft Office 의존성 없음."
+description: "Aspose.Slides를 사용하여 Node.js에서 레거시 PPT 파일을 PPTX로 변환합니다. 단일 파일 및 배치 변환, 오류 처리, 정밀도 주석에 대한 JavaScript 예제가 포함되어 있습니다."
 ---
 ## **개요**
 
-이 문서는 JavaScript와 온라인 PPT에서 PPTX 변환 앱을 사용하여 PPT 형식의 PowerPoint 프레젠테이션을 PPTX 형식으로 변환하는 방법을 설명합니다. 다음 주제가 다루어집니다.
+PPT는 레거시 이진 PowerPoint 형식이고 PPTX는 최신 Open XML 형식입니다. Aspose.Slides for Node.js via Java는 Microsoft PowerPoint 없이 PPT 파일을 로드하고 PPTX로 저장할 수 있습니다. 이 문서에서는 파일 하나 또는 파일 디렉터리를 변환하는 방법을 보여주고 변환 후 확인해야 할 사항을 설명합니다.
 
-- JavaScript에서 PPT를 PPTX로 변환
+## **PPT 파일을 PPTX로 변환**
 
-## **JavaScript PPT를 PPTX로 변환**
-
-PPT를 PPTX로 변환하는 JavaScript 샘플 코드는 아래 섹션인 [Convert PPT to PPTX](#convert-ppt-to-pptx)를 참조하십시오. 이 코드는 PPT 파일을 로드하고 PPTX 형식으로 저장합니다. 다른 저장 형식을 지정하면 PDF, XPS, ODP, HTML 등 다양한 형식으로 PPT 파일을 저장할 수 있습니다. 자세한 내용은 다음 기사에서 다루고 있습니다.
-
-- [JavaScript에서 PPT를 PDF로 변환](/slides/ko/nodejs-java/convert-powerpoint-to-pdf/)
-- [JavaScript에서 PPT를 XPS로 변환](/slides/ko/nodejs-java/convert-powerpoint-to-xps/)
-- [JavaScript에서 PPT를 HTML로 변환](/slides/ko/nodejs-java/convert-powerpoint-to-html/)
-- [JavaScript에서 PPT를 ODP로 변환](/slides/ko/nodejs-java/save-presentation/)
-- [JavaScript에서 PPT를 PNG로 변환](/slides/ko/nodejs-java/convert-powerpoint-to-png/)
-
-## **PPT를 PPTX로 변환에 대하여**
-
-Aspose.Slides API를 사용하여 오래된 PPT 형식을 PPTX로 변환합니다. 수천 개의 PPT 프레젠테이션을 PPTX 형식으로 변환해야 하는 경우, 가장 좋은 솔루션은 프로그래밍 방식으로 수행하는 것입니다. Aspose.Slides API를 사용하면 몇 줄의 코드만으로 가능합니다. 이 API는 PPT 프레젠테이션을 PPTX로 변환하는 전체 호환성을 지원하며 다음과 같은 작업이 가능합니다:
-
-- 마스터, 레이아웃 및 슬라이드의 복잡한 구조를 변환합니다.
-- 차트가 포함된 프레젠테이션을 변환합니다.
-- 그룹 도형, 자동 도형(예: 사각형 및 타원), 사용자 정의 기하학 도형이 포함된 프레젠테이션을 변환합니다.
-- 텍스처 및 이미지 채우기 스타일을 가진 자동 도형이 포함된 프레젠테이션을 변환합니다.
-- 플레이스홀더, 텍스트 프레임 및 텍스트 보관자를 포함한 프레젠테이션을 변환합니다.
-
-{{% alert color="primary" %}} 
-
-다음 [**Aspose.Slides PPT to PPTX Conversion**](https://products.aspose.app/slides/ko/conversion/ppt-to-pptx) 앱을 살펴보세요:
-
-[](https://products.aspose.app/slides/ko/conversion/ppt-to-pptx)
-
-[![todo:image_alt_text](ppt-to-pptx.png)](https://products.aspose.app/slides/ko/conversion/ppt-to-pptx)
-
-이 앱은 [**Aspose.Slides API**](https://products.aspose.com/slides/ko/nodejs-java/)를 기반으로 구축되었으며, 기본 PPT를 PPTX로 변환하는 기능의 실제 예시를 확인할 수 있습니다. Aspose.Slides Conversion은 웹 앱으로, PPT 형식의 프레젠테이션 파일을 드래그 앤 드롭하면 PPTX로 변환된 파일을 다운로드할 수 있습니다.
-
-다른 실시간 [**Aspose.Slides Conversion**](https://products.aspose.app/slides/ko/conversion/) 예제를 찾아보세요.
-{{% /alert %}} 
-
-## **PPT를 PPTX로 변환**
-
-Aspose.Slides for Node.js via Java는 이제 개발자가 [Presentation](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/presentation) 클래스 인스턴스를 사용하여 PPT에 접근하고 이를 해당 [PPTX](https://docs.fileformat.com/presentation/pptx/) 형식으로 변환할 수 있도록 지원합니다. 현재는 [PPT ](https://docs.fileformat.com/presentation/ppt/)를 PPTX로 부분 변환하는 것을 지원합니다.
-
-Aspose.Slides for Node.js via Java는 **PPTX** 프레젠테이션 파일을 나타내는 [Presentation](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/presentation) 클래스를 제공합니다. 이제 Presentation 클래스는 객체를 인스턴스화할 때 **PPT**에도 접근할 수 있습니다. 다음 예제는 PPT 프레젠테이션을 PPTX 프레젠테이션으로 변환하는 방법을 보여줍니다.
+[프레젠테이션]((https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/presentation/)) 클래스와 함께 원본 파일을 로드한 다음, [Presentation.save]((https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/presentation/#save))에 [SaveFormat.Pptx]((https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/saveformat/))를 전달합니다. `finally` 블록은 프레젠테이션을 해제하고 리소스를 해제합니다.
 
 ```javascript
-// PPTX 파일을 나타내는 Presentation 객체를 인스턴스화합니다
-var pres = new aspose.slides.Presentation("Aspose.ppt");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// 레거시 PPT 프레젠테이션을 로드합니다.
+let presentation = new aspose.slides.Presentation("presentation.ppt");
 try {
-    // PPTX 프레젠테이션을 PPTX 형식으로 저장합니다
-    pres.save("ConvertedAspose.pptx", aspose.slides.SaveFormat.Pptx);
+    // 프레젠테이션을 PPTX 형식으로 저장합니다.
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
+    presentation.dispose();
+}
+```
+
+파일 확장자는 자체적으로 출력 형식을 선택하지 않으며, [SaveFormat.Pptx]((https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/saveformat/)) 인수가 이를 결정합니다. 원본 PPT 파일을 유지해야 하는 경우 입력 경로와 출력 경로를 다르게 지정하십시오.
+
+## **여러 PPT 파일 변환**
+
+다음 예제는 하나의 디렉터리에서 모든 `.ppt` 파일을 변환합니다. 각 파일은 독립적으로 처리되므로 하나의 변환 실패가 배치 전체를 중단하지 않습니다.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const fs = require("fs");
+const path = require("path");
+
+const inputDirectory = "input";
+const outputDirectory = "output";
+fs.mkdirSync(outputDirectory, { recursive: true });
+
+const inputFiles = fs.readdirSync(inputDirectory, { withFileTypes: true })
+    .filter(entry => entry.isFile() && path.extname(entry.name).toLowerCase() === ".ppt")
+    .map(entry => entry.name);
+
+for (const fileName of inputFiles) {
+    const inputPath = path.join(inputDirectory, fileName);
+    const outputFileName = path.basename(fileName, path.extname(fileName)) + ".pptx";
+    const outputPath = path.join(outputDirectory, outputFileName);
+    let presentation = null;
+
+    try {
+        presentation = new aspose.slides.Presentation(inputPath);
+        presentation.save(outputPath, aspose.slides.SaveFormat.Pptx);
+        console.log("Converted: " + inputPath);
+    } catch (error) {
+        console.error("Failed: " + inputPath + " (" + error.message + ")");
+    } finally {
+        if (presentation !== null) {
+            presentation.dispose();
+        }
     }
 }
 ```
 
-|![todo:image_alt_text](http://i.imgur.com/Y9jaUtI.png)|
-| :- |
-|**그림 : 원본 PPT 프레젠테이션**|
+프로덕션 환경에서는 전체 오류를 기록하고, 기존 출력 파일을 덮어쓸지 여부를 결정하며, 실패한 파일 이름을 재시도 또는 검토 큐에 기록하십시오. 손상된 파일, 암호가 필요한 파일을 올바른 암호 없이 열려는 경우, 접근할 수 없는 경로, 지원되지 않는 콘텐츠 등은 변환 실패의 원인이 될 수 있습니다. 암호화된 파일 로드에 대해서는 [Password-Protected Presentations](/nodejs-java/password-protected-presentation/) 를 참고하십시오.
 
-위 코드 조각은 변환 후 다음과 같은 PPTX 프레젠테이션을 생성합니다.
+## **정밀도 및 레거시 기능**
 
-|![todo:image_alt_text](http://i.imgur.com/tBXF3nA.png)|
-| :- |
-|**그림: 변환 후 생성된 PPTX 프레젠테이션**|
+변환은 일반적으로 슬라이드, 마스터, 레이아웃, 텍스트, 도형, 이미지, 표 및 차트를 보존합니다. 그러나 PPT와 PPTX는 모든 기능을 정확히 동일한 방식으로 표현하지 않습니다. PPTX에 해당하는 것이 없거나 라이브러리에서 지원되지 않는 레거시 기능은 정규화되거나 생략되거나 다르게 표시될 수 있습니다.
+
+애니메이션, 전환, 내장 또는 연결된 OLE 객체, ActiveX 컨트롤, 내장 미디어, 특수 폰트 또는 VBA 매크로가 포함된 경우 변환된 파일을 반드시 확인하십시오. 일반 PPTX 파일은 매크로가 포함된 형식이 아니므로 VBA가 필요할 때는 매크로 지원 워크플로를 사용하십시오. 또한 변환된 프레젠테이션을 열거나 렌더링할 환경에 필요한 폰트와 외부 리소스가 존재하는지도 확인하십시오.
+
+중요 문서의 경우, 생성된 PPTX를 프로그래밍 방식으로 다시 열어 핵심 슬라이드 수와 내용을 검사하고, 의도한 뷰어에서 외관 및 슬라이드쇼 동작을 비교하십시오. 성공적인 [Presentation.save]((https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/presentation/#save)) 호출만으로 모든 레거시 기능이 정확히 PPTX로 변환되었다고 판단하지 마십시오.
+
+## **PPTX 사용 시기**
+
+프레젠테이션을 최신 PowerPoint 버전에서 편집하거나 Open XML 패키지를 사용하는 시스템과 교환하거나, 레거시 이진 PPT보다 검사 및 복구가 쉬운 형식으로 저장하려는 경우 PPTX를 사용하십시오. 변환된 프레젠테이션이 정밀도 검사를 통과할 때까지 원본 PPT를 보관하거나 롤백 사본으로 유지하십시오.
+
+PDF, HTML, 이미지, XPS 또는 다른 출력 형식이 필요하면 [Convert Presentations to Multiple Formats](/nodejs-java/convert-presentation/) 에서 형식별 가이드를 참고하고, 모든 대상이 편집 가능한 PowerPoint 기능을 보존한다고 가정하지 마십시오.
+
+## **온라인 변환기**
+
+가끔 파일을 변환하거나 빠르게 비교하려면 [online PPT to PPTX converter]((https://products.aspose.app/slides/ko/conversion/ppt-to-pptx)) 를 사용할 수 있습니다. 반복적인 변환, 배치 처리 또는 애플리케이션 수준 오류 처리가 필요하면 Node.js via Java API를 사용하십시오.
+
+## **관련 문서**
+
+- [PPT vs PPTX](/nodejs-java/ppt-vs-pptx/)
+- [Save Presentations in Node.js](/nodejs-java/save-presentation/)
+- [Supported File Formats](/nodejs-java/supported-file-formats/)
+- [Open Presentations in Node.js](/nodejs-java/open-presentation/)
 
 ## **FAQ**
 
-**PPT와 PPTX 형식의 차이점은 무엇인가요?**
+**Microsoft PowerPoint 없이 PPT를 PPTX로 변환할 수 있나요?**
 
-PPT는 Microsoft PowerPoint에서 사용하던 오래된 바이너리 파일 형식이며, PPTX는 Microsoft Office 2007부터 도입된 최신 XML 기반 형식입니다. PPTX 파일은 향상된 성능, 파일 크기 감소, 그리고 데이터 복구 개선을 제공합니다.
+예. Aspose.Slides for Node.js via Java는 Microsoft PowerPoint 없이 프레젠테이션 파일을 로드하고 저장합니다.
 
-**Aspose.Slides가 여러 PPT 파일을 PPTX로 일괄 변환하는 것을 지원하나요?**
+**PPT를 PPTX로 변환하면 모든 콘텐츠가 정확히 보존되나요?**
 
-예, Aspose.Slides를 루프에서 사용하여 여러 PPT 파일을 프로그래밍 방식으로 PPTX로 변환할 수 있으므로 일괄 변환 시나리오에 적합합니다.
+일반적인 프레젠테이션 콘텐츠는 보존되지만, 모든 레거시 또는 지원되지 않는 기능이 정확히 동일하게 변환된다고 보장할 수 없습니다. 매크로, OLE 또는 ActiveX 객체, 미디어, 특수 애니메이션 또는 특수 폰트가 포함된 경우 생성된 파일을 검토하십시오.
 
-**변환 후 내용과 서식이 유지되나요?**
+**암호가 보호된 PPT 파일을 변환할 수 있나요?**
 
-Aspose.Slides는 프레젠테이션 변환 시 높은 정확성을 유지합니다. 슬라이드 레이아웃, 애니메이션, 도형, 차트 및 기타 디자인 요소가 PPT를 PPTX로 변환하는 동안 그대로 유지됩니다.
+예, 파일을 로드할 때 올바른 암호를 제공하면 가능합니다. 암호가 없거나 잘못된 경우 로드 작업이 실패합니다.
 
-**PPT 파일을 PDF나 HTML과 같은 다른 형식으로 변환할 수 있나요?**
+**변환 후 PPT 파일을 삭제해야 하나요?**
 
-예, Aspose.Slides는 PPT 파일을 PDF, XPS, HTML, ODP 및 PNG, JPEG와 같은 이미지 형식을 포함한 다양한 형식으로 변환하는 것을 지원합니다.
-
-**Microsoft PowerPoint가 설치되지 않은 상태에서 PPT를 PPTX로 변환할 수 있나요?**
-
-예, Aspose.Slides는 독립형 API이며 변환을 수행하기 위해 Microsoft PowerPoint나 타사 소프트웨어가 필요하지 않습니다.
-
-**PPT를 PPTX로 변환할 수 있는 온라인 도구가 있나요?**
-
-예, 무료 [Aspose.Slides PPT to PPTX Converter](https://products.aspose.app/slides/ko/conversion/ppt-to-pptx) 웹 애플리케이션을 사용하면 코드를 작성하지 않고도 브라우저에서 직접 변환을 수행할 수 있습니다.
+원본 PPT를 검증된 PPTX와 사용 중인 뷰어 및 워크플로에서 확인할 때까지 보관하십시오. 레거시 기능이 다르게 변환될 경우 롤백 사본으로 활용할 수 있습니다.
