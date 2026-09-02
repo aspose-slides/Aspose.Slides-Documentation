@@ -1,40 +1,43 @@
 ---
-title: Beheer grafiekwerkmappen in presentaties met JavaScript
-linktitle: Grafiekwerkmap
+title: Beheer grafiekwerkboeken in presentaties met JavaScript
+linktitle: Grafiekwerkboek
 type: docs
 weight: 70
 url: /nl/nodejs-java/chart-workbook/
 keywords:
-- grafiekwerkmap
+- grafiekwerkboek
 - grafiekgegevens
-- werkbladcel
-- databelabel
+- werkboekcel
+- gegevenslabel
 - werkblad
 - gegevensbron
-- externe werkmap
+- extern werkboek
 - externe gegevens
 - grafiekcache
-- werkmapherstel
+- werkboekherstel
 - PowerPoint
 - presentatie
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Ontdek Aspose.Slides voor Node.js via Java: beheer moeiteloos grafiekwerkmappen in PowerPoint- en OpenDocument-formaat om uw presentatiedata te stroomlijnen."
+description: "Ontdek Aspose.Slides voor Node.js via Java: beheer moeiteloos grafiekwerkboeken in PowerPoint- en OpenDocument-formaten om uw presentatiedata te stroomlijnen."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe u met grafiek‑werkmappen in Aspose.Slides kunt werken. Het laat zien hoe u grafiekgegevens kunt lezen en schrijven via werkmap‑streams, werkbladcellen kunt gebruiken als grafiek‑databladlabels, toegang krijgt tot werkbladcollecties en het type gegevensbron voor grafiekwaarden kunt opgeven.
+Dit artikel legt uit hoe u met grafiek‑werkboeken kunt werken in Aspose.Slides. Het toont hoe u grafiekgegevens kunt lezen en schrijven via werkboek‑streams, werkboekcellen kunt gebruiken als gegevenslabels voor grafieken, werkbladcollecties kunt benaderen en het gegevenstype van de gegevensbron voor grafiekwaarden kunt opgeven.
 
-Het behandelt ook het werken met externe werkmappen als gegevensbronnen voor grafieken. De voorbeelden laten zien hoe u een externe werkmap maakt en toewijst, het pad van een externe werkmap die aan een grafiek is gekoppeld opvraagt, en grafiekgegevens bewerkt wanneer de werkmap beschikbaar is.
+Het behandelt ook het werken met externe werkboeken als gegevensbron voor grafieken. De voorbeelden laten zien hoe u een extern werkboek maakt en toewijst, het pad van een extern werkboek dat aan een grafiek gekoppeld is ophaalt en grafiekgegevens bewerkt wanneer het werkboek beschikbaar is.
 
-## **Grafiekgegevens lezen en schrijven vanuit een werkmap**
+## **Lees en schrijf grafiekgegevens vanuit een werkboek**
 
-Aspose.Slides biedt de [readWorkbookStream](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/ChartData#readWorkbookStream--) en [writeWorkbookStream](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/ChartData#writeWorkbookStream-byte:A-) methoden waarmee u grafiekgegevens‑werkmappen (bevat grafiekgegevens bewerkt met Aspose.Cells) kunt lezen en schrijven. **Opmerking** dat de grafiekgegevens op dezelfde manier moeten zijn gestructureerd of een vergelijkbare structuur moeten hebben als de bron.
+Aspose.Slides biedt de [readWorkbookStream](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/ChartData#readWorkbookStream--) en [writeWorkbookStream](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/ChartData#writeWorkbookStream-byte:A-) methoden waarmee u grafiek‑werkboeken (bevatten grafiekgegevens bewerkt met Aspose.Cells) kunt lezen en schrijven. **Opmerking** dat de grafiekgegevens op dezelfde manier georganiseerd moeten zijn of een structuur moeten hebben die vergelijkbaar is met de bron.
 
-Deze JavaScript‑code toont een voorbeeldbewerking:
+Deze JavaScript‑code toont een voorbeeldoperatie:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("chart.pptx");
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -50,22 +53,44 @@ try {
 }
 ```
 
-## **Werkbladcel instellen als grafiek‑DataLabel**
+### **Grafieklay‑out valideren na wijziging van werkboek**
 
-1. Maak een instantie van de [Presentation](https://apireference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation)‑klasse.
-1. Verkrijg een verwijzing naar een dia via de index.
-1. Voeg een bubbeldiagram toe met enige gegevens.
-1. Toegang tot de grafiekseries.
-1. Stel de werkbladcel in als datablad‑label.
-1. Sla de presentatie op.
-
-Deze JavaScript‑code laat zien hoe u een werkbladcel als grafiek‑databelabel instelt:
+Wanneer u een ingesloten werkboek vervangt door een aangepast werkboek, behoudt de grafiek zijn oorspronkelijke series‑ en categorieverzamelingen. Deze mismatch kan ertoe leiden dat [Chart.validateChartLayout](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/Chart#validateChartLayout--) faalt met een index‑out‑of‑range‑fout. Wis de bestaande series en categorieën voordat u het bijgewerkte werkboek terugschrijft naar de grafiek.
 
 ```javascript
+// Na het aanpassen van de werkboek-stream (bijvoorbeeld met Aspose.Cells)
+var updatedWorkbook = chartData.readWorkbookStream();
+
+// Wis bestaande gegevensreferenties.
+chartData.getSeries().clear();
+chartData.getCategories().clear();
+
+chartData.writeWorkbookStream(updatedWorkbook);
+
+chart.validateChartLayout();
+```
+
+Het wissen van de collecties zorgt ervoor dat de structuur van de grafiekgegevens overeenkomt met het nieuwe werkboek, zodat `validateChartLayout` zonder fouten kan worden voltooid.
+
+## **Werkbladcel instellen als grafiek‑gegevenslabel**
+
+1. Maak een instantie van de [Presentation](https://apireference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation) klasse.  
+2. Haal een referentie naar een dia op via de index.  
+3. Voeg een Bubble‑grafiek toe met enkele gegevens.  
+4. Benader de grafiekseries.  
+5. Stel de werkbladcel in als gegevenslabel.  
+6. Sla de presentatie op.
+
+Deze JavaScript‑code laat zien hoe u een werkbladcel instelt als grafiek‑gegevenslabel:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var lbl0 = "Label 0 cell value";
 var lbl1 = "Label 1 cell value";
 var lbl2 = "Label 2 cell value";
-// Initialiseert een presentatieklasse die een presentatiebestand vertegenwoordigt
+// Instantiëert een presentatieklasse die een presentatiebestand vertegenwoordigt
 var pres = new aspose.slides.Presentation("chart2.pptx");
 try {
     var slide = pres.getSlides().get_Item(0);
@@ -87,9 +112,12 @@ try {
 
 ## **Werkbladen beheren**
 
-Deze JavaScript‑code toont een bewerking waarbij de [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/ChartDataWorkbook#getWorksheets--)‑methode wordt gebruikt om toegang te krijgen tot een werkbladcollectie:
+Deze JavaScript‑code demonstreert een operatie waarbij de [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/ChartDataWorkbook#getWorksheets--) methode wordt gebruikt om een werkbladcollectie te benaderen:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 500);
@@ -104,11 +132,14 @@ try {
 }
 ```
 
-## **Gegevensbrontype opgeven**
+## **Gegevenstype van gegevensbron opgeven**
 
 Deze JavaScript‑code laat zien hoe u een type voor een gegevensbron opgeeft:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Column3D, 50, 50, 600, 400, true);
@@ -125,11 +156,15 @@ try {
 }
 ```
 
-## **Detecteer niet‑ondersteunde ingebedde werkmap‑formaten**
+## **Niet‑ondersteunde ingesloten werkboekformaten detecteren**
 
-Aspose.Slides ondersteunt niet het Excel‑binaire werkmapformaat (.xlsb) dat in sommige grafieken kan worden ingebed. U kunt de `getEmbeddedWorkbookType`‑methode op [ChartData](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/chartdata/) samen met de [WorkbookType](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/workbooktype/)‑enumeratie gebruiken om niet‑ondersteunde formaten te detecteren en die grafieken over te slaan.
+Aspose.Slides ondersteunt het Excel‑binaire werkboekformaat (.xlsb) niet, dat in sommige grafieken kan worden ingesloten. U kunt de `getEmbeddedWorkbookType`‑methode op [ChartData](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/chartdata/) samen met de [WorkbookType](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/workbooktype/)‑enumeratie gebruiken om niet‑ondersteunde formaten te detecteren en die grafieken over te slaan.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -145,41 +180,39 @@ try {
 
         if (chartData.getDataSourceType() == aspose.slides.ChartDataSourceType.InternalWorkbook &&
                 chartData.getEmbeddedWorkbookType() == aspose.slides.WorkbookType.WorkbookBinaryMacro) {
-            // Ingebedde werkmap is in .xlsb-formaat, wat niet ondersteund wordt.
+            // Ingesloten werkboek is in .xlsb-formaat, wat niet wordt ondersteund.
             continue;
         }
 
-        // Lees of wijzig hier de grafiekwerkmapgegevens.
+        // Lees of wijzig hier de grafiek-werkboekgegevens.
     }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Externe werkmap**
+## **Extern werkboek**
 
-Aspose.Slides ondersteunt externe werkmappen als gegevensbron voor grafieken.
+Aspose.Slides ondersteunt externe werkboeken als gegevensbron voor grafieken.
 
-### **Externe werkmap maken**
+### **Extern werkboek maken**
 
-Met de **`readWorkbookStream`**‑ en **`setExternalWorkbook`**‑methoden kunt u een externe werkmap vanaf nul maken of een interne werkmap extern maken.
+Met de **`readWorkbookStream`**‑ en **`setExternalWorkbook`**‑methoden kunt u een extern werkboek vanaf nul maken of een intern werkboek extern maken.
 
-Deze JavaScript‑code toont het proces voor het maken van een externe werkmap:
+Deze JavaScript‑code demonstreert het proces van het maken van een extern werkboek:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const fileSystem = require("fs");
+
 var pres = new aspose.slides.Presentation();
 try {
-    final var workbookPath = "externalWorkbook1.xlsx";
+    var workbookPath = "externalWorkbook1.xlsx";
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600);
-    var fileStream = java.newInstanceSync("java.io.FileOutputStream", workbookPath);
-    try {
-        var workbookData = chart.getChartData().readWorkbookStream();
-        fileStream.write(workbookData, 0, workbookData.length);
-    } finally {
-        if (fileStream != null) {
-            fileStream.close();
-        }
-    }
+    // readWorkbookStream retourneert de werkboekbytes als een Node Buffer.
+    var workbookData = chart.getChartData().readWorkbookStream();
+    fileSystem.writeFileSync(workbookPath, Buffer.from(workbookData));
     chart.getChartData().setExternalWorkbook(workbookPath);
     pres.save("externalWorkbook.pptx", aspose.slides.SaveFormat.Pptx);
 } catch (e) {console.log(e);
@@ -190,16 +223,19 @@ try {
 }
 ```
 
-### **Externe werkmap instellen**
+### **Extern werkboek instellen**
 
-Met de **`setExternalWorkbook`**‑methode kunt u een externe werkmap aan een grafiek toewijzen als gegevensbron. Deze methode kan ook worden gebruikt om een pad naar de externe werkmap bij te werken (als die verplaatst is).
+Met de **`setExternalWorkbook`**‑methode kunt u een extern werkboek aan een grafiek toewijzen als gegevensbron. Deze methode kan ook worden gebruikt om een pad naar het externe werkboek bij te werken (als het werkboek is verplaatst).
 
-Hoewel u de gegevens in werkmappen die op externe locaties of bronnen zijn opgeslagen niet kunt bewerken, kunt u dergelijke werkmappen wel als externe gegevensbron gebruiken. Als er een relatief pad voor een externe werkmap wordt opgegeven, wordt dit automatisch omgezet naar een volledig pad.
+Hoewel u de gegevens in werkboeken die op externe locaties of bronnen staan niet kunt bewerken, kunt u die werkboeken wel als externe gegevensbron gebruiken. Als een relatief pad voor een extern werkboek wordt opgegeven, wordt dit automatisch omgezet naar een volledig pad.
 
-Deze JavaScript‑code laat zien hoe u een externe werkmap instelt:
+Deze JavaScript‑code toont hoe u een extern werkboek instelt:
 
 ```javascript
-// Maakt een instantie van de Presentation-klasse
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// Creëert een instantie van de Presentation-klasse
 var pres = new aspose.slides.Presentation("chart.pptx");
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600, false);
@@ -220,13 +256,16 @@ try {
 }
 ```
 
-De `ChartData`‑parameter (onder de `setExternalWorkbook`‑methode) wordt gebruikt om op te geven of een Excel‑werkmap wel of niet wordt geladen.
+De tweede parameter van de `setExternalWorkbook`‑methode, `updateChartData`, geeft aan of het Excel‑werkboek wel of niet wordt geladen.
 
-* Wanneer de `ChartData`‑waarde `false` is, wordt alleen het pad van de werkmap bijgewerkt — de grafiekgegevens worden niet geladen of bijgewerkt vanuit de doel‑werkmap. Gebruik deze instelling wanneer de doel‑werkmap niet bestaat of niet beschikbaar is.  
-* Wanneer de `ChartData`‑waarde `true` is, worden de grafiekgegevens bijgewerkt vanuit de doel‑werkmap.
+* Wanneer `updateChartData` is ingesteld op `false`, wordt alleen het werkboekpad bijgewerkt — de grafiekgegevens worden niet geladen of bijgewerkt vanuit het doelwerkboek. Gebruik deze instelling wanneer het doelwerkboek niet bestaat of niet beschikbaar is.  
+* Wanneer `updateChartData` is ingesteld op `true`, worden de grafiekgegevens bijgewerkt vanuit het doelwerkboek.
 
 ```javascript
-// Maakt een instantie van de Presentation-klasse
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// Creëert een instantie van de Presentation-klasse
 var pres = new aspose.slides.Presentation("chart.pptx");
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600, true);
@@ -240,18 +279,21 @@ try {
 }
 ```
 
-### **Pad van externe gegevensbron‑werkmap ophalen**
+### **Pad van extern gegevensbron‑werkboek van grafiek ophalen**
 
-1. Maak een instantie van de [Presentation](https://apireference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation)‑klasse.
-1. Verkrijg een verwijzing naar een dia via de index.
-1. Maak een object voor de grafiekvorm.
-1. Maak een object voor het bron‑type (`ChartDataSourceType`) dat de gegevensbron van de grafiek vertegenwoordigt.
-1. Specificeer de relevante voorwaarde op basis van het bron‑type dat gelijk is aan het type van de externe werkmap‑gegevensbron.
+1. Maak een instantie van de [Presentation](https://apireference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation) klasse.  
+2. Haal een referentie naar een dia op via de index.  
+3. Maak een object voor de grafiekvorm.  
+4. Maak een object voor het bron‑type (`ChartDataSourceType`) dat de gegevensbron van de grafiek vertegenwoordigt.  
+5. Geef de relevante voorwaarde op op basis van het feit dat het bron‑type hetzelfde is als het type van de externe werkboek‑gegevensbron.
 
-Deze JavaScript‑code toont de bewerking:
+Deze JavaScript‑code demonstreert de operatie:
 
 ```javascript
-// Maakt een instantie van de Presentation-klasse
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// Creëert een instantie van de Presentation-klasse
 var pres = new aspose.slides.Presentation("chart.pptx");
 try {
     var slide = pres.getSlides().get_Item(1);
@@ -271,12 +313,15 @@ try {
 
 ### **Grafiekgegevens bewerken**
 
-U kunt de gegevens in externe werkmappen op dezelfde manier bewerken als de inhoud van interne werkmappen. Wanneer een externe werkmap niet kan worden geladen, wordt er een uitzondering gegooid.
+U kunt de gegevens in externe werkboeken bewerken op dezelfde manier als u wijzigingen aanbrengt in de inhoud van interne werkboeken. Wanneer een extern werkboek niet kan worden geladen, wordt een uitzondering gegooid.
 
 Deze JavaScript‑code is een implementatie van het beschreven proces:
 
 ```javascript
 // Creëert een instantie van de Presentation-klasse
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("chart.pptx");
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -290,13 +335,16 @@ try {
 }
 ```
 
-### **Werkmap uit de grafiek‑cache herstellen**
+### **Werkboek herstellen vanuit de cache van de grafiek**
 
-Als een grafiek een externe werkmap gebruikt die ontbreekt of niet beschikbaar is, kan Aspose.Slides de grafiek‑werkmap reconstrueren vanuit de gegevens die in de presentatie zijn opgeslagen. Maak een [LoadOptions](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/loadoptions/) aan, configureer deze met [SpreadsheetOptions](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/spreadsheetoptions/), en roep [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) aan met `true` voordat u de presentatie opent.
+Als een grafiek een extern werkboek gebruikt dat ontbreekt of niet beschikbaar is, kan Aspose.Slides het werkboek van de grafiek reconstrueren vanuit de in de presentatie gecachete gegevens. Maak een [LoadOptions](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/loadoptions/) aan, configureer deze met [SpreadsheetOptions](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/spreadsheetoptions/), en roep [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) aan met `true` voordat u de presentatie opent.
 
-Het volgende JavaScript‑voorbeeld opent een presentatie waarvan de grafiek een niet‑beschikbare externe werkmap verwijst en krijgt de herstelde gegevens via [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/chartdata/#getChartDataWorkbook):
+Het volgende JavaScript‑voorbeeld opent een presentatie waarvan de grafiek verwijst naar een niet‑beschikbaar extern werkboek en benadert de herstelde gegevens via [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/chartdata/#getChartDataWorkbook):
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 const spreadsheetOptions = new aspose.slides.SpreadsheetOptions();
 spreadsheetOptions.setRecoverWorkbookFromChartCache(true);
 
@@ -308,36 +356,36 @@ try {
     const chart = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
     const recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
 
-    // Lees of wijzig hier de herstelde werkmapgegevens.
+    // Lees of wijzig hier de herstelde werkboekgegevens.
 } finally {
     presentation.dispose();
 }
 ```
 
-Als de externe werkmap niet beschikbaar is en herstel is uitgeschakeld, gooit Aspose.Slides een uitzondering. Schakel herstel alleen in wanneer het gebruik van de in‑cache opgeslagen grafiekgegevens een acceptabele fallback is, omdat de cache mogelijk geen wijzigingen bevat die na de laatste presentatie‑update in de externe werkmap zijn aangebracht.
+Als het externe werkboek niet beschikbaar is en herstel is uitgeschakeld, gooit Aspose.Slides een uitzondering. Schakel herstel alleen in wanneer het gebruik van de gecachete grafiekgegevens een acceptabele fallback is, omdat de cache mogelijk geen wijzigingen bevat die na de laatste update van de presentatie in het externe werkboek zijn aangebracht.
 
 ## **FAQ**
 
-**Kan ik bepalen of een specifieke grafiek is gekoppeld aan een externe of een ingebedde werkmap?**
+**Kan ik bepalen of een specifieke grafiek is gekoppeld aan een extern of een ingesloten werkboek?**
 
-Ja. Een grafiek heeft een [data source type](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) en een [path to an external workbook](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/); als de bron een externe werkmap is, kunt u het volledige pad lezen om zeker te weten dat er een extern bestand wordt gebruikt.
+Ja. Een grafiek heeft een [data source type](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) en een [pad naar een extern werkboek](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/); als de bron een extern werkboek is, kunt u het volledige pad lezen om te bevestigen dat er een extern bestand wordt gebruikt.
 
-**Worden relatieve paden naar externe werkmappen ondersteund en hoe worden ze opgeslagen?**
+**Worden relatieve paden naar externe werkboeken ondersteund en hoe worden ze opgeslagen?**
 
-Ja. Als u een relatief pad opgeeft, wordt dit automatisch omgezet naar een absoluut pad. Dit is handig voor project‑portabiliteit; houd er echter rekening mee dat de presentatie het absolute pad in het PPTX‑bestand opslaat.
+Ja. Als u een relatief pad opgeeft, wordt dit automatisch omgezet naar een absoluut pad. Dit is handig voor projectportabiliteit; houd er echter rekening mee dat de presentatie het absolute pad opslaat in het PPTX‑bestand.
 
-**Kan ik werkmappen gebruiken die op netwerklocaties of gedeelde mappen staan?**
+**Kan ik werkboeken gebruiken die zich op netwerk‑resources/shares bevinden?**
 
-Ja, dergelijke werkmappen kunnen worden gebruikt als externe gegevensbron. Direct bewerken van externe werkmappen vanuit Aspose.Slides wordt echter niet ondersteund — ze kunnen alleen als bron dienen.
+Ja, dergelijke werkboeken kunnen als externe gegevensbron worden gebruikt. Het rechtstreeks bewerken van externe werkboeken vanuit Aspose.Slides wordt echter niet ondersteund — zij kunnen alleen als bron worden gebruikt.
 
-**Schrijft Aspose.Slides de externe XLSX over bij het opslaan van de presentatie?**
+**Overschrijft Aspose.Slides het externe XLSX‑bestand bij het opslaan van de presentatie?**
 
-Nee. De presentatie slaat een [link to the external file](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) op en gebruikt deze voor het lezen van gegevens. Het externe bestand zelf wordt niet gewijzigd wanneer de presentatie wordt opgeslagen.
+Nee. De presentatie slaat een [link naar het externe bestand](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) op en gebruikt die voor het lezen van gegevens. Het externe bestand zelf wordt niet gewijzigd bij het opslaan van de presentatie.
 
-**Wat moet ik doen als het externe bestand met een wachtwoord beveiligd is?**
+**Wat moet ik doen als het externe bestand met een wachtwoord is beschermd?**
 
-Aspose.Slides accepteert geen wachtwoord bij het koppelen. Een gangbare aanpak is om de beveiliging vooraf te verwijderen of een gedecrypteerde kopie voor te bereiden (bijvoorbeeld met [Aspose.Cells](/cells/nodejs-java/)) en naar die kopie te linken.
+Aspose.Slides accepteert geen wachtwoord bij het koppelen. Een gebruikelijke aanpak is om de bescherming vooraf te verwijderen of een ontsleutelde kopie voor te bereiden (bijvoorbeeld met [Aspose.Cells](/cells/nodejs-java/)) en naar die kopie te linken.
 
 **Kunnen meerdere grafieken dezelfde externe werkmap gebruiken?**
 
-Ja. Elke grafiek slaat zijn eigen link op. Als ze allemaal naar hetzelfde bestand wijzen, wordt het bijwerken van dat bestand weerspiegeld in elke grafiek wanneer de gegevens opnieuw worden geladen.
+Ja. Elke grafiek slaat zijn eigen link op. Als ze allemaal naar hetzelfde bestand wijzen, wordt een update van dat bestand in elke grafiek weergegeven de volgende keer dat de gegevens worden geladen.

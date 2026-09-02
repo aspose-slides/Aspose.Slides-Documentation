@@ -1,35 +1,35 @@
 ---
-title: Diagramm-Arbeitsmappen in Präsentationen mit Python verwalten
-linktitle: Diagramm-Arbeitsmappe
+title: "Diagramm‑Arbeitsmappen in Präsentationen mit Python verwalten"
+linktitle: "Diagramm‑Arbeitsmappe"
 type: docs
 weight: 70
 url: /de/python-net/chart-workbook/
 keywords:
-- Diagramm-Arbeitsmappe
-- Diagrammdaten
-- Arbeitsmappen-Zelle
-- Datenbeschriftung
-- Arbeitsblatt
-- Datenquelle
-- Externe Arbeitsmappe
-- Externe Daten
-- Diagramm-Cache
-- Arbeitsmappen-Wiederherstellung
+- diagramm‑arbeitsmappe
+- diagrammdaten
+- arbeitsmappen‑zelle
+- datenbeschriftung
+- arbeitsblatt
+- datenquelle
+- externe arbeitsmappe
+- externe daten
+- diagramm‑cache
+- arbeitsmappen‑wiederherstellung
 - PowerPoint
 - Präsentation
 - Python
 - Aspose.Slides
-description: "Entdecken Sie Aspose.Slides für Python über .NET: Verwalten Sie mühelos Diagramm-Arbeitsmappen in PowerPoint- und OpenDocument-Formaten, um Ihre Präsentationsdaten zu optimieren."
+description: "Entdecken Sie Aspose.Slides für Python über .NET: verwalten Sie mühelos Diagramm‑Arbeitsmappen in PowerPoint- und OpenDocument‑Formaten, um Ihre Präsentationsdaten zu optimieren."
 ---
 ## **Übersicht**
 
-Dieser Artikel erklärt, wie man mit Diagramm‑Arbeitsmappen in Aspose.Slides arbeitet. Er zeigt, wie Diagrammdaten über Arbeitsmappen‑Streams gelesen und geschrieben werden, Arbeitsmappen‑Zellen als Diagrammdatenbeschriftungen verwendet werden, auf Arbeitsblatt‑Sammlungen zugegriffen wird und der Datentyp für Diagrammwerte angegeben wird.
+Dieser Artikel erklärt, wie man mit Diagramm‑Arbeitsmappen in Aspose.Slides arbeitet. Er zeigt, wie man Diagrammdaten über Arbeitsmappen‑Streams liest und schreibt, Arbeitsmappen‑Zellen als Diagrammdatenbeschriftungen verwendet, auf Arbeitsblatt‑Sammlungen zugreift und den Datentyp für Diagrammwerte angibt.
 
-Er behandelt außerdem die Arbeit mit externen Arbeitsmappen als Diagrammdatenquellen. Die Beispiele demonstrieren, wie eine externe Arbeitsmappe erstellt und zugewiesen wird, wie der Pfad einer an ein Diagramm gebundenen externen Arbeitsmappe ermittelt wird und wie Diagrammdaten bearbeitet werden, wenn die Arbeitsmappe verfügbar ist.
+Außerdem wird die Arbeit mit externen Arbeitsmappen als Diagrammdatenquellen behandelt. Die Beispiele demonstrieren, wie man eine externe Arbeitsmappe erstellt und zuweist, den Pfad einer externen Arbeitsmappe, die mit einem Diagramm verknüpft ist, abruft und Diagrammdaten bearbeitet, wenn die Arbeitsmappe verfügbar ist.
 
 ## **Diagrammdaten aus einer Arbeitsmappe lesen und schreiben**
 
-Aspose.Slides stellt Methoden zum Lesen und Schreiben von Diagramm‑Datenarbeitsmappen bereit (die Diagrammdaten enthalten, die mit Aspose.Cells bearbeitet wurden). **Hinweis:** Die Diagrammdaten müssen auf dieselbe Weise organisiert sein oder eine dem Quellformat ähnliche Struktur aufweisen.
+Aspose.Slides stellt Methoden zum Lesen und Schreiben von Diagramm‑Arbeitsmappen bereit (die Diagrammdaten enthalten, die mit Aspose.Cells bearbeitet wurden). **Hinweis:** Die Diagrammdaten müssen auf dieselbe Weise organisiert sein oder eine ähnliche Struktur wie die Quelle besitzen.
 
 Der folgende Python‑Code demonstriert einen Beispielvorgang:
 
@@ -48,24 +48,44 @@ with slides.Presentation("chart.pptx") as presentation:
     chart.chart_data.write_workbook_stream(data_stream)
 ```
 
-## **Arbeitsmappen‑Zelle als Diagramm‑Datenbeschriftung festlegen**
+### **Diagrammlayout nach Arbeitsmappen‑Änderung validieren**
 
-Manchmal benötigen Sie Diagrammbeschriftungen, die direkt aus Zellen der zugrunde liegenden Datenarbeitsmappe stammen. Aspose.Slides ermöglicht das Binden von Datenbeschriftungen an bestimmte Arbeitsmappen‑Zellen, sodass der Beschriftungstext stets den Zellenwert widerspiegelt. Das nachfolgende Beispiel zeigt, wie Wert‑aus‑Zelle‑Beschriftungen aktiviert werden und ausgewählte Beschriftungen auf benutzerdefinierte Zellen in der Arbeitsmappe des Diagramms verweisen.
+Wenn Sie eine eingebettete Arbeitsmappe durch eine modifizierte ersetzen, behält das Diagramm seine ursprünglichen Reihen‑ und Kategorien‑Sammlungen bei. Diese Diskrepanz kann dazu führen, dass [IChart.validate_chart_layout](https://reference.aspose.com/slides/de/python-net/aspose.slides.charts/ichart/validate_chart_layout/) mit einem Index‑out‑of‑range‑Fehler fehlschlägt. Löschen Sie die vorhandenen Reihen und Kategorien, bevor Sie die aktualisierte Arbeitsmappe zurück ins Diagramm schreiben.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://docs.aspose.com/slides/de/python-net/api-reference/aspose.slides/presentation/)‑Klasse.
-1. Holen Sie eine Referenz auf die Folie anhand ihres Index.
-1. Fügen Sie ein Blasendiagramm mit Beispieldaten hinzu.
-1. Greifen Sie auf die Diagrammserie zu.
-1. Verwenden Sie eine Arbeitsmappen‑Zelle als Datenbeschriftung.
-1. Speichern Sie die Präsentation.
+```python
+# Nach dem Ändern des Arbeitsmappen-Streams (z.B. mit Aspose.Cells)
+updated_workbook = chart_data.read_workbook_stream()
 
-Der folgende Python‑Code zeigt, wie eine Arbeitsmappen‑Zelle als Diagramm‑Datenbeschriftung festgelegt wird:
+# Vorhandene Datenverweise löschen.
+chart_data.series.clear()
+chart_data.categories.clear()
+
+updated_workbook.seek(0)
+chart_data.write_workbook_stream(updated_workbook)
+
+chart.validate_chart_layout()
+```
+
+Das Leeren der Sammlungen stellt sicher, dass die Diagrammdatenstruktur mit der neuen Arbeitsmappe übereinstimmt, sodass `validate_chart_layout` ohne Fehler abgeschlossen werden kann.
+
+## **Eine Arbeitsmappen‑Zelle als Diagrammdatenbeschriftung festlegen**
+
+Manchmal benötigen Sie Diagrammbeschriftungen, die direkt aus Zellen der zugrunde liegenden Daten‑Arbeitsmappe stammen. Aspose.Slides ermöglicht das Binden von Datenbeschriftungen an bestimmte Arbeitsmappen‑Zellen, sodass der Beschriftungstext stets den Zellwert widerspiegelt. Das nachfolgende Beispiel zeigt, wie Sie Werte‑aus‑Zelle‑Beschriftungen aktivieren und ausgewählte Beschriftungen auf benutzerdefinierte Zellen im Diagramm‑Arbeitsmappen‑Bereich verweisen lassen.
+
+1. Erstellen Sie eine Instanz der [Presentation](https://docs.aspose.com/slides/de/python-net/api-reference/aspose.slides/presentation/)‑Klasse.  
+2. Holen Sie sich eine Referenz auf die Folie nach Index.  
+3. Fügen Sie ein Blasendiagramm mit Beispieldaten hinzu.  
+4. Greifen Sie auf die Diagramm‑Reihen zu.  
+5. Verwenden Sie eine Arbeitsmappen‑Zelle als Datenbeschriftung.  
+6. Speichern Sie die Präsentation.
+
+Der folgende Python‑Code zeigt, wie eine Arbeitsmappen‑Zelle als Diagrammdatenbeschriftung festgelegt wird:
 
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
 
-# Instanziieren Sie die Presentation-Klasse, die eine Präsentationsdatei repräsentiert.
+# Instanziieren der Presentation-Klasse, die eine Präsentationsdatei repräsentiert.
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
@@ -86,7 +106,7 @@ with slides.Presentation() as presentation:
 
 ## **Arbeitsblätter verwalten**
 
-Der folgende Python‑Code demonstriert, wie die `worksheets`‑Eigenschaft verwendet wird, um auf die Arbeitsblatt‑Sammlung zuzugreifen:
+Der nachfolgende Python‑Code demonstriert, wie die Eigenschaft `worksheets` verwendet wird, um auf die Arbeitsblatt‑Sammlung zuzugreifen:
 
 ```python
 import aspose.slides as slides
@@ -104,7 +124,7 @@ with slides.Presentation() as presentation:
 
 ## **Datentyp der Datenquelle angeben**
 
-Der folgende Python‑Code zeigt, wie ein Datentyp der Datenquelle angegeben wird:
+Der nachfolgende Python‑Code zeigt, wie ein Datentyp‑der‑Datenquelle angegeben wird:
 
 ```python
 import aspose.slides as slides
@@ -127,7 +147,7 @@ with slides.Presentation() as presentation:
 
 ## **Nicht unterstützte eingebettete Arbeitsmappen‑Formate erkennen**
 
-Aspose.Slides unterstützt das Excel‑Binärarbeitsmappen‑Format (.xlsb), das in einigen Diagrammen eingebettet werden kann, nicht. Sie können die `embedded_workbook_type`‑Eigenschaft auf [ChartData](https://reference.aspose.com/slides/de/python-net/aspose.slides.charts/chartdata/) zusammen mit der [WorkbookType](https://reference.aspose.com/slides/de/python-net/aspose.slides.charts/workbooktype/)‑Aufzählung verwenden, um nicht unterstützte Formate zu erkennen und diese Diagramme zu überspringen.
+Aspose.Slides unterstützt das Excel‑Binärarbeitsmappen‑Format (.xlsb) nicht, das in einigen Diagrammen eingebettet werden kann. Sie können die Eigenschaft `embedded_workbook_type` auf [ChartData](https://reference.aspose.com/slides/de/python-net/aspose.slides.charts/chartdata/) zusammen mit der Aufzählung [WorkbookType](https://reference.aspose.com/slides/de/python-net/aspose.slides.charts/workbooktype/) verwenden, um nicht unterstützte Formate zu erkennen und diese Diagramme zu überspringen.
 
 ```py
 import aspose.slides as slides
@@ -157,9 +177,9 @@ Aspose.Slides unterstützt die Verwendung externer Arbeitsmappen als Datenquelle
 
 ### **Externe Arbeitsmappen festlegen**
 
-Durch die Verwendung der [ChartData.set_external_workbook](https://reference.aspose.com/slides/de/python-net/aspose.slides.charts/chartdata/set_external_workbook/)‑Methode können Sie einer Diagramm‑Datenquelle eine externe Arbeitsmappe zuweisen. Diese Methode kann zudem den Pfad zu einer externen Arbeitsmappe aktualisieren, wenn diese verschoben wurde.
+Durch die Verwendung der Methode [ChartData.set_external_workbook](https://reference.aspose.com/slides/de/python-net/aspose.slides.charts/chartdata/set_external_workbook/) können Sie einer Diagrammdatenquelle eine externe Arbeitsmappe zuweisen. Diese Methode kann auch den Pfad zu einer externen Arbeitsmappe aktualisieren, wenn sie verschoben wurde.
 
-Obwohl Sie Daten in Arbeitsmappen, die an entfernten Speicherorten oder Ressourcen liegen, nicht bearbeiten können, können Sie diese Arbeitsmappen weiterhin als externe Datenquellen verwenden. Wenn Sie einen relativen Pfad für eine externe Arbeitsmappe angeben, wird dieser automatisch in einen vollständigen Pfad umgewandelt.
+Obwohl Sie Daten in Arbeitsmappen, die an entfernten Speicherorten oder Ressourcen liegen, nicht bearbeiten können, können Sie diese Arbeitsmappen dennoch als externe Datenquellen verwenden. Wenn Sie einen relativen Pfad für eine externe Arbeitsmappe angeben, wird dieser automatisch in einen vollständigen Pfad umgewandelt.
 
 Der folgende Python‑Code zeigt, wie eine externe Arbeitsmappe festgelegt wird:
 
@@ -171,21 +191,22 @@ with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
     chart = slide.shapes.add_chart(charts.ChartType.PIE, 50, 50, 400, 600, False)
-    chart.chart_data.set_external_workbook("external_workbook.xlsx")
+    # Übergeben Sie False, damit nur der Pfad gespeichert wird: die Zielarbeitsmappe muss noch nicht existieren.
+    chart.chart_data.set_external_workbook("external_workbook.xlsx", False)
 
     presentation.save("chart_with_external_workbook.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Der Parameter `update_chart_data` der [set_external_workbook](https://reference.aspose.com/slides/de/python-net/aspose.slides.charts/chartdata/set_external_workbook/)‑Methode gibt an, ob die Excel‑Arbeitsmappe geladen wird.
+Der Parameter `update_chart_data` der Methode [set_external_workbook](https://reference.aspose.com/slides/de/python-net/aspose.slides.charts/chartdata/set_external_workbook/) gibt an, ob die Excel‑Arbeitsmappe geladen wird.
 
-- Wenn `update_chart_data` auf `False` gesetzt ist, wird nur der Arbeitsmappen‑Pfad aktualisiert; die Diagrammdaten werden nicht aus der Zielarbeitsmappe geladen oder aktualisiert. Verwenden Sie diese Einstellung, wenn die Zielarbeitsmappe nicht existiert oder nicht verfügbar ist.
-- Wenn `update_chart_data` auf `True` gesetzt ist, werden die Diagrammdaten aus der Zielarbeitsmappe geladen und aktualisiert.
+- Wenn `update_chart_data` auf `False` gesetzt ist, wird nur der Arbeitsmappen‑Pfad aktualisiert; die Diagrammdaten werden nicht aus der Zielarbeitsmappe geladen oder aktualisiert. Verwenden Sie diese Einstellung, wenn die Zielarbeitsmappe nicht existiert oder nicht verfügbar ist.  
+- Wenn `update_chart_data` auf `True` (Standard) gesetzt ist, werden die Diagrammdaten aus der Zielarbeitsmappe geladen und aktualisiert. Kann die Arbeitsmappe nicht geöffnet werden, wird eine Ausnahme mit der Meldung „External workbook is not available“ ausgelöst.
 
 ### **Externe Arbeitsmappen erstellen**
 
-Durch die Verwendung der [read_workbook_stream](https://reference.aspose.com/slides/de/python-net/aspose.slides.charts/chartdata/read_workbook_stream/)‑ und [set_external_workbook](https://reference.aspose.com/slides/de/python-net/aspose.slides.charts/chartdata/set_external_workbook/)‑Methoden können Sie entweder eine externe Arbeitsmappe von Grund auf neu erstellen oder eine interne Arbeitsmappe in eine externe umwandeln.
+Durch die Verwendung der Methoden [read_workbook_stream](https://reference.aspose.com/slides/de/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) und [set_external_workbook](https://reference.aspose.com/slides/de/python-net/aspose.slides.charts/chartdata/set_external_workbook/) können Sie entweder eine externe Arbeitsmappe von Grund auf neu erstellen oder eine interne Arbeitsmappe in eine externe umwandeln.
 
-Dieser Python‑Code demonstriert den Prozess der Erstellung einer externen Arbeitsmappe:
+Dieser Python‑Code demonstriert den Vorgang zur Erstellung einer externen Arbeitsmappe:
 
 ```python
 import pathlib
@@ -210,15 +231,15 @@ with slides.Presentation() as presentation:
     presentation.save("chart_with_external_workbook.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Pfad der externen Datenquellen‑Arbeitsmappe für ein Diagramm ermitteln**
+### **Pfad der externen Datenquellen‑Arbeitsmappe für ein Diagramm abrufen**
 
-Manchmal ist die Datenquelle eines Diagramms mit einer externen Excel‑Arbeitsmappe verknüpft, anstatt die eingebetteten Daten der Präsentation zu verwenden. Mit Aspose.Slides können Sie die Datenquelle des Diagramms prüfen und, falls es sich um eine externe Arbeitsmappe handelt, den vollständigen Pfad auslesen.
+Manchmal ist die Datenquelle eines Diagramms mit einer externen Excel‑Arbeitsmappe verknüpft, anstatt mit den eingebetteten Präsentationsdaten. Mit Aspose.Slides können Sie die Datenquelle des Diagramms inspizieren und, falls es sich um eine externe Arbeitsmappe handelt, den vollständigen Pfad auslesen.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://docs.aspose.com/slides/de/python-net/api-reference/aspose.slides/presentation/)‑Klasse.
-1. Holen Sie eine Referenz auf die Folie anhand ihres Index.
-1. Holen Sie eine Referenz auf das Diagramm‑Shape.
-1. Ermitteln Sie die Quelle ([ChartDataSourceType](https://reference.aspose.com/slides/de/python-net/aspose.slides.charts/chartdatasourcetype/)), die die Datenquelle des Diagramms darstellt.
-1. Prüfen Sie, ob der Quelltyp dem Typ einer externen Arbeitsmappe entspricht.
+1. Erstellen Sie eine Instanz der [Presentation](https://docs.aspose.com/slides/de/python-net/api-reference/aspose.slides/presentation/)‑Klasse.  
+2. Holen Sie sich eine Referenz auf die Folie nach ihrem Index.  
+3. Holen Sie sich eine Referenz auf das Diagramm‑Shape.  
+4. Ermitteln Sie die Quelle ([ChartDataSourceType](https://reference.aspose.com/slides/de/python-net/aspose.slides.charts/chartdatasourcetype/)), die die Diagrammdatenquelle repräsentiert.  
+5. Prüfen Sie, ob der Quelltyp dem Typ einer externen Arbeitsmappe entspricht.
 
 Der folgende Python‑Code demonstriert den Vorgang:
 
@@ -235,7 +256,7 @@ with slides.Presentation("chart_with_external_workbook.pptx") as presentation:
 
 ### **Diagrammdaten bearbeiten**
 
-Sie können Daten in externen Arbeitsmappen auf dieselbe Weise bearbeiten wie in internen Arbeitsmappen. Wenn eine externe Arbeitsmappe nicht geladen werden kann, wird eine Ausnahme ausgelöst.
+Sie können Daten in externen Arbeitsmappen genauso bearbeiten wie in internen Arbeitsmappen. Kann eine externe Arbeitsmappe nicht geladen werden, wird eine Ausnahme ausgelöst.
 
 ```python
 import aspose.slides as slides
@@ -248,9 +269,9 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ### **Arbeitsmappe aus dem Diagramm‑Cache wiederherstellen**
 
-Wenn ein Diagramm eine externe Arbeitsmappe verwendet, die fehlt oder nicht verfügbar ist, kann Aspose.Slides die Diagramm‑Arbeitsmappe aus den im Präsentations‑Cache gespeicherten Daten rekonstruieren. Erstellen Sie ein [LoadOptions](https://reference.aspose.com/slides/de/python-net/aspose.slides/loadoptions/)-Objekt und aktivieren Sie [SpreadsheetOptions.recover_workbook_from_chart_cache](https://reference.aspose.com/slides/de/python-net/aspose.slides/spreadsheetoptions/recover_workbook_from_chart_cache/) über [LoadOptions.spreadsheet_options](https://reference.aspose.com/slides/de/python-net/aspose.slides/loadoptions/spreadsheet_options/), bevor Sie die Präsentation öffnen.
+Verwendet ein Diagramm eine externe Arbeitsmappe, die fehlt oder nicht verfügbar ist, kann Aspose.Slides die Diagramm‑Arbeitsmappe aus den im Präsentations‑Cache gespeicherten Daten rekonstruieren. Erzeugen Sie [LoadOptions](https://reference.aspose.com/slides/de/python-net/aspose.slides/loadoptions/), aktivieren Sie anschließend [SpreadsheetOptions.recover_workbook_from_chart_cache](https://reference.aspose.com/slides/de/python-net/aspose.slides/spreadsheetoptions/recover_workbook_from_chart_cache/) über [LoadOptions.spreadsheet_options](https://reference.aspose.com/slides/de/python-net/aspose.slides/loadoptions/spreadsheet_options/), bevor Sie die Präsentation öffnen.
 
-Das folgende Python‑Beispiel öffnet eine Präsentation, deren Diagramm auf eine nicht verfügbare externe Arbeitsmappe verweist, und greift über [Chart.chart_data](https://reference.aspose.com/slides/de/python-net/aspose.slides.charts/chart/chart_data/) und [ChartData.chart_data_workbook](https://reference.aspose.com/slides/de/python-net/aspose.slides.charts/chartdata/chart_data_workbook/) auf die wiederhergestellten Daten zu:
+Der folgende Python‑Beispielcode öffnet eine Präsentation, deren Diagramm auf eine nicht verfügbare externe Arbeitsmappe verweist, und greift über [Chart.chart_data](https://reference.aspose.com/slides/de/python-net/aspose.slides.charts/chart/chart_data/) sowie [ChartData.chart_data_workbook](https://reference.aspose.com/slides/de/python-net/aspose.slides.charts/chartdata/chart_data_workbook/) auf die wiederhergestellten Daten zu:
 
 ```python
 import aspose.slides as slides
@@ -262,33 +283,33 @@ with slides.Presentation("presentation.pptx", load_options) as presentation:
     chart = presentation.slides[0].shapes[0]
     recovered_workbook = chart.chart_data.chart_data_workbook
 
-    # Lesen oder ändern Sie hier die wiederhergestellten Arbeitsmappendaten.
+    # Lese oder ändere hier die wiederhergestellten Arbeitsmappendaten.
 ```
 
-Ist die externe Arbeitsmappe nicht verfügbar und die Wiederherstellung deaktiviert, wirft Aspose.Slides eine Ausnahme. Aktivieren Sie die Wiederherstellung nur, wenn die Verwendung der im Cache gespeicherten Diagrammdaten als akzeptabler Fallback zulässig ist, da der Cache möglicherweise Änderungen enthält, die nach dem letzten Aktualisieren der Präsentation an der externen Arbeitsmappe vorgenommen wurden.
+Ist die externe Arbeitsmappe nicht verfügbar und die Wiederherstellung deaktiviert, wirft Aspose.Slides eine Ausnahme. Aktivieren Sie die Wiederherstellung nur, wenn die Nutzung der zwischengespeicherten Diagrammdaten ein akzeptabler Rückgriff ist, da der Cache Änderungen, die nach dem letzten Aktualisieren der Präsentation an der externen Arbeitsmappe vorgenommen wurden, möglicherweise nicht enthält.
 
 ## **FAQ**
 
-**Kann ich feststellen, ob ein bestimmtes Diagramm mit einer externen oder eingebetteten Arbeitsmappe verknüpft ist?**
+**Kann ich feststellen, ob ein bestimmtes Diagramm mit einer externen oder einer eingebetteten Arbeitsmappe verknüpft ist?**
 
-Ja. Ein Diagramm verfügt über einen [data source type](https://reference.aspose.com/slides/de/python-net/aspose.slides.charts/chartdata/data_source_type/) und einen [path to an external workbook](https://reference.aspose.com/slides/de/python-net/aspose.slides.charts/chartdata/external_workbook_path/); wenn die Quelle eine externe Arbeitsmappe ist, können Sie den vollständigen Pfad lesen, um sicherzustellen, dass eine externe Datei verwendet wird.
+Ja. Ein Diagramm verfügt über einen [data source type](https://reference.aspose.com/slides/de/python-net/aspose.slides.charts/chartdata/data_source_type/) und einen [path to an external workbook](https://reference.aspose.com/slides/de/python-net/aspose.slides.charts/chartdata/external_workbook_path/); ist die Quelle eine externe Arbeitsmappe, können Sie den vollständigen Pfad auslesen, um sicherzugehen, dass eine externe Datei verwendet wird.
 
 **Werden relative Pfade zu externen Arbeitsmappen unterstützt und wie werden sie gespeichert?**
 
-Ja. Wenn Sie einen relativen Pfad angeben, wird er automatisch in einen absoluten Pfad umgewandelt. Das ist praktisch für die Portierbarkeit von Projekten; jedoch speichert die Präsentation den absoluten Pfad in der PPTX‑Datei.
+Ja. Wenn Sie einen relativen Pfad angeben, wird dieser automatisch in einen absoluten Pfad umgewandelt. Das ist praktisch für die Portabilität von Projekten; beachten Sie jedoch, dass die Präsentation den absoluten Pfad in der PPTX‑Datei speichert.
 
 **Kann ich Arbeitsmappen verwenden, die sich auf Netzwerkressourcen/Freigaben befinden?**
 
-Ja, solche Arbeitsmappen können als externe Datenquelle verwendet werden. Das direkte Bearbeiten entfernter Arbeitsmappen aus Aspose.Slides wird jedoch nicht unterstützt – sie können nur als Quelle genutzt werden.
+Ja, solche Arbeitsmappen können als externe Datenquelle genutzt werden. Das direkte Bearbeiten entfernter Arbeitsmappen aus Aspose.Slides wird jedoch nicht unterstützt – sie können nur als Quelle dienen.
 
-**Überschreibt Aspose.Slides die externe XLSX‑Datei beim Speichern der Präsentation?**
+**Überschreibt Aspose.Slides die externe XLSX beim Speichern der Präsentation?**
 
-Nein. Die Präsentation speichert einen [link to the external file](https://reference.aspose.com/slides/de/python-net/aspose.slides.charts/chartdata/external_workbook_path/) und verwendet ihn zum Lesen der Daten. Die externe Datei selbst wird beim Speichern der Präsentation nicht verändert.
+Nur wenn Sie die Diagrammdaten bearbeitet haben. Die Präsentation speichert einen [link to the external file](https://reference.aspose.com/slides/de/python-net/aspose.slides.charts/chartdata/external_workbook_path/) und verwendet diesen zum Lesen der Daten, sodass das Öffnen und Speichern einer Präsentation die Arbeitsmappe unverändert lässt. Werte, die Sie jedoch über die Diagrammdaten ändern (siehe **Diagrammdaten bearbeiten** weiter oben), werden beim Speichern der Präsentation zurück in die externe Arbeitsmappe geschrieben – arbeiten Sie mit einer Kopie, wenn das Original unverändert bleiben muss.
 
 **Was soll ich tun, wenn die externe Datei passwortgeschützt ist?**
 
-Aspose.Slides akzeptiert kein Passwort beim Verknüpfen. Ein gängiger Ansatz ist, den Schutz im Vorfeld zu entfernen oder eine entschlüsselte Kopie (z. B. mit [Aspose.Cells](/cells/python-net/)) vorzubereiten und auf diese Kopie zu verlinken.
+Aspose.Slides akzeptiert kein Passwort beim Verknüpfen. Ein gängiger Ansatz besteht darin, den Schutz im Voraus zu entfernen oder eine entschlüsselte Kopie (z. B. mit [Aspose.Cells](/cells/python-net/)) vorzubereiten und auf diese Kopie zu verlinken.
 
 **Können mehrere Diagramme dieselbe externe Arbeitsmappe referenzieren?**
 
-Ja. Jedes Diagramm speichert seinen eigenen Link. Zeigen sie alle auf dieselbe Datei, wird eine Aktualisierung dieser Datei beim nächsten Laden der Daten in jedem Diagramm reflektiert.
+Ja. Jedes Diagramm speichert seinen eigenen Link. Wenn sie alle auf dieselbe Datei zeigen, wird eine Aktualisierung dieser Datei beim nächsten Laden der Daten in jedem Diagramm wirksam.

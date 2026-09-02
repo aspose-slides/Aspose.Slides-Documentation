@@ -8,28 +8,27 @@ keywords:
 - grafiekwerkmap
 - grafiekgegevens
 - werkmapcel
-- databelabel
+- datummarker
 - werkblad
 - gegevensbron
 - externe werkmap
 - externe gegevens
-- grafiekkache
+- grafiekcache
 - werkmapherstel
 - PowerPoint
 - presentatie
 - Java
 - Aspose.Slides
-description: "Ontdek Aspose.Slides voor Java: beheer moeiteloos grafiekwerkmappen in PowerPoint- en OpenDocument-formaten om uw presentatiedata te stroomlijnen."
+description: "Ontdek Aspose.Slides voor Java: beheer eenvoudig grafiekwerkmappen in PowerPoint- en OpenDocument-formaten om uw presentatiedata te stroomlijnen."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe je met grafiek‑werkmappen in Aspose.Slides werkt. Het laat zien hoe je grafiekgegevens kunt lezen en schrijven via werkmap‑streams, werkmap‑cellen als grafiekdatabelabelen kunt gebruiken, werkbladcollecties kunt benaderen en het type gegevensbron voor grafiekwaarden kunt specificeren.
+Dit artikel legt uit hoe u met grafiek‑werkmappen in Aspose.Slides kunt werken. Het laat zien hoe u grafiekgegevens kunt lezen en schrijven via werkmap‑streams, werkmapcellen als grafiek‑datummarkers kunt gebruiken, toegang krijgt tot werkbladcollecties en het type gegevensbron voor grafiekwaarden kunt opgeven.
 
-Het behandelt ook het werken met externe werkmappen als gegevensbronnen voor grafieken. De voorbeelden tonen hoe je een externe werkmap maakt en toewijst, het pad van een externe werkmap die aan een grafiek is gekoppeld ophaalt, en grafiekgegevens bewerkt wanneer de werkmap beschikbaar is.
+Het behandelt ook het werken met externe werkmappen als gegevensbronnen voor grafieken. De voorbeelden laten zien hoe u een externe werkmap maakt en toewijst, het pad van een externe werkmap die aan een grafiek is gekoppeld opvraagt en grafiekgegevens bewerkt wanneer de werkmap beschikbaar is.
 
 ## **Grafiekgegevens lezen en schrijven vanuit een werkmap**
-
-Aspose.Slides biedt de [ReadWorkbookStream](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IChartData#readWorkbookStream--) en [WriteWorkbookStream](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) methoden waarmee je grafiek‑werkmappen (die grafiekgegevens bewerken met Aspose.Cells) kunt lezen en schrijven. **Let op** dat de grafiekgegevens op dezelfde manier moeten zijn georganiseerd of een structuur moeten hebben die vergelijkbaar is met de bron.
+Aspose.Slides biedt de [ReadWorkbookStream](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IChartData#readWorkbookStream--) en [WriteWorkbookStream](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) methoden waarmee u grafiek‑werkmappen (die grafiekgegevens bevatten die met Aspose.Cells zijn bewerkt) kunt lezen en schrijven. **Opmerking** dat de grafiekgegevens op dezelfde manier georganiseerd moeten zijn of een structuur moeten hebben die vergelijkbaar is met de bron.
 
 Deze Java‑code toont een voorbeeldoperatie:
 
@@ -52,37 +51,35 @@ try {
 }
 ```
 
-### **Grafieklay-out valideren na wijziging van werkmap**
+### **Grafieklayout valideren na bewerken van werkmap**
 
-Wanneer je een ingebedde werkmap vervangt door een gewijzigde, behoudt de grafiek de oorspronkelijke serie‑ en categorie‑collecties. Deze inconsistentie kan ervoor zorgen dat `chart.validateChartLayout()` een `ArgumentOutOfRangeException` (parameter: index) gooit. Om de uitzondering te vermijden, maak je de bestaande series en categorieën **ervoor** dat je de bijgewerkte werkmap terugschrijft naar de grafiek.
+Wanneer u een ingesloten werkmap vervangt door een gewijzigde versie, behoudt de grafiek zijn oorspronkelijke serie‑ en categorie‑collecties. Deze inconsistentie kan ervoor zorgen dat [IChart.validateChartLayout](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichart/#validateChartLayout--) een `ArgumentOutOfRangeException` (parameter: index) gooit. Om de uitzondering te voorkomen, ruim de bestaande series en categorieën **voor** het wegschrijven van de bijgewerkte werkmap terug naar de grafiek op.
 
 ```java
-// Na het aanpassen van de werkmap-stream (bijv. met Aspose.Cells)
+// Na het wijzigen van de werkmap‑stream (bijv. met Aspose.Cells)
 byte[] updatedWorkbook = baos.toByteArray();
 
-// Verwijder bestaande gegevensreferenties.
+// Verwijder bestaande gegevenverwijzingen.
 chart.getChartData().getSeries().clear();
 chart.getChartData().getCategories().clear();
 
-// Schrijf de bijgewerkte werkmap terug naar de grafiek.
 chart.getChartData().writeWorkbookStream(updatedWorkbook);
 
-// Nu slaagt de validatie.
 chart.validateChartLayout();
 ```
 
-Het wissen van de collecties zorgt ervoor dat de structuur van de grafiekgegevens overeenkomt met de nieuwe werkmap, waardoor `validateChartLayout()` zonder fouten kan worden voltooid.
+Het legen van de collecties zorgt ervoor dat de structuur van de grafiekgegevens overeenkomt met de nieuwe werkmap, zodat `validateChartLayout` zonder fouten kan worden voltooid.
 
-## **Een werkmapcel instellen als grafiekdatabelabel**
+## **Een werkmapcel instellen als grafiek‑datummarker**
 
-1. Maak een instantie van de [Presentation](https://apireference.aspose.com/slides/nl/java/com.aspose.slides/presentation) klasse.  
-2. Haal een dia‑referentie op via het indexnummer.  
-3. Voeg een bubbeldiagram toe met enkele gegevens.  
-4. Benader de grafiekserie.  
-5. Stel de werkmapcel in als databelabel.  
-6. Sla de presentatie op.
+1. Maak een instantie van de [Presentation](https://apireference.aspose.com/slides/nl/java/com.aspose.slides/presentation) klasse.
+1. Haal een slide op via het bijbehorende indexnummer.
+1. Voeg een Bubble‑grafiek met enkele gegevens toe.
+1. Benader de grafiekseries.
+1. Stel de werkmapcel in als datummarker.
+1. Sla de presentatie op.
 
-Deze Java‑code laat zien hoe je een werkmapcel instelt als grafiekdatabelabel:
+Deze Java‑code laat zien hoe u een werkmapcel als datummarker instelt:
 
 ```java
 import com.aspose.slides.*;
@@ -91,7 +88,7 @@ String lbl0 = "Label 0 cell value";
 String lbl1 = "Label 1 cell value";
 String lbl2 = "Label 2 cell value";
 
-// Instantieert een presentatieklasse die een presentatiebestand vertegenwoordigt
+// Instantieert een presentatie-klasse die een presentatie-bestand vertegenwoordigt
 Presentation pres = new Presentation("chart2.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
@@ -133,7 +130,7 @@ try {
 
 ## **Het type gegevensbron opgeven**
 
-Deze Java‑code toont hoe je een type voor een gegevensbron specificeert:
+Deze Java‑code toont hoe u een type voor een gegevensbron specificeert:
 
 ```java
 import com.aspose.slides.*;
@@ -155,9 +152,9 @@ try {
 }
 ```
 
-## **Niet‑ondersteunde ingebedde werkmapformaten detecteren**
+## **Detecteren van niet‑ondersteunde ingesloten werkmapformaten**
 
-Aspose.Slides ondersteunt het Excel‑binaire werkmapformaat (.xlsb) niet, hoewel dit in sommige grafieken kan worden ingebed. Je kunt de `getEmbeddedWorkbookType`‑methode op [IChartData](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IChartData) combineren met de [WorkbookType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/WorkbookType) enumeratie om niet‑ondersteunde formaten te detecteren en die grafieken over te slaan.
+Aspose.Slides ondersteunt het Excel‑binaire werkmapformaat (.xlsb) dat in sommige grafieken kan worden ingesloten niet. U kunt de `getEmbeddedWorkbookType` methode op [IChartData](https://reference.aspose.com/slides/nl/java/com.aspose.slides/IChartData) gebruiken in combinatie met de [WorkbookType](https://reference.aspose.com/slides/nl/java/com.aspose.slides/WorkbookType) enumeratie om niet‑ondersteunde formaten te detecteren en die grafieken over te slaan.
 
 ```java
 import com.aspose.slides.*;
@@ -174,7 +171,7 @@ try {
 
         if (chartData.getDataSourceType() == ChartDataSourceType.InternalWorkbook &&
                 chartData.getEmbeddedWorkbookType() == WorkbookType.WorkbookBinaryMacro) {
-            // Ingebedde werkmap is in .xlsb-formaat, wat niet wordt ondersteund.
+            // Ingesloten werkmap is in .xlsb-formaat, wat niet wordt ondersteund.
             continue;
         }
 
@@ -193,7 +190,9 @@ In [Aspose.Slides 19.4](https://docs.aspose.com/slides/nl/java/aspose-slides-for
 
 ### **Een externe werkmap maken**
 
-Met de **`readWorkbookStream`** en **`setExternalWorkbook`** methoden kun je een externe werkmap vanaf nul maken of een interne werkmap extern maken.
+Met de **`readWorkbookStream`** en **`setExternalWorkbook`** methoden kunt u ofwel een externe werkmap vanaf nul maken, of een interne werkmap extern maken.
+
+Deze Java‑code demonstreert het proces van het creëren van een externe werkmap:
 
 ```java
 import com.aspose.slides.*;
@@ -224,11 +223,11 @@ try {
 
 ### **Een externe werkmap instellen**
 
-Met de **`setExternalWorkbook`** methode kun je een externe werkmap toewijzen aan een grafiek als gegevensbron. Deze methode kan ook worden gebruikt om het pad naar de externe werkmap bij te werken (als die is verplaatst).
+Met de **`setExternalWorkbook`** methode kunt u een externe werkmap aan een grafiek toewijzen als gegevensbron. Deze methode kan ook worden gebruikt om een pad naar de externe werkmap bij te werken (indien deze is verplaatst).
 
-Hoewel je de gegevens in werkmappen die op externe locaties of bronnen staan niet kunt bewerken, kun je dergelijke werkmappen wel als externe gegevensbron gebruiken. Als een relatief pad voor een externe werkmap wordt opgegeven, wordt dit automatisch omgezet naar een volledig pad.
+Hoewel u de gegevens in werkmappen die zich op externe locaties of resources bevinden niet kunt bewerken, kunt u zulke werkmappen wel als externe gegevensbron gebruiken. Als er een relatieve padnaam voor een externe werkmap wordt opgegeven, wordt deze automatisch omgezet naar een volledig pad.
 
-Deze Java‑code laat zien hoe je een externe werkmap instelt:
+Deze Java‑code laat zien hoe u een externe werkmap instelt:
 
 ```java
 import com.aspose.slides.*;
@@ -256,9 +255,9 @@ try {
 }
 ```
 
-De tweede (`boolean`) parameter van de `setExternalWorkbook` methode wordt gebruikt om aan te geven of een Excel‑werkmap wel of niet geladen moet worden. 
+De tweede (`boolean`) parameter van de `setExternalWorkbook` methode geeft aan of een Excel‑werkmap wel of niet wordt geladen. 
 
-* Wanneer de waarde `false` is, wordt alleen het werkmap‑pad bijgewerkt — de grafiekgegevens worden niet geladen of bijgewerkt vanuit de doel‑werkmap. Deze instelling is nuttig wanneer de doel‑werkmap niet bestaat of niet beschikbaar is.  
+* Wanneer de waarde `false` is, wordt alleen het werkmappad bijgewerkt – de grafiekgegevens worden niet geladen of bijgewerkt vanuit de doel‑werkmap. Deze instelling kan nuttig zijn wanneer de doel‑werkmap ontbreekt of niet beschikbaar is. 
 * Wanneer de waarde `true` is, worden de grafiekgegevens bijgewerkt vanuit de doel‑werkmap.
 
 ```java
@@ -278,13 +277,13 @@ try {
 }
 ```
 
-### **Het pad van het externe gegevensbron‑werkmap van een grafiek ophalen**
+### **Het pad van de externe gegevensbron‑werkmap van een grafiek ophalen**
 
-1. Maak een instantie van de [Presentation](https://apireference.aspose.com/slides/nl/java/com.aspose.slides/presentation) klasse.  
-2. Haal een dia‑referentie op via het indexnummer.  
-3. Maak een object voor de grafiekvorm.  
-4. Maak een object voor het bron‑type (`ChartDataSourceType`) dat de gegevensbron van de grafiek vertegenwoordigt.  
-5. Specificeer de relevante voorwaarde op basis van het feit dat het bron‑type hetzelfde is als het type van de externe werkmap‑gegevensbron.
+1. Maak een instantie van de [Presentation](https://apireference.aspose.com/slides/nl/java/com.aspose.slides/presentation) klasse.
+1. Haal een slide op via het bijbehorende indexnummer.
+1. Maak een object voor de grafiekvorm.
+1. Maak een object voor het bron‑type (`ChartDataSourceType`) dat de gegevensbron van de grafiek vertegenwoordigt.
+1. Specificeer de relevante voorwaarde op basis van het bron‑type dat gelijk is aan het externe werkmap‑type.
 
 Deze Java‑code demonstreert de operatie:
 
@@ -303,7 +302,7 @@ try {
         String path = chart.getChartData().getExternalWorkbookPath();
     }
 	
-    // Slaat de presentatie op
+	// Slaat de presentatie op
     pres.save("result.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -312,7 +311,9 @@ try {
 
 ### **Grafiekgegevens bewerken**
 
-Je kunt de gegevens in externe werkmappen bewerken op dezelfde manier als je wijzigingen aanbrengt in interne werkmappen. Als een externe werkmap niet kan worden geladen, wordt er een uitzondering gegooid.
+U kunt de gegevens in externe werkmappen bewerken op dezelfde manier als u wijzigingen aanbrengt in interne werkmappen. Wanneer een externe werkmap niet kan worden geladen, wordt er een uitzondering gegooid.
+
+Deze Java‑code is een implementatie van het beschreven proces:
 
 ```java
 import com.aspose.slides.*;
@@ -331,11 +332,11 @@ try {
 }
 ```
 
-### **Een werkmap herstellen uit de grafiekcache**
+### **Een werkmap herstellen vanuit de grafiekcache**
 
-Als een grafiek een externe werkmap gebruikt die ontbreekt of niet beschikbaar is, kan Aspose.Slides de grafiekwerkmap reconstrueren uit de in de presentatie opgeslagen cache. Maak [LoadOptions](https://reference.aspose.com/slides/nl/java/com.aspose.slides/loadoptions/) aan, configureer deze met [SpreadsheetOptions](https://reference.aspose.com/slides/nl/java/com.aspose.slides/spreadsheetoptions/), en roep [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) aan met `true` voordat je de presentatie opent.
+Als een grafiek een externe werkmap gebruikt die ontbreekt of niet beschikbaar is, kan Aspose.Slides de werkmap van de grafiek reconstrueren vanuit de gegevens die in de presentatie zijn gecached. Maak [LoadOptions](https://reference.aspose.com/slides/nl/java/com.aspose.slides/loadoptions/) aan, configureer deze met [SpreadsheetOptions](https://reference.aspose.com/slides/nl/java/com.aspose.slides/spreadsheetoptions/), en roep [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) aan met `true` voordat u de presentatie opent.
 
-Het volgende Java‑voorbeeld opent een presentatie waarvan de grafiek een niet‑beschikbare externe werkmap referereert en benadert de herstelde gegevens via [IChart.getChartData](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichart/#getChartData--) en [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--):
+Het onderstaande Java‑voorbeeld opent een presentatie waarvan de grafiek verwijst naar een niet‑beschikbare externe werkmap en benadert de herstelde gegevens via [IChart.getChartData](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichart/#getChartData--) en [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--):
 
 ```java
 SpreadsheetOptions spreadsheetOptions = new SpreadsheetOptions();
@@ -355,30 +356,30 @@ try {
 }
 ```
 
-Als de externe werkmap niet beschikbaar is en herstel is uitgeschakeld, gooit Aspose.Slides een uitzondering. Schakel herstel alleen in wanneer het gebruik van de gecachte grafiekgegevens een acceptabele fallback is, omdat de cache mogelijk geen wijzigingen bevat die na de laatste update van de presentatie in de externe werkmap zijn aangebracht.
+Als de externe werkmap niet beschikbaar is en herstel is uitgeschakeld, gooit Aspose.Slides een uitzondering. Schakel herstel alleen in wanneer het gebruik van de gecachte grafiekgegevens een acceptabele fallback is, omdat de cache mogelijk geen wijzigingen bevat die na de laatste presentatie‑update in de externe werkmap zijn aangebracht.
 
 ## **FAQ**
 
-**Kan ik bepalen of een bepaalde grafiek gekoppeld is aan een externe of een ingebedde werkmap?**
+**Kan ik bepalen of een specifieke grafiek is gekoppeld aan een externe of een ingesloten werkmap?**
 
-Ja. Een grafiek heeft een [data source type](https://reference.aspose.com/slides/nl/java/com.aspose.slides/chartdata/#getDataSourceType--) en een [pad naar een externe werkmap](https://reference.aspose.com/slides/nl/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--); als de bron een externe werkmap is, kun je het volledige pad lezen om zeker te zijn dat een extern bestand wordt gebruikt.
+Ja. Een grafiek heeft een [data source type](https://reference.aspose.com/slides/nl/java/com.aspose.slides/chartdata/#getDataSourceType--) en een [pad naar een externe werkmap](https://reference.aspose.com/slides/nl/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--); als de bron een externe werkmap is, kunt u het volledige pad lezen om te bevestigen dat een extern bestand wordt gebruikt.
 
-**Worden relatieve paden naar externe werkbladen ondersteund, en hoe worden ze opgeslagen?**
+**Worden relatieve paden naar externe werkmappen ondersteund en hoe worden ze opgeslagen?**
 
-Ja. Als je een relatief pad opgeeft, wordt dit automatisch omgezet naar een absoluut pad. Dit is handig voor projectportabiliteit; echter, wees ervan bewust dat de presentatie het absolute pad opslaat in het PPTX‑bestand.
+Ja. Als u een relatief pad opgeeft, wordt dit automatisch omgezet naar een absoluut pad. Dit is handig voor project‑portabiliteit; houd er echter rekening mee dat de presentatie het absolute pad in het PPTX‑bestand opslaat.
 
-**Kan ik werkbladen gebruiken die zich op netwerklocaties/gedeelde mappen bevinden?**
+**Kan ik werkmappen gebruiken die zich op netwerkresources/shares bevinden?**
 
-Ja, dergelijke werkbladen kunnen worden gebruikt als externe gegevensbron. Het direct bewerken van externe werkbladen vanuit Aspose.Slides wordt echter niet ondersteund – ze kunnen alleen als bron worden gebruikt.
+Ja, dergelijke werkmappen kunnen worden gebruikt als externe gegevensbron. Het direct bewerken van remote werkmappen vanuit Aspose.Slides wordt echter niet ondersteund – ze kunnen alleen als bron dienen.
 
-**Schrijft Aspose.Slides het externe XLSX‑bestand over bij het opslaan van de presentatie?**
+**Overschrijft Aspose.Slides de externe XLSX bij het opslaan van de presentatie?**
 
 Nee. De presentatie slaat een [link naar het externe bestand](https://reference.aspose.com/slides/nl/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--) op en gebruikt deze voor het lezen van gegevens. Het externe bestand zelf wordt niet aangepast bij het opslaan van de presentatie.
 
-**Wat moet ik doen als het externe bestand met een wachtwoord beveiligd is?**
+**Wat moet ik doen als het externe bestand beveiligd is met een wachtwoord?**
 
-Aspose.Slides accepteert geen wachtwoord bij het koppelen. Een gangbare aanpak is om de beveiliging vooraf te verwijderen of een ontsleutelde kopie voor te bereiden (bijvoorbeeld met [Aspose.Cells](/cells/java/)) en naar die kopie te linken.
+Aspose.Slides accepteert geen wachtwoord bij het koppelen. Een veelgebruikte aanpak is om de bescherming vooraf te verwijderen of een gedecrypteerde kopie voor te bereiden (bijvoorbeeld met [Aspose.Cells](/cells/java/)) en naar die kopie te linken.
 
 **Kunnen meerdere grafieken naar dezelfde externe werkmap verwijzen?**
 
-Ja. Elke grafiek slaat zijn eigen koppeling op. Als ze allemaal naar hetzelfde bestand verwijzen, worden wijzigingen in dat bestand bij de volgende keer dat de gegevens worden geladen in elke grafiek weergegeven.
+Ja. Elke grafiek slaat zijn eigen link op. Als ze allemaal naar hetzelfde bestand wijzen, wordt een update van dat bestand in elke grafiek weerspiegeld de volgende keer dat de gegevens worden geladen.

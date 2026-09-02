@@ -5,7 +5,7 @@ type: docs
 weight: 70
 url: /ru/net/chart-workbook/
 keywords:
-- рабочая книга диаграммы
+- рабочая книга диаграмм
 - данные диаграммы
 - ячейка рабочей книги
 - метка данных
@@ -13,27 +13,29 @@ keywords:
 - источник данных
 - внешняя рабочая книга
 - внешние данные
-- кэш диаграммы
+- кеш диаграммы
 - восстановление рабочей книги
 - PowerPoint
 - презентация
 - .NET
 - C#
 - Aspose.Slides
-description: "Откройте Aspose.Slides для .NET: легко управляйте рабочими книгами диаграмм в форматах PowerPoint и OpenDocument, упрощая работу с данными презентации."
+description: "Откройте для себя Aspose.Slides для .NET: без усилий управляйте рабочими книгами диаграмм в форматах PowerPoint и OpenDocument, упрощая данные вашей презентации."
 ---
 ## **Обзор**
 
-Эта статья объясняет, как работать с рабочими книгами диаграмм в Aspose.Slides. В ней показано, как считывать и записывать данные диаграмм через потоки рабочей книги, использовать ячейки рабочей книги в качестве меток данных диаграммы, получать доступ к коллекциям листов и указывать тип источника данных для значений диаграмм.
+В этой статье объясняется, как работать с рабочими книгами диаграмм в Aspose.Slides. Она показывает, как считывать и записывать данные диаграмм через потоки рабочих книг, использовать ячейки рабочей книги в качестве меток данных диаграммы, получать доступ к коллекциям листов, а также указывать тип источника данных для значений диаграммы.
 
-Она также охватывает работу с внешними рабочими книгами в качестве источников данных диаграмм. Примеры демонстрируют, как создать и назначить внешнюю рабочую книгу, получить путь к внешней рабочей книге, связанной с диаграммой, и редактировать данные диаграммы, когда рабочая книга доступна.
+Также рассматривается работа с внешними рабочими книгами в качестве источников данных диаграмм. Примеры демонстрируют, как создать и назначить внешнюю рабочую книгу, получить путь к внешней рабочей книге, связанной с диаграммой, и редактировать данные диаграммы, когда рабочая книга доступна.
 
 ## **Чтение и запись данных диаграммы из рабочей книги**
-Aspose.Slides предоставляет методы [ReadWorkbookStream](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartdata/readworkbookstream/) и [WriteWorkbookStream](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartdata/writeworkbookstream/), позволяющие считывать и записывать рабочие книги данных диаграмм (содержащие данные диаграмм, отредактированные с помощью Aspose.Cells). **Примечание**: данные диаграммы должны быть организованы одинаковым образом или иметь структуру, аналогичную исходной.
 
-Этот код C# демонстрирует пример операции:
+Aspose.Slides предоставляет методы [ReadWorkbookStream](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartdata/readworkbookstream/) и [WriteWorkbookStream](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartdata/writeworkbookstream/), которые позволяют читать и записывать рабочие книги данных диаграмм (содержащие данные диаграмм, отредактированные с помощью Aspose.Cells). **Примечание** что данные диаграммы должны быть организованы таким же образом или иметь структуру, аналогичную исходной.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 using (Presentation pres = new Presentation("chart.pptx"))
 {
     Chart chart = (Chart) pres.Slides[0].Shapes[0];
@@ -49,17 +51,39 @@ using (Presentation pres = new Presentation("chart.pptx"))
 }
 ```
 
+### **Проверка макета диаграммы после изменения рабочей книги**
+
+Когда вы заменяете встроенную рабочую книгу изменённой, диаграмма сохраняет свои исходные коллекции серий и категорий. Это несоответствие может привести к ошибке [IChart.ValidateChartLayout](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichart/validatechartlayout/) с сообщением о выходе индекса за пределы. Очистите существующие серии и категории перед записью обновленной рабочей книги обратно в диаграмму.
+
+```csharp
+// После изменения потока рабочей книги (например, с помощью Aspose.Cells)
+using var updatedWorkbook = chartData.ReadWorkbookStream();
+
+// Очистить существующие ссылки на данные.
+chartData.Series.Clear();
+chartData.Categories.Clear();
+
+updatedWorkbook.Position = 0;
+chartData.WriteWorkbookStream(updatedWorkbook);
+
+chart.ValidateChartLayout();
+```
+
+Очистка коллекций гарантирует, что структура данных диаграммы будет согласована с новой рабочей книгой, позволяя `ValidateChartLayout` завершиться без ошибок.
+
 ## **Установка ячейки рабочей книги в качестве метки данных диаграммы**
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/).
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/) .
 1. Получите ссылку на слайд по его индексу.
-1. Добавьте пузырьковую диаграмму с некоторыми данными.
+1. Добавьте пузырчатую диаграмму с некоторыми данными.
 1. Получите доступ к сериям диаграммы.
 1. Установите ячейку рабочей книги в качестве метки данных.
 1. Сохраните презентацию.
 
-Этот код C# показывает, как установить ячейку рабочей книги в качестве метки данных диаграммы:
-
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 string lbl0 = "Label 0 cell value";
 string lbl1 = "Label 1 cell value";
 string lbl2 = "Label 2 cell value";
@@ -89,9 +113,12 @@ using (Presentation pres = new Presentation("chart2.pptx"))
 
 ## **Управление листами**
 
-Этот код C# демонстрирует операцию, в которой свойство [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartdataworkbook/properties/worksheets) используется для доступа к коллекции листов:
+Этот код на C# демонстрирует операцию, в которой свойство [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartdataworkbook/properties/worksheets) используется для доступа к коллекции листов:
 
 ``` csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 using (Presentation pres = new Presentation())
 {
    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 400, 500);
@@ -103,9 +130,13 @@ using (Presentation pres = new Presentation())
 
 ## **Указание типа источника данных**
 
-Этот код C# показывает, как указать тип для источника данных:
+Этот код на C# показывает, как указать тип для источника данных:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Column3D, 50, 50, 600, 400, true);
@@ -121,11 +152,14 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **Обнаружение неподдерживаемых встроенных форматов рабочих книг**
+## **Обнаружение неподдерживаемых форматов встроенных рабочих книг**
 
-Aspose.Slides не поддерживает формат двоичной рабочей книги Excel (.xlsb), который может быть встроен в некоторые диаграммы. Вы можете использовать свойство `EmbeddedWorkbookType` у [IChartData](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartdata/) вместе с перечислением [WorkbookType](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/workbooktype/) для обнаружения неподдерживаемых форматов и пропуска таких диаграмм.
+Aspose.Slides не поддерживает бинарный формат рабочей книги Excel (.xlsb), который может быть встроен в некоторые диаграммы. Вы можете использовать свойство `EmbeddedWorkbookType` в [IChartData](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartdata/) совместно с перечислением [WorkbookType](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/workbooktype/) , чтобы обнаружить неподдерживаемые форматы и пропустить такие диаграммы.
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var slide = presentation.Slides[0];
@@ -143,23 +177,25 @@ using (var presentation = new Presentation("sample.pptx"))
             continue;
         }
 
-        // Считайте или измените данные рабочей книги диаграммы здесь.
+        // Здесь читаем или изменяем данные рабочей книги диаграммы.
     }
 }
 ```
 
 ## **Внешняя рабочая книга**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 В [Aspose.Slides 19.4](https://docs.aspose.com/slides/ru/net/aspose-slides-for-net-19-4-release-notes/) мы реализовали поддержку внешних рабочих книг в качестве источника данных для диаграмм.
 {{% /alert %}} 
 
 ### **Создание внешней рабочей книги**
-С помощью методов **`ReadWorkbookStream`** и **`SetExternalWorkbook`** вы можете либо создать внешнюю рабочую книгу с нуля, либо сделать внутреннюю рабочую книгу внешней.
-
-Этот код C# демонстрирует процесс создания внешней рабочей книги:
+С помощью методов **`ReadWorkbookStream`** и **`SetExternalWorkbook`** вы можете либо создать внешнюю рабочую книгу с нуля, либо преобразовать внутреннюю рабочую книгу во внешнюю.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     const string workbookPath = "externalWorkbook1.xlsx";
@@ -178,13 +214,15 @@ using (Presentation pres = new Presentation())
 ```
 
 ### **Назначение внешней рабочей книги**
-С помощью метода **`SetExternalWorkbook`** вы можете присвоить внешнюю рабочую книгу диаграмме в качестве её источника данных. Этот метод также можно использовать для обновления пути к внешней рабочей книге (если последняя была перемещена).
+С помощью метода **`SetExternalWorkbook`** вы можете назначить внешнюю рабочую книгу диаграмме в качестве её источника данных. Этот метод также может использоваться для обновления пути к внешней рабочей книге (если она была перемещена).
 
-Хотя вы не можете редактировать данные в рабочих книгах, хранящихся в удалённых местах или ресурсах, такие книги всё равно можно использовать в качестве внешнего источника данных. Если указан относительный путь к внешней рабочей книге, он автоматически преобразуется в полный путь.
-
-Этот код C# показывает, как установить внешнюю рабочую книгу:
+Хотя вы не можете редактировать данные в рабочих книгах, хранящихся в удалённых местах или ресурсах, их всё равно можно использовать в качестве внешнего источника данных. Если указан относительный путь к внешней рабочей книге, он автоматически преобразуется в полный путь.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 // Путь к каталогу документов.
 using (Presentation pres = new Presentation())
 {
@@ -192,7 +230,7 @@ using (Presentation pres = new Presentation())
     IChartData chartData = chart.ChartData;
                     
     chartData.SetExternalWorkbook(Path.GetFullPath("externalWorkbook.xlsx"));
-                  
+              
 
     chartData.Series.Add(chartData.ChartDataWorkbook.GetCell(0, "B1"), ChartType.Pie);
     chartData.Series[0].DataPoints.AddDataPointForPieSeries(chartData.ChartDataWorkbook.GetCell(0, "B2"));
@@ -208,10 +246,14 @@ using (Presentation pres = new Presentation())
 
 Параметр `ChartData` (в методе `SetExternalWorkbook`) используется для указания, будет ли загружена Excel‑рабочая книга.
 
-* Когда значение `ChartData` установлено в `false`, обновляется только путь к рабочей книге — данные диаграммы не загружаются и не обновляются из целевой рабочей книги. Этот параметр полезен, когда целевая рабочая книга отсутствует или недоступна. 
+* Когда значение `ChartData` установлено в `false`, обновляется только путь к рабочей книге — данные диаграммы не будут загружаться и обновляться из целевой рабочей книги. Этот параметр полезен, если целевая рабочая книга отсутствует или недоступна. 
 * Когда значение `ChartData` установлено в `true`, данные диаграммы обновляются из целевой рабочей книги.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
 	IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 400, 600, true);
@@ -223,17 +265,19 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-### **Получение пути к внешнему источнику данных рабочей книги диаграммы**
+### **Получение пути к внешней рабочей книге-источнику данных диаграммы**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/).
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/) .
 1. Получите ссылку на слайд по его индексу.
 1. Создайте объект для формы диаграммы.
-1. Создайте объект для типа источника (`ChartDataSourceType`), представляющего источник данных диаграммы.
+1. Создайте объект типа источника (`ChartDataSourceType`), представляющий источник данных диаграммы.
 1. Укажите соответствующее условие, исходя из того, что тип источника совпадает с типом внешней рабочей книги.
 
-Этот код C# демонстрирует операцию:
-
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     ISlide slide = pres.Slides[1];
@@ -251,11 +295,13 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ### **Редактирование данных диаграммы**
 
-Вы можете редактировать данные во внешних рабочих книгах так же, как изменяете содержимое внутренних книг. Если внешнюю рабочую книгу невозможно загрузить, генерируется исключение.
-
-Этот код C# реализует описанный процесс:
+Вы можете редактировать данные во внешних рабочих книгах так же, как и в случае изменения содержимого внутренних рабочих книг. Если внешняя рабочая книга не может быть загружена, генерируется исключение.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("presentation.pptx"))
 {
     IChart chart = pres.Slides[0].Shapes[0] as IChart;
@@ -269,11 +315,14 @@ using (Presentation pres = new Presentation("presentation.pptx"))
 
 ### **Восстановление рабочей книги из кеша диаграммы**
 
-Если диаграмма использует внешнюю рабочую книгу, которой нет или она недоступна, Aspose.Slides может восстановить рабочую книгу диаграммы из данных, кэшированных в презентации. Создайте [LoadOptions](https://reference.aspose.com/slides/ru/net/aspose.slides/loadoptions/), настройте её [SpreadsheetOptions](https://reference.aspose.com/slides/ru/net/aspose.slides/loadoptions/spreadsheetoptions/), и установите [ISpreadsheetOptions.RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/ru/net/aspose.slides/ispreadsheetoptions/recoverworkbookfromchartcache/) в `true` перед открытием презентации.
+Если диаграмма использует внешнюю рабочую книгу, которой нет или она недоступна, Aspose.Slides может восстановить рабочую книгу диаграммы из данных, закешированных в презентации. Создайте [LoadOptions](https://reference.aspose.com/slides/ru/net/aspose.slides/loadoptions/), настройте его [SpreadsheetOptions](https://reference.aspose.com/slides/ru/net/aspose.slides/loadoptions/spreadsheetoptions/), и установите [ISpreadsheetOptions.RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/ru/net/aspose.slides/ispreadsheetoptions/recoverworkbookfromchartcache/) в `true` перед открытием презентации.
 
-Следующий пример C# открывает презентацию, в которой диаграмма ссылается на недоступную внешнюю рабочую книгу, и получает восстановленные данные через [IChart.ChartData](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichart/chartdata/) и [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartdata/chartdataworkbook/):
+Следующий пример на C# открывает презентацию, в которой диаграмма ссылается на недоступную внешнюю рабочую книгу, и получает восстановленные данные через [IChart.ChartData](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichart/chartdata/) и [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartdata/chartdataworkbook/):
 
 ```csharp
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
 var loadOptions = new LoadOptions
 {
     SpreadsheetOptions = new SpreadsheetOptions
@@ -290,30 +339,30 @@ var recoveredWorkbook = chart.ChartData.ChartDataWorkbook;
 // Read or modify the recovered workbook data here.
 ```
 
-Если внешняя рабочая книга недоступна и восстановление отключено, Aspose.Slides генерирует `InvalidOperationException`. Включайте восстановление только тогда, когда использование кэшированных данных диаграммы является приемлемой альтернативой, потому что кеш может не содержать изменений, внесённых во внешнюю рабочую книгу после последнего обновления презентации.
+Если внешняя рабочая книга недоступна и восстановление отключено, Aspose.Slides генерирует `InvalidOperationException`. Включайте восстановление только тогда, когда использование закешированных данных диаграммы является приемлемым вариантом, так как кеш может не содержать изменений, внесённых во внешнюю рабочую книгу после последнего обновления презентации.
 
-## **FAQ**
+## **Вопросы и ответы**
 
-**Могу ли я определить, привязана ли конкретная диаграмма к внешней или встроенной рабочей книге?**
+**Можно ли определить, связана ли конкретная диаграмма с внешней или встроенной рабочей книгой?**
 
-Да. У диаграммы есть [тип источника данных](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/chartdata/datasourcetype/) и [путь к внешней рабочей книге](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/chartdata/externalworkbookpath/); если источник – внешняя рабочая книга, вы можете прочитать полный путь, чтобы убедиться, что используется внешний файл.
+Да. У диаграммы есть [тип источника данных](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/chartdata/datasourcetype/) и [путь к внешней рабочей книге](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/chartdata/externalworkbookpath/); если источник — внешняя рабочая книга, вы можете прочитать полный путь, чтобы убедиться, что используется внешний файл.
 
-**Поддерживаются ли относительные пути к внешним рабочим книгам и как они хранятся?**
+**Поддерживаются ли относительные пути к внешним рабочим книгам и как они сохраняются?**
 
-Да. Если указать относительный путь, он автоматически преобразуется в абсолютный. Это удобно для переносимости проекта; однако презентация сохраняет абсолютный путь в файле PPTX.
+Да. Если указать относительный путь, он автоматически преобразуется в абсолютный путь. Это удобно для переносимости проекта; однако следует учитывать, что презентация сохраняет абсолютный путь в файле PPTX.
 
-**Можно ли использовать рабочие книги, расположенные на сетевых ресурсах/общих папках?**
+**Можно ли использовать рабочие книги, размещённые на сетевых ресурсах/общих папках?**
 
-Да, такие книги можно использовать в качестве внешнего источника данных. Однако прямое редактирование удалённых книг из Aspose.Slides не поддерживается — они могут использоваться только как источник.
+Да, такие рабочие книги могут использоваться в качестве внешнего источника данных. Однако редактирование удалённых рабочих книг напрямую из Aspose.Slides не поддерживается — они могут использоваться только как источник.
 
-**Перезаписывает ли Aspose.Slides внешний XLSX при сохранении презентации?**
+**Перезаписывает ли Aspose.Slides внешний файл XLSX при сохранении презентации?**
 
-Нет. Презентация хранит [ссылку на внешний файл](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/chartdata/externalworkbookpath/) и использует её для чтения данных. Сам внешний файл не изменяется при сохранении презентации.
+Нет. Презентация сохраняет [ссылку на внешний файл](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/chartdata/externalworkbookpath/), которую использует для чтения данных. Сам внешний файл не изменяется при сохранении презентации.
 
 **Что делать, если внешний файл защищён паролем?**
 
-Aspose.Slides не принимает пароль при связывании. Обычно снимают защиту заранее или готовят расшифрованную копию (например, с помощью [Aspose.Cells](/cells/net/)) и связывают её.
+Aspose.Slides не принимает пароль при связывании. Обычно сначала снимают защиту или готовят расшифрованную копию (например, с помощью [Aspose.Cells](/cells/net/)) и связываются с этой копией.
 
 **Могут ли несколько диаграмм ссылаться на одну и ту же внешнюю рабочую книгу?**
 
-Да. Каждая диаграмма хранит собственную ссылку. Если они указывают на один и тот же файл, его обновление отразится во всех диаграммах при следующей загрузке данных.
+Да. Каждая диаграмма хранит свою собственную ссылку. Если они все указывают на один и тот же файл, обновление этого файла отразится в каждой диаграмме при следующей загрузке данных.

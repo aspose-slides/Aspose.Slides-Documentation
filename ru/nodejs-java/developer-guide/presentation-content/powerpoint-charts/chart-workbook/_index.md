@@ -1,11 +1,11 @@
 ---
-title: Управление рабочими книгами диаграмм в презентациях с помощью JavaScript
-linktitle: Рабочая книга диаграммы
+title: Управление рабочими книгами диаграмм в презентациях с использованием JavaScript
+linktitle: Рабочая книга диаграмм
 type: docs
 weight: 70
 url: /ru/nodejs-java/chart-workbook/
 keywords:
-- рабочая книга диаграммы
+- рабочая книга диаграмм
 - данные диаграммы
 - ячейка рабочей книги
 - метка данных
@@ -13,26 +13,31 @@ keywords:
 - источник данных
 - внешняя рабочая книга
 - внешние данные
-- кеш диаграммы
+- кеш диаграмм
 - восстановление рабочей книги
 - PowerPoint
 - презентация
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Откройте для себя Aspose.Slides для Node.js через Java: без усилий управляйте рабочими книгами диаграмм в форматах PowerPoint и OpenDocument, упрощая работу с данными вашей презентации."
+description: "Откройте для себя Aspose.Slides для Node.js через Java: без труда управляйте рабочими книгами диаграмм в форматах PowerPoint и OpenDocument, оптимизируя данные вашей презентации."
 ---
 ## **Обзор**
 
-В этой статье объясняется, как работать с книгами диаграмм в Aspose.Slides. Описывается, как считывать и записывать данные диаграмм через потоки книги, использовать ячейки книги в качестве меток данных диаграммы, получать доступ к коллекциям листов и указывать тип источника данных для значений диаграммы.
+В этой статье объясняется, как работать с рабочими книгами диаграмм в Aspose.Slides. Описывается, как считывать и записывать данные диаграммы через потоки рабочей книги, использовать ячейки рабочей книги в качестве меток данных, получать доступ к коллекциям листов и указывать тип источника данных для значений диаграммы.
 
-Также рассматривается работа с внешними книгами в качестве источников данных для диаграмм. Примеры демонстрируют, как создать и назначить внешнюю книгу, получить путь к внешней книге, связанной с диаграммой, и редактировать данные диаграммы, когда книга доступна.
+Также рассматривается работа с внешними рабочими книгами в качестве источников данных диаграмм. Примеры показывают, как создать и назначить внешнюю рабочую книгу, получить путь к внешней рабочей книге, связанной с диаграммой, и редактировать данные диаграммы, когда рабочая книга доступна.
 
-## **Чтение и запись данных диаграммы из книги**
+## **Чтение и запись данных диаграммы из рабочей книги**
 
-Aspose.Slides предоставляет методы [readWorkbookStream](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/ChartData#readWorkbookStream--) и [writeWorkbookStream](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/ChartData#writeWorkbookStream-byte:A-) , которые позволяют считывать и записывать книги данных диаграмм (содержащие данные диаграмм, отредактированные с помощью Aspose.Cells). **Примечание**: данные диаграммы должны быть организованы одинаково или иметь структуру, похожую на исходную.
+Aspose.Slides предоставляет методы [readWorkbookStream](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/ChartData#readWorkbookStream--) и [writeWorkbookStream](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/ChartData#writeWorkbookStream-byte:A-) , позволяющие считывать и записывать рабочие книги данных диаграмм (содержащие данные, отредактированные с помощью Aspose.Cells). **Примечание**: данные диаграммы должны быть организованы одинаково или иметь структуру, аналогичную источнику.
+
+Этот JavaScript‑код демонстрирует пример операции:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("chart.pptx");
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -48,20 +53,44 @@ try {
 }
 ```
 
-## **Установка ячейки книги в качестве метки данных диаграммы**
+### **Проверка макета диаграммы после изменения рабочей книги**
 
-1. Создайте экземпляр класса [Presentation](https://apireference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation).
-2. Получите ссылку на слайд по его индексу.
-3. Добавьте пузырьковую диаграмму с некоторыми данными.
-4. Получите доступ к сериям диаграммы.
-5. Установите ячейку книги в качестве метки данных.
-6. Сохраните презентацию.
+При замене внедрённой рабочей книги на изменённую диаграмма сохраняет свои оригинальные коллекции серий и категорий. Это несоответствие может привести к ошибке [Chart.validateChartLayout](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Chart#validateChartLayout--) с указанием выхода индекса за пределы. Очистите существующие серии и категории перед записью обновлённой рабочей книги обратно в диаграмму.
 
 ```javascript
+// После изменения потока рабочей книги (например, с помощью Aspose.Cells)
+var updatedWorkbook = chartData.readWorkbookStream();
+
+// Очистить существующие ссылки на данные.
+chartData.getSeries().clear();
+chartData.getCategories().clear();
+
+chartData.writeWorkbookStream(updatedWorkbook);
+
+chart.validateChartLayout();
+```
+
+Очистка коллекций гарантирует согласованность структуры данных диаграммы с новой рабочей книгой, позволяя `validateChartLayout` выполниться без ошибок.
+
+## **Установка ячейки WorkBook в качестве метки данных диаграммы**
+
+1. Создайте экземпляр класса [Presentation](https://apireference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation).
+1. Получите ссылку на слайд по его индексу.
+1. Добавьте пузырьковую диаграмму с некоторыми данными.
+1. Получите доступ к сериям диаграммы.
+1. Установите ячейку рабочей книги в качестве метки данных.
+1. Сохраните презентацию.
+
+Этот JavaScript‑код показывает, как установить ячейку рабочей книги в качестве метки данных диаграммы:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var lbl0 = "Label 0 cell value";
 var lbl1 = "Label 1 cell value";
 var lbl2 = "Label 2 cell value";
-// Создает экземпляр класса презентации, представляющего файл презентации
+// Создаёт экземпляр класса презентации, представляющего файл презентации
 var pres = new aspose.slides.Presentation("chart2.pptx");
 try {
     var slide = pres.getSlides().get_Item(0);
@@ -86,6 +115,9 @@ try {
 Этот JavaScript‑код демонстрирует операцию, в которой используется метод [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/ChartDataWorkbook#getWorksheets--) для доступа к коллекции листов:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 500);
@@ -105,6 +137,9 @@ try {
 Этот JavaScript‑код показывает, как указать тип для источника данных:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Column3D, 50, 50, 600, 400, true);
@@ -121,11 +156,15 @@ try {
 }
 ```
 
-## **Обнаружение неподдерживаемых форматов встроенных книг**
+## **Обнаружение неподдерживаемых форматов внедрённых рабочих книг**
 
-Aspose.Slides не поддерживает формат бинарной книги Excel (.xlsb), который может быть встроен в некоторые диаграммы. Вы можете использовать метод `getEmbeddedWorkbookType` на объекте [ChartData](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdata/) совместно с перечислением [WorkbookType](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/workbooktype/) для обнаружения неподдерживаемых форматов и пропуска таких диаграмм.
+Aspose.Slides не поддерживает формат двоичной рабочей книги Excel (.xlsb), который может быть внедрён в некоторые диаграммы. Вы можете использовать метод `getEmbeddedWorkbookType` класса [ChartData](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdata/) совместно с перечислением [WorkbookType](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/workbooktype/) для обнаружения неподдерживаемых форматов и пропуска соответствующих диаграмм.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -141,39 +180,39 @@ try {
 
         if (chartData.getDataSourceType() == aspose.slides.ChartDataSourceType.InternalWorkbook &&
                 chartData.getEmbeddedWorkbookType() == aspose.slides.WorkbookType.WorkbookBinaryMacro) {
-            // Встроенная рабочая книга в формате .xlsb, который не поддерживается.
+            // Внедрённая рабочая книга имеет формат .xlsb, который не поддерживается.
             continue;
         }
 
-        // Здесь можно читать или изменять данные рабочей книги диаграммы.
+        // Считать или изменить данные рабочей книги диаграммы здесь.
     }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Внешняя книга**
+## **Внешняя рабочая книга**
 
-Aspose.Slides поддерживает внешние книги в качестве источника данных для диаграмм.
+Aspose.Slides поддерживает внешние рабочие книги в качестве источника данных для диаграмм.
 
-### **Создание внешней книги**
+### **Создание внешней рабочей книги**
 
-С помощью методов **`readWorkbookStream`** и **`setExternalWorkbook`** вы можете либо создать внешнюю книгу с нуля, либо сделать внутреннюю книгу внешней.
+С помощью методов **`readWorkbookStream`** и **`setExternalWorkbook`** вы можете либо создать внешнюю рабочую книгу с нуля, либо сделать внутреннюю рабочую книгу внешней.
+
+Этот JavaScript‑код демонстрирует процесс создания внешней рабочей книги:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const fileSystem = require("fs");
+
 var pres = new aspose.slides.Presentation();
 try {
-    final var workbookPath = "externalWorkbook1.xlsx";
+    var workbookPath = "externalWorkbook1.xlsx";
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600);
-    var fileStream = java.newInstanceSync("java.io.FileOutputStream", workbookPath);
-    try {
-        var workbookData = chart.getChartData().readWorkbookStream();
-        fileStream.write(workbookData, 0, workbookData.length);
-    } finally {
-        if (fileStream != null) {
-            fileStream.close();
-        }
-    }
+    // readWorkbookStream возвращает байты рабочей книги как Buffer Node.
+    var workbookData = chart.getChartData().readWorkbookStream();
+    fileSystem.writeFileSync(workbookPath, Buffer.from(workbookData));
     chart.getChartData().setExternalWorkbook(workbookPath);
     pres.save("externalWorkbook.pptx", aspose.slides.SaveFormat.Pptx);
 } catch (e) {console.log(e);
@@ -184,14 +223,19 @@ try {
 }
 ```
 
-### **Установка внешней книги**
+### **Установка внешней рабочей книги**
 
-С помощью метода **`setExternalWorkbook`** вы можете назначить внешнюю книгу диаграмме в качестве её источника данных. Этот метод также может использоваться для обновления пути к внешней книге (если она была перемещена).
+Метод **`setExternalWorkbook`** позволяет назначить внешнюю рабочую книгу диаграмме в качестве её источника данных. Этот же метод можно использовать для обновления пути к внешней рабочей книге (если она была перемещена).
 
-Хотя вы не можете редактировать данные в книгах, хранящихся в удалённых расположениях или ресурсах, такие книги всё равно могут использоваться в качестве внешнего источника данных. Если указать относительный путь к внешней книге, он автоматически преобразуется в абсолютный путь.
+Хотя редактировать данные в рабочих книгах, хранящихся в удалённых местах или ресурсах, нельзя, их всё равно можно использовать как внешний источник данных. Если указан относительный путь к внешней рабочей книге, он автоматически преобразуется в полный путь.
+
+Этот JavaScript‑код показывает, как задать внешнюю рабочую книгу:
 
 ```javascript
-// Создает экземпляр класса Presentation
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// Создаёт экземпляр класса Presentation
 var pres = new aspose.slides.Presentation("chart.pptx");
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600, false);
@@ -212,13 +256,16 @@ try {
 }
 ```
 
-Параметр `ChartData` (в методе `setExternalWorkbook`) используется для указания, будет ли загружена Excel‑книга.
+Второй параметр метода `setExternalWorkbook`, `updateChartData`, указывает, будет ли загружена Excel‑рабочая книга.
 
-* Когда значение `ChartData` установлено в `false`, обновляется только путь к книге — данные диаграммы не будут загружаться и обновляться из целевой книги. Это может быть полезно, когда целевая книга не существует или недоступна. 
-* Когда значение `ChartData` установлено в `true`, данные диаграммы обновляются из целевой книги.
+* При `updateChartData = false` обновляется только путь к рабочей книге — данные диаграммы не загружаются и не обновляются из целевой рабочей книги. Этот вариант полезен, когда целевая рабочая книга отсутствует или недоступна.
+* При `updateChartData = true` данные диаграммы обновляются из целевой рабочей книги.
 
 ```javascript
-// Создает экземпляр класса Presentation
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// Создаёт экземпляр класса Presentation
 var pres = new aspose.slides.Presentation("chart.pptx");
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600, true);
@@ -232,16 +279,21 @@ try {
 }
 ```
 
-### **Получение пути к внешней книге источника данных диаграммы**
+### **Получение пути к внешнему источнику данных диаграммы**
 
 1. Создайте экземпляр класса [Presentation](https://apireference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation).
-2. Получите ссылку на слайд по его индексу.
-3. Создайте объект для формы диаграммы.
-4. Создайте объект типа источника (`ChartDataSourceType`), представляющего источник данных диаграммы.
-5. Укажите соответствующее условие, исходя из того, что тип источника совпадает с типом внешней книги.
+1. Получите ссылку на слайд по его индексу.
+1. Создайте объект для формы диаграммы.
+1. Создайте объект типа источника (`ChartDataSourceType`), представляющего источник данных диаграммы.
+1. Укажите соответствующее условие, исходя из того, что тип источника совпадает с типом внешней рабочей книги.
+
+Этот JavaScript‑код демонстрирует операцию:
 
 ```javascript
-// Создает экземпляр класса Presentation
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// Создаёт экземпляр класса Presentation
 var pres = new aspose.slides.Presentation("chart.pptx");
 try {
     var slide = pres.getSlides().get_Item(1);
@@ -261,10 +313,15 @@ try {
 
 ### **Редактирование данных диаграммы**
 
-Вы можете редактировать данные во внешних книгах так же, как меняете содержимое внутренних книг. Если внешняя книга не может быть загружена, возникает исключение.
+Вы можете редактировать данные во внешних рабочих книгах так же, как и во внутренних. Когда внешняя рабочая книга не может быть загружена, генерируется исключение.
+
+Этот JavaScript‑код реализует описанный процесс:
 
 ```javascript
-// Создает экземпляр класса Presentation
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// Создаёт экземпляр класса Presentation
 var pres = new aspose.slides.Presentation("chart.pptx");
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -278,13 +335,16 @@ try {
 }
 ```
 
-### **Восстановление книги из кеша диаграммы**
+### **Восстановление рабочей книги из кеша диаграммы**
 
-Если диаграмма использует внешнюю книгу, которой нет или она недоступна, Aspose.Slides может восстановить книгу диаграммы из данных, закешированных в презентации. Создайте [LoadOptions](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/loadoptions/), настройте его с помощью [SpreadsheetOptions](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/spreadsheetoptions/), и вызовите [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) со значением `true` перед открытием презентации.
+Если диаграмма использует внешнюю рабочую книгу, которой нет или она недоступна, Aspose.Slides может восстановить рабочую книгу диаграммы из данных, закешированных в презентации. Создайте [LoadOptions](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/loadoptions/), настройте его с помощью [SpreadsheetOptions](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/spreadsheetoptions/), и вызовите [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) со значением `true` перед открытием презентации.
 
-Следующий JavaScript‑пример открывает презентацию, в которой диаграмма ссылается на недоступную внешнюю книгу, и получает восстановленные данные через [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdata/#getChartDataWorkbook):
+Следующий пример JavaScript открывает презентацию, в которой диаграмма ссылается на недоступную внешнюю рабочую книгу, и получает восстановленные данные через [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdata/#getChartDataWorkbook):
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 const spreadsheetOptions = new aspose.slides.SpreadsheetOptions();
 spreadsheetOptions.setRecoverWorkbookFromChartCache(true);
 
@@ -296,36 +356,36 @@ try {
     const chart = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
     const recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
 
-    // Читать или изменять восстановленные данные рабочей книги здесь.
+    // Считать или изменить восстановленные данные рабочей книги здесь.
 } finally {
     presentation.dispose();
 }
 ```
 
-Если внешняя книга недоступна и восстановление отключено, Aspose.Slides бросает исключение. Включайте восстановление только в тех случаях, когда использование закешированных данных диаграммы является приемлемым резервом, поскольку кеш может не содержать изменений, сделанных во внешней книге после последнего обновления презентации.
+Если внешняя рабочая книга недоступна и восстановление отключено, Aspose.Slides генерирует исключение. Включайте восстановление только в том случае, когда использование закешированных данных диаграммы является приемлемой альтернативой, поскольку кеш может не содержать изменений, внесённых во внешнюю рабочую книгу после последнего обновления презентации.
 
 ## **FAQ**
 
-**Могу ли я определить, связана ли конкретная диаграмма с внешней или встроенной книгой?**
+**Можно ли определить, связана ли конкретная диаграмма с внешней или встроенной рабочей книгой?**
 
-Да. У диаграммы есть [тип источника данных](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) и [путь к внешней книге](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/); если источник — внешняя книга, вы можете прочитать полный путь, чтобы убедиться, что используется внешний файл.
+Да. У диаграммы есть [тип источника данных](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) и [путь к внешней рабочей книге](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/); если источник — внешняя рабочая книга, можно прочитать полный путь, чтобы убедиться, что используется внешний файл.
 
-**Поддерживаются ли относительные пути к внешним книгам и как они хранятся?**
+**Поддерживаются ли относительные пути к внешним рабочим книгам и как они хранятся?**
 
-Да. При указании относительного пути он автоматически преобразуется в абсолютный. Это удобно для переносимости проекта; однако презентация сохраняет абсолютный путь в файле PPTX.
+Да. При указании относительного пути он автоматически преобразуется в абсолютный. Это удобно для портативности проекта; однако в файле PPTX сохраняется абсолютный путь.
 
-**Можно ли использовать книги, расположенные на сетевых ресурсах/общих папках?**
+**Можно ли использовать рабочие книги, расположенные на сетевых ресурсах/общих папках?**
 
-Да, такие книги могут использоваться в качестве внешнего источника данных. Однако прямое редактирование удалённых книг из Aspose.Slides не поддерживается — они могут использоваться только как источник.
+Да, такие рабочие книги могут использоваться как внешний источник данных. Однако прямое редактирование удалённых рабочих книг из Aspose.Slides не поддерживается — их можно только использовать в качестве источника.
 
-**Перезаписывает ли Aspose.Slides внешний XLSX при сохранении презентации?**
+**Перезаписывает ли Aspose.Slides внешнюю XLSX при сохранении презентации?**
 
 Нет. Презентация хранит [ссылку на внешний файл](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) и использует её только для чтения данных. Сам внешний файл не изменяется при сохранении презентации.
 
 **Что делать, если внешний файл защищён паролем?**
 
-Aspose.Slides не принимает пароль при связывании. Обычно сначала снимают защиту или готовят расшифрованную копию (например, с помощью [Aspose.Cells](/cells/nodejs-java/)) и связываются с этой копией.
+Aspose.Slides не принимает пароль при установке ссылки. Обычно снимают защиту заранее или подготавливают расшифрованную копию (например, с помощью [Aspose.Cells](/cells/nodejs-java/)) и ссылаются на неё.
 
-**Могут ли несколько диаграмм ссылаться на одну и ту же внешнюю книгу?**
+**Могут ли несколько диаграмм ссылаться на одну и ту же внешнюю рабочую книгу?**
 
-Да. Каждая диаграмма хранит свою собственную ссылку. Если они указывают на один и тот же файл, обновление этого файла отразится во всех диаграммах при следующей загрузке данных.
+Да. Каждая диаграмма хранит свою собственную ссылку. Если они указывают на один и тот же файл, обновление этого файла будет отражено во всех диаграммах при следующей загрузке данных.

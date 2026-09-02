@@ -1,39 +1,41 @@
 ---
-title: จัดการสมุดทำงานแผนภูมิในงานนำเสนอบน Android
-linktitle: สมุดทำงานแผนภูมิ
+title: จัดการเวิร์กชีทแผนภูมิในงานนำเสนอบน Android
+linktitle: เวิร์กชีทแผนภูมิ
 type: docs
 weight: 70
 url: /th/androidjava/chart-workbook/
 keywords:
-- สมุดทำงานแผนภูมิ
+- เวิร์กชีทแผนภูมิ
 - ข้อมูลแผนภูมิ
-- เซลล์สมุดทำงาน
-- ป้ายกำกับข้อมูล
-- เวิร์กชีต
+- เซลล์เวิร์กชีท
+- ป้ายข้อมูล
+- แผ่นงาน
 - แหล่งข้อมูล
-- สมุดทำงานภายนอก
+- เวิร์กชีทรายการภายนอก
 - ข้อมูลภายนอก
 - แคชแผนภูมิ
-- การกู้คืนสมุดทำงาน
+- การกู้คืนเวิร์กชีท
 - PowerPoint
 - งานนำเสนอ
 - Android
 - Java
 - Aspose.Slides
-description: "ค้นพบ Aspose.Slides สำหรับ Android ผ่าน Java: จัดการสมุดทำงานแผนภูมิในรูปแบบ PowerPoint และ OpenDocument อย่างง่ายดาย เพื่อทำให้ข้อมูลงานนำเสนอของคุณเป็นระเบียบ"
+description: "ค้นพบ Aspose.Slides สำหรับ Android ผ่าน Java: จัดการเวิร์กชีทแผนภูมิในรูปแบบ PowerPoint และ OpenDocument อย่างง่ายดายเพื่อปรับปรุงข้อมูลงานนำเสนอของคุณ."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีการทำงานกับสมุดทำงานของแผนภูมิใน Aspose.Slides แสดงวิธีการอ่านและเขียนข้อมูลแผนภูมิผ่านสตรีมของสมุดทำงาน ใช้เซลล์ของสมุดทำงานเป็นป้ายกำกับข้อมูลแผนภูมิ เข้าถึงคอลเลกชันของเวิร์กชีต และระบุประเภทแหล่งข้อมูลสำหรับค่าของแผนภูมิ
+บทความนี้อธิบายวิธีการทำงานกับหนังสือเวิร์กชีทของแผนภูมิใน Aspose.Slides แสดงวิธีการอ่านและเขียนข้อมูลแผนภูมิโดยใช้สตรีมของเวิร์กชีท ใช้เซลล์ของเวิร์กชีทเป็นป้ายข้อมูลของแผนภูมิ เข้าถึงคอลเลกชันของเวิร์กชีท และระบุประเภทของแหล่งข้อมูลสำหรับค่าของแผนภูมิ
 
-นอกจากนี้ยังครอบคลุมการทำงานกับสมุดทำงานภายนอกเป็นแหล่งข้อมูลของแผนภูมิ ตัวอย่างจะสาธิตวิธีการสร้างและกำหนดสมุดทำงานภายนอก ดึงเส้นทางของสมุดทำงานภายนอกที่เชื่อมโยงกับแผนภูมิ และแก้ไขข้อมูลแผนภูมิเมื่อสมุดทำงานพร้อมใช้งาน
+นอกจากนี้ยังครอบคลุมการทำงานกับเวิร์กชีทรายการภายนอกเป็นแหล่งข้อมูลของแผนภูมิ ตัวอย่างจะแสดงวิธีการสร้างและกำหนดเวิร์กชีทรายการภายนอก เรียกคืนเส้นทางของเวิร์กชีทรายการภายนอกที่เชื่อมโยงกับแผนภูมิ และแก้ไขข้อมูลแผนภูมิเมื่อเวิร์กชีทพร้อมใช้งาน
 
-## **อ่านและเขียนข้อมูลแผนภูมิจากสมุดทำงาน**
-Aspose.Slides ให้บริการเมธอด [ReadWorkbookStream](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IChartData#readWorkbookStream--) และ [WriteWorkbookStream](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) ที่ช่วยให้คุณอ่านและเขียนสมุดทำงานของข้อมูลแผนภูมิ (ซึ่งมีข้อมูลแผนภูมิที่แก้ไขด้วย Aspose.Cells) **Note** ข้อมูลแผนภูมิต้องจัดเรียงในรูปแบบเดียวกันหรือมีโครงสร้างคล้ายกับแหล่งข้อมูลต้นฉบับ
+## **อ่านและเขียนข้อมูลแผนภูมิจากเวิร์กชีท**
+Aspose.Slides มีเมธอด [ReadWorkbookStream](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IChartData#readWorkbookStream--) และ [WriteWorkbookStream](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) ที่ช่วยให้คุณอ่านและเขียนเวิร์กชีทของข้อมูลแผนภูมิ (ซึ่งประกอบด้วยข้อมูลแผนภูมิที่แก้ไขด้วย Aspose.Cells) **หมายเหตุ** ข้อมูลแผนภูมิต้องจัดเรียงในรูปแบบเดียวกันหรือมีโครงสร้างที่คล้ายกับแหล่งต้นทาง
 
-โค้ด Java นี้สาธิตการดำเนินการตัวอย่าง:
+โค้ด Java ตัวอย่างนี้แสดงการทำงานตัวอย่าง:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("chart.pptx");
 try {
     Chart chart = (Chart) pres.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -50,22 +52,44 @@ try {
 }
 ```
 
-## **ตั้งค่าเซลล์ WorkBook เป็นป้ายกำกับข้อมูลแผนภูมิ**
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://apireference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation) 
-2. ดึงอ้างอิงสไลด์ผ่านดัชนีของมัน
-3. เพิ่มแผนภูมิแบบบับเบิลพร้อมข้อมูลบางส่วน
-4. เข้าถึงซีรีส์ของแผนภูมิ
-5. ตั้งค่าเซลล์ของสมุดทำงานเป็นป้ายกำกับข้อมูล
-6. บันทึกการนำเสนอ
+### **ตรวจสอบรูปแบบแผนภูมิหลังการแก้ไขเวิร์กชีท**
 
-โค้ด Java นี้แสดงวิธีการตั้งค่าเซลล์ของสมุดทำงานเป็นป้ายกำกับข้อมูลแผนภูมิ:
+เมื่อคุณแทนที่เวิร์กชีทที่ฝังอยู่ด้วยเวิร์กชีทที่แก้ไขแล้ว แผนภูมิจะยังคงรักษาชุดซีรีส์และประเภทของหมวดหมู่เดิมไว้ ความไม่ตรงกันนี้อาจทำให้เมธอด [IChart.validateChartLayout](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IChart#validateChartLayout--) ล้มเหลวด้วยข้อผิดพลาด index-out-of-range ให้ทำการล้างซีรีส์และประเภทที่มีอยู่ก่อนเขียนเวิร์กชีทที่อัปเดตกลับไปยังแผนภูมิ
 
 ```java
+// หลังจากแก้ไขสตรีมของเวิร์กชีท (เช่น ใช้ Aspose.Cells)
+byte[] updatedWorkbook = chartData.readWorkbookStream();
+
+// ล้างการอ้างอิงข้อมูลที่มีอยู่.
+chartData.getSeries().clear();
+chartData.getCategories().clear();
+
+chartData.writeWorkbookStream(updatedWorkbook);
+
+chart.validateChartLayout();
+```
+
+การล้างคอลเลกชันช่วยให้โครงสร้างข้อมูลแผนภูมิตรงกับเวิร์กชีทใหม่ ทำให้ `validateChartLayout` ทำงานสำเร็จโดยไม่มีข้อผิดพลาด
+
+## **กำหนดเซลล์เวิร์กชีทเป็นป้ายข้อมูลของแผนภูมิ**
+
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://apireference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation) 
+1. ดึงอ้างอิงของสไลด์ผ่านดัชนี
+1. เพิ่มแผนภูมิ Bubble พร้อมข้อมูลบางส่วน
+1. เข้าถึงซีรีส์ของแผนภูมิ
+1. กำหนดเซลล์เวิร์กชีทเป็นป้ายข้อมูล
+1. บันทึกพรีเซนเทชัน
+
+โค้ด Java ตัวอย่างต่อไปนี้แสดงการกำหนดเซลล์เวิร์กชีทเป็นป้ายข้อมูลของแผนภูมิ:
+
+```java
+import com.aspose.slides.*;
+
 String lbl0 = "Label 0 cell value";
 String lbl1 = "Label 1 cell value";
 String lbl2 = "Label 2 cell value";
 
-// สร้างอินสแตนซ์ของคลาสการนำเสนอที่แสดงถึงไฟล์การนำเสนอ
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์พรีเซนเทชัน
 Presentation pres = new Presentation("chart2.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
@@ -87,10 +111,13 @@ try {
 }
 ```
 
-## **จัดการเวิร์กชีต**
-โค้ด Java นี้สาธิตการดำเนินการที่ใช้เมธอด [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IChartDataWorkbook#getWorksheets--) เพื่อเข้าถึงคอลเลกชันของเวิร์กชีต:
+## **จัดการ Worksheet**
+
+โค้ด Java ตัวอย่างนี้แสดงการทำงานที่ใช้เมธอด [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IChartDataWorkbook#getWorksheets--) เพื่อเข้าถึงคอลเลกชันของ Worksheet:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 500);
@@ -102,10 +129,13 @@ try {
 }
 ```
 
-## **ระบุประเภทแหล่งข้อมูล**
-โค้ด Java นี้แสดงวิธีการระบุประเภทสำหรับแหล่งข้อมูล:
+## **ระบุประเภทของแหล่งข้อมูล**
+
+โค้ด Java ตัวอย่างนี้แสดงวิธีระบุประเภทของแหล่งข้อมูล:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
@@ -123,10 +153,13 @@ try {
 }
 ```
 
-## **ตรวจจับรูปแบบสมุดทำงานฝังที่ไม่รองรับ**
-Aspose.Slides ไม่รองรับรูปแบบสมุดทำงาน Excel ไบนารี (.xlsb) ที่อาจฝังอยู่ในบางแผนภูมิ คุณสามารถใช้เมธอด `getEmbeddedWorkbookType` บน [IChartData](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IChartData) ร่วมกับ enumeration [WorkbookType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/WorkbookType) เพื่อค้นหารูปแบบที่ไม่รองรับและข้ามแผนภูมินั้นได้
+## **ตรวจจับรูปแบบเวิร์กชีทฝังที่ไม่รองรับ**
+
+Aspose.Slides ไม่รองรับรูปแบบเวิร์กชีท Excel แบบไบนารี (.xlsb) ที่อาจฝังอยู่ในแผนภูมิบางประเภท คุณสามารถใช้เมธอด `getEmbeddedWorkbookType` บน [IChartData](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/IChartData) ร่วมกับการอ้างอิง [WorkbookType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/WorkbookType) เพื่อค้นหารูปแบบที่ไม่รองรับและข้ามแผนภูมินั้น
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -139,26 +172,32 @@ try {
 
         if (chartData.getDataSourceType() == ChartDataSourceType.InternalWorkbook &&
                 chartData.getEmbeddedWorkbookType() == WorkbookType.WorkbookBinaryMacro) {
-            // สมุดทำงานที่ฝังอยู่เป็นรูปแบบ .xlsb ซึ่งไม่รองรับ
+            // เวิร์กชีทที่ฝังอยู่เป็นรูปแบบ .xlsb ซึ่งไม่รองรับ.
             continue;
         }
 
-        // อ่านหรือแก้ไขข้อมูลสมุดทำงานของแผนภูมิที่นี่
+        // อ่านหรือแก้ไขข้อมูลเวิร์กชีทของแผนภูมิที่นี่.
     }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **สมุดทำงานภายนอก**
-Aspose.Slides รองรับสมุดทำงานภายนอกเป็นแหล่งข้อมูลของแผนภูมิ
+## **เวิร์กชีทรายการภายนอก**
 
-### **สร้างสมุดทำงานภายนอก**
-โดยใช้เมธอด **`readWorkbookStream`** และ **`setExternalWorkbook`** คุณสามารถสร้างสมุดทำงานภายนอกจากศูนย์หรือทำให้สมุดทำงานภายในเป็นภายนอกได้
+Aspose.Slides รองรับเวิร์กชีทรายการภายนอกเป็นแหล่งข้อมูลสำหรับแผนภูมิ
 
-โค้ด Java นี้สาธิตกระบวนการสร้างสมุดทำงานภายนอก:
+### **สร้างเวิร์กชีทรายการภายนอก**
+
+โดยใช้เมธอด **`readWorkbookStream`** และ **`setExternalWorkbook`** คุณสามารถสร้างเวิร์กชีทรายการภายนอกตั้งแต่ต้น หรือทำให้เวิร์กชีทภายในกลายเป็นภายนอกได้
+
+โค้ด Java ตัวอย่างต่อไปนี้แสดงกระบวนการสร้างเวิร์กชีทรายการภายนอก:
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 Presentation pres = new Presentation();
 try {
     final String workbookPath = "externalWorkbook1.xlsx";
@@ -181,14 +220,17 @@ try {
 }
 ```
 
-### **กำหนดสมุดทำงานภายนอก**
-โดยใช้เมธอด **`setExternalWorkbook`** คุณสามารถกำหนดสมุดทำงานภายนอกให้กับแผนภูมิเป็นแหล่งข้อมูลได้ วิธีนี้ยังสามารถใช้เพื่ออัปเดตเส้นทางของสมุดทำงานภายนอก (หากไฟล์ดังกล่าวถูกย้าย)
+### **กำหนดเวิร์กชีทรายการภายนอก**
 
-แม้ว่าคุณจะไม่สามารถแก้ไขข้อมูลในสมุดทำงานที่จัดเก็บในตำแหน่งห่างไกลหรือทรัพยากรได้ แต่คุณยังสามารถใช้สมุดทำงานเหล่านั้นเป็นแหล่งข้อมูลภายนอกได้ หากระบุเส้นทางสัมพันธ์สำหรับสมุดทำงานภายนอก ระบบจะทำการแปลงเป็นเส้นทางเต็มโดยอัตโนมัติ
+โดยใช้เมธอด **`setExternalWorkbook`** คุณสามารถกำหนดเวิร์กชีทรายการภายนอกให้กับแผนภูมิเป็นแหล่งข้อมูลได้ เมธอดนี้ยังใช้เพื่ออัปเดตเส้นทางของเวิร์กชีทรายการภายนอก (หากไฟล์ดังกล่าวถูกย้ายตำแหน่ง)
 
-โค้ด Java นี้แสดงวิธีการกำหนดสมุดทำงานภายนอก:
+แม้คุณจะไม่สามารถแก้ไขข้อมูลในเวิร์กชีทที่จัดเก็บในตำแหน่งจากระยะไกลหรือทรัพยากรได้ แต่คุณยังสามารถใช้เวิร์กชีทเหล่านี้เป็นแหล่งข้อมูลภายนอกได้ หากระบุเส้นทางสัมพันธ์สำหรับเวิร์กชีทรายการภายนอก มันจะถูกแปลงเป็นเส้นทางเต็มโดยอัตโนมัติ
+
+โค้ด Java ตัวอย่างต่อไปนี้แสดงวิธีกำหนดเวิร์กชีทรายการภายนอก:
 
 ```java
+import com.aspose.slides.*;
+
 // สร้างอินสแตนซ์ของคลาส Presentation
 Presentation pres = new Presentation("chart.pptx");
 try {
@@ -212,12 +254,14 @@ try {
 }
 ```
 
-พารามิเตอร์ `ChartData` (ภายใต้เมธอด `setExternalWorkbook`) ใช้เพื่อระบุว่าจะโหลดสมุดทำงาน Excel หรือไม่
+พารามิเตอร์ `updateChartData` (ภายใต้เมธอด `setExternalWorkbook`) ใช้เพื่อระบุว่าจะโหลดเวิร์กชีท Excel หรือไม่
 
-* เมื่อค่าของ `ChartData` ตั้งเป็น `false` จะอัปเดตเฉพาะเส้นทางของสมุดทำงาน — ข้อมูลแผนภูมิจะไม่ถูกโหลดหรืออัปเดตจากสมุดทำงานเป้าหมาย คุณอาจใช้การตั้งค่านี้เมื่อสมุดทำงานเป้าหมายไม่มีอยู่หรือไม่พร้อมใช้งาน
-* เมื่อค่าของ `ChartData` ตั้งเป็น `true` ข้อมูลแผนภูมิจะอัปเดตจากสมุดทำงานเป้าหมาย
+* เมื่อค่า `updateChartData` ตั้งเป็น `false` จะอัปเดตเฉพาะเส้นทางของเวิร์กชีท — ข้อมูลแผนภูมิจะไม่ถูกโหลดหรืออัปเดตจากเวิร์กชีทเป้าหมาย คุณอาจต้องการใช้การตั้งค่านี้เมื่อเวิร์กชีทเป้าหมายไม่มีอยู่หรือไม่สามารถเข้าถึงได้
+* เมื่อค่า `updateChartData` ตั้งเป็น `true` ข้อมูลแผนภูมิจะถูกอัปเดตจากเวิร์กชีทเป้าหมาย
 
 ```java
+import com.aspose.slides.*;
+
 // สร้างอินสแตนซ์ของคลาส Presentation
 Presentation pres = new Presentation("chart.pptx");
 try {
@@ -232,16 +276,19 @@ try {
 }
 ```
 
-### **ดึงเส้นทางของสมุดทำงานแหล่งข้อมูลภายนอกจากแผนภูมิ**
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://apireference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation) 
-2. ดึงอ้างอิงสไลด์ผ่านดัชนีของมัน
-3. สร้างอ็อบเจ็กต์สำหรับรูปร่างแผนภูมิ
-4. สร้างอ็อบเจ็กต์สำหรับประเภทแหล่งข้อมูล (`ChartDataSourceType`) ที่เป็นตัวแทนของแหล่งข้อมูลของแผนภูมิ
-5. ระบุเงื่อนไขที่เกี่ยวข้องโดยอิงจากประเภทแหล่งข้อมูลที่ตรงกับประเภทแหล่งข้อมูลของสมุดทำงานภายนอก
+### **รับเส้นทางของเวิร์กชีทรายการภายนอกที่ใช้เป็นแหล่งข้อมูลของแผนภูมิ**
 
-โค้ด Java นี้สาธิตการดำเนินการ:
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://apireference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation) 
+1. ดึงอ้างอิงของสไลด์ผ่านดัชนี
+1. สร้างออบเจ็กต์สำหรับรูปร่างแผนภูมิ
+1. สร้างออบเจ็กต์สำหรับประเภทแหล่งข้อมูล (`ChartDataSourceType`) ที่แสดงถึงแหล่งข้อมูลของแผนภูมิ
+1. ระบุเงื่อนไขที่เกี่ยวข้องโดยอิงตามประเภทแหล่งข้อมูลที่ตรงกับประเภทแหล่งข้อมูลของเวิร์กชีทรายการภายนอก
+
+โค้ด Java ตัวอย่างนี้แสดงการทำงาน:
 
 ```java
+import com.aspose.slides.*;
+
 // สร้างอินสแตนซ์ของคลาส Presentation
 Presentation pres = new Presentation("chart.pptx");
 try {
@@ -253,8 +300,8 @@ try {
     {
         String path = chart.getChartData().getExternalWorkbookPath();
     }
-    
-    // บันทึกการนำเสนอ
+	
+	// บันทึกพรีเซนเทชัน
     pres.save("result.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -262,11 +309,14 @@ try {
 ```
 
 ### **แก้ไขข้อมูลแผนภูมิ**
-คุณสามารถแก้ไขข้อมูลในสมุดทำงานภายนอกได้เช่นเดียวกับการเปลี่ยนแปลงเนื้อหาในสมุดทำงานภายใน เมื่อสมุดทำงานภายนอกไม่สามารถโหลดได้ ระบบจะขว้างข้อยกเว้น
 
-โค้ด Java นี้เป็นการนำเสนอขั้นตอนที่อธิบายไว้:
+คุณสามารถแก้ไขข้อมูลในเวิร์กชีทรายการภายนอกได้เช่นเดียวกับการแก้ไขเนื้อหาในเวิร์กชีทภายใน เมื่อเวิร์กชีทรายการภายนอกไม่สามารถโหลดได้ จะเกิดข้อยกเว้น
+
+โค้ด Java ตัวอย่างต่อไปนี้เป็นการนำเสนอขั้นตอนที่อธิบายไว้:
 
 ```java
+import com.aspose.slides.*;
+
 // สร้างอินสแตนซ์ของคลาส Presentation
 Presentation pres = new Presentation("chart.pptx");
 try {
@@ -281,12 +331,15 @@ try {
 }
 ```
 
-### **กู้คืนสมุดทำงานจากแคชของแผนภูมิ**
-หากแผนภูมิใช้สมุดทำงานภายนอกที่หายไปหรือไม่พร้อมใช้งาน Aspose.Slides สามารถสร้างสมุดทำงานของแผนภูมิใหม่จากข้อมูลที่แคชไว้ในงานนำเสนอได้ สร้าง [LoadOptions](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/loadoptions/), ตั้งค่าโดยใช้ [SpreadsheetOptions](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/spreadsheetoptions/), และเรียก [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) ด้วยค่า `true` ก่อนเปิดงานนำเสนอ
+### **กู้คืนเวิร์กชีทจากแคชของแผนภูมิ**
 
-ตัวอย่าง Java ต่อไปนี้เปิดงานนำเสนอที่แผนภูมิเชื่อมโยงกับสมุดทำงานภายนอกที่ไม่สามารถเข้าถึงได้และเข้าถึงข้อมูลที่กู้คืนผ่าน [IChart.getChartData](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ichart/#getChartData--) และ [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ichartdata/#getChartDataWorkbook--):
+หากแผนภูมิใช้เวิร์กชีทรายการภายนอกที่หายไปหรือไม่พร้อมใช้งาน Aspose.Slides สามารถสร้างเวิร์กชีทของแผนภูมิใหม่จากข้อมูลที่แคชไว้ในพรีเซนเทชันได้ สร้างอ็อบเจ็กต์ [LoadOptions](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/loadoptions/) กำหนดค่าโดยใช้ [SpreadsheetOptions](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/spreadsheetoptions/) แล้วเรียกเมธอด [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) ให้เป็น `true` ก่อนเปิดพรีเซนเทชัน
+
+ตัวอย่าง Java ด้านล่างเปิดพรีเซนเทชันที่แผนภูมิเชื่อมโยงกับเวิร์กชีทรายการภายนอกที่ไม่สามารถเข้าถึงได้ และเข้าถึงข้อมูลที่กู้คืนผ่าน [IChart.getChartData](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ichart/#getChartData--) และ [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ichartdata/#getChartDataWorkbook--):
 
 ```java
+import com.aspose.slides.*;
+
 SpreadsheetOptions spreadsheetOptions = new SpreadsheetOptions();
 spreadsheetOptions.setRecoverWorkbookFromChartCache(true);
 
@@ -298,29 +351,36 @@ try {
     IChart chart = (IChart)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
     IChartDataWorkbook recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
 
-    // อ่านหรือแก้ไขข้อมูลสมุดทำงานที่กู้คืนที่นี่
+    // อ่านหรือแก้ไขข้อมูลเวิร์กชีทรายการที่กู้คืนได้ที่นี่.
 } finally {
     presentation.dispose();
 }
 ```
 
-หากสมุดทำงานภายนอกไม่พร้อมใช้งานและการกู้คืนถูกปิดใช้งาน Aspose.Slides จะขว้างข้อยกเว้น เปิดใช้การกู้คืนเฉพาะเมื่อการใช้ข้อมูลแผนภูมิที่แคชเป็นวิธีสำรองที่ยอมรับได้ เนื่องจากแคชอาจไม่รวมการเปลี่ยนแปลงที่ทำกับสมุดทำงานภายนอกหลังจากที่งานนำเสนออัปเดตครั้งล่าสุด
+หากเวิร์กชีทรายการภายนอกไม่พร้อมใช้งานและปิดการกู้คืน Aspose.Slides จะโยนข้อยกเว้น ให้เปิดการกู้คืนเฉพาะเมื่อการใช้ข้อมูลแผนภูมิที่แคชเป็นวิธีสำรองที่ยอมรับได้ เพราะแคชอาจไม่มีการเปลี่ยนแปลงที่ทำในเวิร์กชีทรายการภายนอกหลังจากพรีเซนเทชันอัปเดตครั้งสุดท้าย
 
 ## **FAQ**
-**ฉันสามารถระบุได้หรือไม่ว่าแผนภูมิใดเชื่อมโยงกับสมุดทำงานภายนอกหรือฝังอยู่?**  
-ใช่ แผนภูมิมี [ประเภทแหล่งข้อมูล](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/chartdata/#getDataSourceType--) และ [เส้นทางไปยังสมุดทำงานภายนอก](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--) หากแหล่งเป็นสมุดทำงานภายนอก คุณสามารถอ่านเส้นทางเต็มเพื่อยืนยันว่าไฟล์ภายนอกถูกใช้งานอยู่
 
-**รองรับเส้นทางสัมพันธ์ไปยังสมุดทำงานภายนอกหรือไม่ และถูกจัดเก็บอย่างไร?**  
-ใช่ หากคุณระบุเส้นทางสัมพันธ์ ระบบจะทำการแปลงเป็นเส้นทางเต็มโดยอัตโนมัติ ซึ่งสะดวกต่อการพกพาโปรเจกต์; อย่างไรก็ตาม ให้ทราบว่างานนำเสนอจะจัดเก็บเส้นทางเต็มในไฟล์ PPTX
+**ฉันจะตรวจสอบได้หรือไม่ว่ากราฟใดเชื่อมโยงกับเวิร์กชีทรายการภายนอกหรือเวิร์กชีทที่ฝังอยู่?**
 
-**ฉันสามารถใช้สมุดทำงานที่อยู่บนทรัพยากร/แชร์เครือข่ายได้หรือไม่?**  
-ใช่ สามารถใช้สมุดทำงานเหล่านั้นเป็นแหล่งข้อมูลภายนอกได้ แต่การแก้ไขสมุดทำงานระยะไกลโดยตรงจาก Aspose.Slides ไม่รองรับ — สามารถใช้เป็นแหล่งข้อมูลเท่านั้น
+ได้ แผนภูมิมี [data source type](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/chartdata/#getDataSourceType--) และ [path to an external workbook](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--) หากแหล่งข้อมูลเป็นเวิร์กชีทรายการภายนอก คุณสามารถอ่านเส้นทางเต็มเพื่อยืนยันว่ามีการใช้ไฟล์ภายนอก
 
-**Aspose.Slides จะเขียนทับไฟล์ XLSX ภายนอกเมื่อตั้งค่าบันทึกงานนำเสนอหรือไม่?**  
-ไม่ งานนำเสนอจะเก็บ [ลิงก์ไปยังไฟล์ภายนอก](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--) และใช้ลิงก์นั้นเพื่ออ่านข้อมูล ไฟล์ภายนอกเองจะไม่ถูกแก้ไขเมื่อบันทึกงานนำเสนอ
+**รองรับเส้นทางสัมพันธ์ไปยังเวิร์กชีทรายการภายนอกหรือไม่ และเก็บอย่างไร?**
 
-**ถ้าไฟล์ภายนอกถูกป้องกันด้วยรหัสผ่านควรทำอย่างไร?**  
-Aspose.Slides ไม่รับรหัสผ่านเมื่อเชื่อมโยง วิธีที่ใช้บ่อยคือถอดการป้องกันล่วงหน้าหรือเตรียมสำเนาที่ถอดรหัสแล้ว (เช่น ใช้ [Aspose.Cells](/cells/androidjava/)) แล้วเชื่อมโยงไปยังสำเนานั้น
+รองรับ หากคุณระบุเส้นทางสัมพันธ์ มันจะถูกแปลงเป็นเส้นทางแบบเต็มโดยอัตโนมัติ ซึ่งสะดวกต่อการพกพาโปรเจกต์ อย่างไรก็ตามพรีเซนเทชันจะเก็บเส้นทางแบบเต็มในไฟล์ PPTX
 
-**หลายแผนภูมิสามารถอ้างอิงสมุดทำงานภายนอกเดียวกันได้หรือไม่?**  
-ได้ แต่ละแผนภูมิจะเก็บลิงก์ของตนเอง หากทั้งหมดชี้ไปยังไฟล์เดียวกัน การอัปเดตไฟล์นั้นจะสะท้อนในแต่ละแผนภูมิในครั้งต่อไปที่โหลดข้อมูล
+**ฉันสามารถใช้เวิร์กชีทที่อยู่บนทรัพยากร/แชร์เครือข่ายได้หรือไม่?**
+
+ได้ เวิร์กชีทเหล่านั้นสามารถใช้เป็นแหล่งข้อมูลภายนอกได้ แต่การแก้ไขเวิร์กชีทระยะไกลโดยตรงจาก Aspose.Slides ไม่ได้รับการสนับสนุน — สามารถใช้เป็นแหล่งข้อมูลเท่านั้น
+
+**Aspose.Slides จะเขียนทับไฟล์ XLSX ภายนอกเมื่อบันทึกพรีเซนเทชันหรือไม่?**
+
+ไม่ พรีเซนเทชันเก็บ [link to the external file](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--) และใช้ลิงก์นั้นเพื่ออ่านข้อมูล ไฟล์ภายนอกจะไม่ถูกแก้ไขเมื่อบันทึกพรีเซนเทชัน
+
+**ถ้าไฟล์ภายนอกถูกตั้งรหัสผ่านควรทำอย่างไร?**
+
+Aspose.Slides ไม่รับรหัสผ่านเมื่อทำการลิงก์ วิธีทั่วไปคือถอดรหัสป้องกันล่วงหน้าหรือเตรียมสำเนาที่ไม่มีการเข้ารหัส (เช่น ใช้ [Aspose.Cells](/cells/androidjava/)) แล้วลิงก์ไปยังสำเนานั้น
+
+**หลายแผนภูมิสามารถอ้างอิงเวิร์กชีทรายการภายนอกเดียวกันได้หรือไม่?**
+
+ได้ แต่ละแผนภูมีลิงก์ของตนเอง หากทุกแผนภูมอ้างอิงไฟล์เดียวกัน การอัปเดตไฟล์นั้นจะสะท้อนในแต่ละแผนภูมิในครั้งถัดไปที่โหลดข้อมูล**

@@ -20,21 +20,20 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Upptäck Aspose.Slides för Android via Java: hantera enkelt diagramarböcker i PowerPoint- och OpenDocument-format för att förenkla dina presentationsdata."
+description: "Upptäck Aspose.Slides för Android via Java: hantera enkelt diagramarböcker i PowerPoint- och OpenDocument-format för att effektivisera dina presentationsdata."
 ---
 ## **Översikt**
 
-Den här artikeln förklarar hur man arbetar med diagramarbetsböcker i Aspose.Slides. Den visar hur man läser och skriver diagramdata via arbetsbokströmmar, använder arbetsboksceller som diagramdatamärkningar, får åtkomst till arbetsbladssamlingar och specificerar datakälltypen för diagramvärden.
+Denna artikel förklarar hur du arbetar med diagramarbetsböcker i Aspose.Slides. Den visar hur du läser och skriver diagramdata via arbetsboksströmmar, använder arbetsboks-celler som diagramdatamärkning, får åtkomst till arbetsbladssamlingar och anger datakälltyp för diagramvärden.
 
-Den behandlar också hur man arbetar med externa arbetsböcker som diagramdatakällor. Exemplen visar hur man skapar och tilldelar en extern arbetsbok, hämtar sökvägen till en extern arbetsbok som är kopplad till ett diagram, samt redigerar diagramdata när arbetsboken är tillgänglig.
+Den behandlar också hur du arbetar med externa arbetsböcker som diagramdatakällor. Exemplen demonstrerar hur du skapar och tilldelar en extern arbetsbok, hämtar sökvägen till en extern arbetsbok som är länkat till ett diagram och redigerar diagramdata när arbetsboken är tillgänglig.
 
 ## **Läsa och skriva diagramdata från en arbetsbok**
-
-Aspose.Slides tillhandahåller metoderna [ReadWorkbookStream](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IChartData#readWorkbookStream--) och [WriteWorkbookStream](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) som låter dig läsa och skriva diagramdataarbetsböcker (innehållande diagramdata som redigerats med Aspose.Cells). **Obs** att diagramdata måste vara organiserad på samma sätt eller ha en struktur som liknar källan.
-
-Den här Java-koden demonstrerar ett exempel på en operation:
+Aspose.Slides tillhandahåller metoderna [ReadWorkbookStream](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IChartData#readWorkbookStream--) och [WriteWorkbookStream](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) som låter dig läsa och skriva diagramdataarbetsböcker (innehållande diagramdata redigerad med Aspose.Cells). **Obs!** att diagramdata måste vara organiserad på samma sätt eller ha en struktur som liknar källan.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("chart.pptx");
 try {
     Chart chart = (Chart) pres.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -51,23 +50,44 @@ try {
 }
 ```
 
-## **Ange en WorkBook-cell som diagramdatamärkning**
+### **Validera diagramlayout efter arbetsboksändring**
 
-1. Skapa en instans av klassen [Presentation](https://apireference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation).
-1. Hämta en slides referens via dess index.
-1. Lägg till ett bubbeldiagram med någon data.
-1. Få åtkomst till diagramserierna.
-1. Ange arbetsbokscellen som en datamärkning.
-1. Spara presentationen.
-
-Den här Java-koden visar hur du anger en arbetsbokscell som diagramdatamärkning:
+När du ersätter en inbäddad arbetsbok med en modifierad behåller diagrammet sina ursprungliga serier och kategori‑samlingar. Denna mismatch kan leda till att [IChart.validateChartLayout](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IChart#validateChartLayout--) misslyckas med ett index‑out‑of‑range‑fel. Rensa de befintliga serierna och kategorierna innan du skriver tillbaka den uppdaterade arbetsboken till diagrammet.
 
 ```java
+// Efter att ha modifierat arbetsboksströmmen (t.ex. med Aspose.Cells)
+byte[] updatedWorkbook = chartData.readWorkbookStream();
+
+// Rensa befintliga datreferenser.
+chartData.getSeries().clear();
+chartData.getCategories().clear();
+
+chartData.writeWorkbookStream(updatedWorkbook);
+
+chart.validateChartLayout();
+```
+
+Att rensa samlingarna säkerställer att diagramdatastrukturen är konsistent med den nya arbetsboken, så att `validateChartLayout` kan slutföras utan fel.
+
+## **Ange en arbetsboks‑cell som diagramdatamärkning**
+
+1. Skapa en instans av klassen [Presentation](https://apireference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation).
+1. Hämta en bildreferens via dess index.
+1. Lägg till ett bubbeldiagram med någon data.
+1. Få åtkomst till diagramserierna.
+1. Ange arbetsboks‑cellen som en datamärkning.
+1. Spara presentationen.
+
+Denna Java‑kod visar hur du anger en arbetsboks‑cell som en diagramdatamärkning:
+
+```java
+import com.aspose.slides.*;
+
 String lbl0 = "Label 0 cell value";
 String lbl1 = "Label 1 cell value";
 String lbl2 = "Label 2 cell value";
 
-// Instansierar en presentationsklass som representerar en presentationsfil
+// Instansierar en presentationklass som representerar en presentationsfil
 Presentation pres = new Presentation("chart2.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
@@ -91,9 +111,11 @@ try {
 
 ## **Hantera arbetsblad**
 
-Den här Java-koden demonstrerar en operation där metoden [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IChartDataWorkbook#getWorksheets--) används för att komma åt en arbetsbladssamling:
+Denna Java‑kod demonstrerar en operation där metoden [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IChartDataWorkbook#getWorksheets--) används för att komma åt en arbetsblads‑samling:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 500);
@@ -105,11 +127,13 @@ try {
 }
 ```
 
-## **Specificera datakälltypen**
+## **Ange datakälltyp**
 
-Den här Java-koden visar hur du specificerar en typ för en datakälla:
+Denna Java‑kod visar hur du anger en typ för en datakälla:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
@@ -127,11 +151,13 @@ try {
 }
 ```
 
-## **Upptäck ej stödda inbäddade arbetsboksformat**
+## **Upptäcka icke‑stödda inbäddade arbetsboksformat**
 
-Aspose.Slides stödjer inte Excel binärarbetsboksformatet (.xlsb) som kan bäddas in i vissa diagram. Du kan använda metoden `getEmbeddedWorkbookType` på [IChartData](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IChartData) tillsammans med uppräkningen [WorkbookType](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/WorkbookType) för att upptäcka ej stödda format och hoppa över de diagrammen.
+Aspose.Slides stödjer inte Excel‑binärarbetsboksformatet (.xlsb) som kan vara inbäddat i vissa diagram. Du kan använda metoden `getEmbeddedWorkbookType` på [IChartData](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/IChartData) tillsammans med uppräkningen [WorkbookType](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/WorkbookType) för att upptäcka icke‑stödda format och hoppa över dessa diagram.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -148,7 +174,7 @@ try {
             continue;
         }
 
-        // Läs eller ändra diagramarbokens data här.
+        // Läs eller modifiera diagramarbokens data här.
     }
 } finally {
     presentation.dispose();
@@ -157,15 +183,19 @@ try {
 
 ## **Extern arbetsbok**
 
-Aspose.Slides stödjer externa arbetsböcker som datakälla för diagram.
+Aspose.Slides stödjer externa arbetsböcker som en datakälla för diagram.
 
 ### **Skapa en extern arbetsbok**
 
-Med metoderna **`readWorkbookStream`** och **`setExternalWorkbook`** kan du antingen skapa en extern arbetsbok från början eller göra en intern arbetsbok extern.
+Med hjälp av metoderna **`readWorkbookStream`** och **`setExternalWorkbook`** kan du antingen skapa en extern arbetsbok från grunden eller göra en intern arbetsbok extern.
 
-Den här Java-koden demonstrerar processen för att skapa en extern arbetsbok:
+Denna Java‑kod demonstrerar processen för att skapa en extern arbetsbok:
 
 ```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 Presentation pres = new Presentation();
 try {
     final String workbookPath = "externalWorkbook1.xlsx";
@@ -190,13 +220,15 @@ try {
 
 ### **Ange en extern arbetsbok**
 
-Med metoden **`setExternalWorkbook`** kan du tilldela en extern arbetsbok till ett diagram som dess datakälla. Denna metod kan också användas för att uppdatera sökvägen till den externa arbetsboken (om den senare har flyttats).
+Genom att använda metoden **`setExternalWorkbook`** kan du tilldela en extern arbetsbok till ett diagram som dess datakälla. Metoden kan också användas för att uppdatera en sökväg till den externa arbetsboken (om den senare har flyttats).
 
-Även om du inte kan redigera data i arbetsböcker som lagras på fjärrplatser eller resurser, kan du fortfarande använda sådana arbetsböcker som extern datakälla. Om en relativ sökväg för en extern arbetsbok anges, konverteras den automatiskt till en fullständig sökväg.
+Även om du inte kan redigera data i arbetsböcker som lagras på fjärrplatser eller resurser, kan du fortfarande använda sådana arbetsböcker som en extern datakälla. Om en relativ sökväg för en extern arbetsbok anges konverteras den automatiskt till en fullständig sökväg.
 
-Den här Java-koden visar hur du anger en extern arbetsbok:
+Denna Java‑kod visar hur du anger en extern arbetsbok:
 
 ```java
+import com.aspose.slides.*;
+
 // Skapar en instans av Presentation-klassen
 Presentation pres = new Presentation("chart.pptx");
 try {
@@ -220,12 +252,14 @@ try {
 }
 ```
 
-Parametern `ChartData` (under metoden `setExternalWorkbook`) används för att specificera om en Excel-arbetsbok ska laddas eller inte. 
+Parametern `updateChartData` (under metoden `setExternalWorkbook`) används för att ange om en Excel‑arbetsbok ska läsas in eller inte.
 
-* När `ChartData` är satt till `false` uppdateras endast arbetsbokens sökväg – diagramdata laddas eller uppdateras inte från målarbetsboken. Du kan vilja använda denna inställning när målarbetsboken saknas eller är otillgänglig. 
-* När `ChartData` är satt till `true` uppdateras diagramdata från målarbetsboken.
+* När `updateChartData` är satt till `false` uppdateras endast arbetsbokens sökväg – diagramdata laddas inte och uppdateras inte från mål‑arbetsboken. Detta kan vara önskvärt när mål‑arbetsboken saknas eller är otillgänglig.  
+* När `updateChartData` är satt till `true` uppdateras diagramdata från mål‑arbetsboken.
 
 ```java
+import com.aspose.slides.*;
+
 // Skapar en instans av Presentation-klassen
 Presentation pres = new Presentation("chart.pptx");
 try {
@@ -240,17 +274,19 @@ try {
 }
 ```
 
-### **Hämta den externa datakällans arbetsboksökväg för ett diagram**
+### **Hämta den externa datakällans arbetsboks‑sökväg för ett diagram**
 
 1. Skapa en instans av klassen [Presentation](https://apireference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation).
-1. Hämta en slides referens via dess index.
+1. Hämta en bildreferens via dess index.
 1. Skapa ett objekt för diagramformen.
 1. Skapa ett objekt för källtypen (`ChartDataSourceType`) som representerar diagrammets datakälla.
 1. Specificera det relevanta villkoret baserat på att källtypen är densamma som den externa arbetsbokens datakälltyp.
 
-Den här Java-koden demonstrerar operationen:
+Denna Java‑kod demonstrerar operationen:
 
 ```java
+import com.aspose.slides.*;
+
 // Skapar en instans av Presentation-klassen
 Presentation pres = new Presentation("chart.pptx");
 try {
@@ -262,8 +298,8 @@ try {
     {
         String path = chart.getChartData().getExternalWorkbookPath();
     }
-    
-    // Sparar presentationen
+	
+	// Sparar presentationen
     pres.save("result.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -274,9 +310,11 @@ try {
 
 Du kan redigera data i externa arbetsböcker på samma sätt som du gör ändringar i innehållet i interna arbetsböcker. När en extern arbetsbok inte kan laddas kastas ett undantag.
 
-Den här Java-koden är en implementering av den beskrivna processen:
+Denna Java‑kod är en implementation av den beskrivna processen:
 
 ```java
+import com.aspose.slides.*;
+
 // Skapar en instans av Presentation-klassen
 Presentation pres = new Presentation("chart.pptx");
 try {
@@ -291,13 +329,15 @@ try {
 }
 ```
 
-### **Återskapa en arbetsbok från diagramcachen**
+### **Återskapa en arbetsbok från diagram‑cachen**
 
-Om ett diagram använder en extern arbetsbok som saknas eller är otillgänglig kan Aspose.Slides rekonstruera diagramarbetsboken från de data som cachats i presentationen. Skapa [LoadOptions](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/loadoptions/), konfigurera den med [SpreadsheetOptions](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/spreadsheetoptions/), och anropa [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) med `true` innan presentationen öppnas.
+Om ett diagram använder en extern arbetsbok som saknas eller är otillgänglig kan Aspose.Slides rekonstruera diagramarbetsboken från de data som cachats i presentationen. Skapa [LoadOptions](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/loadoptions/), konfigurera den med [SpreadsheetOptions](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/spreadsheetoptions/), och anropa [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) med `true` innan du öppnar presentationen.
 
-Följande Java-exempel öppnar en presentation vars diagram refererar till en otillgänglig extern arbetsbok och får åtkomst till de återställda data via [IChart.getChartData](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichart/#getChartData--) och [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartdata/#getChartDataWorkbook--):
+Följande Java‑exempel öppnar en presentation vars diagram refererar till en otillgänglig extern arbetsbok och får åtkomst till de återställda data via [IChart.getChartData](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichart/#getChartData--) och [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartdata/#getChartDataWorkbook--):
 
 ```java
+import com.aspose.slides.*;
+
 SpreadsheetOptions spreadsheetOptions = new SpreadsheetOptions();
 spreadsheetOptions.setRecoverWorkbookFromChartCache(true);
 
@@ -309,36 +349,36 @@ try {
     IChart chart = (IChart)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
     IChartDataWorkbook recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
 
-    // Läs eller ändra den återställda arbetsbokens data här.
+    // Läs eller modifiera de återställda arbetsbokens data här.
 } finally {
     presentation.dispose();
 }
 ```
 
-Om den externa arbetsboken är otillgänglig och återställning är inaktiverad kastar Aspose.Slides ett undantag. Aktivera återställning endast när användning av den cachade diagramdatan är ett acceptabelt alternativ, eftersom cachen kanske inte innehåller ändringar som gjorts i den externa arbetsboken efter att presentationen senast uppdaterades.
+Om den externa arbetsboken är otillgänglig och återställning är inaktiverad kastar Aspose.Slides ett undantag. Aktivera återställning endast när det är acceptabelt att använda den cachade diagramdatan som en fallback, eftersom cachen kanske inte innehåller ändringar som gjorts i den externa arbetsboken efter att presentationen senast uppdaterades.
 
 ## **FAQ**
 
-**Kan jag avgöra om ett specifikt diagram är länkat till en extern eller inbäddad arbetsbok?**
+**Kan jag avgöra om ett specifikt diagram är länkat till en extern eller en inbäddad arbetsbok?**
 
-Ja. Ett diagram har en [datakälltyp](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/chartdata/#getDataSourceType--) och en [sökväg till en extern arbetsbok](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--); om källan är en extern arbetsbok kan du läsa hela sökvägen för att försäkra dig om att en extern fil används.
+Ja. Ett diagram har en [data source type](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/chartdata/#getDataSourceType--) och en [path to an external workbook](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--); om källan är en extern arbetsbok kan du läsa den fullständiga sökvägen för att säkerställa att en extern fil används.
 
 **Stöds relativa sökvägar till externa arbetsböcker, och hur lagras de?**
 
-Ja. Om du anger en relativ sökväg konverteras den automatiskt till en absolut sökväg. Detta är bekvämt för projektportabilitet; dock bör du vara medveten om att presentationen lagrar den absoluta sökvägen i PPTX-filen.
+Ja. Om du anger en relativ sökväg konverteras den automatiskt till en absolut sökväg. Detta är praktiskt för projektportabilitet; dock lagrar presentationen den absoluta sökvägen i PPTX‑filen.
 
-**Kan jag använda arbetsböcker som ligger på nätverksresurser/delade mappar?**
+**Kan jag använda arbetsböcker som finns på nätverksresurser/delade mappar?**
 
-Ja, sådana arbetsböcker kan användas som extern datakälla. Redigering av fjärrarbetsböcker direkt från Aspose.Slides stöds dock inte – de kan endast användas som källa.
+Ja, sådana arbetsböcker kan användas som en extern datakälla. Redigering av fjärrarbetsböcker direkt från Aspose.Slides stöds dock inte – de kan endast användas som källa.
 
-**Skriver Aspose.Slides över den externa XLSX-filen när presentationen sparas?**
+**Skriver Aspose.Slides över den externa XLSX‑filen när presentationen sparas?**
 
-Nej. Presentationen lagrar en [länk till den externa filen](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--) och använder den för att läsa data. Den externa filen ändras inte när presentationen sparas.
+Nej. Presentationen lagrar en [link to the external file](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--) och använder den för att läsa data. Den externa filen ändras inte när presentationen sparas.
 
-**Vad ska jag göra om den externa filen är lösenordsskyddad?**
+**Vad gör jag om den externa filen är lösenordsskyddad?**
 
 Aspose.Slides accepterar inte ett lösenord vid länkning. Ett vanligt tillvägagångssätt är att ta bort skyddet i förväg eller förbereda en avkrypterad kopia (t.ex. med [Aspose.Cells](/cells/androidjava/)) och länka till den kopian.
 
 **Kan flera diagram referera till samma externa arbetsbok?**
 
-Ja. Varje diagram lagrar sin egen länk. Om de alla pekar på samma fil kommer en uppdatering av den filen att återspeglas i varje diagram nästa gång data laddas.
+Ja. Varje diagram lagrar sin egen länk. Om de alla pekar på samma fil kommer en uppdatering av filen att återspeglas i varje diagram nästa gång data laddas.

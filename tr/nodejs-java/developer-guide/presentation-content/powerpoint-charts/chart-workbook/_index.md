@@ -20,21 +20,24 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Java üzerinden Node.js için Aspose.Slides'i keşfedin: PowerPoint ve OpenDocument formatlarında grafik çalışma kitaplarını sorunsuz bir şekilde yönetin ve sunum verilerinizi düzenleyin."
+description: "Java aracılığıyla Node.js için Aspose.Slides'i keşfedin: PowerPoint ve OpenDocument formatlarında grafik çalışma kitaplarını sorunsuz bir şekilde yönetin ve sunum verilerinizi kolaylaştırın."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides içinde grafik çalışma kitaplarıyla nasıl çalışılacağını açıklar. Çalışma kitabı akışları aracılığıyla grafik verilerini okuma ve yazma, çalışma kitabı hücrelerini grafik veri etiketi olarak kullanma, çalışma sayfası koleksiyonlarına erişme ve grafik değerleri için veri kaynağı türünü belirtme konularını gösterir.
+Bu makale, Aspose.Slides içinde grafik çalışma kitaplarıyla nasıl çalışılacağını açıklar. Çalışma kitabı akışları aracılığıyla grafik verilerini okuma ve yazma, çalışma kitabı hücrelerini grafik veri etiketi olarak kullanma, çalışma sayfası koleksiyonlarına erişme ve grafik değerleri için veri kaynağı türünü belirtme yöntemlerini gösterir.
 
-Ayrıca dış çalışma kitaplarının grafik veri kaynakları olarak kullanımını da kapsar. Örnekler, bir dış çalışma kitabı oluşturup atamayı, bir grafikle ilişkilendirilmiş dış çalışma kitabının yolunu almayı ve çalışma kitabı mevcut olduğunda grafik verisini düzenlemeyi gösterir.
+Grafik veri kaynağı olarak dış çalışma kitaplarıyla çalışmayı da kapsar. Örnekler, bir dış çalışma kitabı oluşturup atamayı, bir grafikle ilişkilendirilmiş dış çalışma kitabının yolunu almayı ve çalışma kitabı mevcut olduğunda grafik verilerini düzenlemeyi gösterir.
 
-## **Bir Çalışma Kitabından Grafik Verilerini Okuma ve Yazma**
+## **Çalışma Kitabından Grafik Verilerini Okuma ve Yazma**
 
-Aspose.Slides, [readWorkbookStream](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ChartData#readWorkbookStream--) ve [writeWorkbookStream](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ChartData#writeWorkbookStream-byte:A-) yöntemlerini sağlar; bu yöntemler, Aspose.Cells ile düzenlenmiş grafik verilerini içeren çalışma kitaplarını okumanıza ve yazmanıza olanak tanır. **Not**: grafik verileri aynı şekilde düzenlenmiş olmalı veya kaynağa benzer bir yapıya sahip olmalıdır.
+Aspose.Slides, grafik verileri çalışma kitaplarını (Aspose.Cells ile düzenlenmiş grafik verilerini içeren) okumanıza ve yazmanıza olanak tanıyan [readWorkbookStream](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ChartData#readWorkbookStream--) ve [writeWorkbookStream](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ChartData#writeWorkbookStream-byte:A-) yöntemlerini sağlar. **Not** grafik verileri aynı şekilde düzenlenmiş olmalı veya kaynağa benzer bir yapıya sahip olmalıdır.
 
 Bu JavaScript kodu örnek bir işlemi gösterir:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("chart.pptx");
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -50,22 +53,44 @@ try {
 }
 ```
 
+### **Çalışma Kitabı Değiştirildikten Sonra Grafik Düzenini Doğrulama**
+
+Yerleşik bir çalışma kitabını değiştirilmiş bir sürümle değiştirdiğinizde, grafik orijinal serileri ve kategori koleksiyonlarını korur. Bu uyumsuzluk, [Chart.validateChartLayout](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Chart#validateChartLayout--) metodunun dizin dışı bir hata ile başarısız olmasına neden olabilir. Güncellenmiş çalışma kitabını grafiğe geri yazmadan önce mevcut serileri ve kategorileri temizleyin.
+
+```javascript
+// Çalışma kitabı akışını (örneğin Aspose.Cells kullanarak) değiştirdikten sonra
+var updatedWorkbook = chartData.readWorkbookStream();
+
+// Mevcut veri referanslarını temizle.
+chartData.getSeries().clear();
+chartData.getCategories().clear();
+
+chartData.writeWorkbookStream(updatedWorkbook);
+
+chart.validateChartLayout();
+```
+
+Koleksiyonların temizlenmesi, grafik veri yapısının yeni çalışma kitabı ile tutarlı olmasını sağlar ve `validateChartLayout`'un hatasız tamamlanmasına olanak tanır.
+
 ## **Çalışma Kitabı Hücresini Grafik Veri Etiketi Olarak Ayarlama**
 
 1. [Presentation](https://apireference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation) sınıfının bir örneğini oluşturun.  
-2. İndeksi aracılığıyla bir slaytın referansını alın.  
-3. Bir Bubble grafiği bazı verilerle ekleyin.  
+2. Bir slaytın referansını indeks aracılığıyla alın.  
+3. Bazı verilerle bir Kabarcık grafik ekleyin.  
 4. Grafik serisine erişin.  
 5. Çalışma kitabı hücresini veri etiketi olarak ayarlayın.  
-6. Sunumu kaydedin.  
+6. Sunumu kaydedin.
 
-Bu JavaScript kodu, bir çalışma kitabı hücresini grafik veri etiketi olarak nasıl ayarlayacağınızı gösterir:
+Bu JavaScript kodu, bir çalışma kitabı hücresini grafik veri etiketi olarak ayarlamayı gösterir:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var lbl0 = "Label 0 cell value";
 var lbl1 = "Label 1 cell value";
 var lbl2 = "Label 2 cell value";
-// Bir sunum dosyasını temsil eden bir sunum sınıfının örneğini oluşturur
+// Bir sunum dosyasını temsil eden sunum sınıfını örnekler
 var pres = new aspose.slides.Presentation("chart2.pptx");
 try {
     var slide = pres.getSlides().get_Item(0);
@@ -87,9 +112,12 @@ try {
 
 ## **Çalışma Sayfalarını Yönetme**
 
-Bu JavaScript kodu, [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ChartDataWorkbook#getWorksheets--) yönteminin bir çalışma sayfası koleksiyonuna erişmek için nasıl kullanıldığını gösterir:
+Bu JavaScript kodu, [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ChartDataWorkbook#getWorksheets--) metodunun bir çalışma sayfası koleksiyonuna erişmek için kullanıldığı bir işlemi gösterir:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 500);
@@ -106,9 +134,12 @@ try {
 
 ## **Veri Kaynağı Türünü Belirleme**
 
-Bu JavaScript kodu, bir veri kaynağı için tür nasıl belirtileceğini gösterir:
+Bu JavaScript kodu, bir veri kaynağı için tür nasıl belirlenir gösterir:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Column3D, 50, 50, 600, 400, true);
@@ -125,11 +156,15 @@ try {
 }
 ```
 
-## **Desteklenmeyen Gömülü Çalışma Kitabı Formatlarını Algılama**
+## **Desteklenmeyen Gömülü Çalışma Kitabı Biçimlerini Algılama**
 
-Aspose.Slides, bazı grafiklerde gömülebilen Excel ikili çalışma kitabı (.xlsb) formatını desteklemez. Desteklenmeyen formatları algılamak ve bu grafikleri atlamak için [ChartData](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdata/) üzerindeki `getEmbeddedWorkbookType` metodunu [WorkbookType](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/workbooktype/) enumu ile birlikte kullanabilirsiniz.
+Aspose.Slides, bazı grafiklerde gömülebilen Excel ikili çalışma kitabı (.xlsb) formatını desteklemez. Desteklenmeyen formatları tespit etmek ve bu grafikleri atlamak için [ChartData](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdata/) üzerindeki `getEmbeddedWorkbookType` metodunu ve [WorkbookType](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/workbooktype/) enum değerini kullanabilirsiniz.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -145,11 +180,11 @@ try {
 
         if (chartData.getDataSourceType() == aspose.slides.ChartDataSourceType.InternalWorkbook &&
                 chartData.getEmbeddedWorkbookType() == aspose.slides.WorkbookType.WorkbookBinaryMacro) {
-            // Gömülü çalışma kitabı .xlsb formatında ve desteklenmiyor.
+            // .xlsb formatında gömülü çalışma kitabı desteklenmemektedir.
             continue;
         }
 
-        // Burada grafik çalışma kitabı verilerini okuyun veya değiştirin.
+        // Burada grafik çalışma kitabı verilerini okuyabilir veya değiştirebilirsiniz.
     }
 } finally {
     presentation.dispose();
@@ -162,24 +197,20 @@ Aspose.Slides, grafikler için veri kaynağı olarak dış çalışma kitapları
 
 ### **Dış Çalışma Kitabı Oluşturma**
 
-**`readWorkbookStream`** ve **`setExternalWorkbook`** yöntemlerini kullanarak ya sıfırdan bir dış çalışma kitabı oluşturabilir ya da iç bir çalışma kitabını dışa dönüştürebilirsiniz.
-
-Bu JavaScript kodu dış çalışma kitabı oluşturma sürecini gösterir:
+**`readWorkbookStream`** ve **`setExternalWorkbook`** yöntemlerini kullanarak, ya baştan bir dış çalışma kitabı oluşturabilir ya da iç bir çalışma kitabını dışa dönüştürebilirsiniz.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const fileSystem = require("fs");
+
 var pres = new aspose.slides.Presentation();
 try {
-    final var workbookPath = "externalWorkbook1.xlsx";
+    var workbookPath = "externalWorkbook1.xlsx";
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600);
-    var fileStream = java.newInstanceSync("java.io.FileOutputStream", workbookPath);
-    try {
-        var workbookData = chart.getChartData().readWorkbookStream();
-        fileStream.write(workbookData, 0, workbookData.length);
-    } finally {
-        if (fileStream != null) {
-            fileStream.close();
-        }
-    }
+    // readWorkbookStream çalışma kitabı baytlarını bir Node Buffer olarak döndürür.
+    var workbookData = chart.getChartData().readWorkbookStream();
+    fileSystem.writeFileSync(workbookPath, Buffer.from(workbookData));
     chart.getChartData().setExternalWorkbook(workbookPath);
     pres.save("externalWorkbook.pptx", aspose.slides.SaveFormat.Pptx);
 } catch (e) {console.log(e);
@@ -192,13 +223,14 @@ try {
 
 ### **Dış Çalışma Kitabını Ayarlama**
 
-**`setExternalWorkbook`** yöntemiyle bir grafiğin veri kaynağı olarak dış bir çalışma kitabı atayabilirsiniz. Bu yöntem aynı zamanda dış çalışma kitabının yolu (taşınmışsa) güncellenmek istendiğinde de kullanılabilir.
+**`setExternalWorkbook`** metodunu kullanarak, bir grafiğin veri kaynağı olarak dış bir çalışma kitabını atayabilirsiniz. Bu yöntem, dış çalışma kitabının yolunu güncellemek için de kullanılabilir (eğer dış çalışma kitabı taşınmışsa).
 
-Uzak konumlardaki ya da kaynaklardaki çalışma kitaplarındaki verileri doğrudan düzenleyemezsiniz, ancak bu çalışma kitaplarını dış veri kaynağı olarak kullanabilirsiniz. Bir dış çalışma kitabı için göreli bir yol sağlanırsa, otomatik olarak tam yola dönüştürülür.
-
-Bu JavaScript kodu dış bir çalışma kitabını nasıl ayarlayacağınızı gösterir:
+Uzak konumlardaki veya kaynaklardaki çalışma kitaplarındaki verileri düzenleyemesiniz de, bu çalışma kitaplarını hâlâ dış bir veri kaynağı olarak kullanabilirsiniz. Dış bir çalışma kitabı için göreli bir yol sağlanırsa, otomatik olarak tam bir yola dönüştürülür.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Presentation sınıfının bir örneğini oluşturur
 var pres = new aspose.slides.Presentation("chart.pptx");
 try {
@@ -220,12 +252,15 @@ try {
 }
 ```
 
-`ChartData` parametresi (`setExternalWorkbook` metodunun altında) bir Excel çalışma kitabının yükleneceğini belirlemek için kullanılır.
+`setExternalWorkbook` metodunun ikinci parametresi olan `updateChartData`, Excel çalışma kitabının yüklenip yüklenmeyeceğini belirler.
 
-* `ChartData` değeri `false` olarak ayarlandığında yalnızca çalışma kitabı yolu güncellenir—grafik verisi hedef çalışma kitabından yüklenmez veya güncellenmez. Hedef çalışma kitabı mevcut değilse ya da erişilemiyorsa bu ayarı kullanabilirsiniz.  
-* `ChartData` değeri `true` olarak ayarlandığında grafik verisi hedef çalışma kitabından güncellenir.
+* `updateChartData` `false` olarak ayarlandığında, sadece çalışma kitabı yolu güncellenir—grafik verileri hedef çalışma kitabından yüklenmez veya güncellenmez. Bu ayarı, hedef çalışma kitabı mevcut olmadığında veya erişilemediğinde kullanmak isteyebilirsiniz.  
+* `updateChartData` `true` olarak ayarlandığında, grafik verileri hedef çalışma kitabından güncellenir.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Presentation sınıfının bir örneğini oluşturur
 var pres = new aspose.slides.Presentation("chart.pptx");
 try {
@@ -243,14 +278,17 @@ try {
 ### **Grafik Dış Veri Kaynağı Çalışma Kitabı Yolunu Alma**
 
 1. [Presentation](https://apireference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation) sınıfının bir örneğini oluşturun.  
-2. İndeksi aracılığıyla bir slaytın referansını alın.  
+2. Bir slaytın referansını indeks aracılığıyla alın.  
 3. Grafik şekli için bir nesne oluşturun.  
-4. Grafiğin veri kaynağını temsil eden (`ChartDataSourceType`) nesneyi oluşturun.  
-5. Kaynak türü dış çalışma kitabı veri kaynağı türüyle aynı olduğunda ilgili koşulu belirtin.  
+4. Grafiğin veri kaynağını temsil eden kaynak (`ChartDataSourceType`) türü için bir nesne oluşturun.  
+5. Kaynak türünün dış çalışma kitabı veri kaynağı türüyle aynı olması durumuna göre ilgili koşulu belirtin.
 
 Bu JavaScript kodu işlemi gösterir:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Presentation sınıfının bir örneğini oluşturur
 var pres = new aspose.slides.Presentation("chart.pptx");
 try {
@@ -269,13 +307,14 @@ try {
 }
 ```
 
-### **Grafik Verisini Düzenleme**
+### **Grafik Verilerini Düzenleme**
 
-Dış çalışma kitaplarındaki verileri, iç çalışma kitaplarındaki içeriklerde yaptığınız değişiklikler gibi düzenleyebilirsiniz. Bir dış çalışma kitabı yüklenemediğinde bir istisna fırlatılır.
-
-Bu JavaScript kodu açıklanan sürecin uygulanmasını gösterir:
+Dış çalışma kitaplarındaki verileri, iç çalışma kitaplarının içeriğinde yaptığınız değişiklikler gibi düzenleyebilirsiniz. Dış bir çalışma kitabı yüklenemediğinde bir istisna fırlatılır.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Presentation sınıfının bir örneğini oluşturur
 var pres = new aspose.slides.Presentation("chart.pptx");
 try {
@@ -290,13 +329,16 @@ try {
 }
 ```
 
-### **Grafik Önbelleğinden Çalışma Kitabını Geri Kazanma**
+### **Grafik Önbelleğinden Çalışma Kitabını Geri Getirme**
 
-Bir grafik, eksik ya da erişilemeyen bir dış çalışma kitabı kullanıyorsa, Aspose.Slides sunumda önbelleğe alınan verilerden grafik çalışma kitabını yeniden oluşturabilir. [LoadOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/loadoptions/) oluşturun, onu [SpreadsheetOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/spreadsheetoptions/) ile yapılandırın ve sunumu açmadan önce `true` ile [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) metodunu çağırın.
+Bir grafik, eksik veya mevcut olmayan bir dış çalışma kitabı kullanıyorsa, Aspose.Slides sunumda önbelleğe alınmış verilerden grafik çalışma kitabını yeniden oluşturabilir. [LoadOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/loadoptions/) oluşturun, [SpreadsheetOptions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/spreadsheetoptions/) ile yapılandırın ve sunumu açmadan önce `true` ile [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) metodunu çağırın.
 
-Aşağıdaki JavaScript örneği, bir dış çalışma kitabına başvurusu olmayan bir sunumu açar ve geri kazanılan verileri [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdata/#getChartDataWorkbook) üzerinden erişir:
+Aşağıdaki JavaScript örneği, grafiği mevcut olmayan bir dış çalışma kitabına referans veren bir sunumu açar ve geri alınan verilere [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdata/#getChartDataWorkbook) aracılığıyla erişir:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 const spreadsheetOptions = new aspose.slides.SpreadsheetOptions();
 spreadsheetOptions.setRecoverWorkbookFromChartCache(true);
 
@@ -308,30 +350,30 @@ try {
     const chart = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
     const recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
 
-    // Burada kurtarılan çalışma kitabı verilerini okuyun veya değiştirin.
+    // Kurtarılmış çalışma kitabı verilerini burada okuyabilir veya değiştirebilirsiniz.
 } finally {
     presentation.dispose();
 }
 ```
 
-Dış çalışma kitabı kullanılabilir değilse ve geri kazanma devre dışı bırakıldıysa, Aspose.Slides bir istisna fırlatır. Önbellekteki grafik verilerini bir yedek olarak kullanmak kabul edilebilir olduğunda yalnızca geri kazanma etkinleştirilmelidir; çünkü önbellek, dış çalışma kitabının son güncellemesinden sonraki değişiklikleri içermeyebilir.
+Eğer dış çalışma kitabı mevcut değil ve geri getirme devre dışı bırakılmışsa, Aspose.Slides bir istisna fırlatır. Önbelleğe alınmış grafik verilerini kullanmak kabul edilebilir bir alternatif olduğunda yalnızca geri getirmeyi etkinleştirin, çünkü önbellek sunum en son güncellendiğinden sonra dış çalışma kitabında yapılan değişiklikleri içermeyebilir.
 
 ## **SSS**
 
-**Belirli bir grafiğin dış mı yoksa gömülü bir çalışma kitabına mı bağlandığını belirleyebilir miyim?**  
-Evet. Bir grafiğin bir [veri kaynağı türü](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) ve bir [dış çalışma kitabı yolu](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) vardır; kaynak dış bir çalışma kitabıysa tam yolu okuyarak dış bir dosyanın kullanıldığını doğrulayabilirsiniz.
+**Belirli bir grafiğin dış bir çalışma kitabına mı yoksa gömülü bir çalışma kitabına mı bağlandığını belirleyebilir miyim?**  
+Evet. Bir grafiğin bir [veri kaynağı türü](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) ve bir [dış çalışma kitabı yolu](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) vardır; kaynak dış bir çalışma kitabıysa, dış bir dosyanın kullanıldığından emin olmak için tam yolu okuyabilirsiniz.
 
-**Dış çalışma kitapları için göreli yollar destekleniyor mu, nasıl depolanıyor?**  
-Evet. Göreli bir yol belirtirseniz otomatik olarak mutlak yola dönüştürülür. Bu, proje taşınabilirliği için kullanışlıdır; ancak sunum, mutlak yolu PPTX dosyasında saklayacaktır.
+**Dış çalışma kitapları için göreli yollar destekleniyor mu ve nasıl depolanıyor?**  
+Evet. Göreli bir yol belirtirseniz, otomatik olarak mutlak bir yola dönüştürülür. Bu, projenin taşınabilirliği için uygundur; ancak, sunumun PPTX dosyasında mutlak yolu saklayacağını unutmayın.
 
-**Ağ kaynakları/paylaşımları üzerindeki çalışma kitaplarını kullanabilir miyim?**  
-Evet, bu tür çalışma kitapları dış veri kaynağı olarak kullanılabilir. Ancak, uzak çalışma kitaplarını doğrudan Aspose.Slides ile düzenlemek desteklenmez—yalnızca kaynak olarak kullanılabilirler.
+**Ağ kaynaklarında/paylaşımlarda bulunan çalışma kitaplarını kullanabilir miyim?**  
+Evet, bu tür çalışma kitapları dış veri kaynağı olarak kullanılabilir. Ancak, uzak çalışma kitaplarını Aspose.Slides üzerinden doğrudan düzenlemek desteklenmez—yalnızca bir kaynak olarak kullanılabilirler.
 
-**Sunumu kaydederken Aspose.Slides dış XLSX dosyasını üzerine yazar mı?**  
-Hayır. Sunum, dış dosyaya bir [bağlantı](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) saklar ve veri okurken bu bağlantıyı kullanır. Sunum kaydedildiğinde dış dosya değiştirilmez.
+**Aspose.Slides, sunumu kaydederken dış XLSX dosyasını üzerine yazar mı?**  
+Hayır. Sunum, dış dosyaya bir [bağlantı](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) saklar ve verileri okumak için bu bağlantıyı kullanır. Sunum kaydedildiğinde dış dosya kendisi değişmez.
 
 **Dış dosya şifre korumalıysa ne yapmalıyım?**  
-Aspose.Slides, bağlanırken şifre kabul etmez. Yaygın bir yaklaşım, önceden korumayı kaldırmak ya da bir [Aspose.Cells](/cells/nodejs-java/) kullanarak şifresiz bir kopya hazırlamak ve bu kopyaya bağlamaktır.
+Aspose.Slides, bağlanırken şifre kabul etmez. Yaygın bir yaklaşım, önceden korumayı kaldırmak ya da şifresiz bir kopya hazırlamaktır (örneğin, [Aspose.Cells](/cells/nodejs-java/) kullanarak) ve bu kopyaya bağlanmaktır.
 
-**Birden fazla grafik aynı dış çalışma kitabına başvurabilir mi?**  
-Evet. Her grafik kendi bağlantısını saklar. Hepsi aynı dosyaya işaret ediyorsa, dosya güncellendiğinde veri bir sonraki yüklemede her grafikte de yansıtılır.
+**Birden fazla grafik aynı dış çalışma kitabına referans verebilir mi?**  
+Evet. Her grafik kendi bağlantısını saklar. Hepsi aynı dosyaya işaret ediyorsa, dosya güncellendiğinde veri bir sonraki yüklendiğinde her grafikte de yansıtılır.

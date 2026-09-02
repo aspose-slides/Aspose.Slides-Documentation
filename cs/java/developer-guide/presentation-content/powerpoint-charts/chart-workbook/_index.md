@@ -19,18 +19,18 @@ keywords:
 - prezentace
 - Java
 - Aspose.Slides
-description: "Objevte Aspose.Slides pro Javu: snadno spravujte sešity grafů v formátech PowerPoint a OpenDocument a zjednodušte data své prezentace."
+description: "Objevte Aspose.Slides pro Javu: snadno spravujte sešity grafů v PowerPoint a OpenDocument formátech a zefektivněte data ve své prezentaci."
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak pracovat s sešity grafů v Aspose.Slides. Ukazuje, jak číst a zapisovat data grafu pomocí streamů sešitu, používat buňky sešitu jako popisky dat grafu, přistupovat k kolekcím listů a specifikovat typ zdroje dat pro hodnoty grafu.
+Tento článek vysvětluje, jak pracovat s sešity grafů v Aspose.Slides. Ukazuje, jak číst a zapisovat data grafu prostřednictvím streamů sešitu, používat buňky sešitu jako popisky dat grafu, přistupovat ke kolekcím listů a specifikovat typ zdroje dat pro hodnoty grafu.
 
-Také se zabývá prací s externími sešity jako zdroji dat grafu. Příklady ukazují, jak vytvořit a přiřadit externí sešit, získat cestu k externímu sešitu propojenému s grafem a upravit data grafu, když je sešit k dispozici.
+Také se zabývá prací s externími sešity jako zdroji dat grafu. Příklady demonstrují, jak vytvořit a přiřadit externí sešit, získat cestu k externímu sešitu propojenému s grafem a upravit data grafu, když je sešit k dispozici.
 
 ## **Čtení a zápis dat grafu ze sešitu**
-Aspose.Slides poskytuje metody [ReadWorkbookStream](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IChartData#readWorkbookStream--) a [WriteWorkbookStream](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) , které umožňují číst a zapisovat sešity dat grafu (obsahující data grafu upravená pomocí Aspose.Cells). **Poznámka** že data grafu musejí být uspořádána stejným způsobem nebo mít strukturu podobnou zdroji.
+Aspose.Slides poskytuje metody [ReadWorkbookStream](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IChartData#readWorkbookStream--) a [WriteWorkbookStream](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) , které umožňují číst a zapisovat sešity dat grafu (obsahující data grafu editovaná pomocí Aspose.Cells). **Poznámka**: data grafu musejí být uspořádána stejným způsobem nebo mít strukturu podobnou zdroji.
 
-Tento Java kód demonstruje ukázkovou operaci:
+Tento Java kód ukazuje ukázkovou operaci:
 
 ```java
 import com.aspose.slides.*;
@@ -53,33 +53,31 @@ try {
 
 ### **Ověření rozvržení grafu po úpravě sešitu**
 
-Když nahradíte vložený sešit upraveným, graf si ponechá původní kolekce sérií a kategorií. Tato nekompatibilita může způsobit, že `chart.validateChartLayout()` vyhodí `ArgumentOutOfRangeException` (parametr: index). Aby se výjimka předešlo, vymažte existující série a kategorie **před** zápisem aktualizovaného sešitu zpět do grafu.
+Když nahradíte vložený sešit upraveným, graf si ponechá původní kolekce řad a kategorií. Tato nesoulad může způsobit, že [IChart.validateChartLayout](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ichart/#validateChartLayout--) vyhodí výjimku `ArgumentOutOfRangeException` (parametr: index). Aby se výjimka předešlo, vymažte existující řady a kategorie **před** zápisem aktualizovaného sešitu zpět do grafu.
 
 ```java
 // Po úpravě streamu sešitu (např. pomocí Aspose.Cells)
 byte[] updatedWorkbook = baos.toByteArray();
 
-// Vyčistěte existující odkazy na data.
+// Vymažte existující reference na data.
 chart.getChartData().getSeries().clear();
 chart.getChartData().getCategories().clear();
 
-// Zapište aktualizovaný sešit zpět do grafu.
 chart.getChartData().writeWorkbookStream(updatedWorkbook);
 
-// Nyní validace proběhne úspěšně.
 chart.validateChartLayout();
 ```
 
-Vymazání kolekcí zajistí, že struktura dat grafu bude odpovídat novému sešitu, což umožní `validateChartLayout()` dokončit bez chyb.
+Vyprázdnění kolekcí zajistí, že struktura dat grafu bude souhlasit s novým sešitem, a `validateChartLayout` proběhne bez chyb.
 
 ## **Nastavení buňky sešitu jako popisku dat grafu**
 
-1. Vytvořte instanci třídy [Presentation](https://apireference.aspose.com/slides/cs/java/com.aspose.slides/presentation).
-1. Získejte referenci na snímek pomocí jeho indexu.
-1. Přidejte bublinový graf s některými daty.
-1. Přistupte k sériím grafu.
-1. Nastavte buňku sešitu jako popisek dat.
-1. Uložte prezentaci.
+1. Vytvořte instanci třídy [Presentation](https://apireference.aspose.com/slides/cs/java/com.aspose.slides/presentation) .
+2. Získejte odkaz na snímek pomocí jeho indexu.
+3. Přidejte graf typu Bubble s nějakými daty.
+4. Přistupte k řadám grafu.
+5. Nastavte buňku sešitu jako popisek dat.
+6. Uložte prezentaci.
 
 Tento Java kód ukazuje, jak nastavit buňku sešitu jako popisek dat grafu:
 
@@ -90,7 +88,7 @@ String lbl0 = "Label 0 cell value";
 String lbl1 = "Label 1 cell value";
 String lbl2 = "Label 2 cell value";
 
-// Vytvoří instanci třídy prezentace, která představuje soubor prezentace
+// Vytváří instanci třídy prezentace, která představuje soubor prezentace
 Presentation pres = new Presentation("chart2.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
@@ -114,7 +112,7 @@ try {
 
 ## **Správa listů**
 
-Tento Java kód demonstruje operaci, při níž je metoda [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IChartDataWorkbook#getWorksheets--) použita k přístupu ke kolekci listů:
+Tento Java kód demonstruje operaci, kde se metoda [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IChartDataWorkbook#getWorksheets--) používá k přístupu ke kolekci listů:
 
 ```java
 import com.aspose.slides.*;
@@ -156,7 +154,7 @@ try {
 
 ## **Detekce nepodporovaných formátů vložených sešitů**
 
-Aspose.Slides nepodporuje binární formát Excelu (.xlsb), který může být vložen v některých grafech. Můžete použít metodu `getEmbeddedWorkbookType` na rozhraní [IChartData](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IChartData) spolu s výčtem [WorkbookType](https://reference.aspose.com/slides/cs/java/com.aspose.slides/WorkbookType) k detekci nepodporovaných formátů a přeskočení těchto grafů.
+Aspose.Slides nepodporuje formát binárního Excel sešitu (.xlsb), který může být vložen v některých grafech. Můžete použít metodu `getEmbeddedWorkbookType` na rozhraní [IChartData](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IChartData) spolu s výčtem [WorkbookType](https://reference.aspose.com/slides/cs/java/com.aspose.slides/WorkbookType) k detekci nepodporovaných formátů a přeskočení těchto grafů.
 
 ```java
 import com.aspose.slides.*;
@@ -192,7 +190,7 @@ V [Aspose.Slides 19.4](https://docs.aspose.com/slides/cs/java/aspose-slides-for-
 
 ### **Vytvoření externího sešitu**
 
-Pomocí metod **`readWorkbookStream`** a **`setExternalWorkbook`** můžete buď vytvořit externí sešit od nuly, nebo proměnit interní sešit na externí.
+Pomocí metod **`readWorkbookStream`** a **`setExternalWorkbook`** můžete buď vytvořit externí sešit od nuly, nebo učinit interní sešit externím.
 
 Tento Java kód demonstruje proces vytvoření externího sešitu:
 
@@ -225,9 +223,9 @@ try {
 
 ### **Nastavení externího sešitu**
 
-Pomocí metody **`setExternalWorkbook`** můžete přiřadit externí sešit grafu jako jeho zdroj dat. Tato metoda může být také použita k aktualizaci cesty k externímu sešitu (pokud byl přesunut).
+Pomocí metody **`setExternalWorkbook`** můžete přiřadit externí sešit k grafu jako jeho zdroj dat. Tato metoda může být také použita k aktualizaci cesty k externímu sešitu (pokud byl přesunut).
 
-I když nemůžete upravovat data v sešitech uložených na dálkových místech nebo zdrojích, můžete takové sešity stále použít jako externí zdroj dat. Pokud je zadána relativní cesta k externímu sešitu, je automaticky převedena na plnou cestu.
+Zatímco nemůžete upravovat data v sešitech uložených na vzdálených místech či zdrojích, můžete takové sešity stále použít jako externí zdroj dat. Pokud je zadána relativní cesta k externímu sešitu, automaticky se převede na úplnou cestu.
 
 Tento Java kód ukazuje, jak nastavit externí sešit:
 
@@ -257,10 +255,10 @@ try {
 }
 ```
 
-Druhý (`boolean`) parametr metody `setExternalWorkbook` určuje, zda bude excelový sešit načten, či nikoli. 
+Druhý (`boolean`) parametr metody `setExternalWorkbook` určuje, zda bude excelový sešit načten nebo ne. 
 
-* Když je jeho hodnota nastavena na `false`, aktualizuje se pouze cesta k sešitu — data grafu nebudou načtena ani aktualizována ze cílového sešitu. Toto nastavení můžete použít v situaci, kdy cílový sešit neexistuje nebo není dostupný. 
-* Když je jeho hodnota nastavena na `true`, data grafu se aktualizují z cílového sešitu.
+* Když je jeho hodnota nastavena na `false`, aktualizuje se jen cesta k sešitu — data grafu nebudou načtena ani aktualizována ze cílového sešitu. Toto nastavení je užitečné, když cílový sešit neexistuje nebo není dostupný. 
+* Když je jeho hodnota nastavena na `true`, data grafu budou aktualizována ze cílového sešitu.
 
 ```java
 import com.aspose.slides.*;
@@ -279,13 +277,13 @@ try {
 }
 ```
 
-### **Získání cesty externího sešitu zdroje dat grafu**
+### **Získání cesty k externímu sešitu jako zdroji dat grafu**
 
-1. Vytvořte instanci třídy [Presentation](https://apireference.aspose.com/slides/cs/java/com.aspose.slides/presentation).
-1. Získejte referenci na snímek pomocí jeho indexu.
-1. Vytvořte objekt pro tvar grafu.
-1. Vytvořte objekt pro typ zdroje (`ChartDataSourceType`), který představuje zdroj dat grafu.
-1. Specifikujte příslušnou podmínku na základě toho, že typ zdroje je stejný jako typ externího sešitu zdroje dat.
+1. Vytvořte instanci třídy [Presentation](https://apireference.aspose.com/slides/cs/java/com.aspose.slides/presentation) .
+2. Získejte odkaz na snímek pomocí jeho indexu.
+3. Vytvořte objekt pro tvar grafu.
+4. Vytvořte objekt pro typ zdroje (`ChartDataSourceType`), který představuje zdroj dat grafu.
+5. Specifikujte relevantní podmínku na základě toho, zda je typ zdroje shodný s typem externího sešitu.
 
 Tento Java kód demonstruje operaci:
 
@@ -313,9 +311,9 @@ try {
 
 ### **Úprava dat grafu**
 
-Data v externích sešitech můžete upravovat stejným způsobem, jako měníte obsah interních sešitů. Když external sešit nelze načíst, je vyhozena výjimka.
+Data v externích sešitech můžete upravovat stejným způsobem, jako měníte obsah interních sešitů. Když nelze externí sešit načíst, vyhodí se výjimka.
 
-Tento Java kód je implementací popsaného postupu:
+Tento Java kód představuje implementaci popsaného procesu:
 
 ```java
 import com.aspose.slides.*;
@@ -336,9 +334,9 @@ try {
 
 ### **Obnovení sešitu z mezipaměti grafu**
 
-Pokud graf používá externí sešit, který chybí nebo není dostupný, Aspose.Slides může rekonstruovat sešit grafu z dat uložených v mezipaměti prezentace. Vytvořte [LoadOptions](https://reference.aspose.com/slides/cs/java/com.aspose.slides/loadoptions/), nakonfigurujte jej pomocí [SpreadsheetOptions](https://reference.aspose.com/slides/cs/java/com.aspose.slides/spreadsheetoptions/), a před otevřením prezentace zavolejte [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) s hodnotou `true`.
+Pokud graf používá externí sešit, který chybí nebo není dostupný, Aspose.Slides může rekonstruovat sešit grafu z dat uložených v prezentaci. Vytvořte [LoadOptions](https://reference.aspose.com/slides/cs/java/com.aspose.slides/loadoptions/), nakonfigurujte jej pomocí [SpreadsheetOptions](https://reference.aspose.com/slides/cs/java/com.aspose.slides/spreadsheetoptions/), a zavolejte [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) s hodnotou `true` před otevřením prezentace.
 
-Následující Java příklad otevře prezentaci, jejíž graf odkazuje na nedostupný externí sešit, a přistoupí k obnoveným datům pomocí [IChart.getChartData](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ichart/#getChartData--) a [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--):
+Následující Java příklad otevírá prezentaci, jejíž graf odkazuje na nedostupný externí sešit, a přistupuje k obnoveným datům prostřednictvím [IChart.getChartData](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ichart/#getChartData--) a [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--):
 
 ```java
 SpreadsheetOptions spreadsheetOptions = new SpreadsheetOptions();
@@ -352,36 +350,36 @@ try {
     IChart chart = (IChart)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
     IChartDataWorkbook recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
 
-    // Zde načtěte nebo upravte obnovená data sešitu.
+    // Zde načtěte nebo upravte data obnoveného sešitu.
 } finally {
     presentation.dispose();
 }
 ```
 
-Pokud je externí sešit nedostupný a obnovení je zakázáno, Aspose.Slides vyhodí výjimku. Povolit obnovení jen v případě, že použití dat z mezipaměti grafu je přijatelné jako náhradní řešení, protože mezipaměť nemusí obsahovat změny provedené v externím sešitu po poslední aktualizaci prezentace.
+Pokud je externí sešit nedostupný a obnovení je vypnuto, Aspose.Slides vyhodí výjimku. Povolit obnovení použijte jen tehdy, když je použití dat z mezipaměti přijatelnou náhradou, protože mezipaměť nemusí obsahovat změny provedené v externím sešitu po poslední aktualizaci prezentace.
 
 ## **Často kladené otázky**
 
-**Mohu zjistit, jestli je konkrétní graf propojen s externím nebo vloženým sešitem?**
+**Mohu zjistit, zda je konkrétní graf propojen s externím nebo vloženým sešitem?**
 
-Ano. Graf má [typ zdroje dat](https://reference.aspose.com/slides/cs/java/com.aspose.slides/chartdata/#getDataSourceType--) a [cestu k externímu sešitovi](https://reference.aspose.com/slides/cs/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--); pokud je zdroj externí sešit, můžete přečíst úplnou cestu a ověřit, že je používán externí soubor.
+Ano. Graf má [typ zdroje dat](https://reference.aspose.com/slides/cs/java/com.aspose.slides/chartdata/#getDataSourceType--) a [cestu k externímu sešitu](https://reference.aspose.com/slides/cs/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--); pokud je zdroj externí sešit, můžete přečíst úplnou cestu a ověřit, že je používán externí soubor.
 
-**Jsou podporovány relativní cesty k externím sešitům a jak jsou ukládány?**
+**Jsou podporovány relativní cesty k externím sešitům a jak jsou uloženy?**
 
-Ano. Pokud zadáte relativní cestu, je automaticky převedena na absolutní cestu. To je výhodné pro přenositelnost projektu; mějte však na vědomí, že prezentace uloží absolutní cestu do souboru PPTX.
+Ano. Pokud zadáte relativní cestu, automaticky se převede na absolutní cestu. To usnadňuje přenositelnost projektu; mějte však na vědomí, že prezentace uloží absolutní cestu v souboru PPTX.
 
 **Mohu používat sešity umístěné na síťových zdrojích/sdílených složkách?**
 
-Ano, takové sešity mohou být použity jako externí zdroj dat. Přímé úpravy vzdálených sešitů z Aspose.Slides však nejsou podporovány — mohou být použity pouze jako zdroj.
+Ano, takové sešity lze použít jako externí zdroj dat. Úprava vzdálených sešitů přímo z Aspose.Slides však není podporována — lze je jen použít jako zdroj.
 
 **Přepisuje Aspose.Slides externí XLSX při ukládání prezentace?**
 
-Ne. Prezentace ukládá [odkaz na externí soubor](https://reference.aspose.com/slides/cs/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--) a používá jej k načítání dat. Externí soubor není při uložení prezentace upravován.
+Ne. Prezentace ukládá [odkaz na externí soubor](https://reference.aspose.com/slides/cs/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--) a používá jej ke čtení dat. Externí soubor není při ukládání prezentace modifikován.
 
-**Co mám dělat, když je externí soubor chráněn heslem?**
+**Co mám dělat, pokud je externí soubor chráněn heslem?**
 
-Aspose.Slides při propojení neakceptuje heslo. Běžný postup je odstranit ochranu předem nebo připravit dešifrovanou kopii (například pomocí [Aspose.Cells](/cells/java/)) a odkazovat na tuto kopii.
+Aspose.Slides nepřijímá heslo při vytváření odkazu. Obvyklý postup je odstranit ochranu předem nebo připravit dešifrovanou kopii (například pomocí [Aspose.Cells](/cells/java/)) a odkazovat na tuto kopii.
 
-**Může více grafů odkazovat na stejný externí sešit?**
+**Mohou více grafů odkazovat na stejný externí sešit?**
 
-Ano. Každý graf ukládá svůj vlastní odkaz. Pokud všechny odkazují na stejný soubor, aktualizace souboru se projeví v každém grafu při dalším načtení dat.
+Ano. Každý graf ukládá svůj vlastní odkaz. Pokud všechny odkazují na stejný soubor, aktualizace tohoto souboru se projeví v každém grafu při dalším načtení dat.

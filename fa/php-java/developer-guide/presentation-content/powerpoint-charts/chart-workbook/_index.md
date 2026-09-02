@@ -9,7 +9,7 @@ keywords:
 - داده‌های نمودار
 - سلول کتاب‌کار
 - برچسب داده
-- کاربرگ
+- ورق کاری
 - منبع داده
 - کتاب‌کار خارجی
 - داده خارجی
@@ -19,19 +19,18 @@ keywords:
 - ارائه
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides برای PHP را از طریق Java کشف کنید: به سادگی کتاب‌کارهای نمودار را در فرمت‌های PowerPoint و OpenDocument مدیریت کنید تا داده‌های ارائه خود را بهینه‌سازی کنید."
+description: "Aspose.Slides برای PHP از طریق Java را کشف کنید: به راحتی کتاب‌کارهای نمودار را در فرمت‌های PowerPoint و OpenDocument مدیریت کنید تا داده‌های ارائه خود را بهینه کنید."
 ---
 ## **نمای کلی**
 
-این مقاله توضیح می‌دهد چگونه با کتاب‌کارهای نمودار در Aspose.Slides کار کنیم. این مقاله نشان می‌دهد چگونه داده‌های نمودار را از طریق جریان‌های کتاب‌کار خوانده و نوشته، از سلول‌های کتاب‌کار به عنوان برچسب‌های دادهٔ نمودار استفاده کنیم، به مجموعه‌های کاربرگ دسترسی پیدا کنیم و نوع منبع داده برای مقادیر نمودار را مشخص کنیم.
+این مقاله توضیح می‌دهد چگونه با کتاب‌کارهای نموداری در Aspose.Slides کار کنید. نشان می‌دهد چگونه داده‌های نمودار را از طریق جریان‌های کتاب‌کار بخوانید و بنویسید، از سلول‌های کتاب‌کار به عنوان برچسب داده‌های نمودار استفاده کنید، به مجموعه‌های صفحه‌گسترده دسترسی پیدا کنید و نوع منبع داده را برای مقادیر نمودار مشخص کنید.
 
-همچنین کار با کتاب‌کارهای خارجی به عنوان منابع دادهٔ نمودار را پوشش می‌دهد. مثال‌ها نشان می‌دهند چگونه یک کتاب‌کار خارجی ایجاد و اختصاص داده، مسیر کتاب‌کار خارجی مرتبط با یک نمودار را بازیابی کرده و هنگام در دسترس بودن کتاب‌کار، داده‌های نمودار را ویرایش کنیم.
+همچنین کار با کتاب‌کارهای خارجی به عنوان منابع دادهٔ نمودار را پوشش می‌دهد. مثال‌ها نشان می‌دهند چگونه یک کتاب‌کار خارجی ایجاد و اختصاص دهید، مسیر کتاب‌کار خارجی مرتبط با یک نمودار را دریافت کنید و داده‌های نمودار را هنگامی که کتاب‌کار در دسترس باشد، ویرایش کنید.
 
-## **خواندن و نوشتن داده‌های نمودار از یک کتاب‌کار**
+## **خواندن و نوشتن داده‌های نمودار از یک کتاب کار**
+Aspose.Slides روش‌های [readWorkbookStream](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdata/#readWorkbookStream) و [writeWorkbookStream](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdata/#writeWorkbookStream) را فراهم می‌کند که به شما اجازه می‌دهند کتاب‌کارهای دادهٔ نمودار (حاوی داده‌های نمودار ویرایش‌شده با Aspose.Cells) را بخوانید و بنویسید. **Note** داده‌های نمودار باید به همان شیوه سازماندهی شوند یا ساختاری مشابه منبع داشته باشند.
 
-Aspose.Slides متدهای [readWorkbookStream](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdata/#readWorkbookStream) و [writeWorkbookStream](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdata/#writeWorkbookStream) را فراهم می‌کند که به شما امکان می‌دهد کتاب‌کارهای دادهٔ نمودار (حاوی داده‌های نمودار ویرایش‌شده با Aspose.Cells) را بخوانید و بنویسید. **نکته** این است که داده‌های نمودار باید به همان شیوه سازمان‌دهی شوند یا ساختاری مشابه منبع داشته باشند.
-
-This PHP code demonstrates a sample operation:
+این کد PHP یک عملیات نمونه را نشان می‌دهد:
 
 ```php
   $pres = new Presentation("chart.pptx");
@@ -49,22 +48,41 @@ This PHP code demonstrates a sample operation:
   }
 ```
 
-## **تنظیم یک سلول کتاب‌کار به عنوان برچسب دادهٔ نمودار**
+### **اعتبارسنجی طرح نمودار پس از تغییر کتاب کار**
+
+هنگامی که یک کتاب‌کار توکار را با یک کتاب‌کار اصلاح‌شده جایگزین می‌کنید، نمودار مجموعه‌های سری و دسته‌بندی اصلی خود را حفظ می‌کند. این عدم تطابق می‌تواند باعث شکست [Chart::validateChartLayout](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chart/validatechartlayout/) با خطای out‑of‑range شود. قبل از نوشتن کتاب‌کار به‌روزرسانی‌شده به نمودار، سری‌ها و دسته‌ها را پاک کنید.
+
+```php
+// پس از اصلاح جریان کتاب‌کار (مثلاً با استفاده از Aspose.Cells)
+$updatedWorkbook = $chartData->readWorkbookStream();
+
+// Clear existing data references.
+$chartData->getSeries()->clear();
+$chartData->getCategories()->clear();
+
+$chartData->writeWorkbookStream($updatedWorkbook);
+
+$chart->validateChartLayout();
+```
+
+پاک‌سازی مجموعه‌ها تضمین می‌کند که ساختار دادهٔ نمودار با کتاب‌کار جدید سازگار باشد و `validateChartLayout` بدون خطا کامل شود.
+
+## **تنظیم یک سلول کتاب کار به عنوان برچسب داده نمودار**
 
 1. یک نمونه از کلاس [Presentation](https://apireference.aspose.com/slides/fa/php-java/aspose.slides/presentation) ایجاد کنید.  
-1. از طریق اندیس، مرجع یک اسلاید را دریافت کنید.  
-1. یک نمودار حبابی با برخی داده‌ها اضافه کنید.  
-1. به سری‌های نمودار دسترسی پیدا کنید.  
-1. سلول کتاب‌کار را به عنوان برچسب داده تنظیم کنید.  
-1. ارائه را ذخیره کنید.
+2. مرجع یک اسلاید را از طریق ایندکس آن دریافت کنید.  
+3. یک نمودار حبابی با برخی داده‌ها اضافه کنید.  
+4. به سری‌های نمودار دسترسی پیدا کنید.  
+5. سلول کتاب‌کار را به عنوان برچسب داده تنظیم کنید.  
+6. ارائه را ذخیره کنید.
 
-This PHP code shows you to set a workbook cell as a chart data label:
+این کد PHP نشان می‌دهد چگونه یک سلول کتاب‌کار را به عنوان برچسب دادهٔ نمودار تنظیم کنید:
 
 ```php
   $lbl0 = "Label 0 cell value";
   $lbl1 = "Label 1 cell value";
   $lbl2 = "Label 2 cell value";
-  # یک نمونه از کلاس ارائه که نمایانگر یک فایل ارائه است
+  # یک شی از کلاس Presentation ایجاد می‌کند که فایل ارائه را نمایان می‌سازد
   $pres = new Presentation("chart2.pptx");
   try {
     $slide = $pres->getSlides()->get_Item(0);
@@ -84,9 +102,9 @@ This PHP code shows you to set a workbook cell as a chart data label:
   }
 ```
 
-## **مدیریت کاربرگ‌ها**
+## **مدیریت ورق‌های کاری**
 
-این کد PHP عملی را نشان می‌دهد که در آن متد [ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdataworkbook/#getWorksheets) برای دسترسی به مجموعهٔ کاربرگ‌ها استفاده می‌شود:
+این کد PHP عملیاتی را نشان می‌دهد که در آن از روش [ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdataworkbook/#getWorksheets) برای دسترسی به مجموعهٔ ورق‌های کاری استفاده می‌شود:
 
 ```php
   $pres = new Presentation();
@@ -105,7 +123,7 @@ This PHP code shows you to set a workbook cell as a chart data label:
 
 ## **مشخص کردن نوع منبع داده**
 
-این کد PHP نشان می‌دهد چگونه برای یک منبع داده یک نوع را مشخص کنید:
+این کد PHP نشان می‌دهد چگونه برای یک منبع داده نوعی را مشخص کنید:
 
 ```php
   $pres = new Presentation();
@@ -124,9 +142,9 @@ This PHP code shows you to set a workbook cell as a chart data label:
   }
 ```
 
-## **تشخیص فرمت‌های کتاب‌کار جاسازی‌شدهٔ پشتیبانی‌نشده**
+## **تشخیص فرمت‌های کتاب کار جاسازی شدهٔ پشتیبانی‌نشده**
 
-Aspose.Slides از فرمت کتاب‌کار باینری Excel (.xlsb) که می‌تواند در برخی نمودارها جاسازی شود پشتیبانی نمی‌کند. می‌توانید از متد `getEmbeddedWorkbookType` در [ChartData](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdata/) همراه با شمارش‌گر [WorkbookType](https://reference.aspose.com/slides/fa/php-java/aspose.slides/workbooktype/) برای شناسایی فرمت‌های پشتیبانی‌نشده و صرف‌نظر کردن از آن نمودارها استفاده کنید.
+Aspose.Slides از فرمت کتاب‌کار باینری اکسل (.xlsb) که می‌تواند در برخی نمودارها جاسازی شود، پشتیبانی نمی‌کند. می‌توانید با استفاده از متد `getEmbeddedWorkbookType` روی [ChartData](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdata/) همراه با شمارش [WorkbookType](https://reference.aspose.com/slides/fa/php-java/aspose.slides/workbooktype/) فرمت‌های پشتیبانی‌نشده را شناسایی و آن نمودارها را نادیده بگیرید.
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -146,26 +164,26 @@ try {
 
     if (java_values($chartData->getDataSourceType()) == ChartDataSourceType::InternalWorkbook &&
         java_values($chartData->getEmbeddedWorkbookType()) == WorkbookType::WorkbookBinaryMacro) {
-      # کتاب‌کار جاسازی‌شده در قالب .xlsb است که پشتیبانی نمی‌شود.
+      # کتاب‌کار جاسازی شده در قالب .xlsb است که پشتیبانی نمی‌شود.
       continue;
     }
 
-    # در اینجا داده‌های کتاب‌کار نمودار را بخوانید یا ویرایش کنید.
+    # داده‌های کتاب‌کار نمودار را در اینجا بخوانید یا ویرایش کنید.
   }
 } finally {
   $presentation->dispose();
 }
 ```
 
-## **کتاب‌کار خارجی**
+## **کتاب کار خارجی**
 
 Aspose.Slides از کتاب‌کارهای خارجی به عنوان منبع داده برای نمودارها پشتیبانی می‌کند.
 
-### **ایجاد یک کتاب‌کار خارجی**
+### **ایجاد یک کتاب کار خارجی**
 
-با استفاده از متدهای **`readWorkbookStream`** و **`setExternalWorkbook`** می‌توانید یا یک کتاب‌کار خارجی را از ابتدا ایجاد کنید یا یک کتاب‌کار داخلی را به کتاب‌کار خارجی تبدیل کنید.
+با استفاده از روش‌های **`readWorkbookStream`** و **`setExternalWorkbook`** می‌توانید یک کتاب‌کار خارجی را از صفر ایجاد کنید یا یک کتاب‌کار داخلی را خارجی کنید.
 
-This PHP code demonstrates the external workbook creation process:
+این کد PHP فرایند ایجاد کتاب کار خارجی را نشان می‌دهد:
 
 ```php
   $pres = new Presentation();
@@ -193,13 +211,13 @@ This PHP code demonstrates the external workbook creation process:
   }
 ```
 
-### **تنظیم یک کتاب‌کار خارجی**
+### **تنظیم یک کتاب کار خارجی**
 
-با استفاده از متد **`setExternalWorkbook`** می‌توانید یک کتاب‌کار خارجی را به عنوان منبع دادهٔ یک نمودار اختصاص دهید. این متد همچنین می‌تواند برای به‌روز‌رسانی مسیر کتاب‌کار خارجی استفاده شود (اگر کتاب‌کار جابجا شده باشد).
+با استفاده از متد **`setExternalWorkbook`** می‌توانید یک کتاب‌کار خارجی را به عنوان منبع دادهٔ یک نمودار اختصاص دهید. این متد همچنین می‌تواند مسیر کتاب‌کار خارجی را به‌روزرسانی کند (اگر کتاب‌کار جابه‌جا شده باشد).
 
-اگرچه نمی‌توانید داده‌های موجود در کتاب‌کارهای ذخیره‌شده در مکان‌ها یا منابع از راه دور را ویرایش کنید، همچنان می‌توانید از این کتاب‌کارها به عنوان منبع دادهٔ خارجی استفاده کنید. اگر مسیر نسبی برای یک کتاب‌کار خارجی ارائه شود، به‌صورت خودکار به مسیر کامل تبدیل می‌گردد.
+در حالی که نمی‌توانید داده‌ها را در کتاب‌کارهای ذخیره‌شده در مکان‌های دوردست یا منابع ویرایش کنید، همچنان می‌توانید از چنین کتاب‌کارهایی به عنوان منبع دادهٔ خارجی استفاده کنید. اگر مسیر نسبی برای کتاب‌کار خارجی ارائه شود، به‌صورت خودکار به مسیر کامل تبدیل می‌شود.
 
-This PHP code shows you how to set an external workbook:
+این کد PHP نشان می‌دهد چگونه یک کتاب‌کار خارجی تنظیم کنید:
 
 ```php
   # یک نمونه از کلاس Presentation ایجاد می‌کند
@@ -223,10 +241,10 @@ This PHP code shows you how to set an external workbook:
   }
 ```
 
-پارامتر `ChartData` (در زیر متد `setExternalWorkbook`) برای تعیین این که آیا یک کتاب‌کار اکسل بارگذاری شود یا نه استفاده می‌شود.
+پارامتر `ChartData` (در زیر متد `setExternalWorkbook`) برای تعیین این که آیا کتاب‌کار اکسل بارگذاری شود یا نه استفاده می‌شود.
 
-* وقتی مقدار `ChartData` روی `false` تنظیم شود، فقط مسیر کتاب‌کار به‌روز می‌شود—داده‌های نمودار از کتاب‌کار هدف بارگذاری یا به‌روز نمی‌شوند. ممکن است بخواهید از این تنظیم زمانی استفاده کنید که کتاب‌کار هدف وجود نداشته باشد یا در دسترس نباشد.  
-* وقتی مقدار `ChartData` روی `true` تنظیم شود، داده‌های نمودار از کتاب‌کار هدف به‌روز می‌شوند.
+* وقتی مقدار `ChartData` روی `false` تنظیم شود، فقط مسیر کتاب‌کار به‌روزرسانی می‌شود—داده‌های نمودار از کتاب‌کار هدف بارگذاری یا به‌روزرسانی نمی‌شوند. می‌توانید این تنظیم را زمانی که کتاب‌کار هدف وجود ندارد یا در دسترس نیست، استفاده کنید.  
+* وقتی مقدار `ChartData` روی `true` تنظیم شود، داده‌های نمودار از کتاب‌کار هدف به‌روزرسانی می‌شوند.
 
 ```php
   # یک نمونه از کلاس Presentation ایجاد می‌کند
@@ -243,15 +261,15 @@ This PHP code shows you how to set an external workbook:
   }
 ```
 
-### **دریافت مسیر کتاب‌کار منبع دادهٔ خارجی یک نمودار**
+### **دریافت مسیر کتاب کار منبع دادهٔ خارجی یک نمودار**
 
 1. یک نمونه از کلاس [Presentation](https://apireference.aspose.com/slides/fa/php-java/aspose.slides/presentation) ایجاد کنید.  
-1. از طریق اندیس، مرجع یک اسلاید را دریافت کنید.  
-1. یک شی برای شکل نمودار ایجاد کنید.  
-1. یک شی برای نوع منبع (`ChartDataSourceType`) که نمایانگر منبع دادهٔ نمودار است ایجاد کنید.  
-1. شرط مربوطه را بر اساس اینکه نوع منبع همان نوع منبع دادهٔ کتاب‌کار خارجی باشد، مشخص کنید.
+2. مرجع یک اسلاید را از طریق ایندکس آن دریافت کنید.  
+3. یک شی برای شکل نمودار ایجاد کنید.  
+4. یک شی برای نوع منبع (`ChartDataSourceType`) ایجاد کنید که منبع دادهٔ نمودار را نشان می‌دهد.  
+5. شرط مرتبط را بر اساس این که نوع منبع همان نوع منبع دادهٔ کتاب‌کار خارجی باشد، مشخص کنید.
 
-This PHP code demonstrates the operation:
+این کد PHP عملیات را نشان می‌دهد:
 
 ```php
   # یک نمونه از کلاس Presentation ایجاد می‌کند
@@ -272,11 +290,11 @@ This PHP code demonstrates the operation:
   }
 ```
 
-### **ویرایش دادهٔ نمودار**
+### **ویرایش داده‌های نمودار**
 
-می‌توانید داده‌های موجود در کتاب‌کارهای خارجی را همان‌گونه که محتوای کتاب‌کارهای داخلی را تغییر می‌دهید ویرایش کنید. هنگامی که یک کتاب‌کار خارجی قابل بارگذاری نباشد، استثنایی پرتاب می‌شود.
+می‌توانید داده‌ها را در کتاب‌کارهای خارجی همانند تغییر محتویات کتاب‌کارهای داخلی ویرایش کنید. وقتی یک کتاب‌کار خارجی قابل بارگذاری نباشد، استثنایی پرتاب می‌شود.
 
-This PHP code is an implementation of the described process:
+این کد PHP پیاده‌سازی فرایند توضیح‌شده را نشان می‌دهد:
 
 ```php
   # یک نمونه از کلاس Presentation ایجاد می‌کند
@@ -293,11 +311,11 @@ This PHP code is an implementation of the described process:
   }
 ```
 
-### **بازیابی یک کتاب‌کار از کش نمودار**
+### **بازیابی یک کتاب کار از کش نمودار**
 
-اگر یک نمودار از کتاب‌کار خارجی که موجود نیست یا در دسترس نیست استفاده کند، Aspose.Slides می‌تواند کتاب‌کار نمودار را از داده‌های کش‌شده در ارائه بازسازی کند. قبل از باز کردن ارائه، [LoadOptions](https://reference.aspose.com/slides/fa/php-java/aspose.slides/loadoptions/) را ایجاد کنید، آن را با [SpreadsheetOptions](https://reference.aspose.com/slides/fa/php-java/aspose.slides/spreadsheetoptions/) پیکربندی کنید و متد [SpreadsheetOptions::setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/fa/php-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) را با مقدار `true` صدا بزنید.
+اگر یک نمودار از کتاب‌کار خارجی استفاده می‌کند که گم شده یا در دسترس نیست، Aspose.Slides می‌تواند کتاب‌کار نمودار را از داده‌های کش‌شده در ارائه بازسازی کند. یک شیء [LoadOptions](https://reference.aspose.com/slides/fa/php-java/aspose.slides/loadoptions/) ایجاد کنید، آن را با [SpreadsheetOptions](https://reference.aspose.com/slides/fa/php-java/aspose.slides/spreadsheetoptions/) پیکربندی کنید و قبل از باز کردن ارائه متد [SpreadsheetOptions::setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/fa/php-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) را روی `true` تنظیم کنید.
 
-The following PHP example opens a presentation whose chart references an unavailable external workbook and accesses the recovered data through [Chart::getChartData](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chart/#getChartData) and [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdata/#getChartDataWorkbook):
+مثال PHP زیر یک ارائه را که نمودار آن به کتاب‌کار خارجی در دسترس نیست ارجاع می‌دهد باز می‌کند و داده‌های بازیابی‌شده را از طریق [Chart::getChartData](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chart/#getChartData) و [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdata/#getChartDataWorkbook) دسترسی می‌دهد:
 
 ```php
 $spreadsheetOptions = new SpreadsheetOptions();
@@ -317,24 +335,30 @@ try {
 }
 ```
 
-If the external workbook is unavailable and recovery is disabled, Aspose.Slides throws an exception. Enable recovery only when using the cached chart data is an acceptable fallback, because the cache may not contain changes made to the external workbook after the presentation was last updated.
+اگر کتاب‌کار خارجی در دسترس نباشد و بازیابی غیرفعال باشد، Aspose.Slides استثنایی پرتاب می‌کند. تنها وقتی که استفاده از داده‌های نمودار کش‌شده قابل قبول باشد، بازیابی را فعال کنید، زیرا کش ممکن است شامل تغییرات انجام‌شده بر روی کتاب‌کار خارجی پس از به‌روزرسانی آخرین ارائه نباشد.
 
-## **سؤالات متداول**
+## **FAQ**
 
-**آیا می‌توانم تعیین کنم که آیا یک نمودار خاص به کتاب‌کار خارجی یا جاسازی‌شده مرتبط است؟**  
-بله. یک نمودار دارای [نوع منبع داده](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdata/getdatasourcetype/) و [مسیر به کتاب‌کار خارجی](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdata/getexternalworkbookpath/) است؛ اگر منبع یک کتاب‌کار خارجی باشد، می‌توانید مسیر کامل را بخوانید تا مطمئن شوید فایلی خارجی استفاده می‌شود.
+**آیا می‌توانم تعیین کنم که آیا یک نمودار خاص به کتاب‌کار خارجی یا توکار لینک دارد؟**
 
-**آیا مسیرهای نسبی به کتاب‌کارهای خارجی پشتیبانی می‌شوند و چگونه ذخیره می‌شوند؟**  
-بله. اگر مسیر نسبی را مشخص کنید، به‌صورت خودکار به مسیر مطلق تبدیل می‌شود. این برای قابلیت حمل پروژه مفید است؛ اما توجه داشته باشید که ارائه مسیر مطلق را در فایل PPTX ذخیره می‌کند.
+بله. یک نمودار دارای [data source type](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdata/getdatasourcetype/) و [path to an external workbook](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdata/getexternalworkbookpath/) است؛ اگر منبع یک کتاب‌کار خارجی باشد، می‌توانید مسیر کامل را بخوانید تا مطمئن شوید فایلی خارجی استفاده می‌شود.
 
-**آیا می‌توانم از کتاب‌کارهای قرار گرفته در منابع/به‌اشتراک‌گذاری‌های شبکه استفاده کنم؟**  
-بله، چنین کتاب‌کارهایی می‌توانند به عنوان منبع دادهٔ خارجی استفاده شوند. اما ویرایش مستقیم کتاب‌کارهای راه دور از Aspose.Slides پشتیبانی نمی‌شود؛ آنها فقط می‌توانند به عنوان منبع استفاده شوند.
+**آیا مسیرهای نسبی به کتاب‌کارهای خارجی پشتیبانی می‌شوند و چگونه ذخیره می‌شوند؟**
 
-**آیا Aspose.Slides هنگام ذخیرهٔ ارائه فایل XLSX خارجی را بازنویسی می‌کند؟**  
-خیر. ارائه یک [لینک به فایل خارجی](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdata/getexternalworkbookpath/) را ذخیره می‌کند و برای خواندن داده‌ها از آن استفاده می‌کند. فایل خارجی هنگام ذخیرهٔ ارائه تغییر نمی‌کند.
+بله. اگر مسیر نسبی مشخص کنید، به‌صورت خودکار به مسیر مطلق تبدیل می‌شود. این برای قابل حمل بودن پروژه مفید است؛ اما توجه داشته باشید که ارائه مسیر مطلق را در فایل PPTX ذخیره می‌کند.
 
-**در صورتی که فایل خارجی با رمز عبور محافظت شده باشد چه باید کرد؟**  
-Aspose.Slides هنگام لینک‌دادن رمز عبور را نمی‌پذیرد. رویکرد معمول این است که پیش از آن محافظت را حذف کنید یا یک نسخهٔ رمزگشایی‌شده (مثلاً با استفاده از [Aspose.Cells](/cells/php-java/)) تهیه کنید و به آن نسخه لینک دهید.
+**آیا می‌توانم از کتاب‌کارهای قرار گرفته بر روی منابع/به‌اشتراک‌گذاری‌های شبکه استفاده کنم؟**
 
-**آیا چندین نمودار می‌توانند به یک کتاب‌کار خارجی ارجاع دهند؟**  
-بله. هر نمودار لینک خود را ذخیره می‌کند. اگر همه به یک فایل اشاره داشته باشند، به‌روزرسانی آن فایل در هر نمودار در بارگذاری بعدی داده‌ها منعکس می‌شود.
+بله، چنین کتاب‌کارهایی می‌توانند به عنوان منبع دادهٔ خارجی استفاده شوند. اما ویرایش مستقیم کتاب‌کارهای دوردست از طریق Aspose.Slides پشتیبانی نمی‌شود—فقط می‌توانند به عنوان منبع مورد استفاده قرار گیرند.
+
+**آیا Aspose.Slides هنگام ذخیرهٔ ارائه، فایل XLSX خارجی را بازنویسی می‌کند؟**
+
+نه. ارائه یک [link to the external file](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdata/getexternalworkbookpath/) را ذخیره می‌کند و برای خواندن داده‌ها از آن استفاده می‌کند. فایل خارجی هنگام ذخیرهٔ ارائه تغییر نمی‌کند.
+
+**اگر فایل خارجی پسورد داشته باشد چه باید کرد؟**
+
+Aspose.Slides هنگام لینک کردن پسوردی را نمی‌پذیرد. رویکرد معمول این است که پیشاپیش حفاظت را بردارید یا یک نسخهٔ رمزگشایی‌شده آماده کنید (به عنوان مثال با استفاده از [Aspose.Cells](/cells/php-java/)) و به آن نسخه لینک کنید.
+
+**آیا می‌توان چندین نمودار را به همان کتاب‌کار خارجی ارجاع داد؟**
+
+بله. هر نمودار لینک خود را ذخیره می‌کند. اگر همه به همان فایل اشاره کنند، به‌روزرسانی آن فایل در هر بار بارگذاری داده‌ها در هر نمودار منعکس خواهد شد.

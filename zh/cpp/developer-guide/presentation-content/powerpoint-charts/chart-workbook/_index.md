@@ -1,5 +1,5 @@
 ---
-title: 使用 C++ 在演示文稿中管理图表工作簿
+title: 使用 C++ 管理演示文稿中的图表工作簿
 linktitle: 图表工作簿
 type: docs
 weight: 70
@@ -19,25 +19,39 @@ keywords:
 - 演示文稿
 - C++
 - Aspose.Slides
-description: "了解 Aspose.Slides for C++：轻松在 PowerPoint 和 OpenDocument 格式中管理图表工作簿，以简化演示文稿数据。"
+description: "发现适用于 C++ 的 Aspose.Slides：轻松管理 PowerPoint 和 OpenDocument 格式中的图表工作簿，以简化演示文稿数据。"
 ---
 ## **概述**
 
-本文介绍了在 Aspose.Slides 中如何使用图表工作簿。它展示了如何通过工作簿流读取和写入图表数据、将工作簿单元格用作图表数据标签、访问工作表集合以及为图表数值指定数据源类型。
+本文说明了如何在 Aspose.Slides 中使用图表工作簿。它展示了如何通过工作簿流读取和写入图表数据、使用工作簿单元格作为图表数据标签、访问工作表集合，以及为图表值指定数据源类型。
 
-还涵盖了使用外部工作簿作为图表数据源的操作。示例演示了如何创建并分配外部工作簿、检索链接到图表的外部工作簿路径以及在工作簿可用时编辑图表数据。
+它还涵盖了将外部工作簿用作图表数据源的情况。示例演示了如何创建并分配外部工作簿、检索链接到图表的外部工作簿路径，以及在工作簿可用时编辑图表数据。
 
 ## **从工作簿读取和写入图表数据**
 
-Aspose.Slides 提供了 [ReadWorkbookStream](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) 和 [WriteWorkbookStream](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) 方法，可用于读取和写入图表数据工作簿（包含使用 Aspose.Cells 编辑的图表数据）。**注意**，图表数据必须以相同方式组织，或具有类似于源的结构。
+Aspose.Slides 提供了 [ReadWorkbookStream](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) 和 [WriteWorkbookStream](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) 方法，允许您读取和写入图表数据工作簿（其中包含使用 Aspose.Cells 编辑的图表数据）。**注意**，图表数据必须以相同方式组织，或具有与源相似的结构。
 
 ``` cpp
+#include <DOM/Chart/Chart.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/io/memory_stream.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System::IO;
+
 auto pres = System::MakeObject<Presentation>(u"chart.pptx");
 
-auto chart = System::ExplicitCast<Chart>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
+auto chart = System::ExplicitCast<Chart>(pres->get_Slide(0)->get_Shape(0));
 auto data = chart->get_ChartData();
 
-System::SharedPtr<System::IO::MemoryStream> stream = data->ReadWorkbookStream();
+auto = data->ReadWorkbookStream();
 data->get_Series()->Clear();
 data->get_Categories()->Clear();
 
@@ -45,55 +59,63 @@ stream->set_Position(0);
 data->WriteWorkbookStream(stream);
 ```
 
-下面的 C++ 代码演示了设置图表数据工作簿的操作：
+### **在工作簿修改后验证图表布局**
 
-``` cpp
-auto pres = System::MakeObject<Presentation>(u"Test.pptx");
+当您使用已修改的工作簿替换嵌入式工作簿时，图表会保留其原有的系列和类别集合。这种不匹配可能导致 [IChart::ValidateChartLayout](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/ichart/validatechartlayout/) 因索引超出范围而失败。请在将更新后的工作簿写回图表之前，先清除现有的系列和类别。
 
-auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(Charts::ChartType::Pie, 50.0f, 50.0f, 500.0f, 400.0f);
-chart->get_ChartData()->get_ChartDataWorkbook()->Clear(0);
+```cpp
+// 修改工作簿流后（例如，使用 Aspose.Cells）
+auto updatedWorkbook = chartData->ReadWorkbookStream();
 
-intrusive_ptr<Aspose::Cells::IWorkbook> workbook;
-try
-{
-    workbook = Aspose::Cells::Factory::CreateIWorkbook(new String("a1.xlsx"));
-}
-catch (Aspose::Cells::Systems::Exception& ex)
-{
-    System::Console::Write(System::String::FromWCS(ex.GetMessageExp()->value()));
-}
+// 清除现有的数据引用。
+chartData->get_Series()->Clear();
+chartData->get_Categories()->Clear();
 
-intrusive_ptr<MemoryStream> cellsOutputStream = new Aspose::Cells::Systems::IO::MemoryStream();
-workbook->Save(cellsOutputStream, Aspose::Cells::SaveFormat_Xlsx);
+updatedWorkbook->set_Position(0);
+chartData->WriteWorkbookStream(updatedWorkbook);
 
-cellsOutputStream->SetPosition(0);
-System::SharedPtr<System::IO::MemoryStream> msout = ToSlidesMemoryStream(cellsOutputStream);
-
-chart->get_ChartData()->WriteWorkbookStream(msout);
-
-chart->get_ChartData()->SetRange(u"Sheet1!$A$1:$B$9");
-auto series = chart->get_ChartData()->get_Series()->idx_get(0);
-series->get_ParentSeriesGroup()->set_IsColorVaried(true);
-pres->Save(u"response2.pptx", Export::SaveFormat::Pptx);
+chart->ValidateChartLayout();
 ```
+
+清除集合可确保图表数据结构与新工作簿保持一致，从而使 `ValidateChartLayout` 能够顺利完成而不产生错误。
 
 ## **将工作簿单元格设为图表数据标签**
 
 1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/cpp/aspose.slides/presentation/) 类的实例。  
 2. 通过索引获取幻灯片的引用。  
-3. 添加一个带有部分数据的气泡图。  
+3. 添加一个带有数据的气泡图。  
 4. 访问图表系列。  
 5. 将工作簿单元格设为数据标签。  
 6. 保存演示文稿。
 
-下面的 C++ 代码展示了如何将工作簿单元格设为图表数据标签：
+下面的 C++ 代码演示了如何将工作簿单元格设为图表数据标签：
 
 ``` cpp
+// 实例化一个表示演示文稿文件的 Presentation 类
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDataLabel.h>
+#include <DOM/Chart/IDataLabelCollection.h>
+#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
 System::String lbl0 = u"Label 0 cell value";
 System::String lbl1 = u"Label 1 cell value";
 System::String lbl2 = u"Label 2 cell value";
 
-// 实例化一个表示演示文稿文件的 Presentation 类 
 auto pres = System::MakeObject<Presentation>(u"chart2.pptx");
 
 auto slide = pres->get_Slides()->idx_get(0);
@@ -118,6 +140,22 @@ pres->Save(u"resultchart.pptx", SaveFormat::Pptx);
 下面的 C++ 代码演示了使用 [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) 方法访问工作表集合的操作：
 
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataWorksheet.h>
+#include <DOM/Chart/IChartDataWorksheetCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/enumerator_adapter.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
 auto chart = slide->get_Shapes()->AddChart(ChartType::Pie, 50.0f, 50.0f, 400.0f, 500.0f);
@@ -133,6 +171,24 @@ for (auto ws : System::IterateOver(worksheets))
 下面的 C++ 代码展示了如何为数据源指定类型：
 
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/DataSourceType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IStringChartValue.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>();
 
 auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Column3D, 50.0f, 50.0f, 600.0f, 400.0f, true);
@@ -149,13 +205,26 @@ pres->Save(u"pres.pptx", SaveFormat::Pptx);
 
 ## **检测不受支持的嵌入式工作簿格式**
 
-Aspose.Slides 不支持某些图表中可能嵌入的 Excel 二进制工作簿（.xlsb）格式。您可以在 [IChartData](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/ichartdata/) 上使用 `get_EmbeddedWorkbookType` 方法，并结合 [WorkbookType](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/workbooktype/) 枚举来检测不受支持的格式并跳过这些图表。
+Aspose.Slides 不支持某些图表中可以嵌入的 Excel 二进制工作簿（.xlsb）格式。您可以在 [IChartData](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/ichartdata/) 上使用 `get_EmbeddedWorkbookType` 方法，并结合 [WorkbookType](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/workbooktype/) 枚举来检测不受支持的格式并跳过这些图表。
 
 ```cpp
+#include <DOM/Chart/ChartDataSourceType.h>
+#include <DOM/Chart/WorkbookType.h>
+#include <DOM/IChart.h>
+#include <DOM/ISlide.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/Presentation.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
 auto slide = presentation->get_Slide(0);
 
-for (auto&& shape : slide->get_Shapes())
+for (auto&& shape : System::IterateOver(slide->get_Shapes()))
 {
     if (!System::ObjectExt::Is<IChart>(shape))
     {
@@ -178,17 +247,34 @@ for (auto&& shape : slide->get_Shapes())
 
 ## **外部工作簿**
 
-{{% alert color="primary" %}} 
+{{% alert color="info" %}} 
 在 [Aspose.Slides](https://releases.aspose.com/slides/zh/cpp/release-notes/2019/aspose-slides-for-cpp-19-4-release-notes/) 19.4 版中，我们实现了对外部工作簿作为图表数据源的支持。 
 {{% /alert %}} 
 
 ### **创建外部工作簿**
 
-使用 **`ReadWorkbookStream`** 和 **`SetExternalWorkbook`** 方法，您可以从头创建外部工作簿，或将内部工作簿转为外部工作簿。
+使用 **`ReadWorkbookStream`** 和 **`SetExternalWorkbook`** 方法，您可以从头创建外部工作簿，或将内部工作簿转换为外部工作簿。
 
 下面的 C++ 代码演示了外部工作簿的创建过程：
 
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file_mode.h>
+#include <system/io/file_stream.h>
+#include <system/io/memory_stream.h>
+#include <system/io/path.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
 auto pres = System::MakeObject<Presentation>();
 
 const System::String workbookPath = u"externalWorkbook1.xlsx";
@@ -210,13 +296,32 @@ pres->Save(u"externalWorkbook.pptx", SaveFormat::Pptx);
 
 ### **设置外部工作簿**
 
-使用 **`IChartData::SetExternalWorkbook`** 方法，您可以将外部工作簿分配给图表作为其数据源。该方法还可用于更新外部工作簿的路径（如果工作簿已移动）。
+使用 **`IChartData::SetExternalWorkbook`** 方法，您可以为图表指定外部工作簿作为其数据源。该方法也可用于更新外部工作簿的路径（如果工作簿已移动）。
 
-虽然无法编辑存放在远程位置或资源中的工作簿数据，但仍可将此类工作簿用作外部数据源。如果提供了外部工作簿的相对路径，系统会自动转换为完整路径。
+虽然无法编辑存放在远程位置或资源中的工作簿数据，但仍可以将此类工作簿用作外部数据源。如果提供了外部工作簿的相对路径，系统会自动将其转换为完整路径。
 
 下面的 C++ 代码展示了如何设置外部工作簿：
 
 ```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/path.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
 auto pres = System::MakeObject<Presentation>();
 
 auto chart = pres->get_Slides()->idx_get(0)->get_Shapes()->AddChart(ChartType::Pie, 50.0f, 50.0f, 400.0f, 600.0f, false);
@@ -240,10 +345,22 @@ pres->Save(u"Presentation_with_externalWorkbook.pptx", SaveFormat::Pptx);
 
 `SetExternalWorkbook` 方法中的 `updateChartData` 参数用于指定是否加载 Excel 工作簿。
 
-* 当 `updateChartData` 设置为 `false` 时，仅更新工作簿路径——图表数据不会从目标工作簿加载或更新。在目标工作簿不存在或不可用的情况下，可使用此设置。  
-* 当 `updateChartData` 设置为 `true` 时，图表数据会从目标工作簿更新。
+* 当 `updateChartData` 的值设为 `false` 时，仅会更新工作簿路径——图表数据不会从目标工作簿加载或更新。当目标工作簿不存在或不可用时，可使用此设置。  
+* 当 `updateChartData` 的值设为 `true` 时，图表数据会从目标工作簿进行更新。
 
 ```c++
+#include <DOM/Chart/ChartData.h>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>();
 auto slide = pres->get_Slides()->idx_get(0);
 auto chart = slide->get_Shapes()->AddChart(ChartType::Pie, 50.0f, 50.0f, 400.0f, 600.0f, true);
@@ -255,17 +372,29 @@ concreteChartData->SetExternalWorkbook(u"http://path/doesnt/exists", false);
 pres->Save(u"SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat::Pptx);
 ```
 
-### **获取图表的外部数据源工作簿路径**
+### **获取图表外部数据源工作簿路径**
 
 1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/cpp/aspose.slides/presentation/) 类的实例。  
 2. 通过索引获取幻灯片的引用。  
 3. 为图表形状创建对象。  
-4. 创建表示图表数据源的源类型 (`ChartDataSourceType`) 对象。  
-5. 根据源类型为外部工作簿数据源指定相应的条件。
+4. 为表示图表数据源的源 (`ChartDataSourceType`) 类型创建对象。  
+5. 根据源类型与外部工作簿数据源类型相同的情况指定相应的条件。
 
 下面的 C++ 代码演示了该操作：
 
 ```c++
+#include <DOM/Chart/ChartDataSourceType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 
 auto slide = pres->get_Slides()->idx_get(1);
@@ -276,17 +405,37 @@ if (sourceType == ChartDataSourceType::ExternalWorkbook)
     System::String path = chart->get_ChartData()->get_ExternalWorkbookPath();
 }
 
-// Saves the presentation
+// 保存演示文稿
 pres->Save(u"Result.pptx", SaveFormat::Pptx);
 ```
 
 ### **编辑图表数据**
 
-您可以像编辑内部工作簿内容一样编辑外部工作簿中的数据。如果无法加载外部工作簿，将抛出异常。
+您可以像编辑内部工作簿内容一样编辑外部工作簿中的数据。当无法加载外部工作簿时，会抛出异常。
 
 下面的 C++ 代码实现了上述过程：
 
 ```c++
+#include <DOM/Chart/Chart.h>
+#include <DOM/Chart/ChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDoubleChartValue.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/string.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 const String templatePath = u"../templates/presentation.pptx";
 	const String outPath = u"../out/presentation-out.pptx";
 	
@@ -300,11 +449,11 @@ const String templatePath = u"../templates/presentation.pptx";
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
-### **从图表缓存中恢复工作簿**
+### **从图表缓存恢复工作簿**
 
-如果图表使用的外部工作簿缺失或不可用，Aspose.Slides 可以从演示文稿中缓存的数据重建图表工作簿。创建 [LoadOptions](https://reference.aspose.com/slides/zh/cpp/aspose.slides/loadoptions/)，通过 [set_SpreadsheetOptions](https://reference.aspose.com/slides/zh/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/) 配置，并在打开演示文稿前调用 [ISpreadsheetOptions::set_RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ispreadsheetoptions/set_recoverworkbookfromchartcache/) 并设为 `true`。
+如果图表使用的外部工作簿缺失或不可用，Aspose.Slides 可以从演示文稿中缓存的数据重建图表工作簿。创建 [LoadOptions](https://reference.aspose.com/slides/zh/cpp/aspose.slides/loadoptions/)，使用 [set_SpreadsheetOptions](https://reference.aspose.com/slides/zh/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/) 进行配置，并在打开演示文稿前将 [ISpreadsheetOptions::set_RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ispreadsheetoptions/set_recoverworkbookfromchartcache/) 设置为 `true`。
 
-下面的 C++ 示例打开了一个图表引用不可用外部工作簿的演示文稿，并通过 [IChart::get_ChartData](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/ichart/get_chartdata/) 和 [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/) 访问恢复后的数据：
+下面的 C++ 示例打开了一个图表引用不可用外部工作簿的演示文稿，并通过 [IChart::get_ChartData](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/ichart/get_chartdata/) 与 [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/) 访问恢复的数据：
 
 ```cpp
 auto spreadsheetOptions = MakeObject<SpreadsheetOptions>();
@@ -320,35 +469,35 @@ auto chart = System::ExplicitCast<IChart>(shape);
 
 auto recoveredWorkbook = chart->get_ChartData()->get_ChartDataWorkbook();
 
-// 在此读取或修改恢复的工作簿数据。
+// Read or modify the recovered workbook data here.
 
 presentation->Dispose();
 ```
 
-如果外部工作簿不可用且未启用恢复，Aspose.Slides 将抛出 `System::InvalidOperationException`。仅在接受使用缓存的图表数据作为后备时才启用恢复，因为缓存可能不包含对外部工作簿的最新更改。
+如果外部工作簿不可用且未启用恢复，Aspose.Slides 将抛出 `System::InvalidOperationException`。仅在使用缓存的图表数据作为可接受的后备方案时才启用恢复，因为缓存可能不包含对外部工作簿在演示文稿上次更新后所做的更改。
 
-## **常见问题解答**
+## **常见问题**
 
-**我能否判断特定图表是链接到外部工作簿还是嵌入的工作簿？**
+**我可以确定特定图表是链接到外部工作簿还是嵌入式工作簿吗？**
 
-可以。图表具有 [data source type](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) 和 [path to an external workbook](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/)；如果源是外部工作簿，您可以读取完整路径以确认使用的是外部文件。
+可以。图表具有[数据源类型](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/chartdata/get_datasourcetype/)和[外部工作簿路径](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/)；如果数据源是外部工作簿，您可以读取完整路径以确认正在使用外部文件。
 
-**是否支持外部工作簿的相对路径，它们如何存储？**
+**是否支持外部工作簿的相对路径，且它们是如何存储的？**
 
-支持。若指定相对路径，系统会自动转换为绝对路径。这对项目可移植性很方便，但请注意演示文稿会在 PPTX 文件中存储绝对路径。
+支持。如果指定相对路径，系统会自动将其转换为绝对路径。这对于项目的可移植性很方便；但请注意，演示文稿会在 PPTX 文件中存储绝对路径。
 
 **我可以使用位于网络资源/共享上的工作簿吗？**
 
-可以，这类工作簿可作为外部数据源使用。但 Aspose.Slides 不支持直接编辑远程工作簿——只能将其用作数据源。
+可以，这类工作簿可用作外部数据源。但 Aspose.Slides 不支持直接编辑远程工作簿——它们只能作为数据源使用。
 
-**Aspose.Slides 在保存演示文稿时会覆盖外部 XLSX 吗？**
+**保存演示文稿时，Aspose.Slides 会覆盖外部 XLSX 吗？**
 
-不会。演示文稿仅存储指向外部文件的 [link](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/)，用于读取数据。保存演示文稿时不会修改外部文件本身。
+不会。演示文稿只存储对外部文件的[链接](https://reference.aspose.com/slides/zh/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/)，并在读取数据时使用该链接。保存时不会修改外部文件本身。
 
-**如果外部文件受密码保护，我该怎么办？**
+**如果外部文件受密码保护，该怎么办？**
 
-Aspose.Slides 在链接时不接受密码。常见做法是预先解除保护，或准备一个已解密的副本（例如使用 [Aspose.Cells](/cells/cpp/)），然后链接到该副本。
+Aspose.Slides 在链接时不接受密码。常见做法是事先去除保护或准备一个已解密的副本（例如使用 [Aspose.Cells](/cells/cpp/)），然后链接到该副本。
 
 **多个图表可以引用同一个外部工作簿吗？**
 
-可以。每个图表都会存储自己的链接。如果它们指向同一个文件，更新该文件后在下次加载数据时所有图表都会反映更改。
+可以。每个图表都存储自己的链接。如果它们指向同一个文件，更新该文件后，下次加载数据时所有图表都会反映最新内容。

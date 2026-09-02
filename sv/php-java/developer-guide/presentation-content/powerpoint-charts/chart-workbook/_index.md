@@ -1,15 +1,15 @@
 ---
-title: Hantera diagramarböcker i presentationer med PHP
-linktitle: Diagramarbok
+title: Hantera diagramarbetsböcker i presentationer med PHP
+linktitle: Diagramarbetsbok
 type: docs
 weight: 70
 url: /sv/php-java/chart-workbook/
 keywords:
-- diagramarbok
+- diagramarbetsbok
 - diagramdata
 - arbetsbokscell
 - datamärkning
-- kalkylblad
+- arbetsblad
 - datakälla
 - extern arbetsbok
 - extern data
@@ -19,17 +19,19 @@ keywords:
 - presentation
 - PHP
 - Aspose.Slides
-description: "Upptäck Aspose.Slides för PHP via Java: hantera enkelt diagramarböcker i PowerPoint- och OpenDocument-format för att förenkla dina presentationsdata."
+description: "Upptäck Aspose.Slides för PHP via Java: hantera enkelt diagramarbetsböcker i PowerPoint- och OpenDocument-format för att effektivisera dina presentationsdata."
 ---
 ## **Översikt**
 
-Denna artikel förklarar hur man arbetar med diagramarbetsböcker i Aspose.Slides. Den visar hur man läser och skriver diagramdata via arbetsbokströmmar, använder arbetsboks‑celler som diagramdatamärkning, får åtkomst till kalkylbladssamlingar och specificerar datakälltyp för diagramvärden. Den täcker också arbete med externa arbetsböcker som diagramdatakällor. Exemplen demonstrerar hur man skapar och tilldelar en extern arbetsbok, hämtar sökvägen till en extern arbetsbok som är länkat till ett diagram och redigerar diagramdata när arbetsboken är tillgänglig.
+Den här artikeln förklarar hur man arbetar med diagramarbetsböcker i Aspose.Slides. Den visar hur man läser och skriver diagramdata via arbetsbokströmmar, använder arbetsboksceller som diagramdatamärkningar, får åtkomst till kalkylbladssamlingar och anger datakälltyp för diagramvärden.
+
+Den täcker även hur man arbetar med externa arbetsböcker som diagramdatakällor. Exemplen demonstrerar hur man skapar och tilldelar en extern arbetsbok, hämtar sökvägen till en extern arbetsbok som är länkad till ett diagram och redigerar diagramdata när arbetsboken är tillgänglig.
 
 ## **Läsa och skriva diagramdata från en arbetsbok**
+Aspose.Slides tillhandahåller metoderna [readWorkbookStream](https://reference.aspose.com/slides/sv/php-java/aspose.slides/chartdata/#readWorkbookStream) och [writeWorkbookStream](https://reference.aspose.com/slides/sv/php-java/aspose.slides/chartdata/#writeWorkbookStream) som låter dig läsa och skriva diagramdataarbetsböcker (innehållande diagramdata redigerad med Aspose.Cells). **Obs** att diagramdata måste vara organiserad på samma sätt eller ha en struktur som liknar källan.
 
-Aspose.Slides tillhandahåller metoderna [readWorkbookStream](https://reference.aspose.com/slides/sv/php-java/aspose.slides/chartdata/#readWorkbookStream) och [writeWorkbookStream](https://reference.aspose.com/slides/sv/php-java/aspose.slides/chartdata/#writeWorkbookStream) som låter dig läsa och skriva diagramdataarbetsböcker (innehållande diagramdata redigerad med Aspose.Cells). **Observera** att diagramdata måste vara organiserade på samma sätt eller ha en struktur som liknar källan.
+Denna PHP‑kod demonstrerar ett exempel:
 
-Denna PHP‑kod demonstrerar ett exempel på en operation:
 ```php
   $pres = new Presentation("chart.pptx");
   try {
@@ -46,16 +48,36 @@ Denna PHP‑kod demonstrerar ett exempel på en operation:
   }
 ```
 
-## **Ställ in en arbetsboks‑cell som diagramdatamärkning**
+### **Validera diagramlayout efter arbetsboksändring**
 
-1. Skapa en instans av klassen [Presentation](https://apireference.aspose.com/slides/sv/php-java/aspose.slides/presentation).
+När du ersätter en inbäddad arbetsbok med en modifierad behåller diagrammet sina ursprungliga serie‑ och kategorisamlingar. Denna avvikelse kan leda till att [Chart::validateChartLayout](https://reference.aspose.com/slides/sv/php-java/aspose.slides/chart/validatechartlayout/) misslyckas med ett index‑out‑of‑range‑fel. Rensa befintliga serier och kategorier innan du skriver tillbaka den uppdaterade arbetsboken till diagrammet.
+
+```php
+// Efter att ha ändrat arbetsboksströmmen (t.ex. med Aspose.Cells)
+$updatedWorkbook = $chartData->readWorkbookStream();
+
+// Rensa befintliga datreferenser.
+$chartData->getSeries()->clear();
+$chartData->getCategories()->clear();
+
+$chartData->writeWorkbookStream($updatedWorkbook);
+
+$chart->validateChartLayout();
+```
+
+Att rensa samlingarna säkerställer att diagramdatastrukturen är konsekvent med den nya arbetsboken, vilket gör att `validateChartLayout` kan slutföras utan fel.
+
+## **Ange en arbetsboks cell som diagramdatamärkning**
+
+1. Skapa en instans av klassen [Presentation](https://apireference.aspose.com/slides/sv/php-java/aspose.slides/presentation) .
 2. Hämta en bilds referens via dess index.
-3. Lägg till ett bubbeldiagram med några data.
-4. Få åtkomst till diagramserierna.
-5. Ange arbetsbokscellen som en datamärkning.
+3. Lägg till ett bubbeldiagram med någon data.
+4. Kom åt diagramserierna.
+5. Ange arbetsboks‑cellen som en datamärkning.
 6. Spara presentationen.
 
-Denna PHP‑kod visar hur du ställer in en arbetsbokscell som en diagramdatamärkning:
+Denna PHP‑kod visar hur du anger en arbetsboks cell som en diagramdatamärkning:
+
 ```php
   $lbl0 = "Label 0 cell value";
   $lbl1 = "Label 1 cell value";
@@ -82,7 +104,8 @@ Denna PHP‑kod visar hur du ställer in en arbetsbokscell som en diagramdatamä
 
 ## **Hantera kalkylblad**
 
-Denna PHP‑kod demonstrerar en operation där metoden [ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/sv/php-java/aspose.slides/chartdataworkbook/#getWorksheets) används för att komma åt en kalkylblads‑samling:
+Denna PHP‑kod demonstrerar en operation där metoden [ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/sv/php-java/aspose.slides/chartdataworkbook/#getWorksheets) används för att komma åt en kalkylblads­samling:
+
 ```php
   $pres = new Presentation();
   try {
@@ -98,9 +121,10 @@ Denna PHP‑kod demonstrerar en operation där metoden [ChartDataWorkbook::getWo
   }
 ```
 
-## **Specificera datakälltyp**
+## **Ange datakälltyp**
 
-Denna PHP‑kod visar hur du specificerar en typ för en datakälla:
+Denna PHP‑kod visar hur du anger en typ för en datakälla:
+
 ```php
   $pres = new Presentation();
   try {
@@ -118,9 +142,10 @@ Denna PHP‑kod visar hur du specificerar en typ för en datakälla:
   }
 ```
 
-## **Upptäck ej stödda inbäddade arbetsboksformat**
+## **Upptäck osupporterade inbäddade arbetsboksformat**
 
-Aspose.Slides stöder inte Excel‑binärarbetsboksformatet (.xlsb) som kan bäddas in i vissa diagram. Du kan använda metoden `getEmbeddedWorkbookType` på [ChartData](https://reference.aspose.com/slides/sv/php-java/aspose.slides/chartdata/) tillsammans med uppräkningen [WorkbookType](https://reference.aspose.com/slides/sv/php-java/aspose.slides/workbooktype/) för att upptäcka ej stödda format och hoppa över dessa diagram.
+Aspose.Slides stöder inte Excel‑binärarbetsboken (.xlsb) som kan vara inbäddad i vissa diagram. Du kan använda metoden `getEmbeddedWorkbookType` på [ChartData](https://reference.aspose.com/slides/sv/php-java/aspose.slides/chartdata/) tillsammans med uppräkningen [WorkbookType](https://reference.aspose.com/slides/sv/php-java/aspose.slides/workbooktype/) för att upptäcka osupporterade format och hoppa över de diagrammen.
+
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
@@ -143,7 +168,7 @@ try {
       continue;
     }
 
-    # Läs eller ändra diagramarbokdata här.
+    # Läs eller ändra diagramarbokens data här.
   }
 } finally {
   $presentation->dispose();
@@ -152,13 +177,14 @@ try {
 
 ## **Extern arbetsbok**
 
-Aspose.Slides stödjer externa arbetsböcker som datakälla för diagram.
+Aspose.Slides stöder externa arbetsböcker som datakälla för diagram.
 
 ### **Skapa en extern arbetsbok**
 
-Genom att använda metoderna **`readWorkbookStream`** och **`setExternalWorkbook`** kan du antingen skapa en extern arbetsbok från grunden eller göra en intern arbetsbok extern.
+Med metoderna **`readWorkbookStream`** och **`setExternalWorkbook`** kan du antingen skapa en extern arbetsbok från början eller göra en intern arbetsbok extern.
 
 Denna PHP‑kod demonstrerar processen för att skapa en extern arbetsbok:
+
 ```php
   $pres = new Presentation();
   $Array = new java_class("java.lang.reflect.Array");
@@ -185,13 +211,14 @@ Denna PHP‑kod demonstrerar processen för att skapa en extern arbetsbok:
   }
 ```
 
-### **Tilldela en extern arbetsbok**
+### **Ange en extern arbetsbok**
 
-Genom att använda metoden **`setExternalWorkbook`** kan du tilldela en extern arbetsbok till ett diagram som dess datakälla. Metoden kan också användas för att uppdatera sökvägen till den externa arbetsboken (om den senare har flyttats).
+Med metoden **`setExternalWorkbook`** kan du tilldela en extern arbetsbok till ett diagram som dess datakälla. Metoden kan också användas för att uppdatera sökvägen till den externa arbetsboken (om den senare har flyttats).
 
-Även om du inte kan redigera data i arbetsböcker som lagras på fjärrplatser eller resurser, kan du fortfarande använda sådana arbetsböcker som en extern datakälla. Om en relativ sökväg för en extern arbetsbok tillhandahålls konverteras den automatiskt till en fullständig sökväg.
+Du kan inte redigera data i arbetsböcker som lagras på fjärrplatser eller resurser, men du kan ändå använda sådana arbetsböcker som en extern datakälla. Om en relativ sökväg för en extern arbetsbok anges, konverteras den automatiskt till en fullständig sökväg.
 
-Denna PHP‑kod visar hur du tilldelar en extern arbetsbok:
+Denna PHP‑kod visar hur du anger en extern arbetsbok:
+
 ```php
   # Skapar en instans av Presentation-klassen
   $pres = new Presentation("chart.pptx");
@@ -214,10 +241,10 @@ Denna PHP‑kod visar hur du tilldelar en extern arbetsbok:
   }
 ```
 
-`ChartData`‑parametern (under metoden `setExternalWorkbook`) används för att ange om en Excel‑arbetsbok ska laddas eller inte.
+Parametern `ChartData` (under metoden `setExternalWorkbook`) används för att ange om en Excel‑arbetsbok ska laddas eller inte.
 
-* När `ChartData`‑värdet är satt till `false` uppdateras endast arbetsbokens sökväg – diagramdata laddas inte och uppdateras inte från målarbetsboken. Du kan vilja använda denna inställning när målarbetsboken saknas eller är otillgänglig.  
-* När `ChartData`‑värdet är satt till `true` uppdateras diagramdata från målarbetsboken.
+* När `ChartData`‑värdet är `false` uppdateras endast arbetsbokens sökväg – diagramdata laddas inte och uppdateras inte från mål‑arbetsboken. Detta kan vara lämpligt när mål‑arbetsboken saknas eller är otillgänglig.  
+* När `ChartData`‑värdet är `true` uppdateras diagramdata från mål‑arbetsboken.
 
 ```php
   # Skapar en instans av Presentation-klassen
@@ -234,15 +261,16 @@ Denna PHP‑kod visar hur du tilldelar en extern arbetsbok:
   }
 ```
 
-### **Hämta den externa datakällans arbetsbokssökväg för ett diagram**
+### **Hämta den externa datakällans arbetsboks‑sökväg för ett diagram**
 
-1. Skapa en instans av klassen [Presentation](https://apireference.aspose.com/slides/sv/php-java/aspose.slides/presentation).
+1. Skapa en instans av klassen [Presentation](https://apireference.aspose.com/slides/sv/php-java/aspose.slides/presentation) .
 2. Hämta en bilds referens via dess index.
 3. Skapa ett objekt för diagramformen.
 4. Skapa ett objekt för källtypen (`ChartDataSourceType`) som representerar diagrammets datakälla.
-5. Specificera det relevanta villkoret baserat på att källtypen är densamma som den externa arbetsbokens datakälltyp.
+5. Ange det relevanta villkoret baserat på att källtypen är densamma som den externa arbetsboks­datakälltypen.
 
 Denna PHP‑kod demonstrerar operationen:
+
 ```php
   # Skapar en instans av Presentation-klassen
   $pres = new Presentation("chart.pptx");
@@ -266,7 +294,8 @@ Denna PHP‑kod demonstrerar operationen:
 
 Du kan redigera data i externa arbetsböcker på samma sätt som du ändrar innehållet i interna arbetsböcker. När en extern arbetsbok inte kan laddas kastas ett undantag.
 
-Denna PHP‑kod är en implementering av den beskrivna processen:
+Denna PHP‑kod är en implementation av den beskrivna processen:
+
 ```php
   # Skapar en instans av Presentation-klassen
   $pres = new Presentation("chart.pptx");
@@ -282,11 +311,12 @@ Denna PHP‑kod är en implementering av den beskrivna processen:
   }
 ```
 
-### **Återskapa en arbetsbok från diagramcachen**
+### **Återställ en arbetsbok från diagramcachen**
 
-Om ett diagram använder en extern arbetsbok som saknas eller är otillgänglig kan Aspose.Slides rekonstruera diagramarbetsboken från data som cachats i presentationen. Skapa [LoadOptions](https://reference.aspose.com/slides/sv/php-java/aspose.slides/loadoptions/), konfigurera den med [SpreadsheetOptions](https://reference.aspose.com/slides/sv/php-java/aspose.slides/spreadsheetoptions/), och anropa [SpreadsheetOptions::setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/sv/php-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) med `true` innan presentationen öppnas.
+Om ett diagram använder en extern arbetsbok som saknas eller är otillgänglig kan Aspose.Slides rekonstruera diagramarbetsboken från de data som cachas i presentationen. Skapa [LoadOptions](https://reference.aspose.com/slides/sv/php-java/aspose.slides/loadoptions/), konfigurera den med [SpreadsheetOptions](https://reference.aspose.com/slides/sv/php-java/aspose.slides/spreadsheetoptions/), och anropa [SpreadsheetOptions::setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/sv/php-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) med `true` innan presentationen öppnas.
 
-Följande PHP‑exempel öppnar en presentation vars diagram refererar till en otillgänglig extern arbetsbok och får åtkomst till den återhämtade data via [Chart::getChartData](https://reference.aspose.com/slides/sv/php-java/aspose.slides/chart/#getChartData) och [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/sv/php-java/aspose.slides/chartdata/#getChartDataWorkbook):
+Följande PHP‑exempel öppnar en presentation vars diagram refererar till en otillgänglig extern arbetsbok och får åtkomst till de återställda data via [Chart::getChartData](https://reference.aspose.com/slides/sv/php-java/aspose.slides/chart/#getChartData) och [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/sv/php-java/aspose.slides/chartdata/#getChartDataWorkbook):
+
 ```php
 $spreadsheetOptions = new SpreadsheetOptions();
 $spreadsheetOptions->setRecoverWorkbookFromChartCache(true);
@@ -299,30 +329,36 @@ try {
     $chart = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
     $recoveredWorkbook = $chart->getChartData()->getChartDataWorkbook();
 
-    # Läs eller ändra den återställda arbetsboksdata här.
+    # Läs eller ändra den återställda arbetsbokens data här.
 } finally {
     $presentation->dispose();
 }
 ```
 
-Om den externa arbetsboken är otillgänglig och återhämtning är inaktiverad kastar Aspose.Slides ett undantag. Aktivera återhämtning endast när det är acceptabelt att använda den cachade diagramdatan som en reserv, eftersom cachen kanske inte innehåller ändringar gjorda i den externa arbetsboken efter att presentationen senast uppdaterades.
+Om den externa arbetsboken är otillgänglig och återställning är inaktiverad kastar Aspose.Slides ett undantag. Aktivera återställning endast när användning av cachad diagramdata är ett acceptabelt fallback‑alternativ, eftersom cachen kanske inte innehåller ändringar som gjorts i den externa arbetsboken efter att presentationen senast uppdaterades.
 
-## **Vanliga frågor**
+## **FAQ**
 
-**Kan jag avgöra om ett specifikt diagram är länkat till en extern eller inbäddad arbetsbok?**  
+**Kan jag avgöra om ett specifikt diagram är länkat till en extern eller en inbäddad arbetsbok?**
+
 Ja. Ett diagram har en [datakälltyp](https://reference.aspose.com/slides/sv/php-java/aspose.slides/chartdata/getdatasourcetype/) och en [sökväg till en extern arbetsbok](https://reference.aspose.com/slides/sv/php-java/aspose.slides/chartdata/getexternalworkbookpath/); om källan är en extern arbetsbok kan du läsa den fullständiga sökvägen för att säkerställa att en extern fil används.
 
-**Stöds relativa sökvägar till externa arbetsböcker, och hur lagras de?**  
-Ja. Om du anger en relativ sökväg konverteras den automatiskt till en absolut sökväg. Detta är praktiskt för projektportabilitet; var dock medveten om att presentationen lagrar den absoluta sökvägen i PPTX‑filen.
+**Stöds relativa sökvägar till externa arbetsböcker, och hur lagras de?**
 
-**Kan jag använda arbetsböcker som finns på nätverksresurser/delade mappar?**  
-Ja, sådana arbetsböcker kan användas som en extern datakälla. Att redigera fjärrarbetsböcker direkt från Aspose.Slides stöds dock inte – de kan endast användas som en källa.
+Ja. Om du anger en relativ sökväg konverteras den automatiskt till en absolut sökväg. Detta underlättar projektportabilitet; observera dock att presentationen lagrar den absoluta sökvägen i PPTX‑filen.
 
-**Skriver Aspose.Slides över den externa XLSX‑filen när presentationen sparas?**  
-Nej. Presentationen lagrar en [länk till den externa filen](https://reference.aspose.com/slides/sv/php-java/aspose.slides/chartdata/getexternalworkbookpath/) och använder den för att läsa data. Den externa filen ändras inte när presentationen sparas.
+**Kan jag använda arbetsböcker som finns på nätverksresurser/delade mappar?**
 
-**Vad bör jag göra om den externa filen är lösenordsskyddad?**  
-Aspose.Slides accepterar inte ett lösenord vid länkar. Ett vanligt tillvägagångssätt är att ta bort skyddet i förväg eller förbereda en avkrypterad kopia (t.ex. med [Aspose.Cells](/cells/php-java/)) och länka till den kopian.
+Ja, sådana arbetsböcker kan användas som en extern datakälla. Direkt redigering av fjärrarbetsböcker från Aspose.Slides stöds däremot inte – de kan endast användas som källa.
 
-**Kan flera diagram referera till samma externa arbetsbok?**  
-Ja. Varje diagram lagrar sin egen länk. Om de alla pekar på samma fil kommer en uppdatering av den filen att återspeglas i varje diagram nästa gång data laddas.
+**Skriver Aspose.Slides över den externa XLSX‑filen när presentationen sparas?**
+
+Nej. Presentationen lagrar en [länk till den externa filen](https://reference.aspose.com/slides/sv/php-java/aspose.slides/chartdata/getexternalworkbookpath/) och använder den för att läsa data. Den externa filen modifieras inte när presentationen sparas.
+
+**Vad ska jag göra om den externa filen är lösenordsskyddad?**
+
+Aspose.Slides accepterar inte ett lösenord vid länkningsprocessen. En vanlig lösning är att ta bort skyddet i förväg eller förbereda en avkrypterad kopia (t.ex. med [Aspose.Cells](/cells/php-java/)) och länka till den kopian.
+
+**Kan flera diagram referera till samma externa arbetsbok?**
+
+Ja. Varje diagram lagrar sin egen länk. Om alla pekar på samma fil kommer en uppdatering av den filen att återspeglas i varje diagram nästa gång data läses.

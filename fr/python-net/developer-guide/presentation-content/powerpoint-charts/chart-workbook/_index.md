@@ -1,6 +1,6 @@
 ---
 title: Gérer les classeurs de graphiques dans les présentations avec Python
-linktitle: Classeur de graphiques
+linktitle: Classeur de graphique
 type: docs
 weight: 70
 url: /fr/python-net/chart-workbook/
@@ -8,28 +8,28 @@ keywords:
 - classeur de graphique
 - données de graphique
 - cellule de classeur
-- libellé de donnée
+- libellé de données
 - feuille de calcul
 - source de données
 - classeur externe
 - données externes
-- cache de graphique
-- récupération de classeur
+- cache du graphique
+- récupération du classeur
 - PowerPoint
 - présentation
 - Python
 - Aspose.Slides
-description: "Découvrez Aspose.Slides pour Python via .NET : gérez facilement les classeurs de graphiques dans les formats PowerPoint et OpenDocument pour rationaliser les données de votre présentation."
+description: "Découvrez Aspose.Slides pour Python via .NET : gérez facilement les classeurs de graphiques dans les formats PowerPoint et OpenDocument pour simplifier les données de votre présentation."
 ---
 ## **Vue d'ensemble**
 
-Cet article explique comment travailler avec les classeurs de graphiques dans Aspose.Slides. Il montre comment lire et écrire les données de graphique via des flux de classeur, utiliser les cellules du classeur comme libellés de données de graphique, accéder aux collections de feuilles de calcul et spécifier le type de source de données pour les valeurs du graphique.
+Cet article explique comment travailler avec les classeurs de graphiques dans Aspose.Slides. Il montre comment lire et écrire des données de graphique via des flux de classeur, utiliser les cellules du classeur comme libellés de données de graphique, accéder aux collections de feuilles de calcul et spécifier le type de source de données pour les valeurs du graphique.
 
-Il couvre également le travail avec des classeurs externes comme sources de données de graphique. Les exemples démontrent comment créer et affecter un classeur externe, récupérer le chemin d’un classeur externe lié à un graphique et modifier les données du graphique lorsque le classeur est disponible.
+Il couvre également le travail avec des classeurs externes comme sources de données de graphiques. Les exemples montrent comment créer et affecter un classeur externe, récupérer le chemin d’un classeur externe lié à un graphique et modifier les données du graphique lorsque le classeur est disponible.
 
-## **Lire et écrire des données de graphique depuis un classeur**
+## **Lire et écrire des données de graphique à partir d’un classeur**
 
-Aspose.Slides fournit des méthodes pour lire et écrire des classeurs de données de graphique (qui contiennent des données de graphique modifiées avec Aspose.Cells). **Note:** Les données du graphique doivent être organisées de la même manière ou avoir une structure similaire à la source.
+Aspose.Slides fournit des méthodes pour lire et écrire des classeurs de données de graphique (qui contiennent des données de graphique modifiées avec Aspose.Cells). **Note :** Les données du graphique doivent être organisées de la même façon ou avoir une structure similaire à la source.
 
 Le code Python suivant montre une opération d’exemple :
 
@@ -48,16 +48,36 @@ with slides.Presentation("chart.pptx") as presentation:
     chart.chart_data.write_workbook_stream(data_stream)
 ```
 
+### **Valider la disposition du graphique après modification du classeur**
+
+Lorsque vous remplacez un classeur intégré par un classeur modifié, le graphique conserve ses collections de séries et de catégories d’origine. Cette inadéquation peut entraîner l’échec de [IChart.validate_chart_layout](https://reference.aspose.com/slides/fr/python-net/aspose.slides.charts/ichart/validate_chart_layout/) avec une erreur d’index hors limites. Effacez les séries et catégories existantes avant d’écrire le classeur mis à jour dans le graphique.
+
+```python
+# Après avoir modifié le flux du classeur (p. ex., en utilisant Aspose.Cells)
+updated_workbook = chart_data.read_workbook_stream()
+
+# Effacer les références de données existantes.
+chart_data.series.clear()
+chart_data.categories.clear()
+
+updated_workbook.seek(0)
+chart_data.write_workbook_stream(updated_workbook)
+
+chart.validate_chart_layout()
+```
+
+Effacer les collections garantit que la structure des données du graphique est cohérente avec le nouveau classeur, permettant à `validate_chart_layout` de s’exécuter sans erreur.
+
 ## **Définir une cellule de classeur comme libellé de données de graphique**
 
-Parfois, vous avez besoin de libellés de graphique provenant directement des cellules du classeur de données sous‑jacent. Aspose.Slides vous permet de lier les libellés de données à des cellules de classeur spécifiques afin que le texte du libellé reflète toujours la valeur de la cellule. L’exemple ci‑dessous montre comment activer les libellés « valeur‑provenant‑de‑cellule » et faire pointer les libellés sélectionnés vers des cellules personnalisées dans le classeur du graphique.
+Parfois, vous avez besoin que les libellés du graphique proviennent directement des cellules du classeur de données sous‑jacent. Aspose.Slides vous permet de lier des libellés de données à des cellules de classeur spécifiques afin que le texte du libellé reflète toujours la valeur de la cellule. L’exemple ci‑dessous montre comment activer les libellés « valeur‑provenant‑cellule » et orienter les libellés sélectionnés vers des cellules personnalisées dans le classeur du graphique.
 
-1. Créer une instance de la classe [Presentation](https://docs.aspose.com/slides/fr/python-net/api-reference/aspose.slides/presentation/).
-2. Obtenir une référence à la diapositive par indice.
-3. Ajouter un graphique à bulles avec des données d’exemple.
-4. Accéder aux séries du graphique.
-5. Utiliser une cellule de classeur comme libellé de données.
-6. Enregistrer la présentation.
+1. Créez une instance de la classe [Presentation](https://docs.aspose.com/slides/fr/python-net/api-reference/aspose.slides/presentation/).
+2. Obtenez une référence à la diapositive par son index.
+3. Ajoutez un graphique à bulles avec des données d’exemple.
+4. Accédez aux séries du graphique.
+5. Utilisez une cellule de classeur comme libellé de données.
+6. Enregistrez la présentation.
 
 Le code Python suivant montre comment définir une cellule de classeur comme libellé de données de graphique :
 
@@ -127,7 +147,7 @@ with slides.Presentation() as presentation:
 
 ## **Détecter les formats de classeur intégré non pris en charge**
 
-Aspose.Slides ne prend pas en charge le format de classeur Excel binaire (.xlsb) qui peut être intégré dans certains graphiques. Vous pouvez utiliser la propriété `embedded_workbook_type` sur [ChartData](https://reference.aspose.com/slides/fr/python-net/aspose.slides.charts/chartdata/) conjointement avec l’énumération [WorkbookType](https://reference.aspose.com/slides/fr/python-net/aspose.slides.charts/workbooktype/) pour détecter les formats non pris en charge et ignorer ces graphiques.
+Aspose.Slides ne prend pas en charge le format de classeur binaire Excel (.xlsb) pouvant être intégré à certains graphiques. Vous pouvez utiliser la propriété `embedded_workbook_type` sur [ChartData](https://reference.aspose.com/slides/fr/python-net/aspose.slides.charts/chartdata/) avec l’énumération [WorkbookType](https://reference.aspose.com/slides/fr/python-net/aspose.slides.charts/workbooktype/) pour détecter les formats non pris en charge et ignorer ces graphiques.
 
 ```py
 import aspose.slides as slides
@@ -145,21 +165,21 @@ with slides.Presentation("sample.pptx") as presentation:
 
         if (chart_data.data_source_type == charts.ChartDataSourceType.INTERNAL_WORKBOOK and
                 chart_data.embedded_workbook_type == charts.WorkbookType.WORKBOOK_BINARY_MACRO):
-            # Le classeur intégré est au format .xlsb, qui n’est pas pris en charge.
+            # Le classeur intégré est au format .xlsb, qui n'est pas pris en charge.
             continue
 
-        # Lisez ou modifiez les données du classeur du graphique ici.
+        # Lire ou modifier les données du classeur du graphique ici.
 ```
 
 ## **Classeurs externes**
 
 Aspose.Slides prend en charge l’utilisation de classeurs externes comme source de données pour les graphiques.
 
-### **Définir les classeurs externes**
+### **Définir des classeurs externes**
 
-En utilisant la méthode [ChartData.set_external_workbook](https://reference.aspose.com/slides/fr/python-net/aspose.slides.charts/chartdata/set_external_workbook/), vous pouvez affecter un classeur externe à un graphique comme source de données. Cette méthode peut également mettre à jour le chemin vers un classeur externe s’il a été déplacé.
+En utilisant la méthode [ChartData.set_external_workbook](https://reference.aspose.com/slides/fr/python-net/aspose.slides.charts/chartdata/set_external_workbook/), vous pouvez affecter un classeur externe à un graphique comme source de données. Cette méthode peut également mettre à jour le chemin d’un classeur externe s’il a été déplacé.
 
-Bien que vous ne puissiez pas modifier les données des classeurs stockés sur des emplacements ou ressources distants, vous pouvez toujours les utiliser comme sources de données externes. Si vous fournissez un chemin relatif pour un classeur externe, il est automatiquement converti en chemin complet.
+Bien que vous ne puissiez pas modifier les données des classeurs stockés sur des emplacements ou des ressources distants, vous pouvez toujours les utiliser comme sources de données externes. Si vous fournissez un chemin relatif pour un classeur externe, il est automatiquement converti en chemin complet.
 
 Le code Python suivant montre comment définir un classeur externe :
 
@@ -171,21 +191,22 @@ with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
     chart = slide.shapes.add_chart(charts.ChartType.PIE, 50, 50, 400, 600, False)
-    chart.chart_data.set_external_workbook("external_workbook.xlsx")
+    # Passer False afin que seul le chemin soit stocké : le classeur cible n'a pas encore besoin d'exister.
+    chart.chart_data.set_external_workbook("external_workbook.xlsx", False)
 
     presentation.save("chart_with_external_workbook.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Le paramètre `update_chart_data` de la méthode [set_external_workbook](https://reference.aspose.com/slides/fr/python-net/aspose.slides.charts/chartdata/set_external_workbook/) indique si le classeur Excel sera chargé.
 
-- Lorsque `update_chart_data` est défini sur `False`, seul le chemin du classeur est mis à jour ; les données du graphique ne sont pas chargées ni rafraîchies depuis le classeur cible. Utilisez ce réglage lorsque le classeur cible n’existe pas ou est indisponible.
-- Lorsque `update_chart_data` est défini sur `True`, les données du graphique sont chargées et mises à jour depuis le classeur cible.
+- Lorsque `update_chart_data` est défini sur `False`, seul le chemin du classeur est mis à jour ; les données du graphique ne sont pas chargées ni rafraîchies à partir du classeur cible. Utilisez ce réglage lorsque le classeur cible n’existe pas ou est indisponible.
+- Lorsque `update_chart_data` est défini sur `True` (valeur par défaut), les données du graphique sont chargées et mises à jour à partir du classeur cible. Si ce classeur ne peut pas être ouvert, une exception avec le message « External workbook is not available » est levée.
 
 ### **Créer des classeurs externes**
 
 En utilisant les méthodes [read_workbook_stream](https://reference.aspose.com/slides/fr/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) et [set_external_workbook](https://reference.aspose.com/slides/fr/python-net/aspose.slides.charts/chartdata/set_external_workbook/), vous pouvez soit créer un classeur externe à partir de zéro, soit convertir un classeur interne en classeur externe.
 
-Ce code Python démontre le processus de création d’un classeur externe :
+Ce code Python illustre le processus de création d’un classeur externe :
 
 ```python
 import pathlib
@@ -210,15 +231,15 @@ with slides.Presentation() as presentation:
     presentation.save("chart_with_external_workbook.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Obtenir le chemin du classeur source de données externe d'un graphique**
+### **Obtenir le chemin du classeur source de données externe d’un graphique**
 
 Parfois, les données d’un graphique sont liées à un classeur Excel externe plutôt qu’aux données intégrées de la présentation. Avec Aspose.Slides, vous pouvez inspecter la source de données du graphique et, si c’est un classeur externe, lire le chemin complet du classeur.
 
-1. Créer une instance de la classe [Presentation](https://docs.aspose.com/slides/fr/python-net/api-reference/aspose.slides/presentation/).
-2. Obtenir une référence à la diapositive par son indice.
-3. Obtenir une référence à la forme du graphique.
-4. Obtenir la source ([ChartDataSourceType](https://reference.aspose.com/slides/fr/python-net/aspose.slides.charts/chartdatasourcetype/)) qui représente la source de données du graphique.
-5. Vérifier si le type de source correspond au type de source de classeur externe.
+1. Créez une instance de la classe [Presentation](https://docs.aspose.com/slides/fr/python-net/api-reference/aspose.slides/presentation/).
+2. Obtenez une référence à la diapositive par son index.
+3. Obtenez une référence à la forme du graphique.
+4. Récupérez la source ([ChartDataSourceType](https://reference.aspose.com/slides/fr/python-net/aspose.slides.charts/chartdatasourcetype/)) qui représente la source de données du graphique.
+5. Vérifiez si le type de source correspond au type de source de classeur externe.
 
 Le code Python suivant montre l’opération :
 
@@ -235,7 +256,7 @@ with slides.Presentation("chart_with_external_workbook.pptx") as presentation:
 
 ### **Modifier les données du graphique**
 
-Vous pouvez modifier les données dans les classeurs externes de la même façon que dans les classeurs internes. Si un classeur externe ne peut pas être chargé, une exception est levée.
+Vous pouvez modifier les données dans les classeurs externes de la même manière que vous modifiez les données dans les classeurs internes. Si un classeur externe ne peut pas être chargé, une exception est levée.
 
 ```python
 import aspose.slides as slides
@@ -246,9 +267,9 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Récupérer un classeur depuis le cache du graphique**
+### **Récupérer un classeur à partir du cache du graphique**
 
-Si un graphique utilise un classeur externe manquant ou indisponible, Aspose.Slides peut reconstruire le classeur du graphique à partir des données mises en cache dans la présentation. Créez un [LoadOptions](https://reference.aspose.com/slides/fr/python-net/aspose.slides/loadoptions/), puis activez [SpreadsheetOptions.recover_workbook_from_chart_cache](https://reference.aspose.com/slides/fr/python-net/aspose.slides/spreadsheetoptions/recover_workbook_from_chart_cache/) via [LoadOptions.spreadsheet_options](https://reference.aspose.com/slides/fr/python-net/aspose.slides/loadoptions/spreadsheet_options/) avant d’ouvrir la présentation.
+Si un graphique utilise un classeur externe manquant ou indisponible, Aspose.Slides peut reconstruire le classeur du graphique à partir des données mises en cache dans la présentation. Créez [LoadOptions](https://reference.aspose.com/slides/fr/python-net/aspose.slides/loadoptions/), puis activez [SpreadsheetOptions.recover_workbook_from_chart_cache](https://reference.aspose.com/slides/fr/python-net/aspose.slides.spreadsheetoptions/recover_workbook_from_chart_cache/) via [LoadOptions.spreadsheet_options](https://reference.aspose.com/slides/fr/python-net/aspose.slides/loadoptions/spreadsheet_options/) avant d’ouvrir la présentation.
 
 L’exemple Python suivant ouvre une présentation dont le graphique fait référence à un classeur externe indisponible et accède aux données récupérées via [Chart.chart_data](https://reference.aspose.com/slides/fr/python-net/aspose.slides.charts/chart/chart_data/) et [ChartData.chart_data_workbook](https://reference.aspose.com/slides/fr/python-net/aspose.slides.charts/chartdata/chart_data_workbook/) :
 
@@ -262,27 +283,33 @@ with slides.Presentation("presentation.pptx", load_options) as presentation:
     chart = presentation.slides[0].shapes[0]
     recovered_workbook = chart.chart_data.chart_data_workbook
 
-    # Lisez ou modifiez les données du classeur récupéré ici.
+    # Lire ou modifier les données du classeur récupéré ici.
 ```
 
 Si le classeur externe est indisponible et que la récupération est désactivée, Aspose.Slides lève une exception. Activez la récupération uniquement lorsque l’utilisation des données de graphique mises en cache constitue une solution de repli acceptable, car le cache peut ne pas contenir les modifications apportées au classeur externe après la dernière mise à jour de la présentation.
 
 ## **FAQ**
 
-**Puis‑je déterminer si un graphique spécifique est lié à un classeur externe ou intégré ?**  
-Oui. Un graphique possède un [type de source de données](https://reference.aspose.com/slides/fr/python-net/aspose.slides.charts/chartdata/data_source_type/) et un [chemin vers un classeur externe](https://reference.aspose.com/slides/fr/python-net/aspose.slides.charts/chartdata/external_workbook_path/) ; si la source est un classeur externe, vous pouvez lire le chemin complet pour vous assurer qu’un fichier externe est utilisé.
+**Puis‑je déterminer si un graphique spécifique est lié à un classeur externe ou intégré ?**
 
-**Les chemins relatifs vers des classeurs externes sont‑ils pris en charge, et comment sont‑ils stockés ?**  
-Oui. Si vous spécifiez un chemin relatif, il est automatiquement converti en chemin absolu. Cela facilite la portabilité du projet ; toutefois, la présentation stockera le chemin absolu dans le fichier PPTX.
+Oui. Un graphique possède un [data source type](https://reference.aspose.com/slides/fr/python-net/aspose.slides.charts/chartdata/data_source_type/) et un [path to an external workbook](https://reference.aspose.com/slides/fr/python-net/aspose.slides.charts/chartdata/external_workbook_path/) ; si la source est un classeur externe, vous pouvez lire le chemin complet pour vous assurer qu’un fichier externe est utilisé.
 
-**Puis‑je utiliser des classeurs situés sur des ressources ou partages réseau ?**  
-Oui, ces classeurs peuvent être utilisés comme source de données externe. Cependant, la modification directe de classeurs distants depuis Aspose.Slides n’est pas prise en charge — ils ne peuvent être utilisés que comme source.
+**Les chemins relatifs vers des classeurs externes sont‑ils pris en charge et comment sont‑ils stockés ?**
 
-**Aspose.Slides écrase‑t‑il le fichier XLSX externe lors de l’enregistrement de la présentation ?**  
-Non. La présentation stocke un [lien vers le fichier externe](https://reference.aspose.com/slides/fr/python-net/aspose.slides.charts/chartdata/external_workbook_path/) et l’utilise pour lire les données. Le fichier externe lui‑même n’est pas modifié lors de l’enregistrement de la présentation.
+Oui. Si vous indiquez un chemin relatif, il est automatiquement converti en chemin absolu. Cela facilite la portabilité du projet ; toutefois, la présentation stockera le chemin absolu dans le fichier PPTX.
 
-**Que faire si le fichier externe est protégé par mot de passe ?**  
-Aspose.Slides n’accepte pas de mot de passe lors de la liaison. Une approche courante consiste à retirer la protection à l’avance ou à préparer une copie décryptée (par exemple, en utilisant [Aspose.Cells](/cells/python-net/)) et à la lier.
+**Puis‑je utiliser des classeurs situés sur des ressources ou partages réseau ?**
 
-**Plusieurs graphiques peuvent‑ils référencer le même classeur externe ?**  
-Oui. Chaque graphique stocke son propre lien. Si tous pointent vers le même fichier, la mise à jour de ce fichier sera reflétée dans chaque graphique lors du prochain chargement des données.
+Oui, ces classeurs peuvent être utilisés comme source de données externe. Toutefois, la modification directe de classeurs distants depuis Aspose.Slides n’est pas prise en charge — ils ne peuvent être qu’une source.
+
+**Aspose.Slides remplace‑t‑il le fichier XLSX externe lors de l’enregistrement de la présentation ?**
+
+Uniquement si vous avez modifié les données du graphique. La présentation stocke un [link to the external file](https://reference.aspose.com/slides/fr/python-net/aspose.slides.charts/chartdata/external_workbook_path/) et l’utilise pour lire les données, de sorte qu’ouvrir et enregistrer une présentation laisse le classeur intact. Cependant, les valeurs que vous modifiez via les données du graphique (voir [Edit Chart Data](#edit-chart-data) ci‑dessus) sont écrites dans le classeur externe lors de l’enregistrement de la présentation — travaillez sur une copie si l’original doit rester inchangé.
+
+**Que faire si le fichier externe est protégé par mot de passe ?**
+
+Aspose.Slides n’accepte pas de mot de passe lors de la liaison. Une approche courante consiste à supprimer la protection au préalable ou à préparer une copie décryptée (par exemple en utilisant [Aspose.Cells](/cells/python-net/)) et à la lier.
+
+**Plusieurs graphiques peuvent‑ils référencer le même classeur externe ?**
+
+Oui. Chaque graphique stocke son propre lien. S’ils pointent tous vers le même fichier, la mise à jour de ce fichier sera reflétée dans chaque graphique lors du prochain chargement des données.

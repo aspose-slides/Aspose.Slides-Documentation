@@ -1,40 +1,43 @@
 ---
-title: Správa sešitů grafů v prezentacích pomocí JavaScriptu
-linktitle: Sešit grafu
+title: Správa sešitů diagramů v prezentacích pomocí JavaScriptu
+linktitle: Sešit diagramu
 type: docs
 weight: 70
 url: /cs/nodejs-java/chart-workbook/
 keywords:
-- sešit grafu
-- data grafu
+- sešit diagramu
+- data diagramu
 - buňka sešitu
 - popisek dat
 - list
-- datový zdroj
+- zdroj dat
 - externí sešit
 - externí data
-- mezipaměť grafu
+- mezipaměť diagramu
 - obnovení sešitu
 - PowerPoint
 - prezentace
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Objevte Aspose.Slides pro Node.js prostřednictvím Java: snadno spravujte sešity grafů v formátech PowerPoint a OpenDocument a zjednodušte data své prezentace."
+description: "Objevte Aspose.Slides pro Node.js pomocí Java: snadno spravujte sešity diagramů v formátech PowerPoint a OpenDocument a zjednodušte data vaší prezentace."
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak pracovat s grafickými sešity v Aspose.Slides. Ukazuje, jak číst a zapisovat data grafu přes streamy sešitu, používat buňky sešitu jako popisky dat grafu, přistupovat k kolekcím listů a určovat typ datového zdroje pro hodnoty grafu.
+Tento článek vysvětluje, jak pracovat se sešity diagramů v Aspose.Slides. Ukazuje, jak číst a zapisovat data diagramu pomocí proudů sešitu, používat buňky sešitu jako popisky dat diagramu, přistupovat ke kolekcím listů a určit typ zdroje dat pro hodnoty diagramu.
 
-Také popisuje práci s externími sešity jako datovými zdroji grafu. Příklady demonstrují, jak vytvořit a přiřadit externí sešit, získat cestu k externímu sešitu propojenému s grafem a upravit data grafu, když je sešit k dispozici.
+Také se zabývá používáním externích sešitů jako zdrojů dat diagramu. Příklady ukazují, jak vytvořit a přiřadit externí sešit, získat cestu k externímu sešitu propojenému s diagramem a upravit data diagramu, když je sešit dostupný.
 
-## **Číst a zapisovat data grafu ze sešitu**
+## **Čtení a zápis dat diagramu ze sešitu**
 
-Aspose.Slides poskytuje metody [readWorkbookStream](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/ChartData#readWorkbookStream--) a [writeWorkbookStream](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/ChartData#writeWorkbookStream-byte:A-) , které umožňují číst a zapisovat sešity s daty grafu (obsahující data upravená v Aspose.Cells). **Poznámka** že data grafu musí být uspořádána stejným způsobem nebo mít strukturu podobnou zdroji.
+Aspose.Slides poskytuje metody [readWorkbookStream](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/ChartData#readWorkbookStream--) a [writeWorkbookStream](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/ChartData#writeWorkbookStream-byte:A-) , které umožňují číst a zapisovat sešity dat diagramu (obsahující data diagramu upravená pomocí Aspose.Cells). **Note** že data diagramu musí být uspořádána stejným způsobem nebo mít strukturu podobnou zdroji.
 
-Tento JavaScriptový kód ukazuje ukázkovou operaci:
+Tento JavaScriptový kód demonstruje ukázkovou operaci:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation("chart.pptx");
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().get_Item(0);
@@ -50,22 +53,44 @@ try {
 }
 ```
 
-## **Nastavit buňku WorkBook jako DataLabel**
+### **Ověřit rozvržení diagramu po úpravě sešitu**
+
+Když nahradíte vložený sešit upraveným, diagram si zachová původní kolekce řad a kategorií. Tento nesoulad může způsobit selhání [Chart.validateChartLayout](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/Chart#validateChartLayout--) s chybou „index-out-of-range“. Před zápisem aktualizovaného sešitu zpět do diagramu vymažte existující řady a kategorie.
+
+```javascript
+// Po úpravě proudu sešitu (např. pomocí Aspose.Cells)
+var updatedWorkbook = chartData.readWorkbookStream();
+
+// Vymazat existující odkazy na data.
+chartData.getSeries().clear();
+chartData.getCategories().clear();
+
+chartData.writeWorkbookStream(updatedWorkbook);
+
+chart.validateChartLayout();
+```
+
+Vyprázdnění kolekcí zajišťuje, že struktura dat diagramu je konzistentní s novým sešitem, což umožní `validateChartLayout` dokončit bez chyb.
+
+## **Nastavit buňku sešitu jako popisek dat diagramu**
 
 1. Vytvořte instanci třídy [Presentation](https://apireference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation).
-1. Získejte referenci snímku podle jeho indexu.
-1. Přidejte bublinový graf s nějakými daty.
-1. Přistupte k sériím grafu.
+1. Získejte odkaz na snímek podle jeho indexu.
+1. Přidejte bublinový diagram s některými daty.
+1. Přistupte k řadám diagramu.
 1. Nastavte buňku sešitu jako popisek dat.
 1. Uložte prezentaci.
 
-Tento JavaScriptový kód ukazuje, jak nastavit buňku sešitu jako popisek dat grafu:
+Tento JavaScriptový kód ukazuje, jak nastavit buňku sešitu jako popisek dat diagramu:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var lbl0 = "Label 0 cell value";
 var lbl1 = "Label 1 cell value";
 var lbl2 = "Label 2 cell value";
-// Instancuje třídu prezentace, která představuje soubor prezentace
+// Vytvoří instanci třídy prezentace, která představuje soubor prezentace
 var pres = new aspose.slides.Presentation("chart2.pptx");
 try {
     var slide = pres.getSlides().get_Item(0);
@@ -85,11 +110,14 @@ try {
 }
 ```
 
-## **Spravovat listy**
+## **Správa listů**
 
-Tento JavaScriptový kód demonstruje operaci, při které je použita metoda [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/ChartDataWorkbook#getWorksheets--) k přístupu k kolekci listů:
+Tento JavaScriptový kód demonstruje operaci, kde je metoda [ChartDataWorkbook.getWorksheets](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/ChartDataWorkbook#getWorksheets--) použita k přístupu ke kolekci listů:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 500);
@@ -104,11 +132,14 @@ try {
 }
 ```
 
-## **Zadat typ datového zdroje**
+## **Určení typu zdroje dat**
 
-Tento JavaScriptový kód ukazuje, jak určit typ pro datový zdroj:
+Tento JavaScriptový kód ukazuje, jak určit typ pro zdroj dat:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Column3D, 50, 50, 600, 400, true);
@@ -125,11 +156,15 @@ try {
 }
 ```
 
-## **Detekovat nepodporované vložené formáty sešitu**
+## **Detekce nepodporovaných formátů vložených sešitů**
 
-Aspose.Slides nepodporuje formát binárního sešitu Excel (.xlsb), který může být vložen v některých grafech. K detekci nepodporovaných formátů a přeskočení takových grafů můžete použít metodu `getEmbeddedWorkbookType` na třídě [ChartData](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartdata/) spolu s enumerací [WorkbookType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/workbooktype/).
+Aspose.Slides nepodporuje binární formát Excelu (.xlsb), který může být vložen v některých diagramech. Můžete použít metodu `getEmbeddedWorkbookType` na [ChartData](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartdata/) spolu s výčtem [WorkbookType](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/workbooktype/) k detekci nepodporovaných formátů a tyto diagramy přeskočit.
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     let slide = presentation.getSlides().get_Item(0);
@@ -149,7 +184,7 @@ try {
             continue;
         }
 
-        // Zde přečtěte nebo upravte data sešitu grafu.
+        // Zde přečtěte nebo upravte data sešitu diagramu.
     }
 } finally {
     presentation.dispose();
@@ -158,28 +193,26 @@ try {
 
 ## **Externí sešit**
 
-Aspose.Slides podporuje externí sešity jako datový zdroj pro grafy.
+Aspose.Slides podporuje externí sešity jako zdroj dat pro diagramy.
 
 ### **Vytvořit externí sešit**
 
 Pomocí metod **`readWorkbookStream`** a **`setExternalWorkbook`** můžete buď vytvořit externí sešit od nuly, nebo učinit interní sešit externím.
 
-Tento JavaScriptový kód demonstruje proces vytvoření externího sešitu:
+Tento JavaScriptový kód demonstruje proces vytváření externího sešitu:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const fileSystem = require("fs");
+
 var pres = new aspose.slides.Presentation();
 try {
-    final var workbookPath = "externalWorkbook1.xlsx";
+    var workbookPath = "externalWorkbook1.xlsx";
     var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 400, 600);
-    var fileStream = java.newInstanceSync("java.io.FileOutputStream", workbookPath);
-    try {
-        var workbookData = chart.getChartData().readWorkbookStream();
-        fileStream.write(workbookData, 0, workbookData.length);
-    } finally {
-        if (fileStream != null) {
-            fileStream.close();
-        }
-    }
+    // readWorkbookStream vrací bajty sešitu jako Buffer v Node.
+    var workbookData = chart.getChartData().readWorkbookStream();
+    fileSystem.writeFileSync(workbookPath, Buffer.from(workbookData));
     chart.getChartData().setExternalWorkbook(workbookPath);
     pres.save("externalWorkbook.pptx", aspose.slides.SaveFormat.Pptx);
 } catch (e) {console.log(e);
@@ -192,13 +225,16 @@ try {
 
 ### **Nastavit externí sešit**
 
-Pomocí metody **`setExternalWorkbook`** můžete přiřadit externí sešit k grafu jako jeho datový zdroj. Tato metoda může být také použita k aktualizaci cesty k externímu sešitu (pokud byl přesunut).
+Metodou **`setExternalWorkbook`** můžete přiřadit externí sešit k diagramu jako jeho zdroj dat. Tuto metodu lze také použít k aktualizaci cesty k externímu sešitu (pokud byl přesunut).
 
-I když nemůžete upravovat data v sešitech uložených na vzdálených místech nebo prostředcích, můžete takové sešity i nadále používat jako externí datový zdroj. Pokud je zadána relativní cesta k externímu sešitu, automaticky se převede na úplnou cestu.
+Zatímco nemůžete upravovat data v sešitech uložených na vzdálených místech nebo ve zdrojích, můžete takové sešity i nadále používat jako externí zdroj dat. Pokud je zadána relativní cesta k externímu sešitu, automaticky se převede na úplnou cestu.
 
 Tento JavaScriptový kód ukazuje, jak nastavit externí sešit:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Vytvoří instanci třídy Presentation
 var pres = new aspose.slides.Presentation("chart.pptx");
 try {
@@ -220,12 +256,15 @@ try {
 }
 ```
 
-Parametr `ChartData` (v rámci metody `setExternalWorkbook`) určuje, zda bude Excel sešit načten.
+Druhý parametr metody `setExternalWorkbook`, `updateChartData`, určuje, zda bude Excelový sešit načten či ne.
 
-* Když je hodnota `ChartData` nastavena na `false`, aktualizuje se pouze cesta k sešitu – data grafu nebudou načtena ani aktualizována ze cílového sešitu. Toto nastavení je vhodné, když cílový sešit neexistuje nebo není dostupný.
-* Když je hodnota `ChartData` nastavena na `true`, data grafu se aktualizují z cílového sešitu.
+* Když je `updateChartData` nastaveno na `false`, aktualizuje se pouze cesta k sešitu — data diagramu nebudou načtena ani aktualizována z cílového sešitu. Toto nastavení je vhodné, pokud cílový sešit neexistuje nebo není dostupný.
+* Když je `updateChartData` nastaveno na `true`, data diagramu jsou aktualizována z cílového sešitu.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Vytvoří instanci třídy Presentation
 var pres = new aspose.slides.Presentation("chart.pptx");
 try {
@@ -240,17 +279,20 @@ try {
 }
 ```
 
-### **Získat cestu k externímu datovému zdroji sešitu grafu**
+### **Získat cestu k externímu zdroji dat diagramu**
 
 1. Vytvořte instanci třídy [Presentation](https://apireference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation).
-1. Získejte referenci snímku podle jeho indexu.
-1. Vytvořte objekt pro tvar grafu.
-1. Vytvořte objekt pro typ zdroje (`ChartDataSourceType`), který představuje datový zdroj grafu.
-1. Určete relevantní podmínku na základě toho, že typ zdroje je stejný jako typ externího datového zdroje sešitu.
+1. Získejte odkaz na snímek podle jeho indexu.
+1. Vytvořte objekt pro tvar diagramu.
+1. Vytvořte objekt pro typ zdroje (`ChartDataSourceType`), který představuje zdroj dat diagramu.
+1. Upřesněte relevantní podmínku na základě toho, že typ zdroje je stejný jako typ externího zdroje sešitu.
 
 Tento JavaScriptový kód demonstruje operaci:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Vytvoří instanci třídy Presentation
 var pres = new aspose.slides.Presentation("chart.pptx");
 try {
@@ -269,13 +311,16 @@ try {
 }
 ```
 
-### **Upravit data grafu**
+### **Upravit data diagramu**
 
-Data v externích sešitech můžete upravovat stejně jako v interních sešitech. Když externí sešit nelze načíst, je vyvolána výjimka.
+Data v externích sešitech můžete upravovat stejným způsobem, jako měníte obsah interních sešitů. Když nelze externí sešit načíst, je vyhozena výjimka.
 
 Tento JavaScriptový kód je implementací popsaného postupu:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 // Vytvoří instanci třídy Presentation
 var pres = new aspose.slides.Presentation("chart.pptx");
 try {
@@ -290,13 +335,16 @@ try {
 }
 ```
 
-### **Obnovit sešit z mezipaměti grafu**
+### **Obnovit sešit z mezipaměti diagramu**
 
-Pokud graf používá externí sešit, který chybí nebo není dostupný, Aspose.Slides může z dat uložených v prezentaci rekonstruovat sešit grafu. Vytvořte [LoadOptions](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/loadoptions/), nakonfigurujte jej pomocí [SpreadsheetOptions](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/spreadsheetoptions/) a před otevřením prezentace zavolejte [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) s parametrem `true`.
+Pokud diagram používá externí sešit, který chybí nebo není dostupný, Aspose.Slides může rekonstruovat sešit diagramu z dat uložených v mezipaměti prezentace. Vytvořte [LoadOptions](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/loadoptions/), nakonfigurujte jej pomocí [SpreadsheetOptions](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/spreadsheetoptions/), a zavolejte [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) s hodnotou `true` před otevřením prezentace.
 
-Následující JavaScriptový příklad otevře prezentaci, jejíž graf odkazuje na nedostupný externí sešit, a přistoupí k obnoveným datům přes [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartdata/#getChartDataWorkbook):
+Následující JavaScriptový příklad otevírá prezentaci, jejíž diagram odkazuje na nedostupný externí sešit, a přistupuje k obnoveným datům pomocí [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartdata/#getChartDataWorkbook):
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 const spreadsheetOptions = new aspose.slides.SpreadsheetOptions();
 spreadsheetOptions.setRecoverWorkbookFromChartCache(true);
 
@@ -308,36 +356,36 @@ try {
     const chart = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
     const recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
 
-    // Zde přečtěte nebo upravte data obnoveného sešitu.
+    // Zde přečtěte nebo upravte obnovená data sešitu.
 } finally {
     presentation.dispose();
 }
 ```
 
-Pokud je externí sešit nedostupný a obnova je vypnuta, Aspose.Slides vyvolá výjimku. Zapněte obnovu jen tehdy, když je použití dat z mezipaměti přijatelnou náhradou, protože mezipaměť nemusí obsahovat změny provedené v externím sešitu po poslední aktualizaci prezentace.
+Pokud je externí sešit nedostupný a obnova je vypnuta, Aspose.Slides vyhodí výjimku. Zapněte obnovu jen tehdy, když je použití dat z mezipaměti přijatelnou náhradou, protože mezipaměť nemusí obsahovat změny provedené v externím sešitu po poslední aktualizaci prezentace.
 
 ## **FAQ**
 
-**Mohu zjistit, zda je konkrétní graf propojen s externím nebo vloženým sešitem?**
+**Mohu zjistit, zda je konkrétní diagram spojen s externím nebo vloženým sešitem?**
 
-Ano. Graf má [typ datového zdroje](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) a [ cestu k externímu sešitu](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/); pokud je zdroj externí sešit, můžete přečíst úplnou cestu a ověřit, že je použita externí soubor.
+Ano. Diagram má [typ zdroje dat](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) a [cestu k externímu sešitu](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/); pokud je zdroj externí sešit, můžete přečíst úplnou cestu a ověřit, že je použito externí soubor.
 
-**Jsou podporovány relativní cesty k externím sešitům a jak jsou uloženy?**
+**Jsou relativní cesty k externím sešitům podporovány a jak jsou uloženy?**
 
-Ano. Pokud zadáte relativní cestu, automaticky se převede na absolutní cestu. To je výhodné pro přenositelnost projektu; však buďte si vědomi, že prezentace uloží absolutní cestu v souboru PPTX.
+Ano. Pokud zadáte relativní cestu, automaticky se převede na absolutní cestu. To je výhodné pro přenositelnost projektu; buďte však vědomi, že prezentace uloží absolutní cestu v souboru PPTX.
 
-**Mohu používat sešity umístěné na síťových zdrojích/ sdílených jednotkách?**
+**Lze použít sešity umístěné na síťových zdrojích/ sdíleních?**
 
-Ano, takové sešity lze použít jako externí datový zdroj. Úpravy vzdálených sešitů přímo z Aspose.Slides však nejsou podporovány – lze je použít jen jako zdroj.
+Ano, takové sešity mohou být použity jako externí zdroj dat. Úprava vzdálených sešitů přímo z Aspose.Slides však není podporována — lze je použít jen jako zdroj.
 
-**Přepisuje Aspose.Slides externí soubor XLSX při ukládání prezentace?**
+**Přepíše Aspose.Slides externí soubor XLSX při ukládání prezentace?**
 
-Ne. Prezentace uloží [odkaz na externí soubor](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) a použije jej pro čtení dat. Externí soubor samotný není při uložení prezentace změněn.
+Ne. Prezentace ukládá [odkaz na externí soubor](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) a používá jej pro čtení dat. Externí soubor samotný není při ukládání prezentace modifikován.
 
-**Co mám dělat, pokud je externí soubor chráněn heslem?**
+**Co mám dělat, když je externí soubor chráněn heslem?**
 
-Aspose.Slides neakceptuje heslo při propojení. Běžný postup je odstranit ochranu předem nebo připravit dešifrovanou kopii (například pomocí [Aspose.Cells](/cells/nodejs-java/)) a odkázat na tuto kopii.
+Aspose.Slides neakceptuje heslo při vytváření odkazu. Obvyklý postup je odstranit ochranu předem nebo připravit dešifrovanou kopii (například pomocí [Aspose.Cells](/cells/nodejs-java/)) a odkazovat na tuto kopii.
 
-**Mohou více grafů odkazovat na stejný externí sešit?**
+**Mohou více diagramů odkazovat na stejný externí sešit?**
 
-Ano. Každý graf ukládá svůj vlastní odkaz. Pokud všechny odkazují na stejný soubor, aktualizace souboru se projeví ve všech grafech při dalším načtení dat.
+Ano. Každý diagram ukládá svůj vlastní odkaz. Pokud všechny ukazují na stejný soubor, aktualizace tohoto souboru se projeví v každém diagramu při dalším načtení dat.

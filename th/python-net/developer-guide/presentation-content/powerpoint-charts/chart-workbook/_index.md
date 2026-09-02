@@ -1,37 +1,37 @@
 ---
-title: จัดการแผ่นงานแผนภูมิในการนำเสนอด้วย Python
-linktitle: แผ่นงานแผนภูมิ
+title: จัดการสมุดงานแผนภูมิในงานนำเสนอด้วย Python
+linktitle: สมุดงานแผนภูมิ
 type: docs
 weight: 70
 url: /th/python-net/chart-workbook/
 keywords:
-- แผ่นงานแผนภูมิ
+- สมุดงานแผนภูมิ
 - ข้อมูลแผนภูมิ
-- เซลล์แผ่นงาน
+- เซลล์สมุดงาน
 - ป้ายข้อมูล
-- เวิร์กชีต
+- แผ่นงาน
 - แหล่งข้อมูล
-- แผ่นงานภายนอก
+- สมุดงานภายนอก
 - ข้อมูลภายนอก
 - แคชแผนภูมิ
-- การกู้คืนแผ่นงาน
+- การกู้คืนสมุดงาน
 - PowerPoint
-- การนำเสนอ
+- งานนำเสนอ
 - Python
 - Aspose.Slides
-description: "ค้นพบ Aspose.Slides สำหรับ Python ผ่าน .NET: จัดการแผ่นงานแผนภูมิในรูปแบบ PowerPoint และ OpenDocument อย่างง่ายดายเพื่อปรับปรุงข้อมูลการนำเสนอของคุณ"
+description: "ค้นพบ Aspose.Slides สำหรับ Python ผ่าน .NET: จัดการสมุดงานแผนภูมิในรูปแบบ PowerPoint และ OpenDocument อย่างง่ายดายเพื่อปรับปรุงข้อมูลงานนำเสนอของคุณ."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีทำงานกับ Chart Workbook ใน Aspose.Slides แสดงวิธีอ่านและเขียนข้อมูลแผนภูมิผ่านสตรีมของ Workbook ใช้เซลล์ของ Workbook เป็นป้ายข้อมูลแผนภูมิ เข้าถึงคอลเลกชัน Worksheet และระบุประเภทแหล่งข้อมูลสำหรับค่าของแผนภูมิ
+บทความนี้อธิบายวิธีการทำงานกับสมุดงานแผนภูมิใน Aspose.Slides โดยแสดงวิธีการอ่านและเขียนข้อมูลแผนภูมิผ่านสตรีมของสมุดงาน, ใช้เซลล์ในสมุดงานเป็นป้ายข้อมูลแผนภูมิ, เข้าถึงคอลเลกชันของ worksheets, และกำหนดประเภทแหล่งข้อมูลสำหรับค่าของแผนภูมิ
 
-บทความยังครอบคลุมการทำงานกับ Workbook ภายนอกเป็นแหล่งข้อมูลของแผนภูมิ ตัวอย่างแสดงวิธีสร้างและกำหนด Workbook ภายนอก ดึงเส้นทางของ Workbook ภายนอกที่เชื่อมโยงกับแผนภูมิ และแก้ไขข้อมูลแผนภูมิเมื่อ Workbook พร้อมใช้งาน
+นอกจากนี้ยังครอบคลุมการทำงานกับสมุดงานภายนอกเป็นแหล่งข้อมูลของแผนภูมิ ตัวอย่างจะแสดงวิธีการสร้างและกำหนดสมุดงานภายนอก, ดึงเส้นทางของสมุดงานภายนอกที่เชื่อมโยงกับแผนภูมิ, และแก้ไขข้อมูลแผนภูมิเมื่อสมุดงานพร้อมใช้งาน
 
-## **อ่านและเขียนข้อมูลแผนภูมิจาก Workbook**
+## **อ่านและเขียนข้อมูลแผนภูมิจากสมุดงาน**
 
-Aspose.Slides มีเมธอดสำหรับอ่านและเขียน Chart Data Workbook (ซึ่งประกอบด้วยข้อมูลแผนภูมิที่แก้ไขด้วย Aspose.Cells) **หมายเหตุ:** ข้อมูลแผนภูมิต้องจัดเรียงในรูปแบบเดียวกันหรือมีโครงสร้างคล้ายกับแหล่งข้อมูลต้นฉบับ
+Aspose.Slides มีเมธอดสำหรับอ่านและเขียนสมุดงานข้อมูลแผนภูมิ (ซึ่งมีข้อมูลแผนภูมิที่แก้ไขด้วย Aspose.Cells) **หมายเหตุ:** ข้อมูลแผนภูมิต้องจัดระเบียบในลักษณะเดียวกันหรือมีโครงสร้างที่คล้ายกับแหล่งข้อมูลต้นฉบับ
 
-โค้ด Python ตัวอย่างต่อไปนี้แสดงการทำงานตัวอย่าง:
+โค้ด Python ต่อไปนี้แสดงการดำเนินการตัวอย่าง:
 
 ```py
 import aspose.slides as slides
@@ -48,24 +48,44 @@ with slides.Presentation("chart.pptx") as presentation:
     chart.chart_data.write_workbook_stream(data_stream)
 ```
 
-## **กำหนดเซลล์ Workbook เป็นป้ายข้อมูลแผนภูมิ**
+### **ตรวจสอบเลเอาต์ของแผนภูมิหลังจากการแก้ไขสมุดงาน**
 
-บางครั้งคุณต้องการป้ายแผนภูมิที่มาจากเซลล์โดยตรงใน Workbook ของข้อมูลพื้นฐาน Aspose.Slides อนุญาตให้ผูกป้ายข้อมูลกับเซลล์ของ Workbook เฉพาะเพื่อให้ข้อความป้ายสอดคล้องกับค่าของเซลล์ ตัวอย่างด้านล่างแสดงวิธีเปิดใช้งานป้ายที่รับค่าจากเซลล์และชี้ป้ายที่เลือกไปยังเซลล์ที่กำหนดใน Workbook ของแผนภูมิ
+เมื่อคุณแทนที่สมุดงานที่ฝังอยู่ด้วยสมุดงานที่แก้ไขแล้ว, แผนภูมิจะคงซีรีส์และคอลเลกชันประเภทเดิม การไม่ตรงกันนี้อาจทำให้[IChart.validate_chart_layout](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/ichart/validate_chart_layout/) ล้มเหลวด้วยข้อผิดพลาด index‑out‑of‑range ให้ลบซีรีส์และประเภทที่มีอยู่ก่อนเขียนสมุดงานที่อัปเดตกลับไปยังแผนภูมิ
+
+```python
+# หลังจากแก้ไขสตรีมของสมุดงาน (เช่น ใช้ Aspose.Cells)
+updated_workbook = chart_data.read_workbook_stream()
+
+# ล้างการอ้างอิงข้อมูลที่มีอยู่.
+chart_data.series.clear()
+chart_data.categories.clear()
+
+updated_workbook.seek(0)
+chart_data.write_workbook_stream(updated_workbook)
+
+chart.validate_chart_layout()
+```
+
+การล้างคอลเลกชันเหล่านี้ทำให้โครงสร้างข้อมูลแผนภูมิสอดคล้องกับสมุดงานใหม่, ทำให้ `validate_chart_layout` ทำงานสำเร็จโดยไม่มีข้อผิดพลาด
+
+## **ตั้งค่าเซลล์ WorkBook เป็นป้ายข้อมูลแผนภูมิ**
+
+บางครั้งคุณต้องการป้ายแผนภูมิที่มาจากเซลล์ในสมุดงานข้อมูลพื้นฐาน Aspose.Slides อนุญาตให้ผูกป้ายข้อมูลกับเซลล์สมุดงานเฉพาะเพื่อให้ข้อความป้ายแสดงค่าของเซลล์เสมอ ตัวอย่างด้านล่างแสดงวิธีเปิดใช้ป้ายที่ดึงค่าจากเซลล์และกำหนดป้ายที่เลือกให้กับเซลล์ที่กำหนดเองในสมุดงานของแผนภูมิ
 
 1. สร้างอินสแตนซ์ของคลาส [Presentation](https://docs.aspose.com/slides/th/python-net/api-reference/aspose.slides/presentation/)  
-2. รับอ้างอิงไปยังสไลด์ตามดัชนี  
-3. เพิ่มแผนภูมิบับเบิลพร้อมข้อมูลตัวอย่าง  
+2. รับอ้างอิงสไลด์ตามดัชนี  
+3. เพิ่มแผนภูมิเบบเบิลพร้อมข้อมูลตัวอย่าง  
 4. เข้าถึงซีรีส์ของแผนภูมิ  
-5. ใช้เซลล์ของ Workbook เป็นป้ายข้อมูล  
-6. บันทึกการพรีเซนเทชัน  
+5. ใช้เซลล์สมุดงานเป็นป้ายข้อมูล  
+6. บันทึกงานนำเสนอ  
 
-โค้ด Python ด้านล่างแสดงวิธีกำหนดเซลล์ Workbook เป็นป้ายข้อมูลแผนภูมิ:
+โค้ด Python ต่อไปนี้แสดงวิธีตั้งค่าเซลล์สมุดงานเป็นป้ายข้อมูลแผนภูมิ:
 
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
 
-# สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์การนำเสนอ
+# สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์งานนำเสนอ
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
@@ -84,9 +104,9 @@ with slides.Presentation() as presentation:
     presentation.save("chart.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **จัดการ Worksheet**
+## **จัดการ Worksheets**
 
-โค้ด Python ด้านล่างแสดงวิธีใช้คุณสมบัติ `worksheets` เพื่อเข้าถึงคอลเลกชัน Worksheet:
+โค้ด Python ต่อไปนี้แสดงวิธีใช้คุณสมบัติ `worksheets` เพื่อเข้าถึงคอลเลกชันของ worksheet:
 
 ```python
 import aspose.slides as slides
@@ -102,9 +122,9 @@ with slides.Presentation() as presentation:
         print(workbook.worksheets[i].name)
 ```
 
-## **ระบุประเภทแหล่งข้อมูล**
+## **กำหนดประเภทแหล่งข้อมูล**
 
-โค้ด Python ด้านล่างแสดงวิธีระบุประเภทแหล่งข้อมูล:
+โค้ด Python ต่อไปนี้แสดงวิธีกำหนดประเภทแหล่งข้อมูล:
 
 ```python
 import aspose.slides as slides
@@ -125,9 +145,9 @@ with slides.Presentation() as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **ตรวจจับรูปแบบ Workbook ที่ฝังไว้ไม่รองรับ**
+## **ตรวจจับรูปแบบสมุดงานฝังที่ไม่รองรับ**
 
-Aspose.Slides ไม่รองรับรูปแบบ Excel binary workbook (.xlsb) ที่อาจฝังอยู่ในบางแผนภูมิ คุณสามารถใช้คุณสมบัติ `embedded_workbook_type` บน [ChartData](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdata/) ร่วมกับ enumeration [WorkbookType](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/workbooktype/) เพื่อตรวจจับรูปแบบที่ไม่รองรับและข้ามแผนภูมินั้น ๆ
+Aspose.Slides ไม่รองรับรูปแบบสมุดงาน Excel แบบไบนารี (.xlsb) ที่อาจฝังอยู่ในบางแผนภูมิ คุณสามารถใช้คุณสมบัติ `embedded_workbook_type` บน [ChartData](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdata/) ร่วมกับ enumeration [WorkbookType](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/workbooktype/) เพื่อตรวจจับรูปแบบที่ไม่รองรับและข้ามแผนภูมิเหล่านั้น
 
 ```py
 import aspose.slides as slides
@@ -145,23 +165,23 @@ with slides.Presentation("sample.pptx") as presentation:
 
         if (chart_data.data_source_type == charts.ChartDataSourceType.INTERNAL_WORKBOOK and
                 chart_data.embedded_workbook_type == charts.WorkbookType.WORKBOOK_BINARY_MACRO):
-            # Workbook ที่ฝังอยู่เป็นรูปแบบ .xlsb ซึ่งไม่รองรับ.
+            # สมุดงานที่ฝังอยู่เป็นรูปแบบ .xlsb ซึ่งไม่รองรับ.
             continue
 
-        # อ่านหรือแก้ไขข้อมูล workbook ของแผนภูมิที่นี่.
+        # อ่านหรือแก้ไขข้อมูลสมุดงานของแผนภูมิที่นี่.
 ```
 
-## **Workbook ภายนอก**
+## **สมุดงานภายนอก**
 
-Aspose.Slides รองรับการใช้ Workbook ภายนอกเป็นแหล่งข้อมูลของแผนภูมิ
+Aspose.Slides รองรับการใช้สมุดงานภายนอกเป็นแหล่งข้อมูลของแผนภูมิ
 
-### **กำหนด Workbook ภายนอก**
+### **ตั้งค่าสมุดงานภายนอก**
 
-โดยใช้เมธอด [ChartData.set_external_workbook](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdata/set_external_workbook/) คุณสามารถกำหนด Workbook ภายนอกให้กับแผนภูมิเป็นแหล่งข้อมูลเมธอดนี้ยังสามารถอัปเดตเส้นทางของ Workbook ภายนอกหากมีการย้ายไฟล์
+โดยใช้เมธอด [ChartData.set_external_workbook](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdata/set_external_workbook/) คุณสามารถกำหนดสมุดงานภายนอกให้กับแผนภูมิเป็นแหล่งข้อมูลเมธอดนี้ยังสามารถอัปเดตเส้นทางไปยังสมุดงานภายนอกได้หากถูกย้าย
 
-แม้คุณจะไม่สามารถแก้ไขข้อมูลใน Workbook ที่จัดเก็บบนตำแหน่งหรือทรัพยากรระยะไกลได้ แต่คุณยังสามารถใช้ Workbook เหล่านั้นเป็นแหล่งข้อมูลภายนอกได้ หากคุณระบุเส้นทางแบบสัมพัทธ์สำหรับ Workbook ภายนอก ระบบจะเปลี่ยนเป็นเส้นทางเต็มโดยอัตโนมัติ
+แม้ว่าคุณจะไม่สามารถแก้ไขข้อมูลในสมุดงานที่จัดเก็บบนตำแหน่งหรือทรัพยากรระยะไกลได้, คุณยังสามารถใช้สมุดงานเหล่านั้นเป็นแหล่งข้อมูลภายนอกได้ หากคุณระบุเส้นทางสัมพัทธ์สำหรับสมุดงานภายนอก ระบบจะเปลี่ยนเป็นเส้นทางเต็มโดยอัตโนมัติ
 
-โค้ด Python ด้านล่างแสดงวิธีกำหนด Workbook ภายนอก:
+โค้ด Python ต่อไปนี้แสดงวิธีตั้งค่าสมุดงานภายนอก:
 
 ```python
 import aspose.slides as slides
@@ -171,21 +191,22 @@ with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
     chart = slide.shapes.add_chart(charts.ChartType.PIE, 50, 50, 400, 600, False)
-    chart.chart_data.set_external_workbook("external_workbook.xlsx")
+    # ส่งค่า False เพื่อให้บันทึกเพียงเส้นทางเท่านั้น: สมุดงานเป้าหมายไม่จำเป็นต้องมีอยู่แล้ว.
+    chart.chart_data.set_external_workbook("external_workbook.xlsx", False)
 
     presentation.save("chart_with_external_workbook.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-พารามิเตอร์ `update_chart_data` ของเมธอด [set_external_workbook](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdata/set_external_workbook/) ระบุว่า Workbook ของ Excel จะถูกโหลดหรือไม่
+พารามิเตอร์ `update_chart_data` ของเมธอด [set_external_workbook](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdata/set_external_workbook/) ระบุว่าจะแสดงการโหลดสมุดงาน Excel หรือไม่
 
-- เมื่อ `update_chart_data` ตั้งเป็น `False` จะอัปเดตเฉพาะเส้นทางของ Workbook; ข้อมูลแผนภูมิจะไม่ถูกโหลดหรือรีเฟรชจาก Workbook ปลายทาง ใช้เมื่อนั้น Workbook ปลายทางไม่มีหรือไม่สามารถเข้าถึงได้  
-- เมื่อ `update_chart_data` ตั้งเป็น `True` ข้อมูลแผนภูมิจะถูกโหลดและอัปเดตจาก Workbook ปลายทาง  
+- เมื่อ `update_chart_data` ถูกตั้งค่าเป็น `False` จะอัปเดตเฉพาะเส้นทางสมุดงาน; ข้อมูลแผนภูมิจะไม่ถูกโหลดหรือรีเฟรชจากสมุดงานเป้าหมาย ใช้เมื่อตัวสมุดงานเป้าหมายไม่มีอยู่หรือไม่พร้อมใช้งาน  
+- เมื่อ `update_chart_data` ถูกตั้งค่าเป็น `True` (ค่าเริ่มต้น) ข้อมูลแผนภูมิจะถูกโหลดและอัปเดตจากสมุดงานเป้าหมาย หากไม่สามารถเปิดสมุดงานนั้นได้ จะเกิดข้อยกเว้นพร้อมข้อความ "External workbook is not available"
 
-### **สร้าง Workbook ภายนอก**
+### **สร้างสมุดงานภายนอก**
 
-โดยใช้เมธอด [read_workbook_stream](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) และ [set_external_workbook](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdata/set_external_workbook/) คุณสามารถสร้าง Workbook ภายนอกตั้งแต่ต้นหรือแปลง Workbook ภายในเป็น Workbook ภายนอกได้
+โดยใช้เมธอด [read_workbook_stream](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) และ [set_external_workbook](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdata/set_external_workbook/) คุณสามารถสร้างสมุดงานภายนอกจากศูนย์หรือแปลงสมุดงานภายในให้เป็นสมุดงานภายนอกได้
 
-โค้ด Python ด้านล่างแสดงกระบวนการสร้าง Workbook ภายนอก:
+โค้ด Python นี้แสดงกระบวนการสร้างสมุดงานภายนอก:
 
 ```python
 import pathlib
@@ -210,17 +231,17 @@ with slides.Presentation() as presentation:
     presentation.save("chart_with_external_workbook.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **รับเส้นทาง Workbook แหล่งข้อมูลภายนอกจากแผนภูมิ**
+### **ดึงเส้นทางสมุดงานแหล่งข้อมูลภายนอกสำหรับแผนภูมิ**
 
-บางครั้งข้อมูลของแผนภูมิเชื่อมโยงกับ Workbook Excel ภายนอกแทนที่ข้อมูลฝังในพรีเซนเทชัน ด้วย Aspose.Slides คุณสามารถตรวจสอบแหล่งข้อมูลของแผนภูมิและหากเป็น Workbook ภายนอกก็สามารถอ่านเส้นทางเต็มของ Workbook นั้นได้
+บางครั้งข้อมูลของแผนภูมิอาจเชื่อมโยงกับสมุดงาน Excel ภายนอกแทนข้อมูลฝังในงานนำเสนอ ด้วย Aspose.Slides คุณสามารถตรวจสอบแหล่งข้อมูลของแผนภูมิและหากเป็นสมุดงานภายนอกก็อ่านเส้นทางเต็มของสมุดงานนั้นได้
 
 1. สร้างอินสแตนซ์ของคลาส [Presentation](https://docs.aspose.com/slides/th/python-net/api-reference/aspose.slides/presentation/)  
-2. รับอ้างอิงไปยังสไลด์ตามดัชนีของมัน  
-3. รับอ้างอิงไปยังรูปทรงแผนภูมิ  
+2. รับอ้างอิงสไลด์ตามดัชนีของมัน  
+3. รับอ้างอิงรูปทรงแผนภูมิ  
 4. รับแหล่งข้อมูล ([ChartDataSourceType](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdatasourcetype/)) ที่แสดงแหล่งข้อมูลของแผนภูมิ  
-5. ตรวจสอบว่าประเภทแหล่งข้อมูลตรงกับประเภท Workbook ภายนอกหรือไม่  
+5. ตรวจสอบว่าประเภทแหล่งข้อมูลตรงกับประเภทสมุดงานภายนอกหรือไม่  
 
-โค้ด Python ด้านล่างแสดงการทำงาน:
+โค้ด Python ต่อไปนี้แสดงการดำเนินการ:
 
 ```python
 import aspose.slides as slides
@@ -235,7 +256,7 @@ with slides.Presentation("chart_with_external_workbook.pptx") as presentation:
 
 ### **แก้ไขข้อมูลแผนภูมิ**
 
-คุณสามารถแก้ไขข้อมูลใน Workbook ภายนอกได้เช่นเดียวกับการแก้ไขข้อมูลใน Workbook ภายใน หากไม่สามารถโหลด Workbook ภายนอกได้ จะมีข้อยกเว้นถูกโยนออกมา
+คุณสามารถแก้ไขข้อมูลในสมุดงานภายนอกได้เช่นเดียวกับการแก้ไขข้อมูลในสมุดงานภายใน หากสมุดงานภายนอกไม่สามารถโหลดได้ จะถูกโยนข้อยกเว้น
 
 ```python
 import aspose.slides as slides
@@ -246,11 +267,11 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **กู้คืน Workbook จากแคชของแผนภูมิ**
+### **กู้คืนสมุดงานจากแคชของแผนภูมิ**
 
-หากแผนภูมิใช้ Workbook ภายนอกที่หายไปหรือไม่พร้อมใช้งาน Aspose.Slides สามารถสร้าง Workbook ของแผนภูมิใหม่จากข้อมูลที่เก็บไว้ในแคชของพรีเซนเทชันได้ สร้างอ็อบเจ็กต์ [LoadOptions](https://reference.aspose.com/slides/th/python-net/aspose.slides/loadoptions/) แล้วเปิดใช้งาน [SpreadsheetOptions.recover_workbook_from_chart_cache](https://reference.aspose.com/slides/th/python-net/aspose.slides/spreadsheetoptions/recover_workbook_from_chart_cache/) ผ่าน [LoadOptions.spreadsheet_options](https://reference.aspose.com/slides/th/python-net/aspose.slides/loadoptions/spreadsheet_options/) ก่อนเปิดพรีเซนเทชัน
+หากแผนภูมิใช้สมุดงานภายนอกที่หายไปหรือไม่พร้อมใช้งาน Aspose.Slides สามารถสร้างสมุดงานแผนภูมิจากข้อมูลที่เก็บไว้ในแคชของงานนำเสนอได้ สร้าง [LoadOptions](https://reference.aspose.com/slides/th/python-net/aspose.slides/loadoptions/) แล้วเปิดใช้งาน [SpreadsheetOptions.recover_workbook_from_chart_cache](https://reference.aspose.com/slides/th/python-net/aspose.slides/spreadsheetoptions/recover_workbook_from_chart_cache/) ผ่าน [LoadOptions.spreadsheet_options](https://reference.aspose.com/slides/th/python-net/aspose.slides/loadoptions/spreadsheet_options/) ก่อนเปิดงานนำเสนอ
 
-โค้ด Python ตัวอย่างต่อไปนี้เปิดพรีเซนเทชันที่แผนภูมิเชื่อมโยงกับ Workbook ภายนอกที่ไม่พร้อมใช้งานและเข้าถึงข้อมูลที่กู้คืนผ่าน [Chart.chart_data](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chart/chart_data/) และ [ChartData.chart_data_workbook](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdata/chart_data_workbook/):
+ตัวอย่าง Python ต่อไปนี้เปิดงานนำเสนอที่แผนภูมิอ้างอิงสมุดงานภายนอกที่ไม่พร้อมใช้งานและเข้าถึงข้อมูลที่กู้คืนผ่าน [Chart.chart_data](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chart/chart_data/) และ [ChartData.chart_data_workbook](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdata/chart_data_workbook/):
 
 ```python
 import aspose.slides as slides
@@ -262,33 +283,33 @@ with slides.Presentation("presentation.pptx", load_options) as presentation:
     chart = presentation.slides[0].shapes[0]
     recovered_workbook = chart.chart_data.chart_data_workbook
 
-    # อ่านหรือแก้ไขข้อมูล workbook ที่กู้คืนที่นี่.
+    # อ่านหรือแก้ไขข้อมูลสมุดงานที่กู้คืนที่นี่.
 ```
 
-หาก Workbook ภายนอกไม่พร้อมใช้งานและการกู้คืนถูกปิดใช้งาน Aspose.Slides จะโยนข้อยกเว้นให้โดยให้เปิดการกู้คืนเฉพาะเมื่อต้องการใช้ข้อมูลแคชของแผนภูมิเป็นทางเลือกสำรอง เนื่องจากแคชอาจไม่มีการเปลี่ยนแปลงที่ทำใน Workbook ภายนอกหลังจากพรีเซนเทชันถูกอัปเดตครั้งล่าสุด
+หากสมุดงานภายนอกไม่พร้อมใช้งานและการกู้คืนถูกปิด, Aspose.Slides จะโยนข้อยกเว้น เปิดใช้งานการกู้คืนเฉพาะเมื่อยอมรับการใช้ข้อมูลแผนภูมิจากแคชเป็นวิธีสำรอง เนื่องจากแคชอาจไม่มีการเปลี่ยนแปลงที่ทำกับสมุดงานภายนอกหลังจากที่งานนำเสนออัปเดตครั้งสุดท้าย
 
 ## **FAQ**
 
-**ฉันจะตรวจสอบได้หรือไม่ว่าแผนภูมิใดเชื่อมโยงกับ Workbook ภายนอกหรือที่ฝังอยู่?**
+**ฉันสามารถกำหนดได้หรือไม่ว่าแผนภูมิเฉพาะเชื่อมโยงกับสมุดงานภายนอกหรือสมุดงานที่ฝังอยู่?**
 
-ใช่ แผนภูมิมี [data source type](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdata/data_source_type/) และ [path to an external workbook](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdata/external_workbook_path/) หากแหล่งข้อมูลเป็น Workbook ภายนอก คุณสามารถอ่านเส้นทางเต็มเพื่อยืนยันว่ากำลังใช้ไฟล์ภายนอก
+ได้ แผนภูมิมี [data source type](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdata/data_source_type/) และ [path to an external workbook](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdata/external_workbook_path/) หากแหล่งเป็นสมุดงานภายนอกคุณสามารถอ่านเส้นทางเต็มเพื่อยืนยันว่าไฟล์ภายนอกกำลังถูกใช้
 
-**รองรับเส้นทางแบบสัมพัทธ์ไปยัง Workbook ภายนอกหรือไม่ และจัดเก็บอย่างไร?**
+**รองรับเส้นทางสัมพัทธ์ไปยังสมุดงานภายนอกหรือไม่ และจัดเก็บอย่างไร?**
 
-ใช่ หากคุณระบุเส้นทางแบบสัมพัทธ์ ระบบจะเปลี่ยนเป็นเส้นทางที่เป็นแบบเต็มโดยอัตโนมัติ ซึ่งสะดวกต่อการพกพาโครงการ; อย่างไรก็ตามพรีเซนเทชันจะจัดเก็บเส้นทางเต็มในไฟล์ PPTX
+ได้ หากคุณระบุเส้นทางสัมพัทธ์ ระบบจะเปลี่ยนเป็นเส้นทางเต็มโดยอัตโนมัติ สิ่งนี้สะดวกสำหรับการพกพาโครงการ แต่ต้องทราบว่าการนำเสนอจะจัดเก็บเส้นทางเต็มในไฟล์ PPTX
 
-**สามารถใช้ Workbook ที่อยู่บนทรัพยากรเครือข่าย/แชร์ได้หรือไม่?**
+**ฉันสามารถใช้สมุดงานที่อยู่บนทรัพยากร/แชร์เครือข่ายได้หรือไม่?**
 
-ใช้ได้ Workbook เหล่านั้นสามารถเป็นแหล่งข้อมูลภายนอกได้ อย่างไรก็ตามการแก้ไข Workbook ระยะไกลโดยตรงจาก Aspose.Slides ไม่ได้รับการสนับสนุน – สามารถใช้เป็นแหล่งข้อมูลเท่านั้น
+ได้ สมุดงานเหล่านั้นสามารถใช้เป็นแหล่งข้อมูลภายนอกได้ อย่างไรก็ตาม การแก้ไขสมุดงานระยะไกลโดยตรงจาก Aspose.Slides ไม่ได้รับการสนับสนุน – สามารถใช้เป็นแหล่งข้อมูลได้เท่านั้น
 
-**Aspose.Slides จะเขียนทับไฟล์ XLSX ภายนอกเมื่อบันทึกพรีเซนเทชันหรือไม่?**
+**Aspose.Slides จะเขียนทับไฟล์ XLSX ภายนอกเมื่อบันทึกงานนำเสนอหรือไม่?**
 
-ไม่ พรีเซนเทชันจะเก็บ [link to the external file](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdata/external_workbook_path/) และใช้ลิงก์นั้นเพื่ออ่านข้อมูล ไฟล์ภายนอกเองจะไม่ถูกแก้ไขเมื่อบันทึกพรีเซนเทชัน
+จะทำก็ต่อเมื่อคุณแก้ไขข้อมูลแผนภูมิ งานนำเสนอจะจัดเก็บ [link to the external file](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdata/external_workbook_path/) และใช้ในการอ่านข้อมูล ดังนั้นการเปิดและบันทึกงานนำเสนอจะไม่กระทบต่อสมุดงาน อย่างไรก็ตาม ค่าที่คุณเปลี่ยนผ่านข้อมูลแผนภูมิ (ดูที่ **Edit Chart Data** ด้านบน) จะถูกเขียนกลับไปยังสมุดงานภายนอกเมื่อบันทึกงานนำเสนอ – ควรทำงานบนสำเนาหากต้องการให้ไฟล์ต้นฉบับคงสภาพเดิม
 
-**ถ้าไฟล์ภายนอกมีรหัสผ่านจะทำอย่างไร?**
+**ถ้าไฟล์ภายนอกถูกป้องกันด้วยรหัสผ่าน ฉันควรทำอย่างไร?**
 
-Aspose.Slides ไม่รับรหัสผ่านเมื่อทำการลิงก์ วิธีการทั่วไปคือเอาการป้องกันออกล่วงหน้าหรือเตรียมสำเนาที่ถอดรหัสแล้ว (เช่น ใช้ [Aspose.Cells](/cells/python-net/)) แล้วลิงก์ไปยังสำเนานั้น
+Aspose.Slides ไม่รับรหัสผ่านเมื่อเชื่อมโยง วิธีทั่วไปคือถอดการป้องกันล่วงหน้าหรือเตรียมสำเนาที่ถอดรหัส (เช่น ใช้ [Aspose.Cells](/cells/python-net/)) แล้วเชื่อมโยงไปยังสำเนานั้น
 
-**หลายแผนภูมิสามารถอ้างอิง Workbook ภายนอกเดียวกันได้หรือไม่?**
+**หลายแผนภูมิสามารถอ้างอิงสมุดงานภายนอกเดียวกันได้หรือไม่?**
 
-ได้ แต่ละแผนภูมิจะเก็บลิงก์ของตนเอง หากทั้งหมดชี้ไปยังไฟล์เดียวกัน การอัปเดตไฟล์นั้นจะสะท้อนผลต่อทุกแผนภูมิในครั้งต่อไปที่โหลดข้อมูล
+ได้ แต่ละแผนภูมิจะเก็บลิงก์ของตนเอง ถ้าทั้งหมดชี้ไปที่ไฟล์เดียว การอัปเดตไฟล์นั้นจะสะท้อนในแต่ละแผนภูมิเมื่อโหลดข้อมูลครั้งต่อไป
