@@ -1,51 +1,58 @@
 ---
-title: Konvertieren von Präsentationsfolien in Bilder in C++
-linktitle: Folie zu Bild
+title: Präsentationsfolien in C++ in Bilder konvertieren
+linktitle: Folien zu Bild
 type: docs
 weight: 41
 url: /de/cpp/convert-slide/
 keywords:
-- Folie konvertieren
-- Folie exportieren
-- Folie zu Bild
-- Folie als Bild speichern
-- Folie zu PNG
-- Folie zu JPEG
-- Folie zu Bitmap
-- Folie zu TIFF
+- Folien konvertieren
+- Folien exportieren
+- Folien zu Bild
+- Folien als Bild speichern
+- Folien zu EMF
+- Folien zu PNG
+- Folien zu JPEG
+- Folien zu Bitmap
+- Folien zu TIFF
 - PowerPoint
 - OpenDocument
 - Präsentation
 - C++
 - Aspose.Slides
-description: "Konvertieren Sie Folien von PPT, PPTX und ODP in Bilder in C++ mit Aspose.Slides – schnelle, hochwertige Darstellung mit klaren Codebeispielen."
+description: "Konvertieren Sie Folien aus PPT-, PPTX- und ODP‑Präsentationen in PNG, JPEG, GIF, TIFF, EMF und andere Bildformate in C++ mit Aspose.Slides für C++."
 ---
 ## **Einleitung**
 
-Aspose.Slides für C++ ermöglicht es Ihnen, PowerPoint- und OpenDocument-Präsentationsfolien einfach in verschiedene Bildformate zu konvertieren, darunter BMP, PNG, JPG (JPEG), GIF und weitere.
+Aspose.Slides für C++ kann einzelne Folien aus PowerPoint- und OpenDocument-Präsentationen als PNG, JPEG, GIF, TIFF und andere Bildformate rendern.
 
-Um eine Folie in ein Bild zu konvertieren, gehen Sie wie folgt vor:
+Um eine Folie in ein Bild zu konvertieren, führen Sie die folgenden Schritte aus:
 
-1. Definieren Sie die gewünschten Konvertierungseinstellungen und wählen Sie die Folien aus, die Sie exportieren möchten, indem Sie verwenden:
-    - Die [ITiffOptions](https://reference.aspose.com/slides/de/cpp/aspose.slides.export/itiffoptions/) Schnittstelle, oder
-    - Die [IRenderingOptions](https://reference.aspose.com/slides/de/cpp/aspose.slides.export/irenderingoptions/) Schnittstelle.
-2. Erzeugen Sie das Folienbild, indem Sie die Methode [GetImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/islide/getimage/) aufrufen.
+1. Laden Sie die Präsentation mit der [Presentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/presentation/)‑Klasse.
+2. Wählen Sie die Folie aus, die Sie rendern möchten.
+3. Falls erforderlich, konfigurieren Sie das Rendering mit der [RenderingOptions](https://reference.aspose.com/slides/de/cpp/aspose.slides.export/renderingoptions/)‑ oder [TiffOptions](https://reference.aspose.com/slides/de/cpp/aspose.slides.export/tiffoptions/)‑Klasse.
+4. Rufen Sie die Methode [ISlide::GetImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/islide/getimage/) auf. Sie gibt ein [IImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/iimage/)‑Objekt zurück.
+5. Rufen Sie die Methode [IImage::Save](https://reference.aspose.com/slides/de/cpp/aspose.slides/iimage/save/) auf und geben Sie das Ausgabeformat mit einem [ImageFormat](https://reference.aspose.com/slides/de/cpp/aspose.slides/imageformat/)‑Wert an.
 
-Ein [Bitmap](https://reference.aspose.com/slides/de/cpp/system.drawing/bitmap/) ist ein Objekt, das Ihnen die Arbeit mit Bildern ermöglicht, die durch Pixeldaten definiert sind. Sie können eine Instanz dieser Klasse verwenden, um Bilder in einer Vielzahl von Formaten zu speichern (BMP, JPG, PNG usw.).
+## **Eine Folie in ein PNG‑Bild konvertieren**
 
-## **Folien in Bitmaps konvertieren und die Bilder im PNG-Format speichern**
+Die einfachste Konvertierung verwendet die standardmäßigen Rendering‑Einstellungen. Das resultierende [IImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/iimage/)‑Objekt kann im Speicher verarbeitet oder in einer Datei gespeichert werden.
 
-Sie können eine Folie in ein Bitmap-Objekt konvertieren und dieses direkt in Ihrer Anwendung verwenden. Alternativ können Sie eine Folie in ein Bitmap konvertieren und das Bild anschließend im JPEG- oder einem anderen gewünschten Format speichern.
+Das folgende C++‑Beispiel rendert die erste Folie und speichert sie als PNG‑Bild:
 
-Dieser C++‑Code zeigt, wie die erste Folie einer Präsentation in ein Bitmap‑Objekt konvertiert und das Bild anschließend im PNG‑Format gespeichert wird:
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/smart_ptr.h>
 
-```cpp 
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
+auto slide = presentation->get_Slide(0);
 
-// Konvertiere die erste Folie der Präsentation in ein Bitmap.
-auto image = presentation->get_Slide(0)->GetImage();
-
-// Speichere das Bild im PNG-Format.
+auto image = slide->GetImage();
 image->Save(u"Slide_0.png", ImageFormat::Png);
 
 image->Dispose();
@@ -54,19 +61,28 @@ presentation->Dispose();
 
 ## **Folien mit benutzerdefinierten Größen in Bilder konvertieren**
 
-Möglicherweise benötigen Sie ein Bild in einer bestimmten Größe. Mit einer Überladung der [GetImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/islide/getimage/) Methode können Sie eine Folie in ein Bild mit spezifischen Abmessungen (Breite und Höhe) konvertieren.
+Verwenden Sie die Überladung von [ISlide::GetImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/islide/getimage/), die einen [Size](https://reference.aspose.com/slides/de/cpp/system.drawing/size/)‑Wert akzeptiert, um eine Folie mit exakt angegebenen Pixelmaßen zu rendern.
 
-Dieses Beispielcode zeigt, wie das geht:
+Das folgende Beispiel erzeugt ein 1820 × 1040 JPEG‑Bild:
 
-```cpp 
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <drawing/size.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Drawing;
+
 Size imageSize(1820, 1040);
 
 auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
+auto slide = presentation->get_Slide(0);
 
-// Konvertiere die erste Folie der Präsentation in ein Bitmap mit der angegebenen Größe.
-auto image = presentation->get_Slide(0)->GetImage(imageSize);
-
-// Speichere das Bild im JPEG-Format.
+auto image = slide->GetImage(imageSize);
 image->Save(u"Slide_0.jpg", ImageFormat::Jpeg);
 
 image->Dispose();
@@ -75,70 +91,83 @@ presentation->Dispose();
 
 ## **Folien mit Notizen und Kommentaren in Bilder konvertieren**
 
-Einige Folien können Notizen und Kommentare enthalten.
+Standardmäßig enthalten Folienbilder keine Notizen oder Kommentare. Weisen Sie ein [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/de/cpp/aspose.slides.export/notescommentslayoutingoptions/)‑Objekt der Methode [RenderingOptions::set_SlidesLayoutOptions](https://reference.aspose.com/slides/de/cpp/aspose.slides.export/renderingoptions/set_slideslayoutoptions/) zu, um zu steuern, wo Notizen und Kommentare erscheinen.
 
-Aspose.Slides stellt zwei Schnittstellen—[ITiffOptions](https://reference.aspose.com/slides/de/cpp/aspose.slides.export/itiffoptions/) und [IRenderingOptions](https://reference.aspose.com/slides/de/cpp/aspose.slides.export/irenderingoptions/)—zur Verfügung, mit denen Sie die Rendering‑Optionen von Präsentationsfolien zu Bildern steuern können. Beide Schnittstellen enthalten die Methode `set_SlidesLayoutOptions`, mit der Sie das Rendern von Notizen und Kommentaren einer Folie beim Konvertieren in ein Bild konfigurieren können.
+Das folgende Beispiel platziert gekürzte Notizen unterhalb der Folie und Kommentare rechts davon:
 
-Mit der Klasse [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/de/cpp/aspose.slides.export/notescommentslayoutingoptions/) können Sie die gewünschte Position für Notizen und Kommentare im resultierenden Bild festlegen.
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/CommentsPositions.h>
+#include <Export/NotesCommentsLayoutingOptions.h>
+#include <Export/NotesPositions.h>
+#include <Export/RenderingOptions.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
 
-Dieser C++‑Code zeigt, wie eine Folie mit Notizen und Kommentaren konvertiert wird:
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
 
-```cpp 
-float scaleX = 2;
+float scaleX = 2.0f;
 float scaleY = scaleX;
 
-// Lade eine Präsentationsdatei.
+auto layoutOptions = MakeObject<NotesCommentsLayoutingOptions>();
+layoutOptions->set_NotesPosition(NotesPositions::BottomTruncated);
+layoutOptions->set_CommentsPosition(CommentsPositions::Right);
+layoutOptions->set_CommentsAreaWidth(500);
+layoutOptions->set_CommentsAreaColor(Color::get_AntiqueWhite());
+
+auto renderingOptions = MakeObject<RenderingOptions>();
+renderingOptions->set_SlidesLayoutOptions(layoutOptions);
+
 auto presentation = MakeObject<Presentation>(u"Presentation_with_notes_and_comments.pptx");
+auto slide = presentation->get_Slide(0);
 
-auto notesCommentsOptions = MakeObject<NotesCommentsLayoutingOptions>();
-notesCommentsOptions->set_NotesPosition(NotesPositions::BottomTruncated);  // Setze die Position der Notizen.
-notesCommentsOptions->set_CommentsPosition(CommentsPositions::Right);      // Setze die Position der Kommentare.
-notesCommentsOptions->set_CommentsAreaWidth(500);                          // Setze die Breite des Kommentarbereichs.
-notesCommentsOptions->set_CommentsAreaColor(Color::get_AntiqueWhite());    // Setze die Farbe des Kommentarbereichs.
-
-// Erstelle die Rendering-Optionen.
-auto options = MakeObject<RenderingOptions>();
-options->set_SlidesLayoutOptions(notesCommentsOptions);
-
-// Konvertiere die erste Folie der Präsentation in ein Bild.
-auto image = presentation->get_Slide(0)->GetImage(options, scaleX, scaleY);
-
-// Speichere das Bild im GIF-Format.
+auto image = slide->GetImage(renderingOptions, scaleX, scaleY);
 image->Save(u"Image_with_notes_and_comments_0.gif", ImageFormat::Gif);
 
 image->Dispose();
 presentation->Dispose();
 ```
 
-{{% alert title="Note" color="warning" %}} 
-Bei jedem Folie‑zu‑Bild-Konvertierungsprozess kann die Methode [set_NotesPosition](https://reference.aspose.com/slides/de/cpp/aspose.slides.export/notescommentslayoutingoptions/set_notesposition/) kein `BottomFull` anwenden (zur Angabe der Position für Notizen), weil der Text einer Notiz zu groß sein kann, um in die angegebene Bildgröße zu passen.
-{{% /alert %}} 
+{{% alert title="Warning" color="warning" %}}
+Verwenden Sie bei der Folie‑zu‑Bild‑Konvertierung nicht die Methode [NotesCommentsLayoutingOptions::set_NotesPosition](https://reference.aspose.com/slides/de/cpp/aspose.slides.export/notescommentslayoutingoptions/set_notesposition/) mit dem Wert [BottomFull](https://reference.aspose.com/slides/de/cpp/aspose.slides.export/notespositions/). Notizen können mehr Text enthalten, als die feste Bildgröße aufnehmen kann. Verwenden Sie stattdessen [BottomTruncated](https://reference.aspose.com/slides/de/cpp/aspose.slides.export/notespositions/).
+{{% /alert %}}
 
 ## **Folien mit TIFF‑Optionen in Bilder konvertieren**
 
-Die [ITiffOptions](https://reference.aspose.com/slides/de/cpp/aspose.slides.export/itiffoptions/) Schnittstelle bietet mehr Kontrolle über das resultierende TIFF‑Bild, indem Sie Parameter wie Größe, Auflösung, Farbpalette und weitere festlegen können.
+Die Klasse [TiffOptions](https://reference.aspose.com/slides/de/cpp/aspose.slides.export/tiffoptions/) ermöglicht die Steuerung von Größe, Auflösung und anderen Eigenschaften des gerenderten TIFF‑Bildes.
 
-Dieser C++‑Code demonstriert einen Konvertierungsprozess, bei dem TIFF‑Optionen verwendet werden, um ein Schwarz‑Weiß‑Bild mit einer Auflösung von 300 DPI und einer Größe von 2160 × 2800 auszugeben:
+Das folgende Beispiel rendert die erste Folie als 2160 × 2880‑TIFF‑Bild mit 300 DPI:
 
-```cpp 
-// Lade eine Präsentationsdatei.
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/TiffOptions.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <drawing/size.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto tiffOptions = MakeObject<TiffOptions>();
+tiffOptions->set_ImageSize(Size(2160, 2880));
+tiffOptions->set_DpiX(300);
+tiffOptions->set_DpiY(300);
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
-
-// Hole die erste Folie aus der Präsentation.
 auto slide = presentation->get_Slide(0);
 
-// Konfiguriere die Einstellungen des ausgegebenen TIFF-Bildes.
-auto tiffOptions = MakeObject<TiffOptions>();
-tiffOptions->set_ImageSize(Size(2160, 2880));                       // Setze die Bildgröße.
-tiffOptions->set_PixelFormat(ImagePixelFormat::Format1bppIndexed);  // Setze das Pixelformat (schwarz-weiß).
-tiffOptions->set_DpiX(300);                                         // Setze die horizontale Auflösung.
-tiffOptions->set_DpiY(300);                                         // Setze die vertikale Auflösung.
-
-// Konvertiere die Folie in ein Bild mit den angegebenen Optionen.
 auto image = slide->GetImage(tiffOptions);
-
-// Speichere das Bild im TIFF-Format.
-image->Save(u"output.bmp", ImageFormat::Tiff);
+image->Save(u"output.tiff", ImageFormat::Tiff);
 
 image->Dispose();
 presentation->Dispose();
@@ -146,50 +175,131 @@ presentation->Dispose();
 
 ## **Alle Folien in Bilder konvertieren**
 
-Aspose.Slides ermöglicht es Ihnen, alle Folien einer Präsentation in Bilder zu konvertieren, wodurch die gesamte Präsentation in eine Reihe von Bildern umgewandelt wird.
+Iterieren Sie über die Folien‑Collection, um die gesamte Präsentation in eine Reihe von Bildern zu konvertieren. Ausgeblendete Folien werden einbezogen, sofern Sie sie nicht explizit überspringen.
 
-Dieser Beispielcode zeigt, wie alle Folien einer Präsentation in C++ in Bilder konvertiert werden:
+Das folgende Beispiel rendert jede Folie als JPEG‑Bild mit horizontalen und vertikalen Skalierungsfaktoren von 2:
 
-```cpp 
-float scaleX = 2;
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+float scaleX = 2.0f;
 float scaleY = scaleX;
 
 auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
 
-// Render die Präsentation Folie für Folie in Bilder.
-for (int i = 0; i < presentation->get_Slides()->get_Count(); i++)
+int32_t slideCount = presentation->get_Slides()->get_Count();
+for (int32_t index = 0; index < slideCount; index++)
 {
-    // Steuere ausgeblendete Folien (nicht rendern).
-    if (presentation->get_Slide(i)->get_Hidden())
-    {
-        continue;
-    }
-
-    // Konvertiere die Folie in ein Bild.
-    auto image = presentation->get_Slide(i)->GetImage(scaleX, scaleY);
-
-    // Speichere das Bild im JPEG-Format.
-    image->Save(String::Format(u"Slide_{0}.jpg", i), ImageFormat::Jpeg);
-
+    auto slide = presentation->get_Slide(index);
+    auto image = slide->GetImage(scaleX, scaleY);
+    image->Save(String::Format(u"Slide_{0}.jpg", index), ImageFormat::Jpeg);
     image->Dispose();
 }
 
 presentation->Dispose();
 ```
 
-## **Rendering von farbigen Emojis**
+## **Enhanced Metafile‑Ausgabe erstellen**
 
-{{% alert title="Note" color="warning" %}} 
-Um farbige Emojis beim Konvertieren von Präsentationsfolien in Bilder korrekt darzustellen, müssen die in der Präsentation verwendeten Emoji‑Schriften auf dem System, das die Konvertierung durchführt, installiert und verfügbar sein. Beispielsweise kann es vorkommen, dass Emojis in den Ausgabebildern monochrom dargestellt werden, wenn die Präsentation die Schrift **Segoe UI Emoji** verwendet und diese Schrift fehlt.
+Enhanced Metafile (EMF) ist nützlich, wenn vektorbasierte Grafiken mit Microsoft Office oder anderen Windows‑Anwendungen ausgetauscht werden müssen, die Windows‑Metafiles unterstützen. Im Gegensatz zu einem pixelbasierten Bild kann ein EMF Vektor‑Zeichenoperationen beibehalten, die ohne gleichen Schärfeverlust skaliert werden können. EMF ist jedoch hauptsächlich ein Kompatibilitätsformat für Anwendungen mit Windows‑Metafile‑Unterstützung und kein universelles Austauschformat. Darüber hinaus können komplexe Folieninhalte, wie Bitmap‑Bilder und einige Effekte, als gerasterte Elemente im Vektor‑Metafile‑Container gespeichert werden.
+
+### **Eine Folie nach EMF exportieren**
+
+Die Methode [ISlide::WriteAsEmf](https://reference.aspose.com/slides/de/cpp/aspose.slides/islide/writeasemf/) schreibt ein [ISlide](https://reference.aspose.com/slides/de/cpp/aspose.slides/islide/) in einen Ziel‑Stream im EMF‑Format. Das folgende Beispiel lädt eine Präsentation, wählt die erste Folie aus und schreibt sie in einen EMF‑Datei‑Stream:
+
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto emfStream = File::Create(u"Slide_0.emf");
+slide->WriteAsEmf(emfStream);
+
+emfStream->Close();
+presentation->Dispose();
+```
+
+Der Aufrufer besitzt den an [ISlide::WriteAsEmf](https://reference.aspose.com/slides/de/cpp/aspose.slides/islide/writeasemf/) übergebenen Stream und muss ihn schließen oder freigeben. Aspose.Slides schreibt an der aktuellen Position des Streams und lässt den Stream geöffnet.
+
+### **Ein SVG‑Bild in EMF umwandeln und zu einer Präsentation hinzufügen**
+
+Verwenden Sie [ISvgImage::WriteAsEmf](https://reference.aspose.com/slides/de/cpp/aspose.slides/isvgimage/writeasemf/), um SVG‑Inhalte in EMF zu konvertieren. Die resultierenden Bytes können über [IImageCollection::AddImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/iimagecollection/addimage/) zur Präsentation hinzugefügt und mit [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/de/cpp/aspose.slides/ishapecollection/addpictureframe/) auf einer Folie platziert werden.
+
+Das folgende Beispiel erstellt ein [SvgImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/svgimage/) aus SVG‑Markup, konvertiert es in ein EMF im Speicher, fügt das Metafile auf der ersten Folie ein und speichert die Präsentation:
+
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SvgImage.h>
+#include <Export/SaveFormat.h>
+#include <system/io/memory_stream.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+String svgContent = u"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"100\"><rect width=\"200\" height=\"100\" fill=\"#4472C4\"/></svg>";
+auto svgImage = MakeObject<SvgImage>(svgContent);
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto emfStream = MakeObject<MemoryStream>();
+svgImage->WriteAsEmf(emfStream);
+
+auto emfData = emfStream->ToArray();
+auto image = presentation->get_Images()->AddImage(emfData);
+slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 20, 20, 200, 100, image);
+
+presentation->Save(u"Presentation_with_emf.pptx", SaveFormat::Pptx);
+
+emfStream->Close();
+presentation->Dispose();
+```
+
+Die Methode [ISvgImage::WriteAsEmf](https://reference.aspose.com/slides/de/cpp/aspose.slides/isvgimage/writeasemf/) übernimmt den Ziel‑Stream nicht. Nach dem Schreiben befindet sich die Stream‑Position am Ende der erzeugten Daten. Das Beispiel ruft [MemoryStream::ToArray](https://reference.aspose.com/slides/de/cpp/system.io/memorystream/toarray/) auf, um den vollständigen Puffer unabhängig von der aktuellen Stream‑Position zu erhalten, und übergibt dieses Byte‑Array an [IImageCollection::AddImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/iimagecollection/addimage/). Halten Sie den Stream geöffnet, bis der Verbraucher das Lesen abgeschlossen hat, und schließen Sie ihn anschließend.
+
+Die EMF‑Erzeugung ist auf den von Aspose.Slides für C++ unterstützten Betriebssystemen verfügbar, jedoch kann das Rendering auf verschiedenen Plattformen variieren, wenn Schriften oder native Grafikabhängigkeiten nicht verfügbar sind. Installieren Sie die für den Quellinhalt verwendeten Schriften oder konfigurieren Sie geeignete Ersatzschriften, befolgen Sie die [Plattform‑Anforderungen](/slides/de/cpp/system-requirements/) für Aspose.Slides für C++ und überprüfen Sie das Ergebnis in der Ziel‑EMF‑verarbeitenden Anwendung. Linux‑ und macOS‑Anwendungen haben oft nur eingeschränkte oder inkonsistente Unterstützung für die Anzeige und Bearbeitung von Windows‑Metafiles.
+
+## **Farb‑Emoji‑Rendering**
+
+{{% alert title="Note" color="info" %}}
+Um farbige Emojis beim Konvertieren von Präsentationsfolien in Bilder korrekt darzustellen, müssen die in der Präsentation verwendeten Emoji‑Schriften auf dem System, das die Konvertierung durchführt, installiert und verfügbar sein. Beispiel: Wenn die Präsentation **Segoe UI Emoji** verwendet und diese Schrift fehlt, können Emojis in den Ausgabebildern monochrom erscheinen.
 {{% /alert %}}
 
 ## **FAQ**
 
-**Unterstützt Aspose.Slides das Rendern von Folien mit Animationen?**  
-Nein, die Methode `GetImage` speichert nur ein statisches Bild der Folie, ohne Animationen.
+**Unterstützt Aspose.Slides das Rendern von Folien mit Animationen?**
 
-**Können ausgeblendete Folien als Bilder exportiert werden?**  
-Ja, ausgeblendete Folien können genauso wie reguläre verarbeitet werden. Stellen Sie lediglich sicher, dass sie in die Verarbeitungsschleife einbezogen werden.
+Nein. Die Methode [ISlide::GetImage](https://reference.aspose.com/slides/de/cpp/aspose.slides/islide/getimage/) rendert ein statisches Bild der Folie und exportiert keine Animationen.
 
-**Können Bilder mit Schatten und Effekten gespeichert werden?**  
-Ja, Aspose.Slides unterstützt das Rendern von Schatten, Transparenz und anderen Grafikeffekten beim Speichern von Folien als Bilder.
+**Können ausgeblendete Folien als Bilder exportiert werden?**
+
+Ja. Ausgeblendete Folien können wie reguläre Folien gerendert werden. Binden Sie sie in die Verarbeitungsschleife ein, wie im obigen Beispiel gezeigt.
+
+**Werden Schatten und andere Effekte in Folienbildern erhalten?**
+
+Ja. Aspose.Slides rendert Schatten, Transparenz und andere unterstützte grafische Effekte in Folienbildern.

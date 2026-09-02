@@ -9,44 +9,47 @@ keywords:
 - eksportuj slajd
 - slajd na obraz
 - zapisz slajd jako obraz
-- slajd do PNG
-- slajd do JPEG
-- slajd do bitmapy
-- slajd do TIFF
+- slajd na EMF
+- slajd na PNG
+- slajd na JPEG
+- slajd na bitmapę
+- slajd na TIFF
 - PowerPoint
 - OpenDocument
 - prezentacja
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Konwertuj slajdy z PPT, PPTX i ODP na obrazy w JavaScript przy użyciu Aspose.Slides dla Node.js via Java — szybkie, wysokiej jakości renderowanie z przejrzystymi przykładami kodu."
+description: "Konwertuj slajdy z prezentacji PPT, PPTX i ODP na PNG, JPEG, GIF, TIFF, EMF i inne formaty obrazów w JavaScript przy użyciu Aspose.Slides."
 ---
-## **Wprowadzenie**
+## **Wstęp**
 
-Aspose.Slides for Node.js via Java umożliwia łatwe konwertowanie slajdów prezentacji PowerPoint i OpenDocument do różnych formatów obrazu, w tym BMP, PNG, JPG (JPEG), GIF i innych.
+Aspose.Slides for Node.js via Java może renderować pojedyncze slajdy z prezentacji PowerPoint i OpenDocument jako PNG, JPEG, GIF, TIFF i inne formaty obrazu.
 
 Aby przekonwertować slajd na obraz, wykonaj następujące kroki:
 
-1. Określ żądane ustawienia konwersji i wybierz slajdy, które chcesz wyeksportować, używając:
-    - Klasy [TiffOptions](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/tiffoptions/) lub
-    - Klasy [RenderingOptions](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/renderingoptions/) .
-2. Wygeneruj obraz slajdu, wywołując metodę [getImage](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/slide/#getImage).
+1. Załaduj prezentację przy użyciu klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/).
+2. Wybierz slajd, który chcesz wyrenderować.
+3. W razie potrzeby skonfiguruj renderowanie za pomocą klasy [RenderingOptions](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/renderingoptions/) lub [TiffOptions](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/tiffoptions/).
+4. Wywołaj metodę [Slide.getImage](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/slide/#getImage). Zwraca ona obiekt [IImage](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/iimage/).
+5. Wywołaj metodę [IImage.save](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/iimage/#save) i określ format wyjściowy przy pomocy wartości [ImageFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/imageformat/).
 
-W Aspose.Slides for Node.js via Java, [IImage](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/iimage/) jest klasą pozwalającą pracować z obrazami zdefiniowanymi przez dane pikseli. Możesz używać tej klasy do zapisywania obrazów w szerokim zakresie formatów (BMP, JPG, PNG itp.).
+## **Konwersja slajdu do obrazu PNG**
 
-## **Konwertowanie slajdów na bitmapę i zapisywanie obrazów w formacie PNG**
+Najprostsza konwersja używa domyślnych ustawień renderowania. Uzyskany obiekt [IImage](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/iimage/) może być przetwarzany w pamięci lub zapisany do pliku.
 
-Możesz skonwertować slajd do obiektu bitmapy i używać go bezpośrednio w swojej aplikacji. Alternatywnie możesz skonwertować slajd do bitmapy, a następnie zapisać obraz w formacie JPEG lub innym wybranym formacie.
+Poniższy przykład JavaScript renderuje pierwszy slajd i zapisuje go jako obraz PNG:
 
-Ten kod JavaScript pokazuje, jak skonwertować pierwszy slajd prezentacji do obiektu bitmapy, a następnie zapisać obraz w formacie PNG:
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
 
-```js
-let presentation = new aspose.slides.Presentation("Presentation.pptx");
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // Konwertuj pierwszy slajd w prezentacji na bitmapę.
-    let image = presentation.getSlides().get_Item(0).getImage();
+    const slide = presentation.getSlides().get_Item(0);
+
+    const image = slide.getImage();
     try {
-        // Zapisz obraz w formacie PNG.
         image.save("Slide_0.png", aspose.slides.ImageFormat.Png);
     } finally {
         image.dispose();
@@ -56,21 +59,25 @@ try {
 }
 ```
 
-## **Konwertowanie slajdów na obrazy o niestandardowych rozmiarach**
+## **Konwersja slajdów do obrazów o niestandardowych rozmiarach**
 
-Możesz potrzebować obrazu o określonym rozmiarze. Korzystając z przeciążenia metody [getImage](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/slide/#getImage), możesz przekonwertować slajd na obraz o konkretnych wymiarach (szerokość i wysokość).
+Użyj przeciążenia [Slide.getImage](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/slide/#getImage), które przyjmuje wartość `java.awt.Dimension`, aby wyrenderować slajd o dokładnych wymiarach w pikselach.
 
-Poniższy przykładowy kod pokazuje, jak to zrobić:
+Poniższy przykład tworzy obraz JPEG o wymiarach 1820 × 1040:
 
-```js
-let imageSize = java.newInstanceSync("java.awt.Dimension", 1820, 1040);
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-let presentation = new aspose.slides.Presentation("Presentation.pptx");
+const imageSize = java.newInstanceSync("java.awt.Dimension", 1820, 1040);
+
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // Konwertuj pierwszy slajd w prezentacji na bitmapę o określonym rozmiarze.
-    let image = presentation.getSlides().get_Item(0).getImage(imageSize);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const image = slide.getImage(imageSize);
     try {
-        // Zapisz obraz w formacie JPEG.
         image.save("Slide_0.jpg", aspose.slides.ImageFormat.Jpeg);
     } finally {
         image.dispose();
@@ -80,37 +87,37 @@ try {
 }
 ```
 
-## **Konwertowanie slajdów z notatkami i komentarzami na obrazy**
+## **Konwersja slajdów z notatkami i komentarzami do obrazów**
 
-Niektóre slajdy mogą zawierać notatki i komentarze.
+Domyślnie obrazy slajdów nie zawierają notatek ani komentarzy. Przekaż obiekt [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/notescommentslayoutingoptions/) do metody [RenderingOptions.setSlidesLayoutOptions](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/renderingoptions/#setSlidesLayoutOptions), aby kontrolować, gdzie mają się pojawiać notatki i komentarze.
 
-Aspose.Slides udostępnia dwie klasy — [TiffOptions](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/tiffoptions/) i [RenderingOptions](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/renderingoptions/) — które pozwalają kontrolować renderowanie slajdów prezentacji na obrazy. Obie klasy zawierają metodę `setSlidesLayoutOptions`, umożliwiającą skonfigurowanie renderowania notatek i komentarzy na slajdzie podczas konwersji na obraz.
+Poniższy przykład umieszcza przycięte notatki pod slajdem oraz komentarze po jego prawej stronie:
 
-Za pomocą klasy [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/notescommentslayoutingoptions/) możesz określić preferowaną pozycję notatek i komentarzy w uzyskanym obrazie.
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-Ten kod JavaScript demonstruje, jak przekonwertować slajd z notatkami i komentarzami:
-
-```js
 const scaleX = 2;
 const scaleY = scaleX;
 
-// Wczytaj plik prezentacji.
-let presentation = new aspose.slides.Presentation("Presentation_with_notes_and_comments.pptx");
-try {
-    let notesCommentsOptions = new aspose.slides.NotesCommentsLayoutingOptions();
-    notesCommentsOptions.setNotesPosition(aspose.slides.NotesPositions.BottomTruncated);                  // Ustaw pozycję notatek.
-    notesCommentsOptions.setCommentsPosition(aspose.slides.CommentsPositions.Right);                      // Ustaw pozycję komentarzy.
-    notesCommentsOptions.setCommentsAreaWidth(500);                                                       // Ustaw szerokość obszaru komentarzy.
-    notesCommentsOptions.setCommentsAreaColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));  // Ustaw kolor obszaru komentarzy.
+const commentsAreaColor = java.newInstanceSync("java.awt.Color", 250, 235, 215);
 
-    // Utwórz opcje renderowania.
-    let options = new aspose.slides.RenderingOptions();
-    options.setSlidesLayoutOptions(notesCommentsOptions);
- 
-    // Konwertuj pierwszy slajd prezentacji na obraz.
-    let image = presentation.getSlides().get_Item(0).getImage(options, scaleX, scaleY);
+const layoutOptions = new aspose.slides.NotesCommentsLayoutingOptions();
+layoutOptions.setNotesPosition(aspose.slides.NotesPositions.BottomTruncated);
+layoutOptions.setCommentsPosition(aspose.slides.CommentsPositions.Right);
+layoutOptions.setCommentsAreaWidth(500);
+layoutOptions.setCommentsAreaColor(commentsAreaColor);
+
+const renderingOptions = new aspose.slides.RenderingOptions();
+renderingOptions.setSlidesLayoutOptions(layoutOptions);
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const image = slide.getImage(renderingOptions, scaleX, scaleY);
     try {
-        // Zapisz obraz w formacie GIF.
         image.save("Image_with_notes_and_comments_0.gif", aspose.slides.ImageFormat.Gif);
     } finally {
         image.dispose();
@@ -120,36 +127,34 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
+{{% alert title="Warning" color="warning" %}}
+Do konwersji slajdu na obraz nie przekazuj [BottomFull](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/notespositions/) do metody [NotesCommentsLayoutingOptions.setNotesPosition](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition). Notatki mogą zawierać więcej tekstu niż stały rozmiar obrazu może pomieścić. Zamiast tego użyj [BottomTruncated](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/notespositions/).
+{{% /alert %}}
 
-W każdym procesie konwersji slajd‑do‑obrazu metoda [setNotesPosition](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) nie może zastosować `BottomFull` (aby określić pozycję notatek), ponieważ tekst notatki może być zbyt obszerny, aby zmieścić się w określonym rozmiarze obrazu. 
+## **Konwersja slajdów do obrazów przy użyciu opcji TIFF**
 
-{{% /alert %}} 
+Klasa [TiffOptions](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/tiffoptions/) pozwala kontrolować rozmiar, rozdzielczość i inne właściwości wyrenderowanego obrazu TIFF.
 
-## **Konwertowanie slajdów na obrazy przy użyciu opcji TIFF**
+Poniższy przykład renderuje pierwszy slajd jako obraz TIFF o wymiarach 2160 × 2880 przy 300 DPI:
 
-Klasa [TiffOptions](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/tiffoptions/) zapewnia większą kontrolę nad wynikowym plikiem TIFF, umożliwiając określenie parametrów takich jak rozmiar, rozdzielczość, paleta kolorów i inne.
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-Ten kod JavaScript pokazuje proces konwersji, w którym opcje TIFF są używane do wygenerowania obrazu czarno‑białego o rozdzielczości 300 DPI i rozmiarze 2160 × 2800:
+const imageSize = java.newInstanceSync("java.awt.Dimension", 2160, 2880);
 
-```js
-// Wczytaj plik prezentacji.
-let presentation = new aspose.slides.Presentation("sample.pptx");
+const tiffOptions = new aspose.slides.TiffOptions();
+tiffOptions.setImageSize(imageSize);
+tiffOptions.setDpiX(300);
+tiffOptions.setDpiY(300);
+
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // Pobierz pierwszy slajd z prezentacji.
-    let slide = presentation.getSlides().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
 
-    // Skonfiguruj ustawienia wyjściowego obrazu TIFF.
-    let tiffOptions = new aspose.slides.TiffOptions();
-    tiffOptions.setImageSize(java.newInstanceSync("java.awt.Dimension", 2160, 2880));  // Ustaw rozmiar obrazu.
-    tiffOptions.setPixelFormat(aspose.slides.ImagePixelFormat.Format1bppIndexed);      // Ustaw format pikseli (czarno-biały).
-    tiffOptions.setDpiX(300);                                                          // Ustaw rozdzielczość poziomą.
-    tiffOptions.setDpiY(300);                                                          // Ustaw rozdzielczość pionową.
-
-    // Konwertuj slajd na obraz z określonymi opcjami.
-    let image = slide.getImage(tiffOptions);
+    const image = slide.getImage(tiffOptions);
     try {
-        // Zapisz obraz w formacie TIFF.
         image.save("output.tiff", aspose.slides.ImageFormat.Tiff);
     } finally {
         image.dispose();
@@ -159,36 +164,31 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
+{{% alert title="Warning" color="warning" %}}
+Obsługa TIFF nie jest gwarantowana w wersjach Java starszych niż JDK 9.
+{{% /alert %}}
 
-Obsługa TIFF nie jest gwarantowana w wersjach wcześniejszych niż JDK 9. 
+## **Konwersja wszystkich slajdów do obrazów**
 
-{{% /alert %}} 
+Iteruj po kolekcji slajdów, aby przekonwertować całą prezentację na serię obrazów. Ukryte slajdy są uwzględniane, chyba że wyraźnie je pominiesz.
 
-## **Konwertowanie wszystkich slajdów na obrazy**
+Poniższy przykład renderuje każdy slajd jako obraz JPEG z poziomymi i pionowymi współczynnikami skali równymi 2:
 
-Aspose.Slides pozwala konwertować wszystkie slajdy w prezentacji na obrazy, skutecznie przekształcając całą prezentację w serię obrazów.
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
 
-Poniższy przykładowy kod demonstruje, jak przekonwertować wszystkie slajdy w prezentacji na obrazy w JavaScript:
-
-```js
 const scaleX = 2;
 const scaleY = scaleX;
 
-let presentation = new aspose.slides.Presentation("Presentation.pptx");
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // Renderuj prezentację do obrazów slajd po slajdzie.
-    for (let i = 0; i < presentation.getSlides().size(); i++) {
-        // Kontroluj ukryte slajdy (nie renderuj ukrytych slajdów).
-        if (presentation.getSlides().get_Item(i).getHidden()) {
-            continue;
-        }
-
-        // Konwertuj slajd na obraz.
-        let image = presentation.getSlides().get_Item(i).getImage(scaleX, scaleY);
+    const slideCount = presentation.getSlides().size();
+    for (let index = 0; index < slideCount; index++) {
+        const slide = presentation.getSlides().get_Item(index);
+        const image = slide.getImage(scaleX, scaleY);
         try {
-            // Zapisz obraz w formacie JPEG.
-            image.save("Slide_" + i + ".jpg", aspose.slides.ImageFormat.Jpeg);
+            image.save("Slide_" + index + ".jpg", aspose.slides.ImageFormat.Jpeg);
         } finally {
             image.dispose();
         }
@@ -198,22 +198,91 @@ try {
 }
 ```
 
+## **Tworzenie wyjścia w formacie Enhanced Metafile**
+
+Enhanced Metafile (EMF) jest przydatny, gdy grafika wektorowa musi być wymieniana z Microsoft Office lub innymi aplikacjami Windows obsługującymi pliki metafile Windows. W przeciwieństwie do obrazu rastrowego, EMF może zachować operacje rysunkowe wektorowe, które skalują się bez utraty ostrości. Jednak EMF jest przede wszystkim formatem zgodności dla aplikacji obsługujących metafile Windows, a nie uniwersalnym formatem wymiany. Dodatkowo, złożona zawartość slajdu, taka jak obrazy bitmapowe i niektóre efekty, może być przechowywana jako elementy rastrowe wewnątrz kontenera metafile wektorowego.
+
+### **Eksport slajdu do EMF**
+
+Metoda [Slide.writeAsEmf](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/slide/#writeAsEmf) zapisuje slajd do docelowego strumienia w formacie EMF. Poniższy przykład ładuje prezentację, wybiera pierwszy slajd i zapisuje go do strumienia pliku EMF:
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const emfStream = java.newInstanceSync("java.io.FileOutputStream", "Slide_0.emf");
+    try {
+        slide.writeAsEmf(emfStream);
+    } finally {
+        emfStream.close();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Wywołujący jest właścicielem strumienia przekazanego do [Slide.writeAsEmf](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/slide/#writeAsEmf) i jest odpowiedzialny za jego zamknięcie, jak pokazano powyżej.
+
+### **Konwersja obrazu SVG do EMF i dodanie go do prezentacji**
+
+Użyj [SvgImage.writeAsEmf](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/svgimage/#writeAsEmf), aby przekonwertować zawartość SVG na EMF. Wynikowe bajty można dodać do prezentacji za pomocą [ImageCollection.addImage](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/imagecollection/#addImage) i umieścić na slajdzie przy pomocy [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/shapecollection/#addPictureFrame).
+
+Poniższy przykład tworzy [SvgImage](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/svgimage/) z kodu SVG, konwertuje go na EMF w pamięci, wstawia metafile na pierwszym slajdzie i zapisuje prezentację:
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const svgContent = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"100\"><rect width=\"200\" height=\"100\" fill=\"#4472C4\"/></svg>";
+const svgImage = new aspose.slides.SvgImage(svgContent);
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const emfStream = java.newInstanceSync("java.io.ByteArrayOutputStream");
+    try {
+        svgImage.writeAsEmf(emfStream);
+
+        const emfData = java.newArray("byte", Array.from(emfStream.toByteArray()));
+        const image = presentation.getImages().addImage(emfData);
+        slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 200, 100, image);
+    } finally {
+        emfStream.close();
+    }
+
+    presentation.save("Presentation_with_emf.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+[SvgImage.writeAsEmf](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/svgimage/#writeAsEmf) nie przejmuje własności docelowego strumienia. `java.io.ByteArrayOutputStream` przechowuje wszystkie wygenerowane dane w pamięci, więc przed wywołaniem `toByteArray` nie jest wymagana resetacja pozycji. Zwrócona tablica bajtów pozostaje ważna po zamknięciu strumienia.
+
+Generowanie EMF jest dostępne na systemach operacyjnych obsługiwanych przez wybraną konfigurację Aspose.Slides for Node.js via Java i JDK, jednak renderowanie może się różnić między platformami, gdy czcionki lub zależności graficzne są niedostępne. Zainstaluj czcionki używane w źródłowej zawartości lub skonfiguruj odpowiednie zamienniki, postępuj zgodnie z [wymaganiami platformy](/slides/pl/nodejs-java/system-requirements/) dla Aspose.Slides for Node.js via Java i zweryfikuj wynik w docelowej aplikacji konsumującej EMF. Aplikacje Linux i macOS często mają ograniczone lub niejednolite wsparcie dla wyświetlania i edycji metafile Windows.
+
 ## **Renderowanie kolorowych emoji**
 
-{{% alert title="Note" color="warning" %}} 
-Aby poprawnie renderować kolorowe emoji podczas konwertowania slajdów prezentacji na obrazy, czcionki emoji użyte w prezentacji muszą być zainstalowane i dostępne w systemie wykonującym konwersję. Na przykład, jeśli prezentacja używa **Segoe UI Emoji** i ta czcionka jest nieobecna, emoji mogą pojawiać się w odcieniach szarości w wygenerowanych obrazach. 
+{{% alert title="Note" color="info" %}}
+Aby poprawnie renderować kolorowe emoji przy konwersji slajdów prezentacji na obrazy, czcionki emoji użyte w prezentacji muszą być zainstalowane i dostępne w systemie wykonującym konwersję. Na przykład, jeśli prezentacja używa **Segoe UI Emoji**, a ta czcionka jest nieobecna, emoji mogą być wyświetlane w monochromatycznej formie w obrazach wyjściowych.
 {{% /alert %}}
 
 ## **FAQ**
 
 **Czy Aspose.Slides obsługuje renderowanie slajdów z animacjami?**
 
-Nie, metoda `getImage` zapisuje jedynie statyczny obraz slajdu, bez animacji.
+Nie. Metoda [Slide.getImage](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/slide/#getImage) renderuje statyczny obraz slajdu i nie eksportuje animacji.
 
 **Czy ukryte slajdy mogą być eksportowane jako obrazy?**
 
-Tak, ukryte slajdy mogą być przetwarzane tak samo jak zwykłe. Należy jedynie upewnić się, że są uwzględnione w pętli przetwarzania.
+Tak. Ukryte slajdy mogą być renderowane tak jak zwykłe slajdy. Uwzględnij je w pętli przetwarzania, jak pokazano w powyższym przykładzie.
 
-**Czy obrazy mogą być zapisywane z cieniami i efektami?**
+**Czy cienie i inne efekty są zachowywane w obrazach slajdów?**
 
-Tak, Aspose.Slides obsługuje renderowanie cieni, przezroczystości i innych efektów graficznych przy zapisywaniu slajdów jako obrazy.
+Tak. Aspose.Slides renderuje cienie, przezroczystość i inne obsługiwane efekty graficzne w obrazach slajdów.

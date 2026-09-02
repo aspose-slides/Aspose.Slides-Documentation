@@ -1,14 +1,15 @@
 ---
-title: 在 JavaScript 中將簡報投影片轉換為影像
-linktitle: 投影片轉影像
+title: 在 JavaScript 中將簡報投影片轉換為圖像
+linktitle: 投影片轉圖像
 type: docs
 weight: 35
 url: /zh-hant/nodejs-java/convert-slide/
 keywords:
 - 轉換投影片
 - 匯出投影片
-- 投影片轉影像
-- 將投影片儲存為影像
+- 投影片轉圖像
+- 將投影片儲存為圖像
+- 投影片轉 EMF
 - 投影片轉 PNG
 - 投影片轉 JPEG
 - 投影片轉位圖
@@ -19,34 +20,34 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "使用 Aspose.Slides for Node.js via Java 在 JavaScript 中將 PPT、PPTX 與 ODP 投影片轉換為影像 — 快速、高品質的渲染，並提供清晰的程式碼範例。"
+description: "使用 Aspose.Slides 在 JavaScript 中將 PPT、PPTX 和 ODP 簡報的投影片轉換為 PNG、JPEG、GIF、TIFF、EMF 以及其他圖像格式。"
 ---
 ## **簡介**
 
-Aspose.Slides for Node.js via Java 讓您能輕鬆將 PowerPoint 與 OpenDocument 簡報投影片轉換為各種影像格式，包括 BMP、PNG、JPG（JPEG）、GIF 等。
+Aspose.Slides for Node.js via Java 可以將 PowerPoint 與 OpenDocument 簡報的單一投影片渲染為 PNG、JPEG、GIF、TIFF 以及其他影像格式。
 
-若要將投影片轉換為影像，請依照以下步驟：
+1. 使用 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/) 類別載入簡報。
+2. 選取您想要渲染的投影片。
+3. 如有需要，可使用 [RenderingOptions](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/renderingoptions/) 或 [TiffOptions](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/tiffoptions/) 類別設定渲染。
+4. 呼叫 [Slide.getImage](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/slide/#getImage) 方法。它會傳回一個 [IImage](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/iimage/) 物件。
+5. 呼叫 [IImage.save](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/iimage/#save) 方法，並使用 [ImageFormat](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/imageformat/) 的值指定輸出格式。
 
-1. 定義所需的轉換設定，並使用以下方式選取要匯出的投影片：
-    - 使用 [TiffOptions](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/tiffoptions/) 類別，或
-    - 使用 [RenderingOptions](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/renderingoptions/) 類別。
-2. 呼叫 [getImage](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/slide/#getImage) 方法產生投影片影像。
+## **將投影片轉換為 PNG 影像**
 
-在 Aspose.Slides for Node.js via Java 中，[IImage](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/iimage/) 是一個允許您處理由像素資料定義之影像的類別。您可以使用此類別將影像儲存為多種格式（BMP、JPG、PNG 等）。
+最簡單的轉換使用預設的渲染設定。產生的 [IImage](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/iimage/) 物件可在記憶體中處理或儲存為檔案。
 
-## **將投影片轉換為位圖並以 PNG 儲存影像**
+以下 JavaScript 範例會渲染第一張投影片，並將其儲存為 PNG 影像：
 
-您可以將投影片轉換為位圖物件，直接在應用程式中使用。或者，您也可以先將投影片轉換為位圖，然後以 JPEG 或其他您偏好的格式儲存影像。
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
 
-以下 JavaScript 程式碼示範如何將簡報的第一張投影片轉換為位圖物件，並以 PNG 格式儲存影像：
-
-```js
-let presentation = new aspose.slides.Presentation("Presentation.pptx");
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // 將簡報中的第一張投影片轉換為位圖。
-    let image = presentation.getSlides().get_Item(0).getImage();
+    const slide = presentation.getSlides().get_Item(0);
+
+    const image = slide.getImage();
     try {
-        // 以 PNG 格式儲存影像。
         image.save("Slide_0.png", aspose.slides.ImageFormat.Png);
     } finally {
         image.dispose();
@@ -56,21 +57,25 @@ try {
 }
 ```
 
-## **將投影片轉換為自訂尺寸的影像**
+## **以自訂尺寸將投影片轉換為影像**
 
-您可能需要取得特定尺寸的影像。使用 [getImage](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/slide/#getImage) 的重載，您可以將投影片轉換為具有特定寬度與高度的影像。
+使用接受 `java.awt.Dimension` 參數的 [Slide.getImage](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/slide/#getImage) 多載，以使用精確的像素尺寸渲染投影片。
 
-以下範例程式碼示範如何操作：
+以下範例會建立 1820 × 1040 的 JPEG 影像：
 
-```js
-let imageSize = java.newInstanceSync("java.awt.Dimension", 1820, 1040);
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-let presentation = new aspose.slides.Presentation("Presentation.pptx");
+const imageSize = java.newInstanceSync("java.awt.Dimension", 1820, 1040);
+
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // 將簡報中的第一張投影片轉換為指定尺寸的位圖。
-    let image = presentation.getSlides().get_Item(0).getImage(imageSize);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const image = slide.getImage(imageSize);
     try {
-        // 以 JPEG 格式儲存影像。
         image.save("Slide_0.jpg", aspose.slides.ImageFormat.Jpeg);
     } finally {
         image.dispose();
@@ -80,37 +85,37 @@ try {
 }
 ```
 
-## **將包含備註與評論的投影片轉換為影像**
+## **將含備註與評論的投影片轉換為影像**
 
-某些投影片可能包含備註與評論。
+預設情況下，投影片影像不會包含備註或評論。可將 [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/notescommentslayoutingoptions/) 物件傳遞給 [RenderingOptions.setSlidesLayoutOptions](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/renderingoptions/#setSlidesLayoutOptions) 方法，以控制備註與評論的顯示位置。
 
-Aspose.Slides 提供兩個類別——[TiffOptions](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/tiffoptions/) 與 [RenderingOptions](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/renderingoptions/)——讓您能控制簡報投影片轉換為影像的渲染方式。這兩個類別皆包含 `setSlidesLayoutOptions` 方法，您可透過它在將投影片轉換為影像時設定備註與評論的渲染方式。
+以下範例會將截斷的備註放在投影片下方，並將評論放在右側：
 
-使用 [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/notescommentslayoutingoptions/) 類別，您可以指定備註與評論在最終影像中的首選位置。
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-以下 JavaScript 程式碼示範如何將包含備註與評論的投影片轉換：
-
-```js
 const scaleX = 2;
 const scaleY = scaleX;
 
-// Load a presentation file.
-let presentation = new aspose.slides.Presentation("Presentation_with_notes_and_comments.pptx");
-try {
-    let notesCommentsOptions = new aspose.slides.NotesCommentsLayoutingOptions();
-    notesCommentsOptions.setNotesPosition(aspose.slides.NotesPositions.BottomTruncated);                  // 設定備註的位置。
-    notesCommentsOptions.setCommentsPosition(aspose.slides.CommentsPositions.Right);                      // 設定評論的位置。
-    notesCommentsOptions.setCommentsAreaWidth(500);                                                       // 設定評論區域的寬度。
-    notesCommentsOptions.setCommentsAreaColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));  // 設定評論區域的顏色。
+const commentsAreaColor = java.newInstanceSync("java.awt.Color", 250, 235, 215);
 
-    // 建立渲染選項。
-    let options = new aspose.slides.RenderingOptions();
-    options.setSlidesLayoutOptions(notesCommentsOptions);
- 
-    // 將簡報的第一張投影片轉換為影像。
-    let image = presentation.getSlides().get_Item(0).getImage(options, scaleX, scaleY);
+const layoutOptions = new aspose.slides.NotesCommentsLayoutingOptions();
+layoutOptions.setNotesPosition(aspose.slides.NotesPositions.BottomTruncated);
+layoutOptions.setCommentsPosition(aspose.slides.CommentsPositions.Right);
+layoutOptions.setCommentsAreaWidth(500);
+layoutOptions.setCommentsAreaColor(commentsAreaColor);
+
+const renderingOptions = new aspose.slides.RenderingOptions();
+renderingOptions.setSlidesLayoutOptions(layoutOptions);
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const image = slide.getImage(renderingOptions, scaleX, scaleY);
     try {
-        // 以 GIF 格式儲存影像。
         image.save("Image_with_notes_and_comments_0.gif", aspose.slides.ImageFormat.Gif);
     } finally {
         image.dispose();
@@ -120,34 +125,34 @@ try {
 }
 ```
 
-{{% alert title="注意" color="warning" %}} 
-在任何投影片轉影像的轉換過程中，[setNotesPosition](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) 方法無法套用 `BottomFull`（指定備註的位置），因為備註文字可能過長，無法容納於指定的影像尺寸內。
-{{% /alert %}} 
+{{% alert title="Warning" color="warning" %}}
+在投影片轉影像的過程中，請勿傳遞 [BottomFull](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/notespositions/) 給 [NotesCommentsLayoutingOptions.setNotesPosition](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) 方法。備註的文字可能超過固定影像大小的容納範圍。請改用 [BottomTruncated](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/notespositions/)。
+{{% /alert %}}
 
 ## **使用 TIFF 選項將投影片轉換為影像**
 
-[TiffOptions](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/tiffoptions/) 類別透過允許您指定尺寸、解析度、色彩調色板等參數，提供對最終 TIFF 影像更精細的控制。
+[TiffOptions](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/tiffoptions/) 類別可讓您控制渲染後 TIFF 影像的尺寸、解析度以及其他屬性。
 
-以下 JavaScript 程式碼示範使用 TIFF 選項輸出解析度 300 DPI、尺寸 2160 × 2800 的黑白影像的轉換流程：
+以下範例會將第一張投影片渲染為 2160 × 2880、300 DPI 的 TIFF 影像：
 
-```js
-// 載入簡報檔案。
-let presentation = new aspose.slides.Presentation("sample.pptx");
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const imageSize = java.newInstanceSync("java.awt.Dimension", 2160, 2880);
+
+const tiffOptions = new aspose.slides.TiffOptions();
+tiffOptions.setImageSize(imageSize);
+tiffOptions.setDpiX(300);
+tiffOptions.setDpiY(300);
+
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // 從簡報取得第一張投影片。
-    let slide = presentation.getSlides().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
 
-    // 設定輸出 TIFF 影像的參數。
-    let tiffOptions = new aspose.slides.TiffOptions();
-    tiffOptions.setImageSize(java.newInstanceSync("java.awt.Dimension", 2160, 2880));  // 設定影像尺寸。
-    tiffOptions.setPixelFormat(aspose.slides.ImagePixelFormat.Format1bppIndexed);      // 設定像素格式（黑白）。
-    tiffOptions.setDpiX(300);                                                          // 設定水平解析度。
-    tiffOptions.setDpiY(300);                                                          // 設定垂直解析度。
-
-    // 使用指定的選項將投影片轉換為影像。
-    let image = slide.getImage(tiffOptions);
+    const image = slide.getImage(tiffOptions);
     try {
-        // 以 TIFF 格式儲存影像。
         image.save("output.tiff", aspose.slides.ImageFormat.Tiff);
     } finally {
         image.dispose();
@@ -157,34 +162,31 @@ try {
 }
 ```
 
-{{% alert title="注意" color="warning" %}} 
-在 JDK 9 之前的版本中，TIFF 支援並無法保證。
-{{% /alert %}} 
+{{% alert title="Warning" color="warning" %}}
+在 JDK 9 之前的 Java 版本中，無法保證支援 TIFF。
+{{% /alert %}}
 
 ## **將所有投影片轉換為影像**
 
-Aspose.Slides 允許您將簡報中的所有投影片轉換為影像，等同於將整個簡報轉換成一系列影像。
+遍歷投影片集合，將整個簡報轉換為一系列影像。除非明確跳過，否則隱藏投影片也會被包含在內。
 
-以下範例程式碼示範如何在 JavaScript 中將簡報的所有投影片轉換為影像：
+以下範例會將每張投影片以水平與垂直倍率 2 渲染為 JPEG 影像：
 
-```js
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
 const scaleX = 2;
 const scaleY = scaleX;
 
-let presentation = new aspose.slides.Presentation("Presentation.pptx");
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // 將簡報逐張投影片渲染為影像。
-    for (let i = 0; i < presentation.getSlides().size(); i++) {
-        // 控制隱藏投影片（不渲染隱藏的投影片）。
-        if (presentation.getSlides().get_Item(i).getHidden()) {
-            continue;
-        }
-
-        // 將投影片轉換為影像。
-        let image = presentation.getSlides().get_Item(i).getImage(scaleX, scaleY);
+    const slideCount = presentation.getSlides().size();
+    for (let index = 0; index < slideCount; index++) {
+        const slide = presentation.getSlides().get_Item(index);
+        const image = slide.getImage(scaleX, scaleY);
         try {
-            // 以 JPEG 格式儲存影像。
-            image.save("Slide_" + i + ".jpg", aspose.slides.ImageFormat.Jpeg);
+            image.save("Slide_" + index + ".jpg", aspose.slides.ImageFormat.Jpeg);
         } finally {
             image.dispose();
         }
@@ -194,22 +196,91 @@ try {
 }
 ```
 
+## **產生增強型圖形檔（EMF）輸出**
+
+增強型圖形檔 (EMF) 在需要與 Microsoft Office 或其他支援 Windows 圖形檔的 Windows 應用程式交換向量圖形時很有用。與像素影像不同，EMF 能保留向量繪圖操作，縮放時不會失去銳利度。然而，EMF 主要是一種供具備 Windows 圖形檔支援的應用程式使用的相容格式，並非通用的交換格式。此外，複雜的投影片內容，如點陣圖和某些效果，可能會以光柵化元素儲存在向量圖形檔容器中。
+
+### **將投影片匯出為 EMF**
+
+[Slide.writeAsEmf](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/slide/#writeAsEmf) 方法會以 EMF 格式將投影片寫入目標串流。以下範例載入簡報，選取第一張投影片，並將其寫入 EMF 檔案串流：
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const emfStream = java.newInstanceSync("java.io.FileOutputStream", "Slide_0.emf");
+    try {
+        slide.writeAsEmf(emfStream);
+    } finally {
+        emfStream.close();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+呼叫端擁有傳遞給 [Slide.writeAsEmf](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/slide/#writeAsEmf) 的串流，並負責依照上例關閉該串流。
+
+### **將 SVG 影像轉換為 EMF 並加入簡報**
+
+使用 [SvgImage.writeAsEmf](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/svgimage/#writeAsEmf) 可將 SVG 內容轉換為 EMF。產生的位元組可透過 [ImageCollection.addImage](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/imagecollection/#addImage) 加入簡報，並使用 [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/shapecollection/#addPictureFrame) 放置於投影片上。
+
+以下範例會從 SVG 標記建立 [SvgImage](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/svgimage/)，將其轉換為記憶體中的 EMF，將該圖形檔插入第一張投影片，並儲存簡報：
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const svgContent = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"100\"><rect width=\"200\" height=\"100\" fill=\"#4472C4\"/></svg>";
+const svgImage = new aspose.slides.SvgImage(svgContent);
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const emfStream = java.newInstanceSync("java.io.ByteArrayOutputStream");
+    try {
+        svgImage.writeAsEmf(emfStream);
+
+        const emfData = java.newArray("byte", Array.from(emfStream.toByteArray()));
+        const image = presentation.getImages().addImage(emfData);
+        slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 200, 100, image);
+    } finally {
+        emfStream.close();
+    }
+
+    presentation.save("Presentation_with_emf.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+[SvgImage.writeAsEmf](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/svgimage/#writeAsEmf) 不會取得目的地串流的所有權。`java.io.ByteArrayOutputStream` 會在記憶體中儲存所有產生的資料，因而在呼叫 `toByteArray` 前不需要重設位置。即使串流已關閉，回傳的位元組陣列仍然有效。
+
+EMF 產生功能在所選擇的 Aspose.Slides for Node.js via Java 與 JDK 設定所支援的作業系統上皆可使用，但若缺少字型或圖形相依項，跨平台的渲染結果可能會有所差異。請安裝來源內容所使用的字型或設定適當的替代字型，並遵循 Aspose.Slides for Node.js via Java 的 [平台需求](/slides/zh-hant/nodejs-java/system-requirements/)，以驗證在目標 EMF 使用應用程式中的結果。Linux 與 macOS 應用程式通常對顯示與編輯 Windows 圖形檔的支援有限或不一致。
+
 ## **彩色表情符號渲染**
 
-{{% alert title="注意" color="warning" %}} 
-在將簡報投影片轉換為影像時，若要正確呈現彩色表情符號，簡報中使用的表情符號字型必須已安裝並在執行轉換的系統上可使用。例如，若簡報使用 **Segoe UI Emoji** 但系統缺少此字型，則輸出影像中的表情符號可能會以單色顯示。
+{{% alert title="Note" color="info" %}}
+在將簡報投影片轉換為影像時，如欲正確呈現彩色表情符號，必須在執行轉換的系統上安裝簡報中使用的表情符號字型。例如，若簡報使用 **Segoe UI Emoji**，但系統缺少該字型，則輸出影像中的表情符號可能會以單色顯示。
 {{% /alert %}}
 
 ## **常見問題**
 
-**Aspose.Slides 是否支援呈現帶有動畫的投影片？**
+**Aspose.Slides 是否支援渲染含動畫的投影片？**
 
-不會，`getImage` 方法僅儲存投影片的靜態影像，不包含動畫。
+不支援。[Slide.getImage](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/slide/#getImage) 方法會渲染投影片的靜態影像，且不會匯出動畫。
 
 **隱藏的投影片可以匯出為影像嗎？**
 
-可以，隱藏的投影片可與一般投影片一樣處理，只需確保在處理迴圈中包含它們。
+可以。隱藏投影片可像一般投影片一樣渲染。只要在處理迴圈中包含它們，如上例所示。
 
-**影像可以儲存陰影和效果嗎？**
+**投影片影像會保留陰影和其他效果嗎？**
 
-可以，Aspose.Slides 在將投影片儲存為影像時支援渲染陰影、透明度及其他圖形效果。
+會。Aspose.Slides 會在投影片影像中呈現陰影、透明度以及其他支援的圖形效果。

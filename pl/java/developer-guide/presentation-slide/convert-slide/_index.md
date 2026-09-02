@@ -1,14 +1,15 @@
 ---
 title: Konwertowanie slajdów prezentacji na obrazy w Javie
-linktitle: Slajd do obrazu
+linktitle: Slajd na obraz
 type: docs
 weight: 35
 url: /pl/java/convert-slide/
 keywords:
-- konwertowanie slajdu
-- eksport slajdu
+- konwertuj slajd
+- eksportuj slajd
 - slajd na obraz
 - zapisz slajd jako obraz
+- slajd do EMF
 - slajd do PNG
 - slajd do JPEG
 - slajd do bitmapy
@@ -18,34 +19,38 @@ keywords:
 - prezentacja
 - Java
 - Aspose.Slides
-description: "Konwertuj slajdy z formatów PPT, PPTX i ODP na obrazy w Javie przy użyciu Aspose.Slides — szybkie, wysokiej jakości renderowanie z przejrzystymi przykładami kodu."
+description: "Konwertuj slajdy z prezentacji PPT, PPTX i ODP na PNG, JPEG, GIF, TIFF, EMF oraz inne formaty obrazów w Javie przy użyciu Aspose.Slides."
 ---
 ## **Wprowadzenie**
 
-Aspose.Slides for Java umożliwia łatwe konwertowanie slajdów prezentacji PowerPoint i OpenDocument na różne formaty obrazu, w tym BMP, PNG, JPG (JPEG), GIF i inne.
+Aspose.Slides for Java może renderować pojedyncze slajdy z prezentacji PowerPoint i OpenDocument jako PNG, JPEG, GIF, TIFF i inne formaty obrazów.
 
 Aby przekonwertować slajd na obraz, wykonaj następujące kroki:
 
-1. Zdefiniuj żądane ustawienia konwersji i wybierz slajdy, które chcesz wyeksportować, używając:
-    - interfejsu [ITiffOptions](https://reference.aspose.com/slides/pl/java/com.aspose.slides/itiffoptions/),
-    - interfejsu [IRenderingOptions](https://reference.aspose.com/slides/pl/java/com.aspose.slides/irenderingoptions/).
-2. Wygeneruj obraz slajdu, wywołując metodę [getImage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-).
+1. Załaduj prezentację za pomocą klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/).
+2. Wybierz slajd, który chcesz wyrenderować.
+3. W razie potrzeby skonfiguruj renderowanie przy pomocy klasy [RenderingOptions](https://reference.aspose.com/slides/pl/java/com.aspose.slides/renderingoptions/) lub [TiffOptions](https://reference.aspose.com/slides/pl/java/com.aspose.slides/tiffoptions/).
+4. Wywołaj metodę [ISlide.getImage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/islide/#getImage--). Zwraca ona obiekt [IImage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iimage/).
+5. Wywołaj metodę [IImage.save](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iimage/#save-java.lang.String-int-) i określ format wyjściowy za pomocą wartości [ImageFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/imageformat/).
 
-W Aspose.Slides for Java interfejs [IImage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iimage/) jest interfejsem, który umożliwia pracę z obrazami zdefiniowanymi przez dane pikseli. Możesz używać tego interfejsu do zapisywania obrazów w szerokim zakresie formatów (BMP, JPG, PNG itp.).
+## **Konwertowanie slajdu na obraz PNG**
 
-## **Konwertowanie slajdów na mapy bitowe i zapisywanie obrazów w formacie PNG**
+Najprostsza konwersja używa domyślnych ustawień renderowania. Uzyskany obiekt [IImage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iimage/) może być przetwarzany w pamięci lub zapisany do pliku.
 
-Możesz przekonwertować slajd na obiekt mapy bitowej i używać go bezpośrednio w aplikacji. Alternatywnie możesz skonwertować slajd na mapę bitową, a następnie zapisać obraz w formacie JPEG lub innym wybranym formacie.
+Poniższy przykład w języku Java renderuje pierwszy slajd i zapisuje go jako obraz PNG:
 
-Ten kod demonstruje, jak przekonwertować pierwszy slajd prezentacji na obiekt mapy bitowej i następnie zapisać obraz w formacie PNG:
+```java
+import com.aspose.slides.IImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
 
-```java 
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Konwertuj pierwszy slajd prezentacji na bitmapę.
-    IImage image = presentation.getSlides().get_Item(0).getImage();
-	try {
-        // Zapisz obraz w formacie PNG.
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IImage image = slide.getImage();
+    try {
         image.save("Slide_0.png", ImageFormat.Png);
     } finally {
         image.dispose();
@@ -55,22 +60,27 @@ try {
 }
 ```
 
-## **Konwertowanie slajdów na obrazy o niestandardowych rozmiarach**
+## **Konwersja slajdów do obrazów o niestandardowych rozmiarach**
 
-Możesz potrzebować obrazu o określonym rozmiarze. Korzystając z przeciążenia metody [getImage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-), możesz przekonwertować slajd na obraz o konkretnych wymiarach (szerokość i wysokość).
+Użyj przeciążenia [ISlide.getImage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-), które przyjmuje wartość [Dimension](https://docs.oracle.com/javase/8/docs/api/java/awt/Dimension.html), aby renderować slajd o dokładnych wymiarach w pikselach.
 
-Ten przykładowy kod pokazuje, jak to zrobić:
+Poniższy przykład tworzy obraz JPEG o wymiarach 1820 × 1040:
 
-```java 
+```java
+import com.aspose.slides.IImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
+import java.awt.Dimension;
+
 Dimension imageSize = new Dimension(1820, 1040);
 
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Konwertuj pierwszy slajd prezentacji na bitmapę o określonym rozmiarze.
-    IImage image = presentation.getSlides().get_Item(0).getImage(imageSize);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    IImage image = slide.getImage(imageSize);
     try {
-        // Zapisz obraz w formacie JPEG.
         image.save("Slide_0.jpg", ImageFormat.Jpeg);
     } finally {
         image.dispose();
@@ -80,38 +90,43 @@ try {
 }
 ```
 
-## **Konwertowanie slajdów z notatkami i komentarzami na obrazy**
+## **Konwersja slajdów z notatkami i komentarzami do obrazów**
 
-Niektóre slajdy mogą zawierać notatki i komentarze.
+Domyślnie obrazy slajdów nie zawierają notatek ani komentarzy. Przekaż obiekt [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/pl/java/com.aspose.slides/notescommentslayoutingoptions/) do metody [RenderingOptions.setSlidesLayoutOptions](https://reference.aspose.com/slides/pl/java/com.aspose.slides/renderingoptions/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-), aby kontrolować, gdzie mają się pojawiać notatki i komentarze.
 
-Aspose.Slides udostępnia dwa interfejsy — [ITiffOptions](https://reference.aspose.com/slides/pl/java/com.aspose.slides/itiffoptions/) i [IRenderingOptions](https://reference.aspose.com/slides/pl/java/com.aspose.slides/irenderingoptions/) — które pozwalają kontrolować renderowanie slajdów prezentacji na obrazy. Oba interfejsy zawierają metodę `setSlidesLayoutOptions`, która umożliwia skonfigurowanie renderowania notatek i komentarzy na slajdzie podczas konwersji na obraz.
+Poniższy przykład umieszcza skrócone notatki pod slajdem oraz komentarze po jego prawej stronie:
 
-Dzięki klasie [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/pl/java/com.aspose.slides/notescommentslayoutingoptions/) możesz określić preferowaną pozycję notatek i komentarzy w wygenerowanym obrazie.
+```java
+import com.aspose.slides.CommentsPositions;
+import com.aspose.slides.IImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.NotesCommentsLayoutingOptions;
+import com.aspose.slides.NotesPositions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.RenderingOptions;
+import java.awt.Color;
 
-Ten kod demonstruje, jak przekonwertować slajd z notatkami i komentarzami:
-
-```java 
-float scaleX = 2;
+float scaleX = 2f;
 float scaleY = scaleX;
 
-// Załaduj plik prezentacji.
+Color commentsAreaColor = new Color(250, 235, 215);
+
+NotesCommentsLayoutingOptions layoutOptions = new NotesCommentsLayoutingOptions();
+layoutOptions.setNotesPosition(NotesPositions.BottomTruncated);
+layoutOptions.setCommentsPosition(CommentsPositions.Right);
+layoutOptions.setCommentsAreaWidth(500);
+layoutOptions.setCommentsAreaColor(commentsAreaColor);
+
+RenderingOptions renderingOptions = new RenderingOptions();
+renderingOptions.setSlidesLayoutOptions(layoutOptions);
+
 Presentation presentation = new Presentation("Presentation_with_notes_and_comments.pptx");
 try {
-    NotesCommentsLayoutingOptions notesCommentsOptions = new NotesCommentsLayoutingOptions();
-    notesCommentsOptions.setNotesPosition(NotesPositions.BottomTruncated);  // Ustaw położenie notatek.
-    notesCommentsOptions.setCommentsPosition(CommentsPositions.Right);      // Ustaw położenie komentarzy.
-    notesCommentsOptions.setCommentsAreaWidth(500);                         // Ustaw szerokość obszaru komentarzy.
-    notesCommentsOptions.setCommentsAreaColor(Color.LIGHT_GRAY);            // Ustaw kolor obszaru komentarzy.
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Utwórz opcje renderowania.
-    RenderingOptions options = new RenderingOptions();
-    options.setSlidesLayoutOptions(notesCommentsOptions);
-
-    // Przekonwertuj pierwszy slajd prezentacji na obraz.
-    IImage image = presentation.getSlides().get_Item(0).getImage(options, scaleX, scaleY);
-
+    IImage image = slide.getImage(renderingOptions, scaleX, scaleY);
     try {
-        // Zapisz obraz w formacie GIF.
         image.save("Image_with_notes_and_comments_0.gif", ImageFormat.Gif);
     } finally {
         image.dispose();
@@ -121,37 +136,37 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
+{{% alert title="Warning" color="warning" %}}
+Podczas konwersji slajdu na obraz nie przekazuj [BottomFull](https://reference.aspose.com/slides/pl/java/com.aspose.slides/notespositions/) do metody [NotesCommentsLayoutingOptions.setNotesPosition](https://reference.aspose.com/slides/pl/java/com.aspose.slides/notescommentslayoutingoptions/#setNotesPosition-int-). Notatki mogą zawierać więcej tekstu niż pozwala na to stały rozmiar obrazu. Użyj zamiast tego [BottomTruncated](https://reference.aspose.com/slides/pl/java/com.aspose.slides/notespositions/).
+{{% /alert %}}
 
-W dowolnym procesie konwersji slajdu na obraz metoda [setNotesPosition](https://reference.aspose.com/slides/pl/java/com.aspose.slides/inotescommentslayoutingoptions/#setNotesPosition-int-) nie może zastosować wartości `BottomFull` (określającej pozycję notatek), ponieważ tekst notatki może być zbyt duży, aby zmieścić się w określonym rozmiarze obrazu.
+## **Konwersja slajdów do obrazów przy użyciu opcji TIFF**
 
-{{% /alert %}} 
+Klasa [TiffOptions](https://reference.aspose.com/slides/pl/java/com.aspose.slides/tiffoptions/) pozwala kontrolować rozmiar, rozdzielczość i inne właściwości renderowanego obrazu TIFF.
 
-## **Konwertowanie slajdów na obrazy przy użyciu opcji TIFF**
+Poniższy przykład renderuje pierwszy slajd jako obraz TIFF o wymiarach 2160 × 2880 przy 300 DPI:
 
-Interfejs [ITiffOptions](https://reference.aspose.com/slides/pl/java/com.aspose.slides/itiffoptions/) zapewnia większą kontrolę nad wynikowym obrazem TIFF, umożliwiając określenie parametrów takich jak rozmiar, rozdzielczość, paleta kolorów i inne.
+```java
+import com.aspose.slides.IImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.TiffOptions;
+import java.awt.Dimension;
 
-Ten kod demonstruje proces konwersji, w którym opcje TIFF są używane do wygenerowania czarno‑białego obrazu o rozdzielczości 300 DPI i rozmiarze 2160 × 2800:
+Dimension imageSize = new Dimension(2160, 2880);
 
-```java 
-// Załaduj plik prezentacji.
+TiffOptions tiffOptions = new TiffOptions();
+tiffOptions.setImageSize(imageSize);
+tiffOptions.setDpiX(300);
+tiffOptions.setDpiY(300);
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    // Pobierz pierwszy slajd z prezentacji.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Skonfiguruj ustawienia wyjściowego obrazu TIFF.
-    TiffOptions tiffOptions = new TiffOptions();
-    tiffOptions.setImageSize(new Dimension(2160, 2880));             // Ustaw rozmiar obrazu.
-    tiffOptions.setPixelFormat(ImagePixelFormat.Format1bppIndexed);  // Ustaw format pikseli (czarno-biały).
-    tiffOptions.setDpiX(300);                                        // Ustaw rozdzielczość poziomą.
-    tiffOptions.setDpiY(300);                                        // Ustaw rozdzielczość pionową.
-
-    // Przekonwertuj slajd na obraz przy użyciu określonych opcji.
     IImage image = slide.getImage(tiffOptions);
-
     try {
-        // Zapisz obraz w formacie TIFF.
         image.save("output.tiff", ImageFormat.Tiff);
     } finally {
         image.dispose();
@@ -161,62 +176,132 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
+{{% alert title="Warning" color="warning" %}}
+Obsługa formatu TIFF nie jest gwarantowana w wersjach Java wcześniejszych niż JDK 9.
+{{% /alert %}}
 
-Obsługa formatu TIFF nie jest gwarantowana w wersjach wcześniejszych niż JDK 9.
+## **Konwersja wszystkich slajdów do obrazów**
 
-{{% /alert %}} 
+Iteruj przez kolekcję slajdów, aby przekonwertować całą prezentację na serię obrazów. Ukryte slajdy są uwzględniane, o ile nie zostaną wyraźnie pominięte.
 
-## **Konwertowanie wszystkich slajdów na obrazy**
+Poniższy przykład renderuje każdy slajd jako obraz JPEG z poziomymi i pionowymi współczynnikami skalowania równymi 2:
 
-Aspose.Slides pozwala konwertować wszystkie slajdy w prezentacji na obrazy, efektywnie przekształcając całą prezentację w serię obrazów.
+```java
+import com.aspose.slides.IImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
 
-Ten przykładowy kod demonstruje, jak w Javie przekonwertować wszystkie slajdy w prezentacji na obrazy:
-
-```java 
-float scaleX = 2;
+float scaleX = 2f;
 float scaleY = scaleX;
 
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Renderuj prezentację do obrazów slajd po slajdzie.
-    for (int i = 0 ; i < presentation.getSlides().size(); i++)
-    {
-        // Kontroluj ukryte slajdy (nie renderuj ukrytych slajdów).
-        if (presentation.getSlides().get_Item(i).getHidden())
-            continue;
-
-        // Przekonwertuj slajd na obraz.
-        IImage image = presentation.getSlides().get_Item(i).getImage(scaleX, scaleY);
-
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage(scaleX, scaleY);
         try {
-            // Zapisz obraz w formacie JPEG.
-            image.save("Slide_" + i + ".jpg", ImageFormat.Jpeg);
+            image.save("Slide_" + index + ".jpg", ImageFormat.Jpeg);
         } finally {
             image.dispose();
         }
     }
 } finally {
     presentation.dispose();
-} 
+}
 ```
+
+## **Tworzenie wyjścia w formacie Enhanced Metafile**
+
+Enhanced Metafile (EMF) jest przydatny, gdy grafika wektorowa musi być wymieniana z Microsoft Office lub innymi aplikacjami Windows obsługującymi pliki metafile Windows. W przeciwieństwie do obrazu rastrowego, EMF może zachować operacje rysunkowe wektorowe, które skalują się bez utraty ostrości. Jednak EMF jest przede wszystkim formatem kompatybilności dla aplikacji obsługujących metafile Windows, a nie uniwersalnym formatem wymiany. Dodatkowo, złożona zawartość slajdów, taka jak obrazy bitmapowe i niektóre efekty, może być przechowywana jako elementy rastrowe wewnątrz kontenera metafile wektorowego.
+
+### **Eksport slajdu do EMF**
+
+Metoda [ISlide.writeAsEmf](https://reference.aspose.com/slides/pl/java/com.aspose.slides/islide/#writeAsEmf-java.io.OutputStream-) zapisuje [ISlide](https://reference.aspose.com/slides/pl/java/com.aspose.slides/islide/) do docelowego strumienia w formacie EMF. Poniższy przykład ładuje prezentację, wybiera pierwszy slajd i zapisuje go do strumienia pliku EMF:
+
+```java
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+import java.io.FileOutputStream;
+
+Presentation presentation = new Presentation("Presentation.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    FileOutputStream emfStream = new FileOutputStream("Slide_0.emf");
+    try {
+        slide.writeAsEmf(emfStream);
+    } finally {
+        emfStream.close();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Wywołujący jest właścicielem strumienia przekazanego do [ISlide.writeAsEmf](https://reference.aspose.com/slides/pl/java/com.aspose.slides/islide/#writeAsEmf-java.io.OutputStream-) i jest odpowiedzialny za jego zamknięcie, tak jak pokazano powyżej.
+
+### **Konwersja obrazu SVG do EMF i dodanie go do prezentacji**
+
+Użyj [ISvgImage.writeAsEmf](https://reference.aspose.com/slides/pl/java/com.aspose.slides/isvgimage/#writeAsEmf-java.io.OutputStream-), aby przekonwertować zawartość SVG na EMF. Uzyskane bajty mogą zostać dodane do prezentacji za pomocą [IImageCollection.addImage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iimagecollection/#addImage-byte:A-) i umieszczone na slajdzie przy pomocy [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-).
+
+Poniższy przykład tworzy [SvgImage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/svgimage/) z kodu SVG, konwertuje go na EMF w pamięci, wstawia metafile na pierwszy slajd i zapisuje prezentację:
+
+```java
+import com.aspose.slides.IPPImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ISvgImage;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.ShapeType;
+import com.aspose.slides.SvgImage;
+import java.io.ByteArrayOutputStream;
+
+String svgContent = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"100\"><rect width=\"200\" height=\"100\" fill=\"#4472C4\"/></svg>";
+ISvgImage svgImage = new SvgImage(svgContent);
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ByteArrayOutputStream emfStream = new ByteArrayOutputStream();
+    try {
+        svgImage.writeAsEmf(emfStream);
+
+        byte[] emfData = emfStream.toByteArray();
+        IPPImage image = presentation.getImages().addImage(emfData);
+        slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 200, 100, image);
+    } finally {
+        emfStream.close();
+    }
+
+    presentation.save("Presentation_with_emf.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+[ISvgImage.writeAsEmf](https://reference.aspose.com/slides/pl/java/com.aspose.slides/isvgimage/#writeAsEmf-java.io.OutputStream-) nie przejmuje własności docelowego strumienia. [ByteArrayOutputStream](https://docs.oracle.com/javase/8/docs/api/java/io/ByteArrayOutputStream.html) przechowuje wszystkie wygenerowane dane w pamięci, więc przed wywołaniem `toByteArray` nie jest wymagane resetowanie pozycji. Zwrócona tablica bajtów pozostaje ważna po zamknięciu strumienia.
+
+Generowanie EMF jest dostępne na systemach operacyjnych obsługiwanych przez wybraną konfigurację Aspose.Slides for Java i JDK, jednak renderowanie może się różnić w zależności od platformy, gdy czcionki lub zależności graficzne są niedostępne. Zainstaluj czcionki używane w źródłowej zawartości lub skonfiguruj odpowiednie zamienniki, postępuj zgodnie z [wymaganiami platformy](/slides/pl/java/system-requirements/) dla Aspose.Slides for Java i zweryfikuj wynik w docelowej aplikacji obsługującej EMF. Aplikacje na Linux i macOS często mają ograniczoną lub niespójną obsługę wyświetlania i edycji metafile Windows.
 
 ## **Renderowanie kolorowych emoji**
 
-{{% alert title="Note" color="warning" %}} 
-Aby prawidłowo renderować kolorowe emoji podczas konwersji slajdów prezentacji na obrazy, czcionki emoji użyte w prezentacji muszą być zainstalowane i dostępne w systemie wykonującym konwersję. Na przykład, jeśli prezentacja używa **Segoe UI Emoji** i ta czcionka jest nieobecna, emoji mogą pojawiać się w odcieniach szarości w wygenerowanych obrazach.
+{{% alert title="Note" color="info" %}}
+Aby prawidłowo renderować kolorowe emoji podczas konwertowania slajdów prezentacji na obrazy, czcionki emoji użyte w prezentacji muszą być zainstalowane i dostępne w systemie wykonującym konwersję. Na przykład, jeśli prezentacja używa **Segoe UI Emoji** i ta czcionka jest nieobecna, emoji mogą pojawiać się w odcieniach szarości w obrazach wyjściowych.
 {{% /alert %}}
 
 ## **FAQ**
 
 **Czy Aspose.Slides obsługuje renderowanie slajdów z animacjami?**
 
-Nie, metoda `getImage` zapisuje jedynie statyczny obraz slajdu, bez animacji.
+Nie. Metoda [ISlide.getImage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/islide/#getImage--) renderuje statyczny obraz slajdu i nie eksportuje animacji.
 
 **Czy ukryte slajdy mogą być eksportowane jako obrazy?**
 
-Tak, ukryte slajdy mogą być przetwarzane tak samo jak zwykłe. Należy jedynie upewnić się, że są uwzględnione w pętli przetwarzania.
+Tak. Ukryte slajdy mogą być renderowane jak zwykłe slajdy. Uwzględnij je w pętli przetwarzania, jak pokazano w powyższym przykładzie.
 
-**Czy obrazy mogą być zapisywane z cieniami i efektami?**
+**Czy cienie i inne efekty są zachowywane w obrazach slajdów?**
 
-Tak, Aspose.Slides obsługuje renderowanie cieni, przeźroczystości i innych efektów graficznych podczas zapisywania slajdów jako obrazy.
+Tak. Aspose.Slides renderuje cienie, przezroczystość i inne obsługiwane efekty graficzne w obrazach slajdów.

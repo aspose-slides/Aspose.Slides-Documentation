@@ -1,52 +1,55 @@
 ---
 title: Convertir les diapositives de présentation en images en JavaScript
-linktitle: Diapositive en image
+linktitle: Diapositive vers image
 type: docs
 weight: 35
 url: /fr/nodejs-java/convert-slide/
 keywords:
-- convertir diapositive
-- exporter diapositive
-- diapositive en image
-- enregistrer diapositive en tant qu'image
-- diapositive en PNG
-- diapositive en JPEG
-- diapositive en bitmap
-- diapositive en TIFF
-- PowerPoint
-- OpenDocument
-- présentation
-- Node.js
-- JavaScript
-- Aspose.Slides
-description: "Convertir des diapositives PPT, PPTX et ODP en images en JavaScript à l'aide d'Aspose.Slides for Node.js via Java — rendu rapide et de haute qualité avec des exemples de code clairs."
+  - convertir diapositive
+  - exporter diapositive
+  - diapositive en image
+  - enregistrer diapositive en tant qu'image
+  - diapositive en EMF
+  - diapositive en PNG
+  - diapositive en JPEG
+  - diapositive en bitmap
+  - diapositive en TIFF
+  - PowerPoint
+  - OpenDocument
+  - présentation
+  - Node.js
+  - JavaScript
+  - Aspose.Slides
+description: "Convertir les diapositives des présentations PPT, PPTX et ODP en PNG, JPEG, GIF, TIFF, EMF et autres formats d'image en JavaScript avec Aspose.Slides."
 ---
 ## **Introduction**
 
-Aspose.Slides for Node.js via Java vous permet de convertir facilement les diapositives de présentations PowerPoint et OpenDocument en divers formats d’image, notamment BMP, PNG, JPG (JPEG), GIF et d’autres.
+Aspose.Slides for Node.js via Java peut rendre des diapositives individuelles provenant de présentations PowerPoint et OpenDocument en PNG, JPEG, GIF, TIFF et d’autres formats d’image.
 
 Pour convertir une diapositive en image, suivez ces étapes :
 
-1. Définissez les paramètres de conversion souhaités et sélectionnez les diapositives que vous voulez exporter en utilisant :
-    - la classe [TiffOptions](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/tiffoptions/) ou
-    - la classe [RenderingOptions](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/renderingoptions/).
-2. Générez l’image de la diapositive en appelant la méthode [getImage](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/slide/#getImage).
+1. Chargez la présentation avec la classe [Presentation](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation/).
+2. Sélectionnez la diapositive que vous souhaitez rendre.
+3. Si nécessaire, configurez le rendu avec la classe [RenderingOptions](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/renderingoptions/) ou [TiffOptions](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/tiffoptions/).
+4. Appelez la méthode [Slide.getImage](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/slide/#getImage). Elle renvoie un objet [IImage](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/iimage/).
+5. Appelez la méthode [IImage.save](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/iimage/#save) et spécifiez le format de sortie avec une valeur [ImageFormat](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/imageformat/).
 
-Dans Aspose.Slides for Node.js via Java, un [IImage](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/iimage/) est une classe qui vous permet de travailler avec des images définies par des données de pixels. Vous pouvez utiliser cette classe pour enregistrer des images dans une large gamme de formats (BMP, JPG, PNG, etc.).
+## **Convertir une diapositive en image PNG**
 
-## **Convertir des diapositives en bitmap et enregistrer les images au format PNG**
+La conversion la plus simple utilise les paramètres de rendu par défaut. L’objet [IImage](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/iimage/) résultant peut être traité en mémoire ou enregistré dans un fichier.
 
-Vous pouvez convertir une diapositive en objet bitmap et l’utiliser directement dans votre application. Vous pouvez également convertir une diapositive en bitmap puis enregistrer l’image au format JPEG ou tout autre format de votre choix.
+L’exemple JavaScript suivant rend la première diapositive et l’enregistre comme image PNG :
 
-Ce code JavaScript montre comment convertir la première diapositive d’une présentation en objet bitmap puis enregistrer l’image au format PNG :
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
 
-```js
-let presentation = new aspose.slides.Presentation("Presentation.pptx");
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // Convertir la première diapositive de la présentation en bitmap.
-    let image = presentation.getSlides().get_Item(0).getImage();
+    const slide = presentation.getSlides().get_Item(0);
+
+    const image = slide.getImage();
     try {
-        // Enregistrer l'image au format PNG.
         image.save("Slide_0.png", aspose.slides.ImageFormat.Png);
     } finally {
         image.dispose();
@@ -58,19 +61,23 @@ try {
 
 ## **Convertir des diapositives en images avec des tailles personnalisées**
 
-Il se peut que vous ayez besoin d’obtenir une image d’une taille précise. En utilisant une surcharge de la méthode [getImage](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/slide/#getImage), vous pouvez convertir une diapositive en image avec des dimensions spécifiques (largeur et hauteur).
+Utilisez la surcharge de [Slide.getImage](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/slide/#getImage) qui accepte une valeur `java.awt.Dimension` pour rendre une diapositive avec des dimensions exactes en pixels.
 
-Ce code d’exemple montre comment procéder :
+L’exemple suivant crée une image JPEG de 1820 × 1040 :
 
-```js
-let imageSize = java.newInstanceSync("java.awt.Dimension", 1820, 1040);
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-let presentation = new aspose.slides.Presentation("Presentation.pptx");
+const imageSize = java.newInstanceSync("java.awt.Dimension", 1820, 1040);
+
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // Convertir la première diapositive de la présentation en bitmap avec la taille spécifiée.
-    let image = presentation.getSlides().get_Item(0).getImage(imageSize);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const image = slide.getImage(imageSize);
     try {
-        // Enregistrer l'image au format JPEG.
         image.save("Slide_0.jpg", aspose.slides.ImageFormat.Jpeg);
     } finally {
         image.dispose();
@@ -82,35 +89,35 @@ try {
 
 ## **Convertir des diapositives avec notes et commentaires en images**
 
-Certaines diapositives peuvent contenir des notes et des commentaires.
+Par défaut, les images des diapositives n’incluent pas les notes ni les commentaires. Passez un objet [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/notescommentslayoutingoptions/) à la méthode [RenderingOptions.setSlidesLayoutOptions](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/renderingoptions/#setSlidesLayoutOptions) pour contrôler l’emplacement des notes et des commentaires.
 
-Aspose.Slides fournit deux classes — [TiffOptions](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/tiffoptions/) et [RenderingOptions](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/renderingoptions/) — qui vous permettent de contrôler le rendu des diapositives de présentation en images. Les deux classes comprennent la méthode `setSlidesLayoutOptions`, qui vous permet de configurer le rendu des notes et des commentaires d’une diapositive lors de sa conversion en image.
+L’exemple suivant place les notes tronquées sous la diapositive et les commentaires à droite :
 
-Avec la classe [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/notescommentslayoutingoptions/) vous pouvez spécifier la position souhaitée pour les notes et les commentaires dans l’image générée.
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-Ce code JavaScript montre comment convertir une diapositive contenant des notes et des commentaires :
-
-```js
 const scaleX = 2;
 const scaleY = scaleX;
 
-// Load a presentation file.
-let presentation = new aspose.slides.Presentation("Presentation_with_notes_and_comments.pptx");
-try {
-    let notesCommentsOptions = new aspose.slides.NotesCommentsLayoutingOptions();
-    notesCommentsOptions.setNotesPosition(aspose.slides.NotesPositions.BottomTruncated);                  // Définir la position des notes.
-    notesCommentsOptions.setCommentsPosition(aspose.slides.CommentsPositions.Right);                      // Définir la position des commentaires.
-    notesCommentsOptions.setCommentsAreaWidth(500);                                                       // Définir la largeur de la zone des commentaires.
-    notesCommentsOptions.setCommentsAreaColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));  // Définir la couleur de la zone des commentaires.
+const commentsAreaColor = java.newInstanceSync("java.awt.Color", 250, 235, 215);
 
-    // Créer les options de rendu.
-    let options = new aspose.slides.RenderingOptions();
-    options.setSlidesLayoutOptions(notesCommentsOptions);
- 
-    // Convertir la première diapositive de la présentation en image.
-    let image = presentation.getSlides().get_Item(0).getImage(options, scaleX, scaleY);
+const layoutOptions = new aspose.slides.NotesCommentsLayoutingOptions();
+layoutOptions.setNotesPosition(aspose.slides.NotesPositions.BottomTruncated);
+layoutOptions.setCommentsPosition(aspose.slides.CommentsPositions.Right);
+layoutOptions.setCommentsAreaWidth(500);
+layoutOptions.setCommentsAreaColor(commentsAreaColor);
+
+const renderingOptions = new aspose.slides.RenderingOptions();
+renderingOptions.setSlidesLayoutOptions(layoutOptions);
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const image = slide.getImage(renderingOptions, scaleX, scaleY);
     try {
-        // Enregistrer l'image au format GIF.
         image.save("Image_with_notes_and_comments_0.gif", aspose.slides.ImageFormat.Gif);
     } finally {
         image.dispose();
@@ -120,34 +127,34 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-Dans tout processus de conversion de diapositive en image, la méthode [setNotesPosition](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) ne peut pas appliquer `BottomFull` (pour spécifier la position des notes) car le texte d’une note peut être trop volumineux, ce qui l’empêche de tenir dans la taille d’image spécifiée.
-{{% /alert %}} 
+{{% alert title="Warning" color="warning" %}}
+Pour la conversion diapositive‑vers‑image, ne passez pas [BottomFull](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/notespositions/) à la méthode [NotesCommentsLayoutingOptions.setNotesPosition](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition). Les notes peuvent contenir plus de texte que la taille d’image fixe ne peut contenir. Utilisez [BottomTruncated](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/notespositions/) à la place.
+{{% /alert %}}
 
 ## **Convertir des diapositives en images en utilisant les options TIFF**
 
-La classe [TiffOptions](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/tiffoptions/) offre un contrôle plus fin sur l’image TIFF résultante en vous permettant de spécifier des paramètres tels que la taille, la résolution, la palette de couleurs, etc.
+La classe [TiffOptions](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/tiffoptions/) vous permet de contrôler la taille, la résolution et d’autres propriétés de l’image TIFF rendue.
 
-Ce code JavaScript montre un processus de conversion où les options TIFF sont utilisées pour produire une image en noir et blanc avec une résolution de 300 DPI et une taille de 2160 × 2800 :
+L’exemple suivant rend la première diapositive en une image TIFF de 2160 × 2880 à 300 DPI :
 
-```js
-// Charger un fichier de présentation.
-let presentation = new aspose.slides.Presentation("sample.pptx");
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const imageSize = java.newInstanceSync("java.awt.Dimension", 2160, 2880);
+
+const tiffOptions = new aspose.slides.TiffOptions();
+tiffOptions.setImageSize(imageSize);
+tiffOptions.setDpiX(300);
+tiffOptions.setDpiY(300);
+
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // Obtenir la première diapositive de la présentation.
-    let slide = presentation.getSlides().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
 
-    // Configurer les paramètres de l'image TIFF de sortie.
-    let tiffOptions = new aspose.slides.TiffOptions();
-    tiffOptions.setImageSize(java.newInstanceSync("java.awt.Dimension", 2160, 2880));  // Définir la taille de l'image.
-    tiffOptions.setPixelFormat(aspose.slides.ImagePixelFormat.Format1bppIndexed);      // Définir le format des pixels (noir et blanc).
-    tiffOptions.setDpiX(300);                                                          // Définir la résolution horizontale.
-    tiffOptions.setDpiY(300);                                                          // Définir la résolution verticale.
-
-    // Convertir la diapositive en image avec les options spécifiées.
-    let image = slide.getImage(tiffOptions);
+    const image = slide.getImage(tiffOptions);
     try {
-        // Enregistrer l'image au format TIFF.
         image.save("output.tiff", aspose.slides.ImageFormat.Tiff);
     } finally {
         image.dispose();
@@ -157,34 +164,31 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-La prise en charge du format TIFF n’est pas garantie dans les versions antérieures à JDK 9.
-{{% /alert %}} 
+{{% alert title="Warning" color="warning" %}}
+La prise en charge du TIFF n’est pas garantie dans les versions de Java antérieures à JDK 9.
+{{% /alert %}}
 
 ## **Convertir toutes les diapositives en images**
 
-Aspose.Slides vous permet de convertir toutes les diapositives d’une présentation en images, transformant ainsi l’ensemble de la présentation en une série d’images.
+Itérez sur la collection de diapositives pour convertir l’ensemble de la présentation en une série d’images. Les diapositives masquées sont incluses à moins que vous ne les excluiez explicitement.
 
-Ce code d’exemple montre comment convertir toutes les diapositives d’une présentation en images avec JavaScript :
+L’exemple suivant rend chaque diapositive en image JPEG avec des facteurs d’échelle horizontaux et verticaux de 2 :
 
-```js
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
 const scaleX = 2;
 const scaleY = scaleX;
 
-let presentation = new aspose.slides.Presentation("Presentation.pptx");
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // Rendre la présentation en images diapositive par diapositive.
-    for (let i = 0; i < presentation.getSlides().size(); i++) {
-        // Gérer les diapositives cachées (ne pas rendre les diapositives cachées).
-        if (presentation.getSlides().get_Item(i).getHidden()) {
-            continue;
-        }
-
-        // Convertir la diapositive en image.
-        let image = presentation.getSlides().get_Item(i).getImage(scaleX, scaleY);
+    const slideCount = presentation.getSlides().size();
+    for (let index = 0; index < slideCount; index++) {
+        const slide = presentation.getSlides().get_Item(index);
+        const image = slide.getImage(scaleX, scaleY);
         try {
-            // Enregistrer l'image au format JPEG.
-            image.save("Slide_" + i + ".jpg", aspose.slides.ImageFormat.Jpeg);
+            image.save("Slide_" + index + ".jpg", aspose.slides.ImageFormat.Jpeg);
         } finally {
             image.dispose();
         }
@@ -194,22 +198,91 @@ try {
 }
 ```
 
-## **Rendu des emoji en couleur**
+## **Créer une sortie Enhanced Metafile**
 
-{{% alert title="Note" color="warning" %}} 
-Pour rendre correctement les emoji en couleur lors de la conversion de diapositives de présentation en images, les polices emoji utilisées dans la présentation doivent être installées et disponibles sur le système effectuant la conversion. Par exemple, si la présentation utilise **Segoe UI Emoji** et que cette police est absente, les emoji peuvent apparaître en monochrome dans les images générées.
+Enhanced Metafile (EMF) est utile lorsque des graphiques vectoriels doivent être échangés avec Microsoft Office ou d’autres applications Windows qui prennent en charge les métafichiers Windows. Contrairement à une image basée sur des pixels, un EMF peut conserver les opérations de dessin vectoriel qui se redimensionnent sans perte de netteté. Cependant, l’EMF est principalement un format de compatibilité pour les applications disposant d’un support des métafichiers Windows, et non un format d’échange universel. De plus, le contenu complexe d’une diapositive, tel que les images bitmap et certains effets, peut être stocké sous forme d’éléments rasterisés à l’intérieur du conteneur du métafile vectoriel.
+
+### **Exporter une diapositive au format EMF**
+
+La méthode [Slide.writeAsEmf](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/slide/#writeAsEmf) écrit une diapositive dans un flux cible au format EMF. L’exemple suivant charge une présentation, sélectionne la première diapositive et l’écrit dans un flux de fichier EMF :
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const emfStream = java.newInstanceSync("java.io.FileOutputStream", "Slide_0.emf");
+    try {
+        slide.writeAsEmf(emfStream);
+    } finally {
+        emfStream.close();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+L’appelant possède le flux passé à [Slide.writeAsEmf](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/slide/#writeAsEmf) et est responsable de le fermer, comme indiqué ci‑dessus.
+
+### **Convertir une image SVG en EMF et l’ajouter à une présentation**
+
+Utilisez [SvgImage.writeAsEmf](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/svgimage/#writeAsEmf) pour convertir le contenu SVG en EMF. Les octets résultants peuvent être ajoutés à la présentation via [ImageCollection.addImage](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/imagecollection/#addImage) et placés sur une diapositive avec [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/shapecollection/#addPictureFrame).
+
+L’exemple suivant crée un [SvgImage](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/svgimage/) à partir du balisage SVG, le convertit en EMF en mémoire, insère le métafile sur la première diapositive et enregistre la présentation :
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const svgContent = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"100\"><rect width=\"200\" height=\"100\" fill=\"#4472C4\"/></svg>";
+const svgImage = new aspose.slides.SvgImage(svgContent);
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const emfStream = java.newInstanceSync("java.io.ByteArrayOutputStream");
+    try {
+        svgImage.writeAsEmf(emfStream);
+
+        const emfData = java.newArray("byte", Array.from(emfStream.toByteArray()));
+        const image = presentation.getImages().addImage(emfData);
+        slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 200, 100, image);
+    } finally {
+        emfStream.close();
+    }
+
+    presentation.save("Presentation_with_emf.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+[SvgImage.writeAsEmf](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/svgimage/#writeAsEmf) ne prend pas la possession du flux de destination. Un `java.io.ByteArrayOutputStream` stocke toutes les données générées en mémoire, il n’est donc pas nécessaire de réinitialiser la position avant d’appeler `toByteArray`. Le tableau d’octets retourné reste valide après la fermeture du flux.
+
+La génération d’EMF est disponible sur les systèmes d’exploitation pris en charge par la configuration sélectionnée d’Aspose.Slides for Node.js via Java et du JDK, mais le rendu peut différer d’une plateforme à l’autre lorsque les polices ou les dépendances graphiques sont indisponibles. Installez les polices utilisées par le contenu source ou configurez des substitutions appropriées, suivez les [exigences de plateforme](/slides/fr/nodejs-java/system-requirements/) pour Aspose.Slides for Node.js via Java, et validez le résultat dans l’application cible consommant les EMF. Les applications Linux et macOS ont souvent un support limité ou incohérent pour l’affichage et l’édition des métafichiers Windows.
+
+## **Rendu des Emoji couleur**
+
+{{% alert title="Note" color="info" %}}
+Pour rendre correctement les emojis couleur lors de la conversion des diapositives de présentation en images, les polices d’emoji utilisées dans la présentation doivent être installées et disponibles sur le système effectuant la conversion. Par exemple, si la présentation utilise **Segoe UI Emoji** et que cette police est absente, les emojis peuvent apparaître en monochrome dans les images de sortie.
 {{% /alert %}}
 
 ## **FAQ**
 
 **Aspose.Slides prend‑t‑il en charge le rendu des diapositives avec animations ?**
 
-Non, la méthode `getImage` enregistre uniquement une image statique de la diapositive, sans animations.
+Non. La méthode [Slide.getImage](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/slide/#getImage) rend une image statique de la diapositive et n’exporte pas les animations.
 
 **Les diapositives masquées peuvent‑elles être exportées en images ?**
 
-Oui, les diapositives masquées peuvent être traitées comme les diapositives normales. Assurez‑vous simplement qu’elles soient incluses dans la boucle de traitement.
+Oui. Les diapositives masquées peuvent être rendues comme des diapositives normales. Incluez‑les dans la boucle de traitement, comme le montre l’exemple ci‑dessus.
 
-**Les images peuvent‑elles être enregistrées avec des ombres et des effets ?**
+**Les ombres et autres effets sont‑ils conservés dans les images des diapositives ?**
 
-Oui, Aspose.Slides prend en charge le rendu des ombres, de la transparence et d’autres effets graphiques lors de l’enregistrement des diapositives en images.
+Oui. Aspose.Slides rend les ombres, la transparence et d’autres effets graphiques pris en charge dans les images des diapositives.

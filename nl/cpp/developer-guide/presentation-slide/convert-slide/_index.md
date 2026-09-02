@@ -1,200 +1,305 @@
 ---
-title: Presentatiedia's omzetten naar afbeeldingen in C++
-linktitle: Dia naar afbeelding
+title: "Dia's van presentaties converteren naar afbeeldingen in C++"
+linktitle: "Dia naar afbeelding"
 type: docs
 weight: 41
 url: /nl/cpp/convert-slide/
 keywords:
-- dia converteren
-- dia exporteren
-- dia naar afbeelding
-- dia bewaren als afbeelding
-- dia naar PNG
-- dia naar JPEG
-- dia naar bitmap
-- dia naar TIFF
-- PowerPoint
-- OpenDocument
-- presentatie
-- C++
-- Aspose.Slides
-description: "Dia's van PPT, PPTX en ODP omzetten naar afbeeldingen in C++ met Aspose.Slides—snelle, hoogwaardige rendering met duidelijke codevoorbeelden."
+- "dia converteren"
+- "dia exporteren"
+- "dia naar afbeelding"
+- "dia opslaan als afbeelding"
+- "dia naar EMF"
+- "dia naar PNG"
+- "dia naar JPEG"
+- "dia naar bitmap"
+- "dia naar TIFF"
+- "PowerPoint"
+- "OpenDocument"
+- "presentatie"
+- "C++"
+- "Aspose.Slides"
+description: "Convert dia's van PPT, PPTX en ODP presentaties naar PNG, JPEG, GIF, TIFF, EMF en andere afbeeldingsformaten in C++ met Aspose.Slides voor C++."
 ---
-## **Inleiding**
+## **Introductie**
 
-Aspose.Slides for C++ maakt het eenvoudig om PowerPoint‑ en OpenDocument‑presentatieslides om te zetten naar verschillende afbeeldingsformaten, waaronder BMP, PNG, JPG (JPEG), GIF en andere.
+Aspose.Slides for C++ kan individuele dia's uit PowerPoint- en OpenDocument‑presentaties renderen als PNG, JPEG, GIF, TIFF en andere afbeeldingsformaten.
 
-Om een slide naar een afbeelding te converteren, volgt u deze stappen:
+Om een dia om te zetten naar een afbeelding, volgt u deze stappen:
 
-1. Definieer de gewenste conversie‑instellingen en selecteer de slides die u wilt exporteren met behulp van:
-    - De [ITiffOptions](https://reference.aspose.com/slides/nl/cpp/aspose.slides.export/itiffoptions/) interface, of
-    - De [IRenderingOptions](https://reference.aspose.com/slides/nl/cpp/aspose.slides.export/irenderingoptions/) interface.
-2. Genereer de slide‑afbeelding door de [GetImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/islide/getimage/) methode aan te roepen.
+1. Laad de presentatie met de [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/) klasse.
+2. Selecteer de dia die u wilt renderen.
+3. Indien nodig, configureer de rendering met de [RenderingOptions](https://reference.aspose.com/slides/nl/cpp/aspose.slides.export/renderingoptions/) of [TiffOptions](https://reference.aspose.com/slides/nl/cpp/aspose.slides.export/tiffoptions/) klasse.
+4. Roep de [ISlide::GetImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/islide/getimage/) methode aan. Deze retourneert een [IImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iimage/) object.
+5. Roep de [IImage::Save](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iimage/save/) methode aan en specificeer het uitvoerformaat met een [ImageFormat](https://reference.aspose.com/slides/nl/cpp/aspose.slides/imageformat/) waarde.
 
-Een [Bitmap](https://reference.aspose.com/slides/nl/cpp/system.drawing/bitmap/) is een object waarmee u kunt werken met afbeeldingen die zijn gedefinieerd door pixelgegevens. U kunt een instantie van deze klasse gebruiken om afbeeldingen op te slaan in een breed scala aan formaten (BMP, JPG, PNG, enz.).
+## **Een dia naar een PNG‑afbeelding converteren**
 
-## **Slides omzetten naar Bitmaps en de afbeeldingen opslaan in PNG**
+De eenvoudigste conversie gebruikt de standaard renderinginstellingen. Het resulterende [IImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iimage/) object kan in het geheugen worden verwerkt of naar een bestand worden opgeslagen.
 
-U kunt een slide omzetten naar een bitmap‑object en deze direct in uw applicatie gebruiken. Als alternatief kunt u een slide omzetten naar een bitmap en vervolgens de afbeelding opslaan in JPEG of een ander gewenst formaat.
+Het volgende C++‑voorbeeld rendert de eerste dia en slaat deze op als een PNG‑afbeelding:
 
-Deze C++‑code toont hoe u de eerste slide van een presentatie omzet naar een bitmap‑object en vervolgens de afbeelding opslaat in PNG‑formaat:
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/smart_ptr.h>
 
-```cpp 
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
+auto slide = presentation->get_Slide(0);
 
-// Converteer de eerste dia in de presentatie naar een bitmap.
-auto image = presentation->get_Slide(0)->GetImage();
-
-// Sla de afbeelding op in PNG-formaat.
+auto image = slide->GetImage();
 image->Save(u"Slide_0.png", ImageFormat::Png);
 
 image->Dispose();
 presentation->Dispose();
 ```
 
-## **Slides omzetten naar afbeeldingen met aangepaste afmetingen**
+## **Dia's naar afbeeldingen converteren met aangepaste afmetingen**
 
-U wilt misschien een afbeelding met een bepaalde afmeting verkrijgen. Met behulp van een overload van de [GetImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/islide/getimage/) kunt u een slide omzetten naar een afbeelding met specifieke dimensies (breedte en hoogte). 
+Gebruik de overload van [ISlide::GetImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/islide/getimage/) die een [Size](https://reference.aspose.com/slides/nl/cpp/system.drawing/size/) waarde accepteert om een dia te renderen met exacte pixelafmetingen.
 
-Deze voorbeeldcode toont hoe u dit kunt doen:
+Het volgende voorbeeld maakt een JPEG‑afbeelding van 1820 × 1040:
 
-```cpp 
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <drawing/size.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Drawing;
+
 Size imageSize(1820, 1040);
 
 auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
+auto slide = presentation->get_Slide(0);
 
-// Converteer de eerste dia in de presentatie naar een bitmap met de opgegeven grootte.
-auto image = presentation->get_Slide(0)->GetImage(imageSize);
-
-// Sla de afbeelding op in JPEG-formaat.
+auto image = slide->GetImage(imageSize);
 image->Save(u"Slide_0.jpg", ImageFormat::Jpeg);
 
 image->Dispose();
 presentation->Dispose();
 ```
 
-## **Slides met notities en opmerkingen omzetten naar afbeeldingen**
+## **Dia's met notities en opmerkingen naar afbeeldingen converteren**
 
-Enkele slides kunnen notities en opmerkingen bevatten.
+Standaard bevatten dia‑afbeeldingen geen notities of opmerkingen. Ken een [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/nl/cpp/aspose.slides.export/notescommentslayoutingoptions/) object toe aan de methode [RenderingOptions::set_SlidesLayoutOptions](https://reference.aspose.com/slides/nl/cpp/aspose.slides.export/renderingoptions/set_slideslayoutoptions/) om te bepalen waar notities en opmerkingen worden weergegeven.
 
-Aspose.Slides biedt twee interfaces—[ITiffOptions](https://reference.aspose.com/slides/nl/cpp/aspose.slides.export/itiffoptions/) en [IRenderingOptions](https://reference.aspose.com/slides/nl/cpp/aspose.slides.export/irenderingoptions/)—die u in staat stellen de weergave van presentatieslides naar afbeeldingen te regelen. Beide interfaces bevatten de `set_SlidesLayoutOptions`‑methode, waarmee u de weergave van notities en opmerkingen op een slide kunt configureren bij het omzetten naar een afbeelding.
+Het volgende voorbeeld plaatst afgekorte notities onder de dia en opmerkingen rechts ervan:
 
-Met de klasse [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/nl/cpp/aspose.slides.export/notescommentslayoutingoptions/) kunt u uw gewenste positie voor notities en opmerkingen in de resulterende afbeelding aangeven.
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/CommentsPositions.h>
+#include <Export/NotesCommentsLayoutingOptions.h>
+#include <Export/NotesPositions.h>
+#include <Export/RenderingOptions.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
 
-Deze C++‑code toont hoe u een slide met notities en opmerkingen omzet:
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
 
-```cpp 
-float scaleX = 2;
+float scaleX = 2.0f;
 float scaleY = scaleX;
 
-// Laad een presentatiebestand.
+auto layoutOptions = MakeObject<NotesCommentsLayoutingOptions>();
+layoutOptions->set_NotesPosition(NotesPositions::BottomTruncated);
+layoutOptions->set_CommentsPosition(CommentsPositions::Right);
+layoutOptions->set_CommentsAreaWidth(500);
+layoutOptions->set_CommentsAreaColor(Color::get_AntiqueWhite());
+
+auto renderingOptions = MakeObject<RenderingOptions>();
+renderingOptions->set_SlidesLayoutOptions(layoutOptions);
+
 auto presentation = MakeObject<Presentation>(u"Presentation_with_notes_and_comments.pptx");
+auto slide = presentation->get_Slide(0);
 
-auto notesCommentsOptions = MakeObject<NotesCommentsLayoutingOptions>();
-notesCommentsOptions->set_NotesPosition(NotesPositions::BottomTruncated);  // Stel de positie van de notities in.
-notesCommentsOptions->set_CommentsPosition(CommentsPositions::Right);      // Stel de positie van de opmerkingen in.
-notesCommentsOptions->set_CommentsAreaWidth(500);                          // Stel de breedte van het opmerkingengebied in.
-notesCommentsOptions->set_CommentsAreaColor(Color::get_AntiqueWhite());    // Stel de kleur voor het opmerkingengebied in.
-
-// Maak de renderopties aan.
-auto options = MakeObject<RenderingOptions>();
-options->set_SlidesLayoutOptions(notesCommentsOptions);
-
-// Converteer de eerste dia van de presentatie naar een afbeelding.
-auto image = presentation->get_Slide(0)->GetImage(options, scaleX, scaleY);
-
-// Sla de afbeelding op in GIF-formaat.
+auto image = slide->GetImage(renderingOptions, scaleX, scaleY);
 image->Save(u"Image_with_notes_and_comments_0.gif", ImageFormat::Gif);
 
 image->Dispose();
 presentation->Dispose();
 ```
 
-{{% alert title="Note" color="warning" %}} 
+{{% alert title="Warning" color="warning" %}}
+Voor dia‑naar‑afbeelding‑conversie stelt u de [NotesCommentsLayoutingOptions::set_NotesPosition](https://reference.aspose.com/slides/nl/cpp/aspose.slides.export/notescommentslayoutingoptions/set_notesposition/) methode niet in op [BottomFull]. Notities kunnen meer tekst bevatten dan de vaste afbeeldingsgrootte aankan. Gebruik in plaats daarvan [BottomTruncated].
+{{% /alert %}}
 
-In elk slide‑naar‑afbeelding‑conversieproces kan de [set_NotesPosition](https://reference.aspose.com/slides/nl/cpp/aspose.slides.export/notescommentslayoutingoptions/set_notesposition/) methode de instelling `BottomFull` (om de positie voor notities op te geven) niet toepassen, omdat de tekst van een notitie te groot kan zijn om binnen de opgegeven afbeeldingsgrootte te passen.
+## **Dia's naar afbeeldingen converteren met TIFF‑opties**
 
-{{% /alert %}} 
+De klasse [TiffOptions](https://reference.aspose.com/slides/nl/cpp/aspose.slides.export/tiffoptions/) stelt u in staat de grootte, resolutie en andere eigenschappen van de gerenderde TIFF‑afbeelding te regelen.
 
-## **Slides omzetten naar afbeeldingen met TIFF‑opties**
+Het volgende voorbeeld rendert de eerste dia als een TIFF‑afbeelding van 2160 × 2880 bij 300 DPI:
 
-De [ITiffOptions](https://reference.aspose.com/slides/nl/cpp/aspose.slides.export/itiffoptions/) interface biedt meer controle over de resulterende TIFF‑afbeelding door u parameters zoals grootte, resolutie, kleurenpalet en meer te laten specificeren.
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/TiffOptions.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <drawing/size.h>
+#include <system/smart_ptr.h>
 
-Deze C++‑code toont een conversieproces waarbij TIFF‑opties worden gebruikt om een zwart‑wit afbeelding met een resolutie van 300 DPI en een grootte van 2160 × 2800 te produceren:
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
 
-```cpp 
-// Laad een presentatiebestand.
+auto tiffOptions = MakeObject<TiffOptions>();
+tiffOptions->set_ImageSize(Size(2160, 2880));
+tiffOptions->set_DpiX(300);
+tiffOptions->set_DpiY(300);
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
-
-// Haal de eerste dia uit de presentatie.
 auto slide = presentation->get_Slide(0);
 
-// Configureer de instellingen van de output TIFF-afbeelding.
-auto tiffOptions = MakeObject<TiffOptions>();
-tiffOptions->set_ImageSize(Size(2160, 2880));                       // Stel de afbeeldingsgrootte in.
-tiffOptions->set_PixelFormat(ImagePixelFormat::Format1bppIndexed);  // Stel het pixelformaat in (zwart-wit).
-tiffOptions->set_DpiX(300);                                         // Stel de horizontale resolutie in.
-tiffOptions->set_DpiY(300);                                         // Stel de verticale resolutie in.
-
-// Converteer de dia naar een afbeelding met de opgegeven opties.
 auto image = slide->GetImage(tiffOptions);
-
-// Sla de afbeelding op in TIFF-formaat.
-image->Save(u"output.bmp", ImageFormat::Tiff);
+image->Save(u"output.tiff", ImageFormat::Tiff);
 
 image->Dispose();
 presentation->Dispose();
 ```
 
-## **Alle slides omzetten naar afbeeldingen**
+## **Alle dia's naar afbeeldingen converteren**
 
-Aspose.Slides maakt het mogelijk om alle slides in een presentatie om te zetten naar afbeeldingen, waardoor de hele presentatie effectief wordt omgezet in een reeks afbeeldingen.
+Itereer door de dia‑collectie om de volledige presentatie om te zetten in een reeks afbeeldingen. Verborgen dia's worden meegenomen, tenzij u ze expliciet overslaat.
 
-Deze voorbeeldcode toont hoe u alle slides in een presentatie kunt omzetten naar afbeeldingen in C++:
+Het volgende voorbeeld rendert elke dia als een JPEG‑afbeelding met horizontale en verticale schaalfactoren van 2:
 
-```cpp 
-float scaleX = 2;
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+float scaleX = 2.0f;
 float scaleY = scaleX;
 
 auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
 
-// Render de presentatie naar afbeeldingen dia voor dia.
-for (int i = 0; i < presentation->get_Slides()->get_Count(); i++)
+int32_t slideCount = presentation->get_Slides()->get_Count();
+for (int32_t index = 0; index < slideCount; index++)
 {
-    // Beheer verborgen dia's (render geen verborgen dia's).
-    if (presentation->get_Slide(i)->get_Hidden())
-    {
-        continue;
-    }
-
-    // Converteer de dia naar een afbeelding.
-    auto image = presentation->get_Slide(i)->GetImage(scaleX, scaleY);
-
-    // Sla de afbeelding op in JPEG-formaat.
-    image->Save(String::Format(u"Slide_{0}.jpg", i), ImageFormat::Jpeg);
-
+    auto slide = presentation->get_Slide(index);
+    auto image = slide->GetImage(scaleX, scaleY);
+    image->Save(String::Format(u"Slide_{0}.jpg", index), ImageFormat::Jpeg);
     image->Dispose();
 }
 
 presentation->Dispose();
 ```
 
-## **Kleur‑emoji weergave**
+## **Enhanced Metafile‑output maken**
 
-{{% alert title="Note" color="warning" %}} 
-Om kleur‑emoji’s correct weer te geven bij het omzetten van presentatieslides naar afbeeldingen, moeten de emoji‑lettertypen die in de presentatie worden gebruikt geïnstalleerd en beschikbaar zijn op het systeem dat de conversie uitvoert. Bijvoorbeeld, als de presentatie **Segoe UI Emoji** gebruikt en dit lettertype ontbreekt, kunnen emoji’s monochroom verschijnen in de uitvoer‑afbeeldingen.
+Enhanced Metafile (EMF) is nuttig wanneer vectorgebaseerde grafische afbeeldingen moeten worden uitgewisseld met Microsoft Office of andere Windows‑toepassingen die Windows‑metabestanden ondersteunen. In tegenstelling tot een pixelgebaseerde afbeelding kan een EMF vector‑tekenbewerkingen behouden die schalen zonder hetzelfde verlies aan scherpte. EMF is echter voornamelijk een compatibiliteitsformaat voor toepassingen met Windows‑metabestandondersteuning, geen universeel uitwisselingsformaat. Bovendien kan complexe dia‑inhoud, zoals bitmap‑afbeeldingen en sommige effecten, worden opgeslagen als gerasterde elementen binnen de vector‑metabestandscontainer.
+
+### **Een dia exporteren naar EMF**
+
+De methode [ISlide::WriteAsEmf](https://reference.aspose.com/slides/nl/cpp/aspose.slides/islide/writeasemf/) schrijft een [ISlide](https://reference.aspose.com/slides/nl/cpp/aspose.slides/islide/) naar een doel‑stroom in EMF‑formaat. Het volgende voorbeeld laadt een presentatie, selecteert de eerste dia en schrijft deze naar een EMF‑bestandstroom:
+
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto emfStream = File::Create(u"Slide_0.emf");
+slide->WriteAsEmf(emfStream);
+
+emfStream->Close();
+presentation->Dispose();
+```
+
+De aanroeper bezit de stroom die aan [ISlide::WriteAsEmf](https://reference.aspose.com/slides/nl/cpp/aspose.slides/islide/writeasemf/) wordt doorgegeven en moet deze sluiten of vrijgeven. Aspose.Slides schrijft op de huidige positie van de stroom en laat de stroom open.
+
+### **Een SVG‑afbeelding naar EMF converteren en toevoegen aan een presentatie**
+
+Gebruik [ISvgImage::WriteAsEmf](https://reference.aspose.com/slides/nl/cpp/aspose.slides/isvgimage/writeasemf/) om SVG‑inhoud te converteren naar EMF. De resulterende bytes kunnen aan de presentatie worden toegevoegd via [IImageCollection::AddImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iimagecollection/addimage/) en op een dia worden geplaatst met [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides.ishapecollection/addpictureframe/).
+
+Het volgende voorbeeld maakt een [SvgImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/svgimage/) van SVG‑opmaak, converteert deze naar een EMF in het geheugen, voegt het metafile toe aan de eerste dia en slaat de presentatie op:
+
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SvgImage.h>
+#include <Export/SaveFormat.h>
+#include <system/io/memory_stream.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+String svgContent = u"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"100\"><rect width=\"200\" height=\"100\" fill=\"#4472C4\"/></svg>";
+auto svgImage = MakeObject<SvgImage>(svgContent);
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto emfStream = MakeObject<MemoryStream>();
+svgImage->WriteAsEmf(emfStream);
+
+auto emfData = emfStream->ToArray();
+auto image = presentation->get_Images()->AddImage(emfData);
+slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 20, 20, 200, 100, image);
+
+presentation->Save(u"Presentation_with_emf.pptx", SaveFormat::Pptx);
+
+emfStream->Close();
+presentation->Dispose();
+```
+
+[ISvgImage::WriteAsEmf](https://reference.aspose.com/slides/nl/cpp/aspose.slides/isvgimage/writeasemf/) neemt geen eigendom van de bestemmingsstroom. Na het schrijven staat de stroompositie aan het einde van de gegenereerde gegevens. Het voorbeeld roept [MemoryStream::ToArray](https://reference.aspose.com/slides/nl/cpp/system.io/memorystream/toarray/) aan om de volledige buffer te verkrijgen, ongeacht de huidige stroompositie, en geeft die byte‑array door aan [IImageCollection::AddImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/iimagecollection/addimage/). Houd de stroom open totdat de consument klaar is met lezen en sluit hem daarna.
+
+EMF‑generatie is beschikbaar op de besturingssystemen die door Aspose.Slides voor C++ worden ondersteund, maar rendering kan per platform verschillen wanneer lettertypen of native grafische afhankelijkheden niet beschikbaar zijn. Installeer de lettertypen die in de broninhoud worden gebruikt of configureer geschikte vervangingen, volg de [platform requirements](/slides/nl/cpp/system-requirements/) voor Aspose.Slides voor C++ en valideer het resultaat in de doel‑EMF‑consumentapplicatie. Linux‑ en macOS‑toepassingen hebben vaak beperkte of inconsistente ondersteuning voor het weergeven en bewerken van Windows‑metabestanden.
+
+## **Kleur‑emoji rendering**
+
+{{% alert title="Note" color="info" %}}
+Om kleur‑emoji’s correct te renderen bij het converteren van presentatiedia’s naar afbeeldingen, moeten de emoji‑lettertypen die in de presentatie worden gebruikt geïnstalleerd en beschikbaar zijn op het systeem dat de conversie uitvoert. Bijvoorbeeld, als de presentatie **Segoe UI Emoji** gebruikt en dit lettertype ontbreekt, kunnen emoji’s in monochroom verschijnen in de uitvoerafbeeldingen.
 {{% /alert %}}
 
-## **Veelgestelde vragen**
+## **FAQ**
 
-**Ondersteunt Aspose.Slides het renderen van slides met animaties?**
+**Ondersteunt Aspose.Slides het renderen van dia's met animaties?**
 
-Nee, de `GetImage`‑methode slaat alleen een statische afbeelding van de slide op, zonder animaties.
+Nee. De methode [ISlide::GetImage](https://reference.aspose.com/slides/nl/cpp/aspose.slides/islide/getimage/) rendert een statische afbeelding van de dia en exporteert geen animaties.
 
-**Kunnen verborgen slides worden geëxporteerd als afbeeldingen?**
+**Kunnen verborgen dia's worden geëxporteerd als afbeeldingen?**
 
-Ja, verborgen slides kunnen worden verwerkt net als gewone slides. Zorg er alleen voor dat ze zijn opgenomen in de verwerkingslus.
+Ja. Verborgen dia's kunnen worden gerenderd zoals gewone dia's. Neem ze op in de verwerkingslus, zoals getoond in het voorbeeld hierboven.
 
-**Kunnen afbeeldingen worden opgeslagen met schaduwen en effecten?**
+**Worden schaduwen en andere effecten behouden in dia‑afbeeldingen?**
 
-Ja, Aspose.Slides ondersteunt het renderen van schaduwen, transparantie en andere grafische effecten bij het opslaan van slides als afbeeldingen.
+Ja. Aspose.Slides rendert schaduwen, transparantie en andere ondersteunde grafische effecten in dia‑afbeeldingen.

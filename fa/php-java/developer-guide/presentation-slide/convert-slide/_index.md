@@ -4,11 +4,12 @@ linktitle: اسلاید به تصویر
 type: docs
 weight: 35
 url: /fa/php-java/convert-slide/
-keywords:
+keywords: 
 - تبدیل اسلاید
-- صدور اسلاید
+- استخراج اسلاید
 - اسلاید به تصویر
 - ذخیره اسلاید به عنوان تصویر
+- اسلاید به EMF
 - اسلاید به PNG
 - اسلاید به JPEG
 - اسلاید به بیت‌مپ
@@ -18,34 +19,36 @@ keywords:
 - ارائه
 - PHP
 - Aspose.Slides
-description: "اسلایدها را از PPT، PPTX و ODP به تصویر تبدیل کنید با استفاده از Aspose.Slides برای PHP از طریق Java — رندر سریع و با کیفیت بالا با مثال‌های کد واضح."
+description: "اسلایدها را از ارائه‌های PPT، PPTX و ODP به فرمت‌های تصویر PNG، JPEG، GIF، TIFF، EMF و سایر فرمت‌های تصویری در PHP با Aspose.Slides تبدیل کنید."
 ---
 ## **مقدمه**
 
-Aspose.Slides for PHP via Java به شما امکان می‌دهد تا اسلایدهای ارائه PowerPoint و OpenDocument را به راحتی به انواع فرمت‌های تصویری از جمله BMP، PNG، JPG (JPEG)، GIF و دیگران تبدیل کنید.
+Aspose.Slides for PHP via Java می‌تواند اسلایدهای تک‌تکی از ارائه‌های PowerPoint و OpenDocument را به فرمت‌های تصویری PNG، JPEG، GIF، TIFF و سایر فرمت‌ها رندر کند.
 
 برای تبدیل یک اسلاید به تصویر، مراحل زیر را دنبال کنید:
 
-1. تنظیمات مورد نظر تبدیل را تعریف کنید و اسلایدهایی که می‌خواهید استخراج کنید را با استفاده از:
-    - کلاس [TiffOptions](https://reference.aspose.com/slides/fa/php-java/aspose.slides/tiffoptions/) یا
-    - کلاس [RenderingOptions](https://reference.aspose.com/slides/fa/php-java/aspose.slides/renderingoptions/) انتخاب کنید.
-2. تصویر اسلاید را با فراخوانی متد [getImage](https://reference.aspose.com/slides/fa/php-java/aspose.slides/slide/#getImage) تولید کنید.
+1. ارائه را با کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) بارگذاری کنید.
+2. اسلایدی که می‌خواهید رندر کنید را انتخاب کنید.
+3. در صورت لزوم، رندرینگ را با کلاس‌های [RenderingOptions](https://reference.aspose.com/slides/fa/php-java/aspose.slides/renderingoptions/) یا [TiffOptions](https://reference.aspose.com/slides/fa/php-java/aspose.slides/tiffoptions/) پیکربندی کنید.
+4. متد [Slide::getImage](https://reference.aspose.com/slides/fa/php-java/aspose.slides/slide/#getImage) را فراخوانی کنید. این متد یک شیء [IImage](https://reference.aspose.com/slides/fa/php-java/aspose.slides/iimage/) را بر می‌گرداند.
+5. متد [IImage::save](https://reference.aspose.com/slides/fa/php-java/aspose.slides/iimage/#save) را فراخوانی کنید و فرمت خروجی را با مقدار [ImageFormat](https://reference.aspose.com/slides/fa/php-java/aspose.slides/imageformat/) مشخص کنید.
 
-در Aspose.Slides for PHP via Java، کلاس [IImage](https://reference.aspose.com/slides/fa/php-java/aspose.slides/iimage/) به شما اجازه می‌دهد تا با تصاویری که توسط داده‌های پیکسلی تعریف شده‌اند کار کنید. می‌توانید از این کلاس برای ذخیره‌سازی تصاویر در طیف وسیعی از فرمت‌ها (BMP، JPG، PNG و غیره) استفاده کنید.
+## **تبدیل یک اسلاید به تصویر PNG**
 
-## **تبدیل اسلایدها به بیت‌مپ و ذخیره تصاویر در PNG**
+ساده‌ترین تبدیل از تنظیمات پیش‌فرض رندرینگ استفاده می‌کند. شیء [IImage](https://reference.aspose.com/slides/fa/php-java/aspose.slides/iimage/) حاصل می‌تواند در حافظه پردازش یا در یک فایل ذخیره شود.
 
-می‌توانید یک اسلاید را به یک شیء بیت‌مپ تبدیل کنید و مستقیم در برنامه خود استفاده کنید. به‌صورت جایگزین، می‌توانید اسلاید را به بیت‌مپ تبدیل کرده و سپس تصویر را در JPEG یا هر فرمت دلخواه دیگری ذخیره کنید.
-
-این کد نشان می‌دهد چگونه اولین اسلاید یک ارائه را به شیء بیت‌مپ تبدیل کرده و سپس تصویر را در فرمت PNG ذخیره کنید:
+مثال PHP زیر اسلاید اول را رندر کرده و به عنوان تصویر PNG ذخیره می‌کند:
 
 ```php
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+
 $presentation = new Presentation("Presentation.pptx");
 try {
-    // اسلاید اول ارائه را به بیت‌مپ تبدیل کنید.
-    $image = $presentation->getSlides()->get_Item(0)->getImage();
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $image = $slide->getImage();
     try {
-        // تصویر را در فرمت PNG ذخیره کنید.
         $image->save("Slide_0.png", ImageFormat::Png);
     } finally {
         $image->dispose();
@@ -55,21 +58,24 @@ try {
 }
 ```
 
-## **تبدیل اسلایدها به تصاویر با اندازه‌های سفارشی**
+## **تبدیل اسلایدها به تصویر با اندازه‌های سفارشی**
 
-ممکن است نیاز داشته باشید تصویری با ابعاد خاص دریافت کنید. با استفاده از یک overload از متد [getImage](https://reference.aspose.com/slides/fa/php-java/aspose.slides/slide/#getImage) می‌توانید اسلاید را به تصویری با عرض و ارتفاع مشخص تبدیل کنید.
+از overload متد [Slide::getImage](https://reference.aspose.com/slides/fa/php-java/aspose.slides/slide/#getImage) که مقدار [Dimension](https://docs.oracle.com/javase/8/docs/api/java/awt/Dimension.html) می‌گیرد استفاده کنید تا اسلاید را با ابعاد پیکسلی دقیق رندر کنید.
 
-این نمونه کد نحوه انجام این کار را نشان می‌دهد:
+مثال زیر یک تصویر JPEG با ابعاد ۱۸۲۰ × ۱۰۴۰ ایجاد می‌کند:
 
 ```php
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+
 $imageSize = new Java("java.awt.Dimension", 1820, 1040);
 
 $presentation = new Presentation("Presentation.pptx");
 try {
-    // اسلاید اول ارائه را به بیت‌مپ با اندازه مشخص تبدیل کنید.
-    $image = $presentation->getSlides()->get_Item(0)->getImage($imageSize);
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $image = $slide->getImage($imageSize);
     try {
-        // تصویر را در فرمت JPEG ذخیره کنید.
         $image->save("Slide_0.jpg", ImageFormat::Jpeg);
     } finally {
         $image->dispose();
@@ -79,36 +85,40 @@ try {
 }
 ```
 
-## **تبدیل اسلایدهای حاوی یادداشت‌ها و نظرات به تصاویر**
+## **تبدیل اسلایدها با یادداشت‌ها و نظرات به تصویر**
 
-برخی اسلایدها ممکن است شامل یادداشت‌ها و نظرات باشند.
+به طور پیش‌فرض، تصاویر اسلاید شامل یادداشت‌ها یا نظرات نیستند. یک شیء [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/fa/php-java/aspose.slides/notescommentslayoutingoptions/) را به متد [RenderingOptions::setSlidesLayoutOptions](https://reference.aspose.com/slides/fa/php-java/aspose.slides/renderingoptions/#setSlidesLayoutOptions) پاس دهید تا مکان نمایش یادداشت‌ها و نظرات را کنترل کنید.
 
-Aspose.Slides دو کلاس [TiffOptions](https://reference.aspose.com/slides/fa/php-java/aspose.slides/tiffoptions/) و [RenderingOptions](https://reference.aspose.com/slides/fa/php-java/aspose.slides/renderingoptions/) را ارائه می‌دهد که به شما امکان کنترل رندر کردن اسلایدهای ارائه به تصویر را می‌دهند. هر دو کلاس شامل متد `setSlidesLayoutOptions` هستند که به شما اجازه می‌دهد رندر کردن یادداشت‌ها و نظرات روی اسلاید هنگام تبدیل به تصویر را پیکربندی کنید.
-
-با استفاده از کلاس [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/fa/php-java/aspose.slides/notescommentslayoutingoptions/) می‌توانید موقعیت دلخواه خود برای یادداشت‌ها و نظرات در تصویر نهایی مشخص کنید.
-
-این کد نحوه تبدیل اسلایدی با یادداشت‌ها و نظرات را نشان می‌دهد:
+مثال زیر یادداشت‌های کوتاه شده را زیر اسلاید و نظرات را به راست آن قرار می‌دهد:
 
 ```php
+use aspose\slides\CommentsPositions;
+use aspose\slides\ImageFormat;
+use aspose\slides\NotesCommentsLayoutingOptions;
+use aspose\slides\NotesPositions;
+use aspose\slides\Presentation;
+use aspose\slides\RenderingOptions;
+
 $scaleX = 2;
 $scaleY = $scaleX;
 
+$commentsAreaColor = new Java("java.awt.Color", 250, 235, 215);
+
+$layoutOptions = new NotesCommentsLayoutingOptions();
+$layoutOptions->setNotesPosition(NotesPositions::BottomTruncated);
+$layoutOptions->setCommentsPosition(CommentsPositions::Right);
+$layoutOptions->setCommentsAreaWidth(500);
+$layoutOptions->setCommentsAreaColor($commentsAreaColor);
+
+$renderingOptions = new RenderingOptions();
+$renderingOptions->setSlidesLayoutOptions($layoutOptions);
+
 $presentation = new Presentation("Presentation_with_notes_and_comments.pptx");
 try {
-    $notesCommentsOptions = new NotesCommentsLayoutingOptions();
-    $notesCommentsOptions->setNotesPosition(NotesPositions::BottomTruncated);         // موقعیت یادداشت‌ها را تنظیم کنید.
-    $notesCommentsOptions->setCommentsPosition(CommentsPositions::Right);             // موقعیت نظرات را تنظیم کنید.
-    $notesCommentsOptions->setCommentsAreaWidth(500);                                 // عرض ناحیه نظرات را تنظیم کنید.
-    $notesCommentsOptions->setCommentsAreaColor(java("java.awt.Color")->LIGHT_GRAY);  // رنگ ناحیه نظرات را تنظیم کنید.
+    $slide = $presentation->getSlides()->get_Item(0);
 
-    // گزینه‌های رندرینگ را ایجاد کنید.
-    $options = new RenderingOptions();
-    $options->setSlidesLayoutOptions($notesCommentsOptions);
-
-    // اسلاید اول ارائه را به تصویر تبدیل کنید.
-    $image = $presentation->getSlides()->get_Item(0)->getImage($options, $scaleX, $scaleY);
+    $image = $slide->getImage($renderingOptions, $scaleX, $scaleY);
     try {
-        // تصویر را در فرمت GIF ذخیره کنید.
         $image->save("Image_with_notes_and_comments_0.gif", ImageFormat::Gif);
     } finally {
         $image->dispose();
@@ -118,34 +128,34 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-در هر فرایند تبدیل اسلاید به تصویر، متد [setNotesPosition](https://reference.aspose.com/slides/fa/php-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) نمی‌تواند مقدار `BottomFull` را اعمال کند (برای تعیین موقعیت یادداشت) زیرا متن یک یادداشت ممکن است بیش از حد بزرگ باشد و نتواند در اندازه تصویر مشخص شده جای بگیرد.
-{{% /alert %}} 
+{{% alert title="Warning" color="warning" %}}
+در تبدیل اسلاید به تصویر، مقدار [BottomFull](https://reference.aspose.com/slides/fa/php-java/aspose.slides/notespositions/) را به متد [NotesCommentsLayoutingOptions::setNotesPosition](https://reference.aspose.com/slides/fa/php-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) پاس ندهید. یادداشت‌ها ممکن است متنی بیشتر از اندازه ثابت تصویر داشته باشند. به جای آن از [BottomTruncated](https://reference.aspose.com/slides/fa/php-java/aspose.slides/notespositions/) استفاده کنید.
+{{% /alert %}}
 
-## **تبدیل اسلایدها به تصاویر با استفاده از گزینه‌های TIFF**
+## **تبدیل اسلایدها به تصویر با استفاده از گزینه‌های TIFF**
 
-کلاس [TiffOptions](https://reference.aspose.com/slides/fa/php-java/aspose.slides/tiffoptions/) کنترل بیشتری بر تصویر TIFF نهایی ارائه می‌دهد و به شما امکان می‌دهد پارامترهایی مانند اندازه، وضوح، پالت رنگ و موارد دیگر را مشخص کنید.
+کلاس [TiffOptions](https://reference.aspose.com/slides/fa/php-java/aspose.slides/tiffoptions/) به شما امکان کنترل اندازه، وضوح و سایر ویژگی‌های تصویر TIFF رندر شده را می‌دهد.
 
-این کد یک فرایند تبدیل را نشان می‌دهد که در آن گزینه‌های TIFF برای خروجی تصویر سیاه‑سفید با وضوح 300 DPI و اندازه 2160 × 2800 استفاده می‌شود:
+مثال زیر اسلاید اول را به عنوان تصویر TIFF با ابعاد ۲۱۶۰ × ۲۸۸۰ و وضوح ۳۰۰ DPI رندر می‌کند:
 
 ```php
-// یک فایل ارائه را بارگذاری کنید.
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+use aspose\slides\TiffOptions;
+
+$imageSize = new Java("java.awt.Dimension", 2160, 2880);
+
+$tiffOptions = new TiffOptions();
+$tiffOptions->setImageSize($imageSize);
+$tiffOptions->setDpiX(300);
+$tiffOptions->setDpiY(300);
+
 $presentation = new Presentation("sample.pptx");
 try {
-    // اسلاید اول ارائه را دریافت کنید.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // تنظیمات تصویر خروجی TIFF را پیکربندی کنید.
-    $options = new TiffOptions();
-    $options->setImageSize(new Java("java.awt.Dimension", 2160, 2880));  // اندازه تصویر را تنظیم کنید.
-    $options->setPixelFormat(ImagePixelFormat::Format1bppIndexed);       // فرمت پیکسل را تنظیم کنید (سیاه و سفید).
-    $options->setDpiX(300);                                              // وضوح افقی را تنظیم کنید.
-    $options->setDpiY(300);                                              // وضوح عمودی را تنظیم کنید.
-    
-    // اسلاید را با گزینه‌های مشخص به تصویر تبدیل کنید.
-    $image = $slide->getImage($options);
+    $image = $slide->getImage($tiffOptions);
     try {
-        // تصویر را در فرمت TIFF ذخیره کنید.
         $image->save("output.tiff", ImageFormat::Tiff);
     } finally {
         $image->dispose();
@@ -155,34 +165,31 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-پشتیبانی از TIFF در نسخه‌های قدیمی‌تر از JDK 9 تضمین نمی‌شود.
-{{% /alert %}} 
+{{% alert title="Warning" color="warning" %}}
+پشتیبانی از TIFF در نسخه‌های Java قدیمی‌تر از JDK 9 تضمین نمی‌شود.
+{{% /alert %}}
 
-## **تبدیل تمام اسلایدها به تصاویر**
+## **تبدیل تمام اسلایدها به تصویر**
 
-Aspose.Slides به شما اجازه می‌دهد تمام اسلایدهای یک ارائه را به تصاویر تبدیل کنید و در واقع تمام ارائه را به مجموعه‌ای از تصاویر تبدیل کنید.
+از مجموعه اسلایدها عبور کنید تا کل ارائه را به مجموعه‌ای از تصاویر تبدیل کنید. اسلایدهای مخفی شامل می‌شوند مگر اینکه به‌طور صریح آن‌ها را نادیده بگیرید.
 
-این نمونه کد نشان می‌دهد چگونه تمام اسلایدهای یک ارائه را در PHP به تصاویر تبدیل کنید:
+مثال زیر هر اسلاید را به عنوان تصویر JPEG با عوامل مقیاس افقی و عمودی ۲ رندر می‌کند:
 
 ```php
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+
 $scaleX = 2;
 $scaleY = $scaleX;
 
 $presentation = new Presentation("Presentation.pptx");
 try {
-    // ارائه را به‌صورت اسلاید به اسلاید به تصاویر رندر کنید.
-    for($i = 0; $i < java_values($presentation->getSlides()->size()) ; $i++) {
-        // کنترل اسلایدهای مخفی (اسلایدهای مخفی رندر نشوند).
-        if (java_values($presentation->getSlides()->get_Item($i)->getHidden())) {
-            continue;
-        }
-
-        // اسلاید را به تصویر تبدیل کنید.
-        $image = $presentation->getSlides()->get_Item($i)->getImage($scaleX, $scaleY);
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($index = 0; $index < $slideCount; $index++) {
+        $slide = $presentation->getSlides()->get_Item($index);
+        $image = $slide->getImage($scaleX, $scaleY);
         try {
-            // تصویر را در فرمت JPEG ذخیره کنید.
-            $image->save("Slide_" . $i . ".jpg", ImageFormat::Jpeg);
+            $image->save("Slide_" . $index . ".jpg", ImageFormat::Jpeg);
         } finally {
             $image->dispose();
         }
@@ -192,19 +199,90 @@ try {
 }
 ```
 
-## **رندر ایموجی‌های رنگی**
+## **ایجاد خروجی Enhanced Metafile**
 
-{{% alert title="Note" color="warning" %}} 
-برای رندر صحیح ایموجی‌های رنگی هنگام تبدیل اسلایدهای ارائه به تصاویر، قلم‌های ایموجی استفاده‌شده در ارائه باید بر روی سیستمی که تبدیل را انجام می‌دهد نصب و در دسترس باشند. برای مثال، اگر ارائه از فونت **Segoe UI Emoji** استفاده کند و این فونت موجود نباشد، ایموجی‌ها ممکن است به صورت تک‌رنگ در تصاویر خروجی نمایش داده شوند.
+Enhanced Metafile (EMF) زمانی مفید است که گرافیک‌های برداری باید با Microsoft Office یا دیگر برنامه‌های ویندوزی که از metafileهای ویندوز پشتیبانی می‌کنند، مبادله شوند. برخلاف تصویر پیکسل‌محور، یک EMF می‌تواند عملیات رسم برداری را حفظ کند به‌طوری که بدون از دست دادن وضوح مقیاس می‌شود. با این حال، EMF عمدتاً یک فرمت سازگاری برای برنامه‌هایی است که از metafileهای ویندوز پشتیبانی می‌کنند و نه یک فرمت تعویض عمومی. علاوه بر این، محتوای پیچیده اسلاید، مانند تصاویر بیت‌مپ و برخی افکت‌ها، ممکن است به‌صورت عناصر رستری در داخل کانتینر متافایل برداری ذخیره شوند.
+
+### **صادر کردن اسلاید به EMF**
+
+متد [Slide::writeAsEmf](https://reference.aspose.com/slides/fa/php-java/aspose.slides/slide/#writeAsEmf) یک اسلاید را به یک جریان هدف در فرمت EMF می‌نویسد. مثال زیر یک ارائه را بارگذاری می‌کند، اسلاید اول را انتخاب می‌کند و آن را به یک جریان فایل EMF می‌نویسد:
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("Presentation.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $emfStream = new Java("java.io.FileOutputStream", "Slide_0.emf");
+    try {
+        $slide->writeAsEmf($emfStream);
+    } finally {
+        $emfStream->close();
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+صدا‌گذار مالک جریان پاس داده شده به [Slide::writeAsEmf](https://reference.aspose.com/slides/fa/php-java/aspose.slides/slide/#writeAsEmf) است و مسئول بستن آن است، همان‌طور که در بالا نشان داده شد.
+
+### **تبدیل تصویر SVG به EMF و افزودن آن به ارائه**
+
+از [SvgImage::writeAsEmf](https://reference.aspose.com/slides/fa/php-java/aspose.slides/svgimage/#writeAsEmf) برای تبدیل محتوای SVG به EMF استفاده کنید. بایت‌های حاصل می‌توانند از طریق [ImageCollection::addImage](https://reference.aspose.com/slides/fa/php-java/aspose.slides/imagecollection/#addImage) به ارائه اضافه شوند و با [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/fa/php-java/aspose.slides/shapecollection/#addPictureFrame) روی یک اسلاید قرار گیرند.
+
+مثال زیر یک [SvgImage](https://reference.aspose.com/slides/fa/php-java/aspose.slides/svgimage/) از کد SVG ایجاد می‌کند، آن را به یک EMF در حافظه تبدیل می‌کند، متافایل را در اسلاید اول درج می‌کند و ارائه را ذخیره می‌نماید:
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SvgImage;
+
+$svgContent = '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100"><rect width="200" height="100" fill="#4472C4"/></svg>';
+$svgImage = new SvgImage($svgContent);
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $emfStream = new Java("java.io.ByteArrayOutputStream");
+    try {
+        $svgImage->writeAsEmf($emfStream);
+
+        $emfData = $emfStream->toByteArray();
+        $image = $presentation->getImages()->addImage($emfData);
+        $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 200, 100, $image);
+    } finally {
+        $emfStream->close();
+    }
+
+    $presentation->save("Presentation_with_emf.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+[SvgImage::writeAsEmf](https://reference.aspose.com/slides/fa/php-java/aspose.slides/svgimage/#writeAsEmf) مالکیت جریان مقصد را تصاحب نمی‌کند. یک [ByteArrayOutputStream](https://docs.oracle.com/javase/8/docs/api/java/io/ByteArrayOutputStream.html) تمام داده‌های تولید شده را در حافظه ذخیره می‌کند، بنابراین قبل از فراخوانی `toByteArray` نیازی به تنظیم مجدد موقعیت نیست. آرایه بایتی برگردانده‌شده پس از بسته شدن جریان نیز معتبر می‌ماند.
+
+تولید EMF در سیستم‌عامل‌های پشتیبانی‌شده توسط Aspose.Slides for PHP via Java و پیکربندی JDK موجود است، اما رندر ممکن است بین سکوها متفاوت باشد وقتی که قلم‌ها یا وابستگی‌های گرافیکی در دسترس نباشند. قلم‌های مورد استفاده در محتوای منبع را نصب کنید یا جایگزین‌های مناسب پیکربندی کنید، [نیازمندی‌های پلتفرم](/slides/fa/php-java/system-requirements/) برای Aspose.Slides for PHP via Java را دنبال کنید و نتیجه را در برنامه هدف مصرف‌کننده EMF اعتبارسنجی کنید. برنامه‌های لینوکس و macOS اغلب پشتیبانی محدود یا ناسازگاری برای نمایش و ویرایش metafileهای ویندوز دارند.
+
+## **رندر رنگی ایموجی‌ها**
+
+{{% alert title="Note" color="info" %}}
+برای رندر صحیح ایموجی‌های رنگی هنگام تبدیل اسلایدهای ارائه به تصویر، قلم‌های ایموجی مورد استفاده در ارائه باید نصب شده و در سیستم performing conversion قابل دسترسی باشند. به‌عنوان مثال، اگر ارائه از **Segoe UI Emoji** استفاده کند و این قلم موجود نباشد، ایموجی‌ها ممکن است به صورت تک‌رنگ در تصاویر خروجی ظاهر شوند.
 {{% /alert %}}
 
-## **سؤالات متداول**
+## **سوالات متداول**
 
-**آیا Aspose.Slides از رندر کردن اسلایدها با انیمیشن پشتیبانی می‌کند؟**  
-خیر، متد `getImage` فقط تصویر ایستایی از اسلاید را ذخیره می‌کند و انیمیشن‌ها را شامل نمی‌شود.
+**آیا Aspose.Slides قابلیت رندر اسلایدها با انیمیشن‌ها را دارد؟**
 
-**آیا می‌توان اسلایدهای پنهان را به عنوان تصویر صادر کرد؟**  
-بله، اسلایدهای پنهان می‌توانند همانند اسلایدهای معمولی پردازش شوند. فقط مطمئن شوید که در حلقه پردازش گنجانده شوند.
+خیر. متد [Slide::getImage](https://reference.aspose.com/slides/fa/php-java/aspose.slides/slide/#getImage) یک تصویر ثابت از اسلاید را رندر می‌کند و انیمیشن‌ها را صادر نمی‌کند.
 
-**آیا می‌توان تصاویر را با سایه‌ها و اثرات ذخیره کرد؟**  
-بله، Aspose.Slides رندر کردن سایه‌ها، شفافیت و سایر اثرات گرافیکی را هنگام ذخیره اسلایدها به عنوان تصویر پشتیبانی می‌کند.
+**آیا می‌توان اسلایدهای مخفی را به عنوان تصویر صادر کرد؟**
+
+بله. اسلایدهای مخفی می‌توانند همانند اسلایدهای عادی رندر شوند. آنها را در حلقه پردازش گنجانده کنید، همان‌طور که در مثال بالا نشان داده شد.
+
+**آیا سایه‌ها و سایر افکت‌ها در تصاویر اسلاید حفظ می‌شوند؟**
+
+بله. Aspose.Slides سایه‌ها، شفافیت و سایر افکت‌های گرافیکی پشتیبانی‌شده را در تصاویر اسلاید رندر می‌کند.

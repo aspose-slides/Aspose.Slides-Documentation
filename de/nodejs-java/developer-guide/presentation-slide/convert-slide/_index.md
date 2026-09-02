@@ -1,5 +1,5 @@
 ---
-title: Konvertieren von Präsentationsfolien zu Bildern in JavaScript
+title: Präsentationsfolien in JavaScript in Bilder konvertieren
 linktitle: Folie zu Bild
 type: docs
 weight: 35
@@ -9,6 +9,7 @@ keywords:
 - Folie exportieren
 - Folie zu Bild
 - Folie als Bild speichern
+- Folie zu EMF
 - Folie zu PNG
 - Folie zu JPEG
 - Folie zu Bitmap
@@ -19,34 +20,36 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Konvertieren Sie Folien von PPT, PPTX und ODP zu Bildern in JavaScript mit Aspose.Slides für Node.js über Java — schnelle, hochqualitative Darstellung mit klaren Codebeispielen."
+description: "Konvertieren Sie Folien aus PPT-, PPTX- und ODP‑Präsentationen in PNG, JPEG, GIF, TIFF, EMF und andere Bildformate in JavaScript mit Aspose.Slides."
 ---
-## **Einleitung**
+## **Einführung**
 
-Aspose.Slides für Node.js über Java ermöglicht es Ihnen, PowerPoint- und OpenDocument‑Präsentationsfolien problemlos in verschiedene Bildformate zu konvertieren, darunter BMP, PNG, JPG (JPEG), GIF und andere.
+Aspose.Slides für Node.js über Java kann einzelne Folien aus PowerPoint‑ und OpenDocument‑Präsentationen als PNG, JPEG, GIF, TIFF und andere Bildformate rendern.
 
 Um eine Folie in ein Bild zu konvertieren, führen Sie die folgenden Schritte aus:
 
-1. Definieren Sie die gewünschten Konvertierungseinstellungen und wählen Sie die Folien aus, die Sie exportieren möchten, indem Sie Folgendes verwenden:
-    - Die Klasse [TiffOptions](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/tiffoptions/)
-    - Die Klasse [RenderingOptions](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/renderingoptions/)
-2. Erzeugen Sie das Folienbild, indem Sie die Methode [getImage](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/slide/#getImage) aufrufen.
+1. Laden Sie die Präsentation mit der Klasse [Presentation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/) .
+2. Wählen Sie die Folie aus, die Sie rendern möchten.
+3. Falls erforderlich, konfigurieren Sie das Rendern mit der Klasse [RenderingOptions](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/renderingoptions/) oder [TiffOptions](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/tiffoptions/) .
+4. Rufen Sie die Methode [Slide.getImage](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/slide/#getImage) auf. Sie gibt ein Objekt vom Typ [IImage](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/iimage/) zurück.
+5. Rufen Sie die Methode [IImage.save](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/iimage/#save) auf und geben Sie das Ausgabeformat mit einem Wert vom Typ [ImageFormat](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/imageformat/) an.
 
-In Aspose.Slides für Node.js über Java ist ein [IImage](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/iimage/) eine Klasse, die Ihnen die Arbeit mit Bildern ermöglicht, die durch Pixeldaten definiert sind. Sie können diese Klasse verwenden, um Bilder in vielen verschiedenen Formaten zu speichern (BMP, JPG, PNG usw.).
+## **Eine Folie in ein PNG‑Bild konvertieren**
 
-## **Folien in Bitmap konvertieren und die Bilder im PNG‑Format speichern**
+Die einfachste Konvertierung verwendet die standardmäßigen Rendereinstellungen. Das resultierende [IImage](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/iimage/)‑Objekt kann im Speicher verarbeitet oder in einer Datei gespeichert werden.
 
-Sie können eine Folie in ein Bitmap‑Objekt konvertieren und direkt in Ihrer Anwendung verwenden. Alternativ können Sie eine Folie in ein Bitmap konvertieren und das Bild dann im JPEG‑ oder einem anderen gewünschten Format speichern.
+Das folgende JavaScript‑Beispiel rendert die erste Folie und speichert sie als PNG‑Bild:
 
-Dieser JavaScript‑Code demonstriert, wie Sie die erste Folie einer Präsentation in ein Bitmap‑Objekt konvertieren und das Bild anschließend im PNG‑Format speichern:
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
 
-```js
-let presentation = new aspose.slides.Presentation("Presentation.pptx");
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // Konvertiere die erste Folie der Präsentation zu einem Bitmap.
-    let image = presentation.getSlides().get_Item(0).getImage();
+    const slide = presentation.getSlides().get_Item(0);
+
+    const image = slide.getImage();
     try {
-        // Speichere das Bild im PNG-Format.
         image.save("Slide_0.png", aspose.slides.ImageFormat.Png);
     } finally {
         image.dispose();
@@ -58,19 +61,23 @@ try {
 
 ## **Folien in Bilder mit benutzerdefinierten Größen konvertieren**
 
-Möglicherweise benötigen Sie ein Bild in einer bestimmten Größe. Durch die Verwendung einer Überladung von [getImage](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/slide/#getImage) können Sie eine Folie in ein Bild mit bestimmten Abmessungen (Breite und Höhe) konvertieren.
+Verwenden Sie die Überladung von [Slide.getImage](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/slide/#getImage), die einen Wert vom Typ `java.awt.Dimension` akzeptiert, um eine Folie mit genauen Pixelmaßen zu rendern.
 
-Dieser Beispielcode zeigt, wie Sie dies umsetzen:
+Das folgende Beispiel erstellt ein JPEG‑Bild mit 1820 × 1040 Pixeln:
 
-```js
-let imageSize = java.newInstanceSync("java.awt.Dimension", 1820, 1040);
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-let presentation = new aspose.slides.Presentation("Presentation.pptx");
+const imageSize = java.newInstanceSync("java.awt.Dimension", 1820, 1040);
+
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // Konvertiere die erste Folie der Präsentation zu einem Bitmap mit der angegebenen Größe.
-    let image = presentation.getSlides().get_Item(0).getImage(imageSize);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const image = slide.getImage(imageSize);
     try {
-        // Speichere das Bild im JPEG-Format.
         image.save("Slide_0.jpg", aspose.slides.ImageFormat.Jpeg);
     } finally {
         image.dispose();
@@ -82,35 +89,35 @@ try {
 
 ## **Folien mit Notizen und Kommentaren in Bilder konvertieren**
 
-Einige Folien können Notizen und Kommentare enthalten.
+Standardmäßig enthalten Folienbilder keine Notizen oder Kommentare. Übergeben Sie ein Objekt vom Typ [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/notescommentslayoutingoptions/) an die Methode [RenderingOptions.setSlidesLayoutOptions](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/renderingoptions/#setSlidesLayoutOptions), um zu steuern, wo Notizen und Kommentare angezeigt werden.
 
-Aspose.Slides stellt zwei Klassen—[TiffOptions](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/tiffoptions/) und [RenderingOptions](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/renderingoptions/)—zur Verfügung, die Ihnen die Steuerung der Darstellung von Präsentationsfolien als Bilder ermöglichen. Beide Klassen enthalten die Methode `setSlidesLayoutOptions`, mit der Sie die Darstellung von Notizen und Kommentaren einer Folie beim Konvertieren in ein Bild konfigurieren können.
+Das folgende Beispiel platziert gekürzte Notizen unterhalb der Folie und Kommentare rechts davon:
 
-Mit der Klasse [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/notescommentslayoutingoptions/) können Sie die gewünschte Position für Notizen und Kommentare im resultierenden Bild festlegen.
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-Dieser JavaScript‑Code demonstriert, wie Sie eine Folie mit Notizen und Kommentaren konvertieren:
-
-```js
 const scaleX = 2;
 const scaleY = scaleX;
 
-// Load a presentation file.
-let presentation = new aspose.slides.Presentation("Presentation_with_notes_and_comments.pptx");
-try {
-    let notesCommentsOptions = new aspose.slides.NotesCommentsLayoutingOptions();
-    notesCommentsOptions.setNotesPosition(aspose.slides.NotesPositions.BottomTruncated);                  // Setze die Position der Notizen.
-    notesCommentsOptions.setCommentsPosition(aspose.slides.CommentsPositions.Right);                      // Setze die Position der Kommentare.
-    notesCommentsOptions.setCommentsAreaWidth(500);                                                       // Setze die Breite des Kommentarbereichs.
-    notesCommentsOptions.setCommentsAreaColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));  // Setze die Farbe für den Kommentarbereich.
+const commentsAreaColor = java.newInstanceSync("java.awt.Color", 250, 235, 215);
 
-    // Erstelle die Rendering-Optionen.
-    let options = new aspose.slides.RenderingOptions();
-    options.setSlidesLayoutOptions(notesCommentsOptions);
- 
-    // Konvertiere die erste Folie der Präsentation zu einem Bild.
-    let image = presentation.getSlides().get_Item(0).getImage(options, scaleX, scaleY);
+const layoutOptions = new aspose.slides.NotesCommentsLayoutingOptions();
+layoutOptions.setNotesPosition(aspose.slides.NotesPositions.BottomTruncated);
+layoutOptions.setCommentsPosition(aspose.slides.CommentsPositions.Right);
+layoutOptions.setCommentsAreaWidth(500);
+layoutOptions.setCommentsAreaColor(commentsAreaColor);
+
+const renderingOptions = new aspose.slides.RenderingOptions();
+renderingOptions.setSlidesLayoutOptions(layoutOptions);
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const image = slide.getImage(renderingOptions, scaleX, scaleY);
     try {
-        // Speichere das Bild im GIF-Format.
         image.save("Image_with_notes_and_comments_0.gif", aspose.slides.ImageFormat.Gif);
     } finally {
         image.dispose();
@@ -120,34 +127,34 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-Im Rahmen jeder Folie‑zu‑Bild‑Konvertierung kann die Methode `setNotesPosition` nicht `BottomFull` anwenden (um die Position für Notizen festzulegen), da der Text einer Notiz zu groß sein kann, sodass er nicht in die angegebene Bildgröße passt. 
-{{% /alert %}} 
+{{% alert title="Warning" color="warning" %}}
+Für die Folie‑zu‑Bild‑Konvertierung dürfen Sie nicht [BottomFull](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/notespositions/) an die Methode [NotesCommentsLayoutingOptions.setNotesPosition](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) übergeben. Notizen können mehr Text enthalten, als die feste Bildgröße aufnehmen kann. Verwenden Sie stattdessen [BottomTruncated](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/notespositions/) .
+{{% /alert %}}
 
 ## **Folien in Bilder mit TIFF‑Optionen konvertieren**
 
-Die Klasse [TiffOptions](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/tiffoptions/) bietet eine größere Kontrolle über das resultierende TIFF‑Bild, indem Sie Parameter wie Größe, Auflösung, Farbpalette und mehr festlegen können.
+Die Klasse [TiffOptions](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/tiffoptions/) ermöglicht es Ihnen, Größe, Auflösung und weitere Eigenschaften des gerenderten TIFF‑Bildes zu steuern.
 
-Dieser JavaScript‑Code demonstriert einen Konvertierungsprozess, bei dem TIFF‑Optionen verwendet werden, um ein Schwarz‑weiß‑Bild mit einer Auflösung von 300 DPI und einer Größe von 2160 × 2800 auszugeben:
+Das folgende Beispiel rendert die erste Folie als 2160 × 2880 TIFF‑Bild mit 300 DPI:
 
-```js
-// Lade eine Präsentationsdatei.
-let presentation = new aspose.slides.Presentation("sample.pptx");
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const imageSize = java.newInstanceSync("java.awt.Dimension", 2160, 2880);
+
+const tiffOptions = new aspose.slides.TiffOptions();
+tiffOptions.setImageSize(imageSize);
+tiffOptions.setDpiX(300);
+tiffOptions.setDpiY(300);
+
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // Hole die erste Folie aus der Präsentation.
-    let slide = presentation.getSlides().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
 
-    // Konfiguriere die Einstellungen des Ausgabe‑TIFF‑Bildes.
-    let tiffOptions = new aspose.slides.TiffOptions();
-    tiffOptions.setImageSize(java.newInstanceSync("java.awt.Dimension", 2160, 2880));  // Setze die Bildgröße.
-    tiffOptions.setPixelFormat(aspose.slides.ImagePixelFormat.Format1bppIndexed);      // Setze das Pixel‑Format (schwarz‑weiß).
-    tiffOptions.setDpiX(300);                                                          // Setze die horizontale Auflösung.
-    tiffOptions.setDpiY(300);                                                          // Setze die vertikale Auflösung.
-
-    // Konvertiere die Folie zu einem Bild mit den angegebenen Optionen.
-    let image = slide.getImage(tiffOptions);
+    const image = slide.getImage(tiffOptions);
     try {
-        // Speichere das Bild im TIFF‑Format.
         image.save("output.tiff", aspose.slides.ImageFormat.Tiff);
     } finally {
         image.dispose();
@@ -157,34 +164,31 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-Die TIFF‑Unterstützung ist in Versionen vor JDK 9 nicht garantiert. 
-{{% /alert %}} 
+{{% alert title="Warning" color="warning" %}}
+TIFF‑Unterstützung ist in Java‑Versionen vor JDK 9 nicht garantiert.
+{{% /alert %}}
 
 ## **Alle Folien in Bilder konvertieren**
 
-Aspose.Slides ermöglicht es, alle Folien einer Präsentation in Bilder zu konvertieren, wodurch die gesamte Präsentation in eine Reihe von Bildern umgewandelt wird.
+Iterieren Sie über die Folienkollektion, um die gesamte Präsentation in eine Reihe von Bildern zu konvertieren. Versteckte Folien werden einbezogen, sofern Sie sie nicht explizit überspringen.
 
-Dieser Beispielcode zeigt, wie Sie alle Folien einer Präsentation in JavaScript in Bilder konvertieren:
+Das folgende Beispiel rendert jede Folie als JPEG‑Bild mit horizontalen und vertikalen Skalierungsfaktoren von 2:
 
-```js
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
 const scaleX = 2;
 const scaleY = scaleX;
 
-let presentation = new aspose.slides.Presentation("Presentation.pptx");
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // Rendere die Präsentation zu Bildern Folie für Folie.
-    for (let i = 0; i < presentation.getSlides().size(); i++) {
-        // Steuere ausgeblendete Folien (ausgeblendete Folien nicht rendern).
-        if (presentation.getSlides().get_Item(i).getHidden()) {
-            continue;
-        }
-
-        // Konvertiere die Folie zu einem Bild.
-        let image = presentation.getSlides().get_Item(i).getImage(scaleX, scaleY);
+    const slideCount = presentation.getSlides().size();
+    for (let index = 0; index < slideCount; index++) {
+        const slide = presentation.getSlides().get_Item(index);
+        const image = slide.getImage(scaleX, scaleY);
         try {
-            // Speichere das Bild im JPEG-Format.
-            image.save("Slide_" + i + ".jpg", aspose.slides.ImageFormat.Jpeg);
+            image.save("Slide_" + index + ".jpg", aspose.slides.ImageFormat.Jpeg);
         } finally {
             image.dispose();
         }
@@ -194,22 +198,91 @@ try {
 }
 ```
 
-## **Farbige Emoji‑Darstellung**
+## **Enhanced‑Metafile‑Ausgabe erstellen**
 
-{{% alert title="Note" color="warning" %}} 
-Um farbige Emojis beim Konvertieren von Präsentationsfolien in Bilder korrekt darzustellen, müssen die in der Präsentation verwendeten Emoji‑Schriften auf dem System, das die Konvertierung durchführt, installiert und verfügbar sein. Wenn die Präsentation beispielsweise **Segoe UI Emoji** verwendet und diese Schrift fehlt, können Emojis in den Ausgabebildern monochrom erscheinen. 
-{{% /alert %}} 
+Enhanced Metafile (EMF) ist nützlich, wenn vektorbasierte Grafiken mit Microsoft Office oder anderen Windows‑Anwendungen, die Windows‑Metafiles unterstützen, ausgetauscht werden müssen. Im Gegensatz zu einem pixelbasierten Bild kann ein EMF Vektor‑Zeichenvorgänge beibehalten, die sich skalieren lassen, ohne an Schärfe zu verlieren. EMF ist jedoch hauptsächlich ein Kompatibilitätsformat für Anwendungen mit Windows‑Metafile‑Unterstützung und kein universelles Austauschformat. Darüber hinaus können komplexe Folieninhalte, wie Raster‑Bilder und einige Effekte, als gerasterte Elemente im Vektor‑Metafile‑Container gespeichert werden.
+
+### **Eine Folie nach EMF exportieren**
+
+Die Methode [Slide.writeAsEmf](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/slide/#writeAsEmf) schreibt eine Folie in einen Ziel‑Stream im EMF‑Format. Das folgende Beispiel lädt eine Präsentation, wählt die erste Folie aus und schreibt sie in einen EMF‑Dateistream:
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const emfStream = java.newInstanceSync("java.io.FileOutputStream", "Slide_0.emf");
+    try {
+        slide.writeAsEmf(emfStream);
+    } finally {
+        emfStream.close();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Der Aufrufer besitzt den an [Slide.writeAsEmf](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/slide/#writeAsEmf) übergebenen Stream und ist für dessen Schließung verantwortlich, wie oben gezeigt.
+
+### **Ein SVG‑Bild in EMF konvertieren und einer Präsentation hinzufügen**
+
+Verwenden Sie [SvgImage.writeAsEmf](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/svgimage/#writeAsEmf), um SVG‑Inhalt in EMF zu konvertieren. Die resultierenden Bytes können über [ImageCollection.addImage](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/imagecollection/#addImage) zur Präsentation hinzugefügt und mit [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shapecollection/#addPictureFrame) auf einer Folie platziert werden.
+
+Das folgende Beispiel erstellt ein [SvgImage](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/svgimage/) aus SVG‑Markup, konvertiert es in ein In‑Memory‑EMF, fügt das Metafile in die erste Folie ein und speichert die Präsentation:
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const svgContent = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"100\"><rect width=\"200\" height=\"100\" fill=\"#4472C4\"/></svg>";
+const svgImage = new aspose.slides.SvgImage(svgContent);
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const emfStream = java.newInstanceSync("java.io.ByteArrayOutputStream");
+    try {
+        svgImage.writeAsEmf(emfStream);
+
+        const emfData = java.newArray("byte", Array.from(emfStream.toByteArray()));
+        const image = presentation.getImages().addImage(emfData);
+        slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 200, 100, image);
+    } finally {
+        emfStream.close();
+    }
+
+    presentation.save("Presentation_with_emf.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+[SvgImage.writeAsEmf](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/svgimage/#writeAsEmf) übernimmt keinen Besitz des Ziel‑Streams. Ein `java.io.ByteArrayOutputStream` speichert alle generierten Daten im Speicher, sodass vor dem Aufruf von `toByteArray` kein Positions‑Reset erforderlich ist. Das zurückgegebene Byte‑Array bleibt nach dem Schließen des Streams gültig.
+
+EMF‑Generierung ist auf den von der ausgewählten Aspose.Slides‑Version für Node.js über Java und der JDK‑Konfiguration unterstützten Betriebssystemen verfügbar, jedoch kann das Rendern plattformabhängig variieren, wenn Schriftarten oder Grafik‑Abhängigkeiten fehlen. Installieren Sie die im Quellinhalt verwendeten Schriftarten oder konfigurieren Sie geeignete Ersatzschriften, folgen Sie den [Plattformanforderungen](/slides/de/nodejs-java/system-requirements/) für Aspose.Slides für Node.js über Java und prüfen Sie das Ergebnis in der Ziel‑Anwendung, die EMF verwendet. Linux‑ und macOS‑Anwendungen haben häufig nur eingeschränkte oder inkonsistente Unterstützung für die Anzeige und Bearbeitung von Windows‑Metafiles.
+
+## **Farb‑Emoji‑Rendering**
+
+{{% alert title="Note" color="info" %}}
+Um Farb‑Emojis beim Konvertieren von Präsentationsfolien in Bilder korrekt darzustellen, müssen die im Dokument verwendeten Emoji‑Schriftarten auf dem System, das die Konvertierung durchführt, installiert und verfügbar sein. Beispielsweise können Emojis monochrom erscheinen, wenn die Präsentation **Segoe UI Emoji** verwendet und diese Schriftart fehlt.
+{{% /alert %}}
 
 ## **FAQ**
 
-**Unterstützt Aspose.Slides die Darstellung von Folien mit Animationen?**
+**Unterstützt Aspose.Slides das Rendern von Folien mit Animationen?**
 
-Nein, die Methode `getImage` speichert nur ein statisches Bild der Folie, ohne Animationen.
+Nein. Die Methode [Slide.getImage](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/slide/#getImage) rendert ein statisches Bild der Folie und exportiert keine Animationen.
 
-**Können ausgeblendete Folien als Bilder exportiert werden?**
+**Können versteckte Folien als Bilder exportiert werden?**
 
-Ja, ausgeblendete Folien können wie normale verarbeitet werden. Stellen Sie lediglich sicher, dass sie in die Verarbeitungsschleife einbezogen werden.
+Ja. Versteckte Folien können wie reguläre Folien gerendert werden. Binden Sie sie in die Verarbeitungsschleife ein, wie im obigen Beispiel gezeigt.
 
-**Können Bilder mit Schatten und Effekten gespeichert werden?**
+**Werden Schatten und andere Effekte in Folienbildern beibehalten?**
 
-Ja, Aspose.Slides unterstützt die Darstellung von Schatten, Transparenz und anderen grafischen Effekten beim Speichern von Folien als Bilder.
+Ja. Aspose.Slides rendert Schatten, Transparenz und andere unterstützte grafische Effekte in Folienbildern.

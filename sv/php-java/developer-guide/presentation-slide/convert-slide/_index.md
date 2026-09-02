@@ -1,51 +1,54 @@
 ---
-title: Konvertera presentationsbilder till bilder i PHP
-linktitle: Bild till bild
+title: "Konvertera presentationsbilder till bilder i PHP"
+linktitle: "Bild till bild"
 type: docs
 weight: 35
 url: /sv/php-java/convert-slide/
 keywords:
-- konvertera bild
-- exportera bild
-- bild till bild
-- spara bild som bild
-- bild till PNG
-- bild till JPEG
-- bild till bitmap
-- bild till TIFF
-- PowerPoint
-- OpenDocument
-- presentation
-- PHP
-- Aspose.Slides
-description: "Konvertera bilder från PPT, PPTX och ODP till bildfiler med Aspose.Slides för PHP via Java — snabb, högkvalitativ rendering med tydliga kodexempel."
+- "konvertera bild"
+- "exportera bild"
+- "bild till bild"
+- "spara bild som bild"
+- "bild till EMF"
+- "bild till PNG"
+- "bild till JPEG"
+- "bild till bitmap"
+- "bild till TIFF"
+- "PowerPoint"
+- "OpenDocument"
+- "presentation"
+- "PHP"
+- "Aspose.Slides"
+description: "Konvertera bilder från PPT-, PPTX- och ODP-presentationer till PNG, JPEG, GIF, TIFF, EMF och andra bildformat i PHP med Aspose.Slides."
 ---
 ## **Introduktion**
 
-Aspose.Slides för PHP via Java gör det enkelt att konvertera PowerPoint‑ och OpenDocument‑presentationer till olika bildformat, inklusive BMP, PNG, JPG (JPEG), GIF och andra.
+Aspose.Slides for PHP via Java kan rendera enskilda bilder från PowerPoint- och OpenDocument-presentationer som PNG, JPEG, GIF, TIFF och andra bildformat.
 
 För att konvertera en bild till en bildfil, följ dessa steg:
 
-1. Definiera önskade konverteringsinställningar och välj de bilder du vill exportera med hjälp av:
-    - [TiffOptions](https://reference.aspose.com/slides/sv/php-java/aspose.slides/tiffoptions/) klassen, eller
-    - [RenderingOptions](https://reference.aspose.com/slides/sv/php-java/aspose.slides/renderingoptions/) klassen.
-2. Generera bildfilen genom att anropa [getImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/slide/#getImage) metoden.
+1. Läs in presentationen med klassen [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/).
+2. Välj den bild du vill rendera.
+3. Om nödvändigt, konfigurera rendering med klassen [RenderingOptions](https://reference.aspose.com/slides/sv/php-java/aspose.slides/renderingoptions/) eller [TiffOptions](https://reference.aspose.com/slides/sv/php-java/aspose.slides/tiffoptions/).
+4. Anropa metoden [Slide::getImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/slide/#getImage). Den returnerar ett [IImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/iimage/)‑objekt.
+5. Anropa metoden [IImage::save](https://reference.aspose.com/slides/sv/php-java/aspose.slides/iimage/#save) och specificera utdataformatet med ett [ImageFormat](https://reference.aspose.com/slides/sv/php-java/aspose.slides/imageformat/)‑värde.
 
-I Aspose.Slides för PHP via Java är ett [IImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/iimage/) en klass som låter dig arbeta med bilder definierade av pixeldata. Du kan använda denna klass för att spara bilder i ett brett sortiment av format (BMP, JPG, PNG osv.).
+## **Konvertera en bild till en PNG‑bild**
 
-## **Konvertera bilder till bitmaps och spara bilderna i PNG**
+Den enklaste konverteringen använder standardinställningarna för rendering. Det resulterande [IImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/iimage/)-objektet kan bearbetas i minnet eller sparas till en fil.
 
-Du kan konvertera en bild till ett bitmap‑objekt och använda det direkt i din applikation. Alternativt kan du konvertera en bild till ett bitmap‑objekt och sedan spara bilden i JPEG eller något annat föredraget format.
-
-Denna kod demonstrerar hur du konverterar den första bilden i en presentation till ett bitmap‑objekt och sedan sparar bilden i PNG‑format:
+Följande PHP‑exempel renderar den första bilden och sparar den som en PNG‑bild:
 
 ```php
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+
 $presentation = new Presentation("Presentation.pptx");
 try {
-    // Konvertera den första bilden i presentationen till en bitmap.
-    $image = $presentation->getSlides()->get_Item(0)->getImage();
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $image = $slide->getImage();
     try {
-        // Spara bilden i PNG-format.
         $image->save("Slide_0.png", ImageFormat::Png);
     } finally {
         $image->dispose();
@@ -57,19 +60,22 @@ try {
 
 ## **Konvertera bilder till bilder med anpassade storlekar**
 
-Du kan behöva få en bild i en viss storlek. Genom att använda en överlagring av [getImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/slide/#getImage) kan du konvertera en bild till en bild med specifika dimensioner (bredd och höjd).
+Använd den [Slide::getImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/slide/#getImage)-överladdning som accepterar ett [Dimension](https://docs.oracle.com/javase/8/docs/api/java/awt/Dimension.html)-värde för att rendera en bild med exakt pixeldimensioner.
 
-Denna exempelkod visar hur du gör detta:
+Följande exempel skapar en 1820 × 1040 JPEG‑bild:
 
 ```php
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+
 $imageSize = new Java("java.awt.Dimension", 1820, 1040);
 
 $presentation = new Presentation("Presentation.pptx");
 try {
-    // Konvertera den första bilden i presentationen till en bitmap med den angivna storleken.
-    $image = $presentation->getSlides()->get_Item(0)->getImage($imageSize);
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $image = $slide->getImage($imageSize);
     try {
-        // Spara bilden i JPEG-format.
         $image->save("Slide_0.jpg", ImageFormat::Jpeg);
     } finally {
         $image->dispose();
@@ -81,34 +87,38 @@ try {
 
 ## **Konvertera bilder med anteckningar och kommentarer till bilder**
 
-Vissa bilder kan innehålla anteckningar och kommentarer.
+Som standard inkluderar bildfiler inga anteckningar eller kommentarer. Skicka ett [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/sv/php-java/aspose.slides/notescommentslayoutingoptions/)-objekt till metoden [RenderingOptions::setSlidesLayoutOptions](https://reference.aspose.com/slides/sv/php-java/aspose.slides/renderingoptions/#setSlidesLayoutOptions) för att styra var anteckningar och kommentarer visas.
 
-Aspose.Slides tillhandahåller två klasser[TiffOptions](https://reference.aspose.com/slides/sv/php-java/aspose.slides/tiffoptions/) och [RenderingOptions](https://reference.aspose.com/slides/sv/php-java/aspose.slides/renderingoptions/)—som låter dig styra rendering av presentationsbilder till bildfiler. Båda klasserna innehåller metoden `setSlidesLayoutOptions`, som gör att du kan konfigurera rendering av anteckningar och kommentarer på en bild när du konverterar den till en bildfil.
-
-Med [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/sv/php-java/aspose.slides/notescommentslayoutingoptions/) klassen kan du ange den föredragna positionen för anteckningar och kommentarer i den resulterande bilden.
-
-Denna kod demonstrerar hur du konverterar en bild med anteckningar och kommentarer:
+Följande exempel placerar avkortade anteckningar under bilden och kommentarer till höger om den:
 
 ```php
+use aspose\slides\CommentsPositions;
+use aspose\slides\ImageFormat;
+use aspose\slides\NotesCommentsLayoutingOptions;
+use aspose\slides\NotesPositions;
+use aspose\slides\Presentation;
+use aspose\slides\RenderingOptions;
+
 $scaleX = 2;
 $scaleY = $scaleX;
 
+$commentsAreaColor = new Java("java.awt.Color", 250, 235, 215);
+
+$layoutOptions = new NotesCommentsLayoutingOptions();
+$layoutOptions->setNotesPosition(NotesPositions::BottomTruncated);
+$layoutOptions->setCommentsPosition(CommentsPositions::Right);
+$layoutOptions->setCommentsAreaWidth(500);
+$layoutOptions->setCommentsAreaColor($commentsAreaColor);
+
+$renderingOptions = new RenderingOptions();
+$renderingOptions->setSlidesLayoutOptions($layoutOptions);
+
 $presentation = new Presentation("Presentation_with_notes_and_comments.pptx");
 try {
-    $notesCommentsOptions = new NotesCommentsLayoutingOptions();
-    $notesCommentsOptions->setNotesPosition(NotesPositions::BottomTruncated);         // Ange positionen för anteckningarna.
-    $notesCommentsOptions->setCommentsPosition(CommentsPositions::Right);             // Ange positionen för kommentarerna.
-    $notesCommentsOptions->setCommentsAreaWidth(500);                                 // Ange bredden på kommentarsområdet.
-    $notesCommentsOptions->setCommentsAreaColor(java("java.awt.Color")->LIGHT_GRAY);  // Ange färgen för kommentarsområdet.
+    $slide = $presentation->getSlides()->get_Item(0);
 
-    // Skapa renderingsalternativen.
-    $options = new RenderingOptions();
-    $options->setSlidesLayoutOptions($notesCommentsOptions);
-
-    // Konvertera den första bilden i presentationen till en bild.
-    $image = $presentation->getSlides()->get_Item(0)->getImage($options, $scaleX, $scaleY);
+    $image = $slide->getImage($renderingOptions, $scaleX, $scaleY);
     try {
-        // Spara bilden i GIF-format.
         $image->save("Image_with_notes_and_comments_0.gif", ImageFormat::Gif);
     } finally {
         $image->dispose();
@@ -118,36 +128,34 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-
-I någon bild‑till‑bild‑konverteringsprocess kan inte metoden [setNotesPosition](https://reference.aspose.com/slides/sv/php-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) tillämpa `BottomFull` (för att ange position för anteckningar) eftersom en antecknings text kan vara för stor för att få plats inom den specificerade bildstorleken.
-
-{{% /alert %}} 
+{{% alert title="Warning" color="warning" %}}
+Vid konvertering från bild till bildfil, skicka inte [BottomFull](https://reference.aspose.com/slides/sv/php-java/aspose.slides/notespositions/) till metoden [NotesCommentsLayoutingOptions::setNotesPosition](https://reference.aspose.com/slides/sv/php-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition). Anteckningar kan innehålla mer text än den fasta bildstorleken kan rymma. Använd [BottomTruncated](https://reference.aspose.com/slides/sv/php-java/aspose.slides/notespositions/) istället.
+{{% /alert %}}
 
 ## **Konvertera bilder till bilder med TIFF‑alternativ**
 
-[TiffOptions](https://reference.aspose.com/slides/sv/php-java/aspose.slides/tiffoptions/) klassen ger större kontroll över den resulterande TIFF‑bilden genom att låta dig ange parametrar såsom storlek, upplösning, färgpalett och mer.
+[TiffOptions](https://reference.aspose.com/slides/sv/php-java/aspose.slides/tiffoptions/)-klassen låter dig styra storlek, upplösning och andra egenskaper för den renderade TIFF‑bilden.
 
-Denna kod demonstrerar en konverteringsprocess där TIFF‑alternativ används för att producera en svart‑vit bild med 300 DPI upplösning och en storlek på 2160 × 2800:
+Följande exempel renderar den första bilden som en 2160 × 2880 TIFF‑bild med 300 DPI:
 
 ```php
-// Load a presentation file.
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+use aspose\slides\TiffOptions;
+
+$imageSize = new Java("java.awt.Dimension", 2160, 2880);
+
+$tiffOptions = new TiffOptions();
+$tiffOptions->setImageSize($imageSize);
+$tiffOptions->setDpiX(300);
+$tiffOptions->setDpiY(300);
+
 $presentation = new Presentation("sample.pptx");
 try {
-    // Get the first slide from the presentation.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Configure the settings of the output TIFF image.
-    $options = new TiffOptions();
-    $options->setImageSize(new Java("java.awt.Dimension", 2160, 2880));  // Set the image size.
-    $options->setPixelFormat(ImagePixelFormat::Format1bppIndexed);       // Set the pixel format (black and white).
-    $options->setDpiX(300);                                              // Set the horizontal resolution.
-    $options->setDpiY(300);                                              // Set the vertical resolution.
-    
-    // Convert the slide to an image with the specified options.
-    $image = $slide->getImage($options);
+    $image = $slide->getImage($tiffOptions);
     try {
-        // Save the image in TIFF format.
         $image->save("output.tiff", ImageFormat::Tiff);
     } finally {
         $image->dispose();
@@ -157,36 +165,31 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-
-Tiff‑stöd garanteras inte i versioner tidigare än JDK 9.
-
-{{% /alert %}} 
+{{% alert title="Warning" color="warning" %}}
+TIFF‑stöd är inte garanterat i Java‑versioner äldre än JDK 9.
+{{% /alert %}}
 
 ## **Konvertera alla bilder till bilder**
 
-Aspose.Slides gör det möjligt att konvertera alla bilder i en presentation till bildfiler, vilket effektivt omvandlar hela presentationen till en serie bilder.
+Iterera genom bildsamlingen för att konvertera hela presentationen till en serie bilder. Dolda bilder inkluderas om du inte uttryckligen hoppar över dem.
 
-Denna exempelkod demonstrerar hur du konverterar alla bilder i en presentation till bildfiler i PHP:
+Följande exempel renderar varje bild som en JPEG‑bild med horisontella och vertikala skalningsfaktorer på 2:
 
 ```php
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+
 $scaleX = 2;
 $scaleY = $scaleX;
 
 $presentation = new Presentation("Presentation.pptx");
 try {
-    // Rendera presentationen till bilder bild för bild.
-    for($i = 0; $i < java_values($presentation->getSlides()->size()) ; $i++) {
-        // Hantera dolda bilder (rendera inte dolda bilder).
-        if (java_values($presentation->getSlides()->get_Item($i)->getHidden())) {
-            continue;
-        }
-
-        // Konvertera bilden till en bild.
-        $image = $presentation->getSlides()->get_Item($i)->getImage($scaleX, $scaleY);
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($index = 0; $index < $slideCount; $index++) {
+        $slide = $presentation->getSlides()->get_Item($index);
+        $image = $slide->getImage($scaleX, $scaleY);
         try {
-            // Spara bilden i JPEG-format.
-            $image->save("Slide_" . $i . ".jpg", ImageFormat::Jpeg);
+            $image->save("Slide_" . $index . ".jpg", ImageFormat::Jpeg);
         } finally {
             $image->dispose();
         }
@@ -196,22 +199,90 @@ try {
 }
 ```
 
+## **Skapa Enhanced Metafile‑utdata**
+
+Enhanced Metafile (EMF) är användbart när vektorgrafik måste utbytas med Microsoft Office eller andra Windows‑program som stöder Windows‑metafiler. Till skillnad från en pixelerad bild kan ett EMF‑format behålla vektorritningsoperationer som skalas utan samma förlust av skärpa. EMF är dock främst ett kompatibilitetsformat för program med stöd för Windows‑metafiler, inte ett universellt utbytesformat. Dessutom kan komplext bildinnehåll, såsom bitmap‑bilder och vissa effekter, lagras som rasteriserade element i vektormetafilstoppet.
+
+### **Exportera en bild till EMF**
+
+Metoden [Slide::writeAsEmf](https://reference.aspose.com/slides/sv/php-java/aspose.slides/slide/#writeAsEmf) skriver en bild till ett mål‑ström i EMF‑format. Följande exempel läser in en presentation, väljer den första bilden och skriver den till ett EMF‑filström:
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("Presentation.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $emfStream = new Java("java.io.FileOutputStream", "Slide_0.emf");
+    try {
+        $slide->writeAsEmf($emfStream);
+    } finally {
+        $emfStream->close();
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Anroparen äger strömmen som skickas till [Slide::writeAsEmf](https://reference.aspose.com/slides/sv/php-java/aspose.slides/slide/#writeAsEmf) och ansvarar för att stänga den, som visas ovan.
+
+### **Konvertera en SVG‑bild till EMF och lägg till den i en presentation**
+
+Använd [SvgImage::writeAsEmf](https://reference.aspose.com/slides/sv/php-java/aspose.slides/svgimage/#writeAsEmf) för att konvertera SVG‑innehåll till EMF. De resulterande bytes kan läggas till i presentationen via [ImageCollection::addImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/imagecollection/#addImage) och placeras på en bild med [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shapecollection/#addPictureFrame).
+
+Följande exempel skapar en [SvgImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/svgimage/) från SVG‑markup, konverterar den till ett EMF i minnet, infogar metafilen på den första bilden och sparar presentationen:
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SvgImage;
+
+$svgContent = '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100"><rect width="200" height="100" fill="#4472C4"/></svg>';
+$svgImage = new SvgImage($svgContent);
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $emfStream = new Java("java.io.ByteArrayOutputStream");
+    try {
+        $svgImage->writeAsEmf($emfStream);
+
+        $emfData = $emfStream->toByteArray();
+        $image = $presentation->getImages()->addImage($emfData);
+        $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 200, 100, $image);
+    } finally {
+        $emfStream->close();
+    }
+
+    $presentation->save("Presentation_with_emf.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+[SvgImage::writeAsEmf](https://reference.aspose.com/slides/sv/php-java/aspose.slides/svgimage/#writeAsEmf) tar inte ägarskap över målströmmen. En [ByteArrayOutputStream](https://docs.oracle.com/javase/8/docs/api/java/io/ByteArrayOutputStream.html) lagrar all genererad data i minnet, så ingen positionsåterställning krävs innan `toByteArray` anropas. Den returnerade byte‑arrayen förblir giltig efter att strömmen har stängts.
+
+EMF‑generering är tillgänglig på de operativsystem som stöds av den valda Aspose.Slides for PHP via Java och JDK‑konfiguration, men rendering kan skilja sig mellan plattformar när teckensnitt eller grafiska beroenden saknas. Installera de teckensnitt som används av källinnehållet eller konfigurera lämpliga substitutioner, följ [plattformskraven](/slides/sv/php-java/system-requirements/) för Aspose.Slides for PHP via Java och validera resultatet i den mål‑EMF‑användande applikationen. Linux‑ och macOS‑program har ofta begränsat eller inkonsekvent stöd för att visa och redigera Windows‑metafiler.
+
 ## **Färgrik Emoji‑rendering**
 
-{{% alert title="Note" color="warning" %}} 
-För att rendera färgade emojis korrekt när du konverterar presentationsbilder till bildfiler måste emoji‑fonterna som används i presentationen vara installerade och tillgängliga på systemet som utför konverteringen. Till exempel, om presentationen använder **Segoe UI Emoji** och detta teckensnitt saknas, kan emojis visas i monokrom i de genererade bilderna.
+{{% alert title="Note" color="info" %}}
+För att rendera färgade emojis korrekt vid konvertering av presentationsbilder till bilder måste de emoji‑teckensnitt som används i presentationen vara installerade och tillgängliga på systemet som utför konverteringen. Till exempel, om presentationen använder **Segoe UI Emoji** och detta teckensnitt saknas, kan emojis visas i monokrom i utdatakrafterna.
 {{% /alert %}}
 
-## **Vanliga frågor**
+## **FAQ**
 
 **Stöder Aspose.Slides rendering av bilder med animationer?**
 
-Nej, `getImage`‑metoden sparar endast en statisk bild av bilden, utan animationer.
+Nej. Metoden [Slide::getImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/slide/#getImage) renderar en statisk bild av bilden och exporterar inte animationer.
 
-**Kan dolda bilder exporteras som bildfiler?**
+**Kan dolda bilder exporteras som bilder?**
 
-Ja, dolda bilder kan behandlas precis som vanliga. Se bara till att de inkluderas i bearbetningsloopen.
+Ja. Dolda bilder kan renderas som vanliga bilder. Inkludera dem i bearbetningsloopen, som visas i exemplet ovan.
 
-**Kan bilder sparas med skuggor och effekter?**
+**Bevaras skuggor och andra effekter i bildfiler?**
 
-Ja, Aspose.Slides stöder rendering av skuggor, transparens och andra grafiska effekter när bilder sparas som bildfiler.
+Ja. Aspose.Slides renderar skuggor, transparens och andra stödda grafiska effekter i bildfiler.

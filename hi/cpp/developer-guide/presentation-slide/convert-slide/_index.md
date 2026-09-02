@@ -1,5 +1,5 @@
 ---
-title: C++ में प्रस्तुति स्लाइड्स को इमेज में बदलें
+title: स्लाइड्स को C++ में इमेज में बदलें
 linktitle: स्लाइड से इमेज
 type: docs
 weight: 41
@@ -9,6 +9,7 @@ keywords:
 - स्लाइड निर्यात करें
 - स्लाइड से इमेज
 - स्लाइड को इमेज के रूप में सहेजें
+- स्लाइड से EMF
 - स्लाइड से PNG
 - स्लाइड से JPEG
 - स्लाइड से बिटमैप
@@ -18,34 +19,40 @@ keywords:
 - प्रस्तुति
 - C++
 - Aspose.Slides
-description: "Aspose.Slides का उपयोग करके C++ में PPT, PPTX और ODP स्लाइड्स को इमेज में बदलें—तेज़, उच्च-गुणवत्ता रेंडरिंग और स्पष्ट कोड उदाहरणों के साथ।"
+description: "Aspose.Slides for C++ के साथ C++ में PPT, PPTX, और ODP प्रस्तुतियों की स्लाइड्स को PNG, JPEG, GIF, TIFF, EMF और अन्य इमेज फ़ॉर्मैट्स में बदलें।"
 ---
 ## **परिचय**
 
-Aspose.Slides for C++ आपको आसानी से PowerPoint और OpenDocument प्रस्तुति स्लाइड्स को विभिन्न इमेज फ़ॉर्मेट्स, जैसे BMP, PNG, JPG (JPEG), GIF, और अन्य में परिवर्तित करने की सुविधा देता है।
+Aspose.Slides for C++ PowerPoint और OpenDocument प्रस्तुतियों की व्यक्तिगत स्लाइड्स को PNG, JPEG, GIF, TIFF और अन्य इमेज फ़ॉर्मैट्स में रेंडर कर सकता है।
 
 एक स्लाइड को इमेज में बदलने के लिए, निम्न चरणों का पालन करें:
 
-1. वांछित रूपांतरण सेटिंग्स को निर्धारित करें और उन स्लाइड्स को चुनें जिन्हें आप निर्यात करना चाहते हैं, इसके लिए उपयोग करें:
-    - [ITiffOptions](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/itiffoptions/) इंटरफ़ेस, या
-    - [IRenderingOptions](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/irenderingoptions/) इंटरफ़ेस।
-2. [GetImage](https://reference.aspose.com/slides/hi/cpp/aspose.slides/islide/getimage/) मेथड को कॉल करके स्लाइड इमेज बनाएँ।
+1. प्रेजेंटेशन को [Presentation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/) क्लास से लोड करें।
+2. उस स्लाइड को चुनें जिसे आप रेंडर करना चाहते हैं।
+3. यदि आवश्यक हो, तो रेंडरिंग को [RenderingOptions](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/renderingoptions/) या [TiffOptions](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/tiffoptions/) क्लास के साथ कॉन्फ़िगर करें।
+4. [ISlide::GetImage](https://reference.aspose.com/slides/hi/cpp/aspose.slides/islide/getimage/) मेथड को कॉल करें। यह एक [IImage](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iimage/) ऑब्जेक्ट लौटाता है।
+5. [IImage::Save](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iimage/save/) मेथड को कॉल करें और [ImageFormat](https://reference.aspose.com/slides/hi/cpp/aspose.slides/imageformat/) वैल्यू के साथ आउटपुट फ़ॉर्मेट निर्दिष्ट करें।
 
-एक [Bitmap](https://reference.aspose.com/slides/hi/cpp/system.drawing/bitmap/) एक ऑब्जेक्ट है जो पिक्सेल डेटा द्वारा परिभाषित इमेज के साथ काम करने की अनुमति देता है। आप इस क्लास की एक इंस्टेंस का उपयोग करके BMP, JPG, PNG आदि जैसे कई फ़ॉर्मेट में इमेज सहेज सकते हैं।
+## **स्लाइड को PNG इमेज में बदलें**
 
-## **स्लाइड्स को बिटमैप में बदलें और PNG में इमेज सहेजें**
+सबसे सरल रूपांतरण डिफ़ॉल्ट रेंडरिंग सेटिंग्स का उपयोग करता है। परिणामी [IImage](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iimage/) ऑब्जेक्ट को मेमोरी में प्रोसेस किया जा सकता है या फ़ाइल में सहेजा जा सकता है।
 
-आप स्लाइड को एक बिटमैप ऑब्जेक्ट में बदल सकते हैं और इसे सीधे अपने एप्लिकेशन में उपयोग कर सकते हैं। वैकल्पिक रूप से, आप स्लाइड को बिटमैप में बदलकर फिर JPEG या किसी अन्य पसंदीदा फ़ॉर्मेट में इमेज सहेज सकते हैं।
+निम्नलिखित C++ उदाहरण पहली स्लाइड को रेंडर करता है और उसे PNG इमेज के रूप में सहेजता है:
 
-यह C++ कोड दर्शाता है कि प्रस्तुति की पहली स्लाइड को बिटमैप ऑब्जेक्ट में कैसे बदलें और फिर PNG फ़ॉर्मेट में इमेज सहेजें:
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/smart_ptr.h>
 
-```cpp 
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
+auto slide = presentation->get_Slide(0);
 
-// प्रस्तुति में पहली स्लाइड को बिटमैप में बदलें।
-auto image = presentation->get_Slide(0)->GetImage();
-
-// इमेज को PNG फ़ॉर्मेट में सहेजें।
+auto image = slide->GetImage();
 image->Save(u"Slide_0.png", ImageFormat::Png);
 
 image->Dispose();
@@ -54,91 +61,113 @@ presentation->Dispose();
 
 ## **कस्टम आकार के साथ स्लाइड्स को इमेज में बदलें**
 
-आपको किसी निश्चित आकार की इमेज चाहिए हो सकती है। [GetImage](https://reference.aspose.com/slides/hi/cpp/aspose.slides/islide/getimage/) के एक ओवरलोड का उपयोग करके, आप स्लाइड को विशिष्ट आयाम (चौड़ाई और ऊँचाई) के साथ इमेज में बदल सकते हैं।
+एक स्लाइड को सटीक पिक्सेल डाइमेंशन के साथ रेंडर करने के लिए वह [ISlide::GetImage](https://reference.aspose.com/slides/hi/cpp/aspose.slides/islide/getimage/) ओवरलोड उपयोग करें जो एक [Size](https://reference.aspose.com/slides/hi/cpp/system.drawing/size/) वैल्यू स्वीकार करता है।
 
-यह नमूना कोड दिखाता है कि यह कैसे किया जाए:
+निम्न उदाहरण 1820 × 1040 JPEG इमेज बनाता है:
 
-```cpp 
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <drawing/size.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Drawing;
+
 Size imageSize(1820, 1040);
 
 auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
+auto slide = presentation->get_Slide(0);
 
-// प्रस्तुति में पहली स्लाइड को निर्दिष्ट आकार के साथ बिटमैप में बदलें।
-auto image = presentation->get_Slide(0)->GetImage(imageSize);
-
-// इमेज को JPEG फ़ॉर्मेट में सहेजें।
+auto image = slide->GetImage(imageSize);
 image->Save(u"Slide_0.jpg", ImageFormat::Jpeg);
 
 image->Dispose();
 presentation->Dispose();
 ```
 
-## **नोट्स और कमेंट्स वाले स्लाइड्स को इमेज में बदलें**
+## **नोट्स और कमेंट्स के साथ स्लाइड्स को इमेज में बदलें**
 
-कुछ स्लाइड्स में नोट्स और कमेंट्स हो सकते हैं।
+डिफ़ॉल्ट रूप से, स्लाइड इमेज में नोट्स या कमेंट्स शामिल नहीं होते। नोट्स और कमेंट्स की स्थिति नियंत्रित करने के लिए एक [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/notescommentslayoutingoptions/) ऑब्जेक्ट को [RenderingOptions::set_SlidesLayoutOptions](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/renderingoptions/set_slideslayoutoptions/) मेथड में असाइन करें।
 
-Aspose.Slides दो इंटरफ़ेस—[ITiffOptions](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/itiffoptions/) और [IRenderingOptions](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/irenderingoptions/)— प्रदान करता है जो प्रस्तुति स्लाइड्स को इमेज में रेंडर करने को नियंत्रित करते हैं। दोनों इंटरफ़ेस में `set_SlidesLayoutOptions` मेथड शामिल है, जो स्लाइड को इमेज में बदलते समय नोट्स और कमेंट्स के रेंडरिंग को कॉन्फ़िगर करने की अनुमति देता है।
+निम्न उदाहरण ट्रंकेटेड नोट्स को स्लाइड के नीचे और कमेंट्स को उसकी दाईं ओर रखता है:
 
-[NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/notescommentslayoutingoptions/) क्लास के साथ, आप उत्पन्न इमेज में नोट्स और कमेंट्स की इच्छित स्थिति निर्दिष्ट कर सकते हैं।
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/CommentsPositions.h>
+#include <Export/NotesCommentsLayoutingOptions.h>
+#include <Export/NotesPositions.h>
+#include <Export/RenderingOptions.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
 
-यह C++ कोड दर्शाता है कि नोट्स और कमेंट्स वाले स्लाइड को कैसे बदला जाए:
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
 
-```cpp 
-float scaleX = 2;
+float scaleX = 2.0f;
 float scaleY = scaleX;
 
-// प्रस्तुति फ़ाइल लोड करें।
+auto layoutOptions = MakeObject<NotesCommentsLayoutingOptions>();
+layoutOptions->set_NotesPosition(NotesPositions::BottomTruncated);
+layoutOptions->set_CommentsPosition(CommentsPositions::Right);
+layoutOptions->set_CommentsAreaWidth(500);
+layoutOptions->set_CommentsAreaColor(Color::get_AntiqueWhite());
+
+auto renderingOptions = MakeObject<RenderingOptions>();
+renderingOptions->set_SlidesLayoutOptions(layoutOptions);
+
 auto presentation = MakeObject<Presentation>(u"Presentation_with_notes_and_comments.pptx");
+auto slide = presentation->get_Slide(0);
 
-auto notesCommentsOptions = MakeObject<NotesCommentsLayoutingOptions>();
-notesCommentsOptions->set_NotesPosition(NotesPositions::BottomTruncated);  // नोट्स की स्थिति सेट करें।
-notesCommentsOptions->set_CommentsPosition(CommentsPositions::Right);      // टिप्पणियों की स्थिति सेट करें।
-notesCommentsOptions->set_CommentsAreaWidth(500);                          // टिप्पणी क्षेत्र की चौड़ाई सेट करें।
-notesCommentsOptions->set_CommentsAreaColor(Color::get_AntiqueWhite());    // टिप्पणी क्षेत्र का रंग सेट करें.
-
-// रेंडरिंग विकल्प बनाएं।
-auto options = MakeObject<RenderingOptions>();
-options->set_SlidesLayoutOptions(notesCommentsOptions);
-
-// प्रस्तुति की पहली स्लाइड को इमेज में बदलें।
-auto image = presentation->get_Slide(0)->GetImage(options, scaleX, scaleY);
-
-// इमेज को GIF फ़ॉर्मेट में सहेजें।
+auto image = slide->GetImage(renderingOptions, scaleX, scaleY);
 image->Save(u"Image_with_notes_and_comments_0.gif", ImageFormat::Gif);
 
 image->Dispose();
 presentation->Dispose();
 ```
 
-{{% alert title="Note" color="warning" %}} 
-किसी भी स्लाइड-से-इमेज रूपांतरण प्रक्रिया में, [set_NotesPosition](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/notescommentslayoutingoptions/set_notesposition/) मेथड `BottomFull` लागू नहीं कर सकता (नोट्स की स्थिति निर्दिष्ट करने के लिये) क्योंकि नोट का पाठ बहुत बड़ा हो सकता है, जिससे वह निर्दिष्ट इमेज आकार में फिट नहीं हो पाता।
-{{% /alert %}} 
+{{% alert title="Warning" color="warning" %}}
+स्लाइड-से-इमेज रूपांतरण के लिए, [NotesCommentsLayoutingOptions::set_NotesPosition](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/notescommentslayoutingoptions/set_notesposition/) मेथड को [BottomFull](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/notespositions/) पर सेट न करें। नोट्स में ऐसा टेक्स्ट हो सकता है जो निर्धारित इमेज आकार में फिट नहीं होता। इसके बजाय [BottomTruncated](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/notespositions/) का उपयोग करें।
+{{% /alert %}}
 
 ## **TIFF विकल्पों का उपयोग करके स्लाइड्स को इमेज में बदलें**
 
-[ITiffOptions](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/itiffoptions/) इंटरफ़ेस आपको आकार, रिज़ॉल्यूशन, कलर पैलेट आदि जैसे पैरामीटर निर्दिष्ट करके परिणामी TIFF इमेज पर अधिक नियंत्रण देता है।
+[TiffOptions](https://reference.aspose.com/slides/hi/cpp/aspose.slides.export/tiffoptions/) क्लास आपको रेंडर की गई TIFF इमेज का आकार, रिज़ॉल्यूशन और अन्य गुण नियंत्रित करने की सुविधा देता है।
 
-यह C++ कोड एक रूपांतरण प्रक्रिया दर्शाता है जहाँ TIFF विकल्पों का उपयोग करके 300 DPI रिज़ॉल्यूशन और 2160 × 2800 आकार के साथ काली-से-बिल्ली इमेज आउटपुट की जाती है:
+निम्न उदाहरण पहली स्लाइड को 2160 × 2880 TIFF इमेज, 300 DPI पर रेंडर करता है:
 
-```cpp 
-// प्रस्तुति फ़ाइल लोड करें।
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/TiffOptions.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <drawing/size.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto tiffOptions = MakeObject<TiffOptions>();
+tiffOptions->set_ImageSize(Size(2160, 2880));
+tiffOptions->set_DpiX(300);
+tiffOptions->set_DpiY(300);
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
-
-// प्रस्तुति से पहली स्लाइड प्राप्त करें।
 auto slide = presentation->get_Slide(0);
 
-// आउटपुट TIFF इमेज की सेटिंग्स कॉन्फ़िगर करें।
-auto tiffOptions = MakeObject<TiffOptions>();
-tiffOptions->set_ImageSize(Size(2160, 2880));                       // इमेज का आकार सेट करें।
-tiffOptions->set_PixelFormat(ImagePixelFormat::Format1bppIndexed);  // पिक्सेल फ़ॉर्मेट सेट करें (काला और सफ़ेद)।
-tiffOptions->set_DpiX(300);                                         // क्षैतिज रेज़ॉल्यूशन सेट करें।
-tiffOptions->set_DpiY(300);                                         // लंबवत रेज़ॉल्यूशन सेट करें.
-
-// निर्दिष्ट विकल्पों के साथ स्लाइड को इमेज में बदलें।
 auto image = slide->GetImage(tiffOptions);
-
-// इमेज को TIFF फ़ॉर्मेट में सहेजें।
-image->Save(u"output.bmp", ImageFormat::Tiff);
+image->Save(u"output.tiff", ImageFormat::Tiff);
 
 image->Dispose();
 presentation->Dispose();
@@ -146,53 +175,131 @@ presentation->Dispose();
 
 ## **सभी स्लाइड्स को इमेज में बदलें**
 
-Aspose.Slides आपको प्रस्तुति की सभी स्लाइड्स को इमेज में बदलने की अनुमति देता है, जिससे पूरी प्रस्तुति को इमेजों की श्रृंखला में बदला जा सकता है।
+पूरा प्रेजेंटेशन कई इमेजेज़ में बदलने के लिए स्लाइड कलेक्शन पर इटररेट करें। छिपी हुई स्लाइड्स को भी शामिल किया जाता है जब तक आप उन्हें स्पष्ट रूप से स्किप न करें।
 
-यह नमूना कोड दर्शाता है कि C++ में प्रस्तुती की सभी स्लाइड्स को इमेज में कैसे बदला जाए:
+निम्न उदाहरण प्रत्येक स्लाइड को हॉरिज़ॉन्टल और वर्टिकल स्केल फ़ैक्टर 2 के साथ JPEG इमेज के रूप में रेंडर करता है:
 
-```cpp 
-float scaleX = 2;
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+float scaleX = 2.0f;
 float scaleY = scaleX;
 
 auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
 
-// प्रस्तुति को स्लाइड दर स्लाइड इमेज में रेंडर करें।
-for (int i = 0; i < presentation->get_Slides()->get_Count(); i++)
+int32_t slideCount = presentation->get_Slides()->get_Count();
+for (int32_t index = 0; index < slideCount; index++)
 {
-    // छिपी हुई स्लाइड्स को नियंत्रित करें (छिपी स्लाइड्स को रेंडर न करें)।
-    if (presentation->get_Slide(i)->get_Hidden())
-    {
-        continue;
-    }
-
-    // स्लाइड को इमेज में बदलें।
-    auto image = presentation->get_Slide(i)->GetImage(scaleX, scaleY);
-
-    // इमेज को JPEG फ़ॉर्मेट में सहेजें।
-    image->Save(String::Format(u"Slide_{0}.jpg", i), ImageFormat::Jpeg);
-
+    auto slide = presentation->get_Slide(index);
+    auto image = slide->GetImage(scaleX, scaleY);
+    image->Save(String::Format(u"Slide_{0}.jpg", index), ImageFormat::Jpeg);
     image->Dispose();
 }
 
 presentation->Dispose();
 ```
 
-## **रंगीन इमोजी रेंडरिंग**
+## **Enhanced Metafile आउटपुट बनाएं**
 
-{{% alert title="Note" color="warning" %}} 
-जब प्रस्तुति स्लाइड्स को इमेज में बदलते समय रंगीन इमोजी सही ढंग से रेंडर करने हों, तो प्रस्तुति में उपयोग किए गए इमोजी फ़ॉन्ट को उस प्रणाली पर स्थापित और उपलब्ध होना चाहिए जहाँ रूपांतरण किया जा रहा है। उदाहरण के लिए, यदि प्रस्तुति में **Segoe UI Emoji** फ़ॉन्ट उपयोग किया गया है और वह गायब है, तो आउटपुट इमेज में इमोजी मोनोक्रोम दिखाई दे सकते हैं।
+Enhanced Metafile (EMF) तब उपयोगी होता है जब वेक्टर-आधारित ग्राफ़िक्स को Microsoft Office या अन्य Windows एप्लिकेशन जो Windows मेटाफाइल्स का समर्थन करते हैं, के साथ एक्सचेंज करना हो। पिक्सेल-आधारित इमेज के विपरीत, EMF वेक्टर ड्राइंग ऑपरेशन्स को बरकरार रख सकता है जो स्केल होने पर भी शार्पनेस नहीं खोते। हालांकि, EMF मुख्यतः उन एप्लिकेशनों के लिए एक संगतता फ़ॉर्मेट है जो Windows मेटाफाइल समर्थन रखते हैं, न कि एक सार्वभौमिक इंटरचेंज फ़ॉर्मेट। अतिरिक्त रूप से, जटिल स्लाइड सामग्री, जैसे बिटमैप इमेजेज़ और कुछ इफ़ेक्ट्स, वेक्टर मेटाफाइल कंटेनर के भीतर रैस्टराइज़्ड तत्वों के रूप में संग्रहीत हो सकते हैं।
+
+### **स्लाइड को EMF में एक्सपोर्ट करें**
+
+[ISlide::WriteAsEmf](https://reference.aspose.com/slides/hi/cpp/aspose.slides/islide/writeasemf/) मेथड एक [ISlide](https://reference.aspose.com/slides/hi/cpp/aspose.slides/islide/) को EMF फ़ॉर्मेट में टार्गेट स्ट्रीम पर लिखता है। निम्न उदाहरण एक प्रेजेंटेशन लोड करता है, पहली स्लाइड चुनता है, और उसे EMF फ़ाइल स्ट्रीम में लिखता है:
+
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto emfStream = File::Create(u"Slide_0.emf");
+slide->WriteAsEmf(emfStream);
+
+emfStream->Close();
+presentation->Dispose();
+```
+
+स्ट्रीमर को कॉलर द्वारा पास किया गया स्ट्रीम वह नियंत्रित करता है और उसे बंद या डिस्पोज़ करना आवश्यक है। Aspose.Slides स्ट्रीम की वर्तमान पोजिशन पर लिखता है और स्ट्रीम को खुला छोड़ देता है।
+
+### **SVG इमेज को EMF में बदलें और प्रेजेंटेशन में जोड़ें**
+
+[ISvgImage::WriteAsEmf](https://reference.aspose.com/slides/hi/cpp/aspose.slides/isvgimage/writeasemf/) का उपयोग करके SVG कंटेंट को EMF में कन्वर्ट करें। परिणामस्वरूप बाइट्स को [IImageCollection::AddImage](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iimagecollection/addimage/) द्वारा प्रेजेंटेशन में जोड़ा जा सकता है और [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ishapecollection/addpictureframe/) से स्लाइड पर रखा जा सकता है।
+
+निम्न उदाहरण SVG मार्कअप से एक [SvgImage](https://reference.aspose.com/slides/hi/cpp/aspose.slides/svgimage/) बनाता है, उसे इन-मेमाॅरी EMF में बदलता है, प्रथम स्लाइड पर मेटाफाइल इन्सर्ट करता है, और प्रेजेंटेशन को सेव करता है:
+
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SvgImage.h>
+#include <Export/SaveFormat.h>
+#include <system/io/memory_stream.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+String svgContent = u"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"100\"><rect width=\"200\" height=\"100\" fill=\"#4472C4\"/></svg>";
+auto svgImage = MakeObject<SvgImage>(svgContent);
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto emfStream = MakeObject<MemoryStream>();
+svgImage->WriteAsEmf(emfStream);
+
+auto emfData = emfStream->ToArray();
+auto image = presentation->get_Images()->AddImage(emfData);
+slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 20, 20, 200, 100, image);
+
+presentation->Save(u"Presentation_with_emf.pptx", SaveFormat::Pptx);
+
+emfStream->Close();
+presentation->Dispose();
+```
+
+[ISvgImage::WriteAsEmf](https://reference.aspose.com/slides/hi/cpp/aspose.slides/isvgimage/writeasemf/) गंतव्य स्ट्रीम का ओनरशिप नहीं लेता। लिखने के बाद, स्ट्रीम की पोज़िशन जनरेटेड डेटा के अंत में रहती है। उदाहरण [MemoryStream::ToArray](https://reference.aspose.com/slides/hi/cpp/system.io/memorystream/toarray/) को कॉल करके पूर्ण बफ़र प्राप्त करता है, चाहे वर्तमान स्ट्रीम पोज़िशन कुछ भी हो, फिर उस बाइट एरे को [IImageCollection::AddImage](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iimagecollection/addimage/) को पास करता है। स्ट्रीम को तब तक खुला रखें जब तक उपभोक्ता इसे पढ़ रहा हो, और बाद में बंद करें।
+
+EMF जेनरेशन Aspose.Slides for C++ द्वारा समर्थित ऑपरेटिंग सिस्टम पर उपलब्ध है, लेकिन फोंट या नेटिव ग्राफिक्स डिपेंडेंसीज़ की अनुपलब्धता पर विभिन्न प्लेटफ़ॉर्म पर रेंडरिंग में अंतर हो सकता है। स्रोत कंटेंट द्वारा उपयोग किए गए फोंट इंस्टॉल करें या उपयुक्त प्रतिस्थापन कॉन्फ़िगर करें, Aspose.Slides for C++ के [platform requirements](/slides/hi/cpp/system-requirements/) का पालन करें, और लक्ष्य EMF-उपयोगी एप्लिकेशन में परिणाम की पुष्टि करें। Linux और macOS एप्लिकेशन्स अक्सर Windows मेटाफाइल्स को दर्शाने और संपादित करने में सीमित या असंगत समर्थन रखते हैं।
+
+## **कलर इमोजी रेंडरिंग**
+
+{{% alert title="Note" color="info" %}}
+प्रेजेंटेशन स्लाइड्स को इमेज में बदलते समय कलर इमोजी को सही ढंग से रेंडर करने के लिए प्रेजेंटेशन में उपयोग किए गए इमोजी फ़ॉन्ट को उस सिस्टम पर इंस्टॉल और उपलब्ध होना चाहिए जहाँ परिवर्तन किया जा रहा है। उदाहरण के लिए, यदि प्रेजेंटेशन **Segoe UI Emoji** फ़ॉन्ट का उपयोग करता है और वह फ़ॉन्ट उपलब्ध नहीं है, तो इमोजी आउटपुट इमेज में मोनोक्रोम दिख सकते हैं।
 {{% /alert %}}
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या Aspose.Slides एनीमेशन के साथ स्लाइड्स को रेंडर करने का समर्थन करता है?**
+**क्या Aspose.Slides एनिमेशन वाली स्लाइड्स को रेंडर करने का समर्थन करता है?**
 
-नहीं, `GetImage` मेथड केवल स्लाइड की स्थिर इमेज सहेजता है, एनीमेशन नहीं।
+नहीं। [ISlide::GetImage](https://reference.aspose.com/slides/hi/cpp/aspose.slides/islide/getimage/) मेथड स्लाइड की स्टैटिक इमेज रेंडर करता है और एनिमेशन को एक्सपोर्ट नहीं करता।
 
-**क्या छिपी हुई स्लाइड्स को इमेज के रूप में निर्यात किया जा सकता है?**
+**क्या छिपी हुई स्लाइड्स को इमेज के रूप में एक्सपोर्ट किया जा सकता है?**
 
-हाँ, छिपी हुई स्लाइड्स को सामान्य स्लाइड्स की तरह प्रोसेस किया जा सकता है। सुनिश्चित करें कि वे प्रोसेसिंग लूप में शामिल हों।
+हां। छिपी हुई स्लाइड्स को सामान्य स्लाइड्स की तरह रेंडर किया जा सकता है। उन्हें प्रोसेसिंग लूप में शामिल करें, जैसा कि ऊपर के उदाहरण में दिखाया गया है।
 
-**क्या इमेजेस को छाया और प्रभावों के साथ सहेजा जा सकता है?**
+**क्या स्लाइड इमेज में शैडोज़ और अन्य इफ़ेक्ट्स संरक्षित रहते हैं?**
 
-हाँ, Aspose.Slides स्लाइड्स को इमेज के रूप में सहेजते समय छाया, पारदर्शिता और अन्य ग्राफ़िक प्रभावों को रेंडर करने का समर्थन करता है।
+हां। Aspose.Slides स्लाइड इमेज में शैडोज़, ट्रांसपैरेंसी और अन्य समर्थित ग्राफ़िकल इफ़ेक्ट्स को रेंडर करता है।

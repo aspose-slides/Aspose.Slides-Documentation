@@ -1,6 +1,6 @@
 ---
 title: Prezentációs diák képekké konvertálása .NET-ben
-linktitle: Dia képre
+linktitle: Dia képpé
 type: docs
 weight: 41
 url: /hu/net/convert-slide/
@@ -9,6 +9,7 @@ keywords:
 - dia exportálása
 - dia képre
 - dia mentése képként
+- dia EMF-be
 - dia PNG-be
 - dia JPEG-be
 - dia bitmapre
@@ -19,177 +20,206 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Diak konvertálása PPT, PPTX és ODP formátumból képekké C#-ban az Aspose.Slides for .NET használatával - gyors, magas minőségű renderelés tiszta kódrészletekkel."
+description: "Konvertálja a PPT, PPTX és ODP bemutatók diáját PNG, JPEG, GIF, TIFF, EMF és egyéb képformátumokba C#-ban az Aspose.Slides for .NET használatával."
 ---
 ## **Bevezetés**
 
-Az Aspose.Slides for .NET lehetővé teszi, hogy egyszerűen konvertálja a PowerPoint és OpenDocument prezentációs diákot különböző képformátumokra, többek között BMP, PNG, JPG (JPEG), GIF és egyéb formátumokra.
+Az Aspose.Slides for .NET képes a PowerPoint és OpenDocument bemutatók egyedi diákját PNG, JPEG, GIF, TIFF és egyéb képformátumokban megjeleníteni.
 
-Egy dia képpé konvertálásához kövesse az alábbi lépéseket:
+A dia képpé konvertálásához kövesse az alábbi lépéseket:
 
-1. Adja meg a kívánt konverziós beállításokat, és válassza ki a exportálni kívánt dia(kat) a következő használatával:
-    - A [ITiffOptions](https://reference.aspose.com/slides/hu/net/aspose.slides.export/itiffoptions/) interfészt, vagy
-    - A [IRenderingOptions](https://reference.aspose.com/slides/hu/net/aspose.slides.export/irenderingoptions/) interfészt.
-2. Generálja a dia képét a [GetImage](https://reference.aspose.com/slides/hu/net/aspose.slides/islide/getimage/) metódus meghívásával.
+1. Töltse be a bemutatót a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztállyal.
+2. Válassza ki a megjeleníteni kívánt diát.
+3. Szükség esetén állítsa be a renderelést a [RenderingOptions](https://reference.aspose.com/slides/hu/net/aspose.slides.export/renderingoptions/) vagy a [TiffOptions](https://reference.aspose.com/slides/hu/net/aspose.slides.export/tiffoptions/) osztállyal.
+4. Hívja meg a [GetImage](https://reference.aspose.com/slides/hu/net/aspose.slides/islide/getimage/) metódust. Ez egy [IImage](https://reference.aspose.com/slides/hu/net/aspose.slides/iimage/) objektumot ad vissza.
+5. Hívja meg az [IImage.Save](https://reference.aspose.com/slides/hu/net/aspose.slides/iimage/save/) metódust, és adja meg a kimeneti formátumot egy [ImageFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/imageformat/) értékkel.
 
-.NET-ben a [Bitmap](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.bitmap?view=net-5.0) egy olyan objektum, amely lehetővé teszi a pixeladatokkal definiált képek kezelését. Ennek az osztálynak egy példányával számos formátumban menthet képeket (BMP, JPG, PNG stb.).
+## **Diát PNG képpé konvertálása**
 
-## **Dia konvertálása bitmap-re és a képek mentése PNG formátumban**
+A legegyszerűbb konverzió az alapértelmezett renderelési beállításokat használja. A kapott [IImage](https://reference.aspose.com/slides/hu/net/aspose.slides/iimage/) objektum memóriában feldolgozható vagy fájlba menthető.
 
-Konvertálhat egy diát bitmap objektummá, és közvetlenül felhasználhatja az alkalmazásában. Alternatív megoldásként konvertálhatja a diát bitmapként, majd elmentheti a képet JPEG vagy bármely más kívánt formátumban.
-
-Ez a C# kód bemutatja, hogyan konvertálhatja egy prezentáció első diáját bitmap objektummá, majd mentheti a képet PNG formátumban:
+Az alábbi C# példa az első diát rendereli, és PNG képként menti el:
 
 ```cs
-using (Presentation presentation = new Presentation("Presentation.pptx"))
-{
-    // A prezentáció első diáját bitmapre konvertálja.
-    using (IImage image = presentation.Slides[0].GetImage())
-    {
-        // A képet PNG formátumban menti.
-        image.Save("Slide_0.png", ImageFormat.Png);
-    }
-}
+using Aspose.Slides;
+
+using var presentation = new Presentation("Presentation.pptx");
+var slide = presentation.Slides[0];
+
+using var image = slide.GetImage();
+image.Save("Slide_0.png", ImageFormat.Png);
 ```
 
-## **Dia konvertálása képekké egyéni méretekkel**
+## **Diák konvertálása egyéni méretű képekké**
 
-Lehet, hogy egy bizonyos méretű képre van szüksége. A [GetImage](https://reference.aspose.com/slides/hu/net/aspose.slides/islide/getimage/) egyik overload-ját használva konvertálhat egy diát olyan képpé, amelynek meghatározott méretei (szélesség és magasság) vannak.
+Használja a [GetImage](https://reference.aspose.com/slides/hu/net/aspose.slides/islide/getimage/) túlterhelést, amely egy [Size](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.size) értéket fogad, hogy a diát pontos képpont mérettel renderelje.
 
-Ez a példakód bemutatja, hogyan végezhető el ez:
+Az alábbi példa egy 1820 × 1040 JPEG képet hoz létre:
 
 ```cs
-Size imageSize = new Size(1820, 1040);
+using System.Drawing;
+using Aspose.Slides;
 
-using (Presentation presentation = new Presentation("Presentation.pptx"))
-{
-    // A prezentáció első diáját a megadott mérettel bitmapre konvertálja.
-    using (IImage image = presentation.Slides[0].GetImage(imageSize))
-    {
-        // A képet JPEG formátumban menti.
-        image.Save("Slide_0.jpg", ImageFormat.Jpeg);
-    }
-}
+var imageSize = new Size(1820, 1040);
+
+using var presentation = new Presentation("Presentation.pptx");
+var slide = presentation.Slides[0];
+
+using var image = slide.GetImage(imageSize);
+image.Save("Slide_0.jpg", ImageFormat.Jpeg);
 ```
 
-## **Dia konvertálása képekké megjegyzésekkel és kommentárokkal**
+## **Diák konvertálása jegyzetekkel és megjegyzésekkel rendelkező képekké**
 
-Egyes diák megjegyzéseket és kommentárokat tartalmazhatnak.
+Alapértelmezés szerint a diaképek nem tartalmaznak jegyzeteket vagy megjegyzéseket. Rendeljen egy [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/hu/net/aspose.slides.export/notescommentslayoutingoptions/) objektumot a [RenderingOptions.SlidesLayoutOptions](https://reference.aspose.com/slides/hu/net/aspose.slides.export/renderingoptions/slideslayoutoptions/) tulajdonsághoz, hogy szabályozza, hol jelenjenek meg a jegyzetek és megjegyzések.
 
-Az Aspose.Slides két interfészt biztosít – a [ITiffOptions](https://reference.aspose.com/slides/hu/net/aspose.slides.export/itiffoptions/) és a [IRenderingOptions](https://reference.aspose.com/slides/hu/net/aspose.slides.export/irenderingoptions/) – amelyek lehetővé teszik a prezentációs diák képre renderelésének vezérlését. Mindkét interfész tartalmazza a `SlidesLayoutOptions` tulajdonságot, amellyel a dia megjegyzéseinek és kommentárjainak renderelését állíthatja be a képpé konvertálás során.
-
-A [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/hu/net/aspose.slides.export/notescommentslayoutingoptions/) osztállyal megadhatja a megjegyzések és kommentárok kívánt pozícióját a keletkező képen.
-
-Ez a C# kód bemutatja, hogyan konvertálhatja egy megjegyzésekkel és kommentárokkal rendelkező diát:
+Az alábbi példa a levágott jegyzeteket a dia alá, a megjegyzéseket pedig a jobb oldalára helyezi:
 
 ```cs
-float scaleX = 2;
-float scaleY = scaleX;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Töltsön be egy prezentációs fájlt.
-using (Presentation presentation = new Presentation("Presentation_with_notes_and_comments.pptx"))
+var scaleX = 2f;
+var scaleY = scaleX;
+
+var layoutOptions = new NotesCommentsLayoutingOptions
 {
-    // Hozza létre a renderelési beállításokat.
-    RenderingOptions options = new RenderingOptions
-    {
-        SlidesLayoutOptions = new NotesCommentsLayoutingOptions
-        {
-            NotesPosition = NotesPositions.BottomTruncated,  // Állítsa be a megjegyzések pozícióját.
-            CommentsPosition = CommentsPositions.Right,      // Állítsa be a kommentárok pozícióját.
-            CommentsAreaWidth = 500,                         // Állítsa be a kommentárterület szélességét.
-            CommentsAreaColor = Color.AntiqueWhite           // Állítsa be a kommentárterület színét.
-        }
-    };
+    NotesPosition = NotesPositions.BottomTruncated,
+    CommentsPosition = CommentsPositions.Right,
+    CommentsAreaWidth = 500,
+    CommentsAreaColor = Color.AntiqueWhite
+};
 
-    // Konvertálja a prezentáció első diáját képpé.
-    using (IImage image = presentation.Slides[0].GetImage(options, scaleX, scaleY))
-    {
-        // Mentse a képet GIF formátumban.
-        image.Save("Image_with_notes_and_comments_0.gif", ImageFormat.Gif);
-    }
-}
+var renderingOptions = new RenderingOptions { SlidesLayoutOptions = layoutOptions };
+
+using var presentation = new Presentation("Presentation_with_notes_and_comments.pptx");
+var slide = presentation.Slides[0];
+
+using var image = slide.GetImage(renderingOptions, scaleX, scaleY);
+image.Save("Image_with_notes_and_comments_0.gif", ImageFormat.Gif);
 ```
 
-{{% alert title="Megjegyzés" color="warning" %}} 
-Bármely dia‑kép konverziós folyamat során a [NotesPosition](https://reference.aspose.com/slides/hu/net/aspose.slides.export/inotescommentslayoutingoptions/notesposition/) tulajdonság nem állítható `BottomFull` értékre (a megjegyzések pozíciójának meghatározásához), mivel a megjegyzés szövege túl nagy lehet, és nem fér bele a megadott képméretbe.
-{{% /alert %}} 
+{{% alert title="Figyelmeztetés" color="warning" %}}
+A dia‑kép konvertálásakor ne állítsa be a [NotesPosition](https://reference.aspose.com/slides/hu/net/aspose.slides.export/inotescommentslayoutingoptions/notesposition/) tulajdonságot a [BottomFull](https://reference.aspose.com/slides/hu/net/aspose.slides.export/notespositions/) értékre. A jegyzetek több szöveget is tartalmazhatnak, mint amit a fix képméret befogad. Helyette a [BottomTruncated](https://reference.aspose.com/slides/hu/net/aspose.slides.export/notespositions/) értéket használja.
+{{% /alert %}}
 
-## **Dia konvertálása képekké TIFF beállítások használatával**
+## **Diák konvertálása TIFF beállítások használatával**
 
-A [ITiffOptions](https://reference.aspose.com/slides/hu/net/aspose.slides.export/itiffoptions/) interfész nagyobb kontrollt biztosít a keletkező TIFF kép felett, lehetővé téve a méret, felbontás, színpaletta stb. paraméterek megadását.
+A [TiffOptions](https://reference.aspose.com/slides/hu/net/aspose.slides.export/tiffoptions/) osztály lehetővé teszi a renderelt TIFF kép méretének, felbontásának és egyéb tulajdonságainak vezérlését.
 
-Ez a C# kód egy olyan konverziós folyamatot mutat be, ahol a TIFF beállítások használatával fekete‑fehér képet generálunk 300 DPI felbontással és 2160 × 2800 mérettel:
+Az alábbi példa az első diát 2160 × 2880 TIFF képként, 300 DPI felbontással rendereli:
 
 ```cs
-// Töltsön be egy prezentációs fájlt.
-using (Presentation presentation = new Presentation("sample.pptx"))
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var tiffOptions = new TiffOptions
 {
-    // Szerezze be a prezentáció első diáját.
-    ISlide slide = presentation.Slides[0];
+    ImageSize = new Size(2160, 2880),
+    DpiX = 300,
+    DpiY = 300
+};
 
-    // Állítsa be a kimeneti TIFF kép beállításait.
-    TiffOptions tiffOptions = new TiffOptions
-    {
-        ImageSize = new Size(2160, 2880),                  // Állítsa be a kép méretét.
-        PixelFormat = ImagePixelFormat.Format1bppIndexed,  // Állítsa be a pixel formátumot (fekete-fehér).
-        DpiX = 300,                                        // Állítsa be a vízszintes felbontást.
-        DpiY = 300                                         // Állítsa be a függőleges felbontást.
-    };
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
 
-    // Konvertálja a diát a megadott beállításokkal képpé.
-    using (IImage image = slide.GetImage(tiffOptions))
-    {
-        // Mentse a képet TIFF formátumban.
-        image.Save("output.tiff", ImageFormat.Tiff);
-    }
-}
+using var image = slide.GetImage(tiffOptions);
+image.Save("output.tiff", ImageFormat.Tiff);
 ```
 
 ## **Az összes dia konvertálása képekké**
 
-Az Aspose.Slides lehetővé teszi a prezentáció összes diájának képpé konvertálását, ezzel a teljes prezentációt képsorozattá alakítva.
+Iteráljon a diagyűjteményen, hogy a teljes bemutatót képsorozattá konvertálja. A rejtett diák is belekerülnek, hacsak kifejezetten nem hagyja ki őket.
 
-Ez a példakód bemutatja, hogyan konvertálhatja a prezentáció összes diáját képekké C#‑ban:
+Az alábbi példa minden diát JPEG képként renderel, vízszintes és függőleges méretezési faktorral 2:
 
 ```cs
-float scaleX = 2;
-float scaleY = scaleX;
+using Aspose.Slides;
 
-using (Presentation presentation = new Presentation("Presentation.pptx"))
+var scaleX = 2f;
+var scaleY = scaleX;
+
+using var presentation = new Presentation("Presentation.pptx");
+
+var slideCount = presentation.Slides.Count;
+for (var index = 0; index < slideCount; index++)
 {
-    // A prezentációt diánként képekké rendereli.
-    for (int i = 0; i < presentation.Slides.Count; i++)
-    {
-        // A rejtett diák kezelése (ne renderelje a rejtett diákot).
-        if (presentation.Slides[i].Hidden)
-            continue;
-
-        // A diát képpé konvertálja.
-        using (IImage image = presentation.Slides[i].GetImage(scaleX, scaleY))
-        {
-            // A képet JPEG formátumban menti.
-            image.Save($"Slide_{i}.jpg", ImageFormat.Jpeg);
-        }
-    }
+    var slide = presentation.Slides[index];
+    using var image = slide.GetImage(scaleX, scaleY);
+    image.Save($"Slide_{index}.jpg", ImageFormat.Jpeg);
 }
 ```
 
-## **Színes Emoji Renderelés**
+## **Enhanced Metafile (EMF) kimenet létrehozása**
 
-{{% alert title="Megjegyzés" color="warning" %}} 
-A színes emojik helyes rendereléséhez a prezentáció diák képpé konvertálásakor a prezentációban használt emoji betűtípusoknak telepítve kell lenniük, és elérhetőeknek kell lenniük azon a rendszeren, amely a konverziót végzi. Például, ha a prezentáció **Segoe UI Emoji** betűtípust használ, és ez hiányzik, az emojik monokrómként jelenhetnek meg a kimeneti képeken.
+Az Enhanced Metafile (EMF) akkor hasznos, amikor vektor alapú grafikákat kell cserélni a Microsoft Office-szal vagy más Windows alkalmazásokkal, amelyek támogatják a Windows metafájlokat. A pixel alapú képpel ellentétben egy EMF meg tudja őrizni a vektoros rajzolási műveleteket, amelyek méretezésekor nem veszítenek annyira a élességben. Az EMF azonban elsősorban kompatibilitási formátum Windows metafájl‑támogatással rendelkező alkalmazások számára, nem pedig általános csereformátum. Továbbá a komplex diatartalmak, mint a bitmap képek és bizonyos effektusok, rasterizált elemekként tárolhatók a vektor metafájl konténerben.
+
+### **Dia exportálása EMF-be**
+
+Az [ISlide.WriteAsEmf](https://reference.aspose.com/slides/hu/net/aspose.slides/islide/writeasemf/) metódus egy [ISlide](https://reference.aspose.com/slides/hu/net/aspose.slides/islide/) objektumot EMF formátumban ír egy célfolyamra. Az alábbi példa betölt egy bemutatót, kiválasztja az első diát, és egy EMF fájlfolyamba írja:
+
+```cs
+using System.IO;
+using Aspose.Slides;
+
+using var presentation = new Presentation("Presentation.pptx");
+var slide = presentation.Slides[0];
+
+using var emfStream = File.Create("Slide_0.emf");
+slide.WriteAsEmf(emfStream);
+```
+
+A hívó felelős a [ISlide.WriteAsEmf](https://reference.aspose.com/slides/hu/net/aspose.slides/islide/writeasemf/) metódusnak átadott folyamért, és le kell zárnia vagy el kell engednie azt. Az Aspose.Slides a folyam aktuális pozíciójában ír, és nyitva hagyja a folyamat.
+
+### **SVG kép konvertálása EMF-be, és hozzáadása a bemutatóhoz**
+
+Használja az [ISvgImage.WriteAsEmf](https://reference.aspose.com/slides/hu/net/aspose.slides/isvgimage/writeasemf/) metódust az SVG tartalom EMF-be konvertálásához. A kapott bájtok hozzáadhatók a bemutatóhoz a [IImageCollection.AddImage](https://reference.aspose.com/slides/hu/net/aspose.slides/iimagecollection/addimage/) használatával, és egy diára helyezhetők a [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/ishapecollection/addpictureframe/) segítségével.
+
+Az alábbi példa egy [SvgImage](https://reference.aspose.com/slides/hu/net/aspose.slides/svgimage/) objektumot hoz létre SVG jelölésből, memóriában EMF-be konvertálja, az első diára beilleszti a metafájlt, majd elmenti a bemutatót:
+
+```cs
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var svgContent = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"100\"><rect width=\"200\" height=\"100\" fill=\"#4472C4\"/></svg>";
+var svgImage = new SvgImage(svgContent);
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+using var emfStream = new MemoryStream();
+svgImage.WriteAsEmf(emfStream);
+
+emfStream.Position = 0;
+var image = presentation.Images.AddImage(emfStream);
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 200, 100, image);
+
+presentation.Save("Presentation_with_emf.pptx", SaveFormat.Pptx);
+```
+
+[ISvgImage.WriteAsEmf](https://reference.aspose.com/slides/hu/net/aspose.slides/isvgimage/writeasemf/) nem birtokolja a célfolyamot. Írás után a folyam pozíciója a generált adatok végén van. A `Position`‑t állítsa vissza a kezdetre, mielőtt ugyanazt a kereshető folyamat átadná egy olvasónak, ahogy fent mutattuk. Hagyja a folyamatot nyitva, amíg a fogyasztó be nem fejezi a olvasást, majd utána zárja be. Alternatívaként hívja meg a `ToArray`‑t, és adja át a kapott bájt tömböt a [IImageCollection.AddImage](https://reference.aspose.com/slides/hu/net/aspose.slides/iimagecollection/addimage/) metódusnak; a `ToArray` a teljes puffert adja vissza a folyamat aktuális pozíciójától függetlenül.
+
+Az EMF generálás elérhető azokban az operációs rendszerekben, amelyeket a kiválasztott Aspose.Slides for .NET build támogat, de a renderelés különbözhet platformonként, ha a betűtípusok vagy a natív grafikai függőségek nem állnak rendelkezésre. Telepítse a forrás tartalom által használt betűtípusokat, vagy állítson be megfelelő helyettesítéseket, kövesse a [platform követelményeket](/slides/hu/net/system-requirements/) a Aspose.Slides csomaghoz, és ellenőrizze az eredményt a cél EMF‑fogyasztó alkalmazásban. A Linux és macOS alkalmazások gyakran korlátozott vagy eltérő támogatással rendelkeznek a Windows metafájlok megjelenítésére és szerkesztésére.
+
+## **Színes Emoji renderelés**
+
+{{% alert title="Megjegyzés" color="info" %}}
+A színes emoji‑k helyes rendereléséhez a bemutatóban használt emoji betűkészleteknek telepítve és elérhetőeknek kell lenniük azon a rendszeren, amely a konvertálást végzi. Például, ha a bemutató **Segoe UI Emoji** betűtípust használ, és ez hiányzik, az emojik monokrómként jelenhetnek meg a kimeneti képeken.
 {{% /alert %}}
 
 ## **GYIK**
 
 **Támogatja az Aspose.Slides a diák animációval történő renderelését?**
 
-Nem, a `GetImage` metódus csak a dia statikus képét menti, animációk nélkül.
+Nem. A [GetImage](https://reference.aspose.com/slides/hu/net/aspose.slides/islide/getimage/) metódus a dia statikus képét rendereli, és nem exportál animációkat.
 
-**Exportálhatók rejtett diák képként?**
+**Exportálhatók a rejtett diák képek formájában?**
 
-Igen, a rejtett diák is feldolgozhatók, mint a normál diák. Csak győződjön meg róla, hogy szerepelnek a feldolgozási ciklusban.
+Igen. A rejtett diák hasonlóan renderelhetők, mint a normál diák. Tartalmazza őket a feldolgozási ciklusban, ahogy az előző példában is látható.
 
-**Menthetők a képek árnyékokkal és egyéb hatásokkal?**
+**Megmaradnak-e az árnyékok és egyéb effektusok a diaképeken?**
 
-Igen, az Aspose.Slides támogatja az árnyékok, átlátszóság és egyéb grafikai hatások renderelését a diák képként való mentésekor.
+Igen. Az Aspose.Slides az árnyékokat, átlátszóságot és egyéb támogatott grafikai effektusokat a diaképeken megjeleníti.

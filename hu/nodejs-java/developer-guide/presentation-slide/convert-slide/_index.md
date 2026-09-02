@@ -1,17 +1,18 @@
 ---
-title: Prezentációs diák konvertálása képekké JavaScriptben
+title: Prezentációs diák képekké konvertálása JavaScriptben
 linktitle: Dia képpé
 type: docs
 weight: 35
 url: /hu/nodejs-java/convert-slide/
-keywords: 
+keywords:
 - dia konvertálása
 - dia exportálása
 - dia képpé
 - dia mentése képként
+- dia EMF-be
 - dia PNG-be
 - dia JPEG-be
-- dia bitmapbe
+- dia bitmapként
 - dia TIFF-be
 - PowerPoint
 - OpenDocument
@@ -19,34 +20,36 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Konvertálja a PPT, PPTX és ODP diákat képekké JavaScriptben az Aspose.Slides for Node.js via Java használatával – gyors, magas minőségű renderelés világos kódrészletekkel."
+description: "Konvertálja a PPT, PPTX és ODP prezentációk diáját PNG, JPEG, GIF, TIFF, EMF és egyéb képtípusokra JavaScriptben az Aspose.Slides segítségével."
 ---
 ## **Bevezetés**
 
-Az Aspose.Slides for Node.js via Java lehetővé teszi, hogy könnyedén konvertálja a PowerPoint és OpenDocument bemutatódiákat különféle képformátumokká, például BMP, PNG, JPG (JPEG), GIF és mások.
+Az Aspose.Slides for Node.js via Java képes egyedi diák renderelésére PowerPoint és OpenDocument prezentációkból PNG, JPEG, GIF, TIFF és más képtípusok formájában.
 
-A dia képbe konvertálásához kövesse az alábbi lépéseket:
+A dia képbe történő konvertálásához kövesse az alábbi lépéseket:
 
-1. Határozza meg a kívánt konverziós beállításokat, és válassza ki a exportálni kívánt diákat az alábbiak használatával:
-    - A [TiffOptions](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/tiffoptions/) osztályt, vagy
-    - A [RenderingOptions](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/renderingoptions/) osztályt.
-2. Generálja a dia képet a [getImage](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/slide/#getImage) metódus meghívásával.
+1. Töltse be a prezentációt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/) osztállyal.
+2. Válassza ki a renderelni kívánt diát.
+3. Szükség esetén állítsa be a renderelést a [RenderingOptions](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/renderingoptions/) vagy a [TiffOptions](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/tiffoptions/) osztállyal.
+4. Hívja meg a [Slide.getImage](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/slide/#getImage) metódust. Ez egy [IImage](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/iimage/) objektumot ad vissza.
+5. Hívja meg az [IImage.save](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/iimage/#save) metódust, és az [ImageFormat](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/imageformat/) értékkel adja meg a kimeneti formátumot.
 
-Az Aspose.Slides for Node.js via Java-ban az [IImage](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/iimage/) egy olyan osztály, amely lehetővé teszi a pixelek alapján definiált képek kezelését. Ezzel az osztállyal különféle formátumokban (BMP, JPG, PNG stb.) menthet képeket.
+## **Dia konvertálása PNG képpé**
 
-## **Diák konvertálása bitmapre és a képek mentése PNG formátumban**
+A legegyszerűbb konvertálás az alapértelmezett renderelési beállításokat használja. A kapott [IImage](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/iimage/) objektum feldolgozható memóriában vagy menthető fájlba.
 
-Átalakíthat egy diát bitmap objektummá, és közvetlenül felhasználhatja alkalmazásában. Alternatívaként konvertálhatja a diát bitmapre, majd elmentheti JPEG vagy bármely más kívánt formátumban.
+Az alábbi JavaScript példa rendereli az első diát, és PNG képként menti:
 
-Ez a JavaScript kód bemutatja, hogyan konvertálja egy bemutató első diáját bitmap objektummá, majd menti PNG formátumban:
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
 
-```js
-let presentation = new aspose.slides.Presentation("Presentation.pptx");
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // Konvertálja a bemutató első diáját bitmapre.
-    let image = presentation.getSlides().get_Item(0).getImage();
+    const slide = presentation.getSlides().get_Item(0);
+
+    const image = slide.getImage();
     try {
-        // Mentse a képet PNG formátumban.
         image.save("Slide_0.png", aspose.slides.ImageFormat.Png);
     } finally {
         image.dispose();
@@ -56,21 +59,25 @@ try {
 }
 ```
 
-## **Diák konvertálása képekre egyedi méretekkel**
+## **Diák konvertálása képekké egyedi méretekkel**
 
-Előfordulhat, hogy egy adott méretű képre van szüksége. A [getImage](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/slide/#getImage) egyik túlterhelésével a diát olyan képpé alakíthatja, amelynek szélessége és magassága meg van határozva.
+Használja a [Slide.getImage](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/slide/#getImage) túlterhelést, amely egy `java.awt.Dimension` értéket fogad el, hogy a diát pontos képpontmérettel renderelje.
 
-Ez a minta kód demonstrálja, hogyan valósítható meg:
+Az alábbi példa egy 1820 × 1040 JPEG képet hoz létre:
 
-```js
-let imageSize = java.newInstanceSync("java.awt.Dimension", 1820, 1040);
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-let presentation = new aspose.slides.Presentation("Presentation.pptx");
+const imageSize = java.newInstanceSync("java.awt.Dimension", 1820, 1040);
+
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // Konvertálja a bemutató első diáját bitmapre a megadott mérettel.
-    let image = presentation.getSlides().get_Item(0).getImage(imageSize);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const image = slide.getImage(imageSize);
     try {
-        // Mentse a képet JPEG formátumban.
         image.save("Slide_0.jpg", aspose.slides.ImageFormat.Jpeg);
     } finally {
         image.dispose();
@@ -82,35 +89,35 @@ try {
 
 ## **Diák konvertálása képekké megjegyzésekkel és kommentárokkal**
 
-Egyes diák tartalmazhatnak megjegyzéseket és kommentárokat.
+Alapértelmezés szerint a diaképek nem tartalmazzák a megjegyzéseket vagy a kommentárokat. Adjon át egy [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/notescommentslayoutingoptions/) objektumot a [RenderingOptions.setSlidesLayoutOptions](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/renderingoptions/#setSlidesLayoutOptions) metódusnak, hogy meghatározza, hol jelenjenek meg a jegyzetek és a kommentárok.
 
-Az Aspose.Slides két osztályt kínál – a [TiffOptions](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/tiffoptions/) és a [RenderingOptions](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/renderingoptions/) – amelyekkel szabályozható a prezentációs diák képekké renderelése. Mindkét osztály tartalmazza a `setSlidesLayoutOptions` metódust, amely lehetővé teszi a megjegyzések és kommentárok renderelésének konfigurálását a diáról kép készítésekor.
+Az alábbi példa a csonkított jegyzeteket a dia alá, a kommentárokat pedig jobbra helyezi:
 
-A [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/notescommentslayoutingoptions/) osztállyal megadhatja a kívánt pozíciót a megjegyzések és kommentárok számára a létrejött képen.
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-Ez a JavaScript kód bemutatja, hogyan konvertáljon egy diát megjegyzésekkel és kommentárokkal:
-
-```js
 const scaleX = 2;
 const scaleY = scaleX;
 
-// Load a presentation file.
-let presentation = new aspose.slides.Presentation("Presentation_with_notes_and_comments.pptx");
-try {
-    let notesCommentsOptions = new aspose.slides.NotesCommentsLayoutingOptions();
-    notesCommentsOptions.setNotesPosition(aspose.slides.NotesPositions.BottomTruncated);                  // Állítsa be a jegyzetek pozícióját.
-    notesCommentsOptions.setCommentsPosition(aspose.slides.CommentsPositions.Right);                      // Állítsa be a kommentárok pozícióját.
-    notesCommentsOptions.setCommentsAreaWidth(500);                                                       // Állítsa be a kommentár terület szélességét.
-    notesCommentsOptions.setCommentsAreaColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));  // Állítsa be a kommentár terület színét.
+const commentsAreaColor = java.newInstanceSync("java.awt.Color", 250, 235, 215);
 
-    // Hozza létre a renderelési beállításokat.
-    let options = new aspose.slides.RenderingOptions();
-    options.setSlidesLayoutOptions(notesCommentsOptions);
- 
-    // Konvertálja a bemutató első diáját képpé.
-    let image = presentation.getSlides().get_Item(0).getImage(options, scaleX, scaleY);
+const layoutOptions = new aspose.slides.NotesCommentsLayoutingOptions();
+layoutOptions.setNotesPosition(aspose.slides.NotesPositions.BottomTruncated);
+layoutOptions.setCommentsPosition(aspose.slides.CommentsPositions.Right);
+layoutOptions.setCommentsAreaWidth(500);
+layoutOptions.setCommentsAreaColor(commentsAreaColor);
+
+const renderingOptions = new aspose.slides.RenderingOptions();
+renderingOptions.setSlidesLayoutOptions(layoutOptions);
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const image = slide.getImage(renderingOptions, scaleX, scaleY);
     try {
-        // Mentse a képet GIF formátumban.
         image.save("Image_with_notes_and_comments_0.gif", aspose.slides.ImageFormat.Gif);
     } finally {
         image.dispose();
@@ -120,36 +127,34 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
+{{% alert title="Warning" color="warning" %}}
+Dia-képre konvertálás során ne adja át a [BottomFull](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/notespositions/) értéket a [NotesCommentsLayoutingOptions.setNotesPosition](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) metódusnak. A jegyzetek több szöveget is tartalmazhatnak, mint amit a fix képméret befogad. Ehelyett használja a [BottomTruncated](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/notespositions/) értéket.
+{{% /alert %}}
 
-Bármely diát képre konvertáló folyamatban a [setNotesPosition](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) metódus nem alkalmazhatja a `BottomFull` beállítást (a megjegyzés pozíciójának meghatározásához), mivel a megjegyzés szövege túl nagy lehet, és nem fér el a megadott képméreten.
+## **Diák konvertálása képekké TIFF beállítások használatával**
 
-{{% /alert %}} 
+A [TiffOptions](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/tiffoptions/) osztály lehetővé teszi a renderelt TIFF kép méretének, felbontásának és egyéb jellemzőinek szabályozását.
 
-## **Diák konvertálása képekké TIFF opciók használatával**
+Az alábbi példa az első diát 2160 × 2880 TIFF képként, 300 DPI felbontással rendereli:
 
-A [TiffOptions](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/tiffoptions/) osztály nagyobb kontrollt biztosít a kimeneti TIFF kép felett, lehetővé téve a méret, felbontás, színpaletta és egyéb paraméterek megadását.
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-Ez a JavaScript kód bemutat egy olyan konverziós folyamatot, amely TIFF opciókat használ egy 300 DPI felbontású, fekete‑fehér képre 2160 × 2800 mérettel:
+const imageSize = java.newInstanceSync("java.awt.Dimension", 2160, 2880);
 
-```js
-// Töltse be a bemutató fájlt.
-let presentation = new aspose.slides.Presentation("sample.pptx");
+const tiffOptions = new aspose.slides.TiffOptions();
+tiffOptions.setImageSize(imageSize);
+tiffOptions.setDpiX(300);
+tiffOptions.setDpiY(300);
+
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // Szerezze be a bemutató első diáját.
-    let slide = presentation.getSlides().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
 
-    // Állítsa be a kimeneti TIFF kép beállításait.
-    let tiffOptions = new aspose.slides.TiffOptions();
-    tiffOptions.setImageSize(java.newInstanceSync("java.awt.Dimension", 2160, 2880));  // Állítsa be a kép méretét.
-    tiffOptions.setPixelFormat(aspose.slides.ImagePixelFormat.Format1bppIndexed);      // Állítsa be a pixelformátumot (fekete-fehér).
-    tiffOptions.setDpiX(300);                                                          // Állítsa be a vízszintes felbontást.
-    tiffOptions.setDpiY(300);                                                          // Állítsa be a függőleges felbontást.
-
-    // Konvertálja a diát képpé a megadott beállításokkal.
-    let image = slide.getImage(tiffOptions);
+    const image = slide.getImage(tiffOptions);
     try {
-        // Mentse a képet TIFF formátumban.
         image.save("output.tiff", aspose.slides.ImageFormat.Tiff);
     } finally {
         image.dispose();
@@ -159,36 +164,31 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-
-A Tiff támogatás nem garantált a JDK 9 előtti verziókban.
-
-{{% /alert %}} 
+{{% alert title="Warning" color="warning" %}}
+A TIFF támogatás nem garantált a JDK 9-nél korábbi Java verziókban.
+{{% /alert %}}
 
 ## **Az összes dia konvertálása képekké**
 
-Az Aspose.Slides lehetővé teszi, hogy egy bemutató összes diáját képekké konvertálja, ezáltal a teljes bemutatót sorozatként képekbe alakítva.
+Iteráljon a diákkollekción a teljes prezentáció képsorozattá konvertálásához. A rejtett diák is belekerülnek, hacsak kifejezetten nem hagyja ki őket.
 
-Ez a minta kód bemutatja, hogyan konvertálhatja egy bemutató összes diáját JavaScriptben képekké:
+Az alábbi példa minden diát JPEG képként renderel, vízszintes és függőleges méretezési tényezőkkel 2-vel:
 
-```js
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
 const scaleX = 2;
 const scaleY = scaleX;
 
-let presentation = new aspose.slides.Presentation("Presentation.pptx");
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // Renderelje a bemutatót diánként képekké.
-    for (let i = 0; i < presentation.getSlides().size(); i++) {
-        // Kezelje a rejtett diákat (ne renderelje a rejtett diákat).
-        if (presentation.getSlides().get_Item(i).getHidden()) {
-            continue;
-        }
-
-        // Konvertálja a diát képpé.
-        let image = presentation.getSlides().get_Item(i).getImage(scaleX, scaleY);
+    const slideCount = presentation.getSlides().size();
+    for (let index = 0; index < slideCount; index++) {
+        const slide = presentation.getSlides().get_Item(index);
+        const image = slide.getImage(scaleX, scaleY);
         try {
-            // Mentse a képet JPEG formátumban.
-            image.save("Slide_" + i + ".jpg", aspose.slides.ImageFormat.Jpeg);
+            image.save("Slide_" + index + ".jpg", aspose.slides.ImageFormat.Jpeg);
         } finally {
             image.dispose();
         }
@@ -198,22 +198,91 @@ try {
 }
 ```
 
+## **Enhanced Metafile kimenet létrehozása**
+
+Az Enhanced Metafile (EMF) akkor hasznos, ha vektoralapú grafikákat kell cserélni a Microsoft Office-szal vagy más Windows-alkalmazásokkal, amelyek támogatják a Windows metafájlokat. A pixel alapú képtől eltérően egy EMF megőrizheti a vektoros rajzolási műveleteket, amelyek méretezve a tisztaságot nem veszíti el. Az EMF azonban elsősorban a Windows metafájlokat támogató alkalmazások kompatibilitási formátuma, nem univerzális csereformátum. Továbbá a komplex diáktartalom, például bitmap képek és egyes hatások, raszterelemként tárolhatók a vektoros metafájl konténerben.
+
+### **Dia exportálása EMF-be**
+
+A [Slide.writeAsEmf](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/slide/#writeAsEmf) metódus egy diát ír egy célnyújtóba EMF formátumban. Az alábbi példa betölt egy prezentációt, kiválasztja az első diát, és egy EMF fájl streambe írja:
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const emfStream = java.newInstanceSync("java.io.FileOutputStream", "Slide_0.emf");
+    try {
+        slide.writeAsEmf(emfStream);
+    } finally {
+        emfStream.close();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+A hívó sajátja a [Slide.writeAsEmf](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/slide/#writeAsEmf) metódusnak átadott streamet, és felelős a lezárásáért, ahogy fentebb látható.
+
+### **SVG képet konvertálni EMF-be és hozzáadni egy prezentációhoz**
+
+Használja a [SvgImage.writeAsEmf](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/svgimage/#writeAsEmf) metódust az SVG tartalom EMF-be konvertálásához. A kapott bájtok hozzáadhatók a prezentációhoz a [ImageCollection.addImage](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/imagecollection/#addImage) segítségével, és egy diára helyezhetők a [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shapecollection/#addPictureFrame) segítségével.
+
+Az alábbi példa létrehoz egy [SvgImage](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/svgimage/) objektumot SVG markupból, memóriában EMF-re konvertálja, beilleszti a metafájlt az első diára, és menti a prezentációt:
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const svgContent = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"100\"><rect width=\"200\" height=\"100\" fill=\"#4472C4\"/></svg>";
+const svgImage = new aspose.slides.SvgImage(svgContent);
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const emfStream = java.newInstanceSync("java.io.ByteArrayOutputStream");
+    try {
+        svgImage.writeAsEmf(emfStream);
+
+        const emfData = java.newArray("byte", Array.from(emfStream.toByteArray()));
+        const image = presentation.getImages().addImage(emfData);
+        slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 200, 100, image);
+    } finally {
+        emfStream.close();
+    }
+
+    presentation.save("Presentation_with_emf.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+[SvgImage.writeAsEmf](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/svgimage/#writeAsEmf) nem veszi át a cél stream tulajdonjogát. A `java.io.ByteArrayOutputStream` az összes előállított adatot memóriában tárolja, így a `toByteArray` hívása előtt nincs szükség a pozíció visszaállítására. A visszaadott bájt tömb érvényes marad a stream lezárása után.
+
+Az EMF generálás elérhető az Aspose.Slides for Node.js via Java és a JDK beállítások által támogatott operációs rendszereken, de a renderelés platformonként eltérhet, ha betűtípusok vagy grafikus függőségek nem állnak rendelkezésre. Telepítse a forrás tartalom által használt betűtípusokat vagy állítson be megfelelő helyettesítéseket, kövesse a [platform követelményeket](/slides/hu/nodejs-java/system-requirements/) az Aspose.Slides for Node.js via Java számára, és ellenőrizze az eredményt a cél EMF-fogyasztó alkalmazásban. A Linux és macOS alkalmazások gyakran korlátozott vagy nem konzisztens támogatást nyújtanak a Windows metafájlok megjelenítésére és szerkesztésére.
+
 ## **Színes Emoji renderelés**
 
-{{% alert title="Note" color="warning" %}} 
-A színes emoji-k helyes rendereléséhez a prezentációból kerülő konvertálás során a rendszernek telepítve kell lennie a prezentációban használt emoji betűkészleteknek. Például, ha a bemutató **Segoe UI Emoji** betűkészletet használ, és ez hiányzik, az emoji-k monokrómként jelenhetnek meg a kimeneti képeken.
+{{% alert title="Note" color="info" %}}
+Ahhoz, hogy a színes emoji-k helyesen jelenjenek meg a prezentációs diák képpé konvertálásakor, a prezentációban használt emoji betűtípusoknak telepítve kell lenniük és elérhetőknek kell lenniük a konvertálást végző rendszerben. Például, ha a prezentáció **Segoe UI Emoji** betűtípust használ, és ez hiányzik, akkor az emoji-k monokrómként jelenhetnek meg a kimeneti képeken.
 {{% /alert %}}
 
-## **GYIK**
+## **FAQ**
 
-**Támogatja-e az Aspose.Slides a diák animációval való renderelését?**
+**Támogatja-e az Aspose.Slides az animációval rendelkező diák renderelését?**
 
-Nem, a `getImage` metódus csak a dia statikus képét menti, animációk nélkül.
+Nem. A [Slide.getImage](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/slide/#getImage) metódus egy statikus képet renderel a diáról, és nem exportálja az animációkat.
 
-**Exportálhatóak-e a rejtett diák képként?**
+**Exportálhatók-e a rejtett diák képek formájában?**
 
-Igen, a rejtett diák is feldolgozható ugyanúgy, mint a normál diák. Ügyeljen arra, hogy a feldolgozási ciklusban szerepeljenek.
+Igen. A rejtett diák úgy renderelhetők, mint a normál diák. Vegye fel őket a feldolgozási ciklusba, ahogy a fenti példában látható.
 
-**Menthetők-e a képek árnyékokkal és hatásokkal?**
+**Megmaradnak-e az árnyékok és egyéb hatások a diaképeken?**
 
-Igen, az Aspose.Slides támogatja az árnyékok, átlátszóság és egyéb grafikai hatások renderelését a diák képként történő mentésekor.
+Igen. Az Aspose.Slides árnyékokat, átlátszóságot és egyéb, a képekben támogatott grafikai hatásokat renderel.

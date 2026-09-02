@@ -9,6 +9,7 @@ keywords:
 - dia exporteren
 - dia naar afbeelding
 - dia opslaan als afbeelding
+- dia naar EMF
 - dia naar PNG
 - dia naar JPEG
 - dia naar bitmap
@@ -19,179 +20,204 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Dia's converteren van PPT, PPTX en ODP naar afbeeldingen in C# met Aspose.Slides voor .NET—snelle, hoogwaardige weergave met heldere code‑voorbeelden."
+description: "Converteer dia's van PPT-, PPTX- en ODP-presentaties naar PNG, JPEG, GIF, TIFF, EMF en andere afbeeldingsformaten in C# met Aspose.Slides voor .NET."
 ---
-## **Inleiding**
+## **Introductie**
 
-Aspose.Slides for .NET stelt u in staat om eenvoudig PowerPoint- en OpenDocument-presentatiedia's te converteren naar verschillende beeldformaten, waaronder BMP, PNG, JPG (JPEG), GIF en andere.
+Aspose.Slides for .NET kan individuele dia's renderen vanuit PowerPoint- en OpenDocument-presentaties als PNG, JPEG, GIF, TIFF en andere afbeeldingsformaten.
 
-Om een dia naar een afbeelding te converteren, volgt u deze stappen:
+Om een dia om te zetten in een afbeelding, volg u deze stappen:
 
-1. Definieer de gewenste conversie‑instellingen en selecteer de dia's die u wilt exporteren met behulp van:
-    - De [ITiffOptions](https://reference.aspose.com/slides/nl/net/aspose.slides.export/itiffoptions/) interface, of
-    - De [IRenderingOptions](https://reference.aspose.com/slides/nl/net/aspose.slides.export/irenderingoptions/) interface.
-2. Genereer de dia‑afbeelding door de [GetImage](https://reference.aspose.com/slides/nl/net/aspose.slides/islide/getimage/) methode aan te roepen.
+1. Laad de presentatie met de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/) klasse.
+2. Selecteer de dia die u wilt renderen.
+3. Indien nodig, configureer de rendering met de [RenderingOptions](https://reference.aspose.com/slides/nl/net/aspose.slides.export/renderingoptions/) of [TiffOptions](https://reference.aspose.com/slides/nl/net/aspose.slides.export/tiffoptions/) klasse.
+4. Roep de [GetImage](https://reference.aspose.com/slides/nl/net/aspose.slides/islide/getimage/) methode aan. Deze retourneert een [IImage](https://reference.aspose.com/slides/nl/net/aspose.slides/iimage/) object.
+5. Roep de [IImage.Save](https://reference.aspose.com/slides/nl/net/aspose.slides/iimage/save/) methode aan en specificeer het uitvoerformaat met een [ImageFormat](https://reference.aspose.com/slides/nl/net/aspose.slides/imageformat/) waarde.
 
-In .NET is een [Bitmap](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.bitmap?view=net-5.0) een object dat u in staat stelt te werken met afbeeldingen gedefinieerd door pixelgegevens. U kunt een instantie van deze klasse gebruiken om afbeeldingen op te slaan in een breed scala aan formaten (BMP, JPG, PNG, enz.).
+## **Een dia omzetten naar een PNG-afbeelding**
 
-## **Dia's converteren naar Bitmaps en de afbeeldingen opslaan in PNG**
+De eenvoudigste conversie gebruikt de standaardrenderinginstellingen. Het resulterende [IImage](https://reference.aspose.com/slides/nl/net/aspose.slides/iimage/) object kan in het geheugen worden verwerkt of naar een bestand worden opgeslagen.
 
-U kunt een dia converteren naar een bitmap‑object en deze direct in uw applicatie gebruiken. Als alternatief kunt u een dia naar een bitmap converteren en vervolgens de afbeelding opslaan in JPEG of een ander gewenst formaat.
-
-Deze C#‑code laat zien hoe u de eerste dia van een presentatie converteert naar een bitmap‑object en vervolgens de afbeelding opslaat in PNG‑formaat:
-
-```cs
-using (Presentation presentation = new Presentation("Presentation.pptx"))
-{
-    // Converteer de eerste dia in de presentatie naar een bitmap.
-    using (IImage image = presentation.Slides[0].GetImage())
-    {
-        // Sla de afbeelding op in het PNG-formaat.
-        image.Save("Slide_0.png", ImageFormat.Png);
-    }
-}
-```
-
-## **Dia's converteren naar Afbeeldingen met Aangepaste Afmetingen**
-
-U heeft mogelijk een afbeelding van een bepaalde grootte nodig. Met een overload van de [GetImage](https://reference.aspose.com/slides/nl/net/aspose.slides/islide/getimage/) kunt u een dia converteren naar een afbeelding met specifieke afmetingen (breedte en hoogte).
-
-Deze voorbeeldcode toont hoe u dit doet:
+Het volgende C#-voorbeeld rendert de eerste dia en slaat deze op als een PNG-afbeelding:
 
 ```cs
-Size imageSize = new Size(1820, 1040);
+using Aspose.Slides;
 
-using (Presentation presentation = new Presentation("Presentation.pptx"))
-{
-    // Converteer de eerste dia in de presentatie naar een bitmap met de opgegeven grootte.
-    using (IImage image = presentation.Slides[0].GetImage(imageSize))
-    {
-        // Sla de afbeelding op in het JPEG-formaat.
-        image.Save("Slide_0.jpg", ImageFormat.Jpeg);
-    }
-}
+using var presentation = new Presentation("Presentation.pptx");
+var slide = presentation.Slides[0];
+
+using var image = slide.GetImage();
+image.Save("Slide_0.png", ImageFormat.Png);
 ```
 
-## **Dia's met Notities en Opmerkingen naar Afbeeldingen converteren**
+## **Dia's omzetten naar afbeeldingen met aangepaste afmetingen**
 
-Sommige dia's kunnen notities en opmerkingen bevatten.
+Gebruik de overload van [GetImage](https://reference.aspose.com/slides/nl/net/aspose.slides/islide/getimage/) die een [Size](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.size) waarde accepteert om een dia te renderen met exacte pixelafmetingen.
 
-Aspose.Slides biedt twee interfaces—[ITiffOptions](https://reference.aspose.com/slides/nl/net/aspose.slides.export/itiffoptions/) en [IRenderingOptions](https://reference.aspose.com/slides/nl/net/aspose.slides.export/irenderingoptions/)—die u in staat stellen de weergave van presentatiedia's naar afbeeldingen te regelen. Beide interfaces bevatten de eigenschap `SlidesLayoutOptions`, waarmee u de weergave van notities en opmerkingen op een dia kunt configureren bij het omzetten naar een afbeelding.
-
-Met de klasse [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/nl/net/aspose.slides.export/notescommentslayoutingoptions/) kunt u de gewenste positie van notities en opmerkingen in de resulterende afbeelding opgeven.
-
-Deze C#‑code laat zien hoe u een dia met notities en opmerkingen converteert:
+Het volgende voorbeeld maakt een JPEG-afbeelding van 1820 × 1040 pixels:
 
 ```cs
-float scaleX = 2;
-float scaleY = scaleX;
+using System.Drawing;
+using Aspose.Slides;
 
-// Laad een presentatiebestand.
-using (Presentation presentation = new Presentation("Presentation_with_notes_and_comments.pptx"))
-{
-    // Maak de renderopties aan.
-    RenderingOptions options = new RenderingOptions
-    {
-        SlidesLayoutOptions = new NotesCommentsLayoutingOptions
-        {
-            NotesPosition = NotesPositions.BottomTruncated,  // Stel de positie van de notities in.
-            CommentsPosition = CommentsPositions.Right,      // Stel de positie van de opmerkingen in.
-            CommentsAreaWidth = 500,                         // Stel de breedte van het opmerkingengebied in.
-            CommentsAreaColor = Color.AntiqueWhite           // Stel de kleur van het opmerkingengebied in.
-        }
-    };
+var imageSize = new Size(1820, 1040);
 
-    // Converteer de eerste dia van de presentatie naar een afbeelding.
-    using (IImage image = presentation.Slides[0].GetImage(options, scaleX, scaleY))
-    {
-        // Sla de afbeelding op in GIF-formaat.
-        image.Save("Image_with_notes_and_comments_0.gif", ImageFormat.Gif);
-    }
-}
+using var presentation = new Presentation("Presentation.pptx");
+var slide = presentation.Slides[0];
+
+using var image = slide.GetImage(imageSize);
+image.Save("Slide_0.jpg", ImageFormat.Jpeg);
 ```
 
-{{% alert title="Opmerking" color="warning" %}} 
+## **Dia's met notities en commentaren omzetten naar afbeeldingen**
 
-In elk dia-naar-afbeelding conversieproces kan de eigenschap [NotesPosition](https://reference.aspose.com/slides/nl/net/aspose.slides.export/inotescommentslayoutingoptions/notesposition/) niet worden ingesteld op `BottomFull` (om de positie van notities op te geven) omdat de tekst van een notitie te groot kan zijn, waardoor deze niet in de gespecificeerde afbeeldingsgrootte past.
+Standaard bevatten dia-afbeeldingen geen notities of commentaren. Wijs een [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/nl/net/aspose.slides.export/notescommentslayoutingoptions/) object toe aan de eigenschap [RenderingOptions.SlidesLayoutOptions](https://reference.aspose.com/slides/nl/net/aspose.slides.export/renderingoptions/slideslayoutoptions/) om te bepalen waar notities en commentaren verschijnen.
 
-{{% /alert %}} 
-
-## **Dia's converteren naar Afbeeldingen met TIFF‑opties**
-
-De [ITiffOptions](https://reference.aspose.com/slides/nl/net/aspose.slides.export/itiffoptions/) interface biedt meer controle over de resulterende TIFF‑afbeelding door u parameters zoals grootte, resolutie, kleurenpalet en meer te kunnen specificeren.
-
-Deze C#‑code toont een conversieproces waarbij TIFF‑opties worden gebruikt om een zwart‑wit afbeelding te genereren met een resolutie van 300 DPI en een grootte van 2160 × 2800:
+Het volgende voorbeeld plaatst afgekorte notities onder de dia en commentaren rechts ervan:
 
 ```cs
-// Laad een presentatiebestand.
-using (Presentation presentation = new Presentation("sample.pptx"))
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var scaleX = 2f;
+var scaleY = scaleX;
+
+var layoutOptions = new NotesCommentsLayoutingOptions
 {
-    // Haal de eerste dia uit de presentatie.
-    ISlide slide = presentation.Slides[0];
+    NotesPosition = NotesPositions.BottomTruncated,
+    CommentsPosition = CommentsPositions.Right,
+    CommentsAreaWidth = 500,
+    CommentsAreaColor = Color.AntiqueWhite
+};
 
-    // Configureer de instellingen van de uitvoer TIFF-afbeelding.
-    TiffOptions tiffOptions = new TiffOptions
-    {
-        ImageSize = new Size(2160, 2880),                  // Stel de afbeeldinggrootte in.
-        PixelFormat = ImagePixelFormat.Format1bppIndexed,  // Stel het pixelformaat in (zwart-wit).
-        DpiX = 300,                                        // Stel de horizontale resolutie in.
-        DpiY = 300                                         // Stel de verticale resolutie in.
-    };
+var renderingOptions = new RenderingOptions { SlidesLayoutOptions = layoutOptions };
 
-    // Converteer de dia naar een afbeelding met de opgegeven opties.
-    using (IImage image = slide.GetImage(tiffOptions))
-    {
-        // Sla de afbeelding op in TIFF-formaat.
-        image.Save("output.tiff", ImageFormat.Tiff);
-    }
-}
+using var presentation = new Presentation("Presentation_with_notes_and_comments.pptx");
+var slide = presentation.Slides[0];
+
+using var image = slide.GetImage(renderingOptions, scaleX, scaleY);
+image.Save("Image_with_notes_and_comments_0.gif", ImageFormat.Gif);
 ```
 
-## **Alle dia's naar Afbeeldingen converteren**
-
-Aspose.Slides stelt u in staat om alle dia's in een presentatie naar afbeeldingen te converteren, waardoor de volledige presentatie werd omgezet in een reeks afbeeldingen.
-
-Deze voorbeeldcode laat zien hoe u alle dia's in een presentatie naar afbeeldingen converteert in C#:
-
-```cs
-float scaleX = 2;
-float scaleY = scaleX;
-
-using (Presentation presentation = new Presentation("Presentation.pptx"))
-{
-    // Render de presentatie naar afbeeldingen dia voor dia.
-    for (int i = 0; i < presentation.Slides.Count; i++)
-    {
-        // Beheer verborgen dia's (render geen verborgen dia's).
-        if (presentation.Slides[i].Hidden)
-            continue;
-
-        // Converteer de dia naar een afbeelding.
-        using (IImage image = presentation.Slides[i].GetImage(scaleX, scaleY))
-        {
-            // Sla de afbeelding op in JPEG-formaat.
-            image.Save($"Slide_{i}.jpg", ImageFormat.Jpeg);
-        }
-    }
-}
-```
-
-## **Kleur‑emoji weergave**
-
-{{% alert title="Opmerking" color="warning" %}} 
-Om kleur‑emoji’s correct weer te geven bij het converteren van presentatiedia's naar afbeeldingen, moeten de emoji‑lettertypen die in de presentatie worden gebruikt geïnstalleerd en beschikbaar zijn op het systeem dat de conversie uitvoert. Bijvoorbeeld, als de presentatie **Segoe UI Emoji** gebruikt en dit lettertype ontbreekt, kunnen emoji’s in monochroom verschijnen in de gegenereerde afbeeldingen.
+{{% alert title="Warning" color="warning" %}}
+Voor dia-naar-afbeelding conversie mag de eigenschap [NotesPosition](https://reference.aspose.com/slides/nl/net/aspose.slides.export/inotescommentslayoutingoptions/notesposition/) niet worden ingesteld op [BottomFull](https://reference.aspose.com/slides/nl/net/aspose.slides.export/notespositions/). Notities kunnen meer tekst bevatten dan de vaste afbeeldingsgrootte kan bevatten. Gebruik in plaats daarvan [BottomTruncated](https://reference.aspose.com/slides/nl/net/aspose.slides.export/notespositions/).
 {{% /alert %}}
 
-## **Veelgestelde vragen**
+## **Dia's omzetten naar afbeeldingen met TIFF-opties**
 
-**Ondersteunt Aspose.Slides het weergeven van dia's met animaties?**
+De [TiffOptions](https://reference.aspose.com/slides/nl/net/aspose.slides.export/tiffoptions/) klasse stelt u in staat de grootte, resolutie en andere eigenschappen van de gerenderde TIFF-afbeelding te regelen.
 
-Nee, de `GetImage`‑methode slaat alleen een statische afbeelding van de dia op, zonder animaties.
+Het volgende voorbeeld rendert de eerste dia als een TIFF-afbeelding van 2160 × 2880 pixels bij 300 DPI:
 
-**Kunnen verborgen dia's als afbeeldingen worden geëxporteerd?**
+```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-Ja, verborgen dia's kunnen net als normale dia's worden verwerkt. Zorg er alleen voor dat ze zijn opgenomen in de verwerkingslus.
+var tiffOptions = new TiffOptions
+{
+    ImageSize = new Size(2160, 2880),
+    DpiX = 300,
+    DpiY = 300
+};
 
-**Kunnen afbeeldingen worden opgeslagen met schaduwen en effecten?**
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
 
-Ja, Aspose.Slides ondersteunt het renderen van schaduwen, transparantie en andere grafische effecten bij het opslaan van dia's als afbeeldingen.
+using var image = slide.GetImage(tiffOptions);
+image.Save("output.tiff", ImageFormat.Tiff);
+```
+
+## **Alle dia's omzetten naar afbeeldingen**
+
+Itereer door de dia-collectie om de gehele presentatie om te zetten in een reeks afbeeldingen. Verborgen dia's worden opgenomen tenzij u ze expliciet overslaat.
+
+Het volgende voorbeeld rendert elke dia als een JPEG-afbeelding met een horizontale en verticale schaalfactor van 2:
+
+```cs
+using Aspose.Slides;
+
+var scaleX = 2f;
+var scaleY = scaleX;
+
+using var presentation = new Presentation("Presentation.pptx");
+
+var slideCount = presentation.Slides.Count;
+for (var index = 0; index < slideCount; index++)
+{
+    var slide = presentation.Slides[index];
+    using var image = slide.GetImage(scaleX, scaleY);
+    image.Save($"Slide_{index}.jpg", ImageFormat.Jpeg);
+}
+```
+
+## **Enhanced Metafile-uitvoer maken**
+
+Enhanced Metafile (EMF) is nuttig wanneer vectorgebaseerde grafieken moeten worden uitgewisseld met Microsoft Office of andere Windows-toepassingen die Windows-metabestanden ondersteunen. In tegenstelling tot een pixelgebaseerde afbeelding kan een EMF vectortekenoperaties behouden die schalen zonder hetzelfde verlies van scherpte. EMF is echter voornamelijk een compatibiliteitsformaat voor toepassingen met Windows-metabestandondersteuning, geen universeel uitwisselingsformaat. Bovendien kan complexe dia-inhoud, zoals bitmap-afbeeldingen en sommige effecten, worden opgeslagen als gerasterde elementen binnen de vector‑metabestand‑container.
+
+### **Een dia exporteren naar EMF**
+
+De [ISlide.WriteAsEmf](https://reference.aspose.com/slides/nl/net/aspose.slides/islide/writeasemf/) methode schrijft een [ISlide](https://reference.aspose.com/slides/nl/net/aspose.slides/islide/) naar een doelstream in EMF-formaat. Het volgende voorbeeld laadt een presentatie, selecteert de eerste dia en schrijft deze naar een EMF‑bestandstream:
+
+```cs
+using System.IO;
+using Aspose.Slides;
+
+using var presentation = new Presentation("Presentation.pptx");
+var slide = presentation.Slides[0];
+
+using var emfStream = File.Create("Slide_0.emf");
+slide.WriteAsEmf(emfStream);
+```
+
+De aanroeper bezit de stream die wordt doorgegeven aan [ISlide.WriteAsEmf](https://reference.aspose.com/slides/nl/net/aspose.slides/islide/writeasemf/) en moet deze sluiten of vrijgeven. Aspose.Slides schrijft op de huidige positie van de stream en laat de stream open.
+
+### **Een SVG-afbeelding naar EMF converteren en toevoegen aan een presentatie**
+
+Gebruik [ISvgImage.WriteAsEmf](https://reference.aspose.com/slides/nl/net/aspose.slides/isvgimage/writeasemf/) om SVG‑inhoud naar EMF te converteren. De resulterende bytes kunnen aan de presentatie worden toegevoegd via [IImageCollection.AddImage](https://reference.aspose.com/slides/nl/net/aspose.slides/iimagecollection/addimage/) en op een dia worden geplaatst met [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/nl/net/aspose.slides/ishapecollection/addpictureframe/).
+
+```cs
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var svgContent = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"100\"><rect width=\"200\" height=\"100\" fill=\"#4472C4\"/></svg>";
+var svgImage = new SvgImage(svgContent);
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+using var emfStream = new MemoryStream();
+svgImage.WriteAsEmf(emfStream);
+
+emfStream.Position = 0;
+var image = presentation.Images.AddImage(emfStream);
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 200, 100, image);
+
+presentation.Save("Presentation_with_emf.pptx", SaveFormat.Pptx);
+```
+
+[ISvgImage.WriteAsEmf](https://reference.aspose.com/slides/nl/net/aspose.slides/isvgimage/writeasemf/) neemt geen eigendom van de doel‑stream. Na het schrijven staat de stream‑positie aan het einde van de gegenereerde gegevens. Reset `Position` naar het begin voordat u dezelfde zoekbare stream aan een lezer doorgeeft, zoals hierboven getoond. Houd de stream open totdat de consument klaar is met lezen, en geef deze vervolgens vrij. U kunt ook `ToArray` aanroepen en de geretourneerde byte‑array doorgeven aan [IImageCollection.AddImage](https://reference.aspose.com/slides/nl/net/aspose.slides/iimagecollection/addimage/); `ToArray` retourneert de volledige buffer, ongeacht de huidige stream‑positie.
+
+EMF‑generatie is beschikbaar op de besturingssystemen die worden ondersteund door de geselecteerde Aspose.Slides for .NET‑build, maar rendering kan verschillen per platform wanneer lettertypen of native grafische afhankelijkheden niet beschikbaar zijn. Installeer de lettertypen die door de bron‑inhoud worden gebruikt of configureer geschikte substituties, volg de [platform requirements](/slides/nl/net/system-requirements/) voor uw Aspose.Slides‑pakket, en valideer het resultaat in de doel‑EMF‑consumerende toepassing. Linux‑ en macOS‑toepassingen hebben vaak beperkte of inconsistente ondersteuning voor het weergeven en bewerken van Windows‑metabestanden.
+
+## **Kleur‑emoji rendering**
+
+{{% alert title="Note" color="info" %}}
+Om kleur‑emoji’s correct weer te geven bij het converteren van presentatiedia’s naar afbeeldingen, moeten de emoji‑lettertypen die in de presentatie worden gebruikt, geïnstalleerd en beschikbaar zijn op het systeem dat de conversie uitvoert. Bijvoorbeeld, als de presentatie **Segoe UI Emoji** gebruikt en dit lettertype ontbreekt, kunnen emoji’s in monochroom verschijnen in de uitvoer‑afbeeldingen.
+{{% /alert %}}
+
+## **FAQ**
+
+**Ondersteunt Aspose.Slides het renderen van dia's met animaties?**
+
+Nee. De [GetImage](https://reference.aspose.com/slides/nl/net/aspose.slides/islide/getimage/) methode rendert een statische afbeelding van de dia en exporteert geen animaties.
+
+**Kunnen verborgen dia's geëxporteerd worden als afbeeldingen?**
+
+Ja. Verborgen dia's kunnen worden gerenderd zoals gewone dia's. Neem ze op in de verwerkingslus, zoals in het voorbeeld hierboven weergegeven.
+
+**Worden schaduwen en andere effecten behouden in dia‑afbeeldingen?**
+
+Ja. Aspose.Slides rendert schaduwen, transparantie en andere ondersteunde grafische effecten in dia‑afbeeldingen.

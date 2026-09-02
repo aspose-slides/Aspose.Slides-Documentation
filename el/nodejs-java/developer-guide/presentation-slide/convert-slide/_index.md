@@ -1,5 +1,5 @@
 ---
-title: Μετατροπή διαφανειών παρουσίασης σε εικόνες με JavaScript
+title: Μετατροπή διαφανειών παρουσίασης σε εικόνες σε JavaScript
 linktitle: Διαφάνεια σε εικόνα
 type: docs
 weight: 35
@@ -9,44 +9,47 @@ keywords:
 - εξαγωγή διαφάνειας
 - διαφάνεια σε εικόνα
 - αποθήκευση διαφάνειας ως εικόνα
+- διαφάνεια σε EMF
 - διαφάνεια σε PNG
 - διαφάνεια σε JPEG
 - διαφάνεια σε bitmap
 - διαφάνεια σε TIFF
 - PowerPoint
 - OpenDocument
-- παρουσίαση
+- presentation
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Μετατρέψτε διαφάνειες από PPT, PPTX και ODP σε εικόνες με JavaScript χρησιμοποιώντας Aspose.Slides για Node.js μέσω Java — γρήγορη, υψηλής ποιότητας απόδοση με σαφή παραδείγματα κώδικα."
+description: "Μετατρέψτε διαφάνειες από παρουσιάσεις PPT, PPTX και ODP σε PNG, JPEG, GIF, TIFF, EMF και άλλες μορφές εικόνας σε JavaScript με το Aspose.Slides."
 ---
 ## **Εισαγωγή**
 
-Το Aspose.Slides για Node.js μέσω Java σας επιτρέπει να μετατρέπετε εύκολα διαφάνειες παρουσιάσεων PowerPoint και OpenDocument σε διάφορες μορφές εικόνας, συμπεριλαμβανομένων BMP, PNG, JPG (JPEG), GIF και άλλων.
+Το Aspose.Slides for Node.js μέσω Java μπορεί να αποδώσει μεμονωμένες διαφάνειες από παρουσιάσεις PowerPoint και OpenDocument ως PNG, JPEG, GIF, TIFF και άλλες μορφές εικόνας.
 
-Για να μετατρέψετε μια διαφάνεια σε εικόνα, ακολουθήστε τα εξής βήματα:
+Για να μετατρέψετε μια διαφάνεια σε εικόνα, ακολουθήστε τα παρακάτω βήματα:
 
-1. Ορίστε τις επιθυμητές ρυθμίσεις μετατροπής και επιλέξτε τις διαφάνειες που θέλετε να εξάγετε χρησιμοποιώντας:
-    - Την κλάση [TiffOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/tiffoptions/) ή
-    - Την κλάση [RenderingOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/renderingoptions/) .
-2. Δημιουργήστε την εικόνα της διαφάνειας καλώντας τη μέθοδο [getImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/slide/#getImage).
+1. Φορτώστε την παρουσίαση με την κλάση [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/) .
+2. Επιλέξτε τη διαφάνεια που θέλετε να αποδώσετε.
+3. Εάν χρειάζεται, ρυθμίστε την απόδοση με την κλάση [RenderingOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/renderingoptions/) ή [TiffOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/tiffoptions/) .
+4. Καλέστε τη μέθοδο [Slide.getImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/slide/#getImage) . Επιστρέφει ένα αντικείμενο [IImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/iimage/) .
+5. Καλέστε τη μέθοδο [IImage.save](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/iimage/#save) και καθορίστε τη μορφή εξόδου με μια τιμή [ImageFormat](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/imageformat/) .
 
-Στο Aspose.Slides για Node.js μέσω Java, η [IImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/iimage/) είναι μια κλάση που σας επιτρέπει να εργάζεστε με εικόνες που ορίζονται από δεδομένα pixel. Μπορείτε να χρησιμοποιήσετε αυτήν την κλάση για να αποθηκεύετε εικόνες σε ευρύ φάσμα μορφών (BMP, JPG, PNG κλ.).
+## **Μετατροπή μιας διαφάνειας σε εικόνα PNG**
 
-## **Μετατροπή Διαφανειών σε Bitmap και Αποθήκευση των Εικόνων σε PNG**
+Η πιο απλή μετατροπή χρησιμοποιεί τις προεπιλεγμένες ρυθμίσεις απόδοσης. Το παραγόμενο αντικείμενο [IImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/iimage/) μπορεί να υποβληθεί σε επεξεργασία στη μνήμη ή να αποθηκευτεί σε αρχείο.
 
-Μπορείτε να μετατρέψετε μια διαφάνεια σε αντικείμενο bitmap και να το χρησιμοποιήσετε απευθείας στην εφαρμογή σας. Εναλλακτικά, μπορείτε να μετατρέψετε μια διαφάνεια σε bitmap και έπειτα να αποθηκεύσετε την εικόνα σε JPEG ή οποιαδήποτε άλλη προτιμώμενη μορφή.
+Το παρακάτω παράδειγμα JavaScript αποδίδει την πρώτη διαφάνεια και την αποθηκεύει ως εικόνα PNG:
 
-Αυτός ο κώδικας JavaScript δείχνει πώς να μετατρέψετε τη πρώτη διαφάνεια μιας παρουσίασης σε αντικείμενο bitmap και στη συνέχεια να αποθηκεύσετε την εικόνα σε μορφή PNG:
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
 
-```js
-let presentation = new aspose.slides.Presentation("Presentation.pptx");
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // Μετατρέψτε την πρώτη διαφάνεια της παρουσίασης σε bitmap.
-    let image = presentation.getSlides().get_Item(0).getImage();
+    const slide = presentation.getSlides().get_Item(0);
+
+    const image = slide.getImage();
     try {
-        // Αποθηκεύστε την εικόνα σε μορφή PNG.
         image.save("Slide_0.png", aspose.slides.ImageFormat.Png);
     } finally {
         image.dispose();
@@ -56,21 +59,25 @@ try {
 }
 ```
 
-## **Μετατροπή Διαφανειών σε Εικόνες με Προσαρμοσμένα Μεγέθη**
+## **Μετατροπή διαφανειών σε εικόνες με προσαρμοσμένα μεγέθη**
 
-Ίσως χρειαστεί να πάρετε μια εικόνα με συγκεκριμένο μέγεθος. Χρησιμοποιώντας μια υπερφόρτωση της μεθόδου [getImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/slide/#getImage), μπορείτε να μετατρέψετε μια διαφάνεια σε εικόνα με καθορισμένες διαστάσεις (πλάτος και ύψος). 
+Χρησιμοποιήστε την υπερφόρτωση [Slide.getImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/slide/#getImage) που δέχεται μια τιμή `java.awt.Dimension` για να αποδώσετε μια διαφάνεια με ακριβείς διαστάσεις εικονοστοιχείων.
 
-Αυτός ο κώδικας παραδείγματος δείχνει πώς να το κάνετε:
+Το παρακάτω παράδειγμα δημιουργεί μια εικόνα JPEG 1820 × 1040:
 
-```js
-let imageSize = java.newInstanceSync("java.awt.Dimension", 1820, 1040);
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-let presentation = new aspose.slides.Presentation("Presentation.pptx");
+const imageSize = java.newInstanceSync("java.awt.Dimension", 1820, 1040);
+
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // Μετατρέψτε την πρώτη διαφάνεια της παρουσίασης σε bitmap με το καθορισμένο μέγεθος.
-    let image = presentation.getSlides().get_Item(0).getImage(imageSize);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const image = slide.getImage(imageSize);
     try {
-        // Αποθηκεύστε την εικόνα σε μορφή JPEG.
         image.save("Slide_0.jpg", aspose.slides.ImageFormat.Jpeg);
     } finally {
         image.dispose();
@@ -80,37 +87,37 @@ try {
 }
 ```
 
-## **Μετατροπή Διαφανειών με Σημειώσεις και Σχόλια σε Εικόνες**
+## **Μετατροπή διαφανειών με σημειώσεις και σχόλια σε εικόνες**
 
-Ορισμένες διαφάνειες μπορεί να περιέχουν σημειώσεις και σχόλια.
+Από προεπιλογή, οι εικόνες των διαφανειών δεν περιλαμβάνουν σημειώσεις ή σχόλια. Πέραστε ένα αντικείμενο [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/notescommentslayoutingoptions/) στη μέθοδο [RenderingOptions.setSlidesLayoutOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/renderingoptions/#setSlidesLayoutOptions) για να ελέγξετε πού εμφανίζονται οι σημειώσεις και τα σχόλια.
 
-Το Aspose.Slides παρέχει δύο κλάσεις—[TiffOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/tiffoptions/) και [RenderingOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/renderingoptions/)—που σας επιτρέπουν να ελέγχετε τη μετατροπή των διαφανειών παρουσίασης σε εικόνες. Και οι δύο κλάσεις περιλαμβάνουν τη μέθοδο `setSlidesLayoutOptions`, η οποία σας επιτρέπει να διαμορφώσετε τη μετατροπή των σημειώσεων και των σχολίων σε μια διαφάνεια κατά τη μετατροπή της σε εικόνα.
+Το παρακάτω παράδειγμα τοποθετεί περικομμένες σημειώσεις κάτω από τη διαφάνεια και σχόλια δεξιά της:
 
-Με την κλάση [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/notescommentslayoutingoptions/) μπορείτε να καθορίσετε την προτιμώμενη θέση των σημειώσεων και των σχολίων στην τελική εικόνα.
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-Αυτός ο κώδικας JavaScript δείχνει πώς να μετατρέψετε μια διαφάνεια με σημειώσεις και σχόλια:
-
-```js
 const scaleX = 2;
 const scaleY = scaleX;
 
-// Φορτώστε ένα αρχείο παρουσίασης.
-let presentation = new aspose.slides.Presentation("Presentation_with_notes_and_comments.pptx");
-try {
-    let notesCommentsOptions = new aspose.slides.NotesCommentsLayoutingOptions();
-    notesCommentsOptions.setNotesPosition(aspose.slides.NotesPositions.BottomTruncated);                  // Ορίστε τη θέση των σημειώσεων.
-    notesCommentsOptions.setCommentsPosition(aspose.slides.CommentsPositions.Right);                      // Ορίστε τη θέση των σχολίων.
-    notesCommentsOptions.setCommentsAreaWidth(500);                                                       // Ορίστε το πλάτος της περιοχής σχολίων.
-    notesCommentsOptions.setCommentsAreaColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));  // Ορίστε το χρώμα της περιοχής σχολίων.
+const commentsAreaColor = java.newInstanceSync("java.awt.Color", 250, 235, 215);
 
-    // Δημιουργήστε τις επιλογές απόδοσης.
-    let options = new aspose.slides.RenderingOptions();
-    options.setSlidesLayoutOptions(notesCommentsOptions);
- 
-    // Μετατρέψτε την πρώτη διαφάνεια της παρουσίασης σε εικόνα.
-    let image = presentation.getSlides().get_Item(0).getImage(options, scaleX, scaleY);
+const layoutOptions = new aspose.slides.NotesCommentsLayoutingOptions();
+layoutOptions.setNotesPosition(aspose.slides.NotesPositions.BottomTruncated);
+layoutOptions.setCommentsPosition(aspose.slides.CommentsPositions.Right);
+layoutOptions.setCommentsAreaWidth(500);
+layoutOptions.setCommentsAreaColor(commentsAreaColor);
+
+const renderingOptions = new aspose.slides.RenderingOptions();
+renderingOptions.setSlidesLayoutOptions(layoutOptions);
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const image = slide.getImage(renderingOptions, scaleX, scaleY);
     try {
-        // Αποθηκεύστε την εικόνα σε μορφή GIF.
         image.save("Image_with_notes_and_comments_0.gif", aspose.slides.ImageFormat.Gif);
     } finally {
         image.dispose();
@@ -120,34 +127,34 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-Σε οποιαδήποτε διαδικασία μετατροπής διαφάνειας σε εικόνα, η μέθοδος [setNotesPosition](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) δεν μπορεί να εφαρμόσει το `BottomFull` (για τον καθορισμό της θέσης των σημειώσεων) επειδή το κείμενο μιας σημείωσης μπορεί να είναι πολύ μεγάλο, καθιστώντας αδύνατη την τοποθέτησή του μέσα στο καθορισμένο μέγεθος εικόνας.
-{{% /alert %}} 
+{{% alert title="Warning" color="warning" %}}
+Για τη μετατροπή διαφάνειας-σε-εικόνα, μην περάσετε το [BottomFull](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/notespositions/) στη μέθοδο [NotesCommentsLayoutingOptions.setNotesPosition](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) . Οι σημειώσεις μπορεί να περιέχουν περισσότερο κείμενο από ό,τι μπορεί να φιλοξενήσει το σταθερό μέγεθος εικόνας. Χρησιμοποιήστε το [BottomTruncated](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/notespositions/) αντί αυτού.
+{{% /alert %}}
 
-## **Μετατροπή Διαφανειών σε Εικόνες Χρησιμοποιώντας TIFF Options**
+## **Μετατροπή διαφανειών σε εικόνες χρησιμοποιώντας επιλογές TIFF**
 
-Η κλάση [TiffOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/tiffoptions/) παρέχει μεγαλύτερο έλεγχο πάνω στην τελική εικόνα TIFF, επιτρέποντάς σας να ορίσετε παραμέτρους όπως μέγεθος, ανάλυση, χρωματική παλέτα και άλλα.
+Η κλάση [TiffOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/tiffoptions/) σας επιτρέπει να ελέγξετε το μέγεθος, την ανάλυση και άλλες ιδιότητες της αποδιδόμενης εικόνας TIFF.
 
-Αυτός ο κώδικας JavaScript δείχνει μια διαδικασία μετατροπής όπου οι επιλογές TIFF χρησιμοποιούνται για να παραχθεί μια ασπρόμαυρη εικόνα με ανάλυση 300 DPI και μέγεθος 2160 × 2800:
+Το παρακάτω παράδειγμα αποδίδει την πρώτη διαφάνεια ως εικόνα TIFF 2160 × 2880 σε 300 DPI:
 
-```js
-// Φορτώστε ένα αρχείο παρουσίασης.
-let presentation = new aspose.slides.Presentation("sample.pptx");
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const imageSize = java.newInstanceSync("java.awt.Dimension", 2160, 2880);
+
+const tiffOptions = new aspose.slides.TiffOptions();
+tiffOptions.setImageSize(imageSize);
+tiffOptions.setDpiX(300);
+tiffOptions.setDpiY(300);
+
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // Λάβετε την πρώτη διαφάνεια από την παρουσίαση.
-    let slide = presentation.getSlides().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
 
-    // Διαμορφώστε τις ρυθμίσεις της εξόδου εικόνας TIFF.
-    let tiffOptions = new aspose.slides.TiffOptions();
-    tiffOptions.setImageSize(java.newInstanceSync("java.awt.Dimension", 2160, 2880));  // Ορίστε το μέγεθος της εικόνας.
-    tiffOptions.setPixelFormat(aspose.slides.ImagePixelFormat.Format1bppIndexed);      // Ορίστε τη μορφή pixel (μαύρο και λευκό).
-    tiffOptions.setDpiX(300);                                                          // Ορίστε την οριζόντια ανάλυση.
-    tiffOptions.setDpiY(300);                                                          // Ορίστε την κάθετη ανάλυση.
-
-    // Μετατρέψτε τη διαφάνεια σε εικόνα με τις καθορισμένες επιλογές.
-    let image = slide.getImage(tiffOptions);
+    const image = slide.getImage(tiffOptions);
     try {
-        // Αποθηκεύστε την εικόνα σε μορφή TIFF.
         image.save("output.tiff", aspose.slides.ImageFormat.Tiff);
     } finally {
         image.dispose();
@@ -157,34 +164,31 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-Η υποστήριξη για TIFF δεν είναι εγγυημένη σε εκδόσεις παλαιότερες από το JDK 9.
-{{% /alert %}} 
+{{% alert title="Warning" color="warning" %}}
+Η υποστήριξη TIFF δεν είναι εγγυημένη σε εκδόσεις Java παλαιότερες από το JDK 9.
+{{% /alert %}}
 
-## **Μετατροπή Όλων των Διαφανειών σε Εικόνες**
+## **Μετατροπή όλων των διαφανειών σε εικόνες**
 
-Το Aspose.Slides σας επιτρέπει να μετατρέψετε όλες τις διαφάνειες μιας παρουσίασης σε εικόνες, μετατρέποντας ουσιαστικά ολόκληρη την παρουσίαση σε μια σειρά εικόνων.
+Διασχίστε τη συλλογή διαφανειών για να μετατρέψετε ολόκληρη την παρουσίαση σε σειρά εικόνων. Οι κρυμμένες διαφάνειες περιλαμβάνονται εκτός αν τις παραβλέψετε ρητά.
 
-Αυτός ο κώδικας παραδείγματος δείχνει πώς να μετατρέψετε όλες τις διαφάνειες μιας παρουσίασης σε εικόνες με JavaScript:
+Το παρακάτω παράδειγμα αποδίδει κάθε διαφάνεια ως εικόνα JPEG με οριζόντιους και κάθετους συντελεστές κλίμακας 2:
 
-```js
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
 const scaleX = 2;
 const scaleY = scaleX;
 
-let presentation = new aspose.slides.Presentation("Presentation.pptx");
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // Αποδώστε την παρουσίαση σε εικόνες διαφάνεια προς διαφάνεια.
-    for (let i = 0; i < presentation.getSlides().size(); i++) {
-        // Ελέγξτε τις κρυμμένες διαφάνειες (μην αποδίδετε κρυμμένες διαφάνειες).
-        if (presentation.getSlides().get_Item(i).getHidden()) {
-            continue;
-        }
-
-        // Μετατρέψτε τη διαφάνεια σε εικόνα.
-        let image = presentation.getSlides().get_Item(i).getImage(scaleX, scaleY);
+    const slideCount = presentation.getSlides().size();
+    for (let index = 0; index < slideCount; index++) {
+        const slide = presentation.getSlides().get_Item(index);
+        const image = slide.getImage(scaleX, scaleY);
         try {
-            // Αποθηκεύστε την εικόνα σε μορφή JPEG.
-            image.save("Slide_" + i + ".jpg", aspose.slides.ImageFormat.Jpeg);
+            image.save("Slide_" + index + ".jpg", aspose.slides.ImageFormat.Jpeg);
         } finally {
             image.dispose();
         }
@@ -194,22 +198,91 @@ try {
 }
 ```
 
-## **Απόδοση Χρωματιστών Emoji**
+## **Δημιουργία εξόδου Enhanced Metafile**
 
-{{% alert title="Note" color="warning" %}} 
-Για να αποδίδονται σωστά τα χρωματιστά emoji κατά τη μετατροπή των διαφανειών παρουσίασης σε εικόνες, οι γραμματοσειρές emoji που χρησιμοποιούνται στην παρουσίαση πρέπει να είναι εγκατεστημένες και διαθέσιμες στο σύστημα που εκτελεί τη μετατροπή. Για παράδειγμα, εάν η παρουσίαση χρησιμοποιεί τη γραμματοσειρά **Segoe UI Emoji** και αυτή λείπει, τα emoji μπορεί να εμφανίζονται μονόχρωμα στις εικόνες εξόδου.
+Το Enhanced Metafile (EMF) είναι χρήσιμο όταν χρειάζεται η ανταλλαγή διανυσματικών γραφικών με το Microsoft Office ή άλλες εφαρμογές Windows που υποστηρίζουν Windows metafiles. Σε αντίθεση με μια εικόνα βασισμένη σε εικονοστοιχεία, ένα EMF μπορεί να διατηρήσει τις διανυσματικές λειτουργίες σχεδίασης που κλιμακώνται χωρίς την ίδια απώλεια ευκρίνειας. Ωστόσο, το EMF είναι κυρίως μια μορφή συμβατότητας για εφαρμογές με υποστήριξη Windows metafile, όχι μια καθολική μορφή ανταλλαγής. Επιπλέον, πολύπλοκο περιεχόμενο διαφάνειας, όπως εικόνες bitmap και ορισμένα εφέ, μπορεί να αποθηκευτεί ως ραστερικά στοιχεία μέσα στο διανυσματικό δοχείο metafile.
+
+### **Εξαγωγή διαφάνειας σε EMF**
+
+Η μέθοδος [Slide.writeAsEmf](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/slide/#writeAsEmf) γράφει μια διαφάνεια σε ρεύμα προορισμού σε μορφή EMF. Το παρακάτω παράδειγμα φορτώνει μια παρουσίαση, επιλέγει την πρώτη διαφάνεια και την γράφει σε ρεύμα αρχείου EMF:
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const emfStream = java.newInstanceSync("java.io.FileOutputStream", "Slide_0.emf");
+    try {
+        slide.writeAsEmf(emfStream);
+    } finally {
+        emfStream.close();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Ο καλών καθορίζει την ιδιοκτησία του ρεύματος που περνιέται στο [Slide.writeAsEmf](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/slide/#writeAsEmf) και είναι υπεύθυνος για το κλείσιμο του, όπως φαίνεται παραπάνω.
+
+### **Μετατροπή εικόνας SVG σε EMF και προσθήκη της σε παρουσίαση**
+
+Χρησιμοποιήστε το [SvgImage.writeAsEmf](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/svgimage/#writeAsEmf) για να μετατρέψετε το περιεχόμενο SVG σε EMF. Τα παραγόμενα bytes μπορούν να προστεθούν στην παρουσίαση μέσω του [ImageCollection.addImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/imagecollection/#addImage) και να τοποθετηθούν σε μια διαφάνεια με το [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shapecollection/#addPictureFrame).
+
+Το παρακάτω παράδειγμα δημιουργεί ένα [SvgImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/svgimage/) από markup SVG, το μετατρέπει σε EMF εντός μνήμης, εισάγει το metafile στην πρώτη διαφάνεια και αποθηκεύει την παρουσίαση:
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const svgContent = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"100\"><rect width=\"200\" height=\"100\" fill=\"#4472C4\"/></svg>";
+const svgImage = new aspose.slides.SvgImage(svgContent);
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+
+    const emfStream = java.newInstanceSync("java.io.ByteArrayOutputStream");
+    try {
+        svgImage.writeAsEmf(emfStream);
+
+        const emfData = java.newArray("byte", Array.from(emfStream.toByteArray()));
+        const image = presentation.getImages().addImage(emfData);
+        slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 200, 100, image);
+    } finally {
+        emfStream.close();
+    }
+
+    presentation.save("Presentation_with_emf.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Το [SvgImage.writeAsEmf](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/svgimage/#writeAsEmf) δεν αναλαμβάνει την ιδιοκτησία του ρεύματος προορισμού. Ένα `java.io.ByteArrayOutputStream` αποθηκεύει όλα τα παραγόμενα δεδομένα στη μνήμη, έτσι δεν απαιτείται επαναφορά θέσης πριν κληθεί το `toByteArray`. Ο επιστρεφόμενος πίνακας byte παραμένει έγκυρος μετά το κλείσιμο του ρεύματος.
+
+Η δημιουργία EMF είναι διαθέσιμη στα λειτουργικά συστήματα που υποστηρίζονται από την επιλεγμένη διανομή Aspose.Slides for Node.js via Java και τη ρύθμιση JDK, αλλά η απόδοση μπορεί να διαφέρει μεταξύ πλατφορμών όταν λείπουν γραμματοσειρές ή εξαρτήσεις γραφικών. Εγκαταστήστε τις γραμματοσειρές που χρησιμοποιούνται από το πηγαίο περιεχόμενο ή ρυθμίστε κατάλληλες υποκαταστάσεις, ακολουθήστε τις [απαιτήσεις πλατφόρμας](/slides/el/nodejs-java/system-requirements/) για το Aspose.Slides for Node.js via Java, και ελέγξτε το αποτέλεσμα στην εφαρμογή‑πλήκτη EMF. Οι εφαρμογές Linux και macOS συχνά διαθέτουν περιορισμένη ή ασυνεπή υποστήριξη για την προβολή και επεξεργασία Windows metafiles.
+
+## **Απόδοση χρωματικών Emoji**
+
+{{% alert title="Note" color="info" %}}
+Για την σωστή απόδοση χρωματικών emoji όταν μετατρέπονται διαφάνειες παρουσίασης σε εικόνες, οι γραμματοσειρές emoji που χρησιμοποιούνται στην παρουσίαση πρέπει να είναι εγκατεστημένες και διαθέσιμες στο σύστημα που εκτελεί τη μετατροπή. Για παράδειγμα, εάν η παρουσίαση χρησιμοποιεί **Segoe UI Emoji** και αυτή η γραμματοσειρά λείπει, τα emoji μπορεί να εμφανίζονται σε μονόχρωμο στις έξοδους εικόνες.
 {{% /alert %}}
 
-## **Συχνές Ερωτήσεις**
+## **Συχνές ερωτήσεις**
 
-**Υποστηρίζει το Aspose.Slides την απόδοση διαφανειών με κινούμενα σχέδια;**
+**Υποστηρίζει το Aspose.Slides την απόδοση διαφανειών με κίνηση;**
 
-Όχι, η μέθοδος `getImage` αποθηκεύει μόνο μια στατική εικόνα της διαφάνειας, χωρίς κινούμενα σχέδια.
+Όχι. Η μέθοδος [Slide.getImage](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/slide/#getImage) αποδίδει μια στατική εικόνα της διαφάνειας και δεν εξάγει τις κινήσεις.
 
 **Μπορούν οι κρυμμένες διαφάνειες να εξαχθούν ως εικόνες;**
 
-Ναι, οι κρυμμένες διαφάνειες μπορούν να υποβληθούν σε επεξεργασία όπως και οι κανονικές. Απλώς βεβαιωθείτε ότι περιλαμβάνονται στον βρόχο επεξεργασίας.
+Ναι. Οι κρυμμένες διαφάνειες μπορούν να αποδοθούν όπως οι κανονικές διαφάνειες. Συμπεριλάβετε τις στον βρόχο επεξεργασίας, όπως φαίνεται στο παραπάνω παράδειγμα.
 
-**Μπορούν οι εικόνες να αποθηκευτούν με σκιές και εφέ;**
+**Διατηρούνται οι σκιές και άλλα εφέ στις εικόνες των διαφανειών;**
 
-Ναι, το Aspose.Slides υποστηρίζει την απόδοση σκιών, διαφάνειας και άλλων γραφικών εφέ κατά την αποθήκευση των διαφανειών ως εικόνες.
+Ναι. Το Aspose.Slides αποδίδει σκιές, διαφάσεις και άλλα υποστηριζόμενα γραφικά εφέ στις εικόνες των διαφάνειών.

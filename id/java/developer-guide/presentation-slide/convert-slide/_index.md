@@ -1,51 +1,56 @@
 ---
-title: "Mengonversi Slide Presentasi menjadi Gambar di Java"
-linktitle: "Slide ke Gambar"
+title: Mengonversi Slide Presentasi menjadi Gambar dalam Java
+linktitle: Slide ke Gambar
 type: docs
 weight: 35
 url: /id/java/convert-slide/
-keywords: 
-- "konversi slide"
-- "ekspor slide"
-- "slide ke gambar"
-- "simpan slide sebagai gambar"
-- "slide ke PNG"
-- "slide ke JPEG"
-- "slide ke bitmap"
-- "slide ke TIFF"
-- "PowerPoint"
-- "OpenDocument"
-- "presentasi"
-- "Java"
-- "Aspose.Slides"
-description: "Mengonversi slide dari PPT, PPTX, dan ODP menjadi gambar di Java menggunakan Aspose.Slides—cepat, rendering berkualitas tinggi dengan contoh kode yang jelas."
+keywords:
+- konversi slide
+- ekspor slide
+- slide ke gambar
+- simpan slide sebagai gambar
+- slide ke EMF
+- slide ke PNG
+- slide ke JPEG
+- slide ke bitmap
+- slide ke TIFF
+- PowerPoint
+- OpenDocument
+- presentasi
+- Java
+- Aspose.Slides
+description: "Mengonversi slide dari presentasi PPT, PPTX, dan ODP menjadi PNG, JPEG, GIF, TIFF, EMF, dan format gambar lainnya dalam Java dengan Aspose.Slides."
 ---
 ## **Pendahuluan**
 
-Aspose.Slides for Java memungkinkan Anda dengan mudah mengonversi slide presentasi PowerPoint dan OpenDocument ke berbagai format gambar, termasuk BMP, PNG, JPG (JPEG), GIF, dan lainnya.
+Aspose.Slides for Java dapat merender slide individu dari presentasi PowerPoint dan OpenDocument sebagai PNG, JPEG, GIF, TIFF, dan format gambar lainnya.
 
 Untuk mengonversi slide menjadi gambar, ikuti langkah-langkah berikut:
 
-1. Tentukan pengaturan konversi yang diinginkan dan pilih slide yang ingin Anda ekspor dengan menggunakan:
-    - Antarmuka [ITiffOptions](https://reference.aspose.com/slides/id/java/com.aspose.slides/itiffoptions/), atau
-    - Antarmuka [IRenderingOptions](https://reference.aspose.com/slides/id/java/com.aspose.slides/irenderingoptions/).
-2. Hasilkan gambar slide dengan memanggil metode [getImage](https://reference.aspose.com/slides/id/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-).
+1. Muat presentasi dengan kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/presentation/).
+2. Pilih slide yang ingin Anda render.
+3. Jika diperlukan, konfigurasikan rendering dengan kelas [RenderingOptions](https://reference.aspose.com/slides/id/java/com.aspose.slides/renderingoptions/) atau [TiffOptions](https://reference.aspose.com/slides/id/java/com.aspose.slides/tiffoptions/).
+4. Panggil metode [ISlide.getImage](https://reference.aspose.com/slides/id/java/com.aspose.slides/islide/#getImage--). Metode ini mengembalikan objek [IImage](https://reference.aspose.com/slides/id/java/com.aspose.slides/iimage/).
+5. Panggil metode [IImage.save](https://reference.aspose.com/slides/id/java/com.aspose.slides/iimage/#save-java.lang.String-int-) dan tentukan format output dengan nilai [ImageFormat](https://reference.aspose.com/slides/id/java/com.aspose.slides/imageformat/).
 
-Dalam Aspose.Slides for Java, sebuah [IImage](https://reference.aspose.com/slides/id/java/com.aspose.slides/iimage/) adalah antarmuka yang memungkinkan Anda bekerja dengan gambar yang didefinisikan oleh data piksel. Anda dapat menggunakan antarmuka ini untuk menyimpan gambar dalam berbagai format (BMP, JPG, PNG, dll.).
+## **Mengonversi Slide menjadi Gambar PNG**
 
-## **Mengonversi Slide menjadi Bitmap dan Menyimpan Gambar dalam PNG**
+Konversi paling sederhana menggunakan pengaturan rendering default. Objek [IImage](https://reference.aspose.com/slides/id/java/com.aspose.slides/iimage/) yang dihasilkan dapat diproses di memori atau disimpan ke file.
 
-Anda dapat mengonversi slide menjadi objek bitmap dan menggunakannya langsung dalam aplikasi Anda. Atau, Anda dapat mengonversi slide menjadi bitmap dan kemudian menyimpan gambar dalam format JPEG atau format lain yang diinginkan.
-
-Kode ini menunjukkan cara mengonversi slide pertama dari presentasi menjadi objek bitmap dan kemudian menyimpan gambar dalam format PNG:
+Contoh Java berikut merender slide pertama dan menyimpannya sebagai gambar PNG:
 
 ```java
+import com.aspose.slides.IImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
+
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Mengonversi slide pertama dalam presentasi menjadi bitmap.
-    IImage image = presentation.getSlides().get_Item(0).getImage();
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IImage image = slide.getImage();
     try {
-        // Menyimpan gambar dalam format PNG.
         image.save("Slide_0.png", ImageFormat.Png);
     } finally {
         image.dispose();
@@ -55,22 +60,27 @@ try {
 }
 ```
 
-## **Mengonversi Slide menjadi Gambar dengan Ukuran Khusus**
+## **Mengonversi Slide menjadi Gambar dengan Ukuran Kustom**
 
-Anda mungkin perlu mendapatkan gambar dengan ukuran tertentu. Dengan menggunakan overload dari [getImage](https://reference.aspose.com/slides/id/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-), Anda dapat mengonversi slide menjadi gambar dengan dimensi spesifik (lebar dan tinggi). 
+Gunakan overload [ISlide.getImage](https://reference.aspose.com/slides/id/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-) yang menerima nilai [Dimension](https://docs.oracle.com/javase/8/docs/api/java/awt/Dimension.html) untuk merender slide dengan dimensi piksel yang tepat.
 
-Kode contoh ini menunjukkan cara melakukannya:
+Contoh berikut membuat gambar JPEG berukuran 1820 × 1040:
 
-```java 
+```java
+import com.aspose.slides.IImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
+import java.awt.Dimension;
+
 Dimension imageSize = new Dimension(1820, 1040);
 
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Mengonversi slide pertama dalam presentasi menjadi bitmap dengan ukuran yang ditentukan.
-    IImage image = presentation.getSlides().get_Item(0).getImage(imageSize);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    IImage image = slide.getImage(imageSize);
     try {
-        // Menyimpan gambar dalam format JPEG.
         image.save("Slide_0.jpg", ImageFormat.Jpeg);
     } finally {
         image.dispose();
@@ -82,36 +92,41 @@ try {
 
 ## **Mengonversi Slide dengan Catatan dan Komentar menjadi Gambar**
 
-Beberapa slide mungkin berisi catatan dan komentar.
+Secara default, gambar slide tidak menyertakan catatan atau komentar. Kirimkan objek [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/id/java/com.aspose.slides/notescommentslayoutingoptions/) ke metode [RenderingOptions.setSlidesLayoutOptions](https://reference.aspose.com/slides/id/java/com.aspose.slides/renderingoptions/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) untuk mengontrol di mana catatan dan komentar muncul.
 
-Aspose.Slides menyediakan dua antarmuka—[ITiffOptions](https://reference.aspose.com/slides/id/java/com.aspose.slides/itiffoptions/) dan [IRenderingOptions](https://reference.aspose.com/slides/id/java/com.aspose.slides/irenderingoptions/)—yang memungkinkan Anda mengontrol rendering slide presentasi menjadi gambar. Kedua antarmuka mencakup metode `setSlidesLayoutOptions`, yang memungkinkan Anda mengkonfigurasi rendering catatan dan komentar pada slide saat mengonversinya menjadi gambar.
+Contoh berikut menempatkan catatan yang dipotong di bawah slide dan komentar di sebelah kanannya:
 
-Dengan kelas [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/id/java/com.aspose.slides/notescommentslayoutingoptions/), Anda dapat menentukan posisi yang diinginkan untuk catatan dan komentar dalam gambar yang dihasilkan.
+```java
+import com.aspose.slides.CommentsPositions;
+import com.aspose.slides.IImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.NotesCommentsLayoutingOptions;
+import com.aspose.slides.NotesPositions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.RenderingOptions;
+import java.awt.Color;
 
-Kode ini menunjukkan cara mengonversi slide dengan catatan dan komentar:
-
-```java 
-float scaleX = 2;
+float scaleX = 2f;
 float scaleY = scaleX;
 
-// Memuat file presentasi.
+Color commentsAreaColor = new Color(250, 235, 215);
+
+NotesCommentsLayoutingOptions layoutOptions = new NotesCommentsLayoutingOptions();
+layoutOptions.setNotesPosition(NotesPositions.BottomTruncated);
+layoutOptions.setCommentsPosition(CommentsPositions.Right);
+layoutOptions.setCommentsAreaWidth(500);
+layoutOptions.setCommentsAreaColor(commentsAreaColor);
+
+RenderingOptions renderingOptions = new RenderingOptions();
+renderingOptions.setSlidesLayoutOptions(layoutOptions);
+
 Presentation presentation = new Presentation("Presentation_with_notes_and_comments.pptx");
 try {
-    NotesCommentsLayoutingOptions notesCommentsOptions = new NotesCommentsLayoutingOptions();
-    notesCommentsOptions.setNotesPosition(NotesPositions.BottomTruncated);  // Mengatur posisi catatan.
-    notesCommentsOptions.setCommentsPosition(CommentsPositions.Right);      // Mengatur posisi komentar.
-    notesCommentsOptions.setCommentsAreaWidth(500);                         // Mengatur lebar area komentar.
-    notesCommentsOptions.setCommentsAreaColor(Color.LIGHT_GRAY);            // Mengatur warna area komentar.
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Membuat opsi rendering.
-    RenderingOptions options = new RenderingOptions();
-    options.setSlidesLayoutOptions(notesCommentsOptions);
-
-    // Mengonversi slide pertama dari presentasi menjadi gambar.
-    IImage image = presentation.getSlides().get_Item(0).getImage(options, scaleX, scaleY);
-
+    IImage image = slide.getImage(renderingOptions, scaleX, scaleY);
     try {
-        // Menyimpan gambar dalam format GIF.
         image.save("Image_with_notes_and_comments_0.gif", ImageFormat.Gif);
     } finally {
         image.dispose();
@@ -121,35 +136,37 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-Dalam proses konversi slide-ke-gambar apa pun, metode [setNotesPosition](https://reference.aspose.com/slides/id/java/com.aspose.slides/inotescommentslayoutingoptions/#setNotesPosition-int-) tidak dapat menerapkan `BottomFull` (untuk menentukan posisi catatan) karena teks catatan mungkin terlalu besar, sehingga tidak dapat muat dalam ukuran gambar yang ditentukan.
-{{% /alert %}} 
+{{% alert title="Warning" color="warning" %}}
+Untuk konversi slide ke gambar, jangan kirimkan [BottomFull](https://reference.aspose.com/slides/id/java/com.aspose.slides/notespositions/) ke metode [NotesCommentsLayoutingOptions.setNotesPosition](https://reference.aspose.com/slides/id/java/com.aspose.slides/notescommentslayoutingoptions/#setNotesPosition-int-). Catatan dapat berisi teks lebih banyak daripada ukuran gambar tetap yang dapat menampungnya. Gunakan [BottomTruncated](https://reference.aspose.com/slides/id/java/com.aspose.slides/notespositions/) sebagai gantinya.
+{{% /alert %}}
 
-## **Mengonversi Slide menjadi Gambar dengan Menggunakan Opsi TIFF**
+## **Mengonversi Slide menjadi Gambar Menggunakan Opsi TIFF**
 
-Antarmuka [ITiffOptions](https://reference.aspose.com/slides/id/java/com.aspose.slides/itiffoptions/) memberikan kontrol lebih besar atas gambar TIFF yang dihasilkan dengan memungkinkan Anda menentukan parameter seperti ukuran, resolusi, palet warna, dan lainnya.
+Kelas [TiffOptions](https://reference.aspose.com/slides/id/java/com.aspose.slides/tiffoptions/) memungkinkan Anda mengontrol ukuran, resolusi, dan properti lain dari gambar TIFF yang dirender.
 
-Kode ini menunjukkan proses konversi di mana opsi TIFF digunakan untuk menghasilkan gambar hitam-putih dengan resolusi 300 DPI dan ukuran 2160 × 2800:
+Contoh berikut merender slide pertama sebagai gambar TIFF berukuran 2160 × 2880 pada 300 DPI:
 
-```java 
-// Memuat file presentasi.
+```java
+import com.aspose.slides.IImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.TiffOptions;
+import java.awt.Dimension;
+
+Dimension imageSize = new Dimension(2160, 2880);
+
+TiffOptions tiffOptions = new TiffOptions();
+tiffOptions.setImageSize(imageSize);
+tiffOptions.setDpiX(300);
+tiffOptions.setDpiY(300);
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    // Dapatkan slide pertama dari presentasi.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Mengonfigurasi pengaturan gambar TIFF output.
-    TiffOptions tiffOptions = new TiffOptions();
-    tiffOptions.setImageSize(new Dimension(2160, 2880));             // Mengatur ukuran gambar.
-    tiffOptions.setPixelFormat(ImagePixelFormat.Format1bppIndexed);  // Mengatur format piksel (hitam putih).
-    tiffOptions.setDpiX(300);                                        // Mengatur resolusi horizontal.
-    tiffOptions.setDpiY(300);                                        // Mengatur resolusi vertikal.
-
-    // Mengonversi slide menjadi gambar dengan opsi yang ditentukan.
     IImage image = slide.getImage(tiffOptions);
-
     try {
-        // Menyimpan gambar dalam format TIFF.
         image.save("output.tiff", ImageFormat.Tiff);
     } finally {
         image.dispose();
@@ -159,47 +176,119 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-Dukungan TIFF tidak dijamin pada versi JDK sebelum 9.
-{{% /alert %}} 
+{{% alert title="Warning" color="warning" %}}
+Dukungan TIFF tidak dijamin pada versi Java sebelum JDK 9.
+{{% /alert %}}
 
 ## **Mengonversi Semua Slide menjadi Gambar**
 
-Aspose.Slides memungkinkan Anda mengonversi semua slide dalam sebuah presentasi menjadi gambar, secara efektif mengubah seluruh presentasi menjadi serangkaian gambar.
+Iterasi melalui koleksi slide untuk mengonversi seluruh presentasi menjadi serangkaian gambar. Slide tersembunyi akan disertakan kecuali Anda melewatinya secara eksplisit.
 
-Kode contoh ini menunjukkan cara mengonversi semua slide dalam sebuah presentasi menjadi gambar di Java:
+Contoh berikut merender setiap slide sebagai gambar JPEG dengan faktor skala horizontal dan vertikal sebesar 2:
 
-```java 
-float scaleX = 2;
+```java
+import com.aspose.slides.IImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
+
+float scaleX = 2f;
 float scaleY = scaleX;
 
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Render presentasi menjadi gambar slide per slide.
-    for (int i = 0 ; i < presentation.getSlides().size(); i++)
-    {
-        // Mengontrol slide tersembunyi (jangan render slide tersembunyi).
-        if (presentation.getSlides().get_Item(i).getHidden())
-            continue;
-
-        // Mengonversi slide menjadi gambar.
-        IImage image = presentation.getSlides().get_Item(i).getImage(scaleX, scaleY);
-
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage(scaleX, scaleY);
         try {
-            // Menyimpan gambar dalam format JPEG.
-            image.save("Slide_" + i + ".jpg", ImageFormat.Jpeg);
+            image.save("Slide_" + index + ".jpg", ImageFormat.Jpeg);
         } finally {
             image.dispose();
         }
     }
 } finally {
     presentation.dispose();
-} 
+}
 ```
+
+## **Membuat Output Enhanced Metafile**
+
+Enhanced Metafile (EMF) berguna ketika grafik berbasis vektor harus dipertukarkan dengan Microsoft Office atau aplikasi Windows lain yang mendukung metafile Windows. Tidak seperti gambar berbasis piksel, EMF dapat mempertahankan operasi gambar vektor yang dapat diskalakan tanpa kehilangan ketajaman yang sama. Namun, EMF terutama merupakan format kompatibilitas untuk aplikasi dengan dukungan metafile Windows, bukan format pertukaran universal. Selain itu, konten slide yang kompleks, seperti gambar bitmap dan beberapa efek, dapat disimpan sebagai elemen raster di dalam kontainer metafile vektor.
+
+### **Ekspor Slide ke EMF**
+
+Metode [ISlide.writeAsEmf](https://reference.aspose.com/slides/id/java/com.aspose.slides/islide/#writeAsEmf-java.io.OutputStream-) menulis sebuah [ISlide](https://reference.aspose.com/slides/id/java/com.aspose.slides/islide/) ke aliran target dalam format EMF. Contoh berikut memuat sebuah presentasi, memilih slide pertama, dan menulisnya ke aliran file EMF:
+
+```java
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+import java.io.FileOutputStream;
+
+Presentation presentation = new Presentation("Presentation.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    FileOutputStream emfStream = new FileOutputStream("Slide_0.emf");
+    try {
+        slide.writeAsEmf(emfStream);
+    } finally {
+        emfStream.close();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Pemanggil memiliki aliran yang diberikan ke [ISlide.writeAsEmf](https://reference.aspose.com/slides/id/java/com.aspose.slides/islide/#writeAsEmf-java.io.OutputStream-) dan bertanggung jawab untuk menutupnya, seperti ditunjukkan di atas.
+
+### **Mengonversi Gambar SVG ke EMF dan Menambahkannya ke Presentasi**
+
+Gunakan [ISvgImage.writeAsEmf](https://reference.aspose.com/slides/id/java/com.aspose.slides/isvgimage/#writeAsEmf-java.io.OutputStream-) untuk mengonversi konten SVG menjadi EMF. Byte yang dihasilkan dapat ditambahkan ke presentasi melalui [IImageCollection.addImage](https://reference.aspose.com/slides/id/java/com.aspose.slides/iimagecollection/#addImage-byte:A-) dan ditempatkan pada slide dengan [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/id/java/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-).
+
+Contoh berikut membuat sebuah [SvgImage](https://reference.aspose.com/slides/id/java/com.aspose.slides/svgimage/) dari markup SVG, mengonversinya menjadi EMF dalam memori, menyisipkan metafile pada slide pertama, dan menyimpan presentasi:
+
+```java
+import com.aspose.slides.IPPImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ISvgImage;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.ShapeType;
+import com.aspose.slides.SvgImage;
+import java.io.ByteArrayOutputStream;
+
+String svgContent = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"100\"><rect width=\"200\" height=\"100\" fill=\"#4472C4\"/></svg>";
+ISvgImage svgImage = new SvgImage(svgContent);
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ByteArrayOutputStream emfStream = new ByteArrayOutputStream();
+    try {
+        svgImage.writeAsEmf(emfStream);
+
+        byte[] emfData = emfStream.toByteArray();
+        IPPImage image = presentation.getImages().addImage(emfData);
+        slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 200, 100, image);
+    } finally {
+        emfStream.close();
+    }
+
+    presentation.save("Presentation_with_emf.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+[ISvgImage.writeAsEmf](https://reference.aspose.com/slides/id/java/com.aspose.slides/isvgimage/#writeAsEmf-java.io.OutputStream-) tidak mengambil kepemilikan aliran tujuan. Sebuah [ByteArrayOutputStream](https://docs.oracle.com/javase/8/docs/api/java/io/ByteArrayOutputStream.html) menyimpan semua data yang dihasilkan dalam memori, sehingga tidak diperlukan reset posisi sebelum memanggil `toByteArray`. Array byte yang dikembalikan tetap valid setelah aliran ditutup.
+
+Pembuatan EMF tersedia pada sistem operasi yang didukung oleh konfigurasi Aspose.Slides for Java dan JDK yang dipilih, namun rendering dapat berbeda antar platform ketika font atau dependensi grafis tidak tersedia. Instal font yang digunakan oleh konten sumber atau konfigurasikan substitusi yang sesuai, ikuti [persyaratan platform](/slides/id/java/system-requirements/) untuk Aspose.Slides for Java, dan validasi hasilnya di aplikasi target yang mengonsumsi EMF. Aplikasi Linux dan macOS sering memiliki dukungan yang terbatas atau tidak konsisten untuk menampilkan dan mengedit metafile Windows.
 
 ## **Rendering Emoji Berwarna**
 
-{{% alert title="Note" color="warning" %}} 
+{{% alert title="Note" color="info" %}}
 Untuk merender emoji berwarna dengan benar saat mengonversi slide presentasi menjadi gambar, font emoji yang digunakan dalam presentasi harus diinstal dan tersedia pada sistem yang melakukan konversi. Misalnya, jika presentasi menggunakan **Segoe UI Emoji** dan font ini tidak ada, emoji dapat muncul dalam monokrom pada gambar output.
 {{% /alert %}}
 
@@ -207,12 +296,12 @@ Untuk merender emoji berwarna dengan benar saat mengonversi slide presentasi men
 
 **Apakah Aspose.Slides mendukung rendering slide dengan animasi?**
 
-Tidak, metode `getImage` hanya menyimpan gambar statis dari slide, tanpa animasi.
+Tidak. Metode [ISlide.getImage](https://reference.aspose.com/slides/id/java/com.aspose.slides/islide/#getImage--) merender gambar statis dari slide dan tidak mengekspor animasi.
 
 **Apakah slide tersembunyi dapat diekspor sebagai gambar?**
 
-Ya, slide tersembunyi dapat diproses seperti slide biasa. Pastikan saja mereka termasuk dalam loop pemrosesan.
+Ya. Slide tersembunyi dapat dirender seperti slide biasa. Sertakan mereka dalam loop pemrosesan, seperti yang ditunjukkan pada contoh di atas.
 
-**Apakah gambar dapat disimpan dengan bayangan dan efek?**
+**Apakah bayangan dan efek lain dipertahankan dalam gambar slide?**
 
-Ya, Aspose.Slides mendukung rendering bayangan, transparansi, dan efek grafis lainnya saat menyimpan slide sebagai gambar.
+Ya. Aspose.Slides merender bayangan, transparansi, dan efek grafis lain yang didukung dalam gambar slide.

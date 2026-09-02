@@ -1,51 +1,54 @@
 ---
-title: แปลงสไลด์การนำเสนอเป็นรูปภาพใน PHP
-linktitle: สไลด์เป็นรูปภาพ
+title: แปลงสไลด์การนำเสนอเป็นภาพใน PHP
+linktitle: สไลด์เป็นภาพ
 type: docs
 weight: 35
 url: /th/php-java/convert-slide/
-keywords:
+keywords: 
 - แปลงสไลด์
 - ส่งออกสไลด์
-- สไลด์เป็นรูปภาพ
-- บันทึกสไลด์เป็นรูปภาพ
+- สไลด์เป็นภาพ
+- บันทึกสไลด์เป็นภาพ
+- สไลด์เป็น EMF
 - สไลด์เป็น PNG
 - สไลด์เป็น JPEG
-- สไลด์เป็น bitmap
+- สไลด์เป็นบิตแมพ
 - สไลด์เป็น TIFF
 - PowerPoint
 - OpenDocument
-- งานนำเสนอ
+- การนำเสนอ
 - PHP
 - Aspose.Slides
-description: "แปลงสไลด์จากไฟล์ PPT, PPTX และ ODP เป็นรูปภาพโดยใช้ Aspose.Slides for PHP via Java — การเรนเดอร์ที่รวดเร็วและคุณภาพสูงพร้อมตัวอย่างโค้ดที่ชัดเจน."
+description: "แปลงสไลด์จากการนำเสนอ PPT, PPTX, และ ODP เป็น PNG, JPEG, GIF, TIFF, EMF และรูปแบบภาพอื่น ๆ ใน PHP ด้วย Aspose.Slides."
 ---
 ## **บทนำ**
 
-Aspose.Slides for PHP via Java ช่วยให้คุณสามารถแปลงสไลด์งานนำเสนอ PowerPoint และ OpenDocument ไปเป็นรูปภาพหลายรูปแบบได้อย่างง่ายดาย รวมถึง BMP, PNG, JPG (JPEG), GIF และอื่น ๆ
+Aspose.Slides for PHP via Java สามารถแสดงผลสไลด์แต่ละสไลด์จากงานนำเสนอ PowerPoint และ OpenDocument เป็นรูปแบบ PNG, JPEG, GIF, TIFF และรูปแบบภาพอื่น ๆ
 
-ในการแปลงสไลด์เป็นรูปภาพ ให้ทำตามขั้นตอนต่อไปนี้:
+เพื่อแปลงสไลด์เป็นภาพ ให้ทำตามขั้นตอนต่อไปนี้:
 
-1. กำหนดการตั้งค่าการแปลงที่ต้องการและเลือกสไลด์ที่ต้องการส่งออกโดยใช้:
-    - คลาส [TiffOptions](https://reference.aspose.com/slides/th/php-java/aspose.slides/tiffoptions/) หรือ
-    - คลาส [RenderingOptions](https://reference.aspose.com/slides/th/php-java/aspose.slides/renderingoptions/)
-2. สร้างรูปภาพของสไลด์โดยเรียกเมธอด [getImage](https://reference.aspose.com/slides/th/php-java/aspose.slides/slide/#getImage)
+1. โหลดงานนำเสนอด้วยคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/) .
+2. เลือกสไลด์ที่คุณต้องการแสดงผล.
+3. หากจำเป็น ให้กำหนดค่าการแสดงผลด้วยคลาส [RenderingOptions](https://reference.aspose.com/slides/th/php-java/aspose.slides/renderingoptions/) หรือ [TiffOptions](https://reference.aspose.com/slides/th/php-java/aspose.slides/tiffoptions/) .
+4. เรียกเมธอด [Slide::getImage](https://reference.aspose.com/slides/th/php-java/aspose.slides/slide/#getImage) เมธอดนี้จะคืนค่าเป็นอ็อบเจ็กต์ [IImage](https://reference.aspose.com/slides/th/php-java/aspose.slides/iimage/) .
+5. เรียกเมธอด [IImage::save](https://reference.aspose.com/slides/th/php-java/aspose.slides/iimage/#save) และระบุรูปแบบการส่งออกด้วยค่า [ImageFormat](https://reference.aspose.com/slides/th/php-java/aspose.slides/imageformat/) .
 
-ใน Aspose.Slides for PHP via Java, คลาส [IImage](https://reference.aspose.com/slides/th/php-java/aspose.slides/iimage/) เป็นคลาสที่ให้คุณทำงานกับรูปภาพที่กำหนดด้วยข้อมูลพิกเซล คุณสามารถใช้คลาสนี้เพื่อบันทึกรูปภาพในรูปแบบที่หลากหลาย (BMP, JPG, PNG ฯลฯ)
+## **แปลงสไลด์เป็นภาพ PNG**
 
-## **แปลงสไลด์เป็น Bitmap แล้วบันทึกรูปภาพเป็น PNG**
+การแปลงที่ง่ายที่สุดใช้การตั้งค่าการแสดงผลเริ่มต้น. อ็อบเจ็กต์ [IImage](https://reference.aspose.com/slides/th/php-java/aspose.slides/iimage/) ที่ได้สามารถประมวลผลในหน่วยความจำหรือบันทึกลงไฟล์ได้
 
-คุณสามารถแปลงสไลด์เป็นอ็อบเจ็กต์ bitmap แล้วนำไปใช้โดยตรงในแอปพลิเคชันของคุณ หรือคุณสามารถแปลงสไลด์เป็น bitmap แล้วบันทึกรูปภาพเป็น JPEG หรือรูปแบบอื่นที่ต้องการ
-
-โค้ดนี้แสดงวิธีการแปลงสไลด์แรกของงานนำเสนอเป็นอ็อบเจ็กต์ bitmap แล้วบันทึกรูปภาพเป็นรูปแบบ PNG:
+ตัวอย่าง PHP ด้านล่างนี้แสดงสไลด์แรกและบันทึกเป็นภาพ PNG:
 
 ```php
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+
 $presentation = new Presentation("Presentation.pptx");
 try {
-    // แปลงสไลด์แรกในงานนำเสนอเป็น bitmap.
-    $image = $presentation->getSlides()->get_Item(0)->getImage();
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $image = $slide->getImage();
     try {
-        // บันทึกรูปภาพในรูปแบบ PNG.
         $image->save("Slide_0.png", ImageFormat::Png);
     } finally {
         $image->dispose();
@@ -55,21 +58,24 @@ try {
 }
 ```
 
-## **แปลงสไลด์เป็นรูปภาพด้วยขนาดกำหนดเอง**
+## **แปลงสไลด์เป็นภาพโดยกำหนดขนาดกำหนดเอง**
 
-คุณอาจต้องการรับรูปภาพที่มีขนาดเฉพาะ ใช้การโอเวอร์โหลดจากเมธอด [getImage](https://reference.aspose.com/slides/th/php-java/aspose.slides/slide/#getImage) เพื่อแปลงสไลด์เป็นรูปภาพที่มีความกว้างและความสูงตามที่กำหนด
+ใช้เมธอดโอเวอร์โหลดของ [Slide::getImage](https://reference.aspose.com/slides/th/php-java/aspose.slides/slide/#getImage) ที่รับค่าชนิด [Dimension](https://docs.oracle.com/javase/8/docs/api/java/awt/Dimension.html) เพื่อแสดงสไลด์ด้วยขนาดพิกเซลที่กำหนดอย่างแม่นยำ
 
-ตัวอย่างโค้ดต่อไปนี้แสดงวิธีทำเช่นนั้น:
+ตัวอย่างต่อไปนี้สร้างภาพ JPEG ขนาด 1820 × 1040:
 
 ```php
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+
 $imageSize = new Java("java.awt.Dimension", 1820, 1040);
 
 $presentation = new Presentation("Presentation.pptx");
 try {
-    // แปลงสไลด์แรกในงานนำเสนอเป็น bitmap ด้วยขนาดที่ระบุ.
-    $image = $presentation->getSlides()->get_Item(0)->getImage($imageSize);
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $image = $slide->getImage($imageSize);
     try {
-        // บันทึกรูปภาพในรูปแบบ JPEG.
         $image->save("Slide_0.jpg", ImageFormat::Jpeg);
     } finally {
         $image->dispose();
@@ -79,36 +85,40 @@ try {
 }
 ```
 
-## **แปลงสไลด์ที่มีโน้ตและคอมเมนต์เป็นรูปภาพ**
+## **แปลงสไลด์พร้อมบันทึกย่อและความคิดเห็นเป็นภาพ**
 
-สไลด์บางสไลด์อาจมีโน้ตและคอมเมนต์
+โดยค่าเริ่มต้น ภาพสไลด์จะไม่รวมบันทึกย่อหรือความคิดเห็น. ส่งอ็อบเจ็กต์ [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/th/php-java/aspose.slides/notescommentslayoutingoptions/) ไปยังเมธอด [RenderingOptions::setSlidesLayoutOptions](https://reference.aspose.com/slides/th/php-java/aspose.slides/renderingoptions/#setSlidesLayoutOptions) เพื่อกำหนดตำแหน่งที่บันทึกย่อและความคิดเห็นจะแสดง
 
-Aspose.Slides มีคลาสสองตัวคือ [TiffOptions](https://reference.aspose.com/slides/th/php-java/aspose.slides/tiffoptions/) และ [RenderingOptions](https://reference.aspose.com/slides/th/php-java/aspose.slides/renderingoptions/) ที่ช่วยให้คุณควบคุมการเรนเดอร์สไลด์เป็นรูปภาพ ทั้งสองคลาสมีเมธอด `setSlidesLayoutOptions` ซึ่งให้คุณกำหนดการเรนเดอร์ของโน้ตและคอมเมนต์บนสไลด์เมื่อแปลงเป็นรูปภาพ
-
-ด้วยคลาส [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/th/php-java/aspose.slides/notescommentslayoutingoptions/) คุณสามารถระบุตำแหน่งที่ต้องการสำหรับโน้ตและคอมเมนต์ในรูปภาพที่ได้
-
-โค้ดนี้แสดงวิธีการแปลงสไลด์ที่มีโน้ตและคอมเมนต์:
+ตัวอย่างต่อไปนี้วางบันทึกย่อที่ตัดเอาไว้ด้านล่างสไลด์และความคิดเห็นที่ด้านขวาของสไลด์:
 
 ```php
+use aspose\slides\CommentsPositions;
+use aspose\slides\ImageFormat;
+use aspose\slides\NotesCommentsLayoutingOptions;
+use aspose\slides\NotesPositions;
+use aspose\slides\Presentation;
+use aspose\slides\RenderingOptions;
+
 $scaleX = 2;
 $scaleY = $scaleX;
 
+$commentsAreaColor = new Java("java.awt.Color", 250, 235, 215);
+
+$layoutOptions = new NotesCommentsLayoutingOptions();
+$layoutOptions->setNotesPosition(NotesPositions::BottomTruncated);
+$layoutOptions->setCommentsPosition(CommentsPositions::Right);
+$layoutOptions->setCommentsAreaWidth(500);
+$layoutOptions->setCommentsAreaColor($commentsAreaColor);
+
+$renderingOptions = new RenderingOptions();
+$renderingOptions->setSlidesLayoutOptions($layoutOptions);
+
 $presentation = new Presentation("Presentation_with_notes_and_comments.pptx");
 try {
-    $notesCommentsOptions = new NotesCommentsLayoutingOptions();
-    $notesCommentsOptions->setNotesPosition(NotesPositions::BottomTruncated);         // ตั้งค่าตำแหน่งของโน้ต.
-    $notesCommentsOptions->setCommentsPosition(CommentsPositions::Right);             // ตั้งค่าตำแหน่งของคอมเมนต์.
-    $notesCommentsOptions->setCommentsAreaWidth(500);                                 // ตั้งค่าความกว้างของพื้นที่คอมเมนต์.
-    $notesCommentsOptions->setCommentsAreaColor(java("java.awt.Color")->LIGHT_GRAY);  // ตั้งค่าสีสำหรับพื้นที่คอมเมนต์.
+    $slide = $presentation->getSlides()->get_Item(0);
 
-    // สร้างตัวเลือกการเรนเดอร์.
-    $options = new RenderingOptions();
-    $options->setSlidesLayoutOptions($notesCommentsOptions);
-
-    // แปลงสไลด์แรกของงานนำเสนอเป็นภาพ.
-    $image = $presentation->getSlides()->get_Item(0)->getImage($options, $scaleX, $scaleY);
+    $image = $slide->getImage($renderingOptions, $scaleX, $scaleY);
     try {
-        // บันทึกรูปภาพในรูปแบบ GIF.
         $image->save("Image_with_notes_and_comments_0.gif", ImageFormat::Gif);
     } finally {
         $image->dispose();
@@ -118,34 +128,34 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-ในกระบวนการแปลงสไลด์เป็นรูปภาพใด ๆ เมธอด [setNotesPosition](https://reference.aspose.com/slides/th/php-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) ไม่สามารถใช้ `BottomFull` (เพื่อระบุตำแหน่งสำหรับโน้ต) ได้ เนื่องจากข้อความโน้ตอาจใหญ่เกินไป ทำให้ไม่สามารถใส่ในขนาดรูปภาพที่กำหนดได้
-{{% /alert %}} 
+{{% alert title="Warning" color="warning" %}}
+สำหรับการแปลงสไลด์เป็นภาพ อย่าใช้ [BottomFull](https://reference.aspose.com/slides/th/php-java/aspose.slides/notespositions/) กับเมธอด [NotesCommentsLayoutingOptions::setNotesPosition](https://reference.aspose.com/slides/th/php-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition). บันทึกย่ออาจมีข้อความมากกว่าขนาดภาพที่กำหนดได้. ใช้ [BottomTruncated](https://reference.aspose.com/slides/th/php-java/aspose.slides/notespositions/) แทน
+{{% /alert %}}
 
-## **แปลงสไลด์เป็นรูปภาพโดยใช้ TIFF Options**
+## **แปลงสไลด์เป็นภาพโดยใช้ตัวเลือก TIFF**
 
-คลาส [TiffOptions](https://reference.aspose.com/slides/th/php-java/aspose.slides/tiffoptions/) ให้การควบคุมที่ละเอียดขึ้นสำหรับภาพ TIFF ที่ได้ โดยคุณสามารถกำหนดพารามิเตอร์ต่าง ๆ เช่น ขนาด, ความละเอียด, พาเลตสี ฯลฯ
+คลาส [TiffOptions](https://reference.aspose.com/slides/th/php-java/aspose.slides/tiffoptions/) ให้คุณควบคุมขนาด, ความละเอียด, และคุณลักษณะอื่น ๆ ของภาพ TIFF ที่แสดงผล
 
-โค้ดนี้แสดงกระบวนการแปลงที่ใช้ TIFF Options เพื่อสร้างภาพขาว‑ดำที่มีความละเอียด 300 DPI และขนาด 2160 × 2800:
+ตัวอย่างต่อไปนี้แสดงสไลด์แรกเป็นภาพ TIFF ขนาด 2160 × 2880 ที่ 300 DPI:
 
 ```php
-// โหลดไฟล์งานนำเสนอ.
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+use aspose\slides\TiffOptions;
+
+$imageSize = new Java("java.awt.Dimension", 2160, 2880);
+
+$tiffOptions = new TiffOptions();
+$tiffOptions->setImageSize($imageSize);
+$tiffOptions->setDpiX(300);
+$tiffOptions->setDpiY(300);
+
 $presentation = new Presentation("sample.pptx");
 try {
-    // ดึงสไลด์แรกจากงานนำเสนอ.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // กำหนดค่าการตั้งค่าของภาพ TIFF ผลลัพธ์.
-    $options = new TiffOptions();
-    $options->setImageSize(new Java("java.awt.Dimension", 2160, 2880));  // ตั้งค่าขนาดภาพ.
-    $options->setPixelFormat(ImagePixelFormat::Format1bppIndexed);       // ตั้งค่ารูปแบบพิกเซล (ขาว‑ดำ).
-    $options->setDpiX(300);                                              // ตั้งค่าความละเอียดแนวนอน.
-    $options->setDpiY(300);                                              // ตั้งค่าความละเอียดแนวตั้ง.
-    
-    // แปลงสไลด์เป็นภาพด้วยตัวเลือกที่ระบุ.
-    $image = $slide->getImage($options);
+    $image = $slide->getImage($tiffOptions);
     try {
-        // บันทึกภาพในรูปแบบ TIFF.
         $image->save("output.tiff", ImageFormat::Tiff);
     } finally {
         $image->dispose();
@@ -155,34 +165,31 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-การสนับสนุน TIFF ไม่รับประกันในเวอร์ชันก่อน JDK 9
-{{% /alert %}} 
+{{% alert title="Warning" color="warning" %}}
+การรองรับ TIFF ไม่ได้รับการรับประกันใน Java เวอร์ชันก่อน JDK 9
+{{% /alert %}}
 
-## **แปลงสไลด์ทั้งหมดเป็นรูปภาพ**
+## **แปลงสไลด์ทั้งหมดเป็นภาพ**
 
-Aspose.Slides ช่วยให้คุณสามารถแปลงสไลด์ทั้งหมดในงานนำเสนอเป็นรูปภาพได้อย่างง่ายดาย ทำให้การแปลงงานนำเสนอทั้งหมดเป็นชุดของรูปภาพเป็นไปได้
+วนลูปผ่านคอลเลกชันสไลด์เพื่อแปลงการนำเสนอทั้งหมดเป็นชุดของภาพ. สไลด์ที่ซ่อนจะรวมอยู่ด้วยเว้นแต่ว่าคุณจะข้ามโดยเจตนาที่จะทำเช่นนั้น
 
-ตัวอย่างโค้ดต่อไปนี้แสดงวิธีการแปลงสไลด์ทั้งหมดในงานนำเสนอเป็นรูปภาพใน PHP:
+ตัวอย่างต่อไปนี้แสดงสไลด์ทุกสไลด์เป็นภาพ JPEG โดยใช้ตัวคูณสเกลแนวนอนและแนวตั้งเท่ากับ 2:
 
 ```php
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+
 $scaleX = 2;
 $scaleY = $scaleX;
 
 $presentation = new Presentation("Presentation.pptx");
 try {
-    // เรนเดอร์งานนำเสนอเป็นภาพสไลด์ต่อสไลด์.
-    for($i = 0; $i < java_values($presentation->getSlides()->size()) ; $i++) {
-        // ควบคุมสไลด์ที่ซ่อนอยู่ (ไม่เรนเดอร์สไลด์ที่ซ่อน).
-        if (java_values($presentation->getSlides()->get_Item($i)->getHidden())) {
-            continue;
-        }
-
-        // แปลงสไลด์เป็นภาพ.
-        $image = $presentation->getSlides()->get_Item($i)->getImage($scaleX, $scaleY);
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($index = 0; $index < $slideCount; $index++) {
+        $slide = $presentation->getSlides()->get_Item($index);
+        $image = $slide->getImage($scaleX, $scaleY);
         try {
-            // บันทึกภาพในรูปแบบ JPEG.
-            $image->save("Slide_" . $i . ".jpg", ImageFormat::Jpeg);
+            $image->save("Slide_" . $index . ".jpg", ImageFormat::Jpeg);
         } finally {
             $image->dispose();
         }
@@ -192,19 +199,88 @@ try {
 }
 ```
 
-## **การเรนเดอร์สี Emoji**
+## **สร้างเอาต์พุต Enhanced Metafile**
 
-{{% alert title="Note" color="warning" %}} 
-เพื่อให้การแสดงสีอีโมจิอย่างถูกต้องเมื่อแปลงสไลด์งานนำเสนอเป็นรูปภาพ ฟอนต์อีโมจิที่ใช้ในงานนำเสนอต้องถูกติดตั้งและพร้อมใช้งานบนระบบที่ทำการแปลง ตัวอย่างเช่น หากงานนำเสนอใช้ **Segoe UI Emoji** แต่ฟอนต์นี้ไม่มีอยู่ อีโมจิอาจถูกแสดงเป็นขาว‑ดำในรูปภาพที่ส่งออก
+Enhanced Metafile (EMF) มีประโยชน์เมื่อกราฟิกแบบเวกเตอร์ต้องแลกเปลี่ยนกับ Microsoft Office หรือแอปพลิเคชัน Windows อื่น ๆ ที่รองรับ Windows metafiles. แตกต่างจากภาพแบบพิกเซล, EMF สามารถคงการวาดเวกเตอร์ที่สามารถสเกลได้โดยไม่สูญเสียความคมชัด. อย่างไรก็ตาม EMF เป็นรูปแบบความเข้ากันได้สำหรับแอปพลิเคชันที่สนับสนุน Windows metafile เป็นหลัก, ไม่ใช่รูปแบบแลกเปลี่ยนสากล. นอกจากนี้ เนื้อหาสไลด์ที่ซับซ้อนเช่นภาพบิตแมปและเอฟเฟ็กต์บางอย่างอาจถูกเก็บเป็นองค์ประกอบเรสเตอร์ภายในคอนเทนเนอร์เมตาไฟล์เวกเตอร์
+
+### **ส่งออกสไลด์เป็น EMF**
+
+เมธอด [Slide::writeAsEmf](https://reference.aspose.com/slides/th/php-java/aspose.slides/slide/#writeAsEmf) เขียนสไลด์ไปยังสตรีมเป้าหมายในรูปแบบ EMF. ตัวอย่างต่อไปนี้โหลดงานนำเสนอ, เลือกสไลด์แรก, และเขียนลงสตรีมไฟล์ EMF:
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("Presentation.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $emfStream = new Java("java.io.FileOutputStream", "Slide_0.emf");
+    try {
+        $slide->writeAsEmf($emfStream);
+    } finally {
+        $emfStream->close();
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+ผู้เรียกใช้งานเป็นเจ้าของสตรีมที่ส่งให้กับ [Slide::writeAsEmf](https://reference.aspose.com/slides/th/php-java/aspose.slides/slide/#writeAsEmf) และต้องรับผิดชอบปิดสตรีมนั้นตามที่แสดงด้านบน
+
+### **แปลงภาพ SVG เป็น EMF แล้วเพิ่มเข้าไปในงานนำเสนอ**
+
+ใช้ [SvgImage::writeAsEmf](https://reference.aspose.com/slides/th/php-java/aspose.slides/svgimage/#writeAsEmf) เพื่อแปลงเนื้อหา SVG เป็น EMF. ไบต์ที่ได้สามารถเพิ่มเข้าไปในงานนำเสนอผ่าน [ImageCollection::addImage](https://reference.aspose.com/slides/th/php-java/aspose.slides/imagecollection/#addImage) และวางบนสไลด์ด้วย [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/th/php-java/aspose.slides/shapecollection/#addPictureFrame)
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SvgImage;
+
+$svgContent = '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100"><rect width="200" height="100" fill="#4472C4"/></svg>';
+$svgImage = new SvgImage($svgContent);
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $emfStream = new Java("java.io.ByteArrayOutputStream");
+    try {
+        $svgImage->writeAsEmf($emfStream);
+
+        $emfData = $emfStream->toByteArray();
+        $image = $presentation->getImages()->addImage($emfData);
+        $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 200, 100, $image);
+    } finally {
+        $emfStream->close();
+    }
+
+    $presentation->save("Presentation_with_emf.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+[SvgImage::writeAsEmf](https://reference.aspose.com/slides/th/php-java/aspose.slides/svgimage/#writeAsEmf) ไม่ได้เป็นเจ้าของสตรีมปลายทาง. [ByteArrayOutputStream](https://docs.oracle.com/javase/8/docs/api/java/io/ByteArrayOutputStream.html) เก็บข้อมูลที่สร้างทั้งหมดในหน่วยความจำ, ดังนั้นจึงไม่จำเป็นต้องรีเซ็ตตำแหน่งก่อนเรียก `toByteArray`. อาร์เรย์ไบต์ที่ 반환ยังคงใช้ได้หลังจากสตรีมปิด
+
+การสร้าง EMF มีให้ใช้งานบนระบบปฏิบัติการที่สนับสนุนโดย Aspose.Slides for PHP via Java และการกำหนดค่า JDK ที่เลือก, แต่การแสดงผลอาจแตกต่างกันระหว่างแพลตฟอร์มเมื่อฟอนต์หรือกราฟิกที่จำเป็นไม่มี. ควรติดตั้งฟอนต์ที่ใช้ในเนื้อหาแหล่งหรือกำหนดการแทนที่ที่เหมาะสม, ปฏิบัติตาม [platform requirements](/slides/th/php-java/system-requirements/) สำหรับ Aspose.Slides for PHP via Java, และตรวจสอบผลลัพธ์ในแอปพลิเคชันที่ใช้ EMF เป้าหมาย. แอปพลิเคชันบน Linux และ macOS มักมีการสนับสนุนการแสดงและแก้ไข Windows metafile ที่จำกัดหรือไม่สอดคล้องกัน
+
+## **การแสดงผลสี Emoji**
+
+{{% alert title="Note" color="info" %}}
+เพื่อแสดงสี Emoji อย่างถูกต้องเมื่อแปลงสไลด์งานนำเสนอเป็นภาพ, ฟอนต์ Emoji ที่ใช้ในงานนำเสนอจำเป็นต้องติดตั้งและพร้อมใช้งานบนระบบที่ทำการแปลง. ตัวอย่างเช่น หากงานนำเสนอใช้ **Segoe UI Emoji** แต่ฟอนต์นี้หายไป, Emoji อาจปรากฏเป็นสีเดียวในภาพผลลัพธ์
 {{% /alert %}}
 
 ## **คำถามที่พบบ่อย**
 
-**Aspose.Slides รองรับการแสดงภาพสไลด์พร้อมแอนิเมชันหรือไม่?**  
-ไม่, เมธอด `getImage` จะบันทึกเฉพาะภาพคงที่ของสไลด์โดยไม่มีแอนิเมชัน
+**Aspose.Slides รองรับการแสดงสไลด์พร้อมแอนิเมชันหรือไม่?**
 
-**สไลด์ที่ถูกซ่อนได้สามารถส่งออกเป็นรูปภาพได้หรือไม่?**  
-ได้, สไลด์ที่ถูกซ่อนสามารถประมวลผลได้เช่นเดียวกับสไลด์ทั่วไป เพียงตรวจสอบให้แน่ใจว่าถูกรวมอยู่ในลูปการประมวลผล
+ไม่. เมธอด [Slide::getImage](https://reference.aspose.com/slides/th/php-java/aspose.slides/slide/#getImage) ให้ภาพสไลด์แบบคงที่และไม่ส่งออกแอนิเมชัน
 
-**สามารถบันทึกรูปภาพพร้อมเงาและเอฟเฟ็กต์ได้หรือไม่?**  
-ได้, Aspose.Slides รองรับการเรนเดอร์เงา, ความโปร่งใส, และเอฟเฟ็กต์กราฟิกอื่น ๆ เมื่อตั้งค่าบันทึกสไลด์เป็นรูปภาพ
+**สไลด์ที่ซ่อนสามารถส่งออกเป็นภาพได้หรือไม่?**
+
+ได้. สไลด์ที่ซ่อนสามารถแสดงผลได้เช่นสไลด์ทั่วไป. ให้รวมสไลด์เหล่านั้นในลูปการประมวลผลตามตัวอย่างข้างต้น
+
+**เงาและเอฟเฟ็กต์อื่น ๆ จะถูกเก็บไว้ในภาพสไลด์หรือไม่?**
+
+ได้. Aspose.Slides จะเรนเดอร์เงา, ความโปร่งใส, และเอฟเฟ็กต์กราฟิกที่สนับสนุนอื่น ๆ ในภาพสไลด์

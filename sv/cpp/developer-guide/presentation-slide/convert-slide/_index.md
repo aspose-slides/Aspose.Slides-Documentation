@@ -1,190 +1,305 @@
 ---
-title: "Konvertera presentationsbilder till bilder i C++"
-linktitle: "Bildspel till bild"
+title: Konvertera presentationsbilder till bildfiler i C++
+linktitle: Bild till bild
 type: docs
 weight: 41
 url: /sv/cpp/convert-slide/
 keywords:
-- "konvertera bildspel"
-- "exportera bildspel"
-- "bildspel till bild"
-- "spara bildspel som bild"
-- "bildspel till PNG"
-- "bildspel till JPEG"
-- "bildspel till bitmap"
-- "bildspel till TIFF"
-- "PowerPoint"
-- "OpenDocument"
-- "presentation"
-- "C++"
-- "Aspose.Slides"
-description: "Konvertera bildspel från PPT, PPTX och ODP till bilder i C++ med Aspose.Slides – snabb rendering av hög kvalitet med tydliga kodexempel."
+- konvertera bild
+- exportera bild
+- bild till bild
+- spara bild som bild
+- bild till EMF
+- bild till PNG
+- bild till JPEG
+- bild till bitmap
+- bild till TIFF
+- PowerPoint
+- OpenDocument
+- presentation
+- C++
+- Aspose.Slides
+description: "Konvertera bilder från PPT-, PPTX- och ODP-presentationer till PNG, JPEG, GIF, TIFF, EMF och andra bildformat i C++ med Aspose.Slides för C++."
 ---
 ## **Introduktion**
 
-Aspose.Slides för C++ gör det enkelt att konvertera PowerPoint- och OpenDocument-presentationer till olika bildformat, inklusive BMP, PNG, JPG (JPEG), GIF och andra.
+Aspose.Slides för C++ kan rendera enskilda bilder från PowerPoint‑ och OpenDocument‑presentationer som PNG, JPEG, GIF, TIFF och andra bildformat.
 
-För att konvertera en bild till en bild, följ dessa steg:
+För att konvertera en bild till en bildfil, följ dessa steg:
 
-1. Definiera önskade konverteringsinställningar och välj de bilder du vill exportera genom att använda:
-    - [ITiffOptions](https://reference.aspose.com/slides/sv/cpp/aspose.slides.export/itiffoptions/)‑gränssnittet, eller
-    - [IRenderingOptions](https://reference.aspose.com/slides/sv/cpp/aspose.slides.export/irenderingoptions/)‑gränssnittet.
-2. Generera bildfilen genom att anropa metoden [GetImage](https://reference.aspose.com/slides/sv/cpp/aspose.slides/islide/getimage/).
+1. Läs in presentationen med klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/) .
+2. Välj den bild du vill rendera.
+3. Om nödvändigt, konfigurera rendering med klassen [RenderingOptions](https://reference.aspose.com/slides/sv/cpp/aspose.slides.export/renderingoptions/) eller [TiffOptions](https://reference.aspose.com/slides/sv/cpp/aspose.slides.export/tiffoptions/) .
+4. Anropa metoden [ISlide::GetImage](https://reference.aspose.com/slides/sv/cpp/aspose.slides/islide/getimage/) . Den returnerar ett [IImage](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iimage/)‑objekt.
+5. Anropa metoden [IImage::Save](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iimage/save/) . och ange utdataformatet med ett [ImageFormat](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imageformat/)‑värde.
 
-En [Bitmap](https://reference.aspose.com/slides/sv/cpp/system.drawing/bitmap/) är ett objekt som låter dig arbeta med bilder definierade av pixeldatapunkter. Du kan använda en instans av denna klass för att spara bilder i ett brett urval av format (BMP, JPG, PNG osv.).
+## **Konvertera en bild till en PNG‑bild**
 
-## **Konvertera bildspel till bitmapp och spara bilderna i PNG**
+Den enklaste konverteringen använder standardinställningarna för rendering. Det resulterande [IImage](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iimage/)‑objektet kan bearbetas i minnet eller sparas till en fil.
 
-Du kan konvertera en bild till ett bitmappsobjekt och använda det direkt i din applikation. Alternativt kan du konvertera en bild till en bitmapp och sedan spara bilden i JPEG eller något annat föredraget format.
+Följande C++‑exempel renderar den första bilden och sparar den som en PNG‑bild:
 
-```cpp 
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
+auto slide = presentation->get_Slide(0);
 
-// Convert the first slide in the presentation to a bitmap.
-auto image = presentation->get_Slide(0)->GetImage();
-
-// Save the image in the PNG format.
+auto image = slide->GetImage();
 image->Save(u"Slide_0.png", ImageFormat::Png);
 
 image->Dispose();
 presentation->Dispose();
 ```
 
-## **Konvertera bildspel till bilder med anpassade storlekar**
+## **Konvertera bilder till bildfiler med anpassade storlekar**
 
-Du kan behöva få en bild av en viss storlek. Genom att använda en overload från [GetImage](https://reference.aspose.com/slides/sv/cpp/aspose.slides/islide/getimage/), kan du konvertera en bild till en bild med specifika dimensioner (bredd och höjd).
+Använd överlagringen av [ISlide::GetImage](https://reference.aspose.com/slides/sv/cpp/aspose.slides/islide/getimage/) som accepterar ett [Size](https://reference.aspose.com/slides/sv/cpp/system.drawing/size/)‑värde för att rendera en bild med exakta pixelmått.
 
-```cpp 
+Följande exempel skapar en JPEG‑bild på 1820 × 1040 pixlar:
+
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <drawing/size.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Drawing;
+
 Size imageSize(1820, 1040);
 
 auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
+auto slide = presentation->get_Slide(0);
 
-// Konvertera den första bilden i presentationen till en bitmap med angiven storlek.
-auto image = presentation->get_Slide(0)->GetImage(imageSize);
-
-// Spara bilden i JPEG-formatet.
+auto image = slide->GetImage(imageSize);
 image->Save(u"Slide_0.jpg", ImageFormat::Jpeg);
 
 image->Dispose();
 presentation->Dispose();
 ```
 
-## **Konvertera bildspel med anteckningar och kommentarer till bilder**
+## **Konvertera bilder med anteckningar och kommentarer till bildfiler**
 
-Vissa bilder kan innehålla anteckningar och kommentarer.
+Som standard inkluderar bildfiler inte anteckningar eller kommentarer. Tilldela ett [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/sv/cpp/aspose.slides.export/notescommentslayoutingoptions/)‑objekt till metoden [RenderingOptions::set_SlidesLayoutOptions](https://reference.aspose.com/slides/sv/cpp/aspose.slides.export/renderingoptions/set_slideslayoutoptions/) för att styra var anteckningar och kommentarer visas.
 
-Aspose.Slides tillhandahåller två gränssnitt—[ITiffOptions](https://reference.aspose.com/slides/sv/cpp/aspose.slides.export/itiffoptions/) och [IRenderingOptions](https://reference.aspose.com/slides/sv/cpp/aspose.slides.export/irenderingoptions/)—som låter dig kontrollera rendering av presentationsbilder till bilder. Båda gränssnitten inkluderar metoden `set_SlidesLayoutOptions`, som gör det möjligt att konfigurera rendering av anteckningar och kommentarer på en bild när den konverteras till en bild.
+Följande exempel placerar avkortade anteckningar under bilden och kommentarer till höger om den:
 
-Med klassen [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/sv/cpp/aspose.slides.export/notescommentslayoutingoptions/) kan du ange din föredragna position för anteckningar och kommentarer i den resulterande bilden.
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/CommentsPositions.h>
+#include <Export/NotesCommentsLayoutingOptions.h>
+#include <Export/NotesPositions.h>
+#include <Export/RenderingOptions.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <drawing/color.h>
+#include <system/smart_ptr.h>
 
-```cpp 
-float scaleX = 2;
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+float scaleX = 2.0f;
 float scaleY = scaleX;
 
-// Ladda in en presentationsfil.
+auto layoutOptions = MakeObject<NotesCommentsLayoutingOptions>();
+layoutOptions->set_NotesPosition(NotesPositions::BottomTruncated);
+layoutOptions->set_CommentsPosition(CommentsPositions::Right);
+layoutOptions->set_CommentsAreaWidth(500);
+layoutOptions->set_CommentsAreaColor(Color::get_AntiqueWhite());
+
+auto renderingOptions = MakeObject<RenderingOptions>();
+renderingOptions->set_SlidesLayoutOptions(layoutOptions);
+
 auto presentation = MakeObject<Presentation>(u"Presentation_with_notes_and_comments.pptx");
+auto slide = presentation->get_Slide(0);
 
-auto notesCommentsOptions = MakeObject<NotesCommentsLayoutingOptions>();
-notesCommentsOptions->set_NotesPosition(NotesPositions::BottomTruncated);  // Ange positionen för anteckningarna.
-notesCommentsOptions->set_CommentsPosition(CommentsPositions::Right);      // Ange positionen för kommentarerna.
-notesCommentsOptions->set_CommentsAreaWidth(500);                          // Ange bredden på kommentarsområdet.
-notesCommentsOptions->set_CommentsAreaColor(Color::get_AntiqueWhite());    // Ange färgen för kommentarsområdet.
-
-// Skapa renderingsalternativen.
-auto options = MakeObject<RenderingOptions>();
-options->set_SlidesLayoutOptions(notesCommentsOptions);
-
-// Konvertera den första bilden i presentationen till en bild.
-auto image = presentation->get_Slide(0)->GetImage(options, scaleX, scaleY);
-
-// Spara bilden i GIF-format.
+auto image = slide->GetImage(renderingOptions, scaleX, scaleY);
 image->Save(u"Image_with_notes_and_comments_0.gif", ImageFormat::Gif);
 
 image->Dispose();
 presentation->Dispose();
 ```
 
-{{% alert title="Note" color="warning" %}} 
+{{% alert title="Warning" color="warning" %}}
+För konvertering av bild till bildfil, sätt inte [NotesCommentsLayoutingOptions::set_NotesPosition](https://reference.aspose.com/slides/sv/cpp/aspose.slides.export/notescommentslayoutingoptions/set_notesposition/)‑metoden till [BottomFull](https://reference.aspose.com/slides/sv/cpp/aspose.slides.export/notespositions/). Anteckningarna kan innehålla mer text än den fasta bildstorleken kan rymma. Använd istället [BottomTruncated](https://reference.aspose.com/slides/sv/cpp/aspose.slides.export/notespositions/) .
+{{% /alert %}}
 
-I alla bild‑till‑bild‑konverteringsprocesser kan metoden [set_NotesPosition](https://reference.aspose.com/slides/sv/cpp/aspose.slides.export/notescommentslayoutingoptions/set_notesposition/) inte tillämpa `BottomFull` (för att ange positionen för anteckningar) eftersom en antecknings text kan vara för stor för att få plats inom den angivna bildstorleken.
+## **Konvertera bilder till bildfiler med TIFF‑alternativ**
 
-{{% /alert %}} 
+Klassen [TiffOptions](https://reference.aspose.com/slides/sv/cpp/aspose.slides.export/tiffoptions/) låter dig kontrollera storlek, upplösning och andra egenskaper för den renderade TIFF‑bilden.
 
-## **Konvertera bildspel till bilder med TIFF-alternativ**
+Följande exempel renderar den första bilden som en TIFF‑bild på 2160 × 2880 pixlar med 300 DPI:
 
-[ITiffOptions](https://reference.aspose.com/slides/sv/cpp/aspose.slides.export/itiffoptions/)‑gränssnittet ger större kontroll över den resulterande TIFF‑bilden genom att låta dig specificera parametrar såsom storlek, upplösning, färgpalett och mer.
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/TiffOptions.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <drawing/size.h>
+#include <system/smart_ptr.h>
 
-```cpp 
-// Ladda in en presentationsfil.
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto tiffOptions = MakeObject<TiffOptions>();
+tiffOptions->set_ImageSize(Size(2160, 2880));
+tiffOptions->set_DpiX(300);
+tiffOptions->set_DpiY(300);
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
-
-// Get the first slide from the presentation.
 auto slide = presentation->get_Slide(0);
 
-// Configure the settings of the output TIFF image.
-auto tiffOptions = MakeObject<TiffOptions>();
-tiffOptions->set_ImageSize(Size(2160, 2880));                       // Ange bildstorleken.
-tiffOptions->set_PixelFormat(ImagePixelFormat::Format1bppIndexed);  // Ange pixelformatet (svartvitt).
-tiffOptions->set_DpiX(300);                                         // Ange horisontell upplösning.
-tiffOptions->set_DpiY(300);                                         // Ange vertikal upplösning.
-
-// Konvertera bilden till en bild med de angivna alternativen.
 auto image = slide->GetImage(tiffOptions);
-
-// Spara bilden i TIFF-format.
-image->Save(u"output.bmp", ImageFormat::Tiff);
+image->Save(u"output.tiff", ImageFormat::Tiff);
 
 image->Dispose();
 presentation->Dispose();
 ```
 
-## **Konvertera alla bildspel till bilder**
+## **Konvertera alla bilder till bildfiler**
 
-Aspose.Slides låter dig konvertera alla bilder i en presentation till bilder, vilket effektivt konverterar hela presentationen till en serie bilder.
+Iterera genom bildsamlingen för att konvertera hela presentationen till en serie bildfiler. Dolda bilder inkluderas om du inte explicit hoppar över dem.
 
-```cpp 
-float scaleX = 2;
+Följande exempel renderar varje bild som en JPEG‑bild med horisontella och vertikala skalningsfaktorer på 2:
+
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+float scaleX = 2.0f;
 float scaleY = scaleX;
 
 auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
 
-// Rendera presentationen till bilder bild för bild.
-for (int i = 0; i < presentation->get_Slides()->get_Count(); i++)
+int32_t slideCount = presentation->get_Slides()->get_Count();
+for (int32_t index = 0; index < slideCount; index++)
 {
-    // Kontrollera dolda bilder (rendera inte dolda bilder).
-    if (presentation->get_Slide(i)->get_Hidden())
-    {
-        continue;
-    }
-
-    // Konvertera bilden till en bild.
-    auto image = presentation->get_Slide(i)->GetImage(scaleX, scaleY);
-
-    // Spara bilden i JPEG-format.
-    image->Save(String::Format(u"Slide_{0}.jpg", i), ImageFormat::Jpeg);
-
+    auto slide = presentation->get_Slide(index);
+    auto image = slide->GetImage(scaleX, scaleY);
+    image->Save(String::Format(u"Slide_{0}.jpg", index), ImageFormat::Jpeg);
     image->Dispose();
 }
 
 presentation->Dispose();
 ```
 
-## **Färgad Emoji-rendering**
+## **Skapa Enhanced Metafile‑utdata**
 
-{{% alert title="Note" color="warning" %}} 
-För att rendera färgade emojis korrekt när du konverterar presentationsbilder till bilder måste emojis‑teckensnitten som används i presentationen vara installerade och tillgängliga på systemet som utför konverteringen. Till exempel, om presentationen använder **Segoe UI Emoji** och detta teckensnitt saknas, kan emojis visas i monokrom i de genererade bilderna.
+Enhanced Metafile (EMF) är användbart när vektorgrafik måste utbytas med Microsoft Office eller andra Windows‑program som stöder Windows‑metafiler. Till skillnad från en pixelbaserad bild kan en EMF behålla vektorritningsoperationer som kan skalas utan samma förlust av skärpa. EMF är dock främst ett kompatibilitetsformat för program med stöd för Windows‑metafiler, inte ett universellt utbytesformat. Dessutom kan komplext bildinnehåll, såsom bitmapbilder och vissa effekter, lagras som rasteriserade element i den vektormetafilikontainern.
+
+### **Exportera en bild till EMF**
+
+Metoden [ISlide::WriteAsEmf](https://reference.aspose.com/slides/sv/cpp/aspose.slides/islide/writeasemf/) skriver en [ISlide](https://reference.aspose.com/slides/sv/cpp/aspose.slides/islide/) till en målström i EMF‑format. Följande exempel läser in en presentation, väljer den första bilden och skriver den till en EMF‑filström:
+
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/io/file.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto emfStream = File::Create(u"Slide_0.emf");
+slide->WriteAsEmf(emfStream);
+
+emfStream->Close();
+presentation->Dispose();
+```
+
+Anroparen äger strömmen som skickas till [ISlide::WriteAsEmf](https://reference.aspose.com/slides/sv/cpp/aspose.slides/islide/writeasemf/) och måste stänga eller disponera den. Aspose.Slides skriver vid strömmens aktuella position och lämnar strömmen öppen.
+
+### **Konvertera en SVG‑bild till EMF och lägg till den i en presentation**
+
+Använd [ISvgImage::WriteAsEmf](https://reference.aspose.com/slides/sv/cpp/aspose.slides/isvgimage/writeasemf/) för att konvertera SVG‑innehåll till EMF. De resulterande bytesen kan läggas till i presentationen via [IImageCollection::AddImage](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iimagecollection/addimage/) och placeras på en bild med [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ishapecollection/addpictureframe/).
+
+Följande exempel skapar en [SvgImage](https://reference.aspose.com/slides/sv/cpp/aspose.slides/svgimage/) från SVG‑markup, konverterar den till en EMF‑fil i minnet, infogar metafilen på den första bilden och sparar presentationen:
+
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SvgImage.h>
+#include <Export/SaveFormat.h>
+#include <system/io/memory_stream.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+String svgContent = u"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"100\"><rect width=\"200\" height=\"100\" fill=\"#4472C4\"/></svg>";
+auto svgImage = MakeObject<SvgImage>(svgContent);
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+
+auto emfStream = MakeObject<MemoryStream>();
+svgImage->WriteAsEmf(emfStream);
+
+auto emfData = emfStream->ToArray();
+auto image = presentation->get_Images()->AddImage(emfData);
+slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 20, 20, 200, 100, image);
+
+presentation->Save(u"Presentation_with_emf.pptx", SaveFormat::Pptx);
+
+emfStream->Close();
+presentation->Dispose();
+```
+
+[ISvgImage::WriteAsEmf](https://reference.aspose.com/slides/sv/cpp/aspose.slides/isvgimage/writeasemf/) tar inte ägandeskap över målströmmen. Efter skrivning är strömmens position i slutet av den genererade datan. Exemplet anropar [MemoryStream::ToArray](https://reference.aspose.com/slides/sv/cpp/system.io/memorystream/toarray/) för att erhålla hela bufferten oavsett strömmens aktuella position, och vidarebefordrar sedan den byte‑arrayen till [IImageCollection::AddImage](https://reference.aspose.com/slides/sv/cpp/aspose.slides/iimagecollection/addimage/). Håll strömmen öppen tills konsumenten har avslutat läsningen, och stäng den därefter.
+
+EMF‑generering är tillgänglig på de operativsystem som stöds av Aspose.Slides för C++, men rendering kan skilja sig mellan plattformar när teckensnitt eller inhemska grafikberoenden saknas. Installera de teckensnitt som används i källinnehållet eller konfigurera lämpliga ersättningar, följ [plattformskraven](/slides/sv/cpp/system-requirements/) för Aspose.Slides för C++ och validera resultatet i den mål‑EMF‑konsumerande applikationen. Linux‑ och macOS‑applikationer har ofta begränsat eller inkonsekvent stöd för att visa och redigera Windows‑metafiler.
+
+## **Rendering av färg‑emoji**
+
+{{% alert title="Note" color="info" %}}
+För att rendera färg‑emoji korrekt när presentationens bilder konverteras till bildfiler måste de emoji‑teckensnitt som används i presentationen vara installerade och tillgängliga på systemet som utför konverteringen. Till exempel, om presentationen använder **Segoe UI Emoji** och detta teckensnitt saknas, kan emoji visas i monokrom i utskriftsbilderna.
 {{% /alert %}}
 
 ## **FAQ**
 
 **Stöder Aspose.Slides rendering av bilder med animationer?**
 
-Nej, metoden `GetImage` sparar endast en statisk bild av bilden, utan animationer.
+Nej. Metoden [ISlide::GetImage](https://reference.aspose.com/slides/sv/cpp/aspose.slides/islide/getimage/) renderar en statisk bild av bilden och exporterar inte animationer.
 
-**Kan dolda bilder exporteras som bilder?**
+**Kan dolda bilder exporteras som bildfiler?**
 
-Ja, dolda bilder kan bearbetas precis som vanliga. Se bara till att de inkluderas i bearbetningsloopen.
+Ja. Dolda bilder kan renderas som vanliga bilder. Inkludera dem i bearbetningsloopen, som visas i exemplet ovan.
 
-**Kan bilder sparas med skuggor och effekter?**
+**Bevaras skuggor och andra effekter i bildfilerna?**
 
-Ja, Aspose.Slides stödjer rendering av skuggor, transparens och andra grafiska effekter när bilder sparas som bilder.
+Ja. Aspose.Slides renderar skuggor, transparens och andra stödjade grafiska effekter i bildfilerna.

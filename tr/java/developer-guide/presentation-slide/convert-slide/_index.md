@@ -1,5 +1,5 @@
 ---
-title: Java'da Sunum Slaytlarını Görüntülere Dönüştür
+title: Java'da Sunum Slaytlarını Görüntülere Dönüştürme
 linktitle: Slayttan Görüntüye
 type: docs
 weight: 35
@@ -7,45 +7,50 @@ url: /tr/java/convert-slide/
 keywords:
 - slaytı dönüştür
 - slaytı dışa aktar
-- slayttan görüntüye
+- slaytı görüntüye
 - slaytı görüntü olarak kaydet
-- slayttan PNG
-- slayttan JPEG
-- slayttan bitmap
-- slayttan TIFF
+- slaytı EMF'ye
+- slaytı PNG'ye
+- slaytı JPEG'e
+- slaytı bitmap'e
+- slaytı TIFF'e
 - PowerPoint
 - OpenDocument
 - sunum
 - Java
 - Aspose.Slides
-description: "Aspose.Slides kullanarak Java'da PPT, PPTX ve ODP dosyalarındaki slaytları görüntülere dönüştürün—hızlı, yüksek kaliteli renderleme ve açık kod örnekleri."
+description: "Aspose.Slides ile Java'da PPT, PPTX ve ODP sunumlarından PNG, JPEG, GIF, TIFF, EMF ve diğer görüntü biçimlerine slaytları dönüştürün."
 ---
 ## **Giriş**
 
-Aspose.Slides for Java, PowerPoint ve OpenDocument sunum slaytlarını BMP, PNG, JPG (JPEG), GIF ve diğerlerini içeren çeşitli görüntü biçimlerine kolayca dönüştürmenizi sağlar.
+Aspose.Slides for Java, PowerPoint ve OpenDocument sunumlarından tek tek slaytları PNG, JPEG, GIF, TIFF ve diğer görüntü biçimleri olarak oluşturabilir.
 
 Bir slaytı görüntüye dönüştürmek için şu adımları izleyin:
 
-1. İstediğiniz dönüşüm ayarlarını tanımlayın ve dışa aktarmak istediğiniz slaytları aşağıdaki kullanarak seçin:
-    - [ITiffOptions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itiffoptions/) arayüzü, veya
-    - [IRenderingOptions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/irenderingoptions/) arayüzü.
-2. [getImage](https://reference.aspose.com/slides/tr/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-) metodunu çağırarak slayt görüntüsünü oluşturun.
+1. Sunumu, [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) sınıfı ile yükleyin.
+2. Oluşturmak istediğiniz slaytı seçin.
+3. Gerekirse, renderlemeyi [RenderingOptions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/renderingoptions/) veya [TiffOptions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/tiffoptions/) sınıfı ile yapılandırın.
+4. [ISlide.getImage](https://reference.aspose.com/slides/tr/java/com.aspose.slides/islide/#getImage--) yöntemini çağırın. Bu, bir [IImage](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iimage/) nesnesi döndürür.
+5. [IImage.save](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iimage/#save-java.lang.String-int-) yöntemini çağırın ve çıktının formatını bir [ImageFormat](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imageformat/) değeriyle belirtin.
 
-Aspose.Slides for Java'da, [IImage](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iimage/) bir arayüzdür ve piksel verileriyle tanımlanan görüntülerle çalışmanıza olanak tanır. Bu arayüzü, görüntüleri geniş bir biçim yelpazesinde (BMP, JPG, PNG vb.) kaydetmek için kullanabilirsiniz.
+## **Bir Slaytı PNG Görüntüsüne Dönüştürme**
 
-## **Slaytları Bitmap'lere Dönüştür ve PNG Olarak Görüntüleri Kaydet**
+En basit dönüşüm, varsayılan render ayarlarını kullanır. Oluşan [IImage](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iimage/) nesnesi bellek içinde işlenebilir veya bir dosyaya kaydedilebilir.
 
-Bir slaytı bitmap nesnesine dönüştürüp doğrudan uygulamanızda kullanabilirsiniz. Alternatif olarak, slaytı bitmap'e dönüştürüp ardından görüntüyü JPEG veya tercih ettiğiniz başka bir formatta kaydedebilirsiniz.
+Aşağıdaki Java örneği ilk slaytı renderlayıp PNG görüntüsü olarak kaydeder:
 
-Bu kod, bir sunumun ilk slaytını bitmap nesnesine dönüştürüp ardından PNG formatında kaydetmeyi gösterir:
+```java
+import com.aspose.slides.IImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
 
-```java 
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Sunumdaki ilk slaytı bitmap'e dönüştür.
-    IImage image = presentation.getSlides().get_Item(0).getImage();
-	try {
-        // Görüntüyü PNG biçiminde kaydet.
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IImage image = slide.getImage();
+    try {
         image.save("Slide_0.png", ImageFormat.Png);
     } finally {
         image.dispose();
@@ -55,22 +60,27 @@ try {
 }
 ```
 
-## **Slaytları Özel Boyutlarda Görüntülere Dönüştür**
+## **Özel Boyutlarla Slaytları Görüntülere Dönüştürme**
 
-Belirli bir boyutta bir görüntü elde etmeniz gerekebilir. [getImage](https://reference.aspose.com/slides/tr/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-) metodunun bir aşırı yüklemesini kullanarak, bir slaytı belirli boyutlarda (genişlik ve yükseklik) görüntüye dönüştürebilirsiniz.
+[Dimension](https://docs.oracle.com/javase/8/docs/api/java/awt/Dimension.html) değerini kabul eden [ISlide.getImage](https://reference.aspose.com/slides/tr/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-) aşırı yüklemesini kullanarak slaytı tam piksel boyutlarıyla renderlayın.
 
-Bu örnek kod, bunu nasıl yapacağınızı gösterir:
+Aşağıdaki örnek 1820 × 1040 JPEG görüntüsü oluşturur:
 
-```java 
+```java
+import com.aspose.slides.IImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
+import java.awt.Dimension;
+
 Dimension imageSize = new Dimension(1820, 1040);
 
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Sunumdaki ilk slaytı belirtilen boyutta bitmap'e dönüştür.
-    IImage image = presentation.getSlides().get_Item(0).getImage(imageSize);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    IImage image = slide.getImage(imageSize);
     try {
-        // Görüntüyü JPEG biçiminde kaydet.
         image.save("Slide_0.jpg", ImageFormat.Jpeg);
     } finally {
         image.dispose();
@@ -80,38 +90,43 @@ try {
 }
 ```
 
-## **Notlar ve Yorumlar İçeren Slaytları Görüntülere Dönüştür**
+## **Not ve Yorumlarıyla Slaytları Görüntülere Dönüştürme**
 
-Bazı slaytlar not ve yorumlar içerebilir.
+Varsayılan olarak, slayt görüntüleri notları veya yorumları içermez. Notların ve yorumların nerede görüneceğini kontrol etmek için bir [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/notescommentslayoutingoptions/) nesnesini [RenderingOptions.setSlidesLayoutOptions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/renderingoptions/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) yöntemine gönderin.
 
-Aspose.Slides, sunum slaytlarının görüntülere renderlanmasını kontrol etmenizi sağlayan iki arayüz—[ITiffOptions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itiffoptions/) ve [IRenderingOptions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/irenderingoptions/)—sunar. Her iki arayüz de `setSlidesLayoutOptions` metodunu içerir; bu metod, bir slaytı görüntüye dönüştürürken notların ve yorumların renderlanmasını yapılandırmanıza olanak tanır.
+Aşağıdaki örnek kısaltılmış notları slaytın altına, yorumları ise sağ tarafına yerleştirir:
 
-[NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/notescommentslayoutingoptions/) sınıfı ile, sonuç görüntüde notların ve yorumların istediğiniz konumunu belirtebilirsiniz.
+```java
+import com.aspose.slides.CommentsPositions;
+import com.aspose.slides.IImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.NotesCommentsLayoutingOptions;
+import com.aspose.slides.NotesPositions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.RenderingOptions;
+import java.awt.Color;
 
-Bu kod, not ve yorum içeren bir slaytı nasıl dönüştüreceğinizi gösterir:
-
-```java 
-float scaleX = 2;
+float scaleX = 2f;
 float scaleY = scaleX;
 
-// Bir sunum dosyası yükle.
+Color commentsAreaColor = new Color(250, 235, 215);
+
+NotesCommentsLayoutingOptions layoutOptions = new NotesCommentsLayoutingOptions();
+layoutOptions.setNotesPosition(NotesPositions.BottomTruncated);
+layoutOptions.setCommentsPosition(CommentsPositions.Right);
+layoutOptions.setCommentsAreaWidth(500);
+layoutOptions.setCommentsAreaColor(commentsAreaColor);
+
+RenderingOptions renderingOptions = new RenderingOptions();
+renderingOptions.setSlidesLayoutOptions(layoutOptions);
+
 Presentation presentation = new Presentation("Presentation_with_notes_and_comments.pptx");
 try {
-    NotesCommentsLayoutingOptions notesCommentsOptions = new NotesCommentsLayoutingOptions();
-    notesCommentsOptions.setNotesPosition(NotesPositions.BottomTruncated);  // Notların konumunu ayarla.
-    notesCommentsOptions.setCommentsPosition(CommentsPositions.Right);      // Yorumların konumunu ayarla.
-    notesCommentsOptions.setCommentsAreaWidth(500);                         // Yorum alanının genişliğini ayarla.
-    notesCommentsOptions.setCommentsAreaColor(Color.LIGHT_GRAY);            // Yorum alanının rengini ayarla.
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Rendering seçeneklerini oluştur.
-    RenderingOptions options = new RenderingOptions();
-    options.setSlidesLayoutOptions(notesCommentsOptions);
-
-    // Sunumun ilk slaytını görüntüye dönüştür.
-    IImage image = presentation.getSlides().get_Item(0).getImage(options, scaleX, scaleY);
-
+    IImage image = slide.getImage(renderingOptions, scaleX, scaleY);
     try {
-        // Görüntüyü GIF biçiminde kaydet.
         image.save("Image_with_notes_and_comments_0.gif", ImageFormat.Gif);
     } finally {
         image.dispose();
@@ -121,35 +136,37 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-Herhangi bir slayt‑görüntü dönüşüm sürecinde, [setNotesPosition](https://reference.aspose.com/slides/tr/java/com.aspose.slides/inotescommentslayoutingoptions/#setNotesPosition-int-) metodu `BottomFull` konumunu (notların konumunu belirlemek için) uygulayamaz; çünkü not metni çok büyük olabilir ve belirtilen görüntü boyutuna sığmayabilir.
-{{% /alert %}} 
+{{% alert title="Warning" color="warning" %}}
+Slaytı-görüntüye dönüştürme işlemi için, [NotesCommentsLayoutingOptions.setNotesPosition](https://reference.aspose.com/slides/tr/java/com.aspose.slides/notescommentslayoutingoptions/#setNotesPosition-com.aspose.slides.ISlidesLayoutOptions-) yöntemine [BottomFull](https://reference.aspose.com/slides/tr/java/com.aspose.slides/notespositions/) parametresini gönderme. Notlar, sabit görüntü boyutunun alabileceğinden daha fazla metin içerebilir. Bunun yerine [BottomTruncated](https://reference.aspose.com/slides/tr/java/com.aspose.slides/notespositions/) kullanın.
+{{% /alert %}}
 
-## **TIFF Seçeneklerini Kullanarak Slaytları Görüntülere Dönüştür**
+## **TIFF Seçeneklerini Kullanarak Slaytları Görüntülere Dönüştürme**
 
-[ITiffOptions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itiffoptions/) arayüzü, boyut, çözünürlük, renk paleti ve daha fazlası gibi parametreleri belirlemenizi sağlayarak oluşan TIFF görüntüsü üzerinde daha fazla kontrol sunar.
+[TiffOptions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/tiffoptions/) sınıfı, renderlanan TIFF görüntüsünün boyutunu, çözünürlüğünü ve diğer özelliklerini kontrol etmenizi sağlar.
 
-Bu kod, TIFF seçeneklerinin 300 DPI çözünürlükte ve 2160 × 2800 boyutunda siyah‑beyaz bir görüntü üretmek için nasıl kullanıldığını gösterir:
+Aşağıdaki örnek ilk slaytı 2160 × 2880 boyutunda, 300 DPI'da bir TIFF görüntüsü olarak renderlar:
 
-```java 
-// Bir sunum dosyası yükle.
+```java
+import com.aspose.slides.IImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.TiffOptions;
+import java.awt.Dimension;
+
+Dimension imageSize = new Dimension(2160, 2880);
+
+TiffOptions tiffOptions = new TiffOptions();
+tiffOptions.setImageSize(imageSize);
+tiffOptions.setDpiX(300);
+tiffOptions.setDpiY(300);
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    // Sunumdan ilk slaytı al.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Çıktı TIFF görüntüsünün ayarlarını yapılandır.
-    TiffOptions tiffOptions = new TiffOptions();
-    tiffOptions.setImageSize(new Dimension(2160, 2880));             // Görüntü boyutunu ayarla.
-    tiffOptions.setPixelFormat(ImagePixelFormat.Format1bppIndexed);  // Piksel biçimini ayarla (siyah beyaz).
-    tiffOptions.setDpiX(300);                                        // Yatay çözünürlüğü ayarla.
-    tiffOptions.setDpiY(300);                                        // Dikey çözünürlüğü ayarla.
-
-    // Slaytı belirtilen seçeneklerle görüntüye dönüştür.
     IImage image = slide.getImage(tiffOptions);
-
     try {
-        // Görüntüyü TIFF formatında kaydet.
         image.save("output.tiff", ImageFormat.Tiff);
     } finally {
         image.dispose();
@@ -159,57 +176,132 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-TIFF desteği JDK 9'dan önceki sürümlerde garanti edilmez.
-{{% /alert %}} 
+{{% alert title="Warning" color="warning" %}}
+TIFF desteği, JDK 9'dan önceki Java sürümlerinde garanti edilmez.
+{{% /alert %}}
 
-## **Tüm Slaytları Görüntülere Dönüştür**
+## **Tüm Slaytları Görüntülere Dönüştürme**
 
-Aspose.Slides, bir sunumdaki tüm slaytları görüntülere dönüştürmenizi sağlar; böylece tüm sunumu bir dizi görüntüye çevirir.
+Tüm sunumu bir dizi görüntüye dönüştürmek için slayt koleksiyonunda döngü oluşturun. Gizli slaytlar, açıkça atlamadığınız sürece dahil edilir.
 
-Bu örnek kod, Java'da bir sunumdaki tüm slaytları görüntülere nasıl dönüştüreceğinizi gösterir:
+Aşağıdaki örnek, her slaytı yatay ve dikey ölçek faktörleri 2 olan bir JPEG görüntüsü olarak renderlar:
 
-```java 
-float scaleX = 2;
+```java
+import com.aspose.slides.IImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
+
+float scaleX = 2f;
 float scaleY = scaleX;
 
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Sunumu slayt slayt görüntülere dönüştür.
-    for (int i = 0 ; i < presentation.getSlides().size(); i++)
-    {
-        // Gizli slaytları kontrol et (gizli slaytları renderlama).
-        if (presentation.getSlides().get_Item(i).getHidden())
-            continue;
-
-        // Slaytı bir görüntüye dönüştür.
-        IImage image = presentation.getSlides().get_Item(i).getImage(scaleX, scaleY);
-
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage(scaleX, scaleY);
         try {
-            // Görüntüyü JPEG formatında kaydet.
-            image.save("Slide_" + i + ".jpg", ImageFormat.Jpeg);
+            image.save("Slide_" + index + ".jpg", ImageFormat.Jpeg);
         } finally {
             image.dispose();
         }
     }
 } finally {
     presentation.dispose();
-} 
+}
 ```
 
-## **Renkli Emoji Renderlama**
+## **Gelişmiş Metafile Çıktısı Oluşturma**
 
-{{% alert title="Note" color="warning" %}} 
-Sunum slaytlarını görüntülere dönüştürürken renkli emojileri doğru renderlamak için, sunumda kullanılan emoji fontlarının dönüşümü yapan sistemde yüklü ve kullanılabilir olması gerekir. Örneğin, sunum **Segoe UI Emoji** fontunu kullanıyorsa ve bu font eksikse, emojiler çıktı görüntülerinde tek renkli (monokrom) görünebilir.
-{{% /alert %}} 
+Gelişmiş Metafile (EMF), vektör tabanlı grafiklerin Microsoft Office veya Windows metafil desteği olan diğer Windows uygulamalarıyla değiş tokuş edilmesi gerektiğinde faydalıdır. Piksel tabanlı bir görüntünün aksine, EMF ölçeklendiğinde keskinliğini kaybetmeden vektör çizim işlemlerini koruyabilir. Ancak EMF, esas olarak Windows metafil desteği olan uygulamalar için bir uyumluluk biçimidir, evrensel bir değişim formatı değildir. Ayrıca, bitmap görüntüler ve bazı efektler gibi karmaşık slayt içerikleri, vektör metafil kapsayıcısı içinde rasterleştirilmiş öğeler olarak saklanabilir.
+
+### **Bir Slaytı EMF Olarak Dışa Aktarma**
+
+[ISlide.writeAsEmf](https://reference.aspose.com/slides/tr/java/com.aspose.slides/islide/#writeAsEmf-java.io.OutputStream-) yöntemi bir [ISlide](https://reference.aspose.com/slides/tr/java/com.aspose.slides/islide/) nesnesini EMF formatında hedef bir akıma yazar. Aşağıdaki örnek bir sunumu yükler, ilk slaytı seçer ve onu bir EMF dosya akımına yazar:
+
+```java
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+import java.io.FileOutputStream;
+
+Presentation presentation = new Presentation("Presentation.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    FileOutputStream emfStream = new FileOutputStream("Slide_0.emf");
+    try {
+        slide.writeAsEmf(emfStream);
+    } finally {
+        emfStream.close();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Çağırıcı, [ISlide.writeAsEmf](https://reference.aspose.com/slides/tr/java/com.aspose.slides/islide/#writeAsEmf-java.io.OutputStream-) yöntemine geçirilen akımı sahiplenir ve yukarıda gösterildiği gibi akımı kapatmakla sorumludur.
+
+### **Bir SVG Görüntüyü EMF'ye Dönüştürme ve Sunuma Ekleme**
+
+[ISvgImage.writeAsEmf](https://reference.aspose.com/slides/tr/java/com.aspose.slides/isvgimage/#writeAsEmf-java.io.OutputStream-) yöntemini kullanarak SVG içeriğini EMF'ye dönüştürün. Oluşan baytlar, [IImageCollection.addImage](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iimagecollection/#addImage-byte:A-) aracılığıyla sunuma eklenebilir ve bir slayta [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) ile yerleştirilebilir.
+
+Aşağıdaki örnek, SVG işaretlemesinden bir [SvgImage](https://reference.aspose.com/slides/tr/java/com.aspose.slides/svgimage/) oluşturur, bunu bellekte bir EMF'ye dönüştürür, metafili ilk slayta ekler ve sunumu kaydeder:
+
+```java
+import com.aspose.slides.IPPImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ISvgImage;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.ShapeType;
+import com.aspose.slides.SvgImage;
+import java.io.ByteArrayOutputStream;
+
+String svgContent = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"100\"><rect width=\"200\" height=\"100\" fill=\"#4472C4\"/></svg>";
+ISvgImage svgImage = new SvgImage(svgContent);
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ByteArrayOutputStream emfStream = new ByteArrayOutputStream();
+    try {
+        svgImage.writeAsEmf(emfStream);
+
+        byte[] emfData = emfStream.toByteArray();
+        IPPImage image = presentation.getImages().addImage(emfData);
+        slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 200, 100, image);
+    } finally {
+        emfStream.close();
+    }
+
+    presentation.save("Presentation_with_emf.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+[ISvgImage.writeAsEmf](https://reference.aspose.com/slides/tr/java/com.aspose.slides/isvgimage/#writeAsEmf-java.io.OutputStream-) hedef akımın sahipliğini almaz. Bir [ByteArrayOutputStream](https://docs.oracle.com/javase/8/docs/api/java/io/ByteArrayOutputStream.html) tüm oluşturulan verileri bellekte saklar, bu yüzden `toByteArray` çağrılmadan önce konum sıfırlamaya gerek yoktur. Döndürülen bayt dizisi, akım kapatıldıktan sonra da geçerliliğini korur.
+
+EMF oluşturma, seçilen Aspose.Slides for Java ve JDK yapılandırması tarafından desteklenen işletim sistemlerinde kullanılabilir, ancak fontlar veya grafik bağımlılıkları mevcut olmadığında platformlar arasında renderleme farklılık gösterebilir. Kaynak içeriğin kullandığı fontları yükleyin veya uygun ikameler yapılandırın, Aspose.Slides for Java için [platform gereksinimlerini](/slides/tr/java/system-requirements/) izleyin ve sonucu hedef EMF tüketen uygulamada doğrulayın. Linux ve macOS uygulamaları genellikle Windows metafillerinin görüntülenmesi ve düzenlenmesi konusunda sınırlı veya tutarsız destek sunar.
+
+## **Renkli Emoji Renderleme**
+
+{{% alert title="Note" color="info" %}}
+Sunum slaytlarını görüntülere dönüştürürken renkli emojileri doğru bir şekilde renderlamak için, sunumda kullanılan emoji fontlarının dönüşümü yapan sistemde yüklü ve erişilebilir olması gerekir. Örneğin, sunum **Segoe UI Emoji** kullanıyorsa ve bu font eksikse, emojiler çıktı görüntülerinde tek renkli görünebilir.
+{{% /alert %}}
 
 ## **SSS**
 
-**Aspose.Slides animasyonlu slaytların renderlanmasını destekliyor mu?**  
-Hayır, `getImage` metodu sadece slaytın statik bir görüntüsünü kaydeder, animasyonları içermez.
+**Aspose.Slides animasyonlu slaytları renderlamayı destekliyor mu?**
 
-**Gizli slaytlar görüntü olarak dışa aktarılabilir mi?**  
-Evet, gizli slaytlar normal slaytlar gibi işlenebilir. İşlem döngüsünde dahil olduklarından emin olun.
+Hayır. [ISlide.getImage](https://reference.aspose.com/slides/tr/java/com.aspose.slides/islide/#getImage--) yöntemi slaydın statik bir görüntüsünü oluşturur ve animasyonları dışa aktarmaz.
 
-**Görüntüler gölgeler ve efektlerle kaydedilebilir mi?**  
-Evet, Aspose.Slides slaytları görüntü olarak kaydederken gölgeler, şeffaflık ve diğer grafik efektlerinin renderlanmasını destekler.
+**Gizli slaytlar görüntü olarak dışa aktarılabilir mi?**
+
+Evet. Gizli slaytlar, normal slaytlar gibi renderlanabilir. Yukarıdaki örnekte gösterildiği gibi işleme döngüsüne dahil edin.
+
+**Gölgeler ve diğer efektler slayt görüntülerinde korunur mu?**
+
+Evet. Aspose.Slides, gölgeleri, saydamlığı ve diğer desteklenen grafik efektleri slayt görüntülerinde renderlar.

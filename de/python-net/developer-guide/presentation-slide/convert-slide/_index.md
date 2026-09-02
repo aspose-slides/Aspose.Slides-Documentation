@@ -1,56 +1,59 @@
 ---
-title: PowerPoint-Folien in Bilder in Python konvertieren
+title: Präsentationsfolien in Python in Bilder konvertieren
 linktitle: Folie zu Bild
 type: docs
 weight: 41
 url: /de/python-net/convert-slide/
 keywords:
 - Folie konvertieren
-- Folie zu Bild konvertieren
-- Folie als Bild exportieren
-- Folie als Bild speichern
+- Folie exportieren
 - Folie zu Bild
+- Folie als Bild speichern
+- Folie zu EMF
 - Folie zu PNG
 - Folie zu JPEG
 - Folie zu Bitmap
+- Folie zu TIFF
+- PowerPoint
+- OpenDocument
+- Präsentation
 - Python
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie PowerPoint- und OpenDocument-Folien mit Aspose.Slides für Python via .NET in verschiedene Formate konvertieren. Exportieren Sie PPTX- und ODP-Folien mühelos zu BMP, PNG, JPEG, TIFF und mehr mit hoher Qualität."
+description: "Konvertieren Sie Folien aus PPT-, PPTX- und ODP-Präsentationen in PNG, JPEG, GIF, TIFF, EMF und andere Bildformate in Python mit Aspose.Slides."
 ---
-## **Einführung**
+## **Einleitung**
 
-Aspose.Slides for Python via .NET ermöglicht es Ihnen, PowerPoint- und OpenDocument‑Präsentationsfolien problemlos in verschiedene Bildformate zu konvertieren, einschließlich BMP, PNG, JPG (JPEG), GIF und andere.
+Aspose.Slides for Python via .NET kann einzelne Folien aus PowerPoint- und OpenDocument-Präsentationen als PNG, JPEG, GIF, TIFF und andere Bildformate rendern.
 
-Um eine Folie in ein Bild zu konvertieren, gehen Sie wie folgt vor:
+Um eine Folie in ein Bild zu konvertieren, führen Sie die folgenden Schritte aus:
 
-1. Definieren Sie die gewünschten Konvertierungseinstellungen und wählen Sie die Folien aus, die Sie exportieren möchten, indem Sie verwenden:
-    - Die [TiffOptions](https://reference.aspose.com/slides/de/python-net/aspose.slides.export/tiffoptions/)-Klasse, oder
-    - Die [RenderingOptions](https://reference.aspose.com/slides/de/python-net/aspose.slides.export/renderingoptions/)-Klasse.
-2. Erzeugen Sie das Folienbild, indem Sie die Methode `get_image` der [Slide](https://reference.aspose.com/slides/de/python-net/aspose.slides/slide/)-Klasse aufrufen.
+1. Laden Sie die Präsentation mit der [Presentation](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/)‑Klasse.
+2. Wählen Sie die Folie aus, die Sie rendern möchten.
+3. Falls erforderlich, konfigurieren Sie das Rendering mit der [RenderingOptions](https://reference.aspose.com/slides/de/python-net/aspose.slides.export/renderingoptions/)‑ oder der [TiffOptions](https://reference.aspose.com/slides/de/python-net/aspose.slides.export/tiffoptions/)‑Klasse.
+4. Rufen Sie die [Slide.get_image](https://reference.aspose.com/slides/de/python-net/aspose.slides/slide/get_image/)‑Methode auf. Sie gibt ein [IImage](https://reference.aspose.com/slides/de/python-net/aspose.slides/iimage/)‑Objekt zurück.
+5. Rufen Sie die [IImage.save](https://reference.aspose.com/slides/de/python-net/aspose.slides/iimage/save/)‑Methode auf und geben Sie das Ausgabeformat mit einem [ImageFormat](https://reference.aspose.com/slides/de/python-net/aspose.slides/imageformat/)‑Wert an.
 
-In Aspose.Slides for Python via .NET ist [IImage](https://reference.aspose.com/slides/de/python-net/aspose.slides/iimage/) eine Klasse, die es Ihnen ermöglicht, mit Bildern zu arbeiten, die durch Pixeldaten definiert sind. Sie können eine Instanz dieser Klasse nutzen, um Bilder in einer Vielzahl von Formaten zu speichern (BMP, JPG, PNG usw.).
+## **Eine Folie in ein PNG‑Bild konvertieren**
 
-## **Folien in Bitmap konvertieren und die Bilder im PNG‑Format speichern**
+Die einfachste Konvertierung verwendet die standardmäßigen Rendering‑Einstellungen. Das resultierende [IImage](https://reference.aspose.com/slides/de/python-net/aspose.slides/iimage/)‑Objekt kann im Speicher verarbeitet oder in einer Datei gespeichert werden.
 
-Sie können eine Folie in ein Bitmap‑Objekt konvertieren und dieses direkt in Ihrer Anwendung verwenden. Alternativ können Sie eine Folie in ein Bitmap konvertieren und das Bild anschließend im JPEG‑ oder einem anderen bevorzugten Format speichern.
+Das folgende Python‑Beispiel rendert die erste Folie und speichert sie als PNG‑Bild:
 
-Dieses Python‑Beispiel zeigt, wie Sie die erste Folie einer Präsentation in ein Bitmap‑Objekt konvertieren und das Bild anschließend im PNG‑Format speichern:
-
-```py 
+```py
 import aspose.slides as slides
 
 with slides.Presentation("Presentation.pptx") as presentation:
-    # Konvertiere die erste Folie der Präsentation in ein Bitmap.
-    with presentation.slides[0].get_image() as image:
-        # Speichere das Bild im PNG-Format.
+    slide = presentation.slides[0]
+
+    with slide.get_image() as image:
         image.save("Slide_0.png", slides.ImageFormat.PNG)
 ```
 
-## **Folien mit benutzerdefinierten Größen in Bilder konvertieren**
+## **Folien in Bilder mit benutzerdefinierten Größen konvertieren**
 
-Möglicherweise benötigen Sie ein Bild mit einer bestimmten Größe. Mit einer Überladung von [get_image](https://reference.aspose.com/slides/de/python-net/aspose.slides/slide/get_image/#asposepydrawingsize) können Sie eine Folie in ein Bild mit konkreten Abmessungen (Breite und Höhe) konvertieren.
+Verwenden Sie die Überladung von [Slide.get_image](https://reference.aspose.com/slides/de/python-net/aspose.slides/slide/get_image/#asposepydrawingsize), die einen [Size](https://reference.aspose.com/slides/de/python-net/aspose.pydrawing/size/)‑Wert akzeptiert, um eine Folie mit genauen Pixelabmessungen zu rendern.
 
-Dieses Beispiel demonstriert, wie das geht:
+Das folgende Beispiel erstellt ein 1820 × 1040 JPEG‑Bild:
 
 ```py
 import aspose.pydrawing as draw
@@ -59,83 +62,72 @@ import aspose.slides as slides
 image_size = draw.Size(1820, 1040)
 
 with slides.Presentation("Presentation.pptx") as presentation:
-    # Konvertiere die erste Folie der Präsentation in ein Bitmap mit der angegebenen Größe.
-    with presentation.slides[0].get_image(image_size) as image:
-        # Speichere das Bild im JPEG-Format.
+    slide = presentation.slides[0]
+
+    with slide.get_image(image_size) as image:
         image.save("Slide_0.jpg", slides.ImageFormat.JPEG)
 ```
 
 ## **Folien mit Notizen und Kommentaren in Bilder konvertieren**
 
-Einige Folien können Notizen und Kommentare enthalten.
+Standardmäßig enthalten Folienbilder keine Notizen oder Kommentare. Weisen Sie ein [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/de/python-net/aspose.slides.export/notescommentslayoutingoptions/)‑Objekt der Eigenschaft [RenderingOptions.slides_layout_options](https://reference.aspose.com/slides/de/python-net/aspose.slides.export/renderingoptions/slides_layout_options/) zu, um zu steuern, wo Notizen und Kommentare angezeigt werden.
 
-Aspose.Slides bietet zwei Klassen—[TiffOptions](https://reference.aspose.com/slides/de/python-net/aspose.slides.export/tiffoptions/) und [RenderingOptions](https://reference.aspose.com/slides/de/python-net/aspose.slides.export/renderingoptions/)—die es Ihnen ermöglichen, die Darstellung von Präsentationsfolien als Bilder zu steuern. Beide Klassen enthalten die Eigenschaft `slides_layout_options`, mit der Sie die Darstellung von Notizen und Kommentaren auf einer Folie beim Konvertieren in ein Bild konfigurieren können.
+Das folgende Beispiel platziert gekürzte Notizen unterhalb der Folie und Kommentare rechts daneben:
 
-Mit der [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/de/python-net/aspose.slides.export/notescommentslayoutingoptions/)-Klasse können Sie die gewünschte Position für Notizen und Kommentare im resultierenden Bild festlegen.
-
-Dieses Python‑Beispiel demonstriert, wie Sie eine Folie mit Notizen und Kommentaren konvertieren:
-
-```py 
+```py
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
 scale_x = 2
 scale_y = scale_x
 
+layout_options = slides.export.NotesCommentsLayoutingOptions()
+layout_options.notes_position = slides.export.NotesPositions.BOTTOM_TRUNCATED
+layout_options.comments_position = slides.export.CommentsPositions.RIGHT
+layout_options.comments_area_width = 500
+layout_options.comments_area_color = draw.Color.antique_white
+
+rendering_options = slides.export.RenderingOptions()
+rendering_options.slides_layout_options = layout_options
+
 with slides.Presentation("Presentation_with_notes_and_comments.pptx") as presentation:
-    notes_comments_options = slides.export.NotesCommentsLayoutingOptions()
-    notes_comments_options.notes_position = slides.export.NotesPositions.BOTTOM_TRUNCATED  # Setze die Position der Notizen.
-    notes_comments_options.comments_position = slides.export.CommentsPositions.RIGHT       # Setze die Position der Kommentare.
-    notes_comments_options.comments_area_width = 500                                       # Setze die Breite des Kommentarbereichs.
-    notes_comments_options.comments_area_color = draw.Color.antique_white                  # Setze die Farbe des Kommentarbereichs.
+    slide = presentation.slides[0]
 
-    # Erstelle die Rendering-Optionen.
-    options = slides.export.RenderingOptions()
-    options.slides_layout_options = notes_comments_options
-
-    # Konvertiere die erste Folie der Präsentation in ein Bild.
-    with presentation.slides[0].get_image(options, scale_x, scale_y) as image:
-        # Speichere das Bild im GIF-Format.
+    with slide.get_image(rendering_options, scale_x, scale_y) as image:
         image.save("Image_with_notes_and_comments_0.gif", slides.ImageFormat.GIF)
 ```
 
-{{% alert title="Note" color="warning" %}} 
-In jedem Folien‑zu‑Bild‑Konvertierungsprozess kann die Eigenschaft [notes_position](https://reference.aspose.com/slides/de/python-net/aspose.slides.export/notescommentslayoutingoptions/notes_position/) nicht auf `BOTTOM_FULL` gesetzt werden (um die Position für Notizen festzulegen), da der Text einer Notiz möglicherweise zu groß ist und nicht in die angegebene Bildgröße passt.
-{{% /alert %}} 
+{{% alert title="Warning" color="warning" %}}
+Bei der Folie‑zu‑Bild‑Konvertierung setzen Sie die Eigenschaft [NotesCommentsLayoutingOptions.notes_position](https://reference.aspose.com/slides/de/python-net/aspose.slides.export/notescommentslayoutingoptions/notes_position/) nicht auf [NotesPositions.BOTTOM_FULL](https://reference.aspose.com/slides/de/python-net/aspose.slides.export/notespositions/). Notizen können mehr Text enthalten, als die feste Bildgröße aufnehmen kann. Verwenden Sie stattdessen [NotesPositions.BOTTOM_TRUNCATED](https://reference.aspose.com/slides/de/python-net/aspose.slides.export/notespositions/).
+{{% /alert %}}
 
 ## **Folien mit TIFF‑Optionen in Bilder konvertieren**
 
-Die [TiffOptions](https://reference.aspose.com/slides/de/python-net/aspose.slides.export/tiffoptions/)-Klasse bietet erweiterte Kontrolle über das resultierende TIFF‑Bild, indem Sie Parameter wie Größe, Auflösung, Farbpalette und mehr festlegen können.
+Die Klasse [TiffOptions](https://reference.aspose.com/slides/de/python-net/aspose.slides.export/tiffoptions/) ermöglicht es Ihnen, die Größe, Auflösung und andere Eigenschaften des gerenderten TIFF‑Bildes zu steuern.
 
-Dieses Python‑Beispiel demonstriert einen Konvertierungsprozess, bei dem TIFF‑Optionen verwendet werden, um ein Schwarz‑weiß‑Bild mit 300 DPI Auflösung und einer Größe von 2160 × 2800 auszugeben:
+Das folgende Beispiel rendert die erste Folie als 2160 × 2880 TIFF‑Bild mit 300 DPI:
 
-```py 
+```py
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# Lade eine Präsentationsdatei.
+tiff_options = slides.export.TiffOptions()
+tiff_options.image_size = draw.Size(2160, 2880)
+tiff_options.dpi_x = 300
+tiff_options.dpi_y = 300
+
 with slides.Presentation("sample.pptx") as presentation:
-    # Holen Sie die erste Folie aus der Präsentation.
     slide = presentation.slides[0]
 
-    # Konfigurieren Sie die Einstellungen des Ausgabe‑TIFF‑Bildes.
-    options = slides.export.TiffOptions()
-    options.image_size = draw.Size(2160, 2880)                                 # Setze die Bildgröße.
-    options.pixel_format = slides.export.ImagePixelFormat.FORMAT_1BPP_INDEXED  # Setze das Pixelformat (schwarz‑weiß).
-    options.dpi_x = 300                                                        # Setze die horizontale Auflösung.
-    options.dpi_y = 300                                                        # Setze die vertikale Auflösung.
-
-    # Konvertiere die Folie in ein Bild mit den angegebenen Optionen.
-    with slide.get_image(options) as image:
-        # Speichere das Bild im TIFF-Format.
+    with slide.get_image(tiff_options) as image:
         image.save("output.tiff", slides.ImageFormat.TIFF)
 ```
 
 ## **Alle Folien in Bilder konvertieren**
 
-Aspose.Slides ermöglicht es Ihnen, alle Folien einer Präsentation in Bilder zu konvertieren und damit die gesamte Präsentation in eine Reihe von Bildern zu verwandeln.
+Durchlaufen Sie die Folien‑Sammlung, um die gesamte Präsentation in eine Reihe von Bildern zu konvertieren. Ausgeblendete Folien werden einbezogen, sofern Sie sie nicht ausdrücklich überspringen.
 
-Dieses Beispiel zeigt, wie Sie alle Folien einer Präsentation in Python in Bilder konvertieren:
+Das folgende Beispiel rendert jede Folie als JPEG‑Bild mit horizontalen und vertikalen Skalierungsfaktoren von 2:
 
 ```py
 import aspose.slides as slides
@@ -144,34 +136,77 @@ scale_x = 2
 scale_y = scale_x
 
 with slides.Presentation("Presentation.pptx") as presentation:
-    # Rendere die Präsentation zu Bildern Folie für Folie.
-    for i, slide in enumerate(presentation.slides):
-        # Steuere ausgeblendete Folien (ausgeblendete Folien nicht rendern).
-        if slide.hidden:
-            continue
-
-        # Konvertiere die Folie in ein Bild.
+    for index, slide in enumerate(presentation.slides):
         with slide.get_image(scale_x, scale_y) as image:
-            # Speichere das Bild im JPEG-Format.
-            image.save("Slide_{0}.jpg".format(i), slides.ImageFormat.JPEG)
+            image.save("Slide_{}.jpg".format(index), slides.ImageFormat.JPEG)
 ```
+
+## **Erstellung von Enhanced‑Metafile‑Ausgabe**
+
+Enhanced Metafile (EMF) ist nützlich, wenn vektorbasierten Grafiken mit Microsoft Office oder anderen Windows‑Anwendungen ausgetauscht werden müssen, die Windows‑Metadateien unterstützen. Im Gegensatz zu einem pixelbasierten Bild kann ein EMF Vektor‑Zeichenvorgänge beibehalten, die sich ohne denselben Verlust an Schärfe skalieren lassen. EMF ist jedoch hauptsächlich ein Kompatibilitätsformat für Anwendungen mit Windows‑Metadatei‑Unterstützung und kein universelles Austauschformat. Außerdem können komplexe Folieninhalte, wie Bitmap‑Bilder und einige Effekte, als rasterisierte Elemente im Vektor‑Metadatei‑Container gespeichert werden.
+
+### **Eine Folie als EMF exportieren**
+
+Die Methode [Slide.write_as_emf](https://reference.aspose.com/slides/de/python-net/aspose.slides/slide/write_as_emf/) schreibt eine [Slide](https://reference.aspose.com/slides/de/python-net/aspose.slides/slide/) in einen Ziel‑Stream im EMF‑Format. Das folgende Beispiel lädt eine Präsentation, wählt die erste Folie aus und schreibt sie in einen EMF‑Dateistream:
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("Presentation.pptx") as presentation:
+    slide = presentation.slides[0]
+
+    with open("Slide_0.emf", "wb") as emf_stream:
+        slide.write_as_emf(emf_stream)
+```
+
+Der Aufrufer besitzt den an [Slide.write_as_emf](https://reference.aspose.com/slides/de/python-net/aspose.slides/slide/write_as_emf/) übergebenen Stream und muss ihn schließen. Aspose.Slides schreibt an der aktuellen Position des Streams und lässt den Stream geöffnet.
+
+### **Ein SVG‑Bild in EMF konvertieren und einer Präsentation hinzufügen**
+
+Verwenden Sie [SvgImage.write_as_emf](https://reference.aspose.com/slides/de/python-net/aspose.slides/svgimage/write_as_emf/), um SVG‑Inhalte in EMF zu konvertieren. Die resultierenden Bytes können über [ImageCollection.add_image](https://reference.aspose.com/slides/de/python-net/aspose.slides/imagecollection/add_image/) zur Präsentation hinzugefügt und mit [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/de/python-net/aspose.slides/shapecollection/add_picture_frame/) auf einer Folie platziert werden.
+
+Das folgende Beispiel erstellt ein [SvgImage](https://reference.aspose.com/slides/de/python-net/aspose.slides/svgimage/) aus SVG‑Markup, konvertiert es in ein EMF‑Bild im Speicher, fügt die Metadatei auf der ersten Folie ein und speichert die Präsentation:
+
+```py
+import io
+import aspose.slides as slides
+
+svg_content = '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100"><rect width="200" height="100" fill="#4472C4"/></svg>'
+svg_image = slides.SvgImage(svg_content)
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    with io.BytesIO() as emf_stream:
+        svg_image.write_as_emf(emf_stream)
+        emf_data = emf_stream.getvalue()
+
+    image = presentation.images.add_image(emf_data)
+    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 20, 20, 200, 100, image)
+
+    presentation.save("Presentation_with_emf.pptx", slides.export.SaveFormat.PPTX)
+```
+
+[SvgImage.write_as_emf](https://reference.aspose.com/slides/de/python-net/aspose.slides/svgimage/write_as_emf/) übernimmt den Ziel‑Stream nicht. Nach dem Schreiben befindet sich die Stream‑Position am Ende der erzeugten Daten. Rufen Sie `getvalue` auf, um den kompletten Puffer unabhängig von der aktuellen Stream‑Position zu erhalten, wie oben gezeigt. Halten Sie den Stream offen, bis die Daten gelesen wurden, und schließen Sie ihn anschließend.
+
+Die EMF‑Erstellung ist auf den von Aspose.Slides for Python via .NET unterstützten Betriebssystemen verfügbar, jedoch kann das Rendering auf verschiedenen Plattformen variieren, wenn Schriften oder native Grafik‑Abhängigkeiten nicht vorhanden sind. Installieren Sie die in den Quelldaten verwendeten Schriften oder konfigurieren Sie geeignete Ersatzschriften, befolgen Sie die [Plattform‑Anforderungen](/slides/de/python-net/system-requirements/) für Aspose.Slides und prüfen Sie das Ergebnis in der Ziel‑Anwendung, die EMF verarbeitet. Linux‑ und macOS‑Anwendungen haben häufig nur begrenzte oder inkonsistente Unterstützung für die Anzeige und Bearbeitung von Windows‑Metadateien.
 
 ## **Farb‑Emoji‑Rendering**
 
-{{% alert title="Note" color="warning" %}} 
-Damit Farb‑Emojis beim Konvertieren von Präsentationsfolien in Bilder korrekt dargestellt werden, müssen die in der Präsentation verwendeten Emoji‑Schriften auf dem System, das die Konvertierung ausführt, installiert und verfügbar sein. Beispielsweise führt das Fehlen der Schrift **Segoe UI Emoji** dazu, dass Emojis in den Ausgabebildern einfarbig erscheinen.
+{{% alert title="Note" color="info" %}}
+Um Farb‑Emojis beim Konvertieren von Präsentationsfolien in Bilder korrekt darzustellen, müssen die in der Präsentation verwendeten Emoji‑Schriften auf dem System, das die Konvertierung durchführt, installiert und verfügbar sein. Beispielsweise können Emojis monochrom angezeigt werden, wenn die Präsentation **Segoe UI Emoji** verwendet und diese Schrift fehlt.
 {{% /alert %}}
 
 ## **FAQ**
 
 **Unterstützt Aspose.Slides das Rendern von Folien mit Animationen?**
 
-Nein, die Methode `get_image` speichert nur ein statisches Bild der Folie, ohne Animationen.
+Nein. Die Methode [Slide.get_image](https://reference.aspose.com/slides/de/python-net/aspose.slides/slide/get_image/) rendert ein statisches Bild der Folie und exportiert keine Animationen.
 
 **Können ausgeblendete Folien als Bilder exportiert werden?**
 
-Ja, ausgeblendete Folien können genauso wie reguläre Folien verarbeitet werden. Stellen Sie lediglich sicher, dass sie in die Verarbeitungsschleife einbezogen werden.
+Ja. Ausgeblendete Folien können wie reguläre Folien gerendert werden. Schließen Sie sie in die Verarbeitungsschleife ein, wie im obigen Beispiel gezeigt.
 
-**Können Bilder mit Schatten und Effekten gespeichert werden?**
+**Werden Schatten und andere Effekte in Folienbildern beibehalten?**
 
-Ja, Aspose.Slides unterstützt das Rendern von Schatten, Transparenz und anderen grafischen Effekten beim Speichern von Folien als Bilder.
+Ja. Aspose.Slides rendert Schatten, Transparenz und andere unterstützte grafische Effekte in Folienbildern.

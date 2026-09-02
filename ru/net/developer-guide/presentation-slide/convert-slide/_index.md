@@ -1,14 +1,15 @@
 ---
-title: Преобразование слайдов презентации в изображения в .NET
+title: Конвертировать слайды презентации в изображения в .NET
 linktitle: Слайд в изображение
 type: docs
 weight: 41
 url: /ru/net/convert-slide/
 keywords:
-- преобразовать слайд
+- конвертировать слайд
 - экспортировать слайд
 - слайд в изображение
 - сохранить слайд как изображение
+- слайд в EMF
 - слайд в PNG
 - слайд в JPEG
 - слайд в bitmap
@@ -19,177 +20,206 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Преобразуйте слайды из PPT, PPTX и ODP в изображения на C# с помощью Aspose.Slides для .NET—быстрое, высококачественное рендеринг с наглядными примерами кода."
+description: "Преобразуйте слайды из презентаций PPT, PPTX и ODP в форматы PNG, JPEG, GIF, TIFF, EMF и другие графические форматы на C# с помощью Aspose.Slides для .NET."
 ---
 ## **Введение**
 
-Aspose.Slides for .NET позволяет легко преобразовывать слайды презентаций PowerPoint и OpenDocument в различные форматы изображений, включая BMP, PNG, JPG (JPEG), GIF и другие.
+Aspose.Slides for .NET может отображать отдельные слайды из презентаций PowerPoint и OpenDocument в форматах PNG, JPEG, GIF, TIFF и других графических форматов.
 
-Для преобразования слайда в изображение выполните следующие действия:
+Чтобы преобразовать слайд в изображение, выполните следующие шаги:
 
-1. Определите желаемые параметры конвертации и выберите слайды, которые хотите экспортировать, используя:
-    - интерфейс [ITiffOptions](https://reference.aspose.com/slides/ru/net/aspose.slides.export/itiffoptions/), либо
-    - интерфейс [IRenderingOptions](https://reference.aspose.com/slides/ru/net/aspose.slides.export/irenderingoptions/).
-2. Создайте изображение слайда, вызвав метод [GetImage](https://reference.aspose.com/slides/ru/net/aspose.slides/islide/getimage/).
+1. Загрузите презентацию с помощью класса [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/).
+2. Выберите слайд, который вы хотите отобразить.
+3. При необходимости настройте рендеринг с помощью класса [RenderingOptions](https://reference.aspose.com/slides/ru/net/aspose.slides.export/renderingoptions/) или [TiffOptions](https://reference.aspose.com/slides/ru/net/aspose.slides.export/tiffoptions/).
+4. Вызовите метод [GetImage](https://reference.aspose.com/slides/ru/net/aspose.slides/islide/getimage/). Он возвращает объект [IImage](https://reference.aspose.com/slides/ru/net/aspose.slides/iimage/).
+5. Вызовите метод [IImage.Save](https://reference.aspose.com/slides/ru/net/aspose.slides/iimage/save/) и укажите формат вывода значением [ImageFormat](https://reference.aspose.com/slides/ru/net/aspose.slides/imageformat/).
 
-В .NET объект [Bitmap](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.bitmap?view=net-5.0) позволяет работать с изображениями, определяемыми пиксельными данными. Экземпляр этого класса можно использовать для сохранения изображений в широком спектре форматов (BMP, JPG, PNG и т.п.).
+## **Преобразовать слайд в PNG‑изображение**
 
-## **Преобразование слайдов в битмапы и сохранение изображений в PNG**
+Самое простое преобразование использует настройки рендеринга по умолчанию. Полученный объект [IImage](https://reference.aspose.com/slides/ru/net/aspose.slides/iimage/) можно обработать в памяти или сохранить в файл.
 
-Вы можете преобразовать слайд в объект bitmap и использовать его напрямую в приложении. Кроме того, можно преобразовать слайд в bitmap, а затем сохранить изображение в JPEG или любом другом предпочтительном формате.
-
-Этот пример кода на C# демонстрирует, как преобразовать первый слайд презентации в объект bitmap и затем сохранить изображение в формате PNG:
+Следующий пример на C# отображает первый слайд и сохраняет его как PNG‑изображение:
 
 ```cs
-using (Presentation presentation = new Presentation("Presentation.pptx"))
+using Aspose.Slides;
+
+using var presentation = new Presentation("Presentation.pptx");
+var slide = presentation.Slides[0];
+
+using var image = slide.GetImage();
+image.Save("Slide_0.png", ImageFormat.Png);
+```
+
+## **Преобразовать слайды в изображения с пользовательскими размерами**
+
+Используйте перегрузку [GetImage](https://reference.aspose.com/slides/ru/net/aspose.slides/islide/getimage/), которая принимает значение [Size](https://learn.microsoft.com/en-us/dotnet/api/system.drawing.size) для рендеринга слайда с точными пиксельными размерами.
+
+Следующий пример создает JPEG‑изображение размером 1820 × 1040:
+
+```cs
+using System.Drawing;
+using Aspose.Slides;
+
+var imageSize = new Size(1820, 1040);
+
+using var presentation = new Presentation("Presentation.pptx");
+var slide = presentation.Slides[0];
+
+using var image = slide.GetImage(imageSize);
+image.Save("Slide_0.jpg", ImageFormat.Jpeg);
+```
+
+## **Преобразовать слайды с приметками и комментариями в изображения**
+
+По умолчанию изображения слайдов не включают приметки или комментарии. Присвойте объект [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/ru/net/aspose.slides.export/notescommentslayoutingoptions/) свойству [RenderingOptions.SlidesLayoutOptions](https://reference.aspose.com/slides/ru/net/aspose.slides.export/renderingoptions/slideslayoutoptions/), чтобы контролировать размещение приметок и комментариев.
+
+Следующий пример помещает усечённые приметки под слайдом, а комментарии — справа от него:
+
+```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var scaleX = 2f;
+var scaleY = scaleX;
+
+var layoutOptions = new NotesCommentsLayoutingOptions
 {
-    // Преобразовать первый слайд презентации в bitmap.
-    using (IImage image = presentation.Slides[0].GetImage())
-    {
-        // Сохранить изображение в формате PNG.
-        image.Save("Slide_0.png", ImageFormat.Png);
-    }
+    NotesPosition = NotesPositions.BottomTruncated,
+    CommentsPosition = CommentsPositions.Right,
+    CommentsAreaWidth = 500,
+    CommentsAreaColor = Color.AntiqueWhite
+};
+
+var renderingOptions = new RenderingOptions { SlidesLayoutOptions = layoutOptions };
+
+using var presentation = new Presentation("Presentation_with_notes_and_comments.pptx");
+var slide = presentation.Slides[0];
+
+using var image = slide.GetImage(renderingOptions, scaleX, scaleY);
+image.Save("Image_with_notes_and_comments_0.gif", ImageFormat.Gif);
+```
+
+{{% alert title="Warning" color="warning" %}}
+Для преобразования слайдов в изображения не устанавливайте свойство [NotesPosition](https://reference.aspose.com/slides/ru/net/aspose.slides.export/inotescommentslayoutingoptions/notesposition/) в значение [BottomFull](https://reference.aspose.com/slides/ru/net/aspose.slides.export/notespositions/). Примечания могут содержать больше текста, чем позволяет фиксированный размер изображения. Используйте вместо этого [BottomTruncated](https://reference.aspose.com/slides/ru/net/aspose.slides.export/notespositions/).
+{{% /alert %}}
+
+## **Преобразовать слайды в изображения с использованием параметров TIFF**
+
+Класс [TiffOptions](https://reference.aspose.com/slides/ru/net/aspose.slides.export/tiffoptions/) позволяет управлять размером, разрешением и другими свойствами генерируемого TIFF‑изображения.
+
+Следующий пример отображает первый слайд как TIFF‑изображение размером 2160 × 2880 при 300 DPI:
+
+```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var tiffOptions = new TiffOptions
+{
+    ImageSize = new Size(2160, 2880),
+    DpiX = 300,
+    DpiY = 300
+};
+
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+
+using var image = slide.GetImage(tiffOptions);
+image.Save("output.tiff", ImageFormat.Tiff);
+```
+
+## **Преобразовать все слайды в изображения**
+
+Пройдите по коллекции слайдов, чтобы преобразовать всю презентацию в набор изображений. Скрытые слайды включаются, если явно не пропустить их.
+
+Следующий пример отображает каждый слайд как JPEG‑изображение с горизонтальными и вертикальными коэффициентами масштабирования, равными 2:
+
+```cs
+using Aspose.Slides;
+
+var scaleX = 2f;
+var scaleY = scaleX;
+
+using var presentation = new Presentation("Presentation.pptx");
+
+var slideCount = presentation.Slides.Count;
+for (var index = 0; index < slideCount; index++)
+{
+    var slide = presentation.Slides[index];
+    using var image = slide.GetImage(scaleX, scaleY);
+    image.Save($"Slide_{index}.jpg", ImageFormat.Jpeg);
 }
 ```
 
-## **Преобразование слайдов в изображения заданного размера**
+## **Создать вывод в формате Enhanced Metafile**
 
-Возможно, потребуется получить изображение определённого размера. Используя перегрузку метода [GetImage](https://reference.aspose.com/slides/ru/net/aspose.slides/islide/getimage/), можно преобразовать слайд в изображение с конкретными размерами (ширина и высота).
+Enhanced Metafile (EMF) полезен, когда векторная графика должна быть передана в Microsoft Office или другие Windows‑приложения, поддерживающие Windows‑метафайлы. В отличие от растрового изображения, EMF сохраняет векторные операции рисования, которые масштабируются без потери резкости. Однако EMF в основном является форматом совместимости для приложений с поддержкой Windows‑метафайлов, а не универсальным форматом обмена. Кроме того, сложное содержимое слайда, такое как растровые изображения и некоторые эффекты, может храниться в виде растровых элементов внутри векторного контейнера метафайла.
 
-Этот пример кода демонстрирует, как это сделать:
+### **Экспортировать слайд в EMF**
 
-```cs
-Size imageSize = new Size(1820, 1040);
-
-using (Presentation presentation = new Presentation("Presentation.pptx"))
-{
-    // Преобразовать первый слайд презентации в bitmap с указанным размером.
-    using (IImage image = presentation.Slides[0].GetImage(imageSize))
-    {
-        // Сохранить изображение в формате JPEG.
-        image.Save("Slide_0.jpg", ImageFormat.Jpeg);
-    }
-}
-```
-
-## **Преобразование слайдов с приметками и комментариями в изображения**
-
-Некоторые слайды могут содержать приметки и комментарии.
-
-Aspose.Slides предоставляет два интерфейса — [ITiffOptions](https://reference.aspose.com/slides/ru/net/aspose.slides.export/itiffoptions/) и [IRenderingOptions](https://reference.aspose.com/slides/ru/net/aspose.slides.export/irenderingoptions/) — которые позволяют управлять рендерингом слайдов презентации в изображения. Оба интерфейса включают свойство `SlidesLayoutOptions`, позволяющее настроить отображение приметок и комментариев на слайде при его конвертации в изображение.
-
-С помощью класса [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/ru/net/aspose.slides.export/notescommentslayoutingoptions/) можно указать желаемое положение приметок и комментариев в результирующем изображении.
-
-Этот пример кода на C# демонстрирует, как преобразовать слайд с приметками и комментариями:
+Метод [ISlide.WriteAsEmf](https://reference.aspose.com/slides/ru/net/aspose.slides/islide/writeasemf/) записывает объект [ISlide](https://reference.aspose.com/slides/ru/net/aspose.slides/islide/) в целевой поток в формате EMF. Следующий пример загружает презентацию, выбирает первый слайд и записывает его в поток файла EMF:
 
 ```cs
-float scaleX = 2;
-float scaleY = scaleX;
+using System.IO;
+using Aspose.Slides;
 
-// Загрузить файл презентации.
-using (Presentation presentation = new Presentation("Presentation_with_notes_and_comments.pptx"))
-{
-    // Создать параметры рендеринга.
-    RenderingOptions options = new RenderingOptions
-    {
-        SlidesLayoutOptions = new NotesCommentsLayoutingOptions
-        {
-            NotesPosition = NotesPositions.BottomTruncated,  // Указать положение приметок.
-            CommentsPosition = CommentsPositions.Right,      // Указать положение комментариев.
-            CommentsAreaWidth = 500,                         // Указать ширину области комментариев.
-            CommentsAreaColor = Color.AntiqueWhite           // Указать цвет области комментариев.
-        }
-    };
+using var presentation = new Presentation("Presentation.pptx");
+var slide = presentation.Slides[0];
 
-    // Преобразовать первый слайд презентации в изображение.
-    using (IImage image = presentation.Slides[0].GetImage(options, scaleX, scaleY))
-    {
-        // Сохранить изображение в формате GIF.
-        image.Save("Image_with_notes_and_comments_0.gif", ImageFormat.Gif);
-    }
-}
+using var emfStream = File.Create("Slide_0.emf");
+slide.WriteAsEmf(emfStream);
 ```
 
-{{% alert title="Note" color="warning" %}} 
-В любом процессе конвертации слайда в изображение свойство [NotesPosition](https://reference.aspose.com/slides/ru/net/aspose.slides.export/inotescommentslayoutingoptions/notesposition/) не может быть установлено в `BottomFull` (для указания положения приметок), поскольку текст приметки может быть слишком объёмным и не помещаться в заданный размер изображения.
-{{% /alert %}} 
+Вызывающий код владеет потоком, переданным в [ISlide.WriteAsEmf](https://reference.aspose.com/slides/ru/net/aspose.slides/islide/writeasemf/), и должен закрыть или освободить его. Aspose.Slides записывает в текущую позицию потока и оставляет поток открытым.
 
-## **Преобразование слайдов в изображения с использованием параметров TIFF**
+### **Преобразовать SVG‑изображение в EMF и добавить его в презентацию**
 
-Интерфейс [ITiffOptions](https://reference.aspose.com/slides/ru/net/aspose.slides.export/itiffoptions/) предоставляет более детальный контроль над получаемым TIFF‑изображением, позволяя задавать такие параметры, как размер, разрешение, цветовая палитра и прочее.
+Используйте [ISvgImage.WriteAsEmf](https://reference.aspose.com/slides/ru/net/aspose.slides/isvgimage/writeasemf/) для преобразования SVG‑содержимого в EMF. Полученные байты можно добавить в презентацию через [IImageCollection.AddImage](https://reference.aspose.com/slides/ru/net/aspose.slides/iimagecollection/addimage/) и разместить на слайде с помощью [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/ru/net/aspose.slides/ishapecollection/addpictureframe/).
 
-Этот пример кода на C# демонстрирует процесс конвертации, в котором параметры TIFF используются для создания чёрно‑белого изображения с разрешением 300 DPI и размером 2160 × 2800:
+Следующий пример создаёт объект [SvgImage](https://reference.aspose.com/slides/ru/net/aspose.slides/svgimage/) из SVG‑разметки, преобразует его во временный EMF, вставляет метафайл на первый слайд и сохраняет презентацию:
 
 ```cs
-// Загрузить файл презентации.
-using (Presentation presentation = new Presentation("sample.pptx"))
-{
-    // Получить первый слайд из презентации.
-    ISlide slide = presentation.Slides[0];
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    // Настроить параметры выходного TIFF‑изображения.
-    TiffOptions tiffOptions = new TiffOptions
-    {
-        ImageSize = new Size(2160, 2880),                  // Установить размер изображения.
-        PixelFormat = ImagePixelFormat.Format1bppIndexed,  // Установить формат пикселей (чёрно‑белый).
-        DpiX = 300,                                        // Установить горизонтальное разрешение.
-        DpiY = 300                                         // Установить вертикальное разрешение.
-    };
+var svgContent = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"100\"><rect width=\"200\" height=\"100\" fill=\"#4472C4\"/></svg>";
+var svgImage = new SvgImage(svgContent);
 
-    // Преобразовать слайд в изображение с указанными параметрами.
-    using (IImage image = slide.GetImage(tiffOptions))
-    {
-        // Сохранить изображение в формате TIFF.
-        image.Save("output.tiff", ImageFormat.Tiff);
-    }
-}
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+using var emfStream = new MemoryStream();
+svgImage.WriteAsEmf(emfStream);
+
+emfStream.Position = 0;
+var image = presentation.Images.AddImage(emfStream);
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 200, 100, image);
+
+presentation.Save("Presentation_with_emf.pptx", SaveFormat.Pptx);
 ```
 
-## **Преобразование всех слайдов в изображения**
+[ISvgImage.WriteAsEmf](https://reference.aspose.com/slides/ru/net/aspose.slides/isvgimage/writeasemf/) не принимает владение целевым потоком. После записи позиция потока находится в конце сгенерированных данных. Сбросьте `Position` в начало перед передачей того же потокового объекта читателю, как показано выше. Оставляйте поток открытым, пока потребитель не завершит чтение, а затем освобождайте его. Альтернативно, вызовите `ToArray` и передайте полученный массив байтов в [IImageCollection.AddImage](https://reference.aspose.com/slides/ru/net/aspose.slides/iimagecollection/addimage/); `ToArray` возвращает полный буфер независимо от текущей позиции потока.
 
-Aspose.Slides позволяет конвертировать все слайды презентации в изображения, эффективно превращая всю презентацию в набор изображений.
-
-Этот пример кода демонстрирует, как в C# преобразовать все слайды презентации в изображения:
-
-```cs
-float scaleX = 2;
-float scaleY = scaleX;
-
-using (Presentation presentation = new Presentation("Presentation.pptx"))
-{
-    // Отрисовать презентацию в изображения слайд за слайдом.
-    for (int i = 0; i < presentation.Slides.Count; i++)
-    {
-        // Обрабатывать скрытые слайды (не отрисовывать скрытые слайды).
-        if (presentation.Slides[i].Hidden)
-            continue;
-
-        // Преобразовать слайд в изображение.
-        using (IImage image = presentation.Slides[i].GetImage(scaleX, scaleY))
-        {
-            // Сохранить изображение в формате JPEG.
-            image.Save($"Slide_{i}.jpg", ImageFormat.Jpeg);
-        }
-    }
-}
-```
+Генерация EMF доступна на операционных системах, поддерживаемых выбранной сборкой Aspose.Slides for .NET, однако рендеринг может различаться на разных платформах, если шрифты или нативные графические зависимости недоступны. Установите шрифты, используемые в исходном содержимом, или настройте соответствующие подстановки, соблюдайте [требования к платформе](/slides/ru/net/system-requirements/) для вашего пакета Aspose.Slides и проверьте результат в целевом приложении, потребляющем EMF. Приложения для Linux и macOS часто имеют ограниченную или непоследовательную поддержку отображения и редактирования Windows‑метафайлов.
 
 ## **Отображение цветных эмодзи**
 
-{{% alert title="Note" color="warning" %}} 
-Чтобы корректно отобразить цветные эмодзи при конвертации слайдов презентации в изображения, шрифты эмодзи, используемые в презентации, должны быть установлены и доступны в системе, где происходит конвертация. Например, если презентация использует **Segoe UI Emoji** и этот шрифт отсутствует, эмодзи могут отображаться монохромно в выходных изображениях.
+{{% alert title="Note" color="info" %}}
+Чтобы правильно отобразить цветные эмодзи при преобразовании слайдов презентации в изображения, шрифты эмодзи, использованные в презентации, должны быть установлены и доступны системе, выполняющей преобразование. Например, если презентация использует **Segoe UI Emoji**, а этот шрифт отсутствует, эмодзи могут отображаться монохромно в итоговых изображениях.
 {{% /alert %}}
 
 ## **FAQ**
 
-**Поддерживает ли Aspose.Slides отображение слайдов с анимацией?**
+**Поддерживает ли Aspose.Slides отображение слайдов с анимациями?**
 
-Нет, метод `GetImage` сохраняет только статическое изображение слайда без анимаций.
+Нет. Метод [GetImage](https://reference.aspose.com/slides/ru/net/aspose.slides/islide/getimage/) создаёт статическое изображение слайда и не экспортирует анимацию.
 
-**Можно ли экспортировать скрытые слайды как изображения?**
+**Можно ли экспортировать скрытые слайды в виде изображений?**
 
-Да, скрытые слайды можно обрабатывать так же, как обычные. Просто убедитесь, что они включены в цикл обработки.
+Да. Скрытые слайды могут быть отрисованы так же, как обычные. Включите их в цикл обработки, как показано в примере выше.
 
-**Можно ли сохранять изображения с тенями и эффектами?**
+**Сохраняются ли тени и другие эффекты на изображениях слайдов?**
 
-Да, Aspose.Slides поддерживает рендеринг теней, прозрачности и других графических эффектов при сохранении слайдов в виде изображений.
+Да. Aspose.Slides сохраняет тени, прозрачность и другие поддерживаемые графические эффекты в изображениях слайдов.

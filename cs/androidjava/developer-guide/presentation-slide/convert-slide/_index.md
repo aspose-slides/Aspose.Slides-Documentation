@@ -4,11 +4,12 @@ linktitle: Snímek na obrázek
 type: docs
 weight: 35
 url: /cs/androidjava/convert-slide/
-keywords:
-- převést snímek
-- exportovat snímek
+keywords: 
+- převod snímku
+- export snímku
 - snímek na obrázek
 - uložit snímek jako obrázek
+- snímek na EMF
 - snímek na PNG
 - snímek na JPEG
 - snímek na bitmapu
@@ -19,34 +20,38 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Převádějte snímky z PPT, PPTX a ODP na obrázky pomocí Aspose.Slides pro Android - rychlé, vysoce kvalitní vykreslování s přehlednými ukázkami kódu v jazyce Java."
+description: "Převod snímků z prezentací PPT, PPTX a ODP na PNG, JPEG, GIF, TIFF, EMF a další formáty obrázků v Androidu s Aspose.Slides."
 ---
 ## **Úvod**
 
-Aspose.Slides for Android via Java vám umožňuje snadno převádět snímky prezentací PowerPoint a OpenDocument do různých formátů obrázků, včetně BMP, PNG, JPG (JPEG), GIF a dalších.
+Aspose.Slides for Android via Java dokáže vykreslovat jednotlivé snímky z prezentací PowerPoint a OpenDocument ve formátech PNG, JPEG, GIF, TIFF a dalších formátech obrázků.
 
-Chcete-li převést snímek na obrázek, postupujte podle následujících kroků:
+Pro převod snímku na obrázek postupujte podle těchto kroků:
 
-1. Definujte požadovaná nastavení převodu a vyberte snímky, které chcete exportovat, pomocí:
-    - Rozhraní [ITiffOptions](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itiffoptions/) nebo
-    - Rozhraní [IRenderingOptions](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/irenderingoptions/) .
-2. Vygenerujte obrázek snímku voláním metody [getImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islide/#getImage--) .
+1. Načtěte prezentaci pomocí třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/).
+2. Vyberte snímek, který chcete vykreslit.
+3. V případě potřeby nakonfigurujte vykreslování pomocí třídy [RenderingOptions](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/renderingoptions/) nebo [TiffOptions](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/tiffoptions/).
+4. Zavolejte metodu [ISlide.getImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islide/#getImage--) . Vrátí objekt [IImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimage/).
+5. Zavolejte metodu [IImage.save](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) a specifikujte výstupní formát pomocí hodnoty [ImageFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imageformat/).
 
-V Aspose.Slides for Android via Java je [IImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimage/) rozhraní, které vám umožňuje pracovat s obrázky definovanými pomocí pixelových dat. Toto rozhraní můžete použít k ukládání obrázků v široké škále formátů (BMP, JPG, PNG atd.).
+## **Převod snímku na PNG obrázek**
 
-## **Převod snímků na bitmapy a uložení obrázků ve formátu PNG**
+Nejjednodušší převod používá výchozí nastavení vykreslování. Výsledný objekt [IImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimage/) lze zpracovat v paměti nebo uložit do souboru.
 
-Můžete převést snímek na objekt bitmapy a použít jej přímo ve své aplikaci. Nebo můžete snímek převést na bitmapu a následně uložit obrázek ve formátu JPEG nebo v jakémkoli jiném preferovaném formátu.
+Následující Java příklad vykreslí první snímek a uloží jej jako PNG obrázek:
 
-Tento kód ukazuje, jak převést první snímek prezentace na objekt bitmapy a poté uložit obrázek ve formátu PNG:
+```java
+import com.aspose.slides.IImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
 
-```java 
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Převést první snímek v prezentaci na bitmapu.
-    IImage image = presentation.getSlides().get_Item(0).getImage();
-	try {
-        // Uložit obrázek ve formátu PNG.
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IImage image = slide.getImage();
+    try {
         image.save("Slide_0.png", ImageFormat.Png);
     } finally {
         image.dispose();
@@ -56,22 +61,27 @@ try {
 }
 ```
 
-## **Převod snímků na obrázky s vlastní velikostí**
+## **Převod snímků na obrázky s vlastními rozměry**
 
-Možná budete potřebovat získat obrázek určité velikosti. Pomocí přetížení metody [getImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islide/#getImage-com.aspose.slides.android.Size-) můžete převést snímek na obrázek s konkrétními rozměry (šířka a výška). 
+Použijte přetížení [ISlide.getImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islide/#getImage-com.aspose.slides.android.Size-) , které přijímá hodnotu [Size](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides.android/size/) , pro vykreslení snímku s přesnými rozměry v pixelech.
 
-Tento ukázkový kód ukazuje, jak to provést:
+Následující příklad vytvoří JPEG obrázek o rozměrech 1820 × 1040:
 
-```java 
+```java
+import com.aspose.slides.IImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.android.Size;
+
 Size imageSize = new Size(1820, 1040);
 
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Převést první snímek v prezentaci na bitmapu se zadanou velikostí.
-    IImage image = presentation.getSlides().get_Item(0).getImage(imageSize);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
+    IImage image = slide.getImage(imageSize);
     try {
-        // Uložit obrázek ve formátu JPEG.
         image.save("Slide_0.jpg", ImageFormat.Jpeg);
     } finally {
         image.dispose();
@@ -83,36 +93,41 @@ try {
 
 ## **Převod snímků s poznámkami a komentáři na obrázky**
 
-Některé snímky mohou obsahovat poznámky a komentáře.
+Ve výchozím nastavení obrázky snímků neobsahují poznámky ani komentáře. Předávejte objekt [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/notescommentslayoutingoptions/) metodě [RenderingOptions.setSlidesLayoutOptions](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/renderingoptions/#setSlidesLayoutOptions-com.aspose.slides.ISlidesLayoutOptions-) , abyste určili, kde se poznámky a komentáře zobrazí.
 
-Aspose.Slides poskytuje dvě rozhraní — [ITiffOptions](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itiffoptions/) a [IRenderingOptions](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/irenderingoptions/) — která vám umožňují řídit vykreslování snímků prezentace do obrázků. Obě rozhraní obsahují metodu `setSlidesLayoutOptions`, která vám umožňuje konfigurovat vykreslení poznámek a komentářů na snímku při jeho převodu na obrázek.
+Následující příklad umístí zkrácené poznámky pod snímek a komentáře napravo od něj:
 
-Pomocí třídy [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/notescommentslayoutingoptions/) můžete určit preferovanou pozici poznámek a komentářů ve výsledném obrázku.
+```java
+import android.graphics.Color;
+import com.aspose.slides.CommentsPositions;
+import com.aspose.slides.IImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.NotesCommentsLayoutingOptions;
+import com.aspose.slides.NotesPositions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.RenderingOptions;
 
-Tento kód ukazuje, jak převést snímek s poznámkami a komentáři:
-
-```java 
-float scaleX = 2;
+float scaleX = 2f;
 float scaleY = scaleX;
 
-// Načíst soubor prezentace.
+int commentsAreaColor = Color.rgb(250, 235, 215);
+
+NotesCommentsLayoutingOptions layoutOptions = new NotesCommentsLayoutingOptions();
+layoutOptions.setNotesPosition(NotesPositions.BottomTruncated);
+layoutOptions.setCommentsPosition(CommentsPositions.Right);
+layoutOptions.setCommentsAreaWidth(500);
+layoutOptions.setCommentsAreaColor(commentsAreaColor);
+
+RenderingOptions renderingOptions = new RenderingOptions();
+renderingOptions.setSlidesLayoutOptions(layoutOptions);
+
 Presentation presentation = new Presentation("Presentation_with_notes_and_comments.pptx");
 try {
-    NotesCommentsLayoutingOptions notesCommentsOptions = new NotesCommentsLayoutingOptions();
-    notesCommentsOptions.setNotesPosition(NotesPositions.BottomTruncated);  // Nastavit pozici poznámek.
-    notesCommentsOptions.setCommentsPosition(CommentsPositions.Right);      // Nastavit pozici komentářů.
-    notesCommentsOptions.setCommentsAreaWidth(500);                         // Nastavit šířku oblasti komentářů.
-    notesCommentsOptions.setCommentsAreaColor(Color.LTGRAY);   // Nastavit barvu oblasti komentářů.
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Vytvořit možnosti vykreslování.
-    RenderingOptions options = new RenderingOptions();
-    options.setSlidesLayoutOptions(notesCommentsOptions);
-
-    // Převést první snímek prezentace na obrázek.
-    IImage image = presentation.getSlides().get_Item(0).getImage(options, scaleX, scaleY);
-
+    IImage image = slide.getImage(renderingOptions, scaleX, scaleY);
     try {
-        // Uložit obrázek ve formátu GIF.
         image.save("Image_with_notes_and_comments_0.gif", ImageFormat.Gif);
     } finally {
         image.dispose();
@@ -122,37 +137,37 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-
-V jakémkoli procesu převodu snímku na obrázek metoda [setNotesPosition](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/inotescommentslayoutingoptions/#setNotesPosition-int-) nemůže použít `BottomFull` (pro určení pozice poznámky), protože text poznámky může být příliš velký a nevejde se do určené velikosti obrázku.
-
-{{% /alert %}} 
+{{% alert title="Warning" color="warning" %}}
+Pro převod snímků na obrázky nepředávejte [BottomFull](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/notespositions/) metodě [NotesCommentsLayoutingOptions.setNotesPosition](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/notescommentslayoutingoptions/#setNotesPosition-int-) . Poznámky mohou obsahovat více textu, než je možné do pevné velikosti obrázku vejmout. Použijte místo toho [BottomTruncated](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/notespositions/) .
+{{% /alert %}}
 
 ## **Převod snímků na obrázky pomocí TIFF možností**
 
-Rozhraní [ITiffOptions](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itiffoptions/) poskytuje větší kontrolu nad výsledným TIFF obrázkem tím, že vám umožňuje určit parametry jako velikost, rozlišení, barevnou paletu a další.
+Třída [TiffOptions](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/tiffoptions/) vám umožní nastavit velikost, rozlišení a další vlastnosti vykresleného TIFF obrázku.
 
-Tento kód ukazuje proces převodu, kde jsou použity TIFF možnosti k vytvoření černobílého obrázku s rozlišením 300 DPI a velikostí 2160 × 2800:
+Následující příklad vykreslí první snímek jako TIFF obrázek o rozměrech 2160 × 2880 při 300 DPI:
 
-```java 
-// Načíst soubor prezentace.
+```java
+import com.aspose.slides.IImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.TiffOptions;
+import com.aspose.slides.android.Size;
+
+Size imageSize = new Size(2160, 2880);
+
+TiffOptions tiffOptions = new TiffOptions();
+tiffOptions.setImageSize(imageSize);
+tiffOptions.setDpiX(300);
+tiffOptions.setDpiY(300);
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    // Získat první snímek z prezentace.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Nakonfigurovat nastavení výstupního TIFF obrázku.
-    TiffOptions tiffOptions = new TiffOptions();
-    tiffOptions.setImageSize(new Size(2160, 2880));                  // Nastavit velikost obrázku.
-    tiffOptions.setPixelFormat(ImagePixelFormat.Format1bppIndexed);  // Nastavit formát pixelů (černobílý).
-    tiffOptions.setDpiX(300);                                        // Nastavit horizontální rozlišení.
-    tiffOptions.setDpiY(300);                                        // Nastavit vertikální rozlišení.
-
-    // Převést snímek na obrázek s uvedenými možnostmi.
     IImage image = slide.getImage(tiffOptions);
-
     try {
-        // Uložit obrázek ve formátu TIFF.
         image.save("output.tiff", ImageFormat.Tiff);
     } finally {
         image.dispose();
@@ -164,29 +179,27 @@ try {
 
 ## **Převod všech snímků na obrázky**
 
-Aspose.Slides vám umožňuje převést všechny snímky v prezentaci na obrázky, čímž efektivně převede celou prezentaci na sérii obrázků.
+Projděte kolekci snímků a převádějte celou prezentaci na sérii obrázků. Skryté snímky jsou zahrnuty, pokud je výslovně nevynecháte.
 
-Tento ukázkový kód ukazuje, jak v Javě převést všechny snímky v prezentaci na obrázky:
+Následující příklad vykreslí každý snímek jako JPEG obrázek s horizontálním a vertikálním měřítkem 2:
 
-```java 
-float scaleX = 2;
+```java
+import com.aspose.slides.IImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
+
+float scaleX = 2f;
 float scaleY = scaleX;
 
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Vykreslit prezentaci na obrázky snímek po snímku.
-    for (int i = 0 ; i < presentation.getSlides().size(); i++)
-    {
-        // Kontrola skrytých snímků (nerenderovat skryté snímky).
-        if (presentation.getSlides().get_Item(i).getHidden())
-            continue;
-
-        // Převést snímek na obrázek.
-        IImage image = presentation.getSlides().get_Item(i).getImage(scaleX, scaleY);
-
+    int slideCount = presentation.getSlides().size();
+    for (int index = 0; index < slideCount; index++) {
+        ISlide slide = presentation.getSlides().get_Item(index);
+        IImage image = slide.getImage(scaleX, scaleY);
         try {
-            // Uložit obrázek ve formátu JPEG.
-            image.save("Slide_" + i + ".jpg", ImageFormat.Jpeg);
+            image.save("Slide_" + index + ".jpg", ImageFormat.Jpeg);
         } finally {
             image.dispose();
         }
@@ -196,22 +209,96 @@ try {
 }
 ```
 
+## **Vytvoření výstupu Enhanced Metafile**
+
+Enhanced Metafile (EMF) je užitečný, když je třeba vyměňovat vektorovou grafiku s Microsoft Office nebo jinými aplikacemi Windows, které podporují Windows metafily. Na rozdíl od rastrového obrázku může EMF zachovat vektorové kreslící operace, které se škálují bez ztráty ostrosti. EMF však slouží především jako formát kompatibility pro aplikace podporující Windows metafily, nikoli jako univerzální výměnný formát. Navíc složitý obsah snímků, jako jsou bitmapové obrázky a některé efekty, může být uložen jako rasterizované prvky uvnitř kontejneru vektorového metafile.
+
+### **Export snímku do EMF**
+
+Metoda [ISlide.writeAsEmf](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islide/#writeAsEmf-java.io.OutputStream-) zapíše [ISlide](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islide/) do cílového proudu ve formátu EMF. Následující příklad načte prezentaci, vybere první snímek a zapíše jej do EMF souborového proudu:
+
+```java
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+import java.io.FileOutputStream;
+
+Presentation presentation = new Presentation("Presentation.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    FileOutputStream emfStream = new FileOutputStream("Slide_0.emf");
+    try {
+        slide.writeAsEmf(emfStream);
+    } finally {
+        emfStream.close();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Volající vlastní proud předaný metodě [ISlide.writeAsEmf](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islide/#writeAsEmf-java.io.OutputStream-) a je zodpovědný za jeho uzavření, jak je uvedeno výše.
+
+### **Převod SVG obrázku do EMF a jeho přidání do prezentace**
+
+Použijte [ISvgImage.writeAsEmf](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/isvgimage/#writeAsEmf-java.io.OutputStream-) k převodu SVG obsahu do EMF. Výsledná bajtová data lze přidat do prezentace pomocí [IImageCollection.addImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimagecollection/#addImage-byte:A-) a umístit na snímek pomocí [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishapecollection/#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-).
+
+Následující příklad vytvoří [SvgImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/svgimage/) ze SVG značkování, převede jej na EMF v paměti, vloží metafil na první snímek a uloží prezentaci:
+
+```java
+import com.aspose.slides.IPPImage;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ISvgImage;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.ShapeType;
+import com.aspose.slides.SvgImage;
+import java.io.ByteArrayOutputStream;
+
+String svgContent = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"200\" height=\"100\"><rect width=\"200\" height=\"100\" fill=\"#4472C4\"/></svg>";
+ISvgImage svgImage = new SvgImage(svgContent);
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    ByteArrayOutputStream emfStream = new ByteArrayOutputStream();
+    try {
+        svgImage.writeAsEmf(emfStream);
+
+        byte[] emfData = emfStream.toByteArray();
+        IPPImage image = presentation.getImages().addImage(emfData);
+        slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 200, 100, image);
+    } finally {
+        emfStream.close();
+    }
+
+    presentation.save("Presentation_with_emf.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+[ISvgImage.writeAsEmf](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/isvgimage/#writeAsEmf-java.io.OutputStream-) nepřebírá vlastnictví cílového proudu. [ByteArrayOutputStream](https://docs.oracle.com/javase/8/docs/api/java/io/ByteArrayOutputStream.html) ukládá všechna vygenerovaná data v paměti, takže před voláním `toByteArray` není potřeba resetovat pozici. Vrácené pole bajtů zůstává platné po uzavření proudu.
+
+Generování EMF je k dispozici na podporovaných verzích Androidu a konfiguracích zařízení, ale vykreslování se může lišit, když nejsou k dispozici písma nebo grafické závislosti. Nainstalujte písma používaná ve zdrojovém obsahu nebo nakonfigurujte vhodné náhrady, postupujte podle [průvodce instalací](/slides/cs/androidjava/install-aspose-slides-for-android-via-java/) pro Aspose.Slides for Android via Java a ověřte výsledek v cílové aplikaci, která EMF spotřebovává. Aplikace na ne‑Windows platformách často mají omezenou nebo nekonzistentní podporu pro zobrazování a editaci Windows metafilů.
+
 ## **Vykreslování barevných emoji**
 
-{{% alert title="Note" color="warning" %}} 
-Aby se při převodu snímků prezentace na obrázky správně vykreslovaly barevné emoji, muset být fonty emoji použité v prezentaci nainstalovány a dostupné v systému, který převod provádí. Například pokud prezentace používá **Segoe UI Emoji** a tento font chybí, mohou se emoji ve výstupních obrázcích zobrazovat v černobílém provedení.
+{{% alert title="Note" color="info" %}}
+Aby se při převodu snímků prezentace na obrázky správně vykreslovaly barevné emoji, musí být nainstalována a dostupná na systému provádějícím převod písma emoji použité v prezentaci. Například pokud prezentace používá **Segoe UI Emoji** a toto písmo chybí, mohou se emoji ve výstupních obrázcích zobrazovat v černobílé.
 {{% /alert %}}
 
 ## **Často kladené otázky**
 
 **Podporuje Aspose.Slides vykreslování snímků s animacemi?**
 
-Ne, metoda `getImage` ukládá pouze statický obrázek snímku, bez animací.
+Ne. Metoda [ISlide.getImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islide/#getImage--) vykresluje statický obrázek snímku a neexportuje animace.
 
 **Lze skryté snímky exportovat jako obrázky?**
 
-Ano, skryté snímky lze zpracovat stejně jako běžné. Stačí zajistit, aby byly zahrnuty do smyčky zpracování.
+Ano. Skryté snímky lze vykreslit jako běžné snímky. Zařaďte je do smyčky zpracování, jak je uvedeno v příkladu výše.
 
-**Lze obrázky ukládat se stíny a efekty?**
+**Zachovají se stíny a další efekty v obrázcích snímků?**
 
-Ano, Aspose.Slides podporuje vykreslování stínů, průhlednosti a dalších grafických efektů při ukládání snímků jako obrázky.
+Ano. Aspose.Slides vykresluje stíny, průhlednost a další podporované grafické efekty v obrázcích snímků.
