@@ -1,575 +1,318 @@
 ---
-title: Optimalizace správy obrázků v prezentacích pomocí Javy
-linktitle: Správa obrázků
+title: Optimize Image Management in Presentations Using Java
+linktitle: Manage Images
 type: docs
 weight: 10
 url: /cs/java/image/
 keywords:
 - přidat obrázek
 - přidat fotografii
-- přidat bitmapu
 - nahradit obrázek
-- nahradit fotografii
-- z webu
+- kolekce obrázků
+- rámec obrázku
+- propojený obrázek
 - pozadí
 - přidat PNG
 - přidat JPG
 - přidat SVG
+- SVG na tvary
 - externí SVG zdroje
-- SVG řešitel
-- propojené SVG obrázky
-- SVG písma
-- přidat EMF
-- přidat WMF
-- přidat TIFF
 - PowerPoint
 - OpenDocument
 - prezentace
 - Java
 - Aspose.Slides
-description: Zjednodušte správu obrázků v PowerPointu a OpenDocumentu pomocí Aspose.Slides pro Javu, optimalizujte výkon a automatizujte svůj pracovní postup.
+description: "Naučte se, jak přidávat, znovu používat, propojit, nahrazovat a spravovat rastrové a SVG obrázky v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro Javu."
 ---
 ## **Úvod**
 
-Obrázky činí prezentace poutavějšími a vizuálně atraktivnějšími. V Microsoft PowerPoint můžete vkládat obrázky do snímků ze souborů, internetu nebo jiných zdrojů. Podobně Aspose.Slides umožňuje přidávat obrázky do snímků několika způsoby.
+Aspose.Slides for Java poskytuje několik způsobů, jak pracovat s obrázky, a každý slouží jinému účelu. Můžete uložit obrázek v prezentaci, zobrazit jej v rámečku obrázku, použít jej jako pozadí snímku, propojit na externí obrázek, nahradit sdílený obrázkový zdroj nebo převést obsah SVG na upravitelný tvary.
 
-{{% alert  title="Tip" color="primary" %}} 
+Tento článek se zaměřuje na obrázkové zdroje a jejich použití v celé prezentaci. Pro ořezávání, průhlednost, efekty, natažení a další formátování aplikované na jednotlivý rámeček obrázku viz [Rámec obrázku](/slides/cs/java/picture-frame/).
 
-Aspose poskytuje bezplatné konvertory—[JPEG to PowerPoint](https://products.aspose.app/slides/cs/import/jpg-to-ppt) a [PNG to PowerPoint](https://products.aspose.app/slides/cs/import/png-to-ppt)—které vám umožní rychle vytvořit prezentace z obrázků. 
+## **Pochopte model obrázku**
 
-{{% /alert %}} 
+- [kolekci obrázků prezentace](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iimagecollection/) ukládá obrázkové zdroje používané v prezentaci. Použijte [ImageCollection.addImage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/imagecollection/) k přidání dat obrázku a získání zdroje [IPPImage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ippimage/).
+- [Rámeček obrázku](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipictureframe/) je tvar, který zobrazí obrázek na snímku, rozvržení nebo hlavě. Použijte [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ishapecollection/) k umístění obrázkového zdroje na snímek.
+- Pozadí snímku používá obrázek jako součást výplně snímku, nikoli jako tvar. Proto se nechová jako rámeček obrázku.
+- [IPPImage.replaceImage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ippimage/) nahrazuje obrázkový zdroj. Pokud ho používá několik prvků prezentace, všichni používají náhradu.
+- Převod SVG na tvary vytvoří upravitelné tvary snímku. Po převodu už není obsah spravován jako jeden obrázkový zdroj.
 
-{{% alert title="Info" color="info" %}}
+Typický postup je tedy: přidat data obrázku do kolekce obrázků, získat [IPPImage] a poté použít tento zdroj v jednom či více rámečcích obrázku nebo výplních.
 
-Pokud chcete přidat obrázek jako rámeček obrázku—zejména pokud ho plánujete měnit velikost, aplikovat efekty nebo použít další standardní možnosti formátování—viz [Picture Frame](/slides/cs/java/picture-frame/). 
+## **Přidat vložený obrázek**
 
-{{% /alert %}} 
-
-{{% alert title="Poznámka" color="warning" %}}
-
-Můžete konvertovat obrázky z jednoho formátu do druhého. Viz následující stránky: convert [image to JPG](https://products.aspose.com/slides/cs/java/conversion/image-to-jpg/), [JPG to image](https://products.aspose.com/slides/cs/java/conversion/jpg-to-image/), [JPG to PNG](https://products.aspose.com/slides/cs/java/conversion/jpg-to-png/), [PNG to JPG](https://products.aspose.com/slides/cs/java/conversion/png-to-jpg/), [PNG to SVG](https://products.aspose.com/slides/cs/java/conversion/png-to-svg/), and [SVG to PNG](https://products.aspose.com/slides/cs/java/conversion/svg-to-png/).
-
-{{% /alert %}}
-
-Aspose.Slides podporuje obrázky v populárních formátech, jako jsou JPEG, PNG, BMP, GIF a další. 
-
-## **Přidání obrázků uložených lokálně do snímků**
-
-Můžete přidat jeden nebo více obrázků uložených ve vašem počítači do snímku prezentace. Následující ukázkový kód Java ukazuje, jak přidat obrázek do snímku:
+Pro vložení místního obrázku načtěte soubor, přidejte jej do kolekce obrázků a vytvořte rámeček obrázku, který použije vrácený `IPPImage`.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    IPPImage picture;
-    IImage image = Images.fromFile("image.png");
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.png");
     try {
-        picture = pres.getImages().addImage(image);
+        image = presentation.getImages().addImage(sourceImage);
     } finally {
-        if (image != null) image.dispose();
+        if (sourceImage != null) sourceImage.dispose();
     }
 
-    slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
 
-    pres.save("pres.pptx", SaveFormat.Pptx);
+    presentation.save("presentation.pptx", SaveFormat.Pptx);
 } finally {
-    pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Přidání obrázků z webu do snímků**
+Obrázek přidaný tímto způsobem je vložen do prezentace, takže výsledný soubor není závislý na dostupnosti původního souboru obrázku.
 
-Pokud obrázek, který chcete přidat do snímku, není uložen ve vašem počítači, můžete ho přidat přímo z webu. 
+### **Přidat obrázek z webu**
 
-Následující ukázkový kód Java ukazuje, jak přidat obrázek z webu do snímku:
+Když je obrázek dostupný přes HTTP nebo HTTPS, stáhněte jeho bajty, přidejte je do kolekce obrázků prezentace a použijte vrácený obrázkový zdroj stejným způsobem jako lokální obrázek.
 
 ```java
 import com.aspose.slides.*;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URI;
 import java.net.URL;
-import java.net.URLConnection;
-
-Presentation pres = new Presentation();
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    URL imageUrl = new URL("[REPLACE WITH URL]");
-    URLConnection connection = imageUrl.openConnection();
-    InputStream inputStream = connection.getInputStream();
-
-    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-    try {
-        byte[] buffer = new byte[1024];
-        int read;
-
-        while ((read = inputStream.read(buffer, 0, buffer.length)) != -1) {
-            outputStream.write(buffer, 0, read);
-        }
-
-        outputStream.flush();
-
-        IPPImage image = pres.getImages().addImage(outputStream.toByteArray());
-        slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    } finally {
-        if (inputStream != null) inputStream.close();
-        outputStream.close();
-    }
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    pres.dispose();
-}
-```
-
-## **Přidání obrázků do hlavních snímků (Slide Masters)**
-
-Hlavní snímek (slide master) ukládá a řídí informace, jako je motiv a rozvržení snímků, které jej používají. Když přidáte obrázek do hlavního snímku, obrázek se objeví na každém snímku založeném na tomto masteru. 
-
-Následující ukázkový kód Java ukazuje, jak přidat obrázek do hlavního snímku:
-
-```java
-import com.aspose.slides.*;
-
-Presentation pres = new Presentation();
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IMasterSlide masterSlide = slide.getLayoutSlide().getMasterSlide();
-
-    IPPImage picture;
-    IImage image = Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-
-    masterSlide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **Přidání obrázků jako pozadí snímků**
-
-Můžete použít obrázek jako pozadí jednoho nebo více snímků. Podrobnosti najdete v *[Setting Images as Backgrounds for Slides](/slides/cs/java/presentation-background/#setting-images-as-background-for-slides)*.
-
-## **Přidání SVG do prezentací**
-
-Obsah SVG lze přidat do prezentace pomocí třídy [SvgImage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/svgimage/). Výsledný objekt [ISvgImage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/isvgimage/) může být poté přidán do kolekce obrázků prezentace a použit k vytvoření rámečku obrázku.
-
-Následující příklad Java importuje samostatný řetězec SVG. Všechny obrázky, styly a další zdroje použité tímto SVG jsou vloženy přímo do obsahu SVG.
-
-```java
-import com.aspose.slides.*;
-
-String svgContent =
-        "<svg xmlns='http://www.w3.org/2000/svg' width='320' height='180'>" +
-        "    <rect width='320' height='180' fill='#4F81BD'/>" +
-        "    <circle cx='160' cy='90' r='55' fill='#F2F2F2'/>" +
-        "</svg>";
 
 Presentation presentation = new Presentation();
 try {
-    ISvgImage svgImage = new SvgImage(svgContent);
-    IPPImage image = presentation.getImages().addImage(svgImage);
+    URL imageUrl = URI.create("https://example.com/image.png").toURL();
+    HttpURLConnection connection = (HttpURLConnection) imageUrl.openConnection();
+    connection.setConnectTimeout(10000);
+    connection.setReadTimeout(10000);
 
-    presentation.getSlides().get_Item(0).getShapes().addPictureFrame(
-            ShapeType.Rectangle, 20, 20, image.getWidth(), image.getHeight(), image);
+    try (InputStream inputStream = connection.getInputStream(); 
+         ByteArrayOutputStream outputStream = new ByteArrayOutputStream()) {
+        byte[] buffer = new byte[8192];
+        int bytesRead;
+        while ((bytesRead = inputStream.read(buffer)) != -1) outputStream.write(buffer, 0, bytesRead);
 
-    presentation.save("self-contained-svg.pptx", SaveFormat.Pptx);
+        IPPImage image = presentation.getImages().addImage(outputStream.toByteArray());
+        ISlide slide = presentation.getSlides().get_Item(0);
+        slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
+    }
+
+    presentation.save("presentation-from-web.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Import SVG obsahu s externími zdroji**
+V dlouho běžících aplikacích znovu použijte HTTP klienta nebo strategii správy připojení vhodnou pro aplikaci, místo opakovaného vytváření zbytečné síťové infrastruktury. Také ověřujte vzdálené URL, velikosti odpovědí a typy obsahu, pokud zdroj není důvěryhodný.
 
-SVG soubory exportované z nástrojů pro návrh, editorů diagramů, systémů ikon a webových pipeline mohou odkazovat na zdroje, které jsou uloženy mimo dokument SVG. Například SVG může obsahovat odkaz na obrázek jako `images/photo.png`, hodnotu CSS `url(...)` nebo URL písma.
+## **Znovu použít obrázky napříč snímky**
 
-Chcete‑li importovat takový SVG obsah, vytvořte implementaci [IExternalResourceResolver](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iexternalresourceresolver/) a předávejte ji spolu se základní URI do vhodného konstruktoru [SvgImage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/svgimage/). Základní URI identifikuje umístění dokumentu SVG a slouží k řešení relativních odkazů.
+Pokud je stejný obrázek potřeba vícekrát, přidejte jej do prezentace jen jednou a znovu použijte vrácený [IPPImage] při vytváření dalších rámečků obrázku. Tím se vyhnete opakovanému načítání stejných zdrojových dat a vztah mezi sdíleným obrázkovým zdrojem a jeho použitím bude explicitní.
 
-Rozhraní [ISvgImage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/isvgimage/) poskytuje přístup k informacím o importovaném SVG:
+Pro grafiku, která má být automaticky zobrazena na mnoha snímcích, například firemní logo, zvažte umístění rámečku obrázku na [hlavní snímek](/slides/cs/java/slide-master/) nebo rozvržení místo přidávání ekvivalentního tvaru na každý snímek.
 
-- `getSvgContent()` vrací SVG značkování jako řetězec.
-- `getSvgData()` vrací obsah SVG jako pole bajtů.
-- `getBaseUri()` vrací základní URI použité pro relativní odkazy.
-- `getExternalResourceResolver()` vrací řešitel přiřazený k obrázku SVG.
+## **Použít obrázek jako pozadí snímku**
 
-### **Implementace externího řešitele zdrojů**
-
-Řešitel má dvě metody:
-
-- `resolveUri` kombinuje základní URI a relativní odkaz na zdroj a vrací absolutní URI. Vrátí `null`, pokud odkaz nelze vyřešit nebo není povolen.
-- `getEntity` vrací čitelný stream pro absolutní URI zdroje. Vrátí `null`, pokud zdroj chybí, je blokován nebo není dostupný. Vhodně lze také vrátit náhradní stream.
-
-Následující řešitel načítá propojené zdroje pouze z povoleného místního adresáře. Síťové zdroje a cesty mimo povolený adresář jsou blokovány. Volitelný náhradní obrázek je vrácen pro nevyřešené odkazy na obrázky.
-
-```java
-import com.aspose.slides.ExternalResourceResolver;
-
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.net.URI;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Locale;
-
-class LocalSvgResourceResolver extends ExternalResourceResolver {
-    private final Path allowedRoot;
-    private final byte[] fallbackImageData;
-
-    public LocalSvgResourceResolver(String allowedRoot, byte[] fallbackImageData) {
-        this.allowedRoot = Paths.get(allowedRoot).toAbsolutePath().normalize();
-        this.fallbackImageData = fallbackImageData;
-    }
-
-    @Override
-    public String resolveUri(String baseUri, String relativeUri) {
-        if (baseUri == null || baseUri.trim().isEmpty() ||
-                relativeUri == null || relativeUri.trim().isEmpty()) {
-            return null;
-        }
-
-        try {
-            URI baseAddress = URI.create(baseUri);
-            URI absoluteAddress = baseAddress.resolve(relativeUri);
-
-            // Tento řešitel úmyslně povoluje pouze lokální soubory.
-            if (!"file".equalsIgnoreCase(absoluteAddress.getScheme())) {
-                return null;
-            }
-
-            Path resourcePath = Paths.get(absoluteAddress).toAbsolutePath().normalize();
-            if (!isInsideAllowedRoot(resourcePath)) {
-                return null;
-            }
-
-            return resourcePath.toUri().toString();
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
-    @Override
-    public InputStream getEntity(String absoluteUri) {
-        try {
-            URI resourceUri = URI.create(absoluteUri);
-            if (!"file".equalsIgnoreCase(resourceUri.getScheme())) {
-                return null;
-            }
-
-            Path resourcePath = Paths.get(resourceUri).toAbsolutePath().normalize();
-            if (!isInsideAllowedRoot(resourcePath)) {
-                return null;
-            }
-
-            if (Files.exists(resourcePath)) {
-                return Files.newInputStream(resourcePath);
-            }
-
-            // Používejte náhradní soubor pouze pro obrazové zdroje. Vrácení proudu obrázku
-            // pro chybějící písmo nebo stylopis by nebylo platné.
-            if (fallbackImageData != null && isImageFile(resourcePath)) {
-                return new ByteArrayInputStream(fallbackImageData);
-            }
-        } catch (Exception e) {
-            return null;
-        }
-
-        return null;
-    }
-
-    private boolean isInsideAllowedRoot(Path resourcePath) {
-        return resourcePath.normalize().startsWith(allowedRoot);
-    }
-
-    private static boolean isImageFile(Path path) {
-        String fileName = path.getFileName().toString().toLowerCase(Locale.ROOT);
-
-        return fileName.endsWith(".png") ||
-                fileName.endsWith(".jpg") ||
-                fileName.endsWith(".jpeg") ||
-                fileName.endsWith(".gif") ||
-                fileName.endsWith(".bmp");
-    }
-}
-```
-
-### **Řešení odkazovaných zdrojů během importu SVG**
-
-Předpokládejme, že `assets/diagram.svg` obsahuje relativní odkaz, například:
-
-```xml
-<image href="images/photo.png" x="20" y="20" width="320" height="180" />
-```
-
-Následující příklad Java předává URI souboru SVG jako základní URI a poskytuje vlastní řešitel. Řešitel převede relativní odkaz na obrázek na absolutní URI a vrátí stream obsahující propojený zdroj, zatímco Aspose.Slides zpracovává SVG.
+Obrázek pozadí je přiřazen k výplni snímku; není přidán jako tvar rámečku obrázku. To je užitečné, když má obrázek pokrýt pozadí snímku a neměl by být manipulován jako běžný objekt snímku.
 
 ```java
 import com.aspose.slides.*;
 
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("background.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        if (sourceImage != null) sourceImage.dispose();
+    }
+
+    slide.getBackground().setType(BackgroundType.OwnBackground);
+    slide.getBackground().getFillFormat().setFillType(FillType.Picture);
+    slide.getBackground().getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+    slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().setImage(image);
+
+    presentation.save("background-image.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Další možnosti pozadí, včetně pozadí hlavního snímku a rozvržení, najdete v [Pozadí prezentace](/slides/cs/java/presentation-background/).
+
+## **Vložené a propojené obrázky**
+
+Vložené a propojené obrázky mají různé kompromisy v přenositelnosti a velikosti souboru:
+- **Vložený obrázek:** data obrázku jsou uložena uvnitř prezentace. Prezentace je samostatná, ale velikost souboru zahrnuje data obrázku.
+- **Propojený obrázek:** prezentace ukládá cestu nebo URL k externímu obrázku. To může zmenšit velikost prezentace, ale externí zdroj musí být přístupný při otevření nebo vykreslení prezentace.
+
+Propojený obrázek lze vytvořit přiřazením externí cesty nebo URL pomocí [ISlidesPicture.setLinkPathLong](https://reference.aspose.com/slides/cs/java/com.aspose.slides/islidespicture/) místo vložení dat obrázku.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, null);
+    pictureFrame.getPictureFormat().getPicture().setLinkPathLong("https://example.com/image.png");
+
+    presentation.save("linked-image.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Používejte propojené obrázky jen tehdy, když nasazovací prostředí může spolehlivě přistupovat k externímu zdroji. Pro prezentace, které musí fungovat offline nebo být přesouvány mezi systémy, jsou vložené obrázky obvykle bezpečnější.
+
+## **Práce s SVG obrázky**
+
+SVG je vektorový formát, takže je užitečný pro ikony, diagramy a další grafiku, která by se měla škálovat bez ztráty detailů jako rastrové obrázky. Aspose.Slides podporuje SVG jak jako obrázkový zdroj, tak jako zdroj pro upravitelné tvary snímku.
+
+### **Přidat SVG jako obrázek**
+
+Vytvořte [SvgImage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/svgimage/), přidejte jej do kolekce obrázků a umístěte vzniklý obrázkový zdroj do rámečku obrázku.
+
+```java
+import com.aspose.slides.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
-
-Path svgFilePath = Paths.get("assets", "diagram.svg").toAbsolutePath().normalize();
-Path assetDirectory = svgFilePath.getParent();
-String svgContent = new String(Files.readAllBytes(svgFilePath), StandardCharsets.UTF_8);
-
-// Základní URI představuje umístění SVG dokumentu.
-String baseUri = svgFilePath.toUri().toString();
-
-byte[] fallbackImageData = null;
-Path fallbackImagePath = assetDirectory.resolve("fallback.png");
-if (Files.exists(fallbackImagePath)) {
-    fallbackImageData = Files.readAllBytes(fallbackImagePath);
-}
-
-IExternalResourceResolver resolver = new LocalSvgResourceResolver(assetDirectory.toString(), fallbackImageData);
-ISvgImage svgImage = new SvgImage(svgContent, resolver, baseUri);
-
-// ISvgImage poskytuje přístup ke zdrojovému obsahu, binárním datům, základnímu URI a řešiteli.
-String importedContent = svgImage.getSvgContent();
-byte[] importedData = svgImage.getSvgData();
-String importedBaseUri = svgImage.getBaseUri();
-IExternalResourceResolver importedResolver = svgImage.getExternalResourceResolver();
 
 Presentation presentation = new Presentation();
 try {
+    byte[] imageData = Files.readAllBytes(Paths.get("icon.svg"));
+    String svgContent = new String(imageData, StandardCharsets.UTF_8);
+    ISvgImage svgImage = new SvgImage(svgContent);
+
     IPPImage image = presentation.getImages().addImage(svgImage);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 200, 200, image);
 
-    presentation.getSlides().get_Item(0).getShapes().addPictureFrame(
-            ShapeType.Rectangle, 20, 20, image.getWidth(), image.getHeight(), image);
-
-    presentation.save("svg-with-linked-resources.pptx", SaveFormat.Pptx);
+    presentation.save("svg-image.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Třída `SvgImage` také poskytuje přetížení, která přijímají data SVG jako pole bajtů nebo vstupní stream, spolu s externím řešitelem zdrojů a základním URI.
+### **SVG soubory s externími zdroji**
 
-{{% alert title="Důležité" color="warning" %}}
+SVG může odkazovat na externí obrázky, stylové soubory nebo fonty. Pro tyto případy [SvgImage] poskytuje konstruktory, které přijímají [IExternalResourceResolver] a základní URI. Resolver může převést relativní URI na povolené absolutní URI a vrátit stream požadovaného zdroje.
 
-Řešitel zdrojů zpřístupňuje externí zdroje během zpracování a vykreslování SVG v Aspose.Slides. Nemění původní SVG značkování ani automaticky nevestavuje vyřešené zdroje do něj.
+Resolver zpřístupní externí zdroje během zpracování SVG v Aspose.Slides, ale nepřepíše SVG do samostatného dokumentu. Pokud má SVG zůstat přenosný, vložte požadované zdroje přímo do SVG, například použitím `data:` URI pro propojené obrázky.
 
-Když je `ISvgImage` přidán do kolekce obrázků prezentace, soubor PPTX může obsahovat jak původní SVG reprezentaci, tak rastrový náhradní obrázek. Propojený zdroj se může objevit v generovaném náhradním obrázku, zatímco relativní odkaz jako `images/photo.png` zůstane nezměněn v uloženém SVG. Aplikace, která vykresluje nativní SVG reprezentaci, může tedy vynechat propojený obsah, pokud není původní externí zdroj dostupný.
+Když SVG soubory pocházejí z nedůvěryhodných zdrojů, omezte schémata, umístění souborů a hostitele, ke kterým může resolver přistupovat. Síťové resolvery by také měly uplatňovat časové limity, limity velikosti odpovědí a ověřování obsahu.
 
-{{% /alert %}}
+### **Převést SVG na upravitelné tvary**
 
-### **Vytvoření přenosného SVG obrázku**
-
-Chcete‑li vytvořit SVG obrázek, který nezávisí na externích souborech, udělejte SVG samostatně před vytvořením `SvgImage`. Například nahraďte propojené URL obrázků `data:` URI, které obsahují data obrázku:
-
-```xml
-<image href="data:image/png;base64,..." x="20" y="20" width="320" height="180" />
-```
-
-Po vložení všech potřebných zdrojů do obsahu SVG vytvořte `SvgImage`, přidejte jej do kolekce obrázků prezentace a vložte jej do rámečku obrázku, jak je ukázáno v předchozím příkladu.
-
-### **Zpracování chybějících nebo blokovaných zdrojů**
-
-Vrátí `null` z `resolveUri`, pokud je URI zdroje neplatné, zakázané nebo jej nelze vyřešit. Vrátí `null` z `getEntity`, pokud zdroj nelze přečíst. Aspose.Slides pokračuje ve zpracování SVG bez tohoto zdroje, pokud je to možné.
-
-Náhradní stream lze vrátit pro chybějící zdroj, ale jeho obsah musí být kompatibilní s požadovaným typem zdroje. Například vrátíte stream obrázku jen pro chybějící obrázek, ne pro písmo nebo stylopis.
-
-{{% alert title="Bezpečnost" color="warning" %}}
-
-Nevyřešujte libovolné cesty k souborům ani neomezené síťové URL z nedůvěryhodných SVG souborů. Omezte povolená schémata, adresáře a hostitele. Pro síťové zdroje také použijte časová omezení připojení, limity velikosti odpovědi a validaci obsahu.
-
-{{% /alert %}}
-
-## **Konverze SVG na sadu tvarů**
-
-Aspose.Slides může konvertovat SVG na sadu tvarů, podobně jako odpovídající funkčnost v PowerPointu:
+Aspose.Slides dokáže převést SVG na skupinu upravitelných tvarů snímku, podobně jako odpovídající příkaz PowerPointu.
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-Tato funkčnost je poskytována přetížením metody [addGroupShape](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IShapeCollection#addGroupShape-com.aspose.slides.ISvgImage-float-float-float-float-) rozhraní [IShapeCollection](https://reference.aspose.com/slides/cs/java/com.aspose.slides/IShapeCollection), která přijímá objekt [ISvgImage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ISvgImage) jako první argument.
-
-Následující ukázkový kód Java ukazuje, jak použít tuto metodu k převodu SVG souboru na sadu tvarů:
+Použijte přetížení [IShapeCollection.addGroupShape](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ishapecollection/) přijímající [ISvgImage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/isvgimage/) k provedení převodu.
 
 ```java
 import com.aspose.slides.*;
 import java.awt.geom.Dimension2D;
-import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-// Název zdrojového SVG souboru.
-String svgFileName = "sample.svg";
-
-// Název výstupního souboru prezentace.
-String outPptxPath = "presentation.pptx";
-
-// Vytvořte novou prezentaci.
-IPresentation presentation = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // Načtěte obsah SVG souboru.
-    byte[] svgContent = Files.readAllBytes(Paths.get(svgFileName));
-
-    // Vytvořte objekt SvgImage.
+    byte[] imageData = Files.readAllBytes(Paths.get("diagram.svg"));
+    String svgContent = new String(imageData, StandardCharsets.UTF_8);
     ISvgImage svgImage = new SvgImage(svgContent);
 
-    // Získejte velikost snímku.
     Dimension2D slideSize = presentation.getSlideSize().getSize();
+    ISlide slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addGroupShape(svgImage, 0, 0, (float) slideSize.getWidth(), (float) slideSize.getHeight());
 
-    // Převěďte SVG obrázek na skupinu tvarů a přizpůsobte jej velikosti snímku.
-    presentation.getSlides().get_Item(0).getShapes().addGroupShape(
-            svgImage, 0f, 0f,
-            (float) slideSize.getWidth(), (float) slideSize.getHeight());
-
-    // Uložte prezentaci ve formátu PPTX.
-    presentation.save(outPptxPath, SaveFormat.Pptx);
-} catch (IOException e) {
+    presentation.save("editable-svg-shapes.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Přidání obrázků jako EMF do snímků**
+Použijte převod SVG na tvary, když je potřeba editovat jednotlivé vektorové prvky jako tvary PowerPointu. Pokud má být SVG pouze zobrazen, je jednoduché ponechat jej jako obrázek a vyhnout se vytváření mnoha samostatných tvarů.
 
-Aspose.Slides pro Java umožňuje generovat EMF obrázky z listů Excelu pomocí Aspose.Cells a přidávat je do snímků prezentace.
+## **Nahradit existující obrázkový zdroj**
 
-Následující ukázkový kód Java ukazuje, jak to provést:
-
-```java
-import com.aspose.slides.*;
-import com.aspose.cells.ImageOrPrintOptions;
-import com.aspose.cells.ImageType;
-import com.aspose.cells.SheetRender;
-import com.aspose.cells.Workbook;
-import com.aspose.cells.Worksheet;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-
-Workbook book = new Workbook("chart.xlsx");
-Worksheet sheet = book.getWorksheets().get(0);
-
-ImageOrPrintOptions options = new ImageOrPrintOptions();
-options.setHorizontalResolution(200);
-options.setVerticalResolution(200);
-options.setImageType(ImageType.EMF);
-
-// Uložte sešit do proudu.
-SheetRender sr = new SheetRender(sheet, options);
-Presentation pres = new Presentation();
-try {
-    pres.getSlides().removeAt(0);
-
-    String emfSheetName;
-    for (int j = 0; j < sr.getPageCount(); j++) {
-        emfSheetName = "test" + sheet.getName() + " Page" + (j + 1) + ".out.emf";
-        sr.toImage(j, emfSheetName);
-
-        // Přidejte soubor tak, jak je, aby obrázek zůstal vektorovým EMF místo rasterizace.
-        IPPImage picture;
-        InputStream imageStream = new FileInputStream(emfSheetName);
-        try {
-            picture = pres.getImages().addImage(imageStream);
-        } finally {
-            imageStream.close();
-        }
-
-        ISlide slide = pres.getSlides().addEmptySlide(
-                pres.getLayoutSlides().getByType(SlideLayoutType.Blank));
-        slide.getShapes().addPictureFrame(
-                ShapeType.Rectangle,
-                0,
-                0,
-                (float) pres.getSlideSize().getSize().getWidth(),
-                (float) pres.getSlideSize().getSize().getHeight(),
-                picture);
-    }
-
-    pres.save("output.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    pres.dispose();
-}
-```
-
-## **Nahrazení obrázků v kolekci obrázků**
-
-Aspose.Slides umožňuje nahradit obrázky uložené v kolekci obrázků prezentace, včetně obrázků používaných tvary snímků. Tato sekce popisuje několik způsobů, jak aktualizovat obrázky v kolekci. Obrázek můžete nahradit pomocí surových bajtových dat, instance [IImage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iimage/) nebo jiného obrázku, který již v kolekci existuje.
-
-Postupujte podle následujících kroků:
-
-1. Načtěte soubor prezentace, který obsahuje obrázky, pomocí třídy [Presentation](https://reference.aspose.com/slides/cs/java/com.aspose.slides/presentation/).
-1. Načtěte nový obrázek ze souboru do pole bajtů.
-1. Nahraďte cílový obrázek novým obrázkem pomocí pole bajtů.
-1. Ve druhém přístupu načtěte obrázek do objektu [IImage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iimage/) a nahraďte cílový obrázek tímto objektem.
-1. Ve třetím přístupu nahraďte cílový obrázek obrázkem, který již v kolekci prezentace existuje.
-1. Zapište upravenou prezentaci jako soubor PPTX.
+Použijte [IPPImage.replaceImage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ippimage/) když chcete nahradit existující obrázkový zdroj. To je zvláště užitečné pro sdílenou grafiku, jako jsou loga.
 
 ```java
 import com.aspose.slides.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
-// Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
-Presentation presentation = new Presentation("sample.pptx");
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // První způsob.
-    byte[] imageData = Files.readAllBytes(Paths.get("image0.jpeg"));
-    IPPImage oldImage = presentation.getImages().get_Item(0);
-    oldImage.replaceImage(imageData);
+    IPPImage imageToReplace = presentation.getImages().get_Item(0);
 
-    // Druhý způsob.
-    IImage newImage = Images.fromFile("image1.png");
+    IImage replacementImage = Images.fromFile("new-logo.png");
     try {
-        oldImage = presentation.getImages().get_Item(1);
-        oldImage.replaceImage(newImage);
+        imageToReplace.replaceImage(replacementImage);
     } finally {
-        if (newImage != null) newImage.dispose();
+        if (replacementImage != null) replacementImage.dispose();
     }
 
-    // Třetí způsob.
-    oldImage = presentation.getImages().get_Item(2);
-    oldImage.replaceImage(presentation.getImages().get_Item(3));
-
-    // Uložte prezentaci do souboru.
     presentation.save("output.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="Info" color="info" %}}
+Pokud více rámečků obrázku, pozadí, hlav nebo rozvržení používá stejný obrázkový zdroj, jeho nahrazení aktualizuje všechny tyto použití. Pokud má být změněn jen jeden rámeček obrázku, přiřaďte mu jiný obrázek místo nahrazení sdíleného zdroje.
 
-S bezplatným konvertorem Aspose [Text to GIF](https://products.aspose.app/slides/cs/text-to-gif) můžete snadno animovat text a vytvářet GIFy z textu. 
+`replaceImage` také poskytuje přetížení, která přijímají pole bajtů nebo jiný [IPPImage].
 
-{{% /alert %}}
+## **Praktické pokyny pro správu obrázků**
 
-## **Často kladené otázky**
+### **Kontrola velikosti prezentace**
 
-**Zůstane po vložení zachována původní rozlišení obrázku?**
+Velké rastrové obrázky mohou prezentaci zbytečně zvětšit. Používejte zdrojové obrázky s rozměry odpovídajícími zamýšlené velikosti zobrazení, znovu využívejte sdílené obrázkové zdroje, kde je to možné, a vyhněte se vkládání opakovaných kopií stejné grafiky v plném rozlišení.
 
-Ano. Zdrojové pixely jsou zachovány, ale konečný vzhled závisí na tom, jak je [picture](/slides/cs/java/picture-frame/) na snímku škálována a na případné kompresi při ukládání.
+Pro rastrové obrázky, které již byly umístěny v rámečcích obrázku, může [IPictureFillFormat.compressImage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/ipicturefillformat/) snížit data obrázku podle vybrané rozlišení a nastavení ořezu. Jedná se o zpracování rámečku obrázku, nikoli správu kolekce obrázků, takže související formátovací operace najdete v [Rámec obrázku](/slides/cs/java/picture-frame/).
 
-**Jak nejlépe nahradit stejné logo na desítkách snímků najednou?**
+### **Zvolte mezi vloženým a propojeným obsahem**
 
-Umístěte logo na hlavní snímek nebo rozložení a nahraďte ho v kolekci obrázků prezentace — aktualizace se projeví ve všech prvcích, které tento zdroj používají.
+Vkládání činí prezentaci přenositelnou, protože všechna potřebná data obrázku cestují s souborem. Propojování může snížit velikost souboru, ale zavádí externí závislost. Používejte odkazy jen tehdy, když je tato závislost přijatelná a stabilní.
 
-**Lze vložený SVG převést na editovatelné tvary?**
+### **Znovu použít sdílenou značku**
 
-Ano. SVG můžete převést na skupinu tvarů, po čemž se jednotlivé části dají upravovat pomocí standardních vlastností tvarů.
+Pro opakující se loga, vodoznaky nebo dekorativní grafiku používejte jeden obrázkový zdroj a znovu jej využívejte. Pokud grafika patří do návrhu prezentace spíše než do obsahu snímků, umístěte ji na hlavní snímek nebo rozvržení, aby ji zdědily příslušné snímky.
 
-**Jak nastavit obrázek jako pozadí pro více snímků najednou?**
+### **Udržujte SVG zdroje přenosné**
 
-[Přiřaďte obrázek jako pozadí](/slides/cs/java/presentation-background/) na hlavním snímku nebo příslušném rozložení — všechny snímky používající tento master/layout zdědí pozadí.
+Samostatné SVG je snadněji přenosné a konzistentně renderované než SVG, který závisí na externích souborech nebo síťových zdrojích. Kdykoli je to možné, vložte požadované zdroje před importováním SVG. Převádějte SVG na tvary jen tehdy, když je potřeba editovat jednotlivé vektorové prvky.
 
-**Jak zabránit tomu, aby se prezentace zvětšila kvůli velkému množství obrázků?**
+### **Použijte moderní multiplatformní Image API**
 
-Znovu použijte jeden zdroj obrázku místo duplikátů, zvolte rozumná rozlišení, aplikujte kompresi při ukládání a udržujte opakovanou grafiku na masteru, pokud je to vhodné.
+Pro nový Java kód používejte Aspose.Slides API [IImage](https://reference.aspose.com/slides/cs/java/com.aspose.slides/iimage/) a [Images](https://reference.aspose.com/slides/cs/java/com.aspose.slides/images/) místo zastaralého veřejného API založeného na `java.awt.image.BufferedImage`. Pokyny pro migraci najdete v [Moderní API](/slides/cs/java/modern-api/).
+
+Formáty WMF a EMF vyžadují zvláštní úvahu. Když jsou tyto formáty předány přes [IImage], [ImageCollection.addImage] převede metafilet na rastrovou PNG reprezentaci před vložením. Pokud je důležité zachovat data metafile, použijte přetížení [ImageCollection.addImage] založené na streamu. Generování EMF obsahu z tabulek nebo jiných produktů je samostatný integrační postup a spadá mimo rozsah tohoto článku.
+
+## **FAQ**
+
+**Jaký je rozdíl mezi kolekcí obrázků a rámečkem obrázku?**
+
+Kolekce obrázků ukládá znovu použitelné obrázkové zdroje. Rámeček obrázku je tvar na snímku, který zobrazuje jeden z těchto zdrojů a poskytuje specifické formátování obrázku, jako je ořezávání a efekty.
+
+**Jaký je nejlepší způsob, jak všude nahradit stejné logo?**
+
+Pokud je logo již sdíleno jako jeden obrázkový zdroj, nahraďte tento zdroj pomocí [IPPImage.replaceImage]. Pro celoprezentační značku může umístění loga na hlavní snímek nebo rozvržení také snížit duplicitní obsah snímků.
+
+**Proč se propojený obrázek na jiném počítači ztratí?**
+
+Propojený obrázek závisí na externím souboru nebo URL. Pokud není tento zdroj z jiného počítače dosažitelný, může být propojený obrázek nedostupný. Vložte obrázek, když musí být prezentace samostatná.
+
+**Lze vložené SVG upravit jako tvary PowerPointu?**
+
+Ano. Převodem SVG pomocí [IShapeCollection.addGroupShape] získáte skupinu upravitelných tvarů snímku namísto jediného SVG obrázku.
+
+**Jak mohu udržet prezentace s mnoha obrázky menší?**
+
+Znovu používejte sdílené obrázkové zdroje, vyhněte se zbytečně velkým rastrovým zdrojům, při vhodných situacích komprimujte rastrové obrázky, opakující se značku umisťujte na hlavní snímky nebo rozvržení a používáte propojené obrázky pouze tehdy, když je externí závislost přijatelná.

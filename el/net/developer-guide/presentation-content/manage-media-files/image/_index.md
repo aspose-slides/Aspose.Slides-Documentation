@@ -1,497 +1,274 @@
 ---
-title: Βελτιστοποίηση Διαχείρισης Εικόνων σε Παρουσιάσεις στο .NET
+title: Βελτιστοποίηση Διαχείρισης Εικόνων σε Παρουσιάσεις σε .NET
 linktitle: Διαχείριση Εικόνων
 type: docs
 weight: 10
 url: /el/net/image/
 keywords:
 - προσθήκη εικόνας
-- προσθήκη φωτογραφίας
-- προσθήκη bitmap
+- προσθήκη εικόνας
 - αντικατάσταση εικόνας
-- αντικατάσταση φωτογραφίας
-- από το web
+- συλλογή εικόνων
+- πλαίσιο εικόνας
+- συνδεδεμένη εικόνα
 - φόντο
 - προσθήκη PNG
 - προσθήκη JPG
 - προσθήκη SVG
+- SVG σε σχήματα
 - εξωτερικοί πόροι SVG
-- επιλυτής SVG
-- συνδεδεμένες εικόνες SVG
-- γραμματοσειρές SVG
-- προσθήκη EMF
-- προσθήκη WMF
-- προσθήκη TIFF
 - PowerPoint
 - OpenDocument
 - παρουσίαση
 - .NET
 - C#
 - Aspose.Slides
-description: "Απλοποιήστε τη διαχείριση εικόνων στο PowerPoint και το OpenDocument με το Aspose.Slides για .NET, βελτιώνοντας την απόδοση και αυτοματοποιώντας τη ροή εργασίας σας."
+description: "Μάθετε πώς να προσθέτετε, επαναχρησιμοποιείτε, συνδέετε, αντικαθιστάτε και διαχειρίζεστε raster και SVG εικόνες σε παρουσιάσεις PowerPoint και OpenDocument με το Aspose.Slides για .NET."
 ---
 ## **Εισαγωγή**
 
-Οι εικόνες κάνουν τις παρουσιάσεις πιο ελκυστικές και οπτικά εντυπωσιακές. Στο Microsoft PowerPoint, μπορείτε να εισάγετε εικόνες στις διαφάνειες από αρχεία, το διαδίκτυο ή άλλες πηγές. Ανάλογα, το Aspose.Slides σας επιτρέπει να προσθέτετε εικόνες στις διαφάνειες παρουσίασης με διάφορους τρόπους.
+Aspose.Slides for .NET παρέχει διάφορους τρόπους εργασίας με εικόνες, και ο καθένας εξυπηρετεί διαφορετικό σκοπό. Μπορείτε να αποθηκεύσετε μια εικόνα σε μια παρουσίαση, να την εμφανίσετε σε ένα πλαίσιο εικόνας, να τη χρησιμοποιήσετε ως φόντο διαφάνειας, να συνδέσετε με εξωτερική εικόνα, να αντικαταστήσετε ένα κοινόχρηστο πόρο εικόνας, ή να μετατρέψετε το περιεχόμενο SVG σε επεξεργάσιμα σχήματα.
 
-{{% alert  title="Συμβουλή" color="primary" %}} 
-Η Aspose παρέχει δωρεάν μετατροπείς—[JPEG σε PowerPoint](https://products.aspose.app/slides/el/import/jpg-to-ppt) και [PNG σε PowerPoint](https://products.aspose.app/slides/el/import/png-to-ppt)—που σας επιτρέπουν να δημιουργείτε γρήγορα παρουσιάσεις από εικόνες. 
-{{% /alert %}} 
+Αυτό το άρθρο επικεντρώνεται στους πόρους εικόνας και στον τρόπο χρήσης τους σε όλη την παρουσίαση. Για περικοπή, διαφάνεια, εφέ, τέντωμα και άλλες μορφοποιήσεις που εφαρμόζονται σε ένα μεμονωμένο πλαίσιο εικόνας, δείτε [Πλαίσιο Εικόνας](/slides/el/net/picture-frame/).
 
-{{% alert title="Πληροφορίες" color="info" %}}
-Αν θέλετε να προσθέσετε μια εικόνα ως πλαίσιο εικόνας—ιδιαίτερα αν σκοπεύετε να την αλλάξετε μέγεθος, να εφαρμόσετε εφέ ή να χρησιμοποιήσετε άλλες τυπικές επιλογές μορφοποίησης—δείτε [Picture Frame](/slides/el/net/picture-frame/). 
-{{% /alert %}} 
+## **Κατανόηση του Μοντέλου Εικόνας**
 
-{{% alert title="Σημείωση" color="warning" %}}
-Μπορείτε να μετατρέψετε εικόνες από τη μία μορφή στην άλλη. Δείτε τις παρακάτω σελίδες: μετατροπή [εικόνα σε JPG](https://products.aspose.com/slides/el/net/conversion/image-to-jpg/), [JPG σε εικόνα](https://products.aspose.com/slides/el/net/conversion/jpg-to-image/), [JPG σε PNG](https://products.aspose.com/slides/el/net/conversion/jpg-to-png/), [PNG σε JPG](https://products.aspose.com/slides/el/net/conversion/png-to-jpg/), [PNG σε SVG](https://products.aspose.com/slides/el/net/conversion/png-to-svg/), και [SVG σε PNG](https://products.aspose.com/slides/el/net/conversion/svg-to-png/).
-{{% /alert %}}
+Οι παρακάτω έννοιες API σχετίζονται στενά αλλά δεν είναι εναλλάξιμες:
 
-Η Aspose.Slides υποστηρίζει εικόνες σε δημοφιλείς μορφές όπως JPEG, PNG, BMP, GIF και άλλες. 
+- Η [presentation image collection](https://reference.aspose.com/slides/el/net/aspose.slides/iimagecollection/) αποθηκεύει πόρους εικόνας που χρησιμοποιούνται στην παρουσίαση. Χρησιμοποιήστε το [ImageCollection.AddImage](https://reference.aspose.com/slides/el/net/aspose.slides/imagecollection/addimage/) για να προσθέσετε δεδομένα εικόνας και να λάβετε έναν πόρο [IPPImage](https://reference.aspose.com/slides/el/net/aspose.slides/ippimage/).
+- Ένα [picture frame](https://reference.aspose.com/slides/el/net/aspose.slides/ipictureframe/) είναι ένα σχήμα που εμφανίζει μια εικόνα σε μια διαφάνεια, διάταξη ή κύριο πρότυπο. Χρησιμοποιήστε το [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/el/net/aspose.slides/ishapecollection/addpictureframe/) για να τοποθετήσετε έναν πόρο εικόνας σε μια διαφάνεια.
+- Ένα φόντο διαφάνειας χρησιμοποιεί μια εικόνα ως μέρος της γέμισης της διαφάνειας και όχι ως σχήμα. Επομένως δεν συμπεριφέρεται όπως ένα picture frame.
+- [IPPImage.ReplaceImage](https://reference.aspose.com/slides/el/net/aspose.slides/ippimage/replaceimage/) αντικαθιστά έναν πόρο εικόνας. Εάν πολλά στοιχεία της παρουσίασης χρησιμοποιούν αυτόν τον πόρο, όλα θα χρησιμοποιούν την αντικατάσταση.
+- Η μετατροπή ενός SVG σε σχήματα δημιουργεί επεξεργάσιμα σχήματα διαφάνειας. Μετά τη μετατροπή, το περιεχόμενο δεν διαχειρίζεται πια ως ένας πόρος εικόνας.
 
-## **Προσθήκη Εικόνων που Αποθηκεύονται Τοπικά σε Διαφάνειες**
+Έτσι, μια τυπική ροή εργασίας είναι: προσθέστε δεδομένα εικόνας στη συλλογή εικόνων, λάβετε ένα [IPPImage](https://reference.aspose.com/slides/el/net/aspose.slides/ippimage/), και στη συνέχεια χρησιμοποιήστε αυτόν τον πόρο σε ένα ή περισσότερα picture frames ή γέμιση.
 
-Μπορείτε να προσθέσετε μία ή περισσότερες εικόνες που αποθηκεύονται στον υπολογιστή σας σε μια διαφάνεια παρουσίασης. Ο παρακάτω κώδικας C# δείχνει πώς να προσθέσετε μια εικόνα σε μια διαφάνεια:
+## **Προσθήκη Ενσωματωμένης Εικόνας**
 
-```c#
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Προσθήκη Εικόνων από τον Ιστό σε Διαφάνειες**
-
-Αν η εικόνα που θέλετε να προσθέσετε σε μια διαφάνεια δεν είναι αποθηκευμένη στον υπολογιστή σας, μπορείτε να την προσθέσετε απευθείας από το διαδίκτυο. 
-
-Ο παρακάτω κώδικας C# δείχνει πώς να προσθέσετε μια εικόνα από το διαδίκτυο σε μια διαφάνεια:
-
-```c#
-using System.Net;
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-
-    byte[] imageData;
-    using (WebClient webClient = new WebClient()) 
-    {
-        imageData = webClient.DownloadData(new Uri("[REPLACE WITH URL]"));
-    }
-    
-    IPPImage image = pres.Images.AddImage(imageData);
-    slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Προσθήκη Εικόνων σε Κυρίως Διαφάνειες**
-
-Ένας κύριος διαφάνειας (slide master) αποθηκεύει και ελέγχει πληροφορίες όπως το θέμα και η διάταξη για τις διαφάνειες που τον χρησιμοποιούν. Όταν προσθέτετε μια εικόνα σε κύριο διαφάνειας, η εικόνα εμφανίζεται σε κάθε διαφάνεια που βασίζεται σε αυτόν τον κύριο. 
-
-Ο παρακάτω κώδικας C# δείχνει πώς να προσθέσετε μια εικόνα σε κύριο διαφάνειας:
-
-```c#
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    IMasterSlide masterSlide = slide.LayoutSlide.MasterSlide;
-    
-    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    masterSlide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Προσθήκη Εικόνων ως Φόντο Διαφάνειας**
-
-Μπορείτε να χρησιμοποιήσετε μια εικόνα ως φόντο για μία ή περισσότερες διαφάνειες. Για λεπτομέρειες, δείτε *[Ορισμός Εικόνων ως Φόντο για Διαφάνειες](/slides/el/net/presentation-background/#setting-images-as-background-for-slides)*.
-
-## **Προσθήκη SVG σε Παρουσιάσεις**
-
-Το περιεχόμενο SVG μπορεί να προστεθεί σε μια παρουσίαση χρησιμοποιώντας την κλάση [SvgImage](https://reference.aspose.com/slides/el/net/aspose.slides/svgimage/). Το παραγόμενο αντικείμενο [ISvgImage](https://reference.aspose.com/slides/el/net/aspose.slides/isvgimage/) μπορεί στη συνέχεια να προστεθεί στη συλλογή εικόνων της παρουσίασης και να χρησιμοποιηθεί για τη δημιουργία ενός πλαισίου εικόνας.
-
-Ο παρακάτω κώδικας C# εισάγει μια αυτόνομη συμβολοσειρά SVG. Όλες οι εικόνες, τα στυλ και οι άλλοι πόροι που χρησιμοποιεί αυτό το SVG είναι ενσωματωμένοι απευθείας στο περιεχόμενο του SVG.
+Για να εισάγετε μια τοπική εικόνα, διαβάστε το αρχείο, προσθέστε τα δεδομένα του στη συλλογή εικόνων και δημιουργήστε ένα picture frame που χρησιμοποιεί το επιστρεφόμενο `IPPImage`.
 
 ```csharp
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-string svgContent = @"
-<svg xmlns='http://www.w3.org/2000/svg' width='320' height='180'>
-    <rect width='320' height='180' fill='#4F81BD'/>
-    <circle cx='160' cy='90' r='55' fill='#F2F2F2'/>
-</svg>";
-
-using (Presentation presentation = new Presentation())
-{
-    ISvgImage svgImage = new SvgImage(svgContent);
-    IPPImage image = presentation.Images.AddImage(svgImage);
-
-    presentation.Slides[0].Shapes.AddPictureFrame(
-        ShapeType.Rectangle, 20, 20, image.Width, image.Height, image);
-
-    presentation.Save("self-contained-svg.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Εισαγωγή Περιεχομένου SVG με Εξωτερικούς Πόρους**
-
-Αρχεία SVG που εξάγονται από εργαλεία σχεδίασης, επεξεργαστές διαγραμμάτων, συστήματα εικονιδίων και διαδικτυακές αγωγές μπορεί να αναφέρονται σε πόρους που αποθηκεύονται εκτός του εγγράφου SVG. Για παράδειγμα, ένα SVG μπορεί να περιέχει σύνδεσμο σε εικόνα όπως `images/photo.png`, μια τιμή CSS `url(...)`, ή μια διεύθυνση URL γραμματοσειράς.
-
-Για να εισάγετε τέτοιο περιεχόμενο SVG, δημιουργήστε μια υλοποίηση του [IExternalResourceResolver](https://reference.aspose.com/slides/el/net/aspose.slides.import/iexternalresourceresolver/) και περάστε την, μαζί με μια βασική URI, σε έναν κατάλληλο κατασκευαστή `SvgImage`. Η βασική URI ταυτοποιεί τη θέση του εγγράφου SVG και χρησιμοποιείται για την επίλυση σχετικών συνδέσμων.
-
-Η διεπαφή [ISvgImage](https://reference.aspose.com/slides/el/net/aspose.slides/isvgimage/) παρέχει πρόσβαση σε πληροφορίες σχετικά με το εισαχθέν SVG:
-
-- `SvgContent` επιστρέφει το SVG markup ως συμβολοσειρά.
-- `SvgData` επιστρέφει το περιεχόμενο SVG ως πίνακα byte.
-- `BaseUri` επιστρέφει τη βασική URI που χρησιμοποιείται για σχετικούς συνδέσμους.
-- `ExternalResourceResolver` επιστρέφει τον επιλυτή που έχει ανατεθεί στην εικόνα SVG.
-
-### **Υλοποίηση Εξωτερικού Επίλυσης Πόρων**
-
-Ο επιλυτής διαθέτει δύο μεθόδους:
-
-- [ResolveUri](https://reference.aspose.com/slides/el/net/aspose.slides.import/iexternalresourceresolver/resolveuri/) συνδυάζει τη βασική URI και έναν σχετικό σύνδεσμο πόρου και επιστρέφει μια απόλυτη URI. Επιστρέψτε `null` όταν ο σύνδεσμος δεν μπορεί να επιλυθεί ή δεν επιτρέπεται.
-- [GetEntity](https://reference.aspose.com/slides/el/net/aspose.slides.import/iexternalresourceresolver/getentity/) επιστρέφει ένα ρεύμα ανάγνωσης για μια απόλυτη URI πόρου. Επιστρέψτε `null` όταν ο πόρος λείπει, είναι αποκλεισμένος ή μη διαθέσιμος. Ένα εναλλακτικό ρεύμα μπορεί επίσης να επιστραφεί όταν είναι κατάλληλο.
-
-Ο παρακάτω επιλυτής φορτώνει συνδεδεμένους πόρους μόνο από έναν επιτρεπόμενο τοπικό φάκελο. Οι δικτυακοί πόροι και οι διαδρομές εκτός του επιτρεπόμενου φακέλου μπλοκάρονται. Μια προαιρετική εναλλακτική εικόνα επιστρέφεται για μη επιλυμένους συνδέσμους εικόνων.
-
-```csharp
-using System;
-using System.IO;
-using Aspose.Slides.Import;
-
-internal sealed class LocalSvgResourceResolver : IExternalResourceResolver
-{
-    private readonly string _allowedRoot;
-    private readonly byte[] _fallbackImageData;
-
-    public LocalSvgResourceResolver(string allowedRoot, byte[] fallbackImageData = null)
-    {
-        _allowedRoot = Path.GetFullPath(allowedRoot);
-        _fallbackImageData = fallbackImageData;
-    }
-
-    public string ResolveUri(string baseUri, string relativeUri)
-    {
-        if (string.IsNullOrWhiteSpace(baseUri) ||
-            string.IsNullOrWhiteSpace(relativeUri))
-        {
-            return null;
-        }
-
-        if (!Uri.TryCreate(baseUri, UriKind.Absolute, out Uri baseAddress) ||
-            !Uri.TryCreate(baseAddress, relativeUri, out Uri absoluteAddress))
-        {
-            return null;
-        }
-
-        // Αυτός ο επιλυτής επιτρέπει εκ προθέσεως μόνο τοπικά αρχεία.
-        if (!absoluteAddress.IsFile)
-        {
-            return null;
-        }
-
-        string resourcePath = Path.GetFullPath(absoluteAddress.LocalPath);
-        if (!IsInsideAllowedRoot(resourcePath))
-        {
-            return null;
-        }
-
-        return absoluteAddress.AbsoluteUri;
-    }
-
-    public Stream GetEntity(string absoluteUri)
-    {
-        if (!Uri.TryCreate(absoluteUri, UriKind.Absolute, out Uri resourceUri) ||
-            !resourceUri.IsFile)
-        {
-            return null;
-        }
-
-        string resourcePath = Path.GetFullPath(resourceUri.LocalPath);
-        if (!IsInsideAllowedRoot(resourcePath))
-        {
-            return null;
-        }
-
-        if (File.Exists(resourcePath))
-        {
-            return File.OpenRead(resourcePath);
-        }
-
-        // Χρησιμοποιήστε εναλλακτικό μόνο για πόρους εικόνας. Η επιστροφή ρεύματος εικόνας
-        // για ελλείπουσα γραμματοσειρά ή φύλλο στυλ δεν είναι έγκυρη.
-        if (_fallbackImageData != null && IsImageFile(resourcePath))
-        {
-            return new MemoryStream(_fallbackImageData, writable: false);
-        }
-
-        return null;
-    }
-
-    private bool IsInsideAllowedRoot(string resourcePath)
-    {
-        string normalizedRoot = _allowedRoot.TrimEnd(
-            Path.DirectorySeparatorChar,
-            Path.AltDirectorySeparatorChar) + Path.DirectorySeparatorChar;
-
-        string normalizedPath = Path.GetFullPath(resourcePath);
-        StringComparison comparison = Path.DirectorySeparatorChar == '\\'
-            ? StringComparison.OrdinalIgnoreCase
-            : StringComparison.Ordinal;
-
-        return normalizedPath.StartsWith(normalizedRoot, comparison) ||
-               string.Equals(normalizedPath, _allowedRoot, comparison);
-    }
-
-    private static bool IsImageFile(string path)
-    {
-        string extension = Path.GetExtension(path);
-
-        return extension.Equals(".png", StringComparison.OrdinalIgnoreCase) ||
-               extension.Equals(".jpg", StringComparison.OrdinalIgnoreCase) ||
-               extension.Equals(".jpeg", StringComparison.OrdinalIgnoreCase) ||
-               extension.Equals(".gif", StringComparison.OrdinalIgnoreCase) ||
-               extension.Equals(".bmp", StringComparison.OrdinalIgnoreCase);
-    }
-}
-```
-
-### **Επίλυση Συνδεδεμένων Πόρων Κατά τη Διάρκεια Εισαγωγής SVG**
-
-Υποθέστε ότι το `assets/diagram.svg` περιέχει ένα σχετικό αναφορά όπως:
-
-```xml
-<image href="images/photo.png" x="20" y="20" width="320" height="180" />
-```
-
-Ο παρακάτω κώδικας C# περνά τη URI του αρχείου SVG ως τη βασική URI και παρέχει έναν προσαρμοσμένο επιλυτή. Ο επιλυτής μετατρέπει το σχετικό σύνδεσμο εικόνας σε απόλυτη URI και επιστρέφει ένα ρεύμα που περιέχει τον συνδεδεμένο πόρο ενώ το Aspose.Slides επεξεργάζεται το SVG.
-
-```csharp
-using System;
 using System.IO;
 using Aspose.Slides;
 using Aspose.Slides.Export;
-using Aspose.Slides.Import;
 
-string svgFilePath = Path.GetFullPath(Path.Combine("assets", "diagram.svg"));
-string assetDirectory = Path.GetDirectoryName(svgFilePath) ?? Directory.GetCurrentDirectory();
-string svgContent = File.ReadAllText(svgFilePath);
+using var presentation = new Presentation();
 
-// Η βασική URI αντιπροσωπεύει τη θέση του εγγράφου SVG.
-string baseUri = new Uri(svgFilePath).AbsoluteUri;
+var imageData = File.ReadAllBytes("photo.png");
+var image = presentation.Images.AddImage(imageData);
 
-byte[] fallbackImageData = null;
-string fallbackImagePath = Path.Combine(assetDirectory, "fallback.png");
-if (File.Exists(fallbackImagePath))
-{
-    fallbackImageData = File.ReadAllBytes(fallbackImagePath);
-}
+var slide = presentation.Slides[0];
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
 
-IExternalResourceResolver resolver = new LocalSvgResourceResolver(assetDirectory, fallbackImageData);
-ISvgImage svgImage = new SvgImage(svgContent, resolver, baseUri);
-
-// ISvgImage exposes the source content, binary data, base URI, and resolver.
-string importedContent = svgImage.SvgContent;
-byte[] importedData = svgImage.SvgData;
-string importedBaseUri = svgImage.BaseUri;
-IExternalResourceResolver importedResolver = svgImage.ExternalResourceResolver;
-
-using (Presentation presentation = new Presentation())
-{
-    IPPImage image = presentation.Images.AddImage(svgImage);
-
-    presentation.Slides[0].Shapes.AddPictureFrame(
-        ShapeType.Rectangle, 20, 20, image.Width, image.Height, image);
-
-    presentation.Save("svg-with-linked-resources.pptx", SaveFormat.Pptx);
-}
+presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
 
-Η κλάση `SvgImage` παρέχει επίσης υπερφορτώσεις που δέχονται δεδομένα SVG ως πίνακα byte ή ρεύμα, μαζί με έναν εξωτερικό επιλυτή πόρων και μια βασική URI.
+Η εικόνα που προστίθεται με αυτόν τον τρόπο είναι ενσωματωμένη στην παρουσίαση, οπότε το παραγόμενο αρχείο δεν εξαρτάται από τη διαθεσιμότητα του αρχικού αρχείου εικόνας.
 
-{{% alert title="Σημαντικό" color="warning" %}}
-Ο επιλυτής πόρων κάνει τους εξωτερικούς πόρους διαθέσιμους ενώ το Aspose.Slides επεξεργάζεται και αποδίδει το SVG. Δεν τροποποιεί το αρχικό SVG markup ούτε ενσωματώνει αυτόματα τους επιλυμένους πόρους σε αυτό.
-Όταν ένα `ISvgImage` προστίθεται στη συλλογή εικόνων της παρουσίασης, το αρχείο PPTX μπορεί να περιέχει τόσο την αρχική SVG αναπαράσταση όσο και μια εναλλακτική ραστερ εικόνα. Ένας συνδεδεμένος πόρος μπορεί να εμφανίζεται στην παραγόμενη εναλλακτική εικόνα ενώ ένας σχετικός σύνδεσμος όπως `images/photo.png` παραμένει αμετάβλητος στο αποθηκευμένο SVG. Μια εφαρμογή που αποδίδει τη φυσική SVG αναπαράσταση μπορεί επομένως να παραλείψει το συνδεδεμένο περιεχόμενο όταν ο αρχικός εξωτερικός πόρος δεν είναι διαθέσιμος.
-{{% /alert %}}
+### **Προσθήκη Εικόνας από το Διαδίκτυο**
 
-### **Δημιουργία Φορητής SVG Εικόνας**
+Όταν μια εικόνα είναι διαθέσιμη μέσω HTTP ή HTTPS, κατεβάστε τα byte της με το `HttpClient`, προσθέστε τα στη συλλογή εικόνων της παρουσίασης, και χρησιμοποιήστε τον επιστρεφόμενο πόρο εικόνας με τον ίδιο τρόπο όπως μια τοπική εικόνα.
 
-Για να δημιουργήσετε μια SVG εικόνα που δεν εξαρτάται από εξωτερικά αρχεία, κάντε το SVG αυτόνομο πριν δημιουργήσετε το `SvgImage`. Για παράδειγμα, αντικαταστήστε τα συνδεδεμένα URL εικόνων με URIs `data:` που περιέχουν τα δεδομένα της εικόνας:
-
-```xml
-<image href="data:image/png;base64,..." x="20" y="20" width="320" height="180" />
-```
-
-Μετά την ενσωμάτωση όλων των απαιτούμενων πόρων στο περιεχόμενο SVG, δημιουργήστε το `SvgImage`, προσθέστε το στη συλλογή εικόνων της παρουσίασης και τοποθετήστε το σε πλαίσιο εικόνας όπως φαίνεται στο προηγούμενο παράδειγμα.
-
-### **Διαχείριση Ελλιπών ή Φραγμένων Πόρων**
-
-Επιστρέψτε `null` από το `ResolveUri` όταν μια URI πόρου είναι άκυρη, απαγορευμένη ή δεν μπορεί να επιλυθεί. Επιστρέψτε `null` από το `GetEntity` όταν ο πόρος δεν μπορεί να διαβαστεί. Το Aspose.Slides συνεχίζει την επεξεργασία του SVG χωρίς αυτόν τον πόρο όταν είναι δυνατό.
-
-Ένα εναλλακτικό ρεύμα μπορεί να επιστραφεί για έναν ελλιπές πόρο, αλλά το περιεχόμενό του πρέπει να είναι συμβατό με τον απαιτούμενο τύπο πόρου. Για παράδειγμα, επιστρέψτε ρεύμα εικόνας μόνο για ελλιπή εικόνα, όχι για γραμματοσειρά ή φύλλο στυλ.
-
-{{% alert title="Ασφάλεια" color="warning" %}}
-Μην επιλύετε αυθαίρετες διαδρομές αρχείων ή απεριόριστες διευθύνσεις URL δικτύου από μη αξιόπιστα αρχεία SVG. Περιορίστε τα επιτρεπόμενα σχήματα, φακέλους και κέντρους. Για δικτυακούς πόρους, εφαρμόστε επίσης χρονικά όρια σύνδεσης, όρια μεγέθους απάντησης και επικύρωση περιεχομένου.
-{{% /alert %}}
-
-## **Μετατροπή SVG σε Σύνολο Σχημάτων**
-Aspose.Slides μπορεί να μετατρέψει ένα SVG σε σύνολο σχημάτων, παρόμοιο με τη σχετική λειτουργία στο PowerPoint:
-
-![Μενού Αναδυόμενων PowerPoint](img_01_01.png)
-
-Αυτή η λειτουργία παρέχεται από μια υπερφόρτωση της μεθόδου [AddGroupShape](https://reference.aspose.com/slides/el/net/aspose.slides.ishapecollection/addgroupshape/methods/1) του interface [IShapeCollection](https://reference.aspose.com/slides/el/net/aspose.slides/ishapecollection) που δέχεται ένα αντικείμενο [ISvgImage](https://reference.aspose.com/slides/el/net/aspose.slides/isvgimage) ως πρώτο όρισμα.
-
-Ο παρακάτω κώδικας C# δείχνει πώς να χρησιμοποιήσετε αυτή τη μέθοδο για να μετατρέψετε ένα αρχείο SVG σε σύνολο σχημάτων:
-
-``` csharp 
-using System.Drawing;
+```csharp
+using System;
+using System.Net.Http;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Όνομα αρχείου SVG
-string svgFileName = "sample.svg";
+var imageUri = new Uri("https://example.com/image.png");
+using var httpClient = new HttpClient();
+var imageData = await httpClient.GetByteArrayAsync(imageUri);
 
-// Όνομα αρχείου εξόδου παρουσίασης
-string outPptxPath = "presentation.pptx";
+using var presentation = new Presentation();
 
-// Δημιουργία νέας παρουσίασης
-using (IPresentation presentation = new Presentation())
-{
-    // Ανάγνωση περιεχομένου αρχείου SVG
-    string svgContent = File.ReadAllText(svgFileName);
+var image = presentation.Images.AddImage(imageData);
+var slide = presentation.Slides[0];
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
 
-    // Δημιουργία αντικειμένου SvgImage
-    ISvgImage svgImage = new SvgImage(svgContent);
-
-    // Λήψη μεγέθους διαφάνειας
-    SizeF slideSize = presentation.SlideSize.Size;
-
-    // Μετατροπή της εικόνας SVG σε ομάδα σχημάτων και κλιμάκωση στο μέγεθος της διαφάνειας
-    presentation.Slides[0].Shapes.AddGroupShape(svgImage, 0f, 0f, slideSize.Width, slideSize.Height);
-
-    // Αποθήκευση παρουσίασης σε μορφή PPTX
-    presentation.Save(outPptxPath, SaveFormat.Pptx);
-}
+presentation.Save("presentation-from-web.pptx", SaveFormat.Pptx);
 ```
 
-## **Προσθήκη Εικόνων ως EMF σε Διαφάνειες**
-Το Aspose.Slides για .NET σας επιτρέπει να δημιουργείτε εικόνες EMF από φύλλα εργασίας Excel με το Aspose.Cells και να τις προσθέτετε σε διαφάνειες παρουσίασης.
+Σε μακροχρόνιες εφαρμογές, επαναχρησιμοποιήστε το `HttpClient` αντί να δημιουργείτε νέο στιγμιότυπο για κάθε αίτηση. Επίσης, επαληθεύστε απομακρυσμένα URLs, το μέγεθος των απαντήσεων και τους τύπους περιεχομένου όταν η πηγή δεν είναι αξιόπιστη.
 
-Ο παρακάτω κώδικας C# δείχνει πώς να το κάνετε:
+## **Επαναχρησιμοποίηση Εικόνων σε Διαφάνειες**
 
-``` csharp 
-using Aspose.Slides;
-using Aspose.Cells;
-using Aspose.Cells.Rendering;
+Εάν η ίδια εικόνα χρειάζεται περισσότερες φορές, προσθέστε τη μία φορά στην παρουσίαση και επαναχρησιμοποιήστε το επιστρεφόμενο [IPPImage](https://reference.aspose.com/slides/el/net/aspose.slides/ippimage/) κατά τη δημιουργία επιπλέον picture frames. Αυτό αποφεύγει τη συνεχόμενη φόρτωση των ίδιων δεδομένων πηγής και κάνει τη σχέση μεταξύ του κοινόχρηστου πόρου εικόνας και των χρήσεων του σαφής.
 
+Για γραφικά που πρέπει να εμφανίζονται αυτόματα σε πολλές διαφάνειες, όπως το λογότυπο μιας εταιρείας, σκεφτείτε να τοποθετήσετε το picture frame σε ένα [slide master](/slides/el/net/slide-master/) ή διάταξη αντί να προσθέσετε ισοδύναμο σχήμα σε κάθε διαφάνεια.
 
-using (Workbook book = new Workbook("chart.xlsx"))
-{
-    Worksheet sheet = book.Worksheets[0];
-    ImageOrPrintOptions options = new ImageOrPrintOptions();
-    options.HorizontalResolution = 200;
-    options.VerticalResolution = 200;
-    options.ImageType = Aspose.Cells.Drawing.ImageType.Emf;
+## **Χρήση Εικόνας ως Φόντο Διαφάνειας**
 
-    // Αποθήκευση του βιβλίου εργασίας σε ροή
-    SheetRender sr = new SheetRender(sheet, options);
-    using (Presentation pres = new Presentation())
-    {
-        pres.Slides.RemoveAt(0);
+Μια εικόνα φόντου αντιστοιχίζεται στη γέμιση της διαφάνειας· δεν προστίθεται ως σχήμα picture-frame. Αυτό είναι χρήσιμο όταν η εικόνα πρέπει να καλύπτει το φόντο της διαφάνειας και δεν πρέπει να χειρίζεται ως κανονικό αντικείμενο διαφάνειας.
 
-        String EmfSheetName = "";
-        for (int j = 0; j < sr.PageCount; j++)
-        {
-            EmfSheetName = "test" + sheet.Name + " Page" + (j + 1) + ".out.emf";
-            sr.ToImage(j, EmfSheetName);
-
-            var bytes = File.ReadAllBytes(EmfSheetName);
-            var emfImage = pres.Images.AddImage(bytes);
-            ISlide slide = pres.Slides.AddEmptySlide(pres.LayoutSlides.GetByType(SlideLayoutType.Blank));
-            slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 0, 0, pres.SlideSize.Size.Width, pres.SlideSize.Size.Height, emfImage);
-        }
-
-        pres.Save("Saved.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-    }
-}
-```
-
-## **Αντικατάσταση Εικόνων στη Συλλογή Εικόνων**
-
-Το Aspose.Slides σάς επιτρέπει να αντικαθιστάτε εικόνες που αποθηκεύονται στη συλλογή εικόνων μιας παρουσίασης, συμπεριλαμβανομένων των εικόνων που χρησιμοποιούνται από σχήματα διαφάνειας. Αυτή η ενότητα περιγράφει αρκετούς τρόπους ενημέρωσης των εικόνων στη συλλογή. Μπορείτε να αντικαταστήσετε μια εικόνα χρησιμοποιώντας ακατέργαστα δεδομένα byte, μια παρουσία [IImage](https://reference.aspose.com/slides/el/net/aspose.slides/iimage/) ή μια άλλη εικόνα που υπάρχει ήδη στη συλλογή.
-
-Ακολουθήστε τα παρακάτω βήματα:
-
-1. Φορτώστε το αρχείο παρουσίασης που περιέχει εικόνες χρησιμοποιώντας την κλάση [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/).
-2. Φορτώστε μια νέα εικόνα από αρχείο σε έναν πίνακα byte.
-3. Αντικαταστήστε την επιλεγμένη εικόνα με τη νέα εικόνα χρησιμοποιώντας τον πίνακα byte.
-4. Στη δεύτερη προσέγγιση, φορτώστε την εικόνα σε αντικείμενο [IImage](https://reference.aspose.com/slides/el/net/aspose.slides/iimage/) και αντικαταστήστε την επιλεγμένη εικόνα με αυτό το αντικείμενο.
-5. Στην τρίτη προσέγγιση, αντικαταστήστε την επιλεγμένη εικόνα με μια εικόνα που υπάρχει ήδη στη συλλογή εικόνων της παρουσίασης.
-6. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
-
-```cs
+```csharp
+using System.IO;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Δημιουργία της κλάσης Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
-using Presentation presentation = new Presentation("sample.pptx");
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// Ο πρώτος τρόπος.
-byte[] imageData = File.ReadAllBytes("image0.jpeg");
-IPPImage oldImage = presentation.Images[0];
-oldImage.ReplaceImage(imageData);
+var imageData = File.ReadAllBytes("background.jpg");
+var image = presentation.Images.AddImage(imageData);
+slide.Background.Type = BackgroundType.OwnBackground;
+slide.Background.FillFormat.FillType = FillType.Picture;
+slide.Background.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
+slide.Background.FillFormat.PictureFillFormat.Picture.Image = image;
 
-// Ο δεύτερος τρόπος.
-using IImage newImage = Images.FromFile("image1.png");
-oldImage = presentation.Images[1];
-oldImage.ReplaceImage(newImage);
+presentation.Save("background-image.pptx", SaveFormat.Pptx);
+```
 
-// Ο τρίτος τρόπος.
-oldImage = presentation.Images[2];
-oldImage.ReplaceImage(presentation.Images[3]);
+Για επιπλέον επιλογές φόντου, συμπεριλαμβανομένων φόντων master και διάταξης, δείτε [Φόντο Παρουσίασης](/slides/el/net/presentation-background/).
 
-// Αποθήκευση της παρουσίασης σε αρχείο.
+## **Ενσωματωμένες Εικόνες και Συνδεδεμένες Εικόνες**
+
+Οι ενσωματωμένες και οι συνδεδεμένες εικόνες έχουν διαφορετικές ανταλλαγές φορητότητας και μεγέθους αρχείου:
+
+- **Ενσωματωμένη εικόνα:** τα δεδομένα εικόνας αποθηκεύονται μέσα στην παρουσίαση. Η παρουσίαση είναι αυτόνομη, αλλά το μέγεθος του αρχείου περιλαμβάνει τα δεδομένα εικόνας.
+- **Συνδεδεμένη εικόνα:** η παρουσίαση αποθηκεύει ένα μονοπάτι ή URL σε εξωτερική εικόνα. Αυτό μπορεί να μειώσει το μέγεθος της παρουσίασης, αλλά ο εξωτερικός πόρος πρέπει να παραμένει προσβάσιμος όταν η παρουσίαση ανοίγει ή αποδίδεται.
+
+Μια συνδεδεμένη εικόνα μπορεί να δημιουργηθεί αναθέτοντας το εξωτερικό μονοπάτι ή URL μέσω του [ISlidesPicture.LinkPathLong](https://reference.aspose.com/slides/el/net/aspose.slides/islidespicture/linkpathlong/) αντί να ενσωματώνετε τα δεδομένα εικόνας.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, null);
+pictureFrame.PictureFormat.Picture.LinkPathLong = "https://example.com/image.png";
+
+presentation.Save("linked-image.pptx", SaveFormat.Pptx);
+```
+
+Χρησιμοποιείτε συνδεδεμένες εικόνες μόνο όταν το περιβάλλον ανάπτυξης μπορεί αξιόπιστα να προσπελάσει τον εξωτερικό πόρο. Για παρουσιάσεις που πρέπει να λειτουργούν εκτός σύνδεσης ή να μετακινούνται μεταξύ συστημάτων, οι ενσωματωμένες εικόνες είναι συνήθως πιο ασφαλείς.
+
+## **Εργασία με SVG Εικόνες**
+
+Το SVG είναι διανυσματική μορφή, επομένως μπορεί να είναι χρήσιμο για εικονίδια, διαγράμματα και άλλα γραφικά που πρέπει να κλιμακώνονται χωρίς την ίδια απώλεια λεπτομέρειας όπως οι raster εικόνες. Το Aspose.Slides υποστηρίζει SVG τόσο ως πόρο εικόνας όσο και ως πηγή για επεξεργάσιμα σχήματα διαφάνειας.
+
+### **Προσθήκη SVG ως Εικόνα**
+
+Δημιουργήστε ένα [SvgImage](https://reference.aspose.com/slides/el/net/aspose.slides/svgimage/), προσθέστε το στη συλλογή εικόνων και τοποθετήστε τον παραγόμενο πόρο εικόνας σε ένα picture frame.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var svgContent = File.ReadAllText("icon.svg");
+var svgImage = new SvgImage(svgContent);
+
+using var presentation = new Presentation();
+
+var image = presentation.Images.AddImage(svgImage);
+var slide = presentation.Slides[0];
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 200, 200, image);
+
+presentation.Save("svg-image.pptx", SaveFormat.Pptx);
+```
+
+### **Αρχεία SVG με Εξωτερικούς Πόρους**
+
+Ένα SVG μπορεί να αναφέρεται σε εξωτερικές εικόνες, φύλλα στυλ ή γραμματοσειρές. Για αυτές τις περιπτώσεις, το [SvgImage](https://reference.aspose.com/slides/el/net/aspose.slides/svgimage/) παρέχει κατασκευαστές που δέχονται έναν [IExternalResourceResolver](https://reference.aspose.com/slides/el/net/aspose.slides.import/iexternalresourceresolver/) και μια βασική URI. Ο resolver μπορεί να χαρτογραφήσει μια σχετική URI σε μια επιτρεπτή απόλυτη URI και να επιστρέψει ένα stream για τον ζητούμενο πόρο.
+
+Ο resolver καθιστά διαθέσιμους τους εξωτερικούς πόρους ενώ το Aspose.Slides επεξεργάζεται το SVG, αλλά δεν ξαναγράφει το SVG σε αυτόνομα έγγραφο. Εάν το SVG πρέπει να παραμείνει φορητό, ενσωματώστε τους απαιτούμενους πόρους μέσα στο ίδιο το SVG, για παράδειγμα χρησιμοποιώντας `data:` URI για συνδεδεμένες εικόνες.
+
+Όταν τα αρχεία SVG προέρχονται από μη αξιόπιστες πηγές, περιορίστε τα σχήματα, τις τοποθεσίες αρχείων και τους κεντρικούς υπολογιστές που ο resolver μπορεί να προσπελάσει. Οι δικτυακοί resolvers θα πρέπει επίσης να εφαρμόζουν χρονικά όρια, όρια μεγέθους απάντησης και επικύρωση περιεχομένου.
+
+### **Μετατροπή SVG σε Επεξεργάσιμα Σχήματα**
+
+Το Aspose.Slides μπορεί να μετατρέψει ένα SVG σε μια ομάδα επεξεργάσιμων σχημάτων διαφάνειας, παρόμοια με την αντίστοιχη εντολή του PowerPoint.
+
+![PowerPoint Popup Menu](img_01_01.png)
+
+Χρησιμοποιήστε την υπερφόρτωση του [IShapeCollection.AddGroupShape](https://reference.aspose.com/slides/el/net/aspose.slides/ishapecollection/addgroupshape/) που δέχεται ένα [ISvgImage](https://reference.aspose.com/slides/el/net/aspose.slides/isvgimage/) για να πραγματοποιήσετε τη μετατροπή.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var svgContent = File.ReadAllText("diagram.svg");
+var svgImage = new SvgImage(svgContent);
+
+using var presentation = new Presentation();
+
+var slideSize = presentation.SlideSize.Size;
+var slide = presentation.Slides[0];
+slide.Shapes.AddGroupShape(svgImage, 0, 0, slideSize.Width, slideSize.Height);
+
+presentation.Save("editable-svg-shapes.pptx", SaveFormat.Pptx);
+```
+
+Χρησιμοποιήστε τη μετατροπή SVG-σε-σχήματα όταν τα μεμονωμένα διανυσματικά στοιχεία χρειάζεται να επεξεργαστούν ως σχήματα PowerPoint. Εάν το SVG χρειάζεται μόνο να εμφανίζεται, η παραμονή του ως εικόνα είναι πιο απλή και αποφεύγει τη δημιουργία πολλών ξεχωριστών σχημάτων.
+
+## **Αντικατάσταση Υπάρχοντος Πόρου Εικόνας**
+
+Χρησιμοποιήστε το [IPPImage.ReplaceImage](https://reference.aspose.com/slides/el/net/aspose.slides/ippimage/replaceimage/) όταν θέλετε να αντικαταστήσετε έναν υπάρχοντα πόρο εικόνας. Αυτό είναι ιδιαίτερα χρήσιμο για κοινόχρηστα γραφικά όπως λογότυπα.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var imageToReplace = presentation.Images[0];
+imageToReplace.ReplaceImage(File.ReadAllBytes("new-logo.png"));
+
 presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert title="Πληροφορίες" color="info" %}}
-Με τον δωρεάν μετατροπέα Aspose [Text to GIF](https://products.aspose.app/slides/el/text-to-gif) μπορείτε εύκολα να ανιματίσετε κείμενο και να δημιουργήσετε GIF από κείμενο. 
-{{% /alert %}}
+Εάν πολλά picture frames, φόντα, master ή διατάξεις χρησιμοποιούν τον ίδιο πόρο εικόνας, η αντικατάσταση του πόρου ενημερώνει όλες αυτές τις χρήσεις. Εάν πρέπει να αλλάξει μόνο ένα picture frame, αναθέστε μια διαφορετική εικόνα σε εκείνο το frame αντί να αντικαταστήσετε τον κοινόχρηστο πόρο.
+
+Το `ReplaceImage` παρέχει επίσης υπερφορτώσεις που δέχονται ένα [IImage](https://reference.aspose.com/slides/el/net/aspose.slides/iimage/) ή άλλο [IPPImage](https://reference.aspose.com/slides/el/net/aspose.slides/ippimage/).
+
+## **Πρακτικές Οδηγίες Διαχείρισης Εικόνων**
+
+### **Έλεγχος Μεγέθους Παρουσίασης**
+
+Οι μεγάλες raster εικόνες μπορούν να κάνουν μια παρουσίαση περιττά μεγάλη. Χρησιμοποιήστε πηγαίες εικόνες με διαστάσεις κατάλληλες για το προοριζόμενο μέγεθος εμφάνισης, επαναχρησιμοποιήστε κοινόχρηστους πόρους εικόνας όπου είναι δυνατόν, και αποφύγετε την ενσωμάτωση επαναλαμβανόμενων αντιγράφων του ίδιου γραφικού υψηλής ανάλυσης.
+
+Για raster εικόνες που έχουν ήδη τοποθετηθεί σε picture frames, το [IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/el/net/aspose.slides/ipicturefillformat/compressimage/) μπορεί να μειώσει τα δεδομένα εικόνας ανάλογα με την επιλεγμένη ανάλυση και τις ρυθμίσεις περικοπής. Αυτό είναι επεξεργασία picture-frame και όχι διαχείριση συλλογής εικόνων, επομένως δείτε το [Picture Frame](/slides/el/net/picture-frame/) για σχετικές λειτουργίες μορφοποίησης.
+
+### **Επιλογή Μεταξύ Ενσωματωμένου και Συνδεδεμένου Περιεχομένου**
+
+Η ενσωμάτωση καθιστά την παρουσίαση φορητή επειδή όλα τα απαιτούμενα δεδομένα εικόνας μεταφέρονται με το αρχείο. Η σύνδεση μπορεί να μειώσει το μέγεθος του αρχείου, αλλά εισάγει εξωτερική εξάρτηση. Χρησιμοποιήστε συνδέσμους μόνο όταν αυτή η εξάρτηση είναι αποδεκτή και σταθερή.
+
+### **Επανάληψη Κοινής Επωνυμίας**
+
+Για επαναλαμβανόμενα λογότυπα, υδατογραφήματα ή διακοσμητικά γραφικά, χρησιμοποιήστε έναν πόρο εικόνας και επαναχρησιμοποιήστε τον. Εάν το γραφικό ανήκει στο σχεδιασμό της παρουσίασης και όχι στο περιεχόμενο των διαφανειών, τοποθετήστε το σε ένα master ή διάταξη ώστε να κληρονομείται από τις κατάλληλες διαφάνειες.
+
+### **Διατήρηση Φορητότητας Πόρων SVG**
+
+Ένα αυτόνομο SVG είναι πιο εύκολο να μεταφερθεί και να αποδοθεί σταθερά από ένα SVG που εξαρτάται από εξωτερικά αρχεία ή δικτυακούς πόρους. Όταν είναι δυνατόν, ενσωματώστε τους απαιτούμενους πόρους πριν την εισαγωγή του SVG. Μετατρέψτε το SVG σε σχήματα μόνο όταν τα μεμονωμένα διανυσματικά στοιχεία χρειάζονται επεξεργασία.
+
+### **Χρήση του Σύγχρονου Cross-Platform Image API**
+
+Για νέο κώδικα .NET, χρησιμοποιήστε τα APIs Aspose.Slides [IImage](https://reference.aspose.com/slides/el/net/aspose.slides/iimage/) και [Images](https://reference.aspose.com/slides/el/net/aspose.slides/images/) αντί να βασιστείτε στο `System.Drawing.Image` ή το `Bitmap`. Δείτε το [Modern API](/slides/el/net/modern-api/) για οδηγίες μετανάστευσης.
+
+Τα WMF και EMF απαιτούν ειδική προσοχή. Όταν αυτές οι μορφές περνούν μέσω ενός [IImage](https://reference.aspose.com/slides/el/net/aspose.slides/iimage/), το [ImageCollection.AddImage](https://reference.aspose.com/slides/el/net/aspose.slides/imagecollection/addimage/) μετατρέπει το μετααρχείο σε αναπαράσταση raster PNG πριν από την εισαγωγή. Εάν η διατήρηση των δεδομένων του μετααρχείου είναι σημαντική, χρησιμοποιήστε μια υπερφόρτωση [ImageCollection.AddImage](https://reference.aspose.com/slides/el/net/aspose.slides/imagecollection/addimage/) βασισμένη σε stream. Η δημιουργία περιεχομένου EMF από υπολογιστικά φύλλα ή άλλα προϊόντα είναι μια ξεχωριστή διαδικασία ενσωμάτωσης και βρίσκεται εκτός του πεδίου του παρόντος άρθρου.
 
 ## **Συχνές Ερωτήσεις**
 
-**Μένει η αρχική ανάλυση της εικόνας αμετάβλητη μετά την εισαγωγή;**
+**Ποια είναι η διαφορά μεταξύ της συλλογής εικόνων και ενός picture frame;**
 
-Ναι. Τα αρχικά pixel διατηρούνται, αλλά η τελική εμφάνιση εξαρτάται από το πώς η [picture](/slides/el/net/picture-frame/) κλιμακώνεται στη διαφάνεια και τυχόν συμπίεση που εφαρμόζεται κατά την αποθήκευση.
+Η συλλογή εικόνων αποθηκεύει επαναχρησιμοποιήσιμους πόρους εικόνας. Ένα picture frame είναι ένα σχήμα διαφάνειας που εμφανίζει έναν από αυτούς τους πόρους και παρέχει μορφοποίηση ειδική για εικόνες όπως περικοπή και εφέ.
 
-**Ποιος είναι ο καλύτερος τρόπος να αντικαταστήσω το ίδιο λογότυπο σε δεκάδες διαφάνειες ταυτόχρονα;**
+**Ποιος είναι ο καλύτερος τρόπος για να αντικαταστήσετε το ίδιο λογότυπο παντού;**
 
-Τοποθετήστε το λογότυπο στον κύριο διαφάνειας ή σε μια διάταξη και αντικαταστήστε το στη συλλογή εικόνων της παρουσίασης—οι αλλαγές θα επεκταθούν σε όλα τα στοιχεία που χρησιμοποιούν αυτόν τον πόρο.
+Εάν το λογότυπο είναι ήδη κοινόχρηστο ως ένας πόρος εικόνας, αντικαταστήστε αυτόν τον πόρο με το [IPPImage.ReplaceImage](https://reference.aspose.com/slides/el/net/aspose.slides/ippimage/replaceimage/). Για επωνυμία σε όλη την παρουσίαση, η τοποθέτηση του λογότυπου σε master ή διάταξη μπορεί επίσης να μειώσει το διπλό περιεχόμενο των διαφανειών.
 
-**Μπορεί ένα εισακτέο SVG να μετατραπεί σε επεξεργάσιμα σχήματα;**
+**Γιατί μια συνδεδεμένη εικόνα εξαφανίζεται σε έναν άλλο υπολογιστή;**
 
-Ναι. Μπορείτε να μετατρέψετε ένα SVG σε ομάδα σχημάτων, μετά το οποίο τα μεμονωμένα μέρη γίνονται επεξεργάσιμα με τις τυπικές ιδιότητες σχήματος.
+Μια συνδεδεμένη εικόνα εξαρτάται από το εξωτερικό της αρχείο ή URL. Εάν αυτός ο πόρος δεν μπορεί να προσεγγιστεί από τον άλλο υπολογιστή, η συνδεδεμένη εικόνα μπορεί να μην είναι διαθέσιμη. Ενσωματώστε την εικόνα όταν η παρουσίαση πρέπει να είναι αυτόνομη.
 
-**Πώς μπορώ να ορίσω μια εικόνα ως φόντο για πολλαπλές διαφάνειες ταυτόχρονα;**
+**Μπορεί ένα εισαχθέν SVG να επεξεργαστεί ως σχήματα PowerPoint;**
 
-[Αναθέστε την εικόνα ως φόντο](/slides/el/net/presentation-background/) στον κύριο διαφάνειας ή στη σχετική διάταξη—όλες οι διαφάνειες που χρησιμοποιούν αυτόν τον κύριο/διάταξη θα κληρονομήσουν το φόντο.
+Ναι. Μετατρέψτε το SVG με το [IShapeCollection.AddGroupShape](https://reference.aspose.com/slides/el/net/aspose.slides/ishapecollection/addgroupshape/); η προκύπτουσα ομάδα περιέχει επεξεργάσιμα σχήματα διαφάνειας αντί για μία εικόνα SVG.
 
-**Πώς μπορώ να αποτρέψω μια παρουσίαση να γίνει πολύ μεγάλη εξαιτίας πολλών εικόνων;**
+**Πώς μπορώ να διατηρήσω τις παρουσιάσεις με πολλές εικόνες μικρότερες;**
 
-Ξαναχρησιμοποιήστε έναν ενιαίο πόρο εικόνας αντί για διπλότυπα, επιλέξτε λογικές αναλύσεις, εφαρμόστε συμπίεση κατά την αποθήκευση και κρατήστε τα επαναλαμβανόμενα γραφικά στον κύριο όπου είναι δυνατόν.
+Επαναχρησιμοποιήστε κοινόχρηστους πόρους εικόνας, αποφύγετε τις περιττά μεγάλες raster πηγές, συμπιέστε κατάλληλες raster εικόνες όταν είναι αναγκαίο, διατηρήστε την επαναλαμβανόμενη επωνυμία σε master ή διατάξεις, και χρησιμοποιήστε συνδεδεμένες εικόνες μόνο όταν μια εξωτερική εξάρτηση είναι αποδεκτή.

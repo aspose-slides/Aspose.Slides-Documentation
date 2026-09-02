@@ -1,499 +1,274 @@
 ---
-title: .NET でのプレゼンテーションにおける画像管理の最適化
-linktitle: 画像管理
+title: ".NET のプレゼンテーションにおける画像管理の最適化"
+linktitle: "画像の管理"
 type: docs
 weight: 10
 url: /ja/net/image/
 keywords:
-- 画像の追加
-- 画像の追加
-- ビットマップの追加
-- 画像の置換
-- 画像の置換
-- Web から
-- 背景
-- PNG の追加
-- JPG の追加
-- SVG の追加
-- 外部 SVG リソース
-- SVG リゾルバ
-- リンクされた SVG 画像
-- SVG フォント
-- EMF の追加
-- WMF の追加
-- TIFF の追加
-- PowerPoint
-- OpenDocument
-- プレゼンテーション
-- .NET
-- C#
-- Aspose.Slides
-description: "Aspose.Slides for .NET を使用して PowerPoint と OpenDocument の画像管理を効率化し、パフォーマンスを最適化し、ワークフローを自動化します。"
+- "画像を追加"
+- "画像を挿入"
+- "画像を置換"
+- "画像コレクション"
+- "画像フレーム"
+- "リンク画像"
+- "背景"
+- "PNG を追加"
+- "JPG を追加"
+- "SVG を追加"
+- "SVG をシェイプに変換"
+- "外部 SVG リソース"
+- "PowerPoint"
+- "OpenDocument"
+- "プレゼンテーション"
+- ".NET"
+- "C#"
+- "Aspose.Slides"
+description: "Aspose.Slides for .NET を使用して、PowerPoint および OpenDocument のプレゼンテーションでラスタ画像と SVG 画像の追加、再利用、リンク、置換、管理方法を学びます。"
 ---
-## **概要**
+## **導入**
 
-画像はプレゼンテーションをより魅力的で視覚的に訴えるものにします。Microsoft PowerPoint では、ファイル、インターネット、その他のソースからスライドに画像を挿入できます。同様に、Aspose.Slides では、さまざまな方法でプレゼンテーション スライドに画像を追加できます。
+Aspose.Slides for .NET は画像を扱うための複数の方法を提供しており、目的に応じて使い分けられます。画像をプレゼンテーションに格納したり、画像フレームに表示したり、スライドの背景として使用したり、外部画像へリンクしたり、共有画像リソースを置換したり、SVG コンテンツを編集可能なシェイプに変換したりできます。
 
-{{% alert  title="Tip" color="primary" %}} 
-Aspose は無料コンバータ―「[JPEG to PowerPoint](https://products.aspose.app/slides/ja/import/jpg-to-ppt)」および「[PNG to PowerPoint](https://products.aspose.app/slides/ja/import/png-to-ppt)」―を提供しており、画像から迅速にプレゼンテーションを作成できます。 
-{{% /alert %}} 
+個々の画像フレームに対するクロップ、透明度、エフェクト、ストレッチなどの書式設定については、[Picture Frame](/slides/ja/net/picture-frame/) を参照してください。
 
-{{% alert title="Info" color="info" %}}
-画像を画像枠として追加したい場合、特にサイズ変更やエフェクト適用、その他の標準的な書式設定オプションを利用する場合は、[Picture Frame](/slides/ja/net/picture-frame/) を参照してください。 
-{{% /alert %}} 
+## **画像モデルの理解**
 
-{{% alert title="Note" color="warning" %}}
-画像はフォーマット間で変換できます。以下のページをご参照ください: 変換 [image to JPG](https://products.aspose.com/slides/ja/net/conversion/image-to-jpg/)、[JPG to image](https://products.aspose.com/slides/ja/net/conversion/jpg-to-image/)、[JPG to PNG](https://products.aspose.com/slides/ja/net/conversion/jpg-to-png/)、[PNG to JPG](https://products.aspose.com/slides/ja/net/conversion/png-to-jpg/)、[PNG to SVG](https://products.aspose.com/slides/ja/net/conversion/png-to-svg/)、および [SVG to PNG](https://products.aspose.com/slides/ja/net/conversion/svg-to-png/)。 
-{{% /alert %}}
+以下の API 概念は密接に関連していますが、互換的ではありません。
 
-Aspose.Slides は JPEG、PNG、BMP、GIF などの一般的なフォーマットの画像をサポートしています。 
+- [プレゼンテーション画像コレクション](https://reference.aspose.com/slides/ja/net/aspose.slides/iimagecollection/) はプレゼンテーションで使用される画像リソースを格納します。[ImageCollection.AddImage](https://reference.aspose.com/slides/ja/net/aspose.slides/imagecollection/addimage/) を使用して画像データを追加し、[IPPImage](https://reference.aspose.com/slides/ja/net/aspose.slides/ippimage/) リソースを取得します。
+- [画像フレーム](https://reference.aspose.com/slides/ja/net/aspose.slides/ipictureframe/) はスライド、レイアウト、マスタ上に画像を表示するシェイプです。[IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/ja/net/aspose.slides/ishapecollection/addpictureframe/) を使用して画像リソースをスライド上に配置します。
+- スライド背景はシェイプではなくスライドの塗りつぶしの一部として画像を使用します。そのため画像フレームのようには振る舞いません。
+- [IPPImage.ReplaceImage](https://reference.aspose.com/slides/ja/net/aspose.slides/ippimage/replaceimage/) は画像リソースを置換します。複数のプレゼンテーション要素がそのリソースを使用している場合、すべてが置換後の画像を使用します。
+- SVG をシェイプに変換すると、編集可能なスライドシェイプが作成されます。変換後はコンテンツは単一の画像リソースとしては管理されなくなります。
 
-## **ローカルに保存された画像をスライドに追加する**
+典型的なワークフローは次のとおりです。画像データを画像コレクションに追加し、[IPPImage] を取得し、そのリソースを画像フレームまたは塗りつぶしで使用します。
 
-コンピューターに保存されている画像を 1 つまたは複数、プレゼンテーション スライドに追加できます。以下の C# サンプルコードは、スライドに画像を追加する方法を示しています：
+## **埋め込み画像の追加**
 
-```c#
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Web から画像をスライドに追加する**
-
-スライドに追加したい画像がコンピューターに保存されていない場合、Web から直接追加できます。 
-
-以下の C# サンプルコードは、Web から画像を取得してスライドに追加する方法を示しています：
-
-```c#
-using System.Net;
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-
-    byte[] imageData;
-    using (WebClient webClient = new WebClient()) 
-    {
-        imageData = webClient.DownloadData(new Uri("[REPLACE WITH URL]"));
-    }
-    
-    IPPImage image = pres.Images.AddImage(imageData);
-    slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
-```
-
-## **スライドマスターに画像を追加する**
-
-スライドマスターは、テーマやレイアウトなどの情報を保持し、マスターを使用するスライドに適用されます。スライドマスターに画像を追加すると、そのマスターに基づくすべてのスライドに画像が表示されます。 
-
-以下の C# サンプルコードは、スライドマスターに画像を追加する方法を示しています：
-
-```c#
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    IMasterSlide masterSlide = slide.LayoutSlide.MasterSlide;
-    
-    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    masterSlide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
-```
-
-## **スライドの背景として画像を追加する**
-
-1 つまたは複数のスライドの背景として画像を使用できます。詳細については、*[Setting Images as Backgrounds for Slides](/slides/ja/net/presentation-background/#setting-images-as-background-for-slides)* を参照してください。 
-
-## **プレゼンテーションに SVG を追加する**
-
-SVG コンテンツは [SvgImage](https://reference.aspose.com/slides/ja/net/aspose.slides/svgimage/) クラスを使用してプレゼンテーションに追加できます。生成された [ISvgImage](https://reference.aspose.com/slides/ja/net/aspose.slides/isvgimage/) オブジェクトは、プレゼンテーションの画像コレクションに追加でき、画像枠として使用できます。 
-
-以下の C# 例は、自己完結型 SVG 文字列をインポートします。この SVG に使用されているすべての画像、スタイル、その他のリソースは SVG コンテンツ内に直接埋め込まれています。 
+ローカル画像を挿入するには、ファイルを読み取り、そのデータを画像コレクションに追加し、返された `IPPImage` を使用する画像フレームを作成します。
 
 ```csharp
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-string svgContent = @"
-<svg xmlns='http://www.w3.org/2000/svg' width='320' height='180'>
-    <rect width='320' height='180' fill='#4F81BD'/>
-    <circle cx='160' cy='90' r='55' fill='#F2F2F2'/>
-</svg>";
-
-using (Presentation presentation = new Presentation())
-{
-    ISvgImage svgImage = new SvgImage(svgContent);
-    IPPImage image = presentation.Images.AddImage(svgImage);
-
-    presentation.Slides[0].Shapes.AddPictureFrame(
-        ShapeType.Rectangle, 20, 20, image.Width, image.Height, image);
-
-    presentation.Save("self-contained-svg.pptx", SaveFormat.Pptx);
-}
-```
-
-## **外部リソースを含む SVG コンテンツのインポート**
-
-デザインツール、ダイアグラムエディタ、アイコンシステム、Web パイプラインなどからエクスポートされた SVG ファイルは、SVG ドキュメントの外部に保存されたリソースを参照することがあります。たとえば、`images/photo.png` のような画像リンク、CSS の `url(...)` 値、フォント URL などです。 
-
-このような SVG コンテンツをインポートするには、[IExternalResourceResolver](https://reference.aspose.com/slides/ja/net/aspose.slides.import/iexternalresourceresolver/) 実装を作成し、ベース URI とともに適切な `SvgImage` コンストラクタに渡します。ベース URI は SVG ドキュメントの場所を示し、相対リンクの解決に使用されます。 
-
-[ISvgImage](https://reference.aspose.com/slides/ja/net/aspose.slides/isvgimage/) インターフェイスは、インポートされた SVG に関する情報へのアクセスを提供します：
-
-- `SvgContent` は SVG のマークアップを文字列として返します。 
-- `SvgData` は SVG コンテンツをバイト配列として返します。 
-- `BaseUri` は相対リンクに使用されたベース URI を返します。 
-- `ExternalResourceResolver` は SVG 画像に割り当てられたリゾルバを返します。 
-
-### **外部リソースリゾルバの実装**
-
-リゾルバには次の 2 つのメソッドがあります：
-
-- [ResolveUri](https://reference.aspose.com/slides/ja/net/aspose.slides.import/iexternalresourceresolver/resolveuri/) はベース URI と相対リソースリンクを結合し、絶対 URI を返します。解決できない、または許可されていないリンクの場合は `null` を返します。 
-- [GetEntity](https://reference.aspose.com/slides/ja/net/aspose.slides.import/iexternalresourceresolver/getentity/) は絶対リソース URI 用の読み取り可能なストリームを返します。リソースが不存在、ブロック、または利用不可の場合は `null` を返します。必要に応じてフォールバックストリームを返すこともできます。 
-
-以下のリゾルバは、許可されたローカルディレクトリからのみリンクされたリソースをロードします。ネットワーク リソースや許可ディレクトリ外のパスはブロックされ、解決できない画像リンクにはオプションのフォールバック画像が返されます。 
-
-```csharp
-using System;
-using System.IO;
-using Aspose.Slides.Import;
-
-internal sealed class LocalSvgResourceResolver : IExternalResourceResolver
-{
-    private readonly string _allowedRoot;
-    private readonly byte[] _fallbackImageData;
-
-    public LocalSvgResourceResolver(string allowedRoot, byte[] fallbackImageData = null)
-    {
-        _allowedRoot = Path.GetFullPath(allowedRoot);
-        _fallbackImageData = fallbackImageData;
-    }
-
-    public string ResolveUri(string baseUri, string relativeUri)
-    {
-        if (string.IsNullOrWhiteSpace(baseUri) ||
-            string.IsNullOrWhiteSpace(relativeUri))
-        {
-            return null;
-        }
-
-        if (!Uri.TryCreate(baseUri, UriKind.Absolute, out Uri baseAddress) ||
-            !Uri.TryCreate(baseAddress, relativeUri, out Uri absoluteAddress))
-        {
-            return null;
-        }
-
-        // このリゾルバは意図的にローカルファイルのみを許可します。
-        if (!absoluteAddress.IsFile)
-        {
-            return null;
-        }
-
-        string resourcePath = Path.GetFullPath(absoluteAddress.LocalPath);
-        if (!IsInsideAllowedRoot(resourcePath))
-        {
-            return null;
-        }
-
-        return absoluteAddress.AbsoluteUri;
-    }
-
-    public Stream GetEntity(string absoluteUri)
-    {
-        if (!Uri.TryCreate(absoluteUri, UriKind.Absolute, out Uri resourceUri) ||
-            !resourceUri.IsFile)
-        {
-            return null;
-        }
-
-        string resourcePath = Path.GetFullPath(resourceUri.LocalPath);
-        if (!IsInsideAllowedRoot(resourcePath))
-        {
-            return null;
-        }
-
-        if (File.Exists(resourcePath))
-        {
-            return File.OpenRead(resourcePath);
-        }
-
-        // 画像リソースの場合のみフォールバックを使用します。画像ストリームを返す
-        // 欠落したフォントやスタイルシートに対しては有効ではありません。
-        if (_fallbackImageData != null && IsImageFile(resourcePath))
-        {
-            return new MemoryStream(_fallbackImageData, writable: false);
-        }
-
-        return null;
-    }
-
-    private bool IsInsideAllowedRoot(string resourcePath)
-    {
-        string normalizedRoot = _allowedRoot.TrimEnd(
-            Path.DirectorySeparatorChar,
-            Path.AltDirectorySeparatorChar) + Path.DirectorySeparatorChar;
-
-        string normalizedPath = Path.GetFullPath(resourcePath);
-        StringComparison comparison = Path.DirectorySeparatorChar == '\\'
-            ? StringComparison.OrdinalIgnoreCase
-            : StringComparison.Ordinal;
-
-        return normalizedPath.StartsWith(normalizedRoot, comparison) ||
-               string.Equals(normalizedPath, _allowedRoot, comparison);
-    }
-
-    private static bool IsImageFile(string path)
-    {
-        string extension = Path.GetExtension(path);
-
-        return extension.Equals(".png", StringComparison.OrdinalIgnoreCase) ||
-               extension.Equals(".jpg", StringComparison.OrdinalIgnoreCase) ||
-               extension.Equals(".jpeg", StringComparison.OrdinalIgnoreCase) ||
-               extension.Equals(".gif", StringComparison.OrdinalIgnoreCase) ||
-               extension.Equals(".bmp", StringComparison.OrdinalIgnoreCase);
-    }
-}
-```
-
-### **SVG インポート時にリンクされたリソースを解決する**
-
-`assets/diagram.svg` が次のような相対参照を含んでいるとします： 
-
-```xml
-<image href="images/photo.png" x="20" y="20" width="320" height="180" />
-```
-
-以下の C# 例は、SVG ファイルの URI をベース URI として渡し、カスタムリゾルバを提供します。リゾルバは相対画像リンクを絶対 URI に変換し、リンクされたリソースを含むストリームを返しながら Aspose.Slides が SVG を処理します。 
-
-```csharp
-using System;
 using System.IO;
 using Aspose.Slides;
 using Aspose.Slides.Export;
-using Aspose.Slides.Import;
 
-string svgFilePath = Path.GetFullPath(Path.Combine("assets", "diagram.svg"));
-string assetDirectory = Path.GetDirectoryName(svgFilePath) ?? Directory.GetCurrentDirectory();
-string svgContent = File.ReadAllText(svgFilePath);
+using var presentation = new Presentation();
 
-// ベース URI は SVG ドキュメントの場所を表します。
-string baseUri = new Uri(svgFilePath).AbsoluteUri;
+var imageData = File.ReadAllBytes("photo.png");
+var image = presentation.Images.AddImage(imageData);
 
-byte[] fallbackImageData = null;
-string fallbackImagePath = Path.Combine(assetDirectory, "fallback.png");
-if (File.Exists(fallbackImagePath))
-{
-    fallbackImageData = File.ReadAllBytes(fallbackImagePath);
-}
+var slide = presentation.Slides[0];
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
 
-IExternalResourceResolver resolver = new LocalSvgResourceResolver(assetDirectory, fallbackImageData);
-ISvgImage svgImage = new SvgImage(svgContent, resolver, baseUri);
-
-// ISvgImage はソースコンテンツ、バイナリ データ、ベース URI、リゾルバを公開します。
-string importedContent = svgImage.SvgContent;
-byte[] importedData = svgImage.SvgData;
-string importedBaseUri = svgImage.BaseUri;
-IExternalResourceResolver importedResolver = svgImage.ExternalResourceResolver;
-
-using (Presentation presentation = new Presentation())
-{
-    IPPImage image = presentation.Images.AddImage(svgImage);
-
-    presentation.Slides[0].Shapes.AddPictureFrame(
-        ShapeType.Rectangle, 20, 20, image.Width, image.Height, image);
-
-    presentation.Save("svg-with-linked-resources.pptx", SaveFormat.Pptx);
-}
+presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
 
-`SvgImage` クラスは、バイト配列またはストリームとして SVG データを受け取るオーバーロードも提供しており、外部リソースリゾルバとベース URI を併せて指定できます。 
+この方法で追加された画像はプレゼンテーションに埋め込まれるため、元の画像ファイルが利用できなくても生成されたファイルは問題なく表示されます。
 
-{{% alert title="Important" color="warning" %}}
-リソースリゾルバは、Aspose.Slides が SVG を処理・描画する間に外部リソースを利用可能にしますが、元の SVG マークアップを変更したり、解決されたリソースを自動的に埋め込んだりはしません。 
+### **Web から画像を追加**
 
-`ISvgImage` がプレゼンテーションの画像コレクションに追加されると、PPTX ファイルには元の SVG 表現とラスター フォールバック画像の両方が含まれる可能性があります。リンクされたリソースは生成されたフォールバック画像に現れますが、`images/photo.png` のような相対リンクは保存された SVG 内ではそのまま残ります。ネイティブ SVG 表現をレンダリングするアプリケーションは、元の外部リソースが利用できない場合にリンクされたコンテンツを省略することがあります。 
-{{% /alert %}}
+画像が HTTP または HTTPS 経由で取得可能な場合、`HttpClient` でバイト列をダウンロードし、プレゼンテーション画像コレクションに追加し、ローカル画像と同様の手順で取得した画像リソースを使用します。
 
-### **ポータブル SVG 画像の作成**
-
-外部ファイルに依存しない SVG 画像を作成するには、`SvgImage` を生成する前に SVG を自己完結型にします。たとえば、リンクされた画像 URL を画像データを含む `data:` URI に置き換えます： 
-
-```xml
-<image href="data:image/png;base64,..." x="20" y="20" width="320" height="180" />
-```
-
-必要なすべてのリソースが SVG コンテンツに埋め込まれたら、`SvgImage` を作成し、プレゼンテーションの画像コレクションに追加し、前述の例と同様に画像枠に挿入します。 
-
-### **不足またはブロックされたリソースの処理**
-
-`ResolveUri` でリソース URI が無効、禁止、または解決不能な場合は `null` を返します。`GetEntity` でリソースを読み取れない場合も `null` を返します。可能な限りリソースなしで SVG の処理を続行します。 
-
-不足したリソースに対してフォールバックストリームを返すことはできますが、その内容は要求されたリソースの種類と互換性がなければなりません。たとえば、画像が欠落している場合のみ画像ストリームを返し、フォントやスタイルシートに対しては返さないでください。 
-
-{{% alert title="Security" color="warning" %}}
-信頼できない SVG ファイルから任意のファイルパスや制限なしのネットワーク URL を解決しないでください。許可されるスキーム、ディレクトリ、ホストを限定し、ネットワークリソースの場合は接続タイムアウト、応答サイズ制限、コンテンツ検証も適用してください。 
-{{% /alert %}}
-
-## **SVG をシェイプのセットに変換する**
-Aspose.Slides は、PowerPoint の同等機能と同様に、SVG をシェイプのセットに変換できます：
-
-
-![PowerPoint Popup Menu](img_01_01.png)
-
-この機能は、[IShapeCollection](https://reference.aspose.com/slides/ja/net/aspose.slides/ishapecollection) インターフェイスの [AddGroupShape](https://reference.aspose.com/slides/ja/net/aspose.slides.ishapecollection/addgroupshape/methods/1) メソッドのオーバーロードで提供され、最初の引数として [ISvgImage](https://reference.aspose.com/slides/ja/net/aspose.slides/isvgimage) オブジェクトを受け取ります。 
-
-以下の C# サンプルコードは、このメソッドを使用して SVG ファイルをシェイプのセットに変換する方法を示しています：
-
-``` csharp 
-using System.Drawing;
+```csharp
+using System;
+using System.Net.Http;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// ソース SVG ファイル名
-string svgFileName = "sample.svg";
+var imageUri = new Uri("https://example.com/image.png");
+using var httpClient = new HttpClient();
+var imageData = await httpClient.GetByteArrayAsync(imageUri);
 
-// 出力プレゼンテーション ファイル名
-string outPptxPath = "presentation.pptx";
+using var presentation = new Presentation();
 
-// 新しいプレゼンテーションを作成
-using (IPresentation presentation = new Presentation())
-{
-    // SVG ファイルの内容を読み込む
-    string svgContent = File.ReadAllText(svgFileName);
+var image = presentation.Images.AddImage(imageData);
+var slide = presentation.Slides[0];
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
 
-    // SvgImage オブジェクトを作成
-    ISvgImage svgImage = new SvgImage(svgContent);
-
-    // スライドサイズを取得
-    SizeF slideSize = presentation.SlideSize.Size;
-
-    // SVG 画像をシェイプのグループに変換し、スライドサイズに合わせてスケーリング
-    presentation.Slides[0].Shapes.AddGroupShape(svgImage, 0f, 0f, slideSize.Width, slideSize.Height);
-
-    // プレゼンテーションを PPTX 形式で保存
-    presentation.Save(outPptxPath, SaveFormat.Pptx);
-}
+presentation.Save("presentation-from-web.pptx", SaveFormat.Pptx);
 ```
 
-## **画像を EMF としてスライドに追加する**
-Aspose.Slides for .NET は、Aspose.Cells と組み合わせて Excel ワークシートから EMF 画像を生成し、プレゼンテーション スライドに追加できます。 
+長時間稼働するアプリケーションでは、リクエストごとに新しいインスタンスを作成するのではなく `HttpClient` を再利用してください。また、信頼できないソースの場合はリモート URL、レスポンスサイズ、コンテンツタイプを検証してください。
 
-以下の C# サンプルコードは、その手順を示しています：
+## **スライド間で画像を再利用**
 
-``` csharp 
-using Aspose.Slides;
-using Aspose.Cells;
-using Aspose.Cells.Rendering;
+同じ画像が複数回必要な場合は、プレゼンテーションに一度だけ画像を追加し、追加の画像フレームを作成する際に返された [IPPImage] を再利用します。これにより同一のソースデータを何度も読み込むことを防ぎ、共有画像リソースとその使用箇所との関係が明示的になります。
 
+多数のスライドで自動的に表示したいロゴなどのグラフィックは、各スライドに同等のシェイプを追加する代わりに、[スライドマスタ](/slides/ja/net/slide-master/) またはレイアウト上に画像フレームを配置することを検討してください。
 
-using (Workbook book = new Workbook("chart.xlsx"))
-{
-    Worksheet sheet = book.Worksheets[0];
-    ImageOrPrintOptions options = new ImageOrPrintOptions();
-    options.HorizontalResolution = 200;
-    options.VerticalResolution = 200;
-    options.ImageType = Aspose.Cells.Drawing.ImageType.Emf;
+## **画像をスライドの背景として使用**
 
-    // ワークブックをストリームに保存
-    SheetRender sr = new SheetRender(sheet, options);
-    using (Presentation pres = new Presentation())
-    {
-        pres.Slides.RemoveAt(0);
+背景画像は画像フレームのシェイプとして追加されるのではなく、スライドの塗りつぶしに割り当てられます。画像がスライド全体の背景を覆い、通常のスライドオブジェクトとして操作されない場合に便利です。
 
-        String EmfSheetName = "";
-        for (int j = 0; j < sr.PageCount; j++)
-        {
-            EmfSheetName = "test" + sheet.Name + " Page" + (j + 1) + ".out.emf";
-            sr.ToImage(j, EmfSheetName);
-
-            var bytes = File.ReadAllBytes(EmfSheetName);
-            var emfImage = pres.Images.AddImage(bytes);
-            ISlide slide = pres.Slides.AddEmptySlide(pres.LayoutSlides.GetByType(SlideLayoutType.Blank));
-            slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 0, 0, pres.SlideSize.Size.Width, pres.SlideSize.Size.Height, emfImage);
-        }
-
-        pres.Save("Saved.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-    }
-}
-```
-
-## **画像コレクション内の画像を置換する**
-
-Aspose.Slides は、プレゼンテーションの画像コレクションに格納された画像（スライド シェイプで使用されている画像を含む）を置換できます。このセクションでは、コレクション内の画像を更新するいくつかの方法を説明します。バイト データ、[IImage](https://reference.aspose.com/slides/ja/net/aspose.slides/iimage/) インスタンス、またはコレクション内に既に存在する別の画像を使用して画像を置換できます。 
-
-以下の手順に従ってください：
-
-1. [Presentation](https://reference.aspose.com/slides/ja/net/aspose.slides/presentation/) クラスを使用して、画像を含むプレゼンテーション ファイルを読み込みます。 
-2. ファイルから新しい画像をバイト配列に読み込みます。 
-3. バイト配列を使用して対象画像を新しい画像に置換します。 
-4. 2 番目の方法では、画像を [IImage](https://reference.aspose.com/slides/ja/net/aspose.slides/iimage/) オブジェクトに読み込み、そのオブジェクトで対象画像を置換します。 
-5. 3 番目の方法では、プレゼンテーションの画像コレクションに既に存在する画像で対象画像を置換します。 
-6. 変更したプレゼンテーションを PPTX ファイルとして書き出します。 
-
-```cs
+```csharp
+using System.IO;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します。
-using Presentation presentation = new Presentation("sample.pptx");
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// 最初の方法。
-byte[] imageData = File.ReadAllBytes("image0.jpeg");
-IPPImage oldImage = presentation.Images[0];
-oldImage.ReplaceImage(imageData);
+var imageData = File.ReadAllBytes("background.jpg");
+var image = presentation.Images.AddImage(imageData);
+slide.Background.Type = BackgroundType.OwnBackground;
+slide.Background.FillFormat.FillType = FillType.Picture;
+slide.Background.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
+slide.Background.FillFormat.PictureFillFormat.Picture.Image = image;
 
-// 2番目の方法。
-using IImage newImage = Images.FromFile("image1.png");
-oldImage = presentation.Images[1];
-oldImage.ReplaceImage(newImage);
+presentation.Save("background-image.pptx", SaveFormat.Pptx);
+```
 
-// 3番目の方法。
-oldImage = presentation.Images[2];
-oldImage.ReplaceImage(presentation.Images[3]);
+マスタやレイアウトの背景を含む追加の背景オプションについては、[Presentation Background](/slides/ja/net/presentation-background/) を参照してください。
 
-// プレゼンテーションをファイルに保存します。
+## **埋め込み画像とリンク画像**
+
+埋め込み画像とリンク画像は可搬性とファイルサイズに関して異なるトレードオフがあります。
+
+- **埋め込み画像:** 画像データがプレゼンテーション内部に保存されます。プレゼンテーションは単体で完結しますが、ファイルサイズに画像データが含まれます。
+- **リンク画像:** プレゼンテーションは外部画像へのパスまたは URL を保持します。これによりプレゼンテーションのサイズは減少しますが、外部リソースへのアクセスが必要です。
+
+リンク画像は、画像データを埋め込むのではなく [ISlidesPicture.LinkPathLong](https://reference.aspose.com/slides/ja/net/aspose.slides/islidespicture/linkpathlong/) を介して外部パスまたは URL を割り当てることで作成できます。
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, null);
+pictureFrame.PictureFormat.Picture.LinkPathLong = "https://example.com/image.png";
+
+presentation.Save("linked-image.pptx", SaveFormat.Pptx);
+```
+
+外部リソースへの信頼性が確保できる環境でのみリンク画像を使用してください。オフラインでの使用やシステム間での移動が必要なプレゼンテーションでは、埋め込み画像の方が安全です。
+
+## **SVG 画像の操作**
+
+SVG はベクターフォーマットであり、アイコンや図表など、ラスタ画像と比べて拡大縮小による詳細損失が少ないグラフィックに適しています。Aspose.Slides は SVG を画像リソースとして、または編集可能なスライドシェイプのソースとしてサポートします。
+
+### **SVG を画像として追加**
+
+[SvgImage](https://reference.aspose.com/slides/ja/net/aspose.slides/svgimage/) を作成し、画像コレクションに追加して、得られた画像リソースを画像フレームに配置します。
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var svgContent = File.ReadAllText("icon.svg");
+var svgImage = new SvgImage(svgContent);
+
+using var presentation = new Presentation();
+
+var image = presentation.Images.AddImage(svgImage);
+var slide = presentation.Slides[0];
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 200, 200, image);
+
+presentation.Save("svg-image.pptx", SaveFormat.Pptx);
+```
+
+### **外部リソースを含む SVG ファイル**
+
+SVG は外部画像、スタイルシート、フォントを参照できる場合があります。そのようなケースでは、[SvgImage](https://reference.aspose.com/slides/ja/net/aspose.slides/svgimage/) が [IExternalResourceResolver](https://reference.aspose.com/slides/ja/net/aspose.slides.import/iexternalresourceresolver/) とベース URI を受け取るコンストラクタを提供します。リゾルバは相対 URI を許可された絶対 URI にマッピングし、要求されたリソースのストリームを返します。
+
+リゾルバは SVG 処理中に外部リソースへのアクセスを可能にしますが、SVG 自体を自己完結型ドキュメントに書き換えることはしません。SVG を可搬に保つ必要がある場合は、リンク画像に対して `data:` URI を使用するなどして、必要なリソースを SVG 内に埋め込んでください。
+
+信頼できないソースから SVG が提供される場合は、リゾルバがアクセスできるスキーム、ファイル位置、ホストを制限してください。ネットワークリゾルバにはタイムアウト、レスポンスサイズ制限、コンテンツ検証を適用することも推奨します。
+
+### **SVG を編集可能なシェイプに変換**
+
+Aspose.Slides は SVG を編集可能なスライドシェイプのグループに変換できます。これは PowerPoint の対応コマンドと同等です。
+
+![PowerPoint ポップアップメニュー](img_01_01.png)
+
+[ISvgImage](https://reference.aspose.com/slides/ja/net/aspose.slides/isvgimage/) を受け取る [IShapeCollection.AddGroupShape](https://reference.aspose.com/slides/ja/net/aspose.slides/ishapecollection/addgroupshape/) のオーバーロードを使用して変換を実行します。
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var svgContent = File.ReadAllText("diagram.svg");
+var svgImage = new SvgImage(svgContent);
+
+using var presentation = new Presentation();
+
+var slideSize = presentation.SlideSize.Size;
+var slide = presentation.Slides[0];
+slide.Shapes.AddGroupShape(svgImage, 0, 0, slideSize.Width, slideSize.Height);
+
+presentation.Save("editable-svg-shapes.pptx", SaveFormat.Pptx);
+```
+
+SVG をシェイプに変換するのは、個々のベクター要素を PowerPoint シェイプとして編集する必要がある場合に適しています。表示のみが目的であれば、画像として保持した方がシンプルで多数のシェイプ生成を回避できます。
+
+## **既存の画像リソースを置換**
+
+既存の画像リソースを置換したい場合は、[IPPImage.ReplaceImage](https://reference.aspose.com/slides/ja/net/aspose.slides/ippimage/replaceimage/) を使用します。これはロゴなどの共有グラフィックに特に便利です。
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var imageToReplace = presentation.Images[0];
+imageToReplace.ReplaceImage(File.ReadAllBytes("new-logo.png"));
+
 presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert title="Info" color="info" %}}
-Aspose の無料 [Text to GIF](https://products.aspose.app/slides/ja/text-to-gif) コンバータを使用すれば、テキストを簡単にアニメ化し、GIF に変換できます。 
-{{% /alert %}}
+複数の画像フレーム、背景、マスタ、レイアウトが同じ画像リソースを使用している場合、そのリソースを置換するとすべての使用箇所が更新されます。単一の画像フレームだけを変更したい場合は、共有リソースを置換せずに別の画像をそのフレームに割り当ててください。
+
+`ReplaceImage` には [IImage](https://reference.aspose.com/slides/ja/net/aspose.slides/iimage/) または別の [IPPImage](https://reference.aspose.com/slides/ja/net/aspose.slides/ippimage/) を受け取るオーバーロードも用意されています。
+
+## **実践的な画像管理のガイダンス**
+
+### **プレゼンテーションサイズの管理**
+
+大きなラスタ画像はプレゼンテーションを不必要に肥大化させます。表示サイズに見合った解像度の画像を使用し、可能な限り共有画像リソースを再利用し、同一の高解像度画像を埋め込みすぎないようにしてください。
+
+すでに画像フレームに配置されたラスタ画像については、[IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/ja/net/aspose.slides/ipicturefillformat/compressimage/) を使用して、選択された解像度やクロップ設定に基づき画像データを圧縮できます。これは画像コレクションの管理ではなく画像フレームの処理になるため、関連する書式操作については [Picture Frame](/slides/ja/net/picture-frame/) を参照してください。
+
+### **埋め込みコンテンツとリンクコンテンツの選択**
+
+埋め込みはすべての画像データがファイルに同梱されるため、プレゼンテーションの可搬性が高まります。リンクはファイルサイズを削減できますが、外部依存が発生します。依存が許容でき、かつ安定している場合にのみリンクを使用してください。
+
+### **共有ブランディングの再利用**
+
+ロゴや透かし、装飾グラフィックなどの繰り返し使用する要素は、1 つの画像リソースを作成して再利用します。コンテンツではなくプレゼンテーションのデザインに属するグラフィックは、マスタやレイアウトに配置して対象スライドに継承させると重複を防げます。
+
+### **SVG リソースをポータブルに保つ**
+
+自己完結型の SVG は、外部ファイルやネットワークリソースに依存しないため、移動やレンダリングが容易です。可能な限り必要なリソースを SVG 内に埋め込んでからインポートし、個々のベクター要素の編集が必要な場合にのみシェイプへの変換を行ってください。
+
+### **最新のクロスプラットフォーム Image API を使用**
+
+新規 .NET コードでは、`System.Drawing.Image` や `Bitmap` に依存せず、Aspose.Slides の [IImage](https://reference.aspose.com/slides/ja/net/aspose.slides/iimage/) と [Images](https://reference.aspose.com/slides/ja/net/aspose.slides/images/) API を使用してください。移行ガイダンスは [Modern API](/slides/ja/net/modern-api/) を参照してください。
+
+WMF および EMF は特別な取り扱いが必要です。これらの形式が [IImage](https://reference.aspose.com/slides/ja/net/aspose.slides/iimage/) に渡されると、[ImageCollection.AddImage](https://reference.aspose.com/slides/ja/net/aspose.slides/imagecollection/addimage/) がメタファイルをラスタ PNG 表現に変換して挿入します。メタファイルデータをそのまま保持したい場合は、ストリームベースの [ImageCollection.AddImage](https://reference.aspose.com/slides/ja/net/aspose.slides/imagecollection/addimage/) オーバーロードを使用してください。スプレッドシート等から EMF コンテンツを生成する場合は別途統合ワークフローが必要であり、本記事の範囲外です。
 
 ## **FAQ**
 
-**挿入後も元の画像解像度はそのまま保持されますか？**
+**画像コレクションと画像フレームの違いは何ですか？**
 
-はい。ソースピクセルは保持されますが、最終的な表示はスライド上での [picture](/slides/ja/net/picture-frame/) のスケーリング方法や保存時の圧縮設定に依存します。 
+画像コレクションは再利用可能な画像リソースを格納します。画像フレームはそのリソースのうちの 1 つを表示するスライドシェイプで、クロップやエフェクトといった画像固有の書式設定を提供します。
 
-**多数のスライドで同じロゴを一度に置換する最良の方法は何ですか？**
+**ロゴを全スライドで同じように置換する最良の方法は？**
 
-ロゴをマスター スライドまたはレイアウトに配置し、プレゼンテーションの画像コレクションで置換すれば、該当リソースを使用しているすべての要素に自動的に反映されます。 
+ロゴが 1 つの画像リソースとして共有されている場合は、[IPPImage.ReplaceImage](https://reference.aspose.com/slides/ja/net/aspose.slides/ippimage/replaceimage/) でそのリソースを置換します。プレゼンテーション全体のブランディングを統一したい場合は、ロゴをマスタまたはレイアウトに配置すると、個別スライドへの重複配置を削減できます。
 
-**挿入した SVG を編集可能なシェイプに変換できますか？**
+**リンク画像が別のコンピュータで消えるのはなぜですか？**
 
-はい。SVG をシェイプのグループに変換でき、個々のパーツは標準のシェイプ プロパティで編集可能になります。 
+リンク画像は外部ファイルまたは URL に依存しています。別のコンピュータからそのリソースに到達できない場合、リンク画像は表示されません。プレゼンテーションを自己完結させる必要がある場合は、画像を埋め込んでください。
 
-**複数のスライドに一括で画像を背景として設定するにはどうすればよいですか？**
+**挿入した SVG を PowerPoint のシェイプとして編集できますか？**
 
-マスター スライドまたは該当レイアウトで画像を背景として割り当てれば、そのマスター/レイアウトを使用しているすべてのスライドが背景を継承します。 
+はい。[IShapeCollection.AddGroupShape](https://reference.aspose.com/slides/ja/net/aspose.slides/ishapecollection/addgroupshape/) を使用して SVG を変換すると、生成されたグループは 1 つの SVG 画像ではなく、個別に編集可能なスライドシェイプとして扱えます。
 
-**多くの画像が原因でプレゼンテーションが大きくなりすぎるのを防ぐには？**
+**画像が多数あるプレゼンテーションのサイズを小さく保つには？**
 
-画像の重複を避けて単一リソースを再利用し、解像度は適切に設定し、保存時に圧縮を適用し、必要に応じてマスターで共通グラフィックを保持してください。
+共有画像リソースを再利用し、不要に大きなラスタ画像を使用しないようにし、適切な場面でラスタ画像を圧縮し、ブランディングはマスタやレイアウトに配置し、外部依存が許容できる場合にのみリンク画像を使用してください。

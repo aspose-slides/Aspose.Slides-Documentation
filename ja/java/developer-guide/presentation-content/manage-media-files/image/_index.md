@@ -6,569 +6,314 @@ weight: 10
 url: /ja/java/image/
 keywords:
 - 画像を追加
-- ピクチャーを追加
-- ビットマップを追加
+- 画像を挿入
 - 画像を置換
-- ピクチャーを置換
-- Web から
+- 画像コレクション
+- 図形フレーム
+- リンク画像
 - 背景
 - PNG を追加
 - JPG を追加
 - SVG を追加
+- SVG をシェイプに変換
 - 外部 SVG リソース
-- SVG リゾルバ
-- リンクされた SVG 画像
-- SVG フォント
-- EMF を追加
-- WMF を追加
-- TIFF を追加
 - PowerPoint
 - OpenDocument
 - プレゼンテーション
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java を使用して PowerPoint および OpenDocument の画像管理を効率化し、パフォーマンスを最適化し、ワークフローを自動化します。"
+description: "Aspose.Slides for Java を使用して、PowerPoint および OpenDocument のプレゼンテーションで、ラスター画像と SVG 画像の追加、再利用、リンク、置換、管理方法を学びます。"
 ---
 ## **はじめに**
 
-画像はプレゼンテーションをより魅力的で視覚的に訴えるものにします。Microsoft PowerPoint では、ファイル、インターネット、またはその他のソースからスライドに画像を挿入できます。同様に、Aspose.Slides でもさまざまな方法でプレゼンテーションのスライドに画像を追加できます。
+Aspose.Slides for Java は画像を操作するためのさまざまな方法を提供しており、目的に応じて使い分けられます。画像をプレゼンテーションに格納したり、図形フレームに表示したり、スライドの背景として使用したり、外部画像へのリンクを作成したり、共有画像リソースを置き換えたり、SVG コンテンツを編集可能なシェイプに変換したりできます。
 
-{{% alert  title="ヒント" color="primary" %}} 
+この記事では画像リソースとプレゼンテーション全体での使用方法に焦点を当てます。個別の図形フレームに適用されるトリミング、透明度、効果、伸縮、その他の書式設定については、[Picture Frame](/slides/ja/java/picture-frame/) を参照してください。
 
-Aspose は、画像から素早くプレゼンテーションを作成できる無料コンバータ―、[JPEG to PowerPoint](https://products.aspose.app/slides/ja/import/jpg-to-ppt) と [PNG to PowerPoint](https://products.aspose.app/slides/ja/import/png-to-ppt) を提供しています。 
+## **画像モデルの理解**
 
-{{% /alert %}} 
+- The [presentation image collection](https://reference.aspose.com/slides/ja/java/com.aspose.slides.iimagecollection/) はプレゼンテーションで使用される画像リソースを格納します。画像データを追加し、[IPPImage] リソースを取得するには、[ImageCollection.addImage](https://reference.aspose.com/slides/ja/java/com.aspose.slides/imagecollection/) を使用します。
+- A [picture frame](https://reference.aspose.com/slides/ja/java/com.aspose.slides.ipictureframe/) はスライド、レイアウト、またはマスタ上で画像を表示するシェイプです。画像リソースをスライドに配置するには、[IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/ja/java/com.aspose.slides.ishapecollection/) を使用します。
+- スライドの背景は画像をシェイプとしてではなくスライドの塗りつぶしの一部として使用します。そのため、図形フレームのように振る舞いません。
+- [IPPImage.replaceImage](https://reference.aspose.com/slides/ja/java/com.aspose.slides.ippimage/) は画像リソースを置換します。そのリソースを使用している複数のプレゼンテーション要素はすべて置換後の画像を使用します。
+- SVG をシェイプに変換すると、編集可能なスライドシェイプが作成されます。変換後はコンテンツは単一の画像リソースとして管理されなくなります。
 
-{{% alert title="情報" color="info" %}}
+典型的なワークフローは次のとおりです。画像データを画像コレクションに追加し、[IPPImage] を取得してから、そのリソースを 1 つ以上の図形フレームや塗りつぶしで使用します。
 
-画像をピクチャーフレームとして追加したい場合―特にサイズ変更、エフェクト適用、その他標準の書式設定オプションを使用する予定がある場合は、[Picture Frame](/slides/ja/java/picture-frame/) を参照してください。 
+## **埋め込み画像の追加**
 
-{{% /alert %}} 
-
-{{% alert title="注" color="warning" %}}
-
-画像を別の形式に変換できます。次のページをご覧ください: 変換 [image to JPG](https://products.aspose.com/slides/ja/java/conversion/image-to-jpg/)、[JPG to image](https://products.aspose.com/slides/ja/java/conversion/jpg-to-image/)、[JPG to PNG](https://products.aspose.com/slides/ja/java/conversion/jpg-to-png/)、[PNG to JPG](https://products.aspose.com/slides/ja/java/conversion/png-to-jpg/)、[PNG to SVG](https://products.aspose.com/slides/ja/java/conversion/png-to-svg/)、および [SVG to PNG](https://products.aspose.com/slides/ja/java/conversion/svg-to-png/)。 
-
-{{% /alert %}}
-
-Aspose.Slides は JPEG、PNG、BMP、GIF などの一般的な形式の画像をサポートします。 
-
-## **ローカルに保存された画像をスライドに追加する**
-
-コンピューターに保存されている画像を 1 つまたは複数、プレゼンテーションのスライドに追加できます。以下の Java サンプルコードは、画像をスライドに追加する方法を示しています。
+ローカル画像を挿入するには、ファイルを読み込み、画像コレクションに追加し、返された `IPPImage` を使用する図形フレームを作成します。
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    IPPImage picture;
-    IImage image = Images.fromFile("image.png");
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.png");
     try {
-        picture = pres.getImages().addImage(image);
+        image = presentation.getImages().addImage(sourceImage);
     } finally {
-        if (image != null) image.dispose();
+        if (sourceImage != null) sourceImage.dispose();
     }
 
-    slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
 
-    pres.save("pres.pptx", SaveFormat.Pptx);
+    presentation.save("presentation.pptx", SaveFormat.Pptx);
 } finally {
-    pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Web から画像をスライドに追加する**
+この方法で追加された画像はプレゼンテーションに埋め込まれるため、結果として得られるファイルは元の画像ファイルが利用可能であるかどうかに依存しません。
 
-追加したい画像がコンピューターに保存されていない場合、Web から直接追加できます。 
+### **ウェブから画像を追加**
 
-以下の Java サンプルコードは、Web から画像を取得してスライドに追加する方法を示しています。
+画像が HTTP または HTTPS 経由で利用可能な場合、そのバイト列をダウンロードし、プレゼンテーションの画像コレクションに追加し、返された画像リソースをローカル画像と同様に使用します。
 
 ```java
 import com.aspose.slides.*;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URI;
 import java.net.URL;
-import java.net.URLConnection;
-
-Presentation pres = new Presentation();
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    URL imageUrl = new URL("[REPLACE WITH URL]");
-    URLConnection connection = imageUrl.openConnection();
-    InputStream inputStream = connection.getInputStream();
-
-    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-    try {
-        byte[] buffer = new byte[1024];
-        int read;
-
-        while ((read = inputStream.read(buffer, 0, buffer.length)) != -1) {
-            outputStream.write(buffer, 0, read);
-        }
-
-        outputStream.flush();
-
-        IPPImage image = pres.getImages().addImage(outputStream.toByteArray());
-        slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    } finally {
-        if (inputStream != null) inputStream.close();
-        outputStream.close();
-    }
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    pres.dispose();
-}
-```
-
-## **スライドマスターに画像を追加する**
-
-スライドマスターは、テーマやレイアウトなどの情報を格納・管理します。スライドマスターに画像を追加すると、そのマスターに基づくすべてのスライドに画像が表示されます。 
-
-以下の Java サンプルコードは、スライドマスターに画像を追加する方法を示しています。
-
-```java
-import com.aspose.slides.*;
-
-Presentation pres = new Presentation();
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IMasterSlide masterSlide = slide.getLayoutSlide().getMasterSlide();
-
-    IPPImage picture;
-    IImage image = Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-
-    masterSlide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **スライドの背景として画像を追加する**
-
-画像を 1 枚以上のスライドの背景として使用できます。詳細は *[Setting Images as Backgrounds for Slides](/slides/ja/java/presentation-background/#setting-images-as-background-for-slides)* を参照してください。
-
-## **SVG をプレゼンテーションに追加する**
-
-SVG コンテンツは [SvgImage](https://reference.aspose.com/slides/ja/java/com.aspose.slides/svgimage/) クラスを使用してプレゼンテーションに追加できます。生成された [ISvgImage](https://reference.aspose.com/slides/ja/java/com.aspose.slides/isvgimage/) オブジェクトは、プレゼンテーションの画像コレクションに追加でき、ピクチャーフレームの作成に使用できます。
-
-以下の Java 例は、自己完結型 SVG 文字列をインポートします。この SVG に使用されるすべての画像、スタイル、その他のリソースは SVG コンテンツに直接埋め込まれています。
-
-```java
-import com.aspose.slides.*;
-
-String svgContent =
-        "<svg xmlns='http://www.w3.org/2000/svg' width='320' height='180'>" +
-        "    <rect width='320' height='180' fill='#4F81BD'/>" +
-        "    <circle cx='160' cy='90' r='55' fill='#F2F2F2'/>" +
-        "</svg>";
 
 Presentation presentation = new Presentation();
 try {
-    ISvgImage svgImage = new SvgImage(svgContent);
-    IPPImage image = presentation.getImages().addImage(svgImage);
+    URL imageUrl = URI.create("https://example.com/image.png").toURL();
+    HttpURLConnection connection = (HttpURLConnection) imageUrl.openConnection();
+    connection.setConnectTimeout(10000);
+    connection.setReadTimeout(10000);
 
-    presentation.getSlides().get_Item(0).getShapes().addPictureFrame(
-            ShapeType.Rectangle, 20, 20, image.getWidth(), image.getHeight(), image);
+    try (InputStream inputStream = connection.getInputStream(); 
+         ByteArrayOutputStream outputStream = new ByteArrayOutputStream()) {
+        byte[] buffer = new byte[8192];
+        int bytesRead;
+        while ((bytesRead = inputStream.read(buffer)) != -1) outputStream.write(buffer, 0, bytesRead);
 
-    presentation.save("self-contained-svg.pptx", SaveFormat.Pptx);
+        IPPImage image = presentation.getImages().addImage(outputStream.toByteArray());
+        ISlide slide = presentation.getSlides().get_Item(0);
+        slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
+    }
+
+    presentation.save("presentation-from-web.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **外部リソースを含む SVG コンテンツのインポート**
+長期間実行されるアプリケーションでは、不要なネットワークインフラを繰り返し作成しないよう、適切な HTTP クライアントまたは接続管理戦略を再利用してください。また、ソースが信頼できない場合はリモート URL、レスポンスサイズ、コンテンツタイプを検証してください。
 
-デザインツール、ダイアグラムエディタ、アイコンシステム、Web パイプラインからエクスポートされた SVG ファイルは、SVG 文書の外部に保存されたリソースを参照することがあります。たとえば、`images/photo.png` のような画像リンク、CSS の `url(...)` 値、またはフォント URL が含まれます。
+## **スライド間で画像を再利用**
 
-このような SVG コンテンツをインポートするには、[IExternalResourceResolver](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iexternalresourceresolver/) 実装を作成し、ベース URI と共に適切な [SvgImage](https://reference.aspose.com/slides/ja/java/com.aspose.slides/svgimage/) コンストラクタに渡します。ベース URI は SVG 文書の場所を示し、相対リンクの解決に使用されます。
+同じ画像が複数回必要な場合は、プレゼンテーションに 1 回だけ追加し、追加の図形フレームを作成する際に取得した [IPPImage] を再利用します。これにより同一ソースデータの重複読み込みを回避でき、共有画像リソースとその使用箇所との関係が明示的になります。
 
-[ISvgImage](https://reference.aspose.com/slides/ja/java/com.aspose.slides/isvgimage/) インターフェイスは、インポートされた SVG に関する情報へのアクセスを提供します。
+企業ロゴなど、多くのスライドに自動的に表示させたいグラフィックは、各スライドに同等のシェイプを追加するのではなく、[slide master](/slides/ja/java/slide-master/) やレイアウト上に図形フレームを配置することを検討してください。
 
-- `getSvgContent()` は SVG マークアップを文字列として返します。
-- `getSvgData()` は SVG コンテンツをバイト配列として返します。
-- `getBaseUri()` は相対リンクに使用されたベース URI を返します。
-- `getExternalResourceResolver()` は SVG 画像に割り当てられたリゾルバを返します。
+## **画像をスライドの背景として使用**
 
-### **外部リソースリゾルバの実装**
-
-リゾルバには 2 つのメソッドがあります。
-
-- `resolveUri` はベース URI と相対リソースリンクを結合し、絶対 URI を返します。リンクが解決できない、または許可されていない場合は `null` を返します。
-- `getEntity` は絶対リソース URI に対する読み取り可能なストリームを返します。リソースが存在しない、ブロックされている、または利用できない場合は `null` を返します。必要に応じてフォールバックストリームを返すこともできます。
-
-以下のリゾルバは、許可されたローカルディレクトリからのみリンクされたリソースをロードし、ネットワークリソースや許可外のパスはブロックします。解決できない画像リンクにはオプションのフォールバック画像が返されます。
-
-```java
-import com.aspose.slides.ExternalResourceResolver;
-
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.net.URI;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Locale;
-
-class LocalSvgResourceResolver extends ExternalResourceResolver {
-    private final Path allowedRoot;
-    private final byte[] fallbackImageData;
-
-    public LocalSvgResourceResolver(String allowedRoot, byte[] fallbackImageData) {
-        this.allowedRoot = Paths.get(allowedRoot).toAbsolutePath().normalize();
-        this.fallbackImageData = fallbackImageData;
-    }
-
-    @Override
-    public String resolveUri(String baseUri, String relativeUri) {
-        if (baseUri == null || baseUri.trim().isEmpty() ||
-                relativeUri == null || relativeUri.trim().isEmpty()) {
-            return null;
-        }
-
-        try {
-            URI baseAddress = URI.create(baseUri);
-            URI absoluteAddress = baseAddress.resolve(relativeUri);
-
-            // このリゾルバはローカルファイルのみを許可するように意図されています。
-            if (!"file".equalsIgnoreCase(absoluteAddress.getScheme())) {
-                return null;
-            }
-
-            Path resourcePath = Paths.get(absoluteAddress).toAbsolutePath().normalize();
-            if (!isInsideAllowedRoot(resourcePath)) {
-                return null;
-            }
-
-            return resourcePath.toUri().toString();
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
-    @Override
-    public InputStream getEntity(String absoluteUri) {
-        try {
-            URI resourceUri = URI.create(absoluteUri);
-            if (!"file".equalsIgnoreCase(resourceUri.getScheme())) {
-                return null;
-            }
-
-            Path resourcePath = Paths.get(resourceUri).toAbsolutePath().normalize();
-            if (!isInsideAllowedRoot(resourcePath)) {
-                return null;
-            }
-
-            if (Files.exists(resourcePath)) {
-                return Files.newInputStream(resourcePath);
-            }
-
-            // 画像リソースに対してのみフォールバックを使用します。欠落したフォントやスタイルシートに対して画像ストリームを返すことは無効です。
-            if (fallbackImageData != null && isImageFile(resourcePath)) {
-                return new ByteArrayInputStream(fallbackImageData);
-            }
-        } catch (Exception e) {
-            return null;
-        }
-
-        return null;
-    }
-
-    private boolean isInsideAllowedRoot(Path resourcePath) {
-        return resourcePath.normalize().startsWith(allowedRoot);
-    }
-
-    private static boolean isImageFile(Path path) {
-        String fileName = path.getFileName().toString().toLowerCase(Locale.ROOT);
-
-        return fileName.endsWith(".png") ||
-                fileName.endsWith(".jpg") ||
-                fileName.endsWith(".jpeg") ||
-                fileName.endsWith(".gif") ||
-                fileName.endsWith(".bmp");
-    }
-}
-```
-
-### **SVG インポート時のリンクリソース解決**
-
-`assets/diagram.svg` に次のような相対参照が含まれているとします。
-
-```xml
-<image href="images/photo.png" x="20" y="20" width="320" height="180" />
-```
-
-以下の Java 例は SVG ファイル URI をベース URI として渡し、カスタムリゾルバを提供します。リゾルバは相対画像リンクを絶対 URI に変換し、リンクされたリソースを含むストリームを返しながら Aspose.Slides が SVG を処理します。
+背景画像はスライドの塗りつぶしに割り当てられ、図形フレームとして追加されません。画像がスライド全体の背景を覆い、通常のスライドオブジェクトとして操作されないようにしたい場合に便利です。
 
 ```java
 import com.aspose.slides.*;
 
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("background.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        if (sourceImage != null) sourceImage.dispose();
+    }
+
+    slide.getBackground().setType(BackgroundType.OwnBackground);
+    slide.getBackground().getFillFormat().setFillType(FillType.Picture);
+    slide.getBackground().getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+    slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().setImage(image);
+
+    presentation.save("background-image.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+マスタやレイアウトの背景を含む追加の背景オプションについては、[Presentation Background](/slides/ja/java/presentation-background/) を参照してください。
+
+## **埋め込み画像とリンク画像**
+
+埋め込み画像とリンク画像は、可搬性とファイルサイズに関して異なるトレードオフがあります。
+
+- **埋め込み画像:** 画像データがプレゼンテーション内部に保存されます。プレゼンテーションは単体で完結しますが、ファイルサイズに画像データが含まれます。
+- **リンク画像:** プレゼンテーションは外部画像へのパスまたは URL を保持します。これによりプレゼンテーションのサイズは削減できますが、表示またはレンダリング時に外部リソースがアクセス可能である必要があります。
+
+リンク画像は、画像データを埋め込むのではなく、[ISlidesPicture.setLinkPathLong](https://reference.aspose.com/slides/ja/java/com.aspose.slides.islidespicture/) を通じて外部パスや URL を設定することで作成できます。
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, null);
+    pictureFrame.getPictureFormat().getPicture().setLinkPathLong("https://example.com/image.png");
+
+    presentation.save("linked-image.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+外部リソースへの確実なアクセスが保証できる展開環境でのみリンク画像を使用してください。オフラインでの利用やシステム間の移動が必要なプレゼンテーションでは、埋め込み画像の方が安全です。
+
+## **SVG画像の操作**
+
+SVG はベクターフォーマットであり、アイコンや図表、ラスタ画像と比べて詳細を失わずに拡大縮小できるため便利です。Aspose.Slides は SVG を画像リソースとしてだけでなく、編集可能なスライドシェイプのソースとしてもサポートします。
+
+### **SVGを画像として追加**
+
+[SvgImage](https://reference.aspose.com/slides/ja/java/com.aspose.slides.svgimage/) を作成し、画像コレクションに追加して、得られた画像リソースを図形フレームに配置します。
+
+```java
+import com.aspose.slides.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
-
-Path svgFilePath = Paths.get("assets", "diagram.svg").toAbsolutePath().normalize();
-Path assetDirectory = svgFilePath.getParent();
-String svgContent = new String(Files.readAllBytes(svgFilePath), StandardCharsets.UTF_8);
-
-// ベース URI は SVG ドキュメントの場所を表します。
-String baseUri = svgFilePath.toUri().toString();
-
-byte[] fallbackImageData = null;
-Path fallbackImagePath = assetDirectory.resolve("fallback.png");
-if (Files.exists(fallbackImagePath)) {
-    fallbackImageData = Files.readAllBytes(fallbackImagePath);
-}
-
-IExternalResourceResolver resolver = new LocalSvgResourceResolver(assetDirectory.toString(), fallbackImageData);
-ISvgImage svgImage = new SvgImage(svgContent, resolver, baseUri);
-
-// ISvgImage exposes the source content, binary data, base URI, and resolver.
-String importedContent = svgImage.getSvgContent();
-byte[] importedData = svgImage.getSvgData();
-String importedBaseUri = svgImage.getBaseUri();
-IExternalResourceResolver importedResolver = svgImage.getExternalResourceResolver();
 
 Presentation presentation = new Presentation();
 try {
+    byte[] imageData = Files.readAllBytes(Paths.get("icon.svg"));
+    String svgContent = new String(imageData, StandardCharsets.UTF_8);
+    ISvgImage svgImage = new SvgImage(svgContent);
+
     IPPImage image = presentation.getImages().addImage(svgImage);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 200, 200, image);
 
-    presentation.getSlides().get_Item(0).getShapes().addPictureFrame(
-            ShapeType.Rectangle, 20, 20, image.getWidth(), image.getHeight(), image);
-
-    presentation.save("svg-with-linked-resources.pptx", SaveFormat.Pptx);
+    presentation.save("svg-image.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-`SvgImage` クラスは、バイト配列または入力ストリームとして SVG データを受け取り、外部リソースリゾルバとベース URI を指定できるオーバーロードも提供します。
+### **外部リソースを持つSVGファイル**
 
-{{% alert title="重要" color="warning" %}}
+SVG は外部画像、スタイルシート、フォントを参照できることがあります。このような場合、[SvgImage](https://reference.aspose.com/slides/ja/java/com.aspose.slides.svgimage/) は [IExternalResourceResolver](https://reference.aspose.com/slides/ja/java/com.aspose.slides.iexternalresourceresolver/) とベース URI を受け取るコンストラクタを提供します。リゾルバは相対 URI を許可された絶対 URI にマッピングし、要求されたリソースのストリームを返します。
 
-リソースリゾルバは Aspose.Slides が SVG を処理・レンダリングする間に外部リソースを利用可能にしますが、元の SVG マークアップを変更したり、解決されたリソースを自動的に埋め込んだりはしません。
+リゾルバは SVG 処理中に外部リソースへのアクセスを可能にしますが、SVG を自己完結型ドキュメントに書き換えることはありません。SVG を可搬性のまま保ちたい場合は、例えばリンク画像に `data:` URI を使用して必要なリソースを SVG 自体に埋め込んでください。
 
-`ISvgImage` がプレゼンテーションの画像コレクションに追加されると、PPTX ファイルは元の SVG 表現とラスタライズされたフォールバック画像の両方を含む可能性があります。リンクされたリソースは生成されたフォールバック画像に現れる一方、`images/photo.png` のような相対リンクは保存された SVG 内でそのまま残ります。ネイティブ SVG 表現をレンダリングするアプリケーションは、元の外部リソースが利用できない場合にリンクコンテンツを省略することがあります。
+信頼できないソースから取得した SVG ファイルの場合、リゾルバがアクセスできるスキーム、ファイル位置、ホストを制限してください。ネットワークリゾルバにはタイムアウト、レスポンスサイズ上限、コンテンツ検証も適用すべきです。
 
-{{% /alert %}}
+### **SVGを編集可能なシェイプに変換**
 
-### **ポータブル SVG 画像の作成**
-
-外部ファイルに依存しない SVG 画像を作成するには、`SvgImage` を作成する前に SVG を自己完結型にします。たとえば、リンクされた画像 URL を画像データを含む `data:` URI に置き換えます。
-
-```xml
-<image href="data:image/png;base64,..." x="20" y="20" width="320" height="180" />
-```
-
-必要なすべてのリソースが SVG コンテンツに埋め込まれたら、`SvgImage` を作成し、プレゼンテーションの画像コレクションに追加し、前述の例と同様にピクチャーフレームに挿入します。
-
-### **不足またはブロックされたリソースの処理**
-
-`resolveUri` で無効、禁止、または解決不能なリソース URI が検出された場合は `null` を返します。`getEntity` でリソースが読めない場合も `null` を返します。可能な限り、Aspose.Slides はそのリソースなしで SVG の処理を続行します。
-
-不足したリソースに対してフォールバックストリームを返すことは可能ですが、その内容は要求されたリソースの種類と互換性がある必要があります。たとえば、フォントやスタイルシートに対して画像ストリームを返すべきではありません。
-
-{{% alert title="セキュリティ" color="warning" %}}
-
-信頼できない SVG ファイルから任意のファイルパスや無制限のネットワーク URL を解決しないでください。許可されたスキーム、ディレクトリ、ホストを制限します。ネットワークリソースの場合、接続タイムアウト、応答サイズ制限、コンテンツ検証も適用してください。
-
-{{% /alert %}}
-
-## **SVG を形状セットに変換する**
-
-Aspose.Slides は、PowerPoint の同様の機能と同様に、SVG を形状セットに変換できます。
+Aspose.Slides は SVG を編集可能なスライドシェイプのグループに変換でき、PowerPoint の対応コマンドに似ています。
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-この機能は、[IShapeCollection](https://reference.aspose.com/slides/ja/java/com.aspose.slides/IShapeCollection) インターフェイスの [addGroupShape](https://reference.aspose.com/slides/ja/java/com.aspose.slides/IShapeCollection#addGroupShape-com.aspose.slides.ISvgImage-float-float-float-float-) メソッドのオーバーロードによって提供され、最初の引数に [ISvgImage](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ISvgImage) オブジェクトを受け取ります。
-
-以下の Java サンプルコードは、このメソッドを使用して SVG ファイルを形状セットに変換する方法を示しています。
+変換を実行するには、[IShapeCollection.addGroupShape](https://reference.aspose.com/slides/ja/java/com.aspose.slides.ishapecollection/) のオーバーロードで [ISvgImage](https://reference.aspose.com/slides/ja/java/com.aspose.slides.isvgimage/) を受け取るものを使用します。
 
 ```java
 import com.aspose.slides.*;
 import java.awt.geom.Dimension2D;
-import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-// ソース SVG ファイル名。
-String svgFileName = "sample.svg";
-
-// 出力プレゼンテーション ファイル名。
-String outPptxPath = "presentation.pptx";
-
-// 新しいプレゼンテーションを作成します。
-IPresentation presentation = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // SVG ファイルの内容を読み取ります。
-    byte[] svgContent = Files.readAllBytes(Paths.get(svgFileName));
-
-    // SvgImage オブジェクトを作成します。
+    byte[] imageData = Files.readAllBytes(Paths.get("diagram.svg"));
+    String svgContent = new String(imageData, StandardCharsets.UTF_8);
     ISvgImage svgImage = new SvgImage(svgContent);
 
-    // スライドのサイズを取得します。
     Dimension2D slideSize = presentation.getSlideSize().getSize();
+    ISlide slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addGroupShape(svgImage, 0, 0, (float) slideSize.getWidth(), (float) slideSize.getHeight());
 
-    // SVG 画像をシェイプのグループに変換し、スライドのサイズに合わせてスケーリングします。
-    presentation.getSlides().get_Item(0).getShapes().addGroupShape(
-            svgImage, 0f, 0f,
-            (float) slideSize.getWidth(), (float) slideSize.getHeight());
-
-    // プレゼンテーションを PPTX 形式で保存します。
-    presentation.save(outPptxPath, SaveFormat.Pptx);
-} catch (IOException e) {
+    presentation.save("editable-svg-shapes.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **EMF をスライドに画像として追加する**
+個々のベクトル要素を PowerPoint シェイプとして編集する必要がある場合に SVG からシェイプへの変換を使用してください。単に表示するだけであれば、画像として保持する方がシンプルで多数のシェイプ生成を回避できます。
 
-Aspose.Slides for Java は、Aspose.Cells を使用して Excel ワークシートから EMF 画像を生成し、プレゼンテーションのスライドに追加できます。
+## **既存の画像リソースを置換**
 
-以下の Java サンプルコードは、その手順を示しています。
-
-```java
-import com.aspose.slides.*;
-import com.aspose.cells.ImageOrPrintOptions;
-import com.aspose.cells.ImageType;
-import com.aspose.cells.SheetRender;
-import com.aspose.cells.Workbook;
-import com.aspose.cells.Worksheet;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-
-Workbook book = new Workbook("chart.xlsx");
-Worksheet sheet = book.getWorksheets().get(0);
-
-ImageOrPrintOptions options = new ImageOrPrintOptions();
-options.setHorizontalResolution(200);
-options.setVerticalResolution(200);
-options.setImageType(ImageType.EMF);
-
-// ワークブックをストリームに保存します。
-SheetRender sr = new SheetRender(sheet, options);
-Presentation pres = new Presentation();
-try {
-    pres.getSlides().removeAt(0);
-
-    String emfSheetName;
-    for (int j = 0; j < sr.getPageCount(); j++) {
-        emfSheetName = "test" + sheet.getName() + " Page" + (j + 1) + ".out.emf";
-        sr.toImage(j, emfSheetName);
-
-        // ファイルをそのまま追加し、画像がラスタライズされずベクター EMF のままになるようにします。
-        IPPImage picture;
-        InputStream imageStream = new FileInputStream(emfSheetName);
-        try {
-            picture = pres.getImages().addImage(imageStream);
-        } finally {
-            imageStream.close();
-        }
-
-        ISlide slide = pres.getSlides().addEmptySlide(
-                pres.getLayoutSlides().getByType(SlideLayoutType.Blank));
-        slide.getShapes().addPictureFrame(
-                ShapeType.Rectangle,
-                0,
-                0,
-                (float) pres.getSlideSize().getSize().getWidth(),
-                (float) pres.getSlideSize().getSize().getHeight(),
-                picture);
-    }
-
-    pres.save("output.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    pres.dispose();
-}
-```
-
-## **画像コレクション内の画像を置換する**
-
-Aspose.Slides は、プレゼンテーションの画像コレクションに保存されている画像（スライドシェイプが使用している画像を含む）を置換できます。このセクションでは、コレクション内の画像を更新するいくつかの方法を説明します。生のバイトデータ、[IImage](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iimage/) インスタンス、またはコレクション内に既に存在する別の画像を使用して画像を置換できます。
-
-以下の手順に従ってください。
-
-1. [Presentation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/) クラスを使用して画像を含むプレゼンテーション ファイルを読み込みます。  
-1. ファイルから新しい画像をバイト配列に読み込みます。  
-1. バイト配列を使用して対象画像を新しい画像に置換します。  
-1. 2 番目のアプローチでは、画像を [IImage](https://reference.aspose.com/slides/ja/java/com.aspose.slides/iimage/) オブジェクトにロードし、そのオブジェクトで対象画像を置換します。  
-1. 3 番目のアプローチでは、プレゼンテーション の画像コレクションに既に存在する画像で対象画像を置換します。  
-1. 修正されたプレゼンテーションを PPTX ファイルとして書き出します。
+既存の画像リソースを置き換えるには、[IPPImage.replaceImage](https://reference.aspose.com/slides/ja/java/com.aspose.slides.ippimage/) を使用します。ロゴなど共有グラフィックの置換に特に有用です。
 
 ```java
 import com.aspose.slides.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
-// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します。
-Presentation presentation = new Presentation("sample.pptx");
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // 1 番目の方法。
-    byte[] imageData = Files.readAllBytes(Paths.get("image0.jpeg"));
-    IPPImage oldImage = presentation.getImages().get_Item(0);
-    oldImage.replaceImage(imageData);
+    IPPImage imageToReplace = presentation.getImages().get_Item(0);
 
-    // 2 番目の方法。
-    IImage newImage = Images.fromFile("image1.png");
+    IImage replacementImage = Images.fromFile("new-logo.png");
     try {
-        oldImage = presentation.getImages().get_Item(1);
-        oldImage.replaceImage(newImage);
+        imageToReplace.replaceImage(replacementImage);
     } finally {
-        if (newImage != null) newImage.dispose();
+        if (replacementImage != null) replacementImage.dispose();
     }
 
-    // 3 番目の方法。
-    oldImage = presentation.getImages().get_Item(2);
-    oldImage.replaceImage(presentation.getImages().get_Item(3));
-
-    // プレゼンテーションをファイルに保存します。
     presentation.save("output.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="情報" color="info" %}}
+同一リソースを使用している複数の図形フレーム、背景、マスタ、レイアウトがある場合、リソースを置換するとそれらすべてが更新されます。1 つの図形フレームだけを変更したい場合は、共有リソースを置換せずにそのフレームに別の画像を割り当ててください。
 
-Aspose の無料 [Text to GIF](https://products.aspose.app/slides/ja/text-to-gif) コンバータを使用すれば、テキストを簡単にアニメーション化し、GIF に変換できます。 
+`replaceImage` にはバイト配列や別の [IPPImage] を受け取るオーバーロードも用意されています。
 
-{{% /alert %}}
+## **実践的な画像管理のガイダンス**
+
+### **プレゼンテーションサイズの管理**
+
+大きなラスタ画像はプレゼンテーションを不要に肥大化させます。表示サイズに見合った寸法のソース画像を使用し、可能な限り共有画像リソースを再利用し、同一のフル解像度画像を埋め込むことを避けてください。
+
+すでに図形フレームに配置されたラスタ画像については、[IPictureFillFormat.compressImage](https://reference.aspose.com/slides/ja/java/com.aspose.slides.ipicturefillformat/) を使用して、選択された解像度やトリミング設定に基づき画像データを圧縮できます。これは画像コレクションの管理ではなく図形フレームの処理なので、関連する書式設定操作は [Picture Frame](/slides/ja/java/picture-frame/) を参照してください。
+
+### **埋め込みとリンクコンテンツの選択**
+
+埋め込みはすべての画像データがファイルに同梱されるため、プレゼンテーションの可搬性が高まります。リンクはファイルサイズを削減できますが、外部依存が生じます。外部依存が許容でき、かつ安定している場合にのみリンクを使用してください。
+
+### **共有ブランディングの再利用**
+
+ロゴや透かし、装飾グラフィックなど繰り返し使用する画像は 1 つの画像リソースにまとめて再利用します。スライドコンテンツではなくデザイン要素である場合は、マスタまたはレイアウトに配置して該当スライドに継承させてください。
+
+### **SVGリソースをポータブルに保つ**
+
+自己完結型 SVG は外部ファイルやネットワークリソースに依存する SVG よりも移動やレンダリングが容易です。可能な限り、インポート前に必要なリソースを埋め込んでください。個々のベクトル要素の編集が必要なときだけ、SVG をシェイプに変換します。
+
+### **最新のクロスプラットフォーム画像APIを使用**
+
+新規 Java コードでは、レガシーの `java.awt.image.BufferedImage` ベースのパブリック API の代わりに、Aspose.Slides の [IImage](https://reference.aspose.com/slides/ja/java/com.aspose.slides.iimage/) および [Images](https://reference.aspose.com/slides/ja/java/com.aspose.slides.images/) API を使用してください。移行ガイダンスは [Modern API](/slides/ja/java/modern-api/) を参照してください。
+
+WMF および EMF は特別な考慮が必要です。これらの形式が [IImage](https://reference.aspose.com/slides/ja/java/com.aspose.slides.iimage/) に渡されると、[ImageCollection.addImage](https://reference.aspose.com/slides/ja/java/com.aspose.slides.imagecollection/) はメタファイルをラスタ PNG に変換して挿入します。メタファイルデータを保持したい場合は、ストリームベースの [ImageCollection.addImage](https://reference.aspose.com/slides/ja/java/com.aspose.slides.imagecollection/) オーバーロードを使用してください。スプレッドシートなど他製品から EMF コンテンツを生成する場合は別途統合ワークフローが必要であり、本記事の範囲外です。
 
 ## **FAQ**
 
-**挿入後も元の画像解像度は維持されますか？**
+**画像コレクションと図形フレームの違いは何ですか？**
 
-はい。ソースのピクセルは保持されますが、最終的な見た目はスライド上で [picture](/slides/ja/java/picture-frame/) がどのようにスケーリングされるか、および保存時に適用される圧縮に依存します。
+画像コレクションは再利用可能な画像リソースを格納します。図形フレームはそのリソースのうちの 1 つを表示し、トリミングや効果など画像固有の書式設定を提供するスライドシェイプです。
 
-**多数のスライドにわたって同じロゴを一括で置換する最適な方法は何ですか？**
+**ロゴをすべての場所で置き換える最良の方法は何ですか？**
 
-ロゴをマスタースライドまたはレイアウトに配置し、プレゼンテーションの画像コレクションで置換すれば、該当リソースを使用しているすべての要素に変更が反映されます。
+ロゴが 1 つの画像リソースとして共有されている場合は、[IPPImage.replaceImage](https://reference.aspose.com/slides/ja/java/com.aspose.slides.ippimage/) でそのリソースを置換します。プレゼンテーション全体のブランディングとしてロゴを配置する場合は、マスタやレイアウト上に置くことでスライドごとの重複を削減できます。
 
-**挿入した SVG を編集可能な形状に変換できますか？**
+**リンク画像が別のコンピュータで消えるのはなぜですか？**
 
-はい。SVG を形状のグループに変換でき、その後個々のパーツは標準のシェイププロパティで編集可能になります。
+リンク画像は外部ファイルまたは URL に依存しています。そのリソースに他のコンピュータからアクセスできない場合、リンク画像は表示されません。プレゼンテーションを自己完結させる必要がある場合は、画像を埋め込んでください。
 
-**複数のスライドに同時に画像を背景として設定するには？**
+**挿入した SVG を PowerPoint のシェイプとして編集できますか？**
 
-マスタースライドまたは該当レイアウトで画像を背景として割り当てます（[Assign the image as the background](/slides/ja/java/presentation-background/)）。そのマスター/レイアウトを使用しているすべてのスライドが背景を継承します。
+はい。SVG を [IShapeCollection.addGroupShape](https://reference.aspose.com/slides/ja/java/com.aspose.slides.ishapecollection/) で変換すると、結果のグループは 1 つの SVG 画像ではなく編集可能なスライドシェイプを含みます。
 
-**画像が多数あるためにプレゼンテーションが大きくなりすぎるのを防ぐには？**
+**画像が多数あるプレゼンテーションを小さく保つにはどうすればよいですか？**
 
-同一画像を重複して使用せずに再利用し、解像度は適切に設定し、保存時に圧縮を適用し、可能であればマスターに繰り返し使用するグラフィックを配置してください。
+共有画像リソースを再利用し、不必要に大きなラスタソースを避け、適切な場合はラスタ画像を圧縮し、繰り返し使用するブランディングはマスタやレイアウトに配置し、外部依存が許容できる場合にのみリンク画像を使用してください。

@@ -1,562 +1,339 @@
 ---
-title: "Tối ưu hóa Quản lý Hình ảnh trong Bài thuyết trình bằng JavaScript"
-linktitle: "Quản lý Hình ảnh"
+title: Tối ưu quản lý hình ảnh trong bản trình chiếu bằng JavaScript
+linktitle: Quản lý hình ảnh
 type: docs
 weight: 10
 url: /vi/nodejs-java/image/
 keywords:
-- "thêm hình ảnh"
-- "thêm ảnh"
-- "thêm bitmap"
-- "thay thế hình ảnh"
-- "thay thế ảnh"
-- "từ web"
-- "nền"
-- "thêm PNG"
-- "thêm JPG"
-- "thêm SVG"
-- "tài nguyên SVG bên ngoài"
-- "bộ giải quyết SVG"
-- "hình ảnh SVG liên kết"
-- "phông chữ SVG"
-- "thêm EMF"
-- "thêm WMF"
-- "thêm TIFF"
-- "PowerPoint"
-- "OpenDocument"
-- "presentation"
-- "Node.js"
-- "JavaScript"
-- "Aspose.Slides"
-description: "Tối ưu hóa việc quản lý hình ảnh trong PowerPoint và OpenDocument với Aspose.Slides for Node.js via Java, nâng cao hiệu suất và tự động hoá quy trình làm việc của bạn."
+- thêm hình ảnh
+- thêm ảnh
+- thay thế hình ảnh
+- bộ sưu tập hình ảnh
+- khung ảnh
+- hình ảnh liên kết
+- nền
+- thêm PNG
+- thêm JPG
+- thêm SVG
+- SVG thành hình dạng
+- tài nguyên SVG bên ngoài
+- PowerPoint
+- OpenDocument
+- bản trình chiếu
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Tìm hiểu cách thêm, tái sử dụng, liên kết, thay thế và quản lý các hình ảnh raster và SVG trong các bản trình chiếu PowerPoint và OpenDocument bằng Aspose.Slides cho Node.js qua Java."
 ---
 ## **Giới thiệu**
 
-Hình ảnh làm cho bài thuyết trình sinh động và hấp dẫn hơn. Trong Microsoft PowerPoint, bạn có thể chèn ảnh vào các slide từ tệp, internet hoặc các nguồn khác. Tương tự, Aspose.Slides cho phép bạn thêm hình ảnh vào các slide trình chiếu theo nhiều cách.
+Aspose.Slides for Node.js via Java cung cấp một số cách để làm việc với hình ảnh, và mỗi cách phục vụ một mục đích khác nhau. Bạn có thể lưu trữ một hình ảnh trong bản trình chiếu, hiển thị nó trong khung ảnh, sử dụng nó làm nền slide, liên kết tới một hình ảnh bên ngoài, thay thế một tài nguyên hình ảnh chia sẻ, hoặc chuyển đổi nội dung SVG thành các hình dạng có thể chỉnh sửa.
 
-{{% alert  title="Tip" color="primary" %}} 
+Bài viết này tập trung vào tài nguyên hình ảnh và cách chúng được sử dụng trong một bản trình chiếu. Đối với việc cắt, trong suốt, hiệu ứng, kéo dài và các định dạng khác được áp dụng cho một khung ảnh riêng lẻ, xem [Picture Frame](/slides/vi/nodejs-java/picture-frame/).
 
-Aspose cung cấp các trình chuyển đổi miễn phí—[JPEG to PowerPoint](https://products.aspose.app/slides/vi/import/jpg-to-ppt) và [PNG to PowerPoint](https://products.aspose.app/slides/vi/import/png-to-ppt)—giúp bạn nhanh chóng tạo bài thuyết trình từ hình ảnh. 
+## **Hiểu mô hình hình ảnh**
 
-{{% /alert %}} 
+Các khái niệm API sau đây có liên quan chặt chẽ nhưng không thể thay thế cho nhau:
 
-{{% alert title="Info" color="info" %}}
+- Bộ sưu tập hình ảnh của bản trình chiếu ([presentation image collection](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/imagecollection/)) lưu trữ các tài nguyên hình ảnh được sử dụng bởi bản trình chiếu. Sử dụng [ImageCollection.addImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/imagecollection/) để thêm dữ liệu hình ảnh và nhận một tài nguyên [PPImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ppimage/).
+- Một [picture frame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pictureframe/) là một hình dạng hiển thị hình ảnh trên slide, layout hoặc master. Sử dụng [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shapecollection/) để đặt tài nguyên hình ảnh lên slide.
+- Nền slide sử dụng hình ảnh như một phần của việc tô đầy slide thay vì là một hình dạng. Do đó nó không hành xử như một khung ảnh.
+- [PPImage.replaceImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ppimage/) thay thế một tài nguyên hình ảnh. Nếu nhiều thành phần trong bản trình chiếu sử dụng tài nguyên đó, tất cả chúng sẽ dùng tài nguyên thay thế.
+- Chuyển đổi SVG thành các hình dạng tạo ra các hình dạng slide có thể chỉnh sửa. Sau khi chuyển đổi, nội dung không còn được quản lý như một tài nguyên hình ảnh duy nhất.
 
-Nếu bạn muốn thêm một hình ảnh dưới dạng khung ảnh—đặc biệt nếu bạn dự định thay đổi kích thước, áp dụng hiệu ứng hoặc sử dụng các tùy chọn định dạng tiêu chuẩn khác—hãy xem [Picture Frame](/slides/vi/nodejs-java/picture-frame/). 
+Một quy trình công việc điển hình do đó: thêm dữ liệu hình ảnh vào bộ sưu tập hình ảnh, nhận một [PPImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ppimage/), và sau đó sử dụng tài nguyên đó trong một hoặc nhiều khung ảnh hoặc vùng tô.
 
-{{% /alert %}} 
+## **Thêm hình ảnh nhúng**
 
-{{% alert title="Note" color="warning" %}}
-
-Bạn có thể chuyển đổi hình ảnh từ định dạng này sang định dạng khác. Xem các trang sau: chuyển đổi [image to JPG](https://products.aspose.com/slides/vi/nodejs-java/conversion/image-to-jpg/), [JPG to image](https://products.aspose.com/slides/vi/nodejs-java/conversion/jpg-to-image/), [JPG to PNG](https://products.aspose.com/slides/vi/nodejs-java/conversion/jpg-to-png/), [PNG to JPG](https://products.aspose.com/slides/vi/nodejs-java/conversion/png-to-jpg/), [PNG to SVG](https://products.aspose.com/slides/vi/nodejs-java/conversion/png-to-svg/), và [SVG to PNG](https://products.aspose.com/slides/vi/nodejs-java/conversion/svg-to-png/).
-
-{{% /alert %}}
-
-Aspose.Slides hỗ trợ các định dạng hình ảnh phổ biến như JPEG, PNG, BMP, GIF và các định dạng khác. 
-
-## **Thêm Hình Ảnh Được Lưu Trên Máy Tính Vào Slide**
-
-Bạn có thể thêm một hoặc nhiều hình ảnh được lưu trên máy tính vào một slide trình chiếu. Mã mẫu JavaScript dưới đây cho thấy cách thêm hình ảnh vào slide:
+Để chèn một hình ảnh cục bộ, tải tệp, thêm nó vào bộ sưu tập hình ảnh và tạo một khung ảnh sử dụng tài nguyên [PPImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ppimage/) đã trả về.
 
 ```javascript
 const aspose = {};
 aspose.slides = require("aspose.slides.via.java");
-
-const pres = new aspose.slides.Presentation();
-try {
-    const slide = pres.getSlides().get_Item(0);
-
-    let picture;
-    const image = aspose.slides.Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
-        }
-    }
-
-    slide.getShapes().addPictureFrame(
-        aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, picture);
-
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **Thêm Hình Ảnh Từ Web Vào Slide**
-
-Nếu hình ảnh bạn muốn thêm vào slide không được lưu trên máy tính, bạn có thể thêm trực tiếp từ web. 
-
-Mã mẫu JavaScript dưới đây cho thấy cách thêm hình ảnh từ web vào slide:
-
-```javascript
-const aspose = {};
-aspose.slides = require("aspose.slides.via.java");
-const java = require("java");
-
-const pres = new aspose.slides.Presentation();
-try {
-    const slide = pres.getSlides().get_Item(0);
-
-    const imageUrl = java.newInstanceSync("java.net.URL", "[REPLACE WITH URL]");
-    const inputStream = imageUrl.openStream();
-    try {
-        let picture;
-        const image = aspose.slides.Images.fromStream(inputStream);
-        try {
-            picture = pres.getImages().addImage(image);
-        } finally {
-            if (image != null) {
-                image.dispose();
-            }
-        }
-
-        slide.getShapes().addPictureFrame(
-            aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, picture);
-    } finally {
-        if (inputStream != null) {
-            inputStream.close();
-        }
-    }
-
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **Thêm Hình Ảnh Vào Slide Master**
-
-Slide master lưu trữ và kiểm soát thông tin như chủ đề và bố cục cho các slide sử dụng nó. Khi bạn thêm hình ảnh vào slide master, hình ảnh sẽ xuất hiện trên mọi slide dựa trên master đó. 
-
-Mã mẫu JavaScript dưới đây cho thấy cách thêm hình ảnh vào slide master:
-
-```javascript
-const aspose = {};
-aspose.slides = require("aspose.slides.via.java");
-
-const pres = new aspose.slides.Presentation();
-try {
-    const slide = pres.getSlides().get_Item(0);
-    const masterSlide = slide.getLayoutSlide().getMasterSlide();
-
-    let picture;
-    const image = aspose.slides.Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
-        }
-    }
-
-    masterSlide.getShapes().addPictureFrame(
-        aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, picture);
-
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **Thêm Hình Ảnh Là Nền Slide**
-
-Bạn có thể sử dụng một bức ảnh làm nền cho một hoặc nhiều slide. Để biết chi tiết, xem *[Setting Images as Backgrounds for Slides](/slides/vi/nodejs-java/presentation-background/#setting-images-as-background-for-slides)*.
-
-## **Thêm SVG Vào Bài Thuyết Trình**
-
-Nội dung SVG có thể được thêm vào bài thuyết trình bằng lớp [SvgImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/svgimage/). Đối tượng hình ảnh SVG tạo ra sau đó có thể được thêm vào bộ sưu tập hình ảnh của bài thuyết trình và dùng để tạo khung ảnh.
-
-Mã mẫu JavaScript dưới đây nhập một chuỗi SVG tự chứa. Tất cả các hình ảnh, kiểu dáng và tài nguyên khác được SVG này sử dụng đều được nhúng trực tiếp trong nội dung SVG.
-
-```javascript
-const aspose = {};
-aspose.slides = require("aspose.slides.via.java");
-
-const svgContent =
-    "<svg xmlns='http://www.w3.org/2000/svg' width='320' height='180'>" +
-    "    <rect width='320' height='180' fill='#4F81BD'/>" +
-    "    <circle cx='160' cy='90' r='55' fill='#F2F2F2'/>" +
-    "</svg>";
 
 const presentation = new aspose.slides.Presentation();
 try {
-    const svgImage = new aspose.slides.SvgImage(svgContent);
-    const image = presentation.getImages().addImage(svgImage);
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("photo.png");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        if (sourceImage != null) {
+            sourceImage.dispose();
+        }
+    }
 
-    presentation.getSlides().get_Item(0).getShapes().addPictureFrame(
-        aspose.slides.ShapeType.Rectangle,
-        20, 20, image.getWidth(), image.getHeight(), image);
+    const slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 320, 180, image);
 
-    presentation.save("self-contained-svg.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Nhập Nội Dung SVG Với Tài Nguyên Bên Ngoài**
+Hình ảnh được thêm theo cách này được nhúng trong bản trình chiếu, vì vậy tệp kết quả không phụ thuộc vào việc tệp hình ảnh gốc còn tồn tại hay không.
 
-Các tệp SVG được xuất từ công cụ thiết kế, trình chỉnh sửa sơ đồ, hệ thống biểu tượng và quy trình xử lý web có thể tham chiếu đến các tài nguyên được lưu bên ngoài tài liệu SVG. Ví dụ, một SVG có thể chứa liên kết hình ảnh như `images/photo.png`, một giá trị CSS `url(...)` hoặc một URL phông chữ.
+### **Thêm hình ảnh từ Web**
 
-Để nhập nội dung SVG như vậy, cung cấp một bộ giải quyết tài nguyên bên ngoài và truyền nó, cùng với URI cơ sở, vào một hàm khởi tạo [SvgImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/svgimage/) thích hợp. URI cơ sở xác định vị trí của tài liệu SVG và được dùng để giải quyết các liên kết tương đối.
-
-Lớp `SvgImage` cung cấp truy cập tới thông tin về SVG đã nhập:
-
-- `getSvgContent()` trả về mã SVG dưới dạng chuỗi.
-- `getSvgData()` trả về nội dung SVG dưới dạng mảng byte.
-- `getBaseUri()` trả về URI cơ sở được dùng cho các liên kết tương đối.
-- `getExternalResourceResolver()` trả về bộ giải quyết đã gán cho hình ảnh SVG.
-
-### **Triển khai Bộ giải quyết tài nguyên bên ngoài**
-
-Bộ giải quyết có hai phương thức:
-
-- `resolveUri` kết hợp URI cơ sở và một liên kết tài nguyên tương đối và trả về một URI tuyệt đối. Trả về `null` khi không thể giải quyết liên kết hoặc không được phép.
-- `getEntity` trả về một luồng Java đọc được cho một URI tài nguyên tuyệt đối. Trả về `null` khi tài nguyên bị thiếu, bị chặn hoặc không khả dụng. Một luồng dự phòng cũng có thể được trả về khi thích hợp.
-
-Trợ giúp dưới đây tạo một bộ giải quyết chỉ tải các tài nguyên liên kết từ một thư mục cục bộ được phép. Các tài nguyên mạng và các đường dẫn ngoài thư mục cho phép sẽ bị chặn. Một ảnh dự phòng tùy chọn sẽ được trả về cho các liên kết ảnh không thể giải quyết.
+Khi một hình ảnh khả dụng qua HTTP hoặc HTTPS, tải byte của nó, thêm chúng vào bộ sưu tập hình ảnh của bản trình chiếu và sử dụng tài nguyên hình ảnh đã trả về theo cùng cách như hình ảnh cục bộ.
 
 ```javascript
-const fs = require("fs");
-const path = require("path");
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const http = require("http");
+const https = require("https");
 const java = require("java");
-const { fileURLToPath, pathToFileURL } = require("url");
 
-function isInsideAllowedRoot(resourcePath, allowedRoot) {
-    const relativePath = path.relative(allowedRoot, resourcePath);
-
-    return relativePath === "" ||
-        (relativePath !== ".." &&
-         !relativePath.startsWith(".." + path.sep) &&
-         !path.isAbsolute(relativePath));
-}
-
-function isImageFile(filePath) {
-    const extension = path.extname(filePath).toLowerCase();
-    return [".png", ".jpg", ".jpeg", ".gif", ".bmp"].includes(extension);
-}
-
-function createLocalSvgResourceResolver(allowedRoot, fallbackImageData) {
-    const normalizedRoot = path.resolve(allowedRoot);
-
-    return java.newProxy("com.aspose.slides.IExternalResourceResolver", {
-        resolveUri: function(baseUri, relativeUri) {
-            if (baseUri == null || baseUri.trim() === "" ||
-                    relativeUri == null || relativeUri.trim() === "") {
-                return null;
+function downloadBytes(url) {
+    return new Promise((resolve, reject) => {
+        const client = url.startsWith("https:") ? https : http;
+        client.get(url, (response) => {
+            if (response.statusCode < 200 || response.statusCode >= 300) {
+                response.resume();
+                reject(new Error(`HTTP ${response.statusCode}`));
+                return;
             }
 
-            try {
-                const absoluteAddress = new URL(relativeUri, baseUri);
-
-                // Bộ giải quyết này cố ý chỉ cho phép các tệp cục bộ.
-                if (absoluteAddress.protocol !== "file:") {
-                    return null;
-                }
-
-                const resourcePath = path.resolve(fileURLToPath(absoluteAddress));
-                if (!isInsideAllowedRoot(resourcePath, normalizedRoot)) {
-                    return null;
-                }
-
-                return pathToFileURL(resourcePath).href;
-            } catch (e) {
-                return null;
-            }
-        },
-
-        getEntity: function(absoluteUri) {
-            try {
-                const resourceUrl = new URL(absoluteUri);
-                if (resourceUrl.protocol !== "file:") {
-                    return null;
-                }
-
-                const resourcePath = path.resolve(fileURLToPath(resourceUrl));
-                if (!isInsideAllowedRoot(resourcePath, normalizedRoot)) {
-                    return null;
-                }
-
-                if (fs.existsSync(resourcePath)) {
-                    return java.newInstanceSync("java.io.FileInputStream", resourcePath);
-                }
-
-                // Chỉ sử dụng ảnh dự phòng cho các tài nguyên hình ảnh. Trả về luồng ảnh
-                // cho phông chữ hoặc stylesheet bị thiếu sẽ không hợp lệ.
-                if (fallbackImageData != null && isImageFile(resourcePath)) {
-                    const javaBytes = java.newArray("byte", Array.from(fallbackImageData));
-                    return java.newInstanceSync("java.io.ByteArrayInputStream", javaBytes);
-                }
-            } catch (e) {
-                return null;
-            }
-
-            return null;
-        }
+            const chunks = [];
+            response.on("data", (chunk) => chunks.push(chunk));
+            response.on("end", () => resolve(Buffer.concat(chunks)));
+        }).on("error", reject);
     });
 }
+
+(async () => {
+    const imageData = await downloadBytes("https://example.com/image.png");
+    const javaBytes = java.newArray("byte", Array.from(imageData));
+
+    const presentation = new aspose.slides.Presentation();
+    try {
+        const image = presentation.getImages().addImage(javaBytes);
+        const slide = presentation.getSlides().get_Item(0);
+        slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 320, 180, image);
+
+        presentation.save("presentation-from-web.pptx", aspose.slides.SaveFormat.Pptx);
+    } finally {
+        presentation.dispose();
+    }
+})();
 ```
 
-### **Giải Quyết Tài Nguyên Liên Kết Khi Nhập SVG**
+Trong các ứng dụng chạy lâu dài, hãy tái sử dụng một client HTTP hoặc chiến lược quản lý kết nối phù hợp với ứng dụng thay vì liên tục tạo ra cơ sở hạ tầng mạng không cần thiết. Ngoài ra, hãy xác thực URL từ xa, kích thước phản hồi và kiểu nội dung khi nguồn không đáng tin cậy.
 
-Giả sử rằng `assets/diagram.svg` chứa một tham chiếu tương đối như:
+## **Tái sử dụng hình ảnh trên nhiều slide**
 
-```xml
-<image href="images/photo.png" x="20" y="20" width="320" height="180" />
-```
+Nếu cùng một hình ảnh cần được dùng nhiều lần, hãy thêm nó vào bản trình chiếu một lần và tái sử dụng [PPImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ppimage/) đã trả về khi tạo các khung ảnh bổ sung. Điều này tránh việc tải lại cùng dữ liệu nguồn và làm cho mối quan hệ giữa tài nguyên hình ảnh chia sẻ và các lần sử dụng của nó trở nên rõ ràng.
 
-Mã JavaScript dưới đây truyền URI của tệp SVG làm URI cơ sở và cung cấp một bộ giải quyết tùy chỉnh. Bộ giải quyết chuyển liên kết ảnh tương đối thành URI tuyệt đối và trả về một luồng chứa tài nguyên liên kết trong khi Aspose.Slides xử lý SVG.
+Đối với các đồ họa nên xuất hiện tự động trên nhiều slide, chẳng hạn như logo công ty, hãy xem xét đặt khung ảnh trên một [slide master](/slides/vi/nodejs-java/slide-master/) hoặc layout thay vì thêm một hình dạng tương đương vào mỗi slide.
+
+## **Sử dụng hình ảnh làm nền slide**
+
+Một hình nền được gán cho vùng tô đầy slide; nó không được thêm như một hình dạng khung ảnh. Điều này hữu ích khi hình ảnh cần bao phủ toàn bộ nền slide và không nên được thao tác như một đối tượng slide thông thường.
 
 ```javascript
 const aspose = {};
 aspose.slides = require("aspose.slides.via.java");
-const fs = require("fs");
-const path = require("path");
-const { pathToFileURL } = require("url");
-
-const svgFilePath = path.resolve("assets", "diagram.svg");
-const assetDirectory = path.dirname(svgFilePath);
-const svgContent = fs.readFileSync(svgFilePath, "utf8");
-
-// URI cơ sở đại diện cho vị trí của tài liệu SVG.
-const baseUri = pathToFileURL(svgFilePath).href;
-
-let fallbackImageData = null;
-const fallbackImagePath = path.join(assetDirectory, "fallback.png");
-if (fs.existsSync(fallbackImagePath)) {
-    fallbackImageData = fs.readFileSync(fallbackImagePath);
-}
-
-const resolver = createLocalSvgResourceResolver(assetDirectory, fallbackImageData);
-const svgImage = new aspose.slides.SvgImage(svgContent, resolver, baseUri);
-
-// SvgImage exposes the source content, binary data, base URI, and resolver.
-const importedContent = svgImage.getSvgContent();
-const importedData = svgImage.getSvgData();
-const importedBaseUri = svgImage.getBaseUri();
-const importedResolver = svgImage.getExternalResourceResolver();
 
 const presentation = new aspose.slides.Presentation();
 try {
-    const image = presentation.getImages().addImage(svgImage);
+    const slide = presentation.getSlides().get_Item(0);
 
-    presentation.getSlides().get_Item(0).getShapes().addPictureFrame(
-        aspose.slides.ShapeType.Rectangle,
-        20, 20, image.getWidth(), image.getHeight(), image);
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("background.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        if (sourceImage != null) {
+            sourceImage.dispose();
+        }
+    }
 
-    presentation.save("svg-with-linked-resources.pptx", aspose.slides.SaveFormat.Pptx);
+    const backgroundType = java.newByte(aspose.slides.BackgroundType.OwnBackground);
+    slide.getBackground().setType(backgroundType);
+
+    const fillType = java.newByte(aspose.slides.FillType.Picture);
+    slide.getBackground().getFillFormat().setFillType(fillType);
+
+    slide.getBackground().getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
+    slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().setImage(image);
+
+    presentation.save("background-image.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Lớp `SvgImage` cũng cung cấp các overload cho phép nhận dữ liệu SVG dưới dạng mảng byte, cũng như các phương thức khởi tạo dựa trên luồng, kèm theo bộ giải quyết tài nguyên bên ngoài và URI cơ sở.
+Đối với các tùy chọn nền bổ sung, bao gồm nền master và layout, xem [Presentation Background](/slides/vi/nodejs-java/presentation-background/).
 
-{{% alert title="Important" color="warning" %}}
+## **Hình ảnh nhúng và hình ảnh liên kết**
 
-Bộ giải quyết tài nguyên làm cho các tài nguyên bên ngoài khả dụng trong khi Aspose.Slides xử lý và render SVG. Nó không thay đổi mã SVG gốc hoặc tự động nhúng các tài nguyên đã giải quyết vào trong đó.
+Hình ảnh nhúng và hình ảnh liên kết có các cân bằng khác nhau về tính di động và kích thước tệp:
 
-Khi một hình ảnh SVG được thêm vào bộ sưu tập hình ảnh của bài thuyết trình, tệp PPTX có thể chứa cả biểu diễn SVG gốc và một ảnh raster dự phòng. Một tài nguyên được liên kết có thể xuất hiện trong ảnh dự phòng được tạo ra trong khi một liên kết tương đối như `images/photo.png` vẫn giữ nguyên trong SVG đã lưu. Do đó, một ứng dụng render biểu diễn SVG gốc có thể bỏ qua nội dung liên kết khi tài nguyên bên ngoài gốc không khả dụng.
+- **Hình ảnh nhúng:** dữ liệu hình ảnh được lưu trong bản trình chiếu. Bản trình chiếu tự chứa, nhưng kích thước tệp bao gồm cả dữ liệu hình ảnh.
+- **Hình ảnh liên kết:** bản trình chiếu lưu trữ một đường dẫn hoặc URL tới hình ảnh bên ngoài. Điều này có thể giảm kích thước bản trình chiếu, nhưng tài nguyên bên ngoài phải luôn khả dụng khi bản trình chiếu được mở hoặc render.
 
-{{% /alert %}}
+Một hình ảnh liên kết có thể được tạo bằng cách gán đường dẫn hoặc URL bên ngoài thông qua [Picture.setLinkPathLong](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/picture/) thay vì nhúng dữ liệu hình ảnh.
 
-### **Tạo Ảnh SVG Di động**
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
 
-Để tạo một ảnh SVG không phụ thuộc vào các tệp bên ngoài, hãy làm cho SVG tự chứa trước khi tạo `SvgImage`. Ví dụ, thay thế các URL hình ảnh liên kết bằng các URI `data:` chứa dữ liệu hình ảnh:
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 320, 180, null);
+    pictureFrame.getPictureFormat().getPicture().setLinkPathLong("https://example.com/image.png");
 
-```xml
-<image href="data:image/png;base64,..." x="20" y="20" width="320" height="180" />
+    presentation.save("linked-image.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
-Sau khi nhúng tất cả các tài nguyên cần thiết vào nội dung SVG, tạo `SvgImage`, thêm nó vào bộ sưu tập hình ảnh của bài thuyết trình và chèn vào khung ảnh như trong ví dụ trước.
+Chỉ sử dụng hình ảnh liên kết khi môi trường triển khai có thể tin cậy truy cập tài nguyên bên ngoài. Đối với các bản trình chiếu phải hoạt động offline hoặc được chuyển giữa các hệ thống, hình ảnh nhúng thường an toàn hơn.
 
-### **Xử Lý Tài Nguyên Thiếu Hoặc Bị Chặn**
+## **Làm việc với hình ảnh SVG**
 
-Trả về `null` từ `resolveUri` khi URI tài nguyên không hợp lệ, bị cấm hoặc không thể giải quyết. Trả về `null` từ `getEntity` khi không thể đọc tài nguyên. Aspose.Slides sẽ tiếp tục xử lý SVG mà không có tài nguyên đó khi có thể.
+SVG là định dạng vector, vì vậy nó hữu ích cho biểu tượng, sơ đồ và các đồ họa khác cần phóng to mà không mất chi tiết như hình ảnh raster. Aspose.Slides hỗ trợ SVG cả dưới dạng tài nguyên hình ảnh và là nguồn cho các hình dạng slide có thể chỉnh sửa.
 
-Một luồng dự phòng có thể được trả về cho tài nguyên bị thiếu, nhưng nội dung của nó phải tương thích với loại tài nguyên được yêu cầu. Ví dụ, chỉ trả về luồng ảnh cho ảnh bị thiếu, không phải cho phông chữ hay stylesheet.
+### **Thêm SVG dưới dạng hình ảnh**
 
-{{% alert title="Security" color="warning" %}}
-
-Không giải quyết các đường dẫn tệp tùy ý hoặc URL mạng không giới hạn từ các tệp SVG không đáng tin cậy. Hạn chế các scheme, thư mục và host được phép. Đối với tài nguyên mạng, cũng áp dụng thời gian chờ kết nối, giới hạn kích thước phản hồi và xác thực nội dung.
-
-{{% /alert %}}
-
-## **Chuyển Đổi SVG Thành Tập Hình Dạng**
-
-Aspose.Slides có thể chuyển đổi một SVG thành một tập hợp các hình dạng, tương tự chức năng tương ứng trong PowerPoint:
-
-![PowerPoint Popup Menu](img_01_01.png)
-
-Chức năng này được cung cấp bởi một overload của phương thức [addGroupShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ShapeCollection#addGroupShape-aspose.slides.ISvgImage-float-float-float-float-) của lớp [ShapeCollection](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ShapeCollection) nhận đối tượng hình ảnh SVG làm đối số đầu tiên.
-
-Mã mẫu JavaScript dưới đây cho thấy cách sử dụng phương thức này để chuyển đổi tệp SVG thành một tập hợp các hình dạng:
+Tạo một [SvgImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/svgimage/), thêm nó vào bộ sưu tập hình ảnh và đặt tài nguyên hình ảnh kết quả vào một khung ảnh.
 
 ```javascript
 const aspose = {};
 aspose.slides = require("aspose.slides.via.java");
 const fs = require("fs");
-const java = require("java");
 
-// Tên tệp SVG nguồn.
-const svgFileName = "sample.svg";
-
-// Tên tệp bài thuyết trình đầu ra.
-const outPptxPath = "presentation.pptx";
-
-// Tạo một bài thuyết trình mới.
 const presentation = new aspose.slides.Presentation();
 try {
-    // Đọc nội dung tệp SVG.
-    const svgContent = java.newArray("byte", Array.from(fs.readFileSync(svgFileName)));
-
-    // Tạo đối tượng SvgImage.
+    const svgContent = fs.readFileSync("icon.svg", "utf8");
     const svgImage = new aspose.slides.SvgImage(svgContent);
 
-    // Lấy kích thước slide.
-    const slideSize = presentation.getSlideSize().getSize();
+    const image = presentation.getImages().addImage(svgImage);
+    const slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 200, 200, image);
 
-    // Chuyển đổi ảnh SVG thành một nhóm hình dạng và co giãn theo kích thước slide.
-    presentation.getSlides().get_Item(0).getShapes().addGroupShape(
-        svgImage, 0.0, 0.0, slideSize.getWidth(), slideSize.getHeight());
-
-    // Lưu bài thuyết trình ở định dạng PPTX.
-    presentation.save(outPptxPath, aspose.slides.SaveFormat.Pptx);
+    presentation.save("svg-image.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Thêm Hình Ảnh Dưới Dạng EMF Vào Slide**
+### **Tập tin SVG với tài nguyên bên ngoài**
 
-Aspose.Slides for Node.js via Java cho phép bạn tạo các hình ảnh EMF từ các bảng tính Excel bằng Aspose.Cells và thêm chúng vào các slide trình chiếu.
+Một SVG có thể tham chiếu đến các hình ảnh, stylesheet hoặc font bên ngoài. Đối với các trường hợp này, [SvgImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/svgimage/) cung cấp các constructor chấp nhận một [ExternalResourceResolver](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/externalresourceresolver/) và một URI cơ sở. Resolver có thể ánh xạ một URI tương đối sang một URI tuyệt đối được phép và trả về một stream cho tài nguyên được yêu cầu.
 
-Mã mẫu JavaScript dưới đây cho thấy cách thực hiện:
+Resolver làm cho các tài nguyên bên ngoài khả dụng trong khi Aspose.Slides xử lý SVG, nhưng nó không ghi lại lại SVG thành một tài liệu tự chứa. Nếu SVG cần vẫn di động, hãy nhúng các tài nguyên cần thiết vào chính SVG, ví dụ bằng cách sử dụng URI `data:` cho các hình ảnh liên kết.
 
-```javascript
-const aspose = {};
-aspose.slides = require("aspose.slides.via.java");
-const java = require("java");
+Khi các tệp SVG đến từ nguồn không đáng tin cậy, hãy hạn chế các scheme, vị trí tệp và máy chủ mà resolver có thể truy cập. Resolver mạng cũng nên áp dụng thời gian chờ, giới hạn kích thước phản hồi và kiểm tra nội dung.
 
-const book = java.newInstanceSync("aspose.cells.Workbook", "chart.xlsx");
-const sheet = book.getWorksheets().get(0);
+### **Chuyển đổi SVG thành các hình dạng có thể chỉnh sửa**
 
-const options = java.newInstanceSync("aspose.cells.ImageOrPrintOptions");
-options.setHorizontalResolution(200);
-options.setVerticalResolution(200);
-options.setImageType(java.getStaticFieldValue("ImageType", "EMF"));
+Aspose.Slides có thể chuyển đổi một SVG thành một nhóm các hình dạng slide có thể chỉnh sửa, tương tự lệnh tương đương trong PowerPoint.
 
-// Lưu workbook vào một luồng.
-const sr = java.newInstanceSync("SheetRender", sheet, options);
-const pres = new aspose.slides.Presentation();
-try {
-    pres.getSlides().removeAt(0);
+![Menu bật lên PowerPoint](img_01_01.png)
 
-    for (let j = 0; j < sr.getPageCount(); j++) {
-        const emfSheetName = "test" + sheet.getName() + " Page" + (j + 1) + ".out.emf";
-        sr.toImage(j, emfSheetName);
-
-        // Thêm tệp nguyên vẹn để hình ảnh vẫn là EMF vector thay vì bị raster hoá.
-        let picture;
-        const imageStream = java.newInstanceSync("java.io.FileInputStream", emfSheetName);
-        try {
-            picture = pres.getImages().addImage(imageStream);
-        } finally {
-            imageStream.close();
-        }
-
-        const slide = pres.getSlides().addEmptySlide(
-            pres.getLayoutSlides().getByType(aspose.slides.SlideLayoutType.Blank));
-        slide.getShapes().addPictureFrame(
-            aspose.slides.ShapeType.Rectangle,
-            0,
-            0,
-            pres.getSlideSize().getSize().getWidth(),
-            pres.getSlideSize().getSize().getHeight(),
-            picture);
-    }
-
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **Thay Thế Hình Ảnh Trong Bộ Sưu Tập Hình Ảnh**
-
-Aspose.Slides cho phép bạn thay thế các hình ảnh được lưu trong bộ sưu tập hình ảnh của bài thuyết trình, bao gồm cả các hình ảnh được các hình dạng slide sử dụng. Phần này mô tả một số cách cập nhật hình ảnh trong bộ sưu tập. Bạn có thể thay thế một hình ảnh bằng dữ liệu byte thô, một thể hiện [IImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/iimage/) hoặc một hình ảnh khác đã tồn tại trong bộ sưu tập.
-
-Thực hiện các bước sau:
-
-1. Tải tệp bài thuyết trình chứa hình ảnh bằng lớp [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/).
-1. Tải một hình ảnh mới từ tệp vào một mảng byte.
-1. Thay thế hình ảnh mục tiêu bằng hình ảnh mới bằng mảng byte.
-1. Trong cách thứ hai, tải hình ảnh vào đối tượng [IImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/iimage/) và thay thế hình ảnh mục tiêu bằng đối tượng đó.
-1. Trong cách thứ ba, thay thế hình ảnh mục tiêu bằng một hình ảnh đã tồn tại trong bộ sưu tập hình ảnh của bài thuyết trình.
-1. Ghi lại bài thuyết trình đã chỉnh sửa dưới dạng tệp PPTX.
+Sử dụng phương thức overload của [ShapeCollection.addGroupShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shapecollection/) chấp nhận hình ảnh SVG để thực hiện chuyển đổi.
 
 ```javascript
 const aspose = {};
 aspose.slides = require("aspose.slides.via.java");
 const fs = require("fs");
-const java = require("java");
 
-// Khởi tạo lớp Presentation đại diện cho tệp bài thuyết trình.
-const presentation = new aspose.slides.Presentation("sample.pptx");
+const presentation = new aspose.slides.Presentation();
 try {
-    // Cách thứ nhất.
-    const imageData = java.newArray("byte", Array.from(fs.readFileSync("image0.jpeg")));
-    let oldImage = presentation.getImages().get_Item(0);
-    oldImage.replaceImage(imageData);
+    const svgContent = fs.readFileSync("diagram.svg", "utf8");
+    const svgImage = new aspose.slides.SvgImage(svgContent);
 
-    // Cách thứ hai.
-    const newImage = aspose.slides.Images.fromFile("image1.png");
+    const slideSize = presentation.getSlideSize().getSize();
+    const slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addGroupShape(svgImage, 0, 0, slideSize.getWidth(), slideSize.getHeight());
+
+    presentation.save("editable-svg-shapes.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Sử dụng chuyển đổi SVG‑to‑shapes khi các phần tử vector riêng lẻ cần được chỉnh sửa dưới dạng các hình dạng PowerPoint. Nếu SVG chỉ cần hiển thị, giữ nó dưới dạng hình ảnh sẽ đơn giản hơn và tránh tạo ra nhiều hình dạng riêng biệt.
+
+## **Thay thế tài nguyên hình ảnh hiện có**
+
+Sử dụng [PPImage.replaceImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ppimage/) khi bạn muốn thay thế một tài nguyên hình ảnh hiện có. Điều này đặc biệt hữu ích cho các đồ họa chia sẻ như logo.
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const imageToReplace = presentation.getImages().get_Item(0);
+
+    const replacementImage = aspose.slides.Images.fromFile("new-logo.png");
     try {
-        oldImage = presentation.getImages().get_Item(1);
-        oldImage.replaceImage(newImage);
+        imageToReplace.replaceImage(replacementImage);
     } finally {
-        if (newImage != null) {
-            newImage.dispose();
+        if (replacementImage != null) {
+            replacementImage.dispose();
         }
     }
 
-    // Cách thứ ba.
-    oldImage = presentation.getImages().get_Item(2);
-    oldImage.replaceImage(presentation.getImages().get_Item(3));
-
-    // Lưu bài thuyết trình ra tệp.
     presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="Info" color="info" %}}
+Nếu nhiều khung ảnh, nền, master hoặc layout sử dụng cùng một tài nguyên hình ảnh, việc thay thế tài nguyên đó sẽ cập nhật tất cả các lần sử dụng. Nếu chỉ một khung ảnh cần thay đổi, hãy gán một hình ảnh khác cho khung đó thay vì thay thế tài nguyên chia sẻ.
 
-Với trình chuyển đổi miễn phí [Text to GIF](https://products.aspose.app/slides/vi/text-to-gif) của Aspose, bạn có thể dễ dàng tạo hoạt ảnh chữ và tạo GIF từ văn bản. 
+[PPImage.replaceImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ppimage/) cũng cung cấp các overload chấp nhận một mảng byte hoặc một [PPImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ppimage/) khác.
 
-{{% /alert %}}
+## **Hướng dẫn thực tế về quản lý hình ảnh**
 
-## **FAQ**
+### **Kiểm soát kích thước bản trình chiếu**
 
-**Độ phân giải gốc của hình ảnh có được giữ nguyên sau khi chèn không?**
+Hình ảnh raster lớn có thể làm cho bản trình chiếu trở nên không cần thiết lớn. Sử dụng hình ảnh nguồn có kích thước phù hợp với kích thước hiển thị dự kiến, tái sử dụng các tài nguyên hình ảnh chia sẻ khi có thể và tránh nhúng các bản sao lặp lại của cùng một đồ họa độ phân giải cao.
 
-Có. Các pixel nguồn được bảo toàn, nhưng ngoại hình cuối cùng phụ thuộc vào cách mà [picture](/slides/vi/nodejs-java/picture-frame/) được thu phóng trên slide và bất kỳ việc nén nào được áp dụng khi lưu.
+Đối với các hình ảnh raster đã được đặt trong khung ảnh, [PictureFillFormat.compressImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/picturefillformat/) có thể giảm dữ liệu hình ảnh theo độ phân giải và cài đặt cắt đã chọn. Đây là xử lý khung ảnh chứ không phải quản lý bộ sưu tập hình ảnh, vì vậy hãy xem [Picture Frame](/slides/vi/nodejs-java/picture-frame/) để biết các thao tác định dạng liên quan.
 
-**Cách tốt nhất để thay thế cùng một logo trên hàng chục slide một lúc là gì?**
+### **Chọn giữa nội dung nhúng và liên kết**
 
-Đặt logo trên slide master hoặc layout và thay thế nó trong bộ sưu tập hình ảnh của bài thuyết trình—các cập nhật sẽ lan tới tất cả các thành phần sử dụng tài nguyên đó.
+Nhúng làm cho bản trình chiếu di động vì tất cả dữ liệu hình ảnh cần thiết đi cùng tệp. Liên kết có thể giảm kích thước tệp, nhưng nó tạo ra một phụ thuộc bên ngoài. Chỉ sử dụng liên kết khi phụ thuộc đó chấp nhận được và ổn định.
 
-**Có thể chuyển một SVG đã chèn thành các hình dạng có thể chỉnh sửa không?**
+### **Tái sử dụng thương hiệu chung**
 
-Có. Bạn có thể chuyển SVG thành một nhóm các hình dạng, sau đó các phần riêng lẻ trở nên có thể chỉnh sửa bằng các thuộc tính hình dạng tiêu chuẩn.
+Đối với các logo, watermark hoặc đồ họa trang trí được lặp lại, hãy sử dụng một tài nguyên hình ảnh và tái sử dụng nó. Nếu đồ họa thuộc về thiết kế bản trình chiếu hơn là nội dung slide, hãy đặt nó trên một master hoặc layout để nó được kế thừa bởi các slide thích hợp.
 
-**Làm sao để đặt một ảnh làm nền cho nhiều slide cùng lúc?**
+### **Giữ tài nguyên SVG di động**
 
-[Chỉ định hình ảnh làm nền](/slides/vi/nodejs-java/presentation-background/) trên slide master hoặc layout liên quan—bất kỳ slide nào sử dụng master/layout đó sẽ kế thừa nền.
+Một SVG tự chứa dễ di chuyển và render nhất quán hơn so với một SVG phụ thuộc vào các tệp hoặc tài nguyên mạng bên ngoài. Khi có thể, hãy nhúng các tài nguyên cần thiết trước khi nhập SVG. Chuyển đổi SVG thành các hình dạng chỉ nên thực hiện khi các phần tử vector riêng lẻ cần được chỉnh sửa.
 
-**Làm thế nào để ngăn một bài thuyết trình trở nên quá lớn vì quá nhiều hình ảnh?**
+### **Sử dụng API hình ảnh đa nền tảng hiện đại**
 
-Tái sử dụng một tài nguyên hình ảnh duy nhất thay vì sao chép, chọn độ phân giải hợp lý, áp dụng nén khi lưu và giữ các đồ họa lặp lại trên master khi thích hợp.
+Đối với mã Node.js via Java mới, hãy sử dụng các API Aspose.Slides [IImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/iimage/) và [Images](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/images/) thay vì API công cộng kế thừa dựa trên `java.awt.image.BufferedImage`. Xem [Modern API](/slides/vi/nodejs-java/modern-api/) để biết hướng dẫn di chuyển.
+
+WMF và EMF cần xem xét đặc biệt. Khi các định dạng này được truyền qua một [IImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/iimage/), [ImageCollection.addImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/imagecollection/) chuyển đổi metafile thành một đại diện PNG raster trước khi chèn. Nếu việc giữ nguyên dữ liệu metafile là quan trọng, hãy sử dụng overload dựa trên stream của [ImageCollection.addImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/imagecollection/) thay thế. Tạo nội dung EMF từ bảng tính hoặc các sản phẩm khác là một quy trình tích hợp riêng và nằm ngoài phạm vi của bài viết này.
+
+## **Câu hỏi thường gặp**
+
+**Sự khác nhau giữa bộ sưu tập hình ảnh và một khung ảnh là gì?**
+
+Bộ sưu tập hình ảnh lưu trữ các tài nguyên hình ảnh có thể tái sử dụng. Một khung ảnh là một hình dạng slide hiển thị một trong các tài nguyên đó và cung cấp các định dạng đặc thù cho hình ảnh như cắt và hiệu ứng.
+
+**Cách tốt nhất để thay thế cùng một logo ở khắp mọi nơi là gì?**
+
+Nếu logo đã được chia sẻ dưới dạng một tài nguyên hình ảnh, hãy thay thế tài nguyên đó bằng [PPImage.replaceImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/ppimage/). Đối với việc xây dựng thương hiệu trên toàn bộ bản trình chiếu, việc đặt logo trên một master hoặc layout cũng có thể giảm nội dung slide trùng lắp.
+
+**Tại sao một hình ảnh liên kết lại biến mất trên máy tính khác?**
+
+Một hình ảnh liên kết phụ thuộc vào tệp hoặc URL bên ngoài. Nếu tài nguyên đó không thể truy cập được từ máy tính khác, hình ảnh liên kết sẽ không có sẵn. Hãy nhúng hình ảnh khi bản trình chiếu phải tự chứa.
+
+**Có thể chỉnh sửa một SVG đã chèn thành các hình dạng PowerPoint không?**
+
+Có. Chuyển đổi SVG bằng [ShapeCollection.addGroupShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shapecollection/); nhóm kết quả chứa các hình dạng slide có thể chỉnh sửa thay vì một hình ảnh SVG duy nhất.
+
+**Làm sao để giữ các bản trình chiếu có nhiều hình ảnh có kích thước nhỏ hơn?**
+
+Tái sử dụng các tài nguyên hình ảnh chia sẻ, tránh sử dụng các nguồn raster không cần thiết lớn, nén các hình raster phù hợp khi cần, giữ các thương hiệu lặp lại trên master hoặc layout, và chỉ sử dụng hình ảnh liên kết khi phụ thuộc bên ngoài là chấp nhận được.

@@ -1,562 +1,322 @@
 ---
-title: "Tối ưu quản lý hình ảnh trong bài thuyết trình trên Android"
-linktitle: "Quản lý Hình ảnh"
+title: Tối ưu hóa Quản lý Hình ảnh trong Bài thuyết trình trên Android
+linktitle: Quản lý Hình ảnh
 type: docs
 weight: 10
 url: /vi/androidjava/image/
 keywords:
 - thêm hình ảnh
 - thêm ảnh
-- thêm bitmap
 - thay thế hình ảnh
-- thay thế ảnh
-- từ web
+- bộ sưu tập hình ảnh
+- khung hình
+- hình ảnh liên kết
 - nền
 - thêm PNG
 - thêm JPG
 - thêm SVG
+- SVG thành hình dạng
 - tài nguyên SVG bên ngoài
-- bộ giải quyết SVG
-- ảnh SVG liên kết
-- phông chữ SVG
-- thêm EMF
-- thêm WMF
-- thêm TIFF
 - PowerPoint
 - OpenDocument
 - bài thuyết trình
 - Android
 - Java
 - Aspose.Slides
-description: "Tối ưu hoá quản lý hình ảnh trong PowerPoint và OpenDocument với Aspose.Slides cho Android qua Java, nâng cao hiệu suất và tự động hoá quy trình của bạn."
+description: "Tìm hiểu cách thêm, tái sử dụng, liên kết, thay thế và quản lý hình ảnh raster và SVG trong các bài thuyết trình PowerPoint và OpenDocument với Aspose.Slides cho Android qua Java."
 ---
 ## **Giới thiệu**
 
-Hình ảnh làm cho bài thuyết trình hấp dẫn hơn và thu hút về mặt thị giác. Trong Microsoft PowerPoint, bạn có thể chèn hình ảnh vào các slide từ tệp, internet hoặc các nguồn khác. Tương tự, Aspose.Slides cho phép bạn thêm hình ảnh vào các slide của bài thuyết trình theo nhiều cách.
+Aspose.Slides for Android via Java cung cấp một số cách làm việc với hình ảnh, và mỗi cách phục vụ một mục đích khác nhau. Bạn có thể lưu trữ một hình ảnh trong bài thuyết trình, hiển thị nó trong khung hình, sử dụng nó làm nền slide, liên kết tới một hình ảnh bên ngoài, thay thế một tài nguyên hình ảnh được chia sẻ, hoặc chuyển đổi nội dung SVG thành các hình dạng có thể chỉnh sửa.
 
-{{% alert  title="Tip" color="primary" %}} 
-Aspose cung cấp các công cụ chuyển đổi miễn phí—[JPEG to PowerPoint](https://products.aspose.app/slides/vi/import/jpg-to-ppt) và [PNG to PowerPoint](https://products.aspose.app/slides/vi/import/png-to-ppt)—giúp bạn nhanh chóng tạo bài thuyết trình từ hình ảnh. 
-{{% /alert %}} 
+Bài viết này tập trung vào các tài nguyên hình ảnh và cách chúng được sử dụng trong toàn bộ bài thuyết trình. Đối với việc cắt, trong suốt, hiệu ứng, kéo dài và các định dạng khác được áp dụng cho một khung hình riêng lẻ, hãy xem [Khung Hình](/slides/vi/androidjava/picture-frame/).
 
-{{% alert title="Info" color="info" %}}
-Nếu bạn muốn thêm một hình ảnh dưới dạng khung ảnh—đặc biệt nếu bạn định thay đổi kích thước, áp dụng hiệu ứng, hoặc sử dụng các tùy chọn định dạng tiêu chuẩn khác—xem [Picture Frame](/slides/vi/androidjava/picture-frame/). 
-{{% /alert %}} 
+## **Hiểu Mô Hình Hình Ảnh**
 
-{{% alert title="Note" color="warning" %}}
-Bạn có thể chuyển đổi hình ảnh từ định dạng này sang định dạng khác. Xem các trang sau: chuyển đổi [image to JPG](https://products.aspose.com/slides/vi/androidjava/conversion/image-to-jpg/), [JPG to image](https://products.aspose.com/slides/vi/androidjava/conversion/jpg-to-image/), [JPG to PNG](https://products.aspose.com/slides/vi/androidjava/conversion/jpg-to-png/), [PNG to JPG](https://products.aspose.com/slides/vi/androidjava/conversion/png-to-jpg/), [PNG to SVG](https://products.aspose.com/slides/vi/androidjava/conversion/png-to-svg/), và [SVG to PNG](https://products.aspose.com/slides/vi/androidjava/conversion/svg-to-png/).
-{{% /alert %}}
+Các khái niệm API sau đây có liên quan chặt chẽ nhưng không thể hoán đổi được:
 
-Aspose.Slides hỗ trợ hình ảnh ở các định dạng phổ biến như JPEG, PNG, BMP, GIF và các định dạng khác. 
+- Bộ sưu tập hình ảnh của bài thuyết trình ([presentation image collection](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iimagecollection/)) lưu trữ các tài nguyên hình ảnh được sử dụng bởi bài thuyết trình. Sử dụng [ImageCollection.addImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imagecollection/) để thêm dữ liệu hình ảnh và nhận một tài nguyên [IPPImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ippimage/).
+- Một khung hình ([picture frame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ipictureframe/)) là một hình dạng hiển thị hình ảnh trên slide, layout hoặc master. Sử dụng [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ishapecollection/) để đặt tài nguyên hình ảnh lên slide.
+- Nền slide sử dụng hình ảnh như một phần của nền slide thay vì là một hình dạng. Do đó nó không hành xử giống như một khung hình.
+- [IPPImage.replaceImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ippimage/) thay thế một tài nguyên hình ảnh. Nếu nhiều thành phần trong bài thuyết trình sử dụng tài nguyên đó, chúng đều sẽ sử dụng hình ảnh mới.
+- Chuyển đổi SVG thành các hình dạng tạo ra các hình dạng slide có thể chỉnh sửa. Sau khi chuyển đổi, nội dung không còn được quản lý như một tài nguyên hình ảnh duy nhất.
 
-## **Thêm hình ảnh lưu trữ cục bộ vào slide**
+Do đó, quy trình điển hình là: thêm dữ liệu hình ảnh vào bộ sưu tập hình ảnh, nhận một [IPPImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ippimage/), và sau đó sử dụng tài nguyên đó trong một hoặc nhiều khung hình hoặc nền.
 
-Bạn có thể thêm một hoặc nhiều hình ảnh được lưu trên máy tính của mình vào một slide trong bài thuyết trình. Đoạn mã mẫu Java sau đây cho thấy cách thêm hình ảnh vào một slide:
+## **Thêm Hình Ảnh Được Nhúng**
+
+Để chèn một hình ảnh cục bộ, tải tệp, thêm nó vào bộ sưu tập hình ảnh và tạo một khung hình sử dụng `IPPImage` đã trả về.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    IPPImage picture;
-    IImage image = Images.fromFile("image.png");
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.png");
     try {
-        picture = pres.getImages().addImage(image);
+        image = presentation.getImages().addImage(sourceImage);
     } finally {
-        if (image != null) image.dispose();
+        if (sourceImage != null) sourceImage.dispose();
     }
 
-    slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
 
-    pres.save("pres.pptx", SaveFormat.Pptx);
+    presentation.save("presentation.pptx", SaveFormat.Pptx);
 } finally {
-    pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Thêm hình ảnh từ web vào slide**
+Hình ảnh được thêm theo cách này sẽ được nhúng trong bài thuyết trình, vì vậy tệp kết quả không phụ thuộc vào việc tệp hình ảnh gốc còn tồn tại hay không.
 
-Nếu hình ảnh bạn muốn thêm vào slide không được lưu trên máy tính, bạn có thể thêm trực tiếp từ web. 
+### **Thêm Hình Ảnh Từ Web**
 
-Đoạn mã mẫu Java sau đây cho thấy cách thêm hình ảnh từ web vào một slide:
+Khi một hình ảnh có sẵn qua HTTP hoặc HTTPS, tải về dữ liệu byte của nó, thêm chúng vào bộ sưu tập hình ảnh của bài thuyết trình, và sử dụng tài nguyên hình ảnh đã trả về tương tự như hình ảnh cục bộ.
 
 ```java
 import com.aspose.slides.*;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URI;
 import java.net.URL;
-import java.net.URLConnection;
-
-Presentation pres = new Presentation();
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    URL imageUrl = new URL("[REPLACE WITH URL]");
-    URLConnection connection = imageUrl.openConnection();
-    InputStream inputStream = connection.getInputStream();
-
-    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-    try {
-        byte[] buffer = new byte[1024];
-        int read;
-
-        while ((read = inputStream.read(buffer, 0, buffer.length)) != -1) {
-            outputStream.write(buffer, 0, read);
-        }
-
-        outputStream.flush();
-
-        IPPImage image = pres.getImages().addImage(outputStream.toByteArray());
-        slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    } finally {
-        if (inputStream != null) inputStream.close();
-        outputStream.close();
-    }
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    pres.dispose();
-}
-```
-
-## **Thêm hình ảnh vào Slide Master**
-
-Slide master lưu trữ và kiểm soát thông tin như chủ đề và bố cục cho các slide sử dụng nó. Khi bạn thêm hình ảnh vào slide master, hình ảnh sẽ xuất hiện trên mọi slide dựa trên master đó. 
-
-Đoạn mã mẫu Java sau đây cho thấy cách thêm hình ảnh vào slide master:
-
-```java
-import com.aspose.slides.*;
-
-Presentation pres = new Presentation();
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IMasterSlide masterSlide = slide.getLayoutSlide().getMasterSlide();
-
-    IPPImage picture;
-    IImage image = Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-
-    masterSlide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **Thêm hình ảnh làm nền slide**
-
-Bạn có thể sử dụng một bức ảnh làm nền cho một hoặc nhiều slide. Để biết chi tiết, xem *[Setting Images as Backgrounds for Slides](/slides/vi/androidjava/presentation-background/#setting-images-as-background-for-slides)*.
-
-## **Thêm SVG vào bài thuyết trình**
-
-Bạn có thể thêm nội dung SVG vào một bài thuyết trình bằng cách sử dụng lớp [SvgImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/svgimage/). Đối tượng [ISvgImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/isvgimage/) được tạo ra sau đó có thể được thêm vào bộ sưu tập hình ảnh của bài thuyết trình và dùng để tạo một khung ảnh.
-
-Đoạn mã Java sau nhập một chuỗi SVG tự chứa. Tất cả các hình ảnh, kiểu dáng và tài nguyên khác được sử dụng bởi SVG này đều được nhúng trực tiếp trong nội dung SVG.
-
-```java
-import com.aspose.slides.*;
-
-String svgContent =
-        "<svg xmlns='http://www.w3.org/2000/svg' width='320' height='180'>" +
-        "    <rect width='320' height='180' fill='#4F81BD'/>" +
-        "    <circle cx='160' cy='90' r='55' fill='#F2F2F2'/>" +
-        "</svg>";
 
 Presentation presentation = new Presentation();
 try {
-    ISvgImage svgImage = new SvgImage(svgContent);
-    IPPImage image = presentation.getImages().addImage(svgImage);
+    URL imageUrl = URI.create("https://example.com/image.png").toURL();
+    HttpURLConnection connection = (HttpURLConnection) imageUrl.openConnection();
+    connection.setConnectTimeout(10000);
+    connection.setReadTimeout(10000);
 
-    presentation.getSlides().get_Item(0).getShapes().addPictureFrame(
-            ShapeType.Rectangle, 20, 20, image.getWidth(), image.getHeight(), image);
+    try (InputStream inputStream = connection.getInputStream(); 
+         ByteArrayOutputStream outputStream = new ByteArrayOutputStream()) {
+        byte[] buffer = new byte[8192];
+        int bytesRead;
+        while ((bytesRead = inputStream.read(buffer)) != -1) outputStream.write(buffer, 0, bytesRead);
 
-    presentation.save("self-contained-svg.pptx", SaveFormat.Pptx);
+        IPPImage image = presentation.getImages().addImage(outputStream.toByteArray());
+        ISlide slide = presentation.getSlides().get_Item(0);
+        slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
+    }
+
+    presentation.save("presentation-from-web.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Nhập nội dung SVG có tài nguyên bên ngoài**
+Trong các ứng dụng chạy lâu dài, tái sử dụng một client HTTP hoặc chiến lược quản lý kết nối phù hợp với ứng dụng thay vì liên tục tạo ra cơ sở hạ tầng mạng không cần thiết. Đồng thời, xác thực các URL từ xa, kích thước phản hồi và kiểu nội dung khi nguồn không đáng tin cậy.
 
-Các tệp SVG xuất ra từ công cụ thiết kế, trình chỉnh sửa sơ đồ, hệ thống biểu tượng và các quy trình web có thể tham chiếu đến tài nguyên được lưu bên ngoài tài liệu SVG. Ví dụ, một SVG có thể chứa liên kết hình ảnh như `images/photo.png`, một giá trị CSS `url(...)` hoặc một URL phông chữ.
+## **Tái Sử Dụng Hình Ảnh Trên Nhiều Slide**
 
-Để nhập nội dung SVG như vậy, tạo một triển khai [IExternalResourceResolver](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iexternalresourceresolver/) và truyền nó, cùng với một base URI, vào một constructor [SvgImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/svgimage/) thích hợp. Base URI xác định vị trí của tài liệu SVG và được dùng để giải quyết các liên kết tương đối.
+Nếu cùng một hình ảnh cần được sử dụng nhiều hơn một lần, hãy thêm nó vào bài thuyết trình một lần và tái sử dụng [IPPImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ippimage/) đã trả về khi tạo các khung hình bổ sung. Điều này tránh việc tải lại dữ liệu nguồn liên tục và làm cho mối quan hệ giữa tài nguyên hình ảnh chia sẻ và các lần sử dụng của nó trở nên rõ ràng.
 
-Giao diện [ISvgImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/isvgimage/) cung cấp quyền truy cập vào thông tin về SVG đã nhập:
+Đối với các đồ họa nên xuất hiện tự động trên nhiều slide, chẳng hạn như logo công ty, hãy cân nhắc đặt khung hình trên một [master slide](/slides/vi/androidjava/slide-master/) hoặc layout thay vì thêm một hình dạng tương đương vào mỗi slide.
 
-- `getSvgContent()` trả về markup SVG dưới dạng chuỗi.
-- `getSvgData()` trả về nội dung SVG dưới dạng mảng byte.
-- `getBaseUri()` trả về base URI được dùng cho các liên kết tương đối.
-- `getExternalResourceResolver()` trả về bộ giải quyết được gán cho hình ảnh SVG.
+## **Sử Dụng Hình Ảnh Là Nền Slide**
 
-### **Triển khai một bộ giải quyết tài nguyên bên ngoài**
-
-Bộ giải quyết có hai phương thức:
-
-- `resolveUri` kết hợp base URI và một liên kết tài nguyên tương đối và trả về một URI tuyệt đối. Trả về `null` khi không thể giải quyết liên kết hoặc không được phép.
-- `getEntity` trả về một luồng đọc được cho một URI tài nguyên tuyệt đối. Trả về `null` khi tài nguyên bị thiếu, bị chặn hoặc không khả dụng. Một luồng dự phòng cũng có thể được trả về khi thích hợp.
-
-Bộ giải quyết sau chỉ tải các tài nguyên liên kết từ một thư mục cục bộ được phép. Các tài nguyên mạng và các đường dẫn ngoài thư mục cho phép sẽ bị chặn. Một hình ảnh dự phòng tùy chọn sẽ được trả về cho các liên kết hình ảnh không thể giải quyết.
-
-```java
-import com.aspose.slides.ExternalResourceResolver;
-
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.net.URI;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Locale;
-
-class LocalSvgResourceResolver extends ExternalResourceResolver {
-    private final Path allowedRoot;
-    private final byte[] fallbackImageData;
-
-    public LocalSvgResourceResolver(String allowedRoot, byte[] fallbackImageData) {
-        this.allowedRoot = Paths.get(allowedRoot).toAbsolutePath().normalize();
-        this.fallbackImageData = fallbackImageData;
-    }
-
-    @Override
-    public String resolveUri(String baseUri, String relativeUri) {
-        if (baseUri == null || baseUri.trim().isEmpty() ||
-                relativeUri == null || relativeUri.trim().isEmpty()) {
-            return null;
-        }
-
-        try {
-            URI baseAddress = URI.create(baseUri);
-            URI absoluteAddress = baseAddress.resolve(relativeUri);
-
-            // Trình giải quyết này cố ý chỉ cho phép các tệp cục bộ.
-            if (!"file".equalsIgnoreCase(absoluteAddress.getScheme())) {
-                return null;
-            }
-
-            Path resourcePath = Paths.get(absoluteAddress).toAbsolutePath().normalize();
-            if (!isInsideAllowedRoot(resourcePath)) {
-                return null;
-            }
-
-            return resourcePath.toUri().toString();
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
-    @Override
-    public InputStream getEntity(String absoluteUri) {
-        try {
-            URI resourceUri = URI.create(absoluteUri);
-            if (!"file".equalsIgnoreCase(resourceUri.getScheme())) {
-                return null;
-            }
-
-            Path resourcePath = Paths.get(resourceUri).toAbsolutePath().normalize();
-            if (!isInsideAllowedRoot(resourcePath)) {
-                return null;
-            }
-
-            if (Files.exists(resourcePath)) {
-                return Files.newInputStream(resourcePath);
-            }
-
-            // Sử dụng dự phòng chỉ cho các tài nguyên hình ảnh. Trả về một luồng hình ảnh
-            // cho phông chữ hoặc stylesheet bị thiếu sẽ không hợp lệ.
-            if (fallbackImageData != null && isImageFile(resourcePath)) {
-                return new ByteArrayInputStream(fallbackImageData);
-            }
-        } catch (Exception e) {
-            return null;
-        }
-
-        return null;
-    }
-
-    private boolean isInsideAllowedRoot(Path resourcePath) {
-        return resourcePath.normalize().startsWith(allowedRoot);
-    }
-
-    private static boolean isImageFile(Path path) {
-        String fileName = path.getFileName().toString().toLowerCase(Locale.ROOT);
-
-        return fileName.endsWith(".png") ||
-                fileName.endsWith(".jpg") ||
-                fileName.endsWith(".jpeg") ||
-                fileName.endsWith(".gif") ||
-                fileName.endsWith(".bmp");
-    }
-}
-```
-
-### **Giải quyết tài nguyên liên kết trong quá trình nhập SVG**
-
-Giả sử `assets/diagram.svg` chứa một tham chiếu tương đối như sau:
-
-```xml
-<image href="images/photo.png" x="20" y="20" width="320" height="180" />
-```
-
-Đoạn mã Java sau truyền URI của tệp SVG làm base URI và cung cấp một bộ giải quyết tùy chỉnh. Bộ giải quyết chuyển liên kết hình ảnh tương đối thành URI tuyệt đối và trả về một luồng chứa tài nguyên liên kết trong khi Aspose.Slides xử lý SVG.
+Hình ảnh nền được gán cho phần nền slide; nó không được thêm như một hình dạng khung hình. Điều này hữu ích khi hình ảnh cần phủ toàn bộ nền slide và không nên được thao tác như một đối tượng slide bình thường.
 
 ```java
 import com.aspose.slides.*;
 
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("background.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        if (sourceImage != null) sourceImage.dispose();
+    }
+
+    slide.getBackground().setType(BackgroundType.OwnBackground);
+    slide.getBackground().getFillFormat().setFillType(FillType.Picture);
+    slide.getBackground().getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+    slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().setImage(image);
+
+    presentation.save("background-image.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Đối với các tùy chọn nền bổ sung, bao gồm nền master và layout, hãy xem [Nền Bài Thuyết Trình](/slides/vi/androidjava/presentation-background/).
+
+## **Hình Ảnh Nhúng và Hình Ảnh Liên Kết**
+
+Embedded và linked images có những cân nhắc khác nhau về tính di động và kích thước tệp:
+
+- **Hình ảnh nhúng:** dữ liệu hình ảnh được lưu trữ trong bài thuyết trình. Bài thuyết trình là tự chứa, nhưng kích thước tệp bao gồm dữ liệu hình ảnh.
+- **Hình ảnh liên kết:** bài thuyết trình lưu trữ một đường dẫn hoặc URL tới hình ảnh bên ngoài. Điều này có thể giảm kích thước bài thuyết trình, nhưng tài nguyên bên ngoài phải luôn có thể truy cập khi bài thuyết trình được mở hoặc render.
+
+Một hình ảnh liên kết có thể được tạo bằng cách gán đường dẫn hoặc URL bên ngoài qua [ISlidesPicture.setLinkPathLong](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/islidespicture/) thay vì nhúng dữ liệu hình ảnh.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, null);
+    pictureFrame.getPictureFormat().getPicture().setLinkPathLong("https://example.com/image.png");
+
+    presentation.save("linked-image.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Chỉ sử dụng hình ảnh liên kết khi môi trường triển khai có thể truy cập đáng tin cậy vào tài nguyên bên ngoài. Đối với các bài thuyết trình phải hoạt động offline hoặc chuyển giữa các hệ thống, hình ảnh nhúng thường an toàn hơn.
+
+## **Làm Việc Với Hình Ảnh SVG**
+
+SVG là một định dạng vector, vì vậy nó hữu ích cho các biểu tượng, sơ đồ và các đồ họa khác cần phóng to thu nhỏ mà không mất chi tiết như ảnh raster. Aspose.Slides hỗ trợ SVG cả như một tài nguyên hình ảnh và như một nguồn cho các hình dạng slide có thể chỉnh sửa.
+
+### **Thêm SVG Là Hình Ảnh**
+
+Tạo một [SvgImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/svgimage/), thêm nó vào bộ sưu tập hình ảnh và đặt tài nguyên hình ảnh kết quả vào một khung hình.
+
+```java
+import com.aspose.slides.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
-
-Path svgFilePath = Paths.get("assets", "diagram.svg").toAbsolutePath().normalize();
-Path assetDirectory = svgFilePath.getParent();
-String svgContent = new String(Files.readAllBytes(svgFilePath), StandardCharsets.UTF_8);
-
-// URI cơ sở đại diện cho vị trí của tài liệu SVG.
-String baseUri = svgFilePath.toUri().toString();
-
-byte[] fallbackImageData = null;
-Path fallbackImagePath = assetDirectory.resolve("fallback.png");
-if (Files.exists(fallbackImagePath)) {
-    fallbackImageData = Files.readAllBytes(fallbackImagePath);
-}
-
-IExternalResourceResolver resolver = new LocalSvgResourceResolver(assetDirectory.toString(), fallbackImageData);
-ISvgImage svgImage = new SvgImage(svgContent, resolver, baseUri);
-
-// ISvgImage cung cấp nội dung nguồn, dữ liệu nhị phân, URI cơ sở và bộ giải quyết.
-String importedContent = svgImage.getSvgContent();
-byte[] importedData = svgImage.getSvgData();
-String importedBaseUri = svgImage.getBaseUri();
-IExternalResourceResolver importedResolver = svgImage.getExternalResourceResolver();
 
 Presentation presentation = new Presentation();
 try {
-    IPPImage image = presentation.getImages().addImage(svgImage);
-
-    presentation.getSlides().get_Item(0).getShapes().addPictureFrame(
-            ShapeType.Rectangle, 20, 20, image.getWidth(), image.getHeight(), image);
-
-    presentation.save("svg-with-linked-resources.pptx", SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
-}
-```
-
-Lớp `SvgImage` cũng cung cấp các overload cho phép chấp nhận dữ liệu SVG dưới dạng mảng byte hoặc luồng đầu vào, cùng với một bộ giải quyết tài nguyên bên ngoài và một base URI.
-
-{{% alert title="Important" color="warning" %}}
-Bộ giải quyết tài nguyên làm cho các tài nguyên bên ngoài khả dụng trong khi Aspose.Slides xử lý và render SVG. Nó không sửa đổi markup SVG gốc hoặc tự động nhúng các tài nguyên đã giải quyết vào trong đó.
-
-Khi một `ISvgImage` được thêm vào bộ sưu tập hình ảnh của bài thuyết trình, tệp PPTX có thể chứa cả biểu diễn SVG gốc và một hình raster dự phòng. Một tài nguyên liên kết có thể xuất hiện trong hình dự phòng được tạo ra trong khi một liên kết tương đối như `images/photo.png` vẫn giữ nguyên trong SVG đã lưu. Do đó, một ứng dụng render biểu diễn SVG gốc có thể bỏ qua nội dung liên kết khi tài nguyên bên ngoài gốc không khả dụng.
-{{% /alert %}}
-
-### **Tạo hình ảnh SVG di động**
-
-Để tạo một hình ảnh SVG không phụ thuộc vào tệp bên ngoài, hãy làm cho SVG tự chứa trước khi tạo `SvgImage`. Ví dụ, thay thế các URL hình ảnh liên kết bằng URI `data:` chứa dữ liệu hình ảnh:
-
-```xml
-<image href="data:image/png;base64,..." x="20" y="20" width="320" height="180" />
-```
-
-Sau khi tất cả các tài nguyên cần thiết đã được nhúng vào nội dung SVG, tạo `SvgImage`, thêm nó vào bộ sưu tập hình ảnh của bài thuyết trình và chèn nó vào một khung ảnh như trong ví dụ trước.
-
-### **Xử lý tài nguyên thiếu hoặc bị chặn**
-
-Trả về `null` từ `resolveUri` khi một URI tài nguyên không hợp lệ, bị cấm hoặc không thể giải quyết. Trả về `null` từ `getEntity` khi không thể đọc tài nguyên. Aspose.Slides sẽ tiếp tục xử lý SVG mà không có tài nguyên đó khi có thể.
-
-Một luồng dự phòng có thể được trả về cho tài nguyên thiếu, nhưng nội dung của nó phải tương thích với loại tài nguyên được yêu cầu. Ví dụ, chỉ trả về một luồng hình ảnh cho một hình ảnh bị thiếu, không phải cho phông chữ hay stylesheet.
-
-{{% alert title="Security" color="warning" %}}
-Không giải quyết các đường dẫn tệp tùy ý hoặc URL mạng không giới hạn từ các tệp SVG không đáng tin cậy. Hạn chế các scheme, thư mục và host được cho phép. Đối với tài nguyên mạng, cũng áp dụng thời gian chờ kết nối, giới hạn kích thước phản hồi và xác thực nội dung.
-{{% /alert %}}
-
-## **Chuyển đổi SVG thành một tập hợp các hình dạng**
-
-Aspose.Slides có thể chuyển đổi một SVG thành một tập hợp các hình dạng, tương tự như chức năng tương ứng trong PowerPoint:
-
-![PowerPoint Popup Menu](img_01_01.png)
-
-Chức năng này được cung cấp bởi một overload của phương thức [addGroupShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/IShapeCollection#addGroupShape-com.aspose.slides.ISvgImage-float-float-float-float-) của giao diện [IShapeCollection](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/IShapeCollection) mà nhận một đối tượng [ISvgImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ISvgImage) làm tham số đầu tiên.
-
-Đoạn mã mẫu Java sau cho thấy cách sử dụng phương thức này để chuyển đổi một tệp SVG thành một tập hợp các hình dạng:
-
-```java
-import com.aspose.slides.*;
-import java.awt.geom.Dimension2D;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-
-// Tên tệp SVG nguồn.
-String svgFileName = "sample.svg";
-
-// Tên tệp bài thuyết trình đầu ra.
-String outPptxPath = "presentation.pptx";
-
-// Tạo một bài thuyết trình mới.
-IPresentation presentation = new Presentation();
-try {
-    // Đọc nội dung tệp SVG.
-    byte[] svgContent = Files.readAllBytes(Paths.get(svgFileName));
-
-    // Tạo một đối tượng SvgImage.
+    byte[] imageData = Files.readAllBytes(Paths.get("icon.svg"));
+    String svgContent = new String(imageData, StandardCharsets.UTF_8);
     ISvgImage svgImage = new SvgImage(svgContent);
 
-    // Lấy kích thước slide.
-    Dimension2D slideSize = presentation.getSlideSize().getSize();
+    IPPImage image = presentation.getImages().addImage(svgImage);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 200, 200, image);
 
-    // Chuyển đổi hình ảnh SVG thành một nhóm các shape và co giãn nó theo kích thước slide.
-    presentation.getSlides().get_Item(0).getShapes().addGroupShape(
-            svgImage, 0f, 0f,
-            (float) slideSize.getWidth(), (float) slideSize.getHeight());
-
-    // Lưu bài thuyết trình ở định dạng PPTX.
-    presentation.save(outPptxPath, SaveFormat.Pptx);
-} catch (IOException e) {
+    presentation.save("svg-image.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Thêm hình ảnh dạng EMF vào Slide**
+### **Tệp SVG Với Tài Nguyên Bên Ngoài**
 
-Aspose.Slides for Android via Java cho phép bạn tạo hình ảnh EMF từ các bảng tính Excel bằng Aspose.Cells và thêm chúng vào các slide trong bài thuyết trình.
+Một SVG có thể tham chiếu tới các hình ảnh, stylesheet hoặc phông chữ bên ngoài. Đối với các trường hợp này, [SvgImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/svgimage/) cung cấp các constructor nhận một [IExternalResourceResolver](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iexternalresourceresolver/) và một base URI. Trình giải quyết có thể ánh xạ một URI tương đối sang một URI tuyệt đối cho phép và trả về một luồng cho tài nguyên được yêu cầu.
 
-Đoạn mã mẫu Java sau cho thấy cách thực hiện điều này:
+Trình giải quyết làm cho các tài nguyên bên ngoài có sẵn trong khi Aspose.Slides xử lý SVG, nhưng nó không ghi lại lại SVG thành một tài liệu tự chứa. Nếu SVG cần duy trì tính di động, hãy nhúng các tài nguyên cần thiết vào trong SVG, ví dụ bằng cách sử dụng URI `data:` cho các hình ảnh liên kết.
 
-```java
-import com.aspose.slides.*;
-import com.aspose.cells.ImageOrPrintOptions;
-import com.aspose.cells.ImageType;
-import com.aspose.cells.SheetRender;
-import com.aspose.cells.Workbook;
-import com.aspose.cells.Worksheet;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+Khi các tệp SVG đến từ nguồn không tin cậy, hãy hạn chế các scheme, vị trí tệp và máy chủ mà trình giải quyết có thể truy cập. Trình giải quyết mạng cũng nên áp dụng thời gian chờ, giới hạn kích thước phản hồi và kiểm tra nội dung.
 
-Workbook book = new Workbook("chart.xlsx");
-Worksheet sheet = book.getWorksheets().get(0);
+### **Chuyển Đổi SVG Thành Các Hình Dạng Có Thể Chỉnh Sửa**
 
-ImageOrPrintOptions options = new ImageOrPrintOptions();
-options.setHorizontalResolution(200);
-options.setVerticalResolution(200);
-options.setImageType(ImageType.EMF);
+Aspose.Slides có thể chuyển đổi một SVG thành một nhóm các hình dạng slide có thể chỉnh sửa, tương tự như lệnh trong PowerPoint.
 
-// Lưu workbook vào một luồng.
-SheetRender sr = new SheetRender(sheet, options);
-Presentation pres = new Presentation();
-try {
-    pres.getSlides().removeAt(0);
+![Menu Pop-up PowerPoint](img_01_01.png)
 
-    String emfSheetName;
-    for (int j = 0; j < sr.getPageCount(); j++) {
-        emfSheetName = "test" + sheet.getName() + " Page" + (j + 1) + ".out.emf";
-        sr.toImage(j, emfSheetName);
-
-        // Thêm tệp nguyên dạng để ảnh vẫn là vector EMF thay vì bị raster hoá.
-        IPPImage picture;
-        InputStream imageStream = new FileInputStream(emfSheetName);
-        try {
-            picture = pres.getImages().addImage(imageStream);
-        } finally {
-            imageStream.close();
-        }
-
-        ISlide slide = pres.getSlides().addEmptySlide(
-                pres.getLayoutSlides().getByType(SlideLayoutType.Blank));
-        slide.getShapes().addPictureFrame(
-                ShapeType.Rectangle,
-                0,
-                0,
-                (float) pres.getSlideSize().getSize().getWidth(),
-                (float) pres.getSlideSize().getSize().getHeight(),
-                picture);
-    }
-
-    pres.save("output.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    pres.dispose();
-}
-```
-
-## **Thay thế hình ảnh trong bộ sưu tập hình ảnh**
-
-Aspose.Slides cho phép bạn thay thế các hình ảnh được lưu trong bộ sưu tập hình ảnh của một bài thuyết trình, bao gồm các hình ảnh được sử dụng bởi các shape trên slide. Phần này mô tả một số cách cập nhật hình ảnh trong bộ sưu tập. Bạn có thể thay thế một hình ảnh bằng dữ liệu byte thô, một thể hiện [IImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iimage/) hoặc một hình ảnh khác đã tồn tại trong bộ sưu tập.
-
-1. Tải tệp bài thuyết trình chứa hình ảnh bằng lớp [Presentation](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/).
-2. Tải một hình ảnh mới từ tệp vào một mảng byte.
-3. Thay thế hình ảnh mục tiêu bằng hình ảnh mới sử dụng mảng byte.
-4. Trong phương pháp thứ hai, tải hình ảnh vào một đối tượng [IImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iimage/) và thay thế hình ảnh mục tiêu bằng đối tượng đó.
-5. Trong phương pháp thứ ba, thay thế hình ảnh mục tiêu bằng một hình ảnh đã tồn tại trong bộ sưu tập hình ảnh của bài thuyết trình.
-6. Ghi bài thuyết trình đã chỉnh sửa dưới dạng tệp PPTX.
+Sử dụng overload [IShapeCollection.addGroupShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ishapecollection/) chấp nhận một [ISvgImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/isvgimage/) để thực hiện quá trình chuyển đổi.
 
 ```java
 import com.aspose.slides.*;
+import com.aspose.slides.android.SizeF;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-// Khởi tạo lớp Presentation đại diện cho một tệp bài thuyết trình.
-Presentation presentation = new Presentation("sample.pptx");
+Presentation presentation = new Presentation();
 try {
-    // Cách thứ nhất.
-    byte[] imageData = Files.readAllBytes(Paths.get("image0.jpeg"));
-    IPPImage oldImage = presentation.getImages().get_Item(0);
-    oldImage.replaceImage(imageData);
+    byte[] imageData = Files.readAllBytes(Paths.get("diagram.svg"));
+    String svgContent = new String(imageData, StandardCharsets.UTF_8);
+    ISvgImage svgImage = new SvgImage(svgContent);
 
-    // Cách thứ hai.
-    IImage newImage = Images.fromFile("image1.png");
+    SizeF slideSize = presentation.getSlideSize().getSize();
+    ISlide slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addGroupShape(svgImage, 0, 0, (float) slideSize.getWidth(), (float) slideSize.getHeight());
+
+    presentation.save("editable-svg-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Sử dụng chuyển đổi SVG thành hình dạng khi các phần tử vector riêng lẻ cần được chỉnh sửa như các hình dạng PowerPoint. Nếu SVG chỉ cần hiển thị, giữ nó dưới dạng hình ảnh sẽ đơn giản hơn và tránh tạo ra nhiều hình dạng riêng biệt.
+
+## **Thay Thế Tài Nguyên Hình Ảnh Hiện Có**
+
+Sử dụng [IPPImage.replaceImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ippimage/) khi bạn muốn thay thế một tài nguyên hình ảnh hiện có. Điều này đặc biệt hữu ích cho các đồ họa chia sẻ như logo.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    IPPImage imageToReplace = presentation.getImages().get_Item(0);
+
+    IImage replacementImage = Images.fromFile("new-logo.png");
     try {
-        oldImage = presentation.getImages().get_Item(1);
-        oldImage.replaceImage(newImage);
+        imageToReplace.replaceImage(replacementImage);
     } finally {
-        if (newImage != null) newImage.dispose();
+        if (replacementImage != null) replacementImage.dispose();
     }
 
-    // Cách thứ ba.
-    oldImage = presentation.getImages().get_Item(2);
-    oldImage.replaceImage(presentation.getImages().get_Item(3));
-
-    // Lưu bài thuyết trình vào tệp.
     presentation.save("output.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="Info" color="info" %}}
-Với công cụ chuyển đổi miễn phí [Text to GIF](https://products.aspose.app/slides/vi/text-to-gif) của Aspose, bạn có thể dễ dàng tạo hoạt ảnh cho văn bản và tạo GIF từ văn bản. 
-{{% /alert %}}
+Nếu nhiều khung hình, nền, master hoặc layout sử dụng cùng một tài nguyên hình ảnh, việc thay thế tài nguyên đó sẽ cập nhật tất cả các lần sử dụng. Nếu chỉ một khung hình cần thay đổi, hãy gán một hình ảnh khác cho khung đó thay vì thay thế tài nguyên chung.
 
-## **FAQ**
+`replaceImage` cũng cung cấp các overload cho phép truyền một mảng byte hoặc một [IPPImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ippimage/) khác.
 
-**Độ phân giải gốc của hình ảnh có được giữ nguyên sau khi chèn không?**
+## **Hướng Dẫn Quản Lý Hình Ảnh Thực Tiễn**
 
-Có. Các pixel gốc được giữ lại, nhưng diện mạo cuối cùng phụ thuộc vào cách [picture](/slides/vi/androidjava/picture-frame/) được thu phóng trên slide và bất kỳ việc nén nào được áp dụng khi lưu.
+### **Kiểm Soát Kích Thước Bài Thuyết Trình**
 
-**Cách tốt nhất để thay thế cùng một logo trên hàng chục slide cùng một lúc là gì?**
+Các ảnh raster kích thước lớn có thể làm cho bài thuyết trình trở nên quá to. Sử dụng các hình ảnh nguồn có kích thước phù hợp với kích thước hiển thị dự kiến, tái sử dụng các tài nguyên hình ảnh chia sẻ khi có thể, và tránh nhúng các bản sao lặp lại của cùng một đồ họa độ phân giải cao.
 
-Đặt logo trên slide master hoặc một layout và thay thế nó trong bộ sưu tập hình ảnh của bài thuyết trình—các cập nhật sẽ lan tỏa tới tất cả các thành phần sử dụng tài nguyên đó.
+Đối với các ảnh raster đã được đặt trong khung hình, [IPictureFillFormat.compressImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ipicturefillformat/) có thể giảm dữ liệu hình ảnh dựa trên độ phân giải và cài đặt cắt đã chọn. Đây là xử lý khung hình chứ không phải quản lý bộ sưu tập hình ảnh, vì vậy hãy xem [Khung Hình](/slides/vi/androidjava/picture-frame/) để biết các thao tác định dạng liên quan.
 
-**Một SVG đã chèn có thể được chuyển đổi thành các hình dạng có thể chỉnh sửa không?**
+### **Chọn Giữa Nội Dung Nhúng và Liên Kết**
 
-Có. Bạn có thể chuyển đổi SVG thành một nhóm các shape, sau đó từng phần sẽ trở nên có thể chỉnh sửa bằng các thuộc tính shape tiêu chuẩn.
+Nhúng làm cho bài thuyết trình di động vì tất cả dữ liệu hình ảnh cần thiết đi kèm với tệp. Liên kết có thể giảm kích thước tệp, nhưng nó tạo ra một phụ thuộc bên ngoài. Chỉ sử dụng liên kết khi phụ thuộc đó chấp nhận được và ổn định.
 
-**Làm sao tôi có thể đặt một hình ảnh làm nền cho nhiều slide cùng một lúc?**
+### **Tái Sử Dụng Thương Hiệu Chung**
 
-[Assign the image as the background](/slides/vi/androidjava/presentation-background/) trên slide master hoặc layout liên quan—bất kỳ slide nào sử dụng master/layout đó sẽ kế thừa nền.
+Đối với các logo, watermark hoặc đồ họa trang trí lặp lại, hãy sử dụng một tài nguyên hình ảnh và tái sử dụng nó. Nếu đồ họa thuộc về thiết kế bài thuyết trình chứ không phải nội dung slide, hãy đặt nó trên một master hoặc layout để nó được thừa kế bởi các slide phù hợp.
 
-**Làm sao tôi ngăn một bài thuyết trình trở nên quá lớn do quá nhiều hình ảnh?**
+### **Giữ Tài Nguyên SVG Di Động**
 
-Tái sử dụng một tài nguyên hình ảnh duy nhất thay vì tạo bản sao, chọn độ phân giải hợp lý, áp dụng nén khi lưu và giữ các đồ họa lặp lại trên master khi phù hợp.
+Một SVG tự chứa dễ di chuyển và render một cách nhất quán hơn so với SVG phụ thuộc vào các tệp hoặc tài nguyên mạng bên ngoài. Khi có thể, hãy nhúng các tài nguyên cần thiết trước khi nhập SVG. Chuyển đổi SVG thành hình dạng chỉ khi các phần tử vector riêng lẻ cần được chỉnh sửa.
+
+### **Sử Dụng API Hình Ảnh Đa Nền Tảng Hiện Đại**
+
+Đối với mã Android via Java mới, hãy sử dụng các API Aspose.Slides [IImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iimage/) và [Images](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/images/) thay vì API công cộng cũ dựa trên `android.graphics.Bitmap`. Xem [Modern API](/slides/vi/androidjava/modern-api/) để biết hướng dẫn di chuyển.
+
+WMF và EMF yêu cầu xem xét đặc biệt. Khi các định dạng này được truyền qua một [IImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iimage/), [ImageCollection.addImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imagecollection/) chuyển đổi metafile thành một biểu diễn PNG raster trước khi chèn. Nếu việc bảo tồn dữ liệu metafile là quan trọng, hãy sử dụng overload dựa trên stream của [ImageCollection.addImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imagecollection/) thay thế. Tạo nội dung EMF từ bảng tính hoặc các sản phẩm khác là một quy trình tích hợp riêng và không nằm trong phạm vi của bài viết này.
+
+## **Câu Hỏi Thường Gặp**
+
+**Sự khác biệt giữa bộ sưu tập hình ảnh và khung hình là gì?**
+
+Bộ sưu tập hình ảnh lưu trữ các tài nguyên hình ảnh có thể tái sử dụng. Khung hình là một hình dạng slide hiển thị một trong các tài nguyên đó và cung cấp các định dạng đặc thù cho hình ảnh như cắt và hiệu ứng.
+
+**Cách tốt nhất để thay thế cùng một logo ở mọi nơi là gì?**
+
+Nếu logo đã được chia sẻ dưới dạng một tài nguyên hình ảnh, hãy thay thế tài nguyên đó bằng [IPPImage.replaceImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ippimage/). Đối với thương hiệu trên toàn bộ bài thuyết trình, việc đặt logo trên một master hoặc layout cũng có thể giảm nội dung slide trùng lặp.
+
+**Tại sao một hình ảnh liên kết lại biến mất trên máy tính khác?**
+
+Một hình ảnh liên kết phụ thuộc vào tệp hoặc URL bên ngoài của nó. Nếu tài nguyên đó không thể truy cập được từ máy tính khác, hình ảnh liên kết có thể không khả dụng. Nhúng hình ảnh khi bài thuyết trình phải tự chứa.
+
+**Có thể chỉnh sửa SVG được chèn thành các hình dạng PowerPoint không?**
+
+Có. Chuyển đổi SVG bằng [IShapeCollection.addGroupShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ishapecollection/); nhóm kết quả chứa các hình dạng slide có thể chỉnh sửa thay vì một hình ảnh SVG duy nhất.
+
+**Làm sao để giữ bài thuyết trình có nhiều hình ảnh mà vẫn nhỏ gọn?**
+
+Tái sử dụng các tài nguyên hình ảnh chia sẻ, tránh các nguồn raster không cần thiết lớn, nén các ảnh raster phù hợp khi cần, giữ thương hiệu lặp lại trên master hoặc layout, và chỉ sử dụng hình ảnh liên kết khi phụ thuộc bên ngoài là chấp nhận được.

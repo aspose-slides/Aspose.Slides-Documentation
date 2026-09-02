@@ -7,505 +7,268 @@ url: /sv/net/image/
 keywords:
 - lägga till bild
 - lägga till bild
-- lägga till bitmap
 - ersätta bild
-- ersätta bild
-- från webb
+- bildsamling
+- bildram
+- länkad bild
 - bakgrund
 - lägga till PNG
 - lägga till JPG
 - lägga till SVG
+- SVG till former
 - externa SVG-resurser
-- SVG-resolver
-- länkade SVG-bilder
-- SVG-typsnitt
-- lägga till EMF
-- lägga till WMF
-- lägga till TIFF
 - PowerPoint
 - OpenDocument
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Förenkla bildhantering i PowerPoint och OpenDocument med Aspose.Slides för .NET, optimera prestanda och automatisera ditt arbetsflöde."
+description: "Lär dig hur du lägger till, återanvänder, länkar, ersätter och hanterar raster- och SVG-bilder i PowerPoint- och OpenDocument-presentationer med Aspose.Slides för .NET."
 ---
 ## **Introduktion**
 
-Bilder gör presentationer mer engagerande och visuellt tilltalande. I Microsoft PowerPoint kan du infoga bilder på bilder från filer, internet eller andra källor. På samma sätt låter Aspose.Slides dig lägga till bilder i presentationsbilder på flera sätt.
+Aspose.Slides för .NET erbjuder flera sätt att arbeta med bilder, och varje sätt har ett annat syfte. Du kan lagra en bild i en presentation, visa den i en bildram, använda den som bildbakgrund, länka till en extern bild, ersätta en delad bildresurs eller konvertera SVG-innehåll till redigerbara former.
 
-{{% alert title="Tips" color="primary" %}} 
+Denna artikel fokuserar på bildresurser och hur de används i en presentation. För beskärning, genomskinlighet, effekter, sträckning och annan formatering som tillämpas på en enskild bildram, se [Bildram](/slides/sv/net/picture-frame/).
 
-Aspose erbjuder kostnadsfria konverterare—[JPEG till PowerPoint](https://products.aspose.app/slides/sv/import/jpg-to-ppt) och [PNG till PowerPoint](https://products.aspose.app/slides/sv/import/png-to-ppt)—som låter dig snabbt skapa presentationer från bilder. 
+## **Förstå bildmodellen**
 
-{{% /alert %}} 
+Följande API‑koncept är nära relaterade men inte utbytbara:
 
-{{% alert title="Info" color="info" %}}
+- Den [presentation image collection](https://reference.aspose.com/slides/sv/net/aspose.slides/iimagecollection/) lagrar bildresurser som används av presentationen. Använd [ImageCollection.AddImage](https://reference.aspose.com/slides/sv/net/aspose.slides/imagecollection/addimage/) för att lägga till bilddata och erhålla en [IPPImage](https://reference.aspose.com/slides/sv/net/aspose.slides/ippimage/)‑resurs.
+- En [picture frame](https://reference.aspose.com/slides/sv/net/aspose.slides/ipictureframe/) är en form som visar en bild på en bild, layout eller master. Använd [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/ishapecollection/addpictureframe/) för att placera en bildresurs på en bild.
+- En bildbakgrund använder en bild som en del av bildens fyllning snarare än som en form. Den fungerar därför inte som en bildram.
+- [IPPImage.ReplaceImage](https://reference.aspose.com/slides/sv/net/aspose.slides/ippimage/replaceimage/) ersätter en bildresurs. Om flera presentationselement använder den resursen, använder de alla ersättningen.
+- Att konvertera en SVG till former skapar redigerbara bildformer. Efter konverteringen hanteras innehållet inte längre som en bildresurs.
 
-Om du vill lägga till en bild som en bildram—särskilt om du planerar att ändra storlek, applicera effekter eller använda andra standardformateringsalternativ—se [Bildram](/slides/sv/net/picture-frame/). 
+Ett typiskt arbetsflöde är därför: lägg till bilddata i bildsamlingen, mottag en [IPPImage](https://reference.aspose.com/slides/sv/net/aspose.slides/ippimage/), och använd sedan den resursen i en eller flera bildramar eller fyllningar.
 
-{{% /alert %}} 
+## **Lägg till en inbäddad bild**
 
-{{% alert title="Obs" color="warning" %}}
-
-Du kan konvertera bilder från ett format till ett annat. Se följande sidor: konvertera [bild till JPG](https://products.aspose.com/slides/sv/net/conversion/image-to-jpg/), [JPG till bild](https://products.aspose.com/slides/sv/net/conversion/jpg-to-image/), [JPG till PNG](https://products.aspose.com/slides/sv/net/conversion/jpg-to-png/), [PNG till JPG](https://products.aspose.com/slides/sv/net/conversion/png-to-jpg/), [PNG till SVG](https://products.aspose.com/slides/sv/net/conversion/png-to-svg/), och [SVG till PNG](https://products.aspose.com/slides/sv/net/conversion/svg-to-png/).
-
-{{% /alert %}}
-
-Aspose.Slides stöder bilder i populära format såsom JPEG, PNG, BMP, GIF och andra. 
-
-## **Lägg till lokalt lagrade bilder i bilder**
-
-Du kan lägga till en eller flera bilder som lagras på din dator till en presentationsbild. Följande C#‑exempelkod visar hur du lägger till en bild i en bild:
-
-```c#
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Lägg till bilder från webben i bilder**
-
-Om bilden du vill lägga till i en bild inte lagras på din dator kan du lägga till den direkt från webben. 
-
-Följande C#‑exempelkod visar hur du lägger till en bild från webben i en bild:
-
-```c#
-using System.Net;
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-
-    byte[] imageData;
-    using (WebClient webClient = new WebClient()) 
-    {
-        imageData = webClient.DownloadData(new Uri("[REPLACE WITH URL]"));
-    }
-    
-    IPPImage image = pres.Images.AddImage(imageData);
-    slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Lägg till bilder i bildbakgrunder (Slide Masters)**
-
-En bildbakgrund lagrar och styr information såsom tema och layout för de bilder som använder den. När du lägger till en bild i en bildbakgrund visas bilden på varje bild som baseras på den bakgrunden. 
-
-Följande C#‑exempelkod visar hur du lägger till en bild i en bildbakgrund:
-
-```c#
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    IMasterSlide masterSlide = slide.LayoutSlide.MasterSlide;
-    
-    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    masterSlide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Lägg till bilder som bildbakgrunder**
-
-Du kan använda en bild som bakgrund för en eller flera bilder. För detaljer, se *[Ställa in bilder som bakgrunder för bilder](/slides/sv/net/presentation-background/#setting-images-as-background-for-slides)*.
-
-## **Lägg till SVG i presentationer**
-
-SVG‑innehåll kan läggas till i en presentation med klassen [SvgImage](https://reference.aspose.com/slides/sv/net/aspose.slides/svgimage/). Det resulterande [ISvgImage](https://reference.aspose.com/slides/sv/net/aspose.slides/isvgimage/)-objektet kan sedan läggas till i presentationens bildsamling och användas för att skapa en bildram.
-
-Följande C#‑exempel importerar en självständig SVG‑sträng. Alla bilder, stilar och andra resurser som används av denna SVG är inbäddade direkt i SVG‑innehållet.
+För att infoga en lokal bild, läs in filen, lägg till dess data i bildsamlingen och skapa en bildram som använder den returnerade `IPPImage`.
 
 ```csharp
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-string svgContent = @"
-<svg xmlns='http://www.w3.org/2000/svg' width='320' height='180'>
-    <rect width='320' height='180' fill='#4F81BD'/>
-    <circle cx='160' cy='90' r='55' fill='#F2F2F2'/>
-</svg>";
-
-using (Presentation presentation = new Presentation())
-{
-    ISvgImage svgImage = new SvgImage(svgContent);
-    IPPImage image = presentation.Images.AddImage(svgImage);
-
-    presentation.Slides[0].Shapes.AddPictureFrame(
-        ShapeType.Rectangle, 20, 20, image.Width, image.Height, image);
-
-    presentation.Save("self-contained-svg.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Importera SVG‑innehåll med externa resurser**
-
-SVG‑filer som exporteras från designverktyg, diagramredigerare, ikonsystem och webb‑pipelines kan referera till resurser som lagras utanför SVG‑dokumentet. Till exempel kan en SVG innehålla en bildlänk som `images/photo.png`, ett CSS‑`url(...)`‑värde eller en teckensnittslänk.
-
-För att importera sådant SVG‑innehåll, skapa en implementation av [IExternalResourceResolver](https://reference.aspose.com/slides/sv/net/aspose.slides.import/iexternalresourceresolver/) och skicka den, tillsammans med en bas‑URI, till en lämplig `SvgImage`‑konstruktor. Bas‑URI identifierar var SVG‑dokumentet finns och används för att lösa relativa länkar.
-
-[ISvgImage](https://reference.aspose.com/slides/sv/net/aspose.slides/isvgimage/)-gränssnittet ger åtkomst till information om den importerade SVG:n:
-
-- `SvgContent` returnerar SVG‑markupen som en sträng.
-- `SvgData` returnerar SVG‑innehållet som en byte‑array.
-- `BaseUri` returnerar bas‑URI:n som används för relativa länkar.
-- `ExternalResourceResolver` returnerar den resolver som tilldelats SVG‑bilden.
-
-### **Implementera en extern resurs‑resolver**
-
-Resolvern har två metoder:
-
-- [ResolveUri](https://reference.aspose.com/slides/sv/net/aspose.slides.import/iexternalresourceresolver/resolveuri/) kombinerar bas‑URI:n och en relativ resurslänk och returnerar en absolut URI. Returnera `null` när länken inte kan lösas eller inte är tillåten.
-- [GetEntity](https://reference.aspose.com/slides/sv/net/aspose.slides.import/iexternalresourceresolver/getentity/) returnerar en läsbar ström för en absolut resurs‑URI. Returnera `null` när resursen saknas, blockeras eller är otillgänglig. En reservström kan också returneras när det är lämpligt.
-
-Följande resolver laddar länkade resurser endast från en tillåten lokal katalog. Nätverksresurser och sökvägar utanför den tillåtna katalogen blockeras. En valfri reservbild returneras för olösta bildlänkar.
-
-```csharp
-using System;
-using System.IO;
-using Aspose.Slides.Import;
-
-internal sealed class LocalSvgResourceResolver : IExternalResourceResolver
-{
-    private readonly string _allowedRoot;
-    private readonly byte[] _fallbackImageData;
-
-    public LocalSvgResourceResolver(string allowedRoot, byte[] fallbackImageData = null)
-    {
-        _allowedRoot = Path.GetFullPath(allowedRoot);
-        _fallbackImageData = fallbackImageData;
-    }
-
-    public string ResolveUri(string baseUri, string relativeUri)
-    {
-        if (string.IsNullOrWhiteSpace(baseUri) ||
-            string.IsNullOrWhiteSpace(relativeUri))
-        {
-            return null;
-        }
-
-        if (!Uri.TryCreate(baseUri, UriKind.Absolute, out Uri baseAddress) ||
-            !Uri.TryCreate(baseAddress, relativeUri, out Uri absoluteAddress))
-        {
-            return null;
-        }
-
-        // Detta resolvör tillåter avsiktligt bara lokala filer.
-        if (!absoluteAddress.IsFile)
-        {
-            return null;
-        }
-
-        string resourcePath = Path.GetFullPath(absoluteAddress.LocalPath);
-        if (!IsInsideAllowedRoot(resourcePath))
-        {
-            return null;
-        }
-
-        return absoluteAddress.AbsoluteUri;
-    }
-
-    public Stream GetEntity(string absoluteUri)
-    {
-        if (!Uri.TryCreate(absoluteUri, UriKind.Absolute, out Uri resourceUri) ||
-            !resourceUri.IsFile)
-        {
-            return null;
-        }
-
-        string resourcePath = Path.GetFullPath(resourceUri.LocalPath);
-        if (!IsInsideAllowedRoot(resourcePath))
-        {
-            return null;
-        }
-
-        if (File.Exists(resourcePath))
-        {
-            return File.OpenRead(resourcePath);
-        }
-
-        // Använd en reserv endast för bildresurser. Att returnera en bildström
-        // för ett saknat teckensnitt eller en stilfil skulle inte vara giltigt.
-        if (_fallbackImageData != null && IsImageFile(resourcePath))
-        {
-            return new MemoryStream(_fallbackImageData, writable: false);
-        }
-
-        return null;
-    }
-
-    private bool IsInsideAllowedRoot(string resourcePath)
-    {
-        string normalizedRoot = _allowedRoot.TrimEnd(
-            Path.DirectorySeparatorChar,
-            Path.AltDirectorySeparatorChar) + Path.DirectorySeparatorChar;
-
-        string normalizedPath = Path.GetFullPath(resourcePath);
-        StringComparison comparison = Path.DirectorySeparatorChar == '\\'
-            ? StringComparison.OrdinalIgnoreCase
-            : StringComparison.Ordinal;
-
-        return normalizedPath.StartsWith(normalizedRoot, comparison) ||
-               string.Equals(normalizedPath, _allowedRoot, comparison);
-    }
-
-    private static bool IsImageFile(string path)
-    {
-        string extension = Path.GetExtension(path);
-
-        return extension.Equals(".png", StringComparison.OrdinalIgnoreCase) ||
-               extension.Equals(".jpg", StringComparison.OrdinalIgnoreCase) ||
-               extension.Equals(".jpeg", StringComparison.OrdinalIgnoreCase) ||
-               extension.Equals(".gif", StringComparison.OrdinalIgnoreCase) ||
-               extension.Equals(".bmp", StringComparison.OrdinalIgnoreCase);
-    }
-}
-```
-
-### **Lösa upp länkade resurser under SVG‑import**
-
-Anta att `assets/diagram.svg` innehåller en relativ referens såsom:
-
-```xml
-<image href="images/photo.png" x="20" y="20" width="320" height="180" />
-```
-
-Följande C#‑exempel skickar SVG‑filens URI som bas‑URI och tillhandahåller en anpassad resolver. Resolvern konverterar den relativa bildlänken till en absolut URI och returnerar en ström som innehåller den länkade resursen medan Aspose.Slides bearbetar SVG:n.
-
-```csharp
-using System;
 using System.IO;
 using Aspose.Slides;
 using Aspose.Slides.Export;
-using Aspose.Slides.Import;
 
-string svgFilePath = Path.GetFullPath(Path.Combine("assets", "diagram.svg"));
-string assetDirectory = Path.GetDirectoryName(svgFilePath) ?? Directory.GetCurrentDirectory();
-string svgContent = File.ReadAllText(svgFilePath);
+using var presentation = new Presentation();
 
-// Bas-URI:n representerar platsen för SVG-dokumentet.
-string baseUri = new Uri(svgFilePath).AbsoluteUri;
+var imageData = File.ReadAllBytes("photo.png");
+var image = presentation.Images.AddImage(imageData);
 
-byte[] fallbackImageData = null;
-string fallbackImagePath = Path.Combine(assetDirectory, "fallback.png");
-if (File.Exists(fallbackImagePath))
-{
-    fallbackImageData = File.ReadAllBytes(fallbackImagePath);
-}
+var slide = presentation.Slides[0];
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
 
-IExternalResourceResolver resolver = new LocalSvgResourceResolver(assetDirectory, fallbackImageData);
-ISvgImage svgImage = new SvgImage(svgContent, resolver, baseUri);
-
-// ISvgImage exponerar källinnehållet, binärdata, bas-URI och resolver.
-string importedContent = svgImage.SvgContent;
-byte[] importedData = svgImage.SvgData;
-string importedBaseUri = svgImage.BaseUri;
-IExternalResourceResolver importedResolver = svgImage.ExternalResourceResolver;
-
-using (Presentation presentation = new Presentation())
-{
-    IPPImage image = presentation.Images.AddImage(svgImage);
-
-    presentation.Slides[0].Shapes.AddPictureFrame(
-        ShapeType.Rectangle, 20, 20, image.Width, image.Height, image);
-
-    presentation.Save("svg-with-linked-resources.pptx", SaveFormat.Pptx);
-}
+presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
 
-`SvgImage`‑klassen erbjuder också överlagringar som accepterar SVG‑data som en byte‑array eller en ström, tillsammans med en extern resurs‑resolver och en bas‑URI.
+Bilden som läggs till på detta sätt är inbäddad i presentationen, så den resulterande filen är inte beroende av att den ursprungliga bildfilen fortsatt är tillgänglig.
 
-{{% alert title="Viktigt" color="warning" %}}
+### **Lägg till en bild från webben**
 
-Resurs‑resolvern gör externa resurser tillgängliga medan Aspose.Slides bearbetar och renderar SVG:n. Den ändrar inte den ursprungliga SVG‑markuppen eller inbäddar automatiskt de lösta resurserna i den.
+När en bild är tillgänglig via HTTP eller HTTPS, hämta dess byte med `HttpClient`, lägg till dem i presentationens bildsamling och använd den returnerade bildresursen på samma sätt som en lokal bild.
 
-När ett `ISvgImage` läggs till i presentationens bildsamling kan PPTX‑filen innehålla både den ursprungliga SVG‑representationen och en raster‑reservbild. En länkad resurs kan förekomma i den genererade reservbilden medan en relativ länk såsom `images/photo.png` förblir oförändrad i den lagrade SVG:n. En applikation som renderar den inhemska SVG‑representationen kan därför utelämna det länkade innehållet när den ursprungliga externa resursen är otillgänglig.
+```csharp
+using System;
+using System.Net.Http;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-{{% /alert %}}
+var imageUri = new Uri("https://example.com/image.png");
+using var httpClient = new HttpClient();
+var imageData = await httpClient.GetByteArrayAsync(imageUri);
 
-### **Skapa en portabel SVG‑bild**
+using var presentation = new Presentation();
 
-För att skapa en SVG‑bild som inte är beroende av externa filer, gör SVG:n självständig innan du skapar `SvgImage`. Till exempel, ersätt länkade bild‑URL:er med `data:`‑URI:er som innehåller bilddata:
+var image = presentation.Images.AddImage(imageData);
+var slide = presentation.Slides[0];
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
 
-```xml
-<image href="data:image/png;base64,..." x="20" y="20" width="320" height="180" />
+presentation.Save("presentation-from-web.pptx", SaveFormat.Pptx);
 ```
 
-När alla nödvändiga resurser är inbäddade i SVG‑innehållet, skapa `SvgImage`, lägg till den i presentationens bildsamling och infoga den i en bildram enligt föregående exempel.
+I långlivade applikationer, återanvänd `HttpClient` i stället för att skapa en ny instans för varje begäran. Validera även fjärr‑URL‑er, svarsstorlekar och innehållstyper när källan inte är betrodd.
 
-### **Hantera saknade eller blockerade resurser**
+## **Återanvänd bilder på flera bilder**
 
-Returnera `null` från `ResolveUri` när en resurs‑URI är ogiltig, förbjuden eller inte kan lösas. Returnera `null` från `GetEntity` när resursen inte kan läsas. Aspose.Slides fortsätter bearbeta SVG:n utan den resursen när det är möjligt.
+Om samma bild behövs mer än en gång, lägg till den i presentationen en gång och återanvänd den returnerade [IPPImage](https://reference.aspose.com/slides/sv/net/aspose.slides/ippimage/) när du skapar ytterligare bildramar. Detta undviker att upprepade gånger ladda samma källdata och gör förhållandet mellan den delade bildresursen och dess användningar tydligt.
 
-En reservström kan returneras för en saknad resurs, men dess innehåll måste vara kompatibelt med den begärda resurstypen. Till exempel, returnera en bildström endast för en saknad bild, inte för ett teckensnitt eller en stilmall.
+För grafik som ska visas automatiskt på många bilder, exempelvis en företagslogotyp, överväg att placera bildramen på en [bildmaster](/slides/sv/net/slide-master/) eller layout i stället för att lägga till en motsvarande form på varje bild.
 
-{{% alert title="Säkerhet" color="warning" %}}
+## **Använd en bild som bildbakgrund**
 
-Lös inte godtyckliga filsökvägar eller obegränsade nätverks‑URL:er från opålitliga SVG‑filer. Begränsa tillåtna scheman, kataloger och värdar. För nätverksresurser, tillämpa även anslutningstidsgränser, svarsstorleksgränser och innehållsvalidering.
+En bakgrundsbild tilldelas bildens fyllning; den läggs inte till som en bildramform. Detta är användbart när bilden ska täcka bildens bakgrund och inte ska manipuleras som ett vanligt bildobjekt.
 
-{{% /alert %}}
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-## **Konvertera SVG till en uppsättning former**
-Aspose.Slides kan konvertera en SVG till en uppsättning former, liknande motsvarande funktionalitet i PowerPoint:
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
+var imageData = File.ReadAllBytes("background.jpg");
+var image = presentation.Images.AddImage(imageData);
+slide.Background.Type = BackgroundType.OwnBackground;
+slide.Background.FillFormat.FillType = FillType.Picture;
+slide.Background.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
+slide.Background.FillFormat.PictureFillFormat.Picture.Image = image;
+
+presentation.Save("background-image.pptx", SaveFormat.Pptx);
+```
+
+För ytterligare bakgrundsalternativ, inklusive master‑ och layoutbakgrunder, se [Presentationsbakgrund](/slides/sv/net/presentation-background/).
+
+## **Inbäddade bilder och länkade bilder**
+
+Inbäddade och länkade bilder har olika kompromisser när det gäller portabilitet och filstorlek:
+
+- **Inbäddad bild:** bilddata lagras i presentationen. Presentationen är självständig, men filstorleken inkluderar bilddata.
+- **Länkad bild:** presentationen lagrar en sökväg eller URL till en extern bild. Detta kan minska presentationens storlek, men den externa resursen måste förbli tillgänglig när presentationen öppnas eller renderas.
+
+En länkad bild kan skapas genom att tilldela den externa sökvägen eller URL‑en via [ISlidesPicture.LinkPathLong](https://reference.aspose.com/slides/sv/net/aspose.slides/islidespicture/linkpathlong/) i stället för att bädda in bilddata.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, null);
+pictureFrame.PictureFormat.Picture.LinkPathLong = "https://example.com/image.png";
+
+presentation.Save("linked-image.pptx", SaveFormat.Pptx);
+```
+
+Använd länkade bilder endast när driftsmiljön på ett pålitligt sätt kan nå den externa resursen. För presentationer som måste fungera offline eller flyttas mellan system är inbäddade bilder vanligtvis säkrare.
+
+## **Arbeta med SVG‑bilder**
+
+SVG är ett vektorformat, så det kan vara användbart för ikoner, diagram och annan grafik som ska skalas utan samma detaljförlust som rasterbilder. Aspose.Slides stöder SVG både som en bildresurs och som källa för redigerbara bildformer.
+
+### **Lägg till en SVG som bild**
+
+Skapa en [SvgImage](https://reference.aspose.com/slides/sv/net/aspose.slides/svgimage/), lägg till den i bildsamlingen och placera den resulterande bildresursen i en bildram.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var svgContent = File.ReadAllText("icon.svg");
+var svgImage = new SvgImage(svgContent);
+
+using var presentation = new Presentation();
+
+var image = presentation.Images.AddImage(svgImage);
+var slide = presentation.Slides[0];
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 200, 200, image);
+
+presentation.Save("svg-image.pptx", SaveFormat.Pptx);
+```
+
+### **SVG‑filer med externa resurser**
+
+En SVG kan referera till externa bilder, stilmallar eller teckensnitt. För dessa fall erbjuder [SvgImage](https://reference.aspose.com/slides/sv/net/aspose.slides/svgimage/) konstruktorer som accepterar en [IExternalResourceResolver](https://reference.aspose.com/slides/sv/net/aspose.slides.import/iexternalresourceresolver/) och en baskatalog‑URI. Resolvern kan mappa en relativ URI till en tillåten absolut URI och returnera en ström för den begärda resursen.
+
+Resolvern gör externa resurser tillgängliga medan Aspose.Slides bearbetar SVG:n, men den omskriver inte SVG:n till ett självständigt dokument. Om SVG:n måste förbli portabel, bädda in dess nödvändiga resurser i själva SVG:n, till exempel genom att använda `data:`‑URI‑er för länkade bilder.
+
+När SVG‑filer kommer från opålitliga källor, begränsa de scheman, filplatser och värdar som resolvern kan komma åt. Nätverks‑resolvers bör också tillämpa tidsgränser, begränsningar för svarsstorlek och innehållsvalidering.
+
+### **Konvertera SVG till redigerbara former**
+
+Aspose.Slides kan konvertera en SVG till en grupp av redigerbara bildformer, liknande motsvarande PowerPoint‑kommando.
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-Denna funktionalitet tillhandahålls av en överlagring av metoden [AddGroupShape](https://reference.aspose.com/slides/sv/net/aspose.slides.ishapecollection/addgroupshape/methods/1) i gränssnittet [IShapeCollection](https://reference.aspose.com/slides/sv/net/aspose.slides/ishapecollection) som accepterar ett [ISvgImage](https://reference.aspose.com/slides/sv/net/aspose.slides/isvgimage)-objekt som första argument.
+Använd överbelastningen av [IShapeCollection.AddGroupShape](https://reference.aspose.com/slides/sv/net/aspose.slides/ishapecollection/addgroupshape/) som accepterar en [ISvgImage](https://reference.aspose.com/slides/sv/net/aspose.slides/isvgimage/) för att utföra konverteringen.
 
-Följande C#‑exempelkod visar hur du använder metoden för att konvertera en SVG‑fil till en uppsättning former:
-
-``` csharp 
-using System.Drawing;
+```csharp
+using System.IO;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Käll SVG-filnamn
-string svgFileName = "sample.svg";
+var svgContent = File.ReadAllText("diagram.svg");
+var svgImage = new SvgImage(svgContent);
 
-// Utdata presentationsfilnamn
-string outPptxPath = "presentation.pptx";
+using var presentation = new Presentation();
 
-// Skapa en ny presentation
-using (IPresentation presentation = new Presentation())
-{
-    // Läs SVG-filens innehåll
-    string svgContent = File.ReadAllText(svgFileName);
+var slideSize = presentation.SlideSize.Size;
+var slide = presentation.Slides[0];
+slide.Shapes.AddGroupShape(svgImage, 0, 0, slideSize.Width, slideSize.Height);
 
-    // Skapa ett SvgImage-objekt
-    ISvgImage svgImage = new SvgImage(svgContent);
-
-    // Hämta bildens storlek
-    SizeF slideSize = presentation.SlideSize.Size;
-
-    // Konvertera SVG-bilden till en grupp former och skala den till bildens storlek
-    presentation.Slides[0].Shapes.AddGroupShape(svgImage, 0f, 0f, slideSize.Width, slideSize.Height);
-
-    // Spara presentationen i PPTX-format
-    presentation.Save(outPptxPath, SaveFormat.Pptx);
-}
+presentation.Save("editable-svg-shapes.pptx", SaveFormat.Pptx);
 ```
 
-## **Lägg till bilder som EMF i bilder**
-Aspose.Slides för .NET låter dig generera EMF‑bilder från Excel‑arbetsblad med Aspose.Cells och lägga till dem i presentationsbilder.
+Använd SVG‑till‑former‑konvertering när enskilda vektorelement behöver redigeras som PowerPoint‑former. Om SVG:n bara ska visas är det enklare att behålla den som en bild och undvika att skapa många separata former.
 
-Följande C#‑exempelkod visar hur du gör detta:
+## **Ersätt en befintlig bildresurs**
 
-``` csharp 
-using Aspose.Slides;
-using Aspose.Cells;
-using Aspose.Cells.Rendering;
+Använd [IPPImage.ReplaceImage](https://reference.aspose.com/slides/sv/net/aspose.slides/ippimage/replaceimage/) när du vill ersätta en befintlig bildresurs. Detta är särskilt användbart för delad grafik såsom logotyper.
 
-
-using (Workbook book = new Workbook("chart.xlsx"))
-{
-    Worksheet sheet = book.Worksheets[0];
-    ImageOrPrintOptions options = new ImageOrPrintOptions();
-    options.HorizontalResolution = 200;
-    options.VerticalResolution = 200;
-    options.ImageType = Aspose.Cells.Drawing.ImageType.Emf;
-
-    // Spara arbetsboken till en ström
-    SheetRender sr = new SheetRender(sheet, options);
-    using (Presentation pres = new Presentation())
-    {
-        pres.Slides.RemoveAt(0);
-
-        String EmfSheetName = "";
-        for (int j = 0; j < sr.PageCount; j++)
-        {
-            EmfSheetName = "test" + sheet.Name + " Page" + (j + 1) + ".out.emf";
-            sr.ToImage(j, EmfSheetName);
-
-            var bytes = File.ReadAllBytes(EmfSheetName);
-            var emfImage = pres.Images.AddImage(bytes);
-            ISlide slide = pres.Slides.AddEmptySlide(pres.LayoutSlides.GetByType(SlideLayoutType.Blank));
-            slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 0, 0, pres.SlideSize.Size.Width, pres.SlideSize.Size.Height, emfImage);
-        }
-
-        pres.Save("Saved.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-    }
-}
-```
-
-## **Ersätt bilder i bildsamlingen**
-
-Aspose.Slides låter dig ersätta bilder som lagras i en presentations bildsamling, inklusive bilder som används av bildformer. Detta avsnitt beskriver flera sätt att uppdatera bilder i samlingen. Du kan ersätta en bild med rå byte‑data, en [IImage](https://reference.aspose.com/slides/sv/net/aspose.slides/iimage/)-instans eller en annan bild som redan finns i samlingen.
-
-Följ stegen nedan:
-
-1. Läs in presentationsfilen som innehåller bilder med klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/).
-2. Läs in en ny bild från en fil till en byte‑array.
-3. Ersätt mål‑bilden med den nya bilden med hjälp av byte‑arrayen.
-4. I det andra tillvägagångssättet, läs in bilden till ett [IImage](https://reference.aspose.com/slides/sv/net/aspose.slides/iimage/)-objekt och ersätt mål‑bilden med det objektet.
-5. I det tredje tillvägagångssättet, ersätt mål‑bilden med en bild som redan finns i presentationens bildsamling.
-6. Skriv den modifierade presentationen som en PPTX‑fil.
-
-```cs
+```csharp
+using System.IO;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Skapa en instans av Presentation-klassen som representerar en presentationsfil.
-using Presentation presentation = new Presentation("sample.pptx");
+using var presentation = new Presentation("input.pptx");
 
-// Det första sättet.
-byte[] imageData = File.ReadAllBytes("image0.jpeg");
-IPPImage oldImage = presentation.Images[0];
-oldImage.ReplaceImage(imageData);
+var imageToReplace = presentation.Images[0];
+imageToReplace.ReplaceImage(File.ReadAllBytes("new-logo.png"));
 
-// Det andra sättet.
-using IImage newImage = Images.FromFile("image1.png");
-oldImage = presentation.Images[1];
-oldImage.ReplaceImage(newImage);
-
-// Det tredje sättet.
-oldImage = presentation.Images[2];
-oldImage.ReplaceImage(presentation.Images[3]);
-
-// Spara presentationen till en fil.
 presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert title="Info" color="info" %}}
+Om flera bildramar, bakgrunder, masters eller layouter använder samma bildresurs, uppdaterar ersättningen av den resursen alla dessa användningar. Om bara en bildram ska ändras, tilldela en annan bild till den ramen i stället för att ersätta den delade resursen.
 
-Med Asposes kostnadsfria [Text till GIF](https://products.aspose.app/slides/sv/text-to-gif)-konverterare kan du enkelt animera text och skapa GIF‑filer från text. 
+`ReplaceImage` erbjuder också överbelastningar som accepterar en [IImage](https://reference.aspose.com/slides/sv/net/aspose.slides/iimage/) eller en annan [IPPImage](https://reference.aspose.com/slides/sv/net/aspose.slides/ippimage/).
 
-{{% /alert %}}
+## **Praktisk vägledning för bildhantering**
+
+### **Kontrollera presentationens storlek**
+
+Stora rasterbilder kan göra en presentation onödigt stor. Använd källbilder med dimensioner som är lämpliga för den avsedda visningsstorleken, återanvänd delade bildresurser där det är möjligt och undvik att bädda in upprepade kopior av samma bild med full upplösning.
+
+För rasterbilder som redan har placerats i bildramar kan [IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/sv/net/aspose.slides/ipicturefillformat/compressimage/) minska bilddata enligt den valda upplösningen och beskärningsinställningarna. Detta är bildram‑behandling snarare än bildsamling‑hantering, så se [Bildram](/slides/sv/net/picture-frame/) för relaterade formateringsåtgärder.
+
+### **Välj mellan inbäddat och länkat innehåll**
+
+Inbäddning gör presentationen portabel eftersom all nödvändig bilddata följer med filen. Länkning kan minska filstorleken, men det inför ett externt beroende. Använd länkar endast när detta beroende är acceptabelt och stabilt.
+
+### **Återanvänd delad varumärkesgrafik**
+
+För upprepade logotyper, vattenmärken eller dekorativa bilder, använd en bildresurs och återanvänd den. Om grafiken tillhör presentationens design snarare än bildinnehållet, placera den på en master eller layout så att den ärvs av de aktuella bilderna.
+
+### **Håll SVG‑resurser portabla**
+
+En självständig SVG är enklare att flytta och rendera konsekvent än en SVG som är beroende av externa filer eller nätverksresurser. När det är möjligt, bädda in nödvändiga resurser innan SVG:n importeras. Konvertera SVG till former endast när de enskilda vektorelementen behöver redigeras.
+
+### **Använd det moderna plattformsoberoende bild‑API:et**
+
+För ny .NET‑kod, använd Aspose.Slides‑[IImage](https://reference.aspose.com/slides/sv/net/aspose.slides/iimage/) och [Images](https://reference.aspose.com/slides/sv/net/aspose.slides/images/)‑API:erna i stället för att förlita dig på `System.Drawing.Image` eller `Bitmap`. Se [Modern API](/slides/sv/net/modern-api/) för migrationsvägledning.
+
+WMF och EMF kräver särskild hänsyn. När dessa format passerar genom en [IImage](https://reference.aspose.com/slides/sv/net/aspose.slides/iimage/), konverterar [ImageCollection.AddImage](https://reference.aspose.com/slides/sv/net/aspose.slides/imagecollection/addimage/) metafilen till en raster‑PNG‑representation före infogning. Om bevarande av metafildata är viktigt, använd en ström‑baserad [ImageCollection.AddImage](https://reference.aspose.com/slides/sv/net/aspose.slides/imagecollection/addimage/)‑överbelastning i stället. Generering av EMF‑innehåll från kalkylblad eller andra produkter är ett separat integreringsarbetsflöde och ligger utanför denna artikels omfattning.
 
 ## **FAQ**
 
-**Behåller den ursprungliga bildens upplösning sin integritet efter infogning?**
+**Vad är skillnaden mellan bildsamlingen och en bildram?**
 
-Ja. Källpixlarna bevaras, men det slutliga utseendet beror på hur [bilden](/slides/sv/net/picture-frame/) skalas på bilden och eventuell komprimering som appliceras vid sparande.
+Bildsamlingen lagrar återanvändbara bildresurser. En bildram är en bildform som visar en av dessa resurser och tillhandahåller bildspecifik formatering såsom beskärning och effekter.
 
-**Vad är det bästa sättet att ersätta samma logotyp på dussintals bilder på en gång?**
+**Vad är det bästa sättet att ersätta samma logotyp överallt?**
 
-Placera logotypen på master‑bilden eller en layout och ersätt den i presentationens bildsamling – uppdateringar sprids till alla element som använder den resursen.
+Om logotypen redan delas som en bildresurs, ersätt den resursen med [IPPImage.ReplaceImage](https://reference.aspose.com/slides/sv/net/aspose.slides/ippimage/replaceimage/). För varumärkesprofilering i hela presentationen kan placering av logotypen på en master eller layout också minska duplicerat bildinnehåll.
 
-**Kan en infogad SVG konverteras till redigerbara former?**
+**Varför försvinner en länkad bild på en annan dator?**
 
-Ja. Du kan konvertera en SVG till en grupp av former, varpå enskilda delar blir redigerbara med vanliga formegenskaper.
+En länkad bild är beroende av sin externa fil eller URL. Om den resursen inte kan nås från den andra datorn kan den länkade bilden vara otillgänglig. Bädda in bilden när presentationen måste vara självständig.
 
-**Hur kan jag ställa in en bild som bakgrund för flera bilder samtidigt?**
+**Kan en infogad SVG redigeras som PowerPoint‑former?**
 
-[Tilldela bilden som bakgrund](/slides/sv/net/presentation-background/) på master‑bilden eller den relevanta layouten – alla bilder som använder den master/layouten ärver bakgrunden.
+Ja. Konvertera SVG:n med [IShapeCollection.AddGroupShape](https://reference.aspose.com/slides/sv/net/aspose.slides/ishapecollection/addgroupshape/); den resulterande gruppen innehåller redigerbara bildformer snarare än en SVG‑bild.
 
-**Hur förhindrar jag att en presentation blir för stor på grund av många bilder?**
+**Hur kan jag hålla presentationer med många bilder mindre?**
 
-Återanvänd en enda bildresurs istället för dubbletter, välj rimliga upplösningar, tillämpa komprimering vid sparande och håll upprepade grafik på master‑nivå där det är lämpligt.
+Återanvänd delade bildresurser, undvik onödigt stora rasterkällor, komprimera lämpliga rasterbilder när det är lämpligt, håll återkommande varumärkesgrafik på masters eller layouter, och använd länkade bilder endast när ett externt beroende är acceptabelt.

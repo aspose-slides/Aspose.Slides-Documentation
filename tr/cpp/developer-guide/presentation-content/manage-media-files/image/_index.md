@@ -1,61 +1,55 @@
 ---
-title: C++ Kullanarak Sunumlarda Görsel Yönetimini Optimize Et
-linktitle: Görselleri Yönet
+title: C++ Kullanarak Sunumlarda Görüntü Yönetimini Optimize Etme
+linktitle: Görüntüleri Yönet
 type: docs
 weight: 10
 url: /tr/cpp/image/
 keywords:
-- görsel ekle
+- görüntü ekle
 - resim ekle
-- bitmap ekle
-- görsel değiştir
-- resim değiştir
-- webden
+- görüntüyü değiştir
+- görüntü koleksiyonu
+- resim çerçevesi
+- bağlantılı görüntü
 - arka plan
 - PNG ekle
 - JPG ekle
 - SVG ekle
+- SVG'yi şekillere dönüştür
 - harici SVG kaynakları
-- SVG çözücü
-- bağlantılı SVG görüntüleri
-- SVG yazı tipleri
-- EMF ekle
-- WMF ekle
-- TIFF ekle
 - PowerPoint
 - OpenDocument
 - sunum
 - C++
 - Aspose.Slides
-description: "PowerPoint ve OpenDocument'ta Aspose.Slides for C++ ile görsel yönetimini kolaylaştırın, performansı optimize edin ve iş akışınızı otomatikleştirin."
+description: "Aspose.Slides for C++ ile PowerPoint ve OpenDocument sunumlarında raster ve SVG görüntülerini ekleme, yeniden kullanma, bağlama, değiştirme ve yönetme konusunda bilgi edinin."
 ---
 ## **Giriş**
 
-Görseller, sunumları daha ilgi çekici ve görsel olarak çekici hâle getirir. Microsoft PowerPoint'te, dosyalardan, internetten veya diğer kaynaklardan slaytlara resimler ekleyebilirsiniz. Benzer şekilde, Aspose.Slides, sunum slaytlarına çeşitli yollarla görsel eklemenize olanak tanır.
+Aspose.Slides for C++ görüntülerle çalışmanın birkaç yolunu sunar ve her biri farklı bir amaca hizmet eder. Bir görüntüyü sunuma depolayabilir, bir resim çerçevesinde görüntüleyebilir, slayt arka planı olarak kullanabilir, harici bir görüntüye bağlanabilir, paylaşılan bir görüntü kaynağını değiştirebilir veya SVG içeriğini düzenlenebilir şekillere dönüştürebilirsiniz.
 
-{{% alert title="İpucu" color="primary" %}} 
-Aspose, resimlerden hızlıca sunum oluşturmanızı sağlayan ücretsiz dönüştürücüler—[JPEG'den PowerPoint'e](https://products.aspose.app/slides/tr/import/jpg-to-ppt) ve [PNG'den PowerPoint'e](https://products.aspose.app/slides/tr/import/png-to-ppt)—sağlar. 
-{{% /alert %}} 
+Bu makale görüntü kaynaklarına ve bir sunum boyunca nasıl kullanıldıklarına odaklanır. Kırpma, şeffaflık, efektler, genişletme ve bireysel bir resim çerçevesine uygulanan diğer biçimlendirmeler için [Resim Çerçevesi](/slides/tr/cpp/picture-frame/) bölümüne bakın.
 
-{{% alert title="Bilgi" color="info" %}}
-Bir resmi resim çerçevesi olarak eklemek istiyorsanız—özellikle yeniden boyutlandırmayı, efekt uygulamayı veya diğer standart biçimlendirme seçeneklerini kullanmayı planlıyorsanız—[Resim Çerçevesi](/slides/tr/cpp/picture-frame/) bölümüne bakın. 
-{{% /alert %}} 
+## **Görüntü Modelini Anlama**
 
-{{% alert title="Not" color="warning" %}}
-Görüntüleri bir formattan diğerine dönüştürebilirsiniz. Aşağıdaki sayfalara bakın: [görüntüyü JPG'e dönüştür](https://products.aspose.com/slides/tr/cpp/conversion/image-to-jpg/), [JPG'yi görüntüye dönüştür](https://products.aspose.com/slides/tr/cpp/conversion/jpg-to-image/), [JPG'yi PNG'e dönüştür](https://products.aspose.com/slides/tr/cpp/conversion/jpg-to-png/), [PNG'yi JPG'e dönüştür](https://products.aspose.com/slides/tr/cpp/conversion/png-to-jpg/), [PNG'yi SVG'ye dönüştür](https://products.aspose.com/slides/tr/cpp/conversion/png-to-svg/), ve [SVG'yi PNG'ye dönüştür](https://products.aspose.com/slides/tr/cpp/conversion/svg-to-png/). 
-{{% /alert %}}
+Aşağıdaki API kavramları yakından ilişkilidir ancak birbirinin yerine kullanılamaz:
 
-Aspose.Slides, JPEG, PNG, BMP, GIF ve diğer popüler formatlardaki görselleri destekler. 
+- [sunum görüntü koleksiyonu](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iimagecollection/) sunum tarafından kullanılan görüntü kaynaklarını depolar. Görüntü verilerini eklemek ve bir [IPPImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ippimage/) kaynağı elde etmek için [IImageCollection::AddImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iimagecollection/addimage/) kullanın.
+- [resim çerçevesi](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipictureframe/) bir slayt, düzen veya ana sayfada görüntüyü gösteren bir şekildir. Bir görüntü kaynağını slayta yerleştirmek için [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishapecollection/addpictureframe/) kullanın.
+- bir slayt arka planı, görüntüyü bir şekil olarak değil, slayt doldurmasının bir parçası olarak kullanır. Bu nedenle bir resim çerçevesi gibi davranmaz.
+- [IPPImage::ReplaceImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ippimage/replaceimage/) bir görüntü kaynağını değiştirir. Bu kaynağı kullanan birden çok sunum öğesi varsa, hepsi değişikliği kullanır.
+- SVG'yi şekillere dönüştürmek, düzenlenebilir slayt şekilleri oluşturur. Dönüştürmeden sonra içerik artık tek bir resim kaynağı olarak yönetilmez.
 
-## **Yerel Olarak Depolanan Görselleri Slaytlara Ekle**
+Tipik bir iş akışı şu şekildedir: görüntü verilerini görüntü koleksiyonuna ekleyin, bir [IPPImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ippimage/) alın ve ardından bu kaynağı bir veya daha fazla resim çerçevesi veya doldurmalarda kullanın.
 
-Bilgisayarınızda depolanan bir veya daha fazla görseli bir sunum slaytına ekleyebilirsiniz. Aşağıdaki C++ örnek kodu, bir görselin slayta nasıl ekleneceğini gösterir:
+## **Gömülü Görüntü Ekleme**
 
-``` cpp
+Yerel bir görüntüyü eklemek için dosyayı okuyun, verilerini görüntü koleksiyonuna ekleyin ve dönen [IPPImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ippimage/) kaynağını kullanan bir resim çerçevesi oluşturun.
+
+```cpp
 #include <DOM/IImageCollection.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
 #include <Export/SaveFormat.h>
@@ -63,28 +57,31 @@ Bilgisayarınızda depolanan bir veya daha fazla görseli bir sunum slaytına ek
 
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System;
 using namespace System::IO;
 
-auto pres = System::MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
 
-auto slide = pres->get_Slides()->idx_get(0);
-auto image = pres->get_Images()->AddImage(File::ReadAllBytes(u"image.png"));
-slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f, image);
+auto imageData = File::ReadAllBytes(u"photo.png");
+auto image = presentation->get_Images()->AddImage(imageData);
 
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
+auto slide = presentation->get_Slide(0);
+slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 20.0f, 20.0f, 320.0f, 180.0f, image);
+
+presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Web'den Görselleri Slaytlara Ekle**
+Bu şekilde eklenen görüntü sunuma gömülür, böylece ortaya çıkan dosya orijinal görüntü dosyasının hâlâ mevcut olmasına bağlı olmaz.
 
-Eklemek istediğiniz görsel bilgisayarınızda bulunmuyorsa, doğrudan web'den ekleyebilirsiniz. 
+### **Web'den Görüntü Ekleme**
 
-Aşağıdaki C++ örnek kodu, bir görseli web'den slayta nasıl ekleyeceğinizi gösterir:
+Bir görüntü HTTP veya HTTPS üzerinden kullanılabilir olduğunda, baytlarını indirin, onları sunum görüntü koleksiyonuna ekleyin ve dönen görüntü kaynağını yerel bir görüntü gibi aynı şekilde kullanın.
 
-``` cpp
+```cpp
 #include <DOM/IImageCollection.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
 #include <Export/SaveFormat.h>
@@ -94,529 +91,259 @@ Aşağıdaki C++ örnek kodu, bir görseli web'den slayta nasıl ekleyeceğinizi
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
+using namespace System::Net;
 
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
+auto imageUri = MakeObject<Uri>(u"https://example.com/image.png");
+auto webClient = MakeObject<WebClient>();
+auto imageData = webClient->DownloadData(imageUri);
 
-auto webClient = System::MakeObject<System::Net::WebClient>();
-auto imageData = webClient->DownloadData(System::MakeObject<Uri>(u"[REPLACE WITH URL]"));
+auto presentation = MakeObject<Presentation>();
 
-auto image = pres->get_Images()->AddImage(imageData);
-slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f, image);
+auto image = presentation->get_Images()->AddImage(imageData);
+auto slide = presentation->get_Slide(0);
+slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 20.0f, 20.0f, 320.0f, 180.0f, image);
 
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
+presentation->Save(u"presentation-from-web.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Görselleri Slayt Ana Şablonlarına Ekle**
+Kaynak güvenilir olmadığında uzak URL'leri, yanıt boyutlarını ve içerik türlerini doğrulayın. Başka bir HTTP istemcisi zaten kullanılan uygulamalarda, resmi o istemciyle indirebilir ve elde edilen baytları veya akışı [IImageCollection::AddImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iimagecollection/addimage/) metoduna geçirebilirsiniz.
 
-Bir slayt ana şablonu, onu kullanan slaytların tema ve düzen gibi bilgilerini depolar ve kontrol eder. Bir görüntüyü slayt ana şablonuna eklediğinizde, o şablona dayanan her slaytta görüntü görünür. 
+## **Slaytlar Arasında Görüntüleri Yeniden Kullanma**
 
-Aşağıdaki C++ örnek kodu, bir görseli slayt ana şablonuna nasıl ekleyeceğinizi gösterir:
+Aynı görüntü birden fazla kez gerektiğinde, görüntüyü sunuma bir kez ekleyin ve ek resim çerçeveleri oluştururken dönen [IPPImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ippimage/) kullanın. Bu, aynı kaynak verisinin tekrar tekrar yüklenmesini önler ve paylaşılan görüntü kaynağı ile kullanımları arasındaki ilişkiyi açıkça gösterir.
 
-``` cpp
+Birçok slaytta otomatik olarak görünmesi gereken grafikler (ör. şirket logosu) için, her slayda eşdeğer bir şekil eklemek yerine resmi bir [slayt ana sayfası](/slides/tr/cpp/slide-master/) veya düzene yerleştirmeyi düşünün.
+
+## **Görüntüyü Slayt Arka Planı Olarak Kullanma**
+
+Bir arka plan resmi slayt doldurmasına atanır; bir resim çerçevesi şekli olarak eklenmez. Bu, resmin slayt arka planını kaplaması ve normal bir slayt nesnesi gibi manipüle edilmemesi gerektiğinde kullanışlıdır.
+
+```cpp
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IFillFormat.h>
 #include <DOM/IImageCollection.h>
-#include <DOM/ILayoutSlide.h>
-#include <DOM/IMasterSlide.h>
-#include <DOM/IShapeCollection.h>
+#include <DOM/IPictureFillFormat.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/PictureFillMode.h>
 #include <DOM/Presentation.h>
-#include <DOM/ShapeType.h>
 #include <Export/SaveFormat.h>
 #include <system/io/file.h>
 
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System;
 using namespace System::IO;
 
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-auto masterSlide = slide->get_LayoutSlide()->get_MasterSlide();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-auto image = pres->get_Images()->AddImage(File::ReadAllBytes(u"image.png"));
-masterSlide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f, image);
+auto imageData = File::ReadAllBytes(u"background.jpg");
+auto image = presentation->get_Images()->AddImage(imageData);
 
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
+slide->get_Background()->set_Type(BackgroundType::OwnBackground);
+slide->get_Background()->get_FillFormat()->set_FillType(FillType::Picture);
+slide->get_Background()->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
+slide->get_Background()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(image);
+
+presentation->Save(u"background-image.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Görselleri Slayt Arka Planı Olarak Ekle**
+Ek arka plan seçenekleri için, ana sayfa ve düzen arka planları dahil, [Sunum Arka Planı](/slides/tr/cpp/presentation-background/) bölümüne bakın.
 
-Bir veya daha fazla slaytın arka planı olarak bir resim kullanabilirsiniz. Ayrıntılar için *[Slaytlar İçin Görselleri Arka Plan Olarak Ayarlama](/slides/tr/cpp/presentation-background/#setting-images-as-background-for-slides)* bölümüne bakın.
+## **Gömülü Görüntüler ve Bağlantılı Görüntüler**
 
-## **Sunumlara SVG Ekle**
+Gömülü ve bağlantılı görüntülerin taşınabilirlik ve dosya boyutu açısından farklı ticaret-offları vardır:
 
-SVG içeriği, [SvgImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/svgimage/) sınıfı kullanılarak bir sunuma eklenebilir. Ortaya çıkan [ISvgImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/isvgimage/) nesnesi daha sonra sunumun görsel koleksiyonuna eklenerek bir resim çerçevesi oluşturmak için kullanılabilir.
+- **Gömülü görüntü:** görüntü verileri sunum içinde depolanır. Sunum kendi içinde tamdır, ancak dosya boyutu görüntü verilerini içerir.
+- **Bağlantılı görüntü:** sunum harici bir görüntüye yol veya URL saklar. Bu, sunum boyutunu azaltabilir, ancak harici kaynağın sunum açıldığında veya render edildiğinde erişilebilir olması gerekir.
+
+Bir bağlantılı resim, görüntü verisini gömmek yerine [ISlidesPicture::set_LinkPathLong](https://reference.aspose.com/slides/tr/cpp/aspose.slides/islidespicture/set_linkpathlong/) aracılığıyla harici yol veya URL'yi atayarak oluşturulabilir.
 
 ```cpp
-#include <DOM/IImageCollection.h>
-#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
+#include <DOM/ISlidesPicture.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
-#include <DOM/SvgImage.h>
 #include <Export/SaveFormat.h>
-#include <system/string.h>
 
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto svgContent = String(uR"(
-<svg xmlns='http://www.w3.org/2000/svg' width='320' height='180'>
-    <rect width='320' height='180' fill='#4F81BD'/>
-    <circle cx='160' cy='90' r='55' fill='#F2F2F2'/>
-</svg>)");
-
 auto presentation = MakeObject<Presentation>();
+
+auto slide = presentation->get_Slide(0);
+auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 20.0f, 20.0f, 320.0f, 180.0f, nullptr);
+pictureFrame->get_PictureFormat()->get_Picture()->set_LinkPathLong(u"https://example.com/image.png");
+
+presentation->Save(u"linked-image.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Bağlantılı görüntüleri yalnızca dağıtım ortamı harici kaynağa güvenilir bir şekilde erişebildiğinde kullanın. Çevrimdışı çalışması veya sistemler arasında taşınması gereken sunumlar için gömülü görüntüler genellikle daha güvenlidir.
+
+## **SVG Görüntülerle Çalışma**
+
+SVG bir vektör formatıdır; bu nedenle simgeler, diyagramlar ve raster görüntülerdeki ayrıntı kaybı olmadan ölçeklenmesi gereken diğer grafikler için yararlı olabilir. Aspose.Slides, SVG'yi hem bir görüntü kaynağı hem de düzenlenebilir slayt şekilleri için bir kaynak olarak destekler.
+
+### **SVG'yi Görüntü Olarak Ekleme**
+
+Bir [SvgImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/svgimage/) oluşturun, bunu görüntü koleksiyonuna ekleyin ve ortaya çıkan görüntü kaynağını bir resim çerçevesine yerleştirin.
+
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SvgImage.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto svgContent = File::ReadAllText(u"icon.svg");
 auto svgImage = MakeObject<SvgImage>(svgContent);
-auto image = presentation->get_Images()->AddImage(svgImage);
-
-presentation->get_Slides()->idx_get(0)->get_Shapes()->AddPictureFrame(
-    ShapeType::Rectangle, 20.0f, 20.0f,
-    static_cast<float>(image->get_Width()),
-    static_cast<float>(image->get_Height()),
-    image);
-
-presentation->Save(u"self-contained-svg.pptx", SaveFormat::Pptx);
-presentation->Dispose();
-```
-
-## **Harici Kaynaklı SVG İçeriğini İçeri Aktar**
-
-SVG dosyaları, tasarım araçları, diyagram editörleri, ikon sistemleri ve web pipeline'larından dışarıda depolanan kaynaklara referans içerebilir. Örneğin, bir SVG `images/photo.png` gibi bir resim bağlantısı, bir CSS `url(...)` değeri ya da bir yazı tipi URL'si içerebilir.
-
-Böyle bir SVG içeriğini içeri aktarmak için bir [IExternalResourceResolver](https://reference.aspose.com/slides/tr/cpp/aspose.slides.import/iexternalresourceresolver/) uygulaması oluşturun ve temel URI ile birlikte uygun bir `SvgImage` yapıcıya aktarın. Temel URI, SVG belgesinin konumunu belirler ve göreli bağlantıların çözülmesinde kullanılır.
-
-[ISvgImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/isvgimage/) arayüzü, içe aktarılan SVG hakkında bilgiye erişim sağlar:
-
-- `get_SvgContent()` SVG işaretlemesini bir dize olarak döndürür. 
-- `get_SvgData()` SVG içeriğini bir bayt dizisi olarak döndürür. 
-- `get_BaseUri()` göreli bağlantılar için kullanılan temel URI'yi döndürür. 
-- `get_ExternalResourceResolver()` SVG görseline atanmış çözücüyü döndürür. 
-
-### **Harici Kaynak Çözücüsü Uygula**
-
-Çözücünün iki yöntemi vardır:
-
-- [ResolveUri](https://reference.aspose.com/slides/tr/cpp/aspose.slides.import/iexternalresourceresolver/resolveuri/) temel URI ile göreli kaynak bağlantısını birleştirir ve mutlak bir URI döndürür. Bağlantı çözülemez veya izin verilmezse null dize döndürün. 
-- [GetEntity](https://reference.aspose.com/slides/tr/cpp/aspose.slides.import/iexternalresourceresolver/getentity/) mutlak kaynak URI'si için okunabilir bir akış döndürür. Kaynak eksik, engellenmiş veya kullanılamıyorsa `nullptr` döndürün. Gerektiğinde bir yedek akış da döndürülebilir. 
-
-Aşağıdaki çözücü, yalnızca izin verilen yerel bir dizinden bağlanmış kaynakları yükler. Ağ kaynakları ve izin verilen dizin dışındaki yollar engellenir. Çözülmemiş resim bağlantıları için isteğe bağlı bir yedek resim döndürülür.
-
-```cpp
-#include <Import/IExternalResourceResolver.h>
-#include <system/array.h>
-#include <system/io/file.h>
-#include <system/io/memory_stream.h>
-#include <system/io/path.h>
-#include <system/io/stream.h>
-#include <system/string.h>
-#include <system/smart_ptr.h>
-#include <system/string_comparison.h>
-#include <system/uri.h>
-
-using namespace Aspose::Slides::Import;
-using namespace System;
-using namespace System::IO;
-
-class LocalSvgResourceResolver : public IExternalResourceResolver
-{
-public:
-    LocalSvgResourceResolver(String allowedRoot, ArrayPtr<uint8_t> fallbackImageData = nullptr)
-        : _allowedRoot(Path::GetFullPath(allowedRoot)),
-          _fallbackImageData(fallbackImageData)
-    {
-    }
-
-    String ResolveUri(String baseUri, String relativeUri) override
-    {
-        if (String::IsNullOrWhiteSpace(baseUri) ||
-            String::IsNullOrWhiteSpace(relativeUri))
-        {
-            return String::Null;
-        }
-
-        auto baseAddress = SharedPtr<Uri>();
-        auto absoluteAddress = SharedPtr<Uri>();
-        if (!Uri::TryCreate(baseUri, UriKind::Absolute, baseAddress) ||
-            !Uri::TryCreate(baseAddress, relativeUri, absoluteAddress))
-        {
-            return String::Null;
-        }
-
-        // Bu çözücü yalnızca yerel dosyalara izin verecek şekilde tasarlanmıştır.
-        if (!absoluteAddress->get_IsFile())
-        {
-            return String::Null;
-        }
-
-        auto resourcePath = Path::GetFullPath(absoluteAddress->get_LocalPath());
-        if (!IsInsideAllowedRoot(resourcePath))
-        {
-            return String::Null;
-        }
-
-        return absoluteAddress->get_AbsoluteUri();
-    }
-
-    SharedPtr<Stream> GetEntity(String absoluteUri) override
-    {
-        auto resourceUri = SharedPtr<Uri>();
-        if (!Uri::TryCreate(absoluteUri, UriKind::Absolute, resourceUri) ||
-            !resourceUri->get_IsFile())
-        {
-            return nullptr;
-        }
-
-        auto resourcePath = Path::GetFullPath(resourceUri->get_LocalPath());
-        if (!IsInsideAllowedRoot(resourcePath))
-        {
-            return nullptr;
-        }
-
-        if (File::Exists(resourcePath))
-        {
-            return File::OpenRead(resourcePath);
-        }
-
-        // Yalnızca görüntü kaynakları için bir yedek kullanın. Görüntü akışı döndürmek
-        // eksik bir yazı tipi veya stil sayfası için geçerli olmaz.
-        if (_fallbackImageData != nullptr && IsImageFile(resourcePath))
-        {
-            return MakeObject<MemoryStream>(_fallbackImageData, false);
-        }
-
-        return nullptr;
-    }
-
-private:
-    String _allowedRoot;
-    ArrayPtr<uint8_t> _fallbackImageData;
-
-    bool IsInsideAllowedRoot(String resourcePath)
-    {
-        auto normalizedRoot = _allowedRoot;
-        auto directorySeparator = String(Path::DirectorySeparatorChar, 1);
-        if (!normalizedRoot.EndsWith(directorySeparator))
-        {
-            normalizedRoot += directorySeparator;
-        }
-
-        auto normalizedPath = Path::GetFullPath(resourcePath);
-        auto comparison = Path::DirectorySeparatorChar == u'\\'
-            ? StringComparison::OrdinalIgnoreCase
-            : StringComparison::Ordinal;
-
-        return normalizedPath.StartsWith(normalizedRoot, comparison) ||
-               String::Equals(normalizedPath, _allowedRoot, comparison);
-    }
-
-    static bool IsImageFile(String path)
-    {
-        auto extension = Path::GetExtension(path);
-
-        return String::Equals(extension, u".png", StringComparison::OrdinalIgnoreCase) ||
-               String::Equals(extension, u".jpg", StringComparison::OrdinalIgnoreCase) ||
-               String::Equals(extension, u".jpeg", StringComparison::OrdinalIgnoreCase) ||
-               String::Equals(extension, u".gif", StringComparison::OrdinalIgnoreCase) ||
-               String::Equals(extension, u".bmp", StringComparison::OrdinalIgnoreCase);
-    }
-};
-```
-
-### **SVG İçe Aktarım Sırasında Bağlı Kaynakları Çözümle**
-
-`assets/diagram.svg` dosyasının aşağıdaki gibi bir göreli referans içerdiğini varsayalım:
-
-```xml
-<image href="images/photo.png" x="20" y="20" width="320" height="180" />
-```
-
-Aşağıdaki C++ örneği, SVG dosya URI'sini temel URI olarak aktarır ve özel bir çözücü sağlar. Çözücü, göreli resim bağlantısını mutlak bir URI'ye dönüştürür ve Aspose.Slides SVG'yi işlerken bağlanmış kaynağı içeren bir akış döndürür.
-
-```cpp
-#include <DOM/IImageCollection.h>
-#include <DOM/IPPImage.h>
-#include <DOM/IShapeCollection.h>
-#include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
-#include <DOM/Presentation.h>
-#include <DOM/ShapeType.h>
-#include <DOM/SvgImage.h>
-#include <Export/SaveFormat.h>
-#include <Import/IExternalResourceResolver.h>
-#include <system/array.h>
-#include <system/environment.h>
-#include <system/io/file.h>
-#include <system/io/path.h>
-#include <system/string.h>
-#include <system/uri.h>
-
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::Export;
-using namespace Aspose::Slides::Import;
-using namespace System;
-using namespace System::IO;
-
-auto svgFilePath = Path::GetFullPath(Path::Combine(u"assets", u"diagram.svg"));
-auto assetDirectory = Path::GetDirectoryName(svgFilePath);
-if (String::IsNullOrEmpty(assetDirectory))
-{
-    assetDirectory = Environment::get_CurrentDirectory();
-}
-
-auto svgContent = File::ReadAllText(svgFilePath);
-
-// Temel URI, SVG belgesinin konumunu temsil eder.
-auto baseUri = MakeObject<Uri>(svgFilePath)->get_AbsoluteUri();
-
-auto fallbackImageData = ArrayPtr<uint8_t>();
-auto fallbackImagePath = Path::Combine(assetDirectory, u"fallback.png");
-if (File::Exists(fallbackImagePath))
-{
-    fallbackImageData = File::ReadAllBytes(fallbackImagePath);
-}
-
-auto resolver = MakeObject<LocalSvgResourceResolver>(assetDirectory, fallbackImageData);
-auto svgImage = MakeObject<SvgImage>(svgContent, resolver, baseUri);
-
-// ISvgImage, kaynak içeriği, ikili veri, temel URI ve çözücüyü ortaya çıkar.
-auto importedContent = svgImage->get_SvgContent();
-auto importedData = svgImage->get_SvgData();
-auto importedBaseUri = svgImage->get_BaseUri();
-auto importedResolver = svgImage->get_ExternalResourceResolver();
 
 auto presentation = MakeObject<Presentation>();
+
 auto image = presentation->get_Images()->AddImage(svgImage);
+auto slide = presentation->get_Slide(0);
+slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 20.0f, 20.0f, 200.0f, 200.0f, image);
 
-presentation->get_Slides()->idx_get(0)->get_Shapes()->AddPictureFrame(
-    ShapeType::Rectangle, 20.0f, 20.0f,
-    static_cast<float>(image->get_Width()),
-    static_cast<float>(image->get_Height()),
-    image);
-
-presentation->Save(u"svg-with-linked-resources.pptx", SaveFormat::Pptx);
+presentation->Save(u"svg-image.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-`SvgImage` sınıfı ayrıca SVG verilerini bir bayt dizisi veya akış olarak, dış kaynak çözücüsü ve temel URI ile birlikte kabul eden aşırı yüklemeler sunar.
+### **Harici Kaynaklı SVG Dosyaları**
 
-{{% alert title="Önemli" color="warning" %}}
-Kaynak çözücü, Aspose.Slides SVG'yi işler ve render ederken harici kaynakları kullanılabilir hâle getirir. Orijinal SVG işaretlemesini değiştirmez ve çözülen kaynakları otomatik olarak içine gömme yapmaz.
+Bir SVG harici görüntüler, stil sayfaları veya yazı tiplerine başvurabilir. Bu durumlar için [SvgImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/svgimage/) bir [IExternalResourceResolver](https://reference.aspose.com/slides/tr/cpp/aspose.slides.import/iexternalresourceresolver/) ve bir temel URI kabul eden kurucular sağlar. Çözücü, göreli bir URI'yi izin verilen mutlak bir URI'ye eşleyebilir ve istenen kaynak için bir akış döndürebilir.
 
-Bir `ISvgImage` sunumun görsel koleksiyonuna eklendiğinde, PPTX dosyası hem orijinal SVG temsili hem de raster bir yedek görsel içerebilir. Bağlı bir kaynak, oluşturulan yedek görselde görünebilirken `images/photo.png` gibi bir göreli bağlantı depolanmış SVG'de değişmeden kalır. Yerel SVG temsilini render eden bir uygulama, orijinal harici kaynak kullanılamadığında bağlı içeriği atlayabilir.
-{{% /alert %}}
+Çözücü, SVG işlenirken harici kaynakların kullanılabilir olmasını sağlar, ancak SVG'yi kendi içinde bütün bir belgeye dönüştürmez. SVG'nin taşınabilir kalması gerekiyorsa, gerekli kaynakları SVG içinde gömün; örneğin bağlanmış görüntüler için `data:` URI'lerini kullanabilirsiniz.
 
-### **Taşınabilir Bir SVG Resmi Oluştur**
+Güvenilmeyen kaynaklardan gelen SVG dosyaları için, çözücünün erişebileceği şema, dosya konumu ve ana bilgisayarları sınırlayın. Ağ çözücülerinin ayrıca zaman aşımı, yanıt boyutu limitleri ve içerik doğrulaması uygulaması gerekir.
 
-Harici dosyalara bağlı olmayan bir SVG resmi oluşturmak için `SvgImage` oluşturmadan önce SVG'yi kendine yeter hâle getirin. Örneğin, bağlı resim URL'lerini resim verisini içeren `data:` URI'leriyle değiştirin:
+### **SVG'yi Düzenlenebilir Şekillere Dönüştürme**
 
-```xml
-<image href="data:image/png;base64,..." x="20" y="20" width="320" height="180" />
-```
-
-Gerekli tüm kaynaklar SVG içeriğine gömüldükten sonra `SvgImage` oluşturun, sunum görsel koleksiyonuna ekleyin ve önceki örnekte gösterildiği gibi bir resim çerçevesine yerleştirin.
-
-### **Eksik veya Engellenen Kaynakları İşle**
-
-Bir kaynak URI geçersiz, yasak veya çözülemezse `ResolveUri` metodundan null dize döndürün. Kaynak okunamıyorsa `GetEntity` metodundan `nullptr` döndürün. Aspose.Slides mümkün olduğunda o kaynağı olmadan SVG işleme devam eder.
-
-Eksik bir kaynak için yedek bir akış döndürülebilir, ancak içeriği istenen kaynak türüyle uyumlu olmalıdır. Örneğin, yalnızca eksik bir resim için resim akışı döndürün; bir yazı tipi veya stil sayfası için değil.
-
-{{% alert title="Güvenlik" color="warning" %}}
-Güvenilmeyen SVG dosyalarından rastgele dosya yolları veya sınırsız ağ URL'leri çözülmemelidir. İzin verilen şemalar, dizinler ve ortamlar kısıtlanmalıdır. Ağ kaynakları için bağlantı zaman aşımı, yanıt boyutu sınırları ve içerik doğrulaması da uygulanmalı.
-{{% /alert %}}
-
-## **SVG'yi Şekil Kümesine Dönüştür**
-Aspose.Slides, SVG'yi PowerPoint'teki karşılık gelen işlevselliğe benzer şekilde bir şekil kümesine dönüştürebilir:
+Aspose.Slides, bir SVG'yi düzenlenebilir slayt şekilleri grubuna dönüştürebilir; bu, karşılık gelen PowerPoint komutuna benzer.
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-Bu işlevsellik, bir [ISvgImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/isvgimage/) nesnesini ilk bağımsız değişken olarak alan [IShapeCollection](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishapecollection/) arayüzünün [AddGroupShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishapecollection/) metodunun bir aşırı yüklemesi tarafından sağlanır.
+Dönüştürmeyi gerçekleştirmek için bir [ISvgImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/isvgimage/) kabul eden [IShapeCollection::AddGroupShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishapecollection/addgroupshape/) aşırı yüklemesini kullanın.
 
-``` cpp 
-#include <DOM/IPresentation.h>
+```cpp
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ISlideSize.h>
-#include <DOM/ISvgImage.h>
 #include <DOM/Presentation.h>
 #include <DOM/SvgImage.h>
 #include <Export/SaveFormat.h>
-#include <drawing/size_f.h>
 #include <system/io/file.h>
-
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::Export;
-using namespace System::IO;
-
-// Kaynak SVG dosya adı
-auto svgFileName = System::String(u"sample.svg");
-
-// Çıktı sunum dosya adı
-auto outPptxPath = System::String(u"presentation.pptx");
-
-// Yeni bir sunum oluştur
-auto presentation = System::MakeObject<Presentation>();
-
-// SVG dosya içeriğini oku
-auto svgContent = File::ReadAllText(svgFileName);
-
-// Bir SvgImage nesnesi oluştur
-auto svgImage = System::MakeObject<SvgImage>(svgContent);
-
-// Slayt boyutunu al
-auto slideSize = presentation->get_SlideSize()->get_Size();
-
-// SVG görüntüyü bir şekil grubuna dönüştür ve slayt boyutuna ölçekle
-presentation->get_Slides()->idx_get(0)->get_Shapes()->AddGroupShape(svgImage, 0.f, 0.f, slideSize.get_Width(), slideSize.get_Height());
-
-// Sunumu PPTX formatında kaydet
-presentation->Save(outPptxPath, SaveFormat::Pptx);
-```
-
-## **Görselleri EMF Olarak Slaytlara Ekle**
-Aspose.Slides for C++, Aspose.Cells ile Excel çalışma sayfalarından EMF görselleri oluşturup bunları sunum slaytlarına eklemenize olanak tanır. 
-
-``` cpp 
-#include <DOM/IGlobalLayoutSlideCollection.h>
-#include <DOM/IImageCollection.h>
-#include <DOM/IPPImage.h>
-#include <DOM/IShapeCollection.h>
-#include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
-#include <DOM/ISlideSize.h>
-#include <DOM/Presentation.h>
-#include <DOM/ShapeType.h>
-#include <DOM/SlideLayoutType.h>
-#include <Export/SaveFormat.h>
-#include <drawing/size_f.h>
-#include <system/array.h>
-#include <system/smart_ptr.h>
-#include "Aspose.Cells/ImageOrPrintOptions.h"
-#include "Aspose.Cells/ImageType.h"
-#include "Aspose.Cells/Initializer.h"
-#include "Aspose.Cells/SheetRender.h"
-#include "Aspose.Cells/Vector.h"
-#include "Aspose.Cells/Workbook.h"
-#include "Aspose.Cells/Worksheet.h"
-#include "Aspose.Cells/WorksheetCollection.h"
-
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::Export;
-
-// Aspose.Cells for C++ herhangi bir türü kullanılmadan önce başlatılmalıdır.
-Aspose::Cells::Startup();
-
-auto workbook = Aspose::Cells::Workbook(u"chart.xls");
-auto sheet = workbook.GetWorksheets().Get(0);
-
-// Çalışma sayfasını EMF olarak oluştur.
-auto options = Aspose::Cells::ImageOrPrintOptions();
-options.SetHorizontalResolution(200);
-options.SetVerticalResolution(200);
-options.SetImageType(Aspose::Cells::Drawing::ImageType::Emf);
-
-auto sheetRender = Aspose::Cells::SheetRender(sheet, options);
-
-auto presentation = System::MakeObject<Presentation>();
-presentation->get_Slides()->RemoveAt(0);
-
-for (auto pageIndex = 0; pageIndex < sheetRender.GetPageCount(); pageIndex++)
-{
-    // Aspose.Cells oluşturulan sayfayı bir tampon olarak döndürür, Aspose.Slides bunu bir görüntü olarak ekler.
-    auto emfData = sheetRender.ToImage(pageIndex);
-    auto emfBytes = System::MakeArray<uint8_t>(emfData.GetLength(), emfData.GetData());
-    auto emfImage = presentation->get_Images()->AddImage(emfBytes);
-
-    auto slide = presentation->get_Slides()->AddEmptySlide(
-        presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank));
-    auto slideSize = presentation->get_SlideSize()->get_Size();
-    slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 0.0f, 0.0f, slideSize.get_Width(), slideSize.get_Height(), emfImage);
-}
-
-presentation->Save(u"Saved.pptx", SaveFormat::Pptx);
-presentation->Dispose();
-workbook.Dispose();
-
-Aspose::Cells::Cleanup();
-```
-
-## **Görsel Koleksiyonundaki Görselleri Değiştir**
-
-Aspose.Slides, slayt şekilleri tarafından da kullanılan, sunumun görsel koleksiyonunda depolanan görselleri değiştirmenizi sağlar. Bu bölüm, koleksiyondaki görselleri güncellemenin çeşitli yollarını açıklar. Bir görseli ham bayt verisi, bir [IImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iimage/) örneği ya da koleksiyonda zaten var olan başka bir görsel kullanarak değiştirebilirsiniz.
-
-Aşağıdaki adımları izleyin:
-
-1. Görselleri içeren sunum dosyasını [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfı ile yükleyin.  
-2. Yeni bir görseli dosyadan bayt dizisine yükleyin.  
-3. Hedef görseli, bayt dizisini kullanarak yeni görsel ile değiştirin.  
-4. İkinci yöntemde, görseli bir [IImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iimage/) nesnesine yükleyin ve hedef görseli bu nesneyle değiştirin.  
-5. Üçüncü yöntemde, hedef görseli sunumun görsel koleksiyonunda zaten var olan bir görsel ile değiştirin.  
-6. Değiştirilmiş sunumu PPTX dosyası olarak yazın.  
-
-```cpp
-#include <DOM/IPPImage.h>
-#include <DOM/Presentation.h>
-#include <Export/SaveFormat.h>
-#include <IImage.h>
-#include <Util/Images.h>
-#include <system/io/file.h>
-#include <system/smart_ptr.h>
 
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::IO;
 
-// Sunum dosyasını temsil eden Presentation sınıfının örneğini oluştur.
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto svgContent = File::ReadAllText(u"diagram.svg");
+auto svgImage = MakeObject<SvgImage>(svgContent);
 
-// İlk yöntem.
-auto imageData = File::ReadAllBytes(u"image0.jpeg");
-auto oldImage = presentation->get_Image(0);
-oldImage->ReplaceImage(imageData);
+auto presentation = MakeObject<Presentation>();
 
-// İkinci yöntem.
-auto newImage = Images::FromFile(u"image1.png");
-oldImage = presentation->get_Image(1);
-oldImage->ReplaceImage(newImage);
-newImage->Dispose();
+auto slideSize = presentation->get_SlideSize()->get_Size();
+auto slide = presentation->get_Slide(0);
+slide->get_Shapes()->AddGroupShape(svgImage, 0.0f, 0.0f, slideSize.get_Width(), slideSize.get_Height());
 
-// Üçüncü yöntem.
-oldImage = presentation->get_Image(2);
-oldImage->ReplaceImage(presentation->get_Image(3));
+presentation->Save(u"editable-svg-shapes.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
 
-// Sunumu bir dosyaya kaydet.
+SVG'den şekillere dönüşümü, bireysel vektör öğelerinin PowerPoint şekilleri olarak düzenlenmesi gerektiğinde kullanın. SVG yalnızca görüntülenmesi gerekiyorsa, görüntü olarak tutmak daha basittir ve birçok ayrı şekil oluşturmayı önler.
+
+## **Mevcut Bir Görüntü Kaynağını Değiştirme**
+
+Mevcut bir görüntü kaynağını değiştirmek istediğinizde [IPPImage::ReplaceImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ippimage/replaceimage/) kullanın. Bu, logolar gibi paylaşılan grafikler için özellikle kullanışlıdır.
+
+```cpp
+#include <DOM/IPPImage.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+
+auto imageToReplace = presentation->get_Image(0);
+auto imageData = File::ReadAllBytes(u"new-logo.png");
+imageToReplace->ReplaceImage(imageData);
+
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-{{% alert title="Bilgi" color="info" %}}
-Aspose'un ücretsiz [Text to GIF](https://products.aspose.app/slides/tr/text-to-gif) dönüştürücüsüyle metni kolayca canlandırabilir ve metinden GIF'ler oluşturabilirsiniz. 
-{{% /alert %}}
+Birden çok resim çerçevesi, arka plan, ana sayfa veya düzen aynı görüntü kaynağını kullanıyorsa, bu kaynağı değiştirmek tüm kullanım noktalarını günceller. Sadece bir resim çerçevesinin değişmesi gerekiyorsa, paylaşılan kaynağı değiştirmek yerine o çerçeveye farklı bir görüntü atayın.
+
+[IPPImage::ReplaceImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ippimage/replaceimage/) ayrıca bir [IImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iimage/) veya başka bir [IPPImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ippimage/) kabul eden aşırı yüklemeler sunar.
+
+## **Uygulamalı Görüntü Yönetimi Rehberi**
+
+### **Sunum Boyutunu Kontrol Etme**
+
+Büyük raster görüntüler sunumu gereksiz yere büyütebilir. Görüntüleri hedef gösterim boyutuna uygun boyutlarda kullanın, mümkün olduğunca paylaşılan görüntü kaynaklarını yeniden kullanın ve aynı yüksek çözünürlüklü grafiğin tekrarlanan kopyalarını gömmekten kaçının.
+
+Resim çerçevelerine yerleştirilmiş raster resimler için, [IPictureFillFormat::CompressImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipicturefillformat/compressimage/) seçilen çözünürlük ve kırpma ayarlarına göre görüntü verisini azaltabilir. Bu, görüntü koleksiyonu yönetimi yerine resim çerçevesi işleme olduğundan, ilgili biçimlendirme işlemleri için [Resim Çerçevesi](/slides/tr/cpp/picture-frame/) bölümüne bakın.
+
+### **Gömülü ve Bağlantılı İçerik Arasındaki Seçim**
+
+Gömme, tüm gerekli görüntü verileri dosyayla birlikte hareket ettiği için sunumu taşınabilir kılar. Bağlantı dosya boyutunu azaltabilir, ancak harici bir bağımlılık getirir. Bağlantıyı yalnızca bu bağımlılığın kabul edilebilir ve istikrarlı olduğu durumlarda kullanın.
+
+### **Paylaşılan Marka Kimliğini Yeniden Kullanma**
+
+Tekrarlanan logolar, filigranlar veya dekoratif grafikler için tek bir görüntü kaynağı kullanın ve yeniden kullanın. Grafik, slayt içeriği yerine sunum tasarımına aitse, uygun slaytlar tarafından devralınması için bir ana sayfa veya düzene yerleştirin.
+
+### **SVG Kaynaklarını Taşınabilir Tutma**
+
+Kendi içinde bütün bir SVG, harici dosyalara veya ağ kaynaklarına bağlı bir SVG'den daha kolay taşınır ve tutarlı render edilir. Mümkün olduğunda, SVG'yi içe aktarmadan önce gerekli kaynakları gömün. SVG'yi yalnızca bireysel vektör öğelerinin düzenlenmesi gerektiğinde şekillere dönüştürün.
+
+### **Aspose.Slides Görüntü API'sini Kullanma**
+
+C++ görüntü iş akışları için, bir görüntü nesnesine ihtiyacınız olduğunda Aspose.Slides [IImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iimage/) ve [Images](https://reference.aspose.com/slides/tr/cpp/aspose.slides/images/) API'lerini, bir görüntü verisini sunum kaynağı olarak kaydetmeniz gerektiğinde ise [IImageCollection::AddImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iimagecollection/addimage/) kullanın. Koleksiyon aşırı yüklemeleri ayrıca bayt dizileri ve akışları destekler; bu, görüntü verileri dosyalardan, ağ istemcilerinden, veritabanlarından veya diğer kütüphanelerden geldiğinde yararlıdır.
+
+Elektronik tablolar veya başka bir üründen EMF içeriği üretmek ayrı bir bütünleşme iş akışıdır ve bu makalenin kapsamı dışındadır. Mevcut bir WMF veya EMF dosyasının yalnızca bir sunuma eklenmesi gerekiyorsa, görüntü yönetimi iş akışına ikinci bir ürün bağımlılığı eklemeden uygun bir [IImageCollection::AddImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iimagecollection/addimage/) aşırı yüklemesine verisini gönderin.
 
 ## **SSS**
 
-**Ekleme işleminden sonra orijinal görsel çözünürlüğü aynı kalır mı?**
+**Görüntü koleksiyonu ile bir resim çerçevesi arasındaki fark nedir?**
 
-Evet. Kaynak pikseller korunur, ancak nihai görünüm, slaytta [resmin](/slides/tr/cpp/picture-frame/) nasıl ölçeklendirildiğine ve kaydetme sırasında uygulanan sıkıştırmaya bağlıdır.
+Görüntü koleksiyonu yeniden kullanılabilir görüntü kaynaklarını depolar. Bir resim çerçevesi, bu kaynaklardan birini gösteren bir slayt şeklidir ve kırpma, efektler gibi resim‑özel biçimlendirmeler sunar.
 
-**Onlarca slaytta aynı logoyu bir anda değiştirmek için en iyi yol nedir?**
+**Aynı logoyu her yerde değiştirmek için en iyi yol nedir?**
 
-Logoyu ana slayta ya da bir düzene yerleştirin ve sunumun görsel koleksiyonunda değiştirin—güncellemeler bu kaynağı kullanan tüm öğelere yayılır.
+Logo zaten tek bir görüntü kaynağı olarak paylaşılıyorsa, bu kaynağı [IPPImage::ReplaceImage](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ippimage/replaceimage/) ile değiştirin. Sunum çapında marka kimliği için logoyu bir ana sayfa veya düzene koymak da yinelenen slayt içeriğini azaltabilir.
 
-**Eklemiş bir SVG düzenlenebilir şekillere dönüştürülebilir mi?**
+**Bağlantılı bir görüntü başka bir bilgisayarda neden kaybolur?**
 
-Evet. SVG'yi bir şekil grubuna dönüştürebilir ve ardından bireysel parçalar, standart şekil özellikleriyle düzenlenebilir hâle gelir.
+Bağlantılı resim dış dosya veya URL'ye bağlıdır. Bu kaynak diğer bilgisayardan erişilemezse, bağlantılı görüntü mevcut olmayabilir. Sunumun kendi içinde olması gerekiyorsa görüntüyü gömün.
 
-**Bir resmi aynı anda birden çok slaytın arka planı olarak nasıl ayarlayabilirim?**
+**Eklenen bir SVG PowerPoint şekilleri olarak düzenlenebilir mi?**
 
-Resmi ana slayta ya da ilgili düzene arka plan olarak atayın—bu ana/slayt düzenini kullanan tüm slaytlar arka planı miras alır.
+Evet. SVG'yi [IShapeCollection::AddGroupShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishapecollection/addgroupshape/) ile dönüştürün; ortaya çıkan grup tek bir SVG resmi yerine düzenlenebilir slayt şekilleri içerir.
 
-**Birçok resim nedeniyle sunumun çok büyük olmasını nasıl engelleyebilirim?**
+**Birçok görüntülü sunumları nasıl daha küçük tutabilirim?**
 
-Tek bir görsel kaynağını tekrar kullanın, makul çözünürlükler seçin, kaydetme sırasında sıkıştırma uygulayın ve gerektiğinde tekrarlanan grafikleri ana slayta taşıyın.
+Paylaşılan görüntü kaynaklarını yeniden kullanın, gereksiz yere büyük raster kaynaklardan kaçının, uygun olduğunda raster resimleri sıkıştırın, tekrarlanan marka öğelerini ana sayfalara veya düzenlere koyun ve bağlantılı görüntüleri yalnızca harici bağımlılık kabul edilebilir olduğunda kullanın.

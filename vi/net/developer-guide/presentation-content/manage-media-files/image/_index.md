@@ -1,497 +1,272 @@
 ---
-title: "Tối ưu quản lý hình ảnh trong các bản trình bày trên .NET"
-linktitle: "Quản lý Hình ảnh"
+title: Tối ưu hóa Quản lý Hình ảnh trong Bản trình chiếu bằng .NET
+linktitle: Quản lý Hình ảnh
 type: docs
 weight: 10
 url: /vi/net/image/
 keywords:
-- "thêm hình ảnh"
-- "thêm ảnh"
-- "thêm bitmap"
-- "thay thế hình ảnh"
-- "thay thế ảnh"
-- "từ web"
-- "nền"
-- "thêm PNG"
-- "thêm JPG"
-- "thêm SVG"
-- "tài nguyên SVG bên ngoài"
-- "bộ giải quyết SVG"
-- "hình ảnh SVG liên kết"
-- "phông chữ SVG"
-- "thêm EMF"
-- "thêm WMF"
-- "thêm TIFF"
-- "PowerPoint"
-- "OpenDocument"
-- "bản trình bày"
-- ".NET"
-- "C#"
-- "Aspose.Slides"
-description: "Tối ưu hóa quản lý hình ảnh trong PowerPoint và OpenDocument bằng Aspose.Slides cho .NET, cải thiện hiệu năng và tự động hóa quy trình làm việc của bạn."
+- thêm hình ảnh
+- thêm hình
+- thay thế hình ảnh
+- bộ sưu tập hình ảnh
+- khung hình
+- hình ảnh liên kết
+- nền
+- thêm PNG
+- thêm JPG
+- thêm SVG
+- SVG thành hình dạng
+- tài nguyên SVG bên ngoài
+- PowerPoint
+- OpenDocument
+- bản trình chiếu
+- .NET
+- C#
+- Aspose.Slides
+description: "Tìm hiểu cách thêm, tái sử dụng, liên kết, thay thế và quản lý hình ảnh raster và SVG trong các bản trình chiếu PowerPoint và OpenDocument bằng Aspose.Slides cho .NET."
 ---
 ## **Giới thiệu**
 
-Hình ảnh làm cho bản trình bày trở nên hấp dẫn và bắt mắt hơn. Trong Microsoft PowerPoint, bạn có thể chèn ảnh vào các slide từ tệp, internet hoặc các nguồn khác. Tương tự, Aspose.Slides cho phép bạn thêm hình ảnh vào các slide của bản trình bày theo nhiều cách.
+Aspose.Slides for .NET cung cấp một số cách để làm việc với hình ảnh, và mỗi cách phục vụ một mục đích khác nhau. Bạn có thể lưu trữ một hình ảnh trong bản trình chiếu, hiển thị nó trong một khung hình, sử dụng nó làm nền slide, liên kết tới một hình ảnh bên ngoài, thay thế một tài nguyên hình ảnh chia sẻ, hoặc chuyển nội dung SVG thành các hình dạng có thể chỉnh sửa.
 
-{{% alert  title="Tip" color="primary" %}} 
-Aspose cung cấp các công cụ chuyển đổi miễn phí—[JPEG to PowerPoint](https://products.aspose.app/slides/vi/import/jpg-to-ppt) và [PNG to PowerPoint](https://products.aspose.app/slides/vi/import/png-to-ppt)—cho phép bạn nhanh chóng tạo bản trình bày từ hình ảnh. 
-{{% /alert %}} 
+Bài viết này tập trung vào các tài nguyên hình ảnh và cách chúng được sử dụng trong toàn bộ bản trình chiếu. Đối với việc cắt, độ trong suốt, hiệu ứng, kéo dãn và các định dạng khác được áp dụng cho một khung hình riêng lẻ, xem [Picture Frame](/slides/vi/net/picture-frame/).
 
-{{% alert title="Info" color="info" %}}
-Nếu bạn muốn thêm hình ảnh dưới dạng khung ảnh—đặc biệt nếu bạn dự định thay đổi kích thước, áp dụng hiệu ứng hoặc sử dụng các tùy chọn định dạng tiêu chuẩn khác—hãy xem [Picture Frame](/slides/vi/net/picture-frame/). 
-{{% /alert %}} 
+## **Hiểu mô hình hình ảnh**
 
-{{% alert title="Note" color="warning" %}}
-Bạn có thể chuyển đổi hình ảnh từ định dạng này sang định dạng khác. Xem các trang sau: chuyển [image to JPG](https://products.aspose.com/slides/vi/net/conversion/image-to-jpg/), [JPG to image](https://products.aspose.com/slides/vi/net/conversion/jpg-to-image/), [JPG to PNG](https://products.aspose.com/slides/vi/net/conversion/jpg-to-png/), [PNG to JPG](https://products.aspose.com/slides/vi/net/conversion/png-to-jpg/), [PNG to SVG](https://products.aspose.com/slides/vi/net/conversion/png-to-svg/), và [SVG to PNG](https://products.aspose.com/slides/vi/net/conversion/svg-to-png/). 
-{{% /alert %}}
+- Bộ sưu tập hình ảnh của bản trình chiếu ([presentation image collection](https://reference.aspose.com/slides/vi/net/aspose.slides/iimagecollection/)) lưu trữ các tài nguyên hình ảnh được sử dụng bởi bản trình chiếu. Sử dụng [ImageCollection.AddImage](https://reference.aspose.com/slides/vi/net/aspose.slides/imagecollection/addimage/) để thêm dữ liệu hình ảnh và nhận một tài nguyên [IPPImage](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage/).
+- Một [picture frame](https://reference.aspose.com/slides/vi/net/aspose.slides/ipictureframe/) là một hình dạng hiển thị hình ảnh trên slide, layout hoặc master. Sử dụng [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/vi/net/aspose.slides/ishapecollection/addpictureframe/) để đặt tài nguyên hình ảnh lên slide.
+- Nền slide sử dụng hình ảnh như một phần của việc lấp đầy slide thay vì như một hình dạng. Do đó nó không hoạt động như một khung hình.
+- [IPPImage.ReplaceImage](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage/replaceimage/) thay thế một tài nguyên hình ảnh. Nếu có nhiều phần tử trong bản trình chiếu sử dụng tài nguyên đó, tất cả chúng sẽ dùng tài nguyên đã thay thế.
+- Chuyển đổi SVG thành các hình dạng tạo ra các hình dạng slide có thể chỉnh sửa. Sau khi chuyển đổi, nội dung không còn được quản lý như một tài nguyên hình ảnh duy nhất.
 
-Aspose.Slides hỗ trợ hình ảnh trong các định dạng phổ biến như JPEG, PNG, BMP, GIF và các định dạng khác. 
+Một quy trình làm việc điển hình là: thêm dữ liệu hình ảnh vào bộ sưu tập hình ảnh, nhận một [IPPImage](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage/), và sau đó sử dụng tài nguyên đó trong một hoặc nhiều khung hình hoặc lấp đầy.
 
-## **Thêm Hình Ảnh Đã Lưu Trên Máy Tính Vào Các Slide**
+## **Thêm hình ảnh nhúng**
 
-Bạn có thể thêm một hoặc nhiều hình ảnh được lưu trên máy tính vào một slide của bản trình bày. Đoạn mã mẫu C# dưới đây cho thấy cách thêm một hình ảnh vào slide:
-
-```c#
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Thêm Hình Ảnh Từ Web Vào Các Slide**
-
-Nếu hình ảnh bạn muốn thêm vào slide không được lưu trên máy tính, bạn có thể thêm trực tiếp từ web. 
-
-Đoạn mã mẫu C# dưới đây cho thấy cách thêm một hình ảnh từ web vào slide:
-
-```c#
-using System.Net;
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-
-    byte[] imageData;
-    using (WebClient webClient = new WebClient()) 
-    {
-        imageData = webClient.DownloadData(new Uri("[REPLACE WITH URL]"));
-    }
-    
-    IPPImage image = pres.Images.AddImage(imageData);
-    slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Thêm Hình Ảnh Vào Slide Master**
-
-Slide master lưu trữ và kiểm soát thông tin như chủ đề và bố cục cho các slide sử dụng nó. Khi bạn thêm một hình ảnh vào slide master, hình ảnh sẽ xuất hiện trên mọi slide dựa trên master đó. 
-
-Đoạn mã mẫu C# dưới đây cho thấy cách thêm một hình ảnh vào slide master:
-
-```c#
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    IMasterSlide masterSlide = slide.LayoutSlide.MasterSlide;
-    
-    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    masterSlide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Thêm Hình Ảnh Là Nền Cho Slide**
-
-Bạn có thể sử dụng một ảnh làm nền cho một hoặc nhiều slide. Để biết chi tiết, xem *[Setting Images as Backgrounds for Slides](/slides/vi/net/presentation-background/#setting-images-as-background-for-slides)*.
-
-## **Thêm SVG Vào Bản Trình Bày**
-
-Nội dung SVG có thể được thêm vào bản trình bày bằng lớp [SvgImage](https://reference.aspose.com/slides/vi/net/aspose.slides/svgimage/) . Đối tượng [ISvgImage](https://reference.aspose.com/slides/vi/net/aspose.slides/isvgimage/) trả về sau đó có thể được thêm vào bộ sưu tập hình ảnh của bản trình bày và dùng để tạo khung ảnh.
-
-Đoạn mã C# dưới đây nhập một chuỗi SVG tự chứa. Tất cả các hình ảnh, kiểu chữ và tài nguyên khác được sử dụng bởi SVG này đều được nhúng trực tiếp trong nội dung SVG.
+Để chèn một hình ảnh cục bộ, đọc tệp, thêm dữ liệu của nó vào bộ sưu tập hình ảnh và tạo một khung hình sử dụng `IPPImage` được trả về.
 
 ```csharp
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-string svgContent = @"
-<svg xmlns='http://www.w3.org/2000/svg' width='320' height='180'>
-    <rect width='320' height='180' fill='#4F81BD'/>
-    <circle cx='160' cy='90' r='55' fill='#F2F2F2'/>
-</svg>";
-
-using (Presentation presentation = new Presentation())
-{
-    ISvgImage svgImage = new SvgImage(svgContent);
-    IPPImage image = presentation.Images.AddImage(svgImage);
-
-    presentation.Slides[0].Shapes.AddPictureFrame(
-        ShapeType.Rectangle, 20, 20, image.Width, image.Height, image);
-
-    presentation.Save("self-contained-svg.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Nhập Nội Dung SVG Với Tài Nguyên Bên Ngoài**
-
-Các tệp SVG xuất ra từ công cụ thiết kế, trình chỉnh sửa sơ đồ, hệ thống biểu tượng và quy trình web có thể tham chiếu tới các tài nguyên được lưu bên ngoài tài liệu SVG. Ví dụ, một SVG có thể chứa liên kết ảnh như `images/photo.png`, giá trị CSS `url(...)` hoặc URL phông chữ. 
-
-Để nhập nội dung SVG như vậy, tạo một triển khai [IExternalResourceResolver](https://reference.aspose.com/slides/vi/net/aspose.slides.import/iexternalresourceresolver/) và truyền nó, cùng với một URI cơ sở, cho một hàm khởi tạo `SvgImage` phù hợp. URI cơ sở xác định vị trí của tài liệu SVG và được dùng để giải quyết các liên kết tương đối. 
-
-Giao diện [ISvgImage](https://reference.aspose.com/slides/vi/net/aspose.slides/isvgimage/) cung cấp quyền truy cập vào thông tin về SVG đã nhập:
-
-- `SvgContent` trả về mã markup SVG dưới dạng chuỗi.  
-- `SvgData` trả về nội dung SVG dưới dạng mảng byte.  
-- `BaseUri` trả về URI cơ sở được dùng cho các liên kết tương đối.  
-- `ExternalResourceResolver` trả về bộ giải quyết được gán cho ảnh SVG.  
-
-### **Triển Khai Bộ Giải Quyết Tài Nguyên Bên Ngoài**
-
-Bộ giải quyết có hai phương thức:
-
-- [ResolveUri](https://reference.aspose.com/slides/vi/net/aspose.slides.import/iexternalresourceresolver/resolveuri/) kết hợp URI cơ sở và một liên kết tài nguyên tương đối và trả về một URI tuyệt đối. Trả về `null` khi không thể giải quyết liên kết hoặc không được phép.  
-- [GetEntity](https://reference.aspose.com/slides/vi/net/aspose.slides.import/iexternalresourceresolver/getentity/) trả về một luồng đọc được cho một URI tài nguyên tuyệt đối. Trả về `null` khi tài nguyên bị thiếu, bị chặn hoặc không khả dụng. Một luồng dự phòng cũng có thể được trả về khi thích hợp.  
-
-Bộ giải quyết dưới đây chỉ tải các tài nguyên liên kết từ một thư mục cục bộ được phép. Các tài nguyên mạng và các đường dẫn nằm ngoài thư mục cho phép sẽ bị chặn. Một ảnh dự phòng tùy chọn sẽ được trả về cho các liên kết ảnh chưa được giải quyết.
-
-```csharp
-using System;
-using System.IO;
-using Aspose.Slides.Import;
-
-internal sealed class LocalSvgResourceResolver : IExternalResourceResolver
-{
-    private readonly string _allowedRoot;
-    private readonly byte[] _fallbackImageData;
-
-    public LocalSvgResourceResolver(string allowedRoot, byte[] fallbackImageData = null)
-    {
-        _allowedRoot = Path.GetFullPath(allowedRoot);
-        _fallbackImageData = fallbackImageData;
-    }
-
-    public string ResolveUri(string baseUri, string relativeUri)
-    {
-        if (string.IsNullOrWhiteSpace(baseUri) ||
-            string.IsNullOrWhiteSpace(relativeUri))
-        {
-            return null;
-        }
-
-        if (!Uri.TryCreate(baseUri, UriKind.Absolute, out Uri baseAddress) ||
-            !Uri.TryCreate(baseAddress, relativeUri, out Uri absoluteAddress))
-        {
-            return null;
-        }
-
-        // Bộ giải quyết này cố ý chỉ cho phép các tệp cục bộ.
-        if (!absoluteAddress.IsFile)
-        {
-            return null;
-        }
-
-        string resourcePath = Path.GetFullPath(absoluteAddress.LocalPath);
-        if (!IsInsideAllowedRoot(resourcePath))
-        {
-            return null;
-        }
-
-        return absoluteAddress.AbsoluteUri;
-    }
-
-    public Stream GetEntity(string absoluteUri)
-    {
-        if (!Uri.TryCreate(absoluteUri, UriKind.Absolute, out Uri resourceUri) ||
-            !resourceUri.IsFile)
-        {
-            return null;
-        }
-
-        string resourcePath = Path.GetFullPath(resourceUri.LocalPath);
-        if (!IsInsideAllowedRoot(resourcePath))
-        {
-            return null;
-        }
-
-        if (File.Exists(resourcePath))
-        {
-            return File.OpenRead(resourcePath);
-        }
-
-        // Chỉ sử dụng dự phòng cho tài nguyên hình ảnh. Trả về luồng ảnh
-        // cho phông chữ hoặc stylesheet bị thiếu sẽ không hợp lệ.
-        if (_fallbackImageData != null && IsImageFile(resourcePath))
-        {
-            return new MemoryStream(_fallbackImageData, writable: false);
-        }
-
-        return null;
-    }
-
-    private bool IsInsideAllowedRoot(string resourcePath)
-    {
-        string normalizedRoot = _allowedRoot.TrimEnd(
-            Path.DirectorySeparatorChar,
-            Path.AltDirectorySeparatorChar) + Path.DirectorySeparatorChar;
-
-        string normalizedPath = Path.GetFullPath(resourcePath);
-        StringComparison comparison = Path.DirectorySeparatorChar == '\\'
-            ? StringComparison.OrdinalIgnoreCase
-            : StringComparison.Ordinal;
-
-        return normalizedPath.StartsWith(normalizedRoot, comparison) ||
-               string.Equals(normalizedPath, _allowedRoot, comparison);
-    }
-
-    private static bool IsImageFile(string path)
-    {
-        string extension = Path.GetExtension(path);
-
-        return extension.Equals(".png", StringComparison.OrdinalIgnoreCase) ||
-               extension.Equals(".jpg", StringComparison.OrdinalIgnoreCase) ||
-               extension.Equals(".jpeg", StringComparison.OrdinalIgnoreCase) ||
-               extension.Equals(".gif", StringComparison.OrdinalIgnoreCase) ||
-               extension.Equals(".bmp", StringComparison.OrdinalIgnoreCase);
-    }
-}
-```
-
-### **Giải Quyết Tài Nguyên Liên Kết Khi Nhập SVG**
-
-Giả sử `assets/diagram.svg` chứa một tham chiếu tương đối như:
-
-```xml
-<image href="images/photo.png" x="20" y="20" width="320" height="180" />
-```
-
-Đoạn mã C# dưới đây truyền URI tệp SVG làm URI cơ sở và cung cấp một bộ giải quyết tùy chỉnh. Bộ giải quyết chuyển liên kết ảnh tương đối thành một URI tuyệt đối và trả về một luồng chứa tài nguyên liên kết trong khi Aspose.Slides xử lý SVG.
-
-```csharp
-using System;
 using System.IO;
 using Aspose.Slides;
 using Aspose.Slides.Export;
-using Aspose.Slides.Import;
 
-string svgFilePath = Path.GetFullPath(Path.Combine("assets", "diagram.svg"));
-string assetDirectory = Path.GetDirectoryName(svgFilePath) ?? Directory.GetCurrentDirectory();
-string svgContent = File.ReadAllText(svgFilePath);
+using var presentation = new Presentation();
 
-// URI cơ sở đại diện cho vị trí của tài liệu SVG.
-string baseUri = new Uri(svgFilePath).AbsoluteUri;
+var imageData = File.ReadAllBytes("photo.png");
+var image = presentation.Images.AddImage(imageData);
 
-byte[] fallbackImageData = null;
-string fallbackImagePath = Path.Combine(assetDirectory, "fallback.png");
-if (File.Exists(fallbackImagePath))
-{
-    fallbackImageData = File.ReadAllBytes(fallbackImagePath);
-}
+var slide = presentation.Slides[0];
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
 
-IExternalResourceResolver resolver = new LocalSvgResourceResolver(assetDirectory, fallbackImageData);
-ISvgImage svgImage = new SvgImage(svgContent, resolver, baseUri);
-
-// ISvgImage cung cấp nội dung nguồn, dữ liệu nhị phân, URI cơ sở và bộ giải quyết.
-string importedContent = svgImage.SvgContent;
-byte[] importedData = svgImage.SvgData;
-string importedBaseUri = svgImage.BaseUri;
-IExternalResourceResolver importedResolver = svgImage.ExternalResourceResolver;
-
-using (Presentation presentation = new Presentation())
-{
-    IPPImage image = presentation.Images.AddImage(svgImage);
-
-    presentation.Slides[0].Shapes.AddPictureFrame(
-        ShapeType.Rectangle, 20, 20, image.Width, image.Height, image);
-
-    presentation.Save("svg-with-linked-resources.pptx", SaveFormat.Pptx);
-}
+presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
 
-Lớp `SvgImage` cũng cung cấp các overload cho phép nhận dữ liệu SVG dưới dạng mảng byte hoặc luồng, cùng với một bộ giải quyết tài nguyên bên ngoài và một URI cơ sở.  
+Hình ảnh được thêm theo cách này sẽ được nhúng trong bản trình chiếu, vì vậy tệp kết quả không phụ thuộc vào việc tệp hình ảnh gốc còn tồn tại hay không.
 
-{{% alert title="Important" color="warning" %}} 
-Bộ giải quyết tài nguyên làm cho các tài nguyên bên ngoài khả dụng trong khi Aspose.Slides xử lý và render SVG. Nó không thay đổi mã SVG gốc hay tự động nhúng các tài nguyên đã giải quyết vào SVG.  
+### **Thêm hình ảnh từ web**
 
-Khi một `ISvgImage` được thêm vào bộ sưu tập hình ảnh của bản trình bày, tệp PPTX có thể chứa cả biểu diễn SVG gốc và một ảnh raster dự phòng. Một tài nguyên liên kết có thể xuất hiện trong ảnh dự phòng được tạo ra, trong khi một liên kết tương đối như `images/photo.png` vẫn không thay đổi trong SVG được lưu. Do đó, một ứng dụng render biểu diễn SVG gốc có thể bỏ qua nội dung liên kết khi tài nguyên bên ngoài gốc không khả dụng. 
-{{% /alert %}} 
+Khi một hình ảnh có sẵn qua HTTP hoặc HTTPS, tải xuống các byte của nó bằng `HttpClient`, thêm chúng vào bộ sưu tập hình ảnh của bản trình chiếu, và sử dụng tài nguyên hình ảnh trả về cùng cách như với hình ảnh cục bộ.
 
-### **Tạo Ảnh SVG Di Động**
+```csharp
+using System;
+using System.Net.Http;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-Để tạo một ảnh SVG không phụ thuộc vào các tệp bên ngoài, hãy làm cho SVG tự chứa trước khi tạo `SvgImage`. Ví dụ, thay thế các URL ảnh liên kết bằng URI `data:` chứa dữ liệu hình ảnh:
+var imageUri = new Uri("https://example.com/image.png");
+using var httpClient = new HttpClient();
+var imageData = await httpClient.GetByteArrayAsync(imageUri);
 
-```xml
-<image href="data:image/png;base64,..." x="20" y="20" width="320" height="180" />
+using var presentation = new Presentation();
+
+var image = presentation.Images.AddImage(imageData);
+var slide = presentation.Slides[0];
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
+
+presentation.Save("presentation-from-web.pptx", SaveFormat.Pptx);
 ```
 
-Sau khi tất cả các tài nguyên cần thiết đã được nhúng vào nội dung SVG, tạo `SvgImage`, thêm nó vào bộ sưu tập hình ảnh của bản trình bày và chèn nó vào một khung ảnh như trong ví dụ trước.  
+Trong các ứng dụng chạy lâu, tái sử dụng `HttpClient` thay vì tạo một đối tượng mới cho mỗi yêu cầu. Đồng thời kiểm tra URL từ xa, kích thước phản hồi và kiểu nội dung khi nguồn không tin cậy.
 
-### **Xử Lý Tài Nguyên Thiếu Hoặc Bị Chặn**
+## **Tái sử dụng hình ảnh trên nhiều slide**
 
-Trả về `null` từ `ResolveUri` khi URI tài nguyên không hợp lệ, bị cấm hoặc không thể giải quyết. Trả về `null` từ `GetEntity` khi tài nguyên không thể đọc được. Aspose.Slides sẽ tiếp tục xử lý SVG mà không có tài nguyên đó khi có thể.  
+Nếu cùng một hình ảnh được cần nhiều lần, hãy thêm nó vào bản trình chiếu một lần và tái sử dụng [IPPImage](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage/) khi tạo các khung hình bổ sung. Điều này tránh việc tải lại cùng dữ liệu nguồn và làm rõ mối quan hệ giữa tài nguyên hình ảnh chia sẻ và các vị trí sử dụng của nó.
 
-Một luồng dự phòng có thể được trả về cho tài nguyên thiếu, nhưng nội dung của nó phải tương thích với loại tài nguyên được yêu cầu. Ví dụ, chỉ trả về luồng ảnh cho một hình ảnh bị thiếu, không phải cho phông chữ hay stylesheet.  
+Đối với các đồ họa nên xuất hiện tự động trên nhiều slide, chẳng hạn như logo công ty, hãy cân nhắc đặt khung hình trên một [slide master](/slides/vi/net/slide-master/) hoặc layout thay vì thêm một hình dạng tương đương vào mỗi slide.
 
-{{% alert title="Security" color="warning" %}} 
-Không giải quyết các đường dẫn tệp tùy ý hoặc URL mạng không giới hạn từ các tệp SVG không đáng tin cậy. Hạn chế các scheme, thư mục và máy chủ được phép. Đối với tài nguyên mạng, cũng áp dụng thời gian chờ kết nối, giới hạn kích thước phản hồi và xác thực nội dung. 
-{{% /alert %}} 
+## **Sử dụng hình ảnh làm nền slide**
 
-## **Chuyển Đổi SVG Thành Tập Hình Dạng**
-Aspose.Slides có thể chuyển đổi một SVG thành một tập hợp các hình dạng, tương tự như chức năng tương ứng trong PowerPoint:
+Một hình ảnh nền được gán cho phần lấp đầy slide; nó không được thêm như một hình dạng khung hình. Điều này hữu ích khi hình ảnh cần bao phủ toàn bộ nền slide và không nên được thao tác như một đối tượng slide thông thường.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var imageData = File.ReadAllBytes("background.jpg");
+var image = presentation.Images.AddImage(imageData);
+slide.Background.Type = BackgroundType.OwnBackground;
+slide.Background.FillFormat.FillType = FillType.Picture;
+slide.Background.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
+slide.Background.FillFormat.PictureFillFormat.Picture.Image = image;
+
+presentation.Save("background-image.pptx", SaveFormat.Pptx);
+```
+
+Đối với các tùy chọn nền bổ sung, bao gồm nền master và layout, xem [Presentation Background](/slides/vi/net/presentation-background/).
+
+## **Hình ảnh nhúng và hình ảnh liên kết**
+
+Hình ảnh nhúng và hình ảnh liên kết có những cân bằng khác nhau về tính di động và kích thước tệp:
+
+- **Hình ảnh nhúng:** dữ liệu hình ảnh được lưu bên trong bản trình chiếu. Bản trình chiếu tự chứa, nhưng kích thước tệp bao gồm dữ liệu hình ảnh.
+- **Hình ảnh liên kết:** bản trình chiếu lưu một đường dẫn hoặc URL tới hình ảnh bên ngoài. Điều này có thể giảm kích thước bản trình chiếu, nhưng tài nguyên bên ngoài phải luôn khả dụng khi bản trình chiếu được mở hoặc render.
+
+Một hình ảnh liên kết có thể được tạo bằng cách gán đường dẫn hoặc URL bên ngoài qua [ISlidesPicture.LinkPathLong](https://reference.aspose.com/slides/vi/net/aspose.slides/islidespicture/linkpathlong/) thay vì nhúng dữ liệu hình ảnh.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, null);
+pictureFrame.PictureFormat.Picture.LinkPathLong = "https://example.com/image.png";
+
+presentation.Save("linked-image.pptx", SaveFormat.Pptx);
+```
+
+Chỉ sử dụng hình ảnh liên kết khi môi trường triển khai có thể tin cậy truy cập tài nguyên bên ngoài. Đối với các bản trình chiếu phải hoạt động ngoại tuyến hoặc di chuyển giữa các hệ thống, hình ảnh nhúng thường an toàn hơn.
+
+## **Làm việc với hình ảnh SVG**
+
+SVG là định dạng vector, vì vậy nó hữu ích cho các biểu tượng, sơ đồ và các đồ họa khác cần phóng to mà không mất chi tiết như hình ảnh raster. Aspose.Slides hỗ trợ SVG vừa như một tài nguyên hình ảnh vừa như nguồn cho các hình dạng slide có thể chỉnh sửa.
+
+### **Thêm SVG làm hình ảnh**
+
+Tạo một [SvgImage](https://reference.aspose.com/slides/vi/net/aspose.slides/svgimage/), thêm nó vào bộ sưu tập hình ảnh, và đặt tài nguyên hình ảnh kết quả vào một khung hình.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var svgContent = File.ReadAllText("icon.svg");
+var svgImage = new SvgImage(svgContent);
+
+using var presentation = new Presentation();
+
+var image = presentation.Images.AddImage(svgImage);
+var slide = presentation.Slides[0];
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 200, 200, image);
+
+presentation.Save("svg-image.pptx", SaveFormat.Pptx);
+```
+
+### **Tệp SVG với tài nguyên bên ngoài**
+
+SVG có thể tham chiếu đến các hình ảnh, stylesheet hoặc font bên ngoài. Trong các trường hợp này, [SvgImage](https://reference.aspose.com/slides/vi/net/aspose.slides/svgimage/) cung cấp các hàm khởi tạo nhận một [IExternalResourceResolver](https://reference.aspose.com/slides/vi/net/aspose.slides.import/iexternalresourceresolver/) và một URI cơ sở. Bộ giải quyết có thể ánh xạ một URI tương đối thành một URI tuyệt đối cho phép và trả về một luồng cho tài nguyên được yêu cầu.
+
+Bộ giải quyết làm cho các tài nguyên bên ngoài có sẵn trong quá trình Aspose.Slides xử lý SVG, nhưng không chuyển đổi SVG thành một tài liệu tự chứa. Nếu SVG phải vẫn di động, nhúng các tài nguyên cần thiết vào chính SVG, ví dụ bằng cách sử dụng URI dạng `data:` cho các hình ảnh liên kết.
+
+Khi các tệp SVG đến từ các nguồn không tin cậy, hạn chế các scheme, vị trí tệp và máy chủ mà bộ giải quyết có thể truy cập. Các bộ giải quyết mạng cũng nên áp dụng timeout, giới hạn kích thước phản hồi và xác thực nội dung.
+
+### **Chuyển SVG thành các hình dạng có thể chỉnh sửa**
+
+Aspose.Slides có thể chuyển một SVG thành một nhóm các hình dạng slide có thể chỉnh sửa, tương tự lệnh tương ứng trong PowerPoint.
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-Chức năng này được cung cấp bởi một overload của phương thức [AddGroupShape](https://reference.aspose.com/slides/vi/net/aspose.slides.ishapecollection/addgroupshape/methods/1) của giao diện [IShapeCollection](https://reference.aspose.com/slides/vi/net/aspose.slides/ishapecollection) nhận một đối tượng [ISvgImage](https://reference.aspose.com/slides/vi/net/aspose.slides/isvgimage) làm đối số đầu tiên.  
+Sử dụng hàm overload [IShapeCollection.AddGroupShape](https://reference.aspose.com/slides/vi/net/aspose.slides/ishapecollection/addgroupshape/) nhận một [ISvgImage](https://reference.aspose.com/slides/vi/net/aspose.slides/isvgimage/) để thực hiện chuyển đổi.
 
-Đoạn mã mẫu C# dưới đây cho thấy cách sử dụng phương thức này để chuyển đổi một tệp SVG thành tập hợp các hình dạng:
-
-``` csharp 
-using System.Drawing;
+```csharp
+using System.IO;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Tên tệp SVG nguồn
-string svgFileName = "sample.svg";
+var svgContent = File.ReadAllText("diagram.svg");
+var svgImage = new SvgImage(svgContent);
 
-// Tên tệp bản trình bày đầu ra
-string outPptxPath = "presentation.pptx";
+using var presentation = new Presentation();
 
-// Tạo một bản trình bày mới
-using (IPresentation presentation = new Presentation())
-{
-    // Đọc nội dung tệp SVG
-    string svgContent = File.ReadAllText(svgFileName);
+var slideSize = presentation.SlideSize.Size;
+var slide = presentation.Slides[0];
+slide.Shapes.AddGroupShape(svgImage, 0, 0, slideSize.Width, slideSize.Height);
 
-    // Tạo một đối tượng SvgImage
-    ISvgImage svgImage = new SvgImage(svgContent);
-
-    // Lấy kích thước slide
-    SizeF slideSize = presentation.SlideSize.Size;
-
-    // Chuyển đổi hình ảnh SVG thành một nhóm các hình dạng và cân chỉnh kích thước theo slide
-    presentation.Slides[0].Shapes.AddGroupShape(svgImage, 0f, 0f, slideSize.Width, slideSize.Height);
-
-    // Lưu bản trình bày ở định dạng PPTX
-    presentation.Save(outPptxPath, SaveFormat.Pptx);
-}
+presentation.Save("editable-svg-shapes.pptx", SaveFormat.Pptx);
 ```
 
-## **Thêm Hình Ảnh Dạng EMF Vào Slide**
-Aspose.Slides for .NET cho phép bạn tạo ảnh EMF từ các bảng tính Excel bằng Aspose.Cells và thêm chúng vào slide của bản trình bày.  
+Hãy dùng chuyển đổi SVG‑to‑shapes khi các phần tử vector riêng lẻ cần được chỉnh sửa như các hình dạng PowerPoint. Nếu SVG chỉ cần được hiển thị, giữ nó dưới dạng hình ảnh sẽ đơn giản hơn và tránh tạo ra nhiều hình dạng riêng biệt.
 
-Đoạn mã mẫu C# dưới đây cho thấy cách thực hiện:
+## **Thay thế tài nguyên hình ảnh hiện có**
 
-``` csharp 
-using Aspose.Slides;
-using Aspose.Cells;
-using Aspose.Cells.Rendering;
+Sử dụng [IPPImage.ReplaceImage](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage/replaceimage/) khi bạn muốn thay thế một tài nguyên hình ảnh hiện có. Điều này đặc biệt hữu ích cho các đồ họa chia sẻ như logo.
 
-
-using (Workbook book = new Workbook("chart.xlsx"))
-{
-    Worksheet sheet = book.Worksheets[0];
-    ImageOrPrintOptions options = new ImageOrPrintOptions();
-    options.HorizontalResolution = 200;
-    options.VerticalResolution = 200;
-    options.ImageType = Aspose.Cells.Drawing.ImageType.Emf;
-
-    // Lưu workbook vào một luồng
-    SheetRender sr = new SheetRender(sheet, options);
-    using (Presentation pres = new Presentation())
-    {
-        pres.Slides.RemoveAt(0);
-
-        String EmfSheetName = "";
-        for (int j = 0; j < sr.PageCount; j++)
-        {
-            EmfSheetName = "test" + sheet.Name + " Page" + (j + 1) + ".out.emf";
-            sr.ToImage(j, EmfSheetName);
-
-            var bytes = File.ReadAllBytes(EmfSheetName);
-            var emfImage = pres.Images.AddImage(bytes);
-            ISlide slide = pres.Slides.AddEmptySlide(pres.LayoutSlides.GetByType(SlideLayoutType.Blank));
-            slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 0, 0, pres.SlideSize.Size.Width, pres.SlideSize.Size.Height, emfImage);
-        }
-
-        pres.Save("Saved.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-    }
-}
-```
-
-## **Thay Thế Hình Ảnh Trong Bộ Sưu Tập Hình Ảnh**
-Aspose.Slides cho phép bạn thay thế các hình ảnh được lưu trong bộ sưu tập hình ảnh của bản trình bày, bao gồm cả các hình ảnh được sử dụng bởi các hình dạng slide. Phần này mô tả một số cách cập nhật hình ảnh trong bộ sưu tập. Bạn có thể thay thế một hình ảnh bằng dữ liệu byte thô, một thể hiện [IImage](https://reference.aspose.com/slides/vi/net/aspose.slides/iimage/) hoặc một hình ảnh khác đã tồn tại trong bộ sưu tập.  
-
-Thực hiện các bước sau:
-
-1. Tải tệp bản trình bày chứa hình ảnh bằng lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/) .  
-2. Tải một hình ảnh mới từ tệp vào một mảng byte.  
-3. Thay thế hình ảnh mục tiêu bằng hình ảnh mới sử dụng mảng byte.  
-4. Trong cách tiếp cận thứ hai, tải hình ảnh vào đối tượng [IImage](https://reference.aspose.com/slides/vi/net/aspose.slides/iimage/) và thay thế hình ảnh mục tiêu bằng đối tượng đó.  
-5. Trong cách tiếp cận thứ ba, thay thế hình ảnh mục tiêu bằng một hình ảnh đã tồn tại trong bộ sưu tập hình ảnh của bản trình bày.  
-6. Ghi bản trình bày đã sửa đổi dưới dạng tệp PPTX.  
-
-```cs
+```csharp
+using System.IO;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Tạo một đối tượng Presentation đại diện cho tệp bản trình bày.
-using Presentation presentation = new Presentation("sample.pptx");
+using var presentation = new Presentation("input.pptx");
 
-// Cách đầu tiên.
-byte[] imageData = File.ReadAllBytes("image0.jpeg");
-IPPImage oldImage = presentation.Images[0];
-oldImage.ReplaceImage(imageData);
+var imageToReplace = presentation.Images[0];
+imageToReplace.ReplaceImage(File.ReadAllBytes("new-logo.png"));
 
-// Cách thứ hai.
-using IImage newImage = Images.FromFile("image1.png");
-oldImage = presentation.Images[1];
-oldImage.ReplaceImage(newImage);
-
-// Cách thứ ba.
-oldImage = presentation.Images[2];
-oldImage.ReplaceImage(presentation.Images[3]);
-
-// Lưu bản trình bày vào tệp.
 presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert title="Info" color="info" %}} 
-Với công cụ chuyển đổi miễn phí [Text to GIF](https://products.aspose.app/slides/vi/text-to-gif) của Aspose, bạn có thể dễ dàng tạo hoạt ảnh văn bản và tạo GIF từ văn bản. 
-{{% /alert %}} 
+Nếu nhiều khung hình, nền, master hoặc layout sử dụng cùng một tài nguyên hình ảnh, việc thay thế tài nguyên sẽ cập nhật tất cả các vị trí sử dụng đó. Nếu chỉ một khung hình cần thay đổi, hãy gán một hình ảnh khác cho khung hình đó thay vì thay thế tài nguyên chia sẻ.
 
-## **FAQ**
+`ReplaceImage` cũng cung cấp các overload nhận một [IImage](https://reference.aspose.com/slides/vi/net/aspose.slides/iimage/) hoặc một [IPPImage](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage/) khác.
 
-**Độ phân giải gốc của hình ảnh có được giữ nguyên sau khi chèn không?**
+## **Hướng dẫn quản lý hình ảnh thực tiễn**
 
-Có. Các pixel nguồn được bảo tồn, nhưng diện mạo cuối cùng phụ thuộc vào cách [picture](/slides/vi/net/picture-frame/) được thu phóng trên slide và bất kỳ việc nén nào được áp dụng khi lưu.  
+### **Kiểm soát kích thước bản trình chiếu**
 
-**Cách tốt nhất để thay thế cùng một logo trên hàng chục slide một lúc là gì?**
+Hình ảnh raster lớn có thể làm cho bản trình chiếu trở nên quá lớn. Sử dụng các hình ảnh nguồn có kích thước phù hợp với kích thước hiển thị dự kiến, tái sử dụng các tài nguyên hình ảnh chia sẻ khi có thể, và tránh nhúng các bản sao lặp lại của cùng một đồ họa độ phân giải cao.
 
-Đặt logo trên master slide hoặc layout và thay thế nó trong bộ sưu tập hình ảnh của bản trình bày — các cập nhật sẽ lan tới mọi thành phần sử dụng tài nguyên đó.  
+Đối với các hình ảnh raster đã được đặt trong khung hình, [IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/vi/net/aspose.slides/ipicturefillformat/compressimage/) có thể giảm dữ liệu hình ảnh dựa trên độ phân giải và cài đặt cắt được chọn. Đây là xử lý cấp khung hình chứ không phải quản lý bộ sưu tập hình ảnh, vì vậy xem [Picture Frame](/slides/vi/net/picture-frame/) để biết các thao tác định dạng liên quan.
 
-**Một SVG đã chèn có thể được chuyển đổi thành các hình dạng có thể chỉnh sửa không?**
+### **Chọn giữa nội dung nhúng và liên kết**
 
-Có. Bạn có thể chuyển đổi SVG thành một nhóm các hình dạng, sau đó từng phần sẽ có thể chỉnh sửa bằng các thuộc tính hình dạng tiêu chuẩn.  
+Nhúng làm cho bản trình chiếu di động vì mọi dữ liệu hình ảnh cần thiết đi kèm với tệp. Liên kết có thể giảm kích thước tệp, nhưng tạo ra một phụ thuộc bên ngoài. Chỉ sử dụng liên kết khi phụ thuộc đó chấp nhận được và ổn định.
 
-**Làm sao để đặt một ảnh làm nền cho nhiều slide cùng lúc?**
+### **Tái sử dụng thương hiệu chia sẻ**
 
-[Assign the image as the background](/slides/vi/net/presentation-background/) trên master slide hoặc layout liên quan — bất kỳ slide nào sử dụng master/layout đó sẽ kế thừa nền.  
+Đối với các logo, watermark hoặc đồ họa trang trí lặp lại, sử dụng một tài nguyên hình ảnh và tái sử dụng nó. Nếu đồ họa thuộc về thiết kế bản trình chiếu chứ không phải nội dung slide, hãy đặt nó trên một master hoặc layout để các slide phù hợp kế thừa.
 
-**Làm sao ngăn bản trình bày trở nên quá lớn vì có quá nhiều ảnh?**
+### **Giữ tài nguyên SVG di động**
 
-Tái sử dụng một tài nguyên ảnh duy nhất thay vì sao chép, chọn độ phân giải hợp lý, áp dụng nén khi lưu và giữ các đồ họa lặp lại trên master khi phù hợp.
+Một SVG tự chứa dễ di chuyển và render nhất quán hơn so với SVG phụ thuộc vào các tệp hoặc tài nguyên mạng bên ngoài. Khi có thể, nhúng các tài nguyên cần thiết trước khi nhập SVG. Chuyển SVG thành các hình dạng chỉ nên làm khi các phần tử vector riêng lẻ cần được chỉnh sửa.
+
+### **Sử dụng API hình ảnh đa nền tảng hiện đại**
+
+Đối với mã .NET mới, hãy sử dụng các API Aspose.Slides [IImage](https://reference.aspose.com/slides/vi/net/aspose.slides/iimage/) và [Images](https://reference.aspose.com/slides/vi/net/aspose.slides/images/) thay vì dựa vào `System.Drawing.Image` hoặc `Bitmap`. Xem [Modern API](/slides/vi/net/modern-api/) để biết hướng dẫn di chuyển.
+
+WMF và EMF cần xem xét đặc biệt. Khi các định dạng này được truyền qua một [IImage](https://reference.aspose.com/slides/vi/net/aspose.slides/iimage/), [ImageCollection.AddImage](https://reference.aspose.com/slides/vi/net/aspose.slides/imagecollection/addimage/) chuyển đổi metafile thành đại diện PNG raster trước khi chèn. Nếu việc bảo toàn dữ liệu metafile quan trọng, hãy sử dụng overload dựa trên stream của [ImageCollection.AddImage](https://reference.aspose.com/slides/vi/net/aspose.slides/imagecollection/addimage/). Tạo nội dung EMF từ bảng tính hoặc các sản phẩm khác là một quy trình tích hợp riêng và không nằm trong phạm vi của bài viết này.
+
+## **Câu hỏi thường gặp**
+
+**Sự khác nhau giữa bộ sưu tập hình ảnh và khung hình là gì?**
+
+Bộ sưu tập hình ảnh lưu trữ các tài nguyên hình ảnh có thể tái sử dụng. Một khung hình là một hình dạng slide hiển thị một trong các tài nguyên đó và cung cấp các định dạng đặc thù cho hình ảnh như cắt và hiệu ứng.
+
+**Cách tốt nhất để thay thế cùng một logo ở mọi nơi là gì?**
+
+Nếu logo đã được chia sẻ dưới dạng một tài nguyên hình ảnh, hãy thay thế tài nguyên đó bằng [IPPImage.ReplaceImage](https://reference.aspose.com/slides/vi/net/aspose.slides/ippimage/replaceimage/). Đối với thương hiệu trên toàn bộ bản trình chiếu, việc đặt logo trên một master hoặc layout cũng có thể giảm nội dung slide trùng lặp.
+
+**Tại sao một hình ảnh liên kết lại biến mất trên máy tính khác?**
+
+Hình ảnh liên kết phụ thuộc vào tệp hoặc URL bên ngoài. Nếu tài nguyên đó không thể truy cập được từ máy tính khác, hình ảnh liên kết sẽ không có sẵn. Nhúng hình ảnh khi bản trình chiếu phải tự chứa.
+
+**SVG đã chèn có thể chỉnh sửa thành các hình dạng PowerPoint không?**
+
+Có. Chuyển đổi SVG bằng [IShapeCollection.AddGroupShape](https://reference.aspose.com/slides/vi/net/aspose.slides/ishapecollection/addgroupshape/); nhóm kết quả chứa các hình dạng slide có thể chỉnh sửa thay vì một hình ảnh SVG duy nhất.
+
+**Làm sao để giữ bản trình chiếu có nhiều hình ảnh mà vẫn nhỏ gọn?**
+
+Tái sử dụng các tài nguyên hình ảnh chia sẻ, tránh sử dụng các nguồn raster không cần thiết lớn, nén các hình ảnh raster phù hợp khi cần, giữ các thương hiệu lặp lại trên master hoặc layout, và chỉ sử dụng hình ảnh liên kết khi phụ thuộc bên ngoài là chấp nhận được.

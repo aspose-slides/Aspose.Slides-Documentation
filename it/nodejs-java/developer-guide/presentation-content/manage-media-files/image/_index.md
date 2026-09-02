@@ -1,560 +1,339 @@
 ---
-title: Ottimizza la gestione delle immagini nelle presentazioni usando JavaScript
-linktitle: Gestisci immagini
+title: Ottimizzare la gestione delle immagini nelle presentazioni usando JavaScript
+linktitle: Gestire le immagini
 type: docs
 weight: 10
 url: /it/nodejs-java/image/
 keywords:
-- aggiungi immagine
-- aggiungi foto
-- aggiungi bitmap
-- sostituisci immagine
-- sostituisci foto
-- da web
+- aggiungere immagine
+- aggiungere foto
+- sostituire immagine
+- collezione immagini
+- riquadro immagine
+- immagine collegata
 - sfondo
-- aggiungi PNG
-- aggiungi JPG
-- aggiungi SVG
+- aggiungere PNG
+- aggiungere JPG
+- aggiungere SVG
+- SVG in forme
 - risorse SVG esterne
-- risolutore SVG
-- immagini SVG collegate
-- font SVG
-- aggiungi EMF
-- aggiungi WMF
-- aggiungi TIFF
 - PowerPoint
 - OpenDocument
 - presentazione
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Semplifica la gestione delle immagini in PowerPoint e OpenDocument con Aspose.Slides per Node.js via Java, ottimizzando le prestazioni e automatizzando il tuo flusso di lavoro."
+description: "Scopri come aggiungere, riutilizzare, collegare, sostituire e gestire immagini raster e SVG nelle presentazioni PowerPoint e OpenDocument con Aspose.Slides per Node.js tramite Java."
 ---
 ## **Introduzione**
 
-Le immagini rendono le presentazioni più coinvolgenti e visivamente accattivanti. In Microsoft PowerPoint, è possibile inserire immagini nelle diapositive da file, da Internet o da altre fonti. Allo stesso modo, Aspose.Slides consente di aggiungere immagini alle diapositive di una presentazione in diversi modi.
+Aspose.Slides per Node.js tramite Java offre diversi modi per lavorare con le immagini, e ciascuno serve a uno scopo diverso. È possibile memorizzare un'immagine in una presentazione, visualizzarla in un riquadro immagine, usarla come sfondo diapositiva, collegarla a un'immagine esterna, sostituire una risorsa immagine condivisa o convertire contenuti SVG in forme modificabili.
 
-{{% alert  title="Tip" color="primary" %}} 
+Questo articolo si concentra sulle risorse immagine e su come vengono utilizzate all'interno di una presentazione. Per il ritaglio, la trasparenza, gli effetti, lo stretching e altre formattazioni applicate a un singolo riquadro immagine, vedere [Riquadro immagine](/slides/it/nodejs-java/picture-frame/).
 
-Aspose fornisce convertitori gratuiti—[JPEG in PowerPoint](https://products.aspose.app/slides/it/import/jpg-to-ppt) e [PNG in PowerPoint](https://products.aspose.app/slides/it/import/png-to-ppt)—che consentono di creare rapidamente presentazioni a partire da immagini. 
+## **Comprendere il modello immagine**
 
-{{% /alert %}} 
+I seguenti concetti API sono strettamente correlati ma non intercambiabili:
 
-{{% alert title="Info" color="info" %}}
+- La [collezione di immagini della presentazione](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/imagecollection/) memorizza le risorse immagine utilizzate dalla presentazione. Utilizzare [ImageCollection.addImage](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/imagecollection/) per aggiungere dati immagine e ottenere una risorsa [PPImage](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ppimage/).
+- Un [riquadro immagine](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/pictureframe/) è una forma che visualizza un'immagine su una diapositiva, layout o master. Utilizzare [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/shapecollection/) per posizionare una risorsa immagine su una diapositiva.
+- Uno sfondo diapositiva utilizza un'immagine come parte del riempimento della diapositiva anziché come forma. Pertanto non si comporta come un riquadro immagine.
+- [PPImage.replaceImage](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ppimage/) sostituisce una risorsa immagine. Se diversi elementi della presentazione utilizzano quella risorsa, tutti useranno la sostituzione.
+- La conversione di un SVG in forme crea forme diapositiva modificabili. Dopo la conversione, il contenuto non è più gestito come un'unica risorsa immagine.
 
-Se desideri aggiungere un'immagine come cornice fotografica—soprattutto se intendi ridimensionarla, applicare effetti o utilizzare altre opzioni di formattazione standard—vedi [Cornice fotografica](/slides/it/nodejs-java/picture-frame/). 
+Un flusso di lavoro tipico è quindi: aggiungere dati immagine alla collezione di immagini, ricevere un [PPImage](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ppimage/), e quindi utilizzare quella risorsa in uno o più riquadri immagine o riempimenti.
 
-{{% /alert %}} 
+## **Aggiungere un'immagine incorporata**
 
-{{% alert title="Note" color="warning" %}}
-
-È possibile convertire le immagini da un formato all'altro. Vedi le seguenti pagine: converti [immagine in JPG](https://products.aspose.com/slides/it/nodejs-java/conversion/image-to-jpg/), [JPG in immagine](https://products.aspose.com/slides/it/nodejs-java/conversion/jpg-to-image/), [JPG in PNG](https://products.aspose.com/slides/it/nodejs-java/conversion/jpg-to-png/), [PNG in JPG](https://products.aspose.com/slides/it/nodejs-java/conversion/png-to-jpg/), [PNG in SVG](https://products.aspose.com/slides/it/nodejs-java/conversion/png-to-svg/), e [SVG in PNG](https://products.aspose.com/slides/it/nodejs-java/conversion/svg-to-png/).
-
-{{% /alert %}}
-
-Aspose.Slides supporta immagini nei formati più diffusi come JPEG, PNG, BMP, GIF e altri. 
-
-## **Aggiungere immagini archiviate localmente alle diapositive**
-
-È possibile aggiungere una o più immagini archiviate sul computer a una diapositiva della presentazione. Il seguente esempio di codice JavaScript mostra come aggiungere un'immagine a una diapositiva:
+Per inserire un'immagine locale, caricare il file, aggiungerlo alla collezione di immagini e creare un riquadro immagine che utilizzi la risorsa [PPImage](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ppimage/) restituita.
 
 ```javascript
 const aspose = {};
 aspose.slides = require("aspose.slides.via.java");
-
-const pres = new aspose.slides.Presentation();
-try {
-    const slide = pres.getSlides().get_Item(0);
-
-    let picture;
-    const image = aspose.slides.Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
-        }
-    }
-
-    slide.getShapes().addPictureFrame(
-        aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, picture);
-
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **Aggiungere immagini dal Web alle diapositive**
-
-Se l'immagine che desideri aggiungere a una diapositiva non è archiviata sul tuo computer, puoi aggiungerla direttamente dal Web. 
-
-Il seguente esempio di codice JavaScript mostra come aggiungere un'immagine dal Web a una diapositiva:
-
-```javascript
-const aspose = {};
-aspose.slides = require("aspose.slides.via.java");
-const java = require("java");
-
-const pres = new aspose.slides.Presentation();
-try {
-    const slide = pres.getSlides().get_Item(0);
-
-    const imageUrl = java.newInstanceSync("java.net.URL", "[REPLACE WITH URL]");
-    const inputStream = imageUrl.openStream();
-    try {
-        let picture;
-        const image = aspose.slides.Images.fromStream(inputStream);
-        try {
-            picture = pres.getImages().addImage(image);
-        } finally {
-            if (image != null) {
-                image.dispose();
-            }
-        }
-
-        slide.getShapes().addPictureFrame(
-            aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, picture);
-    } finally {
-        if (inputStream != null) {
-            inputStream.close();
-        }
-    }
-
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **Aggiungere immagini ai master diapositive**
-
-Un master diapositiva memorizza e controlla informazioni come il tema e il layout per le diapositive che lo utilizzano. Quando aggiungi un'immagine a un master diapositiva, l'immagine appare su ogni diapositiva basata su quel master. 
-
-Il seguente esempio di codice JavaScript mostra come aggiungere un'immagine a un master diapositiva:
-
-```javascript
-const aspose = {};
-aspose.slides = require("aspose.slides.via.java");
-
-const pres = new aspose.slides.Presentation();
-try {
-    const slide = pres.getSlides().get_Item(0);
-    const masterSlide = slide.getLayoutSlide().getMasterSlide();
-
-    let picture;
-    const image = aspose.slides.Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
-        }
-    }
-
-    masterSlide.getShapes().addPictureFrame(
-        aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, picture);
-
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **Aggiungere immagini come sfondo delle diapositive**
-
-È possibile utilizzare un'immagine come sfondo per una o più diapositive. Per ulteriori dettagli, vedi *[Impostare le immagini come sfondi per le diapositive](/slides/it/nodejs-java/presentation-background/#setting-images-as-background-for-slides)*.
-
-## **Aggiungere SVG alle presentazioni**
-
-Il contenuto SVG può essere aggiunto a una presentazione utilizzando la classe [SvgImage](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/svgimage/). L'oggetto immagine SVG risultante può quindi essere aggiunto alla collezione di immagini della presentazione e utilizzato per creare una cornice fotografica.
-
-Il seguente esempio JavaScript importa una stringa SVG autonoma. Tutte le immagini, gli stili e le altre risorse utilizzate da questo SVG sono incorporati direttamente nel contenuto SVG.
-
-```javascript
-const aspose = {};
-aspose.slides = require("aspose.slides.via.java");
-
-const svgContent =
-    "<svg xmlns='http://www.w3.org/2000/svg' width='320' height='180'>" +
-    "    <rect width='320' height='180' fill='#4F81BD'/>" +
-    "    <circle cx='160' cy='90' r='55' fill='#F2F2F2'/>" +
-    "</svg>";
 
 const presentation = new aspose.slides.Presentation();
 try {
-    const svgImage = new aspose.slides.SvgImage(svgContent);
-    const image = presentation.getImages().addImage(svgImage);
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("photo.png");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        if (sourceImage != null) {
+            sourceImage.dispose();
+        }
+    }
 
-    presentation.getSlides().get_Item(0).getShapes().addPictureFrame(
-        aspose.slides.ShapeType.Rectangle,
-        20, 20, image.getWidth(), image.getHeight(), image);
+    const slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 320, 180, image);
 
-    presentation.save("self-contained-svg.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Importare contenuto SVG con risorse esterne**
+L'immagine aggiunta in questo modo è incorporata nella presentazione, quindi il file risultante non dipende dal file immagine originale che deve rimanere disponibile.
 
-I file SVG esportati da strumenti di progettazione, editor di diagrammi, sistemi di icone e pipeline web possono fare riferimento a risorse archiviate al di fuori del documento SVG. Ad esempio, un SVG può contenere un collegamento a un'immagine come `images/photo.png`, un valore CSS `url(...)` o un URL di un font.
+### **Aggiungere un'immagine dal Web**
 
-Per importare tale contenuto SVG, fornisci un risolutore di risorse esterne e passalo, insieme a un URI di base, a un costruttore [SvgImage](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/svgimage/) appropriato. L'URI di base identifica la posizione del documento SVG ed è usato per risolvere i collegamenti relativi.
-
-La classe `SvgImage` fornisce accesso a informazioni sul SVG importato:
-
-- `getSvgContent()` restituisce il markup SVG come stringa.  
-- `getSvgData()` restituisce il contenuto SVG come array di byte.  
-- `getBaseUri()` restituisce l'URI di base usato per i collegamenti relativi.  
-- `getExternalResourceResolver()` restituisce il risolutore associato all'immagine SVG.  
-
-### **Implementare un risolutore di risorse esterne**
-
-Il risolutore ha due metodi:
-
-- `resolveUri` combina l'URI di base e un collegamento a risorsa relativo e restituisce un URI assoluto. Restituisce `null` quando il collegamento non può essere risolto o non è consentito.  
-- `getEntity` restituisce uno stream Java leggibile per un URI di risorsa assoluto. Restituisce `null` quando la risorsa è mancante, bloccata o non disponibile. È possibile restituire anche uno stream di fallback quando opportuno.  
-
-Il seguente helper crea un risolutore che carica le risorse collegate solo da una directory locale consentita. Le risorse di rete e i percorsi al di fuori della directory consentita sono bloccati. Un'immagine di fallback opzionale viene restituita per i collegamenti a immagini non risolti.
+Quando un'immagine è disponibile tramite HTTP o HTTPS, scaricare i suoi byte, aggiungerli alla collezione di immagini della presentazione e utilizzare la risorsa immagine restituita nello stesso modo di un'immagine locale.
 
 ```javascript
-const fs = require("fs");
-const path = require("path");
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const http = require("http");
+const https = require("https");
 const java = require("java");
-const { fileURLToPath, pathToFileURL } = require("url");
 
-function isInsideAllowedRoot(resourcePath, allowedRoot) {
-    const relativePath = path.relative(allowedRoot, resourcePath);
-
-    return relativePath === "" ||
-        (relativePath !== ".." &&
-         !relativePath.startsWith(".." + path.sep) &&
-         !path.isAbsolute(relativePath));
-}
-
-function isImageFile(filePath) {
-    const extension = path.extname(filePath).toLowerCase();
-    return [".png", ".jpg", ".jpeg", ".gif", ".bmp"].includes(extension);
-}
-
-function createLocalSvgResourceResolver(allowedRoot, fallbackImageData) {
-    const normalizedRoot = path.resolve(allowedRoot);
-
-    return java.newProxy("com.aspose.slides.IExternalResourceResolver", {
-        resolveUri: function(baseUri, relativeUri) {
-            if (baseUri == null || baseUri.trim() === "" ||
-                    relativeUri == null || relativeUri.trim() === "") {
-                return null;
+function downloadBytes(url) {
+    return new Promise((resolve, reject) => {
+        const client = url.startsWith("https:") ? https : http;
+        client.get(url, (response) => {
+            if (response.statusCode < 200 || response.statusCode >= 300) {
+                response.resume();
+                reject(new Error(`HTTP ${response.statusCode}`));
+                return;
             }
 
-            try {
-                const absoluteAddress = new URL(relativeUri, baseUri);
-
-                // Questo risolutore consente intenzionalmente solo file locali.
-                if (absoluteAddress.protocol !== "file:") {
-                    return null;
-                }
-
-                const resourcePath = path.resolve(fileURLToPath(absoluteAddress));
-                if (!isInsideAllowedRoot(resourcePath, normalizedRoot)) {
-                    return null;
-                }
-
-                return pathToFileURL(resourcePath).href;
-            } catch (e) {
-                return null;
-            }
-        },
-
-        getEntity: function(absoluteUri) {
-            try {
-                const resourceUrl = new URL(absoluteUri);
-                if (resourceUrl.protocol !== "file:") {
-                    return null;
-                }
-
-                const resourcePath = path.resolve(fileURLToPath(resourceUrl));
-                if (!isInsideAllowedRoot(resourcePath, normalizedRoot)) {
-                    return null;
-                }
-
-                if (fs.existsSync(resourcePath)) {
-                    return java.newInstanceSync("java.io.FileInputStream", resourcePath);
-                }
-
-                // Usa un fallback solo per le risorse immagine. Restituire uno stream di immagine
-                // per un font o un foglio di stile mancante non sarebbe valido.
-                if (fallbackImageData != null && isImageFile(resourcePath)) {
-                    const javaBytes = java.newArray("byte", Array.from(fallbackImageData));
-                    return java.newInstanceSync("java.io.ByteArrayInputStream", javaBytes);
-                }
-            } catch (e) {
-                return null;
-            }
-
-            return null;
-        }
+            const chunks = [];
+            response.on("data", (chunk) => chunks.push(chunk));
+            response.on("end", () => resolve(Buffer.concat(chunks)));
+        }).on("error", reject);
     });
 }
+
+(async () => {
+    const imageData = await downloadBytes("https://example.com/image.png");
+    const javaBytes = java.newArray("byte", Array.from(imageData));
+
+    const presentation = new aspose.slides.Presentation();
+    try {
+        const image = presentation.getImages().addImage(javaBytes);
+        const slide = presentation.getSlides().get_Item(0);
+        slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 320, 180, image);
+
+        presentation.save("presentation-from-web.pptx", aspose.slides.SaveFormat.Pptx);
+    } finally {
+        presentation.dispose();
+    }
+})();
 ```
 
-### **Risolvere risorse collegate durante l'importazione SVG**
+In applicazioni a lungo termine, riutilizzare un client HTTP o una strategia di gestione delle connessioni adeguata all'applicazione invece di creare ripetutamente infrastrutture di rete non necessarie. Inoltre, convalidare URL remoti, dimensioni delle risposte e tipologie di contenuto quando la fonte non è attendibile.
 
-Assumi che `assets/diagram.svg` contenga un riferimento relativo come:
+## **Riutilizzare le immagini tra le diapositive**
 
-```xml
-<image href="images/photo.png" x="20" y="20" width="320" height="180" />
-```
+Se la stessa immagine è necessaria più volte, aggiungerla alla presentazione una sola volta e riutilizzare il [PPImage](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ppimage/) restituito quando si creano ulteriori riquadri immagine. Questo evita di caricare ripetutamente gli stessi dati sorgente e rende esplicita la relazione tra la risorsa immagine condivisa e i suoi utilizzi.
 
-Il seguente esempio JavaScript passa l'URI del file SVG come URI di base e fornisce un risolutore personalizzato. Il risolutore converte il collegamento immagine relativo in un URI assoluto e restituisce uno stream contenente la risorsa collegata mentre Aspose.Slides elabora l'SVG.
+Per grafiche che dovrebbero apparire automaticamente su molte diapositive, come il logo aziendale, considerare di posizionare il riquadro immagine su un [master diapositiva](/slides/it/nodejs-java/slide-master/) o layout invece di aggiungere una forma equivalente a ogni diapositiva.
+
+## **Usare un'immagine come sfondo diapositiva**
+
+Un'immagine di sfondo viene assegnata al riempimento della diapositiva; non viene aggiunta come forma di riquadro immagine. Questo è utile quando l'immagine deve coprire lo sfondo della diapositiva e non deve essere manipolata come un normale oggetto diapositiva.
 
 ```javascript
 const aspose = {};
 aspose.slides = require("aspose.slides.via.java");
-const fs = require("fs");
-const path = require("path");
-const { pathToFileURL } = require("url");
-
-const svgFilePath = path.resolve("assets", "diagram.svg");
-const assetDirectory = path.dirname(svgFilePath);
-const svgContent = fs.readFileSync(svgFilePath, "utf8");
-
-// L'URI di base rappresenta la posizione del documento SVG.
-const baseUri = pathToFileURL(svgFilePath).href;
-
-let fallbackImageData = null;
-const fallbackImagePath = path.join(assetDirectory, "fallback.png");
-if (fs.existsSync(fallbackImagePath)) {
-    fallbackImageData = fs.readFileSync(fallbackImagePath);
-}
-
-const resolver = createLocalSvgResourceResolver(assetDirectory, fallbackImageData);
-const svgImage = new aspose.slides.SvgImage(svgContent, resolver, baseUri);
-
-// SvgImage espone il contenuto sorgente, i dati binari, l'URI di base e il risolutore.
-const importedContent = svgImage.getSvgContent();
-const importedData = svgImage.getSvgData();
-const importedBaseUri = svgImage.getBaseUri();
-const importedResolver = svgImage.getExternalResourceResolver();
 
 const presentation = new aspose.slides.Presentation();
 try {
-    const image = presentation.getImages().addImage(svgImage);
+    const slide = presentation.getSlides().get_Item(0);
 
-    presentation.getSlides().get_Item(0).getShapes().addPictureFrame(
-        aspose.slides.ShapeType.Rectangle,
-        20, 20, image.getWidth(), image.getHeight(), image);
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("background.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        if (sourceImage != null) {
+            sourceImage.dispose();
+        }
+    }
 
-    presentation.save("svg-with-linked-resources.pptx", aspose.slides.SaveFormat.Pptx);
+    const backgroundType = java.newByte(aspose.slides.BackgroundType.OwnBackground);
+    slide.getBackground().setType(backgroundType);
+
+    const fillType = java.newByte(aspose.slides.FillType.Picture);
+    slide.getBackground().getFillFormat().setFillType(fillType);
+
+    slide.getBackground().getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
+    slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().setImage(image);
+
+    presentation.save("background-image.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-La classe `SvgImage` fornisce anche overload che accettano dati SVG come array di byte, nonché metodi di fabbrica basati su stream, insieme a un risolutore di risorse esterne e a un URI di base.
+Per ulteriori opzioni di sfondo, inclusi sfondi master e layout, vedere [Presentation Background](/slides/it/nodejs-java/presentation-background/).
 
-{{% alert title="Important" color="warning" %}}
+## **Immagini incorporate e immagini collegate**
 
-Il risolutore di risorse rende disponibili le risorse esterne mentre Aspose.Slides elabora e rende l'SVG. Non modifica il markup SVG originale né incorpora automaticamente le risorse risolte al suo interno.
+Le immagini incorporate e le immagini collegate hanno diversi compromessi di portabilità e dimensione del file:
 
-Quando un'immagine SVG viene aggiunta alla collezione di immagini della presentazione, il file PPTX può contenere sia la rappresentazione SVG originale sia un'immagine raster di fallback. Una risorsa collegata può apparire nell'immagine di fallback generata mentre un collegamento relativo come `images/photo.png` rimane invariato nell'SVG memorizzato. Un'applicazione che rende la rappresentazione SVG nativa può quindi omettere il contenuto collegato quando la risorsa esterna originale non è disponibile.
+- **Immagine incorporata:** i dati dell'immagine sono memorizzati all'interno della presentazione. La presentazione è autonoma, ma la dimensione del file include i dati dell'immagine.
+- **Immagine collegata:** la presentazione memorizza un percorso o URL a un'immagine esterna. Questo può ridurre la dimensione della presentazione, ma la risorsa esterna deve rimanere accessibile quando la presentazione viene aperta o resa.
 
-{{% /alert %}}
+Un'immagine collegata può essere creata assegnando il percorso o URL esterno tramite [Picture.setLinkPathLong](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/picture/) invece di incorporare i dati dell'immagine.
 
-### **Creare un'immagine SVG portatile**
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
 
-Per creare un'immagine SVG che non dipenda da file esterni, rendi l'SVG autonomo prima di creare il `SvgImage`. Ad esempio, sostituisci gli URL delle immagini collegate con URI `data:` che contengono i dati dell'immagine:
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 320, 180, null);
+    pictureFrame.getPictureFormat().getPicture().setLinkPathLong("https://example.com/image.png");
 
-```xml
-<image href="data:image/png;base64,..." x="20" y="20" width="320" height="180" />
+    presentation.save("linked-image.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
-Dopo che tutte le risorse richieste sono incorporate nel contenuto SVG, crea il `SvgImage`, aggiungilo alla collezione di immagini della presentazione e inseriscilo in una cornice fotografica come mostrato nell'esempio precedente.
+Utilizzare immagini collegate solo quando l'ambiente di distribuzione può accedere in modo affidabile alla risorsa esterna. Per presentazioni che devono funzionare offline o essere spostate tra sistemi, le immagini incorporate sono solitamente più sicure.
 
-### **Gestire risorse mancanti o bloccate**
+## **Lavorare con immagini SVG**
 
-Restituisci `null` da `resolveUri` quando un URI di risorsa è invalido, proibito o non può essere risolto. Restituisci `null` da `getEntity` quando la risorsa non può essere letta. Aspose.Slides continua a elaborare l'SVG senza quella risorsa quando possibile.
+SVG è un formato vettoriale, quindi può essere utile per icone, diagrammi e altre grafiche che devono scalare senza la stessa perdita di dettaglio delle immagini raster. Aspose.Slides supporta SVG sia come risorsa immagine sia come sorgente per forme diapositiva modificabili.
 
-È possibile restituire uno stream di fallback per una risorsa mancante, ma il suo contenuto deve essere compatibile con il tipo di risorsa richiesto. Ad esempio, restituisci uno stream immagine solo per un'immagine mancante, non per un font o un foglio di stile.
+### **Aggiungere un SVG come immagine**
 
-{{% alert title="Security" color="warning" %}}
+Creare un [SvgImage](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/svgimage/), aggiungerlo alla collezione di immagini e posizionare la risorsa immagine risultante in un riquadro immagine.
 
-Non risolvere percorsi di file arbitrari o URL di rete non limitati da file SVG non attendibili. Limita gli schemi, le directory e gli host consentiti. Per le risorse di rete, applica inoltre timeout di connessione, limiti di dimensione della risposta e convalida del contenuto.
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const fs = require("fs");
 
-{{% /alert %}}
+const presentation = new aspose.slides.Presentation();
+try {
+    const svgContent = fs.readFileSync("icon.svg", "utf8");
+    const svgImage = new aspose.slides.SvgImage(svgContent);
 
-## **Convertire SVG in un insieme di forme**
+    const image = presentation.getImages().addImage(svgImage);
+    const slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 200, 200, image);
 
-Aspose.Slides può convertire un SVG in un insieme di forme, simile alla funzionalità corrispondente in PowerPoint:
+    presentation.save("svg-image.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **File SVG con risorse esterne**
+
+Un SVG può fare riferimento a immagini, fogli di stile o font esterni. Per questi casi, [SvgImage](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/svgimage/) fornisce costruttori che accettano un [ExternalResourceResolver](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/externalresourceresolver/) e un URI di base. Il risolutore può mappare un URI relativo a un URI assoluto consentito e restituire uno stream per la risorsa richiesta.
+
+Il risolutore rende disponibili le risorse esterne mentre Aspose.Slides elabora l'SVG, ma non riscrive l'SVG in un documento autonomo. Se l'SVG deve rimanere portabile, incorporare le risorse richieste direttamente nell'SVG, ad esempio usando URI `data:` per le immagini collegate.
+
+Quando i file SVG provengono da fonti non attendibili, limitare gli schemi, le posizioni dei file e gli host a cui il risolutore può accedere. I risolutori di rete dovrebbero anche applicare timeout, limiti di dimensione della risposta e convalida del contenuto.
+
+### **Convertire SVG in forme modificabili**
+
+Aspose.Slides può convertire un SVG in un gruppo di forme diapositiva modificabili, simile al comando corrispondente di PowerPoint.
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-Questa funzionalità è fornita da un overload del metodo [addGroupShape](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ShapeCollection#addGroupShape-aspose.slides.ISvgImage-float-float-float-float-) della classe [ShapeCollection](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ShapeCollection) che accetta un oggetto immagine SVG come primo argomento.
-
-Il seguente esempio di codice JavaScript mostra come utilizzare questo metodo per convertire un file SVG in un insieme di forme:
+Utilizzare la sovraccarico [ShapeCollection.addGroupShape](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/shapecollection/) che accetta un'immagine SVG per eseguire la conversione.
 
 ```javascript
 const aspose = {};
 aspose.slides = require("aspose.slides.via.java");
 const fs = require("fs");
-const java = require("java");
 
-// Nome file SVG di origine.
-const svgFileName = "sample.svg";
-
-// Nome file di output della presentazione.
-const outPptxPath = "presentation.pptx";
-
-// Crea una nuova presentazione.
 const presentation = new aspose.slides.Presentation();
 try {
-    // Leggi il contenuto del file SVG.
-    const svgContent = java.newArray("byte", Array.from(fs.readFileSync(svgFileName)));
-
-    // Crea un oggetto SvgImage.
+    const svgContent = fs.readFileSync("diagram.svg", "utf8");
     const svgImage = new aspose.slides.SvgImage(svgContent);
 
-    // Ottieni le dimensioni della diapositiva.
     const slideSize = presentation.getSlideSize().getSize();
+    const slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addGroupShape(svgImage, 0, 0, slideSize.getWidth(), slideSize.getHeight());
 
-    // Converti l'immagine SVG in un gruppo di forme e ridimensionala alle dimensioni della diapositiva.
-    presentation.getSlides().get_Item(0).getShapes().addGroupShape(
-        svgImage, 0.0, 0.0, slideSize.getWidth(), slideSize.getHeight());
-
-    // Salva la presentazione in formato PPTX.
-    presentation.save(outPptxPath, aspose.slides.SaveFormat.Pptx);
+    presentation.save("editable-svg-shapes.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Aggiungere immagini come EMF alle diapositive**
+Utilizzare la conversione SVG-in-forme quando gli elementi vettoriali individuali devono essere modificati come forme PowerPoint. Se l'SVG deve solo essere visualizzato, mantenerlo come immagine è più semplice e evita di creare molte forme separate.
 
-Aspose.Slides per Node.js tramite Java consente di generare immagini EMF da fogli di calcolo Excel con Aspose.Cells e aggiungerle alle diapositive della presentazione.
+## **Sostituire una risorsa immagine esistente**
 
-Il seguente esempio di codice JavaScript mostra come fare questo:
-
-```javascript
-const aspose = {};
-aspose.slides = require("aspose.slides.via.java");
-const java = require("java");
-
-const book = java.newInstanceSync("aspose.cells.Workbook", "chart.xlsx");
-const sheet = book.getWorksheets().get(0);
-
-const options = java.newInstanceSync("aspose.cells.ImageOrPrintOptions");
-options.setHorizontalResolution(200);
-options.setVerticalResolution(200);
-options.setImageType(java.getStaticFieldValue("ImageType", "EMF"));
-
-// Salva la cartella di lavoro in uno stream.
-const sr = java.newInstanceSync("SheetRender", sheet, options);
-const pres = new aspose.slides.Presentation();
-try {
-    pres.getSlides().removeAt(0);
-
-    for (let j = 0; j < sr.getPageCount(); j++) {
-        const emfSheetName = "test" + sheet.getName() + " Page" + (j + 1) + ".out.emf";
-        sr.toImage(j, emfSheetName);
-
-        // Aggiungi il file così com'è in modo che l'immagine rimanga un vettoriale EMF invece di essere rasterizzata.
-        let picture;
-        const imageStream = java.newInstanceSync("java.io.FileInputStream", emfSheetName);
-        try {
-            picture = pres.getImages().addImage(imageStream);
-        } finally {
-            imageStream.close();
-        }
-
-        const slide = pres.getSlides().addEmptySlide(
-            pres.getLayoutSlides().getByType(aspose.slides.SlideLayoutType.Blank));
-        slide.getShapes().addPictureFrame(
-            aspose.slides.ShapeType.Rectangle,
-            0,
-            0,
-            pres.getSlideSize().getSize().getWidth(),
-            pres.getSlideSize().getSize().getHeight(),
-            picture);
-    }
-
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **Sostituire immagini nella collezione di immagini**
-
-Aspose.Slides consente di sostituire le immagini archiviate nella collezione di immagini di una presentazione, incluse le immagini utilizzate dalle forme delle diapositive. Questa sezione descrive diversi modi per aggiornare le immagini nella collezione. È possibile sostituire un'immagine utilizzando dati byte grezzi, un'istanza [IImage](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/iimage/) o un'altra immagine già presente nella collezione.
-
-1. Carica il file di presentazione che contiene le immagini usando la classe [Presentation](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/).  
-2. Carica una nuova immagine da un file in un array di byte.  
-3. Sostituisci l'immagine target con la nuova immagine usando l'array di byte.  
-4. Nel secondo approccio, carica l'immagine in un oggetto [IImage](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/iimage/) e sostituisci l'immagine target con quell'oggetto.  
-5. Nel terzo approccio, sostituisci l'immagine target con un'immagine già presente nella collezione di immagini della presentazione.  
-6. Scrivi la presentazione modificata come file PPTX.  
+Utilizzare [PPImage.replaceImage](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ppimage/) quando si desidera sostituire una risorsa immagine esistente. Questo è particolarmente utile per grafiche condivise come i loghi.
 
 ```javascript
 const aspose = {};
 aspose.slides = require("aspose.slides.via.java");
-const fs = require("fs");
-const java = require("java");
 
-// Instanzia la classe Presentation che rappresenta un file di presentazione.
-const presentation = new aspose.slides.Presentation("sample.pptx");
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // Il primo modo.
-    const imageData = java.newArray("byte", Array.from(fs.readFileSync("image0.jpeg")));
-    let oldImage = presentation.getImages().get_Item(0);
-    oldImage.replaceImage(imageData);
+    const imageToReplace = presentation.getImages().get_Item(0);
 
-    // Il secondo modo.
-    const newImage = aspose.slides.Images.fromFile("image1.png");
+    const replacementImage = aspose.slides.Images.fromFile("new-logo.png");
     try {
-        oldImage = presentation.getImages().get_Item(1);
-        oldImage.replaceImage(newImage);
+        imageToReplace.replaceImage(replacementImage);
     } finally {
-        if (newImage != null) {
-            newImage.dispose();
+        if (replacementImage != null) {
+            replacementImage.dispose();
         }
     }
 
-    // Il terzo modo.
-    oldImage = presentation.getImages().get_Item(2);
-    oldImage.replaceImage(presentation.getImages().get_Item(3));
-
-    // Salva la presentazione su un file.
     presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="Info" color="info" %}}
+Se più riquadri immagine, sfondi, master o layout utilizzano la stessa risorsa immagine, sostituire quella risorsa aggiorna tutti gli utilizzi. Se deve cambiare solo un riquadro immagine, assegnare un'immagine diversa a quel riquadro invece di sostituire la risorsa condivisa.
 
-Con il convertitore gratuito [Text to GIF](https://products.aspose.app/slides/it/text-to-gif) di Aspose, puoi facilmente animare il testo e creare GIF dal testo. 
+[PPImage.replaceImage](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ppimage/) fornisce anche sovraccarichi che accettano un array di byte o un altro [PPImage](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ppimage/).
 
-{{% /alert %}}
+## **Linee guida pratiche per la gestione delle immagini**
+
+### **Controllare la dimensione della presentazione**
+
+Le grandi immagini raster possono rendere una presentazione inutilmente grande. Utilizzare immagini sorgente con dimensioni appropriate per la dimensione di visualizzazione prevista, riutilizzare le risorse immagine condivise dove possibile e evitare di incorporare copie ripetute della stessa grafica a piena risoluzione.
+
+Per le immagini raster già inserite in riquadri immagine, [PictureFillFormat.compressImage](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/picturefillformat/) può ridurre i dati immagine in base alla risoluzione e alle impostazioni di ritaglio selezionate. Questo è un'elaborazione di riquadro immagine anziché una gestione della collezione di immagini, quindi vedere [Picture Frame](/slides/it/nodejs-java/picture-frame/) per le operazioni di formattazione correlate.
+
+### **Scegliere tra contenuto incorporato e collegato**
+
+L'incorporamento rende la presentazione portatile perché tutti i dati immagine necessari viaggiano con il file. Il collegamento può ridurre la dimensione del file, ma introduce una dipendenza esterna. Utilizzare collegamenti solo quando tale dipendenza è accettabile e stabile.
+
+### **Riutilizzare il branding condiviso**
+
+Per loghi, filigrane o grafiche decorative ripetute, utilizzare una singola risorsa immagine e riutilizzarla. Se la grafica appartiene al design della presentazione più che al contenuto della diapositiva, posizionarla su un master o layout affinché venga ereditata dalle diapositive appropriate.
+
+### **Mantenere le risorse SVG portabili**
+
+Un SVG autonomo è più facile da spostare e renderizzare in modo coerente rispetto a un SVG che dipende da file o risorse di rete esterne. Quando possibile, incorporare le risorse richieste prima di importare l'SVG. Convertire SVG in forme solo quando gli elementi vettoriali individuali devono essere modificati.
+
+### **Utilizzare l'API immagine moderna multipiattaforma**
+
+Per nuovo codice Node.js tramite Java, utilizzare le API Aspose.Slides [IImage](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/iimage/) e [Images](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/images/) invece della legacy API pubblica basata su `java.awt.image.BufferedImage`. Vedere [Modern API](/slides/it/nodejs-java/modern-api/) per le indicazioni di migrazione.
+
+WMF e EMF richiedono considerazioni speciali. Quando questi formati sono passati tramite un [IImage](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/iimage/), [ImageCollection.addImage](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/imagecollection/) converte il metafile in una rappresentazione raster PNG prima dell'inserimento. Se è importante preservare i dati del metafile, utilizzare la sovraccarico basata su stream di [ImageCollection.addImage](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/imagecollection/) invece. Generare contenuti EMF da fogli di calcolo o altri prodotti è un flusso di integrazione separato ed è fuori dall'ambito di questo articolo.
 
 ## **FAQ**
 
-**La risoluzione originale dell'immagine rimane intatta dopo l'inserimento?**
+**Qual è la differenza tra la collezione di immagini e un riquadro immagine?**
 
-Sì. I pixel originali sono preservati, ma l'aspetto finale dipende da come l'[immagine](/slides/it/nodejs-java/picture-frame/) è scalata sulla diapositiva e da eventuali compressioni applicate al salvataggio.
+La collezione di immagini memorizza risorse immagine riutilizzabili. Un riquadro immagine è una forma di diapositiva che visualizza una di tali risorse e fornisce formattazioni specifiche per l'immagine, come ritaglio ed effetti.
 
-**Qual è il modo migliore per sostituire lo stesso logo su decine di diapositive contemporaneamente?**
+**Qual è il modo migliore per sostituire lo stesso logo ovunque?**
 
-Posiziona il logo sul master slide o su un layout e sostituiscilo nella collezione di immagini della presentazione—gli aggiornamenti si propagheranno a tutti gli elementi che utilizzano quella risorsa.
+Se il logo è già condiviso come una singola risorsa immagine, sostituire quella risorsa con [PPImage.replaceImage](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/ppimage/). Per il branding a livello di tutta la presentazione, posizionare il logo su un master o layout può anche ridurre il contenuto duplicato delle diapositive.
 
-**È possibile convertire un SVG inserito in forme modificabili?**
+**Perché un'immagine collegata scompare su un altro computer?**
 
-Sì. È possibile convertire un SVG in un gruppo di forme, dopo di che le singole parti diventano modificabili con le proprietà di forma standard.
+Un'immagine collegata dipende dal suo file o URL esterno. Se quella risorsa non è raggiungibile dall'altro computer, l'immagine collegata può risultare non disponibile. Incorporare l'immagine quando la presentazione deve essere autonoma.
 
-**Come posso impostare un'immagine come sfondo per più diapositive contemporaneamente?**
+**Un SVG inserito può essere modificato come forme PowerPoint?**
 
-[Assegna l'immagine come sfondo](/slides/it/nodejs-java/presentation-background/) sul master slide o sul layout pertinente—tutte le diapositive che usano quel master/layout erediteranno lo sfondo.
+Sì. Convertire l'SVG con [ShapeCollection.addGroupShape](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/shapecollection/); il gruppo risultante contiene forme diapositiva modificabili anziché un'unica immagine SVG.
 
-**Come fare in modo che una presentazione non diventi troppo grande a causa di molte immagini?**
+**Come posso mantenere più piccole le presentazioni con molte immagini?**
 
-Riutilizza una singola risorsa immagine invece di duplicati, scegli risoluzioni ragionevoli, applica compressione al salvataggio e conserva le grafiche ripetute sul master dove opportuno.
+Riutilizzare le risorse immagine condivise, evitare sorgenti raster inutilmente grandi, comprimere le immagini raster appropriate quando opportuno, mantenere il branding ripetuto su master o layout, e utilizzare immagini collegate solo quando una dipendenza esterna è accettabile.

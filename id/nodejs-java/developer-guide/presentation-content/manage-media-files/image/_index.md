@@ -5,558 +5,335 @@ type: docs
 weight: 10
 url: /id/nodejs-java/image/
 keywords:
-- tambahkan gambar
-- tambahkan foto
-- tambahkan bitmap
-- ganti gambar
-- ganti foto
-- dari web
+- menambahkan gambar
+- menambahkan gambar
+- mengganti gambar
+- koleksi gambar
+- bingkai gambar
+- gambar tertaut
 - latar belakang
-- tambahkan PNG
-- tambahkan JPG
-- tambahkan SVG
+- menambahkan PNG
+- menambahkan JPG
+- menambahkan SVG
+- SVG ke bentuk
 - sumber daya SVG eksternal
-- penyelesai SVG
-- gambar SVG tertaut
-- font SVG
-- tambahkan EMF
-- tambahkan WMF
-- tambahkan TIFF
 - PowerPoint
 - OpenDocument
 - presentasi
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Permudah manajemen gambar dalam PowerPoint dan OpenDocument dengan Aspose.Slides untuk Node.js via Java, mengoptimalkan kinerja dan mengotomatisasi alur kerja Anda."
+description: "Pelajari cara menambahkan, menggunakan kembali, menautkan, mengganti, dan mengelola gambar raster serta SVG dalam presentasi PowerPoint dan OpenDocument dengan Aspose.Slides untuk Node.js via Java."
 ---
 ## **Pendahuluan**
 
-Gambar membuat presentasi lebih menarik dan visual. Di Microsoft PowerPoint, Anda dapat menyisipkan gambar ke slide dari file, internet, atau sumber lain. Demikian pula, Aspose.Slides memungkinkan Anda menambahkan gambar ke slide presentasi dengan beberapa cara.
+Aspose.Slides untuk Node.js via Java menyediakan beberapa cara untuk bekerja dengan gambar, dan masing‑masing melayani tujuan yang berbeda. Anda dapat menyimpan gambar dalam presentasi, menampilkannya dalam bingkai gambar, menggunakannya sebagai latar belakang slide, menautkan ke gambar eksternal, mengganti sumber daya gambar yang berbagi, atau mengonversi konten SVG menjadi bentuk yang dapat diedit.
 
-{{% alert  title="Tip" color="primary" %}} 
+Artikel ini berfokus pada sumber daya gambar dan cara penggunaannya dalam sebuah presentasi. Untuk memotong, transparansi, efek, peregangan, dan pemformatan lain yang diterapkan pada bingkai gambar individu, lihat [Picture Frame](/slides/id/nodejs-java/picture-frame/).
 
-Aspose menyediakan konverter gratis—[JPEG ke PowerPoint](https://products.aspose.app/slides/id/import/jpg-to-ppt) dan [PNG ke PowerPoint](https://products.aspose.app/slides/id/import/png-to-ppt)—yang memungkinkan Anda cepat membuat presentasi dari gambar. 
+## **Memahami Model Gambar**
 
-{{% /alert %}} 
+Konsep API berikut saling terkait tetapi tidak dapat dipertukarkan:
 
-{{% alert title="Info" color="info" %}}
+- Koleksi gambar presentasi ([presentation image collection](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/imagecollection/)) menyimpan sumber daya gambar yang digunakan oleh presentasi. Gunakan [ImageCollection.addImage](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/imagecollection/) untuk menambahkan data gambar dan memperoleh sumber daya [PPImage](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ppimage/).
+- Sebuah [picture frame](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/pictureframe/) adalah bentuk yang menampilkan gambar pada slide, tata letak, atau master. Gunakan [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shapecollection/) untuk menempatkan sumber daya gambar pada slide.
+- Latar belakang slide menggunakan gambar sebagai bagian dari isian slide alih‑alih sebagai bentuk. Oleh karena itu tidak berperilaku seperti bingkai gambar.
+- [PPImage.replaceImage](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ppimage/) mengganti sumber daya gambar. Jika beberapa elemen presentasi menggunakan sumber daya tersebut, semuanya akan menggunakan penggantiannya.
+- Mengonversi SVG menjadi bentuk menciptakan bentuk slide yang dapat diedit. Setelah konversi, konten tidak lagi dikelola sebagai satu sumber daya gambar.
 
-Jika Anda ingin menambahkan gambar sebagai bingkai gambar—khususnya jika Anda berencana mengubah ukurannya, menerapkan efek, atau menggunakan opsi pemformatan standar lainnya—lihat [Bingkai Gambar](/slides/id/nodejs-java/picture-frame/). 
+Alur kerja tipikalnya adalah: tambahkan data gambar ke koleksi gambar, terima sebuah [PPImage](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ppimage/), lalu gunakan sumber daya itu dalam satu atau beberapa bingkai gambar atau isian.
 
-{{% /alert %}} 
+## **Menambahkan Gambar Tersemat**
 
-{{% alert title="Note" color="warning" %}}
-
-Anda dapat mengonversi gambar dari satu format ke format lain. Lihat halaman berikut: konversi [gambar ke JPG](https://products.aspose.com/slides/id/nodejs-java/conversion/image-to-jpg/), [JPG ke gambar](https://products.aspose.com/slides/id/nodejs-java/conversion/jpg-to-image/), [JPG ke PNG](https://products.aspose.com/slides/id/nodejs-java/conversion/jpg-to-png/), [PNG ke JPG](https://products.aspose.com/slides/id/nodejs-java/conversion/png-to-jpg/), [PNG ke SVG](https://products.aspose.com/slides/id/nodejs-java/conversion/png-to-svg/), dan [SVG ke PNG](https://products.aspose.com/slides/id/nodejs-java/conversion/svg-to-png/).
-
-{{% /alert %}}
-
-Aspose.Slides mendukung gambar dalam format populer seperti JPEG, PNG, BMP, GIF, dan lainnya. 
-
-## **Menambahkan Gambar yang Disimpan Secara Lokal ke Slide**
-
-Anda dapat menambahkan satu atau beberapa gambar yang disimpan di komputer Anda ke slide presentasi. Kode contoh JavaScript berikut menunjukkan cara menambahkan gambar ke slide:
+Untuk menyisipkan gambar lokal, muat file, tambahkan ke koleksi gambar, dan buat bingkai gambar yang menggunakan sumber daya [PPImage](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ppimage/) yang dikembalikan.
 
 ```javascript
 const aspose = {};
 aspose.slides = require("aspose.slides.via.java");
-
-const pres = new aspose.slides.Presentation();
-try {
-    const slide = pres.getSlides().get_Item(0);
-
-    let picture;
-    const image = aspose.slides.Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
-        }
-    }
-
-    slide.getShapes().addPictureFrame(
-        aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, picture);
-
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **Menambahkan Gambar dari Web ke Slide**
-
-Jika gambar yang ingin Anda tambahkan ke slide tidak disimpan di komputer Anda, Anda dapat menambahkannya langsung dari web. 
-
-Kode contoh JavaScript berikut menunjukkan cara menambahkan gambar dari web ke slide:
-
-```javascript
-const aspose = {};
-aspose.slides = require("aspose.slides.via.java");
-const java = require("java");
-
-const pres = new aspose.slides.Presentation();
-try {
-    const slide = pres.getSlides().get_Item(0);
-
-    const imageUrl = java.newInstanceSync("java.net.URL", "[REPLACE WITH URL]");
-    const inputStream = imageUrl.openStream();
-    try {
-        let picture;
-        const image = aspose.slides.Images.fromStream(inputStream);
-        try {
-            picture = pres.getImages().addImage(image);
-        } finally {
-            if (image != null) {
-                image.dispose();
-            }
-        }
-
-        slide.getShapes().addPictureFrame(
-            aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, picture);
-    } finally {
-        if (inputStream != null) {
-            inputStream.close();
-        }
-    }
-
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **Menambahkan Gambar ke Slide Master**
-
-Slide master menyimpan dan mengontrol informasi seperti tema dan tata letak untuk slide yang menggunakan master tersebut. Saat Anda menambahkan gambar ke slide master, gambar akan muncul di setiap slide yang didasarkan pada master itu. 
-
-Kode contoh JavaScript berikut menunjukkan cara menambahkan gambar ke slide master:
-
-```javascript
-const aspose = {};
-aspose.slides = require("aspose.slides.via.java");
-
-const pres = new aspose.slides.Presentation();
-try {
-    const slide = pres.getSlides().get_Item(0);
-    const masterSlide = slide.getLayoutSlide().getMasterSlide();
-
-    let picture;
-    const image = aspose.slides.Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
-        }
-    }
-
-    masterSlide.getShapes().addPictureFrame(
-        aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, picture);
-
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **Menambahkan Gambar sebagai Latar Belakang Slide**
-
-Anda dapat menggunakan gambar sebagai latar belakang untuk satu atau lebih slide. Untuk detailnya, lihat *[Mengatur Gambar sebagai Latar Belakang untuk Slide](/slides/id/nodejs-java/presentation-background/#setting-images-as-background-for-slides)*.
-
-## **Menambahkan SVG ke Presentasi**
-
-Konten SVG dapat ditambahkan ke presentasi menggunakan kelas [SvgImage](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/svgimage/). Objek gambar SVG yang dihasilkan kemudian dapat ditambahkan ke koleksi gambar presentasi dan digunakan untuk membuat bingkai gambar.
-
-Kode contoh JavaScript berikut mengimpor string SVG yang berdiri sendiri. Semua gambar, gaya, dan sumber daya lain yang digunakan oleh SVG ini disematkan langsung dalam konten SVG.
-
-```javascript
-const aspose = {};
-aspose.slides = require("aspose.slides.via.java");
-
-const svgContent =
-    "<svg xmlns='http://www.w3.org/2000/svg' width='320' height='180'>" +
-    "    <rect width='320' height='180' fill='#4F81BD'/>" +
-    "    <circle cx='160' cy='90' r='55' fill='#F2F2F2'/>" +
-    "</svg>";
 
 const presentation = new aspose.slides.Presentation();
 try {
-    const svgImage = new aspose.slides.SvgImage(svgContent);
-    const image = presentation.getImages().addImage(svgImage);
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("photo.png");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        if (sourceImage != null) {
+            sourceImage.dispose();
+        }
+    }
 
-    presentation.getSlides().get_Item(0).getShapes().addPictureFrame(
-        aspose.slides.ShapeType.Rectangle,
-        20, 20, image.getWidth(), image.getHeight(), image);
+    const slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 320, 180, image);
 
-    presentation.save("self-contained-svg.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Mengimpor Konten SVG dengan Sumber Daya Eksternal**
+Gambar yang ditambahkan dengan cara ini tersemat dalam presentasi, sehingga file yang dihasilkan tidak bergantung pada ketersediaan file gambar asli.
 
-File SVG yang diekspor dari alat desain, editor diagram, sistem ikon, dan pipeline web dapat merujuk pada sumber daya yang disimpan di luar dokumen SVG. Misalnya, SVG dapat berisi tautan gambar seperti `images/photo.png`, nilai CSS `url(...)`, atau URL font.
+### **Menambahkan Gambar dari Web**
 
-Untuk mengimpor konten SVG semacam itu, sediakan penyelesai sumber daya eksternal dan berikan bersama URI dasar ke konstruktor [SvgImage](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/svgimage/) yang sesuai. URI dasar mengidentifikasi lokasi dokumen SVG dan digunakan untuk menyelesaikan tautan relatif.
-
-Kelas `SvgImage` menyediakan akses ke informasi tentang SVG yang diimpor:
-
-- `getSvgContent()` mengembalikan markup SVG sebagai string.
-- `getSvgData()` mengembalikan konten SVG sebagai array byte.
-- `getBaseUri()` mengembalikan URI dasar yang digunakan untuk tautan relatif.
-- `getExternalResourceResolver()` mengembalikan penyelesai yang ditetapkan ke gambar SVG.
-
-### **Menerapkan Penyelesai Sumber Daya Eksternal**
-
-Penyelesai memiliki dua metode:
-
-- `resolveUri` menggabungkan URI dasar dan tautan sumber daya relatif serta mengembalikan URI absolut. Kembalikan `null` bila tautan tidak dapat diselesaikan atau tidak diizinkan.
-- `getEntity` mengembalikan aliran Java yang dapat dibaca untuk URI sumber daya absolut. Kembalikan `null` bila sumber daya tidak ada, diblokir, atau tidak tersedia. Aliran cadangan juga dapat dikembalikan bila diperlukan.
-
-Helper berikut membuat penyelesai yang memuat sumber daya tertaut hanya dari direktori lokal yang diizinkan. Sumber daya jaringan dan jalur di luar direktori yang diizinkan diblokir. Gambar cadangan opsional dikembalikan untuk tautan gambar yang tidak terpecahkan.
+Ketika gambar tersedia melalui HTTP atau HTTPS, unduh byte‑nya, tambahkan ke koleksi gambar presentasi, dan gunakan sumber daya gambar yang dikembalikan dengan cara yang sama seperti gambar lokal.
 
 ```javascript
-const fs = require("fs");
-const path = require("path");
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const http = require("http");
+const https = require("https");
 const java = require("java");
-const { fileURLToPath, pathToFileURL } = require("url");
 
-function isInsideAllowedRoot(resourcePath, allowedRoot) {
-    const relativePath = path.relative(allowedRoot, resourcePath);
-
-    return relativePath === "" ||
-        (relativePath !== ".." &&
-         !relativePath.startsWith(".." + path.sep) &&
-         !path.isAbsolute(relativePath));
-}
-
-function isImageFile(filePath) {
-    const extension = path.extname(filePath).toLowerCase();
-    return [".png", ".jpg", ".jpeg", ".gif", ".bmp"].includes(extension);
-}
-
-function createLocalSvgResourceResolver(allowedRoot, fallbackImageData) {
-    const normalizedRoot = path.resolve(allowedRoot);
-
-    return java.newProxy("com.aspose.slides.IExternalResourceResolver", {
-        resolveUri: function(baseUri, relativeUri) {
-            if (baseUri == null || baseUri.trim() === "" ||
-                    relativeUri == null || relativeUri.trim() === "") {
-                return null;
+function downloadBytes(url) {
+    return new Promise((resolve, reject) => {
+        const client = url.startsWith("https:") ? https : http;
+        client.get(url, (response) => {
+            if (response.statusCode < 200 || response.statusCode >= 300) {
+                response.resume();
+                reject(new Error(`HTTP ${response.statusCode}`));
+                return;
             }
 
-            try {
-                const absoluteAddress = new URL(relativeUri, baseUri);
-
-                // Penyelesai ini sengaja memungkinkan hanya file lokal.
-                if (absoluteAddress.protocol !== "file:") {
-                    return null;
-                }
-
-                const resourcePath = path.resolve(fileURLToPath(absoluteAddress));
-                if (!isInsideAllowedRoot(resourcePath, normalizedRoot)) {
-                    return null;
-                }
-
-                return pathToFileURL(resourcePath).href;
-            } catch (e) {
-                return null;
-            }
-        },
-
-        getEntity: function(absoluteUri) {
-            try {
-                const resourceUrl = new URL(absoluteUri);
-                if (resourceUrl.protocol !== "file:") {
-                    return null;
-                }
-
-                const resourcePath = path.resolve(fileURLToPath(resourceUrl));
-                if (!isInsideAllowedRoot(resourcePath, normalizedRoot)) {
-                    return null;
-                }
-
-                if (fs.existsSync(resourcePath)) {
-                    return java.newInstanceSync("java.io.FileInputStream", resourcePath);
-                }
-
-                // Gunakan fallback hanya untuk sumber daya gambar. Mengembalikan aliran gambar
-                // untuk font atau stylesheet yang hilang tidak akan valid.
-                if (fallbackImageData != null && isImageFile(resourcePath)) {
-                    const javaBytes = java.newArray("byte", Array.from(fallbackImageData));
-                    return java.newInstanceSync("java.io.ByteArrayInputStream", javaBytes);
-                }
-            } catch (e) {
-                return null;
-            }
-
-            return null;
-        }
+            const chunks = [];
+            response.on("data", (chunk) => chunks.push(chunk));
+            response.on("end", () => resolve(Buffer.concat(chunks)));
+        }).on("error", reject);
     });
 }
+
+(async () => {
+    const imageData = await downloadBytes("https://example.com/image.png");
+    const javaBytes = java.newArray("byte", Array.from(imageData));
+
+    const presentation = new aspose.slides.Presentation();
+    try {
+        const image = presentation.getImages().addImage(javaBytes);
+        const slide = presentation.getSlides().get_Item(0);
+        slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 320, 180, image);
+
+        presentation.save("presentation-from-web.pptx", aspose.slides.SaveFormat.Pptx);
+    } finally {
+        presentation.dispose();
+    }
+})();
 ```
 
-### **Menyelesaikan Sumber Daya Tertaut Selama Impor SVG**
+Dalam aplikasi yang berjalan lama, gunakan kembali klien HTTP atau strategi manajemen koneksi yang sesuai dengan aplikasi daripada terus‑menerus membuat infrastruktur jaringan yang tidak diperlukan. Juga validasi URL remote, ukuran respons, dan tipe konten ketika sumbernya tidak dapat dipercaya.
 
-Asumsikan bahwa `assets/diagram.svg` berisi referensi relatif seperti:
+## **Gunakan Ulang Gambar di Seluruh Slide**
 
-```xml
-<image href="images/photo.png" x="20" y="20" width="320" height="180" />
-```
+Jika gambar yang sama diperlukan lebih dari satu kali, tambahkan ke presentasi satu kali dan gunakan kembali [PPImage](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ppimage/) yang dikembalikan saat membuat bingkai gambar tambahan. Hal ini menghindari pemuatan berulang data sumber yang sama dan menjadikan hubungan antara sumber daya gambar berbagi dan penggunaannya menjadi eksplisit.
 
-Contoh JavaScript berikut memberikan URI file SVG sebagai URI dasar dan menyediakan penyelesai khusus. Penyelesai mengubah tautan gambar relatif menjadi URI absolut dan mengembalikan aliran yang berisi sumber daya tertaut sementara Aspose.Slides memproses SVG.
+Untuk grafis yang harus muncul secara otomatis pada banyak slide, seperti logo perusahaan, pertimbangkan menempatkan bingkai gambar pada [slide master](/slides/id/nodejs-java/slide-master/) atau tata letak alih‑alih menambahkan bentuk setara pada setiap slide.
+
+## **Gunakan Gambar sebagai Latar Belakang Slide**
+
+Gambar latar belakang ditetapkan pada isian slide; ia tidak ditambahkan sebagai bentuk bingkai gambar. Ini berguna ketika gambar harus menutupi latar belakang slide dan tidak boleh dimanipulasi sebagai objek slide biasa.
 
 ```javascript
 const aspose = {};
 aspose.slides = require("aspose.slides.via.java");
-const fs = require("fs");
-const path = require("path");
-const { pathToFileURL } = require("url");
-
-const svgFilePath = path.resolve("assets", "diagram.svg");
-const assetDirectory = path.dirname(svgFilePath);
-const svgContent = fs.readFileSync(svgFilePath, "utf8");
-
-// URI dasar mewakili lokasi dokumen SVG.
-const baseUri = pathToFileURL(svgFilePath).href;
-
-let fallbackImageData = null;
-const fallbackImagePath = path.join(assetDirectory, "fallback.png");
-if (fs.existsSync(fallbackImagePath)) {
-    fallbackImageData = fs.readFileSync(fallbackImagePath);
-}
-
-const resolver = createLocalSvgResourceResolver(assetDirectory, fallbackImageData);
-const svgImage = new aspose.slides.SvgImage(svgContent, resolver, baseUri);
-
-// SvgImage mengekspos konten sumber, data biner, URI dasar, dan penyelesai.
-const importedContent = svgImage.getSvgContent();
-const importedData = svgImage.getSvgData();
-const importedBaseUri = svgImage.getBaseUri();
-const importedResolver = svgImage.getExternalResourceResolver();
 
 const presentation = new aspose.slides.Presentation();
 try {
-    const image = presentation.getImages().addImage(svgImage);
+    const slide = presentation.getSlides().get_Item(0);
 
-    presentation.getSlides().get_Item(0).getShapes().addPictureFrame(
-        aspose.slides.ShapeType.Rectangle,
-        20, 20, image.getWidth(), image.getHeight(), image);
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("background.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        if (sourceImage != null) {
+            sourceImage.dispose();
+        }
+    }
 
-    presentation.save("svg-with-linked-resources.pptx", aspose.slides.SaveFormat.Pptx);
+    const backgroundType = java.newByte(aspose.slides.BackgroundType.OwnBackground);
+    slide.getBackground().setType(backgroundType);
+
+    const fillType = java.newByte(aspose.slides.FillType.Picture);
+    slide.getBackground().getFillFormat().setFillType(fillType);
+
+    slide.getBackground().getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
+    slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().setImage(image);
+
+    presentation.save("background-image.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Kelas `SvgImage` juga menyediakan overload yang menerima data SVG sebagai array byte, serta metode pabrik berbasis aliran, bersama dengan penyelesai sumber daya eksternal dan URI dasar.
+Untuk opsi latar belakang tambahan, termasuk latar belakang master dan tata letak, lihat [Presentation Background](/slides/id/nodejs-java/presentation-background/).
 
-{{% alert title="Important" color="warning" %}}
+## **Gambar Tersemat dan Gambar Tertaut**
 
-Penyelesai sumber daya membuat sumber daya eksternal tersedia saat Aspose.Slides memproses dan merender SVG. Ia tidak mengubah markup SVG asli atau secara otomatis menyematkan sumber daya yang telah diselesaikan ke dalamnya.
+Gambar tersemat dan gambar tertaut memiliki pertukaran portabilitas dan ukuran file yang berbeda:
 
-Ketika gambar SVG ditambahkan ke koleksi gambar presentasi, file PPTX dapat berisi representasi SVG asli serta gambar raster cadangan. Sumber daya tertaut dapat muncul dalam gambar cadangan yang dihasilkan sementara tautan relatif seperti `images/photo.png` tetap tidak berubah dalam SVG yang disimpan. Aplikasi yang merender representasi SVG asli mungkin mengabaikan konten tertaut ketika sumber daya eksternal asli tidak tersedia.
+- **Gambar tersemat:** data gambar disimpan di dalam presentasi. Presentasi menjadi mandiri, tetapi ukuran file mencakup data gambar.
+- **Gambar tertaut:** presentasi menyimpan jalur atau URL ke gambar eksternal. Ini dapat mengurangi ukuran presentasi, tetapi sumber eksternal harus tetap dapat diakses saat presentasi dibuka atau dirender.
 
-{{% /alert %}}
+Sebuah gambar tertaut dapat dibuat dengan menetapkan jalur atau URL eksternal melalui [Picture.setLinkPathLong](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/picture/) alih‑alih menanamkan data gambar.
 
-### **Membuat Gambar SVG Portabel**
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
 
-Untuk membuat gambar SVG yang tidak bergantung pada file eksternal, jadikan SVG berdiri sendiri sebelum membuat `SvgImage`. Misalnya, ganti URL gambar tertaut dengan URI `data:` yang berisi data gambar:
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 320, 180, null);
+    pictureFrame.getPictureFormat().getPicture().setLinkPathLong("https://example.com/image.png");
 
-```xml
-<image href="data:image/png;base64,..." x="20" y="20" width="320" height="180" />
+    presentation.save("linked-image.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
-Setelah semua sumber daya yang diperlukan disematkan dalam konten SVG, buat `SvgImage`, tambahkan ke koleksi gambar presentasi, dan sisipkan ke dalam bingkai gambar seperti pada contoh sebelumnya.
+Gunakan gambar tertaut hanya ketika lingkungan penyebaran dapat dengan andal mengakses sumber eksternal. Untuk presentasi yang harus berfungsi secara offline atau dipindahkan antar sistem, gambar tersemat biasanya lebih aman.
 
-### **Menangani Sumber Daya yang Hilang atau Diblokir**
+## **Bekerja dengan Gambar SVG**
 
-Kembalikan `null` dari `resolveUri` bila URI sumber daya tidak valid, dilarang, atau tidak dapat diselesaikan. Kembalikan `null` dari `getEntity` bila sumber daya tidak dapat dibaca. Aspose.Slides melanjutkan pemrosesan SVG tanpa sumber daya tersebut bila memungkinkan.
+SVG adalah format vektor, sehingga berguna untuk ikon, diagram, dan grafis lain yang harus diskalakan tanpa kehilangan detail seperti gambar raster. Aspose.Slides mendukung SVG baik sebagai sumber daya gambar maupun sebagai sumber untuk bentuk slide yang dapat diedit.
 
-Aliran cadangan dapat dikembalikan untuk sumber daya yang hilang, tetapi isinya harus cocok dengan tipe sumber daya yang diminta. Misalnya, kembalikan aliran gambar hanya untuk gambar yang hilang, bukan untuk font atau stylesheet.
+### **Menambahkan SVG sebagai Gambar**
 
-{{% alert title="Security" color="warning" %}}
+Buat sebuah [SvgImage](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/svgimage/), tambahkan ke koleksi gambar, dan tempatkan sumber daya gambar yang dihasilkan dalam sebuah bingkai gambar.
 
-Jangan menyelesaikan jalur file arbitrer atau URL jaringan tanpa batas dari file SVG yang tidak terpercaya. Batasi skema, direktori, dan host yang diizinkan. Untuk sumber daya jaringan, terapkan batas waktu koneksi, batas ukuran respons, dan validasi konten.
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const fs = require("fs");
 
-{{% /alert %}}
+const presentation = new aspose.slides.Presentation();
+try {
+    const svgContent = fs.readFileSync("icon.svg", "utf8");
+    const svgImage = new aspose.slides.SvgImage(svgContent);
 
-## **Mengonversi SVG menjadi Sekelompok Bentuk**
+    const image = presentation.getImages().addImage(svgImage);
+    const slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 200, 200, image);
 
-Aspose.Slides dapat mengonversi SVG menjadi sekumpulan bentuk, mirip dengan fungsi yang ada di PowerPoint:
+    presentation.save("svg-image.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **File SVG dengan Sumber Daya Eksternal**
+
+Sebuah SVG dapat merujuk ke gambar, stylesheet, atau font eksternal. Untuk kasus ini, [SvgImage](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/svgimage/) menyediakan konstruktor yang menerima sebuah [ExternalResourceResolver](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/externalresourceresolver/) dan URI dasar. Resolver dapat memetakan URI relatif ke URI absolut yang diizinkan dan mengembalikan aliran untuk sumber daya yang diminta.
+
+Resolver membuat sumber daya eksternal tersedia saat Aspose.Slides memproses SVG, tetapi tidak menulis ulang SVG menjadi dokumen mandiri. Jika SVG harus tetap portabel, tanamkan sumber daya yang diperlukan ke dalam SVG itu sendiri, misalnya dengan menggunakan `data:` URI untuk gambar tertaut.
+
+Saat file SVG berasal dari sumber yang tidak dipercaya, batasi skema, lokasi file, dan host yang dapat diakses resolver. Resolver jaringan juga harus menerapkan batas waktu, batas ukuran respons, dan validasi konten.
+
+### **Mengonversi SVG menjadi Bentuk yang Dapat Diedit**
+
+Aspose.Slides dapat mengonversi SVG menjadi sekumpulan bentuk slide yang dapat diedit, serupa dengan perintah PowerPoint yang bersangkutan.
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-Fungsionalitas ini disediakan oleh overload metode [addGroupShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ShapeCollection#addGroupShape-aspose.slides.ISvgImage-float-float-float-float-) pada kelas [ShapeCollection](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ShapeCollection) yang menerima objek gambar SVG sebagai argumen pertama.
-
-Kode contoh JavaScript berikut menunjukkan cara menggunakan metode ini untuk mengonversi file SVG menjadi sekumpulan bentuk:
+Gunakan overload [ShapeCollection.addGroupShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shapecollection/) yang menerima gambar SVG untuk melakukan konversi.
 
 ```javascript
 const aspose = {};
 aspose.slides = require("aspose.slides.via.java");
 const fs = require("fs");
-const java = require("java");
 
-// Nama file SVG sumber.
-const svgFileName = "sample.svg";
-
-// Nama file presentasi output.
-const outPptxPath = "presentation.pptx";
-
-// Membuat presentasi baru.
 const presentation = new aspose.slides.Presentation();
 try {
-    // Membaca konten file SVG.
-    const svgContent = java.newArray("byte", Array.from(fs.readFileSync(svgFileName)));
-
-    // Membuat objek SvgImage.
+    const svgContent = fs.readFileSync("diagram.svg", "utf8");
     const svgImage = new aspose.slides.SvgImage(svgContent);
 
-    // Mendapatkan ukuran slide.
     const slideSize = presentation.getSlideSize().getSize();
+    const slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addGroupShape(svgImage, 0, 0, slideSize.getWidth(), slideSize.getHeight());
 
-    // Mengonversi gambar SVG menjadi grup bentuk dan menskalakan ke ukuran slide.
-    presentation.getSlides().get_Item(0).getShapes().addGroupShape(
-        svgImage, 0.0, 0.0, slideSize.getWidth(), slideSize.getHeight());
-
-    // Menyimpan presentasi dalam format PPTX.
-    presentation.save(outPptxPath, aspose.slides.SaveFormat.Pptx);
+    presentation.save("editable-svg-shapes.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Menambahkan Gambar sebagai EMF ke Slide**
+Gunakan konversi SVG‑ke‑bentuk ketika elemen vektor individu perlu diedit sebagai bentuk PowerPoint. Jika SVG hanya perlu ditampilkan, menyimpannya sebagai gambar lebih sederhana dan menghindari pembuatan banyak bentuk terpisah.
 
-Aspose.Slides untuk Node.js via Java memungkinkan Anda menghasilkan gambar EMF dari lembar kerja Excel dengan Aspose.Cells dan menambahkannya ke slide presentasi.
+## **Mengganti Sumber Daya Gambar yang Ada**
 
-Kode contoh JavaScript berikut menunjukkan cara melakukannya:
-
-```javascript
-const aspose = {};
-aspose.slides = require("aspose.slides.via.java");
-const java = require("java");
-
-const book = java.newInstanceSync("aspose.cells.Workbook", "chart.xlsx");
-const sheet = book.getWorksheets().get(0);
-
-const options = java.newInstanceSync("aspose.cells.ImageOrPrintOptions");
-options.setHorizontalResolution(200);
-options.setVerticalResolution(200);
-options.setImageType(java.getStaticFieldValue("ImageType", "EMF"));
-
-// Menyimpan workbook ke aliran.
-const sr = java.newInstanceSync("SheetRender", sheet, options);
-const pres = new aspose.slides.Presentation();
-try {
-    pres.getSlides().removeAt(0);
-
-    for (let j = 0; j < sr.getPageCount(); j++) {
-        const emfSheetName = "test" + sheet.getName() + " Page" + (j + 1) + ".out.emf";
-        sr.toImage(j, emfSheetName);
-
-        // Tambahkan file apa adanya sehingga gambar tetap vektor EMF dan tidak di‑rasterkan.
-        let picture;
-        const imageStream = java.newInstanceSync("java.io.FileInputStream", emfSheetName);
-        try {
-            picture = pres.getImages().addImage(imageStream);
-        } finally {
-            imageStream.close();
-        }
-
-        const slide = pres.getSlides().addEmptySlide(
-            pres.getLayoutSlides().getByType(aspose.slides.SlideLayoutType.Blank));
-        slide.getShapes().addPictureFrame(
-            aspose.slides.ShapeType.Rectangle,
-            0,
-            0,
-            pres.getSlideSize().getSize().getWidth(),
-            pres.getSlideSize().getSize().getHeight(),
-            picture);
-    }
-
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **Mengganti Gambar dalam Koleksi Gambar**
-
-Aspose.Slides memungkinkan Anda mengganti gambar yang disimpan dalam koleksi gambar presentasi, termasuk gambar yang digunakan oleh bentuk slide. Bagian ini menjelaskan beberapa cara memperbarui gambar dalam koleksi. Anda dapat mengganti gambar menggunakan data byte mentah, instance [IImage](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/iimage/), atau gambar lain yang sudah ada dalam koleksi.
-
-Ikuti langkah‑langkah berikut:
-
-1. Muat file presentasi yang berisi gambar menggunakan kelas [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/).
-2. Muat gambar baru dari file ke dalam array byte.
-3. Ganti gambar target dengan gambar baru menggunakan array byte.
-4. Pada pendekatan kedua, muat gambar ke dalam objek [IImage](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/iimage/) dan ganti gambar target dengan objek tersebut.
-5. Pada pendekatan ketiga, ganti gambar target dengan gambar yang sudah ada dalam koleksi gambar presentasi.
-6. Tulis kembali presentasi yang telah dimodifikasi sebagai file PPTX.
+Gunakan [PPImage.replaceImage](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ppimage/) ketika Anda ingin mengganti sumber daya gambar yang ada. Ini sangat berguna untuk grafis berbagi seperti logo.
 
 ```javascript
 const aspose = {};
 aspose.slides = require("aspose.slides.via.java");
-const fs = require("fs");
-const java = require("java");
 
-// Buat instance kelas Presentation yang mewakili file presentasi.
-const presentation = new aspose.slides.Presentation("sample.pptx");
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // Cara pertama.
-    const imageData = java.newArray("byte", Array.from(fs.readFileSync("image0.jpeg")));
-    let oldImage = presentation.getImages().get_Item(0);
-    oldImage.replaceImage(imageData);
+    const imageToReplace = presentation.getImages().get_Item(0);
 
-    // Cara kedua.
-    const newImage = aspose.slides.Images.fromFile("image1.png");
+    const replacementImage = aspose.slides.Images.fromFile("new-logo.png");
     try {
-        oldImage = presentation.getImages().get_Item(1);
-        oldImage.replaceImage(newImage);
+        imageToReplace.replaceImage(replacementImage);
     } finally {
-        if (newImage != null) {
-            newImage.dispose();
+        if (replacementImage != null) {
+            replacementImage.dispose();
         }
     }
 
-    // Cara ketiga.
-    oldImage = presentation.getImages().get_Item(2);
-    oldImage.replaceImage(presentation.getImages().get_Item(3));
-
-    // Simpan presentasi ke file.
     presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="Info" color="info" %}}
+Jika beberapa bingkai gambar, latar belakang, master, atau tata letak menggunakan sumber daya gambar yang sama, mengganti sumber daya tersebut memperbarui semua penggunaan itu. Jika hanya satu bingkai gambar yang harus berubah, tetapkan gambar yang berbeda ke bingkai itu alih‑alih mengganti sumber daya bersama.
 
-Dengan konverter gratis Aspose [Text to GIF](https://products.aspose.app/slides/id/text-to-gif), Anda dapat dengan mudah menganimasikan teks dan membuat GIF dari teks. 
+[PPImage.replaceImage](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ppimage/) juga menyediakan overload yang menerima array byte atau [PPImage](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ppimage/) lain.
 
-{{% /alert %}}
+## **Panduan Praktis Manajemen Gambar**
+
+### **Mengontrol Ukuran Presentasi**
+
+Gambar raster besar dapat membuat presentasi menjadi terlalu besar. Gunakan gambar sumber dengan dimensi yang sesuai untuk ukuran tampilan yang dimaksud, gunakan kembali sumber daya gambar berbagi bila memungkinkan, dan hindari menanamkan salinan berulang dari grafis resolusi penuh yang sama.
+
+Untuk gambar raster yang sudah ditempatkan dalam bingkai gambar, [PictureFillFormat.compressImage](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/picturefillformat/) dapat mengurangi data gambar sesuai dengan resolusi dan pengaturan pemotongan yang dipilih. Ini merupakan pemrosesan bingkai gambar, bukan manajemen koleksi gambar, jadi lihat [Picture Frame](/slides/id/nodejs-java/picture-frame/) untuk operasi pemformatan terkait.
+
+### **Pilih antara Konten Tersemat dan Tertaut**
+
+Menanamkan membuat presentasi portabel karena semua data gambar yang diperlukan ikut bersama file. Menautkan dapat mengurangi ukuran file, tetapi memperkenalkan ketergantungan eksternal. Gunakan tautan hanya ketika ketergantungan itu dapat diterima dan stabil.
+
+### **Gunakan Ulang Branding Bersama**
+
+Untuk logo, watermark, atau grafis dekoratif yang berulang, gunakan satu sumber daya gambar dan gunakan kembali. Jika grafis tersebut merupakan bagian dari desain presentasi bukan konten slide, letakkan pada master atau tata letak sehingga diwariskan ke slide yang sesuai.
+
+### **Jaga Sumber Daya SVG Tetap Portabel**
+
+SVG yang mandiri lebih mudah dipindahkan dan dirender secara konsisten dibandingkan SVG yang bergantung pada file atau sumber daya jaringan eksternal. Bila memungkinkan, tanamkan sumber daya yang diperlukan sebelum mengimpor SVG. Konversi SVG ke bentuk hanya ketika elemen vektor individu perlu diedit.
+
+### **Gunakan API Gambar Lintas Platform Modern**
+
+Untuk kode Node.js via Java baru, gunakan API Aspose.Slides [IImage](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/iimage/) dan [Images](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/images/) alih‑alih API publik warisan yang berbasis `java.awt.image.BufferedImage`. Lihat [Modern API](/slides/id/nodejs-java/modern-api/) untuk panduan migrasi.
+
+WMF dan EMF memerlukan pertimbangan khusus. Ketika format ini dilewatkan melalui sebuah [IImage](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/iimage/), [ImageCollection.addImage](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/imagecollection/) mengonversi metafile menjadi representasi PNG raster sebelum penyisipan. Jika mempertahankan data metafile penting, gunakan overload berbasis aliran dari [ImageCollection.addImage](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/imagecollection/) sebagai gantinya. Membuat konten EMF dari spreadsheet atau produk lain merupakan alur kerja integrasi terpisah dan berada di luar lingkup artikel ini.
 
 ## **FAQ**
 
-**Apakah resolusi gambar asli tetap utuh setelah penyisipan?**
+**Apa perbedaan antara koleksi gambar dan bingkai gambar?**
 
-Ya. Piksel sumber dipertahankan, tetapi penampilan akhir tergantung pada cara [gambar](/slides/id/nodejs-java/picture-frame/) diubah skalanya pada slide dan kompresi yang diterapkan saat penyimpanan.
+Koleksi gambar menyimpan sumber daya gambar yang dapat digunakan kembali. Sebuah bingkai gambar adalah bentuk slide yang menampilkan salah satu sumber daya tersebut dan menyediakan pemformatan khusus gambar seperti pemotongan dan efek.
 
-**Apa cara terbaik untuk mengganti logo yang sama di puluhan slide sekaligus?**
+**Apa cara terbaik untuk mengganti logo yang sama di semua tempat?**
 
-Letakkan logo pada slide master atau layout dan ganti dalam koleksi gambar presentasi—perubahan akan menyebar ke semua elemen yang menggunakan sumber daya tersebut.
+Jika logo sudah berbagi sebagai satu sumber daya gambar, ganti sumber daya tersebut dengan [PPImage.replaceImage](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/ppimage/). Untuk branding seluruh presentasi, menempatkan logo pada master atau tata letak juga dapat mengurangi duplikasi konten slide.
 
-**Bisakah SVG yang disisipkan diubah menjadi bentuk yang dapat diedit?**
+**Mengapa gambar tertaut menghilang di komputer lain?**
 
-Ya. Anda dapat mengonversi SVG menjadi grup bentuk, setelah itu bagian individu dapat diedit dengan properti bentuk standar.
+Gambar tertaut bergantung pada file atau URL eksternal. Jika sumber daya tersebut tidak dapat dijangkau dari komputer lain, gambar tertaut tidak akan tersedia. Tanamkan gambar ketika presentasi harus mandiri.
 
-**Bagaimana cara mengatur gambar sebagai latar belakang untuk beberapa slide sekaligus?**
+**Apakah SVG yang dimasukkan dapat diedit sebagai bentuk PowerPoint?**
 
-[Tetapkan gambar sebagai latar belakang](/slides/id/nodejs-java/presentation-background/) pada slide master atau layout yang relevan—setiap slide yang menggunakan master/layout tersebut akan mewarisi latar belakang.
+Ya. Konversikan SVG dengan [ShapeCollection.addGroupShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shapecollection/); grup yang dihasilkan berisi bentuk slide yang dapat diedit, bukan satu gambar SVG.
 
-**Bagaimana cara mencegah presentasi menjadi terlalu besar karena banyak gambar?**
+**Bagaimana saya dapat menjaga presentasi dengan banyak gambar tetap kecil?**
 
-Gunakan satu sumber gambar secara ulang alih-alih duplikat, pilih resolusi yang wajar, terapkan kompresi saat penyimpanan, dan simpan grafis berulang pada master bila sesuai.
+Gunakan kembali sumber daya gambar berbagi, hindari sumber raster yang terlalu besar, kompres gambar raster yang cocok bila perlu, letakkan branding berulang pada master atau tata letak, dan gunakan gambar tertaut hanya ketika ketergantungan eksternal dapat diterima.

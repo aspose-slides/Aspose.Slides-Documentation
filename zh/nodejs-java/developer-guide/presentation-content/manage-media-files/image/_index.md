@@ -1,549 +1,328 @@
 ---
 title: 使用 JavaScript 优化演示文稿中的图像管理
-linktitle: 管理图片
+linktitle: 管理图像
 type: docs
 weight: 10
 url: /zh/nodejs-java/image/
 keywords:
+- 添加图像
 - 添加图片
-- 添加图片
-- 添加位图
-- 替换图片
-- 替换图片
-- 来自网络
+- 替换图像
+- 图像集合
+- 图片框
+- 链接图像
 - 背景
 - 添加 PNG
 - 添加 JPG
 - 添加 SVG
+- SVG 转形状
 - 外部 SVG 资源
-- SVG 解析器
-- 链接的 SVG 图像
-- SVG 字体
-- 添加 EMF
-- 添加 WMF
-- 添加 TIFF
 - PowerPoint
 - OpenDocument
 - 演示文稿
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "使用 Aspose.Slides for Node.js via Java，在 PowerPoint 和 OpenDocument 中简化图像管理，优化性能并实现工作流自动化。"
+description: "了解如何使用 Aspose.Slides for Node.js via Java 在 PowerPoint 和 OpenDocument 演示文稿中添加、复用、链接、替换和管理光栅图像及 SVG 图像。"
 ---
 ## **简介**
 
-图片使演示更具吸引力和视觉效果。在 Microsoft PowerPoint 中，您可以从文件、互联网或其他来源将图片插入到幻灯片中。同样，Aspose.Slides 也提供多种方式将图片添加到演示幻灯片中。
+Aspose.Slides for Node.js via Java 提供了多种处理图像的方式，每种方式都有不同的用途。您可以将图像存储在演示文稿中、在图片框中显示、用作幻灯片背景、链接到外部图像、替换共享的图像资源，或将 SVG 内容转换为可编辑的形状。  
+本文重点介绍图像资源及其在整个演示文稿中的使用方式。有关对单个图片框进行的裁剪、透明度、效果、拉伸以及其他格式设置，请参阅[图片框](/slides/zh/nodejs-java/picture-frame/)。
 
-{{% alert title="提示" color="primary" %}} 
-Aspose 提供免费的转换器——[JPEG 转 PowerPoint](https://products.aspose.app/slides/zh/import/jpg-to-ppt) 和 [PNG 转 PowerPoint](https://products.aspose.app/slides/zh/import/png-to-ppt)——可以快速地从图片创建演示文稿。 
-{{% /alert %}} 
+## **了解图像模型**
 
-{{% alert title="信息" color="info" %}}
-如果您想将图片作为图片框插入——尤其是计划对其进行调整大小、应用效果或使用其他标准格式选项——请参阅 [图片框](/slides/zh/nodejs-java/picture-frame/)。 
-{{% /alert %}} 
+以下 API 概念密切相关，但不可互换：
 
-{{% alert title="注意" color="warning" %}}
-您可以将图片从一种格式转换为另一种格式。请参阅以下页面：转换 [image to JPG](https://products.aspose.com/slides/zh/nodejs-java/conversion/image-to-jpg/)、[JPG to image](https://products.aspose.com/slides/zh/nodejs-java/conversion/jpg-to-image/)、[JPG to PNG](https://products.aspose.com/slides/zh/nodejs-java/conversion/jpg-to-png/)、[PNG to JPG](https://products.aspose.com/slides/zh/nodejs-java/conversion/png-to-jpg/)、[PNG to SVG](https://products.aspose.com/slides/zh/nodejs-java/conversion/png-to-svg/)，以及 [SVG to PNG](https://products.aspose.com/slides/zh/nodejs-java/conversion/svg-to-png/)。 
-{{% /alert %}}
+- [演示文稿图像集合](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/imagecollection/) 存储演示文稿使用的图像资源。使用 [ImageCollection.addImage](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/imagecollection/) 添加图像数据并获取 [PPImage](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/ppimage/) 资源。  
+- [图片框](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/pictureframe/) 是一种在幻灯片、版式或母版上显示图像的形状。使用 [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/shapecollection/) 将图像资源放置在幻灯片上。  
+- 幻灯片背景将图像用作幻灯片填充的一部分，而不是形状。因此它的行为不同于图片框。  
+- [PPImage.replaceImage](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/ppimage/) 替换图像资源。如果多个演示文稿元素使用该资源，它们都将使用替换后的资源。  
+- 将 SVG 转换为形状会创建可编辑的幻灯片形状。转换后，内容不再作为单一图片资源管理。  
 
-Aspose.Slides 支持常见的图片格式，例如 JPEG、PNG、BMP、GIF 等。
+因此典型的工作流是：将图像数据添加到图像集合，获取一个 [PPImage](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/ppimage/)，然后在一个或多个图片框或填充中使用该资源。
 
-## **将本地存储的图片添加到幻灯片**
+## **添加嵌入图像**
 
-您可以将计算机上存储的一张或多张图片添加到演示幻灯片中。以下 JavaScript 示例代码演示了如何向幻灯片添加图片：
-
-```javascript
-const aspose = {};
-aspose.slides = require("aspose.slides.via.java");
-
-const pres = new aspose.slides.Presentation();
-try {
-    const slide = pres.getSlides().get_Item(0);
-
-    let picture;
-    const image = aspose.slides.Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
-        }
-    }
-
-    slide.getShapes().addPictureFrame(
-        aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, picture);
-
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **将网络图片添加到幻灯片**
-
-如果要添加的图片未保存在本地，可以直接从网络添加。
-
-以下 JavaScript 示例代码演示了如何从网络向幻灯片添加图片：
+要插入本地图像，请加载文件，将其添加到图像集合，并创建使用返回的 [PPImage](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/ppimage/) 资源的图片框。
 
 ```javascript
 const aspose = {};
 aspose.slides = require("aspose.slides.via.java");
-const java = require("java");
-
-const pres = new aspose.slides.Presentation();
-try {
-    const slide = pres.getSlides().get_Item(0);
-
-    const imageUrl = java.newInstanceSync("java.net.URL", "[REPLACE WITH URL]");
-    const inputStream = imageUrl.openStream();
-    try {
-        let picture;
-        const image = aspose.slides.Images.fromStream(inputStream);
-        try {
-            picture = pres.getImages().addImage(image);
-        } finally {
-            if (image != null) {
-                image.dispose();
-            }
-        }
-
-        slide.getShapes().addPictureFrame(
-            aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, picture);
-    } finally {
-        if (inputStream != null) {
-            inputStream.close();
-        }
-    }
-
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **将图片添加到母版幻灯片**
-
-母版幻灯片存储并控制使用该母版的幻灯片的主题和布局信息。向母版幻灯片添加图片后，基于该母版的每张幻灯片都会显示该图片。
-
-以下 JavaScript 示例代码演示了如何向母版幻灯片添加图片：
-
-```javascript
-const aspose = {};
-aspose.slides = require("aspose.slides.via.java");
-
-const pres = new aspose.slides.Presentation();
-try {
-    const slide = pres.getSlides().get_Item(0);
-    const masterSlide = slide.getLayoutSlide().getMasterSlide();
-
-    let picture;
-    const image = aspose.slides.Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
-        }
-    }
-
-    masterSlide.getShapes().addPictureFrame(
-        aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, picture);
-
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **将图片设为幻灯片背景**
-
-您可以使用图片作为一张或多张幻灯片的背景。详情请参阅 *[将图片设置为幻灯片背景](/slides/zh/nodejs-java/presentation-background/#setting-images-as-background-for-slides)*。
-
-## **将 SVG 添加到演示文稿**
-
-可以使用 [SvgImage](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/svgimage/) 类将 SVG 内容添加到演示文稿中。生成的 SVG 图片对象随后可以添加到演示文稿的图片集合，并用于创建图片框。
-
-以下 JavaScript 示例导入了一个自包含的 SVG 字符串。该 SVG 中使用的所有图片、样式和其他资源均直接嵌入在 SVG 内容中。
-
-```javascript
-const aspose = {};
-aspose.slides = require("aspose.slides.via.java");
-
-const svgContent =
-    "<svg xmlns='http://www.w3.org/2000/svg' width='320' height='180'>" +
-    "    <rect width='320' height='180' fill='#4F81BD'/>" +
-    "    <circle cx='160' cy='90' r='55' fill='#F2F2F2'/>" +
-    "</svg>";
 
 const presentation = new aspose.slides.Presentation();
 try {
-    const svgImage = new aspose.slides.SvgImage(svgContent);
-    const image = presentation.getImages().addImage(svgImage);
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("photo.png");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        if (sourceImage != null) {
+            sourceImage.dispose();
+        }
+    }
 
-    presentation.getSlides().get_Item(0).getShapes().addPictureFrame(
-        aspose.slides.ShapeType.Rectangle,
-        20, 20, image.getWidth(), image.getHeight(), image);
+    const slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 320, 180, image);
 
-    presentation.save("self-contained-svg.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **导入包含外部资源的 SVG 内容**
+以这种方式添加的图像会嵌入到演示文稿中，因此生成的文件不依赖于原始图像文件的可用性。
 
-从设计工具、图表编辑器、图标系统和网页管线导出的 SVG 文件可能会引用存储在 SVG 文档之外的资源。例如，SVG 可以包含 `images/photo.png` 之类的图片链接、CSS `url(...)` 值或字体 URL。
+### **从网络添加图像**
 
-要导入此类 SVG 内容，需要提供一个外部资源解析器，并将其与基 URI 一起传递给相应的 [SvgImage](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/svgimage/) 构造函数。基 URI 标识 SVG 文档的位置，用于解析相对链接。
-
-`SvgImage` 类提供了访问已导入 SVG 信息的方法：
-
-- `getSvgContent()` 返回 SVG 标记的字符串形式。
-- `getSvgData()` 返回 SVG 内容的字节数组。
-- `getBaseUri()` 返回用于相对链接的基 URI。
-- `getExternalResourceResolver()` 返回分配给 SVG 图片的解析器。
-
-### **实现外部资源解析器**
-
-解析器包含两个方法：
-
-- `resolveUri` 将基 URI 与相对资源链接组合，返回绝对 URI。当链接无法解析或不被允许时返回 `null`。
-- `getEntity` 为绝对资源 URI 返回可读取的 Java 流。当资源缺失、被阻止或不可用时返回 `null`。必要时也可以返回回退流。
-
-以下辅助代码创建了一个解析器，仅从允许的本地目录加载链接资源。网络资源以及超出允许目录的路径均被阻止。对于未解析的图片链接，可返回可选的回退图片。
+当图像可通过 HTTP 或 HTTPS 访问时，下载其字节，将其添加到演示文稿图像集合，并以与本地图像相同的方式使用返回的图像资源。
 
 ```javascript
-const fs = require("fs");
-const path = require("path");
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const http = require("http");
+const https = require("https");
 const java = require("java");
-const { fileURLToPath, pathToFileURL } = require("url");
 
-function isInsideAllowedRoot(resourcePath, allowedRoot) {
-    const relativePath = path.relative(allowedRoot, resourcePath);
-
-    return relativePath === "" ||
-        (relativePath !== ".." &&
-         !relativePath.startsWith(".." + path.sep) &&
-         !path.isAbsolute(relativePath));
-}
-
-function isImageFile(filePath) {
-    const extension = path.extname(filePath).toLowerCase();
-    return [".png", ".jpg", ".jpeg", ".gif", ".bmp"].includes(extension);
-}
-
-function createLocalSvgResourceResolver(allowedRoot, fallbackImageData) {
-    const normalizedRoot = path.resolve(allowedRoot);
-
-    return java.newProxy("com.aspose.slides.IExternalResourceResolver", {
-        resolveUri: function(baseUri, relativeUri) {
-            if (baseUri == null || baseUri.trim() === "" ||
-                    relativeUri == null || relativeUri.trim() === "") {
-                return null;
+function downloadBytes(url) {
+    return new Promise((resolve, reject) => {
+        const client = url.startsWith("https:") ? https : http;
+        client.get(url, (response) => {
+            if (response.statusCode < 200 || response.statusCode >= 300) {
+                response.resume();
+                reject(new Error(`HTTP ${response.statusCode}`));
+                return;
             }
 
-            try {
-                const absoluteAddress = new URL(relativeUri, baseUri);
-
-                // 此解析器专门只允许本地文件。
-                if (absoluteAddress.protocol !== "file:") {
-                    return null;
-                }
-
-                const resourcePath = path.resolve(fileURLToPath(absoluteAddress));
-                if (!isInsideAllowedRoot(resourcePath, normalizedRoot)) {
-                    return null;
-                }
-
-                return pathToFileURL(resourcePath).href;
-            } catch (e) {
-                return null;
-            }
-        },
-
-        getEntity: function(absoluteUri) {
-            try {
-                const resourceUrl = new URL(absoluteUri);
-                if (resourceUrl.protocol !== "file:") {
-                    return null;
-                }
-
-                const resourcePath = path.resolve(fileURLToPath(resourceUrl));
-                if (!isInsideAllowedRoot(resourcePath, normalizedRoot)) {
-                    return null;
-                }
-
-                if (fs.existsSync(resourcePath)) {
-                    return java.newInstanceSync("java.io.FileInputStream", resourcePath);
-                }
-
-                // 仅在图像资源时使用回退。对缺失的字体或样式表返回图像流将无效。
-                if (fallbackImageData != null && isImageFile(resourcePath)) {
-                    const javaBytes = java.newArray("byte", Array.from(fallbackImageData));
-                    return java.newInstanceSync("java.io.ByteArrayInputStream", javaBytes);
-                }
-            } catch (e) {
-                return null;
-            }
-
-            return null;
-        }
+            const chunks = [];
+            response.on("data", (chunk) => chunks.push(chunk));
+            response.on("end", () => resolve(Buffer.concat(chunks)));
+        }).on("error", reject);
     });
 }
+
+(async () => {
+    const imageData = await downloadBytes("https://example.com/image.png");
+    const javaBytes = java.newArray("byte", Array.from(imageData));
+
+    const presentation = new aspose.slides.Presentation();
+    try {
+        const image = presentation.getImages().addImage(javaBytes);
+        const slide = presentation.getSlides().get_Item(0);
+        slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 320, 180, image);
+
+        presentation.save("presentation-from-web.pptx", aspose.slides.SaveFormat.Pptx);
+    } finally {
+        presentation.dispose();
+    }
+})();
 ```
 
-### **在 SVG 导入期间解析链接资源**
+在长期运行的应用程序中，应重用适合该应用的 HTTP 客户端或连接管理策略，而不是反复创建不必要的网络基础设施。当来源不可信时，还应验证远程 URL、响应大小和内容类型。
 
-假设 `assets/diagram.svg` 包含如下相对引用：
+## **在幻灯片间复用图像**
 
-```xml
-<image href="images/photo.png" x="20" y="20" width="320" height="180" />
-```
+如果同一图像需要使用多次，只需在演示文稿中添加一次，并在创建其他图片框时复用返回的 [PPImage](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/ppimage/)。这可以避免重复加载相同的源数据，并明确共享图像资源与其使用之间的关系。
 
-以下 JavaScript 示例将 SVG 文件的 URI 作为基 URI，并提供自定义解析器。解析器将相对图片链接转换为绝对 URI，并返回包含链接资源的流，供 Aspose.Slides 处理 SVG 时使用。
+对于应自动出现在多张幻灯片上的图形（如公司标志），请考虑将图片框放置在[幻灯片母版](/slides/zh/nodejs-java/slide-master/)或版式上，而不是在每张幻灯片中添加等效的形状。
+
+## **将图像用作幻灯片背景**
+
+背景图像被分配给幻灯片填充；它不是作为图片框形状添加的。当图像需要覆盖幻灯片背景且不应像普通幻灯片对象那样被操作时，这非常有用。
 
 ```javascript
 const aspose = {};
 aspose.slides = require("aspose.slides.via.java");
-const fs = require("fs");
-const path = require("path");
-const { pathToFileURL } = require("url");
-
-const svgFilePath = path.resolve("assets", "diagram.svg");
-const assetDirectory = path.dirname(svgFilePath);
-const svgContent = fs.readFileSync(svgFilePath, "utf8");
-
-// 基 URI 表示 SVG 文档的位置。
-const baseUri = pathToFileURL(svgFilePath).href;
-
-let fallbackImageData = null;
-const fallbackImagePath = path.join(assetDirectory, "fallback.png");
-if (fs.existsSync(fallbackImagePath)) {
-    fallbackImageData = fs.readFileSync(fallbackImagePath);
-}
-
-const resolver = createLocalSvgResourceResolver(assetDirectory, fallbackImageData);
-const svgImage = new aspose.slides.SvgImage(svgContent, resolver, baseUri);
-
-// SvgImage 提供源内容、二进制数据、基 URI 和解析器。
-const importedContent = svgImage.getSvgContent();
-const importedData = svgImage.getSvgData();
-const importedBaseUri = svgImage.getBaseUri();
-const importedResolver = svgImage.getExternalResourceResolver();
 
 const presentation = new aspose.slides.Presentation();
 try {
-    const image = presentation.getImages().addImage(svgImage);
+    const slide = presentation.getSlides().get_Item(0);
 
-    presentation.getSlides().get_Item(0).getShapes().addPictureFrame(
-        aspose.slides.ShapeType.Rectangle,
-        20, 20, image.getWidth(), image.getHeight(), image);
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("background.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        if (sourceImage != null) {
+            sourceImage.dispose();
+        }
+    }
 
-    presentation.save("svg-with-linked-resources.pptx", aspose.slides.SaveFormat.Pptx);
+    const backgroundType = java.newByte(aspose.slides.BackgroundType.OwnBackground);
+    slide.getBackground().setType(backgroundType);
+
+    const fillType = java.newByte(aspose.slides.FillType.Picture);
+    slide.getBackground().getFillFormat().setFillType(fillType);
+
+    slide.getBackground().getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
+    slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().setImage(image);
+
+    presentation.save("background-image.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-`SvgImage` 类还提供了接受字节数组形式 SVG 数据的重载，以及带外部资源解析器和基 URI 的基于流的工厂方法。
+有关更多背景选项（包括母版和版式背景），请参阅[演示文稿背景](/slides/zh/nodejs-java/presentation-background/)。
 
-{{% alert title="重要" color="warning" %}}
-资源解析器在 Aspose.Slides 处理并渲染 SVG 时，使外部资源可用。它不会修改原始 SVG 标记，也不会自动将解析后的资源嵌入其中。
+## **嵌入图像和链接图像**
 
-当 SVG 图片被添加到演示文稿的图片集合中时，PPTX 文件可能同时包含原始 SVG 表示和光栅回退图片。生成的回退图片中可能出现链接资源，而存储的 SVG 中相对链接（如 `images/photo.png`）保持不变。渲染原生 SVG 表示的应用程序因此在原始外部资源不可用时可能会省略该链接内容。
-{{% /alert %}}
+嵌入图像和链接图像在可移植性和文件大小上有不同的权衡：
 
-### **创建可移植的 SVG 图片**
+- **嵌入图像：** 图像数据存储在演示文稿内部。演示文稿是自包含的，但文件大小包含图像数据。  
+- **链接图像：** 演示文稿存储指向外部图像的路径或 URL。这可以减小演示文稿的大小，但在打开或渲染演示文稿时，外部资源必须保持可访问。  
 
-要创建不依赖外部文件的 SVG 图片，请在创建 `SvgImage` 之前使 SVG 自包含。例如，用包含图片数据的 `data:` URI 替换链接的图片 URL：
+可以通过 [Picture.setLinkPathLong](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/picture/) 指定外部路径或 URL 来创建链接图片，而不是嵌入图像数据。
 
-```xml
-<image href="data:image/png;base64,..." x="20" y="20" width="320" height="180" />
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 320, 180, null);
+    pictureFrame.getPictureFormat().getPicture().setLinkPathLong("https://example.com/image.png");
+
+    presentation.save("linked-image.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
-在所有必需资源嵌入到 SVG 内容后，创建 `SvgImage`，将其添加到演示文稿的图片集合，并按前例插入到图片框中。
+仅在部署环境能够可靠访问外部资源时才使用链接图像。对于必须离线工作或在系统之间迁移的演示文稿，嵌入图像通常更安全。
 
-### **处理缺失或受阻的资源**
+## **处理 SVG 图像**
 
-当资源 URI 无效、被禁止或无法解析时，`resolveUri` 返回 `null`。当资源无法读取时，`getEntity` 返回 `null`。Aspose.Slides 在可能的情况下继续处理 SVG 而不使用该资源。
+SVG 是矢量格式，可用于图标、图表和其他应在放大时保持细节的图形。Aspose.Slides 同时支持将 SVG 作为图像资源和可编辑幻灯片形状的来源。
 
-可以为缺失的资源返回回退流，但其内容必须与请求的资源类型兼容。例如，仅为缺失的图片返回图片流，而不是为字体或样式表返回图片流。
+### **将 SVG 添加为图像**
 
-{{% alert title="安全" color="warning" %}}
-不要从不可信的 SVG 文件解析任意文件路径或无限制的网络 URL。请限制允许的协议、目录和主机。对于网络资源，还应使用连接超时、响应大小限制以及内容验证。
-{{% /alert %}}
-
-## **将 SVG 转换为形状集合**
-
-Aspose.Slides 可以将 SVG 转换为形状集合，其功能类似于 PowerPoint 中的对应功能：
-
-![PowerPoint弹出菜单](img_01_01.png)
-
-该功能由 [ShapeCollection](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/ShapeCollection) 类的 [addGroupShape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/ShapeCollection#addGroupShape-aspose.slides.ISvgImage-float-float-float-float-) 方法的重载提供，该重载接受 SVG 图片对象作为第一个参数。
-
-以下 JavaScript 示例代码演示了如何使用此方法将 SVG 文件转换为形状集合：
+创建一个 [SvgImage](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/svgimage/)，将其添加到图像集合，并在图片框中放置生成的图像资源。
 
 ```javascript
 const aspose = {};
 aspose.slides = require("aspose.slides.via.java");
 const fs = require("fs");
-const java = require("java");
 
-// 源 SVG 文件名。
-const svgFileName = "sample.svg";
-
-// 输出演示文稿文件名。
-const outPptxPath = "presentation.pptx";
-
-// 创建新演示文稿。
 const presentation = new aspose.slides.Presentation();
 try {
-    // 读取 SVG 文件内容。
-    const svgContent = java.newArray("byte", Array.from(fs.readFileSync(svgFileName)));
-
-    // 创建 SvgImage 对象。
+    const svgContent = fs.readFileSync("icon.svg", "utf8");
     const svgImage = new aspose.slides.SvgImage(svgContent);
 
-    // 获取幻灯片尺寸。
-    const slideSize = presentation.getSlideSize().getSize();
+    const image = presentation.getImages().addImage(svgImage);
+    const slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 200, 200, image);
 
-    // 将 SVG 图像转换为形状组并按幻灯片尺寸进行缩放。
-    presentation.getSlides().get_Item(0).getShapes().addGroupShape(
-        svgImage, 0.0, 0.0, slideSize.getWidth(), slideSize.getHeight());
-
-    // 以 PPTX 格式保存演示文稿。
-    presentation.save(outPptxPath, aspose.slides.SaveFormat.Pptx);
+    presentation.save("svg-image.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **将图片以 EMF 形式添加到幻灯片**
+### **包含外部资源的 SVG 文件**
 
-Aspose.Slides for Node.js via Java 允许您使用 Aspose.Cells 从 Excel 工作表生成 EMF 图片并将其添加到演示幻灯片中。
+SVG 可以引用外部图像、样式表或字体。对于这些情况，[SvgImage](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/svgimage/) 提供接受 [ExternalResourceResolver](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/externalresourceresolver/) 和基础 URI 的构造函数。解析器可以将相对 URI 映射为允许的绝对 URI，并返回请求资源的流。  
+解析器在 Aspose.Slides 处理 SVG 时提供外部资源，但不会将 SVG 重写为自包含文档。如果需要保持 SVG 可移植性，请将所需资源嵌入 SVG 本身，例如使用 `data:` URI 链接图像。  
+当 SVG 文件来自不可信来源时，应限制解析器可访问的方案、文件位置和主机。网络解析器还应应用超时、响应大小限制和内容验证。
 
-以下 JavaScript 示例代码展示了具体做法：
+### **将 SVG 转换为可编辑形状**
 
-```javascript
-const aspose = {};
-aspose.slides = require("aspose.slides.via.java");
-const java = require("java");
+Aspose.Slides 可以将 SVG 转换为一组可编辑的幻灯片形状，类似于对应的 PowerPoint 命令。
 
-const book = java.newInstanceSync("aspose.cells.Workbook", "chart.xlsx");
-const sheet = book.getWorksheets().get(0);
+![PowerPoint Popup Menu](img_01_01.png)
 
-const options = java.newInstanceSync("aspose.cells.ImageOrPrintOptions");
-options.setHorizontalResolution(200);
-options.setVerticalResolution(200);
-options.setImageType(java.getStaticFieldValue("ImageType", "EMF"));
-
-// 将工作簿保存到流中。
-const sr = java.newInstanceSync("SheetRender", sheet, options);
-const pres = new aspose.slides.Presentation();
-try {
-    pres.getSlides().removeAt(0);
-
-    for (let j = 0; j < sr.getPageCount(); j++) {
-        const emfSheetName = "test" + sheet.getName() + " Page" + (j + 1) + ".out.emf";
-        sr.toImage(j, emfSheetName);
-
-        // 将文件原样添加，以便图片保持为矢量 EMF 而不是被光栅化。
-        let picture;
-        const imageStream = java.newInstanceSync("java.io.FileInputStream", emfSheetName);
-        try {
-            picture = pres.getImages().addImage(imageStream);
-        } finally {
-            imageStream.close();
-        }
-
-        const slide = pres.getSlides().addEmptySlide(
-            pres.getLayoutSlides().getByType(aspose.slides.SlideLayoutType.Blank));
-        slide.getShapes().addPictureFrame(
-            aspose.slides.ShapeType.Rectangle,
-            0,
-            0,
-            pres.getSlideSize().getSize().getWidth(),
-            pres.getSlideSize().getSize().getHeight(),
-            picture);
-    }
-
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **替换图片集合中的图片**
-
-Aspose.Slides 允许您替换演示文稿图片集合中存储的图片，包括由幻灯片形状使用的图片。本节介绍了多种更新集合中图片的方法。您可以使用原始字节数据、[IImage](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/iimage/) 实例，或集合中已有的另一张图片来替换目标图片。
-
-请按以下步骤操作：
-
-1. 使用 [Presentation](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentation/) 类加载包含图片的演示文件。  
-1. 将新图片从文件加载为字节数组。  
-1. 使用字节数组将目标图片替换为新图片。  
-1. 在第二种方法中，将图片加载为 [IImage](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/iimage/) 对象，并使用该对象替换目标图片。  
-1. 在第三种方法中，使用演示文稿图片集合中已存在的图片替换目标图片。  
-1. 将修改后的演示文稿写入为 PPTX 文件。  
+使用接受 SVG 图像的 [ShapeCollection.addGroupShape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/shapecollection/) 重载来执行转换。
 
 ```javascript
 const aspose = {};
 aspose.slides = require("aspose.slides.via.java");
 const fs = require("fs");
-const java = require("java");
 
-// 实例化表示演示文稿文件的 Presentation 类。
-const presentation = new aspose.slides.Presentation("sample.pptx");
+const presentation = new aspose.slides.Presentation();
 try {
-    // 第一种方法。
-    const imageData = java.newArray("byte", Array.from(fs.readFileSync("image0.jpeg")));
-    let oldImage = presentation.getImages().get_Item(0);
-    oldImage.replaceImage(imageData);
+    const svgContent = fs.readFileSync("diagram.svg", "utf8");
+    const svgImage = new aspose.slides.SvgImage(svgContent);
 
-    // 第二种方法。
-    const newImage = aspose.slides.Images.fromFile("image1.png");
+    const slideSize = presentation.getSlideSize().getSize();
+    const slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addGroupShape(svgImage, 0, 0, slideSize.getWidth(), slideSize.getHeight());
+
+    presentation.save("editable-svg-shapes.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+当需要将各个矢量元素编辑为 PowerPoint 形状时使用 SVG 到形状的转换。如果 SVG 只需显示，将其保留为图像更简单，且避免创建大量独立形状。
+
+## **替换已有图像资源**
+
+当需要替换已有图像资源时，请使用 [PPImage.replaceImage](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/ppimage/)。这对共享图形（如徽标）尤其有用。
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const imageToReplace = presentation.getImages().get_Item(0);
+
+    const replacementImage = aspose.slides.Images.fromFile("new-logo.png");
     try {
-        oldImage = presentation.getImages().get_Item(1);
-        oldImage.replaceImage(newImage);
+        imageToReplace.replaceImage(replacementImage);
     } finally {
-        if (newImage != null) {
-            newImage.dispose();
+        if (replacementImage != null) {
+            replacementImage.dispose();
         }
     }
 
-    // 第三种方法。
-    oldImage = presentation.getImages().get_Item(2);
-    oldImage.replaceImage(presentation.getImages().get_Item(3));
-
-    // 将演示文稿保存到文件。
     presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="信息" color="info" %}}
-使用 Aspose 免费的 [Text to GIF](https://products.aspose.app/slides/zh/text-to-gif) 转换器，您可以轻松为文字添加动画并生成 GIF。
-{{% /alert %}}
+如果多个图片框、背景、母版或版式使用相同的图像资源，替换该资源会更新所有这些使用。如果只需要更改一个图片框，请为该框分配不同的图像，而不是替换共享资源。  
+[PPImage.replaceImage](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/ppimage/) 还提供接受字节数组或另一个 [PPImage](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/ppimage/) 的重载。
+
+## **实用图像管理指南**
+
+### **控制演示文稿大小**
+
+大型光栅图像会导致演示文稿不必要地增大。使用尺寸符合预期显示大小的源图像，尽可能复用共享图像资源，并避免嵌入相同全分辨率图形的重复拷贝。  
+对于已放入图片框的光栅图片，可使用 [PictureFillFormat.compressImage](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/picturefillformat/) 根据选定的分辨率和裁剪设置压缩图像数据。这属于图片框处理而非图像集合管理，相关格式化操作请参阅[图片框](/slides/zh/nodejs-java/picture-frame/)。
+
+### **在嵌入和链接内容之间选择**
+
+嵌入使演示文稿可移植，因为所有必需的图像数据随文件一起携带。链接可以减小文件大小，但会引入外部依赖。仅在该依赖可接受且稳定时才使用链接。
+
+### **复用共享品牌元素**
+
+对于重复出现的徽标、水印或装饰图形，请使用单一图像资源并复用它。如果该图形属于演示文稿设计而非幻灯片内容，请将其放置在母版或版式上，以便相应的幻灯片继承。
+
+### **保持 SVG 资源可移植**
+
+自包含的 SVG 比依赖外部文件或网络资源的 SVG 更易于移动和一致渲染。尽可能在导入 SVG 前嵌入所需资源。仅在需要编辑各个矢量元素时才将 SVG 转换为形状。
+
+### **使用现代跨平台图像 API**
+
+对于新的 Node.js via Java 代码，请使用 Aspose.Slides 的 [IImage](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/iimage/) 和 [Images](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/images/) API，而不是基于 `java.awt.image.BufferedImage` 的旧版公共 API。迁移指南请参阅[Modern API](/slides/zh/nodejs-java/modern-api/)。  
+WMF 和 EMF 需要特殊处理。当这些格式通过 [IImage](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/iimage/) 传递时，[ImageCollection.addImage](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/imagecollection/) 会在插入前将元文件转换为光栅 PNG 表示。如果需要保留元文件数据，请改用基于流的 [ImageCollection.addImage](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/imagecollection/) 重载。从电子表格或其他产品生成 EMF 内容是单独的集成工作流，超出本文范围。
 
 ## **常见问题**
 
-**插入后原始图片分辨率是否保持不变？**
+**图像集合与图片框有什么区别？**  
+图像集合存储可重用的图像资源。图片框是一种幻灯片形状，用于显示这些资源之一，并提供如裁剪和效果等特定于图片的格式设置。  
 
-是的。源像素得以保留，但最终显示效果取决于在幻灯片上对 [picture](/slides/zh/nodejs-java/picture-frame/) 的缩放方式以及保存时是否应用了压缩。
+**在所有位置替换相同徽标的最佳方法是什么？**  
+如果徽标已作为单一图像资源共享，请使用 [PPImage.replaceImage](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/ppimage/) 替换该资源。对于全演示文稿的品牌标识，也可以将徽标放置在母版或版式上，以减少重复的幻灯片内容。  
 
-**一次性在数十张幻灯片上替换同一徽标的最佳方法是什么？**
+**为什么链接图像在另一台电脑上消失？**  
+链接图片依赖其外部文件或 URL。如果在另一台电脑上无法访问该资源，链接图像就会不可用。演示文稿必须自包含时请嵌入图像。  
 
-将徽标放置在母版幻灯片或布局上，并在演示文稿的图片集合中替换它——所有使用该资源的元素都会同步更新。
+**插入的 SVG 能否编辑为 PowerPoint 形状？**  
+可以。使用 [ShapeCollection.addGroupShape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/shapecollection/) 转换 SVG；生成的组包含可编辑的幻灯片形状，而不是单个 SVG 图片。  
 
-**插入的 SVG 能否转换为可编辑形状？**
-
-可以。您可以将 SVG 转换为一组形状，随后各部分即可使用标准形状属性进行编辑。
-
-**如何一次性为多张幻灯片设置相同的背景图片？**
-
-在母版幻灯片或相应布局上 [将图片设为背景](/slides/zh/nodejs-java/presentation-background/)，使用该母版/布局的所有幻灯片都会继承该背景。
-
-**如何防止因大量图片导致演示文稿体积过大？**
-
-重复使用同一图片资源，避免重复复制；选择适当的分辨率，保存时进行压缩，并在合适的情况下将重复图形放在母版上。
+**如何让包含大量图像的演示文稿保持更小？**  
+复用共享图像资源，避免使用不必要的大尺寸光栅源，适时压缩合适的光栅图片，将重复的品牌元素放在母版或版式上，并仅在外部依赖可接受时使用链接图像。

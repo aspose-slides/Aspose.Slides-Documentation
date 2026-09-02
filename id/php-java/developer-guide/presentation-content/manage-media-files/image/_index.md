@@ -6,106 +6,106 @@ weight: 10
 url: /id/php-java/image/
 keywords:
 - tambahkan gambar
-- tambahkan foto
-- tambahkan bitmap
+- tambahkan gambar
 - ganti gambar
-- ganti foto
-- dari web
+- koleksi gambar
+- bingkai gambar
+- gambar tertaut
 - latar belakang
 - tambahkan PNG
 - tambahkan JPG
 - tambahkan SVG
+- SVG ke bentuk
 - sumber daya SVG eksternal
-- resolver SVG
-- gambar SVG tertaut
-- font SVG
-- tambahkan EMF
-- tambahkan WMF
-- tambahkan TIFF
 - PowerPoint
 - OpenDocument
 - presentasi
-- EMF
-- SVG
 - PHP
 - Aspose.Slides
-description: "Permudah manajemen gambar di PowerPoint dan OpenDocument dengan Aspose.Slides untuk PHP via Java, mengoptimalkan kinerja dan mengotomatisasi alur kerja Anda."
+description: "Pelajari cara menambahkan, menggunakan kembali, menautkan, mengganti, dan mengelola gambar raster serta SVG dalam presentasi PowerPoint dan OpenDocument dengan Aspose.Slides untuk PHP via Java."
 ---
 ## **Pendahuluan**
 
-Gambar membuat presentasi lebih menarik dan secara visual lebih menarik. Di Microsoft PowerPoint, Anda dapat menyisipkan gambar ke slide dari file, internet, atau sumber lainnya. Demikian pula, Aspose.Slides memungkinkan Anda menambahkan gambar ke slide presentasi dengan beberapa cara.
+Aspose.Slides untuk PHP melalui Java menyediakan beberapa cara untuk bekerja dengan gambar, dan setiap cara melayani tujuan yang berbeda. Anda dapat menyimpan gambar dalam presentasi, menampilkannya dalam bingkai gambar, menggunakannya sebagai latar belakang slide, menautkan ke gambar eksternal, mengganti sumber daya gambar bersama, atau mengonversi konten SVG menjadi bentuk yang dapat diedit.
 
-{{% alert  title="Tip" color="primary" %}} 
-Aspose menyediakan konverter gratis—[JPEG to PowerPoint](https://products.aspose.app/slides/id/import/jpg-to-ppt) dan [PNG to PowerPoint](https://products.aspose.app/slides/id/import/png-to-ppt)—yang memungkinkan Anda dengan cepat membuat presentasi dari gambar. 
-{{% /alert %}} 
+Artikel ini berfokus pada sumber daya gambar dan bagaimana mereka digunakan di seluruh presentasi. Untuk pemotongan, transparansi, efek, peregangan, dan pemformatan lain yang diterapkan pada bingkai gambar individu, lihat [Picture Frame](/slides/id/php-java/picture-frame/).
 
-{{% alert title="Info" color="info" %}}
-Jika Anda ingin menambahkan gambar sebagai bingkai gambar—terutama jika Anda berencana untuk mengubah ukuran, menerapkan efek, atau menggunakan opsi pemformatan standar lainnya—lihat [Picture Frame](/slides/id/php-java/picture-frame/). 
-{{% /alert %}} 
+## **Memahami Model Gambar**
 
-{{% alert title="Note" color="warning" %}}
-Anda dapat mengonversi gambar dari satu format ke format lain. Lihat halaman berikut: konversi [image to JPG](https://products.aspose.com/slides/id/php-java/conversion/image-to-jpg/), [JPG to image](https://products.aspose.com/slides/id/php-java/conversion/jpg-to-image/), [JPG to PNG](https://products.aspose.com/slides/id/php-java/conversion/jpg-to-png/), [PNG to JPG](https://products.aspose.com/slides/id/php-java/conversion/png-to-jpg/), [PNG to SVG](https://products.aspose.com/slides/id/php-java/conversion/png-to-svg/), dan [SVG to PNG](https://products.aspose.com/slides/id/php-java/conversion/svg-to-png/).
-{{% /alert %}}
+Konsep API berikut terkait erat tetapi tidak dapat dipertukarkan:
 
-Aspose.Slides mendukung gambar dalam format populer seperti JPEG, PNG, BMP, GIF, dan lainnya. 
+- Koleksi gambar presentasi ([presentation image collection]) menyimpan sumber daya gambar yang digunakan oleh presentasi. Gunakan [ImageCollection::addImage](https://reference.aspose.com/slides/id/php-java/aspose.slides/imagecollection/) untuk menambahkan data gambar dan memperoleh sumber daya [PPImage](https://reference.aspose.com/slides/id/php-java/aspose.slides/ppimage/).
+- [Picture frame](https://reference.aspose.com/slides/id/php-java/aspose.slides/pictureframe/) adalah bentuk yang menampilkan gambar pada slide, tata letak, atau master. Gunakan [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/id/php-java/aspose.slides/shapecollection/addpictureframe/) untuk menempatkan sumber daya gambar pada slide.
+- Latar belakang slide menggunakan gambar sebagai bagian dari isian slide bukan sebagai bentuk. Oleh karena itu tidak berperilaku seperti bingkai gambar.
+- [PPImage::replaceImage](https://reference.aspose.com/slides/id/php-java/aspose.slides/ppimage/) menggantikan sumber daya gambar. Jika beberapa elemen presentasi menggunakan sumber daya tersebut, semuanya akan menggunakan pengganti.
+- Mengonversi SVG menjadi bentuk menciptakan bentuk slide yang dapat diedit. Setelah konversi, konten tidak lagi dikelola sebagai satu sumber daya gambar.
 
-## **Menambahkan Gambar yang Disimpan Secara Lokal ke Slide**
+Alur kerja tipikalnya adalah: menambahkan data gambar ke koleksi gambar, menerima sebuah [PPImage](https://reference.aspose.com/slides/id/php-java/aspose.slides/ppimage/), dan kemudian menggunakan sumber daya tersebut dalam satu atau lebih bingkai gambar atau isian.
 
-Anda dapat menambahkan satu atau beberapa gambar yang disimpan di komputer Anda ke slide presentasi. Kode contoh PHP berikut menunjukkan cara menambahkan gambar ke slide:
+## **Menambahkan Gambar Tersemat**
+
+Untuk menyisipkan gambar lokal, muat berkas, tambahkan ke koleksi gambar, dan buat bingkai gambar yang menggunakan `PPImage` yang dikembalikan.
 
 ```php
-$pres = new Presentation();
-try {
-    $slide = $pres->getSlides()->get_Item(0);
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
 
-    $picture = null;
-    $image = Images::fromFile("image.png");
+$presentation = new Presentation();
+try {
+    $image = Images::fromFile("photo.png");
     try {
-        $picture = $pres->getImages()->addImage($image);
+        $ppImage = $presentation->getImages()->addImage($image);
     } finally {
         if (!java_is_null($image)) {
             $image->dispose();
         }
     }
 
-    $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $picture);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 320, 180, $ppImage);
 
-    $pres->save("pres.pptx", SaveFormat::Pptx);
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
 } finally {
-    $pres->dispose();
+    $presentation->dispose();
 }
 ```
 
-## **Menambahkan Gambar dari Web ke Slide**
+Gambar yang ditambahkan dengan cara ini tersemat dalam presentasi, sehingga berkas hasil tidak bergantung pada ketersediaan berkas gambar asli.
 
-Jika gambar yang ingin Anda tambahkan ke slide tidak disimpan di komputer Anda, Anda dapat menambahkannya langsung dari web. 
+### **Menambahkan Gambar dari Web**
 
-Contoh kode PHP berikut menunjukkan cara menambahkan gambar dari web ke slide:
+Ketika gambar tersedia melalui HTTP atau HTTPS, unduh byte-nya, tambahkan ke koleksi gambar presentasi, dan gunakan sumber daya gambar yang dikembalikan dengan cara yang sama seperti gambar lokal.
 
 ```php
-$pres = new Presentation();
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
 try {
-    $slide = $pres->getSlides()->get_Item(0);
-
-    $imageUrl = new Java("java.net.URL", "[REPLACE WITH URL]");
+    $imageUrl = new Java("java.net.URL", "https://example.com/image.png");
     $connection = $imageUrl->openConnection();
-    $inputStream = $connection->getInputStream();
+    $connection->setConnectTimeout(10000);
+    $connection->setReadTimeout(10000);
 
+    $inputStream = $connection->getInputStream();
     $outputStream = new Java("java.io.ByteArrayOutputStream");
     $Array = new JavaClass("java.lang.reflect.Array");
     $Byte = (new JavaClass("java.lang.Byte"))->TYPE;
 
     try {
-        $buffer = $Array->newInstance($Byte, 1024);
+        $buffer = $Array->newInstance($Byte, 8192);
+        $bufferLength = $Array->getLength($buffer);
 
-        while (($read = java_values($inputStream->read($buffer, 0, $Array->getLength($buffer)))) != -1) {
-            $outputStream->write($buffer, 0, $read);
+        while (($bytesRead = java_values($inputStream->read($buffer, 0, $bufferLength))) != -1) {
+            $outputStream->write($buffer, 0, $bytesRead);
         }
 
-        $outputStream->flush();
-
-        $image = $pres->getImages()->addImage($outputStream->toByteArray());
-        $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $image);
+        $ppImage = $presentation->getImages()->addImage($outputStream->toByteArray());
+        $slide = $presentation->getSlides()->get_Item(0);
+        $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 320, 180, $ppImage);
     } finally {
         if (!java_is_null($inputStream)) {
             $inputStream->close();
@@ -113,458 +113,229 @@ try {
         $outputStream->close();
     }
 
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-} catch (JavaException $e) {
+    $presentation->save("presentation-from-web.pptx", SaveFormat::Pptx);
 } finally {
-    $pres->dispose();
+    $presentation->dispose();
 }
 ```
 
-## **Menambahkan Gambar ke Slide Master**
+Dalam aplikasi yang berjalan lama, gunakan kembali klien HTTP atau strategi manajemen koneksi yang sesuai dengan aplikasi daripada terus-menerus membuat infrastruktur jaringan yang tidak diperlukan. Juga validasi URL remote, ukuran respons, dan tipe konten ketika sumber tidak tepercaya.
 
-Slide master menyimpan dan mengontrol informasi seperti tema dan tata letak untuk slide yang menggunakannya. Ketika Anda menambahkan gambar ke slide master, gambar tersebut muncul di setiap slide yang berbasis master tersebut. 
+## **Menggunakan Ulang Gambar di Seluruh Slide**
 
-Contoh kode PHP berikut menunjukkan cara menambahkan gambar ke slide master:
+Jika gambar yang sama diperlukan lebih dari satu kali, tambahkan ke presentasi satu kali dan gunakan kembali [PPImage](https://reference.aspose.com/slides/id/php-java/aspose.slides/ppimage/) yang dikembalikan saat membuat bingkai gambar tambahan. Ini menghindari memuat berulang data sumber yang sama dan menjadikan hubungan antara sumber daya gambar bersama dan penggunaannya eksplisit.
+
+Untuk grafik yang harus muncul secara otomatis pada banyak slide, seperti logo perusahaan, pertimbangkan menempatkan bingkai gambar pada [slide master](/slides/id/php-java/slide-master/) atau tata letak alih-alih menambahkan bentuk yang setara pada setiap slide.
+
+## **Menggunakan Gambar sebagai Latar Belakang Slide**
+
+Gambar latar belakang ditetapkan pada isian slide; tidak ditambahkan sebagai bentuk bingkai gambar. Ini berguna ketika gambar harus menutupi latar belakang slide dan tidak boleh dimanipulasi sebagai objek slide biasa.
 
 ```php
-$pres = new Presentation();
-try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $masterSlide = $slide->getLayoutSlide()->getMasterSlide();
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\PictureFillMode;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-    $picture = null;
-    $image = Images::fromFile("image.png");
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $image = Images::fromFile("background.jpg");
     try {
-        $picture = $pres->getImages()->addImage($image);
+        $ppImage = $presentation->getImages()->addImage($image);
     } finally {
         if (!java_is_null($image)) {
             $image->dispose();
         }
     }
 
-    $masterSlide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $picture);
+    $slide->getBackground()->setType(BackgroundType::OwnBackground);
+    $slide->getBackground()->getFillFormat()->setFillType(FillType::Picture);
+    $slide->getBackground()->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Stretch);
+    $slide->getBackground()->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($ppImage);
 
-    $pres->save("pres.pptx", SaveFormat::Pptx);
+    $presentation->save("background-image.pptx", SaveFormat::Pptx);
 } finally {
-    $pres->dispose();
+    $presentation->dispose();
 }
 ```
 
-## **Menambahkan Gambar sebagai Latar Belakang Slide**
+Untuk opsi latar belakang tambahan, termasuk latar belakang master dan tata letak, lihat [Presentation Background](/slides/id/php-java/presentation-background/).
 
-Anda dapat menggunakan gambar sebagai latar belakang untuk satu atau beberapa slide. Untuk detailnya, lihat *[Setting Images as Backgrounds for Slides](/slides/id/php-java/presentation-background/#setting-images-as-background-for-slides)*.
+## **Gambar Tersemat dan Gambar Tertaut**
 
-## **Menambahkan SVG ke Presentasi**
+Gambar tersemat dan gambar tertaut memiliki trade‑off portabilitas dan ukuran berkas yang berbeda:
 
-Konten SVG dapat ditambahkan ke presentasi menggunakan kelas [SvgImage](https://reference.aspose.com/slides/id/php-java/aspose.slides/svgimage/). Objek gambar SVG yang dihasilkan kemudian dapat ditambahkan ke koleksi gambar presentasi dan digunakan untuk membuat bingkai gambar.
+- **Gambar tersemat:** data gambar disimpan di dalam presentasi. Presentasi menjadi mandiri, tetapi ukuran berkas mencakup data gambar.
+- **Gambar tertaut:** presentasi menyimpan jalur atau URL ke gambar eksternal. Ini dapat mengurangi ukuran presentasi, tetapi sumber eksternal harus tetap dapat diakses saat presentasi dibuka atau dirender.
 
-Contoh PHP berikut mengimpor string SVG yang berdiri sendiri. Semua gambar, gaya, dan sumber daya lain yang digunakan oleh SVG ini disematkan langsung dalam konten SVG.
+Gambar tertaut dapat dibuat dengan menetapkan jalur atau URL eksternal melalui [Picture::setLinkPathLong](https://reference.aspose.com/slides/id/php-java/aspose.slides/picture/) daripada menanamkan data gambar.
 
 ```php
-$svgContent =
-    "<svg xmlns='http://www.w3.org/2000/svg' width='320' height='180'>" .
-    "    <rect width='320' height='180' fill='#4F81BD'/>" .
-    "    <circle cx='160' cy='90' r='55' fill='#F2F2F2'/>" .
-    "</svg>";
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
 
 $presentation = new Presentation();
 try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 320, 180, null);
+    $pictureFrame->getPictureFormat()->getPicture()->setLinkPathLong("https://example.com/image.png");
+
+    $presentation->save("linked-image.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Gunakan gambar tertaut hanya ketika lingkungan penyebaran dapat mengakses sumber eksternal secara andal. Untuk presentasi yang harus berfungsi secara offline atau dipindahkan antar sistem, gambar tersemat biasanya lebih aman.
+
+## **Bekerja dengan Gambar SVG**
+
+SVG adalah format vektor, sehingga berguna untuk ikon, diagram, dan grafik lain yang harus skala tanpa kehilangan detail seperti gambar raster. Aspose.Slides mendukung SVG baik sebagai sumber daya gambar maupun sebagai sumber untuk bentuk slide yang dapat diedit.
+
+### **Menambahkan SVG sebagai Gambar**
+
+Buat sebuah [SvgImage](https://reference.aspose.com/slides/id/php-java/aspose.slides/svgimage/), tambahkan ke koleksi gambar, dan tempatkan sumber daya gambar yang dihasilkan dalam bingkai gambar.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SvgImage;
+
+$presentation = new Presentation();
+try {
+    $svgContent = file_get_contents("icon.svg");
     $svgImage = new SvgImage($svgContent);
-    $image = $presentation->getImages()->addImage($svgImage);
 
-    $presentation->getSlides()->get_Item(0)->getShapes()->addPictureFrame(
-        ShapeType::Rectangle,
-        20,
-        20,
-        $image->getWidth(),
-        $image->getHeight(),
-        $image
-    );
+    $ppImage = $presentation->getImages()->addImage($svgImage);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 200, 200, $ppImage);
 
-    $presentation->save("self-contained-svg.pptx", SaveFormat::Pptx);
+    $presentation->save("svg-image.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Mengimpor Konten SVG dengan Sumber Daya Eksternal**
+### **Berkas SVG dengan Sumber Daya Eksternal**
 
-File SVG yang diekspor dari alat desain, editor diagram, sistem ikon, dan pipeline web dapat merujuk pada sumber daya yang disimpan di luar dokumen SVG. Misalnya, SVG dapat berisi tautan gambar seperti `images/photo.png`, nilai CSS `url(...)`, atau URL font.
+SVG dapat merujuk ke gambar eksternal, stylesheet, atau font. Untuk kasus ini, [SvgImage](https://reference.aspose.com/slides/id/php-java/aspose.slides/svgimage/) menyediakan konstruktor yang menerima [ExternalResourceResolver](https://reference.aspose.com/slides/id/php-java/aspose.slides/externalresourceresolver/) dan URI dasar. Resolver dapat memetakan URI relatif ke URI absolut yang diizinkan dan mengembalikan aliran untuk sumber daya yang diminta.
 
-Untuk mengimpor konten SVG semacam itu, buat implementasi [ExternalResourceResolver](https://reference.aspose.com/slides/id/php-java/aspose.slides/externalresourceresolver/) dan berikan bersama dengan base URI ke konstruktor [SvgImage](https://reference.aspose.com/slides/id/php-java/aspose.slides/svgimage/) yang sesuai. Base URI mengidentifikasi lokasi dokumen SVG dan digunakan untuk menyelesaikan tautan relatif.
+Resolver membuat sumber daya eksternal tersedia saat Aspose.Slides memproses SVG, tetapi tidak menulis ulang SVG menjadi dokumen mandiri. Jika SVG harus tetap portabel, sematkan sumber daya yang diperlukan dalam SVG itu sendiri, misalnya dengan menggunakan URI `data:` untuk gambar yang tertaut.
 
-Objek gambar SVG menyediakan akses ke informasi tentang SVG yang diimpor:
-- `getSvgContent()` mengembalikan markup SVG sebagai string.
-- `getSvgData()` mengembalikan konten SVG sebagai array byte.
-- `getBaseUri()` mengembalikan base URI yang digunakan untuk tautan relatif.
-- `getExternalResourceResolver()` mengembalikan resolver yang ditetapkan pada gambar SVG.
+Ketika berkas SVG berasal dari sumber yang tidak tepercaya, batasi skema, lokasi berkas, dan host yang dapat diakses oleh resolver. Resolver jaringan juga harus menerapkan batas waktu, batas ukuran respons, dan validasi konten.
 
-### **Implementasikan Resolver Sumber Daya Eksternal**
+### **Mengonversi SVG menjadi Bentuk yang Dapat Diedit**
 
-Resolver memiliki dua metode:
-- `resolveUri` menggabungkan base URI dan tautan sumber daya relatif serta mengembalikan URI absolut. Kembalikan `null` bila tautan tidak dapat diselesaikan atau tidak diizinkan.
-- `getEntity` mengembalikan aliran yang dapat dibaca untuk URI sumber daya absolut. Kembalikan `null` bila sumber daya tidak ada, diblokir, atau tidak tersedia. Aliran cadangan juga dapat dikembalikan bila tepat.
-
-Resolver berikut memuat sumber daya yang ditautkan hanya dari direktori lokal yang diizinkan. Sumber daya jaringan dan jalur di luar direktori yang diizinkan diblokir. Gambar cadangan opsional dikembalikan untuk tautan gambar yang tidak dapat diselesaikan.
-
-```php
-class LocalSvgResourceResolver extends ExternalResourceResolver
-{
-    private $allowedRoot;
-    private $fallbackImageData;
-
-    public function __construct($allowedRoot, $fallbackImageData)
-    {
-        parent::__construct();
-
-        $Paths = new JavaClass("java.nio.file.Paths");
-        $this->allowedRoot = $Paths->get($allowedRoot)->toAbsolutePath()->normalize();
-        $this->fallbackImageData = $fallbackImageData;
-    }
-
-    public function resolveUri($baseUri, $relativeUri)
-    {
-        if ($baseUri === null || trim(java_values($baseUri)) === "" ||
-            $relativeUri === null || trim(java_values($relativeUri)) === "") {
-            return null;
-        }
-
-        try {
-            $URI = new JavaClass("java.net.URI");
-            $baseAddress = $URI->create($baseUri);
-            $absoluteAddress = $baseAddress->resolve($relativeUri);
-
-            // Resolver ini sengaja hanya mengizinkan file lokal.
-            if (strcasecmp(java_values($absoluteAddress->getScheme()), "file") !== 0) {
-                return null;
-            }
-
-            $Paths = new JavaClass("java.nio.file.Paths");
-            $resourcePath = $Paths->get($absoluteAddress)->toAbsolutePath()->normalize();
-
-            if (!$this->isInsideAllowedRoot($resourcePath)) {
-                return null;
-            }
-
-            return $resourcePath->toUri()->toString();
-        } catch (JavaException $e) {
-            return null;
-        }
-    }
-
-    public function getEntity($absoluteUri)
-    {
-        try {
-            $URI = new JavaClass("java.net.URI");
-            $resourceUri = $URI->create($absoluteUri);
-
-            if (strcasecmp(java_values($resourceUri->getScheme()), "file") !== 0) {
-                return null;
-            }
-
-            $Paths = new JavaClass("java.nio.file.Paths");
-            $resourcePath = $Paths->get($resourceUri)->toAbsolutePath()->normalize();
-
-            if (!$this->isInsideAllowedRoot($resourcePath)) {
-                return null;
-            }
-
-            $Files = new JavaClass("java.nio.file.Files");
-            if (java_values($Files->exists($resourcePath))) {
-                return $Files->newInputStream($resourcePath);
-            }
-
-            // Gunakan fallback hanya untuk sumber daya gambar. Mengembalikan aliran gambar
-            // untuk font atau stylesheet yang hilang tidak valid.
-            if ($this->fallbackImageData !== null && $this->isImageFile($resourcePath)) {
-                return new Java("java.io.ByteArrayInputStream", $this->fallbackImageData);
-            }
-        } catch (JavaException $e) {
-            return null;
-        }
-
-        return null;
-    }
-
-    private function isInsideAllowedRoot($resourcePath)
-    {
-        return java_values($resourcePath->normalize()->startsWith($this->allowedRoot));
-    }
-
-    private function isImageFile($path)
-    {
-        $fileName = strtolower(java_values($path->getFileName()->toString()));
-
-        return str_ends_with($fileName, ".png") ||
-            str_ends_with($fileName, ".jpg") ||
-            str_ends_with($fileName, ".jpeg") ||
-            str_ends_with($fileName, ".gif") ||
-            str_ends_with($fileName, ".bmp");
-    }
-}
-```
-
-### **Menyelesaikan Sumber Daya Tertaut selama Impor SVG**
-
-Anggap bahwa `assets/diagram.svg` berisi referensi relatif seperti:
-
-```xml
-<image href="images/photo.png" x="20" y="20" width="320" height="180" />
-```
-
-Contoh PHP berikut memberikan URI file SVG sebagai base URI dan menyediakan resolver khusus. Resolver mengkonversi tautan gambar relatif menjadi URI absolut dan mengembalikan aliran yang berisi sumber daya tertaut saat Aspose.Slides memproses SVG.
-
-```php
-$Paths = new JavaClass("java.nio.file.Paths");
-$Files = new JavaClass("java.nio.file.Files");
-$StandardCharsets = new JavaClass("java.nio.charset.StandardCharsets");
-
-$svgFilePath = $Paths->get("assets", "diagram.svg")->toAbsolutePath()->normalize();
-$assetDirectory = $svgFilePath->getParent();
-
-$svgData = $Files->readAllBytes($svgFilePath);
-$svgContent = new Java("java.lang.String", $svgData, $StandardCharsets->UTF_8);
-
-// Base URI mewakili lokasi dokumen SVG.
-$baseUri = $svgFilePath->toUri()->toString();
-
-$fallbackImageData = null;
-$fallbackImagePath = $assetDirectory->resolve("fallback.png");
-if (java_values($Files->exists($fallbackImagePath))) {
-    $fallbackImageData = $Files->readAllBytes($fallbackImagePath);
-}
-
-$resolver = new LocalSvgResourceResolver(java_values($assetDirectory->toString()), $fallbackImageData);
-$svgImage = new SvgImage($svgContent, $resolver, $baseUri);
-
-// Objek gambar SVG menampilkan konten sumber, data biner, base URI, dan resolver.
-$importedContent = $svgImage->getSvgContent();
-$importedData = $svgImage->getSvgData();
-$importedBaseUri = $svgImage->getBaseUri();
-$importedResolver = $svgImage->getExternalResourceResolver();
-
-$presentation = new Presentation();
-try {
-    $image = $presentation->getImages()->addImage($svgImage);
-
-    $presentation->getSlides()->get_Item(0)->getShapes()->addPictureFrame(
-        ShapeType::Rectangle,
-        20,
-        20,
-        $image->getWidth(),
-        $image->getHeight(),
-        $image
-    );
-
-    $presentation->save("svg-with-linked-resources.pptx", SaveFormat::Pptx);
-} finally {
-    $presentation->dispose();
-}
-```
-
-Kelas `SvgImage` juga menyediakan overload yang menerima data SVG sebagai array byte atau aliran masukan, bersama dengan resolver sumber daya eksternal dan base URI.
-
-{{% alert title="Important" color="warning" %}}
-Resolver sumber daya membuat sumber daya eksternal tersedia saat Aspose.Slides memproses dan merender SVG. Itu tidak mengubah markup SVG asli atau secara otomatis menyematkan sumber daya yang telah diselesaikan ke dalamnya.
-
-Ketika gambar SVG ditambahkan ke koleksi gambar presentasi, file PPTX dapat berisi representasi SVG asli serta gambar raster cadangan. Sumber daya yang ditautkan dapat muncul dalam gambar cadangan yang dihasilkan sementara tautan relatif seperti `images/photo.png` tetap tidak berubah dalam SVG yang disimpan. Aplikasi yang merender representasi SVG asli mungkin mengabaikan konten yang ditautkan ketika sumber daya eksternal asli tidak tersedia.
-{{% /alert %}}
-
-### **Buat Gambar SVG Portabel**
-
-Untuk membuat gambar SVG yang tidak bergantung pada file eksternal, buat SVG berdiri sendiri sebelum membuat `SvgImage`. Misalnya, ganti URL gambar yang ditautkan dengan URI `data:` yang berisi data gambar:
-
-```xml
-<image href="data:image/png;base64,..." x="20" y="20" width="320" height="180" />
-```
-
-Setelah semua sumber daya yang diperlukan disematkan dalam konten SVG, buat `SvgImage`, tambahkan ke koleksi gambar presentasi, dan sisipkan ke dalam bingkai gambar seperti pada contoh sebelumnya.
-
-### **Tangani Sumber Daya yang Hilang atau Diblokir**
-
-Kembalikan `null` dari `resolveUri` bila URI sumber daya tidak valid, dilarang, atau tidak dapat diselesaikan. Kembalikan `null` dari `getEntity` bila sumber daya tidak dapat dibaca. Aspose.Slides melanjutkan pemrosesan SVG tanpa sumber daya tersebut bila memungkinkan.
-
-Aliran cadangan dapat dikembalikan untuk sumber daya yang hilang, tetapi isinya harus kompatibel dengan tipe sumber daya yang diminta. Misalnya, kembalikan aliran gambar hanya untuk gambar yang hilang, bukan untuk font atau stylesheet.
-
-{{% alert title="Security" color="warning" %}}
-Jangan menyelesaikan jalur file arbitrer atau URL jaringan tanpa batas dari file SVG yang tidak terpercaya. Batasi skema, direktori, dan host yang diizinkan. Untuk sumber daya jaringan, terapkan batas waktu koneksi, batas ukuran respons, dan validasi konten.
-{{% /alert %}}
-
-## **Mengonversi SVG menjadi Sekumpulan Bentuk**
-
-Aspose.Slides dapat mengonversi SVG menjadi sekumpulan bentuk, mirip dengan fungsi yang bersesuaian di PowerPoint:
+Aspose.Slides dapat mengonversi SVG menjadi grup bentuk slide yang dapat diedit, serupa dengan perintah PowerPoint yang bersesuaian.
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-Fungsionalitas ini disediakan oleh overload metode [addGroupShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/shapecollection/addgroupshape/) pada kelas [ShapeCollection](https://reference.aspose.com/slides/id/php-java/aspose.slides/shapecollection/) yang menerima objek [SvgImage](https://reference.aspose.com/slides/id/php-java/aspose.slides/svgimage/) sebagai argumen pertama.
-
-Contoh kode PHP berikut menunjukkan cara menggunakan metode ini untuk mengonversi file SVG menjadi sekumpulan bentuk:
+Gunakan overload [ShapeCollection::addGroupShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/shapecollection/addgroupshape/) yang menerima [SvgImage](https://reference.aspose.com/slides/id/php-java/aspose.slides/svgimage/) untuk melakukan konversi.
 
 ```php
-// Nama file SVG sumber.
-$svgFileName = "sample.svg";
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SvgImage;
 
-// Nama file presentasi output.
-$outPptxPath = "presentation.pptx";
-
-// Buat presentasi baru.
 $presentation = new Presentation();
 try {
-    // Baca konten file SVG.
-    $Array = new JavaClass("java.lang.reflect.Array");
-    $Byte = (new JavaClass("java.lang.Byte"))->TYPE;
-
-    $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", $svgFileName));
-    try {
-        $svgContent = $Array->newInstance($Byte, $dis->available());
-        $dis->readFully($svgContent);
-    } finally {
-        if (!java_is_null($dis)) {
-            $dis->close();
-        }
-    }
-
-    // Buat objek SvgImage.
+    $svgContent = file_get_contents("diagram.svg");
     $svgImage = new SvgImage($svgContent);
 
-    // Dapatkan ukuran slide.
     $slideSize = $presentation->getSlideSize()->getSize();
+    $slide = $presentation->getSlides()->get_Item(0);
+    $slide->getShapes()->addGroupShape($svgImage, 0, 0, $slideSize->getWidth(), $slideSize->getHeight());
 
-    // Konversi gambar SVG menjadi grup bentuk dan skalakan ke ukuran slide.
-    $presentation->getSlides()->get_Item(0)->getShapes()->addGroupShape(
-        $svgImage,
-        0.0,
-        0.0,
-        $slideSize->getWidth(),
-        $slideSize->getHeight()
-    );
-
-    // Simpan presentasi dalam format PPTX.
-    $presentation->save($outPptxPath, SaveFormat::Pptx);
-} catch (JavaException $e) {
+    $presentation->save("editable-svg-shapes.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Menambahkan Gambar sebagai EMF ke Slide**
+Gunakan konversi SVG-ke-bentuk ketika elemen vektor individu perlu diedit sebagai bentuk PowerPoint. Jika SVG hanya perlu ditampilkan, menyimpannya sebagai gambar lebih sederhana dan menghindari pembuatan banyak bentuk terpisah.
 
-Aspose.Slides for PHP via Java memungkinkan Anda menghasilkan gambar EMF dari lembar kerja Excel dengan Aspose.Cells dan menambahkannya ke slide presentasi.
+## **Mengganti Sumber Daya Gambar yang Ada**
 
-Contoh kode PHP berikut menunjukkan cara melakukannya:
-
-```php
-$book = new Workbook("chart.xlsx");
-$sheet = $book->getWorksheets()->get(0);
-
-$options = new ImageOrPrintOptions();
-$options->setHorizontalResolution(200);
-$options->setVerticalResolution(200);
-$options->setImageType(ImageType::EMF);
-
-// Simpan workbook ke aliran.
-$sr = new SheetRender($sheet, $options);
-$pres = new Presentation();
-try {
-    $pres->getSlides()->removeAt(0);
-
-    for ($j = 0; $j < java_values($sr->getPageCount()); $j++) {
-        $emfSheetName = "test" . $sheet->getName() . " Page" . ($j + 1) . ".out.emf";
-        $sr->toImage($j, $emfSheetName);
-
-        // Tambahkan file apa adanya sehingga gambar tetap menjadi vektor EMF alih-alih dirasterkan.
-        $picture = null;
-        $imageStream = new Java("java.io.FileInputStream", $emfSheetName);
-        try {
-            $picture = $pres->getImages()->addImage($imageStream);
-        } finally {
-            $imageStream->close();
-        }
-
-        $slide = $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->getByType(SlideLayoutType::Blank));
-        $slide->getShapes()->addPictureFrame(
-            ShapeType::Rectangle,
-            0,
-            0,
-            $pres->getSlideSize()->getSize()->getWidth(),
-            $pres->getSlideSize()->getSize()->getHeight(),
-            $picture
-        );
-    }
-
-    $pres->save("output.pptx", SaveFormat::Pptx);
-} catch (JavaException $e) {
-} finally {
-    $pres->dispose();
-}
-```
-
-## **Mengganti Gambar dalam Koleksi Gambar**
-
-Aspose.Slides memungkinkan Anda mengganti gambar yang disimpan dalam koleksi gambar presentasi, termasuk gambar yang digunakan oleh bentuk slide. Bagian ini menjelaskan beberapa cara memperbarui gambar dalam koleksi. Anda dapat mengganti gambar menggunakan data byte mentah, instance [IImage](https://reference.aspose.com/slides/id/php-java/aspose.slides/iimage/), atau gambar lain yang sudah ada dalam koleksi.
-
-Ikuti langkah-langkah berikut:
-1. Muat file presentasi yang berisi gambar menggunakan kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/).
-1. Muat gambar baru dari file ke dalam array byte.
-1. Ganti gambar target dengan gambar baru menggunakan array byte.
-1. Pendekatan kedua, muat gambar ke dalam objek [IImage](https://reference.aspose.com/slides/id/php-java/aspose.slides/iimage/) dan ganti gambar target dengan objek tersebut.
-1. Pendekatan ketiga, ganti gambar target dengan gambar yang sudah ada dalam koleksi gambar presentasi.
-1. Tuliskan presentasi yang telah dimodifikasi sebagai file PPTX.
+Gunakan [PPImage::replaceImage](https://reference.aspose.com/slides/id/php-java/aspose.slides/ppimage/) ketika Anda ingin mengganti sumber daya gambar yang ada. Ini sangat berguna untuk grafik bersama seperti logo.
 
 ```php
-// Membuat instance kelas Presentation yang mewakili file presentasi.
-$presentation = new Presentation("sample.pptx");
-try {
-    // Cara pertama.
-    $imagePath = (new Java("java.io.File", "image0.jpeg"))->toPath();
-    $imageData = (new JavaClass("java.nio.file.Files"))->readAllBytes($imagePath);
-    $oldImage = $presentation->getImages()->get_Item(0);
-    $oldImage->replaceImage($imageData);
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-    // Cara kedua.
-    $newImage = Images::fromFile("image1.png");
+$presentation = new Presentation("input.pptx");
+try {
+    $imageToReplace = $presentation->getImages()->get_Item(0);
+
+    $replacementImage = Images::fromFile("new-logo.png");
     try {
-        $oldImage = $presentation->getImages()->get_Item(1);
-        $oldImage->replaceImage($newImage);
+        $imageToReplace->replaceImage($replacementImage);
     } finally {
-        if (!java_is_null($newImage)) {
-            $newImage->dispose();
+        if (!java_is_null($replacementImage)) {
+            $replacementImage->dispose();
         }
     }
 
-    // Cara ketiga.
-    $oldImage = $presentation->getImages()->get_Item(2);
-    $oldImage->replaceImage($presentation->getImages()->get_Item(3));
-
-    // Simpan presentasi ke file.
     $presentation->save("output.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-{{% alert title="Info" color="info" %}}
-Dengan konverter gratis [Text to GIF](https://products.aspose.app/slides/id/text-to-gif) milik Aspose, Anda dapat dengan mudah menganimasikan teks dan membuat GIF dari teks. 
-{{% /alert %}}
+Jika beberapa bingkai gambar, latar belakang, master, atau tata letak menggunakan sumber daya gambar yang sama, mengganti sumber daya tersebut memperbarui semua penggunaan tersebut. Jika hanya satu bingkai gambar yang harus berubah, tetapkan gambar yang berbeda ke bingkai itu alih-alih mengganti sumber daya bersama.
+
+`PPImage::replaceImage` juga menyediakan overload yang menerima array byte atau [PPImage](https://reference.aspose.com/slides/id/php-java/aspose.slides/ppimage/) lain.
+
+## **Panduan Praktis Manajemen Gambar**
+
+### **Mengendalikan Ukuran Presentasi**
+
+Gambar raster besar dapat membuat presentasi menjadi terlalu besar. Gunakan gambar sumber dengan dimensi yang sesuai untuk ukuran tampilan yang dimaksud, gunakan kembali sumber daya gambar bersama bila memungkinkan, dan hindari menanamkan salinan berulang dari grafik resolusi penuh yang sama.
+
+Untuk gambar raster yang sudah ditempatkan dalam bingkai gambar, [PictureFillFormat::compressImage](https://reference.aspose.com/slides/id/php-java/aspose.slides/picturefillformat/) dapat mengurangi data gambar sesuai dengan resolusi dan pengaturan pemotongan yang dipilih. Ini adalah pemrosesan bingkai gambar, bukan manajemen koleksi gambar, jadi lihat [Picture Frame](/slides/id/php-java/picture-frame/) untuk operasi pemformatan terkait.
+
+### **Pilih Antara Konten Tersemat dan Tertaut**
+
+Menanamkan membuat presentasi portabel karena semua data gambar yang diperlukan menyertai berkas. Menautkan dapat mengurangi ukuran berkas, tetapi menambahkan ketergantungan eksternal. Gunakan tautan hanya ketika ketergantungan itu dapat diterima dan stabil.
+
+### **Gunakan Kembali Branding Bersama**
+
+Untuk logo, watermark, atau grafik dekoratif yang berulang, gunakan satu sumber daya gambar dan gunakan kembali. Jika grafik tersebut merupakan bagian dari desain presentasi bukan konten slide, tempatkan pada master atau tata letak sehingga diwarisi oleh slide yang sesuai.
+
+### **Jaga Sumber Daya SVG Portabel**
+
+SVG yang mandiri lebih mudah dipindahkan dan dirender secara konsisten dibandingkan SVG yang bergantung pada berkas eksternal atau sumber daya jaringan. Bila memungkinkan, sematkan sumber daya yang diperlukan sebelum mengimpor SVG. Konversi SVG menjadi bentuk hanya ketika elemen vektor individu perlu diedit.
+
+### **Gunakan API Gambar Lintas Platform Modern**
+
+Untuk kode PHP via Java yang baru, gunakan API Aspose.Slides [IImage](https://reference.aspose.com/slides/id/php-java/aspose.slides/iimage/) dan [Images](https://reference.aspose.com/slides/id/php-java/aspose.slides/images/) alih-alih API publik warisan yang berbasis pada `java.awt.image.BufferedImage`. Lihat [Modern API](/slides/id/php-java/modern-api/) untuk panduan migrasi.
+
+WMF dan EMF memerlukan pertimbangan khusus. Ketika format ini diteruskan melalui [IImage](https://reference.aspose.com/slides/id/php-java/aspose.slides/iimage/), [ImageCollection::addImage](https://reference.aspose.com/slides/id/php-java/aspose.slides/imagecollection/) mengonversi metafile menjadi representasi PNG raster sebelum disisipkan. Jika mempertahankan data metafile penting, gunakan overload [ImageCollection::addImage](https://reference.aspose.com/slides/id/php-java/aspose.slides/imagecollection/) berbasis aliran. Membuat konten EMF dari spreadsheet atau produk lain merupakan alur kerja integrasi terpisah dan berada di luar lingkup artikel ini.
 
 ## **FAQ**
 
-**Apakah resolusi gambar asli tetap utuh setelah penyisipan?**
+**What is the difference between the image collection and a picture frame?**
 
-Ya. Piksel sumber dipertahankan, tetapi tampilan akhir tergantung pada bagaimana [picture](/slides/id/php-java/picture-frame/) diskalakan pada slide dan kompresi yang diterapkan saat menyimpan.
+Koleksi gambar menyimpan sumber daya gambar yang dapat digunakan kembali. Bingkai gambar adalah bentuk slide yang menampilkan salah satu sumber daya tersebut dan menyediakan pemformatan khusus gambar seperti pemotongan dan efek.
 
-**Apa cara terbaik untuk mengganti logo yang sama di puluhan slide sekaligus?**
+**What is the best way to replace the same logo everywhere?**
 
-Letakkan logo pada master slide atau layout dan ganti di koleksi gambar presentasi—perubahan akan diterapkan ke semua elemen yang menggunakan sumber tersebut.
+Jika logo sudah dibagikan sebagai satu sumber daya gambar, ganti sumber daya itu dengan [PPImage::replaceImage](https://reference.aspose.com/slides/id/php-java/aspose.slides/ppimage/). Untuk branding di seluruh presentasi, menempatkan logo pada master atau tata letak juga dapat mengurangi duplikasi konten slide.
 
-**Bisakah SVG yang disisipkan dikonversi menjadi bentuk yang dapat diedit?**
+**Why does a linked image disappear on another computer?**
 
-Ya. Anda dapat mengonversi SVG menjadi grup bentuk, setelah itu bagian individu dapat diedit dengan properti bentuk standar.
+Gambar tertaut bergantung pada berkas atau URL eksternal. Jika sumber daya itu tidak dapat dijangkau dari komputer lain, gambar tertaut mungkin tidak tersedia. Sematkan gambar ketika presentasi harus mandiri.
 
-**Bagaimana saya dapat mengatur gambar sebagai latar belakang untuk beberapa slide sekaligus?**
+**Can an inserted SVG be edited as PowerPoint shapes?**
 
-[Assign the image as the background](/slides/id/php-java/presentation-background/) pada master slide atau layout yang relevan—setiap slide yang menggunakan master/layout tersebut akan mewarisi latar belakang.
+Ya. Konversi SVG dengan [ShapeCollection::addGroupShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/shapecollection/addgroupshape/); grup yang dihasilkan berisi bentuk slide yang dapat diedit alih-alih satu gambar SVG.
 
-**Bagaimana saya mencegah presentasi menjadi terlalu besar karena banyak gambar?**
+**How can I keep presentations with many images smaller?**
 
-Gunakan satu sumber gambar tunggal alih-alih duplikat, pilih resolusi yang wajar, terapkan kompresi saat menyimpan, dan simpan grafik yang berulang pada master jika sesuai.
+Gunakan kembali sumber daya gambar bersama, hindari sumber raster yang terlalu besar, kompres gambar raster yang cocok bila perlu, simpan branding berulang pada master atau tata letak, dan gunakan gambar tertaut hanya ketika ketergantungan eksternal dapat diterima.

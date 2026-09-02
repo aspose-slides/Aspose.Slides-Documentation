@@ -7,489 +7,268 @@ url: /ru/net/image/
 keywords:
 - добавить изображение
 - добавить картинку
-- добавить bitmap
 - заменить изображение
-- заменить картинку
-- из интернета
+- коллекция изображений
+- рамка изображения
+- связанное изображение
 - фон
 - добавить PNG
 - добавить JPG
 - добавить SVG
+- SVG в фигуры
 - внешние ресурсы SVG
-- резолвер SVG
-- связанные SVG‑изображения
-- шрифты SVG
-- добавить EMF
-- добавить WMF
-- добавить TIFF
 - PowerPoint
 - OpenDocument
 - презентация
 - .NET
 - C#
 - Aspose.Slides
-description: "Упростите управление изображениями в PowerPoint и OpenDocument с помощью Aspose.Slides для .NET, улучшая производительность и автоматизируя ваш рабочий процесс."
+description: "Узнайте, как добавлять, переиспользовать, связывать, заменять и управлять растровыми и SVG‑изображениями в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides для .NET."
 ---
 ## **Введение**
 
-Изображения делают презентации более увлекательными и визуально привлекательными. В Microsoft PowerPoint вы можете вставлять картинки на слайды из файлов, интернета или других источников. Аналогично, Aspose.Slides позволяет добавлять изображения в слайды презентации несколькими способами.
+Aspose.Slides for .NET предоставляет несколько способов работы с изображениями, каждый из которых имеет своё назначение. Вы можете хранить изображение в презентации, отображать его в рамке изображения, использовать его в качестве фона слайда, ссылки на внешнее изображение, заменять общий ресурс изображения или преобразовывать SVG‑контент в редактируемые фигуры.
 
-{{% alert  title="Tip" color="primary" %}} 
-Aspose предоставляет бесплатные конвертеры — [JPEG to PowerPoint](https://products.aspose.app/slides/ru/import/jpg-to-ppt) и [PNG to PowerPoint](https://products.aspose.app/slides/ru/import/png-to-ppt) — которые позволяют быстро создавать презентации из изображений. 
-{{% /alert %}} 
+В этой статье рассматриваются ресурсы изображений и их использование в презентации. Для обрезки, прозрачности, эффектов, растягивания и другого форматирования, применяемого к отдельной рамке изображения, см. [Picture Frame](/slides/ru/net/picture-frame/).
 
-{{% alert title="Info" color="info" %}}
-Если вы хотите добавить изображение как рамку картинки — особенно если планируете изменять его размер, применять эффекты или использовать другие стандартные параметры форматирования — см. [Picture Frame](/slides/ru/net/picture-frame/). 
-{{% /alert %}} 
+## **Понимание модели изображений**
 
-{{% alert title="Note" color="warning" %}}
-Вы можете конвертировать изображения из одного формата в другой. Смотрите следующие страницы: конвертировать [image to JPG](https://products.aspose.com/slides/ru/net/conversion/image-to-jpg/), [JPG to image](https://products.aspose.com/slides/ru/net/conversion/jpg-to-image/), [JPG to PNG](https://products.aspose.com/slides/ru/net/conversion/jpg-to-png/), [PNG to JPG](https://products.aspose.com/slides/ru/net/conversion/png-to-jpg/), [PNG to SVG](https://products.aspose.com/slides/ru/net/conversion/png-to-svg/), и [SVG to PNG](https://products.aspose.com/slides/ru/net/conversion/svg-to-png/).
-{{% /alert %}}
+Следующие концепции API тесно связаны, но не являются взаимозаменяемыми:
 
-Aspose.Slides поддерживает изображения в популярных форматах, таких как JPEG, PNG, BMP, GIF и другие. 
+- **[коллекция изображений презентации]**(https://reference.aspose.com/slides/ru/net/aspose.slides/iimagecollection/) хранит ресурсы изображений, используемые в презентации. Для добавления данных изображения и получения ресурса **[IPPImage]**(https://reference.aspose.com/slides/ru/net/aspose.slides/ippimage/) используйте **[ImageCollection.AddImage]**(https://reference.aspose.com/slides/ru/net/aspose.slides/imagecollection/addimage/).
+- **[рамка изображения]**(https://reference.aspose.com/slides/ru/net/aspose.slides/ipictureframe/) — это фигура, отображающая изображение на слайде, макете или образце. Для размещения ресурса изображения на слайде используйте **[IShapeCollection.AddPictureFrame]**(https://reference.aspose.com/slides/ru/net/aspose.slides/ishapecollection/addpictureframe/).
+- **фон слайда** использует изображение как часть заполнения слайда, а не как фигуру, поэтому он не ведёт себя как рамка изображения.
+- **[IPPImage.ReplaceImage]**(https://reference.aspose.com/slides/ru/net/aspose.slides/ippimage/replaceimage/) заменяет ресурс изображения. Если несколько элементов презентации используют этот ресурс, они все используют замену.
+- Преобразование SVG в фигуры создаёт редактируемые фигуры слайда. После преобразования контент более не управляется как один ресурс изображения.
 
-## **Добавление локально хранящихся изображений на слайды**
+Типичный порядок действий выглядит так: добавить данные изображения в коллекцию изображений, получить **[IPPImage]**, а затем использовать этот ресурс в одной или нескольких рамках изображения или заполнениях.
 
-Вы можете добавить одно или несколько изображений, хранящихся на вашем компьютере, на слайд презентации. Ниже приведён пример кода C#, показывающий, как добавить изображение на слайд:
+## **Добавление встроенного изображения**
 
-```c#
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Добавление изображений из Интернета на слайды**
-
-Если изображение, которое вы хотите добавить на слайд, не хранится на вашем компьютере, вы можете добавить его напрямую из Интернета. 
-
-Ниже приведён пример кода C#, показывающий, как добавить изображение из Интернета на слайд:
-
-```c#
-using System.Net;
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-
-    byte[] imageData;
-    using (WebClient webClient = new WebClient()) 
-    {
-        imageData = webClient.DownloadData(new Uri("[REPLACE WITH URL]"));
-    }
-    
-    IPPImage image = pres.Images.AddImage(imageData);
-    slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Добавление изображений в шаблоны слайдов**
-
-Мастер слайда хранит и контролирует информацию, такую как тема и макет для слайдов, которые его используют. Когда вы добавляете изображение в мастер слайда, изображение появляется на каждом слайде, основанном на этом мастере. 
-
-Ниже приведён пример кода C#, показывающий, как добавить изображение в мастер слайда:
-
-```c#
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    IMasterSlide masterSlide = slide.LayoutSlide.MasterSlide;
-    
-    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    masterSlide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Добавление изображений в качестве фона слайдов**
-
-Вы можете использовать изображение в качестве фона одного или нескольких слайдов. Подробности см. в *[Setting Images as Backgrounds for Slides](/slides/ru/net/presentation-background/#setting-images-as-background-for-slides)*.
-
-## **Добавление SVG в презентации**
-
-Содержимое SVG можно добавить в презентацию с помощью класса [SvgImage](https://reference.aspose.com/slides/ru/net/aspose.slides/svgimage/). Полученный объект [ISvgImage](https://reference.aspose.com/slides/ru/net/aspose.slides/isvgimage/) затем можно добавить в коллекцию изображений презентации и использовать для создания рамки картинки. 
-
-Ниже приведён пример C#, импортирующий автономную строку SVG. Все изображения, стили и другие ресурсы, использованные в этом SVG, внедрены непосредственно в содержимое SVG.
+Чтобы вставить локальное изображение, прочитайте файл, добавьте его данные в коллекцию изображений и создайте рамку изображения, использующую возвращённый `IPPImage`.
 
 ```csharp
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-string svgContent = @"
-<svg xmlns='http://www.w3.org/2000/svg' width='320' height='180'>
-    <rect width='320' height='180' fill='#4F81BD'/>
-    <circle cx='160' cy='90' r='55' fill='#F2F2F2'/>
-</svg>";
-
-using (Presentation presentation = new Presentation())
-{
-    ISvgImage svgImage = new SvgImage(svgContent);
-    IPPImage image = presentation.Images.AddImage(svgImage);
-
-    presentation.Slides[0].Shapes.AddPictureFrame(
-        ShapeType.Rectangle, 20, 20, image.Width, image.Height, image);
-
-    presentation.Save("self-contained-svg.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Импорт SVG‑контента с внешними ресурсами**
-
-SVG‑файлы, экспортированные из дизайнерских инструментов, редакторов диаграмм, систем иконок и веб‑конвейеров, могут ссылаться на ресурсы, хранящиеся вне документа SVG. Например, SVG может содержать ссылку на изображение вида `images/photo.png`, значение CSS `url(...)` или URL шрифта. 
-
-Чтобы импортировать такой SVG‑контент, создайте реализацию [IExternalResourceResolver](https://reference.aspose.com/slides/ru/net/aspose.slides.import/iexternalresourceresolver/) и передайте её вместе с базовым URI в соответствующий конструктор `SvgImage`. Базовый URI указывает расположение документа SVG и используется для разрешения относительных ссылок. 
-
-Интерфейс [ISvgImage](https://reference.aspose.com/slides/ru/net/aspose.slides/isvgimage/) предоставляет доступ к информации об импортированном SVG: 
-
-- `SvgContent` возвращает разметку SVG в виде строки. 
-- `SvgData` возвращает содержимое SVG в виде массива байтов. 
-- `BaseUri` возвращает базовый URI, используемый для относительных ссылок. 
-- `ExternalResourceResolver` возвращает резолвер, назначенный изображению SVG. 
-
-### **Реализация внешнего резолвера ресурсов**
-
-У резолвера есть два метода: 
-
-- [ResolveUri](https://reference.aspose.com/slides/ru/net/aspose.slides.import/iexternalresourceresolver/resolveuri/) комбинирует базовый URI и относительную ссылку на ресурс и возвращает абсолютный URI. Возвратите `null`, когда ссылку нельзя разрешить или она не допускается. 
-- [GetEntity](https://reference.aspose.com/slides/ru/net/aspose.slides.import/iexternalresourceresolver/getentity/) возвращает поток для чтения абсолютного URI ресурса. Возвратите `null`, когда ресурс отсутствует, заблокирован или недоступен. При необходимости можно также вернуть резервный поток. 
-
-Следующий резолвер загружает связанные ресурсы только из разрешённого локального каталога. Сетевые ресурсы и пути за пределами разрешённого каталога блокируются. Для нерешённых ссылок на изображения возвращается необязательное резервное изображение. 
-
-```csharp
-using System;
-using System.IO;
-using Aspose.Slides.Import;
-
-internal sealed class LocalSvgResourceResolver : IExternalResourceResolver
-{
-    private readonly string _allowedRoot;
-    private readonly byte[] _fallbackImageData;
-
-    public LocalSvgResourceResolver(string allowedRoot, byte[] fallbackImageData = null)
-    {
-        _allowedRoot = Path.GetFullPath(allowedRoot);
-        _fallbackImageData = fallbackImageData;
-    }
-
-    public string ResolveUri(string baseUri, string relativeUri)
-    {
-        if (string.IsNullOrWhiteSpace(baseUri) ||
-            string.IsNullOrWhiteSpace(relativeUri))
-        {
-            return null;
-        }
-
-        if (!Uri.TryCreate(baseUri, UriKind.Absolute, out Uri baseAddress) ||
-            !Uri.TryCreate(baseAddress, relativeUri, out Uri absoluteAddress))
-        {
-            return null;
-        }
-
-        // Этот резолвер намеренно разрешает только локальные файлы.
-        if (!absoluteAddress.IsFile)
-        {
-            return null;
-        }
-
-        string resourcePath = Path.GetFullPath(absoluteAddress.LocalPath);
-        if (!IsInsideAllowedRoot(resourcePath))
-        {
-            return null;
-        }
-
-        return absoluteAddress.AbsoluteUri;
-    }
-
-    public Stream GetEntity(string absoluteUri)
-    {
-        if (!Uri.TryCreate(absoluteUri, UriKind.Absolute, out Uri resourceUri) ||
-            !resourceUri.IsFile)
-        {
-            return null;
-        }
-
-        string resourcePath = Path.GetFullPath(resourceUri.LocalPath);
-        if (!IsInsideAllowedRoot(resourcePath))
-        {
-            return null;
-        }
-
-        if (File.Exists(resourcePath))
-        {
-            return File.OpenRead(resourcePath);
-        }
-
-        // Использовать резервный вариант только для графических ресурсов. Возврат потока изображения
-        // для отсутствующего шрифта или таблицы стилей будет недопустимым.
-        if (_fallbackImageData != null && IsImageFile(resourcePath))
-        {
-            return new MemoryStream(_fallbackImageData, writable: false);
-        }
-
-        return null;
-    }
-
-    private bool IsInsideAllowedRoot(string resourcePath)
-    {
-        string normalizedRoot = _allowedRoot.TrimEnd(
-            Path.DirectorySeparatorChar,
-            Path.AltDirectorySeparatorChar) + Path.DirectorySeparatorChar;
-
-        string normalizedPath = Path.GetFullPath(resourcePath);
-        StringComparison comparison = Path.DirectorySeparatorChar == '\\'
-            ? StringComparison.OrdinalIgnoreCase
-            : StringComparison.Ordinal;
-
-        return normalizedPath.StartsWith(normalizedRoot, comparison) ||
-               string.Equals(normalizedPath, _allowedRoot, comparison);
-    }
-
-    private static bool IsImageFile(string path)
-    {
-        string extension = Path.GetExtension(path);
-
-        return extension.Equals(".png", StringComparison.OrdinalIgnoreCase) ||
-               extension.Equals(".jpg", StringComparison.OrdinalIgnoreCase) ||
-               extension.Equals(".jpeg", StringComparison.OrdinalIgnoreCase) ||
-               extension.Equals(".gif", StringComparison.OrdinalIgnoreCase) ||
-               extension.Equals(".bmp", StringComparison.OrdinalIgnoreCase);
-    }
-}
-```
-
-### **Разрешение связанных ресурсов при импорте SVG**
-
-Предположим, что `assets/diagram.svg` содержит относительную ссылку, например: 
-
-```xml
-<image href="images/photo.png" x="20" y="20" width="320" height="180" />
-```
-
-Ниже приведён пример C#, который передаёт URI SVG‑файла в качестве базового URI и использует пользовательский резолвер. Резолвер преобразует относительную ссылку на изображение в абсолютный URI и возвращает поток, содержащий связанный ресурс, пока Aspose.Slides обрабатывает SVG. 
-
-```csharp
-using System;
 using System.IO;
 using Aspose.Slides;
 using Aspose.Slides.Export;
-using Aspose.Slides.Import;
 
-string svgFilePath = Path.GetFullPath(Path.Combine("assets", "diagram.svg"));
-string assetDirectory = Path.GetDirectoryName(svgFilePath) ?? Directory.GetCurrentDirectory();
-string svgContent = File.ReadAllText(svgFilePath);
+using var presentation = new Presentation();
 
-// Базовый URI представляет расположение SVG‑документа.
-string baseUri = new Uri(svgFilePath).AbsoluteUri;
+var imageData = File.ReadAllBytes("photo.png");
+var image = presentation.Images.AddImage(imageData);
 
-byte[] fallbackImageData = null;
-string fallbackImagePath = Path.Combine(assetDirectory, "fallback.png");
-if (File.Exists(fallbackImagePath))
-{
-    fallbackImageData = File.ReadAllBytes(fallbackImagePath);
-}
+var slide = presentation.Slides[0];
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
 
-IExternalResourceResolver resolver = new LocalSvgResourceResolver(assetDirectory, fallbackImageData);
-ISvgImage svgImage = new SvgImage(svgContent, resolver, baseUri);
-
-// ISvgImage предоставляет исходное содержимое, бинарные данные, базовый URI и резолвер.
-string importedContent = svgImage.SvgContent;
-byte[] importedData = svgImage.SvgData;
-string importedBaseUri = svgImage.BaseUri;
-IExternalResourceResolver importedResolver = svgImage.ExternalResourceResolver;
-
-using (Presentation presentation = new Presentation())
-{
-    IPPImage image = presentation.Images.AddImage(svgImage);
-
-    presentation.Slides[0].Shapes.AddPictureFrame(
-        ShapeType.Rectangle, 20, 20, image.Width, image.Height, image);
-
-    presentation.Save("svg-with-linked-resources.pptx", SaveFormat.Pptx);
-}
+presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
 
-Класс `SvgImage` также предоставляет перегрузки, принимающие данные SVG в виде массива байтов или потока, вместе с внешним резолвером ресурсов и базовым URI. 
+Изображение, добавленное таким способом, встраивается в презентацию, поэтому полученный файл не зависит от доступности исходного файла изображения.
 
-{{% alert title="Important" color="warning" %}}
+### **Добавление изображения из интернета**
 
-Ресурсный резолвер делает внешние ресурсы доступными во время обработки и рендеринга SVG в Aspose.Slides. Он не изменяет оригинальную разметку SVG и не внедряет автоматически разрешённые ресурсы в неё. 
+Если изображение доступно по HTTP или HTTPS, загрузите его байты с помощью `HttpClient`, добавьте их в коллекцию изображений презентации и используйте возвращённый ресурс изображения так же, как локальное изображение.
 
-Когда объект `ISvgImage` добавляется в коллекцию изображений презентации, файл PPTX может содержать как оригинальное SVG‑представление, так и растровое резервное изображение. Связанный ресурс может появиться в сгенерированном резервном изображении, тогда как относительная ссылка типа `images/photo.png` остаётся неизменной в сохранённом SVG. Приложение, которое рендерит нативное SVG‑представление, может поэтому опустить связанный контент, если оригинальный внешний ресурс недоступен. 
-{{% /alert %}}
+```csharp
+using System;
+using System.Net.Http;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-### **Создание переносного SVG‑изображения**
+var imageUri = new Uri("https://example.com/image.png");
+using var httpClient = new HttpClient();
+var imageData = await httpClient.GetByteArrayAsync(imageUri);
 
-Чтобы создать SVG‑изображение, не зависящее от внешних файлов, сделайте SVG автономным перед созданием `SvgImage`. Например, замените связанные URL‑адреса изображений на URI вида `data:`, содержащие данные изображения: 
+using var presentation = new Presentation();
 
-```xml
-<image href="data:image/png;base64,..." x="20" y="20" width="320" height="180" />
+var image = presentation.Images.AddImage(imageData);
+var slide = presentation.Slides[0];
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
+
+presentation.Save("presentation-from-web.pptx", SaveFormat.Pptx);
 ```
 
-После того как все необходимые ресурсы будут внедрены в содержимое SVG, создайте `SvgImage`, добавьте его в коллекцию изображений презентации и вставьте в рамку картинки, как показано в предыдущем примере. 
+В долгоживущих приложениях переиспользуйте `HttpClient`, а не создавайте новый экземпляр для каждого запроса. Также проверяйте удалённые URL, размеры ответов и типы содержимого, если источник не доверенный.
 
-### **Обработка отсутствующих или заблокированных ресурсов**
+## **Повторное использование изображений на разных слайдах**
 
-Возвратите `null` из `ResolveUri`, когда URI ресурса недействителен, запрещён или не может быть разрешён. Возвратите `null` из `GetEntity`, когда ресурс нельзя прочитать. Aspose.Slides продолжает обработку SVG без этого ресурса, когда это возможно. 
+Если одно и то же изображение требуется более одного раза, добавьте его в презентацию один раз и переиспользуйте полученный **[IPPImage]** при создании дополнительных рамок изображения. Это избавляет от повторной загрузки одних и тех же исходных данных и делает явными отношения между общим ресурсом изображения и его использованием.
 
-Для отсутствующего ресурса можно вернуть резервный поток, но его содержимое должно соответствовать требуемому типу ресурса. Например, возвращайте поток изображения только для отсутствующего изображения, а не для шрифта или таблицы стилей. 
+Для графики, которой нужно автоматически отображаться на многих слайдах (например, логотип компании), рассмотрите возможность размещения рамки изображения на **[slide master]**(/slides/ru/net/slide-master/) или макете вместо добавления эквивалентной фигуры на каждый слайд.
 
-{{% alert title="Security" color="warning" %}}
+## **Использование изображения в качестве фона слайда**
 
-Не разрешайте произвольные пути файлов или неограниченные сетевые URL‑адреса из ненадёжных SVG‑файлов. Ограничьте допустимые схемы, каталоги и хосты. Для сетевых ресурсов также применяйте тайм‑ауты соединения, ограничения по размеру ответа и проверку содержимого. 
-{{% /alert %}}
+Фоновое изображение назначается заполнению слайда; оно не добавляется как фигура‑рамка. Это удобно, когда изображение должно покрывать весь фон слайда и не должно манипулироваться как обычный объект слайда.
 
-## **Конвертирование SVG в набор фигур**
-Aspose.Slides может конвертировать SVG в набор фигур, аналогично соответствующей функции в PowerPoint: 
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var imageData = File.ReadAllBytes("background.jpg");
+var image = presentation.Images.AddImage(imageData);
+slide.Background.Type = BackgroundType.OwnBackground;
+slide.Background.FillFormat.FillType = FillType.Picture;
+slide.Background.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
+slide.Background.FillFormat.PictureFillFormat.Picture.Image = image;
+
+presentation.Save("background-image.pptx", SaveFormat.Pptx);
+```
+
+Для дополнительных вариантов фонового оформления, включая фон образцов и макетов, см. [Presentation Background](/slides/ru/net/presentation-background/).
+
+## **Встроенные и связанные изображения**
+
+Встроенные и связанные изображения имеют разные компромиссы по переносимости и размеру файла:
+
+- **Встроенное изображение:** данные изображения хранятся внутри презентации. Презентация самодостаточна, но размер файла включает данные изображения.
+- **Связанное изображение:** презентация хранит путь или URL к внешнему изображению. Это может уменьшить размер презентации, но внешний ресурс должен оставаться доступным при открытии или рендеринге презентации.
+
+Связанную картинку можно создать, присвоив внешний путь или URL через **[ISlidesPicture.LinkPathLong]**(https://reference.aspose.com/slides/ru/net/aspose.slides/islidespicture/linkpathlong/), вместо встраивания данных изображения.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, null);
+pictureFrame.PictureFormat.Picture.LinkPathLong = "https://example.com/image.png";
+
+presentation.Save("linked-image.pptx", SaveFormat.Pptx);
+```
+
+Используйте связанные изображения только тогда, когда среда развертывания может надёжно получать внешний ресурс. Для презентаций, которые должны работать офлайн или перемещаться между системами, встроенные изображения обычно безопаснее.
+
+## **Работа с SVG‑изображениями**
+
+SVG — векторный формат, поэтому он полезен для значков, схем и другой графики, которой требуется масштабирование без потери деталей, характерных для растровых изображений. Aspose.Slides поддерживает SVG как ресурс изображения и как источник редактируемых фигур слайда.
+
+### **Добавление SVG в качестве изображения**
+
+Создайте **[SvgImage]**(https://reference.aspose.com/slides/ru/net/aspose.slides/svgimage/), добавьте её в коллекцию изображений и разместите полученный ресурс изображения в рамке изображения.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var svgContent = File.ReadAllText("icon.svg");
+var svgImage = new SvgImage(svgContent);
+
+using var presentation = new Presentation();
+
+var image = presentation.Images.AddImage(svgImage);
+var slide = presentation.Slides[0];
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 200, 200, image);
+
+presentation.Save("svg-image.pptx", SaveFormat.Pptx);
+```
+
+### **SVG‑файлы с внешними ресурсами**
+
+SVG может ссылаться на внешние изображения, таблицы стилей или шрифты. Для таких случаев **[SvgImage]** предоставляет конструкторы, принимающие **[IExternalResourceResolver]**(https://reference.aspose.com/slides/ru/net/aspose.slides.import/iexternalresourceresolver/) и базовый URI. Разрешитель может сопоставлять относительный URI с допустимым абсолютным URI и возвращать поток для запрошенного ресурса.
+
+Разрешитель делает внешние ресурсы доступными во время обработки SVG Aspose.Slides, но не переписывает SVG в автономный документ. Если SVG должен оставаться переносимым, внедрите требуемые ресурсы непосредственно в SVG, например, используя URI‑схему `data:` для связанных изображений.
+
+Когда SVG‑файлы поступают из ненадёжных источников, ограничьте схемы, расположения файлов и хосты, к которым разрешён доступ. Сетевые разрешители также должны применять тайм‑ауты, ограничения размера ответов и проверку содержимого.
+
+### **Преобразование SVG в редактируемые фигуры**
+
+Aspose.Slides может преобразовать SVG в группу редактируемых фигур слайда, аналогично соответствующей команде PowerPoint.
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-Эта возможность предоставляется перегрузкой метода [AddGroupShape](https://reference.aspose.com/slides/ru/net/aspose.slides.ishapecollection/addgroupshape/methods/1) интерфейса [IShapeCollection](https://reference.aspose.com/slides/ru/net/aspose.slides/ishapecollection), который принимает объект [ISvgImage](https://reference.aspose.com/slides/ru/net/aspose.slides/isvgimage) в качестве первого аргумента. 
+Для выполнения преобразования используйте перегрузку **[IShapeCollection.AddGroupShape]**(https://reference.aspose.com/slides/ru/net/aspose.slides/ishapecollection/addgroupshape/), принимающую **[ISvgImage]**.
 
-Ниже приведён пример кода C#, показывающий, как использовать этот метод для конвертации SVG‑файла в набор фигур: 
-
-``` csharp 
-using System.Drawing;
+```csharp
+using System.IO;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Исходное имя SVG файла
-string svgFileName = "sample.svg";
+var svgContent = File.ReadAllText("diagram.svg");
+var svgImage = new SvgImage(svgContent);
 
-// Имя результирующего файла презентации
-string outPptxPath = "presentation.pptx";
+using var presentation = new Presentation();
 
-// Создать новую презентацию
-using (IPresentation presentation = new Presentation())
-{
-    // Читать содержимое SVG файла
-    string svgContent = File.ReadAllText(svgFileName);
+var slideSize = presentation.SlideSize.Size;
+var slide = presentation.Slides[0];
+slide.Shapes.AddGroupShape(svgImage, 0, 0, slideSize.Width, slideSize.Height);
 
-    // Создать объект SvgImage
-    ISvgImage svgImage = new SvgImage(svgContent);
-
-    // Получить размер слайда
-    SizeF slideSize = presentation.SlideSize.Size;
-
-    // Преобразовать SVG‑изображение в группу фигур и масштабировать до размеров слайда
-    presentation.Slides[0].Shapes.AddGroupShape(svgImage, 0f, 0f, slideSize.Width, slideSize.Height);
-
-    // Сохранить презентацию в формате PPTX
-    presentation.Save(outPptxPath, SaveFormat.Pptx);
-}
+presentation.Save("editable-svg-shapes.pptx", SaveFormat.Pptx);
 ```
 
-## **Добавление изображений в формате EMF на слайды**
-Aspose.Slides for .NET позволяет генерировать изображения EMF из листов Excel с помощью Aspose.Cells и добавлять их на слайды презентации. 
+Применяйте преобразование SVG‑в‑фигуры, когда отдельные векторные элементы требуют редактирования как фигур PowerPoint. Если SVG нужен только для отображения, оставьте его как изображение — это проще и избавляет от создания множества отдельных фигур.
 
-Ниже приведён пример кода C#, показывающий, как это сделать: 
+## **Замена существующего ресурса изображения**
 
-``` csharp 
-using Aspose.Slides;
-using Aspose.Cells;
-using Aspose.Cells.Rendering;
+Используйте **[IPPImage.ReplaceImage]**(https://reference.aspose.com/slides/ru/net/aspose.slides/ippimage/replaceimage/), когда нужно заменить существующий ресурс изображения. Это особенно удобно для общих графических элементов, таких как логотипы.
 
-
-using (Workbook book = new Workbook("chart.xlsx"))
-{
-    Worksheet sheet = book.Worksheets[0];
-    ImageOrPrintOptions options = new ImageOrPrintOptions();
-    options.HorizontalResolution = 200;
-    options.VerticalResolution = 200;
-    options.ImageType = Aspose.Cells.Drawing.ImageType.Emf;
-
-    // Сохранить книгу в поток
-    SheetRender sr = new SheetRender(sheet, options);
-    using (Presentation pres = new Presentation())
-    {
-        pres.Slides.RemoveAt(0);
-
-        String EmfSheetName = "";
-        for (int j = 0; j < sr.PageCount; j++)
-        {
-            EmfSheetName = "test" + sheet.Name + " Page" + (j + 1) + ".out.emf";
-            sr.ToImage(j, EmfSheetName);
-
-            var bytes = File.ReadAllBytes(EmfSheetName);
-            var emfImage = pres.Images.AddImage(bytes);
-            ISlide slide = pres.Slides.AddEmptySlide(pres.LayoutSlides.GetByType(SlideLayoutType.Blank));
-            slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 0, 0, pres.SlideSize.Size.Width, pres.SlideSize.Size.Height, emfImage);
-        }
-
-        pres.Save("Saved.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-    }
-}
-```
-
-## **Замена изображений в коллекции изображений**
-
-Aspose.Slides позволяет заменять изображения, хранящиеся в коллекции изображений презентации, включая изображения, используемые фигурами слайдов. В этом разделе описываются несколько способов обновления изображений в коллекции. Вы можете заменить изображение, используя необработанные байтовые данные, экземпляр [IImage](https://reference.aspose.com/slides/ru/net/aspose.slides/iimage/) или другое изображение, уже существующее в коллекции. 
-
-Выполните следующие шаги: 
-
-1. Загрузите файл презентации, содержащий изображения, с помощью класса [Presentation](https://reference.aspose.com/slides/ru/net/aspose.slides/presentation/). 
-2. Загрузите новое изображение из файла в массив байтов. 
-3. Замените целевое изображение новым, используя массив байтов. 
-4. Во втором подходе загрузите изображение в объект [IImage](https://reference.aspose.com/slides/ru/net/aspose.slides/iimage/) и замените целевое изображение этим объектом. 
-5. В третьем подходе замените целевое изображение изображением, которое уже существует в коллекции изображений презентации. 
-6. Запишите изменённую презентацию в файл PPTX. 
-
-```cs
+```csharp
+using System.IO;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Создать экземпляр класса Presentation, представляющего файл презентации.
-using Presentation presentation = new Presentation("sample.pptx");
+using var presentation = new Presentation("input.pptx");
 
-// Первый способ.
-byte[] imageData = File.ReadAllBytes("image0.jpeg");
-IPPImage oldImage = presentation.Images[0];
-oldImage.ReplaceImage(imageData);
+var imageToReplace = presentation.Images[0];
+imageToReplace.ReplaceImage(File.ReadAllBytes("new-logo.png"));
 
-// Второй способ.
-using IImage newImage = Images.FromFile("image1.png");
-oldImage = presentation.Images[1];
-oldImage.ReplaceImage(newImage);
-
-// Третий способ.
-oldImage = presentation.Images[2];
-oldImage.ReplaceImage(presentation.Images[3]);
-
-// Сохранить презентацию в файл.
 presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert title="Info" color="info" %}}
-С помощью бесплатного конвертера Aspose [Text to GIF](https://products.aspose.app/slides/ru/text-to-gif) вы можете легко анимировать текст и создавать GIF‑изображения из текста. 
-{{% /alert %}}
+Если несколько рамок изображения, фоновых заливок, образцов или макетов используют один и тот же ресурс, его замена обновит все эти использования. Если должна измениться только одна рамка, назначьте ей другое изображение вместо замены общего ресурса.
+
+`ReplaceImage` также предоставляет перегрузки, принимающие **[IImage]**(https://reference.aspose.com/slides/ru/net/aspose.slides/iimage/) или иной **[IPPImage]**(https://reference.aspose.com/slides/ru/net/aspose.slides/ippimage/).
+
+## **Практические рекомендации по управлению изображениями**
+
+### **Контроль размера презентации**
+
+Большие растровые изображения могут значительно увеличить размер презентации. Используйте исходные изображения с размерами, соответствующими их предполагаемому месту отображения, переиспользуйте общие ресурсы изображений там, где это возможно, и избегайте встраивания повторяющихся копий одного и того же графического файла высокого разрешения.
+
+Для уже размещённых в рамках растровых картинок можно использовать **[IPictureFillFormat.CompressImage]**(https://reference.aspose.com/slides/ru/net/aspose.slides/ipicturefillformat/compressimage/) — это уменьшит данные изображения в соответствии с выбранным разрешением и параметрами обрезки. Это обработка рамки изображения, а не управление коллекцией изображений, поэтому см. [Picture Frame](/slides/ru/net/picture-frame/) для сопутствующих операций форматирования.
+
+### **Выбор между встроенным и связанным содержимым**
+
+Встраивание делает презентацию переносимой, поскольку все необходимые данные изображений находятся в файле. Связывание может уменьшить размер файла, но вводит внешнюю зависимость. Используйте ссылки только тогда, когда такая зависимость приемлема и стабильна.
+
+### **Повторное использование общего фирменного оформления**
+
+Для повторяющихся логотипов, водяных знаков или декоративных графических элементов используйте один ресурс изображения и переиспользуйте его. Если графика относится к дизайну презентации, а не к содержимому слайда, разместите её на образце или макете, чтобы она наследовалась соответствующими слайдами.
+
+### **Сохранение переносимости SVG‑ресурсов**
+
+Самодостаточный SVG легче перемещать и рендерить последовательно, чем SVG, зависящий от внешних файлов или сетевых ресурсов. По возможности внедряйте необходимые ресурсы перед импортом SVG. Преобразуйте SVG в фигуры только тогда, когда отдельные векторные элементы нуждаются в редактировании.
+
+### **Использование современного кроссплатформенного API изображений**
+
+Для нового кода .NET используйте API Aspose.Slides **[IImage]**(https://reference.aspose.com/slides/ru/net/aspose.slides/iimage/) и **[Images]**(https://reference.aspose.com/slides/ru/net/aspose.slides/images/) вместо `System.Drawing.Image` или `Bitmap`. См. раздел [Modern API](/slides/ru/net/modern-api/) для рекомендаций по миграции.
+
+WMF и EMF требуют особого внимания. При передаче этих форматов через **[IImage]**, **[ImageCollection.AddImage]**(https://reference.aspose.com/slides/ru/net/aspose.slides/imagecollection/addimage/) преобразует метафайл в растровое представление PNG перед вставкой. Если важно сохранить данные метафайла, используйте потоковую перегрузку **[ImageCollection.AddImage]**. Генерация EMF‑контента из электронных таблиц или других продуктов — отдельный процесс интеграции и выходит за рамки этой статьи.
 
 ## **FAQ**
 
-**Сохраняется ли оригинальное разрешение изображения после вставки?**  
-Да. Исходные пиксели сохраняются, но окончательный вид зависит от того, как [picture](/slides/ru/net/picture-frame/) масштабируется на слайде и от любой компрессии, применяемой при сохранении.  
+**В чём разница между коллекцией изображений и рамкой изображения?**
 
-**Как лучше всего заменить один и тот же логотип на десятках слайдов одновременно?**  
-Разместите логотип на мастере слайда или в макете и замените его в коллекции изображений презентации — изменения будут распространены на все элементы, использующие этот ресурс.  
+Коллекция изображений хранит переиспользуемые ресурсы изображений. Рамка изображения — это фигура слайда, отображающая один из этих ресурсов и предоставляющая специфическое для картинок форматирование, такое как обрезка и эффекты.
 
-**Можно ли преобразовать вставленный SVG в редактируемые фигуры?**  
-Да. Вы можете конвертировать SVG в группу фигур, после чего отдельные части становятся редактируемыми с помощью стандартных свойств фигур.  
+**Как лучше всего заменить один и тот же логотип во всех местах?**
 
-**Как установить изображение в качестве фона сразу для нескольких слайдов?**  
-[Назначьте изображение как фон](/slides/ru/net/presentation-background/) на мастере слайда или соответствующем макете — все слайды, использующие этот мастер/макет, унаследуют фон.  
+Если логотип уже общим ресурсом изображения, замените его с помощью **[IPPImage.ReplaceImage]**. Для фирменного оформления на уровне всей презентации также можно разместить логотип на образце или макете, что уменьшит дублирование контента на слайдах.
 
-**Как избежать избыточного разрастания файла презентации из‑за большого количества изображений?**  
-Повторно используйте один ресурс изображения вместо дублирования, выбирайте разумные разрешения, применяйте компрессию при сохранении и размещайте повторяющиеся графические элементы в мастере, где это уместно.
+**Почему связанное изображение исчезает на другом компьютере?**
+
+Связанная картинка зависит от внешнего файла или URL. Если ресурс недоступен с другого компьютера, связанное изображение будет недоступно. Встраивайте изображение, когда презентация должна быть автономной.
+
+**Можно ли отредактировать вставленный SVG как фигуры PowerPoint?**
+
+Да. Преобразуйте SVG с помощью **[IShapeCollection.AddGroupShape]**; полученная группа будет содержать редактируемые фигуры слайда вместо одного SVG‑изображения.
+
+**Как сделать презентацию с множеством изображений менее объёмной?**
+
+Переиспользуйте общие ресурсы изображений, избегайте избыточно больших растровых источников, при необходимости сжимайте подходящие растровые картинки, размещайте повторяющийся фирменный контент на образцах или макетах и используйте связанные изображения только тогда, когда внешняя зависимость приемлема.

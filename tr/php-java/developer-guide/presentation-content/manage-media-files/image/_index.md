@@ -1,117 +1,111 @@
 ---
-title: PHP Kullanarak Sunumlarda Görüntü Yönetimini Optimize Edin
-linktitle: Görüntüleri Yönet
+title: "Sunularda Görüntü Yönetimini PHP ile Optimize Etme"
+linktitle: "Görüntüleri Yönet"
 type: docs
 weight: 10
 url: /tr/php-java/image/
 keywords:
-- görsel ekle
-- resim ekle
-- bitmap ekle
-- görsel değiştir
-- resim değiştir
-- web'den
-- arka plan
-- PNG ekle
-- JPG ekle
-- SVG ekle
-- harici SVG kaynakları
-- SVG çözücü
-- bağlantılı SVG görüntüleri
-- SVG fontları
-- EMF ekle
-- WMF ekle
-- TIFF ekle
-- PowerPoint
-- OpenDocument
-- sunum
-- EMF
-- SVG
-- PHP
-- Aspose.Slides
-description: "PowerPoint ve OpenDocument'ta görüntü yönetimini, Java üzerinden PHP için Aspose.Slides ile kolaylaştırın; performansı optimize edin ve iş akışınızı otomatikleştirin."
+  - görüntü ekle
+  - resim ekle
+  - görüntüyü değiştir
+  - görüntü koleksiyonu
+  - resim çerçevesi
+  - bağlantılı görüntü
+  - arka plan
+  - PNG ekle
+  - JPG ekle
+  - SVG ekle
+  - SVG'den şekillere
+  - harici SVG kaynakları
+  - PowerPoint
+  - OpenDocument
+  - sunum
+  - PHP
+  - Aspose.Slides
+description: "Aspose.Slides for PHP via Java ile PowerPoint ve OpenDocument sunularında raster ve SVG görüntülerini eklemeyi, yeniden kullanmayı, bağlamayı, değiştirmeyi ve yönetmeyi öğrenin."
 ---
 ## **Giriş**
 
-Görseller, sunumları daha ilgi çekici ve görsel olarak çekici hâle getirir. Microsoft PowerPoint'te, dosyalardan, internetten veya diğer kaynaklardan slaytlara resim ekleyebilirsiniz. Benzer şekilde, Aspose.Slides, sunum slaytlarına çeşitli yollarla resim eklemenize olanak tanır.
+Aspose.Slides for PHP via Java, görüntülerle çalışmak için çeşitli yollar sunar ve her biri farklı bir amaca hizmet eder. Bir görüntüyü sunuma kaydedebilir, bir resim çerçevesinde gösterebilir, slayt arka planı olarak kullanabilir, harici bir görüntüye bağlayabilir, paylaşılan bir görüntü kaynağını değiştirebilir veya SVG içeriğini düzenlenebilir şekillere dönüştürebilirsiniz.
 
-{{% alert  title="Tip" color="primary" %}} 
+Bu makale, görüntü kaynaklarına ve bunların bir sunu içinde nasıl kullanıldığına odaklanır. Kırpma, saydamlık, efektler, esnetme ve bireysel bir resim çerçevesine uygulanan diğer biçimlendirmeler için [Resim Çerçevesi](/slides/tr/php-java/picture-frame/) bölümüne bakın.
 
-Aspose, ücretsiz dönüştürücüler—[JPEG to PowerPoint](https://products.aspose.app/slides/tr/import/jpg-to-ppt) ve [PNG to PowerPoint](https://products.aspose.app/slides/tr/import/png-to-ppt)—sağlayarak görüntülerden hızlıca sunumlar oluşturmanıza imkan verir. 
+## **Görüntü Modelini Anlamak**
 
-{{% /alert %}} 
+Aşağıdaki API kavramları yakından ilişkilidir ancak birbirinin yerine kullanılamaz:
 
-{{% alert title="Info" color="info" %}}
+- [Sunum görüntü koleksiyonu](https://reference.aspose.com/slides/tr/php-java/aspose.slides/imagecollection/) sunumda kullanılan görüntü kaynaklarını saklar. Görüntü verisini eklemek ve bir [PPImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/ppimage/) kaynağı elde etmek için [ImageCollection::addImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/imagecollection/) kullanın.
+- Bir [resim çerçevesi](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pictureframe/) bir slayt, düzen veya ana taslak üzerinde bir görüntüyü gösteren bir şekildir. Bir slayta görüntü kaynağı yerleştirmek için [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shapecollection/addpictureframe/) kullanın.
+- Bir slayt arka planı, görüntüyü bir şekil olarak değil, slayt doldurmasının bir parçası olarak kullanır. Bu nedenle bir resim çerçevesi gibi davranmaz.
+- [PPImage::replaceImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/ppimage/) bir görüntü kaynağını değiştirir. Bu kaynağı kullanan birden çok sunum öğesi varsa, hepsi değişikliği alır.
+- Bir SVG'yi şekillere dönüştürmek, düzenlenebilir slayt şekilleri oluşturur. Dönüştürmeden sonra içerik artık tek bir resim kaynağı olarak yönetilmez.
 
-Bir resmi resim çerçevesi olarak eklemek istiyorsanız—özellikle yeniden boyutlandırmayı, efekt uygulamayı veya diğer standart biçimlendirme seçeneklerini kullanmayı planlıyorsanız—[Picture Frame](/slides/tr/php-java/picture-frame/) sayfasına bakın. 
+Tipik bir iş akışı şu şekildedir: görüntü verisini görüntü koleksiyonuna ekleyin, bir [PPImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/ppimage/) alın ve ardından bu kaynağı bir veya daha fazla resim çerçevesinde veya doldurmalarda kullanın.
 
-{{% /alert %}} 
+## **Gömülü Görüntü Ekleme**
 
-{{% alert title="Note" color="warning" %}}
-
-Görüntüleri bir formattan başka bir formata dönüştürebilirsiniz. Aşağıdaki sayfalara bakın: görüntüyü JPG'ye dönüştürme[image to JPG](https://products.aspose.com/slides/tr/php-java/conversion/image-to-jpg/), JPG'yi görüntüye dönüştürme[JPG to image](https://products.aspose.com/slides/tr/php-java/conversion/jpg-to-image/), JPG'yi PNG'ye dönüştürme[JPG to PNG](https://products.aspose.com/slides/tr/php-java/conversion/jpg-to-png/), PNG'yi JPG'ye dönüştürme[PNG to JPG](https://products.aspose.com/slides/tr/php-java/conversion/png-to-jpg/), PNG'yi SVG'ye dönüştürme[PNG to SVG](https://products.aspose.com/slides/tr/php-java/conversion/png-to-svg/), ve SVG'yi PNG'ye dönüştürme[SVG to PNG](https://products.aspose.com/slides/tr/php-java/conversion/svg-to-png/).
-
-{{% /alert %}}
-
-Aspose.Slides, JPEG, PNG, BMP, GIF ve diğer popüler formatlardaki görüntüleri destekler. 
-
-## **Yerel Olarak Saklanan Görüntüleri Slaytlara Ekleyin**
-
-Bilgisayarınızda depolanan bir veya birden fazla görüntüyü bir sunum slaytına ekleyebilirsiniz. Aşağıdaki PHP örnek kod bir görüntüyü slayta nasıl ekleyeceğinizi gösterir:
+Yerel bir görüntü eklemek için dosyayı yükleyin, görüntü koleksiyonuna ekleyin ve döndürülen `PPImage`i kullanan bir resim çerçevesi oluşturun.
 
 ```php
-$pres = new Presentation();
-try {
-    $slide = $pres->getSlides()->get_Item(0);
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
 
-    $picture = null;
-    $image = Images::fromFile("image.png");
+$presentation = new Presentation();
+try {
+    $image = Images::fromFile("photo.png");
     try {
-        $picture = $pres->getImages()->addImage($image);
+        $ppImage = $presentation->getImages()->addImage($image);
     } finally {
         if (!java_is_null($image)) {
             $image->dispose();
         }
     }
 
-    $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $picture);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 320, 180, $ppImage);
 
-    $pres->save("pres.pptx", SaveFormat::Pptx);
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
 } finally {
-    $pres->dispose();
+    $presentation->dispose();
 }
 ```
 
-## **Web'den Görüntüleri Slaytlara Ekleyin**
+Bu şekilde eklenen görüntü sunuya gömülür, bu yüzden ortaya çıkan dosya orijinal görüntü dosyasının mevcut olmasına bağlı değildir.
 
-Eğer bir slayta eklemek istediğiniz görüntü bilgisayarınızda depolanmamışsa, doğrudan web üzerinden ekleyebilirsiniz. 
+### **Web’den Görüntü Ekleme**
 
-Aşağıdaki PHP örnek kod, bir görüntüyü web'den slayta nasıl ekleyeceğinizi gösterir:
+Bir görüntü HTTP veya HTTPS üzerinden erişilebiliyorsa, baytlarını indirin, sunum görüntü koleksiyonuna ekleyin ve döndürülen görüntü kaynağını yerel bir görüntü gibi aynı şekilde kullanın.
 
 ```php
-$pres = new Presentation();
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
 try {
-    $slide = $pres->getSlides()->get_Item(0);
-
-    $imageUrl = new Java("java.net.URL", "[REPLACE WITH URL]");
+    $imageUrl = new Java("java.net.URL", "https://example.com/image.png");
     $connection = $imageUrl->openConnection();
-    $inputStream = $connection->getInputStream();
+    $connection->setConnectTimeout(10000);
+    $connection->setReadTimeout(10000);
 
+    $inputStream = $connection->getInputStream();
     $outputStream = new Java("java.io.ByteArrayOutputStream");
     $Array = new JavaClass("java.lang.reflect.Array");
     $Byte = (new JavaClass("java.lang.Byte"))->TYPE;
 
     try {
-        $buffer = $Array->newInstance($Byte, 1024);
+        $buffer = $Array->newInstance($Byte, 8192);
+        $bufferLength = $Array->getLength($buffer);
 
-        while (($read = java_values($inputStream->read($buffer, 0, $Array->getLength($buffer)))) != -1) {
-            $outputStream->write($buffer, 0, $read);
+        while (($bytesRead = java_values($inputStream->read($buffer, 0, $bufferLength))) != -1) {
+            $outputStream->write($buffer, 0, $bytesRead);
         }
 
-        $outputStream->flush();
-
-        $image = $pres->getImages()->addImage($outputStream->toByteArray());
-        $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $image);
+        $ppImage = $presentation->getImages()->addImage($outputStream->toByteArray());
+        $slide = $presentation->getSlides()->get_Item(0);
+        $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 320, 180, $ppImage);
     } finally {
         if (!java_is_null($inputStream)) {
             $inputStream->close();
@@ -119,467 +113,229 @@ try {
         $outputStream->close();
     }
 
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-} catch (JavaException $e) {
+    $presentation->save("presentation-from-web.pptx", SaveFormat::Pptx);
 } finally {
-    $pres->dispose();
+    $presentation->dispose();
 }
 ```
 
-## **Slide Master'lara Görüntü Ekleyin**
+Uzun çalışan uygulamalarda, gereksiz ağ altyapısı oluşturmak yerine uygulamaya uygun bir HTTP istemcisi veya bağlantı yönetim stratejisi yeniden kullanın. Kaynak güvenilir değilse uzak URL'leri, yanıt boyutlarını ve içerik türlerini de doğrulayın.
 
-Slide master, onu kullanan slaytların tema ve düzen gibi bilgilerini depolar ve kontrol eder. Bir slide master'a bir görüntü eklediğinizde, görüntü o master'a dayalı her slaytta görünür. 
+## **Slaytlar Arasında Görüntüleri Yeniden Kullanma**
 
-Aşağıdaki PHP örnek kod bir görüntüyü slide master'a nasıl ekleyeceğinizi gösterir:
+Aynı görüntü birden fazla kez gerekiyorsa, görüntüyü sunuma bir kez ekleyin ve ek resim çerçevelerini oluştururken döndürülen [PPImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/ppimage/)i yeniden kullanın. Bu, aynı kaynak verisinin tekrar tekrar yüklenmesini önler ve paylaşılan görüntü kaynağı ile kullanım yerleri arasındaki ilişkiyi açık hâle getirir.
+
+Birçok slaytta otomatik olarak görünmesi gereken grafikler (örneğin şirket logosu) için, her slayda eşdeğer bir şekil eklemek yerine resmi bir [slayt ana taslağı](/slides/tr/php-java/slide-master/) veya düzen üzerine yerleştirmenizi öneririz.
+
+## **Görüntüyü Slayt Arka Planı Olarak Kullanma**
+
+Bir arka plan görüntüsü slayt doldurmasına atanır; bir resim çerçevesi şekli olarak eklenmez. Bu, resmin slayt arka planını kaplaması ve normal bir slayt nesnesi gibi manipüle edilmemesi gerektiğinde işe yarar.
 
 ```php
-$pres = new Presentation();
-try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $masterSlide = $slide->getLayoutSlide()->getMasterSlide();
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\PictureFillMode;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-    $picture = null;
-    $image = Images::fromFile("image.png");
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $image = Images::fromFile("background.jpg");
     try {
-        $picture = $pres->getImages()->addImage($image);
+        $ppImage = $presentation->getImages()->addImage($image);
     } finally {
         if (!java_is_null($image)) {
             $image->dispose();
         }
     }
 
-    $masterSlide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $picture);
+    $slide->getBackground()->setType(BackgroundType::OwnBackground);
+    $slide->getBackground()->getFillFormat()->setFillType(FillType::Picture);
+    $slide->getBackground()->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Stretch);
+    $slide->getBackground()->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($ppImage);
 
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-} finally {
-    $pres->dispose();
-}
-```
-
-## **Görüntüleri Slayt Arka Planı Olarak Ekleyin**
-
-Bir veya birden fazla slaytın arka planı olarak bir resmi kullanabilirsiniz. Ayrıntılar için *[Setting Images as Backgrounds for Slides](/slides/tr/php-java/presentation-background/#setting-images-as-background-for-slides)* sayfasına bakın.
-
-## **Sunumlara SVG Ekleyin**
-
-SVG içeriği, bir sunuma [SvgImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/svgimage/) sınıfı kullanılarak eklenebilir. Oluşan SVG görüntü nesnesi daha sonra sunumun resim koleksiyonuna eklenebilir ve bir resim çerçevesi oluşturmak için kullanılabilir.
-
-Aşağıdaki PHP örneği, kendine özgü bir SVG dizesini içe aktarır. Bu SVG tarafından kullanılan tüm görüntüler, stiller ve diğer kaynaklar doğrudan SVG içeriğine gömülür.
-
-```php
-$svgContent =
-    "<svg xmlns='http://www.w3.org/2000/svg' width='320' height='180'>" .
-    "    <rect width='320' height='180' fill='#4F81BD'/>" .
-    "    <circle cx='160' cy='90' r='55' fill='#F2F2F2'/>" .
-    "</svg>";
-
-$presentation = new Presentation();
-try {
-    $svgImage = new SvgImage($svgContent);
-    $image = $presentation->getImages()->addImage($svgImage);
-
-    $presentation->getSlides()->get_Item(0)->getShapes()->addPictureFrame(
-        ShapeType::Rectangle,
-        20,
-        20,
-        $image->getWidth(),
-        $image->getHeight(),
-        $image
-    );
-
-    $presentation->save("self-contained-svg.pptx", SaveFormat::Pptx);
+    $presentation->save("background-image.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Dış Kaynaklı SVG İçeriğini İçeri Aktarın**
+Ana taslak ve düzen arka planları dahil ek arka plan seçenekleri için [Sunum Arka Planı](/slides/tr/php-java/presentation-background/) bölümüne bakın.
 
-Tasarım araçları, diyagram editörleri, ikon sistemleri ve web pipeline'larından dışa aktarılan SVG dosyaları, SVG belgesinin dışındaki kaynaklara başvurabilir. Örneğin, bir SVG `images/photo.png` gibi bir resim bağlantısı, bir CSS `url(...)` değeri veya bir font URL'si içerebilir.
+## **Gömülü Görüntüler ve Bağlantılı Görüntüler**
 
-Bu tür SVG içeriğini içe aktarmak için bir [ExternalResourceResolver](https://reference.aspose.com/slides/tr/php-java/aspose.slides/externalresourceresolver/) uygulaması oluşturun ve temel URI ile birlikte uygun bir [SvgImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/svgimage/) yapıcısına geçirin. Temel URI, SVG belgesinin konumunu belirler ve göreli bağlantıların çözülmesinde kullanılır.
+Gömülü ve bağlantılı görüntülerin taşınabilirlik ve dosya boyutu açısından farklı ödünleşimleri vardır:
 
-SVG görüntü nesnesi içe aktarılan SVG hakkında bilgiye erişim sağlar:
+- **Gömülü görüntü:** görüntü verisi sununun içinde saklanır. Sunu kendine yeterli olur, ancak dosya boyutu görüntü verisini içerir.
+- **Bağlantılı görüntü:** sunu harici bir görüntüye yol veya URL saklar. Bu, sunu boyutunu küçültebilir, ancak harici kaynak sunu açıldığında veya render edildiğinde erişilebilir olmalıdır.
 
-- `getSvgContent()` SVG işaretlemesini bir dize olarak döndürür.
-- `getSvgData()` SVG içeriğini bir bayt dizisi olarak döndürür.
-- `getBaseUri()` göreli bağlantılar için kullanılan temel URI'yi döndürür.
-- `getExternalResourceResolver()` SVG görüntüsüne atanan çözücüyü döndürür.
-
-### **External Resource Resolver'ı Uygula**
-
-Çözücünün iki yöntemi vardır:
-
-- `resolveUri` temel URI ve göreli kaynak bağlantısını birleştirerek mutlak bir URI döndürür. Bağlantı çözülemediğinde veya izin verilmediğinde `null` döndürülür.
-- `getEntity` mutlak bir kaynak URI'si için okunabilir bir akış döndürür. Kaynak eksik, engellenmiş veya erişilemez olduğunda `null` döndürülür. Gerekli olduğunda bir yedek akış da döndürülebilir.
-
-Aşağıdaki çözücü, yalnızca izin verilen yerel bir dizinden bağlı kaynakları yükler. Ağ kaynakları ve izin verilen dizin dışındaki yollar engellenir. Çözülmemiş resim bağlantıları için isteğe bağlı bir yedek resim döndürülür.
+Harici yol veya URL'yi [Picture::setLinkPathLong](https://reference.aspose.com/slides/tr/php-java/aspose.slides/picture/) aracılığıyla atayarak bir bağlantılı resim oluşturulabilir; bu yöntem görüntü verisini gömmeyi içermez.
 
 ```php
-class LocalSvgResourceResolver extends ExternalResourceResolver
-{
-    private $allowedRoot;
-    private $fallbackImageData;
-
-    public function __construct($allowedRoot, $fallbackImageData)
-    {
-        parent::__construct();
-
-        $Paths = new JavaClass("java.nio.file.Paths");
-        $this->allowedRoot = $Paths->get($allowedRoot)->toAbsolutePath()->normalize();
-        $this->fallbackImageData = $fallbackImageData;
-    }
-
-    public function resolveUri($baseUri, $relativeUri)
-    {
-        if ($baseUri === null || trim(java_values($baseUri)) === "" ||
-            $relativeUri === null || trim(java_values($relativeUri)) === "") {
-            return null;
-        }
-
-        try {
-            $URI = new JavaClass("java.net.URI");
-            $baseAddress = $URI->create($baseUri);
-            $absoluteAddress = $baseAddress->resolve($relativeUri);
-
-            // Bu çözücü kasıtlı olarak yalnızca yerel dosyalara izin verir.
-            if (strcasecmp(java_values($absoluteAddress->getScheme()), "file") !== 0) {
-                return null;
-            }
-
-            $Paths = new JavaClass("java.nio.file.Paths");
-            $resourcePath = $Paths->get($absoluteAddress)->toAbsolutePath()->normalize();
-
-            if (!$this->isInsideAllowedRoot($resourcePath)) {
-                return null;
-            }
-
-            return $resourcePath->toUri()->toString();
-        } catch (JavaException $e) {
-            return null;
-        }
-    }
-
-    public function getEntity($absoluteUri)
-    {
-        try {
-            $URI = new JavaClass("java.net.URI");
-            $resourceUri = $URI->create($absoluteUri);
-
-            if (strcasecmp(java_values($resourceUri->getScheme()), "file") !== 0) {
-                return null;
-            }
-
-            $Paths = new JavaClass("java.nio.file.Paths");
-            $resourcePath = $Paths->get($resourceUri)->toAbsolutePath()->normalize();
-
-            if (!$this->isInsideAllowedRoot($resourcePath)) {
-                return null;
-            }
-
-            $Files = new JavaClass("java.nio.file.Files");
-            if (java_values($Files->exists($resourcePath))) {
-                return $Files->newInputStream($resourcePath);
-            }
-
-            // Yalnızca resim kaynakları için bir yedek kullanın. Bir resim akışı döndürmek
-            // eksik bir font veya stil sayfası için geçerli olmaz.
-            if ($this->fallbackImageData !== null && $this->isImageFile($resourcePath)) {
-                return new Java("java.io.ByteArrayInputStream", $this->fallbackImageData);
-            }
-        } catch (JavaException $e) {
-            return null;
-        }
-
-        return null;
-    }
-
-    private function isInsideAllowedRoot($resourcePath)
-    {
-        return java_values($resourcePath->normalize()->startsWith($this->allowedRoot));
-    }
-
-    private function isImageFile($path)
-    {
-        $fileName = strtolower(java_values($path->getFileName()->toString()));
-
-        return str_ends_with($fileName, ".png") ||
-            str_ends_with($fileName, ".jpg") ||
-            str_ends_with($fileName, ".jpeg") ||
-            str_ends_with($fileName, ".gif") ||
-            str_ends_with($fileName, ".bmp");
-    }
-}
-```
-
-### **SVG İçe Aktarımı Sırasında Bağlı Kaynakları Çöz**
-
-`assets/diagram.svg` dosyasının aşağıdaki gibi bir göreli referans içerdiğini varsayalım:
-
-```xml
-<image href="images/photo.png" x="20" y="20" width="320" height="180" />
-```
-
-Aşağıdaki PHP örneği, SVG dosyasının URI'sini temel URI olarak geçirir ve özel bir çözücü sağlar. Çözücü, göreli resim bağlantısını mutlak bir URI'ye dönüştürür ve Aspose.Slides SVG'yi işlerken bağlanan kaynağı içeren bir akış döndürür.
-
-```php
-$Paths = new JavaClass("java.nio.file.Paths");
-$Files = new JavaClass("java.nio.file.Files");
-$StandardCharsets = new JavaClass("java.nio.charset.StandardCharsets");
-
-$svgFilePath = $Paths->get("assets", "diagram.svg")->toAbsolutePath()->normalize();
-$assetDirectory = $svgFilePath->getParent();
-
-$svgData = $Files->readAllBytes($svgFilePath);
-$svgContent = new Java("java.lang.String", $svgData, $StandardCharsets->UTF_8);
-
-// Temel URI, SVG belgesinin konumunu temsil eder.
-$baseUri = $svgFilePath->toUri()->toString();
-
-$fallbackImageData = null;
-$fallbackImagePath = $assetDirectory->resolve("fallback.png");
-if (java_values($Files->exists($fallbackImagePath))) {
-    $fallbackImageData = $Files->readAllBytes($fallbackImagePath);
-}
-
-$resolver = new LocalSvgResourceResolver(java_values($assetDirectory->toString()), $fallbackImageData);
-$svgImage = new SvgImage($svgContent, $resolver, $baseUri);
-
-// SVG görüntü nesnesi kaynak içerik, ikili veri, temel URI ve çözücüyü gösterir.
-$importedContent = $svgImage->getSvgContent();
-$importedData = $svgImage->getSvgData();
-$importedBaseUri = $svgImage->getBaseUri();
-$importedResolver = $svgImage->getExternalResourceResolver();
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
 
 $presentation = new Presentation();
 try {
-    $image = $presentation->getImages()->addImage($svgImage);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 320, 180, null);
+    $pictureFrame->getPictureFormat()->getPicture()->setLinkPathLong("https://example.com/image.png");
 
-    $presentation->getSlides()->get_Item(0)->getShapes()->addPictureFrame(
-        ShapeType::Rectangle,
-        20,
-        20,
-        $image->getWidth(),
-        $image->getHeight(),
-        $image
-    );
-
-    $presentation->save("svg-with-linked-resources.pptx", SaveFormat::Pptx);
+    $presentation->save("linked-image.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-`SvgImage` sınıfı ayrıca, bir dış kaynak çözücüsü ve temel URI ile birlikte SVG verilerini bir bayt dizisi veya giriş akışı olarak kabul eden aşırı yüklemeler sağlar.
+Bağlantılı görüntüleri yalnızca dağıtım ortamı harici kaynağa güvenilir bir şekilde erişebiliyorsa kullanın. Çevrimdışı çalışması veya sistemler arasında taşınması gereken sunular için genellikle gömülü görüntüler daha güvenlidir.
 
-{{% alert title="Important" color="warning" %}}
+## **SVG Görüntülerle Çalışma**
 
-Kaynak çözücü, Aspose.Slides SVG'yi işler ve render ederken dış kaynakların kullanılabilir olmasını sağlar. Orijinal SVG işaretlemesini değiştirmez veya çözülmüş kaynakları otomatik olarak içine gömme işlemi yapmaz.
+SVG bir vektör formatıdır; bu nedenle ikonlar, diyagramlar ve ayrıntı kaybı yaşamadan ölçeklenmesi gereken diğer grafikler için yararlıdır. Aspose.Slides, SVG'yi hem bir görüntü kaynağı hem de düzenlenebilir slayt şekilleri için bir kaynak olarak destekler.
 
-Bir SVG görüntüsü sunumun resim koleksiyonuna eklendiğinde, PPTX dosyası hem orijinal SVG temsili hem de bir raster yedek resim içerebilir. Bağlı bir kaynak, oluşturulan yedek resimde görünebilirken `images/photo.png` gibi bir göreli bağlantı depolanan SVG'de değişmeden kalır. Yerel SVG temsili sağlayan bir uygulama, orijinal dış kaynak mevcut olmadığında bağlı içeriği atlayabilir.
+### **SVG'yi Görüntü Olarak Ekleme**
 
-{{% /alert %}}
-
-### **Taşınabilir Bir SVG Resmi Oluşturun**
-
-Harici dosyalara bağımlı olmayan bir SVG resmi oluşturmak için, `SvgImage` oluşturulmadan önce SVG'yi kendine özgü hâle getirin. Örneğin, bağlı resim URL'lerini resim verilerini içeren `data:` URI'leriyle değiştirin:
-
-```xml
-<image href="data:image/png;base64,..." x="20" y="20" width="320" height="180" />
-```
-
-Gerekli tüm kaynaklar SVG içeriğine gömüldükten sonra `SvgImage` oluşturun, sunumun resim koleksiyonuna ekleyin ve önceki örnekte gösterildiği gibi bir resim çerçevesine yerleştirin.
-
-### **Eksik veya Engellenen Kaynakları Ele Alın**
-
-`resolveUri` yönteminden, bir kaynak URI'si geçersiz, yasaklanmış veya çözülemiyorsa `null` döndürün. `getEntity` yönteminden, kaynak okunamıyorsa `null` döndürün. Aspose.Slides mümkün olduğunda o kaynağı olmadan SVG işleme devam eder.
-
-Eksik bir kaynak için bir yedek akış döndürülebilir, ancak içeriği istenen kaynak türüyle uyumlu olmalıdır. Örneğin, bir eksik resim için yalnızca bir resim akışı döndürün, bir font veya stil sayfası için değil.
-
-{{% alert title="Security" color="warning" %}}
-
-Güvenilmeyen SVG dosyalarından rastgele dosya yolları veya sınırsız ağ URL'leri çözülmemelidir. İzin verilen şemalar, dizinler ve ana bilgisayarlar kısıtlanmalıdır. Ağ kaynakları için bağlantı zaman aşımı, yanıt boyutu limitleri ve içerik doğrulaması da uygulanmalıdır.
-
-{{% /alert %}}
-
-## **SVG'yi Bir Şekil Kümesine Dönüştürün**
-
-Aspose.Slides, bir SVG'yi PowerPoint'teki karşılık gelen işlevselliğe benzer şekilde bir şekil kümesine dönüştürebilir:
-
-![PowerPoint Popup Menu](img_01_01.png)
-
-Bu işlevsellik, ilk argüman olarak bir [SvgImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/svgimage/) nesnesi alan [ShapeCollection](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shapecollection/) sınıfının [addGroupShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shapecollection/addgroupshape/) metodunun bir aşırı yüklemesi tarafından sağlanır.
-
-Aşağıdaki PHP örnek kod bu yöntemi kullanarak bir SVG dosyasını şekil kümesine nasıl dönüştüreceğinizi gösterir:
+Bir [SvgImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/svgimage/) oluşturun, bunu görüntü koleksiyonuna ekleyin ve oluşan görüntü kaynağını bir resim çerçevesine yerleştirin.
 
 ```php
-// Kaynak SVG dosya adı.
-$svgFileName = "sample.svg";
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SvgImage;
 
-// Çıktı sunum dosya adı.
-$outPptxPath = "presentation.pptx";
-
-// Yeni bir sunum oluştur.
 $presentation = new Presentation();
 try {
-    // SVG dosya içeriğini okuyun.
-    $Array = new JavaClass("java.lang.reflect.Array");
-    $Byte = (new JavaClass("java.lang.Byte"))->TYPE;
-
-    $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", $svgFileName));
-    try {
-        $svgContent = $Array->newInstance($Byte, $dis->available());
-        $dis->readFully($svgContent);
-    } finally {
-        if (!java_is_null($dis)) {
-            $dis->close();
-        }
-    }
-
-    // Bir SvgImage nesnesi oluştur.
+    $svgContent = file_get_contents("icon.svg");
     $svgImage = new SvgImage($svgContent);
 
-    // Slayt boyutunu al.
+    $ppImage = $presentation->getImages()->addImage($svgImage);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 200, 200, $ppImage);
+
+    $presentation->save("svg-image.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **Harici Kaynaklı SVG Dosyaları**
+
+Bir SVG harici görüntüler, stil dosyaları veya yazı tiplerine başvurabilir. Bu durumlar için [SvgImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/svgimage/) bir [ExternalResourceResolver](https://reference.aspose.com/slides/tr/php-java/aspose.slides/externalresourceresolver/) ve temel bir URI kabul eden yapıcılar sağlar. Çözücü, bir göreli URI'yi izin verilen mutlak bir URI'ye eşleyebilir ve istenen kaynağın akışını döndürebilir.
+
+Çözücü, Aspose.Slides SVG'yi işlerken harici kaynakları kullanılabilir kılar, ancak SVG'yi kendine yeterli bir belgeye dönüştürmez. SVG'nin taşınabilir kalması gerekiyorsa, örneğin bağlantılı görüntüler için `data:` URI'larını kullanarak gerekli kaynakları SVG'ye gömün.
+
+Güvenilmeyen kaynaklardan gelen SVG dosyaları için, çözücünün erişebileceği şema, dosya konumu ve barındırıcıları kısıtlayın. Ağ çözücüleri ayrıca zaman aşımı, yanıt boyutu sınırları ve içerik doğrulaması uygulamalıdır.
+
+### **SVG'yi Düzenlenebilir Şekillere Dönüştürme**
+
+Aspose.Slides, bir SVG'yi düzenlenebilir slayt şekilleri grubuna dönüştürebilir; bu, ilgili PowerPoint komutuna benzer.
+
+![PowerPoint Açılır Menüsü](img_01_01.png)
+
+Dönüştürmeyi gerçekleştirmek için bir [SvgImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/svgimage/) kabul eden [ShapeCollection::addGroupShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shapecollection/addgroupshape/) aşırı yüklemesini kullanın.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SvgImage;
+
+$presentation = new Presentation();
+try {
+    $svgContent = file_get_contents("diagram.svg");
+    $svgImage = new SvgImage($svgContent);
+
     $slideSize = $presentation->getSlideSize()->getSize();
+    $slide = $presentation->getSlides()->get_Item(0);
+    $slide->getShapes()->addGroupShape($svgImage, 0, 0, $slideSize->getWidth(), $slideSize->getHeight());
 
-    // SVG görüntüsünü bir şekil grubuna dönüştürün ve slayt boyutuna ölçeklendirin.
-    $presentation->getSlides()->get_Item(0)->getShapes()->addGroupShape(
-        $svgImage,
-        0.0,
-        0.0,
-        $slideSize->getWidth(),
-        $slideSize->getHeight()
-    );
-
-    // Sunumu PPTX formatında kaydedin.
-    $presentation->save($outPptxPath, SaveFormat::Pptx);
-} catch (JavaException $e) {
+    $presentation->save("editable-svg-shapes.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Görüntüleri EMF Olarak Slaytlara Ekleyin**
+SVG‑yi şekillere dönüştürme, bireysel vektör öğelerinin PowerPoint şekilleri olarak düzenlenmesi gerektiğinde kullanılmalıdır. SVG yalnızca görüntülenmesi gerekiyorsa, bir görüntü olarak tutmak daha basittir ve birçok ayrı şekil oluşturulmasını önler.
 
-Aspose.Slides for PHP via Java, Aspose.Cells ile Excel çalışma sayfalarından EMF görüntüleri oluşturmanıza ve bunları sunum slaytlarına eklemenize olanak tanır.
+## **Mevcut Görüntü Kaynağını Değiştirme**
 
-Aşağıdaki PHP örnek kod bu işlemi nasıl yapacağınızı gösterir:
-
-```php
-$book = new Workbook("chart.xlsx");
-$sheet = $book->getWorksheets()->get(0);
-
-$options = new ImageOrPrintOptions();
-$options->setHorizontalResolution(200);
-$options->setVerticalResolution(200);
-$options->setImageType(ImageType::EMF);
-
-// Çalışma kitabını bir akışa kaydet.
-$sr = new SheetRender($sheet, $options);
-$pres = new Presentation();
-try {
-    $pres->getSlides()->removeAt(0);
-
-    for ($j = 0; $j < java_values($sr->getPageCount()); $j++) {
-        $emfSheetName = "test" . $sheet->getName() . " Page" . ($j + 1) . ".out.emf";
-        $sr->toImage($j, $emfSheetName);
-
-        // Dosyayı olduğu gibi ekle ki resim vektör EMF olarak kalsın, rasterleştirilmesin.
-        $picture = null;
-        $imageStream = new Java("java.io.FileInputStream", $emfSheetName);
-        try {
-            $picture = $pres->getImages()->addImage($imageStream);
-        } finally {
-            $imageStream->close();
-        }
-
-        $slide = $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->getByType(SlideLayoutType::Blank));
-        $slide->getShapes()->addPictureFrame(
-            ShapeType::Rectangle,
-            0,
-            0,
-            $pres->getSlideSize()->getSize()->getWidth(),
-            $pres->getSlideSize()->getSize()->getHeight(),
-            $picture
-        );
-    }
-
-    $pres->save("output.pptx", SaveFormat::Pptx);
-} catch (JavaException $e) {
-} finally {
-    $pres->dispose();
-}
-```
-
-## **Resim Koleksiyonundaki Görüntüleri Değiştirin**
-
-Aspose.Slides, bir sunumun resim koleksiyonunda depolanan görüntüleri, slayt şekilleri tarafından kullanılan görüntüler dahil, değiştirmenize izin verir. Bu bölüm, koleksiyondaki görüntüleri güncellemenin çeşitli yollarını açıklar. Bir görüntüyü ham bayt verisi, bir [IImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/iimage/) örneği veya koleksiyonda zaten mevcut başka bir görüntü kullanarak değiştirebilirsiniz.
-
-Aşağıdaki adımları izleyin:
-
-1. Görüntüleri içeren sunum dosyasını [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) sınıfı ile yükleyin.
-1. Yeni bir görüntüyü dosyadan bir bayt dizisine yükleyin.
-1. Hedef görüntüyü bayt dizisini kullanarak yeni görüntüyle değiştirin.
-1. İkinci yöntemde, görüntüyü bir [IImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/iimage/) nesnesine yükleyin ve hedef görüntüyü bu nesneyle değiştirin.
-1. Üçüncü yöntemde, hedef görüntüyü sunumun resim koleksiyonunda zaten var olan bir görüntüyle değiştirin.
-1. Değiştirilmiş sunumu PPTX dosyası olarak yazın.
+Mevcut bir görüntü kaynağını değiştirmek istediğinizde [PPImage::replaceImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/ppimage/) kullanın. Bu, özellikle logolar gibi paylaşılan grafikler için faydalıdır.
 
 ```php
-// Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
-$presentation = new Presentation("sample.pptx");
-try {
-    // İlk yol.
-    $imagePath = (new Java("java.io.File", "image0.jpeg"))->toPath();
-    $imageData = (new JavaClass("java.nio.file.Files"))->readAllBytes($imagePath);
-    $oldImage = $presentation->getImages()->get_Item(0);
-    $oldImage->replaceImage($imageData);
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-    // İkinci yol.
-    $newImage = Images::fromFile("image1.png");
+$presentation = new Presentation("input.pptx");
+try {
+    $imageToReplace = $presentation->getImages()->get_Item(0);
+
+    $replacementImage = Images::fromFile("new-logo.png");
     try {
-        $oldImage = $presentation->getImages()->get_Item(1);
-        $oldImage->replaceImage($newImage);
+        $imageToReplace->replaceImage($replacementImage);
     } finally {
-        if (!java_is_null($newImage)) {
-            $newImage->dispose();
+        if (!java_is_null($replacementImage)) {
+            $replacementImage->dispose();
         }
     }
 
-    // Üçüncü yol.
-    $oldImage = $presentation->getImages()->get_Item(2);
-    $oldImage->replaceImage($presentation->getImages()->get_Item(3));
-
-    // Sunumu bir dosyaya kaydet.
     $presentation->save("output.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-{{% alert title="Info" color="info" %}}
+Birden çok resim çerçevesi, arka plan, ana taslak veya düzen aynı görüntü kaynağını kullanıyorsa, bu kaynağın değiştirilmesi tüm bu kullanım yerlerini günceller. Yalnızca bir resim çerçevesinin değişmesi gerekiyorsa, paylaşılan kaynağı değiştirmek yerine o çerçeveye farklı bir görüntü atayın.
 
-Aspose'un ücretsiz [Text to GIF](https://products.aspose.app/slides/tr/text-to-gif) dönüştürücüsü ile metni kolayca canlandırabilir ve metinden GIF'ler oluşturabilirsiniz. 
+`PPImage::replaceImage` ayrıca bir bayt dizisi veya başka bir [PPImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/ppimage/) kabul eden aşırı yüklemeler sunar.
 
-{{% /alert %}}
+## **Pratik Görüntü Yönetimi Rehberi**
+
+### **Sunum Boyutunu Kontrol Etme**
+
+Büyük raster görüntüler bir sunuyu gereksiz yere büyük yapabilir. Amaçlanan gösterim boyutuna uygun boyutlarda kaynak görüntüler kullanın, mümkün olduğunca paylaşılan görüntü kaynaklarını yeniden kullanın ve aynı yüksek çözünürlüklü grafiğin tekrarlı gömülmesinden kaçının.
+
+Resim çerçevelerine zaten yerleştirilmiş raster resimler için [PictureFillFormat::compressImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/picturefillformat/) seçilen çözünürlük ve kırpma ayarlarına göre görüntü verisini azaltabilir. Bu, resim‑çerçeve işleme olup görüntü‑koleksiyonu yönetimi değildir; ilgili biçimlendirme işlemleri için [Resim Çerçevesi](/slides/tr/php-java/picture-frame/) bölümüne bakın.
+
+### **Gömülü ve Bağlantılı İçerik Arasında Seçim Yapma**
+
+Gömme, tüm gerekli görüntü verileri dosyayla birlikte taşındığı için sunuyu taşınabilir kılar. Bağlantı dosya boyutunu küçültebilir, ancak harici bir bağımlılık getirir. Bağlantıları yalnızca bu bağımlılığın kabul edilebilir ve istikrarlı olduğu durumlarda kullanın.
+
+### **Paylaşılan Markayı Yeniden Kullanma**
+
+Tekrarlanan logolar, filigranlar veya süsleme grafikleri için tek bir görüntü kaynağı kullanın ve yeniden kullanın. Grafik sunu tasarımına aitse (slayt içeriği değil) bir ana taslak veya düzen üzerine yerleştirerek uygun slaytlar tarafından devralınmasını sağlayın.
+
+### **SVG Kaynaklarını Taşınabilir Tutma**
+
+Kendine yeterli bir SVG, dış dosyalara veya ağ kaynaklarına bağımlı bir SVG'den daha kolay hareket ettirilebilir ve tutarlı şekilde render edilir. Mümkün olduğunda SVG'yi içe aktarmadan önce gerekli kaynakları gömün. SVG'yi şekillere dönüştürme yalnızca bireysel vektör öğelerinin düzenlenmesi gerektiğinde yapılmalıdır.
+
+### **Modern Çok Platformlu Görüntü API'sını Kullanma**
+
+Yeni PHP via Java kodu için, eski `java.awt.image.BufferedImage` tabanlı herkese açık API yerine Aspose.Slides [IImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/iimage/) ve [Images](https://reference.aspose.com/slides/tr/php-java/aspose.slides/images/) API'larını kullanın. Göç rehberi için [Modern API](/slides/tr/php-java/modern-api/) bölümüne bakın.
+
+WMF ve EMF özel dikkate ihtiyaç duyar. Bu formatlar bir [IImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/iimage/) aracılığıyla geçirildiğinde, [ImageCollection::addImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/imagecollection/) metafili bir raster PNG temsiline dönüştürür. Metafili verisini korumak önemliyse, akış tabanlı bir [ImageCollection::addImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/imagecollection/) aşırı yüklemesi kullanın. Elektronik tablolar veya diğer ürünlerden EMF içeriği üretmek ayrı bir bütünleşme iş akışıdır ve bu makalenin kapsamı dışındadır.
 
 ## **SSS**
 
-**Eklemeden sonra orijinal görüntü çözünürlüğü aynı kalır mı?**
+**Görüntü koleksiyonu ile resim çerçevesi arasındaki fark nedir?**
 
-Evet. Kaynak pikseller korunur, ancak son görünüm [picture](/slides/tr/php-java/picture-frame/) slaytta nasıl ölçeklendirildiğine ve kaydedilirken uygulanan sıkıştırmaya bağlıdır.
+Görüntü koleksiyonu yeniden kullanılabilir görüntü kaynaklarını saklar. Resim çerçevesi ise bu kaynaklardan birini gösteren ve kırpma, efekt gibi resim‑özel biçimlendirmeler sağlayan bir slayt şeklidir.
 
-**Yüzlerce slaytta aynı logoyu bir anda değiştirmek için en iyi yol nedir?**
+**Aynı logoyu her yerde değiştirmek için en iyi yol nedir?**
 
-Logoyu master slayta veya bir yerleşime yerleştirip sunumun resim koleksiyonunda değiştirin—güncellemeler bu kaynağı kullanan tüm öğelere yayılır.
+Logo zaten tek bir görüntü kaynağı olarak paylaşılıyorsa, o kaynağı [PPImage::replaceImage](https://reference.aspose.com/slides/tr/php-java/aspose.slides/ppimage/) ile değiştirin. Sunu geneli markalama için logo bir ana taslak veya düzen üzerine yerleştirildiğinde yinelemeli slayt içeriği azaltılabilir.
 
-**Eklenen bir SVG düzenlenebilir şekillere dönüştürülebilir mi?**
+**Bağlantılı bir görüntü başka bir bilgisayarda neden kaybolur?**
 
-Evet. Bir SVG'yi şekil grubuna dönüştürebilirsiniz; böylece bireysel parçalar standart şekil özellikleriyle düzenlenebilir hâle gelir.
+Bağlantılı bir resim, dış dosya veya URL'ye bağlıdır. Bu kaynak diğer bilgisayardan erişilemezse, bağlantılı görüntü kullanılamaz hâle gelir. Sununun kendine yeterli olması gerekiyorsa görüntüyü gömün.
 
-**Birden fazla slaytın arka planı olarak resmi aynı anda nasıl ayarlayabilirim?**
+**Eklenen bir SVG PowerPoint şekilleri olarak düzenlenebilir mi?**
 
-Resmi master slayta veya ilgili yerleşime [arkaplan olarak atayın](/slides/tr/php-java/presentation-background/); bu master/yerleşimi kullanan tüm slaytlar arka planı miras alır.
+Evet. SVG'yi [ShapeCollection::addGroupShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shapecollection/addgroupshape/) ile dönüştürün; ortaya çıkan grup tek bir SVG resmi yerine düzenlenebilir slayt şekilleri içerir.
 
-**Birçok resim nedeniyle sunumun çok büyük olmasını nasıl önleyebilirim?**
+**Birçok görüntülü sunuların daha küçük kalmasını nasıl sağlayabilirim?**
 
-Tek bir resim kaynağını tekrar kullanın, makul çözünürlükler seçin, kaydederken sıkıştırma uygulayın ve gerektiğinde grafikleri master'da tutun.
+Paylaşılan görüntü kaynaklarını yeniden kullanın, gereksiz büyük raster kaynaklardan kaçının, uygun olduğunda raster resimleri sıkıştırın, tekrarlanan markayı ana taslak veya düzenlerde tutun ve harici bir bağımlılık kabul edilebilir olduğunda yalnızca bağlantılı görüntüleri kullanın.

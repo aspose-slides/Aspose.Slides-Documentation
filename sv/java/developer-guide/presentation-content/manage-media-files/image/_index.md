@@ -6,556 +6,316 @@ weight: 10
 url: /sv/java/image/
 keywords:
 - lägga till bild
-- lägga till foto
-- lägga till bitmap
+- lägga till bild
 - ersätta bild
-- ersätta foto
-- från webben
+- bildsamling
+- bildram
+- länkad bild
 - bakgrund
 - lägga till PNG
 - lägga till JPG
 - lägga till SVG
+- SVG till former
 - externa SVG-resurser
-- SVG-resolver
-- länkade SVG-bilder
-- SVG-teckensnitt
-- lägga till EMF
-- lägga till WMF
-- lägga till TIFF
 - PowerPoint
 - OpenDocument
 - presentation
 - Java
 - Aspose.Slides
-description: "Effektivisera bildhantering i PowerPoint och OpenDocument med Aspose.Slides för Java, optimera prestanda och automatisera ditt arbetsflöde."
+description: "Lär dig hur du lägger till, återanvänder, länkar, ersätter och hanterar raster- och SVG-bilder i PowerPoint- och OpenDocument-presentationer med Aspose.Slides för Java."
 ---
 ## **Introduktion**
 
-Bilder gör presentationer mer engagerande och visuellt tilltalande. I Microsoft PowerPoint kan du infoga bilder på bilderna från filer, internet eller andra källor. På samma sätt låter Aspose.Slides dig lägga till bilder i presentationsbilder på flera sätt.
+Aspose.Slides för Java erbjuder flera sätt att arbeta med bilder, och varje sätt har ett annat syfte. Du kan lagra en bild i en presentation, visa den i en bildram, använda den som bakgrund för en bild, länka till en extern bild, ersätta en delad bildresurs eller konvertera SVG‑innehåll till redigerbara former.
 
-{{% alert title="Tips" color="primary" %}} 
-Aspose tillhandahåller kostnadsfria konverterare—[JPEG till PowerPoint](https://products.aspose.app/slides/sv/import/jpg-to-ppt) och [PNG till PowerPoint](https://products.aspose.app/slides/sv/import/png-to-ppt)—som låter dig snabbt skapa presentationer från bilder. 
-{{% /alert %}} 
+Denna artikel fokuserar på bildresurser och hur de används i en presentation. För beskärning, transparens, effekter, töjning och annan formatering som tillämpas på en enskild bildram, se [Bildram](/slides/sv/java/picture-frame/).
 
-{{% alert title="Info" color="info" %}}
-Om du vill lägga till en bild som bildram—speciellt om du planerar att ändra storlek, tillämpa effekter eller använda andra standardformateringsalternativ—se [Bildram](/slides/sv/java/picture-frame/). 
-{{% /alert %}} 
+## **Förstå bildmodellen**
 
-{{% alert title="Notering" color="warning" %}}
-Du kan konvertera bilder från ett format till ett annat. Se följande sidor: konvertera [bild till JPG](https://products.aspose.com/slides/sv/java/conversion/image-to-jpg/), [JPG till bild](https://products.aspose.com/slides/sv/java/conversion/jpg-to-image/), [JPG till PNG](https://products.aspose.com/slides/sv/java/conversion/jpg-to-png/), [PNG till JPG](https://products.aspose.com/slides/sv/java/conversion/png-to-jpg/), [PNG till SVG](https://products.aspose.com/slides/sv/java/conversion/png-to-svg/), och [SVG till PNG](https://products.aspose.com/slides/sv/java/conversion/svg-to-png/).
-{{% /alert %}}
+Följande API‑koncept är nära besläktade men inte utbytbara:
 
-Aspose.Slides stöder bilder i populära format som JPEG, PNG, BMP, GIF och andra. 
+- Bildsamlingen för presentation ([bildsamling för presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iimagecollection/)) lagrar bildresurser som används av presentationen. Använd [ImageCollection.addImage](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imagecollection/) för att lägga till bilddata och erhålla en [IPPImage](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ippimage/)-resurs.
+- En [bildram](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ipictureframe/) är en form som visar en bild på en bild, layout eller master. Använd [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ishapecollection/) för att placera en bildresurs på en bild.
+- En bildbakgrund använder en bild som en del av bildens fyllning snarare än som en form. Den beter sig därför inte som en bildram.
+- [IPPImage.replaceImage](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ippimage/) ersätter en bildresurs. Om flera presentationselement använder den resursen, använder de alla ersättningen.
+- Att konvertera en SVG till former skapar redigerbara bildformer. Efter konvertering hanteras innehållet inte längre som en enskild bildresurs.
 
-## **Lägg till bilder lagrade lokalt till bilder**
+Ett typiskt arbetsflöde är därför: lägg till bilddata i bildsamlingen, ta emot en [IPPImage]‑resurs och använd sedan den resursen i en eller flera bildramar eller fyllningar.
 
-Du kan lägga till en eller flera bilder som lagras på din dator till en presentationsbild. Följande Java‑exempel visar hur du lägger till en bild på en bild:
+## **Lägg till en inbäddad bild**
+
+För att infoga en lokal bild, läs in filen, lägg till den i bildsamlingen och skapa en bildram som använder den returnerade `IPPImage`.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    IPPImage picture;
-    IImage image = Images.fromFile("image.png");
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.png");
     try {
-        picture = pres.getImages().addImage(image);
+        image = presentation.getImages().addImage(sourceImage);
     } finally {
-        if (image != null) image.dispose();
+        if (sourceImage != null) sourceImage.dispose();
     }
 
-    slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
 
-    pres.save("pres.pptx", SaveFormat.Pptx);
+    presentation.save("presentation.pptx", SaveFormat.Pptx);
 } finally {
-    pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Lägg till bilder från webben till bilder**
+Den bild som läggs till på detta sätt är inbäddad i presentationen, så den resulterande filen är inte beroende av att den ursprungliga bildfilen fortfarande är tillgänglig.
 
-Om bilden du vill lägga till på en bild inte är lagrad på din dator kan du lägga till den direkt från webben. 
+### **Lägg till en bild från webben**
 
-Följande Java‑exempel visar hur du lägger till en bild från webben till en bild:
+När en bild är tillgänglig via HTTP eller HTTPS, ladda ner dess byte‑sekvens, lägg till dem i presentationens bildsamling och använd den returnerade bildresursen på samma sätt som en lokal bild.
 
 ```java
 import com.aspose.slides.*;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URI;
 import java.net.URL;
-import java.net.URLConnection;
-
-Presentation pres = new Presentation();
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    URL imageUrl = new URL("[REPLACE WITH URL]");
-    URLConnection connection = imageUrl.openConnection();
-    InputStream inputStream = connection.getInputStream();
-
-    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-    try {
-        byte[] buffer = new byte[1024];
-        int read;
-
-        while ((read = inputStream.read(buffer, 0, buffer.length)) != -1) {
-            outputStream.write(buffer, 0, read);
-        }
-
-        outputStream.flush();
-
-        IPPImage image = pres.getImages().addImage(outputStream.toByteArray());
-        slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    } finally {
-        if (inputStream != null) inputStream.close();
-        outputStream.close();
-    }
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    pres.dispose();
-}
-```
-
-## **Lägg till bilder till bildmästare**
-
-En bildmästare lagrar och styr information såsom tema och layout för de bilder som använder den. När du lägger till en bild till en bildmästare visas bilden på varje bild baserad på den mästaren. 
-
-Följande Java‑exempel visar hur du lägger till en bild till en bildmästare:
-
-```java
-import com.aspose.slides.*;
-
-Presentation pres = new Presentation();
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IMasterSlide masterSlide = slide.getLayoutSlide().getMasterSlide();
-
-    IPPImage picture;
-    IImage image = Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-
-    masterSlide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **Lägg till bilder som bildbakgrunder**
-
-Du kan använda en bild som bakgrund för en eller flera bilder. För detaljer, se *[Ställa in bilder som bakgrund för bilder](/slides/sv/java/presentation-background/#setting-images-as-background-for-slides)*.
-
-## **Lägg till SVG till presentationer**
-
-SVG‑innehåll kan läggas till i en presentation med hjälp av klassen [SvgImage](https://reference.aspose.com/slides/sv/java/com.aspose.slides/svgimage/). Det resulterande [ISvgImage](https://reference.aspose.com/slides/sv/java/com.aspose.slides/isvgimage/)-objektet kan sedan läggas till i presentationens bildsamling och användas för att skapa en bildram.
-
-Följande Java‑exempel importerar en självständig SVG‑sträng. Alla bilder, stilar och andra resurser som används av denna SVG är inbäddade direkt i SVG‑innehållet.
-
-```java
-import com.aspose.slides.*;
-
-String svgContent =
-        "<svg xmlns='http://www.w3.org/2000/svg' width='320' height='180'>" +
-        "    <rect width='320' height='180' fill='#4F81BD'/>" +
-        "    <circle cx='160' cy='90' r='55' fill='#F2F2F2'/>" +
-        "</svg>";
 
 Presentation presentation = new Presentation();
 try {
-    ISvgImage svgImage = new SvgImage(svgContent);
-    IPPImage image = presentation.getImages().addImage(svgImage);
+    URL imageUrl = URI.create("https://example.com/image.png").toURL();
+    HttpURLConnection connection = (HttpURLConnection) imageUrl.openConnection();
+    connection.setConnectTimeout(10000);
+    connection.setReadTimeout(10000);
 
-    presentation.getSlides().get_Item(0).getShapes().addPictureFrame(
-            ShapeType.Rectangle, 20, 20, image.getWidth(), image.getHeight(), image);
+    try (InputStream inputStream = connection.getInputStream(); 
+         ByteArrayOutputStream outputStream = new ByteArrayOutputStream()) {
+        byte[] buffer = new byte[8192];
+        int bytesRead;
+        while ((bytesRead = inputStream.read(buffer)) != -1) outputStream.write(buffer, 0, bytesRead);
 
-    presentation.save("self-contained-svg.pptx", SaveFormat.Pptx);
+        IPPImage image = presentation.getImages().addImage(outputStream.toByteArray());
+        ISlide slide = presentation.getSlides().get_Item(0);
+        slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
+    }
+
+    presentation.save("presentation-from-web.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Importera SVG‑innehåll med externa resurser**
+I långvariga applikationer bör du återanvända en HTTP‑klient eller en anslutningshanteringsstrategi som passar applikationen i stället för att upprepade gånger skapa onödig nätverksinfrastruktur. Validera även fjärr‑URL‑er, svarsstorlekar och innehållstyper när källan inte är betrodd.
 
-SVG‑filer som exporteras från designverktyg, diagramredigerare, ikon‑system och webbpipelines kan referera till resurser som lagras utanför SVG‑dokumentet. Till exempel kan en SVG innehålla en bildlänk som `images/photo.png`, ett CSS‑`url(...)`‑värde eller en teckensnitt‑URL. 
+## **Återanvänd bilder över bilder**
 
-För att importera sådant SVG‑innehåll, skapa en implementering av [IExternalResourceResolver](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iexternalresourceresolver/) och skicka den, tillsammans med en bas‑URI, till en lämplig [SvgImage](https://reference.aspose.com/slides/sv/java/com.aspose.slides/svgimage/)-konstruktor. Bas‑URI:n identifierar var SVG‑dokumentet finns och används för att lösa relativa länkar. 
+Om samma bild behövs mer än en gång, lägg till den i presentationen en gång och återanvänd den returnerade [IPPImage]‑resursen när du skapar ytterligare bildramar. Detta undviker upprepade inläsningar av samma källdata och gör förhållandet mellan den delade bildresursen och dess användningar explicit.
 
-Gränssnittet [ISvgImage](https://reference.aspose.com/slides/sv/java/com.aspose.slides/isvgimage/) ger åtkomst till information om den importerade SVG:n:
+För grafik som ska visas automatiskt på många bilder, till exempel en företagslogotyp, överväg att placera bildramen på en [bildmaster](/slides/sv/java/slide-master/) eller layout i stället för att lägga till en motsvarande form på varje bild.
 
-- `getSvgContent()` returnerar SVG‑markup som en sträng.
-- `getSvgData()` returnerar SVG‑innehållet som en byte‑array.
-- `getBaseUri()` returnerar bas‑URI:n som används för relativa länkar.
-- `getExternalResourceResolver()` returnerar den resolvr som tilldelats SVG‑bilden.
+## **Använd en bild som bildbakgrund**
 
-### **Implementera en extern resurslösare**
-
-Resolvrn har två metoder:
-
-- `resolveUri` kombinerar bas‑URI:n och en relativ resursslänk och returnerar en absolut URI. Returnera `null` när länken inte kan lösas eller inte är tillåten.
-- `getEntity` returnerar en läsbar ström för en absolut resursslänk. Returnera `null` när resursen saknas, blockeras eller är otillgänglig. En reserv‑ström kan också returneras när det är lämpligt.
-
-Följande resolvr laddar länkade resurser endast från en tillåten lokal katalog. Nätverksresurser och sökvägar utanför den tillåtna katalogen blockeras. En valfri reserv‑bild returneras för olösta bildlänkar.
-
-```java
-import com.aspose.slides.ExternalResourceResolver;
-
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.net.URI;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Locale;
-
-class LocalSvgResourceResolver extends ExternalResourceResolver {
-    private final Path allowedRoot;
-    private final byte[] fallbackImageData;
-
-    public LocalSvgResourceResolver(String allowedRoot, byte[] fallbackImageData) {
-        this.allowedRoot = Paths.get(allowedRoot).toAbsolutePath().normalize();
-        this.fallbackImageData = fallbackImageData;
-    }
-
-    @Override
-    public String resolveUri(String baseUri, String relativeUri) {
-        if (baseUri == null || baseUri.trim().isEmpty() ||
-                relativeUri == null || relativeUri.trim().isEmpty()) {
-            return null;
-        }
-
-        try {
-            URI baseAddress = URI.create(baseUri);
-            URI absoluteAddress = baseAddress.resolve(relativeUri);
-
-            // Den här resolvern tillåter avsiktligt endast lokala filer.
-            if (!"file".equalsIgnoreCase(absoluteAddress.getScheme())) {
-                return null;
-            }
-
-            Path resourcePath = Paths.get(absoluteAddress).toAbsolutePath().normalize();
-            if (!isInsideAllowedRoot(resourcePath)) {
-                return null;
-            }
-
-            return resourcePath.toUri().toString();
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
-    @Override
-    public InputStream getEntity(String absoluteUri) {
-        try {
-            URI resourceUri = URI.create(absoluteUri);
-            if (!"file".equalsIgnoreCase(resourceUri.getScheme())) {
-                return null;
-            }
-
-            Path resourcePath = Paths.get(resourceUri).toAbsolutePath().normalize();
-            if (!isInsideAllowedRoot(resourcePath)) {
-                return null;
-            }
-
-            if (Files.exists(resourcePath)) {
-                return Files.newInputStream(resourcePath);
-            }
-
-            // Använd en reserv endast för bildresurser.
-            // Att returnera en bildström för en saknad teckensnitt eller stilark är inte giltigt.
-            if (fallbackImageData != null && isImageFile(resourcePath)) {
-                return new ByteArrayInputStream(fallbackImageData);
-            }
-        } catch (Exception e) {
-            return null;
-        }
-
-        return null;
-    }
-
-    private boolean isInsideAllowedRoot(Path resourcePath) {
-        return resourcePath.normalize().startsWith(allowedRoot);
-    }
-
-    private static boolean isImageFile(Path path) {
-        String fileName = path.getFileName().toString().toLowerCase(Locale.ROOT);
-
-        return fileName.endsWith(".png") ||
-                fileName.endsWith(".jpg") ||
-                fileName.endsWith(".jpeg") ||
-                fileName.endsWith(".gif") ||
-                fileName.endsWith(".bmp");
-    }
-}
-```
-
-### **Lös länkar till resurser under SVG‑import**
-
-Anta att `assets/diagram.svg` innehåller en relativ referens såsom:
-
-```xml
-<image href="images/photo.png" x="20" y="20" width="320" height="180" />
-```
-
-Följande Java‑exempel skickar SVG‑filens URI som bas‑URI och tillhandahåller en anpassad resolvr. Resolvrn konverterar den relativa bildlänken till en absolut URI och returnerar en ström som innehåller den länkade resursen medan Aspose.Slides bearbetar SVG:n.
+En bakgrundsbild tilldelas bildens fyllning; den läggs inte till som en bildram‑form. Detta är användbart när bilden ska täcka bildbakgrunden och inte ska manipuleras som ett normalt bildobjekt.
 
 ```java
 import com.aspose.slides.*;
 
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("background.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        if (sourceImage != null) sourceImage.dispose();
+    }
+
+    slide.getBackground().setType(BackgroundType.OwnBackground);
+    slide.getBackground().getFillFormat().setFillType(FillType.Picture);
+    slide.getBackground().getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+    slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().setImage(image);
+
+    presentation.save("background-image.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+För ytterligare bakgrundsalternativ, inklusive master‑ och layoutbakgrunder, se [Presentationens bakgrund](/slides/sv/java/presentation-background/).
+
+## **Inbäddade bilder och länkade bilder**
+
+Inbäddade och länkade bilder har olika portabilitets‑ och filstorlekskompromisser:
+
+- **Inbäddad bild:** bilddata lagras i presentationen. Presentationen är självförsörjande, men filstorleken inkluderar bilddata.
+- **Länkad bild:** presentationen lagrar en sökväg eller URL till en extern bild. Detta kan minska presentationens storlek, men den externa resursen måste vara tillgänglig när presentationen öppnas eller renderas.
+
+En länkad bild kan skapas genom att tilldela den externa sökvägen eller URL‑en via [ISlidesPicture.setLinkPathLong](https://reference.aspose.com/slides/sv/java/com.aspose.slides/islidespicture/) i stället för att bädda in bilddata.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, null);
+    pictureFrame.getPictureFormat().getPicture().setLinkPathLong("https://example.com/image.png");
+
+    presentation.save("linked-image.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Använd endast länkade bilder när driftsmiljön på ett tillförlitligt sätt kan nå den externa resursen. För presentationer som måste fungera offline eller flyttas mellan system är inbäddade bilder vanligtvis säkrare.
+
+## **Arbeta med SVG‑bilder**
+
+SVG är ett vektorformat, vilket kan vara användbart för ikoner, diagram och annan grafik som ska skalas utan samma detaljförlust som rasterbilder. Aspose.Slides stöder SVG både som en bildresurs och som källa för redigerbara bildformer.
+
+### **Lägg till en SVG som bild**
+
+Skapa en [SvgImage](https://reference.aspose.com/slides/sv/java/com.aspose.slides/svgimage/), lägg till den i bildsamlingen och placera den resulterande bildresursen i en bildram.
+
+```java
+import com.aspose.slides.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
-
-Path svgFilePath = Paths.get("assets", "diagram.svg").toAbsolutePath().normalize();
-Path assetDirectory = svgFilePath.getParent();
-String svgContent = new String(Files.readAllBytes(svgFilePath), StandardCharsets.UTF_8);
-
-// Bas-URI:en representerar platsen för SVG-dokumentet.
-String baseUri = svgFilePath.toUri().toString();
-
-byte[] fallbackImageData = null;
-Path fallbackImagePath = assetDirectory.resolve("fallback.png");
-if (Files.exists(fallbackImagePath)) {
-    fallbackImageData = Files.readAllBytes(fallbackImagePath);
-}
-
-IExternalResourceResolver resolver = new LocalSvgResourceResolver(assetDirectory.toString(), fallbackImageData);
-ISvgImage svgImage = new SvgImage(svgContent, resolver, baseUri);
-
-// ISvgImage exposes the source content, binary data, base URI, and resolver.
-String importedContent = svgImage.getSvgContent();
-byte[] importedData = svgImage.getSvgData();
-String importedBaseUri = svgImage.getBaseUri();
-IExternalResourceResolver importedResolver = svgImage.getExternalResourceResolver();
 
 Presentation presentation = new Presentation();
 try {
+    byte[] imageData = Files.readAllBytes(Paths.get("icon.svg"));
+    String svgContent = new String(imageData, StandardCharsets.UTF_8);
+    ISvgImage svgImage = new SvgImage(svgContent);
+
     IPPImage image = presentation.getImages().addImage(svgImage);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 200, 200, image);
 
-    presentation.getSlides().get_Item(0).getShapes().addPictureFrame(
-            ShapeType.Rectangle, 20, 20, image.getWidth(), image.getHeight(), image);
-
-    presentation.save("svg-with-linked-resources.pptx", SaveFormat.Pptx);
+    presentation.save("svg-image.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Klassen `SvgImage` erbjuder också överlagringar som accepterar SVG‑data som en byte‑array eller en inmatningsström, tillsammans med en extern resursslösare och en bas‑URI.
+### **SVG‑filer med externa resurser**
 
-{{% alert title="Viktigt" color="warning" %}}
-Resursslösaren gör externa resurser tillgängliga medan Aspose.Slides bearbetar och renderar SVG:n. Den modifierar inte den ursprungliga SVG‑markuppen eller inbäddar automatiskt de lösta resurserna i den.
+En SVG kan referera till externa bilder, stilmallar eller teckensnitt. För dessa fall erbjuder [SvgImage](https://reference.aspose.com/slides/sv/java/com.aspose.slides/svgimage/) konstruktorer som accepterar en [IExternalResourceResolver](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iexternalresourceresolver/) och en bas‑URI. Resolvern kan kartlägga en relativ URI till en tillåten absolut URI och returnera en ström för den begärda resursen.
 
-När en `ISvgImage` läggs till i presentationens bildsamling kan PPTX‑filen innehålla både den ursprungliga SVG‑representationen och en raster‑reservbild. En länkad resurs kan dyka upp i den genererade reservbilden medan en relativ länk som `images/photo.png` förblir oförändrad i den lagrade SVG:n. En applikation som renderar den inhemska SVG‑representationen kan därför utelämna den länkade delen när den ursprungliga externa resursen är otillgänglig.
-{{% /alert %}}
+Resolvern gör externa resurser tillgängliga medan Aspose.Slides bearbetar SVG‑filen, men den skriver inte om SVG‑filen till ett självständigt dokument. Om SVG‑filen måste förbli portabel, bädda in dess nödvändiga resurser i själva SVG‑filen, till exempel genom att använda `data:`‑URI:er för länkade bilder.
 
-### **Skapa en portabel SVG‑bild**
+När SVG‑filer kommer från otillförlitliga källor, begränsa de scheman, filsökvägar och värdar som resolvern får åtkomst till. Nätverks‑resolvers bör också tillämpa tidsgränser, gränser för svarsstorlek och innehållsvalidering.
 
-För att skapa en SVG‑bild som inte är beroende av externa filer, gör SVG:n självständig innan du skapar `SvgImage`. Till exempel, ersätt länkade bild‑URL:er med `data:`‑URI:er som innehåller bilddata:
+### **Konvertera SVG till redigerbara former**
 
-```xml
-<image href="data:image/png;base64,..." x="20" y="20" width="320" height="180" />
-```
+Aspose.Slides kan konvertera en SVG till en grupp redigerbara bildformer, liknande motsvarande PowerPoint‑kommando.
 
-När alla nödvändiga resurser har inbäddats i SVG‑innehållet, skapa `SvgImage`, lägg till den i presentationens bildsamling och infoga den i en bildram som i föregående exempel.
+![PowerPoint‑popupmeny](img_01_01.png)
 
-### **Hantera saknade eller blockerade resurser**
-
-Returnera `null` från `resolveUri` när en resurs‑URI är ogiltig, förbjuden eller inte kan lösas. Returnera `null` från `getEntity` när resursen inte kan läsas. Aspose.Slides fortsätter att bearbeta SVG:n utan den resursen när det är möjligt.
-
-En reserv‑ström kan returneras för en saknad resurs, men innehållet måste vara kompatibelt med den begärda resurstypen. Till exempel, returnera en bildström endast för en saknad bild, inte för ett teckensnitt eller en stilmall.
-
-{{% alert title="Säkerhet" color="warning" %}}
-Lös inte godtyckliga filsökvägar eller obegränsade nätverks‑URL:er från opålitliga SVG‑filer. Begränsa tillåtna scheman, kataloger och värdar. För nätverksresurser, tillämpa även tidsgränser för anslutning, begränsningar för svarsstorlek och validering av innehåll.
-{{% /alert %}}
-
-## **Konvertera SVG till en uppsättning former**
-
-![PowerPoint Popup Menu](img_01_01.png)
-
-Denna funktionalitet tillhandahålls av en överlagring av metoden [addGroupShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IShapeCollection#addGroupShape-com.aspose.slides.ISvgImage-float-float-float-float-) i gränssnittet [IShapeCollection](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IShapeCollection) som accepterar ett [ISvgImage](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ISvgImage)-objekt som första argument.
-
-Följande Java‑exempel visar hur du använder denna metod för att konvertera en SVG‑fil till en uppsättning former:
+Använd overloaden [IShapeCollection.addGroupShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ishapecollection/) som accepterar ett [ISvgImage](https://reference.aspose.com/slides/sv/java/com.aspose.slides/isvgimage/) för att utföra konverteringen.
 
 ```java
 import com.aspose.slides.*;
 import java.awt.geom.Dimension2D;
-import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-// Källa SVG-filnamn.
-String svgFileName = "sample.svg";
-
-// Utdata presentationsfilnamn.
-String outPptxPath = "presentation.pptx";
-
-// Skapa en ny presentation.
-IPresentation presentation = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // Läs SVG-filens innehåll.
-    byte[] svgContent = Files.readAllBytes(Paths.get(svgFileName));
-
-    // Skapa ett SvgImage-objekt.
+    byte[] imageData = Files.readAllBytes(Paths.get("diagram.svg"));
+    String svgContent = new String(imageData, StandardCharsets.UTF_8);
     ISvgImage svgImage = new SvgImage(svgContent);
 
-    // Hämta bildens storlek.
     Dimension2D slideSize = presentation.getSlideSize().getSize();
+    ISlide slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addGroupShape(svgImage, 0, 0, (float) slideSize.getWidth(), (float) slideSize.getHeight());
 
-    // Konvertera SVG-bilden till en grupp av former och skala den till bildens storlek.
-    presentation.getSlides().get_Item(0).getShapes().addGroupShape(
-            svgImage, 0f, 0f,
-            (float) slideSize.getWidth(), (float) slideSize.getHeight());
-
-    // Spara presentationen i PPTX-format.
-    presentation.save(outPptxPath, SaveFormat.Pptx);
-} catch (IOException e) {
+    presentation.save("editable-svg-shapes.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Lägg till bilder som EMF till bilder**
+Använd SVG‑till‑former‑konvertering när enskilda vektorelement behöver redigeras som PowerPoint‑former. Om SVG bara ska visas är det enklare att behålla den som bild och undvika att skapa många separata former.
 
-Aspose.Slides för Java låter dig generera EMF‑bilder från Excel‑arbetsblad med Aspose.Cells och lägga till dem i presentationsbilder.
+## **Ersätt en befintlig bildresurs**
 
-Följande Java‑exempel visar hur du gör detta:
-
-```java
-import com.aspose.slides.*;
-import com.aspose.cells.ImageOrPrintOptions;
-import com.aspose.cells.ImageType;
-import com.aspose.cells.SheetRender;
-import com.aspose.cells.Workbook;
-import com.aspose.cells.Worksheet;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-
-Workbook book = new Workbook("chart.xlsx");
-Worksheet sheet = book.getWorksheets().get(0);
-
-ImageOrPrintOptions options = new ImageOrPrintOptions();
-options.setHorizontalResolution(200);
-options.setVerticalResolution(200);
-options.setImageType(ImageType.EMF);
-
-// Spara arbetsboken till en ström.
-SheetRender sr = new SheetRender(sheet, options);
-Presentation pres = new Presentation();
-try {
-    pres.getSlides().removeAt(0);
-
-    String emfSheetName;
-    for (int j = 0; j < sr.getPageCount(); j++) {
-        emfSheetName = "test" + sheet.getName() + " Page" + (j + 1) + ".out.emf";
-        sr.toImage(j, emfSheetName);
-
-        // Lägg till filen som den är så att bilden förblir en vektor EMF istället för att rasteriseras.
-        IPPImage picture;
-        InputStream imageStream = new FileInputStream(emfSheetName);
-        try {
-            picture = pres.getImages().addImage(imageStream);
-        } finally {
-            imageStream.close();
-        }
-
-        ISlide slide = pres.getSlides().addEmptySlide(
-                pres.getLayoutSlides().getByType(SlideLayoutType.Blank));
-        slide.getShapes().addPictureFrame(
-                ShapeType.Rectangle,
-                0,
-                0,
-                (float) pres.getSlideSize().getSize().getWidth(),
-                (float) pres.getSlideSize().getSize().getHeight(),
-                picture);
-    }
-
-    pres.save("output.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    pres.dispose();
-}
-```
-
-## **Byt ut bilder i bildsamlingen**
-
-Aspose.Slides låter dig ersätta bilder som lagras i en presentations bildsamling, inklusive bilder som används av bildformer. Detta avsnitt beskriver flera sätt att uppdatera bilder i samlingen. Du kan ersätta en bild med rå byte‑data, en [IImage](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iimage/)-instans eller en annan bild som redan finns i samlingen.
-
-Följ stegen nedan:
-
-1. Ladda presentationsfilen som innehåller bilder med klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/).
-1. Läs in en ny bild från en fil till en byte‑array.
-1. Ersätt mål­bilden med den nya bilden genom att använda byte‑arrayen.
-1. I det andra tillvägagångssättet, läs in bilden till ett [IImage](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iimage/)-objekt och ersätt mål­bilden med det objektet.
-1. I det tredje tillvägagångssättet, ersätt mål­bilden med en bild som redan finns i presentationens bildsamling.
-1. Skriv den modifierade presentationen som en PPTX‑fil.
+Använd [IPPImage.replaceImage](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ippimage/) när du vill ersätta en befintlig bildresurs. Detta är särskilt användbart för delad grafik som logotyper.
 
 ```java
 import com.aspose.slides.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
-// Skapa en instans av Presentation-klassen som representerar en presentationsfil.
-Presentation presentation = new Presentation("sample.pptx");
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // Det första sättet.
-    byte[] imageData = Files.readAllBytes(Paths.get("image0.jpeg"));
-    IPPImage oldImage = presentation.getImages().get_Item(0);
-    oldImage.replaceImage(imageData);
+    IPPImage imageToReplace = presentation.getImages().get_Item(0);
 
-    // Det andra sättet.
-    IImage newImage = Images.fromFile("image1.png");
+    IImage replacementImage = Images.fromFile("new-logo.png");
     try {
-        oldImage = presentation.getImages().get_Item(1);
-        oldImage.replaceImage(newImage);
+        imageToReplace.replaceImage(replacementImage);
     } finally {
-        if (newImage != null) newImage.dispose();
+        if (replacementImage != null) replacementImage.dispose();
     }
 
-    // Det tredje sättet.
-    oldImage = presentation.getImages().get_Item(2);
-    oldImage.replaceImage(presentation.getImages().get_Item(3));
-
-    // Spara presentationen till en fil.
     presentation.save("output.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="Info" color="info" %}}
-Med Asposes kostnadsfria [Text to GIF](https://products.aspose.app/slides/sv/text-to-gif)-konverterare kan du enkelt animera text och skapa GIF‑filer från text. 
-{{% /alert %}}
+Om flera bildramar, bakgrunder, masters eller layouter använder samma bildresurs, uppdaterar ersättningen alla dessa användningar. Om endast en bildram ska ändras, tilldela en annan bild till den ramen i stället för att ersätta den delade resursen.
+
+`replaceImage` erbjuder också overloadar som accepterar en byte‑array eller en annan [IPPImage].
+
+## **Praktisk vägledning för bildhantering**
+
+### **Kontrollera presentationens storlek**
+
+Stora rasterbilder kan göra en presentation onödigt stor. Använd källbilder med dimensioner som är lämpliga för deras avsedda visningsstorlek, återanvänd delade bildresurser där det är möjligt och undvik att bädda in upprepade kopior av samma högupplösta grafik.
+
+För rasterbilder som redan har placerats i bildramar kan [IPictureFillFormat.compressImage](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ipicturefillformat/) minska bilddata enligt den valda upplösningen och beskärningsinställningarna. Detta är en bildram‑behandling snarare än hantering av bildsamlingen, så se [Bildram](/slides/sv/java/picture-frame/) för relaterade formateringsåtgärder.
+
+### **Välj mellan inbäddat och länkat innehåll**
+
+Inbäddning gör presentationen portabel eftersom all nödvändig bilddata följer med filen. Länkning kan minska filstorleken, men den introducerar ett externt beroende. Använd länkar endast när detta beroende är acceptabelt och stabilt.
+
+### **Återanvänd delad branding**
+
+För upprepade logotyper, vattenmärken eller dekorativ grafik, använd en bildresurs och återanvänd den. Om grafiken hör till presentationens design snarare än bildinnehållet, placera den på en master eller layout så den ärvs av relevanta bilder.
+
+### **Håll SVG‑resurser portabla**
+
+En självständig SVG är lättare att flytta och rendera konsekvent än en SVG som beror på externa filer eller nätverksresurser. När det är möjligt, bädda in nödvändiga resurser innan SVG‑filen importeras. Konvertera SVG till former endast när de enskilda vektorelementen behöver redigeras.
+
+### **Använd det moderna plattformsoberoende bild‑API:t**
+
+För ny Java‑kod, använd Aspose.Slides‑API:erna [IImage](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iimage/) och [Images](https://reference.aspose.com/slides/sv/java/com.aspose.slides/images/) istället för det äldre offentliga API‑et baserat på `java.awt.image.BufferedImage`. Se [Modern API](/slides/sv/java/modern-api/) för migrationsvägledning.
+
+WMF och EMF kräver särskild hänsyn. När dessa format passerar genom en [IImage](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iimage/), konverterar [ImageCollection.addImage](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imagecollection/) metafilen till en raster‑PNG‑representation innan insättning. Om bevarande av metafildata är viktigt, använd overloaden som tar en ström för [ImageCollection.addImage]. Generering av EMF‑innehåll från kalkylblad eller andra produkter är ett separat integrationsflöde och ligger utanför detta artikels omfång.
 
 ## **Vanliga frågor**
 
-**Behåller den ursprungliga bildupplösningen sin kvalitet efter infogning?**
+**Vad är skillnaden mellan bildsamlingen och en bildram?**
 
-Ja. Bildens pixlar bevaras, men slututseendet beror på hur [picture](/slides/sv/java/picture-frame/) skalas på bilden och eventuell kompression vid sparning.
+Bildsamlingen lagrar återanvändbara bildresurser. En bildram är en bildform som visar en av dessa resurser och erbjuder bildspecifik formatering såsom beskärning och effekter.
 
-**Vad är det bästa sättet att byta ut samma logotyp på dussintals bilder på en gång?**
+**Vad är det bästa sättet att ersätta samma logotyp överallt?**
 
-Placera logotypen på mästarbilden eller en layout och ersätt den i presentationens bildsamling – uppdateringen sprids till alla element som använder den resursen.
+Om logotypen redan delas som en bildresurs, ersätt den resursen med [IPPImage.replaceImage]. För varumärkesändringar på hela presentationen kan du också placera logotypen på en master eller layout för att minska duplicerat bildinnehåll.
 
-**Kan en infogad SVG konverteras till redigerbara former?**
+**Varför försvinner en länkad bild på en annan dator?**
 
-Ja. Du kan konvertera en SVG till en grupp av former, varefter enskilda delar blir redigerbara med standardformsegenskaper.
+En länkad bild är beroende av sin externa fil eller URL. Om den resursen inte kan nås från den andra datorn blir den länkade bilden otillgänglig. Bädda in bilden när presentationen måste vara självförsörjande.
 
-**Hur kan jag ställa in en bild som bakgrund för flera bilder på en gång?**
+**Kan en infogad SVG redigeras som PowerPoint‑former?**
 
-[Tilldela bilden som bakgrund](/slides/sv/java/presentation-background/) på mästarbilden eller den relevanta layouten – alla bilder som använder den mästaren/layouten ärver bakgrunden.
+Ja. Konvertera SVG:n med [IShapeCollection.addGroupShape]; den resulterande gruppen innehåller redigerbara bildformer i stället för en enda SVG‑bild.
 
-**Hur förhindrar jag att en presentation blir för stor på grund av många bilder?**
+**Hur kan jag hålla presentationer med många bilder mindre?**
 
-Återanvänd en enda bildresurs istället för dubbletter, välj rimliga upplösningar, tillämpa kompression vid sparning och håll upprepade grafik på mästaren där det är lämpligt.
+Återanvänd delade bildresurser, undvik onödigt stora rasterkällor, komprimera lämpliga rasterbilder vid behov, håll upprepad branding på masters eller layouter, och använd länkade bilder endast när ett externt beroende är acceptabelt.

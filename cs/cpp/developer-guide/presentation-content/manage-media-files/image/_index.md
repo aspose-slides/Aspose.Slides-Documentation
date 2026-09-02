@@ -1,67 +1,55 @@
 ---
-title: Optimalizace správy obrázků v prezentacích pomocí C++
-linktitle: Správa obrázků
+title: "Optimalizace správy obrázků v prezentacích pomocí C++"
+linktitle: "Správa obrázků"
 type: docs
 weight: 10
 url: /cs/cpp/image/
 keywords:
-- přidat obrázek
-- přidat obrázek
-- přidat bitmapu
-- nahradit obrázek
-- nahradit obrázek
-- z webu
-- pozadí
-- přidat PNG
-- přidat JPG
-- přidat SVG
-- externí SVG zdroje
-- SVG řešitel
-- propojené SVG obrázky
-- SVG fonty
-- přidat EMF
-- přidat WMF
-- přidat TIFF
-- PowerPoint
-- OpenDocument
-- prezentace
-- C++
-- Aspose.Slides
-description: "Zjednodušte správu obrázků v PowerPointu a OpenDocument pomocí Aspose.Slides pro C++, optimalizujte výkon a automatizujte svůj pracovní postup."
+- "přidat obrázek"
+- "přidat obrázek"
+- "nahradit obrázek"
+- "kolekce obrázků"
+- "rámec obrázku"
+- "propojený obrázek"
+- "pozadí"
+- "přidat PNG"
+- "přidat JPG"
+- "přidat SVG"
+- "SVG na tvary"
+- "externí SVG zdroje"
+- "PowerPoint"
+- "OpenDocument"
+- "prezentace"
+- "C++"
+- "Aspose.Slides"
+description: "Naučte se, jak přidávat, znovu používat, propojit, nahrazovat a spravovat rastrové i SVG obrázky v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro C++."
 ---
 ## **Úvod**
 
-Obrázky činí prezentace poutavějšími a vizuálně atraktivnějšími. V Microsoft PowerPoint můžete vkládat obrázky na snímky ze souborů, internetu nebo jiných zdrojů. Podobně Aspose.Slides umožňuje přidávat obrázky do snímků prezentace několika způsoby. 
+Aspose.Slides pro C++ poskytuje několik způsobů práce s obrázky a každý slouží jinému účelu. Můžete uložit obrázek v prezentaci, zobrazit ho v rámečku obrázku, použít jej jako pozadí snímku, propojit na externí obrázek, nahradit sdílený obrázkový zdroj nebo převést obsah SVG na upravitelné tvary.
 
-{{% alert title="Tip" color="primary" %}} 
+Tento článek se zaměřuje na obrázkové zdroje a jejich použití v celé prezentaci. Pro oříznutí, průhlednost, efekty, roztažení a další formátování aplikované na jednotlivý rámeček obrázku viz [Picture Frame](/slides/cs/cpp/picture-frame/).
 
-Aspose poskytuje bezplatné převodníky—[JPEG to PowerPoint](https://products.aspose.app/slides/cs/import/jpg-to-ppt) a [PNG to PowerPoint](https://products.aspose.app/slides/cs/import/png-to-ppt)—které vám umožní rychle vytvořit prezentace z obrázků. 
+## **Pochopení modelu obrázku**
 
-{{% /alert %}} 
+Následující koncepty API jsou úzce související, ale nejsou zaměnitelné:
 
-{{% alert title="Info" color="info" %}}
+- [Kolekce obrázků prezentace](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iimagecollection/) ukládá obrázkové zdroje používané v prezentaci. Použijte [IImageCollection::AddImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iimagecollection/addimage/) k přidání dat obrázku a získání zdroje [IPPImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ippimage/).
+- [Rámeček obrázku](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipictureframe/) je tvar, který zobrazuje obrázek na snímku, rozvržení nebo masteru. Použijte [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishapecollection/addpictureframe/) k umístění obrázkového zdroje na snímek.
+- Pozadí snímku používá obrázek jako část výplně snímku, nikoli jako tvar. Proto se nechová jako rámeček obrázku.
+- [IPPImage::ReplaceImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ippimage/replaceimage/) nahrazuje obrázkový zdroj. Pokud jej používá několik prvků prezentace, všichni používají náhradu.
+- Převod SVG na tvary vytvoří upravitelné tvary snímku. Po převodu není obsah již spravován jako jeden obrázkový zdroj.
 
-Pokud chcete přidat obrázek jako rámeček obrázku—zejména pokud ho plánujete měnit velikost, aplikovat efekty nebo použít jiné standardní možnosti formátování—viz [Picture Frame](/slides/cs/cpp/picture-frame/). 
+Typický postup je tedy: přidat data obrázku do kolekce obrázků, získat [IPPImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ippimage/), a potom použít tento zdroj v jednom nebo více rámečcích obrázku nebo výplních.
 
-{{% /alert %}} 
+## **Přidání vloženého obrázku**
 
-{{% alert title="Note" color="warning" %}}
+Chcete‑li vložit lokální obrázek, načtěte soubor, přidejte jeho data do kolekce obrázků a vytvořte rámeček obrázku, který použije vrácený zdroj [IPPImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ippimage/).
 
-Můžete převádět obrázky z jednoho formátu do druhého. Viz následující stránky: převod [image to JPG](https://products.aspose.com/slides/cs/cpp/conversion/image-to-jpg/), [JPG to image](https://products.aspose.com/slides/cs/cpp/conversion/jpg-to-image/), [JPG to PNG](https://products.aspose.com/slides/cs/cpp/conversion/jpg-to-png/), [PNG to JPG](https://products.aspose.com/slides/cs/cpp/conversion/png-to-jpg/), [PNG to SVG](https://products.aspose.com/slides/cs/cpp/conversion/png-to-svg/), a [SVG to PNG](https://products.aspose.com/slides/cs/cpp/conversion/svg-to-png/).
-
-{{% /alert %}}
-
-Aspose.Slides podporuje obrázky v populárních formátech, jako jsou JPEG, PNG, BMP, GIF a další. 
-
-## **Přidání místně uložených obrázků na snímky**
-
-Můžete přidat jeden nebo více obrázků uložených ve vašem počítači na snímek prezentace. Následující ukázkový kód v C++ ukazuje, jak přidat obrázek na snímek:
-
-``` cpp
+```cpp
 #include <DOM/IImageCollection.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
 #include <Export/SaveFormat.h>
@@ -69,30 +57,31 @@ Můžete přidat jeden nebo více obrázků uložených ve vašem počítači na
 
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System;
 using namespace System::IO;
 
-auto pres = System::MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
 
-auto slide = pres->get_Slides()->idx_get(0);
-auto image = pres->get_Images()->AddImage(File::ReadAllBytes(u"image.png"));
-slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f, image);
+auto imageData = File::ReadAllBytes(u"photo.png");
+auto image = presentation->get_Images()->AddImage(imageData);
 
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
+auto slide = presentation->get_Slide(0);
+slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 20.0f, 20.0f, 320.0f, 180.0f, image);
+
+presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
+Obrázek přidaný tímto způsobem je vložen v prezentaci, takže výsledný soubor nezávisí na dostupnosti původního souboru obrázku.
 
+### **Přidání obrázku z webu**
 
-## **Přidání obrázků z webu na snímky**
+Když je obrázek dostupný přes HTTP nebo HTTPS, stáhněte jeho bajty, přidejte je do kolekce obrázků prezentace a použijte vrácený obrázkový zdroj stejným způsobem jako lokální obrázek.
 
-Pokud obrázek, který chcete přidat na snímek, není uložen ve vašem počítači, můžete jej přidat přímo z webu. 
-
-Následující ukázkový kód v C++ ukazuje, jak přidat obrázek z webu na snímek:
-
-``` cpp
+```cpp
 #include <DOM/IImageCollection.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
 #include <Export/SaveFormat.h>
@@ -102,533 +91,259 @@ Následující ukázkový kód v C++ ukazuje, jak přidat obrázek z webu na sn�
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
+using namespace System::Net;
 
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
+auto imageUri = MakeObject<Uri>(u"https://example.com/image.png");
+auto webClient = MakeObject<WebClient>();
+auto imageData = webClient->DownloadData(imageUri);
 
-auto webClient = System::MakeObject<System::Net::WebClient>();
-auto imageData = webClient->DownloadData(System::MakeObject<Uri>(u"[REPLACE WITH URL]"));
+auto presentation = MakeObject<Presentation>();
 
-auto image = pres->get_Images()->AddImage(imageData);
-slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f, image);
+auto image = presentation->get_Images()->AddImage(imageData);
+auto slide = presentation->get_Slide(0);
+slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 20.0f, 20.0f, 320.0f, 180.0f, image);
 
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
+presentation->Save(u"presentation-from-web.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Přidání obrázků do hlavních snímků**
+Ověřujte vzdálené URL, velikosti odpovědí a typy obsahu, pokud zdroj není důvěryhodný. V aplikacích, které již používají jiného HTTP klienta, můžete obrázek stáhnout tímto klientem a předat získané bajty nebo proud metodě [IImageCollection::AddImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iimagecollection/addimage/).
 
-Master snímku ukládá a řídí informace, jako jsou motiv a rozvržení snímků, které jej používají. Když přidáte obrázek do hlavního snímku, obrázek se zobrazí na každém snímku založeném na tomto masteru. 
+## **Opakované použití obrázků napříč snímky**
 
-Následující ukázkový kód v C++ ukazuje, jak přidat obrázek do hlavního snímku:
+Pokud je stejný obrázek potřeba vícekrát, přidejte jej do prezentace jednou a při vytváření dalších rámečků obrázku použijte vrácený [IPPImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ippimage/). Tím se vyhnete opakovanému načítání stejných zdrojových dat a vztah mezi sdíleným obrázkovým zdrojem a jeho použitím je explicitní.
 
-``` cpp
+Pro grafiku, která by se měla automaticky objevovat na mnoha snímcích, např. logo společnosti, zvažte umístění rámečku obrázku na [slide master](/slides/cs/cpp/slide-master/) nebo rozvržení místo přidávání ekvivalentního tvaru na každém snímku.
+
+## **Použití obrázku jako pozadí snímku**
+
+Obrázek pozadí je přiřazen výplni snímku; není přidán jako tvar rámečku obrázku. To je užitečné, když má obrázek pokrýt pozadí snímku a neměl by být manipulován jako běžný objekt snímku.
+
+```cpp
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IFillFormat.h>
 #include <DOM/IImageCollection.h>
-#include <DOM/ILayoutSlide.h>
-#include <DOM/IMasterSlide.h>
-#include <DOM/IShapeCollection.h>
+#include <DOM/IPictureFillFormat.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/PictureFillMode.h>
 #include <DOM/Presentation.h>
-#include <DOM/ShapeType.h>
 #include <Export/SaveFormat.h>
 #include <system/io/file.h>
 
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System;
 using namespace System::IO;
 
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-auto masterSlide = slide->get_LayoutSlide()->get_MasterSlide();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-auto image = pres->get_Images()->AddImage(File::ReadAllBytes(u"image.png"));
-masterSlide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f, image);
+auto imageData = File::ReadAllBytes(u"background.jpg");
+auto image = presentation->get_Images()->AddImage(imageData);
 
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
+slide->get_Background()->set_Type(BackgroundType::OwnBackground);
+slide->get_Background()->get_FillFormat()->set_FillType(FillType::Picture);
+slide->get_Background()->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
+slide->get_Background()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(image);
+
+presentation->Save(u"background-image.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Přidání obrázků jako pozadí snímků**
+Pro další možnosti pozadí, včetně pozadí masteru a rozvržení, viz [Presentation Background](/slides/cs/cpp/presentation-background/).
 
-Můžete použít obrázek jako pozadí jednoho nebo více snímků. Podrobnosti najdete v *[Nastavení obrázků jako pozadí snímků](/slides/cs/cpp/presentation-background/#setting-images-as-background-for-slides)*.
+## **Vložené obrázky a propojené obrázky**
 
-## **Přidání SVG do prezentací**
+Vložené a propojené obrázky mají odlišné kompromisy v přenositelnosti a velikosti souboru:
 
-Obsah SVG lze přidat do prezentace pomocí třídy [SvgImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/svgimage/) . Výsledný objekt [ISvgImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/isvgimage/) může být následně přidán do kolekce obrázků prezentace a použit k vytvoření rámce obrázku.
+- **Vložený obrázek:** data obrázku jsou uložena uvnitř prezentace. Prezentace je samostatná, ale velikost souboru zahrnuje data obrázku.
+- **Propojený obrázek:** prezentace ukládá cestu nebo URL k externímu obrázku. To může snížit velikost prezentace, ale externí zdroj musí zůstat přístupný při otevření nebo vykreslování prezentace.
 
-Následující příklad v C++ importuje samostatný řetězec SVG. Všechny obrázky, styly a další zdroje použité v tomto SVG jsou přímo vloženy do obsahu SVG.
+Propojený obrázek lze vytvořit přiřazením externí cesty nebo URL pomocí [ISlidesPicture::set_LinkPathLong](https://reference.aspose.com/slides/cs/cpp/aspose.slides/islidespicture/set_linkpathlong/) místo vložení dat obrázku.
 
 ```cpp
-#include <DOM/IImageCollection.h>
-#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
+#include <DOM/ISlidesPicture.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
-#include <DOM/SvgImage.h>
 #include <Export/SaveFormat.h>
-#include <system/string.h>
 
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto svgContent = String(uR"(
-<svg xmlns='http://www.w3.org/2000/svg' width='320' height='180'>
-    <rect width='320' height='180' fill='#4F81BD'/>
-    <circle cx='160' cy='90' r='55' fill='#F2F2F2'/>
-</svg>)");
-
 auto presentation = MakeObject<Presentation>();
+
+auto slide = presentation->get_Slide(0);
+auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 20.0f, 20.0f, 320.0f, 180.0f, nullptr);
+pictureFrame->get_PictureFormat()->get_Picture()->set_LinkPathLong(u"https://example.com/image.png");
+
+presentation->Save(u"linked-image.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Používejte propojené obrázky jen tehdy, když prostředí nasazení může spolehlivě přistupovat k externímu zdroji. Pro prezentace, které musí fungovat offline nebo být přesouvány mezi systémy, jsou vložené obrázky obvykle bezpečnější.
+
+## **Práce s SVG obrázky**
+
+SVG je vektorový formát, takže může být užitečný pro ikony, diagramy a další grafiku, která by se měla škálovat bez ztráty detailu jako rastrové obrázky. Aspose.Slides podporuje SVG jak jako obrázkový zdroj, tak jako zdroj pro upravitelné tvary snímku.
+
+### **Přidání SVG jako obrázku**
+
+Vytvořte [SvgImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/svgimage/), přidejte jej do kolekce obrázků a umístěte vzniklý obrázkový zdroj do rámečku obrázku.
+
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SvgImage.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto svgContent = File::ReadAllText(u"icon.svg");
 auto svgImage = MakeObject<SvgImage>(svgContent);
-auto image = presentation->get_Images()->AddImage(svgImage);
-
-presentation->get_Slides()->idx_get(0)->get_Shapes()->AddPictureFrame(
-    ShapeType::Rectangle, 20.0f, 20.0f,
-    static_cast<float>(image->get_Width()),
-    static_cast<float>(image->get_Height()),
-    image);
-
-presentation->Save(u"self-contained-svg.pptx", SaveFormat::Pptx);
-presentation->Dispose();
-```
-
-## **Importování SVG obsahu s externími zdroji**
-
-SVG soubory exportované z nástrojů pro návrh, diagramové editory, ikony a webové pipelines mohou odkazovat na zdroje, které jsou uloženy mimo dokument SVG. Například SVG může obsahovat odkaz na obrázek jako `images/photo.png`, hodnotu CSS `url(...)` nebo URL písma.
-
-Aby bylo možné takový SVG obsah importovat, vytvořte implementaci [IExternalResourceResolver](https://reference.aspose.com/slides/cs/cpp/aspose.slides.import/iexternalresourceresolver/) a předáte ji spolu se základní URI do vhodného konstruktoru `SvgImage`. Základní URI určuje umístění dokumentu SVG a slouží k řešení relativních odkazů.
-
-Rozhraní [ISvgImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/isvgimage/) poskytuje přístup k informacím o importovaném SVG:
-
-- `get_SvgContent()` vrací SVG markup jako řetězec.  
-- `get_SvgData()` vrací obsah SVG jako pole bajtů.  
-- `get_BaseUri()` vrací základní URI použité pro relativní odkazy.  
-- `get_ExternalResourceResolver()` vrací řešitel přiřazený k SVG obrázku.  
-
-### **Implementace externího řešitele zdrojů**
-
-Řešitel má dvě metody:
-
-- [ResolveUri](https://reference.aspose.com/slides/cs/cpp/aspose.slides.import/iexternalresourceresolver/resolveuri/) kombinuje základní URI a relativní odkaz na zdroj a vrací absolutní URI. Vraťte prázdný řetězec, když odkaz nelze vyřešit nebo není povolen.  
-- [GetEntity](https://reference.aspose.com/slides/cs/cpp/aspose.slides.import/iexternalresourceresolver/getentity/) vrací čitelný stream pro absolutní URI zdroje. Vraťte `nullptr`, když je zdroj chybějící, blokovaný nebo nedostupný. Náhradní stream může být také vrácen, když je to vhodné.  
-
-```cpp
-#include <Import/IExternalResourceResolver.h>
-#include <system/array.h>
-#include <system/io/file.h>
-#include <system/io/memory_stream.h>
-#include <system/io/path.h>
-#include <system/io/stream.h>
-#include <system/string.h>
-#include <system/smart_ptr.h>
-#include <system/string_comparison.h>
-#include <system/uri.h>
-
-using namespace Aspose::Slides::Import;
-using namespace System;
-using namespace System::IO;
-
-class LocalSvgResourceResolver : public IExternalResourceResolver
-{
-public:
-    LocalSvgResourceResolver(String allowedRoot, ArrayPtr<uint8_t> fallbackImageData = nullptr)
-        : _allowedRoot(Path::GetFullPath(allowedRoot)),
-          _fallbackImageData(fallbackImageData)
-    {
-    }
-
-    String ResolveUri(String baseUri, String relativeUri) override
-    {
-        if (String::IsNullOrWhiteSpace(baseUri) ||
-            String::IsNullOrWhiteSpace(relativeUri))
-        {
-            return String::Null;
-        }
-
-        auto baseAddress = SharedPtr<Uri>();
-        auto absoluteAddress = SharedPtr<Uri>();
-        if (!Uri::TryCreate(baseUri, UriKind::Absolute, baseAddress) ||
-            !Uri::TryCreate(baseAddress, relativeUri, absoluteAddress))
-        {
-            return String::Null;
-        }
-
-        // Tento řešitel úmyslně povoluje pouze místní soubory.
-        if (!absoluteAddress->get_IsFile())
-        {
-            return String::Null;
-        }
-
-        auto resourcePath = Path::GetFullPath(absoluteAddress->get_LocalPath());
-        if (!IsInsideAllowedRoot(resourcePath))
-        {
-            return String::Null;
-        }
-
-        return absoluteAddress->get_AbsoluteUri();
-    }
-
-    SharedPtr<Stream> GetEntity(String absoluteUri) override
-    {
-        auto resourceUri = SharedPtr<Uri>();
-        if (!Uri::TryCreate(absoluteUri, UriKind::Absolute, resourceUri) ||
-            !resourceUri->get_IsFile())
-        {
-            return nullptr;
-        }
-
-        auto resourcePath = Path::GetFullPath(resourceUri->get_LocalPath());
-        if (!IsInsideAllowedRoot(resourcePath))
-        {
-            return nullptr;
-        }
-
-        if (File::Exists(resourcePath))
-        {
-            return File::OpenRead(resourcePath);
-        }
-
-        // Použít náhradní řešení pouze pro obrazové zdroje. Vrácení proudu obrazu
-        // pro chybějící písmo nebo stylopis by nebylo platné.
-        if (_fallbackImageData != nullptr && IsImageFile(resourcePath))
-        {
-            return MakeObject<MemoryStream>(_fallbackImageData, false);
-        }
-
-        return nullptr;
-    }
-
-private:
-    String _allowedRoot;
-    ArrayPtr<uint8_t> _fallbackImageData;
-
-    bool IsInsideAllowedRoot(String resourcePath)
-    {
-        auto normalizedRoot = _allowedRoot;
-        auto directorySeparator = String(Path::DirectorySeparatorChar, 1);
-        if (!normalizedRoot.EndsWith(directorySeparator))
-        {
-            normalizedRoot += directorySeparator;
-        }
-
-        auto normalizedPath = Path::GetFullPath(resourcePath);
-        auto comparison = Path::DirectorySeparatorChar == u'\\'
-            ? StringComparison::OrdinalIgnoreCase
-            : StringComparison::Ordinal;
-
-        return normalizedPath.StartsWith(normalizedRoot, comparison) ||
-               String::Equals(normalizedPath, _allowedRoot, comparison);
-    }
-
-    static bool IsImageFile(String path)
-    {
-        auto extension = Path::GetExtension(path);
-
-        return String::Equals(extension, u".png", StringComparison::OrdinalIgnoreCase) ||
-               String::Equals(extension, u".jpg", StringComparison::OrdinalIgnoreCase) ||
-               String::Equals(extension, u".jpeg", StringComparison::OrdinalIgnoreCase) ||
-               String::Equals(extension, u".gif", StringComparison::OrdinalIgnoreCase) ||
-               String::Equals(extension, u".bmp", StringComparison::OrdinalIgnoreCase);
-    }
-};
-```
-
-### **Řešení odkazovaných zdrojů během importu SVG**
-
-Předpokládejme, že `assets/diagram.svg` obsahuje relativní odkaz jako:
-
-```xml
-<image href="images/photo.png" x="20" y="20" width="320" height="180" />
-```
-
-Následující ukázkový kód v C++ předá URI souboru SVG jako základní URI a poskytne vlastní řešitel. Řešitel převede relativní odkaz na obrázek na absolutní URI a vrátí stream obsahující odkazovaný zdroj, zatímco Aspose.Slides zpracovává SVG.
-
-```cpp
-#include <DOM/IImageCollection.h>
-#include <DOM/IPPImage.h>
-#include <DOM/IShapeCollection.h>
-#include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
-#include <DOM/Presentation.h>
-#include <DOM/ShapeType.h>
-#include <DOM/SvgImage.h>
-#include <Export/SaveFormat.h>
-#include <Import/IExternalResourceResolver.h>
-#include <system/array.h>
-#include <system/environment.h>
-#include <system/io/file.h>
-#include <system/io/path.h>
-#include <system/string.h>
-#include <system/uri.h>
-
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::Export;
-using namespace Aspose::Slides::Import;
-using namespace System;
-using namespace System::IO;
-
-auto svgFilePath = Path::GetFullPath(Path::Combine(u"assets", u"diagram.svg"));
-auto assetDirectory = Path::GetDirectoryName(svgFilePath);
-if (String::IsNullOrEmpty(assetDirectory))
-{
-    assetDirectory = Environment::get_CurrentDirectory();
-}
-
-auto svgContent = File::ReadAllText(svgFilePath);
-
-// Základní URI představuje umístění SVG dokumentu.
-auto baseUri = MakeObject<Uri>(svgFilePath)->get_AbsoluteUri();
-
-auto fallbackImageData = ArrayPtr<uint8_t>();
-auto fallbackImagePath = Path::Combine(assetDirectory, u"fallback.png");
-if (File::Exists(fallbackImagePath))
-{
-    fallbackImageData = File::ReadAllBytes(fallbackImagePath);
-}
-
-auto resolver = MakeObject<LocalSvgResourceResolver>(assetDirectory, fallbackImageData);
-auto svgImage = MakeObject<SvgImage>(svgContent, resolver, baseUri);
-
-// ISvgImage vystavuje zdrojový obsah, binární data, základní URI a řešitel.
-auto importedContent = svgImage->get_SvgContent();
-auto importedData = svgImage->get_SvgData();
-auto importedBaseUri = svgImage->get_BaseUri();
-auto importedResolver = svgImage->get_ExternalResourceResolver();
 
 auto presentation = MakeObject<Presentation>();
+
 auto image = presentation->get_Images()->AddImage(svgImage);
+auto slide = presentation->get_Slide(0);
+slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 20.0f, 20.0f, 200.0f, 200.0f, image);
 
-presentation->get_Slides()->idx_get(0)->get_Shapes()->AddPictureFrame(
-    ShapeType::Rectangle, 20.0f, 20.0f,
-    static_cast<float>(image->get_Width()),
-    static_cast<float>(image->get_Height()),
-    image);
-
-presentation->Save(u"svg-with-linked-resources.pptx", SaveFormat::Pptx);
+presentation->Save(u"svg-image.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Třída `SvgImage` také poskytuje přetížení, která přijímají SVG data jako pole bajtů nebo stream, spolu s externím řešitelem zdrojů a základním URI.
+### **SVG soubory s externími zdroji**
 
-{{% alert title="Important" color="warning" %}}
+SVG může odkazovat na externí obrázky, styly nebo písma. Pro tyto případy [SvgImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/svgimage/) poskytuje konstruktory, které přijímají [IExternalResourceResolver](https://reference.aspose.com/slides/cs/cpp/aspose.slides.import/iexternalresourceresolver/) a základní URI. Rozlišovač může převést relativní URI na povolené absolutní URI a vrátit proud pro požadovaný zdroj.
 
-Řešitel zdrojů zpřístupňuje externí zdroje během zpracování a vykreslování SVG knihovnou Aspose.Slides. Nemodifikuje originální SVG markup ani automaticky nevestavuje vyřešené zdroje do něj.
+Rozlišovač zpřístupní externí zdroje během zpracování SVG v Aspose.Slides, ale nepřepisuje SVG do samostatného dokumentu. Pokud musí SVG zůstat přenosný, vložte jeho potřebné zdroje přímo do SVG, například pomocí `data:` URI pro propojené obrázky.
 
-Když je `ISvgImage` přidán do kolekce obrázků prezentace, soubor PPTX může obsahovat jak originální SVG reprezentaci, tak rastrový záložní obrázek. Odkazovaný zdroj může být zahrnut v generovaném záložním obrázku, zatímco relativní odkaz jako `images/photo.png` zůstane nezměněn v uloženém SVG. Aplikace, která vykresluje nativní SVG reprezentaci, může proto vynechat odkazovaný obsah, pokud není původní externí zdroj dostupný.
+Když SVG soubory pocházejí z nedůvěryhodných zdrojů, omezte schémata, umístění souborů a hostitele, ke kterým může rozlišovač přistupovat. Síťové rozlišovače by měly také aplikovat časové limity, limity velikosti odpovědi a validaci obsahu.
 
-{{% /alert %}}
+### **Převod SVG na upravitelné tvary**
 
-### **Vytvoření přenosného SVG obrázku**
+Aspose.Slides dokáže převést SVG na skupinu upravitelných tvarů snímku, podobně jako odpovídající příkaz v PowerPointu.
 
-Pro vytvoření SVG obrázku, který nezávisí na externích souborech, udělejte SVG samostatný před vytvořením `SvgImage`. Například nahraďte odkazy na obrázky URL typu `data:`, které obsahují data obrázku:
+![PowerPoint Popup Menu](img_01_01.png)
 
-```xml
-<image href="data:image/png;base64,..." x="20" y="20" width="320" height="180" />
-```
+Použijte přetížení [IShapeCollection::AddGroupShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishapecollection/addgroupshape/) přijímající [ISvgImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/isvgimage/) k provedení převodu.
 
-Po vložení všech potřebných zdrojů do obsahu SVG vytvořte `SvgImage`, přidejte jej do kolekce obrázků prezentace a vložte jej do rámce obrázku, jak je ukázáno v předchozím příkladu.
-
-### **Zpracování chybějících nebo blokovaných zdrojů**
-
-Vraťte prázdný řetězec z `ResolveUri`, když je URI zdroje neplatné, zakázané nebo jej nelze vyřešit. Vraťte `nullptr` z `GetEntity`, když není možné zdroj přečíst. Aspose.Slides pokračuje ve zpracování SVG bez tohoto zdroje, pokud je to možné.
-
-Náhradní stream může být vrácen pro chybějící zdroj, ale jeho obsah musí být kompatibilní s požadovaným typem zdroje. Například vracejte stream s obrázkem pouze pro chybějící obrázek, ne pro písmo nebo stylový list.
-
-{{% alert title="Security" color="warning" %}}
-
-Nevyřešujte libovolné souborové cesty ani neomezené síťové URL z nedůvěryhodných SVG souborů. Omezte povolené schémata, adresáře a hostitele. Pro síťové zdroje také aplikujte časové limity připojení, limity velikosti odpovědi a validaci obsahu.
-
-{{% /alert %}}
-
-## **Převod SVG na sadu tvarů**
-Aspose.Slides může převést SVG na sadu tvarů, podobně jako odpovídající funkčnost v PowerPointu:
-
-![Nabídka v PowerPointu](img_01_01.png)
-
-Tato funkce je poskytována přetížením metody [AddGroupShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishapecollection/) rozhraní [IShapeCollection](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishapecollection/), která jako první argument přijímá objekt [ISvgImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/isvgimage/) .
-
-``` cpp 
-#include <DOM/IPresentation.h>
+```cpp
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ISlideSize.h>
-#include <DOM/ISvgImage.h>
 #include <DOM/Presentation.h>
 #include <DOM/SvgImage.h>
 #include <Export/SaveFormat.h>
-#include <drawing/size_f.h>
 #include <system/io/file.h>
-
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::Export;
-using namespace System::IO;
-
-// Název zdrojového SVG souboru
-auto svgFileName = System::String(u"sample.svg");
-
-// Název výstupního souboru prezentace
-auto outPptxPath = System::String(u"presentation.pptx");
-
-// Vytvořte novou prezentaci
-auto presentation = System::MakeObject<Presentation>();
-
-// Přečtěte obsah SVG souboru
-auto svgContent = File::ReadAllText(svgFileName);
-
-// Vytvořte objekt SvgImage
-auto svgImage = System::MakeObject<SvgImage>(svgContent);
-
-// Získejte velikost snímku
-auto slideSize = presentation->get_SlideSize()->get_Size();
-
-// Převeďte SVG obrázek na skupinu tvarů a upravte jeho velikost na velikost snímku
-presentation->get_Slides()->idx_get(0)->get_Shapes()->AddGroupShape(svgImage, 0.f, 0.f, slideSize.get_Width(), slideSize.get_Height());
-
-// Uložte prezentaci ve formátu PPTX
-presentation->Save(outPptxPath, SaveFormat::Pptx);
-```
-
-## **Přidání obrázků jako EMF na snímky**
-Aspose.Slides for C++ umožňuje generovat EMF obrázky z Excelových listů pomocí Aspose.Cells a přidávat je do snímků prezentace. 
-
-``` cpp 
-#include <DOM/IGlobalLayoutSlideCollection.h>
-#include <DOM/IImageCollection.h>
-#include <DOM/IPPImage.h>
-#include <DOM/IShapeCollection.h>
-#include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
-#include <DOM/ISlideSize.h>
-#include <DOM/Presentation.h>
-#include <DOM/ShapeType.h>
-#include <DOM/SlideLayoutType.h>
-#include <Export/SaveFormat.h>
-#include <drawing/size_f.h>
-#include <system/array.h>
-#include <system/smart_ptr.h>
-#include "Aspose.Cells/ImageOrPrintOptions.h"
-#include "Aspose.Cells/ImageType.h"
-#include "Aspose.Cells/Initializer.h"
-#include "Aspose.Cells/SheetRender.h"
-#include "Aspose.Cells/Vector.h"
-#include "Aspose.Cells/Workbook.h"
-#include "Aspose.Cells/Worksheet.h"
-#include "Aspose.Cells/WorksheetCollection.h"
-
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::Export;
-
-// Aspose.Cells pro C++ musí být spuštěn před použitím jakýchkoli jeho typů.
-Aspose::Cells::Startup();
-
-auto workbook = Aspose::Cells::Workbook(u"chart.xls");
-auto sheet = workbook.GetWorksheets().Get(0);
-
-// Vykreslete list jako EMF.
-auto options = Aspose::Cells::ImageOrPrintOptions();
-options.SetHorizontalResolution(200);
-options.SetVerticalResolution(200);
-options.SetImageType(Aspose::Cells::Drawing::ImageType::Emf);
-
-auto sheetRender = Aspose::Cells::SheetRender(sheet, options);
-
-auto presentation = System::MakeObject<Presentation>();
-presentation->get_Slides()->RemoveAt(0);
-
-for (auto pageIndex = 0; pageIndex < sheetRender.GetPageCount(); pageIndex++)
-{
-    // Aspose.Cells vrací vykreslenou stránku jako buffer, který Aspose.Slides přidá jako obrázek.
-    auto emfData = sheetRender.ToImage(pageIndex);
-    auto emfBytes = System::MakeArray<uint8_t>(emfData.GetLength(), emfData.GetData());
-    auto emfImage = presentation->get_Images()->AddImage(emfBytes);
-
-    auto slide = presentation->get_Slides()->AddEmptySlide(
-        presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank));
-    auto slideSize = presentation->get_SlideSize()->get_Size();
-    slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 0.0f, 0.0f, slideSize.get_Width(), slideSize.get_Height(), emfImage);
-}
-
-presentation->Save(u"Saved.pptx", SaveFormat::Pptx);
-presentation->Dispose();
-workbook.Dispose();
-
-Aspose::Cells::Cleanup();
-```
-
-## **Nahrazení obrázků v kolekci obrázků**
-
-Aspose.Slides vám umožňuje nahradit obrázky uložené v kolekci obrázků prezentace, včetně obrázků použitého tvary na snímcích. Tato sekce popisuje několik způsobů, jak aktualizovat obrázky v kolekci. Můžete nahradit obrázek pomocí surových bajtových dat, instance [IImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iimage/) nebo jiného obrázku, který již v kolekci existuje.
-
-1. Načtěte soubor prezentace, který obsahuje obrázky, pomocí třídy [Presentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/presentation/).  
-2. Načtěte nový obrázek ze souboru do pole bajtů.  
-3. Nahraďte cílový obrázek novým obrázkem pomocí pole bajtů.  
-4. Ve druhém přístupu načtěte obrázek do objektu [IImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iimage/) a nahraďte cílový obrázek tímto objektem.  
-5. Ve třetím přístupu nahraďte cílový obrázek obrázkem, který již v kolekci obrázků prezentace existuje.  
-6. Zapište upravenou prezentaci jako soubor PPTX.  
-
-```cpp
-#include <DOM/IPPImage.h>
-#include <DOM/Presentation.h>
-#include <Export/SaveFormat.h>
-#include <IImage.h>
-#include <Util/Images.h>
-#include <system/io/file.h>
-#include <system/smart_ptr.h>
 
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::IO;
 
-// Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto svgContent = File::ReadAllText(u"diagram.svg");
+auto svgImage = MakeObject<SvgImage>(svgContent);
 
-// První způsob.
-auto imageData = File::ReadAllBytes(u"image0.jpeg");
-auto oldImage = presentation->get_Image(0);
-oldImage->ReplaceImage(imageData);
+auto presentation = MakeObject<Presentation>();
 
-// Druhý způsob.
-auto newImage = Images::FromFile(u"image1.png");
-oldImage = presentation->get_Image(1);
-oldImage->ReplaceImage(newImage);
-newImage->Dispose();
+auto slideSize = presentation->get_SlideSize()->get_Size();
+auto slide = presentation->get_Slide(0);
+slide->get_Shapes()->AddGroupShape(svgImage, 0.0f, 0.0f, slideSize.get_Width(), slideSize.get_Height());
 
-// Třetí způsob.
-oldImage = presentation->get_Image(2);
-oldImage->ReplaceImage(presentation->get_Image(3));
+presentation->Save(u"editable-svg-shapes.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
 
-// Uložte prezentaci do souboru.
+Používejte převod SVG‑na‑tvary, když je potřeba individuální vektorové elementy upravovat jako tvary PowerPointu. Pokud stačí SVG pouze zobrazit, je jednodušší ponechat jej jako obrázek a vyhnout se vytváření mnoha samostatných tvarů.
+
+## **Nahrazení existujícího obrázkového zdroje**
+
+Použijte [IPPImage::ReplaceImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ippimage/replaceimage/) když chcete nahradit existující obrázkový zdroj. To je zvláště užitečné pro sdílenou grafiku, jako jsou loga.
+
+```cpp
+#include <DOM/IPPImage.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+
+auto imageToReplace = presentation->get_Image(0);
+auto imageData = File::ReadAllBytes(u"new-logo.png");
+imageToReplace->ReplaceImage(imageData);
+
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-{{% alert title="Info" color="info" %}}
+Pokud několik rámečků obrázku, pozadí, masterů nebo rozvržení používá stejný obrázkový zdroj, jeho nahrazení aktualizuje všechny tyto použití. Pokud má změnit jen jeden rámeček, přiřaďte tomuto rámečku jiný obrázek místo nahrazení sdíleného zdroje.
 
-S bezplatným konvertorem [Text to GIF](https://products.aspose.app/slides/cs/text-to-gif) od Aspose můžete snadno animovat text a vytvářet GIFy z textu. 
+[IPPImage::ReplaceImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ippimage/replaceimage/) také poskytuje přetížení přijímající [IImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iimage/) nebo jiný [IPPImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ippimage/).
 
-{{% /alert %}}
+## **Praktické rady pro správu obrázků**
 
-## **Často kladené otázky**
+### **Kontrola velikosti prezentace**
 
-**Zůstává původní rozlišení obrázku po vložení nedotčeno?**
+Velké rastrové obrázky mohou prezentaci zbytečně zvětšit. Používejte zdrojové obrázky s rozměry vhodnými pro zamýšlenou velikost zobrazení, opakovaně využívejte sdílené obrázkové zdroje, kde je to možné, a vyhněte se vkládání opakovaných kopií stejné grafiky ve vysokém rozlišení.
 
-Ano. Původní pixely jsou zachovány, ale konečný vzhled závisí na tom, jak je [picture](/slides/cs/cpp/picture-frame/) na snímku škálován a jaká komprese je použita při uložení.
+Pro rastrové obrázky, které již byly umístěny v rámečcích, může [IPictureFillFormat::CompressImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipicturefillformat/compressimage/) snížit data obrázku podle vybrané rozlišovací schopnosti a nastavení ořezu. Jedná se o zpracování rámečku obrázku, nikoli o správu kolekce obrázků, takže viz [Picture Frame](/slides/cs/cpp/picture-frame/) pro související operace formátování.
 
-**Jaký je nejlepší způsob, jak najednou nahradit stejné logo na desítkách snímků?**
+### **Volba mezi vloženým a propojeným obsahem**
 
-Umístěte logo na master snímek nebo rozvržení a nahraďte jej v kolekci obrázků prezentace – aktualizace se promítnou do všech prvků, které tento zdroj používají.
+Vkládání dělá prezentaci přenosnou, protože všechna požadovaná data obrázku cestují se souborem. Propojení může snížit velikost souboru, ale zavádí externí závislost. Používejte odkazy jen tehdy, když je tato závislost přijatelná a stabilní.
 
-**Lze vložený SVG převést na editovatelné tvary?**
+### **Opakované využití značky**
 
-Ano. SVG lze převést na skupinu tvarů, po čemž se jednotlivé části stanou editovatelnými pomocí standardních vlastností tvarů.
+Pro opakovaná loga, vodoznaky nebo dekorativní grafiku použijte jeden obrázkový zdroj a znovu jej využijte. Pokud grafika patří k návrhu prezentace spíše než k obsahu snímku, umístěte ji na master nebo rozvržení, aby byla zděděna příslušnými snímky.
 
-**Jak mohu najednou nastavit obrázek jako pozadí pro více snímků?**
+### **Udržujte SVG zdroje přenosné**
 
-[Přiřaďte obrázek jako pozadí](/slides/cs/cpp/presentation-background/) na master snímku nebo příslušném rozvržení – všechny snímky používající tento master/rozvržení zdědí pozadí.
+Samostatné SVG je snazší přesouvat a vykreslovat konzistentně než SVG závislé na externích souborech nebo síťových zdrojích. Kdykoli je to možné, vložte požadované zdroje před importem SVG. Převádějte SVG na tvary jen tehdy, když je potřeba jednotlivé vektorové elementy upravovat.
 
-**Jak zabránit tomu, aby se prezentace kvůli mnoha obrázkům stala příliš velkou?**
+### **Použití Aspose.Slides Image API**
 
-Opakovaně používejte jediný zdroj obrázku místo duplikátů, zvolte rozumná rozlišení, při ukládání použijte kompresi a opakující se grafiku umístěte na master snímek, kde je to vhodné.
+Pro C++ workflow s obrázky používejte Aspose.Slides [IImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iimage/) a [Images](https://reference.aspose.com/slides/cs/cpp/aspose.slides/images/) API, když potřebujete objekt obrázku, a [IImageCollection::AddImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iimagecollection/addimage/), když potřebujete zaregistrovat data obrázku jako zdroj prezentace. Přetížení kolekce také podporují pole bajtů a proudy, což je užitečné, když data obrázku pocházejí ze souborů, síťových klientů, databází nebo jiných knihoven.
+
+Generování EMF obsahu ze sešitů nebo jiného produktu je samostatný integrační proces a není předmětem tohoto článku. Pokud existující soubor WMF nebo EMF potřebujete pouze vložit do prezentace, předejte jeho data vhodnému přetížení [IImageCollection::AddImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/iimagecollection/addimage/) bez přidání další závislosti produktu do workflow správy obrázků.
+
+## **Časté otázky**
+
+**Jaký je rozdíl mezi kolekcí obrázků a rámečkem obrázku?**
+
+Kolekce obrázků ukládá znovu použitelné obrázkové zdroje. Rámeček obrázku je tvar snímku, který zobrazuje jeden z těchto zdrojů a poskytuje formátování specifické pro obrázek, jako je ořez a efekty.
+
+**Jak nejlépe nahradit stejné logo všude?**
+
+Pokud je logo již sdíleno jako jeden obrázkový zdroj, nahraďte tento zdroj pomocí [IPPImage::ReplaceImage](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ippimage/replaceimage/). Pro celopodnikovou značku můžete také umístit logo na master nebo rozvržení, čímž snížíte duplicitní obsah snímků.
+
+**Proč se propojený obrázek na jiném počítači ztratí?**
+
+Propojený obrázek závisí na externím souboru nebo URL. Pokud z jiného počítače není tento zdroj dosažitelný, může být propojený obrázek nedostupný. V takovém případě vložte obrázek, aby byla prezentace samostatná.
+
+**Lze vložené SVG upravovat jako tvary PowerPointu?**
+
+Ano. Převodem SVG pomocí [IShapeCollection::AddGroupShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishapecollection/addgroupshape/) získáte skupinu upravitelných tvarů snímku místo jednoho SVG obrázku.
+
+**Jak udržet prezentace s mnoha obrázky menší?**
+
+Opakovaně využívejte sdílené obrázkové zdroje, vyhýbejte se zbytečně velkým rastrovým zdrojům, komprimujte vhodné rastrové obrázky podle potřeby, umisťujte opakovanou značku na master nebo rozvržení a používajte propojené obrázky jen tehdy, když je externí závislost přijatelná.

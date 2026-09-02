@@ -1,563 +1,309 @@
 ---
-title: "Képek kezelésének optimalizálása a prezentációkban Java használatával"
-linktitle: "Képek kezelése"
+title: Prezentációk képkezelésének optimalizálása Java-val
+linktitle: Képek kezelése
 type: docs
 weight: 10
 url: /hu/java/image/
 keywords:
-- "kép hozzáadása"
-- "kép hozzáadása"
-- "bitmap hozzáadása"
-- "kép cseréje"
-- "kép cseréje"
-- "webről"
-- "háttér"
-- "PNG hozzáadása"
-- "JPG hozzáadása"
-- "SVG hozzáadása"
-- "külső SVG erőforrások"
-- "SVG feloldó"
-- "kapcsolt SVG képek"
-- "SVG betűtípusok"
-- "EMF hozzáadása"
-- "WMF hozzáadása"
-- "TIFF hozzáadása"
-- "PowerPoint"
-- "OpenDocument"
-- "prezentáció"
-- "Java"
-- "Aspose.Slides"
-description: "Az Aspose.Slides for Java segítségével egyszerűsítse a képek kezelését PowerPoint és OpenDocument esetén, optimalizálja a teljesítményt és automatizálja a munkafolyamatot."
+- kép hozzáadása
+- kép beszúrása
+- kép cseréje
+- képtár
+- képkeret
+- hivatkozott kép
+- háttér
+- PNG hozzáadása
+- JPG hozzáadása
+- SVG hozzáadása
+- SVG alakzatokká
+- külső SVG erőforrások
+- PowerPoint
+- OpenDocument
+- prezentáció
+- Java
+- Aspose.Slides
+description: "Ismerje meg, hogyan adhat hozzá, újrahasznosíthat, hivatkozhat, cserélhet és kezelhet raszter‑ és SVG‑képeket PowerPoint és OpenDocument prezentációkban az Aspose.Slides for Java használatával."
 ---
 ## **Bevezetés**
 
-A képek a prezentációkat érdekesebbé és vizuálisan vonzóbbá teszik. A Microsoft PowerPointban képeket szúrhat be a diákra fájlokból, az internetről vagy más forrásokból. Hasonlóan, az Aspose.Slides lehetővé teszi, hogy képeket adjon hozzá a prezentáció diáihoz többféleképpen.
+Az Aspose.Slides for Java többféle módot kínál a képekkel való munka során, amelyek mind különböző célt szolgálnak. Egy képet tárolhat a prezentációban, megjeleníthet egy képkeretben, használhatja dia háttérként, hivatkozhat külső képre, cserélhet megosztott kép erőforrást, vagy SVG tartalmat konvertálhat szerkeszthető formákká.  
+Ez a cikk a kép erőforrásokra és azok prezentáción belüli felhasználására összpontosít. A képkereteknél alkalmazott vágásra, átlátszóságra, effektusokra, nyújtásra és egyéb formázásokra lásd a [Picture Frame](/slides/hu/java/picture-frame/) oldalt.
 
-{{% alert  title="Tip" color="primary" %}} 
-Az Aspose ingyenes konvertereket kínál — [JPEG to PowerPoint](https://products.aspose.app/slides/hu/import/jpg-to-ppt) és [PNG to PowerPoint](https://products.aspose.app/slides/hu/import/png-to-ppt) — amelyek gyorsan lehetővé teszik, hogy képekből prezentációkat hozzon létre. 
-{{% /alert %}} 
+## **Ismerje meg a képmodellt**
 
-{{% alert title="Info" color="info" %}}
-Ha képet szeretne képkockaként hozzáadni – különösen ha átméretezni, effektusokat alkalmazni vagy más szabványos formázási beállításokat használni tervez – lásd a [Picture Frame](/slides/hu/java/picture-frame/) oldalt. 
-{{% /alert %}} 
+A következő API koncepciók szorosan kapcsolódnak egymáshoz, de nem cserélhetők fel:
 
-{{% alert title="Note" color="warning" %}}
-Konvertálhat képeket egyik formátumból a másikba. Lásd a következő oldalakat: konvertálás [image to JPG](https://products.aspose.com/slides/hu/java/conversion/image-to-jpg/), [JPG to image](https://products.aspose.com/slides/hu/java/conversion/jpg-to-image/), [JPG to PNG](https://products.aspose.com/slides/hu/java/conversion/jpg-to-png/), [PNG to JPG](https://products.aspose.com/slides/hu/java/conversion/png-to-jpg/), [PNG to SVG](https://products.aspose.com/slides/hu/java/conversion/png-to-svg/), és [SVG to PNG](https://products.aspose.com/slides/hu/java/conversion/svg-to-png/).
-{{% /alert %}}
+- A [presentation image collection](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iimagecollection/) képtárát tárolja a prezentáció által használt kép erőforrásokat. Használja az [ImageCollection.addImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imagecollection/) metódust a kép adatának hozzáadásához, és kap egy [IPPImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ippimage/) erőforrást.  
+- A [picture frame](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ipictureframe/) egy alakzat, amely képet jelenít meg egy diáon, elrendezésen vagy mesteroldalon. Használja az [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ishapecollection/) metódust a kép erőforrás diára helyezéséhez.  
+- A dia háttér képét a dia kitöltésének részeként használja, nem alakzatként, így nem viselkedik úgy, mint egy képkeret.  
+- Az [IPPImage.replaceImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ippimage/) kicseréli egy kép erőforrását. Ha több prezentációs elem használja azt az erőforrást, mindegyik a cserét fogja használni.  
+- Az SVG alakzatokra konvertálása szerkeszthető diá alakzatokat hoz létre. Konverzió után a tartalom már nem egy képernyett erőforrásként van kezelve.
 
-Az Aspose.Slides a népszerű formátumokban, például JPEG, PNG, BMP, GIF és egyéb képeket támogat.
+Egy tipikus munkafolyamat tehát: a kép adatot a képtárba adja, megkap egy [IPPImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ippimage/) objektumot, majd ezt az erőforrást használja egy vagy több képkeretben vagy kitöltésben.
 
-## **Képek helyi tárolásból való hozzáadása a diákhoz**
+## **Beágyazott kép hozzáadása**
 
-Képet vagy több képet adhat hozzá a számítógépén tárolt képeket egy prezentációs diához. Az alábbi Java mintakód bemutatja, hogyan lehet képet hozzáadni egy diához:
+Egy helyi kép beillesztéséhez töltse be a fájlt, adja hozzá a képtárhoz, és hozzon létre egy képkeretet, amely a visszakapott `IPPImage`-t használja.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    IPPImage picture;
-    IImage image = Images.fromFile("image.png");
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.png");
     try {
-        picture = pres.getImages().addImage(image);
+        image = presentation.getImages().addImage(sourceImage);
     } finally {
-        if (image != null) image.dispose();
+        if (sourceImage != null) sourceImage.dispose();
     }
 
-    slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
 
-    pres.save("pres.pptx", SaveFormat.Pptx);
+    presentation.save("presentation.pptx", SaveFormat.Pptx);
 } finally {
-    pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Képek hozzáadása a webről a diákhoz**
+Az így hozzáadott kép a prezentációba van beágyazva, így a keletkezett fájl nem függ attól, hogy az eredeti kép fájl elérhető marad‑e.
 
-Ha a diára felvenni kívánt kép nincs a számítógépén, közvetlenül a webről is hozzáadhatja.
+### **Kép hozzáadása a webről**
 
-Az alábbi Java mintakód bemutatja, hogyan lehet képet a webről hozzáadni egy diához:
+Ha egy kép HTTP vagy HTTPS protokollon keresztül érhető el, töltse le a bájtjait, adja hozzá a prezentáció képtárához, és használja a visszakapott kép erőforrást ugyanúgy, mint egy helyi képet.
 
 ```java
 import com.aspose.slides.*;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URI;
 import java.net.URL;
-import java.net.URLConnection;
-
-Presentation pres = new Presentation();
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    URL imageUrl = new URL("[REPLACE WITH URL]");
-    URLConnection connection = imageUrl.openConnection();
-    InputStream inputStream = connection.getInputStream();
-
-    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-    try {
-        byte[] buffer = new byte[1024];
-        int read;
-
-        while ((read = inputStream.read(buffer, 0, buffer.length)) != -1) {
-            outputStream.write(buffer, 0, read);
-        }
-
-        outputStream.flush();
-
-        IPPImage image = pres.getImages().addImage(outputStream.toByteArray());
-        slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    } finally {
-        if (inputStream != null) inputStream.close();
-        outputStream.close();
-    }
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    pres.dispose();
-}
-```
-
-## **Képek hozzáadása a dia-mesterekhez**
-
-A dia-mester tárolja és szabályozza az információkat, például a témát és az elrendezést azoknak a diáknak, amelyek ezt használják. Ha képet ad hozzá egy dia-mesterhez, a kép megjelenik minden, az adott mester alapján készült dián.
-
-Az alábbi Java mintakód bemutatja, hogyan lehet képet hozzáadni egy dia-mesterhez:
-
-```java
-import com.aspose.slides.*;
-
-Presentation pres = new Presentation();
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IMasterSlide masterSlide = slide.getLayoutSlide().getMasterSlide();
-
-    IPPImage picture;
-    IImage image = Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-
-    masterSlide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **Képek hozzáadása dia háttérként**
-
-Képet használhat egy vagy több dia háttérként. Részletekért lásd a *[Setting Images as Backgrounds for Slides](/slides/hu/java/presentation-background/#setting-images-as-background-for-slides)* oldalt.
-
-## **SVG hozzáadása a prezentációkhoz**
-
-Az SVG tartalmat a [SvgImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/svgimage/) osztály használatával adhatja hozzá a prezentációhoz. A keletkezett [ISvgImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/isvgimage/) objektum ezután hozzáadható a prezentáció képgyűjteményéhez, és használható képkocka létrehozásához.
-
-Az alábbi Java példa egy önálló SVG karakterláncot importál. Az SVG által használt összes kép, stílus és egyéb erőforrás közvetlenül az SVG tartalomba van ágyazva.
-
-```java
-import com.aspose.slides.*;
-
-String svgContent =
-        "<svg xmlns='http://www.w3.org/2000/svg' width='320' height='180'>" +
-        "    <rect width='320' height='180' fill='#4F81BD'/>" +
-        "    <circle cx='160' cy='90' r='55' fill='#F2F2F2'/>" +
-        "</svg>";
 
 Presentation presentation = new Presentation();
 try {
-    ISvgImage svgImage = new SvgImage(svgContent);
-    IPPImage image = presentation.getImages().addImage(svgImage);
+    URL imageUrl = URI.create("https://example.com/image.png").toURL();
+    HttpURLConnection connection = (HttpURLConnection) imageUrl.openConnection();
+    connection.setConnectTimeout(10000);
+    connection.setReadTimeout(10000);
 
-    presentation.getSlides().get_Item(0).getShapes().addPictureFrame(
-            ShapeType.Rectangle, 20, 20, image.getWidth(), image.getHeight(), image);
+    try (InputStream inputStream = connection.getInputStream(); 
+         ByteArrayOutputStream outputStream = new ByteArrayOutputStream()) {
+        byte[] buffer = new byte[8192];
+        int bytesRead;
+        while ((bytesRead = inputStream.read(buffer)) != -1) outputStream.write(buffer, 0, bytesRead);
 
-    presentation.save("self-contained-svg.pptx", SaveFormat.Pptx);
+        IPPImage image = presentation.getImages().addImage(outputStream.toByteArray());
+        ISlide slide = presentation.getSlides().get_Item(0);
+        slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
+    }
+
+    presentation.save("presentation-from-web.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **SVG tartalom importálása külső erőforrásokkal**
+Hosszú ideig futó alkalmazásokban használja újra a megfelelő HTTP klienst vagy kapcsolatkezelési stratégiát ahelyett, hogy folyamatosan szükségtelen hálózati infrastruktúrát hozna létre. Emellett ellenőrizze a távoli URL‑eket, a válaszméreteket és a tartalomtípusokat, ha a forrás nem megbízható.
 
-A tervezőeszközök, diagram szerkesztők, ikon rendszerek és webes csővezetékek által exportált SVG fájlok hivatkozhatnak az SVG dokumentumon kívül tárolt erőforrásokra. Például egy SVG tartalmazhat kép hivatkozást, mint `images/photo.png`, egy CSS `url(...)` értéket vagy egy betűtípus URL-t.
+## **Képek újrafelhasználása diákon át**
 
-Az ilyen SVG tartalom importálásához hozzon létre egy [IExternalResourceResolver](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iexternalresourceresolver/) megvalósítást, és adja át, a bázis URI-val együtt, egy megfelelő [SvgImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/svgimage/) konstruktorának. A bázis URI az SVG dokumentum helyét azonosítja, és a relatív hivatkozások feloldására szolgál.
+Ha ugyanaz a kép többször szükséges, adja hozzá egyszer a prezentációhoz, és a további képkeretek létrehozásakor használja a visszakapott [IPPImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ippimage/) objektumot. Ez elkerüli a forrásadatok többszöri betöltését, és egyértelművé teszi a megosztott kép erőforrás és felhasználásai közti kapcsolatot.  
+Az olyan grafikák esetében, amelyeknek automatikusan meg kell jelenniük sok dián, például egy vállalati logó, érdemes a képkeretet egy [slide master](/slides/hu/java/slide-master/) vagy elrendezésre helyezni, ahelyett, hogy minden diához hozzáadna egy ekvivalens alakzatot.
 
-A [ISvgImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/isvgimage/) interfész hozzáférést biztosít az importált SVG-re vonatkozó információkhoz:
+## **Kép használata dia háttérként**
 
-- `getSvgContent()` visszaadja az SVG markupot karakterláncként.
-- `getSvgData()` visszaadja az SVG tartalmat bájt tömbként.
-- `getBaseUri()` visszaadja a relatív hivatkozásokhoz használt bázis URI-t.
-- `getExternalResourceResolver()` visszaadja az SVG képhez rendelt erőforrás-feloldót.
-
-### **Külső erőforrás-feloldó implementálása**
-
-A feloldónak két metódusa van:
-
-- `resolveUri` kombinálja a bázis URI-t és egy relatív erőforrás hivatkozást, és visszaad egy abszolút URI-t. `null`-t ad vissza, ha a hivatkozás nem oldható fel vagy nem megengedett.
-- `getEntity` visszaad egy olvasható stream-et egy abszolút erőforrás URI-hez. `null`-t ad vissza, ha az erőforrás hiányzik, blokkolva van vagy nem elérhető. Szükség esetén egy tartalék stream is visszaadható.
-
-Az alábbi feloldó csak egy engedélyezett helyi könyvtárból tölti be a kapcsolt erőforrásokat. A hálózati erőforrások és az engedélyezett könyvtáron kívüli útvonalak blokkolva vannak. Egy opcionális tartalék kép van visszaadva a feloldatlan kép hivatkozásokhoz.
-
-```java
-import com.aspose.slides.ExternalResourceResolver;
-
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.net.URI;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Locale;
-
-class LocalSvgResourceResolver extends ExternalResourceResolver {
-    private final Path allowedRoot;
-    private final byte[] fallbackImageData;
-
-    public LocalSvgResourceResolver(String allowedRoot, byte[] fallbackImageData) {
-        this.allowedRoot = Paths.get(allowedRoot).toAbsolutePath().normalize();
-        this.fallbackImageData = fallbackImageData;
-    }
-
-    @Override
-    public String resolveUri(String baseUri, String relativeUri) {
-        if (baseUri == null || baseUri.trim().isEmpty() ||
-                relativeUri == null || relativeUri.trim().isEmpty()) {
-            return null;
-        }
-
-        try {
-            URI baseAddress = URI.create(baseUri);
-            URI absoluteAddress = baseAddress.resolve(relativeUri);
-
-            // Ez a feloldó szándékosan csak helyi fájlokat engedélyez.
-            if (!"file".equalsIgnoreCase(absoluteAddress.getScheme())) {
-                return null;
-            }
-
-            Path resourcePath = Paths.get(absoluteAddress).toAbsolutePath().normalize();
-            if (!isInsideAllowedRoot(resourcePath)) {
-                return null;
-            }
-
-            return resourcePath.toUri().toString();
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
-    @Override
-    public InputStream getEntity(String absoluteUri) {
-        try {
-            URI resourceUri = URI.create(absoluteUri);
-            if (!"file".equalsIgnoreCase(resourceUri.getScheme())) {
-                return null;
-            }
-
-            Path resourcePath = Paths.get(resourceUri).toAbsolutePath().normalize();
-            if (!isInsideAllowedRoot(resourcePath)) {
-                return null;
-            }
-
-            if (Files.exists(resourcePath)) {
-                return Files.newInputStream(resourcePath);
-            }
-
-            // Csak kép erőforrások esetén használjon tartalékot. Kép stream visszaadása
-            // hiányzó betűtípus vagy stíluslap esetén nem lenne érvényes.
-            if (fallbackImageData != null && isImageFile(resourcePath)) {
-                return new ByteArrayInputStream(fallbackImageData);
-            }
-        } catch (Exception e) {
-            return null;
-        }
-
-        return null;
-    }
-
-    private boolean isInsideAllowedRoot(Path resourcePath) {
-        return resourcePath.normalize().startsWith(allowedRoot);
-    }
-
-    private static boolean isImageFile(Path path) {
-        String fileName = path.getFileName().toString().toLowerCase(Locale.ROOT);
-
-        return fileName.endsWith(".png") ||
-                fileName.endsWith(".jpg") ||
-                fileName.endsWith(".jpeg") ||
-                fileName.endsWith(".gif") ||
-                fileName.endsWith(".bmp");
-    }
-}
-```
-
-### **Kapcsolt erőforrások feloldása SVG importálása során**
-
-Tegyük fel, hogy a `assets/diagram.svg` relatív hivatkozást tartalmaz, például:
-
-```xml
-<image href="images/photo.png" x="20" y="20" width="320" height="180" />
-```
-
-Az alábbi Java példa a SVG fájl URI-t bázis URI-ként adja át, és egy egyedi feloldót biztosít. A feloldó a relatív kép hivatkozást átalakítja abszolút URI-vé, és visszaad egy stream-et, amely a kapcsolt erőforrást tartalmazza, miközben az Aspose.Slides feldolgozza az SVG-t.
+A háttérkép a dia kitöltéséhez van rendelve; nem képkeret alakzatként kerül hozzáadásra. Ez hasznos, ha a képnek a dia hátterét kell lefednie, és nem kell normál dia objektumként manipulálni.
 
 ```java
 import com.aspose.slides.*;
 
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("background.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        if (sourceImage != null) sourceImage.dispose();
+    }
+
+    slide.getBackground().setType(BackgroundType.OwnBackground);
+    slide.getBackground().getFillFormat().setFillType(FillType.Picture);
+    slide.getBackground().getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+    slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().setImage(image);
+
+    presentation.save("background-image.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+További háttér lehetőségekért, beleértve a mester és elrendezés háttereket, lásd a [Presentation Background](/slides/hu/java/presentation-background/) oldalt.
+
+## **Beágyazott képek és hivatkozott képek**
+
+Beágyazott és hivatkozott képek különböző hordozhatósági és fájlméretbeli kompromisszumokkal járnak:
+
+- **Beágyazott kép:** a kép adat a prezentáción belül tárolódik. A prezentáció önmagában tartalmazza, de a fájlméret magában foglalja a kép adatot.  
+- **Hivatkozott kép:** a prezentáció egy útvonalat vagy URL‑t tárol egy külső képhez. Ez csökkentheti a prezentáció méretét, de a külső erőforrásnak elérhetőnek kell maradnia a prezentáció megnyitásakor vagy renderelésekor.
+
+Egy hivatkozott képet úgy hozhatunk létre, hogy a külső útvonalat vagy URL‑t a [ISlidesPicture.setLinkPathLong](https://reference.aspose.com/slides/hu/java/com.aspose.slides/islidespicture/) metódussal rendeljük hozzá, ahelyett, hogy beágyaznánk a kép adatot.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, null);
+    pictureFrame.getPictureFormat().getPicture().setLinkPathLong("https://example.com/image.png");
+
+    presentation.save("linked-image.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Használjon hivatkozott képeket csak akkor, ha a telepítési környezet megbízhatóan hozzáfér a külső erőforráshoz. Az offline vagy rendszerek közötti áthelyezést igénylő prezentációk esetén a beágyazott képek általában biztonságosabbak.
+
+## **SVG képek kezelése**
+
+Az SVG egy vektoros formátum, ezért hasznos lehet ikonok, diagramok és egyéb grafikák esetében, amelyeknek a raszteres képekhez képest részletveszteség nélkül kell skálázódniuk. Az Aspose.Slides támogatja az SVG‑t képernyet erőforrásként és szerkeszthető diá alakzatok forrásaként egyaránt.
+
+### **SVG hozzáadása képként**
+
+Hozzon létre egy [SvgImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/svgimage/) objektumot, adja hozzá a képtárhoz, és helyezze a keletkezett kép erőforrást egy képkeretbe.
+
+```java
+import com.aspose.slides.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
-
-Path svgFilePath = Paths.get("assets", "diagram.svg").toAbsolutePath().normalize();
-Path assetDirectory = svgFilePath.getParent();
-String svgContent = new String(Files.readAllBytes(svgFilePath), StandardCharsets.UTF_8);
-
-// A bázis URI a SVG dokumentum helyét jelöli.
-String baseUri = svgFilePath.toUri().toString();
-
-byte[] fallbackImageData = null;
-Path fallbackImagePath = assetDirectory.resolve("fallback.png");
-if (Files.exists(fallbackImagePath)) {
-    fallbackImageData = Files.readAllBytes(fallbackImagePath);
-}
-
-IExternalResourceResolver resolver = new LocalSvgResourceResolver(assetDirectory.toString(), fallbackImageData);
-ISvgImage svgImage = new SvgImage(svgContent, resolver, baseUri);
-
-// ISvgImage exposes the source content, binary data, base URI, and resolver.
-String importedContent = svgImage.getSvgContent();
-byte[] importedData = svgImage.getSvgData();
-String importedBaseUri = svgImage.getBaseUri();
-IExternalResourceResolver importedResolver = svgImage.getExternalResourceResolver();
 
 Presentation presentation = new Presentation();
 try {
+    byte[] imageData = Files.readAllBytes(Paths.get("icon.svg"));
+    String svgContent = new String(imageData, StandardCharsets.UTF_8);
+    ISvgImage svgImage = new SvgImage(svgContent);
+
     IPPImage image = presentation.getImages().addImage(svgImage);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 200, 200, image);
 
-    presentation.getSlides().get_Item(0).getShapes().addPictureFrame(
-            ShapeType.Rectangle, 20, 20, image.getWidth(), image.getHeight(), image);
-
-    presentation.save("svg-with-linked-resources.pptx", SaveFormat.Pptx);
+    presentation.save("svg-image.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-A `SvgImage` osztály további túlterheléseket is biztosít, amelyek SVG adatot bájt tömbként vagy bemeneti streamként fogadnak, egy külső erőforrás-feloldóval és egy bázis URI-val együtt.
+### **Külső erőforrásokkal rendelkező SVG fájlok**
 
-{{% alert title="Important" color="warning" %}}
-Az erőforrás-feloldó a külső erőforrásokat elérhetővé teszi, amíg az Aspose.Slides feldolgozza és rendereli az SVG-t. Nem módosítja az eredeti SVG markupot, és nem ágyazza be automatikusan a feloldott erőforrásokat.
+Az SVG hivatkozhat külső képekre, stíluslapokra vagy betűtípusokra. Ezekben az esetekben a [SvgImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/svgimage/) olyan konstruktorokat biztosít, amelyek elfogadnak egy [IExternalResourceResolver](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iexternalresourceresolver/) és egy alap‑URI‑t. A resolver képes egy relatív URI‑t egy engedélyezett abszolút URI‑ra leképezni, és visszaad egy streamet a kért erőforráshoz.  
+A resolver elérhetővé teszi a külső erőforrásokat, amíg az Aspose.Slides feldolgozza az SVG‑t, de nem írja át az SVG‑t önálló dokumentummá. Ha az SVG‑nek hordozhatónak kell maradnia, ágyazza be a szükséges erőforrásokat az SVG‑be, például `data:` URI‑k használatával a hivatkozott képekhez.  
+Ha az SVG fájlok megbízhatatlan forrásból származnak, korlátozza a séma, fájlhely és hoszt hozzáféréseket, amelyeket a resolver elérhet. A hálózati resolvernek időkorlátokat, válaszméret korlátokat és tartalom validációt is alkalmaznia kell.
 
-Amikor egy `ISvgImage` kerül hozzáadásra a prezentáció képgyűjteményéhez, a PPTX fájl tartalmazhatja az eredeti SVG ábrázolást és egy raszteres tartalék képet is. Egy kapcsolt erőforrás megjelenhet a generált tartalék képen, míg egy relatív hivatkozás, például `images/photo.png` változatlan marad a tárolt SVG-ben. Egy olyan alkalmazás, amely a natív SVG ábrázolást rendereli, ezért kihagyhatja a kapcsolt tartalmat, ha az eredeti külső erőforrás nem érhető el.
-{{% /alert %}}
+### **SVG konvertálása szerkeszthető alakzatokká**
 
-### **Hordozható SVG kép létrehozása**
-
-Hogy olyan SVG képet hozzon létre, amely nem függ külső fájloktól, tegye az SVG-t önállóvá a `SvgImage` létrehozása előtt. Például cserélje le a kapcsolt kép URL-eket `data:` URI-kká, amelyek a kép adatát tartalmazzák:
-
-```xml
-<image href="data:image/png;base64,..." x="20" y="20" width="320" height="180" />
-```
-
-Miután az összes szükséges erőforrás be van ágyazva az SVG tartalomba, hozza létre a `SvgImage`-t, adja hozzá a prezentáció képgyűjteményéhez, és helyezze be egy képkockába, ahogyan az előző példában is.
-
-### **Hiányzó vagy blokkolt erőforrások kezelése**
-
-Adjon vissza `null`-t a `resolveUri`-ból, ha egy erőforrás URI érvénytelen, tiltott vagy nem oldható fel. Adjon vissza `null`-t a `getEntity`-ből, ha az erőforrást nem lehet beolvasni. Az Aspose.Slides lehetőség szerint az erőforrás nélkül folytatja az SVG feldolgozását.
-
-Egy tartalék stream visszaadható hiányzó erőforrás esetén, de tartalmának kompatibilisnek kell lennie a kért erőforrás típusával. Például csak képet streamként adjon vissza hiányzó kép esetén, nem betűtípust vagy stíluslapot.
-
-{{% alert title="Security" color="warning" %}}
-Ne oldjon fel tetszőleges fájlelérési útvonalakat vagy korlátlan hálózati URL-eket megbízhatatlan SVG fájlokból. Szűkítse a megengedett sémákat, könyvtárakat és hostokat. Hálózati erőforrások esetén alkalmazzon kapcsolat-időkorlátot, válaszméret limitet és tartalomvalidációt.
-{{% /alert %}}
-
-## **SVG konvertálása alakzatkészletre**
-
-Az Aspose.Slides képes egy SVG-t alakzatkészletre konvertálni, hasonlóan a PowerPoint megfelelő funkciójához:
+Az Aspose.Slides képes egy SVG‑t egy szerkeszthető diá alakzatcsoporttá konvertálni, hasonlóan a megfelelő PowerPoint parancshoz.
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-Ez a funkció a [addGroupShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/IShapeCollection#addGroupShape-com.aspose.slides.ISvgImage-float-float-float-float-) metódus túlterhelésével érhető el az [IShapeCollection](https://reference.aspose.com/slides/hu/java/com.aspose.slides/IShapeCollection) interfészben, amely első argumentumként egy [ISvgImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ISvgImage) objektumot vár.
-
-Az alábbi Java mintakód bemutatja, hogyan kell használni ezt a metódust egy SVG fájl alakzatkészletté konvertálásához:
+Használja az [IShapeCollection.addGroupShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ishapecollection/) túlterhelést, amely egy [ISvgImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/isvgimage/) objektumot fogad a konverzió végrehajtásához.
 
 ```java
 import com.aspose.slides.*;
 import java.awt.geom.Dimension2D;
-import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-// A forrás SVG fájl neve.
-String svgFileName = "sample.svg";
-
-// A kimeneti prezentáció fájl neve.
-String outPptxPath = "presentation.pptx";
-
-// Új prezentáció létrehozása.
-IPresentation presentation = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // A SVG fájl tartalmának beolvasása.
-    byte[] svgContent = Files.readAllBytes(Paths.get(svgFileName));
-
-    // SvgImage objektum létrehozása.
+    byte[] imageData = Files.readAllBytes(Paths.get("diagram.svg"));
+    String svgContent = new String(imageData, StandardCharsets.UTF_8);
     ISvgImage svgImage = new SvgImage(svgContent);
 
-    // Diák méretének lekérése.
     Dimension2D slideSize = presentation.getSlideSize().getSize();
+    ISlide slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addGroupShape(svgImage, 0, 0, (float) slideSize.getWidth(), (float) slideSize.getHeight());
 
-    // Az SVG képet alakzatcsoporttá konvertálja és a dia méretéhez méretezi.
-    presentation.getSlides().get_Item(0).getShapes().addGroupShape(
-            svgImage, 0f, 0f,
-            (float) slideSize.getWidth(), (float) slideSize.getHeight());
-
-    // A prezentáció mentése PPTX formátumban.
-    presentation.save(outPptxPath, SaveFormat.Pptx);
-} catch (IOException e) {
+    presentation.save("editable-svg-shapes.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Képek hozzáadása EMF formátumban a diákhoz**
+Használja az SVG‑alakzat konverziót, ha az egyedi vektor elemeket PowerPoint alakzatokként kell szerkeszteni. Ha az SVG csak megjelenítésre van szükség, képként tartani egyszerűbb, és elkerüli sok különálló alakzat létrehozását.
 
-Az Aspose.Slides for Java lehetővé teszi, hogy EMF képeket generáljon Excel munkalapokból az Aspose.Cells segítségével, és hozzáadja őket a prezentáció diáihoz.
+## **Létező kép erőforrás cseréje**
 
-Az alábbi Java mintakód bemutatja, hogyan kell ezt megtenni:
-
-```java
-import com.aspose.slides.*;
-import com.aspose.cells.ImageOrPrintOptions;
-import com.aspose.cells.ImageType;
-import com.aspose.cells.SheetRender;
-import com.aspose.cells.Workbook;
-import com.aspose.cells.Worksheet;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-
-Workbook book = new Workbook("chart.xlsx");
-Worksheet sheet = book.getWorksheets().get(0);
-
-ImageOrPrintOptions options = new ImageOrPrintOptions();
-options.setHorizontalResolution(200);
-options.setVerticalResolution(200);
-options.setImageType(ImageType.EMF);
-
-// A munkafüzet mentése egy adatfolyamra.
-SheetRender sr = new SheetRender(sheet, options);
-Presentation pres = new Presentation();
-try {
-    pres.getSlides().removeAt(0);
-
-    String emfSheetName;
-    for (int j = 0; j < sr.getPageCount(); j++) {
-        emfSheetName = "test" + sheet.getName() + " Page" + (j + 1) + ".out.emf";
-        sr.toImage(j, emfSheetName);
-
-        // A fájl hozzáadása változtatás nélkül, hogy a kép vektor EMF formában maradjon, a raszterizálás helyett.
-        IPPImage picture;
-        InputStream imageStream = new FileInputStream(emfSheetName);
-        try {
-            picture = pres.getImages().addImage(imageStream);
-        } finally {
-            imageStream.close();
-        }
-
-        ISlide slide = pres.getSlides().addEmptySlide(
-                pres.getLayoutSlides().getByType(SlideLayoutType.Blank));
-        slide.getShapes().addPictureFrame(
-                ShapeType.Rectangle,
-                0,
-                0,
-                (float) pres.getSlideSize().getSize().getWidth(),
-                (float) pres.getSlideSize().getSize().getHeight(),
-                picture);
-    }
-
-    pres.save("output.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    pres.dispose();
-}
-```
-
-## **Képek cseréje a képgyűjteményben**
-
-Az Aspose.Slides lehetővé teszi a prezentáció képgyűjteményében tárolt képek cseréjét, beleértve a diák alakzatai által használt képeket is. Ez a rész több módot ismertet a képek frissítésére a gyűjteményben. Képet cserélhet nyers bájt adat, egy [IImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iimage/) példány, vagy a gyűjteményben már meglévő másik kép használatával.
-
-Kövesse az alábbi lépéseket:
-
-1. Töltse be a képeket tartalmazó prezentációfájlt a [Presentation](https://reference.aspose.com/slides/hu/java/com.aspose.slides/presentation/) osztály használatával.  
-2. Töltsön be egy új képet egy fájlból bájt tömbbe.  
-3. Cserélje ki a célképet az új képre a bájt tömb használatával.  
-4. A második megközelítésben töltse be a képet egy [IImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iimage/) objektumba, és cserélje ki a célképet ezzel az objektummal.  
-5. A harmadik megközelítésben cserélje ki a célképet egy olyan képpel, amely már létezik a prezentáció képgyűjteményében.  
-6. Írja ki a módosított prezentációt PPTX fájlként.  
+Használja az [IPPImage.replaceImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ippimage/) metódust, ha egy létező kép erőforrást szeretne cserélni. Ez különösen hasznos megosztott grafikák, például logók esetén.
 
 ```java
 import com.aspose.slides.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
-// Példányosítsa a Presentation osztályt, amely egy prezentációs fájlt képvisel.
-Presentation presentation = new Presentation("sample.pptx");
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // Az első módszer.
-    byte[] imageData = Files.readAllBytes(Paths.get("image0.jpeg"));
-    IPPImage oldImage = presentation.getImages().get_Item(0);
-    oldImage.replaceImage(imageData);
+    IPPImage imageToReplace = presentation.getImages().get_Item(0);
 
-    // A második módszer.
-    IImage newImage = Images.fromFile("image1.png");
+    IImage replacementImage = Images.fromFile("new-logo.png");
     try {
-        oldImage = presentation.getImages().get_Item(1);
-        oldImage.replaceImage(newImage);
+        imageToReplace.replaceImage(replacementImage);
     } finally {
-        if (newImage != null) newImage.dispose();
+        if (replacementImage != null) replacementImage.dispose();
     }
 
-    // A harmadik módszer.
-    oldImage = presentation.getImages().get_Item(2);
-    oldImage.replaceImage(presentation.getImages().get_Item(3));
-
-    // Mentse a prezentációt fájlba.
     presentation.save("output.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="Info" color="info" %}}
-Az Aspose ingyenes [Text to GIF](https://products.aspose.app/slides/hu/text-to-gif) konverterével könnyedén animálhat szöveget és GIF-eket hozhat létre szövegből. 
-{{% /alert %}}
+Ha több képkeret, háttér, mester vagy elrendezés használja ugyanazt a kép erőforrást, a forrás cseréje frissíti mindegyik használatot. Ha csak egy képkeretnek kell változnia, akkor rendeljön másik képet ahhoz a kerethez a megosztott erőforrás cseréje helyett.  
+`replaceImage` további túlterheléseket is biztosít, amelyek bájt tömböt vagy egy másik [IPPImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ippimage/) objektumot fogadnak.
+
+## **Gyakorlati képkezelési útmutató**
+
+### **A prezentáció méretének szabályozása**
+
+A nagy raszteres képek a prezentáció méretét indokolatlanul megnövelhetik. Használjon forrásképeket, amelyek mérete megfelel a tervezett megjelenítési méretnek, újrahasználja a megosztott kép erőforrásokat ahol lehet, és kerülje a ugyanazon nagyfelbontású grafika többszörös beágyazását.  
+A már képkeretbe elhelyezett raszteres képek esetén az [IPictureFillFormat.compressImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ipicturefillformat/) a kiválasztott felbontás és vágási beállítások szerint csökkentheti a kép adatot. Ez képkeret feldolgozás, nem képtár kezelés, ezért a kapcsolódó formázási műveletekért lásd a [Picture Frame](/slides/hu/java/picture-frame/) oldalt.
+
+### **Beágyazott és hivatkozott tartalom választása**
+
+A beágyazás hordozhatóvá teszi a prezentációt, mivel minden szükséges kép adat a fájllal együtt kerül. A hivatkozás csökkentheti a fájlméretet, de külső függőséget vezet be. Használjon hivatkozásokat csak akkor, ha ez a függőség elfogadható és stabil.
+
+### **Megosztott arculat újrafelhasználása**
+
+Ismétlődő logók, vízjelek vagy dekoratív grafikák esetén használjon egy kép erőforrást és használja újra. Ha a grafika a prezentáció tervezéséhez tartozik, nem a diához, helyezze el egy mesterre vagy elrendezésre, hogy a megfelelő diák örökölhessék.
+
+### **SVG erőforrások hordozhatóságának megőrzése**
+
+Az önálló SVG könnyebben mozgatható és konzisztensen renderelhető, mint egy külső fájlokra vagy hálózati erőforrásokra támaszkodó SVG. Amikor lehetséges, ágyazza be a szükséges erőforrásokat még az SVG importálása előtt. Az SVG‑t alakzatokká csak akkor konvertálja, ha az egyedi vektor elemek szerkesztésére van szükség.
+
+### **A modern, többplatformos kép API használata**
+
+Új Java kódban használja az Aspose.Slides [IImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iimage/) és [Images](https://reference.aspose.com/slides/hu/java/com.aspose.slides/images/) API‑kat a `java.awt.image.BufferedImage` alapú régi nyilvános API helyett. A migrációs útmutatásért lásd a [Modern API](/slides/hu/java/modern-api/) oldalt.  
+A WMF és EMF speciális figyelmet igényelnek. Ha ezeket a formátumokat egy [IImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/iimage/) segítségével adjuk át, az [ImageCollection.addImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imagecollection/) a metafájlokat raszteres PNG ábrázolássá konvertálja beszúrás előtt. Ha a metafájl adatok megőrzése fontos, használjon adatfolyam‑alapú [ImageCollection.addImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/imagecollection/) túlterhelést. Az EMF tartalom generálása táblázatokból vagy más termékekből egy külön integrációs munkafolyamat, és nem része ennek a cikknek.
 
 ## **GYIK**
 
-**Megmarad az eredeti kép felbontása a beillesztés után?**
+**Mi a különbség a képtár és a képkeret között?**  
+A képtár újrahasználható kép erőforrásokat tárol. A képkeret egy dián lévő alakzat, amely egy ilyen erőforrást jelenít meg, és képspecifikus formázást biztosít, például vágást és effektusokat.
 
-Igen. A forráspixel megtartásra kerül, de a végső megjelenés attól függ, hogyan van a [picture](/slides/hu/java/picture-frame/) méretezve a dián és milyen tömörítés kerül alkalmazásra a mentéskor.
+**Mi a legjobb módja annak, hogy mindenhol kicserélje ugyanazt a logót?**  
+Ha a logó már egy közös kép erőforrásként van megosztva, cserélje azt a forrást az [IPPImage.replaceImage](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ippimage/) segítségével. A prezentáció egészére kiterjedő arculat esetén a logó elhelyezése egy mesterre vagy elrendezésre szintén csökkentheti a duplikált diá tartalmat.
 
-**Mi a legjobb módja annak, hogy egyszerre cseréljünk ki egy logót több tucat dián?**
+**Miért tűnik el egy hivatkozott kép egy másik számítógépen?**  
+A hivatkozott kép a külső fájlra vagy URL‑re támaszkodik. Ha ez az erőforrás nem érhető el a másik számítógépről, a hivatkozott kép elérhetetlen lehet. A prezentáció önállóvá tételekor ágyazza be a képet.
 
-Helyezze a logót a master diára vagy egy elrendezésre, és cserélje ki a prezentáció képgyűjteményében – a frissítések minden olyan elemre kiterjednek, amely ezt az erőforrást használja.
+**Lehet beillesztett SVG‑t PowerPoint alakzatokként szerkeszteni?**  
+Igen. Konvertálja az SVG‑t az [IShapeCollection.addGroupShape](https://reference.aspose.com/slides/hu/java/com.aspose.slides/ishapecollection/) segítségével; az eredményül kapott csoport szerkeszthető diá alakzatokat tartalmaz egy SVG kép helyett.
 
-**Konvertálható egy beillesztett SVG szerkeszthető alakzatokká?**
-
-Igen. Az SVG-t alakzatcsoporttá konvertálhatja, ezután az egyes részek szerkeszthetőek lesznek a szokásos alakzattulajdonságokkal.
-
-**Hogyan állíthatok be egy képet több dia háttérként egyszerre?**
-
-A [Assign the image as the background](/slides/hu/java/presentation-background/) a master dián vagy a megfelelő elrendezésen; minden, azt a mastert/elrendezést használó dia örökli a hátteret.
-
-**Hogyan akadályozhatom, hogy a prezentáció túl nagyra nőjen a sok kép miatt?**
-
-Használjon egyetlen kép erőforrást a másolatok helyett, válasszon ésszerű felbontásokat, alkalmazzon tömörítést mentéskor, és ismétlődő grafikákat helyezzen a masterre, ahol megfelelő.
+**Hogyan tarthatom kisebb méretűnek a sok képet tartalmazó prezentációkat?**  
+Használja újra a megosztott kép erőforrásokat, kerülje a szükségtelenül nagy raszteres forrásokat, tömörítse a megfelelő raszteres képeket, ha szükséges, tartsa a gyakran ismétlődő arculatot mestereken vagy elrendezéseken, és csak akkor használjon hivatkozott képeket, ha egy külső függőség elfogadható.

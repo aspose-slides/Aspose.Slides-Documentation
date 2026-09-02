@@ -5,113 +5,107 @@ type: docs
 weight: 10
 url: /sv/php-java/image/
 keywords:
-- lägg till bild
-- lägg till bild
-- lägg till bitmap
-- byt bild
-- byt bild
-- från webben
+- lägga till bild
+- lägga till foto
+- ersätta bild
+- bildsamling
+- bildram
+- länkad bild
 - bakgrund
-- lägg till PNG
-- lägg till JPG
-- lägg till SVG
+- lägga till PNG
+- lägga till JPG
+- lägga till SVG
+- SVG till former
 - externa SVG-resurser
-- SVG-resolver
-- länkade SVG-bilder
-- SVG-teckensnitt
-- lägg till EMF
-- lägg till WMF
-- lägg till TIFF
 - PowerPoint
 - OpenDocument
 - presentation
-- EMF
-- SVG
 - PHP
 - Aspose.Slides
-description: "Förenkla bildhantering i PowerPoint och OpenDocument med Aspose.Slides för PHP via Java, optimera prestanda och automatisera ditt arbetsflöde."
+description: "Lär dig hur du lägger till, återanvänder, länkar, ersätter och hanterar raster- och SVG-bilder i PowerPoint- och OpenDocument-presentationer med Aspose.Slides för PHP via Java."
 ---
 ## **Introduktion**
 
-Bilder gör presentationer mer engagerande och visuellt tilltalande. I Microsoft PowerPoint kan du infoga bilder på bilderna från filer, internet eller andra källor. På samma sätt låter Aspose.Slides dig lägga till bilder i presentationsbilder på flera sätt.
+Aspose.Slides för PHP via Java erbjuder flera sätt att arbeta med bilder, och varje sätt har ett annat syfte. Du kan lagra en bild i en presentation, visa den i en bildram, använda den som en bildbakgrund, länka till en extern bild, ersätta en delad bildresurs eller konvertera SVG-innehåll till redigerbara former.
 
-{{% alert  title="Tips" color="primary" %}} 
+Denna artikel fokuserar på bildresurser och hur de används i en presentation. För beskärning, transparens, effekter, töjning och annan formatering som tillämpas på en enskild bildram, se [Picture Frame](/slides/sv/php-java/picture-frame/).
 
-Aspose tillhandahåller gratis konverterare—[JPEG till PowerPoint](https://products.aspose.app/slides/sv/import/jpg-to-ppt) och [PNG till PowerPoint](https://products.aspose.app/slides/sv/import/png-to-ppt)—som låter dig snabbt skapa presentationer från bilder. 
+## **Förstå bildmodellen**
 
-{{% /alert %}} 
+Följande API‑koncept är nära besläktade men inte utbytbara:
 
-{{% alert title="Info" color="info" %}}
+- Den [presentation image collection](https://reference.aspose.com/slides/sv/php-java/aspose.slides/imagecollection/) lagrar bildresurser som används av presentationen. Använd [ImageCollection::addImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/imagecollection/) för att lägga till bilddata och få en [PPImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/ppimage/)‑resurs.
+- En [picture frame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/pictureframe/) är en form som visar en bild på en bild, layout eller master. Använd [ShapeCollection::addPictureFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shapecollection/addpictureframe/) för att placera en bildresurs på en bild.
+- En bildbakgrund använder en bild som en del av bildens fyllning snarare än som en form. Den beter sig därför inte som en picture frame.
+- [PPImage::replaceImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/ppimage/) ersätter en bildresurs. Om flera presentationselement använder den resursen, använder de alla ersättningen.
+- Att konvertera en SVG till former skapar redigerbara bildformer. Efter konverteringen hanteras innehållet inte längre som en bildresurs.
 
-Om du vill lägga till en bild som en bildram—särskilt om du planerar att ändra storlek, applicera effekter eller använda andra standardformateringsalternativ—se [Bildram](/slides/sv/php-java/picture-frame/). 
+Ett typiskt arbetsflöde är därför: lägg till bilddata i bildsamlingen, erhåll en [PPImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/ppimage/), och använd sedan den resursen i en eller flera bildramar eller fyllningar.
 
-{{% /alert %}} 
+## **Lägg till en inbäddad bild**
 
-{{% alert title="Obs" color="warning" %}}
-
-Du kan konvertera bilder från ett format till ett annat. Se följande sidor: konvertera [bild till JPG](https://products.aspose.com/slides/sv/php-java/conversion/image-to-jpg/), [JPG till bild](https://products.aspose.com/slides/sv/php-java/conversion/jpg-to-image/), [JPG till PNG](https://products.aspose.com/slides/sv/php-java/conversion/jpg-to-png/), [PNG till JPG](https://products.aspose.com/slides/sv/php-java/conversion/png-to-jpg/), [PNG till SVG](https://products.aspose.com/slides/sv/php-java/conversion/png-to-svg/), och [SVG till PNG](https://products.aspose.com/slides/sv/php-java/conversion/svg-to-png/).
-
-{{% /alert %}}
-
-Aspose.Slides stödjer bilder i vanliga format som JPEG, PNG, BMP, GIF och andra. 
-
-## **Lägg till lokalt lagrade bilder på bilder**
-
-Du kan lägga till en eller flera bilder som lagras på din dator på en presentationsbild. Följande PHP‑exempelkod visar hur du lägger till en bild på en bild:
+För att infoga en lokal bild, läs in filen, lägg till den i bildsamlingen och skapa en bildram som använder den returnerade `PPImage`.
 
 ```php
-$pres = new Presentation();
-try {
-    $slide = $pres->getSlides()->get_Item(0);
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
 
-    $picture = null;
-    $image = Images::fromFile("image.png");
+$presentation = new Presentation();
+try {
+    $image = Images::fromFile("photo.png");
     try {
-        $picture = $pres->getImages()->addImage($image);
+        $ppImage = $presentation->getImages()->addImage($image);
     } finally {
         if (!java_is_null($image)) {
             $image->dispose();
         }
     }
 
-    $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $picture);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 320, 180, $ppImage);
 
-    $pres->save("pres.pptx", SaveFormat::Pptx);
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
 } finally {
-    $pres->dispose();
+    $presentation->dispose();
 }
 ```
 
-## **Lägg till bilder från webben på bilder**
+Bilden som läggs till på detta sätt är inbäddad i presentationen, så den resulterande filen är inte beroende av att den ursprungliga bildfilen fortfarande är tillgänglig.
 
-Om bilden du vill lägga till på en bild inte är lagrad på din dator kan du lägga till den direkt från webben. 
+### **Lägg till en bild från webben**
 
-Följande PHP‑exempelkod visar hur du lägger till en bild från webben på en bild:
+När en bild är tillgänglig via HTTP eller HTTPS, hämta dess byte, lägg till dem i presentationens bildsamling och använd den returnerade bildresursen på samma sätt som en lokal bild.
 
 ```php
-$pres = new Presentation();
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
 try {
-    $slide = $pres->getSlides()->get_Item(0);
-
-    $imageUrl = new Java("java.net.URL", "[REPLACE WITH URL]");
+    $imageUrl = new Java("java.net.URL", "https://example.com/image.png");
     $connection = $imageUrl->openConnection();
-    $inputStream = $connection->getInputStream();
+    $connection->setConnectTimeout(10000);
+    $connection->setReadTimeout(10000);
 
+    $inputStream = $connection->getInputStream();
     $outputStream = new Java("java.io.ByteArrayOutputStream");
     $Array = new JavaClass("java.lang.reflect.Array");
     $Byte = (new JavaClass("java.lang.Byte"))->TYPE;
 
     try {
-        $buffer = $Array->newInstance($Byte, 1024);
+        $buffer = $Array->newInstance($Byte, 8192);
+        $bufferLength = $Array->getLength($buffer);
 
-        while (($read = java_values($inputStream->read($buffer, 0, $Array->getLength($buffer)))) != -1) {
-            $outputStream->write($buffer, 0, $read);
+        while (($bytesRead = java_values($inputStream->read($buffer, 0, $bufferLength))) != -1) {
+            $outputStream->write($buffer, 0, $bytesRead);
         }
 
-        $outputStream->flush();
-
-        $image = $pres->getImages()->addImage($outputStream->toByteArray());
-        $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $image);
+        $ppImage = $presentation->getImages()->addImage($outputStream->toByteArray());
+        $slide = $presentation->getSlides()->get_Item(0);
+        $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 320, 180, $ppImage);
     } finally {
         if (!java_is_null($inputStream)) {
             $inputStream->close();
@@ -119,467 +113,229 @@ try {
         $outputStream->close();
     }
 
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-} catch (JavaException $e) {
+    $presentation->save("presentation-from-web.pptx", SaveFormat::Pptx);
 } finally {
-    $pres->dispose();
+    $presentation->dispose();
 }
 ```
 
-## **Lägg till bilder på bildmastrar**
+I långlivade applikationer, återanvänd en HTTP‑klient eller en anslutningshanteringsstrategi som är lämplig för applikationen snarare än att upprepade gånger skapa onödig nätverksinfrastruktur. Validera också fjärr‑URL:er, svarsstorlekar och innehållstyper när källan inte är betrodd.
 
-En bildmastare lagrar och styr information såsom tema och layout för de bilder som använder den. När du lägger till en bild på en bildmastare visas bilden på varje bild baserad på den mastaren. 
+## **Återanvänd bilder på flera bilder**
 
-Följande PHP‑exempelkod visar hur du lägger till en bild på en bildmastare:
+Om samma bild behövs mer än en gång, lägg till den i presentationen en gång och återanvänd den returnerade [PPImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/ppimage/) när du skapar ytterligare bildramar. Detta undviker att upprepade gånger ladda samma källdata och gör förhållandet mellan den delade bildresursen och dess användningar tydligt.
+
+För grafik som ska visas automatiskt på många bilder, som en företagslogotyp, överväg att placera bildramen på en [slide master](/slides/sv/php-java/slide-master/) eller layout istället för att lägga till en motsvarande form på varje bild.
+
+## **Använd en bild som bildbakgrund**
+
+En bakgrundsbild tilldelas bildens fyllning; den läggs inte till som en picture‑frame‑form. Detta är användbart när bilden ska täcka bildbakgrunden och inte ska manipuleras som ett normalt bildobjekt.
 
 ```php
-$pres = new Presentation();
-try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $masterSlide = $slide->getLayoutSlide()->getMasterSlide();
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\PictureFillMode;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-    $picture = null;
-    $image = Images::fromFile("image.png");
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $image = Images::fromFile("background.jpg");
     try {
-        $picture = $pres->getImages()->addImage($image);
+        $ppImage = $presentation->getImages()->addImage($image);
     } finally {
         if (!java_is_null($image)) {
             $image->dispose();
         }
     }
 
-    $masterSlide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $picture);
+    $slide->getBackground()->setType(BackgroundType::OwnBackground);
+    $slide->getBackground()->getFillFormat()->setFillType(FillType::Picture);
+    $slide->getBackground()->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Stretch);
+    $slide->getBackground()->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($ppImage);
 
-    $pres->save("pres.pptx", SaveFormat::Pptx);
+    $presentation->save("background-image.pptx", SaveFormat::Pptx);
 } finally {
-    $pres->dispose();
+    $presentation->dispose();
 }
 ```
 
-## **Lägg till bilder som bakgrund för bilder**
+För ytterligare bakgrundsalternativ, inklusive master‑ och layoutbakgrunder, se [Presentation Background](/slides/sv/php-java/presentation-background/).
 
-Du kan använda en bild som bakgrund för en eller flera bilder. För detaljer, se *[Ställa in bilder som bakgrund för bilder](/slides/sv/php-java/presentation-background/#setting-images-as-background-for-slides)*.
+## **Inbäddade bilder och länkade bilder**
 
-## **Lägg till SVG i presentationer**
+Inbäddade och länkade bilder har olika kompromisser när det gäller portabilitet och filstorlek:
 
-SVG‑innehåll kan läggas till i en presentation med klassen [SvgImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/svgimage/). Det resulterande SVG‑bildobjektet kan sedan läggas till i presentationens bildsamling och användas för att skapa en bildram.
+- **Inbäddad bild:** bilddata lagras i presentationen. Presentationen är självständig, men filstorleken inkluderar bilddata.
+- **Länkad bild:** presentationen lagrar en sökväg eller URL till en extern bild. Detta kan minska presentationens storlek, men den externa resursen måste förbli tillgänglig när presentationen öppnas eller renderas.
 
-Följande PHP‑exempel importerar en självständig SVG‑sträng. Alla bilder, stilar och andra resurser som används av denna SVG är inbäddade direkt i SVG‑innehållet.
+En länkad bild kan skapas genom att tilldela den externa sökvägen eller URL:en via [Picture::setLinkPathLong](https://reference.aspose.com/slides/sv/php-java/aspose.slides/picture/) istället för att bädda in bilddata.
 
 ```php
-$svgContent =
-    "<svg xmlns='http://www.w3.org/2000/svg' width='320' height='180'>" .
-    "    <rect width='320' height='180' fill='#4F81BD'/>" .
-    "    <circle cx='160' cy='90' r='55' fill='#F2F2F2'/>" .
-    "</svg>";
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
 
 $presentation = new Presentation();
 try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 320, 180, null);
+    $pictureFrame->getPictureFormat()->getPicture()->setLinkPathLong("https://example.com/image.png");
+
+    $presentation->save("linked-image.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Använd länkade bilder endast när distributionsmiljön på ett pålitligt sätt kan komma åt den externa resursen. För presentationer som måste fungera offline eller flyttas mellan system är inbäddade bilder vanligtvis säkrare.
+
+## **Arbeta med SVG‑bilder**
+
+SVG är ett vektorformat, så det kan vara användbart för ikoner, diagram och annan grafik som ska skalas utan samma förlust av detaljer som rasterbilder. Aspose.Slides stödjer SVG både som en bildresurs och som källa för redigerbara bildformer.
+
+### **Lägg till en SVG som bild**
+
+Skapa en [SvgImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/svgimage/), lägg till den i bildsamlingen och placera den resulterande bildresursen i en bildram.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SvgImage;
+
+$presentation = new Presentation();
+try {
+    $svgContent = file_get_contents("icon.svg");
     $svgImage = new SvgImage($svgContent);
-    $image = $presentation->getImages()->addImage($svgImage);
 
-    $presentation->getSlides()->get_Item(0)->getShapes()->addPictureFrame(
-        ShapeType::Rectangle,
-        20,
-        20,
-        $image->getWidth(),
-        $image->getHeight(),
-        $image
-    );
+    $ppImage = $presentation->getImages()->addImage($svgImage);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 200, 200, $ppImage);
 
-    $presentation->save("self-contained-svg.pptx", SaveFormat::Pptx);
+    $presentation->save("svg-image.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Importera SVG‑innehåll med externa resurser**
+### **SVG‑filer med externa resurser**
 
-SVG‑filer som exporteras från designverktyg, diagramredigerare, ikonsystem och webb‑pipelines kan referera till resurser som lagras utanför SVG‑dokumentet. Till exempel kan en SVG innehålla en bildlänk som `images/photo.png`, ett CSS‑`url(...)`‑värde eller en teckensnittslänk.
+En SVG kan referera till externa bilder, stilmallar eller typsnitt. För dessa fall erbjuder [SvgImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/svgimage/) konstruktorer som accepterar en [ExternalResourceResolver](https://reference.aspose.com/slides/sv/php-java/aspose.slides/externalresourceresolver/) och en bas‑URI. Resolvern kan kartlägga en relativ URI till en tillåten absolut URI och returnera en ström för den begärda resursen.
 
-För att importera sådant SVG‑innehåll, skapa en implementation av [ExternalResourceResolver](https://reference.aspose.com/slides/sv/php-java/aspose.slides/externalresourceresolver/) och skicka den, tillsammans med en bas‑URI, till en lämplig [SvgImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/svgimage/)-konstruktör. Bas‑URI identifierar placeringen av SVG‑dokumentet och används för att lösa relativa länkar.
+Resolvern gör externa resurser tillgängliga medan Aspose.Slides bearbetar SVG:n, men den omskriver inte SVG:n till ett självständigt dokument. Om SVG:n måste förbli portabel, bädda in dess nödvändiga resurser i själva SVG:n, till exempel genom att använda `data:`‑URI:er för länkade bilder.
 
-SVG‑bildobjektet ger åtkomst till information om den importerade SVG:n:
+När SVG‑filer kommer från opålitliga källor, begränsa de scheman, filplatser och värdar som resolvern kan komma åt. Nätverks‑resolvers bör också tillämpa tidsgränser, begränsningar för svarsstorlek och innehållsvalidering.
 
-- `getSvgContent()` returnerar SVG‑markup som en sträng.
-- `getSvgData()` returnerar SVG‑innehållet som en byte‑array.
-- `getBaseUri()` returnerar bas‑URI som används för relativa länkar.
-- `getExternalResourceResolver()` returnerar den resolver som tilldelats SVG‑bilden.
+### **Konvertera SVG till redigerbara former**
 
-### **Implementera en extern resursresolver**
-
-Resolvern har två metoder:
-
-- `resolveUri` kombinerar bas‑URI och en relativ resursslänk och returnerar en absolut URI. Returnera `null` när länken inte kan lösas eller inte är tillåten.
-- `getEntity` returnerar ett läsbart flöde för en absolut resursslänk. Returnera `null` när resursen saknas, är blockerad eller otillgänglig. Ett reservflöde kan också returneras när det är lämpligt.
-
-Följande resolver laddar länkade resurser endast från en tillåten lokal katalog. Nätverksresurser och sökvägar utanför den tillåtna katalogen blockeras. En valfri reservbild returneras för olösta bildlänkar.
-
-```php
-class LocalSvgResourceResolver extends ExternalResourceResolver
-{
-    private $allowedRoot;
-    private $fallbackImageData;
-
-    public function __construct($allowedRoot, $fallbackImageData)
-    {
-        parent::__construct();
-
-        $Paths = new JavaClass("java.nio.file.Paths");
-        $this->allowedRoot = $Paths->get($allowedRoot)->toAbsolutePath()->normalize();
-        $this->fallbackImageData = $fallbackImageData;
-    }
-
-    public function resolveUri($baseUri, $relativeUri)
-    {
-        if ($baseUri === null || trim(java_values($baseUri)) === "" ||
-            $relativeUri === null || trim(java_values($relativeUri)) === "") {
-            return null;
-        }
-
-        try {
-            $URI = new JavaClass("java.net.URI");
-            $baseAddress = $URI->create($baseUri);
-            $absoluteAddress = $baseAddress->resolve($relativeUri);
-
-            // Den här resolvern tillåter avsiktligt bara lokala filer.
-            if (strcasecmp(java_values($absoluteAddress->getScheme()), "file") !== 0) {
-                return null;
-            }
-
-            $Paths = new JavaClass("java.nio.file.Paths");
-            $resourcePath = $Paths->get($absoluteAddress)->toAbsolutePath()->normalize();
-
-            if (!$this->isInsideAllowedRoot($resourcePath)) {
-                return null;
-            }
-
-            return $resourcePath->toUri()->toString();
-        } catch (JavaException $e) {
-            return null;
-        }
-    }
-
-    public function getEntity($absoluteUri)
-    {
-        try {
-            $URI = new JavaClass("java.net.URI");
-            $resourceUri = $URI->create($absoluteUri);
-
-            if (strcasecmp(java_values($resourceUri->getScheme()), "file") !== 0) {
-                return null;
-            }
-
-            $Paths = new JavaClass("java.nio.file.Paths");
-            $resourcePath = $Paths->get($resourceUri)->toAbsolutePath()->normalize();
-
-            if (!$this->isInsideAllowedRoot($resourcePath)) {
-                return null;
-            }
-
-            $Files = new JavaClass("java.nio.file.Files");
-            if (java_values($Files->exists($resourcePath))) {
-                return $Files->newInputStream($resourcePath);
-            }
-
-            // Använd en reserv endast för bildresurser. Att returnera ett bildflöde
-            // för ett saknat typsnitt eller en stilmall skulle inte vara giltigt.
-            if ($this->fallbackImageData !== null && $this->isImageFile($resourcePath)) {
-                return new Java("java.io.ByteArrayInputStream", $this->fallbackImageData);
-            }
-        } catch (JavaException $e) {
-            return null;
-        }
-
-        return null;
-    }
-
-    private function isInsideAllowedRoot($resourcePath)
-    {
-        return java_values($resourcePath->normalize()->startsWith($this->allowedRoot));
-    }
-
-    private function isImageFile($path)
-    {
-        $fileName = strtolower(java_values($path->getFileName()->toString()));
-
-        return str_ends_with($fileName, ".png") ||
-            str_ends_with($fileName, ".jpg") ||
-            str_ends_with($fileName, ".jpeg") ||
-            str_ends_with($fileName, ".gif") ||
-            str_ends_with($fileName, ".bmp");
-    }
-}
-```
-
-### **Lös länkade resurser under SVG‑import**
-
-Anta att `assets/diagram.svg` innehåller en relativ referens såsom:
-
-```xml
-<image href="images/photo.png" x="20" y="20" width="320" height="180" />
-```
-
-Följande PHP‑exempel skickar SVG‑filens URI som bas‑URI och tillhandahåller en anpassad resolver. Resolvern omvandlar den relativa bildlänken till en absolut URI och returnerar ett flöde som innehåller den länkade resursen medan Aspose.Slides behandlar SVG:n.
-
-```php
-$Paths = new JavaClass("java.nio.file.Paths");
-$Files = new JavaClass("java.nio.file.Files");
-$StandardCharsets = new JavaClass("java.nio.charset.StandardCharsets");
-
-$svgFilePath = $Paths->get("assets", "diagram.svg")->toAbsolutePath()->normalize();
-$assetDirectory = $svgFilePath->getParent();
-
-$svgData = $Files->readAllBytes($svgFilePath);
-$svgContent = new Java("java.lang.String", $svgData, $StandardCharsets->UTF_8);
-
-// Bas-URI:n representerar platsen för SVG-dokumentet.
-$baseUri = $svgFilePath->toUri()->toString();
-
-$fallbackImageData = null;
-$fallbackImagePath = $assetDirectory->resolve("fallback.png");
-if (java_values($Files->exists($fallbackImagePath))) {
-    $fallbackImageData = $Files->readAllBytes($fallbackImagePath);
-}
-
-$resolver = new LocalSvgResourceResolver(java_values($assetDirectory->toString()), $fallbackImageData);
-$svgImage = new SvgImage($svgContent, $resolver, $baseUri);
-
-// SVG-bildobjektet visar källinnehållet, binära data, bas-URI och resolvern.
-$importedContent = $svgImage->getSvgContent();
-$importedData = $svgImage->getSvgData();
-$importedBaseUri = $svgImage->getBaseUri();
-$importedResolver = $svgImage->getExternalResourceResolver();
-
-$presentation = new Presentation();
-try {
-    $image = $presentation->getImages()->addImage($svgImage);
-
-    $presentation->getSlides()->get_Item(0)->getShapes()->addPictureFrame(
-        ShapeType::Rectangle,
-        20,
-        20,
-        $image->getWidth(),
-        $image->getHeight(),
-        $image
-    );
-
-    $presentation->save("svg-with-linked-resources.pptx", SaveFormat::Pptx);
-} finally {
-    $presentation->dispose();
-}
-```
-
-Klassen `SvgImage` erbjuder också överlagringar som accepterar SVG‑data som en byte‑array eller ett inmatningsflöde, tillsammans med en extern resursresolver och en bas‑URI.
-
-{{% alert title="Viktigt" color="warning" %}}
-
-Resursresolvern gör externa resurser tillgängliga medan Aspose.Slides behandlar och renderar SVG:n. Den ändrar inte den ursprungliga SVG‑markupen eller bäddar automatiskt in de lösta resurserna i den.
-
-När en SVG‑bild läggs till i presentationens bildsamling kan PPTX‑filen innehålla både den ursprungliga SVG‑representationen och en raster‑reservbild. En länkad resurs kan visas i den genererade reservbilden medan en relativ länk som `images/photo.png` förblir oförändrad i den lagrade SVG:n. En applikation som renderar den inhemska SVG‑representationen kan därför utelämna den länkade innehållet när den ursprungliga externa resursen är otillgänglig.
-
-{{% /alert %}}
-
-### **Skapa en portabel SVG‑bild**
-
-För att skapa en SVG‑bild som inte är beroende av externa filer, gör SVG:n självständig innan du skapar `SvgImage`. Till exempel, ersätt länkade bild‑URL:er med `data:`‑URI:er som innehåller bilddata:
-
-```xml
-<image href="data:image/png;base64,..." x="20" y="20" width="320" height="180" />
-```
-
-När alla nödvändiga resurser har bäddats in i SVG‑innehållet, skapa `SvgImage`, lägg till den i presentationens bildsamling och infoga den i en bildram som i föregående exempel.
-
-### **Hantera saknade eller blockerade resurser**
-
-Returnera `null` från `resolveUri` när en resurs‑URI är ogiltig, förbjuden eller inte kan lösas. Returnera `null` från `getEntity` när resursen inte kan läsas. Aspose.Slides fortsätter att bearbeta SVG:n utan den resursen när det är möjligt.
-
-Ett reservflöde kan returneras för en saknad resurs, men dess innehåll måste vara kompatibelt med den begärda resurs­typen. Till exempel, returnera ett bildflöde endast för en saknad bild, inte för ett teckensnitt eller en stilmall.
-
-{{% alert title="Säkerhet" color="warning" %}}
-
-Lös inte godtyckliga filsökvägar eller obegränsade nätverks‑URL:er från opålitliga SVG‑filer. Begränsa tillåtna scheman, kataloger och värdar. För nätverksresurser, tillämpa även anslutnings‑timeout, svarsstorleks‑gränser och innehållsvalidering.
-
-{{% /alert %}}
-
-## **Konvertera SVG till en uppsättning former**
-
-Aspose.Slides kan konvertera en SVG till en uppsättning former, likt motsvarande funktionalitet i PowerPoint:
+Aspose.Slides kan konvertera en SVG till en grupp av redigerbara bildformer, liknande motsvarande PowerPoint‑kommando.
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-Denna funktionalitet tillhandahålls av en överlagring av metoden [addGroupShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shapecollection/addgroupshape/) i klassen [ShapeCollection](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shapecollection/) som tar ett [SvgImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/svgimage/)‑objekt som sitt första argument.
-
-Följande PHP‑exempelkod visar hur du använder denna metod för att konvertera en SVG‑fil till en uppsättning former:
+Använd överlagringen [ShapeCollection::addGroupShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shapecollection/addgroupshape/) som accepterar en [SvgImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/svgimage/) för att utföra konverteringen.
 
 ```php
-// Källfilnamn för SVG.
-$svgFileName = "sample.svg";
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SvgImage;
 
-// Utdatafilnamn för presentation.
-$outPptxPath = "presentation.pptx";
-
-// Skapa en ny presentation.
 $presentation = new Presentation();
 try {
-    // Läs SVG-filens innehåll.
-    $Array = new JavaClass("java.lang.reflect.Array");
-    $Byte = (new JavaClass("java.lang.Byte"))->TYPE;
-
-    $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", $svgFileName));
-    try {
-        $svgContent = $Array->newInstance($Byte, $dis->available());
-        $dis->readFully($svgContent);
-    } finally {
-        if (!java_is_null($dis)) {
-            $dis->close();
-        }
-    }
-
-    // Skapa ett SvgImage‑objekt.
+    $svgContent = file_get_contents("diagram.svg");
     $svgImage = new SvgImage($svgContent);
 
-    // Hämta bildens storlek.
     $slideSize = $presentation->getSlideSize()->getSize();
+    $slide = $presentation->getSlides()->get_Item(0);
+    $slide->getShapes()->addGroupShape($svgImage, 0, 0, $slideSize->getWidth(), $slideSize->getHeight());
 
-    // Konvertera SVG‑bilden till en grupp av former och skala den till bildens storlek.
-    $presentation->getSlides()->get_Item(0)->getShapes()->addGroupShape(
-        $svgImage,
-        0.0,
-        0.0,
-        $slideSize->getWidth(),
-        $slideSize->getHeight()
-    );
-
-    // Spara presentationen i PPTX-format.
-    $presentation->save($outPptxPath, SaveFormat::Pptx);
-} catch (JavaException $e) {
+    $presentation->save("editable-svg-shapes.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Lägg till bilder som EMF på bilder**
+Använd SVG‑till‑former‑konvertering när enskilda vektorelement behöver redigeras som PowerPoint‑former. Om SVG:n bara behöver visas är det enklare att behålla den som en bild och undvika att skapa många separata former.
 
-Aspose.Slides för PHP via Java låter dig generera EMF‑bilder från Excel‑arbetsblad med Aspose.Cells och lägga till dem på presentationsbilder.
+## **Ersätt en befintlig bildresurs**
 
-Följande PHP‑exempelkod visar hur du gör detta:
-
-```php
-$book = new Workbook("chart.xlsx");
-$sheet = $book->getWorksheets()->get(0);
-
-$options = new ImageOrPrintOptions();
-$options->setHorizontalResolution(200);
-$options->setVerticalResolution(200);
-$options->setImageType(ImageType::EMF);
-
-// Spara arbetsboken till en ström.
-$sr = new SheetRender($sheet, $options);
-$pres = new Presentation();
-try {
-    $pres->getSlides()->removeAt(0);
-
-    for ($j = 0; $j < java_values($sr->getPageCount()); $j++) {
-        $emfSheetName = "test" . $sheet->getName() . " Page" . ($j + 1) . ".out.emf";
-        $sr->toImage($j, $emfSheetName);
-
-        // Lägg till filen som den är så att bilden förblir en vektor‑EMF istället för att rasteriseras.
-        $picture = null;
-        $imageStream = new Java("java.io.FileInputStream", $emfSheetName);
-        try {
-            $picture = $pres->getImages()->addImage($imageStream);
-        } finally {
-            $imageStream->close();
-        }
-
-        $slide = $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->getByType(SlideLayoutType::Blank));
-        $slide->getShapes()->addPictureFrame(
-            ShapeType::Rectangle,
-            0,
-            0,
-            $pres->getSlideSize()->getSize()->getWidth(),
-            $pres->getSlideSize()->getSize()->getHeight(),
-            $picture
-        );
-    }
-
-    $pres->save("output.pptx", SaveFormat::Pptx);
-} catch (JavaException $e) {
-} finally {
-    $pres->dispose();
-}
-```
-
-## **Byt ut bilder i bildsamlingen**
-
-Aspose.Slides låter dig ersätta bilder som lagras i en presentations bildsamling, inklusive bilder som används av bildformer. Detta avsnitt beskriver flera sätt att uppdatera bilder i samlingen. Du kan ersätta en bild med rå byte‑data, en [IImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/iimage/)-instans, eller en annan bild som redan finns i samlingen.
-
-Följ stegen nedan:
-
-1. Läs in presentationsfilen som innehåller bilder med klassen [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/).
-1. Läs in en ny bild från en fil till en byte‑array.
-1. Ersätt mål‑bilden med den nya bilden med byte‑arrayen.
-1. I det andra tillvägagångssättet, läs in bilden till ett [IImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/iimage/)-objekt och ersätt mål‑bilden med det objektet.
-1. I det tredje tillvägagångssättet, ersätt mål‑bilden med en bild som redan finns i presentationens bildsamling.
-1. Skriv den modifierade presentationen som en PPTX‑fil.
+Använd [PPImage::replaceImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/ppimage/) när du vill ersätta en befintlig bildresurs. Detta är särskilt användbart för delad grafik som logotyper.
 
 ```php
-// Instansiera Presentation-klassen som representerar en presentationsfil.
-$presentation = new Presentation("sample.pptx");
-try {
-    // Det första sättet.
-    $imagePath = (new Java("java.io.File", "image0.jpeg"))->toPath();
-    $imageData = (new JavaClass("java.nio.file.Files"))->readAllBytes($imagePath);
-    $oldImage = $presentation->getImages()->get_Item(0);
-    $oldImage->replaceImage($imageData);
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-    // Det andra sättet.
-    $newImage = Images::fromFile("image1.png");
+$presentation = new Presentation("input.pptx");
+try {
+    $imageToReplace = $presentation->getImages()->get_Item(0);
+
+    $replacementImage = Images::fromFile("new-logo.png");
     try {
-        $oldImage = $presentation->getImages()->get_Item(1);
-        $oldImage->replaceImage($newImage);
+        $imageToReplace->replaceImage($replacementImage);
     } finally {
-        if (!java_is_null($newImage)) {
-            $newImage->dispose();
+        if (!java_is_null($replacementImage)) {
+            $replacementImage->dispose();
         }
     }
 
-    // Det tredje sättet.
-    $oldImage = $presentation->getImages()->get_Item(2);
-    $oldImage->replaceImage($presentation->getImages()->get_Item(3));
-
-    // Spara presentationen till en fil.
     $presentation->save("output.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-{{% alert title="Info" color="info" %}}
+Om flera bildramar, bakgrunder, masters eller layouter använder samma bildresurs, uppdaterar ersättningen av resursen alla dessa användningar. Om bara en bildram ska ändras, tilldela en annan bild till den ramen istället för att ersätta den delade resursen.
 
-Med Asposes gratis [Text till GIF](https://products.aspose.app/slides/sv/text-to-gif)‑konverterare kan du enkelt animera text och skapa GIF‑ar från text. 
+`PPImage::replaceImage` ger också överlagringar som accepterar en byte‑array eller en annan [PPImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/ppimage/).
 
-{{% /alert %}}
+## **Praktisk vägledning för bildhantering**
+
+### **Kontrollera presentationens storlek**
+
+Stora rasterbilder kan göra en presentation onödigt stor. Använd källbilder med dimensioner som passar deras avsedda visningsstorlek, återanvänd delade bildresurser där det är möjligt och undvik att bädda in upprepade kopior av samma fullupplösta grafik.
+
+För rasterbilder som redan har placerats i bildramar kan [PictureFillFormat::compressImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/picturefillformat/) minska bilddata enligt den valda upplösningen och beskärningsinställningarna. Detta är bildram‑bearbetning snarare än hantering av bildsamlingen, så se [Picture Frame](/slides/sv/php-java/picture-frame/) för relaterade formateringsåtgärder.
+
+### **Välj mellan inbäddat och länkat innehåll**
+
+Inbäddning gör presentationen portabel eftersom all nödvändig bilddata följer med filen. Länkning kan minska filstorleken, men det introducerar ett externt beroende. Använd länkar endast när det beroendet är acceptabelt och stabilt.
+
+### **Återanvänd delad varumärkesgrafik**
+
+För upprepade logotyper, vattenstämplar eller dekorativ grafik, använd en bildresurs och återanvänd den. Om grafiken tillhör presentationens design snarare än bildens innehåll, placera den på en master eller layout så att den ärvs av de relevanta bilderna.
+
+### **Håll SVG‑resurser portabla**
+
+En självständig SVG är lättare att flytta och rendera konsekvent än en SVG som är beroende av externa filer eller nätverksresurser. När det är möjligt, bädda in nödvändiga resurser innan du importerar SVG:n. Konvertera SVG till former endast när de enskilda vektorelementen behöver redigeras.
+
+### **Använd det moderna plattformsoberoende bild‑API‑et**
+
+För ny PHP‑via‑Java‑kod, använd Aspose.Slides [IImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/iimage/) och [Images](https://reference.aspose.com/slides/sv/php-java/aspose.slides/images/)‑API:erna i stället för det äldre offentliga API‑et baserat på `java.awt.image.BufferedImage`. Se [Modern API](/slides/sv/php-java/modern-api/) för migrationsvägledning.
+
+WMF och EMF kräver särskild hänsyn. När dessa format passerar genom en [IImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/iimage/), konverterar [ImageCollection::addImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/imagecollection/) metafilen till en raster‑PNG‑representation innan den infogas. Om det är viktigt att bevara metafildata, använd en ström‑baserad [ImageCollection::addImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/imagecollection/)‑överlagring i stället. Att generera EMF‑innehåll från kalkylblad eller andra produkter är ett separat integrationsarbetsflöde och ligger utanför räckvidden för den här artikeln.
 
 ## **FAQ**
 
-**Behåller den ursprungliga bildens upplösning sin kvalitet efter infogning?**
+**Vad är skillnaden mellan bildsamlingen och en bildram?**
 
-Ja. Källpixelna bevaras, men det slutliga utseendet beror på hur [bilden](/slides/sv/php-java/picture-frame/) skalas på bilden och eventuell kompression vid sparning.
+Bildsamlingen lagrar återanvändbara bildresurser. En bildram är en bildform som visar en av dessa resurser och ger bildspecifik formatering såsom beskärning och effekter.
 
-**Vad är det bästa sättet att ersätta samma logotyp på dussintals bilder på en gång?**
+**Vad är det bästa sättet att ersätta samma logotyp överallt?**
 
-Placera logotypen på mastern eller en layout och ersätt den i presentationens bildsamling—uppdateringar sprids till alla element som använder den resursen.
+Om logotypen redan delas som en bildresurs, ersätt den resursen med [PPImage::replaceImage](https://reference.aspose.com/slides/sv/php-java/aspose.slides/ppimage/). För presentation‑omfattande varumärkesprofilering kan placering av logotypen på en master eller layout också minska duplicerat bildinnehåll.
 
-**Kan en insatt SVG konverteras till redigerbara former?**
+**Varför försvinner en länkad bild på en annan dator?**
 
-Ja. Du kan konvertera en SVG till en grupp av former, varefter enskilda delar blir redigerbara med vanliga formegenskaper.
+En länkad bild är beroende av sin externa fil eller URL. Om den resursen inte kan nås från den andra datorn kan den länkade bilden bli otillgänglig. Bädda in bilden när presentationen måste vara självständig.
 
-**Hur kan jag ange en bild som bakgrund för flera bilder samtidigt?**
+**Kan en infogad SVG redigeras som PowerPoint‑former?**
 
-[Tilldela bilden som bakgrund](/slides/sv/php-java/presentation-background/) på mastern eller den relevanta layouten—alla bilder som använder den mastern/layouten kommer att ärva bakgrunden.
+Ja. Konvertera SVG:n med [ShapeCollection::addGroupShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shapecollection/addgroupshape/); den resulterande gruppen innehåller redigerbara bildformer snarare än en SVG‑bild.
 
-**Hur förhindrar jag att en presentation blir för stor på grund av många bilder?**
+**Hur kan jag hålla presentationer med många bilder mindre?**
 
-Återanvänd en enda bildresurs istället för dubbletter, välj rimliga upplösningar, applicera kompression vid sparning och håll återkommande grafik på mastern där det är lämpligt.
+Återanvänd delade bildresurser, undvik onödigt stora rasterkällor, komprimera lämpliga rasterbilder när det är lämpligt, håll återkommande varumärkesgrafik på masters eller layouter, och använd länkade bilder endast när ett externt beroende är acceptabelt.

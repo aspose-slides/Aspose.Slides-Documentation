@@ -1,562 +1,322 @@
 ---
 title: Optimaliseer het beheer van afbeeldingen in presentaties op Android
-linktitle: Afbeeldingen beheren
+linktitle: Beheer afbeeldingen
 type: docs
 weight: 10
 url: /nl/androidjava/image/
 keywords:
 - afbeelding toevoegen
 - foto toevoegen
-- bitmap toevoegen
 - afbeelding vervangen
-- foto vervangen
-- van het web
+- afbeeldingscollectie
+- afbeeldingskader
+- gekoppelde afbeelding
 - achtergrond
 - PNG toevoegen
 - JPG toevoegen
 - SVG toevoegen
-- externe SVG‑bronnen
-- SVG‑resolver
-- gelinkte SVG‑afbeeldingen
-- SVG‑lettertypen
-- EMF toevoegen
-- WMF toevoegen
-- TIFF toevoegen
+- SVG naar vormen
+- externe SVG-bronnen
 - PowerPoint
 - OpenDocument
 - presentatie
 - Android
 - Java
 - Aspose.Slides
-description: "Stroomlijn het beheer van afbeeldingen in PowerPoint en OpenDocument met Aspose.Slides voor Android via Java, optimaliseer de prestaties en automatiseer uw workflow."
+description: "Leer hoe u raster- en SVG-afbeeldingen kunt toevoegen, hergebruiken, linken, vervangen en beheren in PowerPoint- en OpenDocument-presentaties met Aspose.Slides voor Android via Java."
 ---
-## **Introductie**
+## **Inleiding**
 
-Afbeeldingen maken presentaties boeiender en visueel aantrekkelijker. In Microsoft PowerPoint kun je afbeeldingen in dia's invoegen vanuit bestanden, internet of andere bronnen. Op dezelfde manier stelt Aspose.Slides je in staat om afbeeldingen aan presentatiedia's toe te voegen op verschillende manieren.
+Aspose.Slides for Android via Java biedt verschillende manieren om met afbeeldingen te werken, en elke manier dient een ander doel. Je kunt een afbeelding opslaan in een presentatie, weergeven in een afbeeldingskader, gebruiken als dia‑achtergrond, linken naar een externe afbeelding, een gedeelde afbeeldingsbron vervangen, of SVG‑inhoud omzetten naar bewerkbare vormen.
 
-{{% alert  title="Tip" color="primary" %}} 
-Aspose biedt gratis converters—[JPEG naar PowerPoint](https://products.aspose.app/slides/nl/import/jpg-to-ppt) en [PNG naar PowerPoint](https://products.aspose.app/slides/nl/import/png-to-ppt)—die je in staat stellen om snel presentaties van afbeeldingen te maken. 
-{{% /alert %}} 
+Dit artikel richt zich op afbeeldingsbronnen en hoe ze gebruikt worden in een presentatie. Voor bijsnijden, transparantie, effecten, uitrekken en andere opmaak die op een individueel afbeeldingskader wordt toegepast, zie [Picture Frame](/slides/nl/androidjava/picture-frame/).
 
-{{% alert title="Info" color="info" %}}
-Als je een afbeelding wilt toevoegen als afbeeldingsframe—vooral wanneer je deze wilt schalen, effecten wilt toepassen of andere standaardopmaakopties wilt gebruiken—zie [Afbeeldingsframe](/slides/nl/androidjava/picture-frame/). 
-{{% /alert %}} 
+## **Begrijp het afbeeldingsmodel**
 
-{{% alert title="Note" color="warning" %}}
-Je kunt afbeeldingen van het ene formaat naar het andere converteren. Zie de volgende pagina's: converteren [afbeelding naar JPG](https://products.aspose.com/slides/nl/androidjava/conversion/image-to-jpg/), [JPG naar afbeelding](https://products.aspose.com/slides/nl/androidjava/conversion/jpg-to-image/), [JPG naar PNG](https://products.aspose.com/slides/nl/androidjava/conversion/jpg-to-png/), [PNG naar JPG](https://products.aspose.com/slides/nl/androidjava/conversion/png-to-jpg/), [PNG naar SVG](https://products.aspose.com/slides/nl/androidjava/conversion/png-to-svg/), en [SVG naar PNG](https://products.aspose.com/slides/nl/androidjava/conversion/svg-to-png/).
-{{% /alert %}}
+De volgende API‑concepten staan nauw verwant maar zijn niet uitwisselbaar:
 
-Aspose.Slides ondersteunt afbeeldingen in populaire formaten zoals JPEG, PNG, BMP, GIF en andere. 
+- De [presentation image collection](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iimagecollection/) slaat afbeeldingsbronnen op die door de presentatie worden gebruikt. Gebruik [ImageCollection.addImage](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imagecollection/) om afbeeldingsdata toe te voegen en een [IPPImage](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ippimage/) bron te verkrijgen.
+- Een [picture frame](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ipictureframe/) is een vorm die een afbeelding weergeeft op een dia, lay-out of master. Gebruik [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ishapecollection/) om een afbeeldingsbron op een dia te plaatsen.
+- Een dia‑achtergrond gebruikt een afbeelding als onderdeel van de dia‑vulling in plaats van als vorm. Het gedraagt zich daarom niet als een afbeeldingskader.
+- [IPPImage.replaceImage](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ippimage/) vervangt een afbeeldingsbron. Als verschillende presentatie‑elementen die bron gebruiken, gebruiken ze allemaal de vervanging.
+- Het converteren van een SVG naar vormen maakt bewerkbare dia‑vormen. Na conversie wordt de inhoud niet langer beheerd als één afbeeldingsbron.
 
-## **Afbeeldingen die lokaal zijn opgeslagen toevoegen aan dia's**
+Een typisch werkproces is dus: afbeeldingsdata toevoegen aan de image collection, een [IPPImage](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ippimage/) ontvangen, en die bron vervolgens gebruiken in één of meer afbeeldingskaders of vullingen.
 
-Je kunt één of meer afbeeldingen die op je computer zijn opgeslagen toevoegen aan een presentatiedia. De volgende Java-voorbeeldcode laat zien hoe je een afbeelding aan een dia toevoegt:
+## **Een embedded afbeelding toevoegen**
+
+Om een lokale afbeelding in te voegen, laad je het bestand, voeg je het toe aan de image collection en maak je een picture frame dat de geretourneerde `IPPImage` gebruikt.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    IPPImage picture;
-    IImage image = Images.fromFile("image.png");
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.png");
     try {
-        picture = pres.getImages().addImage(image);
+        image = presentation.getImages().addImage(sourceImage);
     } finally {
-        if (image != null) image.dispose();
+        if (sourceImage != null) sourceImage.dispose();
     }
 
-    slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
 
-    pres.save("pres.pptx", SaveFormat.Pptx);
+    presentation.save("presentation.pptx", SaveFormat.Pptx);
 } finally {
-    pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Afbeeldingen van het web toevoegen aan dia's**
+De op deze manier toegevoegde afbeelding wordt ingebed in de presentatie, zodat het uiteindelijke bestand niet afhankelijk is van de beschikbaarheid van het originele afbeeldingsbestand.
 
-Als de afbeelding die je aan een dia wilt toevoegen niet op je computer is opgeslagen, kun je deze direct van het web toevoegen. 
+### **Een afbeelding van het web toevoegen**
 
-De volgende Java-voorbeeldcode laat zien hoe je een afbeelding van het web aan een dia toevoegt:
+Wanneer een afbeelding beschikbaar is via HTTP of HTTPS, download je de bytes, voeg je ze toe aan de presentation image collection, en gebruik je de geretourneerde afbeeldingsbron op dezelfde manier als een lokale afbeelding.
 
 ```java
 import com.aspose.slides.*;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URI;
 import java.net.URL;
-import java.net.URLConnection;
-
-Presentation pres = new Presentation();
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    URL imageUrl = new URL("[REPLACE WITH URL]");
-    URLConnection connection = imageUrl.openConnection();
-    InputStream inputStream = connection.getInputStream();
-
-    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-    try {
-        byte[] buffer = new byte[1024];
-        int read;
-
-        while ((read = inputStream.read(buffer, 0, buffer.length)) != -1) {
-            outputStream.write(buffer, 0, read);
-        }
-
-        outputStream.flush();
-
-        IPPImage image = pres.getImages().addImage(outputStream.toByteArray());
-        slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    } finally {
-        if (inputStream != null) inputStream.close();
-        outputStream.close();
-    }
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    pres.dispose();
-}
-```
-
-## **Afbeeldingen toevoegen aan dia‑masters**
-
-Een dia‑master slaat informatie op en regelt deze, zoals het thema en de lay-out voor de dia's die ervan gebruikmaken. Wanneer je een afbeelding toevoegt aan een dia‑master, verschijnt de afbeelding op elke dia die op die master is gebaseerd. 
-
-De volgende Java-voorbeeldcode laat zien hoe je een afbeelding aan een dia‑master toevoegt:
-
-```java
-import com.aspose.slides.*;
-
-Presentation pres = new Presentation();
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IMasterSlide masterSlide = slide.getLayoutSlide().getMasterSlide();
-
-    IPPImage picture;
-    IImage image = Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-
-    masterSlide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **Afbeeldingen als dia‑achtergronden toevoegen**
-
-Je kunt een afbeelding gebruiken als achtergrond voor één of meer dia's. Voor details, zie *[Instellen van afbeeldingen als achtergrond voor dia's](/slides/nl/androidjava/presentation-background/#setting-images-as-background-for-slides)*.
-
-## **SVG aan presentaties toevoegen**
-
-SVG‑inhoud kan aan een presentatie worden toegevoegd met de [SvgImage](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/svgimage/)‑klasse. Het resulterende [ISvgImage](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/isvgimage/)‑object kan vervolgens aan de afbeeldingsverzameling van de presentatie worden toegevoegd en worden gebruikt om een afbeeldingsframe te maken.
-
-Het volgende Java‑voorbeeld importeert een zelfstandige SVG‑string. Alle afbeeldingen, stijlen en andere bronnen die door deze SVG worden gebruikt, zijn direct in de SVG‑inhoud ingebed.
-
-```java
-import com.aspose.slides.*;
-
-String svgContent =
-        "<svg xmlns='http://www.w3.org/2000/svg' width='320' height='180'>" +
-        "    <rect width='320' height='180' fill='#4F81BD'/>" +
-        "    <circle cx='160' cy='90' r='55' fill='#F2F2F2'/>" +
-        "</svg>";
 
 Presentation presentation = new Presentation();
 try {
-    ISvgImage svgImage = new SvgImage(svgContent);
-    IPPImage image = presentation.getImages().addImage(svgImage);
+    URL imageUrl = URI.create("https://example.com/image.png").toURL();
+    HttpURLConnection connection = (HttpURLConnection) imageUrl.openConnection();
+    connection.setConnectTimeout(10000);
+    connection.setReadTimeout(10000);
 
-    presentation.getSlides().get_Item(0).getShapes().addPictureFrame(
-            ShapeType.Rectangle, 20, 20, image.getWidth(), image.getHeight(), image);
+    try (InputStream inputStream = connection.getInputStream(); 
+         ByteArrayOutputStream outputStream = new ByteArrayOutputStream()) {
+        byte[] buffer = new byte[8192];
+        int bytesRead;
+        while ((bytesRead = inputStream.read(buffer)) != -1) outputStream.write(buffer, 0, bytesRead);
 
-    presentation.save("self-contained-svg.pptx", SaveFormat.Pptx);
+        IPPImage image = presentation.getImages().addImage(outputStream.toByteArray());
+        ISlide slide = presentation.getSlides().get_Item(0);
+        slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
+    }
+
+    presentation.save("presentation-from-web.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **SVG‑inhoud importeren met externe bronnen**
+In langlopende toepassingen hergebruik je een HTTP‑client of een verbinding‑beheerstrategie die passend is voor de applicatie in plaats van telkens onnodig netwerk‑infrastructuur te creëren. Valideer ook externe URL’s, response‑groottes en content‑types wanneer de bron niet vertrouwd is.
 
-SVG‑bestanden die geëxporteerd zijn vanuit ontwerpgereedschappen, diagrameditors, icoonsystemen en web‑pijplijnen kunnen verwijzen naar bronnen die buiten het SVG‑document zijn opgeslagen. Een SVG kan bijvoorbeeld een afbeeldingslink bevatten zoals `images/photo.png`, een CSS `url(...)`-waarde, of een lettertype‑URL.
+## **Afbeeldingen hergebruiken over dia’s heen**
 
-Om dergelijke SVG‑inhoud te importeren, maak je een [IExternalResourceResolver](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iexternalresourceresolver/)-implementatie en geef je deze, samen met een basis‑URI, door aan een geschikte [SvgImage](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/svgimage/)-constructor. De basis‑URI identificeert de locatie van het SVG‑document en wordt gebruikt om relatieve links op te lossen.
+Als dezelfde afbeelding meer dan eens nodig is, voeg je deze één keer toe aan de presentatie en hergebruik je de geretourneerde [IPPImage](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ippimage/) bij het maken van extra picture frames. Dit voorkomt herhaaldelijk laden van dezelfde brondata en maakt de relatie tussen de gedeelde afbeeldingsbron en het gebruik expliciet.
 
-De [ISvgImage](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/isvgimage/) interface biedt toegang tot informatie over de geïmporteerde SVG:
+Voor grafische elementen die automatisch op veel dia’s moeten verschijnen, zoals een bedrijfslogo, overweeg dan om het picture frame op een [slide master](/slides/nl/androidjava/slide-master/) of lay-out te plaatsen in plaats van een gelijkwaardige vorm aan elke dia toe te voegen.
 
-- `getSvgContent()` retourneert de SVG‑markup als een string.  
-- `getSvgData()` retourneert de SVG‑inhoud als een byte‑array.  
-- `getBaseUri()` retourneert de basis‑URI die wordt gebruikt voor relatieve links.  
-- `getExternalResourceResolver()` retourneert de resolver die aan de SVG‑afbeelding is toegewezen.  
+## **Een afbeelding gebruiken als dia‑achtergrond**
 
-### **Implementeer een externe resource‑resolver**
-
-De resolver heeft twee methoden:
-
-- `resolveUri` combineert de basis‑URI en een relatieve resource‑link en retourneert een absolute URI. Retourneer `null` wanneer de link niet kan worden opgelost of niet is toegestaan.  
-- `getEntity` retourneert een leesbare stream voor een absolute resource‑URI. Retourneer `null` wanneer de resource ontbreekt, geblokkeerd is of niet beschikbaar is. Een fallback‑stream kan ook worden geretourneerd wanneer passend.  
-
-De volgende resolver laadt gekoppelde resources alleen vanuit een toegestane lokale map. Netwerkresources en paden buiten de toegestane map worden geblokkeerd. Een optionele fallback‑afbeelding wordt geretourneerd voor niet‑opgeloste afbeeldingslinks.
-
-```java
-import com.aspose.slides.ExternalResourceResolver;
-
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.net.URI;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Locale;
-
-class LocalSvgResourceResolver extends ExternalResourceResolver {
-    private final Path allowedRoot;
-    private final byte[] fallbackImageData;
-
-    public LocalSvgResourceResolver(String allowedRoot, byte[] fallbackImageData) {
-        this.allowedRoot = Paths.get(allowedRoot).toAbsolutePath().normalize();
-        this.fallbackImageData = fallbackImageData;
-    }
-
-    @Override
-    public String resolveUri(String baseUri, String relativeUri) {
-        if (baseUri == null || baseUri.trim().isEmpty() ||
-                relativeUri == null || relativeUri.trim().isEmpty()) {
-            return null;
-        }
-
-        try {
-            URI baseAddress = URI.create(baseUri);
-            URI absoluteAddress = baseAddress.resolve(relativeUri);
-
-            // Deze resolver staat opzettelijk alleen lokale bestanden toe.
-            if (!"file".equalsIgnoreCase(absoluteAddress.getScheme())) {
-                return null;
-            }
-
-            Path resourcePath = Paths.get(absoluteAddress).toAbsolutePath().normalize();
-            if (!isInsideAllowedRoot(resourcePath)) {
-                return null;
-            }
-
-            return resourcePath.toUri().toString();
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
-    @Override
-    public InputStream getEntity(String absoluteUri) {
-        try {
-            URI resourceUri = URI.create(absoluteUri);
-            if (!"file".equalsIgnoreCase(resourceUri.getScheme())) {
-                return null;
-            }
-
-            Path resourcePath = Paths.get(resourceUri).toAbsolutePath().normalize();
-            if (!isInsideAllowedRoot(resourcePath)) {
-                return null;
-            }
-
-            if (Files.exists(resourcePath)) {
-                return Files.newInputStream(resourcePath);
-            }
-
-            // Gebruik alleen een fallback voor afbeeldingsbronnen. Retourneren van een afbeeldingsstroom
-            // voor een ontbrekend lettertype of stylesheet zou niet geldig zijn.
-            if (fallbackImageData != null && isImageFile(resourcePath)) {
-                return new ByteArrayInputStream(fallbackImageData);
-            }
-        } catch (Exception e) {
-            return null;
-        }
-
-        return null;
-    }
-
-    private boolean isInsideAllowedRoot(Path resourcePath) {
-        return resourcePath.normalize().startsWith(allowedRoot);
-    }
-
-    private static boolean isImageFile(Path path) {
-        String fileName = path.getFileName().toString().toLowerCase(Locale.ROOT);
-
-        return fileName.endsWith(".png") ||
-                fileName.endsWith(".jpg") ||
-                fileName.endsWith(".jpeg") ||
-                fileName.endsWith(".gif") ||
-                fileName.endsWith(".bmp");
-    }
-}
-```
-
-### **Gelinkte resources oplossen tijdens SVG‑import**
-
-Stel dat `assets/diagram.svg` een relatieve referentie bevat zoals:
-
-```xml
-<image href="images/photo.png" x="20" y="20" width="320" height="180" />
-```
-
-Het volgende Java‑voorbeeld geeft de SVG‑bestands‑URI door als basis‑URI en levert een aangepaste resolver. De resolver zet de relatieve afbeeldingslink om in een absolute URI en retourneert een stream met de gekoppelde resource terwijl Aspose.Slides de SVG verwerkt.
+Een achtergrondafbeelding wordt toegewezen aan de dia‑vulling; hij wordt niet toegevoegd als een picture‑frame vorm. Dit is handig wanneer de afbeelding de hele dia‑achtergrond moet bedekken en niet moet worden gemanipuleerd als een normaal dia‑object.
 
 ```java
 import com.aspose.slides.*;
 
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("background.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        if (sourceImage != null) sourceImage.dispose();
+    }
+
+    slide.getBackground().setType(BackgroundType.OwnBackground);
+    slide.getBackground().getFillFormat().setFillType(FillType.Picture);
+    slide.getBackground().getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+    slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().setImage(image);
+
+    presentation.save("background-image.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Voor extra achtergrondopties, inclusief master‑ en lay‑outachtergronden, zie [Presentation Background](/slides/nl/androidjava/presentation-background/).
+
+## **Embedded afbeeldingen en gekoppelde afbeeldingen**
+
+Embedded en linked afbeeldingen hebben verschillende draagbaarheids‑ en bestandsgrootte‑afwegingen:
+
+- **Embedded afbeelding:** de afbeeldingsdata wordt opgeslagen binnen de presentatie. De presentatie is zelfstandig, maar de bestandsgrootte omvat de afbeeldingsdata.
+- **Linked afbeelding:** de presentatie slaat een pad of URL op naar een externe afbeelding. Dit kan de presentatie‑grootte verkleinen, maar de externe bron moet beschikbaar blijven wanneer de presentatie wordt geopend of gerenderd.
+
+Een gekoppelde afbeelding kan worden aangemaakt door het externe pad of de URL toe te wijzen via [ISlidesPicture.setLinkPathLong](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/islidespicture/) in plaats van de afbeeldingsdata te embedden.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, null);
+    pictureFrame.getPictureFormat().getPicture().setLinkPathLong("https://example.com/image.png");
+
+    presentation.save("linked-image.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Gebruik linked afbeeldingen alleen wanneer de implementatie‑omgeving de externe bron betrouwbaar kan benaderen. Voor presentaties die offline moeten werken of tussen systemen verplaatst worden, zijn embedded afbeeldingen doorgaans veiliger.
+
+## **Werken met SVG‑afbeeldingen**
+
+SVG is een vectorformaat, dus het kan nuttig zijn voor iconen, diagrammen en andere grafische elementen die zonder verlies in detail geschaald moeten kunnen worden. Aspose.Slides ondersteunt SVG zowel als afbeeldingsbron als als bron voor bewerkbare dia‑vormen.
+
+### **Een SVG als afbeelding toevoegen**
+
+Maak een [SvgImage](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/svgimage/), voeg deze toe aan de image collection, en plaats de resulterende afbeeldingsbron in een picture frame.
+
+```java
+import com.aspose.slides.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
-
-Path svgFilePath = Paths.get("assets", "diagram.svg").toAbsolutePath().normalize();
-Path assetDirectory = svgFilePath.getParent();
-String svgContent = new String(Files.readAllBytes(svgFilePath), StandardCharsets.UTF_8);
-
-// De basis-URI vertegenwoordigt de locatie van het SVG-document.
-String baseUri = svgFilePath.toUri().toString();
-
-byte[] fallbackImageData = null;
-Path fallbackImagePath = assetDirectory.resolve("fallback.png");
-if (Files.exists(fallbackImagePath)) {
-    fallbackImageData = Files.readAllBytes(fallbackImagePath);
-}
-
-IExternalResourceResolver resolver = new LocalSvgResourceResolver(assetDirectory.toString(), fallbackImageData);
-ISvgImage svgImage = new SvgImage(svgContent, resolver, baseUri);
-
-// ISvgImage biedt de broninhoud, binaire gegevens, basis-URI en resolver.
-String importedContent = svgImage.getSvgContent();
-byte[] importedData = svgImage.getSvgData();
-String importedBaseUri = svgImage.getBaseUri();
-IExternalResourceResolver importedResolver = svgImage.getExternalResourceResolver();
 
 Presentation presentation = new Presentation();
 try {
-    IPPImage image = presentation.getImages().addImage(svgImage);
-
-    presentation.getSlides().get_Item(0).getShapes().addPictureFrame(
-            ShapeType.Rectangle, 20, 20, image.getWidth(), image.getHeight(), image);
-
-    presentation.save("svg-with-linked-resources.pptx", SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
-}
-```
-
-De `SvgImage`‑klasse biedt ook overloads die SVG‑data accepteren als een byte‑array of een invoerstroom, samen met een externe resource‑resolver en een basis‑URI.
-
-{{% alert title="Belangrijk" color="warning" %}}
-De resource‑resolver maakt externe resources beschikbaar terwijl Aspose.Slides de SVG verwerkt en rendert. Het wijzigt de oorspronkelijke SVG‑markup niet en embedde de opgeloste resources niet automatisch.
-
-Wanneer een `ISvgImage` wordt toegevoegd aan de afbeeldingsverzameling van de presentatie, kan het PPTX‑bestand zowel de oorspronkelijke SVG‑representatie als een raster‑fallback‑afbeelding bevatten. Een gekoppelde resource kan verschijnen in de gegenereerde fallback‑afbeelding, terwijl een relatieve link zoals `images/photo.png` onveranderd blijft in de opgeslagen SVG. Een toepassing die de native SVG‑representatie rendert, kan daarom de gekoppelde inhoud weglaten wanneer de oorspronkelijke externe resource niet beschikbaar is.
-{{% /alert %}}
-
-### **Maak een draagbare SVG‑afbeelding**
-
-Om een SVG‑afbeelding te maken die niet afhankelijk is van externe bestanden, maak je de SVG zelf‑containend voordat je de `SvgImage` creëert. Vervang bijvoorbeeld gekoppelde afbeeldings‑URL's door `data:`‑URI's die de afbeeldingsdata bevatten:
-
-```xml
-<image href="data:image/png;base64,..." x="20" y="20" width="320" height="180" />
-```
-
-Nadat alle benodigde resources in de SVG‑inhoud zijn ingebed, maak je de `SvgImage`, voeg je deze toe aan de afbeeldingsverzameling van de presentatie, en voeg je deze in een afbeeldingsframe in zoals in het vorige voorbeeld.
-
-### **Ontbrekende of geblokkeerde resources afhandelen**
-
-Retourneer `null` van `resolveUri` wanneer een resource‑URI ongeldig, verboden of niet kan worden opgelost. Retourneer `null` van `getEntity` wanneer de resource niet kan worden gelezen. Aspose.Slides blijft de SVG verwerken zonder die resource wanneer mogelijk.
-
-Een fallback‑stream kan worden geretourneerd voor een ontbrekende resource, maar de inhoud moet compatibel zijn met het aangevraagde resource‑type. Retourneer bijvoorbeeld alleen een afbeeldings‑stream voor een ontbrekende afbeelding, niet voor een lettertype of stylesheet.
-
-{{% alert title="Beveiliging" color="warning" %}}
-Los geen willekeurige bestands‑paden of onbeperkte netwerk‑URL's op uit onbetrouwbare SVG‑bestanden. Beperk toegestane schema’s, mappen en hosts. Voor netwerk‑resources, pas ook verbindings‑timeouts, limieten op de respons‑grootte en inhouds‑validatie toe.
-{{% /alert %}}
-
-## **SVG omzetten naar een set vormen**
-
-Aspose.Slides kan een SVG omzetten in een set vormen, vergelijkbaar met de overeenkomstige functionaliteit in PowerPoint:
-
-![PowerPoint pop‑upmenu](img_01_01.png)
-
-Deze functionaliteit wordt geleverd door een overload van de [addGroupShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IShapeCollection#addGroupShape-com.aspose.slides.ISvgImage-float-float-float-float-)‑methode van de [IShapeCollection](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IShapeCollection) interface die een [ISvgImage](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ISvgImage) object als eerste argument neemt.
-
-De volgende Java‑voorbeeldcode laat zien hoe je deze methode gebruikt om een SVG‑bestand om te zetten in een set vormen:
-
-```java
-import com.aspose.slides.*;
-import java.awt.geom.Dimension2D;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-
-// Bron SVG-bestandsnaam.
-String svgFileName = "sample.svg";
-
-// Bestandsnaam van de uitvoer-presentatie.
-String outPptxPath = "presentation.pptx";
-
-// Maak een nieuwe presentatie.
-IPresentation presentation = new Presentation();
-try {
-    // Lees de inhoud van het SVG-bestand.
-    byte[] svgContent = Files.readAllBytes(Paths.get(svgFileName));
-
-    // Maak een SvgImage-object.
+    byte[] imageData = Files.readAllBytes(Paths.get("icon.svg"));
+    String svgContent = new String(imageData, StandardCharsets.UTF_8);
     ISvgImage svgImage = new SvgImage(svgContent);
 
-    // Haal de dia-grootte op.
-    Dimension2D slideSize = presentation.getSlideSize().getSize();
+    IPPImage image = presentation.getImages().addImage(svgImage);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 200, 200, image);
 
-    // Converteer de SVG-afbeelding naar een groep vormen en schaal deze naar de dia-grootte.
-    presentation.getSlides().get_Item(0).getShapes().addGroupShape(
-            svgImage, 0f, 0f,
-            (float) slideSize.getWidth(), (float) slideSize.getHeight());
-
-    // Sla de presentatie op in PPTX-formaat.
-    presentation.save(outPptxPath, SaveFormat.Pptx);
-} catch (IOException e) {
+    presentation.save("svg-image.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Afbeeldingen als EMF aan dia's toevoegen**
+### **SVG‑bestanden met externe bronnen**
 
-Aspose.Slides for Android via Java stelt je in staat om EMF‑afbeeldingen te genereren uit Excel‑werkbladen met Aspose.Cells en deze toe te voegen aan presentatiedia's.
+Een SVG kan verwijzen naar externe afbeeldingen, stylesheets of fonts. Voor deze gevallen biedt [SvgImage](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/svgimage/) constructors die een [IExternalResourceResolver](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iexternalresourceresolver/) en een basis‑URI accepteren. De resolver kan een relatieve URI omzetten naar een toegestane absolute URI en een stream retourneren voor de gevraagde bron.
 
-De volgende Java‑voorbeeldcode laat zien hoe je dit doet:
+De resolver maakt externe bronnen beschikbaar terwijl Aspose.Slides de SVG verwerkt, maar herschrijft de SVG niet naar een zelfstandige document. Als de SVG draagbaar moet blijven, embed dan de vereiste bronnen in de SVG zelf, bijvoorbeeld door `data:`‑URI’s te gebruiken voor gekoppelde afbeeldingen.
 
-```java
-import com.aspose.slides.*;
-import com.aspose.cells.ImageOrPrintOptions;
-import com.aspose.cells.ImageType;
-import com.aspose.cells.SheetRender;
-import com.aspose.cells.Workbook;
-import com.aspose.cells.Worksheet;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+Wanneer SVG‑bestanden afkomstig zijn van onbetrouwbare bronnen, beperk dan de schema’s, bestandslocaties en hosts die de resolver mag benaderen. Netwerk‑resolvers moeten ook time‑outs, limieten voor respons‑grootte en inhoudsvalidatie toepassen.
 
-Workbook book = new Workbook("chart.xlsx");
-Worksheet sheet = book.getWorksheets().get(0);
+### **SVG naar bewerkbare vormen converteren**
 
-ImageOrPrintOptions options = new ImageOrPrintOptions();
-options.setHorizontalResolution(200);
-options.setVerticalResolution(200);
-options.setImageType(ImageType.EMF);
+Aspose.Slides kan een SVG omzetten naar een groep bewerkbare dia‑vormen, vergelijkbaar met de overeenkomstige PowerPoint‑opdracht.
 
-// Sla het werkboek op in een stream.
-SheetRender sr = new SheetRender(sheet, options);
-Presentation pres = new Presentation();
-try {
-    pres.getSlides().removeAt(0);
+![PowerPoint Popup Menu](img_01_01.png)
 
-    String emfSheetName;
-    for (int j = 0; j < sr.getPageCount(); j++) {
-        emfSheetName = "test" + sheet.getName() + " Page" + (j + 1) + ".out.emf";
-        sr.toImage(j, emfSheetName);
-
-        // Voeg het bestand toe zoals het is zodat de afbeelding een vector‑EMF blijft in plaats van gerasterd te worden.
-        IPPImage picture;
-        InputStream imageStream = new FileInputStream(emfSheetName);
-        try {
-            picture = pres.getImages().addImage(imageStream);
-        } finally {
-            imageStream.close();
-        }
-
-        ISlide slide = pres.getSlides().addEmptySlide(
-                pres.getLayoutSlides().getByType(SlideLayoutType.Blank));
-        slide.getShapes().addPictureFrame(
-                ShapeType.Rectangle,
-                0,
-                0,
-                (float) pres.getSlideSize().getSize().getWidth(),
-                (float) pres.getSlideSize().getSize().getHeight(),
-                picture);
-    }
-
-    pres.save("output.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    pres.dispose();
-}
-```
-
-## **Afbeeldingen in de afbeeldingsverzameling vervangen**
-
-Aspose.Slides laat je afbeeldingen die zijn opgeslagen in de afbeeldingsverzameling van een presentatie vervangen, inclusief afbeeldingen die door dia‑vormen worden gebruikt. Deze sectie beschrijft verschillende manieren om afbeeldingen in de verzameling bij te werken. Je kunt een afbeelding vervangen met ruwe byte‑data, een [IImage](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iimage/)‑instance, of een andere afbeelding die al in de verzameling bestaat.
-
-1. Laad het presentatie‑bestand dat afbeeldingen bevat met behulp van de [Presentation](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/presentation/)‑klasse.  
-2. Laad een nieuwe afbeelding vanuit een bestand in een byte‑array.  
-3. Vervang de doel‑afbeelding door de nieuwe afbeelding met behulp van de byte‑array.  
-4. In de tweede aanpak laad je de afbeelding in een [IImage](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iimage/)‑object en vervang je de doel‑afbeelding door dat object.  
-5. In de derde aanpak vervang je de doel‑afbeelding door een afbeelding die al in de afbeeldingsverzameling van de presentatie bestaat.  
-6. Schrijf de gewijzigde presentatie weg als een PPTX‑bestand.  
+Gebruik de overload van [IShapeCollection.addGroupShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ishapecollection/) die een [ISvgImage](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/isvgimage/) accepteert om de conversie uit te voeren.
 
 ```java
 import com.aspose.slides.*;
+import com.aspose.slides.android.SizeF;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-// Instantieer de Presentation‑klasse die een presentatiebestand vertegenwoordigt.
-Presentation presentation = new Presentation("sample.pptx");
+Presentation presentation = new Presentation();
 try {
-    // De eerste manier.
-    byte[] imageData = Files.readAllBytes(Paths.get("image0.jpeg"));
-    IPPImage oldImage = presentation.getImages().get_Item(0);
-    oldImage.replaceImage(imageData);
+    byte[] imageData = Files.readAllBytes(Paths.get("diagram.svg"));
+    String svgContent = new String(imageData, StandardCharsets.UTF_8);
+    ISvgImage svgImage = new SvgImage(svgContent);
 
-    // De tweede manier.
-    IImage newImage = Images.fromFile("image1.png");
+    SizeF slideSize = presentation.getSlideSize().getSize();
+    ISlide slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addGroupShape(svgImage, 0, 0, (float) slideSize.getWidth(), (float) slideSize.getHeight());
+
+    presentation.save("editable-svg-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Gebruik SVG‑naar‑vormen conversie wanneer individuele vector‑elementen bewerkt moeten worden als PowerPoint‑vormen. Als de SVG alleen weergegeven moet worden, is het eenvoudiger om hem als afbeelding te bewaren en vermijd je het creëren van veel losse vormen.
+
+## **Een bestaande afbeeldingsbron vervangen**
+
+Gebruik [IPPImage.replaceImage](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ippimage/) wanneer je een bestaande afbeeldingsbron wilt vervangen. Dit is vooral nuttig voor gedeelde grafische elementen zoals logo’s.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    IPPImage imageToReplace = presentation.getImages().get_Item(0);
+
+    IImage replacementImage = Images.fromFile("new-logo.png");
     try {
-        oldImage = presentation.getImages().get_Item(1);
-        oldImage.replaceImage(newImage);
+        imageToReplace.replaceImage(replacementImage);
     } finally {
-        if (newImage != null) newImage.dispose();
+        if (replacementImage != null) replacementImage.dispose();
     }
 
-    // De derde manier.
-    oldImage = presentation.getImages().get_Item(2);
-    oldImage.replaceImage(presentation.getImages().get_Item(3));
-
-    // Sla de presentatie op in een bestand.
     presentation.save("output.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="Info" color="info" %}}
-Met de gratis [Text to GIF](https://products.aspose.app/slides/nl/text-to-gif)‑converter van Aspose kun je eenvoudig tekst animeren en GIF’s van tekst maken. 
-{{% /alert %}}
+Als meerdere picture frames, achtergronden, masters of lay-outs dezelfde afbeeldingsbron gebruiken, werkt het vervangen van die bron al deze gebruiken bij. Als slechts één picture frame moet veranderen, wijs dan een andere afbeelding toe aan dat frame in plaats van de gedeelde bron te vervangen.
+
+`replaceImage` biedt ook overloads die een byte‑array of een andere [IPPImage](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ippimage/) accepteren.
+
+## **Praktische richtlijnen voor afbeeldingsbeheer**
+
+### **Presentatie‑grootte beheersen**
+
+Grote rasterafbeeldingen kunnen een presentatie onnodig groot maken. Gebruik bronafbeeldingen met afmetingen die passen bij de beoogde weergavegrootte, hergebruik gedeelde afbeeldingsbronnen waar mogelijk, en vermijd het embedden van meerdere kopieën van dezelfde afbeelding met volledige resolutie.
+
+Voor rasterafbeeldingen die al in picture frames staan, kan [IPictureFillFormat.compressImage](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ipicturefillformat/) de afbeeldingsdata verkleinen volgens de gekozen resolutie en bijsnijdinstellingen. Dit is picture‑frame verwerking, niet image‑collection beheer, dus zie [Picture Frame](/slides/nl/androidjava/picture-frame/) voor gerelateerde opmaakhandelingen.
+
+### **Kiezen tussen embedded en linked content**
+
+Embedding maakt de presentatie draagbaar omdat alle benodigde afbeeldingsdata met het bestand meereist. Linking kan de bestandsgrootte verkleinen, maar introduceert een externe afhankelijkheid. Gebruik links alleen wanneer die afhankelijkheid acceptabel en stabiel is.
+
+### **Gedeelde branding hergebruiken**
+
+Voor terugkerende logo’s, watermerken of decoratieve grafieken, gebruik één afbeeldingsbron en hergebruik die. Als de grafiek deel uitmaakt van het presentatie‑ontwerp in plaats van de dia‑inhoud, plaats deze dan op een master of lay-out zodat ze door de juiste dia’s wordt geërfd.
+
+### **SVG‑bronnen draagbaar houden**
+
+Een zelfstandige SVG is makkelijker te verplaatsen en consistent te renderen dan een SVG die afhankelijk is van externe bestanden of netwerkbronnen. Waar mogelijk, embed de benodigde bronnen vóór het importeren van de SVG. Converteer SVG naar vormen alleen wanneer de afzonderlijke vector‑elementen bewerkt moeten worden.
+
+### **Gebruik de moderne cross‑platform Image‑API**
+
+Voor nieuwe Android‑via‑Java code, gebruik de Aspose.Slides [IImage](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iimage/) en [Images](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/images/) API’s in plaats van de verouderde publieke API gebaseerd op `android.graphics.Bitmap`. Zie [Modern API](/slides/nl/androidjava/modern-api/) voor migratie‑advies.
+
+WMF en EMF vereisen speciale aandacht. Wanneer deze formaten via een [IImage](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iimage/) worden doorgegeven, converteert [ImageCollection.addImage](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imagecollection/) het metafile naar een raster‑PNG‑representatie vóór invoeging. Als het behouden van de metafile‑data belangrijk is, gebruik dan een stream‑gebaseerde overload van [ImageCollection.addImage](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/imagecollection/). Het genereren van EMF‑content vanuit spreadsheets of andere producten is een aparte integratieworkflow en valt buiten de scope van dit artikel.
 
 ## **FAQ**
 
-**Blijft de oorspronkelijke resolutie van de afbeelding behouden na het invoegen?**
+**Wat is het verschil tussen de image collection en een picture frame?**
 
-Ja. De bronpixels blijven behouden, maar het uiteindelijke uiterlijk hangt af van hoe de [afbeelding](/slides/nl/androidjava/picture-frame/) op de dia wordt geschaald en van eventuele compressie die bij het opslaan wordt toegepast.
+De image collection slaat herbruikbare afbeeldingsbronnen op. Een picture frame is een dia‑vorm die een van die bronnen weergeeft en picture‑specifieke opmaak biedt zoals bijsnijden en effecten.
 
-**Wat is de beste manier om hetzelfde logo in tientallen dia's in één keer te vervangen?**
+**Wat is de beste manier om hetzelfde logo overal te vervangen?**
 
-Plaats het logo op de master‑dia of een lay-out en vervang het in de afbeeldingsverzameling van de presentatie — wijzigingen worden doorgevoerd naar alle elementen die die bron gebruiken.
+Als het logo al gedeeld wordt als één afbeeldingsbron, vervang die bron met [IPPImage.replaceImage](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ippimage/). Voor presentatie‑brede branding kan het plaatsen van het logo op een master of lay-out ook de gedupliceerde dia‑inhoud verminderen.
 
-**Kan een ingevoegde SVG worden omgezet in bewerkbare vormen?**
+**Waarom verdwijnt een linked afbeelding op een andere computer?**
 
-Ja. Je kunt een SVG omzetten in een groep vormen, waarna individuele delen bewerkbaar worden met de standaard vorm‑eigenschappen.
+Een gekoppelde afbeelding hangt af van het externe bestand of de URL. Als die bron niet bereikbaar is vanaf de andere computer, is de linked afbeelding niet beschikbaar. Embed de afbeelding wanneer de presentatie volledig zelfstandig moet zijn.
 
-**Hoe kan ik een afbeelding in één keer als achtergrond voor meerdere dia's instellen?**
+**Kan een ingevoegde SVG bewerkt worden als PowerPoint‑vormen?**
 
-[Wijs de afbeelding toe als achtergrond](/slides/nl/androidjava/presentation-background/) op de master‑dia of de relevante lay-out — alle dia's die die master/lay-out gebruiken, erven de achtergrond.
+Ja. Converteer de SVG met [IShapeCollection.addGroupShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ishapecollection/); de resulterende groep bevat bewerkbare dia‑vormen in plaats van één SVG‑afbeelding.
 
-**Hoe voorkom ik dat een presentatie te groot wordt door veel afbeeldingen?**
+**Hoe houd ik presentaties met veel afbeeldingen kleiner?**
 
-Herbruik één afbeeldingsbron in plaats van duplicaten, kies redelijke resoluties, pas compressie toe bij het opslaan, en behoud herhaalde afbeeldingen op de master waar dit passend is.
+Hergebruik gedeelde afbeeldingsbronnen, vermijd onnodig grote rasterbronnen, comprimeer geschikte rasterafbeeldingen wanneer gepast, plaats terugkerende branding op masters of lay-outs, en gebruik linked afbeeldingen alleen wanneer een externe afhankelijkheid acceptabel is.

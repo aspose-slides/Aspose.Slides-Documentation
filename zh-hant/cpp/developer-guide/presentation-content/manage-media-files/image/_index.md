@@ -1,61 +1,55 @@
 ---
-title: 使用 C++ 優化簡報中的圖像管理
-linktitle: 管理圖像
+title: 使用 C++ 優化簡報中的影像管理
+linktitle: 管理影像
 type: docs
 weight: 10
 url: /zh-hant/cpp/image/
 keywords:
-- 新增圖像
+- 新增影像
 - 新增圖片
-- 新增點陣圖
-- 取代圖像
-- 取代圖片
-- 來自網路
+- 取代影像
+- 影像集合
+- 圖片框
+- 連結影像
 - 背景
 - 新增 PNG
 - 新增 JPG
 - 新增 SVG
+- SVG 轉形狀
 - 外部 SVG 資源
-- SVG 解析器
-- 連結的 SVG 圖像
-- SVG 字型
-- 新增 EMF
-- 新增 WMF
-- 新增 TIFF
 - PowerPoint
 - OpenDocument
 - 簡報
 - C++
 - Aspose.Slides
-description: "使用 Aspose.Slides for C++ 簡化 PowerPoint 與 OpenDocument 中的圖像管理，提升效能並自動化工作流程。"
+description: "了解如何使用 Aspose.Slides for C++ 在 PowerPoint 與 OpenDocument 簡報中新增、重複使用、連結、取代與管理點陣圖與 SVG 影像。"
 ---
 ## **簡介**
 
-圖片使簡報更具吸引力且視覺上更令人愉悅。在 Microsoft PowerPoint 中，您可以從檔案、互聯網或其他來源將圖片插入投影片。類似地，Aspose.Slides 允許您以多種方式將圖片新增至簡報投影片。
+Aspose.Slides for C++ 提供多種處理圖片的方式，且每種方式都有其特定用途。您可以將圖片儲存在簡報中、在圖片框中顯示、作為投影片背景、連結至外部圖片、取代共享圖片資源，或將 SVG 內容轉換為可編輯的形狀。
 
-{{% alert title="Tip" color="primary" %}} 
-Aspose 提供免費的轉換器——[JPEG to PowerPoint](https://products.aspose.app/slides/zh-hant/import/jpg-to-ppt) 與 [PNG to PowerPoint](https://products.aspose.app/slides/zh-hant/import/png-to-ppt)——讓您能快速從圖像建立簡報。 
-{{% /alert %}} 
+本文著重於圖片資源以及它們在簡報中的使用方式。若要了解裁切、透明度、效果、拉伸以及套用於單一圖片框的其他格式設定，請參閱[Picture Frame](/slides/zh-hant/cpp/picture-frame/)。
 
-{{% alert title="Info" color="info" %}}
-如果您想將圖像作為圖片框新增——尤其是計畫調整大小、套用效果或使用其他標準格式選項——請參閱 [Picture Frame](/slides/zh-hant/cpp/picture-frame/)。 
-{{% /alert %}} 
+## **了解影像模型**
 
-{{% alert title="Note" color="warning" %}}
-您可以將圖像從一種格式轉換為另一種格式。請參閱以下頁面：將 [image to JPG](https://products.aspose.com/slides/zh-hant/cpp/conversion/image-to-jpg/) 轉換、[JPG to image](https://products.aspose.com/slides/zh-hant/cpp/conversion/jpg-to-image/)、[JPG to PNG](https://products.aspose.com/slides/zh-hant/cpp/conversion/jpg-to-png/)、[PNG to JPG](https://products.aspose.com/slides/zh-hant/cpp/conversion/png-to-jpg/)、[PNG to SVG](https://products.aspose.com/slides/zh-hant/cpp/conversion/png-to-svg/)，以及 [SVG to PNG](https://products.aspose.com/slides/zh-hant/cpp/conversion/svg-to-png/)。 
-{{% /alert %}}
+以下 API 概念密切相關，但並不互換：
 
-Aspose.Slides 支援 JPEG、PNG、BMP、GIF 等常見格式的圖像。 
+- [簡報影像集合](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iimagecollection/) 儲存簡報使用的圖片資源。使用[IImageCollection::AddImage](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iimagecollection/addimage/) 可新增圖片資料並取得[IPPImage](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ippimage/)資源。
+- [圖片框](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ipictureframe/) 是在投影片、版面配置或母片上顯示圖片的形狀。使用[IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ishapecollection/addpictureframe/) 可將圖片資源放置於投影片上。
+- 投影片背景使用圖片作為投影片填色的一部分，而非形狀。因而它的行為不同於圖片框。
+- [IPPImage::ReplaceImage](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ippimage/replaceimage/) 可取代圖片資源。若多個簡報元素使用該資源，全部都會使用新的圖片。
+- 將 SVG 轉換為形狀會產生可編輯的投影片形狀。轉換後，內容不再作為單一圖片資源來管理。
 
-## **將本機儲存的圖像新增至投影片**
+因此，一般的工作流程為：將圖片資料新增至影像集合，取得[IPPImage]，然後在一或多個圖片框或填色中使用該資源。
 
-您可以將儲存在電腦上的一或多個圖像新增至簡報投影片。以下 C++ 範例程式碼示範如何將圖像新增至投影片：
+## **新增嵌入式圖片**
 
-``` cpp
+要插入本機圖片，先讀取檔案，將其資料新增至影像集合，並建立使用回傳的[IPPImage]資源的圖片框。
+
+```cpp
 #include <DOM/IImageCollection.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
 #include <Export/SaveFormat.h>
@@ -63,27 +57,31 @@ Aspose.Slides 支援 JPEG、PNG、BMP、GIF 等常見格式的圖像。
 
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System;
 using namespace System::IO;
 
-auto pres = System::MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
 
-auto slide = pres->get_Slides()->idx_get(0);
-auto image = pres->get_Images()->AddImage(File::ReadAllBytes(u"image.png"));
-slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f, image);
+auto imageData = File::ReadAllBytes(u"photo.png");
+auto image = presentation->get_Images()->AddImage(imageData);
 
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
+auto slide = presentation->get_Slide(0);
+slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 20.0f, 20.0f, 320.0f, 180.0f, image);
+
+presentation->Save(u"presentation.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **從網路將圖像新增至投影片**
+以此方式加入的圖片會嵌入於簡報中，故產生的檔案不會依賴原始圖片檔仍然可用。
 
-如果您想要新增至投影片的圖像未儲存在電腦上，您可以直接從網路新增。 
-以下 C++ 範例程式碼示範如何從網路將圖像新增至投影片：
+### **從網路新增圖片**
 
-``` cpp
+當圖片可透過 HTTP 或 HTTPS 取得時，下載其位元組、將其加入簡報影像集合，並以與本機圖片相同的方式使用回傳的圖片資源。
+
+```cpp
 #include <DOM/IImageCollection.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
 #include <Export/SaveFormat.h>
@@ -93,523 +91,254 @@ pres->Save(u"pres.pptx", SaveFormat::Pptx);
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
+using namespace System::Net;
 
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
+auto imageUri = MakeObject<Uri>(u"https://example.com/image.png");
+auto webClient = MakeObject<WebClient>();
+auto imageData = webClient->DownloadData(imageUri);
 
-auto webClient = System::MakeObject<System::Net::WebClient>();
-auto imageData = webClient->DownloadData(System::MakeObject<Uri>(u"[REPLACE WITH URL]"));
+auto presentation = MakeObject<Presentation>();
 
-auto image = pres->get_Images()->AddImage(imageData);
-slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f, image);
+auto image = presentation->get_Images()->AddImage(imageData);
+auto slide = presentation->get_Slide(0);
+slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 20.0f, 20.0f, 320.0f, 180.0f, image);
 
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
+presentation->Save(u"presentation-from-web.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **將圖像新增至投影片母片**
+在來源不受信任時，請驗證遠端 URL、回應大小與內容類型。若您的應用程式已使用其他 HTTP 用戶端，也可以使用該用戶端下載圖片，然後將取得的位元組或串流傳遞給[IImageCollection::AddImage](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iimagecollection/addimage/)。
 
-投影片母片儲存並控制使用該母片之投影片的主題與版面配置等資訊。當您將圖像新增至投影片母片時，該圖像會出現在所有基於此母片的投影片上。 
-以下 C++ 範例程式碼示範如何將圖像新增至投影片母片：
+## **在投影片間重複使用圖片**
 
-``` cpp
+如果同一張圖片需要多次使用，只需在簡報中加入一次，然後在建立其他圖片框時重複使用回傳的[IPPImage]。這樣可避免重複載入相同來源資料，並讓共享圖片資源與其使用關係更加明確。
+
+對於應自動出現在許多投影片上的圖形（例如公司標誌），建議將圖片框放在[slide master](/slides/zh-hant/cpp/slide-master/)或版面配置上，而不是在每張投影片中各新增等效形狀。
+
+## **將圖片作為投影片背景**
+
+背景圖片是指派給投影片填色的，並非以圖片框形狀加入。當圖片需要覆蓋整個投影片背景且不應被視為普通投影片物件操作時，這種方式非常有用。
+
+```cpp
+#include <DOM/BackgroundType.h>
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IFillFormat.h>
 #include <DOM/IImageCollection.h>
-#include <DOM/ILayoutSlide.h>
-#include <DOM/IMasterSlide.h>
-#include <DOM/IShapeCollection.h>
+#include <DOM/IPictureFillFormat.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/PictureFillMode.h>
 #include <DOM/Presentation.h>
-#include <DOM/ShapeType.h>
 #include <Export/SaveFormat.h>
 #include <system/io/file.h>
 
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System;
 using namespace System::IO;
 
-auto pres = System::MakeObject<Presentation>();
-auto slide = pres->get_Slides()->idx_get(0);
-auto masterSlide = slide->get_LayoutSlide()->get_MasterSlide();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-auto image = pres->get_Images()->AddImage(File::ReadAllBytes(u"image.png"));
-masterSlide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f, image);
+auto imageData = File::ReadAllBytes(u"background.jpg");
+auto image = presentation->get_Images()->AddImage(imageData);
 
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
+slide->get_Background()->set_Type(BackgroundType::OwnBackground);
+slide->get_Background()->get_FillFormat()->set_FillType(FillType::Picture);
+slide->get_Background()->get_FillFormat()->get_PictureFillFormat()->set_PictureFillMode(PictureFillMode::Stretch);
+slide->get_Background()->get_FillFormat()->get_PictureFillFormat()->get_Picture()->set_Image(image);
+
+presentation->Save(u"background-image.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **將圖像設定為投影片背景**
+更多背景選項（含母片與版面配置背景），請參閱[Presentation Background](/slides/zh-hant/cpp/presentation-background/)。
 
-您可以將圖片設定為一或多張投影片的背景。詳情請參閱 *[Setting Images as Backgrounds for Slides](/slides/zh-hant/cpp/presentation-background/#setting-images-as-background-for-slides)*。
+## **嵌入式圖片與連結圖片**
 
-## **將 SVG 新增至簡報**
+嵌入式圖片與連結圖片在可攜性與檔案大小上各有取捨：
 
-可以使用 [SvgImage](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/svgimage/) 類別將 SVG 內容新增至簡報。產生的 [ISvgImage](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/isvgimage/) 物件隨後可以加入簡報的圖像集合，並用於建立圖片框。 
-以下 C++ 範例匯入一個自包含的 SVG 字串。此 SVG 所使用的所有圖像、樣式與其他資源皆直接嵌入於 SVG 內容中。
+- **嵌入式圖片**：圖片資料儲存在簡報內。簡報是自包含的，但檔案大小會包含圖片資料。
+- **連結圖片**：簡報僅儲存指向外部圖片的路徑或 URL。這可以減少簡報大小，但在開啟或渲染簡報時必須能存取該外部資源。
+
+可透過[ISlidesPicture::set_LinkPathLong](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/islidespicture/set_linkpathlong/) 指定外部路徑或 URL，建立連結圖片，而非嵌入圖片資料。
 
 ```cpp
-#include <DOM/IImageCollection.h>
-#include <DOM/IPPImage.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
+#include <DOM/ISlidesPicture.h>
 #include <DOM/Presentation.h>
 #include <DOM/ShapeType.h>
-#include <DOM/SvgImage.h>
 #include <Export/SaveFormat.h>
-#include <system/string.h>
 
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 
-auto svgContent = String(uR"(
-<svg xmlns='http://www.w3.org/2000/svg' width='320' height='180'>
-    <rect width='320' height='180' fill='#4F81BD'/>
-    <circle cx='160' cy='90' r='55' fill='#F2F2F2'/>
-</svg>)");
-
 auto presentation = MakeObject<Presentation>();
+
+auto slide = presentation->get_Slide(0);
+auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 20.0f, 20.0f, 320.0f, 180.0f, nullptr);
+pictureFrame->get_PictureFormat()->get_Picture()->set_LinkPathLong(u"https://example.com/image.png");
+
+presentation->Save(u"linked-image.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+僅在部署環境能可靠存取外部資源時才使用連結圖片。對於必須離線使用或在系統之間搬移的簡報，嵌入式圖片通常較安全。
+
+## **處理 SVG 圖片**
+
+SVG 為向量格式，適合用於圖示、圖表與其他需要在放大縮小時仍保有細節的圖形。Aspose.Slides 同時支援將 SVG 當作圖片資源以及作為可編輯投影片形狀的來源。
+
+### **將 SVG 作為圖片新增**
+
+建立[SvgImage]，將其加入影像集合，然後在圖片框中放置得到的圖片資源。
+
+```cpp
+#include <DOM/IImageCollection.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/SvgImage.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto svgContent = File::ReadAllText(u"icon.svg");
 auto svgImage = MakeObject<SvgImage>(svgContent);
-auto image = presentation->get_Images()->AddImage(svgImage);
-
-presentation->get_Slides()->idx_get(0)->get_Shapes()->AddPictureFrame(
-    ShapeType::Rectangle, 20.0f, 20.0f,
-    static_cast<float>(image->get_Width()),
-    static_cast<float>(image->get_Height()),
-    image);
-
-presentation->Save(u"self-contained-svg.pptx", SaveFormat::Pptx);
-presentation->Dispose();
-```
-
-## **匯入含外部資源的 SVG 內容**
-
-從設計工具、圖表編輯器、圖示系統與網路管線匯出的 SVG 檔案可能會參考儲存在 SVG 文件之外的資源。例如，SVG 可以包含圖像連結如 `images/photo.png`、CSS `url(...)` 值，或字型 URL。  
-若要匯入此類 SVG 內容，請建立 [IExternalResourceResolver](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.import/iexternalresourceresolver/) 實作，並與基礎 URI 一併傳遞給相應的 `SvgImage` 建構式。基礎 URI 用於識別 SVG 文件的位置，並用來解析相對連結。  
-[ISvgImage](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/isvgimage/) 介面提供存取已匯入 SVG 資訊的功能：
-
-- `get_SvgContent()` 會回傳 SVG 標記字串。  
-- `get_SvgData()` 會回傳 SVG 內容的位元組陣列。  
-- `get_BaseUri()` 會回傳用於相對連結的基礎 URI。  
-- `get_ExternalResourceResolver()` 會回傳指派給 SVG 圖像的解析程式。  
-
-### **實作外部資源解析程式**
-
-解析程式具備兩個方法：
-
-- [ResolveUri](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.import/iexternalresourceresolver/resolveuri/) 結合基礎 URI 與相對資源連結並回傳絕對 URI。若無法解析連結或不允許，回傳 null 字串。  
-- [GetEntity](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.import/iexternalresourceresolver/getentity/) 為絕對資源 URI 回傳可讀取的串流。若資源遺失、被阻擋或不可用，回傳 `nullptr`。必要時亦可回傳備援串流。  
-
-以下解析程式僅從允許的本機目錄載入連結資源。網路資源與超出允許目錄的路徑將被阻擋。對於無法解析的圖像連結，會回傳可選的備援圖像。
-
-```cpp
-#include <Import/IExternalResourceResolver.h>
-#include <system/array.h>
-#include <system/io/file.h>
-#include <system/io/memory_stream.h>
-#include <system/io/path.h>
-#include <system/io/stream.h>
-#include <system/string.h>
-#include <system/smart_ptr.h>
-#include <system/string_comparison.h>
-#include <system/uri.h>
-
-using namespace Aspose::Slides::Import;
-using namespace System;
-using namespace System::IO;
-
-class LocalSvgResourceResolver : public IExternalResourceResolver
-{
-public:
-    LocalSvgResourceResolver(String allowedRoot, ArrayPtr<uint8_t> fallbackImageData = nullptr)
-        : _allowedRoot(Path::GetFullPath(allowedRoot)),
-          _fallbackImageData(fallbackImageData)
-    {
-    }
-
-    String ResolveUri(String baseUri, String relativeUri) override
-    {
-        if (String::IsNullOrWhiteSpace(baseUri) ||
-            String::IsNullOrWhiteSpace(relativeUri))
-        {
-            return String::Null;
-        }
-
-        auto baseAddress = SharedPtr<Uri>();
-        auto absoluteAddress = SharedPtr<Uri>();
-        if (!Uri::TryCreate(baseUri, UriKind::Absolute, baseAddress) ||
-            !Uri::TryCreate(baseAddress, relativeUri, absoluteAddress))
-        {
-            return String::Null;
-        }
-
-        // 此解析器特意僅允許本機檔案。
-        if (!absoluteAddress->get_IsFile())
-        {
-            return String::Null;
-        }
-
-        auto resourcePath = Path::GetFullPath(absoluteAddress->get_LocalPath());
-        if (!IsInsideAllowedRoot(resourcePath))
-        {
-            return String::Null;
-        }
-
-        return absoluteAddress->get_AbsoluteUri();
-    }
-
-    SharedPtr<Stream> GetEntity(String absoluteUri) override
-    {
-        auto resourceUri = SharedPtr<Uri>();
-        if (!Uri::TryCreate(absoluteUri, UriKind::Absolute, resourceUri) ||
-            !resourceUri->get_IsFile())
-        {
-            return nullptr;
-        }
-
-        auto resourcePath = Path::GetFullPath(resourceUri->get_LocalPath());
-        if (!IsInsideAllowedRoot(resourcePath))
-        {
-            return nullptr;
-        }
-
-        if (File::Exists(resourcePath))
-        {
-            return File::OpenRead(resourcePath);
-        }
-
-        // 僅在圖像資源時使用備援。返回圖像串流
-        // 對缺少的字型或樣式表將不有效。
-        if (_fallbackImageData != nullptr && IsImageFile(resourcePath))
-        {
-            return MakeObject<MemoryStream>(_fallbackImageData, false);
-        }
-
-        return nullptr;
-    }
-
-private:
-    String _allowedRoot;
-    ArrayPtr<uint8_t> _fallbackImageData;
-
-    bool IsInsideAllowedRoot(String resourcePath)
-    {
-        auto normalizedRoot = _allowedRoot;
-        auto directorySeparator = String(Path::DirectorySeparatorChar, 1);
-        if (!normalizedRoot.EndsWith(directorySeparator))
-        {
-            normalizedRoot += directorySeparator;
-        }
-
-        auto normalizedPath = Path::GetFullPath(resourcePath);
-        auto comparison = Path::DirectorySeparatorChar == u'\\'
-            ? StringComparison::OrdinalIgnoreCase
-            : StringComparison::Ordinal;
-
-        return normalizedPath.StartsWith(normalizedRoot, comparison) ||
-               String::Equals(normalizedPath, _allowedRoot, comparison);
-    }
-
-    static bool IsImageFile(String path)
-    {
-        auto extension = Path::GetExtension(path);
-
-        return String::Equals(extension, u".png", StringComparison::OrdinalIgnoreCase) ||
-               String::Equals(extension, u".jpg", StringComparison::OrdinalIgnoreCase) ||
-               String::Equals(extension, u".jpeg", StringComparison::OrdinalIgnoreCase) ||
-               String::Equals(extension, u".gif", StringComparison::OrdinalIgnoreCase) ||
-               String::Equals(extension, u".bmp", StringComparison::OrdinalIgnoreCase);
-    }
-};
-```
-
-### **在 SVG 匯入期間解析連結資源**
-
-假設 `assets/diagram.svg` 包含以下相對參考：
-
-```xml
-<image href="images/photo.png" x="20" y="20" width="320" height="180" />
-```
-
-以下 C++ 範例將 SVG 檔案 URI 作為基礎 URI，並提供自訂解析程式。該解析程式將相對圖像連結轉換為絕對 URI，並在 Aspose.Slides 處理 SVG 時回傳包含連結資源的串流。
-
-```cpp
-#include <DOM/IImageCollection.h>
-#include <DOM/IPPImage.h>
-#include <DOM/IShapeCollection.h>
-#include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
-#include <DOM/Presentation.h>
-#include <DOM/ShapeType.h>
-#include <DOM/SvgImage.h>
-#include <Export/SaveFormat.h>
-#include <Import/IExternalResourceResolver.h>
-#include <system/array.h>
-#include <system/environment.h>
-#include <system/io/file.h>
-#include <system/io/path.h>
-#include <system/string.h>
-#include <system/uri.h>
-
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::Export;
-using namespace Aspose::Slides::Import;
-using namespace System;
-using namespace System::IO;
-
-auto svgFilePath = Path::GetFullPath(Path::Combine(u"assets", u"diagram.svg"));
-auto assetDirectory = Path::GetDirectoryName(svgFilePath);
-if (String::IsNullOrEmpty(assetDirectory))
-{
-    assetDirectory = Environment::get_CurrentDirectory();
-}
-
-auto svgContent = File::ReadAllText(svgFilePath);
-
-// 基礎 URI 代表 SVG 文件的位置。
-auto baseUri = MakeObject<Uri>(svgFilePath)->get_AbsoluteUri();
-
-auto fallbackImageData = ArrayPtr<uint8_t>();
-auto fallbackImagePath = Path::Combine(assetDirectory, u"fallback.png");
-if (File::Exists(fallbackImagePath))
-{
-    fallbackImageData = File::ReadAllBytes(fallbackImagePath);
-}
-
-auto resolver = MakeObject<LocalSvgResourceResolver>(assetDirectory, fallbackImageData);
-auto svgImage = MakeObject<SvgImage>(svgContent, resolver, baseUri);
-
-// ISvgImage 會公開來源內容、二進位資料、基礎 URI 與解析程式。
-auto importedContent = svgImage->get_SvgContent();
-auto importedData = svgImage->get_SvgData();
-auto importedBaseUri = svgImage->get_BaseUri();
-auto importedResolver = svgImage->get_ExternalResourceResolver();
 
 auto presentation = MakeObject<Presentation>();
+
 auto image = presentation->get_Images()->AddImage(svgImage);
+auto slide = presentation->get_Slide(0);
+slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 20.0f, 20.0f, 200.0f, 200.0f, image);
 
-presentation->get_Slides()->idx_get(0)->get_Shapes()->AddPictureFrame(
-    ShapeType::Rectangle, 20.0f, 20.0f,
-    static_cast<float>(image->get_Width()),
-    static_cast<float>(image->get_Height()),
-    image);
-
-presentation->Save(u"svg-with-linked-resources.pptx", SaveFormat::Pptx);
+presentation->Save(u"svg-image.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-`SvgImage` 類別亦提供接受 SVG 資料（位元組陣列或串流）以及外部資源解析程式與基礎 URI 的多載方法。
+### **含外部資源的 SVG 檔案**
 
-{{% alert title="Important" color="warning" %}}
-資源解析程式在 Aspose.Slides 處理與呈現 SVG 時，使外部資源可用。它不會修改原始 SVG 標記，也不會自動將已解析的資源嵌入其中。  
-當 `ISvgImage` 被加入簡報的圖像集合時，PPTX 檔案可能同時包含原始 SVG 表示與點陣備援圖像。連結資源可能會出現在產生的備援圖像中，而儲存的 SVG 中的相對連結（如 `images/photo.png`）則保持不變。因此，渲染原生 SVG 表示的應用程式在原始外部資源不可用時可能會省略該連結內容。  
-{{% /alert %}}
+SVG 可以參照外部圖片、樣式表或字型。對於此類情況，[SvgImage] 提供接受[IExternalResourceResolver](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.import/iexternalresourceresolver/) 與基礎 URI 的建構函式。解析器可將相對 URI 對映至允許的絕對 URI，並回傳所請求資源的串流。
 
-### **建立可攜式 SVG 圖片**
+解析器會在 Aspose.Slides 處理 SVG 時提供外部資源，但不會將 SVG 重寫為自包含文件。若 SVG 必須保持可攜，請將所需資源嵌入 SVG 本身，例如使用 `data:` URI 連結圖片。
 
-若要建立不依賴外部檔案的 SVG 圖片，請在建立 `SvgImage` 前先使 SVG 成為自包含。比如，將連結的圖像 URL 替換為包含圖像資料的 `data:` URI：
+當 SVG 檔案來自不受信任的來源時，應限制解析器可存取的協定、檔案位置與主機。網路解析器亦應套用逾時、回應大小上限與內容驗證。
 
-```xml
-<image href="data:image/png;base64,..." x="20" y="20" width="320" height="180" />
-```
+### **將 SVG 轉換為可編輯形狀**
 
-在將所有必需資源嵌入 SVG 內容後，建立 `SvgImage`，將其加入簡報的圖像集合，並如前例所示插入圖片框中。
-
-### **處理缺少或被阻擋的資源**
-
-當資源 URI 無效、被禁止或無法解析時，`ResolveUri` 應回傳 null 字串。當資源無法讀取時，`GetEntity` 應回傳 `nullptr`。Aspose.Slides 會在可能的情況下在缺少該資源的情形下繼續處理 SVG。  
-可為缺少的資源回傳備援串流，但其內容必須與請求的資源類型相容。例如，僅對缺少的圖像回傳圖像串流，而非字型或樣式表。
-
-{{% alert title="Security" color="warning" %}}
-勿從不受信任的 SVG 檔案解析任意檔案路徑或不受限制的網路 URL。應限制允許的協議、目錄與主機。對於網路資源，亦需套用連線逾時、回應大小限制與內容驗證。  
-{{% /alert %}}
-
-## **將 SVG 轉換為形狀集合**
-
-Aspose.Slides 能將 SVG 轉換為形狀集合，類似 PowerPoint 中的相應功能：
+Aspose.Slides 可將 SVG 轉換為一組可編輯的投影片形狀，類似 PowerPoint 對應的指令。
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-此功能由 [IShapeCollection](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ishapecollection/) 介面的 [AddGroupShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ishapecollection/) 方法的重載提供，該重載接受一個 [ISvgImage](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/isvgimage/) 物件作為第一個參數。  
-以下 C++ 範例程式碼示範如何使用此方法將 SVG 檔案轉換為形狀集合：
+使用接受[ISvgImage]的[IShapeCollection::AddGroupShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ishapecollection/addgroupshape/) 重載來執行轉換。
 
-``` cpp 
-#include <DOM/IPresentation.h>
+```cpp
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
 #include <DOM/ISlideSize.h>
-#include <DOM/ISvgImage.h>
 #include <DOM/Presentation.h>
 #include <DOM/SvgImage.h>
 #include <Export/SaveFormat.h>
-#include <drawing/size_f.h>
 #include <system/io/file.h>
-
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::Export;
-using namespace System::IO;
-
-// 原始 SVG 檔案名稱
-auto svgFileName = System::String(u"sample.svg");
-
-// 輸出簡報檔案名稱
-auto outPptxPath = System::String(u"presentation.pptx");
-
-// 建立新簡報
-auto presentation = System::MakeObject<Presentation>();
-
-// 讀取 SVG 檔案內容
-auto svgContent = File::ReadAllText(svgFileName);
-
-// 建立 SvgImage 物件
-auto svgImage = System::MakeObject<SvgImage>(svgContent);
-
-// 取得投影片尺寸
-auto slideSize = presentation->get_SlideSize()->get_Size();
-
-// 將 SVG 圖像轉換為形狀群組並依投影片尺寸縮放
-presentation->get_Slides()->idx_get(0)->get_Shapes()->AddGroupShape(svgImage, 0.f, 0.f, slideSize.get_Width(), slideSize.get_Height());
-
-// 以 PPTX 格式儲存簡報
-presentation->Save(outPptxPath, SaveFormat::Pptx);
-```
-
-## **將圖像以 EMF 形式新增至投影片**
-
-Aspose.Slides for C++ 允許您使用 Aspose.Cells 從 Excel 工作表產生 EMF 圖像，並將其新增至簡報投影片。  
-以下 C++ 範例程式碼示範如何做到這點：
-
-``` cpp 
-#include <DOM/IGlobalLayoutSlideCollection.h>
-#include <DOM/IImageCollection.h>
-#include <DOM/IPPImage.h>
-#include <DOM/IShapeCollection.h>
-#include <DOM/ISlide.h>
-#include <DOM/ISlideCollection.h>
-#include <DOM/ISlideSize.h>
-#include <DOM/Presentation.h>
-#include <DOM/ShapeType.h>
-#include <DOM/SlideLayoutType.h>
-#include <Export/SaveFormat.h>
-#include <drawing/size_f.h>
-#include <system/array.h>
-#include <system/smart_ptr.h>
-#include "Aspose.Cells/ImageOrPrintOptions.h"
-#include "Aspose.Cells/ImageType.h"
-#include "Aspose.Cells/Initializer.h"
-#include "Aspose.Cells/SheetRender.h"
-#include "Aspose.Cells/Vector.h"
-#include "Aspose.Cells/Workbook.h"
-#include "Aspose.Cells/Worksheet.h"
-#include "Aspose.Cells/WorksheetCollection.h"
-
-using namespace Aspose::Slides;
-using namespace Aspose::Slides::Export;
-
-// 必須先啟動 Aspose.Cells for C++，才能使用其任何類型。
-Aspose::Cells::Startup();
-
-auto workbook = Aspose::Cells::Workbook(u"chart.xls");
-auto sheet = workbook.GetWorksheets().Get(0);
-
-// 將工作表渲染為 EMF。
-auto options = Aspose::Cells::ImageOrPrintOptions();
-options.SetHorizontalResolution(200);
-options.SetVerticalResolution(200);
-options.SetImageType(Aspose::Cells::Drawing::ImageType::Emf);
-
-auto sheetRender = Aspose::Cells::SheetRender(sheet, options);
-
-auto presentation = System::MakeObject<Presentation>();
-presentation->get_Slides()->RemoveAt(0);
-
-for (auto pageIndex = 0; pageIndex < sheetRender.GetPageCount(); pageIndex++)
-{
-    // Aspose.Cells 會將渲染的頁面以緩衝區返回，Aspose.Slides 將其作為圖像新增。
-    auto emfData = sheetRender.ToImage(pageIndex);
-    auto emfBytes = System::MakeArray<uint8_t>(emfData.GetLength(), emfData.GetData());
-    auto emfImage = presentation->get_Images()->AddImage(emfBytes);
-
-    auto slide = presentation->get_Slides()->AddEmptySlide(
-        presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank));
-    auto slideSize = presentation->get_SlideSize()->get_Size();
-    slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 0.0f, 0.0f, slideSize.get_Width(), slideSize.get_Height(), emfImage);
-}
-
-presentation->Save(u"Saved.pptx", SaveFormat::Pptx);
-presentation->Dispose();
-workbook.Dispose();
-
-Aspose::Cells::Cleanup();
-```
-
-## **取代圖像集合中的圖像**
-
-Aspose.Slides 允許您取代儲存在簡報圖像集合中的圖像，包括投影片形狀使用的圖像。本節說明了更新集合中圖像的多種方法。您可以使用原始位元組資料、[IImage](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iimage/) 實例，或集合中已存在的其他圖像來取代圖像。  
-請依照以下步驟操作：
-
-1. 使用 [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/) 類別載入包含圖像的簡報檔案。  
-2. 將新圖像從檔案載入至位元組陣列。  
-3. 使用位元組陣列將目標圖像取代為新圖像。  
-4. 在第二種方法中，將圖像載入至 [IImage](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iimage/) 物件，並以該物件取代目標圖像。  
-5. 在第三種方法中，將目標圖像取代為簡報圖像集合中已存在的圖像。  
-6. 將修改後的簡報寫入為 PPTX 檔案。  
-
-```cpp
-#include <DOM/IPPImage.h>
-#include <DOM/Presentation.h>
-#include <Export/SaveFormat.h>
-#include <IImage.h>
-#include <Util/Images.h>
-#include <system/io/file.h>
-#include <system/smart_ptr.h>
 
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
 using namespace System;
 using namespace System::IO;
 
-// 實例化表示簡報檔案的 Presentation 類別。
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
+auto svgContent = File::ReadAllText(u"diagram.svg");
+auto svgImage = MakeObject<SvgImage>(svgContent);
 
-// 第一種方法。
-auto imageData = File::ReadAllBytes(u"image0.jpeg");
-auto oldImage = presentation->get_Image(0);
-oldImage->ReplaceImage(imageData);
+auto presentation = MakeObject<Presentation>();
 
-// 第二種方法。
-auto newImage = Images::FromFile(u"image1.png");
-oldImage = presentation->get_Image(1);
-oldImage->ReplaceImage(newImage);
-newImage->Dispose();
+auto slideSize = presentation->get_SlideSize()->get_Size();
+auto slide = presentation->get_Slide(0);
+slide->get_Shapes()->AddGroupShape(svgImage, 0.0f, 0.0f, slideSize.get_Width(), slideSize.get_Height());
 
-// 第三種方法。
-oldImage = presentation->get_Image(2);
-oldImage->ReplaceImage(presentation->get_Image(3));
+presentation->Save(u"editable-svg-shapes.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
 
-// 將簡報儲存至檔案。
+當需要將個別向量元素編輯為 PowerPoint 形狀時，使用 SVG 轉形狀的方式。若 SVG 只需顯示，保留為圖片較為簡單，且可避免產生許多獨立形狀。
+
+## **取代現有圖片資源**
+
+當需要取代現有圖片資源時，請使用[IPPImage::ReplaceImage]。此功能特別適合取代共享圖形（例如標誌）。
+
+```cpp
+#include <DOM/IPPImage.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+
+auto imageToReplace = presentation->get_Image(0);
+auto imageData = File::ReadAllBytes(u"new-logo.png");
+imageToReplace->ReplaceImage(imageData);
+
 presentation->Save(u"output.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-{{% alert title="Info" color="info" %}}
-使用 Aspose 免費的 [Text to GIF](https://products.aspose.app/slides/zh-hant/text-to-gif) 轉換器，您可以輕鬆將文字動畫化並從文字建立 GIF。 
-{{% /alert %}}
+若多個圖片框、背景、母片或版面配置使用同一圖片資源，取代該資源會同步更新所有使用處。若僅要變更單一圖片框，請為該框指定不同的圖片，而非取代共享資源。
 
-## **FAQ**
+[IPPImage::ReplaceImage] 亦提供接受[IImage]或其他[IPPImage]的重載。
 
-**插入後原始圖像解析度是否保持不變？**  
-是的。來源像素會被保留，但最終顯示效果取決於投影片上 [picture](/slides/zh-hant/cpp/picture-frame/) 的縮放方式以及保存時的壓縮情況。  
+## **實務圖片管理指引**
 
-**一次取代數十張投影片中相同標誌的最佳方法是什麼？**  
-將標誌放置於母片或版面配置上，並在簡報的圖像集合中取代它——更新會傳播到所有使用該資源的元素。  
+### **控制簡報大小**
 
-**插入的 SVG 能否轉換為可編輯的形狀？**  
-可以。您可以將 SVG 轉換為一組形狀，之後各個部分即可使用標準形狀屬性進行編輯。  
+大量點陣圖會使簡報體積過大。請使用符合實際顯示尺寸的來源圖片、盡可能重複利用共享圖片資源，並避免嵌入多份相同的高解析度圖檔。
 
-**如何一次為多張投影片設定圖片背景？**  
-在母片或相關版面配置上 [Assign the image as the background](/slides/zh-hant/cpp/presentation-background/)，任何使用該母片/版面配置的投影片都會繼承此背景。  
+對於已放入圖片框的點陣圖，可使用[IPictureFillFormat::CompressImage](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ipicturefillformat/compressimage/) 依選取的解析度與裁切設定壓縮圖像資料。這屬於圖片框的處理而非影像集合管理，相關格式操作請參閱[Picture Frame](/slides/zh-hant/cpp/picture-frame/)。
 
-**如何防止因大量圖片導致簡報檔案過大？**  
-重複使用單一圖像資源而非多個副本，選擇適當的解析度，保存時套用壓縮，並在適當情況下將重複的圖形放在母片上。
+### **在嵌入與連結內容之間選擇**
+
+嵌入使簡報具備可攜性，因為所有必要的圖片資料都隨檔案一起搬移。連結可減少檔案大小，但會產生外部依賴。僅在該依賴可接受且穩定時才使用連結。
+
+### **重複使用共享品牌資源**
+
+對於重複出現的標誌、浮水印或裝飾圖形，請使用單一圖片資源並重複使用。若圖形屬於簡報設計而非投影片內容，建議將其放在母片或版面配置上，以便被相應投影片繼承。
+
+### **保持 SVG 資源可攜**
+
+自包含的 SVG 較易搬移且渲染一致，避免依賴外部檔案或網路資源。若可能，請在匯入前將所需資源嵌入 SVG。僅在需要編輯個別向量元素時才將 SVG 轉為形狀。
+
+### **使用 Aspose.Slides 影像 API**
+
+對於 C++ 影像工作流程，當需要影像物件時，請使用 Aspose.Slides 的[IImage]與[Images] API；當需要將影像資料註冊為簡報資源時，請使用[IImageCollection::AddImage]。集合的重載同樣支援位元組陣列與串流，這在影像資料來源於檔案、網路客戶端、資料庫或其他函式庫時相當便利。
+
+從試算表或其他產品產生 EMF 內容屬於獨立的整合工作流程，本文不予討論。若已有 WMF 或 EMF 檔案僅需插入簡報，請將其資料傳遞給適當的[IImageCollection::AddImage]重載，而不必為影像管理流程額外加入第二個產品的相依性。
+
+## **常見問答**
+
+**圖片集合與圖片框有何差異？**  
+圖片集合儲存可重複使用的圖片資源。圖片框是投影片形狀，用於顯示其中一項資源，並提供裁切、特效等圖片專屬格式設定。
+
+**如何一次替換所有相同的標誌？**  
+若標誌已作為單一圖片資源共享，使用[IPPImage::ReplaceImage]取代該資源即可。若需全簡報品牌統一，也可將標誌放在母片或版面配置上，以減少重複內容。
+
+**為何連結圖片在其他電腦上會消失？**  
+連結圖片依賴外部檔案或 URL。若該資源在其他電腦上無法存取，連結圖片便無法顯示。需要自包含的簡報時，請嵌入圖片。
+
+**插入的 SVG 能否編輯為 PowerPoint 形狀？**  
+可以。使用[IShapeCollection::AddGroupShape]將 SVG 轉換為可編輯的投影片形狀，轉換後的群組包含可編輯的形狀，而非單一 SVG 圖片。
+
+**如何讓大量圖片的簡報保持較小體積？**  
+重複使用共享圖片資源、避免使用過大的點陣圖來源、在適當時壓縮點陣圖、將重複的品牌圖形放在母片或版面配置上，且僅在外部依賴可接受時才使用連結圖片。

@@ -1,497 +1,271 @@
 ---
-title: Képek kezelése a prezentációkban .NET-ben
+title: Képek kezelésének optimalizálása .NET prezentációkban
 linktitle: Képek kezelése
 type: docs
 weight: 10
 url: /hu/net/image/
 keywords:
 - kép hozzáadása
-- fotó hozzáadása
-- bitmap hozzáadása
+- képkeret hozzáadása
 - kép cseréje
-- fotó cseréje
-- webről
+- képgyűjtemény
+- képkeret
+- hivatkozott kép
 - háttér
 - PNG hozzáadása
 - JPG hozzáadása
 - SVG hozzáadása
+- SVG alakzatokká konvertálása
 - külső SVG erőforrások
-- SVG feloldó
-- hivatkozott SVG képek
-- SVG betűkészletek
-- EMF hozzáadása
-- WMF hozzáadása
-- TIFF hozzáadása
 - PowerPoint
 - OpenDocument
 - prezentáció
 - .NET
 - C#
 - Aspose.Slides
-description: "Egyszerűsítse a képek kezelését PowerPointban és OpenDocumentban az Aspose.Slides for .NET segítségével, optimalizálva a teljesítményt és automatizálva a munkafolyamatát."
+description: "Ismerje meg, hogyan adhat hozzá, újrahasználhat, hivatkozhat, cserélhet és kezelhet raszter és SVG képeket PowerPoint és OpenDocument prezentációkban az Aspose.Slides for .NET segítségével."
 ---
 ## **Bevezetés**
 
-A képek élénkebbé és vizuálisan vonzóbbá teszik a bemutatókat. A Microsoft PowerPointban képeket szúrhat be a diákra fájlokból, az internetről vagy egyéb forrásokból. Hasonlóan, az Aspose.Slides többféleképpen teszi lehetővé képek hozzáadását a prezentációs diákhoz.
+Az Aspose.Slides for .NET többféle módot biztosít a képekkel való munkához, és mindegyik más célra szolgál. Egy képet elhelyezhet a prezentációban, megjelenítheti egy képkeretben, használhatja dia háttérként, hivatkozhat külső képre, lecserélhet egy megosztott kép erőforrást, vagy SVG tartalmat alakíthat át szerkeszthető alakzatokká.
 
-{{% alert  title="Tipp" color="primary" %}} 
-Az Aspose ingyenes konvertereket biztosít – [JPEG PowerPointra](https://products.aspose.app/slides/hu/import/jpg-to-ppt) és [PNG PowerPointra](https://products.aspose.app/slides/hu/import/png-to-ppt) – amelyekkel gyorsan hozhat létre prezentációkat képekből. 
-{{% /alert %}} 
+Ez a cikk a kép erőforrásokra és azok prezentáción belüli használatára összpontosít. A vágás, átlátszóság, effektusok, nyújtás és egyéb formázások egyedi képkerethez kapcsolódó részleteiért lásd a [Képkeret](/slides/hu/net/picture-frame/) oldalt.
 
-{{% alert title="Információ" color="info" %}}
-Ha képet szeretne képkockaként hozzáadni – különösen, ha át szeretné méretezni, effektusokat alkalmazna, vagy egyéb szabványos formázási lehetőségeket használna – lásd a [Képkocka](/slides/hu/net/picture-frame/). 
-{{% /alert %}} 
+## **Értsd meg a képmodellt**
 
-{{% alert title="Megjegyzés" color="warning" %}}
-Képeket átkonvertálhat egyik formátumból a másikba. Tekintse meg a következő oldalakat: konvertálás [kép JPG‑re](https://products.aspose.com/slides/hu/net/conversion/image-to-jpg/), [JPG‑ról képre](https://products.aspose.com/slides/hu/net/conversion/jpg-to-image/), [JPG‑ról PNG‑re](https://products.aspose.com/slides/hu/net/conversion/jpg-to-png/), [PNG‑ról JPG‑re](https://products.aspose.com/slides/hu/net/conversion/png-to-jpg/), [PNG‑ról SVG‑re](https://products.aspose.com/slides/hu/net/conversion/png-to-svg/), és [SVG‑ról PNG‑re](https://products.aspose.com/slides/hu/net/conversion/svg-to-png/). 
-{{% /alert %}}
+- A [prezentáció képgyűjteménye](https://reference.aspose.com/slides/hu/net/aspose.slides/iimagecollection/) tárolja a prezentáció által használt kép erőforrásokat. Használja az [ImageCollection.AddImage](https://reference.aspose.com/slides/hu/net/aspose.slides/imagecollection/addimage/) metódust a kép adat hozzáadásához, és egy [IPPImage](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/) erőforrást kap.
+- A [képkeret](https://reference.aspose.com/slides/hu/net/aspose.slides/ipictureframe/) egy alakzat, amely képet jelenít meg egy dián, elrendezésen vagy masteren. Használja az [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/ishapecollection/addpictureframe/) metódust egy kép erőforrás elhelyezéséhez a dián.
+- A dia háttér egy képet a dia kitöltésének részeként használja, nem alakzatként. Ezért nem viselkedik úgy, mint egy képkeret.
+- Az [IPPImage.ReplaceImage](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/replaceimage/) lecserél egy kép erőforrást. Ha több prezentációelem használja azt, mindegyik a helyettesítést használja.
+- Az SVG alakzatokká konvertálása szerkeszthető diaalakzatokat hoz létre. A konverzió után a tartalom már nem egyetlen képernyő erőforrásként van kezelve.
 
-Az Aspose.Slides a népszerű formátumokban, például a JPEG, PNG, BMP, GIF és másokban támogatja a képeket. 
+Egy tipikus munkafolyamat tehát: képadatok hozzáadása a képgyűjteményhez, egy [IPPImage](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/) kapása, majd ennek az erőforrásnak a használata egy vagy több képkeretben vagy kitöltésben.
 
-## **Képek hozzáadása helyben tárolt fájlokból a diákhoz**
+## **Beágyazott kép hozzáadása**
 
-Hozzáadhat egy vagy több, a számítógépén tárolt képet egy prezentációs diához. Az alábbi C# mintakód megmutatja, hogyan adhat hozzá egy képet a diához:
-
-```c#
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Képek hozzáadása a webről a diákhoz**
-
-Ha a diára szeretne felvenni egy képet, amely nincs a számítógépén tárolva, közvetlenül a webről adhatja hozzá. 
-
-Az alábbi C# mintakód megmutatja, hogyan adhat hozzá egy képet a webről a diához:
-
-```c#
-using System.Net;
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-
-    byte[] imageData;
-    using (WebClient webClient = new WebClient()) 
-    {
-        imageData = webClient.DownloadData(new Uri("[REPLACE WITH URL]"));
-    }
-    
-    IPPImage image = pres.Images.AddImage(imageData);
-    slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Képek hozzáadása diamesterekhez**
-
-A diamester tárolja és vezérli az olyan információkat, mint a téma és a elrendezés a hozzá tartozó diák számára. Amikor egy képet ad hozzá egy diamesterhez, a kép minden, azon a masteren alapuló dián megjelenik. 
-
-Az alábbi C# mintakód megmutatja, hogyan adhat hozzá egy képet egy diamasterhez:
-
-```c#
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    IMasterSlide masterSlide = slide.LayoutSlide.MasterSlide;
-    
-    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    masterSlide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Képek hozzáadása diákhátterekhez**
-
-Képet használhat háttérként egy vagy több diához. A részletekért lásd a *[Képek beállítása háttérként a diákhoz](/slides/hu/net/presentation-background/#setting-images-as-background-for-slides)* című oldalról.
-
-## **SVG hozzáadása prezentációkhoz**
-
-Az SVG tartalmat a [SvgImage](https://reference.aspose.com/slides/hu/net/aspose.slides/svgimage/) osztállyal adhatja hozzá a prezentációhoz. A létrehozott [ISvgImage](https://reference.aspose.com/slides/hu/net/aspose.slides/isvgimage/) objektum ezután hozzáadható a prezentáció képgyűjteményéhez, és felhasználható képkocka létrehozásához.
-
-Az alábbi C# példa egy önálló SVG karakterláncot importál. Az SVG összes képe, stílusa és egyéb erőforrása közvetlenül az SVG tartalomban van beágyazva.
+Helyi kép beszúrásához olvassa be a fájlt, adja hozzá adatait a képgyűjteményhez, és hozzon létre egy képkeretet, amely a visszakapott `IPPImage`-t használja.
 
 ```csharp
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-string svgContent = @"
-<svg xmlns='http://www.w3.org/2000/svg' width='320' height='180'>
-    <rect width='320' height='180' fill='#4F81BD'/>
-    <circle cx='160' cy='90' r='55' fill='#F2F2F2'/>
-</svg>";
-
-using (Presentation presentation = new Presentation())
-{
-    ISvgImage svgImage = new SvgImage(svgContent);
-    IPPImage image = presentation.Images.AddImage(svgImage);
-
-    presentation.Slides[0].Shapes.AddPictureFrame(
-        ShapeType.Rectangle, 20, 20, image.Width, image.Height, image);
-
-    presentation.Save("self-contained-svg.pptx", SaveFormat.Pptx);
-}
-```
-
-## **SVG tartalom importálása külső erőforrásokkal**
-
-A tervezőeszközök, diagramkészítők, ikonrendszerek és webes folyamatok által exportált SVG‑fájlok hivatkozhatnak olyan erőforrásokra, amelyek az SVG‑dokumentumon kívül tárolódnak. Például egy SVG tartalmazhat egy `images/photo.png` képhivatkozást, egy CSS `url(...)` értéket vagy egy betűkészlet‑URL‑t.
-
-Az ilyen SVG‑tartalom importálásához hozzon létre egy [IExternalResourceResolver](https://reference.aspose.com/slides/hu/net/aspose.slides.import/iexternalresourceresolver/) megvalósítást, és adja át, a bázis‑URI‑val együtt, a megfelelő `SvgImage` konstruktorának. A bázis‑URI az SVG‑dokumentum helyét jelöli, és a relatív hivatkozások feloldásához szükséges.
-
-Az [ISvgImage](https://reference.aspose.com/slides/hu/net/aspose.slides/isvgimage/) felület hozzáférést biztosít az importált SVG információihoz:
-
-- `SvgContent` a SVG‑markupt adja vissza karakterláncként.
-- `SvgData` a SVG‑tartalmat adja vissza bájt‑tömbként.
-- `BaseUri` a relatív hivatkozásokhoz használt bázis‑URI‑t adja vissza.
-- `ExternalResourceResolver` a SVG‑képhez rendelt feloldót adja vissza.
-
-### **Külső erőforrás‑feloldó megvalósítása**
-
-A feloldónak két metódusa van:
-
-- [ResolveUri](https://reference.aspose.com/slides/hu/net/aspose.slides.import/iexternalresourceresolver/resolveuri/) egyesíti a bázis‑URI‑t és egy relatív erőforrás‑hivatkozást, és abszolút URI‑t ad vissza. `null`‑t adjon vissza, ha a hivatkozást nem lehet feloldani vagy nem engedélyezett.
-- [GetEntity](https://reference.aspose.com/slides/hu/net/aspose.slides.import/iexternalresourceresolver/getentity/) egy olvasható stream‑et ad vissza egy abszolút erőforrás‑URI‑hez. `null`‑t adjon vissza, ha az erőforrás hiányzik, blokkolva van, vagy nem érhető el. Ha megfelelő, egy visszaeső (fallback) stream is visszaadható.
-
-Az alábbi feloldó csak egy engedélyezett helyi könyvtárból tölti be a hivatkozott erőforrásokat. A hálózati erőforrások és az engedélyezett könyvtáron kívüli útvonalak blokkolva vannak. Egy opcionális visszaeső kép kerül visszaadásra a feloldhatatlan képhivatkozások esetén.
-
-```csharp
-using System;
-using System.IO;
-using Aspose.Slides.Import;
-
-internal sealed class LocalSvgResourceResolver : IExternalResourceResolver
-{
-    private readonly string _allowedRoot;
-    private readonly byte[] _fallbackImageData;
-
-    public LocalSvgResourceResolver(string allowedRoot, byte[] fallbackImageData = null)
-    {
-        _allowedRoot = Path.GetFullPath(allowedRoot);
-        _fallbackImageData = fallbackImageData;
-    }
-
-    public string ResolveUri(string baseUri, string relativeUri)
-    {
-        if (string.IsNullOrWhiteSpace(baseUri) ||
-            string.IsNullOrWhiteSpace(relativeUri))
-        {
-            return null;
-        }
-
-        if (!Uri.TryCreate(baseUri, UriKind.Absolute, out Uri baseAddress) ||
-            !Uri.TryCreate(baseAddress, relativeUri, out Uri absoluteAddress))
-        {
-            return null;
-        }
-
-        // Ez a feloldó szándékosan csak helyi fájlokat engedélyez.
-        if (!absoluteAddress.IsFile)
-        {
-            return null;
-        }
-
-        string resourcePath = Path.GetFullPath(absoluteAddress.LocalPath);
-        if (!IsInsideAllowedRoot(resourcePath))
-        {
-            return null;
-        }
-
-        return absoluteAddress.AbsoluteUri;
-    }
-
-    public Stream GetEntity(string absoluteUri)
-    {
-        if (!Uri.TryCreate(absoluteUri, UriKind.Absolute, out Uri resourceUri) ||
-            !resourceUri.IsFile)
-        {
-            return null;
-        }
-
-        string resourcePath = Path.GetFullPath(resourceUri.LocalPath);
-        if (!IsInsideAllowedRoot(resourcePath))
-        {
-            return null;
-        }
-
-        if (File.Exists(resourcePath))
-        {
-            return File.OpenRead(resourcePath);
-        }
-
-        // Csak kép erőforrásokhoz használjon visszaesőt. Képfolyam visszaadása
-        // hiányzó betűtípus vagy stíluslap esetén nem lenne érvényes.
-        if (_fallbackImageData != null && IsImageFile(resourcePath))
-        {
-            return new MemoryStream(_fallbackImageData, writable: false);
-        }
-
-        return null;
-    }
-
-    private bool IsInsideAllowedRoot(string resourcePath)
-    {
-        string normalizedRoot = _allowedRoot.TrimEnd(
-            Path.DirectorySeparatorChar,
-            Path.AltDirectorySeparatorChar) + Path.DirectorySeparatorChar;
-
-        string normalizedPath = Path.GetFullPath(resourcePath);
-        StringComparison comparison = Path.DirectorySeparatorChar == '\\'
-            ? StringComparison.OrdinalIgnoreCase
-            : StringComparison.Ordinal;
-
-        return normalizedPath.StartsWith(normalizedRoot, comparison) ||
-               string.Equals(normalizedPath, _allowedRoot, comparison);
-    }
-
-    private static bool IsImageFile(string path)
-    {
-        string extension = Path.GetExtension(path);
-
-        return extension.Equals(".png", StringComparison.OrdinalIgnoreCase) ||
-               extension.Equals(".jpg", StringComparison.OrdinalIgnoreCase) ||
-               extension.Equals(".jpeg", StringComparison.OrdinalIgnoreCase) ||
-               extension.Equals(".gif", StringComparison.OrdinalIgnoreCase) ||
-               extension.Equals(".bmp", StringComparison.OrdinalIgnoreCase);
-    }
-}
-```
-
-### **Relatív erőforrások feloldása SVG‑importálás közben**
-
-Tegyük fel, hogy a `assets/diagram.svg` egy relatív hivatkozást tartalmaz, például:
-
-```xml
-<image href="images/photo.png" x="20" y="20" width="320" height="180" />
-```
-
-Az alábbi C# példa a SVG‑fájl URI‑ját adja át bázis‑URI‑ként, és egy egyéni feloldót biztosít. A feloldó a relatív képhivatkozást abszolút URI‑ra alakítja, és egy stream‑et ad vissza a hivatkozott erőforrással, miközben az Aspose.Slides feldolgozza az SVG‑t.
-
-```csharp
-using System;
 using System.IO;
 using Aspose.Slides;
 using Aspose.Slides.Export;
-using Aspose.Slides.Import;
 
-string svgFilePath = Path.GetFullPath(Path.Combine("assets", "diagram.svg"));
-string assetDirectory = Path.GetDirectoryName(svgFilePath) ?? Directory.GetCurrentDirectory();
-string svgContent = File.ReadAllText(svgFilePath);
+using var presentation = new Presentation();
 
-// Az alap URI a SVG dokumentum helyét jelöli.
-string baseUri = new Uri(svgFilePath).AbsoluteUri;
+var imageData = File.ReadAllBytes("photo.png");
+var image = presentation.Images.AddImage(imageData);
 
-byte[] fallbackImageData = null;
-string fallbackImagePath = Path.Combine(assetDirectory, "fallback.png");
-if (File.Exists(fallbackImagePath))
-{
-    fallbackImageData = File.ReadAllBytes(fallbackImagePath);
-}
+var slide = presentation.Slides[0];
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
 
-IExternalResourceResolver resolver = new LocalSvgResourceResolver(assetDirectory, fallbackImageData);
-ISvgImage svgImage = new SvgImage(svgContent, resolver, baseUri);
-
-// Az ISvgImage a forrás tartalmat, bináris adatokat, az alap URI-t és a feloldót teszi elérhetővé.
-string importedContent = svgImage.SvgContent;
-byte[] importedData = svgImage.SvgData;
-string importedBaseUri = svgImage.BaseUri;
-IExternalResourceResolver importedResolver = svgImage.ExternalResourceResolver;
-
-using (Presentation presentation = new Presentation())
-{
-    IPPImage image = presentation.Images.AddImage(svgImage);
-
-    presentation.Slides[0].Shapes.AddPictureFrame(
-        ShapeType.Rectangle, 20, 20, image.Width, image.Height, image);
-
-    presentation.Save("svg-with-linked-resources.pptx", SaveFormat.Pptx);
-}
+presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
 
-A `SvgImage` osztály további túlterheléseket is kínál, amelyek SVG‑adatot bájt‑tömbként vagy stream‑ként fogadnak, külső erőforrás‑feloldóval és bázis‑URI‑val együtt.
+Az így hozzáadott kép be van ágyazva a prezentációba, így a keletkezett fájl nem függ a forrás képfájl elérhetőségétől.
 
-{{% alert title="Fontos" color="warning" %}}
-A feloldó elérhetővé teszi a külső erőforrásokat, amíg az Aspose.Slides feldolgozza és rendereli az SVG‑t. Nem módosítja az eredeti SVG‑markupt, és nem ágyazza be automatikusan a feloldott erőforrásokat.
-Amikor egy `ISvgImage` kerül a prezentáció képgyűjteményébe, a PPTX‑fájl mind az eredeti SVG‑reprezentációt, mind egy raszter visszaeső képet tartalmazhat. Egy hivatkozott erőforrás megjelenhet a generált visszaeső képen, míg egy relatív hivatkozás, például `images/photo.png`, változatlan marad a tárolt SVG‑ben. Egy olyan alkalmazás, amely a natív SVG‑reprezentációt rendereli, ezért elhagyhatja a hivatkozott tartalmat, ha az eredeti külső erőforrás nem érhető el.
-{{% /alert %}}
+### **Kép hozzáadása a webről**
 
-### **Hordozható SVG‑kép létrehozása**
+Ha egy kép HTTP vagy HTTPS-en érhető el, töltse le a bájtokat a `HttpClient`‑el, adja hozzá a prezentáció képgyűjteményéhez, és a visszakapott kép erőforrást ugyanúgy használja, mint egy helyi képet.
 
-Az SVG‑kép létrehozásához, amely nem függ külső fájloktól, tegye önállóvá az SVG‑t a `SvgImage` létrehozása előtt. Például cserélje le a hivatkozott kép‑URL‑ket `data:` URI‑kra, amelyek tartalmazzák a kép adatait:
+```csharp
+using System;
+using System.Net.Http;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```xml
-<image href="data:image/png;base64,..." x="20" y="20" width="320" height="180" />
+var imageUri = new Uri("https://example.com/image.png");
+using var httpClient = new HttpClient();
+var imageData = await httpClient.GetByteArrayAsync(imageUri);
+
+using var presentation = new Presentation();
+
+var image = presentation.Images.AddImage(imageData);
+var slide = presentation.Slides[0];
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
+
+presentation.Save("presentation-from-web.pptx", SaveFormat.Pptx);
 ```
 
-Miután minden szükséges erőforrás be van ágyazva az SVG‑tartalomba, hozza létre a `SvgImage`‑t, adja hozzá a prezentáció képgyűjteményéhez, és szúrja be egy képkockaként, ahogy az előző példában is látható.
+Hosszú futású alkalmazásokban használja újra a `HttpClient`‑et ahelyett, hogy minden kéréshez új példányt hozna létre. Emellett ellenőrizze a távoli URL‑eket, a válasz méretét és a tartalomtípusokat, ha a forrás nem megbízható.
 
-### **Hiányzó vagy blokkolt erőforrások kezelése**
+## **Képek újrahasználata diák között**
 
-`ResolveUri` esetén adjon vissza `null`‑t, ha az erőforrás‑URI érvénytelen, tiltott vagy nem oldható fel. `GetEntity` esetén adjon vissza `null`‑t, ha az erőforrás nem olvasható. Az Aspose.Slides a lehető legjobban folytatja az SVG feldolgozását az adott erőforrás nélkül.
+Ha ugyanarra a képre több alkalommal is szükség van, adja hozzá egyszer a prezentációhoz, és az így visszakapott [IPPImage](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/) használja további képkeretek létrehozásakor. Ez elkerüli a forrásadatok többszöri betöltését, és egyértelművé teszi a megosztott kép erőforrás és felhasználásai közti kapcsolatot.
 
-Egy hiányzó erőforrásra visszaeső stream is visszaadható, de annak tartalma kompatibilis kell legyen a kért erőforrás‑típussal. Például csak képes stream‑et adjon vissza hiányzó képnél, nem betűkészlet vagy stíluslap esetén.
+Azokhoz a grafikákhoz, amelyeknek automatikusan meg kell jelenniük sok dián, például vállalati logóhoz, érdemes a képkeretet egy [dia master](/slides/hu/net/slide-master/) vagy elrendezésre helyezni, ahelyett, hogy minden diához egy ekvivalens alakzatot adna hozzá.
 
-{{% alert title="Biztonság" color="warning" %}}
-Ne oldjon fel önkényes fájlútvonalakat vagy korlátlan hálózati URL‑ket megbízhatatlan SVG‑fájlokból. Korlátozza az engedélyezett sémákat, könyvtárakat és gazdagépeket. Hálózati erőforrások esetén alkalmazzon kapcsolat‑időkorlátokat, válaszméret‑korlátokat és tartalom‑validációt.
-{{% /alert %}}
+## **Kép használata dia háttérként**
 
-## **SVG konvertálása alakzatkészletté**
-Az Aspose.Slides képes egy SVG‑t alakzatkészletté konvertálni, hasonlóan a PowerPoint megfelelő funkciójához:
+A háttérkép a dia kitöltéséhez van rendelve; nem kerül hozzáadásra képkeret alakzatként. Ez akkor hasznos, amikor a képnek a dia hátterét kell lefednie, és nem szabad a szokásos diaobjektumként kezelni.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var imageData = File.ReadAllBytes("background.jpg");
+var image = presentation.Images.AddImage(imageData);
+slide.Background.Type = BackgroundType.OwnBackground;
+slide.Background.FillFormat.FillType = FillType.Picture;
+slide.Background.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
+slide.Background.FillFormat.PictureFillFormat.Picture.Image = image;
+
+presentation.Save("background-image.pptx", SaveFormat.Pptx);
+```
+
+További háttérbeállításokért, beleértve a master és elrendezés háttereket, lásd a [Prezentáció háttér](/slides/hu/net/presentation-background/) oldalt.
+
+## **Beágyazott és hivatkozott képek**
+
+A beágyazott és a hivatkozott képek különböző hordozhatósági és fájlméretbeli kompromisszumokkal járnak:
+- **Beágyazott kép:** a képadat a prezentáción belül tárolódik. A prezentáció önálló, de a fájlméret tartalmazza a képadatot.
+- **Hivatkozott kép:** a prezentáció egy útvonalat vagy URL‑t tárol egy külső képhez. Ez csökkentheti a prezentáció méretét, de a külső erőforrásnak elérhetőnek kell maradnia a prezentáció megnyitásakor vagy renderelésekor.
+
+Egy hivatkozott képet úgy hozhatunk létre, hogy a külső útvonalat vagy URL‑t a [ISlidesPicture.LinkPathLong](https://reference.aspose.com/slides/hu/net/aspose.slides/islidespicture/linkpathlong/) segítségével állítjuk be, ahelyett, hogy a képadatot beágyaznánk.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, null);
+pictureFrame.PictureFormat.Picture.LinkPathLong = "https://example.com/image.png";
+
+presentation.Save("linked-image.pptx", SaveFormat.Pptx);
+```
+
+Csak akkor használjon hivatkozott képeket, ha a telepítési környezet megbízhatóan eléri a külső erőforrást. Olyan prezentációk esetén, amelyeknek offline kell működniük vagy rendszerek között mozgatniuk kell őket, a beágyazott képek általában biztonságosabbak.
+
+## **Működés SVG képekkel**
+
+Az SVG egy vektoros formátum, ezért ikonok, diagramok és egyéb grafikák esetén hasznos, amelyeket méretezéskor nem veszítenek részletességben a raszteres képekhez képest. Az Aspose.Slides támogatja az SVG‑t mind képernyő erőforrásként, mind szerkeszthető dia alakzatok forrásaként.
+
+### **SVG hozzáadása képként**
+
+Hozzon létre egy [SvgImage](https://reference.aspose.com/slides/hu/net/aspose.slides/svgimage/) objektumot, adja hozzá a képgyűjteményhez, és helyezze az eredményül kapott kép erőforrást egy képkeretbe.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var svgContent = File.ReadAllText("icon.svg");
+var svgImage = new SvgImage(svgContent);
+
+using var presentation = new Presentation();
+
+var image = presentation.Images.AddImage(svgImage);
+var slide = presentation.Slides[0];
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 200, 200, image);
+
+presentation.Save("svg-image.pptx", SaveFormat.Pptx);
+```
+
+### **SVG fájlok külső erőforrásokkal**
+
+Az SVG külső képekre, stíluslapokra vagy betűkészletekre hivatkozhat. Ilyen esetekre a [SvgImage](https://reference.aspose.com/slides/hu/net/aspose.slides/svgimage/) konstruktorok fogadnak egy [IExternalResourceResolver](https://reference.aspose.com/slides/hu/net/aspose.slides.import/iexternalresourceresolver/) és egy alap‑URI értéket. A resolver képes egy relatív URI‑t egy engedélyezett abszolút URI‑ra leképezni, és egy streamet visszaadni a kért erőforráshoz.
+
+A resolver elérhetővé teszi a külső erőforrásokat, amíg az Aspose.Slides feldolgozza az SVG‑t, de nem írja át az SVG‑t önálló dokumentummá. Ha az SVG‑nek hordozhatónak kell maradnia, ágyazza be a szükséges erőforrásokat közvetlenül az SVG‑be, például `data:` URI‑k használatával a hivatkozott képekhez.
+
+Amikor az SVG fájlok nem megbízható forrásból származnak, korlátozza a resolver által elérhető sémákat, fájlhelyek és hostok. A hálózati resolvernek időkorlátokat, válaszméret‑korlátokat és tartalom‑ellenőrzést is alkalmaznia kell.
+
+### **SVG konvertálása szerkeszthető alakzatokká**
+
+Az Aspose.Slides képes egy SVG‑t szerkeszthető diaalakzatok csoportjává konvertálni, hasonlóan a megfelelő PowerPoint parancshoz.
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-Ez a funkcionalitás az [AddGroupShape](https://reference.aspose.com/slides/hu/net/aspose.slides.ishapecollection/addgroupshape/methods/1) metódus egy túlterhelésén keresztül érhető el az [IShapeCollection](https://reference.aspose.com/slides/hu/net/aspose.slides/ishapecollection) felületen, amely első argumentumként egy [ISvgImage](https://reference.aspose.com/slides/hu/net/aspose.slides/isvgimage) objektumot vár.
+Használja a [IShapeCollection.AddGroupShape](https://reference.aspose.com/slides/hu/net/aspose.slides/ishapecollection/addgroupshape/) túlterhelést, amely egy [ISvgImage](https://reference.aspose.com/slides/hu/net/aspose.slides/isvgimage/)‑t fogad, a konverzió végrehajtásához.
 
-Az alábbi C# mintakód megmutatja, hogyan használja ezt a metódust egy SVG‑fájl alakzatkészletté konvertálásához:
-
-``` csharp 
-using System.Drawing;
+```csharp
+using System.IO;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Forrás SVG fájl neve
-string svgFileName = "sample.svg";
+var svgContent = File.ReadAllText("diagram.svg");
+var svgImage = new SvgImage(svgContent);
 
-// Kimeneti prezentáció fájl neve
-string outPptxPath = "presentation.pptx";
+using var presentation = new Presentation();
 
-// Új prezentáció létrehozása
-using (IPresentation presentation = new Presentation())
-{
-    // SVG fájl tartalmának beolvasása
-    string svgContent = File.ReadAllText(svgFileName);
+var slideSize = presentation.SlideSize.Size;
+var slide = presentation.Slides[0];
+slide.Shapes.AddGroupShape(svgImage, 0, 0, slideSize.Width, slideSize.Height);
 
-    // SvgImage objektum létrehozása
-    ISvgImage svgImage = new SvgImage(svgContent);
-
-    // Dia méretének lekérése
-    SizeF slideSize = presentation.SlideSize.Size;
-
-    // Az SVG képet alakzatcsoporttá konvertálja és méretezi a dia méretéhez
-    presentation.Slides[0].Shapes.AddGroupShape(svgImage, 0f, 0f, slideSize.Width, slideSize.Height);
-
-    // Prezentáció mentése PPTX formátumban
-    presentation.Save(outPptxPath, SaveFormat.Pptx);
-}
+presentation.Save("editable-svg-shapes.pptx", SaveFormat.Pptx);
 ```
 
-## **Képek hozzáadása EMF‑ként a diákhoz**
-Az Aspose.Slides for .NET lehetővé teszi EMF képek generálását Excel‑munkalapokból az Aspose.Cells használatával, majd azok diákhoz való hozzáadását.
+Használja az SVG‑alakzat konverziót, ha az egyes vektoros elemeket PowerPoint alakzatokként kell szerkeszteni. Ha az SVG‑t csak megjeleníteni kell, képként tartása egyszerűbb és elkerüli sok különálló alakzat létrehozását.
 
-Az alábbi C# mintakód bemutatja, hogyan valósítható ez meg:
+## **Meglévő kép erőforrás cseréje**
 
-``` csharp 
-using Aspose.Slides;
-using Aspose.Cells;
-using Aspose.Cells.Rendering;
+Használja az [IPPImage.ReplaceImage](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/replaceimage/) metódust, ha egy meglévő kép erőforrást szeretne cserélni. Ez különösen hasznos megosztott grafikák, például logók esetén.
 
-
-using (Workbook book = new Workbook("chart.xlsx"))
-{
-    Worksheet sheet = book.Worksheets[0];
-    ImageOrPrintOptions options = new ImageOrPrintOptions();
-    options.HorizontalResolution = 200;
-    options.VerticalResolution = 200;
-    options.ImageType = Aspose.Cells.Drawing.ImageType.Emf;
-
-    // A munkafüzet mentése egy adatfolyamba
-    SheetRender sr = new SheetRender(sheet, options);
-    using (Presentation pres = new Presentation())
-    {
-        pres.Slides.RemoveAt(0);
-
-        String EmfSheetName = "";
-        for (int j = 0; j < sr.PageCount; j++)
-        {
-            EmfSheetName = "test" + sheet.Name + " Page" + (j + 1) + ".out.emf";
-            sr.ToImage(j, EmfSheetName);
-
-            var bytes = File.ReadAllBytes(EmfSheetName);
-            var emfImage = pres.Images.AddImage(bytes);
-            ISlide slide = pres.Slides.AddEmptySlide(pres.LayoutSlides.GetByType(SlideLayoutType.Blank));
-            slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 0, 0, pres.SlideSize.Size.Width, pres.SlideSize.Size.Height, emfImage);
-        }
-
-        pres.Save("Saved.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-    }
-}
-```
-
-## **Képek cseréje a képgyűjteményben**
-
-Az Aspose.Slides lehetővé teszi a prezentáció képgyűjteményében tárolt képek cseréjét, beleértve a diák alakzatainak által használt képeket is. Ez a szakasz több módot mutat be a gyűjtemény frissítésére. Képet cserélhet nyers bájtadatokkal, egy [IImage](https://reference.aspose.com/slides/hu/net/aspose.slides/iimage/) példánnyal vagy egy már létező képpel a gyűjteményben.
-
-Kövesse az alábbi lépéseket:
-
-1. Töltse be a képeket tartalmazó prezentációs fájlt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztállyal.
-1. Töltsön be egy új képet fájlból egy bájt‑tömbbe.
-1. Cserélje le a célképet az új képre a bájt‑tömb használatával.
-1. A második megközelítésben töltse be a képet egy [IImage](https://reference.aspose.com/slides/hu/net/aspose.slides/iimage/) objektumba, és cserélje le a célképet ezzel az objektummal.
-1. A harmadik megközelítésben cserélje le a célképet egy olyan képpel, amely már szerepel a prezentáció képgyűjteményében.
-1. Írja ki a módosított prezentációt PPTX‑fájlként.
-
-```cs
+```csharp
+using System.IO;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// A Presentation osztály példányosítása, amely egy bemutató fájlt képvisel.
-using Presentation presentation = new Presentation("sample.pptx");
+using var presentation = new Presentation("input.pptx");
 
-// Az első mód.
-byte[] imageData = File.ReadAllBytes("image0.jpeg");
-IPPImage oldImage = presentation.Images[0];
-oldImage.ReplaceImage(imageData);
+var imageToReplace = presentation.Images[0];
+imageToReplace.ReplaceImage(File.ReadAllBytes("new-logo.png"));
 
-// A második mód.
-using IImage newImage = Images.FromFile("image1.png");
-oldImage = presentation.Images[1];
-oldImage.ReplaceImage(newImage);
-
-// A harmadik mód.
-oldImage = presentation.Images[2];
-oldImage.ReplaceImage(presentation.Images[3]);
-
-// Prezentáció mentése egy fájlba.
 presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert title="Info" color="info" %}}
-Az Aspose ingyenes [Text to GIF](https://products.aspose.app/slides/hu/text-to-gif) konverterével könnyedén animálhat szöveget és készíthet GIF‑eket a szövegből. 
-{{% /alert %}}
+Ha több képkeret, háttér, master vagy elrendezés használja ugyanazt a kép erőforrást, a csere mindegyik használatot frissíti. Ha csak egy képkeretet kell módosítani, rendeljünk hozzá egy másik képet ahhoz a kerethez ahelyett, hogy a megosztott erőforrást cserélnénk.
+
+`ReplaceImage` további túlterheléseket is kínál, amelyek egy [IImage](https://reference.aspose.com/slides/hu/net/aspose.slides/iimage/) vagy egy másik [IPPImage](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/) paramétert fogadnak.
+
+## **Gyakorlati képkezelési útmutató**
+
+### **A prezentáció méretének szabályozása**
+
+A nagy raszteres képek szükségtelenül nagyra bővíthetik a prezentációt. Használjon forrásképeket, amelyek méretei megfelelnek a kívánt megjelenítési méretnek, újrahasználja a megosztott kép erőforrásokat, ahol csak lehetséges, és kerüld el ugyanannak a teljes felbontású grafikának a többszörös beágyazását.
+
+A már képkeretekben elhelyezett raszteres képek esetén az [IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/hu/net/aspose.slides/ipicturefillformat/compressimage/) a kiválasztott felbontás és vágóbeállítások alapján csökkentheti a képadatot. Ez képkeret‑feldolgozás, nem a képgyűjtemény kezelése, ezért lásd a [Képkeret](/slides/hu/net/picture-frame/) oldalt a kapcsolódó formázási műveletekhez.
+
+### **Válasszon beágyazott és hivatkozott tartalom között**
+
+A beágyazás hordozhatóvá teszi a prezentációt, mivel minden szükséges képadat a fájllal együtt utazik. A hivatkozás csökkentheti a fájlméretet, de külső függőséget vezet be. Hivatkozásokat csak akkor használjon, ha ez a függőség elfogadható és stabil.
+
+### **Megosztott márka újrahasználata**
+
+Ismétlődő logók, vízjelek vagy dekoratív grafikák esetén használjon egyetlen kép erőforrást, és azt újrahasználja. Ha a grafika a prezentáció tervezéséhez tartozik, nem a dia tartalmához, helyezze el egy masteren vagy elrendezésen, hogy a megfelelő diák örököljék.
+
+### **SVG erőforrások hordozhatóságának biztosítása**
+
+Az önálló SVG könnyebben mozgatható és konzisztensen renderelhető, mint egy külső fájlokra vagy hálózati erőforrásokra támaszkodó SVG. Amikor lehetséges, ágyazzon be szükséges erőforrásokat az SVG importálása előtt. Konvertálja az SVG‑t alakzatokká csak akkor, ha az egyes vektoros elemeket szerkeszteni kell.
+
+### **Használja a modern keresztplatformú kép‑API‑t**
+
+Új .NET kódban használja az Aspose.Slides [IImage](https://reference.aspose.com/slides/hu/net/aspose.slides/iimage/) és [Images](https://reference.aspose.com/slides/hu/net/aspose.slides/images/) API‑kat a `System.Drawing.Image` vagy `Bitmap` helyett. A migrációs útmutatásért lásd a [Modern API](/slides/hu/net/modern-api/) oldalt.
+
+A WMF és EMF formátumok külön figyelmet igényelnek. Amikor ezeket a formátumokat egy [IImage](https://reference.aspose.com/slides/hu/net/aspose.slides/iimage/)‑en keresztül adjuk át, az [ImageCollection.AddImage](https://reference.aspose.com/slides/hu/net/aspose.slides/imagecollection/addimage/) konvertálja a metafájlt egy raszteres PNG ábrázolássá a beszúrás előtt. Ha a metafájl adatainak megőrzése fontos, használjon stream‑alapú [ImageCollection.AddImage](https://reference.aspose.com/slides/hu/net/aspose.slides/imagecollection/addimage/) túlterhelést. EMF tartalom generálása táblázatokból vagy más termékekből külön integrációs munkafolyamat, és kívül esik ennek a cikknek a hatókörén.
 
 ## **GYIK**
 
-**Megmarad-e az eredeti kép felbontása a beillesztés után?**
+**Mi a különbség a képgyűjtemény és egy képkeret között?**
 
-Igen. A forrás‑pixelek megmaradnak, de a végső megjelenés attól függ, hogyan van méretezve a [képkocka](/slides/hu/net/picture-frame/) a dián és milyen tömörítés történik mentéskor.
+A képgyűjtemény újrahasznosítható kép erőforrásokat tárol. Egy képkeret egy diaalakzat, amely megjeleníti ezeket az erőforrásokat, és képkép‑specifikus formázást, például vágást és effektusokat biztosít.
 
-**Mi a legjobb módja annak, hogy egyszerre cseréljünk ki egy logót számos dián?**
+**Mi a legjobb módja ugyanannak a logónak a cseréjére mindenhol?**
 
-Helyezze a logót a mester‑diára vagy egy elrendezésre, és cserélje ki a prezentáció képgyűjteményében – a frissítés minden erőforrást használó elemhez eljut.
+Ha a logó már egy kép erőforrásként van megosztva, cserélje azt az erőforrást az [IPPImage.ReplaceImage](https://reference.aspose.com/slides/hu/net/aspose.slides/ippimage/replaceimage/) segítségével. A teljes prezentációra kiterjedő márkaépítéshez a logó elhelyezése egy masteren vagy elrendezésen szintén csökkentheti a duplikált dia tartalmat.
 
-**Átalakítható‑e egy beillesztett SVG szerkeszthető alakzatokká?**
+**Miért tűnik el egy hivatkozott kép egy másik számítógépen?**
 
-Igen. Egy SVG‑t konvertálhat alakzatcsoporttá, amely után az egyes részek szerkeszthetőek a szokásos alakzattulajdonságokkal.
+A hivatkozott kép külső fájlra vagy URL‑re támaszkodik. Ha a másik számítógépről nem érhető el ez az erőforrás, a hivatkozott kép nem lesz elérhető. Ágyazza be a képet, ha a prezentációnak önállóan kell működnie.
 
-**Hogyan állíthatok be egy képet háttérként több diára egyszerre?**
+**Szerkeszthető-e egy beszúrt SVG PowerPoint alakzatokként?**
 
-[Állítsa be a képet háttérként](/slides/hu/net/presentation-background/) a mester‑dián vagy a megfelelő elrendezésen – a mester/​elrendezést használó diák öröklik a hátteret.
+Igen. Konvertálja az SVG‑t a [IShapeCollection.AddGroupShape](https://reference.aspose.com/slides/hu/net/aspose.slides/ishapecollection/addgroupshape/) segítségével; a kapott csoport szerkeszthető diaalakzatokat tartalmaz egy SVG‑kép helyett.
 
-**Hogyan akadályozhatom meg, hogy egy prezentáció túl nagyra nő a sok kép miatt?**
+**Hogyan tarthatom kisebb méretűnek a sok képet tartalmazó prezentációkat?**
 
-Használjon egyetlen kép‑erőforrást a duplikációk helyett, válasszon megfelelő felbontást, alkalmazzon tömörítést mentéskor, és a gyakran ismétlődő grafikákat a master‑dián tartsa, ahol indokolt.
+Használjon megosztott kép erőforrásokat újra, kerülje a szükségtelenül nagy raszteres forrásokat, tömörítse a megfelelő raszteres képeket, ha szükséges, tartsa a ismétlődő márkázást mastereken vagy elrendezéseken, és csak akkor használjon hivatkozott képeket, ha egy külső függőség elfogadható.

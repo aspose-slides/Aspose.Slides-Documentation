@@ -5,494 +5,270 @@ type: docs
 weight: 10
 url: /id/net/image/
 keywords:
-- menambahkan gambar
-- menambahkan gambar
-- menambahkan bitmap
-- mengganti gambar
-- mengganti gambar
-- dari web
+- tambahkan gambar
+- tambahkan foto
+- ganti gambar
+- koleksi gambar
+- bingkai gambar
+- gambar tertaut
 - latar belakang
-- menambahkan PNG
-- menambahkan JPG
-- menambahkan SVG
+- tambahkan PNG
+- tambahkan JPG
+- tambahkan SVG
+- SVG menjadi bentuk
 - sumber daya SVG eksternal
-- resolver SVG
-- gambar SVG tertaut
-- font SVG
-- menambahkan EMF
-- menambahkan WMF
-- menambahkan TIFF
 - PowerPoint
 - OpenDocument
 - presentasi
 - .NET
 - C#
 - Aspose.Slides
-description: "Permudah manajemen gambar di PowerPoint dan OpenDocument dengan Aspose.Slides untuk .NET, mengoptimalkan kinerja dan mengotomatisasi alur kerja Anda."
+description: "Pelajari cara menambahkan, menggunakan kembali, menautkan, mengganti, dan mengelola gambar raster serta SVG dalam presentasi PowerPoint dan OpenDocument dengan Aspose.Slides untuk .NET."
 ---
 ## **Pendahuluan**
 
-Gambar membuat presentasi lebih menarik dan visual. Di Microsoft PowerPoint, Anda dapat menyisipkan gambar ke slide dari file, internet, atau sumber lain. Demikian pula, Aspose.Slides memungkinkan Anda menambahkan gambar ke slide presentasi dengan beberapa cara.
+Aspose.Slides untuk .NET menyediakan beberapa cara untuk bekerja dengan gambar, dan setiap cara melayani tujuan yang berbeda. Anda dapat menyimpan gambar dalam presentasi, menampilkannya dalam bingkai gambar, menggunakannya sebagai latar belakang slide, menautkan ke gambar eksternal, mengganti sumber daya gambar yang dibagikan, atau mengonversi konten SVG menjadi bentuk yang dapat diedit.
 
-{{% alert  title="Tip" color="primary" %}} 
-Aspose menyediakan konverter gratis—[JPEG ke PowerPoint](https://products.aspose.app/slides/id/import/jpg-to-ppt) dan [PNG ke PowerPoint](https://products.aspose.app/slides/id/import/png-to-ppt)—yang memungkinkan Anda dengan cepat membuat presentasi dari gambar. 
-{{% /alert %}} 
+Artikel ini berfokus pada sumber daya gambar dan cara penggunaannya di seluruh presentasi. Untuk pemotongan, transparansi, efek, peregangan, dan format lain yang diterapkan pada bingkai gambar individu, lihat [Bingkai Gambar](/slides/id/net/picture-frame/).
 
-{{% alert title="Info" color="info" %}}
-Jika Anda ingin menambahkan gambar sebagai bingkai gambar—terutama jika Anda berencana mengubah ukurannya, menerapkan efek, atau menggunakan opsi pemformatan standar lainnya—lihat [Bingkai Gambar](/slides/id/net/picture-frame/). 
-{{% /alert %}} 
+## **Memahami Model Gambar**
 
-{{% alert title="Catatan" color="warning" %}}
-Anda dapat mengonversi gambar dari satu format ke format lain. Lihat halaman berikut: konversi [gambar ke JPG](https://products.aspose.com/slides/id/net/conversion/image-to-jpg/), [JPG ke gambar](https://products.aspose.com/slides/id/net/conversion/jpg-to-image/), [JPG ke PNG](https://products.aspose.com/slides/id/net/conversion/jpg-to-png/), [PNG ke JPG](https://products.aspose.com/slides/id/net/conversion/png-to-jpg/), [PNG ke SVG](https://products.aspose.com/slides/id/net/conversion/png-to-svg/), dan [SVG ke PNG](https://products.aspose.com/slides/id/net/conversion/svg-to-png/).
-{{% /alert %}}
+Konsep API berikut terkait erat tetapi tidak dapat dipertukarkan:
 
-Aspose.Slides mendukung gambar dalam format populer seperti JPEG, PNG, BMP, GIF, dan lainnya. 
+- The [koleksi gambar presentasi](https://reference.aspose.com/slides/id/net/aspose.slides/iimagecollection/) menyimpan sumber daya gambar yang digunakan oleh presentasi. Gunakan [ImageCollection.AddImage](https://reference.aspose.com/slides/id/net/aspose.slides/imagecollection/addimage/) untuk menambahkan data gambar dan memperoleh sumber daya [IPPImage](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/).
+- Sebuah [bingkai gambar](https://reference.aspose.com/slides/id/net/aspose.slides/ipictureframe/) adalah bentuk yang menampilkan gambar pada slide, tata letak, atau master. Gunakan [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/id/net/aspose.slides/ishapecollection/addpictureframe/) untuk menempatkan sumber daya gambar pada slide.
+- Latar belakang slide menggunakan gambar sebagai bagian dari isian slide, bukan sebagai bentuk. Oleh karena itu tidak berperilaku seperti bingkai gambar.
+- [IPPImage.ReplaceImage](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/replaceimage/) mengganti sumber daya gambar. Jika beberapa elemen presentasi menggunakan sumber daya itu, semuanya akan menggunakan penggantiannya.
+- Mengonversi SVG menjadi bentuk menghasilkan bentuk slide yang dapat diedit. Setelah konversi, konten tidak lagi dikelola sebagai satu sumber daya gambar.
 
-## **Menambahkan Gambar yang Disimpan Secara Lokal ke Slide**
+Alur kerja umum karenanya: tambahkan data gambar ke koleksi gambar, terima sebuah [IPPImage](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/), dan kemudian gunakan sumber daya tersebut dalam satu atau lebih bingkai gambar atau isian.
 
-Anda dapat menambahkan satu atau beberapa gambar yang disimpan di komputer Anda ke slide presentasi. Kode contoh C# berikut menunjukkan cara menambahkan gambar ke slide:
+## **Menambahkan Gambar yang Disematkan**
 
-```c#
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Menambahkan Gambar dari Web ke Slide**
-
-Jika gambar yang ingin Anda tambahkan ke slide tidak disimpan di komputer Anda, Anda dapat menambahkannya langsung dari web. 
-
-Kode contoh C# berikut menunjukkan cara menambahkan gambar dari web ke slide:
-
-```c#
-using System.Net;
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-
-    byte[] imageData;
-    using (WebClient webClient = new WebClient()) 
-    {
-        imageData = webClient.DownloadData(new Uri("[REPLACE WITH URL]"));
-    }
-    
-    IPPImage image = pres.Images.AddImage(imageData);
-    slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Menambahkan Gambar ke Slide Master**
-
-Slide master menyimpan dan mengontrol informasi seperti tema dan tata letak untuk slide yang menggunakannya. Ketika Anda menambahkan gambar ke slide master, gambar tersebut muncul pada setiap slide yang berbasis master itu. 
-
-Kode contoh C# berikut menunjukkan cara menambahkan gambar ke slide master:
-
-```c#
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-using (Presentation pres = new Presentation())
-{
-    ISlide slide = pres.Slides[0];
-    IMasterSlide masterSlide = slide.LayoutSlide.MasterSlide;
-    
-    IPPImage image = pres.Images.AddImage(File.ReadAllBytes("image.png"));
-    masterSlide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    
-    pres.Save("pres.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Menambahkan Gambar sebagai Latar Belakang Slide**
-
-Anda dapat menggunakan gambar sebagai latar belakang untuk satu atau beberapa slide. Untuk detail, lihat *[Mengatur Gambar sebagai Latar Belakang Slide](/slides/id/net/presentation-background/#setting-images-as-background-for-slides)*.
-
-## **Menambahkan SVG ke Presentasi**
-
-Konten SVG dapat ditambahkan ke presentasi menggunakan kelas [SvgImage](https://reference.aspose.com/slides/id/net/aspose.slides/svgimage/). Objek [ISvgImage](https://reference.aspose.com/slides/id/net/aspose.slides/isvgimage/) yang dihasilkan kemudian dapat ditambahkan ke koleksi gambar presentasi dan digunakan untuk membuat bingkai gambar.
-
-Contoh C# berikut mengimpor string SVG yang berdiri sendiri. Semua gambar, gaya, dan sumber daya lain yang digunakan oleh SVG ini disematkan langsung dalam konten SVG.
+Untuk menyisipkan gambar lokal, baca file, tambahkan datanya ke koleksi gambar, dan buat bingkai gambar yang menggunakan `IPPImage` yang dikembalikan.
 
 ```csharp
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-string svgContent = @"
-<svg xmlns='http://www.w3.org/2000/svg' width='320' height='180'>
-    <rect width='320' height='180' fill='#4F81BD'/>
-    <circle cx='160' cy='90' r='55' fill='#F2F2F2'/>
-</svg>";
-
-using (Presentation presentation = new Presentation())
-{
-    ISvgImage svgImage = new SvgImage(svgContent);
-    IPPImage image = presentation.Images.AddImage(svgImage);
-
-    presentation.Slides[0].Shapes.AddPictureFrame(
-        ShapeType.Rectangle, 20, 20, image.Width, image.Height, image);
-
-    presentation.Save("self-contained-svg.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Mengimpor Konten SVG dengan Sumber Daya Eksternal**
-
-File SVG yang diekspor dari alat desain, editor diagram, sistem ikon, dan pipeline web dapat merujuk pada sumber daya yang disimpan di luar dokumen SVG. Misalnya, SVG dapat berisi tautan gambar seperti `images/photo.png`, nilai CSS `url(...)`, atau URL font.
-
-Untuk mengimpor konten SVG tersebut, buat implementasi [IExternalResourceResolver](https://reference.aspose.com/slides/id/net/aspose.slides.import/iexternalresourceresolver/) dan berikan bersama dengan basis URI ke konstruktor `SvgImage` yang sesuai. Basis URI mengidentifikasi lokasi dokumen SVG dan digunakan untuk menyelesaikan tautan relatif.
-
-Antarmuka [ISvgImage](https://reference.aspose.com/slides/id/net/aspose.slides/isvgimage/) menyediakan akses ke informasi tentang SVG yang diimpor:
-
-- `SvgContent` mengembalikan markup SVG sebagai string.
-- `SvgData` mengembalikan konten SVG sebagai array byte.
-- `BaseUri` mengembalikan basis URI yang digunakan untuk tautan relatif.
-- `ExternalResourceResolver` mengembalikan resolver yang ditetapkan untuk gambar SVG.
-
-### **Menerapkan Resolver Sumber Daya Eksternal**
-
-Resolver memiliki dua metode:
-
-- [ResolveUri](https://reference.aspose.com/slides/id/net/aspose.slides.import/iexternalresourceresolver/resolveuri/) menggabungkan basis URI dan tautan sumber daya relatif serta mengembalikan URI absolut. Kembalikan `null` bila tautan tidak dapat diselesaikan atau tidak diizinkan.
-- [GetEntity](https://reference.aspose.com/slides/id/net/aspose.slides.import/iexternalresourceresolver/getentity/) mengembalikan aliran yang dapat dibaca untuk URI sumber daya absolut. Kembalikan `null` bila sumber daya tidak ada, diblokir, atau tidak tersedia. Aliran fallback juga dapat dikembalikan bila sesuai.
-
-Resolver berikut memuat sumber daya tertaut hanya dari direktori lokal yang diizinkan. Sumber daya jaringan dan jalur di luar direktori yang diizinkan diblokir. Gambar fallback opsional dikembalikan untuk tautan gambar yang tidak terpecahkan.
-
-```csharp
-using System;
-using System.IO;
-using Aspose.Slides.Import;
-
-internal sealed class LocalSvgResourceResolver : IExternalResourceResolver
-{
-    private readonly string _allowedRoot;
-    private readonly byte[] _fallbackImageData;
-
-    public LocalSvgResourceResolver(string allowedRoot, byte[] fallbackImageData = null)
-    {
-        _allowedRoot = Path.GetFullPath(allowedRoot);
-        _fallbackImageData = fallbackImageData;
-    }
-
-    public string ResolveUri(string baseUri, string relativeUri)
-    {
-        if (string.IsNullOrWhiteSpace(baseUri) ||
-            string.IsNullOrWhiteSpace(relativeUri))
-        {
-            return null;
-        }
-
-        if (!Uri.TryCreate(baseUri, UriKind.Absolute, out Uri baseAddress) ||
-            !Uri.TryCreate(baseAddress, relativeUri, out Uri absoluteAddress))
-        {
-            return null;
-        }
-
-        // Resolver ini sengaja hanya memperbolehkan file lokal.
-        if (!absoluteAddress.IsFile)
-        {
-            return null;
-        }
-
-        string resourcePath = Path.GetFullPath(absoluteAddress.LocalPath);
-        if (!IsInsideAllowedRoot(resourcePath))
-        {
-            return null;
-        }
-
-        return absoluteAddress.AbsoluteUri;
-    }
-
-    public Stream GetEntity(string absoluteUri)
-    {
-        if (!Uri.TryCreate(absoluteUri, UriKind.Absolute, out Uri resourceUri) ||
-            !resourceUri.IsFile)
-        {
-            return null;
-        }
-
-        string resourcePath = Path.GetFullPath(resourceUri.LocalPath);
-        if (!IsInsideAllowedRoot(resourcePath))
-        {
-            return null;
-        }
-
-        if (File.Exists(resourcePath))
-        {
-            return File.OpenRead(resourcePath);
-        }
-
-        // Gunakan fallback hanya untuk sumber daya gambar. Mengembalikan aliran gambar
-        // untuk font atau stylesheet yang hilang tidak akan valid.
-        if (_fallbackImageData != null && IsImageFile(resourcePath))
-        {
-            return new MemoryStream(_fallbackImageData, writable: false);
-        }
-
-        return null;
-    }
-
-    private bool IsInsideAllowedRoot(string resourcePath)
-    {
-        string normalizedRoot = _allowedRoot.TrimEnd(
-            Path.DirectorySeparatorChar,
-            Path.AltDirectorySeparatorChar) + Path.DirectorySeparatorChar;
-
-        string normalizedPath = Path.GetFullPath(resourcePath);
-        StringComparison comparison = Path.DirectorySeparatorChar == '\\'
-            ? StringComparison.OrdinalIgnoreCase
-            : StringComparison.Ordinal;
-
-        return normalizedPath.StartsWith(normalizedRoot, comparison) ||
-               string.Equals(normalizedPath, _allowedRoot, comparison);
-    }
-
-    private static bool IsImageFile(string path)
-    {
-        string extension = Path.GetExtension(path);
-
-        return extension.Equals(".png", StringComparison.OrdinalIgnoreCase) ||
-               extension.Equals(".jpg", StringComparison.OrdinalIgnoreCase) ||
-               extension.Equals(".jpeg", StringComparison.OrdinalIgnoreCase) ||
-               extension.Equals(".gif", StringComparison.OrdinalIgnoreCase) ||
-               extension.Equals(".bmp", StringComparison.OrdinalIgnoreCase);
-    }
-}
-```
-
-### **Menyelesaikan Sumber Daya Tertaut Selama Impor SVG**
-
-Anggap bahwa `assets/diagram.svg` berisi referensi relatif seperti:
-
-```xml
-<image href="images/photo.png" x="20" y="20" width="320" height="180" />
-```
-
-Contoh C# berikut memberikan URI file SVG sebagai basis URI dan menyediakan resolver khusus. Resolver mengubah tautan gambar relatif menjadi URI absolut dan mengembalikan aliran yang berisi sumber daya tertaut saat Aspose.Slides memproses SVG.
-
-```csharp
-using System;
 using System.IO;
 using Aspose.Slides;
 using Aspose.Slides.Export;
-using Aspose.Slides.Import;
 
-string svgFilePath = Path.GetFullPath(Path.Combine("assets", "diagram.svg"));
-string assetDirectory = Path.GetDirectoryName(svgFilePath) ?? Directory.GetCurrentDirectory();
-string svgContent = File.ReadAllText(svgFilePath);
+using var presentation = new Presentation();
 
-// URI dasar mewakili lokasi dokumen SVG.
-string baseUri = new Uri(svgFilePath).AbsoluteUri;
+var imageData = File.ReadAllBytes("photo.png");
+var image = presentation.Images.AddImage(imageData);
 
-byte[] fallbackImageData = null;
-string fallbackImagePath = Path.Combine(assetDirectory, "fallback.png");
-if (File.Exists(fallbackImagePath))
-{
-    fallbackImageData = File.ReadAllBytes(fallbackImagePath);
-}
+var slide = presentation.Slides[0];
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
 
-IExternalResourceResolver resolver = new LocalSvgResourceResolver(assetDirectory, fallbackImageData);
-ISvgImage svgImage = new SvgImage(svgContent, resolver, baseUri);
-
-// ISvgImage memperlihatkan konten sumber, data biner, URI dasar, dan resolver.
-string importedContent = svgImage.SvgContent;
-byte[] importedData = svgImage.SvgData;
-string importedBaseUri = svgImage.BaseUri;
-IExternalResourceResolver importedResolver = svgImage.ExternalResourceResolver;
-
-using (Presentation presentation = new Presentation())
-{
-    IPPImage image = presentation.Images.AddImage(svgImage);
-
-    presentation.Slides[0].Shapes.AddPictureFrame(
-        ShapeType.Rectangle, 20, 20, image.Width, image.Height, image);
-
-    presentation.Save("svg-with-linked-resources.pptx", SaveFormat.Pptx);
-}
+presentation.Save("presentation.pptx", SaveFormat.Pptx);
 ```
 
-Kelas `SvgImage` juga menyediakan overload yang menerima data SVG sebagai array byte atau aliran, bersama dengan resolver sumber daya eksternal dan basis URI.
+Gambar yang ditambahkan dengan cara ini disematkan dalam presentasi, sehingga file hasil tidak bergantung pada keberadaan file gambar asli.
 
-{{% alert title="Penting" color="warning" %}}
-Resolver sumber daya membuat sumber daya eksternal tersedia saat Aspose.Slides memproses dan merender SVG. Ia tidak memodifikasi markup SVG asli atau secara otomatis menyematkan sumber daya yang telah diselesaikan ke dalamnya.
+### **Menambahkan Gambar dari Web**
 
-Ketika `ISvgImage` ditambahkan ke koleksi gambar presentasi, file PPTX dapat berisi baik representasi SVG asli maupun gambar raster fallback. Sumber daya tertaut dapat muncul dalam gambar fallback yang dihasilkan sementara tautan relatif seperti `images/photo.png` tetap tidak berubah dalam SVG yang disimpan. Aplikasi yang merender representasi SVG asli mungkin mengabaikan konten tertaut bila sumber daya eksternal asli tidak tersedia.
-{{% /alert %}}
+Ketika sebuah gambar tersedia melalui HTTP atau HTTPS, unduh byte-nya dengan `HttpClient`, tambahkan ke koleksi gambar presentasi, dan gunakan sumber daya gambar yang dikembalikan dengan cara yang sama seperti gambar lokal.
 
-### **Membuat Gambar SVG Portabel**
-
-Untuk membuat gambar SVG yang tidak bergantung pada file eksternal, buat SVG menjadi mandiri sebelum membuat `SvgImage`. Misalnya, gantilah URL gambar tertaut dengan URI `data:` yang berisi data gambar:
-
-```xml
-<image href="data:image/png;base64,..." x="20" y="20" width="320" height="180" />
-```
-
-Setelah semua sumber daya yang diperlukan disematkan dalam konten SVG, buat `SvgImage`, tambahkan ke koleksi gambar presentasi, dan sisipkan ke dalam bingkai gambar seperti pada contoh sebelumnya.
-
-### **Menangani Sumber Daya yang Hilang atau Diblokir**
-
-Kembalikan `null` dari `ResolveUri` bila URI sumber daya tidak valid, dilarang, atau tidak dapat diselesaikan. Kembalikan `null` dari `GetEntity` bila sumber daya tidak dapat dibaca. Aspose.Slides melanjutkan pemrosesan SVG tanpa sumber daya tersebut bila memungkinkan.
-
-Aliran fallback dapat dikembalikan untuk sumber daya yang hilang, tetapi isinya harus kompatibel dengan jenis sumber daya yang diminta. Misalnya, kembalikan aliran gambar hanya untuk gambar yang hilang, bukan untuk font atau stylesheet.
-
-{{% alert title="Keamanan" color="warning" %}}
-Jangan selesaikan jalur file arbitrer atau URL jaringan yang tidak dibatasi dari file SVG yang tidak terpercaya. Batasi skema, direktori, dan host yang diizinkan. Untuk sumber daya jaringan, terapkan batas waktu koneksi, batas ukuran respons, dan validasi konten.
-{{% /alert %}}
-
-## **Mengonversi SVG menjadi Sekelompok Bentuk**
-Aspose.Slides dapat mengonversi SVG menjadi sekumpulan bentuk, serupa dengan fungsi yang ada di PowerPoint:
-
-![PowerPoint Popup Menu](img_01_01.png)
-
-Fungsi ini disediakan oleh overload metode [AddGroupShape](https://reference.aspose.com/slides/id/net/aspose.slides.ishapecollection/addgroupshape/methods/1) pada antarmuka [IShapeCollection](https://reference.aspose.com/slides/id/net/aspose.slides/ishapecollection) yang menerima objek [ISvgImage](https://reference.aspose.com/slides/id/net/aspose.slides/isvgimage) sebagai argumen pertama.
-
-Kode contoh C# berikut menunjukkan cara menggunakan metode ini untuk mengonversi file SVG menjadi sekumpulan bentuk:
-
-``` csharp 
-using System.Drawing;
+```csharp
+using System;
+using System.Net.Http;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Nama file SVG sumber
-string svgFileName = "sample.svg";
+var imageUri = new Uri("https://example.com/image.png");
+using var httpClient = new HttpClient();
+var imageData = await httpClient.GetByteArrayAsync(imageUri);
 
-// Nama file presentasi output
-string outPptxPath = "presentation.pptx";
+using var presentation = new Presentation();
 
-// Buat presentasi baru
-using (IPresentation presentation = new Presentation())
-{
-    // Baca konten file SVG
-    string svgContent = File.ReadAllText(svgFileName);
+var image = presentation.Images.AddImage(imageData);
+var slide = presentation.Slides[0];
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
 
-    // Buat objek SvgImage
-    ISvgImage svgImage = new SvgImage(svgContent);
-
-    // Dapatkan ukuran slide
-    SizeF slideSize = presentation.SlideSize.Size;
-
-    // Konversi gambar SVG menjadi grup bentuk dan skala ke ukuran slide
-    presentation.Slides[0].Shapes.AddGroupShape(svgImage, 0f, 0f, slideSize.Width, slideSize.Height);
-
-    // Simpan presentasi dalam format PPTX
-    presentation.Save(outPptxPath, SaveFormat.Pptx);
-}
+presentation.Save("presentation-from-web.pptx", SaveFormat.Pptx);
 ```
 
-## **Menambahkan Gambar sebagai EMF ke Slide**
-Aspose.Slides untuk .NET memungkinkan Anda menghasilkan gambar EMF dari lembar kerja Excel dengan Aspose.Cells dan menambahkannya ke slide presentasi.
+Dalam aplikasi yang berjalan lama, gunakan kembali `HttpClient` daripada membuat instance baru untuk setiap permintaan. Juga validasi URL jarak jauh, ukuran respons, dan tipe konten ketika sumber tidak dipercaya.
 
-Kode contoh C# berikut menunjukkan cara melakukannya:
+## **Gunakan Kembali Gambar di Seluruh Slide**
 
-``` csharp 
-using Aspose.Slides;
-using Aspose.Cells;
-using Aspose.Cells.Rendering;
+Jika gambar yang sama diperlukan lebih dari satu kali, tambahkan sekali ke presentasi dan gunakan kembali [IPPImage](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/) yang dikembalikan saat membuat bingkai gambar tambahan. Ini menghindari pemuatan berulang data sumber yang sama dan menjadikan hubungan antara sumber daya gambar yang dibagikan dan penggunaannya menjadi eksplisit.
 
+Untuk grafik yang seharusnya muncul secara otomatis pada banyak slide, seperti logo perusahaan, pertimbangkan menempatkan bingkai gambar pada [master slide](/slides/id/net/slide-master/) atau tata letak alih-alih menambahkan bentuk yang setara ke setiap slide.
 
-using (Workbook book = new Workbook("chart.xlsx"))
-{
-    Worksheet sheet = book.Worksheets[0];
-    ImageOrPrintOptions options = new ImageOrPrintOptions();
-    options.HorizontalResolution = 200;
-    options.VerticalResolution = 200;
-    options.ImageType = Aspose.Cells.Drawing.ImageType.Emf;
+## **Menggunakan Gambar sebagai Latar Belakang Slide**
 
-    // Simpan workbook ke aliran
-    SheetRender sr = new SheetRender(sheet, options);
-    using (Presentation pres = new Presentation())
-    {
-        pres.Slides.RemoveAt(0);
+Gambar latar belakang ditetapkan pada isian slide; tidak ditambahkan sebagai bentuk bingkai gambar. Ini berguna ketika gambar harus menutupi latar belakang slide dan tidak boleh dimanipulasi sebagai objek slide biasa.
 
-        String EmfSheetName = "";
-        for (int j = 0; j < sr.PageCount; j++)
-        {
-            EmfSheetName = "test" + sheet.Name + " Page" + (j + 1) + ".out.emf";
-            sr.ToImage(j, EmfSheetName);
-
-            var bytes = File.ReadAllBytes(EmfSheetName);
-            var emfImage = pres.Images.AddImage(bytes);
-            ISlide slide = pres.Slides.AddEmptySlide(pres.LayoutSlides.GetByType(SlideLayoutType.Blank));
-            slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 0, 0, pres.SlideSize.Size.Width, pres.SlideSize.Size.Height, emfImage);
-        }
-
-        pres.Save("Saved.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-    }
-}
-```
-
-## **Mengganti Gambar dalam Koleksi Gambar**
-
-Aspose.Slides memungkinkan Anda mengganti gambar yang disimpan dalam koleksi gambar presentasi, termasuk gambar yang digunakan oleh bentuk slide. Bagian ini menjelaskan beberapa cara memperbarui gambar dalam koleksi. Anda dapat mengganti gambar menggunakan data byte mentah, sebuah instance [IImage](https://reference.aspose.com/slides/id/net/aspose.slides/iimage/) , atau gambar lain yang sudah ada dalam koleksi.
-
-Ikuti langkah‑langkah berikut:
-
-1. Muat file presentasi yang berisi gambar menggunakan kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/).
-2. Muat gambar baru dari file ke dalam array byte.
-3. Ganti gambar target dengan gambar baru menggunakan array byte.
-4. Pada pendekatan kedua, muat gambar ke dalam objek [IImage](https://reference.aspose.com/slides/id/net/aspose.slides/iimage/) dan ganti gambar target dengan objek tersebut.
-5. Pada pendekatan ketiga, ganti gambar target dengan gambar yang sudah ada dalam koleksi gambar presentasi.
-6. Tulis presentasi yang telah dimodifikasi sebagai file PPTX.
-
-```cs
+```csharp
+using System.IO;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Instansiasi kelas Presentation yang mewakili file presentasi.
-using Presentation presentation = new Presentation("sample.pptx");
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-// Cara pertama.
-byte[] imageData = File.ReadAllBytes("image0.jpeg");
-IPPImage oldImage = presentation.Images[0];
-oldImage.ReplaceImage(imageData);
+var imageData = File.ReadAllBytes("background.jpg");
+var image = presentation.Images.AddImage(imageData);
+slide.Background.Type = BackgroundType.OwnBackground;
+slide.Background.FillFormat.FillType = FillType.Picture;
+slide.Background.FillFormat.PictureFillFormat.PictureFillMode = PictureFillMode.Stretch;
+slide.Background.FillFormat.PictureFillFormat.Picture.Image = image;
 
-// Cara kedua.
-using IImage newImage = Images.FromFile("image1.png");
-oldImage = presentation.Images[1];
-oldImage.ReplaceImage(newImage);
+presentation.Save("background-image.pptx", SaveFormat.Pptx);
+```
 
-// Cara ketiga.
-oldImage = presentation.Images[2];
-oldImage.ReplaceImage(presentation.Images[3]);
+Untuk opsi latar belakang tambahan, termasuk latar belakang master dan tata letak, lihat [Latar Belakang Presentasi](/slides/id/net/presentation-background/).
 
-// Simpan presentasi ke file.
+## **Gambar yang Disematkan dan Gambar Tertaut**
+
+Gambar yang disematkan dan gambar tertaut memiliki pertukaran portabilitas dan ukuran file yang berbeda:
+
+- **Gambar yang disematkan:** data gambar disimpan di dalam presentasi. Presentasi bersifat mandiri, tetapi ukuran file mencakup data gambar.
+- **Gambar tertaut:** presentasi menyimpan jalur atau URL ke gambar eksternal. Ini dapat mengurangi ukuran presentasi, tetapi sumber daya eksternal harus tetap dapat diakses ketika presentasi dibuka atau dirender.
+
+Gambar tertaut dapat dibuat dengan menetapkan jalur atau URL eksternal melalui [ISlidesPicture.LinkPathLong](https://reference.aspose.com/slides/id/net/aspose.slides/islidespicture/linkpathlong/) alih-alih menyematkan data gambar.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, null);
+pictureFrame.PictureFormat.Picture.LinkPathLong = "https://example.com/image.png";
+
+presentation.Save("linked-image.pptx", SaveFormat.Pptx);
+```
+
+Gunakan gambar tertaut hanya ketika lingkungan penyebaran dapat mengakses sumber daya eksternal secara andal. Untuk presentasi yang harus berfungsi secara offline atau dipindahkan antar sistem, gambar yang disematkan biasanya lebih aman.
+
+## **Bekerja dengan Gambar SVG**
+
+SVG adalah format vektor, sehingga dapat berguna untuk ikon, diagram, dan grafik lain yang harus diskalakan tanpa kehilangan detail seperti gambar raster. Aspose.Slides mendukung SVG baik sebagai sumber daya gambar maupun sebagai sumber untuk bentuk slide yang dapat diedit.
+
+### **Menambahkan SVG sebagai Gambar**
+
+Buat sebuah [SvgImage](https://reference.aspose.com/slides/id/net/aspose.slides/svgimage/), tambahkan ke koleksi gambar, dan tempatkan sumber daya gambar yang dihasilkan dalam bingkai gambar.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var svgContent = File.ReadAllText("icon.svg");
+var svgImage = new SvgImage(svgContent);
+
+using var presentation = new Presentation();
+
+var image = presentation.Images.AddImage(svgImage);
+var slide = presentation.Slides[0];
+slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 20, 20, 200, 200, image);
+
+presentation.Save("svg-image.pptx", SaveFormat.Pptx);
+```
+
+### **File SVG dengan Sumber Daya Eksternal**
+
+Sebuah SVG dapat merujuk gambar eksternal, stylesheet, atau font. Untuk kasus ini, [SvgImage](https://reference.aspose.com/slides/id/net/aspose.slides/svgimage/) menyediakan konstruktor yang menerima [IExternalResourceResolver](https://reference.aspose.com/slides/id/net/aspose.slides.import/iexternalresourceresolver/) dan basis URI. Resolver dapat memetakan URI relatif ke URI absolut yang diizinkan dan mengembalikan aliran untuk sumber daya yang diminta.
+
+Resolver membuat sumber daya eksternal tersedia saat Aspose.Slides memproses SVG, tetapi tidak menulis ulang SVG menjadi dokumen mandiri. Jika SVG harus tetap portabel, sematkan sumber daya yang diperlukan ke dalam SVG itu sendiri, misalnya dengan menggunakan URI `data:` untuk gambar tertaut.
+
+Ketika file SVG berasal dari sumber yang tidak terpercaya, batasi skema, lokasi file, dan host yang dapat diakses resolver. Resolver jaringan juga harus menerapkan batas waktu, batas ukuran respons, dan validasi konten.
+
+### **Mengonversi SVG menjadi Bentuk yang Dapat Diedit**
+
+Aspose.Slides dapat mengonversi SVG menjadi sekelompok bentuk slide yang dapat diedit, mirip dengan perintah PowerPoint yang sesuai.
+
+![Menu Popup PowerPoint](img_01_01.png)
+
+Gunakan overload [IShapeCollection.AddGroupShape](https://reference.aspose.com/slides/id/net/aspose.slides/ishapecollection/addgroupshape/) yang menerima [ISvgImage](https://reference.aspose.com/slides/id/net/aspose.slides/isvgimage/) untuk melakukan konversi.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var svgContent = File.ReadAllText("diagram.svg");
+var svgImage = new SvgImage(svgContent);
+
+using var presentation = new Presentation();
+
+var slideSize = presentation.SlideSize.Size;
+var slide = presentation.Slides[0];
+slide.Shapes.AddGroupShape(svgImage, 0, 0, slideSize.Width, slideSize.Height);
+
+presentation.Save("editable-svg-shapes.pptx", SaveFormat.Pptx);
+```
+
+Gunakan konversi SVG ke bentuk ketika elemen vektor individu perlu diedit sebagai bentuk PowerPoint. Jika SVG hanya perlu ditampilkan, menyimpannya sebagai gambar lebih sederhana dan menghindari pembuatan banyak bentuk terpisah.
+
+## **Mengganti Sumber Daya Gambar yang Ada**
+
+Gunakan [IPPImage.ReplaceImage](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/replaceimage/) ketika Anda ingin mengganti sumber daya gambar yang ada. Ini sangat berguna untuk grafik yang dibagikan seperti logo.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var imageToReplace = presentation.Images[0];
+imageToReplace.ReplaceImage(File.ReadAllBytes("new-logo.png"));
+
 presentation.Save("output.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert title="Info" color="info" %}}
-Dengan konverter gratis [Teks ke GIF](https://products.aspose.app/slides/id/text-to-gif) dari Aspose, Anda dapat dengan mudah menganimasikan teks dan membuat GIF dari teks. 
-{{% /alert %}}
+Jika beberapa bingkai gambar, latar belakang, master, atau tata letak menggunakan sumber daya gambar yang sama, mengganti sumber daya tersebut memperbarui semua penggunaan tersebut. Jika hanya satu bingkai gambar yang harus berubah, tetapkan gambar yang berbeda ke bingkai tersebut alih-alih mengganti sumber daya yang dibagikan.
+
+`ReplaceImage` juga menyediakan overload yang menerima [IImage](https://reference.aspose.com/slides/id/net/aspose.slides/iimage/) atau [IPPImage](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/) lainnya.
+
+## **Panduan Praktis Manajemen Gambar**
+
+### **Mengontrol Ukuran Presentasi**
+
+Gambar raster besar dapat membuat presentasi terlalu besar. Gunakan gambar sumber dengan dimensi yang sesuai untuk ukuran tampilan yang dimaksud, gunakan kembali sumber daya gambar yang dibagikan bila memungkinkan, dan hindari menyematkan salinan berulang dari grafik resolusi penuh yang sama.
+
+Untuk gambar raster yang sudah ditempatkan dalam bingkai gambar, [IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/id/net/aspose.slides/ipicturefillformat/compressimage/) dapat mengurangi data gambar sesuai resolusi dan pengaturan pemotongan yang dipilih. Ini adalah pemrosesan bingkai gambar, bukan manajemen koleksi gambar, jadi lihat [Bingkai Gambar](/slides/id/net/picture-frame/) untuk operasi format terkait.
+
+### **Memilih Antara Konten yang Disematkan dan Tertaut**
+
+Penyematan membuat presentasi portabel karena semua data gambar yang diperlukan ikut dalam file. Penautan dapat mengurangi ukuran file, tetapi memperkenalkan ketergantungan eksternal. Gunakan tautan hanya ketika ketergantungan tersebut dapat diterima dan stabil.
+
+### **Gunakan Kembali Merek yang Dibagikan**
+
+Untuk logo, watermark, atau grafik dekoratif yang berulang, gunakan satu sumber daya gambar dan gunakan kembali. Jika grafik merupakan bagian dari desain presentasi bukan konten slide, tempatkan pada master atau tata letak sehingga diwariskan ke slide yang sesuai.
+
+### **Menjaga Sumber Daya SVG Portabel**
+
+SVG yang mandiri lebih mudah dipindahkan dan dirender secara konsisten dibandingkan SVG yang bergantung pada file eksternal atau sumber daya jaringan. Bila memungkinkan, sematkan sumber daya yang diperlukan sebelum mengimpor SVG. Konversi SVG ke bentuk hanya ketika elemen vektor individu perlu diedit.
+
+### **Gunakan API Gambar Lintas Platform Modern**
+
+Untuk kode .NET baru, gunakan API Aspose.Slides [IImage](https://reference.aspose.com/slides/id/net/aspose.slides/iimage/) dan [Images](https://reference.aspose.com/slides/id/net/aspose.slides/images/) alih-alih bergantung pada `System.Drawing.Image` atau `Bitmap`. Lihat [API Modern](/slides/id/net/modern-api/) untuk panduan migrasi.
+
+WMF dan EMF memerlukan pertimbangan khusus. Ketika format ini diteruskan melalui [IImage](https://reference.aspose.com/slides/id/net/aspose.slides/iimage/), [ImageCollection.AddImage](https://reference.aspose.com/slides/id/net/aspose.slides/imagecollection/addimage/) mengonversi metafile menjadi representasi PNG raster sebelum penyisipan. Jika mempertahankan data metafile penting, gunakan overload [ImageCollection.AddImage](https://reference.aspose.com/slides/id/net/aspose.slides/imagecollection/addimage/) berbasis aliran. Menghasilkan konten EMF dari spreadsheet atau produk lain adalah alur kerja integrasi terpisah dan berada di luar cakupan artikel ini.
 
 ## **FAQ**
 
-**Apakah resolusi gambar asli tetap utuh setelah penyisipan?**
+**Apa perbedaan antara koleksi gambar dan bingkai gambar?**
 
-Ya. Piksel sumber dipertahankan, tetapi tampilan akhir tergantung pada bagaimana [gambar](/slides/id/net/picture-frame/) diubah skalanya pada slide dan kompresi yang diterapkan saat menyimpan.
+Koleksi gambar menyimpan sumber daya gambar yang dapat digunakan kembali. Bingkai gambar adalah bentuk slide yang menampilkan salah satu sumber daya tersebut dan menyediakan format khusus gambar seperti pemotongan dan efek.
 
-**Apa cara terbaik untuk mengganti logo yang sama di puluhan slide sekaligus?**
+**Apa cara terbaik untuk mengganti logo yang sama di semua tempat?**
 
-Letakkan logo pada slide master atau layout dan ganti di koleksi gambar presentasi—pembaruan akan menyebar ke semua elemen yang menggunakan sumber daya tersebut.
+Jika logo sudah dibagikan sebagai satu sumber daya gambar, ganti sumber daya tersebut dengan [IPPImage.ReplaceImage](https://reference.aspose.com/slides/id/net/aspose.slides/ippimage/replaceimage/). Untuk branding di seluruh presentasi, menempatkan logo pada master atau tata letak juga dapat mengurangi konten slide yang duplikat.
 
-**Apakah SVG yang disisipkan dapat dikonversi menjadi bentuk yang dapat diedit?**
+**Mengapa gambar tertaut menghilang di komputer lain?**
 
-Ya. Anda dapat mengonversi SVG menjadi grup bentuk, setelah itu bagian‑bagian individual menjadi dapat diedit dengan properti bentuk standar.
+Gambar tertaut bergantung pada file atau URL eksternalnya. Jika sumber daya tersebut tidak dapat dijangkau dari komputer lain, gambar tertaut mungkin tidak tersedia. Sematkan gambar ketika presentasi harus bersifat mandiri.
 
-**Bagaimana cara mengatur gambar sebagai latar belakang untuk beberapa slide sekaligus?**
+**Apakah SVG yang disisipkan dapat diedit sebagai bentuk PowerPoint?**
 
-[Atur gambar sebagai latar belakang](/slides/id/net/presentation-background/) pada slide master atau layout yang relevan—setiap slide yang menggunakan master/layout tersebut akan mewarisi latar belakang.
+Ya. Konversi SVG dengan [IShapeCollection.AddGroupShape](https://reference.aspose.com/slides/id/net/aspose.slides/ishapecollection/addgroupshape/); grup yang dihasilkan berisi bentuk slide yang dapat diedit, bukan satu gambar SVG.
 
-**Bagaimana saya mencegah presentasi menjadi terlalu besar karena banyak gambar?**
+**Bagaimana saya dapat menjaga presentasi dengan banyak gambar tetap kecil?**
 
-Gunakan kembali satu sumber gambar alih‑alih duplikat, pilih resolusi yang wajar, terapkan kompresi saat menyimpan, dan simpan grafik berulang pada master bila tepat.
+Gunakan kembali sumber daya gambar yang dibagikan, hindari sumber raster yang tidak perlu besar, kompres gambar raster yang sesuai bila tepat, simpan branding yang berulang pada master atau tata letak, dan gunakan gambar tertaut hanya ketika ketergantungan eksternal dapat diterima.

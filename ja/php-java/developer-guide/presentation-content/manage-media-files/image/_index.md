@@ -1,111 +1,111 @@
 ---
-title: PHP を使用したプレゼンテーションの画像管理の最適化
-linktitle: 画像の管理
+title: "PHP を使用したプレゼンテーションにおける画像管理の最適化"
+linktitle: "画像の管理"
 type: docs
 weight: 10
 url: /ja/php-java/image/
 keywords:
-- 画像を追加
-- 画像を追加
-- ビットマップを追加
-- 画像を置換
-- 画像を置換
-- Web から
-- 背景
-- PNG を追加
-- JPG を追加
-- SVG を追加
-- 外部 SVG リソース
-- SVG リゾルバ
-- リンクされた SVG 画像
-- SVG フォント
-- EMF を追加
-- WMF を追加
-- TIFF を追加
-- PowerPoint
-- OpenDocument
-- プレゼンテーション
-- EMF
-- SVG
-- PHP
-- Aspose.Slides
-description: "Java 経由で PHP 用 Aspose.Slides を使用し、PowerPoint と OpenDocument の画像管理を効率化してパフォーマンスを最適化し、ワークフローを自動化します。"
+- "画像を追加"
+- "画像を追加"
+- "画像を置換"
+- "画像コレクション"
+- "画像フレーム"
+- "リンク画像"
+- "背景"
+- "PNG を追加"
+- "JPG を追加"
+- "SVG を追加"
+- "SVG をシェイプに変換"
+- "外部 SVG リソース"
+- "PowerPoint"
+- "OpenDocument"
+- "プレゼンテーション"
+- "PHP"
+- "Aspose.Slides"
+description: "Aspose.Slides for PHP via Java を使用して、PowerPoint および OpenDocument のプレゼンテーションで、ラスタ画像と SVG 画像の追加、再利用、リンク、置換、管理方法を学びます。"
 ---
-## **はじめに**
+## **概要**
 
-画像はプレゼンテーションをより魅力的で視覚的に訴えるものにします。Microsoft PowerPoint では、ファイル、インターネット、またはその他のソースからスライドに画像を挿入できます。同様に、Aspose.Slides を使用すると、さまざまな方法でプレゼンテーション スライドに画像を追加できます。
+Aspose.Slides for PHP via Java には画像を操作するためのさまざまな方法があり、それぞれ目的が異なります。画像をプレゼンテーションに埋め込んだり、画像フレームに表示したり、スライドの背景として使用したり、外部画像へのリンクを設定したり、共有画像リソースを置き換えたり、SVG コンテンツを編集可能なシェイプに変換したりできます。
 
-{{% alert  title="Tip" color="primary" %}} 
-Aspose は無料のコンバータ、[JPEG to PowerPoint](https://products.aspose.app/slides/ja/import/jpg-to-ppt) と [PNG to PowerPoint](https://products.aspose.app/slides/ja/import/png-to-ppt) を提供しており、画像からすばやくプレゼンテーションを作成できます。 
-{{% /alert %}} 
+この記事では画像リソースとプレゼンテーション全体での使用方法に焦点を当てます。個々の画像フレームに対して行う切り抜き、透明度、エフェクト、伸縮、その他の書式設定については、[Picture Frame](/slides/ja/php-java/picture-frame/) を参照してください。
 
-{{% alert title="Info" color="info" %}}
-画像を画像フレームとして追加したい場合—特にサイズ変更や効果の適用、その他の標準的な書式設定オプションを使用する予定がある場合—は、[Picture Frame](/slides/ja/php-java/picture-frame/) を参照してください。 
-{{% /alert %}} 
+## **画像モデルの理解**
 
-{{% alert title="Note" color="warning" %}}
-画像をある形式から別の形式に変換できます。以下のページを参照してください: [image to JPG](https://products.aspose.com/slides/ja/php-java/conversion/image-to-jpg/)、[JPG to image](https://products.aspose.com/slides/ja/php-java/conversion/jpg-to-image/)、[JPG to PNG](https://products.aspose.com/slides/ja/php-java/conversion/jpg-to-png/)、[PNG to JPG](https://products.aspose.com/slides/ja/php-java/conversion/png-to-jpg/)、[PNG to SVG](https://products.aspose.com/slides/ja/php-java/conversion/png-to-svg/)、[SVG to PNG](https://products.aspose.com/slides/ja/php-java/conversion/svg-to-png/)。
-{{% /alert %}}
+以下の API 概念は密接に関連していますが、互換性はありません。
 
-Aspose.Slides は JPEG、PNG、BMP、GIF などの一般的な形式の画像をサポートしています。 
+- [プレゼンテーション画像コレクション]((https://reference.aspose.com/slides/ja/php-java/aspose.slides/imagecollection/)) はプレゼンテーションで使用される画像リソースを格納します。`ImageCollection::addImage` を使用して画像データを追加し、`PPImage` リソースを取得します。
+- [画像フレーム]((https://reference.aspose.com/slides/ja/php-java/aspose.slides/pictureframe/)) はスライド、レイアウト、またはマスター上に画像を表示するシェイプです。`ShapeCollection::addPictureFrame` を使用して画像リソースをスライドに配置します。
+- スライド背景はシェイプとしてではなく、スライドの塗りつぶしの一部として画像を使用します。そのため画像フレームとは振る舞いが異なります。
+- `PPImage::replaceImage` は画像リソースを置き換えます。そのリソースを使用しているすべてのプレゼンテーション要素が置き換え後の画像を使用します。
+- SVG をシェイプに変換すると、編集可能なスライドシェイプが作成されます。変換後はコンテンツは単一の画像リソースとして管理されなくなります。
 
-## **ローカルに保存された画像をスライドに追加**
+典型的なワークフローは次のとおりです。画像データを画像コレクションに追加し、`PPImage` を取得し、取得したリソースを1つまたは複数の画像フレームや塗りつぶしで使用します。
 
-コンピューターに保存された 1 つまたは複数の画像をプレゼンテーション スライドに追加できます。以下の PHP サンプルコードは、画像をスライドに追加する方法を示しています:
+## **埋め込み画像の追加**
+
+ローカル画像を挿入するには、ファイルを読み込み、画像コレクションに追加し、返された `PPImage` を使用する画像フレームを作成します。
 
 ```php
-$pres = new Presentation();
-try {
-    $slide = $pres->getSlides()->get_Item(0);
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
 
-    $picture = null;
-    $image = Images::fromFile("image.png");
+$presentation = new Presentation();
+try {
+    $image = Images::fromFile("photo.png");
     try {
-        $picture = $pres->getImages()->addImage($image);
+        $ppImage = $presentation->getImages()->addImage($image);
     } finally {
         if (!java_is_null($image)) {
             $image->dispose();
         }
     }
 
-    $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $picture);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 320, 180, $ppImage);
 
-    $pres->save("pres.pptx", SaveFormat::Pptx);
+    $presentation->save("presentation.pptx", SaveFormat::Pptx);
 } finally {
-    $pres->dispose();
+    $presentation->dispose();
 }
 ```
 
-## **Web から画像をスライドに追加**
+この方法で追加された画像はプレゼンテーションに埋め込まれるため、結果として得られるファイルは元の画像ファイルが利用できなくても問題ありません。
 
-スライドに追加したい画像がコンピューターに保存されていない場合、Web から直接追加できます。 
+### **Web から画像を追加**
 
-以下の PHP サンプルコードは、Web から画像をスライドに追加する方法を示しています:
+画像が HTTP または HTTPS 経由で取得可能な場合、バイト列をダウンロードし、プレゼンテーション画像コレクションに追加し、ローカル画像と同様に返された画像リソースを使用します。
 
 ```php
-$pres = new Presentation();
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
 try {
-    $slide = $pres->getSlides()->get_Item(0);
-
-    $imageUrl = new Java("java.net.URL", "[REPLACE WITH URL]");
+    $imageUrl = new Java("java.net.URL", "https://example.com/image.png");
     $connection = $imageUrl->openConnection();
-    $inputStream = $connection->getInputStream();
+    $connection->setConnectTimeout(10000);
+    $connection->setReadTimeout(10000);
 
+    $inputStream = $connection->getInputStream();
     $outputStream = new Java("java.io.ByteArrayOutputStream");
     $Array = new JavaClass("java.lang.reflect.Array");
     $Byte = (new JavaClass("java.lang.Byte"))->TYPE;
 
     try {
-        $buffer = $Array->newInstance($Byte, 1024);
+        $buffer = $Array->newInstance($Byte, 8192);
+        $bufferLength = $Array->getLength($buffer);
 
-        while (($read = java_values($inputStream->read($buffer, 0, $Array->getLength($buffer)))) != -1) {
-            $outputStream->write($buffer, 0, $read);
+        while (($bytesRead = java_values($inputStream->read($buffer, 0, $bufferLength))) != -1) {
+            $outputStream->write($buffer, 0, $bytesRead);
         }
 
-        $outputStream->flush();
-
-        $image = $pres->getImages()->addImage($outputStream->toByteArray());
-        $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $image);
+        $ppImage = $presentation->getImages()->addImage($outputStream->toByteArray());
+        $slide = $presentation->getSlides()->get_Item(0);
+        $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 320, 180, $ppImage);
     } finally {
         if (!java_is_null($inputStream)) {
             $inputStream->close();
@@ -113,461 +113,229 @@ try {
         $outputStream->close();
     }
 
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-} catch (JavaException $e) {
+    $presentation->save("presentation-from-web.pptx", SaveFormat::Pptx);
 } finally {
-    $pres->dispose();
+    $presentation->dispose();
 }
 ```
 
-## **スライド マスターに画像を追加**
+長時間実行するアプリケーションでは、不要なネットワークインフラを毎回作成するのではなく、適切な HTTP クライアントや接続管理戦略を再利用してください。また、信頼できないソースの場合はリモート URL、レスポンスサイズ、コンテンツタイプを検証してください。
 
-スライド マスターは、そのマスターを使用するスライドのテーマやレイアウトなどの情報を保存および制御します。スライド マスターに画像を追加すると、そのマスターに基づくすべてのスライドに画像が表示されます。 
+## **スライド間で画像を再利用する**
 
-以下の PHP サンプルコードは、スライド マスターに画像を追加する方法を示しています:
+同じ画像を複数回使用する必要がある場合は、プレゼンテーションに一度だけ画像を追加し、追加の画像フレームを作成するときに取得した `PPImage` を再利用します。これにより同じソースデータの読み込みが繰り返されず、共有画像リソースとその使用箇所の関係が明示的になります。
+
+多くのスライドに自動的に表示させたいロゴなどのグラフィックは、各スライドに同等のシェイプを追加する代わりに、[スライドマスター](/slides/ja/php-java/slide-master/) またはレイアウト上に画像フレームを配置することを検討してください。
+
+## **画像をスライド背景として使用する**
+
+背景画像はスライドの塗りつぶしに割り当てられ、画像フレームのシェイプとして追加されません。画像がスライド全体の背景を覆い、通常のスライドオブジェクトとして操作されない場合に便利です。
 
 ```php
-$pres = new Presentation();
-try {
-    $slide = $pres->getSlides()->get_Item(0);
-    $masterSlide = $slide->getLayoutSlide()->getMasterSlide();
+use aspose\slides\BackgroundType;
+use aspose\slides\FillType;
+use aspose\slides\Images;
+use aspose\slides\PictureFillMode;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-    $picture = null;
-    $image = Images::fromFile("image.png");
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $image = Images::fromFile("background.jpg");
     try {
-        $picture = $pres->getImages()->addImage($image);
+        $ppImage = $presentation->getImages()->addImage($image);
     } finally {
         if (!java_is_null($image)) {
             $image->dispose();
         }
     }
 
-    $masterSlide->getShapes()->addPictureFrame(ShapeType::Rectangle, 10, 10, 100, 100, $picture);
+    $slide->getBackground()->setType(BackgroundType::OwnBackground);
+    $slide->getBackground()->getFillFormat()->setFillType(FillType::Picture);
+    $slide->getBackground()->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Stretch);
+    $slide->getBackground()->getFillFormat()->getPictureFillFormat()->getPicture()->setImage($ppImage);
 
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-} finally {
-    $pres->dispose();
-}
-```
-
-## **画像をスライドの背景として追加**
-
-画像を 1 枚以上のスライドの背景として使用できます。詳細については、*[スライドの背景として画像を設定](/slides/ja/php-java/presentation-background/#setting-images-as-background-for-slides)* を参照してください。
-
-## **プレゼンテーションに SVG を追加**
-
-SVG コンテンツは、[SvgImage](https://reference.aspose.com/slides/ja/php-java/aspose.slides/svgimage/) クラスを使用してプレゼンテーションに追加できます。生成された SVG 画像オブジェクトは、プレゼンテーションの画像コレクションに追加でき、画像フレームの作成に使用できます。
-
-以下の PHP 例は、自己完結型 SVG 文字列をインポートします。使用されているすべての画像、スタイル、その他のリソースは SVG コンテンツに直接埋め込まれています。
-
-```php
-$svgContent =
-    "<svg xmlns='http://www.w3.org/2000/svg' width='320' height='180'>" .
-    "    <rect width='320' height='180' fill='#4F81BD'/>" .
-    "    <circle cx='160' cy='90' r='55' fill='#F2F2F2'/>" .
-    "</svg>";
-
-$presentation = new Presentation();
-try {
-    $svgImage = new SvgImage($svgContent);
-    $image = $presentation->getImages()->addImage($svgImage);
-
-    $presentation->getSlides()->get_Item(0)->getShapes()->addPictureFrame(
-        ShapeType::Rectangle,
-        20,
-        20,
-        $image->getWidth(),
-        $image->getHeight(),
-        $image
-    );
-
-    $presentation->save("self-contained-svg.pptx", SaveFormat::Pptx);
+    $presentation->save("background-image.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **外部リソースを含む SVG コンテンツのインポート**
+マスターやレイアウトの背景を含む追加の背景オプションについては、[Presentation Background](/slides/ja/php-java/presentation-background/) を参照してください。
 
-デザインツール、ダイアグラム エディタ、アイコン システム、Web パイプラインからエクスポートされた SVG ファイルは、SVG ドキュメントの外部に保存されたリソースを参照することがあります。たとえば、`images/photo.png` のような画像リンク、CSS の `url(...)` 値、またはフォント URL が含まれることがあります。
+## **埋め込み画像とリンク画像**
 
-このような SVG コンテンツをインポートするには、[ExternalResourceResolver](https://reference.aspose.com/slides/ja/php-java/aspose.slides/externalresourceresolver/) の実装を作成し、ベース URI と共に適切な [SvgImage](https://reference.aspose.com/slides/ja/php-java/aspose.slides/svgimage/) コンストラクタに渡します。ベース URI は SVG ドキュメントの位置を示し、相対リンクの解決に使用されます。
+埋め込み画像とリンク画像では可搬性とファイルサイズに異なるトレードオフがあります。
 
-SVG 画像オブジェクトは、インポートされた SVG に関する情報へのアクセスを提供します:
+- **埋め込み画像:** 画像データがプレゼンテーション内部に保存されます。自己完結型ですが、ファイルサイズに画像データが含まれます。
+- **リンク画像:** プレゼンテーションは外部画像へのパスまたは URL を保持します。プレゼンテーションのサイズは小さくなりますが、開くまたはレンダーする際に外部リソースにアクセスできる必要があります。
 
-- `getSvgContent()` は SVG マークアップを文字列として返します。
-- `getSvgData()` は SVG コンテンツをバイト配列として返します。
-- `getBaseUri()` は相対リンクに使用されたベース URI を返します。
-- `getExternalResourceResolver()` は SVG 画像に割り当てられたリゾルバを返します。
-
-### **外部リソースリゾルバの実装**
-
-リゾルバには 2 つのメソッドがあります:
-
-- `resolveUri` はベース URI と相対リソースリンクを結合し、絶対 URI を返します。リンクを解決できない、または許可されていない場合は `null` を返します。
-- `getEntity` は絶対リソース URI に対する読み取り可能なストリームを返します。リソースが存在しない、ブロックされている、または利用できない場合は `null` を返します。適切な場合はフォールバック ストリームを返すこともできます。
-
-以下のリゾルバは、許可されたローカル ディレクトリからのみリンクされたリソースを読み込みます。ネットワーク リソースおよび許可されたディレクトリ外のパスはブロックされます。解決できない画像リンクにはオプションのフォールバック画像が返されます。
+外部パスまたは URL を `[Picture::setLinkPathLong]((https://reference.aspose.com/slides/ja/php-java/aspose.slides/picture/))` で設定することで、画像データを埋め込まずにリンク画像を作成できます。
 
 ```php
-class LocalSvgResourceResolver extends ExternalResourceResolver
-{
-    private $allowedRoot;
-    private $fallbackImageData;
-
-    public function __construct($allowedRoot, $fallbackImageData)
-    {
-        parent::__construct();
-
-        $Paths = new JavaClass("java.nio.file.Paths");
-        $this->allowedRoot = $Paths->get($allowedRoot)->toAbsolutePath()->normalize();
-        $this->fallbackImageData = $fallbackImageData;
-    }
-
-    public function resolveUri($baseUri, $relativeUri)
-    {
-        if ($baseUri === null || trim(java_values($baseUri)) === "" ||
-            $relativeUri === null || trim(java_values($relativeUri)) === "") {
-            return null;
-        }
-
-        try {
-            $URI = new JavaClass("java.net.URI");
-            $baseAddress = $URI->create($baseUri);
-            $absoluteAddress = $baseAddress->resolve($relativeUri);
-
-            // このリゾルバは意図的にローカルファイルのみを許可します。
-            if (strcasecmp(java_values($absoluteAddress->getScheme()), "file") !== 0) {
-                return null;
-            }
-
-            $Paths = new JavaClass("java.nio.file.Paths");
-            $resourcePath = $Paths->get($absoluteAddress)->toAbsolutePath()->normalize();
-
-            if (!$this->isInsideAllowedRoot($resourcePath)) {
-                return null;
-            }
-
-            return $resourcePath->toUri()->toString();
-        } catch (JavaException $e) {
-            return null;
-        }
-    }
-
-    public function getEntity($absoluteUri)
-    {
-        try {
-            $URI = new JavaClass("java.net.URI");
-            $resourceUri = $URI->create($absoluteUri);
-
-            if (strcasecmp(java_values($resourceUri->getScheme()), "file") !== 0) {
-                return null;
-            }
-
-            $Paths = new JavaClass("java.nio.file.Paths");
-            $resourcePath = $Paths->get($resourceUri)->toAbsolutePath()->normalize();
-
-            if (!$this->isInsideAllowedRoot($resourcePath)) {
-                return null;
-            }
-
-            $Files = new JavaClass("java.nio.file.Files");
-            if (java_values($Files->exists($resourcePath))) {
-                return $Files->newInputStream($resourcePath);
-            }
-
-            // フォールバックは画像リソースに対してのみ使用します。画像ストリームを返す
-            // 欠損したフォントやスタイルシートに対しては無効です。
-            if ($this->fallbackImageData !== null && $this->isImageFile($resourcePath)) {
-                return new Java("java.io.ByteArrayInputStream", $this->fallbackImageData);
-            }
-        } catch (JavaException $e) {
-            return null;
-        }
-
-        return null;
-    }
-
-    private function isInsideAllowedRoot($resourcePath)
-    {
-        return java_values($resourcePath->normalize()->startsWith($this->allowedRoot));
-    }
-
-    private function isImageFile($path)
-    {
-        $fileName = strtolower(java_values($path->getFileName()->toString()));
-
-        return str_ends_with($fileName, ".png") ||
-            str_ends_with($fileName, ".jpg") ||
-            str_ends_with($fileName, ".jpeg") ||
-            str_ends_with($fileName, ".gif") ||
-            str_ends_with($fileName, ".bmp");
-    }
-}
-```
-
-### **SVG インポート時にリンクされたリソースを解決**
-
-`assets/diagram.svg` に次のような相対参照が含まれているとします:
-
-```xml
-<image href="images/photo.png" x="20" y="20" width="320" height="180" />
-```
-
-以下の PHP 例は、SVG ファイル URI をベース URI として渡し、カスタム リゾルバを提供します。リゾルバは相対画像リンクを絶対 URI に変換し、Aspose.Slides が SVG を処理する間にリンクされたリソースを含むストリームを返します。
-
-```php
-$Paths = new JavaClass("java.nio.file.Paths");
-$Files = new JavaClass("java.nio.file.Files");
-$StandardCharsets = new JavaClass("java.nio.charset.StandardCharsets");
-
-$svgFilePath = $Paths->get("assets", "diagram.svg")->toAbsolutePath()->normalize();
-$assetDirectory = $svgFilePath->getParent();
-
-$svgData = $Files->readAllBytes($svgFilePath);
-$svgContent = new Java("java.lang.String", $svgData, $StandardCharsets->UTF_8);
-
-// ベースURIはSVGドキュメントの場所を表します。
-$baseUri = $svgFilePath->toUri()->toString();
-
-$fallbackImageData = null;
-$fallbackImagePath = $assetDirectory->resolve("fallback.png");
-if (java_values($Files->exists($fallbackImagePath))) {
-    $fallbackImageData = $Files->readAllBytes($fallbackImagePath);
-}
-
-$resolver = new LocalSvgResourceResolver(java_values($assetDirectory->toString()), $fallbackImageData);
-$svgImage = new SvgImage($svgContent, $resolver, $baseUri);
-
-// SVG画像オブジェクトはソースコンテンツ、バイナリデータ、ベースURI、リゾルバを公開します。
-$importedContent = $svgImage->getSvgContent();
-$importedData = $svgImage->getSvgData();
-$importedBaseUri = $svgImage->getBaseUri();
-$importedResolver = $svgImage->getExternalResourceResolver();
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
 
 $presentation = new Presentation();
 try {
-    $image = $presentation->getImages()->addImage($svgImage);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 320, 180, null);
+    $pictureFrame->getPictureFormat()->getPicture()->setLinkPathLong("https://example.com/image.png");
 
-    $presentation->getSlides()->get_Item(0)->getShapes()->addPictureFrame(
-        ShapeType::Rectangle,
-        20,
-        20,
-        $image->getWidth(),
-        $image->getHeight(),
-        $image
-    );
-
-    $presentation->save("svg-with-linked-resources.pptx", SaveFormat::Pptx);
+    $presentation->save("linked-image.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-`SvgImage` クラスは、バイト配列または入力ストリームとして SVG データを受け取り、外部リソースリゾルバとベース URI を指定できるオーバーロードも提供します。
+外部リソースに確実にアクセスできる環境でのみリンク画像を使用してください。オフラインで使用する、またはシステム間で移動させる必要があるプレゼンテーションでは、埋め込み画像の方が安全です。
 
-{{% alert title="Important" color="warning" %}}
-リソースリゾルバは、Aspose.Slides が SVG を処理およびレンダリングする間に外部リソースを利用可能にしますが、元の SVG マークアップを変更したり、解決されたリソースを自動的に埋め込んだりはしません。
+## **SVG 画像の取り扱い**
 
-SVG 画像がプレゼンテーションの画像コレクションに追加されると、PPTX ファイルは元の SVG 表現とラスタ ランタイム画像の両方を含むことがあります。リンクされたリソースは生成されたフォールバック画像に現れることがありますが、`images/photo.png` のような相対リンクは保存された SVG 内では変更されません。ネイティブ SVG 表現をレンダリングするアプリケーションは、元の外部リソースが利用できない場合にリンクされたコンテンツを省略する可能性があります。
-{{% /alert %}}
+SVG はベクターフォーマットであるため、アイコンや図表など、ラスター画像と比べて詳細を失わずに拡大縮小できるグラフィックに適しています。Aspose.Slides は SVG を画像リソースとして、また編集可能なスライドシェイプのソースとしてサポートします。
 
-### **ポータブル SVG 画像の作成**
+### **SVG を画像として追加**
 
-外部ファイルに依存しない SVG 画像を作成するには、`SvgImage` を作成する前に SVG を自己完結型にします。たとえば、リンクされた画像 URL を画像データを含む `data:` URI に置き換えます:
-
-```xml
-<image href="data:image/png;base64,..." x="20" y="20" width="320" height="180" />
-```
-
-必要なリソースがすべて SVG コンテンツに埋め込まれたら、`SvgImage` を作成し、プレゼンテーションの画像コレクションに追加し、前の例と同様に画像フレームに挿入します。
-
-### **欠落またはブロックされたリソースの処理**
-
-`resolveUri` でリソース URI が無効、禁止、または解決できない場合は `null` を返します。`getEntity` でリソースを読み取れない場合も `null` を返します。可能な限り、Aspose.Slides はそのリソースなしで SVG の処理を続行します。
-
-欠落したリソースに対してフォールバック ストリームを返すことはできますが、その内容は要求されたリソースの種類と互換性がある必要があります。たとえば、画像が欠落している場合にのみ画像ストリームを返し、フォントやスタイルシートに対しては返さないでください。
-
-{{% alert title="Security" color="warning" %}}
-信頼できない SVG ファイルから任意のファイル パスや無制限のネットワーク URL を解決しないでください。許可されたスキーム、ディレクトリ、ホストを制限します。ネットワーク リソースの場合は、接続タイムアウト、応答サイズ制限、コンテンツ検証も適用してください。
-{{% /alert %}}
-
-## **SVG を一連の形状に変換**
-
-Aspose.Slides は、PowerPoint の対応機能に似た方法で SVG を形状の集合に変換できます:
-
-![PowerPoint ポップアップ メニュー](img_01_01.png)
-
-この機能は、[ShapeCollection](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shapecollection/) クラスの [addGroupShape](https://reference.aspose.com/slides/ja/php-java/aspose.slides/shapecollection/addgroupshape/) メソッドのオーバーロードで提供され、最初の引数として [SvgImage](https://reference.aspose.com/slides/ja/php-java/aspose.slides/svgimage/) オブジェクトを受け取ります。
-
-以下の PHP サンプルコードは、このメソッドを使用して SVG ファイルを形状の集合に変換する方法を示しています:
+`SvgImage` を作成し、画像コレクションに追加し、得られた画像リソースを画像フレームに配置します。
 
 ```php
-// ソースSVGファイル名。
-$svgFileName = "sample.svg";
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\SvgImage;
 
-// 出力プレゼンテーションファイル名。
-$outPptxPath = "presentation.pptx";
-
-// 新しいプレゼンテーションを作成します。
 $presentation = new Presentation();
 try {
-    // SVGファイルの内容を読み取ります。
-    $Array = new JavaClass("java.lang.reflect.Array");
-    $Byte = (new JavaClass("java.lang.Byte"))->TYPE;
-
-    $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", $svgFileName));
-    try {
-        $svgContent = $Array->newInstance($Byte, $dis->available());
-        $dis->readFully($svgContent);
-    } finally {
-        if (!java_is_null($dis)) {
-            $dis->close();
-        }
-    }
-
-    // SvgImageオブジェクトを作成します。
+    $svgContent = file_get_contents("icon.svg");
     $svgImage = new SvgImage($svgContent);
 
-    // スライドのサイズを取得します。
+    $ppImage = $presentation->getImages()->addImage($svgImage);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 20, 20, 200, 200, $ppImage);
+
+    $presentation->save("svg-image.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **外部リソースを持つ SVG ファイル**
+
+SVG は外部画像、スタイルシート、フォントを参照できます。このような場合、`SvgImage` は `ExternalResourceResolver` とベース URI を受け取るコンストラクタを提供します。リゾルバーは相対 URI を許可された絶対 URI にマッピングし、要求されたリソースのストリームを返します。
+
+リゾルバーは SVG 処理中に外部リソースへのアクセスを可能にしますが、SVG を自己完結型ドキュメントに書き換えることはありません。SVG を可搬に保つ必要がある場合は、リンク画像に対して `data:` URI を使用するなどして、必要なリソースを SVG 内に埋め込んでください。
+
+信頼できないソースからの SVG ファイルを処理する場合は、リゾルバーがアクセスできるスキーム、ファイル場所、ホストを制限し、ネットワークリゾルバーにはタイムアウト、レスポンスサイズ上限、コンテンツ検証を適用してください。
+
+### **SVG を編集可能なシェイプに変換**
+
+Aspose.Slides は SVG を編集可能なスライドシェイプのグループに変換できます。これは PowerPoint の対応コマンドと同等です。
+
+![PowerPoint Popup Menu](img_01_01.png)
+
+`ShapeCollection::addGroupShape` のオーバーロードで `SvgImage` を受け取るものを使用して変換を実行します。
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SvgImage;
+
+$presentation = new Presentation();
+try {
+    $svgContent = file_get_contents("diagram.svg");
+    $svgImage = new SvgImage($svgContent);
+
     $slideSize = $presentation->getSlideSize()->getSize();
+    $slide = $presentation->getSlides()->get_Item(0);
+    $slide->getShapes()->addGroupShape($svgImage, 0, 0, $slideSize->getWidth(), $slideSize->getHeight());
 
-    // SVG画像を形状のグループに変換し、スライドサイズに合わせてスケーリングします。
-    $presentation->getSlides()->get_Item(0)->getShapes()->addGroupShape(
-        $svgImage,
-        0.0,
-        0.0,
-        $slideSize->getWidth(),
-        $slideSize->getHeight()
-    );
-
-    // プレゼンテーションをPPTX形式で保存します。
-    $presentation->save($outPptxPath, SaveFormat::Pptx);
-} catch (JavaException $e) {
+    $presentation->save("editable-svg-shapes.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **画像を EMF としてスライドに追加**
+個々のベクター要素を PowerPoint のシェイプとして編集する必要がある場合に SVG→シェイプ変換を使用してください。表示だけが目的であれば、画像として保持した方がシンプルで、多数のシェイプを生成する手間を省けます。
 
-Aspose.Slides for PHP via Java を使用すると、Aspose.Cells で Excel ワークシートから EMF 画像を生成し、プレゼンテーション スライドに追加できます。
+## **既存画像リソースの置換**
 
-以下の PHP サンプルコードは、その方法を示しています:
-
-```php
-$book = new Workbook("chart.xlsx");
-$sheet = $book->getWorksheets()->get(0);
-
-$options = new ImageOrPrintOptions();
-$options->setHorizontalResolution(200);
-$options->setVerticalResolution(200);
-$options->setImageType(ImageType::EMF);
-
-// ワークブックをストリームに保存します。
-$sr = new SheetRender($sheet, $options);
-$pres = new Presentation();
-try {
-    $pres->getSlides()->removeAt(0);
-
-    for ($j = 0; $j < java_values($sr->getPageCount()); $j++) {
-        $emfSheetName = "test" . $sheet->getName() . " Page" . ($j + 1) . ".out.emf";
-        $sr->toImage($j, $emfSheetName);
-
-        // ファイルをそのまま追加するので、画像はラスタライズされずベクトル EMF のままです。
-        $picture = null;
-        $imageStream = new Java("java.io.FileInputStream", $emfSheetName);
-        try {
-            $picture = $pres->getImages()->addImage($imageStream);
-        } finally {
-            $imageStream->close();
-        }
-
-        $slide = $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->getByType(SlideLayoutType::Blank));
-        $slide->getShapes()->addPictureFrame(
-            ShapeType::Rectangle,
-            0,
-            0,
-            $pres->getSlideSize()->getSize()->getWidth(),
-            $pres->getSlideSize()->getSize()->getHeight(),
-            $picture
-        );
-    }
-
-    $pres->save("output.pptx", SaveFormat::Pptx);
-} catch (JavaException $e) {
-} finally {
-    $pres->dispose();
-}
-```
-
-## **画像コレクション内の画像を置換**
-
-Aspose.Slides では、プレゼンテーションの画像コレクションに保存されている画像（スライド形状で使用されている画像を含む）を置換できます。このセクションでは、コレクション内の画像を更新するいくつかの方法を説明します。画像は、生のバイト データ、[IImage](https://reference.aspose.com/slides/ja/php-java/aspose.slides/iimage/) インスタンス、またはコレクション内に既に存在する別の画像を使用して置換できます。
-
-以下の手順に従ってください:
-
-1. [Presentation](https://reference.aspose.com/slides/ja/php-java/aspose.slides/presentation/) クラスを使用して、画像が含まれるプレゼンテーション ファイルをロードします。
-1. ファイルから新しい画像をバイト配列にロードします。
-1. バイト配列を使用して対象画像を新しい画像に置換します。
-1. 2 番目の方法では、画像を [IImage](https://reference.aspose.com/slides/ja/php-java/aspose.slides/iimage/) オブジェクトにロードし、そのオブジェクトで対象画像を置換します。
-1. 3 番目の方法では、プレゼンテーションの画像コレクションに既に存在する画像で対象画像を置換します。
-1. 変更されたプレゼンテーションを PPTX ファイルとして書き出します。
+`PPImage::replaceImage` を使用すると、既存の画像リソースを置き換えることができます。ロゴなどの共有グラフィックを置換する際に特に便利です。
 
 ```php
-// プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します。
-$presentation = new Presentation("sample.pptx");
-try {
-    // 最初の方法。
-    $imagePath = (new Java("java.io.File", "image0.jpeg"))->toPath();
-    $imageData = (new JavaClass("java.nio.file.Files"))->readAllBytes($imagePath);
-    $oldImage = $presentation->getImages()->get_Item(0);
-    $oldImage->replaceImage($imageData);
+use aspose\slides\Images;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
 
-    // 2 番目の方法。
-    $newImage = Images::fromFile("image1.png");
+$presentation = new Presentation("input.pptx");
+try {
+    $imageToReplace = $presentation->getImages()->get_Item(0);
+
+    $replacementImage = Images::fromFile("new-logo.png");
     try {
-        $oldImage = $presentation->getImages()->get_Item(1);
-        $oldImage->replaceImage($newImage);
+        $imageToReplace->replaceImage($replacementImage);
     } finally {
-        if (!java_is_null($newImage)) {
-            $newImage->dispose();
+        if (!java_is_null($replacementImage)) {
+            $replacementImage->dispose();
         }
     }
 
-    // 3 番目の方法。
-    $oldImage = $presentation->getImages()->get_Item(2);
-    $oldImage->replaceImage($presentation->getImages()->get_Item(3));
-
-    // プレゼンテーションをファイルに保存します。
     $presentation->save("output.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-{{% alert title="Info" color="info" %}}
-Aspose の無料 [Text to GIF](https://products.aspose.app/slides/ja/text-to-gif) コンバータを使用すると、テキストを簡単にアニメーション化し、テキストから GIF を作成できます。 
-{{% /alert %}}
+同じ画像リソースを使用している複数の画像フレーム、背景、マスター、レイアウトがある場合、リソースを置換するとそれらすべてが更新されます。1つの画像フレームだけを変更したい場合は、共有リソースを置換せずに別の画像をそのフレームに割り当ててください。
 
-## **よくある質問**
+`PPImage::replaceImage` にはバイト配列や別の `PPImage` を受け取るオーバーロードも用意されています。
 
-**挿入後も元の画像解像度は維持されますか？**
+## **実践的な画像管理ガイドライン**
 
-はい。元のピクセルは保持されますが、最終的な見た目はスライド上で [picture](/slides/ja/php-java/picture-frame/) がどのようにスケーリングされるか、保存時に適用された圧縮に依存します。
+### **プレゼンテーションサイズの制御**
 
-**数十枚のスライドで同じロゴを一括で置換する最適な方法は何ですか？**
+大きなラスター画像はプレゼンテーションを不必要に肥大化させます。表示サイズに見合った解像度の画像を使用し、可能な限り共有画像リソースを再利用し、同一の高解像度画像を埋め込むのは避けてください。
 
-ロゴをマスタースライドまたはレイアウトに配置し、プレゼンテーションの画像コレクションで置換すると、リソースを使用するすべての要素に変更が反映されます。
+すでに画像フレームに配置されたラスター画像については、`PictureFillFormat::compressImage` を使用して選択した解像度とトリミング設定に基づき画像データを圧縮できます。これは画像フレームの処理であり、画像コレクションの管理とは別です。関連する書式設定操作については [Picture Frame](/slides/ja/php-java/picture-frame/) を参照してください。
 
-**挿入された SVG を編集可能な形状に変換できますか？**
+### **埋め込みとリンクコンテンツの選択**
 
-はい。SVG を形状のグループに変換でき、個々のパーツは標準の形状プロパティで編集可能になります。
+埋め込みはすべての画像データがファイルに同梱されるため、プレゼンテーションの可搬性が高まります。リンクはファイルサイズを削減できますが、外部依存が発生します。外部依存が許容でき、かつ安定している場合にのみリンクを使用してください。
 
-**画像を複数のスライドの背景として一括で設定するには？**
+### **共有ブランディングの再利用**
 
-マスタースライドまたは該当レイアウトで画像を背景として割り当てれば、そのマスター/レイアウトを使用するすべてのスライドが背景を継承します。
+ロゴや透かし、装飾グラフィックが多数スライドで使用される場合は、1つの画像リソースを作成して再利用します。スライドコンテンツではなくプレゼンテーションのデザインに属するグラフィックは、マスターまたはレイアウトに配置して適切なスライドに継承させてください。
 
-**画像が多数あるためプレゼンテーションが大きくなりすぎるのを防ぐには？**
+### **SVG リソースの可搬性保持**
 
-画像の重複を避けて単一のリソースを再利用し、適切な解像度を選択し、保存時に圧縮を適用し、必要に応じてマスターにグラフィックを配置してください。
+自己完結型の SVG は外部ファイルやネットワークリソースに依存する SVG よりも移動やレンダーが容易です。可能な限り必要なリソースを埋め込んでから SVG をインポートしてください。個々のベクター要素の編集が必要な場合にのみ、SVG をシェイプに変換します。
+
+### **最新のクロスプラットフォーム画像 API の使用**
+
+新規の PHP via Java コードでは、レガシーの `java.awt.image.BufferedImage` ベースの公開 API ではなく、Aspose.Slides の `IImage` および `Images` API を使用してください。移行手順は [Modern API](/slides/ja/php-java/modern-api/) を参照してください。
+
+WMF および EMF は特別な取り扱いが必要です。これらの形式が `IImage` を通して処理される場合、`ImageCollection::addImage` はメタファイルをラスタ PNG に変換して挿入します。メタファイルデータを保持したい場合は、ストリームベースの `ImageCollection::addImage` オーバーロードを使用してください。スプレッドシート等から EMF コンテンツを生成するフローは別途統合作業が必要であり、本記事の範囲外です。
+
+## **FAQ**
+
+**画像コレクションと画像フレームの違いは何ですか？**
+
+画像コレクションは再利用可能な画像リソースを保存します。画像フレームはそのリソースの一つを表示するスライドシェイプで、切り抜きやエフェクトといった画像固有の書式設定を提供します。
+
+**ロゴを全スライドで同じように置き換えるベストな方法は？**
+
+ロゴがすでに 1 つの画像リソースとして共有されている場合は、`PPImage::replaceImage` でそのリソースを置換します。プレゼンテーション全体のブランディングとしては、ロゴをマスターまたはレイアウトに配置すると、スライドごとの重複を減らせます。
+
+**リンク画像が別のコンピュータで消えるのはなぜですか？**
+
+リンク画像は外部ファイルまたは URL に依存しています。そのリソースに別のコンピュータからアクセスできない場合、リンク画像は表示できなくなります。自己完結型が必要な場合は画像を埋め込んでください。
+
+**挿入した SVG は PowerPoint のシェイプとして編集できますか？**
+
+はい。`ShapeCollection::addGroupShape` を使って SVG を変換すれば、生成されたグループは SVG 画像ではなく編集可能なスライドシェイプを含みます。
+
+**画像が多数あるプレゼンテーションを小さく保つにはどうすればよいですか？**
+
+共有画像リソースを再利用し、不必要に大きなラスターソースを避け、適切な場合は画像圧縮を行い、繰り返し使用するブランディングはマスターやレイアウトに置き、外部依存が許容できる場合にのみリンク画像を使用してください。

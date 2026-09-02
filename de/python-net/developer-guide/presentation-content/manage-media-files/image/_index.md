@@ -1,252 +1,256 @@
 ---
-title: Bildverwaltung in PowerPoint mit Python optimieren
+title: Optimieren der Bildverwaltung in Präsentationen mit Python
 linktitle: Bilder verwalten
 type: docs
 weight: 10
 url: /de/python-net/image/
 keywords:
 - Bild hinzufügen
-- Bild hinzufügen
-- Bitmap hinzufügen
+- Bild einfügen
 - Bild ersetzen
-- Bild ersetzen
-- aus dem Web
+- Bildsammlung
+- Bildrahmen
+- Verknüpftes Bild
 - Hintergrund
 - PNG hinzufügen
 - JPG hinzufügen
 - SVG hinzufügen
-- EMF hinzufügen
-- WMF hinzufügen
-- TIFF hinzufügen
+- SVG zu Formen
+- externe SVG-Ressourcen
 - PowerPoint
 - OpenDocument
 - Präsentation
 - Python
 - Aspose.Slides
-description: "Vereinfachen Sie die Bildverwaltung in PowerPoint und OpenDocument mit Aspose.Slides für Python über .NET, optimieren Sie die Leistung und automatisieren Sie Ihren Arbeitsablauf."
+description: "Erfahren Sie, wie Sie Raster- und SVG-Bilder in PowerPoint- und OpenDocument-Präsentationen mit Aspose.Slides für Python über .NET hinzufügen, wiederverwenden, verlinken, ersetzen und verwalten."
 ---
 ## **Einleitung**
 
-Bilder machen Präsentationen ansprechender und interessanter. In Microsoft PowerPoint können Sie Bilder aus einer Datei, dem Internet oder anderen Quellen in Folien einfügen. Ähnlich ermöglicht Aspose.Slides das Hinzufügen von Bildern zu Folien auf verschiedene Arten.
+Aspose.Slides für Python über .NET bietet mehrere Möglichkeiten, mit Bildern zu arbeiten, und jede dient einem anderen Zweck. Sie können ein Bild in einer Präsentation speichern, es in einem Bildrahmen anzeigen, als Folienhintergrund verwenden, zu einem externen Bild verlinken, eine gemeinsam genutzte Bildressource ersetzen oder SVG‑Inhalte in editierbare Formen konvertieren.
 
-{{% alert  title="Tipp" color="primary" %}}
-Aspose bietet kostenlose Konverter—[JPEG zu PowerPoint](https://products.aspose.app/slides/de/import/jpg-to-ppt) und [PNG zu PowerPoint](https://products.aspose.app/slides/de/import/png-to-ppt)—die es Ihnen ermöglichen, schnell Präsentationen aus Bildern zu erstellen.
-{{% /alert %}}
+Dieser Artikel konzentriert sich auf Bildressourcen und deren Verwendung in einer Präsentation. Informationen zu Zuschneiden, Transparenz, Effekten, Dehnung und anderen Formatierungen, die auf einen einzelnen Bildrahmen angewendet werden, finden Sie unter [Bildrahmen](/slides/de/python-net/picture-frame/).
 
-{{% alert title="Info" color="info" %}}
-Wenn Sie ein Bild als Rahmenobjekt hinzufügen möchten – insbesondere, wenn Sie planen, Standardformatierungsoptionen wie Größenänderung oder das Anwenden von Effekten zu verwenden – siehe [Bilderrahmen zu Präsentationen mit Python hinzufügen](https://docs.aspose.com/slides/de/python-net/picture-frame/).
-{{% /alert %}}
+## **Verstehen des Bildmodells**
 
-{{% alert title="Hinweis" color="warning" %}}
-Sie können Bild‑ und Präsentations‑I/O‑Operationen nutzen, um Bilder zwischen Formaten zu konvertieren. Siehe diese Seiten: konvertieren [Bild zu JPG](https://products.aspose.com/slides/de/python-net/conversion/image-to-jpg/); konvertieren [JPG zu Bild](https://products.aspose.com/slides/de/python-net/conversion/jpg-to-image/); konvertieren [JPG zu PNG](https://products.aspose.com/slides/de/python-net/conversion/jpg-to-png/); konvertieren [PNG zu JPG](https://products.aspose.com/slides/de/python-net/conversion/png-to-jpg/); konvertieren [PNG zu SVG](https://products.aspose.com/slides/de/python-net/conversion/png-to-svg/); und konvertieren [SVG zu PNG](https://products.aspose.com/slides/de/python-net/conversion/svg-to-png/).
-{{% /alert %}}
+Die folgenden API‑Konzepte stehen in engem Zusammenhang, sind jedoch nicht austauschbar:
 
-Aspose.Slides unterstützt die Arbeit mit Bildern in gängigen Formaten wie JPEG, PNG, BMP, GIF und anderen.
+- Die [Bildsammlung der Präsentation](https://reference.aspose.com/slides/de/python-net/aspose.slides/imagecollection/) speichert Bildressourcen, die von der Präsentation verwendet werden. Verwenden Sie [ImageCollection.add_image](https://reference.aspose.com/slides/de/python-net/aspose.slides/imagecollection/add_image/), um Bilddaten hinzuzufügen und eine [IPPImage](https://reference.aspose.com/slides/de/python-net/aspose.slides/ippimage/)-Ressource zu erhalten.
+- Ein [Bildrahmen](https://reference.aspose.com/slides/de/python-net/aspose.slides/ipictureframe/) ist eine Form, die ein Bild auf einer Folie, einem Layout oder einer Masterfolie anzeigt. Verwenden Sie [ShapeCollection.add_picture_frame](https://reference.aspose.com/slides/de/python-net/aspose.slides/shapecollection/add_picture_frame/), um eine Bildressource auf einer Folie zu platzieren.
+- Ein Folienhintergrund verwendet ein Bild als Teil der Folienfüllung und nicht als Form. Er verhält sich daher nicht wie ein Bildrahmen.
+- [IPPImage.replace_image](https://reference.aspose.com/slides/de/python-net/aspose.slides/ippimage/replace_image/) ersetzt eine Bildressource. Wenn mehrere Präsentationselemente diese Ressource verwenden, verwenden sie alle die Ersetzung.
+- Das Konvertieren eines SVG in Formen erzeugt editierbare Folienformen. Nach der Konvertierung wird der Inhalt nicht mehr als ein einzelnes Bildressourcen‑Objekt verwaltet.
 
-## **Bilder lokal zu Folien hinzufügen**
+Ein typischer Arbeitsablauf lautet daher: Bilddaten zur Bildsammlung hinzufügen, ein [IPPImage](https://reference.aspose.com/slides/de/python-net/aspose.slides/ippimage/) erhalten und diese Ressource anschließend in einem oder mehreren Bildrahmen oder Füllungen verwenden.
 
-Sie können ein oder mehrere Bilder von Ihrem Computer zu einer Folie in einer Präsentation hinzufügen. Das folgende Python‑Beispiel zeigt, wie man ein Bild zu einer Folie hinzufügt:
+## **Ein eingebettetes Bild hinzufügen**
 
-```py
+Um ein lokales Bild einzufügen, lesen Sie die Datei, fügen Sie deren Daten zur Bildsammlung hinzu und erstellen Sie einen Bildrahmen, der das zurückgegebene `IPPImage` verwendet.
+
+```python
 import aspose.slides as slides
 
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-        slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
-
-    presentation.save("presentation_with_image.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Bilder aus dem Web zu Folien hinzufügen**
-
-Wenn das Bild, das Sie zu einer Folie hinzufügen möchten, nicht auf Ihrem Computer verfügbar ist, können Sie es direkt aus dem Web einfügen.
-
-Das folgende Python‑Beispiel zeigt, wie man ein Bild von einer URL zu einer Folie hinzufügt:
-
-```py
-import aspose.slides as slides
-from urllib.request import urlopen
+with open("photo.png", "rb") as image_stream:
+    image_data = image_stream.read()
 
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-
-    # Rohbildbytes herunterladen.
-    with urlopen("[REPLACE WITH URL]") as response:
-        image_data = response.read()
-
     image = presentation.images.add_image(image_data)
-    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
+    slide = presentation.slides[0]
+    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 20, 20, 320, 180, image)
 
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Bilder zu Folienmaster hinzufügen**
+Das auf diese Weise hinzugefügte Bild ist in der Präsentation eingebettet, sodass die resultierende Datei nicht von der Verfügbarkeit der ursprünglichen Bilddatei abhängt.
 
-Ein Folienmaster ist die übergeordnete Folie, die Informationen – Thema, Layout usw. – für alle darunter liegenden Folien speichert und steuert. Wenn Sie ein Bild zu einem Folienmaster hinzufügen, erscheint dieses Bild auf jeder Folie, die diesen Master verwendet.
+### **Ein Bild aus dem Web hinzufügen**
 
-Das folgende Python‑Beispiel zeigt, wie man ein Bild zu einem Folienmaster hinzufügt:
+Wenn ein Bild über HTTP oder HTTPS verfügbar ist, laden Sie dessen Bytes herunter, fügen Sie sie zur Bildsammlung der Präsentation hinzu und verwenden Sie die zurückgegebene Bildressource wie ein lokales Bild.
 
-```py
+```python
+from urllib.request import urlopen
+
+import aspose.slides as slides
+
+image_url = "https://example.com/image.png"
+with urlopen(image_url) as response:
+    image_data = response.read()
+
+with slides.Presentation() as presentation:
+    image = presentation.images.add_image(image_data)
+    slide = presentation.slides[0]
+    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 20, 20, 320, 180, image)
+
+    presentation.save("presentation-from-web.pptx", slides.export.SaveFormat.PPTX)
+```
+
+In langlaufenden Anwendungen sollten Sie einen HTTP‑Client oder einen Verbindungs‑Pool wiederverwenden, anstatt für jede Anforderung eine neue Verbindung zu erstellen. Validieren Sie außerdem entfernte URLs, Antwortgrößen und Inhaltstypen, wenn die Quelle nicht vertrauenswürdig ist.
+
+## **Bilder über Folien hinweg wiederverwenden**
+
+Wenn dasselbe Bild mehrmals benötigt wird, fügen Sie es einmal zur Präsentation hinzu und verwenden das zurückgegebene [IPPImage](https://reference.aspose.com/slides/de/python-net/aspose.slides/ippimage/) beim Erstellen weiterer Bildrahmen. Dadurch wird das wiederholte Laden derselben Quelldaten vermieden und die Beziehung zwischen der gemeinsamen Bildressource und ihren Verwendungen wird explizit.
+
+Für Grafiken, die automatisch auf vielen Folien erscheinen sollen, z. B. ein Firmenlogo, sollten Sie den Bildrahmen auf einem [Folienmaster](/slides/de/python-net/slide-master/) oder Layout platzieren, anstatt die entsprechende Form zu jeder Folie hinzuzufügen.
+
+## **Ein Bild als Folienhintergrund verwenden**
+
+Ein Hintergrundbild wird der Folienfüllung zugewiesen; es wird nicht als Bildrahmen‑Form hinzugefügt. Dies ist nützlich, wenn das Bild den gesamten Folienhintergrund abdecken und nicht wie ein normales Folienobjekt manipuliert werden soll.
+
+```python
+import aspose.slides as slides
+
+with open("background.jpg", "rb") as image_stream:
+    image_data = image_stream.read()
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    image = presentation.images.add_image(image_data)
+    slide.background.type = slides.BackgroundType.OWN_BACKGROUND
+    slide.background.fill_format.fill_type = slides.FillType.PICTURE
+    slide.background.fill_format.picture_fill_format.picture_fill_mode = slides.PictureFillMode.STRETCH
+    slide.background.fill_format.picture_fill_format.picture.image = image
+
+    presentation.save("background-image.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Weitere Hintergrundoptionen, einschließlich Master‑ und Layout‑Hintergründen, finden Sie unter [Präsentationshintergrund](/slides/de/python-net/presentation-background/).
+
+## **Eingebettete und verknüpfte Bilder**
+
+Eingebettete und verknüpfte Bilder haben unterschiedliche Portabilitäts‑ und Dateigrößen‑Abwägungen:
+
+- **Eingebettetes Bild:** Die Bilddaten werden innerhalb der Präsentation gespeichert. Die Präsentation ist eigenständig, aber die Dateigröße beinhaltet die Bilddaten.
+- **Verknüpftes Bild:** Die Präsentation speichert einen Pfad oder eine URL zu einem externen Bild. Dadurch kann die Präsentationsgröße reduziert werden, jedoch muss die externe Ressource beim Öffnen oder Rendern der Präsentation erreichbar sein.
+
+Ein verknüpftes Bild kann erstellt werden, indem der externe Pfad oder die URL über [ISlidesPicture.link_path_long](https://reference.aspose.com/slides/de/python-net/aspose.slides/islidespicture/link_path_long/) zugewiesen wird, anstatt die Bilddaten einzubetten.
+
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+    picture_frame = slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 20, 20, 320, 180, None)
+    picture_frame.picture_format.picture.link_path_long = "https://example.com/image.png"
 
-    master_slide = slide.layout_slide.master_slide
-
-    with open("image.jpeg", "rb") as image_stream:
-        image = presentation.images.add_image(image_stream)
-        master_slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
-
-    presentation.save("master_with_image.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("linked-image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Bilder als Folienhintergründe hinzufügen**
+Verwenden Sie verknüpfte Bilder nur, wenn die Bereitstellungsumgebung zuverlässig auf die externe Ressource zugreifen kann. Für Präsentationen, die offline funktionieren oder zwischen Systemen verschoben werden müssen, sind eingebettete Bilder in der Regel sicherer.
 
-Sie können ein Bild als Hintergrund für eine oder mehrere Folien verwenden. Weitere Details siehe *[Bilder als Hintergründe für Folien festlegen](/slides/de/python-net/presentation-background/#setting-images-as-background-for-slides)*.
+## **Arbeiten mit SVG-Bildern**
 
-## **SVG zu Präsentationen hinzufügen**
+SVG ist ein Vektorformat und eignet sich daher für Symbole, Diagramme und andere Grafiken, die ohne Detailverlust skalieren sollen. Aspose.Slides unterstützt SVG sowohl als Bildressource als auch als Quelle für editierbare Folienformen.
 
-SVG‑Inhalte können einer Präsentation mit der Klasse [SvgImage](https://reference.aspose.com/slides/de/python-net/aspose.slides/svgimage/) hinzugefügt werden. Das resultierende SVG‑Bild kann dann zur Bildsammlung der Präsentation hinzugefügt und zur Erstellung eines Bildrahmens verwendet werden.
+### **Ein SVG als Bild hinzufügen**
 
-Das folgende Python‑Beispiel importiert einen eigenständigen SVG‑String. Alle von diesem SVG verwendeten Bilder, Stile und anderen Ressourcen sind direkt im SVG‑Inhalt eingebettet.
+Erstellen Sie ein [SvgImage](https://reference.aspose.com/slides/de/python-net/aspose.slides/svgimage/), fügen Sie es zur Bildsammlung hinzu und platzieren Sie die resultierende Bildressource in einem Bildrahmen.
 
-```py
+```python
 import aspose.slides as slides
 
-svg_content = """
-<svg xmlns='http://www.w3.org/2000/svg' width='320' height='180'>
-    <rect width='320' height='180' fill='#4F81BD'/>
-    <circle cx='160' cy='90' r='55' fill='#F2F2F2'/>
-</svg>
-"""
+with open("icon.svg", "r", encoding="utf-8") as svg_stream:
+    svg_content = svg_stream.read()
+
+svg_image = slides.SvgImage(svg_content)
 
 with slides.Presentation() as presentation:
-    svg_image = slides.SvgImage(svg_content)
     image = presentation.images.add_image(svg_image)
-
-    presentation.slides[0].shapes.add_picture_frame(
-        slides.ShapeType.RECTANGLE, 20, 20, image.width, image.height, image
-    )
-
-    presentation.save("self-contained-svg.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **SVG in eine Menge von Formen konvertieren**
-
-Aspose.Slides konvertiert SVGs in eine Menge von Formen, ähnlich wie PowerPoint mit SVGs umgeht.
-
-![PowerPoint‑Popup‑Menü](img_01_01.png)
-
-Diese Funktionalität wird durch eine Überladung der Methode [add_group_shape](https://reference.aspose.com/slides/de/python-net/aspose.slides/shapecollection/add_group_shape/) in der Klasse [ShapeCollection](https://reference.aspose.com/slides/de/python-net/aspose.slides/shapecollection/) bereitgestellt, die ein [SvgImage](https://reference.aspose.com/slides/de/python-net/aspose.slides/svgimage/) als erstes Argument übernimmt. 
-
-Der Beispielcode unten zeigt, wie man eine SVG‑Datei in eine Menge von Formen konvertiert.
-
-```py 
-import aspose.slides as slides
-
-with slides.Presentation() as presentation:
-    # SVG-Dateiinhalt lesen.
-    with open("sample.svg","rt") as image_stream:
-        svg_content = image_stream.read()
-        # SvgImage-Objekt erstellen.
-        svg_image = slides.SvgImage(svg_content)
-
-        # Foliengröße ermitteln.
-        slide_size = presentation.slide_size.size
-
-        # SVG-Bild in eine Gruppe von Formen konvertieren und auf die Foliengröße skalieren.
-        presentation.slides[0].shapes.add_group_shape(svg_image, 0, 0, slide_size.width, slide_size.height)
-
-        # Präsentation im PPTX-Format speichern.
-        presentation.save("shapes_from_SVG.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Bilder als EMF zu Folien hinzufügen**
-
-Aspose.Slides für Python ermöglicht das Einfügen von Enhanced Metafile (EMF)-Bildern in Präsentationen.
-
-Das folgende Python‑Beispiel demonstriert dies:
-
-```py 
-import aspose.slides as slides
-
-with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    with open("image.emf", "rb") as image_stream:
-        emf_image = presentation.images.add_image(image_stream)
-        slide_size = presentation.slide_size.size
-        slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 0, 0, slide_size.width, slide_size.height, emf_image)
-    
-    presentation.save("presentation_with_EMF.pptx", slides.export.SaveFormat.PPTX)
+    slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 20, 20, 200, 200, image)
+
+    presentation.save("svg-image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Bilder in der Bildsammlung ersetzen**
+### **SVG in editierbare Formen konvertieren**
 
-Aspose.Slides ermöglicht das Ersetzen von Bildern, die in der Bildsammlung einer Präsentation gespeichert sind, einschließlich derjenigen, die von Folienformen verwendet werden. Dieser Abschnitt beschreibt mehrere Ansätze zum Aktualisieren von Bildern in der Sammlung. Die API stellt einfache Methoden zum Ersetzen eines Bildes durch rohe Byte‑Daten, eine [IImage](https://reference.aspose.com/slides/de/python-net/aspose.slides/iimage/)‑Instanz oder ein anderes bereits in der Sammlung vorhandenes Bild bereit.
+Aspose.Slides kann ein SVG in eine Gruppe editierbarer Folienformen konvertieren, ähnlich dem entsprechenden PowerPoint‑Befehl.
 
-Folgen Sie diesen Schritten:
+![PowerPoint Popup Menu](img_01_01.png)
 
-1. Laden Sie die Präsentation, die die Bilder enthält, mit der Klasse [Presentation](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/).
-1. Laden Sie ein neues Bild aus einer Datei in ein Byte‑Array.
-1. Ersetzen Sie das Zielbild durch das neue Bild unter Verwendung des Byte‑Arrays.
-1. Alternativ laden Sie das Bild in ein [IImage](https://reference.aspose.com/slides/de/python-net/aspose.slides/iimage/)‑Objekt und ersetzen das Zielbild durch dieses Objekt.
-1. Oder ersetzen Sie das Zielbild durch ein Bild, das bereits in der Bildsammlung der Präsentation vorhanden ist.
-1. Speichern Sie die geänderte Präsentation als PPTX‑Datei.
+Verwenden Sie die [ShapeCollection.add_group_shape](https://reference.aspose.com/slides/de/python-net/aspose.slides/shapecollection/add_group_shape/)-Überladung, die ein [ISvgImage](https://reference.aspose.com/slides/de/python-net/aspose.slides/isvgimage/) akzeptiert, um die Konvertierung durchzuführen.
 
-```py
+```python
 import aspose.slides as slides
 
-def read_all_bytes(file_name):
-    with open(file_name, "rb") as stream:
-        return stream.read()
+with open("diagram.svg", "r", encoding="utf-8") as svg_stream:
+    svg_content = svg_stream.read()
 
+svg_image = slides.SvgImage(svg_content)
 
-# Instanziieren der Presentation-Klasse, die eine Präsentationsdatei darstellt.
-with slides.Presentation("sample.pptx") as presentation:
+with slides.Presentation() as presentation:
+    slide_size = presentation.slide_size.size
+    slide = presentation.slides[0]
+    slide.shapes.add_group_shape(svg_image, 0, 0, slide_size.width, slide_size.height)
 
-    # Der erste Weg.
-    image_data = read_all_bytes("image0.jpeg")
-    old_image = presentation.images[0]
-    old_image.replace_image(image_data)
+    presentation.save("editable-svg-shapes.pptx", slides.export.SaveFormat.PPTX)
+```
 
-    # Der zweite Weg.
-    new_image = slides.Images.from_file("image1.jpeg")
-    old_image = presentation.images[1]
-    old_image.replace_image(new_image)
+Setzen Sie die SVG‑zu‑Formen‑Konvertierung ein, wenn einzelne Vektorelemente als PowerPoint‑Formen bearbeitet werden müssen. Wenn das SVG nur angezeigt werden soll, ist das Beibehalten als Bild einfacher und vermeidet das Erzeugen vieler separater Formen.
 
-    # Der dritte Weg.
-    old_image = presentation.images[2]
-    old_image.replace_image(presentation.images[3])
+## **Eine vorhandene Bildressource ersetzen**
 
-    # Die Präsentation in einer Datei speichern.
+Verwenden Sie [IPPImage.replace_image](https://reference.aspose.com/slides/de/python-net/aspose.slides/ippimage/replace_image/), wenn Sie eine vorhandene Bildressource ersetzen möchten. Dies ist besonders nützlich für gemeinsam genutzte Grafiken wie Logos.
+
+```python
+import aspose.slides as slides
+
+with open("new-logo.png", "rb") as image_stream:
+    image_data = image_stream.read()
+
+with slides.Presentation("input.pptx") as presentation:
+    image_to_replace = presentation.images[0]
+    image_to_replace.replace_image(image_data)
+
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="Info" color="info" %}}
-Mit Asposes kostenlosem [Text‑zu‑GIF](https://products.aspose.app/slides/de/text-to-gif)‑Konverter können Sie Text einfach animieren und GIFs aus Text erstellen.
-{{% /alert %}}
+Wenn mehrere Bildrahmen, Hintergründe, Master‑Folien oder Layouts dieselbe Bildressource verwenden, aktualisiert das Ersetzen dieser Ressource alle Verwendungen. Soll nur ein Bildrahmen geändert werden, weisen Sie diesem Rahmen ein anderes Bild zu, anstatt die gemeinsam genutzte Ressource zu ersetzen.
+
+`replace_image` bietet außerdem Überladungen, die ein [IImage](https://reference.aspose.com/slides/de/python-net/aspose.slides/iimage/) oder ein weiteres [IPPImage](https://reference.aspose.com/slides/de/python-net/aspose.slides/ippimage/) akzeptieren.
+
+## **Praktische Anleitung zur Bildverwaltung**
+
+### **Präsentationsgröße kontrollieren**
+
+Große Rasterbilder können eine Präsentation unnötig groß machen. Verwenden Sie Quellbilder mit Abmessungen, die für die beabsichtigte Anzeigegröße geeignet sind, nutzen Sie gemeinsam genutzte Bildressourcen nach Möglichkeit wieder und vermeiden Sie das Einbetten mehrfach vorkommender Voll‑Auflösung‑Grafiken.
+
+Für Rasterbilder, die bereits in Bildrahmen platziert wurden, kann [PictureFillFormat.compress_image](https://reference.aspose.com/slides/de/python-net/aspose.slides/picturefillformat/compress_image/) Bilddaten gemäß der eingestellten Auflösung und den Zuschneide‑Einstellungen reduzieren. Dies ist eine Bildrahmen‑Verarbeitung und keine Verwaltung der Bildsammlung, siehe daher [Bildrahmen](/slides/de/python-net/picture-frame/) für zugehörige Formatierungs‑Operationen.
+
+### **Auswahl zwischen eingebetteten und verknüpften Inhalten**
+
+Einbetten macht die Präsentation portabel, weil alle benötigten Bilddaten mit der Datei transportiert werden. Verknüpfen kann die Dateigröße reduzieren, führt jedoch zu einer externen Abhängigkeit. Verwenden Sie Verknüpfungen nur, wenn diese Abhängigkeit akzeptabel und stabil ist.
+
+### **Gemeinsame Marken wiederverwenden**
+
+Für wiederholte Logos, Wasserzeichen oder dekorative Grafiken verwenden Sie eine Bildressource und nutzen Sie diese mehrfach. Wenn die Grafik zum Design der Präsentation und nicht zum Folieninhalt gehört, platzieren Sie sie auf einem Master oder Layout, sodass sie von den entsprechenden Folien geerbt wird.
+
+### **SVG-Ressourcen portabel halten**
+
+Ein eigenständiges SVG lässt sich leichter verschieben und konsistent rendern als ein SVG, das von externen Dateien oder Netzwerk‑Ressourcen abhängt. Wenn möglich, betten Sie benötigte Ressourcen ein, bevor Sie das SVG importieren. Konvertieren Sie SVG zu Formen nur, wenn die einzelnen Vektorelemente bearbeitet werden müssen.
+
+### **Verwenden Sie die moderne plattformübergreifende Bild‑API**
+
+Für neuen Python‑via‑.NET‑Code verwenden Sie die Aspose.Slides [IImage](https://reference.aspose.com/slides/de/python-net/aspose.slides/iimage/) und [Images](https://reference.aspose.com/slides/de/python-net/aspose.slides/images/) APIs anstelle der veralteten `aspose.pydrawing.Image`‑ oder `aspose.pydrawing.Bitmap`‑Bild‑APIs. Siehe [Modern API](/slides/de/python-net/modern-api/) für Migrations‑Hinweise.
+
+WMF‑ und EMF‑Formate benötigen besondere Beachtung. Wenn diese Formate über ein [IImage](https://reference.aspose.com/slides/de/python-net/aspose.slides/iimage/) übergeben werden, konvertiert [ImageCollection.add_image](https://reference.aspose.com/slides/de/python-net/aspose.slides/imagecollection/add_image/) die Metadatei vor dem Einfügen in eine Raster‑PNG‑Darstellung. Wenn das Beibehalten der Metadatei wichtig ist, verwenden Sie stattdessen die Stream‑basierte [ImageCollection.add_image](https://reference.aspose.com/slides/de/python-net/aspose.slides/imagecollection/add_image/)‑Überladung. Das Erzeugen von EMF‑Inhalten aus Tabellenkalkulationen oder anderen Produkten ist ein separater Integrations‑Workflow und fällt nicht in den Umfang dieses Artikels.
 
 ## **FAQ**
 
-**Bleibt die ursprüngliche Bildauflösung nach dem Einfügen erhalten?**
+**Was ist der Unterschied zwischen der Bildsammlung und einem Bildrahmen?**
 
-Ja. Die ursprünglichen Pixel werden beibehalten, jedoch hängt das endgültige Erscheinungsbild davon ab, wie das [Bild](/slides/de/python-net/picture-frame/) auf der Folie skaliert wird und welche Kompression beim Speichern angewendet wird.
+Die Bildsammlung speichert wiederverwendbare Bildressourcen. Ein Bildrahmen ist eine Folienform, die eine dieser Ressourcen anzeigt und bildspezifische Formatierungen wie Zuschneiden und Effekte bereitstellt.
 
-**Was ist der beste Weg, dasselbe Logo gleichzeitig auf Dutzenden von Folien zu ersetzen?**
+**Was ist der beste Weg, dasselbe Logo überall zu ersetzen?**
 
-Platzieren Sie das Logo auf dem Master‑Slide oder einem Layout und ersetzen Sie es in der Bildsammlung der Präsentation – die Änderungen werden auf alle Elemente, die diese Ressource verwenden, übertragen.
+Wenn das Logo bereits als eine gemeinsame Bildressource vorliegt, ersetzen Sie diese Ressource mit [IPPImage.replace_image](https://reference.aspose.com/slides/de/python-net/aspose.slides/ippimage/replace_image/). Für eine präsentationsweite Markenführung kann das Platzieren des Logos auf einem Master oder Layout ebenfalls duplizierten Folieninhalt reduzieren.
 
-**Kann ein eingefügtes SVG in bearbeitbare Formen konvertiert werden?**
+**Warum verschwindet ein verknüpftes Bild auf einem anderen Computer?**
 
-Ja. Sie können ein SVG in eine Gruppe von Formen konvertieren, wonach einzelne Teile mit den üblichen Formeigenschaften bearbeitbar werden.
+Ein verknüpftes Bild hängt von seiner externen Datei oder URL ab. Wenn diese Ressource vom anderen Computer aus nicht erreichbar ist, ist das verknüpfte Bild nicht verfügbar. Betten Sie das Bild ein, wenn die Präsentation eigenständig sein muss.
 
-**Wie kann ich ein Bild gleichzeitig als Hintergrund für mehrere Folien festlegen?**
+**Kann ein eingefügtes SVG als PowerPoint‑Formen bearbeitet werden?**
 
-[Weisen Sie das Bild als Hintergrund zu](/slides/de/python-net/presentation-background/) auf dem Master‑Slide oder dem entsprechenden Layout – alle Folien, die diesen Master/Layout verwenden, übernehmen den Hintergrund.
+Ja. Konvertieren Sie das SVG mit [ShapeCollection.add_group_shape](https://reference.aspose.com/slides/de/python-net/aspose.slides/shapecollection/add_group_shape/); die resultierende Gruppe enthält editierbare Folienformen anstelle eines einzelnen SVG‑Bildes.
 
-**Wie verhindere ich, dass eine Präsentation durch viele Bilder zu groß wird?**
+**Wie kann ich Präsentationen mit vielen Bildern klein halten?**
 
-Verwenden Sie eine einzelne Bildressource mehrfach statt Duplikaten, wählen Sie vernünftige Auflösungen, wenden Sie beim Speichern Kompression an und behalten Sie wiederholte Grafiken nach Möglichkeit im Master.
+Wiederverwenden Sie gemeinsam genutzte Bildressourcen, vermeiden Sie unnötig große Rasterquellen, komprimieren Sie geeignete Rasterbilder bei Bedarf, platzieren Sie wiederholte Marken auf Mastern oder Layouts und verwenden Sie verknüpfte Bilder nur, wenn eine externe Abhängigkeit akzeptabel ist.

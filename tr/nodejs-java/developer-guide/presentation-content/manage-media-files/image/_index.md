@@ -1,560 +1,339 @@
 ---
-title: JavaScript Kullanarak Sunumlardaki Görüntü Yönetimini Optimize Etme
+title: Sunumlarda Görüntü Yönetimini JavaScript Kullanarak Optimize Etme
 linktitle: Görüntüleri Yönet
 type: docs
 weight: 10
 url: /tr/nodejs-java/image/
 keywords:
-- görüntü ekle
+- görsel ekle
 - resim ekle
-- bit eşlem ekle
-- görüntüyü değiştir
-- resmi değiştir
-- web’den
-- arkaplan
+- görsel değiştir
+- görsel koleksiyonu
+- resim çerçevesi
+- bağlantılı görsel
+- arka plan
 - PNG ekle
 - JPG ekle
 - SVG ekle
+- SVG'den şekillere
 - harici SVG kaynakları
-- SVG çözücü
-- bağlantılı SVG görüntüleri
-- SVG yazı tipleri
-- EMF ekle
-- WMF ekle
-- TIFF ekle
 - PowerPoint
 - OpenDocument
 - sunum
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js via Java ile PowerPoint ve OpenDocument'te görüntü yönetimini kolaylaştırın, performansı optimize edin ve iş akışınızı otomatikleştirin."
+description: "Aspose.Slides for Node.js via Java ile PowerPoint ve OpenDocument sunumlarında raster ve SVG görselleri eklemeyi, yeniden kullanmayı, bağlamayı, değiştirmeyi ve yönetmeyi öğrenin."
 ---
 ## **Giriş**
 
-Görseller sunumları daha ilgi çekici ve görsel olarak cazip kılar. Microsoft PowerPoint'te, dosyalardan, internetten veya diğer kaynaklardan slaytlara resimler ekleyebilirsiniz. Benzer şekilde, Aspose.Slides de sunum slaytlarına birkaç yolla resim eklemenizi sağlar.
+Aspose.Slides for Node.js via Java, görüntülerle çalışmak için çeşitli yollar sunar ve her biri farklı bir amaca hizmet eder. Bir görüntüyü bir sunum içinde depolayabilir, bir resim çerçevesinde görüntüleyebilir, bir slayt arka planı olarak kullanabilir, harici bir görüntüye bağlayabilir, paylaşılan bir görüntü kaynağını değiştirebilir veya SVG içeriğini düzenlenebilir şekillere dönüştürebilirsiniz.
 
-{{% alert  title="İpucu" color="primary" %}} 
+Bu makale görüntü kaynaklarına ve bunların bir sunum içinde nasıl kullanıldığına odaklanır. Tek bir resim çerçevesine uygulanan kırpma, şeffaflık, efektler, uzatma ve diğer biçimlendirme için, bakınız [Resim Çerçevesi](/slides/tr/nodejs-java/picture-frame/).
 
-Aspose, görüntülerden hızlı bir şekilde sunum oluşturmanızı sağlayan ücretsiz dönüştürücüler—[JPEG'den PowerPoint'e](https://products.aspose.app/slides/tr/import/jpg-to-ppt) ve [PNG'den PowerPoint'e](https://products.aspose.app/slides/tr/import/png-to-ppt)—sunmaktadır. 
+## **Görüntü Modelini Anlamak**
 
-{{% /alert %}} 
+Aşağıdaki API kavramları birbirleriyle yakından ilişkili ancak değiştirilebilir değildir:
 
-{{% alert title="Bilgi" color="info" %}}
+- [Sunum görüntü koleksiyonu](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/imagecollection/) sunumda kullanılan görüntü kaynaklarını saklar. Görüntü verisini eklemek ve bir [PPImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ppimage/) kaynağı elde etmek için [ImageCollection.addImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/imagecollection/) kullanın.
+- Bir [resim çerçevesi](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pictureframe/) bir slayt, düzen veya ana üzerinde bir görüntüyü gösteren bir şekildir. Bir görüntü kaynağını slayta yerleştirmek için [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shapecollection/) kullanın.
+- Bir slayt arka planı, bir şekil yerine slayt doldurmasının bir parçası olarak görüntü kullanır. Bu nedenle bir resim çerçevesi gibi davranmaz.
+- [PPImage.replaceImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ppimage/) bir görüntü kaynağını değiştirir. Birden fazla sunum öğesi bu kaynağı kullanıyorsa, hepsi değiştirilen versiyonu kullanır.
+- Bir SVG'yi şekillere dönüştürmek, düzenlenebilir slayt şekilleri oluşturur. Dönüştürmeden sonra içerik artık tek bir resim kaynağı olarak yönetilmez.
 
-Bir resmi resim çerçevesi olarak eklemek isterseniz—özellikle yeniden boyutlandırma, efekt uygulama veya diğer standart biçimlendirme seçeneklerini kullanmayı planlıyorsanız—[Resim Çerçevesi](/slides/tr/nodejs-java/picture-frame/) bölümüne bakın. 
+Bu nedenle tipik bir iş akışı şudur: görüntü verisini görüntü koleksiyonuna ekleyin, bir [PPImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ppimage/) alın ve ardından bu kaynağı bir veya daha fazla resim çerçevesinde veya doldurmada kullanın.
 
-{{% /alert %}} 
+## **Gömülü Bir Görüntü Ekle**
 
-{{% alert title="Not" color="warning" %}}
-
-Görüntüleri bir formattan diğerine dönüştürebilirsiniz. Aşağıdaki sayfalara bakın: görüntüyü [görüntüyü JPG'e](https://products.aspose.com/slides/tr/nodejs-java/conversion/image-to-jpg/), [JPG'yi görüntüye](https://products.aspose.com/slides/tr/nodejs-java/conversion/jpg-to-image/), [JPG'yi PNG'ye](https://products.aspose.com/slides/tr/nodejs-java/conversion/jpg-to-png/), [PNG'yi JPG'ye](https://products.aspose.com/slides/tr/nodejs-java/conversion/png-to-jpg/), [PNG'yi SVG'ye](https://products.aspose.com/slides/tr/nodejs-java/conversion/png-to-svg/), ve [SVG'yi PNG'ye](https://products.aspose.com/slides/tr/nodejs-java/conversion/svg-to-png/) dönüştürme sayfalarını inceleyin.
-
-{{% /alert %}}
-
-Aspose.Slides, JPEG, PNG, BMP, GIF gibi popüler formatlardaki görüntüleri destekler. 
-
-## **Yerel Olarak Depolanan Görüntüleri Slaytlara Ekleme**
-
-Bilgisayarınızda depolanan bir veya daha fazla görüntüyü bir sunum slaytına ekleyebilirsiniz. Aşağıdaki JavaScript örnek kodu bir görüntünün slayta nasıl ekleneceğini gösterir:
+Yerel bir görüntüyü eklemek için, dosyayı yükleyin, görüntü koleksiyonuna ekleyin ve döndürülen [PPImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ppimage/) kaynağını kullanan bir resim çerçevesi oluşturun.
 
 ```javascript
 const aspose = {};
 aspose.slides = require("aspose.slides.via.java");
-
-const pres = new aspose.slides.Presentation();
-try {
-    const slide = pres.getSlides().get_Item(0);
-
-    let picture;
-    const image = aspose.slides.Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
-        }
-    }
-
-    slide.getShapes().addPictureFrame(
-        aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, picture);
-
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **Web'den Görüntüleri Slaytlara Ekleme**
-
-Slayta eklemek istediğiniz görüntü bilgisayarınızda depolanmamışsa, doğrudan web üzerinden ekleyebilirsiniz. 
-
-Aşağıdaki JavaScript örnek kodu bir görüntünün webten slayta nasıl ekleneceğini gösterir:
-
-```javascript
-const aspose = {};
-aspose.slides = require("aspose.slides.via.java");
-const java = require("java");
-
-const pres = new aspose.slides.Presentation();
-try {
-    const slide = pres.getSlides().get_Item(0);
-
-    const imageUrl = java.newInstanceSync("java.net.URL", "[REPLACE WITH URL]");
-    const inputStream = imageUrl.openStream();
-    try {
-        let picture;
-        const image = aspose.slides.Images.fromStream(inputStream);
-        try {
-            picture = pres.getImages().addImage(image);
-        } finally {
-            if (image != null) {
-                image.dispose();
-            }
-        }
-
-        slide.getShapes().addPictureFrame(
-            aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, picture);
-    } finally {
-        if (inputStream != null) {
-            inputStream.close();
-        }
-    }
-
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **Görüntüleri Slayt Master'ına Ekleme**
-
-Bir slayt master'ı, onu kullanan slaytların teması ve düzeni gibi bilgileri saklar ve kontrol eder. Bir slayt master'ına bir görüntü eklediğinizde, görüntü o master'ı temel alan her slaytta görünür. 
-
-Aşağıdaki JavaScript örnek kodu bir slayt master'ına bir görüntünün nasıl ekleneceğini gösterir:
-
-```javascript
-const aspose = {};
-aspose.slides = require("aspose.slides.via.java");
-
-const pres = new aspose.slides.Presentation();
-try {
-    const slide = pres.getSlides().get_Item(0);
-    const masterSlide = slide.getLayoutSlide().getMasterSlide();
-
-    let picture;
-    const image = aspose.slides.Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
-        }
-    }
-
-    masterSlide.getShapes().addPictureFrame(
-        aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100, picture);
-
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **Görüntüleri Slayt Arka Planı Olarak Ekleme**
-
-Bir veya daha fazla slaytın arka planı olarak bir resim kullanabilirsiniz. Ayrıntılar için *[Slaytlar İçin Görüntüleri Arka Plan Olarak Ayarlama](/slides/tr/nodejs-java/presentation-background/#setting-images-as-background-for-slides)* bölümüne bakın.
-
-## **Sunumlara SVG Ekleme**
-
-SVG içeriği, bir sunuma [SvgImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/svgimage/) sınıfı kullanılarak eklenebilir. Oluşturulan SVG görüntü nesnesi daha sonra sunumun görüntü koleksiyonuna eklenebilir ve bir resim çerçevesi oluşturmak için kullanılabilir.
-
-Aşağıdaki JavaScript örneği bağımsız bir SVG dizesi içe aktarır. Bu SVG tarafından kullanılan tüm görüntüler, stiller ve diğer kaynaklar doğrudan SVG içeriğine gömülür.
-
-```javascript
-const aspose = {};
-aspose.slides = require("aspose.slides.via.java");
-
-const svgContent =
-    "<svg xmlns='http://www.w3.org/2000/svg' width='320' height='180'>" +
-    "    <rect width='320' height='180' fill='#4F81BD'/>" +
-    "    <circle cx='160' cy='90' r='55' fill='#F2F2F2'/>" +
-    "</svg>";
 
 const presentation = new aspose.slides.Presentation();
 try {
-    const svgImage = new aspose.slides.SvgImage(svgContent);
-    const image = presentation.getImages().addImage(svgImage);
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("photo.png");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        if (sourceImage != null) {
+            sourceImage.dispose();
+        }
+    }
 
-    presentation.getSlides().get_Item(0).getShapes().addPictureFrame(
-        aspose.slides.ShapeType.Rectangle,
-        20, 20, image.getWidth(), image.getHeight(), image);
+    const slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 320, 180, image);
 
-    presentation.save("self-contained-svg.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("presentation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Harici Kaynaklarla SVG İçeriği İçe Aktarma**
+Bu şekilde eklenen görüntü sunuma gömülüdür, bu yüzden ortaya çıkan dosya orijinal görüntü dosyasının mevcut olmasına bağlı değildir.
 
-SVG araçlarından, diyagram editörlerinden, ikon sistemlerinden ve web pipeline'larından dışa aktarılan SVG dosyaları, SVG belgesinin dışındaki kaynakları referans alabilir. Örneğin, bir SVG `images/photo.png` gibi bir resim bağlantısı, bir CSS `url(...)` değeri veya bir font URL'si içerebilir.
+### **Web'den Bir Görüntü Ekle**
 
-Bu tür SVG içeriğini içe aktarmak için bir harici kaynak çözücüsü sağlayın ve bunu bir temel URI ile birlikte uygun bir [SvgImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/svgimage/) yapıcıya geçirin. Temel URI, SVG belgesinin konumunu tanımlar ve göreceli bağlantıların çözülmesinde kullanılır.
-
-`SvgImage` sınıfı, içe aktarılan SVG hakkında bilgiye erişim sağlar:
-
-- `getSvgContent()` SVG işaretlemesini bir dize olarak döndürür.
-- `getSvgData()` SVG içeriğini bir bayt dizisi olarak döndürür.
-- `getBaseUri()` göreceli bağlantılar için kullanılan temel URI'yi döndürür.
-- `getExternalResourceResolver()` SVG görüntüsüne atanmış çözücüyü döndürür.
-
-### **Harici Kaynak Çözücüsü Uygulama**
-
-Çözücünün iki yöntemi vardır:
-
-- `resolveUri` temel URI ve göreceli kaynak bağlantısını birleştirir ve mutlak bir URI döndürür. Bağlantı çözülemez veya izin verilmiyorsa `null` döndürün.
-- `getEntity` mutlak bir kaynak URI için okunabilir bir Java akışı döndürür. Kaynak eksik, engellenmiş veya erişilemezse `null` döndürün. Uygun olduğunda bir yedek akış da döndürülebilir.
+Bir görüntü HTTP veya HTTPS üzerinden mevcut olduğunda, baytlarını indirin, bunları sunum görüntü koleksiyonuna ekleyin ve döndürülen görüntü kaynağını yerel bir görüntü gibi aynı şekilde kullanın.
 
 ```javascript
-const fs = require("fs");
-const path = require("path");
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const http = require("http");
+const https = require("https");
 const java = require("java");
-const { fileURLToPath, pathToFileURL } = require("url");
 
-function isInsideAllowedRoot(resourcePath, allowedRoot) {
-    const relativePath = path.relative(allowedRoot, resourcePath);
-
-    return relativePath === "" ||
-        (relativePath !== ".." &&
-         !relativePath.startsWith(".." + path.sep) &&
-         !path.isAbsolute(relativePath));
-}
-
-function isImageFile(filePath) {
-    const extension = path.extname(filePath).toLowerCase();
-    return [".png", ".jpg", ".jpeg", ".gif", ".bmp"].includes(extension);
-}
-
-function createLocalSvgResourceResolver(allowedRoot, fallbackImageData) {
-    const normalizedRoot = path.resolve(allowedRoot);
-
-    return java.newProxy("com.aspose.slides.IExternalResourceResolver", {
-        resolveUri: function(baseUri, relativeUri) {
-            if (baseUri == null || baseUri.trim() === "" ||
-                    relativeUri == null || relativeUri.trim() === "") {
-                return null;
+function downloadBytes(url) {
+    return new Promise((resolve, reject) => {
+        const client = url.startsWith("https:") ? https : http;
+        client.get(url, (response) => {
+            if (response.statusCode < 200 || response.statusCode >= 300) {
+                response.resume();
+                reject(new Error(`HTTP ${response.statusCode}`));
+                return;
             }
 
-            try {
-                const absoluteAddress = new URL(relativeUri, baseUri);
-
-                // Bu çözücü kasıtlı olarak yalnızca yerel dosyalara izin verir.
-                if (absoluteAddress.protocol !== "file:") {
-                    return null;
-                }
-
-                const resourcePath = path.resolve(fileURLToPath(absoluteAddress));
-                if (!isInsideAllowedRoot(resourcePath, normalizedRoot)) {
-                    return null;
-                }
-
-                return pathToFileURL(resourcePath).href;
-            } catch (e) {
-                return null;
-            }
-        },
-
-        getEntity: function(absoluteUri) {
-            try {
-                const resourceUrl = new URL(absoluteUri);
-                if (resourceUrl.protocol !== "file:") {
-                    return null;
-                }
-
-                const resourcePath = path.resolve(fileURLToPath(resourceUrl));
-                if (!isInsideAllowedRoot(resourcePath, normalizedRoot)) {
-                    return null;
-                }
-
-                if (fs.existsSync(resourcePath)) {
-                    return java.newInstanceSync("java.io.FileInputStream", resourcePath);
-                }
-
-                // Yalnızca görüntü kaynakları için bir yedek kullanın. Bir görüntü akışı döndürmek
-                // eksik bir yazı tipi veya stil sayfası için geçerli olmayacaktır.
-                if (fallbackImageData != null && isImageFile(resourcePath)) {
-                    const javaBytes = java.newArray("byte", Array.from(fallbackImageData));
-                    return java.newInstanceSync("java.io.ByteArrayInputStream", javaBytes);
-                }
-            } catch (e) {
-                return null;
-            }
-
-            return null;
-        }
+            const chunks = [];
+            response.on("data", (chunk) => chunks.push(chunk));
+            response.on("end", () => resolve(Buffer.concat(chunks)));
+        }).on("error", reject);
     });
 }
+
+(async () => {
+    const imageData = await downloadBytes("https://example.com/image.png");
+    const javaBytes = java.newArray("byte", Array.from(imageData));
+
+    const presentation = new aspose.slides.Presentation();
+    try {
+        const image = presentation.getImages().addImage(javaBytes);
+        const slide = presentation.getSlides().get_Item(0);
+        slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 320, 180, image);
+
+        presentation.save("presentation-from-web.pptx", aspose.slides.SaveFormat.Pptx);
+    } finally {
+        presentation.dispose();
+    }
+})();
 ```
 
-### **SVG İçe Aktarım Sırasında Bağlı Kaynakları Çözümleme**
+Uzun süre çalışan uygulamalarda, gereksiz ağ altyapısı oluşturmaktan kaçınmak için uygulamaya uygun bir HTTP istemcisi veya bağlantı yönetim stratejisini tekrar kullanın. Kaynak güvenilir olmadığında uzak URL'leri, yanıt boyutlarını ve içerik türlerini de doğrulayın.
 
-`assets/diagram.svg` dosyasının aşağıdaki gibi bir göreceli referans içerdiğini varsayalım:
+## **Görüntüleri Slaytlar Arasında Yeniden Kullan**
 
-```xml
-<image href="images/photo.png" x="20" y="20" width="320" height="180" />
-```
+Aynı görüntü birden fazla kez gerekiyorsa, görüntüyü sunuma bir kez ekleyin ve ek resim çerçeveleri oluştururken döndürülen [PPImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ppimage/) kaynağını yeniden kullanın. Bu, aynı kaynak verisinin tekrar tekrar yüklenmesini önler ve ortak görüntü kaynağı ile kullanımları arasındaki ilişkiyi açık hâle getirir.
 
-Aşağıdaki JavaScript örneği SVG dosya URI'sını temel URI olarak geçirir ve özel bir çözücü sağlar. Çözücü, göreceli resim bağlantısını mutlak bir URI'ye dönüştürür ve Aspose.Slides SVG'yi işlerken bağlı kaynağı içeren bir akış döndürür.
+Birçok slaytta otomatik olarak görünmesi gereken grafikler (ör. şirket logosu) için, her slayta eşdeğer bir şekil eklemek yerine resim çerçevesini bir [slayt ustası](/slides/tr/nodejs-java/slide-master/) veya düzen üzerine yerleştirmeyi düşünün.
+
+## **Bir Görüntüyü Slayt Arka Planı Olarak Kullan**
+
+Bir arka plan görüntüsü slayt doldurmasına atanır; bir resim‑çerçevesi şekli olarak eklenmez. Bu, resmin slayt arka planını kaplaması ve normal bir slayt nesnesi gibi işlenmemesi gerektiğinde faydalıdır.
 
 ```javascript
 const aspose = {};
 aspose.slides = require("aspose.slides.via.java");
-const fs = require("fs");
-const path = require("path");
-const { pathToFileURL } = require("url");
-
-const svgFilePath = path.resolve("assets", "diagram.svg");
-const assetDirectory = path.dirname(svgFilePath);
-const svgContent = fs.readFileSync(svgFilePath, "utf8");
-
-// Temel URI, SVG belgesinin konumunu temsil eder.
-const baseUri = pathToFileURL(svgFilePath).href;
-
-let fallbackImageData = null;
-const fallbackImagePath = path.join(assetDirectory, "fallback.png");
-if (fs.existsSync(fallbackImagePath)) {
-    fallbackImageData = fs.readFileSync(fallbackImagePath);
-}
-
-const resolver = createLocalSvgResourceResolver(assetDirectory, fallbackImageData);
-const svgImage = new aspose.slides.SvgImage(svgContent, resolver, baseUri);
-
-// SvgImage, kaynak içeriği, ikili veri, temel URI ve çözücüyü ortaya çıkar.
-const importedContent = svgImage.getSvgContent();
-const importedData = svgImage.getSvgData();
-const importedBaseUri = svgImage.getBaseUri();
-const importedResolver = svgImage.getExternalResourceResolver();
 
 const presentation = new aspose.slides.Presentation();
 try {
-    const image = presentation.getImages().addImage(svgImage);
+    const slide = presentation.getSlides().get_Item(0);
 
-    presentation.getSlides().get_Item(0).getShapes().addPictureFrame(
-        aspose.slides.ShapeType.Rectangle,
-        20, 20, image.getWidth(), image.getHeight(), image);
+    let image;
+    const sourceImage = aspose.slides.Images.fromFile("background.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        if (sourceImage != null) {
+            sourceImage.dispose();
+        }
+    }
 
-    presentation.save("svg-with-linked-resources.pptx", aspose.slides.SaveFormat.Pptx);
+    const backgroundType = java.newByte(aspose.slides.BackgroundType.OwnBackground);
+    slide.getBackground().setType(backgroundType);
+
+    const fillType = java.newByte(aspose.slides.FillType.Picture);
+    slide.getBackground().getFillFormat().setFillType(fillType);
+
+    slide.getBackground().getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Stretch);
+    slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().setImage(image);
+
+    presentation.save("background-image.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-`SvgImage` sınıfı ayrıca SVG verilerini bir bayt dizisi olarak kabul eden aşırı yüklemeler ve akış tabanlı fabrika yöntemleri sağlar; bu yöntemler bir harici kaynak çözücüsü ve temel URI ile birlikte kullanılabilir.
+Ek arka plan seçenekleri, ana ve düzen arka planları dahil, için bakınız [Sunum Arka Planı](/slides/tr/nodejs-java/presentation-background/).
 
-{{% alert title="Önemli" color="warning" %}}
+## **Gömülü Görüntüler ve Bağlantılı Görüntüler**
 
-Kaynak çözücüsü, Aspose.Slides SVG'yi işlerken ve render ederken harici kaynakların kullanılabilir olmasını sağlar. Orijinal SVG işaretlemesini değiştirmez veya çözülen kaynakları otomatik olarak içine gömme yapmaz.
+Gömülü ve bağlantılı görüntüler farklı taşınabilirlik ve dosya‑boyutu dengelerine sahiptir:
 
-Bir SVG görüntüsü sunumun görüntü koleksiyonuna eklendiğinde, PPTX dosyası hem orijinal SVG temsili hem de bir raster yedek görüntüsü içerebilir. Bağlı bir kaynak, oluşturulan yedek görüntüde görünebilirken, `images/photo.png` gibi bir göreceli bağlantı depolanmış SVG'de değişmeden kalır. Yerel SVG temsili render eden bir uygulama, orijinal harici kaynak mevcut olmadığında bağlı içeriği atlayabilir.
+- **Gömülü görüntü:** görüntü verisi sunum içinde depolanır. Sunum kendi içinde bağımsızdır, ancak dosya boyutu görüntü verisini içerir.
+- **Bağlantılı görüntü:** sunum, harici bir görüntüye bir yol veya URL depolar. Bu, sunum boyutunu azaltabilir, ancak harici kaynağın sunum açıldığında veya işlendiğinde erişilebilir olması gerekir.
 
-{{% /alert %}}
+Bir bağlantılı resim, görüntü verisini gömmek yerine [Picture.setLinkPathLong](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/picture/) aracılığıyla harici yol veya URL atayarak oluşturulabilir.
 
-### **Taşınabilir SVG Resmi Oluşturma**
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
 
-Harici dosyalara bağımlı olmayan bir SVG resmi oluşturmak için, `SvgImage` oluşturmadan önce SVG'yi kendine yeterli hâle getirin. Örneğin, bağlı resim URL'lerini resim verisini içeren `data:` URI'leriyle değiştirin:
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const pictureFrame = slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 320, 180, null);
+    pictureFrame.getPictureFormat().getPicture().setLinkPathLong("https://example.com/image.png");
 
-```xml
-<image href="data:image/png;base64,..." x="20" y="20" width="320" height="180" />
+    presentation.save("linked-image.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
-Gerekli tüm kaynaklar SVG içeriğine gömüldükten sonra `SvgImage` oluşturun, sunumun görüntü koleksiyonuna ekleyin ve önceki örnekte gösterildiği gibi bir resim çerçevesine yerleştirin.
+Bağlantılı görüntüleri yalnızca dağıtım ortamı harici kaynağa güvenilir bir şekilde erişebildiğinde kullanın. Çevrim dışı çalışması veya sistemler arasında taşınması gereken sunumlar için gömülü görüntüler genellikle daha güvenlidir.
 
-### **Eksik veya Engellenen Kaynakları İşleme**
+## **SVG Görüntülerle Çalışma**
 
-Bir kaynak URI'si geçersiz, yasak veya çözülemezse `resolveUri`'den `null` döndürün. Kaynak okunamıyorsa `getEntity`'den `null` döndürün. Aspose.Slides mümkün olduğunda bu kaynağı olmadan SVG'yi işlemeye devam eder.
+SVG, vektör bir biçim olduğundan simgeler, diyagramlar ve detay kaybı yaşamadan ölçeklenmesi gereken diğer grafikler için faydalı olabilir. Aspose.Slides, SVG'yi hem bir görüntü kaynağı hem de düzenlenebilir slayt şekilleri için bir kaynak olarak destekler.
 
-Eksik bir kaynak için bir yedek akış döndürülebilir, ancak içeriği istenen kaynak türüyle uyumlu olmalıdır. Örneğin, yalnızca eksik bir resim için bir resim akışı döndürün; font veya stil sayfası için değil.
+### **SVG'yi Görüntü Olarak Ekle**
 
-{{% alert title="Güvenlik" color="warning" %}}
-
-Güvenilmeyen SVG dosyalarından rastgele dosya yolları veya sınırsız ağ URL'leri çözümlemeyin. İzin verilen şemaları, dizinleri ve hostları kısıtlayın. Ağ kaynakları için ayrıca bağlantı zaman aşımı, yanıt boyutu limitleri ve içerik doğrulaması uygulayın.
-
-{{% /alert %}}
-
-## **SVG'yi Şekil Setine Dönüştürme**
-
-Aspose.Slides, bir SVG'yi PowerPoint'teki karşılık gelen işlevselliğe benzer şekilde bir şekil setine dönüştürebilir:
-
-![PowerPoint Açılır Menü](img_01_01.png)
-
-Bu işlevsellik, bir SVG görüntü nesnesini ilk argüman olarak alan [addGroupShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ShapeCollection#addGroupShape-aspose.slides.ISvgImage-float-float-float-float-) metodunun bir aşırı yüklemesi olan [ShapeCollection](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ShapeCollection) sınıfı tarafından sağlanır.
-
-Aşağıdaki JavaScript örnek kodu bu yöntemi kullanarak bir SVG dosyasını şekil setine dönüştürmeyi gösterir:
+Bir [SvgImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/svgimage/) oluşturun, görüntü koleksiyonuna ekleyin ve ortaya çıkan görüntü kaynağını bir resim çerçevesine yerleştirin.
 
 ```javascript
 const aspose = {};
 aspose.slides = require("aspose.slides.via.java");
 const fs = require("fs");
-const java = require("java");
 
-// Kaynak SVG dosya adı.
-const svgFileName = "sample.svg";
-
-// Çıktı sunum dosya adı.
-const outPptxPath = "presentation.pptx";
-
-// Yeni bir sunum oluştur.
 const presentation = new aspose.slides.Presentation();
 try {
-    // SVG dosya içeriğini oku.
-    const svgContent = java.newArray("byte", Array.from(fs.readFileSync(svgFileName)));
-
-    // Bir SvgImage nesnesi oluştur.
+    const svgContent = fs.readFileSync("icon.svg", "utf8");
     const svgImage = new aspose.slides.SvgImage(svgContent);
 
-    // Slayt boyutunu al.
-    const slideSize = presentation.getSlideSize().getSize();
+    const image = presentation.getImages().addImage(svgImage);
+    const slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 20, 20, 200, 200, image);
 
-    // SVG görüntüsünü şekil grubuna dönüştür ve slayt boyutuna ölçekle.
-    presentation.getSlides().get_Item(0).getShapes().addGroupShape(
-        svgImage, 0.0, 0.0, slideSize.getWidth(), slideSize.getHeight());
-
-    // Sunumu PPTX formatında kaydet.
-    presentation.save(outPptxPath, aspose.slides.SaveFormat.Pptx);
+    presentation.save("svg-image.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Görüntüleri EMF Olarak Slaytlara Ekleme**
+### **Harici Kaynaklı SVG Dosyaları**
 
-Aspose.Slides for Node.js via Java, Aspose.Cells ile Excel çalışma sayfalarından EMF görüntüleri oluşturmanıza ve bu görüntüleri sunum slaytlarına eklemenize olanak tanır.
+Bir SVG, harici görüntüler, stil sayfaları veya yazı tiplerine referans verebilir. Bu durumlar için [SvgImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/svgimage/) bir [ExternalResourceResolver](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/externalresourceresolver/) ve temel URI kabul eden yapıcılar sunar. Çözücü, bir göreli URI'yi izin verilen mutlak bir URI'ye eşleyebilir ve istenen kaynak için bir akış döndürebilir.
 
-Aşağıdaki JavaScript örnek kodu bunu nasıl yapacağınızı gösterir:
+Çözücü, Aspose.Slides SVG'yi işlerken harici kaynakları kullanılabilir kılar, ancak SVG'yi kendi içinde bağımsız bir belge haline getirmez. SVG'nin taşınabilir kalması gerekiyorsa, gerekli kaynakları SVG içinde gömün; örneğin bağlantılı görüntüler için `data:` URI'ları kullanabilirsiniz.
 
-```javascript
-const aspose = {};
-aspose.slides = require("aspose.slides.via.java");
-const java = require("java");
+SVG dosyaları güvenilmeyen kaynaklardan geldiğinde, çözücünün erişebileceği şemaları, dosya konumlarını ve ana bilgisayarları sınırlayın. Ağ çözücüleri ayrıca zaman aşımı, yanıt‑boyutu sınırları ve içerik doğrulaması uygulamalıdır.
 
-const book = java.newInstanceSync("aspose.cells.Workbook", "chart.xlsx");
-const sheet = book.getWorksheets().get(0);
+### **SVG'yi Düzenlenebilir Şekillere Dönüştür**
 
-const options = java.newInstanceSync("aspose.cells.ImageOrPrintOptions");
-options.setHorizontalResolution(200);
-options.setVerticalResolution(200);
-options.setImageType(java.getStaticFieldValue("ImageType", "EMF"));
+Aspose.Slides, bir SVG'yi ilgili PowerPoint komutuna benzer şekilde düzenlenebilir slayt şekilleri grubuna dönüştürebilir.
 
-// Çalışma kitabını bir akışa kaydet.
-const sr = java.newInstanceSync("SheetRender", sheet, options);
-const pres = new aspose.slides.Presentation();
-try {
-    pres.getSlides().removeAt(0);
+![PowerPoint Popup Menu](img_01_01.png)
 
-    for (let j = 0; j < sr.getPageCount(); j++) {
-        const emfSheetName = "test" + sheet.getName() + " Page" + (j + 1) + ".out.emf";
-        sr.toImage(j, emfSheetName);
-
-        // Dosyayı olduğu gibi ekle ki resim rasterleştirilmek yerine vektörel EMF olarak kalsın.
-        let picture;
-        const imageStream = java.newInstanceSync("java.io.FileInputStream", emfSheetName);
-        try {
-            picture = pres.getImages().addImage(imageStream);
-        } finally {
-            imageStream.close();
-        }
-
-        const slide = pres.getSlides().addEmptySlide(
-            pres.getLayoutSlides().getByType(aspose.slides.SlideLayoutType.Blank));
-        slide.getShapes().addPictureFrame(
-            aspose.slides.ShapeType.Rectangle,
-            0,
-            0,
-            pres.getSlideSize().getSize().getWidth(),
-            pres.getSlideSize().getSize().getHeight(),
-            picture);
-    }
-
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **Görüntü Koleksiyonundaki Görüntüleri Değiştirme**
-
-Aspose.Slides, sunumun görüntü koleksiyonunda depolanan görüntüleri, slayt şekilleri tarafından kullanılan görüntüler dahil, değiştirmenize izin verir. Bu bölüm, koleksiyondaki görüntüleri güncellemenin birkaç yolunu açıklar. Bir görüntüyü ham bayt verisi, bir [IImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/iimage/) örneği veya koleksiyonda zaten mevcut olan başka bir görüntü kullanarak değiştirebilirsiniz.
-
-Aşağıdaki adımları izleyin:
-
-1. Görüntüleri içeren sunum dosyasını [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) sınıfını kullanarak yükleyin.
-1. Yeni bir görüntüyü dosyadan bir bayt dizisine yükleyin.
-1. Hedef görüntüyü bayt dizisini kullanarak yeni görüntüyle değiştirin.
-1. İkinci yöntemde, görüntüyü bir [IImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/iimage/) nesnesine yükleyin ve hedef görüntüyü bu nesneyle değiştirin.
-1. Üçüncü yöntemde, hedef görüntüyü sunumun görüntü koleksiyonunda zaten bulunan bir görüntüyle değiştirin.
-1. Değiştirilmiş sunumu PPTX dosyası olarak yazın.
+Dönüşümü gerçekleştirmek için SVG görüntüsünü kabul eden [ShapeCollection.addGroupShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shapecollection/) aşırı yüklemesini kullanın.
 
 ```javascript
 const aspose = {};
 aspose.slides = require("aspose.slides.via.java");
 const fs = require("fs");
-const java = require("java");
 
-// Sunum dosyasını temsil eden Presentation sınıfının örneğini oluştur.
-const presentation = new aspose.slides.Presentation("sample.pptx");
+const presentation = new aspose.slides.Presentation();
 try {
-    // İlk yöntem.
-    const imageData = java.newArray("byte", Array.from(fs.readFileSync("image0.jpeg")));
-    let oldImage = presentation.getImages().get_Item(0);
-    oldImage.replaceImage(imageData);
+    const svgContent = fs.readFileSync("diagram.svg", "utf8");
+    const svgImage = new aspose.slides.SvgImage(svgContent);
 
-    // İkinci yöntem.
-    const newImage = aspose.slides.Images.fromFile("image1.png");
+    const slideSize = presentation.getSlideSize().getSize();
+    const slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addGroupShape(svgImage, 0, 0, slideSize.getWidth(), slideSize.getHeight());
+
+    presentation.save("editable-svg-shapes.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+SVG‑den‑şekil dönüşümünü, bireysel vektör öğelerinin PowerPoint şekilleri olarak düzenlenmesi gerektiğinde kullanın. SVG yalnızca gösterilmesi gerekiyorsa, görüntü olarak tutmak daha basittir ve çok sayıda ayrı şekil oluşturulmasından kaçınılır.
+
+## **Mevcut Bir Görüntü Kaynağını Değiştir**
+
+Mevcut bir görüntü kaynağını değiştirmek istediğinizde [PPImage.replaceImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ppimage/) kullanın. Bu, logolar gibi ortak grafikler için özellikle yararlıdır.
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const imageToReplace = presentation.getImages().get_Item(0);
+
+    const replacementImage = aspose.slides.Images.fromFile("new-logo.png");
     try {
-        oldImage = presentation.getImages().get_Item(1);
-        oldImage.replaceImage(newImage);
+        imageToReplace.replaceImage(replacementImage);
     } finally {
-        if (newImage != null) {
-            newImage.dispose();
+        if (replacementImage != null) {
+            replacementImage.dispose();
         }
     }
 
-    // Üçüncü yöntem.
-    oldImage = presentation.getImages().get_Item(2);
-    oldImage.replaceImage(presentation.getImages().get_Item(3));
-
-    // Sunumu bir dosyaya kaydet.
     presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="Bilgi" color="info" %}}
+Birden fazla resim çerçevesi, arka plan, ana veya düzen aynı görüntü kaynağını kullanıyorsa, bu kaynağı değiştirmek tüm bu kullanımları günceller. Yalnızca bir resim çerçevesinin değişmesi gerekiyorsa, ortak kaynağı değiştirmek yerine o çerçeveye farklı bir görüntü atayın.
 
-Aspose'un ücretsiz [Metni GIF'e Dönüştür](https://products.aspose.app/slides/tr/text-to-gif) dönüştürücüsü ile metni kolayca hareketlendirebilir ve metinden GIF'ler oluşturabilirsiniz. 
+[PPImage.replaceImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ppimage/) ayrıca bir bayt dizisi veya başka bir [PPImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ppimage/) kabul eden aşırı yüklemeler sunar.
 
-{{% /alert %}}
+## **Pratik Görüntü Yönetimi Rehberi**
+
+### **Sunum Boyutunu Kontrol Et**
+
+Büyük raster görüntüler bir sunumu gereksiz yere büyük yapabilir. Kullanım amacına uygun boyutlarda kaynak görüntüler kullanın, mümkün olduğunca ortak görüntü kaynaklarını yeniden kullanın ve aynı tam çözünürlüklü grafiğin yinelenen kopyalarını gömmekten kaçının.
+
+Zaten resim çerçevelerine yerleştirilmiş raster resimler için, [PictureFillFormat.compressImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/picturefillformat/) seçilen çözünürlük ve kırpma ayarlarına göre görüntü verisini azaltabilir. Bu, görüntü‑koleksiyonu yönetimi değil, resim‑çerçevesi işleme olduğundan ilgili biçimlendirme işlemleri için bakınız [Resim Çerçevesi](/slides/tr/nodejs-java/picture-frame/).
+
+### **Gömülü ve Bağlantılı İçerik Arasında Seçim Yap**
+
+Gömme, tüm gerekli görüntü verileri dosyayla birlikte taşındığı için sunumu taşınabilir kılar. Bağlantı dosya boyutunu azaltabilir, ancak dış bir bağımlılık getirir. Bağlantıları yalnızca bu bağımlılığın kabul edilebilir ve istikrarlı olduğu durumlarda kullanın.
+
+### **Paylaşılan Markayı Yeniden Kullan**
+
+Tekrarlanan logolar, filigranlar veya süsleyici grafikler için tek bir görüntü kaynağı kullanıp yeniden kullanın. Grafik, slayt içeriği yerine sunum tasarımına aitse, uygun slaytlar tarafından devralınması için bir ana veya düzen üzerine yerleştirin.
+
+### **SVG Kaynaklarını Taşınabilir Tut**
+
+Kendi içinde bağımsız bir SVG, harici dosyalara veya ağ kaynaklarına bağlı bir SVG'ye göre taşınması ve tutarlı bir şekilde işlenmesi daha kolaydır. Mümkün olduğunca, SVG'yi içe aktarmadan önce gerekli kaynakları gömün. SVG'yi şekillere yalnızca bireysel vektör öğelerinin düzenlenmesi gerektiğinde dönüştürün.
+
+### **Modern Çok Platformlu Görüntü API'sını Kullan**
+
+Yeni Node.js via Java kodu için, eski `java.awt.image.BufferedImage` temelli herkese açık API yerine Aspose.Slides [IImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/iimage/) ve [Images](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/images/) API'larını kullanın. Geçiş kılavuzu için bakınız [Modern API](/slides/tr/nodejs-java/modern-api/).
+
+WMF ve EMF özel dikkate ihtiyaç duyar. Bu biçimler bir [IImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/iimage/) üzerinden geçirildiğinde, [ImageCollection.addImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/imagecollection/) eklemeden önce metafili bir raster PNG temsiline dönüştürür. Metafili veriyi korumak önemliyse, akış tabanlı bir [ImageCollection.addImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/imagecollection/) aşırı yüklemesi kullanın. Elektronik tablo veya diğer ürünlerden EMF içeriği üretmek ayrı bir entegrasyon iş akışı olup bu makalenin kapsamı dışındadır.
 
 ## **SSS**
 
-**Ekleme sonrası orijinal görüntü çözünürlüğü aynı kalır mı?**
+**Görüntü koleksiyonu ile resim çerçevesi arasındaki fark nedir?**
 
-Evet. Kaynak pikseller korunur, ancak nihai görünüm, slayttaki [resim](/slides/tr/nodejs-java/picture-frame/) nasıl ölçeklendirildiğine ve kaydetme sırasında uygulanan sıkıştırmaya bağlıdır.
+Görüntü koleksiyonu yeniden kullanılabilir görüntü kaynaklarını saklar. Resim çerçevesi, bu kaynaklardan birini gösteren bir slayt şeklidir ve kırpma, efektler gibi resme özgü biçimlendirme sağlar.
 
-**Yüzlerce slaytta aynı logoyu aynı anda değiştirmek için en iyi yöntem nedir?**
+**Aynı logoyu her yerde değiştirmek için en iyi yol nedir?**
 
-Logoyu master slaytına veya bir düzene yerleştirin ve sunumun görüntü koleksiyonunda değiştirin—güncellemeler bu kaynağı kullanan tüm öğelere yayılır.
+Logo zaten tek bir görüntü kaynağı olarak paylaşılıyorsa, bu kaynağı [PPImage.replaceImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ppimage/) ile değiştirin. Sunum genelinde marka tutarlılığı için logoyu bir ana veya düzen üzerine yerleştirmek de yinelenen slayt içeriğini azaltabilir.
 
-**Eklenen bir SVG düzenlenebilir şekillere dönüştürülebilir mi?**
+**Bağlantılı bir görüntü başka bir bilgisayarda neden kaybolur?**
 
-Evet. Bir SVG'yi şekil grubuna dönüştürebilirsiniz; ardından bireysel parçalar standart şekil özellikleriyle düzenlenebilir hâle gelir.
+Bağlantılı resim, dış dosya veya URL'ye bağlıdır. O kaynak başka bir bilgisayardan erişilemiyorsa, bağlantılı görüntü kullanılamaz hâle gelir. Sunumun kendi içinde olması gerekiyorsa görüntüyü gömün.
 
-**Bir resmi birden fazla slaytın arka planı olarak aynı anda nasıl ayarlayabilirim?**
+**Eklenen bir SVG PowerPoint şekilleri olarak düzenlenebilir mi?**
 
-Resmi master slaytında veya ilgili düzende *[arkaplan olarak ata](/slides/tr/nodejs-java/presentation-background/)*; bu master/duzen'i kullanan tüm slaytlar arka planı miras alır.
+Evet. SVG'yi [ShapeCollection.addGroupShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shapecollection/) ile dönüştürün; ortaya çıkan grup tek bir SVG resmi yerine düzenlenebilir slayt şekilleri içerir.
 
-**Bir sunumun çok sayıda resim nedeniyle çok büyük olmasını nasıl önleyebilirim?**
+**Birçok görüntülü sunumları nasıl daha küçük tutabilirim?**
 
-Tek bir görüntü kaynağını tekrar kullanın, makul çözünürlükler seçin, kaydetme sırasında sıkıştırma uygulayın ve gerektiğinde tekrarlanan grafikleri master'da tutun.
+Ortak görüntü kaynaklarını yeniden kullanın, gereksiz büyük raster kaynaklardan kaçının, uygun olduğunda raster resimleri sıkıştırın, tekrarlanan markayı ana veya düzenlerde tutun ve harici bağımlılık kabul edilebilir olduğunda sadece bağlantılı görüntüler kullanın.

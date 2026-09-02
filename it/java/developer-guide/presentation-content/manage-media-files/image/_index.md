@@ -1,5 +1,5 @@
 ---
-title: Ottimizzare la gestione delle immagini nelle presentazioni usando Java
+title: Ottimizzare la gestione delle immagini nelle presentazioni con Java
 linktitle: Gestire le immagini
 type: docs
 weight: 10
@@ -7,569 +7,315 @@ url: /it/java/image/
 keywords:
 - aggiungere immagine
 - aggiungere foto
-- aggiungere bitmap
 - sostituire immagine
-- sostituire foto
-- dal web
+- collezione di immagini
+- riquadro immagine
+- immagine collegata
 - sfondo
 - aggiungere PNG
 - aggiungere JPG
 - aggiungere SVG
+- SVG in forme
 - risorse SVG esterne
-- risolutore SVG
-- immagini SVG collegate
-- font SVG
-- aggiungere EMF
-- aggiungere WMF
-- aggiungere TIFF
 - PowerPoint
 - OpenDocument
 - presentazione
 - Java
 - Aspose.Slides
-description: "Semplifica la gestione delle immagini in PowerPoint e OpenDocument con Aspose.Slides per Java, ottimizzando le prestazioni e automatizzando il tuo flusso di lavoro."
+description: "Scopri come aggiungere, riutilizzare, collegare, sostituire e gestire immagini raster e SVG nelle presentazioni PowerPoint e OpenDocument con Aspose.Slides per Java."
 ---
 ## **Introduzione**
 
-Le immagini rendono le presentazioni più coinvolgenti e visivamente attraenti. In Microsoft PowerPoint, è possibile inserire immagini nelle diapositive da file, da Internet o da altre fonti. Allo stesso modo, Aspose.Slides consente di aggiungere immagini alle diapositive di una presentazione in diversi modi.
+Aspose.Slides per Java fornisce diversi modi per lavorare con le immagini, e ciascuno serve a uno scopo diverso. È possibile memorizzare un'immagine in una presentazione, visualizzarla in un riquadro immagine, usarla come sfondo di una diapositiva, collegarla a un'immagine esterna, sostituire una risorsa immagine condivisa o convertire il contenuto SVG in forme modificabili.
 
-{{% alert  title="Tip" color="primary" %}} 
+Questo articolo si concentra sulle risorse immagine e su come vengono utilizzate all'interno di una presentazione. Per ritaglio, trasparenza, effetti, allungamento e altre formattazioni applicate a un singolo riquadro immagine, vedere [Riquadro immagine](/slides/it/java/picture-frame/).
 
-Aspose fornisce convertitori gratuiti—[JPEG in PowerPoint](https://products.aspose.app/slides/it/import/jpg-to-ppt) e [PNG in PowerPoint](https://products.aspose.app/slides/it/import/png-to-ppt)—che consentono di creare rapidamente presentazioni dalle immagini. 
+## **Comprendere il modello immagine**
 
-{{% /alert %}} 
+I seguenti concetti API sono strettamente correlati ma non intercambiabili:
 
-{{% alert title="Info" color="info" %}}
+- La [collezione di immagini della presentazione](https://reference.aspose.com/slides/it/java/com.aspose.slides/iimagecollection/) memorizza le risorse immagine utilizzate dalla presentazione. Utilizzare [ImageCollection.addImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/imagecollection/) per aggiungere dati immagine e ottenere una risorsa [IPPImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/ippimage/).
+- Un [riquadro immagine](https://reference.aspose.com/slides/it/java/com.aspose.slides/ipictureframe/) è una forma che visualizza un'immagine su una diapositiva, layout o master. Utilizzare [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishapecollection/) per posizionare una risorsa immagine su una diapositiva.
+- Uno sfondo della diapositiva utilizza un'immagine come parte del riempimento della diapositiva piuttosto che come forma. Pertanto non si comporta come un riquadro immagine.
+- [IPPImage.replaceImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/ippimage/) sostituisce una risorsa immagine. Se diversi elementi della presentazione utilizzano quella risorsa, tutti useranno la sostituzione.
+- La conversione di un SVG in forme crea forme di diapositiva modificabili. Dopo la conversione, il contenuto non è più gestito come una singola risorsa immagine.
 
-Se desideri aggiungere un'immagine come fotogramma—specialmente se prevedi di ridimensionarla, applicare effetti o utilizzare altre opzioni di formattazione standard—vedi [Frame immagine](/slides/it/java/picture-frame/). 
+Un flusso di lavoro tipico è quindi: aggiungere dati immagine alla collezione di immagini, ricevere un [IPPImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/ippimage/), e poi utilizzare tale risorsa in uno o più riquadri immagine o riempimenti.
 
-{{% /alert %}} 
+## **Aggiungere un'immagine incorporata**
 
-{{% alert title="Note" color="warning" %}}
-
-Puoi convertire le immagini da un formato all'altro. Consulta le seguenti pagine: converti [immagine in JPG](https://products.aspose.com/slides/it/java/conversion/image-to-jpg/), [JPG in immagine](https://products.aspose.com/slides/it/java/conversion/jpg-to-image/), [JPG in PNG](https://products.aspose.com/slides/it/java/conversion/jpg-to-png/), [PNG in JPG](https://products.aspose.com/slides/it/java/conversion/png-to-jpg/), [PNG in SVG](https://products.aspose.com/slides/it/java/conversion/png-to-svg/), e [SVG in PNG](https://products.aspose.com/slides/it/java/conversion/svg-to-png/).
-
-{{% /alert %}}
-
-Aspose.Slides supporta immagini nei formati più diffusi come JPEG, PNG, BMP, GIF e altri. 
-
-## **Aggiungere immagini archiviate localmente alle diapositive**
-
-È possibile aggiungere una o più immagini archiviate sul computer a una diapositiva della presentazione. Il seguente codice di esempio Java mostra come aggiungere un'immagine a una diapositiva:
+Per inserire un'immagine locale, caricare il file, aggiungerla alla collezione di immagini e creare un riquadro immagine che utilizza il `IPPImage` restituito.
 
 ```java
 import com.aspose.slides.*;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    IPPImage picture;
-    IImage image = Images.fromFile("image.png");
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("photo.png");
     try {
-        picture = pres.getImages().addImage(image);
+        image = presentation.getImages().addImage(sourceImage);
     } finally {
-        if (image != null) image.dispose();
+        if (sourceImage != null) sourceImage.dispose();
     }
 
-    slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
 
-    pres.save("pres.pptx", SaveFormat.Pptx);
+    presentation.save("presentation.pptx", SaveFormat.Pptx);
 } finally {
-    pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Aggiungere immagini dal Web alle diapositive**
+L'immagine aggiunta in questo modo è incorporata nella presentazione, quindi il file risultante non dipende dalla disponibilità del file immagine originale.
 
-Se l'immagine che desideri aggiungere a una diapositiva non è archiviata sul tuo computer, puoi aggiungerla direttamente dal Web. 
+### **Aggiungere un'immagine dal Web**
 
-Il seguente codice di esempio Java mostra come aggiungere un'immagine dal Web a una diapositiva:
+Quando un'immagine è disponibile tramite HTTP o HTTPS, scaricare i suoi byte, aggiungerli alla collezione di immagini della presentazione e utilizzare la risorsa immagine restituita nello stesso modo di un'immagine locale.
 
 ```java
 import com.aspose.slides.*;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URI;
 import java.net.URL;
-import java.net.URLConnection;
-
-Presentation pres = new Presentation();
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    URL imageUrl = new URL("[REPLACE WITH URL]");
-    URLConnection connection = imageUrl.openConnection();
-    InputStream inputStream = connection.getInputStream();
-
-    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-    try {
-        byte[] buffer = new byte[1024];
-        int read;
-
-        while ((read = inputStream.read(buffer, 0, buffer.length)) != -1) {
-            outputStream.write(buffer, 0, read);
-        }
-
-        outputStream.flush();
-
-        IPPImage image = pres.getImages().addImage(outputStream.toByteArray());
-        slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-    } finally {
-        if (inputStream != null) inputStream.close();
-        outputStream.close();
-    }
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    pres.dispose();
-}
-```
-
-## **Aggiungere immagini ai master delle diapositive**
-
-Un master della diapositiva memorizza e controlla informazioni come il tema e il layout per le diapositive che lo utilizzano. Quando aggiungi un'immagine a un master della diapositiva, l'immagine appare su ogni diapositiva basata su quel master. 
-
-Il seguente codice di esempio Java mostra come aggiungere un'immagine a un master della diapositiva:
-
-```java
-import com.aspose.slides.*;
-
-Presentation pres = new Presentation();
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    IMasterSlide masterSlide = slide.getLayoutSlide().getMasterSlide();
-
-    IPPImage picture;
-    IImage image = Images.fromFile("image.png");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-
-    masterSlide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-    pres.dispose();
-}
-```
-
-## **Aggiungere immagini come sfondi delle diapositive**
-
-Puoi utilizzare un'immagine come sfondo per una o più diapositive. Per i dettagli, vedi *[Impostare le immagini come sfondo per le diapositive](/slides/it/java/presentation-background/#setting-images-as-background-for-slides)*.
-
-## **Aggiungere SVG alle presentazioni**
-
-È possibile aggiungere contenuto SVG a una presentazione utilizzando la classe [SvgImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/svgimage/). L'oggetto [ISvgImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/isvgimage/) risultante può quindi essere aggiunto alla collezione di immagini della presentazione e utilizzato per creare un fotogramma immagine.
-
-Il seguente esempio Java importa una stringa SVG autonoma. Tutte le immagini, gli stili e le altre risorse utilizzate da questo SVG sono incorporati direttamente nel contenuto SVG.
-
-```java
-import com.aspose.slides.*;
-
-String svgContent =
-        "<svg xmlns='http://www.w3.org/2000/svg' width='320' height='180'>" +
-        "    <rect width='320' height='180' fill='#4F81BD'/>" +
-        "    <circle cx='160' cy='90' r='55' fill='#F2F2F2'/>" +
-        "</svg>";
 
 Presentation presentation = new Presentation();
 try {
-    ISvgImage svgImage = new SvgImage(svgContent);
-    IPPImage image = presentation.getImages().addImage(svgImage);
+    URL imageUrl = URI.create("https://example.com/image.png").toURL();
+    HttpURLConnection connection = (HttpURLConnection) imageUrl.openConnection();
+    connection.setConnectTimeout(10000);
+    connection.setReadTimeout(10000);
 
-    presentation.getSlides().get_Item(0).getShapes().addPictureFrame(
-            ShapeType.Rectangle, 20, 20, image.getWidth(), image.getHeight(), image);
+    try (InputStream inputStream = connection.getInputStream(); 
+         ByteArrayOutputStream outputStream = new ByteArrayOutputStream()) {
+        byte[] buffer = new byte[8192];
+        int bytesRead;
+        while ((bytesRead = inputStream.read(buffer)) != -1) outputStream.write(buffer, 0, bytesRead);
 
-    presentation.save("self-contained-svg.pptx", SaveFormat.Pptx);
+        IPPImage image = presentation.getImages().addImage(outputStream.toByteArray());
+        ISlide slide = presentation.getSlides().get_Item(0);
+        slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, image);
+    }
+
+    presentation.save("presentation-from-web.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Importare contenuto SVG con risorse esterne**
+In applicazioni a lunga durata, riutilizzare un client HTTP o una strategia di gestione delle connessioni appropriata all'applicazione invece di creare ripetutamente infrastrutture di rete non necessarie. Inoltre, convalidare gli URL remoti, le dimensioni delle risposte e i tipi di contenuto quando la fonte non è attendibile.
 
-I file SVG esportati da strumenti di design, editor di diagrammi, sistemi di icone e pipeline web possono fare riferimento a risorse archiviate al di fuori del documento SVG. Ad esempio, un SVG può contenere un collegamento a un'immagine come `images/photo.png`, un valore CSS `url(...)` o un URL di un font.  
+## **Riutilizzare le immagini tra le diapositive**
 
-Per importare tale contenuto SVG, crea un'implementazione di [IExternalResourceResolver](https://reference.aspose.com/slides/it/java/com.aspose.slides/iexternalresourceresolver/) e passala, insieme a un URI base, a un costruttore appropriato di [SvgImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/svgimage/). L'URI base individua la posizione del documento SVG ed è utilizzato per risolvere i collegamenti relativi.  
+Se la stessa immagine è necessaria più di una volta, aggiungerla alla presentazione una sola volta e riutilizzare il [IPPImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/ippimage/) restituito quando si creano ulteriori riquadri immagine. Ciò evita di caricare ripetutamente gli stessi dati di origine e rende esplicita la relazione tra la risorsa immagine condivisa e i suoi utilizzi.
 
-L'interfaccia [ISvgImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/isvgimage/) fornisce accesso a informazioni sul SVG importato:
+Per elementi grafici che dovrebbero apparire automaticamente su molte diapositive, come il logo di un'azienda, considerare di posizionare il riquadro immagine su un [master diapositiva](/slides/it/java/slide-master/) o layout invece di aggiungere una forma equivalente a ogni diapositiva.
 
-- `getSvgContent()` restituisce il markup SVG come stringa.  
-- `getSvgData()` restituisce il contenuto SVG come array di byte.  
-- `getBaseUri()` restituisce l'URI base usato per i collegamenti relativi.  
-- `getExternalResourceResolver()` restituisce il risolutore assegnato all'immagine SVG.  
+## **Usare un'immagine come sfondo della diapositiva**
 
-### **Implementare un risolutore di risorse esterne**
-
-Il risolutore ha due metodi:
-
-- `resolveUri` combina l'URI base e un collegamento di risorsa relativo e restituisce un URI assoluto. Restituisci `null` quando il collegamento non può essere risolto o non è consentito.  
-- `getEntity` restituisce un flusso leggibile per un URI di risorsa assoluto. Restituisci `null` quando la risorsa è mancante, bloccata o non disponibile. Un flusso di fallback può anche essere restituito quando opportuno.  
-
-Il risolutore seguente carica le risorse collegate solo da una directory locale consentita. Le risorse di rete e i percorsi al di fuori della directory consentita sono bloccati. Un'immagine di fallback opzionale è restituita per i collegamenti a immagini non risolti.
-
-```java
-import com.aspose.slides.ExternalResourceResolver;
-
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.net.URI;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Locale;
-
-class LocalSvgResourceResolver extends ExternalResourceResolver {
-    private final Path allowedRoot;
-    private final byte[] fallbackImageData;
-
-    public LocalSvgResourceResolver(String allowedRoot, byte[] fallbackImageData) {
-        this.allowedRoot = Paths.get(allowedRoot).toAbsolutePath().normalize();
-        this.fallbackImageData = fallbackImageData;
-    }
-
-    @Override
-    public String resolveUri(String baseUri, String relativeUri) {
-        if (baseUri == null || baseUri.trim().isEmpty() ||
-                relativeUri == null || relativeUri.trim().isEmpty()) {
-            return null;
-        }
-
-        try {
-            URI baseAddress = URI.create(baseUri);
-            URI absoluteAddress = baseAddress.resolve(relativeUri);
-
-            // Questo risolutore permette intenzionalmente solo file locali.
-            if (!"file".equalsIgnoreCase(absoluteAddress.getScheme())) {
-                return null;
-            }
-
-            Path resourcePath = Paths.get(absoluteAddress).toAbsolutePath().normalize();
-            if (!isInsideAllowedRoot(resourcePath)) {
-                return null;
-            }
-
-            return resourcePath.toUri().toString();
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
-    @Override
-    public InputStream getEntity(String absoluteUri) {
-        try {
-            URI resourceUri = URI.create(absoluteUri);
-            if (!"file".equalsIgnoreCase(resourceUri.getScheme())) {
-                return null;
-            }
-
-            Path resourcePath = Paths.get(resourceUri).toAbsolutePath().normalize();
-            if (!isInsideAllowedRoot(resourcePath)) {
-                return null;
-            }
-
-            if (Files.exists(resourcePath)) {
-                return Files.newInputStream(resourcePath);
-            }
-
-            // Usa un fallback solo per le risorse immagine. Restituire un flusso immagine
-            // per un font o un foglio di stile mancante non sarebbe valido.
-            if (fallbackImageData != null && isImageFile(resourcePath)) {
-                return new ByteArrayInputStream(fallbackImageData);
-            }
-        } catch (Exception e) {
-            return null;
-        }
-
-        return null;
-    }
-
-    private boolean isInsideAllowedRoot(Path resourcePath) {
-        return resourcePath.normalize().startsWith(allowedRoot);
-    }
-
-    private static boolean isImageFile(Path path) {
-        String fileName = path.getFileName().toString().toLowerCase(Locale.ROOT);
-
-        return fileName.endsWith(".png") ||
-                fileName.endsWith(".jpg") ||
-                fileName.endsWith(".jpeg") ||
-                fileName.endsWith(".gif") ||
-                fileName.endsWith(".bmp");
-    }
-}
-```
-
-### **Risolvi le risorse collegate durante l'importazione SVG**
-
-Supponiamo che `assets/diagram.svg` contenga un riferimento relativo come:
-
-```xml
-<image href="images/photo.png" x="20" y="20" width="320" height="180" />
-```
-
-Il seguente esempio Java passa l'URI del file SVG come URI base e fornisce un risolutore personalizzato. Il risolutore converte il collegamento dell'immagine relativa in un URI assoluto e restituisce un flusso contenente la risorsa collegata mentre Aspose.Slides elabora l'SVG.
+Un'immagine di sfondo viene assegnata al riempimento della diapositiva; non è aggiunta come forma di riquadro immagine. Questo è utile quando l'immagine deve coprire lo sfondo della diapositiva e non deve essere manipolata come un normale oggetto della diapositiva.
 
 ```java
 import com.aspose.slides.*;
 
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IPPImage image;
+    IImage sourceImage = Images.fromFile("background.jpg");
+    try {
+        image = presentation.getImages().addImage(sourceImage);
+    } finally {
+        if (sourceImage != null) sourceImage.dispose();
+    }
+
+    slide.getBackground().setType(BackgroundType.OwnBackground);
+    slide.getBackground().getFillFormat().setFillType(FillType.Picture);
+    slide.getBackground().getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Stretch);
+    slide.getBackground().getFillFormat().getPictureFillFormat().getPicture().setImage(image);
+
+    presentation.save("background-image.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Per opzioni di sfondo aggiuntive, inclusi sfondi di master e layout, vedere [Sfondo della presentazione](/slides/it/java/presentation-background/).
+
+## **Immagini incorporate e immagini collegate**
+
+Le immagini incorporate e quelle collegate hanno diversi compromessi in termini di portabilità e dimensione del file:
+
+- **Immagine incorporata:** i dati dell'immagine sono memorizzati all'interno della presentazione. La presentazione è autonoma, ma la dimensione del file include i dati dell'immagine.
+- **Immagine collegata:** la presentazione memorizza un percorso o URL a un'immagine esterna. Questo può ridurre la dimensione della presentazione, ma la risorsa esterna deve rimanere accessibile quando la presentazione viene aperta o renderizzata.
+
+Un'immagine collegata può essere creata assegnando il percorso o l'URL esterno tramite [ISlidesPicture.setLinkPathLong](https://reference.aspose.com/slides/it/java/com.aspose.slides/islidespicture/) anziché incorporare i dati dell'immagine.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 320, 180, null);
+    pictureFrame.getPictureFormat().getPicture().setLinkPathLong("https://example.com/image.png");
+
+    presentation.save("linked-image.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Utilizzare immagini collegate solo quando l'ambiente di distribuzione può accedere in modo affidabile alla risorsa esterna. Per presentazioni che devono funzionare offline o essere spostate tra sistemi, le immagini incorporate sono solitamente più sicure.
+
+## **Lavorare con le immagini SVG**
+
+SVG è un formato vettoriale, quindi può essere utile per icone, diagrammi e altre grafiche che dovrebbero essere scalate senza la stessa perdita di dettaglio delle immagini raster. Aspose.Slides supporta SVG sia come risorsa immagine sia come fonte per forme di diapositiva modificabili.
+
+### **Aggiungere un SVG come immagine**
+
+Creare un [SvgImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/svgimage/), aggiungerlo alla collezione di immagini e posizionare la risorsa immagine risultante in un riquadro immagine.
+
+```java
+import com.aspose.slides.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
-
-Path svgFilePath = Paths.get("assets", "diagram.svg").toAbsolutePath().normalize();
-Path assetDirectory = svgFilePath.getParent();
-String svgContent = new String(Files.readAllBytes(svgFilePath), StandardCharsets.UTF_8);
-
-// L'URI base rappresenta la posizione del documento SVG.
-String baseUri = svgFilePath.toUri().toString();
-
-byte[] fallbackImageData = null;
-Path fallbackImagePath = assetDirectory.resolve("fallback.png");
-if (Files.exists(fallbackImagePath)) {
-    fallbackImageData = Files.readAllBytes(fallbackImagePath);
-}
-
-IExternalResourceResolver resolver = new LocalSvgResourceResolver(assetDirectory.toString(), fallbackImageData);
-ISvgImage svgImage = new SvgImage(svgContent, resolver, baseUri);
-
-// ISvgImage exposes the source content, binary data, base URI, and resolver.
-String importedContent = svgImage.getSvgContent();
-byte[] importedData = svgImage.getSvgData();
-String importedBaseUri = svgImage.getBaseUri();
-IExternalResourceResolver importedResolver = svgImage.getExternalResourceResolver();
 
 Presentation presentation = new Presentation();
 try {
+    byte[] imageData = Files.readAllBytes(Paths.get("icon.svg"));
+    String svgContent = new String(imageData, StandardCharsets.UTF_8);
+    ISvgImage svgImage = new SvgImage(svgContent);
+
     IPPImage image = presentation.getImages().addImage(svgImage);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addPictureFrame(ShapeType.Rectangle, 20, 20, 200, 200, image);
 
-    presentation.getSlides().get_Item(0).getShapes().addPictureFrame(
-            ShapeType.Rectangle, 20, 20, image.getWidth(), image.getHeight(), image);
-
-    presentation.save("svg-with-linked-resources.pptx", SaveFormat.Pptx);
+    presentation.save("svg-image.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-La classe `SvgImage` fornisce anche overload che accettano dati SVG come array di byte o flusso di input, insieme a un risolutore di risorse esterne e a un URI base.
+### **File SVG con risorse esterne**
 
-{{% alert title="Important" color="warning" %}}
+Un SVG può fare riferimento a immagini, fogli di stile o font esterni. Per questi casi, [SvgImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/svgimage/) fornisce costruttori che accettano un [IExternalResourceResolver](https://reference.aspose.com/slides/it/java/com.aspose.slides/iexternalresourceresolver/) e un URI di base. Il risolutore può mappare un URI relativo a un URI assoluto consentito e restituire uno stream per la risorsa richiesta.
 
-Il risolutore di risorse rende disponibili le risorse esterne mentre Aspose.Slides elabora e rende l'SVG. Non modifica il markup SVG originale né incorpora automaticamente le risorse risolte.  
+Il risolutore rende disponibili le risorse esterne mentre Aspose.Slides elabora l'SVG, ma non riscrive l'SVG in un documento autonomo. Se l'SVG deve rimanere portabile, incorporare le risorse necessarie nell'SVG stesso, ad esempio usando URI `data:` per le immagini collegate.
 
-Quando un `ISvgImage` viene aggiunto alla collezione di immagini della presentazione, il file PPTX può contenere sia la rappresentazione SVG originale sia un'immagine raster di fallback. Una risorsa collegata può apparire nell'immagine di fallback generata mentre un collegamento relativo come `images/photo.png` rimane invariato nello SVG archiviato. Un'applicazione che rende la rappresentazione SVG nativa può quindi omettere il contenuto collegato quando la risorsa esterna originale non è disponibile.  
+Quando i file SVG provengono da fonti non attendibili, limitare gli schemi, le posizioni dei file e gli host a cui il risolutore può accedere. I risolutori di rete dovrebbero inoltre applicare timeout, limiti di dimensione delle risposte e convalida del contenuto.
 
-{{% /alert %}}
+### **Convertire SVG in forme modificabili**
 
-### **Creare un'immagine SVG portabile**
+Aspose.Slides può convertire un SVG in un gruppo di forme di diapositiva modificabili, simile al comando corrispondente di PowerPoint.
 
-Per creare un'immagine SVG che non dipenda da file esterni, rendi l'SVG autonomo prima di creare il `SvgImage`. Ad esempio, sostituisci gli URL delle immagini collegate con URI `data:` che contengono i dati dell'immagine:
+![Menu a comparsa di PowerPoint](img_01_01.png)
 
-```xml
-<image href="data:image/png;base64,..." x="20" y="20" width="320" height="180" />
-```
-
-Dopo che tutte le risorse necessarie sono state incorporate nel contenuto SVG, crea il `SvgImage`, aggiungilo alla collezione di immagini della presentazione e inseriscilo in un fotogramma immagine come mostrato nell'esempio precedente.
-
-### **Gestire risorse mancanti o bloccate**
-
-Restituisci `null` da `resolveUri` quando un URI di risorsa è non valido, proibito o non può essere risolto. Restituisci `null` da `getEntity` quando la risorsa non può essere letta. Aspose.Slides continua a elaborare l'SVG senza quella risorsa quando possibile.  
-
-Un flusso di fallback può essere restituito per una risorsa mancante, ma il suo contenuto deve essere compatibile con il tipo di risorsa richiesto. Ad esempio, restituisci un flusso immagine solo per un'immagine mancante, non per un font o un foglio di stile.  
-
-{{% alert title="Security" color="warning" %}}
-
-Non risolvere percorsi di file arbitrari o URL di rete non limitati da file SVG non attendibili. Limita gli schemi, le directory e gli host consentiti. Per le risorse di rete, applica anche timeout di connessione, limiti di dimensione della risposta e validazione del contenuto.  
-
-{{% /alert %}}
-
-## **Convertire SVG in un insieme di forme**
-
-Aspose.Slides può convertire un SVG in un insieme di forme, simile alla funzionalità corrispondente in PowerPoint:
-
-![PowerPoint Popup Menu](img_01_01.png)
-
-Questa funzionalità è fornita da un overload del metodo [addGroupShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/IShapeCollection#addGroupShape-com.aspose.slides.ISvgImage-float-float-float-float-) dell'interfaccia [IShapeCollection](https://reference.aspose.com/slides/it/java/com.aspose.slides/IShapeCollection) che accetta un oggetto [ISvgImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/ISvgImage) come primo argomento.
-
-Il seguente codice di esempio Java mostra come utilizzare questo metodo per convertire un file SVG in un insieme di forme:
+Utilizzare la sovraccarico [IShapeCollection.addGroupShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishapecollection/) che accetta un [ISvgImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/isvgimage/) per eseguire la conversione.
 
 ```java
 import com.aspose.slides.*;
 import java.awt.geom.Dimension2D;
-import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-// Nome file SVG di origine.
-String svgFileName = "sample.svg";
-
-// Nome file della presentazione di output.
-String outPptxPath = "presentation.pptx";
-
-// Crea una nuova presentazione.
-IPresentation presentation = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // Leggi il contenuto del file SVG.
-    byte[] svgContent = Files.readAllBytes(Paths.get(svgFileName));
-
-    // Crea un oggetto SvgImage.
+    byte[] imageData = Files.readAllBytes(Paths.get("diagram.svg"));
+    String svgContent = new String(imageData, StandardCharsets.UTF_8);
     ISvgImage svgImage = new SvgImage(svgContent);
 
-    // Ottieni la dimensione della diapositiva.
     Dimension2D slideSize = presentation.getSlideSize().getSize();
+    ISlide slide = presentation.getSlides().get_Item(0);
+    slide.getShapes().addGroupShape(svgImage, 0, 0, (float) slideSize.getWidth(), (float) slideSize.getHeight());
 
-    // Converti l'immagine SVG in un gruppo di forme e scala alla dimensione della diapositiva.
-    presentation.getSlides().get_Item(0).getShapes().addGroupShape(
-            svgImage, 0f, 0f,
-            (float) slideSize.getWidth(), (float) slideSize.getHeight());
-
-    // Salva la presentazione in formato PPTX.
-    presentation.save(outPptxPath, SaveFormat.Pptx);
-} catch (IOException e) {
+    presentation.save("editable-svg-shapes.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Aggiungere immagini come EMF alle diapositive**
+Utilizzare la conversione da SVG a forme quando gli elementi vettoriali individuali devono essere modificati come forme di PowerPoint. Se l'SVG deve solo essere visualizzato, mantenerlo come immagine è più semplice e evita di creare molte forme separate.
 
-Aspose.Slides per Java consente di generare immagini EMF da fogli di calcolo Excel con Aspose.Cells e aggiungerle alle diapositive della presentazione.
+## **Sostituire una risorsa immagine esistente**
 
-Il seguente codice di esempio Java mostra come farlo:
-
-```java
-import com.aspose.slides.*;
-import com.aspose.cells.ImageOrPrintOptions;
-import com.aspose.cells.ImageType;
-import com.aspose.cells.SheetRender;
-import com.aspose.cells.Workbook;
-import com.aspose.cells.Worksheet;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-
-Workbook book = new Workbook("chart.xlsx");
-Worksheet sheet = book.getWorksheets().get(0);
-
-ImageOrPrintOptions options = new ImageOrPrintOptions();
-options.setHorizontalResolution(200);
-options.setVerticalResolution(200);
-options.setImageType(ImageType.EMF);
-
-// Salva la cartella di lavoro in uno stream.
-SheetRender sr = new SheetRender(sheet, options);
-Presentation pres = new Presentation();
-try {
-    pres.getSlides().removeAt(0);
-
-    String emfSheetName;
-    for (int j = 0; j < sr.getPageCount(); j++) {
-        emfSheetName = "test" + sheet.getName() + " Page" + (j + 1) + ".out.emf";
-        sr.toImage(j, emfSheetName);
-
-        // Aggiungi il file così com'è così l'immagine rimane un EMF vettoriale invece di essere rasterizzata.
-        IPPImage picture;
-        InputStream imageStream = new FileInputStream(emfSheetName);
-        try {
-            picture = pres.getImages().addImage(imageStream);
-        } finally {
-            imageStream.close();
-        }
-
-        ISlide slide = pres.getSlides().addEmptySlide(
-                pres.getLayoutSlides().getByType(SlideLayoutType.Blank));
-        slide.getShapes().addPictureFrame(
-                ShapeType.Rectangle,
-                0,
-                0,
-                (float) pres.getSlideSize().getSize().getWidth(),
-                (float) pres.getSlideSize().getSize().getHeight(),
-                picture);
-    }
-
-    pres.save("output.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
-} finally {
-    pres.dispose();
-}
-```
-
-## **Sostituire immagini nella collezione di immagini**
-
-Aspose.Slides consente di sostituire le immagini archiviate nella collezione di immagini di una presentazione, incluse le immagini usate dalle forme delle diapositive. Questa sezione descrive diversi metodi per aggiornare le immagini nella collezione. È possibile sostituire un'immagine usando dati byte grezzi, un'istanza [IImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/iimage/) o un'altra immagine già presente nella collezione.
-
-Segue i passaggi:
-
-1. Carica il file di presentazione che contiene le immagini usando la classe [Presentation](https://reference.aspose.com/slides/it/java/com.aspose.slides/presentation/).  
-2. Carica una nuova immagine da un file in un array di byte.  
-3. Sostituisci l'immagine di destinazione con la nuova immagine usando l'array di byte.  
-4. Nel secondo approccio, carica l'immagine in un oggetto [IImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/iimage/) e sostituisci l'immagine di destinazione con quell'oggetto.  
-5. Nel terzo approccio, sostituisci l'immagine di destinazione con un'immagine già presente nella collezione di immagini della presentazione.  
-6. Scrivi la presentazione modificata come file PPTX.  
+Utilizzare [IPPImage.replaceImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/ippimage/) quando si desidera sostituire una risorsa immagine esistente. Questo è particolarmente utile per grafica condivisa come i loghi.
 
 ```java
 import com.aspose.slides.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
-// Istanziare la classe Presentation che rappresenta un file di presentazione.
-Presentation presentation = new Presentation("sample.pptx");
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // Il primo modo.
-    byte[] imageData = Files.readAllBytes(Paths.get("image0.jpeg"));
-    IPPImage oldImage = presentation.getImages().get_Item(0);
-    oldImage.replaceImage(imageData);
+    IPPImage imageToReplace = presentation.getImages().get_Item(0);
 
-    // Il secondo modo.
-    IImage newImage = Images.fromFile("image1.png");
+    IImage replacementImage = Images.fromFile("new-logo.png");
     try {
-        oldImage = presentation.getImages().get_Item(1);
-        oldImage.replaceImage(newImage);
+        imageToReplace.replaceImage(replacementImage);
     } finally {
-        if (newImage != null) newImage.dispose();
+        if (replacementImage != null) replacementImage.dispose();
     }
 
-    // Il terzo modo.
-    oldImage = presentation.getImages().get_Item(2);
-    oldImage.replaceImage(presentation.getImages().get_Item(3));
-
-    // Salva la presentazione in un file.
     presentation.save("output.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert title="Info" color="info" %}}
+Se più riquadri immagine, sfondi, master o layout utilizzano la stessa risorsa immagine, sostituire tale risorsa aggiorna tutti quegli utilizzi. Se deve cambiare solo un riquadro immagine, assegnare un'immagine diversa a quel riquadro invece di sostituire la risorsa condivisa.
 
-Con il convertitore gratuito [Text to GIF](https://products.aspose.app/slides/it/text-to-gif) di Aspose, puoi animare facilmente il testo e creare GIF dal testo. 
+`replaceImage` fornisce inoltre sovraccarichi che accettano un array di byte o un altro [IPPImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/ippimage/).
 
-{{% /alert %}}
+## **Linee guida pratiche per la gestione delle immagini**
+
+### **Controllare la dimensione della presentazione**
+
+Le grandi immagini raster possono rendere una presentazione inutilmente grande. Utilizzare immagini sorgente con dimensioni appropriate per la dimensione di visualizzazione prevista, riutilizzare le risorse immagine condivise quando possibile e evitare di incorporare copie ripetute della stessa grafica ad alta risoluzione.
+
+Per le immagini raster già inserite in riquadri immagine, [IPictureFillFormat.compressImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/ipicturefillformat/) può ridurre i dati immagine in base alla risoluzione selezionata e alle impostazioni di ritaglio. Questo è un processamento di riquadro immagine piuttosto che una gestione della collezione di immagini, quindi vedere [Riquadro immagine](/slides/it/java/picture-frame/) per le operazioni di formattazione correlate.
+
+### **Scegliere tra contenuto incorporato e collegato**
+
+L'incorporazione rende la presentazione portabile perché tutti i dati immagine necessari viaggiano con il file. Il collegamento può ridurre la dimensione del file, ma introduce una dipendenza esterna. Utilizzare i collegamenti solo quando tale dipendenza è accettabile e stabile.
+
+### **Riutilizzare il branding condiviso**
+
+Per loghi, filigrane o grafiche decorative ripetute, utilizzare una singola risorsa immagine e riutilizzarla. Se la grafica appartiene al design della presentazione piuttosto che al contenuto della diapositiva, posizionarla su un master o layout affinché sia ereditata dalle diapositive appropriate.
+
+### **Mantenere le risorse SVG portabili**
+
+Un SVG autonomo è più facile da spostare e renderizzare in modo coerente rispetto a un SVG che dipende da file esterni o risorse di rete. Quando possibile, incorporare le risorse necessarie prima di importare l'SVG. Convertire SVG in forme solo quando gli elementi vettoriali individuali devono essere modificati.
+
+### **Utilizzare l'API immagine moderna e multipiattaforma**
+
+Per il nuovo codice Java, utilizzare le API Aspose.Slides [IImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/iimage/) e [Images](https://reference.aspose.com/slides/it/java/com.aspose.slides/images/) invece della vecchia API pubblica basata su `java.awt.image.BufferedImage`. Vedere [API moderna](/slides/it/java/modern-api/) per le indicazioni sulla migrazione.
+
+WMF ed EMF richiedono considerazioni particolari. Quando questi formati vengono passati attraverso un [IImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/iimage/), [ImageCollection.addImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/imagecollection/) converte il metafile in una rappresentazione PNG raster prima dell'inserimento. Se è importante preservare i dati del metafile, utilizzare invece una sovraccarico basata su stream di [ImageCollection.addImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/imagecollection/). Generare contenuti EMF da fogli di calcolo o altri prodotti è un flusso di integrazione separato e non rientra nell'ambito di questo articolo.
 
 ## **FAQ**
 
-**La risoluzione originale dell'immagine rimane intatta dopo l'inserimento?**
+**Qual è la differenza tra la collezione di immagini e un riquadro immagine?**
 
-Sì. I pixel di origine sono preservati, ma l'aspetto finale dipende da come l'[immagine](/slides/it/java/picture-frame/) viene scalata sulla diapositiva e da eventuali compressioni applicate al salvataggio.  
+La collezione di immagini memorizza risorse immagine riutilizzabili. Un riquadro immagine è una forma della diapositiva che visualizza una di quelle risorse e fornisce formattazioni specifiche per l'immagine, come ritaglio ed effetti.
 
-**Qual è il modo migliore per sostituire lo stesso logo su decine di diapositive contemporaneamente?**
+**Qual è il modo migliore per sostituire lo stesso logo ovunque?**
 
-Posiziona il logo sul master della diapositiva o su un layout e sostituiscilo nella collezione di immagini della presentazione: gli aggiornamenti si propageranno a tutti gli elementi che utilizzano quella risorsa.  
+Se il logo è già condiviso come una singola risorsa immagine, sostituire quella risorsa con [IPPImage.replaceImage](https://reference.aspose.com/slides/it/java/com.aspose.slides/ippimage/). Per il branding a livello di presentazione, posizionare il logo su un master o layout può anche ridurre il contenuto duplicato delle diapositive.
 
-**È possibile convertire un SVG inserito in forme modificabili?**
+**Perché un'immagine collegata scompare su un altro computer?**
 
-Sì. Puoi convertire un SVG in un gruppo di forme, dopo di che le singole parti diventano modificabili con le proprietà standard delle forme.  
+Un'immagine collegata dipende dal suo file o URL esterno. Se quella risorsa non può essere raggiunta dall'altro computer, l'immagine collegata potrebbe non essere disponibile. Incorporare l'immagine quando la presentazione deve essere autonoma.
 
-**Come posso impostare un'immagine come sfondo per più diapositive contemporaneamente?**
+**È possibile modificare un SVG inserito come forme di PowerPoint?**
 
-[Assegna l'immagine come sfondo](/slides/it/java/presentation-background/) sul master della diapositiva o sul layout pertinente: tutte le diapositive che usano quel master/layout erediteranno lo sfondo.  
+Sì. Convertire l'SVG con [IShapeCollection.addGroupShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/ishapecollection/); il gruppo risultante contiene forme di diapositiva modificabili anziché un'unica immagine SVG.
 
-**Come posso evitare che una presentazione diventi troppo grande a causa di molte immagini?**
+**Come posso mantenere più piccole le presentazioni con molte immagini?**
 
-Riutilizza una singola risorsa immagine invece di duplicati, scegli risoluzioni ragionevoli, applica la compressione al salvataggio e mantieni le grafiche ripetute sul master dove appropriato.
+Riutilizzare le risorse immagine condivise, evitare sorgenti raster inutilmente grandi, comprimere le immagini raster appropriate quando opportuno, mantenere il branding ripetuto su master o layout e utilizzare immagini collegate solo quando una dipendenza esterna è accettabile.
