@@ -1,5 +1,5 @@
 ---
-title: Kezelje a diagram munkafüzeteket a bemutatókban .NET környezetben
+title: Diagram munkafüzeteinek kezelése prezentációkban .NET-ben
 linktitle: Diagram munkafüzet
 type: docs
 weight: 70
@@ -13,21 +13,26 @@ keywords:
 - adatforrás
 - külső munkafüzet
 - külső adat
+- diagram gyorsítótár
+- munkafüzet helyreállítás
 - PowerPoint
-- bemutató
+- prezentáció
 - .NET
 - C#
 - Aspose.Slides
-description: "Fedezze fel az Aspose.Slides for .NET-et: egyszerűen kezelje a diagram munkafüzeteket PowerPoint és OpenDocument formátumokban, hogy hatékonyabbá tegye a bemutató adatait."
+description: "Fedezze fel az Aspose.Slides for .NET-et: könnyedén kezelje a diagram munkafüzeteit PowerPoint és OpenDocument formátumokban, hogy egyszerűsítse prezentációjának adatait."
 ---
 ## **Áttekintés**
 
-Ez a cikk leírja, hogyan lehet a diagram munkafüzetekkel dolgozni az Aspose.Slides-ban. Bemutatja, hogyan lehet a diagramadatokat munkafüzet‑stream‑eken keresztül olvasni és írni, a munkafüzet cellákat diagramadat‑címkeként használni, a munkalap‑gyűjteményekhez hozzáférni, és hogyan lehet megadni az adatforrás típusát a diagramértékekhez.  
+Ez a cikk azt mutatja be, hogyan dolgozzunk diagrammunnekkönyvekkel az Aspose.Slides-ben. Bemutatja, hogyan olvassuk és írjuk a diagram adatokat munkafüzet-áramlatokon keresztül, hogyan használjuk a munkafüzet cellákat diagramadat-címkeként, hogyan érjük el a munkalap-gyűjteményeket, és hogyan adjuk meg az adatforrás típusát a diagram értékekhez.
 
-Továbbá tárgyalja a külső munkafüzetek diagramadat‑forrásként való használatát. A példák bemutatják, hogyan lehet külső munkafüzetet létrehozni és hozzárendelni, a diagramhoz kapcsolt külső munkafüzet útvonalát lekérni, valamint a diagramadatokat szerkeszteni, ha a munkafüzet elérhető.
+Továbbá lefedi a külső munkafüzetek diagramadat-forrásként való használatát. A példák bemutatják, hogyan hozzunk létre és rendeljünk hozzá egy külső munkafüzetet, hogyan szerezzük meg egy diagramhoz kapcsolódó külső munkafüzet útvonalát, és hogyan szerkesszük a diagram adatokat, ha a munkafüzet elérhető.
 
-## **Diagramadatok olvasása és írása egy munkafüzetből**
-Az Aspose.Slides a [ReadWorkbookStream](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartdata/readworkbookstream/) és a [WriteWorkbookStream](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartdata/writeworkbookstream/) metódusokat kínálja, amelyek lehetővé teszik a diagramadat‑munkafüzetek (az Aspose.Cells‑szel szerkesztett diagramadatokat tartalmazó) olvasását és írását. **Megjegyzés**: a diagramadatoknak ugyanúgy kell felépülniük, vagy hasonló struktúrával kell rendelkezniük, mint a forrás.
+## **Diagramadatok olvasása és írása munkafüzettel**
+
+Aspose.Slides biztosítja a [ReadWorkbookStream](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartdata/readworkbookstream/) és [WriteWorkbookStream](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartdata/writeworkbookstream/) metódusokat, amelyek lehetővé teszik a diagram adatmunkafüzetek (amelyek Aspose.Cells segítségével szerkesztett diagramadatokat tartalmaznak) olvasását és írását. **Megjegyzés** hogy a diagram adatainak ugyanúgy vagy hasonló szerkezetűen kell legyenek szervezve, mint a forrás.
+
+Ez a C# kód egy mintaműveletet mutat be:
 
 ```c#
 using (Presentation pres = new Presentation("chart.pptx"))
@@ -45,20 +50,23 @@ using (Presentation pres = new Presentation("chart.pptx"))
 }
 ```
 
-## **Munkafüzetcellát beállítása diagramadat‑címkeként**
+## **Munkafüzet cella beállítása diagramadat-címkeként**
+
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztályból.  
-1. Szerezze meg egy dia referenciáját az indexe alapján.  
-1. Adjon hozzá egy buborékdiagramot néhány adattal.  
+1. Szerezze be egy dia hivatkozását az indexe alapján.  
+1. Adjon hozzá egy buborékdiagramot némi adattal.  
 1. Érje el a diagram sorozatát.  
 1. Állítsa be a munkafüzet cellát adatcímkeként.  
-1. Mentse a bemutatót.
+1. Mentse a prezentációt.
+
+Ez a C# kód megmutatja, hogyan állítsuk be a munkafüzet cellát diagramadat-címkeként:
 
 ```c#
 string lbl0 = "Label 0 cell value";
 string lbl1 = "Label 1 cell value";
 string lbl2 = "Label 2 cell value";
 
-// Létrehozza a prezentációt reprezentáló osztály egy példányát, amely egy prezentációs fájlt képvisel 
+// Példányosít egy prezentáció osztályt, amely egy prezentáció fájlt képvisel 
 
 using (Presentation pres = new Presentation("chart2.pptx"))
 {
@@ -82,7 +90,8 @@ using (Presentation pres = new Presentation("chart2.pptx"))
 ```
 
 ## **Munkalapok kezelése**
-Ez a C# kód bemutat egy műveletet, amelyben az [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartdataworkbook/properties/worksheets) tulajdonságot használják a munkalap‑gyűjtemény eléréséhez:
+
+Ez a C# kód egy olyan műveletet mutat be, ahol az [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartdataworkbook/properties/worksheets) tulajdonságot használják a munkalap-gyűjtemény eléréséhez:
 
 ``` csharp
 using (Presentation pres = new Presentation())
@@ -94,8 +103,9 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **Az adatforrás típusának megadása**
-Ez a C# kód megmutatja, hogyan lehet egy típusú adatforrást megadni:
+## **Adatforrás típusának megadása**
+
+Ez a C# kód megmutatja, hogyan adjon meg egy típust egy adatforráshoz:
 
 ```c#
 using (Presentation pres = new Presentation())
@@ -114,7 +124,8 @@ using (Presentation pres = new Presentation())
 ```
 
 ## **Nem támogatott beágyazott munkafüzet formátumok felismerése**
-Az Aspose.Slides nem támogatja azt az Excel bináris munkafüzet (.xlsb) formátumot, amely egyes diagramokba beágyazható. Használhatja az `EmbeddedWorkbookType` tulajdonságot az [IChartData](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartdata/) mellett, valamint a [WorkbookType](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/workbooktype/) felsorolást a nem támogatott formátumok felismeréséhez és az ilyen diagramok kihagyásához.
+
+Az Aspose.Slides nem támogatja a néhány diagramba beágyazható Excel bináris munkafüzet (.xlsb) formátumot. A `EmbeddedWorkbookType` tulajdonságot az [IChartData](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartdata/) és a [WorkbookType](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/workbooktype/) felsorolással együtt használhatja a nem támogatott formátumok felismerésére és az ilyen diagramok kihagyására.
 
 ```csharp
 using (var presentation = new Presentation("sample.pptx"))
@@ -130,11 +141,11 @@ using (var presentation = new Presentation("sample.pptx"))
         if (chartData.DataSourceType == ChartDataSourceType.InternalWorkbook &&
             chartData.EmbeddedWorkbookType == WorkbookType.WorkbookBinaryMacro)
         {
-            // A beágyazott munkafüzet .xlsb formátumban van, ami nem támogatott.
+            // A beágyazott munkafüzet .xlsb formátumban van, amelyet nem támogatunk.
             continue;
         }
 
-        // Itt olvashatja vagy módosíthatja a diagram munkafüzet adatokat.
+        // Itt olvassa vagy módosítsa a diagram munkafüzete adatát.
     }
 }
 ```
@@ -142,11 +153,14 @@ using (var presentation = new Presentation("sample.pptx"))
 ## **Külső munkafüzet**
 
 {{% alert color="primary" %}} 
-Az [Aspose.Slides 19.4](https://docs.aspose.com/slides/hu/net/aspose-slides-for-net-19-4-release-notes/) verzióban bevezettük a külső munkafüzetek diagramadat‑forrásként való támogatását.  
+Az [Aspose.Slides 19.4](https://docs.aspose.com/slides/hu/net/aspose-slides-for-net-19-4-release-notes/) verzióban bevezettük a külső munkafüzetek diagramok adatforrásaként való támogatását.
 {{% /alert %}} 
 
 ### **Külső munkafüzet létrehozása**
-A **`ReadWorkbookStream`** és a **`SetExternalWorkbook`** metódusok használatával vagy egy külső munkafüzetet hozhat létre az elejétől, vagy egy belső munkafüzetet tehet külsővé.
+
+A **`ReadWorkbookStream`** és **`SetExternalWorkbook`** metódusok használatával létrehozhat egy külső munkafüzetet a semmiből, vagy egy belső munkafüzetet külsővé tehet.
+
+Ez a C# kód bemutatja a külső munkafüzet létrehozási folyamatát:
 
 ```c#
 using (Presentation pres = new Presentation())
@@ -167,12 +181,15 @@ using (Presentation pres = new Presentation())
 ```
 
 ### **Külső munkafüzet beállítása**
-A **`SetExternalWorkbook`** metódus segítségével egy külső munkafüzetet rendelhet egy diagramhoz adatforrásként. Ezzel a metódussal a külső munkafüzet elérési útját is frissítheti (ha az később át lett helyezve).
 
-Bár a távoli helyeken vagy erőforrásokban tárolt munkafüzetek adatait nem szerkesztheti közvetlenül, továbbra is használhatja ezeket a munkafüzeteket külső adatforrásként. Ha relatív útvonalat ad meg egy külső munkafüzethez, az automatikusan teljes úttá konvertálódik.
+A **`SetExternalWorkbook`** metódus használatával egy külső munkafüzetet adhat a diagramhez adatforrásként. Ez a metódus használható a külső munkafüzet elérési útjának frissítésére is (ha az áthelyezésre került).
+
+Bár a távoli helyeken vagy erőforrásokban tárolt munkafüzetek adatait nem lehet szerkeszteni, továbbra is használhatók külső adatforrásként. Ha egy relatív útvonalat adunk meg egy külső munkafüzethez, azt a rendszer automatikusan teljes útvonallá alakítja.
+
+Ez a C# kód megmutatja, hogyan állítsunk be egy külső munkafüzetet:
 
 ```c#
-// A dokumentumok könyvtárának elérési útja.
+// A dokumentumok könyvtárának az útvonala.
 using (Presentation pres = new Presentation())
 {
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 400, 600, false);
@@ -193,10 +210,10 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-A `ChartData` paraméter (a `SetExternalWorkbook` metódus alatt) azt határozza meg, hogy egy Excel munkafüzet be lesz‑töltve‑e vagy sem.
+A `ChartData` paraméter (a `SetExternalWorkbook` metódus alatt) azt határozza meg, hogy egy Excel munkafüzet be lesz-e töltve vagy sem.
 
-* Ha a `ChartData` értéke **false**, csak a munkafüzet útvonala frissül — a diagramadat nem töltődik be, és nem frissül a célmunkafüzetből. Ezt a beállítást akkor érdemes használni, ha a célmunkafüzet nem létezik vagy nem érhető el.  
-* Ha a `ChartData` értéke **true**, a diagramadat a célmunkafüzettől frissül.
+* Ha a `ChartData` értéke `false`, csak a munkafüzet útvonala frissül – a diagram adatai nem töltődnek be, és nem frissülnek a célmunkafüzetről. Ezt a beállítást akkor használhatja, ha a célmunkafüzet nem létezik vagy nem érhető el.  
+* Ha a `ChartData` értéke `true`, a diagram adatai a célmunkafüzetről frissülnek.
 
 ```c#
 using (Presentation pres = new Presentation())
@@ -210,13 +227,15 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-### **Külső adatforrás munkafüzet útvonalának lekérése egy diagramhoz**
+### **Diagram külső adatforrás munkafüzetének útvonalának lekérése**
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztályból.  
-1. Szerezze meg egy dia referenciáját az indexe alapján.  
+1. Szerezze be egy dia hivatkozását az indexe alapján.  
 1. Hozzon létre egy objektumot a diagram alakzatához.  
-1. Hozzon létre egy objektumot a forrás (`ChartDataSourceType`) típusához, amely a diagram adatforrását jelöli.  
-1. Adja meg a megfelelő feltételt a forrás típusa alapján, ha az megegyezik a külső munkafüzet adatforrás típusával.
+1. Hozzon létre egy objektumot a forrás (`ChartDataSourceType`) típushoz, amely a diagram adatforrását jelöli.  
+1. Adja meg a megfelelő feltételt a forrástípus alapján, amely megegyezik a külső munkafüzet adatforrás típusával.
+
+Ez a C# kód bemutatja a műveletet:
 
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
@@ -229,14 +248,16 @@ using (Presentation pres = new Presentation("pres.pptx"))
         string path = chart.ChartData.ExternalWorkbookPath;
     }
     
-    // Elmenti a prezentációt
+    // A prezentáció mentése
     pres.Save("Result.pptx", SaveFormat.Pptx);
 }
 ```
 
-### **Diagramadatok szerkesztése**
+### **Diagram adatainak szerkesztése**
 
-Külső munkafüzetek adatait ugyanúgy szerkesztheti, ahogy a belső munkafüzetek tartalmát módosítaná. Ha egy külső munkafüzetet nem lehet betölteni, kivétel keletkezik.
+Az adatokat külső munkafüzetekben ugyanúgy szerkesztheti, ahogy a belső munkafüzetek tartalmát módosítja. Ha egy külső munkafüzetet nem lehet betölteni, kivétel keletkezik.
+
+Ez a C# kód a leírt folyamat megvalósítása:
 
 ```c#
 using (Presentation pres = new Presentation("presentation.pptx"))
@@ -250,28 +271,53 @@ using (Presentation pres = new Presentation("presentation.pptx"))
 }
 ```
 
+### **Munkafüzet helyreállítása a diagram gyorsítótárából**
+
+Ha egy diagram egy hiányzó vagy nem elérhető külső munkafüzetet használ, az Aspose.Slides képes rekonstruálni a diagram munkafüzetet a prezentációban tárolt gyorsítótárazott adatokból. Hozzon létre egy [LoadOptions](https://reference.aspose.com/slides/hu/net/aspose.slides/loadoptions/) objektumot, konfigurálja annak [SpreadsheetOptions](https://reference.aspose.com/slides/hu/net/aspose.slides/loadoptions/spreadsheetoptions/) beállításait, és állítsa a [ISpreadsheetOptions.RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/hu/net/aspose.slides/ispreadsheetoptions/recoverworkbookfromchartcache/) értékét `true`-ra a prezentáció megnyitása előtt.
+
+A következő C# példa megnyit egy olyan prezentációt, amelynek diagramja egy nem elérhető külső munkafüzetre hivatkozik, és a helyreállított adatokat a [IChart.ChartData](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichart/chartdata/) és [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/ichartdata/chartdataworkbook/) segítségével érheti el:
+
+```csharp
+var loadOptions = new LoadOptions
+{
+    SpreadsheetOptions = new SpreadsheetOptions
+    {
+        RecoverWorkbookFromChartCache = true
+    }
+};
+
+using var presentation = new Presentation("presentation.pptx", loadOptions);
+
+var chart = (IChart)presentation.Slides[0].Shapes[0];
+var recoveredWorkbook = chart.ChartData.ChartDataWorkbook;
+
+// Read or modify the recovered workbook data here.
+```
+
+Ha a külső munkafüzet nem elérhető és a helyreállítás le van tiltva, az Aspose.Slides `InvalidOperationException` kivételt dob. Engedélyezze a helyreállítást csak akkor, ha a gyorsítótárazott diagram adatok használata elfogadható tartalék, mivel a gyorsítótár nem feltétlenül tartalmazza a prezentáció legutóbbi frissítése után a külső munkafüzetben végzett módosításokat.
+
 ## **GYIK**
 
-**Meg tudom határozni, hogy egy adott diagram külső vagy beágyazott munkafüzethez van‑e kapcsolva?**  
+**Meg tudom határozni, hogy egy adott diagram külső vagy beágyazott munkafüzethez van-e csatolva?**
 
-Igen. A diagram rendelkezik [adatforrás típusával](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/chartdata/datasourcetype/) és egy [úttal egy külső munkafüzethez](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/chartdata/externalworkbookpath/); ha a forrás egy külső munkafüzet, akkor a teljes útvonal kiolvasható, így ellenőrizhető, hogy külső fájlt használ‑e.
+Igen. A diagram rendelkezik [adatforrás típussal](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/chartdata/datasourcetype/) és egy [úttal a külső munkafüzethez](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/chartdata/externalworkbookpath/); ha a forrás egy külső munkafüzet, akkor kiolvashatja a teljes útvonalat, hogy megbizonyosodjon, egy külső fájl van-e használatban.
 
-**Támogatottak-e a relatív útvonalak a külső munkafüzetekhez, és hogyan tárolódnak?**  
+**Támogatottak a relatív útvonalak a külső munkafüzetekhez, és hogyan tárolódnak?**
 
-Igen. Ha relatív útvonalat ad meg, az automatikusan átalakul abszolút útvonallá. Ez kényelmes a projekt hordozhatósága szempontjából; azonban a prezentáció az abszolút útvonalat tárolja a PPTX fájlban.
+Igen. Ha relatív útvonalat ad meg, azt a rendszer automatikusan abszolút útvonallá konvertálja. Ez a projekt hordozhatóságát megkönnyíti; azonban vegye figyelembe, hogy a prezentáció az abszolút útvonalat tárolja a PPTX fájlban.
 
-**Használhatók‑e hálózati erőforrásokon/megosztásokon lévő munkafüzetek?**  
+**Használhatok hálózati erőforrásokon/megosztott helyeken lévő munkafüzeteket?**
 
-Igen, ilyen munkafüzetek használhatók külső adatforrásként. A távoli munkafüzetek közvetlen szerkesztése az Aspose.Slides‑ból nem támogatott — csak forrásként használhatók.
+Igen, az ilyen munkafüzetek használhatók külső adatforrásként. Azonban a távoli munkafüzetek közvetlen szerkesztése az Aspose.Slides-ből nem támogatott – csak forrásként használhatók.
 
-**Az Aspose.Slides felülírja‑e a külső XLSX‑et a prezentáció mentésekor?**  
+**Felülírja-e az Aspose.Slides a külső XLSX fájlt a prezentáció mentésekor?**
 
-Nem. A prezentáció egy [hivatkozást tárol a külső fájlra](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/chartdata/externalworkbookpath/), és ezt használja az adatok olvasásához. A külső fájl maga nem módosul a prezentáció mentésekor.
+Nem. A prezentáció egy [hivatkozást tárol a külső fájlra](https://reference.aspose.com/slides/hu/net/aspose.slides.charts/chartdata/externalworkbookpath/) és azt használja az adatok olvasásához. A külső fájl maga nem módosul a prezentáció mentésekor.
 
-**Mi a teendő, ha a külső fájl jelszóval védett?**  
+**Mit tegyek, ha a külső fájl jelszóval védett?**
 
-Az Aspose.Slides nem fogad jelszót a kapcsolódáskor. Általános megoldás, hogy előre eltávolítja a védelmet, vagy egy dekódolt másolatot készít (például a [Aspose.Cells](/cells/net/) segítségével), majd arra hivatkozik.
+Az Aspose.Slides nem fogad el jelszót a csatoláskor. Egy gyakori megoldás, hogy előzetesen eltávolítja a védelmet, vagy egy dekódolt másolatot készít (például az [Aspose.Cells](/cells/net/) használatával), és arra a másolatra hivatkozik.
 
-**Több diagram hivatkozhat‑e ugyanarra a külső munkafüzetre?**  
+**Több diagram hivatkozhat ugyanarra a külső munkafüzetre?**
 
-Igen. Minden diagram saját hivatkozást tárol. Ha mind ugyanarra a fájlra mutatnak, akkor a fájl frissítése minden diagram esetében megjelenik a következő adatbetöltéskor.
+Igen. Minden diagram saját hivatkozást tárol. Ha mindegyik ugyanarra a fájlra mutat, a fájl frissítése a következő adatbetöltéskor minden diagramon megjelenik.

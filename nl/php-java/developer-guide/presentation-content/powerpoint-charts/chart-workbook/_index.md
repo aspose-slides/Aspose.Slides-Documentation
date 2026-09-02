@@ -1,34 +1,36 @@
 ---
-title: Beheer chart-werkboeken in presentaties met PHP
-linktitle: Chart-werkboek
+title: Beheer grafiekwerkboeken in presentaties met PHP
+linktitle: Grafiekwerkboek
 type: docs
 weight: 70
 url: /nl/php-java/chart-workbook/
 keywords:
-- chart-werkboek
-- chart-gegevens
+- grafiekwerkboek
+- grafiekgegevens
 - werkboekcel
-- datalabel
+- gegevenslabel
 - werkblad
 - gegevensbron
 - extern werkboek
-- externe data
+- externe gegevens
+- grafiekkache
+- werkboekherstel
 - PowerPoint
 - presentatie
 - PHP
 - Aspose.Slides
-description: "Ontdek Aspose.Slides voor PHP via Java: beheert moeiteloos chart-werkboeken in PowerPoint- en OpenDocument-formaten om uw presentatiedata te stroomlijnen."
+description: "Ontdek Aspose.Slides voor PHP via Java: beheer moeiteloos grafiekwerkboeken in PowerPoint- en OpenDocument-formaten om uw presentatiedata te stroomlijnen."
 ---
 ## **Overzicht**
 
-Dit artikel legt uit hoe u met chart‑werkboeken in Aspose.Slides kunt werken. Het laat zien hoe u chart‑gegevens kunt lezen en schrijven via werkboek‑streams, werkboekcellen kunt gebruiken als chart‑datacontlabels, werkbladcollecties kunt benaderen en het type gegevensbron voor chart‑waarden kunt opgeven.
+Dit artikel legt uit hoe u met grafiekwerkboeken in Aspose.Slides kunt werken. Het laat zien hoe u grafiekgegevens kunt lezen en schrijven via werkboek‑streams, werkboekcellen als grafiekgegevenslabels kunt gebruiken, werkbladcollecties kunt benaderen en het gegevenstype van de bron voor grafiekwaarden kunt opgeven.
 
-Het behandelt ook het werken met externe werkboeken als chart‑gegevensbronnen. De voorbeelden laten zien hoe u een extern werkboek maakt en toewijst, het pad van een extern werkboek dat aan een chart is gekoppeld opvraagt en chart‑gegevens bewerkt wanneer het werkboek beschikbaar is.
+Het behandelt tevens het werken met externe werkboeken als gegevensbron voor grafieken. De voorbeelden laten zien hoe u een extern werkboek maakt en toewijst, het pad van een extern werkboek dat aan een grafiek is gekoppeld opvraagt, en grafiekgegevens bewerkt wanneer het werkboek beschikbaar is.
 
-## **Lezen en schrijven van chart‑gegevens vanuit een werkboek**
-Aspose.Slides biedt de [readWorkbookStream](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartdata/#readWorkbookStream) en [writeWorkbookStream](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartdata/#writeWorkbookStream) methoden die u toestaan chart‑gegevenswerkboeken te lezen en te schrijven (bevat chart‑gegevens die bewerkt zijn met Aspose.Cells). **Opmerking** dat de chart‑gegevens op dezelfde manier moet worden georganiseerd of een structuur moet hebben die vergelijkbaar is met de bron.
+## **Grafiekgegevens lezen en schrijven vanuit een werkboek**
+Aspose.Slides biedt de [readWorkbookStream](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartdata/#readWorkbookStream) en [writeWorkbookStream](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartdata/#writeWorkbookStream) methoden die het mogelijk maken grafiekgegevens‑werkboeken te lezen en te schrijven (bevatten grafiekgegevens bewerkt met Aspose.Cells). **Opmerking** dat de grafiekgegevens op dezelfde manier moeten worden georganiseerd of een structuur moeten hebben die vergelijkbaar is met de bron.
 
-This PHP code demonstrates a sample operation:
+Deze PHP-code demonstreert een voorbeeldoperatie:
 
 ```php
   $pres = new Presentation("chart.pptx");
@@ -46,22 +48,22 @@ This PHP code demonstrates a sample operation:
   }
 ```
 
-## **Een werkboekcel instellen als chart‑datacontlabel**
+## **Een werkboekcel instellen als grafiekgegevenslabel**
 
-1. Maak een instantie van de [Presentation](https://apireference.aspose.com/slides/nl/php-java/aspose.slides/presentation) klasse.
-1. Haal een referentie naar een slide op via de index.
-1. Voeg een bubbel‑chart toe met enige data.
-1. Benader de chart‑series.
-1. Stel de werkboekcel in als een datalabel.
-1. Sla de presentatie op.
+1. Maak een instantie van de [Presentation](https://apireference.aspose.com/slides/nl/php-java/aspose.slides/presentation) klasse.  
+2. Haal de referentie van een dia op via de index.  
+3. Voeg een Bubbeldiagram toe met enkele gegevens.  
+4. Benader de grafiekserie.  
+5. Stel de werkboekcel in als gegevenslabel.  
+6. Sla de presentatie op.
 
-This PHP code shows you to set a workbook cell as a chart data label:
+Deze PHP-code toont hoe u een werkboekcel als grafiekgegevenslabel instelt:
 
 ```php
   $lbl0 = "Label 0 cell value";
   $lbl1 = "Label 1 cell value";
   $lbl2 = "Label 2 cell value";
-  # Instantieert een presentatieklasse die een presentatiebestand voorstelt
+  # Instantieert een presentatieklasse die een presentatiebestand vertegenwoordigt
   $pres = new Presentation("chart2.pptx");
   try {
     $slide = $pres->getSlides()->get_Item(0);
@@ -83,7 +85,7 @@ This PHP code shows you to set a workbook cell as a chart data label:
 
 ## **Werkbladen beheren**
 
-This PHP code demonstrates an operation where the [ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartdataworkbook/#getWorksheets) method is used to access a worksheet collection:
+Deze PHP-code demonstreert een bewerking waarbij de [ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartdataworkbook/#getWorksheets) methode wordt gebruikt om een werkbladcollectie te benaderen:
 
 ```php
   $pres = new Presentation();
@@ -102,7 +104,7 @@ This PHP code demonstrates an operation where the [ChartDataWorkbook::getWorkshe
 
 ## **Het type gegevensbron opgeven**
 
-This PHP code shows you how to specify a type for a data source:
+Deze PHP-code toont hoe u een type voor een gegevensbron kunt opgeven:
 
 ```php
   $pres = new Presentation();
@@ -121,9 +123,9 @@ This PHP code shows you how to specify a type for a data source:
   }
 ```
 
-## **Niet‑ondersteunde ingesloten werkboekformaten detecteren**
+## **Detecteer niet‑ondersteunde ingebedde werkboekformaten**
 
-Aspose.Slides ondersteunt het Excel‑binaire werkboek (.xlsb)‑formaat dat in sommige charts kan worden ingesloten niet. U kunt de `getEmbeddedWorkbookType`‑methode op [ChartData](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartdata/) samen met de [WorkbookType](https://reference.aspose.com/slides/nl/php-java/aspose.slides/workbooktype/)‑enumeratie gebruiken om niet‑ondersteunde formaten te detecteren en die charts over te slaan.
+Aspose.Slides ondersteunt het Excel‑binaire werkboekformaat (.xlsb) dat in sommige grafieken kan worden ingebed niet. U kunt de `getEmbeddedWorkbookType`‑methode op [ChartData](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartdata/) gebruiken in combinatie met de [WorkbookType](https://reference.aspose.com/slides/nl/php-java/aspose.slides/workbooktype/)‑enumeratie om niet‑ondersteunde formaten te detecteren en die grafieken over te slaan.
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -143,11 +145,11 @@ try {
 
     if (java_values($chartData->getDataSourceType()) == ChartDataSourceType::InternalWorkbook &&
         java_values($chartData->getEmbeddedWorkbookType()) == WorkbookType::WorkbookBinaryMacro) {
-      # Ingesloten werkboek is in .xlsb-formaat, wat niet wordt ondersteund.
+      # Ingebed werkboek is in .xlsb-formaat, wat niet wordt ondersteund.
       continue;
     }
 
-    # Lees hier of bewerk de chart-werkboekgegevens.
+    # Lees of bewerk hier de grafiekwerkboekgegevens.
   }
 } finally {
   $presentation->dispose();
@@ -156,13 +158,13 @@ try {
 
 ## **Extern werkboek**
 
-Aspose.Slides ondersteunt externe werkboeken als gegevensbron voor charts.
+Aspose.Slides ondersteunt externe werkboeken als gegevensbron voor grafieken.
 
 ### **Een extern werkboek maken**
 
-Met de **`readWorkbookStream`**- en **`setExternalWorkbook`**-methoden kunt u ofwel een extern werkboek vanaf nul maken of een intern werkboek extern maken.
+Met de **`readWorkbookStream`**‑ en **`setExternalWorkbook`**‑methoden kunt u een extern werkboek van de grond af aan maken of een intern werkboek extern maken.
 
-This PHP code demonstrates the external workbook creation process:
+Deze PHP-code demonstreert het proces van het maken van een extern werkboek:
 
 ```php
   $pres = new Presentation();
@@ -192,11 +194,11 @@ This PHP code demonstrates the external workbook creation process:
 
 ### **Een extern werkboek instellen**
 
-Met de **`setExternalWorkbook`**‑methode kunt u een extern werkboek aan een chart toewijzen als gegevensbron. Deze methode kan ook worden gebruikt om een pad naar het externe werkboek bij te werken (als dit later verplaatst is).
+Met de **`setExternalWorkbook`**‑methode kunt u een extern werkboek aan een grafiek toewijzen als gegevensbron. Deze methode kan ook worden gebruikt om een pad naar het externe werkboek bij te werken (als het laatstgenoemde is verplaatst).
 
-Hoewel u de data in werkboeken die op een externe locatie of resource staan niet kunt bewerken, kunt u die werkboeken nog steeds als externe gegevensbron gebruiken. Als een relatief pad voor een extern werkboek wordt opgegeven, wordt dit automatisch omgezet naar een volledig pad.
+Hoewel u de gegevens in werkboeken die op externe locaties of resources staan niet kunt bewerken, kunt u die werkboeken wel als externe gegevensbron gebruiken. Als een relatief pad voor een extern werkboek wordt opgegeven, wordt dit automatisch omgezet naar een volledig pad.
 
-This PHP code shows you how to set an external workbook:
+Deze PHP-code toont hoe u een extern werkboek instelt:
 
 ```php
   # Maakt een instantie van de Presentation-klasse
@@ -220,10 +222,10 @@ This PHP code shows you how to set an external workbook:
   }
 ```
 
-De `ChartData`‑parameter (onder de `setExternalWorkbook`‑methode) wordt gebruikt om op te geven of een Excel‑werkboek wel of niet wordt geladen. 
+De `ChartData`‑parameter (onder de `setExternalWorkbook`‑methode) wordt gebruikt om op te geven of een Excel‑werkboek wel of niet wordt geladen.
 
-* Wanneer de `ChartData`‑waarde op `false` wordt gezet, wordt alleen het pad van het werkboek bijgewerkt — de chart‑gegevens worden niet geladen of bijgewerkt vanuit het doel‑werkboek. U kunt deze instelling gebruiken wanneer het doel‑werkboek niet bestaat of niet beschikbaar is. 
-* Wanneer de `ChartData`‑waarde op `true` wordt gezet, worden de chart‑gegevens bijgewerkt vanuit het doel‑werkboek.
+* Wanneer de `ChartData`‑waarde is ingesteld op `false`, wordt alleen het werkboekpad bijgewerkt ‑ de grafiekgegevens worden niet geladen of bijgewerkt vanuit het doelwerkboek. Deze instelling is handig wanneer het doelwerkboek niet bestaat of niet beschikbaar is.  
+* Wanneer de `ChartData`‑waarde is ingesteld op `true`, worden de grafiekgegevens bijgewerkt vanuit het doelwerkboek.
 
 ```php
   # Maakt een instantie van de Presentation-klasse
@@ -240,15 +242,15 @@ De `ChartData`‑parameter (onder de `setExternalWorkbook`‑methode) wordt gebr
   }
 ```
 
-### **Het pad van het externe gegevensbron‑werkboek van een chart ophalen**
+### **Het pad van het externe gegevensbron‑werkboek van een grafiek ophalen**
 
-1. Maak een instantie van de [Presentation](https://apireference.aspose.com/slides/nl/php-java/aspose.slides/presentation) klasse.
-1. Haal een referentie naar een slide op via de index.
-1. Creëer een object voor de chart‑vorm.
-1. Creëer een object voor het bron‑type (`ChartDataSourceType`) dat de gegevensbron van de chart vertegenwoordigt.
-1. Specificeer de relevante voorwaarde op basis van het feit dat het bron‑type gelijk is aan het type van de externe werkboek‑gegevensbron.
+1. Maak een instantie van de [Presentation](https://apireference.aspose.com/slides/nl/php-java/aspose.slides/presentation) klasse.  
+2. Haal de referentie van een dia op via de index.  
+3. Maak een object voor de grafiekvorm.  
+4. Maak een object voor het bron‑type (`ChartDataSourceType`) dat de gegevensbron van de grafiek vertegenwoordigt.  
+5. Specificeer de relevante voorwaarde op basis van of het bron‑type gelijk is aan het externe werkboek‑type.
 
-This PHP code demonstrates the operation:
+Deze PHP-code demonstreert de bewerking:
 
 ```php
   # Maakt een instantie van de Presentation-klasse
@@ -269,11 +271,11 @@ This PHP code demonstrates the operation:
   }
 ```
 
-### **Chart‑gegevens bewerken**
+### **Grafiekgegevens bewerken**
 
-U kunt de data in externe werkboeken op dezelfde manier bewerken als u veranderingen aanbrengt in de inhoud van interne werkboeken. Wanneer een extern werkboek niet kan worden geladen, wordt er een uitzondering gegooid.
+U kunt de gegevens in externe werkboeken op dezelfde manier bewerken als u wijzigingen aanbrengt in interne werkboeken. Wanneer een extern werkboek niet kan worden geladen, wordt er een uitzondering gegooid.
 
-This PHP code is an implementation of the described process:
+Deze PHP-code is een implementatie van het beschreven proces:
 
 ```php
   # Maakt een instantie van de Presentation-klasse
@@ -290,28 +292,54 @@ This PHP code is an implementation of the described process:
   }
 ```
 
+### **Een werkboek herstellen uit de grafiek‑cache**
+
+Als een grafiek een extern werkboek gebruikt dat ontbreekt of niet beschikbaar is, kan Aspose.Slides het grafiek‑werkboek reconstrueren uit de in de presentatie gecachte gegevens. Maak een [LoadOptions](https://reference.aspose.com/slides/nl/php-java/aspose.slides/loadoptions/) aan, configureer deze met [SpreadsheetOptions](https://reference.aspose.com/slides/nl/php-java/aspose.slides/spreadsheetoptions/), en roep [SpreadsheetOptions::setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/nl/php-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) aan met `true` voordat u de presentatie opent.
+
+Het volgende PHP‑voorbeeld opent een presentatie waarvan de grafiek verwijst naar een niet‑beschikbaar extern werkboek en benadert de herstelde gegevens via [Chart::getChartData](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chart/#getChartData) en [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartdata/#getChartDataWorkbook):
+
+```php
+$spreadsheetOptions = new SpreadsheetOptions();
+$spreadsheetOptions->setRecoverWorkbookFromChartCache(true);
+
+$loadOptions = new LoadOptions();
+$loadOptions->setSpreadsheetOptions($spreadsheetOptions);
+
+$presentation = new Presentation("presentation.pptx", $loadOptions);
+try {
+    $chart = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $recoveredWorkbook = $chart->getChartData()->getChartDataWorkbook();
+
+    # Lees of bewerk hier de herstelde werkboekgegevens.
+} finally {
+    $presentation->dispose();
+}
+```
+
+Als het externe werkboek niet beschikbaar is en herstel is uitgeschakeld, gooit Aspose.Slides een uitzondering. Schakel herstel alleen in wanneer het gebruik van de gecachte grafiekgegevens een acceptabele fallback is, omdat de cache mogelijk geen wijzigingen bevat die na de laatste presentatie‑update in het externe werkboek zijn aangebracht.
+
 ## **FAQ**
 
-**Kan ik bepalen of een specifieke chart gekoppeld is aan een extern of een ingesloten werkboek?**
+**Kan ik bepalen of een specifieke grafiek gekoppeld is aan een extern of ingebed werkboek?**
 
-Ja. Een chart heeft een [data source type](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartdata/getdatasourcetype/) en een [pad naar een extern werkboek](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartdata/getexternalworkbookpath/); als de bron een extern werkboek is, kunt u het volledige pad lezen om zeker te zijn dat een extern bestand wordt gebruikt.
+Ja. Een grafiek heeft een [gegevensbron‑type](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartdata/getdatasourcetype/) en een [pad naar een extern werkboek](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartdata/getexternalworkbookpath/); als de bron een extern werkboek is, kunt u het volledige pad lezen om zeker te weten dat een extern bestand wordt gebruikt.
 
 **Worden relatieve paden naar externe werkboeken ondersteund, en hoe worden ze opgeslagen?**
 
-Ja. Als u een relatief pad opgeeft, wordt dit automatisch omgezet naar een absoluut pad. Dit is handig voor project‑portabiliteit; houd er echter rekening mee dat de presentatie het absolute pad opslaat in het PPTX‑bestand.
+Ja. Als u een relatief pad opgeeft, wordt dit automatisch omgezet naar een absoluut pad. Dit is handig voor project‑portabiliteit; houd er echter rekening mee dat de presentatie het absolute pad in het PPTX‑bestand opslaat.
 
-**Kan ik werkboeken gebruiken die zich op netwerkmiddelen/‑shares bevinden?**
+**Kan ik werkboeken gebruiken die zich op netwerk‑resources/shares bevinden?**
 
-Ja, dergelijke werkboeken kunnen worden gebruikt als een externe gegevensbron. Het direct bewerken van externe werkboeken vanuit Aspose.Slides wordt echter niet ondersteund — ze kunnen alleen als bron worden gebruikt.
+Ja, dergelijke werkboeken kunnen als externe gegevensbron worden gebruikt. Het bewerken van externe werkboeken rechtstreeks vanuit Aspose.Slides wordt echter niet ondersteund ‑ ze kunnen alleen als bron dienen.
 
-**Schrijft Aspose.Slides het externe XLSX‑bestand over bij het opslaan van de presentatie?**
+**Overschrijft Aspose.Slides het externe XLSX‑bestand bij het opslaan van de presentatie?**
 
-Nee. De presentatie slaat een [link naar het externe bestand](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartdata/getexternalworkbookpath/) op en gebruikt die voor het lezen van gegevens. Het externe bestand zelf wordt niet aangepast wanneer de presentatie wordt opgeslagen.
+Nee. De presentatie slaat een [koppeling naar het externe bestand](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartdata/getexternalworkbookpath/) op en gebruikt die voor het lezen van gegevens. Het externe bestand zelf wordt niet gewijzigd bij het opslaan van de presentatie.
 
-**Wat moet ik doen als het externe bestand met een wachtwoord beveiligd is?**
+**Wat moet ik doen als het externe bestand met een wachtwoord is beveiligd?**
 
-Aspose.Slides accepteert geen wachtwoord bij het koppelen. Een veelgebruikte aanpak is om de beveiliging van tevoren te verwijderen of een gedecodeerde kopie (bijvoorbeeld met [Aspose.Cells](/cells/php-java/)) klaar te hebben en naar die kopie te linken.
+Aspose.Slides accepteert geen wachtwoord bij het koppelen. Een gebruikelijke aanpak is om de beveiliging vooraf te verwijderen of een gedecrypteerde kopie voor te bereiden (bijvoorbeeld met [Aspose.Cells](/cells/php-java/)) en naar die kopie te koppelen.
 
-**Kunnen meerdere charts naar hetzelfde externe werkboek verwijzen?**
+**Kunnen meerdere grafieken naar hetzelfde externe werkboek verwijzen?**
 
-Ja. Elke chart slaat zijn eigen link op. Als ze allemaal naar hetzelfde bestand wijzen, zal een bijwerking van dat bestand in elke chart zichtbaar worden bij de volgende keer dat de gegevens worden geladen.
+Ja. Elke grafiek slaat zijn eigen koppeling op. Als ze allemaal naar hetzelfde bestand wijzen, worden wijzigingen in dat bestand in elke grafiek weergegeven de volgende keer dat de gegevens worden geladen.

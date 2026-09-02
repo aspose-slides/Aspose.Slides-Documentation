@@ -1,33 +1,35 @@
 ---
-title: Quản lý sổ làm việc biểu đồ trong bản trình chiếu bằng С++
-linktitle: Sổ làm việc biểu đồ
+title: Quản lý Workbook Biểu đồ trong Bản trình bày bằng C++
+linktitle: Workbook Biểu đồ
 type: docs
 weight: 70
 url: /vi/cpp/chart-workbook/
 keywords:
-- sổ làm việc biểu đồ
+- workbook biểu đồ
 - dữ liệu biểu đồ
-- ô sổ làm việc
+- ô workbook
 - nhãn dữ liệu
 - bảng tính
 - nguồn dữ liệu
-- sổ làm việc ngoại vi
-- dữ liệu ngoại vi
+- workbook bên ngoài
+- dữ liệu bên ngoài
+- bộ nhớ cache biểu đồ
+- khôi phục workbook
 - PowerPoint
-- bản trình chiếu
-- С++
+- bản trình bày
+- C++
 - Aspose.Slides
-description: "Khám phá Aspose.Slides cho С++: quản lý sổ làm việc biểu đồ trong PowerPoint và định dạng OpenDocument một cách dễ dàng để tối ưu dữ liệu bản trình chiếu của bạn."
+description: "Khám phá Aspose.Slides cho C++: dễ dàng quản lý workbook biểu đồ trong các định dạng PowerPoint và OpenDocument để tối ưu dữ liệu bản trình bày của bạn."
 ---
 ## **Tổng quan**
 
-Bài viết này giải thích cách làm việc với sổ làm việc biểu đồ trong Aspose.Slides. Nó cho thấy cách đọc và ghi dữ liệu biểu đồ thông qua luồng sổ làm việc, sử dụng các ô sổ làm việc làm nhãn dữ liệu biểu đồ, truy cập bộ sưu tập worksheet, và chỉ định loại nguồn dữ liệu cho các giá trị biểu đồ.
+Bài viết này giải thích cách làm việc với sổ làm việc biểu đồ trong Aspose.Slides. Nó cho thấy cách đọc và ghi dữ liệu biểu đồ qua luồng workbook, sử dụng các ô workbook làm nhãn dữ liệu biểu đồ, truy cập bộ sưu tập worksheet và chỉ định loại nguồn dữ liệu cho giá trị biểu đồ.
 
-Nó cũng đề cập đến việc làm việc với các sổ làm việc bên ngoài làm nguồn dữ liệu cho biểu đồ. Các ví dụ minh họa cách tạo và gán một sổ làm việc ngoại vi, lấy đường dẫn của sổ làm việc ngoại vi được liên kết với biểu đồ, và chỉnh sửa dữ liệu biểu đồ khi sổ làm việc có sẵn.
+Nó cũng đề cập đến việc làm việc với workbook bên ngoài như là nguồn dữ liệu cho biểu đồ. Các ví dụ minh họa cách tạo và gán một workbook bên ngoài, lấy đường dẫn của workbook bên ngoài được liên kết với biểu đồ, và chỉnh sửa dữ liệu biểu đồ khi workbook khả dụng.
 
-## **Đọc và ghi dữ liệu biểu đồ từ sổ làm việc**
+## **Đọc và ghi dữ liệu biểu đồ từ một Workbook**
 
-Aspose.Slides cung cấp các phương thức [ReadWorkbookStream](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) và [WriteWorkbookStream](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) cho phép bạn đọc và ghi sổ làm việc dữ liệu biểu đồ (chứa dữ liệu biểu đồ đã được chỉnh sửa bằng Aspose.Cells). **Lưu ý** rằng dữ liệu biểu đồ phải được tổ chức theo cùng cách hoặc phải có cấu trúc tương tự như nguồn.
+Aspose.Slides cung cấp các phương thức [ReadWorkbookStream](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) và [WriteWorkbookStream](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) cho phép bạn đọc và ghi workbook dữ liệu biểu đồ (chứa dữ liệu biểu đồ đã được chỉnh sửa bằng Aspose.Cells). **Note** dữ liệu biểu đồ phải được tổ chức theo cùng cách hoặc phải có cấu trúc tương tự nguồn.
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"chart.pptx");
@@ -43,7 +45,7 @@ stream->set_Position(0);
 data->WriteWorkbookStream(stream);
 ```
 
-Đoạn mã C++ này minh họa thao tác thiết lập sổ làm việc dữ liệu biểu đồ:
+Mã C++ này minh họa thao tác đặt một workbook dữ liệu biểu đồ:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"Test.pptx");
@@ -75,23 +77,23 @@ series->get_ParentSeriesGroup()->set_IsColorVaried(true);
 pres->Save(u"response2.pptx", Export::SaveFormat::Pptx);
 ```
 
-## **Đặt ô WorkBook làm Nhãn Dữ liệu Biểu đồ**
+## **Đặt ô WorkBook làm Nhãn dữ liệu biểu đồ**
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/) .
 2. Lấy tham chiếu của một slide thông qua chỉ mục của nó.
-3. Thêm một biểu đồ Bubble với một số dữ liệu.
-4. Truy cập vào chuỗi biểu đồ.
-5. Đặt ô sổ làm việc làm nhãn dữ liệu.
-6. Lưu bản trình chiếu.
+3. Thêm biểu đồ Bubble với một số dữ liệu.
+4. Truy cập series của biểu đồ.
+5. Đặt ô workbook làm nhãn dữ liệu.
+6. Lưu bản trình bày.
 
-Đoạn mã C++ này cho bạn cách đặt một ô sổ làm việc làm nhãn dữ liệu cho biểu đồ:
+Mã C++ này cho bạn cách đặt một ô workbook làm nhãn dữ liệu biểu đồ:
 
 ``` cpp
 System::String lbl0 = u"Label 0 cell value";
 System::String lbl1 = u"Label 1 cell value";
 System::String lbl2 = u"Label 2 cell value";
 
-// Khởi tạo một lớp Presentation đại diện cho tệp bản trình chiếu 
+// Tạo một đối tượng lớp Presentation đại diện cho tệp bản trình bày 
 auto pres = System::MakeObject<Presentation>(u"chart2.pptx");
 
 auto slide = pres->get_Slides()->idx_get(0);
@@ -111,9 +113,9 @@ series->idx_get(0)->get_Labels()->idx_get(2)->set_ValueFromCell(wb->GetCell(0, u
 pres->Save(u"resultchart.pptx", SaveFormat::Pptx);
 ```
 
-## **Quản lý Worksheet**
+## **Quản lý Worksheets**
 
-Đoạn mã C++ này minh họa một thao tác trong đó phương thức [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) được sử dụng để truy cập bộ sưu tập worksheet:
+Mã C++ này minh họa một thao tác trong đó phương thức [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) được sử dụng để truy cập bộ sưu tập worksheet:
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -126,9 +128,9 @@ for (auto ws : System::IterateOver(worksheets))
     System::Console::WriteLine(ws->get_Name());
 ```
 
-## **Chỉ định Loại Nguồn Dữ liệu**
+## **Chỉ định Loại nguồn dữ liệu**
 
-Đoạn mã C++ này cho bạn cách chỉ định một loại cho nguồn dữ liệu:
+Mã C++ này cho bạn cách chỉ định một loại cho nguồn dữ liệu:
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -145,9 +147,9 @@ val->set_Data(chartData->get_ChartDataWorkbook()->GetCell(0, u"B1", System::Obje
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-## **Phát hiện Định dạng Sổ làm việc Nhúng Không được Hỗ trợ**
+## **Phát hiện Định dạng Workbook Nhúng không được hỗ trợ**
 
-Aspose.Slides không hỗ trợ định dạng sổ làm việc nhị phân Excel (.xlsb) có thể được nhúng trong một số biểu đồ. Bạn có thể sử dụng phương thức `get_EmbeddedWorkbookType` trên [IChartData](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdata/) cùng với enumeration [WorkbookType](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/workbooktype/) để phát hiện các định dạng không được hỗ trợ và bỏ qua các biểu đồ đó.
+Aspose.Slides không hỗ trợ định dạng workbook nhị phân Excel (.xlsb) có thể được nhúng trong một số biểu đồ. Bạn có thể sử dụng phương thức `get_EmbeddedWorkbookType` trên [IChartData](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdata/) cùng với enumeration [WorkbookType](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/workbooktype/) để phát hiện các định dạng không được hỗ trợ và bỏ qua các biểu đồ đó.
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
@@ -166,25 +168,25 @@ for (auto&& shape : slide->get_Shapes())
     if (chartData->get_DataSourceType() == ChartDataSourceType::InternalWorkbook &&
         chartData->get_EmbeddedWorkbookType() == WorkbookType::WorkbookBinaryMacro)
     {
-        // Sổ làm việc nhúng ở định dạng .xlsb, không được hỗ trợ.
+        // Workbook nhúng ở định dạng .xlsb, không được hỗ trợ.
         continue;
     }
 
-    // Đọc hoặc sửa đổi dữ liệu sổ làm việc biểu đồ tại đây.
+    // Đọc hoặc chỉnh sửa dữ liệu workbook của biểu đồ tại đây.
 }
 ```
 
-## **Sổ làm việc Ngoại vi**
+## **Workbook bên ngoài**
 
 {{% alert color="primary" %}} 
-Trong [Aspose.Slides](https://releases.aspose.com/slides/vi/cpp/release-notes/2019/aspose-slides-for-cpp-19-4-release-notes/) 19.4, chúng tôi đã triển khai hỗ trợ cho sổ làm việc ngoại vi làm nguồn dữ liệu cho biểu đồ.
+Trong [Aspose.Slides](https://releases.aspose.com/slides/vi/cpp/release-notes/2019/aspose-slides-for-cpp-19-4-release-notes/) 19.4, chúng tôi đã triển khai hỗ trợ workbooks bên ngoài làm nguồn dữ liệu cho biểu đồ.
 {{% /alert %}} 
 
-### **Tạo một Sổ làm việc Ngoại vi**
+### **Tạo một Workbook bên ngoài**
 
-Sử dụng các phương thức **`ReadWorkbookStream`** và **`SetExternalWorkbook`**, bạn có thể tạo một sổ làm việc ngoại vi từ đầu hoặc chuyển một sổ làm việc nội bộ thành ngoại vi.
+Sử dụng các phương thức **`ReadWorkbookStream`** và **`SetExternalWorkbook`**, bạn có thể tạo một workbook bên ngoài từ đầu hoặc biến một workbook nội bộ thành bên ngoài.
 
-Đoạn mã C++ này minh họa quy trình tạo sổ làm việc ngoại vi:
+Mã C++ này minh họa quá trình tạo workbook bên ngoài:
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -206,13 +208,13 @@ chartData->SetExternalWorkbook(System::IO::Path::GetFullPath(workbookPath));
 pres->Save(u"externalWorkbook.pptx", SaveFormat::Pptx);
 ```
 
-### **Gán một Sổ làm việc Ngoại vi**
+### **Đặt một Workbook bên ngoài**
 
-Sử dụng phương thức **`IChartData::SetExternalWorkbook`**, bạn có thể gán một sổ làm việc ngoại vi cho biểu đồ làm nguồn dữ liệu. Phương thức này cũng có thể được dùng để cập nhật đường dẫn tới sổ làm việc ngoại vi (nếu sổ làm việc đó đã được di chuyển).
+Sử dụng phương thức **`IChartData::SetExternalWorkbook`**, bạn có thể gán một workbook bên ngoài cho biểu đồ như là nguồn dữ liệu của nó. Phương thức này cũng có thể được dùng để cập nhật đường dẫn tới workbook bên ngoài (nếu workbook đó đã được di chuyển).
 
-Mặc dù bạn không thể chỉnh sửa dữ liệu trong các sổ làm việc được lưu trữ ở vị trí hoặc tài nguyên từ xa, bạn vẫn có thể sử dụng các sổ làm việc đó làm nguồn dữ liệu ngoại vi. Nếu cung cấp đường dẫn tương đối cho một sổ làm việc ngoại vi, nó sẽ tự động được chuyển đổi thành đường dẫn đầy đủ.
+Mặc dù bạn không thể chỉnh sửa dữ liệu trong các workbook được lưu trữ ở vị trí hoặc tài nguyên từ xa, bạn vẫn có thể sử dụng những workbook đó làm nguồn dữ liệu bên ngoài. Nếu cung cấp đường dẫn tương đối cho một workbook bên ngoài, nó sẽ tự động được chuyển đổi thành đường dẫn đầy đủ.
 
-Đoạn mã C++ này cho bạn cách gán một sổ làm việc ngoại vi:
+Mã C++ này cho bạn cách đặt một workbook bên ngoài:
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -236,10 +238,10 @@ categories->Add(workbook->GetCell(0, u"A4"));
 pres->Save(u"Presentation_with_externalWorkbook.pptx", SaveFormat::Pptx);
 ```
 
-Tham số `updateChartData` (được sử dụng trong phương thức `SetExternalWorkbook`) dùng để chỉ định có tải sổ làm việc Excel hay không.
+Tham số `updateChartData` (được đặt dưới phương thức `SetExternalWorkbook`) được dùng để chỉ định liệu một workbook Excel có được tải hay không. 
 
-* Khi giá trị của `updateChartData` được đặt thành `false`, chỉ đường dẫn sổ làm việc được cập nhật — dữ liệu biểu đồ sẽ không được tải hoặc cập nhật từ sổ làm việc mục tiêu. Bạn có thể muốn sử dụng cài đặt này khi sổ làm việc mục tiêu không tồn tại hoặc không khả dụng. 
-* Khi giá trị của `updateChartData` được đặt thành `true`, dữ liệu biểu đồ sẽ được cập nhật từ sổ làm việc mục tiêu.
+* Khi giá trị `updateChartData` được đặt là `false`, chỉ đường dẫn workbook được cập nhật — dữ liệu biểu đồ sẽ không được tải hoặc cập nhật từ workbook đích. Bạn có thể muốn sử dụng cài đặt này khi workbook đích không tồn tại hoặc không khả dụng. 
+* Khi giá trị `updateChartData` được đặt là `true`, dữ liệu biểu đồ sẽ được cập nhật từ workbook đích.
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -253,15 +255,15 @@ concreteChartData->SetExternalWorkbook(u"http://path/doesnt/exists", false);
 pres->Save(u"SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat::Pptx);
 ```
 
-### **Lấy Đường dẫn Sổ làm việc Nguồn Dữ liệu Ngoại của Biểu đồ**
+### **Lấy Đường dẫn Workbook Nguồn Dữ liệu Bên ngoài của một Biểu đồ**
 
 1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/) .
-2. Lấy tham chiếu của slide thông qua chỉ mục của nó.
+2. Lấy tham chiếu của một slide thông qua chỉ mục của nó.
 3. Tạo một đối tượng cho hình dạng biểu đồ.
 4. Tạo một đối tượng cho loại nguồn (`ChartDataSourceType`) đại diện cho nguồn dữ liệu của biểu đồ.
-5. Chỉ định điều kiện liên quan dựa trên việc loại nguồn bằng với loại nguồn dữ liệu sổ làm việc ngoại vi.
+5. Chỉ định điều kiện phù hợp dựa trên việc loại nguồn giống với loại nguồn dữ liệu workbook bên ngoài.
 
-Đoạn mã C++ này minh họa thao tác:
+Mã C++ này minh họa thao tác:
 
 ```c++
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
@@ -274,15 +276,15 @@ if (sourceType == ChartDataSourceType::ExternalWorkbook)
     System::String path = chart->get_ChartData()->get_ExternalWorkbookPath();
 }
 
-// Lưu bản trình chiếu
+// Lưu bản trình bày
 pres->Save(u"Result.pptx", SaveFormat::Pptx);
 ```
 
 ### **Chỉnh sửa Dữ liệu Biểu đồ**
 
-Bạn có thể chỉnh sửa dữ liệu trong các sổ làm việc ngoại vi giống như cách bạn thay đổi nội dung của các sổ làm việc nội bộ. Khi không thể tải một sổ làm việc ngoại vi, một ngoại lệ sẽ được ném.
+Bạn có thể chỉnh sửa dữ liệu trong workbook bên ngoài theo cùng cách như khi thay đổi nội dung của workbook nội bộ. Khi một workbook bên ngoài không thể được tải, một ngoại lệ sẽ được ném.
 
-Đoạn mã C++ này là một triển khai của quy trình đã mô tả:
+Mã C++ này là một triển khai của quy trình đã mô tả:
 
 ```c++
 const String templatePath = u"../templates/presentation.pptx";
@@ -298,28 +300,49 @@ const String templatePath = u"../templates/presentation.pptx";
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+### **Khôi phục Workbook từ Bộ nhớ Cache của Biểu đồ**
+
+Nếu một biểu đồ sử dụng một workbook bên ngoài bị thiếu hoặc không khả dụng, Aspose.Slides có thể tái tạo workbook biểu đồ từ dữ liệu đã được lưu trong bản trình bày. Tạo [LoadOptions](https://reference.aspose.com/slides/vi/cpp/aspose.slides/loadoptions/), cấu hình nó với [set_SpreadsheetOptions](https://reference.aspose.com/slides/vi/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/), và gọi [ISpreadsheetOptions::set_RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ispreadsheetoptions/set_recoverworkbookfromchartcache/) với `true` trước khi mở bản trình bày.
+
+Ví dụ C++ sau mở một bản trình bày mà biểu đồ tham chiếu một workbook bên ngoài không khả dụng và truy cập dữ liệu đã được khôi phục qua [IChart::get_ChartData](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichart/get_chartdata/) và [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/):
+
+```cpp
+auto spreadsheetOptions = MakeObject<SpreadsheetOptions>();
+spreadsheetOptions->set_RecoverWorkbookFromChartCache(true);
+
+auto loadOptions = MakeObject<LoadOptions>();
+loadOptions->set_SpreadsheetOptions(spreadsheetOptions);
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx", loadOptions);
+
+auto shape = presentation->get_Slide(0)->get_Shape(0);
+auto chart = System::ExplicitCast<IChart>(shape);
+
+auto recoveredWorkbook = chart->get_ChartData()->get_ChartDataWorkbook();
+
+// Read or modify the recovered workbook data here.
+
+presentation->Dispose();
+```
+
+Nếu workbook bên ngoài không khả dụng và tính năng khôi phục bị tắt, Aspose.Slides ném ra một `System::InvalidOperationException`. Chỉ bật tính năng khôi phục khi việc sử dụng dữ liệu biểu đồ đã được lưu trong cache là một dự phòng chấp nhận được, vì cache có thể không chứa các thay đổi được thực hiện trên workbook bên ngoài sau lần cập nhật bản trình bày cuối cùng.
+
 ## **Câu hỏi thường gặp**
 
-**Tôi có thể xác định một biểu đồ cụ thể có liên kết đến sổ làm việc ngoại vi hay nhúng không?**
+**Tôi có thể xác định liệu một biểu đồ cụ thể có liên kết tới workbook bên ngoài hay nhúng không?**  
+Có. Một biểu đồ có một [loại nguồn dữ liệu](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) và một [đường dẫn tới workbook bên ngoài](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/); nếu nguồn là một workbook bên ngoài, bạn có thể đọc đường dẫn đầy đủ để chắc chắn một tệp bên ngoài đang được sử dụng.
 
-Có. Một biểu đồ có một [loại nguồn dữ liệu](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) và một [đường dẫn tới sổ làm việc ngoại vi](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/); nếu nguồn là một sổ làm việc ngoại vi, bạn có thể đọc đường dẫn đầy đủ để chắc chắn rằng một tệp ngoại vi đang được sử dụng.
+**Các đường dẫn tương đối tới workbook bên ngoài có được hỗ trợ không, và chúng được lưu như thế nào?**  
+Có. Nếu bạn chỉ định một đường dẫn tương đối, nó sẽ tự động được chuyển thành đường dẫn tuyệt đối. Điều này tiện lợi cho tính di động của dự án; tuy nhiên, hãy lưu ý rằng bản trình bày sẽ lưu đường dẫn tuyệt đối trong tệp PPTX.
 
-**Các đường dẫn tương đối tới sổ làm việc ngoại vi có được hỗ trợ không, và chúng được lưu như thế nào?**
+**Tôi có thể sử dụng các workbook nằm trên tài nguyên/mạng chia sẻ không?**  
+Có, các workbook đó có thể được dùng làm nguồn dữ liệu bên ngoài. Tuy nhiên, việc chỉnh sửa trực tiếp các workbook từ xa bằng Aspose.Slides không được hỗ trợ — chúng chỉ có thể được dùng làm nguồn.
 
-Có. Nếu bạn chỉ định một đường dẫn tương đối, nó sẽ tự động được chuyển đổi thành đường dẫn tuyệt đối. Điều này tiện lợi cho việc di chuyển dự án; tuy nhiên, lưu ý rằng bản trình chiếu sẽ lưu đường dẫn tuyệt đối trong tệp PPTX.
+**Aspose.Slides có ghi đè lên file XLSX bên ngoài khi lưu bản trình bày không?**  
+Không. Bản trình bày lưu một [liên kết tới file bên ngoài](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) và sử dụng liên kết này để đọc dữ liệu. File bên ngoài không bị thay đổi khi bản trình bày được lưu.
 
-**Tôi có thể sử dụng sổ làm việc nằm trên tài nguyên/mạng chia sẻ không?**
+**Nếu file bên ngoài được bảo vệ bằng mật khẩu, tôi nên làm gì?**  
+Aspose.Slides không chấp nhận mật khẩu khi tạo liên kết. Một cách thường dùng là gỡ bảo vệ trước hoặc chuẩn bị một bản sao đã giải mã (ví dụ, bằng cách sử dụng [Aspose.Cells](/cells/cpp/)) và liên kết tới bản sao đó.
 
-Có, các sổ làm việc như vậy có thể được dùng làm nguồn dữ liệu ngoại vi. Tuy nhiên, việc chỉnh sửa các sổ làm việc từ xa trực tiếp bằng Aspose.Slides không được hỗ trợ — chúng chỉ có thể được sử dụng làm nguồn.
-
-**Aspose.Slides có ghi đè lên tệp XLSX ngoại vi khi lưu bản trình chiếu không?**
-
-Không. Bản trình chiếu lưu một [liên kết tới tệp ngoại vi](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) và sử dụng nó để đọc dữ liệu. Tệp ngoại vi tự nó không bị thay đổi khi bản trình chiếu được lưu.
-
-**Tôi nên làm gì nếu tệp ngoại vi được bảo vệ bằng mật khẩu?**
-
-Aspose.Slides không chấp nhận mật khẩu khi liên kết. Một cách thường được dùng là gỡ bỏ bảo vệ trước hoặc chuẩn bị một bản sao đã giải mã (ví dụ, sử dụng [Aspose.Cells](/cells/cpp/)) và liên kết tới bản sao đó.
-
-**Nhiều biểu đồ có thể tham chiếu cùng một sổ làm việc ngoại vi không?**
-
-Có. Mỗi biểu đồ lưu trữ liên kết riêng của nó. Nếu tất cả đều trỏ đến cùng một tệp, việc cập nhật tệp đó sẽ được phản ánh trong từng biểu đồ lần tiếp theo dữ liệu được tải.
+**Nhiều biểu đồ có thể tham chiếu cùng một workbook bên ngoài không?**  
+Có. Mỗi biểu đồ lưu liên kết riêng của mình. Nếu tất cả chúng đều trỏ tới cùng một file, việc cập nhật file sẽ được phản ánh trong mỗi biểu đồ khi dữ liệu được tải lại.

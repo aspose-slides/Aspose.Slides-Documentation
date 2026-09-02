@@ -1,33 +1,35 @@
 ---
-title: Kelola Workbook Chart dalam Presentasi Menggunakan C++
-linktitle: Workbook Chart
+title: Kelola Buku Kerja Diagram dalam Presentasi Menggunakan C++
+linktitle: Buku Kerja Diagram
 type: docs
 weight: 70
 url: /id/cpp/chart-workbook/
 keywords:
-- workbook chart
-- data chart
-- sel workbook
+- buku kerja diagram
+- data diagram
+- sel buku kerja
 - label data
 - lembar kerja
 - sumber data
-- workbook eksternal
+- buku kerja eksternal
 - data eksternal
+- cache diagram
+- pemulihan buku kerja
 - PowerPoint
 - presentasi
 - C++
 - Aspose.Slides
-description: "Temukan Aspose.Slides untuk C++: kelola workbook chart dengan mudah dalam format PowerPoint dan OpenDocument untuk menyederhanakan data presentasi Anda."
+description: "Temukan Aspose.Slides untuk C++: kelola buku kerja diagram dengan mudah dalam format PowerPoint dan OpenDocument untuk menyederhanakan data presentasi Anda."
 ---
-## **Ikhtisar**
+## **Gambaran Umum**
 
-Artikel ini menjelaskan cara bekerja dengan workbook chart di Aspose.Slides. Artikel ini menunjukkan cara membaca dan menulis data chart melalui aliran workbook, menggunakan sel workbook sebagai label data chart, mengakses koleksi worksheet, dan menentukan tipe sumber data untuk nilai chart.
+Artikel ini menjelaskan cara bekerja dengan buku kerja diagram di Aspose.Slides. Artikel ini menunjukkan cara membaca dan menulis data diagram melalui aliran buku kerja, menggunakan sel buku kerja sebagai label data diagram, mengakses koleksi lembar kerja, dan menentukan jenis sumber data untuk nilai diagram.
 
-Artikel ini juga membahas penggunaan workbook eksternal sebagai sumber data chart. Contoh-contoh menunjukkan cara membuat dan menetapkan workbook eksternal, mengambil jalur workbook eksternal yang terhubung ke chart, dan mengedit data chart ketika workbook tersedia.
+Artikel ini juga mencakup penggunaan buku kerja eksternal sebagai sumber data diagram. Contoh-contoh menunjukkan cara membuat dan menetapkan buku kerja eksternal, mengambil jalur buku kerja eksternal yang terhubung ke diagram, serta mengedit data diagram ketika buku kerja tersedia.
 
-## **Membaca dan Menulis Data Chart dari Workbook**
+## **Membaca dan Menulis Data Diagram dari Buku Kerja**
 
-Aspose.Slides menyediakan metode [ReadWorkbookStream](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) dan [WriteWorkbookStream](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) yang memungkinkan Anda membaca dan menulis workbook data chart (yang berisi data chart yang diedit dengan Aspose.Cells). **Catatan** bahwa data chart harus diatur dengan cara yang sama atau memiliki struktur yang mirip dengan sumbernya.
+Aspose.Slides menyediakan metode [ReadWorkbookStream](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) dan [WriteWorkbookStream](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) yang memungkinkan Anda membaca dan menulis buku kerja data diagram (yang berisi data diagram yang disunting dengan Aspose.Cells). **Catatan** bahwa data diagram harus diatur dengan cara yang sama atau memiliki struktur yang mirip dengan sumbernya.
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"chart.pptx");
@@ -43,7 +45,7 @@ stream->set_Position(0);
 data->WriteWorkbookStream(stream);
 ```
 
-Kode C++ ini menunjukkan operasi untuk menetapkan workbook data chart:
+Potongan kode C++ ini mendemonstrasikan operasi untuk menetapkan buku kerja data diagram:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"Test.pptx");
@@ -75,23 +77,23 @@ series->get_ParentSeriesGroup()->set_IsColorVaried(true);
 pres->Save(u"response2.pptx", Export::SaveFormat::Pptx);
 ```
 
-## **Menetapkan Sel Workbook sebagai Label Data Chart**
+## **Menetapkan Sel Buku Kerja sebagai Label Data Diagram**
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
-1. Dapatkan referensi slide melalui indeksnya.
-1. Tambahkan chart Bubble dengan beberapa data.
-1. Akses seri chart.
-1. Tetapkan sel workbook sebagai label data.
-1. Simpan presentasi.
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
+2. Dapatkan referensi slide melalui indeksnya.
+3. Tambahkan diagram Bubble dengan beberapa data.
+4. Akses seri diagram.
+5. Tetapkan sel buku kerja sebagai label data.
+6. Simpan presentasi.
 
-Kode C++ ini menunjukkan cara menetapkan sel workbook sebagai label data chart:
+Potongan kode C++ ini menunjukkan cara menetapkan sel buku kerja sebagai label data diagram:
 
 ``` cpp
 System::String lbl0 = u"Label 0 cell value";
 System::String lbl1 = u"Label 1 cell value";
 System::String lbl2 = u"Label 2 cell value";
 
-// Membuat instance kelas Presentation yang mewakili file presentasi 
+// Membuat instansi kelas Presentation yang mewakili file presentasi 
 auto pres = System::MakeObject<Presentation>(u"chart2.pptx");
 
 auto slide = pres->get_Slides()->idx_get(0);
@@ -111,9 +113,9 @@ series->idx_get(0)->get_Labels()->idx_get(2)->set_ValueFromCell(wb->GetCell(0, u
 pres->Save(u"resultchart.pptx", SaveFormat::Pptx);
 ```
 
-## **Mengelola Worksheet**
+## **Mengelola Lembar Kerja**
 
-Kode C++ ini menunjukkan operasi di mana metode [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) digunakan untuk mengakses koleksi worksheet:
+Potongan kode C++ ini mendemonstrasikan operasi di mana metode [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) digunakan untuk mengakses koleksi lembar kerja:
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -126,9 +128,9 @@ for (auto ws : System::IterateOver(worksheets))
     System::Console::WriteLine(ws->get_Name());
 ```
 
-## **Menentukan Tipe Sumber Data**
+## **Menentukan Jenis Sumber Data**
 
-Kode C++ ini menunjukkan cara menentukan tipe untuk sumber data:
+Potongan kode C++ ini menunjukkan cara menentukan jenis untuk sumber data:
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -145,9 +147,9 @@ val->set_Data(chartData->get_ChartDataWorkbook()->GetCell(0, u"B1", System::Obje
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-## **Mendeteksi Format Workbook Tersemat yang Tidak Didukung**
+## **Mendeteksi Format Buku Kerja Tersemat yang Tidak Didukung**
 
-Aspose.Slides tidak mendukung format workbook biner Excel (.xlsb) yang dapat tersemat dalam beberapa chart. Anda dapat menggunakan metode `get_EmbeddedWorkbookType` pada [IChartData](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartdata/) bersama enumerasi [WorkbookType](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/workbooktype/) untuk mendeteksi format yang tidak didukung dan melewatkan chart tersebut.
+Aspose.Slides tidak mendukung format buku kerja biner Excel (.xlsb) yang dapat tersemat dalam beberapa diagram. Anda dapat menggunakan metode `get_EmbeddedWorkbookType` pada [IChartData](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartdata/) bersama dengan enumerasi [WorkbookType](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/workbooktype/) untuk mendeteksi format yang tidak didukung dan melewatkan diagram‑diagram tersebut.
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
@@ -166,25 +168,25 @@ for (auto&& shape : slide->get_Shapes())
     if (chartData->get_DataSourceType() == ChartDataSourceType::InternalWorkbook &&
         chartData->get_EmbeddedWorkbookType() == WorkbookType::WorkbookBinaryMacro)
     {
-        // Workbook tersemat berformat .xlsb, yang tidak didukung.
+        // Buku kerja tersemat berada dalam format .xlsb, yang tidak didukung.
         continue;
     }
 
-    // Baca atau ubah data workbook chart di sini.
+    // Baca atau ubah data buku kerja diagram di sini.
 }
 ```
 
-## **Workbook Eksternal**
+## **Buku Kerja Eksternal**
 
 {{% alert color="primary" %}} 
-Di [Aspose.Slides](https://releases.aspose.com/slides/id/cpp/release-notes/2019/aspose-slides-for-cpp-19-4-release-notes/) 19.4, kami menambahkan dukungan untuk workbook eksternal sebagai sumber data bagi chart.
+Di [Aspose.Slides](https://releases.aspose.com/slides/id/cpp/release-notes/2019/aspose-slides-for-cpp-19-4-release-notes/) 19.4, kami menambahkan dukungan untuk buku kerja eksternal sebagai sumber data bagi diagram.
 {{% /alert %}} 
 
-### **Membuat Workbook Eksternal**
+### **Membuat Buku Kerja Eksternal**
 
-Dengan metode **`ReadWorkbookStream`** dan **`SetExternalWorkbook`**, Anda dapat membuat workbook eksternal dari awal atau menjadikan workbook internal menjadi eksternal.
+Dengan menggunakan metode **`ReadWorkbookStream`** dan **`SetExternalWorkbook`**, Anda dapat membuat buku kerja eksternal dari awal atau mengubah buku kerja internal menjadi eksternal.
 
-Kode C++ ini menunjukkan proses pembuatan workbook eksternal:
+Potongan kode C++ ini mendemonstrasikan proses pembuatan buku kerja eksternal:
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -206,13 +208,13 @@ chartData->SetExternalWorkbook(System::IO::Path::GetFullPath(workbookPath));
 pres->Save(u"externalWorkbook.pptx", SaveFormat::Pptx);
 ```
 
-### **Menetapkan Workbook Eksternal**
+### **Menetapkan Buku Kerja Eksternal**
 
-Dengan metode **`IChartData::SetExternalWorkbook`**, Anda dapat menetapkan workbook eksternal ke sebuah chart sebagai sumber datanya. Metode ini juga dapat digunakan untuk memperbarui jalur ke workbook eksternal (jika workbook tersebut telah dipindahkan).
+Dengan menggunakan metode **`IChartData::SetExternalWorkbook`**, Anda dapat menetapkan buku kerja eksternal ke sebuah diagram sebagai sumber datanya. Metode ini juga dapat digunakan untuk memperbarui jalur ke buku kerja eksternal (jika buku kerja tersebut telah dipindahkan).
 
-Meskipun Anda tidak dapat mengedit data dalam workbook yang disimpan di lokasi atau sumber daya remote, Anda tetap dapat menggunakan workbook tersebut sebagai sumber data eksternal. Jika jalur relatif untuk workbook eksternal diberikan, jalur tersebut secara otomatis akan dikonversi menjadi jalur lengkap.
+Meskipun Anda tidak dapat menyunting data dalam buku kerja yang disimpan di lokasi atau sumber daya jarak jauh, Anda masih dapat menggunakan buku kerja tersebut sebagai sumber data eksternal. Jika jalur relatif untuk buku kerja eksternal diberikan, jalur tersebut akan secara otomatis dikonversi menjadi jalur lengkap.
 
-Kode C++ ini menunjukkan cara menetapkan workbook eksternal:
+Potongan kode C++ ini menunjukkan cara menetapkan buku kerja eksternal:
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -236,10 +238,10 @@ categories->Add(workbook->GetCell(0, u"A4"));
 pres->Save(u"Presentation_with_externalWorkbook.pptx", SaveFormat::Pptx);
 ```
 
-Parameter `updateChartData` (di bawah metode `SetExternalWorkbook`) digunakan untuk menentukan apakah workbook Excel akan dimuat atau tidak. 
+Parameter `updateChartData` (pada metode `SetExternalWorkbook`) digunakan untuk menentukan apakah buku kerja Excel akan dimuat atau tidak.
 
-* Ketika nilai `updateChartData` disetel ke `false`, hanya jalur workbook yang diperbarui — data chart tidak akan dimuat atau diperbarui dari workbook target. Anda mungkin ingin menggunakan pengaturan ini ketika workbook target tidak ada atau tidak tersedia. 
-* Ketika nilai `updateChartData` disetel ke `true`, data chart diperbarui dari workbook target.
+* Ketika nilai `updateChartData` disetel ke `false`, hanya jalur buku kerja yang diperbarui—data diagram tidak akan dimuat atau diperbarui dari buku kerja target. Anda dapat menggunakan pengaturan ini ketika buku kerja target tidak ada atau tidak tersedia.  
+* Ketika nilai `updateChartData` disetel ke `true`, data diagram diperbarui dari buku kerja target.
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -253,15 +255,15 @@ concreteChartData->SetExternalWorkbook(u"http://path/doesnt/exists", false);
 pres->Save(u"SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat::Pptx);
 ```
 
-### **Mendapatkan Jalur Workbook Sumber Data Eksternal dari Sebuah Chart**
+### **Mendapatkan Jalur Buku Kerja Sumber Data Eksternal dari Sebuah Diagram**
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
-1. Dapatkan referensi slide melalui indeksnya.
-1. Buat objek untuk bentuk chart.
-1. Buat objek untuk tipe sumber (`ChartDataSourceType`) yang mewakili sumber data chart.
-1. Tentukan kondisi yang relevan berdasarkan tipe sumber yang sama dengan tipe sumber workbook eksternal.
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/).
+2. Dapatkan referensi slide melalui indeksnya.
+3. Buat objek untuk bentuk diagram.
+4. Buat objek untuk jenis sumber (`ChartDataSourceType`) yang mewakili sumber data diagram.
+5. Tentukan kondisi yang relevan berdasarkan jenis sumber yang sama dengan jenis sumber data buku kerja eksternal.
 
-Kode C++ ini menunjukkan operasi tersebut:
+Potongan kode C++ ini mendemonstrasikan operasi tersebut:
 
 ```c++
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
@@ -278,11 +280,11 @@ if (sourceType == ChartDataSourceType::ExternalWorkbook)
 pres->Save(u"Result.pptx", SaveFormat::Pptx);
 ```
 
-### **Mengedit Data Chart**
+### **Menyunting Data Diagram**
 
-Anda dapat mengedit data dalam workbook eksternal dengan cara yang sama seperti mengubah isi workbook internal. Ketika workbook eksternal tidak dapat dimuat, sebuah pengecualian akan dilemparkan.
+Anda dapat menyunting data dalam buku kerja eksternal dengan cara yang sama seperti Anda mengubah isi buku kerja internal. Ketika sebuah buku kerja eksternal tidak dapat dimuat, sebuah eksepsi akan dilemparkan.
 
-Kode C++ ini merupakan implementasi proses yang dijelaskan:
+Potongan kode C++ ini merupakan implementasi proses yang dijelaskan:
 
 ```c++
 const String templatePath = u"../templates/presentation.pptx";
@@ -298,28 +300,55 @@ const String templatePath = u"../templates/presentation.pptx";
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+### **Memulihkan Buku Kerja dari Cache Diagram**
+
+Jika sebuah diagram menggunakan buku kerja eksternal yang hilang atau tidak tersedia, Aspose.Slides dapat merekonstruksi buku kerja diagram dari data yang di‑cache dalam presentasi. Buat [LoadOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides/loadoptions/), konfigurasikan dengan [set_SpreadsheetOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/), dan panggil [ISpreadsheetOptions::set_RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/id/cpp/aspose.slides/ispreadsheetoptions/set_recoverworkbookfromchartcache/) dengan `true` sebelum membuka presentasi.
+
+Contoh C++ berikut membuka sebuah presentasi yang diagramnya merujuk ke buku kerja eksternal yang tidak tersedia dan mengakses data yang dipulihkan melalui [IChart::get_ChartData](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichart/get_chartdata/) dan [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/):
+
+```cpp
+auto spreadsheetOptions = MakeObject<SpreadsheetOptions>();
+spreadsheetOptions->set_RecoverWorkbookFromChartCache(true);
+
+auto loadOptions = MakeObject<LoadOptions>();
+loadOptions->set_SpreadsheetOptions(spreadsheetOptions);
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx", loadOptions);
+
+auto shape = presentation->get_Slide(0)->get_Shape(0);
+auto chart = System::ExplicitCast<IChart>(shape);
+
+auto recoveredWorkbook = chart->get_ChartData()->get_ChartDataWorkbook();
+
+// Read or modify the recovered workbook data here.
+
+presentation->Dispose();
+```
+
+Jika buku kerja eksternal tidak tersedia dan pemulihan dinonaktifkan, Aspose.Slides akan melempar `System::InvalidOperationException`. Aktifkan pemulihan hanya ketika penggunaan data diagram yang di‑cache merupakan alternatif yang dapat diterima, karena cache mungkin tidak berisi perubahan yang dibuat pada buku kerja eksternal setelah presentasi terakhir kali diperbarui.
+
 ## **FAQ**
 
-**Apakah saya dapat menentukan apakah sebuah chart terhubung ke workbook eksternal atau tersemat?**
+**Apakah saya dapat menentukan apakah sebuah diagram tertentu terhubung ke buku kerja eksternal atau tersemat?**
 
-Ya. Sebuah chart memiliki [tipe sumber data](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) dan [jalur ke workbook eksternal](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/); jika sumbernya adalah workbook eksternal, Anda dapat membaca jalur lengkap untuk memastikan file eksternal sedang digunakan.
+Ya. Sebuah diagram memiliki [jenis sumber data](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) dan [jalur ke buku kerja eksternal](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/); jika sumbernya adalah buku kerja eksternal, Anda dapat membaca jalur lengkap untuk memastikan file eksternal sedang digunakan.
 
-**Apakah jalur relatif ke workbook eksternal didukung, dan bagaimana cara penyimpanannya?**
+**Apakah jalur relatif ke buku kerja eksternal didukung, dan bagaimana cara penyimpanannya?**
 
-Ya. Jika Anda menentukan jalur relatif, jalur tersebut secara otomatis dikonversi menjadi jalur absolut. Ini memudahkan portabilitas proyek; namun, perhatikan bahwa presentasi akan menyimpan jalur absolut dalam file PPTX.
+Ya. Jika Anda menentukan jalur relatif, jalur tersebut secara otomatis dikonversi menjadi jalur absolut. Ini memudahkan portabilitas proyek; namun, perlu diketahui bahwa presentasi akan menyimpan jalur absolut dalam file PPTX.
 
-**Apakah saya dapat menggunakan workbook yang terletak pada sumber daya/jaringan bersama?**
+**Apakah saya dapat menggunakan buku kerja yang berada di sumber daya/berbagi jaringan?**
 
-Ya, workbook tersebut dapat digunakan sebagai sumber data eksternal. Namun, mengedit workbook remote secara langsung dari Aspose.Slides tidak didukung — mereka hanya dapat digunakan sebagai sumber.
+Ya, buku kerja tersebut dapat digunakan sebagai sumber data eksternal. Namun, penyuntingan buku kerja jarak jauh secara langsung dari Aspose.Slides tidak didukung—buku kerja hanya dapat digunakan sebagai sumber.
 
 **Apakah Aspose.Slides menimpa file XLSX eksternal saat menyimpan presentasi?**
 
-Tidak. Presentasi menyimpan sebuah [tautan ke file eksternal](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) dan menggunakannya untuk membaca data. File eksternal itu sendiri tidak dimodifikasi saat presentasi disimpan.
+Tidak. Presentasi menyimpan sebuah [tautan ke file eksternal](https://reference.aspose.com/slides/id/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) dan menggunakannya untuk membaca data. File eksternal itu sendiri tidak diubah saat presentasi disimpan.
 
 **Apa yang harus saya lakukan jika file eksternal dilindungi kata sandi?**
 
-Aspose.Slides tidak menerima kata sandi saat membuat tautan. Pendekatan yang umum adalah menghapus perlindungan terlebih dahulu atau menyiapkan salinan yang telah didekripsi (misalnya, menggunakan [Aspose.Cells](/cells/cpp/)) dan menautkan ke salinan tersebut.
+Aspose.Slides tidak menerima kata sandi saat membuat tautan. Pendekatan umum adalah menghapus perlindungan terlebih dahulu atau menyiapkan salinan yang telah didekripsi (misalnya, menggunakan [Aspose.Cells](/cells/cpp/)) dan menautkan ke salinan tersebut.
 
-**Apakah beberapa chart dapat merujuk ke workbook eksternal yang sama?**
+**Apakah beberapa diagram dapat merujuk ke buku kerja eksternal yang sama?**
 
-Ya. Setiap chart menyimpan tautannya masing‑masing. Jika semua chart menunjuk ke file yang sama, pembaruan file tersebut akan tercermin pada setiap chart pada saat data dimuat berikutnya.
+Ya. Setiap diagram menyimpan tautannya masing‑masing. Jika semuanya menunjuk ke file yang sama, memperbarui file tersebut akan tercermin pada setiap diagram pada saat data berikutnya dimuat.

@@ -1,34 +1,36 @@
 ---
-title: Gestionar libros de trabajo de gráficos en presentaciones con PHP
+title: Gestionar libros de trabajo de gráficos en presentaciones usando PHP
 linktitle: Libro de trabajo de gráfico
 type: docs
 weight: 70
 url: /es/php-java/chart-workbook/
 keywords:
 - libro de trabajo de gráfico
-- datos de gráfico
+- datos del gráfico
 - celda de libro de trabajo
 - etiqueta de datos
 - hoja de cálculo
 - origen de datos
 - libro de trabajo externo
 - datos externos
+- caché de gráfico
+- recuperación de libro de trabajo
 - PowerPoint
 - presentación
 - PHP
 - Aspose.Slides
-description: "Descubra Aspose.Slides para PHP a través de Java: gestione sin esfuerzo los libros de trabajo de gráficos en formatos PowerPoint y OpenDocument para optimizar los datos de sus presentaciones."
+description: "Descubra Aspose.Slides para PHP mediante Java: gestione sin esfuerzo los libros de trabajo de gráficos en formatos PowerPoint y OpenDocument para optimizar los datos de su presentación."
 ---
 ## **Visión general**
 
-Este artículo explica cómo trabajar con libros de trabajo de gráficos en Aspose.Slides. Muestra cómo leer y escribir datos de gráficos mediante flujos de libro de trabajo, usar celdas de libro de trabajo como etiquetas de datos del gráfico, acceder a colecciones de hojas de cálculo y especificar el tipo de origen de datos para los valores del gráfico.
+Este artículo explica cómo trabajar con libros de trabajo de gráficos en Aspose.Slides. Muestra cómo leer y escribir datos de gráficos mediante flujos de libros de trabajo, usar celdas del libro de trabajo como etiquetas de datos de gráfico, acceder a colecciones de hojas de cálculo y especificar el tipo de origen de datos para los valores del gráfico.
 
 También cubre el trabajo con libros de trabajo externos como fuentes de datos de gráficos. Los ejemplos demuestran cómo crear y asignar un libro de trabajo externo, obtener la ruta de un libro de trabajo externo vinculado a un gráfico y editar los datos del gráfico cuando el libro de trabajo está disponible.
 
 ## **Leer y escribir datos de gráfico desde un libro de trabajo**
-Aspose.Slides proporciona los métodos [readWorkbookStream](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdata/#readWorkbookStream) y [writeWorkbookStream](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdata/#writeWorkbookStream) que le permiten leer y escribir libros de trabajo de datos de gráficos (que contienen datos de gráficos editados con Aspose.Cells). **Nota** que los datos del gráfico deben estar organizados de la misma manera o poseer una estructura similar a la fuente.
+Aspose.Slides proporciona los métodos [readWorkbookStream](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdata/#readWorkbookStream) y [writeWorkbookStream](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdata/#writeWorkbookStream) que le permiten leer y escribir libros de trabajo de datos de gráficos (que contienen datos de gráficos editados con Aspose.Cells). **Note** que los datos del gráfico deben estar organizados de la misma manera o deben tener una estructura similar a la fuente.
 
-Este código PHP muestra una operación de ejemplo:
+Este código PHP demuestra una operación de ejemplo:
 
 ```php
   $pres = new Presentation("chart.pptx");
@@ -46,16 +48,16 @@ Este código PHP muestra una operación de ejemplo:
   }
 ```
 
-## **Establecer una celda de Workbook como etiqueta de datos del gráfico**
+## **Establecer una celda de WorkBook como etiqueta de datos de gráfico**
 
-1. Cree una instancia de la clase [Presentation](https://apireference.aspose.com/slides/es/php-java/aspose.slides/presentation).  
-1. Obtenga la referencia de una diapositiva mediante su índice.  
-1. Añada un gráfico de burbujas con algunos datos.  
-1. Acceda a la serie del gráfico.  
-1. Establezca la celda del workbook como etiqueta de datos.  
-1. Guarde la presentación.
+1. Crear una instancia de la clase [Presentation](https://apireference.aspose.com/slides/es/php-java/aspose.slides/presentation).
+2. Obtener la referencia de una diapositiva mediante su índice.
+3. Añadir un gráfico de burbujas con algunos datos.
+4. Acceder a la serie del gráfico.
+5. Establecer la celda del libro de trabajo como una etiqueta de datos.
+6. Guardar la presentación.
 
-Este código PHP le muestra cómo establecer una celda de workbook como etiqueta de datos del gráfico:
+Este código PHP le muestra cómo establecer una celda de libro de trabajo como etiqueta de datos de gráfico:
 
 ```php
   $lbl0 = "Label 0 cell value";
@@ -81,9 +83,9 @@ Este código PHP le muestra cómo establecer una celda de workbook como etiqueta
   }
 ```
 
-## **Administrar hojas de cálculo**
+## **Gestionar hojas de cálculo**
 
-Este código PHP demuestra una operación donde se usa el método [ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdataworkbook/#getWorksheets) para acceder a una colección de hojas de cálculo:
+Este código PHP demuestra una operación donde se utiliza el método [ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdataworkbook/#getWorksheets) para acceder a una colección de hojas de cálculo:
 
 ```php
   $pres = new Presentation();
@@ -121,7 +123,7 @@ Este código PHP le muestra cómo especificar un tipo para un origen de datos:
   }
 ```
 
-## **Detectar formatos de workbook incrustado no compatibles**
+## **Detectar formatos de libros de trabajo incrustados no compatibles**
 
 Aspose.Slides no admite el formato de libro de trabajo binario de Excel (.xlsb) que puede incrustarse en algunos gráficos. Puede usar el método `getEmbeddedWorkbookType` en [ChartData](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdata/) junto con la enumeración [WorkbookType](https://reference.aspose.com/slides/es/php-java/aspose.slides/workbooktype/) para detectar formatos no compatibles y omitir esos gráficos.
 
@@ -147,22 +149,22 @@ try {
       continue;
     }
 
-    # Lea o modifique los datos del libro de trabajo del gráfico aquí.
+    # Lea o modifique aquí los datos del libro de trabajo del gráfico.
   }
 } finally {
   $presentation->dispose();
 }
 ```
 
-## **Workbook externo**
+## **Libro de trabajo externo**
 
-Aspose.Slides admite workbooks externos como origen de datos para gráficos.
+Aspose.Slides admite libros de trabajo externos como fuente de datos para gráficos.
 
-### **Crear un workbook externo**
+### **Crear un libro de trabajo externo**
 
-Usando los métodos **`readWorkbookStream`** y **`setExternalWorkbook`**, puede crear un workbook externo desde cero o convertir un workbook interno en externo.
+Usando los métodos **`readWorkbookStream`** y **`setExternalWorkbook`**, puede crear un libro de trabajo externo desde cero o convertir un libro de trabajo interno en externo.
 
-Este código PHP muestra el proceso de creación de un workbook externo:
+Este código PHP demuestra el proceso de creación del libro de trabajo externo:
 
 ```php
   $pres = new Presentation();
@@ -190,13 +192,13 @@ Este código PHP muestra el proceso de creación de un workbook externo:
   }
 ```
 
-### **Establecer un workbook externo**
+### **Establecer un libro de trabajo externo**
 
-Mediante el método **`setExternalWorkbook`**, puede asignar un workbook externo a un gráfico como su origen de datos. Este método también puede usarse para actualizar la ruta al workbook externo (si este se ha movido).
+Usando el método **`setExternalWorkbook`**, puede asignar un libro de trabajo externo a un gráfico como su fuente de datos. Este método también puede usarse para actualizar la ruta al libro de trabajo externo (si este se ha trasladado).
 
-Aunque no puede editar los datos en workbooks almacenados en ubicaciones remotas o recursos, aún puede utilizarlos como fuente de datos externa. Si se proporciona una ruta relativa para un workbook externo, se convierte automáticamente en una ruta completa.
+Aunque no puede editar los datos en libros de trabajo almacenados en ubicaciones remotas o recursos, puede seguir utilizándolos como fuente de datos externa. Si se proporciona una ruta relativa para un libro de trabajo externo, se convierte automáticamente en una ruta completa.
 
-Este código PHP le muestra cómo establecer un workbook externo:
+Este código PHP le muestra cómo establecer un libro de trabajo externo:
 
 ```php
   # Crea una instancia de la clase Presentation
@@ -220,10 +222,10 @@ Este código PHP le muestra cómo establecer un workbook externo:
   }
 ```
 
-El parámetro `ChartData` (bajo el método `setExternalWorkbook`) se usa para especificar si se cargará o no un workbook de Excel.
+El parámetro `ChartData` (bajo el método `setExternalWorkbook`) se usa para especificar si se cargará o no un libro de trabajo Excel.
 
-* Cuando el valor de `ChartData` es `false`, solo se actualiza la ruta del workbook; los datos del gráfico no se cargarán ni se actualizarán desde el workbook de destino. Use esta configuración cuando el workbook de destino no exista o no esté disponible.  
-* Cuando el valor de `ChartData` es `true`, los datos del gráfico se actualizan desde el workbook de destino.
+* Cuando el valor de `ChartData` se establece en `false`, solo se actualiza la ruta del libro de trabajo; los datos del gráfico no se cargarán ni actualizarán desde el libro de trabajo de destino. Puede usar esta configuración cuando el libro de trabajo de destino no exista o no esté disponible.  
+* Cuando el valor de `ChartData` se establece en `true`, los datos del gráfico se actualizan desde el libro de trabajo de destino.
 
 ```php
   # Crea una instancia de la clase Presentation
@@ -240,13 +242,13 @@ El parámetro `ChartData` (bajo el método `setExternalWorkbook`) se usa para es
   }
 ```
 
-### **Obtener la ruta del workbook externo de origen de datos de un gráfico**
+### **Obtener la ruta del libro de trabajo de origen de datos externo de un gráfico**
 
-1. Cree una instancia de la clase [Presentation](https://apireference.aspose.com/slides/es/php-java/aspose.slides/presentation).  
-1. Obtenga la referencia de una diapositiva mediante su índice.  
-1. Cree un objeto para la forma del gráfico.  
-1. Cree un objeto para el tipo de origen (`ChartDataSourceType`) que representa el origen de datos del gráfico.  
-1. Especifique la condición correspondiente basándose en que el tipo de origen sea el mismo que el tipo de origen de workbook externo.
+1. Crear una instancia de la clase [Presentation](https://apireference.aspose.com/slides/es/php-java/aspose.slides/presentation).
+2. Obtener la referencia de una diapositiva mediante su índice.
+3. Crear un objeto para la forma de gráfico.
+4. Crear un objeto para el tipo de origen (`ChartDataSourceType`) que representa la fuente de datos del gráfico.
+5. Especificar la condición pertinente basándose en que el tipo de origen sea el mismo que el tipo de origen de datos del libro de trabajo externo.
 
 Este código PHP demuestra la operación:
 
@@ -271,7 +273,7 @@ Este código PHP demuestra la operación:
 
 ### **Editar datos del gráfico**
 
-Puede editar los datos en workbooks externos de la misma forma que modifica el contenido de workbooks internos. Cuando un workbook externo no puede cargarse, se lanza una excepción.
+Puede editar los datos en libros de trabajo externos de la misma manera que realiza cambios en el contenido de libros de trabajo internos. Cuando un libro de trabajo externo no puede cargarse, se lanza una excepción.
 
 Este código PHP es una implementación del proceso descrito:
 
@@ -290,28 +292,54 @@ Este código PHP es una implementación del proceso descrito:
   }
 ```
 
+### **Recuperar un libro de trabajo de la caché del gráfico**
+
+Si un gráfico usa un libro de trabajo externo que falta o no está disponible, Aspose.Slides puede reconstruir el libro de trabajo del gráfico a partir de los datos almacenados en caché en la presentación. Cree [LoadOptions](https://reference.aspose.com/slides/es/php-java/aspose.slides/loadoptions/), configúrelo con [SpreadsheetOptions](https://reference.aspose.com/slides/es/php-java/aspose.slides/spreadsheetoptions/), y llame a [SpreadsheetOptions::setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/es/php-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) con `true` antes de abrir la presentación.
+
+El siguiente ejemplo PHP abre una presentación cuyo gráfico hace referencia a un libro de trabajo externo no disponible y accede a los datos recuperados a través de [Chart::getChartData](https://reference.aspose.com/slides/es/php-java/aspose.slides/chart/#getChartData) y [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdata/#getChartDataWorkbook):
+
+```php
+$spreadsheetOptions = new SpreadsheetOptions();
+$spreadsheetOptions->setRecoverWorkbookFromChartCache(true);
+
+$loadOptions = new LoadOptions();
+$loadOptions->setSpreadsheetOptions($spreadsheetOptions);
+
+$presentation = new Presentation("presentation.pptx", $loadOptions);
+try {
+    $chart = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $recoveredWorkbook = $chart->getChartData()->getChartDataWorkbook();
+
+    # Lee o modifica aquí los datos del libro de trabajo recuperado.
+} finally {
+    $presentation->dispose();
+}
+```
+
+Si el libro de trabajo externo no está disponible y la recuperación está desactivada, Aspose.Slides lanza una excepción. Habilite la recuperación solo cuando usar los datos del gráfico en caché sea una alternativa aceptable, porque la caché puede no contener los cambios realizados en el libro de trabajo externo después de la última actualización de la presentación.
+
 ## **Preguntas frecuentes**
 
-**¿Puedo determinar si un gráfico concreto está vinculado a un workbook externo o incrustado?**
+**¿Puedo determinar si un gráfico específico está vinculado a un libro de trabajo externo o incrustado?**
 
-Sí. Un gráfico tiene un [tipo de origen de datos](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdata/getdatasourcetype/) y una [ruta a un workbook externo](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdata/getexternalworkbookpath/); si el origen es un workbook externo, puede leer la ruta completa para confirmar que se está utilizando un archivo externo.
+Sí. Un gráfico tiene un [tipo de origen de datos](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdata/getdatasourcetype/) y una [ruta a un libro de trabajo externo](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdata/getexternalworkbookpath/); si la fuente es un libro de trabajo externo, puede leer la ruta completa para asegurarse de que se está utilizando un archivo externo.
 
-**¿Se admiten rutas relativas a workbooks externos y cómo se almacenan?**
+**¿Se admiten rutas relativas a libros de trabajo externos y cómo se almacenan?**
 
-Sí. Si especifica una ruta relativa, se convierte automáticamente en una ruta absoluta. Esto es útil para la portabilidad del proyecto; sin embargo, tenga en cuenta que la presentación almacenará la ruta absoluta en el archivo PPTX.
+Sí. Si especifica una ruta relativa, se convierte automáticamente en una ruta absoluta. Esto es conveniente para la portabilidad del proyecto; sin embargo, tenga en cuenta que la presentación almacenará la ruta absoluta en el archivo PPTX.
 
-**¿Puedo usar workbooks ubicados en recursos o comparticiones de red?**
+**¿Puedo usar libros de trabajo ubicados en recursos o comparticiones de red?**
 
-Sí, dichos workbooks pueden usarse como fuente de datos externa. No obstante, la edición directa de workbooks remotos desde Aspose.Slides no está soportada; solo pueden usarse como origen.
+Sí, esos libros de trabajo pueden usarse como fuente de datos externa. No obstante, la edición directa de libros de trabajo remotos desde Aspose.Slides no está soportada; solo pueden usarse como fuente.
 
-**¿Aspose.Slides sobrescribe el XLSX externo al guardar la presentación?**
+**¿Sobrescribe Aspose.Slides el XLSX externo al guardar la presentación?**
 
-No. La presentación almacena un [enlace al archivo externo](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdata/getexternalworkbookpath/) y lo utiliza para leer los datos. El archivo externo no se modifica al guardar la presentación.
+No. La presentación almacena un [enlace al archivo externo](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdata/getexternalworkbookpath/) y lo usa para leer los datos. El archivo externo no se modifica al guardar la presentación.
 
 **¿Qué debo hacer si el archivo externo está protegido con contraseña?**
 
-Aspose.Slides no acepta una contraseña al crear el enlace. Un enfoque habitual es eliminar la protección de antemano o preparar una copia desencriptada (por ejemplo, usando [Aspose.Cells](/cells/php-java/)) y enlazar a esa copia.
+Aspose.Slides no acepta una contraseña al crear el enlace. Un enfoque común es eliminar la protección con antelación o preparar una copia descifrada (por ejemplo, usando [Aspose.Cells](/cells/php-java/)) y enlazar a esa copia.
 
-**¿Pueden varios gráficos referenciar el mismo workbook externo?**
+**¿Pueden varios gráficos referenciar el mismo libro de trabajo externo?**
 
 Sí. Cada gráfico almacena su propio enlace. Si todos apuntan al mismo archivo, la actualización de ese archivo se reflejará en cada gráfico la próxima vez que se carguen los datos.

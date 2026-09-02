@@ -1,35 +1,37 @@
 ---
-title: Správa sešitů grafů v prezentacích pomocí Pythonu
-linktitle: Sešit grafu
+title: Spravovat pracovní knihy grafů v prezentacích pomocí Pythonu
+linktitle: Pracovní kniha grafu
 type: docs
 weight: 70
 url: /cs/python-net/chart-workbook/
 keywords:
-- sešit grafu
+- pracovní kniha grafu
 - data grafu
-- buňka sešitu
+- buňka pracovní knihy
 - popisek dat
 - list
 - datový zdroj
-- externí sešit
+- externí pracovní kniha
 - externí data
+- mezipaměť grafu
+- obnovení pracovní knihy
 - PowerPoint
 - prezentace
 - Python
 - Aspose.Slides
-description: "Objevte Aspose.Slides pro Python prostřednictvím .NET: snadno spravujte sešity grafů ve formátech PowerPoint a OpenDocument a zjednodušte data své prezentace."
+description: "Objevte Aspose.Slides pro Python prostřednictvím .NET: snadno spravujte pracovní knihy grafů v PowerPoint a OpenDocument formátech a zjednodušte data své prezentace."
 ---
 ## **Přehled**
 
-Tento článek vysvětluje, jak pracovat s sešity grafů v Aspose.Slides. Ukazuje, jak číst a zapisovat data grafu prostřednictvím streamů sešitu, používat buňky sešitu jako popisky dat grafu, přistupovat k kolekcím listů a určovat typ datového zdroje pro hodnoty grafu.
+Tento článek vysvětluje, jak pracovat s pracovými knihami grafů v Aspose.Slides. Ukazuje, jak číst a zapisovat data grafu pomocí streamů pracovních knih, používat buňky pracovní knihy jako popisky dat grafu, přistupovat k kolekcím listů a specifikovat typ datového zdroje pro hodnoty grafu.
 
-Také se zabývá používáním externích sešitů jako datových zdrojů pro grafy. Příklady ukazují, jak vytvořit a přiřadit externí sešit, získat cestu k externímu sešitu propojenému s grafem a upravit data grafu, když je sešit k dispozici.
+Také se zabývá používáním externích pracovních knih jako zdrojů dat pro grafy. Příklady demonstrují, jak vytvořit a přiřadit externí pracovní knihu, získat cestu k externí pracovní knize propojené s grafem a upravit data grafu, když je pracovní kniha dostupná.
 
-## **Čtení a zápis dat grafu ze sešitu**
+## **Čtení a zápis dat grafu z pracovní knihy**
 
-Aspose.Slides poskytuje metody pro čtení a zápis sešitů s daty grafu (které obsahují data grafu upravená pomocí Aspose.Cells). **Poznámka:** Data grafu musí být uspořádána stejným způsobem nebo mít strukturu podobnou zdroji.
+Aspose.Slides poskytuje metody pro čtení a zápis pracovních knih s daty grafu (které obsahují data grafu upravená pomocí Aspose.Cells). **Poznámka:** Data grafu musí být uspořádána stejným způsobem nebo mít strukturu podobnou zdroji.
 
-Následující kód v Pythonu demonstruje ukázkovou operaci:
+Následující Python kód demonstruje ukázkovou operaci:
 
 ```py
 import aspose.slides as slides
@@ -46,18 +48,16 @@ with slides.Presentation("chart.pptx") as presentation:
     chart.chart_data.write_workbook_stream(data_stream)
 ```
 
-## **Nastavení buňky sešitu jako popisku dat grafu**
+## **Nastavení buňky pracovního listu jako popisku dat grafu**
 
-Někdy potřebujete popisky grafu, které pocházejí přímo z buněk v podkladovém sešitu s daty. Aspose.Slides vám umožňuje svázat popisky dat s konkrétními buňkami sešitu, aby text popisku vždy odrážel hodnotu buňky. Níže uvedený příklad ukazuje, jak povolit popisky získané z buňky a nasměrovat vybrané popisky na vlastní buňky v sešitu grafu.
+Někdy potřebujete popisky grafu, které pocházejí přímo z buněk v podkladové pracovní knize. Aspose.Slides vám umožňuje svázat popisky dat s konkrétními buňkami pracovní knihy, aby text popisku vždy odrážel hodnotu buňky. Následující příklad ukazuje, jak povolit popisky s hodnotou z buňky a nasměrovat vybrané popisky na vlastní buňky v pracovní knize grafu.
 
-1. Vytvořte instanci třídy [Presentation](https://docs.aspose.com/slides/cs/python-net/api-reference/aspose.slides/presentation/).
+1. Vytvořte instanci třídy [Presentation](https://docs.aspose.com/slides/cs/python-net/api-reference/aspose.slides/presentation/) .
 2. Získejte odkaz na snímek podle indexu.
-3. Přidejte bublinový graf se vzorovými daty.
+3. Přidejte bublinový graf s ukázkovými daty.
 4. Přistupte k sériím grafu.
-5. Použijte buňku sešitu jako popisek dat.
+5. Použijte buňku pracovního listu jako popisek dat.
 6. Uložte prezentaci.
-
-Následující kód v Pythonu ukazuje, jak nastavit buňku sešitu jako popisek dat grafu:
 
 ```py
 import aspose.slides as slides
@@ -84,7 +84,7 @@ with slides.Presentation() as presentation:
 
 ## **Správa listů**
 
-Následující kód v Pythonu demonstruje, jak použít vlastnost `worksheets` k přístupu ke kolekci listů:
+Následující Python kód ukazuje, jak použít vlastnost `worksheets` k přístupu ke kolekci listů:
 
 ```python
 import aspose.slides as slides
@@ -100,9 +100,9 @@ with slides.Presentation() as presentation:
         print(workbook.worksheets[i].name)
 ```
 
-## **Určení typu datového zdroje**
+## **Zadání typu datového zdroje**
 
-Následující kód v Pythonu ukazuje, jak určit typ datového zdroje:
+Následující Python kód ukazuje, jak zadat typ datového zdroje:
 
 ```python
 import aspose.slides as slides
@@ -123,9 +123,9 @@ with slides.Presentation() as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Detekce nepodporovaných formátů vložených sešitů**
+## **Detekce nepodporovaných formátů vložených pracovních knih**
 
-Aspose.Slides nepodporuje binární formát Excelu (.xlsb), který může být vložen v některých grafech. Můžete použít vlastnost `embedded_workbook_type` na [ChartData](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartdata/) spolu s výčtem [WorkbookType](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/workbooktype/), abyste detekovali nepodporované formáty a tyto grafy přeskočili.
+Aspose.Slides nepodporuje binární formát Excel pracovní knihy (.xlsb), který může být vložen do některých grafů. Můžete použít vlastnost `embedded_workbook_type` na [ChartData](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartdata/) spolu s výčtem [WorkbookType](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/workbooktype/) k detekci nepodporovaných formátů a přeskočení těchto grafů.
 
 ```py
 import aspose.slides as slides
@@ -143,23 +143,23 @@ with slides.Presentation("sample.pptx") as presentation:
 
         if (chart_data.data_source_type == charts.ChartDataSourceType.INTERNAL_WORKBOOK and
                 chart_data.embedded_workbook_type == charts.WorkbookType.WORKBOOK_BINARY_MACRO):
-            # Vložený sešit je ve formátu .xlsb, který není podporován.
+            # Vložená pracovní kniha je ve formátu .xlsb, který není podporován.
             continue
 
-        # Zde načtěte nebo upravte data sešitu grafu.
+        # Přečtěte nebo upravte data pracovní knihy grafu zde.
 ```
 
-## **Externí sešity**
+## **Externí pracovní knihy**
 
-Aspose.Slides podporuje použití externích sešitů jako datového zdroje pro grafy.
+Aspose.Slides podporuje používání externích pracovních knih jako zdroje dat pro grafy.
 
-### **Nastavení externích sešitů**
+### **Nastavení externích pracovních knih**
 
-Pomocí metody [ChartData.set_external_workbook](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartdata/set_external_workbook/) můžete přiřadit externí sešit k grafu jako jeho datový zdroj. Tato metoda může také aktualizovat cestu k externímu sešitu, pokud byl přesunut.
+Pomocí metody [ChartData.set_external_workbook](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartdata/set_external_workbook/) můžete přiřadit externí pracovní knihu ke grafu jako jeho zdroj dat. Tato metoda může také aktualizovat cestu k externí pracovní knize, pokud byla přesunuta.
 
-Ačkoliv nemůžete upravovat data v sešitech uložených na vzdálených místech nebo zdrojích, můžete tyto sešity nadále používat jako externí datové zdroje. Pokud zadáte relativní cestu k externímu sešitu, je automaticky převedena na úplnou cestu.
+Ačkoliv nemůžete upravovat data v pracovních knihách uložených na vzdálených místech nebo zdrojích, můžete i tak tyto pracovní knihy použít jako externí zdroje dat. Pokud zadáte relativní cestu k externí pracovní knize, je automaticky převedena na úplnou cestu.
 
-Následující kód v Pythonu ukazuje, jak nastavit externí sešit:
+Následující Python kód ukazuje, jak nastavit externí pracovní knihu:
 
 ```python
 import aspose.slides as slides
@@ -174,16 +174,16 @@ with slides.Presentation() as presentation:
     presentation.save("chart_with_external_workbook.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Parametr `update_chart_data` metody [set_external_workbook](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartdata/set_external_workbook/) určuje, zda bude Excelový sešit načten.
+Parametr `update_chart_data` metody [set_external_workbook](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartdata/set_external_workbook/) určuje, zda bude Excelová pracovní kniha načtena.
 
-- Když je `update_chart_data` nastaven na `False`, aktualizuje se pouze cesta k sešitu; data grafu nejsou načtena ani obnovena z cílového sešitu. Použijte toto nastavení, pokud cílový sešit neexistuje nebo není dostupný.
-- Když je `update_chart_data` nastaven na `True`, data grafu jsou načtena a aktualizována z cílového sešitu.
+- Když je `update_chart_data` nastaven na `False`, aktualizuje se pouze cesta k pracovní knize; data grafu nejsou načtena ani obnovená z cílové pracovní knihy. Použijte toto nastavení, když cílová pracovní kniha neexistuje nebo není dostupná.
+- Když je `update_chart_data` nastaven na `True`, data grafu jsou načtena a aktualizována z cílové pracovní knihy.
 
-### **Vytvoření externích sešitů**
+### **Vytvoření externích pracovních knih**
 
-Pomocí metod [read_workbook_stream](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) a [set_external_workbook](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartdata/set_external_workbook/) můžete buď vytvořit externí sešit od nuly, nebo převést interní sešit na externí.
+Pomocí metod [read_workbook_stream](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartdata/read_workbook_stream/) a [set_external_workbook](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartdata/set_external_workbook/) můžete buď vytvořit externí pracovní knihu od nuly, nebo převést interní pracovní knihu na externí.
 
-Tento kód v Pythonu demonstruje proces vytváření externího sešitu:
+Tento Python kód demonstruje proces vytvoření externí pracovní knihy:
 
 ```python
 import pathlib
@@ -208,17 +208,17 @@ with slides.Presentation() as presentation:
     presentation.save("chart_with_external_workbook.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **Získání cesty k externímu datovému sešitu pro graf**
+### **Získání cesty k externí pracovní knize datového zdroje pro graf**
 
-Někdy jsou data grafu propojena s externím Excelovým sešitem místo vložených dat v prezentaci. S Aspose.Slides můžete prozkoumat datový zdroj grafu a pokud jde o externí sešit, přečíst úplnou cestu k sešitu.
+Někdy jsou data grafu propojena s externí Excelovou pracovní knihou místo vložených dat v prezentaci. S Aspose.Slides můžete prozkoumat datový zdroj grafu a pokud jde o externí pracovní knihu, přečíst celou cestu k ní.
 
-1. Vytvořte instanci třídy [Presentation](https://docs.aspose.com/slides/cs/python-net/api-reference/aspose.slides/presentation/).
+1. Vytvořte instanci třídy [Presentation](https://docs.aspose.com/slides/cs/python-net/api-reference/aspose.slides/presentation/) .
 2. Získejte odkaz na snímek podle jeho indexu.
 3. Získejte odkaz na tvar grafu.
-4. Získejte zdroj ([ChartDataSourceType](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartdatasourcetype/)), který představuje datový zdroj grafu.
-5. Zkontrolujte, zda typ zdroje odpovídá typu externího sešitu jako datového zdroje.
+4. Získáte zdroj ([ChartDataSourceType](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartdatasourcetype/)), který představuje datový zdroj grafu.
+5. Zkontrolujte, zda typ zdroje odpovídá typu datového zdroje externí pracovní knihy.
 
-Následující kód v Pythonu demonstruje operaci:
+Následující Python kód demonstruje operaci:
 
 ```python
 import aspose.slides as slides
@@ -233,7 +233,7 @@ with slides.Presentation("chart_with_external_workbook.pptx") as presentation:
 
 ### **Úprava dat grafu**
 
-Data v externích sešitech můžete upravovat stejným způsobem, jako upravujete data v interních sešitech. Pokud nelze externí sešit načíst, vyvolá se výjimka.
+Můžete upravovat data v externích pracovních knihách stejným způsobem jako v interních pracovních knihách. Pokud není externí pracovní kniha načtena, je vyvolána výjimka.
 
 ```python
 import aspose.slides as slides
@@ -244,28 +244,49 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+### **Obnovení pracovní knihy z mezipaměti grafu**
+
+Pokud graf používá externí pracovní knihu, která chybí nebo není dostupná, Aspose.Slides může rekonstruovat pracovní knihu grafu z dat uložených v mezipaměti prezentace. Vytvořte [LoadOptions](https://reference.aspose.com/slides/cs/python-net/aspose.slides/loadoptions/), poté povolte [SpreadsheetOptions.recover_workbook_from_chart_cache](https://reference.aspose.com/slides/cs/python-net/aspose.slides/spreadsheetoptions/recover_workbook_from_chart_cache/) prostřednictvím [LoadOptions.spreadsheet_options](https://reference.aspose.com/slides/cs/python-net/aspose.slides/loadoptions/spreadsheet_options/) před otevřením prezentace.
+
+Následující Python příklad otevře prezentaci, jejíž graf odkazuje na nedostupnou externí pracovní knihu, a přistupuje k obnoveným datům prostřednictvím [Chart.chart_data](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chart/chart_data/) a [ChartData.chart_data_workbook](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartdata/chart_data_workbook/):
+
+```python
+import aspose.slides as slides
+
+load_options = slides.LoadOptions()
+load_options.spreadsheet_options.recover_workbook_from_chart_cache = True
+
+with slides.Presentation("presentation.pptx", load_options) as presentation:
+    chart = presentation.slides[0].shapes[0]
+    recovered_workbook = chart.chart_data.chart_data_workbook
+
+    # Přečtěte nebo upravte data obnovené pracovní knihy zde.
+```
+
+Pokud je externí pracovní kniha nedostupná a obnovení je vypnuto, Aspose.Slides vyvolá výjimku. Povolit obnovení jen tehdy, když je použití dat z mezipaměti grafu přijatelnou alternativou, protože mezipaměť nemusí obsahovat změny provedené v externí pracovní knize po poslední aktualizaci prezentace.
+
 ## **Často kladené otázky**
 
-**Mohu zjistit, zda je konkrétní graf propojen s externím nebo vloženým sešitem?**
+**Mohu zjistit, zda je konkrétní graf propojen s externí nebo vloženou pracovní knihou?**
 
-Ano. Graf má [typ datového zdroje](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartdata/data_source_type/) a [cestu k externímu sešitu](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartdata/external_workbook_path/); pokud je zdroj externí sešit, můžete přečíst úplnou cestu a ověřit, že je používán externí soubor.
+Ano. Graf má [typ datového zdroje](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartdata/data_source_type/) a [cestu k externí pracovní knize](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartdata/external_workbook_path/); pokud je zdroj externí pracovní kniha, můžete přečíst celou cestu a ujistit se, že je používán externí soubor.
 
-**Jsou relativní cesty k externím sešitům podporovány a jak jsou uloženy?**
+**Jsou podporovány relativní cesty k externím pracovním knihám a jak jsou ukládány?**
 
-Ano. Pokud zadáte relativní cestu, je automaticky převedena na absolutní cestu. To je výhodné pro přenositelnost projektu; však mějte na paměti, že prezentace uloží absolutní cestu do souboru PPTX.
+Ano. Pokud zadáte relativní cestu, je automaticky převedena na absolutní cestu. To je výhodné pro přenositelnost projektu; však si uvědomte, že prezentace uloží absolutní cestu v souboru PPTX.
 
-**Mohu použít sešity umístěné na síťových zdrojích/sdílených složkách?**
+**Mohu používat pracovní knihy umístěné na síťových zdrojích/sdílených složkách?**
 
-Ano, takové sešity lze použít jako externí datový zdroj. Úprava vzdálených sešitů přímo z Aspose.Slides však není podporována – mohou být použity pouze jako zdroj.
+Ano, takové pracovní knihy lze použít jako externí zdroj dat. Úprava vzdálených pracovních knih přímo z Aspose.Slides však není podporována – lze je použít jen jako zdroj.
 
 **Přepisuje Aspose.Slides externí XLSX při ukládání prezentace?**
 
-Ne. Prezentace ukládá [odkaz na externí soubor](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartdata/external_workbook_path/) a používá jej k načítání dat. Samotný externí soubor není při ukládání prezentace upravován.
+Ne. Prezentace ukládá [odkaz na externí soubor](https://reference.aspose.com/slides/cs/python-net/aspose.slides.charts/chartdata/external_workbook_path/) a používá jej pro čtení dat. Externí soubor samotný není při uložení prezentace upravován.
 
 **Co mám dělat, pokud je externí soubor chráněn heslem?**
 
-Aspose.Slides nepřijímá heslo při vytváření odkazu. Běžný postup je odstranit ochranu předem nebo připravit dešifrovanou kopii (například pomocí [Aspose.Cells](/cells/python-net/)) a odkazovat na tuto kopii.
+Aspose.Slides při propojení heslo nepřijímá. Běžný postup je odstranit ochranu předem nebo připravit dešifrovanou kopii (například pomocí [Aspose.Cells](/cells/python-net/)) a odkazovat na tuto kopii.
 
-**Může více grafů odkazovat na stejný externí sešit?**
+**Může více grafů odkazovat na stejnou externí pracovní knihu?**
 
 Ano. Každý graf ukládá svůj vlastní odkaz. Pokud všechny ukazují na stejný soubor, aktualizace tohoto souboru se projeví v každém grafu při dalším načtení dat.

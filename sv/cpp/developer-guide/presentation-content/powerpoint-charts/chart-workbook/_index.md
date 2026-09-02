@@ -1,31 +1,35 @@
 ---
-title: Hantera diagramarböcker i presentationer med C++
-linktitle: Diagramarbok
+title: "Hantera diagramarbok i presentationer med C++"
+linktitle: "Diagramarbok"
 type: docs
 weight: 70
 url: /sv/cpp/chart-workbook/
 keywords:
 - diagramarbok
 - diagramdata
-- arbokscell
+- arbetsbokscell
 - datamärkning
 - arbetsblad
 - datakälla
 - extern arbetsbok
 - extern data
+- diagramcache
+- återställning av arbetsbok
 - PowerPoint
 - presentation
 - C++
 - Aspose.Slides
-description: "Upptäck Aspose.Slides för C++: hantera enkelt diagramarböcker i PowerPoint- och OpenDocument-format för att effektivisera dina presentationsdata."
+description: "Upptäck Aspose.Slides för C++: hantera enkelt diagramarbok i PowerPoint- och OpenDocument-format för att förenkla dina presentationsdata."
 ---
 ## **Översikt**
 
-Denna artikel förklarar hur man arbetar med diagramarbetsböcker i Aspose.Slides. Den visar hur man läser och skriver diagramdata via arbetsbokströmmar, använder arbetsboksceller som diagramdatamärkningar, får åtkomst till arbetsbladssamlingar och specificerar datakällans typ för diagramevärden. Den behandlar också arbete med externa arbetsböcker som diagramdatakällor. Exemplen demonstrerar hur man skapar och tilldelar en extern arbetsbok, hämtar sökvägen för en extern arbetsbok som är länkad till ett diagram och redigerar diagramdata när arbetsboken är tillgänglig.
+Den här artikeln förklarar hur du arbetar med diagramarbetsböcker i Aspose.Slides. Den visar hur du läser och skriver diagramdata via arbetsbokströmmar, använder arbetsboksceller som diagramdatamärkning, får åtkomst till arbetsbladssamlingar och anger datakälltypen för diagramvärden.
+
+Den täcker också arbete med externa arbetsböcker som diagramdatakällor. Exemplen demonstrerar hur du skapar och tilldelar en extern arbetsbok, hämtar sökvägen för en extern arbetsbok som är länkad till ett diagram och redigerar diagramdata när arbetsboken är tillgänglig.
 
 ## **Läsa och skriva diagramdata från en arbetsbok**
 
-Aspose.Slides tillhandahåller metoderna [ReadWorkbookStream](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) och [WriteWorkbookStream](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) som gör att du kan läsa och skriva diagramdataböcker (innehållande diagramdata redigerad med Aspose.Cells). **Obs** att diagramdatat måste vara organiserat på samma sätt eller ha en struktur som liknar källan.
+Aspose.Slides tillhandahåller metoderna [ReadWorkbookStream](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) och [WriteWorkbookStream](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) som låter dig läsa och skriva diagramdataböcker (innehåller diagramdata redigerad med Aspose.Cells). **Obs** att diagramdata måste vara organiserad på samma sätt eller ha en struktur som liknar källan.
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"chart.pptx");
@@ -41,7 +45,7 @@ stream->set_Position(0);
 data->WriteWorkbookStream(stream);
 ```
 
-Den här C++-koden visar hur man ställer in en diagramdatabok:
+Den här C++-koden demonstrerar operationen för att ange en diagramdatabok:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"Test.pptx");
@@ -73,16 +77,16 @@ series->get_ParentSeriesGroup()->set_IsColorVaried(true);
 pres->Save(u"response2.pptx", Export::SaveFormat::Pptx);
 ```
 
-## **Ställ in en arbetsbokscell som diagramdatamärkning**
+## **Ange en arbetsbokscell som diagramdatamärkning**
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/).
-1. Hämta en slides referens via dess index.
-1. Lägg till ett bubbeldiagram med viss data.
-1. Få åtkomst till diagramserierna.
-1. Ställ in arbetsbokscellen som en datamärkning.
-1. Spara presentationen.
+1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/) klassen.  
+2. Hämta en slides referens via dess index.  
+3. Lägg till ett bubbeldiagram med någon data.  
+4. Kom åt diagramserierna.  
+5. Ange arbetsbokscellen som en datamärkning.  
+6. Spara presentationen.
 
-Denna C++-kod visar hur man ställer in en arbetsbokscell som en diagramdatamärkning:
+Denna C++-kod visar hur du anger en arbetsbokscell som diagramdatamärkning:
 
 ``` cpp
 System::String lbl0 = u"Label 0 cell value";
@@ -111,7 +115,7 @@ pres->Save(u"resultchart.pptx", SaveFormat::Pptx);
 
 ## **Hantera arbetsblad**
 
-Denna C++-kod demonstrerar en operation där metoden [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) används för att komma åt en samling av arbetsblad:
+Denna C++-kod demonstrerar en operation där metoden [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) används för att komma åt en arbetsbladssamling:
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -124,9 +128,9 @@ for (auto ws : System::IterateOver(worksheets))
     System::Console::WriteLine(ws->get_Name());
 ```
 
-## **Specificera datakällans typ**
+## **Ange datakälltyp**
 
-Denna C++-kod visar hur du specificerar en typ för en datakälla:
+Denna C++-kod visar hur du anger en typ för en datakälla:
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -143,9 +147,9 @@ val->set_Data(chartData->get_ChartDataWorkbook()->GetCell(0, u"B1", System::Obje
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-## **Upptäcka ej stödda inbäddade arbetsbokformat**
+## **Upptäck ej stödda inbäddade arbetsbokformat**
 
-Aspose.Slides stöder inte Excel binärarbetsbok (.xlsb)-formatet som kan bäddas in i vissa diagram. Du kan använda metoden `get_EmbeddedWorkbookType` på [IChartData](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdata/) tillsammans med uppräkningen [WorkbookType](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/workbooktype/) för att upptäcka ej stödda format och hoppa över dessa diagram.
+Aspose.Slides stöder inte Excel‑binärarbetsboken (.xlsb) som kan vara inbäddad i vissa diagram. Du kan använda `get_EmbeddedWorkbookType`‑metoden på [IChartData](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdata/) tillsammans med [WorkbookType](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/workbooktype/)-enumerationen för att upptäcka ej stödda format och hoppa över de diagrammen.
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
@@ -168,7 +172,7 @@ for (auto&& shape : slide->get_Shapes())
         continue;
     }
 
-    // Läs eller ändra diagramarbokens data här.
+    // Läs eller ändra diagramarbokdata här.
 }
 ```
 
@@ -180,7 +184,7 @@ I [Aspose.Slides](https://releases.aspose.com/slides/sv/cpp/release-notes/2019/a
 
 ### **Skapa en extern arbetsbok**
 
-Genom att använda metoderna **`ReadWorkbookStream`** och **`SetExternalWorkbook`** kan du antingen skapa en extern arbetsbok från början eller göra en intern arbetsbok extern.
+Genom att använda metoderna **`ReadWorkbookStream`** och **`SetExternalWorkbook`** kan du antingen skapa en extern arbetsbok från grunden eller göra en intern arbetsbok extern.
 
 Denna C++-kod demonstrerar processen för att skapa en extern arbetsbok:
 
@@ -204,13 +208,13 @@ chartData->SetExternalWorkbook(System::IO::Path::GetFullPath(workbookPath));
 pres->Save(u"externalWorkbook.pptx", SaveFormat::Pptx);
 ```
 
-### **Ställ in en extern arbetsbok**
+### **Ange en extern arbetsbok**
 
-Genom att använda metoden **`IChartData::SetExternalWorkbook`** kan du tilldela en extern arbetsbok till ett diagram som dess datakälla. Denna metod kan också användas för att uppdatera en sökväg till den externa arbetsboken (om den senare har flyttats).
+Genom att använda metoden **`IChartData::SetExternalWorkbook`** kan du tilldela en extern arbetsbok till ett diagram som dess datakälla. Metoden kan också användas för att uppdatera sökvägen till den externa arbetsboken (om den senare har flyttats).
 
-Även om du inte kan redigera data i arbetsböcker som lagras på fjärrplatser eller resurser, kan du fortfarande använda sådana arbetsböcker som en extern datakälla. Om en relativ sökväg för en extern arbetsbok lämnas, konverteras den automatiskt till en fullständig sökväg.
+Du kan inte redigera data i arbetsböcker som lagras på fjärrplatser eller resurser, men du kan fortfarande använda sådana arbetsböcker som extern datakälla. Om en relativ sökväg för en extern arbetsbok anges konverteras den automatiskt till en fullständig sökväg.
 
-Denna C++-kod visar hur du ställer in en extern arbetsbok:
+Denna C++-kod visar hur du anger en extern arbetsbok:
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -234,10 +238,10 @@ categories->Add(workbook->GetCell(0, u"A4"));
 pres->Save(u"Presentation_with_externalWorkbook.pptx", SaveFormat::Pptx);
 ```
 
-`updateChartData`-parametern (under metoden `SetExternalWorkbook`) används för att ange om en Excel-arbetsbok ska laddas eller inte. 
+Parametern `updateChartData` (under metoden `SetExternalWorkbook`) används för att ange om en Excel‑arbetsbok ska laddas eller inte. 
 
-* När `updateChartData`-värdet är satt till `false` uppdateras endast arbetsbokssökvägen – diagramdata laddas inte eller uppdateras från målarbetsboken. Du kan vilja använda denna inställning när målarbetsboken är frånvarande eller otillgänglig. 
-* När `updateChartData`-värdet är satt till `true` uppdateras diagramdata från målarbetsboken.
+* När värdet för `updateChartData` är `false` uppdateras bara arbetsbokens sökväg – diagramdata laddas eller uppdateras inte från målarbetsboken. Du kan använda denna inställning när målarbetsboken saknas eller är otillgänglig.  
+* När värdet för `updateChartData` är `true` uppdateras diagramdata från målarbetsboken.
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -251,13 +255,13 @@ concreteChartData->SetExternalWorkbook(u"http://path/doesnt/exists", false);
 pres->Save(u"SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat::Pptx);
 ```
 
-### **Hämta den externa datakällans arbetsbokssökväg för ett diagram**
+### **Hämta den externa datakällans arbetsboksökväg för ett diagram**
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/).
-1. Hämta en slides referens via dess index.
-1. Skapa ett objekt för diagramformen.
-1. Skapa ett objekt för källtypen (`ChartDataSourceType`) som representerar diagrammets datakälla.
-1. Ange det relevanta villkoret baserat på att källtypen är samma som den externa arbetsbokens datakälltyp.
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/).  
+2. Hämta en slides referens via dess index.  
+3. Skapa ett objekt för diagramformen.  
+4. Skapa ett objekt för källtypen (`ChartDataSourceType`) som representerar diagrammets datakälla.  
+5. Ange det relevanta villkoret baserat på att källtypen är densamma som den externa arbetsboksdatakällans typ.
 
 Denna C++-kod demonstrerar operationen:
 
@@ -272,7 +276,7 @@ if (sourceType == ChartDataSourceType::ExternalWorkbook)
     System::String path = chart->get_ChartData()->get_ExternalWorkbookPath();
 }
 
-// Sparar presentationen
+// Saves the presentation
 pres->Save(u"Result.pptx", SaveFormat::Pptx);
 ```
 
@@ -280,7 +284,7 @@ pres->Save(u"Result.pptx", SaveFormat::Pptx);
 
 Du kan redigera data i externa arbetsböcker på samma sätt som du ändrar innehållet i interna arbetsböcker. När en extern arbetsbok inte kan laddas kastas ett undantag.
 
-Denna C++-kod är en implementering av den beskrivna processen:
+Denna C++-kod är en implementation av den beskrivna processen:
 
 ```c++
 const String templatePath = u"../templates/presentation.pptx";
@@ -296,27 +300,54 @@ const String templatePath = u"../templates/presentation.pptx";
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+### **Återskapa en arbetsbok från diagramcachen**
+
+Om ett diagram använder en extern arbetsbok som saknas eller är otillgänglig kan Aspose.Slides rekonstruera diagramarbetsboken från data som cachats i presentationen. Skapa [LoadOptions](https://reference.aspose.com/slides/sv/cpp/aspose.slides/loadoptions/), konfigurera den med [set_SpreadsheetOptions](https://reference.aspose.com/slides/sv/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/), och anropa [ISpreadsheetOptions::set_RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ispreadsheetoptions/set_recoverworkbookfromchartcache/) med `true` innan du öppnar presentationen.
+
+Följande C++‑exempel öppnar en presentation vars diagram refererar till en otillgänglig extern arbetsbok och får åtkomst till den återställda datan via [IChart::get_ChartData](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichart/get_chartdata/) och [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/):
+
+```cpp
+auto spreadsheetOptions = MakeObject<SpreadsheetOptions>();
+spreadsheetOptions->set_RecoverWorkbookFromChartCache(true);
+
+auto loadOptions = MakeObject<LoadOptions>();
+loadOptions->set_SpreadsheetOptions(spreadsheetOptions);
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx", loadOptions);
+
+auto shape = presentation->get_Slide(0)->get_Shape(0);
+auto chart = System::ExplicitCast<IChart>(shape);
+
+auto recoveredWorkbook = chart->get_ChartData()->get_ChartDataWorkbook();
+
+// Read or modify the recovered workbook data here.
+
+presentation->Dispose();
+```
+
+Om den externa arbetsboken är otillgänglig och återställning är inaktiverad kastar Aspose.Slides ett `System::InvalidOperationException`. Aktivera återställning endast när användning av cachad diagramdata är ett acceptabelt alternativ, eftersom cachen kanske inte innehåller ändringar som gjorts i den externa arbetsboken efter att presentationen senast uppdaterades.
+
 ## **Vanliga frågor**
 
 **Kan jag avgöra om ett specifikt diagram är länkat till en extern eller en inbäddad arbetsbok?**
 
-Ja. Ett diagram har en [datakälltyp](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) och en [sökväg till en extern arbetsbok](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/); om källan är en extern arbetsbok kan du läsa hela sökvägen för att säkerställa att en extern fil används.
+Ja. Ett diagram har en [datakälltyp](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) och en [sökväg till en extern arbetsbok](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/); om källan är en extern arbetsbok kan du läsa den fullständiga sökvägen för att säkerställa att en extern fil används.
 
 **Stöds relativa sökvägar till externa arbetsböcker, och hur lagras de?**
 
-Ja. Om du anger en relativ sökväg konverteras den automatiskt till en absolut sökväg. Detta är bekvämt för projektportabilitet; dock bör du vara medveten om att presentationen lagrar den absoluta sökvägen i PPTX-filen.
+Ja. Om du anger en relativ sökväg konverteras den automatiskt till en absolut sökväg. Detta är bekvämt för projektportabilitet; dock bör du vara medveten om att presentationen lagrar den absoluta sökvägen i PPTX‑filen.
 
 **Kan jag använda arbetsböcker som finns på nätverksresurser/delade mappar?**
 
-Ja, sådana arbetsböcker kan användas som en extern datakälla. Redigering av fjärrarbetsböcker direkt från Aspose.Slides stöds dock inte – de kan endast användas som källa.
+Ja, sådana arbetsböcker kan användas som en extern datakälla. Direkt redigering av fjärrarbetsböcker från Aspose.Slides stöds dock inte – de kan endast användas som källa.
 
-**Skriver Aspose.Slides över den externa XLSX-filen när presentationen sparas?**
+**Skriver Aspose.Slides över den externa XLSX‑filen när presentationen sparas?**
 
-Nej. Presentationen lagrar en [länk till den externa filen](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) och använder den för att läsa data. Den externa filen ändras inte när presentationen sparas.
+Nej. Presentationen lagrar en [länk till den externa filen](https://reference.aspose.com/slides/sv/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) och använder den för att läsa data. Den externa filen modifieras inte när presentationen sparas.
 
 **Vad ska jag göra om den externa filen är lösenordsskyddad?**
 
-Aspose.Slides accepterar inte ett lösenord vid länken. En vanlig metod är att ta bort skyddet i förväg eller förbereda en avkrypterad kopia (till exempel med [Aspose.Cells](/cells/cpp/)) och länka till den kopian.
+Aspose.Slides accepterar inget lösenord vid länkning. En vanlig metod är att ta bort skyddet i förväg eller förbereda en avkrypterad kopia (t.ex. med [Aspose.Cells](/cells/cpp/)) och länka till den kopian.
 
 **Kan flera diagram referera till samma externa arbetsbok?**
 

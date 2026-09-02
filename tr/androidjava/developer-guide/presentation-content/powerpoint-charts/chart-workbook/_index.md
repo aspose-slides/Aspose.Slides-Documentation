@@ -6,28 +6,31 @@ weight: 70
 url: /tr/androidjava/chart-workbook/
 keywords:
 - grafik çalışma kitabı
-- grafik verisi
+- grafik veri
 - çalışma kitabı hücresi
 - veri etiketi
 - çalışma sayfası
 - veri kaynağı
 - harici çalışma kitabı
 - harici veri
+- grafik önbelleği
+- çalışma kitabı kurtarma
 - PowerPoint
 - sunum
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android'i Java üzerinden keşfedin: PowerPoint ve OpenDocument formatlarında grafik çalışma kitaplarını zahmetsizce yönetin ve sunum verilerinizi kolaylaştırın."
+description: "Java üzerinden Android için Aspose.Slides'ı keşfedin: PowerPoint ve OpenDocument formatlarında grafik çalışma kitaplarını sorunsuz bir şekilde yönetin ve sunum verilerinizi kolaylaştırın."
 ---
 ## **Genel Bakış**
 
-Bu makale Aspose.Slides içinde grafik çalışma kitaplarıyla nasıl çalışılacağını açıklar. Çalışma kitabı akışları aracılığıyla grafik verilerini okuma ve yazma, çalışma kitabı hücrelerini grafik veri etiketi olarak kullanma, çalışma sayfası koleksiyonlarına erişme ve grafik değerleri için veri kaynağı türünü belirtme konularını gösterir.
+Bu makale, Aspose.Slides içinde grafik çalışma kitaplarıyla nasıl çalışılacağını açıklar. Çalışma kitabı akışları aracılığıyla grafik verilerini nasıl okunup yazılacağını, çalışma kitabı hücrelerini grafik veri etiketleri olarak nasıl kullanılacağını, çalışma sayfası koleksiyonlarına nasıl erişileceğini ve grafik değerleri için veri kaynağı türünün nasıl belirleneceğini gösterir.
 
-Ayrıca harici çalışma kitaplarını grafik veri kaynakları olarak kullanmayı kapsar. Örnekler, harici bir çalışma kitabı oluşturup atamayı, bir grafikle ilişkilendirilmiş harici çalışma kitabının yolunu almayı ve çalışma kitabı mevcut olduğunda grafik verilerini düzenlemeyi gösterir.
+Ayrıca, dış çalışma kitaplarının grafik veri kaynakları olarak nasıl kullanılacağını kapsar. Örnekler, dış bir çalışma kitabının nasıl oluşturulup atanacağını, bir grafik ile ilişkilendirilmiş dış çalışma kitabının yolunun nasıl alınacağını ve çalışma kitabı mevcut olduğunda grafik verilerinin nasıl düzenleneceğini gösterir.
 
-## **Bir Çalışma Kitabından Grafik Verilerini Okuma ve Yazma**
-Aspose.Slides, grafik verileri çalışma kitaplarını (Aspose.Cells ile düzenlenen) okumanıza ve yazmanıza izin veren [ReadWorkbookStream](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IChartData#readWorkbookStream--) ve [WriteWorkbookStream](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) yöntemlerini sağlar. **Not** grafik verileri aynı şekilde düzenlenmiş olmalı veya kaynağa benzer bir yapıya sahip olmalıdır.
+## **Grafik Verilerini Çalışma Kitabından Okuma ve Yazma**
+
+Aspose.Slides, grafik verileri çalışma kitaplarını (Aspose.Cells ile düzenlenmiş grafik verilerini içeren) okuma ve yazma imkanı sağlayan [ReadWorkbookStream](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IChartData#readWorkbookStream--) ve [WriteWorkbookStream](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) yöntemlerini sunar. **Not**: grafik verileri aynı şekilde düzenlenmiş olmalı veya kaynağa benzer bir yapıya sahip olmalıdır.
 
 Bu Java kodu örnek bir işlemi gösterir:
 
@@ -48,23 +51,23 @@ try {
 }
 ```
 
-## **Bir Çalışma Kitabı Hücresini Grafik Veri Etiketi Olarak Ayarlama**
+## **Çalışma Kitabı Hücresini Grafik Veri Etiketi Olarak Ayarlama**
 
-1. [Presentation](https://apireference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation) sınıfının bir örneğini oluşturun.  
-1. İndeksi üzerinden bir slaytın referansını alın.  
+1. Bir [Presentation](https://apireference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation) sınıfının örneğini oluşturun.  
+1. İndeksi aracılığıyla bir slaytın referansını alın.  
 1. Bazı veri içeren bir Balon grafiği ekleyin.  
 1. Grafik serisine erişin.  
 1. Çalışma kitabı hücresini veri etiketi olarak ayarlayın.  
-1. Sunumu kaydedin.  
+1. Sunumu kaydedin.
 
-Bu Java kodu, bir çalışma kitabı hücresini grafik veri etiketi olarak ayarlamayı gösterir:
+Bu Java kodu, çalışma kitabı hücresini grafik veri etiketi olarak nasıl ayarlayacağınızı gösterir:
 
 ```java
 String lbl0 = "Label 0 cell value";
 String lbl1 = "Label 1 cell value";
 String lbl2 = "Label 2 cell value";
 
-// Sunum dosyasını temsil eden bir sunum sınıfını örnekler
+// Sunum dosyasını temsil eden bir sunum sınıfının örneğini oluşturur
 Presentation pres = new Presentation("chart2.pptx");
 try {
     ISlide slide = pres.getSlides().get_Item(0);
@@ -102,9 +105,9 @@ try {
 }
 ```
 
-## **Veri Kaynağı Türünü Belirtme**
+## **Veri Kaynağı Türünü Belirleme**
 
-Bu Java kodu, bir veri kaynağı için tür belirtmeyi gösterir:
+Bu Java kodu, bir veri kaynağı için tür nasıl belirleneceğini gösterir:
 
 ```java
 Presentation pres = new Presentation();
@@ -124,9 +127,9 @@ try {
 }
 ```
 
-## **Desteklenmeyen Gömülü Çalışma Kitabı Biçimlerini Algılama**
+## **Desteklenmeyen Gömülü Çalışma Kitabı Formatlarını Algılama**
 
-Aspose.Slides, bazı grafiklerde gömülebilen Excel ikili çalışma kitabı (.xlsb) formatını desteklemez. Desteklenmeyen biçimleri algılamak ve bu grafikleri atlamak için [IChartData](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IChartData) üzerindeki `getEmbeddedWorkbookType` metodunu ve [WorkbookType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/WorkbookType) enumunu kullanabilirsiniz.
+Aspose.Slides, bazı grafiklerde gömülebilen Excel ikili çalışma kitabı (.xlsb) formatını desteklemez. Desteklenmeyen formatları algılamak ve bu grafiklerden kaçınmak için [IChartData](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IChartData) üzerindeki `getEmbeddedWorkbookType` metodunu [WorkbookType](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/WorkbookType) enumerasyonu ile birlikte kullanabilirsiniz.
 
 ```java
 Presentation presentation = new Presentation("sample.pptx");
@@ -141,7 +144,7 @@ try {
 
         if (chartData.getDataSourceType() == ChartDataSourceType.InternalWorkbook &&
                 chartData.getEmbeddedWorkbookType() == WorkbookType.WorkbookBinaryMacro) {
-            // .xlsb formatındaki gömülü çalışma kitabı desteklenmiyor.
+            // Gömülü çalışma kitabı .xlsb formatında, desteklenmemektedir.
             continue;
         }
 
@@ -158,7 +161,7 @@ Aspose.Slides, grafikler için veri kaynağı olarak harici çalışma kitaplar�
 
 ### **Harici Çalışma Kitabı Oluşturma**
 
-**`readWorkbookStream`** ve **`setExternalWorkbook`** yöntemlerini kullanarak ya sıfırdan bir harici çalışma kitabı oluşturabilir ya da dahili bir çalışma kitabını harici hâle getirebilirsiniz.
+**`readWorkbookStream`** ve **`setExternalWorkbook`** yöntemlerini kullanarak, sıfırdan bir harici çalışma kitabı oluşturabilir veya dahili bir çalışma kitabını harici hâle getirebilirsiniz.
 
 Bu Java kodu, harici çalışma kitabı oluşturma sürecini gösterir:
 
@@ -187,14 +190,14 @@ try {
 
 ### **Harici Çalışma Kitabını Ayarlama**
 
-**`setExternalWorkbook`** yöntemiyle bir grafiğe dış veri kaynağı olarak harici bir çalışma kitabı atayabilirsiniz. Bu yöntem aynı zamanda harici çalışma kitabının yolu güncellendiğinde (taşındıysa) yolu değiştirmek için de kullanılabilir.
+**`setExternalWorkbook`** yöntemini kullanarak, bir grafiğe veri kaynağı olarak harici bir çalışma kitabı atayabilirsiniz. Bu yöntem ayrıca harici çalışma kitabının yolunu (eğer taşınmışsa) güncellemek için de kullanılabilir.
 
-Uzak konumlardaki veya kaynaklardaki çalışma kitaplarındaki verileri düzenleyemezsiniz, ancak bu çalışma kitaplarını harici veri kaynağı olarak yine de kullanabilirsiniz. Harici bir çalışma kitabı için göreceli bir yol sağlanırsa, otomatik olarak tam yola dönüştürülür.
+Uzak konumlarda veya kaynaklarda depolanan çalışma kitaplarındaki verileri düzenleyemezsiniz, ancak bu çalışma kitaplarını hâlâ harici veri kaynağı olarak kullanabilirsiniz. Harici bir çalışma kitabı için göreli bir yol sağlanırsa, otomatik olarak tam yola dönüştürülür.
 
-Bu Java kodu, harici bir çalışma kitabını nasıl ayarlayacağınızı gösterir:
+Bu Java kodu, harici bir çalışma kitabının nasıl ayarlanacağını gösterir:
 
 ```java
-// Presentation sınıfının bir örneğini oluşturur
+// Sunum sınıfının bir örneğini oluşturur
 Presentation pres = new Presentation("chart.pptx");
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, false);
@@ -217,13 +220,13 @@ try {
 }
 ```
 
-`setExternalWorkbook` yönteminin altındaki `ChartData` parametresi, bir Excel çalışma kitabının yüklenip yüklenmeyeceğini belirlemek için kullanılır.
+`setExternalWorkbook` yönteminin altındaki `ChartData` parametresi, bir Excel çalışma kitabının yüklenip yüklenmeyeceğini belirtmek için kullanılır.
 
-* `ChartData` değeri **false** olarak ayarlandığında, yalnızca çalışma kitabı yolu güncellenir—grafik verisi hedef çalışma kitabından yüklenmez veya güncellenmez. Hedef çalışma kitabı mevcut değilse veya erişilemezse bu ayarı kullanmak isteyebilirsiniz.  
-* `ChartData` değeri **true** olarak ayarlandığında, grafik verisi hedef çalışma kitabından güncellenir.
+* `ChartData` değeri `false` olarak ayarlandığında, yalnızca çalışma kitabı yolu güncellenir—grafik verileri hedef çalışma kitabından yüklenmez veya güncellenmez. Hedef çalışma kitabı mevcut olmadığında veya erişilemez olduğunda bu ayarı kullanmak isteyebilirsiniz.  
+* `ChartData` değeri `true` olarak ayarlandığında, grafik verileri hedef çalışma kitabından güncellenir.
 
 ```java
-// Presentation sınıfının bir örneğini oluşturur
+// Sunum sınıfının bir örneğini oluşturur
 Presentation pres = new Presentation("chart.pptx");
 try {
     IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 400, 600, true);
@@ -239,13 +242,13 @@ try {
 
 ### **Bir Grafiğin Harici Veri Kaynağı Çalışma Kitabı Yolunu Almak**
 
-1. [Presentation](https://apireference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation) sınıfının bir örneğini oluşturun.  
-1. İndeksi üzerinden bir slaytın referansını alın.  
+1. Bir [Presentation](https://apireference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation) sınıfının örneğini oluşturun.  
+1. İndeksi aracılığıyla bir slaytın referansını alın.  
 1. Grafik şekli için bir nesne oluşturun.  
 1. Grafiğin veri kaynağını temsil eden kaynak (`ChartDataSourceType`) türü için bir nesne oluşturun.  
-1. Kaynak türünün harici çalışma kitabı veri kaynağı türüyle aynı olup olmadığını belirten ilgili koşulu belirtin.  
+1. Kaynak türünün harici çalışma kitabı veri kaynağı türüyle aynı olmasına göre ilgili koşulu belirtin.
 
-Bu Java kodu işlemi gösterir:
+Bu Java kodu, işlemi gösterir:
 
 ```java
 // Presentation sınıfının bir örneğini oluşturur
@@ -259,8 +262,8 @@ try {
     {
         String path = chart.getChartData().getExternalWorkbookPath();
     }
-    
-    // Sunumu kaydeder
+	
+	// Sunumu kaydeder
     pres.save("result.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -269,7 +272,7 @@ try {
 
 ### **Grafik Verilerini Düzenleme**
 
-Harici çalışma kitaplarındaki verileri, dahili çalışma kitaplarındaki gibi düzenleyebilirsiniz. Harici bir çalışma kitabı yüklenemediğinde bir istisna fırlatılır.
+Harici çalışma kitaplarındaki verileri, iç çalışma kitaplarının içeriğinde yaptığınız değişiklikler gibi düzenleyebilirsiniz. Harici bir çalışma kitabı yüklenemediğinde bir istisna fırlatılır.
 
 Bu Java kodu, açıklanan sürecin bir uygulamasıdır:
 
@@ -288,28 +291,54 @@ try {
 }
 ```
 
+### **Grafik Önbelleğinden Çalışma Kitabını Geri Yükleme**
+
+Bir grafik, eksik veya kullanılabilir olmayan harici bir çalışma kitabı kullanıyorsa, Aspose.Slides, sunumda önbelleğe alınan verilerden grafik çalışma kitabını yeniden oluşturabilir. [LoadOptions](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/loadoptions/) oluşturun, onu [SpreadsheetOptions](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/spreadsheetoptions/) ile yapılandırın ve sunumu açmadan önce `true` ile [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) yöntemini çağırın.
+
+Aşağıdaki Java örneği, grafiği erişilemeyen bir harici çalışma kitabına referans veren bir sunumu açar ve kurtarılan verilere [IChart.getChartData](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ichart/#getChartData--) ve [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ichartdata/#getChartDataWorkbook--) aracılığıyla erişir:
+
+```java
+SpreadsheetOptions spreadsheetOptions = new SpreadsheetOptions();
+spreadsheetOptions.setRecoverWorkbookFromChartCache(true);
+
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setSpreadsheetOptions(spreadsheetOptions);
+
+Presentation presentation = new Presentation("presentation.pptx", loadOptions);
+try {
+    IChart chart = (IChart)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IChartDataWorkbook recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
+
+    // Kurtarılmış çalışma kitabı verilerini burada okuyun veya değiştirin.
+} finally {
+    presentation.dispose();
+}
+```
+
+Harici çalışma kitabı erişilemez ve kurtarma devre dışı bırakılmışsa, Aspose.Slides bir istisna fırlatır. Önbellekteki grafik verilerini kullanmak kabul edilebilir bir geri dönüş olduğunda yalnızca kurtarmayı etkinleştirin; çünkü önbellek, sunum son güncellendikten sonra harici çalışma kitabında yapılan değişiklikleri içermeyebilir.
+
 ## **SSS**
 
 **Belirli bir grafiğin harici bir çalışma kitabına mı yoksa gömülü bir çalışma kitabına mı bağlandığını belirleyebilir miyim?**
 
-Evet. Bir grafiğin bir [veri kaynağı türü](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/chartdata/#getDataSourceType--) ve bir [harici çalışma kitabı yolu](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--) vardır; kaynak harici bir çalışma kitabı ise tam yolu okuyarak dış dosyanın kullanıldığını doğrulayabilirsiniz.
+Evet. Bir grafiğin bir [data source type](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/chartdata/#getDataSourceType--) ve bir [path to an external workbook](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--) vardır; kaynak bir harici çalışma kitabıysa, tam yolu okuyarak bir harici dosyanın kullanıldığından emin olabilirsiniz.
 
-**Harici çalışma kitapları için göreceli yollar destekleniyor mu ve nasıl depolanıyor?**
+**Harici çalışma kitapları için göreli yollar destekleniyor mu ve nasıl depolanıyor?**
 
-Evet. Göreceli bir yol belirtildiğinde otomatik olarak mutlak yola dönüştürülür. Bu, proje taşınabilirliği için uygundur; ancak sunum, mutlak yolu PPTX dosyasında saklar.
+Evet. Göreli bir yol belirttiğinizde, otomatik olarak mutlak bir yola dönüştürülür. Bu, projenin taşınabilirliği için kullanışlıdır; ancak, sunumun PPTX dosyasında mutlak yolu depolayacağını unutmayın.
 
 **Ağ kaynakları/paylaşımları üzerindeki çalışma kitaplarını kullanabilir miyim?**
 
-Evet, bu çalışma kitapları harici veri kaynağı olarak kullanılabilir. Ancak, uzaktaki çalışma kitaplarını doğrudan Aspose.Slides ile düzenlemek desteklenmez; sadece kaynak olarak kullanılabilirler.
+Evet, bu tür çalışma kitapları harici veri kaynağı olarak kullanılabilir. Ancak, uzak çalışma kitaplarını doğrudan Aspose.Slides üzerinden düzenlemek desteklenmez; yalnızca bir kaynak olarak kullanılabilirler.
 
-**Aspose.Slides, sunumu kaydederken harici XLSX dosyasını üzerine yazıyor mu?**
+**Aspose.Slides, sunumu kaydederken harici XLSX dosyasını üzerine yazar mı?**
 
-Hayır. Sunum, [harici dosyaya bir bağlantı](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--) saklar ve veriyi okurken bu bağlantıyı kullanır. Sunum kaydedildiğinde harici dosya değişmez.
+Hayır. Sunum, harici dosyaya bir [link to the external file](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/chartdata/#getExternalWorkbookPath--) saklar ve verileri okumak için bunu kullanır. Sunum kaydedildiğinde harici dosya kendisi değişmez.
 
-**Harici dosya şifreyle korunuyorsa ne yapmalıyım?**
+**Harici dosya şifre korumalıysa ne yapmalıyım?**
 
-Aspose.Slides bağlanırken şifre kabul etmez. Yaygın bir yaklaşım, önceden korumayı kaldırmak veya bir şifresiz kopya (örneğin, [Aspose.Cells](/cells/androidjava/) kullanarak) hazırlamaktır ve o kopyaya bağlanmaktır.
+Aspose.Slides, ilişkilendirirken şifre kabul etmez. Yaygın bir yaklaşım, önceden korumayı kaldırmak veya şifresi çözülmüş bir kopya hazırlamaktır (örneğin, [Aspose.Cells](/cells/androidjava/) kullanarak) ve bu kopyaya bağlamaktır.
 
-**Birden fazla grafik aynı harici çalışma kitabına başvurabilir mi?**
+**Birden çok grafik aynı harici çalışma kitabına referans verebilir mi?**
 
-Evet. Her grafik kendi bağlantısını saklar. Hepsi aynı dosyaya işaret ediyorsa, o dosya güncellendiğinde bir sonraki veri yüklemesinde her grafikte de yansır.
+Evet. Her grafik kendi bağlantısını saklar. Hepsi aynı dosyaya işaret ediyorsa, dosya güncellendiğinde veri bir sonraki yüklendiğinde her grafiğe yansır.
