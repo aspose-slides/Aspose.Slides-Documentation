@@ -1,6 +1,6 @@
 ---
-title: Beheer tekstvakken in presentaties op Android
-linktitle: Beheer tekstvak
+title: Tekstvakken beheren in presentaties op Android
+linktitle: Tekstvak beheren
 type: docs
 weight: 20
 url: /nl/androidjava/manage-textbox/
@@ -18,73 +18,77 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Met Aspose.Slides for Android via Java kunt u eenvoudig tekstvakken maken, bewerken en dupliceren in PowerPoint- en OpenDocument-bestanden, waardoor uw presentatiesautomatisering wordt verbeterd."
+description: "Aspose.Slides for Android via Java maakt het eenvoudig om tekstvakken te maken, bewerken en klonen in PowerPoint- en OpenDocument-bestanden, waardoor je presentatie-automatisering wordt verbeterd."
 ---
 ## **Inleiding**
 
-Teksten op dia's staan doorgaans in tekstvakken of vormen. Daarom moet je, om tekst aan een dia toe te voegen, een tekstvak toevoegen en vervolgens tekst in dat tekstvak plaatsen. Aspose.Slides for Android via Java biedt de [IAutoShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IAutoShape) interface die je in staat stelt een vorm toe te voegen die tekst bevat.
+Teksten op dia's bestaan doorgaans in tekstvakken of vormen. Daarom moet je, om tekst aan een dia toe te voegen, eerst een tekstvak toevoegen en vervolgens wat tekst in het tekstvak plaatsen. Aspose.Slides voor Android via Java biedt de [IAutoShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IAutoShape)‑interface waarmee je een vorm met tekst kunt toevoegen.
 
 {{% alert title="Info" color="info" %}}
-Aspose.Slides biedt ook de [IShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IShape) interface die je in staat stelt vormen aan dia’s toe te voegen. Niet alle vormen die via de `IShape` interface worden toegevoegd, kunnen tekst bevatten. Echter, vormen die via de [IAutoShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IAutoShape) interface worden toegevoegd, kunnen wel tekst bevatten.
+Aspose.Slides biedt ook de [IShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IShape)‑interface waarmee je vormen aan dia's kunt toevoegen. Niet alle vormen die via de `IShape`‑interface worden toegevoegd, kunnen echter tekst bevatten. Vormen die via de [IAutoShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IAutoShape)‑interface worden toegevoegd, kunnen wel tekst bevatten.
 {{% /alert %}}
 
-{{% alert title="Opmerking" color="warning" %}} 
-Daarom, wanneer je met een vorm werkt waaraan je tekst wilt toevoegen, wil je controleren en bevestigen dat deze is gecast naar de `IAutoShape` interface. Alleen dan kun je werken met [TextFrame](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/TextFrame), een eigenschap onder `IAutoShape`. Zie de sectie [Update Text](https://docs.aspose.com/slides/nl/androidjava/manage-textbox/#update-text) op deze pagina.
+{{% alert title="Note" color="warning" %}} 
+Wanneer je een vorm wilt gebruiken waaraan je tekst wilt toevoegen, moet je controleren of deze is gecast naar de `IAutoShape`‑interface. Alleen dan kun je werken met [TextFrame](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/TextFrame), een eigenschap van `IAutoShape`. Zie de sectie [Update Text](https://docs.aspose.com/slides/nl/androidjava/manage-textbox/#update-text) op deze pagina.
 {{% /alert %}}
 
 ## **Maak een tekstvak op een dia**
 
-Om een tekstvak op een dia te maken, doorloop je deze stappen:
+Om een tekstvak op een dia te maken, volg je deze stappen:
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/Presentation) klasse.  
-2. Verkrijg een referentie naar de eerste dia in de nieuw aangemaakte presentatie.  
-3. Voeg een [IAutoShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IAutoShape) object toe met [ShapeType](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IGeometryShape#setShapeType-int-) ingesteld op `Rectangle` op een opgegeven positie op de dia en verkrijg de referentie voor het nieuw toegevoegde `IAutoShape` object.  
-4. Voeg een `TextFrame` eigenschap toe aan het `IAutoShape` object die tekst zal bevatten. In het onderstaande voorbeeld hebben we deze tekst toegevoegd: *Aspose TextBox*  
-5. Schrijf tenslotte het PPTX‑bestand weg via het `Presentation` object.  
+1. Maak een instantie van de [Presentatie](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/Presentation)‑klasse.
+2. Verkrijg een referentie naar de eerste dia in de nieuw aangemaakte presentatie. 
+3. Voeg een [IAutoShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IAutoShape)‑object toe met [ShapeType](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/IGeometryShape#setShapeType-int-) ingesteld op `Rectangle` op een opgegeven positie op de dia en verkrijg de referentie naar het nieuw toegevoegde `IAutoShape`‑object.
+4. Voeg de eigenschap `TextFrame` toe aan het `IAutoShape`‑object om tekst te bevatten. In het onderstaande voorbeeld hebben we deze tekst toegevoegd: *Aspose TextBox*
+5. Schrijf uiteindelijk het PPTX‑bestand via het `Presentation`‑object. 
 
-Deze Java‑code – een implementatie van de bovenstaande stappen – toont hoe je tekst aan een dia kunt toevoegen:
+Deze Java‑code – een implementatie van de bovenstaande stappen – laat zien hoe je tekst aan een dia toevoegt:
 
 ```java
-// Instantieert Presentation
+import com.aspose.slides.*;
+
+// Maakt een Presentation aan
 Presentation pres = new Presentation();
 try {
-    // Haalt de eerste dia in de presentatie op
+    // Haalt de eerste dia op in de presentatie
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Voegt een AutoShape toe met type ingesteld op Rectangle
+    // Voegt een AutoShape toe met type Rectangle
     IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
 
-    // Voegt TextFrame toe aan de Rectangle
+    // Voegt een TextFrame toe aan de rechthoek
     ashp.addTextFrame(" ");
 
-    // Benadert het TextFrame
+    // Toegang tot het tekstframe
     ITextFrame txtFrame = ashp.getTextFrame();
 
-    // Maakt het Paragraph-object voor het TextFrame
+    // Creëert het Paragraph‑object voor het tekstframe
     IParagraph para = txtFrame.getParagraphs().get_Item(0);
 
-    // Maakt een Portion-object voor het Paragraph
+    // Creëert een Portion‑object voor de alinea
     IPortion portion = para.getPortions().get_Item(0);
 
-    // Stelt tekst in
+    // Stelt de tekst in
     portion.setText("Aspose TextBox");
 
-    // Slaat de presentatie op op de schijf
+    // Slaat de presentatie op naar schijf
     pres.save("TextBox_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Controleer op een tekstvakvorm**
+## **Controleren op een tekstvak‑vorm**
 
-Aspose.Slides levert de [isTextBox](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iautoshape/#isTextBox--) methode van de [IAutoShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iautoshape/) interface, waarmee je vormen kunt onderzoeken en tekstvakken kunt identificeren.
+Aspose.Slides biedt de [isTextBox](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iautoshape/#isTextBox--)‑methode van de [IAutoShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iautoshape/)‑interface, waarmee je vormen kunt onderzoeken en tekstvakken kunt identificeren.
 
 ![Tekstvak en vorm](istextbox.png)
 
-Deze Java‑code laat zien hoe je kunt controleren of een vorm als tekstvak is aangemaakt: 
+Deze Java‑code toont hoe je kunt controleren of een vorm als tekstvak is aangemaakt: 
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ForEach.shape(presentation, (shape, slide, index) -> {
@@ -98,9 +102,11 @@ try {
 }
 ```
 
-Let op dat als je eenvoudig een autoshape toevoegt met de `addAutoShape` methode van de [IShapeCollection](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ishapecollection/) interface, de `isTextBox` methode van de autoshape `false` zal teruggeven. Nadat je echter tekst aan de autoshape toevoegt met de `addTextFrame` methode of de `setText` methode, geeft de `isTextBox` eigenschap `true` terug.
+Merk op dat als je simpelweg een auto‑shape toevoegt met de `addAutoShape`‑methode van de [IShapeCollection](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ishapecollection/)‑interface, de `isTextBox`‑methode van de auto‑shape `false` retourneert. Nadat je echter tekst aan de auto‑shape hebt toegevoegd met de `addTextFrame`‑methode of de `setText`‑methode, geeft de eigenschap `isTextBox` `true` terug.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 ISlide slide = presentation.getSlides().get_Item(0);
 
@@ -125,31 +131,41 @@ shape4.getTextFrame().setText("");
 // shape4.isTextBox() retourneert false
 ```
 
+## **Vind de vorm die een tekstframe bezit**
+
+In generieke tekstverwerkingscode kun je een [ITextFrame](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itextframe/) ontvangen zonder te weten welke presentatiedeel het bevat. Gebruik de [ITextFrame.getParentShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itextframe/#getParentShape--)‑methode om terug te navigeren naar de eigende [IShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ishape/).
+
+Voor een tekstframe dat behoort tot een [IAutoShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iautoshape/) of een andere vorm die tekst bevat, retourneert [ITextFrame.getParentShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itextframe/#getParentShape--) de eigenaar en retourneert [ITextFrame.getParentCell](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itextframe/#getParentCell--) `null`. Beide methoden bieden alleen‑lezen navigatie; het aanroepen ervan verandert de eigendom niet. Controleer altijd of de geretourneerde waarde `null` is voordat je de vorm benadert.
+
+Voor een volledig voorbeeld dat vorm‑ en tabelcel‑eigenaars identificeert, inclusief vormen die bij SmartArt‑knooppunten horen, zie [Search and Replace Text](/slides/nl/androidjava/search-and-replace-text/).
+
 ## **Kolommen toevoegen aan een tekstvak**
 
-Aspose.Slides biedt de eigenschappen [ColumnCount](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) en [ColumnSpacing](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ITextFrameFormat#setColumnSpacing-double-) (van de [ITextFrameFormat](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ITextFrameFormat) interface en de [TextFrameFormat](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/TextFrameFormat) klasse) die je in staat stellen kolommen toe te voegen aan tekstvakken. Je kunt het aantal kolommen in een tekstvak specificeren en de afstand in punten tussen de kolommen instellen.
+Aspose.Slides biedt de eigenschappen [ColumnCount](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) en [ColumnSpacing](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ITextFrameFormat#setColumnSpacing-double-) (van de [ITextFrameFormat](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ITextFrameFormat)‑interface en de [TextFrameFormat](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/TextFrameFormat)‑klasse) waarmee je kolommen aan tekstvakken kunt toevoegen. Je kunt het aantal kolommen in een tekstvak opgeven en de tussenruimte in punten tussen de kolommen instellen.
 
 Deze Java‑code demonstreert de beschreven bewerking: 
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
-    // Haalt de eerste dia in de presentatie op
+    // Haalt de eerste dia op in de presentatie
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Voeg een AutoShape toe met type ingesteld op Rectangle
+    // Voeg een AutoShape toe met als type Rectangle
     IAutoShape aShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
 
-    // Voeg TextFrame toe aan de Rectangle
+    // Voeg een TextFrame toe aan de rechthoek
     aShape.addTextFrame("All these columns are limited to be within a single text container -- " +
             "you can add or delete text and the new or remaining text automatically adjusts " +
             "itself to flow within the container. You cannot have text flow from one container " +
             "to other though -- we told you PowerPoint's column options for text are limited!");
 
-    // Haalt het tekstformaat van TextFrame op
+    // Haalt het tekstopmaak op van het TextFrame
     ITextFrameFormat format = aShape.getTextFrame().getTextFrameFormat();
 
-    // Specificeert het aantal kolommen in TextFrame
+    // Specificeert het aantal kolommen in het TextFrame
     format.setColumnCount(3);
 
     // Specificeert de afstand tussen kolommen
@@ -163,12 +179,13 @@ try {
 ```
 
 ## **Kolommen toevoegen aan een tekstframe**
+Aspose.Slides voor Android via Java biedt de eigenschap [ColumnCount](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) (van de [ITextFrameFormat](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ITextFrameFormat)‑interface) waarmee je kolommen in tekstframes kunt toevoegen. Via deze eigenschap kun je het gewenste aantal kolommen in een tekstframe opgeven.
 
-Aspose.Slides for Android via Java biedt de eigenschap [ColumnCount](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) (van de [ITextFrameFormat](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ITextFrameFormat) interface) die je in staat stelt kolommen toe te voegen in tekstframes. Met deze eigenschap kun je het gewenste aantal kolommen in een tekstframe opgeven.
-
-Deze Java‑code laat zien hoe je een kolom toevoegt binnen een tekstframe:
+Deze Java‑code laat zien hoe je een kolom toevoegt aan een tekstframe:
 
 ```java
+import com.aspose.slides.*;
+
 String outPptxFileName = "ColumnsTest.pptx";
 Presentation pres = new Presentation();
 try {
@@ -185,8 +202,8 @@ try {
     Presentation test = new Presentation(outPptxFileName);
     try {
         IAutoShape autoShape = ((AutoShape)test.getSlides().get_Item(0).getShapes().get_Item(0));
-        Assert.assertTrue(2 == autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        Assert.assertTrue(Double.NaN == autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
+        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
+        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
     } finally {
         if (test != null) test.dispose();
     }
@@ -197,8 +214,8 @@ try {
     Presentation test1 = new Presentation(outPptxFileName);
     try {
         IAutoShape autoShape = ((AutoShape)test1.getSlides().get_Item(0).getShapes().get_Item(0));
-        Assert.assertTrue(2 == autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        Assert.assertTrue(20 == autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
+        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
+        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
     } finally {
         if (test1 != null) test1.dispose();
     }
@@ -210,8 +227,8 @@ try {
     Presentation test2 = new Presentation(outPptxFileName);
     try {
         IAutoShape autoShape = ((AutoShape)test2.getSlides().get_Item(0).getShapes().get_Item(0));
-        Assert.assertTrue(3 == autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        Assert.assertTrue(15 == autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
+        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
+        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
     } finally {
         if (test2 != null) test2.dispose();
     }
@@ -227,77 +244,81 @@ Aspose.Slides stelt je in staat de tekst in een tekstvak of alle teksten in een 
 Deze Java‑code demonstreert een bewerking waarbij alle teksten in een presentatie worden bijgewerkt of gewijzigd:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("text.pptx");
 try {
     for (ISlide slide : pres.getSlides())
     {
         for (IShape shape : slide.getShapes())
         {
-            if (shape instanceof IAutoShape) //Controleert of de vorm een tekstframe ondersteunt (IAutoShape). 
+            if (shape instanceof IAutoShape) // Controleert of de vorm een tekstframe ondersteunt (IAutoShape). 
             {
                 IAutoShape autoShape = (IAutoShape)shape; 
-                for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs()) //Itereert door alinea's in het tekstframe
+                for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs()) // Itereert door alinea's in het tekstframe
                 {
-                    for (IPortion portion : paragraph.getPortions()) //Itereert door elk deel in de alinea
+                    for (IPortion portion : paragraph.getPortions()) // Itereert door elk gedeelte in de alinea
                     {
-                        portion.setText(portion.getText().replace("years", "months")); //Wijzigt de tekst
-                        portion.getPortionFormat().setFontBold(NullableBool.True); //Wijzigt opmaak
+                        portion.setText(portion.getText().replace("years", "months")); // Wijzigt de tekst
+                        portion.getPortionFormat().setFontBold(NullableBool.True); // Wijzigt de opmaak
                     }
                 }
             }
         }
     }
 
-    //Slaat de gewijzigde presentatie op
+    // Slaat de gewijzigde presentatie op
     pres.save("text-changed.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Tekstvak met hyperlink toevoegen**
+## **Een tekstvak met een hyperlink toevoegen** 
 
-Je kunt een koppeling in een tekstvak invoegen. Wanneer op het tekstvak wordt geklikt, wordt de gebruiker naar de link geleid. 
+Je kunt een koppeling invoegen in een tekstvak. Wanneer het tekstvak wordt aangeklikt, worden gebruikers naar de koppeling geleid. 
 
-Om een tekstvak met een koppeling toe te voegen, doorloop je de volgende stappen:
+Om een tekstvak met een koppeling toe te voegen, volg je deze stappen:
 
-1. Maak een instantie van de `Presentation` klasse.  
-2. Verkrijg een referentie naar de eerste dia in de nieuw aangemaakte presentatie.  
-3. Voeg een `AutoShape` object toe met `ShapeType` ingesteld op `Rectangle` op een opgegeven positie op de dia en verkrijg een referentie naar het nieuw toegevoegde AutoShape object.  
-4. Voeg een `TextFrame` toe aan het `AutoShape` object dat *Aspose TextBox* als standaardtekst bevat.  
-5. Instantieer de `IHyperlinkManager` klasse.  
-6. Wijs het `IHyperlinkManager` object toe aan de [HyperlinkClick](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/Shape#getHyperlinkClick--) eigenschap die gekoppeld is aan het gewenste gedeelte van het `TextFrame`.  
-7. Schrijf tenslotte het PPTX‑bestand weg via het `Presentation` object. 
+1. Maak een instantie van de `Presentation`‑klasse. 
+2. Verkrijg een referentie naar de eerste dia in de nieuw aangemaakte presentatie. 
+3. Voeg een `AutoShape`‑object toe met `ShapeType` ingesteld op `Rectangle` op een opgegeven positie op de dia en verkrijg een referentie naar het nieuw toegevoegde AutoShape‑object.
+4. Voeg een `TextFrame` toe aan het `AutoShape`‑object en stel de tekst van het eerste gedeelte in. In het onderstaande voorbeeld gebruikten we deze tekst: *Aspose.Slides*
+5. Verkrijg het [IHyperlinkManager](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ihyperlinkmanager/)‑object van de `PortionFormat` van het gewenste gedeelte van het `TextFrame`.
+6. Roep [setExternalHyperlinkClick](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-) aan op dat object om de koppeling in te stellen die wordt geopend wanneer op de tekst wordt geklikt.
+7. Schrijf uiteindelijk het PPTX‑bestand via het `Presentation`‑object. 
 
-Deze Java‑code – een implementatie van de bovenstaande stappen – toont hoe je een tekstvak met een hyperlink aan een dia kunt toevoegen:
+Deze Java‑code – een implementatie van de bovenstaande stappen – laat zien hoe je een tekstvak met een hyperlink aan een dia toevoegt:
 
 ```java
+import com.aspose.slides.*;
+
 // Instantieert een Presentation-klasse die een PPTX vertegenwoordigt
 Presentation pres = new Presentation();
 try {
-    // Haalt de eerste dia in de presentatie op
+    // Haalt de eerste dia op in de presentatie
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Voegt een AutoShape-object toe met type ingesteld op Rectangle
+    // Voegt een AutoShape object toe met type Rectangle
     IShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 150, 150, 50);
 
     // Cast de vorm naar AutoShape
     IAutoShape pptxAutoShape = (IAutoShape)shape;
 
-    // Benadert de ITextFrame-eigenschap die bij de AutoShape hoort
+    // Benadert de ITextFrame eigenschap die bij de AutoShape hoort
     pptxAutoShape.addTextFrame("");
 
     ITextFrame textFrame = pptxAutoShape.getTextFrame();
 
-    // Voeg wat tekst toe aan het frame
+    // Voegt wat tekst toe aan het frame
     textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).setText("Aspose.Slides");
 
-    // Stelt de hyperlink in voor de portion-tekst
+    // Stelt de hyperlink in voor de tekst van het gedeelte
     IHyperlinkManager hyperlinkManager = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).
             getPortionFormat().getHyperlinkManager();
     hyperlinkManager.setExternalHyperlinkClick("http://www.aspose.com");
 
-    // Slaat de PPTX-presentatie op
+    // Slaat de PPTX presentatie op
     pres.save("hLink_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -308,8 +329,8 @@ try {
 
 **Wat is het verschil tussen een tekstvak en een tekst‑placeholder bij het werken met masterslides?**
 
-Een [placeholder](/slides/nl/androidjava/manage-placeholder/) erft stijl/positie van de [master](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/masterslide/) en kan worden overschreven op [layouts](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/layoutslide/), terwijl een regulier tekstvak een zelfstandig object op een specifieke dia is en niet verandert wanneer je van layout wisselt.
+Een [placeholder](/slides/nl/androidjava/manage-placeholder/) erft stijl/positie van de [master](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/masterslide/) en kan op [layouts](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/layoutslide/) worden overschreven, terwijl een regulier tekstvak een onafhankelijk object is op een specifieke dia en niet verandert wanneer je van layout wisselt.
 
-**Hoe kan ik een bulk‑tekstvervanging uitvoeren over de hele presentatie zonder tekst in grafieken, tabellen en SmartArt aan te passen?**
+**Hoe kan ik een bulk‑tekstvervanging uitvoeren in de hele presentatie zonder tekst in grafieken, tabellen en SmartArt aan te raken?**
 
-Beperk je iteratie tot auto‑shapes die tekstframes hebben en sluit ingesloten objecten ([charts](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/chart/), [tables](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/smartart/)) uit door hun collecties afzonderlijk te doorlopen of die objecttypen over te slaan.
+Beperk je iteratie tot auto‑shapes die tekstframes bevatten en sluit ingesloten objecten uit ([charts](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/chart/), [tables](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/smartart/)) door hun collecties afzonderlijk te doorlopen of die objecttypen over te slaan.

@@ -11,56 +11,167 @@ keywords:
 - regulärer Ausdruck
 - Ergebnis-Callback
 - Textfeld
-- Audit-Bericht
+- Prüfbericht
 - PowerPoint
 - OpenDocument
 - Präsentation
 - C++
 - Aspose.Slides
-description: "Suchen, hervorheben und ersetzen Sie Text in PowerPoint-Präsentationen und sammeln dabei jede Übereinstimmung mit Aspose.Slides für C++."
+description: "Text in PowerPoint-Präsentationen suchen, hervorheben und ersetzen, wobei jeder Treffer mit Aspose.Slides für C++ gesammelt wird."
 ---
 ## **Übersicht**
 
-Aspose.Slides für C++ kann Text in einem einzelnen Textfeld oder über eine gesamte Präsentation hinweg suchen, hervorheben und ersetzen. Jede Operation kann außerdem eine Anwendung über jede Übereinstimmung mittels eines Ergebnis‑Callbacks informieren. Damit ist es möglich, eine Präsentation zu aktualisieren und gleichzeitig ein Prüfprotokoll zu erstellen, das den gefundenen Text, seinen Kontext, die Position, das Textfeld und die Foliennummer enthält.
+Aspose.Slides für C++ kann Text in einem einzelnen Textfeld oder in einer gesamten Präsentation suchen, hervorheben und ersetzen. Jede Operation kann zudem über einen Ergebnis‑Callback die Anwendung über jedes gefundene Vorkommen informieren. Dadurch ist es möglich, eine Präsentation zu aktualisieren und gleichzeitig ein Prüfprotokoll zu erstellen, das den gefundenen Text, dessen Kontext, Position, Textfeld und Foliennummer enthält.
 
-Diese Funktionen sind nützlich für Überprüfungen, Schwärzungen, Terminologieprüfungen, Vorlagenbereinigung und automatisierte Reporting‑Workflows.
+Diese Funktionen sind nützlich für Überprüfungen, Schwärzungen, Terminologie‑Kontrollen, Vorlagen‑Bereinigungen und automatisierte Bericht‑Workflows.
 
-In den folgenden ersten Beispielen verwenden wir eine Datei mit dem Namen "sample.pptx", die auf der ersten Folie ein einzelnes Textfeld mit folgendem Text enthält:
+In den ersten Beispielen unten verwenden wir die Datei **„sample.pptx“**, die auf der ersten Folie ein einzelnes Textfeld mit folgendem Text enthält:
 
-![Sample text](sample_text.png)
+![Beispieltext](sample_text.png)
 
-## **Wählen Sie den Suchbereich**
+## **Suchbereich auswählen**
 
-Verwenden Sie Methoden von [ITextFrame](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/), um eine Operation auf ein Textfeld zu beschränken. Verwenden Sie Methoden von [IPresentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentation/), um allen zutreffenden Text in der Präsentation zu verarbeiten.
+Verwenden Sie Methoden von [ITextFrame](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/), um eine Operation auf ein Textfeld zu beschränken. Verwenden Sie Methoden von [IPresentation](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentation/), um allen anwendbaren Text in der Präsentation zu verarbeiten.
 
 | Operation | Ein Textfeld | Gesamte Präsentation |
 |---|---|---|
-| Literaltext hervorheben | [ITextFrame::HighlightText](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/highlighttext/) | [IPresentation::HighlightText](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentation/highlighttext/) |
-| Übereinstimmungen von regulären Ausdrücken hervorheben | [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/highlightregex/) | [IPresentation::HighlightRegex](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentation/highlightregex/) |
-| Literaltext ersetzen | [ITextFrame::ReplaceText](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/replacetext/) | [IPresentation::ReplaceText](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentation/replacetext/) |
-| Übereinstimmungen von regulären Ausdrücken ersetzen | [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/replaceregex/) | [IPresentation::ReplaceRegex](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentation/replaceregex/) |
+| Literalen Text hervorheben | [ITextFrame::HighlightText](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/highlighttext/) | [IPresentation::HighlightText](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentation/highlighttext/) |
+| Treffer von regulären Ausdrücken hervorheben | [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/highlightregex/) | [IPresentation::HighlightRegex](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentation/highlightregex/) |
+| Literalen Text ersetzen | [ITextFrame::ReplaceText](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/replacetext/) | [IPresentation::ReplaceText](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentation/replacetext/) |
+| Treffer von regulären Ausdrücken ersetzen | [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/replaceregex/) | [IPresentation::ReplaceRegex](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentation/replaceregex/) |
 
 ## **Textabgleich konfigurieren**
 
-Für Literaltext‑Operationen verwenden Sie [ITextSearchOptions](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextsearchoptions/), um den Abgleich zu steuern:
+Für Operationen mit literalem Text verwenden Sie [ITextSearchOptions](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextsearchoptions/), um den Abgleich zu steuern:
 
-- [ITextSearchOptions::set_WholeWordsOnly](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextsearchoptions/set_wholewordsonly/) beschränkt die Übereinstimmungen auf ganze Wörter.
-- [ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) steuert, ob die Groß‑ und Kleinschreibung übereinstimmen muss.
-- [ITextSearchOptions::set_IncludeNotes](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextsearchoptions/set_includenotes/) schließt Foliennotizen in die Präsentationsebene‑Suche, -Ersetzung und -Hervorhebung ein.
+- [ITextSearchOptions::set_WholeWordsOnly](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextsearchoptions/set_wholewordsonly/) beschränkt Treffer auf komplette Wörter.
+- [ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) legt fest, ob die Groß‑/Kleinschreibung übereinstimmen muss.
+- [ITextSearchOptions::set_IncludeNotes](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextsearchoptions/set_includenotes/) schließt Folien‑Notizen in Präsentations‑Suche‑, Ersetzungs‑ und Hervorhebungs‑Operationen ein.
 
-Reguläre‑Ausdruck‑Operationen verwenden ein `System::Text::RegularExpressions::Regex`, sodass Regeln wie Groß‑/Kleinschreibung und Wortgrenzen durch den Ausdruck und seine Optionen definiert werden.
+Operationen mit regulären Ausdrücken verwenden ein `System::Text::RegularExpressions::Regex`, sodass Abgleich‑Regeln wie Groß‑/Kleinschreibung und Wortgrenzen durch den Ausdruck und seine Optionen definiert werden.
 
-## **Übereinstimmungsinformationen mit einem Callback sammeln**
+## **Den Eigentümer eines Textfeldes ermitteln**
 
-Implementieren Sie [IFindResultCallback](https://reference.aspose.com/slides/de/cpp/aspose.slides/ifindresultcallback/), um für jede Übereinstimmung eine Benachrichtigung zu erhalten. Seine [IFindResultCallback::FoundResult](https://reference.aspose.com/slides/de/cpp/aspose.slides/ifindresultcallback/foundresult/)‑Methode liefert das zugehörige Textfeld, den Quelltext, den gefundenen Text und die Position der Übereinstimmung.
+Allgemeine Text‑Verarbeitungs‑Workflows erhalten häufig ein [ITextFrame](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/) beim Suchen, Ersetzen, Validieren oder Exportieren von Text. Verwenden Sie [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/get_parentshape/) und [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/get_parentcell/), um zu bestimmen, welches Präsentations‑Objekt das Textfeld besitzt.
 
-Der Callback erhält nicht direkt eine Foliennummer. Die nachstehende Implementierung leitet sie aus [ISlideComponent::get_Slide](https://reference.aspose.com/slides/de/cpp/aspose.slides/islidecomponent/get_slide/) ab und behandelt zudem Text, der in Foliennotizen gefunden wird, über [INotesSlide::get_ParentSlide](https://reference.aspose.com/slides/de/cpp/aspose.slides/inotesslide/get_parentslide/). Eine nullable Foliennummer ermöglicht es, dass dasselbe Ergebnis‑Modell Text zu anderen Folientypen zuzuordnen.
+Die erwarteten Werte hängen vom Eigentümer ab:
+
+| Eigentümer des Textfeldes | `get_ParentShape` | `get_ParentCell` |
+|---|---|---|
+| Eine AutoShape oder ein anderes text‑enthaltendes Shape | Das zugehörige [IShape](https://reference.aspose.com/slides/de/cpp/aspose.slides/ishape/) | `nullptr` |
+| Eine Tabellenzelle | `nullptr` | Das zugehörige [ICell](https://reference.aspose.com/slides/de/cpp/aspose.slides/icell/) |
+
+Beide Methoden bieten nur Lese‑Navigation. Ihr Aufruf bewegt das Textfeld nicht und ändert keinen Eigentümer. Generischer Code sollte beide Werte auf `nullptr` prüfen und den Fall behandeln, dass keiner der Eigentümer verfügbar ist.
+
+Das folgende Beispiel verwendet [SlideUtil::GetAllTextFrames](https://reference.aspose.com/slides/de/cpp/aspose.slides.util/slideutil/getalltextframes/), um alle Textfelder einer Präsentation zu durchlaufen. Für Shapes gibt es den Shape‑Namen, den C++‑Laufzeit‑Typ und die zugehörige Folie aus. Für Tabellenzellen werden die null‑basierten Spalten‑ und Zeilenkoordinaten sowie die zugehörige Folie ausgegeben.
 
 ```cpp
 #include <DOM/IBaseSlide.h>
 #include <DOM/INotesSlide.h>
+#include <DOM/IShape.h>
 #include <DOM/ISlide.h>
 #include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <Util/SlideUtil.h>
+#include <system/console.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using Aspose::Slides::IBaseSlide;
+using Aspose::Slides::INotesSlide;
+using Aspose::Slides::IShape;
+using Aspose::Slides::ISlide;
+using Aspose::Slides::ITextFrame;
+using Aspose::Slides::Presentation;
+using Aspose::Slides::Util::SlideUtil;
+using System::AsCast;
+using System::Console;
+using System::MakeObject;
+using System::String;
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx");
+auto textFrames = SlideUtil::GetAllTextFrames(presentation, false);
+
+for (const auto& textFrame : textFrames)
+{
+    auto ownerShape = textFrame->get_ParentShape();
+    if (ownerShape != nullptr)
+    {
+        auto shapeName = String::IsNullOrEmpty(ownerShape->get_Name()) ? u"(unnamed)" : ownerShape->get_Name();
+        auto shapeType = ownerShape->GetType().get_Name();
+        auto baseSlide = ownerShape->get_Slide();
+        String slideLabel;
+        auto slide = AsCast<ISlide>(baseSlide);
+
+        if (slide != nullptr)
+        {
+            slideLabel = String::Format(u"slide {0}", slide->get_SlideNumber());
+        }
+        else
+        {
+            auto notesSlide = AsCast<INotesSlide>(baseSlide);
+            if (notesSlide != nullptr)
+            {
+                slideLabel = String::Format(u"notes for slide {0}", notesSlide->get_ParentSlide()->get_SlideNumber());
+            }
+            else
+            {
+                slideLabel = baseSlide->GetType().get_Name();
+            }
+        }
+
+        Console::WriteLine(u"Shape: {0}; type: {1}; {2}", shapeName, shapeType, slideLabel);
+        continue;
+    }
+
+    auto ownerCell = textFrame->get_ParentCell();
+    if (ownerCell != nullptr)
+    {
+        auto baseSlide = ownerCell->get_Slide();
+        String slideLabel;
+        auto slide = AsCast<ISlide>(baseSlide);
+
+        if (slide != nullptr)
+        {
+            slideLabel = String::Format(u"slide {0}", slide->get_SlideNumber());
+        }
+        else
+        {
+            auto notesSlide = AsCast<INotesSlide>(baseSlide);
+            if (notesSlide != nullptr)
+            {
+                slideLabel = String::Format(u"notes for slide {0}", notesSlide->get_ParentSlide()->get_SlideNumber());
+            }
+            else
+            {
+                slideLabel = baseSlide->GetType().get_Name();
+            }
+        }
+
+        Console::WriteLine(u"Table cell: column {0}, row {1}; {2}", ownerCell->get_FirstColumnIndex(), ownerCell->get_FirstRowIndex(), slideLabel);
+        continue;
+    }
+
+    Console::WriteLine(u"The text frame owner is not available as a shape or table cell.");
+}
+```
+
+Für SmartArt‑Inhalte iterieren Sie über die Shapes in [ISmartArtNode::get_Shapes](https://reference.aspose.com/slides/de/cpp/aspose.slides.smartart/ismartartnode/get_shapes/) und greifen auf jedes [ISmartArtShape::get_TextFrame](https://reference.aspose.com/slides/de/cpp/aspose.slides.smartart/ismartartshape/get_textframe/) zu. Das Textfeld lässt sich über [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/get_parentshape/) zum zugehörigen Shape zurückverfolgen, während [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/get_parentcell/) `nullptr` zurückgibt. Daher behandelt der Shape‑Zweig im Beispiel ebenfalls Text aus SmartArt‑Knoten.
+
+## **Trefferinformationen mit einem Callback sammeln**
+
+Implementieren Sie [IFindResultCallback](https://reference.aspose.com/slides/de/cpp/aspose.slides/ifindresultcallback/), um für jeden Treffer eine Benachrichtigung zu erhalten. Seine Methode [IFindResultCallback::FoundResult](https://reference.aspose.com/slides/de/cpp/aspose.slides/ifindresultcallback/foundresult/) liefert das zugehörige Textfeld, den Quelltext, den gefundenen Text und die Trefferposition.
+
+Der Callback erhält keine Folien‑Nummer direkt. Die nachfolgende Implementierung leitet sie aus [ISlideComponent::get_Slide](https://reference.aspose.com/slides/de/cpp/aspose.slides/islidecomponent/get_slide/) ab und behandelt zudem Text, der in Folien‑Notizen gefunden wurde, über [INotesSlide::get_ParentSlide](https://reference.aspose.com/slides/de/cpp/aspose.slides/inotesslide/get_parentslide/). Eine nullable Folien‑Nummer ermöglicht es, dasselbe Ergebnis‑Modell auch für Text zu verwenden, der zu anderen Folientypen gehört.
+
+```cpp
+#include <DOM/IBaseSlide.h>
+#include <DOM/INotesSlide.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Table/ICell.h>
 #include <IFindResultCallback.h>
 #include <system/collections/list.h>
 #include <system/nullable.h>
@@ -70,6 +181,7 @@ Der Callback erhält nicht direkt eine Foliennummer. Die nachstehende Implementi
 using Aspose::Slides::IBaseSlide;
 using Aspose::Slides::IFindResultCallback;
 using Aspose::Slides::INotesSlide;
+using Aspose::Slides::IShape;
 using Aspose::Slides::ISlide;
 using Aspose::Slides::ITextFrame;
 using System::AsCast;
@@ -119,7 +231,23 @@ public:
 private:
     static Nullable<int32_t> GetSlideNumber(SharedPtr<ITextFrame> textFrame)
     {
-        SharedPtr<IBaseSlide> baseSlide = textFrame->get_Slide();
+        auto parentShape = textFrame->get_ParentShape();
+        auto parentCell = textFrame->get_ParentCell();
+        SharedPtr<IBaseSlide> baseSlide;
+
+        if (parentShape != nullptr)
+        {
+            baseSlide = parentShape->get_Slide();
+        }
+        else if (parentCell != nullptr)
+        {
+            baseSlide = parentCell->get_Slide();
+        }
+        else
+        {
+            baseSlide = textFrame->get_Slide();
+        }
+
         auto slide = AsCast<ISlide>(baseSlide);
 
         if (slide != nullptr)
@@ -139,13 +267,13 @@ private:
 };
 ```
 
-Für Ersetzungs‑Operationen enthält `FoundText` den ursprünglichen gefundenen Text, sodass der Callback exakt aufzeichnen kann, welche Begriffe ersetzt wurden.
+Bei Ersetzungs‑Operationen enthält `FoundText` den ursprünglich gefundenen Text, sodass der Callback exakt festhalten kann, welche Begriffe ersetzt wurden.
 
 ## **Text hervorheben**
 
-Verwenden Sie die [ITextFrame::HighlightText](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/highlighttext/)‑Methode, um Literaltext‑Übereinstimmungen in einem Textfeld hervorzuheben. Übergeben Sie [ITextSearchOptions], um die Suche zu steuern, und einen Callback, um die Details der Übereinstimmungen zu sammeln.
+Verwenden Sie die Methode [ITextFrame::HighlightText](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/highlighttext/), um literal‑Text‑Treffer in einem Textfeld hervorzuheben. Übergeben Sie [ITextSearchOptions](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextsearchoptions/), um die Suche zu steuern, und einen Callback, um Treffer‑Details zu sammeln.
 
-Das untenstehende Code‑Beispiel hebt alle Vorkommen der Zeichen **"try"** hervor und anschließend nur das ganze Wort **"to"**. Beide Suchen melden ihre Treffer an denselben Callback.
+Das nachstehende Codebeispiel hebt alle Vorkommen des Zeichens **„try“** hervor und markiert anschließend nur das komplette Wort **„to“**. Beide Suchen melden ihre Treffer an denselben Callback.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -166,14 +294,14 @@ using System::MakeObject;
 
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-// Get the first shape from the first slide.
+// Erhalte das erste Shape von der ersten Folie.
 auto shape = ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
 auto callback = MakeObject<TextSearchCallback>();
 
 auto substringSearchOptions = MakeObject<TextSearchOptions>();
 substringSearchOptions->set_CaseSensitive(false);
 
-// Highlight every occurrence of "try" in the text frame.
+// Hervorheben jedes Vorkommens von "try" im Textfeld.
 shape->get_TextFrame()->HighlightText(
     u"try", System::Drawing::Color::get_LightBlue(), substringSearchOptions, callback);
 
@@ -181,7 +309,7 @@ auto wholeWordSearchOptions = MakeObject<TextSearchOptions>();
 wholeWordSearchOptions->set_WholeWordsOnly(true);
 wholeWordSearchOptions->set_CaseSensitive(false);
 
-// Highlight only the complete word "to".
+// Nur das komplette Wort "to" hervorheben.
 shape->get_TextFrame()->HighlightText(
     u"to", System::Drawing::Color::get_Violet(), wholeWordSearchOptions, callback);
 
@@ -201,13 +329,13 @@ presentation->Dispose();
 
 Das Ergebnis:
 
-![The highlighted text](highlighted_text.png)
+![Der hervorgehobene Text](highlighted_text.png)
 
-## **Text mithilfe regulärer Ausdrücke hervorheben**
+## **Text mit regulären Ausdrücken hervorheben**
 
-Die [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/highlightregex/)‑Methode hebt Text‑Übereinstimmungen hervor, die durch einen regulären Ausdruck in einem Textfeld gefunden wurden.
+Die Methode [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/highlightregex/) hebt Text‑Treffer hervor, die durch einen regulären Ausdruck in einem Textfeld gefunden wurden.
 
-Das folgende Beispiel hebt alle Wörter mit sieben oder mehr Zeichen hervor und sammelt jede Übereinstimmung:
+Der folgende Code hebt alle Wörter mit sieben oder mehr Zeichen hervor und sammelt jeden Treffer:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -240,11 +368,11 @@ presentation->Dispose();
 
 Das Ergebnis:
 
-![The highlighted text using the regular expression](highlighted_text_using_regex.png)
+![Der hervorgehobene Text mit regulärem Ausdruck](highlighted_text_using_regex.png)
 
-## **Text über eine gesamte Präsentation hinweg hervorheben**
+## **Text in der gesamten Präsentation hervorheben**
 
-Verwenden Sie [IPresentation::HighlightText](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentation/highlighttext/) und [IPresentation::HighlightRegex](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentation/highlightregex/), um alle zutreffenden Textfelder in einer Präsentation zu durchsuchen. Das folgende Beispiel hebt einen Literalbegriff und alle E‑Mail‑Adressen hervor, wobei separate Ergebnis‑Sammlungen für die beiden Suchen geführt werden.
+Verwenden Sie [IPresentation::HighlightText](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentation/highlighttext/) und [IPresentation::HighlightRegex](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentation/highlightregex/), um alle anwendbaren Textfelder einer Präsentation zu durchsuchen. Das nachfolgende Beispiel hebt einen literal‑Begriff und alle E‑Mail‑Adressen hervor, wobei für die beiden Suchen separate Ergebnis‑Sammlungen verwendet werden.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -285,9 +413,9 @@ presentation->Dispose();
 
 ## **Text in einem Textfeld ersetzen**
 
-Verwenden Sie [ITextFrame::ReplaceText](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/replacetext/) für Literaltext und [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/replaceregex/) für ersatzbasierte Muster. Diese Methoden aktualisieren den gefundenen Text innerhalb des bestehenden Textfelds, wodurch die umgebende Formatierung erhalten bleibt, anstatt das Textfeld aus einem reinen String neu zu erstellen.
+Verwenden Sie [ITextFrame::ReplaceText](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/replacetext/) für literal‑Text und [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/replaceregex/) für pattern‑basiertes Ersetzen. Diese Methoden aktualisieren den gefundenen Text innerhalb des bestehenden Textfeldes, sodass die umgebende Formatierung beibehalten wird, anstatt das Textfeld aus einem reinen String neu zu erstellen.
 
-Das folgende Beispiel vereinheitlicht eine Rechtschreibvariante und ersetzt anschließend Versionsbezeichnungen. Derselbe Callback zeichnet die ursprünglichen Begriffe auf, die von beiden Operationen gefunden wurden.
+Das folgende Beispiel vereinheitlicht eine Rechtschreibvariante und ersetzt anschließend Versions‑Labels. Der gleiche Callback zeichnet die ursprünglichen Begriffe auf, die von beiden Operationen gefunden wurden.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -326,11 +454,11 @@ presentation->Save(u"updated_text_frame.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Falls eine Übereinstimmung über Textteile mit unterschiedlicher Formatierung hinweg reicht, prüfen Sie die Ausgabe, um zu bestätigen, welche Formatierung auf den Ersetzungstext angewendet werden soll.
+Wenn ein Treffer über Textteile mit unterschiedlicher Formatierung erstreckt, prüfen Sie die Ausgabe, um sicherzustellen, welche Formatierung auf den ersetzten Text angewendet werden soll.
 
-## **Text über eine gesamte Präsentation hinweg ersetzen**
+## **Text in der gesamten Präsentation ersetzen**
 
-Verwenden Sie [IPresentation::ReplaceText](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentation/replacetext/) und [IPresentation::ReplaceRegex](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentation/replaceregex/), um dieselben Operationen über die gesamte Präsentation anzuwenden. Dies ist nützlich für Vorlagenbereinigung, Terminologie‑Updates und Schwärzungen.
+Verwenden Sie [IPresentation::ReplaceText](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentation/replacetext/) und [IPresentation::ReplaceRegex](https://reference.aspose.com/slides/de/cpp/aspose.slides/ipresentation/replaceregex/), um dieselben Operationen über die gesamte Präsentation hinweg anzuwenden. Das ist nützlich für Vorlagen‑Bereinigung, Terminologie‑Updates und Schwärzungen.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -361,9 +489,9 @@ presentation->Save(u"updated_presentation.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Übereinstimmungen für Reporting gruppieren**
+## **Treffer für Berichte gruppieren**
 
-Da jedes Ergebnis seine Foliennummer und sein Textfeld speichert, können Anwendungen die Treffer für Audits, Berichte oder Review‑Workflows gruppieren. Das folgende Beispiel gruppiert die gesammelten Ergebnisse zuerst nach Folie und dann nach Textfeld:
+Da jedes Ergebnis seine Folien‑Nummer und das Textfeld speichert, können Anwendungen Treffer für Prüf‑, Bericht‑ oder Review‑Workflows gruppieren. Das folgende Beispiel gruppiert die gesammelten Ergebnisse zuerst nach Folie und anschließend nach Textfeld:
 
 ```cpp
 #include <DOM/ITextFrame.h>
@@ -409,22 +537,22 @@ for (const auto& slideGroup : matchesBySlide)
 
 ## **FAQ**
 
-**Wie kann ich nur ein Textfeld anstatt der gesamten Präsentation durchsuchen?**
+**Wie kann ich nur ein Textfeld statt der gesamten Präsentation durchsuchen?**
 
-Rufen Sie das Textfeld der Shape ab und verwenden Sie [ITextFrame::HighlightText](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/highlighttext/), [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/highlightregex/), [ITextFrame::ReplaceText](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/replacetext/) oder [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/replaceregex/) für dieses Textfeld. Methoden auf Präsentationsebene verarbeiten alle zutreffenden Textfelder.
+Holen Sie sich das Textfeld des Shapes und rufen Sie [ITextFrame::HighlightText](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/highlighttext/), [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/highlightregex/), [ITextFrame::ReplaceText](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/replacetext/) oder [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/replaceregex/) für dieses Textfeld auf. Methoden auf Präsentationsebene verarbeiten alle anwendbaren Textfelder.
 
-**Wie kann ich vollständige Wörter mit korrekter Groß‑ und Kleinschreibung abgleichen?**
+**Wie kann ich komplette Wörter mit korrekter Groß‑/Kleinschreibung abgleichen?**
 
-Rufen Sie [ITextSearchOptions::set_WholeWordsOnly](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextsearchoptions/set_wholewordsonly/) und [ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) mit `true` auf und übergeben Sie die Optionen an eine Literaltext‑Hervorhebungs‑ oder Ersetzungs‑Methode. Bei regulären Ausdrücken definieren Sie Wortgrenzen und Groß‑/Kleinschreibung im `System::Text::RegularExpressions::Regex` selbst.
+Rufen Sie [ITextSearchOptions::set_WholeWordsOnly](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextsearchoptions/set_wholewordsonly/) und [ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) mit `true` auf und übergeben Sie die Optionen an eine literal‑Text‑Hervorhebungs‑ oder Ersetzungs‑Methode. Bei regulären Ausdrücken definieren Sie Wortgrenzen und Groß‑/Kleinschreibung im `System::Text::RegularExpressions::Regex` selbst.
 
-**Können Suche und Ersetzung Text in Foliennotizen einschließen?**
+**Können Suche und Ersetzung Text in Folien‑Notizen einbeziehen?**
 
-Ja. Rufen Sie [ITextSearchOptions::set_IncludeNotes](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextsearchoptions/set_includenotes/) mit `true` auf, wenn Sie eine Literaltext‑Operation auf Präsentationsebene verwenden. Die oben gezeigte Callback‑Implementierung ordnet eine Übereinstimmung in einer Notizfolie ihrer übergeordneten Foliennummer zu.
+Ja. Rufen Sie [ITextSearchOptions::set_IncludeNotes](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextsearchoptions/set_includenotes/) mit `true` auf, wenn Sie eine literal‑Text‑Operation auf Präsentationsebene ausführen. Die oben gezeigte Callback‑Implementierung ordnet ein Treffer‑Ergebnis in einer Notiz‑Folien zurück zur übergeordneten Folien‑Nummer zu.
 
-**Wie kann ich einen Bericht erstellen, ohne die Präsentation ein zweites Mal zu scannen?**
+**Wie erstelle ich einen Bericht, ohne die Präsentation ein zweites Mal zu durchsuchen?**
 
-Übergeben Sie eine [IFindResultCallback](https://reference.aspose.com/slides/de/cpp/aspose.slides/ifindresultcallback/)-Implementierung an die Hervorhebungs‑ oder Ersetzungs‑Operation. Der Callback erhält jede Übereinstimmung während der Ausführung, sodass die Anwendung Quelltext, gefundenen Text, Position, Textfeld und abgeleitete Foliennummer für spätere Gruppierung oder Export speichern kann.
+Übergeben Sie eine [IFindResultCallback](https://reference.aspose.com/slides/de/cpp/aspose.slides/ifindresultcallback/)-Implementierung an die Hervorhebungs‑ oder Ersetzungs‑Operation. Der Callback erhält jeden Treffer während der Ausführung, sodass die Anwendung Quelltext, gefundenen Text, Position, Textfeld und abgeleitete Folien‑Nummer für spätere Gruppierung oder Export speichern kann.
 
-**Erhält das Ersetzen von Text dessen Formatierung?**
+**Behält das Ersetzen von Text dessen Formatierung bei?**
 
-[ITextFrame::ReplaceText](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/replacetext/) und [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/replaceregex/) ändern den gefundenen Text innerhalb des bestehenden Textfelds und behalten die umgebende Formatierung bei. Falls eine Übereinstimmung über Textteile mit unterschiedlicher Formatierung hinweg reicht, prüfen Sie das Ergebnis, um sicherzustellen, dass die Ersetzung den gewünschten Stil verwendet.
+[ITextFrame::ReplaceText](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/replacetext/) und [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/de/cpp/aspose.slides/itextframe/replaceregex/) ändern den gefundenen Text innerhalb des bestehenden Textfeldes und behalten die umgebende Formatierung bei. Wenn ein Treffer über Teile mit unterschiedlicher Formatierung reicht, prüfen Sie das Ergebnis, um sicherzustellen, dass die Ersetzung die gewünschte Formatierung verwendet.

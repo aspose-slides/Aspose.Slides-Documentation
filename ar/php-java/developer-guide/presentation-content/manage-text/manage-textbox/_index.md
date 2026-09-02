@@ -12,54 +12,60 @@ keywords:
 - إنشاء صندوق نص
 - التحقق من صندوق النص
 - إضافة عمود نص
-- إضافة ارتباط تشعبي
+- إضافة رابط تشعبي
 - PowerPoint
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "يسهل Aspose.Slides للـ PHP إنشاء وتحرير واستنساخ صناديق النص في ملفات PowerPoint و OpenDocument، مما يعزز أتمتة عروضك التقديمية."
+description: "Aspose.Slides for PHP يجعل من السهل إنشاء وتحرير واستنساخ صناديق النص في ملفات PowerPoint وOpenDocument، مما يعزز أتمتة العروض التقديمية الخاصة بك."
 ---
+## **المقدمة**
 
-عادةً ما تكون النصوص على الشرائح موجودة في صناديق النص أو الأشكال. لذلك، لإضافة نص إلى شريحة، يجب عليك إضافة صندوق نص ثم وضع بعض النص داخل صندوق النص. توفر Aspose.Slides for PHP عبر Java الفئة [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) التي تسمح لك بإضافة شكل يحتوي على نص.
+عادةً ما تكون النصوص على الشرائح موجودة في مربعات النص أو الأشكال. لذلك، لإضافة نص إلى شريحة، عليك إضافة مربع نص ثم وضع بعض النص داخل مربع النص. توفر Aspose.Slides for PHP عبر Java الفئة [AutoShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/autoshape/) التي تتيح لك إضافة شكل يحتوي على نص.
 
-{{% alert title="معلومات" color="info" %}}
-توفر Aspose.Slides أيضًا الفئة [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) التي تسمح لك بإضافة أشكال إلى الشرائح. ومع ذلك، ليس كل الأشكال التي تُضاف عبر الفئة `Shape` يمكنها احتواء نص. لكن الأشكال التي تُضاف عبر الفئة [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) قد تحتوي على نص.
+{{% alert title="Info" color="info" %}}
+
+كما توفر Aspose.Slides الفئة [Shape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/) التي تتيح لك إضافة أشكال إلى الشرائح. ومع ذلك، ليس كل الأشكال التي تُضاف عبر الفئة `Shape` يمكنها احتواء نص. ولكن الأشكال التي تُضاف عبر الفئة [AutoShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/autoshape/) قد تحتوي على نص.
+
 {{% /alert %}}
 
-{{% alert title="ملاحظة" color="warning" %}} 
-لذلك، عند التعامل مع شكل تريد إضافة نص إليه، قد ترغب في التحقق والتأكد من أنه تم تحويله عبر الفئة `AutoShape`. فقط عندئذٍ ستتمكن من العمل مع الفئة [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/)، والتي هي خاصية تحت `AutoShape`. راجع قسم [Update Text](/slides/ar/php-java/manage-textbox/#update-text) في هذه الصفحة.
+{{% alert title="Note" color="warning" %}} 
+
+لذلك، عند التعامل مع شكل تريد إضافة نص إليه، قد تحتاج إلى التحقق والتأكد من أنه تم تحويله عبر الفئة `AutoShape`. فقط عند ذلك ستتمكن من العمل مع [TextFrame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/)، وهي خاصية ضمن `AutoShape`. راجع قسم [Update Text](/slides/ar/php-java/manage-textbox/#update-text) في هذه الصفحة.
+
 {{% /alert %}}
 
-## **إنشاء صندوق نص على شريحة**
+## **إنشاء مربع نص على شريحة**
 
-لإنشاء صندوق نص على شريحة، اتبع الخطوات التالية:
+لإنشاء مربع نص على شريحة، اتبع الخطوات التالية:
 
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/).
-2. الحصول على مرجع إلى الشريحة الأولى في العرض التقديمي الذي تم إنشاؤه حديثًا. 
-3. إضافة كائن [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) بنوع الشكل المحدد كـ [Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/shapetype/#Rectangle) في موضع محدد على الشريحة والحصول على مرجع إلى كائن `AutoShape` المضاف حديثًا.
+1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/).
+2. الحصول على مرجع للشرائح الأولى في العرض التقديمي الذي تم إنشاؤه حديثًا. 
+3. إضافة كائن [AutoShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/autoshape/) بنوع الشكل [Rectangle](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shapetype/#Rectangle) في موقع محدد على الشريحة والحصول على مرجع لكائن `AutoShape` المضاف حديثًا.
 4. إضافة `TextFrame` إلى كائن `AutoShape` الذي سيحتوي على نص. في المثال أدناه، أضفنا هذا النص: *Aspose TextBox*
 5. أخيرًا، كتابة ملف PPTX عبر كائن `Presentation`. 
 
-يعرض لك هذا الكود PHP—تنفيذ للخطوات أعلاه—كيفية إضافة نص إلى شريحة:
+يُظهر لك هذا الكود PHP — تنفيذ للخطوات السابقة — كيفية إضافة نص إلى شريحة:
+
 ```php
-  # إنشاء كائن Presentation
+  # ينشئ كائن Presentation
   $pres = new Presentation();
   try {
-    # الحصول على الشريحة الأولى في العرض التقديمي
+    # يحصل على الشريحة الأولى في العرض التقديمي
     $sld = $pres->getSlides()->get_Item(0);
-    # يضيف AutoShape مع تعيين النوع كـ Rectangle
+    # يضيف AutoShape بنوع مُحدد كـ Rectangle
     $ashp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 150, 50);
-    # يضيف TextFrame إلى المستطيل
+    # يضيف TextFrame إلى الـ Rectangle
     $ashp->addTextFrame(" ");
-    # الوصول إلى إطار النص
+    # يصل إلى إطار النص
     $txtFrame = $ashp->getTextFrame();
-    # إنشاء كائن Paragraph لإطار النص
+    # ينشئ كائن Paragraph لإطار النص
     $para = $txtFrame->getParagraphs()->get_Item(0);
-    # إنشاء كائن Portion للفقرة
+    # ينشئ كائن Portion للفقرة
     $portion = $para->getPortions()->get_Item(0);
-    # ضبط النص
+    # يحدد النص
     $portion->setText("Aspose TextBox");
-    # حفظ العرض التقديمي إلى القرص
+    # يحفظ العرض التقديمي إلى القرص
     $pres->save("TextBox_out.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -68,14 +74,14 @@ description: "يسهل Aspose.Slides للـ PHP إنشاء وتحرير واست
   }
 ```
 
+## **التحقق من شكل مربع النص**
 
-## **التحقق من شكل صندوق النص**
+توفر Aspose.Slides الطريقة [isTextBox](https://reference.aspose.com/slides/ar/php-java/aspose.slides/autoshape/istextbox/) من الفئة [AutoShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/autoshape/)، مما يتيح لك فحص الأشكال وتحديد مربعات النص.
 
-توفر Aspose.Slides الطريقة [isTextBox](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/istextbox/) من الفئة [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/)، مما يتيح لك فحص الأشكال وتحديد صناديق النص.
+![مربع نص وشكل](istextbox.png)
 
-![صندوق النص والشكل](istextbox.png)
+يُظهر لك هذا الكود PHP كيفية التحقق ما إذا تم إنشاء الشكل كمربع نص:
 
-يعرض لك هذا الكود PHP كيفية التحقق مما إذا تم إنشاء الشكل كصندوق نص:
 ```php
 class ShapeCallback {
     function invoke($shape, $slide, $index) {
@@ -88,15 +94,15 @@ class ShapeCallback {
 
 $presentation = new Presentation("sample.pptx");
 try {
-    $forEachShapeCallback = java_closure(new ShapeCallback(), null, java("com.aspose.slides.ForEachSlideCallback"));
-    ForEach::shape($presentation, $forEachShapeCallback);
+    $forEachShapeCallback = java_closure(new ShapeCallback(), null, java("com.aspose.slides.ForEachShapeCallback"));
+    ForEach_::shape($presentation, $forEachShapeCallback);
 } finally {
     $presentation->dispose();
 }
 ```
 
+لاحظ أنه إذا قمت ببساطة بإضافة AutoShape باستخدام الطريقة `addAutoShape` من الفئة [ShapeCollection](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shapecollection/)، فإن طريقة `isTextBox` لـ AutoShape ستُعيد `false`. ومع ذلك، بعد إضافة نص إلى AutoShape باستخدام الطريقة `addTextFrame` أو الطريقة `setText`، ستُعيد الخاصية `isTextBox` القيمة `true`.
 
-لاحظ أنه إذا قمت ببساطة بإضافة شكل تلقائي باستخدام الطريقة `addAutoShape` من الفئة [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/)، فإن طريقة `isTextBox` للشكل التلقائي ستعيد `false`. ومع ذلك، بعد إضافة نص إلى الشكل التلقائي باستخدام الطريقة `addTextFrame` أو الطريقة `setText`، ستعيد خاصية `isTextBox` القيمة `true`.
 ```php
 $presentation = new Presentation();
 $slide = $presentation->getSlides()->get_Item(0);
@@ -122,28 +128,36 @@ $shape4->getTextFrame()->setText("");
 // shape4->isTextBox() يرجع false
 ```
 
+## **العثور على الشكل الذي يملك TextFrame**
 
-## **إضافة أعمدة إلى صندوق النص**
+في شفرة معالجة النص العامة، قد تستقبل [TextFrame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/) دون معرفة أي كائن عرض تقديمي يحتويه. استخدم الطريقة [TextFrame::getParentShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/#getParentShape) للانتقال مرة أخرى إلى الـ [Shape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/) (المالك).
 
-توفر Aspose.Slides الطريقتين [setColumnCount](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/setcolumncount/) و [setColumnSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/setcolumnspacing/) من الفئة [TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/) التي تسمح لك بإضافة أعمدة إلى صناديق النص. يمكنك تحديد عدد الأعمدة في صندوق النص وتعيين مقدار التباعد بالنقاط بين الأعمدة.
+بالنسبة إلى TextFrame الذي ينتمي إلى [AutoShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/autoshape/) أو شكل آخر يحتوي على نص، تُعيد [TextFrame::getParentShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/#getParentShape) المالك وتُعيد [TextFrame::getParentCell](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/#getParentCell) القيمة `null`. توفر الطريقتان تنقلًا للقراءة فقط، لذا لا يغيّر استدعاؤهما الملكية. تحقق دائمًا من القيمة المرجعة باستخدام `java_is_null` قبل الوصول إلى الشكل.
+
+للحصول على مثال كامل يحدد مالكي الشكل وخلايا الجدول، بما في ذلك الأشكال المرتبطة بعقد SmartArt، راجع [Search and Replace Text](/slides/ar/php-java/search-and-replace-text/).
+
+## **إضافة أعمدة إلى مربع النص**
+
+توفر Aspose.Slides الطريقتين [setColumnCount](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframeformat/setcolumncount/) و [setColumnSpacing](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframeformat/setcolumnspacing/) من الفئة [TextFrameFormat](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframeformat/) التي تسمح لك بإضافة أعمدة إلى مربعات النص. يمكنك تحديد عدد الأعمدة في مربع النص وتعيين المسافة بين الأعمدة بالنقاط.
 
 يعرض هذا الكود العملية الموصوفة:
+
 ```php
   $pres = new Presentation();
   try {
     # يحصل على الشريحة الأولى في العرض التقديمي
     $slide = $pres->getSlides()->get_Item(0);
-    # إضافة AutoShape مع تعيين النوع كـ Rectangle
+    # يضيف AutoShape بنوع محدد كـ Rectangle
     $aShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 300);
-    # إضافة TextFrame إلى المستطيل
+    # يضيف TextFrame إلى الـ Rectangle
     $aShape->addTextFrame("All these columns are limited to be within a single text container -- " . "you can add or delete text and the new or remaining text automatically adjusts " . "itself to flow within the container. You cannot have text flow from one container " . "to other though -- we told you PowerPoint's column options for text are limited!");
-    # يحصل على تنسيق النص لإطار النص
+    # يحصل على تنسيق النص في TextFrame
     $format = $aShape->getTextFrame()->getTextFrameFormat();
-    # تحديد عدد الأعمدة في TextFrame
+    # يحدد عدد الأعمدة في TextFrame
     $format->setColumnCount(3);
-    # تحديد التباعد بين الأعمدة
+    # يحدد المسافة بين الأعمدة
     $format->setColumnSpacing(10);
-    # حفظ العرض التقديمي
+    # يحفظ العرض التقديمي
     $pres->save("ColumnCount.pptx", SaveFormat::Pptx);
   } finally {
     if (!java_is_null($pres)) {
@@ -152,12 +166,12 @@ $shape4->getTextFrame()->setText("");
   }
 ```
 
+## **إضافة أعمدة إلى TextFrame**
 
-## **إضافة أعمدة إلى إطار النص**
+توفر Aspose.Slides for PHP عبر Java طريقة [setColumnCount](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframeformat/setcolumncount/) من الفئة [TextFrameFormat](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframeformat/) التي تتيح لك إضافة أعمدة داخل TextFrames. من خلال هذه الخاصية، يمكنك تحديد عدد الأعمدة المفضل لديك داخل TextFrame.
 
-توفر Aspose.Slides for PHP عبر Java الطريقة [setColumnCount](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/setcolumncount/) من الفئة [TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/) التي تسمح لك بإضافة أعمدة في إطارات النص. من خلال هذه الخاصية، يمكنك تحديد عدد الأعمدة المفضل لديك في إطار النص.
+يُظهر لك هذا الكود PHP كيفية إضافة عمود داخل TextFrame:
 
-يعرض لك هذا الكود PHP كيفية إضافة عمود داخل إطار النص:
 ```php
   $outPptxFileName = "ColumnsTest.pptx";
   $pres = new Presentation();
@@ -209,12 +223,12 @@ $shape4->getTextFrame()->setText("");
   }
 ```
 
-
 ## **تحديث النص**
 
-تتيح لك Aspose.Slides تغيير أو تحديث النص الموجود في صندوق النص أو جميع النصوص الموجودة في عرض تقديمي.
+تتيح لك Aspose.Slides تغيير أو تحديث النص الموجود في مربع النص أو جميع النصوص الموجودة في عرض تقديمي. 
 
-يعرض هذا الكود PHP عملية يتم فيها تحديث أو تغيير جميع النصوص في عرض تقديمي:
+يعرض هذا الكود PHP عملية حيث يتم تحديث أو تغيير جميع النصوص في عرض تقديمي:
+
 ```php
   $pres = new Presentation("text.pptx");
   try {
@@ -227,9 +241,9 @@ $shape4->getTextFrame()->setText("");
           foreach($autoShape->getTextFrame()->getParagraphs() as $paragraph) {
             # يتنقل عبر كل جزء في الفقرة
             foreach($paragraph->getPortions() as $portion) {
-              $portion->setText($portion->getText()->replace("years", "months"));// يغيّر النص
+              $portion->setText($portion->getText()->replace("years", "months"));// يغير النص
 
-              $portion->getPortionFormat()->setFontBold(NullableBool::True);// يغيّر التنسيق
+              $portion->getPortionFormat()->setFontBold(NullableBool::True);// يغير التنسيق
 
             }
           }
@@ -245,38 +259,38 @@ $shape4->getTextFrame()->setText("");
   }
 ```
 
+## **إضافة مربع نص مع رابط تشعبي** 
 
-## **إضافة صندوق نص مع ارتباط تشعبي** 
+يمكنك إدراج رابط داخل مربع نص. عند النقر على مربع النص، يتم توجيه المستخدمين لفتح الرابط. 
 
-يمكنك إدراج ارتباط داخل صندوق نص. عند النقر على صندوق النص، يتم توجيه المستخدمين لفتح الارتباط. 
-
-لإضافة صندوق نص يحتوي على ارتباط، اتبع الخطوات التالية:
+لإضافة مربع نص يحتوي على رابط، اتبع الخطوات التالية:
 
 1. إنشاء نسخة من الفئة `Presentation`. 
-2. الحصول على مرجع إلى الشريحة الأولى في العرض التقديمي الذي تم إنشاؤه حديثًا. 
-3. إضافة كائن `AutoShape` مع `ShapeType` محدد كـ `Rectangle` في موضع محدد على الشريحة والحصول على مرجع إلى كائن AutoShape المضاف حديثًا.
+2. الحصول على مرجع للشرائح الأولى في العرض التقديمي الذي تم إنشاؤه حديثًا. 
+3. إضافة كائن `AutoShape` مع `ShapeType` محدد كـ `Rectangle` في موقع معين على الشريحة والحصول على مرجع لكائن AutoShape المضاف حديثًا.
 4. إضافة `TextFrame` إلى كائن `AutoShape` الذي يحتوي على *Aspose TextBox* كنص افتراضي. 
 5. إنشاء نسخة من الفئة `HyperlinkManager`. 
-6. تعيين ارتباط باستخدام الطريقة [setExternalHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/setexternalhyperlinkclick/) المرتبطة بالجزء المفضل لديك من `TextFrame`.
+6. تعيين رابط تشعبي باستخدام الطريقة [setExternalHyperlinkClick](https://reference.aspose.com/slides/ar/php-java/aspose.slides/hyperlinkmanager/setexternalhyperlinkclick/) المرتبطة بالجزء المفضل من `TextFrame`.
 7. أخيرًا، كتابة ملف PPTX عبر كائن `Presentation`. 
 
-يعرض لك هذا الكود PHP—تنفيذ للخطوات أعلاه—كيفية إضافة صندوق نص مع ارتباط تشعبي إلى شريحة:
+يُظهر لك هذا الكود PHP — تنفيذ للخطوات السابقة — كيفية إضافة مربع نص مع رابط تشعبي إلى شريحة:
+
 ```php
-  # ينشئ كائن Presentation يمثل ملف PPTX
+  # ينشئ كائن من فئة Presentation التي تمثل ملف PPTX
   $pres = new Presentation();
   try {
     # يحصل على الشريحة الأولى في العرض التقديمي
     $slide = $pres->getSlides()->get_Item(0);
-    # يضيف كائن AutoShape مع تعيين النوع كـ Rectangle
+    # يضيف كائن AutoShape بنوع محدد كـ Rectangle
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 150, 150, 50);
-    # يحول الشكل إلى AutoShape
+    # يحوّل الشكل إلى AutoShape
     $pptxAutoShape = $shape;
-    # يصل إلى خاصية ITextFrame المرتبطة بـ AutoShape
+    # يتحصل على خاصية ITextFrame المرتبطة بـ AutoShape
     $pptxAutoShape->addTextFrame("");
     $textFrame = $pptxAutoShape->getTextFrame();
     # يضيف بعض النص إلى الإطار
     $textFrame->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->setText("Aspose.Slides");
-    # يحدد الارتباط التشعبي لنص الجزء
+    # يضبط الارتباط التشعبي لنص الجزء
     $hyperlinkManager = $textFrame->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat()->getHyperlinkManager();
     $hyperlinkManager->setExternalHyperlinkClick("http://www.aspose.com");
     # يحفظ عرض PPTX
@@ -288,13 +302,12 @@ $shape4->getTextFrame()->setText("");
   }
 ```
 
+## **الأسئلة المتكررة**
 
-## **الأسئلة الشائعة**
+**ما هو الفرق بين مربع النص وعنصر النائب للنص عند العمل مع الشرائح الرئيسية؟**
 
-**ما الفرق بين صندوق النص وعلامة العنصر النائب للنص عند العمل مع الشرائح الرئيسة؟**
+يُورّث [placeholder](/slides/ar/php-java/manage-placeholder/) النمط/الموقع من الـ [master](https://reference.aspose.com/slides/ar/php-java/aspose.slides/masterslide/) ويمكن تجاوزه في [layouts](https://reference.aspose.com/slides/ar/php-java/aspose.slides/layoutslide/)، بينما مربع النص العادي هو كائن مستقل على شريحة محددة ولا يتغير عند تغيير التخطيطات.
 
-يعتمد [placeholder](/slides/ar/php-java/manage-placeholder/) على النمط/الموضع من الـ[master](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/) ويمكن تجاوزه في [layouts](https://reference.aspose.com/slides/php-java/aspose.slides/layoutslide/)، بينما صندوق النص العادي هو كائن مستقل على شريحة معينة ولا يتغير عند تبديل التخطيطات.
+**كيف يمكنني إجراء استبدال نصي جماعي عبر العرض التقديمي دون تعديل النص داخل الرسوم البيانية، الجداول، وSmartArt؟**
 
-**كيف يمكنني إجراء استبدال نصي جماعي عبر العرض التقديمي دون التأثير على النص داخل المخططات والجداول وSmartArt؟**
-
-قصر التكرار على الأشكال التلقائية التي تحتوي على إطارات نصية واستبعاد الكائنات المضمنة ([charts](https://reference.aspose.com/slides/php-java/aspose.slides/chart/)، [tables](https://reference.aspose.com/slides/php-java/aspose.slides/table/)، [SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/)) عن طريق استعراض مجموعاتهم بشكل منفصل أو تخطي تلك الأنواع من الكائنات.
+قصر تكرارك على الـ auto-shapes التي تحتوي على TextFrames واستبعاد الكائنات المدمجة ([charts](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chart/), [tables](https://reference.aspose.com/slides/ar/php-java/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/ar/php-java/aspose.slides/smartart/)) عن طريق استعراض مجموعاتهم بشكل منفصل أو تخطي تلك الأنواع من الكائنات.

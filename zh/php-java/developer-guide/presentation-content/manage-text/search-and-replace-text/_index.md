@@ -1,6 +1,6 @@
 ---
-title: 在 PHP 中搜索并替换 PowerPoint 演示文稿的文本
-linktitle: 搜索并替换文本
+title: 在 PHP 中搜索和替换 PowerPoint 演示文稿的文本
+linktitle: 搜索和替换文本
 type: docs
 weight: 55
 url: /zh/php-java/search-and-replace-text/
@@ -23,38 +23,112 @@ description: "在 PowerPoint 演示文稿中搜索、突出显示和替换文本
 
 Aspose.Slides for PHP via Java 可以在单个文本框或整个演示文稿中搜索、突出显示和替换文本。每个操作还可以通过结果回调通知应用程序每一次匹配。这使得在更新演示文稿的同时能够构建包含匹配文本、其上下文、位置、文本框和幻灯片编号的审计跟踪。
 
-这些功能可用于审阅、编辑、术语检查、模板清理以及自动化报告工作流。
+这些功能可用于审阅、编辑、术语检查、模板清理和自动化报告工作流。
 
-在下面的第一个示例中，我们使用名为“sample.pptx”的文件，该文件在第一页上包含一个单独的文本框，文本如下：
+在下面的第一个示例中，我们使用名为“sample.pptx”的文件，该文件在第一张幻灯片上包含一个带有以下文本的单个文本框：
 
-![示例文本](sample_text.png)
+![Sample text](sample_text.png)
 
 ## **选择搜索范围**
 
-使用 [TextFrame](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframe/) 上的方法将操作限制为单个文本框。使用 [Presentation](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/) 上的方法处理演示文稿中所有适用的文本。
+使用 [TextFrame](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframe/) 上的方法将操作限制在一个文本框内。使用 [Presentation](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/) 上的方法处理演示文稿中所有适用的文本。
 
 | 操作 | 单个文本框 | 整个演示文稿 |
 |---|---|---|
-| Highlight literal text | [TextFrame::highlightText](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframe/#highlightText) | [Presentation::highlightText](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/#highlightText) |
-| Highlight regular-expression matches | [TextFrame::highlightRegex](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframe/#highlightRegex) | [Presentation::highlightRegex](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/#highlightRegex) |
-| Replace literal text | [TextFrame::replaceText](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframe/#replaceText) | [Presentation::replaceText](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/#replaceText) |
-| Replace regular-expression matches | [TextFrame::replaceRegex](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframe/#replaceRegex) | [Presentation::replaceRegex](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/#replaceRegex) |
+| 突出显示文字字面值 | [TextFrame::highlightText](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframe/#highlightText) | [Presentation::highlightText](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/#highlightText) |
+| 突出显示正则表达式匹配项 | [TextFrame::highlightRegex](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframe/#highlightRegex) | [Presentation::highlightRegex](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/#highlightRegex) |
+| 替换文字字面值 | [TextFrame::replaceText](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframe/#replaceText) | [Presentation::replaceText](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/#replaceText) |
+| 替换正则表达式匹配项 | [TextFrame::replaceRegex](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframe/#replaceRegex) | [Presentation::replaceRegex](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/#replaceRegex) |
 
 ## **配置文本匹配**
 
-对于文字匹配操作，使用 [TextSearchOptions](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textsearchoptions/) 来控制匹配：
+对于文字字面值操作，使用 [TextSearchOptions](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textsearchoptions/) 控制匹配方式：
 
-- [TextSearchOptions::setWholeWordsOnly](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textsearchoptions/#setWholeWordsOnly) 限制匹配仅为完整单词。
-- [TextSearchOptions::setCaseSensitive](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textsearchoptions/#setCaseSensitive) 控制字符大小写是否必须匹配。
-- [TextSearchOptions::setIncludeNotes](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textsearchoptions/#setIncludeNotes) 在演示文稿级别的搜索、替换和突出显示操作中包括幻灯片备注。
+- [TextSearchOptions::setWholeWordsOnly](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textsearchoptions/#setWholeWordsOnly) 将匹配限制为完整单词。
+- [TextSearchOptions::setCaseSensitive](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textsearchoptions/#setCaseSensitive) 控制是否必须匹配字符大小写。
+- [TextSearchOptions::setIncludeNotes](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textsearchoptions/#setIncludeNotes) 在演示文稿级别的搜索、替换和突出显示操作中包含幻灯片备注。
 
-正则表达式操作使用 Java `Pattern`，因此诸如大小写敏感性和单词边界之类的匹配规则由表达式及其标志决定。
+正则表达式操作使用 Java `Pattern`，因此大小写敏感性和单词边界等匹配规则由表达式及其标志定义。
+
+## **确定文本框的所有者**
+
+通用的文本处理工作流在搜索、替换、验证或导出文本时通常会接收到一个 [TextFrame](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframe/)。使用 [TextFrame::getParentShape](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframe/#getParentShape) 和 [TextFrame::getParentCell](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframe/#getParentCell) 可确定哪个演示文稿对象拥有该文本框。
+
+预期值取决于所有者：
+
+| 文本框所有者 | `getParentShape` | `getParentCell` |
+|---|---|---|
+| AutoShape 或其他包含文本的形状 | 拥有者 [Shape](https://reference.aspose.com/slides/zh/php-java/aspose.slides/shape/) | `null` |
+| 表格单元格 | `null` | 拥有者 [Cell](https://reference.aspose.com/slides/zh/php-java/aspose.slides/cell/) |
+
+两种方法都提供只读导航。调用它们不会移动文本框或更改其所有者。通用代码应使用 `java_is_null` 检查两个值，并处理两者都不可用的情况。
+
+以下示例使用 [SlideUtil::getAllTextFrames](https://reference.aspose.com/slides/zh/php-java/aspose.slides/slideutil/#getAllTextFrames) 迭代演示文稿中的文本框。对于形状，它报告形状名称、Java 运行时类型和所在幻灯片；对于表格单元格，它报告零基的列行坐标以及所在幻灯片。
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SlideUtil;
+
+$presentation = new Presentation("presentation.pptx");
+$arrayClass = new java_class("java.lang.reflect.Array");
+
+try {
+    $textFrames = SlideUtil::getAllTextFrames($presentation, false);
+    $textFrameCount = java_values($arrayClass->getLength($textFrames));
+
+    for ($textFrameIndex = 0; $textFrameIndex < $textFrameCount; $textFrameIndex++) {
+        $textFrame = $textFrames[$textFrameIndex];
+        $ownerShape = $textFrame->getParentShape();
+        if (!java_is_null($ownerShape)) {
+            $shapeName = java_values($ownerShape->getName());
+            $shapeName = $shapeName === "" ? "(unnamed)" : $shapeName;
+            $shapeType = java_values($ownerShape->getClass()->getSimpleName());
+            $baseSlide = $ownerShape->getSlide();
+            $slideClassName = java_values($baseSlide->getClass()->getName());
+
+            if ($slideClassName === "com.aspose.slides.Slide") {
+                $slideLabel = "slide " . java_values($baseSlide->getSlideNumber());
+            } elseif ($slideClassName === "com.aspose.slides.NotesSlide") {
+                $slideLabel = "notes for slide " . java_values($baseSlide->getParentSlide()->getSlideNumber());
+            } else {
+                $slideLabel = java_values($baseSlide->getClass()->getSimpleName());
+            }
+
+            echo("Shape: " . $shapeName . "; type: " . $shapeType . "; " . $slideLabel . "\n");
+            continue;
+        }
+
+        $ownerCell = $textFrame->getParentCell();
+        if (!java_is_null($ownerCell)) {
+            $baseSlide = $ownerCell->getSlide();
+            $slideClassName = java_values($baseSlide->getClass()->getName());
+
+            if ($slideClassName === "com.aspose.slides.Slide") {
+                $slideLabel = "slide " . java_values($baseSlide->getSlideNumber());
+            } elseif ($slideClassName === "com.aspose.slides.NotesSlide") {
+                $slideLabel = "notes for slide " . java_values($baseSlide->getParentSlide()->getSlideNumber());
+            } else {
+                $slideLabel = java_values($baseSlide->getClass()->getSimpleName());
+            }
+
+            echo("Table cell: column " . java_values($ownerCell->getFirstColumnIndex()) . ", row " . java_values($ownerCell->getFirstRowIndex()) . "; " . $slideLabel . "\n");
+            continue;
+        }
+
+        echo("The text frame owner is not available as a shape or table cell.\n");
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+对于 SmartArt 内容，遍历 [SmartArtNode::getShapes](https://reference.aspose.com/slides/zh/php-java/aspose.slides/smartartnode/#getShapes) 中的形状，并访问每个 [SmartArtShape::getTextFrame](https://reference.aspose.com/slides/zh/php-java/aspose.slides/smartartshape/#getTextFrame)。文本框可通过 [TextFrame::getParentShape](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframe/#getParentShape) 追溯到其关联的形状，而 [TextFrame::getParentCell](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframe/#getParentCell) 返回 `null`。因此，示例中的形状分支也处理来自 SmartArt 节点的文本。
 
 ## **使用回调收集匹配信息**
 
-将 Java 代理回调传递给突出显示或替换方法，以获取每次匹配的通知。回调方法会接收相关的文本框、源文本、匹配文本以及匹配位置。
+向突出显示或替换方法传递 Java 代理回调，以便在每次匹配时接收通知。回调方法接收相关的文本框、源文本、匹配文本以及匹配位置。
 
-回调不会直接接收幻灯片编号。下面的实现从父幻灯片中推导出编号，并且还能处理幻灯片备注中的文本。当文本关联到其他幻灯片类型时，结果数组使用 `null`。
+回调不会直接接收幻灯片编号。下面的实现从父幻灯片中推导出编号，并且还能处理幻灯片备注中的文本。结果数组在文本关联到其他幻灯片类型时使用 `null`。
 
 ```php
 class TextSearchCallback {
@@ -76,7 +150,17 @@ class TextSearchCallback {
     }
 
     private function getSlideNumber($textFrame) {
-        $parentSlide = $textFrame->getSlide();
+        $parentShape = $textFrame->getParentShape();
+        $parentCell = $textFrame->getParentCell();
+
+        if (!java_is_null($parentShape)) {
+            $parentSlide = $parentShape->getSlide();
+        } elseif (!java_is_null($parentCell)) {
+            $parentSlide = $parentCell->getSlide();
+        } else {
+            $parentSlide = $textFrame->getSlide();
+        }
+
         if (java_is_null($parentSlide)) {
             return null;
         }
@@ -101,7 +185,7 @@ class TextSearchCallback {
 }
 ```
 
-在将其传递给操作之前，为此 PHP 对象创建一个代理：
+在将该 PHP 对象传递给操作之前为其创建代理：
 
 ```php
 $callbackHandler = new TextSearchCallback();
@@ -113,13 +197,13 @@ $callback = java_closure(
 );
 ```
 
-对于替换操作，`foundText` 包含原始匹配文本，因此回调可以准确记录被替换的词汇。
+对于替换操作，`foundText` 包含原始匹配文本，因此回调可以准确记录被替换的词语。
 
 ## **突出显示文本**
 
-使用 [TextFrame::highlightText](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframe/#highlightText) 方法在文本框中突出显示文字匹配。传入 [TextSearchOptions](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textsearchoptions/) 以控制搜索。
+使用 [TextFrame::highlightText](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframe/#highlightText) 方法在文本框中突出显示文字字面值匹配项。传入 [TextSearchOptions](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textsearchoptions/) 以控制搜索。
 
-下面的代码示例突出显示所有字符 **"try"** 的出现，然后仅突出显示完整单词 **"to"**。
+下面的代码示例首先突出显示所有出现的 **"try"**，然后仅突出显示完整单词 **"to"**。
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -138,7 +222,7 @@ try {
     $substringSearchOptions->setCaseSensitive(false);
     $substringHighlightColor = new Java("java.awt.Color", 173, 216, 230);
 
-    // 突出显示文本框中每一次出现的 "try".
+    // 在文本框中突出显示所有出现的 "try"。
     $shape->getTextFrame()->highlightText(
         "try",
         $substringHighlightColor,
@@ -151,7 +235,7 @@ try {
     $wholeWordSearchOptions->setCaseSensitive(false);
     $wholeWordHighlightColor = new Java("java.awt.Color", 238, 130, 238);
 
-    // 仅突出显示完整单词 "to".
+    // 仅突出显示完整单词 "to"。
     $shape->getTextFrame()->highlightText(
         "to",
         $wholeWordHighlightColor,
@@ -176,11 +260,11 @@ finally {
 
 结果：
 
-![突出显示的文本](highlighted_text.png)
+![The highlighted text](highlighted_text.png)
 
 ## **使用正则表达式突出显示文本**
 
-[TextFrame::highlightRegex](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframe/#highlightRegex) 方法突出显示文本框中通过正则表达式找到的文本匹配。
+[TextFrame::highlightRegex](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframe/#highlightRegex) 方法在文本框中突出显示正则表达式找到的匹配文本。
 
 下面的代码突出显示所有包含七个或更多字符的单词：
 
@@ -203,11 +287,11 @@ finally {
 
 结果：
 
-![使用正则表达式突出显示的文本](highlighted_text_using_regex.png)
+![The highlighted text using the regular expression](highlighted_text_using_regex.png)
 
 ## **跨演示文稿突出显示文本**
 
-使用 [Presentation::highlightText](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/#highlightText) 和 [Presentation::highlightRegex](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/#highlightRegex) 在演示文稿中搜索所有适用的文本框。下面的示例突出显示一个文字词汇和所有电子邮件地址：
+使用 [Presentation::highlightText](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/#highlightText) 和 [Presentation::highlightRegex](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/#highlightRegex) 在演示文稿中搜索所有适用的文本框。下面的示例突出显示一个文字字面值和所有电子邮件地址：
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -242,9 +326,9 @@ finally {
 
 ## **在文本框中替换文本**
 
-对于文字文本使用 [TextFrame::replaceText](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframe/#replaceText)，对于基于模式的替换使用 [TextFrame::replaceRegex](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframe/#replaceRegex)。这些方法在现有文本框内更新匹配的文本，保留周围部分的格式，而不是从普通字符串重新构建文本框。
+使用 [TextFrame::replaceText](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframe/#replaceText) 进行文字字面值替换，使用 [TextFrame::replaceRegex](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframe/#replaceRegex) 进行基于模式的替换。这些方法在现有文本框内更新匹配文本，保留周围部分的格式，而不是从纯字符串重新构建文本框。
 
-下面的示例将拼写变体标准化，然后替换版本标签：
+下面的示例先统一一种拼写变体，然后替换版本标签：
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -282,11 +366,11 @@ finally {
 }
 ```
 
-如果一个匹配跨越了不同格式的部分，请检查输出以确认应对替换文本使用哪种格式。
+如果一次匹配跨越不同格式的部分，请检查输出以确认替换文本应采用哪种格式。
 
 ## **跨演示文稿替换文本**
 
-使用 [Presentation::replaceText](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/#replaceText) 和 [Presentation::replaceRegex](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/#replaceRegex) 在整个演示文稿中执行相同的操作。这对于模板清理、术语更新和编辑非常有用。
+使用 [Presentation::replaceText](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/#replaceText) 和 [Presentation::replaceRegex](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/#replaceRegex) 在整个演示文稿中应用相同操作。这对于模板清理、术语更新和编辑非常有用。
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -318,9 +402,9 @@ finally {
 }
 ```
 
-## **对匹配结果进行分组以生成报告**
+## **将匹配项分组用于报告**
 
-由于每个结果都存储了其幻灯片编号和文本框，应用程序可以对匹配进行分组，以用于审计、报告或审阅工作流。下面的示例首先按幻灯片，然后按文本框对收集的结果进行分组：
+因为每个结果都存储了幻灯片编号和文本框，应用程序可以将匹配项按审计、报告或审阅工作流分组。下面的示例先按幻灯片再按文本框对收集的结果进行分组：
 
 ```php
 $matchesBySlide = [];
@@ -367,22 +451,22 @@ foreach ($matchesBySlide as $slideLabel => $textFrameGroups) {
 
 ## **常见问题**
 
-**如何仅搜索单个文本框而不是整个演示文稿？**
+**如何只搜索单个文本框而不是整个演示文稿？**
 
-获取形状的文本框，然后对该文本框调用 [TextFrame::highlightText](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframe/#highlightText)、[TextFrame::highlightRegex](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframe/#highlightRegex)、[TextFrame::replaceText](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframe/#replaceText) 或 [TextFrame::replaceRegex](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframe/#replaceRegex)。演示文稿级别的方法会处理所有适用的文本框。
+获取形状的文本框，然后在该文本框上调用 [TextFrame::highlightText](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframe/#highlightText)、[TextFrame::highlightRegex](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframe/#highlightRegex)、[TextFrame::replaceText](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframe/#replaceText) 或 [TextFrame::replaceRegex](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframe/#replaceRegex)。演示文稿级别的方法会处理所有适用的文本框。
 
-**如何匹配完整单词且区分大小写？**
+**如何匹配完整单词并保持正确的大小写？**
 
-将 [TextSearchOptions::setWholeWordsOnly](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textsearchoptions/#setWholeWordsOnly) 和 [TextSearchOptions::setCaseSensitive](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textsearchoptions/#setCaseSensitive) 设置为 `true`，并将这些选项传递给文字匹配的突出显示或替换方法。对于正则表达式，在 Java `Pattern` 本身中定义单词边界和大小写敏感性。
+将 [TextSearchOptions::setWholeWordsOnly](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textsearchoptions/#setWholeWordsOnly) 和 [TextSearchOptions::setCaseSensitive](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textsearchoptions/#setCaseSensitive) 设置为 `true`，并将选项传递给文字字面值的突出显示或替换方法。对于正则表达式，在 Java `Pattern` 本身中定义单词边界和大小写敏感性。
 
 **搜索和替换可以包含幻灯片备注中的文本吗？**
 
-可以。使用演示文稿级别的文字操作时，将 [TextSearchOptions::setIncludeNotes](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textsearchoptions/#setIncludeNotes) 设置为 `true`。
+可以。使用演示文稿级别的文字字面值操作时，将 [TextSearchOptions::setIncludeNotes](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textsearchoptions/#setIncludeNotes) 设置为 `true`。
 
 **如何在不二次扫描演示文稿的情况下生成报告？**
 
-将 Java 代理回调传递给突出显示或替换操作。它在操作运行期间接收每一次匹配，从而使应用程序能够存储源文本、匹配文本、位置、文本框以及推导出的幻灯片编号，以便后续分组或导出。
+向突出显示或替换操作传递 Java 代理回调。它在操作运行期间接收每一次匹配，应用程序可以存储源文本、匹配文本、位置、文本框以及推导出的幻灯片编号，以便后续分组或导出。
 
-**替换文本会保留其格式吗？**
+**替换文本时是否保留其格式？**
 
-[TextFrame::replaceText](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframe/#replaceText) 和 [TextFrame::replaceRegex](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframe/#replaceRegex) 在现有文本框内修改匹配的文本并保留周围部分的格式。如果匹配跨越不同格式的部分，请检查结果以确保替换使用所需的样式。
+[TextFrame::replaceText](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframe/#replaceText) 和 [TextFrame::replaceRegex](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframe/#replaceRegex) 在现有文本框内修改匹配文本并保留周围部分的格式。如果匹配跨越不同格式的段落，请检查结果以确保替换使用所需的样式。

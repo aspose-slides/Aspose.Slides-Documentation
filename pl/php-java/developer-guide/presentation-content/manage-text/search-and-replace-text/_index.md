@@ -17,44 +17,118 @@ keywords:
 - prezentacja
 - PHP
 - Aspose.Slides
-description: "Wyszukuj, podświetlaj i zamieniaj tekst w prezentacjach PowerPoint, jednocześnie zbierając każde dopasowanie za pomocą Aspose.Slides for PHP via Java."
+description: "Wyszukuj, podświetlaj i zamieniaj tekst w prezentacjach PowerPoint, jednocześnie zbierając każde dopasowanie przy użyciu Aspose.Slides for PHP via Java."
 ---
 ## **Przegląd**
 
-Aspose.Slides for PHP via Java może wyszukiwać, podświetlać i zamieniać tekst w pojedynczej ramce tekstowej lub w całej prezentacji. Każda operacja może także powiadomić aplikację o każdym dopasowaniu za pomocą wywołania zwrotnego wyniku. Dzięki temu można zaktualizować prezentację i jednocześnie tworzyć ślad audytu zawierający dopasowany tekst, jego kontekst, pozycję, ramkę tekstową i numer slajdu.
+Aspose.Slides for PHP via Java może wyszukiwać, podświetlać i zamieniać tekst w pojedynczej ramce tekstowej lub w całej prezentacji. Każda operacja może także powiadamiać aplikację o każdym dopasowaniu za pomocą wywołania zwrotnego. Dzięki temu można aktualizować prezentację i jednocześnie tworzyć ścieżkę audytu zawierającą dopasowany tekst, jego kontekst, pozycję, ramkę tekstową oraz numer slajdu.
 
-Te możliwości są przydatne przy przeglądzie, redakcji, kontroli terminologii, czyszczeniu szablonów oraz automatycznych procesach raportowania.
+Narzędzia te są przydatne przy przeglądzie, redakcji, weryfikacji terminologii, czyszczeniu szablonów oraz zautomatyzowanych procesach raportowania.
 
-W pierwszych przykładach używamy pliku o nazwie "sample.pptx", który zawiera jedną ramkę tekstową na pierwszym slajdzie z następującym tekstem:
+W pierwszych przykładach poniżej używamy pliku o nazwie "sample.pptx", który zawiera pojedyncze pole tekstowe na pierwszym slajdzie z następującym tekstem:
 
-![Sample text](sample_text.png)
+![Przykładowy tekst](sample_text.png)
 
-## **Wybór zakresu wyszukiwania**
+## **Wybierz zakres wyszukiwania**
 
-Użyj metod na [TextFrame](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/) aby ograniczyć operację do jednej ramki tekstowej. Użyj metod na [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/) aby przetworzyć cały tekst w prezentacji.
+Użyj metod z klasy [TextFrame](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/) aby ograniczyć operację do jednej ramki tekstowej. Użyj metod z klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/) aby przetworzyć cały odpowiedni tekst w prezentacji.
 
 | Operacja | Jedna ramka tekstowa | Cała prezentacja |
 |---|---|---|
-| Podświetlanie dosłownego tekstu | [TextFrame::highlightText](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/#highlightText) | [Presentation::highlightText](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/#highlightText) |
-| Podświetlanie dopasowań wyrażeniem regularnym | [TextFrame::highlightRegex](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/#highlightRegex) | [Presentation::highlightRegex](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/#highlightRegex) |
-| Zamiana dosłownego tekstu | [TextFrame::replaceText](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/#replaceText) | [Presentation::replaceText](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/#replaceText) |
-| Zamiana dopasowań wyrażeniem regularnym | [TextFrame::replaceRegex](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/#replaceRegex) | [Presentation::replaceRegex](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/#replaceRegex) |
+| Podświetl tekst dosłowny | [TextFrame::highlightText](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/#highlightText) | [Presentation::highlightText](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/#highlightText) |
+| Podświetl dopasowania wyrażenia regularnego | [TextFrame::highlightRegex](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/#highlightRegex) | [Presentation::highlightRegex](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/#highlightRegex) |
+| Zamień tekst dosłowny | [TextFrame::replaceText](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/#replaceText) | [Presentation::replaceText](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/#replaceText) |
+| Zamień dopasowania wyrażenia regularnego | [TextFrame::replaceRegex](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/#replaceRegex) | [Presentation::replaceRegex](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/#replaceRegex) |
 
-## **Konfigurowanie dopasowywania tekstu**
+## **Skonfiguruj dopasowywanie tekstu**
 
 Dla operacji na tekście dosłownym użyj [TextSearchOptions](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textsearchoptions/) aby kontrolować dopasowanie:
 
-- [TextSearchOptions::setWholeWordsOnly](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textsearchoptions/#setWholeWordsOnly) ogranicza dopasowania do pełnych słów.
-- [TextSearchOptions::setCaseSensitive](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textsearchoptions/#setCaseSensitive) określa, czy musi być zachowana wielkość znaków.
-- [TextSearchOptions::setIncludeNotes](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textsearchoptions/#setIncludeNotes) uwzględnia notatki slajdów w operacjach wyszukiwania, zamiany i podświetlania na poziomie prezentacji.
+- [TextSearchOptions::setWholeWordsOnly](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textsearchoptions/#setWholeWordsOnly) ogranicza dopasowania do pełnych słów.  
+- [TextSearchOptions::setCaseSensitive](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textsearchoptions/#setCaseSensitive) kontroluje, czy wielkość znaków musi się zgadzać.  
+- [TextSearchOptions::setIncludeNotes](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textsearchoptions/#setIncludeNotes) uwzględnia notatki slajdów w wyszukiwaniu, zamianie i podświetlaniu na poziomie prezentacji.
 
-Operacje przy użyciu wyrażeń regularnych korzystają z klasy Java `Pattern`, więc reguły dopasowania takie jak wrażliwość na wielkość znaków i granice słów są definiowane w wyrażeniu i jego flagach.
+Operacje z wyrażeniami regularnymi używają obiektu Java `Pattern`, więc reguły dopasowania takie jak rozróżnianie wielkości znaków i granice słów są definiowane w wyrażeniu i jego flagach.
 
-## **Zbieranie informacji o dopasowaniach przy pomocy wywołania zwrotnego**
+## **Zidentyfikuj właściciela ramki tekstowej**
 
-Przekaż proxy wywołania zwrotnego Java do metody podświetlania lub zamiany, aby otrzymać powiadomienie o każdym dopasowaniu. Metoda wywołania zwrotnego otrzymuje powiązaną ramkę tekstową, źródłowy tekst, dopasowany tekst oraz pozycję dopasowania.
+Typowe przepływy przetwarzania tekstu często otrzymują obiekt [TextFrame](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/) podczas wyszukiwania, zamiany, walidacji lub eksportu tekstu. Użyj [TextFrame::getParentShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/#getParentShape) i [TextFrame::getParentCell](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/#getParentCell), aby określić, który obiekt prezentacji jest właścicielem ramki tekstowej.
 
-Wywołanie zwrotne nie otrzymuje numeru slajdu bezpośrednio. Implementacja poniżej wyprowadza go z rodzica slajdu i obsługuje również tekst znaleziony w notatkach slajdu. Tablica wyników używa `null`, gdy tekst jest powiązany z innym typem slajdu.
+Oczekiwane wartości zależą od właściciela:
+
+| Właściciel ramki tekstowej | `getParentShape` | `getParentCell` |
+|---|---|---|
+| AutoShape lub inny kształt zawierający tekst | Właścielski [Shape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shape/) | `null` |
+| Komórka tabeli | `null` | Właścielski [Cell](https://reference.aspose.com/slides/pl/php-java/aspose.slides/cell/) |
+
+Obie metody zapewniają nawigację tylko do odczytu. Wywołanie ich nie przenosi ramki tekstowej ani nie zmienia jej właściciela. Kod ogólny powinien sprawdzać obie wartości przy pomocy `java_is_null` i obsługiwać możliwość, że żaden właściciel nie jest dostępny.
+
+Poniższy przykład używa [SlideUtil::getAllTextFrames](https://reference.aspose.com/slides/pl/php-java/aspose.slides/slideutil/#getAllTextFrames) do iteracji po ramach tekstowych w prezentacji. Dla kształtów wypisuje nazwę kształtu, typ Java oraz slajd, na którym się znajduje. Dla komórek tabeli wypisuje współrzędne kolumny i wiersza (liczone od zera) oraz slajd.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SlideUtil;
+
+$presentation = new Presentation("presentation.pptx");
+$arrayClass = new java_class("java.lang.reflect.Array");
+
+try {
+    $textFrames = SlideUtil::getAllTextFrames($presentation, false);
+    $textFrameCount = java_values($arrayClass->getLength($textFrames));
+
+    for ($textFrameIndex = 0; $textFrameIndex < $textFrameCount; $textFrameIndex++) {
+        $textFrame = $textFrames[$textFrameIndex];
+        $ownerShape = $textFrame->getParentShape();
+        if (!java_is_null($ownerShape)) {
+            $shapeName = java_values($ownerShape->getName());
+            $shapeName = $shapeName === "" ? "(unnamed)" : $shapeName;
+            $shapeType = java_values($ownerShape->getClass()->getSimpleName());
+            $baseSlide = $ownerShape->getSlide();
+            $slideClassName = java_values($baseSlide->getClass()->getName());
+
+            if ($slideClassName === "com.aspose.slides.Slide") {
+                $slideLabel = "slide " . java_values($baseSlide->getSlideNumber());
+            } elseif ($slideClassName === "com.aspose.slides.NotesSlide") {
+                $slideLabel = "notes for slide " . java_values($baseSlide->getParentSlide()->getSlideNumber());
+            } else {
+                $slideLabel = java_values($baseSlide->getClass()->getSimpleName());
+            }
+
+            echo("Shape: " . $shapeName . "; type: " . $shapeType . "; " . $slideLabel . "\n");
+            continue;
+        }
+
+        $ownerCell = $textFrame->getParentCell();
+        if (!java_is_null($ownerCell)) {
+            $baseSlide = $ownerCell->getSlide();
+            $slideClassName = java_values($baseSlide->getClass()->getName());
+
+            if ($slideClassName === "com.aspose.slides.Slide") {
+                $slideLabel = "slide " . java_values($baseSlide->getSlideNumber());
+            } elseif ($slideClassName === "com.aspose.slides.NotesSlide") {
+                $slideLabel = "notes for slide " . java_values($baseSlide->getParentSlide()->getSlideNumber());
+            } else {
+                $slideLabel = java_values($baseSlide->getClass()->getSimpleName());
+            }
+
+            echo("Table cell: column " . java_values($ownerCell->getFirstColumnIndex()) . ", row " . java_values($ownerCell->getFirstRowIndex()) . "; " . $slideLabel . "\n");
+            continue;
+        }
+
+        echo("The text frame owner is not available as a shape or table cell.\n");
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Dla treści SmartArt iteruj po kształtach zwróconych przez [SmartArtNode::getShapes](https://reference.aspose.com/slides/pl/php-java/aspose.slides/smartartnode/#getShapes) i uzyskaj każdą [SmartArtShape::getTextFrame](https://reference.aspose.com/slides/pl/php-java/aspose.slides/smartartshape/#getTextFrame). Ramka tekstowa może być powiązana z odpowiednim kształtem za pomocą [TextFrame::getParentShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/#getParentShape), natomiast [TextFrame::getParentCell](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/#getParentCell) zwraca `null`. Dlatego gałąź dotycząca kształtów w przykładzie obsługuje również tekst z węzłów SmartArt.
+
+## **Zbierz informacje o dopasowaniach przy użyciu wywołania zwrotnego**
+
+Przekaż wywołanie zwrotne proxy Java do metody podświetlającej lub zamieniającej, aby otrzymać powiadomienie o każdym dopasowaniu. Metoda wywołania zwrotnego otrzymuje powiązaną ramkę tekstową, tekst źródłowy, dopasowany tekst oraz pozycję dopasowania.
+
+Wywołanie zwrotne nie otrzymuje numeru slajdu bezpośrednio. Implementacja poniżej wyprowadza go z rodzica slajdu i obsługuje także tekst znaleziony w notatkach slajdów. Tablica wynikowa używa `null`, gdy tekst jest powiązany z innym typem slajdu.
 
 ```php
 class TextSearchCallback {
@@ -76,7 +150,17 @@ class TextSearchCallback {
     }
 
     private function getSlideNumber($textFrame) {
-        $parentSlide = $textFrame->getSlide();
+        $parentShape = $textFrame->getParentShape();
+        $parentCell = $textFrame->getParentCell();
+
+        if (!java_is_null($parentShape)) {
+            $parentSlide = $parentShape->getSlide();
+        } elseif (!java_is_null($parentCell)) {
+            $parentSlide = $parentCell->getSlide();
+        } else {
+            $parentSlide = $textFrame->getSlide();
+        }
+
         if (java_is_null($parentSlide)) {
             return null;
         }
@@ -113,13 +197,13 @@ $callback = java_closure(
 );
 ```
 
-W operacjach zamiany `foundText` zawiera oryginalny dopasowany tekst, więc wywołanie zwrotne może dokładnie zarejestrować, które wyrażenia zostały zamienione.
+Dla operacji zamiany `foundText` zawiera pierwotny dopasowany tekst, więc wywołanie zwrotne może dokładnie zapisać, które terminy zostały zamienione.
 
-## **Podświetlanie tekstu**
+## **Podświetl tekst**
 
-Użyj metody [TextFrame::highlightText](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/#highlightText), aby podświetlić dosłowne dopasowania tekstu w ramce tekstowej. Przekaż [TextSearchOptions](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textsearchoptions/) aby kontrolować wyszukiwanie.
+Użyj metody [TextFrame::highlightText](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/#highlightText), aby podświetlić dopasowania tekstu dosłownego w ramce tekstowej. Przekaż [TextSearchOptions](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textsearchoptions/), aby kontrolować wyszukiwanie.
 
-Przykład kodu poniżej podświetla wszystkie wystąpienia ciągu **"try"**, a następnie podświetla tylko całe słowo **"to"**.
+Poniższy przykład podświetla wszystkie wystąpienia znaków **"try"**, a następnie podświetla tylko pełne słowo **"to"**.
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -151,7 +235,7 @@ try {
     $wholeWordSearchOptions->setCaseSensitive(false);
     $wholeWordHighlightColor = new Java("java.awt.Color", 238, 130, 238);
 
-    // Podświetl tylko całe słowo "to".
+    // Podświetl tylko pełne słowo "to".
     $shape->getTextFrame()->highlightText(
         "to",
         $wholeWordHighlightColor,
@@ -176,13 +260,13 @@ finally {
 
 Wynik:
 
-![The highlighted text](highlighted_text.png)
+![Podświetlony tekst](highlighted_text.png)
 
-## **Podświetlanie tekstu przy użyciu wyrażeń regularnych**
+## **Podświetl tekst przy użyciu wyrażeń regularnych**
 
-Metoda [TextFrame::highlightRegex](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/#highlightRegex) podświetla dopasowania znalezione przez wyrażenie regularne w ramce tekstowej.
+Metoda [TextFrame::highlightRegex](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/#highlightRegex) podświetla dopasowania tekstu znalezione przy pomocy wyrażenia regularnego w ramce tekstowej.
 
-Poniższy kod podświetla wszystkie słowa zawierające siedem lub więcej znaków:
+Poniższy kod podświetla wszystkie słowa zawierające co najmniej siedem znaków:
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -203,11 +287,11 @@ finally {
 
 Wynik:
 
-![The highlighted text using the regular expression](highlighted_text_using_regex.png)
+![Podświetlony tekst przy użyciu wyrażenia regularnego](highlighted_text_using_regex.png)
 
-## **Podświetlanie tekstu w całej prezentacji**
+## **Podświetl tekst w całej prezentacji**
 
-Użyj [Presentation::highlightText](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/#highlightText) oraz [Presentation::highlightRegex](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/#highlightRegex), aby przeszukać wszystkie odpowiednie ramki tekstowe w prezentacji. Poniższy przykład podświetla dosłowne wyrażenie oraz wszystkie adresy e‑mail:
+Użyj metod [Presentation::highlightText](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/#highlightText) i [Presentation::highlightRegex](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/#highlightRegex), aby przeszukać wszystkie odpowiednie ramki tekstowe w prezentacji. Poniższy przykład podświetla dosłowne wyrażenie oraz wszystkie adresy e‑mail:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -240,11 +324,11 @@ finally {
 }
 ```
 
-## **Zamiana tekstu w ramce tekstowej**
+## **Zamień tekst w ramce tekstowej**
 
-Użyj [TextFrame::replaceText](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/#replaceText) dla tekstu dosłownego i [TextFrame::replaceRegex](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/#replaceRegex) dla zamiany opartej na wzorcu. Metody te aktualizują dopasowany tekst wewnątrz istniejącej ramki, zachowując formatowanie otaczających fragmentów zamiast odtwarzać ramkę z czystego ciągu znaków.
+Użyj [TextFrame::replaceText](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/#replaceText) dla tekstu dosłownego i [TextFrame::replaceRegex](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/#replaceRegex) dla zamiany opartej na wzorcu. Metody te aktualizują dopasowany tekst wewnątrz istniejącej ramki, zachowując formatowanie otaczających fragmentów zamiast przebudowywać ramkę z czystego łańcucha.
 
-Poniższy przykład ujednolica wariant pisowni, a następnie zamienia etykiety wersji:
+Poniższy przykład standaryzuje wariant pisowni, a następnie zamienia etykiety wersji:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -284,9 +368,9 @@ finally {
 
 Jeśli jedno dopasowanie obejmuje fragmenty o różnym formatowaniu, sprawdź wynik, aby potwierdzić, które formatowanie powinno zostać zastosowane do tekstu zamiany.
 
-## **Zamiana tekstu w całej prezentacji**
+## **Zamień tekst w całej prezentacji**
 
-Użyj [Presentation::replaceText](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/#replaceText) i [Presentation::replaceRegex](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/#replaceRegex), aby zastosować te same operacje w całej prezentacji. Jest to przydatne przy czyszczeniu szablonów, aktualizacji terminologii i redakcji.
+Użyj metod [Presentation::replaceText](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/#replaceText) i [Presentation::replaceRegex](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/#replaceRegex), aby zastosować te same operacje w całej prezentacji. Jest to przydatne przy czyszczeniu szablonów, aktualizacji terminologii i redakcji.
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -318,9 +402,9 @@ finally {
 }
 ```
 
-## **Grupowanie dopasowań do raportowania**
+## **Grupuj dopasowania w raportach**
 
-Ponieważ każdy wynik przechowuje numer slajdu i ramkę tekstową, aplikacje mogą grupować dopasowania w celu audytu, raportowania lub przeglądu. Poniższy przykład grupuje zebrane wyniki najpierw według slajdu, a potem według ramki tekstowej:
+Ponieważ każdy wynik przechowuje numer slajdu i ramkę tekstową, aplikacje mogą grupować dopasowania w celach audytu, raportowania lub przeglądu. Poniższy przykład grupuje zebrane wyniki najpierw według slajdu, a potem według ramki tekstowej:
 
 ```php
 $matchesBySlide = [];
@@ -369,19 +453,19 @@ foreach ($matchesBySlide as $slideLabel => $textFrameGroups) {
 
 **Jak mogę przeszukać tylko jedną ramkę tekstową zamiast całej prezentacji?**
 
-Pobierz ramkę tekstową kształtu i wywołaj [TextFrame::highlightText](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/#highlightText), [TextFrame::highlightRegex](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/#highlightRegex), [TextFrame::replaceText](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/#replaceText) lub [TextFrame::replaceRegex](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/#replaceRegex) na tej ramce. Metody na poziomie prezentacji przetwarzają wszystkie odpowiednie ramki tekstowe.
+Uzyskaj ramkę tekstową kształtu i wywołaj [TextFrame::highlightText](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/#highlightText), [TextFrame::highlightRegex](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/#highlightRegex), [TextFrame::replaceText](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/#replaceText) lub [TextFrame::replaceRegex](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/#replaceRegex) na tej ramce. Metody na poziomie prezentacji przetwarzają wszystkie odpowiednie ramki tekstowe zamiast tego.
 
 **Jak dopasować pełne słowa z zachowaniem prawidłowej wielkości liter?**
 
-Ustaw [TextSearchOptions::setWholeWordsOnly](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textsearchoptions/#setWholeWordsOnly) i [TextSearchOptions::setCaseSensitive](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textsearchoptions/#setCaseSensitive) na `true` i przekaż opcje do metody podświetlania lub zamiany tekstu dosłownego. Dla wyrażeń regularnych określ granice słów i wrażliwość na wielkość liter bezpośrednio w klasie Java `Pattern`.
+Ustaw [TextSearchOptions::setWholeWordsOnly](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textsearchoptions/#setWholeWordsOnly) i [TextSearchOptions::setCaseSensitive](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textsearchoptions/#setCaseSensitive) na `true` i przekaż opcje do metody podświetlającej lub zamieniającej tekst dosłowny. W przypadku wyrażeń regularnych określ granice słów i rozróżnianie wielkości znaków bezpośrednio w obiekcie Java `Pattern`.
 
-**Czy wyszukiwanie i zamiana mogą obejmować tekst w notatkach slajdu?**
+**Czy wyszukiwanie i zamiana mogą obejmować tekst w notatkach slajdów?**
 
-Tak. Ustaw [TextSearchOptions::setIncludeNotes](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textsearchoptions/#setIncludeNotes) na `true` przy używaniu operacji dosłownego tekstu na poziomie prezentacji.
+Tak. Ustaw [TextSearchOptions::setIncludeNotes](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textsearchoptions/#setIncludeNotes) na `true` przy używaniu operacji na poziomie prezentacji dotyczącej tekstu dosłownego.
 
 **Jak stworzyć raport bez ponownego skanowania prezentacji?**
 
-Przekaż wywołanie zwrotne proxy Java do operacji podświetlania lub zamiany. Otrzyma ono każde dopasowanie w trakcie wykonywania operacji, dzięki czemu aplikacja może zapisać źródłowy tekst, dopasowany tekst, pozycję, ramkę tekstową oraz wyprowadzony numer slajdu do późniejszego grupowania lub eksportu.
+Przekaż wywołanie zwrotne proxy Java do operacji podświetlania lub zamiany. Otrzymuje ono każde dopasowanie w trakcie działania operacji, dzięki czemu aplikacja może zapisać tekst źródłowy, dopasowany tekst, pozycję, ramkę tekstową oraz wyliczony numer slajdu do późniejszego grupowania lub eksportu.
 
 **Czy zamiana tekstu zachowuje jego formatowanie?**
 

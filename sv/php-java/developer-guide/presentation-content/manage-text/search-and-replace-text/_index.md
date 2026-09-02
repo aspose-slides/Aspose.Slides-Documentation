@@ -9,52 +9,124 @@ keywords:
 - markera text
 - ersätt text
 - reguljärt uttryck
-- resultatåteruppringning
-- textruta
+- resultat-callback
+- textram
 - revisionsrapport
 - PowerPoint
 - OpenDocument
 - presentation
 - PHP
 - Aspose.Slides
-description: "Sök, markera och ersätt text i PowerPoint-presentationer samtidigt som du samlar varje träff med Aspose.Slides för PHP via Java."
+description: "Sök, markera och ersätt text i PowerPoint-presentationer samtidigt som du samlar varje matchning med Aspose.Slides för PHP via Java."
 ---
 ## **Översikt**
 
-Aspose.Slides for PHP via Java kan söka, markera och ersätta text i en enskild textruta eller i hela presentationen. Varje operation kan också meddela en applikation om varje träff via en resultat‑återuppringning. Detta möjliggör att uppdatera en presentation och samtidigt bygga ett granskningsspår som innehåller den matchade texten, dess kontext, position, textruta och bildnummer.
+Aspose.Slides for PHP via Java kan söka, markera och ersätta text i en enskild textram eller i hela presentationen. Varje operation kan också meddela en applikation om varje matchning via en resultat‑callback. Detta gör det möjligt att uppdatera en presentation och samtidigt bygga ett granskningsspår som innehåller den matchade texten, dess sammanhang, position, textram och bildnummer.
 
-Dessa funktioner är användbara för granskning, redigering, terminologikontroller, mallrengöring och automatiserade rapporteringsarbetsflöden.
+Dessa funktioner är användbara för granskning, redigering, terminologikontroller, mallrengöring och automatiserade rapportarbetsflöden.
 
-I de första exemplen nedan använder vi filen ”sample.pptx”, som innehåller en enda textruta på den första bilden med följande text:
+I de första exemplen nedan använder vi en fil som heter "sample.pptx", som innehåller en enda textruta på den första bilden med följande text:
 
-![Sample text](sample_text.png)
+![Exempeltext](sample_text.png)
 
-## **Välj sökomfång**
+## **Välj sökområde**
 
-Använd metoder på [TextFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/) för att begränsa en operation till en textruta. Använd metoder på [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/) för att bearbeta all tillämplig text i presentationen.
+Använd metoder på [TextFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/) för att begränsa en operation till en textram. Använd metoder på [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/) för att bearbeta all tillämpbar text i presentationen.
 
-| Operation | En textruta | Hela presentationen |
+| Operation | En textram | Hela presentationen |
 |---|---|---|
-| Markera exakt text | [TextFrame::highlightText](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/#highlightText) | [Presentation::highlightText](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/#highlightText) |
-| Markera reguljära uttryck | [TextFrame::highlightRegex](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/#highlightRegex) | [Presentation::highlightRegex](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/#highlightRegex) |
-| Ersätt exakt text | [TextFrame::replaceText](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/#replaceText) | [Presentation::replaceText](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/#replaceText) |
-| Ersätt reguljära uttryck | [TextFrame::replaceRegex](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/#replaceRegex) | [Presentation::replaceRegex](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/#replaceRegex) |
+| Markera bokstavlig text | [TextFrame::highlightText](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/#highlightText) | [Presentation::highlightText](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/#highlightText) |
+| Markera reguljära uttryckmatchningar | [TextFrame::highlightRegex](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/#highlightRegex) | [Presentation::highlightRegex](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/#highlightRegex) |
+| Ersätt bokstavlig text | [TextFrame::replaceText](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/#replaceText) | [Presentation::replaceText](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/#replaceText) |
+| Ersätt reguljära uttryckmatchningar | [TextFrame::replaceRegex](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/#replaceRegex) | [Presentation::replaceRegex](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/#replaceRegex) |
 
 ## **Konfigurera textmatchning**
 
-För exakt‑textoperationer, använd [TextSearchOptions](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textsearchoptions/) för att styra matchning:
+För bokstavliga textoperationer, använd [TextSearchOptions](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textsearchoptions/) för att styra matchning:
 
-- [TextSearchOptions::setWholeWordsOnly](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textsearchoptions/#setWholeWordsOnly) begränsar träffar till hela ord.
-- [TextSearchOptions::setCaseSensitive](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textsearchoptions/#setCaseSensitive) styr om teckenkänslighet krävs.
-- [TextSearchOptions::setIncludeNotes](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textsearchoptions/#setIncludeNotes) inkluderar bildanteckningar i sök‑, ersättnings‑ och markeringsoperationer på presentationsnivå.
+- [TextSearchOptions::setWholeWordsOnly](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textsearchoptions/#setWholeWordsOnly) begränsar matchningar till hela ord.
+- [TextSearchOptions::setCaseSensitive](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textsearchoptions/#setCaseSensitive) styr om teckenens skiftläge måste matcha.
+- [TextSearchOptions::setIncludeNotes](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textsearchoptions/#setIncludeNotes) inkluderar bildanteckningar i sök-, ersättnings- och markeringsoperationer på presentationsnivå.
 
-Reguljära‑uttrycksoperationer använder ett Java‑`Pattern`, så regler som teckenkänslighet och ordgränser definieras av uttrycket och dess flaggor.
+Reguljära uttrycks‑operationer använder ett Java `Pattern`, så matchningsregler som skiftlägeskänslighet och ordgränser definieras av uttrycket och dess flaggor.
 
-## **Samla matchningsinformation med en återuppringning**
+## **Identifiera ägaren till en textram**
 
-Skicka en Java‑proxy‑återuppringning till en markerings‑ eller ersättningsmetod för att få en avisering för varje träff. Återuppringningsmetoden får den relaterade textrutan, källtexten, den matchade texten och matchningspositionen.
+Generiska textbearbetnings‑arbetsflöden får ofta en [TextFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/) när de söker, ersätter, validerar eller exporterar text. Använd [TextFrame::getParentShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/#getParentShape) och [TextFrame::getParentCell](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/#getParentCell) för att bestämma vilket presentationsobjekt som äger textramen.
 
-Återuppringningen får inte bildnumret direkt. Implementeringen nedan härleder det från den överordnade bilden och hanterar också text som finns i bildanteckningar. Resultat‑arrayen använder `null` när text är kopplad till en annan bildtyp.
+| Ägare av textram | `getParentShape` | `getParentCell` |
+|---|---|---|
+| En AutoShape eller en annan textinnehållande form | Den ägande [Shape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/shape/) | `null` |
+| En tabellcell | `null` | Den ägande [Cell](https://reference.aspose.com/slides/sv/php-java/aspose.slides/cell/) |
+
+Båda metoderna erbjuder skrivskyddad navigation. Att anropa dem flyttar inte textramen eller ändrar dess ägare. Generisk kod bör kontrollera båda värdena med `java_is_null` och hantera möjligheten att ingen ägare är tillgänglig.
+
+Följande exempel använder [SlideUtil::getAllTextFrames](https://reference.aspose.com/slides/sv/php-java/aspose.slides/slideutil/#getAllTextFrames) för att iterera genom textramarna i en presentation. För former rapporterar den formens namn, Java‑körtidstyp och innehållande bild. För tabellceller rapporterar den noll‑baserade kolumn‑ och radkoordinater samt den innehållande bilden.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SlideUtil;
+
+$presentation = new Presentation("presentation.pptx");
+$arrayClass = new java_class("java.lang.reflect.Array");
+
+try {
+    $textFrames = SlideUtil::getAllTextFrames($presentation, false);
+    $textFrameCount = java_values($arrayClass->getLength($textFrames));
+
+    for ($textFrameIndex = 0; $textFrameIndex < $textFrameCount; $textFrameIndex++) {
+        $textFrame = $textFrames[$textFrameIndex];
+        $ownerShape = $textFrame->getParentShape();
+        if (!java_is_null($ownerShape)) {
+            $shapeName = java_values($ownerShape->getName());
+            $shapeName = $shapeName === "" ? "(unnamed)" : $shapeName;
+            $shapeType = java_values($ownerShape->getClass()->getSimpleName());
+            $baseSlide = $ownerShape->getSlide();
+            $slideClassName = java_values($baseSlide->getClass()->getName());
+
+            if ($slideClassName === "com.aspose.slides.Slide") {
+                $slideLabel = "slide " . java_values($baseSlide->getSlideNumber());
+            } elseif ($slideClassName === "com.aspose.slides.NotesSlide") {
+                $slideLabel = "notes for slide " . java_values($baseSlide->getParentSlide()->getSlideNumber());
+            } else {
+                $slideLabel = java_values($baseSlide->getClass()->getSimpleName());
+            }
+
+            echo("Shape: " . $shapeName . "; type: " . $shapeType . "; " . $slideLabel . "\n");
+            continue;
+        }
+
+        $ownerCell = $textFrame->getParentCell();
+        if (!java_is_null($ownerCell)) {
+            $baseSlide = $ownerCell->getSlide();
+            $slideClassName = java_values($baseSlide->getClass()->getName());
+
+            if ($slideClassName === "com.aspose.slides.Slide") {
+                $slideLabel = "slide " . java_values($baseSlide->getSlideNumber());
+            } elseif ($slideClassName === "com.aspose.slides.NotesSlide") {
+                $slideLabel = "notes for slide " . java_values($baseSlide->getParentSlide()->getSlideNumber());
+            } else {
+                $slideLabel = java_values($baseSlide->getClass()->getSimpleName());
+            }
+
+            echo("Table cell: column " . java_values($ownerCell->getFirstColumnIndex()) . ", row " . java_values($ownerCell->getFirstRowIndex()) . "; " . $slideLabel . "\n");
+            continue;
+        }
+
+        echo("The text frame owner is not available as a shape or table cell.\n");
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+För SmartArt‑innehåll, iterera genom formerna i [SmartArtNode::getShapes](https://reference.aspose.com/slides/sv/php-java/aspose.slides/smartartnode/#getShapes) och nå varje [SmartArtShape::getTextFrame](https://reference.aspose.com/slides/sv/php-java/aspose.slides/smartartshape/#getTextFrame). Textramen kan spåras till sin associerade form via [TextFrame::getParentShape](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/#getParentShape), medan [TextFrame::getParentCell](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/#getParentCell) returnerar `null`. Därför hanterar formgrenen i exemplet även text från SmartArt‑noder.
+
+## **Samla matchningsinformation med en callback**
+
+Skicka en Java‑proxy‑callback till en markerings‑ eller ersättningsmetod för att få en notifikation för varje matchning. Callback‑metoden får den relaterade textramen, källtexten, den matchade texten och matchningspositionen.
+
+Callback‑en får inte bildnumret direkt. Implementeringen nedan härleder det från föräldrabilden och hanterar även text som finns i bildanteckningar. Resultat‑arrayen använder `null` när text är associerad med en annan bildtyp.
 
 ```php
 class TextSearchCallback {
@@ -76,7 +148,17 @@ class TextSearchCallback {
     }
 
     private function getSlideNumber($textFrame) {
-        $parentSlide = $textFrame->getSlide();
+        $parentShape = $textFrame->getParentShape();
+        $parentCell = $textFrame->getParentCell();
+
+        if (!java_is_null($parentShape)) {
+            $parentSlide = $parentShape->getSlide();
+        } elseif (!java_is_null($parentCell)) {
+            $parentSlide = $parentCell->getSlide();
+        } else {
+            $parentSlide = $textFrame->getSlide();
+        }
+
         if (java_is_null($parentSlide)) {
             return null;
         }
@@ -101,7 +183,7 @@ class TextSearchCallback {
 }
 ```
 
-Skapa en proxy för detta PHP‑objekt innan du skickar det till en operation:
+Skapa en proxy för detta PHP‑objekt innan det skickas till en operation:
 
 ```php
 $callbackHandler = new TextSearchCallback();
@@ -113,11 +195,11 @@ $callback = java_closure(
 );
 ```
 
-För ersättningsoperationer innehåller `foundText` den ursprungliga matchade texten, så återuppringningen kan registrera exakt vilka termer som ersattes.
+För ersättningsoperationer innehåller `foundText` den ursprungliga matchade texten, så callback‑en kan exakt registrera vilka termer som ersattes.
 
 ## **Markera text**
 
-Använd metoden [TextFrame::highlightText](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/#highlightText) för att markera exakt‑textträffar i en textruta. Skicka [TextSearchOptions](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textsearchoptions/) för att styra sökningen.
+Använd metoden [TextFrame::highlightText](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/#highlightText) för att markera bokstavliga textmatchningar i en textram. Skicka [TextSearchOptions](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textsearchoptions/) för att styra sökningen.
 
 Kodexemplet nedan markerar alla förekomster av tecknen **"try"** och markerar sedan endast hela ordet **"to"**.
 
@@ -138,7 +220,7 @@ try {
     $substringSearchOptions->setCaseSensitive(false);
     $substringHighlightColor = new Java("java.awt.Color", 173, 216, 230);
 
-    // Markera varje förekomst av "try" i textrutan.
+    // Markera varje förekomst av "try" i textramen.
     $shape->getTextFrame()->highlightText(
         "try",
         $substringHighlightColor,
@@ -176,11 +258,11 @@ finally {
 
 Resultatet:
 
-![The highlighted text](highlighted_text.png)
+![Den markerade texten](highlighted_text.png)
 
 ## **Markera text med reguljära uttryck**
 
-Metoden [TextFrame::highlightRegex](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/#highlightRegex) markerar textträffar som hittas med ett reguljärt uttryck i en textruta.
+Metoden [TextFrame::highlightRegex](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/#highlightRegex) markerar textmatchningar som hittas med ett reguljärt uttryck i en textram.
 
 Följande kod markerar alla ord som innehåller sju eller fler tecken:
 
@@ -203,11 +285,11 @@ finally {
 
 Resultatet:
 
-![The highlighted text using the regular expression](highlighted_text_using_regex.png)
+![Den markerade texten med reguljärt uttryck](highlighted_text_using_regex.png)
 
 ## **Markera text i hela presentationen**
 
-Använd [Presentation::highlightText](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/#highlightText) och [Presentation::highlightRegex](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/#highlightRegex) för att söka i alla tillämpliga textrutor i en presentation. Följande exempel markerar ett exakt uttryck och alla e‑postadresser:
+Använd [Presentation::highlightText](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/#highlightText) och [Presentation::highlightRegex](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/#highlightRegex) för att söka i alla tillämpbara textramar i en presentation. Följande exempel markerar ett bokstavligt uttryck och alla e‑postadresser:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -240,9 +322,9 @@ finally {
 }
 ```
 
-## **Ersätt text i en textruta**
+## **Ersätt text i en textram**
 
-Använd [TextFrame::replaceText](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/#replaceText) för exakt text och [TextFrame::replaceRegex](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/#replaceRegex) för mönsterbaserad ersättning. Dessa metoder uppdaterar den matchade texten i den befintliga textrutan, vilket bevarar den omgivande formateringen istället för att bygga om textrutan från en ren sträng.
+Använd [TextFrame::replaceText](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/#replaceText) för bokstavlig text och [TextFrame::replaceRegex](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/#replaceRegex) för mönsterbaserad ersättning. Dessa metoder uppdaterar den matchade texten inom den befintliga textramen, vilket behåller formatering av de omgivande delarna i stället för att bygga om textramen från en enkel sträng.
 
 Följande exempel standardiserar en stavningsvariant och ersätter sedan versionsetiketter:
 
@@ -282,11 +364,11 @@ finally {
 }
 ```
 
-Om en träff sträcker sig över delar med olika formatering, granska utdata för att bekräfta vilken formatering som ska gälla för den ersatta texten.
+Om en matchning sträcker sig över delar med olika formatering, granska resultatet för att bekräfta vilken formatering som ska tillämpas på den ersatta texten.
 
 ## **Ersätt text i hela presentationen**
 
-Använd [Presentation::replaceText](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/#replaceText) och [Presentation::replaceRegex](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/#replaceRegex) för att tillämpa samma operationer i hela presentationen. Detta är användbart för mallrengöring, terminologiska uppdateringar och redigering.
+Använd [Presentation::replaceText](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/#replaceText) och [Presentation::replaceRegex](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/#replaceRegex) för att tillämpa samma operationer i hela presentationen. Detta är användbart för mallrengöring, terminologiuppdateringar och radering.
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -320,7 +402,7 @@ finally {
 
 ## **Gruppera matchningar för rapportering**
 
-Eftersom varje resultat sparar sitt bildnummer och sin textruta kan applikationer gruppera matchningar för revision, rapportering eller granskningsarbetsflöden. Följande exempel grupperar de insamlade resultaten först efter bild och sedan efter textruta:
+Eftersom varje resultat lagrar bildnummer och textram kan applikationer gruppera matchningar för granskning, rapportering eller granskningsarbetsflöden. Följande exempel grupperar de insamlade resultaten först efter bild och sedan efter textram:
 
 ```php
 $matchesBySlide = [];
@@ -367,22 +449,22 @@ foreach ($matchesBySlide as $slideLabel => $textFrameGroups) {
 
 ## **FAQ**
 
-**Hur kan jag söka i endast en textruta istället för hela presentationen?**
+**Hur kan jag söka endast i en textruta istället för i hela presentationen?**
 
-Hämta formens textruta och anropa [TextFrame::highlightText](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/#highlightText), [TextFrame::highlightRegex](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/#highlightRegex), [TextFrame::replaceText](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/#replaceText) eller [TextFrame::replaceRegex](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/#replaceRegex) på den textrutan. Metoder på presentationsnivå bearbetar alla tillämpliga textrutor istället.
+Hämta figurens textram och anropa [TextFrame::highlightText](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/#highlightText), [TextFrame::highlightRegex](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/#highlightRegex), [TextFrame::replaceText](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/#replaceText) eller [TextFrame::replaceRegex](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/#replaceRegex) på den textramen. Metoder på presentationsnivå bearbetar alla tillämpbara textramar istället.
 
 **Hur kan jag matcha hela ord med korrekt versalisering?**
 
-Sätt [TextSearchOptions::setWholeWordsOnly](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textsearchoptions/#setWholeWordsOnly) och [TextSearchOptions::setCaseSensitive](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textsearchoptions/#setCaseSensitive) till `true` och skicka alternativen till en exakt‑textmarkerings‑ eller ersättningsmetod. För reguljära uttryck definierar du ordgränser och teckenkänslighet i själva Java‑`Pattern`.
+Ställ in [TextSearchOptions::setWholeWordsOnly](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textsearchoptions/#setWholeWordsOnly) och [TextSearchOptions::setCaseSensitive](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textsearchoptions/#setCaseSensitive) till `true` och skicka alternativen till en bokstavlig textmarkerings‑ eller ersättningsmetod. För reguljära uttryck definierar du ordgränser och skiftlägeskänslighet i Java‑`Pattern` själv.
 
-**Kan sök och ersättning inkludera text i bildanteckningar?**
+**Kan sökning och ersättning inkludera text i bildanteckningar?**
 
-Ja. Sätt [TextSearchOptions::setIncludeNotes](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textsearchoptions/#setIncludeNotes) till `true` när du använder en exakt‑textoperation på presentationsnivå.
+Ja. Ställ in [TextSearchOptions::setIncludeNotes](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textsearchoptions/#setIncludeNotes) till `true` när du använder en bokstavlig textoperation på presentationsnivå.
 
 **Hur kan jag skapa en rapport utan att skanna presentationen en andra gång?**
 
-Skicka en Java‑proxy‑återuppringning till markerings‑ eller ersättningsoperationen. Den får varje träff medan operationen körs, så applikationen kan lagra källtext, matchad text, position, textruta och härlett bildnummer för senare gruppering eller export.
+Skicka en Java‑proxy‑callback till markerings‑ eller ersättningsoperationen. Den får varje matchning medan operationen körs, så applikationen kan lagra källtexten, den matchade texten, positionen, textramen och det härledda bildnumret för senare gruppering eller export.
 
-**Bevarar ersättning av text dess formatering?**
+**Behåller ersättning av text dess formatering?**
 
-[TextFrame::replaceText](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/#replaceText) och [TextFrame::replaceRegex](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/#replaceRegex) ändrar den matchade texten i den befintliga textrutan och behåller formateringen i de omgivande delarna. Om en träff sträcker sig över delar med olika formatering, inspektera resultatet för att säkerställa att ersättningen använder önskad stil.
+[TextFrame::replaceText](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/#replaceText) och [TextFrame::replaceRegex](https://reference.aspose.com/slides/sv/php-java/aspose.slides/textframe/#replaceRegex) ändrar den matchade texten inom den befintliga textramen och behåller formateringen för de omgivande delarna. Om en matchning sträcker sig över delar med olika formatering, inspektera resultatet för att säkerställa att ersättningen använder önskad stil.

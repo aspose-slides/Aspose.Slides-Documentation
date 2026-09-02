@@ -1,12 +1,12 @@
 ---
-title: 在 JavaScript 中搜尋與取代 PowerPoint 簡報文字
+title: 在 JavaScript 中搜尋與取代 PowerPoint 簡報的文字
 linktitle: 搜尋與取代文字
 type: docs
 weight: 55
 url: /zh-hant/nodejs-java/search-and-replace-text/
 keywords:
 - 搜尋文字
-- 標示文字
+- 標註文字
 - 取代文字
 - 正規表示式
 - 結果回呼
@@ -18,51 +18,120 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "使用 Aspose.Slides for Node.js via Java 在 PowerPoint 簡報中搜尋、標示與取代文字，並收集每一次匹配。"
+description: "使用 Aspose.Slides for Node.js via Java，在 PowerPoint 簡報中搜尋、標註與取代文字，同時收集每一次匹配。"
 ---
 ## **概述**
 
-Aspose.Slides for Node.js via Java 可以在單一文字框或整個簡報中搜尋、標示和取代文字。每項操作亦能透過結果回呼 (callback) 通知應用程式每一次匹配。這使得在更新簡報的同時，能建立包含匹配文字、其上下文、位置、文字框與投影片編號的稽核追蹤。
+Aspose.Slides for Node.js via Java 能夠在單一文字框或整個簡報中搜尋、標註與取代文字。每項操作也可以透過結果回呼通知應用程式每一次匹配。這使得在更新簡報的同時，能同時建立包含匹配文字、其上下文、位置、文字框與投影片編號的稽核追蹤。
 
-這些功能可用於審閱、塗銷、術語檢查、範本清理與自動化報告工作流程。
+這些功能可用於審閱、編輯、術語檢查、範本清理與自動化報告工作流程。
 
-在以下的第一個範例中，我們使用名為「sample.pptx」的檔案，其在第一張投影片上包含一個單一文字方塊，文字內容如下：
+在以下第一組範例中，我們使用名為「sample.pptx」的檔案，該檔案在第一張投影片上有一個文字方塊，文字內容如下：
 
 ![範例文字](sample_text.png)
 
 ## **選擇搜尋範圍**
 
-使用 [TextFrame](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/) 上的方法將操作限制於單一文字框。使用 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/) 上的方法處理簡報中所有適用的文字。
+使用 [TextFrame](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/) 上的方法將操作限制於單一文字框。使用 [Presentation](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/) 上的方法則會處理簡報中全部適用的文字。
 
-| 操作 | 單一文字框 | 整個簡報 |
+| 操作 | 單一文字框 | 整份簡報 |
 |---|---|---|
-| Highlight literal text | [TextFrame.highlightText](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [Presentation.highlightText](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
-| Highlight regular-expression matches | [TextFrame.highlightRegex](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) | [Presentation.highlightRegex](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) |
-| Replace literal text | [TextFrame.replaceText](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [Presentation.replaceText](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
-| Replace regular-expression matches | [TextFrame.replaceRegex](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) | [Presentation.replaceRegex](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) |
+| 標註字面文字 | [TextFrame.highlightText](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [Presentation.highlightText](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
+| 標註正規表示式匹配項目 | [TextFrame.highlightRegex](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) | [Presentation.highlightRegex](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) |
+| 取代字面文字 | [TextFrame.replaceText](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [Presentation.replaceText](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
+| 取代正規表示式匹配項目 | [TextFrame.replaceRegex](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) | [Presentation.replaceRegex](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) |
 
-## **設定文字匹配**
+## **設定文字匹配方式**
 
-對於純文字操作，使用 [TextSearchOptions](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textsearchoptions/) 來控制匹配方式：
+對於字面文字操作，使用 [TextSearchOptions](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textsearchoptions/) 來控制匹配行為：
 
-- [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) 限制匹配僅為完整單詞。
-- [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) 控制是否必須符合字元大小寫。
-- [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) 包含投影片備註於簡報層級的搜尋、取代與標示操作中。
+- [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) 僅限完整單詞匹配。
+- [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) 控制是否必須符合大小寫。
+- [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) 包含投影片備註於簡報層級的搜尋、取代與標註作業。
 
-正規表達式操作使用 Java `Pattern`，因此大小寫敏感性與單詞邊界等匹配規則由表達式本身及其旗標決定。
+正規表示式作業使用 Java `Pattern`，因此大小寫敏感度與單詞邊界等規則皆由表達式本身及其旗標定義。
+
+## **辨識文字框的擁有者**
+
+通用的文字處理工作流程在搜尋、取代、驗證或匯出文字時，常會收到一個 [TextFrame](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/)。使用 [TextFrame.getParentShape](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/#getParentShape--) 與 [TextFrame.getParentCell](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/#getParentCell--) 來判斷是哪個簡報物件擁有此文字框。
+
+預期的返回值取決於擁有者：
+
+| 文字框擁有者 | `getParentShape` | `getParentCell` |
+|---|---|---|
+| AutoShape 或其他含文字的圖形 | 其擁有的 [Shape](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/shape/) | `null` |
+| 表格儲存格 | `null` | 其擁有的 [Cell](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/cell/) |
+
+兩個方法均提供唯讀的導覽。呼叫它們不會移動文字框或改變其擁有者。通用程式碼應檢查兩個返回值是否為 `null`，並處理兩者均不可用的情況。
+
+以下範例使用 [SlideUtil.getAllTextFrames](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/slideutil/#getAllTextFrames-aspose.slides.IPresentation-boolean-) 迭代簡報中的所有文字框。對於圖形，它會回報圖形名稱、Java 執行時類型與所屬投影片；對於表格儲存格，則回報零基礎的欄與列座標以及所屬投影片。
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+function getSlideLabel(baseSlide) {
+    if (java.instanceOf(baseSlide, "com.aspose.slides.Slide")) {
+        return "slide " + baseSlide.getSlideNumber();
+    }
+
+    if (java.instanceOf(baseSlide, "com.aspose.slides.NotesSlide")) {
+        return "notes for slide " + baseSlide.getParentSlide().getSlideNumber();
+    }
+
+    return baseSlide.getClass().getSimpleName();
+}
+
+const presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    const textFrames = aspose.slides.SlideUtil.getAllTextFrames(presentation, false);
+
+    for (let index = 0; index < textFrames.length; index++) {
+        const textFrame = textFrames[index];
+        const ownerShape = textFrame.getParentShape();
+        if (ownerShape !== null) {
+            const shapeName = ownerShape.getName() === "" ? "(unnamed)" : ownerShape.getName();
+            const shapeType = ownerShape.getClass().getSimpleName();
+            const slideLabel = getSlideLabel(ownerShape.getSlide());
+            console.log("Shape: " + shapeName + "; type: " + shapeType + "; " + slideLabel);
+            continue;
+        }
+
+        const ownerCell = textFrame.getParentCell();
+        if (ownerCell !== null) {
+            const slideLabel = getSlideLabel(ownerCell.getSlide());
+            console.log("Table cell: column " + ownerCell.getFirstColumnIndex() + ", row " + ownerCell.getFirstRowIndex() + "; " + slideLabel);
+            continue;
+        }
+
+        console.log("The text frame owner is not available as a shape or table cell.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+對於 SmartArt 內容，請迭代 [SmartArtNode.getShapes](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/smartartnode/#getShapes--) 中的圖形，並存取每個 [SmartArtShape.getTextFrame](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/smartartshape/#getTextFrame--)。文字框可透過 [TextFrame.getParentShape](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/#getParentShape--) 追溯至其關聯的圖形，而 [TextFrame.getParentCell](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/#getParentCell--) 會返回 `null`。因此，範例中的圖形分支同樣處理 SmartArt 節點的文字。
 
 ## **使用回呼收集匹配資訊**
 
-建立 Java 代理 (proxy) 以接收結果回呼，從而在每次匹配時收到通知。代理函式會取得相關的文字框、來源文字、匹配文字以及匹配位置。
+建立一個 Java 代理作為結果回呼，以接收每一次匹配的通知。代理函式會取得相關的文字框、來源文字、匹配文字以及匹配位置。
 
-回呼不會直接取得投影片編號。以下實作透過 [TextFrame.getSlide](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/#getSlide--), [Slide.getSlideNumber](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/slide/#getSlideNumber--), 與 [NotesSlide.getParentSlide](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/notesslide/#getParentSlide--) 推算出編號，並同時處理投影片備註中的文字。
+回呼不會直接收到投影片編號。下方實作透過文字框的擁有圖形或表格儲存格推導投影片編號，若無則以 [TextFrame.getSlide](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/#getSlide--) 作為備援。它也會處理投影片備註中的文字。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
 function getSlideNumber(textFrame) {
-    const parentSlide = textFrame.getSlide();
+    const parentShape = textFrame.getParentShape();
+    const parentCell = textFrame.getParentCell();
+    let parentSlide = textFrame.getSlide();
+    if (parentShape !== null) {
+        parentSlide = parentShape.getSlide();
+    } else if (parentCell !== null) {
+        parentSlide = parentCell.getSlide();
+    }
 
     if (java.instanceOf(parentSlide, "com.aspose.slides.Slide")) {
         return parentSlide.getSlideNumber();
@@ -90,13 +159,13 @@ function createTextSearchCallback(results) {
 }
 ```
 
-對於取代操作，`foundText` 會包含原始匹配的文字，因此回呼能準確記錄哪些術語被取代。
+對於取代作業，`foundText` 內含原始匹配文字，回呼因此可記錄到底替換了哪些詞彙。
 
-## **標示文字**
+## **標註文字**
 
-使用 [TextFrame.highlightText](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) 方法在文字框中標示純文字匹配項。傳入 [TextSearchOptions](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textsearchoptions/) 以控制搜尋行為。
+使用 [TextFrame.highlightText](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) 方法在文字框中標註字面文字匹配項目。傳入 [TextSearchOptions](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textsearchoptions/) 以控制搜尋行為。
 
-以下程式碼範例會標示所有出現的字元 **"try"**，接著僅標示完整單詞 **"to"**。
+以下程式碼示範先標註所有 **"try"** 字元出現，然後僅標註完整單詞 **"to"**。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -111,7 +180,7 @@ try {
     substringSearchOptions.setCaseSensitive(false);
     const substringHighlightColor = java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY");
 
-    // 在文字框中標示所有出現的「try」字串。
+    // 在文字框中標註每一次出現的 "try"。
     shape.getTextFrame().highlightText(
         "try", substringHighlightColor, substringSearchOptions, null);
 
@@ -120,7 +189,7 @@ try {
     wholeWordSearchOptions.setCaseSensitive(false);
     const wholeWordHighlightColor = java.getStaticFieldValue("java.awt.Color", "MAGENTA");
 
-    // 僅標示完整單詞「to」。
+    // 僅標註完整單詞 "to"。
     shape.getTextFrame().highlightText(
         "to", wholeWordHighlightColor, wholeWordSearchOptions, null);
 
@@ -132,13 +201,13 @@ try {
 
 結果：
 
-![已標示的文字](highlighted_text.png)
+![已標註的文字](highlighted_text.png)
 
-## **使用正規表示式標示文字**
+## **使用正規表示式標註文字**
 
-[TextFrame.highlightRegex](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) 方法會在文字框中標示由正規表示式找到的文字匹配項。
+[TextFrame.highlightRegex](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) 方法會標註文字框中符合正規表示式的文字匹配項目。
 
-以下程式碼會標示所有包含七個或以上字元的單詞：
+以下程式碼標註所有長度不少於七個字元的單詞：
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -163,11 +232,11 @@ try {
 
 結果：
 
-![使用正規表示式標示的文字](highlighted_text_using_regex.png)
+![使用正規表示式標註的文字](highlighted_text_using_regex.png)
 
-## **於整份簡報中標示文字**
+## **跨簡報標註文字**
 
-使用 [Presentation.highlightText](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) 與 [Presentation.highlightRegex](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) 來搜尋簡報中所有適用的文字框。以下範例會標示一個純文字詞彙以及所有電子郵件地址：
+使用 [Presentation.highlightText](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) 與 [Presentation.highlightRegex](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) 來搜尋並標註簡報中所有適用的文字框。以下範例同時標註一個字面詞彙與所有電子郵件地址：
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -198,9 +267,9 @@ try {
 
 ## **在文字框中取代文字**
 
-使用 [TextFrame.replaceText](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) 取代純文字，使用 [TextFrame.replaceRegex](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) 進行基於模式的取代。這些方法會在現有文字框內更新匹配的文字，保留周圍部分的格式，而不是從純文字重新建立文字框。
+使用 [TextFrame.replaceText](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) 處理字面文字，使用 [TextFrame.replaceRegex](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) 處理模式取代。這些方法會在既有文字框內直接更新匹配文字，保留周圍文字的格式，而非以純文字重新建立文字框。
 
-以下範例會將拼寫變體標準化，然後取代版本標籤：
+以下範例先統一拼寫變體，接著取代版本標籤：
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -228,11 +297,11 @@ try {
 }
 ```
 
-如果單一匹配跨越不同格式的文字段落，請檢查輸出以確認應套用於取代文字的格式。
+如果一次匹配跨越不同格式的區段，請檢查輸出以確認替換文字應使用哪種格式。
 
-## **於整份簡報中取代文字**
+## **跨簡報取代文字**
 
-使用 [Presentation.replaceText](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) 與 [Presentation.replaceRegex](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) 在簡報中執行相同的操作。這對於範本清理、術語更新與塗銷皆很有用。
+使用 [Presentation.replaceText](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) 與 [Presentation.replaceRegex](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/presentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) 於整個簡報執行相同操作。此功能適用於範本清理、術語更新與編輯遮蔽。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -257,16 +326,23 @@ try {
 }
 ```
 
-## **分組匹配以產生報告**
+## **將匹配結果分組以供報告**
 
-由於每筆收集的結果皆保存其投影片編號與文字框，應用程式可將匹配項分組，以供稽核、報告或審閱工作流程使用。以下範例先依投影片，再依文字框分組結果：
+由於每筆收集的結果都儲存了投影片編號與文字框，應用程式可以依此將匹配項目分組，用於稽核、報告或審閱工作流程。以下範例先依投影片再依文字框分組結果：
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
 function getSlideNumber(textFrame) {
-    const parentSlide = textFrame.getSlide();
+    const parentShape = textFrame.getParentShape();
+    const parentCell = textFrame.getParentCell();
+    let parentSlide = textFrame.getSlide();
+    if (parentShape !== null) {
+        parentSlide = parentShape.getSlide();
+    } else if (parentCell !== null) {
+        parentSlide = parentCell.getSlide();
+    }
 
     if (java.instanceOf(parentSlide, "com.aspose.slides.Slide")) {
         return parentSlide.getSlideNumber();
@@ -338,22 +414,22 @@ try {
 
 ## **常見問題**
 
-**如何僅搜尋單一文字方塊而非整個簡報？**
+**如何只搜尋單一文字方塊而非整份簡報？**
 
-取得形狀的文字框，然後在該文字框上呼叫 [TextFrame.highlightText](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-)、[TextFrame.highlightRegex](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-)、[TextFrame.replaceText](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) 或 [TextFrame.replaceRegex](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-)。簡報層級的方法則會處理所有適用的文字框。
+取得圖形的文字框，然後對該文字框呼叫 [TextFrame.highlightText](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-)、[TextFrame.highlightRegex](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-)、[TextFrame.replaceText](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) 或 [TextFrame.replaceRegex](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-)。簡報層級的方法則會處理所有適用的文字框。
 
-**如何在匹配完整單詞時保留正確的大小寫？**
+**如何在匹配完整單詞時同時保留正確的大小寫？**
 
-將 [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) 與 [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) 設為 `true`，並將這些選項傳遞給純文字的標示或取代方法。對於正規表示式，需在 Java `Pattern` 本身中定義單詞邊界與大小寫敏感性。
+將 [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) 與 [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) 設為 `true`，並將選項傳入字面文字的標註或取代方法。對於正規表示式，請在 Java `Pattern` 本身中定義單詞邊界與大小寫敏感度。
 
-**搜尋與取代是否能包含投影片備註中的文字？**
+**搜尋與取代可以包含投影片備註中的文字嗎？**
 
-可以。於使用簡報層級的純文字操作時，將 [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) 設為 `true`。上述的回呼實作會將備註投影片中的匹配映射回其母投影片的編號。
+可以。於簡報層級的字面文字作業中，將 [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) 設為 `true`。上述的回呼實作會將備註投影片中的匹配映射回其父投影片編號。
 
-**如何在不再次掃描簡報的情況下產生報告？**
+**如何在不重新掃描簡報的情況下產生報告？**
 
-將 Java 結果回呼代理傳遞給標示或取代操作。回呼會在操作執行期間接收每一次匹配，讓應用程式能儲存來源文字、匹配文字、位置、文字框與推算出的投影片編號，以供後續分組或匯出。
+將 Java 結果回呼代理傳入標註或取代作業。回呼會在作業執行期間收到每一次匹配，因而讓應用程式即時儲存來源文字、匹配文字、位置、文字框與衍生的投影片編號，以供之後分組或匯出。
 
-**取代文字是否會保留其格式？**
+**取代文字時會保留原有格式嗎？**
 
-[TextFrame.replaceText](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) 與 [TextFrame.replaceRegex](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) 會在現有文字框內修改匹配文字，並保留周圍段落的格式。若匹配跨越不同格式的段落，請檢查結果以確保取代後的文字使用期望的樣式。
+[TextFrame.replaceText](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) 與 [TextFrame.replaceRegex](https://reference.aspose.com/slides/zh-hant/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) 會在既有文字框內直接修改匹配文字，並保留其周圍部分的格式。如果一次匹配跨越不同格式的區段，請檢查結果以確保替換文字使用期望的樣式。

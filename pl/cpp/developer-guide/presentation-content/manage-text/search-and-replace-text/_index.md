@@ -1,6 +1,6 @@
 ---
-title: Wyszukiwanie i zamiana tekstu w prezentacjach PowerPoint w C++
-linktitle: Wyszukiwanie i zamiana tekstu
+title: "Wyszukiwanie i zastępowanie tekstu w prezentacjach PowerPoint w C++"
+linktitle: "Wyszukiwanie i zastępowanie tekstu"
 type: docs
 weight: 55
 url: /pl/cpp/search-and-replace-text/
@@ -17,15 +17,15 @@ keywords:
 - prezentacja
 - C++
 - Aspose.Slides
-description: "Wyszukuj, podświetlaj i zamieniaj tekst w prezentacjach PowerPoint, jednocześnie zbierając każde dopasowanie przy użyciu Aspose.Slides for C++."
+description: "Wyszukuj, podświetlaj i zastępuj tekst w prezentacjach PowerPoint, jednocześnie zbierając każde dopasowanie przy użyciu Aspose.Slides dla C++."
 ---
 ## **Przegląd**
 
-Aspose.Slides for C++ może wyszukiwać, podświetlać i zastępować tekst w pojedynczej ramce tekstowej lub w całej prezentacji. Każda operacja może także powiadomić aplikację o każdym dopasowaniu za pośrednictwem callbacku wyniku. Umożliwia to aktualizację prezentacji i jednoczesne tworzenie ścieżki audytu zawierającej dopasowany tekst, jego kontekst, pozycję, ramkę tekstową oraz numer slajdu.
+Aspose.Slides for C++ może wyszukiwać, podświetlać i zastępować tekst w pojedynczej ramce tekstowej lub w całej prezentacji. Każda operacja może również powiadomić aplikację o każdym dopasowaniu za pośrednictwem zwrotnego wywołania wyniku. Umożliwia to aktualizację prezentacji i jednoczesne tworzenie śladu audytu zawierającego dopasowany tekst, jego kontekst, pozycję, ramkę tekstową oraz numer slajdu.
 
-Te możliwości są przydatne przy przeglądzie, redakcji, weryfikacji terminologii, czyszczeniu szablonów oraz zautomatyzowanych przepływach raportowania.
+Te możliwości są przydatne przy przeglądzie, redakcji, weryfikacji terminologii, czyszczeniu szablonów oraz automatycznych przepływach raportowania.
 
-W pierwszych przykładach poniżej używamy pliku o nazwie "sample.pptx", który zawiera pojedyncze pole tekstowe na pierwszym slajdzie z następującym tekstem:
+W pierwszych przykładach poniżej używamy pliku o nazwie "sample.pptx", który zawiera jedną ramkę tekstową na pierwszym slajdzie z następującym tekstem:
 
 ![Przykładowy tekst](sample_text.png)
 
@@ -36,31 +36,140 @@ Użyj metod na [ITextFrame](https://reference.aspose.com/slides/pl/cpp/aspose.sl
 | Operacja | Jedna ramka tekstowa | Cała prezentacja |
 |---|---|---|
 | Podświetl tekst dosłowny | [ITextFrame::HighlightText](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/highlighttext/) | [IPresentation::HighlightText](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ipresentation/highlighttext/) |
-| Podświetl dopasowania wyrażenia regularnego | [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/highlightregex/) | [IPresentation::HighlightRegex](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ipresentation/highlightregex/) |
+| Podświetl dopasowania wyrażeń regularnych | [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/highlightregex/) | [IPresentation::HighlightRegex](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ipresentation/highlightregex/) |
 | Zastąp tekst dosłowny | [ITextFrame::ReplaceText](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/replacetext/) | [IPresentation::ReplaceText](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ipresentation/replacetext/) |
-| Zastąp dopasowania wyrażenia regularnego | [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/replaceregex/) | [IPresentation::ReplaceRegex](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ipresentation/replaceregex/) |
+| Zastąp dopasowania wyrażeń regularnych | [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/replaceregex/) | [IPresentation::ReplaceRegex](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ipresentation/replaceregex/) |
 
 ## **Skonfiguruj dopasowywanie tekstu**
 
-Dla operacji na tekście dosłownym użyj [ITextSearchOptions](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextsearchoptions/) do kontrolowania dopasowań:
+Dla operacji tekstu dosłownego użyj [ITextSearchOptions](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextsearchoptions/) do kontrolowania dopasowania:
 
 - [ITextSearchOptions::set_WholeWordsOnly](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextsearchoptions/set_wholewordsonly/) ogranicza dopasowania do pełnych słów.
-- [ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) kontroluje, czy wielkość znaków musi się zgadzać.
+- [ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) określa, czy wielkość znaków musi się zgadzać.
 - [ITextSearchOptions::set_IncludeNotes](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextsearchoptions/set_includenotes/) uwzględnia notatki slajdów w operacjach wyszukiwania, zastępowania i podświetlania na poziomie prezentacji.
 
-Operacje z wyrażeniami regularnymi używają `System::Text::RegularExpressions::Regex`, więc reguły dopasowywania, takie jak rozróżnianie wielkości znaków i granice słów, są definiowane przez wyrażenie i jego opcje.
+Operacje wyrażeń regularnych używają `System::Text::RegularExpressions::Regex`, więc zasady dopasowywania, takie jak rozróżnianie wielkości liter i granice wyrazów, są definiowane przez wyrażenie i jego opcje.
 
-## **Zbierz informacje o dopasowaniach za pomocą callbacku**
+## **Identyfikuj właściciela ramki tekstowej**
 
-Zaimplementuj [IFindResultCallback](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ifindresultcallback/), aby otrzymywać powiadomienie o każdym dopasowaniu. Jego metoda [IFindResultCallback::FoundResult](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ifindresultcallback/foundresult/) dostarcza powiązaną ramkę tekstową, tekst źródłowy, dopasowany tekst oraz pozycję dopasowania.
+Ogólne przepływy przetwarzania tekstu często otrzymują [ITextFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/) podczas wyszukiwania, zastępowania, walidacji lub eksportu tekstu. Użyj [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/get_parentshape/) i [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/get_parentcell/) aby określić, który obiekt prezentacji jest właścicielem ramki tekstowej.
 
-Callback nie otrzymuje bezpośrednio numeru slajdu. Implementacja poniżej wyprowadza go z [ISlideComponent::get_Slide](https://reference.aspose.com/slides/pl/cpp/aspose.slides/islidecomponent/get_slide/) i obsługuje także tekst znaleziony w notatkach slajdu za pomocą [INotesSlide::get_ParentSlide](https://reference.aspose.com/slides/pl/cpp/aspose.slides/inotesslide/get_parentslide/). Opcjonalny numer slajdu pozwala temu samemu modelowi wyniku reprezentować tekst powiązany z innymi typami slajdów.
+| Właściciel ramki tekstowej | `get_ParentShape` | `get_ParentCell` |
+|---|---|---|
+| AutoShape lub inny kształt zawierający tekst | Właściciel [IShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishape/) | `nullptr` |
+| Komórka tabeli | `nullptr` | Właściciel [ICell](https://reference.aspose.com/slides/pl/cpp/aspose.slides/icell/) |
+
+Obie metody zapewniają nawigację tylko do odczytu. Wywołanie ich nie przenosi ramki tekstowej ani nie zmienia jej właściciela. Ogólny kod powinien sprawdzić oba wartości pod kątem `nullptr` i obsłużyć możliwość, że żaden właściciel nie jest dostępny.
+
+Poniższy przykład używa [SlideUtil::GetAllTextFrames](https://reference.aspose.com/slides/pl/cpp/aspose.slides.util/slideutil/getalltextframes/) do iteracji przez ramki tekstowe w prezentacji. Dla kształtów raportuje nazwę kształtu, typ w czasie wykonywania C++ oraz slajd, w którym się znajduje. Dla komórek tabeli raportuje współrzędne kolumny i wiersza (liczone od zera) oraz slajd, w którym się znajdują.
 
 ```cpp
 #include <DOM/IBaseSlide.h>
 #include <DOM/INotesSlide.h>
+#include <DOM/IShape.h>
 #include <DOM/ISlide.h>
 #include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <Util/SlideUtil.h>
+#include <system/console.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using Aspose::Slides::IBaseSlide;
+using Aspose::Slides::INotesSlide;
+using Aspose::Slides::IShape;
+using Aspose::Slides::ISlide;
+using Aspose::Slides::ITextFrame;
+using Aspose::Slides::Presentation;
+using Aspose::Slides::Util::SlideUtil;
+using System::AsCast;
+using System::Console;
+using System::MakeObject;
+using System::String;
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx");
+auto textFrames = SlideUtil::GetAllTextFrames(presentation, false);
+
+for (const auto& textFrame : textFrames)
+{
+    auto ownerShape = textFrame->get_ParentShape();
+    if (ownerShape != nullptr)
+    {
+        auto shapeName = String::IsNullOrEmpty(ownerShape->get_Name()) ? u"(unnamed)" : ownerShape->get_Name();
+        auto shapeType = ownerShape->GetType().get_Name();
+        auto baseSlide = ownerShape->get_Slide();
+        String slideLabel;
+        auto slide = AsCast<ISlide>(baseSlide);
+
+        if (slide != nullptr)
+        {
+            slideLabel = String::Format(u"slide {0}", slide->get_SlideNumber());
+        }
+        else
+        {
+            auto notesSlide = AsCast<INotesSlide>(baseSlide);
+            if (notesSlide != nullptr)
+            {
+                slideLabel = String::Format(u"notes for slide {0}", notesSlide->get_ParentSlide()->get_SlideNumber());
+            }
+            else
+            {
+                slideLabel = baseSlide->GetType().get_Name();
+            }
+        }
+
+        Console::WriteLine(u"Shape: {0}; type: {1}; {2}", shapeName, shapeType, slideLabel);
+        continue;
+    }
+
+    auto ownerCell = textFrame->get_ParentCell();
+    if (ownerCell != nullptr)
+    {
+        auto baseSlide = ownerCell->get_Slide();
+        String slideLabel;
+        auto slide = AsCast<ISlide>(baseSlide);
+
+        if (slide != nullptr)
+        {
+            slideLabel = String::Format(u"slide {0}", slide->get_SlideNumber());
+        }
+        else
+        {
+            auto notesSlide = AsCast<INotesSlide>(baseSlide);
+            if (notesSlide != nullptr)
+            {
+                slideLabel = String::Format(u"notes for slide {0}", notesSlide->get_ParentSlide()->get_SlideNumber());
+            }
+            else
+            {
+                slideLabel = baseSlide->GetType().get_Name();
+            }
+        }
+
+        Console::WriteLine(u"Table cell: column {0}, row {1}; {2}", ownerCell->get_FirstColumnIndex(), ownerCell->get_FirstRowIndex(), slideLabel);
+        continue;
+    }
+
+    Console::WriteLine(u"The text frame owner is not available as a shape or table cell.");
+}
+```
+
+Dla treści SmartArt iteruj przez kształty w [ISmartArtNode::get_Shapes](https://reference.aspose.com/slides/pl/cpp/aspose.slides.smartart/ismartartnode/get_shapes/) i uzyskaj dostęp do każdego [ISmartArtShape::get_TextFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides.smartart/ismartartshape/get_textframe/). Ramka tekstowa może być powiązana z jej kształtem za pomocą [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/get_parentshape/), podczas gdy [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/get_parentcell/) zwraca `nullptr`. Dlatego gałąź kształtu w przykładzie obsługuje również tekst z węzłów SmartArt.
+
+## **Zbieraj informacje o dopasowaniach za pomocą wywołania zwrotnego**
+
+Zaimplementuj [IFindResultCallback](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ifindresultcallback/) aby otrzymywać powiadomienie o każdym dopasowaniu. Jego metoda [IFindResultCallback::FoundResult](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ifindresultcallback/foundresult/) dostarcza powiązaną ramkę tekstową, tekst źródłowy, dopasowany tekst oraz pozycję dopasowania.
+
+Wywołanie zwrotne nie otrzymuje numeru slajdu bezpośrednio. Implementacja poniżej wyprowadza go z [ISlideComponent::get_Slide](https://reference.aspose.com/slides/pl/cpp/aspose.slides/islidecomponent/get_slide/) i dodatkowo obsługuje tekst znaleziony w notatkach slajdu poprzez [INotesSlide::get_ParentSlide](https://reference.aspose.com/slides/pl/cpp/aspose.slides/inotesslide/get_parentslide/). Nullable (pusty) numer slajdu pozwala temu samemu modelowi wyniku reprezentować tekst powiązany z innymi typami slajdów.
+
+```cpp
+#include <DOM/IBaseSlide.h>
+#include <DOM/INotesSlide.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Table/ICell.h>
 #include <IFindResultCallback.h>
 #include <system/collections/list.h>
 #include <system/nullable.h>
@@ -70,6 +179,7 @@ Callback nie otrzymuje bezpośrednio numeru slajdu. Implementacja poniżej wypro
 using Aspose::Slides::IBaseSlide;
 using Aspose::Slides::IFindResultCallback;
 using Aspose::Slides::INotesSlide;
+using Aspose::Slides::IShape;
 using Aspose::Slides::ISlide;
 using Aspose::Slides::ITextFrame;
 using System::AsCast;
@@ -119,7 +229,23 @@ public:
 private:
     static Nullable<int32_t> GetSlideNumber(SharedPtr<ITextFrame> textFrame)
     {
-        SharedPtr<IBaseSlide> baseSlide = textFrame->get_Slide();
+        auto parentShape = textFrame->get_ParentShape();
+        auto parentCell = textFrame->get_ParentCell();
+        SharedPtr<IBaseSlide> baseSlide;
+
+        if (parentShape != nullptr)
+        {
+            baseSlide = parentShape->get_Slide();
+        }
+        else if (parentCell != nullptr)
+        {
+            baseSlide = parentCell->get_Slide();
+        }
+        else
+        {
+            baseSlide = textFrame->get_Slide();
+        }
+
         auto slide = AsCast<ISlide>(baseSlide);
 
         if (slide != nullptr)
@@ -139,13 +265,13 @@ private:
 };
 ```
 
-Dla operacji zastępowania, `FoundText` zawiera pierwotny dopasowany tekst, więc callback może dokładnie zapisać, które terminy zostały zastąpione.
+Dla operacji zastępowania `FoundText` zawiera oryginalny dopasowany tekst, więc wywołanie zwrotne może dokładnie zanotować, które terminy zostały zastąpione.
 
 ## **Podświetl tekst**
 
-Użyj metody [ITextFrame::HighlightText](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/highlighttext/), aby podświetlić dopasowania tekstu dosłownego w ramce tekstowej. Przekaż [ITextSearchOptions](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextsearchoptions/) aby kontrolować wyszukiwanie oraz callback do zbierania szczegółów dopasowań.
+Użyj metody [ITextFrame::HighlightText](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/highlighttext/) aby podświetlić dopasowania tekstu dosłownego w ramce tekstowej. Przekaż [ITextSearchOptions](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextsearchoptions/) aby kontrolować wyszukiwanie oraz wywołanie zwrotne do zbierania szczegółów dopasowania.
 
-Poniższy przykład kodu podświetla wszystkie wystąpienia znaków **"try"** i następnie podświetla tylko pełne słowo **"to"**. Oba wyszukiwania zgłaszają swoje dopasowania do tego samego callbacku.
+Poniższy przykład podświetla wszystkie wystąpienia znaków **"try"**, a następnie podświetla tylko pełne słowo **"to"**. Oba wyszukiwania raportują swoje dopasowania do tego samego wywołania zwrotnego.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -244,7 +370,7 @@ Wynik:
 
 ## **Podświetl tekst w całej prezentacji**
 
-Użyj [IPresentation::HighlightText](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ipresentation/highlighttext/) i [IPresentation::HighlightRegex](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ipresentation/highlightregex/), aby przeszukać wszystkie odpowiednie ramki tekstowe w prezentacji. Poniższy przykład podświetla dosłowny termin oraz wszystkie adresy e‑mail, zachowując osobne kolekcje wyników dla obu wyszukiwań.
+Użyj [IPresentation::HighlightText](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ipresentation/highlighttext/) i [IPresentation::HighlightRegex](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ipresentation/highlightregex/) aby przeszukać wszystkie odpowiednie ramki tekstowe w prezentacji. Poniższy przykład podświetla termin dosłowny oraz wszystkie adresy e‑mail, zachowując oddzielne kolekcje wyników dla obu wyszukiwań.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -285,9 +411,9 @@ presentation->Dispose();
 
 ## **Zastąp tekst w ramce tekstowej**
 
-Użyj [ITextFrame::ReplaceText](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/replacetext/) dla tekstu dosłownego i [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/replaceregex/) dla zastępowania opartego na wzorcu. Metody te aktualizują dopasowany tekst w istniejącej ramce tekstowej, zachowując formatowanie otaczających fragmentów zamiast przebudowywać ramkę z prostego ciągu znaków.
+Użyj [ITextFrame::ReplaceText](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/replacetext/) dla tekstu dosłownego i [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/replaceregex/) dla zastępowania opartego na wzorcu. Metody te aktualizują dopasowany tekst w istniejącej ramce, zachowując formatowanie otaczających fragmentów zamiast przebudowywać ramkę z czystego ciągu znaków.
 
-Poniższy przykład standaryzuje wariant pisowni, a następnie zastępuje etykiety wersji. Ten sam callback rejestruje pierwotne terminy dopasowane przez obie operacje.
+Poniższy przykład standaryzuje wariant pisowni, a następnie zastępuje etykiety wersji. To samo wywołanie zwrotne rejestruje oryginalne terminy dopasowane w obu operacjach.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -326,11 +452,11 @@ presentation->Save(u"updated_text_frame.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Jeśli jedno dopasowanie obejmuje fragmenty o różnym formatowaniu, sprawdź wynik, aby potwierdzić, które formatowanie powinno zostać zastosowane do tekstu zastępczego.
+Jeśli jedno dopasowanie obejmuje fragmenty o różnym formatowaniu, sprawdź wynik, aby potwierdzić, które formatowanie ma zostać zastosowane do tekstu zastępczego.
 
 ## **Zastąp tekst w całej prezentacji**
 
-Użyj [IPresentation::ReplaceText](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ipresentation/replacetext/) i [IPresentation::ReplaceRegex](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ipresentation/replaceregex/), aby zastosować te same operacje w całej prezentacji. Jest to przydatne przy czyszczeniu szablonów, aktualizacji terminologii oraz redakcji.
+Użyj [IPresentation::ReplaceText](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ipresentation/replacetext/) i [IPresentation::ReplaceRegex](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ipresentation/replaceregex/) aby zastosować te same operacje w całej prezentacji. Jest to przydatne przy czyszczeniu szablonów, aktualizacjach terminologii i redakcji.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -363,7 +489,7 @@ presentation->Dispose();
 
 ## **Grupuj dopasowania dla raportowania**
 
-Ponieważ każdy wynik przechowuje numer slajdu i ramkę tekstową, aplikacje mogą grupować dopasowania w celu audytu, raportowania lub przeglądu. Poniższy przykład grupuje zebrane wyniki najpierw według slajdu, a następnie według ramki tekstowej:
+Ponieważ każdy wynik przechowuje numer slajdu i ramkę tekstową, aplikacje mogą grupować dopasowania w celu audytu, raportowania lub przeglądu. Poniższy przykład grupuje zebrane wyniki najpierw według slajdu, a potem według ramki tekstowej:
 
 ```cpp
 #include <DOM/ITextFrame.h>
@@ -411,20 +537,20 @@ for (const auto& slideGroup : matchesBySlide)
 
 **Jak mogę przeszukać tylko jedną ramkę tekstową zamiast całej prezentacji?**
 
-Pobierz ramkę tekstową kształtu i wywołaj [ITextFrame::HighlightText](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/highlighttext/), [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/highlightregex/), [ITextFrame::ReplaceText](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/replacetext/) lub [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/replaceregex/) na tej ramce. Metody na poziomie prezentacji przetwarzają wszystkie odpowiednie ramki tekstowe.
+Uzyskaj ramkę tekstową kształtu i wywołaj [ITextFrame::HighlightText](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/highlighttext/), [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/highlightregex/), [ITextFrame::ReplaceText](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/replacetext/) lub [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/replaceregex/) na tej ramce tekstowej. Metody na poziomie prezentacji przetwarzają wszystkie odpowiednie ramki tekstowe.
 
-**Jak mogę dopasować pełne słowa z prawidłową kapitalizacją?**
+**Jak mogę dopasować pełne słowa z prawidłową wielkością liter?**
 
-Wywołaj [ITextSearchOptions::set_WholeWordsOnly](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextsearchoptions/set_wholewordsonly/) i [ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) z wartością `true` i przekaż te opcje do metody podświetlania lub zastępowania tekstu dosłownego. W przypadku wyrażeń regularnych zdefiniuj granice słów i rozróżnianie wielkości znaków bezpośrednio w `System::Text::RegularExpressions::Regex`.
+Wywołaj [ITextSearchOptions::set_WholeWordsOnly](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextsearchoptions/set_wholewordsonly/) i [ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) z wartością `true`, i przekaż opcje do metody podświetlania lub zastępowania tekstu dosłownego. Dla wyrażeń regularnych zdefiniuj granice słów i rozróżnianie wielkości liter w samym `System::Text::RegularExpressions::Regex`.
 
-**Czy wyszukiwanie i zamiana mogą obejmować tekst w notatkach slajdów?**
+**Czy wyszukiwanie i zastępowanie może obejmować tekst w notatkach slajdu?**
 
-Tak. Wywołaj [ITextSearchOptions::set_IncludeNotes](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextsearchoptions/set_includenotes/) z wartością `true` przy używaniu operacji tekstu dosłownego na poziomie prezentacji. Pokazana powyżej implementacja callbacku mapuje dopasowanie w notatce slajdu na jego numer slajdu nadrzędnego.
+Tak. Wywołaj [ITextSearchOptions::set_IncludeNotes](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextsearchoptions/set_includenotes/) z wartością `true` podczas używania operacji tekstu dosłownego na poziomie prezentacji. Implementacja wywołania zwrotnego przedstawiona powyżej mapuje dopasowanie w notatce slajdu z powrotem na numer slajdu nadrzędnego.
 
 **Jak mogę stworzyć raport bez ponownego skanowania prezentacji?**
 
-Przekaż implementację [IFindResultCallback](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ifindresultcallback/) do operacji podświetlania lub zastępowania. Callback otrzymuje każde dopasowanie w trakcie wykonywania operacji, dzięki czemu aplikacja może przechowywać tekst źródłowy, dopasowany tekst, pozycję, ramkę tekstową oraz wyprowadzony numer slajdu w celu późniejszego grupowania lub eksportu.
+Przekaż implementację [IFindResultCallback](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ifindresultcallback/) do operacji podświetlania lub zastępowania. Wywołanie zwrotne otrzymuje każde dopasowanie podczas działania operacji, więc aplikacja może przechowywać tekst źródłowy, dopasowany tekst, pozycję, ramkę tekstową i wyprowadzony numer slajdu do późniejszego grupowania lub eksportu.
 
-**Czy zamiana tekstu zachowuje jego formatowanie?**
+**Czy zastępowanie tekstu zachowuje jego formatowanie?**
 
-[ITextFrame::ReplaceText](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/replacetext/) i [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/replaceregex/) modyfikują dopasowany tekst wewnątrz istniejącej ramki tekstowej i zachowują formatowanie otaczających fragmentów. Jeśli dopasowanie obejmuje fragmenty o różnym formatowaniu, sprawdź wynik, aby upewnić się, że zamieniony tekst używa pożądanego stylu.
+[ITextFrame::ReplaceText](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/replacetext/) i [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/replaceregex/) modyfikują dopasowany tekst w istniejącej ramce tekstowej i zachowują formatowanie otaczających fragmentów. Jeśli dopasowanie obejmuje fragmenty o różnym formatowaniu, sprawdź wynik, aby upewnić się, że zamiana używa pożądanego stylu.

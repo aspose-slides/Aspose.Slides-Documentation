@@ -1,12 +1,12 @@
 ---
-title: Tìm kiếm và Thay thế Văn bản trong các bài thuyết trình PowerPoint bằng PHP
+title: Tìm kiếm và Thay thế Văn bản trong Bản trình chiếu PowerPoint bằng PHP
 linktitle: Tìm kiếm và Thay thế Văn bản
 type: docs
 weight: 55
 url: /vi/php-java/search-and-replace-text/
 keywords:
 - tìm kiếm văn bản
-- đánh dấu văn bản
+- làm nổi bật văn bản
 - thay thế văn bản
 - biểu thức chính quy
 - callback kết quả
@@ -14,47 +14,121 @@ keywords:
 - báo cáo kiểm toán
 - PowerPoint
 - OpenDocument
-- bài thuyết trình
+- bản trình chiếu
 - PHP
 - Aspose.Slides
-description: "Tìm kiếm, đánh dấu và thay thế văn bản trong các bài thuyết trình PowerPoint đồng thời thu thập mọi kết quả khớp bằng Aspose.Slides cho PHP qua Java."
+description: "Tìm kiếm, làm nổi bật và thay thế văn bản trong các bản trình chiếu PowerPoint đồng thời thu thập mọi kết quả khớp với Aspose.Slides cho PHP qua Java."
 ---
 ## **Tổng quan**
 
-Aspose.Slides for PHP via Java có thể tìm kiếm, đánh dấu và thay thế văn bản trong một khung văn bản riêng lẻ hoặc trên toàn bộ bài thuyết trình. Mỗi thao tác cũng có thể thông báo cho ứng dụng về mọi kết quả khớp thông qua một callback kết quả. Điều này cho phép cập nhật bài thuyết trình và đồng thời xây dựng một dấu vết kiểm toán chứa văn bản khớp, ngữ cảnh, vị trí, khung văn bản và số slide.
+Aspose.Slides for PHP via Java có thể tìm kiếm, làm nổi bật và thay thế văn bản trong một khung văn bản riêng lẻ hoặc trên toàn bộ bản trình chiếu. Mỗi thao tác cũng có thể thông báo cho ứng dụng về mỗi kết quả khớp thông qua một callback kết quả. Điều này cho phép cập nhật bản trình chiếu đồng thời xây dựng một nhật ký kiểm tra chứa văn bản khớp, ngữ cảnh, vị trí, khung văn bản và số slide.
 
-Các khả năng này hữu ích cho việc xem xét, xóa thông tin, kiểm tra thuật ngữ, dọn dẹp mẫu và quy trình báo cáo tự động.
+Các khả năng này hữu ích cho việc rà soát, xóa thông tin nhạy cảm, kiểm tra thuật ngữ, dọn dẹp mẫu và quy trình báo cáo tự động.
 
-Trong các ví dụ đầu tiên dưới đây, chúng tôi sử dụng một tệp có tên "sample.pptx", chứa một hộp văn bản duy nhất trên slide đầu tiên với văn bản sau:
+Trong các ví dụ đầu tiên dưới đây, chúng tôi sử dụng tệp có tên “sample.pptx”, chứa một hộp văn bản duy nhất trên slide đầu tiên với nội dung sau:
 
 ![Văn bản mẫu](sample_text.png)
 
 ## **Chọn phạm vi tìm kiếm**
 
-Sử dụng các phương thức trên [TextFrame](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textframe/) để giới hạn một thao tác trong một khung văn bản. Sử dụng các phương thức trên [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/) để xử lý tất cả văn bản áp dụng trong bài thuyết trình.
+Sử dụng các phương thức trên [TextFrame](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textframe/) để giới hạn một thao tác cho một khung văn bản. Sử dụng các phương thức trên [Presentation](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/) để xử lý tất cả các văn bản áp dụng trong bản trình chiếu.
 
-| Hoạt động | Một khung văn bản | Toàn bộ bài thuyết trình |
+| Thao tác | Một khung văn bản | Toàn bộ bản trình chiếu |
 |---|---|---|
-| Đánh dấu văn bản nguyên bản | [TextFrame::highlightText](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textframe/#highlightText) | [Presentation::highlightText](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/#highlightText) |
-| Đánh dấu các kết quả khớp biểu thức chính quy | [TextFrame::highlightRegex](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textframe/#highlightRegex) | [Presentation::highlightRegex](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/#highlightRegex) |
-| Thay thế văn bản nguyên bản | [TextFrame::replaceText](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textframe/#replaceText) | [Presentation::replaceText](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/#replaceText) |
-| Thay thế các kết quả khớp biểu thức chính quy | [TextFrame::replaceRegex](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textframe/#replaceRegex) | [Presentation::replaceRegex](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/#replaceRegex) |
+| Đánh dấu văn bản nguyên văn | [TextFrame::highlightText](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textframe/#highlightText) | [Presentation::highlightText](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/#highlightText) |
+| Đánh dấu các khớp biểu thức chính quy | [TextFrame::highlightRegex](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textframe/#highlightRegex) | [Presentation::highlightRegex](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/#highlightRegex) |
+| Thay thế văn bản nguyên văn | [TextFrame::replaceText](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textframe/#replaceText) | [Presentation::replaceText](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/#replaceText) |
+| Thay thế các khớp biểu thức chính quy | [TextFrame::replaceRegex](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textframe/#replaceRegex) | [Presentation::replaceRegex](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/#replaceRegex) |
 
 ## **Cấu hình khớp văn bản**
 
-Đối với các thao tác văn bản nguyên bản, sử dụng [TextSearchOptions](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textsearchoptions/) để điều khiển việc khớp:
+Đối với các thao tác văn bản nguyên văn, sử dụng [TextSearchOptions](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textsearchoptions/) để kiểm soát việc khớp:
 
-- [TextSearchOptions::setWholeWordsOnly](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textsearchoptions/#setWholeWordsOnly) giới hạn các kết quả khớp chỉ với các từ hoàn chỉnh.
-- [TextSearchOptions::setCaseSensitive](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textsearchoptions/#setCaseSensitive) điều khiển việc có cần khớp đúng kiểu chữ hay không.
-- [TextSearchOptions::setIncludeNotes](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textsearchoptions/#setIncludeNotes) bao gồm ghi chú slide trong các thao tác tìm kiếm, thay thế và đánh dấu ở cấp độ bài thuyết trình.
+- [TextSearchOptions::setWholeWordsOnly](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textsearchoptions/#setWholeWordsOnly) giới hạn kết quả chỉ ở những từ hoàn chỉnh.
+- [TextSearchOptions::setCaseSensitive](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textsearchoptions/#setCaseSensitive) kiểm soát việc có phải khớp chữ hoa/thường hay không.
+- [TextSearchOptions::setIncludeNotes](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textsearchoptions/#setIncludeNotes) bao gồm ghi chú slide trong các thao tác tìm kiếm, thay thế và làm nổi bật ở mức bản trình chiếu.
 
-Các thao tác biểu thức chính quy sử dụng một `Pattern` của Java, vì vậy các quy tắc khớp như độ nhạy cảm với kiểu chữ và ranh giới từ được xác định bởi biểu thức và các cờ của nó.
+Các thao tác biểu thức chính quy sử dụng một `Pattern` của Java, vì vậy các quy tắc khớp như phân biệt chữ hoa/thường và ranh giới từ được xác định bởi biểu thức và các cờ của nó.
 
-## **Thu thập thông tin khớp với Callback**
+## **Xác định chủ sở hữu của một khung văn bản**
 
-Gửi một callback proxy Java tới phương pháp đánh dấu hoặc thay thế để nhận thông báo cho mỗi kết quả khớp. Phương thức callback nhận khung văn bản liên quan, văn bản nguồn, văn bản khớp và vị trí khớp.
+Các quy trình xử lý văn bản chung thường nhận được một [TextFrame](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textframe/) khi tìm kiếm, thay thế, xác thực hoặc xuất văn bản. Sử dụng [TextFrame::getParentShape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textframe/#getParentShape) và [TextFrame::getParentCell](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textframe/#getParentCell) để xác định đối tượng trong bản trình chiếu sở hữu khung văn bản.
 
-Callback không nhận trực tiếp số slide. Triển khai dưới đây suy ra nó từ slide cha và cũng xử lý văn bản được tìm thấy trong ghi chú slide. Mảng kết quả sử dụng `null` khi văn bản được liên kết với loại slide khác.
+Các giá trị mong đợi phụ thuộc vào chủ sở hữu:
+
+| Chủ sở hữu khung văn bản | `getParentShape` | `getParentCell` |
+|---|---|---|
+| Một AutoShape hoặc một hình dạng chứa văn bản khác | Đối tượng sở hữu [Shape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/shape/) | `null` |
+| Một ô trong bảng | `null` | Đối tượng sở hữu [Cell](https://reference.aspose.com/slides/vi/php-java/aspose.slides/cell/) |
+
+Cả hai phương thức đều chỉ cung cấp điều hướng chỉ đọc. Gọi chúng không di chuyển khung văn bản hay thay đổi chủ sở hữu. Mã chung nên kiểm tra cả hai giá trị bằng `java_is_null` và xử lý khả năng không có bất kỳ chủ sở hữu nào.
+
+Ví dụ sau sử dụng [SlideUtil::getAllTextFrames](https://reference.aspose.com/slides/vi/php-java/aspose.slides/slideutil/#getAllTextFrames) để duyệt qua các khung văn bản trong một bản trình chiếu. Đối với các hình dạng, nó báo cáo tên hình dạng, kiểu runtime của Java và slide chứa. Đối với các ô bảng, nó báo cáo tọa độ cột và hàng (bắt đầu từ 0) và slide chứa.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SlideUtil;
+
+$presentation = new Presentation("presentation.pptx");
+$arrayClass = new java_class("java.lang.reflect.Array");
+
+try {
+    $textFrames = SlideUtil::getAllTextFrames($presentation, false);
+    $textFrameCount = java_values($arrayClass->getLength($textFrames));
+
+    for ($textFrameIndex = 0; $textFrameIndex < $textFrameCount; $textFrameIndex++) {
+        $textFrame = $textFrames[$textFrameIndex];
+        $ownerShape = $textFrame->getParentShape();
+        if (!java_is_null($ownerShape)) {
+            $shapeName = java_values($ownerShape->getName());
+            $shapeName = $shapeName === "" ? "(unnamed)" : $shapeName;
+            $shapeType = java_values($ownerShape->getClass()->getSimpleName());
+            $baseSlide = $ownerShape->getSlide();
+            $slideClassName = java_values($baseSlide->getClass()->getName());
+
+            if ($slideClassName === "com.aspose.slides.Slide") {
+                $slideLabel = "slide " . java_values($baseSlide->getSlideNumber());
+            } elseif ($slideClassName === "com.aspose.slides.NotesSlide") {
+                $slideLabel = "notes for slide " . java_values($baseSlide->getParentSlide()->getSlideNumber());
+            } else {
+                $slideLabel = java_values($baseSlide->getClass()->getSimpleName());
+            }
+
+            echo("Shape: " . $shapeName . "; type: " . $shapeType . "; " . $slideLabel . "\n");
+            continue;
+        }
+
+        $ownerCell = $textFrame->getParentCell();
+        if (!java_is_null($ownerCell)) {
+            $baseSlide = $ownerCell->getSlide();
+            $slideClassName = java_values($baseSlide->getClass()->getName());
+
+            if ($slideClassName === "com.aspose.slides.Slide") {
+                $slideLabel = "slide " . java_values($baseSlide->getSlideNumber());
+            } elseif ($slideClassName === "com.aspose.slides.NotesSlide") {
+                $slideLabel = "notes for slide " . java_values($baseSlide->getParentSlide()->getSlideNumber());
+            } else {
+                $slideLabel = java_values($baseSlide->getClass()->getSimpleName());
+            }
+
+            echo("Table cell: column " . java_values($ownerCell->getFirstColumnIndex()) . ", row " . java_values($ownerCell->getFirstRowIndex()) . "; " . $slideLabel . "\n");
+            continue;
+        }
+
+        echo("The text frame owner is not available as a shape or table cell.\n");
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Đối với nội dung SmartArt, duyệt qua các hình dạng trong [SmartArtNode::getShapes](https://reference.aspose.com/slides/vi/php-java/aspose.slides/smartartnode/#getShapes) và truy cập mỗi [SmartArtShape::getTextFrame](https://reference.aspose.com/slides/vi/php-java/aspose.slides/smartartshape/#getTextFrame). Khung văn bản có thể được truy vết đến hình dạng liên quan thông qua [TextFrame::getParentShape](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textframe/#getParentShape), trong khi [TextFrame::getParentCell](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textframe/#getParentCell) trả về `null`. Do đó, nhánh hình dạng trong ví dụ cũng xử lý văn bản từ các nút SmartArt.
+
+## **Thu thập thông tin khớp bằng Callback**
+
+Truyền một callback proxy Java cho phương thức làm nổi bật hoặc thay thế để nhận thông báo cho mỗi khớp. Phương thức callback nhận khung văn bản liên quan, văn bản nguồn, văn bản khớp và vị trí khớp.
+
+Callback không nhận trực tiếp số slide. Triển khai dưới đây suy ra số slide từ slide cha và cũng xử lý văn bản được tìm thấy trong ghi chú slide. Mảng kết quả sử dụng `null` khi văn bản liên kết với một loại slide khác.
 
 ```php
 class TextSearchCallback {
@@ -76,7 +150,17 @@ class TextSearchCallback {
     }
 
     private function getSlideNumber($textFrame) {
-        $parentSlide = $textFrame->getSlide();
+        $parentShape = $textFrame->getParentShape();
+        $parentCell = $textFrame->getParentCell();
+
+        if (!java_is_null($parentShape)) {
+            $parentSlide = $parentShape->getSlide();
+        } elseif (!java_is_null($parentCell)) {
+            $parentSlide = $parentCell->getSlide();
+        } else {
+            $parentSlide = $textFrame->getSlide();
+        }
+
         if (java_is_null($parentSlide)) {
             return null;
         }
@@ -101,7 +185,7 @@ class TextSearchCallback {
 }
 ```
 
-Tạo một proxy cho đối tượng PHP này trước khi truyền nó vào một thao tác:
+Tạo một proxy cho đối tượng PHP này trước khi truyền vào một thao tác:
 
 ```php
 $callbackHandler = new TextSearchCallback();
@@ -113,13 +197,13 @@ $callback = java_closure(
 );
 ```
 
-Đối với các thao tác thay thế, `foundText` chứa văn bản khớp gốc, vì vậy callback có thể ghi lại chính xác các thuật ngữ đã được thay thế.
+Đối với các thao tác thay thế, `foundText` chứa văn bản gốc đã khớp, vì vậy callback có thể ghi lại chính xác các thuật ngữ đã được thay thế.
 
-## **Đánh dấu văn bản**
+## **Làm nổi bật văn bản**
 
-Sử dụng phương thức [TextFrame::highlightText](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textframe/#highlightText) để đánh dấu các kết quả khớp văn bản nguyên bản trong một khung văn bản. Truyền [TextSearchOptions](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textsearchoptions/) để điều khiển việc tìm kiếm.
+Sử dụng phương thức [TextFrame::highlightText](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textframe/#highlightText) để làm nổi bật các khớp văn bản nguyên văn trong một khung văn bản. Truyền [TextSearchOptions](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textsearchoptions/) để kiểm soát việc tìm kiếm.
 
-Ví dụ mã dưới đây đánh dấu mọi lần xuất hiện của các ký tự **"try"** và sau đó chỉ đánh dấu từ hoàn chỉnh **"to"**.
+Ví dụ mã dưới đây làm nổi bật tất cả các lần xuất hiện của ký tự **"try"** và sau đó chỉ làm nổi bật từ hoàn chỉnh **"to"**.
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -138,7 +222,7 @@ try {
     $substringSearchOptions->setCaseSensitive(false);
     $substringHighlightColor = new Java("java.awt.Color", 173, 216, 230);
 
-    // Đánh dấu mọi lần xuất hiện của "try" trong khung văn bản.
+    // Làm nổi bật mọi lần xuất hiện của "try" trong khung văn bản.
     $shape->getTextFrame()->highlightText(
         "try",
         $substringHighlightColor,
@@ -151,7 +235,7 @@ try {
     $wholeWordSearchOptions->setCaseSensitive(false);
     $wholeWordHighlightColor = new Java("java.awt.Color", 238, 130, 238);
 
-    // Đánh dấu chỉ từ hoàn chỉnh "to".
+    // Chỉ làm nổi bật từ hoàn chỉnh "to".
     $shape->getTextFrame()->highlightText(
         "to",
         $wholeWordHighlightColor,
@@ -176,13 +260,13 @@ finally {
 
 Kết quả:
 
-![Văn bản đã được đánh dấu](highlighted_text.png)
+![Văn bản đã được làm nổi bật](highlighted_text.png)
 
-## **Đánh dấu văn bản bằng biểu thức chính quy**
+## **Làm nổi bật văn bản bằng biểu thức chính quy**
 
-Phương thức [TextFrame::highlightRegex](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textframe/#highlightRegex) đánh dấu các kết quả khớp văn bản được tìm thấy bởi một biểu thức chính quy trong một khung văn bản.
+Phương thức [TextFrame::highlightRegex](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textframe/#highlightRegex) làm nổi bật các khớp văn bản được tìm thấy bằng một biểu thức chính quy trong một khung văn bản.
 
-Mã sau đây đánh dấu tất cả các từ chứa bảy ký tự trở lên:
+Mã sau làm nổi bật tất cả các từ chứa bảy ký tự trở lên:
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -203,11 +287,11 @@ finally {
 
 Kết quả:
 
-![Văn bản đã được đánh dấu bằng biểu thức chính quy](highlighted_text_using_regex.png)
+![Văn bản đã được làm nổi bật bằng biểu thức chính quy](highlighted_text_using_regex.png)
 
-## **Đánh dấu văn bản trên toàn bộ bài thuyết trình**
+## **Làm nổi bật văn bản trên toàn bộ bản trình chiếu**
 
-Sử dụng [Presentation::highlightText](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/#highlightText) và [Presentation::highlightRegex](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/#highlightRegex) để tìm kiếm tất cả các khung văn bản áp dụng trong một bài thuyết trình. Ví dụ sau đây đánh dấu một thuật ngữ nguyên bản và tất cả địa chỉ email:
+Sử dụng [Presentation::highlightText](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/#highlightText) và [Presentation::highlightRegex](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/#highlightRegex) để tìm kiếm tất cả các khung văn bản áp dụng trong một bản trình chiếu. Ví dụ sau làm nổi bật một thuật ngữ nguyên văn và tất cả địa chỉ email:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -242,9 +326,9 @@ finally {
 
 ## **Thay thế văn bản trong một khung văn bản**
 
-Sử dụng [TextFrame::replaceText](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textframe/#replaceText) cho văn bản nguyên bản và [TextFrame::replaceRegex](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textframe/#replaceRegex) cho việc thay thế dựa trên mẫu. Các phương thức này cập nhật văn bản khớp trong khung văn bản hiện có, giữ nguyên định dạng phần xung quanh thay vì xây dựng lại khung văn bản từ một chuỗi thuần.
+Sử dụng [TextFrame::replaceText](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textframe/#replaceText) cho văn bản nguyên văn và [TextFrame::replaceRegex](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textframe/#replaceRegex) cho việc thay thế dựa trên mẫu. Các phương thức này cập nhật văn bản khớp bên trong khung văn bản hiện có, giữ nguyên định dạng phần xung quanh thay vì xây dựng lại khung văn bản từ một chuỗi thuần.
 
-Ví dụ sau chuẩn hoá một biến thể chính tả và sau đó thay thế các nhãn phiên bản:
+Ví dụ sau chuẩn hóa một biến thể chính tả và sau đó thay thế các nhãn phiên bản:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -282,11 +366,11 @@ finally {
 }
 ```
 
-Nếu một kết quả khớp bao phủ các phần có định dạng khác nhau, hãy xem lại kết quả để xác định định dạng nào nên áp dụng cho văn bản thay thế.
+Nếu một khớp bao phủ các phần có định dạng khác nhau, hãy xem lại đầu ra để xác nhận định dạng nào sẽ áp dụng cho văn bản thay thế.
 
-## **Thay thế văn bản trên toàn bộ bài thuyết trình**
+## **Thay thế văn bản trên toàn bộ bản trình chiếu**
 
-Sử dụng [Presentation::replaceText](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/#replaceText) và [Presentation::replaceRegex](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/#replaceRegex) để áp dụng cùng các thao tác trên toàn bộ bài thuyết trình. Điều này hữu ích cho việc dọn dẹp mẫu, cập nhật thuật ngữ và xóa thông tin.
+Sử dụng [Presentation::replaceText](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/#replaceText) và [Presentation::replaceRegex](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/#replaceRegex) để áp dụng cùng một thao tác trên toàn bộ bản trình chiếu. Điều này hữu ích cho việc dọn dẹp mẫu, cập nhật thuật ngữ và xóa thông tin nhạy cảm.
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -318,9 +402,9 @@ finally {
 }
 ```
 
-## **Nhóm các kết quả khớp cho báo cáo**
+## **Nhóm các khớp cho báo cáo**
 
-Vì mỗi kết quả đều lưu số slide và khung văn bản, các ứng dụng có thể nhóm các kết quả khớp cho kiểm toán, báo cáo hoặc quy trình xem xét. Ví dụ dưới đây nhóm các kết quả đã thu thập trước tiên theo slide, sau đó theo khung văn bản:
+Vì mỗi kết quả lưu trữ số slide và khung văn bản, các ứng dụng có thể nhóm các khớp để kiểm toán, báo cáo hoặc quy trình rà soát. Ví dụ sau nhóm các kết quả thu thập được đầu tiên theo slide và sau đó theo khung văn bản:
 
 ```php
 $matchesBySlide = [];
@@ -367,22 +451,22 @@ foreach ($matchesBySlide as $slideLabel => $textFrameGroups) {
 
 ## **Câu hỏi thường gặp**
 
-**Làm sao tôi có thể tìm kiếm chỉ trong một hộp văn bản thay vì toàn bộ bài thuyết trình?**
+**Làm thế nào để tìm kiếm chỉ một hộp văn bản thay vì toàn bộ bản trình chiếu?**
 
-Lấy khung văn bản của hình dạng và gọi [TextFrame::highlightText](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textframe/#highlightText), [TextFrame::highlightRegex](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textframe/#highlightRegex), [TextFrame::replaceText](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textframe/#replaceText) hoặc [TextFrame::replaceRegex](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textframe/#replaceRegex) trên khung văn bản đó. Các phương thức ở cấp độ bài thuyết trình sẽ xử lý tất cả các khung văn bản áp dụng.
+Lấy khung văn bản của hình dạng và gọi [TextFrame::highlightText](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textframe/#highlightText), [TextFrame::highlightRegex](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textframe/#highlightRegex), [TextFrame::replaceText](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textframe/#replaceText) hoặc [TextFrame::replaceRegex](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textframe/#replaceRegex) trên khung văn bản đó. Các phương thức cấp độ Presentation xử lý tất cả các khung văn bản áp dụng.
 
-**Làm sao tôi có thể khớp toàn bộ từ với việc viết hoa đúng?**
+**Làm thế nào để khớp các từ hoàn chỉnh với đúng chữ hoa?**
 
-Đặt [TextSearchOptions::setWholeWordsOnly](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textsearchoptions/#setWholeWordsOnly) và [TextSearchOptions::setCaseSensitive](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textsearchoptions/#setCaseSensitive) thành `true`, và truyền các tùy chọn này vào phương pháp đánh dấu hoặc thay thế văn bản nguyên bản. Đối với biểu thức chính quy, xác định ranh giới từ và độ nhạy cảm với kiểu chữ trong `Pattern` của Java.
+Đặt [TextSearchOptions::setWholeWordsOnly](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textsearchoptions/#setWholeWordsOnly) và [TextSearchOptions::setCaseSensitive](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textsearchoptions/#setCaseSensitive) thành `true`, và truyền các tùy chọn này cho phương thức làm nổi bật hoặc thay thế văn bản nguyên văn. Đối với biểu thức chính quy, định nghĩa ranh giới từ và phân biệt chữ hoa trong `Pattern` của Java.
 
-**Việc tìm kiếm và thay thế có thể bao gồm văn bản trong ghi chú slide không?**
+**Tìm kiếm và thay thế có bao gồm văn bản trong ghi chú slide không?**
 
-Có. Đặt [TextSearchOptions::setIncludeNotes](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textsearchoptions/#setIncludeNotes) thành `true` khi sử dụng thao tác văn bản nguyên bản ở cấp độ bài thuyết trình.
+Có. Đặt [TextSearchOptions::setIncludeNotes](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textsearchoptions/#setIncludeNotes) thành `true` khi sử dụng một thao tác văn bản nguyên văn ở mức bản trình chiếu.
 
-**Làm sao tôi có thể tạo báo cáo mà không cần quét lại bài thuyết trình lần thứ hai?**
+**Làm sao tạo báo cáo mà không quét lại bản trình chiếu một lần nữa?**
 
-Gửi một callback proxy Java tới thao tác đánh dấu hoặc thay thế. Callback nhận mọi kết quả khớp trong khi thao tác đang chạy, vì vậy ứng dụng có thể lưu trữ văn bản nguồn, văn bản khớp, vị trí, khung văn bản và số slide suy ra để nhóm hoặc xuất ra sau.
+Truyền một callback proxy Java cho thao tác làm nổi bật hoặc thay thế. Nó sẽ nhận mỗi khớp trong khi thao tác đang chạy, vì vậy ứng dụng có thể lưu trữ văn bản nguồn, văn bản khớp, vị trí, khung văn bản và số slide suy ra để sau này nhóm hoặc xuất.
 
 **Việc thay thế văn bản có giữ nguyên định dạng không?**
 
-[TextFrame::replaceText](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textframe/#replaceText) và [TextFrame::replaceRegex](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textframe/#replaceRegex) sửa đổi văn bản khớp trong khung văn bản hiện có và giữ lại định dạng của phần xung quanh. Nếu một kết quả khớp bao phủ các phần có định dạng khác nhau, hãy kiểm tra kết quả để đảm bảo việc thay thế sử dụng kiểu định dạng mong muốn.
+[TextFrame::replaceText](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textframe/#replaceText) và [TextFrame::replaceRegex](https://reference.aspose.com/slides/vi/php-java/aspose.slides/textframe/#replaceRegex) sửa đổi văn bản khớp bên trong khung văn bản hiện có và giữ lại định dạng phần xung quanh. Nếu một khớp bao phủ các phần có định dạng khác nhau, hãy kiểm tra kết quả để đảm bảo việc thay thế sử dụng kiểu mong muốn.

@@ -1,13 +1,13 @@
 ---
-title: Kelola Tabel Presentasi di .NET
+title: Mengelola Tabel Presentasi di .NET
 linktitle: Kelola Tabel
 type: docs
 weight: 10
 url: /id/net/manage-table/
 keywords:
 - menambah tabel
-- membuat tabel
-- mengakses tabel
+- buat tabel
+- akses tabel
 - rasio aspek
 - rata teks
 - pemformatan teks
@@ -21,26 +21,28 @@ description: "Buat & edit tabel dalam slide PowerPoint dengan Aspose.Slides untu
 ---
 ## **Pendahuluan**
 
-Tabel di PowerPoint adalah cara yang efisien untuk menampilkan dan menggambarkan informasi. Informasi dalam kisi sel (disusun dalam baris dan kolom) bersifat jelas dan mudah dipahami.
+Tabel di PowerPoint adalah cara yang efisien untuk menampilkan dan memperlihatkan informasi. Informasi dalam kisi sel (diatur dalam baris dan kolom) sederhana dan mudah dipahami.
 
-Aspose.Slides menyediakan kelas [Table](https://reference.aspose.com/slides/id/net/aspose.slides/table/), antarmuka [ITable](https://reference.aspose.com/slides/id/net/aspose.slides/itable/), kelas [Cell](https://reference.aspose.com/slides/id/net/aspose.slides/cell/), antarmuka [ICell](https://reference.aspose.com/slides/id/net/aspose.slides/icell/) serta tipe lainnya untuk memungkinkan Anda membuat, memperbarui, dan mengelola tabel dalam semua jenis presentasi. 
+Aspose.Slides menyediakan kelas [Table](https://reference.aspose.com/slides/id/net/aspose.slides/table/) , antarmuka [ITable](https://reference.aspose.com/slides/id/net/aspose.slides/itable/) , kelas [Cell](https://reference.aspose.com/slides/id/net/aspose.slides/cell/) , antarmuka [ICell](https://reference.aspose.com/slides/id/net/aspose.slides/icell/) , dan tipe lainnya untuk memungkinkan Anda membuat, memperbarui, dan mengelola tabel dalam semua jenis presentasi. 
 
 ## **Buat Tabel dari Awal**
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation).
+1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation) .
 2. Dapatkan referensi slide melalui indeksnya. 
-3. Tentukan array `columnWidth`.
-4. Tentukan array `rowHeight`.
-5. Tambahkan objek [ITable](https://reference.aspose.com/slides/id/net/aspose.slides/itable/) ke slide melalui metode [AddTable](https://reference.aspose.com/slides/id/net/aspose.slides/ishapecollection/addtable/).
-6. Iterasi setiap [ICell](https://reference.aspose.com/slides/id/net/aspose.slides/icell/) untuk menerapkan format pada batas atas, bawah, kanan, dan kiri.
+3. Definisikan array `columnWidth` .
+4. Definisikan array `rowHeight` .
+5. Tambahkan objek [ITable](https://reference.aspose.com/slides/id/net/aspose.slides/itable/) ke slide melalui metode [AddTable](https://reference.aspose.com/slides/id/net/aspose.slides/ishapecollection/addtable/) .
+6. Iterasi melalui setiap [ICell](https://reference.aspose.com/slides/id/net/aspose.slides/icell/) untuk menerapkan pemformatan pada batas atas, bawah, kanan, dan kiri.
 7. Gabungkan dua sel pertama pada baris pertama tabel. 
-8. Akses [TextFrame](https://reference.aspose.com/slides/id/net/aspose.slides/textframe/) milik [ICell](https://reference.aspose.com/slides/id/net/aspose.slides/icell/). 
-9. Tambahkan teks ke [TextFrame](https://reference.aspose.com/slides/id/net/aspose.slides/textframe/).
+8. Akses [TextFrame](https://reference.aspose.com/slides/id/net/aspose.slides/textframe/) milik sebuah [ICell](https://reference.aspose.com/slides/id/net/aspose.slides/icell/) .
+9. Tambahkan beberapa teks ke [TextFrame](https://reference.aspose.com/slides/id/net/aspose.slides/textframe/) .
 10. Simpan presentasi yang telah dimodifikasi.
 
-Kode C# ini menunjukkan cara membuat tabel dalam sebuah presentasi:
-
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Membuat instance kelas Presentation yang mewakili file PPTX
 Presentation pres = new Presentation();
 
@@ -54,7 +56,7 @@ double[] dblRows = { 50, 30, 30, 30, 30 };
 // Menambahkan shape tabel ke slide
 ITable tbl = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
 
-// Mengatur format batas untuk setiap sel
+// Mengatur format border untuk tiap sel
 for (int row = 0; row < tbl.Rows.Count; row++)
 {
 	for (int cell = 0; cell < tbl.Rows[row].Count; cell++)
@@ -76,21 +78,21 @@ for (int row = 0; row < tbl.Rows.Count; row++)
 		tbl.Rows[row][cell].CellFormat.BorderRight.Width = 5;
 	}
 }
-// Menggabungkan sel 1 & 2 pada baris 1
-tbl.MergeCells(tbl.Rows[0][0], tbl.Rows[1][1], false);
+// Menggabungkan sel 1 dan 2 pada baris 1
+tbl.MergeCells(tbl.Rows[0][0], tbl.Rows[0][1], false);
 
 // Menambahkan teks ke sel yang digabungkan
 tbl.Rows[0][0].TextFrame.Text = "Merged Cells";
 
-// Menyimpan presentasi ke Disk
+// Menyimpan presentasi ke disk
 pres.Save("table.pptx", SaveFormat.Pptx);
 ```
 
-## **Penomoran dalam Tabel Standar**
+## **Penomoran pada Tabel Standar**
 
-Dalam tabel standar, penomoran sel bersifat sederhana dan berbasis nol. Sel pertama dalam tabel diindeks sebagai 0,0 (kolom 0, baris 0). 
+Pada tabel standar, penomoran sel cukup sederhana dan berbasis nol. Sel pertama dalam tabel memiliki indeks 0,0 (kolom 0, baris 0). 
 
-Sebagai contoh, sel dalam tabel dengan 4 kolom dan 4 baris diberi nomor sebagai berikut:
+Sebagai contoh, sel‑sel dalam tabel dengan 4 kolom dan 4 baris diberi nomor sebagai berikut:
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -98,9 +100,13 @@ Sebagai contoh, sel dalam tabel dengan 4 kolom dan 4 baris diberi nomor sebagai 
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-Kode C# ini menunjukkan cara menentukan penomoran untuk sel dalam sebuah tabel:
+Kode C# ini membuat tabel standar 4 × 4 yang dinomori di atas dan mengatur format batas untuk setiap selnya:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Membuat instance kelas Presentation yang mewakili file PPTX
 using (Presentation pres = new Presentation())
 {
@@ -115,7 +121,7 @@ using (Presentation pres = new Presentation())
     // Menambahkan shape tabel ke slide
     ITable tbl = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
 
-    // Mengatur format batas untuk setiap sel
+    // Mengatur format border untuk tiap sel
     foreach (IRow row in tbl.Rows)
     {
         foreach (ICell cell in row)
@@ -145,19 +151,18 @@ using (Presentation pres = new Presentation())
 
 ## **Akses Tabel yang Ada**
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation).
+1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation) .
 2. Dapatkan referensi ke slide yang berisi tabel melalui indeksnya. 
-3. Buat objek [ITable](https://reference.aspose.com/slides/id/net/aspose.slides/itable/) dan atur menjadi null.
-4. Iterasi semua objek [IShape](https://reference.aspose.com/slides/id/net/aspose.slides/ishape/) hingga tabel ditemukan.
+3. Buat objek [ITable](https://reference.aspose.com/slides/id/net/aspose.slides/itable/) dan setel ke null.
+4. Iterasi melalui semua objek [IShape](https://reference.aspose.com/slides/id/net/aspose.slides/ishape/) sampai tabel ditemukan.  
 
-   Jika Anda curiga slide yang Anda tangani hanya berisi satu tabel, Anda dapat memeriksa semua shape yang ada di dalamnya. Ketika sebuah shape diidentifikasi sebagai tabel, Anda dapat melakukan typecast menjadi objek [Table](https://reference.aspose.com/slides/id/net/aspose.slides/table/). Namun jika slide tersebut berisi beberapa tabel, sebaiknya cari tabel yang Anda butuhkan melalui properti [AlternativeText](https://reference.aspose.com/slides/id/net/aspose.slides/ishape/alternativetext/).
-
+   Jika Anda menduga slide yang sedang Anda tangani hanya berisi satu tabel, Anda dapat memeriksa semua shape yang ada. Ketika sebuah shape diidentifikasi sebagai tabel, Anda dapat melakukan typecast menjadi objek [Table](https://reference.aspose.com/slides/id/net/aspose.slides/table/) . Tetapi jika slide tersebut berisi beberapa tabel, lebih baik mencari tabel yang diperlukan melalui properti [AlternativeText](https://reference.aspose.com/slides/id/net/aspose.slides/ishape/alternativetext/) .
 5. Gunakan objek [ITable](https://reference.aspose.com/slides/id/net/aspose.slides/itable/) untuk bekerja dengan tabel. Pada contoh di bawah, kami menambahkan baris baru ke tabel.
 6. Simpan presentasi yang telah dimodifikasi.
 
-Kode C# ini menunjukkan cara mengakses dan bekerja dengan tabel yang ada:
-
 ```c#
+using Aspose.Slides;
+
 // Membuat instance kelas Presentation yang mewakili file PPTX
 using (Presentation pres = new Presentation("UpdateExistingTable.pptx"))
 {
@@ -168,12 +173,12 @@ using (Presentation pres = new Presentation("UpdateExistingTable.pptx"))
     // Menginisialisasi TableEx null
     ITable tbl = null;
 
-    // Mengiterasi shape dan menetapkan referensi ke tabel yang ditemukan
+    // Mengiterasi shape dan mengatur referensi ke tabel yang ditemukan
     foreach (IShape shp in sld.Shapes)
         if (shp is ITable)
             tbl = (ITable)shp;
 
-    // Menetapkan teks untuk kolom pertama baris kedua
+    // Mengatur teks untuk kolom pertama baris kedua
     tbl[0, 1].TextFrame.Text = "New";
 
     // Menyimpan presentasi yang dimodifikasi ke disk
@@ -181,20 +186,30 @@ using (Presentation pres = new Presentation("UpdateExistingTable.pptx"))
 }
 ```
 
+## **Temukan Sel yang Memiliki Text Frame**
+
+Ketika kode pemrosesan teks generik menerima sebuah [ITextFrame](https://reference.aspose.com/slides/id/net/aspose.slides/itextframe/) dari tabel, gunakan properti [ITextFrame.ParentCell](https://reference.aspose.com/slides/id/net/aspose.slides/itextframe/parentcell/) untuk mengambil [ICell](https://reference.aspose.com/slides/id/net/aspose.slides/icell/) pemiliknya. Untuk text frame sel tabel, [ITextFrame.ParentCell](https://reference.aspose.com/slides/id/net/aspose.slides/itextframe/parentcell/) diatur dan [ITextFrame.ParentShape](https://reference.aspose.com/slides/id/net/aspose.slides/itextframe/parentshape/) bernilai `null`, meskipun tabel itu sendiri merupakan sebuah shape.  
+
+Koordinat sel tersedia melalui properti read‑only [ICell.FirstColumnIndex](https://reference.aspose.com/slides/id/net/aspose.slides/icell/firstcolumnindex/) dan [ICell.FirstRowIndex](https://reference.aspose.com/slides/id/net/aspose.slides/icell/firstrowindex/) . [ITextFrame.ParentCell](https://reference.aspose.com/slides/id/net/aspose.slides/itextframe/parentcell/) juga read‑only: ia menyediakan navigasi ke pemilik tetapi tidak mengubah kepemilikan. Selalu periksa apakah sel yang dikembalikan bernilai `null` sebelum menggunakannya.  
+
+Untuk contoh lengkap yang mengidentifikasi pemilik sel tabel dan shape, termasuk shape yang terkait dengan node SmartArt, lihat [Search and Replace Text](/slides/id/net/search-and-replace-text/) .
+
 ## **Ratakan Teks dalam Tabel**
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation).
+1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation) .
 2. Dapatkan referensi slide melalui indeksnya. 
 3. Tambahkan objek [ITable](https://reference.aspose.com/slides/id/net/aspose.slides/itable/) ke slide. 
 4. Akses objek [ITextFrame](https://reference.aspose.com/slides/id/net/aspose.slides/itextframe/) dari tabel. 
-5. Akses [IParagraph](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraph/) milik [ITextFrame](https://reference.aspose.com/slides/id/net/aspose.slides/itextframe/).
+5. Akses [IParagraph](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraph/) milik [ITextFrame](https://reference.aspose.com/slides/id/net/aspose.slides/itextframe/) .
 6. Ratakan teks secara vertikal.
 7. Simpan presentasi yang telah dimodifikasi.
 
-Kode C# ini menunjukkan cara meratakan teks dalam tabel:
-
 ```c#
-// Membuat instance kelas Presentation
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// Membuat instance dari kelas Presentation
 Presentation presentation = new Presentation();
 
 // Mendapatkan slide pertama
@@ -231,37 +246,37 @@ cell.TextVerticalType = TextVerticalType.Vertical270;
 presentation.Save("Vertical_Align_Text_out.pptx", SaveFormat.Pptx);
 ```
 
-## **Atur Pemformatan Teks pada Tingkat Tabel**
+## **Tetapkan Pemformatan Teks pada Tingkat Tabel**
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/).
+1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/) .
 2. Dapatkan referensi slide melalui indeksnya. 
 3. Akses objek [ITable](https://reference.aspose.com/slides/id/net/aspose.slides/itable/) dari Slide.
-4. Atur [FontHeight](https://reference.aspose.com/slides/id/net/aspose.slides/baseportionformat/fontheight/) untuk teks. 
-5. Atur [Alignment](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraphformat/alignment/) dan [MarginRight](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraphformat/marginright/). 
-6. Atur [TextVerticalType](https://reference.aspose.com/slides/id/net/aspose.slides/textframeformat/textverticaltype/).
+4. Setel [FontHeight](https://reference.aspose.com/slides/id/net/aspose.slides/baseportionformat/fontheight/) untuk teks. 
+5. Setel [Alignment](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraphformat/alignment/) dan [MarginRight](https://reference.aspose.com/slides/id/net/aspose.slides/iparagraphformat/marginright/) .
+6. Setel [TextVerticalType](https://reference.aspose.com/slides/id/net/aspose.slides/textframeformat/textverticaltype/) .
 7. Simpan presentasi yang telah dimodifikasi. 
 
-Kode C# ini menunjukkan cara menerapkan opsi pemformatan pilihan Anda pada teks dalam tabel:
-
 ```c#
-// Membuat instance kelas Presentation
+using Aspose.Slides;
+
+// Membuat instance dari kelas Presentation
 Presentation presentation = new Presentation();
 ISlide slide = presentation.Slides[0];
 
-ITable someTable = presentation.Slides[0].Shapes[0] as ITable; // Anggap bahwa shape pertama pada slide pertama adalah tabel
+ITable someTable = presentation.Slides[0].Shapes[0] as ITable; // Asumsikan bahwa shape pertama pada slide pertama adalah sebuah tabel
 
-// Mengatur tinggi font sel tabel
+// Sets the table cells' font height
 PortionFormat portionFormat = new PortionFormat();
 portionFormat.FontHeight = 25;
 someTable.SetTextFormat(portionFormat);
 
-// Mengatur perataan teks sel tabel dan margin kanan dalam satu pemanggilan
+// Sets the table cells' text alignment and right margin in one call
 ParagraphFormat paragraphFormat = new ParagraphFormat();
 paragraphFormat.Alignment = TextAlignment.Right;
 paragraphFormat.MarginRight = 20;
 someTable.SetTextFormat(paragraphFormat);
 
-// Mengatur tipe vertikal teks sel tabel
+// Sets the table cells' text vertical type
 TextFrameFormat textFrameFormat = new TextFrameFormat();
 textFrameFormat.TextVerticalType = TextVerticalType.Vertical;
 someTable.SetTextFormat(textFrameFormat);
@@ -272,24 +287,39 @@ presentation.Save("result.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 
 ## **Dapatkan Properti Gaya Tabel**
 
-Aspose.Slides memungkinkan Anda mengambil properti gaya untuk sebuah tabel sehingga detail tersebut dapat digunakan pada tabel lain atau di tempat lain. Kode C# ini menunjukkan cara mendapatkan properti gaya dari gaya tabel pra‑set:
+Aspose.Slides memungkinkan Anda mengambil properti gaya untuk sebuah tabel sehingga Anda dapat menggunakan detail tersebut pada tabel lain atau di tempat lain. Kode C# ini menunjukkan cara mendapatkan properti gaya dari preset style tabel: 
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     ITable table = pres.Slides[0].Shapes.AddTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
-    table.StylePreset = TableStylePreset.DarkStyle1; // ubah tema preset gaya default 
+    table.StylePreset = TableStylePreset.DarkStyle1; // ubah preset gaya default 
+
+    // Dapatkan preset gaya tabel.
+    TableStylePreset stylePreset = table.StylePreset;
+    Console.WriteLine($"Table style preset: {stylePreset}");
+
+    // Terapkan preset gaya yang diambil ke tabel lain.
+    ITable anotherTable = pres.Slides[0].Shapes.AddTable(10, 100, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
+    anotherTable.StylePreset = stylePreset;
+
     pres.Save("table.pptx", SaveFormat.Pptx);
 }
 ```
 
 ## **Kunci Rasio Aspek Tabel**
 
-Rasio aspek sebuah bentuk geometris adalah perbandingan ukuran dalam dimensi yang berbeda. Aspose.Slides menyediakan properti `AspectRatioLocked` untuk memungkinkan Anda mengunci pengaturan rasio aspek pada tabel dan bentuk lainnya. 
+Rasio aspek sebuah shape geometris adalah perbandingan ukuran pada dimensi yang berbeda. Aspose.Slides menyediakan properti `AspectRatioLocked` untuk memungkinkan Anda mengunci pengaturan rasio aspek pada tabel dan shape lainnya. 
 
 Kode C# ini menunjukkan cara mengunci rasio aspek untuk sebuah tabel:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     ITable table = (ITable)pres.Slides[0].Shapes[0];
@@ -305,13 +335,13 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ## **FAQ**
 
-**Apakah saya dapat mengaktifkan arah baca kanan‑ke‑kiri (RTL) untuk seluruh tabel dan teks di dalam selnya?**
+**Apakah saya dapat mengaktifkan arah baca kanan-ke-kiri (RTL) untuk seluruh tabel dan teks di dalam selnya?**
 
-Ya. Tabel memiliki properti [RightToLeft](https://reference.aspose.com/slides/id/net/aspose.slides/table/righttoleft/), dan paragraf memiliki [ParagraphFormat.RightToLeft](https://reference.aspose.com/slides/id/net/aspose.slides/paragraphformat/righttoleft/). Menggunakan keduanya memastikan urutan RTL yang benar dan render yang tepat di dalam sel.
+Ya. Tabel memiliki properti [RightToLeft](https://reference.aspose.com/slides/id/net/aspose.slides/table/righttoleft/) , dan paragraf memiliki [ParagraphFormat.RightToLeft](https://reference.aspose.com/slides/id/net/aspose.slides/paragraphformat/righttoleft/) . Menggunakan keduanya memastikan urutan dan render RTL yang benar di dalam sel.
 
-**Bagaimana cara mencegah pengguna memindahkan atau mengubah ukuran tabel dalam file akhir?**
+**Bagaimana saya dapat mencegah pengguna memindahkan atau mengubah ukuran tabel dalam file akhir?**
 
-Gunakan [shape locks](/slides/id/net/applying-protection-to-presentation/) untuk menonaktifkan pemindahan, perubahan ukuran, pemilihan, dll. Kunci ini juga berlaku untuk tabel.
+Gunakan [shape locks](/slides/id/net/applying-protection-to-presentation/) untuk menonaktifkan pemindahan, pengubahan ukuran, pemilihan, dll. Kunci ini juga berlaku untuk tabel.
 
 **Apakah penyisipan gambar di dalam sel sebagai latar belakang didukung?**
 

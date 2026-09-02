@@ -18,24 +18,30 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides pro Android přes Java usnadňuje vytváření, úpravu a klonování textových polí v souborech PowerPoint a OpenDocument, čímž zlepšuje automatizaci vašich prezentací."
+description: "Aspose.Slides pro Android prostřednictvím Javy usnadňuje vytváření, úpravu a klonování textových polí v souborech PowerPoint a OpenDocument, což zlepšuje automatizaci vašich prezentací."
 ---
 ## **Úvod**
 
-Texty na snímcích jsou obvykle umístěny v textových polích nebo tvarech. Proto pro přidání textu do snímku musíte přidat textové pole a poté do něj vložit text. Aspose.Slides pro Android přes Java poskytuje rozhraní [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IAutoShape), které umožňuje přidat tvar obsahující text.
+Texty na snímcích jsou obvykle umístěny v textových polích nebo tvarech. Proto musíte pro přidání textu na snímek nejprve přidat textové pole a poté do něj vložit text. Aspose.Slides pro Android via Java poskytuje rozhraní [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IAutoShape) které vám umožňuje přidat tvar obsahující text.
 
 {{% alert title="Info" color="info" %}}
-Aspose.Slides také poskytuje rozhraní [IShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IShape), které umožňuje přidávat tvary na snímky. Nicméně ne všechny tvary přidané přes rozhraní `IShape` mohou obsahovat text. Tvary přidané přes rozhraní [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IAutoShape) však mohou text obsahovat.
+
+Aspose.Slides také poskytuje rozhraní [IShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IShape) které umožňuje přidávat tvary na snímky. Nicméně ne všechny tvary přidané přes rozhraní `IShape` mohou obsahovat text. Tvary přidané přes rozhraní [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IAutoShape) však mohou text obsahovat.
+
 {{% /alert %}}
 
 {{% alert title="Note" color="warning" %}} 
-Proto při práci s tvarem, ke kterému chcete přidat text, můžete chtít zkontrolovat a potvrdit, že byl převeden přes rozhraní `IAutoShape`. Pouze pak budete moci pracovat s [TextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/TextFrame), což je vlastnost pod `IAutoShape`. Viz sekce [Update Text](https://docs.aspose.com/slides/cs/androidjava/manage-textbox/#update-text) na této stránce.
+
+Proto, když pracujete s tvarem, ke kterému chcete přidat text, můžete chtít zkontrolovat a potvrdit, že byl převeden pomocí rozhraní `IAutoShape`. Teprve potom budete moci pracovat s [TextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/TextFrame), který je vlastností pod `IAutoShape`. Viz sekce [Update Text](https://docs.aspose.com/slides/cs/androidjava/manage-textbox/#update-text) na této stránce.
+
 {{% /alert %}}
 
 ## **Vytvoření textového pole na snímku**
 
+Pro vytvoření textového pole na snímku postupujte podle těchto kroků:
+
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation).
-2. Získejte odkaz na první snímek nově vytvořené prezentace. 
+2. Získejte odkaz na první snímek v nově vytvořené prezentaci. 
 3. Přidejte objekt [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IAutoShape) s [ShapeType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IGeometryShape#setShapeType-int-) nastaveným na `Rectangle` na určenou pozici na snímku a získejte odkaz na nově přidaný objekt `IAutoShape`.
 4. Přidejte vlastnost `TextFrame` k objektu `IAutoShape`, která bude obsahovat text. V níže uvedeném příkladu jsme přidali tento text: *Aspose TextBox*
 5. Nakonec zapište soubor PPTX pomocí objektu `Presentation`. 
@@ -43,19 +49,21 @@ Proto při práci s tvarem, ke kterému chcete přidat text, můžete chtít zko
 Tento kód v jazyce Java — implementace výše uvedených kroků — ukazuje, jak přidat text na snímek:
 
 ```java
+import com.aspose.slides.*;
+
 // Vytvoří instanci Presentation
 Presentation pres = new Presentation();
 try {
     // Získá první snímek v prezentaci
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Přidá AutoShape s typem nastaveným na Rectangle
+    // Přidá AutoShape s typem nastaveným na Obdélník
     IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
 
-    // Přidá TextFrame do Rectangle
+    // Přidá TextFrame k Obdélníku
     ashp.addTextFrame(" ");
 
-    // Přistupuje k textovému rámci
+    // Přistoupí k textovému rámci
     ITextFrame txtFrame = ashp.getTextFrame();
 
     // Vytvoří objekt Paragraph pro textový rámec
@@ -76,13 +84,15 @@ try {
 
 ## **Kontrola, zda jde o tvar textového pole**
 
-Aspose.Slides poskytuje metodu [isTextBox](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/#isTextBox--) z rozhraní [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) , která vám umožní prozkoumat tvary a identifikovat textová pole.
+Aspose.Slides poskytuje metodu [isTextBox](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/#isTextBox--) z rozhraní [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/), která vám umožňuje prozkoumat tvary a identifikovat textová pole.
 
 ![Textové pole a tvar](istextbox.png)
 
 Tento kód v jazyce Java ukazuje, jak zkontrolovat, zda byl tvar vytvořen jako textové pole: 
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ForEach.shape(presentation, (shape, slide, index) -> {
@@ -96,9 +106,11 @@ try {
 }
 ```
 
-Všimněte si, že pokud jen přidáte automatický tvar pomocí metody `addAutoShape` z rozhraní [IShapeCollection](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishapecollection/), metoda `isTextBox` tohoto tvaru vrátí `false`. Po přidání textu do automatického tvaru pomocí metody `addTextFrame` nebo `setText` však vlastnost `isTextBox` vrátí `true`.
+Všimněte si, že pokud pouze přidáte autoshape pomocí metody `addAutoShape` z rozhraní [IShapeCollection](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishapecollection/), metoda `isTextBox` tohoto autoshape vrátí `false`. Po přidání textu do autoshape pomocí metody `addTextFrame` nebo `setText` se však vlastnost `isTextBox` vrátí `true`.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 ISlide slide = presentation.getSlides().get_Item(0);
 
@@ -123,28 +135,38 @@ shape4.getTextFrame().setText("");
 // shape4.isTextBox() vrací false
 ```
 
+## **Nalezení tvaru, který vlastní TextFrame**
+
+V obecném kódu pro zpracování textu můžete získat objekt [ITextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/) aniž byste věděli, který objekt prezentace jej obsahuje. Použijte metodu [ITextFrame.getParentShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/#getParentShape--) k návratu k vlastnímu [IShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/).
+
+Pro textový rámec, který patří k [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) nebo jinému tvaru obsahujícímu text, metoda [ITextFrame.getParentShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/#getParentShape--) vrací vlastníka a [ITextFrame.getParentCell](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/#getParentCell--) vrací `null`. Obě metody poskytují pouze čtení, takže jejich volání nemění vlastnictví. Vždy před přístupem k tvaru zkontrolujte, zda vrácená hodnota není `null`.
+
+Kompletní příklad, který identifikuje vlastníky tvarů a buněk tabulky, včetně tvarů spojených s uzly SmartArt, najdete v [Search and Replace Text](/slides/cs/androidjava/search-and-replace-text/).
+
 ## **Přidání sloupců do textového pole**
 
-Aspose.Slides poskytuje vlastnosti [ColumnCount](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) a [ColumnSpacing](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ITextFrameFormat#setColumnSpacing-double-) (z rozhraní [ITextFrameFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ITextFrameFormat) a třídy [TextFrameFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/TextFrameFormat)), které vám umožňují přidávat sloupce do textových polí. Můžete určit počet sloupců v textovém poli a nastavit mezery v bodech mezi sloupci.
+Aspose.Slides poskytuje vlastnosti [ColumnCount](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) a [ColumnSpacing](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ITextFrameFormat#setColumnSpacing-double-) (z rozhraní [ITextFrameFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ITextFrameFormat) a třídy [TextFrameFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/TextFrameFormat)), které umožňují přidávat sloupce do textových polí. Můžete určit počet sloupců v textovém poli a nastavit mezery v bodech mezi sloupci.
 
 Tento kód v jazyce Java demonstruje popsanou operaci: 
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     // Získá první snímek v prezentaci
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Přidá AutoShape s typem nastaveným na Rectangle
+    // Přidá AutoShape s typem nastaveným na Obdélník
     IAutoShape aShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
 
-    // Přidá TextFrame do Rectangle
+    // Přidá TextFrame k Obdélníku
     aShape.addTextFrame("All these columns are limited to be within a single text container -- " +
             "you can add or delete text and the new or remaining text automatically adjusts " +
             "itself to flow within the container. You cannot have text flow from one container " +
             "to other though -- we told you PowerPoint's column options for text are limited!");
 
-    // Získá formát TextFrame
+    // Získá formát textu TextFrame
     ITextFrameFormat format = aShape.getTextFrame().getTextFrameFormat();
 
     // Určuje počet sloupců v TextFrame
@@ -160,13 +182,15 @@ try {
 }
 ```
 
-## **Přidání sloupců do textového rámce**
+## **Přidání sloupců do TextFrame**
 
-Aspose.Slides pro Android přes Java poskytuje vlastnost [ColumnCount](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) (z rozhraní [ITextFrameFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ITextFrameFormat)), která umožňuje přidávat sloupce v textových rámcích. Pomocí této vlastnosti můžete určit požadovaný počet sloupců v textovém rámci.
+Aspose.Slides pro Android via Java poskytuje vlastnost [ColumnCount](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) (z rozhraní [ITextFrameFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ITextFrameFormat)), která umožňuje přidávat sloupce v textových rámečcích. Pomocí této vlastnosti můžete nastavit požadovaný počet sloupců v textovém rámečku.
 
-Tento kód v jazyce Java ukazuje, jak přidat sloupec do textového rámce:
+Tento kód v jazyce Java ukazuje, jak přidat sloupec uvnitř textového rámečku:
 
 ```java
+import com.aspose.slides.*;
+
 String outPptxFileName = "ColumnsTest.pptx";
 Presentation pres = new Presentation();
 try {
@@ -183,8 +207,8 @@ try {
     Presentation test = new Presentation(outPptxFileName);
     try {
         IAutoShape autoShape = ((AutoShape)test.getSlides().get_Item(0).getShapes().get_Item(0));
-        Assert.assertTrue(2 == autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        Assert.assertTrue(Double.NaN == autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
+        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
+        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
     } finally {
         if (test != null) test.dispose();
     }
@@ -195,8 +219,8 @@ try {
     Presentation test1 = new Presentation(outPptxFileName);
     try {
         IAutoShape autoShape = ((AutoShape)test1.getSlides().get_Item(0).getShapes().get_Item(0));
-        Assert.assertTrue(2 == autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        Assert.assertTrue(20 == autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
+        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
+        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
     } finally {
         if (test1 != null) test1.dispose();
     }
@@ -208,8 +232,8 @@ try {
     Presentation test2 = new Presentation(outPptxFileName);
     try {
         IAutoShape autoShape = ((AutoShape)test2.getSlides().get_Item(0).getShapes().get_Item(0));
-        Assert.assertTrue(3 == autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        Assert.assertTrue(15 == autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
+        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
+        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
     } finally {
         if (test2 != null) test2.dispose();
     }
@@ -220,23 +244,25 @@ try {
 
 ## **Aktualizace textu**
 
-Aspose.Slides vám umožňuje měnit nebo aktualizovat text obsažený v textovém poli nebo veškerý text v prezentaci. 
+Aspose.Slides vám umožňuje změnit nebo aktualizovat text obsažený v textovém poli nebo veškerý text v prezentaci. 
 
-Tento kód v jazyce Java demonstruje operaci, při které je veškerý text v prezentaci aktualizován nebo změněn:
+Tento kód v jazyce Java demonstruje operaci, při které jsou aktualizovány nebo změněny všechny texty v prezentaci:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("text.pptx");
 try {
     for (ISlide slide : pres.getSlides())
     {
         for (IShape shape : slide.getShapes())
         {
-            if (shape instanceof IAutoShape) //Kontroluje, jestli tvar podporuje textový rámec (IAutoShape). 
+            if (shape instanceof IAutoShape) //Kontroluje, zda tvar podporuje textový rámec (IAutoShape). 
             {
                 IAutoShape autoShape = (IAutoShape)shape; 
-                for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs()) //Prochází odstavce v textovém rámci
+                for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs()) //Iteruje přes odstavce v textovém rámci
                 {
-                    for (IPortion portion : paragraph.getPortions()) //Prochází každou část v odstavci
+                    for (IPortion portion : paragraph.getPortions()) //Iteruje přes každou část v odstavci
                     {
                         portion.setText(portion.getText().replace("years", "months")); //Mění text
                         portion.getPortionFormat().setFontBold(NullableBool.True); //Mění formátování
@@ -253,30 +279,32 @@ try {
 }
 ```
 
-## **Přidání textového pole s hyperodkazem** 
+## **Přidání textového pole s hyperodkazem**
 
 Můžete vložit odkaz do textového pole. Když je textové pole kliknuto, uživatelé jsou přesměrováni na otevření odkazu. 
 
-K přidání textového pole obsahujícího odkaz postupujte následovně:
+Pro přidání textového pole obsahujícího odkaz postupujte podle těchto kroků:
 
 1. Vytvořte instanci třídy `Presentation`. 
-2. Získejte odkaz na první snímek nově vytvořené prezentace. 
+2. Získejte odkaz na první snímek v nově vytvořené prezentaci. 
 3. Přidejte objekt `AutoShape` s `ShapeType` nastaveným na `Rectangle` na určenou pozici na snímku a získejte odkaz na nově přidaný objekt AutoShape.
-4. Přidejte `TextFrame` k objektu `AutoShape`, který obsahuje *Aspose TextBox* jako výchozí text. 
-5. Vytvořte instanci třídy `IHyperlinkManager`. 
-6. Přiřaďte objekt `IHyperlinkManager` k vlastnosti [HyperlinkClick](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Shape#getHyperlinkClick--) spojené s požadovanou částí `TextFrame`.
+4. Přidejte `TextFrame` k objektu `AutoShape` a nastavte text jeho první části. V níže uvedeném příkladu jsme použili tento text: *Aspose.Slides*
+5. Získejte objekt [IHyperlinkManager](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ihyperlinkmanager/) z `PortionFormat` požadované části `TextFrame`.
+6. Zavolejte [setExternalHyperlinkClick](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-) na tomto objektu a nastavte odkaz, který se otevře po kliknutí na text.
 7. Nakonec zapište soubor PPTX pomocí objektu `Presentation`. 
 
 Tento kód v jazyce Java — implementace výše uvedených kroků — ukazuje, jak přidat textové pole s hyperodkazem na snímek:
 
 ```java
-// Vytvoří instanci třídy Presentation, která představuje soubor PPTX
+import com.aspose.slides.*;
+
+// Vytvoří instanci třídy Presentation, která představuje PPTX
 Presentation pres = new Presentation();
 try {
     // Získá první snímek v prezentaci
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Přidá objekt AutoShape s typem nastaveným na Rectangle
+    // Přidá objekt AutoShape s typem nastaveným na Obdélník
     IShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 150, 150, 50);
 
     // Převede tvar na AutoShape
@@ -302,12 +330,12 @@ try {
 }
 ```
 
-## **Často kladené otázky**
+## **FAQ**
 
 **Jaký je rozdíl mezi textovým polem a textovým zástupcem při práci s hlavními snímky?**
 
-Zástupce ([placeholder](/slides/cs/androidjava/manage-placeholder/)) dědí styl/pozici z [masteru](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/masterslide/) a lze jej přepsat na [rozvrženích](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/layoutslide/), zatímco běžné textové pole je nezávislý objekt na konkrétním snímku a nemění se při změně rozvržení.
+Zástupce [placeholder](/slides/cs/androidjava/manage-placeholder/) dědí styl/pozici z [masteru](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/masterslide/) a může být přepsán v [rozložení](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/layoutslide/), zatímco běžné textové pole je nezávislý objekt na konkrétním snímku a při změně rozložení se nemění.
 
-**Jak mohu provést hromadnou náhradu textu v celé prezentaci, aniž bych zasáhl text uvnitř grafů, tabulek a SmartArt?**
+**Jak mohu provést hromadnou náhradu textu v celé prezentaci, aniž bych zasahoval do textu v grafech, tabulkách a SmartArt?**
 
-Omezte iteraci na automatické tvary, které mají textové rámy, a vylučte vložené objekty ([grafy](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/chart/), [tabulky](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/smartart/)) tak, že projdete jejich kolekce odděleně nebo přeskočíte tyto typy objektů.
+Omezte iteraci na auto-tvary, které mají textové rámečky, a vyloučte vložené objekty ([grafy](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/chart/), [tabulky](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/smartart/)) tím, že jejich kolekce procházíte samostatně nebo přeskočíte tyto typy objektů.

@@ -1,5 +1,5 @@
 ---
-title: جستجو و جایگزینی متن در ارائه‌های PowerPoint در C++
+title: جستجو و جایگزینی متن در ارائه‌های پاورپوینت با C++
 linktitle: جستجو و جایگزینی متن
 type: docs
 weight: 55
@@ -9,58 +9,169 @@ keywords:
 - برجسته‌سازی متن
 - جایگزینی متن
 - عبارت منظم
-- فراخوانی بازگشت نتیجه
-- فریم متن
+- callback نتیجه
+- قاب متن
 - گزارش حسابرسی
-- PowerPoint
+- پاورپوینت
 - OpenDocument
 - ارائه
 - C++
 - Aspose.Slides
-description: "جستجو، برجسته‌سازی و جایگزینی متن در ارائه‌های PowerPoint همراه با جمع‌آوری هر تطابق با Aspose.Slides برای C++."
+description: "جستجو، برجسته‌سازی و جایگزینی متن در ارائه‌های پاورپوینت، همزمان با جمع‌آوری هر تطابق با Aspose.Slides برای C++."
 ---
-## **Overview**
+## **مرور کلی**
 
-Aspose.Slides برای C++ می‌تواند متن را در یک فریم متن منفرد یا در تمام ارائه جستجو، برجسته و جایگزین کند. هر عملیات می‌تواند از طریق یک بازتاب نتیجه، برنامه را از هر تطابق مطلع سازد. این امکان را فراهم می‌کند تا یک ارائه را به‌روز کنید و به‌طور همزمان یک مسیر حسابرسی شامل متن مطابقت یافته، زمینه آن، موقعیت، فریم متن و شماره اسلاید ایجاد کنید.
+Aspose.Slides برای C++ می‌تواند متن را در یک قاب متن منفرد یا در تمام ارائه جستجو، برجسته‌سازی و جایگزینی کند. هر عملیات می‌تواند با استفاده از یک callback نتیجه، هر تطابق را به برنامه اطلاع دهد. این امکان را فراهم می‌آورد تا یک ارائه به‌روزرسانی شود و همزمان یک ردپای حسابرسی شامل متن تطبیق‌داده‌شده، زمینه آن، موقعیت، قاب متن و شماره اسلاید ساخته شود.
 
-این قابلیت‌ها برای بازبینی، محرمانه‌سازی، بررسی اصطلاحات، پاک‌سازی قالب و جریان‌های کاری گزارش‌گیری خودکار مفید هستند.
+این قابلیت‌ها برای بازبینی، حذف اطلاعات حساس، بررسی واژگان، پاک‌سازی قالب و گردش‌کارهای گزارش‌گیری خودکار مفید هستند.
 
-در مثال‌های اولیه زیر، از فایلی به نام «sample.pptx» استفاده می‌کنیم که شامل یک جعبه متن در اسلاید اول با متن زیر است:
+در مثال‌های اولیه زیر، از فایلی به نام «sample.pptx» استفاده می‌کنیم که یک جعبه متن واحد در اسلاید اول دارد و متن زیر را شامل می‌شود:
 
-![متن نمونه](sample_text.png)
+![Sample text](sample_text.png)
 
 ## **Choose the Search Scope**
 
-از متدهای [ITextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/) برای محدود کردن یک عملیات به یک فریم متن استفاده کنید. از متدهای [IPresentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipresentation/) برای پردازش تمام متن‌های قابل کاربرد در ارائه استفاده کنید.
+از متدهای موجود در [ITextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/) برای محدود کردن یک عملیات به یک قاب متن استفاده کنید. از متدهای موجود در [IPresentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipresentation/) برای پردازش تمام متن‌های قابل اعمال در ارائه استفاده کنید.
 
-| عملیات | یک فریم متن | کل ارائه |
+| عملیات | یک قاب متن | کل ارائه |
 |---|---|---|
-| برجسته‌سازی متن عینی | [ITextFrame::HighlightText](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/highlighttext/) | [IPresentation::HighlightText](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipresentation/highlighttext/) |
-| برجسته‌سازی مطابقت‌های عبارت منظم | [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/highlightregex/) | [IPresentation::HighlightRegex](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipresentation/highlightregex/) |
-| جایگزینی متن عینی | [ITextFrame::ReplaceText](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/replacetext/) | [IPresentation::ReplaceText](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipresentation/replacetext/) |
-| جایگزینی مطابقت‌های عبارت منظم | [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/replaceregex/) | [IPresentation::ReplaceRegex](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipresentation/replaceregex/) |
+| برجسته‌سازی متن لغوی | [ITextFrame::HighlightText](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/highlighttext/) | [IPresentation::HighlightText](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipresentation/highlighttext/) |
+| برجسته‌سازی تطابق‌های عبارت منظم | [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/highlightregex/) | [IPresentation::HighlightRegex](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipresentation/highlightregex/) |
+| جایگزینی متن لغوی | [ITextFrame::ReplaceText](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/replacetext/) | [IPresentation::ReplaceText](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipresentation/replacetext/) |
+| جایگزینی تطابق‌های عبارت منظم | [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/replaceregex/) | [IPresentation::ReplaceRegex](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipresentation/replaceregex/) |
 
 ## **Configure Text Matching**
 
-برای عملیات متن عینی، از [ITextSearchOptions](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextsearchoptions/) برای کنترل مطابقت استفاده کنید:
+برای عملیات متن لغوی، از [ITextSearchOptions](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextsearchoptions/) برای کنترل مطابقت استفاده کنید:
 
-- [ITextSearchOptions::set_WholeWordsOnly](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextsearchoptions/set_wholewordsonly/) تطابق‌ها را به کلمات کامل محدود می‌کند.
-- [ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) کنترل می‌کند که آیا حروف با یکدیگر مطابقت داشته باشند.
-- [ITextSearchOptions::set_IncludeNotes](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextsearchoptions/set_includenotes/) یادداشت‌های اسلاید را در عملیات جستجو، جایگزینی و برجسته‌سازی در سطح ارائه شامل می‌شود.
+- [ITextSearchOptions::set_WholeWordsOnly](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextsearchoptions/set_wholewordsonly/) مطابقت‌ها را به کلمات کامل محدود می‌کند.
+- [ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) تعیین می‌کند که حروف بزرگ و کوچک باید مطابقت داشته باشند.
+- [ITextSearchOptions::set_IncludeNotes](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextsearchoptions/set_includenotes/) یادداشت‌های اسلاید را در جستجو، جایگزینی و برجسته‌سازی سطح ارائه شامل می‌شود.
 
-عملیات‌های عبارت منظم از `System::Text::RegularExpressions::Regex` استفاده می‌کنند، بنابراین قوانین مطابقت مانند حساسیت به حروف و مرزهای کلمه توسط خود عبارت و گزینه‌های آن تعریف می‌شود.
+عملیات‌های عبارت منظم از یک `System::Text::RegularExpressions::Regex` استفاده می‌کنند، بنابراین قواعدی نظیر حساسیت به حروف و مرزهای کلام توسط عبارت و گزینه‌های آن تعیین می‌شود.
 
-## **Collect Match Information with a Callback**
+## **Identify the Owner of a Text Frame**
 
-برای دریافت اعلان برای هر تطابق، [IFindResultCallback](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ifindresultcallback/) را پیاده‌سازی کنید. متد [IFindResultCallback::FoundResult](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ifindresultcallback/foundresult/) فریم متن مرتبط، متن منبع، متن مطابقت یافته و موقعیت تطابق را فراهم می‌کند.
+گردش‌کارهای عمومی پردازش متن اغلب یک [ITextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/) را هنگام جستجو، جایگزینی، اعتبارسنجی یا خروجی‌گیری دریافت می‌کنند. با استفاده از [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/get_parentshape/) و [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/get_parentcell/) می‌توانید تعیین کنید که کدام شیء ارائه صاحب این قاب متن است.
 
-این بازگشت‌دعویی مستقیماً شماره اسلاید را دریافت نمی‌کند. پیاده‌سازی زیر آن را از [ISlideComponent::get_Slide](https://reference.aspose.com/slides/fa/cpp/aspose.slides/islidecomponent/get_slide/) استخراج می‌کند و همچنین متن پیدا شده در یادداشت‌های اسلاید را از طریق [INotesSlide::get_ParentSlide](https://reference.aspose.com/slides/fa/cpp/aspose.slides/inotesslide/get_parentslide/) مدیریت می‌نماید. یک شماره اسلاید قابل تهی اجازه می‌دهد همان مدل نتیجه متن مرتبط با انواع دیگر اسلایدها را نشان دهد.
+مقادیر مورد انتظار بسته به مالک متفاوت است:
+
+| مالک قاب متن | `get_ParentShape` | `get_ParentCell` |
+|---|---|---|
+| یک AutoShape یا شکل دیگر حاوی متن | مالک [IShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/) | `nullptr` |
+| یک سلول جدول | `nullptr` | مالک [ICell](https://reference.aspose.com/slides/fa/cpp/aspose.slides/icell/) |
+
+هر دو متد فقط برای مرور فقط‑خواندنی هستند. فراخوانی آن‌ها قاب متن را جابه‌جا یا مالک آن را تغییری نمی‌دهد. کدهای عمومی باید هر دو مقدار را برای `nullptr` بررسی کرده و امکان عدم وجود هر دو مالک را مدیریت کنند.
+
+مثال زیر از [SlideUtil::GetAllTextFrames](https://reference.aspose.com/slides/fa/cpp/aspose.slides.util/slideutil/getalltextframes/) برای پیمایش قاب‌های متن در یک ارائه استفاده می‌کند. برای شکل‌ها، نام شکل، نوع زمان اجرای C++ و اسلاید حامل را گزارش می‌کند. برای سلول‌های جدول، مختصات ستون و ردیف صفر‑مبتنی و اسلاید حامل را گزارش می‌کند.
 
 ```cpp
 #include <DOM/IBaseSlide.h>
 #include <DOM/INotesSlide.h>
+#include <DOM/IShape.h>
 #include <DOM/ISlide.h>
 #include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <Util/SlideUtil.h>
+#include <system/console.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using Aspose::Slides::IBaseSlide;
+using Aspose::Slides::INotesSlide;
+using Aspose::Slides::IShape;
+using Aspose::Slides::ISlide;
+using Aspose::Slides::ITextFrame;
+using Aspose::Slides::Presentation;
+using Aspose::Slides::Util::SlideUtil;
+using System::AsCast;
+using System::Console;
+using System::MakeObject;
+using System::String;
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx");
+auto textFrames = SlideUtil::GetAllTextFrames(presentation, false);
+
+for (const auto& textFrame : textFrames)
+{
+    auto ownerShape = textFrame->get_ParentShape();
+    if (ownerShape != nullptr)
+    {
+        auto shapeName = String::IsNullOrEmpty(ownerShape->get_Name()) ? u"(unnamed)" : ownerShape->get_Name();
+        auto shapeType = ownerShape->GetType().get_Name();
+        auto baseSlide = ownerShape->get_Slide();
+        String slideLabel;
+        auto slide = AsCast<ISlide>(baseSlide);
+
+        if (slide != nullptr)
+        {
+            slideLabel = String::Format(u"slide {0}", slide->get_SlideNumber());
+        }
+        else
+        {
+            auto notesSlide = AsCast<INotesSlide>(baseSlide);
+            if (notesSlide != nullptr)
+            {
+                slideLabel = String::Format(u"notes for slide {0}", notesSlide->get_ParentSlide()->get_SlideNumber());
+            }
+            else
+            {
+                slideLabel = baseSlide->GetType().get_Name();
+            }
+        }
+
+        Console::WriteLine(u"Shape: {0}; type: {1}; {2}", shapeName, shapeType, slideLabel);
+        continue;
+    }
+
+    auto ownerCell = textFrame->get_ParentCell();
+    if (ownerCell != nullptr)
+    {
+        auto baseSlide = ownerCell->get_Slide();
+        String slideLabel;
+        auto slide = AsCast<ISlide>(baseSlide);
+
+        if (slide != nullptr)
+        {
+            slideLabel = String::Format(u"slide {0}", slide->get_SlideNumber());
+        }
+        else
+        {
+            auto notesSlide = AsCast<INotesSlide>(baseSlide);
+            if (notesSlide != nullptr)
+            {
+                slideLabel = String::Format(u"notes for slide {0}", notesSlide->get_ParentSlide()->get_SlideNumber());
+            }
+            else
+            {
+                slideLabel = baseSlide->GetType().get_Name();
+            }
+        }
+
+        Console::WriteLine(u"Table cell: column {0}, row {1}; {2}", ownerCell->get_FirstColumnIndex(), ownerCell->get_FirstRowIndex(), slideLabel);
+        continue;
+    }
+
+    Console::WriteLine(u"The text frame owner is not available as a shape or table cell.");
+}
+```
+
+برای محتوای SmartArt، در شکل‌های موجود در [ISmartArtNode::get_Shapes](https://reference.aspose.com/slides/fa/cpp/aspose.slides.smartart/ismartartnode/get_shapes/) پیمایش کنید و به هر [ISmartArtShape::get_TextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides.smartart/ismartartshape/get_textframe/) دسترسی پیدا کنید. قاب متن می‌تواند از طریق [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/get_parentshape/) به شکل مرتبط خود ردیابی شود، در حالی که [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/get_parentcell/) `nullptr` برمی‌گرداند. بنابراین، شاخه شکل در مثال نیز متن از گره‌های SmartArt را مدیریت می‌کند.
+
+## **Collect Match Information with a Callback**
+
+یک پیاده‌سازی از [IFindResultCallback](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ifindresultcallback/) برای دریافت اعلان برای هر تطابق ایجاد کنید. متد [IFindResultCallback::FoundResult](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ifindresultcallback/foundresult/) آن، قاب متن مرتبط، متن منبع، متن تطبیق‑داده‌شده و موقعیت تطابق را فراهم می‌کند.
+
+callback شماره اسلاید را مستقیماً دریافت نمی‌کند. پیاده‌سازی زیر آن را از [ISlideComponent::get_Slide](https://reference.aspose.com/slides/fa/cpp/aspose.slides/islidecomponent/get_slide/) استخراج می‌کند و همچنین متنی که در یادداشت‌های اسلاید یافت شده است، از طریق [INotesSlide::get_ParentSlide](https://reference.aspose.com/slides/fa/cpp/aspose.slides/inotesslide/get_parentslide/) مدیریت می‌کند. یک عدد اسلاید nullable امکان نمایاندن همان مدل نتیجه برای متن مرتبط با انواع دیگر اسلایدها را می‌دهد.
+
+```cpp
+#include <DOM/IBaseSlide.h>
+#include <DOM/INotesSlide.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Table/ICell.h>
 #include <IFindResultCallback.h>
 #include <system/collections/list.h>
 #include <system/nullable.h>
@@ -70,6 +181,7 @@ Aspose.Slides برای C++ می‌تواند متن را در یک فریم مت
 using Aspose::Slides::IBaseSlide;
 using Aspose::Slides::IFindResultCallback;
 using Aspose::Slides::INotesSlide;
+using Aspose::Slides::IShape;
 using Aspose::Slides::ISlide;
 using Aspose::Slides::ITextFrame;
 using System::AsCast;
@@ -119,7 +231,23 @@ public:
 private:
     static Nullable<int32_t> GetSlideNumber(SharedPtr<ITextFrame> textFrame)
     {
-        SharedPtr<IBaseSlide> baseSlide = textFrame->get_Slide();
+        auto parentShape = textFrame->get_ParentShape();
+        auto parentCell = textFrame->get_ParentCell();
+        SharedPtr<IBaseSlide> baseSlide;
+
+        if (parentShape != nullptr)
+        {
+            baseSlide = parentShape->get_Slide();
+        }
+        else if (parentCell != nullptr)
+        {
+            baseSlide = parentCell->get_Slide();
+        }
+        else
+        {
+            baseSlide = textFrame->get_Slide();
+        }
+
         auto slide = AsCast<ISlide>(baseSlide);
 
         if (slide != nullptr)
@@ -139,13 +267,13 @@ private:
 };
 ```
 
-برای عملیات جایگزینی، `FoundText` شامل متن اصلی تطابق یافته است، بنابراین بازگشت‌دعویی می‌تواند دقیقاً ثبت کند که کدام اصطلاحات جایگزین شده‌اند.
+برای عملیات جایگزینی، `FoundText` شامل متن اصلی تطبیق‌داده‌شده است، بنابراین callback می‌تواند دقیقاً ثبت کند کدام عبارات جایگزین شده‌اند.
 
 ## **Highlight Text**
 
-از متد [ITextFrame::HighlightText](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/highlighttext/) برای برجسته‌سازی مطابقت‌های متن عینی در یک فریم متن استفاده کنید. برای کنترل جستجو یک شیء [ITextSearchOptions](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextsearchoptions/) پاس بدهید و برای جمع‌آوری جزئیات تطابق یک بازگشت‌دعویی فراهم کنید.
+از متد [ITextFrame::HighlightText](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/highlighttext/) برای برجسته‌سازی تطابق‌های متن لغوی در یک قاب متن استفاده کنید. برای کنترل جستجو یک [ITextSearchOptions](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextsearchoptions/) را پاس بدهید و یک callback برای جمع‌آوری جزئیات تطابق‌ها فراهم کنید.
 
-کد نمونه زیر تمام رخدادهای کاراکترهای **"try"** را برجسته می‌کند و سپس تنها کلمه کامل **"to"** را برجسته می‌سازد. هر دو جستجو تطابق‌های خود را به همان بازگشت‌دعویی گزارش می‌دهند.
+کد نمونه زیر تمام رخدادهای حروف **"try"** را برجسته می‌کند و سپس فقط کلمه کامل **"to"** را برجسته می‌سازد. هر دو جستجو تطابق‌های خود را به همان callback گزارش می‌دهند.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -166,14 +294,14 @@ using System::MakeObject;
 
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-// Get the first shape from the first slide.
+// دریافت اولین شکل از اولین اسلاید.
 auto shape = ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
 auto callback = MakeObject<TextSearchCallback>();
 
 auto substringSearchOptions = MakeObject<TextSearchOptions>();
 substringSearchOptions->set_CaseSensitive(false);
 
-// Highlight every occurrence of "try" in the text frame.
+// برجسته‌سازی تمام رخدادهای "try" در قاب متن.
 shape->get_TextFrame()->HighlightText(
     u"try", System::Drawing::Color::get_LightBlue(), substringSearchOptions, callback);
 
@@ -181,7 +309,7 @@ auto wholeWordSearchOptions = MakeObject<TextSearchOptions>();
 wholeWordSearchOptions->set_WholeWordsOnly(true);
 wholeWordSearchOptions->set_CaseSensitive(false);
 
-// Highlight only the complete word "to".
+// برجسته‌سازی فقط کلمه کامل "to".
 shape->get_TextFrame()->HighlightText(
     u"to", System::Drawing::Color::get_Violet(), wholeWordSearchOptions, callback);
 
@@ -201,13 +329,13 @@ presentation->Dispose();
 
 نتیجه:
 
-![متن برجسته شده](highlighted_text.png)
+![The highlighted text](highlighted_text.png)
 
 ## **Highlight Text Using Regular Expressions**
 
-متد [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/highlightregex/) متن‌هایی را که توسط یک عبارت منظم پیدا می‌شوند، در یک فریم متن برجسته می‌کند.
+متد [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/highlightregex/) متن‌های مطابق با یک عبارت منظم را در یک قاب متن برجسته می‌کند.
 
-کد زیر تمام کلماتی که شامل هفت کاراکتر یا بیشتر هستند را برجسته می‌کند و هر تطابق را جمع‌آوری می‌نماید:
+کد زیر تمام کلماتی که دارای هفت یا بیشتر حرف هستند برجسته می‌کند و هر تطابق را جمع‌آوری می‌نماید:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -240,11 +368,11 @@ presentation->Dispose();
 
 نتیجه:
 
-![متن برجسته شده با استفاده از عبارت منظم](highlighted_text_using_regex.png)
+![The highlighted text using the regular expression](highlighted_text_using_regex.png)
 
 ## **Highlight Text Across a Presentation**
 
-از [IPresentation::HighlightText](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipresentation/highlighttext/) و [IPresentation::HighlightRegex](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipresentation/highlightregex/) برای جستجوی تمام فریم‌های متنی قابل کاربرد در یک ارائه استفاده کنید. مثال زیر یک اصطلاح عینی و تمام آدرس‌های ایمیل را برجسته می‌کند و مجموعه نتایج جداگانه‌ای برای دو جستجو نگه می‌دارد.
+از [IPresentation::HighlightText](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipresentation/highlighttext/) و [IPresentation::HighlightRegex](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipresentation/highlightregex/) برای جستجوی تمام قاب‌های متن قابل اعمال در یک ارائه استفاده کنید. مثال زیر یک اصطلاح لغوی و تمام آدرس‌های ایمیل را برجسته می‌کند و برای هر دو جستجو مجموعه نتایج جداگانه‌ای حفظ می‌کند.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -285,9 +413,9 @@ presentation->Dispose();
 
 ## **Replace Text in a Text Frame**
 
-از [ITextFrame::ReplaceText](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/replacetext/) برای متن عینی و [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/replaceregex/) برای جایگزینی مبتنی بر الگو استفاده کنید. این متدها متن مطابقت یافته را داخل فریم متن موجود به‌روزرسانی می‌کنند، به‌طوری‌که قالب‌بندی بخش‌های اطراف حفظ می‌شود و نیازی به بازسازی فریم متن از یک رشته ساده نیست.
+از [ITextFrame::ReplaceText](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/replacetext/) برای متن لغوی و از [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/replaceregex/) برای جایگزینی مبتنی بر الگو استفاده کنید. این متدها متن تطبیق‑داده‌شده را درون قاب متن موجود به‌روز می‌کنند، به‌طوری که قالب‌بندی بخش‌های اطراف حفظ می‌شود و نیازی به بازسازی کامل قاب متن از یک رشته ساده نیست.
 
-مثال زیر یک گونه املایی را استاندارد می‌کند و سپس برچسب‌های نسخه را جایگزین می‌سازد. همان بازگشت‌دعویی اصطلاحات اصلی مطابقت یافته توسط هر دو عملیات را ثبت می‌کند.
+مثال زیر یک نوع نوشتاری متفاوت را استانداردسازی می‌کند و سپس برچسب‌های نسخه را جایگزین می‌نماید. همان callback اصطلاحات اصلی مطابقت‌داده شده توسط هر دو عملیات را ثبت می‌کند.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -326,11 +454,11 @@ presentation->Save(u"updated_text_frame.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-اگر یک تطابق بخش‌هایی با قالب‌بندی متفاوت را در بر گیرد، خروجی را بررسی کنید تا تأیید کنید که کدام قالب‌بندی باید بر متن جایگزین اعمال شود.
+اگر یک تطابق شامل بخش‌هایی با قالب‌بندی متفاوت باشد، خروجی را بررسی کنید تا اطمینان حاصل کنید قالب‌بندی مناسب برای متن جایگزین اعمال شده است.
 
 ## **Replace Text Across a Presentation**
 
-از [IPresentation::ReplaceText](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipresentation/replacetext/) و [IPresentation::ReplaceRegex](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipresentation/replaceregex/) برای اعمال همان عملیات‌ها در سرتاسر ارائه استفاده کنید. این امر برای پاک‌سازی قالب، به‌روزرسانی اصطلاحات و محرمانه‌سازی مفید است.
+از [IPresentation::ReplaceText](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipresentation/replacetext/) و [IPresentation::ReplaceRegex](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ipresentation/replaceregex/) برای اعمال همان عملیات‌ها در سراسر ارائه استفاده کنید. این کار برای پاک‌سازی قالب، به‌روزرسانی واژگان و حذف اطلاعات حساس مفید است.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -363,7 +491,7 @@ presentation->Dispose();
 
 ## **Group Matches for Reporting**
 
-از آنجا که هر نتیجه شماره اسلاید و فریم متن خود را ذخیره می‌کند، برنامه‌ها می‌توانند تطابق‌ها را برای حسابرسی، گزارش‌دهی یا جریان‌های کاری بازبینی گروه‌بندی کنند. مثال زیر نتایج جمع‌آوری شده را ابتدا بر اساس اسلاید و سپس بر اساس فریم متن گروه‌بندی می‌کند:
+از آنجا که هر نتیجه شماره اسلاید و قاب متن خود را ذخیره می‌کند، برنامه‌ها می‌توانند تطابق‌ها را برای حسابرسی، گزارش‌گیری یا گردش‌کارهای بازبینی گروه‌بندی کنند. مثال زیر نتایج جمع‌آوری‌شده را ابتدا بر اساس اسلاید و سپس بر اساس قاب متن گروه‌بندی می‌کند:
 
 ```cpp
 #include <DOM/ITextFrame.h>
@@ -409,22 +537,27 @@ for (const auto& slideGroup : matchesBySlide)
 
 ## **FAQ**
 
-**چگونه می‌توانم فقط یک جعبه متن را به‌جای کل ارائه جستجو کنم؟**
+**How can I search only one text box instead of the entire presentation?**  
+چگونه می‌توانم فقط یک جعبه متن را به جای کل ارائه جستجو کنم؟
 
-فریم متن شکل را دریافت کنید و یکی از متدهای [ITextFrame::HighlightText](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/highlighttext/)، [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/highlightregex/)، [ITextFrame::ReplaceText](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/replacetext/) یا [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/replaceregex/) را روی آن فریم متن صدا بزنید. متدهای سطح ارائه تمام فریم‌های متنی قابل کاربرد را پردازش می‌کنند.
+قاب متن شکل را دریافت کنید و بر روی آن [ITextFrame::HighlightText](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/highlighttext/)، [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/highlightregex/)، [ITextFrame::ReplaceText](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/replacetext/) یا [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/replaceregex/) را فراخوانی کنید. متدهای سطح ارائه تمام قاب‌های متن قابل اعمال را پردازش می‌کنند.
 
-**چگونه می‌توانم کلمات کامل را با حروف بزرگ/کوچک صحیح مطابقت دهم؟**
+**How can I match complete words with the correct capitalization?**  
+چگونه می‌توانم فقط کلمات کامل را با حروف بزرگ و کوچک صحیح مطابقت دهم؟
 
-متدهای [ITextSearchOptions::set_WholeWordsOnly](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextsearchoptions/set_wholewordsonly/) و [ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) را با مقدار `true` فراخوانی کنید و گزینه‌ها را به متد برجسته‌سازی یا جایگزینی متن عینی پاس بدهید. برای عبارات منظم، مرزهای کلمه و حساسیت به حروف را خود در `System::Text::RegularExpressions::Regex` تعریف کنید.
+متدهای [ITextSearchOptions::set_WholeWordsOnly](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextsearchoptions/set_wholewordsonly/) و [ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) را با مقدار `true` تنظیم کنید و گزینه‌ها را به متد برجسته‌سازی یا جایگزینی متن لغوی پاس بدهید. برای عبارات منظم، مرزهای کلمه و حساسیت به حروف را در خود `System::Text::RegularExpressions::Regex` تعریف کنید.
 
-**آیا جستجو و جایگزینی می‌توانند متن موجود در یادداشت‌های اسلاید را شامل شوند؟**
+**Can search and replacement include text in slide notes?**  
+آیا جستجو و جایگزینی می‌تواند متن موجود در یادداشت‌های اسلاید را نیز شامل شود؟
 
-بله. هنگام استفاده از یک عملیات متن عینی در سطح ارائه، [ITextSearchOptions::set_IncludeNotes](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextsearchoptions/set_includenotes/) را با مقدار `true` فراخوانی کنید. پیاده‌سازی بازگشت‌دعویی نشان‌داده‌شده، یک تطابق در اسلاید یادداشت‌ها را به شماره اسلاید والد آن بازمی‌گرداند.
+بله. هنگام استفاده از یک عملیات متن لغوی در سطح ارائه، [ITextSearchOptions::set_IncludeNotes](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextsearchoptions/set_includenotes/) را با مقدار `true` تنظیم کنید. پیاده‌سازی callback نشان داده شده در بالا، یک تطابق در اسلاید یادداشت را به شماره اسلاید والد خود بازمی‌گرداند.
 
-**چگونه می‌توانم گزارشی ایجاد کنم بدون اینکه ارائه را بار دوم اسکن کنم؟**
+**How can I create a report without scanning the presentation a second time?**  
+چگونه می‌توانم بدون اسکن دوباره ارائه، گزارشی ایجاد کنم؟
 
-یک پیاده‌سازی از [IFindResultCallback](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ifindresultcallback/) را به عملیات برجسته‌سازی یا جایگزینی پاس بدهید. بازگشت‌دعویی در حین اجرای عملیات هر تطابق را دریافت می‌کند، بنابراین برنامه می‌تواند متن منبع، متن مطابقت یافته، موقعیت، فریم متن و شماره اسلاید استخراج‌شده را برای گروه‌بندی یا استخراج بعدی ذخیره کند.
+یک پیاده‌سازی از [IFindResultCallback](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ifindresultcallback/) را به عملیات برجسته‌سازی یا جایگزینی پاس بدهید. callback در حین اجرای عملیات هر تطابق را دریافت می‌کند، بنابراین برنامه می‌تواند متن منبع، متن تطبیق‑داده‌شده، موقعیت، قاب متن و شماره اسلاید استخراج‌شده را برای گروه‌بندی یا خروجی‌گیری بعدی ذخیره کند.
 
-**آیا جایگزینی متن قالب‌بندی آن را حفظ می‌کند؟**
+**Does replacing text preserve its formatting?**  
+آیا جایگزینی متن قالب‌بندی آن را حفظ می‌کند؟
 
-[ITextFrame::ReplaceText](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/replacetext/) و [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/replaceregex/) متن مطابقت یافته را داخل فریم متن موجود تغییر می‌دهند و قالب‌بندی بخش‌های اطراف را حفظ می‌کنند. اگر یک تطابق بخش‌هایی با قالب‌بندی متفاوت را در بر گیرد، نتیجه را بررسی کنید تا اطمینان حاصل کنید جایگزینی از استایل دلخواه استفاده می‌کند.
+[ITextFrame::ReplaceText](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/replacetext/) و [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/replaceregex/) متن تطبیق‑داده‌شده را درون قاب متن موجود تغییر می‌دهند و قالب‌بندی بخش‌های اطراف را نگه می‌دارند. اگر یک تطابق شامل بخش‌هایی با قالب‌بندی متفاوت باشد، خروجی را بررسی کنید تا اطمینان حاصل شود که متن جایگزین از سبک موردنظر استفاده می‌کند.

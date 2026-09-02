@@ -1,66 +1,177 @@
 ---
-title: Tìm kiếm và Thay thế Văn bản trong Bản trình chiếu PowerPoint bằng C++
-linktitle: Tìm kiếm và Thay thế Văn bản
+title: "Tìm kiếm và Thay thế Văn bản trong Bài thuyết trình PowerPoint bằng C++"
+linktitle: "Tìm kiếm và Thay thế Văn bản"
 type: docs
 weight: 55
 url: /vi/cpp/search-and-replace-text/
 keywords:
-- tìm kiếm văn bản
-- đánh dấu văn bản
-- thay thế văn bản
-- biểu thức chính quy
-- callback kết quả
-- khung văn bản
-- báo cáo kiểm toán
-- PowerPoint
-- OpenDocument
-- bản trình chiếu
-- C++
-- Aspose.Slides
-description: "Tìm kiếm, đánh dấu và thay thế văn bản trong bản trình chiếu PowerPoint đồng thời thu thập mọi kết quả khớp bằng Aspose.Slides cho C++."
+- "tìm kiếm văn bản"
+- "tô sáng văn bản"
+- "thay thế văn bản"
+- "biểu thức chính quy"
+- "callback kết quả"
+- "khung văn bản"
+- "báo cáo kiểm toán"
+- "PowerPoint"
+- "OpenDocument"
+- "bài thuyết trình"
+- "C++"
+- "Aspose.Slides"
+description: "Tìm kiếm, tô sáng và thay thế văn bản trong các bài thuyết trình PowerPoint đồng thời thu thập mọi khớp với Aspose.Slides cho C++."
 ---
 ## **Tổng quan**
 
-Aspose.Slides for C++ có thể tìm kiếm, đánh dấu và thay thế văn bản trong một khung văn bản riêng lẻ hoặc trên toàn bộ bản trình chiếu. Mỗi thao tác cũng có thể thông báo cho ứng dụng về mọi kết quả khớp thông qua một callback kết quả. Điều này cho phép cập nhật bản trình chiếu đồng thời xây dựng một bản ghi audit chứa văn bản khớp, ngữ cảnh, vị trí, khung văn bản và số slide.
+Aspose.Slides for C++ có thể tìm kiếm, tô sáng và thay thế văn bản trong một khung văn bản riêng lẻ hoặc trên toàn bộ bài thuyết trình. Mỗi thao tác cũng có thể thông báo cho ứng dụng về mỗi kết quả khớp thông qua một callback kết quả. Điều này cho phép cập nhật bài thuyết trình và đồng thời xây dựng một lịch sử kiểm toán chứa văn bản khớp, ngữ cảnh, vị trí, khung văn bản và số slide.
 
-Các khả năng này hữu ích cho việc xem xét, gỡ bỏ thông tin nhạy cảm, kiểm tra thuật ngữ, dọn dẹp mẫu và quy trình báo cáo tự động.
+Các khả năng này hữu ích cho việc rà soát, xóa nhạy cảm, kiểm tra thuật ngữ, dọn dẹp mẫu, và quy trình báo cáo tự động.
 
-Trong các ví dụ đầu tiên dưới đây, chúng tôi sử dụng tệp có tên “sample.pptx”, chứa một hộp văn bản duy nhất trên slide đầu tiên với nội dung sau:
+Trong các ví dụ đầu tiên dưới đây, chúng tôi sử dụng tệp có tên "sample.pptx", chứa một hộp văn bản duy nhất trên slide đầu tiên với văn bản sau:
 
-![Văn bản mẫu](sample_text.png)
+![Sample text](sample_text.png)
 
-## **Chọn phạm vi tìm kiếm**
+## **Chọn Phạm vi Tìm kiếm**
 
-Sử dụng các phương thức trên [ITextFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/) để giới hạn một thao tác trong một khung văn bản. Sử dụng các phương thức trên [IPresentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ipresentation/) để xử lý tất cả các văn bản áp dụng trong bản trình chiếu.
+Sử dụng các phương thức trên [ITextFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/) để giới hạn một thao tác vào một khung văn bản. Sử dụng các phương thức trên [IPresentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ipresentation/) để xử lý mọi văn bản áp dụng trong bài thuyết trình.
 
-| Hoạt động | Một khung văn bản | Toàn bộ bản trình chiếu |
+| Thao tác | Một khung văn bản | Toàn bộ bài thuyết trình |
 |---|---|---|
-| Đánh dấu văn bản nguyên văn | [ITextFrame::HighlightText](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/highlighttext/) | [IPresentation::HighlightText](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ipresentation/highlighttext/) |
-| Đánh dấu kết quả khớp biểu thức chính quy | [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/highlightregex/) | [IPresentation::HighlightRegex](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ipresentation/highlightregex/) |
-| Thay thế văn bản nguyên văn | [ITextFrame::ReplaceText](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/replacetext/) | [IPresentation::ReplaceText](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ipresentation/replacetext/) |
-| Thay thế kết quả khớp biểu thức chính quy | [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/replaceregex/) | [IPresentation::ReplaceRegex](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ipresentation/replaceregex/) |
+| Tô sáng văn bản nguyên thủy | [ITextFrame::HighlightText](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/highlighttext/) | [IPresentation::HighlightText](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ipresentation/highlighttext/) |
+| Tô sáng các khớp biểu thức chính quy | [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/highlightregex/) | [IPresentation::HighlightRegex](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ipresentation/highlightregex/) |
+| Thay thế văn bản nguyên thủy | [ITextFrame::ReplaceText](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/replacetext/) | [IPresentation::ReplaceText](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ipresentation/replacetext/) |
+| Thay thế các khớp biểu thức chính quy | [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/replaceregex/) | [IPresentation::ReplaceRegex](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ipresentation/replaceregex/) |
 
-## **Cấu hình khớp văn bản**
+## **Cấu hình Khớp Văn bản**
 
-Đối với các thao tác văn bản nguyên văn, sử dụng [ITextSearchOptions](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextsearchoptions/) để kiểm soát việc khớp:
+Đối với các thao tác văn bản nguyên thủy, sử dụng [ITextSearchOptions](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextsearchoptions/) để kiểm soát việc khớp:
 
-- [ITextSearchOptions::set_WholeWordsOnly](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextsearchoptions/set_wholewordsonly/) giới hạn các khớp thành các từ hoàn chỉnh.
-- [ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) kiểm soát việc có phải khớp chữ hoa chữ thường.
-- [ITextSearchOptions::set_IncludeNotes](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextsearchoptions/set_includenotes/) bao gồm ghi chú slide trong các hoạt động tìm kiếm, thay thế và đánh dấu ở mức bản trình chiếu.
+- [ITextSearchOptions::set_WholeWordsOnly](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextsearchoptions/set_wholewordsonly/) giới hạn các khớp chỉ ở các từ đầy đủ.
+- [ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) kiểm soát việc có phải khớp chữ hoa/thường hay không.
+- [ITextSearchOptions::set_IncludeNotes](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextsearchoptions/set_includenotes/) bao gồm ghi chú slide trong các thao tác tìm kiếm, thay thế và tô sáng ở mức bài thuyết trình.
 
-Các thao tác biểu thức chính quy sử dụng `System::Text::RegularExpressions::Regex`, vì vậy các quy tắc khớp như độ nhạy chữ hoa chữ thường và ranh giới từ được xác định bởi biểu thức và các tùy chọn của nó.
+Các thao tác biểu thức chính quy sử dụng một `System::Text::RegularExpressions::Regex`, vì vậy các quy tắc khớp như độ nhạy cảm chữ hoa/thường và biên giới từ được xác định bởi biểu thức và các tùy chọn của nó.
 
-## **Thu thập thông tin khớp với Callback**
+## **Xác định Chủ sở hữu của Khung Văn bản**
 
-Triển khai [IFindResultCallback](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ifindresultcallback/) để nhận thông báo cho mỗi kết quả khớp. Phương thức [IFindResultCallback::FoundResult](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ifindresultcallback/foundresult/) cung cấp khung văn bản liên quan, văn bản nguồn, văn bản khớp và vị trí khớp.
+Các luồng công việc xử lý văn bản chung thường nhận một [ITextFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/) trong khi tìm kiếm, thay thế, xác thực hoặc xuất văn bản. Sử dụng [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/get_parentshape/) và [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/get_parentcell/) để xác định đối tượng bài thuyết trình nào sở hữu khung văn bản.
 
-Callback không nhận trực tiếp số slide. Đoạn mã dưới đây lấy nó từ [ISlideComponent::get_Slide](https://reference.aspose.com/slides/vi/cpp/aspose.slides/islidecomponent/get_slide/) và cũng xử lý văn bản được tìm thấy trong ghi chú slide qua [INotesSlide::get_ParentSlide](https://reference.aspose.com/slides/vi/cpp/aspose.slides/inotesslide/get_parentslide/). Một số slide có thể null cho phép cùng một mô hình kết quả biểu diễn văn bản liên quan đến các loại slide khác.
+Giá trị mong đợi phụ thuộc vào chủ sở hữu:
+
+| Chủ sở hữu khung văn bản | `get_ParentShape` | `get_ParentCell` |
+|---|---|---|
+| Một AutoShape hoặc một hình dạng khác chứa văn bản | The owning [IShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishape/) | `nullptr` |
+| Một ô bảng | `nullptr` | The owning [ICell](https://reference.aspose.com/slides/vi/cpp/aspose.slides/icell/) |
+
+Cả hai phương thức đều cung cấp điều hướng chỉ đọc. Gọi chúng không di chuyển khung văn bản hoặc thay đổi chủ sở hữu. Mã chung nên kiểm tra cả hai giá trị xem có `nullptr` và xử lý khả năng không có chủ sở hữu nào.
+
+Ví dụ sau sử dụng [SlideUtil::GetAllTextFrames](https://reference.aspose.com/slides/vi/cpp/aspose.slides.util/slideutil/getalltextframes/) để lặp qua các khung văn bản trong một bài thuyết trình. Đối với các hình dạng, nó báo cáo tên hình dạng, kiểu thời gian chạy C++, và slide chứa. Đối với các ô bảng, nó báo cáo tọa độ cột và hàng tính từ 0 và slide chứa.
 
 ```cpp
 #include <DOM/IBaseSlide.h>
 #include <DOM/INotesSlide.h>
+#include <DOM/IShape.h>
 #include <DOM/ISlide.h>
 #include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <Util/SlideUtil.h>
+#include <system/console.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using Aspose::Slides::IBaseSlide;
+using Aspose::Slides::INotesSlide;
+using Aspose::Slides::IShape;
+using Aspose::Slides::ISlide;
+using Aspose::Slides::ITextFrame;
+using Aspose::Slides::Presentation;
+using Aspose::Slides::Util::SlideUtil;
+using System::AsCast;
+using System::Console;
+using System::MakeObject;
+using System::String;
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx");
+auto textFrames = SlideUtil::GetAllTextFrames(presentation, false);
+
+for (const auto& textFrame : textFrames)
+{
+    auto ownerShape = textFrame->get_ParentShape();
+    if (ownerShape != nullptr)
+    {
+        auto shapeName = String::IsNullOrEmpty(ownerShape->get_Name()) ? u"(unnamed)" : ownerShape->get_Name();
+        auto shapeType = ownerShape->GetType().get_Name();
+        auto baseSlide = ownerShape->get_Slide();
+        String slideLabel;
+        auto slide = AsCast<ISlide>(baseSlide);
+
+        if (slide != nullptr)
+        {
+            slideLabel = String::Format(u"slide {0}", slide->get_SlideNumber());
+        }
+        else
+        {
+            auto notesSlide = AsCast<INotesSlide>(baseSlide);
+            if (notesSlide != nullptr)
+            {
+                slideLabel = String::Format(u"notes for slide {0}", notesSlide->get_ParentSlide()->get_SlideNumber());
+            }
+            else
+            {
+                slideLabel = baseSlide->GetType().get_Name();
+            }
+        }
+
+        Console::WriteLine(u"Shape: {0}; type: {1}; {2}", shapeName, shapeType, slideLabel);
+        continue;
+    }
+
+    auto ownerCell = textFrame->get_ParentCell();
+    if (ownerCell != nullptr)
+    {
+        auto baseSlide = ownerCell->get_Slide();
+        String slideLabel;
+        auto slide = AsCast<ISlide>(baseSlide);
+
+        if (slide != nullptr)
+        {
+            slideLabel = String::Format(u"slide {0}", slide->get_SlideNumber());
+        }
+        else
+        {
+            auto notesSlide = AsCast<INotesSlide>(baseSlide);
+            if (notesSlide != nullptr)
+            {
+                slideLabel = String::Format(u"notes for slide {0}", notesSlide->get_ParentSlide()->get_SlideNumber());
+            }
+            else
+            {
+                slideLabel = baseSlide->GetType().get_Name();
+            }
+        }
+
+        Console::WriteLine(u"Table cell: column {0}, row {1}; {2}", ownerCell->get_FirstColumnIndex(), ownerCell->get_FirstRowIndex(), slideLabel);
+        continue;
+    }
+
+    Console::WriteLine(u"The text frame owner is not available as a shape or table cell.");
+}
+```
+
+Đối với nội dung SmartArt, lặp qua các hình dạng trong [ISmartArtNode::get_Shapes](https://reference.aspose.com/slides/vi/cpp/aspose.slides.smartart/ismartartnode/get_shapes/) và truy cập mỗi [ISmartArtShape::get_TextFrame](https://reference.aspose.com/slides/vi/cpp/aspose.slides.smartart/ismartartshape/get_textframe/). Khung văn bản có thể được truy xuất tới hình dạng liên quan thông qua [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/get_parentshape/), trong khi [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/get_parentcell/) trả về `nullptr`. Do đó, nhánh hình dạng trong ví dụ cũng xử lý văn bản từ các nút SmartArt.
+
+## **Thu thập Thông tin Khớp với Callback**
+
+Triển khai [IFindResultCallback](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ifindresultcallback/) để nhận thông báo cho mỗi khớp. Phương thức [IFindResultCallback::FoundResult](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ifindresultcallback/foundresult/) của nó cung cấp khung văn bản liên quan, văn bản nguồn, văn bản khớp và vị trí khớp.
+
+Callback không nhận trực tiếp số slide. Cài đặt bên dưới suy ra nó từ [ISlideComponent::get_Slide](https://reference.aspose.com/slides/vi/cpp/aspose.slides/islidecomponent/get_slide/) và cũng xử lý văn bản được tìm thấy trong ghi chú slide qua [INotesSlide::get_ParentSlide](https://reference.aspose.com/slides/vi/cpp/aspose.slides/inotesslide/get_parentslide/). Một số slide có thể null cho phép mô hình kết quả giống nhau đại diện cho văn bản liên quan đến các loại slide khác.
+
+```cpp
+#include <DOM/IBaseSlide.h>
+#include <DOM/INotesSlide.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Table/ICell.h>
 #include <IFindResultCallback.h>
 #include <system/collections/list.h>
 #include <system/nullable.h>
@@ -70,6 +181,7 @@ Callback không nhận trực tiếp số slide. Đoạn mã dưới đây lấy
 using Aspose::Slides::IBaseSlide;
 using Aspose::Slides::IFindResultCallback;
 using Aspose::Slides::INotesSlide;
+using Aspose::Slides::IShape;
 using Aspose::Slides::ISlide;
 using Aspose::Slides::ITextFrame;
 using System::AsCast;
@@ -119,7 +231,23 @@ public:
 private:
     static Nullable<int32_t> GetSlideNumber(SharedPtr<ITextFrame> textFrame)
     {
-        SharedPtr<IBaseSlide> baseSlide = textFrame->get_Slide();
+        auto parentShape = textFrame->get_ParentShape();
+        auto parentCell = textFrame->get_ParentCell();
+        SharedPtr<IBaseSlide> baseSlide;
+
+        if (parentShape != nullptr)
+        {
+            baseSlide = parentShape->get_Slide();
+        }
+        else if (parentCell != nullptr)
+        {
+            baseSlide = parentCell->get_Slide();
+        }
+        else
+        {
+            baseSlide = textFrame->get_Slide();
+        }
+
         auto slide = AsCast<ISlide>(baseSlide);
 
         if (slide != nullptr)
@@ -139,13 +267,13 @@ private:
 };
 ```
 
-Đối với các thao tác thay thế, `FoundText` chứa văn bản khớp gốc, vì vậy callback có thể ghi lại chính xác các thuật ngữ đã được thay thế.
+Đối với các thao tác thay thế, `FoundText` chứa văn bản khớp gốc, vì vậy callback có thể ghi lại chính xác các cụm từ đã được thay thế.
 
-## **Đánh dấu văn bản**
+## **Tô sáng Văn bản**
 
-Sử dụng phương thức [ITextFrame::HighlightText](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/highlighttext/) để đánh dấu các kết quả khớp văn bản nguyên văn trong một khung văn bản. Truyền vào [ITextSearchOptions](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextsearchoptions/) để kiểm soát tìm kiếm và một callback để thu thập chi tiết kết quả.
+Sử dụng phương thức [ITextFrame::HighlightText](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/highlighttext/) để tô sáng các khớp văn bản nguyên thủy trong một khung văn bản. Truyền [ITextSearchOptions](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextsearchoptions/) để kiểm soát tìm kiếm và một callback để thu thập chi tiết khớp.
 
-Đoạn mã dưới đây đánh dấu tất cả các lần xuất hiện của ký tự **"try"** và sau đó chỉ đánh dấu từ hoàn chỉnh **"to"**. Cả hai tìm kiếm đều báo cáo kết quả cho cùng một callback.
+Ví dụ mã dưới đây tô sáng tất cả các lần xuất hiện của các ký tự **"try"** và sau đó chỉ tô sáng từ đầy đủ **"to"**. Cả hai tìm kiếm đều báo cáo các khớp của chúng tới cùng một callback.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -166,14 +294,14 @@ using System::MakeObject;
 
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-// Get the first shape from the first slide.
+// Lấy hình dạng đầu tiên từ slide đầu tiên.
 auto shape = ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
 auto callback = MakeObject<TextSearchCallback>();
 
 auto substringSearchOptions = MakeObject<TextSearchOptions>();
 substringSearchOptions->set_CaseSensitive(false);
 
-// Highlight every occurrence of "try" in the text frame.
+// Tô sáng mọi lần xuất hiện của "try" trong khung văn bản.
 shape->get_TextFrame()->HighlightText(
     u"try", System::Drawing::Color::get_LightBlue(), substringSearchOptions, callback);
 
@@ -181,7 +309,7 @@ auto wholeWordSearchOptions = MakeObject<TextSearchOptions>();
 wholeWordSearchOptions->set_WholeWordsOnly(true);
 wholeWordSearchOptions->set_CaseSensitive(false);
 
-// Highlight only the complete word "to".
+// Chỉ tô sáng từ đầy đủ "to".
 shape->get_TextFrame()->HighlightText(
     u"to", System::Drawing::Color::get_Violet(), wholeWordSearchOptions, callback);
 
@@ -201,13 +329,13 @@ presentation->Dispose();
 
 Kết quả:
 
-![Văn bản đã được đánh dấu](highlighted_text.png)
+![The highlighted text](highlighted_text.png)
 
-## **Đánh dấu văn bản bằng biểu thức chính quy**
+## **Tô sáng Văn bản bằng Biểu thức Chính quy**
 
-Phương thức [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/highlightregex/) đánh dấu các kết quả khớp được tìm thấy bằng biểu thức chính quy trong một khung văn bản.
+Phương thức [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/highlightregex/) tô sáng các khớp văn bản được tìm thấy bằng một biểu thức chính quy trong một khung văn bản.
 
-Đoạn mã sau đánh dấu tất cả các từ có độ dài bảy ký tự trở lên và thu thập mỗi kết quả khớp:
+Mã sau tô sáng tất cả các từ chứa bảy ký tự trở lên và thu thập mỗi khớp:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -240,11 +368,11 @@ presentation->Dispose();
 
 Kết quả:
 
-![Văn bản đã được đánh dấu bằng biểu thức chính quy](highlighted_text_using_regex.png)
+![The highlighted text using the regular expression](highlighted_text_using_regex.png)
 
-## **Đánh dấu văn bản trên toàn bộ bản trình chiếu**
+## **Tô sáng Văn bản trên Toàn bộ Bài thuyết trình**
 
-Sử dụng [IPresentation::HighlightText](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ipresentation/highlighttext/) và [IPresentation::HighlightRegex](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ipresentation/highlightregex/) để tìm kiếm tất cả các khung văn bản áp dụng trong một bản trình chiếu. Ví dụ dưới đây đánh dấu một thuật ngữ nguyên văn và tất cả các địa chỉ email đồng thời giữ các bộ kết quả riêng biệt cho hai tìm kiếm.
+Sử dụng [IPresentation::HighlightText](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ipresentation/highlighttext/) và [IPresentation::HighlightRegex](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ipresentation/highlightregex/) để tìm kiếm tất cả các khung văn bản áp dụng trong một bài thuyết trình. Ví dụ sau tô sáng một thuật ngữ nguyên thủy và tất cả địa chỉ email trong khi giữ các bộ kết quả riêng biệt cho hai tìm kiếm.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -283,11 +411,11 @@ presentation->Save(u"highlighted_presentation.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Thay thế văn bản trong một khung văn bản**
+## **Thay thế Văn bản trong Khung Văn bản**
 
-Sử dụng [ITextFrame::ReplaceText](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/replacetext/) cho văn bản nguyên văn và [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/replaceregex/) cho việc thay thế dựa trên mẫu. Các phương thức này cập nhật văn bản khớp trong khung văn bản hiện có, giữ nguyên định dạng phần bao quanh thay vì xây dựng lại khung văn bản từ một chuỗi thuần.
+Sử dụng [ITextFrame::ReplaceText](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/replacetext/) cho văn bản nguyên thủy và [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/replaceregex/) cho việc thay thế dựa trên mẫu. Các phương thức này cập nhật văn bản khớp trong khung văn bản hiện có, giữ định dạng phần xung quanh thay vì xây dựng lại khung văn bản từ một chuỗi đơn.
 
-Ví dụ dưới đây chuẩn hoá một biến thể chính tả và sau đó thay thế các nhãn phiên bản. Callback giống nhau ghi lại các thuật ngữ gốc đã được khớp bởi cả hai thao tác.
+Ví dụ sau chuẩn hoá một biến thể chính tả và sau đó thay thế các nhãn phiên bản. Callback giống nhau ghi lại các cụm từ gốc được khớp bởi cả hai thao tác.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -326,11 +454,11 @@ presentation->Save(u"updated_text_frame.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Nếu một kết quả khớp bao phủ các phần có định dạng khác nhau, hãy kiểm tra đầu ra để xác nhận định dạng nào sẽ được áp dụng cho văn bản thay thế.
+Nếu một khớp bao phủ các phần có định dạng khác nhau, hãy xem lại kết quả để xác nhận định dạng nào sẽ áp dụng cho văn bản thay thế.
 
-## **Thay thế văn bản trên toàn bộ bản trình chiếu**
+## **Thay thế Văn bản trên Toàn bộ Bài thuyết trình**
 
-Sử dụng [IPresentation::ReplaceText](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ipresentation/replacetext/) và [IPresentation::ReplaceRegex](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ipresentation/replaceregex/) để áp dụng cùng một thao tác trên toàn bản trình chiếu. Điều này hữu ích cho việc dọn dẹp mẫu, cập nhật thuật ngữ và gỡ bỏ thông tin nhạy cảm.
+Sử dụng [IPresentation::ReplaceText](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ipresentation/replacetext/) và [IPresentation::ReplaceRegex](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ipresentation/replaceregex/) để áp dụng các thao tác giống nhau trên toàn bộ bài thuyết trình. Điều này hữu ích cho việc dọn dẹp mẫu, cập nhật thuật ngữ và xóa nhạy cảm.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -361,9 +489,9 @@ presentation->Save(u"updated_presentation.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Nhóm các khớp để báo cáo**
+## **Nhóm các Khớp cho Báo cáo**
 
-Vì mỗi kết quả lưu trữ số slide và khung văn bản, các ứng dụng có thể nhóm các khớp cho mục đích audit, báo cáo hoặc quy trình xem xét. Ví dụ dưới đây nhóm các kết quả đã thu thập đầu tiên theo slide và sau đó theo khung văn bản:
+Vì mỗi kết quả lưu số slide và khung văn bản, các ứng dụng có thể nhóm các khớp để kiểm toán, báo cáo hoặc quy trình rà soát. Ví dụ sau nhóm các kết quả đã thu thập đầu tiên theo slide và sau đó theo khung văn bản:
 
 ```cpp
 #include <DOM/ITextFrame.h>
@@ -409,22 +537,22 @@ for (const auto& slideGroup : matchesBySlide)
 
 ## **Câu hỏi thường gặp**
 
-**Làm sao tôi có thể tìm kiếm chỉ trong một hộp văn bản thay vì toàn bộ bản trình chiếu?**
+**Làm thế nào để tôi chỉ tìm kiếm một hộp văn bản thay vì toàn bộ bài thuyết trình?**
 
-Lấy khung văn bản của hình dạng và gọi [ITextFrame::HighlightText](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/highlighttext/), [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/highlightregex/), [ITextFrame::ReplaceText](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/replacetext/) hoặc [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/replaceregex/) trên khung văn bản đó. Các phương thức ở mức bản trình chiếu sẽ xử lý tất cả các khung văn bản áp dụng.
+Lấy khung văn bản của hình dạng và gọi [ITextFrame::HighlightText](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/highlighttext/), [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/highlightregex/), [ITextFrame::ReplaceText](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/replacetext/), hoặc [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/replaceregex/) trên khung văn bản đó. Các phương thức ở mức bài thuyết trình sẽ xử lý tất cả các khung văn bản áp dụng.
 
-**Làm sao tôi có thể khớp toàn bộ từ với viết hoa chữ thường chính xác?**
+**Làm sao tôi có thể khớp các từ đầy đủ với chữ hoa đúng?**
 
-Gọi [ITextSearchOptions::set_WholeWordsOnly](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextsearchoptions/set_wholewordsonly/) và [ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) với giá trị `true`, và truyền các tùy chọn đó vào phương thức đánh dấu hoặc thay thế văn bản nguyên văn. Đối với biểu thức chính quy, định nghĩa ranh giới từ và độ nhạy chữ hoa chữ thường trong chính `System::Text::RegularExpressions::Regex`.
+Gọi [ITextSearchOptions::set_WholeWordsOnly](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextsearchoptions/set_wholewordsonly/) và [ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) với `true`, và truyền các tùy chọn này tới phương thức tô sáng hoặc thay thế văn bản nguyên thủy. Đối với biểu thức chính quy, định nghĩa biên giới từ và độ nhạy cảm chữ trong chính `System::Text::RegularExpressions::Regex`.
 
-**Việc tìm kiếm và thay thế có bao gồm văn bản trong ghi chú slide không?**
+**Có thể tìm kiếm và thay thế bao gồm văn bản trong ghi chú slide không?**
 
-Có. Gọi [ITextSearchOptions::set_IncludeNotes](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextsearchoptions/set_includenotes/) với `true` khi sử dụng thao tác văn bản nguyên văn ở mức bản trình chiếu. Cấu hình callback được trình bày ở trên sẽ ánh xạ kết quả khớp trong ghi chú slide trở lại số slide cha.
+Có. Gọi [ITextSearchOptions::set_IncludeNotes](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextsearchoptions/set_includenotes/) với `true` khi sử dụng thao tác văn bản nguyên thủy ở mức bài thuyết trình. Cài đặt callback được trình bày ở trên sẽ ánh xạ một khớp trong slide ghi chú trở lại số slide cha.
 
-**Làm sao tôi có thể tạo báo cáo mà không phải quét lại bản trình chiếu một lần nữa?**
+**Làm sao tôi có thể tạo báo cáo mà không phải quét lại bài thuyết trình một lần nữa?**
 
-Truyền một triển khai của [IFindResultCallback](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ifindresultcallback/) vào thao tác đánh dấu hoặc thay thế. Callback nhận mỗi kết quả khớp trong khi thao tác đang chạy, vì vậy ứng dụng có thể lưu trữ văn bản nguồn, văn bản khớp, vị trí, khung văn bản và số slide đã suy ra để nhóm hoặc xuất sau này.
+Truyền một triển khai [IFindResultCallback](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ifindresultcallback/) vào thao tác tô sáng hoặc thay thế. Callback nhận mọi khớp trong khi thao tác đang chạy, vì vậy ứng dụng có thể lưu văn bản nguồn, văn bản khớp, vị trí, khung văn bản và số slide suy ra để nhóm hoặc xuất sau này.
 
 **Việc thay thế văn bản có giữ nguyên định dạng không?**
 
-[ITextFrame::ReplaceText](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/replacetext/) và [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/replaceregex/) sửa đổi văn bản khớp trong khung văn bản hiện có và giữ định dạng phần bao quanh. Nếu một kết quả khớp bao phủ các phần có định dạng khác nhau, hãy kiểm tra kết quả để đảm bảo việc thay thế sử dụng kiểu định dạng mong muốn.
+[ITextFrame::ReplaceText](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/replacetext/) và [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/vi/cpp/aspose.slides/itextframe/replaceregex/) sửa đổi văn bản khớp trong khung văn bản hiện có và giữ định dạng phần xung quanh. Nếu một khớp bao phủ các phần có định dạng khác nhau, hãy kiểm tra kết quả để chắc chắn việc thay thế sử dụng kiểu mong muốn.

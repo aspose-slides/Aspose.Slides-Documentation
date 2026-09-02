@@ -1,6 +1,6 @@
 ---
-title: PowerPoint-prezentációk konvertálása Markdownra .NET-ben
-linktitle: PowerPoint Markdownra
+title: PowerPoint prezentációk konvertálása Markdown formátumba .NET-ben
+linktitle: PowerPoint Markdownba
 type: docs
 weight: 140
 url: /hu/net/convert-powerpoint-to-markdown/
@@ -22,109 +22,189 @@ keywords:
 - PPTX mentése MD-ként
 - PPT exportálása MD-be
 - PPTX exportálása MD-be
+- Markdown kép exportálás
+- CDN képhivatkozások
 - PowerPoint
 - prezentáció
 - Markdown
 - .NET
 - C#
 - Aspose.Slides
-description: "Konvertálja a PowerPoint diák—PPT, PPTX—tiszta Markdownra az Aspose.Slides for .NET segítségével, automatizálja a dokumentációt és tartsa meg a formázást."
+description: PPT és PPTX prezentációk konvertálása Markdown formátumba .NET-ben, valamint a exportált bitmap, metafájl és SVG képek mentési helyének és hivatkozásának szabályozása.
 ---
-## **Bevezetés**
+## **Áttekintés**
 
-Az Aspose.Slides lehetővé teszi, hogy a PowerPoint‑prezentációkat Markdown‑ba konvertálja, ami hasznos lehet a dokumentációs munkafolyamatok, statikus weboldalak generálása, tartalom migráció és verzió‑kezelő szövegközzététel során. Az API közvetlen exportálást támogat PPT és PPTX prezentációkból MD fájlokba, és további beállításokat biztosít a diák tartalmának a létrehozott Markdown‑dokumentumban történő ábrázolásának vezérléséhez.
+Az Aspose.Slides for .NET képes PPT és PPTX prezentációkat Markdown formátumba konvertálni dokumentációs, statikus weboldal, tartalom-migrációs és verziókezelési munkafolyamatokhoz. Kiválaszthat egy Markdown változatot, szabályozhatja, hogyan jelenik meg a diák tartalma, és eldöntheti, hol tárolódjanak az exportált képek, valamint hogy a generált Markdown hogyan hivatkozik rájuk.
 
-Exportálhatja a prezentációkat egyszerű Markdown‑ként, választhat több Markdown‑változat közül, például a CommonMark‑ot és a GitHub Flavored Markdown‑ot, valamint beállíthatja, hogyan kezelje a képeket az exportálás során. Az olyan prezentációk esetén, amelyek vizuális tartalmat tartalmaznak, az Aspose.Slides lehetővé teszi a képek külön mappába történő mentését és azok hivatkozását a generált Markdown‑fájlban.
+Alapértelmezés szerint a Markdown export csak szöveges kimenetet használ. A vizuális tartalom exportálásához állítsa be a [MarkdownSaveOptions.ExportType](https://reference.aspose.com/slides/hu/net/aspose.slides.export/markdownsaveoptions/exporttype/) tulajdonságot a [MarkdownExportType](https://reference.aspose.com/slides/hu/net/aspose.slides.export/markdownexporttype/) felsorolás `Sequential` vagy `Visual` értékére. A `Sequential` külön és sorban jeleníti meg a diák elemeit, míg a `Visual` csoportos elemeket együttesen tartja, hogy megőrizze a vizuális kapcsolatot. A `TextOnly` érték nem bocsát ki képernyöforrásokat, ezért ebben a módban a képek mentésére vonatkozó események nem hívódnak meg.
 
-{{% alert color="warning" %}}
-A PowerPoint‑to‑Markdown export alapértelmezés szerint **képek nélkül** történik. Ha képeket tartalmazó PowerPoint‑dokumentumot szeretne exportálni, be kell állítania az `ExportType = MarkdownExportType.Visual` értéket, és meg kell adnia a `BasePath`‑t, ahová a Markdown‑dokumentumban hivatkozott képek mentésre kerülnek.
+## **Prezentáció konvertálása Markdown formátumba**
+
+Töltse be a forrásfájlt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) osztállyal, majd hívja meg a [Presentation.Save](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/save/) metódust a [SaveFormat](https://reference.aspose.com/slides/hu/net/aspose.slides.export/saveformat/) felsorolás `Md` értékével.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+presentation.Save("presentation.md", SaveFormat.Md);
+```
+
+## **Markdown változat kiválasztása**
+
+A [MarkdownSaveOptions.Flavor](https://reference.aspose.com/slides/hu/net/aspose.slides.export/markdownsaveoptions/flavor/) tulajdonság szabályozza a kimenethez használt Markdown specifikációt. A [Flavor](https://reference.aspose.com/slides/hu/net/aspose.slides.export/flavor/) felsorolás tartalmazza a CommonMark, a GitHub Flavored Markdown és más támogatott változatokat.
+
+A következő példa egy prezentációt CommonMark formátumba exportál:
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+var options = new MarkdownSaveOptions
+{
+    Flavor = Flavor.CommonMark
+};
+
+presentation.Save("presentation.md", SaveFormat.Md, options);
+```
+
+## **Képek exportálása az alapértelmezett helyi mentési viselkedéssel**
+
+A [MarkdownSaveOptions](https://reference.aspose.com/slides/hu/net/aspose.slides.export/markdownsaveoptions/) osztály két tulajdonságot biztosít a helyben mentett képekhez:
+
+- [BasePath](https://reference.aspose.com/slides/hu/net/aspose.slides.export/markdownsaveoptions/basepath/) adja meg a Markdown dokumentum és erőforrásai alapkönyvtárát.
+- [ImagesSaveFolderName](https://reference.aspose.com/slides/hu/net/aspose.slides.export/markdownsaveoptions/imagessavefoldername/) adja meg a képek alkönyvtárát. Alapértelmezett értéke `Images`.
+
+A következő példa vizuális tartalmat jelenít meg, a képeket a `output/assets` könyvtárba írja, és relatív kép hivatkozásokat hoz létre a Markdown dokumentumban:
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+const string outputDirectory = "output";
+Directory.CreateDirectory(outputDirectory);
+
+using var presentation = new Presentation("presentation.pptx");
+var options = new MarkdownSaveOptions
+{
+    ExportType = MarkdownExportType.Visual,
+    BasePath = outputDirectory,
+    ImagesSaveFolderName = "assets"
+};
+
+var markdownPath = Path.Combine(outputDirectory, "presentation.md");
+presentation.Save(markdownPath, SaveFormat.Md, options);
+```
+
+Ez a viselkedés ugyanúgy szolgál visszaesésként, amikor egy egyéni képmentő kezelő `false` értéket ad vissza.
+
+## **Képmentés és Markdown hivatkozások testreszabása**
+
+Használja a [MarkdownSaveOptions.ImageSaving](https://reference.aspose.com/slides/hu/net/aspose.slides.export/markdownsaveoptions/imagesaving/) eseményt a Markdown export során keletkező nem SVG bitmap és metafájl erőforrásokhoz. Ennek a [MarkdownImageSavingHandler](https://reference.aspose.com/slides/hu/net/aspose.slides.export/markdownsaveoptions.markdownimagesavinghandler/) delegátumnak megkapja az [IImage](https://reference.aspose.com/slides/hu/net/aspose.slides/iimage/) objektumot, annak [ImageFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/imageformat/) típusát, valamint a generált Markdown hivatkozást `ref string` paraméterként. Mentse vagy töltse fel a képet a megadott formátummal, és cserélje le a `link` értéket arra a hivatkozásra, amelynek meg kell jelennie a Markdown kimenetben.
+
+Az SVG formátumban kiadott erőforrások külön kerülnek kezelve. Iratkozzon fel a [MarkdownSaveOptions.SvgImageSaving](https://reference.aspose.com/slides/hu/net/aspose.slides.export/markdownsaveoptions/svgimagesaving/) eseményre, amelynek a [MarkdownSvgImageSavingHandler](https://reference.aspose.com/slides/hu/net/aspose.slides.export/markdownsaveoptions.markdownsvgimagesavinghandler/) delegátuma kap egy [ISvgImage](https://reference.aspose.com/slides/hu/net/aspose.slides/isvgimage/) objektumot és a `ref string link` paramétert. Az SVG-nek nincs `ImageFormat` argumentuma; írja vagy töltse fel XML adatát az [ISvgImage.SvgData](https://reference.aspose.com/slides/hu/net/aspose.slides/isvgimage/svgdata/) tulajdonságból. Az export módjától és a vizuális csoportosítástól függően a forrás prezentációban lévő SVG rasterizálható vagy más tartalommal kombinálható; a keletkező nem SVG erőforrás ezután átadásra kerül az `ImageSaving`-nek. Iratkozzon fel mindkét eseményre, amikor minden exportált vizuális erőforráshoz egyedi feldolgozás szükséges.
+
+A kezelő visszatérési értéke határozza meg, ki dolgozza fel a képet:
+
+- `true` értéket adjon vissza, miután a kezelő elmentette, feltöltötte, átalakította vagy más módon feldolgozta a képet és érvényes értéket rendelt a `link`-hez. Az Aspose.Slides ezt az értéket a Markdown dokumentumba írja, és nem hajtja végre az alapértelmezett helyi mentést.
+- `false` értéket adjon vissza, hogy az Aspose.Slides helyileg mentse a képet és a linket a [MarkdownSaveOptions.BasePath](https://reference.aspose.com/slides/hu/net/aspose.slides.export/markdownsaveoptions/basepath/) és a [MarkdownSaveOptions.ImagesSaveFolderName](https://reference.aspose.com/slides/hu/net/aspose.slides.export/markdownsaveoptions/imagessavefoldername/) alapján generálja.
+
+{{% alert color="warning" title="Important" %}}
+Egy `true` értéket visszaadó kezelő vállalja a kép felelősségét. Ha a kezelő `true` értéket ad vissza anélkül, hogy érvényes, nem üres linket rendelt volna, az export `InvalidOperationException` hibával sikertelen.
 {{% /alert %}}
 
-## **PowerPoint konvertálása Markdown‑ba**
+### **Képek mentése egy CDN eredeti könyvtárba és külső URL-ek használata**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation) osztályból, amely a prezentáció objektumot képviseli.
-2. Használja a [Save ](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/methods/save)metódust az objektum markdown‑fájlként történő mentéséhez.
+A következő példa a `cdn-origin/presentations/quarterly-report` könyvtárat egy felcsatolt vagy szinkronizált CDN eredeti könyvtárként kezeli. Minden kezelő kinyeri a generált fájlnevet, a képet ebbe az egyedi könyvtárba menti, és a generált helyi hivatkozást egy nyilvános CDN URL-re cseréli. A minta önmagában nem végez hálózati feltöltést: az URL csak akkor lesz érvényes, amikor a könyvtár fel van csatolva CDN eredetként vagy fájljai közzétéve a CDN-en. Objektumtárolás esetén cserélje le a fájlrendszer írását a tároló SDK feltöltési műveletére, és csak a feltöltés sikerét követően rendelje hozzá a `link`-et.
 
-Ez a C# kód bemutatja, hogyan konvertálható a PowerPoint Markdown‑ba:
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+const string outputDirectory = "output";
+const string publicBaseUrl = "https://cdn.example.com/presentations/quarterly-report";
+var storageDirectory = Path.Combine("cdn-origin", "presentations", "quarterly-report");
+Directory.CreateDirectory(outputDirectory);
+Directory.CreateDirectory(storageDirectory);
+
+static string GetFileNameFromLink(string generatedLink)
 {
-    pres.Save("pres.md", SaveFormat.Md);
+    var urlCompatibleLink = generatedLink.Replace('\\', '/');
+    return urlCompatibleLink[(urlCompatibleLink.LastIndexOf('/') + 1)..];
 }
-```
 
-## **PowerPoint konvertálása Markdown‑variánsra**
-
-Az Aspose.Slides lehetővé teszi a PowerPoint markdown‑ra (alapvető szintaxist tartalmazó), CommonMark, GitHub flavored markdown, Trello, XWiki, GitLab és további 17 markdown‑variánsra történő konvertálását.
-
-Ez a C# kód bemutatja, hogyan konvertálható a PowerPoint CommonMark‑ra:
-
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+static string BuildPublicUrl(string baseUrl, string fileName)
 {
-    pres.Save("pres.md", SaveFormat.Md, new MarkdownSaveOptions
+    return $"{baseUrl}/{Uri.EscapeDataString(fileName)}";
+}
+
+using var presentation = new Presentation("presentation.pptx");
+var options = new MarkdownSaveOptions
+{
+    ExportType = MarkdownExportType.Visual,
+    BasePath = outputDirectory,
+    ImagesSaveFolderName = "fallback-images"
+};
+
+options.ImageSaving += (IImage image, ImageFormat format, ref string link) =>
+{
+    if (image.Width < 128 || image.Height < 128)
     {
-        Flavor = Flavor.CommonMark
-    });
-}
-```
+        return false;
+    }
 
-A támogatott 23 markdown‑variánst a [Flavor enumerációban](https://reference.aspose.com/slides/hu/net/aspose.slides.dom.export.markdown.saveoptions/flavor/) találja meg a [MarkdownSaveOptions](https://reference.aspose.com/slides/hu/net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) osztályból.
+    var fileName = GetFileNameFromLink(link);
+    var storagePath = Path.Combine(storageDirectory, fileName);
+    image.Save(storagePath, format);
+    link = BuildPublicUrl(publicBaseUrl, fileName);
+    return true;
+};
 
-## **Prezentáció konvertálása képekkel Markdown‑ba**
-
-A [MarkdownSaveOptions](https://reference.aspose.com/slides/hu/net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) osztály tulajdonságokat és enumerációkat biztosít, amelyek lehetővé teszik bizonyos beállítások vagy opciók használatát a létrehozott markdown‑fájlhoz. A [MarkdownExportType](https://reference.aspose.com/slides/hu/net/aspose.slides.dom.export.markdown.saveoptions/markdownexporttype/) enum például beállítható olyan értékekre, amelyek meghatározzák a képek megjelenítésének vagy kezelésének módját: `Sequential`, `TextOnly`, `Visual`.
-
-### **Képek konvertálása sorban**
-
-Ha azt szeretné, hogy a képek egymás után, egyenként jelenjenek meg a létrehozott markdown‑ban, a soros (sequential) opciót kell választania. Ez a C# kód bemutatja, hogyan konvertálható egy képeket tartalmazó prezentáció markdown‑ra:
-
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+options.SvgImageSaving += (ISvgImage svgImage, ref string link) =>
 {
-    MarkdownSaveOptions markdownSaveOptions = new MarkdownSaveOptions
-    {
-        ShowHiddenSlides = true,
-        ShowSlideNumber = true,
-        Flavor = Flavor.Github,
-        ExportType = MarkdownExportType.Sequential,
-        NewLineType = NewLineType.Windows
-    };
-    
-    pres.Save("doc.md", new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 }, SaveFormat.Md, markdownSaveOptions);
-}
+    var fileName = GetFileNameFromLink(link);
+    var storagePath = Path.Combine(storageDirectory, fileName);
+    File.WriteAllBytes(storagePath, svgImage.SvgData);
+    link = BuildPublicUrl(publicBaseUrl, fileName);
+    return true;
+};
+
+var markdownPath = Path.Combine(outputDirectory, "presentation.md");
+presentation.Save(markdownPath, SaveFormat.Md, options);
 ```
 
-### **Képek konvertálása vizuálisan**
+A bitmap kezelő szándékosan `false` értéket ad vissza 128 × 128 pixelnél kisebb képek esetén, így az Aspose.Slides ezek a képek a `output/fallback-images` könyvtárba menti az alapértelmezett viselkedés szerint. Nagyobb bitmap és metafájl erőforrásokat, valamint SVG erőforrásokat az egyedi kód kezeli. Például egy generált helyi hivatkozás, mint a `fallback-images/image1.png`, `https://cdn.example.com/presentations/quarterly-report/image1.png` lesz. A kezelők csak fájlok írásakor használnak operációs rendszer útvonalakat; a Markdown-ba írt hivatkozások előrehaladó perjeleket és URL-kódolt fájlneveket használnak. Ugyanezt a szabályt alkalmazza relatív hivatkozások építésénél: használjon `/` karaktert, nem platformfüggő könyvtárelválasztót.
 
-Ha azt szeretné, hogy a képek együtt jelenjenek meg a létrehozott markdown‑ban, a vizuális (visual) opciót kell választania. Ebben az esetben a képek az alkalmazás aktuális könyvtárába lesznek mentve (és a markdown‑dokumentumban relatív útvonal épül ki hozzájuk), vagy megadhatja a kívánt útvonalat és mappanevet.
+## **GYIK**
 
-Ez a C# kód demonstrálja a műveletet:
+**Feldolgozhat egy kezelő egyszerre raszteres képeket és SVG képeket?**
 
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-    const string outPath = "c:\\documents";
-    pres.Save(Path.Combine(outPath, "pres.md"), SaveFormat.Md, new MarkdownSaveOptions
-    { 
-        ExportType = MarkdownExportType.Visual,
-        ImagesSaveFolderName = "md-images",
-        BasePath = outPath
-    });
-}
-```
+Nem. Használja a [MarkdownSaveOptions.ImageSaving](https://reference.aspose.com/slides/hu/net/aspose.slides.export/markdownsaveoptions/imagesaving/) eseményt a bitmap és metafájl erőforrásokhoz, és a [MarkdownSaveOptions.SvgImageSaving](https://reference.aspose.com/slides/hu/net/aspose.slides.export/markdownsaveoptions/svgimagesaving/) eseményt az SVGként kiadott erőforrásokhoz. Az első egy [IImage](https://reference.aspose.com/slides/hu/net/aspose.slides/iimage/) objektumot és egy [ImageFormat](https://reference.aspose.com/slides/hu/net/aspose.slides/imageformat/) értéket ad, míg a második egy [ISvgImage](https://reference.aspose.com/slides/hu/net/aspose.slides/isvgimage/) objektumot, amelynek az SVG adata a [ISvgImage.SvgData](https://reference.aspose.com/slides/hu/net/aspose.slides/isvgimage/svgdata/) segítségével olvasható. A forrás SVG, amely exportálás során rasterizálódik, a `ImageSaving` által kerül feldolgozásra.
 
-## **FAQ**
+**Mi történik, ha egy képmentő kezelő `false` értéket ad vissza?**
 
-**Megmaradnak a hiperhivatkozások a Markdown‑export során?**
+Az Aspose.Slides az alapértelmezett helyi mentési viselkedést használja. A kép helyét és a generált hivatkozást a [MarkdownSaveOptions.BasePath](https://reference.aspose.com/slides/hu/net/aspose.slides.export/markdownsaveoptions/basepath/) és a [MarkdownSaveOptions.ImagesSaveFolderName](https://reference.aspose.com/slides/hu/net/aspose.slides.export/markdownsaveoptions/imagessavefoldername/) szabályozza.
 
-Igen. A szöveg [hyperlinks](/slides/hu/net/manage-hyperlinks/) hiperhivatkozásai standard Markdown linkekként maradnak meg. A dia [transitions](/slides/hu/net/slide-transition/) és [animations](/slides/hu/net/powerpoint-animation/) nem kerülnek konvertálásra.
+**Képes egy kezelő URL-t biztosítani anélkül, hogy a képet helyben mentené?**
 
-**Gyorsíthatom a konverziót több szálon való futtatással?**
+Igen. A kezelő feltöltheti a képet objektumtárolóba vagy átadhatja egy másik szolgáltatásnak, hozzárendelheti a kapott URL-t a `link`-hez, és `true` értékkel térhet vissza. A kezelőnek maga kell befejeznie a feldolgozást; a `true` visszatérés megakadályozza az alapértelmezett helyi mentést.
 
-Fájlok szintjén párhuzamosíthat, de [don’t share](/slides/hu/net/multithreading/) ugyanazt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) példányt a szálak között. Használjon különálló példányokat/folyamatokat fájlonként a versengés elkerülése érdekében.
+**Miért dob `InvalidOperationException`-t a Markdown export egy kezelőtől?**
 
-**Mi történik a képekkel – hol mentődnek, és relatív útvonalak-e?**
+Ez a kivétel akkor fordul elő, amikor a kezelő `true` értéket ad vissza, de nem ad meg érvényes hivatkozást. A `true` visszatérés előtt rendelje hozzá a relatív útvonalat vagy külső URL-t, amelyet a Markdownba kell írni.
 
-[Images](/slides/hu/net/image/) egy dedikált mappába kerül exportálásra, és a Markdown‑fájl alapértelmezés szerint relatív útvonalakkal hivatkozik rájuk. A kiinduló (base) kimeneti útvonalat és az eszközmappa nevét konfigurálhatja, hogy előre látható tárolószerkezetet biztosítson.
+**Milyen útvonalelválasztót kell használni a kép hivatkozásokban?**
+
+A Markdown hivatkozások és URL-ek esetén használjon perjeleket (`/`). A `Path.Combine`-t csak fájlrendszer útvonalakhoz alkalmazza, a Markdown hivatkozást ezután külön építse vagy normalizálja.
+
+**Megmaradnak a hiperhivatkozások a Markdown export során?**
+
+Igen. A szöveg [hyperlinks](/slides/hu/net/manage-hyperlinks/) megmarad szabványos Markdown hivatkozásként. A diák [transitions](/slides/hu/net/slide-transition/) és [animations](/slides/hu/net/powerpoint-animation/) nem kerülnek konvertálásra.
+
+**Konvertálhatók a prezentációk párhuzamosan Markdownba?**
+
+Különböző prezentációs fájlokat párhuzamosan feldolgozhat, de ne ossza meg ugyanazt a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) példányt szálak között. Kövesse a [multithreading guidelines](/slides/hu/net/multithreading/) útmutatót, és minden fájlhoz használjon külön példányt.

@@ -1,132 +1,146 @@
 ---
-title: PowerPoint prezentációk konvertálása Markdown-ba Pythonban
-linktitle: PowerPoint Markdown-ba
+title: PowerPoint prezentációk konvertálása Markdown-re Pythonban
+linktitle: PowerPoint Markdown-re
 type: docs
 weight: 140
 url: /hu/python-net/convert-powerpoint-to-markdown/
 keywords:
-- PowerPoint konvertálása Markdown-ba
-- OpenDocument konvertálása Markdown-ba
-- prezentáció konvertálása Markdown-ba
-- dia konvertálása Markdown-ba
-- PPT konvertálása Markdown-ba
-- PPTX konvertálása Markdown-ba
-- ODP konvertálása Markdown-ba
-- PowerPoint konvertálása MD-be
-- OpenDocument konvertálása MD-be
-- prezentáció konvertálása MD-be
-- dia konvertálása MD-be
-- PPT konvertálása MD-be
-- PPTX konvertálása MD-be
-- ODP konvertálása MD-be
+- PowerPoint konvertálása
+- prezentáció konvertálása
+- dia konvertálása
+- PPT konvertálása
+- PPTX konvertálása
+- PowerPoint MD-re
+- prezentáció MD-re
+- dia MD-re
+- PPT MD-re
+- PPTX MD-re
+- PowerPoint mentése Markdown formátumban
+- prezentáció mentése Markdown formátumban
+- dia mentése Markdown formátumban
+- PPT mentése MD formátumba
+- PPTX mentése MD formátumba
+- PPT exportálása MD-be
+- PPTX exportálása MD-be
+- Markdown képexport
+- CDN képhivatkozások
 - PowerPoint
-- OpenDocument
 - prezentáció
 - Markdown
 - Python
+- Python via .NET
 - Aspose.Slides
-description: "Konvertálja a PowerPoint és OpenDocument diákat—PPT, PPTX, ODP—tiszta Markdown formátumba az Aspose.Slides for Python via .NET segítségével, automatizálja a dokumentációt és megőrizze a formázást."
+description: "PPT és PPTX prezentációk konvertálása Markdown-re Pythonban, valamint az exportált képek mentési helyének és a generált Markdown képhivatkozásainak vezérlése."
 ---
-## **Bevezetés**
+## **Áttekintés**
 
-Az Aspose.Slides lehetővé teszi a PowerPoint‑prezentációk Markdown‑formátumba történő konvertálását, ami hasznos lehet dokumentációs munkafolyamatokban, statikus webhelyek generálásában, tartalom migrációban és verziókövetett szöveges kiadványok közzétételében. Az API közvetlen exportot támogat PPT és PPTX prezentációkból MD fájlokba, és további lehetőségeket biztosít a diák tartalmának a létrehozott Markdown‑dokumentumban való ábrázolásának szabályozására.
+Az Aspose.Slides for Python via .NET képes PPT és PPTX prezentációkat Markdown formátumba konvertálni dokumentációs, statikus weboldali, tartalom-migrációs és verziókezelési munkafolyamatokhoz. Kiválaszthatja a Markdown változatot, szabályozhatja, hogyan jelenjen meg a diák tartalma, valamint eldöntheti, hol legyenek tárolva az exportált képek és hogyan hivatkozzon rájuk a generált Markdown.
 
-Exportálhat prezentációkat egyszerű Markdown‑ként, választhat több Markdown‑változat közül, például a CommonMark és a GitHub Flavored Markdown, valamint beállíthatja, hogyan kezelje a képeket az export során. Olyan prezentációk esetén, amelyek vizuális tartalmat tartalmaznak, az Aspose.Slides lehetővé teszi a képek külön mappába mentését, és azok hivatkozását a generált Markdown‑fájlban.
+Alapértelmezés szerint a Markdown export csak szöveges kimenetet használ. A vizuális tartalom exportálásához állítsa be a [MarkdownSaveOptions.export_type](https://reference.aspose.com/slides/hu/python-net/aspose.slides.export/markdownsaveoptions/export_type/) tulajdonságot a [MarkdownExportType](https://reference.aspose.com/slides/hu/python-net/aspose.slides.export/markdownexporttype/) felsoroló `SEQUENTIAL` vagy `VISUAL` értékére. A `SEQUENTIAL` külön-külön és sorrendben jeleníti meg a diák elemeit, míg a `VISUAL` csoportosítja őket a vizuális kapcsolat megőrzése érdekében. A `TEXT_ONLY` érték nem generál képernyőforrásokat.
 
-{{% alert color="warning" %}}
+## **Prezentáció konvertálása Markdown-be**
 
-A PowerPoint‑Markdown export alapértelmezés szerint **képek nélkül** történik. Ha olyan PowerPoint‑dokumentumot szeretne exportálni, amely képeket tartalmaz, be kell állítania az `export_type = MarkdownExportType.VISUAL` értéket, és meg kell adnia a `base_path`‑t, ahova a Markdown‑dokumentumban hivatkozott képek mentésre kerülnek.
-
-{{% /alert %}}
-
-## **Prezentációk konvertálása Markdown‑ba**
-
-Az alábbi példa a legegyszerűbb módját mutatja be egy PowerPoint‑prezentáció Markdown‑ba konvertálásának az Aspose.Slides for Python via .NET használatával, alapértelmezett beállításokkal.
-
-1. Hozzon létre egy [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) objektumot a prezentáció betöltéséhez.
-1. Hívja meg a `save` metódust a Markdown‑fájlba történő exportáláshoz.
-
-Használja az alábbi Python kódrészletet a konverzió elvégzéséhez:
+Töltsük be a forrásfájlt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztállyal, majd hívjuk meg a [Presentation.save](https://reference.aspose.com/slides/hu/python-net/aspose.slides/ipresentation/save/) metódust a [SaveFormat](https://reference.aspose.com/slides/hu/python-net/aspose.slides.export/saveformat/) felsoroló `MD` értékével.
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation.pptx") as presentation:  
+with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation.md", slides.export.SaveFormat.MD)
 ```
 
-## **Prezentációk konvertálása különböző Markdown‑változatokba**
+## **Markdown változat kiválasztása**
 
-Az Aspose.Slides lehetővé teszi a prezentációk konvertálását különböző Markdown‑formátumokba, beleértve az alap Markdown‑t, a CommonMark‑ot, a GitHub‑flavored Markdown‑ot, a Trello‑t, az XWiki‑t, a GitLab‑ot és további 17 Markdown‑változatot.
+A [MarkdownSaveOptions.flavor](https://reference.aspose.com/slides/hu/python-net/aspose.slides.export/markdownsaveoptions/flavor/) tulajdonság határozza meg, hogy melyik Markdown specifikációt használja a kimenet. A [Flavor](https://reference.aspose.com/slides/hu/python-net/aspose.slides.export/flavor/) felsoroló tartalmazza a CommonMark-ot, a GitHub Flavored Markdown-ot és más támogatott változatokat.
 
-Az alábbi Python példa bemutatja, hogyan konvertálhat egy PowerPoint‑prezentációt CommonMark‑ra:
-
-```python
-import aspose.slides as slides
-
-save_options = slides.export.MarkdownSaveOptions()
-save_options.flavor = slides.export.Flavor.COMMON_MARK
-
-with slides.Presentation("presentation.pptx") as presentation:
-    presentation.save("presentation.md", slides.export.SaveFormat.MD, save_options)
-```
-
-A támogatott 23 Markdown‑változat a [Flavor](https://reference.aspose.com/slides/hu/python-net/aspose.slides.dom.export.markdown.saveoptions/flavor/) felsorolásban található a [MarkdownSaveOptions](https://reference.aspose.com/slides/hu/python-net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) osztályban.
-
-## **Képeket tartalmazó prezentációk konvertálása Markdown‑ba**
-
-Az [MarkdownSaveOptions](https://reference.aspose.com/slides/hu/python-net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) osztály tulajdonságokat és felsorolásokat biztosít, amelyekkel beállítható a létrehozott Markdown‑fájl. Például a [MarkdownExportType](https://reference.aspose.com/slides/hu/python-net/aspose.slides.dom.export.markdown.saveoptions/markdownexporttype/) enumeráció határozza meg a képek kezelésének módját: `SEQUENTIAL`, `TEXT_ONLY` vagy `VISUAL`.
-
-### **Képek szekvenciális konvertálása**
-
-Ha azt szeretné, hogy a képek egymás után, egyenként jelenjenek meg a generált Markdown‑ban, válassza a `SEQUENTIAL` opciót. Az alábbi Python példa bemutatja, hogyan konvertálhat egy képeket tartalmazó prezentációt Markdown‑ba.
+Az alábbi példa közös marként exportál egy prezentációt:
 
 ```python
 import aspose.slides as slides
 
-save_options = slides.export.MarkdownSaveOptions()
-save_options.show_hidden_slides = True
-save_options.show_slide_number = True
-save_options.flavor = slides.export.Flavor.GITHUB
-save_options.export_type = slides.export.MarkdownExportType.SEQUENTIAL
-save_options.new_line_type = slides.export.NewLineType.WINDOWS
-
-slide_indices = [1, 3, 5]
+options = slides.export.MarkdownSaveOptions()
+options.flavor = slides.export.Flavor.COMMON_MARK
 
 with slides.Presentation("presentation.pptx") as presentation:
-    presentation.save("presentation.md", slide_indices, slides.export.SaveFormat.MD, save_options)
+    presentation.save("presentation.md", slides.export.SaveFormat.MD, options)
 ```
 
-### **Képek vizuális konvertálása**
+## **Képek exportálása az alapértelmezett helyi mentési viselkedéssel**
 
-Ha azt szeretné, hogy a képek együtt jelenjenek meg a létrehozott Markdown‑ban, válassza a `VISUAL` opciót. Ebben a módban a képek az alkalmazás aktuális könyvtárába (és a Markdown‑dokumentum relatív útvonalakat használ), vagy megadhat egy egyéni kimeneti útvonalat és mappanevet.
+A [MarkdownSaveOptions](https://reference.aspose.com/slides/hu/python-net/aspose.slides.export/markdownsaveoptions/) osztály két tulajdonságot biztosít a helyileg mentett képekhez:
 
-Az alábbi Python példa mutatja be ezt a műveletet:
+- [base_path](https://reference.aspose.com/slides/hu/python-net/aspose.slides.export/markdownsaveoptions/base_path/) adja meg a Markdown dokumentum és erőforrásai alapkönyvtárát.
+- [images_save_folder_name](https://reference.aspose.com/slides/hu/python-net/aspose.slides.export/markdownsaveoptions/images_save_folder_name/) adja meg a képek alkönyvtárát. Alapértelmezett értéke `Images`.
+
+Az alábbi példa megjeleníti a vizuális tartalmat, a `output/assets` könyvtárba írja a képeket, és relatív képhivatkozásokat hoz létre a Markdown dokumentumban:
 
 ```python
 import os
 import aspose.slides as slides
 
-save_options = slides.export.MarkdownSaveOptions()
-save_options.export_type = slides.export.MarkdownExportType.VISUAL
-save_options.images_save_folder_name = "md-images"
-save_options.base_path = "c:\\documents"
+output_directory = "output"
+os.makedirs(output_directory, exist_ok=True)
+
+options = slides.export.MarkdownSaveOptions()
+options.export_type = slides.export.MarkdownExportType.VISUAL
+options.base_path = output_directory
+options.images_save_folder_name = "assets"
+
+markdown_path = os.path.join(output_directory, "presentation.md")
 
 with slides.Presentation("presentation.pptx") as presentation:
-    file_path = os.path.join(save_options.base_path, "presentation.md")
-    presentation.save(file_path, slides.export.SaveFormat.MD, save_options)
+    presentation.save(markdown_path, slides.export.SaveFormat.MD, options)
 ```
+
+Az Aspose.Slides a képek alkönyvtárát automatikusan létrehozza, ha az export képernyőforrásokat generál, de a `base_path` könyvtárat a felhasználónak kell létrehozni a Markdown fájl mentése előtt.
+
+## **Markdown és képek előkészítése közzétételhez**
+
+Az Aspose.Slides for Python via .NET nem teszi elérhetővé a .NET képmentés visszahívásait az egyes generált képhivatkozások cseréjéhez az export során. Ehelyett exportálja a Markdown dokumentumot és a képek mappáját egy közzétételi könyvtárba, majd közzéteszi azt anélkül, hogy megváltoztatná a relatív struktúrát.
+
+Az alábbi példa a `cdn-origin/presentations/quarterly-report` könyvtárat állítja elő, mint csatolt vagy szinkronizált közzétételi helyet. A minta maga nem hajt végre hálózati feltöltést: a generált hivatkozások csak a könyvtár a céloldalon vagy CDN‑en való közzétételét követően válnak érvényessé.
+
+```python
+import os
+import aspose.slides as slides
+
+publication_directory = os.path.join(
+    "cdn-origin",
+    "presentations",
+    "quarterly-report")
+os.makedirs(publication_directory, exist_ok=True)
+
+options = slides.export.MarkdownSaveOptions()
+options.export_type = slides.export.MarkdownExportType.VISUAL
+options.base_path = publication_directory
+options.images_save_folder_name = "assets"
+
+markdown_path = os.path.join(publication_directory, "presentation.md")
+
+with slides.Presentation("presentation.pptx") as presentation:
+    presentation.save(markdown_path, slides.export.SaveFormat.MD, options)
+```
+
+Tegye közzé a `presentation.md` fájlt az `assets` könyvtárral együtt. A Markdown dokumentum relatív képhivatkozásokat használ, így mindkét elemnek meg kell őriznie azonos viszonyát a célhelyen. Ha a közzétételi rendszer abszolút külső URL‑eket igényel, írja át a generált hivatkozásokat egy külön utófeldolgozási lépésben, miután az összes képfájl közzétételre került.
 
 ## **GYIK**
 
-**Megmaradnak a hiperhivatkozások az exportálás után?**
+**Testreszabhatók-e a Python visszahívások az egyes képfájlok és hivatkozások során a Markdown exportálásakor?**
 
-Igen. A szöveg [hyperlinks](/slides/hu/python-net/manage-hyperlinks/) megmarad szabványos Markdown‑hivatkozásként. A diák [transitions](/slides/hu/python-net/slide-transition/) és [animations](/slides/hu/python-net/powerpoint-animation/) nem kerülnek konvertálásra.
+Nem. Az Aspose.Slides for Python via .NET nem teszi elérhetővé a .NET `ImageSaving` és `SvgImageSaving` visszahívásait. Állítsa be a helyi kimenetet a [MarkdownSaveOptions.base_path](https://reference.aspose.com/slides/hu/python-net/aspose.slides.export/markdownsaveoptions/base_path/) és a [MarkdownSaveOptions.images_save_folder_name](https://reference.aspose.com/slides/hu/python-net/aspose.slides.export/markdownsaveoptions/images_save_folder_name/) használatával, majd közzéteszi vagy utófeldolgozza a generált erőforrásokat.
 
-**Gyorsítható a konvertálás több szál használatával?**
+**Hol kerülnek mentésre az exportált képek?**
 
-Fájlok között párhuzamosítható, de [don’t share](/slides/hu/python-net/multithreading/) ugyanazt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) példányt szálak között. Használjon különálló példányokat vagy folyamatokat fájlonként a versengés elkerülése érdekében.
+A képek helyét a [MarkdownSaveOptions.base_path](https://reference.aspose.com/slides/hu/python-net/aspose.slides.export/markdownsaveoptions/base_path/) és a [MarkdownSaveOptions.images_save_folder_name](https://reference.aspose.com/slides/hu/python-net/aspose.slides.export/markdownsaveoptions/images_save_folder_name/) szabályozza. A Markdown dokumentum relatív útvonalakkal hivatkozik ezekre a képekre.
 
-**Mi történik a képekkel – hová kerülnek mentésre, és relatívak‑e az útvonalak?**
+**Milyen útvonal-elválasztót kell használni a képhivatkozásoknál?**
 
-A [Images](/slides/hu/python-net/image/) külön mappába exportálódik, és a Markdown‑fájl alapértelmezés szerint relatív útvonalakkal hivatkozik rájuk. A kimeneti alapú útvonal és az asset mappa nevét konfigurálhatja, hogy előre megjósolható tárolóstruktúrát kapjon.
+Használjon előre lövő perjeleket (`/`) a Markdown hivatkozásokban és URL‑ekben. A fájlrendszer‑útvonalakhoz csak a `os.path.join`‑t alkalmazza, és a post‑processing során külön normalizálja a létrehozott hivatkozásokat.
+
+**Megmaradnak-e a hiperhivatkozások a Markdown exportálásakor?**
+
+Igen. A szöveges [hyperlinks](/slides/hu/python-net/manage-hyperlinks/) megmaradnak szabványos Markdown hivatkozásként. A diák [transitions](/slides/hu/python-net/slide-transition/) és [animations](/slides/hu/python-net/powerpoint-animation/) nem kerülnek konvertálásra.
+
+**Párhuzamosan konvertálhatók-e a prezentációk Markdown‑be?**
+
+Különböző prezentációs fájlok párhuzamos feldolgozása lehetséges, de ne ossza meg ugyanazt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) példányt a szálak között. Kövesse a [multithreading guidelines](/slides/hu/python-net/multithreading/) irányelveket, és minden fájlhoz használjon külön példányt.

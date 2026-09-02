@@ -15,105 +15,200 @@ keywords:
 - 投影片轉 MD
 - PPT 轉 MD
 - PPTX 轉 MD
-- 將 PowerPoint 儲存為 Markdown
-- 將簡報儲存為 Markdown
-- 將投影片儲存為 Markdown
-- 將 PPT 儲存為 MD
-- 將 PPTX 儲存為 MD
+- 儲存 PowerPoint 為 Markdown
+- 儲存簡報為 Markdown
+- 儲存投影片為 Markdown
+- 儲存 PPT 為 MD
+- 儲存 PPTX 為 MD
 - 匯出 PPT 為 MD
 - 匯出 PPTX 為 MD
+- Markdown 圖片匯出
+- CDN 圖片連結
 - PowerPoint
 - 簡報
 - Markdown
 - C++
 - Aspose.Slides
-description: "使用 Aspose.Slides for C++ 將 PowerPoint 投影片（PPT、PPTX）轉換為純淨的 Markdown，自動化文件編寫並保持格式。"
+description: "在 C++ 中將 PPT 與 PPTX 簡報轉換為 Markdown，並控制匯出的點陣圖、圖形檔與 SVG 圖片的儲存位置與參照方式。"
 ---
-## **簡介**
+## **概述**
 
-Aspose.Slides 允許您將 PowerPoint 簡報轉換為 Markdown，這對於文件編寫工作流程、靜態網站產生、內容遷移以及版本控制的文字出版都很有用。API 支援直接將 PPT 和 PPTX 簡報匯出為 MD 檔，並提供額外選項以控制投影片內容在最終 Markdown 文件中的呈現方式。
+Aspose.Slides for C++ 能將 PPT 和 PPTX 簡報轉換為 Markdown，用於文件編寫、靜態網站、內容遷移和版本控制工作流程。您可以選擇 Markdown 的風格，控制投影片內容的呈現方式，並決定匯出影像的存放位置以及產生的 Markdown 如何引用它們。
 
-您可以將簡報匯出為純文字 Markdown，選擇多種 Markdown 風格（如 CommonMark 與 GitHub Flavored Markdown），並設定匯出時圖像的處理方式。對於包含視覺內容的簡報，Aspose.Slides 亦支援將圖像儲存至單獨資料夾，並在產生的 Markdown 檔中引用這些圖像。
+預設情況下，Markdown 匯出僅產生文字輸出。若要匯出視覺內容，請將 [MarkdownSaveOptions::set_ExportType](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.export/markdownsaveoptions/set_exporttype/) 方法設為 [MarkdownExportType](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.export/markdownexporttype/) 列舉中的 `Sequential` 或 `Visual` 值。`Sequential` 會個別且依序呈現投影片項目，而 `Visual` 則會將分組的項目保持在一起，以保留它們的視覺關係。`TextOnly` 值不會產生影像資源，因而在該模式下不會觸發影像儲存事件。
 
-{{% alert color="warning" %}} 
-PowerPoint 轉 Markdown 匯出預設 **不包含圖像**。若要匯出包含圖像的 PowerPoint 文件，必須設定 `SaveOptions::MarkdownExportType::Visual)`，同時設定 `BasePath` 以指定 Markdown 文件中引用的圖像儲存位置。 
-{{% /alert %}} 
+## **將簡報轉換為 Markdown**
 
-## **將 PowerPoint 轉換為 Markdown**
+使用 [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/) 類別載入來源檔案，然後以 [Presentation::Save](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/save/) 方法傳入 [SaveFormat](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.export/saveformat/) 列舉中的 `Md` 值。
 
-1. 建立一個 [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/) 類別的實例，以代表簡報物件。  
-2. 使用 [Save](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/save/#presentationsavesystemsharedptrexportxamlixamloptions-method) 方法將物件儲存為 markdown 檔。
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
 
-以下 C++ 程式碼示範如何將 PowerPoint 轉換為 markdown：
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
 
-```c++
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
-pres->Save(u"pres.md", SaveFormat::Md);
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+presentation->Save(u"presentation.md", SaveFormat::Md);
 ```
 
-## **將 PowerPoint 轉換為特定 Markdown 風格**
+## **選擇 Markdown 風格**
 
-Aspose.Slides 允許您將 PowerPoint 轉換為 markdown（包含基礎語法）、CommonMark、GitHub Flavored Markdown、Trello、XWiki、GitLab 以及其他 17 種 markdown 風格。
+[MarkdownSaveOptions::set_Flavor](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.export/markdownsaveoptions/set_flavor/) 方法控制輸出的 Markdown 規範。[Flavor](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.export/flavor/) 列舉包含 CommonMark、GitHub Flavored Markdown 以及其他受支援的變體。
 
-以下 C++ 程式碼示範如何將 PowerPoint 轉換為 CommonMark：
+以下範例將簡報匯出為 CommonMark：
 
-```c++
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-auto opt = System::MakeObject<MarkdownSaveOptions>();
-opt->set_Flavor(Aspose::Slides::DOM::Export::Markdown::SaveOptions::Flavor::CommonMark);
-pres->Save(u"pres.md", Aspose::Slides::Export::SaveFormat::Md, opt);
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/Markdown/SaveOptions/Flavor.h>
+#include <Export/Markdown/SaveOptions/MarkdownSaveOptions.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+auto options = System::MakeObject<MarkdownSaveOptions>();
+options->set_Flavor(Flavor::CommonMark);
+
+presentation->Save(u"presentation.md", SaveFormat::Md, options);
 ```
 
-支援的 23 種 markdown 風格列於 [Flavor 列舉](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.dom.export.markdown.saveoptions/flavor/) 中，可於 [MarkdownSaveOptions](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) 類別取得。
+## **使用預設本機儲存行為匯出影像**
 
-## **將含圖像的簡報匯出為 Markdown**
+[MarkdownSaveOptions](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.export/markdownsaveoptions/) 類別提供兩個方法以設定本機儲存的影像：
 
-[MarkdownSaveOptions](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) 類別提供屬性與列舉，讓您為最終的 markdown 檔案使用特定選項或設定。例如，可設定 [MarkdownExportType](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.dom.export.markdown.saveoptions/markdownexporttype/) 列舉為 `Sequential`、`TextOnly`、`Visual` 以決定圖像的呈現方式。
+- [set_BasePath](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.export/markdownsaveoptions/set_basepath/) 指定 Markdown 文件及其資源的基底目錄。
+- [set_ImagesSaveFolderName](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.export/markdownsaveoptions/set_imagessavefoldername/) 指定影像子目錄。其預設值為 `Images`。
 
-### **逐一匯出圖像**
+以下範例會渲染視覺內容，將影像寫入 `output/assets`，並在 Markdown 文件中建立相對影像參照：
 
-若希望圖像在產生的 markdown 中逐一呈現，請選擇 sequential（順序）選項。以下 C++ 程式碼示範如何將含圖像的簡報轉換為 markdown：
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/Markdown/SaveOptions/MarkdownExportType.h>
+#include <Export/Markdown/SaveOptions/MarkdownSaveOptions.h>
+#include <Export/SaveFormat.h>
+#include <system/io/directory.h>
+#include <system/io/path.h>
 
-```c++
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"pres.pptx");
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
 
-System::SharedPtr<MarkdownSaveOptions> markdownSaveOptions = System::MakeObject<MarkdownSaveOptions>();
+const System::String outputDirectory = u"output";
+Directory::CreateDirectory_(outputDirectory);
 
-markdownSaveOptions->set_ShowHiddenSlides(true);
-markdownSaveOptions->set_ShowSlideNumber(true);
-markdownSaveOptions->set_Flavor(Flavor::Github);
-markdownSaveOptions->set_ExportType(MarkdownExportType::Sequential);
-markdownSaveOptions->set_NewLineType(NewLineType::Windows);
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+auto options = System::MakeObject<MarkdownSaveOptions>();
+options->set_ExportType(MarkdownExportType::Visual);
+options->set_BasePath(outputDirectory);
+options->set_ImagesSaveFolderName(u"assets");
 
-pres->Save(u"doc.md", System::MakeArray<int32_t>({1, 2, 3, 4, 5, 6, 7, 8, 9}), SaveFormat::Md, markdownSaveOptions);
+auto markdownPath = Path::Combine(outputDirectory, u"presentation.md");
+presentation->Save(markdownPath, SaveFormat::Md, options);
 ```
 
-### **視覺化匯出圖像**
+當自訂的影像儲存處理程式回傳 `false` 時，此行為亦會作為預備方案。
 
-若希望圖像在產生的 markdown 中一起呈現，請選擇 visual（視覺）選項。此情況下，圖像會儲存於應用程式的當前目錄（並在 markdown 文件中建立相對路徑），或您可以自行指定路徑與資料夾名稱。
+## **自訂影像儲存與 Markdown 連結**
 
-以下 C++ 程式碼示範此操作：
+在 Markdown 匯出期間，使用 `MarkdownSaveOptions::ImageSaving` 事件處理非 SVG 位圖與圖形檔資源。其 [MarkdownImageSavingHandler](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.export/markdownsaveoptions/markdownimagesavinghandler/) 委派會接收 [IImage](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iimage/) 物件、其 [ImageFormat](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/imageformat/) 以及以 `System::String&` 形式傳入的產生之 Markdown 連結。請以提供的格式儲存或上傳影像，並以 `link` 參數取代為必須出現在 Markdown 輸出中的參照。
 
-```c++
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-const System::String outPath = u"x:\\documents";
-auto opt = System::MakeObject<MarkdownSaveOptions>();
-opt->set_ExportType(Aspose::Slides::DOM::Export::Markdown::SaveOptions::MarkdownExportType::Visual);
-opt->set_ImagesSaveFolderName(u"md-images");
-opt->set_BasePath(outPath);
-pres->Save(System::IO::Path::Combine(outPath, u"pres.md"), Aspose::Slides::Export::SaveFormat::Md, opt);
+以 SVG 格式產生的資源則另行處理。請訂閱 `MarkdownSaveOptions::SvgImageSaving` 事件，其 [MarkdownSvgImageSavingHandler](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.export/markdownsaveoptions/markdownsvgimagesavinghandler/) 委派會接收 [ISvgImage](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/isvgimage/) 物件與 `System::String& link` 參數。SVG 並無 `ImageFormat` 參數；請改由 [ISvgImage::get_SvgData](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/isvgimage/get_svgdata/) 方法取得其 XML 資料並寫入或上傳。依匯出模式與視覺分組的不同，來源簡報中的 SVG 可能會被光柵化或與其他內容合併；此時產生的非 SVG 資源會傳遞給 `ImageSaving`。若每個匯出之視覺資源皆需自訂處理，請同時訂閱兩個事件。
+
+處理程式的回傳值決定由誰負責處理影像：
+
+- 回傳 `true` 表示處理程式已完成儲存、上傳、轉換或其他處理，並已為 `link` 指派有效值。Aspose.Slides 會將該值寫入 Markdown 文件，且不會執行預設的本機儲存。
+- 回傳 `false` 讓 Aspose.Slides 依照 [MarkdownSaveOptions::set_BasePath](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.export/markdownsaveoptions/set_basepath/) 與 [MarkdownSaveOptions::set_ImagesSaveFolderName](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.export/markdownsaveoptions/set_imagessavefoldername/) 的設定，將影像本機儲存並產生連結。
+
+{{% alert color="warning" title="重要" %}}
+回傳 `true` 的處理程式必須自行負責影像。若回傳 `true` 卻未給予有效且非空的連結，則匯出會因 `InvalidOperationException` 失敗。
+{{% /alert %}}
+
+### **將影像儲存至 CDN 起始目錄並使用外部 URL**
+
+以下範例將 `cdn-origin/presentations/quarterly-report` 視為已掛載或同步的 CDN 起始目錄。每個處理程式會擷取產生的檔名，將影像儲存至該自訂目錄，並以公開的 CDN URL 取代產生的本機參照。範例本身不會執行網路上傳：只有在目錄掛載為 CDN 起始或其檔案已發布至 CDN 後，URL 才會有效。若使用物件儲存，請將檔案系統寫入改為儲存 SDK 的上傳操作，並在上傳成功後才指派 `link`。
+
+```cpp
+#include <DOM/ISvgImage.h>
+#include <DOM/Presentation.h>
+#include <Export/Markdown/SaveOptions/MarkdownExportType.h>
+#include <Export/Markdown/SaveOptions/MarkdownSaveOptions.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <functional>
+#include <system/io/directory.h>
+#include <system/io/file.h>
+#include <system/io/path.h>
+#include <system/uri.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::IO;
+
+const System::String outputDirectory = u"output";
+const System::String publicBaseUrl = u"https://cdn.example.com/presentations/quarterly-report";
+const System::String storageDirectory = Path::Combine(u"cdn-origin", u"presentations", u"quarterly-report");
+Directory::CreateDirectory_(outputDirectory);
+Directory::CreateDirectory_(storageDirectory);
+
+auto presentation = System::MakeObject<Presentation>(u"presentation.pptx");
+auto options = System::MakeObject<MarkdownSaveOptions>();
+options->set_ExportType(MarkdownExportType::Visual);
+options->set_BasePath(outputDirectory);
+options->set_ImagesSaveFolderName(u"fallback-images");
+
+options->ImageSaving.connect(std::function<bool(System::SharedPtr<IImage>, ImageFormat, System::String&)>([storageDirectory, publicBaseUrl](System::SharedPtr<IImage> image, ImageFormat format, System::String& link) -> bool
+{
+    if (image->get_Width() < 128 || image->get_Height() < 128)
+    {
+        return false;
+    }
+
+    auto urlCompatibleLink = link.Replace(u"\\", u"/");
+    auto fileName = urlCompatibleLink.Substring(urlCompatibleLink.LastIndexOf(u'/') + 1);
+    auto storagePath = Path::Combine(storageDirectory, fileName);
+    image->Save(storagePath, format);
+    link = publicBaseUrl + u"/" + System::Uri::EscapeDataString(fileName);
+    return true;
+}));
+
+options->SvgImageSaving.connect(std::function<bool(System::SharedPtr<ISvgImage>, System::String&)>([storageDirectory, publicBaseUrl](System::SharedPtr<ISvgImage> svgImage, System::String& link) -> bool
+{
+    auto urlCompatibleLink = link.Replace(u"\\", u"/");
+    auto fileName = urlCompatibleLink.Substring(urlCompatibleLink.LastIndexOf(u'/') + 1);
+    auto storagePath = Path::Combine(storageDirectory, fileName);
+    File::WriteAllBytes(storagePath, svgImage->get_SvgData());
+    link = publicBaseUrl + u"/" + System::Uri::EscapeDataString(fileName);
+    return true;
+}));
+
+auto markdownPath = Path::Combine(outputDirectory, u"presentation.md");
+presentation->Save(markdownPath, SaveFormat::Md, options);
 ```
+
+位圖處理程式特意對尺寸小於 128 × 128 像素的影像回傳 `false`，因此 Aspose.Slides 會使用預設行為將這些影像儲存至 `output/fallback-images`。較大的位圖、圖形檔以及 SVG 資源則由自訂程式處理。例如，產生的本機參照 `fallback-images/image1.png` 會變成 `https://cdn.example.com/presentations/quarterly-report/image1.png`。處理程式僅在寫入檔案時使用作業系統路徑；寫入 Markdown 的連結使用正斜線 (/) 且檔名需進行 URL 編碼。建立相對連結時亦同，請使用 `/`，而非平台特定的目錄分隔符。
 
 ## **常見問題**
 
-**超連結在匯出為 Markdown 後會保留嗎？**  
+**是否可以用同一個處理程式同時處理點陣圖和 SVG 圖像？**  
+不能。請使用 `MarkdownSaveOptions::ImageSaving` 處理產生的位圖與圖形檔資源，使用 `MarkdownSaveOptions::SvgImageSaving` 處理產生為 SVG 的資源。前者會提供 [IImage](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/iimage/) 物件與 [ImageFormat](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/imageformat/)，後者則提供 [ISvgImage](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/isvgimage/) 物件，可透過 [ISvgImage::get_SvgData](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/isvgimage/get_svgdata/) 讀取 SVG 資料。若來源 SVG 在匯出時被光柵化，則會由 `ImageSaving` 處理。
 
-是的。文字 [hyperlinks](/slides/zh-hant/cpp/manage-hyperlinks/) 會以標準 Markdown 連結形式保留。投影片 [transitions](/slides/zh-hant/cpp/slide-transition/) 與 [animations](/slides/zh-hant/cpp/powerpoint-animation/) 則不會被轉換。
+**回傳 `false` 的影像儲存處理程式會發生什麼事？**  
+Aspose.Slides 會使用其預設的本機儲存行為。影像的儲存位置與產生的參照受 [MarkdownSaveOptions::set_BasePath](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.export/markdownsaveoptions/set_basepath/) 與 [MarkdownSaveOptions::set_ImagesSaveFolderName](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.export/markdownsaveoptions/set_imagessavefoldername/) 控制。
 
-**可以透過多執行緒加速轉換嗎？**  
+**處理程式可以在不本機儲存影像的情況下提供 URL 嗎？**  
+可以。處理程式可將影像上傳至物件儲存或傳遞給其他服務，將取得的 URL 指派給 `link`，並回傳 `true`。此時處理程式必須自行完成所有工作，`true` 會阻止預設的本機儲存。
 
-您可以針對不同檔案並行處理，但請勿在多執行緒間共享同一個 [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/) 實例。每個檔案使用獨立的實例或行程，以避免競爭。
+**為何 Markdown 匯出會因處理程式拋出 `InvalidOperationException`？**  
+當處理程式回傳 `true` 但未提供有效的連結時會發生此例外。請在回傳 `true` 之前，將應寫入 Markdown 的相對路徑或外部 URL 指派給 `link`。
 
-**圖像會怎麼處理——儲存位置與路徑是否為相對路徑？**  
+**影像連結應使用哪種路徑分隔符？**  
+在 Markdown 連結與 URL 中請使用正斜線 (/) 。僅在組合檔案系統路徑時使用 `Path::Combine`，Markdown 參照需另行建構或正規化。
 
-[Images](/slides/zh-hant/cpp/image/) 會匯出至專屬資料夾，Markdown 檔預設以相對路徑引用它們。您可以設定基礎輸出路徑與資產資料夾名稱，以維持可預測的倉儲結構。
+**超連結在 Markdown 匯出時會被保留嗎？**  
+會。文字 [hyperlinks](/slides/zh-hant/cpp/manage-hyperlinks/) 會保留為標準的 Markdown 連結。投影片的 [transitions](/slides/zh-hant/cpp/slide-transition/) 與 [animations](/slides/zh-hant/cpp/powerpoint-animation/) 則不會被轉換。
+
+**簡報可以平行轉換為 Markdown 嗎？**  
+可以同時處理多個簡報檔案，但請勿在多執行緒間共享同一個 [Presentation](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/) 實例。請遵循 [multithreading guidelines](/slides/zh-hant/cpp/multithreading/)，為每個檔案使用獨立的實例。

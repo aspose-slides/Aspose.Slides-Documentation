@@ -5,7 +5,7 @@ type: docs
 weight: 55
 url: /it/python-net/search-and-replace-text/
 keywords:
-- cerca testo
+- ricerca testo
 - evidenzia testo
 - sostituisci testo
 - espressione regolare
@@ -19,15 +19,15 @@ description: "Cerca, evidenzia e sostituisci testo nelle presentazioni PowerPoin
 ---
 ## **Panoramica**
 
-Aspose.Slides per Python via .NET può cercare, evidenziare e sostituire testo in un singolo frame di testo o in un'intera presentazione. Queste funzionalità sono utili per la revisione, la redazione, il controllo della terminologia, la pulizia dei modelli e altri flussi di lavoro automatizzati di elaborazione dei documenti.
+Aspose.Slides for Python via .NET può cercare, evidenziare e sostituire testo in un singolo frame di testo o in tutta una presentazione. Queste funzionalità sono utili per revisioni, redazione, controlli terminologici, pulizia di modelli e altri flussi di lavoro automatizzati di elaborazione dei documenti.
 
-Nei primi esempi seguenti, utilizziamo un file chiamato "sample.pptx", che contiene una singola casella di testo nella prima diapositiva con il seguente testo:
+Nel primo esempio sotto, utilizziamo un file denominato "sample.pptx", che contiene una singola casella di testo nella prima diapositiva con il seguente contenuto:
 
-![Testo di esempio](sample_text.png)
+![Sample text](sample_text.png)
 
-## **Scegli l'ambito di ricerca**
+## **Scegli l'ambito della ricerca**
 
-Utilizza i metodi su [TextFrame](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/) per limitare un'operazione a un singolo frame di testo. Utilizza i metodi su [Presentation](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/) per elaborare tutto il testo applicabile nella presentazione.
+Utilizza i metodi di [TextFrame](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/) per limitare un'operazione a un frame di testo. Utilizza i metodi di [Presentation](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/) per elaborare tutto il testo applicabile nella presentazione.
 
 | Operazione | Un frame di testo | Intera presentazione |
 |---|---|---|
@@ -36,21 +36,73 @@ Utilizza i metodi su [TextFrame](https://reference.aspose.com/slides/it/python-n
 | Sostituisci testo letterale | [TextFrame.replace_text](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/replace_text/) | [Presentation.replace_text](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/replace_text/) |
 | Sostituisci corrispondenze di espressione regolare | [TextFrame.replace_regex](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/replace_regex/) | [Presentation.replace_regex](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/replace_regex/) |
 
-## **Configura il confronto del testo**
+## **Configura l'abbinamento del testo**
 
-Per le operazioni su testo letterale, utilizza [TextSearchOptions](https://reference.aspose.com/slides/it/python-net/aspose.slides/textsearchoptions/) per controllare il confronto:
+Per le operazioni su testo letterale, utilizza [TextSearchOptions](https://reference.aspose.com/slides/it/python-net/aspose.slides/textsearchoptions/) per controllare l'abbinamento:
 
-- [TextSearchOptions.whole_words_only](https://reference.aspose.com/slides/it/python-net/aspose.slides/textsearchoptions/whole_words_only/) limita le corrispondenze a parole complete.
-- [TextSearchOptions.case_sensitive](https://reference.aspose.com/slides/it/python-net/aspose.slides/textsearchoptions/case_sensitive/) controlla se il case dei caratteri deve corrispondere.
-- [TextSearchOptions.include_notes](https://reference.aspose.com/slides/it/python-net/aspose.slides/textsearchoptions/include_notes/) include le note della diapositiva nella ricerca, sostituzione ed evidenziazione a livello di presentazione.
+- [TextSearchOptions.whole_words_only](https://reference.aspose.com/slides/it/python-net/aspose.slides/textsearchoptions/whole_words_only/) limita le corrispondenze a parole intere.  
+- [TextSearchOptions.case_sensitive](https://reference.aspose.com/slides/it/python-net/aspose.slides/textsearchoptions/case_sensitive/) controlla se la distinzione tra maiuscole e minuscole deve essere rispettata.  
+- [TextSearchOptions.include_notes](https://reference.aspose.com/slides/it/python-net/aspose.slides/textsearchoptions/include_notes/) include le note della diapositiva nelle operazioni di ricerca, sostituzione ed evidenziazione a livello di presentazione.
 
-Le operazioni con espressioni regolari usano una stringa di pattern, quindi le regole di corrispondenza come la sensibilità al caso e i confini di parola sono definiti dall'espressione.
+Le operazioni con espressioni regolari usano una stringa di modello, quindi regole di abbinamento come la sensibilità al maiuscolo/minuscolo e i confini di parola sono definite dall'espressione stessa.
+
+## **Identifica il proprietario di un frame di testo**
+
+I flussi di lavoro generici di elaborazione del testo spesso ricevono un [TextFrame] durante la ricerca, la sostituzione, la validazione o l'esportazione del testo. Usa [TextFrame.parent_shape] e [TextFrame.parent_cell] per determinare quale oggetto della presentazione è proprietario del frame di testo.
+
+I valori attesi dipendono dal proprietario:
+
+| Proprietario del frame di testo | `parent_shape` | `parent_cell` |
+|---|---|---|
+| Una AutoShape o un'altra forma contenente testo | La [Shape] proprietaria | `None` |
+| Una cella di tabella | `None` | La [Cell] proprietaria |
+
+Entrambe le proprietà sono di sola lettura e servono per la navigazione. Leggerle non sposta il frame di testo né ne cambia il proprietario. Il codice generico dovrebbe verificare entrambe le proprietà per `None` e gestire il caso in cui nessuno dei due proprietari sia disponibile.
+
+L'esempio seguente utilizza [SlideUtil.get_all_text_frames](https://reference.aspose.com/slides/it/python-net/aspose.slides.util/slideutil/get_all_text_frames/) per iterare attraverso i frame di testo in una presentazione. Per le forme, riporta il nome della forma, il tipo di runtime Python e la diapositiva contenente. Per le celle di tabella, riporta le coordinate di colonna e riga (indice zero) e la diapositiva contenente.
+
+```python
+import aspose.slides as slides
+
+
+def get_slide_label(base_slide):
+    if isinstance(base_slide, slides.Slide):
+        return f"slide {base_slide.slide_number}"
+
+    if isinstance(base_slide, slides.NotesSlide):
+        return f"notes for slide {base_slide.parent_slide.slide_number}"
+
+    return type(base_slide).__name__
+
+
+with slides.Presentation("presentation.pptx") as presentation:
+    text_frames = slides.util.SlideUtil.get_all_text_frames(presentation, False)
+
+    for text_frame in text_frames:
+        owner_shape = text_frame.parent_shape
+        if owner_shape is not None:
+            shape_name = owner_shape.name or "(unnamed)"
+            shape_type = type(owner_shape).__name__
+            slide_label = get_slide_label(owner_shape.slide)
+            print(f"Shape: {shape_name}; type: {shape_type}; {slide_label}")
+            continue
+
+        owner_cell = text_frame.parent_cell
+        if owner_cell is not None:
+            slide_label = get_slide_label(owner_cell.slide)
+            print(f"Table cell: column {owner_cell.first_column_index}, row {owner_cell.first_row_index}; {slide_label}")
+            continue
+
+        print("The text frame owner is not available as a shape or table cell.")
+```
+
+Per i contenuti SmartArt, itera attraverso le forme in [SmartArtNode.shapes](https://reference.aspose.com/slides/it/python-net/aspose.slides.smartart/smartartnode/shapes/) e accedi a ciascuna [ISmartArtShape.text_frame](https://reference.aspose.com/slides/it/python-net/aspose.slides.smartart/ismartartshape/text_frame/). Il frame di testo può essere ricondotto alla forma associata tramite [TextFrame.parent_shape](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/parent_shape/), mentre [TextFrame.parent_cell](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/parent_cell/) è `None`. Pertanto, il ramo della forma nell'esempio gestisce anche il testo proveniente dai nodi SmartArt.
 
 ## **Evidenzia testo**
 
-Utilizza il metodo [TextFrame.highlight_text](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/highlight_text/) per evidenziare le corrispondenze di testo letterale in un frame di testo. Passa [TextSearchOptions](https://reference.aspose.com/slides/it/python-net/aspose.slides/textsearchoptions/) per controllare la ricerca.
+Usa il metodo [TextFrame.highlight_text](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/highlight_text/) per evidenziare le corrispondenze di testo letterale in un frame di testo. Passa [TextSearchOptions] per controllare la ricerca.
 
-L'esempio di codice seguente evidenzia tutte le occorrenze dei caratteri **"try"** e poi evidenzia solo la parola completa **"to"**.
+Il codice di esempio qui sotto evidenzia tutte le occorrenze del carattere **"try"** e poi evidenzia solo la parola completa **"to"**.
 
 ```python
 import aspose.pydrawing as draw
@@ -84,7 +136,7 @@ Il risultato:
 
 ![Il testo evidenziato](highlighted_text.png)
 
-## **Evidenzia testo usando espressioni regolari**
+## **Evidenzia testo usando le espressioni regolari**
 
 Il metodo [TextFrame.highlight_regex](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/highlight_regex/) evidenzia le corrispondenze di testo trovate da un'espressione regolare in un frame di testo.
 
@@ -110,9 +162,9 @@ Il risultato:
 
 ![Il testo evidenziato usando l'espressione regolare](highlighted_text_using_regex.png)
 
-## **Evidenzia testo nell'intera presentazione**
+## **Evidenzia testo in tutta la presentazione**
 
-Utilizza [Presentation.highlight_text](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/highlight_text/) e [Presentation.highlight_regex](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/highlight_regex/) per cercare tutti i frame di testo applicabili in una presentazione. Il seguente esempio evidenzia un termine letterale e tutti gli indirizzi email:
+Usa [Presentation.highlight_text](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/highlight_text/) e [Presentation.highlight_regex](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/highlight_regex/) per cercare tutti i frame di testo applicabili in una presentazione. L'esempio seguente evidenzia un termine letterale e tutti gli indirizzi e‑mail:
 
 ```python
 import aspose.pydrawing as draw
@@ -137,9 +189,9 @@ with slides.Presentation("presentation.pptx") as presentation:
 
 ## **Sostituisci testo in un frame di testo**
 
-Usa [TextFrame.replace_text](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/replace_text/) per testo letterale e [TextFrame.replace_regex](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/replace_regex/) per sostituzioni basate su pattern. Questi metodi aggiornano il testo corrispondente all'interno del frame di testo esistente, mantenendo la formattazione della parte circostante invece di ricostruire il frame di testo da una stringa semplice.
+Usa [TextFrame.replace_text](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/replace_text/) per testo letterale e [TextFrame.replace_regex](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/replace_regex/) per sostituzioni basate su modello. Questi metodi aggiornano il testo corrispondente all'interno del frame di testo esistente, mantenendo la formattazione delle parti circostanti invece di ricostruire il frame da una stringa semplice.
 
-Il seguente esempio standardizza una variante ortografica e poi sostituisce le etichette di versione:
+L'esempio seguente uniforma una variante ortografica e poi sostituisce le etichette di versione:
 
 ```python
 import aspose.slides as slides
@@ -164,11 +216,11 @@ with slides.Presentation("presentation.pptx") as presentation:
     )
 ```
 
-Se una corrispondenza copre parti con formattazioni diverse, verifica l'output per confermare quale formattazione dovrebbe essere applicata al testo sostituito.
+Se una corrispondenza attraversa parti con formattazioni diverse, controlla il risultato per confermare quale formattazione deve essere applicata al testo di sostituzione.
 
-## **Sostituisci testo nell'intera presentazione**
+## **Sostituisci testo in tutta la presentazione**
 
-Utilizza [Presentation.replace_text](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/replace_text/) e [Presentation.replace_regex](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/replace_regex/) per applicare le stesse operazioni all'intera presentazione. Questo è utile per la pulizia dei modelli, gli aggiornamenti di terminologia e la redazione.
+Usa [Presentation.replace_text](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/replace_text/) e [Presentation.replace_regex](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/replace_regex/) per applicare le stesse operazioni a tutta la presentazione. Questo è utile per la pulizia di modelli, aggiornamenti terminologici e redazione.
 
 ```python
 import aspose.slides as slides
@@ -194,16 +246,16 @@ with slides.Presentation("presentation.pptx") as presentation:
 
 **Come posso cercare solo una casella di testo invece dell'intera presentazione?**
 
-Ottieni il frame di testo della forma e chiama [TextFrame.highlight_text](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/highlight_text/), [TextFrame.highlight_regex](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/highlight_regex/), [TextFrame.replace_text](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/replace_text/), o [TextFrame.replace_regex](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/replace_regex/) su quel frame di testo. I metodi a livello di presentazione elaborano tutti i frame di testo applicabili.
+Ottieni il frame di testo della forma e chiama [TextFrame.highlight_text](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/highlight_text/), [TextFrame.highlight_regex](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/highlight_regex/), [TextFrame.replace_text](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/replace_text/) o [TextFrame.replace_regex](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/replace_regex/) su quel frame. I metodi a livello di presentazione elaborano tutti i frame di testo applicabili.
 
-**Come posso corrispondere parole complete con la corretta capitalizzazione?**
+**Come posso abbinare parole complete con la corretta capitalizzazione?**
 
-Imposta [TextSearchOptions.whole_words_only](https://reference.aspose.com/slides/it/python-net/aspose.slides/textsearchoptions/whole_words_only/) e [TextSearchOptions.case_sensitive](https://reference.aspose.com/slides/it/python-net/aspose.slides/textsearchoptions/case_sensitive/) su `True` e passa le opzioni a un metodo di evidenziazione o sostituzione di testo letterale. Per le espressioni regolari, definisci i confini di parola e la sensibilità al caso direttamente nel pattern.
+Imposta [TextSearchOptions.whole_words_only](https://reference.aspose.com/slides/it/python-net/aspose.slides/textsearchoptions/whole_words_only/) e [TextSearchOptions.case_sensitive](https://reference.aspose.com/slides/it/python-net/aspose.slides/textsearchoptions/case_sensitive/) su `True` e passa le opzioni a un metodo di evidenziazione o sostituzione per testo letterale. Per le espressioni regolari, definisci i confini di parola e la sensibilità al maiuscolo/minuscolo direttamente nel modello.
 
-**La ricerca e la sostituzione possono includere il testo nelle note delle diapositive?**
+**La ricerca e la sostituzione possono includere il testo nelle note della diapositiva?**
 
-Sì. Imposta [TextSearchOptions.include_notes](https://reference.aspose.com/slides/it/python-net/aspose.slides/textsearchoptions/include_notes/) su `True` quando utilizzi un'operazione di testo letterale a livello di presentazione.
+Sì. Imposta [TextSearchOptions.include_notes](https://reference.aspose.com/slides/it/python-net/aspose.slides/textsearchoptions/include_notes/) su `True` quando utilizzi un'operazione a livello di presentazione per testo letterale.
 
-**La sostituzione del testo ne conserva la formattazione?**
+**La sostituzione del testo preserva la sua formattazione?**
 
-[TextFrame.replace_text](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/replace_text/) e [TextFrame.replace_regex](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/replace_regex/) modificano il testo corrispondente all'interno del frame di testo esistente e mantengono la formattazione della parte circostante. Se una corrispondenza copre parti con formattazioni diverse, ispeziona il risultato per assicurarti che la sostituzione utilizzi lo stile desiderato.
+[TextFrame.replace_text](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/replace_text/) e [TextFrame.replace_regex](https://reference.aspose.com/slides/it/python-net/aspose.slides/textframe/replace_regex/) modificano il testo corrispondente all'interno del frame di testo esistente e mantengono la formattazione delle parti circostanti. Se una corrispondenza attraversa parti con formattazioni diverse, esamina il risultato per assicurarti che la sostituzione utilizzi lo stile desiderato.

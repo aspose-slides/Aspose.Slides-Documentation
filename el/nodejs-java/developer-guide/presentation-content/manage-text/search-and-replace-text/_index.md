@@ -1,5 +1,5 @@
 ---
-title: Αναζήτηση και Αντικατάσταση Κειμένου σε Παρουσιάσεις PowerPoint με JavaScript
+title: Αναζήτηση και Αντικατάσταση Κειμένου σε Παρουσιάσεις PowerPoint σε JavaScript
 linktitle: Αναζήτηση και Αντικατάσταση Κειμένου
 type: docs
 weight: 55
@@ -9,7 +9,7 @@ keywords:
 - επισήμανση κειμένου
 - αντικατάσταση κειμένου
 - κανονική έκφραση
-- callback αποτελέσματος
+- κλήση επιστροφής αποτελέσματος
 - πλαίσιο κειμένου
 - αναφορά ελέγχου
 - PowerPoint
@@ -18,51 +18,120 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Αναζήτηση, επισήμανση και αντικατάσταση κειμένου σε παρουσιάσεις PowerPoint ενώ συλλέγετε κάθε αντιστοίχηση με Aspose.Slides για Node.js μέσω Java."
+description: "Αναζήτηση, επισήμανση και αντικατάσταση κειμένου σε παρουσιάσεις PowerPoint ενώ συλλέγετε κάθε αντιστοιχία με Aspose.Slides for Node.js via Java."
 ---
 ## **Επισκόπηση**
 
-Το Aspose.Slides for Node.js μέσω Java μπορεί να αναζητήσει, να επισημάνει και να αντικαταστήσει κείμενο σε ένα μεμονωμένο πλαίσιο κειμένου ή σε ολόκληρη παρουσίαση. Κάθε λειτουργία μπορεί επίσης να ενημερώνει μια εφαρμογή για κάθε αντιστοίχηση μέσω μιας κλήσης αντίδρασης (callback) αποτελέσματος. Αυτό καθιστά δυνατό τον ενημέρωση μιας παρουσίασης και ταυτόχρονα τη δημιουργία αρχείου ελέγχου που περιέχει το ταιριασμένο κείμενο, το περιεχόμενό του, τη θέση, το πλαίσιο κειμένου και τον αριθμό διαφάνειας.
+Aspose.Slides for Node.js via Java μπορεί να αναζητά, να επισήμανε και να αντικαταστήσει κείμενο σε ένα μεμονωμένο πλαίσιο κειμένου ή σε ολόκληρη την παρουσίαση. Κάθε λειτουργία μπορεί επίσης να ειδοποιήσει μια εφαρμογή για κάθε αντιστοιχία μέσω μιας κλήσης επιστροφής αποτελέσματος. Αυτό καθιστά εφικτή την ενημέρωση μιας παρουσίασης και ταυτόχρονα τη δημιουργία μιας αλυσίδας ελέγχου που περιέχει το ταιριασμένο κείμενο, το πλαίσιο του, τη θέση, το πλαίσιο κειμένου και τον αριθμό της διαφάνειας.
 
-Αυτές οι δυνατότητες είναι χρήσιμες για ανασκόπηση, αποκάλυψη, έλεγχο ορολογίας, καθαρισμό προτύπων και αυτοματοποιημένες ροές εργασίας αναφορών.
+Αυτές οι δυνατότητες είναι χρήσιμες για ανασκόπηση, διαγραφή, έλεγχο ορολογίας, καθαρισμό προτύπων και αυτοματοποιημένες ροές εργασίας αναφοράς.
 
-Στα πρώτα παραδείγματα παρακάτω, χρησιμοποιούμε ένα αρχείο με όνομα "sample.pptx", το οποίο περιέχει ένα μοναδικό πλαίσιο κειμένου στην πρώτη διαφάνεια με το ακόλουθο κείμενο:
+Στα πρώτα παραδείγματα παρακάτω, χρησιμοποιούμε ένα αρχείο με όνομα "sample.pptx", το οποίο περιέχει ένα μόνο πλαίσιο κειμένου στην πρώτη διαφάνεια με το ακόλουθο κείμενο:
 
-![Δείγμα κειμένου](sample_text.png)
+![Sample text](sample_text.png)
 
-## **Επιλέξτε το Πεδίο Αναζήτησης**
+## **Επιλογή Πεδίου Αναζήτησης**
 
 Χρησιμοποιήστε μεθόδους στο [TextFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/) για να περιορίσετε μια λειτουργία σε ένα πλαίσιο κειμένου. Χρησιμοποιήστε μεθόδους στο [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/) για να επεξεργαστείτε όλο το κείμενο που είναι εφαρμόσιμο στην παρουσίαση.
 
-| Λειτουργία | Ένα πλαίσιο κειμένου | Ολόκληρη παρουσίαση |
+| Λειτουργία | Ένα πλαίσιο κειμένου | Ολόκληρη η παρουσίαση |
 |---|---|---|
 | Επισήμανση κυριολεκτικού κειμένου | [TextFrame.highlightText](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [Presentation.highlightText](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
-| Επισήμανση αντιστοιχίσεων κανονικής έκφρασης | [TextFrame.highlightRegex](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) | [Presentation.highlightRegex](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) |
+| Επισήμανση ταιριάσεων κανονικής έκφρασης | [TextFrame.highlightRegex](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) | [Presentation.highlightRegex](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) |
 | Αντικατάσταση κυριολεκτικού κειμένου | [TextFrame.replaceText](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [Presentation.replaceText](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
-| Αντικατάσταση αντιστοιχίσεων κανονικής έκφρασης | [TextFrame.replaceRegex](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) | [Presentation.replaceRegex](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) |
+| Αντικατάσταση ταιριάσεων κανονικής έκφρασης | [TextFrame.replaceRegex](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) | [Presentation.replaceRegex](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) |
 
-## **Διαμόρφωση Ταίριαγματος Κειμένου**
+## **Διαμόρφωση Ταίριαξης Κειμένου**
 
-Για λειτουργίες κυριολεκτικού κειμένου, χρησιμοποιήστε το [TextSearchOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textsearchoptions/) για να ελέγξετε το ταίριασμα:
+Για λειτουργίες κυριολεκτικού κειμένου, χρησιμοποιήστε το [TextSearchOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textsearchoptions/) για έλεγχο της ταίριαξης:
 
-- [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) περιορίζει τις αντιστοιχίσεις σε ολόκληρες λέξεις.
-- [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) ελέγχει αν η διάκριση πεζών-κεφαλαίων πρέπει να ταιριάζει.
-- [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) περιλαμβάνει τις σημειώσεις διαφανειών στην αναζήτηση, αντικατάσταση και επισήμανση σε επίπεδο παρουσίασης.
+- [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) περιορίζει τις αντιστοιχίες σε ολόκληρες λέξεις.
+- [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) ελέγχει εάν η περίπτωσή των χαρακτήρων πρέπει να ταιριάζει.
+- [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) περιλαμβάνει σημειώσεις διαφάνειας σε λειτουργίες αναζήτησης, αντικατάστασης και επισήμανσης σε επίπεδο παρουσίασης.
 
-Οι λειτουργίες κανονικής έκφρασης χρησιμοποιούν ένα Java `Pattern`, έτσι οι κανόνες ταίριασματος όπως η διάκριση πεζών-κεφαλαίων και τα όρια λέξεων ορίζονται από την έκφραση και τις σημαίες της.
+Οι λειτουργίες κανονικής έκφρασης χρησιμοποιούν ένα Java `Pattern`, επομένως οι κανόνες ταίριαξης όπως η ευαισθησία σε πεζά/κεφαλαία και τα όρια λέξης ορίζονται από την έκφραση και τις σημαίες της.
+
+## **Αναγνώριση Κατόχου Πλαισίου Κειμένου**
+
+Γενικές ροές επεξεργασίας κειμένου συχνά λαμβάνουν ένα [TextFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/) ενώ αναζητούν, αντικαθιστούν, επικυρώνουν ή εξάγουν κείμενο. Χρησιμοποιήστε το [TextFrame.getParentShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/#getParentShape--) και το [TextFrame.getParentCell](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/#getParentCell--) για να προσδιορίσετε ποιο αντικείμενο παρουσίασης κατέχει το πλαίσιο κειμένου.
+
+Οι αναμενόμενες τιμές εξαρτώνται από τον κάτοχο:
+
+| Κατοχέας πλαισίου κειμένου | `getParentShape` | `getParentCell` |
+|---|---|---|
+| AutoShape ή άλλο σχήμα που περιέχει κείμενο | Το ιδιοκτησιακό [Shape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shape/) | `null` |
+| Κελί πίνακα | `null` | Το ιδιοκτησιακό [Cell](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/cell/) |
+
+Και οι δύο μέθοδοι παρέχουν πλοήγηση μόνο για ανάγνωση. Η κλήση τους δεν μετακινεί το πλαίσιο κειμένου ούτε αλλάζει τον κάτοχό του. Ο γενικός κώδικας πρέπει να ελέγχει και τις δύο τιμές για `null` και να διαχειρίζεται την πιθανότητα να μην είναι διαθέσιμος κανένας κάτοχος.
+
+Το παρακάτω παράδειγμα χρησιμοποιεί το [SlideUtil.getAllTextFrames](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/slideutil/#getAllTextFrames-aspose.slides.IPresentation-boolean-) για επανάληψη μέσω των πλαισίων κειμένου σε μια παρουσίαση. Για σχήματα, αναφέρει το όνομα του σχήματος, τον τύπο χρόνου εκτέλεσης Java και τη διαφάνεια που το περιέχει. Για κελιά πίνακα, αναφέρει τις συντεταγμένες στήλης και σειράς (μηδενική αρίθμηση) και τη διαφάνεια που το περιέχει.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+function getSlideLabel(baseSlide) {
+    if (java.instanceOf(baseSlide, "com.aspose.slides.Slide")) {
+        return "slide " + baseSlide.getSlideNumber();
+    }
+
+    if (java.instanceOf(baseSlide, "com.aspose.slides.NotesSlide")) {
+        return "notes for slide " + baseSlide.getParentSlide().getSlideNumber();
+    }
+
+    return baseSlide.getClass().getSimpleName();
+}
+
+const presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    const textFrames = aspose.slides.SlideUtil.getAllTextFrames(presentation, false);
+
+    for (let index = 0; index < textFrames.length; index++) {
+        const textFrame = textFrames[index];
+        const ownerShape = textFrame.getParentShape();
+        if (ownerShape !== null) {
+            const shapeName = ownerShape.getName() === "" ? "(unnamed)" : ownerShape.getName();
+            const shapeType = ownerShape.getClass().getSimpleName();
+            const slideLabel = getSlideLabel(ownerShape.getSlide());
+            console.log("Shape: " + shapeName + "; type: " + shapeType + "; " + slideLabel);
+            continue;
+        }
+
+        const ownerCell = textFrame.getParentCell();
+        if (ownerCell !== null) {
+            const slideLabel = getSlideLabel(ownerCell.getSlide());
+            console.log("Table cell: column " + ownerCell.getFirstColumnIndex() + ", row " + ownerCell.getFirstRowIndex() + "; " + slideLabel);
+            continue;
+        }
+
+        console.log("The text frame owner is not available as a shape or table cell.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Για περιεχόμενο SmartArt, επαναλάβετε μέσω των σχημάτων στο [SmartArtNode.getShapes](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/smartartnode/#getShapes--) και αποκτήστε το κάθε [SmartArtShape.getTextFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/smartartshape/#getTextFrame--). Το πλαίσιο κειμένου μπορεί να εντοπιστεί στο σχετικό του σχήμα μέσω του [TextFrame.getParentShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/#getParentShape--), ενώ το [TextFrame.getParentCell](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/#getParentCell--) επιστρέφει `null`. Συνεπώς, ο κλάδος σχήματος στο παράδειγμα διαχειρίζεται επίσης κείμενο από κόμβους SmartArt.
 
 ## **Συλλογή Πληροφοριών Αντιστοιχίας με Callback**
 
-Δημιουργήστε έναν Java proxy για το callback αποτελέσματος ώστε να λαμβάνει ειδοποίηση για κάθε αντιστοίχηση. Η συνάρτηση proxy λαμβάνει το σχετικό πλαίσιο κειμένου, το πηγαίο κείμενο, το ταιριασμένο κείμενο και τη θέση της αντιστοίχης.
+Δημιουργήστε έναν διαμεσολαβητή Java για την κλήση επιστροφής αποτελεσμάτων ώστε να λαμβάνετε ειδοποίηση για κάθε αντιστοιχία. Η συνάρτηση proxy λαμβάνει το σχετικό πλαίσιο κειμένου, το πηγαίο κείμενο, το ταιριασμένο κείμενο και τη θέση της αντιστοιχίας.
 
-Το callback δεν λαμβάνει απευθείας τον αριθμό διαφάνειας. Η υλοποίηση παρακάτω τον προέρχεται μέσω των [TextFrame.getSlide](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/#getSlide--), [Slide.getSlideNumber](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/slide/#getSlideNumber--), και [NotesSlide.getParentSlide](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/notesslide/#getParentSlide--). Επίσης διαχειρίζεται κείμενο που βρέθηκε στις σημειώσεις διαφάνειας.
+Η κλήση επιστροφής δεν λαμβάνει άμεσα αριθμό διαφάνειας. Η υλοποίηση παρακάτω το προκύπτει μέσω του σχήματος ή του κελιού πίνακα που κατέχει το πλαίσιο κειμένου, με το [TextFrame.getSlide](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/#getSlide--) ως εναλλακτική. Επίσης διαχειρίζεται κείμενο που βρίσκεται σε σημειώσεις διαφάνειας.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
 function getSlideNumber(textFrame) {
-    const parentSlide = textFrame.getSlide();
+    const parentShape = textFrame.getParentShape();
+    const parentCell = textFrame.getParentCell();
+    let parentSlide = textFrame.getSlide();
+    if (parentShape !== null) {
+        parentSlide = parentShape.getSlide();
+    } else if (parentCell !== null) {
+        parentSlide = parentCell.getSlide();
+    }
 
     if (java.instanceOf(parentSlide, "com.aspose.slides.Slide")) {
         return parentSlide.getSlideNumber();
@@ -90,13 +159,13 @@ function createTextSearchCallback(results) {
 }
 ```
 
-Για λειτουργίες αντικατάστασης, το `foundText` περιέχει το αρχικό ταιριασμένο κείμενο, έτσι το callback μπορεί να καταγράψει με ακρίβεια ποιες λέξεις αντικαταστάθηκαν.
+Για λειτουργίες αντικατάστασης, το `foundText` περιέχει το αρχικό ταιριασμένο κείμενο, ώστε η κλήση επιστροφής να μπορεί να καταγράψει ακριβώς ποιες λέξεις αντικαταστάθηκαν.
 
 ## **Επισήμανση Κειμένου**
 
-Χρησιμοποιήστε τη μέθοδο [TextFrame.highlightText](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) για να επισήμαντε τις κυριολεκτικές αντιστοιχίσεις σε ένα πλαίσιο κειμένου. Περάστε το [TextSearchOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textsearchoptions/) για να ελέγξετε την αναζήτηση.
+Χρησιμοποιήστε τη μέθοδο [TextFrame.highlightText](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) για να επισήμανετε κυριολεκτικές αντιστοιχίες κειμένου σε ένα πλαίσιο κειμένου. Πέρασμα του [TextSearchOptions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textsearchoptions/) ελέγχει την αναζήτηση.
 
-Το παρακάτω παράδειγμα κώδικα επισήμανε όλες τις εμφανίσεις των χαρακτήρων **"try"** και, στη συνέχεια, επισήμανε μόνο τη λέξη **"to"**.
+Το παράδειγμα κώδικα παρακάτω επισημαίνει όλες τις εμφανίσεις των χαρακτήρων **"try"** και στη συνέχεια επισημαίνει μόνο τη πλήρη λέξη **"to"**.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -132,11 +201,11 @@ try {
 
 Το αποτέλεσμα:
 
-![Το επισημασμένο κείμενο](highlighted_text.png)
+![The highlighted text](highlighted_text.png)
 
-## **Επισήμανση Κειμένου Χρησιμοποιώντας Κανονικές Εκφράσεις**
+## **Επισήμανση Κειμένου με Κανονικές Εκφράσεις**
 
-Η μέθοδος [TextFrame.highlightRegex](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) επισημαίνει τις αντιστοιχίσεις κειμένου που βρέθηκαν με μια κανονική έκφραση σε ένα πλαίσιο κειμένου.
+Η μέθοδος [TextFrame.highlightRegex](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) επισημαίνει ταιριάσεις κειμένου που βρέθηκαν με μια κανονική έκφραση σε ένα πλαίσιο κειμένου.
 
 Ο παρακάτω κώδικας επισημαίνει όλες τις λέξεις που περιέχουν επτά ή περισσότερους χαρακτήρες:
 
@@ -163,11 +232,11 @@ try {
 
 Το αποτέλεσμα:
 
-![Το επισημασμένο κείμενο με τη χρήση της κανονικής έκφρασης](highlighted_text_using_regex.png)
+![The highlighted text using the regular expression](highlighted_text_using_regex.png)
 
-## **Επισήμανση Κειμένου σε Ολόκληρη Παρουσίαση**
+## **Επισήμανση Κειμένου σε Όλη την Παρουσίαση**
 
-Χρησιμοποιήστε τις [Presentation.highlightText](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) και [Presentation.highlightRegex](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) για να αναζητήσετε όλα τα εφαρμόσιμα πλαίσια κειμένου σε μια παρουσίαση. Το παρακάτω παράδειγμα επισημαίνει έναν κυριολεκτικό όρο και όλες τις διευθύνσεις email:
+Χρησιμοποιήστε τα [Presentation.highlightText](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) και [Presentation.highlightRegex](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) για αναζήτηση σε όλα τα εφαρμόσιμα πλαίσια κειμένου σε μια παρουσίαση. Το παρακάτω παράδειγμα επισημαίνει έναν κυριολεκτικό όρο και όλες τις διευθύνσεις email:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -198,9 +267,9 @@ try {
 
 ## **Αντικατάσταση Κειμένου σε Πλαίσιο Κειμένου**
 
-Χρησιμοποιήστε το [TextFrame.replaceText](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) για κυριολεκτικό κείμενο και το [TextFrame.replaceRegex](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) για αντικατάσταση βάσει μοτίβου. Αυτές οι μέθοδοι ενημερώνουν το ταιριασμένο κείμενο μέσα στο υπάρχον πλαίσιο κειμένου, διατηρώντας τη μορφοποίηση του περιβάλλοντος τμήματος αντί να ξαναχτίζουν το πλαίσιο κειμένου από μια απλή συμβολοσειρά.
+Χρησιμοποιήστε το [TextFrame.replaceText](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) για κυριολεκτικό κείμενο και το [TextFrame.replaceRegex](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) για αντικατάσταση με βάση πρότυπο. Αυτές οι μέθοδοι ενημερώνουν το ταιριασμένο κείμενο εντός του υπάρχοντος πλαισίου κειμένου, διατηρώντας τη μορφοποίηση του περιβάλλοντος κειμένου αντί να δημιουργούν εκ νέου το πλαίσιο από μια απλή συμβολοσειρά.
 
-Το παρακάτω παράδειγμα κανονικοποιεί μια παραλλαγή ορθογραφίας και στη συνέχεια αντικαθιστά ετικέτες έκδοσης:
+Το παρακάτω παράδειγμα ενοποιεί μια παραλλακτική ορθογραφία και στη συνέχεια αντικαθιστά ετικέτες εκδόσεων:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -228,11 +297,11 @@ try {
 }
 ```
 
-Αν μία αντιστοίχηση καλύπτει τμήματα με διαφορετική μορφοποίηση, ελέγξτε το αποτέλεσμα για να επιβεβαιώσετε ποια μορφοποίηση πρέπει να εφαρμοστεί στο κείμενο αντικατάστασης.
+Εάν μία αντιστοιχία καλύπτει τμήματα με διαφορετική μορφοποίηση, ελέγξτε το αποτέλεσμα για να επιβεβαιώσετε ποια μορφοποίηση πρέπει να εφαρμοστεί στο κείμενο αντικατάστασης.
 
-## **Αντικατάσταση Κειμένου σε Ολόκληρη Παρουσίαση**
+## **Αντικατάσταση Κειμένου σε Όλη την Παρουσίαση**
 
-Χρησιμοποιήστε τα [Presentation.replaceText](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) και [Presentation.replaceRegex](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) για να εφαρμόσετε τις ίδιες λειτουργίες σε όλη την παρουσίαση. Αυτό είναι χρήσιμο για τον καθαρισμό προτύπων, την ενημέρωση ορολογίας και την διαγραφή.
+Χρησιμοποιήστε τα [Presentation.replaceText](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) και [Presentation.replaceRegex](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) για να εφαρμόσετε τις ίδιες λειτουργίες σε όλη την παρουσίαση. Αυτό είναι χρήσιμο για καθαρισμό προτύπων, ενημερώσεις ορολογίας και διαγραφή ευαίσθητων στοιχείων.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -257,16 +326,23 @@ try {
 }
 ```
 
-## **Ομαδοποίηση Αντιστοιχίσεων για Αναφορά**
+## **Ομαδοποίηση Αντιστοιχιών για Αναφορά**
 
-Επειδή κάθε συλλεγμένο αποτέλεσμα αποθηκεύει τον αριθμό της διαφάνειας και το πλαίσιο κειμένου, οι εφαρμογές μπορούν να ομαδοποιούν τις αντιστοιχίες για ελέγχους, αναφορές ή διαδικασίες ανασκόπησης. Το παρακάτω παράδειγμα ομαδοποιεί τα αποτελέσματα πρώτα ανά διαφάνεια και στη συνέχεια ανά πλαίσιο κειμένου:
+Επειδή κάθε συλλεγμένο αποτέλεσμα αποθηκεύει τον αριθμό της διαφάνειας και το πλαίσιο κειμένου, οι εφαρμογές μπορούν να ομαδοποιούν τις αντιστοιχίες για ελέγχους, αναφορές ή ροές εργασίας ανασκόπησης. Το παρακάτω παράδειγμα ομαδοποιεί τα αποτελέσματα πρώτα ανά διαφάνεια και στη συνέχεια ανά πλαίσιο κειμένου:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
 function getSlideNumber(textFrame) {
-    const parentSlide = textFrame.getSlide();
+    const parentShape = textFrame.getParentShape();
+    const parentCell = textFrame.getParentCell();
+    let parentSlide = textFrame.getSlide();
+    if (parentShape !== null) {
+        parentSlide = parentShape.getSlide();
+    } else if (parentCell !== null) {
+        parentSlide = parentCell.getSlide();
+    }
 
     if (java.instanceOf(parentSlide, "com.aspose.slides.Slide")) {
         return parentSlide.getSlideNumber();
@@ -336,24 +412,24 @@ try {
 }
 ```
 
-## **FAQ**
+## **Συχνές Ερωτήσεις**
 
 **Πώς μπορώ να αναζητήσω μόνο ένα πλαίσιο κειμένου αντί για ολόκληρη την παρουσίαση;**
 
-Αποκτήστε το πλαίσιο κειμένου του σχήματος και καλέστε τις [TextFrame.highlightText](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), [TextFrame.highlightRegex](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-), [TextFrame.replaceText](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), ή [TextFrame.replaceRegex](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) σε αυτό το πλαίσιο κειμένου. Οι μέθοδοι σε επίπεδο παρουσίασης επεξεργάζονται όλα τα εφαρμόσιμα πλαίσια κειμένου αντί αυτού.
+Λάβετε το πλαίσιο κειμένου του σχήματος και καλέστε το [TextFrame.highlightText](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), [TextFrame.highlightRegex](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-), [TextFrame.replaceText](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), ή [TextFrame.replaceRegex](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) σε αυτό το πλαίσιο κειμένου. Οι μέθοδοι επιπέδου παρουσίασης επεξεργάζονται όλα τα εφαρμόσιμα πλαίσια κειμένου.
 
-**Πώς μπορώ να ταιριάξω πλήρεις λέξεις με τη σωστή κεφαλοποίηση;**
+**Πώς μπορώ να ταιριάξω πλήρεις λέξεις με τη σωστή κεφαλαιοποίηση;**
 
-Ορίστε τις [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) και [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) σε `true` και περάστε τις επιλογές σε μια μέθοδο επισήμανσης ή αντικατάστασης κυριολεκτικού κειμένου. Για κανονικές εκφράσεις, ορίστε τα όρια λέξεων και τη διάκριση πεζών-κεφαλαίων μέσα στο ίδιο το Java `Pattern`.
+Ορίστε το [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) και το [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) σε `true`, και περάστε τις επιλογές σε μια μέθοδο επισήμανσης ή αντικατάστασης κυριολεκτικού κειμένου. Για κανονικές εκφράσεις, ορίστε όρια λέξεων και ευαισθησία σε πεζά/κεφαλαία στην ίδια τη Java `Pattern`.
 
-**Μπορεί η αναζήτηση και η αντικατάσταση να περιλαμβάνουν κείμενο στις σημειώσεις διαφάνειας;**
+**Μπορεί η αναζήτηση και η αντικατάσταση να περιλαμβάνει κείμενο σε σημειώσεις διαφάνειας;**
 
-Ναι. Ορίστε το [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) σε `true` όταν χρησιμοποιείτε μια λειτουργία κυριολεκτικού κειμένου σε επίπεδο παρουσίασης. Η υλοποίηση του callback που φαίνεται παραπάνω αντιστοιχίζει μια αντιστοίχηση σε σημειώσεις διαφάνειας στον αριθμό της γονικής διαφάνειας.
+Ναι. Ορίστε το [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) σε `true` όταν χρησιμοποιείτε μια λειτουργία κυριολεκτικού κειμένου επιπέδου παρουσίασης. Η υλοποίηση της κλήσης επιστροφής που φαίνεται παραπάνω αντιστοιχίζει μια αντιστοιχία σε μια σημείωση διαφάνειας στον αριθμό της γονικής διαφάνειας.
 
-**Πώς μπορώ να δημιουργήσω αναφορά χωρίς να σαρώσω τη παρουσίαση για δεύτερη φορά;**
+**Πώς μπορώ να δημιουργήσω αναφορά χωρίς να σαρώσω ξανά την παρουσίαση;**
 
-Περάστε έναν Java proxy για το callback αποτελέσματος στην λειτουργία επισήμανσης ή αντικατάστασης. Το callback λαμβάνει κάθε αντιστοίχηση κατά τη διάρκεια της λειτουργίας, έτσι η εφαρμογή μπορεί να αποθηκεύσει το πηγαίο κείμενο, το ταιριασμένο κείμενο, τη θέση, το πλαίσιο κειμένου και τον προεξαχθέντα αριθμό διαφάνειας για μετέπειτα ομαδοποίηση ή εξαγωγή.
+Περάστε έναν διαμεσολαβητή Java για την κλήση επιστροφής αποτελέσματος στη λειτουργία επισήμανσης ή αντικατάστασης. Η κλήση επιστροφής λαμβάνει κάθε αντιστοιχία κατά την εκτέλεση της λειτουργίας, ώστε η εφαρμογή να αποθηκεύει το πηγαίο κείμενο, το ταιριασμένο κείμενο, τη θέση, το πλαίσιο κειμένου και τον προεξαχθέντα αριθμό διαφάνειας για μεταγενέστερη ομαδοποίηση ή εξαγωγή.
 
 **Διατηρεί η αντικατάσταση κειμένου τη μορφοποίησή του;**
 
-[TextFrame.replaceText](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) και [TextFrame.replaceRegex](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) τροποποιούν το ταιριασμένο κείμενο μέσα στο υπάρχον πλαίσιο κειμένου και διατηρούν τη μορφοποίηση του περιβάλλοντος τμήματος. Εάν μια αντιστοίχηση καλύπτει τμήματα με διαφορετική μορφοποίηση, ελέγξτε το αποτέλεσμα για να βεβαιωθείτε ότι η αντικατάσταση χρησιμοποιεί το επιθυμητό στυλ.
+Τα [TextFrame.replaceText](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) και [TextFrame.replaceRegex](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) τροποποιούν το ταιριασμένο κείμενο εντός του υπάρχοντος πλαισίου κειμένου και διατηρούν τη μορφοποίηση του περιβάλλοντος τμήματος. Εάν μια αντιστοιχία καλύπτει τμήματα με διαφορετική μορφοποίηση, εξετάστε το αποτέλεσμα για να βεβαιωθείτε ότι η αντικατάσταση χρησιμοποιεί το επιθυμητό στυλ.

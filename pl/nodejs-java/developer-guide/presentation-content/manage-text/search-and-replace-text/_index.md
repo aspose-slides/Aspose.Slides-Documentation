@@ -7,7 +7,7 @@ url: /pl/nodejs-java/search-and-replace-text/
 keywords:
 - wyszukiwanie tekstu
 - podświetlanie tekstu
-- zastępowanie tekstu
+- zamiana tekstu
 - wyrażenie regularne
 - wywołanie zwrotne wyniku
 - ramka tekstowa
@@ -22,47 +22,116 @@ description: "Wyszukuj, podświetlaj i zamieniaj tekst w prezentacjach PowerPoin
 ---
 ## **Przegląd**
 
-Aspose.Slides for Node.js via Java może wyszukiwać, podświetlać i zastępować tekst w pojedynczej ramce tekstowej lub w całej prezentacji. Każda operacja może także powiadomić aplikację o każdym dopasowaniu za pomocą wywołania zwrotnego wyniku. Dzięki temu można aktualizować prezentację i jednocześnie budować ścieżkę audytu zawierającą dopasowany tekst, jego kontekst, pozycję, ramkę tekstową oraz numer slajdu.
+Aspose.Slides for Node.js via Java może wyszukiwać, podświetlać i zamieniać tekst w pojedynczej ramce tekstowej lub w całej prezentacji. Każda operacja może również powiadomić aplikację o każdym dopasowaniu za pośrednictwem zwrotnego wywołania wyników. Umożliwia to aktualizację prezentacji i jednoczesne tworzenie ścieżki audytu zawierającej dopasowany tekst, jego kontekst, pozycję, ramkę tekstową oraz numer slajdu.
 
-Te możliwości są przydatne przy przeglądzie, redagowaniu, sprawdzaniu terminologii, czyszczeniu szablonów oraz automatyzacji raportowania.
+Te możliwości są przydatne przy przeglądzie, redagowaniu, weryfikacji terminologii, czyszczeniu szablonów oraz zautomatyzowanych przepływach pracy raportowania.
 
-W poniższych pierwszych przykładach używamy pliku o nazwie „sample.pptx”, który zawiera jedną ramkę tekstową na pierwszym slajdzie z następującym tekstem:
+W pierwszych przykładach poniżej używamy pliku o nazwie "sample.pptx", który zawiera pojedyncze pole tekstowe na pierwszym slajdzie z następującym tekstem:
 
 ![Przykładowy tekst](sample_text.png)
 
 ## **Wybierz zakres wyszukiwania**
 
-Użyj metod na [TextFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/), aby ograniczyć operację do jednej ramki tekstowej. Użyj metod na [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/), aby przetworzyć cały tekst w prezentacji.
+Użyj metod na [TextFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/)…, aby ograniczyć operację do jednej ramki tekstowej. Użyj metod na [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/)…, aby przetworzyć cały odpowiedni tekst w prezentacji.
 
 | Operacja | Jedna ramka tekstowa | Cała prezentacja |
 |---|---|---|
-| Podświetl dosłowny tekst | [TextFrame.highlightText](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [Presentation.highlightText](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
-| Podświetl dopasowania wyrażenia regularnego | [TextFrame.highlightRegex](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) | [Presentation.highlightRegex](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) |
-| Zastąp dosłowny tekst | [TextFrame.replaceText](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [Presentation.replaceText](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
-| Zastąp dopasowania wyrażenia regularnego | [TextFrame.replaceRegex](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) | [Presentation.replaceRegex](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) |
+| Podświetl tekst dosłowny | [TextFrame.highlightText](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [Presentation.highlightText](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
+| Podświetl dopasowania wyrażeń regularnych | [TextFrame.highlightRegex](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) | [Presentation.highlightRegex](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) |
+| Zamień tekst dosłowny | [TextFrame.replaceText](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [Presentation.replaceText](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
+| Zamień dopasowania wyrażeń regularnych | [TextFrame.replaceRegex](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) | [Presentation.replaceRegex](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) |
 
-## **Skonfiguruj dopasowanie tekstu**
+## **Skonfiguruj dopasowywanie tekstu**
 
-Dla operacji na tekście dosłownym użyj [TextSearchOptions](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textsearchoptions/), aby kontrolować dopasowanie:
+Do operacji na tekście dosłownym użyj [TextSearchOptions](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textsearchoptions/), aby kontrolować dopasowanie:
 
 - [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) ogranicza dopasowania do pełnych słów.
-- [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) kontroluje, czy wielkość znaków musi się zgadzać.
+- [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) kontroluje, czy musi być zachowana wielkość liter.
 - [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) uwzględnia notatki slajdów w operacjach wyszukiwania, zamiany i podświetlania na poziomie prezentacji.
 
-Operacje wyrażeń regularnych używają klasy Java `Pattern`, więc reguły dopasowania, takie jak wrażliwość na wielkość liter i granice słów, są definiowane w wyrażeniu i jego flagach.
+Operacje z wyrażeniami regularnymi używają klasy Java `Pattern`, więc reguły dopasowania, takie jak rozróżnianie wielkości liter i granice wyrazów, są definiowane przez wyrażenie i jego flagi.
+
+## **Zidentyfikuj właściciela ramki tekstowej**
+
+Ogólne przepływy przetwarzania tekstu często otrzymują [TextFrame] podczas wyszukiwania, zamiany, walidacji lub eksportu tekstu. Użyj [TextFrame.getParentShape] i [TextFrame.getParentCell], aby określić, który obiekt prezentacji jest właścicielem ramki tekstowej.
+
+Oczekiwane wartości zależą od właściciela:
+
+| Właściciel ramki tekstowej | `getParentShape` | `getParentCell` |
+|---|---|---|
+| AutoShape lub inny kształt zawierający tekst | Posiadający [Shape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/shape/) | `null` |
+| Komórka tabeli | `null` | Posiadający [Cell](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/cell/) |
+
+Obie metody zapewniają nawigację tylko do odczytu. Wywołanie ich nie przenosi ramki tekstowej ani nie zmienia jej właściciela. Kod generyczny powinien sprawdzać oba wartości pod kątem `null` i obsługiwać możliwość, że żaden właściciel nie jest dostępny.
+
+Poniższy przykład używa [SlideUtil.getAllTextFrames](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/slideutil/#getAllTextFrames-aspose.slides.IPresentation-boolean-), aby przejść po wszystkich ramkach tekstowych w prezentacji. Dla kształtów raportuje nazwę kształtu, typ w czasie wykonywania Java oraz slajd, na którym się znajduje. Dla komórek tabeli raportuje współrzędne kolumny i wiersza (licząc od zera) oraz slajd, w którym komórka się znajduje.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+function getSlideLabel(baseSlide) {
+    if (java.instanceOf(baseSlide, "com.aspose.slides.Slide")) {
+        return "slide " + baseSlide.getSlideNumber();
+    }
+
+    if (java.instanceOf(baseSlide, "com.aspose.slides.NotesSlide")) {
+        return "notes for slide " + baseSlide.getParentSlide().getSlideNumber();
+    }
+
+    return baseSlide.getClass().getSimpleName();
+}
+
+const presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    const textFrames = aspose.slides.SlideUtil.getAllTextFrames(presentation, false);
+
+    for (let index = 0; index < textFrames.length; index++) {
+        const textFrame = textFrames[index];
+        const ownerShape = textFrame.getParentShape();
+        if (ownerShape !== null) {
+            const shapeName = ownerShape.getName() === "" ? "(unnamed)" : ownerShape.getName();
+            const shapeType = ownerShape.getClass().getSimpleName();
+            const slideLabel = getSlideLabel(ownerShape.getSlide());
+            console.log("Shape: " + shapeName + "; type: " + shapeType + "; " + slideLabel);
+            continue;
+        }
+
+        const ownerCell = textFrame.getParentCell();
+        if (ownerCell !== null) {
+            const slideLabel = getSlideLabel(ownerCell.getSlide());
+            console.log("Table cell: column " + ownerCell.getFirstColumnIndex() + ", row " + ownerCell.getFirstRowIndex() + "; " + slideLabel);
+            continue;
+        }
+
+        console.log("The text frame owner is not available as a shape or table cell.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Dla zawartości SmartArt iteruj po kształtach w [SmartArtNode.getShapes](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/smartartnode/#getShapes--) i uzyskaj dostęp do każdego [SmartArtShape.getTextFrame](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/smartartshape/#getTextFrame--). Ramka tekstowa może być powiązana z jej powiązanym kształtem za pomocą [TextFrame.getParentShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/#getParentShape--), podczas gdy [TextFrame.getParentCell](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/#getParentCell--) zwraca `null`. Dlatego gałąź kształtów w przykładzie obsługuje również tekst z węzłów SmartArt.
 
 ## **Zbierz informacje o dopasowaniach przy użyciu wywołania zwrotnego**
 
-Utwórz proxy Java dla wywołania zwrotnego wyniku, aby otrzymywać powiadomienie o każdym dopasowaniu. Funkcja proxy otrzymuje powiązaną ramkę tekstową, tekst źródłowy, dopasowany tekst oraz pozycję dopasowania.
+Utwórz proxy w Javie dla wywołania zwrotnego wyniku, aby otrzymywać powiadomienie o każdym dopasowaniu. Funkcja proxy otrzymuje powiązaną ramkę tekstową, tekst źródłowy, dopasowany tekst oraz pozycję dopasowania.
 
-Wywołanie zwrotne nie otrzymuje numeru slajdu bezpośrednio. Implementacja poniżej wyprowadza go poprzez [TextFrame.getSlide](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/#getSlide--), [Slide.getSlideNumber](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/slide/#getSlideNumber--), oraz [NotesSlide.getParentSlide](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/notesslide/#getParentSlide--). Obsługuje również tekst znaleziony w notatkach slajdu.
+Wywołanie zwrotne nie otrzymuje bezpośrednio numeru slajdu. Poniższa implementacja wyprowadza go poprzez kształt lub komórkę tabeli będącą właścicielem ramki tekstowej, używając [TextFrame.getSlide] jako awaryjnej opcji. Obsługuje również tekst znaleziony w notatkach slajdów.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
 function getSlideNumber(textFrame) {
-    const parentSlide = textFrame.getSlide();
+    const parentShape = textFrame.getParentShape();
+    const parentCell = textFrame.getParentCell();
+    let parentSlide = textFrame.getSlide();
+    if (parentShape !== null) {
+        parentSlide = parentShape.getSlide();
+    } else if (parentCell !== null) {
+        parentSlide = parentCell.getSlide();
+    }
 
     if (java.instanceOf(parentSlide, "com.aspose.slides.Slide")) {
         return parentSlide.getSlideNumber();
@@ -90,13 +159,13 @@ function createTextSearchCallback(results) {
 }
 ```
 
-W operacjach zamiany `foundText` zawiera oryginalny dopasowany tekst, więc wywołanie zwrotne może dokładnie zapisać, które terminy zostały zastąpione.
+Dla operacji zamiany `foundText` zawiera oryginalny dopasowany tekst, więc wywołanie zwrotne może dokładnie zarejestrować, które terminy zostały zamienione.
 
 ## **Podświetl tekst**
 
 Użyj metody [TextFrame.highlightText](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), aby podświetlić dopasowania tekstu dosłownego w ramce tekstowej. Przekaż [TextSearchOptions](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textsearchoptions/), aby kontrolować wyszukiwanie.
 
-Poniższy kod podświetla wszystkie wystąpienia znaków **"try"**, a następnie podświetla tylko pełne słowo **"to"**.
+Poniższy przykład podświetla wszystkie wystąpienia znaków **"try"**, a następnie podświetla wyłącznie całe słowo **"to"**.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -120,7 +189,7 @@ try {
     wholeWordSearchOptions.setCaseSensitive(false);
     const wholeWordHighlightColor = java.getStaticFieldValue("java.awt.Color", "MAGENTA");
 
-    // Podświetl tylko pełne słowo "to".
+    // Podświetl tylko całe słowo "to".
     shape.getTextFrame().highlightText(
         "to", wholeWordHighlightColor, wholeWordSearchOptions, null);
 
@@ -136,9 +205,9 @@ Wynik:
 
 ## **Podświetl tekst przy użyciu wyrażeń regularnych**
 
-Metoda [TextFrame.highlightRegex](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) podświetla dopasowania tekstu znalezione przy pomocy wyrażenia regularnego w ramce tekstowej.
+Metoda [TextFrame.highlightRegex](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) podświetla dopasowania tekstu znalezione przez wyrażenie regularne w ramce tekstowej.
 
-Poniższy kod podświetla wszystkie słowa zawierające co najmniej siedem znaków:
+Poniższy kod podświetla wszystkie słowa zawierające siedem lub więcej znaków:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -167,7 +236,7 @@ Wynik:
 
 ## **Podświetl tekst w całej prezentacji**
 
-Użyj [Presentation.highlightText](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) oraz [Presentation.highlightRegex](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-), aby przeszukać wszystkie odpowiednie ramki tekstowe w prezentacji. Poniższy przykład podświetla dosłowny termin oraz wszystkie adresy e‑mail:
+Użyj [Presentation.highlightText](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) i [Presentation.highlightRegex](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) do przeszukania wszystkich odpowiednich ramek tekstowych w prezentacji. Poniższy przykład podświetla termin dosłowny oraz wszystkie adresy e‑mail:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -196,11 +265,11 @@ try {
 }
 ```
 
-## **Zastąp tekst w ramce tekstowej**
+## **Zamień tekst w ramce tekstowej**
 
-Użyj [TextFrame.replaceText](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) dla tekstu dosłownego i [TextFrame.replaceRegex](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) dla zamiany opartej na wzorcu. Te metody aktualizują dopasowany tekst w istniejącej ramce tekstowej, zachowując formatowanie otaczających fragmentów zamiast budować nową ramkę z czystego łańcucha.
+Użyj [TextFrame.replaceText](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) dla tekstu dosłownego i [TextFrame.replaceRegex](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) dla zamiany opartej na wzorcu. Metody te aktualizują dopasowany tekst w istniejącej ramce, zachowując formatowanie otaczających fragmentów zamiast przebudowywać ramkę z czystego łańcucha.
 
-Poniższy przykład standaryzuje wariant pisowni, a następnie zastępuje etykiety wersji:
+Poniższy przykład ujednolica wariant ortograficzny, a następnie zamienia etykiety wersji:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -228,11 +297,11 @@ try {
 }
 ```
 
-Jeśli jedno dopasowanie obejmuje fragmenty o różnym formatowaniu, sprawdź wynik, aby potwierdzić, które formatowanie powinno zostać zastosowane do tekstu zastępczego.
+Jeśli jedno dopasowanie obejmuje fragmenty o różnym formatowaniu, sprawdź wynik, aby potwierdzić, które formatowanie powinno zostać zastosowane do tekstu zamienionego.
 
-## **Zastąp tekst w całej prezentacji**
+## **Zamień tekst w całej prezentacji**
 
-Użyj [Presentation.replaceText](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) i [Presentation.replaceRegex](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-), aby zastosować te same operacje w całej prezentacji. Jest to przydatne przy czyszczeniu szablonów, aktualizacjach terminologii i redagowaniu.
+Użyj [Presentation.replaceText](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) i [Presentation.replaceRegex](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) do zastosowania tych samych operacji w całej prezentacji. Jest to przydatne przy czyszczeniu szablonów, aktualizacjach terminologii i redagowaniu.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -266,7 +335,14 @@ const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
 function getSlideNumber(textFrame) {
-    const parentSlide = textFrame.getSlide();
+    const parentShape = textFrame.getParentShape();
+    const parentCell = textFrame.getParentCell();
+    let parentSlide = textFrame.getSlide();
+    if (parentShape !== null) {
+        parentSlide = parentShape.getSlide();
+    } else if (parentCell !== null) {
+        parentSlide = parentCell.getSlide();
+    }
 
     if (java.instanceOf(parentSlide, "com.aspose.slides.Slide")) {
         return parentSlide.getSlideNumber();
@@ -340,20 +416,20 @@ try {
 
 **Jak mogę przeszukać tylko jedną ramkę tekstową zamiast całej prezentacji?**
 
-Pobierz ramkę tekstową kształtu i wywołaj [TextFrame.highlightText](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), [TextFrame.highlightRegex](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-), [TextFrame.replaceText](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), lub [TextFrame.replaceRegex](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) na tej ramce. Metody na poziomie prezentacji przetwarzają wszystkie odpowiednie ramki tekstowe.
+Uzyskaj ramkę tekstową kształtu i wywołaj [TextFrame.highlightText](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), [TextFrame.highlightRegex](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-), [TextFrame.replaceText](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), lub [TextFrame.replaceRegex](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) na tej ramce. Metody na poziomie prezentacji przetwarzają wszystkie odpowiednie ramki tekstowe.
 
-**Jak dopasować pełne słowa z uwzględnieniem wielkości liter?**
+**Jak mogę dopasować pełne wyrazy z prawidłową wielkością liter?**
 
-Ustaw [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) oraz [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) na `true` i przekaż opcje do metody podświetlania lub zamiany tekstu dosłownego. Dla wyrażeń regularnych zdefiniuj granice słów i wrażliwość na wielkość liter bezpośrednio w klasie Java `Pattern`.
+Ustaw [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) i [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) na `true` oraz przekaż opcje do metody podświetlania lub zamiany tekstu dosłownego. Dla wyrażeń regularnych określ granice wyrazów i rozróżnianie wielkości liter bezpośrednio w klasie Java `Pattern`.
 
 **Czy wyszukiwanie i zamiana mogą obejmować tekst w notatkach slajdów?**
 
-Tak. Ustaw [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) na `true` przy użyciu operacji tekstu dosłownego na poziomie prezentacji. Implementacja wywołania zwrotnego przedstawiona wyżej mapuje dopasowanie w notatce na numer slajdu nadrzędnego.
+Tak. Ustaw [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) na `true` przy używaniu operacji na tekście dosłownym na poziomie prezentacji. Implementacja wywołania zwrotnego przedstawiona powyżej mapuje dopasowanie w notatce na numer slajdu nadrzędnego.
 
-**Jak stworzyć raport bez ponownego skanowania prezentacji?**
+**Jak mogę stworzyć raport bez ponownego skanowania prezentacji?**
 
-Przekaż proxy wywołania zwrotnego wyniku Java do operacji podświetlania lub zamiany. Wywołanie zwrotne otrzymuje każde dopasowanie w trakcie trwania operacji, więc aplikacja może zapisać tekst źródłowy, dopasowany tekst, pozycję, ramkę tekstową oraz wyprowadzony numer slajdu do późniejszego grupowania lub eksportu.
+Przekaż proxy wywołania zwrotnego wyniku w Javie do operacji podświetlania lub zamiany. Wywołanie zwrotne otrzymuje każde dopasowanie w trakcie wykonywania operacji, dzięki czemu aplikacja może zapisać tekst źródłowy, dopasowany tekst, pozycję, ramkę tekstową oraz wyprowadzony numer slajdu do późniejszego grupowania lub eksportu.
 
 **Czy zamiana tekstu zachowuje jego formatowanie?**
 
-[TextFrame.replaceText](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) i [TextFrame.replaceRegex](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) modyfikują dopasowany tekst w istniejącej ramce tekstowej i zachowują formatowanie otaczających fragmentów. Jeśli dopasowanie obejmuje fragmenty o różnym formatowaniu, należy przeanalizować wynik, aby upewnić się, że zamiana używa pożądanego stylu.
+[TextFrame.replaceText](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) i [TextFrame.replaceRegex](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) modyfikują dopasowany tekst w istniejącej ramce i zachowują formatowanie otaczających fragmentów. Jeśli dopasowanie obejmuje fragmenty o różnym formatowaniu, sprawdź wynik, aby upewnić się, że zamiana używa pożądanego stylu.

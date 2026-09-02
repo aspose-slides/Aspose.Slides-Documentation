@@ -11,27 +11,27 @@ keywords:
 - регулярное выражение
 - обратный вызов результата
 - текстовый фрейм
-- аудиторский отчёт
+- отчет аудита
 - PowerPoint
 - OpenDocument
 - презентация
 - Java
 - Aspose.Slides
-description: "Поиск, выделение и замена текста в презентациях PowerPoint с одновременным сбором всех совпадений с помощью Aspose.Slides for Java."
+description: "Ищите, выделяйте и заменяйте текст в презентациях PowerPoint, собирая каждое совпадение с помощью Aspose.Slides for Java."
 ---
 ## **Обзор**
 
-Aspose.Slides for Java может выполнять поиск, выделять и заменять текст в отдельном текстовом фрейме или во всей презентации. Каждая операция также может уведомлять приложение о каждом совпадении через обратный вызов результата. Это позволяет обновлять презентацию и одновременно формировать журнал аудита, содержащий найденный текст, его контекст, позицию, текстовый фрейм и номер слайда.
+Aspose.Slides for Java может выполнять поиск, выделение и замену текста в отдельном текстовом фрейме или во всей презентации. Каждая операция также может уведомлять приложение о каждом совпадении через обратный вызов результата. Это позволяет обновлять презентацию и одновременно создавать журнал аудита, содержащий найденный текст, его контекст, позицию, текстовый фрейм и номер слайда.
 
-Эти возможности полезны для проверки, редактирования, проверки терминологии, очистки шаблонов и автоматизированных процессов создания отчетов.
+Эти возможности полезны для проверки, редактирования, проверок терминологии, очистки шаблонов и автоматизированных процессов создания отчетов.
 
-В первых примерах ниже мы используем файл "sample.pptx", в котором на первом слайде находится один текстовый блок со следующим текстом:
+В первых примерах ниже мы используем файл с именем "sample.pptx", который содержит один текстовый блок на первом слайде со следующим текстом:
 
 ![Пример текста](sample_text.png)
 
 ## **Выбор области поиска**
 
-Используйте методы на [ITextFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/) для ограничения операции одним текстовым фреймом. Используйте методы на [Presentation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/) для обработки всего применимого текста в презентации.
+Используйте методы из [ITextFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/) для ограничения операции одним текстовым фреймом. Используйте методы из [Presentation](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/) для обработки всего применимого текста в презентации.
 
 | Операция | Один текстовый фрейм | Вся презентация |
 |---|---|---|
@@ -45,16 +45,80 @@ Aspose.Slides for Java может выполнять поиск, выделят�
 Для операций с буквальным текстом используйте [TextSearchOptions](https://reference.aspose.com/slides/ru/java/com.aspose.slides/textsearchoptions/) для управления сопоставлением:
 
 - [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/ru/java/com.aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) ограничивает совпадения полными словами.
-- [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/ru/java/com.aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) управляет тем, должна ли совпадать регистр символов.
-- [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/ru/java/com.aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) включает заметки слайдов в операции поиска, замены и выделения на уровне презентации.
+- [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/ru/java/com.aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) определяет, должен ли регистр символов совпадать.
+- [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/ru/java/com.aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) включает примечания к слайдам в операции поиска, замены и выделения на уровне презентации.
 
 Операции с регулярными выражениями используют Java `Pattern`, поэтому правила сопоставления, такие как чувствительность к регистру и границы слов, определяются выражением и его флагами.
 
+## **Определение владельца текстового фрейма**
+
+В типовых рабочих процессах обработки текста часто получают [ITextFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/), когда ищут, заменяют, проверяют или экспортируют текст. Используйте [ITextFrame.getParentShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/#getParentShape--) и [ITextFrame.getParentCell](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/#getParentCell--) , чтобы определить, какой объект презентации владеет текстовым фреймом.
+
+Ожидаемые значения зависят от владельца:
+
+| Владелец текстового фрейма | `getParentShape` | `getParentCell` |
+|---|---|---|
+| AutoShape или другая форма, содержащая текст | The owning [IShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ishape/) | `null` |
+| Ячейка таблицы | `null` | The owning [ICell](https://reference.aspose.com/slides/ru/java/com.aspose.slides/icell/) |
+
+Оба метода обеспечивают навигацию только для чтения. Их вызов не перемещает текстовый фрейм и не меняет его владельца. Общий код должен проверять оба значения на `null` и обрабатывать возможность, что ни один из владельцев недоступен.
+
+В следующем примере используется [SlideUtil.getAllTextFrames](https://reference.aspose.com/slides/ru/java/com.aspose.slides/slideutil/#getAllTextFrames-com.aspose.slides.IPresentation-boolean-) , чтобы перебрать текстовые фреймы в презентации. Для форм он выводит имя формы, тип Java во время выполнения и содержащий слайд. Для ячеек таблицы он выводит координаты столбца и строки, начинающиеся с нуля, и содержащий слайд.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    ITextFrame[] textFrames = SlideUtil.getAllTextFrames(presentation, false);
+
+    for (ITextFrame textFrame : textFrames) {
+        IShape ownerShape = textFrame.getParentShape();
+        if (ownerShape != null) {
+            String shapeName = ownerShape.getName().isEmpty() ? "(unnamed)" : ownerShape.getName();
+            String shapeType = ownerShape.getClass().getSimpleName();
+            IBaseSlide baseSlide = ownerShape.getSlide();
+            String slideLabel;
+            if (baseSlide instanceof ISlide) {
+                slideLabel = "slide " + ((ISlide) baseSlide).getSlideNumber();
+            } else if (baseSlide instanceof INotesSlide) {
+                slideLabel = "notes for slide " + ((INotesSlide) baseSlide).getParentSlide().getSlideNumber();
+            } else {
+                slideLabel = baseSlide.getClass().getSimpleName();
+            }
+            System.out.println("Shape: " + shapeName + "; type: " + shapeType + "; " + slideLabel);
+            continue;
+        }
+
+        ICell ownerCell = textFrame.getParentCell();
+        if (ownerCell != null) {
+            IBaseSlide baseSlide = ownerCell.getSlide();
+            String slideLabel;
+            if (baseSlide instanceof ISlide) {
+                slideLabel = "slide " + ((ISlide) baseSlide).getSlideNumber();
+            } else if (baseSlide instanceof INotesSlide) {
+                slideLabel = "notes for slide " + ((INotesSlide) baseSlide).getParentSlide().getSlideNumber();
+            } else {
+                slideLabel = baseSlide.getClass().getSimpleName();
+            }
+            System.out.println("Table cell: column " + ownerCell.getFirstColumnIndex() + ", row " + ownerCell.getFirstRowIndex() + "; " + slideLabel);
+            continue;
+        }
+
+        System.out.println("The text frame owner is not available as a shape or table cell.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Для содержимого SmartArt перебирайте формы в [ISmartArtNode.getShapes](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ismartartnode/#getShapes--) и получайте каждую [ISmartArtShape.getTextFrame](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ismartartshape/#getTextFrame--). Текстовый фрейм можно проследить к связанной форме через [ITextFrame.getParentShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/#getParentShape--) , в то время как [ITextFrame.getParentCell](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/#getParentCell--) возвращает `null`. Поэтому ветка форм в примере также обрабатывает текст из узлов SmartArt.
+
 ## **Сбор информации о совпадениях с помощью обратного вызова**
 
-Реализуйте [IFindResultCallback](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ifindresultcallback/) чтобы получать уведомление о каждом совпадении. Его метод [IFindResultCallback.foundResult](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ifindresultcallback/#foundResult-com.aspose.slides.ITextFrame-java.lang.String-java.lang.String-int-) предоставляет соответствующий текстовый фрейм, исходный текст, найденный текст и позицию совпадения.
+Реализуйте [IFindResultCallback](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ifindresultcallback/) , чтобы получать уведомление о каждом совпадении. Его метод [IFindResultCallback.foundResult](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ifindresultcallback/#foundResult-com.aspose.slides.ITextFrame-java.lang.String-java.lang.String-int-) предоставляет соответствующий текстовый фрейм, исходный текст, найденный текст и позицию совпадения.
 
-Обратный вызов не получает номер слайда напрямую. Реализация ниже выводит его из родительского слайда и также обрабатывает текст, найденный в заметках слайдов. Nullable `Integer` позволяет той же модели результата представлять текст, связанный с другими типами слайдов.
+Обратный вызов не получает номер слайда напрямую. Реализация ниже извлекает его из родительского слайда и также обрабатывает текст, найденный в примечаниях к слайдам. Nullable `Integer` позволяет использовать одну модель результата для представления текста, связанного с другими типами слайдов.
 
 ```java
 import com.aspose.slides.*;
@@ -111,12 +175,10 @@ final class TextSearchCallback implements IFindResultCallback {
         results.add(result);
     }
 
-    private static Integer getSlideNumber(ITextFrame textFrame) {
-        if (!(textFrame instanceof TextFrame)) {
-            return null;
-        }
-
-        IBaseSlide parentSlide = ((TextFrame) textFrame).getSlide();
+    private Integer getSlideNumber(ITextFrame textFrame) {
+        IShape parentShape = textFrame.getParentShape();
+        ICell parentCell = textFrame.getParentCell();
+        IBaseSlide parentSlide = parentShape != null ? parentShape.getSlide() : parentCell != null ? parentCell.getSlide() : textFrame.getSlide();
 
         if (parentSlide instanceof ISlide) {
             return ((ISlide) parentSlide).getSlideNumber();
@@ -131,13 +193,13 @@ final class TextSearchCallback implements IFindResultCallback {
 }
 ```
 
-Для операций замены `foundText` содержит оригинальный найденный текст, поэтому обратный вызов может точно записать, какие термины были заменены.
+Для операций замены `foundText` содержит исходный найденный текст, поэтому обратный вызов может точно зафиксировать, какие термины были заменены.
 
 ## **Выделение текста**
 
-Используйте метод [ITextFrame.highlightText](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) чтобы выделять совпадения буквального текста в текстовом фрейме. Передайте [TextSearchOptions](https://reference.aspose.com/slides/ru/java/com.aspose.slides/textsearchoptions/) для управления поиском и обратный вызов для сбора деталей совпадений.
+Используйте метод [ITextFrame.highlightText](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) , чтобы выделять совпадения буквального текста в текстовом фрейме. Передайте [TextSearchOptions](https://reference.aspose.com/slides/ru/java/com.aspose.slides/textsearchoptions/) , чтобы контролировать поиск, и обратный вызов для сбора деталей совпадения.
 
-Пример кода ниже выделяет все вхождения символов **"try"** и затем выделяет только полное слово **"to"**. Оба поиска передают свои совпадения одному и тому же обратному вызову.
+Пример кода ниже выделяет все вхождения символов **"try"** и затем выделяет только полное слово **"to"**. Оба поиска сообщают свои совпадения в один и тот же обратный вызов.
 
 ```java
 import com.aspose.slides.*;
@@ -179,7 +241,7 @@ try {
 
 ![Выделенный текст](highlighted_text.png)
 
-## **Выделение текста с помощью регулярных выражений**
+## **Выделение текста с использованием регулярных выражений**
 
 Метод [ITextFrame.highlightRegex](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) выделяет совпадения текста, найденные регулярным выражением, в текстовом фрейме.
 
@@ -211,7 +273,7 @@ try {
 
 ## **Выделение текста во всей презентации**
 
-Используйте [Presentation.highlightText](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) и [Presentation.highlightRegex](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) для поиска во всех применимых текстовых фреймах презентации. Пример ниже выделяет буквальный термин и все адреса электронной почты, сохраняет отдельные коллекции результатов для двух поисков.
+Используйте [Presentation.highlightText](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) и [Presentation.highlightRegex](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) , чтобы искать во всех применимых текстовых фреймах презентации. В следующем примере выделяется буквальный термин и все адреса электронной почты, при этом для двух поисков сохраняются отдельные коллекции результатов.
 
 ```java
 import com.aspose.slides.*;
@@ -241,9 +303,9 @@ try {
 
 ## **Замена текста в текстовом фрейме**
 
-Используйте [ITextFrame.replaceText](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) для буквального текста и [ITextFrame.replaceRegex](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) для замены на основе шаблона. Эти методы обновляют найденный текст внутри существующего текстового фрейма, при этом сохраняется форматирование окружающих частей, вместо пересоздания фрейма из простой строки.
+Используйте [ITextFrame.replaceText](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) для буквального текста и [ITextFrame.replaceRegex](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) для замены по шаблону. Эти методы обновляют найденный текст внутри существующего текстового фрейма, сохраняющего форматирование окружающих частей, вместо того чтобы перестраивать фрейм из простой строки.
 
-В следующем примере стандартизируется вариант написания, а затем заменяются метки версии. Один и тот же обратный вызов записывает оригинальные термины, найденные обеими операциями.
+В следующем примере стандартизируется вариант написания, а затем заменяются метки версии. Один и тот же обратный вызов фиксирует исходные термины, найденные в обеих операциях.
 
 ```java
 import com.aspose.slides.*;
@@ -269,11 +331,11 @@ try {
 }
 ```
 
-Если одно совпадение охватывает участки с разным форматированием, проверьте вывод, чтобы убедиться, какое форматирование должно применяться к заменяемому тексту.
+Если одно совпадение охватывает части с разным форматированием, проверьте результат, чтобы подтвердить, какое форматирование следует применить к заменяемому тексту.
 
 ## **Замена текста во всей презентации**
 
-Используйте [Presentation.replaceText](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) и [Presentation.replaceRegex](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) для применения тех же операций по всей презентации. Это полезно для очистки шаблонов, обновления терминологии и редактирования.
+Используйте [Presentation.replaceText](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) и [Presentation.replaceRegex](https://reference.aspose.com/slides/ru/java/com.aspose.slides/presentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) , чтобы применить одинаковые операции ко всей презентации. Это полезно для очистки шаблонов, обновления терминологии и редактирования.
 
 ```java
 import com.aspose.slides.*;
@@ -297,9 +359,9 @@ try {
 }
 ```
 
-## **Группировка совпадений для отчётности**
+## **Группировка совпадений для отчетов**
 
-Поскольку каждый результат хранит номер слайда и текстовый фрейм, приложения могут группировать совпадения для аудита, отчётности или процесса обзора. Пример ниже группирует собранные результаты сначала по слайду, затем по текстовому фрейму:
+Поскольку каждый результат хранит номер слайда и текстовый фрейм, приложения могут группировать совпадения для аудита, составления отчетов или процессов обзора. В следующем примере результаты группируются сначала по слайду, а затем по текстовому фрейму:
 
 ```java
 import com.aspose.slides.ITextFrame;
@@ -345,24 +407,24 @@ for (Map.Entry<Integer, Map<ITextFrame, List<TextMatch>>> slideEntry : matchesBy
 }
 ```
 
-## **FAQ**
+## **Часто задаваемые вопросы**
 
-**Как я могу выполнить поиск только в одном текстовом блоке вместо всей презентации?**
+**Как выполнить поиск только в одном текстовом блоке вместо всей презентации?**
 
-Получите текстовый фрейм фигуры и вызовите [ITextFrame.highlightText](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), [ITextFrame.highlightRegex](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-), [ITextFrame.replaceText](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), или [ITextFrame.replaceRegex](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) для этого фрейма. Методы уровня презентации обрабатывают все применимые текстовые фреймы.
+Получите текстовый фрейм формы и вызовите [ITextFrame.highlightText](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), [ITextFrame.highlightRegex](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-), [ITextFrame.replaceText](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), или [ITextFrame.replaceRegex](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) для этого фрейма. Методы уровня презентации обрабатывают все применимые текстовые фреймы.
 
-**Как я могу сопоставлять полные слова с учётом правильного регистра?**
+**Как сопоставить полные слова с правильным регистром?**
 
-Установите [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/ru/java/com.aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) и [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/ru/java/com.aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) в `true` и передайте параметры в метод выделения или замены буквального текста. Для регулярных выражений определяйте границы слов и чувствительность к регистру непосредственно в Java `Pattern`.
+Установите [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/ru/java/com.aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) и [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/ru/java/com.aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) в `true` и передайте параметры методу выделения или замены буквального текста. Для регулярных выражений определите границы слов и чувствительность к регистру непосредственно в Java `Pattern`.
 
-**Может ли поиск и замена включать текст в заметках слайдов?**
+**Можно ли включить поиск и замену текста из примечаний к слайдам?**
 
-Да. Установите [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/ru/java/com.aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) в `true` при использовании операции буквального текста на уровне презентации. Реализация обратного вызова, показанная выше, сопоставляет совпадение в заметках слайда с номером родительского слайда.
+Да. Установите [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/ru/java/com.aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) в `true` при использовании операции буквального текста на уровне презентации. Реализация обратного вызова, показанная выше, сопоставляет совпадение в примечании к слайду с номером его родительского слайда.
 
-**Как создать отчёт без повторного сканирования презентации?**
+**Как создать отчет, не просматривая презентацию во второй раз?**
 
 Передайте реализацию [IFindResultCallback](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ifindresultcallback/) в операцию выделения или замены. Обратный вызов получает каждое совпадение во время выполнения операции, поэтому приложение может сохранять исходный текст, найденный текст, позицию, текстовый фрейм и вычисленный номер слайда для последующей группировки или экспорта.
 
 **Сохраняет ли замена текста его форматирование?**
 
-[ITextFrame.replaceText](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) и [ITextFrame.replaceRegex](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) изменяют найденный текст внутри существующего текстового фрейма и сохраняют форматирование окружающих частей. Если совпадение охватывает участки с разным форматированием, проверьте результат, чтобы убедиться, что замена использует требуемый стиль.
+[ITextFrame.replaceText](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) и [ITextFrame.replaceRegex](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) изменяют найденный текст внутри существующего текстового фрейма и сохраняют форматирование окружающих частей. Если совпадение охватывает части с разным форматированием, проверьте результат, чтобы убедиться, что замена использует требуемый стиль.

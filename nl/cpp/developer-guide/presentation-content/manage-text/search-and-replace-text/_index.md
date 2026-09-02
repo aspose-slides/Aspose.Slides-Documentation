@@ -9,58 +9,169 @@ keywords:
 - tekst markeren
 - tekst vervangen
 - reguliere expressie
-- resultaat-callback
-- tekstframe
+- resultaat callback
+- tekstkader
 - auditrapport
 - PowerPoint
 - OpenDocument
 - presentatie
 - C++
 - Aspose.Slides
-description: "Zoek, markeer en vervang tekst in PowerPoint-presentaties terwijl u elke overeenkomst verzamelt met Aspose.Slides voor C++."
+description: "Zoek, markeer en vervang tekst in PowerPoint-presentaties terwijl elke overeenkomst wordt verzameld met Aspose.Slides for C++."
 ---
 ## **Overzicht**
 
-Aspose.Slides for C++ kan tekst zoeken, markeren en vervangen in een enkel tekstframe of in de volledige presentatie. Elke bewerking kan bovendien een applicatie informeren over elke overeenkomst via een result‑callback. Hierdoor kan een presentatie worden bijgewerkt terwijl tegelijk een audit‑trail wordt opgebouwd met de gevonden tekst, context, positie, tekstframe en slide‑nummer.
+Aspose.Slides for C++ kan tekst zoeken, markeren en vervangen in een individueel tekstkader of in de volledige presentatie. Elke bewerking kan een applicatie ook op de hoogte stellen van elke overeenkomst via een result‑callback. Hierdoor is het mogelijk een presentatie bij te werken en tegelijkertijd een audit‑trail op te bouwen met de gevonden tekst, de context, positie, het tekstkader en het dia‑nummer.
 
-Deze mogelijkheden zijn handig voor review, redactie, terminologiecontroles, sjabloon‑opschoning en geautomatiseerde rapportage‑workflows.
+Deze mogelijkheden zijn handig voor review, redactie, terminologiecontroles, sjabloonsopschoning en geautomatiseerde rapportage‑workflows.
 
-In de eerste voorbeelden hieronder gebruiken we een bestand genaamd “sample.pptx”, dat op de eerste dia één tekstvak bevat met de volgende tekst:
+In de eerste onderstaande voorbeelden gebruiken we een bestand genaamd “sample.pptx”, dat een enkele tekstvak op de eerste dia bevat met de volgende tekst:
 
-![Voorbeeldtekst](sample_text.png)
+![Sample text](sample_text.png)
 
 ## **Kies de zoekscope**
 
-Gebruik methoden op [ITextFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/) om een bewerking te beperken tot één tekstframe. Gebruik methoden op [IPresentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipresentation/) om alle toepasselijke tekst in de presentatie te verwerken.
+Gebruik methoden op [ITextFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/) om een bewerking te beperken tot één tekstkader. Gebruik methoden op [IPresentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipresentation/) om alle toepasselijke tekst in de presentatie te verwerken.
 
-| Bewerking | Eén tekstframe | Hele presentatie |
+| Bewerkning | Eén tekstkader | Hele presentatie |
 |---|---|---|
 | Letterlijke tekst markeren | [ITextFrame::HighlightText](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/highlighttext/) | [IPresentation::HighlightText](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipresentation/highlighttext/) |
 | Reguliere‑expressie‑overeenkomsten markeren | [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/highlightregex/) | [IPresentation::HighlightRegex](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipresentation/highlightregex/) |
 | Letterlijke tekst vervangen | [ITextFrame::ReplaceText](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/replacetext/) | [IPresentation::ReplaceText](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipresentation/replacetext/) |
 | Reguliere‑expressie‑overeenkomsten vervangen | [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/replaceregex/) | [IPresentation::ReplaceRegex](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipresentation/replaceregex/) |
 
-## **Configureren van tekstreeks**
+## **Configureer tekstopmatching**
 
-Voor letterlijke‑tekst bewerkingen, gebruik [ITextSearchOptions](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextsearchoptions/) om het zoeken te sturen:
+Voor bewerkingen met letterlijke tekst, gebruik [ITextSearchOptions](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextsearchoptions/) om het zoeken te regelen:
 
 - [ITextSearchOptions::set_WholeWordsOnly](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextsearchoptions/set_wholewordsonly/) beperkt overeenkomsten tot volledige woorden.
 - [ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) bepaalt of hoofdlettergevoeligheid vereist is.
-- [ITextSearchOptions::set_IncludeNotes](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextsearchoptions/set_includenotes/) neemt notities op in zoeken, vervangen en markeren op presentatieniveau.
+- [ITextSearchOptions::set_IncludeNotes](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextsearchoptions/set_includenotes/) neemt notities van dia’s op in zoek-, vervang‑ en markeerbewerkingen op presentatieniveau.
 
-Reguliere‑expressie bewerkingen gebruiken een `System::Text::RegularExpressions::Regex`, zodat regels zoals hoofdlettergevoeligheid en woordgrenzen worden bepaald door de expressie en zijn opties.
+Bewerkingen met reguliere expressies gebruiken een `System::Text::RegularExpressions::Regex`, dus regels zoals hoofdlettergevoeligheid en woordgrenzen worden gedefinieerd door de expressie en haar opties.
 
-## **Verzamel overeenkomende informatie met een callback**
+## **Identificeer de eigenaar van een tekstkader**
 
-Implementeer [IFindResultCallback](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ifindresultcallback/) om een melding te ontvangen voor elke overeenkomst. De methode [IFindResultCallback::FoundResult](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ifindresultcallback/foundresult/) levert het bijbehorende tekstframe, de brontekst, de gevonden tekst en de positie van de overeenkomst.
+Generieke tekstverwerkings‑workflows ontvangen vaak een [ITextFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/) tijdens zoeken, vervangen, valideren of exporteren. Gebruik [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/get_parentshape/) en [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/get_parentcell/) om te bepalen welk presentatie‑object eigenaar is van het tekstkader.
 
-De callback ontvangt geen slide‑nummer direct. De implementatie hieronder haalt dit af van [ISlideComponent::get_Slide](https://reference.aspose.com/slides/nl/cpp/aspose.slides/islidecomponent/get_slide/) en verwerkt ook tekst gevonden in notities via [INotesSlide::get_ParentSlide](https://reference.aspose.com/slides/nl/cpp/aspose.slides/inotesslide/get_parentslide/). Een nullable slide‑nummer maakt het mogelijk om hetzelfde resultaatmodel te gebruiken voor tekst die aan andere slide‑types is gekoppeld.
+De verwachte waarden hangen af van de eigenaar:
+
+| Eigenaar van tekstkader | `get_ParentShape` | `get_ParentCell` |
+|---|---|---|
+| Een AutoShape of een andere vorm die tekst bevat | De eigenaar‑[IShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ishape/) | `nullptr` |
+| Een tabelcel | `nullptr` | De eigenaar‑[ICell](https://reference.aspose.com/slides/nl/cpp/aspose.slides/icell/) |
+
+Beide methoden bieden alleen‑lezen navigatie. Ze verplaatsen het tekstkader of wijzigen de eigenaar niet. Generieke code dient beide waarden op `nullptr` te controleren en rekening te houden met de mogelijkheid dat geen van beide beschikbaar is.
+
+Het volgende voorbeeld gebruikt [SlideUtil::GetAllTextFrames](https://reference.aspose.com/slides/nl/cpp/aspose.slides.util/slideutil/getalltextframes/) om door de tekstkaders in een presentatie te itereren. Voor vormen meldt het de vormnaam, C++‑runtime‑type en de bijbehorende dia. Voor tabelcellen meldt het de kolom‑ en rij‑coördinaten (nul‑gebaseerd) en de bijbehorende dia.
 
 ```cpp
 #include <DOM/IBaseSlide.h>
 #include <DOM/INotesSlide.h>
+#include <DOM/IShape.h>
 #include <DOM/ISlide.h>
 #include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <Util/SlideUtil.h>
+#include <system/console.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using Aspose::Slides::IBaseSlide;
+using Aspose::Slides::INotesSlide;
+using Aspose::Slides::IShape;
+using Aspose::Slides::ISlide;
+using Aspose::Slides::ITextFrame;
+using Aspose::Slides::Presentation;
+using Aspose::Slides::Util::SlideUtil;
+using System::AsCast;
+using System::Console;
+using System::MakeObject;
+using System::String;
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx");
+auto textFrames = SlideUtil::GetAllTextFrames(presentation, false);
+
+for (const auto& textFrame : textFrames)
+{
+    auto ownerShape = textFrame->get_ParentShape();
+    if (ownerShape != nullptr)
+    {
+        auto shapeName = String::IsNullOrEmpty(ownerShape->get_Name()) ? u"(unnamed)" : ownerShape->get_Name();
+        auto shapeType = ownerShape->GetType().get_Name();
+        auto baseSlide = ownerShape->get_Slide();
+        String slideLabel;
+        auto slide = AsCast<ISlide>(baseSlide);
+
+        if (slide != nullptr)
+        {
+            slideLabel = String::Format(u"slide {0}", slide->get_SlideNumber());
+        }
+        else
+        {
+            auto notesSlide = AsCast<INotesSlide>(baseSlide);
+            if (notesSlide != nullptr)
+            {
+                slideLabel = String::Format(u"notes for slide {0}", notesSlide->get_ParentSlide()->get_SlideNumber());
+            }
+            else
+            {
+                slideLabel = baseSlide->GetType().get_Name();
+            }
+        }
+
+        Console::WriteLine(u"Shape: {0}; type: {1}; {2}", shapeName, shapeType, slideLabel);
+        continue;
+    }
+
+    auto ownerCell = textFrame->get_ParentCell();
+    if (ownerCell != nullptr)
+    {
+        auto baseSlide = ownerCell->get_Slide();
+        String slideLabel;
+        auto slide = AsCast<ISlide>(baseSlide);
+
+        if (slide != nullptr)
+        {
+            slideLabel = String::Format(u"slide {0}", slide->get_SlideNumber());
+        }
+        else
+        {
+            auto notesSlide = AsCast<INotesSlide>(baseSlide);
+            if (notesSlide != nullptr)
+            {
+                slideLabel = String::Format(u"notes for slide {0}", notesSlide->get_ParentSlide()->get_SlideNumber());
+            }
+            else
+            {
+                slideLabel = baseSlide->GetType().get_Name();
+            }
+        }
+
+        Console::WriteLine(u"Table cell: column {0}, row {1}; {2}", ownerCell->get_FirstColumnIndex(), ownerCell->get_FirstRowIndex(), slideLabel);
+        continue;
+    }
+
+    Console::WriteLine(u"The text frame owner is not available as a shape or table cell.");
+}
+```
+
+Voor SmartArt‑inhoud, iterateer door de vormen in [ISmartArtNode::get_Shapes](https://reference.aspose.com/slides/nl/cpp/aspose.slides.smartart/ismartartnode/get_shapes/) en benader elke [ISmartArtShape::get_TextFrame](https://reference.aspose.com/slides/nl/cpp/aspose.slides.smartart/ismartartshape/get_textframe/). Het tekstkader kan via [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/get_parentshape/) naar de bijbehorende vorm worden getraceerd, terwijl [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/get_parentcell/) `nullptr` retourneert. Daarom behandelt de vorm‑tak in het voorbeeld ook tekst uit SmartArt‑nodes.
+
+## **Verzamel overeenkomsteninformatie met een callback**
+
+Implementeer [IFindResultCallback](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ifindresultcallback/) om een melding te ontvangen voor elke overeenkomst. De methode [IFindResultCallback::FoundResult](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ifindresultcallback/foundresult/) levert het bijbehorende tekstkader, de brontekst, de gevonden tekst en de positie van de overeenkomst.
+
+De callback ontvangt geen dia‑nummer rechtstreeks. De implementatie hieronder haalt dit af van [ISlideComponent::get_Slide](https://reference.aspose.com/slides/nl/cpp/aspose.slides/islidecomponent/get_slide/) en verwerkt tevens tekst die gevonden is in notities via [INotesSlide::get_ParentSlide](https://reference.aspose.com/slides/nl/cpp/aspose.slides/inotesslide/get_parentslide/). Een nullable dia‑nummer maakt het mogelijk om hetzelfde resultaatsmodel te gebruiken voor tekst geassocieerd met andere type dia’s.
+
+```cpp
+#include <DOM/IBaseSlide.h>
+#include <DOM/INotesSlide.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Table/ICell.h>
 #include <IFindResultCallback.h>
 #include <system/collections/list.h>
 #include <system/nullable.h>
@@ -70,6 +181,7 @@ De callback ontvangt geen slide‑nummer direct. De implementatie hieronder haal
 using Aspose::Slides::IBaseSlide;
 using Aspose::Slides::IFindResultCallback;
 using Aspose::Slides::INotesSlide;
+using Aspose::Slides::IShape;
 using Aspose::Slides::ISlide;
 using Aspose::Slides::ITextFrame;
 using System::AsCast;
@@ -119,7 +231,23 @@ public:
 private:
     static Nullable<int32_t> GetSlideNumber(SharedPtr<ITextFrame> textFrame)
     {
-        SharedPtr<IBaseSlide> baseSlide = textFrame->get_Slide();
+        auto parentShape = textFrame->get_ParentShape();
+        auto parentCell = textFrame->get_ParentCell();
+        SharedPtr<IBaseSlide> baseSlide;
+
+        if (parentShape != nullptr)
+        {
+            baseSlide = parentShape->get_Slide();
+        }
+        else if (parentCell != nullptr)
+        {
+            baseSlide = parentCell->get_Slide();
+        }
+        else
+        {
+            baseSlide = textFrame->get_Slide();
+        }
+
         auto slide = AsCast<ISlide>(baseSlide);
 
         if (slide != nullptr)
@@ -139,13 +267,13 @@ private:
 };
 ```
 
-Voor vervangingsbewerkingen bevat `FoundText` de originele gevonden tekst, zodat de callback exact kan registreren welke termen werden vervangen.
+Voor vervangingsbewerkingen bevat `FoundText` de oorspronkelijk gevonden tekst, zodat de callback exact kan registreren welke termen zijn vervangen.
 
 ## **Tekst markeren**
 
-Gebruik de methode [ITextFrame::HighlightText](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/highlighttext/) om letterlijke‑tekst overeenkomsten in een tekstframe te markeren. Geef [ITextSearchOptions](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextsearchoptions/) door om het zoeken te sturen en een callback om de details van elke overeenkomst te verzamelen.
+Gebruik de methode [ITextFrame::HighlightText](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/highlighttext/) om letterlijke‑tekstoplossingen in een tekstkader te markeren. Geef [ITextSearchOptions](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextsearchoptions/) door om het zoeken te sturen en een callback om de details van de overeenkomsten te verzamelen.
 
-De code‑voorbeeld hieronder markeert alle voorkomens van de tekens **"try"** en daarna alleen het volledige woord **"to"**. Beide zoekacties rapporteren hun resultaten aan dezelfde callback.
+Het code‑voorbeeld hieronder markeert alle voorkomens van de tekens **"try"** en vervolgens alleen het volledige woord **"to"**. Beide zoekopdrachten rapporteren hun resultaten aan dezelfde callback.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -166,14 +294,14 @@ using System::MakeObject;
 
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-// Get the first shape from the first slide.
+// Haal de eerste vorm van de eerste dia op.
 auto shape = ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
 auto callback = MakeObject<TextSearchCallback>();
 
 auto substringSearchOptions = MakeObject<TextSearchOptions>();
 substringSearchOptions->set_CaseSensitive(false);
 
-// Highlight every occurrence of "try" in the text frame.
+// Markeer elk voorkomen van "try" in het tekstkader.
 shape->get_TextFrame()->HighlightText(
     u"try", System::Drawing::Color::get_LightBlue(), substringSearchOptions, callback);
 
@@ -181,7 +309,7 @@ auto wholeWordSearchOptions = MakeObject<TextSearchOptions>();
 wholeWordSearchOptions->set_WholeWordsOnly(true);
 wholeWordSearchOptions->set_CaseSensitive(false);
 
-// Highlight only the complete word "to".
+// Markeer alleen het volledige woord "to".
 shape->get_TextFrame()->HighlightText(
     u"to", System::Drawing::Color::get_Violet(), wholeWordSearchOptions, callback);
 
@@ -201,13 +329,13 @@ presentation->Dispose();
 
 Het resultaat:
 
-![De gemarkeerde tekst](highlighted_text.png)
+![The highlighted text](highlighted_text.png)
 
 ## **Tekst markeren met reguliere expressies**
 
-De methode [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/highlightregex/) markeert tekstovereenkomsten die worden gevonden door een reguliere expressie in een tekstframe.
+De methode [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/highlightregex/) markeert tekstovereenkomsten die door een reguliere expressie in een tekstkader worden gevonden.
 
-De volgende code markeert alle woorden met zeven of meer tekens en verzamelt elke overeenkomst:
+De volgende code markeert alle woorden van zeven of meer tekens en verzamelt elke overeenkomst:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -240,11 +368,11 @@ presentation->Dispose();
 
 Het resultaat:
 
-![De gemarkeerde tekst met de reguliere expressie](highlighted_text_using_regex.png)
+![The highlighted text using the regular expression](highlighted_text_using_regex.png)
 
-## **Tekst markeren in een presentatie**
+## **Tekst markeren in een hele presentatie**
 
-Gebruik [IPresentation::HighlightText](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipresentation/highlighttext/) en [IPresentation::HighlightRegex](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipresentation/highlightregex/) om alle toepasselijke tekstframes in een presentatie te doorzoeken. Het volgende voorbeeld markeert een letterlijke term en alle e‑mailadressen, met afzonderlijke resultaatsverzamelingen voor de twee zoekacties.
+Gebruik [IPresentation::HighlightText](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipresentation/highlighttext/) en [IPresentation::HighlightRegex](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipresentation/highlightregex/) om alle toepasselijke tekstkaders in een presentatie te doorzoeken. Het volgende voorbeeld markeert een letterlijke term en alle e‑mailadressen, terwijl er aparte resultaatsverzamelingen worden bijgehouden voor beide zoekopdrachten.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -283,11 +411,11 @@ presentation->Save(u"highlighted_presentation.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Tekst vervangen in een tekstframe**
+## **Tekst vervangen in een tekstkader**
 
-Gebruik [ITextFrame::ReplaceText](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/replacetext/) voor letterlijke tekst en [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/replaceregex/) voor patroon‑gebaseerde vervanging. Deze methoden werken de gevonden tekst bij binnen het bestaande tekstframe, waardoor de opmaak van de omringende delen behouden blijft in plaats van het tekstframe opnieuw op te bouwen vanuit een onopgemaakte tekenreeks.
+Gebruik [ITextFrame::ReplaceText](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/replacetext/) voor letterlijke tekst en [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/replaceregex/) voor patroon‑gebaseerde vervanging. Deze methoden werken de gevonden tekst bij binnen het bestaande tekstkader, waardoor de opmaak van het omringende gedeelte behouden blijft in plaats van het tekstkader opnieuw op te bouwen vanuit een platte string.
 
-Het volgende voorbeeld normaliseert een spellingvariant en vervangt daarna versielabels. Dezelfde callback registreert de originele termen die door beide bewerkingen zijn gevonden.
+Het volgende voorbeeld normaliseert een spellingvariant en vervangt vervolgens versielabels. Dezelfde callback registreert de oorspronkelijke termen die door beide bewerkingen zijn gevonden.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -326,11 +454,11 @@ presentation->Save(u"updated_text_frame.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Als een overeenkomst zich uitstrekt over delen met verschillende opmaak, controleer dan de uitvoer om te bevestigen welke opmaak moet worden toegepast op de vervangende tekst.
+Als één overeenkomst delen met verschillende opmaak bestrijkt, controleer dan de uitvoer om te bevestigen welke opmaak op de vervangende tekst moet worden toegepast.
 
-## **Tekst vervangen in een presentatie**
+## **Tekst vervangen in een hele presentatie**
 
-Gebruik [IPresentation::ReplaceText](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipresentation/replacetext/) en [IPresentation::ReplaceRegex](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipresentation/replaceregex/) om dezelfde bewerkingen over de volledige presentatie uit te voeren. Dit is nuttig voor sjabloon‑opschoning, terminologie‑updates en redactie.
+Gebruik [IPresentation::ReplaceText](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipresentation/replacetext/) en [IPresentation::ReplaceRegex](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ipresentation/replaceregex/) om dezelfde bewerkingen op de volledige presentatie toe te passen. Dit is nuttig voor sjabloonsopschoning, terminologie‑updates en redactie.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -361,9 +489,9 @@ presentation->Save(u"updated_presentation.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Groepeer overeenkomsten voor rapportage**
+## **Groeperen van overeenkomsten voor rapportage**
 
-Omdat elk resultaat zijn slide‑nummer en tekstframe opslaat, kunnen applicaties overeenkomsten groeperen voor audit, rapportage of review‑workflows. Het volgende voorbeeld groepeert de verzamelde resultaten eerst per slide en vervolgens per tekstframe:
+Omdat elk resultaat zijn dia‑nummer en tekstkader opslaat, kunnen applicaties overeenkomsten groeperen voor audit, rapportage of review‑workflows. Het volgende voorbeeld groepeert de verzamelde resultaten eerst per dia en vervolgens per tekstkader:
 
 ```cpp
 #include <DOM/ITextFrame.h>
@@ -409,22 +537,22 @@ for (const auto& slideGroup : matchesBySlide)
 
 ## **FAQ**
 
-**Hoe kan ik zoeken in slechts één tekstvak in plaats van de hele presentatie?**
+**Hoe kan ik slechts één tekstvak doorzoeken in plaats van de volledige presentatie?**
 
-Haal het tekstframe van de vorm op en roep [ITextFrame::HighlightText](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/highlighttext/), [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/highlightregex/), [ITextFrame::ReplaceText](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/replacetext/) of [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/replaceregex/) aan op dat tekstframe. Methoden op presentatieniveau verwerken alle toepasselijke tekstframes.
+Haal het tekstkader van de vorm op en roep [ITextFrame::HighlightText](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/highlighttext/), [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/highlightregex/), [ITextFrame::ReplaceText](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/replacetext/) of [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/replaceregex/) aan op dat tekstkader. Methoden op presentatieniveau verwerken alle toepasselijke tekstkaders.
 
-**Hoe kan ik volledige woorden vinden met de juiste hoofdlettergebruik?**
+**Hoe kan ik volledige woorden matchen met de juiste hoofdletters?**
 
-Roep [ITextSearchOptions::set_WholeWordsOnly](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextsearchoptions/set_wholewordsonly/) en [ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) aan met `true` en geef de opties door aan een letterlijke‑tekst markeer‑ of vervangingsmethode. Voor reguliere expressies definieer je woordgrenzen en hoofdlettergevoeligheid direct in de `System::Text::RegularExpressions::Regex`.
+Roep [ITextSearchOptions::set_WholeWordsOnly](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextsearchoptions/set_wholewordsonly/) en [ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) aan met `true` en geef de opties door aan een markeer‑ of vervangingsmethode voor letterlijke tekst. Voor reguliere expressies definieer je woordgrenzen en hoofdlettergevoeligheid in de `System::Text::RegularExpressions::Regex` zelf.
 
-**Kunnen zoeken en vervangen ook tekst in notities omvatten?**
+**Kunnen zoeken en vervangen tekst in notities van dia’s omvatten?**
 
-Ja. Roep [ITextSearchOptions::set_IncludeNotes](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextsearchoptions/set_includenotes/) aan met `true` wanneer je een letterlijke‑tekst bewerking op presentatieniveau uitvoert. De callback‑implementatie hierboven mappt een overeenkomst in een notitieslide terug naar het bijbehorende slide‑nummer.
+Ja. Roep [ITextSearchOptions::set_IncludeNotes](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextsearchoptions/set_includenotes/) aan met `true` bij een presentatieniveau‑bewerking voor letterlijke tekst. De callback‑implementatie hierboven mapt een overeenkomst in een notities‑dia terug naar het bijbehorende dia‑nummer.
 
-**Hoe kan ik een rapport maken zonder de presentatie nogmaals te scannen?**
+**Hoe kan ik een rapport maken zonder de presentatie een tweede keer te scannen?**
 
-Geef een [IFindResultCallback](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ifindresultcallback/)‑implementatie door aan de markeer‑ of vervangingsbewerking. De callback ontvangt elke overeenkomst terwijl de bewerking loopt, zodat de applicatie de brontekst, gevonden tekst, positie, tekstframe en afgeleide slide‑nummer kan opslaan voor later groeperen of exporteren.
+Geef een implementatie van [IFindResultCallback](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ifindresultcallback/) door aan de markeer‑ of vervangingsbewerking. De callback ontvangt elke overeenkomst terwijl de bewerking draait, zodat de applicatie de brontekst, gevonden tekst, positie, tekstkader en afgeleide dia‑nummer kan opslaan voor latere groepering of export.
 
-**Behoudt het vervangen van tekst de opmaak?**
+**Behoudt vervangen tekst zijn opmaak?**
 
-[ITextFrame::ReplaceText](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/replacetext/) en [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/replaceregex/) wijzigen de gevonden tekst binnen het bestaande tekstframe en behouden de opmaak van de omliggende delen. Als een overeenkomst zich uitstrekt over delen met verschillende opmaak, inspecteer dan het resultaat om te verzekeren dat de vervanging de gewenste stijl gebruikt.
+[ITextFrame::ReplaceText](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/replacetext/) en [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/nl/cpp/aspose.slides/itextframe/replaceregex/) wijzigen de gevonden tekst binnen het bestaande tekstkader en behouden de opmaak van het omringende gedeelte. Als een overeenkomst delen met verschillende opmaak omvat, inspecteer dan het resultaat om zeker te zijn dat de vervanging de gewenste stijl gebruikt.

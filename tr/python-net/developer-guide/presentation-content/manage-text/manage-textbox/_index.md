@@ -12,60 +12,58 @@ keywords:
 - metin kutusu oluştur
 - metin kutusunu kontrol et
 - metin sütunu ekle
-- köprü ekle
+- hiperbağlantı ekle
 - PowerPoint
 - sunum
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET, PowerPoint ve OpenDocument dosyalarında metin kutularını oluşturmayı, düzenlemeyi ve kopyalamayı kolaylaştırarak sunum otomasyonunuzu geliştirir."
+description: "Aspose.Slides for Python via .NET, PowerPoint ve OpenDocument dosyalarında metin kutularını oluşturmayı, düzenlemeyi ve kopyalamayı kolaylaştırır, sunum otomasyonunuzu geliştirir."
 ---
 ## **Giriş**
 
-Slaytlardaki metinler genellikle metin kutuları veya şekiller içinde bulunur. Bu nedenle, bir slayta metin eklemek için bir metin kutusu eklemeniz ve ardından metni metin kutusuna koymanız gerekir. Aspose.Slides for Python, içinde metin bulunan bir şekil eklemenizi sağlayan [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) sınıfını sunar.
+Slaytlardaki metinler tipik olarak metin kutularında veya şekillerde bulunur. Bu nedenle, bir slayta metin eklemek için önce bir metin kutusu eklemeli ve ardından metin kutusunun içine metin yerleştirmelisiniz. Aspose.Slides for Python, bazı metin içeren bir şekil eklemenizi sağlayan [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) sınıfını sunar.
 
 {{% alert title="Info" color="info" %}}
 Aspose.Slides ayrıca [Shape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shape/) sınıfını sağlar. Ancak, tüm şekiller metin tutamaz.
 {{% /alert %}}
 
 {{% alert title="Note" color="warning" %}}
-Bu nedenle, metin eklemek istediğiniz bir şekille çalışırken, şeklin [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) sınıfı aracılığıyla dönüştürüldüğünden emin olmak isteyebilirsiniz. Ancak o zaman [AutoShape] altında bulunan bir özellik olan [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/) ile çalışabilirsiniz. Bu sayfadaki [Metni Güncelle](/slides/tr/python-net/manage-textbox/#update-text) bölümüne bakın.
+Bu nedenle, metin eklemek istediğiniz bir şekille çalışırken, şeklin [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) sınıfı aracılığıyla dönüştürülüp dönüştürülmediğini kontrol etmek ve doğrulamak isteyebilirsiniz. Ancak o zaman [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) altındaki bir özellik olan [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/) ile çalışabilirsiniz. Bu sayfadaki [Metni Güncelle](/slides/tr/python-net/manage-textbox/#update-text) bölümüne bakın.
 {{% /alert %}}
 
-## **Slaytlara Metin Kutuları Oluşturma**
+## **Slaytlarda Metin Kutuları Oluşturma**
 
-Bir slayta metin kutusu oluşturmak için:
-
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının örneğini oluşturun.
-2. İlk slayta bir referans alın.
-3. İstediğiniz konumda `ShapeType.RECTANGLE` ile bir [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) ekleyin.
-4. Şeklin [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/) içinde metni ayarlayın.
-5. Sunumu PPTX dosyası olarak kaydedin.
+1. [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
+2. İlk slayta bir referans alın.  
+3. İstediğiniz konumda slayta `ShapeType.RECTANGLE` ile bir [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) ekleyin.  
+4. Şeklin [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/) içindeki metni ayarlayın.  
+5. Sunumu PPTX dosyası olarak kaydedin.  
 
 Aşağıdaki Python örneği bu adımları uygular:
 
 ```py
 import aspose.slides as slides
 
-# Presentation sınıfının bir örneğini oluştur.
+# Presentation sınıfını örnekleyin.
 with slides.Presentation() as presentation:
 
-    # Sunumdaki ilk slaytı al.
+    # Sunumdaki ilk slaytı alın.
     slide = presentation.slides[0]
 
-    # RECTANGLE türünde bir AutoShape ekle.
+    # RECTANGLE tipinde bir AutoShape ekleyin.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 75, 150, 50)
 
     shape.text_frame.text = "Aspose TextBox"
 
-    # Sunumu diske kaydet.
+    # Sunumu diske kaydedin.
     presentation.save("TextBox.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Bir Şeklin Metin Kutusu Olup Olmadığını Kontrol Etme**
 
-Aspose.Slides, bir şeklin metin kutusu olup olmadığını belirlemenizi sağlayan [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) sınıfında [is_text_box](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/is_text_box/) özelliğini sunar.
+Aspose.Slides, bir şeklin metin kutusu olup olmadığını belirlemenizi sağlayan [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) sınıfındaki [is_text_box](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/is_text_box/) özelliğini sunar.
 
-![Text box and shape](istextbox.png)
+![Metin kutusu ve şekil](istextbox.png)
 
 Bu Python örneği, bir şeklin metin kutusu olarak oluşturulup oluşturulmadığını nasıl kontrol edeceğinizi gösterir:
 
@@ -79,7 +77,7 @@ with slides.Presentation("Sample.pptx") as presentation:
                 print("shape is a text box" if shape.is_text_box else "shape is not a text box")
 ```
 
-Eğer [ShapeCollection](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shapecollection/) sınıfını kullanarak bir [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) eklerseniz, şeklin `is_text_box` özelliği `False` döner. Ancak, metin ekledikten sonra—`add_text_frame` yöntemiyle ya da `text` özelliğini ayarlayarak—`is_text_box` `True` döner.
+Eğer bir [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) i [ShapeCollection](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shapecollection/) sınıfını kullanarak eklerseniz, şeklin `is_text_box` özelliği `False` döner. Ancak, metin ekledikten sonra—`add_text_frame` yöntemiyle ya da `text` özelliğini ayarlayarak—`is_text_box` `True` döner.
 
 ```py
 import aspose.slides as slides
@@ -108,9 +106,17 @@ with slides.Presentation() as presentation:
     # shape4.is_text_box yanlış
 ```
 
+## **Bir TextFrame'i Sahip Olan Şekli Bulma**
+
+Genel metin işleme kodunda, bir [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/) alabilirsiniz ve bunun hangi sunum nesnesinde bulunduğunu önceden bilmeyebilirsiniz. Sahibi olan [Shape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/shape/) nesnesine geri dönmek için [TextFrame.parent_shape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/parent_shape/) özelliğini kullanın.
+
+[AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) veya başka bir metin içeren şekle ait bir metin çerçevesi için, [TextFrame.parent_shape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/parent_shape/) ayarlanmıştır ve [TextFrame.parent_cell](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/parent_cell/) `None` dır. Her iki özellik de yalnızca okunabilir gezinme özellikleridir, bu yüzden okumak sahipliği değiştirmez. Şekle erişmeden önce her zaman döndürülen değerin `None` olup olmadığını kontrol edin.
+
+SmartArt düğümleriyle ilişkili şekiller de dahil olmak üzere şekil ve tablo hücresi sahiplerini tanımlayan tam bir örnek için [Metin Arama ve Değiştirme](/slides/tr/python-net/search-and-replace-text/) bölümüne bakın.
+
 ## **Metin Kutularına Sütun Ekleme**
 
-Aspose.Slides, metin kutularına sütun eklemek için [TextFrameFormat](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframeformat/) sınıfında [column_count](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframeformat/column_count/) ve [column_spacing](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframeformat/column_spacing/) özelliklerini sunar. Sütun sayısını belirtebilir ve sütunlar arasındaki boşluğu (puan olarak) ayarlayabilirsiniz.
+Aspose.Slides, metin kutularına sütun eklemek için [TextFrameFormat](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframeformat/) sınıfındaki [column_count](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframeformat/column_count/) ve [column_spacing](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframeformat/column_spacing/) özelliklerini sunar. Sütun sayısını belirtebilir ve sütunlar arasındaki boşluğu (nokta cinsinden) ayarlayabilirsiniz.
 
 Aşağıdaki Python kodu bu işlemi gösterir:
 
@@ -125,13 +131,13 @@ with slides.Presentation() as presentation:
 	# RECTANGLE tipinde bir AutoShape ekle.
 	shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 300, 300)
 
-	# Dikdörtgen'e bir TextFrame ekle.
+	# Dikdörtgene bir TextFrame ekle.
 	shape.add_text_frame("All of these columns are confined to a single text container—" +
 	"you can add or delete text, and any new or remaining text automatically reflows " +
 	"within the container. You cannot have text flow from one container to another, " +
 	"though—PowerPoint’s column options for text are limited!")
 
-	# TextFrame'in metin biçimini al.
+	# TextFrame'in metin formatını al.
 	format = shape.text_frame.text_frame_format
 
 	# TextFrame'deki sütun sayısını belirt.
@@ -146,7 +152,7 @@ with slides.Presentation() as presentation:
 
 ## **Metni Güncelleme**
 
-Aspose.Slides, tek bir metin kutusundaki metni ya da tüm sunumdaki metni güncellemenizi sağlar.
+Aspose.Slides, tek bir metin kutusundaki veya tüm sunumdaki metni güncellemenizi sağlar.
 
 Aşağıdaki Python örneği, bir sunumdaki tüm metni nasıl güncelleyeceğinizi gösterir:
 
@@ -160,59 +166,59 @@ with slides.Presentation("Sample.pptx") as presentation:
                 for paragraph in shape.text_frame.paragraphs:
                     for portion in paragraph.portions:
                         portion.text = portion.text.replace("years", "months")
-                        portion.portion_format.font_bold = 1
+                        portion.portion_format.font_bold = slides.NullableBool.TRUE
   
     # Değiştirilmiş sunumu kaydet.
     presentation.save("TextChanged.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Köprü İçeren Metin Kutuları Ekleme**
+## **Köprü (Hyperlink) İçeren Metin Kutuları Ekleme**
 
-Bir metin kutusuna bağlantı ekleyebilirsiniz. Metin kutusuna tıklandığında bağlantı açılır.
+Bir metin kutusuna bir bağlantı ekleyebilirsiniz. Metin kutusuna tıklandığında bağlantı açılır.
 
-Köprü içeren bir metin kutusu eklemek için aşağıdaki adımları izleyin:
+Köprü içeren bir metin kutusu eklemek için şu adımları izleyin:
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının örneğini oluşturun.
-2. İlk slayta bir referans alın.
-3. İstediğiniz konumda `ShapeType.RECTANGLE` ile bir [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) ekleyin.
-4. Şeklin [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/) içinde metni ayarlayın.
-5. [HyperlinkManager](https://reference.aspose.com/slides/tr/python-net/aspose.slides/hyperlinkmanager/) sınıfına bir referans alın.
-6. `hyperlink_manager` özelliğini kullanarak harici bir tıklama köprüsü ayarlayın.
-7. Sunumu PPTX dosyası olarak kaydedin.
+1. [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
+2. İlk slayta bir referans alın.  
+3. Slaytta istediğiniz konuma `ShapeType.RECTANGLE` ile bir [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) ekleyin.  
+4. Şeklin [TextFrame](https://reference.aspose.com/slides/tr/python-net/aspose.slides/textframe/) içindeki metni ayarlayın.  
+5. [HyperlinkManager](https://reference.aspose.com/slides/tr/python-net/aspose.slides/hyperlinkmanager/) sınıfına bir referans alın.  
+6. `hyperlink_manager` özelliğini kullanarak harici bir tıklama köprüsü ayarlayın.  
+7. Sunumu PPTX dosyası olarak kaydedin.  
 
-Bu Python örneği, bir slayta köprü içeren bir metin kutusu nasıl ekleneceğini gösterir:
+Bu Python örneği, bir slayta köprü içeren bir metin kutusu eklemenin nasıl yapılacağını gösterir:
 
 ```py
 import aspose.slides as slides
 
-# Presentation sınıfının bir örneğini oluştur.
+# Presentation sınıfını örnekleyin.
 with slides.Presentation() as presentation:
 
-    # Sunumdaki ilk slaytı al.
+    # Sunumdaki ilk slaytı alın.
     slide = presentation.slides[0]
 
-    # RECTANGLE tipinde bir AutoShape ekle.
+    # RECTANGLE tipinde bir AutoShape ekleyin.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 150, 150, 150, 50)
 
     text_portion = shape.text_frame.paragraphs[0].portions[0]
 
-    # Çerçeveye metin ekle.
+    # Çerçeveye metin ekleyin.
     text_portion.text = "Aspose.Slides"
 
-    # Parça metnine bir köprü ayarla.
+    # Parça metni için bir hiperbağlantı ayarlayın.
     hyperlink_manager = text_portion.portion_format.hyperlink_manager
     hyperlink_manager.set_external_hyperlink_click("http://www.aspose.com")
 
-    # Sunumu PPTX dosyası olarak kaydet.
+    # Sunumu PPTX dosyası olarak kaydedin.
     presentation.save("Hyperlink.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **SSS**
 
-**Bir ana slaytla çalışırken metin kutusu ile metin yer tutucu arasındaki fark nedir?**
+**Metin kutusu ile ana slaytlarla çalışırken metin yer tutucusu arasındaki fark nedir?**
 
-[placeholder](/slides/tr/python-net/manage-placeholder/) [master](https://reference.aspose.com/slides/tr/python-net/aspose.slides/masterslide/) stilini/konumunu devralır ve [layouts](https://reference.aspose.com/slides/tr/python-net/aspose.slides/layoutslide/) üzerinde geçersiz kılınabilir, oysa normal bir metin kutusu belirli bir slaytta bağımsız bir nesnedir ve düzenleri değiştirdiğinizde değişmez.
+[yer tutucu](/slides/tr/python-net/manage-placeholder/) [ana slayt](https://reference.aspose.com/slides/tr/python-net/aspose.slides/masterslide/) stilini/konumunu devralır ve [layout](https://reference.aspose.com/slides/tr/python-net/aspose.slides/layoutslide/)larda geçersiz kılınabilir, oysa normal bir metin kutusu belirli bir slaytta bağımsız bir nesnedir ve layoutları değiştirdiğinizde değişmez.
 
-**Sunum boyunca, grafikler, tablolar ve SmartArt içindeki metinlere dokunmadan toplu metin değiştirme nasıl yapılır?**
+**Sunumda grafik, tablo ve SmartArt içindeki metinlere dokunmadan toplu metin değiştirme nasıl yapılır?**
 
-İterasyonunuzu yalnızca metin çerçevelerine sahip otomatik şekillere sınırlayın ve gömülü nesneleri ([charts](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chart/), [tables](https://reference.aspose.com/slides/tr/python-net/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/tr/python-net/aspose.slides.smartart/smartart/)) ayrı ayrı koleksiyonlarını gezerek ya da bu nesne türlerini atlayarak dışarıda bırakın.
+Yinelemeyi yalnızca metin çerçevelerine sahip otomatik şekillerle sınırlayın ve gömülü nesneleri ([charts](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chart/), [tables](https://reference.aspose.com/slides/tr/python-net/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/tr/python-net/aspose.slides.smartart/smartart/)) ayrı ayrı koleksiyonlarını gezerek ya da bu nesne türlerini atlayarak dışarıda bırakın.

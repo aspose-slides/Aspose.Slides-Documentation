@@ -1,60 +1,134 @@
 ---
-title: "PHP में PowerPoint प्रस्तुतियों में टेक्स्ट खोजें और बदलें"
-linktitle: "टेक्स्ट खोजें और बदलें"
+title: PowerPoint प्रस्तुतियों में PHP के साथ टेक्स्ट खोजें और बदलें
+linktitle: टेक्स्ट खोजें और बदलें
 type: docs
 weight: 55
 url: /hi/php-java/search-and-replace-text/
 keywords:
-- "टेक्स्ट खोजें"
-- "टेक्स्ट हाईलाइट करें"
-- "टेक्स्ट बदलें"
-- "रेग्युलर एक्सप्रेशन"
-- "परिणाम कॉलबैक"
-- "टेक्स्ट फ्रेम"
-- "ऑडिट रिपोर्ट"
-- "PowerPoint"
-- "OpenDocument"
-- "प्रस्तुति"
-- "PHP"
-- "Aspose.Slides"
-description: "Aspose.Slides for PHP via Java का उपयोग करके PowerPoint प्रस्तुतियों में टेक्स्ट खोजें, हाईलाइट करें और बदलें, और प्रत्येक मिलान को एकत्रित करें।"
+- टेक्स्ट खोजें
+- टेक्स्ट हाइलाइट
+- टेक्स्ट बदलें
+- रेग्युलर एक्सप्रेशन
+- परिणाम कॉलबैक
+- टेक्स्ट फ़्रेम
+- ऑडिट रिपोर्ट
+- PowerPoint
+- OpenDocument
+- प्रस्तुति
+- PHP
+- Aspose.Slides
+description: "PowerPoint प्रस्तुतियों में टेक्स्ट खोजें, हाइलाइट करें और बदलें, साथ ही प्रत्येक मैच को Aspose.Slides for PHP via Java के साथ इकट्ठा करें।"
 ---
 ## **अवलोकन**
 
-Aspose.Slides for PHP via Java व्यक्तिगत टेक्स्ट फ्रेम या पूरी प्रस्तुति में टेक्स्ट को खोज, हाईलाइट और बदल सकता है। प्रत्येक ऑपरेशन परिणाम कॉलबैक के माध्यम से प्रत्येक मिलान के बारे में एप्लिकेशन को सूचित भी कर सकता है। इससे प्रस्तुति को अपडेट करना और साथ ही मिलान किए गए टेक्स्ट, उसका संदर्भ, स्थिति, टेक्स्ट फ्रेम और स्लाइड नंबर शामिल एक ऑडिट ट्रेल बनाना संभव हो जाता है।
+Aspose.Slides for PHP via Java किसी व्यक्तिगत टेक्स्ट फ़्रेम में या पूरी प्रस्तुति में टेक्स्ट को खोज, हाइलाइट और बदल सकता है। प्रत्येक ऑपरेशन प्रत्येक मिलान के बारे में एक परिणाम कॉलबैक के माध्यम से एप्लिकेशन को सूचित भी कर सकता है। इससे प्रस्तुति को अपडेट करने के साथ‑साथ मिले हुए टेक्स्ट, उसका संदर्भ, स्थिति, टेक्स्ट फ़्रेम और स्लाइड संख्या सहित एक ऑडिट ट्रेल बनाना संभव हो जाता है।
 
-इन क्षमताओं का उपयोग समीक्षा, संशोधन, शब्दावली जाँच, टेम्पलेट सफाई और स्वचालित रिपोर्टिंग वर्कफ़्लो के लिए किया जा सकता है।
+ये क्षमताएँ समीक्षा, रेडैक्शन, शब्दावली जाँच, टेम्प्लेट सफ़ाई और स्वचालित रिपोर्टिंग वर्कफ़्लो के लिए उपयोगी हैं।
 
-नीचे पहले उदाहरणों में हम "sample.pptx" नामक फ़ाइल का उपयोग करते हैं, जिसमें पहली स्लाइड पर निम्नलिखित टेक्स्ट वाले एकल टेक्स्ट बॉक्स शामिल है:
+नीचे पहले उदाहरणों में हम “sample.pptx” नामक फ़ाइल का उपयोग करते हैं, जिसमें पहले स्लाइड पर एक अकेला टेक्स्ट बॉक्स है और वह निम्नलिखित टेक्स्ट रखता है:
 
-![उदाहरण टेक्स्ट](sample_text.png)
+![नमूना पाठ](sample_text.png)
 
-## **खोज दायरा चुनें**
+## **खोज सीमा चुनें**
 
-[TextFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/) के मेथड्स का उपयोग करके ऑपरेशन को एक टेक्स्ट फ्रेम तक सीमित करें। [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) के मेथड्स का उपयोग करके प्रस्तुति में सभी लागू टेक्स्ट को प्रोसेस करें।
+एक ऑपरेशन को केवल एक टेक्स्ट फ़्रेम तक सीमित करने के लिए [TextFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/) की विधियों का प्रयोग करें। सभी लागू टेक्स्ट को प्रोसेस करने के लिए [Presentation](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/) की विधियों का प्रयोग करें।
 
-| ऑपरेशन | एक टेक्स्ट फ्रेम | पूरी प्रस्तुति |
+| ऑपरेशन | एक टेक्स्ट फ़्रेम | पूरी प्रस्तुति |
 |---|---|---|
-| सच्चा टेक्स्ट हाईलाइट करें | [TextFrame::highlightText](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/#highlightText) | [Presentation::highlightText](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/#highlightText) |
-| रेग्युलर एक्सप्रेशन मिलानों को हाईलाइट करें | [TextFrame::highlightRegex](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/#highlightRegex) | [Presentation::highlightRegex](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/#highlightRegex) |
-| सच्चा टेक्स्ट बदलें | [TextFrame::replaceText](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/#replaceText) | [Presentation::replaceText](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/#replaceText) |
-| रेग्युलर एक्सप्रेशन मिलानों को बदलें | [TextFrame::replaceRegex](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/#replaceRegex) | [Presentation::replaceRegex](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/#replaceRegex) |
+| लिटरल टेक्स्ट को हाइलाइट करें | [TextFrame::highlightText](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/#highlightText) | [Presentation::highlightText](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/#highlightText) |
+| रेग्युलर‑एक्सप्रेशन मैच को हाइलाइट करें | [TextFrame::highlightRegex](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/#highlightRegex) | [Presentation::highlightRegex](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/#highlightRegex) |
+| लिटरल टेक्स्ट को बदलें | [TextFrame::replaceText](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/#replaceText) | [Presentation::replaceText](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/#replaceText) |
+| रेग्युलर‑एक्सप्रेशन मैच को बदलें | [TextFrame::replaceRegex](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/#replaceRegex) | [Presentation::replaceRegex](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/#replaceRegex) |
 
-## **टेक्स्ट मिलान कॉन्फ़िगर करें**
+## **पाठ मिलान कॉन्फ़िगर करें**
 
-सच्चा टेक्स्ट ऑपरेशनों के लिए, मिलान को नियंत्रित करने हेतु [TextSearchOptions](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textsearchoptions/) का उपयोग करें:
+लिटरल‑टेक्स्ट ऑपरेशनों के लिए मिलान को नियंत्रित करने हेतु [TextSearchOptions](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textsearchoptions/) का प्रयोग करें:
 
-- [TextSearchOptions::setWholeWordsOnly](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textsearchoptions/#setWholeWordsOnly) मिलानों को पूर्ण शब्दों तक सीमित करता है।
-- [TextSearchOptions::setCaseSensitive](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textsearchoptions/#setCaseSensitive) यह नियंत्रित करता है कि अक्षर केस मेल खानी चाहिए या नहीं।
-- [TextSearchOptions::setIncludeNotes](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textsearchoptions/#setIncludeNotes) प्रस्तुति-स्तर की खोज, प्रतिस्थापन और हाईलाइट ऑपरेशनों में स्लाइड नोट्स को शामिल करता है।
+- [TextSearchOptions::setWholeWordsOnly](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textsearchoptions/#setWholeWordsOnly) मैच को केवल पूर्ण शब्दों तक सीमित करता है।
+- [TextSearchOptions::setCaseSensitive](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textsearchoptions/#setCaseSensitive) यह नियंत्रित करता है कि अक्षर केस मेल करना आवश्यक है या नहीं।
+- [TextSearchOptions::setIncludeNotes](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textsearchoptions/#setIncludeNotes) प्रस्तुति‑स्तर की खोज, प्रतिस्थापन और हाइलाइटिंग में स्लाइड नोट्स को शामिल करता है।
 
-रेग्युलर एक्सप्रेशन ऑपरेशनों में Java `Pattern` का उपयोग किया जाता है, इसलिए केस संवेदनशीलता और शब्द सीमा जैसी मिलान नियम अभिव्यक्ति और उसकी फ्लैग्स द्वारा परिभाषित होते हैं।
+रेग्युलर‑एक्सप्रेशन ऑपरेशनों में Java `Pattern` का उपयोग किया जाता है, इसलिए केस‑संवेदीता और शब्द सीमाएँ जैसी नियम अभिव्यक्ति और उसके फ्लैग द्वारा निर्धारित होते हैं।
 
-## **कॉलबैक से मिलान जानकारी एकत्र करें**
+## **टेक्स्ट फ़्रेम के मालिक की पहचान करें**
 
-हाइलाइटिंग या रिप्लेसमेंट मेथड को एक Java प्रॉक्सी कॉलबैक पास करें ताकि प्रत्येक मिलान के लिए नोटिफिकेशन प्राप्त हो सके। कॉलबैक मेथड संबंधित टेक्स्ट फ्रेम, स्रोत टेक्स्ट, मिलान किया गया टेक्स्ट और मिलान की स्थिति प्राप्त करता है।
+सामान्य टेक्स्ट‑प्रोसेसिंग वर्कफ़्लो अक्सर [TextFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/) को प्राप्त करते हैं जबकि वे खोज, प्रतिस्थापन, वैधता जाँच या निर्यात कर रहे होते हैं। टेक्स्ट फ़्रेम के मालिक को निर्धारित करने के लिए [TextFrame::getParentShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/#getParentShape) और [TextFrame::getParentCell](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/#getParentCell) का प्रयोग करें।
 
-कॉलबैक को सीधे स्लाइड नंबर नहीं मिलता। नीचे दिया गया इम्प्लीमेंटेशन इसे पैरेंट स्लाइड से निकालता है और स्लाइड नोट्स में मिले टेक्स्ट को भी हैंडल करता है। जब टेक्स्ट किसी अन्य स्लाइड प्रकार से जुड़ा होता है तो परिणाम एरे `null` उपयोग करता है।
+अपेक्षित मान मालिक के आधार पर बदलते हैं:
+
+| टेक्स्ट फ़्रेम मालिक | `getParentShape` | `getParentCell` |
+|---|---|---|
+| एक AutoShape या दूसरा टेक्स्ट‑धारक आकार | मालिक‑[Shape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/shape/) | `null` |
+| एक टेबल सेल | `null` | मालिक‑[Cell](https://reference.aspose.com/slides/hi/php-java/aspose.slides/cell/) |
+
+दोनों विधियाँ केवल‑पढ़ने योग्य नेविगेशन प्रदान करती हैं। इन्हें कॉल करने से टेक्स्ट फ़्रेम नहीं चलता और न ही उसका मालिक बदलता है। सामान्य कोड को दोनों मानों को `java_is_null` के साथ जाँचना चाहिए और इस संभावना को संभालना चाहिए कि कोई भी मालिक उपलब्ध न हो।
+
+निम्न उदाहरण में [SlideUtil::getAllTextFrames](https://reference.aspose.com/slides/hi/php-java/aspose.slides/slideutil/#getAllTextFrames) का उपयोग करके प्रस्तुति के सभी टेक्स्ट फ़्रेमों पर इटररेट किया गया है। आकारों के लिए यह आकार का नाम, Java रन‑टाइम प्रकार और शामिल स्लाइड को रिपोर्ट करता है। टेबल सेल्स के लिए यह शून्य‑आधारित कॉलम और पंक्ति निर्देशांक तथा शामिल स्लाइड को रिपोर्ट करता है।
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SlideUtil;
+
+$presentation = new Presentation("presentation.pptx");
+$arrayClass = new java_class("java.lang.reflect.Array");
+
+try {
+    $textFrames = SlideUtil::getAllTextFrames($presentation, false);
+    $textFrameCount = java_values($arrayClass->getLength($textFrames));
+
+    for ($textFrameIndex = 0; $textFrameIndex < $textFrameCount; $textFrameIndex++) {
+        $textFrame = $textFrames[$textFrameIndex];
+        $ownerShape = $textFrame->getParentShape();
+        if (!java_is_null($ownerShape)) {
+            $shapeName = java_values($ownerShape->getName());
+            $shapeName = $shapeName === "" ? "(unnamed)" : $shapeName;
+            $shapeType = java_values($ownerShape->getClass()->getSimpleName());
+            $baseSlide = $ownerShape->getSlide();
+            $slideClassName = java_values($baseSlide->getClass()->getName());
+
+            if ($slideClassName === "com.aspose.slides.Slide") {
+                $slideLabel = "slide " . java_values($baseSlide->getSlideNumber());
+            } elseif ($slideClassName === "com.aspose.slides.NotesSlide") {
+                $slideLabel = "notes for slide " . java_values($baseSlide->getParentSlide()->getSlideNumber());
+            } else {
+                $slideLabel = java_values($baseSlide->getClass()->getSimpleName());
+            }
+
+            echo("Shape: " . $shapeName . "; type: " . $shapeType . "; " . $slideLabel . "\n");
+            continue;
+        }
+
+        $ownerCell = $textFrame->getParentCell();
+        if (!java_is_null($ownerCell)) {
+            $baseSlide = $ownerCell->getSlide();
+            $slideClassName = java_values($baseSlide->getClass()->getName());
+
+            if ($slideClassName === "com.aspose.slides.Slide") {
+                $slideLabel = "slide " . java_values($baseSlide->getSlideNumber());
+            } elseif ($slideClassName === "com.aspose.slides.NotesSlide") {
+                $slideLabel = "notes for slide " . java_values($baseSlide->getParentSlide()->getSlideNumber());
+            } else {
+                $slideLabel = java_values($baseSlide->getClass()->getSimpleName());
+            }
+
+            echo("Table cell: column " . java_values($ownerCell->getFirstColumnIndex()) . ", row " . java_values($ownerCell->getFirstRowIndex()) . "; " . $slideLabel . "\n");
+            continue;
+        }
+
+        echo("The text frame owner is not available as a shape or table cell.\n");
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+SmartArt सामग्री के लिए, [SmartArtNode::getShapes](https://reference.aspose.com/slides/hi/php-java/aspose.slides/smartartnode/#getShapes) में आकारों पर इटररेट करें और प्रत्येक [SmartArtShape::getTextFrame](https://reference.aspose.com/slides/hi/php-java/aspose.slides/smartartshape/#getTextFrame) तक पहुँचें। टेक्स्ट फ़्रेम को उसका संबंधित आकार [TextFrame::getParentShape](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/#getParentShape) द्वारा ट्रेस किया जा सकता है, जबकि [TextFrame::getParentCell](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/#getParentCell) `null` लौटाता है। इसलिए, उदाहरण में आकार शाखा SmartArt नोड्स से मिलने वाले टेक्स्ट को भी संभालती है।
+
+## **कॉलबैक के साथ मैच जानकारी एकत्र करें**
+
+हाइलाइटिंग या प्रतिस्थापन विधि को एक Java प्रॉक्सी कॉलबैक पास करें ताकि हर मैच पर एक सूचना प्राप्त की जा सके। कॉलबैक विधि संबंधित टेक्स्ट फ़्रेम, स्रोत टेक्स्ट, मिलाए गए टेक्स्ट और मैच पोज़िशन को प्राप्त करती है।
+
+कॉलबैक सीधे स्लाइड संख्या नहीं प्राप्त करता। नीचे दिया गया कार्यान्वयन इसे पैरेंट स्लाइड से व्युत्पन्न करता है और स्लाइड नोट्स में मिले टेक्स्ट को भी संभालता है। परिणाम एरे में `null` तब उपयोग किया जाता है जब टेक्स्ट किसी अन्य स्लाइड प्रकार से जुड़ा हो।
 
 ```php
 class TextSearchCallback {
@@ -76,7 +150,17 @@ class TextSearchCallback {
     }
 
     private function getSlideNumber($textFrame) {
-        $parentSlide = $textFrame->getSlide();
+        $parentShape = $textFrame->getParentShape();
+        $parentCell = $textFrame->getParentCell();
+
+        if (!java_is_null($parentShape)) {
+            $parentSlide = $parentShape->getSlide();
+        } elseif (!java_is_null($parentCell)) {
+            $parentSlide = $parentCell->getSlide();
+        } else {
+            $parentSlide = $textFrame->getSlide();
+        }
+
         if (java_is_null($parentSlide)) {
             return null;
         }
@@ -101,7 +185,7 @@ class TextSearchCallback {
 }
 ```
 
-ऑपरेशन में पास करने से पहले इस PHP ऑब्जेक्ट का प्रॉक्सी बनाएं:
+इस PHP ऑब्जेक्ट का एक प्रॉक्सी बनाकर इसे ऑपरेशन को पास करने से पहले तैयार करें:
 
 ```php
 $callbackHandler = new TextSearchCallback();
@@ -113,13 +197,13 @@ $callback = java_closure(
 );
 ```
 
-रिप्लेसमेंट ऑपरेशनों के लिए, `foundText` में मूल मिलान किया गया टेक्स्ट होता है, इसलिए कॉलबैक सही तौर पर रिकॉर्ड कर सकता है कि कौन से शब्द बदले गए।
+प्रतिस्थापन ऑपरेशनों के लिए, `foundText` मूल मिलाए गए टेक्स्ट को रखता है, इसलिए कॉलबैक ठीक‑ठीक रिकॉर्ड कर सकता है कि कौन‑से शब्द बदले गए।
 
-## **टेक्स्ट को हाईलाइट करें**
+## **पाठ को हाइलाइट करें**
 
-[TextFrame::highlightText](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/#highlightText) मेथड का उपयोग करके टेक्स्ट फ्रेम में सच्चा टेक्स्ट मिलानों को हाईलाइट करें। खोज को नियंत्रित करने के लिए [TextSearchOptions](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textsearchoptions/) पास करें।
+[TextFrame::highlightText](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/#highlightText) विधि का प्रयोग करके टेक्स्ट फ़्रेम में लिटरल‑टेक्स्ट मैच को हाइलाइट करें। खोज को नियंत्रित करने हेतु [TextSearchOptions](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textsearchoptions/) पास करें।
 
-नीचे दिया गया कोड उदाहरण अक्षर **"try"** के सभी occurrences को हाईलाइट करता है और फिर केवल संपूर्ण शब्द **"to"** को हाईलाइट करता है।
+नीचे दिया गया कोड उदाहरण सभी "**try**" अक्षरों को हाइलाइट करता है और फिर केवल पूर्ण शब्द "**to**" को हाइलाइट करता है।
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -138,7 +222,7 @@ try {
     $substringSearchOptions->setCaseSensitive(false);
     $substringHighlightColor = new Java("java.awt.Color", 173, 216, 230);
 
-    // टेक्स्ट फ्रेम में "try" की प्रत्येक घटना को हाईलाइट करें।
+    // टेक्स्ट फ़्रेम में "try" की प्रत्येक उत्पत्ति को हाइलाइट करें।
     $shape->getTextFrame()->highlightText(
         "try",
         $substringHighlightColor,
@@ -151,7 +235,7 @@ try {
     $wholeWordSearchOptions->setCaseSensitive(false);
     $wholeWordHighlightColor = new Java("java.awt.Color", 238, 130, 238);
 
-    // केवल संपूर्ण शब्द "to" को हाईलाइट करें।
+    // केवल पूर्ण शब्द "to" को हाइलाइट करें।
     $shape->getTextFrame()->highlightText(
         "to",
         $wholeWordHighlightColor,
@@ -176,13 +260,13 @@ finally {
 
 परिणाम:
 
-![हाइलाइट किया गया टेक्स्ट](highlighted_text.png)
+![हाइलाइट किया गया पाठ](highlighted_text.png)
 
-## **रेग्युलर एक्सप्रेशन से टेक्स्ट को हाईलाइट करें**
+## **रेग्युलर एक्सप्रेशन का उपयोग करके पाठ को हाइलाइट करें**
 
-[TextFrame::highlightRegex](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/#highlightRegex) मेथड टेक्स्ट फ्रेम में रेग्युलर एक्सप्रेशन द्वारा पाए गए टेक्स्ट मिलानों को हाईलाइट करता है।
+[TextFrame::highlightRegex](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/#highlightRegex) विधि टेक्स्ट फ़्रेम में रेग्युलर एक्सप्रेशन द्वारा पाए गए टेक्स्ट मैच को हाइलाइट करती है।
 
-निम्नलिखित कोड सात या अधिक अक्षर वाले सभी शब्दों को हाईलाइट करता है:
+निम्न कोड सभी सात या अधिक अक्षर वाले शब्दों को हाइलाइट करता है:
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -203,11 +287,11 @@ finally {
 
 परिणाम:
 
-![रेग्युलर एक्सप्रेशन से हाईलाइट किया गया टेक्स्ट](highlighted_text_using_regex.png)
+![रेग्युलर एक्सप्रेशन द्वारा हाइलाइट किया गया पाठ](highlighted_text_using_regex.png)
 
-## **पूरी प्रस्तुति में टेक्स्ट को हाईलाइट करें**
+## **एक प्रस्तुति में पूरे पाठ को हाइलाइट करें**
 
-[Presentation::highlightText](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/#highlightText) और [Presentation::highlightRegex](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/#highlightRegex) का उपयोग करके प्रस्तुति में सभी लागू टेक्स्ट फ्रेम को खोजें। नीचे दिया गया उदाहरण एक सच्चा शब्द और सभी ईमेल पतों को हाईलाइट करता है:
+[Presentation::highlightText](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/#highlightText) और [Presentation::highlightRegex](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/#highlightRegex) का उपयोग करके प्रस्तुति के सभी लागू टेक्स्ट फ़्रेमों पर खोज करें। निम्न उदाहरण एक लिटरल शब्द और सभी ई‑मेल पते को हाइलाइट करता है:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -240,11 +324,11 @@ finally {
 }
 ```
 
-## **टेक्स्ट फ्रेम में टेक्स्ट बदलें**
+## **टेक्स्ट फ़्रेम में टेक्स्ट बदलें**
 
-सच्चा टेक्स्ट के लिए [TextFrame::replaceText](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/#replaceText) और पैटर्न-आधारित रिप्लेसमेंट के लिए [TextFrame::replaceRegex](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/#replaceRegex) का उपयोग करें। ये मेथड मौजूदा टेक्स्ट फ्रेम के भीतर मिलान किए गए टेक्स्ट को अपडेट करते हैं, जिससे आसपास के हिस्से का फॉर्मेटिंग बरकरार रहता है और पूरे स्ट्रिंग से टेक्स्ट फ्रेम को पुनः बनाना नहीं पड़ता।
+लिटरल टेक्स्ट के लिए [TextFrame::replaceText](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/#replaceText) और पैटर्न‑आधारित प्रतिस्थापन के लिए [TextFrame::replaceRegex](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/#replaceRegex) का प्रयोग करें। ये विधियाँ मौजूदा टेक्स्ट फ़्रेम के भीतर मिलाए गए टेक्स्ट को अपडेट करती हैं, जिससे आसपास के भागों का फ़ॉर्मेटिंग बरकरार रहता है और पूरे फ़्रेम को साधारण स्ट्रिंग से फिर से नहीं बनाना पड़ता।
 
-निम्नलिखित उदाहरण एक वर्तनी वैरिएंट को मानकीकृत करता है और फिर संस्करण लेबल को बदलता है:
+निम्न उदाहरण एक वर्तनी विविधता को मानकीकृत करता है और फिर संस्करण लेबल को बदलता है:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -282,11 +366,11 @@ finally {
 }
 ```
 
-यदि कोई मिलान विभिन्न फॉर्मेटिंग वाले हिस्सों को कवर करता है, तो आउटपुट की समीक्षा करें और पुष्टि करें कि कौन सा फॉर्मेटिंग रिप्लेसमेंट टेक्स्ट पर लागू होना चाहिए।
+यदि एक मैच विभिन्न फ़ॉर्मेटिंग वाले भागों पर फैला हो, तो आउटपुट की जाँच करें कि प्रतिस्थापन टेक्स्ट पर कौन‑सा फ़ॉर्मेट लागू होना चाहिए।
 
-## **पूरी प्रस्तुति में टेक्स्ट बदलें**
+## **एक प्रस्तुति में पूरे टेक्स्ट को बदलें**
 
-[Presentation::replaceText](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/#replaceText) और [Presentation::replaceRegex](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/#replaceRegex) का उपयोग करके प्रस्तुति में समान ऑपरेशनों को लागू करें। यह टेम्पलेट सफाई, शब्दावली अपडेट और संशोधन के लिए उपयोगी है।
+[Presentation::replaceText](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/#replaceText) और [Presentation::replaceRegex](https://reference.aspose.com/slides/hi/php-java/aspose.slides/presentation/#replaceRegex) का प्रयोग करके समान ऑपरेशन पूरे प्रस्तुति में लागू करें। यह टेम्प्लेट सफ़ाई, शब्दावली अद्यतन और रेडैक्शन के लिए उपयोगी है।
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -318,9 +402,9 @@ finally {
 }
 ```
 
-## **रिपोर्टिंग के लिए मिलानों को समूहित करें**
+## **रिपोर्टिंग के लिए मैच समूहित करें**
 
-चूंकि प्रत्येक परिणाम अपना स्लाइड नंबर और टेक्स्ट फ्रेम स्टोर करता है, एप्लिकेशन ऑडिट, रिपोर्टिंग या रिव्यू वर्कफ़्लो के लिए मिलानों को समूहित कर सकते हैं। नीचे दिया गया उदाहरण पहले स्लाइड और फिर टेक्स्ट फ्रेम के आधार पर संग्रहीत परिणामों को समूहित करता है:
+चूँकि प्रत्येक परिणाम अपनी स्लाइड संख्या और टेक्स्ट फ़्रेम संग्रहीत करता है, एप्लिकेशन ऑडिट, रिपोर्टिंग या रिव्यू वर्कफ़्लो के लिए मैच को समूहित कर सकते हैं। नीचे दिया गया उदाहरण पहले स्लाइड के अनुसार और फिर टेक्स्ट फ़्रेम के अनुसार एकत्रित परिणामों को समूहित करता है:
 
 ```php
 $matchesBySlide = [];
@@ -365,24 +449,24 @@ foreach ($matchesBySlide as $slideLabel => $textFrameGroups) {
 }
 ```
 
-## **प्रश्नोत्तर**
+## **अक्सर पूछे जाने वाले प्रश्न**
 
-**मैं पूरी प्रस्तुति के बजाय केवल एक टेक्स्ट बॉक्स को कैसे खोज सकता हूँ?**
+**मैं पूरी प्रस्तुति के बजाय केवल एक टेक्स्ट बॉक्स को कैसे खोजूँ?**
 
-शेप के टेक्स्ट फ्रेम को प्राप्त करें और उस टेक्स्ट फ्रेम पर [TextFrame::highlightText](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/#highlightText), [TextFrame::highlightRegex](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/#highlightRegex), [TextFrame::replaceText](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/#replaceText) या [TextFrame::replaceRegex](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/#replaceRegex) को कॉल करें। प्रस्तुति-स्तर के मेथड सभी लागू टेक्स्ट फ्रेम को प्रोसेस करते हैं।
+आकार के टेक्स्ट फ़्रेम को प्राप्त करें और उस टेक्स्ट फ़्रेम पर [TextFrame::highlightText](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/#highlightText), [TextFrame::highlightRegex](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/#highlightRegex), [TextFrame::replaceText](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/#replaceText) या [TextFrame::replaceRegex](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/#replaceRegex) को कॉल करें। प्रस्तुति‑स्तर की विधियाँ सभी लागू टेक्स्ट फ़्रेमों को प्रोसेस करती हैं।
 
-**मैं सही केसिंग के साथ पूर्ण शब्दों को कैसे मिलान कर सकता हूँ?**
+**मैं पूरे शब्दों को सही केसिंग के साथ कैसे मिलाऊँ?**
 
-[TextSearchOptions::setWholeWordsOnly](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textsearchoptions/#setWholeWordsOnly) और [TextSearchOptions::setCaseSensitive](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textsearchoptions/#setCaseSensitive) को `true` सेट करें, और इन विकल्पों को सच्चा-टेक्स्ट हाईलाइटिंग या रिप्लेसमेंट मेथड में पास करें। रेग्युलर एक्सप्रेशन्स के लिए, शब्द सीमा और केस संवेदनशीलता को Java `Pattern` में स्वयं परिभाषित करें।
+[TextSearchOptions::setWholeWordsOnly](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textsearchoptions/#setWholeWordsOnly) और [TextSearchOptions::setCaseSensitive](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textsearchoptions/#setCaseSensitive) को `true` सेट करें, और विकल्पों को लिटरल‑टेक्स्ट हाइलाइटिंग या प्रतिस्थापन विधि में पास करें। रेग्युलर एक्सप्रेशन के लिए, शब्द सीमाएँ और केस‑संवेदीता को स्वयं Java `Pattern` में परिभाषित करें।
 
-**क्या खोज और रिप्लेसमेंट स्लाइड नोट्स में टेक्स्ट को शामिल कर सकते हैं?**
+**क्या खोज और प्रतिस्थापन स्लाइड नोट्स के टेक्स्ट को भी शामिल कर सकते हैं?**
 
-हाँ। जब आप प्रस्तुति-स्तर पर सच्चा-टेक्स्ट ऑपरेशन उपयोग करते हैं, तो [TextSearchOptions::setIncludeNotes](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textsearchoptions/#setIncludeNotes) को `true` सेट करें।
+हां। प्रस्तुति‑स्तर की लिटरल‑टेक्स्ट ऑपरेशन का उपयोग करते समय [TextSearchOptions::setIncludeNotes](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textsearchoptions/#setIncludeNotes) को `true` सेट करें।
 
-**मैं प्रस्तुति को दूसरी बार स्कैन किए बिना रिपोर्ट कैसे बना सकता हूँ?**
+**मैं रिपोर्ट कैसे बना सकता हूँ बिना प्रस्तुति को दोबारा स्कैन किए?**
 
-हाइलाइटिंग या रिप्लेसमेंट ऑपरेशन में एक Java प्रॉक्सी कॉलबैक पास करें। यह ऑपरेशन चलते समय प्रत्येक मिलान प्राप्त करता है, इसलिए एप्लिकेशन स्रोत टेक्स्ट, मिलान किया गया टेक्स्ट, स्थिति, टेक्स्ट फ्रेम और निकाले गए स्लाइड नंबर को बाद में समूहित करने या निर्यात करने के लिए संग्रहीत कर सकता है।
+हाइलाइटिंग या प्रतिस्थापन ऑपरेशन को एक Java प्रॉक्सी कॉलबैक पास करें। यह ऑपरेशन चलने के दौरान हर मैच प्राप्त करता है, जिससे एप्लिकेशन स्रोत टेक्स्ट, मिलाए गए टेक्स्ट, स्थिति, टेक्स्ट फ़्रेम और व्युत्पन्न स्लाइड संख्या को बाद में समूहित या निर्यात करने हेतु संग्रहीत कर सकता है।
 
-**क्या टेक्स्ट को बदलने से उसका फॉर्मेटिंग बरकरार रहता है?**
+**क्या टेक्स्ट बदलने से उसका फ़ॉर्मेटिंग बना रहता है?**
 
-[TextFrame::replaceText](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/#replaceText) और [TextFrame::replaceRegex](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/#replaceRegex) मौजूदा टेक्स्ट फ्रेम के भीतर मिलान किए गए टेक्स्ट को संशोधित करते हैं और आसपास के हिस्से की फॉर्मेटिंग बरकरार रखते हैं। यदि कोई मिलान विभिन्न फॉर्मेटिंग वाले हिस्सों को कवर करता है, तो परिणाम की जांच करें और सुनिश्चित करें कि रिप्लेसमेंट वांछित शैली का उपयोग करता है।
+[TextFrame::replaceText](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/#replaceText) और [TextFrame::replaceRegex](https://reference.aspose.com/slides/hi/php-java/aspose.slides/textframe/#replaceRegex) मौजूद टेक्स्ट फ़्रेम के भीतर मिलाए गए टेक्स्ट को संशोधित करते हैं और आसपास के भागों का फ़ॉर्मेटिंग बरकरार रखते हैं। यदि एक मैच विभिन्न फ़ॉर्मेटिंग वाले भागों पर फैला हो, तो परिणाम की जाँच करें ताकि प्रतिस्थापन वांछित शैली का उपयोग करे।

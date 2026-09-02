@@ -8,53 +8,57 @@ keywords:
 - 新增表格
 - 建立表格
 - 存取表格
-- 寬高比
-- 文字對齊
+- 長寬比
+- 對齊文字
 - 文字格式設定
 - 表格樣式
 - PowerPoint
-- 投影片
+- 簡報
 - .NET
 - C#
 - Aspose.Slides
-description: "使用 Aspose.Slides for .NET 在 PowerPoint 投影片中建立與編輯表格。探索簡單的 C# 程式碼範例，以簡化您的表格工作流程。"
+description: "使用 Aspose.Slides for .NET 在 PowerPoint 投影片中建立與編輯表格。探索簡潔的 C# 程式碼範例，以簡化您的表格工作流程。"
 ---
 ## **簡介**
 
-PowerPoint 中的表格是顯示與呈現資訊的有效方式。以行列排列的格子網格中的資訊直觀且易於理解。
+PowerPoint 中的表格是顯示與呈現資訊的有效方式。以格子（按列與欄排列）的方式呈現資訊簡潔明瞭，易於理解。
 
-Aspose.Slides 提供 [Table](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/table/) 類別、[ITable](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/itable/) 介面、[Cell](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/cell/) 類別、[ICell](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/icell/) 介面以及其他型別，讓您能夠在各種簡報中建立、更新與管理表格。
+Aspose.Slides 提供了 [Table](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/table/) 類別、[ITable](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/itable/) 介面、[Cell](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/cell/) 類別、[ICell](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/icell/) 介面，以及其他型別，讓您能在各種簡報中建立、更新與管理表格。
 
 ## **從頭建立表格**
 
 1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation) 類別的實例。  
-2. 透過索引取得投影片的參照。  
+2. 透過索引取得投影片的參考。  
 3. 定義 `columnWidth` 陣列。  
 4. 定義 `rowHeight` 陣列。  
-5. 透過 [AddTable](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishapecollection/addtable/) 方法將 [ITable](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/itable/) 物件加入至投影片。  
-6. 逐一遍歷每個 [ICell](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/icell/)，為上、下、左、右邊框套用格式。  
-7. 合併表格第一行的前兩個儲存格。  
-8. 取得 [ICell](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/icell/) 的 [TextFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/textframe/)。  
-9. 向 [TextFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/textframe/) 新增文字。  
+5. 使用 [AddTable](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishapecollection/addtable/) 方法將 [ITable] 物件新增至投影片。  
+6. 逐一遍歷每個 [ICell]，為上、下、右、左邊框套用格式。  
+7. 合併表格第一列的前兩個儲存格。  
+8. 存取 [ICell] 的 [TextFrame]。  
+9. 在 [TextFrame] 中加入文字。  
 10. 儲存已修改的簡報。
 
-以下 C# 程式碼示範如何在簡報中建立表格：
+此 C# 程式碼示範如何在簡報中建立表格：
 
 ```c#
-// 建立一個代表 PPTX 檔案的 Presentation 類別實例
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// 實例化一個代表 PPTX 檔案的 Presentation 類別
 Presentation pres = new Presentation();
 
-// Accesses the first slide
+// 取得第一張投影片
 ISlide sld = pres.Slides[0];
 
-// Defines columns with widths and rows with heights
+// 定義欄寬與列高
 double[] dblCols = { 50, 50, 50 };
 double[] dblRows = { 50, 30, 30, 30, 30 };
 
-// Adds a table shape to the slide
+// 在投影片上新增表格形狀
 ITable tbl = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
 
-// Sets the border format for each cell
+// 設定每個儲存格的邊框格式
 for (int row = 0; row < tbl.Rows.Count; row++)
 {
 	for (int cell = 0; cell < tbl.Rows[row].Count; cell++)
@@ -76,21 +80,22 @@ for (int row = 0; row < tbl.Rows.Count; row++)
 		tbl.Rows[row][cell].CellFormat.BorderRight.Width = 5;
 	}
 }
-// 合併第 1 列的第 1 與第 2 個儲存格
-tbl.MergeCells(tbl.Rows[0][0], tbl.Rows[1][1], false);
 
-// 向合併的儲存格加入文字
+// 合併第 1 列的第 1 與第 2 個儲存格
+tbl.MergeCells(tbl.Rows[0][0], tbl.Rows[0][1], false);
+
+// 在合併後的儲存格加入文字
 tbl.Rows[0][0].TextFrame.Text = "Merged Cells";
 
 // 將簡報儲存至磁碟
 pres.Save("table.pptx", SaveFormat.Pptx);
 ```
 
-## **標準表格中的編號**
+## **標準表格的編號方式**
 
-在標準表格中，儲存格的編號方式相當直觀且採用從零開始的索引。表格中的第一個儲存格索引為 0,0（第 0 欄，第 0 列）。
+在標準表格中，儲存格的編號方式簡單且以 0 為起點。表格的第一個儲存格編號為 0,0（第 0 欄，第 0 列）。
 
-例如，具有 4 欄 4 列的表格，其儲存格編號方式如下：
+例如，具有 4 欄 4 列的表格之儲存格編號如下：
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -98,10 +103,14 @@ pres.Save("table.pptx", SaveFormat.Pptx);
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-以下 C# 程式碼示範如何為表格中的儲存格指定編號：
+此 C# 程式碼建立上述 4 × 4 標準表格，並為每個儲存格設定邊框格式：
 
 ```c#
-// 建立一個代表 PPTX 檔案的 Presentation 類別實例
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// 實例化一個代表 PPTX 檔案的 Presentation 類別
 using (Presentation pres = new Presentation())
 {
 
@@ -112,7 +121,7 @@ using (Presentation pres = new Presentation())
     double[] dblCols = { 70, 70, 70, 70 };
     double[] dblRows = { 70, 70, 70, 70 };
 
-    // 在投影片加入表格形狀
+    // 在投影片上新增表格形狀
     ITable tbl = sld.Shapes.AddTable(100, 50, dblCols, dblRows);
 
     // 設定每個儲存格的邊框格式
@@ -146,28 +155,31 @@ using (Presentation pres = new Presentation())
 ## **存取現有表格**
 
 1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation) 類別的實例。  
-2. 透過索引取得包含表格的投影片參照。  
-3. 建立 [ITable](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/itable/) 物件，並將其設為 null。  
-4. 逐一遍歷所有 [IShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishape/) 物件，直到找到表格。
+2. 透過索引取得包含表格的投影片參考。  
+3. 建立 [ITable] 物件並將其設為 null。  
+4. 逐一遍歷所有 [IShape] 物件，直至找到表格。  
 
-   若您判斷當前投影片僅包含單一表格，則可以直接檢查其所有形狀。當形狀被識別為表格時，您可以將其型別轉換為 [Table](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/table/) 物件。但若投影片中有多個表格，則建議透過其 [AlternativeText](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishape/alternativetext/) 來搜尋所需的表格。
+   若您認為目標投影片僅含單一表格，可直接檢查其所有形狀。當形狀被辨識為表格時，可將其型別轉換為 [Table] 物件。若投影片包含多個表格，則建議透過其 [AlternativeText] 來搜尋所需的表格。  
 
-5. 使用 [ITable](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/itable/) 物件操作表格。以下範例示範向表格新增一列。  
+5. 使用 [ITable] 物件操作表格。以下範例中，我們在表格中新增了一列。  
 6. 儲存已修改的簡報。
 
-以下 C# 程式碼示範如何存取並操作現有表格：
+此 C# 程式碼示範如何存取與操作既有表格：
 
 ```c#
-// 建立一個代表 PPTX 檔案的 Presentation 類別實例
+using Aspose.Slides;
+
+// 實例化一個代表 PPTX 檔案的 Presentation 類別
 using (Presentation pres = new Presentation("UpdateExistingTable.pptx"))
 {
+
     // 取得第一張投影片
     ISlide sld = pres.Slides[0];
 
     // 將 TableEx 初始化為 null
     ITable tbl = null;
 
-    // 遍歷形狀並設定對找到的表格的參照
+    // 遍歷形狀並設定找到的表格參考
     foreach (IShape shp in sld.Shapes)
         if (shp is ITable)
             tbl = (ITable)shp;
@@ -180,19 +192,31 @@ using (Presentation pres = new Presentation("UpdateExistingTable.pptx"))
 }
 ```
 
-## **對齊表格文字**
+## **找出擁有文字框的儲存格**
+
+當一般文字處理程式碼從表格收到 [ITextFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/itextframe/) 時，請使用 [ITextFrame.ParentCell](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/itextframe/parentcell/) 屬性取得其所屬的 [ICell]。對於表格儲存格的文字框而言，[ITextFrame.ParentCell] 會被設定，而 [ITextFrame.ParentShape] 為 `null`，即使表格本身也是形狀。
+
+儲存格的座標可透過唯讀的 [ICell.FirstColumnIndex](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/icell/firstcolumnindex/) 與 [ICell.FirstRowIndex](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/icell/firstrowindex/) 屬性取得。[ITextFrame.ParentCell] 也是唯讀的：它提供指向所有者的導向，但不會變更所有權。使用前請務必檢查返回的儲存格是否為 `null`。
+
+欲取得完整範例（包含識別表格儲存格與 SmartArt 節點相關形狀的所有者），請參考 [搜尋與取代文字](/slides/zh-hant/net/search-and-replace-text/)。
+
+## **對齊表格中的文字**
 
 1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation) 類別的實例。  
-2. 透過索引取得投影片的參照。  
-3. 向投影片加入 [ITable](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/itable/) 物件。  
-4. 從表格取得 [ITextFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/itextframe/) 物件。  
-5. 取得 [ITextFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/itextframe/) 的 [IParagraph](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iparagraph/)。  
+2. 透過索引取得投影片的參考。  
+3. 在投影片中新增 [ITable] 物件。  
+4. 從表格取得 [ITextFrame] 物件。  
+5. 取得該 [ITextFrame] 的 [IParagraph]。  
 6. 垂直對齊文字。  
 7. 儲存已修改的簡報。
 
-以下 C# 程式碼示範如何對齊表格中的文字：
+此 C# 程式碼示範如何對齊表格中的文字：
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // 建立 Presentation 類別的實例
 Presentation presentation = new Presentation();
 
@@ -203,7 +227,7 @@ ISlide slide = presentation.Slides[0];
 double[] dblCols = { 120, 120, 120, 120 };
 double[] dblRows = { 100, 100, 100, 100 };
 
-// 在投影片加入表格形狀
+// 在投影片上新增表格形狀
 ITable tbl = slide.Shapes.AddTable(100, 50, dblCols, dblRows);
 tbl[1, 0].TextFrame.Text = "10";
 tbl[2, 0].TextFrame.Text = "20";
@@ -230,19 +254,21 @@ cell.TextVerticalType = TextVerticalType.Vertical270;
 presentation.Save("Vertical_Align_Text_out.pptx", SaveFormat.Pptx);
 ```
 
-## **在表格層級設定文字格式**
+## **設定表格層級的文字格式**
 
 1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/) 類別的實例。  
-2. 透過索引取得投影片的參照。  
-3. 從投影片取得 [ITable](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/itable/) 物件。  
-4. 為文字設定 [FontHeight](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/baseportionformat/fontheight/)。  
-5. 設定 [Alignment](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iparagraphformat/alignment/) 與 [MarginRight](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iparagraphformat/marginright/)。  
-6. 設定 [TextVerticalType](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/textframeformat/textverticaltype/)。  
-7. 儲存已修改的簡報。
+2. 透過索引取得投影片的參考。  
+3. 從投影片取得 [ITable] 物件。  
+4. 設定文字的 [FontHeight]。  
+5. 設定 [Alignment] 與 [MarginRight]。  
+6. 設定 [TextVerticalType]。  
+7. 儲存已修改的簡報。  
 
-以下 C# 程式碼示範如何在表格的文字上套用您偏好的格式設定：
+此 C# 程式碼示範如何在表格文字上套用您偏好的格式設定：
 
 ```c#
+using Aspose.Slides;
+
 // 建立 Presentation 類別的實例
 Presentation presentation = new Presentation();
 ISlide slide = presentation.Slides[0];
@@ -254,7 +280,7 @@ PortionFormat portionFormat = new PortionFormat();
 portionFormat.FontHeight = 25;
 someTable.SetTextFormat(portionFormat);
 
-// 一次呼叫設定表格儲存格的文字對齊方式與右邊距
+// 一次設定表格儲存格的文字對齊方式與右邊距
 ParagraphFormat paragraphFormat = new ParagraphFormat();
 paragraphFormat.Alignment = TextAlignment.Right;
 paragraphFormat.MarginRight = 20;
@@ -271,24 +297,39 @@ presentation.Save("result.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 
 ## **取得表格樣式屬性**
 
-Aspose.Slides 讓您可以取得表格的樣式屬性，以便將這些細節用於其他表格或其他位置。以下 C# 程式碼示範如何從表格預設樣式取得樣式屬性：
+Aspose.Slides 允許您取得表格的樣式屬性，以便將這些資訊用於其他表格或其他地方。此 C# 程式碼示範如何從表格預設樣式取得樣式屬性：
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     ITable table = pres.Slides[0].Shapes.AddTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
     table.StylePreset = TableStylePreset.DarkStyle1; // 更改預設樣式預設主題
+
+    // 取得表格的樣式預設。
+    TableStylePreset stylePreset = table.StylePreset;
+    Console.WriteLine($"Table style preset: {stylePreset}");
+
+    // 將取得的樣式預設套用到另一個表格。
+    ITable anotherTable = pres.Slides[0].Shapes.AddTable(10, 100, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
+    anotherTable.StylePreset = stylePreset;
+
     pres.Save("table.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **鎖定表格的寬高比**
+## **鎖定表格的長寬比**
 
-幾何圖形的寬高比是指其在不同維度上的尺寸比例。Aspose.Slides 提供 `AspectRatioLocked` 屬性，讓您可以為表格及其他圖形鎖定寬高比設定。
+幾何形狀的長寬比是其在不同維度上的尺寸比例。Aspose.Slides 提供 `AspectRatioLocked` 屬性，以便您鎖定表格及其他形狀的長寬比設定。
 
-以下 C# 程式碼示範如何鎖定表格的寬高比：
+此 C# 程式碼示範如何鎖定表格的長寬比：
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     ITable table = (ITable)pres.Slides[0].Shapes[0];
@@ -304,14 +345,14 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ## **FAQ**
 
-**我可以為整個表格及其儲存格中的文字啟用從右至左 (RTL) 閱讀方向嗎？**
+**我可以為整個表格及其儲存格內的文字啟用從右至左 (RTL) 閱讀方向嗎？**
 
-可以。表格提供 [RightToLeft](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/table/righttoleft/) 屬性，而段落則具有 [ParagraphFormat.RightToLeft](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/paragraphformat/righttoleft/)。同時使用兩者即可確保儲存格內的文字以正確的 RTL 順序與呈現。
+可以。表格提供 [RightToLeft](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/table/righttoleft/) 屬性，段落則具有 [ParagraphFormat.RightToLeft](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/paragraphformat/righttoleft/)。同時設定可確保儲存格內的 RTL 順序與呈現正確。
 
-**我要如何防止使用者在最終檔案中移動或調整表格的大小？**
+**如何防止使用者在最終檔案中移動或調整表格大小？**
 
-使用 [shape locks](/slides/zh-hant/net/applying-protection-to-presentation/) 來停用移動、調整大小、選取等功能。這些鎖定同樣適用於表格。
+使用 [shape locks](/slides/zh-hant/net/applying-protection-to-presentation/) 以停用移動、調整大小、選取等功能。此鎖定亦適用於表格。
 
-**支援在儲存格內插入影像作為背景嗎？**
+**是否支援在儲存格內插入影像作為背景？**
 
-支援。您可以為儲存格設定 [picture fill](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/picturefillformat/)，影像會依照所選模式（拉伸或平鋪）覆蓋儲存格區域。
+支援。您可以為儲存格設定 [picture fill](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/picturefillformat/)，影像會依所選模式（拉伸或平鋪）覆蓋儲存格區域。

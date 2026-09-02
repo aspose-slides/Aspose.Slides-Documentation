@@ -1,39 +1,39 @@
 ---
-title: بحث واستبدال النص في عروض PowerPoint التقديمية باستخدام C++
-linktitle: بحث واستبدال النص
+title: البحث واستبدال النص في عروض PowerPoint التقديمية باستخدام C++
+linktitle: البحث واستبدال النص
 type: docs
 weight: 55
 url: /ar/cpp/search-and-replace-text/
 keywords:
-- بحث النص
-- تظليل النص
-- استبدال النص
+- بحث نص
+- تظليل نص
+- استبدال نص
 - تعبير نمطي
-- رد نداء للنتيجة
-- إطار النص
+- استدعاء نتيجة
+- إطار نص
 - تقرير تدقيق
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - C++
 - Aspose.Slides
-description: "بحث وتظليل واستبدال النص في عروض PowerPoint التقديمية مع جمع كل تطابق باستخدام Aspose.Slides for C++."
+description: "ابحث، و ظلل، واستبدل النص في عروض PowerPoint التقديمية مع جمع كل تطابق باستخدام Aspose.Slides for C++."
 ---
 ## **نظرة عامة**
 
-يمكن لـ Aspose.Slides for C++ البحث عن النص وتظليله واستبداله داخل إطار نصي واحد أو عبر عرض تقديمي كامل. يمكن لكل عملية أيضًا إخطار التطبيق بكل تطابق من خلال رد نداء للنتيجة. هذا يتيح إمكانية تحديث العرض وتسجيل مسار تدقيق يحتوي على النص المتطابق وسياقه وموقعه وإطار النص ورقم الشريحة.
+يمكن لـ Aspose.Slides for C++ البحث، وتظليل، واستبدال النص في إطار نصي واحد أو في عرض تقديمي كامل. كل عملية يمكنها أيضًا إبلاغ التطبيق عن كل تطابق عبر استدعاء نتيجة. هذا يجعل من الممكن تحديث العرض التقديمي وفي الوقت نفسه بناء سجل تدقيق يحتوي على النص المتطابق، وسياقه، وموقعه، وإطار النص، ورقم الشريحة.
 
-تُستخدم هذه القدرات في مراجعة المحتوى، الحذف، فحص المصطلحات، تنظيف القوالب، وتدفقات العمل الأوتوماتيكية للتقارير.
+تُعد هذه الإمكانيات مفيدة للمراجعة، والحجب، وفحص المصطلحات، وتنظيف القوالب، وتدفقات العمل الآلية للتقارير.
 
-في الأمثلة الأولى أدناه، نستخدم ملفًا يُدعى "sample.pptx"، يحتوي على صندوق نص واحد في الشريحة الأولى بالنص التالي:
+في الأمثلة الأولى أدناه، نستخدم ملفًا باسم "sample.pptx"، يحتوي على مربع نص واحد في الشريحة الأولى بالنص التالي:
 
-![نص عينة](sample_text.png)
+![Sample text](sample_text.png)
 
-## **اختيار نطاق البحث**
+## **اختر نطاق البحث**
 
-استخدم الأساليب المتوفرة في [ITextFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/) لتحديد عملية على إطار نص واحد. استخدم الأساليب المتوفرة في [IPresentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipresentation/) لمعالجة جميع النصوص القابلة للمعالجة في العرض.
+استخدم الأساليب على [ITextFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/) لتحديد عملية لإطار نص واحد. استخدم الأساليب على [IPresentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipresentation/) لمعالجة كل النص القابل للتطبيق في العرض التقديمي.
 
-| العملية | إطار نص واحد | العرض بالكامل |
+| العملية | إطار نص واحد | العرض التقديمي بالكامل |
 |---|---|---|
 | تظليل النص الحرفي | [ITextFrame::HighlightText](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/highlighttext/) | [IPresentation::HighlightText](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipresentation/highlighttext/) |
 | تظليل تطابقات التعبير النمطي | [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/highlightregex/) | [IPresentation::HighlightRegex](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipresentation/highlightregex/) |
@@ -42,25 +42,136 @@ description: "بحث وتظليل واستبدال النص في عروض PowerP
 
 ## **تكوين مطابقة النص**
 
-لعمليات النص الحرفي، استخدم [ITextSearchOptions](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextsearchoptions/) للتحكم في المطابقة:
+للعمليات الحرفية، استخدم [ITextSearchOptions](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextsearchoptions/) للتحكم في المطابقة:
 
-- [ITextSearchOptions::set_WholeWordsOnly](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextsearchoptions/set_wholewordsonly/) يحدّ المطابقات إلى كلمات كاملة.
-- [ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) يتحكم فيما إذا كان يجب أن يطابق حجم الحروف.
-- [ITextSearchOptions::set_IncludeNotes](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextsearchoptions/set_includenotes/) يضم ملاحظات الشرائح في عمليات البحث والاستبدال وتظليل النص على مستوى العرض.
+- [ITextSearchOptions::set_WholeWordsOnly](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextsearchoptions/set_wholewordsonly/) يقتصر على التطابقات التي تكون كلمات كاملة.
+- [ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) يتحكم فيما إذا كان يجب أن يتطابق حالة الأحرف.
+- [ITextSearchOptions::set_IncludeNotes](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextsearchoptions/set_includenotes/) يشمل ملاحظات الشرائح في عمليات البحث والاستبدال والتظليل على مستوى العرض التقديمي.
 
-تستخدم عمليات التعبير النمطي كائنًا من النوع `System::Text::RegularExpressions::Regex`، لذلك تُحدَّد قواعد المطابقة مثل حساسية الحالة وحدود الكلمات بواسطة التعبير نفسه وخياراته.
+تستخدم عمليات التعبير النمطي كائنًا من النوع `System::Text::RegularExpressions::Regex`، لذا تُحدَّد قواعد المطابقة مثل حساسية الحالة وحدود الكلمات بواسطة التعبير وخياراته.
 
-## **جمع معلومات التطابق عبر رد نداء**
+## **تحديد مالك إطار النص**
 
-نفّذ [IFindResultCallback](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ifindresultcallback/) لتلقي إشعار لكل تطابق. تُوفّر طريقة [IFindResultCallback::FoundResult](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ifindresultcallback/foundresult/) الإطار النصي المتعلق، النص الأصلي، النص المتطابق، وموقع التطابق.
+غالبًا ما تتلقى سير عمل معالجة النص العامة كائنًا من نوع [ITextFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/) أثناء البحث أو الاستبدال أو التحقق أو التصدير. استخدم [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/get_parentshape/) و[ITextFrame::get_ParentCell](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/get_parentcell/) لتحديد أي كائن عرض تقديمي يمتلك إطار النص.
 
-رد النداء لا يتلقى رقم الشريحة مباشرة. يُستمد الرقم في الشيفرة أدناه من [ISlideComponent::get_Slide](https://reference.aspose.com/slides/ar/cpp/aspose.slides/islidecomponent/get_slide/) كما يتعامل مع النص الموجود في ملاحظات الشريحة عبر [INotesSlide::get_ParentSlide](https://reference.aspose.com/slides/ar/cpp/aspose.slides/inotesslide/get_parentslide/). يسمح رقم الشريحة القابل للغِضِّ بطراز نتيجة موحَّد لتمثيل النص المرتبط بأنواع شرائح أخرى.
+القيم المتوقعة تعتمد على المالك:
+
+| مالك إطار النص | `get_ParentShape` | `get_ParentCell` |
+|---|---|---|
+| شكل AutoShape أو شكل آخر يحتوي نصًا | الـ[IShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ishape/) المالك | `nullptr` |
+| خلية جدول | `nullptr` | الـ[ICell](https://reference.aspose.com/slides/ar/cpp/aspose.slides/icell/) المالك |
+
+كلا الطريقتين توفران تنقلاً للقراءة فقط. لا تقوم استدعاؤهما بنقل إطار النص أو تغيير مالكه. يجب على الكود العام فحص كلا القيمتين بالنسبة إلى `nullptr` ومعالجة الاحتمال أن لا يكون أي من المالكين متاحًا.
+
+المثال التالي يستخدم [SlideUtil::GetAllTextFrames](https://reference.aspose.com/slides/ar/cpp/aspose.slides.util/slideutil/getalltextframes/) للتنقل عبر إطارات النص في عرض تقديمي. بالنسبة للأشكال، يقوم بالإبلاغ عن اسم الشكل، ونوع وقت التشغيل في C++، والشريحة الحاوية. بالنسبة لخلايا الجدول، يُبلغ عن إحداثيات العمود والصف (صفرية) والشريحة الحاوية.
 
 ```cpp
 #include <DOM/IBaseSlide.h>
 #include <DOM/INotesSlide.h>
+#include <DOM/IShape.h>
 #include <DOM/ISlide.h>
 #include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <Util/SlideUtil.h>
+#include <system/console.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using Aspose::Slides::IBaseSlide;
+using Aspose::Slides::INotesSlide;
+using Aspose::Slides::IShape;
+using Aspose::Slides::ISlide;
+using Aspose::Slides::ITextFrame;
+using Aspose::Slides::Presentation;
+using Aspose::Slides::Util::SlideUtil;
+using System::AsCast;
+using System::Console;
+using System::MakeObject;
+using System::String;
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx");
+auto textFrames = SlideUtil::GetAllTextFrames(presentation, false);
+
+for (const auto& textFrame : textFrames)
+{
+    auto ownerShape = textFrame->get_ParentShape();
+    if (ownerShape != nullptr)
+    {
+        auto shapeName = String::IsNullOrEmpty(ownerShape->get_Name()) ? u"(unnamed)" : ownerShape->get_Name();
+        auto shapeType = ownerShape->GetType().get_Name();
+        auto baseSlide = ownerShape->get_Slide();
+        String slideLabel;
+        auto slide = AsCast<ISlide>(baseSlide);
+
+        if (slide != nullptr)
+        {
+            slideLabel = String::Format(u"slide {0}", slide->get_SlideNumber());
+        }
+        else
+        {
+            auto notesSlide = AsCast<INotesSlide>(baseSlide);
+            if (notesSlide != nullptr)
+            {
+                slideLabel = String::Format(u"notes for slide {0}", notesSlide->get_ParentSlide()->get_SlideNumber());
+            }
+            else
+            {
+                slideLabel = baseSlide->GetType().get_Name();
+            }
+        }
+
+        Console::WriteLine(u"Shape: {0}; type: {1}; {2}", shapeName, shapeType, slideLabel);
+        continue;
+    }
+
+    auto ownerCell = textFrame->get_ParentCell();
+    if (ownerCell != nullptr)
+    {
+        auto baseSlide = ownerCell->get_Slide();
+        String slideLabel;
+        auto slide = AsCast<ISlide>(baseSlide);
+
+        if (slide != nullptr)
+        {
+            slideLabel = String::Format(u"slide {0}", slide->get_SlideNumber());
+        }
+        else
+        {
+            auto notesSlide = AsCast<INotesSlide>(baseSlide);
+            if (notesSlide != nullptr)
+            {
+                slideLabel = String::Format(u"notes for slide {0}", notesSlide->get_ParentSlide()->get_SlideNumber());
+            }
+            else
+            {
+                slideLabel = baseSlide->GetType().get_Name();
+            }
+        }
+
+        Console::WriteLine(u"Table cell: column {0}, row {1}; {2}", ownerCell->get_FirstColumnIndex(), ownerCell->get_FirstRowIndex(), slideLabel);
+        continue;
+    }
+
+    Console::WriteLine(u"The text frame owner is not available as a shape or table cell.");
+}
+```
+
+لمحتوى SmartArt، تنقل عبر الأشكال في [ISmartArtNode::get_Shapes](https://reference.aspose.com/slides/ar/cpp/aspose.slides.smartart/ismartartnode/get_shapes/) وابدأ كل [ISmartArtShape::get_TextFrame](https://reference.aspose.com/slides/ar/cpp/aspose.slides.smartart/ismartartshape/get_textframe/). يمكن تتبع إطار النص إلى الشكل المرتبط عبر [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/get_parentshape/)، بينما يعيد [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/get_parentcell/) `nullptr`. لذلك يتعامل فرع الشكل في المثال أيضًا مع النص من عقد SmartArt.
+
+## **جمع معلومات التطابق عبر استدعاء رد فعل**
+
+نفّذ [IFindResultCallback](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ifindresultcallback/) لتلقي إشعار عن كل تطابق. تُوفر الطريقة [IFindResultCallback::FoundResult](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ifindresultcallback/foundresult/) إطار النص المتعلق، والنص الأصلي، والنص المتطابق، وموقع التطابق.
+
+لا تتلقى الاستدعائية رقم الشريحة مباشرة. تستخلص التنفيذ أدناه ذلك من [ISlideComponent::get_Slide](https://reference.aspose.com/slides/ar/cpp/aspose.slides/islidecomponent/get_slide/) وتتعامل أيضًا مع النص الموجود في ملاحظات الشرائح عبر [INotesSlide::get_ParentSlide](https://reference.aspose.com/slides/ar/cpp/aspose.slides/inotesslide/get_parentslide/). يسمح رقم شريحة قابل للغياب بنموذج نتيجة موحد يمكنه تمثيل النص المرتبط بأنواع شرائح أخرى.
+
+```cpp
+#include <DOM/IBaseSlide.h>
+#include <DOM/INotesSlide.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Table/ICell.h>
 #include <IFindResultCallback.h>
 #include <system/collections/list.h>
 #include <system/nullable.h>
@@ -70,6 +181,7 @@ description: "بحث وتظليل واستبدال النص في عروض PowerP
 using Aspose::Slides::IBaseSlide;
 using Aspose::Slides::IFindResultCallback;
 using Aspose::Slides::INotesSlide;
+using Aspose::Slides::IShape;
 using Aspose::Slides::ISlide;
 using Aspose::Slides::ITextFrame;
 using System::AsCast;
@@ -119,7 +231,23 @@ public:
 private:
     static Nullable<int32_t> GetSlideNumber(SharedPtr<ITextFrame> textFrame)
     {
-        SharedPtr<IBaseSlide> baseSlide = textFrame->get_Slide();
+        auto parentShape = textFrame->get_ParentShape();
+        auto parentCell = textFrame->get_ParentCell();
+        SharedPtr<IBaseSlide> baseSlide;
+
+        if (parentShape != nullptr)
+        {
+            baseSlide = parentShape->get_Slide();
+        }
+        else if (parentCell != nullptr)
+        {
+            baseSlide = parentCell->get_Slide();
+        }
+        else
+        {
+            baseSlide = textFrame->get_Slide();
+        }
+
         auto slide = AsCast<ISlide>(baseSlide);
 
         if (slide != nullptr)
@@ -139,13 +267,13 @@ private:
 };
 ```
 
-في عمليات الاستبدال، يحتوي `FoundText` على النص الأصلي المتطابق، لذا يمكن لرد النداء تسجيل النصوص التي تم استبدالها بدقة.
+في عمليات الاستبدال، يحتوي `FoundText` على النص الأصلي المتطابق، بحيث يمكن للاستدعائية تسجيل المصطلحات التي تم استبدالها بدقة.
 
 ## **تظليل النص**
 
-استخدم طريقة [ITextFrame::HighlightText](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/highlighttext/) لتظليل مطابقات النص الحرفي في إطار نص. مرّر كائنًا من [ITextSearchOptions](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextsearchoptions/) للتحكم في البحث ومرّر رد نداء لجمع تفاصيل التطابق.
+استخدم الطريقة [ITextFrame::HighlightText](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/highlighttext/) لتظليل تطابقات النص الحرفية في إطار نص. مرّر [ITextSearchOptions](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextsearchoptions/) للتحكم في البحث واستدعائية لتجميع تفاصيل التطابق.
 
-تُظهر الشيفرة أدناه تظليل جميع تواجدات الحرفين **"try"** ثم تظليل الكلمة الكاملة **"to"** فقط. كلتا عمليات البحث تُرسل تطابقاتها لنفس رد النداء.
+المثال البرمجي أدناه يظلل جميع تكرارات الأحرف **"try"** ثم يظلل كلمة **"to"** الكاملة فقط. كل من البحثين يرسلان تطابقاتهما إلى نفس الاستدعائية.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -166,14 +294,14 @@ using System::MakeObject;
 
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-// Get the first shape from the first slide.
+// احصل على الشكل الأول من الشريحة الأولى.
 auto shape = ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
 auto callback = MakeObject<TextSearchCallback>();
 
 auto substringSearchOptions = MakeObject<TextSearchOptions>();
 substringSearchOptions->set_CaseSensitive(false);
 
-// Highlight every occurrence of "try" in the text frame.
+// ظلل كل ظهور لكلمة "try" في إطار النص.
 shape->get_TextFrame()->HighlightText(
     u"try", System::Drawing::Color::get_LightBlue(), substringSearchOptions, callback);
 
@@ -181,7 +309,7 @@ auto wholeWordSearchOptions = MakeObject<TextSearchOptions>();
 wholeWordSearchOptions->set_WholeWordsOnly(true);
 wholeWordSearchOptions->set_CaseSensitive(false);
 
-// Highlight only the complete word "to".
+// ظلل كلمة "to" الكاملة فقط.
 shape->get_TextFrame()->HighlightText(
     u"to", System::Drawing::Color::get_Violet(), wholeWordSearchOptions, callback);
 
@@ -199,15 +327,15 @@ presentation->Save(u"highlighted_text.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-النتيجة:
+الناتج:
 
-![النص المظلل](highlighted_text.png)
+![The highlighted text](highlighted_text.png)
 
-## **تظليل النص باستخدام التعبيرات النمطية**
+## **تظليل النص باستخدام تعبيرات نمطية**
 
-تُظلل طريقة [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/highlightregex/) مطابقات النص التي تُعثر عليها تعبيرًا نمطيًا داخل إطار نص.
+تُظلل الطريقة [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/highlightregex/) مطابقات النص التي يجدها تعبير نمطي في إطار نص.
 
-تُظهر الشيفرة التالية تظليل جميع الكلمات التي تحتوي على سبعة أحرف أو أكثر وتجمع كل تطابق:
+الكود التالي يظلل جميع الكلمات التي تحتوي على سبعة أحرف أو أكثر ويجمع كل تطابق:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -238,13 +366,13 @@ presentation->Save(u"highlighted_text_using_regex.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-النتيجة:
+الناتج:
 
-![النص المظلل باستخدام التعبير النمطي](highlighted_text_using_regex.png)
+![The highlighted text using the regular expression](highlighted_text_using_regex.png)
 
-## **تظليل النص عبر العرض بالكامل**
+## **تظليل النص عبر عرض تقديمي**
 
-استخدم [IPresentation::HighlightText](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipresentation/highlighttext/) و[IPresentation::HighlightRegex](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipresentation/highlightregex/) للبحث في جميع أطر النص القابلة للمعالجة داخل العرض. يُظهر المثال التالي تظليل مصطلح حرفي وجميع عناوين البريد الإلكتروني مع الحفاظ على مجموعات نتائج منفصلة لكل عملية بحث.
+استخدم [IPresentation::HighlightText](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipresentation/highlighttext/) و[IPresentation::HighlightRegex](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipresentation/highlightregex/) للبحث عبر جميع إطارات النص القابلة للتطبيق في عرض تقديمي. المثال التالي يظلل مصطلحًا حرفيًا وجميع عناوين البريد الإلكتروني مع الحفاظ على مجموعات نتائج منفصلة للبحثين.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -285,9 +413,9 @@ presentation->Dispose();
 
 ## **استبدال النص في إطار نص**
 
-استخدم [ITextFrame::ReplaceText](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/replacetext/) للنص الحرفي و[ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/replaceregex/) للاستبدال القائم على النمط. تقوم هذه الطرق بتحديث النص المتطابق داخل إطار النص الموجود، مما يحتفظ بتنسيق الجزء المحيط بدلاً من إعادة بناء إطار النص من سلسلة عادية.
+استخدم [ITextFrame::ReplaceText](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/replacetext/) للنص الحرفي و[ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/replaceregex/) للاستبدال القائم على نمط. تُحدِّث هذه الأساليب النص المتطابق داخل إطار النص الحالي، مما يحتفظ بتنسيق الجزء المحيط بدلاً من إعادة بناء إطار النص من سلسلة عادية.
 
-يوضح المثال التالي توحيد شكل كتابة كلمة ثم استبدال تسميات الإصدارات. يسجل نفس رد النداء المصطلحات الأصلية التي تم مطابقتها في كلتا العمليتين.
+المثال التالي يوضح توحيد صيغة كتابة كلمة ثم استبدال تسميات الإصدارات. تُسجَّل نفس الاستدعائية المصطلحات الأصلية التي تم مطابقتها في العمليتين.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -326,11 +454,11 @@ presentation->Save(u"updated_text_frame.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-إذا امتد تطابق إلى أجزاء ذات تنسيقات مختلفة، راجع النتيجة لتأكيد أي تنسيق يجب تطبيقه على النص المستبدل.
+إذا امتد تطابق على أجزاء ذات تنسيقات مختلفة، راجع الناتج لتحديد أي تنسيق ينبغي تطبيقه على النص المستبدل.
 
-## **استبدال النص عبر العرض بالكامل**
+## **استبدال النص عبر عرض تقديمي**
 
-استخدم [IPresentation::ReplaceText](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipresentation/replacetext/) و[IPresentation::ReplaceRegex](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipresentation/replaceregex/) لتطبيق نفس العمليات على كامل العرض. هذا مفيد لتنظيف القوالب، تحديث المصطلحات، والحذف.
+استخدم [IPresentation::ReplaceText](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipresentation/replacetext/) و[IPresentation::ReplaceRegex](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ipresentation/replaceregex/) لتطبيق نفس العمليات عبر العرض التقديمي. هذا مفيد لتنظيف القوالب، وتحديث المصطلحات، والحجب.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -363,7 +491,7 @@ presentation->Dispose();
 
 ## **تجميع التطابقات للتقارير**
 
-نظرًا لأن كل نتيجة تخزن رقم الشريحة وإطار النص، يمكن للتطبيقات تجميع التطابقات للمراجعة أو التقارير أو سير عمل المراجعة. يوضح المثال التالي تجميع النتائج التي تم جمعها أولاً حسب الشريحة ثم حسب إطار النص:
+نظرًا لأن كل نتيجة تخزن رقم الشريحة وإطار النص، يمكن للتطبيقات تجميع التطابقات للتدقيق أو التقارير أو سير عمل المراجعة. المثال التالي يجمع النتائج المجمعة أولاً حسب الشريحة ثم حسب إطار النص:
 
 ```cpp
 #include <DOM/ITextFrame.h>
@@ -407,24 +535,24 @@ for (const auto& slideGroup : matchesBySlide)
 }
 ```
 
-## **الأسئلة المتكررة**
+## **الأسئلة المتداولة**
 
-**كيف يمكنني البحث في صندوق نص واحد فقط بدلاً من العرض بالكامل؟**
+**كيف يمكنني البحث في مربع نص واحد فقط بدلاً من العرض التقديمي بأكمله؟**
 
-احصل على إطار النص الخاص بالشكل واستدعِ [ITextFrame::HighlightText](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/highlighttext/)، [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/highlightregex/)، [ITextFrame::ReplaceText](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/replacetext/)، أو [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/replaceregex/) على ذلك الإطار. تعالج الأساليب على مستوى العرض جميع أطر النص القابلة للمعالجة بدلاً من ذلك.
+احصل على إطار النص الخاص بالشكل واستدعِ [ITextFrame::HighlightText](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/highlighttext/)، [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/highlightregex/)، [ITextFrame::ReplaceText](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/replacetext/)، أو [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/replaceregex/) على ذلك الإطار. تُعالج طرق مستوى العرض التقديمي جميع إطارات النص القابلة للتطبيق بدلاً منها.
 
-**كيف يمكنني مطابقة الكلمات الكاملة مع الحفاظ على حالة الأحرف الصحيحة؟**
+**كيف يمكنني مطابقة الكلمات الكاملة مع الأحرف الكبيرة الصحيحة؟**
 
-استدعِ [ITextSearchOptions::set_WholeWordsOnly](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextsearchoptions/set_wholewordsonly/) و[ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) بالقيمة `true`، ومرّر الخيارات إلى طريقة تظليل أو استبدال النص الحرفي. بالنسبة للتعبيرات النمطية، عرّف حدود الكلمات وحساسية الحالة داخل الـ `System::Text::RegularExpressions::Regex` نفسه.
+استدعِ [ITextSearchOptions::set_WholeWordsOnly](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextsearchoptions/set_wholewordsonly/) و[ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) مع القيمة `true`، ومرّر الخيارات إلى طريقة تظليل أو استبدال النص الحرفي. بالنسبة للتعبيرات النمطية، عرّف حدود الكلمات وحساسية الحالة داخل `System::Text::RegularExpressions::Regex` نفسه.
 
-**هل يمكن أن يشمل البحث والاستبدال النص الموجود في ملاحظات الشرائح؟**
+**هل يمكن أن تشمل عمليات البحث والاستبدال النص الموجود في ملاحظات الشرائح؟**
 
-نعم. استدعِ [ITextSearchOptions::set_IncludeNotes](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextsearchoptions/set_includenotes/) بالقيمة `true` عند استخدام عملية نص حرفي على مستوى العرض. تُعيد تنفيذية رد النداء المعروضة أعلاه ربط التطابق الموجود في شريحة الملاحظات إلى رقم شريحة الأصل.
+نعم. استدعِ [ITextSearchOptions::set_IncludeNotes](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextsearchoptions/set_includenotes/) مع القيمة `true` عند استخدام عملية حرفية على مستوى العرض التقديمي. تقوم تنفيذية الاستدعائية الموضحة أعلاه بربط التطابق في شريحة الملاحظات برقم الشريحة الأصلية.
 
-**كيف يمكنني إنشاء تقرير دون مسح العرض مرة ثانية؟**
+**كيف يمكنني إنشاء تقرير دون مسح العرض التقديمي مرة ثانية؟**
 
-مرّر تنفيذية [IFindResultCallback](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ifindresultcallback/) إلى عملية التظليل أو الاستبدال. يتلقى رد النداء كل تطابق أثناء تشغيل العملية، وبالتالي يمكن للتطبيق تخزين النص الأصلي، النص المتطابق، الموقع، إطار النص، ورقم الشريحة المستنتج لتجميعه لاحقًا أو تصديره.
+مرّر تنفيذًا لـ [IFindResultCallback](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ifindresultcallback/) إلى عملية التظليل أو الاستبدال. تستقبل الاستدعائية كل تطابق أثناء تنفيذ العملية، بحيث يمكن للتطبيق تخزين النص الأصلي، والنص المتطابق، والموقع، وإطار النص، ورقم الشريحة المستخلص لاحقًا للتجميع أو التصدير.
 
 **هل يحافظ استبدال النص على تنسيقه؟**
 
-تُعدّل [ITextFrame::ReplaceText](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/replacetext/) و[ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/replaceregex/) النص المتطابق داخل إطار النص الموجود وتحتفظ بتنسيق الجزء المحيط. إذا امتد التطابق إلى أجزاء ذات تنسيقات مختلفة، فافحص النتيجة لضمان أن الاستبدال يستخدم النمط المطلوب.
+تُعدّ كل من [ITextFrame::ReplaceText](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/replacetext/) و[ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/ar/cpp/aspose.slides/itextframe/replaceregex/) النص المتطابق داخل إطار النص الحالي وتحتفظ بتنسيق الجزء المحيط. إذا امتد التطابق على أجزاء ذات تنسيقات مختلفة، تحقق من النتيجة لضمان أن الاستبدال يستخدم النمط المطلوب.

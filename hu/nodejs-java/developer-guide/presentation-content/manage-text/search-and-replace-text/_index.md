@@ -1,6 +1,6 @@
 ---
-title: Szöveg keresése és cseréje PowerPoint prezentációkban JavaScript-ben
-linktitle: Keresés és csere szöveg
+title: PowerPoint előadások szövegének keresése és cseréje JavaScriptben
+linktitle: Szöveg keresése és cseréje
 type: docs
 weight: 55
 url: /hu/nodejs-java/search-and-replace-text/
@@ -10,59 +10,128 @@ keywords:
 - szöveg cseréje
 - reguláris kifejezés
 - eredmény visszahívás
-- szövegdoboz
+- szövegkeret
 - audit jelentés
 - PowerPoint
 - OpenDocument
-- prezentáció
+- előadás
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Keresés, kiemelés és szövegcserék PowerPoint prezentációkban, miközben minden egyezést az Aspose.Slides for Node.js via Java segítségével gyűjtünk."
+description: "Szöveg keresése, kiemelése és cseréje PowerPoint előadásokban, miközben minden egyezést összegyűjt az Aspose.Slides for Node.js via Java segítségével."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides for Node.js via Java képes keresni, kiemelni és cserélni a szöveget egy adott szövegdobozban vagy egy egész bemutatóban. Minden művelet result callback‑en keresztül értesítheti az alkalmazást minden egyezésről. Ez lehetővé teszi a bemutató frissítését, miközben audit‑nyomot épít, amely tartalmazza a megtalált szöveget, a környezetét, a pozíciót, a szövegdobozt és a dia számát.
+Az Aspose.Slides for Node.js via Java képes keresni, kiemelni és helyettesíteni a szöveget egy egyedi szövegkeretben vagy egy teljes bemutatóban. Minden művelet értesítheti az alkalmazást minden egyezésről egy eredmény‑visszahíváson keresztül. Ez lehetővé teszi a bemutató frissítését, miközben egy auditnaplót épít, amely tartalmazza a megtalált szöveget, annak környezetét, pozícióját, a szövegkeretet és a diavetítés számát.
 
-Ezek a lehetőségek hasznosak felülvizsgálat, szenzitív információk eltávolítása, terminológiai ellenőrzés, sablon‑tisztítás és automatizált jelentéskészítés során.
+Ezek a képességek hasznosak felülvizsgálathoz, sötétítéshez, terminológiai ellenőrzésekhez, sablon tisztításhoz és automatizált jelentéskészítési munkafolyamatokhoz.
 
-Az alábbi első példákban egy „sample.pptx” nevű fájlt használunk, amely az első dián egyetlen szövegdobozt tartalmaz a következő szöveggel:
+Az alábbi első példákban egy "sample.pptx" nevű fájlt használunk, amely az első dián egyetlen szövegdobozt tartalmaz a következő szöveggel:
 
 ![Minta szöveg](sample_text.png)
 
-## **A keresés hatókörének kiválasztása**
+## **Válassza ki a keresés hatókörét**
 
-Használja a [TextFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textframe/) metódusait egy művelet korlátozásához egy szövegdobozra. Használja a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/) metódusait a bemutató összes alkalmazható szövegének feldolgozásához.
+Használja a [TextFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textframe/) metódusait egy művelet egy szövegkeretre korlátozásához. Használja a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/) metódusait a bemutatóban található összes alkalmazható szöveg feldolgozásához.
 
-| Művelet | Egy szövegdoboz | Teljes bemutató |
+| Művelet | Egy szövegkeret | Teljes bemutató |
 |---|---|---|
-| Literális szöveg kiemelése | [TextFrame.highlightText](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [Presentation.highlightText](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
-| Reguláris‑kifejezés egyezések kiemelése | [TextFrame.highlightRegex](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) | [Presentation.highlightRegex](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) |
-| Literális szöveg cseréje | [TextFrame.replaceText](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [Presentation.replaceText](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
-| Reguláris‑kifejezés egyezések cseréje | [TextFrame.replaceRegex](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) | [Presentation.replaceRegex](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) |
+| Highlight literal text | [TextFrame.highlightText](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [Presentation.highlightText](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
+| Highlight regular-expression matches | [TextFrame.highlightRegex](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) | [Presentation.highlightRegex](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) |
+| Replace literal text | [TextFrame.replaceText](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [Presentation.replaceText](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
+| Replace regular-expression matches | [TextFrame.replaceRegex](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) | [Presentation.replaceRegex](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) |
 
-## **A szöveg egyezésének beállítása**
+## **Szövegillesztés beállítása**
 
-Literális‑szöveg műveleteknél használja a [TextSearchOptions](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textsearchoptions/)‑t a keresés szabályozásához:
+A szó szerinti szöveg műveletekhez használja a [TextSearchOptions](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textsearchoptions/) elemet a keresés szabályozásához:
 
-- [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) csak teljes szavakra korlátozza a találatot.
-- [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) meghatározza, hogy a kis‑ és nagybetű egyezés kötelező‑e.
-- [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) a diáknaplókat is beleveszi a bemutató‑szintű keresés, csere és kiemelés műveletekbe.
+- [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) korlátozza a találatokat teljes szavakra.
+- [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) irányítja, hogy a karakterek nagybetű‑érzékenysége kötelező‑e.
+- [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) belefoglalja a diák jegyzeteit a bemutató szintű keresés, helyettesítés és kiemelés műveletekbe.
 
-Reguláris‑kifejezés műveleteknél a Java `Pattern` határozza meg az egyezési szabályokat, például a kis‑/nagybetű érzékenységet és a szóhatárokat a kifejezés és zászlói szerint.
+A reguláris kifejezés műveletek egy Java `Pattern`‑t használnak, így a keresési szabályok, mint a case sensitivity és a szóhatárok, a kifejezés és annak jelzői által vannak meghatározva.
 
-## **Egyezés információinak gyűjtése visszahívással**
+## **A szövegkeret tulajdonosának azonosítása**
 
-Hozzon létre egy Java proxy‑t a result callback‑hez, hogy minden egyezésről értesítést kapjon. A proxy függvény megkapja a kapcsolódó szövegdobozt, a forrás‑szöveget, a megtalált szöveget és a pozíciót.
+Az általános szövegfeldolgozó munkafolyamatok gyakran egy [TextFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textframe/) objektumot kapnak a keresés, helyettesítés, érvényesítés vagy exportálás során. Használja a [TextFrame.getParentShape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textframe/#getParentShape--) és a [TextFrame.getParentCell](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textframe/#getParentCell--) metódusokat annak meghatározásához, hogy melyik bemutatóobjektum birtokolja a szövegkeretet.
 
-A callback nem kap közvetlenül diaszámot. Az alábbi megvalósítás a diaszámot a [TextFrame.getSlide](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textframe/#getSlide--) , a [Slide.getSlideNumber](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/slide/#getSlideNumber--) és a [NotesSlide.getParentSlide](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/notesslide/#getParentSlide--) segítségével határozza meg. A diánaplókban található szöveget is kezeli.
+A várt értékek a tulajdonostól függenek:
+
+| Szövegkeret tulajdonosa | `getParentShape` | `getParentCell` |
+|---|---|---|
+| Egy AutoShape vagy egy másik szövegtartalmú alakzat | A tulajdonos [Shape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shape/) | `null` |
+| Egy táblázat cellája | `null` | A tulajdonos [Cell](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/cell/) |
+
+Mindkét metódus csak olvasási navigációt biztosít. Meghívásuk nem mozdítja el a szövegkeretet, és nem változtatja meg a tulajdonost. Az általános kódnak ellenőriznie kell mindkét értéket `null`‑ra, és kezelnie kell azt a lehetőséget, hogy egyik tulajdonos sem érhető el.
+
+Az alábbi példa a [SlideUtil.getAllTextFrames](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/slideutil/#getAllTextFrames-aspose.slides.IPresentation-boolean-) metódust használja a bemutató szövegkereteinek bejárásához. Alakzatok esetén jelenti az alakzat nevét, a Java futási típust és a befoglaló diát. Táblázat cellák esetén jelenti a nulláról induló oszlop‑ és sorkoordinátákat, valamint a befoglaló diát.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+function getSlideLabel(baseSlide) {
+    if (java.instanceOf(baseSlide, "com.aspose.slides.Slide")) {
+        return "slide " + baseSlide.getSlideNumber();
+    }
+
+    if (java.instanceOf(baseSlide, "com.aspose.slides.NotesSlide")) {
+        return "notes for slide " + baseSlide.getParentSlide().getSlideNumber();
+    }
+
+    return baseSlide.getClass().getSimpleName();
+}
+
+const presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    const textFrames = aspose.slides.SlideUtil.getAllTextFrames(presentation, false);
+
+    for (let index = 0; index < textFrames.length; index++) {
+        const textFrame = textFrames[index];
+        const ownerShape = textFrame.getParentShape();
+        if (ownerShape !== null) {
+            const shapeName = ownerShape.getName() === "" ? "(unnamed)" : ownerShape.getName();
+            const shapeType = ownerShape.getClass().getSimpleName();
+            const slideLabel = getSlideLabel(ownerShape.getSlide());
+            console.log("Shape: " + shapeName + "; type: " + shapeType + "; " + slideLabel);
+            continue;
+        }
+
+        const ownerCell = textFrame.getParentCell();
+        if (ownerCell !== null) {
+            const slideLabel = getSlideLabel(ownerCell.getSlide());
+            console.log("Table cell: column " + ownerCell.getFirstColumnIndex() + ", row " + ownerCell.getFirstRowIndex() + "; " + slideLabel);
+            continue;
+        }
+
+        console.log("The text frame owner is not available as a shape or table cell.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+SmartArt tartalom esetén járja be az alakzatokat a [SmartArtNode.getShapes](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/smartartnode/#getShapes--) metóduson, és érje el minden [SmartArtShape.getTextFrame](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/smartartshape/#getTextFrame--) elemet. A szövegkeret a hozzá tartozó alakzatra nyomon követhető a [TextFrame.getParentShape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textframe/#getParentShape--) segítségével, míg a [TextFrame.getParentCell](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textframe/#getParentCell--) `null`‑t ad vissza. Ezért a példában lévő alakzat ága a SmartArt csomópontok szövegét is kezeli.
+
+## **Egyezésinformációk gyűjtése visszahívással**
+
+Hozzon létre egy Java proxyt az eredmény‑visszahíváshoz, hogy értesítést kapjon minden egyezésről. A proxy függvény megkapja a kapcsolódó szövegkeretet, a forrásszöveget, a megtalált szöveget és a találat pozícióját.
+
+A visszahívás nem kap közvetlenül diaszámot. Az alábbi megvalósítás a szövegkeret tulajdonos alakzatából vagy táblázat cellájából származtatja azt, a [TextFrame.getSlide](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textframe/#getSlide--) tartalékaként. Kezeli a diák jegyzeteiben talált szöveget is.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
 function getSlideNumber(textFrame) {
-    const parentSlide = textFrame.getSlide();
+    const parentShape = textFrame.getParentShape();
+    const parentCell = textFrame.getParentCell();
+    let parentSlide = textFrame.getSlide();
+    if (parentShape !== null) {
+        parentSlide = parentShape.getSlide();
+    } else if (parentCell !== null) {
+        parentSlide = parentCell.getSlide();
+    }
 
     if (java.instanceOf(parentSlide, "com.aspose.slides.Slide")) {
         return parentSlide.getSlideNumber();
@@ -90,13 +159,13 @@ function createTextSearchCallback(results) {
 }
 ```
 
-Csere műveleteknél a `foundText` az eredeti megtalált szöveget tartalmazza, így a callback pontosan rögzítheti, mely kifejezéseket cserélték.
+Helyettesítési műveleteknél a `foundText` az eredeti megtalált szöveget tartalmazza, így a visszahívás pontosan rögzítheti, mely kifejezéseket cserélték.
 
 ## **Szöveg kiemelése**
 
-Használja a [TextFrame.highlightText](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) metódust a literális‑szöveg egyezések kiemelésére egy szövegdobozban. Adja át a keresés szabályozásához a [TextSearchOptions](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textsearchoptions/)‑t.
+Használja a [TextFrame.highlightText](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) metódust a szó szerinti szöveg találatainak kiemeléséhez egy szövegkeretben. Adja át a [TextSearchOptions](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textsearchoptions/) objektumot a keresés szabályozásához.
 
-Az alábbi kódrészlet először minden **„try”** karakterláncot, majd csak a teljes **„to”** szót emeli ki.
+Az alábbi kódpélda a **"try"** karakterek minden előfordulását, majd csak a teljes **"to"** szót emeli ki.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -111,7 +180,7 @@ try {
     substringSearchOptions.setCaseSensitive(false);
     const substringHighlightColor = java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY");
 
-    // Emelje ki a "try" minden előfordulását a szövegdobozban.
+    // Kiemeli a "try" minden előfordulását a szövegkeretben.
     shape.getTextFrame().highlightText(
         "try", substringHighlightColor, substringSearchOptions, null);
 
@@ -120,7 +189,7 @@ try {
     wholeWordSearchOptions.setCaseSensitive(false);
     const wholeWordHighlightColor = java.getStaticFieldValue("java.awt.Color", "MAGENTA");
 
-    // Emelje ki csak a teljes "to" szót.
+    // Kiemeli csak a "to" teljes szót.
     shape.getTextFrame().highlightText(
         "to", wholeWordHighlightColor, wholeWordSearchOptions, null);
 
@@ -136,9 +205,9 @@ Az eredmény:
 
 ## **Szöveg kiemelése reguláris kifejezésekkel**
 
-A [TextFrame.highlightRegex](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) metódus kiemeli a reguláris kifejezés által megtalált szöveg‑egyezéseket egy szövegdobozban.
+A [TextFrame.highlightRegex](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) metódus kiemeli a reguláris kifejezéssel megtalált szövegeket egy szövegkeretben.
 
-Az alábbi kód minden hét vagy több karakterből álló szót kiemel:
+Az alábbi kód kiemeli az összes olyan szót, amely legalább hét karaktert tartalmaz:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -165,9 +234,9 @@ Az eredmény:
 
 ![A reguláris kifejezéssel kiemelt szöveg](highlighted_text_using_regex.png)
 
-## **Szöveg kiemelése a teljes bemutatóban**
+## **Szöveg kiemelése egy bemutatóban**
 
-Használja a [Presentation.highlightText](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) és a [Presentation.highlightRegex](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) metódusokat a bemutató összes alkalmazható szövegdobozának kereséséhez. Az alábbi példa egy literális kifejezést és minden e‑mail címet emel ki:
+Használja a [Presentation.highlightText](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) és a [Presentation.highlightRegex](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) metódusokat a bemutató összes alkalmazható szövegkeretének kereséséhez. Az alábbi példa egy szó szerinti kifejezést és az összes e‑mail címet emeli ki:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -196,9 +265,9 @@ try {
 }
 ```
 
-## **Szöveg cseréje egy szövegdobozban**
+## **Szöveg cseréje egy szövegkeretben**
 
-Használja a [TextFrame.replaceText](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-)‑t literális szöveghez és a [TextFrame.replaceRegex](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-)‑t mintára alapozott cseréhez. Ezek a metódusok a megtalált szöveget a meglévő szövegdobozon belül módosítják, megtartva a környező szegmens formázását, ahelyett, hogy egy egyszerű karakterláncból újra felépítenék a dobozt.
+Használja a [TextFrame.replaceText](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) metódust szó szerinti szöveghez és a [TextFrame.replaceRegex](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) metódust mintára alapozott helyettesítéshez. Ezek a metódusok a megtalált szöveget frissítik a meglévő szövegkereten belül, megtartva a környező rész formázását anélkül, hogy egy egyszerű karakterláncból építenék újra a szövegkeretet.
 
 Az alábbi példa egységesíti egy helyesírási változatot, majd lecseréli a verziócímkéket:
 
@@ -228,11 +297,11 @@ try {
 }
 ```
 
-Ha egy egyezés olyan részeket fed le, amelyek formázása eltérő, ellenőrizze a kimenetet, hogy mely formázás legyen alkalmazva a helyettesítő szövegre.
+Ha egy találat különböző formázású részeket ölel fel, ellenőrizze a kimenetet, hogy megerősítse, melyik formázás legyen alkalmazva a helyettesítő szövegre.
 
-## **Szöveg cseréje a teljes bemutatóban**
+## **Szöveg cseréje egy bemutatóban**
 
-Használja a [Presentation.replaceText](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) és a [Presentation.replaceRegex](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) metódusokat a műveletek teljes bemutatóra való alkalmazásához. Ez hasznos sablon‑tisztításhoz, terminológiai frissítésekhez és szenzitív információk eltávolításához.
+Használja a [Presentation.replaceText](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) és a [Presentation.replaceRegex](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) metódusokat ugyanazon műveletek alkalmazásához a teljes bemutatóban. Ez hasznos sablon tisztításhoz, terminológiai frissítésekhez és sötétítéshez.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -257,16 +326,23 @@ try {
 }
 ```
 
-## **Egyezések csoportosítása jelentéshez**
+## **Találatok csoportosítása jelentéshez**
 
-Mivel minden gyűjtött eredmény tárolja a dia számát és a szövegdobozt, az alkalmazások csoportosíthatják az egyezéseket audit, jelentés vagy felülvizsgálat céljából. Az alábbi példa először diánként, majd szövegdobozonként csoportosítja az eredményeket:
+Mivel minden összegyűjtött eredmény tárolja a diaszámát és a szövegkeretet, az alkalmazások csoportosíthatják a találatokat audit, jelentés vagy felülvizsgálati munkafolyamatok céljából. Az alábbi példa először diára, majd szövegkeretre csoportosítja az eredményeket:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
 function getSlideNumber(textFrame) {
-    const parentSlide = textFrame.getSlide();
+    const parentShape = textFrame.getParentShape();
+    const parentCell = textFrame.getParentCell();
+    let parentSlide = textFrame.getSlide();
+    if (parentShape !== null) {
+        parentSlide = parentShape.getSlide();
+    } else if (parentCell !== null) {
+        parentSlide = parentCell.getSlide();
+    }
 
     if (java.instanceOf(parentSlide, "com.aspose.slides.Slide")) {
         return parentSlide.getSlideNumber();
@@ -338,22 +414,22 @@ try {
 
 ## **GYIK**
 
-**Hogyan kereshetek csak egy szövegdobozt a teljes bemutató helyett?**
+**Hogyan kereshetek csak egy szövegdobozban a teljes bemutató helyett?**
 
-Szerezze meg az alakzat szövegdobozát, és hívja meg a [TextFrame.highlightText](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), [TextFrame.highlightRegex](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-), [TextFrame.replaceText](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), vagy [TextFrame.replaceRegex](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) metódusokon azon a szövegdobozon. A bemutató‑szintű módszerek az összes alkalmazható szövegdobozt feldolgozzák.
+Szerezze meg az alakzat szövegkeretét, és hívja meg a [TextFrame.highlightText](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), [TextFrame.highlightRegex](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-), [TextFrame.replaceText](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), vagy a [TextFrame.replaceRegex](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) metódust azon a szövegkereten. A bemutató‑szintű metódusok ezzel szemben az összes alkalmazható szövegkeretet dolgozzák fel.
 
-**Hogyan egyeztessek teljes szavakat a helyes nagybetűhasználattal?**
+**Hogyan illeszthetek teljes szavakat a megfelelő nagybetűkkel?**
 
-Állítsa be a [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) és a [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) értékét `true`‑ra, és adja át a beállításokat a literális‑szöveg kiemeléshez vagy cseréhez. Reguláris kifejezéseknél határozza meg a szóhatárokat és a kis‑/nagybetű érzékenységet magában a Java `Pattern`‑ben.
+Állítsa a [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) és a [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) értékét `true`‑ra, és adja át ezeket a lehetőségeket egy szó szerinti kiemelés vagy helyettesítés metódusának. Reguláris kifejezések esetén határozza meg a szóhatárokat és a case sensitivity‑t magában a Java `Pattern`‑ben.
 
-**A keresés és a csere magában foglalhatja a diáknaplók szövegét is?**
+**Tartalmazhat a keresés és a helyettesítés a diáknaplók szövegét is?**
 
-Igen. Állítsa a [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) értékét `true`‑ra, amikor bemutató‑szintű literális‑szöveg műveletet használ. A fent bemutatott callback megvalósítás a notes‑dián belüli egyezést visszakapcsolja a szülődia számához.
+Igen. Állítsa a [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) értékét `true`‑ra, ha bemutató‑szintű szó szerinti műveletet használ. A fent bemutatott visszahívás‑implementáció egy jegyzet dia találatát visszafejti a szülő dia számára.
 
-**Hogyan készítsek jelentést anélkül, hogy a bemutatót másodszor átnézném?**
+**Hogyan készítsek jelentést a bemutató újbóli beolvasása nélkül?**
 
-Adjunk át egy Java result‑callback proxyt a kiemelés vagy csere műveletnek. A callback minden egyezést megkap a művelet futása közben, így az alkalmazás elmentheti a forrás‑szöveget, a megtalált szöveget, a pozíciót, a szövegdobozt és a származtatott diaszámot későbbi csoportosításhoz vagy exporthoz.
+Adjon át egy Java eredmény‑visszahívó proxyt a kiemelés vagy helyettesítés műveletnek. A visszahívás minden találatot megkap a művelet futása közben, így az alkalmazás tárolhatja a forrásszöveget, a megtalált szöveget, a pozíciót, a szövegkeretet és a származtatott diaszámot későbbi csoportosítás vagy export céljából.
 
-**A szöveg cseréje megőrzi-e a formázását?**
+**Megőrzi a szöveg helyettesítése a formázását?**
 
-A [TextFrame.replaceText](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) és a [TextFrame.replaceRegex](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) a megtalált szöveget a meglévő szövegdobozon belül módosítja, és megtartja a környező formázást. Ha egy egyezés különböző formázású részeket fed le, ellenőrizze az eredményt, hogy a csere a kívánt stílust alkalmazza.
+A [TextFrame.replaceText](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) és a [TextFrame.replaceRegex](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) módosítja a megtalált szöveget a meglévő szövegkereten belül, és megtartja a környező rész formázását. Ha egy találat különböző formázású részeket ölel fel, vizsgálja meg az eredményt, hogy biztosan a kívánt stílus legyen alkalmazva a helyettesítésnél.

@@ -17,44 +17,118 @@ keywords:
 - prezentáció
 - PHP
 - Aspose.Slides
-description: "Szöveg keresése, kiemelése és cseréje PowerPoint prezentációkban, miközben minden egyezést gyűjt az Aspose.Slides for PHP via Java használatával."
+description: "Keresés, kiemelés és szöveg cseréje PowerPoint prezentációkban, miközben minden egyezést rögzít az Aspose.Slides for PHP via Java segítségével."
 ---
 ## **Áttekintés**
 
-Aspose.Slides for PHP via Java képes keresni, kiemelni és helyettesíteni a szöveget egy egyedi szövegkeretben vagy egy teljes prezentációban. Minden művelet képes értesíteni az alkalmazást minden egyezésről egy eredmény‑callbacken keresztül. Ez lehetővé teszi a prezentáció frissítését, miközben egy audit‑nyomot épít, amely tartalmazza a megtalált szöveget, annak kontextusát, pozícióját, a szövegkeretet és a dia számát.
+Az Aspose.Slides for PHP via Java képes keresni, kiemelni és helyettesíteni a szöveget egyetlen szövegkeretben vagy az egész bemutatóban. Minden művelet értesítheti az alkalmazást minden egyezésről egy eredmény‑visszahíváson keresztül. Ez lehetővé teszi a bemutató frissítését és egyúttal egy auditnyomvonal létrehozását, amely tartalmazza a talált szöveget, annak környezetét, pozícióját, szövegkeretét és a dia számát.
 
-Ezek a képességek hasznosak felülvizsgálat, érzékeny adatok eltávolítása, terminológiai ellenőrzések, sablon tisztítás és automatizált jelentéskészítési munkafolyamatok esetén.
+Ezek a képességek hasznosak felülvizsgálathoz, sötétításhoz, terminológiai ellenőrzésekhez, sablon tisztításhoz és automatizált jelentéskészítési munkafolyamatokhoz.
 
-Az alábbi első példákban egy „sample.pptx” nevű fájlt használunk, amely az első dián egyetlen szövegdobozt tartalmaz a következő szöveggel:
+Az alábbi első példákban a "sample.pptx" nevű fájlt használjuk, amely az első dián egyetlen szövegdobozt tartalmaz a következő szöveggel:
 
 ![Minta szöveg](sample_text.png)
 
 ## **A keresési hatókör kiválasztása**
 
-Használja a [TextFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframe/) módszereit, hogy a műveletet egy szövegkeretre korlátozza. Használja a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) módszereket, hogy a prezentáció összes releváns szövegét feldolgozza.
+Használja a [TextFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframe/) metódusait egy művelet egy szövegkeretre korlátozásához. Használja a [Presentation](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/) metódusait a bemutatóban minden vonatkozó szöveg feldolgozásához.
 
-| Művelet | Egy szövegkeret | Teljes prezentáció |
+| Művelet | Egy szövegkeret | Teljes bemutató |
 |---|---|---|
-| Literális szöveg kiemelése | [TextFrame::highlightText](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframe/#highlightText) | [Presentation::highlightText](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/#highlightText) |
-| Reguláris kifejezés találatainak kiemelése | [TextFrame::highlightRegex](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframe/#highlightRegex) | [Presentation::highlightRegex](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/#highlightRegex) |
-| Literális szöveg cseréje | [TextFrame::replaceText](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframe/#replaceText) | [Presentation::replaceText](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/#replaceText) |
-| Reguláris kifejezés találatainak cseréje | [TextFrame::replaceRegex](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframe/#replaceRegex) | [Presentation::replaceRegex](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/#replaceRegex) |
+| Szó szerinti szöveg kiemelése | [TextFrame::highlightText](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframe/#highlightText) | [Presentation::highlightText](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/#highlightText) |
+| Reguláris kifejezésnek megfelelő egyezések kiemelése | [TextFrame::highlightRegex](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframe/#highlightRegex) | [Presentation::highlightRegex](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/#highlightRegex) |
+| Szó szerinti szöveg cseréje | [TextFrame::replaceText](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframe/#replaceText) | [Presentation::replaceText](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/#replaceText) |
+| Reguláris kifejezés egyezéseinek cseréje | [TextFrame::replaceRegex](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframe/#replaceRegex) | [Presentation::replaceRegex](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/#replaceRegex) |
 
-## **Szövegillesztés beállítása**
+## **A szövegillesztés beállítása**
 
-A literális szövegműveletekhez használja a [TextSearchOptions](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textsearchoptions/)‑t a találatok szabályozásához:
+Szó szerinti szöveg műveleteknél a [TextSearchOptions](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textsearchoptions/) segítségével szabályozhatja az egyezést:
 
-- [TextSearchOptions::setWholeWordsOnly](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textsearchoptions/#setWholeWordsOnly) korlátozza a találatokat teljes szavakra.
-- [TextSearchOptions::setCaseSensitive](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textsearchoptions/#setCaseSensitive) vezérli, hogy a karakterek kis‑ és nagybetűje egyezzen‑e.
-- [TextSearchOptions::setIncludeNotes](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textsearchoptions/#setIncludeNotes) bevonja a diavázlatokat a prezentáció‑szintű keresésbe, cserébe és kiemelésbe.
+- A [TextSearchOptions::setWholeWordsOnly](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textsearchoptions/#setWholeWordsOnly) csak teljes szavakra korlátozza az egyezéseket.
+- A [TextSearchOptions::setCaseSensitive](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textsearchoptions/#setCaseSensitive) szabályozza, hogy a karakterek esetérzékenysége kötelező-e.
+- A [TextSearchOptions::setIncludeNotes](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textsearchoptions/#setIncludeNotes) a diá jegyzeteket is belefoglalja a bemutató szintű keresésbe, csere‑ és kiemelési műveletekbe.
 
-A reguláris kifejezéseken alapuló műveletek egy Java `Pattern`‑t használnak, így a nagybetű‑érzékenység és a szóhatárok a kifejezésben és annak flagjeiben vannak definiálva.
+A reguláris kifejezésekkel végzett műveletek Java `Pattern`‑t használnak, ezért az olyan egyezési szabályok, mint az esetérzékenység és a szóhatárok, a kifejezés és annak jelzői által vannak meghatározva.
 
-## **Találatinformációk összegyűjtése callback‑kel**
+## **A szövegkeret tulajdonosának azonosítása**
 
-Adja át egy Java proxy callback‑et egy kiemelési vagy csere metódusnak, hogy minden egyezésről értesítést kapjon. A callback metódus megkapja a kapcsolódó szövegkeretet, a forrás‑szöveget, a megtalált szöveget és a pozíciót.
+Az általános szövegfeldolgozó munkafolyamatok gyakran kapnak egy [TextFrame]‑et a szöveg keresése, cseréje, ellenőrzése vagy exportálása során. Használja a [TextFrame::getParentShape] és a [TextFrame::getParentCell] metódusokat annak meghatározására, hogy melyik bemutatóobjektum birtokolja a szövegkeretet.
 
-A callback nem kap közvetlenül diaszámot. Az alábbi megvalósítás a szülő diából származtatja azt, és kezeli a diavázlatokban található szöveget is. Az eredmény‑tömb `null`‑t használ, ha a szöveg egy másik dia‑típussal van összekapcsolva.
+A várt értékek a tulajdonostól függenek:
+
+| Szövegkeret tulajdonosa | `getParentShape` | `getParentCell` |
+|---|---|---|
+| Egy AutoShape vagy egy másik szöveget tartalmazó alakzat | A tulajdonos [Shape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/shape/) | `null` |
+| Egy táblázatcell | `null` | A tulajdonos [Cell](https://reference.aspose.com/slides/hu/php-java/aspose.slides/cell/) |
+
+Mindkét metódus csak olvasási navigációt biztosít. Meghívásuk nem mozgatja a szövegkeretet, és nem változtatja meg a tulajdonost. Az általános kódnak `java_is_null`‑al kell ellenőriznie mindkét értéket, és kezelnie kell azt az esetet, amikor egyik tulajdonos sem érhető el.
+
+Az alábbi példa a [SlideUtil::getAllTextFrames](https://reference.aspose.com/slides/hu/php-java/aspose.slides/slideutil/#getAllTextFrames)‑t használja a bemutató szövegkereteinek bejárásához. Alakzatok esetén jelentést készít az alakzat nevéről, a Java futásidejű típusáról és a tartalmazó diáról. Táblázatcellák esetén a nullától induló oszlop- és sorkoordinátákat, valamint a tartalmazó diát jelzi.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SlideUtil;
+
+$presentation = new Presentation("presentation.pptx");
+$arrayClass = new java_class("java.lang.reflect.Array");
+
+try {
+    $textFrames = SlideUtil::getAllTextFrames($presentation, false);
+    $textFrameCount = java_values($arrayClass->getLength($textFrames));
+
+    for ($textFrameIndex = 0; $textFrameIndex < $textFrameCount; $textFrameIndex++) {
+        $textFrame = $textFrames[$textFrameIndex];
+        $ownerShape = $textFrame->getParentShape();
+        if (!java_is_null($ownerShape)) {
+            $shapeName = java_values($ownerShape->getName());
+            $shapeName = $shapeName === "" ? "(unnamed)" : $shapeName;
+            $shapeType = java_values($ownerShape->getClass()->getSimpleName());
+            $baseSlide = $ownerShape->getSlide();
+            $slideClassName = java_values($baseSlide->getClass()->getName());
+
+            if ($slideClassName === "com.aspose.slides.Slide") {
+                $slideLabel = "slide " . java_values($baseSlide->getSlideNumber());
+            } elseif ($slideClassName === "com.aspose.slides.NotesSlide") {
+                $slideLabel = "notes for slide " . java_values($baseSlide->getParentSlide()->getSlideNumber());
+            } else {
+                $slideLabel = java_values($baseSlide->getClass()->getSimpleName());
+            }
+
+            echo("Shape: " . $shapeName . "; type: " . $shapeType . "; " . $slideLabel . "\n");
+            continue;
+        }
+
+        $ownerCell = $textFrame->getParentCell();
+        if (!java_is_null($ownerCell)) {
+            $baseSlide = $ownerCell->getSlide();
+            $slideClassName = java_values($baseSlide->getClass()->getName());
+
+            if ($slideClassName === "com.aspose.slides.Slide") {
+                $slideLabel = "slide " . java_values($baseSlide->getSlideNumber());
+            } elseif ($slideClassName === "com.aspose.slides.NotesSlide") {
+                $slideLabel = "notes for slide " . java_values($baseSlide->getParentSlide()->getSlideNumber());
+            } else {
+                $slideLabel = java_values($baseSlide->getClass()->getSimpleName());
+            }
+
+            echo("Table cell: column " . java_values($ownerCell->getFirstColumnIndex()) . ", row " . java_values($ownerCell->getFirstRowIndex()) . "; " . $slideLabel . "\n");
+            continue;
+        }
+
+        echo("The text frame owner is not available as a shape or table cell.\n");
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+SmartArt tartalom esetén járja be az alakzatokat a [SmartArtNode::getShapes](https://reference.aspose.com/slides/hu/php-java/aspose.slides/smartartnode/#getShapes)‑ban, és érje el minden [SmartArtShape::getTextFrame](https://reference.aspose.com/slides/hu/php-java/aspose.slides/smartartshape/#getTextFrame)‑et. A szövegkeret az [TextFrame::getParentShape](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframe/#getParentShape) segítségével visszakövethető a kapcsolódó alakzatra, míg a [TextFrame::getParentCell](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframe/#getParentCell) `null`‑t ad vissza. Ezért a példában a alakzat ágazat szintén kezeli a SmartArt csomópontok szövegét.
+
+## **Egyezésinformációk gyűjtése visszahívással**
+
+Adjon át egy Java proxy visszahívást egy kiemelés vagy csere metódusnak, hogy minden egyezésről értesítést kapjon. A visszahívás a kapcsolódó szövegkeretet, a forrásszöveget, a megtalált szöveget és az egyezés pozícióját kapja.
+
+A visszahívás nem kap közvetlenül diá számot. Az alábbi megvalósítás a szülő diához kapcsolja, és kezeli a diá jegyzetekben talált szöveget is. Az eredmény tömb `null`‑t használ, ha a szöveg egy másik diatípushoz tartozik.
 
 ```php
 class TextSearchCallback {
@@ -76,7 +150,17 @@ class TextSearchCallback {
     }
 
     private function getSlideNumber($textFrame) {
-        $parentSlide = $textFrame->getSlide();
+        $parentShape = $textFrame->getParentShape();
+        $parentCell = $textFrame->getParentCell();
+
+        if (!java_is_null($parentShape)) {
+            $parentSlide = $parentShape->getSlide();
+        } elseif (!java_is_null($parentCell)) {
+            $parentSlide = $parentCell->getSlide();
+        } else {
+            $parentSlide = $textFrame->getSlide();
+        }
+
         if (java_is_null($parentSlide)) {
             return null;
         }
@@ -101,7 +185,7 @@ class TextSearchCallback {
 }
 ```
 
-Használjon proxyt ezt a PHP objektumhoz, mielőtt átadná egy műveletnek:
+Hozzon létre egy proxy-t ehhez a PHP objektumhoz, mielőtt átadná egy műveletnek:
 
 ```php
 $callbackHandler = new TextSearchCallback();
@@ -113,11 +197,11 @@ $callback = java_closure(
 );
 ```
 
-A csere műveleteknél a `foundText` az eredeti megtalált szöveget tartalmazza, így a callback pontosan rögzítheti, mely kifejezéseket cserélték.
+Csere műveleteknél a `foundText` tartalmazza az eredeti megtalált szöveget, így a visszahívás pontosan rögzítheti, mely kifejezéseket cserélték.
 
 ## **Szöveg kiemelése**
 
-Használja a [TextFrame::highlightText] metódust a literális szöveg egyezések kiemeléséhez egy szövegkeretben. Adja át a [TextSearchOptions]‑t a keresés vezérléséhez.
+Használja a [TextFrame::highlightText](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframe/#highlightText) metódust a szó szerinti szöveg egyezéseinek kiemeléséhez egy szövegkeretben. Adja át a [TextSearchOptions](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textsearchoptions/)‑t a keresés szabályozásához.
 
 Az alábbi kódrészlet kiemeli a **"try"** karakterek minden előfordulását, majd csak a teljes **"to"** szót emeli ki.
 
@@ -138,7 +222,7 @@ try {
     $substringSearchOptions->setCaseSensitive(false);
     $substringHighlightColor = new Java("java.awt.Color", 173, 216, 230);
 
-    // Kiemeli a "try" minden előfordulását a szövegkeretben.
+    // Emelje ki a "try" szó minden előfordulását a szövegkeretben.
     $shape->getTextFrame()->highlightText(
         "try",
         $substringHighlightColor,
@@ -151,7 +235,7 @@ try {
     $wholeWordSearchOptions->setCaseSensitive(false);
     $wholeWordHighlightColor = new Java("java.awt.Color", 238, 130, 238);
 
-    // Kiemeli csak a teljes "to" szót.
+    // Emelje ki csak a teljes "to" szót.
     $shape->getTextFrame()->highlightText(
         "to",
         $wholeWordHighlightColor,
@@ -180,9 +264,9 @@ Az eredmény:
 
 ## **Szöveg kiemelése reguláris kifejezésekkel**
 
-A [TextFrame::highlightRegex] metódus kiemeli a reguláris kifejezéssel megtalált szöveg egyezéseket egy szövegkeretben.
+A [TextFrame::highlightRegex](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframe/#highlightRegex) metódus kiemeli a szövegkeretben egy reguláris kifejezés által megtalált egyezéseket.
 
-Az alábbi kód minden, legalább hét karaktert tartalmazó szót kiemel:
+Az alábbi kód kiemeli a hét vagy több karaktert tartalmazó összes szót:
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -205,9 +289,9 @@ Az eredmény:
 
 ![A reguláris kifejezéssel kiemelt szöveg](highlighted_text_using_regex.png)
 
-## **Szöveg kiemelése a teljes prezentációban**
+## **Szöveg kiemelése a teljes bemutatóban**
 
-Használja a [Presentation::highlightText] és a [Presentation::highlightRegex] metódusokat a prezentáció összes releváns szövegkeretének kereséséhez. Az alábbi példa egy literális kifejezést és minden e‑mail címet emel ki:
+Használja a [Presentation::highlightText](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/#highlightText) és a [Presentation::highlightRegex](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/#highlightRegex) metódusokat a bemutató összes alkalmazható szövegkeretének kereséséhez. Az alábbi példa kiemeli egy szó szerinti kifejezést és minden e‑mail címet:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -242,9 +326,9 @@ finally {
 
 ## **Szöveg cseréje egy szövegkeretben**
 
-Használja a [TextFrame::replaceText] metódust literális szöveghez, és a [TextFrame::replaceRegex] metódust mintára alapozott cseréhez. Ezek a metódusok a megtalált szöveget frissítik a meglévő szövegkereten belül, megőrizve a környező rész formázását, ahelyett, hogy a szövegkeretet egy egyszerű karakterláncból újraépítenék.
+Használja a [TextFrame::replaceText](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframe/#replaceText)‑t szó szerinti szöveghez, és a [TextFrame::replaceRegex](https://reference.aspose.com/slides/hu/php-java/aspose.slides/textframe/#replaceRegex)‑t minta alapú cserehez. Ezek a metódusok a meglévő szövegkereten belül frissítik a megtalált szöveget, megőrizve a környező rész formázását, ahelyett, hogy egy egyszerű karakterláncból újjáépítenék a keretet.
 
-Az alábbi példa egységesíti egy helyesírási változatot, majd helyettesíti a verziócímkéket:
+Az alábbi példa egységesíti egy helyesírási variánst, majd cseréli a verziócímkéket:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -282,11 +366,11 @@ finally {
 }
 ```
 
-Ha egy találat különböző formázású részeket fed le, ellenőrizze a kimenetet, hogy melyik formázás legyen alkalmazva a csere szövegre.
+Ha egy egyezés különböző formázású részeket foglal magába, ellenőrizze a kimenetet, hogy melyik formázás legyen alkalmazva a cserélt szövegre.
 
-## **Szöveg cseréje a teljes prezentációban**
+## **Szöveg cseréje a teljes bemutatóban**
 
-Használja a [Presentation::replaceText] és a [Presentation::replaceRegex] metódusokat azonos műveletek alkalmazásához a teljes prezentációban. Ez hasznos sablon tisztításához, terminológia frissítéséhez és érzékeny adatok eltávolításához.
+Használja a [Presentation::replaceText](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/#replaceText) és a [Presentation::replaceRegex](https://reference.aspose.com/slides/hu/php-java/aspose.slides/presentation/#replaceRegex) metódusokat a bemutató egészére történő azonos műveletekhez. Ez hasznos sablon tisztításhoz, terminológiai frissítésekhez és sötétítéshez.
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -318,9 +402,9 @@ finally {
 }
 ```
 
-## **Találatok csoportosítása jelentéshez**
+## **Egyezések csoportosítása jelentéshez**
 
-Mivel minden eredmény tárolja a dia számát és a szövegkeretet, az alkalmazások csoportosíthatják a találatokat audit, jelentés vagy felülvizsgálati munkafolyamatok céljából. Az alábbi példa először dia, majd szövegkeret szerint csoportosítja a gyűjtött eredményeket:
+Mivel minden eredmény tárolja a diá számát és a szövegkeretet, az alkalmazások csoportosíthatják az egyezéseket audit, jelentés vagy felülvizsgálati munkafolyamatok céljából. Az alábbi példa először diánként, majd szövegkeretenként csoportosítja a gyűjtött eredményeket:
 
 ```php
 $matchesBySlide = [];
@@ -365,24 +449,24 @@ foreach ($matchesBySlide as $slideLabel => $textFrameGroups) {
 }
 ```
 
-## **GYIK**
+## **FAQ**
 
-**Hogyan kereshetek csak egy szövegdobozban a teljes prezentáció helyett?**
+**Hogyan kereshetek csak egy szövegdobozban a teljes bemutató helyett?**
 
-Szerezze meg a alakzat szövegkeretét, és hívja meg a [TextFrame::highlightText], [TextFrame::highlightRegex], [TextFrame::replaceText] vagy [TextFrame::replaceRegex] metódusokat azon a szövegkereten. A prezentáció‑szintű metódusok az összes releváns szövegkeretet dolgozzák fel.
+Szerezze meg az alakzat szövegkeretét, és hívja meg a [TextFrame::highlightText], [TextFrame::highlightRegex], [TextFrame::replaceText] vagy a [TextFrame::replaceRegex] metódusokat azon a szövegkereten. A bemutató‑szintű metódusok helyette az összes alkalmazható szövegkeretet dolgozzák fel.
 
-**Hogyan egyeztessek teljes szavakat a helyes nagybetűhasználattal?**
+**Hogyan egyeztessek teljes szavakat a megfelelő nagybetűkkel?**
 
-Állítsa a [TextSearchOptions::setWholeWordsOnly] és a [TextSearchOptions::setCaseSensitive] értékét `true`‑ra, és adja át ezeket a lehetőségeket egy literális szöveg kiemelés vagy csere metódusnak. Reguláris kifejezéseknél határozza meg a szóhatárokat és a nagybetűérzékenységet a Java `Pattern`‑ben.
+Állítsa a [TextSearchOptions::setWholeWordsOnly] és a [TextSearchOptions::setCaseSensitive] értékét `true`‑ra, és adja át a beállításokat egy szó szerinti szöveg kiemelés vagy csere metódusnak. Reguláris kifejezéseknél határozza meg a szóhatárokat és az esetérzékenységet a Java `Pattern`‑ben.
 
-**Tartalmazhatja a keresés és csere a diavázlatok szövegét is?**
+**A keresés és csere magában foglalhatja a diá jegyzetek szövegét is?**
 
-Igen. Állítsa a [TextSearchOptions::setIncludeNotes] értékét `true`‑ra, amikor prezentáció‑szintű literális szöveg műveletet használ.
+Igen. Állítsa a [TextSearchOptions::setIncludeNotes] értékét `true`‑ra, amikor bemutató‑szintű szó szerinti szöveg műveletet használ.
 
-**Hogyan hozhatok létre jelentést anélkül, hogy újra átnézném a prezentációt?**
+**Hogyan készítsek jelentést anélkül, hogy a bemutatót másodszor átnézném?**
 
-Adjon át egy Java proxy callback‑et a kiemelési vagy csere műveletnek. A callback a művelet futása közben minden találatot megkap, így az alkalmazás eltárolhatja a forrás‑szöveget, a megtalált szöveget, a pozíciót, a szövegkeretet és a származtatott diaszámot későbbi csoportosításhoz vagy exportáláshoz.
+Adjon át egy Java proxy visszahívást a kiemelés vagy csere művelethez. A visszahívás a művelet futása közben minden egyezést megkap, így az alkalmazás elmentheti a forrásszöveget, a megtalált szöveget, a pozíciót, a szövegkeretet és a származtatott diá számot későbbi csoportosításhoz vagy exportáláshoz.
 
-**Megőrzi-e a szöveg cseréje a formázását?**
+**Megőrzi-e a szöveg csere a formázását?**
 
-A [TextFrame::replaceText] és a [TextFrame::replaceRegex] a meglévő szövegkereten belül módosítják a megtalált szöveget, és megőrzik a környező rész formázását. Ha egy találat különböző formázású részeket fed le, ellenőrizze az eredményt, hogy a csere a kívánt stílust alkalmazza.
+A [TextFrame::replaceText] és a [TextFrame::replaceRegex] a meglévő szövegkereten belül módosítják a megtalált szöveget, és megtartják a környező rész formázását. Ha egy egyezés különböző formázású részeket ölel fel, ellenőrizze a eredményt, hogy a csere a kívánt stílust használja.

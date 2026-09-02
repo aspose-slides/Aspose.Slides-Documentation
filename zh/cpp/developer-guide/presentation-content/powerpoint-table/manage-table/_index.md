@@ -16,28 +16,50 @@ keywords:
 - 演示文稿
 - C++
 - Aspose.Slides
-description: "使用 Aspose.Slides for C++ 在 PowerPoint 幻灯片中创建和编辑表格。发现简洁的代码示例，以简化表格工作流。"
+description: "使用 Aspose.Slides for C++ 在 PowerPoint 幻灯片中创建和编辑表格。发现简易代码示例，以简化您的表格工作流。"
 ---
+## **介绍**
 
-PowerPoint 中的表格是展示和呈现信息的高效方式。以网格形式（按行列排列）的信息简洁易懂。
+PowerPoint 中的表格是一种高效的展示和呈现信息的方式。由单元格（按行列排列）的网格中的信息直观且易于理解。
 
-Aspose.Slides 提供了 [Table](https://reference.aspose.com/slides/cpp/aspose.slides/table/) 类、[ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) 接口、[Cell](https://reference.aspose.com/slides/cpp/aspose.slides/cell/) 类、[ICell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/) 接口以及其他类型，以便您在各种演示文稿中创建、更新和管理表格。
+Aspose.Slides 提供了 [Table](https://reference.aspose.com/slides/zh/cpp/aspose.slides/table/) 类、[ITable](https://reference.aspose.com/slides/zh/cpp/aspose.slides/itable/) 接口、[Cell](https://reference.aspose.com/slides/zh/cpp/aspose.slides/cell/) 类、[ICell](https://reference.aspose.com/slides/zh/cpp/aspose.slides/icell/) 接口以及其他类型，帮助您在各种演示文稿中创建、更新和管理表格。
 
 ## **从头创建表格**
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 类的实例。  
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/cpp/aspose.slides/presentation/) 类的实例。  
 2. 通过索引获取幻灯片的引用。  
-3. 定义 `columnWidth` 数组。  
-4. 定义 `rowHeight` 数组。  
-5. 通过 [AddTable()](https://reference.aspose.com/slides/cpp/aspose.slides/ishapecollection/addtable/) 方法将 [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) 对象添加到幻灯片。  
-6. 遍历每个 [ICell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/)，为上、下、左、右边框应用格式。  
+3. 定义一个 `columnWidth` 数组。  
+4. 定义一个 `rowHeight` 数组。  
+5. 通过 [AddTable()](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ishapecollection/addtable/) 方法向幻灯片添加一个 [ITable] 对象。  
+6. 遍历每个 [ICell]，对上、下、左、右边框进行格式化。  
 7. 合并表格第一行的前两个单元格。  
-8. 访问 [ICell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/) 的 [TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/textframe/)。  
-9. 向 [TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/textframe/) 添加一些文本。  
+8. 访问 [ICell] 的 [TextFrame](https://reference.aspose.com/slides/zh/cpp/aspose.slides/textframe/)。  
+9. 向 [TextFrame](https://reference.aspose.com/slides/zh/cpp/aspose.slides/textframe/) 添加一些文本。  
 10. 保存修改后的演示文稿。
 
 下面的 C++ 代码演示了如何在演示文稿中创建表格：
+
 ```c++
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <DOM/Table/ICellFormat.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 // 实例化一个表示 PPTX 文件的 Presentation 类
 auto pres = System::MakeObject<Presentation>();
 
@@ -75,22 +97,21 @@ for (int32_t row = 0; row < tbl->get_Rows()->get_Count(); row++)
         cellFormat->get_BorderRight()->set_Width(5);
     }
 }
-// 合并第 1 行的第 1 和第 2 个单元格
+// 合并第1行的第1和第2个单元格
 tbl->MergeCells(tbl->get_Rows()->idx_get(0)->idx_get(0), tbl->get_Rows()->idx_get(1)->idx_get(1), false);
 
-// 向合并的单元格添加文本
+// 向合并的单元格添加一些文本
 tbl->get_Rows()->idx_get(0)->idx_get(0)->get_TextFrame()->set_Text(u"Merged Cells");
 
 // 将演示文稿保存到磁盘
 pres->Save(u"table.pptx", SaveFormat::Pptx);
 ```
 
-
 ## **标准表格中的编号**
 
-在标准表格中，单元格的编号直观且从零开始。表格中的第一个单元格索引为 0,0（第 0 列，第 0 行）。
+在标准表格中，单元格的编号方式直接且从 0 开始。表格中的第一个单元格索引为 0,0（第 0 列，第 0 行）。
 
-例如，具有 4 列 4 行的表格单元格编号如下：
+例如，一个拥有 4 列 4 行的表格，其单元格编号如下：
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -99,8 +120,29 @@ pres->Save(u"table.pptx", SaveFormat::Pptx);
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
 下面的 C++ 代码演示了如何为表格中的单元格指定编号：
+
 ```c++
-// 实例化表示 PPTX 文件的 Presentation 类
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <DOM/Table/ICellFormat.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+// 实例化一个表示 PPTX 文件的 Presentation 类
 auto pres = System::MakeObject<Presentation>();
 
 // 访问第一张幻灯片
@@ -141,31 +183,48 @@ for (const auto& row : tbl->get_Rows())
 pres->Save(u"StandardTables_out.pptx", SaveFormat::Pptx);
 ```
 
-
 ## **访问现有表格**
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 类的实例。  
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/cpp/aspose.slides/presentation/) 类的实例。  
+
 2. 通过索引获取包含表格的幻灯片的引用。  
-3. 创建一个 [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) 对象并将其设为 null。  
-4. 遍历所有 [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) 对象，直到找到表格。  
 
-   如果您怀疑当前幻灯片只包含一个表格，可以直接检查它所包含的所有形状。当形状被识别为表格时，可以将其强制转换为 [Table](https://reference.aspose.com/slides/cpp/aspose.slides/table/) 对象。但是如果幻灯片中包含多个表格，则最好通过其 [set_AlternativeText()](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/set_alternativetext/) 来搜索所需的表格。  
+3. 创建一个 [ITable](https://reference.aspose.com/slides/zh/cpp/aspose.slides/itable/) 对象并将其设置为 null。  
 
-5. 使用 [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) 对象对表格进行操作。下面的示例在表格中添加了一行新行。  
+4. 遍历所有 [IShape](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ishape/) 对象直至找到表格。  
+
+   如果您确信当前幻灯片只包含一个表格，可以直接检查其所有形状。当形状被识别为表格时，您可以将其强制转换为 [Table](https://reference.aspose.com/slides/zh/cpp/aspose.slides/table/) 对象。但如果幻灯片中包含多个表格，建议通过其 [set_AlternativeText()](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ishape/set_alternativetext/) 来搜索所需的表格。  
+
+5. 使用 [ITable](https://reference.aspose.com/slides/zh/cpp/aspose.slides/itable/) 对象对表格进行操作。下面的示例中，我们向表格添加了一行新行。  
+
 6. 保存修改后的演示文稿。
 
 下面的 C++ 代码演示了如何访问并操作现有表格：
+
 ```c++
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 // 实例化一个表示 PPTX 文件的 Presentation 类
 auto pres = System::MakeObject<Presentation>(u"UpdateExistingTable.pptx");
 
 // 访问第一张幻灯片
 auto sld = pres->get_Slides()->idx_get(0);
 
-// 初始化为空表
+// 初始化空表格
 System::SharedPtr<ITable> tbl;
 
-// 遍历形状并设置对找到的表的引用
+// 遍历形状并将找到的表格设置为引用
 for (const auto& shp : System::IterateOver(sld->get_Shapes()))
 {
     if (System::ObjectExt::Is<ITable>(shp))
@@ -174,30 +233,61 @@ for (const auto& shp : System::IterateOver(sld->get_Shapes()))
     }
 }
 
-// 为第二行第一列设置文本
+// 为第二行的第一列设置文本
 tbl->idx_get(0, 1)->get_TextFrame()->set_Text(u"New");
 
 // 将修改后的演示文稿保存到磁盘
 pres->Save(u"table1_out.pptx", SaveFormat::Pptx);
 ```
 
+## **查找拥有 TextFrame 的单元格**
 
-## **在表格中对齐文本**
+当通用文本处理代码从表格中获取到一个 [ITextFrame](https://reference.aspose.com/slides/zh/cpp/aspose.slides/itextframe/) 时，使用 [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/zh/cpp/aspose.slides/itextframe/get_parentcell/) 可以检索拥有该框的 [ICell](https://reference.aspose.com/slides/zh/cpp/aspose.slides/icell/)。对于表格单元格的 TextFrame，[ITextFrame::get_ParentCell](https://reference.aspose.com/slides/zh/cpp/aspose.slides/itextframe/get_parentcell/) 返回所有者，而 [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/zh/cpp/aspose.slides/itextframe/get_parentshape/) 返回 `nullptr`，即使表格本身也是一个形状。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 类的实例。  
+单元格坐标可以通过只读的 [ICell::get_FirstColumnIndex](https://reference.aspose.com/slides/zh/cpp/aspose.slides/icell/get_firstcolumnindex/) 和 [ICell::get_FirstRowIndex](https://reference.aspose.com/slides/zh/cpp/aspose.slides/icell/get_firstrowindex/) 方法获取。[ITextFrame::get_ParentCell](https://reference.aspose.com/slides/zh/cpp/aspose.slides/itextframe/get_parentcell/) 还提供只读的导航：它返回所有者但不改变所有权。使用前务必检查返回的单元格是否为 `nullptr`。
+
+有关完整示例（包括识别表格单元格和形状所有者，以及与 SmartArt 节点关联的形状），请参阅 [Search and Replace Text](/slides/zh/cpp/search-and-replace-text/)。
+
+## **对齐表格中的文本**
+
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/cpp/aspose.slides/presentation/) 类的实例。  
 2. 通过索引获取幻灯片的引用。  
-3. 将一个 [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) 对象添加到幻灯片。  
-4. 从表格中访问一个 [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) 对象。  
-5. 访问 [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) 的 [IParagraph](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraph/)。  
+3. 向幻灯片添加一个 [ITable](https://reference.aspose.com/slides/zh/cpp/aspose.slides/itable/) 对象。  
+4. 从表格中获取一个 [ITextFrame](https://reference.aspose.com/slides/zh/cpp/aspose.slides/itextframe/) 对象。  
+5. 访问该 [ITextFrame] 的 [IParagraph](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iparagraph/)。  
 6. 垂直对齐文本。  
 7. 保存修改后的演示文稿。
 
-下面的 C++ 代码演示了如何在表格中对齐文本：
+下面的 C++ 代码演示了如何对齐表格中的文本：
+
 ```c++
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/TextAnchorType.h>
+#include <DOM/TextVerticalType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 // 创建 Presentation 类的实例
 auto presentation = System::MakeObject<Presentation>();
 
-// 获取第一张幻灯片 
+// 获取第一张幻灯片
 auto slide = presentation->get_Slides()->idx_get(0);
 
 // 定义列宽和行高
@@ -231,19 +321,33 @@ cell->set_TextVerticalType(TextVerticalType::Vertical270);
 presentation->Save(u"Vertical_Align_Text_out.pptx", SaveFormat::Pptx);
 ```
 
-
 ## **在表格级别设置文本格式**
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/) 类的实例。  
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/cpp/aspose.slides/presentation/) 类的实例。  
 2. 通过索引获取幻灯片的引用。  
-3. 从幻灯片中访问一个 [ITable](https://reference.aspose.com/slides/cpp/aspose.slides/itable/) 对象。  
-4. 为文本设置 [set_FontHeight()](https://reference.aspose.com/slides/cpp/aspose.slides/baseportionformat/set_fontheight/) 。  
-5. 设置 [set_Alignment()](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_alignment/) 和 [set_MarginRight()](https://reference.aspose.com/slides/cpp/aspose.slides/iparagraphformat/set_marginright/)。  
-6. 设置 [set_TextVerticalType()](https://reference.aspose.com/slides/cpp/aspose.slides/textframeformat/set_textverticaltype/)。  
+3. 从幻灯片中获取一个 [ITable](https://reference.aspose.com/slides/zh/cpp/aspose.slides/itable/) 对象。  
+4. 使用 [set_FontHeight()](https://reference.aspose.com/slides/zh/cpp/aspose.slides/baseportionformat/set_fontheight/) 设置文本的字体高度。  
+5. 设置 [set_Alignment()](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iparagraphformat/set_alignment/) 和 [set_MarginRight()](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iparagraphformat/set_marginright/)。  
+6. 设置 [set_TextVerticalType()](https://reference.aspose.com/slides/zh/cpp/aspose.slides/textframeformat/set_textverticaltype/)。  
 7. 保存修改后的演示文稿。  
 
-下面的 C++ 代码演示了如何对表格中的文本应用所需的格式设置：
+下面的 C++ 代码演示了如何对表格中的文本应用首选的格式化选项：
+
 ```c++
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ParagraphFormat.h>
+#include <DOM/PortionFormat.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/TextAlignment.h>
+#include <DOM/TextFrameFormat.h>
+#include <DOM/TextVerticalType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 // 创建 Presentation 类的实例
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slides()->idx_get(0);
@@ -256,13 +360,13 @@ auto portionFormat = System::MakeObject<PortionFormat>();
 portionFormat->set_FontHeight(25.0f);
 someTable->SetTextFormat(portionFormat);
 
-// 一次调用设置表格单元格的文本对齐方式和右边距
+// 一次性设置表格单元格的文本对齐方式和右侧边距
 auto paragraphFormat = System::MakeObject<ParagraphFormat>();
 paragraphFormat->set_Alignment(TextAlignment::Right);
 paragraphFormat->set_MarginRight(20.0f);
 someTable->SetTextFormat(paragraphFormat);
 
-// 设置表格单元格的文本垂直方向
+// 设置表格单元格的文本垂直方向类型
 auto textFrameFormat = System::MakeObject<TextFrameFormat>();
 textFrameFormat->set_TextVerticalType(TextVerticalType::Vertical);
 someTable->SetTextFormat(textFrameFormat);
@@ -270,11 +374,20 @@ someTable->SetTextFormat(textFrameFormat);
 presentation->Save(u"result.pptx", SaveFormat::Pptx);
 ```
 
-
 ## **获取表格样式属性**
 
-Aspose.Slides 允许您检索表格的样式属性，以便将在其他表格或其他位置使用这些细节。下面的 C++ 代码演示了如何从表格预设样式中获取样式属性：
+Aspose.Slides 允许您检索表格的样式属性，以便将这些细节用于其他表格或其他位置。下面的 C++ 代码展示了如何从表格预设样式中获取样式属性：
+
 ```c++
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/TableStylePreset.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slide(0)->get_Shapes();
 auto table = System::ExplicitCast<ITable>(shapes->AddTable(10, 10, System::MakeArray<double>({100, 150}), System::MakeArray<double>({5, 5, 5})));
@@ -283,13 +396,25 @@ table->set_StylePreset(TableStylePreset::DarkStyle1);
 pres->Save(u"table.pptx", SaveFormat::Pptx);
 ```
 
-
 ## **锁定表格的宽高比**
 
-几何形状的宽高比是其在不同维度上的尺寸比例。Aspose.Slides 提供了 `AspectRatioLocked()` 属性，以便您为表格和其他形状锁定宽高比设置。  
+几何形状的宽高比是其在不同维度上的尺寸比例。Aspose.Slides 提供了 `AspectRatioLocked()` 属性，让您可以锁定表格及其他形状的宽高比设置。
 
 下面的 C++ 代码演示了如何锁定表格的宽高比：
+
 ```c++
+#include <DOM/IGraphicalObjectLock.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 auto table = System::ExplicitCast<ITable>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
 
@@ -303,17 +428,16 @@ Console::WriteLine(u"Lock aspect ratio set: {0}", table->get_GraphicalObjectLock
 pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
 ```
 
-
 ## **常见问题**
 
-**我能为整个表格及其单元格中的文本启用从右到左 (RTL) 阅读方向吗？**
+**我可以为整个表格及其单元格中的文本启用从右到左 (RTL) 阅读方向吗？**
 
-可以。表格公开了 [set_RightToLeft](https://reference.aspose.com/slides/cpp/aspose.slides/table/set_righttoleft/) 方法，段落则有 [ParagraphFormat::set_RightToLeft](https://reference.aspose.com/slides/cpp/aspose.slides/paragraphformat/set_righttoleft/)。两者结合使用可确保单元格内部的正确 RTL 顺序和渲染。
+可以。表格提供了 [set_RightToLeft](https://reference.aspose.com/slides/zh/cpp/aspose.slides/table/set_righttoleft/) 方法，段落则有 [ParagraphFormat::set_RightToLeft](https://reference.aspose.com/slides/zh/cpp/aspose.slides/paragraphformat/set_righttoleft/)。两者同时使用即可确保单元格内文本的正确 RTL 顺序和渲染。
 
 **如何防止用户在最终文件中移动或调整表格的大小？**
 
-使用 [shape locks](/slides/zh/cpp/applying-protection-to-presentation/) 禁用移动、调整大小、选择等。这些锁同样适用于表格。
+使用 [shape locks](/slides/zh/cpp/applying-protection-to-presentation/) 禁用移动、缩放、选择等操作。这些锁同样适用于表格。
 
-**是否支持在单元格内部插入图像作为背景？**
+**是否支持在单元格内部将图像作为背景插入？**
 
-支持。您可以为单元格设置 [picture fill](https://reference.aspose.com/slides/cpp/aspose.slides/picturefillformat/)，图像将根据所选模式（拉伸或平铺）覆盖单元格区域。
+支持。您可以为单元格设置 [picture fill](https://reference.aspose.com/slides/zh/cpp/aspose.slides/picturefillformat/)，图像将根据选定的模式（拉伸或平铺）覆盖单元格区域。

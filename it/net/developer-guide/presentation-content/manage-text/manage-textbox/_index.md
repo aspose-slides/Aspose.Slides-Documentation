@@ -1,12 +1,12 @@
 ---
 title: Gestire le caselle di testo nelle presentazioni in .NET
-linktitle: Gestire casella di testo
+linktitle: Gestire la casella di testo
 type: docs
 weight: 20
 url: /it/net/manage-textbox/
 keywords:
 - casella di testo
-- riquadro di testo
+- frame di testo
 - aggiungere testo
 - aggiornare testo
 - creare casella di testo
@@ -18,11 +18,11 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides per .NET facilita la creazione, modifica e clonazione delle caselle di testo in file PowerPoint e OpenDocument, migliorando l'automazione delle tue presentazioni."
+description: "Aspose.Slides per .NET semplifica la creazione, la modifica e la clonazione delle caselle di testo in file PowerPoint e OpenDocument, migliorando l'automazione delle tue presentazioni."
 ---
 ## **Introduzione**
 
-Il testo nelle diapositive è tipicamente presente in caselle di testo o forme. Pertanto, per aggiungere testo a una diapositiva, è necessario aggiungere prima una casella di testo e poi inserire del testo all'interno della casella.
+I testi nelle diapositive si trovano tipicamente in caselle di testo o forme. Pertanto, per aggiungere testo a una diapositiva, devi prima aggiungere una casella di testo e poi inserire del testo all'interno della casella.
 
 Per consentirti di aggiungere una forma che possa contenere testo, Aspose.Slides per .NET fornisce l'interfaccia [IAutoShape](https://reference.aspose.com/slides/it/net/aspose.slides/iautoshape).
 
@@ -30,60 +30,64 @@ Per consentirti di aggiungere una forma che possa contenere testo, Aspose.Slides
 
 Aspose.Slides fornisce anche l'interfaccia [IShape](https://reference.aspose.com/slides/it/net/aspose.slides/ishape) per consentirti di aggiungere forme alle diapositive. Tuttavia, non tutte le forme aggiunte tramite l'interfaccia `IShape` possono contenere testo. Le forme aggiunte tramite l'interfaccia [IAutoShape](https://reference.aspose.com/slides/it/net/aspose.slides/iautoshape) tipicamente contengono testo.
 
-Pertanto, quando si lavora con una forma esistente a cui si desidera aggiungere testo, potrebbe essere opportuno verificare e confermare che sia stata convertita tramite l'interfaccia `IAutoShape`. Solo allora sarà possibile utilizzare [TextFrame](https://reference.aspose.com/slides/it/net/aspose.slides/iautoshape/properties/textframe), che è una proprietà di `IAutoShape`. Vedi la sezione [Update Text](https://docs.aspose.com/slides/it/net/manage-textbox/#update-text) in questa pagina. 
+Pertanto, quando lavori con una forma esistente a cui vuoi aggiungere testo, potresti voler verificare e confermare che sia stata convertita tramite l'interfaccia `IAutoShape`. Solo in quel caso potrai lavorare con [TextFrame](https://reference.aspose.com/slides/it/net/aspose.slides/iautoshape/properties/textframe), che è una proprietà di `IAutoShape`. Vedi la sezione [Update Text](https://docs.aspose.com/slides/it/net/manage-textbox/#update-text) in questa pagina. 
 
 {{% /alert %}}
 
-## **Crea una casella di testo su una diapositiva**
+## **Creare una casella di testo su una diapositiva**
 
 1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation). 
 2. Ottieni il riferimento della prima diapositiva tramite il suo indice. 
-3. Aggiungi un oggetto [IAutoShape](https://reference.aspose.com/slides/it/net/aspose.slides/iautoshape) con [ShapeType](https://reference.aspose.com/slides/it/net/aspose.slides/igeometryshape/properties/shapetype) impostato su `Rectangle` in una posizione specificata sulla diapositiva e ottieni il riferimento per il nuovo oggetto `IAutoShape` aggiunto. 
-4. Aggiungi la proprietà `TextFrame` all'oggetto `IAutoShape` che conterrà del testo. Nell'esempio seguente, abbiamo aggiunto questo testo: *Aspose TextBox*
+3. Aggiungi un oggetto [IAutoShape](https://reference.aspose.com/slides/it/net/aspose.slides/iautoshape) con [ShapeType](https://reference.aspose.com/slides/it/net/aspose.slides/igeometryshape/properties/shapetype) impostato su `Rectangle` nella posizione desiderata sulla diapositiva e ottieni il riferimento per il nuovo oggetto `IAutoShape`. 
+4. Aggiungi la proprietà `TextFrame` all'oggetto `IAutoShape` che conterrà del testo. Nell'esempio seguente, abbiamo aggiunto questo testo: *Aspose TextBox* 
 5. Infine, scrivi il file PPTX tramite l'oggetto `Presentation`. 
 
-Questo codice C# — un'implementazione dei passaggi sopra — mostra come aggiungere testo a una diapositiva:
+Questo codice C#—un'implementazione dei passaggi sopra—mostra come aggiungere testo a una diapositiva:
 
 ```c#
- // Istanzia PresentationEx
+using Aspose.Slides;
+
+// Istanzia PresentationEx
 using (Presentation pres = new Presentation())
 {
- 
+
     // Ottiene la prima diapositiva nella presentazione
     ISlide sld = pres.Slides[0];
- 
+
     // Aggiunge un AutoShape con tipo impostato a Rectangle
     IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
- 
+
     // Aggiunge TextFrame al rettangolo
     ashp.AddTextFrame(" ");
- 
-    // Accede al riquadro di testo
+
+    // Accede al TextFrame
     ITextFrame txtFrame = ashp.TextFrame;
- 
-    // Crea l'oggetto Paragraph per il riquadro di testo
+
+    // Crea l'oggetto Paragraph per il TextFrame
     IParagraph para = txtFrame.Paragraphs[0];
- 
+
     // Crea un oggetto Portion per il paragrafo
     IPortion portion = para.Portions[0];
- 
+
     // Imposta il testo
     portion.Text = "Aspose TextBox";
- 
+
     // Salva la presentazione su disco
     pres.Save("TextBox_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
 ```
 
-## **Verifica la presenza di una forma casella di testo**
+## **Verificare la presenza di una forma casella di testo**
 
-Aspose.Slides fornisce la proprietà [IsTextBox](https://reference.aspose.com/slides/it/net/aspose.slides/autoshape/istextbox/) dall'interfaccia [IAutoShape](https://reference.aspose.com/slides/it/net/aspose.slides/iautoshape/), permettendoti di esaminare le forme e identificare le caselle di testo.
+Aspose.Slides fornisce la proprietà [IsTextBox](https://reference.aspose.com/slides/it/net/aspose.slides/autoshape/istextbox/) dell'interfaccia [IAutoShape](https://reference.aspose.com/slides/it/net/aspose.slides/iautoshape/) per esaminare le forme e identificare le caselle di testo.
 
 ![Casella di testo e forma](istextbox.png)
 
 Questo codice C# mostra come verificare se una forma è stata creata come casella di testo: 
 
 ```c#
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
     Aspose.Slides.LowCode.ForEach.Shape(presentation, (shape, slide, index) =>
@@ -96,9 +100,11 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-Nota che se aggiungi semplicemente un autoshape usando il metodo `AddAutoShape` dall'interfaccia [IShapeCollection](https://reference.aspose.com/slides/it/net/aspose.slides/ishapecollection/), la proprietà `IsTextBox` dell'autoshape restituirà `false`. Tuttavia, dopo aver aggiunto testo all'autoshape usando il metodo `AddTextFrame` o la proprietà `Text`, la proprietà `IsTextBox` restituisce `true`.
+Nota che se aggiungi semplicemente un'autoshape usando il metodo `AddAutoShape` dell'interfaccia [IShapeCollection](https://reference.aspose.com/slides/it/net/aspose.slides/ishapecollection/), la proprietà `IsTextBox` dell'autoshape restituirà `false`. Tuttavia, dopo aver aggiunto testo all'autoshape mediante il metodo `AddTextFrame` o la proprietà `Text`, la proprietà `IsTextBox` restituisce `true`.
 
 ```cs
+using Aspose.Slides;
+
 using (Presentation presentation = new Presentation())
 {
     ISlide slide = presentation.Slides[0];
@@ -125,13 +131,24 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **Aggiungi colonne a una casella di testo**
+## **Trovare la forma che possiede un TextFrame**
 
-Aspose.Slides fornisce le proprietà [ColumnCount](https://reference.aspose.com/slides/it/net/aspose.slides/itextframeformat/properties/columncount) e [ColumnSpacing](https://reference.aspose.com/slides/it/net/aspose.slides/textframeformat/properties/columnspacing) (dall'interfaccia [ITextFrameFormat](https://reference.aspose.com/slides/it/net/aspose.slides/itextframeformat) e dalla classe [TextFrameFormat](https://reference.aspose.com/slides/it/net/aspose.slides/textframeformat)) per consentirti di aggiungere colonne alle caselle di testo. Puoi specificare il numero di colonne in una casella di testo e poi impostare la spaziatura, in punti, tra le colonne. 
+Nel codice generico di elaborazione del testo, potresti ricevere un [ITextFrame](https://reference.aspose.com/slides/it/net/aspose.slides/itextframe/) senza sapere già quale oggetto presentazione lo contiene. Usa la proprietà [ITextFrame.ParentShape](https://reference.aspose.com/slides/it/net/aspose.slides/itextframe/parentshape/) per tornare alla [IShape](https://reference.aspose.com/slides/it/net/aspose.slides/ishape/) proprietaria.
+
+Per un TextFrame che appartiene a un [IAutoShape](https://reference.aspose.com/slides/it/net/aspose.slides/iautoshape/) o a un'altra forma contenente testo, [ITextFrame.ParentShape](https://reference.aspose.com/slides/it/net/aspose.slides/itextframe/parentshape/) è impostato e [ITextFrame.ParentCell](https://reference.aspose.com/slides/it/net/aspose.slides/itextframe/parentcell/) è `null`. Entrambe le proprietà sono proprietà di sola lettura, quindi leggerle non cambia la proprietà. Controlla sempre il valore restituito per `null` prima di accedere alla forma.
+
+Per un esempio completo che identifica i proprietari di forma e di cella tabella, incluse le forme associate a nodi SmartArt, vedi [Search and Replace Text](/slides/it/net/search-and-replace-text/).
+
+## **Aggiungere colonne a una casella di testo**
+
+Aspose.Slides fornisce le proprietà [ColumnCount](https://reference.aspose.com/slides/it/net/aspose.slides/itextframeformat/properties/columncount) e [ColumnSpacing](https://reference.aspose.com/slides/it/net/aspose.slides/textframeformat/properties/columnspacing) (dall'interfaccia [ITextFrameFormat](https://reference.aspose.com/slides/it/net/aspose.slides/itextframeformat) e dalla classe [TextFrameFormat](https://reference.aspose.com/slides/it/net/aspose.slides/textframeformat)) per consentirti di aggiungere colonne alle caselle di testo. Puoi specificare il numero di colonne in una casella di testo e poi impostare la spaziatura in punti tra le colonne. 
 
 Questo codice C# dimostra l'operazione descritta: 
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
 	// Ottiene la prima diapositiva nella presentazione
@@ -146,7 +163,7 @@ using (Presentation presentation = new Presentation())
 	"itself to flow within the container. You cannot have text flow from one container " +
 	"to other though -- we told you PowerPoint's column options for text are limited!");
 
-	// Ottiene il formato di testo del TextFrame
+	// Ottiene il formato testo del TextFrame
 	ITextFrameFormat format = aShape.TextFrame.TextFrameFormat;
 
 	// Specifica il numero di colonne nel TextFrame
@@ -160,13 +177,16 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **Aggiungi colonne a un riquadro di testo**
+## **Aggiungere colonne a un TextFrame**
+Aspose.Slides per .NET fornisce la proprietà [ColumnCount](https://reference.aspose.com/slides/it/net/aspose.slides/itextframeformat/properties/columncount) (dall'interfaccia [ITextFrameFormat](https://reference.aspose.com/slides/it/net/aspose.slides/itextframeformat)) che consente di aggiungere colonne nei TextFrame. Attraverso questa proprietà, puoi specificare il numero di colonne desiderato in un TextFrame. 
 
-Aspose.Slides per .NET fornisce la proprietà [ColumnCount](https://reference.aspose.com/slides/it/net/aspose.slides/itextframeformat/properties/columncount) (dall'interfaccia [ITextFrameFormat](https://reference.aspose.com/slides/it/net/aspose.slides/itextframeformat)) che consente di aggiungere colonne nei riquadri di testo. Attraverso questa proprietà, è possibile specificare il numero di colonne desiderato in un riquadro di testo. 
-
-Questo codice C# mostra come aggiungere una colonna all'interno di un riquadro di testo:
+Questo codice C# mostra come aggiungere una colonna all'interno di un TextFrame:
 
 ```c#
+using System.Diagnostics;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 string outPptxFileName = "ColumnsTest.pptx";
 using (Presentation pres = new Presentation())
 {
@@ -183,7 +203,7 @@ using (Presentation pres = new Presentation())
     using (Presentation test = new Presentation(outPptxFileName))
     {
         Debug.Assert(2 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnCount);
-        Debug.Assert(double.NaN == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing);
+        Debug.Assert(double.IsNaN(((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing));
     }
 
     format.ColumnSpacing = 20;
@@ -207,22 +227,25 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **Aggiorna testo**
+## **Aggiornare il testo**
 
-Aspose.Slides consente di modificare o aggiornare il testo contenuto in una casella di testo o tutti i testi contenuti in una presentazione. 
+Aspose.Slides ti consente di modificare o aggiornare il testo contenuto in una casella di testo o tutti i testi contenuti in una presentazione. 
 
 Questo codice C# dimostra un'operazione in cui tutti i testi di una presentazione vengono aggiornati o modificati:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using(Presentation pres = new Presentation("text.pptx"))
 {
    foreach (ISlide slide in pres.Slides)
    {
        foreach (IShape shape in slide.Shapes)
        {
-           if (shape is IAutoShape autoShape) //Verifica se la forma supporta il riquadro di testo (IAutoShape). 
+           if (shape is IAutoShape autoShape) //Controlla se la forma supporta il text frame (IAutoShape).
            {
-              foreach (IParagraph paragraph in autoShape.TextFrame.Paragraphs) //Itera attraverso i paragrafi nel riquadro di testo
+              foreach (IParagraph paragraph in autoShape.TextFrame.Paragraphs) //Itera attraverso i paragrafi nel text frame
                {
                    foreach (IPortion portion in paragraph.Portions) //Itera attraverso ogni porzione nel paragrafo
                    {
@@ -239,21 +262,23 @@ using(Presentation pres = new Presentation("text.pptx"))
 }
 ```
 
-## **Aggiungi una casella di testo con un collegamento ipertestuale** 
+## **Aggiungere una casella di testo con un collegamento ipertestuale** 
 
-Puoi inserire un link all'interno di una casella di testo. Quando la casella di testo viene cliccata, gli utenti vengono indirizzati ad aprire il collegamento. 
+Puoi inserire un collegamento all'interno di una casella di testo. Quando la casella di testo viene cliccata, gli utenti vengono indirizzati ad aprire il collegamento. 
 
 1. Crea un'istanza della classe `Presentation`. 
 2. Ottieni il riferimento della prima diapositiva tramite il suo indice.  
-3. Aggiungi un oggetto `AutoShape` con `ShapeType` impostato su `Rectangle` in una posizione specificata sulla diapositiva e ottieni un riferimento al nuovo oggetto AutoShape aggiunto.
+3. Aggiungi un oggetto `AutoShape` con `ShapeType` impostato su `Rectangle` nella posizione desiderata sulla diapositiva e ottieni un riferimento al nuovo oggetto AutoShape. 
 4. Aggiungi un `TextFrame` all'oggetto `AutoShape` che contiene *Aspose TextBox* come testo predefinito. 
-5. Istanzia la classe `IHyperlinkManager`. 
+5. Istanziate la classe `IHyperlinkManager`. 
 6. Assegna l'oggetto `IHyperlinkManager` alla proprietà [HyperlinkClick](https://reference.aspose.com/slides/it/net/aspose.slides/shape/properties/hyperlinkclick) associata alla porzione desiderata del `TextFrame`. 
 7. Infine, scrivi il file PPTX tramite l'oggetto `Presentation`. 
 
-Questo codice C# — un'implementazione dei passaggi sopra — mostra come aggiungere una casella di testo con un collegamento ipertestuale a una diapositiva:
+Questo codice C#—un'implementazione dei passaggi sopra—mostra come aggiungere una casella di testo con un collegamento ipertestuale a una diapositiva:
 
 ```c#
+using Aspose.Slides;
+
 // Istanzia una classe Presentation che rappresenta un PPTX
 Presentation pptxPresentation = new Presentation();
 
@@ -271,10 +296,10 @@ pptxAutoShape.AddTextFrame("");
 
 ITextFrame ITextFrame = pptxAutoShape.TextFrame;
 
-// Aggiunge del testo al riquadro
+// Aggiunge del testo al frame
 ITextFrame.Paragraphs[0].Portions[0].Text = "Aspose.Slides";
 
-// Imposta il collegamento ipertestuale per il testo della porzione
+// Imposta l'Hyperlink per il testo della porzione
 IHyperlinkManager HypMan = ITextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkManager;
 HypMan.SetExternalHyperlinkClick("http://www.aspose.com");
 
@@ -286,8 +311,8 @@ pptxPresentation.Save("hLinkPPTX_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx
 
 **Qual è la differenza tra una casella di testo e un segnaposto di testo quando si lavora con le diapositive master?**
 
-Un [placeholder](/slides/it/net/manage-placeholder/) eredita stile/posizione dal [master](https://reference.aspose.com/slides/it/net/aspose.slides/masterslide/) e può essere sovrascritto nei [layout](https://reference.aspose.com/slides/it/net/aspose.slides/layoutslide/), mentre una casella di testo regolare è un oggetto indipendente su una diapositiva specifica e non cambia quando si cambiano i layout.
+Un [placeholder](/slides/it/net/manage-placeholder/) eredita stile/posizione dal [master](https://reference.aspose.com/slides/it/net/aspose.slides/masterslide/) e può essere sovrascritto nei [layouts](https://reference.aspose.com/slides/it/net/aspose.slides/layoutslide/), mentre una normale casella di testo è un oggetto indipendente su una diapositiva specifica e non cambia quando si cambiano i layout.
 
 **Come posso eseguire una sostituzione di testo in blocco su tutta la presentazione senza modificare il testo all'interno di grafici, tabelle e SmartArt?**
 
-Limita la tua iterazione alle auto-forme che possiedono riquadri di testo ed escludi gli oggetti incorporati ([grafici](https://reference.aspose.com/slides/it/net/aspose.slides.charts/chart/), [tabelle](https://reference.aspose.com/slides/it/net/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/it/net/aspose.slides.smartart/smartart/)) attraversando le loro collezioni separatamente o saltando quei tipi di oggetto.
+Limita l'iterazione alle auto‑shape che hanno TextFrame ed escludi gli oggetti incorporati ([charts](https://reference.aspose.com/slides/it/net/aspose.slides.charts/chart/), [tables](https://reference.aspose.com/slides/it/net/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/it/net/aspose.slides.smartart/smartart/)) attraversando le loro collezioni separatamente o saltando quei tipi di oggetto.

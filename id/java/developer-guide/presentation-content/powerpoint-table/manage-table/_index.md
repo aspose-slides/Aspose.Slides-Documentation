@@ -9,7 +9,7 @@ keywords:
 - membuat tabel
 - mengakses tabel
 - rasio aspek
-- menjajarkan teks
+- meratakan teks
 - pemformatan teks
 - gaya tabel
 - PowerPoint
@@ -20,26 +20,29 @@ description: "Buat & edit tabel dalam slide PowerPoint dengan Aspose.Slides untu
 ---
 ## **Pendahuluan**
 
-Tabel di PowerPoint merupakan cara yang efisien untuk menampilkan dan menggambarkan informasi. Informasi dalam kisi sel (diatur dalam baris dan kolom) bersifat sederhana dan mudah dipahami.
+Tabel di PowerPoint adalah cara yang efisien untuk menampilkan dan menggambarkan informasi. Informasi dalam kisi sel (dikelompokkan dalam baris dan kolom) bersifat langsung dan mudah dipahami.
 
-Aspose.Slides menyediakan kelas [Table](https://reference.aspose.com/slides/id/java/com.aspose.slides/Table), antarmuka [ITable](https://reference.aspose.com/slides/id/java/com.aspose.slides/ITable), kelas [Cell](https://reference.aspose.com/slides/id/java/com.aspose.slides/cell/), antarmuka [ICell](https://reference.aspose.com/slides/id/java/com.aspose.slides/icell/), dan tipe lainnya untuk memungkinkan Anda membuat, memperbarui, dan mengelola tabel di semua jenis presentasi. 
+Aspose.Slides menyediakan kelas [Table](https://reference.aspose.com/slides/id/java/com.aspose.slides/Table), antarmuka [ITable](https://reference.aspose.com/slides/id/java/com.aspose.slides/ITable), kelas [Cell](https://reference.aspose.com/slides/id/java/com.aspose.slides/cell/), antarmuka [ICell](https://reference.aspose.com/slides/id/java/com.aspose.slides/icell/), dan tipe lainnya untuk memungkinkan Anda membuat, memperbarui, dan mengelola tabel dalam semua jenis presentasi. 
 
 ## **Membuat Tabel dari Awal**
 
 1. Buat sebuah instance kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/Presentation).  
 2. Dapatkan referensi slide melalui indeksnya.  
-3. Definisikan array `columnWidth`.  
-4. Definisikan array `rowHeight`.  
+3. Tentukan array `columnWidth`.  
+4. Tentukan array `rowHeight`.  
 5. Tambahkan objek [ITable](https://reference.aspose.com/slides/id/java/com.aspose.slides/ITable) ke slide melalui metode [addTable](https://reference.aspose.com/slides/id/java/com.aspose.slides/IShapeCollection#addTable-float-float-double:A-double:A-).  
-6. Iterasi setiap [ICell](https://reference.aspose.com/slides/id/java/com.aspose.slides/icell/) untuk menerapkan pemformatan pada batas atas, bawah, kanan, dan kiri.  
+6. Iterasi setiap [ICell] untuk menerapkan pemformatan pada batas atas, bawah, kanan, dan kiri.  
 7. Gabungkan dua sel pertama pada baris pertama tabel.  
-8. Akses [TextFrame](https://reference.aspose.com/slides/id/java/com.aspose.slides/textframe/) sebuah [ICell](https://reference.aspose.com/slides/id/java/com.aspose.slides/icell/).  
-9. Tambahkan teks ke [TextFrame](https://reference.aspose.com/slides/id/java/com.aspose.slides/textframe/).  
-10. Simpan presentasi yang telah dimodifikasi.
+8. Akses [TextFrame](https://reference.aspose.com/slides/id/java/com.aspose.slides/textframe/) milik sebuah [ICell].  
+9. Tambahkan beberapa teks ke [TextFrame](https://reference.aspose.com/slides/id/java/com.aspose.slides/textframe/).  
+10. Simpan presentasi yang telah dimodifikasi.  
 
-Kode Java berikut menunjukkan cara membuat tabel dalam presentasi:
+Kode Java berikut memperlihatkan cara membuat tabel dalam presentasi:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Membuat instance kelas Presentation yang mewakili file PPTX
 Presentation pres = new Presentation();
 try {
@@ -53,7 +56,7 @@ try {
     // Menambahkan shape tabel ke slide
     ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
 
-    // Mengatur format batas untuk setiap sel
+    // Menetapkan format batas untuk setiap sel
     for (int row = 0; row < tbl.getRows().size(); row++)
     {
         for (int cell = 0; cell < tbl.getRows().get_Item(row).size(); cell++)
@@ -78,12 +81,12 @@ try {
         }
     }
     // Menggabungkan sel 1 & 2 pada baris 1
-    tbl.mergeCells(tbl.getRows().get_Item(0).get_Item(0), tbl.getRows().get_Item(1).get_Item(1), false);
+    tbl.mergeCells(tbl.getRows().get_Item(0).get_Item(0), tbl.getRows().get_Item(0).get_Item(1), false);
 
     // Menambahkan teks ke sel yang digabungkan
     tbl.getRows().get_Item(0).get_Item(0).getTextFrame().setText("Merged Cells");
 
-    // Menyimpan presentasi ke Disk
+    // Menyimpan presentasi ke disk
     pres.save("table.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
@@ -92,9 +95,9 @@ try {
 
 ## **Penomoran dalam Tabel Standar**
 
-Dalam tabel standar, penomoran sel bersifat sederhana dan berbasis nol. Sel pertama dalam tabel memiliki indeks 0,0 (kolom 0, baris 0). 
+Dalam tabel standar, penomoran sel bersifat langsung dan berbasis nol. Sel pertama dalam tabel memiliki indeks 0,0 (kolom 0, baris 0).  
 
-Sebagai contoh, sel dalam tabel dengan 4 kolom dan 4 baris dinomori sebagai berikut:
+Sebagai contoh, sel‑sel dalam tabel dengan 4 kolom dan 4 baris dinomori sebagai berikut:
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -102,9 +105,12 @@ Sebagai contoh, sel dalam tabel dengan 4 kolom dan 4 baris dinomori sebagai beri
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-Kode Java berikut menunjukkan cara menentukan penomoran untuk sel dalam tabel:
+Kode Java berikut memperlihatkan cara menentukan penomoran untuk sel dalam tabel:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Membuat instance kelas Presentation yang mewakili file PPTX
 Presentation pres = new Presentation();
 try {
@@ -118,7 +124,7 @@ try {
     // Menambahkan shape tabel ke slide
     ITable tbl = sld.getShapes().addTable(100, 50, dblCols, dblRows);
 
-    // Mengatur format batas untuk setiap sel
+    // Menetapkan format batas untuk setiap sel
     for (IRow row : tbl.getRows())
     {
         for (ICell cell : row)
@@ -148,25 +154,27 @@ try {
 }
 ```
 
-## **Mengakses Tabel yang Sudah Ada**
+## **Mengakses Tabel yang Ada**
 
 1. Buat sebuah instance kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/Presentation).  
 
 2. Dapatkan referensi ke slide yang berisi tabel melalui indeksnya.  
 
-3. Buat objek [ITable](https://reference.aspose.com/slides/id/java/com.aspose.slides/ITable) dan setel ke null.  
+3. Buat objek [ITable](https://reference.aspose.com/slides/id/java/com.aspose.slides/ITable) dan setel ke `null`.  
 
-4. Iterasi semua objek [IShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/ishape/) hingga tabel ditemukan.  
+4. Iterasi semua objek [IShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/ishape/) sampai tabel ditemukan.  
 
-   Jika Anda menduga slide yang sedang Anda kerjakan hanya berisi satu tabel, Anda dapat memeriksa semua shape yang ada. Ketika sebuah shape diidentifikasi sebagai tabel, Anda dapat melakukan typecast menjadi objek [Table](https://reference.aspose.com/slides/id/java/com.aspose.slides/Table). Namun jika slide tersebut berisi beberapa tabel, lebih baik mencari tabel yang Anda butuhkan melalui [setAlternativeText(String value)](https://reference.aspose.com/slides/id/java/com.aspose.slides/ishape/#setAlternativeText-java.lang.String-).  
+   Jika Anda curiga slide yang sedang Anda tangani hanya berisi satu tabel, Anda dapat memeriksa semua shape yang ada. Ketika sebuah shape diidentifikasi sebagai tabel, Anda dapat melakukan typecast menjadi objek [Table](https://reference.aspose.com/slides/id/java/com.aspose.slides/Table). Namun jika slide tersebut berisi beberapa tabel, lebih baik mencari tabel yang dibutuhkan melalui properti [setAlternativeText(String value)](https://reference.aspose.com/slides/id/java/com.aspose.slides/ishape/#setAlternativeText-java.lang.String-).  
 
-5. Gunakan objek [ITable](https://reference.aspose.com/slides/id/java/com.aspose.slides/ITable) untuk bekerja dengan tabel. Pada contoh di bawah, kami menambahkan baris baru ke tabel.  
+5. Gunakan objek [ITable] untuk bekerja dengan tabel. Pada contoh di bawah ini, kami menambahkan baris baru ke tabel.  
 
-6. Simpan presentasi yang telah dimodifikasi.
+6. Simpan presentasi yang telah dimodifikasi.  
 
-Kode Java berikut menunjukkan cara mengakses dan bekerja dengan tabel yang sudah ada:
+Kode Java berikut memperlihatkan cara mengakses dan bekerja dengan tabel yang ada:
 
 ```java
+import com.aspose.slides.*;
+
 // Membuat instance kelas Presentation yang mewakili file PPTX
 Presentation pres = new Presentation("UpdateExistingTable.pptx");
 try {
@@ -174,44 +182,55 @@ try {
     // Mengakses slide pertama
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Menginisialisasi TableEx null
+    // Menginisialisasi TableEx menjadi null
     ITable tbl = null;
 
-    // Mengiterasi shape-shape dan menetapkan referensi ke tabel yang ditemukan
+    // Iterasi melalui shape dan menetapkan referensi ke tabel yang ditemukan
     for (IShape shp : sld.getShapes()) 
     {
         if (shp instanceof ITable) 
         {
             tbl = (ITable) shp;
-            // Mengatur teks untuk kolom pertama pada baris kedua
+            // Menetapkan teks untuk kolom pertama pada baris kedua
             tbl.get_Item(0, 1).getTextFrame().setText("New");
         }
     }
     
-    // Menyimpan presentasi yang dimodifikasi ke disk
+    // Menyimpan presentasi yang telah dimodifikasi ke disk
     pres.save("table1_out.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Menjajarkan Teks dalam Tabel**
+## **Temukan Sel yang Memiliki Text Frame**
+
+Ketika kode pemrosesan teks umum menerima sebuah [ITextFrame](https://reference.aspose.com/slides/id/java/com.aspose.slides/itextframe/) dari tabel, gunakan metode [ITextFrame.getParentCell](https://reference.aspose.com/slides/id/java/com.aspose.slides/itextframe/#getParentCell--) untuk mengambil [ICell](https://reference.aspose.com/slides/id/java/com.aspose.slides/icell/) pemiliknya. Untuk text frame pada sel tabel, [ITextFrame.getParentCell](https://reference.aspose.com/slides/id/java/com.aspose.slides/itextframe/#getParentCell--) mengembalikan pemilik dan [ITextFrame.getParentShape](https://reference.aspose.com/slides/id/java/com.aspose.slides/itextframe/#getParentShape--) mengembalikan `null`, meskipun tabel itu sendiri merupakan sebuah shape.  
+
+Koordinat sel tersedia melalui properti read‑only [ICell.getFirstColumnIndex](https://reference.aspose.com/slides/id/java/com.aspose.slides/icell/#getFirstColumnIndex--) dan [ICell.getFirstRowIndex](https://reference.aspose.com/slides/id/java/com.aspose.slides/icell/#getFirstRowIndex--). [ITextFrame.getParentCell](https://reference.aspose.com/slides/id/java/com.aspose.slides/itextframe/#getParentCell--) juga menyediakan navigasi read‑only: ia mengembalikan pemilik tetapi tidak mengubah kepemilikan. Selalu periksa apakah sel yang dikembalikan `null` sebelum menggunakannya.  
+
+Untuk contoh lengkap yang mengidentifikasi pemilik sel tabel dan shape, termasuk shape yang terkait dengan node SmartArt, lihat [Search and Replace Text](/slides/id/java/search-and-replace-text/).
+
+## **Meratakan Teks dalam Tabel**
 
 1. Buat sebuah instance kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/Presentation).  
 2. Dapatkan referensi slide melalui indeksnya.  
-3. Tambahkan objek [ITable](https://reference.aspose.com/slides/id/java/com.aspose.slides/ITable) ke slide.  
-4. Akses objek [ITextFrame](https://reference.aspose.com/slides/id/java/com.aspose.slides/itextframe/) dari tabel.  
-5. Akses [IParagraph](https://reference.aspose.com/slides/id/java/com.aspose.slides/iparagraph/) pada [ITextFrame](https://reference.aspose.com/slides/id/java/com.aspose.slides/itextframe/).  
-6. Jajarkan teks secara vertikal.  
-7. Simpan presentasi yang telah dimodifikasi.
+3. Tambahkan objek [ITable] ke slide.  
+4. Akses objek [ITextFrame] dari tabel.  
+5. Akses [IParagraph] pada [ITextFrame].  
+6. Rata‑kan teks secara vertikal.  
+7. Simpan presentasi yang telah dimodifikasi.  
 
-Kode Java berikut menunjukkan cara menjajarkan teks dalam tabel:
+Kode Java berikut memperlihatkan cara meratakan teks dalam tabel:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 // Membuat instance kelas Presentation
 Presentation pres = new Presentation();
 try {
-    // Mendapatkan slide pertama 
+    // Mendapatkan slide pertama
     ISlide slide = pres.getSlides().get_Item(0);
     
     // Mendefinisikan kolom dengan lebar dan baris dengan tinggi
@@ -236,7 +255,7 @@ try {
     portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
     portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
     
-    // Menjajarkan teks secara vertikal
+    // Meratakan teks secara vertikal
     ICell cell = tbl.get_Item(0, 0);
     cell.setTextAnchorType(TextAnchorType.Center);
     cell.setTextVerticalType(TextVerticalType.Vertical270);
@@ -248,37 +267,39 @@ try {
 }
 ```
 
-## **Mengatur Pemformatan Teks pada Tingkat Tabel**
+## **Setel Pemformatan Teks pada Tingkat Tabel**
 
 1. Buat sebuah instance kelas [Presentation](https://reference.aspose.com/slides/id/java/com.aspose.slides/Presentation).  
 2. Dapatkan referensi slide melalui indeksnya.  
-3. Akses objek [ITable](https://reference.aspose.com/slides/id/java/com.aspose.slides/ITable) dari slide.  
-4. Atur [setFontHeight(float value)](https://reference.aspose.com/slides/id/java/com.aspose.slides/baseportionformat/#setFontHeight-float-) untuk teks.  
-5. Atur [setAlignment(int value)](https://reference.aspose.com/slides/id/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) dan [setMarginRight(float value)](https://reference.aspose.com/slides/id/java/com.aspose.slides/iparagraphformat/#setMarginRight-float-).  
-6. Atur [setTextVerticalType(byte value)](https://reference.aspose.com/slides/id/java/com.aspose.slides/textframeformat/#setTextVerticalType-byte-).  
+3. Akses objek [ITable] dari Slide.  
+4. Setel [setFontHeight(float value)](https://reference.aspose.com/slides/id/java/com.aspose.slides/baseportionformat/#setFontHeight-float-) untuk teks.  
+5. Setel [setAlignment(int value)](https://reference.aspose.com/slides/id/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) dan [setMarginRight(float value)](https://reference.aspose.com/slides/id/java/com.aspose.slides/iparagraphformat/#setMarginRight-float-).  
+6. Setel [setTextVerticalType(byte value)](https://reference.aspose.com/slides/id/java/com.aspose.slides/textframeformat/#setTextVerticalType-byte-).  
 7. Simpan presentasi yang telah dimodifikasi.  
 
-Kode Java berikut menunjukkan cara menerapkan opsi pemformatan pilihan Anda pada teks di dalam tabel:
+Kode Java berikut memperlihatkan cara menerapkan opsi pemformatan pilihan Anda pada teks dalam tabel:
 
 ```java
+import com.aspose.slides.*;
+
 // Membuat instance kelas Presentation
 Presentation pres = new Presentation("simpletable.pptx");
 try {
-    // Misalkan shape pertama pada slide pertama adalah tabel
+    // Asumsikan bahwa shape pertama pada slide pertama adalah sebuah tabel
     ITable someTable = (ITable) pres.getSlides().get_Item(0).getShapes().get_Item(0);
     
-    // Mengatur tinggi font sel tabel
+    // Menetapkan tinggi font sel tabel
     PortionFormat portionFormat = new PortionFormat();
     portionFormat.setFontHeight(25);
     someTable.setTextFormat(portionFormat);
     
-    // Mengatur perataan teks sel tabel dan margin kanan dalam satu panggilan
+    // Menetapkan perataan teks sel tabel dan margin kanan dalam satu pemanggilan
     ParagraphFormat paragraphFormat = new ParagraphFormat();
     paragraphFormat.setAlignment(TextAlignment.Right);
     paragraphFormat.setMarginRight(20);
     someTable.setTextFormat(paragraphFormat);
     
-    // Mengatur tipe vertikal teks sel tabel
+    // Menetapkan tipe vertikal teks sel tabel
     TextFrameFormat textFrameFormat = new TextFrameFormat();
     textFrameFormat.setTextVerticalType(TextVerticalType.Vertical);
     someTable.setTextFormat(textFrameFormat);
@@ -289,34 +310,47 @@ try {
 }
 ```
 
-## **Mendapatkan Properti Gaya Tabel**
+## **Dapatkan Properti Gaya Tabel**
 
-Aspose.Slides memungkinkan Anda mengambil properti gaya untuk sebuah tabel sehingga Anda dapat menggunakan detail tersebut pada tabel lain atau di tempat lain. Kode Java berikut menunjukkan cara mendapatkan properti gaya dari gaya preset tabel:
+Aspose.Slides memungkinkan Anda mengambil properti gaya untuk sebuah tabel sehingga Anda dapat menggunakan detail tersebut pada tabel lain atau di tempat lain. Kode Java berikut memperlihatkan cara mendapatkan properti gaya dari style preset tabel:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
     ITable table = pres.getSlides().get_Item(0).getShapes().addTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
-    table.setStylePreset(TableStylePreset.DarkStyle1); // ubah tema preset gaya default
+    table.setStylePreset(TableStylePreset.DarkStyle1); // ubah tema preset gaya default 
+
+    // Mendapatkan preset gaya tabel
+    int stylePreset = table.getStylePreset();
+    System.out.println("Table style preset: " + stylePreset);
+
+    // Menerapkan preset gaya yang diambil ke tabel lain
+    ITable anotherTable = pres.getSlides().get_Item(0).getShapes().addTable(10, 100, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
+    anotherTable.setStylePreset(stylePreset);
+
     pres.save("table.pptx", SaveFormat.Pptx);
 } finally {
     if (pres != null) pres.dispose();
 }
 ```
 
-## **Mengunci Rasio Aspek Tabel**
+## **Kunci Rasio Aspek Tabel**
 
-Rasio aspek sebuah bentuk geometris adalah perbandingan ukuran pada dimensi yang berbeda. Aspose.Slides menyediakan properti [**setAspectRatioLocked**](https://reference.aspose.com/slides/id/java/com.aspose.slides/GraphicalObjectLock#setAspectRatioLocked-boolean-) untuk memungkinkan Anda mengunci pengaturan rasio aspek pada tabel dan bentuk lainnya. 
+Rasio aspek suatu shape geometris adalah perbandingan ukuran dalam dimensi yang berbeda. Aspose.Slides menyediakan properti [**setAspectRatioLocked**](https://reference.aspose.com/slides/id/java/com.aspose.slides/GraphicalObjectLock#setAspectRatioLocked-boolean-) untuk memungkinkan Anda mengunci pengaturan rasio aspek pada tabel dan shape lainnya.  
 
-Kode Java berikut menunjukkan cara mengunci rasio aspek untuk sebuah tabel:
+Kode Java berikut memperlihatkan cara mengunci rasio aspek untuk sebuah tabel:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("pres.pptx");
 try {
     ITable table = (ITable)pres.getSlides().get_Item(0).getShapes().get_Item(0);
     System.out.println("Lock aspect ratio set: " + table.getGraphicalObjectLock().getAspectRatioLocked());
 
-    table.getGraphicalObjectLock().setAspectRatioLocked(!table.getGraphicalObjectLock().getAspectRatioLocked()); // balik
+    table.getGraphicalObjectLock().setAspectRatioLocked(!table.getGraphicalObjectLock().getAspectRatioLocked()); // balikkan
 
     System.out.println("Lock aspect ratio set: " + table.getGraphicalObjectLock().getAspectRatioLocked());
 
@@ -328,14 +362,14 @@ try {
 
 ## **FAQ**
 
-**Apakah saya dapat mengaktifkan arah baca kanan-ke-kiri (RTL) untuk seluruh tabel dan teks di dalam selnya?**
+**Apakah saya dapat mengaktifkan arah baca right-to-left (RTL) untuk seluruh tabel dan teks di dalam selnya?**
 
-Ya. Tabel memiliki metode [setRightToLeft](https://reference.aspose.com/slides/id/java/com.aspose.slides/table/#setRightToLeft-boolean-), dan paragraf memiliki [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/id/java/com.aspose.slides/paragraphformat/#setRightToLeft-byte-). Menggunakan keduanya memastikan urutan RTL yang benar serta rendering di dalam sel.
+Ya. Tabel menyediakan metode [setRightToLeft](https://reference.aspose.com/slides/id/java/com.aspose.slides/table/#setRightToLeft-boolean-), dan paragraf memiliki [ParagraphFormat.setRightToLeft](https://reference.aspose.com/slides/id/java/com.aspose.slides/paragraphformat/#setRightToLeft-byte-). Menggunakan keduanya memastikan urutan RTL yang tepat serta render yang benar di dalam sel.
 
-**Bagaimana cara mencegah pengguna memindahkan atau mengubah ukuran tabel dalam file final?**
+**Bagaimana cara mencegah pengguna memindahkan atau mengubah ukuran tabel dalam file akhir?**
 
-Gunakan [shape locks](/slides/id/java/applying-protection-to-presentation/) untuk menonaktifkan pemindahan, perubahan ukuran, pemilihan, dll. Kunci ini juga berlaku untuk tabel.
+Gunakan [shape locks](/slides/id/java/applying-protection-to-presentation/) untuk menonaktifkan pemindahan, pengubahan ukuran, pemilihan, dll. Kunci ini juga berlaku untuk tabel.
 
-**Apakah memasukkan gambar sebagai latar belakang di dalam sel didukung?**
+**Apakah penyisipan gambar di dalam sel sebagai latar belakang didukung?**
 
-Ya. Anda dapat mengatur [picture fill](https://reference.aspose.com/slides/id/java/com.aspose.slides/picturefillformat/) untuk sebuah sel; gambar akan menutupi area sel sesuai mode yang dipilih (stretch atau tile).
+Ya. Anda dapat menetapkan [picture fill](https://reference.aspose.com/slides/id/java/com.aspose.slides/picturefillformat/) untuk sebuah sel; gambar akan menutupi area sel sesuai mode yang dipilih (stretch atau tile).

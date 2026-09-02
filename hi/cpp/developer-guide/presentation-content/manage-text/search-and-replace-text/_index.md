@@ -6,10 +6,10 @@ weight: 55
 url: /hi/cpp/search-and-replace-text/
 keywords:
 - टेक्स्ट खोजें
-- टेक्स्ट हाइलाइट करें
+- टेक्स्ट हाईलाइट करें
 - टेक्स्ट बदलें
-- रेगुलर एक्सप्रेशन
-- रिजल्ट कॉलबैक
+- नियमित अभिव्यक्ति
+- परिणाम कॉलबैक
 - टेक्स्ट फ्रेम
 - ऑडिट रिपोर्ट
 - PowerPoint
@@ -17,50 +17,161 @@ keywords:
 - प्रस्तुति
 - C++
 - Aspose.Slides
-description: "PowerPoint प्रस्तुतियों में टेक्स्ट खोजें, हाइलाइट करें और बदलें, साथ ही Aspose.Slides for C++ के साथ प्रत्येक मैच इकट्ठा करें।"
+description: "Aspose.Slides for C++ के साथ हर मिलान को एकत्र करते हुए PowerPoint प्रस्तुतियों में टेक्स्ट खोजें, हाईलाइट करें और बदलें।"
 ---
-## **परिचय**
+## **अवलोकन**
 
-Aspose.Slides for C++ व्यक्तिगत टेक्स्ट फ्रेम या पूरी प्रस्तुति में टेक्स्ट को खोज, हाइलाइट और बदल सकता है। प्रत्येक ऑपरेशन परिणाम कॉलबैक के माध्यम से प्रत्येक मैच के बारे में एप्लिकेशन को सूचित भी कर सकता है। इससे प्रस्तुति को अपडेट करना और मिलान किए गए टेक्स्ट, उसका संदर्भ, स्थिति, टेक्स्ट फ्रेम और स्लाइड नंबर सहित ऑडिट ट्रेल बनाना संभव हो जाता है।
+Aspose.Slides for C++ एकल टेक्स्ट फ्रेम या पूरी प्रस्तुति में टेक्स्ट को खोज, हाईलाइट और बदल सकता है। प्रत्येक ऑपरेशन परिणाम कॉलबैक के माध्यम से प्रत्येक मिलान के बारे में एप्लिकेशन को सूचित कर सकता है। इससे प्रस्तुति को अपडेट करते हुए मिलान किए गए टेक्स्ट, उसका संदर्भ, स्थिति, टेक्स्ट फ्रेम, और स्लाइड नंबर वाली ऑडिट ट्रेल बनाना संभव होता है।
 
-इन क्षमताओं का उपयोग समीक्षा, रेडैक्शन, शब्दावली जांच, टेम्पलेट सफ़ाई और स्वचालित रिपोर्टिंग वर्कफ़्लोज़ के लिए किया जा सकता है।
+इन क्षमताओं का उपयोग समीक्षा, रिडैक्शन, टर्मिनोलॉजी जांच, टेम्पलेट सफाई, और स्वचालित रिपोर्टिंग वर्कफ़्लो में किया जा सकता है।
 
-नीचे पहले उदाहरणों में, हम "sample.pptx" नामक फ़ाइल का उपयोग करते हैं, जिसमें पहली स्लाइड पर एकल टेक्स्ट बॉक्स है जिसमें निम्नलिखित टेक्स्ट है:
+निम्न पहले उदाहरणों में हम "sample.pptx" फ़ाइल का उपयोग करते हैं, जिसमें पहली स्लाइड पर एक टेक्स्ट बॉक्स है जिसमें निम्नलिखित टेक्स्ट है:
 
-![नमूना टेक्स्ट](sample_text.png)
+![उदाहरण पाठ](sample_text.png)
 
-## **खोज सीमा चुनें**
+## **खोज का दायरा चुनें**
 
-एक ऑपरेशन को एक टेक्स्ट फ्रेम तक सीमित करने के लिए [ITextFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/) पर विधियों का उपयोग करें। प्रस्तुति में सभी लागू टेक्स्ट को प्रोसेस करने के लिए [IPresentation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipresentation/) पर विधियों का उपयोग करें।
+[ITextFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/) पर विधियों का उपयोग करके ऑपरेशन को एक टेक्स्ट फ्रेम तक सीमित करें। [IPresentation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipresentation/) पर विधियों का उपयोग करके प्रस्तुति में सभी लागू टेक्स्ट को प्रोसेस करें।
 
-| ऑपरेशन | एक टेक्स्ट फ्रेम | पूरी प्रस्तुति |
+| ऑपरेशन | एक टेक्स्ट फ्रेम | संपूर्ण प्रस्तुति |
 |---|---|---|
-| शाब्दिक टेक्स्ट को हाइलाइट करें | [ITextFrame::HighlightText](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/highlighttext/) | [IPresentation::HighlightText](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipresentation/highlighttext/) |
-| रेगुलर एक्सप्रेशन मिलानों को हाइलाइट करें | [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/highlightregex/) | [IPresentation::HighlightRegex](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipresentation/highlightregex/) |
+| शाब्दिक टेक्स्ट को हाईलाइट करें | [ITextFrame::HighlightText](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/highlighttext/) | [IPresentation::HighlightText](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipresentation/highlighttext/) |
+| रेगुलर‑एक्सप्रेशन मिलानों को हाईलाइट करें | [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/highlightregex/) | [IPresentation::HighlightRegex](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipresentation/highlightregex/) |
 | शाब्दिक टेक्स्ट को बदलें | [ITextFrame::ReplaceText](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/replacetext/) | [IPresentation::ReplaceText](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipresentation/replacetext/) |
-| रेगुलर एक्सप्रेशन मिलानों को बदलें | [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/replaceregex/) | [IPresentation::ReplaceRegex](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipresentation/replaceregex/) |
+| रेगुलर‑एक्सप्रेशन मिलानों को बदलें | [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/replaceregex/) | [IPresentation::ReplaceRegex](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipresentation/replaceregex/) |
 
-## **टेक्स्ट मिलान कॉन्फ़िगर करें**
+## **टेक्स्ट मिलान को कॉन्फ़िगर करें**
 
-शाब्दिक-टेक्स्ट ऑपरेशनों के लिए, मिलान को नियंत्रित करने हेतु [ITextSearchOptions](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextsearchoptions/) का उपयोग करें:
+शाब्दिक‑टेक्स्ट ऑपरेशनों के लिए, मिलान को नियंत्रित करने हेतु [ITextSearchOptions](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextsearchoptions/) का उपयोग करें:
 
-- [ITextSearchOptions::set_WholeWordsOnly](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextsearchoptions/set_wholewordsonly/) पूर्ण शब्दों तक मैच को सीमित करता है।
-- [ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) यह नियंत्रित करता है कि अक्षर केस मिलना चाहिए या नहीं।
-- [ITextSearchOptions::set_IncludeNotes](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextsearchoptions/set_includenotes/) प्रस्तुति‑स्तरीय खोज, प्रतिस्थापन और हाइलाइट ऑपरेशनों में स्लाइड नोट्स को शामिल करता है।
+- [ITextSearchOptions::set_WholeWordsOnly](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextsearchoptions/set_wholewordsonly/) केवल पूर्ण शब्दों पर मिलान को सीमित करता है।
+- [ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) यह निर्धारित करता है कि अक्षर केस मेल खानी चाहिए या नहीं।
+- [ITextSearchOptions::set_IncludeNotes](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextsearchoptions/set_includenotes/) प्रस्तुति‑स्तर की खोज, प्रतिस्थापन और हाईलाइट ऑपरेशनों में स्लाइड नोट्स को शामिल करता है।
 
-रेगुलर‑एक्सप्रेशन ऑपरेशनों में `System::Text::RegularExpressions::Regex` का उपयोग किया जाता है, इसलिए केस संवेदनशीलता और शब्द सीमाएँ जैसी मिलान नियम अभिव्यक्ति और उसकी विकल्पों द्वारा परिभाषित होते हैं।
+रेगुलर‑एक्सप्रेशन ऑपरेशनों में `System::Text::RegularExpressions::Regex` का उपयोग होता है, इसलिए केस‑सेंसिटिविटी और शब्द सीमाओं जैसी नियम अभिव्यक्ति और उसकी सेटिंग्स द्वारा निर्धारित होते हैं।
 
-## **कॉलबैक के साथ मैच जानकारी एकत्र करें**
+## **टेक्स्ट फ्रेम के मालिक की पहचान करें**
 
-प्रत्येक मैच के लिए सूचना प्राप्त करने हेतु [IFindResultCallback](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ifindresultcallback/) को लागू करें। इसके [IFindResultCallback::FoundResult](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ifindresultcallback/foundresult/) मेथड में संबंधित टेक्स्ट फ्रेम, स्रोत टेक्स्ट, मैच किया गया टेक्स्ट और मैच स्थिति प्रदान की जाती है।
+सामान्य टेक्स्ट‑प्रसंस्करण वर्कफ़्लो अक्सर एक [ITextFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/) प्राप्त करते हैं जबकि खोज, प्रतिस्थापन, मान्यकरण या निर्यात किया जाता है। टेक्स्ट फ्रेम के मालिक को निर्धारित करने हेतु [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/get_parentshape/) और [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/get_parentcell/) का उपयोग करें।
 
-कॉलबैक सीधे स्लाइड नंबर नहीं प्राप्त करता। नीचे दिया गया कार्यान्वयन इसे [ISlideComponent::get_Slide](https://reference.aspose.com/slides/hi/cpp/aspose.slides/islidecomponent/get_slide/) से प्राप्त करता है और [INotesSlide::get_ParentSlide](https://reference.aspose.com/slides/hi/cpp/aspose.slides/inotesslide/get_parentslide/) के माध्यम से नोट्स स्लाइड में मिला टेक्स्ट भी संभालता है। एक nullable स्लाइड नंबर समान परिणाम मॉडल को अन्य स्लाइड प्रकारों से जुड़े टेक्स्ट का प्रतिनिधित्व करने की अनुमति देता है।
+अपेक्षित मान मालिक पर निर्भर करते हैं:
+
+| टेक्स्ट फ्रेम मालिक | `get_ParentShape` | `get_ParentCell` |
+|---|---|---|
+| एक AutoShape या अन्य टेक्स्ट‑धारक आकृति | मालिक वाला [IShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ishape/) | `nullptr` |
+| एक तालिका कोशिका | `nullptr` | मालिक वाली [ICell](https://reference.aspose.com/slides/hi/cpp/aspose.slides/icell/) |
+
+दोनों विधियां केवल‑पढ़ने योग्य नेविगेशन प्रदान करती हैं। इन्हें कॉल करने से टेक्स्ट फ्रेम नहीं चलता और न ही उसका मालिक बदलता है। सामान्य कोड को दोनों मानों को `nullptr` के लिए जांचना चाहिए और इस संभावना को संभालना चाहिए कि कोई भी मालिक उपलब्ध न हो।
+
+निम्न उदाहरण में [SlideUtil::GetAllTextFrames](https://reference.aspose.com/slides/hi/cpp/aspose.slides.util/slideutil/getalltextframes/) का उपयोग करके प्रस्तुति में सभी टेक्स्ट फ्रेमों पर इटरेट किया गया है। आकृतियों के लिए यह आकृति का नाम, C++ रन‑टाइम टाइप, और सम्मिलित स्लाइड को रिपोर्ट करता है। तालिका कोशिकाओं के लिए यह शून्य‑आधारित कॉलम और पंक्ति निर्देशांक तथा सम्मिलित स्लाइड को रिपोर्ट करता है।
 
 ```cpp
 #include <DOM/IBaseSlide.h>
 #include <DOM/INotesSlide.h>
+#include <DOM/IShape.h>
 #include <DOM/ISlide.h>
 #include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <Util/SlideUtil.h>
+#include <system/console.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using Aspose::Slides::IBaseSlide;
+using Aspose::Slides::INotesSlide;
+using Aspose::Slides::IShape;
+using Aspose::Slides::ISlide;
+using Aspose::Slides::ITextFrame;
+using Aspose::Slides::Presentation;
+using Aspose::Slides::Util::SlideUtil;
+using System::AsCast;
+using System::Console;
+using System::MakeObject;
+using System::String;
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx");
+auto textFrames = SlideUtil::GetAllTextFrames(presentation, false);
+
+for (const auto& textFrame : textFrames)
+{
+    auto ownerShape = textFrame->get_ParentShape();
+    if (ownerShape != nullptr)
+    {
+        auto shapeName = String::IsNullOrEmpty(ownerShape->get_Name()) ? u"(unnamed)" : ownerShape->get_Name();
+        auto shapeType = ownerShape->GetType().get_Name();
+        auto baseSlide = ownerShape->get_Slide();
+        String slideLabel;
+        auto slide = AsCast<ISlide>(baseSlide);
+
+        if (slide != nullptr)
+        {
+            slideLabel = String::Format(u"slide {0}", slide->get_SlideNumber());
+        }
+        else
+        {
+            auto notesSlide = AsCast<INotesSlide>(baseSlide);
+            if (notesSlide != nullptr)
+            {
+                slideLabel = String::Format(u"notes for slide {0}", notesSlide->get_ParentSlide()->get_SlideNumber());
+            }
+            else
+            {
+                slideLabel = baseSlide->GetType().get_Name();
+            }
+        }
+
+        Console::WriteLine(u"Shape: {0}; type: {1}; {2}", shapeName, shapeType, slideLabel);
+        continue;
+    }
+
+    auto ownerCell = textFrame->get_ParentCell();
+    if (ownerCell != nullptr)
+    {
+        auto baseSlide = ownerCell->get_Slide();
+        String slideLabel;
+        auto slide = AsCast<ISlide>(baseSlide);
+
+        if (slide != nullptr)
+        {
+            slideLabel = String::Format(u"slide {0}", slide->get_SlideNumber());
+        }
+        else
+        {
+            auto notesSlide = AsCast<INotesSlide>(baseSlide);
+            if (notesSlide != nullptr)
+            {
+                slideLabel = String::Format(u"notes for slide {0}", notesSlide->get_ParentSlide()->get_SlideNumber());
+            }
+            else
+            {
+                slideLabel = baseSlide->GetType().get_Name();
+            }
+        }
+
+        Console::WriteLine(u"Table cell: column {0}, row {1}; {2}", ownerCell->get_FirstColumnIndex(), ownerCell->get_FirstRowIndex(), slideLabel);
+        continue;
+    }
+
+    Console::WriteLine(u"The text frame owner is not available as a shape or table cell.");
+}
+```
+
+SmartArt सामग्री के लिए, [ISmartArtNode::get_Shapes](https://reference.aspose.com/slides/hi/cpp/aspose.slides.smartart/ismartartnode/get_shapes/) में आकृतियों पर इटरेट करें और प्रत्येक [ISmartArtShape::get_TextFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides.smartart/ismartartshape/get_textframe/) तक पहुँचें। टेक्स्ट फ्रेम को इसके संबंधित आकृति से [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/get_parentshape/) के माध्यम से ट्रेस किया जा सकता है, जबकि [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/get_parentcell/) `nullptr` लौटाता है। इसलिए उदाहरण में आकृति शाखा SmartArt नोड्स से आए टेक्स्ट को भी संभालती है।
+
+## **कॉलबैक के साथ मैच जानकारी एकत्र करें**
+
+हर मैच पर सूचना प्राप्त करने के लिए [IFindResultCallback](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ifindresultcallback/) को लागू करें। इसका [IFindResultCallback::FoundResult](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ifindresultcallback/foundresult/) मेथड संबंधित टेक्स्ट फ्रेम, स्रोत टेक्स्ट, मिलान किया गया टेक्स्ट, और मिलान स्थिति प्रदान करता है।
+
+कॉलबैक सीधे स्लाइड नंबर नहीं प्राप्त करता। नीचे दिया गया कार्यान्वयन इसे [ISlideComponent::get_Slide](https://reference.aspose.com/slides/hi/cpp/aspose.slides/islidecomponent/get_slide/) से प्राप्त करता है और साथ ही [INotesSlide::get_ParentSlide](https://reference.aspose.com/slides/hi/cpp/aspose.slides/inotesslide/get_parentslide/) के माध्यम से नोट्स स्लाइड में मिले टेक्स्ट को भी संभालता है। nullable स्लाइड नंबर समान परिणाम मॉडल को अन्य स्लाइड प्रकारों से जुड़े टेक्स्ट को दर्शाने की अनुमति देता है।
+
+```cpp
+#include <DOM/IBaseSlide.h>
+#include <DOM/INotesSlide.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Table/ICell.h>
 #include <IFindResultCallback.h>
 #include <system/collections/list.h>
 #include <system/nullable.h>
@@ -70,6 +181,7 @@ Aspose.Slides for C++ व्यक्तिगत टेक्स्ट फ्�
 using Aspose::Slides::IBaseSlide;
 using Aspose::Slides::IFindResultCallback;
 using Aspose::Slides::INotesSlide;
+using Aspose::Slides::IShape;
 using Aspose::Slides::ISlide;
 using Aspose::Slides::ITextFrame;
 using System::AsCast;
@@ -119,7 +231,23 @@ public:
 private:
     static Nullable<int32_t> GetSlideNumber(SharedPtr<ITextFrame> textFrame)
     {
-        SharedPtr<IBaseSlide> baseSlide = textFrame->get_Slide();
+        auto parentShape = textFrame->get_ParentShape();
+        auto parentCell = textFrame->get_ParentCell();
+        SharedPtr<IBaseSlide> baseSlide;
+
+        if (parentShape != nullptr)
+        {
+            baseSlide = parentShape->get_Slide();
+        }
+        else if (parentCell != nullptr)
+        {
+            baseSlide = parentCell->get_Slide();
+        }
+        else
+        {
+            baseSlide = textFrame->get_Slide();
+        }
+
         auto slide = AsCast<ISlide>(baseSlide);
 
         if (slide != nullptr)
@@ -139,13 +267,13 @@ private:
 };
 ```
 
-प्रतिस्थापन ऑपरेशनों के लिए, `FoundText` में मूल मिलान किया गया टेक्स्ट होता है, इसलिए कॉलबैक ठीक-ठीक रिकॉर्ड कर सकता है कि कौन से शब्द बदले गए।
+प्रतिस्थापन ऑपरेशनों के लिए, `FoundText` मूल मिलान किए गए टेक्स्ट को रखता है, जिससे कॉलबैक सटीक रूप से रिकॉर्ड कर सकता है कि किन शब्दों को बदला गया।
 
-## **टेक्स्ट को हाइलाइट करें**
+## **टेक्स्ट को हाईलाइट करें**
 
-[ITextFrame::HighlightText](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/highlighttext/) मेथड का उपयोग करके टेक्स्ट फ्रेम में शाब्दिक‑टेक्स्ट मैच को हाइलाइट करें। खोज को नियंत्रित करने हेतु [ITextSearchOptions](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextsearchoptions/) पास करें और मैच विवरण एकत्र करने के लिए कॉलबैक प्रदान करें।
+एक टेक्स्ट फ्रेम में शाब्दिक‑टेक्स्ट मिलानों को हाईलाइट करने के लिए [ITextFrame::HighlightText](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/highlighttext/) मेथड का प्रयोग करें। खोज को नियंत्रित करने के लिए [ITextSearchOptions](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextsearchoptions/) पास करें और मैच विवरण एकत्र करने के लिए एक कॉलबैक प्रदान करें।
 
-नीचे दिया गया कोड उदाहरण सभी **"try"** अक्षरों की घटनाओं को हाइलाइट करता है और फिर केवल पूर्ण शब्द **"to"** को हाइलाइट करता है। दोनों खोजें अपने मैच को समान कॉलबैक को रिपोर्ट करती हैं।
+नीचे दिया गया कोड उदाहरण सभी **"try"** अक्षरों की घटनाओं को हाईलाइट करता है और फिर केवल पूर्ण शब्द **"to"** को हाईलाइट करता है। दोनों खोजें समान कॉलबैक को अपने मैच लौटाती हैं।
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -167,7 +295,6 @@ using System::MakeObject;
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
 // Get the first shape from the first slide.
- // पहला आकार पहले स्लाइड से प्राप्त करें।
 auto shape = ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
 auto callback = MakeObject<TextSearchCallback>();
 
@@ -175,7 +302,6 @@ auto substringSearchOptions = MakeObject<TextSearchOptions>();
 substringSearchOptions->set_CaseSensitive(false);
 
 // Highlight every occurrence of "try" in the text frame.
- // टेक्स्ट फ़्रेम में "try" के सभी प्रकटनों को हाइलाइट करें।
 shape->get_TextFrame()->HighlightText(
     u"try", System::Drawing::Color::get_LightBlue(), substringSearchOptions, callback);
 
@@ -184,7 +310,6 @@ wholeWordSearchOptions->set_WholeWordsOnly(true);
 wholeWordSearchOptions->set_CaseSensitive(false);
 
 // Highlight only the complete word "to".
- // केवल पूर्ण शब्द "to" को हाइलाइट करें।
 shape->get_TextFrame()->HighlightText(
     u"to", System::Drawing::Color::get_Violet(), wholeWordSearchOptions, callback);
 
@@ -204,13 +329,13 @@ presentation->Dispose();
 
 परिणाम:
 
-![हाइलाइट किया गया टेक्स्ट](highlighted_text.png)
+![हाइलाइट किया गया पाठ](highlighted_text.png)
 
-## **रेगुलर एक्सप्रेशन का उपयोग करके टेक्स्ट को हाइलाइट करें**
+## **रेगुलर एक्सप्रेशन्स के साथ टेक्स्ट को हाईलाइट करें**
 
-[ITextFrame::HighlightRegex](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/highlightregex/) मेथड रेगुलर एक्सप्रेशन द्वारा खोजे गए टेक्स्ट मैच को टेक्स्ट फ्रेम में हाइलाइट करता है।
+[ITextFrame::HighlightRegex](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/highlightregex/) मेथड एक रेगुलर एक्सप्रेशन द्वारा पाए गए टेक्स्ट मिलानों को टेक्स्ट फ्रेम में हाईलाइट करता है।
 
-निम्नलिखित कोड सात या अधिक अक्षरों वाले सभी शब्दों को हाइलाइट करता है और प्रत्येक मैच को एकत्र करता है:
+निम्न कोड सभी सात या अधिक अक्षरों वाले शब्दों को हाईलाइट करता है और प्रत्येक मिलान को एकत्र करता है:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -243,11 +368,11 @@ presentation->Dispose();
 
 परिणाम:
 
-![रेगुलर एक्सप्रेशन का उपयोग करके हाइलाइट किया गया टेक्स्ट](highlighted_text_using_regex.png)
+![रेगुलर एक्सप्रेशन के साथ हाइलाइट किया गया पाठ](highlighted_text_using_regex.png)
 
-## **पूरी प्रस्तुति में टेक्स्ट को हाइलाइट करें**
+## **पूरे प्रस्तुति में टेक्स्ट को हाईलाइट करें**
 
-[IPresentation::HighlightText](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipresentation/highlighttext/) और [IPresentation::HighlightRegex](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipresentation/highlightregex/) का उपयोग करके प्रस्तुति में सभी लागू टेक्स्ट फ्रेम को खोजें। नीचे दिया गया उदाहरण एक शाब्दिक शब्द और सभी ई‑मेल पते को हाइलाइट करता है तथा दो खोजों के लिए अलग-अलग परिणाम संग्रह रखता है।
+[IPresentation::HighlightText](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipresentation/highlighttext/) और [IPresentation::HighlightRegex](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipresentation/highlightregex/) का उपयोग करके प्रस्तुति में सभी लागू टेक्स्ट फ्रेमों को खोजें। नीचे दिया गया उदाहरण एक शाब्दिक शब्द और सभी ई‑मेल पतों को अलग-अलग परिणाम संग्रहों के साथ हाईलाइट करता है।
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -288,9 +413,9 @@ presentation->Dispose();
 
 ## **टेक्स्ट फ्रेम में टेक्स्ट को बदलें**
 
-[ITextFrame::ReplaceText](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/replacetext/) का उपयोग शाब्दिक टेक्स्ट के लिए और [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/replaceregex/) का उपयोग पैटर्न‑आधारित प्रतिस्थापन के लिए करें। ये मेथड मौजूदा टेक्स्ट फ्रेम में मिलान किए गए टेक्स्ट को अपडेट करते हैं, जिससे आस‑पास के भागों का फॉर्मेट बरकरार रहता है, बजाय पूरे टेक्स्ट फ्रेम को साधारण स्ट्रिंग से पुनः बनाये जाने के।
+शाब्दिक टेक्स्ट के लिए [ITextFrame::ReplaceText](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/replacetext/) और पैटर्न‑आधारित प्रतिस्थापन के लिए [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/replaceregex/) का उपयोग करें। ये मेथड मौजूदा टेक्स्ट फ्रेम के भीतर मिलान किए गए टेक्स्ट को अपडेट करते हैं, जिससे आसपास के फ़ॉर्मेट को बरकरार रखा जाता है, न कि शुद्ध स्ट्रिंग से फ्रेम को पुनः निर्मित किया जाता है।
 
-निम्नलिखित उदाहरण वर्तनी वैरिएंट को मानकीकृत करता है और फिर संस्करण लेबल को बदलता है। समान कॉलबैक दोनों ऑपरेशनों द्वारा मिलाए गए मूल शब्दों को रिकॉर्ड करता है।
+निम्न उदाहरण एक वर्तनी रूपांतर को मानकीकृत करता है और फिर संस्करण लेबल बदलता है। वही कॉलबैक दोनों ऑपरेशनों द्वारा मिलाए गए मूल शब्दों को रिकॉर्ड करता है।
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -329,11 +454,11 @@ presentation->Save(u"updated_text_frame.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-यदि कोई मैच कई अलग-अलग फॉर्मेट वाले हिस्सों को कवर करता है, तो आउटपुट की जाँच करें यह सुनिश्चित करने के लिए कि प्रतिस्थापन टेक्स्ट पर कौन सा फॉर्मेट लागू होना चाहिए।
+यदि एक मिलान विभिन्न फ़ॉर्मेट वाले भागों को कवर करता है, तो आउटपुट की जाँच करें ताकि यह सुनिश्चित हो सके कि प्रतिस्थापन टेक्स्ट पर किस फ़ॉर्मेट को लागू किया जाना चाहिए।
 
-## **पूरी प्रस्तुति में टेक्स्ट को बदलें**
+## **पूरे प्रस्तुति में टेक्स्ट को बदलें**
 
-[IPresentation::ReplaceText](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipresentation/replacetext/) और [IPresentation::ReplaceRegex](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipresentation/replaceregex/) का उपयोग करके समान ऑपरेशनों को पूरी प्रस्तुति में लागू करें। यह टेम्पलेट सफ़ाई, शब्दावली अपडेट और रेडैक्शन के लिए उपयोगी है।
+[IPresentation::ReplaceText](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipresentation/replacetext/) और [IPresentation::ReplaceRegex](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipresentation/replaceregex/) का उपयोग करके समान ऑपरेशनों को पूरे प्रस्तुति में लागू करें। यह टेम्पलेट सफाई, टर्मिनोलॉजी अपडेट और रिडैक्शन के लिए उपयोगी है।
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -364,9 +489,9 @@ presentation->Save(u"updated_presentation.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **रिपोर्टिंग के लिए मैच समूहित करें**
+## **रिपोर्टिंग के लिए मिलानों को समूहित करें**
 
-चूँकि प्रत्येक परिणाम अपना स्लाइड नंबर और टेक्स्ट फ्रेम संग्रहीत करता है, एप्लिकेशन ऑडिट, रिपोर्टिंग या समीक्षा वर्कफ़्लोज़ के लिए मैच को समूहित कर सकते हैं। नीचे दिया गया उदाहरण पहले स्लाइड और फिर टेक्स्ट फ्रेम के अनुसार एकत्रित परिणामों को समूहित करता है:
+चूंकि हर परिणाम अपने स्लाइड नंबर और टेक्स्ट फ्रेम को संग्रहीत करता है, एप्लिकेशन ऑडिट, रिपोर्टिंग या समीक्षा वर्कफ़्लो के लिए मिलानों को समूहित कर सकते हैं। नीचे दिया गया उदाहरण पहले स्लाइड द्वारा और फिर टेक्स्ट फ्रेम द्वारा एकत्रित परिणामों को समूहित करता है:
 
 ```cpp
 #include <DOM/ITextFrame.h>
@@ -410,24 +535,24 @@ for (const auto& slideGroup : matchesBySlide)
 }
 ```
 
-## **FAQ**
+## **अक्सर पूछे जाने वाले प्रश्न**
 
-**मैं पूरी प्रस्तुति के बजाय केवल एक टेक्स्ट बॉक्स को कैसे खोज सकता हूँ?**
+**मैं पूरी प्रस्तुति के बजाय केवल एक टेक्स्ट बॉक्स को कैसे खोजूँ?**
 
-शेप के टेक्स्ट फ्रेम को प्राप्त करें और उस टेक्स्ट फ्रेम पर [ITextFrame::HighlightText](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/highlighttext/), [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/highlightregex/), [ITextFrame::ReplaceText](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/replacetext/), या [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/replaceregex/) को कॉल करें। प्रस्तुति‑स्तरीय मेथड सभी लागू टेक्स्ट फ्रेम को प्रोसेस करते हैं।
+आकार (shape) की टेक्स्ट फ्रेम प्राप्त करें और उस टेक्स्ट फ्रेम पर [ITextFrame::HighlightText](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/highlighttext/), [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/highlightregex/), [ITextFrame::ReplaceText](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/replacetext/), या [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/replaceregex/) को कॉल करें। प्रस्तुति‑स्तर की विधियां सभी लागू टेक्स्ट फ्रेमों को प्रोसेस करती हैं।
 
-**मैं सही कैपिटलाइज़ेशन के साथ पूर्ण शब्दों को कैसे मैच करूँ?**
+**मैं पूर्ण शब्दों को सही कैपिटलाइज़ेशन के साथ कैसे मिलाऊँ?**
 
-[ITextSearchOptions::set_WholeWordsOnly](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextsearchoptions/set_wholewordsonly/) और [ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) को `true` के साथ कॉल करें, और विकल्पों को शाब्दिक‑टेक्स्ट हाइलाइट या प्रतिस्थापन मेथड को पास करें। रेगुलर एक्सप्रेशन के लिए, `System::Text::RegularExpressions::Regex` में स्वयं शब्द सीमाएँ और केस संवेदनशीलता परिभाषित करें।
+[ITextSearchOptions::set_WholeWordsOnly](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextsearchoptions/set_wholewordsonly/) और [ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) को `true` के साथ कॉल करें, और विकल्पों को शाब्दिक‑टेक्स्ट हाईलाइट या प्रतिस्थापन मेथड में पास करें। रेगुलर एक्सप्रेशन के लिए, शब्द सीमाएं और केस‑सेंसिटिविटी को स्वयं `System::Text::RegularExpressions::Regex` में परिभाषित करें।
 
-**क्या खोज और प्रतिस्थापन स्लाइड नोट्स में टेक्स्ट को शामिल कर सकता है?**
+**क्या खोज और प्रतिस्थापन में स्लाइड नोट्स का टेक्स्ट भी शामिल हो सकता है?**
 
-हाँ। जब प्रस्तुति‑स्तरीय शाब्दिक‑टेक्स्ट ऑपरेशन इस्तेमाल हो रहा हो, तो [ITextSearchOptions::set_IncludeNotes](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextsearchoptions/set_includenotes/) को `true` के साथ कॉल करें। ऊपर दिखाए गए कॉलबैक कार्यान्वयन में नोट्स स्लाइड के मैच को उसके पैरेंट स्लाइड नंबर से मैप किया जाता है।
+हां। प्रस्तुति‑स्तर की शाब्दिक‑टेक्स्ट ऑपरेशन के दौरान [ITextSearchOptions::set_IncludeNotes](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextsearchoptions/set_includenotes/) को `true` सेट करें। ऊपर दिखाया गया कॉलबैक नोट्स स्लाइड में मिले मैच को उसके पैरेंट स्लाइड नंबर में मैप करता है।
 
-**मैं प्रस्तुति को दूसरी बार स्कैन किए बिना रिपोर्ट कैसे बना सकता हूँ?**
+**मैं बिना प्रस्तुति को दोबारा स्कैन किए रिपोर्ट कैसे बनाऊँ?**
 
-[IFindResultCallback](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ifindresultcallback/) कार्यान्वयन को हाइलाइट या प्रतिस्थापन ऑपरेशन में पास करें। कॉलबैक ऑपरेशन के चलने के दौरान प्रत्येक मैच प्राप्त करता है, जिससे एप्लिकेशन स्रोत टेक्स्ट, मैच किया गया टेक्स्ट, स्थिति, टेक्स्ट फ्रेम और व्युत्पन्न स्लाइड नंबर को बाद में समूहित या निर्यात करने के लिए संग्रहीत कर सके।
+हाइलाइट या प्रतिस्थापन ऑपरेशन में एक [IFindResultCallback](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ifindresultcallback/) कार्यान्वयन पास करें। कॉलबैक ऑपरेशन चलते समय हर मैच प्राप्त करता है, जिससे एप्लिकेशन स्रोत टेक्स्ट, मिलान किया गया टेक्स्ट, स्थिति, टेक्स्ट फ्रेम और व्युत्पन्न स्लाइड नंबर को बाद में समूहित या निर्यात करने के लिए संग्रहीत कर सकता है।
 
-**क्या टेक्स्ट को बदलने से उसका फॉर्मेट बरकरार रहता है?**
+**क्या टेक्स्ट को बदलने से उसका फ़ॉर्मेट बना रहता है?**
 
-[ITextFrame::ReplaceText](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/replacetext/) और [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/replaceregex/) मिलान किए गए टेक्स्ट को मौजूदा टेक्स्ट फ्रेम के भीतर संशोधित करते हैं और आस‑पास के भागों का फॉर्मेट बरकरार रखते हैं। यदि कोई मैच विभिन्न फॉर्मेट वाले हिस्सों को कवर करता है, तो परिणाम की जांच करें यह सुनिश्चित करने के लिए कि प्रतिस्थापन वांछित स्टाइल का उपयोग करे।
+[ITextFrame::ReplaceText](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/replacetext/) और [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/hi/cpp/aspose.slides/itextframe/replaceregex/) मौजूदा टेक्स्ट फ्रेम के भीतर मिलान किए गए टेक्स्ट को संशोधित करते हैं और आसपास के भागों का फ़ॉर्मेट बनाए रखते हैं। यदि एक मिलान विभिन्न फ़ॉर्मेट वाले भागों को कवर करता है, तो सुनिश्चित करने के लिये परिणाम का निरीक्षण करें कि प्रतिस्थापन वांछित शैली को अपनाता है।

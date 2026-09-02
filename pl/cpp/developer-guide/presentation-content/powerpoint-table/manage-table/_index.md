@@ -1,59 +1,79 @@
 ---
-title: "Zarządzanie tabelami prezentacji w C++"
-linktitle: "Zarządzaj tabelą"
+title: Zarządzanie tabelami prezentacji w C++
+linktitle: Zarządzaj tabelą
 type: docs
 weight: 10
 url: /pl/cpp/manage-table/
 keywords:
-- "dodaj tabelę"
-- "utwórz tabelę"
-- "dostęp do tabeli"
-- "proporcje"
-- "wyrównaj tekst"
-- "formatowanie tekstu"
-- "styl tabeli"
-- "PowerPoint"
-- "prezentacja"
-- "C++"
-- "Aspose.Slides"
+- dodaj tabelę
+- utwórz tabelę
+- dostęp do tabeli
+- proporcje
+- wyrównaj tekst
+- formatowanie tekstu
+- styl tabeli
+- PowerPoint
+- prezentacja
+- C++
+- Aspose.Slides
 description: "Twórz i edytuj tabele w slajdach PowerPoint przy użyciu Aspose.Slides dla C++. Odkryj proste przykłady kodu, które usprawnią Twoje przepływy pracy z tabelami."
 ---
 ## **Wprowadzenie**
 
-Tabela w programie PowerPoint jest efektywnym sposobem wyświetlania i przedstawiania informacji. Informacje w siatce komórek (ustawionych w wierszach i kolumnach) są proste i łatwe do zrozumienia.
+Tabela w programie PowerPoint to efektywny sposób wyświetlania i przedstawiania informacji. Informacje w siatce komórek (ustawionych w wierszach i kolumnach) są przejrzyste i łatwe do zrozumienia.
 
-Aspose.Slides udostępnia klasę [Table](https://reference.aspose.com/slides/pl/cpp/aspose.slides/table/) , interfejs [ITable](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itable/) , klasę [Cell](https://reference.aspose.com/slides/pl/cpp/aspose.slides/cell/) , interfejs [ICell](https://reference.aspose.com/slides/pl/cpp/aspose.slides/icell/) oraz inne typy, które pozwalają tworzyć, aktualizować i zarządzać tabelami we wszystkich rodzajach prezentacji. 
+Aspose.Slides udostępnia klasę [Table](https://reference.aspose.com/slides/pl/cpp/aspose.slides/table/), interfejs [ITable](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itable/), klasę [Cell](https://reference.aspose.com/slides/pl/cpp/aspose.slides/cell/), interfejs [ICell](https://reference.aspose.com/slides/pl/cpp/aspose.slides/icell/) oraz inne typy, które umożliwiają tworzenie, aktualizowanie i zarządzanie tabelami we wszystkich rodzajach prezentacji. 
 
 ## **Utworzenie tabeli od podstaw**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/) .
-2. Uzyskaj referencję do slajdu przez jego indeks. 
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/).
+2. Uzyskaj odniesienie do slajdu za pomocą jego indeksu. 
 3. Zdefiniuj tablicę `columnWidth`.
 4. Zdefiniuj tablicę `rowHeight`.
-5. Dodaj obiekt [ITable](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itable/) do slajdu przy użyciu metody [AddTable()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishapecollection/addtable/) .
-6. Iteruj po każdym [ICell](https://reference.aspose.com/slides/pl/cpp/aspose.slides/icell/) , aby zastosować formatowanie krawędzi górnej, dolnej, prawej i lewej.
+5. Dodaj obiekt [ITable](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itable/) do slajdu przy użyciu metody [AddTable()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishapecollection/addtable/).
+6. Iteruj po każdym [ICell](https://reference.aspose.com/slides/pl/cpp/aspose.slides/icell/), aby zastosować formatowanie do górnej, dolnej, prawej i lewej krawędzi.
 7. Scal pierwsze dwie komórki pierwszego wiersza tabeli. 
-8. Uzyskaj dostęp do [TextFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/textframe/) obiektu [ICell](https://reference.aspose.com/slides/pl/cpp/aspose.slides/icell/) .
-9. Dodaj tekst do [TextFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/textframe/) .
+8. Uzyskaj dostęp do [TextFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/textframe/) obiektu [ICell](https://reference.aspose.com/slides/pl/cpp/aspose.slides/icell/). 
+9. Dodaj tekst do [TextFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/textframe/).
 10. Zapisz zmodyfikowaną prezentację.
 
 Ten kod C++ pokazuje, jak utworzyć tabelę w prezentacji:
 
 ```c++
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <DOM/Table/ICellFormat.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 // Tworzy instancję klasy Presentation, która reprezentuje plik PPTX
 auto pres = System::MakeObject<Presentation>();
 
 // Uzyskuje dostęp do pierwszego slajdu
 auto sld = pres->get_Slides()->idx_get(0);
 
-// Definiuje kolumny o szerokościach i wiersze o wysokościach
+// Definiuje kolumny z szerokościami i wiersze z wysokościami
 auto dblCols = System::MakeArray<double>({ 50, 50, 50 });
 auto dblRows = System::MakeArray<double>({ 50, 30, 30, 30, 30 });
 
 // Dodaje kształt tabeli do slajdu
 auto tbl = sld->get_Shapes()->AddTable(100.0f, 50.0f, dblCols, dblRows);
 
-// Ustawia format obramowania dla każdej komórki
+// Ustawia formatowanie krawędzi dla każdej komórki
 for (int32_t row = 0; row < tbl->get_Rows()->get_Count(); row++)
 {
     for (int32_t cell = 0; cell < tbl->get_Rows()->idx_get(row)->get_Count(); cell++)
@@ -77,10 +97,10 @@ for (int32_t row = 0; row < tbl->get_Rows()->get_Count(); row++)
         cellFormat->get_BorderRight()->set_Width(5);
     }
 }
-// Scala komórki 1 i 2 wiersza 1
+// Łączy komórki 1 i 2 pierwszego wiersza
 tbl->MergeCells(tbl->get_Rows()->idx_get(0)->idx_get(0), tbl->get_Rows()->idx_get(1)->idx_get(1), false);
 
-// Dodaje tekst do scalonej komórki
+// Dodaje trochę tekstu do połączonej komórki
 tbl->get_Rows()->idx_get(0)->idx_get(0)->get_TextFrame()->set_Text(u"Merged Cells");
 
 // Zapisuje prezentację na dysku
@@ -91,7 +111,7 @@ pres->Save(u"table.pptx", SaveFormat::Pptx);
 
 W standardowej tabeli numeracja komórek jest prosta i zaczyna się od zera. Pierwsza komórka w tabeli ma indeks 0,0 (kolumna 0, wiersz 0). 
 
-Na przykład, komórki w tabeli z 4 kolumnami i 4 wierszami są numerowane w następujący sposób:
+Na przykład komórki w tabeli z 4 kolumnami i 4 wierszami są numerowane w ten sposób:
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -102,7 +122,27 @@ Na przykład, komórki w tabeli z 4 kolumnami i 4 wierszami są numerowane w nas
 Ten kod C++ pokazuje, jak określić numerację komórek w tabeli:
 
 ```c++
-// Tworzy instancję klasy Presentation reprezentującej plik PPTX
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <DOM/Table/ICellFormat.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+// Tworzy instancję klasy Presentation, która reprezentuje plik PPTX
 auto pres = System::MakeObject<Presentation>();
 
 // Uzyskuje dostęp do pierwszego slajdu
@@ -115,7 +155,7 @@ auto dblRows = System::MakeArray<double>({ 70, 70, 70, 70 });
 // Dodaje kształt tabeli do slajdu
 auto tbl = sld->get_Shapes()->AddTable(100.0f, 50.0f, dblCols, dblRows);
 
-// Ustawia format obramowania dla każdej komórki
+// Ustawia formatowanie krawędzi dla każdej komórki
 for (const auto& row : tbl->get_Rows())
 {
     for (const auto& cell : row)
@@ -139,28 +179,38 @@ for (const auto& row : tbl->get_Rows())
     }
 }
 
-// Zapisuje prezentację na dysku
+// Zapisuje prezentację na dysk
 pres->Save(u"StandardTables_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **Dostęp do istniejącej tabeli**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/) .
-
-2. Uzyskaj referencję do slajdu zawierającego tabelę przez jego indeks. 
-
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/).
+2. Uzyskaj odniesienie do slajdu zawierającego tabelę za pomocą jego indeksu. 
 3. Utwórz obiekt [ITable](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itable/) i ustaw go na null.
+4. Iteruj po wszystkich obiektach [IShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishape/), aż znajdziesz tabelę.
 
-4. Iteruj przez wszystkie obiekty [IShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishape/) , aż znajdziesz tabelę.  
-   Jeśli podejrzewasz, że slajd, z którym pracujesz, zawiera jedną tabelę, możesz po prostu sprawdzić wszystkie znajdujące się na nim kształty. Gdy kształt zostanie zidentyfikowany jako tabela, możesz rzutować go na obiekt [Table](https://reference.aspose.com/slides/pl/cpp/aspose.slides/table/) . Jednak jeśli slajd zawiera kilka tabel, lepiej jest wyszukać potrzebną tabelę przy użyciu jej metody [set_AlternativeText()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishape/set_alternativetext/) .
+   Jeśli podejrzewasz, że omawiany slajd zawiera jedną tabelę, możesz po prostu sprawdzić wszystkie znajdujące się na nim kształty. Gdy kształt zostanie zidentyfikowany jako tabela, możesz rzutować go na obiekt [Table](https://reference.aspose.com/slides/pl/cpp/aspose.slides/table/). Jednak jeśli slajd zawiera kilka tabel, lepiej jest wyszukać potrzebną tabelę za pomocą jej metody [set_AlternativeText()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishape/set_alternativetext/).
 
-5. Użyj obiektu [ITable](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itable/) , aby pracować z tabelą. W poniższym przykładzie dodaliśmy nowy wiersz do tabeli.
-
+5. Użyj obiektu [ITable](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itable/), aby pracować z tabelą. W poniższym przykładzie dodaliśmy nowy wiersz do tabeli.
 6. Zapisz zmodyfikowaną prezentację.
 
-Ten kod C++ pokazuje, jak uzyskać dostęp do istniejącej tabeli i pracować z nią:
+Ten kod C++ pokazuje, jak uzyskać dostęp i pracować z istniejącą tabelą:
 
 ```c++
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 // Tworzy instancję klasy Presentation, która reprezentuje plik PPTX
 auto pres = System::MakeObject<Presentation>(u"UpdateExistingTable.pptx");
 
@@ -170,7 +220,7 @@ auto sld = pres->get_Slides()->idx_get(0);
 // Inicjalizuje pustą tabelę
 System::SharedPtr<ITable> tbl;
 
-// Iteruje przez kształty i ustawia referencję do znalezionej tabeli
+// Iteruje po kształtach i ustawia odniesienie do znalezionej tabeli
 for (const auto& shp : System::IterateOver(sld->get_Shapes()))
 {
     if (System::ObjectExt::Is<ITable>(shp))
@@ -186,23 +236,54 @@ tbl->idx_get(0, 1)->get_TextFrame()->set_Text(u"New");
 pres->Save(u"table1_out.pptx", SaveFormat::Pptx);
 ```
 
+## **Znajdź komórkę będącą właścicielem ramki tekstowej**
+
+Kiedy ogólny kod przetwarzający tekst otrzymuje obiekt [ITextFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/) z tabeli, użyj [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/get_parentcell/), aby odzyskać należący [ICell](https://reference.aspose.com/slides/pl/cpp/aspose.slides/icell/). Dla ramki tekstowej w komórce tabeli, [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/get_parentcell/) zwraca właściciela, a [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/get_parentshape/) zwraca `nullptr`, mimo że sama tabela jest kształtem.
+
+Koordynaty komórki są dostępne za pośrednictwem metod tylko do odczytu [ICell::get_FirstColumnIndex](https://reference.aspose.com/slides/pl/cpp/aspose.slides/icell/get_firstcolumnindex/) i [ICell::get_FirstRowIndex](https://reference.aspose.com/slides/pl/cpp/aspose.slides/icell/get_firstrowindex/). [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/get_parentcell/) również zapewnia nawigację tylko do odczytu: zwraca właściciela, ale nie zmienia własności. Zawsze sprawdzaj, czy zwrócona komórka nie jest `nullptr` przed jej użyciem.
+
+Pełny przykład identyfikujący właścicieli komórek tabeli i kształtów, w tym kształty powiązane z węzłami SmartArt, znajdziesz w [Wyszukiwanie i zamiana tekstu](/slides/pl/cpp/search-and-replace-text/).
+
 ## **Wyrównanie tekstu w tabeli**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/) .
-2. Uzyskaj referencję do slajdu przez jego indeks. 
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/).
+2. Uzyskaj odniesienie do slajdu za pomocą jego indeksu. 
 3. Dodaj obiekt [ITable](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itable/) do slajdu. 
 4. Uzyskaj dostęp do obiektu [ITextFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/) z tabeli. 
-5. Uzyskaj dostęp do [IParagraph](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraph/) obiektu [ITextFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/) .
+5. Uzyskaj dostęp do [IParagraph](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraph/) obiektu [ITextFrame](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itextframe/).
 6. Wyrównaj tekst pionowo.
 7. Zapisz zmodyfikowaną prezentację.
 
 Ten kod C++ pokazuje, jak wyrównać tekst w tabeli:
 
 ```c++
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/TextAnchorType.h>
+#include <DOM/TextVerticalType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 // Tworzy instancję klasy Presentation
 auto presentation = System::MakeObject<Presentation>();
 
-// Pobiera pierwszy slajd 
+// Uzyskuje pierwszy slajd
 auto slide = presentation->get_Slides()->idx_get(0);
 
 // Definiuje kolumny o szerokościach i wiersze o wysokościach
@@ -232,23 +313,37 @@ auto cell = tbl->idx_get(0, 0);
 cell->set_TextAnchorType(TextAnchorType::Center);
 cell->set_TextVerticalType(TextVerticalType::Vertical270);
 
-// Zapisuje prezentację na dysku
+// Zapisuje prezentację na dysk
 presentation->Save(u"Vertical_Align_Text_out.pptx", SaveFormat::Pptx);
 ```
 
-## **Ustawienie formatowania tekstu na poziomie tabeli**
+## **Ustaw formatowanie tekstu na poziomie tabeli**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/) .
-2. Uzyskaj referencję do slajdu przez jego indeks. 
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/).
+2. Uzyskaj odniesienie do slajdu za pomocą jego indeksu. 
 3. Uzyskaj dostęp do obiektu [ITable](https://reference.aspose.com/slides/pl/cpp/aspose.slides/itable/) ze slajdu.
 4. Ustaw [set_FontHeight()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/baseportionformat/set_fontheight/) dla tekstu. 
-5. Ustaw [set_Alignment()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/set_alignment/) oraz [set_MarginRight()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/set_marginright/) .
-6. Ustaw [set_TextVerticalType()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/textframeformat/set_textverticaltype/) .
+5. Ustaw [set_Alignment()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/set_alignment/) oraz [set_MarginRight()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/iparagraphformat/set_marginright/). 
+6. Ustaw [set_TextVerticalType()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/textframeformat/set_textverticaltype/).
 7. Zapisz zmodyfikowaną prezentację. 
 
-Ten kod C++ pokazuje, jak zastosować preferowane opcje formatowania do tekstu w tabeli:
+Ten kod C++ pokazuje, jak zastosować wybrane opcje formatowania do tekstu w tabeli:
 
 ```c++
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ParagraphFormat.h>
+#include <DOM/PortionFormat.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/TextAlignment.h>
+#include <DOM/TextFrameFormat.h>
+#include <DOM/TextVerticalType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 // Tworzy instancję klasy Presentation
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slides()->idx_get(0);
@@ -275,11 +370,20 @@ someTable->SetTextFormat(textFrameFormat);
 presentation->Save(u"result.pptx", SaveFormat::Pptx);
 ```
 
-## **Pobieranie właściwości stylu tabeli**
+## **Pobranie właściwości stylu tabeli**
 
-Aspose.Slides umożliwia pobranie właściwości stylu tabeli, aby można było użyć tych informacji w innej tabeli lub w innym miejscu. Ten kod C++ pokazuje, jak uzyskać właściwości stylu z predefiniowanego stylu tabeli:
+Aspose.Slides pozwala pobrać właściwości stylu tabeli, aby można było użyć ich przy innej tabeli lub w innym miejscu. Ten kod C++ pokazuje, jak uzyskać właściwości stylu z predefiniowanego stylu tabeli:
 
 ```c++
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/TableStylePreset.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slide(0)->get_Shapes();
 auto table = System::ExplicitCast<ITable>(shapes->AddTable(10, 10, System::MakeArray<double>({100, 150}), System::MakeArray<double>({5, 5, 5})));
@@ -290,11 +394,23 @@ pres->Save(u"table.pptx", SaveFormat::Pptx);
 
 ## **Zablokowanie proporcji tabeli**
 
-Proporcje geometrycznego kształtu to stosunek jego wymiarów w różnych kierunkach. Aspose.Slides udostępnia właściwość `AspectRatioLocked()` , która pozwala zablokować ustawienie proporcji dla tabel i innych kształtów. 
+Proporcje geometrycznego kształtu to stosunek jego wymiarów w różnych kierunkach. Aspose.Slides udostępnia właściwość `AspectRatioLocked()`, która pozwala zablokować ustawienie proporcji dla tabel i innych kształtów. 
 
-Ten kod C++ pokazuje, jak zablokować proporcje dla tabeli:
+Ten kod C++ pokazuje, jak zablokować proporcje tabeli:
 
 ```c++
+#include <DOM/IGraphicalObjectLock.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 auto table = System::ExplicitCast<ITable>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
 
@@ -310,14 +426,14 @@ pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
 
 ## **FAQ**
 
-**Czy mogę włączyć kierunek odczytu od prawej do lewej (RTL) dla całej tabeli i tekstu w jej komórkach?**
+**Czy mogę włączyć kierunek czytania od prawej do lewej (RTL) dla całej tabeli i tekstu w jej komórkach?**
 
-Tak. Tabela udostępnia metodę [set_RightToLeft](https://reference.aspose.com/slides/pl/cpp/aspose.slides/table/set_righttoleft/) , a akapity mają [ParagraphFormat::set_RightToLeft](https://reference.aspose.com/slides/pl/cpp/aspose.slides/paragraphformat/set_righttoleft/) . Użycie obu zapewnia prawidłowy kolejność RTL oraz renderowanie wewnątrz komórek.
+Tak. Tabela udostępnia metodę [set_RightToLeft](https://reference.aspose.com/slides/pl/cpp/aspose.slides/table/set_righttoleft/), a akapity mają [ParagraphFormat::set_RightToLeft](https://reference.aspose.com/slides/pl/cpp/aspose.slides/paragraphformat/set_righttoleft/). Użycie obu zapewnia prawidłowy porządek RTL oraz renderowanie wewnątrz komórek.
 
-**Jak mogę zapobiec przenoszeniu lub zmianie rozmiaru tabeli przez użytkowników w finalnym pliku?**
+**Jak mogę zapobiec przenoszeniu lub zmianie rozmiaru tabeli w finalnym pliku?**
 
-Użyj [shape locks](/slides/pl/cpp/applying-protection-to-presentation/) , aby wyłączyć przenoszenie, zmianę rozmiaru, zaznaczanie itp. Te blokady dotyczą również tabel.
+Użyj [shape locks](/slides/pl/cpp/applying-protection-to-presentation/), aby wyłączyć przenoszenie, zmianę rozmiaru, zaznaczanie itp. Te blokady działają również na tabele.
 
 **Czy wstawianie obrazu jako tła wewnątrz komórki jest obsługiwane?**
 
-Tak. Możesz ustawić [picture fill](https://reference.aspose.com/slides/pl/cpp/aspose.slides/picturefillformat/) , aby wypełnić komórkę obrazem; obraz pokryje obszar komórki zgodnie z wybranym trybem (rozciągnięcie lub kafelkowanie).
+Tak. Możesz ustawić [picture fill](https://reference.aspose.com/slides/pl/cpp/aspose.slides/picturefillformat/) dla komórki; obraz pokryje obszar komórki zgodnie z wybranym trybem (rozciąganie lub kafelkowanie).

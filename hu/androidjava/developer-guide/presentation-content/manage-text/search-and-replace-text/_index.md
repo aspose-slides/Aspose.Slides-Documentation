@@ -1,6 +1,6 @@
 ---
-title: PowerPoint-prezentációk szövegének keresése és cseréje Androidon
-linktitle: Szöveg keresése és cseréje
+title: Szöveg keresése és cseréje PowerPoint prezentációkban Androidon
+linktitle: Keresés és csere szöveg
 type: docs
 weight: 55
 url: /hu/androidjava/search-and-replace-text/
@@ -18,44 +18,108 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Szöveg keresése, kiemelése és cseréje PowerPoint-prezentációkban, miközben az Aspose.Slides for Android via Java minden találatot gyűjt."
+description: "Szöveg keresése, kiemelése és cseréje PowerPoint prezentációkban, miközben minden egyezést összegyűjt az Aspose.Slides for Android via Java segítségével."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides for Android via Java képes keresni, kiemelni és cserélni a szöveget egy egyedi szövegkeretben vagy egy teljes prezentációban. Minden művelet értesítheti az alkalmazást minden találatról egy eredmény‑visszahíváson keresztül. Ez lehetővé teszi a prezentáció frissítését, miközben egy audit‑nyomvonalat épít fel, amely tartalmazza a megtalált szöveget, annak kontextusát, pozícióját, a szövegkeretet és a dia számát.
+Az Aspose.Slides for Android via Java képes keresni, kiemelni és helyettesíteni a szöveget egy adott szövegkeretben vagy egy teljes prezentációban. Minden művelet értesítheti az alkalmazást minden egyezésről egy eredmény‑visszahíváson keresztül. Ez lehetővé teszi a prezentáció frissítését, miközben egy audit‑naplót épít fel, amely tartalmazza a megtalált szöveget, annak környezetét, pozícióját, a szövegkeretet és a dia számát.
 
-Ezek a képességek hasznosak felülvizsgálathoz, sötétítéshez, terminológiai ellenőrzésekhez, sablon‑takarításhoz és automatizált jelentési munkafolyamatokhoz.
+Ezek a lehetőségek hasznosak felülvizsgálat, pirosítás, terminológiai ellenőrzés, sablon‑takarítás és automatizált jelentési munkafolyamatok esetén.
 
 Az alábbi első példákban a „sample.pptx” nevű fájlt használjuk, amely az első dián egyetlen szövegdobozt tartalmaz a következő szöveggel:
 
-![Sample text](sample_text.png)
+![Minta szöveg](sample_text.png)
 
 ## **Keresési hatókör kiválasztása**
 
-Használja az [ITextFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/) metódusait egy művelet korlátozásához egy szövegkeretre. Használja az [IPresentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipresentation/) metódusait a prezentációban található összes alkalmazható szöveg feldolgozásához.
+Használja az [ITextFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/) metódusait egy művelet korlátozásához egy szövegkeretre. Használja az [IPresentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipresentation/) metódusait a prezentációban lévő összes alkalmazható szöveg feldolgozásához.
 
 | Művelet | Egy szövegkeret | Teljes prezentáció |
 |---|---|---|
 | Literális szöveg kiemelése | [ITextFrame.highlightText](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [IPresentation.highlightText](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipresentation/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
-| Reguláris‑kifejezés egyezések kiemelése | [ITextFrame.highlightRegex](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-) | [IPresentation.highlightRegex](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipresentation/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-) |
-| Literális szöveg cseréje | [ITextFrame.replaceText](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [IPresentation.replaceText](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipresentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
-| Reguláris‑kifejezés egyezések cseréje | [ITextFrame.replaceRegex](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) | [IPresentation.replaceRegex](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipresentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) |
+| Reguláris‑kifejezés egyezés kiemelése | [ITextFrame.highlightRegex](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-) | [IPresentation.highlightRegex](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipresentation/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-) |
+| Literális szöveg helyettesítése | [ITextFrame.replaceText](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [IPresentation.replaceText](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipresentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
+| Reguláris‑kifejezés egyezés helyettesítése | [ITextFrame.replaceRegex](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) | [IPresentation.replaceRegex](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipresentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) |
 
 ## **Szövegillesztés konfigurálása**
 
-Literális‑szöveges műveletekhez használja a [TextSearchOptions](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/textsearchoptions/) osztályt a keresés szabályozásához:
+Legismertebb szövegre vonatkozó műveletekhez használja a [TextSearchOptions](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/textsearchoptions/) osztályt a kezeléshez:
 
-- [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) korlátozza a találatokat teljes szavakra.
-- [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) szabályozza, hogy a karakterek nagy‑ és kisbetűje egyezzen.
-- [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) belefoglalja a diák jegyzeteit a prezentáció‑szintű keresésbe, csere‑ és kiemelés‑műveletekbe.
+- A [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) csak teljes szavakra korlátozza az egyezéseket.
+- A [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) határozza meg, hogy a karakterek nagy‑kis betűi egyezzenek‑e.
+- A [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) a diára vonatkozó keresés, helyettesítés és kiemelés műveletekbe belevonja a dia‑megjegyzéseket is.
 
-A reguláris‑kifejezéses műveletek egy Java `Pattern`‑t használnak, így az egyezés szabályait – például a nagybetűérzékenységet és a szóhatárokat – a kifejezés és annak flagjei határozzák meg.
+A reguláris‑kifejezéseken alapuló műveletek Java `Pattern`‑t használnak, így a szabályok (pl. kis‑nagybetű érzékenység, szóhatárok) a kifejezésben és azok jelzőiben vannak definiálva.
 
-## **Gyűjtse össze a találatok információit visszahívással**
+## **A szövegkeret tulajdonosának azonosítása**
 
-Implementálja a [IFindResultCallback](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ifindresultcallback/) interfészt, hogy minden egyezésről értesítést kapjon. Az [IFindResultCallback.foundResult](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ifindresultcallback/#foundResult-com.aspose.slides.ITextFrame-java.lang.String-java.lang.String-int-) metódusa a kapcsolódó szövegkeretet, a forrásszöveget, a megtalált szöveget és a találat pozícióját adja vissza.
+Az általános szövegfeldolgozó munkafolyamatok gyakran kapnak egy [ITextFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/) objektumot keresés, helyettesítés, validálás vagy exportálás közben. Használja a [ITextFrame.getParentShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/#getParentShape--) és a [ITextFrame.getParentCell](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/#getParentCell--) metódusokat annak meghatározásához, hogy melyik prezentációobjektum birtokolja a szövegkeretet.
 
-A visszahívás nem kap közvetlenül dia számot. Az alábbi megvalósítás a szülő diához rendeli azt, és kezeli a diaszövegjegyzetekben található szöveget is. Egy nullable `Integer` lehetővé teszi, hogy ugyanaz a modell a többi dia típushoz tartozó szöveget is képviselje.
+A várt értékek a tulajdonostól függenek:
+
+| Szövegkeret tulajdonosa | `getParentShape` | `getParentCell` |
+|---|---|---|
+| AutoShape vagy más szöveget tartalmazó alakzat | A tulajdonos [IShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/) | `null` |
+| Táblázat cella | `null` | A tulajdonos [ICell](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/icell/) |
+
+Mindkét metódus csak olvasható navigációt biztosít. Meghívásuk nem mozgatja a szövegkeretet, és nem változtatja meg a tulajdonost. Az általános kódnak mindkét értéket ellenőriznie kell `null`‑ra, és fel kell készülnie arra, hogy egyik sem áll rendelkezésre.
+
+Az alábbi példa a [SlideUtil.getAllTextFrames](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/slideutil/#getAllTextFrames-com.aspose.slides.IPresentation-boolean-) metódust használja a prezentációban lévő szövegkeretek iterálásához. Alakzatok esetén a forma nevét, a Java futási típusát és a tartalmazó diát jelenti. Táblázat cellák esetén a nulla‑bázisú oszlop‑ és sor‑koordinátákat és a tartalmazó diát jeleníti meg.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    ITextFrame[] textFrames = SlideUtil.getAllTextFrames(presentation, false);
+
+    for (ITextFrame textFrame : textFrames) {
+        IShape ownerShape = textFrame.getParentShape();
+        if (ownerShape != null) {
+            String shapeName = ownerShape.getName().isEmpty() ? "(unnamed)" : ownerShape.getName();
+            String shapeType = ownerShape.getClass().getSimpleName();
+            IBaseSlide baseSlide = ownerShape.getSlide();
+            String slideLabel;
+            if (baseSlide instanceof ISlide) {
+                slideLabel = "slide " + ((ISlide) baseSlide).getSlideNumber();
+            } else if (baseSlide instanceof INotesSlide) {
+                slideLabel = "notes for slide " + ((INotesSlide) baseSlide).getParentSlide().getSlideNumber();
+            } else {
+                slideLabel = baseSlide.getClass().getSimpleName();
+            }
+            System.out.println("Shape: " + shapeName + "; type: " + shapeType + "; " + slideLabel);
+            continue;
+        }
+
+        ICell ownerCell = textFrame.getParentCell();
+        if (ownerCell != null) {
+            IBaseSlide baseSlide = ownerCell.getSlide();
+            String slideLabel;
+            if (baseSlide instanceof ISlide) {
+                slideLabel = "slide " + ((ISlide) baseSlide).getSlideNumber();
+            } else if (baseSlide instanceof INotesSlide) {
+                slideLabel = "notes for slide " + ((INotesSlide) baseSlide).getParentSlide().getSlideNumber();
+            } else {
+                slideLabel = baseSlide.getClass().getSimpleName();
+            }
+            System.out.println("Table cell: column " + ownerCell.getFirstColumnIndex() + ", row " + ownerCell.getFirstRowIndex() + "; " + slideLabel);
+            continue;
+        }
+
+        System.out.println("The text frame owner is not available as a shape or table cell.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+SmartArt tartalom esetén iteráljon a [ISmartArtNode.getShapes](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ismartartnode/#getShapes--) alakzatok között, és érje el minden [ISmartArtShape.getTextFrame](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ismartartshape/#getTextFrame--) elemet. A szövegkeret a [ITextFrame.getParentShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/#getParentShape--) segítségével köthető vissza a kapcsolódó alakzathoz, míg a [ITextFrame.getParentCell](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/#getParentCell--) `null`‑t ad vissza. Ezért a példában a forma ága a SmartArt‑csomópontok szövegét is kezeli.
+
+## **Találati információk összegyűjtése visszahívással**
+
+Implementálja az [IFindResultCallback](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ifindresultcallback/) interfészt, hogy minden egyezésről értesítést kapjon. Ennek a [IFindResultCallback.foundResult](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ifindresultcallback/#foundResult-com.aspose.slides.ITextFrame-java.lang.String-java.lang.String-int-) metódusa biztosítja a kapcsolódó szövegkeretet, a forrás‑szöveget, a megtalált szöveget és a találat pozícióját.
+
+A visszahívás közvetlenül nem kapja meg a dia számát; az alábbi megvalósítás a szülő‑diából származtatja, és kezeli a dia‑megjegyzésekben talált szöveget is. Egy nullable `Integer` lehetővé teszi, hogy ugyanaz a modell a többi dia‑típussal kapcsolatos szöveget is reprezentálja.
 
 ```java
 import com.aspose.slides.*;
@@ -112,12 +176,10 @@ final class TextSearchCallback implements IFindResultCallback {
         results.add(result);
     }
 
-    private static Integer getSlideNumber(ITextFrame textFrame) {
-        if (!(textFrame instanceof TextFrame)) {
-            return null;
-        }
-
-        IBaseSlide parentSlide = ((TextFrame) textFrame).getSlide();
+    private Integer getSlideNumber(ITextFrame textFrame) {
+        IShape parentShape = textFrame.getParentShape();
+        ICell parentCell = textFrame.getParentCell();
+        IBaseSlide parentSlide = parentShape != null ? parentShape.getSlide() : parentCell != null ? parentCell.getSlide() : textFrame.getSlide();
 
         if (parentSlide instanceof ISlide) {
             return ((ISlide) parentSlide).getSlideNumber();
@@ -132,13 +194,13 @@ final class TextSearchCallback implements IFindResultCallback {
 }
 ```
 
-Csere‑műveleteknél a `foundText` a eredeti megtalált szöveget tartalmazza, így a visszahívás pontosan rögzítheti, melyik kifejezést cserélték le.
+Helyettesítési műveletek esetén a `foundText` a eredeti, megtalált szöveget tartalmazza, így a visszahívás pontosan rögzítheti, melyik kifejezést cserélték le.
 
 ## **Szöveg kiemelése**
 
-Használja az [ITextFrame.highlightText](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) metódust a literális‑szöveg egyezések kiemeléséhez egy szövegkeretben. Adja át a [TextSearchOptions](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/textsearchoptions/)‑t a keresés szabályozásához és egy visszahívást a találati adatok gyűjtéséhez.
+Használja az [ITextFrame.highlightText](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) metódust a literális szöveg egyezéseinek kiemelésére egy szövegkeretben. Adja át a [TextSearchOptions](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/textsearchoptions/) objektumot a keresés vezérléséhez, valamint egy visszahívást a találati részletek gyűjtéséhez.
 
-Az alábbi kódrészlet minden **„try”** karakter előfordulást kiemeli, majd csak a teljes **„to”** szót. Mindkét keresés ugyanabba a visszahívásba jelenti a találatokat.
+Az alábbi kódrészlet kiemeli a **„try”** karakterlánc minden előfordulását, majd csak a teljes **„to”** szót. Mindkét keresés ugyanarra a visszahívásra jelenti az egyezéseket.
 
 ```java
 import com.aspose.slides.*;
@@ -154,7 +216,7 @@ try {
     substringSearchOptions.setCaseSensitive(false);
     int substringHighlightColor = Color.rgb(173, 216, 230);
 
-    // Emelje ki a "try" minden előfordulását a szövegkeretben.
+    // A "try" szöveg minden előfordulását kiemeli a szövegkeretben.
     shape.getTextFrame().highlightText("try", substringHighlightColor, substringSearchOptions, callback);
 
     TextSearchOptions wholeWordSearchOptions = new TextSearchOptions();
@@ -162,7 +224,7 @@ try {
     wholeWordSearchOptions.setCaseSensitive(false);
     int wholeWordHighlightColor = Color.rgb(238, 130, 238);
 
-    // Emelje ki csak a teljes "to" szót.
+    // Csak a teljes "to" szót emeli ki.
     shape.getTextFrame().highlightText("to", wholeWordHighlightColor, wholeWordSearchOptions, callback);
 
     for (TextMatch result : callback.getResults()) {
@@ -178,13 +240,13 @@ try {
 
 Az eredmény:
 
-![The highlighted text](highlighted_text.png)
+![A kiemelt szöveg](highlighted_text.png)
 
 ## **Szöveg kiemelése reguláris kifejezésekkel**
 
-Az [ITextFrame.highlightRegex](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-) metódus reguláris kifejezéssel megtalált szövegegyezéseket emeli ki egy szövegkeretben.
+Az [ITextFrame.highlightRegex](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-) metódus reguláris kifejezéssel megtalált szövegegyezéseket emel ki egy szövegkeretben.
 
-Az alábbi kód kiemeli az összes hét vagy több karaktert tartalmazó szót, és összegyűjti az egyes egyezéseket:
+Az alábbi kód kiemeli az összes hét vagy több karaktert tartalmazó szót, és minden egyezést összegyűjt:
 
 ```java
 import com.aspose.slides.*;
@@ -208,11 +270,11 @@ try {
 
 Az eredmény:
 
-![The highlighted text using the regular expression](highlighted_text_using_regex.png)
+![A kiemelt szöveg reguláris kifejezéssel](highlighted_text_using_regex.png)
 
-## **Szöveg kiemelése egy teljes prezentációban**
+## **Szöveg kiemelése prezentációon keresztül**
 
-Használja az [IPresentation.highlightText](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipresentation/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) és az [IPresentation.highlightRegex](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipresentation/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-) metódusokat a prezentáció összes alkalmazható szövegkeretének kereséséhez. Az alábbi példa kiemel egy literális kifejezést és minden e‑mail címet, miközben a két kereséshez külön‑külön gyűjti a találatokat.
+Használja a [IPresentation.highlightText](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipresentation/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) és a [IPresentation.highlightRegex](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipresentation/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-) metódusokat az összes alkalmazható szövegkeret kereséséhez egy prezentációban. Az alábbi példa kiemel egy literális kifejezést és az összes e‑mail címet, miközben külön eredménygyűjteményeket tart fenn a két kereséshez.
 
 ```java
 import com.aspose.slides.*;
@@ -243,9 +305,9 @@ try {
 
 ## **Szöveg cseréje egy szövegkeretben**
 
-Használja az [ITextFrame.replaceText](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) metódust literális szöveghez, és az [ITextFrame.replaceRegex](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) metódust mintára alapozott cserehez. Ezek a módszerek a meglévő szövegkereten belül frissítik a megtalált szöveget, megtartva a környező rész formázását a tiszta karakterláncból való újraépítés helyett.
+Használja az [ITextFrame.replaceText](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) metódust literális szöveghez, illetve az [ITextFrame.replaceRegex](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) metódust mintára alapozott helyettesítéshez. Ezek a metódusok a megtalált szöveget a meglévő szövegkereten belül módosítják, megtartva a környező rész formázását, ahelyett, hogy a szövegkeretet egy egyszerű karakterláncból építenék újra.
 
-Az alábbi példa egységesíti egy helyesírási változatot, majd lecseréli a verziócímkéket. Ugyanaz a visszahívás rögzíti mindkét művelet által megtalált eredeti kifejezéseket.
+Az alábbi példa egységesíti egy helyesírási variánst, majd lecseréli a verziócímkéket. Ugyanaz a visszahívás rögzíti mindkét művelet által talált eredeti kifejezéseket.
 
 ```java
 import com.aspose.slides.*;
@@ -271,11 +333,11 @@ try {
 }
 ```
 
-Ha egy találat különböző formázású részeket fed le, ellenőrizze a kimenetet, hogy melyik formázás legyen alkalmazva a csere‑szövegre.
+Ha egy egyezés több, eltérő formázású részt is átfed, ellenőrizze a kimenetet, hogy megtudja, melyik formázás legyen alkalmazva a helyettesített szövegre.
 
-## **Szöveg cseréje a teljes prezentációban**
+## **Szöveg cseréje prezentációon keresztül**
 
-Használja az [IPresentation.replaceText](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipresentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) és az [IPresentation.replaceRegex](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipresentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) metódusokat a műveletek teljes prezentációra kiterjesztéséhez. Ez hasznos sablon‑takarításhoz, terminológiai frissítésekhez és sötétítéshez.
+Használja a [IPresentation.replaceText](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipresentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) és a [IPresentation.replaceRegex](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipresentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) metódusokat a műveletek prezentáció‑szintű alkalmazásához. Ez hasznos sablon‑takarítás, terminológiai frissítés és pirosítás esetén.
 
 ```java
 import com.aspose.slides.*;
@@ -301,7 +363,7 @@ try {
 
 ## **Találatok csoportosítása jelentéshez**
 
-Mivel minden eredmény tárolja a dia számát és a szövegkeretet, az alkalmazások a találatokat audit, jelentés vagy felülvizsgálati munkafolyamatokhoz csoportosíthatják. Az alábbi példa először diánként, majd szövegkeretenként csoportosítja a gyűjtött eredményeket:
+Mivel minden eredmény tárolja a dia számát és a szövegkeretet, az alkalmazások csoportosíthatják az egyezéseket audit, jelentés vagy felülvizsgálat céljából. Az alábbi példa először diánként, majd szövegkeretként csoportosítja a gyűjtött eredményeket:
 
 ```java
 import com.aspose.slides.ITextFrame;
@@ -347,24 +409,24 @@ for (Map.Entry<Integer, Map<ITextFrame, List<TextMatch>>> slideEntry : matchesBy
 }
 ```
 
-## **FAQ**
+## **GYIK**
 
-**Hogyan kereshetek csak egy szövegdobozban a teljes prezentáció helyett?**
+**Hogyan tudok csak egy szövegdobozban keresni a teljes prezentáció helyett?**
 
 Szerezze meg az alakzat szövegkeretét, és hívja meg az [ITextFrame.highlightText](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), [ITextFrame.highlightRegex](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-), [ITextFrame.replaceText](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), vagy [ITextFrame.replaceRegex](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) metódusokon azon a szövegkereten. A prezentáció‑szintű metódusok az összes alkalmazható szövegkeretet feldolgozzák.
 
-**Hogyan egyeztessek teljes szavakat a megfelelő nagybetűkkel?**
+**Hogyan tudok teljes szavakat egyezni a megfelelő nagy‑kis betűkkel?**
 
-Állítsa a [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) és a [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) értékét `true`‑ra, és adja át a beállításokat egy literális‑szöveget kiemelő vagy cserélő metódusnak. Reguláris kifejezéseknél határozza meg a szóhatárokat és a nagybetűérzékenységet a Java `Pattern`‑ben.
+Állítsa a [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) és a [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) értékét `true`‑ra, és adja át ezeket a literális szöveg kiemelés vagy helyettesítés metódusának. Reguláris kifejezéseknél definiálja a szóhatárokat és a kis‑nagybetű érzékenységet magában a Java `Pattern`‑ben.
 
-**Tartalmazhatja a keresés és csere a diák jegyzeteiben lévő szöveget is?**
+**A keresés és a helyettesítés magában foglalhatja a dia‑megjegyzések szövegét is?**
 
-Igen. Állítsa a [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) értékét `true`‑ra, amikor prezentáció‑szintű literális‑szöveg műveletet használ. A fenti visszahívás‑megvalósítás a jegyzet‑diában található egyezést visszakapcsolja a szülő dia számához.
+Igen. Állítsa a [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) értékét `true`‑ra, amikor prezentáció‑szintű literális szöveg műveletet használ. A fentebb bemutatott visszahívás‑megvalósítás egy jegyzet‑diában talált egyezést visszafejezi a szülő‑dia számához.
 
-**Hogyan készíthetek jelentést anélkül, hogy a prezentációt újra átnézném?**
+**Hogyan készíthetek jelentést anélkül, hogy a prezentációt újra beolvasnám?**
 
-Adjon át egy [IFindResultCallback](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ifindresultcallback/) implementációt a kiemelés vagy csere műveletnek. A visszahívás a művelet futása közben minden egyezést megkap, így az alkalmazás eltárolhatja a forrásszöveget, a megtalált szöveget, a pozíciót, a szövegkeretet és a származtatott dia számot későbbi csoportosításhoz vagy exportáláshoz.
+Adj egy [IFindResultCallback](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ifindresultcallback/) megvalósítást a kiemelés vagy helyettesítés műveletéhez. A visszahívás minden egyezést megkap a művelet futása közben, így az alkalmazás el tudja tárolni a forrás‑szöveget, a megtalált szöveget, a pozíciót, a szövegkeretet és a származtatott dia számot későbbi csoportosításhoz vagy exportáláshoz.
 
-**Megőrzi a szöveg formázását a csere során?**
+**A szöveg helyettesítése megőrzi a formázását?**
 
-Az [ITextFrame.replaceText](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) és az [ITextFrame.replaceRegex](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) módosítja a megtalált szöveget a meglévő szövegkereten belül, és megtartja a környező rész formázását. Ha egy találat különböző formázású részeket foglal magába, ellenőrizze az eredményt, hogy a csere a kívánt stílust alkalmazza.
+Az [ITextFrame.replaceText](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) és az [ITextFrame.replaceRegex](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) módosítja a megtalált szöveget a meglévő szövegkereten belül, és megtartja a környező rész formázását. Ha egy egyezés több, különböző formázású részt fed le, ellenőrizze az eredményt, hogy a helyettesítés a kívánt stílust használja‑e.

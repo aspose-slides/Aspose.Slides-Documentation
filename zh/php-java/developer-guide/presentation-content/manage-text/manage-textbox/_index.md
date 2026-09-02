@@ -1,12 +1,12 @@
 ---
-title: 在演示文稿中使用 PHP 管理文本框
+title: 使用 PHP 在演示文稿中管理文本框
 linktitle: 管理文本框
 type: docs
 weight: 20
 url: /zh/php-java/manage-textbox/
 keywords:
 - 文本框
-- 文本框架
+- 文本帧
 - 添加文本
 - 更新文本
 - 创建文本框
@@ -17,43 +17,45 @@ keywords:
 - 演示文稿
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP 让您轻松在 PowerPoint 和 OpenDocument 文件中创建、编辑和克隆文本框，提升演示文稿自动化功能。"
+description: "Aspose.Slides for PHP 让您轻松在 PowerPoint 和 OpenDocument 文件中创建、编辑和克隆文本框，从而提升演示文稿自动化。"
 ---
+## **介绍**
 
-幻灯片上的文本通常存在于文本框或形状中。因此，要在幻灯片上添加文本，必须先添加一个文本框，然后在文本框内放入一些文本。Aspose.Slides for PHP via Java 提供了 [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) 类，允许您添加包含文本的形状。
+幻灯片上的文字通常位于文本框或形状中。因此，要向幻灯片添加文字，必须先添加文本框，然后在文本框中放入文字。Aspose.Slides for PHP via Java 提供了 [AutoShape](https://reference.aspose.com/slides/zh/php-java/aspose.slides/autoshape/) 类，可用于添加包含文字的形状。
 
 {{% alert title="Info" color="info" %}}
-Aspose.Slides 还提供了 [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) 类，允许您向幻灯片添加形状。不过，并非所有通过 `Shape` 类添加的形状都能容纳文本。但通过 [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) 类添加的形状可以包含文本。
+Aspose.Slides 还提供了 [Shape](https://reference.aspose.com/slides/zh/php-java/aspose.slides/shape/) 类，可用于向幻灯片添加形状。但通过 `Shape` 类添加的并非所有形状都能容纳文字。而通过 [AutoShape](https://reference.aspose.com/slides/zh/php-java/aspose.slides/autoshape/) 类添加的形状可以包含文字。
 {{% /alert %}}
 
 {{% alert title="Note" color="warning" %}} 
-因此，在处理希望添加文本的形状时，您可能需要检查并确认它是通过 `AutoShape` 类转换的。只有这样，您才能使用 [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/)，它是 `AutoShape` 下的属性。请参阅本页的 [Update Text](/slides/zh/php-java/manage-textbox/#update-text) 部分。
+因此，在处理需要添加文字的形状时，您可能需要检查并确认该形状是通过 `AutoShape` 类创建的。只有这样才能使用 `AutoShape` 下的属性 [TextFrame](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframe/)。请参阅本页的 [Update Text](/slides/zh/php-java/manage-textbox/#update-text) 部分。
 {{% /alert %}}
 
 ## **在幻灯片上创建文本框**
 
-要在幻灯片上创建文本框，请按照以下步骤操作：
+要在幻灯片上创建文本框，请按以下步骤操作：
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 类的实例。  
-2. 获取新创建的演示文稿中第一张幻灯片的引用。  
-3. 在幻灯片的指定位置添加一个形状类型为 [Rectangle](https://reference.aspose.com/slides/php-java/aspose.slides/shapetype/#Rectangle) 的 [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) 对象，并获取新添加的 `AutoShape` 对象的引用。  
-4. 向 `AutoShape` 对象添加一个 `TextFrame`，其中将包含文本。在下面的示例中，我们添加了以下文本：*Aspose TextBox*  
+1. 创建 [Presentation](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/) 类的实例。  
+2. 获取新创建演示文稿中第一张幻灯片的引用。  
+3. 在幻灯片的指定位置添加一个形状类型为 [Rectangle](https://reference.aspose.com/slides/zh/php-java/aspose.slides/shapetype/#Rectangle) 的 [AutoShape](https://reference.aspose.com/slides/zh/php-java/aspose.slides/autoshape/) 对象，并获取新添加的 `AutoShape` 对象的引用。  
+4. 向该 `AutoShape` 对象添加一个 `TextFrame`，其中包含文字。下面的示例添加了这段文字：*Aspose TextBox*。  
 5. 最后，通过 `Presentation` 对象写入 PPTX 文件。  
 
-以下 PHP 代码实现了上述步骤，演示了如何向幻灯片添加文本：
+下面的 PHP 代码实现了上述步骤，演示了如何向幻灯片添加文字：
+
 ```php
   # 实例化 Presentation
   $pres = new Presentation();
   try {
     # 获取演示文稿中的第一张幻灯片
     $sld = $pres->getSlides()->get_Item(0);
-    # 添加类型为 Rectangle 的 AutoShape
+    # 添加一个类型为 Rectangle 的 AutoShape
     $ashp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 150, 50);
-    # 向矩形添加 TextFrame
+    # 为 Rectangle 添加 TextFrame
     $ashp->addTextFrame(" ");
-    # 访问文本框架
+    # 访问文本框
     $txtFrame = $ashp->getTextFrame();
-    # 为文本框架创建 Paragraph 对象
+    # 为文本框创建 Paragraph 对象
     $para = $txtFrame->getParagraphs()->get_Item(0);
     # 为段落创建 Portion 对象
     $portion = $para->getPortions()->get_Item(0);
@@ -68,14 +70,14 @@ Aspose.Slides 还提供了 [Shape](https://reference.aspose.com/slides/php-java/
   }
 ```
 
-
 ## **检查文本框形状**
 
-Aspose.Slides 提供了来自 [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) 类的 [isTextBox](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/istextbox/) 方法，允许您检查形状并识别文本框。
+Aspose.Slides 提供了 [isTextBox](https://reference.aspose.com/slides/zh/php-java/aspose.slides/autoshape/istextbox/) 方法（来自 [AutoShape](https://reference.aspose.com/slides/zh/php-java/aspose.slides/autoshape/) 类），可用于检查形状并识别文本框。
 
 ![Text box and shape](istextbox.png)
 
-以下 PHP 代码展示了如何检查形状是否被创建为文本框：
+下面的 PHP 代码展示了如何检查形状是否被创建为文本框：
+
 ```php
 class ShapeCallback {
     function invoke($shape, $slide, $index) {
@@ -88,15 +90,15 @@ class ShapeCallback {
 
 $presentation = new Presentation("sample.pptx");
 try {
-    $forEachShapeCallback = java_closure(new ShapeCallback(), null, java("com.aspose.slides.ForEachSlideCallback"));
-    ForEach::shape($presentation, $forEachShapeCallback);
+    $forEachShapeCallback = java_closure(new ShapeCallback(), null, java("com.aspose.slides.ForEachShapeCallback"));
+    ForEach_::shape($presentation, $forEachShapeCallback);
 } finally {
     $presentation->dispose();
 }
 ```
 
+请注意，如果仅使用 [ShapeCollection](https://reference.aspose.com/slides/zh/php-java/aspose.slides/shapecollection/) 类的 `addAutoShape` 方法添加 AutoShape，则该 AutoShape 的 `isTextBox` 方法返回 `false`。但在使用 `addTextFrame` 方法或 `setText` 方法向 AutoShape 添加文字后，`isTextBox` 属性将返回 `true`。
 
-请注意，如果仅使用来自 [ShapeCollection](https://reference.aspose.com/slides/php-java/aspose.slides/shapecollection/) 类的 `addAutoShape` 方法添加自动形状，则该自动形状的 `isTextBox` 方法将返回 `false`。然而，在使用 `addTextFrame` 方法或 `setText` 方法向自动形状添加文本后，`isTextBox` 属性将返回 `true`。
 ```php
 $presentation = new Presentation();
 $slide = $presentation->getSlides()->get_Item(0);
@@ -122,26 +124,34 @@ $shape4->getTextFrame()->setText("");
 // shape4->isTextBox() 返回 false
 ```
 
+## **查找拥有 TextFrame 的形状**
+
+在通用文本处理代码中，您可能会获得一个 [TextFrame](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframe/)，但尚不清楚它所属的演示文稿对象。使用 [TextFrame::getParentShape](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframe/#getParentShape) 方法可以返回其所属的 [Shape](https://reference.aspose.com/slides/zh/php-java/aspose.slides/shape/)。
+
+对于属于 [AutoShape](https://reference.aspose.com/slides/zh/php-java/aspose.slides/autoshape/) 或其他包含文字的形状的 TextFrame，`TextFrame::getParentShape` 返回所有者，而 `TextFrame::getParentCell` 返回 `null`。这两个方法仅提供只读导航，调用它们不会改变所有权。访问形状前请务必使用 `java_is_null` 检查返回值。
+
+有关完整示例（包括识别形状和表格单元格所有者以及与 SmartArt 节点关联的形状），请参阅 [Search and Replace Text](/slides/zh/php-java/search-and-replace-text/)。
 
 ## **向文本框添加列**
 
-Aspose.Slides 提供了来自 [TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/) 类的 [setColumnCount](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/setcolumncount/) 和 [setColumnSpacing](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/setcolumnspacing/) 方法，允许您向文本框添加列。您可以指定文本框中的列数并以点为单位设置列间间距。
+Aspose.Slides 提供了来自 [TextFrameFormat](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframeformat/) 类的 [setColumnCount](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframeformat/setcolumncount/) 和 [setColumnSpacing](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframeformat/setcolumnspacing/) 方法，允许您向文本框添加列。您可以指定文本框的列数并设置列之间的间距（单位为磅）。
 
-以下代码演示了上述操作：
+下面的代码演示了上述操作：
+
 ```php
   $pres = new Presentation();
   try {
     # 获取演示文稿中的第一张幻灯片
     $slide = $pres->getSlides()->get_Item(0);
-    # 添加类型为 Rectangle 的 AutoShape
+    # 添加一个类型为 Rectangle 的 AutoShape
     $aShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 300, 300);
-    # 向矩形添加 TextFrame
+    # 为 Rectangle 添加 TextFrame
     $aShape->addTextFrame("All these columns are limited to be within a single text container -- " . "you can add or delete text and the new or remaining text automatically adjusts " . "itself to flow within the container. You cannot have text flow from one container " . "to other though -- we told you PowerPoint's column options for text are limited!");
     # 获取 TextFrame 的文本格式
     $format = $aShape->getTextFrame()->getTextFrameFormat();
     # 指定 TextFrame 中的列数
     $format->setColumnCount(3);
-    # 指定列间间距
+    # 指定列之间的间距
     $format->setColumnSpacing(10);
     # 保存演示文稿
     $pres->save("ColumnCount.pptx", SaveFormat::Pptx);
@@ -152,12 +162,11 @@ Aspose.Slides 提供了来自 [TextFrameFormat](https://reference.aspose.com/sli
   }
 ```
 
+## **向 TextFrame 添加列**
+Aspose.Slides for PHP via Java 提供了来自 [TextFrameFormat](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframeformat/) 类的 [setColumnCount](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textframeformat/setcolumncount/) 方法，允许您在 TextFrame 中添加列。通过该属性，您可以指定 TextFrame 中希望的列数。
 
-## **向文本框架添加列**
+下面的 PHP 代码演示了如何在 TextFrame 中添加列：
 
-Aspose.Slides for PHP via Java 提供了来自 [TextFrameFormat](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/) 类的 [setColumnCount](https://reference.aspose.com/slides/php-java/aspose.slides/textframeformat/setcolumncount/) 方法，允许您在文本框架中添加列。通过此属性，您可以指定文本框架中希望的列数。
-
-以下 PHP 代码展示了如何在文本框架中添加列：
 ```php
   $outPptxFileName = "ColumnsTest.pptx";
   $pres = new Presentation();
@@ -209,12 +218,12 @@ Aspose.Slides for PHP via Java 提供了来自 [TextFrameFormat](https://referen
   }
 ```
 
-
 ## **更新文本**
 
-Aspose.Slides 允许您更改或更新文本框中的文本或演示文稿中所有文本。
+Aspose.Slides 允许您更改或更新文本框中的文字，或更新演示文稿中所有文字。
 
-以下 PHP 代码演示了对演示文稿中所有文本进行更新或更改的操作：
+下面的 PHP 代码演示了一个将演示文稿中所有文字进行更新或更改的操作：
+
 ```php
   $pres = new Presentation("text.pptx");
   try {
@@ -225,7 +234,7 @@ Aspose.Slides 允许您更改或更新文本框中的文本或演示文稿中所
           $autoShape = $shape;
           # 遍历文本框中的段落
           foreach($autoShape->getTextFrame()->getParagraphs() as $paragraph) {
-            # 遍历段落中的每个文本片段
+            # 遍历段落中的每个部分
             foreach($paragraph->getPortions() as $portion) {
               $portion->setText($portion->getText()->replace("years", "months"));// 更改文本
 
@@ -245,22 +254,22 @@ Aspose.Slides 允许您更改或更新文本框中的文本或演示文稿中所
   }
 ```
 
+## **向文本框添加超链接** 
 
-## **向文本框添加超链接**
+您可以在文本框内插入链接。点击该文本框时，用户将被引导打开链接。
 
-您可以在文本框内插入链接。单击文本框时，用户将被引导打开该链接。
-
-要添加包含链接的文本框，请按照以下步骤操作：
+要添加包含链接的文本框，请按以下步骤操作：
 
 1. 创建 `Presentation` 类的实例。  
-2. 获取新创建的演示文稿中第一张幻灯片的引用。  
+2. 获取新创建演示文稿中第一张幻灯片的引用。  
 3. 在幻灯片的指定位置添加一个 `ShapeType` 为 `Rectangle` 的 `AutoShape` 对象，并获取新添加的 AutoShape 对象的引用。  
-4. 向 `AutoShape` 对象添加一个 `TextFrame`，其默认文本为 *Aspose TextBox*。  
+4. 向该 `AutoShape` 对象添加一个 `TextFrame`，默认文字为 *Aspose TextBox*。  
 5. 实例化 `HyperlinkManager` 类。  
-6. 使用与 `TextFrame` 中所选部分关联的 [setExternalHyperlinkClick](https://reference.aspose.com/slides/php-java/aspose.slides/hyperlinkmanager/setexternalhyperlinkclick/) 方法分配超链接。  
+6. 使用 [setExternalHyperlinkClick](https://reference.aspose.com/slides/zh/php-java/aspose.slides/hyperlinkmanager/setexternalhyperlinkclick/) 方法为 `TextFrame` 中的指定文本段分配超链接。  
 7. 最后，通过 `Presentation` 对象写入 PPTX 文件。  
 
-以下 PHP 代码实现了上述步骤，演示了如何向幻灯片添加带有超链接的文本框：
+下面的 PHP 代码实现了上述步骤，演示了如何向幻灯片添加带超链接的文本框：
+
 ```php
   # 实例化一个表示 PPTX 的 Presentation 类
   $pres = new Presentation();
@@ -274,9 +283,9 @@ Aspose.Slides 允许您更改或更新文本框中的文本或演示文稿中所
     # 访问与 AutoShape 关联的 ITextFrame 属性
     $pptxAutoShape->addTextFrame("");
     $textFrame = $pptxAutoShape->getTextFrame();
-    # 向框架添加一些文本
+    # 向框中添加一些文本
     $textFrame->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->setText("Aspose.Slides");
-    # 为该段文本设置超链接
+    # 为该段落的文本设置超链接
     $hyperlinkManager = $textFrame->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat()->getHyperlinkManager();
     $hyperlinkManager->setExternalHyperlinkClick("http://www.aspose.com");
     # 保存 PPTX 演示文稿
@@ -288,11 +297,12 @@ Aspose.Slides 允许您更改或更新文本框中的文本或演示文稿中所
   }
 ```
 
-
 ## **FAQ**
 
-**在使用母版幻灯片时，文本框和文本占位符有什么区别？**  
-一个 [placeholder](/slides/zh/php-java/manage-placeholder/) 会继承来自 [master](https://reference.aspose.com/slides/php-java/aspose.slides/masterslide/) 的样式/位置，并且可以在 [layouts](https://reference.aspose.com/slides/php-java/aspose.slides/layoutslide/) 上进行覆盖，而普通文本框是特定幻灯片上的独立对象，切换布局时不会改变。
+**在使用母版幻灯片时，文本框与文本占位符有什么区别？**
 
-**如何在整个演示文稿中批量替换文本而不影响图表、表格和 SmartArt 中的文本？**  
-将遍历限定在具有文本框架的自动形状上，并通过分别遍历其集合或跳过这些对象类型，排除嵌入对象（如 [charts](https://reference.aspose.com/slides/php-java/aspose.slides/chart/)、[tables](https://reference.aspose.com/slides/php-java/aspose.slides/table/)、[SmartArt](https://reference.aspose.com/slides/php-java/aspose.slides/smartart/)）。
+[text placeholder](/slides/zh/php-java/manage-placeholder/) 会从 [master](https://reference.aspose.com/slides/zh/php-java/aspose.slides/masterslide/) 继承样式/位置，并可在 [layouts](https://reference.aspose.com/slides/zh/php-java/aspose.slides/layoutslide/) 上覆盖；而普通文本框是特定幻灯片上的独立对象，切换布局时不会改变。
+
+**如何在不影响图表、表格和 SmartArt 中的文字的情况下，对整篇演示文稿进行批量文字替换？**
+
+遍历仅拥有 TextFrame 的 auto‑shape，排除嵌入对象（[charts](https://reference.aspose.com/slides/zh/php-java/aspose.slides/chart/)、[tables](https://reference.aspose.com/slides/zh/php-java/aspose.slides/table/)、[SmartArt](https://reference.aspose.com/slides/zh/php-java/aspose.slides/smartart/)），或分别遍历它们的集合并跳过这些对象类型。

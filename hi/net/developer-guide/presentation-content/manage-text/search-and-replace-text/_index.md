@@ -1,14 +1,14 @@
 ---
-title: PowerPoint प्रस्तुतियों में .NET के साथ टेक्स्ट खोजें और बदलें
+title: PowerPoint प्रस्तुतियों में टेक्स्ट खोजें और बदलें (.NET में)
 linktitle: टेक्स्ट खोजें और बदलें
 type: docs
 weight: 55
 url: /hi/net/search-and-replace-text/
 keywords:
-- टेक्स्ट खोजें
-- टेक्स्ट हाइलाइट करें
-- टेक्स्ट बदलें
-- रेगुलर एक्सप्रेशन
+- टेक्स्ट खोज
+- टेक्स्ट हाइलाइट
+- टेक्स्ट प्रतिस्थापन
+- नियमित अभिव्यक्ति
 - परिणाम कॉलबैक
 - टेक्स्ट फ्रेम
 - ऑडिट रिपोर्ट
@@ -18,44 +18,120 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "PowerPoint प्रस्तुतियों में टेक्स्ट खोजें, हाइलाइट करें और बदलें, साथ ही Aspose.Slides for .NET के साथ प्रत्येक मिलान एकत्रित करें।"
+description: "Aspose.Slides for .NET के साथ PowerPoint प्रस्तुतियों में टेक्स्ट को खोजें, हाइलाइट करें और बदलें, तथा प्रत्येक मिलान को एकत्र करें।"
 ---
-## **परिचय**
+## **सारांश**
 
-Aspose.Slides for .NET एक व्यक्तिगत टेक्स्ट फ्रेम या पूरी प्रस्तुति में टेक्स्ट खोज, हाइलाइट और बदल सकता है। प्रत्येक ऑपरेशन परिणाम कॉलबैक के माध्यम से प्रत्येक मिलान के बारे में एप्लिकेशन को सूचित भी कर सकता है। इससे प्रस्तुति को अपडेट करने के साथ‑साथ मिले‑जुले टेक्स्ट, उसका संदर्भ, स्थिति, टेक्स्ट फ्रेम और स्लाइड संख्या सहित एक ऑडिट ट्रेल बनाना संभव हो जाता है।
+Aspose.Slides for .NET एकल टेक्स्ट फ्रेम या पूरी प्रस्तुति में टेक्स्ट को खोज, हाइलाइट और बदल सकता है। प्रत्येक ऑपरेशन प्रत्येक मिलान के बारे में परिणाम कॉलबैक के माध्यम से एप्लीकेशन को सूचित कर सकता है। इससे प्रस्तुति को अपडेट करना और मिलते टेक्स्ट, उसका संदर्भ, स्थिति, टेक्स्ट फ्रेम और स्लाइड नंबर सहित ऑडिट ट्रेल बनाना संभव हो जाता है।
 
-ये क्षमताएँ समीक्षाओं, रेडैक्शन, शब्दावली जाँच, टेम्पलेट सफाई और स्वचालित रिपोर्टिंग कार्यप्रवाहों में उपयोगी होती हैं।
+इन क्षमताओं का उपयोग समीक्षा, रेडैक्शन, शब्दावली जांच, टेम्पलेट सफ़ाई और स्वचालित रिपोर्टिंग वर्कफ़्लोज़ के लिए किया जा सकता है।
 
-निम्न पहले उदाहरणों में, हम “sample.pptx” नाम की फ़ाइल का उपयोग करते हैं, जिसमें पहले स्लाइड पर एकल टेक्स्ट बॉक्स है और उसमें निम्नलिखित टेक्स्ट है:
+नीचे पहले उदाहरणों में, हम “sample.pptx” फ़ाइल का उपयोग करते हैं, जिसमें पहली स्लाइड पर एकल टेक्स्ट बॉक्स है और उसमें निम्नलिखित टेक्स्ट है:
 
 ![नमूना टेक्स्ट](sample_text.png)
 
 ## **खोज सीमा चुनें**
 
-[ITextFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/) पर मेथड्स का उपयोग करके ऑपरेशन को एक टेक्स्ट फ्रेम तक सीमित किया जा सकता है। [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) पर मेथड्स का उपयोग करके प्रस्तुति में सभी लागू टेक्स्ट को प्रोसेस किया जा सकता है।
+एक ऑपरेशन को केवल एक टेक्स्ट फ्रेम तक सीमित करने के लिए [ITextFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/) पर मेथड्स का उपयोग करें। सभी लागू टेक्स्ट को प्रोसेस करने के लिए प्रस्तुति-स्तर पर [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) पर मेथड्स का उपयोग करें।
 
-| ऑपरेशन | एक टेक्स्ट फ्रेम | पूरी प्रस्तुति |
+| ऑपरेशन | एक टेक्स्ट फ्रेम | पूरा प्रस्तुति |
 |---|---|---|
-| लिटरल टेक्स्ट को हाइलाइट करें | [ITextFrame.HighlightText](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/highlighttext/) | [Presentation.HighlightText](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/highlighttext/) |
-| रेग्युलर‑एकस्प्रेशन मिलानों को हाइलाइट करें | [ITextFrame.HighlightRegex](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/highlightregex/) | [Presentation.HighlightRegex](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/highlightregex/) |
-| लिटरल टेक्स्ट को बदलें | [ITextFrame.ReplaceText](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/replacetext/) | [Presentation.ReplaceText](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/replacetext/) |
-| रेग्युलर‑एकस्प्रेशन मिलानों को बदलें | [ITextFrame.ReplaceRegex](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/replaceregex/) | [Presentation.ReplaceRegex](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/replaceregex/) |
+| शाब्दिक पाठ को हाइलाइट करें | [ITextFrame.HighlightText](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/highlighttext/) | [Presentation.HighlightText](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/highlighttext/) |
+| नियमित अभिव्यक्ति मेल को हाइलाइट करें | [ITextFrame.HighlightRegex](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/highlightregex/) | [Presentation.HighlightRegex](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/highlightregex/) |
+| शाब्दिक पाठ को बदलें | [ITextFrame.ReplaceText](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/replacetext/) | [Presentation.ReplaceText](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/replacetext/) |
+| नियमित अभिक्‍त्यात्मक मेल को बदलें | [ITextFrame.ReplaceRegex](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/replaceregex/) | [Presentation.ReplaceRegex](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/replaceregex/) |
 
-## **टेक्स्ट मिलान को कॉन्फ़िगर करें**
+## **पाठ मिलान कॉन्फ़िगर करें**
 
-लिटरल‑टेक्स्ट ऑपरेशन्स के लिए, मिलान को नियंत्रित करने हेतु [TextSearchOptions](https://reference.aspose.com/slides/hi/net/aspose.slides/textsearchoptions/) का उपयोग करें:
+शाब्दिक‑टेक्स्ट ऑपरेशनों के लिए, मिलान को नियंत्रित करने के लिए [TextSearchOptions](https://reference.aspose.com/slides/hi/net/aspose.slides/textsearchoptions/) का उपयोग करें:
 
-- [TextSearchOptions.WholeWordsOnly](https://reference.aspose.com/slides/hi/net/aspose.slides/textsearchoptions/wholewordsonly/) मिलानों को पूर्ण शब्दों तक सीमित करता है।
-- [TextSearchOptions.CaseSensitive](https://reference.aspose.com/slides/hi/net/aspose.slides/textsearchoptions/casesensitive/) यह निर्धारित करता है कि अक्षर‑केस मेल खाना चाहिए या नहीं।
-- [TextSearchOptions.IncludeNotes](https://reference.aspose.com/slides/hi/net/aspose.slides/textsearchoptions/includenotes/) प्रस्तुति‑स्तर की खोज, प्रतिस्थापन और हाइलाइटिंग ऑपरेशन्स में स्लाइड नोट्स को शामिल करता है।
+- [TextSearchOptions.WholeWordsOnly](https://reference.aspose.com/slides/hi/net/aspose.slides/textsearchoptions/wholewordsonly/) केवल पूर्ण शब्दों के मिलान को सीमित करता है।
+- [TextSearchOptions.CaseSensitive](https://reference.aspose.com/slides/hi/net/aspose.slides/textsearchoptions/casesensitive/) यह निर्धारित करता है कि अक्षर का केस मेल होना चाहिए या नहीं।
+- [TextSearchOptions.IncludeNotes](https://reference.aspose.com/slides/hi/net/aspose.slides/textsearchoptions/includenotes/) प्रस्तुति‑स्तर की खोज, प्रतिस्थापन और हाइलाइटिंग ऑपरेशनों में स्लाइड नोट्स को शामिल करता है।
 
-रेग्युलर‑एकस्प्रेशन ऑपरेशन्स .NET `Regex` का उपयोग करते हैं, इसलिए केस‑संवेदनशीलता और शब्द सीमाएँ जैसी मिलान नियम अभिव्यक्ति और उसके विकल्पों द्वारा परिभाषित होते हैं।
+नियमित अभिव्यक्ति ऑपरेशनों में .NET `Regex` का उपयोग किया जाता है, इसलिए केस‑संवेदनशीलता और शब्द‑सीमा जैसे नियम अभिव्यक्ति और उसके विकल्पों द्वारा निर्धारित होते हैं।
 
-## **कॉलबैक के साथ मिलान जानकारी एकत्र करें**
+## **टेक्स्ट फ्रेम के मालिक की पहचान करें**
 
-प्रत्येक मिलान के लिए सूचनाएँ प्राप्त करने हेतु [IFindResultCallback](https://reference.aspose.com/slides/hi/net/aspose.slides/ifindresultcallback/) लागू करें। इसका [IFindResultCallback.FoundResult](https://reference.aspose.com/slides/hi/net/aspose.slides/ifindresultcallback/foundresult/) मेथड संबंधित टेक्स्ट फ्रेम, स्रोत टेक्स्ट, मिला‑हुआ टेक्स्ट और मिलान स्थिति प्रदान करता है।
+जनरिक टेक्स्ट‑प्रोसेसिंग वर्कफ़्लोज़ अक्सर एक [ITextFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/) प्राप्त करते हैं जबकि वे खोज, प्रतिस्थापन, वैधता या एक्सपोर्ट कर रहे होते हैं। टेक्स्ट फ्रेम के स्वामी प्रस्तुति ऑब्जेक्ट को निर्धारित करने के लिए [ITextFrame.ParentShape](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/parentshape/) और [ITextFrame.ParentCell](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/parentcell/) का उपयोग करें।
 
-कॉलबैक सीधे स्लाइड संख्या प्राप्त नहीं करता। नीचे दिया गया कार्यान्वयन इसे पैरेंट स्लाइड से निकालता है और स्लाइड नोट्स में मिलने वाले टेक्स्ट को भी संभालता है। एक nullable स्लाइड संख्या समान परिणाम मॉडल को अन्य स्लाइड प्रकारों के साथ जुड़े टेक्स्ट को दर्शाने की अनुमति देती है।
+अपेक्षित मान मालिक पर निर्भर करते हैं:
+
+| टेक्स्ट फ्रेम मालिक | `ParentShape` | `ParentCell` |
+|---|---|---|
+| एक AutoShape या कोई अन्य टेक्स्ट‑समावेशी शेप | मालिकाना [IShape](https://reference.aspose.com/slides/hi/net/aspose.slides/ishape/) | `null` |
+| एक टेबल सेल | `null` | मालिकाना [ICell](https://reference.aspose.com/slides/hi/net/aspose.slides/icell/) |
+
+दोनों प्रॉपर्टी केवल‑पढ़ने योग्य नेविगेशन प्रॉपर्टी हैं। इन्हें पढ़ने से टेक्स्ट फ्रेम नहीं बँधता और न ही उसका मालिक बदलता है। जनरिक कोड को दोनों मानों के लिये `null` जाँच करनी चाहिए और यह संभवना संभालनी चाहिए कि दोनों में से कोई भी मालिक उपलब्ध न हो।
+
+निम्न उदाहरण में [SlideUtil.GetAllTextFrames](https://reference.aspose.com/slides/hi/net/aspose.slides.util/slideutil/getalltextframes/) का उपयोग करके एक प्रस्तुति में टेक्स्ट फ्रेमों पर इटरेट किया गया है। शेप्स के लिये, यह शेप का नाम, शेप प्रकार और सम्मिलित स्लाइड को रिपोर्ट करता है। टेबल सेल्स के लिये, यह शून्य‑आधारित कॉलम व पंक्ति निर्देशांक और सम्मिलित स्लाइड को रिपोर्ट करता है।
+
+```cs
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Util;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var textFrames = SlideUtil.GetAllTextFrames(presentation, false);
+
+foreach (var textFrame in textFrames)
+{
+    var ownerShape = textFrame.ParentShape;
+    if (ownerShape != null)
+    {
+        var shapeName = string.IsNullOrEmpty(ownerShape.Name) ? "(unnamed)" : ownerShape.Name;
+        var shapeType = GetShapeType(ownerShape);
+        var slideLabel = GetSlideLabel(ownerShape.Slide);
+        Console.WriteLine($"Shape: {shapeName}; type: {shapeType}; {slideLabel}");
+
+        continue;
+    }
+
+    var ownerCell = textFrame.ParentCell;
+    if (ownerCell != null)
+    {
+        var slideLabel = GetSlideLabel(ownerCell.Slide);
+        Console.WriteLine($"Table cell: column {ownerCell.FirstColumnIndex}, row {ownerCell.FirstRowIndex}; {slideLabel}");
+        continue;
+    }
+
+    Console.WriteLine("The text frame owner is not available as a shape or table cell.");
+}
+
+static string GetShapeType(IShape shape)
+{
+    if (shape is IGeometryShape geometryShape)
+    {
+        return geometryShape.ShapeType.ToString();
+    }
+
+    return shape.GetType().Name;
+}
+
+static string GetSlideLabel(IBaseSlide baseSlide)
+{
+    if (baseSlide is ISlide slide)
+    {
+        return $"slide {slide.SlideNumber}";
+    }
+
+    if (baseSlide is INotesSlide notesSlide)
+    {
+        return $"notes for slide {notesSlide.ParentSlide.SlideNumber}";
+    }
+
+    return baseSlide.GetType().Name;
+}
+```
+
+SmartArt सामग्री के लिये, [ISmartArtNode.Shapes](https://reference.aspose.com/slides/hi/net/aspose.slides.smartart/ismartartnode/shapes/) में शेप्स पर इटरेट करें और प्रत्येक [ISmartArtShape.TextFrame](https://reference.aspose.com/slides/hi/net/aspose.slides.smartart/ismartartshape/textframe/) तक पहुँचें। टेक्स्ट फ्रेम को उसके सम्बंधित शेप से [ITextFrame.ParentShape](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/parentshape/) द्वारा ट्रेस किया जा सकता है, जबकि [ITextFrame.ParentCell](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/parentcell/) `null` रहता है। इसलिए, उदाहरण में शेप शाखा SmartArt नोड्स से टेक्स्ट भी संभालती है।
+
+## **कॉलबैक के साथ मैच जानकारी इकट्ठा करें**
+
+हर मिलान के लिये सूचना प्राप्त करने हेतु [IFindResultCallback](https://reference.aspose.com/slides/hi/net/aspose.slides/ifindresultcallback/) को लागू करें। इसका [IFindResultCallback.FoundResult](https://reference.aspose.com/slides/hi/net/aspose.slides/ifindresultcallback/foundresult/) मेथड सम्बंधित टेक्स्ट फ्रेम, स्रोत टेक्स्ट, मिलित टेक्स्ट और मिलान स्थिति प्रदान करता है।
+
+कॉलबैक सीधे स्लाइड नंबर प्राप्त नहीं करता। नीचे दिया गया कार्यान्वयन इसे पैरेंट स्लाइड से निकालता है और स्लाइड नोट्स में पाए गए टेक्स्ट को भी संभालता है। Nullable स्लाइड नंबर समान परिणाम मॉडल को अन्य स्लाइड प्रकारों से जुड़े टेक्स्ट को भी प्रतिनिधित्व करने की अनुमति देता है।
 
 ```cs
 using System.Collections.Generic;
@@ -93,12 +169,7 @@ public sealed class TextSearchCallback : IFindResultCallback
 
     private static int? GetSlideNumber(ITextFrame textFrame)
     {
-        if (textFrame is not TextFrame concreteTextFrame)
-        {
-            return null;
-        }
-
-        var parentSlide = concreteTextFrame.Slide;
+        var parentSlide = textFrame.ParentShape?.Slide ?? textFrame.ParentCell?.Slide ?? textFrame.Slide;
 
         if (parentSlide is ISlide slide)
         {
@@ -115,13 +186,13 @@ public sealed class TextSearchCallback : IFindResultCallback
 }
 ```
 
-प्रतिस्थापन ऑपरेशन्स के लिए, `FoundText` मूल मिला‑हुआ टेक्स्ट रखता है, इसलिए कॉलबैक ठीक‑ठीक रिकॉर्ड कर सकता है कि कौन‑से शब्द बदले गये।
+प्रतिस्थापन ऑपरेशनों के लिये, `FoundText` मूल मिलित टेक्स्ट रखता है, इसलिए कॉलबैक ठीक‑ठीक रिकॉर्ड कर सकता है कि कौन‑से शब्द प्रतिस्थापित किए गये।
 
 ## **टेक्स्ट को हाइलाइट करें**
 
-एक टेक्स्ट फ्रेम में लिटरल‑टेक्स्ट मिलानों को हाइलाइट करने के लिए [ITextFrame.HighlightText](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/highlighttext/) मेथड का उपयोग करें। खोज को नियंत्रित करने हेतु [TextSearchOptions](https://reference.aspose.com/slides/hi/net/aspose.slides/textsearchoptions/) पास करें और मिलान विवरण एकत्र करने के लिए कॉलबैक प्रदान करें।
+शाब्दिक‑टेक्स्ट मिलानों को एक टेक्स्ट फ्रेम में हाइलाइट करने हेतु [ITextFrame.HighlightText](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/highlighttext/) मेथड का उपयोग करें। खोज को नियंत्रित करने और मैच विवरण इकट्ठा करने हेतु [TextSearchOptions](https://reference.aspose.com/slides/hi/net/aspose.slides/textsearchoptions/) को पास करें और एक कॉलबैक प्रदान करें।
 
-नीचे का कोड उदाहरण सभी **"try"** अक्षरों की घटनाओं को हाइलाइट करता है और फिर केवल पूर्ण शब्द **"to"** को हाइलाइट करता है। दोनों खोजें अपने मिलानों को उसी कॉलबैक को रिपोर्ट करती हैं।
+नीचे दिया गया कोड उदाहरण **"try"** अक्षरों की सभी उपस्थितियों को हाइलाइट करता है और फिर केवल पूर्ण शब्द **"to"** को हाइलाइट करता है। दोनों खोजें समान कॉलबैक को अपना मिलान रिपोर्ट करती हैं।
 
 ```cs
 using System;
@@ -131,7 +202,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation("sample.pptx");
 
-// Get the first shape from the first slide.
+// पहले स्लाइड से पहला शेप प्राप्त करें।
 var shape = (IAutoShape)presentation.Slides[0].Shapes[0];
 var callback = new TextSearchCallback();
 
@@ -140,7 +211,7 @@ var substringSearchOptions = new TextSearchOptions
     CaseSensitive = false
 };
 
-// Highlight every occurrence of "try" in the text frame.
+// टेक्स्ट फ्रेम में "try" की प्रत्येक उपस्थिति को हाइलाइट करें।
 shape.TextFrame.HighlightText("try", Color.LightBlue, substringSearchOptions, callback);
 
 var wholeWordSearchOptions = new TextSearchOptions
@@ -149,7 +220,7 @@ var wholeWordSearchOptions = new TextSearchOptions
     CaseSensitive = false
 };
 
-// Highlight only the complete word "to".
+// केवल पूर्ण शब्द "to" को हाइलाइट करें।
 shape.TextFrame.HighlightText("to", Color.Violet, wholeWordSearchOptions, callback);
 
 foreach (var result in callback.Results)
@@ -162,13 +233,13 @@ presentation.Save("highlighted_text.pptx", SaveFormat.Pptx);
 
 परिणाम:
 
-![हाइलाइटेड टेक्स्ट](highlighted_text.png)
+![हाइलाइट किया गया टेक्स्ट](highlighted_text.png)
 
-## **रेग्युलर एक्सप्रेशन के साथ टेक्स्ट को हाइलाइट करें**
+## **नियमित अभिव्यक्तियों का उपयोग करके टेक्स्ट को हाइलाइट करें**
 
-[ITextFrame.HighlightRegex](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/highlightregex/) मेथड रेग्युलर एक्सप्रेशन द्वारा पाए गये टेक्स्ट मिलानों को एक टेक्स्ट फ्रेम में हाइलाइट करता है।
+[ITextFrame.HighlightRegex](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/highlightregex/) मेथड नियमित अभिव्यक्ति द्वारा मिलने वाले टेक्स्ट मिलानों को हाइलाइट करता है।
 
-निम्न कोड सभी सात या अधिक अक्षर वाले शब्दों को हाइलाइट करता है और प्रत्येक मिलान को एकत्र करता है:
+निम्न कोड सभी सात या अधिक अक्षर वाले शब्दों को हाइलाइट करता है और प्रत्येक मिलान को इकट्ठा करता है:
 
 ```cs
 using System.Drawing;
@@ -189,11 +260,11 @@ presentation.Save("highlighted_text_using_regex.pptx", SaveFormat.Pptx);
 
 परिणाम:
 
-![रेग्युलर एक्सप्रेशन का उपयोग करके हाइलाइटेड टेक्स्ट](highlighted_text_using_regex.png)
+![नियमित अभिव्यक्ति के साथ हाइलाइट किया गया टेक्स्ट](highlighted_text_using_regex.png)
 
-## **प्रीज़ेंटेशन भर में टेक्स्ट को हाइलाइट करें**
+## **पूरी प्रस्तुति में टेक्स्ट को हाइलाइट करें**
 
-[Presentation.HighlightText](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/highlighttext/) और [Presentation.HighlightRegex](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/highlightregex/) का उपयोग करके प्रस्तुति में सभी लागू टेक्स्ट फ्रेम को खोजें। नीचे का उदाहरण एक लिटरल शब्द और सभी ई‑मेल पतों को हाइलाइट करता है, जबकि दो खोजों के लिए अलग‑अलग परिणाम संग्रह रखता है।
+[Presentation.HighlightText](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/highlighttext/) और [Presentation.HighlightRegex](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/highlightregex/) का उपयोग करके प्रस्तुति में सभी लागू टेक्स्ट फ्रेमों को खोजें। नीचे दिया गया उदाहरण एक शाब्दिक शब्द और सभी ई‑मेल पतों को हाइलाइट करता है जबकि दो खोजों के लिये अलग‑अलग परिणाम संग्रह रखता है।
 
 ```cs
 using System.Drawing;
@@ -220,11 +291,11 @@ presentation.HighlightRegex(emailRegex, Color.Yellow, emailCallback);
 presentation.Save("highlighted_presentation.pptx", SaveFormat.Pptx);
 ```
 
-## **टेक्स्ट फ्रेम में टेक्स्ट को बदलें**
+## **एक टेक्स्ट फ्रेम में टेक्स्ट बदलें**
 
-लिटरल टेक्स्ट के लिए [ITextFrame.ReplaceText](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/replacetext/) और पैटर्न‑आधारित प्रतिस्थापन के लिए [ITextFrame.ReplaceRegex](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/replaceregex/) का उपयोग करें। ये मेथड मौजूदा टेक्स्ट फ्रेम के भीतर मिले‑हुए टेक्स्ट को अपडेट करते हैं, जिससे आस‑पास के फ़ॉर्मेटिंग को फिर से बनाना नहीं पड़ता।
+शाब्दिक टेक्स्ट के लिये [ITextFrame.ReplaceText](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/replacetext/) और पैटर्न‑आधारित प्रतिस्थापन के लिये [ITextFrame.ReplaceRegex](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/replaceregex/) का उपयोग करें। ये मेथड मौजूदा टेक्स्ट फ्रेम में मिलित टेक्स्ट को अपडेट करते हैं, जिससे आसपास के भाग का फ़ॉर्मेट बना रहता है और पूरे टेक्स्ट फ्रेम को साधारण स्ट्रिंग से पुनः निर्मित नहीं किया जाता।
 
-निम्न उदाहरण एक वर्तनी रूप को मानकीकृत करता है और फिर संस्करण लेबल बदलता है। वही कॉलबैक दोनों ऑपरेशन्स द्वारा मिले‑हुए मूल शब्दों को रिकॉर्ड करता है।
+नीचे का उदाहरण एक वर्तनी रूपांतर को मानकीकृत करता है और फिर संस्करण लेबल बदलता है। वही कॉलबैक दोनों ऑपरेशनों द्वारा मिले मूल शब्दों को रिकॉर्ड करता है।
 
 ```cs
 using System.Text.RegularExpressions;
@@ -249,11 +320,11 @@ shape.TextFrame.ReplaceRegex(versionRegex, "current version", callback);
 presentation.Save("updated_text_frame.pptx", SaveFormat.Pptx);
 ```
 
-यदि कोई मिलान विभिन्न फ़ॉर्मेटिंग वाले भागों को स्पैन करता है, तो आउटपुट की जाँच करके तय करें कि प्रतिस्थापन टेक्स्ट पर कौन‑सी फ़ॉर्मेटिंग लागू होनी चाहिए।
+यदि कोई मिलान विभिन्न फ़ॉर्मेट वाले हिस्सों को कवर करता है, तो आउटपुट को जाँचें ताकि यह सुनिश्चित हो सके कि प्रतिस्थापन टेक्स्ट पर कौन‑सा फ़ॉर्मेट लागू होना चाहिए।
 
-## **प्रीज़ेंटेशन भर में टेक्स्ट को बदलें**
+## **पूरी प्रस्तुति में टेक्स्ट बदलें**
 
-[Presentation.ReplaceText](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/replacetext/) और [Presentation.ReplaceRegex](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/replaceregex/) का उपयोग करके समान ऑपरेशन्स पूरे प्रेज़ेंटेशन पर लागू करें। यह टेम्पलेट सफाई, शब्दावली अपडेट और रेडैक्शन के लिए उपयोगी है।
+[Presentation.ReplaceText](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/replacetext/) और [Presentation.ReplaceRegex](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/replaceregex/) का उपयोग करके समान ऑपरेशनों को पूरी प्रस्तुति पर लागू करें। यह टेम्पलेट सफ़ाई, शब्दावली अपडेट और रेडैक्शन के लिये उपयोगी है।
 
 ```cs
 using System.Text.RegularExpressions;
@@ -277,9 +348,9 @@ presentation.ReplaceRegex(accountNumberRegex, "ACCT-REDACTED", callback);
 presentation.Save("updated_presentation.pptx", SaveFormat.Pptx);
 ```
 
-## **रिपोर्टिंग के लिए मिलानों को समूहित करें**
+## **रिपोर्टिंग के लिये मैच समूह बनाएं**
 
-चूँकि प्रत्येक परिणाम अपनी स्लाइड संख्या और टेक्स्ट फ्रेम संग्रहीत करता है, एप्लिकेशन ऑडिट, रिपोर्टिंग या समीक्षा कार्यप्रवाहों के लिये मिलानों को समूहित कर सकते हैं। नीचे का उदाहरण पहले स्लाइड के अनुसार और फिर टेक्स्ट फ्रेम के अनुसार एकत्रित परिणामों को समूहित करता है:
+क्योंकि प्रत्येक परिणाम में उसका स्लाइड नंबर और टेक्स्ट फ्रेम संग्रहीत होता है, एप्लिकेशन ऑडिट, रिपोर्टिंग या समीक्षा वर्कफ़्लो के लिये मैच को समूहित कर सकते हैं। नीचे का उदाहरण पहले स्लाइड द्वारा और फिर टेक्स्ट फ्रेम द्वारा संग्रहित परिणामों को समूहित करता है:
 
 ```cs
 using System;
@@ -309,20 +380,20 @@ foreach (var slideGroup in matchesBySlide)
 
 **मैं पूरी प्रस्तुति के बजाय केवल एक टेक्स्ट बॉक्स को कैसे खोजूँ?**
 
-शेप के टेक्स्ट फ्रेम को प्राप्त करें और उस टेक्स्ट फ्रेम पर [ITextFrame.HighlightText](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/highlighttext/), [ITextFrame.HighlightRegex](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/highlightregex/), [ITextFrame.ReplaceText](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/replacetext/), या [ITextFrame.ReplaceRegex](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/replaceregex/) कॉल करें। प्रस्तुति‑स्तर के मेथड्स सभी लागू टेक्स्ट फ्रेम को प्रोसेस करते हैं।
+शेप के टेक्स्ट फ्रेम को प्राप्त करें और उस टेक्स्ट फ्रेम पर [ITextFrame.HighlightText](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/highlighttext/), [ITextFrame.HighlightRegex](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/highlightregex/), [ITextFrame.ReplaceText](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/replacetext/) या [ITextFrame.ReplaceRegex](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/replaceregex/) को कॉल करें। प्रस्तुति‑स्तर के मेथड सभी लागू टेक्स्ट फ्रेमों को प्रोसेस करते हैं।
 
-**मैं पूर्ण शब्दों को सही कैपिटलाइज़ेशन के साथ कैसे मिलाऊँ?**
+**मैं पूर्ण शब्दों को सही अक्षर‑केस के साथ कैसे मिलाऊँ?**
 
-[TextSearchOptions.WholeWordsOnly](https://reference.aspose.com/slides/hi/net/aspose.slides/textsearchoptions/wholewordsonly/) और [TextSearchOptions.CaseSensitive](https://reference.aspose.com/slides/hi/net/aspose.slides/textsearchoptions/casesensitive/) को `true` सेट करें, और विकल्पों को लिटरल‑टेक्स्ट हाइलाइटिंग या रिप्लेसमेंट मेथड में पास करें। रेग्युलर एक्सप्रेशन्स के लिए, शब्द सीमाएँ और केस‑संवेदनशीलता को .NET `Regex` में परिभाषित करें।
+[TextSearchOptions.WholeWordsOnly](https://reference.aspose.com/slides/hi/net/aspose.slides/textsearchoptions/wholewordsonly/) और [TextSearchOptions.CaseSensitive](https://reference.aspose.com/slides/hi/net/aspose.slides/textsearchoptions/casesensitive/) को `true` सेट करें और विकल्पों को शाब्दिक‑टेक्स्ट हाइलाइट या प्रतिस्थापन मेथड को पास करें। नियमित अभिव्यक्तियों के लिये, शब्द‑सीमा और केस‑संवेदनशीलता को .NET `Regex` में स्वयं परिभाषित करें।
 
 **क्या खोज और प्रतिस्थापन स्लाइड नोट्स में टेक्स्ट को शामिल कर सकते हैं?**
 
-हाँ। प्रस्तुति‑स्तर के लिटरल‑टेक्स्ट ऑपरेशन के दौरान [TextSearchOptions.IncludeNotes](https://reference.aspose.com/slides/hi/net/aspose.slides/textsearchoptions/includenotes/) को `true` सेट करें। ऊपर दिखाया गया कॉलबैक कार्यान्वयन नोट्स स्लाइड में मिलान को उसके पैरेंट स्लाइड संख्या से मैप करता है।
+हां। प्रस्तुति‑स्तर के शाब्दिक‑टेक्स्ट ऑपरेशन का उपयोग करते समय [TextSearchOptions.IncludeNotes](https://reference.aspose.com/slides/hi/net/aspose.slides/textsearchoptions/includenotes/) को `true` सेट करें। ऊपर दिखाया गया कॉलबैक कार्यान्वयन नोट्स स्लाइड में मिलान को उसके पैरेंट स्लाइड नंबर में मैप करता है।
 
-**मैं बिना प्रस्तुति को दोबारा स्कैन किए रिपोर्ट कैसे बनाऊँ?**
+**मैं रिपोर्ट को दूसरी बार प्रस्तुति स्कैन किए बिना कैसे बनाऊँ?**
 
-हाइलाइटिंग या प्रतिस्थापन ऑपरेशन में एक [IFindResultCallback](https://reference.aspose.com/slides/hi/net/aspose.slides/ifindresultcallback/) कार्यान्वयन पास करें। कॉलबैक ऑपरेशन चलने के दौरान प्रत्येक मिलान प्राप्त करता है, जिससे एप्लिकेशन स्रोत टेक्स्ट, मिला‑हुआ टेक्स्ट, स्थिति, टेक्स्ट फ्रेम और निकाली गई स्लाइड संख्या को बाद में समूहित या निर्यात करने के लिए सहेज सकता है।
+हाइलाइटिंग या प्रतिस्थापन ऑपरेशन को एक [IFindResultCallback](https://reference.aspose.com/slides/hi/net/aspose.slides/ifindresultcallback/) कार्यान्वयन पास करें। कॉलबैक ऑपरेशन के दौरान प्रत्येक मिलान प्राप्त करता है, इसलिए एप्लिकेशन स्रोत टेक्स्ट, मिलित टेक्स्ट, स्थिति, टेक्स्ट फ्रेम और निकाले गये स्लाइड नंबर को बाद में समूहित या एक्सपोर्ट करने के लिये संचित कर सकता है।
 
-**क्या टेक्स्ट को बदलने से उसका फ़ॉर्मेटिंग बरकरार रहता है?**
+**क्या टेक्स्ट बदलने से उसका फॉर्मेट बना रहता है?**
 
-[ITextFrame.ReplaceText](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/replacetext/) और [ITextFrame.ReplaceRegex](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/replaceregex/) मौजूदा टेक्स्ट फ्रेम के भीतर मिले‑हुए टेक्स्ट को संशोधित करते हैं और आस‑पास के भागों के फ़ॉर्मेटिंग को बरकरार रखते हैं। यदि कोई मिलान विभिन्न फ़ॉर्मेटिंग वाले भागों को कवर करता है, तो परिणाम की जाँच करके सुनिश्चित करें कि प्रतिस्थापन इच्छित शैली का उपयोग करता है।
+[ITextFrame.ReplaceText](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/replacetext/) और [ITextFrame.ReplaceRegex](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/replaceregex/) मौजूदा टेक्स्ट फ्रेम में मिलित टेक्स्ट को संशोधित करते हैं और आसपास के भाग के फ़ॉर्मेट को बरकरार रखते हैं। यदि कोई मिलान विभिन्न फ़ॉर्मेट वाले भागों को कवर करता है, तो परिणाम की जाँच करें ताकि यह सुनिश्चित हो सके कि प्रतिस्थापन वांछित शैली का उपयोग करता है।

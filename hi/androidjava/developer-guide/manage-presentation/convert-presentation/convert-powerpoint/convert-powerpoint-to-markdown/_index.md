@@ -1,135 +1,246 @@
 ---
-title: Android पर PowerPoint प्रस्तुतियों को Markdown में बदलें
-linktitle: PowerPoint से Markdown
+title: एंड्रॉइड पर PowerPoint प्रस्तुतियों को मार्कडाउन में बदलें
+linktitle: PowerPoint से मार्कडाउन
 type: docs
 weight: 140
 url: /hi/androidjava/convert-powerpoint-to-markdown/
 keywords:
-- PowerPoint को बदलें
-- प्रेज़ेंटेशन को बदलें
-- स्लाइड को बदलें
-- PPT को बदलें
-- PPTX को बदलें
-- PowerPoint को MD में
-- प्रेज़ेंटेशन को MD में
-- स्लाइड को MD में
-- PPT को MD में
-- PPTX को MD में
-- PowerPoint को Markdown के रूप में सहेजें
-- प्रेज़ेंटेशन को Markdown के रूप में सहेजें
-- स्लाइड को Markdown के रूप में सहेजें
+- PowerPoint परिवर्तित करें
+- प्रेजेंटेशन परिवर्तित करें
+- स्लाइड परिवर्तित करें
+- PPT परिवर्तित करें
+- PPTX परिवर्तित करें
+- PowerPoint से MD
+- प्रेजेंटेशन से MD
+- स्लाइड से MD
+- PPT से MD
+- PPTX से MD
+- PowerPoint को मार्कडाउन के रूप में सहेजें
+- प्रेजेंटेशन को मार्कडाउन के रूप में सहेजें
+- स्लाइड को मार्कडाउन के रूप में सहेजें
 - PPT को MD के रूप में सहेजें
 - PPTX को MD के रूप में सहेजें
 - PPT को MD में निर्यात करें
 - PPTX को MD में निर्यात करें
+- मार्कडाउन छवि निर्यात
+- CDN छवि लिंक
 - PowerPoint
-- प्रेज़ेंटेशन
-- Markdown
-- Android
-- Java
+- प्रेजेंटेशन
+- मार्कडाउन
+- एंड्रॉइड
+- जावा
 - Aspose.Slides
-description: "Aspose.Slides for Android के माध्यम से Java का उपयोग करके PowerPoint स्लाइड्स—PPT, PPTX—को साफ़ Markdown में बदलें, दस्तावेज़ीकरण को स्वचालित करें और फ़ॉर्मेटिंग बनाए रखें।"
+description: "Java के माध्यम से Android पर PPT और PPTX प्रस्तुतियों को मार्कडाउन में बदलें और नियंत्रित करें कि निर्यातित bitmap, metafile और SVG छवियाँ कहाँ सहेजे और संदर्भित किए जाते हैं।"
 ---
-## **परिचय**
+## **सारांश**
 
-Aspose.Slides आपको PowerPoint प्रस्तुतियों को Markdown में बदलने की अनुमति देता है, जो प्रलेखन कार्यप्रवाह, स्थैतिक साइट निर्माण, सामग्री माइग्रेशन, और संस्करण-नियंत्रित पाठ प्रकाशन के लिए उपयोगी हो सकता है। API PPT और PPTX प्रस्तुतियों को सीधे MD फ़ाइलों में निर्यात करने का समर्थन करता है और परिणामस्वरूप Markdown दस्तावेज़ में स्लाइड सामग्री को कैसे दर्शाया जाए, इस पर अतिरिक्त विकल्प प्रदान करता है।
+Aspose.Slides for Android via Java PPT और PPTX प्रस्तुतियों को दस्तावेज़ीकरण, स्थैतिक साइट, सामग्री-स्थानांतरण, और संस्करण-नियंत्रण कार्यप्रवाहों के लिए Markdown में बदल सकता है। आप Markdown फ़्लेवर चुन सकते हैं, स्लाइड सामग्री कैसे रेंडर होती है इसे नियंत्रित कर सकते हैं, और निर्यातित छवियों को कहां सहेजा जाए तथा उत्पन्न Markdown उनसे कैसे संदर्भित करता है, यह तय कर सकते हैं।
 
-आप प्रस्तुतियों को साधारण Markdown के रूप में निर्यात कर सकते हैं, CommonMark और GitHub Flavored Markdown जैसी कई Markdown स्वादों में से चुन सकते हैं, और निर्यात के दौरान चित्रों को कैसे संभाला जाए, इसे कॉन्फ़िगर कर सकते हैं। दृश्य सामग्री वाली प्रस्तुतियों के लिए, Aspose.Slides आपको छवियों को अलग फ़ोल्डर में सहेजने और उत्पन्न Markdown फ़ाइल से उनका उल्लेख करने की भी सुविधा देता है।
+डिफ़ॉल्ट रूप से, Markdown निर्यात केवल‑पाठ आउटपुट का उपयोग करता है। दृश्य सामग्री निर्यात करने के लिए, निर्यात प्रकार को [MarkdownSaveOptions.setExportType](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/markdownsaveoptions/) मेथड के साथ `Sequential` या `Visual` मान पर सेट करें, जो [MarkdownExportType](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/markdownexporttype/) एन्यूमरेशन से हैं। `Sequential` स्लाइड आइटम्स को अलग‑अलग और क्रम में रेंडर करता है, जबकि `Visual` ग्रुपेड आइटम्स को साथ रखता है ताकि उनका visual संबंध बना रहे। `TextOnly` मान छवि संसाधनों को नहीं उत्पन्न करता, इसलिए इस मोड में image‑saving कॉलबैक नहीं चलाए जाते।
 
-Aspose.Slides प्रस्तुति-से-Markdown रूपांतरण का समर्थन करता है।
+## **प्रेजेंटेशन को Markdown में बदलना**
 
-{{% alert color="warning" %}} 
-PowerPoint से markdown निर्यात डिफ़ॉल्ट रूप से **छवियों के बिना** होता है। यदि आप छवियों वाली PowerPoint दस्तावेज़ को निर्यात करना चाहते हैं, तो आपको `markdownSaveOptions.setExportType(MarkdownExportType.Visual)` सेट करना होगा और साथ ही `BasePath` सेट करना होगा जहाँ markdown दस्तावेज़ में उल्लेखित छवियों को सहेजा जाएगा।
-{{% /alert %}} 
-
-## **PowerPoint को Markdown में रूपांतरित करें**
-
-1. एक प्रस्तुति ऑब्जेक्ट का प्रतिनिधित्व करने के लिए [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
-2. ऑब्जेक्ट को markdown फ़ाइल के रूप में सहेजने के लिए [Save ](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/#save-com.aspose.slides.IXamlOptions-) मेथड का उपयोग करें।
-
-यह Java कोड दिखाता है कि PowerPoint को markdown में कैसे बदलें:
+स्रोत फ़ाइल को [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) क्लास से लोड करें, और फिर [Presentation.save](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) मेथड को कॉल करें, जिसमें [SaveFormat](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/saveformat/) एन्यूमरेशन से `Md` मान पास किया जाए।
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    pres.save("pres.md", SaveFormat.Md);
+    presentation.save("presentation.md", SaveFormat.Md);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **PowerPoint को Markdown फ़्लेवर में बदलें**
+## **Markdown फ़्लेवर चुनें**
 
-Aspose.Slides आपको PowerPoint को markdown (मूल सिंटैक्स सहित), CommonMark, GitHub flavored markdown, Trello, XWiki, GitLab, और 17 अन्य markdown स्वरूपों में बदलने की अनुमति देता है।
+[MarkdownSaveOptions.setFlavor](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/markdownsaveoptions/) मेथड आउटपुट के लिए उपयोग किए जाने वाले Markdown विनिर्देश को नियंत्रित करता है। [Flavor](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/flavor/) एन्यूमरेशन में CommonMark, GitHub Flavored Markdown और अन्य समर्थित वेरिएंट्स शामिल हैं।
 
-यह Java कोड दिखाता है कि PowerPoint को CommonMark में कैसे बदलें:
+निम्न उदाहरण एक प्रेजेंटेशन को CommonMark के रूप में निर्यात करता है:
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.Flavor;
+import com.aspose.slides.MarkdownSaveOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    MarkdownSaveOptions markdownSaveOptions = new MarkdownSaveOptions();
-    markdownSaveOptions.setFlavor(Flavor.CommonMark);
-    pres.save("pres.md", SaveFormat.Md, markdownSaveOptions);
+    MarkdownSaveOptions options = new MarkdownSaveOptions();
+    options.setFlavor(Flavor.CommonMark);
+
+    presentation.save("presentation.md", SaveFormat.Md, options);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-23 समर्थित markdown स्वरूप [Flavor enumeration](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/flavor/) में सूचीबद्ध हैं, जो [MarkdownSaveOptions](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/markdownsaveoptions/) क्लास से प्राप्त होते हैं।
+## **डिफ़ॉल्ट स्थानीय‑सहेजने के व्यवहार के साथ छवियों को निर्यात करें**
 
-## **छवियों वाली प्रस्तुति को Markdown में बदलें**
+[MarkdownSaveOptions](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/markdownsaveoptions/) क्लास स्थानीय रूप से सहेजी गई छवियों को कॉन्फ़िगर करने के लिए दो मेथड प्रदान करती है:
 
-[MarkdownSaveOptions](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/markdownsaveoptions/) क्लास गुण और enumeration प्रदान करता है जो आपको परिणामस्वरूप markdown फ़ाइल के लिए कुछ विकल्प या सेटिंग्स उपयोग करने देता है। उदाहरण के लिए, [MarkdownExportType](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/markdownexporttype/) enum को ऐसे मानों पर सेट किया जा सकता है जो निर्धारित करते हैं कि छवियों को कैसे रेंडर या संभाला जाए: `Sequential`, `TextOnly`, `Visual`.
+- [setBasePath](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/markdownsaveoptions/) Markdown दस्तावेज़ और उसकी संसाधनों के लिए बेस डायरेक्टरी निर्दिष्ट करता है।
+- [setImagesSaveFolderName](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/markdownsaveoptions/) छवि उप‑डायरेक्टरी निर्दिष्ट करता है। इसका डिफ़ॉल्ट मान `Images` है।
 
-### **चित्रों को क्रमिक रूप से बदलें**
-
-यदि आप चाहते हैं कि परिणामस्वरूप markdown में छवियां एक-एक करके क्रम में दिखाई दें, तो आपको क्रमिक विकल्प चुनना होगा। यह Java कोड दिखाता है कि छवियों वाली प्रस्तुति को markdown में कैसे बदलें:
+निम्न उदाहरण दृश्य सामग्री रेंडर करता है, छवियों को `output/assets` में लिखता है, और Markdown दस्तावेज़ में सापेक्ष चित्र संदर्भ बनाता है:
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.MarkdownExportType;
+import com.aspose.slides.MarkdownSaveOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+Path outputDirectory = Paths.get("output");
+Files.createDirectories(outputDirectory);
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    MarkdownSaveOptions markdownSaveOptions = new MarkdownSaveOptions();
-    markdownSaveOptions.setShowHiddenSlides(true);
-    markdownSaveOptions.setShowSlideNumber(true);
-    markdownSaveOptions.setFlavor(Flavor.Github);
-    markdownSaveOptions.setExportType(MarkdownExportType.Sequential);
-    markdownSaveOptions.setNewLineType(NewLineType.Windows);
-    pres.save("doc.md", new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 }, SaveFormat.Md, markdownSaveOptions);
+    MarkdownSaveOptions options = new MarkdownSaveOptions();
+    options.setExportType(MarkdownExportType.Visual);
+    options.setBasePath(outputDirectory.toString());
+    options.setImagesSaveFolderName("assets");
+
+    Path markdownPath = outputDirectory.resolve("presentation.md");
+    presentation.save(markdownPath.toString(), SaveFormat.Md, options);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-### **चित्रों को दृश्य रूप में बदलें**
+जब कोई कस्टम image‑saving हैंडलर `false` लौटाता है, तब यह व्यवहार फॉलबैक के रूप में उपयोग होता है।
 
-यदि आप चाहते हैं कि परिणामस्वरूप markdown में छवियां एक साथ दिखाई दें, तो आपको दृश्य विकल्प चुनना होगा। इस स्थिति में, छवियां एप्लिकेशन की वर्तमान निर्देशिका में सहेजी जाएँगी (और markdown दस्तावेज़ में उनके लिए एक सापेक्ष पथ बनाया जाएगा), या आप अपना पसंदीदा पथ और फ़ोल्डर नाम निर्दिष्ट कर सकते हैं।
+## **छवि सहेजना और Markdown लिंक को कस्टमाइज़ करें**
 
-यह Java कोड इस कार्य को प्रदर्शित करता है:
+[MarkdownSaveOptions.setImageSaving](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/markdownsaveoptions/) मेथड का उपयोग करके Markdown निर्यात के दौरान उत्पन्न गैर‑SVG बिटमैप और मेटाफाइल संसाधनों के लिए एक कॉलबैक रजिस्टर करें। इसका `MarkdownImageSavingHandler` कॉलबैक [IImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iimage/) ऑब्जेक्ट, उसका [ImageFormat](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imageformat/) मान, तथा उत्पन्न Markdown लिंक को एक‑तत्वीय `String[]` पैरामीटर के रूप में प्राप्त करता है। प्रदान किए गए फॉर्मेट से छवि सहेजें या अपलोड करें, और `link[0]` को उस संदर्भ से बदलें जो Markdown आउटपुट में दिखना चाहिए।
+
+SVG फ़ॉर्मेट में उत्पन्न संसाधनों को अलग से संभाला जाता है। [MarkdownSaveOptions.setSvgImageSaving](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/markdownsaveoptions/) मेथड के साथ एक कॉलबैक रजिस्टर करें। इसका `MarkdownSvgImageSavingHandler` कॉलबैक एक [ISvgImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/isvgimage/) ऑब्जेक्ट और एक‑तत्वीय `String[] link` पैरामीटर प्राप्त करता है। SVG में `ImageFormat` आर्ग्यूमेंट नहीं होता; इसके बजाय [ISvgImage.getSvgData](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/isvgimage/) मेथड से उसका XML डेटा लिखें या अपलोड करें। निर्यात मोड और visual ग्रुपिंग के आधार पर, स्रोत प्रेजेंटेशन में SVG को rasterized किया जा सकता है या अन्य सामग्री के साथ संयोजित किया जा सकता है; resulting non‑SVG संसाधन तब image‑saving कॉलबैक को पास किया जाता है। जब प्रत्येक निर्यातित visual संसाधन को कस्टम प्रोसेसिंग चाहिए, तो दोनों कॉलबैक रजिस्टर करें।
+
+हैंडलर रिटर्न वैल्यू निर्धारित करता है कि छवि को कौन प्रोसेस करता है:
+
+- `true` लौटाएँ जब हैंडलर ने छवि को सहेज लिया, अपलोड किया, रूपांतरित किया, या अन्यथा प्रोसेस किया हो और `link[0]` को एक वैध मान सौंप दिया हो। Aspose.Slides उस मान को Markdown दस्तावेज़ में लिखता है और अपना डिफ़ॉल्ट स्थानीय सहेजना नहीं करता।
+- `false` लौटाएँ ताकि Aspose.Slides छवि को स्थानीय रूप से सहेजे और लिंक को [MarkdownSaveOptions.setBasePath](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/markdownsaveoptions/) और [MarkdownSaveOptions.setImagesSaveFolderName](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/markdownsaveoptions/) द्वारा सेट मानों के अनुसार उत्पन्न करे।
+
+{{% alert color="warning" title="Important" %}}
+`true` लौटाने वाला हैंडलर छवि की जिम्मेदारी लेता है। यदि वह वैध, गैर‑खाली लिंक नहीं सौंपता और `true` लौटाता है, तो निर्यात `InvalidOperationException` के साथ विफल हो जाता है।
+{{% /alert %}}
+
+### **छवियों को CDN ऑरिजिन डायरेक्टरी में सहेजें और बाहरी URL का उपयोग करें**
+
+निम्न उदाहरण `cdn-origin/presentations/quarterly-report` को माउंटेड या सिंक्रनाइज़्ड CDN ऑरिजिन डायरेक्टरी मानता है। प्रत्येक हैंडलर उत्पन्न फ़ाइल नाम को निकालता है, छवि को उस कस्टम डायरेक्टरी में सहेजता है, और उत्पन्न स्थानीय संदर्भ को सार्वजनिक CDN URL से बदल देता है। यह उदाहरण स्वयं कोई नेटवर्क अपलोड नहीं करता: URL केवल तब वैध रहता है जब डायरेक्टरी को CDN ऑरिजिन के रूप में माउंट किया गया हो या उसकी फाइलें CDN पर प्रकाशित हो गई हों। ऑब्जेक्ट स्टोरेज के लिए, फ़ाइल‑सिस्टम लिखना को स्टोरेज SDK के अपलोड ऑपरेशन से बदलें और केवल अपलोड सफल होने के बाद `link[0]` असाइन करें।
 
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.MarkdownExportType;
+import com.aspose.slides.MarkdownSaveOptions;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.function.Function;
+
+Path outputDirectory = Paths.get("output");
+String publicBaseUrl = "https://cdn.example.com/presentations/quarterly-report";
+Path storageDirectory = Paths.get("cdn-origin", "presentations", "quarterly-report");
+Files.createDirectories(outputDirectory);
+Files.createDirectories(storageDirectory);
+
+Function<String, String> getFileNameFromLink = generatedLink -> {
+    String urlCompatibleLink = generatedLink.replace('\\', '/');
+    return urlCompatibleLink.substring(urlCompatibleLink.lastIndexOf('/') + 1);
+};
+Function<String, String> buildPublicUrl = fileName -> {
+    try {
+        String encodedFileName = URLEncoder.encode(fileName, "UTF-8").replace("+", "%20");
+        return publicBaseUrl + "/" + encodedFileName;
+    } catch (UnsupportedEncodingException exception) {
+        System.err.println("Could not encode the image file name: " + exception.getMessage());
+        return null;
+    }
+};
+
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    final String outPath = "c:/documents";
-    MarkdownSaveOptions markdownSaveOptions = new MarkdownSaveOptions();
-    markdownSaveOptions.setExportType(MarkdownExportType.Visual);
-    markdownSaveOptions.setImagesSaveFolderName("md-images");
-    markdownSaveOptions.setBasePath(outPath);
-    pres.save("pres.md", SaveFormat.Md, markdownSaveOptions);
+    MarkdownSaveOptions options = new MarkdownSaveOptions();
+    options.setExportType(MarkdownExportType.Visual);
+    options.setBasePath(outputDirectory.toString());
+    options.setImagesSaveFolderName("fallback-images");
+
+    options.setImageSaving((image, format, link) -> {
+        if (image.getWidth() < 128 || image.getHeight() < 128) {
+            return false;
+        }
+
+        String fileName = getFileNameFromLink.apply(link[0]);
+        String publicUrl = buildPublicUrl.apply(fileName);
+        if (publicUrl == null) {
+            return false;
+        }
+        Path storagePath = storageDirectory.resolve(fileName);
+        image.save(storagePath.toString(), format);
+        link[0] = publicUrl;
+        return true;
+    });
+
+    options.setSvgImageSaving((svgImage, link) -> {
+        String fileName = getFileNameFromLink.apply(link[0]);
+        String publicUrl = buildPublicUrl.apply(fileName);
+        if (publicUrl == null) {
+            return false;
+        }
+        Path storagePath = storageDirectory.resolve(fileName);
+        try {
+            Files.write(storagePath, svgImage.getSvgData());
+        } catch (IOException exception) {
+            System.err.println("Could not save the SVG image: " + exception.getMessage());
+            return false;
+        }
+        link[0] = publicUrl;
+        return true;
+    });
+
+    Path markdownPath = outputDirectory.resolve("presentation.md");
+    presentation.save(markdownPath.toString(), SaveFormat.Md, options);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+`Bitmap` हैंडलर जानबूझकर 128 × 128 पिक्सेल से छोटी छवियों के लिए `false` लौटाता है, इसलिए Aspose.Slides उन छवियों को डिफ़ॉल्ट व्यवहार से `output/fallback-images` में सहेजता है। बड़े bitmap और metafile संसाधन, तथा SVG संसाधन, कस्टम कोड द्वारा संभाले जाते हैं। उदाहरण के लिए, उत्पन्न स्थानीय संदर्भ जैसे `fallback-images/image1.png` बदलकर `https://cdn.example.com/presentations/quarterly-report/image1.png` हो जाता है। हैंडलर फ़ाइलें लिखते समय केवल ऑपरेटिंग‑सिस्टम पाथ का उपयोग करते हैं; Markdown में लिखे लिंक फ़ॉरवर्ड स्लैश और URL‑एस्केप्ड फ़ाइल नामों का उपयोग करते हैं। सापेक्ष लिंक बनाते समय भी यही नियम अपनाएँ: `/` उपयोग करें, प्लेटफ़ॉर्म‑विशिष्ट डायरेक्टरी सेपरेटर नहीं।
 
-**क्या हाइपरलिंक्स Markdown निर्यात में बनी रहती हैं?**
+## **FAQ**
 
-हाँ। टेक्स्ट [hyperlinks](/slides/hi/androidjava/manage-hyperlinks/) को मानक Markdown लिंक के रूप में संरक्षित किया जाता है। स्लाइड [transitions](/slides/hi/androidjava/slide-transition/) और [animations](/slides/hi/androidjava/powerpoint-animation/) को परिवर्तित नहीं किया जाता है।
+**क्या कोई एक हैंडलर रास्टर छवियों और SVG छवियों दोनों को प्रोसेस कर सकता है?**
 
-**क्या मैं कई थ्रेड्स में चलाकर रूपांतरण को तेज़ कर सकता हूँ?**
+नहीं। निर्यात के दौरान उत्पन्न bitmap और metafile संसाधनों के लिए [MarkdownSaveOptions.setImageSaving](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/markdownsaveoptions/) का उपयोग करें और SVG के रूप में उत्पन्न संसाधनों के लिए [MarkdownSaveOptions.setSvgImageSaving](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/markdownsaveoptions/) का उपयोग करें। पहला [IImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iimage/) ऑब्जेक्ट और [ImageFormat](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/imageformat/) मान प्रदान करता है; दूसरा [ISvgImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/isvgimage/) ऑब्जेक्ट प्रदान करता है, जिसका SVG डेटा [ISvgImage.getSvgData](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/isvgimage/) से पढ़ा जा सकता है। स्रोत SVG जो निर्यात के दौरान rasterized हो जाता है, वह image‑saving कॉलबैक द्वारा प्रोसेस किया जाता है।
 
-आप फ़ाइलों के बीच समानांतर कर सकते हैं, लेकिन थ्रेड्स के बीच वही [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) इंस्टेंस [don’t share](/slides/hi/androidjava/multithreading/) न करें। प्रत्येक फ़ाइल के लिए अलग-अलग इंस्टेंस/प्रोसेस उपयोग करें ताकि टकराव से बचा जा सके।
+**जब image‑saving हैंडलर `false` लौटाता है तो क्या होता है?**
 
-**छवियों के साथ क्या होता है—वे कहाँ सहेजी जाती हैं, और पथ सापेक्ष हैं क्या?**
+Aspose.Slides अपना डिफ़ॉल्ट स्थानीय‑सहेजने वाला व्यवहार उपयोग करता है। छवि का स्थान और उत्पन्न संदर्भ उन मानों द्वारा नियंत्रित होते हैं जो [MarkdownSaveOptions.setBasePath](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/markdownsaveoptions/) और [MarkdownSaveOptions.setImagesSaveFolderName](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/markdownsaveoptions/) से सेट किए गए हैं।
 
-[Images](/slides/hi/androidjava/image/) को एक समर्पित फ़ोल्डर में निर्यात किया जाता है, और Markdown फ़ाइल उन्हें डिफ़ॉल्ट रूप से सापेक्ष पथों के साथ संदर्भित करती है। आप बेस आउटपुट पाथ और एसेट फ़ोल्डर नाम को कॉन्फ़िगर कर सकते हैं ताकि एक पूर्वानुमेय रिपॉज़िटरी संरचना बनी रहे।
+**क्या कोई हैंडलर छवि को स्थानीय रूप से सहेजे बिना URL प्रदान कर सकता है?**
+
+हां। हैंडलर छवि को ऑब्जेक्ट स्टोरेज में अपलोड कर सकता है या किसी अन्य सेवा को पास कर सकता है, प्राप्त URL को `link[0]` में असाइन कर सकता है, और `true` लौट सकता है। हैंडलर को स्वयं प्रोसेसिंग पूरी करनी होगी; `true` लौटाने से डिफ़ॉल्ट स्थानीय सहेजना प्रतिबंधित हो जाता है।
+
+**क्यों Markdown निर्यात हैंडलर से `InvalidOperationException` फेंकता है?**
+
+यह अपवाद तब उत्पन्न होता है जब हैंडलर `true` लौटाता है लेकिन वैध लिंक प्रदान नहीं करता। `true` लौटाने से पहले वह सापेक्ष पाथ या बाहरी URL को असाइन करें जो Markdown में लिखा जाना चाहिए।
+
+**छवि लिंक के लिए कौन सा पाथ सेपरेटर उपयोग करना चाहिए?**
+
+Markdown लिंक और URL में फ़ॉरवर्ड स्लैश (`/`) का उपयोग करें। फ़ाइल‑सिस्टम पाथ के लिए केवल `Path.resolve` प्रयोग करें, फिर Markdown संदर्भ को अलग से बनाएँ या सामान्यीकृत करें।
+
+**क्या Markdown निर्यात के दौरान हाइपरलिंक संरक्षित रहते हैं?**
+
+हां। टेक्स्ट [hyperlinks](/slides/hi/androidjava/manage-hyperlinks/) को मानक Markdown लिंक के रूप में संरक्षित किया जाता है। स्लाइड [transitions](/slides/hi/androidjava/slide-transition/) और [animations](/slides/hi/androidjava/powerpoint-animation/) को परिवर्तित नहीं किया जाता।
+
+**क्या प्रेजेंटेशन को समानांतर रूप से Markdown में बदला जा सकता है?**
+
+आप विभिन्न प्रेजेंटेशन फाइलों को समानांतर रूप से प्रोसेस कर सकते हैं, लेकिन एक ही [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) इंस्टेंस को थ्रेड्स के बीच साझा नहीं करें। [multithreading guidelines](/slides/hi/androidjava/multithreading/) का पालन करें और प्रत्येक फाइल के लिए अलग इंस्टेंस उपयोग करें।

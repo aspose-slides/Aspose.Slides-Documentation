@@ -1,60 +1,124 @@
 ---
-title: "البحث واستبدال النص في عروض PowerPoint التقديمية باستخدام Java"
-linktitle: "البحث واستبدال النص"
+title: البحث والاستبدال النص في عروض PowerPoint التقديمية باستخدام Java
+linktitle: البحث والاستبدال النص
 type: docs
 weight: 55
 url: /ar/java/search-and-replace-text/
 keywords:
-- نص البحث
-- تمييز النص
-- استبدال النص
-- تعبير عادي
-- رد نداء للنتيجة
-- إطار النص
+- بحث نص
+- تمييز نص
+- استبدال نص
+- تعبير نمطي
+- استدعاء نتيجة
+- إطار نص
 - تقرير تدقيق
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - Java
 - Aspose.Slides
-description: "البحث، وتمييز، واستبدال النص في عروض PowerPoint التقديمية مع جمع كل تطابق باستخدام Aspose.Slides for Java."
+description: "البحث، التمييز، والاستبدال النص في عروض PowerPoint التقديمية مع جمع كل تطابق باستخدام Aspose.Slides for Java."
 ---
 ## **نظرة عامة**
 
-يمكن لـ Aspose.Slides for Java البحث عن النص وتحديده واستبداله داخل إطار نصي واحد أو عبر العرض التقديمي بأكمله. يمكن لكل عملية أيضًا إخطار التطبيق عن كل تطابق من خلال رد نداء للنتيجة. يتيح ذلك إمكانية تحديث العرض التقديمي وبناء سجل تدقيق يحتوي على النص المتطابق وسياقه وموقعه وإطار النص ورقم الشريحة.
+يمكن لـ Aspose.Slides for Java البحث عن النص وتظليله واستبداله داخل إطار نصي فردي أو عبر عرض تقديمي كامل. يمكن لكل عملية أيضًا إخطار التطبيق بكل تطابق من خلال استدعاء نتيجة. هذا يجعل من الممكن تحديث العرض التقديمي وفي الوقت نفسه بناء سجل تدقيق يحتوي على النص المتطابق وسياقه وموقعه وإطار النص ورقم الشريحة.
 
-تُعد هذه الإمكانات مفيدة للمراجعة، والتمويه، والتحقق من المصطلحات، وتنظيف القوالب، وسير عمل التقارير الآلية.
+هذه الإمكانات مفيدة لمراجعة المحتوى، وحجب المعلومات، وفحص المصطلحات، وتنظيف القوالب، وسير عمل التقارير الآلية.
 
-في الأمثلة الأولى أدناه، نستخدم ملفًا باسم **“sample.pptx”** يحتوي على صندوق نصي واحد في الشريحة الأولى بالنص التالي:
+في الأمثلة الأولى أدناه، نستخدم ملفًا باسم "sample.pptx"، يحتوي على صندوق نص واحد في الشريحة الأولى بالنص التالي:
 
-![Sample text](sample_text.png)
+![نص العينة](sample_text.png)
 
 ## **اختر نطاق البحث**
 
-استخدم الطرق على [ITextFrame](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/) لتقييد عملية على إطار نص واحد. استخدم الطرق على [Presentation](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/) لمعالجة جميع النصوص القابلة للتطبيق في العرض التقديمي.
+استخدم الأساليب على [ITextFrame](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/) لتقييد العملية على إطار نص واحد. استخدم الأساليب على [Presentation](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/) لمعالجة جميع النصوص القابلة للتطبيق في العرض التقديمي.
 
-| العملية | إطار نص واحد | العرض التقديمي بالكامل |
+| العملية | إطار نص واحد | العرض التقديمي كامل |
 |---|---|---|
 | تمييز النص الحرفي | [ITextFrame.highlightText](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [Presentation.highlightText](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
-| تمييز التطابقات بتعبير عادي | [ITextFrame.highlightRegex](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) | [Presentation.highlightRegex](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) |
+| تمييز التطابقات باستخدام التعبير النمطي | [ITextFrame.highlightRegex](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) | [Presentation.highlightRegex](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) |
 | استبدال النص الحرفي | [ITextFrame.replaceText](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [Presentation.replaceText](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
-| استبدال التطابقات بتعبير عادي | [ITextFrame.replaceRegex](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) | [Presentation.replaceRegex](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) |
+| استبدال التطابقات باستخدام التعبير النمطي | [ITextFrame.replaceRegex](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) | [Presentation.replaceRegex](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) |
 
-## **تهيئة مطابقة النص**
+## **ضبط مطابقة النص**
 
 لعمليات النص الحرفي، استخدم [TextSearchOptions](https://reference.aspose.com/slides/ar/java/com.aspose.slides/textsearchoptions/) للتحكم في المطابقة:
 
-- [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/ar/java/com.aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) يحدّ التطابقات إلى كلمات كاملة.
-- [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/ar/java/com.aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) يحدد ما إذا كان يجب مطابقة حالة الأحرف.
-- [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/ar/java/com.aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) يضمّن ملاحظات الشرائح في عمليات البحث والاستبدال والتمييز على مستوى العرض التقديمي.
+- [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/ar/java/com.aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) يحد من التطابقات إلى كلمات كاملة.
+- [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/ar/java/com.aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) يتحكم فيما إذا كان يجب مطابقة حالة الأحرف.
+- [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/ar/java/com.aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) يشمل ملاحظات الشرائح في عمليات البحث والاستبدال والتمييز على مستوى العرض التقديمي.
 
-تستخدم عمليات التعبير العادي كائن Java `Pattern`، لذا تُحدد قواعد المطابقة مثل حساسية الحالة وحدود الكلمات داخل التعبير وعلماته.
+تستخدم عمليات التعبير النمطي كائن Java `Pattern`، لذلك تُعرّف قواعد المطابقة مثل حساسية الحالة وحدود الكلمات بواسطة التعبير وعلماته.
 
-## **جمع معلومات التطابق عبر رد نداء**
+## **تحديد مالك إطار النص**
 
-نفّذ [IFindResultCallback](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ifindresultcallback/) لتلقي إشعار لكل تطابق. يوفر أسلوبه [IFindResultCallback.foundResult](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ifindresultcallback/#foundResult-com.aspose.slides.ITextFrame-java.lang.String-java.lang.String-int-) إطار النص المرتبط، والنص الأصلي، والنص المتطابق، وموقع التطابق.
+غالبًا ما تستقبل سير عمل معالجة النص العامة كائنًا من نوع [ITextFrame](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/) أثناء البحث أو الاستبدال أو التحقق أو التصدير. استخدم [ITextFrame.getParentShape](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/#getParentShape--) و[ITextFrame.getParentCell](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/#getParentCell--) لتحديد أي كائن عرض تقديمي يملك إطار النص.
 
-لا يتلقى رد النداء رقم الشريحة مباشرة. يستخلص التنفيذ أدناه الرقم من الشريحة الأصلية ويتعامل أيضًا مع النص الموجود في ملاحظات الشرائح. يسمح `Integer` القابل للخطأ للنتيجة نفسها بتمثيل النص المرتبط بأنواع شرائح أخرى.
+القيم المتوقعة تعتمد على المالك:
+
+| مالك إطار النص | `getParentShape` | `getParentCell` |
+|---|---|---|
+| AutoShape أو شكل آخر يحتوي نصًا | الـ[IShape](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ishape/) المالك | `null` |
+| خلية جدول | `null` | الـ[ICell](https://reference.aspose.com/slides/ar/java/com.aspose.slides/icell/) المالك |
+
+كلا الطريقتين توفران تنقلًا للقراءة فقط. استدعاؤهما لا ينقل إطار النص ولا يغيّر مالكه. يجب على الشيفرة العامة فحص كلا القيمتين للتحقق من `null` ومعالجة احتمال عدم توفر أي مالك.
+
+يستخدم المثال التالي [SlideUtil.getAllTextFrames](https://reference.aspose.com/slides/ar/java/com.aspose.slides/slideutil/#getAllTextFrames-com.aspose.slides.IPresentation-boolean-) للتكرار عبر إطارات النص في العرض التقديمي. بالنسبة للأشكال، يُبلغ عن اسم الشكل، ونوعه في وقت تشغيل Java، والشريحة المحتوية. بالنسبة لخلايا الجدول، يُبلغ عن إحداثيات العمود والصف التي تبدأ من الصفر والشريحة المحتوية.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    ITextFrame[] textFrames = SlideUtil.getAllTextFrames(presentation, false);
+
+    for (ITextFrame textFrame : textFrames) {
+        IShape ownerShape = textFrame.getParentShape();
+        if (ownerShape != null) {
+            String shapeName = ownerShape.getName().isEmpty() ? "(unnamed)" : ownerShape.getName();
+            String shapeType = ownerShape.getClass().getSimpleName();
+            IBaseSlide baseSlide = ownerShape.getSlide();
+            String slideLabel;
+            if (baseSlide instanceof ISlide) {
+                slideLabel = "slide " + ((ISlide) baseSlide).getSlideNumber();
+            } else if (baseSlide instanceof INotesSlide) {
+                slideLabel = "notes for slide " + ((INotesSlide) baseSlide).getParentSlide().getSlideNumber();
+            } else {
+                slideLabel = baseSlide.getClass().getSimpleName();
+            }
+            System.out.println("Shape: " + shapeName + "; type: " + shapeType + "; " + slideLabel);
+            continue;
+        }
+
+        ICell ownerCell = textFrame.getParentCell();
+        if (ownerCell != null) {
+            IBaseSlide baseSlide = ownerCell.getSlide();
+            String slideLabel;
+            if (baseSlide instanceof ISlide) {
+                slideLabel = "slide " + ((ISlide) baseSlide).getSlideNumber();
+            } else if (baseSlide instanceof INotesSlide) {
+                slideLabel = "notes for slide " + ((INotesSlide) baseSlide).getParentSlide().getSlideNumber();
+            } else {
+                slideLabel = baseSlide.getClass().getSimpleName();
+            }
+            System.out.println("Table cell: column " + ownerCell.getFirstColumnIndex() + ", row " + ownerCell.getFirstRowIndex() + "; " + slideLabel);
+            continue;
+        }
+
+        System.out.println("The text frame owner is not available as a shape or table cell.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+لمحتوى SmartArt، تكرّر عبر الأشكال في [ISmartArtNode.getShapes](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ismartartnode/#getShapes--) واحصل على كل [ISmartArtShape.getTextFrame](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ismartartshape/#getTextFrame--). يمكن تتبع إطار النص إلى الشكل المرتبط عبر [ITextFrame.getParentShape](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/#getParentShape--)، بينما تُعيد [ITextFrame.getParentCell](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/#getParentCell--) `null`. لذلك، يتعامل فرع الشكل في المثال أيضًا مع النص من عقد SmartArt.
+
+## **جمع معلومات المطابقة عبر استدعاء رد ناتج**
+
+قم بتنفيذ [IFindResultCallback](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ifindresultcallback/) لتلقي إشعار لكل مطابقة. توفر الطريقة [IFindResultCallback.foundResult](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ifindresultcallback/#foundResult-com.aspose.slides.ITextFrame-java.lang.String-java.lang.String-int-) الإطار النصي المتعلق، النص الأصلي، النص المتطابق، وموقع المطابقة.
+
+لا تتلقى الاستدعاءات رقم الشريحة مباشرة. تستخرج التنفيذ أدناه ذلك من الشريحة الأم وتتعامل أيضًا مع النص الموجود في ملاحظات الشرائح. يسمح `Integer` القابل للكون بـ `null` لنفس نموذج النتيجة بتمثيل النص المرتبط بأنواع شرائح أخرى.
 
 ```java
 import com.aspose.slides.*;
@@ -111,12 +175,10 @@ final class TextSearchCallback implements IFindResultCallback {
         results.add(result);
     }
 
-    private static Integer getSlideNumber(ITextFrame textFrame) {
-        if (!(textFrame instanceof TextFrame)) {
-            return null;
-        }
-
-        IBaseSlide parentSlide = ((TextFrame) textFrame).getSlide();
+    private Integer getSlideNumber(ITextFrame textFrame) {
+        IShape parentShape = textFrame.getParentShape();
+        ICell parentCell = textFrame.getParentCell();
+        IBaseSlide parentSlide = parentShape != null ? parentShape.getSlide() : parentCell != null ? parentCell.getSlide() : textFrame.getSlide();
 
         if (parentSlide instanceof ISlide) {
             return ((ISlide) parentSlide).getSlideNumber();
@@ -131,13 +193,13 @@ final class TextSearchCallback implements IFindResultCallback {
 }
 ```
 
-في عمليات الاستبدال، يحتوي `foundText` على النص المتطابق الأصلي، وبالتالي يمكن لرد النداء تسجيل المصطلحات التي تم استبدالها بالضبط.
+في عمليات الاستبدال، يحتوي `foundText` على النص المتطابق الأصلي، لذا يمكن للاستدعاء تسجيل المصطلحات التي تم استبدالها بدقة.
 
 ## **تمييز النص**
 
-استخدم الأسلوب [ITextFrame.highlightText](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) لتمييز تطابقات النص الحرفي في إطار نص. مرّر [TextSearchOptions](https://reference.aspose.com/slides/ar/java/com.aspose.slides/textsearchoptions/) للتحكم في البحث ورد النداء لجمع تفاصيل التطابق.
+استخدم طريقة [ITextFrame.highlightText](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) لتظليل التطابقات النصية الحرفية في إطار نص. مرّر [TextSearchOptions](https://reference.aspose.com/slides/ar/java/com.aspose.slides/textsearchoptions/) للتحكم في البحث واستدعاء رد ناتج لجمع تفاصيل المطابقة.
 
-يعرض المثال البرمجي أدناه تمييز جميع تكرارات الحرفين **"try"** ثم تمييز الكلمة الكاملة **"to"** فقط. كلا البحثين يبلghanنت تطابقاتهما إلى نفس رد النداء.
+يُظهر مثال الشيفرة أدناه كيفية تمييز جميع حالات الأحرف **"try"** ثم تمييز الكلمة الكاملة **"to"** فقط. كلا البحثين يرسلان تطابقاتهما إلى نفس الاستدعاء.
 
 ```java
 import com.aspose.slides.*;
@@ -161,7 +223,7 @@ try {
     wholeWordSearchOptions.setCaseSensitive(false);
     Color wholeWordHighlightColor = new Color(238, 130, 238);
 
-    // تمييز الكلمة الكاملة "to" فقط.
+    // تمييز كلمة "to" الكاملة فقط.
     shape.getTextFrame().highlightText("to", wholeWordHighlightColor, wholeWordSearchOptions, callback);
 
     for (TextMatch result : callback.getResults()) {
@@ -177,13 +239,13 @@ try {
 
 النتيجة:
 
-![The highlighted text](highlighted_text.png)
+![النص المميز](highlighted_text.png)
 
-## **تمييز النص باستخدام تعبيرات عادية**
+## **تمييز النص باستخدام التعبيرات النمطية**
 
-يتميز الأسلوب [ITextFrame.highlightRegex](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) النصوص التي يجدها التعبير العادي في إطار نص.
+تُبرز طريقة [ITextFrame.highlightRegex](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) النصوص التي يحددها التعبير النمطي داخل إطار نص.
 
-الكود التالي يميّز جميع الكلمات التي تحتوي على سبعة أحرف أو أكثر ويجمع كل تطابق:
+يقوم الشيفرة التالية بتمييز جميع الكلمات التي تحتوي على سبعة أحرف أو أكثر وتجمع كل تطابق:
 
 ```java
 import com.aspose.slides.*;
@@ -207,11 +269,11 @@ try {
 
 النتيجة:
 
-![The highlighted text using the regular expression](highlighted_text_using_regex.png)
+![النص المميز باستخدام التعبير النمطي](highlighted_text_using_regex.png)
 
-## **تمييز النص عبر العرض التقديمي**
+## **تمييز النص عبر عرض تقديمي**
 
-استخدم [Presentation.highlightText](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) و[Presentation.highlightRegex](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) للبحث في جميع إطارات النص القابلة للتطبيق في العرض التقديمي. يوضح المثال التالي تمييز مصطلح حرفي وجميع عناوين البريد الإلكتروني مع الاحتفاظ بمجموعات نتائج منفصلة للبحثين.
+استخدم [Presentation.highlightText](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) و[Presentation.highlightRegex](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) للبحث في جميع إطارات النص القابلة للتطبيق في العرض التقديمي. يوضح المثال التالي تمييز مصطلح حرفي وجميع عناوين البريد الإلكتروني مع الاحتفاظ بمجموعات نتائج منفصلة لكل بحث.
 
 ```java
 import com.aspose.slides.*;
@@ -241,9 +303,9 @@ try {
 
 ## **استبدال النص في إطار نص**
 
-استخدم [ITextFrame.replaceText](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) للنص الحرفي و[ITextFrame.replaceRegex](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) للاستبدال القائم على نمط. تقوم هذه الأساليب بتحديث النص المتطابق داخل إطار النص الحالي، مع الحفاظ على تنسيق الجزء المحيط بدلاً من إعادة بناء إطار النص من سلسلة نصية عادية.
+استخدم [ITextFrame.replaceText](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) للنص الحرفي و[ITextFrame.replaceRegex](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) للاستبدال القائم على النمط. تُحدّث هذه الأساليب النص المتطابق داخل إطار النص الحالي، مما يحافظ على تنسيق الجزء المحيط بدلاً من إعادة بناء إطار النص من سلسلة عادية.
 
-المثال التالي يوحد متغير إملائي ثم يستبدل علامات الإصدارات. يسجل نفس رد النداء المصطلحات الأصلية المتطابقة في كلا العمليتين.
+يقوم المثال التالي بتوحيد تنوع إملائي ثم استبدال تسميات الإصدارات. يسجل نفس الاستدعاء المصطلحات الأصلية التي تم مطابقتها في كلتا العمليتين.
 
 ```java
 import com.aspose.slides.*;
@@ -269,11 +331,11 @@ try {
 }
 ```
 
-إذا امتد تطابق واحد عبر أجزاء ذات تنسيقات مختلفة، راجع النتيجة لتأكيد أي تنسيق يجب أن يُطبق على النص المستبدل.
+إذا امتد أحد التطابقات عبر أجزاء ذات تنسيق مختلف، راجع النتيجة لتأكيد أي تنسيق يجب أن يُطبق على النص المستبدل.
 
-## **استبدال النص عبر العرض التقديمي**
+## **استبدال النص عبر عرض تقديمي**
 
-استخدم [Presentation.replaceText](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) و[Presentation.replaceRegex](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) لتطبيق نفس العمليات عبر العرض التقديمي. هذا مفيد لتنظيف القوالب، وتحديث المصطلحات، والتمويه.
+استخدم [Presentation.replaceText](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) و[Presentation.replaceRegex](https://reference.aspose.com/slides/ar/java/com.aspose.slides/presentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) لتطبيق نفس العمليات عبر العرض التقديمي. هذا مفيد لتنظيف القوالب، وتحديث المصطلحات، والحجب.
 
 ```java
 import com.aspose.slides.*;
@@ -297,9 +359,9 @@ try {
 }
 ```
 
-## **تجميع التطابقات للتقارير**
+## **تجميع المطابقات للتقارير**
 
-نظرًا لأن كل نتيجة تخزن رقم الشريحة وإطار النص، يمكن للتطبيقات تجميع التطابقات للتدقيق أو التقارير أو سير عمل المراجعة. يجمع المثال التالي النتائج المجمعة أولاً حسب الشريحة ثم حسب إطار النص:
+نظرًا لأن كل نتيجة تخزن رقم الشريحة وإطار النص، يمكن للتطبيقات تجميع المطابقات للتدقيق أو التقارير أو سير العمل المراجعي. يوضح المثال التالي تجميع النتائج المجمّعة أولاً حسب الشريحة ثم حسب إطار النص:
 
 ```java
 import com.aspose.slides.ITextFrame;
@@ -347,22 +409,22 @@ for (Map.Entry<Integer, Map<ITextFrame, List<TextMatch>>> slideEntry : matchesBy
 
 ## **الأسئلة الشائعة**
 
-**كيف يمكنني البحث في صندوق نص واحد فقط بدلاً من العرض التقديمي بأكمله؟**
+**كيف يمكنني البحث في صندوق نص واحد فقط بدلاً من العرض التقديمي بالكامل؟**
 
-احصل على إطار النص الخاص بالشكل واستدعِ [ITextFrame.highlightText](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-)، [ITextFrame.highlightRegex](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-)، [ITextFrame.replaceText](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-)، أو [ITextFrame.replaceRegex](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) على ذلك الإطار. تُعالج طرق مستوى العرض التقديمي جميع إطارات النص القابلة للتطبيق بدلاً من ذلك.
+احصل على إطار النص الخاص بالشكل واستدعِ [ITextFrame.highlightText](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-)، [ITextFrame.highlightRegex](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-)، [ITextFrame.replaceText](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-)، أو [ITextFrame.replaceRegex](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) على ذلك الإطار. تعالج الأساليب على مستوى العرض التقديمي جميع إطارات النص القابلة للتطبيق بدلاً من ذلك.
 
-**كيف يمكنني مطابقة الكلمات الكاملة مع الاعتبار الصحيح لحالة الأحرف؟**
+**كيف يمكنني مطابقة الكلمات الكاملة مع الالتزام بحالة الأحرف الصحيحة؟**
 
-عيّن [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/ar/java/com.aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) و[TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/ar/java/com.aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) إلى `true`، ومرّر الخيارات إلى طريقة تمييز أو استبدال النص الحرفي. بالنسبة للتعبيرات العادية، عرّف حدود الكلمات وحساسية الحالة داخل كائن Java `Pattern` نفسه.
+اضبط [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/ar/java/com.aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) و[TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/ar/java/com.aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) على `true`، ومرّر الخيارات إلى طريقة تمييز أو استبدال النص الحرفي. بالنسبة للتعبيرات النمطية، عرّف حدود الكلمات وحساسية الحالة داخل `Pattern` في Java نفسه.
 
 **هل يمكن أن تشمل عمليات البحث والاستبدال النص الموجود في ملاحظات الشرائح؟**
 
-نعم. عيّن [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/ar/java/com.aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) إلى `true` عند استخدام عملية نص حرفي على مستوى العرض التقديمي. تقوم تنفيذية رد النداء الموضحة أعلاه بربط التطابق في شريحة ملاحظات بالرقم الأصلي للشريحة الأصلية.
+نعم. اضبط [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/ar/java/com.aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) على `true` عند استخدام عملية نص حرفي على مستوى العرض التقديمي. تُعيد تنفيذ الاستدعاء الموضحة أعلاه مطابقة في شريحة ملاحظات إلى رقم الشريحة الأم.
 
 **كيف يمكنني إنشاء تقرير دون مسح العرض التقديمي مرة ثانية؟**
 
-مرّر تنفيذية [IFindResultCallback](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ifindresultcallback/) إلى عملية التمييز أو الاستبدال. يتلقى رد النداء كل تطابق أثناء تنفيذ العملية، مما يسمح للتطبيق بتخزين النص الأصلي، والنص المتطابق، والموقع، وإطار النص، ورقم الشريحة المستنتج لتجميعه لاحقًا أو تصديره.
+مرّر تنفيذًا لـ [IFindResultCallback](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ifindresultcallback/) إلى عملية التمييز أو الاستبدال. يتلقى الاستدعاء كل مطابقة أثناء تشغيل العملية، وبالتالي يمكن للتطبيق تخزين النص الأصلي، والنص المتطابق، والموقع، وإطار النص، ورقم الشريحة المستنتج لتجميعها أو تصديرها لاحقًا.
 
 **هل يحافظ استبدال النص على تنسيقه؟**
 
-كل من [ITextFrame.replaceText](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) و[ITextFrame.replaceRegex](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) يعديلان النص المتطابق داخل إطار النص الحالي ويحتفظان بتنسيق الجزء المحيط. إذا امتد التطابق عبر أجزاء ذات تنسيقات مختلفة، فافحص النتيجة لضمان أن الاستبدال يستخدم النمط المطلوب.
+تُعيد كل من [ITextFrame.replaceText](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) و[ITextFrame.replaceRegex](https://reference.aspose.com/slides/ar/java/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) تعديل النص المتطابق داخل إطار النص الحالي وتحتفظ بتنسيق الجزء المحيط. إذا امتد التطابق عبر أجزاء ذات تنسيق مختلف، تحقّق من النتيجة لضمان أن الاستبدال يستخدم النمط المطلوب.

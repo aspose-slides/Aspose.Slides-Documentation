@@ -1,6 +1,6 @@
 ---
-title: Suche und Ersetze Text in PowerPoint-Präsentationen in PHP
-linktitle: Suche und Ersetze Text
+title: Suchen und Ersetzen von Text in PowerPoint-Präsentationen in PHP
+linktitle: Suchen und Ersetzen von Text
 type: docs
 weight: 55
 url: /de/php-java/search-and-replace-text/
@@ -17,44 +17,118 @@ keywords:
 - Präsentation
 - PHP
 - Aspose.Slides
-description: "Text in PowerPoint-Präsentationen suchen, hervorheben und ersetzen, wobei jeder Treffer mit Aspose.Slides für PHP via Java gesammelt wird."
+description: "Suchen, Hervorheben und Ersetzen von Text in PowerPoint-Präsentationen, wobei jede Übereinstimmung mit Aspose.Slides für PHP via Java gesammelt wird."
 ---
 ## **Übersicht**
 
-Aspose.Slides für PHP via Java kann Text in einem einzelnen Textfeld oder in einer gesamten Präsentation suchen, hervorheben und ersetzen. Jede Operation kann außerdem einer Anwendung über jeden Treffer mittels eines Ergebnis‑Callbacks benachrichtigen. Dadurch ist es möglich, eine Präsentation zu aktualisieren und gleichzeitig ein Prüfprotokoll zu erstellen, das den gefundenen Text, dessen Kontext, Position, Textfeld und Foliennummer enthält.
+Aspose.Slides für PHP via Java kann Text in einem einzelnen TextFrame oder über die gesamte Präsentation hinweg suchen, hervorheben und ersetzen. Jeder Vorgang kann auch eine Anwendung über jede Übereinstimmung mittels eines Ergebnis‑Callbacks benachrichtigen. Dadurch ist es möglich, eine Präsentation zu aktualisieren und gleichzeitig ein Prüfprotokoll zu erstellen, das den gefundenen Text, dessen Kontext, Position, TextFrame und Foliennummer enthält.
 
-Diese Funktionen sind nützlich für Überprüfungen, Schwärzungen, Terminologie‑Prüfungen, Vorlagenbereinigung und automatisierte Bericht‑Workflows.
+Diese Funktionen sind nützlich für Überprüfungen, Schwärzungen, Terminologie‑Prüfungen, Vorlagenbereinigungen und automatisierte Bericht‑Workflows.
 
-In den ersten nachstehenden Beispielen verwenden wir eine Datei namens "sample.pptx", die auf der ersten Folie ein einzelnes Textfeld mit folgendem Text enthält:
+In den ersten Beispielen unten verwenden wir eine Datei namens "sample.pptx", die auf der ersten Folie ein einzelnes Textfeld mit folgendem Text enthält:
 
 ![Beispieltext](sample_text.png)
 
 ## **Suchbereich auswählen**
 
-Verwenden Sie Methoden auf [TextFrame](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/) um eine Operation auf ein Textfeld zu beschränken. Verwenden Sie Methoden auf [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/) um allen anwendbaren Text in der Präsentation zu verarbeiten.
+Verwenden Sie Methoden auf [TextFrame](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/) um einen Vorgang auf ein TextFrame zu beschränken. Verwenden Sie Methoden auf [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/) um allen anwendbaren Text in der Präsentation zu verarbeiten.
 
-| Operation | Ein Textfeld | Gesamte Präsentation |
+| Operation | Ein TextFrame | Ganze Präsentation |
 |---|---|---|
-| Literaltext hervorheben | [TextFrame::highlightText](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/#highlightText) | [Presentation::highlightText](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/#highlightText) |
+| Literalen Text hervorheben | [TextFrame::highlightText](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/#highlightText) | [Presentation::highlightText](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/#highlightText) |
 | Übereinstimmungen regulärer Ausdrücke hervorheben | [TextFrame::highlightRegex](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/#highlightRegex) | [Presentation::highlightRegex](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/#highlightRegex) |
-| Literaltext ersetzen | [TextFrame::replaceText](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/#replaceText) | [Presentation::replaceText](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/#replaceText) |
+| Literalen Text ersetzen | [TextFrame::replaceText](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/#replaceText) | [Presentation::replaceText](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/#replaceText) |
 | Übereinstimmungen regulärer Ausdrücke ersetzen | [TextFrame::replaceRegex](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/#replaceRegex) | [Presentation::replaceRegex](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/#replaceRegex) |
 
 ## **Textabgleich konfigurieren**
 
-Für Literal‑Text‑Operationen verwenden Sie [TextSearchOptions](https://reference.aspose.com/slides/de/php-java/aspose.slides/textsearchoptions/), um die Übereinstimmung zu steuern:
+Für literal‑Text‑Vorgänge verwenden Sie [TextSearchOptions](https://reference.aspose.com/slides/de/php-java/aspose.slides/textsearchoptions/) , um den Abgleich zu steuern:
 
-- [TextSearchOptions::setWholeWordsOnly](https://reference.aspose.com/slides/de/php-java/aspose.slides/textsearchoptions/#setWholeWordsOnly) begrenzt Treffer auf vollständige Wörter.
-- [TextSearchOptions::setCaseSensitive](https://reference.aspose.com/slides/de/php-java/aspose.slides/textsearchoptions/#setCaseSensitive) steuert, ob die Groß‑ und Kleinschreibung der Zeichen übereinstimmen muss.
-- [TextSearchOptions::setIncludeNotes](https://reference.aspose.com/slides/de/php-java/aspose.slides/textsearchoptions/#setIncludeNotes) schließt Folien‑Notizen in Such‑, Ersetz‑ und Hervorhebungs‑Operationen auf Präsentationsebene ein.
+- [TextSearchOptions::setWholeWordsOnly](https://reference.aspose.com/slides/de/php-java/aspose.slides/textsearchoptions/#setWholeWordsOnly) begrenzt Übereinstimmungen auf komplette Wörter.
+- [TextSearchOptions::setCaseSensitive](https://reference.aspose.com/slides/de/php-java/aspose.slides/textsearchoptions/#setCaseSensitive) steuert, ob die Groß‑ und Kleinschreibung übereinstimmen muss.
+- [TextSearchOptions::setIncludeNotes](https://reference.aspose.com/slides/de/php-java/aspose.slides/textsearchoptions/#setIncludeNotes) schließt Foliennotizen in Such‑, Ersetz‑ und Hervorhebungs‑Vorgängen auf Präsentationsebene ein.
 
-Operationen mit regulären Ausdrücken verwenden ein Java‑`Pattern`, sodass Regeln für die Übereinstimmung wie Groß‑/Kleinschreibung und Wortgrenzen durch den Ausdruck und dessen Flags definiert werden.
+Bei Vorgängen mit regulären Ausdrücken wird ein Java `Pattern` verwendet, sodass Abgleichregeln wie Groß‑ und Kleinschreibung sowie Wortgrenzen durch den Ausdruck und seine Flags festgelegt werden.
 
-## **Trefferinformationen mit einem Callback sammeln**
+## **Den Eigentümer eines TextFrames ermitteln**
 
-Übergeben Sie einem Hervorhebungs‑ oder Ersetzungs‑Methoden einen Java‑Proxy‑Callback, um für jeden Treffer eine Benachrichtigung zu erhalten. Die Callback‑Methode erhält das zugehörige Textfeld, den Quelltext, den gefundenen Text und die Treffer‑Position.
+Allgemeine Textverarbeitungs‑Workflows erhalten häufig ein [TextFrame](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/) beim Suchen, Ersetzen, Validieren oder Exportieren von Text. Verwenden Sie [TextFrame::getParentShape](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/#getParentShape) und [TextFrame::getParentCell](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/#getParentCell), um zu bestimmen, welches Präsentationsobjekt das TextFrame besitzt.
 
-Der Callback erhält die Foliennummer nicht direkt. Die untenstehende Implementierung leitet sie aus der übergeordneten Folie ab und verarbeitet außerdem Text, der in Folien‑Notizen gefunden wird. Das Ergebnis‑Array verwendet `null`, wenn der Text einer anderen Folientyp‑Kategorie zugeordnet ist.
+Die erwarteten Werte hängen vom Eigentümer ab:
+
+| Eigentümer des TextFrames | `getParentShape` | `getParentCell` |
+|---|---|---|
+| Ein AutoShape oder eine andere texthaltende Form | Das zugehörige [Shape](https://reference.aspose.com/slides/de/php-java/aspose.slides/shape/) | `null` |
+| Eine Tabellenzelle | `null` | Das zugehörige [Cell](https://reference.aspose.com/slides/de/php-java/aspose.slides/cell/) |
+
+Beide Methoden bieten eine schreibgeschützte Navigation. Ein Aufruf ändert nicht die Position des TextFrames und auch nicht dessen Eigentümer. Generischer Code sollte beide Werte mit `java_is_null` prüfen und den Fall berücksichtigen, dass kein Eigentümer vorhanden ist.
+
+Das folgende Beispiel verwendet [SlideUtil::getAllTextFrames](https://reference.aspose.com/slides/de/php-java/aspose.slides/slideutil/#getAllTextFrames), um durch die TextFrames einer Präsentation zu iterieren. Für Formen gibt es den Namen der Form, den Java‑Laufzeit‑Typ und die zugehörige Folie aus. Für Tabellenzellen werden die nullbasierten Spalten‑ und Zeilenkoordinaten sowie die zugehörige Folie ausgegeben.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SlideUtil;
+
+$presentation = new Presentation("presentation.pptx");
+$arrayClass = new java_class("java.lang.reflect.Array");
+
+try {
+    $textFrames = SlideUtil::getAllTextFrames($presentation, false);
+    $textFrameCount = java_values($arrayClass->getLength($textFrames));
+
+    for ($textFrameIndex = 0; $textFrameIndex < $textFrameCount; $textFrameIndex++) {
+        $textFrame = $textFrames[$textFrameIndex];
+        $ownerShape = $textFrame->getParentShape();
+        if (!java_is_null($ownerShape)) {
+            $shapeName = java_values($ownerShape->getName());
+            $shapeName = $shapeName === "" ? "(unnamed)" : $shapeName;
+            $shapeType = java_values($ownerShape->getClass()->getSimpleName());
+            $baseSlide = $ownerShape->getSlide();
+            $slideClassName = java_values($baseSlide->getClass()->getName());
+
+            if ($slideClassName === "com.aspose.slides.Slide") {
+                $slideLabel = "slide " . java_values($baseSlide->getSlideNumber());
+            } elseif ($slideClassName === "com.aspose.slides.NotesSlide") {
+                $slideLabel = "notes for slide " . java_values($baseSlide->getParentSlide()->getSlideNumber());
+            } else {
+                $slideLabel = java_values($baseSlide->getClass()->getSimpleName());
+            }
+
+            echo("Shape: " . $shapeName . "; type: " . $shapeType . "; " . $slideLabel . "\n");
+            continue;
+        }
+
+        $ownerCell = $textFrame->getParentCell();
+        if (!java_is_null($ownerCell)) {
+            $baseSlide = $ownerCell->getSlide();
+            $slideClassName = java_values($baseSlide->getClass()->getName());
+
+            if ($slideClassName === "com.aspose.slides.Slide") {
+                $slideLabel = "slide " . java_values($baseSlide->getSlideNumber());
+            } elseif ($slideClassName === "com.aspose.slides.NotesSlide") {
+                $slideLabel = "notes for slide " . java_values($baseSlide->getParentSlide()->getSlideNumber());
+            } else {
+                $slideLabel = java_values($baseSlide->getClass()->getSimpleName());
+            }
+
+            echo("Table cell: column " . java_values($ownerCell->getFirstColumnIndex()) . ", row " . java_values($ownerCell->getFirstRowIndex()) . "; " . $slideLabel . "\n");
+            continue;
+        }
+
+        echo("The text frame owner is not available as a shape or table cell.\n");
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Für SmartArt‑Inhalte iterieren Sie über die Formen in [SmartArtNode::getShapes](https://reference.aspose.com/slides/de/php-java/aspose.slides/smartartnode/#getShapes) und greifen auf jedes [SmartArtShape::getTextFrame](https://reference.aspose.com/slides/de/php-java/aspose.slides/smartartshape/#getTextFrame) zu. Das TextFrame kann über [TextFrame::getParentShape](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/#getParentShape) zu seiner zugehörigen Form zurückverfolgt werden, während [TextFrame::getParentCell](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/#getParentCell) `null` zurückgibt. Deshalb behandelt der Form‑Zweig im Beispiel auch Text aus SmartArt‑Knoten.
+
+## **Match‑Informationen mithilfe eines Callbacks sammeln**
+
+Übergeben Sie einen Java‑Proxy‑Callback an eine Hervorhebungs‑ oder Ersetzungsmethode, um für jede Übereinstimmung eine Benachrichtigung zu erhalten. Die Callback‑Methode erhält das zugehörige TextFrame, den Ausgangstext, den gefundenen Text und die Position der Übereinstimmung.
+
+Der Callback erhält die Foliennummer nicht direkt. Die nachstehende Implementierung leitet sie aus der übergeordneten Folie ab und verarbeitet zudem Text, der in Foliennotizen gefunden wird. Das Ergebnis‑Array verwendet `null`, wenn der Text einer anderen Folientyp zugeordnet ist.
 
 ```php
 class TextSearchCallback {
@@ -76,7 +150,17 @@ class TextSearchCallback {
     }
 
     private function getSlideNumber($textFrame) {
-        $parentSlide = $textFrame->getSlide();
+        $parentShape = $textFrame->getParentShape();
+        $parentCell = $textFrame->getParentCell();
+
+        if (!java_is_null($parentShape)) {
+            $parentSlide = $parentShape->getSlide();
+        } elseif (!java_is_null($parentCell)) {
+            $parentSlide = $parentCell->getSlide();
+        } else {
+            $parentSlide = $textFrame->getSlide();
+        }
+
         if (java_is_null($parentSlide)) {
             return null;
         }
@@ -101,7 +185,7 @@ class TextSearchCallback {
 }
 ```
 
-Erstellen Sie einen Proxy für dieses PHP‑Objekt, bevor Sie es an eine Operation übergeben:
+Erzeugen Sie einen Proxy für dieses PHP‑Objekt, bevor Sie es an einen Vorgang übergeben:
 
 ```php
 $callbackHandler = new TextSearchCallback();
@@ -113,13 +197,13 @@ $callback = java_closure(
 );
 ```
 
-Bei Ersetzungs‑Operationen enthält `foundText` den ursprünglich gefundenen Text, sodass der Callback exakt festhalten kann, welche Begriffe ersetzt wurden.
+Bei Ersetzungsvorgängen enthält `foundText` den ursprünglichen gefundenen Text, sodass der Callback genau festhalten kann, welche Begriffe ersetzt wurden.
 
 ## **Text hervorheben**
 
-Verwenden Sie die Methode [TextFrame::highlightText](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/#highlightText), um Literal‑Text‑Treffer in einem Textfeld hervorzuheben. Übergeben Sie [TextSearchOptions](https://reference.aspose.com/slides/de/php-java/aspose.slides/textsearchoptions/), um die Suche zu steuern.
+Verwenden Sie die Methode [TextFrame::highlightText](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/#highlightText), um Literal‑Text‑Übereinstimmungen in einem TextFrame hervorzuheben. Übergeben Sie [TextSearchOptions](https://reference.aspose.com/slides/de/php-java/aspose.slides/textsearchoptions/), um die Suche zu steuern.
 
-Das nachstehende Code‑Beispiel hebt alle Vorkommen der Zeichen **"try"** hervor und anschließend nur das vollständige Wort **"to"**.
+Das nachstehende Code‑Beispiel hebt alle Vorkommen der Zeichen **"try"** hervor und hebt anschließend nur das komplette Wort **"to"** hervor.
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -138,7 +222,7 @@ try {
     $substringSearchOptions->setCaseSensitive(false);
     $substringHighlightColor = new Java("java.awt.Color", 173, 216, 230);
 
-    // Hervorheben jedes Vorkommens von "try" im Textfeld.
+    // Hebe jedes Vorkommen von "try" im Textfeld hervor.
     $shape->getTextFrame()->highlightText(
         "try",
         $substringHighlightColor,
@@ -151,7 +235,7 @@ try {
     $wholeWordSearchOptions->setCaseSensitive(false);
     $wholeWordHighlightColor = new Java("java.awt.Color", 238, 130, 238);
 
-    // Nur das vollständige Wort "to" hervorheben.
+    // Hebe nur das komplette Wort "to" hervor.
     $shape->getTextFrame()->highlightText(
         "to",
         $wholeWordHighlightColor,
@@ -180,7 +264,7 @@ Das Ergebnis:
 
 ## **Text mit regulären Ausdrücken hervorheben**
 
-Die Methode [TextFrame::highlightRegex](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/#highlightRegex), hebt Text‑Treffer hervor, die durch einen regulären Ausdruck in einem Textfeld gefunden wurden.
+Die Methode [TextFrame::highlightRegex](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/#highlightRegex) hebt Textübereinstimmungen hervor, die durch einen regulären Ausdruck in einem TextFrame gefunden wurden.
 
 Der folgende Code hebt alle Wörter hervor, die sieben oder mehr Zeichen enthalten:
 
@@ -203,11 +287,11 @@ finally {
 
 Das Ergebnis:
 
-![Der hervorgehobene Text mittels regulärem Ausdruck](highlighted_text_using_regex.png)
+![Der hervorgehobene Text unter Verwendung des regulären Ausdrucks](highlighted_text_using_regex.png)
 
-## **Text in einer gesamten Präsentation hervorheben**
+## **Text in einer Präsentation hervorheben**
 
-Verwenden Sie [Presentation::highlightText](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/#highlightText) und [Presentation::highlightRegex](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/#highlightRegex), um alle anwendbaren Textfelder in einer Präsentation zu durchsuchen. Das folgende Beispiel hebt einen Literalbegriff und alle E‑Mail‑Adressen hervor:
+Verwenden Sie [Presentation::highlightText](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/#highlightText) und [Presentation::highlightRegex](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/#highlightRegex), um alle anwendbaren TextFrames in einer Präsentation zu durchsuchen. Das folgende Beispiel hebt einen literal‑Begriff und alle E‑Mail‑Adressen hervor:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -240,11 +324,11 @@ finally {
 }
 ```
 
-## **Text in einem Textfeld ersetzen**
+## **Text in einem TextFrame ersetzen**
 
-Verwenden Sie [TextFrame::replaceText](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/#replaceText), um Literaltext zu ersetzen, und [TextFrame::replaceRegex](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/#replaceRegex), um ersatzbasiert mittels Muster zu ersetzen. Diese Methoden aktualisieren den gefundenen Text innerhalb des bestehenden Textfeldes, wobei die Formatierung des umgebenden Bereichs erhalten bleibt, anstatt das Textfeld aus einem einfachen String neu aufzubauen.
+Verwenden Sie [TextFrame::replaceText](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/#replaceText) für literal‑Text und [TextFrame::replaceRegex](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/#replaceRegex) für ersatzbasierte Muster. Diese Methoden aktualisieren den gefundenen Text innerhalb des bestehenden TextFrames, wobei die umgebende Formatierung beibehalten wird, anstatt das TextFrame aus einem einfachen String neu zu erstellen.
 
-Das folgende Beispiel standardisiert eine Schreibvariante und ersetzt anschließend Versionsbezeichnungen:
+Das nachstehende Beispiel standardisiert eine Rechtschreibvariante und ersetzt anschließend Versionsbezeichnungen:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -282,11 +366,11 @@ finally {
 }
 ```
 
-Falls ein Treffer Bereiche mit unterschiedlicher Formatierung umfasst, überprüfen Sie die Ausgabe, um zu bestätigen, welche Formatierung auf den ersetzten Text angewendet werden soll.
+Falls eine Übereinstimmung Teile mit unterschiedlicher Formatierung umfasst, prüfen Sie die Ausgabe, um zu bestätigen, welche Formatierung auf den ersetzten Text angewendet werden soll.
 
-## **Text in einer gesamten Präsentation ersetzen**
+## **Text in einer Präsentation ersetzen**
 
-Verwenden Sie [Presentation::replaceText](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/#replaceText) und [Presentation::replaceRegex](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/#replaceRegex), um dieselben Operationen in der gesamten Präsentation anzuwenden. Dies ist nützlich für Vorlagenbereinigung, Terminologie‑Aktualisierungen und Schwärzungen.
+Verwenden Sie [Presentation::replaceText](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/#replaceText) und [Presentation::replaceRegex](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/#replaceRegex), um dieselben Vorgänge über die gesamte Präsentation anzuwenden. Dies ist nützlich für die Bereinigung von Vorlagen, Terminologie‑Aktualisierungen und Schwärzungen.
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -318,9 +402,9 @@ finally {
 }
 ```
 
-## **Treffer für Berichte gruppieren**
+## **Übereinstimmungen für Berichte gruppieren**
 
-Da jedes Ergebnis seine Foliennummer und das Textfeld speichert, können Anwendungen Treffer für Prüf‑, Bericht‑ oder Review‑Workflows gruppieren. Das folgende Beispiel gruppiert die gesammelten Ergebnisse zuerst nach Folie und anschließend nach Textfeld:
+Da jedes Ergebnis die Foliennummer und das TextFrame speichert, können Anwendungen Übereinstimmungen für Prüfungen, Berichte oder Review‑Workflows gruppieren. Das folgende Beispiel gruppiert die gesammelten Ergebnisse zunächst nach Folie und anschließend nach TextFrame:
 
 ```php
 $matchesBySlide = [];
@@ -369,20 +453,20 @@ foreach ($matchesBySlide as $slideLabel => $textFrameGroups) {
 
 **Wie kann ich nur ein Textfeld statt der gesamten Präsentation durchsuchen?**
 
-Rufen Sie das Textfeld der Form auf und verwenden Sie [TextFrame::highlightText](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/#highlightText), [TextFrame::highlightRegex](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/#highlightRegex), [TextFrame::replaceText](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/#replaceText) oder [TextFrame::replaceRegex](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/#replaceRegex) für dieses Textfeld. Methoden auf Präsentationsebene verarbeiten stattdessen alle anwendbaren Textfelder.
+Rufen Sie das TextFrame der Form ab und rufen Sie [TextFrame::highlightText](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/#highlightText), [TextFrame::highlightRegex](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/#highlightRegex), [TextFrame::replaceText](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/#replaceText) bzw. [TextFrame::replaceRegex](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/#replaceRegex) für dieses TextFrame auf. Methoden auf Präsentationsebene verarbeiten stattdessen alle anwendbaren TextFrames.
 
-**Wie kann ich vollständige Wörter mit korrekter Groß‑ und Kleinschreibung finden?**
+**Wie kann ich komplette Wörter mit korrekter Groß‑ und Kleinschreibung abgleichen?**
 
-Setzen Sie [TextSearchOptions::setWholeWordsOnly](https://reference.aspose.com/slides/de/php-java/aspose.slides/textsearchoptions/#setWholeWordsOnly) und [TextSearchOptions::setCaseSensitive](https://reference.aspose.com/slides/de/php-java/aspose.slides/textsearchoptions/#setCaseSensitive) auf `true` und übergeben Sie die Optionen an eine Literal‑Text‑Hervorhebungs‑ oder Ersetzungs‑Methode. Bei regulären Ausdrücken definieren Sie Wortgrenzen und Groß‑/Kleinschreibung im Java‑`Pattern` selbst.
+Setzen Sie [TextSearchOptions::setWholeWordsOnly](https://reference.aspose.com/slides/de/php-java/aspose.slides/textsearchoptions/#setWholeWordsOnly) und [TextSearchOptions::setCaseSensitive](https://reference.aspose.com/slides/de/php-java/aspose.slides/textsearchoptions/#setCaseSensitive) auf `true` und übergeben Sie die Optionen an eine literal‑Text‑Hervorhebungs‑ oder Ersetzungsmethode. Bei regulären Ausdrücken definieren Sie Wortgrenzen und Groß‑/Kleinschreibung im Java‑`Pattern` selbst.
 
-**Können Suche und Ersetzung Text in Folien‑Notizen einschließen?**
+**Können Suche und Ersetzung Text in Foliennotizen einschließen?**
 
-Ja. Setzen Sie [TextSearchOptions::setIncludeNotes](https://reference.aspose.com/slides/de/php-java/aspose.slides/textsearchoptions/#setIncludeNotes) auf `true`, wenn Sie eine Literal‑Text‑Operation auf Präsentationsebene verwenden.
+Ja. Setzen Sie [TextSearchOptions::setIncludeNotes](https://reference.aspose.com/slides/de/php-java/aspose.slides/textsearchoptions/#setIncludeNotes) auf `true`, wenn Sie eine literal‑Text‑Operation auf Präsentationsebene verwenden.
 
-**Wie kann ich einen Bericht erstellen, ohne die Präsentation ein zweites Mal zu durchsuchen?**
+**Wie kann ich einen Bericht erstellen, ohne die Präsentation ein zweites Mal zu durchlaufen?**
 
-Übergeben Sie einen Java‑Proxy‑Callback an die Hervorhebungs‑ oder Ersetzungs‑Operation. Der Callback erhält jeden Treffer, während die Operation läuft, sodass die Anwendung den Quelltext, den gefundenen Text, die Position, das Textfeld und die abgeleitete Foliennummer für spätere Gruppierung oder den Export speichern kann.
+Übergeben Sie einen Java‑Proxy‑Callback an die Hervorhebungs‑ oder Ersetzungs‑Operation. Er erhält jede Übereinstimmung während des Vorgangs, sodass die Anwendung den Ausgangstext, den gefundenen Text, die Position, das TextFrame und die abgeleitete Foliennummer für spätere Gruppierung oder den Export speichern kann.
 
 **Behält das Ersetzen von Text dessen Formatierung bei?**
 
-[TextFrame::replaceText](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/#replaceText) und [TextFrame::replaceRegex](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/#replaceRegex) ändern den gefundenen Text innerhalb des bestehenden Textfeldes und behalten die Formatierung des umgebenden Bereichs bei. Falls ein Treffer Bereiche mit unterschiedlicher Formatierung umfasst, prüfen Sie das Ergebnis, um sicherzustellen, dass die Ersetzung die gewünschte Formatierung verwendet.
+[TextFrame::replaceText](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/#replaceText) und [TextFrame::replaceRegex](https://reference.aspose.com/slides/de/php-java/aspose.slides/textframe/#replaceRegex) ändern den gefundenen Text innerhalb des bestehenden TextFrames und behalten die umgebende Formatierung bei. Wenn eine Übereinstimmung Teile mit unterschiedlicher Formatierung umfasst, prüfen Sie das Ergebnis, um sicherzustellen, dass die Ersetzung den gewünschten Stil verwendet.

@@ -1,38 +1,38 @@
 ---
-title: "Cari dan Ganti Teks dalam Presentasi PowerPoint di JavaScript"
-linktitle: "Cari dan Ganti Teks"
+title: Mencari dan Mengganti Teks di Presentasi PowerPoint dengan JavaScript
+linktitle: Mencari dan Mengganti Teks
 type: docs
 weight: 55
 url: /id/nodejs-java/search-and-replace-text/
 keywords:
-- "cari teks"
-- "sorot teks"
-- "ganti teks"
-- "ekspresi reguler"
-- "callback hasil"
-- "bingkai teks"
-- "laporan audit"
-- "PowerPoint"
-- "OpenDocument"
-- "presentasi"
-- "Node.js"
-- "JavaScript"
-- "Aspose.Slides"
+- cari teks
+- sorot teks
+- ganti teks
+- ekspresi reguler
+- callback hasil
+- bingkai teks
+- laporan audit
+- PowerPoint
+- OpenDocument
+- presentasi
+- Node.js
+- JavaScript
+- Aspose.Slides
 description: "Cari, sorot, dan ganti teks dalam presentasi PowerPoint sambil mengumpulkan setiap kecocokan dengan Aspose.Slides untuk Node.js via Java."
 ---
-## **Ikhtisar**
+## **Gambaran Umum**
 
-Aspose.Slides for Node.js via Java dapat mencari, menyorot, dan mengganti teks dalam sebuah bingkai teks individu atau di seluruh presentasi. Setiap operasi juga dapat memberi tahu aplikasi tentang setiap kecocokan melalui callback hasil. Ini memungkinkan pembaruan presentasi sekaligus membangun jejak audit yang berisi teks yang cocok, konteksnya, posisi, bingkai teks, dan nomor slide.
+Aspose.Slides for Node.js via Java dapat mencari, menyorot, dan mengganti teks dalam satu bingkai teks atau di seluruh presentasi. Setiap operasi juga dapat memberi tahu aplikasi tentang setiap kecocokan melalui callback hasil. Hal ini memungkinkan pembaruan presentasi sekaligus membangun jejak audit yang berisi teks yang cocok, konteksnya, posisi, bingkai teks, dan nomor slide.
 
-Kemampuan ini berguna untuk peninjauan, penyensoran, pengecekan terminologi, pembersihan templat, dan alur kerja pelaporan otomatis.
+Kemampuan ini berguna untuk tinjauan, penyensoran, pengecekan terminologi, pembersihan templat, dan alur kerja pelaporan otomatis.
 
 Pada contoh pertama di bawah, kami menggunakan file bernama "sample.pptx", yang berisi satu kotak teks pada slide pertama dengan teks berikut:
 
-![Sample text](sample_text.png)
+![Teks contoh](sample_text.png)
 
 ## **Pilih Lingkup Pencarian**
 
-Gunakan metode pada [TextFrame](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframe/) untuk membatasi operasi ke satu bingkai teks. Gunakan metode pada [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/) untuk memproses semua teks yang relevan dalam presentasi.
+Gunakan metode pada [TextFrame](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframe/) untuk membatasi operasi ke satu bingkai teks. Gunakan metode pada [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/) untuk memproses semua teks yang berlaku dalam presentasi.
 
 | Operasi | Satu bingkai teks | Seluruh presentasi |
 |---|---|---|
@@ -46,23 +46,92 @@ Gunakan metode pada [TextFrame](https://reference.aspose.com/slides/id/nodejs-ja
 Untuk operasi teks literal, gunakan [TextSearchOptions](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textsearchoptions/) untuk mengendalikan pencocokan:
 
 - [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) membatasi kecocokan hanya pada kata lengkap.
-- [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) mengontrol apakah huruf kapital harus cocok.
+- [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) mengontrol apakah huruf besar/kecil harus cocok.
 - [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) menyertakan catatan slide dalam operasi pencarian, penggantian, dan penyorotan pada tingkat presentasi.
 
-Operasi ekspresi reguler menggunakan `Pattern` Java, sehingga aturan pencocokan seperti sensitifitas huruf dan batas kata didefinisikan oleh ekspresi dan flag-nya.
+Operasi ekspresi reguler menggunakan `Pattern` Java, sehingga aturan pencocokan seperti kepekaan huruf dan batas kata didefinisikan oleh ekspresi dan flag-nya.
+
+## **Identifikasi Pemilik Bingkai Teks**
+
+Alur kerja pemrosesan teks umum sering menerima sebuah [TextFrame](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframe/) saat mencari, mengganti, memvalidasi, atau mengekspor teks. Gunakan [TextFrame.getParentShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframe/#getParentShape--) dan [TextFrame.getParentCell](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframe/#getParentCell--) untuk menentukan objek presentasi mana yang memiliki bingkai teks tersebut.
+
+Nilai yang diharapkan bergantung pada pemiliknya:
+
+| Pemilik bingkai teks | `getParentShape` | `getParentCell` |
+|---|---|---|
+| Sebuah AutoShape atau bentuk lain yang berisi teks | [Shape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/shape/) yang memiliki | `null` |
+| Sel tabel | `null` | [Cell](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/cell/) yang memiliki |
+
+Kedua metode menyediakan navigasi read‑only. Memanggilnya tidak memindahkan bingkai teks atau mengubah pemiliknya. Kode generik harus memeriksa kedua nilai untuk `null` dan menangani kemungkinan bahwa tidak ada pemilik yang tersedia.
+
+Contoh berikut menggunakan [SlideUtil.getAllTextFrames](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slideutil/#getAllTextFrames-aspose.slides.IPresentation-boolean-) untuk mengiterasi semua bingkai teks dalam sebuah presentasi. Untuk bentuk, ia melaporkan nama bentuk, tipe runtime Java, dan slide yang memuatnya. Untuk sel tabel, ia melaporkan koordinat kolom dan baris berbasis nol serta slide yang memuatnya.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+function getSlideLabel(baseSlide) {
+    if (java.instanceOf(baseSlide, "com.aspose.slides.Slide")) {
+        return "slide " + baseSlide.getSlideNumber();
+    }
+
+    if (java.instanceOf(baseSlide, "com.aspose.slides.NotesSlide")) {
+        return "notes for slide " + baseSlide.getParentSlide().getSlideNumber();
+    }
+
+    return baseSlide.getClass().getSimpleName();
+}
+
+const presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    const textFrames = aspose.slides.SlideUtil.getAllTextFrames(presentation, false);
+
+    for (let index = 0; index < textFrames.length; index++) {
+        const textFrame = textFrames[index];
+        const ownerShape = textFrame.getParentShape();
+        if (ownerShape !== null) {
+            const shapeName = ownerShape.getName() === "" ? "(unnamed)" : ownerShape.getName();
+            const shapeType = ownerShape.getClass().getSimpleName();
+            const slideLabel = getSlideLabel(ownerShape.getSlide());
+            console.log("Shape: " + shapeName + "; type: " + shapeType + "; " + slideLabel);
+            continue;
+        }
+
+        const ownerCell = textFrame.getParentCell();
+        if (ownerCell !== null) {
+            const slideLabel = getSlideLabel(ownerCell.getSlide());
+            console.log("Table cell: column " + ownerCell.getFirstColumnIndex() + ", row " + ownerCell.getFirstRowIndex() + "; " + slideLabel);
+            continue;
+        }
+
+        console.log("The text frame owner is not available as a shape or table cell.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Untuk konten SmartArt, iterasikan bentuk‑bentuk dalam [SmartArtNode.getShapes](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/smartartnode/#getShapes--) dan akses masing‑masing [SmartArtShape.getTextFrame](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/smartartshape/#getTextFrame--). Bingkai teks dapat ditelusuri ke bentuk terkait melalui [TextFrame.getParentShape](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframe/#getParentShape--), sementara [TextFrame.getParentCell](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframe/#getParentCell--) mengembalikan `null`. Karena itu, cabang bentuk dalam contoh juga menangani teks dari node SmartArt.
 
 ## **Kumpulkan Informasi Kecocokan dengan Callback**
 
-Buat proxy Java untuk callback hasil guna menerima notifikasi untuk setiap kecocokan. Fungsi proxy menerima bingkai teks terkait, teks sumber, teks yang cocok, dan posisi kecocokan.
+Buat proxy Java untuk callback hasil agar menerima notifikasi untuk setiap kecocokan. Fungsi proxy menerima bingkai teks terkait, teks sumber, teks yang cocok, dan posisi kecocokan.
 
-Callback tidak menerima nomor slide secara langsung. Implementasi di bawah memperoleh nomor tersebut melalui [TextFrame.getSlide](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframe/#getSlide--), [Slide.getSlideNumber](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slide/#getSlideNumber--), dan [NotesSlide.getParentSlide](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/notesslide/#getParentSlide--). Ia juga menangani teks yang ditemukan dalam catatan slide.
+Callback tidak menerima nomor slide secara langsung. Implementasi di bawah menurunkannya melalui bentuk atau sel tabel yang memiliki bingkai teks, dengan [TextFrame.getSlide](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframe/#getSlide--) sebagai cadangan. Ia juga menangani teks yang ditemukan dalam catatan slide.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
 function getSlideNumber(textFrame) {
-    const parentSlide = textFrame.getSlide();
+    const parentShape = textFrame.getParentShape();
+    const parentCell = textFrame.getParentCell();
+    let parentSlide = textFrame.getSlide();
+    if (parentShape !== null) {
+        parentSlide = parentShape.getSlide();
+    } else if (parentCell !== null) {
+        parentSlide = parentCell.getSlide();
+    }
 
     if (java.instanceOf(parentSlide, "com.aspose.slides.Slide")) {
         return parentSlide.getSlideNumber();
@@ -96,7 +165,7 @@ Untuk operasi penggantian, `foundText` berisi teks asli yang cocok, sehingga cal
 
 Gunakan metode [TextFrame.highlightText](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) untuk menyorot kecocokan teks literal dalam sebuah bingkai teks. Berikan [TextSearchOptions](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textsearchoptions/) untuk mengendalikan pencarian.
 
-Contoh kode di bawah menyorot semua kemunculan karakter **"try"** dan kemudian menyorot hanya kata lengkap **"to"**.
+Contoh kode di bawah menyorot semua kemunculan karakter **"try"** dan kemudian hanya menyorot kata lengkap **"to"**.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -111,7 +180,7 @@ try {
     substringSearchOptions.setCaseSensitive(false);
     const substringHighlightColor = java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY");
 
-    // Sorot setiap kemunculan "try" di dalam bingkai teks.
+    // Sorot setiap kemunculan "try" dalam bingkai teks.
     shape.getTextFrame().highlightText(
         "try", substringHighlightColor, substringSearchOptions, null);
 
@@ -132,13 +201,13 @@ try {
 
 Hasilnya:
 
-![The highlighted text](highlighted_text.png)
+![Teks yang disorot](highlighted_text.png)
 
 ## **Sorot Teks Menggunakan Ekspresi Reguler**
 
 Metode [TextFrame.highlightRegex](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) menyorot kecocokan teks yang ditemukan oleh ekspresi reguler dalam sebuah bingkai teks.
 
-Kode berikut menyorot semua kata yang mengandung tujuh karakter atau lebih:
+Kode berikut menyorot semua kata yang berisi tujuh karakter atau lebih:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -163,11 +232,11 @@ try {
 
 Hasilnya:
 
-![The highlighted text using the regular expression](highlighted_text_using_regex.png)
+![Teks yang disorot menggunakan ekspresi reguler](highlighted_text_using_regex.png)
 
 ## **Sorot Teks di Seluruh Presentasi**
 
-Gunakan [Presentation.highlightText](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) dan [Presentation.highlightRegex](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) untuk mencari semua bingkai teks yang relevan dalam sebuah presentasi. Contoh berikut menyorot istilah literal dan semua alamat email:
+Gunakan [Presentation.highlightText](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) dan [Presentation.highlightRegex](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) untuk mencari semua bingkai teks yang berlaku dalam presentasi. Contoh berikut menyorot istilah literal dan semua alamat email:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -198,7 +267,7 @@ try {
 
 ## **Ganti Teks dalam Bingkai Teks**
 
-Gunakan [TextFrame.replaceText](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) untuk teks literal dan [TextFrame.replaceRegex](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) untuk penggantian berbasis pola. Metode-metode ini memperbarui teks yang cocok di dalam bingkai teks yang ada, sehingga mempertahankan pemformatan bagian di sekitarnya alih-alih membangun ulang bingkai teks dari string polos.
+Gunakan [TextFrame.replaceText](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) untuk teks literal dan [TextFrame.replaceRegex](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) untuk penggantian berbasis pola. Metode‑metode ini memperbarui teks yang cocok di dalam bingkai teks yang sudah ada, sehingga mempertahankan pemformatan bagian sekitarnya alih‑alih membangun ulang bingkai teks dari string mentah.
 
 Contoh berikut menstandarisasi varian ejaan dan kemudian mengganti label versi:
 
@@ -228,7 +297,7 @@ try {
 }
 ```
 
-Jika satu kecocokan mencakup bagian dengan pemformatan berbeda, tinjau output untuk memastikan pemformatan mana yang harus diterapkan pada teks pengganti.
+Jika satu kecocokan melintasi bagian dengan pemformatan berbeda, tinjau output untuk memastikan pemformatan yang tepat diterapkan pada teks pengganti.
 
 ## **Ganti Teks di Seluruh Presentasi**
 
@@ -259,14 +328,21 @@ try {
 
 ## **Kelompokkan Kecocokan untuk Pelaporan**
 
-Karena setiap hasil yang terkumpul menyimpan nomor slide dan bingkai teks, aplikasi dapat mengelompokkan kecocokan untuk audit, pelaporan, atau alur kerja peninjauan. Contoh berikut mengelompokkan hasil pertama per slide, lalu per bingkai teks:
+Karena setiap hasil yang dikumpulkan menyimpan nomor slide dan bingkai teks, aplikasi dapat mengelompokkan kecocokan untuk audit, pelaporan, atau alur kerja tinjauan. Contoh berikut mengelompokkan hasil pertama berdasarkan slide, kemudian berdasarkan bingkai teks:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
 function getSlideNumber(textFrame) {
-    const parentSlide = textFrame.getSlide();
+    const parentShape = textFrame.getParentShape();
+    const parentCell = textFrame.getParentCell();
+    let parentSlide = textFrame.getSlide();
+    if (parentShape !== null) {
+        parentSlide = parentShape.getSlide();
+    } else if (parentCell !== null) {
+        parentSlide = parentCell.getSlide();
+    }
 
     if (java.instanceOf(parentSlide, "com.aspose.slides.Slide")) {
         return parentSlide.getSlideNumber();
@@ -340,20 +416,20 @@ try {
 
 **Bagaimana cara mencari hanya satu kotak teks saja, bukan seluruh presentasi?**
 
-Dapatkan bingkai teks shape dan panggil [TextFrame.highlightText](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), [TextFrame.highlightRegex](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-), [TextFrame.replaceText](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), atau [TextFrame.replaceRegex](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) pada bingkai teks tersebut. Metode pada tingkat presentasi memproses semua bingkai teks yang relevan.
+Dapatkan bingkai teks bentuk tersebut dan panggil [TextFrame.highlightText](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), [TextFrame.highlightRegex](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-), [TextFrame.replaceText](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), atau [TextFrame.replaceRegex](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) pada bingkai teks tersebut. Metode pada tingkat presentasi memproses semua bingkai teks yang berlaku.
 
 **Bagaimana cara mencocokkan kata lengkap dengan kapitalisasi yang tepat?**
 
-Setel [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) dan [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) ke `true`, lalu berikan opsi tersebut ke metode penyorotan atau penggantian teks literal. Untuk ekspresi reguler, definisikan batas kata dan sensitivitas huruf dalam `Pattern` Java itu sendiri.
+Setel [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) dan [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) ke `true`, lalu berikan opsi tersebut ke metode penyorotan atau penggantian teks literal. Untuk ekspresi reguler, definisikan batas kata dan kepekaan huruf dalam `Pattern` Java itu sendiri.
 
 **Apakah pencarian dan penggantian dapat mencakup teks dalam catatan slide?**
 
-Ya. Setel [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) ke `true` saat menggunakan operasi teks literal pada tingkat presentasi. Implementasi callback yang ditunjukkan di atas memetakan kecocokan dalam catatan slide kembali ke nomor slide induknya.
+Ya. Setel [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) ke `true` saat menggunakan operasi teks literal pada tingkat presentasi. Implementasi callback di atas memetakan kecocokan dalam slide catatan kembali ke nomor slide induknya.
 
 **Bagaimana cara membuat laporan tanpa memindai presentasi lagi?**
 
-Berikan proxy callback hasil Java ke operasi penyorotan atau penggantian. Callback menerima setiap kecocokan saat operasi berjalan, sehingga aplikasi dapat menyimpan teks sumber, teks yang cocok, posisi, bingkai teks, dan nomor slide yang diturunkan untuk pengelompokan atau ekspor nanti.
+Berikan proxy callback hasil Java ke operasi penyorotan atau penggantian. Callback menerima setiap kecocokan saat operasi berlangsung, sehingga aplikasi dapat menyimpan teks sumber, teks yang cocok, posisi, bingkai teks, dan nomor slide yang diturunkan untuk pengelompokan atau ekspor nanti.
 
 **Apakah mengganti teks mempertahankan pemformatannya?**
 
-[TextFrame.replaceText](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) dan [TextFrame.replaceRegex](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) memodifikasi teks yang cocok di dalam bingkai teks yang ada dan mempertahankan pemformatan bagian di sekitarnya. Jika sebuah kecocokan mencakup bagian dengan pemformatan berbeda, periksa hasilnya untuk memastikan penggantian menggunakan gaya yang diinginkan.
+[TextFrame.replaceText](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) dan [TextFrame.replaceRegex](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) memodifikasi teks yang cocok di dalam bingkai teks yang sudah ada dan mempertahankan pemformatan bagian sekitarnya. Jika satu kecocokan melintasi bagian dengan pemformatan berbeda, periksa hasilnya untuk memastikan penggantian menggunakan gaya yang diinginkan.

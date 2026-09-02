@@ -1,60 +1,124 @@
 ---
-title: Java में PowerPoint प्रस्तुतियों में पाठ खोजें और बदलें
-linktitle: पाठ खोजें और बदलें
+title: Java में PowerPoint प्रस्तुतियों में टेक्स्ट की खोज और प्रतिस्थापन
+linktitle: खोज और प्रतिस्थापन टेक्स्ट
 type: docs
 weight: 55
 url: /hi/java/search-and-replace-text/
 keywords:
-- पाठ खोजें
-- पाठ को हाइलाइट करें
-- पाठ बदलें
+- टेक्स्ट खोज
+- टेक्स्ट हाइलाइट
+- टेक्स्ट बदलें
 - नियमित अभिव्यक्ति
 - परिणाम कॉलबैक
-- पाठ फ्रेम
+- टेक्स्ट फ्रेम
 - ऑडिट रिपोर्ट
 - PowerPoint
 - OpenDocument
 - प्रस्तुति
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java का उपयोग करके PowerPoint प्रस्तुतियों में पाठ खोजें, हाइलाइट करें और बदलें, जबकि प्रत्येक मिलान को एकत्रित करें."
+description: "Aspose.Slides for Java के साथ प्रत्येक मैच को एकत्र करते हुए PowerPoint प्रस्तुतियों में टेक्स्ट को खोजें, हाइलाइट करें और बदलें।"
 ---
 ## **अवलोकन**
 
-Aspose.Slides for Java व्यक्तिगत पाठ फ़्रेम या पूरे प्रस्तुतीकरण में पाठ को खोज, हाइलाइट और बदल सकता है। प्रत्येक ऑपरेशन परिणाम कॉलबैक के माध्यम से प्रत्येक मिलान की सूचना एप्लिकेशन को दे सकता है। इससे प्रस्तुतीकरण को अपडेट करते हुए मिलित पाठ, उसका संदर्भ, स्थिति, पाठ फ़्रेम और स्लाइड नंबर सहित ऑडिट ट्रेल बनाना संभव हो जाता है।
+Aspose.Slides for Java एकल टेक्स्ट फ्रेम या पूरे प्रेजेंटेशन में टेक्स्ट को खोजने, हाइलाइट करने और बदलने में सक्षम है। प्रत्येक ऑपरेशन प्रत्येक मैच के बारे में परिणाम कॉलबैक के माध्यम से एप्लिकेशन को सूचित भी कर सकता है। इससे प्रेजेंटेशन को अपडेट करना और समानांतर में मैच किए गए टेक्स्ट, उसका संदर्भ, स्थिति, टेक्स्ट फ्रेम और स्लाइड नंबर सहित ऑडिट ट्रेल बनाना संभव हो जाता है।
 
-इन क्षमताओं का उपयोग समीक्षा, रीडैक्शन, शब्दावली जाँच, टेम्पलेट सफाई और स्वचालित रिपोर्टिंग वर्कफ़्लो में किया जा सकता है।
+ये क्षमताएँ रिव्यू, रिडैक्शन, शब्दावली जाँच, टेम्पलेट सफाई और स्वचालित रिपोर्टिंग वर्कफ़्लो के लिए उपयोगी हैं।
 
-नीचे पहले उदाहरणों में, हम "sample.pptx" नामक फ़ाइल का उपयोग करते हैं, जिसमें पहली स्लाइड पर एकल पाठ बॉक्स है जिसमें निम्नलिखित पाठ है:
+नीचे पहले उदाहरणों में, हम "sample.pptx" नामक फ़ाइल का उपयोग करते हैं, जिसमें पहली स्लाइड पर एकल टेक्स्ट बॉक्स में निम्नलिखित टेक्स्ट होता है:
 
 ![नमूना पाठ](sample_text.png)
 
-## **खोज दायरा चुनें**
+## **खोज सीमा चुनें**
 
-एक ऑपरेशन को एक ही पाठ फ़्रेम तक सीमित करने के लिए [ITextFrame] की मेथड्स का प्रयोग करें। प्रस्तुतीकरण में सभी लागू पाठ को प्रोसेस करने के लिए [Presentation] की मेथड्स का प्रयोग करें।
+[ITextFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/) पर उपलब्ध मेथड्स का उपयोग करके ऑपरेशन को एक टेक्स्ट फ्रेम तक सीमित करें। [Presentation](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/) पर उपलब्ध मेथड्स का उपयोग करके प्रेजेंटेशन में सभी लागू टेक्स्ट को प्रोसेस करें।
 
-| ऑपरेशन | एक पाठ फ़्रेम | पूरे प्रस्तुतीकरण |
+| ऑपरेशन | एक टेक्स्ट फ्रेम | पूरे प्रेजेंटेशन |
 |---|---|---|
-| शाब्दिक पाठ को हाइलाइट करें | [ITextFrame.highlightText](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [Presentation.highlightText](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
-| नियमित अभिव्यक्ति मिलान को हाइलाइट करें | [ITextFrame.highlightRegex](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) | [Presentation.highlightRegex](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) |
-| शाब्दिक पाठ को बदलें | [ITextFrame.replaceText](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [Presentation.replaceText](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
-| नियमित अभिव्यक्ति मिलान को बदलें | [ITextFrame.replaceRegex](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) | [Presentation.replaceRegex](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) |
+| Highlight literal text | [ITextFrame.highlightText](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [Presentation.highlightText](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
+| Highlight regular‑expression matches | [ITextFrame.highlightRegex](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) | [Presentation.highlightRegex](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) |
+| Replace literal text | [ITextFrame.replaceText](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [Presentation.replaceText](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
+| Replace regular‑expression matches | [ITextFrame.replaceRegex](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) | [Presentation.replaceRegex](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) |
 
-## **पाठ मिलान को कॉन्फ़िगर करें**
+## **टेक्स्ट मिलान कॉन्फ़िगर करें**
 
-शाब्दिक-टेस्ट ऑपरेशनों के लिए, मिलान को नियंत्रित करने हेतु [TextSearchOptions] का उपयोग करें:
+Literal‑text ऑपरेशन्स के लिए, मैचिंग को नियंत्रित करने हेतु [TextSearchOptions](https://reference.aspose.com/slides/hi/java/com.aspose.slides/textsearchoptions/) का उपयोग करें:
 
-- [TextSearchOptions.setWholeWordsOnly] पूर्ण शब्दों तक मिलान को सीमित करता है।
-- [TextSearchOptions.setCaseSensitive] कैरेक्टर केस मिलना चाहिए या नहीं, यह नियंत्रित करता है।
-- [TextSearchOptions.setIncludeNotes] प्रेजेंटेशन-लेवल खोज, प्रतिस्थापन और हाइलाइटिंग ऑपरेशनों में स्लाइड नोट्स को शामिल करता है।
+- [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/hi/java/com.aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) मैच को केवल पूर्ण शब्दों तक सीमित करता है।
+- [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/hi/java/com.aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) यह नियंत्रित करता है कि अक्षर का केस मेल करना आवश्यक है या नहीं।
+- [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/hi/java/com.aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) स्लाइड नोट्स को प्रेजेंटेशन‑स्तर की खोज, बदलाव और हाइलाइट ऑपरेशन्स में शामिल करता है।
 
-नियमित अभिव्यक्ति ऑपरेशनों में जावा `Pattern` का उपयोग किया जाता है, इसलिए केस सेंसिटिविटी और शब्द सीमा जैसी मिलान नियम अभिव्यक्ति और उसके फ्लैग्स द्वारा निर्धारित होते हैं।
+Regular‑expression ऑपरेशन्स Java `Pattern` का उपयोग करते हैं, इसलिए केस संवेदनशीलता और शब्द सीमाएँ जैसी नियम अभिव्यक्ति और उसके फ़्लैग्स द्वारा निर्धारित होते हैं।
 
-## **कॉलबैक के साथ मिलान जानकारी एकत्र करें**
+## **टेक्स्ट फ्रेम के मालिक की पहचान करें**
 
-प्रत्येक मिलान के लिए सूचना प्राप्त करने हेतु [IFindResultCallback] को लागू करें। इसका [IFindResultCallback.foundResult] मेथड संबंधित पाठ फ़्रेम, स्रोत पाठ, मिलित पाठ और मिलान स्थिति प्रदान करता है।
+जनरिक टेक्स्ट‑प्रोसेसिंग वर्कफ़्लो अक्सर खोज, बदलाव, वैधता जाँच या एक्सपोर्ट के दौरान एक [ITextFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/) प्राप्त करते हैं। वह प्रस्तुति ऑब्जेक्ट जो टेक्स्ट फ्रेम का मालिक है, यह निर्धारित करने के लिए [ITextFrame.getParentShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/#getParentShape--) और [ITextFrame.getParentCell](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/#getParentCell--) का उपयोग करें।
 
-कॉलबैक को सीधे स्लाइड नंबर नहीं मिलता। नीचे दिया गया कार्यान्वयन इसे पैरेंट स्लाइड से निकालता है तथा स्लाइड नोट्स में पाए गए पाठ को भी संभालता है। एक nullable `Integer` समान परिणाम मॉडल को अन्य स्लाइड प्रकारों के साथ जुड़े पाठ को दर्शाने देता है।
+अपेक्षित मान मालिक पर निर्भर करते हैं:
+
+| टेक्स्ट फ्रेम मालिक | `getParentShape` | `getParentCell` |
+|---|---|---|
+| एक AutoShape या कोई अन्य टेक्स्ट‑समेत शैप | The owning [IShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ishape/) | `null` |
+| एक टेबल सेल | `null` | The owning [ICell](https://reference.aspose.com/slides/hi/java/com.aspose.slides/icell/) |
+
+दोनों मेथड केवल‑पढ़ने योग्य नेविगेशन प्रदान करते हैं। इन्हें कॉल करने से टेक्स्ट फ्रेम नहीं बदलेगा और न ही उसका मालिक बदल जाएगा। जनरिक कोड को दोनों मानों के `null` होने की जाँच करनी चाहिए और उस स्थिति को संभालना चाहिए जब कोई मालिक उपलब्ध न हो।
+
+निम्न उदाहरण में [SlideUtil.getAllTextFrames](https://reference.aspose.com/slides/hi/java/com.aspose.slides/slideutil/#getAllTextFrames-com.aspose.slides.IPresentation-boolean-) का उपयोग करके प्रेजेंटेशन के सभी टेक्स्ट फ्रेमों पर इटरिट किया गया है। शैप्स के लिए यह शैप का नाम, Java रन‑टाइम टाइप और शामिल स्लाइड को रिपोर्ट करता है। टेबल सेल्स के लिए यह शून्य‑आधारित कॉलम और रो निर्देशांक तथा सम्मिलित स्लाइड को रिपोर्ट करता है।
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    ITextFrame[] textFrames = SlideUtil.getAllTextFrames(presentation, false);
+
+    for (ITextFrame textFrame : textFrames) {
+        IShape ownerShape = textFrame.getParentShape();
+        if (ownerShape != null) {
+            String shapeName = ownerShape.getName().isEmpty() ? "(unnamed)" : ownerShape.getName();
+            String shapeType = ownerShape.getClass().getSimpleName();
+            IBaseSlide baseSlide = ownerShape.getSlide();
+            String slideLabel;
+            if (baseSlide instanceof ISlide) {
+                slideLabel = "slide " + ((ISlide) baseSlide).getSlideNumber();
+            } else if (baseSlide instanceof INotesSlide) {
+                slideLabel = "notes for slide " + ((INotesSlide) baseSlide).getParentSlide().getSlideNumber();
+            } else {
+                slideLabel = baseSlide.getClass().getSimpleName();
+            }
+            System.out.println("Shape: " + shapeName + "; type: " + shapeType + "; " + slideLabel);
+            continue;
+        }
+
+        ICell ownerCell = textFrame.getParentCell();
+        if (ownerCell != null) {
+            IBaseSlide baseSlide = ownerCell.getSlide();
+            String slideLabel;
+            if (baseSlide instanceof ISlide) {
+                slideLabel = "slide " + ((ISlide) baseSlide).getSlideNumber();
+            } else if (baseSlide instanceof INotesSlide) {
+                slideLabel = "notes for slide " + ((INotesSlide) baseSlide).getParentSlide().getSlideNumber();
+            } else {
+                slideLabel = baseSlide.getClass().getSimpleName();
+            }
+            System.out.println("Table cell: column " + ownerCell.getFirstColumnIndex() + ", row " + ownerCell.getFirstRowIndex() + "; " + slideLabel);
+            continue;
+        }
+
+        System.out.println("The text frame owner is not available as a shape or table cell.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+SmartArt कंटेंट के लिए, [ISmartArtNode.getShapes](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ismartartnode/#getShapes--) में शैप्स पर इटरिट करें और प्रत्येक [ISmartArtShape.getTextFrame](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ismartartshape/#getTextFrame--) को एक्सेस करें। टेक्स्ट फ्रेम को उसके संबंधित शैप से [ITextFrame.getParentShape](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/#getParentShape--) द्वारा ट्रेस किया जा सकता है, जबकि [ITextFrame.getParentCell](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/#getParentCell--) `null` लौटाता है। इसलिए, उदाहरण में शैप शाखा SmartArt नोड्स से आने वाले टेक्स्ट को भी संभालती है।
+
+## **कॉलबैक के साथ मेल जानकारी एकत्रित करें**
+
+[IFindResultCallback](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ifindresultcallback/) को लागू करके प्रत्येक मैच के लिए सूचना प्राप्त करें। इसका [IFindResultCallback.foundResult](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ifindresultcallback/#foundResult-com.aspose.slides.ITextFrame-java.lang.String-java.lang.String-int-) मेथड संबंधित टेक्स्ट फ्रेम, स्रोत टेक्स्ट, मैच किया गया टेक्स्ट और मैच की स्थिति प्रदान करता है।
+
+कॉलबैक सीधे स्लाइड नंबर नहीं प्राप्त करता। नीचे दिया गया इम्प्लीमेंटेशन इसे पैरेंट स्लाइड से प्राप्त करता है और साथ ही स्लाइड नोट्स में मिलने वाला टेक्स्ट भी संभालता है। एक nullable `Integer` समान परिणाम मॉडल को अन्य स्लाइड प्रकारों से जुड़े टेक्स्ट को दर्शाने की अनुमति देता है।
 
 ```java
 import com.aspose.slides.*;
@@ -111,12 +175,10 @@ final class TextSearchCallback implements IFindResultCallback {
         results.add(result);
     }
 
-    private static Integer getSlideNumber(ITextFrame textFrame) {
-        if (!(textFrame instanceof TextFrame)) {
-            return null;
-        }
-
-        IBaseSlide parentSlide = ((TextFrame) textFrame).getSlide();
+    private Integer getSlideNumber(ITextFrame textFrame) {
+        IShape parentShape = textFrame.getParentShape();
+        ICell parentCell = textFrame.getParentCell();
+        IBaseSlide parentSlide = parentShape != null ? parentShape.getSlide() : parentCell != null ? parentCell.getSlide() : textFrame.getSlide();
 
         if (parentSlide instanceof ISlide) {
             return ((ISlide) parentSlide).getSlideNumber();
@@ -131,13 +193,13 @@ final class TextSearchCallback implements IFindResultCallback {
 }
 ```
 
-प्रतिस्थापन ऑपरेशनों के लिए, `foundText` में मूल मिलित पाठ होता है, इसलिए कॉलबैक सटीक रूप से रिकॉर्ड कर सकता है कि कौन से शब्दों को बदला गया।
+बदलाव ऑपरेशन्स के लिए, `foundText` मूल मैच किए गए टेक्स्ट को रखता है, इसलिए कॉलबैक ठीक‑ठीक रिकॉर्ड कर सकता है कि कौन‑से शब्द बदले गए।
 
-## **पाठ को हाइलाइट करें**
+## **टेक्स्ट को हाईलाइट करें**
 
-पाठ फ़्रेम में शाब्दिक-टेस्ट मिलानों को हाइलाइट करने के लिए [ITextFrame.highlightText] मेथड का उपयोग करें। खोज को नियंत्रित करने के लिए [TextSearchOptions] पास करें और मिलान विवरण एकत्र करने हेतु कॉलबैक पास करें।
+[ITextFrame.highlightText](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) मेथड का उपयोग करके एक टेक्स्ट फ्रेम में literal‑text मैचों को हाईलाइट करें। खोज को नियंत्रित करने के लिए [TextSearchOptions](https://reference.aspose.com/slides/hi/java/com.aspose.slides/textsearchoptions/) पास करें और मैच विवरण एकत्रित करने के लिए एक कॉलबैक प्रदान करें।
 
-नीचे दिया गया कोड उदाहरण सभी **"try"** अक्षरों की उपस्थिति को हाइलाइट करता है और फिर केवल पूर्ण शब्द **"to"** को हाइलाइट करता है। दोनों खोजें अपने मिलानों को समान कॉलबैक को रिपोर्ट करती हैं।
+नीचे दिया गया कोड उदाहरण सभी **"try"** अक्षरों की उपस्थिति को हाईलाइट करता है और फिर केवल पूर्ण शब्द **"to"** को हाईलाइट करता है। दोनों खोजें समान कॉलबैक को उनके मैच रिपोर्ट करती हैं।
 
 ```java
 import com.aspose.slides.*;
@@ -177,13 +239,13 @@ try {
 
 परिणाम:
 
-![हाइलाइट किया गया पाठ](highlighted_text.png)
+![हाइलाइट किया हुआ टेक्स्ट](highlighted_text.png)
 
-## **नियमित अभिव्यक्तियों द्वारा पाठ को हाइलाइट करें**
+## **नियमित अभिव्यक्तियों का उपयोग करके टेक्स्ट को हाईलाइट करें**
 
-[ITextFrame.highlightRegex] मेथड एक पाठ फ़्रेम में नियमित अभिव्यक्ति द्वारा पाए गए पाठ मिलानों को हाइलाइट करता है।
+[ITextFrame.highlightRegex](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) मेथड नियमित अभिव्यक्ति द्वारा पाए गए टेक्स्ट मैचों को एक टेक्स्ट फ्रेम में हाईलाइट करता है।
 
-निम्नलिखित कोड सात या अधिक अक्षरों वाले सभी शब्दों को हाइलाइट करता है और प्रत्येक मिलान को एकत्र करता है:
+निम्न कोड सात या अधिक अक्षर वाले सभी शब्दों को हाईलाइट करता है और प्रत्येक मैच को एकत्रित करता है:
 
 ```java
 import com.aspose.slides.*;
@@ -207,11 +269,11 @@ try {
 
 परिणाम:
 
-![नियमित अभिव्यक्ति द्वारा हाइलाइट किया गया पाठ](highlighted_text_using_regex.png)
+![नियमित अभिव्यक्ति का उपयोग करके हाइलाइट किया हुआ टेक्स्ट](highlighted_text_using_regex.png)
 
-## **पूरे प्रस्तुतीकरण में पाठ को हाइलाइट करें**
+## **प्रेजेंटेशन में टेक्स्ट को हाईलाइट करें**
 
-एक प्रस्तुतीकरण में सभी लागू पाठ फ़्रेम खोजने के लिए [Presentation.highlightText] और [Presentation.highlightRegex] का उपयोग करें। निम्नलिखित उदाहरण एक शाब्दिक शब्द और सभी ईमेल पतों को हाइलाइट करता है जबकि दो खोजों के लिए अलग-अलग परिणाम संग्रह रखता है।
+[Presentation.highlightText](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) और [Presentation.highlightRegex](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) का उपयोग करके प्रेजेंटेशन के सभी लागू टेक्स्ट फ्रेमों को खोजें। नीचे दिया गया उदाहरण एक literal टर्म और सभी ई‑मेल एड्रेस को हाईलाइट करता है जबकि दो खोजों के लिए अलग‑अलग परिणाम संग्रह रखता है।
 
 ```java
 import com.aspose.slides.*;
@@ -239,11 +301,11 @@ try {
 }
 ```
 
-## **पाठ फ्रेम में पाठ को बदलें**
+## **टेक्स्ट फ्रेम में टेक्स्ट को बदलें**
 
-शाब्दिक पाठ के लिए [ITextFrame.replaceText] और पैटर्न-आधारित प्रतिस्थापन के लिए [ITextFrame.replaceRegex] का उपयोग करें। ये मेथड्स मौजूदा पाठ फ़्रेम के भीतर मिलित पाठ को अपडेट करते हैं, जिससे आसपास के भाग का फ़ॉर्मेटिंग बना रहता है और पूरे फ़्रेम को साधारण स्ट्रिंग से पुनः निर्मित नहीं किया जाता।
+[ITextFrame.replaceText](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) को literal टेक्स्ट के लिए और [ITextFrame.replaceRegex](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) को पैटर्न‑आधारित बदलाव के लिए उपयोग करें। ये मेथड मौजूदा टेक्स्ट फ्रेम के भीतर मैच किए गए टेक्स्ट को अपडेट करते हैं, जिससे आसपास के हिस्से का फॉर्मेट बरकरार रहता है और पूरी स्ट्रिंग को पुनः निर्मित नहीं करना पड़ता।
 
-निम्नलिखित उदाहरण एक वर्तनी रूपांतर को मानकीकृत करता है और फिर संस्करण लेबल बदलता है। वही कॉलबैक दोनों ऑपरेशनों द्वारा मिलित मूल शब्दों को रिकॉर्ड करता है।
+निम्न उदाहरण पहले एक स्पेलिंग वैरिएंट को मानकीकृत करता है और फिर संस्करण लेबल को बदलता है। वही कॉलबैक दोनों ऑपरेशन्स द्वारा मैच किए गए मूल शब्दों को रिकॉर्ड करता है।
 
 ```java
 import com.aspose.slides.*;
@@ -269,11 +331,11 @@ try {
 }
 ```
 
-यदि कोई मिलान विभिन्न फ़ॉर्मेटिंग वाले भागों को कवर करता है, तो आउटपुट की समीक्षा करें कि प्रतिस्थापन पाठ पर कौन सी फ़ॉर्मेटिंग लागू होनी चाहिए।
+यदि किसी एक मैच में विभिन्न फॉर्मेट वाले भाग शामिल हों, तो आउटपुट की जांच करें कि बदलाव वाले टेक्स्ट पर कौन‑सा फॉर्मेट लागू होना चाहिए।
 
-## **पूरा प्रस्तुतीकरण में पाठ को बदलें**
+## **प्रेजेंटेशन में टेक्स्ट को बदलें**
 
-एक प्रस्तुतीकरण में समान ऑपरेशनों को लागू करने के लिए [Presentation.replaceText] और [Presentation.replaceRegex] का प्रयोग करें। यह टेम्पलेट सफ़ाई, शब्दावली अपडेट और रीडैक्शन के लिए उपयोगी है।
+[Presentation.replaceText](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) और [Presentation.replaceRegex](https://reference.aspose.com/slides/hi/java/com.aspose.slides/presentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) का उपयोग करके समान ऑपरेशन पूरे प्रेजेंटेशन पर लागू करें। यह टेम्पलेट सफाई, शब्दावली अपडेट और रिडैक्शन के लिए उपयोगी है।
 
 ```java
 import com.aspose.slides.*;
@@ -297,9 +359,9 @@ try {
 }
 ```
 
-## **रिपोर्टिंग के लिए मिलानों को समूहित करें**
+## **रिपोर्टिंग के लिए मैच ग्रुप करें**
 
-क्योंकि प्रत्येक परिणाम अपने स्लाइड नंबर और पाठ फ़्रेम को संग्रहीत करता है, एप्लिकेशन ऑडिट, रिपोर्टिंग या समीक्षा वर्कफ़्लो के लिए मिलानों को समूहित कर सकते हैं। निम्नलिखित उदाहरण पहले स्लाइड द्वारा और फिर पाठ फ़्रेम द्वारा एकत्रित परिणामों को समूहित करता है:
+चूंकि प्रत्येक परिणाम अपना स्लाइड नंबर और टेक्स्ट फ्रेम रखता है, एप्लिकेशन ऑडिट, रिपोर्टिंग या रिव्यू वर्कफ़्लो के लिए मैचों को समूहित कर सकते हैं। नीचे दिया गया उदाहरण पहले स्लाइड के अनुसार और फिर टेक्स्ट फ्रेम के अनुसार एकत्रित परिणामों को समूहित करता है:
 
 ```java
 import com.aspose.slides.ITextFrame;
@@ -347,22 +409,22 @@ for (Map.Entry<Integer, Map<ITextFrame, List<TextMatch>>> slideEntry : matchesBy
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**मैं पूरी प्रस्तुतीकरण के बजाय केवल एक टेक्स्ट बॉक्स में कैसे खोज करूँ?**
+**मैं पूरी प्रस्तुति के बजाय केवल एक टेक्स्ट बॉक्स कैसे खोज सकता हूँ?**
 
-शेप का टेक्स्ट फ्रेम प्राप्त करें और उस टेक्स्ट फ्रेम पर [ITextFrame.highlightText]([ITextFrame.highlightText](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-)), [ITextFrame.highlightRegex]([ITextFrame.highlightRegex](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-)), [ITextFrame.replaceText]([ITextFrame.replaceText](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-)), या [ITextFrame.replaceRegex]([ITextFrame.replaceRegex](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-)) को कॉल करें। प्रस्तुतीकरण-स्तरीय मेथड सभी लागू टेक्स्ट फ्रेम प्रोसेस करते हैं।
+शेप के टेक्स्ट फ्रेम को प्राप्त करें और उस टेक्स्ट फ्रेम पर [ITextFrame.highlightText](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), [ITextFrame.highlightRegex](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-), [ITextFrame.replaceText](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), या [ITextFrame.replaceRegex](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) को कॉल करें। प्रेजेंटेशन‑स्तर के मेथड सभी लागू टेक्स्ट फ्रेमों को प्रोसेस करते हैं।
 
-**मैं पूर्ण शब्दों को सही कैपिटलाइज़ेशन के साथ कैसे मिलाऊँ?**
+**मैं पूरा शब्द सही केस के साथ कैसे मैच करूँ?**
 
-[TextSearchOptions.setWholeWordsOnly]([TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/hi/java/com.aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-)) और [TextSearchOptions.setCaseSensitive]([TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/hi/java/com.aspose.slides/textsearchoptions/#setCaseSensitive-boolean-)) को `true` पर सेट करें और विकल्पों को शाब्दिक-टेस्ट हाइलाइट या रिप्लेस मेथड को पास करें। नियमित अभिव्यक्तियों के लिए, शब्द सीमाएँ और केस सेंसिटिविटी को स्वयं Java `Pattern` में परिभाषित करें।
+[TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/hi/java/com.aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) और [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/hi/java/com.aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) को `true` पर सेट करें, और विकल्पों को literal‑text हाइलाइट या रिप्लेस मेथड को पास करें। नियमित अभिव्यक्तियों के लिए, शब्द सीमाएँ और केस संवेदनशीलता को Java `Pattern` में ही निर्धारित करें।
 
-**क्या खोज और प्रतिस्थापन स्लाइड नोट्स में पाठ को शामिल कर सकते हैं?**
+**क्या खोज और बदलाव स्लाइड नोट्स में टेक्स्ट को भी शामिल कर सकते हैं?**
 
-हाँ। प्रस्तुतीकरण-स्तर के शाब्दिक-टेस्ट ऑपरेशन का उपयोग करते समय [TextSearchOptions.setIncludeNotes]([TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/hi/java/com.aspose.slides/textsearchoptions/#setIncludeNotes-boolean-)) को `true` पर सेट करें। ऊपर दिखाए गए कॉलबैक कार्यान्वयन में नोट्स स्लाइड में मिलने वाले मिलान को उसके पैरेंट स्लाइड नंबर से मैप किया गया है।
+हां। प्रेजेंटेशन‑स्तर के literal‑text ऑपरेशन का उपयोग करते समय [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/hi/java/com.aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) को `true` पर सेट करें। ऊपर दिखाया गया कॉलबैक इम्प्लीमेंटेशन नोट्स स्लाइड में मैच को उसके पैरेंट स्लाइड नंबर से मैप करता है।
 
-**मैं प्रस्तुतीकरण को दूसरी बार स्कैन किए बिना रिपोर्ट कैसे बना सकता हूँ?**
+**मैं रिपोर्ट को दो बार प्रेजेंटेशन स्कैन किए बिना कैसे बना सकता हूँ?**
 
-हाइलाइट या रिप्लेस ऑपरेशन को चलाते समय एक [IFindResultCallback] कार्यान्वयन पास करें। कॉलबैक ऑपरेशन चलते समय प्रत्येक मिलान प्राप्त करता है, इसलिए एप्लिकेशन स्रोत पाठ, मिलित पाठ, स्थिति, टेक्स्ट फ्रेम और व्युत्पन्न स्लाइड नंबर को बाद में समूहित या निर्यात करने के लिए स्टोर कर सकता है।
+हाइलाइट या रिप्लेस ऑपरेशन को चलाते समय एक [IFindResultCallback](https://reference.aspose.com/slides/hi/java/com.aspose.slides/ifindresultcallback/) इम्प्लीमेंटेशन पास करें। कॉलबैक हर मैच को ऑपरेशन के दौरान प्राप्त करता है, जिससे एप्लिकेशन स्रोत टेक्स्ट, मैच किया गया टेक्स्ट, स्थिति, टेक्स्ट फ्रेम और व्युत्पन्न स्लाइड नंबर को बाद में समूहित या निर्यात करने के लिए स्टोर कर सकता है।
 
-**क्या पाठ को बदलने से उसका फ़ॉर्मेटिंग बना रहता है?**
+**क्या टेक्स्ट बदलने से उसका फॉर्मेट संरक्षित रहता है?**
 
-[ITextFrame.replaceText]([ITextFrame.replaceText](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-)) और [ITextFrame.replaceRegex]([ITextFrame.replaceRegex](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-)) मिलित पाठ को मौजूदा टेक्स्ट फ़्रेम के भीतर संशोधित करते हैं और आसपास के भाग का फ़ॉर्मेटिंग बरकरार रखते हैं। यदि कोई मिलान विभिन्न फ़ॉर्मेटिंग वाले भागों को कवर करता है, तो परिणाम की जांच करें कि प्रतिस्थापन में इच्छित शैली लागू हुई है या नहीं।
+[ITextFrame.replaceText](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) और [ITextFrame.replaceRegex](https://reference.aspose.com/slides/hi/java/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) मौजूदा टेक्स्ट फ्रेम के भीतर मैच किए गए टेक्स्ट को बदलते हैं और आसपास के भाग के फॉर्मेट को बनाए रखते हैं। यदि कोई मैच विभिन्न फॉर्मेट वाले भागों को कवर करता है, तो परिणाम की जांच करें ताकि सुनिश्चित हो सके कि बदलाव वाला टेक्स्ट इच्छित शैली का उपयोग करे।

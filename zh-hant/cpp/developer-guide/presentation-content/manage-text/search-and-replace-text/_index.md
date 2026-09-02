@@ -1,14 +1,14 @@
 ---
-title: 在 C++ 中搜尋與取代 PowerPoint 簡報文字
+title: 在 C++ 中搜尋與取代 PowerPoint 簡報的文字
 linktitle: 搜尋與取代文字
 type: docs
 weight: 55
 url: /zh-hant/cpp/search-and-replace-text/
 keywords:
 - 搜尋文字
-- 突顯文字
+- 標註文字
 - 取代文字
-- 正則表達式
+- 正規表達式
 - 結果回呼
 - 文字框
 - 稽核報告
@@ -17,50 +17,161 @@ keywords:
 - 簡報
 - C++
 - Aspose.Slides
-description: "在 PowerPoint 簡報中搜尋、突顯與取代文字，同時使用 Aspose.Slides for C++ 收集每一次符合。"
+description: "使用 Aspose.Slides for C++ 在 PowerPoint 簡報中搜尋、標註與取代文字，同時收集每一次匹配。"
 ---
-## **概觀**
+## **概述**
 
-Aspose.Slides for C++ 可在單一文字框或整個簡報中搜尋、突顯與取代文字。每個操作皆可透過結果回呼通知應用程式每一個符合項目，使得在更新簡報的同時建立包含符合文字、其上下文、位置、文字框與投影片編號的稽核軌跡。
+Aspose.Slides for C++ 可以在單一文字框或整個簡報中搜尋、標註和取代文字。每個操作也可以透過結果回呼通知應用程式每一次匹配。這使得在更新簡報的同時，能建立包含匹配文字、其上下文、位置、文字框與投影片編號的稽核追蹤。
 
-此功能在審閱、遮蔽、術語檢查、範本清理與自動報告工作流程中相當有用。
+這些功能對於審閱、編輯隱私、術語檢查、範本清理以及自動化報告工作流程非常有用。
 
-在以下第一組範例中，我們使用名為「sample.pptx」的檔案，其第一張投影片上有一個文字方塊，內容如下：
+在以下第一個範例中，我們使用名為 "sample.pptx" 的檔案，該檔案在第一張投影片上包含一個單一文字方塊，內含以下文字：
 
 ![範例文字](sample_text.png)
 
 ## **選擇搜尋範圍**
 
-使用 [ITextFrame](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/) 上的方法將操作限制於單一文字框。使用 [IPresentation](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ipresentation/) 上的方法則可處理簡報中所有適用的文字。
+使用[ITextFrame](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/)的方法將作業限制在單一文字框。使用[IPresentation](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ipresentation/)的方法處理簡報中所有適用的文字。
 
 | 操作 | 單一文字框 | 整個簡報 |
 |---|---|---|
-| 突顯文字文字 | [ITextFrame::HighlightText](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/highlighttext/) | [IPresentation::HighlightText](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ipresentation/highlighttext/) |
-| 突顯正規表達式符合項目 | [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/highlightregex/) | [IPresentation::HighlightRegex](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ipresentation/highlightregex/) |
-| 取代文字 | [ITextFrame::ReplaceText](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/replacetext/) | [IPresentation::ReplaceText](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ipresentation/replacetext/) |
-| 取代正規表達式符合項目 | [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/replaceregex/) | [IPresentation::ReplaceRegex](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ipresentation/replaceregex/) |
+| 標註純文字 | [ITextFrame::HighlightText](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/highlighttext/) | [IPresentation::HighlightText](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ipresentation/highlighttext/) |
+| 標註正規表達式匹配 | [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/highlightregex/) | [IPresentation::HighlightRegex](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ipresentation/highlightregex/) |
+| 取代純文字 | [ITextFrame::ReplaceText](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/replacetext/) | [IPresentation::ReplaceText](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ipresentation/replacetext/) |
+| 取代正規表達式匹配 | [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/replaceregex/) | [IPresentation::ReplaceRegex](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ipresentation/replaceregex/) |
 
 ## **設定文字匹配**
 
-對於文字文字操作，使用 [ITextSearchOptions](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextsearchoptions/) 來控制匹配方式：
+對於純文字操作，使用[ITextSearchOptions](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextsearchoptions/)來控制匹配：
 
-- [ITextSearchOptions::set_WholeWordsOnly](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextsearchoptions/set_wholewordsonly/) 僅限完整單字匹配。
-- [ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) 控制是否必須符合大小寫。
-- [ITextSearchOptions::set_IncludeNotes](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextsearchoptions/set_includenotes/) 在簡報層級的搜尋、取代與突顯操作中亦包含投影片備註。
+- [ITextSearchOptions::set_WholeWordsOnly](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextsearchoptions/set_wholewordsonly/) 限制匹配僅為完整單詞。
+- [ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) 控制是否必須匹配字元大小寫。
+- [ITextSearchOptions::set_IncludeNotes](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextsearchoptions/set_includenotes/) 將投影片備註納入簡報層級的搜尋、取代與標註操作。
 
-正規表達式操作使用 `System::Text::RegularExpressions::Regex`，因此大小寫敏感度與單字邊界等規則由正則表達式本身及其選項決定。
+正規表達式操作使用 `System::Text::RegularExpressions::Regex`，因此大小寫敏感度與單詞邊界等匹配規則由正則表達式本身及其選項定義。
 
-## **使用回呼蒐集符合資訊**
+## **識別文字框的擁有者**
 
-實作 [IFindResultCallback](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ifindresultcallback/) 以接收每一次符合的通知。其 [IFindResultCallback::FoundResult](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ifindresultcallback/foundresult/) 方法會提供相關文字框、來源文字、符合文字與符合位置。
+通用的文字處理工作流程常在搜尋、取代、驗證或匯出文字時收到[ITextFrame](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/)。使用[ITextFrame::get_ParentShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/get_parentshape/)和[ITextFrame::get_ParentCell](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/get_parentcell/)可判斷是哪個簡報物件擁有此文字框。
 
-回呼不會直接取得投影片編號。下方的實作會從 [ISlideComponent::get_Slide](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/islidecomponent/get_slide/) 取得，並且透過 [INotesSlide::get_ParentSlide](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/inotesslide/get_parentslide/) 處理備註投影片中的文字。可為投影片編號設為可為 null，以便同一結果模型也能表達其他類型投影片的文字。
+預期值取決於擁有者：
+
+| 文字框擁有者 | `get_ParentShape` | `get_ParentCell` |
+|---|---|---|
+| AutoShape 或其他包含文字的圖形 | 擁有的[IShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ishape/) | `nullptr` |
+| 表格儲存格 | `nullptr` | 擁有的[ICell](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/icell/) |
+
+兩個方法皆提供唯讀導覽。呼叫它們不會移動文字框或變更其擁有者。通用程式碼應檢查兩個值是否為`nullptr`，並處理兩者皆不可用的情況。
+
+以下範例使用[SlideUtil::GetAllTextFrames](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.util/slideutil/getalltextframes/)遍歷簡報中的文字框。對於圖形，會回報圖形名稱、C++ 執行時類型以及所在投影片。對於表格儲存格，會回報零基礎的欄與列座標以及所在投影片。
 
 ```cpp
 #include <DOM/IBaseSlide.h>
 #include <DOM/INotesSlide.h>
+#include <DOM/IShape.h>
 #include <DOM/ISlide.h>
 #include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <Util/SlideUtil.h>
+#include <system/console.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using Aspose::Slides::IBaseSlide;
+using Aspose::Slides::INotesSlide;
+using Aspose::Slides::IShape;
+using Aspose::Slides::ISlide;
+using Aspose::Slides::ITextFrame;
+using Aspose::Slides::Presentation;
+using Aspose::Slides::Util::SlideUtil;
+using System::AsCast;
+using System::Console;
+using System::MakeObject;
+using System::String;
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx");
+auto textFrames = SlideUtil::GetAllTextFrames(presentation, false);
+
+for (const auto& textFrame : textFrames)
+{
+    auto ownerShape = textFrame->get_ParentShape();
+    if (ownerShape != nullptr)
+    {
+        auto shapeName = String::IsNullOrEmpty(ownerShape->get_Name()) ? u"(unnamed)" : ownerShape->get_Name();
+        auto shapeType = ownerShape->GetType().get_Name();
+        auto baseSlide = ownerShape->get_Slide();
+        String slideLabel;
+        auto slide = AsCast<ISlide>(baseSlide);
+
+        if (slide != nullptr)
+        {
+            slideLabel = String::Format(u"slide {0}", slide->get_SlideNumber());
+        }
+        else
+        {
+            auto notesSlide = AsCast<INotesSlide>(baseSlide);
+            if (notesSlide != nullptr)
+            {
+                slideLabel = String::Format(u"notes for slide {0}", notesSlide->get_ParentSlide()->get_SlideNumber());
+            }
+            else
+            {
+                slideLabel = baseSlide->GetType().get_Name();
+            }
+        }
+
+        Console::WriteLine(u"Shape: {0}; type: {1}; {2}", shapeName, shapeType, slideLabel);
+        continue;
+    }
+
+    auto ownerCell = textFrame->get_ParentCell();
+    if (ownerCell != nullptr)
+    {
+        auto baseSlide = ownerCell->get_Slide();
+        String slideLabel;
+        auto slide = AsCast<ISlide>(baseSlide);
+
+        if (slide != nullptr)
+        {
+            slideLabel = String::Format(u"slide {0}", slide->get_SlideNumber());
+        }
+        else
+        {
+            auto notesSlide = AsCast<INotesSlide>(baseSlide);
+            if (notesSlide != nullptr)
+            {
+                slideLabel = String::Format(u"notes for slide {0}", notesSlide->get_ParentSlide()->get_SlideNumber());
+            }
+            else
+            {
+                slideLabel = baseSlide->GetType().get_Name();
+            }
+        }
+
+        Console::WriteLine(u"Table cell: column {0}, row {1}; {2}", ownerCell->get_FirstColumnIndex(), ownerCell->get_FirstRowIndex(), slideLabel);
+        continue;
+    }
+
+    Console::WriteLine(u"The text frame owner is not available as a shape or table cell.");
+}
+```
+
+對於 SmartArt 內容，遍歷[ISmartArtNode::get_Shapes](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.smartart/ismartartnode/get_shapes/)中的圖形，並存取每個[ISmartArtShape::get_TextFrame](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides.smartart/ismartartshape/get_textframe/)。文字框可透過[ITextFrame::get_ParentShape](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/get_parentshape/)追溯至其關聯的圖形，而[ITextFrame::get_ParentCell](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/get_parentcell/)則回傳`nullptr`。因此，範例中的圖形分支也會處理來自 SmartArt 節點的文字。
+
+## **使用回呼收集匹配資訊**
+
+實作[IFindResultCallback](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ifindresultcallback/)以接收每一次匹配的通知。其[IFindResultCallback::FoundResult](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ifindresultcallback/foundresult/)方法提供相關的文字框、來源文字、匹配文字與匹配位置。
+
+回呼不會直接收到投影片編號。以下實作從[ISlideComponent::get_Slide](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/islidecomponent/get_slide/)推導編號，並同時處理透過[INotesSlide::get_ParentSlide](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/inotesslide/get_parentslide/)在備註投影片中找到的文字。可為空的投影片編號允許相同的結果模型表示與其他投影片類型相關的文字。
+
+```cpp
+#include <DOM/IBaseSlide.h>
+#include <DOM/INotesSlide.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Table/ICell.h>
 #include <IFindResultCallback.h>
 #include <system/collections/list.h>
 #include <system/nullable.h>
@@ -70,6 +181,7 @@ Aspose.Slides for C++ 可在單一文字框或整個簡報中搜尋、突顯與�
 using Aspose::Slides::IBaseSlide;
 using Aspose::Slides::IFindResultCallback;
 using Aspose::Slides::INotesSlide;
+using Aspose::Slides::IShape;
 using Aspose::Slides::ISlide;
 using Aspose::Slides::ITextFrame;
 using System::AsCast;
@@ -119,7 +231,23 @@ public:
 private:
     static Nullable<int32_t> GetSlideNumber(SharedPtr<ITextFrame> textFrame)
     {
-        SharedPtr<IBaseSlide> baseSlide = textFrame->get_Slide();
+        auto parentShape = textFrame->get_ParentShape();
+        auto parentCell = textFrame->get_ParentCell();
+        SharedPtr<IBaseSlide> baseSlide;
+
+        if (parentShape != nullptr)
+        {
+            baseSlide = parentShape->get_Slide();
+        }
+        else if (parentCell != nullptr)
+        {
+            baseSlide = parentCell->get_Slide();
+        }
+        else
+        {
+            baseSlide = textFrame->get_Slide();
+        }
+
         auto slide = AsCast<ISlide>(baseSlide);
 
         if (slide != nullptr)
@@ -139,13 +267,13 @@ private:
 };
 ```
 
-對於取代操作，`FoundText` 會包含原始符合文字，回呼即可精確記錄哪些詞彙被取代。
+對於取代操作，`FoundText` 包含原始匹配文字，回呼因此能精確記錄哪些詞彙被取代。
 
-## **突顯文字**
+## **標註文字**
 
-使用 [ITextFrame::HighlightText](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/highlighttext/) 方法在文字框中突顯文字文字。傳入 [ITextSearchOptions](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextsearchoptions/) 以控制搜尋，並提供回呼以蒐集符合細節。
+使用[ITextFrame::HighlightText](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/highlighttext/)方法在文字框中標註純文字匹配。傳入[ITextSearchOptions](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextsearchoptions/)控制搜尋，並提供回呼以收集匹配細節。
 
-下方程式碼示範先突顯所有 **"try"** 字元，再僅突顯完整單字 **"to"**。兩次搜尋皆會將符合項目回報給同一回呼。
+以下程式碼範例先標註所有 **"try"** 字元的出現，接著僅標註完整單詞 **"to"**。兩次搜尋皆將匹配結果回報給同一回呼。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -166,14 +294,14 @@ using System::MakeObject;
 
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-// 取得第一張投影片的第一個形狀。
+// 取得第一張投影片的第一個圖形。
 auto shape = ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
 auto callback = MakeObject<TextSearchCallback>();
 
 auto substringSearchOptions = MakeObject<TextSearchOptions>();
 substringSearchOptions->set_CaseSensitive(false);
 
-// 在文字框中突顯所有 "try" 的出現。
+// 在文字框中標註所有出現的「try」。
 shape->get_TextFrame()->HighlightText(
     u"try", System::Drawing::Color::get_LightBlue(), substringSearchOptions, callback);
 
@@ -181,7 +309,7 @@ auto wholeWordSearchOptions = MakeObject<TextSearchOptions>();
 wholeWordSearchOptions->set_WholeWordsOnly(true);
 wholeWordSearchOptions->set_CaseSensitive(false);
 
-// 僅突顯完整單字 "to"。
+// 僅標註完整單詞「to」。
 shape->get_TextFrame()->HighlightText(
     u"to", System::Drawing::Color::get_Violet(), wholeWordSearchOptions, callback);
 
@@ -201,13 +329,13 @@ presentation->Dispose();
 
 結果：
 
-![突顯的文字](highlighted_text.png)
+![已標註的文字](highlighted_text.png)
 
-## **使用正規表達式突顯文字**
+## **使用正規表達式標註文字**
 
-[ITextFrame::HighlightRegex](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/highlightregex/) 方法會突顯文字框中符合正規表達式的文字。
+[ITextFrame::HighlightRegex](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/highlightregex/)方法標註文字框中符合正規表達式的文字匹配。
 
-以下程式碼突顯所有包含七個以上字元的單字，並蒐集每一次符合：
+以下程式碼標註所有包含七個以上字元的單詞，並收集每一次匹配：
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -240,11 +368,11 @@ presentation->Dispose();
 
 結果：
 
-![使用正規表達式突顯的文字](highlighted_text_using_regex.png)
+![使用正規表達式標註的文字](highlighted_text_using_regex.png)
 
-## **在簡報中突顯文字**
+## **跨簡報標註文字**
 
-使用 [IPresentation::HighlightText](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ipresentation/highlighttext/) 與 [IPresentation::HighlightRegex](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ipresentation/highlightregex/) 來搜尋簡報中所有適用的文字框。下例在同一簡報中突顯文字文字與所有電子郵件位址，且為兩次搜尋保留獨立的結果集合。
+使用[IPresentation::HighlightText](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ipresentation/highlighttext/)與[IPresentation::HighlightRegex](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ipresentation/highlightregex/)搜尋簡報中所有適用的文字框。以下範例同時標註一個純文字術語與所有電子郵件地址，並為兩個搜尋保留獨立的結果集合。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -285,9 +413,9 @@ presentation->Dispose();
 
 ## **在文字框中取代文字**
 
-使用 [ITextFrame::ReplaceText](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/replacetext/) 取代文字文字，使用 [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/replaceregex/) 取代符合正則表達式的文字。這些方法會在既有文字框內直接更新符合文字，保留周邊文字的格式，而不會以純文字字串重新建立文字框。
+使用[ITextFrame::ReplaceText](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/replacetext/)取代純文字，使用[ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/replaceregex/)進行基於模式的取代。這些方法會在既有文字框內更新匹配文字，保留其周圍部分的格式，而不是以純字串重新建構文字框。
 
-以下範例先標準化拼寫變形，接著取代版本標籤。相同的回呼會記錄兩個操作所匹配的原始詞彙。
+以下範例先標準化一個拼寫變體，然後取代版本標籤。相同的回呼記錄兩個操作所匹配的原始詞彙。
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -326,11 +454,11 @@ presentation->Save(u"updated_text_frame.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-若一次符合跨越不同格式的段落，請檢查輸出以確認取代文字應套用哪種格式。
+如果某個匹配跨越不同格式的區段，請檢查輸出以確認應套用哪種格式於取代文字。
 
-## **在簡報中取代文字**
+## **跨簡報取代文字**
 
-使用 [IPresentation::ReplaceText](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ipresentation/replacetext/) 與 [IPresentation::ReplaceRegex](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ipresentation/replaceregex/) 在整個簡報中套用相同的操作。此功能適用於範本清理、術語更新與遮蔽。
+使用[IPresentation::ReplaceText](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ipresentation/replacetext/)與[IPresentation::ReplaceRegex](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ipresentation/replaceregex/)在整個簡報套用相同的操作。此功能適用於範本清理、術語更新與編輯隱私。
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -361,9 +489,9 @@ presentation->Save(u"updated_presentation.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **將符合項目分組以供報告**
+## **分組匹配以供報告**
 
-由於每個結果都儲存了投影片編號與文字框，應用程式可依照稽核、報告或審閱工作流程將符合項目分組。以下範例先依投影片，再依文字框分組蒐集的結果：
+因為每個結果都儲存其投影片編號與文字框，應用程式可以依照稽核、報告或審閱工作流程將匹配分組。以下範例先依投影片再依文字框分組收集的結果：
 
 ```cpp
 #include <DOM/ITextFrame.h>
@@ -407,24 +535,24 @@ for (const auto& slideGroup : matchesBySlide)
 }
 ```
 
-## **常見問與答**
+## **常見問題**
 
-**如何只搜尋單一文字方塊而非整個簡報？**
+**如何僅搜尋單一文字方塊，而非整個簡報？**
 
-取得該圖形的文字框，然後在該文字框上呼叫 [ITextFrame::HighlightText](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/highlighttext/)、[ITextFrame::HighlightRegex](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/highlightregex/)、[ITextFrame::ReplaceText](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/replacetext/) 或 [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/replaceregex/)。簡報層級的方法則會處理所有適用的文字框。
+取得圖形的文字框，然後對該文字框呼叫[ITextFrame::HighlightText]、[ITextFrame::HighlightRegex]、[ITextFrame::ReplaceText]或[ITextFrame::ReplaceRegex]。簡報層級的方法則會處理所有適用的文字框。
 
-**如何匹配完整單字且符合正確的大小寫？**
+**如何匹配完整單詞且大小寫正確？**
 
-將 [ITextSearchOptions::set_WholeWordsOnly](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextsearchoptions/set_wholewordsonly/) 與 [ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) 設為 `true`，並將選項傳遞給文字文字的突顯或取代方法。對於正規表達式，請在 `System::Text::RegularExpressions::Regex` 本身定義單字邊界與大小寫敏感度。
+對[ITextSearchOptions::set_WholeWordsOnly]與[ITextSearchOptions::set_CaseSensitive]傳入`true`，並將選項傳遞給純文字的標註或取代方法。對於正規表達式，請在`System::Text::RegularExpressions::Regex`本身定義單詞邊界與大小寫敏感度。
 
-**搜尋與取代時可以包含投影片備註中的文字嗎？**
+**搜尋與取代可以包含投影片備註中的文字嗎？**
 
-可以。於簡報層級的文字文字操作時，將 [ITextSearchOptions::set_IncludeNotes](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextsearchoptions/set_includenotes/) 設為 `true`。上方示範的回呼實作會將備註投影片中的符合項目對應回其父投影片編號。
+可以。於使用簡報層級的純文字操作時，將[ITextSearchOptions::set_IncludeNotes]設為`true`。上述回呼實作會將備註投影片中的匹配映射回其母投影片編號。
 
-**如何在不再次掃描簡報的情況下產生報告？**
+**如何在不第二次掃描簡報的情況下建立報告？**
 
-將 [IFindResultCallback](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ifindresultcallback/) 實作傳遞給突顯或取代操作。回呼會在操作執行期間即時收到每一次符合，讓應用程式能儲存來源文字、符合文字、位置、文字框與衍生的投影片編號，以供之後分組或匯出。
+將[IFindResultCallback]實作傳遞給標註或取代操作。回呼會在操作執行期間收到每一次匹配，因而可儲存來源文字、匹配文字、位置、文字框與推導出的投影片編號，以供稍後分組或匯出。
 
-**取代文字時會保留其格式嗎？**
+**取代文字會保留其格式嗎？**
 
-[ITextFrame::ReplaceText](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/replacetext/) 與 [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/itextframe/replaceregex/) 會在既有文字框內修改符合文字，並保留周圍部分的格式。如果一次符合跨越不同格式的段落，請檢查結果以確保取代文字使用所需的樣式。
+[ITextFrame::ReplaceText]與[ITextFrame::ReplaceRegex]會在既有文字框內修改匹配文字，並保留其周圍部分的格式。如果匹配跨越不同格式的區段，請檢查結果以確保取代後使用的樣式符合預期。

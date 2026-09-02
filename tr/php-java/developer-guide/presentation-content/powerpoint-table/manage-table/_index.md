@@ -8,7 +8,7 @@ keywords:
 - tablo ekle
 - tablo oluştur
 - tabloya eriş
-- en/boy oranı
+- en-boy oranı
 - metni hizala
 - metin biçimlendirme
 - tablo stili
@@ -16,41 +16,39 @@ keywords:
 - sunum
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java kullanarak PowerPoint slaytlarında tablolar oluşturun ve düzenleyin. Tablo iş akışlarınızı hızlandırmak için basit kod örneklerini keşfedin."
+description: "Aspose.Slides for PHP via Java ile PowerPoint slaytlarında tablolar oluşturun ve düzenleyin. Tablo iş akışlarınızı kolaylaştırmak için basit kod örneklerini keşfedin."
 ---
 ## **Giriş**
 
-PowerPoint'teki bir tablo, bilgiyi görüntülemenin ve aktarmanın etkili bir yoludur. Hücrelerden (satır ve sütunlarda düzenlenmiş) oluşan bir ızgaradaki bilgiler basit ve anlaşılması kolaydır.
+PowerPoint'teki bir tablo, bilgiyi görüntülemenin ve sunmanın verimli bir yoludur. Hücrelerden oluşan bir ızgaradaki (satır ve sütunlar halinde düzenlenmiş) bilgi, açık ve anlaşılması kolaydır.
 
-Aspose.Slides, [Table](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Table) sınıfını, [Cell](https://reference.aspose.com/slides/tr/php-java/aspose.slides/cell/) sınıfını ve diğer türleri sağlayarak, çeşitli sunumlarda tablolar oluşturmanıza, güncellemenize ve yönetmenize olanak tanır.
+Aspose.Slides, [Tablo](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Table) sınıfını, [Hücre](https://reference.aspose.com/slides/tr/php-java/aspose.slides/cell/) sınıfını ve diğer türleri sağlar; böylece her türlü sunumda tabloları oluşturabilir, güncelleyebilir ve yönetebilirsiniz.
 
 ## **Sıfırdan Bir Tablo Oluşturma**
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.  
-2. Slaytın referansını indeksinden alın.  
-3. `columnWidth` dizisini tanımlayın.  
-4. `rowHeight` dizisini tanımlayın.  
-5. Slayta, [addTable](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shapecollection/addtable/) yöntemiyle bir [Table](https://reference.aspose.com/slides/tr/php-java/aspose.slides/table/) nesnesi ekleyin.  
-6. Her bir [Cell](https://reference.aspose.com/slides/tr/php-java/aspose.slides/cell/) üzerinden döngü yaparak üst, alt, sağ ve sol kenarlara biçimlendirme uygulayın.  
+1. [Sunum](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) sınıfından bir örnek oluşturun.  
+2. İndeks aracılığıyla bir slaytın referansını alın.  
+3. Bir `columnWidth` dizisi tanımlayın.  
+4. Bir `rowHeight` dizisi tanımlayın.  
+5. [addTable](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shapecollection/addtable/) yöntemiyle slayta bir [Tablo](https://reference.aspose.com/slides/tr/php-java/aspose.slides/table/) nesnesi ekleyin.  
+6. Her bir [Hücre](https://reference.aspose.com/slides/tr/php-java/aspose.slides/cell/) üzerinde dolaşarak üst, alt, sağ ve sol kenarlara biçimlendirme uygulayın.  
 7. Tablonun ilk satırındaki ilk iki hücreyi birleştirin.  
-8. Bir [Cell](https://reference.aspose.com/slides/tr/php-java/aspose.slides/cell/) nesnesinin [TextFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/) öğesine erişin.  
-9. [TextFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/) öğesine bir metin ekleyin.  
+8. Bir [Hücre](https://reference.aspose.com/slides/tr/php-java/aspose.slides/cell/)'nin [TextFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/)'ına erişin.  
+9. [TextFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/) içine bir metin ekleyin.  
 10. Değiştirilen sunumu kaydedin.
 
-Bu PHP kodu, bir sunum içinde tablo oluşturmanın nasıl yapıldığını gösterir:
-
 ```php
-  # PPTX dosyasını temsil eden bir Presentation sınıfını oluşturur
+  # PPTX dosyasını temsil eden Presentation sınıfını örnekler
   $pres = new Presentation();
   try {
     # İlk slayta erişir
     $sld = $pres->getSlides()->get_Item(0);
-    # Genişlikleri olan sütunları ve yükseklikleri olan satırları tanımlar
+    # Sütunları genişlikleriyle ve satırları yükseklikleriyle tanımlar
     $dblCols = array(50, 50, 50 );
     $dblRows = array(50, 30, 30, 30, 30 );
     # Slayta bir tablo şekli ekler
     $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # Her hücre için kenarlık biçimini ayarlar
+    # Her hücrenin kenar biçimini ayarlar
     for($row = 0; $row < java_values($tbl->getRows()->size()) ; $row++) {
       for($cell = 0; $cell < java_values($tbl->getRows()->get_Item($row)->size()) ; $cell++) {
         $cellFormat = $tbl->getRows()->get_Item($row)->get_Item($cell)->getCellFormat();
@@ -68,9 +66,9 @@ Bu PHP kodu, bir sunum içinde tablo oluşturmanın nasıl yapıldığını gös
         $cellFormat::getBorderRight()->setWidth(5);
       }
     }
-    # 1. satırın 1 ve 2. hücrelerini birleştirir
+    # 1. satırın 1. ve 2. hücrelerini birleştirir
     $tbl->mergeCells($tbl->getRows()->get_Item(0)->get_Item(0), $tbl->getRows()->get_Item(1)->get_Item(1), false);
-    # Birleştirilen hücreye biraz metin ekler
+    # Birleşik hücreye metin ekler
     $tbl->getRows()->get_Item(0)->get_Item(0)->getTextFrame()->setText("Merged Cells");
     # Sunumu diske kaydeder
     $pres->save("table.pptx", SaveFormat::Pptx);
@@ -81,11 +79,11 @@ Bu PHP kodu, bir sunum içinde tablo oluşturmanın nasıl yapıldığını gös
   }
 ```
 
-## **Standart Bir Tablo'da Numarlama**
+## **Standart Bir Tablodaki Numaralandırma**
 
-Standart bir tabloda, hücrelerin numaralandırması basit ve sıfır temelli (zero‑based) olur. Tablo içindeki ilk hücre 0,0 (sütun 0, satır 0) olarak indekslenir.
+Standart bir tabloda hücrelerin numaralandırması basittir ve sıfırdan başlar. Bir tablodaki ilk hücre 0,0 (sütun 0, satır 0) olarak indekslenir.
 
-Örneğin, 4 sütun ve 4 satırdan oluşan bir tablodaki hücreler şu şekilde numaralandırılır:
+Örneğin, 4 sütun ve 4 satır içeren bir tablodaki hücreler şu şekilde numaralandırılır:
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -93,21 +91,22 @@ Standart bir tabloda, hücrelerin numaralandırması basit ve sıfır temelli (z
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-Bu PHP kodu, bir tablodaki hücrelerin numaralandırmasının nasıl belirtileceğini gösterir:
+Bu PHP kodu, bir tablodaki hücrelerin numaralandırmasını nasıl belirteceğinizi gösterir:
 
 ```php
-  # PPTX dosyasını temsil eden bir Presentation sınıfını başlatır
+  # PPTX dosyasını temsil eden Presentation sınıfını örnekler
   $pres = new Presentation();
   try {
     # İlk slayta erişir
     $sld = $pres->getSlides()->get_Item(0);
-    # Genişlikleri olan sütunları ve yükseklikleri olan satırları tanımlar
+    # Sütunları genişlikleriyle ve satırları yükseklikleriyle tanımlar
     $dblCols = array(70, 70, 70, 70 );
     $dblRows = array(70, 70, 70, 70 );
     # Slayta bir tablo şekli ekler
     $tbl = $sld->getShapes()->addTable(100, 50, $dblCols, $dblRows);
-    # Her hücre için kenarlık biçimini ayarlar
-    foreach($tbl->getRows() as $row) {
+    # Her hücrenin kenar biçimini ayarlar
+    $rows = $tbl->getRows();
+    foreach($rows as $row) {
       foreach($row as $cell) {
         $cell->getCellFormat()->getBorderTop()->getFillFormat()->setFillType(FillType::Solid);
         $cell->getCellFormat()->getBorderTop()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
@@ -132,17 +131,17 @@ Bu PHP kodu, bir tablodaki hücrelerin numaralandırmasının nasıl belirtilece
   }
 ```
 
-## **Mevcut Bir Tabloya Erişim**
+## **Mevcut Bir Tabloya Erişme**
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.  
-2. İndeks aracılığıyla tabloyu içeren slaytın referansını alın.  
-3. Bir [Table](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Table) nesnesi oluşturun ve null olarak ayarlayın.  
-4. Tablo bulunana kadar tüm [Shape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/) nesneleri üzerinde döngü yapın.  
-   Eğer üzerinde çalıştığınız slaydın tek bir tablo içerdiğini düşünüyorsanız, içinde bulunan tüm şekilleri kontrol edebilirsiniz. Bir şekil tablo olarak tanımlandığında, onu bir [Table](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Table) nesnesine tip dönüşümüyle (typecast) atayabilirsiniz. Ancak, çalıştığınız slayt birden fazla tablo içeriyorsa, ihtiyacınız olan tabloyu [setAlternativeText(String value)](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/setalternativetext/) yöntemiyle aramanız daha iyidir.  
-5. Tabloyla çalışmak için [Table](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Table) nesnesini kullanın. Aşağıdaki örnekte tabloya yeni bir satır ekledik.  
+1. [Sunum](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) sınıfından bir örnek oluşturun.  
+2. İndeks aracılığıyla tabloyu içeren bir slayta referans alın.  
+3. Bir [Tablo](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Table) nesnesi oluşturun ve null olarak ayarlayın.  
+4. [Şekil](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/) nesneleri arasında tablo bulunana kadar dolaşın.  
+
+   Eğer üzerinde çalıştığınız slayt tek bir tablo içeriyorsa, içinde bulunduğu tüm şekilleri kontrol edebilirsiniz. Bir şekil tablo olarak tanımlandığında, onu bir [Tablo](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Table) nesnesine tip dönüşümü yapabilirsiniz. Ancak slayt birden çok tablo içeriyorsa, ihtiyacınız olan tabloyu [setAlternativeText(String value)](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/setalternativetext/) özelliğiyle aramak daha iyidir.  
+
+5. [Tablo](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Table) nesnesini kullanarak tablo ile çalışın. Aşağıdaki örnekte tabloya yeni bir satır ekledik.  
 6. Değiştirilen sunumu kaydedin.
-
-Bu PHP kodu, mevcut bir tabloya nasıl erişileceğini ve onunla nasıl çalışılacağını gösterir:
 
 ```php
   # PPTX dosyasını temsil eden Presentation sınıfını örnekler
@@ -152,11 +151,12 @@ Bu PHP kodu, mevcut bir tabloya nasıl erişileceğini ve onunla nasıl çalış
     $sld = $pres->getSlides()->get_Item(0);
     # null TableEx'i başlatır
     $tbl = null;
-    # Şekiller üzerinde döngü yapar ve bulunan tabloya bir referans ayarlar
-    foreach($sld->getShapes() as $shp) {
+    # Şekiller arasında dolaşır ve bulunan tabloya bir referans ayarlar
+    $shapes = $sld->getShapes();
+    foreach($shapes as $shp) {
       if (java_instanceof($shp, new JavaClass("com.aspose.slides.Table"))) {
         $tbl = $shp;
-        # İkinci satırın birinci sütunu için metni ayarlar
+        # İkinci satırın birinci sütununa metin ayarlar
         $tbl->get_Item(0, 1)->getTextFrame()->setText("New");
       }
     }
@@ -169,25 +169,31 @@ Bu PHP kodu, mevcut bir tabloya nasıl erişileceğini ve onunla nasıl çalış
   }
 ```
 
-## **Bir Tablo İçinde Metni Hizalama**
+## **Bir TextFrame'e Sahip Hücreyi Bulma**
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.  
-2. Slaytın referansını indeksinden alın.  
-3. Slayta bir [Table](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Table) nesnesi ekleyin.  
+Genel metin işleme kodu bir tablodan bir [TextFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/) aldığında, sahip [Hücre](https://reference.aspose.com/slides/tr/php-java/aspose.slides/cell/)yi geri almak için [TextFrame::getParentCell](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/#getParentCell) yöntemini kullanın. Bir tablo hücresi metin çerçevesi için, [TextFrame::getParentCell](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/#getParentCell) sahibi döndürür ve [TextFrame::getParentShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/#getParentShape) `null` döner; tablo kendisi bir şekil olsa bile.
+
+Hücre koordinatları, yalnızca okunabilir olan [Cell::getFirstColumnIndex](https://reference.aspose.com/slides/tr/php-java/aspose.slides/cell/#getFirstColumnIndex) ve [Cell::getFirstRowIndex](https://reference.aspose.com/slides/tr/php-java/aspose.slides/cell/#getFirstRowIndex) metodlarıyla elde edilebilir. [TextFrame::getParentCell](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/#getParentCell) ayrıca yalnızca okunabilir bir gezinme sağlar: sahibi döndürür ancak sahipliği değiştirmez. Her zaman `java_is_null` ile dönen hücreyi kontrol edip ardından kullanın.
+
+Tablo hücresi ve şekil sahiplerini, SmartArt düğümleriyle ilişkili şekilleri içeren kapsamlı bir örnek için [Metin Arama ve Değiştirme](/slides/tr/php-java/search-and-replace-text/) bölümüne bakın.
+
+## **Tablodaki Metni Hizalama**
+
+1. [Sunum](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) sınıfından bir örnek oluşturun.  
+2. İndeks aracılığıyla bir slaytın referansını alın.  
+3. Slayta bir [Tablo](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Table) nesnesi ekleyin.  
 4. Tablodan bir [TextFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/) nesnesine erişin.  
-5. [Paragraph](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraph/) öğesine erişin.  
+5. [Paragraf](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraph/) nesnesine erişin.  
 6. Metni dikey olarak hizalayın.  
 7. Değiştirilen sunumu kaydedin.
-
-Bu PHP kodu, bir tabloda metni nasıl hizalayacağınızı gösterir:
 
 ```php
   # Presentation sınıfının bir örneğini oluşturur
   $pres = new Presentation();
   try {
-    # İlk slayta erişir
+    # İlk slaytı alır
     $slide = $pres->getSlides()->get_Item(0);
-    # Genişlikleri olan sütunları ve yükseklikleri olan satırları tanımlar
+    # Sütunları genişlikleriyle ve satırları yükseklikleriyle tanımlar
     $dblCols = array(120, 120, 120, 120 );
     $dblRows = array(100, 100, 100, 100 );
     # Slayta tablo şekli ekler
@@ -219,27 +225,25 @@ Bu PHP kodu, bir tabloda metni nasıl hizalayacağınızı gösterir:
 
 ## **Tablo Düzeyinde Metin Biçimlendirmesini Ayarlama**
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.  
-2. Slaytın referansını indeksinden alın.  
-3. Slayttan bir [Table](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Table) nesnesine erişin.  
-4. Metin için [setFontHeight(float value)](https://reference.aspose.com/slides/tr/php-java/aspose.slides/baseportionformat/#setFontHeight) metodunu ayarlayın.  
-5. [setAlignment(int value)](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraphformat/setalignment/) ve [setMarginRight(float value)](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraphformat/setmarginright/) metodlarını ayarlayın.  
-6. [setTextVerticalType(byte value)](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframeformat/settextverticaltype/) metodunu ayarlayın.  
+1. [Sunum](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Presentation) sınıfından bir örnek oluşturun.  
+2. İndeks aracılığıyla bir slaytın referansını alın.  
+3. Slayttan bir [Tablo](https://reference.aspose.com/slides/tr/php-java/aspose.slides/Table) nesnesine erişin.  
+4. Metin için [setFontHeight(float value)](https://reference.aspose.com/slides/tr/php-java/aspose.slides/baseportionformat/#setFontHeight) ayarlayın.  
+5. [setAlignment(int value)](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraphformat/setalignment/) ve [setMarginRight(float value)](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraphformat/setmarginright/) ayarlarını yapın.  
+6. [setTextVerticalType(byte value)](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframeformat/settextverticaltype/) ayarlayın.  
 7. Değiştirilen sunumu kaydedin.
-
-Bu PHP kodu, bir tablodaki metne tercih ettiğiniz biçimlendirme seçeneklerini nasıl uygulayacağınızı gösterir:
 
 ```php
   # Presentation sınıfının bir örneğini oluşturur
   $pres = new Presentation("simpletable.pptx");
   try {
-    # İlk slaydın ilk şeklinin bir tablo olduğunu varsayalım
+    # İlk slayttaki ilk şeklin bir tablo olduğunu varsayalım
     $someTable = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
     # Tablo hücrelerinin yazı tipi yüksekliğini ayarlar
     $portionFormat = new PortionFormat();
     $portionFormat::setFontHeight(25);
     $someTable->setTextFormat($portionFormat);
-    # Tablo hücrelerinin metin hizalamasını ve sağ kenar boşluğunu tek bir çağrıyla ayarlar
+    # Tablo hücrelerinin metin hizalamasını ve sağ kenar boşluğunu tek çağrıda ayarlar
     $paragraphFormat = new ParagraphFormat();
     $paragraphFormat::setAlignment(TextAlignment->Right);
     $paragraphFormat::setMarginRight(20);
@@ -258,7 +262,7 @@ Bu PHP kodu, bir tablodaki metne tercih ettiğiniz biçimlendirme seçeneklerini
 
 ## **Tablo Stil Özelliklerini Almak**
 
-Aspose.Slides, bir tablonun stil özelliklerini almanıza olanak tanır; bu ayrıntıları başka bir tabloya ya da başka bir yere uygulayabilirsiniz. Bu PHP kodu, bir tablo ön ayar stilinden stil özelliklerini nasıl alacağınızı gösterir:
+Aspose.Slides, bir tablonun stil özelliklerini almanıza olanak tanır; bu sayede bu detayları başka bir tabloya ya da başka bir yere uygulayabilirsiniz. Bu PHP kodu, bir tablo ön ayar stilinden stil özelliklerini nasıl alacağınızı gösterir:
 
 ```php
   $pres = new Presentation();
@@ -274,18 +278,18 @@ Aspose.Slides, bir tablonun stil özelliklerini almanıza olanak tanır; bu ayr�
   }
 ```
 
-## **Bir Tablonun En/Boy Oranını Kilitleme**
+## **Bir Tablonun En-Boy Oranını Kilitleme**
 
-Geometrik bir şeklin en/boy oranı, farklı boyutlarda ölçülerinin oranıdır. Aspose.Slides, tablolar ve diğer şekiller için en/boy oranı kilitleme ayarını etkinleştirmenizi sağlayan [setAspectRatioLocked](https://reference.aspose.com/slides/tr/php-java/aspose.slides/graphicalobjectlock/setaspectratiolocked/) metodunu sunar.
+Geometrik bir şeklin en‑boy oranı, farklı boyutlardaki boyutlarının oranıdır. Aspose.Slides, tablolar ve diğer şekiller için en‑boy oranı kilitleme ayarını sağlayan [setAspectRatioLocked](https://reference.aspose.com/slides/tr/php-java/aspose.slides/graphicalobjectlock/setaspectratiolocked/) yöntemini sunar.
 
-Bu PHP kodu, bir tablonun en/boy oranını nasıl kilitleyeceğinizi gösterir:
+Bu PHP kodu, bir tablonun en‑boy oranını nasıl kilitleyeceğinizi gösterir:
 
 ```php
   $pres = new Presentation("pres.pptx");
   try {
     $table = $pres->getSlides()->get_Item(0)->getShapes()->get_Item(0);
     echo("Lock aspect ratio set: " . $table->getGraphicalObjectLock()->getAspectRatioLocked());
-    $table->getGraphicalObjectLock()->setAspectRatioLocked(!$table->getGraphicalObjectLock()->getAspectRatioLocked());// invert
+    $table->getGraphicalObjectLock()->setAspectRatioLocked(!$table->getGraphicalObjectLock()->getAspectRatioLocked());// tersine çevir
 
     echo("Lock aspect ratio set: " . $table->getGraphicalObjectLock()->getAspectRatioLocked());
     $pres->save("pres-out.pptx", SaveFormat::Pptx);
@@ -296,16 +300,16 @@ Bu PHP kodu, bir tablonun en/boy oranını nasıl kilitleyeceğinizi gösterir:
   }
 ```
 
-## **FAQ**
+## **SSS**
 
-**Tam bir tablo ve hücrelerindeki metin için sağdan sola (RTL) okuma yönünü etkinleştirebilir miyim?**
+**Bir bütün tablo ve hücrelerindeki metin için sağdan sola (RTL) okuma yönünü etkinleştirebilir miyim?**
 
-Evet. Tablo, bir [setRightToLeft](https://reference.aspose.com/slides/tr/php-java/aspose.slides/table/setrighttoleft/) metodunu ortaya çıkarır ve paragraflar [ParagraphFormat::setRightToLeft](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraphformat/setrighttoleft/) metoduna sahiptir. İkisini birlikte kullanmak, hücre içindeki doğru RTL sırasını ve renderlamayı sağlar.
+Evet. Tablo, bir [setRightToLeft](https://reference.aspose.com/slides/tr/php-java/aspose.slides/table/setrighttoleft/) yöntemi sunar ve paragraflar da [ParagraphFormat::setRightToLeft](https://reference.aspose.com/slides/tr/php-java/aspose.slides/paragraphformat/setrighttoleft/) metoduna sahiptir. Her ikisini de kullanmak, hücre içindeki doğru RTL sırasını ve oluşturulmasını sağlar.
 
-**Kullanıcıların final dosyada bir tabloyu taşımasını veya yeniden boyutlandırmasını nasıl engelleyebilirim?**
+**Kullanıcıların tablonun son dosyada taşınmasını veya yeniden boyutlandırılmasını nasıl engelleyebilirim?**
 
-Taşıma, yeniden boyutlandırma, seçim vb. işlemleri devre dışı bırakmak için şekil kilitlerini kullanın. Bu kilitler tablolara da uygulanır.
+Şekil kilitlerini kullanarak taşıma, yeniden boyutlandırma, seçim vb. işlemleri devre dışı bırakın. Bu kilitler tablo için de geçerlidir.
 
-**Bir hücrenin içinde arka plan olarak resim eklemek destekleniyor mu?**
+**Bir hücre içinde arka plan olarak bir resim eklemek destekleniyor mu?**
 
-Evet. Bir hücre için [picture fill](https://reference.aspose.com/slides/tr/php-java/aspose.slides/picturefillformat/) ayarlayabilirsiniz; görüntü, seçilen moda (germe veya döşeme) göre hücre alanını kaplar.
+Evet. Bir hücre için [picture fill](https://reference.aspose.com/slides/tr/php-java/aspose.slides/picturefillformat/) ayarlayabilirsiniz; seçim moduna (germe veya döşeme) göre resim hücre alanını kaplar.

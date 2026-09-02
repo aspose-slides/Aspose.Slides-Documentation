@@ -10,7 +10,7 @@ keywords:
 - reemplazar texto
 - expresión regular
 - callback de resultados
-- cuadro de texto
+- marco de texto
 - informe de auditoría
 - PowerPoint
 - OpenDocument
@@ -18,11 +18,11 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Buscar, resaltar y reemplazar texto en presentaciones de PowerPoint mientras se recopila cada coincidencia con Aspose.Slides para Android mediante Java."
+description: "Buscar, resaltar y reemplazar texto en presentaciones de PowerPoint mientras se recopila cada coincidencia con Aspose.Slides para Android a través de Java."
 ---
-## **Descripción general**
+## **Visión general**
 
-Aspose.Slides for Android via Java puede buscar, resaltar y reemplazar texto en un cuadro de texto individual o en toda una presentación. Cada operación también puede notificar a una aplicación sobre cada coincidencia mediante un callback de resultados. Esto permite actualizar una presentación y, simultáneamente, crear un rastro de auditoría que contiene el texto coincidente, su contexto, posición, cuadro de texto y número de diapositiva.
+Aspose.Slides para Android a través de Java puede buscar, resaltar y reemplazar texto en un marco de texto individual o en toda una presentación. Cada operación también puede notificar a una aplicación sobre cada coincidencia mediante una devolución de llamada de resultados. Esto permite actualizar una presentación y, simultáneamente, crear una pista de auditoría que contiene el texto coincidente, su contexto, posición, marco de texto y número de diapositiva.
 
 Estas capacidades son útiles para revisiones, redactado, comprobaciones de terminología, limpieza de plantillas y flujos de trabajo de generación de informes automatizados.
 
@@ -30,32 +30,96 @@ En los primeros ejemplos a continuación, utilizamos un archivo llamado "sample.
 
 ![Sample text](sample_text.png)
 
-## **Elija el alcance de búsqueda**
+## **Elegir el ámbito de búsqueda**
 
-Utilice los métodos de [ITextFrame](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframe/) para limitar una operación a un cuadro de texto. Utilice los métodos de [IPresentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ipresentation/) para procesar todo el texto aplicable en la presentación.
+Utilice los métodos de [ITextFrame](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframe/) para limitar una operación a un solo marco de texto. Utilice los métodos de [IPresentation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ipresentation/) para procesar todo el texto aplicable en la presentación.
 
-| Operación | Un cuadro de texto | Presentación completa |
+| Operación | Un marco de texto | Presentación completa |
 |---|---|---|
 | Resaltar texto literal | [ITextFrame.highlightText](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [IPresentation.highlightText](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ipresentation/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
 | Resaltar coincidencias de expresiones regulares | [ITextFrame.highlightRegex](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-) | [IPresentation.highlightRegex](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ipresentation/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-) |
 | Reemplazar texto literal | [ITextFrame.replaceText](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [IPresentation.replaceText](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ipresentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
 | Reemplazar coincidencias de expresiones regulares | [ITextFrame.replaceRegex](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) | [IPresentation.replaceRegex](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ipresentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) |
 
-## **Configure la coincidencia de texto**
+## **Configurar coincidencia de texto**
 
-Para operaciones con texto literal, utilice [TextSearchOptions](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/textsearchoptions/) para controlar la coincidencia:
+Para operaciones de texto literal, utilice [TextSearchOptions](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/textsearchoptions/) para controlar la coincidencia:
 
 - [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) limita las coincidencias a palabras completas.
-- [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) controla si la capitalización de los caracteres debe coincidir.
-- [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) incluye notas de diapositiva en las operaciones de búsqueda, reemplazo y resaltado a nivel de presentación.
+- [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) controla si se debe respetar la mayúscula/minúscula de los caracteres.
+- [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) incluye las notas de diapositiva en las operaciones de búsqueda, reemplazo y resaltado a nivel de presentación.
 
-Las operaciones con expresiones regulares utilizan un `Pattern` de Java, por lo que las reglas de coincidencia, como la distinción entre mayúsculas y minúsculas y los límites de palabra, se definen mediante la expresión y sus banderas.
+Las operaciones basadas en expresiones regulares usan un `Pattern` de Java, por lo que reglas como la sensibilidad a mayúsculas y los límites de palabras están definidas por la propia expresión y sus banderas.
 
-## **Recopilar información de coincidencias con un callback**
+## **Identificar el propietario de un marco de texto**
 
-Implemente [IFindResultCallback](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ifindresultcallback/) para recibir una notificación por cada coincidencia. Su método [IFindResultCallback.foundResult](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ifindresultcallback/#foundResult-com.aspose.slides.ITextFrame-java.lang.String-java.lang.String-int-) proporciona el cuadro de texto relacionado, el texto fuente, el texto coincidente y la posición de la coincidencia.
+Los flujos de trabajo genéricos de procesamiento de texto a menudo reciben un [ITextFrame](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframe/) mientras buscan, reemplazan, validan o exportan texto. Utilice [ITextFrame.getParentShape](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframe/#getParentShape--) y [ITextFrame.getParentCell](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframe/#getParentCell--) para determinar qué objeto de la presentación es el propietario del marco de texto.
 
-El callback no recibe directamente el número de diapositiva. La implementación a continuación lo deriva de la diapositiva principal y también maneja el texto encontrado en las notas de la diapositiva. Un `Integer` anulable permite que el mismo modelo de resultado represente texto asociado a otros tipos de diapositiva.
+Los valores esperados dependen del propietario:
+
+| Propietario del marco de texto | `getParentShape` | `getParentCell` |
+|---|---|---|
+| Una AutoShape u otra forma que contenga texto | El [IShape](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ishape/) propietario | `null` |
+| Una celda de tabla | `null` | El [ICell](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/icell/) propietario |
+
+Ambos métodos proporcionan navegación de solo lectura. Llamarlos no mueve el marco de texto ni cambia su propietario. El código genérico debe comprobar ambos valores para `null` y gestionar la posibilidad de que ninguno de los propietarios esté disponible.
+
+El siguiente ejemplo utiliza [SlideUtil.getAllTextFrames](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/slideutil/#getAllTextFrames-com.aspose.slides.IPresentation-boolean-) para iterar a través de los marcos de texto de una presentación. Para las formas, informa del nombre de la forma, el tipo de tiempo de ejecución de Java y la diapositiva contenedora. Para las celdas de tabla, informa de las coordenadas de columna y fila basadas en cero y la diapositiva contenedora.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    ITextFrame[] textFrames = SlideUtil.getAllTextFrames(presentation, false);
+
+    for (ITextFrame textFrame : textFrames) {
+        IShape ownerShape = textFrame.getParentShape();
+        if (ownerShape != null) {
+            String shapeName = ownerShape.getName().isEmpty() ? "(unnamed)" : ownerShape.getName();
+            String shapeType = ownerShape.getClass().getSimpleName();
+            IBaseSlide baseSlide = ownerShape.getSlide();
+            String slideLabel;
+            if (baseSlide instanceof ISlide) {
+                slideLabel = "slide " + ((ISlide) baseSlide).getSlideNumber();
+            } else if (baseSlide instanceof INotesSlide) {
+                slideLabel = "notes for slide " + ((INotesSlide) baseSlide).getParentSlide().getSlideNumber();
+            } else {
+                slideLabel = baseSlide.getClass().getSimpleName();
+            }
+            System.out.println("Shape: " + shapeName + "; type: " + shapeType + "; " + slideLabel);
+            continue;
+        }
+
+        ICell ownerCell = textFrame.getParentCell();
+        if (ownerCell != null) {
+            IBaseSlide baseSlide = ownerCell.getSlide();
+            String slideLabel;
+            if (baseSlide instanceof ISlide) {
+                slideLabel = "slide " + ((ISlide) baseSlide).getSlideNumber();
+            } else if (baseSlide instanceof INotesSlide) {
+                slideLabel = "notes for slide " + ((INotesSlide) baseSlide).getParentSlide().getSlideNumber();
+            } else {
+                slideLabel = baseSlide.getClass().getSimpleName();
+            }
+            System.out.println("Table cell: column " + ownerCell.getFirstColumnIndex() + ", row " + ownerCell.getFirstRowIndex() + "; " + slideLabel);
+            continue;
+        }
+
+        System.out.println("The text frame owner is not available as a shape or table cell.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Para el contenido de SmartArt, itere a través de las formas en [ISmartArtNode.getShapes](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ismartartnode/#getShapes--) y acceda a cada [ISmartArtShape.getTextFrame](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ismartartshape/#getTextFrame--). El marco de texto puede rastrearse a su forma asociada mediante [ITextFrame.getParentShape](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframe/#getParentShape--), mientras que [ITextFrame.getParentCell](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframe/#getParentCell--) devuelve `null`. Por lo tanto, la rama de forma en el ejemplo también maneja texto de nodos SmartArt.
+
+## **Recopilar información de coincidencias con una devolución de llamada**
+
+Implemente [IFindResultCallback](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ifindresultcallback/) para recibir una notificación por cada coincidencia. Su método [IFindResultCallback.foundResult](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ifindresultcallback/#foundResult-com.aspose.slides.ITextFrame-java.lang.String-java.lang.String-int-) proporciona el marco de texto relacionado, el texto fuente, el texto coincidente y la posición de la coincidencia.
+
+La devolución de llamada no recibe un número de diapositiva directamente. La implementación a continuación lo deriva de la diapositiva principal y también maneja texto encontrado en notas de diapositiva. Un `Integer` nullable permite que el mismo modelo de resultado represente texto asociado a otros tipos de diapositiva.
 
 ```java
 import com.aspose.slides.*;
@@ -112,12 +176,10 @@ final class TextSearchCallback implements IFindResultCallback {
         results.add(result);
     }
 
-    private static Integer getSlideNumber(ITextFrame textFrame) {
-        if (!(textFrame instanceof TextFrame)) {
-            return null;
-        }
-
-        IBaseSlide parentSlide = ((TextFrame) textFrame).getSlide();
+    private Integer getSlideNumber(ITextFrame textFrame) {
+        IShape parentShape = textFrame.getParentShape();
+        ICell parentCell = textFrame.getParentCell();
+        IBaseSlide parentSlide = parentShape != null ? parentShape.getSlide() : parentCell != null ? parentCell.getSlide() : textFrame.getSlide();
 
         if (parentSlide instanceof ISlide) {
             return ((ISlide) parentSlide).getSlideNumber();
@@ -132,13 +194,13 @@ final class TextSearchCallback implements IFindResultCallback {
 }
 ```
 
-Para las operaciones de reemplazo, `foundText` contiene el texto original coincidente, de modo que el callback puede registrar exactamente qué términos fueron reemplazados.
+Para operaciones de reemplazo, `foundText` contiene el texto original encontrado, por lo que la devolución de llamada puede registrar exactamente qué términos fueron reemplazados.
 
 ## **Resaltar texto**
 
-Utilice el método [ITextFrame.highlightText](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) para resaltar coincidencias de texto literal en un cuadro de texto. Passe [TextSearchOptions](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/textsearchoptions/) para controlar la búsqueda y un callback para recopilar los detalles de la coincidencia.
+Utilice el método [ITextFrame.highlightText](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) para resaltar coincidencias de texto literal en un marco de texto. Pase [TextSearchOptions](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/textsearchoptions/) para controlar la búsqueda y una devolución de llamada para recopilar los detalles de la coincidencia.
 
-El ejemplo de código a continuación resalta todas las apariciones de los caracteres **"try"** y luego resalta solo la palabra completa **"to"**. Ambas búsquedas informan sus coincidencias al mismo callback.
+El ejemplo de código a continuación resalta todas las apariciones de los caracteres **"try"** y luego resalta solo la palabra completa **"to"**. Ambas búsquedas informan sus coincidencias a la misma devolución de llamada.
 
 ```java
 import com.aspose.slides.*;
@@ -154,7 +216,7 @@ try {
     substringSearchOptions.setCaseSensitive(false);
     int substringHighlightColor = Color.rgb(173, 216, 230);
 
-    // Resaltar cada aparición de "try" en el cuadro de texto.
+    // Resaltar cada aparición de "try" en el marco de texto.
     shape.getTextFrame().highlightText("try", substringHighlightColor, substringSearchOptions, callback);
 
     TextSearchOptions wholeWordSearchOptions = new TextSearchOptions();
@@ -182,9 +244,9 @@ El resultado:
 
 ## **Resaltar texto usando expresiones regulares**
 
-El método [ITextFrame.highlightRegex](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-) resalta las coincidencias de texto encontradas mediante una expresión regular en un cuadro de texto.
+El método [ITextFrame.highlightRegex](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-) resalta coincidencias de texto encontradas mediante una expresión regular en un marco de texto.
 
-El siguiente código resalta todas las palabras que contienen siete o más caracteres y recoge cada coincidencia:
+El siguiente código resalta todas las palabras que contienen siete o más caracteres y recopila cada coincidencia:
 
 ```java
 import com.aspose.slides.*;
@@ -212,7 +274,7 @@ El resultado:
 
 ## **Resaltar texto en toda una presentación**
 
-Utilice [IPresentation.highlightText](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ipresentation/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) y [IPresentation.highlightRegex](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ipresentation/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-) para buscar en todos los cuadros de texto aplicables de una presentación. El ejemplo siguiente resalta un término literal y todas las direcciones de correo electrónico manteniendo colecciones de resultados independientes para ambas búsquedas.
+Utilice [IPresentation.highlightText](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ipresentation/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) y [IPresentation.highlightRegex](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ipresentation/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-) para buscar en todos los marcos de texto aplicables de una presentación. El siguiente ejemplo resalta un término literal y todas las direcciones de correo electrónico manteniendo colecciones de resultados separadas para ambas búsquedas.
 
 ```java
 import com.aspose.slides.*;
@@ -241,11 +303,11 @@ try {
 }
 ```
 
-## **Reemplazar texto en un cuadro de texto**
+## **Reemplazar texto en un marco de texto**
 
-Utilice [ITextFrame.replaceText](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) para texto literal y [ITextFrame.replaceRegex](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) para reemplazo basado en patrones. Estos métodos actualizan el texto coincidente dentro del cuadro de texto existente, lo que conserva el formato de la porción circundante en lugar de reconstruir el cuadro de texto a partir de una cadena simple.
+Utilice [ITextFrame.replaceText](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) para texto literal y [ITextFrame.replaceRegex](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) para reemplazo basado en patrones. Estos métodos actualizan el texto coincidente dentro del marco de texto existente, conservando el formato de las porciones circundantes en lugar de reconstruir el marco a partir de una cadena simple.
 
-El siguiente ejemplo normaliza una variante ortográfica y luego reemplaza las etiquetas de versión. El mismo callback registra los términos originales coincidentes en ambas operaciones.
+El siguiente ejemplo normaliza una variante ortográfica y luego reemplaza etiquetas de versión. La misma devolución de llamada registra los términos originales coincididos por ambas operaciones.
 
 ```java
 import com.aspose.slides.*;
@@ -275,7 +337,7 @@ Si una coincidencia abarca porciones con formato diferente, revise la salida par
 
 ## **Reemplazar texto en toda una presentación**
 
-Utilice [IPresentation.replaceText](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ipresentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) y [IPresentation.replaceRegex](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ipresentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) para aplicar las mismas operaciones en toda la presentación. Esto es útil para la limpieza de plantillas, actualizaciones de terminología y redactado.
+Utilice [IPresentation.replaceText](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ipresentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) y [IPresentation.replaceRegex](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ipresentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) para aplicar las mismas operaciones en toda la presentación. Esto resulta útil para la limpieza de plantillas, actualizaciones de terminología y redactado.
 
 ```java
 import com.aspose.slides.*;
@@ -301,7 +363,7 @@ try {
 
 ## **Agrupar coincidencias para informes**
 
-Porque cada resultado almacena su número de diapositiva y cuadro de texto, las aplicaciones pueden agrupar coincidencias para auditorías, informes o flujos de revisión. El siguiente ejemplo agrupa los resultados recogidos primero por diapositiva y luego por cuadro de texto:
+Dado que cada resultado almacena su número de diapositiva y marco de texto, las aplicaciones pueden agrupar coincidencias para auditorías, informes o flujos de revisión. El siguiente ejemplo agrupa los resultados recopilados primero por diapositiva y luego por marco de texto:
 
 ```java
 import com.aspose.slides.ITextFrame;
@@ -347,24 +409,24 @@ for (Map.Entry<Integer, Map<ITextFrame, List<TextMatch>>> slideEntry : matchesBy
 }
 ```
 
-## **Preguntas frecuentes**
+## **FAQ**
 
-**¿Cómo puedo buscar solo en un cuadro de texto en lugar de en toda la presentación?**
+**¿Cómo puedo buscar solo en un cuadro de texto en lugar de toda la presentación?**
 
-Obtenga el cuadro de texto de la forma y llame a [ITextFrame.highlightText](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), [ITextFrame.highlightRegex](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-), [ITextFrame.replaceText](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), o [ITextFrame.replaceRegex](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) en ese cuadro de texto. Los métodos a nivel de presentación procesan todos los cuadros de texto aplicables en su lugar.
+Obtenga el marco de texto de la forma y llame a [ITextFrame.highlightText](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), [ITextFrame.highlightRegex](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-), [ITextFrame.replaceText](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), o [ITextFrame.replaceRegex](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) en ese marco de texto. Los métodos a nivel de presentación procesan todos los marcos de texto aplicables.
 
 **¿Cómo puedo coincidir palabras completas con la capitalización correcta?**
 
-Establezca [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) y [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) en `true` y pase las opciones a un método de resaltado o reemplazo de texto literal. Para expresiones regulares, defina los límites de palabra y la distinción entre mayúsculas y minúsculas directamente en el `Pattern` de Java.
+Establezca [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) y [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) en `true`, y pase las opciones a un método de resaltado o reemplazo de texto literal. Para expresiones regulares, defina los límites de palabras y la sensibilidad a mayúsculas en el propio `Pattern` de Java.
 
-**¿Pueden la búsqueda y el reemplazo incluir texto en notas de diapositiva?**
+**¿Puede la búsqueda y el reemplazo incluir texto en las notas de la diapositiva?**
 
-Sí. Establezca [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) en `true` cuando utilice una operación de texto literal a nivel de presentación. La implementación del callback mostrada arriba asigna una coincidencia en una diapositiva de notas a su número de diapositiva principal.
+Sí. Establezca [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) en `true` al usar una operación literal a nivel de presentación. La implementación de la devolución de llamada mostrada arriba asigna una coincidencia en una diapositiva de notas a su número de diapositiva principal.
 
 **¿Cómo puedo crear un informe sin escanear la presentación una segunda vez?**
 
-Passe una implementación de [IFindResultCallback](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ifindresultcallback/) a la operación de resaltado o reemplazo. El callback recibe cada coincidencia mientras la operación se ejecuta, de modo que la aplicación puede almacenar el texto fuente, el texto coincidente, la posición, el cuadro de texto y el número de diapositiva derivado para agruparlo o exportarlo posteriormente.
+Pase una implementación de [IFindResultCallback](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ifindresultcallback/) a la operación de resaltado o reemplazo. La devolución de llamada recibe cada coincidencia mientras la operación se ejecuta, de modo que la aplicación puede almacenar el texto fuente, el texto coincidido, la posición, el marco de texto y el número de diapositiva derivado para agrupar o exportar posteriormente.
 
 **¿El reemplazo de texto conserva su formato?**
 
-[ITextFrame.replaceText](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) y [ITextFrame.replaceRegex](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) modifican el texto coincidente dentro del cuadro de texto existente y conservan el formato de la porción circundante. Si una coincidencia abarca porciones con formato diferente, inspeccione el resultado para asegurarse de que el reemplazo utilice el estilo deseado.
+[ITextFrame.replaceText](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) y [ITextFrame.replaceRegex](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) modifican el texto coincidente dentro del marco de texto existente y retienen el formato de las porciones circundantes. Si una coincidencia abarca porciones con formato diferente, inspeccione el resultado para asegurarse de que el reemplazo utilice el estilo deseado.

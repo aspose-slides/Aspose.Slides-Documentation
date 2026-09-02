@@ -1,69 +1,71 @@
 ---
-title: Διαχείριση πλαισίων κειμένου σε παρουσιάσεις Android
-linktitle: Διαχείριση πλαισίου κειμένου
+title: Διαχείριση κουτιών κειμένου σε παρουσιάσεις για Android
+linktitle: Διαχείριση κουτιού κειμένου
 type: docs
 weight: 20
 url: /el/androidjava/manage-textbox/
 keywords:
-- πλαίσιο κειμένου
-- πλαίσιο κειμένου
-- προσθήκη κειμένου
-- ενημέρωση κειμένου
-- δημιουργία πλαισίου κειμένου
-- έλεγχος πλαισίου κειμένου
-- προσθήκη στήλης κειμένου
-- προσθήκη υπερσυνδέσμου
-- PowerPoint
-- παρουσίαση
-- Android
-- Java
-- Aspose.Slides
-description: "Το Aspose.Slides για Android μέσω Java κάνει εύκολη τη δημιουργία, επεξεργασία και κλωνοποίηση πλαισίων κειμένου σε αρχεία PowerPoint και OpenDocument, ενισχύοντας την αυτοματοποίηση των παρουσιάσεών σας."
+  - κουτί κειμένου
+  - πλαίσιο κειμένου
+  - προσθήκη κειμένου
+  - ενημέρωση κειμένου
+  - δημιουργία κουτιού κειμένου
+  - έλεγχος κουτιού κειμένου
+  - προσθήκη στήλης κειμένου
+  - προσθήκη υπερσυνδέσμου
+  - PowerPoint
+  - παρουσίαση
+  - Android
+  - Java
+  - Aspose.Slides
+description: "Το Aspose.Slides for Android μέσω Java διευκολύνει τη δημιουργία, την επεξεργασία και την κλωνοποίηση κουτιών κειμένου σε αρχεία PowerPoint και OpenDocument, ενισχύοντας την αυτοματοποίηση των παρουσιάσεών σας."
 ---
 ## **Εισαγωγή**
 
-Τα κείμενα στις διαφάνειες συνήθως υπάρχουν σε πλαίσια κειμένου ή σχήματα. Επομένως, για να προσθέσετε κείμενο σε μια διαφάνεια, πρέπει να προσθέσετε ένα πλαίσιο κειμένου και στη συνέχεια να τοποθετήσετε κάποιο κείμενο μέσα στο πλαίσιο. Το Aspose.Slides για Android μέσω Java παρέχει τη διεπαφή [IAutoShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IAutoShape) που επιτρέπει την προσθήκη ενός σχήματος που περιέχει κείμενο.
+Τα κείμενα στις διαφάνειες συνήθως βρίσκονται σε κουτιά κειμένου ή σχήματα. Επομένως, για να προσθέσετε κείμενο σε μια διαφάνεια, πρέπει να προσθέσετε ένα κουτί κειμένου και έπειτα να τοποθετήσετε κάποιο κείμενο μέσα στο κουτί. Το Aspose.Slides for Android via Java παρέχει τη διεπαφή [IAutoShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IAutoShape) που σας επιτρέπει να προσθέσετε ένα σχήμα που περιέχει κείμενο.
 
-{{% alert title="Info" color="info" %}}
-Το Aspose.Slides παρέχει επίσης τη διεπαφή [IShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IShape) που επιτρέπει την προσθήκη σχημάτων στις διαφάνειες. Ωστόσο, δεν μπορούν όλα τα σχήματα που προστίθενται μέσω της διεπαφής `IShape` να περιέχουν κείμενο. Αλλά τα σχήματα που προστίθενται μέσω της διεπαφής [IAutoShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IAutoShape) μπορούν να περιέχουν κείμενο.
+{{% alert title="Πληροφορίες" color="info" %}}
+Το Aspose.Slides παρέχει επίσης τη διεπαφή [IShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IShape) που σας επιτρέπει να προσθέτετε σχήματα σε διαφάνειες. Ωστόσο, δεν μπορούν όλα τα σχήματα που προστίθενται μέσω της διεπαφής `IShape` να περιέχουν κείμενο. Αντιθέτως, σχήματα που προστίθενται μέσω της διεπαφής [IAutoShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IAutoShape) μπορεί να περιέχουν κείμενο.
 {{% /alert %}}
 
-{{% alert title="Note" color="warning" %}} 
-Επομένως, όταν ασχολείστε με ένα σχήμα στο οποίο θέλετε να προσθέσετε κείμενο, ίσως θελήσετε να ελέγξετε και να επιβεβαιώσετε ότι έχει μετατραπεί μέσω της διεπαφής `IAutoShape`. Μόνο τότε θα μπορείτε να εργαστείτε με το [TextFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/TextFrame), το οποίο είναι ιδιότητα του `IAutoShape`. Δείτε την ενότητα [Update Text](https://docs.aspose.com/slides/el/androidjava/manage-textbox/#update-text) σε αυτή τη σελίδα.
+{{% alert title="Σημείωση" color="warning" %}} 
+Επομένως, όταν εργάζεστε με ένα σχήμα στο οποίο θέλετε να προσθέσετε κείμενο, ίσως θελήσετε να ελέγξετε και να επιβεβαιώσετε ότι αυτό μετατράπηκε μέσω της διεπαφής `IAutoShape`. Μόνον τότε θα μπορείτε να εργαστείτε με το [TextFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/TextFrame), το οποίο είναι μια ιδιότητα του `IAutoShape`. Δείτε την ενότητα [Update Text](https://docs.aspose.com/slides/el/androidjava/manage-textbox/#update-text) σε αυτήν τη σελίδα.
 {{% /alert %}}
 
-## **Δημιουργία πλαισίου κειμένου σε διαφάνεια**
+## **Δημιουργία κουτιού κειμένου σε διαφάνεια**
 
-Για να δημιουργήσετε ένα πλαίσιο κειμένου σε μια διαφάνεια, ακολουθήστε τα παρακάτω βήματα:
+Για να δημιουργήσετε ένα κουτί κειμένου σε μια διαφάνεια, ακολουθήστε τα παρακάτω βήματα:
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation).
-2. Αποκτήστε μια αναφορά για την πρώτη διαφάνεια στην νεοδημιουργημένη παρουσία.
-3. Προσθέστε ένα αντικείμενο [IAutoShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IAutoShape) με [ShapeType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IGeometryShape#setShapeType-int-) ορισμένο ως `Rectangle` σε συγκεκριμένη θέση στη διαφάνεια και αποκτήστε την αναφορά για το νεοπροστέθηκε αντικείμενο `IAutoShape`.
-4. Προσθέστε την ιδιότητα `TextFrame` στο αντικείμενο `IAutoShape` που θα περιέχει κείμενο. Στο παρακάτω παράδειγμα, προσθέσαμε το κείμενο: *Aspose TextBox*
-5. Τέλος, γράψτε το αρχείο PPTX μέσω του αντικειμένου `Presentation`.
+1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Presentation).
+2. Αποκτήστε μια αναφορά για την πρώτη διαφάνεια της νεοδημιουργημένης παρουσίασης. 
+3. Προσθέστε ένα αντικείμενο [IAutoShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IAutoShape) με [ShapeType](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/IGeometryShape#setShapeType-int-) ορισμένο σε `Rectangle` σε συγκεκριμένη θέση στη διαφάνεια και αποκτήστε την αναφορά του νεοπροστιθέμενου αντικειμένου `IAutoShape`.
+4. Προσθέστε την ιδιότητα `TextFrame` στο αντικείμενο `IAutoShape` που θα περιέχει κείμενο. Στο παρακάτω παράδειγμα, προσθέσαμε αυτό το κείμενο: *Aspose TextBox*
+5. Τέλος, γράψτε το αρχείο PPTX μέσω του αντικειμένου `Presentation`. 
 
-Αυτός ο κώδικας Java—μια υλοποίηση των παραπάνω βημάτων—σας δείχνει πώς να προσθέσετε κείμενο σε μια διαφάνεια:
+Αυτός ο κώδικας Java — υλοποίηση των παραπάνω βημάτων — δείχνει πώς να προσθέσετε κείμενο σε μια διαφάνεια:
 
 ```java
-// Δημιουργεί παρουσίαση
+import com.aspose.slides.*;
+
+// Αρχικοποιεί την παρουσίαση
 Presentation pres = new Presentation();
 try {
-    // Λαμβάνει την πρώτη διαφάνεια στην παρουσίαση
+    // Αποκτά την πρώτη διαφάνεια της παρουσίασης
     ISlide sld = pres.getSlides().get_Item(0);
 
-    // Προσθέτει AutoShape με τύπο ορισμένο ως Rectangle
+    // Προσθέτει AutoShape με τύπο ορισμένο σε Rectangle
     IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
 
     // Προσθέτει TextFrame στο Rectangle
     ashp.addTextFrame(" ");
 
-    // Πρόσβαση στο πλαίσιο κειμένου
+    // Αποκτά το πλαίσιο κειμένου
     ITextFrame txtFrame = ashp.getTextFrame();
 
     // Δημιουργεί το αντικείμενο Paragraph για το πλαίσιο κειμένου
     IParagraph para = txtFrame.getParagraphs().get_Item(0);
 
-    // Δημιουργεί ένα αντικείμενο Portion για το παράγραφο
+    // Δημιουργεί το αντικείμενο Portion για την παράγραφο
     IPortion portion = para.getPortions().get_Item(0);
 
     // Ορίζει το κείμενο
@@ -76,15 +78,17 @@ try {
 }
 ```
 
-## **Έλεγχος για σχήμα πλαισίου κειμένου**
+## **Έλεγχος για σχήμα κουτιού κειμένου**
 
-Το Aspose.Slides παρέχει τη μέθοδο [isTextBox](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iautoshape/#isTextBox--) από τη διεπαφή [IAutoShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iautoshape/), επιτρέποντάς σας να εξετάζετε σχήματα και να εντοπίζετε πλαίσια κειμένου.
+Το Aspose.Slides παρέχει τη μέθοδο [isTextBox](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iautoshape/#isTextBox--) από τη διεπαφή [IAutoShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iautoshape/), επιτρέποντάς σας να εξετάζετε σχήματα και να εντοπίζετε κουτιά κειμένου.
 
-![Text box and shape](istextbox.png)
+![Κουτί κειμένου και σχήμα](istextbox.png)
 
-Αυτός ο κώδικας Java σας δείχνει πώς να ελέγξετε αν ένα σχήμα δημιουργήθηκε ως πλαίσιο κειμένου:
+Αυτός ο κώδικας Java δείχνει πώς να ελέγξετε εάν ένα σχήμα δημιουργήθηκε ως κουτί κειμένου: 
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
     ForEach.shape(presentation, (shape, slide, index) -> {
@@ -98,9 +102,11 @@ try {
 }
 ```
 
-Σημειώστε ότι εάν απλώς προσθέσετε ένα autoshape χρησιμοποιώντας τη μέθοδο `addAutoShape` από τη διεπαφή [IShapeCollection](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ishapecollection/), η μέθοδος `isTextBox` του autoshape θα επιστρέψει `false`. Ωστόσο, αφού προσθέσετε κείμενο στο autoshape χρησιμοποιώντας τη μέθοδο `addTextFrame` ή τη μέθοδο `setText`, η ιδιότητα `isTextBox` επιστρέφει `true`.
+Σημειώστε ότι εάν απλώς προσθέσετε ένα αυτόματο σχήμα χρησιμοποιώντας τη μέθοδο `addAutoShape` από τη διεπαφή [IShapeCollection](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ishapecollection/), η μέθοδος `isTextBox` του αυτόματου σχήματος θα επιστρέψει `false`. Ωστόσο, αφού προσθέσετε κείμενο στο αυτόματο σχήμα με τη μέθοδο `addTextFrame` ή τη μέθοδο `setText`, η ιδιότητα `isTextBox` επιστρέφει `true`.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 ISlide slide = presentation.getSlides().get_Item(0);
 
@@ -125,19 +131,29 @@ shape4.getTextFrame().setText("");
 // shape4.isTextBox() επιστρέφει false
 ```
 
-## **Προσθήκη στηλών σε πλαίσιο κειμένου**
+## **Εύρεση του σχήματος που κατέχει ένα πλαίσιο κειμένου**
 
-Το Aspose.Slides παρέχει τις ιδιότητες [ColumnCount](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) και [ColumnSpacing](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ITextFrameFormat#setColumnSpacing-double-) (από τη διεπαφή [ITextFrameFormat](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ITextFrameFormat) και την κλάση [TextFrameFormat](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/TextFrameFormat)) που σας επιτρέπουν να προσθέτετε στήλες σε πλαίσια κειμένου. Μπορείτε να καθορίσετε τον αριθμό των στηλών σε ένα πλαίσιο κειμένου και να ορίσετε το διάστημα μεταξύ των στηλών σε points.
+Σε γενικό κώδικα επεξεργασίας κειμένου, μπορεί να λάβετε ένα αντικείμενο [ITextFrame](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itextframe/) χωρίς να γνωρίζετε εκ των προτέρων ποια παρουσίαση το περιέχει. Χρησιμοποιήστε τη μέθοδο [ITextFrame.getParentShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itextframe/#getParentShape--) για να μεταβείτε πίσω στο ιδιοκτητικό [IShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ishape/).
 
-Αυτός ο κώδικας Java επιδεικνύει τη περιγραφόμενη λειτουργία:
+Για ένα πλαίσιο κειμένου που ανήκει σε ένα [IAutoShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/iautoshape/) ή σε άλλο σχήμα που περιέχει κείμενο, η μέθοδος [ITextFrame.getParentShape](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itextframe/#getParentShape--) επιστρέφει τον κάτοχο και η [ITextFrame.getParentCell](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/itextframe/#getParentCell--) επιστρέφει `null`. Και οι δύο μέθοδοι παρέχουν πλοήγηση μόνο για ανάγνωση, έτσι η κλήση τους δεν αλλάζει την ιδιοκτησία. Πάντα ελέγχετε την επιστρεφόμενη τιμή για `null` πριν έχετε πρόσβαση στο σχήμα.
+
+Για ένα πλήρες παράδειγμα που εντοπίζει κατόχους σχήματος και κελιού πίνακα, συμπεριλαμβανομένων σχημάτων που σχετίζονται με κόμβους SmartArt, δείτε το [Search and Replace Text](/slides/el/androidjava/search-and-replace-text/).
+
+## **Προσθήκη στηλών σε κουτί κειμένου**
+
+Το Aspose.Slides παρέχει τις ιδιότητες [ColumnCount](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) και [ColumnSpacing](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ITextFrameFormat#setColumnSpacing-double-) (από τη διεπαφή [ITextFrameFormat](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ITextFrameFormat) και την κλάση [TextFrameFormat](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/TextFrameFormat)) που σας επιτρέπουν να προσθέτετε στήλες σε κουτιά κειμένου. Μπορείτε να καθορίσετε τον αριθμό των στηλών σε ένα κουτί κειμένου και να ορίσετε το διάστημα σε σημεία μεταξύ των στηλών.
+
+Αυτός ο κώδικας σε Java δείχνει τη περιγραφόμενη λειτουργία: 
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
-    // Λαμβάνει την πρώτη διαφάνεια στην παρουσίαση
+    // Αποκτά την πρώτη διαφάνεια της παρουσίασης
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Προσθέτει AutoShape με τύπο ορισμένο ως Rectangle
+    // Προσθέτει AutoShape με τύπο ορισμένο σε Rectangle
     IAutoShape aShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
 
     // Προσθέτει TextFrame στο Rectangle
@@ -146,7 +162,7 @@ try {
             "itself to flow within the container. You cannot have text flow from one container " +
             "to other though -- we told you PowerPoint's column options for text are limited!");
 
-    // Λαμβάνει τη μορφή κειμένου του TextFrame
+    // Αποκτά τη μορφοποίηση κειμένου του TextFrame
     ITextFrameFormat format = aShape.getTextFrame().getTextFrameFormat();
 
     // Καθορίζει τον αριθμό των στηλών στο TextFrame
@@ -163,12 +179,13 @@ try {
 ```
 
 ## **Προσθήκη στηλών σε πλαίσιο κειμένου**
+Το Aspose.Slides for Android via Java παρέχει την ιδιότητα [ColumnCount](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) (από τη διεπαφή [ITextFrameFormat](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ITextFrameFormat)) που σας επιτρέπει να προσθέτετε στήλες σε πλαίσια κειμένου. Μέσω αυτής της ιδιότητας, μπορείτε να καθορίσετε τον επιθυμητό αριθμό στηλών σε ένα πλαίσιο κειμένου.
 
-Το Aspose.Slides για Android μέσω Java παρέχει την ιδιότητα [ColumnCount](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) (από τη διεπαφή [ITextFrameFormat](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ITextFrameFormat)) που επιτρέπει την προσθήκη στηλών σε πλαίσια κειμένου. Μέσω αυτής της ιδιότητας, μπορείτε να καθορίσετε τον προτιμώμενο αριθμό στηλών σε ένα πλαίσιο κειμένου.
-
-Αυτός ο κώδικας Java σας δείχνει πώς να προσθέσετε μια στήλη μέσα σε ένα πλαίσιο κειμένου:
+Αυτός ο κώδικας Java δείχνει πώς να προσθέσετε μια στήλη μέσα σε ένα πλαίσιο κειμένου:
 
 ```java
+import com.aspose.slides.*;
+
 String outPptxFileName = "ColumnsTest.pptx";
 Presentation pres = new Presentation();
 try {
@@ -185,8 +202,8 @@ try {
     Presentation test = new Presentation(outPptxFileName);
     try {
         IAutoShape autoShape = ((AutoShape)test.getSlides().get_Item(0).getShapes().get_Item(0));
-        Assert.assertTrue(2 == autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        Assert.assertTrue(Double.NaN == autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
+        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
+        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
     } finally {
         if (test != null) test.dispose();
     }
@@ -197,8 +214,8 @@ try {
     Presentation test1 = new Presentation(outPptxFileName);
     try {
         IAutoShape autoShape = ((AutoShape)test1.getSlides().get_Item(0).getShapes().get_Item(0));
-        Assert.assertTrue(2 == autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        Assert.assertTrue(20 == autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
+        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
+        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
     } finally {
         if (test1 != null) test1.dispose();
     }
@@ -210,8 +227,8 @@ try {
     Presentation test2 = new Presentation(outPptxFileName);
     try {
         IAutoShape autoShape = ((AutoShape)test2.getSlides().get_Item(0).getShapes().get_Item(0));
-        Assert.assertTrue(3 == autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        Assert.assertTrue(15 == autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
+        System.out.println("Column count: " + autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
+        System.out.println("Column spacing: " + autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
     } finally {
         if (test2 != null) test2.dispose();
     }
@@ -222,23 +239,25 @@ try {
 
 ## **Ενημέρωση κειμένου**
 
-Το Aspose.Slides σας επιτρέπει να αλλάξετε ή να ενημερώσετε το κείμενο που περιέχεται σε ένα πλαίσιο κειμένου ή όλο το κείμενο που περιέχεται σε μια παρουσίαση.
+Το Aspose.Slides σας επιτρέπει να αλλάξετε ή να ενημερώσετε το κείμενο που περιέχεται σε ένα κουτί κειμένου ή όλο το κείμενο που περιέχεται σε μια παρουσίαση.
 
-Αυτός ο κώδικας Java επιδεικνύει μια λειτουργία όπου όλα τα κείμενα σε μια παρουσίαση ενημερώνονται ή αλλάζουν:
+Αυτός ο κώδικας Java δείχνει μια λειτουργία κατά την οποία όλα τα κείμενα σε μια παρουσίαση ενημερώνονται ή αλλάζουν:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation("text.pptx");
 try {
     for (ISlide slide : pres.getSlides())
     {
         for (IShape shape : slide.getShapes())
         {
-            if (shape instanceof IAutoShape) //Ελέγχει αν το σχήμα υποστηρίζει πλαίσιο κειμένου (IAutoShape).
+            if (shape instanceof IAutoShape) //Ελέγχει αν το σχήμα υποστηρίζει πλαίσιο κειμένου (IAutoShape). 
             {
                 IAutoShape autoShape = (IAutoShape)shape; 
-                for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs()) //Διατρέχει τις παραγράφους στο πλαίσιο κειμένου
+                for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs()) //Διασχίζει τις παραγράφους στο πλαίσιο κειμένου
                 {
-                    for (IPortion portion : paragraph.getPortions()) //Διατρέχει κάθε τμήμα στην παράγραφο
+                    for (IPortion portion : paragraph.getPortions()) //Διασχίζει κάθε τμήμα στην παράγραφο
                     {
                         portion.setText(portion.getText().replace("years", "months")); //Αλλάζει το κείμενο
                         portion.getPortionFormat().setFontBold(NullableBool.True); //Αλλάζει τη μορφοποίηση
@@ -255,36 +274,38 @@ try {
 }
 ```
 
-## **Προσθήκη πλαισίου κειμένου με υπερσύνδεσμο**
+## **Προσθήκη κουτιού κειμένου με υπερσύνδεσμο** 
 
-Μπορείτε να εισάγετε έναν σύνδεσμο μέσα σε ένα πλαίσιο κειμένου. Όταν κάνετε κλικ στο πλαίσιο κειμένου, οι χρήστες κατευθύνονται για να ανοίξουν τον σύνδεσμο.
+Μπορείτε να εισάγετε έναν σύνδεσμο μέσα σε ένα κουτί κειμένου. Όταν το κουτί κειμένου κάνει κλικ, οι χρήστες οδηγούνται στο άνοιγμα του συνδέσμου. 
 
-Για να προσθέσετε ένα πλαίσιο κειμένου που περιέχει σύνδεσμο, ακολουθήστε τα παρακάτω βήματα:
+Για να προσθέσετε ένα κουτί κειμένου που περιέχει σύνδεσμο, ακολουθήστε τα παρακάτω βήματα:
 
-1. Δημιουργήστε μια παρουσία της κλάσης `Presentation`.
-2. Αποκτήστε μια αναφορά για την πρώτη διαφάνεια στην νεοδημιουργημένη παρουσία.
-3. Προσθέστε ένα αντικείμενο `AutoShape` με `ShapeType` ορισμένο ως `Rectangle` σε συγκεκριμένη θέση στη διαφάνεια και αποκτήστε τη αναφορά του νεοπροστέθηκε αντικειμένου AutoShape.
-4. Προσθέστε ένα `TextFrame` στο αντικείμενο `AutoShape` που περιέχει *Aspose TextBox* ως προεπιλεγμένο κείμενο.
-5. Δημιουργήστε μια παρουσία της κλάσης `IHyperlinkManager`.
-6. Αναθέστε το αντικείμενο `IHyperlinkManager` στην ιδιότητα [HyperlinkClick](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/Shape#getHyperlinkClick--) που σχετίζεται με το προτιμώμενο τμήμα του `TextFrame`.
-7. Τέλος, γράψτε το αρχείο PPTX μέσω του αντικειμένου `Presentation`.
+1. Δημιουργήστε ένα αντικείμενο της κλάσης `Presentation`. 
+2. Αποκτήστε μια αναφορά στην πρώτη διαφάνεια της νεοδημιουργημένης παρουσίασης. 
+3. Προσθέστε ένα αντικείμενο `AutoShape` με `ShapeType` ορισμένο σε `Rectangle` σε συγκεκριμένη θέση στη διαφάνεια και αποκτήστε μια αναφορά του νεοπροστιθέμενου αντικειμένου AutoShape.
+4. Προσθέστε ένα `TextFrame` στο αντικείμενο `AutoShape` και ορίστε το κείμενο του πρώτου τμήματός του. Στο παρακάτω παράδειγμα, χρησιμοποιήσαμε αυτό το κείμενο: *Aspose.Slides*
+5. Αποκτήστε το αντικείμενο [IHyperlinkManager](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ihyperlinkmanager/) από το `PortionFormat` του προτιμώμενου τμήματος του `TextFrame`.
+6. Καλέστε τη μέθοδο [setExternalHyperlinkClick](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ihyperlinkmanager/#setExternalHyperlinkClick-java.lang.String-) σε αυτό το αντικείμενο για να ορίσετε το σύνδεσμο που ανοίγει όταν γίνει κλικ στο κείμενο.
+7. Τέλος, γράψτε το αρχείο PPTX μέσω του αντικειμένου `Presentation`. 
 
-Αυτός ο κώδικας Java—μια υλοποίηση των παραπάνω βημάτων—σας δείχνει πώς να προσθέσετε ένα πλαίσιο κειμένου με υπερσύνδεσμο σε μια διαφάνεια:
+Αυτός ο κώδικας Java — υλοποίηση των παραπάνω βημάτων — δείχνει πώς να προσθέσετε ένα κουτί κειμένου με υπερσύνδεσμο σε μια διαφάνεια:
 
 ```java
-// Δημιουργεί ένα αντικείμενο Presentation που αντιπροσωπεύει ένα PPTX
+import com.aspose.slides.*;
+
+// Δημιουργεί ένα αντικείμενο Presentation που αντιπροσωπεύει ένα αρχείο PPTX
 Presentation pres = new Presentation();
 try {
-    // Λαμβάνει την πρώτη διαφάνεια στην παρουσίαση
+    // Αποκτά την πρώτη διαφάνεια της παρουσίασης
     ISlide slide = pres.getSlides().get_Item(0);
 
-    // Προσθέτει ένα αντικείμενο AutoShape με τύπο ορισμένο ως Rectangle
+    // Προσθέτει ένα αντικείμενο AutoShape με τύπο ορισμένο σε Rectangle
     IShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 150, 150, 150, 50);
 
     // Μετατρέπει το σχήμα σε AutoShape
     IAutoShape pptxAutoShape = (IAutoShape)shape;
 
-    // Πρόσβαση στην ιδιότητα ITextFrame που σχετίζεται με το AutoShape
+    // Προσπελαύνει την ιδιότητα ITextFrame που σχετίζεται με το AutoShape
     pptxAutoShape.addTextFrame("");
 
     ITextFrame textFrame = pptxAutoShape.getTextFrame();
@@ -304,12 +325,12 @@ try {
 }
 ```
 
-## **Συχνές Ερωτήσεις**
+## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
 
-**Ποια είναι η διαφορά μεταξύ ενός πλαισίου κειμένου και ενός σύμβολου θέσης κειμένου όταν εργάζεστε με κύριες διαφάνειες;**
+**Ποια είναι η διαφορά μεταξύ κουτιού κειμένου και θέσης κράτησης κειμένου όταν εργάζεστε με κυρίως διαφάνειες;**
 
-Ένα [placeholder](/slides/el/androidjava/manage-placeholder/) κληρονομεί το στυλ/θέση από το [master](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/masterslide/) και μπορεί να παρακαμφθεί σε [layouts](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/layoutslide/), ενώ ένα κανονικό πλαίσιο κειμένου είναι ανεξάρτητο αντικείμενο σε συγκεκριμένη διαφάνεια και δεν αλλάζει όταν αλλάζετε τα layouts.
+Ένα [placeholder](/slides/el/androidjava/manage-placeholder/) κληρονομεί το στυλ/θέση από το [master](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/masterslide/) και μπορεί να αντικατασταθεί στα [layouts](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/layoutslide/), ενώ ένα κανονικό κουτί κειμένου είναι ένα ανεξάρτητο αντικείμενο σε μια συγκεκριμένη διαφάνεια και δεν αλλάζει όταν αλλάζετε τα layouts.
 
-**Πώς μπορώ να εκτελέσω μαζική αντικατάσταση κειμένου σε όλη την παρουσίαση χωρίς να επηρεάσω το κείμενο μέσα σε διαγράμματα, πίνακες και SmartArt;**
+**Πώς μπορώ να εκτελέσω αντικατάσταση κειμένου μαζικά σε ολόκληρη την παρουσίαση χωρίς να επηρεάσω το κείμενο μέσα σε διαγράμματα, πίνακες και SmartArt;**
 
-Περιορίστε την επανάληψή σας σε auto‑shapes που διαθέτουν πλαίσια κειμένου και εξαιρέστε τα ενσωματωμένα αντικείμενα ([charts](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/chart/), [tables](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/smartart/)) διασχίζοντας τις συλλογές τους ξεχωριστά ή παραλείποντας αυτούς τους τύπους αντικειμένων.
+Περιορίστε την επανάληψή σας σε auto‑shapes που έχουν πλαίσια κειμένου και εξαιρέστε ενσωματωμένα αντικείμενα ([charts](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/chart/), [tables](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/smartart/)) διασχίζοντας τις συλλογές τους ξεχωριστά ή παραλείποντας αυτούς τους τύπους αντικειμένων.

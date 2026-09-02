@@ -1,121 +1,146 @@
 ---
-title: 在 Python 中将 PowerPoint 演示文稿转换为 Markdown
+title: 将 PowerPoint 演示文稿转换为 Python 中的 Markdown
 linktitle: PowerPoint 转 Markdown
 type: docs
 weight: 140
 url: /zh/python-net/convert-powerpoint-to-markdown/
 keywords:
-- 转换 PowerPoint 为 Markdown
-- 转换 OpenDocument 为 Markdown
-- 转换演示文稿为 Markdown
-- 转换幻灯片为 Markdown
-- 转换 PPT 为 Markdown
-- 转换 PPTX 为 Markdown
-- 转换 ODP 为 Markdown
-- 转换 PowerPoint 为 MD
-- 转换 OpenDocument 为 MD
-- 转换演示文稿为 MD
-- 转换幻灯片为 MD
-- 转换 PPT 为 MD
-- 转换 PPTX 为 MD
-- 转换 ODP 为 MD
+- 转换 PowerPoint
+- 转换 演示文稿
+- 转换 幻灯片
+- 转换 PPT
+- 转换 PPTX
+- PowerPoint 转 MD
+- 演示文稿 转 MD
+- 幻灯片 转 MD
+- PPT 转 MD
+- PPTX 转 MD
+- 将 PowerPoint 保存为 Markdown
+- 将演示文稿保存为 Markdown
+- 将幻灯片保存为 Markdown
+- 将 PPT 保存为 MD
+- 将 PPTX 保存为 MD
+- 将 PPT 导出为 MD
+- 将 PPTX 导出为 MD
+- Markdown 图像导出
+- CDN 图像链接
 - PowerPoint
-- OpenDocument
 - 演示文稿
 - Markdown
 - Python
+- Python via .NET
 - Aspose.Slides
-description: "使用 Aspose.Slides for Python via .NET 将 PowerPoint 和 OpenDocument 幻灯片（PPT、PPTX、ODP）转换为干净的 Markdown，自动化文档编写并保持格式。"
+description: "在 Python 中将 PPT 和 PPTX 演示文稿转换为 Markdown，并控制导出图像的保存位置以及生成的 Markdown 如何引用这些图像。"
 ---
+## **概述**
+
+Aspose.Slides for Python via .NET 可以将 PPT 和 PPTX 演示文稿转换为 Markdown，以用于文档、静态站点、内容迁移和版本控制工作流。您可以选择 Markdown 的变体，控制幻灯片内容的渲染方式，并决定导出图像的存储位置以及生成的 Markdown 如何引用它们。
+
+默认情况下，Markdown 导出使用仅文本输出。若要导出可视内容，请将 [MarkdownSaveOptions.export_type](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/markdownsaveoptions/export_type/) 属性设置为 [MarkdownExportType](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/markdownexporttype/) 枚举中的 `SEQUENTIAL` 或 `VISUAL` 值。`SEQUENTIAL` 将幻灯片项分别且按顺序渲染，而 `VISUAL` 将分组的项保持在一起，以保留它们的视觉关系。`TEXT_ONLY` 值不会生成图像资源。
 
 ## **将演示文稿转换为 Markdown**
 
-下面的示例展示了使用 Aspose.Slides for Python via .NET 并使用默认设置，将 PowerPoint 演示文稿转换为 Markdown 的最简方法。
+使用 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 类加载源文件，然后调用 [Presentation.save](https://reference.aspose.com/slides/zh/python-net/aspose.slides/ipresentation/save/) 方法，并使用来自 [SaveFormat](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/saveformat/) 枚举的 `MD` 值。
 
-1. 实例化一个 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 来加载演示文稿。
-2. 调用 `save` 将其导出为 Markdown 文件。
-
-使用下面的 Python 代码片段执行转换：
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation.pptx") as presentation:  
+with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation.md", slides.export.SaveFormat.MD)
 ```
 
+## **选择 Markdown 变体**
 
-## **将演示文稿转换为 Markdown 变体**
+[MarkdownSaveOptions.flavor](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/markdownsaveoptions/flavor/) 属性控制输出所使用的 Markdown 规范。[Flavor](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/flavor/) 枚举包括 CommonMark、GitHub Flavored Markdown 以及其他受支持的变体。
 
-Aspose.Slides 允许您将演示文稿转换为 Markdown 格式，包括基本 Markdown、CommonMark、GitHub 风格的 Markdown、Trello、XWiki、GitLab 以及其他 17 种 Markdown 变体。
+以下示例将演示文稿导出为 CommonMark：
 
-下面的 Python 示例展示了如何将 PowerPoint 演示文稿转换为 CommonMark：
 ```python
 import aspose.slides as slides
 
-save_options = slides.export.MarkdownSaveOptions()
-save_options.flavor = slides.export.Flavor.COMMON_MARK
+options = slides.export.MarkdownSaveOptions()
+options.flavor = slides.export.Flavor.COMMON_MARK
 
 with slides.Presentation("presentation.pptx") as presentation:
-    presentation.save("presentation.md", slides.export.SaveFormat.MD, save_options)
+    presentation.save("presentation.md", slides.export.SaveFormat.MD, options)
 ```
 
+## **使用默认本地保存行为导出图像**
 
-这 23 种受支持的 Markdown 变体列在 [Flavor](https://reference.aspose.com/slides/python-net/aspose.slides.dom.export.markdown.saveoptions/flavor/) 枚举以及 [MarkdownSaveOptions](https://reference.aspose.com/slides/python-net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) 类中。
+[MarkdownSaveOptions](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/markdownsaveoptions/) 类提供两个用于本地保存图像的属性：
 
-## **将包含图像的演示文稿转换为 Markdown**
+- [base_path](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/markdownsaveoptions/base_path/) 指定 Markdown 文档及其资源的基础目录。
+- [images_save_folder_name](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/markdownsaveoptions/images_save_folder_name/) 指定图像子目录。其默认值为 `Images`。
 
-[MarkdownSaveOptions](https://reference.aspose.com/slides/python-net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) 类提供属性和枚举，可让您配置生成的 Markdown 文件。例如，[MarkdownExportType](https://reference.aspose.com/slides/python-net/aspose.slides.dom.export.markdown.saveoptions/markdownexporttype/) 枚举控制图像的处理方式：`SEQUENTIAL`、`TEXT_ONLY` 或 `VISUAL`。
+以下示例渲染可视内容，将图像写入 `output/assets`，并在 Markdown 文档中创建相对图像引用：
 
-### **顺序转换图像**
-
-如果您希望图像在生成的 Markdown 中逐个出现——一个接一个——请选择 `SEQUENTIAL` 选项。下面的 Python 示例展示了如何将包含图像的演示文稿转换为 Markdown。
-```python
-import aspose.slides as slides
-
-save_options = slides.export.MarkdownSaveOptions()
-save_options.show_hidden_slides = True
-save_options.show_slide_number = True
-save_options.flavor = slides.export.Flavor.GITHUB
-save_options.export_type = slides.export.MarkdownExportType.SEQUENTIAL
-save_options.new_line_type = slides.export.NewLineType.WINDOWS
-
-slide_indices = [1, 3, 5]
-
-with slides.Presentation("presentation.pptx") as presentation:
-    presentation.save("presentation.md", slide_indices, slides.export.SaveFormat.MD, save_options)
-```
-
-
-### **视觉化转换图像**
-
-如果您希望图像在生成的 Markdown 中一起出现，请选择 `VISUAL` 选项。在此模式下，图像会保存到应用程序的当前目录（Markdown 文档使用相对路径），您也可以指定自定义的输出路径和文件夹名称。
-
-下面的 Python 示例演示了此操作：
 ```python
 import os
 import aspose.slides as slides
 
-save_options = slides.export.MarkdownSaveOptions()
-save_options.export_type = slides.export.MarkdownExportType.VISUAL
-save_options.images_save_folder_name = "md-images"
-save_options.base_path = "c:\\documents"
+output_directory = "output"
+os.makedirs(output_directory, exist_ok=True)
+
+options = slides.export.MarkdownSaveOptions()
+options.export_type = slides.export.MarkdownExportType.VISUAL
+options.base_path = output_directory
+options.images_save_folder_name = "assets"
+
+markdown_path = os.path.join(output_directory, "presentation.md")
 
 with slides.Presentation("presentation.pptx") as presentation:
-    file_path = os.path.join(save_options.base_path, "presentation.md")
-    presentation.save(file_path, slides.export.SaveFormat.MD, save_options)
+    presentation.save(markdown_path, slides.export.SaveFormat.MD, options)
 ```
 
+当导出生成图像资源时，Aspose.Slides 会创建图像子目录，但应用程序必须在保存 Markdown 文件之前创建 `base_path`。
 
-## **FAQ**
+## **准备 Markdown 和图像以供发布**
 
-**超链接在导出为 Markdown 时是否会保留？**
+Aspose.Slides for Python via .NET 不公开 .NET 的图像保存回调，以在导出期间替换每个生成的图像链接。相反，应将 Markdown 文档及其图像文件夹导出到发布目录，然后在不更改相对结构的情况下发布该目录。
 
-是的。文本 [hyperlinks](/slides/zh/python-net/manage-hyperlinks/) 会保留为标准的 Markdown 链接。幻灯片的 [transitions](/slides/zh/python-net/slide-transition/) 和 [animations](/slides/zh/python-net/powerpoint-animation/) 则不会被转换。
+以下示例将 `cdn-origin/presentations/quarterly-report` 准备为挂载或同步的发布目录。示例本身不执行网络上传：目录在目标站点或 CDN 位置发布后，生成的链接即可生效。
 
-**我可以通过多线程运行来加速转换吗？**
+```python
+import os
+import aspose.slides as slides
 
-您可以在文件之间并行处理，但请 [don’t share](/slides/zh/python-net/multithreading/) 同一个 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 实例跨线程使用。每个文件使用单独的实例或进程以避免争用。
+publication_directory = os.path.join(
+    "cdn-origin",
+    "presentations",
+    "quarterly-report")
+os.makedirs(publication_directory, exist_ok=True)
 
-**图像会怎样处理——它们保存在哪里，路径是相对的吗？**
+options = slides.export.MarkdownSaveOptions()
+options.export_type = slides.export.MarkdownExportType.VISUAL
+options.base_path = publication_directory
+options.images_save_folder_name = "assets"
 
-[Images](/slides/zh/python-net/image/) 被导出到专用文件夹，Markdown 文件默认使用相对路径引用它们。您可以配置基础输出路径和资产文件夹名称，以保持可预测的仓库结构。
+markdown_path = os.path.join(publication_directory, "presentation.md")
+
+with slides.Presentation("presentation.pptx") as presentation:
+    presentation.save(markdown_path, slides.export.SaveFormat.MD, options)
+```
+
+将 `presentation.md` 与 `assets` 目录一起发布。Markdown 文档使用相对图像引用，因此两者在目标位置必须保持相同的关系。如果发布系统需要绝对的外部 URL，请在所有图像文件发布后，将生成的链接作为单独的后处理步骤进行重写。
+
+## **常见问题**
+
+**Python 回调能在 Markdown 导出期间自定义单个图像文件和链接吗？**
+
+不。Aspose.Slides for Python via .NET 不公开 .NET 的 `ImageSaving` 和 `SvgImageSaving` 回调。请使用 [MarkdownSaveOptions.base_path](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/markdownsaveoptions/base_path/) 和 [MarkdownSaveOptions.images_save_folder_name](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/markdownsaveoptions/images_save_folder_name/) 配置本地输出，然后发布或对生成的资源进行后处理。
+
+**导出的图像保存在哪里？**
+
+图像位置由 [MarkdownSaveOptions.base_path](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/markdownsaveoptions/base_path/) 和 [MarkdownSaveOptions.images_save_folder_name](https://reference.aspose.com/slides/zh/python-net/aspose.slides.export/markdownsaveoptions/images_save_folder_name/) 控制。Markdown 文档使用相对路径引用这些图像。
+
+**图像链接应使用哪种路径分隔符？**
+
+在 Markdown 链接和 URL 中使用正斜杠。`os.path.join` 仅用于文件系统路径，并在后处理时单独对任何生成的链接进行规范化。
+
+**在 Markdown 导出期间超链接会被保留吗？**
+
+是的。文本 [hyperlinks](/slides/zh/python-net/manage-hyperlinks/) 会保留为标准的 Markdown 链接。幻灯片的 [transitions](/slides/zh/python-net/slide-transition/) 和 [animations](/slides/zh/python-net/powerpoint-animation/) 不会被转换。
+
+**可以并行将演示文稿转换为 Markdown 吗？**
+
+可以并行处理不同的演示文稿文件，但不要在多个线程之间共享同一个 [Presentation](https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/) 实例。请遵循 [multithreading guidelines](/slides/zh/python-net/multithreading/) 并为每个文件使用单独的实例。

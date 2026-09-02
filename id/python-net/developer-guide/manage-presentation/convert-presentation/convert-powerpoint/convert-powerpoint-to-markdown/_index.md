@@ -5,126 +5,142 @@ type: docs
 weight: 140
 url: /id/python-net/convert-powerpoint-to-markdown/
 keywords:
-- konversi PowerPoint ke Markdown
-- konversi OpenDocument ke Markdown
-- konversi presentasi ke Markdown
-- konversi slide ke Markdown
-- konversi PPT ke Markdown
-- konversi PPTX ke Markdown
-- konversi ODP ke Markdown
-- konversi PowerPoint ke MD
-- konversi OpenDocument ke MD
-- konversi presentasi ke MD
-- konversi slide ke MD
-- konversi PPT ke MD
-- konversi PPTX ke MD
-- konversi ODP ke MD
+- konversi PowerPoint
+- konversi presentasi
+- konversi slide
+- konversi PPT
+- konversi PPTX
+- PowerPoint ke MD
+- presentasi ke MD
+- slide ke MD
+- PPT ke MD
+- PPTX ke MD
+- simpan PowerPoint sebagai Markdown
+- simpan presentasi sebagai Markdown
+- simpan slide sebagai Markdown
+- simpan PPT sebagai MD
+- simpan PPTX sebagai MD
+- ekspor PPT ke MD
+- ekspor PPTX ke MD
+- ekspor gambar Markdown
+- tautan gambar CDN
 - PowerPoint
-- OpenDocument
 - presentasi
 - Markdown
 - Python
+- Python via .NET
 - Aspose.Slides
-description: "Konversi slide PowerPoint dan OpenDocument—PPT, PPTX, ODP—menjadi Markdown bersih dengan Aspose.Slides untuk Python via .NET, otomatisasi dokumentasi dan mempertahankan format."
+description: "Konversi presentasi PPT dan PPTX ke Markdown dengan Python serta mengontrol lokasi penyimpanan gambar yang diekspor dan cara referensi Markdown yang dihasilkan."
 ---
-## **Pendahuluan**
+## **Gambaran Umum**
 
-Aspose.Slides memungkinkan Anda mengonversi presentasi PowerPoint ke Markdown, yang dapat berguna untuk alur kerja dokumentasi, pembuatan situs statis, migrasi konten, dan penerbitan teks yang dikontrol versi. API mendukung ekspor langsung dari presentasi PPT dan PPTX ke file MD dan menyediakan opsi tambahan untuk mengatur bagaimana konten slide direpresentasikan dalam dokumen Markdown yang dihasilkan.
+Aspose.Slides for Python via .NET dapat mengonversi presentasi PPT dan PPTX ke Markdown untuk dokumentasi, situs statis, migrasi konten, dan alur kerja kontrol versi. Anda dapat memilih variasi Markdown, mengontrol bagaimana konten slide dirender, dan memutuskan di mana gambar yang diekspor disimpan serta bagaimana Markdown yang dihasilkan merujuknya.
 
-Anda dapat mengekspor presentasi sebagai Markdown biasa, memilih dari berbagai varian Markdown seperti CommonMark dan GitHub Flavored Markdown, serta mengonfigurasi cara penanganan gambar selama ekspor. Untuk presentasi yang berisi konten visual, Aspose.Slides juga memungkinkan Anda menyimpan gambar ke folder terpisah dan merujuknya dari file Markdown yang dihasilkan.
-
-{{% alert color="warning" %}}
-Ekspor PowerPoint-ke-Markdown **tanpa gambar** secara default. Jika Anda ingin mengekspor dokumen PowerPoint yang berisi gambar, Anda harus mengatur `export_type = MarkdownExportType.VISUAL` dan menentukan `base_path`, tempat gambar yang dirujuk dalam dokumen Markdown akan disimpan.
-{{% /alert %}}
+Secara default, ekspor Markdown menggunakan output hanya teks. Untuk mengekspor konten visual, set properti [MarkdownSaveOptions.export_type](https://reference.aspose.com/slides/id/python-net/aspose.slides.export/markdownsaveoptions/export_type/) ke nilai `SEQUENTIAL` atau `VISUAL` dari enumerasi [MarkdownExportType](https://reference.aspose.com/slides/id/python-net/aspose.slides.export/markdownexporttype/). `SEQUENTIAL` merender item slide secara terpisah dan berurutan, sementara `VISUAL` menjaga item yang dikelompokkan bersama untuk mempertahankan hubungan visual mereka. Nilai `TEXT_ONLY` tidak menghasilkan sumber daya gambar.
 
 ## **Konversi Presentasi ke Markdown**
 
-Contoh di bawah menunjukkan cara paling sederhana untuk mengonversi presentasi PowerPoint ke Markdown menggunakan Aspose.Slides untuk Python via .NET dengan pengaturan default.
-
-1. Buat instance sebuah [Presentation](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/) untuk memuat presentasi.
-1. Panggil `save` untuk mengekspornya sebagai file Markdown.
-
-Gunakan potongan kode Python di bawah ini untuk melakukan konversi:
+Muat file sumber dengan kelas [Presentation](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/), kemudian panggil metode [Presentation.save](https://reference.aspose.com/slides/id/python-net/aspose.slides/ipresentation/save/) dengan nilai `MD` dari enumerasi [SaveFormat](https://reference.aspose.com/slides/id/python-net/aspose.slides.export/saveformat/).
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation.pptx") as presentation:  
+with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation.md", slides.export.SaveFormat.MD)
 ```
 
-## **Konversi Presentasi ke Varian Markdown**
+## **Pilih Variasi Markdown**
 
-Aspose.Slides memungkinkan Anda mengonversi presentasi ke format Markdown, termasuk Markdown dasar, CommonMark, GitHub-flavored Markdown, Trello, XWiki, GitLab, dan 17 varian Markdown lainnya.
+Properti [MarkdownSaveOptions.flavor](https://reference.aspose.com/slides/id/python-net/aspose.slides.export/markdownsaveoptions/flavor/) mengontrol spesifikasi Markdown yang digunakan untuk output. Enumerasi [Flavor](https://reference.aspose.com/slides/id/python-net/aspose.slides.export/flavor/) mencakup CommonMark, GitHub Flavored Markdown, dan varian lain yang didukung.
 
-Contoh Python berikut menunjukkan cara mengonversi presentasi PowerPoint ke CommonMark:
-
-```python
-import aspose.slides as slides
-
-save_options = slides.export.MarkdownSaveOptions()
-save_options.flavor = slides.export.Flavor.COMMON_MARK
-
-with slides.Presentation("presentation.pptx") as presentation:
-    presentation.save("presentation.md", slides.export.SaveFormat.MD, save_options)
-```
-
-23 varian Markdown yang didukung tercantum dalam enumerasi [Flavor](https://reference.aspose.com/slides/id/python-net/aspose.slides.dom.export.markdown.saveoptions/flavor/) pada kelas [MarkdownSaveOptions](https://reference.aspose.com/slides/id/python-net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/).
-
-## **Konversi Presentasi yang Berisi Gambar ke Markdown**
-
-Kelas [MarkdownSaveOptions](https://reference.aspose.com/slides/id/python-net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) menyediakan properti dan enumerasi yang memungkinkan Anda mengonfigurasi file Markdown yang dihasilkan. Misalnya, enum [MarkdownExportType](https://reference.aspose.com/slides/id/python-net/aspose.slides.dom.export.markdown.saveoptions/markdownexporttype/) mengatur cara penanganan gambar: `SEQUENTIAL`, `TEXT_ONLY`, atau `VISUAL`.
-
-### **Konversi Gambar Secara Berurutan**
-
-Jika Anda menginginkan gambar muncul secara terpisah—satu per satu—in dalam Markdown yang dihasilkan, pilih opsi `SEQUENTIAL`. Contoh Python di bawah ini menunjukkan cara mengonversi presentasi dengan gambar ke Markdown.
+Contoh berikut mengekspor presentasi sebagai CommonMark:
 
 ```python
 import aspose.slides as slides
 
-save_options = slides.export.MarkdownSaveOptions()
-save_options.show_hidden_slides = True
-save_options.show_slide_number = True
-save_options.flavor = slides.export.Flavor.GITHUB
-save_options.export_type = slides.export.MarkdownExportType.SEQUENTIAL
-save_options.new_line_type = slides.export.NewLineType.WINDOWS
-
-slide_indices = [1, 3, 5]
+options = slides.export.MarkdownSaveOptions()
+options.flavor = slides.export.Flavor.COMMON_MARK
 
 with slides.Presentation("presentation.pptx") as presentation:
-    presentation.save("presentation.md", slide_indices, slides.export.SaveFormat.MD, save_options)
+    presentation.save("presentation.md", slides.export.SaveFormat.MD, options)
 ```
 
-### **Konversi Gambar Secara Visual**
+## **Ekspor Gambar dengan Perilaku Penyimpanan Lokal Default**
 
-Jika Anda menginginkan gambar muncul bersamaan dalam Markdown yang dihasilkan, pilih opsi `VISUAL`. Dalam mode ini, gambar disimpan ke direktori saat ini aplikasi (dan dokumen Markdown menggunakan jalur relatif), atau Anda dapat menentukan jalur keluaran khusus dan nama folder.
+Kelas [MarkdownSaveOptions](https://reference.aspose.com/slides/id/python-net/aspose.slides.export/markdownsaveoptions/) menyediakan dua properti untuk gambar yang disimpan secara lokal:
 
-Contoh Python berikut mendemonstrasikan operasi ini:
+- [base_path](https://reference.aspose.com/slides/id/python-net/aspose.slides.export/markdownsaveoptions/base_path/) menentukan direktori dasar untuk dokumen Markdown dan sumber dayanya.
+- [images_save_folder_name](https://reference.aspose.com/slides/id/python-net/aspose.slides.export/markdownsaveoptions/images_save_folder_name/) menentukan subdirektori gambar. Nilai defaultnya adalah `Images`.
+
+Contoh berikut merender konten visual, menulis gambar ke `output/assets`, dan membuat referensi gambar relatif dalam dokumen Markdown:
 
 ```python
 import os
 import aspose.slides as slides
 
-save_options = slides.export.MarkdownSaveOptions()
-save_options.export_type = slides.export.MarkdownExportType.VISUAL
-save_options.images_save_folder_name = "md-images"
-save_options.base_path = "c:\\documents"
+output_directory = "output"
+os.makedirs(output_directory, exist_ok=True)
+
+options = slides.export.MarkdownSaveOptions()
+options.export_type = slides.export.MarkdownExportType.VISUAL
+options.base_path = output_directory
+options.images_save_folder_name = "assets"
+
+markdown_path = os.path.join(output_directory, "presentation.md")
 
 with slides.Presentation("presentation.pptx") as presentation:
-    file_path = os.path.join(save_options.base_path, "presentation.md")
-    presentation.save(file_path, slides.export.SaveFormat.MD, save_options)
+    presentation.save(markdown_path, slides.export.SaveFormat.MD, options)
 ```
+
+Aspose.Slides membuat subdirektori gambar ketika ekspor menghasilkan sumber daya gambar, tetapi aplikasi harus membuat `base_path` sebelum menyimpan file Markdown.
+
+## **Siapkan Markdown dan Gambar untuk Publikasi**
+
+Aspose.Slides for Python via .NET tidak mengekspos callback penyimpanan gambar .NET untuk mengganti setiap tautan gambar yang dihasilkan selama ekspor. Sebagai gantinya, ekspor dokumen Markdown dan folder gambarnya ke direktori publikasi, lalu publikasikan direktori tersebut tanpa mengubah struktur relatifnya.
+
+Contoh berikut menyiapkan `cdn-origin/presentations/quarterly-report` sebagai direktori publikasi yang dipasang atau disinkronkan. Contoh itu sendiri tidak melakukan unggahan jaringan: tautan yang dihasilkan menjadi valid setelah direktori dipublikasikan di situs atau lokasi CDN yang dimaksud.
+
+```python
+import os
+import aspose.slides as slides
+
+publication_directory = os.path.join(
+    "cdn-origin",
+    "presentations",
+    "quarterly-report")
+os.makedirs(publication_directory, exist_ok=True)
+
+options = slides.export.MarkdownSaveOptions()
+options.export_type = slides.export.MarkdownExportType.VISUAL
+options.base_path = publication_directory
+options.images_save_folder_name = "assets"
+
+markdown_path = os.path.join(publication_directory, "presentation.md")
+
+with slides.Presentation("presentation.pptx") as presentation:
+    presentation.save(markdown_path, slides.export.SaveFormat.MD, options)
+```
+
+Publikasikan `presentation.md` bersama dengan direktori `assets`. Dokumen Markdown menggunakan referensi gambar relatif, sehingga kedua item harus mempertahankan hubungan yang sama di tujuan. Jika sistem penerbitan memerlukan URL eksternal absolut, ubah tautan yang dihasilkan sebagai langkah pasca‑proses terpisah setelah semua file gambar dipublikasikan.
 
 ## **FAQ**
 
-**Apakah hyperlink tetap ada setelah ekspor ke Markdown?**
+**Apakah callback Python dapat menyesuaikan file gambar individu dan tautan selama ekspor Markdown?**
+
+Tidak. Aspose.Slides for Python via .NET tidak mengekspos callback .NET `ImageSaving` dan `SvgImageSaving`. Konfigurasikan output lokal dengan [MarkdownSaveOptions.base_path](https://reference.aspose.com/slides/id/python-net/aspose.slides.export/markdownsaveoptions/base_path/) dan [MarkdownSaveOptions.images_save_folder_name](https://reference.aspose.com/slides/id/python-net/aspose.slides.export/markdownsaveoptions/images_save_folder_name/), kemudian publikasikan atau proses kembali sumber daya yang dihasilkan.
+
+**Di mana gambar yang diekspor disimpan?**
+
+Lokasi gambar dikontrol oleh [MarkdownSaveOptions.base_path](https://reference.aspose.com/slides/id/python-net/aspose.slides.export/markdownsaveoptions/base_path/) dan [MarkdownSaveOptions.images_save_folder_name](https://reference.aspose.com/slides/id/python-net/aspose.slides.export/markdownsaveoptions/images_save_folder_name/). Dokumen Markdown merujuk gambar tersebut dengan jalur relatif.
+
+**Pemisa jalur mana yang harus digunakan pada tautan gambar?**
+
+Gunakan garis miring maju (`/`) pada tautan Markdown dan URL. Gunakan `os.path.join` hanya untuk jalur sistem berkas, dan normalisasikan setiap tautan yang dibuat selama pasca‑proses secara terpisah.
+
+**Apakah tautan hiper tetap dipertahankan selama ekspor Markdown?**
 
 Ya. Teks [hyperlinks](/slides/id/python-net/manage-hyperlinks/) dipertahankan sebagai tautan Markdown standar. Slide [transitions](/slides/id/python-net/slide-transition/) dan [animations](/slides/id/python-net/powerpoint-animation/) tidak dikonversi.
 
-**Bisakah saya mempercepat konversi dengan menjalankannya di beberapa thread?**
+**Apakah presentasi dapat dikonversi ke Markdown secara paralel?**
 
-Anda dapat memparallelkan antar file, tetapi [don’t share](/slides/id/python-net/multithreading/) instance [Presentation](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/) yang sama di antara thread. Gunakan instance/proses terpisah per file untuk menghindari kontensi.
-
-**Apa yang terjadi pada gambar—di mana mereka disimpan, dan apakah jalurnya relatif?**
-
-[Images](/slides/id/python-net/image/) diekspor ke folder khusus, dan file Markdown merujuknya dengan jalur relatif secara default. Anda dapat mengonfigurasi jalur output dasar dan nama folder aset untuk menjaga struktur repositori yang dapat diprediksi.
+Anda dapat memproses file presentasi yang berbeda secara paralel, tetapi jangan berbagi instance [Presentation](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/) yang sama antar thread. Ikuti [multithreading guidelines](/slides/id/python-net/multithreading/) dan gunakan instance terpisah untuk setiap file.

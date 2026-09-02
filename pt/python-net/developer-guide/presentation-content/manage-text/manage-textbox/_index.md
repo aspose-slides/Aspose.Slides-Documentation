@@ -17,23 +17,21 @@ keywords:
 - apresentação
 - Python
 - Aspose.Slides
-description: "Aspose.Slides para Python via .NET facilita a criação, edição e clonagem de caixas de texto em arquivos PowerPoint e OpenDocument, aprimorando a automação de suas apresentações."
+description: "Aspose.Slides for Python via .NET facilita a criação, edição e clonagem de caixas de texto em arquivos PowerPoint e OpenDocument, aprimorando a automação de suas apresentações."
 ---
 ## **Introdução**
 
-Os textos nos slides tipicamente existem em caixas de texto ou formas. Portanto, para adicionar um texto a um slide, você deve adicionar uma caixa de texto e então colocar algum texto dentro da caixa de texto. Aspose.Slides for Python fornece a classe [AutoShape](https://reference.aspose.com/slides/pt/python-net/aspose.slides/autoshape/) que permite adicionar uma forma contendo algum texto.
+Os textos nos slides geralmente existem em caixas de texto ou formas. Portanto, para adicionar texto a um slide, você precisa adicionar uma caixa de texto e, em seguida, colocar algum texto dentro da caixa de texto. Aspose.Slides for Python fornece a classe [AutoShape](https://reference.aspose.com/slides/pt/python-net/aspose.slides/autoshape/) que permite adicionar uma forma contendo texto.
 
-{{% alert title="Informação" color="info" %}}
-Aspose.Slides também fornece a classe [Shape](https://reference.aspose.com/slides/pt/python-net/aspose.slides/shape/). Entretanto, nem todas as formas podem conter texto.
+{{% alert title="Info" color="info" %}}
+Aspose.Slides também fornece a classe [Shape](https://reference.aspose.com/slides/pt/python-net/aspose.slides/shape/). No entanto, nem todas as formas podem conter texto.
 {{% /alert %}}
 
-{{% alert title="Observação" color="warning" %}}
-Portanto, ao lidar com uma forma à qual você deseja adicionar texto, pode ser necessário verificar e confirmar que ela foi convertida pela classe [AutoShape](https://reference.aspose.com/slides/pt/python-net/aspose.slides/autoshape/). Só então você poderá trabalhar com [TextFrame](https://reference.aspose.com/slides/pt/python-net/aspose.slides/textframe/), que é uma propriedade da classe [AutoShape](https://reference.aspose.com/slides/pt/python-net/aspose.slides/autoshape/). Consulte a seção [Update Text](/slides/pt/python-net/manage-textbox/#update-text) nesta página.
+{{% alert title="Note" color="warning" %}}
+Portanto, ao lidar com uma forma à qual você deseja adicionar texto, pode ser necessário verificar e confirmar que ela foi convertida através da classe [AutoShape](https://reference.aspose.com/slides/pt/python-net/aspose.slides/autoshape/). Só então você poderá trabalhar com [TextFrame](https://reference.aspose.com/slides/pt/python-net/aspose.slides/textframe/), que é uma propriedade da classe [AutoShape](https://reference.aspose.com/slides/pt/python-net/aspose.slides/autoshape/). Veja a seção [Update Text](/slides/pt/python-net/manage-textbox/#update-text) nesta página.
 {{% /alert %}}
 
 ## **Criar Caixas de Texto em Slides**
-
-Para criar uma caixa de texto em um slide:
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/).
 2. Obtenha uma referência ao primeiro slide.
@@ -65,7 +63,7 @@ with slides.Presentation() as presentation:
 
 Aspose.Slides fornece a propriedade [is_text_box](https://reference.aspose.com/slides/pt/python-net/aspose.slides/autoshape/is_text_box/) na classe [AutoShape](https://reference.aspose.com/slides/pt/python-net/aspose.slides/autoshape/), que permite determinar se uma forma é uma caixa de texto.
 
-![Caixa de texto e forma](istextbox.png)
+![Text box and shape](istextbox.png)
 
 Este exemplo Python mostra como verificar se uma forma foi criada como caixa de texto:
 
@@ -79,7 +77,7 @@ with slides.Presentation("Sample.pptx") as presentation:
                 print("shape is a text box" if shape.is_text_box else "shape is not a text box")
 ```
 
-Observe que, se você adicionar um [AutoShape](https://reference.aspose.com/slides/pt/python-net/aspose.slides/autoshape/) usando a classe [ShapeCollection](https://reference.aspose.com/slides/pt/python-net/aspose.slides/shapecollection/), a propriedade `is_text_box` da forma devolve `False`. Contudo, depois de adicionar texto — seja com o método `add_text_frame` ou definindo a propriedade `text` — `is_text_box` devolve `True`.
+Observe que, se você adicionar um [AutoShape](https://reference.aspose.com/slides/pt/python-net/aspose.slides/autoshape/) usando a classe [ShapeCollection](https://reference.aspose.com/slides/pt/python-net/aspose.slides/shapecollection/), a propriedade `is_text_box` da forma retornará `False`. No entanto, depois de adicionar texto — seja com o método `add_text_frame` ou definindo a propriedade `text` — `is_text_box` retornará `True`.
 
 ```py
 import aspose.slides as slides
@@ -108,9 +106,17 @@ with slides.Presentation() as presentation:
     # shape4.is_text_box é falso
 ```
 
-## **Adicionar Colunas a Caixas de Texto**
+## **Encontrar a Forma que Possui um Quadro de Texto**
 
-Aspose.Slides fornece as propriedades [column_count](https://reference.aspose.com/slides/pt/python-net/aspose.slides/textframeformat/column_count/) e [column_spacing](https://reference.aspose.com/slides/pt/python-net/aspose.slides/textframeformat/column_spacing/) na classe [TextFrameFormat](https://reference.aspose.com/slides/pt/python-net/aspose.slides/textframeformat/) para adicionar colunas a caixas de texto. Você pode especificar o número de colunas e definir o espaçamento (em pontos) entre elas.
+Em código genérico de processamento de texto, você pode receber um [TextFrame](https://reference.aspose.com/slides/pt/python-net/aspose.slides/textframe/) sem já saber qual objeto de apresentação o contém. Use a propriedade [TextFrame.parent_shape](https://reference.aspose.com/slides/pt/python-net/aspose.slides/textframe/parent_shape/) para navegar de volta até a [Shape](https://reference.aspose.com/slides/pt/python-net/aspose.slides/shape/) proprietária.
+
+Para um quadro de texto que pertence a um [AutoShape](https://reference.aspose.com/slides/pt/python-net/aspose.slides/autoshape/) ou outra forma que contenha texto, [TextFrame.parent_shape](https://reference.aspose.com/slides/pt/python-net/aspose.slides/textframe/parent_shape/) está definido e [TextFrame.parent_cell](https://reference.aspose.com/slides/pt/python-net/aspose.slides/textframe/parent_cell/) é `None`. Ambas as propriedades são de navegação somente leitura, portanto, ler seus valores não altera a propriedade. Sempre verifique se o valor retornado é `None` antes de acessar a forma.
+
+Para um exemplo completo que identifica proprietários de formas e células de tabela, incluindo formas associadas a nós de SmartArt, veja [Search and Replace Text](/slides/pt/python-net/search-and-replace-text/).
+
+## **Adicionar Colunas às Caixas de Texto**
+
+Aspose.Slides fornece as propriedades [column_count](https://reference.aspose.com/slides/pt/python-net/aspose.slides/textframeformat/column_count/) e [column_spacing](https://reference.aspose.com/slides/pt/python-net/aspose.slides/textframeformat/column_spacing/) na classe [TextFrameFormat](https://reference.aspose.com/slides/pt/python-net/aspose.slides/textframeformat/) para adicionar colunas às caixas de texto. Você pode especificar o número de colunas e definir o espaçamento (em pontos) entre elas.
 
 O código Python a seguir demonstra esta operação:
 
@@ -148,7 +154,7 @@ with slides.Presentation() as presentation:
 
 Aspose.Slides permite atualizar o texto em uma única caixa de texto ou em toda a apresentação.
 
-O exemplo Python a seguir demonstra como atualizar todo o texto em uma apresentação:
+O exemplo Python a seguir demonstra como atualizar todo o texto de uma apresentação:
 
 ```py
 import aspose.slides as slides
@@ -160,7 +166,7 @@ with slides.Presentation("Sample.pptx") as presentation:
                 for paragraph in shape.text_frame.paragraphs:
                     for portion in paragraph.portions:
                         portion.text = portion.text.replace("years", "months")
-                        portion.portion_format.font_bold = 1
+                        portion.portion_format.font_bold = slides.NullableBool.TRUE
   
     # Salvar a apresentação modificada.
     presentation.save("TextChanged.pptx", slides.export.SaveFormat.PPTX)
@@ -168,14 +174,14 @@ with slides.Presentation("Sample.pptx") as presentation:
 
 ## **Adicionar Caixas de Texto com Hiperlinks**
 
-Você pode inserir um link em uma caixa de texto. Quando a caixa de texto for clicada, o link será aberto.
+Você pode inserir um link em uma caixa de texto. Quando a caixa de texto é clicada, o link é aberto.
 
-Para adicionar uma caixa de texto que contenha um hiperlink, siga estas etapas:
+Para adicionar uma caixa de texto que contém um hiperlink, siga estas etapas:
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/).
 2. Obtenha uma referência ao primeiro slide.
 3. Adicione um [AutoShape](https://reference.aspose.com/slides/pt/python-net/aspose.slides/autoshape/) com `ShapeType.RECTANGLE` na posição desejada do slide.
-4. Defina o texto no [TextFrame](https://reference.aspose.com/slides/pt/python-net/aspose.slides/textframe/) da forma.
+4. Defina o texto no [TextFrame](https://reference.aspose.com/slides/pt/python-net/aspose.slides/textframe/).
 5. Obtenha uma referência ao [HyperlinkManager](https://reference.aspose.com/slides/pt/python-net/aspose.slides/hyperlinkmanager/).
 6. Use a propriedade `hyperlink_manager` para definir um hiperlink de clique externo.
 7. Salve a apresentação como um arquivo PPTX.
@@ -199,7 +205,7 @@ with slides.Presentation() as presentation:
     # Adicionar texto ao quadro.
     text_portion.text = "Aspose.Slides"
 
-    # Definir um hyperlink para o texto da porção.
+    # Definir um hiperlink para o texto da porção.
     hyperlink_manager = text_portion.portion_format.hyperlink_manager
     hyperlink_manager.set_external_hyperlink_click("http://www.aspose.com")
 
@@ -207,12 +213,12 @@ with slides.Presentation() as presentation:
     presentation.save("Hyperlink.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Perguntas Frequentes**
+## **FAQ**
 
 **Qual é a diferença entre uma caixa de texto e um placeholder de texto ao trabalhar com slides mestres?**
 
-Um [placeholder](/slides/pt/python-net/manage-placeholder/) herda estilo/posição do [master](https://reference.aspose.com/slides/pt/python-net/aspose.slides/masterslide/) e pode ser sobrescrito em [layouts](https://reference.aspose.com/slides/pt/python-net/aspose.slides/layoutslide/), enquanto uma caixa de texto regular é um objeto independente em um slide específico e não muda quando você troca de layout.
+Um [placeholder](/slides/pt/python-net/manage-placeholder/) herda estilo/posição do [master](https://reference.aspose.com/slides/pt/python-net/aspose.slides/masterslide/) e pode ser sobrescrito nos [layouts](https://reference.aspose.com/slides/pt/python-net/aspose.slides/layoutslide/), enquanto uma caixa de texto normal é um objeto independente em um slide específico e não muda quando você troca de layout.
 
 **Como posso realizar uma substituição em massa de texto em toda a apresentação sem alterar texto dentro de gráficos, tabelas e SmartArt?**
 
-Limite sua iteração a auto‑shapes que possuam quadros de texto e exclua objetos incorporados ([charts](https://reference.aspose.com/slides/pt/python-net/aspose.slides.charts/chart/), [tables](https://reference.aspose.com/slides/pt/python-net/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/pt/python-net/aspose.slides.smartart/smartart/)) percorrendo suas coleções separadamente ou ignorando esses tipos de objeto.
+Limite sua iteração a autoformas que possuem quadros de texto e exclua objetos incorporados ([charts](https://reference.aspose.com/slides/pt/python-net/aspose.slides.charts/chart/), [tables](https://reference.aspose.com/slides/pt/python-net/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/pt/python-net/aspose.slides.smartart/smartart/)) percorrendo suas coleções separadamente ou ignorando esses tipos de objeto.

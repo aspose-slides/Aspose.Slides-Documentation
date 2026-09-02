@@ -1,6 +1,6 @@
 ---
-title: Cari dan Ganti Teks dalam Presentasi PowerPoint di C++
-linktitle: Cari dan Ganti Teks
+title: Mencari dan Mengganti Teks dalam Presentasi PowerPoint di C++
+linktitle: Mencari dan Mengganti Teks
 type: docs
 weight: 55
 url: /id/cpp/search-and-replace-text/
@@ -17,50 +17,161 @@ keywords:
 - presentasi
 - C++
 - Aspose.Slides
-description: "Cari, sorot, dan ganti teks dalam presentasi PowerPoint sambil mengumpulkan setiap kecocokan dengan Aspose.Slides untuk C++."
+description: "Mencari, menyorot, dan mengganti teks dalam presentasi PowerPoint sambil mengumpulkan setiap kecocokan dengan Aspose.Slides untuk C++."
 ---
-## **Ikhtisar**
+## **Ringkasan**
 
-Aspose.Slides untuk C++ dapat mencari, menyorot, dan mengganti teks dalam sebuah bingkai teks tunggal atau di seluruh presentasi. Setiap operasi juga dapat memberi tahu aplikasi tentang setiap kecocokan melalui callback hasil. Hal ini memungkinkan pembaruan presentasi sekaligus membangun jejak audit yang berisi teks yang cocok, konteksnya, posisi, bingkai teks, dan nomor slide.
+Aspose.Slides for C++ dapat mencari, menyorot, dan mengganti teks dalam satu bingkai teks atau di seluruh presentasi. Setiap operasi juga dapat memberi tahu aplikasi tentang setiap kecocokan melalui callback hasil. Hal ini memungkinkan pembaruan presentasi sekaligus membuat jejak audit yang berisi teks yang cocok, konteksnya, posisi, bingkai teks, dan nomor slide.
 
-Kemampuan ini berguna untuk tinjauan, penyensoran, pemeriksaan terminologi, pembersihan templat, dan alur kerja pelaporan otomatis.
+Kemampuan ini berguna untuk peninjauan, penyensoran, pemeriksaan terminologi, pembersihan templat, dan alur kerja pelaporan otomatis.
 
-Pada contoh pertama di bawah ini, kami menggunakan file bernama “sample.pptx”, yang berisi satu kotak teks pada slide pertama dengan teks berikut:
+Pada contoh pertama di bawah ini, kami menggunakan file bernama "sample.pptx", yang berisi satu kotak teks pada slide pertama dengan teks berikut:
 
-![Teks contoh](sample_text.png)
+![Sample text](sample_text.png)
 
 ## **Pilih Lingkup Pencarian**
 
-Gunakan metode pada [ITextFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/) untuk membatasi operasi pada satu bingkai teks. Gunakan metode pada [IPresentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipresentation/) untuk memproses semua teks yang berlaku dalam presentasi.
+Gunakan metode pada [ITextFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/) untuk membatasi operasi pada satu bingkai teks. Gunakan metode pada [IPresentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipresentation/) untuk memproses semua teks yang relevan dalam presentasi.
 
 | Operasi | Satu bingkai teks | Seluruh presentasi |
 |---|---|---|
-| Sorot teks literal | [ITextFrame::HighlightText](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/highlighttext/) | [IPresentation::HighlightText](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipresentation/highlighttext/) |
-| Sorot kecocokan ekspresi reguler | [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/highlightregex/) | [IPresentation::HighlightRegex](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipresentation/highlightregex/) |
-| Ganti teks literal | [ITextFrame::ReplaceText](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/replacetext/) | [IPresentation::ReplaceText](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipresentation/replacetext/) |
-| Ganti kecocokan ekspresi reguler | [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/replaceregex/) | [IPresentation::ReplaceRegex](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipresentation/replaceregex/) |
+| Menyorot teks literal | [ITextFrame::HighlightText](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/highlighttext/) | [IPresentation::HighlightText](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipresentation/highlighttext/) |
+| Menyorot kecocokan ekspresi reguler | [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/highlightregex/) | [IPresentation::HighlightRegex](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipresentation/highlightregex/) |
+| Mengganti teks literal | [ITextFrame::ReplaceText](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/replacetext/) | [IPresentation::ReplaceText](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipresentation/replacetext/) |
+| Mengganti kecocokan ekspresi reguler | [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/replaceregex/) | [IPresentation::ReplaceRegex](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipresentation/replaceregex/) |
 
 ## **Konfigurasikan Pencocokan Teks**
 
 Untuk operasi teks literal, gunakan [ITextSearchOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextsearchoptions/) untuk mengontrol pencocokan:
 
-- [ITextSearchOptions::set_WholeWordsOnly](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextsearchoptions/set_wholewordsonly/) membatasi kecocokan hanya pada kata lengkap.  
-- [ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) mengontrol apakah huruf besar/kecil harus cocok.  
+- [ITextSearchOptions::set_WholeWordsOnly](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextsearchoptions/set_wholewordsonly/) membatasi kecocokan hanya pada kata lengkap.
+- [ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) mengatur apakah huruf besar/kecil harus cocok.
 - [ITextSearchOptions::set_IncludeNotes](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextsearchoptions/set_includenotes/) menyertakan catatan slide dalam pencarian, penggantian, dan penyorotan tingkat presentasi.
 
 Operasi ekspresi reguler menggunakan `System::Text::RegularExpressions::Regex`, sehingga aturan pencocokan seperti sensitivitas huruf dan batas kata didefinisikan oleh ekspresi dan opsinya.
 
-## **Kumpulkan Informasi Kecocokan dengan Callback**
+## **Identifikasi Pemilik Bingkai Teks**
 
-Implementasikan [IFindResultCallback](https://reference.aspose.com/slides/id/cpp/aspose.slides/ifindresultcallback/) untuk menerima notifikasi untuk setiap kecocokan. Metodenya [IFindResultCallback::FoundResult](https://reference.aspose.com/slides/id/cpp/aspose.slides/ifindresultcallback/foundresult/) menyediakan bingkai teks terkait, teks sumber, teks yang cocok, dan posisi kecocokan.
+Alur kerja pemrosesan teks generik sering menerima sebuah [ITextFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/) saat mencari, mengganti, memvalidasi, atau mengekspor teks. Gunakan [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/get_parentshape/) dan [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/get_parentcell/) untuk menentukan objek presentasi mana yang memiliki bingkai teks tersebut.
 
-Callback tidak menerima nomor slide secara langsung. Implementasi di bawah ini memperoleh nomor slide dari [ISlideComponent::get_Slide](https://reference.aspose.com/slides/id/cpp/aspose.slides/islidecomponent/get_slide/) dan juga menangani teks yang ditemukan di catatan slide melalui [INotesSlide::get_ParentSlide](https://reference.aspose.com/slides/id/cpp/aspose.slides/inotesslide/get_parentslide/). Nilai nomor slide yang dapat bernilai null memungkinkan model hasil yang sama merepresentasikan teks yang terkait dengan tipe slide lain.
+Nilai yang diharapkan tergantung pada pemiliknya:
+
+| Pemilik bingkai teks | `get_ParentShape` | `get_ParentCell` |
+|---|---|---|
+| Sebuah AutoShape atau bentuk lain yang berisi teks | [IShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishape/) yang memiliki | `nullptr` |
+| Sebuah sel tabel | `nullptr` | [ICell](https://reference.aspose.com/slides/id/cpp/aspose.slides/icell/) yang memiliki |
+
+Kedua metode menyediakan navigasi read‑only. Memanggilnya tidak memindahkan bingkai teks atau mengubah pemiliknya. Kode generik harus memeriksa kedua nilai untuk `nullptr` dan menangani kemungkinan bahwa tidak ada pemilik yang tersedia.
+
+Contoh berikut menggunakan [SlideUtil::GetAllTextFrames](https://reference.aspose.com/slides/id/cpp/aspose.slides.util/slideutil/getalltextframes/) untuk iterasi melalui semua bingkai teks dalam sebuah presentasi. Untuk bentuk, contoh melaporkan nama bentuk, tipe runtime C++, dan slide yang memuatnya. Untuk sel tabel, contoh melaporkan koordinat kolom dan baris berbasis nol serta slide yang memuatnya.
 
 ```cpp
 #include <DOM/IBaseSlide.h>
 #include <DOM/INotesSlide.h>
+#include <DOM/IShape.h>
 #include <DOM/ISlide.h>
 #include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <Util/SlideUtil.h>
+#include <system/console.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using Aspose::Slides::IBaseSlide;
+using Aspose::Slides::INotesSlide;
+using Aspose::Slides::IShape;
+using Aspose::Slides::ISlide;
+using Aspose::Slides::ITextFrame;
+using Aspose::Slides::Presentation;
+using Aspose::Slides::Util::SlideUtil;
+using System::AsCast;
+using System::Console;
+using System::MakeObject;
+using System::String;
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx");
+auto textFrames = SlideUtil::GetAllTextFrames(presentation, false);
+
+for (const auto& textFrame : textFrames)
+{
+    auto ownerShape = textFrame->get_ParentShape();
+    if (ownerShape != nullptr)
+    {
+        auto shapeName = String::IsNullOrEmpty(ownerShape->get_Name()) ? u"(unnamed)" : ownerShape->get_Name();
+        auto shapeType = ownerShape->GetType().get_Name();
+        auto baseSlide = ownerShape->get_Slide();
+        String slideLabel;
+        auto slide = AsCast<ISlide>(baseSlide);
+
+        if (slide != nullptr)
+        {
+            slideLabel = String::Format(u"slide {0}", slide->get_SlideNumber());
+        }
+        else
+        {
+            auto notesSlide = AsCast<INotesSlide>(baseSlide);
+            if (notesSlide != nullptr)
+            {
+                slideLabel = String::Format(u"notes for slide {0}", notesSlide->get_ParentSlide()->get_SlideNumber());
+            }
+            else
+            {
+                slideLabel = baseSlide->GetType().get_Name();
+            }
+        }
+
+        Console::WriteLine(u"Shape: {0}; type: {1}; {2}", shapeName, shapeType, slideLabel);
+        continue;
+    }
+
+    auto ownerCell = textFrame->get_ParentCell();
+    if (ownerCell != nullptr)
+    {
+        auto baseSlide = ownerCell->get_Slide();
+        String slideLabel;
+        auto slide = AsCast<ISlide>(baseSlide);
+
+        if (slide != nullptr)
+        {
+            slideLabel = String::Format(u"slide {0}", slide->get_SlideNumber());
+        }
+        else
+        {
+            auto notesSlide = AsCast<INotesSlide>(baseSlide);
+            if (notesSlide != nullptr)
+            {
+                slideLabel = String::Format(u"notes for slide {0}", notesSlide->get_ParentSlide()->get_SlideNumber());
+            }
+            else
+            {
+                slideLabel = baseSlide->GetType().get_Name();
+            }
+        }
+
+        Console::WriteLine(u"Table cell: column {0}, row {1}; {2}", ownerCell->get_FirstColumnIndex(), ownerCell->get_FirstRowIndex(), slideLabel);
+        continue;
+    }
+
+    Console::WriteLine(u"The text frame owner is not available as a shape or table cell.");
+}
+```
+
+Untuk konten SmartArt, iterasi melalui bentuk‑bentuk dalam [ISmartArtNode::get_Shapes](https://reference.aspose.com/slides/id/cpp/aspose.slides.smartart/ismartartnode/get_shapes/) dan akses setiap [ISmartArtShape::get_TextFrame](https://reference.aspose.com/slides/id/cpp/aspose.slides.smartart/ismartartshape/get_textframe/). Bingkai teks dapat ditelusuri ke bentuk terkait melalui [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/get_parentshape/), sementara [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/get_parentcell/) mengembalikan `nullptr`. Oleh karena itu, cabang bentuk dalam contoh juga menangani teks dari node SmartArt.
+
+## **Kumpulkan Informasi Kecocokan dengan Callback**
+
+Implementasikan [IFindResultCallback](https://reference.aspose.com/slides/id/cpp/aspose.slides/ifindresultcallback/) untuk menerima notifikasi pada setiap kecocokan. Metode [IFindResultCallback::FoundResult](https://reference.aspose.com/slides/id/cpp/aspose.slides/ifindresultcallback/foundresult/) menyediakan bingkai teks terkait, teks sumber, teks yang cocok, dan posisi kecocokan.
+
+Callback tidak menerima nomor slide secara langsung. Implementasi di bawah menurunkannya dari [ISlideComponent::get_Slide](https://reference.aspose.com/slides/id/cpp/aspose.slides/islidecomponent/get_slide/) dan juga menangani teks yang ditemukan di catatan slide melalui [INotesSlide::get_ParentSlide](https://reference.aspose.com/slides/id/cpp/aspose.slides/inotesslide/get_parentslide/). Nomor slide yang dapat bernilai null memungkinkan model hasil yang sama merepresentasikan teks yang terkait dengan tipe slide lain.
+
+```cpp
+#include <DOM/IBaseSlide.h>
+#include <DOM/INotesSlide.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Table/ICell.h>
 #include <IFindResultCallback.h>
 #include <system/collections/list.h>
 #include <system/nullable.h>
@@ -70,6 +181,7 @@ Callback tidak menerima nomor slide secara langsung. Implementasi di bawah ini m
 using Aspose::Slides::IBaseSlide;
 using Aspose::Slides::IFindResultCallback;
 using Aspose::Slides::INotesSlide;
+using Aspose::Slides::IShape;
 using Aspose::Slides::ISlide;
 using Aspose::Slides::ITextFrame;
 using System::AsCast;
@@ -119,7 +231,23 @@ public:
 private:
     static Nullable<int32_t> GetSlideNumber(SharedPtr<ITextFrame> textFrame)
     {
-        SharedPtr<IBaseSlide> baseSlide = textFrame->get_Slide();
+        auto parentShape = textFrame->get_ParentShape();
+        auto parentCell = textFrame->get_ParentCell();
+        SharedPtr<IBaseSlide> baseSlide;
+
+        if (parentShape != nullptr)
+        {
+            baseSlide = parentShape->get_Slide();
+        }
+        else if (parentCell != nullptr)
+        {
+            baseSlide = parentCell->get_Slide();
+        }
+        else
+        {
+            baseSlide = textFrame->get_Slide();
+        }
+
         auto slide = AsCast<ISlide>(baseSlide);
 
         if (slide != nullptr)
@@ -139,11 +267,11 @@ private:
 };
 ```
 
-Untuk operasi penggantian, `FoundText` berisi teks asli yang cocok, sehingga callback dapat mencatat dengan tepat istilah mana yang diganti.
+Untuk operasi penggantian, `FoundText` berisi teks asli yang cocok, sehingga callback dapat mencatat tepat istilah mana yang diganti.
 
 ## **Sorot Teks**
 
-Gunakan metode [ITextFrame::HighlightText](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/highlighttext/) untuk menyorot kecocokan teks literal dalam sebuah bingkai teks. Berikan [ITextSearchOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextsearchoptions/) untuk mengontrol pencarian dan sebuah callback untuk mengumpulkan detail kecocokan.
+Gunakan metode [ITextFrame::HighlightText](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/highlighttext/) untuk menyorot kecocokan teks literal dalam sebuah bingkai teks. Kirimkan [ITextSearchOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextsearchoptions/) untuk mengontrol pencarian dan sebuah callback untuk mengumpulkan detail kecocokan.
 
 Contoh kode di bawah menyorot semua kemunculan karakter **"try"** dan kemudian hanya menyorot kata lengkap **"to"**. Kedua pencarian melaporkan kecocokannya ke callback yang sama.
 
@@ -166,7 +294,7 @@ using System::MakeObject;
 
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-// Get the first shape from the first slide.
+// Dapatkan bentuk pertama dari slide pertama.
 auto shape = ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
 auto callback = MakeObject<TextSearchCallback>();
 
@@ -201,13 +329,13 @@ presentation->Dispose();
 
 Hasilnya:
 
-![Teks yang disorot](highlighted_text.png)
+![The highlighted text](highlighted_text.png)
 
 ## **Sorot Teks Menggunakan Ekspresi Reguler**
 
 Metode [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/highlightregex/) menyorot kecocokan teks yang ditemukan oleh ekspresi reguler dalam sebuah bingkai teks.
 
-Kode berikut menyorot semua kata yang mengandung tujuh karakter atau lebih dan mengumpulkan setiap kecocokan:
+Kode berikut menyorot semua kata yang berisi tujuh karakter atau lebih dan mengumpulkan tiap kecocokan:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -240,11 +368,11 @@ presentation->Dispose();
 
 Hasilnya:
 
-![Teks yang disorot menggunakan ekspresi reguler](highlighted_text_using_regex.png)
+![The highlighted text using the regular expression](highlighted_text_using_regex.png)
 
 ## **Sorot Teks di Seluruh Presentasi**
 
-Gunakan [IPresentation::HighlightText](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipresentation/highlighttext/) dan [IPresentation::HighlightRegex](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipresentation/highlightregex/) untuk mencari semua bingkai teks yang berlaku dalam sebuah presentasi. Contoh berikut menyorot istilah literal dan semua alamat email sambil mempertahankan koleksi hasil terpisah untuk kedua pencarian.
+Gunakan [IPresentation::HighlightText](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipresentation/highlighttext/) dan [IPresentation::HighlightRegex](https://reference.aspose.com/slides/id/cpp/aspose.slides/ipresentation/highlightregex/) untuk mencari semua bingkai teks yang relevan dalam sebuah presentasi. Contoh berikut menyorot istilah literal dan semua alamat email sambil mempertahankan koleksi hasil terpisah untuk kedua pencarian.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -283,9 +411,9 @@ presentation->Save(u"highlighted_presentation.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Ganti Teks di Sebuah Bingkai Teks**
+## **Ganti Teks dalam Bingkai Teks**
 
-Gunakan [ITextFrame::ReplaceText](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/replacetext/) untuk teks literal dan [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/replaceregex/) untuk penggantian berbasis pola. Metode-metode ini memperbarui teks yang cocok di dalam bingkai teks yang ada, sehingga mempertahankan format bagian sekitarnya alih‑alih membangun ulang bingkai teks dari string polos.
+Gunakan [ITextFrame::ReplaceText](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/replacetext/) untuk teks literal dan [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/replaceregex/) untuk penggantian berbasis pola. Metode‑metode ini memperbarui teks yang cocok di dalam bingkai teks yang ada, sehingga format bagian sekitar tetap dipertahankan alih‑alih membangun ulang bingkai teks dari string polos.
 
 Contoh berikut menstandarkan varian ejaan dan kemudian mengganti label versi. Callback yang sama mencatat istilah asli yang cocok oleh kedua operasi.
 
@@ -326,7 +454,7 @@ presentation->Save(u"updated_text_frame.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Jika satu kecocokan melintasi bagian dengan format berbeda, tinjau output untuk memastikan format mana yang harus diterapkan pada teks pengganti.
+Jika satu kecocokan meliputi bagian dengan format berbeda, tinjau output untuk memastikan format mana yang harus diterapkan pada teks pengganti.
 
 ## **Ganti Teks di Seluruh Presentasi**
 
@@ -363,7 +491,7 @@ presentation->Dispose();
 
 ## **Kelompokkan Kecocokan untuk Pelaporan**
 
-Karena setiap hasil menyimpan nomor slide dan bingkai teks, aplikasi dapat mengelompokkan kecocokan untuk audit, pelaporan, atau alur kerja tinjauan. Contoh berikut mengelompokkan hasil yang dikumpulkan pertama menurut slide, kemudian menurut bingkai teks:
+Karena setiap hasil menyimpan nomor slide dan bingkai teks, aplikasi dapat mengelompokkan kecocokan untuk audit, pelaporan, atau alur kerja peninjauan. Contoh berikut mengelompokkan hasil yang dikumpulkan pertama berdasarkan slide lalu berdasarkan bingkai teks:
 
 ```cpp
 #include <DOM/ITextFrame.h>
@@ -411,20 +539,20 @@ for (const auto& slideGroup : matchesBySlide)
 
 **Bagaimana cara mencari hanya satu kotak teks alih‑alih seluruh presentasi?**
 
-Dapatkan bingkai teks bentuk dan panggil [ITextFrame::HighlightText](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/highlighttext/), [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/highlightregex/), [ITextFrame::ReplaceText](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/replacetext/), atau [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/replaceregex/) pada bingkai teks tersebut. Metode tingkat presentasi memproses semua bingkai teks yang berlaku sebagai gantinya.
+Dapatkan bingkai teks dari bentuk dan panggil [ITextFrame::HighlightText](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/highlighttext/), [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/highlightregex/), [ITextFrame::ReplaceText](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/replacetext/), atau [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/replaceregex/) pada bingkai teks tersebut. Metode tingkat presentasi memproses semua bingkai teks yang relevan.
 
 **Bagaimana cara mencocokkan kata lengkap dengan kapitalisasi yang tepat?**
 
-Panggil [ITextSearchOptions::set_WholeWordsOnly](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextsearchoptions/set_wholewordsonly/) dan [ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) dengan `true`, lalu berikan opsi tersebut ke metode penyorotan atau penggantian teks literal. Untuk ekspresi reguler, definisikan batas kata dan sensitivitas huruf dalam `System::Text::RegularExpressions::Regex` itu sendiri.
+Panggil [ITextSearchOptions::set_WholeWordsOnly](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextsearchoptions/set_wholewordsonly/) dan [ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) dengan `true`, lalu kirimkan opsi tersebut ke metode penyorotan atau penggantian teks literal. Untuk ekspresi reguler, definisikan batas kata dan sensitivitas huruf dalam `System::Text::RegularExpressions::Regex` itu sendiri.
 
 **Apakah pencarian dan penggantian dapat menyertakan teks dalam catatan slide?**
 
-Ya. Panggil [ITextSearchOptions::set_IncludeNotes](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextsearchoptions/set_includenotes/) dengan `true` saat menggunakan operasi teks literal tingkat presentasi. Implementasi callback yang ditunjukkan di atas memetakan kecocokan pada catatan slide kembali ke nomor slide induknya.
+Ya. Panggil [ITextSearchOptions::set_IncludeNotes](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextsearchoptions/set_includenotes/) dengan `true` ketika menggunakan operasi teks literal tingkat presentasi. Implementasi callback yang ditunjukkan di atas memetakan kecocokan di catatan slide kembali ke nomor slide induknya.
 
-**Bagaimana cara membuat laporan tanpa memindai ulang presentasi?**
+**Bagaimana cara membuat laporan tanpa memindai presentasi lagi?**
 
-Berikan implementasi [IFindResultCallback](https://reference.aspose.com/slides/id/cpp/aspose.slides/ifindresultcallback/) ke operasi penyorotan atau penggantian. Callback menerima setiap kecocokan saat operasi berjalan, sehingga aplikasi dapat menyimpan teks sumber, teks yang cocok, posisi, bingkai teks, dan nomor slide yang diturunkan untuk pengelompokan atau ekspor nanti.
+Kirimkan implementasi [IFindResultCallback](https://reference.aspose.com/slides/id/cpp/aspose.slides/ifindresultcallback/) ke operasi penyorotan atau penggantian. Callback menerima setiap kecocokan selama operasi berjalan, sehingga aplikasi dapat menyimpan teks sumber, teks yang cocok, posisi, bingkai teks, dan nomor slide yang diturunkan untuk pengelompokan atau ekspor nanti.
 
-**Apakah mengganti teks mempertahankan formatnya?**
+**Apakah penggantian teks mempertahankan formatnya?**
 
-[ITextFrame::ReplaceText](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/replacetext/) dan [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/replaceregex/) memodifikasi teks yang cocok di dalam bingkai teks yang ada dan mempertahankan format bagian sekitarnya. Jika sebuah kecocokan melintasi bagian dengan format berbeda, inspeksi hasilnya untuk memastikan penggantian menggunakan gaya yang diinginkan.
+[ITextFrame::ReplaceText](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/replacetext/) dan [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframe/replaceregex/) mengubah teks yang cocok di dalam bingkai teks yang ada dan mempertahankan format bagian sekitarnya. Jika satu kecocokan meliputi bagian dengan format berbeda, periksa hasilnya untuk memastikan pengganti menggunakan gaya yang diinginkan.

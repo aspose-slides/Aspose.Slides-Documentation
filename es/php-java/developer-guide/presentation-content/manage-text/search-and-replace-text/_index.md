@@ -17,23 +17,23 @@ keywords:
 - presentación
 - PHP
 - Aspose.Slides
-description: "Buscar, resaltar y reemplazar texto en presentaciones de PowerPoint mientras se recoge cada coincidencia con Aspose.Slides para PHP a través de Java."
+description: "Buscar, resaltar y reemplazar texto en presentaciones de PowerPoint mientras se recopila cada coincidencia con Aspose.Slides para PHP a través de Java."
 ---
-## **Descripción general**
+## **Visión general**
 
-Aspose.Slides for PHP via Java puede buscar, resaltar y reemplazar texto en un marco de texto individual o en toda una presentación. Cada operación también puede notificar a una aplicación sobre cada coincidencia mediante una devolución de llamada de resultados. Esto permite actualizar una presentación y, simultáneamente, construir un registro de auditoría que contenga el texto coincidente, su contexto, posición, marco de texto y número de diapositiva.
+Aspose.Slides for PHP a través de Java puede buscar, resaltar y reemplazar texto en un marco de texto individual o en toda una presentación. Cada operación también puede notificar a una aplicación sobre cada coincidencia mediante una devolución de llamada de resultados. Esto permite actualizar una presentación y, simultáneamente, crear un registro de auditoría que contiene el texto coincidente, su contexto, posición, marco de texto y número de diapositiva.
 
-Estas capacidades son útiles para la revisión, la redacción, la verificación de terminología, la limpieza de plantillas y los flujos de trabajo de generación de informes automatizados.
+Estas capacidades son útiles para revisiones, redacciones, verificación de terminología, limpieza de plantillas y flujos de trabajo de generación de informes automáticos.
 
-En los primeros ejemplos a continuación, utilizamos un archivo llamado "sample.pptx", que contiene un único cuadro de texto en la primera diapositiva con el siguiente texto:
+En los primeros ejemplos a continuación, utilizamos un archivo llamado "sample.pptx", que contiene un único recuadro de texto en la primera diapositiva con el siguiente texto:
 
 ![Texto de ejemplo](sample_text.png)
 
-## **Elegir el alcance de búsqueda**
+## **Seleccionar el ámbito de búsqueda**
 
-Utilice los métodos de [TextFrame](https://reference.aspose.com/slides/es/php-java/aspose.slides/textframe/) para limitar una operación a un solo marco de texto. Utilice los métodos de [Presentation](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/) para procesar todo el texto aplicable en la presentación.
+Utilice los métodos en [TextFrame](https://reference.aspose.com/slides/es/php-java/aspose.slides/textframe/) para limitar una operación a un único marco de texto. Utilice los métodos en [Presentation](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/) para procesar todo el texto aplicable en la presentación.
 
-| Operación | Un marco de texto | Presentación completa |
+| Operación | Un marco de texto | Toda la presentación |
 |---|---|---|
 | Resaltar texto literal | [TextFrame::highlightText](https://reference.aspose.com/slides/es/php-java/aspose.slides/textframe/#highlightText) | [Presentation::highlightText](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/#highlightText) |
 | Resaltar coincidencias de expresiones regulares | [TextFrame::highlightRegex](https://reference.aspose.com/slides/es/php-java/aspose.slides/textframe/#highlightRegex) | [Presentation::highlightRegex](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/#highlightRegex) |
@@ -45,16 +45,90 @@ Utilice los métodos de [TextFrame](https://reference.aspose.com/slides/es/php-j
 Para operaciones de texto literal, utilice [TextSearchOptions](https://reference.aspose.com/slides/es/php-java/aspose.slides/textsearchoptions/) para controlar la coincidencia:
 
 - [TextSearchOptions::setWholeWordsOnly](https://reference.aspose.com/slides/es/php-java/aspose.slides/textsearchoptions/#setWholeWordsOnly) limita las coincidencias a palabras completas.
-- [TextSearchOptions::setCaseSensitive](https://reference.aspose.com/slides/es/php-java/aspose.slides/textsearchoptions/#setCaseSensitive) controla si debe coincidir la capitalización de los caracteres.
+- [TextSearchOptions::setCaseSensitive](https://reference.aspose.com/slides/es/php-java/aspose.slides/textsearchoptions/#setCaseSensitive) controla si la distinción entre mayúsculas y minúsculas debe coincidir.
 - [TextSearchOptions::setIncludeNotes](https://reference.aspose.com/slides/es/php-java/aspose.slides/textsearchoptions/#setIncludeNotes) incluye las notas de diapositiva en las operaciones de búsqueda, reemplazo y resaltado a nivel de presentación.
 
-Las operaciones con expresiones regulares utilizan un `Pattern` de Java, por lo que reglas de coincidencia como la sensibilidad a mayúsculas y los límites de palabra se definen en la expresión y sus indicadores.
+Las operaciones con expresiones regulares utilizan un `Pattern` de Java, por lo que reglas de coincidencia como la distinción entre mayúsculas y minúsculas y los límites de palabra se definen mediante la expresión y sus indicadores.
 
-## **Recopilar información de coincidencias mediante una devolución de llamada**
+## **Identificar el propietario de un marco de texto**
 
-Pase una devolución de llamada proxy de Java a un método de resaltado o reemplazo para recibir una notificación por cada coincidencia. El método de devolución de llamada recibe el marco de texto correspondiente, el texto fuente, el texto coincidente y la posición de la coincidencia.
+Los flujos de trabajo genéricos de procesamiento de texto a menudo reciben un [TextFrame](https://reference.aspose.com/slides/es/php-java/aspose.slides/textframe/) mientras buscan, reemplazan, validan o exportan texto. Utilice [TextFrame::getParentShape](https://reference.aspose.com/slides/es/php-java/aspose.slides/textframe/#getParentShape) y [TextFrame::getParentCell](https://reference.aspose.com/slides/es/php-java/aspose.slides/textframe/#getParentCell) para determinar qué objeto de la presentación es el propietario del marco de texto.
 
-La devolución de llamada no recibe directamente el número de diapositiva. La implementación a continuación lo deriva de la diapositiva principal y también gestiona el texto encontrado en las notas de diapositiva. La matriz de resultados utiliza `null` cuando el texto está asociado a otro tipo de diapositiva.
+Los valores esperados dependen del propietario:
+
+| Propietario del marco de texto | `getParentShape` | `getParentCell` |
+|---|---|---|
+| Una AutoForma u otra forma que contenga texto | La [Forma](https://reference.aspose.com/slides/es/php-java/aspose.slides/shape/) | `null` |
+| Una celda de tabla | `null` | La [Celda](https://reference.aspose.com/slides/es/php-java/aspose.slides/cell/) |
+
+Ambos métodos proporcionan una navegación de solo lectura. Llamarlos no desplaza el marco de texto ni cambia su propietario. El código genérico debe comprobar ambos valores con `java_is_null` y manejar la posibilidad de que ninguno de los propietarios esté disponible.
+
+El siguiente ejemplo utiliza [SlideUtil::getAllTextFrames](https://reference.aspose.com/slides/es/php-java/aspose.slides/slideutil/#getAllTextFrames) para iterar a través de los marcos de texto de una presentación. Para las formas, informa el nombre de la forma, el tipo de tiempo de ejecución de Java y la diapositiva contenedora. Para las celdas de tabla, informa las coordenadas de columna y fila basadas en cero y la diapositiva contenedora.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SlideUtil;
+
+$presentation = new Presentation("presentation.pptx");
+$arrayClass = new java_class("java.lang.reflect.Array");
+
+try {
+    $textFrames = SlideUtil::getAllTextFrames($presentation, false);
+    $textFrameCount = java_values($arrayClass->getLength($textFrames));
+
+    for ($textFrameIndex = 0; $textFrameIndex < $textFrameCount; $textFrameIndex++) {
+        $textFrame = $textFrames[$textFrameIndex];
+        $ownerShape = $textFrame->getParentShape();
+        if (!java_is_null($ownerShape)) {
+            $shapeName = java_values($ownerShape->getName());
+            $shapeName = $shapeName === "" ? "(unnamed)" : $shapeName;
+            $shapeType = java_values($ownerShape->getClass()->getSimpleName());
+            $baseSlide = $ownerShape->getSlide();
+            $slideClassName = java_values($baseSlide->getClass()->getName());
+
+            if ($slideClassName === "com.aspose.slides.Slide") {
+                $slideLabel = "slide " . java_values($baseSlide->getSlideNumber());
+            } elseif ($slideClassName === "com.aspose.slides.NotesSlide") {
+                $slideLabel = "notes for slide " . java_values($baseSlide->getParentSlide()->getSlideNumber());
+            } else {
+                $slideLabel = java_values($baseSlide->getClass()->getSimpleName());
+            }
+
+            echo("Shape: " . $shapeName . "; type: " . $shapeType . "; " . $slideLabel . "\n");
+            continue;
+        }
+
+        $ownerCell = $textFrame->getParentCell();
+        if (!java_is_null($ownerCell)) {
+            $baseSlide = $ownerCell->getSlide();
+            $slideClassName = java_values($baseSlide->getClass()->getName());
+
+            if ($slideClassName === "com.aspose.slides.Slide") {
+                $slideLabel = "slide " . java_values($baseSlide->getSlideNumber());
+            } elseif ($slideClassName === "com.aspose.slides.NotesSlide") {
+                $slideLabel = "notes for slide " . java_values($baseSlide->getParentSlide()->getSlideNumber());
+            } else {
+                $slideLabel = java_values($baseSlide->getClass()->getSimpleName());
+            }
+
+            echo("Table cell: column " . java_values($ownerCell->getFirstColumnIndex()) . ", row " . java_values($ownerCell->getFirstRowIndex()) . "; " . $slideLabel . "\n");
+            continue;
+        }
+
+        echo("The text frame owner is not available as a shape or table cell.\n");
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Para el contenido de SmartArt, itere a través de las formas en [SmartArtNode::getShapes](https://reference.aspose.com/slides/es/php-java/aspose.slides/smartartnode/#getShapes) y acceda a cada [SmartArtShape::getTextFrame](https://reference.aspose.com/slides/es/php-java/aspose.slides/smartartshape/#getTextFrame). El marco de texto puede rastrearse a su forma asociada mediante [TextFrame::getParentShape](https://reference.aspose.com/slides/es/php-java/aspose.slides/textframe/#getParentShape), mientras que [TextFrame::getParentCell](https://reference.aspose.com/slides/es/php-java/aspose.slides/textframe/#getParentCell) devuelve `null`. Por lo tanto, la rama de forma en el ejemplo también maneja texto de nodos SmartArt.
+
+## **Recopilar información de coincidencias con una devolución de llamada**
+
+Pase una devolución de llamada proxy de Java a un método de resaltado o reemplazo para recibir una notificación por cada coincidencia. El método de devolución de llamada recibe el marco de texto relacionado, el texto origen, el texto coincidido y la posición de la coincidencia.
+
+La devolución de llamada no recibe directamente un número de diapositiva. La implementación a continuación lo deriva de la diapositiva padre y también maneja texto encontrado en notas de diapositiva. La matriz de resultados utiliza `null` cuando el texto está asociado a otro tipo de diapositiva.
 
 ```php
 class TextSearchCallback {
@@ -76,7 +150,17 @@ class TextSearchCallback {
     }
 
     private function getSlideNumber($textFrame) {
-        $parentSlide = $textFrame->getSlide();
+        $parentShape = $textFrame->getParentShape();
+        $parentCell = $textFrame->getParentCell();
+
+        if (!java_is_null($parentShape)) {
+            $parentSlide = $parentShape->getSlide();
+        } elseif (!java_is_null($parentCell)) {
+            $parentSlide = $parentCell->getSlide();
+        } else {
+            $parentSlide = $textFrame->getSlide();
+        }
+
         if (java_is_null($parentSlide)) {
             return null;
         }
@@ -113,7 +197,7 @@ $callback = java_closure(
 );
 ```
 
-Para las operaciones de reemplazo, `foundText` contiene el texto coincidente original, de modo que la devolución de llamada puede registrar exactamente qué términos fueron reemplazados.
+Para operaciones de reemplazo, `foundText` contiene el texto coincidido original, por lo que la devolución de llamada puede registrar exactamente qué términos fueron reemplazados.
 
 ## **Resaltar texto**
 
@@ -138,7 +222,7 @@ try {
     $substringSearchOptions->setCaseSensitive(false);
     $substringHighlightColor = new Java("java.awt.Color", 173, 216, 230);
 
-    // Resaltar cada ocurrencia de "try" en el marco de texto.
+    // Resaltar cada aparición de "try" en el marco de texto.
     $shape->getTextFrame()->highlightText(
         "try",
         $substringHighlightColor,
@@ -176,7 +260,7 @@ finally {
 
 El resultado:
 
-![Texto resaltado](highlighted_text.png)
+![El texto resaltado](highlighted_text.png)
 
 ## **Resaltar texto usando expresiones regulares**
 
@@ -203,7 +287,7 @@ finally {
 
 El resultado:
 
-![Texto resaltado usando la expresión regular](highlighted_text_using_regex.png)
+![El texto resaltado usando la expresión regular](highlighted_text_using_regex.png)
 
 ## **Resaltar texto en toda una presentación**
 
@@ -242,7 +326,7 @@ finally {
 
 ## **Reemplazar texto en un marco de texto**
 
-Utilice [TextFrame::replaceText](https://reference.aspose.com/slides/es/php-java/aspose.slides/textframe/#replaceText) para texto literal y [TextFrame::replaceRegex](https://reference.aspose.com/slides/es/php-java/aspose.slides/textframe/#replaceRegex) para reemplazo basado en patrones. Estos métodos actualizan el texto coincidente dentro del marco de texto existente, que conserva el formato de la porción circundante en lugar de reconstruir el marco de texto a partir de una cadena simple.
+Utilice [TextFrame::replaceText](https://reference.aspose.com/slides/es/php-java/aspose.slides/textframe/#replaceText) para texto literal y [TextFrame::replaceRegex](https://reference.aspose.com/slides/es/php-java/aspose.slides/textframe/#replaceRegex) para reemplazo basado en patrones. Estos métodos actualizan el texto coincidente dentro del marco de texto existente, conservando el formato de la porción circundante en lugar de reconstruir el marco de texto a partir de una cadena simple.
 
 El siguiente ejemplo normaliza una variante ortográfica y luego reemplaza etiquetas de versión:
 
@@ -282,11 +366,11 @@ finally {
 }
 ```
 
-Si una coincidencia abarca porciones con diferente formato, revise la salida para confirmar qué formato debe aplicarse al texto de reemplazo.
+Si una coincidencia abarca porciones con formato diferente, revise la salida para confirmar qué formato debe aplicarse al texto de reemplazo.
 
 ## **Reemplazar texto en toda una presentación**
 
-Utilice [Presentation::replaceText](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/#replaceText) y [Presentation::replaceRegex](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/#replaceRegex) para aplicar las mismas operaciones en toda la presentación. Esto es útil para la limpieza de plantillas, actualizaciones de terminología y redacción.
+Utilice [Presentation::replaceText](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/#replaceText) y [Presentation::replaceRegex](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/#replaceRegex) para aplicar las mismas operaciones en toda la presentación. Esto es útil para la limpieza de plantillas, actualizaciones de terminología y redacciones.
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -320,7 +404,7 @@ finally {
 
 ## **Agrupar coincidencias para informes**
 
-Debido a que cada resultado almacena su número de diapositiva y marco de texto, las aplicaciones pueden agrupar las coincidencias para auditorías, informes o flujos de trabajo de revisión. El siguiente ejemplo agrupa los resultados recopilados primero por diapositiva y luego por marco de texto:
+Dado que cada resultado almacena su número de diapositiva y marco de texto, las aplicaciones pueden agrupar coincidencias para auditoría, generación de informes o flujos de trabajo de revisión. El siguiente ejemplo agrupa los resultados recopilados primero por diapositiva y luego por marco de texto:
 
 ```php
 $matchesBySlide = [];
@@ -367,22 +451,22 @@ foreach ($matchesBySlide as $slideLabel => $textFrameGroups) {
 
 ## **Preguntas frecuentes**
 
-**¿Cómo puedo buscar solo en un cuadro de texto en lugar de en toda la presentación?**
+**¿Cómo puedo buscar solo en un recuadro de texto en lugar de en toda la presentación?**
 
-Obtenga el marco de texto de la forma y llame a [TextFrame::highlightText](https://reference.aspose.com/slides/es/php-java/aspose.slides/textframe/#highlightText), [TextFrame::highlightRegex](https://reference.aspose.com/slides/es/php-java/aspose.slides/textframe/#highlightRegex), [TextFrame::replaceText](https://reference.aspose.com/slides/es/php-java/aspose.slides/textframe/#replaceText), o [TextFrame::replaceRegex](https://reference.aspose.com/slides/es/php-java/aspose.slides/textframe/#replaceRegex) en ese marco de texto. Los métodos a nivel de presentación procesan todos los marcos de texto aplicables.
+Obtenga el marco de texto de la forma y llame a [TextFrame::highlightText](https://reference.aspose.com/slides/es/php-java/aspose.slides/textframe/#highlightText), [TextFrame::highlightRegex](https://reference.aspose.com/slides/es/php-java/aspose.slides/textframe/#highlightRegex), [TextFrame::replaceText](https://reference.aspose.com/slides/es/php-java/aspose.slides/textframe/#replaceText) o [TextFrame::replaceRegex](https://reference.aspose.com/slides/es/php-java/aspose.slides/textframe/#replaceRegex) en ese marco de texto. Los métodos a nivel de presentación procesan todos los marcos de texto aplicables.
 
 **¿Cómo puedo coincidir palabras completas con la capitalización correcta?**
 
-Establezca [TextSearchOptions::setWholeWordsOnly](https://reference.aspose.com/slides/es/php-java/aspose.slides/textsearchoptions/#setWholeWordsOnly) y [TextSearchOptions::setCaseSensitive](https://reference.aspose.com/slides/es/php-java/aspose.slides/textsearchoptions/#setCaseSensitive) a `true`, y pase las opciones a un método de resaltado o reemplazo de texto literal. Para expresiones regulares, defina los límites de palabras y la sensibilidad a mayúsculas en el propio `Pattern` de Java.
+Establezca [TextSearchOptions::setWholeWordsOnly](https://reference.aspose.com/slides/es/php-java/aspose.slides/textsearchoptions/#setWholeWordsOnly) y [TextSearchOptions::setCaseSensitive](https://reference.aspose.com/slides/es/php-java/aspose.slides/textsearchoptions/#setCaseSensitive) a `true`, y pase las opciones a un método de resaltado o reemplazo de texto literal. Para expresiones regulares, defina los límites de palabra y la distinción de mayúsculas/minúsculas en el propio `Pattern` de Java.
 
 **¿Puede la búsqueda y el reemplazo incluir texto en las notas de diapositiva?**
 
-Sí. Establezca [TextSearchOptions::setIncludeNotes](https://reference.aspose.com/slides/es/php-java/aspose.slides/textsearchoptions/#setIncludeNotes) a `true` al utilizar una operación de texto literal a nivel de presentación.
+Sí. Establezca [TextSearchOptions::setIncludeNotes](https://reference.aspose.com/slides/es/php-java/aspose.slides/textsearchoptions/#setIncludeNotes) a `true` al usar una operación de texto literal a nivel de presentación.
 
 **¿Cómo puedo crear un informe sin escanear la presentación una segunda vez?**
 
-Pase una devolución de llamada proxy de Java a la operación de resaltado o reemplazo. Recibe cada coincidencia mientras la operación se ejecuta, por lo que la aplicación puede almacenar el texto fuente, el texto coincidente, la posición, el marco de texto y el número de diapositiva derivado para agruparlo o exportarlo posteriormente.
+Pase una devolución de llamada proxy de Java a la operación de resaltado o reemplazo. Recibe cada coincidencia mientras la operación se ejecuta, de modo que la aplicación pueda almacenar el texto origen, el texto coincidido, la posición, el marco de texto y el número de diapositiva derivado para su posterior agrupación o exportación.
 
 **¿El reemplazo de texto conserva su formato?**
 
-[TextFrame::replaceText](https://reference.aspose.com/slides/es/php-java/aspose.slides/textframe/#replaceText) y [TextFrame::replaceRegex](https://reference.aspose.com/slides/es/php-java/aspose.slides/textframe/#replaceRegex) modifican el texto coincidente dentro del marco de texto existente y conservan el formato de la porción circundante. Si una coincidencia abarca porciones con diferente formato, inspeccione el resultado para asegurarse de que el reemplazo utilice el estilo deseado.
+[TextFrame::replaceText](https://reference.aspose.com/slides/es/php-java/aspose.slides/textframe/#replaceText) y [TextFrame::replaceRegex](https://reference.aspose.com/slides/es/php-java/aspose.slides/textframe/#replaceRegex) modifican el texto coincidente dentro del marco de texto existente y conservan el formato de la porción circundante. Si una coincidencia abarca porciones con formato diferente, inspeccione el resultado para asegurarse de que el reemplazo utilice el estilo deseado.

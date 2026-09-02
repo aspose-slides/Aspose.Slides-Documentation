@@ -1,15 +1,15 @@
 ---
-title: PowerPoint Sunumlarında C++ ile Metin Arama ve Değiştirme
+title: C++ ile PowerPoint Sunumlarında Metin Arama ve Değiştirme
 linktitle: Metin Arama ve Değiştirme
 type: docs
 weight: 55
 url: /tr/cpp/search-and-replace-text/
 keywords:
-- metin ara
-- metin vurgula
-- metin değiştir
+- metin arama
+- metin vurgulama
+- metin değiştirme
 - düzenli ifade
-- sonuç geri çağrısı
+- sonuç geri çağırması
 - metin çerçevesi
 - denetim raporu
 - PowerPoint
@@ -17,50 +17,161 @@ keywords:
 - sunum
 - C++
 - Aspose.Slides
-description: "PowerPoint sunumlarında metin arayın, vurgulayın ve değiştirin; tüm eşleşmeleri Aspose.Slides for C++ ile toplayın."
+description: "PowerPoint sunumlarında metin arama, vurgulama ve değiştirme işlemini Aspose.Slides for C++ ile gerçekleştirirken her eşleşmeyi toplar."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides for C++ bir metin çerçevesinde veya tüm sunum boyunca metin arayabilir, vurgulayabilir ve değiştirebilir. Her işlem, sonuç geri çağrısı aracılığıyla her eşleşme hakkında bir uygulamayı da bilgilendirebilir. Bu, bir sunumu güncellerken eşleşen metni, bağlamını, konumunu, metin çerçevesini ve slayt numarasını içeren bir denetim izini aynı anda oluşturmayı mümkün kılar.
+Aspose.Slides for C++ bireysel bir metin çerçevesinde veya tüm sunumda metin arayabilir, vurgulayabilir ve değiştirebilir. Her işlem, her eşleşme için bir sonuç geri çağırması aracılığıyla uygulamayı bilgilendirebilir. Bu sayede bir sunumu güncellerken eşleşen metin, bağlamı, konumu, metin çerçevesi ve slayt numarasını içeren bir denetim izi oluşturmak mümkün olur.
 
-Bu yetenekler, inceleme, redacte etme, terminoloji kontrolleri, şablon temizliği ve otomatik raporlama iş akışları için faydalıdır.
+Bu yetenekler, inceleme, sansürleme, terminoloji denetimleri, şablon temizliği ve otomatik raporlama iş akışları için yararlıdır.
 
-Aşağıdaki ilk örneklerde, ilk slaytta aşağıdaki metni içeren tek bir metin kutusu bulunan **sample.pptx** adlı bir dosya kullanıyoruz:
+Aşağıdaki ilk örneklerde, ilk slaytta aşağıdaki metni içeren tek bir metin kutusu bulunan “sample.pptx” adlı bir dosya kullanıyoruz:
 
-![Örnek metin](sample_text.png)
+![Sample text](sample_text.png)
 
 ## **Arama Kapsamını Seçin**
 
-[ITextFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/) üzerindeki yöntemleri bir işlemi tek bir metin çerçevesiyle sınırlamak için kullanın. [IPresentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentation/) üzerindeki yöntemleri sunumdaki tüm uygulanabilir metni işlemek için kullanın.
+Bir işlemi tek bir metin çerçevesiyle sınırlamak için [ITextFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/) üzerindeki yöntemleri kullanın. Sunumdaki tüm uygulanabilir metni işlemek için [IPresentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentation/) üzerindeki yöntemleri kullanın.
 
 | İşlem | Tek metin çerçevesi | Tüm sunum |
 |---|---|---|
-| Doğrudan metni vurgula | [ITextFrame::HighlightText](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/highlighttext/) | [IPresentation::HighlightText](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentation/highlighttext/) |
+| Literal metni vurgula | [ITextFrame::HighlightText](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/highlighttext/) | [IPresentation::HighlightText](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentation/highlighttext/) |
 | Düzenli ifade eşleşmelerini vurgula | [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/highlightregex/) | [IPresentation::HighlightRegex](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentation/highlightregex/) |
-| Doğrudan metni değiştir | [ITextFrame::ReplaceText](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/replacetext/) | [IPresentation::ReplaceText](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentation/replacetext/) |
+| Literal metni değiştir | [ITextFrame::ReplaceText](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/replacetext/) | [IPresentation::ReplaceText](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentation/replacetext/) |
 | Düzenli ifade eşleşmelerini değiştir | [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/replaceregex/) | [IPresentation::ReplaceRegex](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentation/replaceregex/) |
 
 ## **Metin Eşleştirmeyi Yapılandırın**
 
-Doğrudan metin işlemleri için eşleştirmeyi kontrol etmek amacıyla [ITextSearchOptions](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextsearchoptions/) kullanın:
+Literal‑metin işlemleri için eşleşmeyi kontrol etmek amacıyla [ITextSearchOptions](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextsearchoptions/) kullanın:
 
-- [ITextSearchOptions::set_WholeWordsOnly](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextsearchoptions/set_wholewordsonly/) tam kelimelerle eşleşmeleri sınırlamak için kullanılır.
-- [ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) karakter büyük/küçük harf duyarlılığını kontrol eder.
-- [ITextSearchOptions::set_IncludeNotes](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextsearchoptions/set_includenotes/) sunum düzeyinde arama, değiştirme ve vurgulama işlemlerine slayt notlarını dahil eder.
+- [ITextSearchOptions::set_WholeWordsOnly](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextsearchoptions/set_wholewordsonly/) eşleşmeleri yalnızca tam kelimelerle sınırlar.
+- [ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) karakter duyarlılığının gerekliyip gerekmediğini kontrol eder.
+- [ITextSearchOptions::set_IncludeNotes](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextsearchoptions/set_includenotes/) slayt notlarını sunum‑düzeyindeki arama, değiştirme ve vurgulama işlemlerine dahil eder.
 
-Düzenli ifade işlemleri bir `System::Text::RegularExpressions::Regex` kullanır; bu nedenle büyük/küçük harf duyarlılığı ve kelime sınırları gibi eşleşme kuralları ifadenin kendisi ve seçenekleriyle belirlenir.
+Düzenli ifade işlemleri bir `System::Text::RegularExpressions::Regex` kullanır; bu nedenle büyük/küçük harf duyarlılığı ve kelime sınırları gibi kurallar ifadenin kendisi ve seçenekleriyle tanımlanır.
 
-## **Geri Çağrı ile Eşleşme Bilgilerini Toplayın**
+## **Bir Metin Çerçevesinin Sahibini Belirleme**
 
-[IFindResultCallback](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ifindresultcallback/) uygulayarak her eşleşme için bir bildirim alabilirsiniz. Its [IFindResultCallback::FoundResult](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ifindresultcallback/foundresult/) metodu ilgili metin çerçevesini, kaynak metni, eşleşen metni ve eşleşme konumunu sağlar.
+Genel metin işleme iş akışları, arama, değiştirme, doğrulama veya dışa aktarma sırasında sıklıkla bir [ITextFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/) alır. Metin çerçevesinin hangi sunum nesnesine ait olduğunu belirlemek için [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/get_parentshape/) ve [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/get_parentcell/) kullanın.
 
-Geri çağrı doğrudan bir slayt numarası almaz. Aşağıdaki uygulama bunu [ISlideComponent::get_Slide](https://reference.aspose.com/slides/tr/cpp/aspose.slides/islidecomponent/get_slide/) üzerinden türetir ve [INotesSlide::get_ParentSlide](https://reference.aspose.com/slides/tr/cpp/aspose.slides/inotesslide/get_parentslide/) aracılığıyla slayt notlarında bulunan metni de işler. Null olabilen bir slayt numarası, aynı sonuç modelinin diğer slayt türleriyle ilişkili metni temsil etmesine izin verir.
+Beklenen değerler sahibine bağlıdır:
+
+| Metin çerçevesi sahibi | `get_ParentShape` | `get_ParentCell` |
+|---|---|---|
+| Bir AutoShape veya başka bir metin içeren şekil | Sahip olan [IShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishape/) | `nullptr` |
+| Bir tablo hücresi | `nullptr` | Sahip olan [ICell](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icell/) |
+
+Her iki yöntem de yalnızca okuma amaçlı gezinme sağlar. Çağrılmaları metin çerçevesini taşımaz veya sahibini değiştirmez. Genel kod, iki değeri de `nullptr` için kontrol etmeli ve hiçbir sahibin mevcut olmama olasılığını ele almalıdır.
+
+Aşağıdaki örnek, bir sunumdaki metin çerçevelerini yinelemek için [SlideUtil::GetAllTextFrames](https://reference.aspose.com/slides/tr/cpp/aspose.slides.util/slideutil/getalltextframes/) kullanır. Şekiller için şekil adını, C++ çalışma zamanı tipini ve içerdiği slaytı raporlar. Tablo hücreleri için ise sıfır‑tabanlı sütun ve satır koordinatları ile içerdiği slaytı raporlar.
 
 ```cpp
 #include <DOM/IBaseSlide.h>
 #include <DOM/INotesSlide.h>
+#include <DOM/IShape.h>
 #include <DOM/ISlide.h>
 #include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <Util/SlideUtil.h>
+#include <system/console.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using Aspose::Slides::IBaseSlide;
+using Aspose::Slides::INotesSlide;
+using Aspose::Slides::IShape;
+using Aspose::Slides::ISlide;
+using Aspose::Slides::ITextFrame;
+using Aspose::Slides::Presentation;
+using Aspose::Slides::Util::SlideUtil;
+using System::AsCast;
+using System::Console;
+using System::MakeObject;
+using System::String;
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx");
+auto textFrames = SlideUtil::GetAllTextFrames(presentation, false);
+
+for (const auto& textFrame : textFrames)
+{
+    auto ownerShape = textFrame->get_ParentShape();
+    if (ownerShape != nullptr)
+    {
+        auto shapeName = String::IsNullOrEmpty(ownerShape->get_Name()) ? u"(unnamed)" : ownerShape->get_Name();
+        auto shapeType = ownerShape->GetType().get_Name();
+        auto baseSlide = ownerShape->get_Slide();
+        String slideLabel;
+        auto slide = AsCast<ISlide>(baseSlide);
+
+        if (slide != nullptr)
+        {
+            slideLabel = String::Format(u"slide {0}", slide->get_SlideNumber());
+        }
+        else
+        {
+            auto notesSlide = AsCast<INotesSlide>(baseSlide);
+            if (notesSlide != nullptr)
+            {
+                slideLabel = String::Format(u"notes for slide {0}", notesSlide->get_ParentSlide()->get_SlideNumber());
+            }
+            else
+            {
+                slideLabel = baseSlide->GetType().get_Name();
+            }
+        }
+
+        Console::WriteLine(u"Shape: {0}; type: {1}; {2}", shapeName, shapeType, slideLabel);
+        continue;
+    }
+
+    auto ownerCell = textFrame->get_ParentCell();
+    if (ownerCell != nullptr)
+    {
+        auto baseSlide = ownerCell->get_Slide();
+        String slideLabel;
+        auto slide = AsCast<ISlide>(baseSlide);
+
+        if (slide != nullptr)
+        {
+            slideLabel = String::Format(u"slide {0}", slide->get_SlideNumber());
+        }
+        else
+        {
+            auto notesSlide = AsCast<INotesSlide>(baseSlide);
+            if (notesSlide != nullptr)
+            {
+                slideLabel = String::Format(u"notes for slide {0}", notesSlide->get_ParentSlide()->get_SlideNumber());
+            }
+            else
+            {
+                slideLabel = baseSlide->GetType().get_Name();
+            }
+        }
+
+        Console::WriteLine(u"Table cell: column {0}, row {1}; {2}", ownerCell->get_FirstColumnIndex(), ownerCell->get_FirstRowIndex(), slideLabel);
+        continue;
+    }
+
+    Console::WriteLine(u"The text frame owner is not available as a shape or table cell.");
+}
+```
+
+SmartArt içeriği için, [ISmartArtNode::get_Shapes](https://reference.aspose.com/slides/tr/cpp/aspose.slides.smartart/ismartartnode/get_shapes/) içindeki şekilleri yineleyin ve her bir [ISmartArtShape::get_TextFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides.smartart/ismartartshape/get_textframe/) öğesine erişin. Metin çerçevesi, [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/get_parentshape/) aracılığıyla ilişkili şekline izlenebilir, [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/get_parentcell/) ise `nullptr` döndürür. Bu yüzden örnekteki şekil dalı, SmartArt düğümlerinden gelen metni de işler.
+
+## **Eşleşme Bilgilerini Geri Çağırma ile Topla**
+
+Her eşleşme için bir bildirim almak üzere [IFindResultCallback](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ifindresultcallback/) uygulayın. Bu arayüzün [IFindResultCallback::FoundResult](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ifindresultcallback/foundresult/) yöntemi ilgili metin çerçevesi, kaynak metin, eşleşen metin ve eşleşme konumunu sağlar.
+
+Geri çağırma doğrudan bir slayt numarası almaz. Aşağıdaki uygulama, bunu [ISlideComponent::get_Slide](https://reference.aspose.com/slides/tr/cpp/aspose.slides/islidecomponent/get_slide/) üzerinden türetir ve ayrıca [INotesSlide::get_ParentSlide](https://reference.aspose.com/slides/tr/cpp/aspose.slides/inotesslide/get_parentslide/) aracılığıyla slayt notlarında bulunan metni işleyebilir. Null‑olan bir slayt numarası, aynı sonuç modelinin diğer slayt türleriyle ilişkili metni temsil etmesini sağlar.
+
+```cpp
+#include <DOM/IBaseSlide.h>
+#include <DOM/INotesSlide.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Table/ICell.h>
 #include <IFindResultCallback.h>
 #include <system/collections/list.h>
 #include <system/nullable.h>
@@ -70,6 +181,7 @@ Geri çağrı doğrudan bir slayt numarası almaz. Aşağıdaki uygulama bunu [I
 using Aspose::Slides::IBaseSlide;
 using Aspose::Slides::IFindResultCallback;
 using Aspose::Slides::INotesSlide;
+using Aspose::Slides::IShape;
 using Aspose::Slides::ISlide;
 using Aspose::Slides::ITextFrame;
 using System::AsCast;
@@ -119,7 +231,23 @@ public:
 private:
     static Nullable<int32_t> GetSlideNumber(SharedPtr<ITextFrame> textFrame)
     {
-        SharedPtr<IBaseSlide> baseSlide = textFrame->get_Slide();
+        auto parentShape = textFrame->get_ParentShape();
+        auto parentCell = textFrame->get_ParentCell();
+        SharedPtr<IBaseSlide> baseSlide;
+
+        if (parentShape != nullptr)
+        {
+            baseSlide = parentShape->get_Slide();
+        }
+        else if (parentCell != nullptr)
+        {
+            baseSlide = parentCell->get_Slide();
+        }
+        else
+        {
+            baseSlide = textFrame->get_Slide();
+        }
+
         auto slide = AsCast<ISlide>(baseSlide);
 
         if (slide != nullptr)
@@ -139,13 +267,13 @@ private:
 };
 ```
 
-Değiştirme işlemleri için `FoundText` özgün eşleşen metni içerir; bu sayede geri çağrı tam olarak hangi terimlerin değiştirildiğini kaydedebilir.
+Değiştirme işlemleri için, `FoundText` orijinal eşleşen metni içerdiğinden, geri çağırma tam olarak hangi terimlerin değiştirildiğini kaydedebilir.
 
 ## **Metni Vurgula**
 
-Bir metin çerçevesindeki doğrudan metin eşleşmelerini vurgulamak için [ITextFrame::HighlightText](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/highlighttext/) yöntemini kullanın. Aramayı kontrol etmek için [ITextSearchOptions](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextsearchoptions/) ve eşleşme ayrıntılarını toplamak için bir geri çağrı iletin.
+Literal‑metin eşleşmelerini bir metin çerçevesinde vurgulamak için [ITextFrame::HighlightText](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/highlighttext/) yöntemini kullanın. Aramayı kontrol etmek için [ITextSearchOptions](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextsearchoptions/) ve eşleşme ayrıntılarını toplamak için bir geri çağırma geçirin.
 
-Aşağıdaki kod örneği, **"try"** karakterlerinin tüm görünümlerini vurgular ve ardından yalnızca tam **"to"** kelimesini vurgular. Her iki arama da eşleşmelerini aynı geri çağrıya raporlar.
+Aşağıdaki kod örneği, **"try"** karakterlerinin tüm oluşumlarını vurgular ve ardından yalnızca tam kelime **"to"** yu vurgular. Her iki arama da aynı geri çağırmaya eşleşmelerini raporlar.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -166,14 +294,14 @@ using System::MakeObject;
 
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-// Get the first shape from the first slide.
+// İlk slayttan ilk şekli al.
 auto shape = ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
 auto callback = MakeObject<TextSearchCallback>();
 
 auto substringSearchOptions = MakeObject<TextSearchOptions>();
 substringSearchOptions->set_CaseSensitive(false);
 
-// Highlight every occurrence of "try" in the text frame.
+// Metin çerçevesinde "try" ifadesinin her oluşumunu vurgula.
 shape->get_TextFrame()->HighlightText(
     u"try", System::Drawing::Color::get_LightBlue(), substringSearchOptions, callback);
 
@@ -181,7 +309,7 @@ auto wholeWordSearchOptions = MakeObject<TextSearchOptions>();
 wholeWordSearchOptions->set_WholeWordsOnly(true);
 wholeWordSearchOptions->set_CaseSensitive(false);
 
-// Highlight only the complete word "to".
+// Yalnızca tam kelime "to" yu vurgula.
 shape->get_TextFrame()->HighlightText(
     u"to", System::Drawing::Color::get_Violet(), wholeWordSearchOptions, callback);
 
@@ -201,11 +329,11 @@ presentation->Dispose();
 
 Sonuç:
 
-![Vurgulanan metin](highlighted_text.png)
+![The highlighted text](highlighted_text.png)
 
 ## **Düzenli İfadeler Kullanarak Metni Vurgula**
 
-[ITextFrame::HighlightRegex](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/highlightregex/) yöntemi, bir metin çerçevesinde düzenli ifade ile bulunan metin eşleşmelerini vurgular.
+[ITextFrame::HighlightRegex](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/highlightregex/) yöntemi, bir düzenli ifadeyle bulunan metin eşleşmelerini bir metin çerçevesinde vurgular.
 
 Aşağıdaki kod, yedi veya daha fazla karakter içeren tüm kelimeleri vurgular ve her eşleşmeyi toplar:
 
@@ -240,11 +368,11 @@ presentation->Dispose();
 
 Sonuç:
 
-![Düzenli ifade kullanılarak vurgulanan metin](highlighted_text_using_regex.png)
+![The highlighted text using the regular expression](highlighted_text_using_regex.png)
 
 ## **Sunum Genelinde Metni Vurgula**
 
-[IPresentation::HighlightText](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentation/highlighttext/) ve [IPresentation::HighlightRegex](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentation/highlightregex/) yöntemlerini kullanarak bir sunumdaki tüm uygulanabilir metin çerçevelerini arayın. Aşağıdaki örnek, doğrudan bir terimi ve tüm e-posta adreslerini vurgular ve iki arama için ayrı sonuç koleksiyonları tutar.
+Tüm uygulanabilir metin çerçevelerinde arama yapmak için [IPresentation::HighlightText](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentation/highlighttext/) ve [IPresentation::HighlightRegex](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentation/highlightregex/) kullanın. Aşağıdaki örnek, bir literal terimi ve tüm e‑posta adreslerini vurgular; iki arama için ayrı sonuç koleksiyonları tutar.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -285,9 +413,9 @@ presentation->Dispose();
 
 ## **Bir Metin Çerçevesinde Metni Değiştir**
 
-Doğrudan metin için [ITextFrame::ReplaceText](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/replacetext/), kalıba dayalı değiştirme için ise [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/replaceregex/) kullanın. Bu yöntemler, mevcut metin çerçevesindeki eşleşen metni günceller; böylece çerçeveyi düz bir dizeden yeniden oluşturmak yerine çevresindeki kısmın biçimlendirmesini korur.
+Literal metin için [ITextFrame::ReplaceText](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/replacetext/), desen‑tabanlı değiştirme için ise [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/replaceregex/) kullanın. Bu yöntemler, eşleşen metni mevcut metin çerçevesi içinde günceller; böylece çevreleyen kısmın biçimlendirmesi korunur ve çerçeve bir düz dizeyle yeniden oluşturulmaz.
 
-Aşağıdaki örnek, bir yazım varyantını standartlaştırır ve ardından sürüm etiketlerini değiştirir. Aynı geri çağrı, her iki işlem tarafından eşleşen orijinal terimleri kaydeder.
+Aşağıdaki örnek bir yazım varyantını standartlaştırır ve ardından sürüm etiketlerini değiştirir. Aynı geri çağırma, her iki işlemde eşleşen orijinal terimleri kaydeder.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -326,11 +454,11 @@ presentation->Save(u"updated_text_frame.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Bir eşleşme farklı biçimlendirmeye sahip bölümleri kapsıyorsa, çıkışı inceleyerek hangi biçimlendirmenin değiştirme metnine uygulanması gerektiğini doğrulayın.
+Bir eşleşme farklı biçimlendirmeye sahip bölümleri kapsıyorsa, çıktıyı inceleyerek hangi biçimin değiştirme metnine uygulanacağını doğrulayın.
 
 ## **Sunum Genelinde Metni Değiştir**
 
-[IPresentation::ReplaceText](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentation/replacetext/) ve [IPresentation::ReplaceRegex](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentation/replaceregex/) kullanarak aynı işlemleri sunum genelinde uygulayın. Bu, şablon temizliği, terminoloji güncellemeleri ve redacte işlemleri için faydalıdır.
+[IPresentation::ReplaceText](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentation/replacetext/) ve [IPresentation::ReplaceRegex](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ipresentation/replaceregex/) kullanarak aynı işlemleri tüm sunuma uygulayın. Bu, şablon temizliği, terminoloji güncellemeleri ve sansürleme için yararlıdır.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -361,9 +489,9 @@ presentation->Save(u"updated_presentation.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Raporlama İçin Eşleşmeleri Gruplandırma**
+## **Raporlama İçin Eşleşmeleri Gruplama**
 
-Her sonuç slayt numarası ve metin çerçevesini depoladığından, uygulamalar eşleşmeleri denetim, raporlama veya inceleme iş akışları için gruplayabilir. Aşağıdaki örnek, toplanan sonuçları önce slayta, sonra metin çerçevesine göre gruplar:
+Her sonuç slayt numarasını ve metin çerçevesini sakladığından, uygulamalar denetim, raporlama veya inceleme iş akışları için eşleşmeleri gruplayabilir. Aşağıdaki örnek, toplanan sonuçları önce slayta, sonra metin çerçevesine göre gruplayarak gösterir:
 
 ```cpp
 #include <DOM/ITextFrame.h>
@@ -409,22 +537,22 @@ for (const auto& slideGroup : matchesBySlide)
 
 ## **SSS**
 
-**Tüm sunumu değil sadece bir metin kutusunda nasıl arama yapabilirim?**
+**Yalnızca bir metin kutusunda, tüm sunumu aramadan nasıl arama yapabilirim?**
 
-Şeklin metin çerçevesini alın ve bu çerçeve üzerinde [ITextFrame::HighlightText](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/highlighttext/), [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/highlightregex/), [ITextFrame::ReplaceText](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/replacetext/) veya [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/replaceregex/) yöntemlerini çağırın. Sunum düzeyindeki yöntemler ise tüm uygulanabilir metin çerçevelerini işler.
+Şeklin metin çerçevesini alın ve o çerçevede [ITextFrame::HighlightText](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/highlighttext/), [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/highlightregex/), [ITextFrame::ReplaceText](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/replacetext/) veya [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/replaceregex/) metodlarını çağırın. Sunum‑düzeyindeki yöntemler ise tüm uygulanabilir metin çerçevelerini işler.
 
-**Tam kelimeleri doğru büyük/küçük harfle nasıl eşleştirebilirim?**
+**Tam kelimeleri doğru büyük/küçük harf duyarlılığıyla nasıl eşleştirebilirim?**
 
-[ITextSearchOptions::set_WholeWordsOnly](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextsearchoptions/set_wholewordsonly/) ve [ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) yöntemlerini `true` olarak çağırın ve seçenekleri doğrudan metin vurgulama veya değiştirme yöntemine aktarın. Düzenli ifadeler için, kelime sınırlarını ve büyük/küçük harf duyarlılığını `System::Text::RegularExpressions::Regex` içinde tanımlayın.
+[ITextSearchOptions::set_WholeWordsOnly](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextsearchoptions/set_wholewordsonly/) ve [ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) metodlarını `true` olarak çağırın ve seçenekleri literal‑metin vurgulama veya değiştirme yöntemiyle birlikte geçirin. Düzenli ifadeler için, kelime sınırlarını ve duyarlılığı ifadenin kendisinde tanımlayın.
 
 **Arama ve değiştirme slayt notlarındaki metni de içerebilir mi?**
 
-Evet. Sunum düzeyinde doğrudan metin işlemi kullanırken [ITextSearchOptions::set_IncludeNotes](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextsearchoptions/set_includenotes/) yöntemini `true` olarak çağırın. Yukarıdaki geri çağrı uygulaması, bir not slaydındaki eşleşmeyi üst slayt numarasına eşler.
+Evet. Sunum‑düzeyinde literal‑metin işlemi kullanırken [ITextSearchOptions::set_IncludeNotes](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextsearchoptions/set_includenotes/) metodunu `true` olarak ayarlayın. Yukarıdaki geri çağırma uygulaması, bir not slaydındaki eşleşmeyi ebeveyn slayt numarasına geri eşler.
 
 **Sunumu ikinci kez taramadan bir rapor nasıl oluşturabilirim?**
 
-[IFindResultCallback](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ifindresultcallback/) bir uygulamasını vurgulama veya değiştirme işlemine aktarın. Geri çağrı, işlem çalışırken her eşleşmeyi alır; böylece uygulama kaynak metni, eşleşen metni, konumu, metin çerçevesini ve türetilen slayt numarasını daha sonra gruplama veya dışa aktarma için saklayabilir.
+Vurgulama veya değiştirme işlemi sırasında bir [IFindResultCallback](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ifindresultcallback/) uygulamasını geçirin. Geri çağırma, işlem çalışırken her eşleşmeyi alır; böylece uygulama kaynak metni, eşleşen metni, konumu, metin çerçevesini ve türetilen slayt numarasını daha sonra grup‑lama veya dışa aktarma için saklayabilir.
 
 **Metni değiştirmek biçimlendirmesini korur mu?**
 
-[ITextFrame::ReplaceText](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/replacetext/) ve [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/replaceregex/) mevcut metin çerçevesindeki eşleşen metni değiştirir ve çevresindeki kısmın biçimlendirmesini korur. Eğer bir eşleşme farklı biçimlendirmeye sahip bölümleri kapsıyorsa, sonuçları inceleyerek değiştirilen metnin istenen stili kullandığından emin olun.
+[ITextFrame::ReplaceText](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/replacetext/) ve [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframe/replaceregex/) eşleşen metni mevcut metin çerçevesi içinde değiştirir ve çevredeki kısmın biçimlendirmesini korur. Bir eşleşme farklı biçimlendirmeye sahip bölümleri kapsıyorsa, değiştirme işleminin istenen stili kullandığından emin olmak için sonucu inceleyin.

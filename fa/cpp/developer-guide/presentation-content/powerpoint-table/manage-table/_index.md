@@ -5,43 +5,65 @@ type: docs
 weight: 10
 url: /fa/cpp/manage-table/
 keywords:
-- اضافه کردن جدول
+- افزودن جدول
 - ایجاد جدول
 - دسترسی به جدول
 - نسبت عرض به ارتفاع
-- تراز متن
+- ترازبندی متن
 - قالب‌بندی متن
-- استایل جدول
-- پاورپوینت
+- سبک جدول
+- PowerPoint
 - ارائه
 - C++
 - Aspose.Slides
-description: "ایجاد و ویرایش جداول در اسلایدهای PowerPoint با Aspose.Slides برای C++. مثال‌های کد ساده‌ای را کشف کنید تا روند کاری جداول خود را بهینه کنید."
+description: "ایجاد و ویرایش جداول در اسلایدهای PowerPoint با Aspose.Slides برای C++. مثال‌های ساده کد را برای بهینه‌سازی جریان کار جداول خود کشف کنید."
 ---
-## **معرفی**
+## **مقدمه**
 
-یک جدول در PowerPoint روشی کارآمد برای نمایش و تصویر کردن اطلاعات است. اطلاعات در یک شبکه سلول‌ها (که به صورت ردیف‌ها و ستون‌ها ترتیب یافته‌اند) ساده و به راحتی قابل درک هستند.
+یک جدول در PowerPoint روش کارآمدی برای نمایش و بیان اطلاعات است. اطلاعات در یک شبکه از سلول‌ها (چیدمان‌شده به صورت ردیف‌ها و ستون‌ها) ساده و آسان برای درک است.
 
-Aspose.Slides کلاس [Table](https://reference.aspose.com/slides/fa/cpp/aspose.slides/table/) ، رابط [ITable](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itable/) ، کلاس [Cell](https://reference.aspose.com/slides/fa/cpp/aspose.slides/cell/) ، رابط [ICell](https://reference.aspose.com/slides/fa/cpp/aspose.slides/icell/) و انواع دیگر را ارائه می‌دهد تا بتوانید جدول‌ها را در انواع ارائه‌ها ایجاد، به‌روزرسانی و مدیریت کنید.
+Aspose.Slides کلاس [Table](https://reference.aspose.com/slides/fa/cpp/aspose.slides/table/)، رابط [ITable](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itable/)، کلاس [Cell](https://reference.aspose.com/slides/fa/cpp/aspose.slides/cell/)، رابط [ICell](https://reference.aspose.com/slides/fa/cpp/aspose.slides/icell/) و سایر انواع را ارائه می‌دهد تا بتوانید جداول را در انواع ارائه‌ها ایجاد، به‌روزرسانی و مدیریت کنید. 
 
-## **ایجاد جدول از صفر**
+## **ایجاد جدول از ابتدا**
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ایجاد کنید.  
-2. مرجع یک اسلاید را از طریق شاخص آن دریافت کنید.  
-3. یک آرایه از `columnWidth` تعریف کنید.  
-4. یک آرایه از `rowHeight` تعریف کنید.  
-5. یک شیء [ITable](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itable/) را به اسلاید اضافه کنید با استفاده از متد [AddTable()](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishapecollection/addtable/).  
-6. برای هر [ICell](https://reference.aspose.com/slides/fa/cpp/aspose.slides/icell/) به منظور اعمال قالب‌بندی به حاشیه‌های بالا، پایین، راست و چپ، تکرار کنید.  
-7. دو سلول اول ردیف اول جدول را ادغام کنید.  
-8. به [TextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/textframe/) مربوط به یک [ICell](https://reference.aspose.com/slides/fa/cpp/aspose.slides/icell/) دسترسی پیدا کنید.  
+2. مرجع اسلاید را از طریق شاخص آن دریافت کنید.  
+3. آرایه‌ای از `columnWidth` تعریف کنید.  
+4. آرایه‌ای از `rowHeight` تعریف کنید.  
+5. یک شیء [ITable](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itable/) را از طریق متد [AddTable()](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishapecollection/addtable/) به اسلاید اضافه کنید.  
+6. بر روی هر [ICell](https://reference.aspose.com/slides/fa/cpp/aspose.slides/icell/) تکرار کنید تا قالب‌بندی مرزهای بالا، پایین، راست و چپ اعمال شود.  
+7. دو سلول اول سطر اول جدول را با هم ترکیب کنید.  
+8. به [TextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/textframe/) یک [ICell](https://reference.aspose.com/slides/fa/cpp/aspose.slides/icell/) دسترسی پیدا کنید.  
 9. متنی به [TextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/textframe/) اضافه کنید.  
-10. ارائهٔ اصلاح‌شده را ذخیره کنید.
+10. ارائه تغییر یافته را ذخیره کنید.
+
+این کد C++ نشان می‌دهد که چگونه یک جدول در یک ارائه ایجاد کنید:
 
 ```c++
-// یک شیء از کلاس Presentation می‌سازد که نمایانگر یک فایل PPTX است
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <DOM/Table/ICellFormat.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
+// یک شیء از کلاس Presentation ایجاد می‌کند که نمایانگر فایل PPTX است
 auto pres = System::MakeObject<Presentation>();
 
-// به اسلاید اول دسترسی می‌یابد
+// به اولین اسلاید دسترسی می‌یابد
 auto sld = pres->get_Slides()->idx_get(0);
 
 // ستون‌ها را با عرض‌ها و ردیف‌ها را با ارتفاع‌ها تعریف می‌کند
@@ -75,19 +97,19 @@ for (int32_t row = 0; row < tbl->get_Rows()->get_Count(); row++)
         cellFormat->get_BorderRight()->set_Width(5);
     }
 }
-// سلول‌های ۱ و ۲ ردیف ۱ را ادغام می‌کند
+// سلول‌های ۱ و ۲ ردیف ۱ را ترکیب می‌کند
 tbl->MergeCells(tbl->get_Rows()->idx_get(0)->idx_get(0), tbl->get_Rows()->idx_get(1)->idx_get(1), false);
 
-// متنی به سلول ادغام‌شده اضافه می‌کند
+// متنی به سلول ترکیب‌شده اضافه می‌کند
 tbl->get_Rows()->idx_get(0)->idx_get(0)->get_TextFrame()->set_Text(u"Merged Cells");
 
-// ارائه را روی دیسک ذخیره می‌کند
+// ارائه را در دیسک ذخیره می‌کند
 pres->Save(u"table.pptx", SaveFormat::Pptx);
 ```
 
 ## **شماره‌گذاری در جدول استاندارد**
 
-در یک جدول استاندارد، شماره‌گذاری سلول‌ها ساده و مبتنی بر صفر است. اولین سلول در یک جدول با اندیس 0,0 (ستون 0، ردیف 0) شناخته می‌شود.
+در یک جدول استاندارد، شماره‌گذاری سلول‌ها ساده و مبتنی بر صفر است. اولین سلول جدول به صورت 0,0 (ستون 0، ردیف 0) ایندکس می‌شود. 
 
 به عنوان مثال، سلول‌های یک جدول با 4 ستون و 4 ردیف به این شکل شماره‌گذاری می‌شوند:
 
@@ -97,20 +119,40 @@ pres->Save(u"table.pptx", SaveFormat::Pptx);
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-این کد C++ نشان می‌دهد چگونه شماره‌گذاری سلول‌ها را در یک جدول مشخص کنید:
+این کد C++ نشان می‌دهد که چگونه شماره‌گذاری سلول‌های یک جدول را مشخص کنید:
 
 ```c++
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <DOM/Table/ICellFormat.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 // یک شیء از کلاس Presentation می‌سازد که نمایانگر یک فایل PPTX است
 auto pres = System::MakeObject<Presentation>();
 
-// به اسلاید اول دسترسی می‌یابد
+// به اولین اسلاید دسترسی می‌یابد
 auto sld = pres->get_Slides()->idx_get(0);
 
 // ستون‌ها را با عرض‌ها و ردیف‌ها را با ارتفاع‌ها تعریف می‌کند
 auto dblCols = System::MakeArray<double>({ 70, 70, 70, 70 });
 auto dblRows = System::MakeArray<double>({ 70, 70, 70, 70 });
 
-// یک شکل جدول را به اسلاید اضافه می‌کند
+// یک شکل جدول به اسلاید اضافه می‌کند
 auto tbl = sld->get_Shapes()->AddTable(100.0f, 50.0f, dblCols, dblRows);
 
 // قالب حاشیه را برای هر سلول تنظیم می‌کند
@@ -137,33 +179,52 @@ for (const auto& row : tbl->get_Rows())
     }
 }
 
-// ارائه را روی دیسک ذخیره می‌کند
+// ارائه را بر روی دیسک ذخیره می‌کند
 pres->Save(u"StandardTables_out.pptx", SaveFormat::Pptx);
 ```
 
 ## **دسترسی به جدول موجود**
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ایجاد کنید.  
-2. مرجع اسلایدی که حاوی جدول است را از طریق شاخص آن دریافت کنید.  
+
+2. مرجع اسلاید حاوی جدول را از طریق شاخص آن دریافت کنید.  
+
 3. یک شیء [ITable](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itable/) ایجاد کنید و آن را به null تنظیم کنید.  
-4. تمام اشیاء [IShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/) را تا پیدا شدن جدول تکرار کنید.  
 
-اگر گمان می‌کنید اسلاید موردنظر تنها یک جدول دارد، می‌توانید به سادگی تمام اشکالی که در آن وجود دارد را بررسی کنید. هنگامی که یک شکل به عنوان جدول شناسایی شد، می‌توانید آن را به یک شیء [Table](https://reference.aspose.com/slides/fa/cpp/aspose.slides/table/) تبدیل کنید. اما اگر اسلاید شامل چندین جدول باشد، بهتر است جدول موردنیاز را از طریق متد [set_AlternativeText()](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/set_alternativetext/) جستجو کنید.  
+4. بر روی تمام اشیای [IShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/) تکرار کنید تا جدول پیدا شود.  
 
-5. از شیء [ITable](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itable/) برای کار با جدول استفاده کنید. در مثال زیر یک ردیف جدید به جدول اضافه کرده‌ایم.  
-6. ارائهٔ اصلاح‌شده را ذخیره کنید.
+   اگر مشکوکید اسلاید مورد نظر فقط یک جدول دارد، می‌توانید تمام اشکال موجود در آن را بررسی کنید. وقتی شکلی به عنوان جدول شناسایی شد، می‌توانید آن را به شیء [Table](https://reference.aspose.com/slides/fa/cpp/aspose.slides/table/) تبدیل کنید. اما اگر اسلاید شامل چندین جدول باشد، بهتر است جدول مورد نیاز را از طریق ویژگی [set_AlternativeText()](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/set_alternativetext/) جستجو کنید.  
+
+5. از شیء [ITable](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itable/) برای کار با جدول استفاده کنید. در مثال زیر یک ردیف جدید به جدول اضافه کردیم.  
+
+6. ارائه تغییر یافته را ذخیره کنید.  
+
+این کد C++ نشان می‌دهد که چگونه به یک جدول موجود دسترسی داشته و با آن کار کنید:
 
 ```c++
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <system/enumerator_adapter.h>
+#include <system/object_ext.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 // یک شیء از کلاس Presentation می‌سازد که نمایانگر یک فایل PPTX است
 auto pres = System::MakeObject<Presentation>(u"UpdateExistingTable.pptx");
 
-// به اسلاید اول دسترسی می‌یابد
+// به اولین اسلاید دسترسی می‌یابد
 auto sld = pres->get_Slides()->idx_get(0);
 
-// جدول را به مقدار null مقداردهی می‌کند
+// مقدار Table را به null مقداردهی می‌کند
 System::SharedPtr<ITable> tbl;
 
-// از طریق اشکال تکرار می‌کند و مرجعی به جدول یافت‌شده تنظیم می‌کند
+// از طریق اشکال تکرار می‌کند و مرجع به جدول یافت‌شده را تنظیم می‌کند
 for (const auto& shp : System::IterateOver(sld->get_Shapes()))
 {
     if (System::ObjectExt::Is<ITable>(shp))
@@ -175,50 +236,83 @@ for (const auto& shp : System::IterateOver(sld->get_Shapes()))
 // متن را برای ستون اول ردیف دوم تنظیم می‌کند
 tbl->idx_get(0, 1)->get_TextFrame()->set_Text(u"New");
 
-// ارائهٔ اصلاح‌شده را روی دیسک ذخیره می‌کند
+// ارائه تغییر یافته را بر روی دیسک ذخیره می‌کند
 pres->Save(u"table1_out.pptx", SaveFormat::Pptx);
 ```
 
-## **هم‌راست کردن متن در جدول**
+## **یابی سلولی که چارچوب متن را در اختیار دارد**
+
+هنگامی که کد عمومی پردازش متن یک [ITextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/) از یک جدول دریافت می‌کند، از متد [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/get_parentcell/) برای بازیابی [ICell](https://reference.aspose.com/slides/fa/cpp/aspose.slides/icell/) مالک استفاده کنید. برای چارچوب متن سلول جدول، [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/get_parentcell/) صاحب را برمی‌گرداند و [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/get_parentshape/) مقدار `nullptr` برمی‌گرداند، حتی اگر جدول خودش یک شکل باشد.
+
+مختصات سلول از طریق متدهای فقط‑خواندنی [ICell::get_FirstColumnIndex](https://reference.aspose.com/slides/fa/cpp/aspose.slides/icell/get_firstcolumnindex/) و [ICell::get_FirstRowIndex](https://reference.aspose.com/slides/fa/cpp/aspose.slides/icell/get_firstrowindex/) در دسترس است. همچنین [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/get_parentcell/) ناوبری فقط‑خواندنی را فراهم می‌کند: صاحب را برمی‌گرداند اما مالکیت را تغییر نمی‌دهد. قبل از استفاده همیشه بررسی کنید که سلول برگشتی مقدار `nullptr` نباشد.
+
+برای یک مثال کامل که مالکین سلول‑جدول و شکل را شناسایی می‌کند، از جمله اشکالی که به گره‌های SmartArt مرتبط هستند، به بخش [Search and Replace Text](/slides/fa/cpp/search-and-replace-text/) مراجعه کنید.
+
+## **ترازبندی متن در جدول**
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ایجاد کنید.  
-2. مرجع یک اسلاید را از طریق شاخص آن دریافت کنید.  
-3. یک شیء [ITable](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itable/) را به اسلاید اضافه کنید.  
-4. یک شیء [ITextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/) را از جدول دسترسی پیدا کنید.  
+2. مرجع اسلاید را از طریق شاخص آن دریافت کنید.  
+3. یک شیء [ITable](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itable/) به اسلاید اضافه کنید.  
+4. یک شیء [ITextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/) را از جدول به‌دست آورید.  
 5. به [IParagraph](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraph/) مربوط به [ITextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/) دسترسی پیدا کنید.  
-6. متن را به صورت عمودی هم‌راست کنید.  
-7. ارائهٔ اصلاح‌شده را ذخیره کنید.
+6. متن را به‌صورت عمودی ترازبندی کنید.  
+7. ارائه تغییر یافته را ذخیره کنید.
+
+این کد C++ نشان می‌دهد که چگونه متن را در یک جدول ترازبندی کنید:
 
 ```c++
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/TextAnchorType.h>
+#include <DOM/TextVerticalType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System::Drawing;
+
 // یک نمونه از کلاس Presentation ایجاد می‌کند
 auto presentation = System::MakeObject<Presentation>();
 
-// اسلاید اول را دریافت می‌کند 
+// اسلاید اول را دریافت می‌کند
 auto slide = presentation->get_Slides()->idx_get(0);
 
 // ستون‌ها را با عرض‌ها و ردیف‌ها را با ارتفاع‌ها تعریف می‌کند
 auto dblCols = System::MakeArray<double>({ 120, 120, 120, 120 });
 auto dblRows = System::MakeArray<double>({ 100, 100, 100, 100 });
 
-// شکل جدول را به اسلاید اضافه می‌کند
+// یک شکل جدول را به اسلاید اضافه می‌کند
 auto tbl = slide->get_Shapes()->AddTable(100.0f, 50.0f, dblCols, dblRows);
 tbl->idx_get(1, 0)->get_TextFrame()->set_Text(u"10");
 tbl->idx_get(2, 0)->get_TextFrame()->set_Text(u"20");
 tbl->idx_get(3, 0)->get_TextFrame()->set_Text(u"30");
 
-// به فریم متن دسترسی می‌یابد
+// چارچوب متن را به‌دست می‌آورد
 auto txtFrame = tbl->idx_get(0, 0)->get_TextFrame();
 
-// شیء Paragraph را برای فریم متن ایجاد می‌کند
+// شی Paragraph را برای چارچوب متن ایجاد می‌کند
 auto paragraph = txtFrame->get_Paragraphs()->idx_get(0);
 
-// شیء Portion را برای پاراگراف ایجاد می‌کند
+// شی Portion را برای پاراگراف ایجاد می‌کند
 auto portion = paragraph->get_Portions()->idx_get(0);
 portion->set_Text(u"Text here");
 portion->get_PortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 portion->get_PortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
 
-// متن را به صورت عمودی هم‌راست می‌کند
+// متن را به‌صورت عمودی ترازبندی می‌کند
 auto cell = tbl->idx_get(0, 0);
 cell->set_TextAnchorType(TextAnchorType::Center);
 cell->set_TextVerticalType(TextVerticalType::Vertical270);
@@ -230,33 +324,49 @@ presentation->Save(u"Vertical_Align_Text_out.pptx", SaveFormat::Pptx);
 ## **تنظیم قالب‌بندی متن در سطح جدول**
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ایجاد کنید.  
-2. مرجع یک اسلاید را از طریق شاخص آن دریافت کنید.  
-3. یک شیء [ITable](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itable/) را از اسلاید دسترسی پیدا کنید.  
-4. برای متن، [set_FontHeight()](https://reference.aspose.com/slides/fa/cpp/aspose.slides/baseportionformat/set_fontheight/) را تنظیم کنید.  
-5. [set_Alignment()](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_alignment/) و [set_MarginRight()](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_marginright/) را تنظیم کنید.  
-6. [set_TextVerticalType()](https://reference.aspose.com/slides/fa/cpp/aspose.slides/textframeformat/set_textverticaltype/) را تنظیم کنید.  
-7. ارائهٔ اصلاح‌شده را ذخیره کنید.
+2. مرجع اسلاید را از طریق شاخص آن دریافت کنید.  
+3. یک شیء [ITable](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itable/) را از اسلاید به‌دست آورید.  
+4. برای متن، متد [set_FontHeight()](https://reference.aspose.com/slides/fa/cpp/aspose.slides/baseportionformat/set_fontheight/) را تنظیم کنید.  
+5. متدهای [set_Alignment()](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_alignment/) و [set_MarginRight()](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_marginright/) را تنظیم کنید.  
+6. متد [set_TextVerticalType()](https://reference.aspose.com/slides/fa/cpp/aspose.slides/textframeformat/set_textverticaltype/) را تنظیم کنید.  
+7. ارائه تغییر یافته را ذخیره کنید.  
+
+این کد C++ نشان می‌دهد که چگونه گزینه‌های قالب‌بندی دلخواه خود را بر متن داخل جدول اعمال کنید:
 
 ```c++
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ParagraphFormat.h>
+#include <DOM/PortionFormat.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/TextAlignment.h>
+#include <DOM/TextFrameFormat.h>
+#include <DOM/TextVerticalType.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 // یک نمونه از کلاس Presentation ایجاد می‌کند
 auto presentation = System::MakeObject<Presentation>();
 auto slide = presentation->get_Slides()->idx_get(0);
 
-// فرض می‌کنیم که اولین شکل در اولین اسلاید یک جدول است
+// فرض می‌کنیم اولین شکل در اولین اسلاید یک جدول است
 auto someTable = System::AsCast<ITable>(presentation->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
 
-// ارتفاع قلم سلول‌های جدول را تنظیم می‌کند
+// ارتفاع فونت سلول‌های جدول را تنظیم می‌کند
 auto portionFormat = System::MakeObject<PortionFormat>();
 portionFormat->set_FontHeight(25.0f);
 someTable->SetTextFormat(portionFormat);
 
-// ترازبندی متن سلول‌های جدول و حاشیهٔ راست را در یک فراخوانی تنظیم می‌کند
+// تنظیم ترازبندی متن سلول‌های جدول و حاشیه راست در یک فراخوانی
 auto paragraphFormat = System::MakeObject<ParagraphFormat>();
 paragraphFormat->set_Alignment(TextAlignment::Right);
 paragraphFormat->set_MarginRight(20.0f);
 someTable->SetTextFormat(paragraphFormat);
 
-// نوع عمودی متن سلول‌های جدول را تنظیم می‌کند
+// تنظیم نوع عمودی متن سلول‌های جدول
 auto textFrameFormat = System::MakeObject<TextFrameFormat>();
 textFrameFormat->set_TextVerticalType(TextVerticalType::Vertical);
 someTable->SetTextFormat(textFrameFormat);
@@ -266,9 +376,18 @@ presentation->Save(u"result.pptx", SaveFormat::Pptx);
 
 ## **دریافت ویژگی‌های سبک جدول**
 
-Aspose.Slides به شما اجازه می‌دهد ویژگی‌های سبک یک جدول را بازیابی کنید تا بتوانید این جزئیات را برای جدول دیگر یا مکان دیگری استفاده کنید. این کد C++ نشان می‌دهد چگونه ویژگی‌های سبک را از یک سبک پیش‌فرض جدول دریافت کنید:
+Aspose.Slides به شما اجازه می‌دهد ویژگی‌های سبک یک جدول را دریافت کنید تا بتوانید این جزئیات را برای جدول دیگری یا در مکان دیگری استفاده کنید. این کد C++ نشان می‌دهد که چگونه ویژگی‌های سبک را از یک سبک پیش‌فرض جدول دریافت کنید:
 
 ```c++
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/TableStylePreset.h>
+#include <Export/SaveFormat.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+
 auto pres = System::MakeObject<Presentation>();
 auto shapes = pres->get_Slide(0)->get_Shapes();
 auto table = System::ExplicitCast<ITable>(shapes->AddTable(10, 10, System::MakeArray<double>({100, 150}), System::MakeArray<double>({5, 5, 5})));
@@ -279,11 +398,23 @@ pres->Save(u"table.pptx", SaveFormat::Pptx);
 
 ## **قفل کردن نسبت عرض به ارتفاع جدول**
 
-نسبت عرض به ارتفاع یک شکل هندسی، نسبت ابعاد آن در جهت‌های مختلف است. Aspose.Slides ویژگی `AspectRatioLocked()` را ارائه کرده است تا بتوانید تنظیم نسبت عرض به ارتفاع را برای جدول‌ها و سایر اشکال قفل کنید.
+نسبت عرض به ارتفاع یک شکل هندسی، نسبت اندازه‌های آن در ابعاد مختلف است. Aspose.Slides ویژگی `AspectRatioLocked()` را فراهم کرده تا بتوانید تنظیم قفل نسبت عرض به ارتفاع را برای جداول و سایر اشکال اعمال کنید. 
 
-این کد C++ نشان می‌دهد چگونه نسبت عرض به ارتفاع را برای یک جدول قفل کنید:
+این کد C++ نشان می‌دهد که چگونه نسبت عرض به ارتفاع یک جدول را قفل کنید:
 
 ```c++
+#include <DOM/IGraphicalObjectLock.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ITable.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
 auto table = System::ExplicitCast<ITable>(pres->get_Slides()->idx_get(0)->get_Shapes()->idx_get(0));
 
@@ -297,16 +428,16 @@ Console::WriteLine(u"Lock aspect ratio set: {0}", table->get_GraphicalObjectLock
 pres->Save(u"pres-out.pptx", SaveFormat::Pptx);
 ```
 
-## **سؤالات متداول**
+## **سوالات متداول**
 
-**آیا می‌توانم جهت خواندن راست به چپ (RTL) را برای یک جدول کامل و متن داخل سلول‌های آن فعال کنم؟**  
+**آیا می‌توانم جهت خوانش راست به چپ (RTL) را برای کل جدول و متون داخل سلول‌های آن فعال کنم؟**
 
-بله. جدول متد [set_RightToLeft](https://reference.aspose.com/slides/fa/cpp/aspose.slides/table/set_righttoleft/) را در اختیار می‌گذارد و پاراگراف‌ها متد [ParagraphFormat::set_RightToLeft](https://reference.aspose.com/slides/fa/cpp/aspose.slides/paragraphformat/set_righttoleft/) دارند. استفاده از هر دو اطمینان می‌دهد که ترتیب و رندر صحیح RTL داخل سلول‌ها اعمال شود.
+بله. جدول متد [set_RightToLeft](https://reference.aspose.com/slides/fa/cpp/aspose.slides/table/set_righttoleft/) را ارائه می‌دهد و پاراگراف‌ها متد [ParagraphFormat::set_RightToLeft](https://reference.aspose.com/slides/fa/cpp/aspose.slides/paragraphformat/set_righttoleft/) دارند. استفاده از هر دو باعث حفظ ترتیب و رندر صحیح RTL داخل سلول‌ها می‌شود.
 
-**چگونه می‌توانم از جابجا یا تغییر اندازه جدول توسط کاربران در فایل نهایی جلوگیری کنم؟**  
+**چگونه می‌توانم جلوگیری کنم که کاربران جدول را در فایل نهایی جابه‌جا یا اندازهٔ آن را تغییر دهند؟**
 
-از [shape locks](/slides/fa/cpp/applying-protection-to-presentation/) استفاده کنید تا جابجایی، تغییر اندازه، انتخاب و غیره غیرفعال شوند. این قفل‌ها برای جدول‌ها نیز اعمال می‌شوند.
+از [قفل‌های شکل](/slides/fa/cpp/applying-protection-to-presentation/) استفاده کنید تا جابه‌جایی، تغییر اندازه، انتخاب و غیره را غیرفعال کنید. این قفل‌ها برای جداول نیز اعمال می‌شوند.
 
-**آیا درج تصویر داخل یک سلول به عنوان پس‌زمینه پشتیبانی می‌شود؟**  
+**آیا افزودن تصویر به عنوان پس‌زمینه داخل یک سلول پشتیبانی می‌شود؟**
 
-بله. می‌توانید برای یک سلول [picture fill](https://reference.aspose.com/slides/fa/cpp/aspose.slides/picturefillformat/) تنظیم کنید؛ تصویر بسته به حالت انتخابی (کشاندن یا کاشی) کل ناحیه سلول را پوشش می‌دهد.
+بله. می‌توانید برای یک سلول پرکنش تصویر ([picture fill](https://reference.aspose.com/slides/fa/cpp/aspose.slides/picturefillformat/)) تنظیم کنید؛ تصویر بر حسب حالت انتخابی (کشیده یا کاشی) منطقهٔ سلول را پوشش می‌دهد.

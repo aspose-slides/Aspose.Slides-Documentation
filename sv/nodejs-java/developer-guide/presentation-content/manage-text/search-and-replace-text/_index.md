@@ -9,7 +9,7 @@ keywords:
 - markera text
 - ersätt text
 - reguljärt uttryck
-- resultat‑callback
+- resultat callback
 - textruta
 - revisionsrapport
 - PowerPoint
@@ -22,47 +22,116 @@ description: "Sök, markera och ersätt text i PowerPoint-presentationer samtidi
 ---
 ## **Översikt**
 
-Aspose.Slides för Node.js via Java kan söka, markera och ersätta text i en enskild textruta eller i hela en presentation. Varje operation kan också meddela en applikation om varje matchning via ett resultat‑callback. Detta gör det möjligt att uppdatera en presentation och samtidigt skapa en revisionsspårning som innehåller den matchade texten, dess kontext, position, textruta och bildnummer.
+Aspose.Slides för Node.js via Java kan söka, markera och ersätta text i en enskild textruta eller i hela en presentation. Varje operation kan även meddela en applikation om varje matchning via ett result callback. Detta gör det möjligt att uppdatera en presentation och samtidigt bygga ett revisionsspår som innehåller den matchade texten, dess sammanhang, position, textruta och bildnummer.
 
-Dessa funktioner är användbara för granskning, redigering, terminologikontroller, mallstädning och automatiserade rapporteringsarbetsflöden.
+Dessa funktioner är användbara för granskning, redigering, terminologikontroller, mallrengöring och automatiserade rapporteringsarbetsflöden.
 
-I de första exemplen nedan använder vi en fil som heter "sample.pptx", som innehåller en enda textruta på den första bilden med följande text:
+I de första exemplen nedan använder vi en fil med namnet "sample.pptx" som innehåller en enda textruta på den första bilden med följande text:
 
 ![Exempeltext](sample_text.png)
 
-## **Välj sökområde**
+## **Välj söksområde**
 
 Använd metoder på [TextFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/) för att begränsa en operation till en textruta. Använd metoder på [Presentation](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/) för att bearbeta all tillämplig text i presentationen.
 
 | Operation | En textruta | Hela presentationen |
 |---|---|---|
-| Markera bokstavlig text | [TextFrame.highlightText](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [Presentation.highlightText](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
-| Markera reguljära uttrycksmatchningar | [TextFrame.highlightRegex](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) | [Presentation.highlightRegex](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) |
-| Ersätt bokstavlig text | [TextFrame.replaceText](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [Presentation.replaceText](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
-| Ersätt reguljära uttrycksmatchningar | [TextFrame.replaceRegex](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) | [Presentation.replaceRegex](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) |
+| Highlight literal text | [TextFrame.highlightText](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [Presentation.highlightText](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
+| Highlight regular-expression matches | [TextFrame.highlightRegex](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) | [Presentation.highlightRegex](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) |
+| Replace literal text | [TextFrame.replaceText](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [Presentation.replaceText](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
+| Replace regular-expression matches | [TextFrame.replaceRegex](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) | [Presentation.replaceRegex](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) |
 
 ## **Konfigurera textmatchning**
 
-För operationer med bokstavlig text, använd [TextSearchOptions](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textsearchoptions/) för att styra matchning:
+För operationer med exakt text, använd [TextSearchOptions](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textsearchoptions/) för att styra matchning:
 
 - [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) begränsar matchningar till hela ord.
-- [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) styr om teckenkänslighet måste matchas.
-- [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) inkluderar bildanteckningar i sök‑, ersättnings‑ och markeringsoperationer på presentationsnivå.
+- [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) kontrollerar om teckenkänslighet måste matcha.
+- [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) inkluderar bildanteckningar i sök-, ersättnings- och markeringsoperationer på presentationsnivå.
 
-Operationer med reguljära uttryck använder ett Java `Pattern`, så matchningsregler såsom teckenkänslighet och ordgränser definieras av själva uttrycket och dess flaggor.
+Operationer med reguljära uttryck använder en Java `Pattern`, så matchningsregler såsom skiftlägeskänslighet och ordgränser definieras av själva uttrycket och dess flaggor.
+
+## **Identifiera ägaren till en textruta**
+
+Generiska textbehandlingsarbetsflöden får ofta en [TextFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/) när de söker, ersätter, validerar eller exporterar text. Använd [TextFrame.getParentShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/#getParentShape--) och [TextFrame.getParentCell](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/#getParentCell--) för att avgöra vilket presentationsobjekt som äger textrutan.
+
+De förväntade värdena beror på ägaren:
+
+| Ägare av textruta | `getParentShape` | `getParentCell` |
+|---|---|---|
+| En AutoShape eller en annan textinnehållande form | Den ägande [Shape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/shape/) | `null` |
+| En tabellcell | `null` | Den ägande [Cell](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/cell/) |
+
+Båda metoderna ger skrivskyddad navigering. Att anropa dem flyttar inte textrutan eller ändrar dess ägare. Generisk kod bör kontrollera båda värdena för `null` och hantera möjligheten att ingen ägare är tillgänglig.
+
+Följande exempel använder [SlideUtil.getAllTextFrames](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slideutil/#getAllTextFrames-aspose.slides.IPresentation-boolean-) för att iterera genom textrutorna i en presentation. För former rapporterar den formens namn, Java‑körtidstyp och innehållande bild. För tabellceller rapporterar den kolumn‑ och radräkning med nollbas och den innehållande bilden.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+function getSlideLabel(baseSlide) {
+    if (java.instanceOf(baseSlide, "com.aspose.slides.Slide")) {
+        return "slide " + baseSlide.getSlideNumber();
+    }
+
+    if (java.instanceOf(baseSlide, "com.aspose.slides.NotesSlide")) {
+        return "notes for slide " + baseSlide.getParentSlide().getSlideNumber();
+    }
+
+    return baseSlide.getClass().getSimpleName();
+}
+
+const presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    const textFrames = aspose.slides.SlideUtil.getAllTextFrames(presentation, false);
+
+    for (let index = 0; index < textFrames.length; index++) {
+        const textFrame = textFrames[index];
+        const ownerShape = textFrame.getParentShape();
+        if (ownerShape !== null) {
+            const shapeName = ownerShape.getName() === "" ? "(unnamed)" : ownerShape.getName();
+            const shapeType = ownerShape.getClass().getSimpleName();
+            const slideLabel = getSlideLabel(ownerShape.getSlide());
+            console.log("Shape: " + shapeName + "; type: " + shapeType + "; " + slideLabel);
+            continue;
+        }
+
+        const ownerCell = textFrame.getParentCell();
+        if (ownerCell !== null) {
+            const slideLabel = getSlideLabel(ownerCell.getSlide());
+            console.log("Table cell: column " + ownerCell.getFirstColumnIndex() + ", row " + ownerCell.getFirstRowIndex() + "; " + slideLabel);
+            continue;
+        }
+
+        console.log("The text frame owner is not available as a shape or table cell.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+För SmartArt‑innehåll, iterera genom formerna i [SmartArtNode.getShapes](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/smartartnode/#getShapes--) och åtkomst varje [SmartArtShape.getTextFrame](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/smartartshape/#getTextFrame--). Textrutan kan spåras till sin tillhörande form via [TextFrame.getParentShape](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/#getParentShape--), medan [TextFrame.getParentCell](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/#getParentCell--) returnerar `null`. Därför hanterar även grenformen i exemplet text från SmartArt‑noder.
 
 ## **Samla matchningsinformation med en callback**
 
-Skapa en Java‑proxy för resultat‑callbacken för att få en avisering för varje matchning. Proxy‑funktionen tar emot den relaterade textrutan, källtexten, den matchade texten och matchningspositionen.
+Skapa en Java‑proxy för result callback för att ta emot en avisering för varje matchning. Proxy‑funktionen får den relaterade textrutan, källtexten, den matchade texten och matchningspositionen.
 
-Callbacken får inte ett bildnummer direkt. Implementeringen nedan härleder det via [TextFrame.getSlide](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/#getSlide--), [Slide.getSlideNumber](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/slide/#getSlideNumber--), och [NotesSlide.getParentSlide](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/notesslide/#getParentSlide--). Den hanterar också text som finns i bildanteckningar.
+Callback‑en får inte ett bildnummer direkt. Implementeringen nedan härleder det via textrutans ägande form eller tabellcell, med [TextFrame.getSlide](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/#getSlide--) som reserv. Den hanterar även text som hittas i bildanteckningar.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
 function getSlideNumber(textFrame) {
-    const parentSlide = textFrame.getSlide();
+    const parentShape = textFrame.getParentShape();
+    const parentCell = textFrame.getParentCell();
+    let parentSlide = textFrame.getSlide();
+    if (parentShape !== null) {
+        parentSlide = parentShape.getSlide();
+    } else if (parentCell !== null) {
+        parentSlide = parentCell.getSlide();
+    }
 
     if (java.instanceOf(parentSlide, "com.aspose.slides.Slide")) {
         return parentSlide.getSlideNumber();
@@ -90,11 +159,11 @@ function createTextSearchCallback(results) {
 }
 ```
 
-För ersättningsoperationer innehåller `foundText` den ursprungliga matchade texten, så callbacken kan registrera exakt vilka termer som ersattes.
+För ersättningsoperationer innehåller `foundText` den ursprungliga matchade texten, så callback‑en kan registrera exakt vilka termer som ersattes.
 
 ## **Markera text**
 
-Använd metoden [TextFrame.highlightText](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) för att markera matchningar av bokstavlig text i en textruta. Skicka in [TextSearchOptions](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textsearchoptions/) för att styra sökningen.
+Använd metoden [TextFrame.highlightText](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) för att markera exakta textmatchningar i en textruta. Skicka [TextSearchOptions](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textsearchoptions/) för att styra sökningen.
 
 Kodexemplet nedan markerar alla förekomster av tecknen **"try"** och markerar sedan endast hela ordet **"to"**.
 
@@ -111,7 +180,7 @@ try {
     substringSearchOptions.setCaseSensitive(false);
     const substringHighlightColor = java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY");
 
-    // Markera varje förekomst av "try" i textramen.
+    // Markera varje förekomst av "try" i textrutan.
     shape.getTextFrame().highlightText(
         "try", substringHighlightColor, substringSearchOptions, null);
 
@@ -136,7 +205,7 @@ Resultatet:
 
 ## **Markera text med reguljära uttryck**
 
-Metoden [TextFrame.highlightRegex](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) markerar textmatchningar som hittas med ett reguljärt uttryck i en textruta.
+Metoden [TextFrame.highlightRegex](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) markerar textramsmatchningar som hittas med ett reguljärt uttryck i en textruta.
 
 Följande kod markerar alla ord som innehåller sju eller fler tecken:
 
@@ -167,7 +236,7 @@ Resultatet:
 
 ## **Markera text i hela en presentation**
 
-Använd [Presentation.highlightText](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) och [Presentation.highlightRegex](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) för att söka i alla tillämpliga textrutor i en presentation. Följande exempel markerar ett bokstavligt uttryck och alla e‑postadresser:
+Använd [Presentation.highlightText](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) och [Presentation.highlightRegex](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) för att söka i alla tillämpliga textrutor i en presentation. Följande exempel markerar ett exakt uttryck och alla e‑postadresser:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -198,7 +267,7 @@ try {
 
 ## **Ersätt text i en textruta**
 
-Använd [TextFrame.replaceText](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) för bokstavlig text och [TextFrame.replaceRegex](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) för mönsterbaserad ersättning. Dessa metoder uppdaterar den matchade texten inom den befintliga textrutan, vilket behåller formateringen av den omgivande delen istället för att återskapa textrutan från en enkel sträng.
+Använd [TextFrame.replaceText](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) för exakt text och [TextFrame.replaceRegex](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) för mönsterbaserad ersättning. Dessa metoder uppdaterar den matchade texten inom den befintliga textrutan, vilket behåller formateringen av omgivande delar istället för att bygga om textrutan från en ren sträng.
 
 Följande exempel standardiserar en stavningsvariant och ersätter sedan versionsetiketter:
 
@@ -228,11 +297,11 @@ try {
 }
 ```
 
-Om en matchning sträcker sig över delar med olika formatering, granska utdata för att bekräfta vilken formatering som ska tillämpas på den ersatta texten.
+Om en matchning spänner över delar med olika formatering, granska resultatet för att bekräfta vilken formatering som ska tillämpas på den ersatta texten.
 
 ## **Ersätt text i hela en presentation**
 
-Använd [Presentation.replaceText](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) och [Presentation.replaceRegex](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) för att tillämpa samma operationer i hela presentationen. Detta är användbart för mallstädning, terminologiska uppdateringar och redigering.
+Använd [Presentation.replaceText](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) och [Presentation.replaceRegex](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) för att tillämpa samma operationer i hela presentationen. Detta är användbart för mallrengöring, terminologiuppdateringar och redigering.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -259,14 +328,21 @@ try {
 
 ## **Gruppera matchningar för rapportering**
 
-Eftersom varje insamlat resultat lagrar bildnummer och textruta kan applikationer gruppera matchningar för revision, rapportering eller granskning. Följande exempel grupperar resultaten först efter bild och sedan efter textruta:
+Eftersom varje insamlad result lagrar sitt bildnummer och sin textruta kan applikationer gruppera matchningar för revision, rapportering eller granskningsarbetsflöden. Följande exempel grupperar resultaten först efter bild och sedan efter textruta:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
 function getSlideNumber(textFrame) {
-    const parentSlide = textFrame.getSlide();
+    const parentShape = textFrame.getParentShape();
+    const parentCell = textFrame.getParentCell();
+    let parentSlide = textFrame.getSlide();
+    if (parentShape !== null) {
+        parentSlide = parentShape.getSlide();
+    } else if (parentCell !== null) {
+        parentSlide = parentCell.getSlide();
+    }
 
     if (java.instanceOf(parentSlide, "com.aspose.slides.Slide")) {
         return parentSlide.getSlideNumber();
@@ -338,22 +414,22 @@ try {
 
 ## **FAQ**
 
-**Hur kan jag söka endast i en textruta istället för hela presentationen?**
+**Hur kan jag söka i endast en textruta istället för hela presentationen?**
 
 Hämta formens textruta och anropa [TextFrame.highlightText](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), [TextFrame.highlightRegex](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-), [TextFrame.replaceText](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), eller [TextFrame.replaceRegex](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) på den textrutan. Metoder på presentationsnivå bearbetar alla tillämpliga textrutor istället.
 
 **Hur kan jag matcha hela ord med korrekt versalisering?**
 
-Ställ in [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) och [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) till `true`, och skicka alternativen till en metod för markering eller ersättning av bokstavlig text. För reguljära uttryck definieras ordgränser och teckenkänslighet i själva Java `Pattern`.
+Ställ in [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) och [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) till `true` och skicka alternativen till en metod för exakta textmarkering eller -ersättning. För reguljära uttryck, definiera ordgränser och skiftlägeskänslighet i själva Java `Pattern`‑en.
 
 **Kan sökning och ersättning inkludera text i bildanteckningar?**
 
-Ja. Ställ in [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) till `true` när du använder en operation för bokstavlig text på presentationsnivå. Callback‑implementeringen som visas ovan mappar en matchning i en anteckningsbild tillbaka till dess föräldrabildsnummer.
+Ja. Ställ in [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) till `true` när du använder en exaktsökning på presentationsnivå. Callback‑implementeringen ovan mappar en matchning i en anteckningsbild tillbaka till dess föräldrabildsnummer.
 
 **Hur kan jag skapa en rapport utan att skanna presentationen en andra gång?**
 
-Skicka en Java‑resultat‑callback‑proxy till markerings‑ eller ersättningsoperationen. Callbacken får varje matchning medan operationen körs, så applikationen kan lagra källtext, matchad text, position, textruta och beräknat bildnummer för senare gruppering eller export.
+Skicka en Java‑result‑callback‑proxy till markerings‑ eller ersättningsoperationen. Callback‑en får varje matchning medan operationen körs, så applikationen kan lagra källtexten, den matchade texten, positionen, textrutan och härledda bildnumret för senare gruppering eller export.
 
 **Behåller ersättning av text dess formatering?**
 
-[TextFrame.replaceText](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) och [TextFrame.replaceRegex](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) ändrar den matchade texten inom den befintliga textrutan och behåller formateringen av den omgivande delen. Om en matchning sträcker sig över delar med olika formatering, inspektera resultatet för att säkerställa att ersättningen använder önskad stil.
+[TextFrame.replaceText](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) och [TextFrame.replaceRegex](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) ändrar den matchade texten inom den befintliga textrutan och behåller formateringen av omgivande delar. Om en matchning spänner över delar med olika formatering, inspektera resultatet för att säkerställa att ersättningen använder önskad stil.

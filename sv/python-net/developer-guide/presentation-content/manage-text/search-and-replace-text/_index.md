@@ -19,38 +19,90 @@ description: "Sök, markera och ersätt text i PowerPoint-presentationer med Asp
 ---
 ## **Översikt**
 
-Aspose.Slides for Python via .NET kan söka, markera och ersätta text i en enskild textram eller i en hel presentation. Dessa funktioner är användbara för granskning, redigering, terminologikontroller, mallrensning och andra automatiserade dokumentbehandlingsarbetsflöden.
+Aspose.Slides för Python via .NET kan söka, markera och ersätta text i en enskild textram eller i hela en presentation. Dessa funktioner är användbara för granskning, redigering, terminologikontroller, mallrengöring och andra automatiserade dokumentbehandlingsarbetsflöden.
 
-I de första exemplen nedan använder vi en fil med namnet "sample.pptx" som innehåller en enda textruta på den första bilden med följande text:
+I de första exemplen nedan använder vi en fil som heter "sample.pptx", som innehåller en enda textruta på den första bilden med följande text:
 
 ![Exempeltext](sample_text.png)
 
 ## **Välj sökområde**
 
-Använd metoder på [TextFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/) för att begränsa en operation till en enda textram. Använd metoder på [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/) för att bearbeta all tillämplig text i presentationen.
+Använd metoder på [TextFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/) för att begränsa en operation till en textram. Använd metoder på [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/) för att bearbeta all tillämplig text i presentationen.
 
 | Operation | En textram | Hela presentationen |
 |---|---|---|
 | Markera bokstavlig text | [TextFrame.highlight_text](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/highlight_text/) | [Presentation.highlight_text](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/highlight_text/) |
-| Markera reguljära uttrycksmatchningar | [TextFrame.highlight_regex](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/highlight_regex/) | [Presentation.highlight_regex](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/highlight_regex/) |
+| Markera matchningar med reguljärt uttryck | [TextFrame.highlight_regex](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/highlight_regex/) | [Presentation.highlight_regex](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/highlight_regex/) |
 | Ersätt bokstavlig text | [TextFrame.replace_text](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/replace_text/) | [Presentation.replace_text](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/replace_text/) |
-| Ersätt reguljära uttrycksmatchningar | [TextFrame.replace_regex](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/replace_regex/) | [Presentation.replace_regex](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/replace_regex/) |
+| Ersätt matchningar med reguljärt uttryck | [TextFrame.replace_regex](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/replace_regex/) | [Presentation.replace_regex](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/replace_regex/) |
 
 ## **Konfigurera textmatchning**
 
-För bokstavliga textoperationer, använd [TextSearchOptions](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textsearchoptions/) för att styra matchning:
+För operationer med bokstavlig text, använd [TextSearchOptions](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textsearchoptions/) för att kontrollera matchning:
 
 - [TextSearchOptions.whole_words_only](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textsearchoptions/whole_words_only/) begränsar matchningar till hela ord.
-- [TextSearchOptions.case_sensitive](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textsearchoptions/case_sensitive/) styr om teckenens versal‑/gemener måste matcha.
-- [TextSearchOptions.include_notes](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textsearchoptions/include_notes/) inkluderar bildanteckningar i sök‑, ersättnings‑ och markeringsoperationer på presentationsnivå.
+- [TextSearchOptions.case_sensitive](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textsearchoptions/case_sensitive/) styr om teckenkasning måste matcha.
+- [TextSearchOptions.include_notes](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textsearchoptions/include_notes/) inkluderar bildanteckningar i sök-, ersättnings- och markeringsoperationer på presentationsnivå.
 
-Reguljära uttrycksoperationer använder en mönstersträng, så matchningsregler såsom skiftlägeskänslighet och ordgränser definieras av själva uttrycket.
+Operationer med reguljära uttryck använder en mönstersträng, så matchningsregler såsom teckenkasning och ordgränser definieras av själva uttrycket.
+
+## **Identifiera ägaren av en textram**
+
+Generiska textbehandlingsarbetsflöden får ofta en [TextFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/) när de söker, ersätter, validerar eller exporterar text. Använd [TextFrame.parent_shape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/parent_shape/) och [TextFrame.parent_cell](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/parent_cell/) för att avgöra vilket presentationsobjekt som äger textramen.
+
+De förväntade värdena beror på ägaren:
+
+| Ägare av textram | `parent_shape` | `parent_cell` |
+|---|---|---|
+| En AutoShape eller en annan textinnehållande form | Den ägande [Shape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shape/) | `None` |
+| En tabellcell | `None` | Den ägande [Cell](https://reference.aspose.com/slides/sv/python-net/aspose.slides/cell/) |
+
+Båda egenskaperna är skrivskyddade navigeringsegenskaper. Att läsa dem flyttar inte textramen eller ändrar dess ägare. Generisk kod bör kontrollera båda värdena för `None` och hantera möjligheten att ingen ägare finns tillgänglig.
+
+Följande exempel använder [SlideUtil.get_all_text_frames](https://reference.aspose.com/slides/sv/python-net/aspose.slides.util/slideutil/get_all_text_frames/) för att iterera genom textramarna i en presentation. För former rapporteras formens namn, Python‑körtidstyp och innehållande bild. För tabellceller rapporteras de nollbaserade kolumn‑ och radkoordinaterna samt den innehållande bilden.
+
+```python
+import aspose.slides as slides
+
+
+def get_slide_label(base_slide):
+    if isinstance(base_slide, slides.Slide):
+        return f"slide {base_slide.slide_number}"
+
+    if isinstance(base_slide, slides.NotesSlide):
+        return f"notes for slide {base_slide.parent_slide.slide_number}"
+
+    return type(base_slide).__name__
+
+
+with slides.Presentation("presentation.pptx") as presentation:
+    text_frames = slides.util.SlideUtil.get_all_text_frames(presentation, False)
+
+    for text_frame in text_frames:
+        owner_shape = text_frame.parent_shape
+        if owner_shape is not None:
+            shape_name = owner_shape.name or "(unnamed)"
+            shape_type = type(owner_shape).__name__
+            slide_label = get_slide_label(owner_shape.slide)
+            print(f"Shape: {shape_name}; type: {shape_type}; {slide_label}")
+            continue
+
+        owner_cell = text_frame.parent_cell
+        if owner_cell is not None:
+            slide_label = get_slide_label(owner_cell.slide)
+            print(f"Table cell: column {owner_cell.first_column_index}, row {owner_cell.first_row_index}; {slide_label}")
+            continue
+
+        print("The text frame owner is not available as a shape or table cell.")
+```
+
+För SmartArt‑innehåll itereras genom formerna i [SmartArtNode.shapes](https://reference.aspose.com/slides/sv/python-net/aspose.slides.smartart/smartartnode/shapes/) och varje [ISmartArtShape.text_frame](https://reference.aspose.com/slides/sv/python-net/aspose.slides.smartart/ismartartshape/text_frame/) nås. Textramen kan spåras till sin associerade form via [TextFrame.parent_shape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/parent_shape/), medan [TextFrame.parent_cell](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/parent_cell/) är `None`. Därför hanterar formgrenen i exemplet även text från SmartArt‑noder.
 
 ## **Markera text**
 
-Använd metoden [TextFrame.highlight_text](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/highlight_text/) för att markera bokstavliga textmatchningar i en textram. Skicka in [TextSearchOptions](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textsearchoptions/) för att styra sökningen.
+Använd metoden [TextFrame.highlight_text](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/highlight_text/) för att markera bokstavliga matchningar i en textram. Skicka in [TextSearchOptions](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textsearchoptions/) för att styra sökningen.
 
-Kodexemplet nedan markerar alla förekomster av tecknen **"try"** och markerar sedan endast hela ordet **"to"**.
+Kodexemplet nedan markerar alla förekomster av tecknen **"try"** och markerar sedan bara hela ordet **"to"**.
 
 ```python
 import aspose.pydrawing as draw
@@ -72,7 +124,7 @@ with slides.Presentation("sample.pptx") as presentation:
     whole_word_search_options.whole_words_only = True
     whole_word_search_options.case_sensitive = False
 
-    # Markera endast hela ordet "to".
+    # Markera bara hela ordet "to".
     shape.text_frame.highlight_text(
         "to", draw.Color.violet, whole_word_search_options, None
     )
@@ -110,9 +162,9 @@ Resultatet:
 
 ![Den markerade texten med reguljärt uttryck](highlighted_text_using_regex.png)
 
-## **Markera text i hela presentationen**
+## **Markera text i en presentation**
 
-Använd [Presentation.highlight_text](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/highlight_text/) och [Presentation.highlight_regex](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/highlight_regex/) för att söka igenom alla tillämpliga textramar i en presentation. Följande exempel markerar ett bokstavligt begrepp och alla e‑postadresser:
+Använd [Presentation.highlight_text](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/highlight_text/) och [Presentation.highlight_regex](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/highlight_regex/) för att söka alla tillämpliga textramar i en presentation. Följande exempel markerar ett bokstavligt begrepp och alla e‑postadresser:
 
 ```python
 import aspose.pydrawing as draw
@@ -137,7 +189,7 @@ with slides.Presentation("presentation.pptx") as presentation:
 
 ## **Ersätt text i en textram**
 
-Använd [TextFrame.replace_text](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/replace_text/) för bokstavlig text och [TextFrame.replace_regex](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/replace_regex/) för mönsterbaserad ersättning. Dessa metoder uppdaterar den matchade texten i den befintliga textramen, som behåller formateringen i omkringliggande delar istället för att bygga om textramen från en enkel sträng.
+Använd [TextFrame.replace_text](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/replace_text/) för bokstavlig text och [TextFrame.replace_regex](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/replace_regex/) för mönsterbaserad ersättning. Dessa metoder uppdaterar matchad text inom den befintliga textramen, vilket bevarar formateringen på omgivande delar istället för att bygga om textramen från en vanlig sträng.
 
 Följande exempel standardiserar en stavningsvariant och ersätter sedan versionsetiketter:
 
@@ -164,11 +216,11 @@ with slides.Presentation("presentation.pptx") as presentation:
     )
 ```
 
-Om en matchning sträcker sig över delar med olika formatering, granska resultatet för att bekräfta vilken formatering som ska tillämpas på den ersatta texten.
+Om en matchning spänner över delar med olika formatering, granska resultatet för att bekräfta vilken formatering som ska tillämpas på den ersatta texten.
 
-## **Ersätt text i hela presentationen**
+## **Ersätt text i en presentation**
 
-Använd [Presentation.replace_text](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/replace_text/) och [Presentation.replace_regex](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/replace_regex/) för att tillämpa samma operationer i hela presentationen. Detta är användbart för mallrensning, terminologiska uppdateringar och redigering.
+Använd [Presentation.replace_text](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/replace_text/) och [Presentation.replace_regex](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/replace_regex/) för att tillämpa samma operationer i hela presentationen. Detta är användbart för mallrengöring, terminologiska uppdateringar och redigering.
 
 ```python
 import aspose.slides as slides
@@ -190,20 +242,20 @@ with slides.Presentation("presentation.pptx") as presentation:
     )
 ```
 
-## **Vanliga frågor**
+## **FAQ**
 
 **Hur kan jag söka endast i en textruta istället för hela presentationen?**
 
-Få åtkomst till figurens textram och anropa [TextFrame.highlight_text](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/highlight_text/), [TextFrame.highlight_regex](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/highlight_regex/), [TextFrame.replace_text](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/replace_text/) eller [TextFrame.replace_regex](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/replace_regex/) på den textramen. Metoder på presentationsnivå bearbetar alla tillämpliga textramar istället.
+Hämta formens textram och anropa [TextFrame.highlight_text](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/highlight_text/), [TextFrame.highlight_regex](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/highlight_regex/), [TextFrame.replace_text](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/replace_text/) eller [TextFrame.replace_regex](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/replace_regex/) på den textramen. Metoder på presentationsnivå bearbetar alla tillämpliga textramar istället.
 
 **Hur kan jag matcha hela ord med korrekt versalisering?**
 
-Sätt [TextSearchOptions.whole_words_only](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textsearchoptions/whole_words_only/) och [TextSearchOptions.case_sensitive](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textsearchoptions/case_sensitive/) till `True` och skicka in alternativen till en metod för markering eller ersättning av bokstavlig text. För reguljära uttryck definieras ordgränser och skiftlägeskänslighet i själva mönstret.
+Ställ in [TextSearchOptions.whole_words_only](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textsearchoptions/whole_words_only/) och [TextSearchOptions.case_sensitive](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textsearchoptions/case_sensitive/) till `True` och skicka alternativen till en metod för markerning eller ersättning av bokstavlig text. För reguljära uttryck definieras ordgränser och teckenkasning i själva mönstret.
 
 **Kan sökning och ersättning inkludera text i bildanteckningar?**
 
-Ja. Sätt [TextSearchOptions.include_notes](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textsearchoptions/include_notes/) till `True` när du använder en operation för bokstavlig text på presentationsnivå.
+Ja. Ställ in [TextSearchOptions.include_notes](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textsearchoptions/include_notes/) till `True` när du använder en bokstavlig textoperation på presentationsnivå.
 
 **Behåller ersättning av text dess formatering?**
 
-[TextFrame.replace_text](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/replace_text/) och [TextFrame.replace_regex](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/replace_regex/) modifierar den matchade texten i den befintliga textramen och behåller formateringen i de omgivande delarna. Om en matchning sträcker sig över delar med olika formatering, granska resultatet för att säkerställa att den ersatta texten använder önskad stil.
+[TextFrame.replace_text](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/replace_text/) och [TextFrame.replace_regex](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/replace_regex/) ändrar matchad text inom den befintliga textramen och behåller formateringen på omgivande delar. Om en matchning spänner över delar med olika formatering, inspektera resultatet för att säkerställa att ersättningen använder den önskade stilen.

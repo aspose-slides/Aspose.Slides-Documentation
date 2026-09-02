@@ -18,21 +18,21 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "使用 Aspose.Slides for .NET 在 PowerPoint 演示文稿中搜索、突出显示和替换文本，同时收集每一次匹配。"
+description: "在 PowerPoint 演示文稿中搜索、突出显示和替换文本，同时使用 Aspose.Slides for .NET 收集每一次匹配。"
 ---
-## **概览**
+## **概述**
 
-Aspose.Slides for .NET 可以在单个文本框或整个演示文稿中搜索、突出显示和替换文本。每项操作都可以通过结果回调向应用程序通知每一次匹配。这使得在更新演示文稿的同时能够构建包含匹配文本、其上下文、位置、文本框和幻灯片编号的审计轨迹。
+Aspose.Slides for .NET 可以在单个文本框或整个演示文稿中搜索、突出显示和替换文本。每个操作还可以通过结果回调通知应用程序每一次匹配。这使得在更新演示文稿的同时能够构建包含匹配文本、其上下文、位置、文本框和幻灯片编号的审计轨迹。
 
-这些功能在审阅、编辑、术语检查、模板清理和自动化报告工作流中非常有用。
+这些功能适用于审阅、编辑、术语检查、模板清理和自动化报告工作流。
 
-在下面的第一个示例中，我们使用名为 **sample.pptx** 的文件，该文件在第一页的单个文本框中包含以下文本：
+在下面的第一个示例中，我们使用名为“sample.pptx”的文件，该文件的首张幻灯片上有一个仅包含以下文本的文本框：
 
-![Sample text](sample_text.png)
+![示例文本](sample_text.png)
 
 ## **选择搜索范围**
 
-使用 [ITextFrame](https://reference.aspose.com/slides/zh/net/aspose.slides/itextframe/) 上的方法将操作限制在一个文本框内。使用 [Presentation](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/) 上的方法处理演示文稿中所有适用的文本。
+对[ITextFrame](https://reference.aspose.com/slides/zh/net/aspose.slides/itextframe/)使用方法以将操作限制在单个文本框。对[Presentation](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/)使用方法以处理演示文稿中所有适用的文本。
 
 | 操作 | 单个文本框 | 整个演示文稿 |
 |---|---|---|
@@ -43,19 +43,95 @@ Aspose.Slides for .NET 可以在单个文本框或整个演示文稿中搜索、
 
 ## **配置文本匹配**
 
-对于字面文本操作，使用 [TextSearchOptions](https://reference.aspose.com/slides/zh/net/aspose.slides/textsearchoptions/) 控制匹配方式：
+对于字面文本操作，使用[TextSearchOptions](https://reference.aspose.com/slides/zh/net/aspose.slides/textsearchoptions/)来控制匹配方式：
 
 - [TextSearchOptions.WholeWordsOnly](https://reference.aspose.com/slides/zh/net/aspose.slides/textsearchoptions/wholewordsonly/) 将匹配限制为完整单词。
-- [TextSearchOptions.CaseSensitive](https://reference.aspose.com/slides/zh/net/aspose.slides/textsearchoptions/casesensitive/) 控制是否必须区分字符大小写。
-- [TextSearchOptions.IncludeNotes](https://reference.aspose.com/slides/zh/net/aspose.slides/textsearchoptions/includenotes/) 在演示文稿级别的搜索、替换和突出显示操作中包含幻灯片备注。
+- [TextSearchOptions.CaseSensitive](https://reference.aspose.com/slides/zh/net/aspose.slides/textsearchoptions/casesensitive/) 控制是否必须匹配字符大小写。
+- [TextSearchOptions.IncludeNotes](https://reference.aspose.com/slides/zh/net/aspose.slides/textsearchoptions/includenotes/) 在演示文稿级搜索、替换和突出显示操作中包含幻灯片备注。
 
-正则表达式操作使用 .NET `Regex`，因此诸如区分大小写和单词边界等匹配规则由表达式本身及其选项决定。
+正则表达式操作使用 .NET `Regex`，因此大小写敏感性和单词边界等匹配规则由表达式本身及其选项决定。
+
+## **确定文本框的拥有者**
+
+通用文本处理工作流在搜索、替换、验证或导出文本时通常会接收到[ITextFrame](https://reference.aspose.com/slides/zh/net/aspose.slides/itextframe/)。使用[ITextFrame.ParentShape](https://reference.aspose.com/slides/zh/net/aspose.slides/itextframe/parentshape/)和[ITextFrame.ParentCell](https://reference.aspose.com/slides/zh/net/aspose.slides/itextframe/parentcell/)来确定哪个演示对象拥有该文本框。
+
+预期值取决于拥有者：
+
+| 文本框拥有者 | `ParentShape` | `ParentCell` |
+|---|---|---|
+| AutoShape或其他包含文本的形状 | 拥有该形状的[IShape](https://reference.aspose.com/slides/zh/net/aspose.slides/ishape/) | `null` |
+| 表格单元格 | `null` | 拥有该单元格的[ICell](https://reference.aspose.com/slides/zh/net/aspose.slides/icell/) |
+
+这两个属性都是只读导航属性。读取它们不会移动文本框或更改其拥有者。通用代码应检查两个值是否为`null`，并处理两者均不可用的情况。
+
+以下示例使用[SlideUtil.GetAllTextFrames](https://reference.aspose.com/slides/zh/net/aspose.slides.util/slideutil/getalltextframes/)遍历演示文稿中的所有文本框。对于形状，它报告形状名称、形状类型以及所在幻灯片；对于表格单元格，它报告零基列号、行号以及所在幻灯片。
+
+```cs
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Util;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var textFrames = SlideUtil.GetAllTextFrames(presentation, false);
+
+foreach (var textFrame in textFrames)
+{
+    var ownerShape = textFrame.ParentShape;
+    if (ownerShape != null)
+    {
+        var shapeName = string.IsNullOrEmpty(ownerShape.Name) ? "(unnamed)" : ownerShape.Name;
+        var shapeType = GetShapeType(ownerShape);
+        var slideLabel = GetSlideLabel(ownerShape.Slide);
+        Console.WriteLine($"Shape: {shapeName}; type: {shapeType}; {slideLabel}");
+
+        continue;
+    }
+
+    var ownerCell = textFrame.ParentCell;
+    if (ownerCell != null)
+    {
+        var slideLabel = GetSlideLabel(ownerCell.Slide);
+        Console.WriteLine($"Table cell: column {ownerCell.FirstColumnIndex}, row {ownerCell.FirstRowIndex}; {slideLabel}");
+        continue;
+    }
+
+    Console.WriteLine("The text frame owner is not available as a shape or table cell.");
+}
+
+static string GetShapeType(IShape shape)
+{
+    if (shape is IGeometryShape geometryShape)
+    {
+        return geometryShape.ShapeType.ToString();
+    }
+
+    return shape.GetType().Name;
+}
+
+static string GetSlideLabel(IBaseSlide baseSlide)
+{
+    if (baseSlide is ISlide slide)
+    {
+        return $"slide {slide.SlideNumber}";
+    }
+
+    if (baseSlide is INotesSlide notesSlide)
+    {
+        return $"notes for slide {notesSlide.ParentSlide.SlideNumber}";
+    }
+
+    return baseSlide.GetType().Name;
+}
+```
+
+对于 SmartArt 内容，遍历[ISmartArtNode.Shapes](https://reference.aspose.com/slides/zh/net/aspose.slides.smartart/ismartartnode/shapes/)中的形状并访问每个[ISmartArtShape.TextFrame](https://reference.aspose.com/slides/zh/net/aspose.slides.smartart/ismartartshape/textframe/)。文本框可通过[ITextFrame.ParentShape](https://reference.aspose.com/slides/zh/net/aspose.slides/itextframe/parentshape/)追溯到其关联形状，而[ITextFrame.ParentCell](https://reference.aspose.com/slides/zh/net/aspose.slides/itextframe/parentcell/)为`null`。因此，示例中的形状分支同样处理来自 SmartArt 节点的文本。
 
 ## **使用回调收集匹配信息**
 
-实现 [IFindResultCallback](https://reference.aspose.com/slides/zh/net/aspose.slides/ifindresultcallback/) 以在每次匹配时收到通知。其 [IFindResultCallback.FoundResult](https://reference.aspose.com/slides/zh/net/aspose.slides/ifindresultcallback/foundresult/) 方法提供相关的文本框、源文本、匹配文本以及匹配位置。
+实现[IFindResultCallback](https://reference.aspose.com/slides/zh/net/aspose.slides/ifindresultcallback/)以接收每一次匹配的通知。其[IFindResultCallback.FoundResult](https://reference.aspose.com/slides/zh/net/aspose.slides/ifindresultcallback/foundresult/)方法提供相关的文本框、源文本、匹配文本以及匹配位置。
 
-回调本身不直接接收幻灯片编号。下面的实现从父幻灯片中推导该编号，并且还能处理幻灯片备注中的文本。可为空的幻灯片编号允许同一结果模型表示与其他幻灯片类型关联的文本。
+回调不会直接收到幻灯片编号。下面的实现从父幻灯片中推导出编号，并且同样处理在幻灯片备注中找到的文本。可空的幻灯片编号使得相同的结果模型能够表示关联到其他类型幻灯片的文本。
 
 ```cs
 using System.Collections.Generic;
@@ -93,12 +169,7 @@ public sealed class TextSearchCallback : IFindResultCallback
 
     private static int? GetSlideNumber(ITextFrame textFrame)
     {
-        if (textFrame is not TextFrame concreteTextFrame)
-        {
-            return null;
-        }
-
-        var parentSlide = concreteTextFrame.Slide;
+        var parentSlide = textFrame.ParentShape?.Slide ?? textFrame.ParentCell?.Slide ?? textFrame.Slide;
 
         if (parentSlide is ISlide slide)
         {
@@ -115,13 +186,13 @@ public sealed class TextSearchCallback : IFindResultCallback
 }
 ```
 
-对于替换操作，`FoundText` 包含原始匹配文本，从而回调可以准确记录被替换的术语。
+对于替换操作，`FoundText` 包含原始匹配文本，因此回调可以准确记录哪些词被替换。
 
 ## **突出显示文本**
 
-使用 [ITextFrame.HighlightText](https://reference.aspose.com/slides/zh/net/aspose.slides/itextframe/highlighttext/) 方法在文本框中突出显示字面文本匹配。传入 [TextSearchOptions] 以控制搜索，并提供回调以收集匹配细节。
+使用[ITextFrame.HighlightText](https://reference.aspose.com/slides/zh/net/aspose.slides/itextframe/highlighttext/)方法在文本框中突出显示字面文本匹配。传入[TextSearchOptions](https://reference.aspose.com/slides/zh/net/aspose.slides/textsearchoptions/)以控制搜索，并提供回调以收集匹配细节。
 
-下面的代码示例先突出显示所有 **"try"** 出现位置，然后仅突出显示完整单词 **"to"**。两个搜索均将匹配报告给同一个回调。
+下面的代码示例先突出显示所有出现的字符**“try”**，然后仅突出显示完整单词**“to”**。两次搜索都将匹配报告给同一个回调。
 
 ```cs
 using System;
@@ -131,7 +202,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation("sample.pptx");
 
-// Get the first shape from the first slide.
+// 获取首张幻灯片上的第一个形状。
 var shape = (IAutoShape)presentation.Slides[0].Shapes[0];
 var callback = new TextSearchCallback();
 
@@ -140,7 +211,7 @@ var substringSearchOptions = new TextSearchOptions
     CaseSensitive = false
 };
 
-// Highlight every occurrence of "try" in the text frame.
+// 在文本框中突出显示所有出现的 "try"。
 shape.TextFrame.HighlightText("try", Color.LightBlue, substringSearchOptions, callback);
 
 var wholeWordSearchOptions = new TextSearchOptions
@@ -149,7 +220,7 @@ var wholeWordSearchOptions = new TextSearchOptions
     CaseSensitive = false
 };
 
-// Highlight only the complete word "to".
+// 仅突出显示完整单词 "to"。
 shape.TextFrame.HighlightText("to", Color.Violet, wholeWordSearchOptions, callback);
 
 foreach (var result in callback.Results)
@@ -162,11 +233,11 @@ presentation.Save("highlighted_text.pptx", SaveFormat.Pptx);
 
 结果：
 
-![The highlighted text](highlighted_text.png)
+![突出显示的文本](highlighted_text.png)
 
 ## **使用正则表达式突出显示文本**
 
-[ITextFrame.HighlightRegex](https://reference.aspose.com/slides/zh/net/aspose.slides/itextframe/highlightregex/) 方法在文本框中突出显示由正则表达式找到的文本匹配。
+[ITextFrame.HighlightRegex](https://reference.aspose.com/slides/zh/net/aspose.slides/itextframe/highlightregex/)方法突出显示文本框中由正则表达式找到的匹配文本。
 
 下面的代码突出显示所有包含七个或更多字符的单词，并收集每一次匹配：
 
@@ -189,11 +260,11 @@ presentation.Save("highlighted_text_using_regex.pptx", SaveFormat.Pptx);
 
 结果：
 
-![The highlighted text using the regular expression](highlighted_text_using_regex.png)
+![使用正则表达式的突出显示文本](highlighted_text_using_regex.png)
 
-## **在整个演示文稿中突出显示文本**
+## **跨演示文稿突出显示文本**
 
-使用 [Presentation.HighlightText](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/highlighttext/) 和 [Presentation.HighlightRegex](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/highlightregex/) 在演示文稿的所有适用文本框中搜索。下面的示例突出显示一个字面术语以及所有电子邮件地址，并为两次搜索分别保留结果集合。
+使用[Presentation.HighlightText](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/highlighttext/)和[Presentation.HighlightRegex](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/highlightregex/)在演示文稿中搜索所有适用的文本框。以下示例突出显示一个字面词和所有电子邮件地址，并为两次搜索保持独立的结果集合。
 
 ```cs
 using System.Drawing;
@@ -222,9 +293,9 @@ presentation.Save("highlighted_presentation.pptx", SaveFormat.Pptx);
 
 ## **在文本框中替换文本**
 
-使用 [ITextFrame.ReplaceText](https://reference.aspose.com/slides/zh/net/aspose.slides/itextframe/replacetext/) 进行字面文本替换，使用 [ITextFrame.ReplaceRegex](https://reference.aspose.com/slides/zh/net/aspose.slides/itextframe/replaceregex/) 进行基于模式的替换。这些方法在现有文本框内部更新匹配文本，保留周围部分的格式，而不是从普通字符串重新构建文本框。
+使用[ITextFrame.ReplaceText](https://reference.aspose.com/slides/zh/net/aspose.slides/itextframe/replacetext/)进行字面文本替换，使用[ITextFrame.ReplaceRegex](https://reference.aspose.com/slides/zh/net/aspose.slides/itextframe/replaceregex/)进行基于模式的替换。这些方法在现有文本框内部更新匹配的文本，保留其周围部分的格式，而不是从纯字符串重新构建文本框。
 
-下面的示例标准化一种拼写变体，然后替换版本标签。相同的回调记录两项操作匹配的原始术语。
+下面的示例统一 spelling 变体，然后替换版本标签。相同的回调记录两次操作匹配的原始词。
 
 ```cs
 using System.Text.RegularExpressions;
@@ -249,11 +320,11 @@ shape.TextFrame.ReplaceRegex(versionRegex, "current version", callback);
 presentation.Save("updated_text_frame.pptx", SaveFormat.Pptx);
 ```
 
-如果一次匹配跨越了具有不同格式的片段，请检查输出以确认替换文本应采用哪种格式。
+如果一次匹配跨越了不同格式的部分，请检查输出以确认应使用哪种格式进行替换。
 
-## **在整个演示文稿中替换文本**
+## **跨演示文稿替换文本**
 
-使用 [Presentation.ReplaceText](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/replacetext/) 和 [Presentation.ReplaceRegex](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/replaceregex/) 在演示文稿范围内执行相同的操作。此功能适用于模板清理、术语更新和编辑脱敏。
+使用[Presentation.ReplaceText](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/replacetext/)和[Presentation.ReplaceRegex](https://reference.aspose.com/slides/zh/net/aspose.slides/presentation/replaceregex/)在整个演示文稿中执行相同操作。这对于模板清理、术语更新和编辑非常有用。
 
 ```cs
 using System.Text.RegularExpressions;
@@ -277,9 +348,9 @@ presentation.ReplaceRegex(accountNumberRegex, "ACCT-REDACTED", callback);
 presentation.Save("updated_presentation.pptx", SaveFormat.Pptx);
 ```
 
-## **对匹配进行分组以生成报告**
+## **将匹配分组用于报告**
 
-因为每个结果都存储了其幻灯片编号和文本框，应用程序可以按审计、报告或审阅工作流对匹配进行分组。下面的示例先按幻灯片，再按文本框对收集的结果进行分组：
+因为每个结果都存储了幻灯片编号和文本框，应用程序可以对匹配进行分组，以实现审计、报告或审阅工作流。下面的示例先按幻灯片分组，再按文本框分组收集的结果：
 
 ```cs
 using System;
@@ -309,20 +380,20 @@ foreach (var slideGroup in matchesBySlide)
 
 **如何只搜索单个文本框而不是整个演示文稿？**
 
-获取形状的文本框并在该文本框上调用 [ITextFrame.HighlightText](https://reference.aspose.com/slides/zh/net/aspose.slides/itextframe/highlighttext/)、[ITextFrame.HighlightRegex](https://reference.aspose.com/slides/zh/net/aspose.slides/itextframe/highlightregex/)、[ITextFrame.ReplaceText](https://reference.aspose.com/slides/zh/net/aspose.slides/itextframe/replacetext/) 或 [ITextFrame.ReplaceRegex](https://reference.aspose.com/slides/zh/net/aspose.slides/itextframe/replaceregex/)。演示文稿级别的方法会处理所有适用的文本框。
+获取形状的文本框，然后在该文本框上调用[ITextFrame.HighlightText](https://reference.aspose.com/slides/zh/net/aspose.slides/itextframe/highlighttext/)、[ITextFrame.HighlightRegex](https://reference.aspose.com/slides/zh/net/aspose.slides/itextframe/highlightregex/)、[ITextFrame.ReplaceText](https://reference.aspose.com/slides/zh/net/aspose.slides/itextframe/replacetext/)或[ITextFrame.ReplaceRegex](https://reference.aspose.com/slides/zh/net/aspose.slides/itextframe/replaceregex/)。演示文稿级方法会处理所有适用的文本框。
 
-**如何匹配完整单词并保持正确的大小写？**
+**如何匹配完整单词并保留正确的大小写？**
 
-将 [TextSearchOptions.WholeWordsOnly](https://reference.aspose.com/slides/zh/net/aspose.slides/textsearchoptions/wholewordsonly/) 和 [TextSearchOptions.CaseSensitive](https://reference.aspose.com/slides/zh/net/aspose.slides/textsearchoptions/casesensitive/) 均设置为 `true`，并将这些选项传递给字面文本的突出显示或替换方法。对于正则表达式，在 .NET `Regex` 本身中定义单词边界和大小写敏感性。
+将[TextSearchOptions.WholeWordsOnly](https://reference.aspose.com/slides/zh/net/aspose.slides/textsearchoptions/wholewordsonly/)和[TextSearchOptions.CaseSensitive](https://reference.aspose.com/slides/zh/net/aspose.slides/textsearchoptions/casesensitive/)设为 `true`，并将选项传递给字面文本的突出显示或替换方法。对于正则表达式，在 .NET `Regex` 本身中定义单词边界和大小写敏感性。
 
-**搜索和替换是否可以包括幻灯片备注中的文本？**
+**搜索和替换可以包括幻灯片备注中的文本吗？**
 
-可以。对演示文稿级别的字面文本操作使用时，将 [TextSearchOptions.IncludeNotes](https://reference.aspose.com/slides/zh/net/aspose.slides/textsearchoptions/includenotes/) 设置为 `true`。上面的回调实现会将备注页中的匹配映射回其父幻灯片编号。
+可以。使用演示文稿级字面文本操作时，将[TextSearchOptions.IncludeNotes](https://reference.aspose.com/slides/zh/net/aspose.slides/textsearchoptions/includenotes/)设为 `true`。上面示例的回调实现会将备注幻灯片中的匹配映射回其父幻灯片编号。
 
-**如何在不再次扫描演示文稿的情况下生成报告？**
+**如何在不二次扫描演示文稿的情况下创建报告？**
 
-向突出显示或替换操作传入 [IFindResultCallback](https://reference.aspose.com/slides/zh/net/aspose.slides/ifindresultcallback/) 实现。回调在操作执行期间接收每一次匹配，应用程序即可存储源文本、匹配文本、位置、文本框以及派生的幻灯片编号，以便后续分组或导出。
+将[IFindResultCallback](https://reference.aspose.com/slides/zh/net/aspose.slides/ifindresultcallback/)实现传递给突出显示或替换操作。回调在操作运行时接收每一次匹配，应用程序即可存储源文本、匹配文本、位置、文本框以及派生的幻灯片编号，以便后续分组或导出。
 
-**替换文本时会保留其格式吗？**
+**替换文本会保留其格式吗？**
 
-[ITextFrame.ReplaceText](https://reference.aspose.com/slides/zh/net/aspose.slides/itextframe/replacetext/) 与 [ITextFrame.ReplaceRegex](https://reference.aspose.com/slides/zh/net/aspose.slides/itextframe/replaceregex/) 会在现有文本框内部修改匹配文本并保留周围部分的格式。如果一次匹配跨越了不同格式的片段，请检查结果以确保替换使用所需的样式。
+[ITextFrame.ReplaceText](https://reference.aspose.com/slides/zh/net/aspose.slides/itextframe/replacetext/)和[ITextFrame.ReplaceRegex](https://reference.aspose.com/slides/zh/net/aspose.slides/itextframe/replaceregex/)在现有文本框内部修改匹配文本，并保留周围部分的格式。如果匹配跨越了不同格式的区域，请检查结果以确保替换使用所需的样式。

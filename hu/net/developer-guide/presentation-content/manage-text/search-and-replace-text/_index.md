@@ -1,16 +1,16 @@
 ---
-title: Keresés és helyettesítés a PowerPoint prezentációk szövegében .NET környezetben
-linktitle: Keresés és helyettesítés
+title: Szöveg keresése és cseréje PowerPoint-prezentációkban .NET-ben
+linktitle: Keresés és csere szöveg
 type: docs
 weight: 55
 url: /hu/net/search-and-replace-text/
 keywords:
 - szöveg keresése
 - szöveg kiemelése
-- szöveg helyettesítése
+- szöveg cseréje
 - reguláris kifejezés
 - eredmény visszahívás
-- szövegdoboz
+- szövegkeret
 - audit jelentés
 - PowerPoint
 - OpenDocument
@@ -18,44 +18,120 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Keresés, kiemelés és szöveg helyettesítés PowerPoint prezentációkban, miközben az összes egyezést az Aspose.Slides for .NET segítségével gyűjti."
+description: "Szöveg keresése, kiemelése és cseréje PowerPoint-prezentációkban, miközben minden találatot összegyűjt az Aspose.Slides for .NET."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides for .NET képes keresni, kiemelni és helyettesíteni a szöveget egy egyedi szövegdobozban vagy egy teljes prezentációban. Minden művelet értesítheti az alkalmazást minden egyezésről egy eredményvisszahíváson keresztül. Ez lehetővé teszi, hogy frissítsünk egy prezentációt, és egyidejűleg audit nyomvonalat építsünk, amely tartalmazza a megtalált szöveget, annak környezetét, pozícióját, szövegdobozt és a dia számát.
+Az Aspose.Slides for .NET képes keresni, kiemelni és helyettesíteni a szöveget egy egyedi szövegkeretben vagy egy teljes prezentációban. Minden művelet értesítheti az alkalmazást minden egyes találatról egy eredmény‑visszahíváson keresztül. Ez lehetővé teszi a prezentáció frissítését, miközben egy audit nyomvonalat épít a megtalált szövegről, annak környezetéről, pozíciójáról, szövegkeretről és diaszámról.
 
-Ezek a lehetőségek hasznosak felülvizsgálathoz, sötétítéshez, terminológiai ellenőrzésekhez, sablon tisztításhoz és automatizált jelentéskészítési munkafolyamatokhoz.
+Ezek a képességek hasznosak felülvizsgálathoz, szerkesztéshez, terminológiai ellenőrzésekhez, sablonok tisztításához és automatizált jelentéskészítési munkafolyamatokhoz.
 
-Az alábbi első példákban egy “sample.pptx” nevű fájlt használunk, amely az első dián egyetlen szövegdobozt tartalmaz a következő szöveggel:
+Az alábbi első példákban egy "sample.pptx" nevű fájlt használunk, amely az első dián egyetlen szövegdobozt tartalmaz a következő szöveggel:
 
 ![Minta szöveg](sample_text.png)
 
-## **Válassza ki a keresési tartományt**
+## **A keresési hatókör kiválasztása**
 
-Használja az [ITextFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/) metódusait egy művelet korlátozásához egyetlen szövegdobozra. Használja a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) metódusait a prezentációban található minden alkalmazható szöveg feldolgozásához.
+Használja a [ITextFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/) metódusait egy művelet egyetlen szövegkeretre korlátozásához. Használja a [Presentation](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/) metódusait a prezentációban található összes alkalmazható szöveg feldolgozásához.
 
-| Művelet | Egy szövegdoboz | Teljes prezentáció |
+| Művelet | Egy szövegkeret | Teljes prezentáció |
 |---|---|---|
-| Szó szerinti szöveg kiemelése | [ITextFrame.HighlightText](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/highlighttext/) | [Presentation.HighlightText](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/highlighttext/) |
+| Literális szöveg kiemelése | [ITextFrame.HighlightText](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/highlighttext/) | [Presentation.HighlightText](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/highlighttext/) |
 | Reguláris kifejezés egyezéseinek kiemelése | [ITextFrame.HighlightRegex](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/highlightregex/) | [Presentation.HighlightRegex](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/highlightregex/) |
-| Szó szerinti szöveg helyettesítése | [ITextFrame.ReplaceText](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/replacetext/) | [Presentation.ReplaceText](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/replacetext/) |
+| Literális szöveg helyettesítése | [ITextFrame.ReplaceText](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/replacetext/) | [Presentation.ReplaceText](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/replacetext/) |
 | Reguláris kifejezés egyezéseinek helyettesítése | [ITextFrame.ReplaceRegex](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/replaceregex/) | [Presentation.ReplaceRegex](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/replaceregex/) |
 
 ## **Szövegillesztés beállítása**
 
-Szó szerinti szöveg műveletekhez használja a [TextSearchOptions](https://reference.aspose.com/slides/hu/net/aspose.slides/textsearchoptions/) elemet a keresés szabályozásához:
+Literal szöveg műveletekhez használja a [TextSearchOptions](https://reference.aspose.com/slides/hu/net/aspose.slides/textsearchoptions/)‑t a keresés szabályozásához:
 
-- A [TextSearchOptions.WholeWordsOnly](https://reference.aspose.com/slides/hu/net/aspose.slides/textsearchoptions/wholewordsonly/) csak teljes szavakra korlátozza az egyezéseket.
-- A [TextSearchOptions.CaseSensitive](https://reference.aspose.com/slides/hu/net/aspose.slides/textsearchoptions/casesensitive/) szabályozza, hogy a karakterek kis- és nagybetűje egyezzen-e.
-- A [TextSearchOptions.IncludeNotes](https://reference.aspose.com/slides/hu/net/aspose.slides/textsearchoptions/includenotes/) a diáknotákba is belefoglalja a prezentáció-szintű keresés, helyettesítés és kiemelés műveleteket.
+- Az [TextSearchOptions.WholeWordsOnly](https://reference.aspose.com/slides/hu/net/aspose.slides/textsearchoptions/wholewordsonly/) csak teljes szavakra korlátozza a találatokat.
+- Az [TextSearchOptions.CaseSensitive](https://reference.aspose.com/slides/hu/net/aspose.slides/textsearchoptions/casesensitive/) szabályozza, hogy a karakterek nagybetű‑érzékenysége kötelező legyen-e.
+- Az [TextSearchOptions.IncludeNotes](https://reference.aspose.com/slides/hu/net/aspose.slides/textsearchoptions/includenotes/) a diák jegyzeteit is belefoglalja a prezentáció szintű keresésbe, helyettesítésbe és kiemelésbe.
 
-A reguláris kifejezéssel végzett műveletek .NET `Regex`-et használnak, ezért az olyan szabályok, mint a kis- és nagybetű érzékenység vagy a szóhatárok, a kifejezésben és annak beállításaiban vannak meghatározva.
+A reguláris kifejezéseket használó műveletek egy .NET `Regex`‑et használnak, ezért a nagybetű‑érzékenység és a szóhatárok szabályait a kifejezés és annak beállításai határozzák meg.
 
-## **Egyezésinformációk gyűjtése visszahívással**
+## **A szövegkeret tulajdonosának azonosítása**
 
-Implementálja a [IFindResultCallback](https://reference.aspose.com/slides/hu/net/aspose.slides/ifindresultcallback/) interfészt, hogy minden egyezésről értesítést kapjon. A [IFindResultCallback.FoundResult](https://reference.aspose.com/slides/hu/net/aspose.slides/ifindresultcallback/foundresult/) metódusa a kapcsolódó szövegdobozt, a forrás szöveget, a megtalált szöveget és az egyezés pozícióját adja vissza.
+Az általános szövegfeldolgozó munkafolyamatok gyakran egy [ITextFrame](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/) objektumot kapnak a keresés, helyettesítés, érvényesítés vagy exportálás során. Használja az [ITextFrame.ParentShape](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/parentshape/) és az [ITextFrame.ParentCell](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/parentcell/) hivatkozásokat annak meghatározásához, hogy melyik prezentációs objektum a szövegkeret tulajdonosa.
 
-A visszahívás nem kap közvetlenül dia számot. Az alábbi implementáció a szülő diából származtatja azt, és kezeli a diák jegyzetében talált szöveget is. Egy nullable (null értékű) dia szám lehetővé teszi, hogy ugyanaz a eredménymodell más diatípusokhoz kapcsolódó szöveget is képviseljen.
+Az elvárt értékek a tulajdonostól függnek:
+
+| Szövegkeret tulajdonosa | `ParentShape` | `ParentCell` |
+|---|---|---|
+| AutoShape vagy egy másik szöveget tartalmazó alakzat | A tulajdonos [IShape](https://reference.aspose.com/slides/hu/net/aspose.slides/ishape/) | `null` |
+| Táblázat cella | `null` | A tulajdonos [ICell](https://reference.aspose.com/slides/hu/net/aspose.slides/icell/) |
+
+Mindkét tulajdonság csak olvasható navigációs tulajdonság. Olvasásuk nem mozgatja a szövegkeretet, és nem változtatja meg a tulajdonost. Az általános kódban ellenőrizni kell mindkét értéket `null`‑ra, és kezelni kell azt a lehetőséget, hogy egyik tulajdonos sem érhető el.
+
+Az alábbi példa a [SlideUtil.GetAllTextFrames](https://reference.aspose.com/slides/hu/net/aspose.slides.util/slideutil/getalltextframes/)‑t használja a prezentáció szövegkereteinek bejárásához. Alakzatok esetén jelenti az alakzat nevét, típusát és a tartalmazó diát. Táblázat cellák esetén jelenti a nullától kezdődő oszlop- és sorkoordinátákat valamint a tartalmazó diát.
+
+```cs
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Util;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var textFrames = SlideUtil.GetAllTextFrames(presentation, false);
+
+foreach (var textFrame in textFrames)
+{
+    var ownerShape = textFrame.ParentShape;
+    if (ownerShape != null)
+    {
+        var shapeName = string.IsNullOrEmpty(ownerShape.Name) ? "(unnamed)" : ownerShape.Name;
+        var shapeType = GetShapeType(ownerShape);
+        var slideLabel = GetSlideLabel(ownerShape.Slide);
+        Console.WriteLine($"Shape: {shapeName}; type: {shapeType}; {slideLabel}");
+
+        continue;
+    }
+
+    var ownerCell = textFrame.ParentCell;
+    if (ownerCell != null)
+    {
+        var slideLabel = GetSlideLabel(ownerCell.Slide);
+        Console.WriteLine($"Table cell: column {ownerCell.FirstColumnIndex}, row {ownerCell.FirstRowIndex}; {slideLabel}");
+        continue;
+    }
+
+    Console.WriteLine("The text frame owner is not available as a shape or table cell.");
+}
+
+static string GetShapeType(IShape shape)
+{
+    if (shape is IGeometryShape geometryShape)
+    {
+        return geometryShape.ShapeType.ToString();
+    }
+
+    return shape.GetType().Name;
+}
+
+static string GetSlideLabel(IBaseSlide baseSlide)
+{
+    if (baseSlide is ISlide slide)
+    {
+        return $"slide {slide.SlideNumber}";
+    }
+
+    if (baseSlide is INotesSlide notesSlide)
+    {
+        return $"notes for slide {notesSlide.ParentSlide.SlideNumber}";
+    }
+
+    return baseSlide.GetType().Name;
+}
+```
+
+SmartArt tartalom esetén járja be az alakzatokat a [ISmartArtNode.Shapes](https://reference.aspose.com/slides/hu/net/aspose.slides.smartart/ismartartnode/shapes/)‑ben, és érje el minden [ISmartArtShape.TextFrame](https://reference.aspose.com/slides/hu/net/aspose.slides.smartart/ismartartshape/textframe/)‑t. A szövegkeret a kapcsolódó alakzatra visszakövethető az [ITextFrame.ParentShape](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/parentshape/) segítségével, míg az [ITextFrame.ParentCell](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/parentcell/) `null`. Ezért a példában szereplő alakzatág szintén kezeli a SmartArt csomópontok szövegét.
+
+## **Találati információk gyűjtése visszahívással**
+
+Implementálja a [IFindResultCallback](https://reference.aspose.com/slides/hu/net/aspose.slides/ifindresultcallback/) interfélt, hogy minden találatról értesítést kapjon. Az [IFindResultCallback.FoundResult](https://reference.aspose.com/slides/hu/net/aspose.slides/ifindresultcallback/foundresult/) metódusa a kapcsolódó szövegkeretet, a forrás szöveget, a megtalált szöveget és a találat pozícióját adja.
+
+A visszahívás nem kap közvetlenül diaszámot. Az alábbi implementáció a szülő diából származtatja azt, és kezeli a diák jegyzeteiben található szöveget is. A nullable (nullázható) diaszám lehetővé teszi, hogy ugyanaz a eredménymodell a többi diatípushoz tartozó szöveget is ábrázolja.
 
 ```cs
 using System.Collections.Generic;
@@ -93,12 +169,7 @@ public sealed class TextSearchCallback : IFindResultCallback
 
     private static int? GetSlideNumber(ITextFrame textFrame)
     {
-        if (textFrame is not TextFrame concreteTextFrame)
-        {
-            return null;
-        }
-
-        var parentSlide = concreteTextFrame.Slide;
+        var parentSlide = textFrame.ParentShape?.Slide ?? textFrame.ParentCell?.Slide ?? textFrame.Slide;
 
         if (parentSlide is ISlide slide)
         {
@@ -115,13 +186,13 @@ public sealed class TextSearchCallback : IFindResultCallback
 }
 ```
 
-A helyettesítési műveleteknél a `FoundText` a eredeti megtalált szöveget tartalmazza, így a visszahívás pontosan rögzítheti, mely kifejezéseket cserélték le.
+Helyettesítési műveleteknél a `FoundText` tartalmazza az eredeti megtalált szöveget, így a visszahívás pontosan rögzítheti, mely kifejezéseket cserélték le.
 
 ## **Szöveg kiemelése**
 
-Használja az [ITextFrame.HighlightText](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/highlighttext/) metódust a szó szerinti szöveg egyezéseinek kiemelésére egy szövegdobozban. Adjon át [TextSearchOptions](https://reference.aspose.com/slides/hu/net/aspose.slides/textsearchoptions/) objektumot a keresés szabályozásához, és egy visszahívást az egyezés részleteinek gyűjtéséhez.
+Használja az [ITextFrame.HighlightText](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/highlighttext/) metódust a literális szöveg egyezéseinek kiemelésére egy szövegkeretben. Adjon át [TextSearchOptions](https://reference.aspose.com/slides/hu/net/aspose.slides/textsearchoptions/) beállításokat a keresés vezérléséhez, valamint egy visszahívást a találati részletek gyűjtéséhez.
 
-Az alábbi kódrészlet minden **"try"** karakter előfordulását kiemeli, majd csak a teljes **"to"** szót emeli ki. Mindkét keresés ugyanarra a visszahívásra jelenti az egyezéseket.
+Az alábbi kódrészlet kiemeli a **"try"** összes előfordulását, majd csak a teljes **"to"** szót. Mindkét keresés a találatokat ugyanarra a visszahívásra jelenti.
 
 ```cs
 using System;
@@ -131,7 +202,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation("sample.pptx");
 
-// Szerezze meg az első alakzatot az első diáról.
+// Az első dián lévő első alakzat lekérése.
 var shape = (IAutoShape)presentation.Slides[0].Shapes[0];
 var callback = new TextSearchCallback();
 
@@ -140,7 +211,7 @@ var substringSearchOptions = new TextSearchOptions
     CaseSensitive = false
 };
 
-// Emelje ki a "try" minden előfordulását a szövegdobozban.
+// Kiemeli a szövegkeretben a "try" minden előfordulását.
 shape.TextFrame.HighlightText("try", Color.LightBlue, substringSearchOptions, callback);
 
 var wholeWordSearchOptions = new TextSearchOptions
@@ -149,7 +220,7 @@ var wholeWordSearchOptions = new TextSearchOptions
     CaseSensitive = false
 };
 
-// Emelje ki csak a teljes "to" szót.
+// Kiemeli csak a "to" teljes szót.
 shape.TextFrame.HighlightText("to", Color.Violet, wholeWordSearchOptions, callback);
 
 foreach (var result in callback.Results)
@@ -166,9 +237,9 @@ Az eredmény:
 
 ## **Szöveg kiemelése reguláris kifejezésekkel**
 
-Az [ITextFrame.HighlightRegex](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/highlightregex/) metódus a reguláris kifejezéssel talált szöveg egyezéseket emeli ki egy szövegdobozban.
+Az [ITextFrame.HighlightRegex](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/highlightregex/) metódus kiemeli egy reguláris kifejezés által talált szövegegyezéseket egy szövegkeretben.
 
-Az alábbi kód minden, legalább hét karaktert tartalmazó szót kiemeli és minden egyezést rögzít:
+Az alábbi kód kiemeli a hét vagy több karaktert tartalmazó összes szót, és összegyűjti az egyes találatokat:
 
 ```cs
 using System.Drawing;
@@ -193,7 +264,7 @@ Az eredmény:
 
 ## **Szöveg kiemelése a teljes prezentációban**
 
-Használja a [Presentation.HighlightText](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/highlighttext/) és a [Presentation.HighlightRegex](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/highlightregex/) metódusokat a prezentáció összes alkalmazható szövegdobozának kereséséhez. Az alábbi példa egy szó szerinti kifejezést és az összes e-mail címet emeli ki, miközben külön eredménygyűjteményeket tart fenn a két kereséshez.
+Használja a [Presentation.HighlightText](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/highlighttext/) és a [Presentation.HighlightRegex](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/highlightregex/) metódusokat a prezentációban található összes alkalmazható szövegkeret keresésére. Az alábbi példa kiemeli egy literális kifejezést és az összes e‑mail címet, miközben külön eredménygyűjteményeket tart a két kereséshez.
 
 ```cs
 using System.Drawing;
@@ -220,11 +291,11 @@ presentation.HighlightRegex(emailRegex, Color.Yellow, emailCallback);
 presentation.Save("highlighted_presentation.pptx", SaveFormat.Pptx);
 ```
 
-## **Szöveg helyettesítése egy szövegdobozban**
+## **Szöveg cseréje egy szövegkeretben**
 
-Használja az [ITextFrame.ReplaceText](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/replacetext/) metódust szó szerinti szöveghez és az [ITextFrame.ReplaceRegex](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/replaceregex/) metódust mintára alapozott helyettesítéshez. Ezek a metódusok a meglévő szövegdobozon belül frissítik a megtalált szöveget, megtartva a környező részformázást ahelyett, hogy a szövegdobozt egy egyszerű karakterláncból újjáépítenék.
+Használja az [ITextFrame.ReplaceText](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/replacetext/) metódust literális szöveghez és az [ITextFrame.ReplaceRegex](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/replaceregex/) metódust mintára alapozott helyettesítéshez. Ezek a metódusok a meglévő szövegkereten belül frissítik a megtalált szöveget, megőrizve a környező rész formázását ahelyett, hogy egy egyszerű karakterláncból újjáépítenék a szövegkeretet.
 
-Az alábbi példa egy helyesírási változatot szabványosít, majd verziócímkéket helyettesít. Ugyanaz a visszahívás rögzíti mindkét művelet által megtalált eredeti kifejezéseket.
+Az alábbi példa egységesíti egy helyesírási változatot, majd lecseréli a verziócímkéket. Az ugyanaz a visszahívás rögzíti mindkét művelet által megtalált eredeti kifejezéseket.
 
 ```cs
 using System.Text.RegularExpressions;
@@ -249,11 +320,11 @@ shape.TextFrame.ReplaceRegex(versionRegex, "current version", callback);
 presentation.Save("updated_text_frame.pptx", SaveFormat.Pptx);
 ```
 
-Ha egy egyezés több, különböző formázású részt érint, ellenőrizze a kimenetet, hogy megerősítse, mely formázás legyen alkalmazva a helyettesítő szövegre.
+Ha egy találat több, eltérő formázású részt ölel fel, ellenőrizze a kimenetet, hogy melyik formázás legyen érvényes a helyettesített szövegre.
 
-## **Szöveg helyettesítése a teljes prezentációban**
+## **Szöveg cseréje a teljes prezentációban**
 
-Használja a [Presentation.ReplaceText](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/replacetext/) és a [Presentation.ReplaceRegex](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/replaceregex/) metódusokat a teljes prezentáción belüli ugyanazon műveletek alkalmazásához. Ez hasznos sablon tisztításához, terminológiai frissítésekhez és sötétítéshez.
+Használja a [Presentation.ReplaceText](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/replacetext/) és a [Presentation.ReplaceRegex](https://reference.aspose.com/slides/hu/net/aspose.slides/presentation/replaceregex/) metódusokat a prezentáció egészére kiterjedő műveletekhez. Ez hasznos sablonok tisztításához, terminológiai frissítésekhez és szerkesztéshez.
 
 ```cs
 using System.Text.RegularExpressions;
@@ -277,9 +348,9 @@ presentation.ReplaceRegex(accountNumberRegex, "ACCT-REDACTED", callback);
 presentation.Save("updated_presentation.pptx", SaveFormat.Pptx);
 ```
 
-## **Egyezések csoportosítása jelentéshez**
+## **Találatok csoportosítása jelentéshez**
 
-Mivel minden eredmény tárolja a dia számát és a szövegdobozt, az alkalmazások csoportosíthatják az egyezéseket audit, jelentés vagy felülvizsgálati munkafolyamatok céljából. Az alábbi példa a gyűjtött eredményeket először diánként, majd szövegdobozonként csoportosítja:
+Mivel minden eredmény tárolja a diaszámát és a szövegkeretét, az alkalmazások csoportosíthatják a találatokat audit, jelentés vagy felülvizsgálati munkafolyamatok céljából. Az alábbi példa a gyűjtött eredményeket először diánként, majd szövegkeretként csoportosítja:
 
 ```cs
 using System;
@@ -307,22 +378,22 @@ foreach (var slideGroup in matchesBySlide)
 
 ## **GYIK**
 
-**Hogyan kereshetek csak egy szövegdobozt a teljes prezentáció helyett?**
+**Hogyan kereshetek csak egy szövegdobozban a teljes prezentáció helyett?**
 
-Szerezze meg az alakzat szövegdobozát, és hívja meg a [ITextFrame.HighlightText](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/highlighttext/), [ITextFrame.HighlightRegex](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/highlightregex/), [ITextFrame.ReplaceText](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/replacetext/) vagy a [ITextFrame.ReplaceRegex](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/replaceregex/) metódust azon a szövegdobozon. A prezentáció-szintű metódusok minden alkalmazható szövegdobozt feldolgoznak helyette.
+Szerezze meg az alakzat szövegkeretét, és hívja meg a [ITextFrame.HighlightText](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/highlighttext/), [ITextFrame.HighlightRegex](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/highlightregex/), [ITextFrame.ReplaceText](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/replacetext/) vagy a [ITextFrame.ReplaceRegex](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/replaceregex/) metódusokat azon a szövegkereten. A prezentációszintű metódusok minden alkalmazható szövegkeretet feldolgoznak.
 
-**Hogyan egyeztessek teljes szavakat a megfelelő nagybetűkkel?**
+**Hogyan illeszthetek teljes szavakat a helyes nagybetű‑érzékenységgel?**
 
-Állítsa a [TextSearchOptions.WholeWordsOnly](https://reference.aspose.com/slides/hu/net/aspose.slides/textsearchoptions/wholewordsonly/) és a [TextSearchOptions.CaseSensitive](https://reference.aspose.com/slides/hu/net/aspose.slides/textsearchoptions/casesensitive/) értékét `true`‑ra, majd adja át ezeket a beállításokat egy szó szerinti szöveg kiemelés vagy helyettesítés metódusának. Reguláris kifejezéseknél a szóhatárokat és a kis- és nagybetű érzékenységet a .NET `Regex` maga definiálja.
+Állítsa a [TextSearchOptions.WholeWordsOnly](https://reference.aspose.com/slides/hu/net/aspose.slides/textsearchoptions/wholewordsonly/) és a [TextSearchOptions.CaseSensitive](https://reference.aspose.com/slides/hu/net/aspose.slides/textsearchoptions/casesensitive/) értékét `true`‑ra, és adja át ezeket a beállításokat egy literális szöveg kiemelő vagy helyettesítő metódusnak. Reguláris kifejezéseknél a szóhatárokat és a nagybetű‑érzékenységet a .NET `Regex` maga határozza meg.
 
-**Tartalmazhatja a keresés és helyettesítés a diák jegyzeteiben lévő szöveget?**
+**A keresés és helyettesítés tartalmazhat szöveget a diák jegyzeteiben?**
 
-Igen. Állítsa a [TextSearchOptions.IncludeNotes](https://reference.aspose.com/slides/hu/net/aspose.slides/textsearchoptions/includenotes/) értékét `true`‑ra, amikor prezentáció-szintű szó szerinti szöveg műveletet használ. A fent bemutatott visszahívás-implementáció a jegyzetben talált egyezést a szülő diák számmá képezi le.
+Igen. Állítsa a [TextSearchOptions.IncludeNotes](https://reference.aspose.com/slides/hu/net/aspose.slides/textsearchoptions/includenotes/) értékét `true`‑ra, amikor prezentációszintű literális szöveg műveletet használ. A fent bemutatott visszahívás-implementáció a jegyzetdián található találatot visszakapcsolja a szülődiára.
 
-**Hogyan készíthetek jelentést anélkül, hogy a prezentációt újra beolvasnám?**
+**Hogyan készíthetek jelentést a prezentáció újbóli beolvasása nélkül?**
 
-Adjon át egy [IFindResultCallback](https://reference.aspose.com/slides/hu/net/aspose.slides/ifindresultcallback/) implementációt a kiemelés vagy helyettesítés műveletnek. A visszahívás minden egyezést megkap a művelet futása közben, így az alkalmazás el tudja tárolni a forrás szöveget, a megtalált szöveget, a pozíciót, a szövegdobozt és a származtatott dia számot a későbbi csoportosításhoz vagy exportáláshoz.
+Adjon át egy [IFindResultCallback](https://reference.aspose.com/slides/hu/net/aspose.slides/ifindresultcallback/) implementációt a kiemeléshez vagy helyettesítéshez. A visszahívás minden találatot megkap a művelet futása során, így az alkalmazás tárolhatja a forrás szöveget, a megtalált szöveget, a pozíciót, a szövegkeretet és a származtatott diaszámot későbbi csoportosításhoz vagy exportáláshoz.
 
-**Megőrzi a szöveg helyettesítése annak formázását?**
+**Megőrzi-e a szöveg cseréje a formázását?**
 
-Az [ITextFrame.ReplaceText](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/replacetext/) és az [ITextFrame.ReplaceRegex](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/replaceregex/) módosítják a megtalált szöveget a meglévő szövegdobozon belül, és megtartják a környező rész formázását. Ha egy egyezés több, különböző formázású részt érint, ellenőrizze az eredményt, hogy a helyettesítés a kívánt stílust alkalmazza.
+Az [ITextFrame.ReplaceText](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/replacetext/) és az [ITextFrame.ReplaceRegex](https://reference.aspose.com/slides/hu/net/aspose.slides/itextframe/replaceregex/) a meglévő szövegkereten belül módosítják a megtalált szöveget, és megtartják a környező rész formázását. Ha egy találat több, különböző formázású részt foglal magába, ellenőrizze az eredményt, hogy a helyettesítés a kívánt stílust használja.

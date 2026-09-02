@@ -7,48 +7,48 @@ url: /pl/php-java/manage-textbox/
 keywords:
 - pole tekstowe
 - ramka tekstowa
-- dodaj tekst
-- aktualizuj tekst
-- utwórz pole tekstowe
-- sprawdź pole tekstowe
-- dodaj kolumnę tekstową
-- dodaj hiperłącze
+- dodawanie tekstu
+- aktualizacja tekstu
+- tworzenie pola tekstowego
+- sprawdzanie pola tekstowego
+- dodawanie kolumny tekstu
+- dodawanie hiperłącza
 - PowerPoint
 - prezentacja
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP ułatwia tworzenie, edytowanie i klonowanie pól tekstowych w plikach PowerPoint i OpenDocument, zwiększając możliwości automatyzacji prezentacji."
+description: "Aspose.Slides for PHP ułatwia tworzenie, edytowanie i klonowanie pól tekstowych w plikach PowerPoint i OpenDocument, zwiększając automatyzację twoich prezentacji."
 ---
 ## **Wprowadzenie**
 
-Teksty na slajdach zazwyczaj znajdują się w polach tekstowych lub kształtach. Dlatego, aby dodać tekst do slajdu, musisz dodać pole tekstowe, a następnie umieścić w nim jakiś tekst. Aspose.Slides for PHP via Java udostępnia klasę [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/) pozwalającą dodać kształt zawierający tekst.
+Teksty na slajdach zazwyczaj znajdują się w polach tekstowych lub kształtach. Dlatego, aby dodać tekst do slajdu, musisz dodać pole tekstowe, a następnie umieścić w nim tekst. Aspose.Slides for PHP via Java udostępnia klasę [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/) umożliwiającą dodanie kształtu zawierającego tekst.
 
 {{% alert title="Info" color="info" %}}
 
-Aspose.Slides udostępnia także klasę [Shape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shape/) pozwalającą dodawać kształty do slajdów. Jednak nie wszystkie kształty dodane przy użyciu klasy `Shape` mogą zawierać tekst. Natomiast kształty dodane przy użyciu klasy [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/) mogą zawierać tekst.
+Aspose.Slides udostępnia również klasę [Shape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shape/) , która pozwala dodawać kształty do slajdów. Jednak nie wszystkie kształty dodane za pomocą klasy `Shape` mogą zawierać tekst. Natomiast kształty dodane za pomocą klasy [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/) mogą zawierać tekst.
 
 {{% /alert %}}
 
 {{% alert title="Note" color="warning" %}} 
 
-Dlatego, pracując z kształtem, do którego chcesz dodać tekst, powinieneś sprawdzić i potwierdzić, że został on utworzony jako obiekt klasy `AutoShape`. Dopiero wtedy będziesz mógł pracować z [TextFrame](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/), który jest właściwością klasy `AutoShape`. Zobacz sekcję [Update Text](/slides/pl/php-java/manage-textbox/#update-text) na tej stronie.
+Dlatego, pracując z kształtem, do którego chcesz dodać tekst, powinieneś sprawdzić i potwierdzić, że został on rzutowany przy użyciu klasy `AutoShape`. Dopiero wtedy będziesz mógł pracować z [TextFrame](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/), która jest właściwością klasy `AutoShape`. Zobacz sekcję [Update Text](/slides/pl/php-java/manage-textbox/#update-text) na tej stronie.
 
 {{% /alert %}}
 
 ## **Utworzenie pola tekstowego na slajdzie**
 
-Aby utworzyć pole tekstowe na slajdzie, wykonaj następujące kroki:
+Aby utworzyć pole tekstowe na slajdzie, przejdź przez następujące kroki:
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/).
-2. Uzyskaj referencję do pierwszego slajdu w nowo utworzonej prezentacji. 
-3. Dodaj obiekt [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/) z typem kształtu ustawionym na [Rectangle](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shapetype/#Rectangle) w określonej pozycji na slajdzie i uzyskaj referencję do nowo dodanego obiektu `AutoShape`.
-4. Dodaj `TextFrame` do obiektu `AutoShape`, który będzie zawierał tekst. W poniższym przykładzie dodaliśmy następujący tekst: *Aspose TextBox*
-5. Na końcu zapisz plik PPTX przy użyciu obiektu `Presentation`. 
+2. Uzyskaj odniesienie do pierwszego slajdu w nowo utworzonej prezentacji. 
+3. Dodaj obiekt [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/) z typem kształtu ustawionym na [Rectangle](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shapetype/#Rectangle) w określonej pozycji na slajdzie i uzyskaj odniesienie do nowo dodanego obiektu `AutoShape`.
+4. Dodaj `TextFrame` do obiektu `AutoShape`, które będzie zawierało tekst. W poniższym przykładzie dodaliśmy następujący tekst: *Aspose TextBox*
+5. Na koniec zapisz plik PPTX za pomocą obiektu `Presentation`. 
 
 Ten kod PHP — implementacja powyższych kroków — pokazuje, jak dodać tekst do slajdu:
 
 ```php
-  # Tworzy instancję prezentacji
+  # Tworzy instancję Presentation
   $pres = new Presentation();
   try {
     # Pobiera pierwszy slajd w prezentacji
@@ -57,7 +57,7 @@ Ten kod PHP — implementacja powyższych kroków — pokazuje, jak dodać tekst
     $ashp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 75, 150, 50);
     # Dodaje TextFrame do prostokąta
     $ashp->addTextFrame(" ");
-    # Uzyskuje dostęp do TextFrame
+    # Uzyskuje dostęp do ramki tekstowej
     $txtFrame = $ashp->getTextFrame();
     # Tworzy obiekt Paragraph dla ramki tekstowej
     $para = $txtFrame->getParagraphs()->get_Item(0);
@@ -76,7 +76,7 @@ Ten kod PHP — implementacja powyższych kroków — pokazuje, jak dodać tekst
 
 ## **Sprawdzenie, czy kształt jest polem tekstowym**
 
-Aspose.Slides udostępnia metodę [isTextBox](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/istextbox/) z klasy [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/), umożliwiającą badanie kształtów i identyfikację pól tekstowych.
+Aspose.Slides udostępnia metodę [isTextBox](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/istextbox/) z klasy [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/) , pozwalającą badać kształty i identyfikować pola tekstowe.
 
 ![Pole tekstowe i kształt](istextbox.png)
 
@@ -94,14 +94,14 @@ class ShapeCallback {
 
 $presentation = new Presentation("sample.pptx");
 try {
-    $forEachShapeCallback = java_closure(new ShapeCallback(), null, java("com.aspose.slides.ForEachSlideCallback"));
-    ForEach::shape($presentation, $forEachShapeCallback);
+    $forEachShapeCallback = java_closure(new ShapeCallback(), null, java("com.aspose.slides.ForEachShapeCallback"));
+    ForEach_::shape($presentation, $forEachShapeCallback);
 } finally {
     $presentation->dispose();
 }
 ```
 
-Zauważ, że jeśli po prostu dodasz autokształt używając metody `addAutoShape` z klasy [ShapeCollection](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shapecollection/), metoda `isTextBox` tego autokształtu zwróci `false`. Jednak po dodaniu tekstu do autokształtu przy użyciu metody `addTextFrame` lub `setText`, właściwość `isTextBox` zwróci `true`.
+Zauważ, że jeśli po prostu dodasz autoshape za pomocą metody `addAutoShape` z klasy [ShapeCollection](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shapecollection/) , metoda `isTextBox` autoshape zwróci `false`. Jednak po dodaniu tekstu do autoshape przy użyciu metody `addTextFrame` lub `setText`, właściwość `isTextBox` zwróci `true`.
 
 ```php
 $presentation = new Presentation();
@@ -128,9 +128,17 @@ $shape4->getTextFrame()->setText("");
 // shape4->isTextBox() zwraca false
 ```
 
-## **Dodanie kolumn do pola tekstowego**
+## **Znajdź kształt, który jest właścicielem ramki tekstowej**
 
-Aspose.Slides udostępnia metody [setColumnCount](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframeformat/setcolumncount/) i [setColumnSpacing](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframeformat/setcolumnspacing/) z klasy [TextFrameFormat](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframeformat/), które pozwalają dodawać kolumny do pól tekstowych. Możesz określić liczbę kolumn w polu tekstowym oraz ustawić odstęp w punktach między kolumnami.
+W ogólnym kodzie przetwarzania tekstu możesz otrzymać obiekt [TextFrame](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/) nie wiedząc, który obiekt prezentacji go zawiera. Użyj metody [TextFrame::getParentShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/#getParentShape) , aby przejść z powrotem do właściciela, czyli [Shape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shape/).
+
+Dla ramki tekstowej należącej do [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/) lub innego kształtu zawierającego tekst, [TextFrame::getParentShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/#getParentShape) zwraca właściciela, a [TextFrame::getParentCell](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframe/#getParentCell) zwraca `null`. Obie metody zapewniają nawigację tylko do odczytu, więc ich wywołanie nie zmienia własności. Zawsze sprawdzaj zwróconą wartość za pomocą `java_is_null` przed dostępem do kształtu.
+
+Pełny przykład identyfikujący właścicieli kształtów i komórek tabel, w tym kształty powiązane z węzłami SmartArt, znajdziesz w sekcji [Search and Replace Text](/slides/pl/php-java/search-and-replace-text/).
+
+## **Dodawanie kolumn do pola tekstowego**
+
+Aspose.Slides udostępnia metody [setColumnCount](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframeformat/setcolumncount/) i [setColumnSpacing](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframeformat/setcolumnspacing/) z klasy [TextFrameFormat](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframeformat/) , które umożliwiają dodawanie kolumn do pól tekstowych. Możesz określić liczbę kolumn w polu tekstowym oraz ustawić odstęp między kolumnami wyrażony w punktach.
 
 Ten kod demonstruje opisane działanie:
 
@@ -158,8 +166,9 @@ Ten kod demonstruje opisane działanie:
   }
 ```
 
-## **Dodanie kolumn do ramki tekstowej**
-Aspose.Slides for PHP via Java udostępnia metodę [setColumnCount](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframeformat/setcolumncount/) z klasy [TextFrameFormat](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframeformat/), która pozwala dodawać kolumny w ramach tekstowych. Dzięki tej właściwości możesz określić preferowaną liczbę kolumn w ramce tekstowej.
+## **Dodawanie kolumn do ramki tekstowej**
+
+Aspose.Slides for PHP via Java udostępnia metodę [setColumnCount](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframeformat/setcolumncount/) z klasy [TextFrameFormat](https://reference.aspose.com/slides/pl/php-java/aspose.slides/textframeformat/) , która pozwala dodać kolumny w ramkach tekstowych. Dzięki tej właściwości możesz określić preferowaną liczbę kolumn w ramce tekstowej.
 
 Ten kod PHP pokazuje, jak dodać kolumnę wewnątrz ramki tekstowej:
 
@@ -225,12 +234,12 @@ Ten kod PHP demonstruje operację, w której wszystkie teksty w prezentacji są 
   try {
     foreach($pres->getSlides() as $slide) {
       foreach($slide->getShapes() as $shape) {
-        # Sprawdza, czy kształt obsługuje ramkę tekstową (IAutoShape).
+        # Sprawdza czy kształt obsługuje ramkę tekstową (IAutoShape).
         if (java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape"))) {
           $autoShape = $shape;
           # Iteruje przez akapity w ramce tekstowej
           foreach($autoShape->getTextFrame()->getParagraphs() as $paragraph) {
-            # Iteruje przez każdą część w akapicie
+            # Iteruje przez każdy fragment w akapicie
             foreach($paragraph->getPortions() as $portion) {
               $portion->setText($portion->getText()->replace("years", "months"));// Zmienia tekst
 
@@ -252,17 +261,17 @@ Ten kod PHP demonstruje operację, w której wszystkie teksty w prezentacji są 
 
 ## **Dodanie pola tekstowego z hiperłączem** 
 
-Możesz wstawić łącze wewnątrz pola tekstowego. Po kliknięciu pola tekstowego użytkownicy zostaną przekierowani do otwarcia tego łącza. 
+Możesz wstawić odnośnik wewnątrz pola tekstowego. Po kliknięciu pola tekstowego użytkownicy są kierowani do otwarcia odnośnika. 
 
-Aby dodać pole tekstowe zawierające łącze, wykonaj następujące kroki:
+Aby dodać pole tekstowe zawierające odnośnik, wykonaj następujące kroki:
 
 1. Utwórz instancję klasy `Presentation`. 
-2. Uzyskaj referencję do pierwszego slajdu w nowo utworzonej prezentacji. 
-3. Dodaj obiekt `AutoShape` z `ShapeType` ustawionym na `Rectangle` w określonej pozycji na slajdzie i uzyskaj referencję do nowo dodanego obiektu AutoShape.
-4. Dodaj `TextFrame` do obiektu `AutoShape`, który zawiera *Aspose TextBox* jako domyślny tekst. 
+2. Uzyskaj odniesienie do pierwszego slajdu w nowo utworzonej prezentacji. 
+3. Dodaj obiekt `AutoShape` z `ShapeType` ustawionym na `Rectangle` w określonej pozycji na slajdzie i uzyskaj odniesienie do nowo dodanego obiektu AutoShape.
+4. Dodaj `TextFrame` do obiektu `AutoShape`, które zawiera *Aspose TextBox* jako domyślny tekst. 
 5. Zainicjuj klasę `HyperlinkManager`. 
-6. Przypisz hiperłącze za pomocą metody [setExternalHyperlinkClick](https://reference.aspose.com/slides/pl/php-java/aspose.slides/hyperlinkmanager/setexternalhyperlinkclick/) powiązanej z wybraną częścią `TextFrame`.
-7. Na końcu zapisz plik PPTX przy użyciu obiektu `Presentation`. 
+6. Przypisz odnośnik za pomocą metody [setExternalHyperlinkClick](https://reference.aspose.com/slides/pl/php-java/aspose.slides/hyperlinkmanager/setexternalhyperlinkclick/) powiązanej z wybraną częścią `TextFrame`.
+7. Na koniec zapisz plik PPTX za pomocą obiektu `Presentation`. 
 
 Ten kod PHP — implementacja powyższych kroków — pokazuje, jak dodać pole tekstowe z hiperłączem do slajdu:
 
@@ -279,9 +288,9 @@ Ten kod PHP — implementacja powyższych kroków — pokazuje, jak dodać pole 
     # Uzyskuje dostęp do właściwości ITextFrame powiązanej z AutoShape
     $pptxAutoShape->addTextFrame("");
     $textFrame = $pptxAutoShape->getTextFrame();
-    # Dodaje trochę tekstu do ramki
+    # Dodaje tekst do ramki
     $textFrame->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->setText("Aspose.Slides");
-    # Ustawia hiperłącze dla tekstu części
+    # Ustawia hiperłącze dla tekstu fragmentu
     $hyperlinkManager = $textFrame->getParagraphs()->get_Item(0)->getPortions()->get_Item(0)->getPortionFormat()->getHyperlinkManager();
     $hyperlinkManager->setExternalHyperlinkClick("http://www.aspose.com");
     # Zapisuje prezentację PPTX
@@ -295,10 +304,10 @@ Ten kod PHP — implementacja powyższych kroków — pokazuje, jak dodać pole 
 
 ## **FAQ**
 
-**Jaka jest różnica między polem tekstowym a symbolem zastępczym tekstu podczas pracy ze slajdami wzorcowymi?**
+**Jaka jest różnica między polem tekstowym a tekstowym placeholderem podczas pracy z master slajdami?**
 
-[Placeholder](/slides/pl/php-java/manage-placeholder/) dziedziczy styl/pozycję z [mastera](https://reference.aspose.com/slides/pl/php-java/aspose.slides/masterslide/) i może być nadpisany na [layoutach](https://reference.aspose.com/slides/pl/php-java/aspose.slides/layoutslide/), podczas gdy zwykłe pole tekstowe jest niezależnym obiektem na konkretnym slajdzie i nie zmienia się po przełączeniu layoutów.
+Placeholder ([placeholder](/slides/pl/php-java/manage-placeholder/)) dziedziczy styl/pozycję z [mastera](https://reference.aspose.com/slides/pl/php-java/aspose.slides/masterslide/) i może być nadpisany w [układach](https://reference.aspose.com/slides/pl/php-java/aspose.slides/layoutslide/), podczas gdy zwykłe pole tekstowe jest niezależnym obiektem na konkretnym slajdzie i nie zmienia się przy przełączaniu układów.
 
-**Jak mogę wykonać masową zamianę tekstu w całej prezentacji, nie dotykając tekstu w wykresach, tabelach i SmartArt?**
+**Jak wykonać masową zamianę tekstu w całej prezentacji, nie modyfikując tekstu w wykresach, tabelach i SmartArt?**
 
-Ogranicz iterację do auto‑kształtów, które mają ramki tekstowe, i wyklucz wbudowane obiekty ([charts](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chart/), [tables](https://reference.aspose.com/slides/pl/php-java/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/pl/php-java/aspose.slides/smartart/)) przez przeglądanie ich kolekcji osobno lub pomijanie tych typów obiektów.
+Ogranicz iterację do autoshapes, które posiadają ramki tekstowe, i wyklucz obiekty osadzone ([charts](https://reference.aspose.com/slides/pl/php-java/aspose.slides/chart/), [tables](https://reference.aspose.com/slides/pl/php-java/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/pl/php-java/aspose.slides/smartart/)), przeglądając ich kolekcje osobno lub pomijając te typy obiektów.

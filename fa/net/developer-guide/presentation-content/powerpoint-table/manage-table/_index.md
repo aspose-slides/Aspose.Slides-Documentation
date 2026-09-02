@@ -9,42 +9,46 @@ keywords:
 - ایجاد جدول
 - دسترسی به جدول
 - نسبت ابعاد
-- تراز متن
+- هم‌ترازی متن
 - قالب‌بندی متن
 - سبک جدول
-- PowerPoint
+- پاورپوینت
 - ارائه
 - .NET
 - C#
 - Aspose.Slides
-description: "ایجاد و ویرایش جداول در اسلایدهای PowerPoint با Aspose.Slides برای .NET. با مثال‌های ساده C#، جریان کار جداول خود را بهینه کنید."
+description: "ایجاد و ویرایش جداول در اسلایدهای PowerPoint با Aspose.Slides برای .NET. مثال‌های ساده کد C# را برای بهینه‌سازی روند کار با جداول کشف کنید."
 ---
 ## **مقدمه**
 
-یک جدول در PowerPoint روشی کارآمد برای نمایش و ارائه اطلاعات است. اطلاعات در یک شبکهٔ سلول‌ها (که به صورت ردیف و ستون مرتب شده‌اند) ساده و به راحتی قابل درک است.
+یک جدول در PowerPoint یک روش کارآمد برای نمایش و بیان اطلاعات است. اطلاعات در یک شبکه از سلول‌ها (مرتب شده در سطرها و ستون‌ها) ساده و به راحتی قابل درک است.
 
-Aspose.Slides کلاس [Table](https://reference.aspose.com/slides/fa/net/aspose.slides/table/) ، اینترفیس [ITable](https://reference.aspose.com/slides/fa/net/aspose.slides/itable/) ، کلاس [Cell](https://reference.aspose.com/slides/fa/net/aspose.slides/cell/) ، اینترفیس [ICell](https://reference.aspose.com/slides/fa/net/aspose.slides/icell/) و سایر انواع را فراهم می‌کند تا بتوانید جداول را در تمام انواع ارائه‌ها ایجاد، به‌روزرسانی و مدیریت کنید. 
+Aspose.Slides کلاس [Table](https://reference.aspose.com/slides/fa/net/aspose.slides/table/)، اینترفیس [ITable](https://reference.aspose.com/slides/fa/net/aspose.slides/itable/)، کلاس [Cell](https://reference.aspose.com/slides/fa/net/aspose.slides/cell/)، اینترفیس [ICell](https://reference.aspose.com/slides/fa/net/aspose.slides/icell/) و انواع دیگر را فراهم می‌کند تا بتوانید جداول را در انواع ارائه‌ها ایجاد، به‌روزرسانی و مدیریت کنید.
 
-## **ایجاد جدول از ابتدا**
+## **ایجاد جدول از صفر**
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation) ایجاد کنید.  
-2. با استفاده از ایندکس، مرجع اسلاید را دریافت کنید.  
-3. آرایه‌ای از `columnWidth` تعریف کنید.  
-4. آرایه‌ای از `rowHeight` تعریف کنید.  
-5. یک شیء [ITable](https://reference.aspose.com/slides/fa/net/aspose.slides/itable/) را به اسلاید اضافه کنید با استفاده از متد [AddTable](https://reference.aspose.com/slides/fa/net/aspose.slides/ishapecollection/addtable/).  
-6. بر روی هر [ICell](https://reference.aspose.com/slides/fa/net/aspose.slides/icell/) تکرار کنید تا قالب‌بندی مرزهای بالا، پایین، راست و چپ اعمال شود.  
+2. مرجع یک اسلاید را از طریق ایندکس آن دریافت کنید.  
+3. یک آرایه از `columnWidth` تعریف کنید.  
+4. یک آرایه از `rowHeight` تعریف کنید.  
+5. یک شیء [ITable](https://reference.aspose.com/slides/fa/net/aspose.slides/itable/) را از طریق متد [AddTable](https://reference.aspose.com/slides/fa/net/aspose.slides/ishapecollection/addtable/) به اسلاید اضافه کنید.  
+6. از طریق هر [ICell](https://reference.aspose.com/slides/fa/net/aspose.slides/icell/) پیمایش کنید تا قالب‌بندی را بر روی حاشیه‌های بالا، پایین، راست و چپ اعمال کنید.  
 7. دو سلول اول ردیف اول جدول را ادغام کنید.  
 8. به [TextFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/textframe/) یک [ICell](https://reference.aspose.com/slides/fa/net/aspose.slides/icell/) دسترسی پیدا کنید.  
 9. متنی به [TextFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/textframe/) اضافه کنید.  
-10. ارائهٔ اصلاح‌شده را ذخیره کنید.
+10. ارائه اصلاح‌شده را ذخیره کنید.
 
-این کد C# نشان می‌دهد چگونه در یک ارائه جدول ایجاد کنید:
+این کد C# نشان می‌دهد چگونه یک جدول را در یک ارائه ایجاد کنید:
 
 ```c#
-// یک شیء از کلاس Presentation ایجاد می‌کند که نمایانگر یک فایل PPTX است
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// نمونه‌سازی یک کلاس Presentation که فایل PPTX را نمایش می‌دهد
 Presentation pres = new Presentation();
 
-// به اولین اسلاید دسترسی می‌یابد
+// به اولین اسلاید دسترسی پیدا می‌کند
 ISlide sld = pres.Slides[0];
 
 // ستون‌ها را با عرض و ردیف‌ها را با ارتفاع تعریف می‌کند
@@ -77,20 +81,20 @@ for (int row = 0; row < tbl.Rows.Count; row++)
 	}
 }
 // سلول‌های 1 و 2 ردیف 1 را ادغام می‌کند
-tbl.MergeCells(tbl.Rows[0][0], tbl.Rows[1][1], false);
+tbl.MergeCells(tbl.Rows[0][0], tbl.Rows[0][1], false);
 
 // متنی به سلول ادغام‌شده اضافه می‌کند
 tbl.Rows[0][0].TextFrame.Text = "Merged Cells";
 
-// ارائه را بر روی دیسک ذخیره می‌کند
+// ارائه را در دیسک ذخیره می‌کند
 pres.Save("table.pptx", SaveFormat.Pptx);
 ```
 
 ## **شماره‌گذاری در جدول استاندارد**
 
-در یک جدول استاندارد، شماره‌گذاری سلول‌ها ساده و مبتنی بر صفر است. اولین سلول در جدول به صورت 0,0 (ستون 0، ردیف 0) ایندکس می‌شود.  
+در یک جدول استاندارد، شماره‌گذاری سلول‌ها ساده و صفر مبنا است. اولین سلول در جدول با اندیس 0,0 (ستون 0، سطر 0) مشخص می‌شود.
 
-به عنوان مثال، سلول‌های یک جدول با 4 ستون و 4 ردیف به این شکل شماره‌گذاری می‌شوند:
+به عنوان مثال، سلول‌های یک جدول با 4 ستون و 4 سطر به این صورت شماره‌گذاری می‌شوند:
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -98,17 +102,21 @@ pres.Save("table.pptx", SaveFormat.Pptx);
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-این کد C# نشان می‌دهد چگونه شماره‌گذاری سلول‌های یک جدول را مشخص کنید:
+این کد C# جدول استاندارد 4 × 4 شماره‌گذاری شده در بالا را ایجاد می‌کند و قالب حاشیه هر یک از سلول‌های آن را تنظیم می‌نماید:
 
 ```c#
-// یک شیء از کلاس Presentation ایجاد می‌کند که نمایانگر یک فایل PPTX است
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+// یک شیء از کلاس Presentation ایجاد می‌کند که فایل PPTX را نمایندگی می‌کند
 using (Presentation pres = new Presentation())
 {
 
     // به اولین اسلاید دسترسی می‌یابد
     ISlide sld = pres.Slides[0];
 
-    // ستون‌ها را با عرض و ردیف‌ها را با ارتفاع تعریف می‌کند
+    // ستون‌ها را با عرض‌ها و ردیف‌ها را با ارتفاع‌ها تعریف می‌کند
     double[] dblCols = { 70, 70, 70, 70 };
     double[] dblRows = { 70, 70, 70, 70 };
 
@@ -138,7 +146,7 @@ using (Presentation pres = new Presentation())
         }
     }
 
-    // ارائه را بر روی دیسک ذخیره می‌کند
+    // ارائه را در دیسک ذخیره می‌کند
     pres.Save("StandardTables_out.pptx", SaveFormat.Pptx);
 }
 ```
@@ -146,33 +154,31 @@ using (Presentation pres = new Presentation())
 ## **دسترسی به جدول موجود**
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation) ایجاد کنید.  
+2. مرجع اسلایدی که حاوی جدول است را از طریق ایندکس آن دریافت کنید.  
+3. یک شیء [ITable](https://reference.aspose.com/slides/fa/net/aspose.slides/itable/) ایجاد کنید و آن را `null` کنید.  
+4. تا پیدا شدن جدول، از تمام اشیاء [IShape](https://reference.aspose.com/slides/fa/net/aspose.slides/ishape/) پیمایش کنید.  
 
-2. مرجع اسلاید حاوی جدول را از طریق ایندکس آن دریافت کنید.  
+   اگر گمان می‌کنید اسلاید مورد نظر تنها یک جدول دارد، می‌توانید تمام اشکالی که شامل آن می‌شود را بررسی کنید. وقتی یک شکل به عنوان جدول شناسایی شد، می‌توانید آن را به شیء [Table](https://reference.aspose.com/slides/fa/net/aspose.slides/table/) تبدیل کنید. اما اگر اسلاید چندین جدول داشته باشد، بهتر است جدول مورد نیاز را از طریق ویژگی [AlternativeText](https://reference.aspose.com/slides/fa/net/aspose.slides/ishape/alternativetext/) جستجو کنید.  
 
-3. یک شیء [ITable](https://reference.aspose.com/slides/fa/net/aspose.slides/itable/) ایجاد کنید و مقدار آن را null تنظیم کنید.  
+5. از شیء [ITable](https://reference.aspose.com/slides/fa/net/aspose.slides/itable/) برای کار با جدول استفاده کنید. در مثال زیر یک ردیف جدید به جدول اضافه شد.  
+6. ارائه اصلاح‌شده را ذخیره کنید.
 
-4. بر تمام اشیای [IShape](https://reference.aspose.com/slides/fa/net/aspose.slides/ishape/) تکرار کنید تا جدول پیدا شود.  
-
-   اگر گمان می‌کنید اسلاید حاوی یک جدول است، می‌توانید به سادگی تمام شکل‌ها را بررسی کنید. زمانی که یک شکل به عنوان جدول شناسایی شد، می‌توانید آن را به شیء [Table](https://reference.aspose.com/slides/fa/net/aspose.slides/table/) تبدیل کنید. اما اگر اسلاید شامل چند جدول باشد، بهتر است جدول مورد نیاز خود را از طریق ویژگی [AlternativeText](https://reference.aspose.com/slides/fa/net/aspose.slides/ishape/alternativetext/) جستجو کنید.  
-
-5. از شیء [ITable](https://reference.aspose.com/slides/fa/net/aspose.slides/itable/) برای کار با جدول استفاده کنید. در مثال زیر یک ردیف جدید به جدول اضافه کردیم.  
-
-6. ارائهٔ اصلاح‌شده را ذخیره کنید.  
-
-این کد C# نشان می‌دهد چگونه به جدول موجود دسترسی پیدا کنید و با آن کار کنید:
+این کد C# نشان می‌دهد چگونه به یک جدول موجود دسترسی پیدا کنید و با آن کار کنید:
 
 ```c#
-// یک شیء از کلاس Presentation ایجاد می‌کند که نمایانگر یک فایل PPTX است
+using Aspose.Slides;
+
+// یک شیء از کلاس Presentation ایجاد می‌کند که فایل PPTX را نمایندگی می‌کند
 using (Presentation pres = new Presentation("UpdateExistingTable.pptx"))
 {
 
     // به اولین اسلاید دسترسی می‌یابد
     ISlide sld = pres.Slides[0];
 
-    // مقدار اولیه TableEx را null می‌کند
+    // متغیر TableEx را به null مقداردهی می‌کند
     ITable tbl = null;
 
-    // از اشکال عبور می‌کند و مرجع جدول یافت‌شده را تنظیم می‌نماید
+    // از طریق اشکال پیمایش می‌کند و مرجع جدول یافت‌شده را تنظیم می‌نماید
     foreach (IShape shp in sld.Shapes)
         if (shp is ITable)
             tbl = (ITable)shp;
@@ -180,24 +186,36 @@ using (Presentation pres = new Presentation("UpdateExistingTable.pptx"))
     // متن را برای ستون اول ردیف دوم تنظیم می‌کند
     tbl[0, 1].TextFrame.Text = "New";
 
-    // ارائهٔ اصلاح‌شده را بر روی دیسک ذخیره می‌کند
+    // ارائه‌ اصلاح‌شده را بر روی دیسک ذخیره می‌کند
     pres.Save("table1_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 }
 ```
 
-## **تراز کردن متن در جدول**
+## **یافتن سلولی که مالک یک قاب متن است**
+
+هنگامی که کد عمومی پردازش متن یک [ITextFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/) را از یک جدول دریافت می‌کند، از ویژگی [ITextFrame.ParentCell](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/parentcell/) برای بازیابی [ICell](https://reference.aspose.com/slides/fa/net/aspose.slides/icell/) صاحب استفاده کنید. برای یک قاب متن سلول‑جدول، [ITextFrame.ParentCell](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/parentcell/) تنظیم شده و [ITextFrame.ParentShape](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/parentshape/) مقدار `null` دارد، حتی اگر خود جدول یک شکل باشد.
+
+مختصات سلول از طریق ویژگی‌های فقط‑خواندنی [ICell.FirstColumnIndex](https://reference.aspose.com/slides/fa/net/aspose.slides/icell/firstcolumnindex/) و [ICell.FirstRowIndex](https://reference.aspose.com/slides/fa/net/aspose.slides/icell/firstrowindex/) در دسترس است. [ITextFrame.ParentCell](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/parentcell/) نیز فقط‑خواندنی است: مسیریابی به مالک را فراهم می‌کند اما مالکیت را تغییر نمی‌دهد. همیشه قبل از استفاده مقدار برگشتی را برای `null` بررسی کنید.
+
+برای یک مثال کامل که مالکین سلول‑جدول و شکل را شناسایی می‌کند، از جمله شکل‌های مرتبط با گره‌های SmartArt، به صفحه [Search and Replace Text](/slides/fa/net/search-and-replace-text/) مراجعه کنید.
+
+## **هم‌ترازی متن در جدول**
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation) ایجاد کنید.  
-2. مرجع اسلاید را از طریق ایندکس دریافت کنید.  
+2. مرجع یک اسلاید را از طریق ایندکس آن دریافت کنید.  
 3. یک شیء [ITable](https://reference.aspose.com/slides/fa/net/aspose.slides/itable/) را به اسلاید اضافه کنید.  
-4. از جدول، یک شیء [ITextFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/) دریافت کنید.  
-5. از [ITextFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/)، شیء [IParagraph](https://reference.aspose.com/slides/fa/net/aspose.slides/iparagraph/) دریافت کنید.  
-6. متن را به صورت عمودی تراز کنید.  
-7. ارائهٔ اصلاح‌شده را ذخیره کنید.  
+4. یک شیء [ITextFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/) را از جدول به دست آورید.  
+5. به [IParagraph](https://reference.aspose.com/slides/fa/net/aspose.slides/iparagraph/) موجود در [ITextFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/) دسترسی پیدا کنید.  
+6. متن را به صورت عمودی هم‌تراز کنید.  
+7. ارائه اصلاح‌شده را ذخیره کنید.
 
-این کد C# نشان می‌دهد چگونه متن را در یک جدول تراز کنید:
+این کد C# نشان می‌دهد چگونه متن را در یک جدول هم‌تراز کنید:
 
 ```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Creates an instance of the Presentation class
 Presentation presentation = new Presentation();
 
@@ -238,34 +256,36 @@ presentation.Save("Vertical_Align_Text_out.pptx", SaveFormat.Pptx);
 ## **تنظیم قالب‌بندی متن در سطح جدول**
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/) ایجاد کنید.  
-2. مرجع اسلاید را از طریق ایندکس دریافت کنید.  
-3. از اسلاید، یک شیء [ITable](https://reference.aspose.com/slides/fa/net/aspose.slides/itable/) دریافت کنید.  
-4. برای متن، مقدار [FontHeight](https://reference.aspose.com/slides/fa/net/aspose.slides/baseportionformat/fontheight/) را تنظیم کنید.  
-5. [Alignment](https://reference.aspose.com/slides/fa/net/aspose.slides/iparagraphformat/alignment/) و [MarginRight](https://reference.aspose.com/slides/fa/net/aspose.slides/iparagraphformat/marginright/) را تنظیم کنید.  
-6. [TextVerticalType](https://reference.aspose.com/slides/fa/net/aspose.slides/textframeformat/textverticaltype/) را تنظیم کنید.  
-7. ارائهٔ اصلاح‌شده را ذخیره کنید.  
+2. مرجع یک اسلاید را از طریق ایندکس آن دریافت کنید.  
+3. یک شیء [ITable](https://reference.aspose.com/slides/fa/net/aspose.slides/itable/) را از اسلاید به دست آورید.  
+4. ارتفاع فونت ([FontHeight](https://reference.aspose.com/slides/fa/net/aspose.slides/baseportionformat/fontheight/)) را برای متن تنظیم کنید.  
+5. ویژگی‌های [Alignment](https://reference.aspose.com/slides/fa/net/aspose.slides/iparagraphformat/alignment/) و [MarginRight](https://reference.aspose.com/slides/fa/net/aspose.slides/iparagraphformat/marginright/) را تنظیم کنید.  
+6. [TextVerticalType](https://reference.aspose.com/slides/fa/net/aspose.slides/textframeformat/textverticaltype/) را تعیین کنید.  
+7. ارائه اصلاح‌شده را ذخیره کنید.
 
-این کد C# نشان می‌دهد چگونه گزینه‌های قالب‌بندی دلخواه خود را بر روی متن در یک جدول اعمال کنید:
+این کد C# نشان می‌دهد چگونه گزینه‌های قالب‌بندی دلخواه خود را بر متن در یک جدول اعمال کنید:
 
 ```c#
+using Aspose.Slides;
+
 // یک نمونه از کلاس Presentation ایجاد می‌کند
 Presentation presentation = new Presentation();
 ISlide slide = presentation.Slides[0];
 
-ITable someTable = presentation.Slides[0].Shapes[0] as ITable; // فرض می‌کنیم اولین شکل در اولین اسلاید یک جدول است
+ITable someTable = presentation.Slides[0].Shapes[0] as ITable; // فرض می‌کنیم اولین شکل در اسلاید اول یک جدول است
 
 // ارتفاع قلم سلول‌های جدول را تنظیم می‌کند
 PortionFormat portionFormat = new PortionFormat();
 portionFormat.FontHeight = 25;
 someTable.SetTextFormat(portionFormat);
 
-// تراز متن سلول‌های جدول و حاشیه راست را در یک فراخوانی تنظیم می‌کند
+// ترازبندی متن سلول‌های جدول و حاشیه راست را در یک فراخوانی تنظیم می‌کند
 ParagraphFormat paragraphFormat = new ParagraphFormat();
 paragraphFormat.Alignment = TextAlignment.Right;
 paragraphFormat.MarginRight = 20;
 someTable.SetTextFormat(paragraphFormat);
 
-// نوع متن عمودی سلول‌های جدول را تنظیم می‌کند
+// نوع عمودی متن سلول‌های جدول را تنظیم می‌کند
 TextFrameFormat textFrameFormat = new TextFrameFormat();
 textFrameFormat.TextVerticalType = TextVerticalType.Vertical;
 someTable.SetTextFormat(textFrameFormat);
@@ -276,24 +296,39 @@ presentation.Save("result.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
 
 ## **دریافت ویژگی‌های سبک جدول**
 
-Aspose.Slides به شما امکان می‌دهد ویژگی‌های سبک یک جدول را دریافت کنید تا بتوانید این جزئیات را برای جدول دیگری یا مکان دیگری استفاده کنید. این کد C# نشان می‌دهد چگونه ویژگی‌های سبک را از یک سبک پیش‌فرض جدول دریافت کنید:
+Aspose.Slides به شما اجازه می‌دهد ویژگی‌های سبک یک جدول را دریافت کنید تا بتوانید این جزئیات را برای جدول دیگری یا در مکان دیگری استفاده کنید. این کد C# نشان می‌دهد چگونه ویژگی‌های سبک را از یک سبک پیش‌تنظیم شده جدول دریافت کنید:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     ITable table = pres.Slides[0].Shapes.AddTable(10, 10, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
-    table.StylePreset = TableStylePreset.DarkStyle1; // تغییر تم پیش‌فرض پیش‌تنظیم سبک
+    table.StylePreset = TableStylePreset.DarkStyle1; // تغییر تم پیش‌تنظیم پیش‌فرض سبک
+
+    // دریافت پیش‌تنظیم سبک جدول.
+    TableStylePreset stylePreset = table.StylePreset;
+    Console.WriteLine($"Table style preset: {stylePreset}");
+
+    // اعمال پیش‌تنظیم سبک بازیابی‌شده به جدول دیگری.
+    ITable anotherTable = pres.Slides[0].Shapes.AddTable(10, 100, new double[] { 100, 150 }, new double[] { 5, 5, 5 });
+    anotherTable.StylePreset = stylePreset;
+
     pres.Save("table.pptx", SaveFormat.Pptx);
 }
 ```
 
 ## **قفل کردن نسبت ابعاد جدول**
 
-نسبت ابعاد یک شکل هندسی، نسبت اندازه‌های آن در ابعاد مختلف است. Aspose.Slides ویژگی `AspectRatioLocked` را فراهم کرده تا بتوانید تنظیمات نسبت ابعاد را برای جداول و سایر اشکال قفل کنید.  
+نسبت ابعاد یک شکل هندسی نسبت اندازه‌های آن در ابعاد مختلف است. Aspose.Slides ویژگی `AspectRatioLocked` را فراهم کرده تا بتوانید تنظیم قفل نسبت ابعاد را برای جدول‌ها و سایر اشکال اعمال کنید.
 
 این کد C# نشان می‌دهد چگونه نسبت ابعاد یک جدول را قفل کنید:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     ITable table = (ITable)pres.Slides[0].Shapes[0];
@@ -307,16 +342,16 @@ using (Presentation pres = new Presentation("pres.pptx"))
 }
 ```
 
-## **سوالات متداول**
+## **FAQ**
 
-**آیا می‌توانم جهت‌خوانی راست به چپ (RTL) را برای کل جدول و متن داخل سلول‌ها فعال کنم؟**  
+**آیا می‌توان جهت‌خوانی راست به چپ (RTL) را برای کل جدول و متن داخل سلول‌های آن فعال کرد؟**
 
-بله. جدول ویژگی [RightToLeft](https://reference.aspose.com/slides/fa/net/aspose.slides/table/righttoleft/) را در دسترس دارد و پاراگراف‌ها دارای [ParagraphFormat.RightToLeft](https://reference.aspose.com/slides/fa/net/aspose.slides/paragraphformat/righttoleft/) هستند. استفاده از هر دو اطمینان می‌دهد که ترتیب RTL صحیح و رندرینگ داخل سلول‌ها برقرار باشد.
+بله. جدول ویژگی [RightToLeft](https://reference.aspose.com/slides/fa/net/aspose.slides/table/righttoleft/) را در اختیار می‌گذارد و پاراگراف‌ها نیز ویژگی [ParagraphFormat.RightToLeft](https://reference.aspose.com/slides/fa/net/aspose.slides/paragraphformat/righttoleft/) دارند. استفاده همزمان از هر دو، ترتیب و رندرینگ صحیح RTL را داخل سلول‌ها تضمین می‌کند.
 
-**چگونه می‌توانم جلوی جابجا یا تغییر اندازهٔ جدول را در فایل نهایی بگیرم؟**  
+**چگونه می‌توانم جلوگیری کنم که کاربران جدول را در فایل نهایی جابجا یا اندازه‌اش را تغییر دهند؟**
 
-از [قفل‌های شکل](/slides/fa/net/applying-protection-to-presentation/) برای غیرفعال کردن جابجایی، تغییر اندازه، انتخاب و غیره استفاده کنید. این قفل‌ها برای جداول نیز اعمال می‌شوند.
+از [قفل‌های شکل](/slides/fa/net/applying-protection-to-presentation/) استفاده کنید تا جابجا کردن، تغییر اندازه، انتخاب و … غیر فعال شوند. این قفل‌ها بر روی جداول نیز اعمال می‌شوند.
 
-**آیا درج تصویر درون یک سلول به‌عنوان پس‌زمینه پشتیبانی می‌شود؟**  
+**آیا قرار دادن تصویر به عنوان پس‌زمینه داخل سلول پشتیبانی می‌شود؟**
 
-بله. می‌توانید برای یک سلول [پر کردن تصویر](https://reference.aspose.com/slides/fa/net/aspose.slides/picturefillformat/) تنظیم کنید؛ تصویر بر اساس حالت انتخابی (کشیدگی یا کاشی) کل ناحیهٔ سلول را پوشش خواهد داد.
+بله. می‌توانید برای یک سلول [picture fill](https://reference.aspose.com/slides/fa/net/aspose.slides/picturefillformat/) تنظیم کنید؛ تصویر بر اساس حالت انتخابی (کشسان یا کاشی) ناحیه سلول را پوشش می‌دهد.

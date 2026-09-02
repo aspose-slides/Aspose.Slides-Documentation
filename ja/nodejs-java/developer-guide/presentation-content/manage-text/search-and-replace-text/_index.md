@@ -1,5 +1,5 @@
 ---
-title: JavaScript で PowerPoint プレゼンテーションのテキストを検索および置換
+title: JavaScript で PowerPoint プレゼンテーションのテキスト検索と置換
 linktitle: テキストの検索と置換
 type: docs
 weight: 55
@@ -18,20 +18,21 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js via Java を使用して、PowerPoint プレゼンテーションのテキストを検索、ハイライト、置換し、すべてのマッチを収集します。"
+description: "Aspose.Slides for Node.js via Java を使用して、PowerPoint プレゼンテーション内のテキストを検索、ハイライト、置換し、すべてのマッチを収集します。"
 ---
 ## **概要**
 
-Aspose.Slides for Node.js via Java は、個々のテキストフレームまたはプレゼンテーション全体でテキストの検索、ハイライト、置換が可能です。各操作は結果コールバックを通じてマッチごとにアプリケーションに通知することもできます。これにより、プレゼンテーションを更新しながら、マッチしたテキスト、そのコンテキスト、位置、テキストフレーム、スライド番号を含む監査トレイルを同時に構築できます。
+Aspose.Slides for Node.js via Java は、個々のテキスト フレームまたはプレゼンテーション全体でテキストの検索、ハイライト、置換ができます。各操作は、結果コールバックを介してマッチごとにアプリケーションに通知することもできます。これにより、プレゼンテーションを更新しながら、マッチしたテキスト、そのコンテキスト、位置、テキスト フレーム、スライド番号を含む監査トレイルを同時に作成できます。
 
-これらの機能は、レビュー、情報削除、用語チェック、テンプレートのクリーンアップ、および自動レポート作成ワークフローに役立ちます。
+これらの機能は、レビュー、編集、用語チェック、テンプレートのクリーンアップ、そして自動レポート作成ワークフローに有用です。
 
-以下の最初の例では、"sample.pptx" というファイルを使用します。このファイルは、最初のスライドに 1 つのテキストボックスがあり、次のテキストが含まれています:
+以下の最初の例では、"sample.pptx" という名前のファイルを使用します。このファイルは、最初のスライドに 1 つのテキスト ボックスがあり、次のテキストが含まれています：
+
 ![サンプルテキスト](sample_text.png)
 
-## **検索範囲の選択**
+## **検索対象の選択**
 
-[TextFrame](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/) のメソッドを使用して操作を 1 つのテキストフレームに限定します。[Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/) のメソッドを使用してプレゼンテーション内のすべての対象テキストを処理します。
+[TextFrame](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/) のメソッドを使用して操作を 1 つのテキスト フレームに限定します。[Presentation](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/) のメソッドを使用してプレゼンテーション内のすべての該当テキストを処理します。
 
 | 操作 | 単一テキストフレーム | プレゼンテーション全体 |
 |---|---|---|
@@ -42,26 +43,95 @@ Aspose.Slides for Node.js via Java は、個々のテキストフレームまた
 
 ## **テキストマッチングの構成**
 
-リテラルテキスト操作では、[TextSearchOptions](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textsearchoptions/) を使用してマッチングを制御します。
+リテラルテキストの操作では、[TextSearchOptions](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textsearchoptions/) を使用してマッチングを制御します。
 
-- [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) はマッチを完全な単語のみに制限します。
-- [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) は文字の大小が一致するかどうかを制御します。
-- [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) はプレゼンテーションレベルの検索、置換、ハイライト操作にスライドノートを含めます。
+- [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) は完全な単語に一致するように制限します。
+- [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) は文字の大文字小文字が一致する必要があるかどうかを制御します。
+- [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) はスライド ノートをプレゼンテーションレベルの検索、置換、ハイライト操作に含めます。
 
-正規表現操作は Java の `Pattern` を使用するため、大小文字の区別や単語境界などのマッチングルールは式とそのフラグで定義されます。
+正規表現の操作は Java の `Pattern` を使用するため、大文字小文字の区別や単語境界などのマッチングルールは式とそのフラグで定義されます。
+
+## **テキストフレームの所有者の特定**
+
+汎用的なテキスト処理ワークフローでは、検索、置換、検証、またはテキストのエクスポート時にしばしば [TextFrame](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/) が渡されます。[TextFrame.getParentShape](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/#getParentShape--) と [TextFrame.getParentCell](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/#getParentCell--) を使用して、テキスト フレームを所有しているプレゼンテーション オブジェクトを特定します。
+
+期待される値は所有者によって異なります：
+
+| テキストフレームの所有者 | `getParentShape` | `getParentCell` |
+|---|---|---|
+| AutoShape または他のテキストを含むシェイプ | 所有する [Shape](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/shape/) | `null` |
+| テーブル セル | `null` | 所有する [Cell](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/cell/) |
+
+両メソッドは読み取り専用のナビゲーションを提供します。呼び出してもテキストフレームは移動せず、所有者も変更されません。汎用コードでは両方の値が `null` かどうかを確認し、所有者がいない可能性に対処すべきです。
+
+次の例は [SlideUtil.getAllTextFrames](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/slideutil/#getAllTextFrames-aspose.slides.IPresentation-boolean-) を使用してプレゼンテーション内のテキストフレームを反復処理します。シェイプの場合はシェイプ名、Java ランタイム型、含まれるスライドを報告します。テーブルセルの場合は、0 ベースの列および行座標と含まれるスライドを報告します。
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+function getSlideLabel(baseSlide) {
+    if (java.instanceOf(baseSlide, "com.aspose.slides.Slide")) {
+        return "slide " + baseSlide.getSlideNumber();
+    }
+
+    if (java.instanceOf(baseSlide, "com.aspose.slides.NotesSlide")) {
+        return "notes for slide " + baseSlide.getParentSlide().getSlideNumber();
+    }
+
+    return baseSlide.getClass().getSimpleName();
+}
+
+const presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    const textFrames = aspose.slides.SlideUtil.getAllTextFrames(presentation, false);
+
+    for (let index = 0; index < textFrames.length; index++) {
+        const textFrame = textFrames[index];
+        const ownerShape = textFrame.getParentShape();
+        if (ownerShape !== null) {
+            const shapeName = ownerShape.getName() === "" ? "(unnamed)" : ownerShape.getName();
+            const shapeType = ownerShape.getClass().getSimpleName();
+            const slideLabel = getSlideLabel(ownerShape.getSlide());
+            console.log("Shape: " + shapeName + "; type: " + shapeType + "; " + slideLabel);
+            continue;
+        }
+
+        const ownerCell = textFrame.getParentCell();
+        if (ownerCell !== null) {
+            const slideLabel = getSlideLabel(ownerCell.getSlide());
+            console.log("Table cell: column " + ownerCell.getFirstColumnIndex() + ", row " + ownerCell.getFirstRowIndex() + "; " + slideLabel);
+            continue;
+        }
+
+        console.log("The text frame owner is not available as a shape or table cell.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+SmartArt コンテンツの場合は、[SmartArtNode.getShapes](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/smartartnode/#getShapes--) のシェイプを反復し、各 [SmartArtShape.getTextFrame](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/smartartshape/#getTextFrame--) にアクセスします。テキストフレームは [TextFrame.getParentShape](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/#getParentShape--) から関連シェイプへたどることができ、[TextFrame.getParentCell](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/#getParentCell--) は `null` を返します。したがって、例のシェイプ分岐は SmartArt ノードからのテキストも処理します。
 
 ## **コールバックによるマッチ情報の収集**
 
-結果コールバック用の Java プロキシを作成し、すべてのマッチについて通知を受け取ります。プロキシ関数は関連するテキストフレーム、元テキスト、マッチしたテキスト、マッチ位置を受け取ります。
+結果コールバック用の Java プロキシを作成し、すべてのマッチについて通知を受け取ります。プロキシ関数は、関連するテキストフレーム、元テキスト、マッチしたテキスト、およびマッチ位置を受け取ります。
 
-コールバックはスライド番号を直接受け取りません。以下の実装は [TextFrame.getSlide](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/#getSlide--)、[Slide.getSlideNumber](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/slide/#getSlideNumber--)、[NotesSlide.getParentSlide](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/notesslide/#getParentSlide--) を通じて取得します。また、スライドノート内のテキストも処理します。
+コールバックはスライド番号を直接受け取りません。以下の実装では、テキストフレームの所有シェイプまたはテーブルセルから取得し、フォールバックとして [TextFrame.getSlide](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/#getSlide--) を使用しています。また、スライドノート内のテキストも処理します。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
 function getSlideNumber(textFrame) {
-    const parentSlide = textFrame.getSlide();
+    const parentShape = textFrame.getParentShape();
+    const parentCell = textFrame.getParentCell();
+    let parentSlide = textFrame.getSlide();
+    if (parentShape !== null) {
+        parentSlide = parentShape.getSlide();
+    } else if (parentCell !== null) {
+        parentSlide = parentCell.getSlide();
+    }
 
     if (java.instanceOf(parentSlide, "com.aspose.slides.Slide")) {
         return parentSlide.getSlideNumber();
@@ -89,13 +159,13 @@ function createTextSearchCallback(results) {
 }
 ```
 
-置換操作では、`foundText` に元のマッチテキストが含まれるため、コールバックは正確にどの語句が置換されたかを記録できます。
+置換操作の場合、`foundText` には元のマッチテキストが含まれるため、コールバックは正確に置換された用語を記録できます。
 
 ## **テキストのハイライト**
 
-[TextFrame.highlightText](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) メソッドを使用して、テキストフレーム内のリテラルテキストのマッチをハイライトします。[TextSearchOptions](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textsearchoptions/) を渡して検索を制御します。
+[TextFrame.highlightText](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) メソッドを使用して、テキストフレーム内のリテラルテキストのマッチをハイライトします。検索を制御するには [TextSearchOptions](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textsearchoptions/) を渡します。
 
-以下のコード例は、文字列 **"try"** のすべての出現をハイライトし、その後、完全な単語 **"to"** のみをハイライトします。
+以下のコード例は、文字列 **"try"** のすべての出現箇所をハイライトし、その後、完全な単語 **"to"** のみをハイライトします。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -110,7 +180,7 @@ try {
     substringSearchOptions.setCaseSensitive(false);
     const substringHighlightColor = java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY");
 
-    // テキストフレーム内の "try" のすべての出現をハイライトします。
+    // テキストフレーム内の "try" のすべての出現箇所をハイライトします。
     shape.getTextFrame().highlightText(
         "try", substringHighlightColor, substringSearchOptions, null);
 
@@ -129,14 +199,15 @@ try {
 }
 ```
 
-結果:
+結果：
+
 ![ハイライトされたテキスト](highlighted_text.png)
 
 ## **正規表現を使用したテキストのハイライト**
 
-[TextFrame.highlightRegex](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) メソッドは、テキストフレーム内で正規表現によって見つかったテキストマッチをハイライトします。
+[TextFrame.highlightRegex](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) メソッドは、テキストフレーム内で正規表現に一致したテキストをハイライトします。
 
-以下のコードは、7 文字以上を含むすべての単語をハイライトします。
+以下のコードは、7 文字以上を含むすべての単語をハイライトします：
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -159,12 +230,13 @@ try {
 }
 ```
 
-結果:
+結果：
+
 ![正規表現を使用したハイライトテキスト](highlighted_text_using_regex.png)
 
-## **プレゼンテーション全体のテキストハイライト**
+## **プレゼンテーション全体でのテキストハイライト**
 
-[Presentation.highlightText](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) と [Presentation.highlightRegex](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) を使用して、プレゼンテーション内のすべての対象テキストフレームを検索します。以下の例は、リテラル語とすべてのメールアドレスをハイライトします。
+[Presentation.highlightText](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) と [Presentation.highlightRegex](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) を使用して、プレゼンテーション内のすべての該当テキストフレームを検索します。次の例は、リテラル語句とすべてのメールアドレスをハイライトします：
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -195,9 +267,9 @@ try {
 
 ## **テキストフレーム内のテキスト置換**
 
-リテラルテキストには [TextFrame.replaceText](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-)、パターンベースの置換には [TextFrame.replaceRegex](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) を使用します。これらのメソッドは既存のテキストフレーム内のマッチしたテキストを更新し、プレーン文字列からテキストフレームを再構築するのではなく、周囲の書式設定を保持します。
+リテラルテキストには [TextFrame.replaceText](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) を、パターンベースの置換には [TextFrame.replaceRegex](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) を使用します。これらのメソッドは、既存のテキストフレーム内でマッチしたテキストを更新し、プレーン文字列からテキストフレームを再構築する代わりに、周囲の書式を保持します。
 
-以下の例は、綴りのバリエーションを標準化し、その後バージョンラベルを置換します。
+以下の例は、綴りのバリエーションを標準化し、続いてバージョンラベルを置換します：
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -225,11 +297,11 @@ try {
 }
 ```
 
-マッチが異なる書式の部分にまたがる場合、出力を確認して置換テキストに適用すべき書式を確認してください。
+マッチが異なる書式の部分にまたがる場合は、出力を確認し、置換テキストに適用すべき書式を確認してください。
 
-## **プレゼンテーション全体のテキスト置換**
+## **プレゼンテーション全体でのテキスト置換**
 
-[Presentation.replaceText](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) と [Presentation.replaceRegex](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) を使用して、プレゼンテーション全体に同じ操作を適用します。これはテンプレートのクリーンアップ、用語の更新、情報削除に役立ちます。
+[Presentation.replaceText](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) と [Presentation.replaceRegex](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/presentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) を使用して、プレゼンテーション全体で同じ操作を適用します。これは、テンプレートのクリーンアップ、用語の更新、編集に有用です。
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -254,16 +326,23 @@ try {
 }
 ```
 
-## **レポート用のマッチグループ化**
+## **レポート用のマッチのグループ化**
 
-収集された各結果はスライド番号とテキストフレームを保持するため、アプリケーションは監査、レポート、またはレビューのワークフロー向けにマッチをグループ化できます。以下の例は、結果をまずスライドごとに、次にテキストフレームごとにグループ化します。
+収集されたすべての結果はスライド番号とテキストフレームを保持しているため、アプリケーションは監査、レポート、レビューのワークフロー向けにマッチをグループ化できます。以下の例は、結果をまずスライドで、次にテキストフレームでグループ化しています：
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
 function getSlideNumber(textFrame) {
-    const parentSlide = textFrame.getSlide();
+    const parentShape = textFrame.getParentShape();
+    const parentCell = textFrame.getParentCell();
+    let parentSlide = textFrame.getSlide();
+    if (parentShape !== null) {
+        parentSlide = parentShape.getSlide();
+    } else if (parentCell !== null) {
+        parentSlide = parentCell.getSlide();
+    }
 
     if (java.instanceOf(parentSlide, "com.aspose.slides.Slide")) {
         return parentSlide.getSlideNumber();
@@ -333,24 +412,24 @@ try {
 }
 ```
 
-## **よくある質問**
+## **FAQ**
 
-**プレゼンテーション全体ではなく、1 つのテキストボックスだけを検索するにはどうすればよいですか？**
+**プレゼンテーション全体ではなく、単一のテキストボックスだけを検索するにはどうすればよいですか？**
 
-シェイプのテキストフレームを取得し、そのテキストフレーム上で [TextFrame.highlightText](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-)、[TextFrame.highlightRegex](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-)、[TextFrame.replaceText](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-)、または [TextFrame.replaceRegex](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) を呼び出します。プレゼンテーションレベルのメソッドは、すべての対象テキストフレームを処理します。
+シェイプのテキストフレームを取得し、そのテキストフレームで [TextFrame.highlightText](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-)、[TextFrame.highlightRegex](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-)、[TextFrame.replaceText](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-)、または [TextFrame.replaceRegex](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) を呼び出します。プレゼンテーションレベルのメソッドは、すべての該当テキストフレームを処理します。
 
 **正しい大文字小文字で完全な単語にマッチさせるにはどうすればよいですか？**
 
 [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) と [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) を `true` に設定し、リテラルテキストのハイライトまたは置換メソッドにオプションを渡します。正規表現の場合は、Java の `Pattern` 自体で単語境界と大文字小文字の区別を定義します。
 
-**検索および置換にスライドノート内のテキストを含めることはできますか？**
+**検索および置換にスライドノートのテキストを含めることはできますか？**
 
 はい。プレゼンテーションレベルのリテラルテキスト操作を使用する際に、[TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) を `true` に設定します。上記のコールバック実装は、ノートスライド内のマッチを親スライド番号にマッピングします。
 
-**プレゼンテーションを二度スキャンせずにレポートを作成するにはどうすればよいですか？**
+**プレゼンテーションを2回スキャンせずにレポートを作成するにはどうすればよいですか？**
 
-ハイライトまたは置換操作に Java の結果コールバックプロキシを渡します。コールバックは操作実行中にすべてのマッチを受け取り、アプリケーションは元テキスト、マッチテキスト、位置、テキストフレーム、導出されたスライド番号を保存して、後でグループ化またはエクスポートできるようにします。
+ハイライトまたは置換操作に Java の結果コールバックプロキシを渡します。コールバックは操作実行中にすべてのマッチを受け取るため、アプリケーションは元テキスト、マッチテキスト、位置、テキストフレーム、導出されたスライド番号を保存し、後でグループ化またはエクスポートできます。
 
 **テキストの置換は書式を保持しますか？**
 
-[TextFrame.replaceText](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) と [TextFrame.replaceRegex](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) は既存のテキストフレーム内のマッチしたテキストを変更し、周囲の部分の書式を保持します。マッチが異なる書式の部分にまたがる場合、置換が期待するスタイルになるよう結果を確認してください。
+[TextFrame.replaceText](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) と [TextFrame.replaceRegex](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) は、既存のテキストフレーム内でマッチしたテキストを変更し、周囲の書式を保持します。マッチが異なる書式の部分にまたがる場合は、結果を確認して置換が期待通りのスタイルになるか確認してください。

@@ -1,6 +1,6 @@
 ---
-title: Správa tabulek prezentace pomocí Pythonu
-linktitle: Správa tabulky
+title: Správa tabulek v prezentaci pomocí Pythonu
+linktitle: Spravovat tabulku
 type: docs
 weight: 10
 url: /cs/python-net/manage-table/
@@ -9,7 +9,7 @@ keywords:
 - vytvořit tabulku
 - přístup k tabulce
 - poměr stran
-- zarovnat text
+- zarovnání textu
 - formátování textu
 - styl tabulky
 - PowerPoint
@@ -23,22 +23,24 @@ description: "Vytvářejte a upravujte tabulky v PowerPoint a OpenDocument sním
 
 Tabulka v PowerPointu je efektivní způsob, jak prezentovat informace. Informace uspořádané v mřížce buněk (řádky a sloupce) jsou přehledné a snadno pochopitelné.
 
-Aspose.Slides poskytuje třídu [Table], třídu [Cell] a další související typy, které vám pomohou vytvářet, aktualizovat a spravovat tabulky v libovolné prezentaci.
+Aspose.Slides poskytuje třídu [Table](https://reference.aspose.com/slides/cs/python-net/aspose.slides/table/), třídu [Cell](https://reference.aspose.com/slides/cs/python-net/aspose.slides/cell/) a další související typy, které vám pomohou vytvářet, aktualizovat a spravovat tabulky v libovolné prezentaci.
 
-## **Vytvoření tabulek od nuly**
+## **Vytvoření tabulek od začátku**
 
-Tato sekce ukazuje, jak vytvořit tabulku od nuly v Aspose.Slides přidáním tvaru tabulky na snímek, definováním řádků a sloupců a nastavením přesných velikostí. Také uvidíte, jak naplnit buňky textem, upravit zarovnání a okraje a přizpůsobit vzhled tabulky.
+Tato sekce ukazuje, jak v Aspose.Slides vytvořit tabulku od nuly přidáním tvaru tabulky do snímku, definováním řádků a sloupců a nastavením přesných rozměrů. Také se podíváte, jak naplnit buňky textem, upravit zarovnání a okraje a přizpůsobit vzhled tabulky.
 
-1. Vytvořte instanci třídy [Presentation].
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/).
 2. Získejte odkaz na snímek podle jeho indexu.
 3. Definujte pole šířek sloupců.
 4. Definujte pole výšek řádků.
-5. Přidejte [Table] na snímek.
-6. Iterujte přes každou [Cell] a upravte její horní, spodní, pravý a levý okraj.
-7. Sloučte první dvě buňky v prvním řádku tabulky.
-8. Získejte [TextFrame] buňky [Cell].
-9. Přidejte text do [TextFrame].
+5. Přidejte [Table](https://reference.aspose.com/slides/cs/python-net/aspose.slides/table/) do snímku.
+6. Projděte každou [Cell](https://reference.aspose.com/slides/cs/python-net/aspose.slides/cell/) a naformátujte její horní, spodní, pravý a levý okraj.
+7. Sloučte buňky prvních dvou řádků a prvních dvou sloupců do jedné buňky.
+8. Získejte přístup k [TextFrame](https://reference.aspose.com/slides/cs/python-net/aspose.slides/textframe/) buňky [Cell](https://reference.aspose.com/slides/cs/python-net/aspose.slides/cell/).
+9. Přidejte text do [TextFrame](https://reference.aspose.com/slides/cs/python-net/aspose.slides/textframe/).
 10. Uložte upravenou prezentaci.
+
+Následující příklad v Pythonu ukazuje, jak vytvořit tabulku v prezentaci:
 
 ```python
 import aspose.pydrawing as draw
@@ -87,9 +89,9 @@ with slides.Presentation() as presentation:
 
 ## **Číslování ve standardních tabulkách**
 
-Ve standardní tabulce je číslování buněk jednoduché a začíná od nuly. První buňka v tabulce má index (0, 0) (sloupec 0, řádek 0).
+V standardní tabulce je číslování buněk jednoduché a začíná od nuly. První buňka v tabulce má index (0, 0) (sloupec 0, řádek 0).
 
-Například v tabulce se 4 sloupci a 4 řádky jsou buňky očíslovány následovně:
+Příklad: v tabulce se 4 sloupci a 4 řádky jsou buňky očíslovány následovně:
 
 | (0, 0) | (1, 0) | (2, 0) | (3, 0) |
 | :----- | :----- | :----- | :----- |
@@ -97,27 +99,38 @@ Například v tabulce se 4 sloupci a 4 řádky jsou buňky očíslovány násled
 | (0, 2) | (1, 2) | (2, 2) | (3, 2) |
 | (0, 3) | (1, 3) | (2, 3) | (3, 3) |
 
-Následující příklad v Pythonu ukazuje, jak odkazovat na buňky pomocí tohoto číslování od nuly:
+Následující příklad v Pythonu ukazuje, jak odkazovat na buňky pomocí tohoto nulového číslování:
 
 ```python
-for row_index in range(len(table.rows)):
-    for column_index in range(len(table.rows[row_index])):
-        cell = table.rows[row_index][column_index]
-        cell.text_frame.text = f"({column_index}, {row_index})"
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    # Přístup k prvnímu snímku.
+    slide = presentation.slides[0]
+
+    # Přidejte tabulku se 4 sloupci a 4 řádky.
+    table = slide.shapes.add_table(100, 50, [50, 50, 50, 50], [30, 30, 30, 30])
+
+    for row_index in range(len(table.rows)):
+        for column_index in range(len(table.rows[row_index])):
+            cell = table.rows[row_index][column_index]
+            cell.text_frame.text = f"({column_index}, {row_index})"
+
+    presentation.save("table.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Přístup k existující tabulce**
 
-Tato sekce vysvětluje, jak najít a pracovat s existující tabulkou v prezentaci pomocí Aspose.Slides. Naučíte se, jak najít tabulku na snímku, přistupovat k jejím řádkům, sloupcům a buňkám a aktualizovat obsah nebo formátování.
+Tato sekce vysvětluje, jak najít a pracovat s existující tabulkou v prezentaci pomocí Aspose.Slides. Naučíte se, jak najít tabulku na snímku, získat přístup k jejím řádkům, sloupcům a buňkám a aktualizovat obsah nebo formátování.
 
-1. Vytvořte instanci třídy [Presentation].
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/).
 2. Získejte odkaz na snímek, který obsahuje tabulku, podle jeho indexu.
-3. Iterujte přes všechny objekty [Shape], dokud nenajdete tabulku.
-4. Použijte objekt [Table] pro práci s tabulkou.
+3. Procházejte všechny objekty [Shape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/shape/) až najdete tabulku.
+4. Použijte objekt [Table](https://reference.aspose.com/slides/cs/python-net/aspose.slides/table/) k práci s tabulkou.
 5. Uložte upravenou prezentaci.
 
-{{% alert color="info" %}}
-Pokud snímek obsahuje několik tabulek, je lepší vyhledat požadovanou tabulku podle její vlastnosti `alternative_text`.
+{{% alert color="info" title="Note" %}}
+Pokud snímek obsahuje několik tabulek, je lepší vyhledat požadovanou tabulku pomocí její vlastnosti `alternative_text`.
 {{% /alert %}}
 
 Následující příklad v Pythonu ukazuje, jak přistupovat k existující tabulce a pracovat s ní:
@@ -128,12 +141,12 @@ import aspose.slides as slides
 
 # Vytvořte instanci třídy Presentation pro načtení souboru PPTX.
 with slides.Presentation("sample.pptx") as presentation:
-    # Získejte první snímek.
+    # Přístup k prvnímu snímku.
     slide = presentation.slides[0]
 
     table = None
 
-    # Iterujte přes tvary a odkazujte na první nalezenou tabulku.
+    # Projděte tvary a odkazujte na první nalezenou tabulku.
     for shape in slide.shapes:
         if isinstance(shape, slides.Table):
             table = shape
@@ -147,15 +160,23 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Najděte buňku, která vlastní TextFrame**
+
+Když obecný kód pro zpracování textu získá [TextFrame](https://reference.aspose.com/slides/cs/python-net/aspose.slides/textframe/) z tabulky, použijte vlastnost [TextFrame.parent_cell](https://reference.aspose.com/slides/cs/python-net/aspose.slides/textframe/parent_cell/) k získání vlastnické [Cell](https://reference.aspose.com/slides/cs/python-net/aspose.slides/cell/). Pro textový rámec buňky tabulky je [TextFrame.parent_cell](https://reference.aspose.com/slides/cs/python-net/aspose.slides/textframe/parent_cell/) nastaven a [TextFrame.parent_shape](https://reference.aspose.com/slides/cs/python-net/aspose.slides/textframe/parent_shape/) je `None`, i když samotná tabulka je tvar.
+
+Souřadnice buňky jsou k dispozici prostřednictvím jen pro čtení vlastností [Cell.first_column_index](https://reference.aspose.com/slides/cs/python-net/aspose.slides/cell/first_column_index/) a [Cell.first_row_index](https://reference.aspose.com/slides/cs/python-net/aspose.slides/cell/first_row_index/). Vlastnost [TextFrame.parent_cell](https://reference.aspose.com/slides/cs/python-net/aspose.slides/textframe/parent_cell/) je také jen pro čtení: poskytuje navigaci k vlastníku, ale nemění vlastnictví. Vždy před použitím zkontrolujte, zda vrácená buňka není `None`.
+
+Pro kompletní příklad, který identifikuje vlastníky buněk tabulky i tvarů, včetně tvarů spojených se SmartArt uzly, viz [Search and Replace Text](/slides/cs/python-net/search-and-replace-text/).
+
 ## **Zarovnání textu v tabulkách**
 
-Tato sekce ukazuje, jak řídit zarovnání textu uvnitř buněk tabulky pomocí Aspose.Slides. Naučíte se nastavit vodorovné i svislé zarovnání buněk, aby byl váš obsah přehledný a konzistentní.
+Tato sekce ukazuje, jak pomocí Aspose.Slides ovládat umístění textu uvnitř buněk tabulky. Naučíte se ukotvit text vevertikálně v buňce a změnit směr, kterým se text zobrazuje.
 
-1. Vytvořte instanci třídy [Presentation].
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/).
 2. Získejte odkaz na snímek podle jeho indexu.
-3. Přidejte objekt [Table] na snímek.
-4. Získejte objekt [Cell] z tabulky.
-5. Zarovnejte text vertikálně.
+3. Přidejte objekt [Table](https://reference.aspose.com/slides/cs/python-net/aspose.slides/table/) do snímku.
+4. Získejte přístup k objektu [Cell](https://reference.aspose.com/slides/cs/python-net/aspose.slides/cell/) z tabulky.
+5. Vycentrujte text vevertikálně v buňce a nastavte směr textu.
 6. Uložte upravenou prezentaci.
 
 Následující příklad v Pythonu ukazuje, jak zarovnat text v tabulce:
@@ -166,7 +187,7 @@ import aspose.slides as slides
 
 # Vytvořte instanci třídy Presentation.
 with slides.Presentation() as presentation:
-    # Získejte první snímek.
+    # Přístup k prvnímu snímku.
     slide = presentation.slides[0]
 
     # Definujte šířky sloupců a výšky řádků.
@@ -180,7 +201,7 @@ with slides.Presentation() as presentation:
     table.rows[2][0].text_frame.text = "20"
     table.rows[3][0].text_frame.text = "30"
 
-    # Centrovat text a nastavit svislou orientaci.
+    # Vycentrujte text a nastavte vertikální orientaci.
     cell = table.rows[0][0]
     cell.text_anchor_type = slides.TextAnchorType.CENTER
     cell.text_vertical_type = slides.TextVerticalType.VERTICAL270
@@ -191,17 +212,17 @@ with slides.Presentation() as presentation:
 
 ## **Nastavení formátování textu na úrovni tabulky**
 
-Tato sekce ukazuje, jak aplikovat formátování textu na úrovni tabulky v Aspose.Slides, aby každá buňka zdědila jednotný styl. Naučíte se globálně nastavit velikost písma, zarovnání a okraje.
+Tato sekce ukazuje, jak v Aspose.Slides aplikovat formátování textu na úrovni tabulky, aby každá buňka zdědila jednotný styl. Naučíte se nastavit velikost písma, zarovnání a okraje globálně.
 
-1. Vytvořte instanci třídy [Presentation].
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/).
 2. Získejte odkaz na snímek podle jeho indexu.
-3. Přidejte [Table] na snímek.
+3. Přidejte [Table](https://reference.aspose.com/slides/cs/python-net/aspose.slides/table/) do snímku.
 4. Nastavte velikost písma (výšku písma) pro text.
-5. Nastavte zarovnání odstavce a okraje.
+5. Nastavte zarovnání odstavců a okraje.
 6. Nastavte vertikální orientaci textu.
 7. Uložte upravenou prezentaci.
 
-Následující příklad v Pythonu ukazuje, jak aplikovat preferované možnosti formátování na text v tabulce:
+Následující příklad v Pythonu ukazuje, jak použít preferované možnosti formátování na text v tabulce:
 
 ```python
 import aspose.pydrawing as draw
@@ -218,13 +239,13 @@ with slides.Presentation() as presentation:
     portion_format.font_height = 25
     table.set_text_format(portion_format)
 
-    # Nastavte text zarovnaný vpravo a pravý okraj pro všechny buňky tabulky.
+    # Nastavte pravé zarovnání textu a pravý okraj pro všechny buňky tabulky.
     paragraph_format = slides.ParagraphFormat()
     paragraph_format.alignment = slides.TextAlignment.RIGHT
     paragraph_format.margin_right = 20
     table.set_text_format(paragraph_format)
 
-    # Nastavte svislou orientaci textu pro všechny buňky tabulky.
+    # Nastavte vertikální orientaci textu pro všechny buňky tabulky.
     text_frame_format = slides.TextFrameFormat()
     text_frame_format.text_vertical_type = slides.TextVerticalType.VERTICAL
     table.set_text_format(text_frame_format)
@@ -234,7 +255,7 @@ with slides.Presentation() as presentation:
 
 ## **Použití vestavěných stylů tabulek**
 
-Aspose.Slides vám umožňuje formátovat tabulky pomocí předdefinovaných stylů přímo v kódu. Příklad demonstruje vytvoření tabulky, aplikaci vestavěného stylu a uložení výsledku — efektivní způsob, jak zajistit konzistentní, profesionální formátování.
+Aspose.Slides vám umožňuje formátovat tabulky pomocí předdefinovaných stylů přímo v kódu. Příklad ukazuje vytvoření tabulky, použití vestavěného stylu a uložení výsledku – efektivní způsob, jak zajistit konzistentní a profesionální formátování.
 
 ```python
 import aspose.slides as slides
@@ -271,14 +292,14 @@ with slides.Presentation() as presentation:
 
 ## **Často kladené otázky**
 
-**Mohu povolit směr čtení zprava doleva (RTL) pro celou tabulku i text v jejích buňkách?**
+**Mohu povolit směr čtení zprava doleva (RTL) pro celou tabulku a text v jejích buňkách?**
 
-Ano. Tabulka poskytuje vlastnost [right_to_left] a odstavce mají [ParagraphFormat.right_to_left]. Použitím obojího se zajistí správné RTL pořadí a vykreslení uvnitř buněk.
+Ano. Tabulka má vlastnost [right_to_left](https://reference.aspose.com/slides/cs/python-net/aspose.slides/table/right_to_left/), a odstavce mají [ParagraphFormat.right_to_left](https://reference.aspose.com/slides/cs/python-net/aspose.slides/paragraphformat/right_to_left/). Použití obou zajišťuje správné RTL pořadí a vykreslení uvnitř buněk.
 
-**Jak mohu zabránit uživatelům v přesunu nebo změně velikosti tabulky v konečném souboru?**
+**Jak mohu zabránit uživatelům přesouvat nebo měnit velikost tabulky v konečném souboru?**
 
-Použijte [uzamčení tvaru](/slides/cs/python-net/applying-protection-to-presentation/) k zakázání přesunu, změny velikosti, výběru apod. Tato uzamčení platí i pro tabulky.
+Použijte [shape locks](/slides/cs/python-net/applying-protection-to-presentation/), abyste zakázali přesouvání, změnu velikosti, výběr atd. Tyto zámky platí i pro tabulky.
 
 **Je podporováno vložení obrázku do buňky jako pozadí?**
 
-Ano. Můžete nastavit [vyplnění obrázkem] pro buňku; obrázek pokryje oblast buňky podle zvoleného režimu (roztáhnout nebo dlaždice).
+Ano. Můžete nastavit [picture fill](https://reference.aspose.com/slides/cs/python-net/aspose.slides/picturefillformat/) pro buňku; obrázek pokryje oblast buňky podle zvoleného režimu (roztažení nebo dlaždice).

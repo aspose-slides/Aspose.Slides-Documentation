@@ -10,7 +10,7 @@ keywords:
 - جایگزینی متن
 - عبارت منظم
 - فراخوانی نتیجه
-- قاب متن
+- فریم متن
 - گزارش حسابرسی
 - PowerPoint
 - OpenDocument
@@ -18,44 +18,120 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "جستجو، برجسته‌سازی و جایگزینی متن در ارائه‌های PowerPoint هنگام جمع‌آوری هر تطبیق با Aspose.Slides برای .NET."
+description: "متن را در ارائه‌های PowerPoint جستجو، برجسته و جایگزین کنید در حالی که هر مطابقت را با Aspose.Slides برای .NET جمع‌آوری می‌کنید."
 ---
-## **نمای کلی**
+## **مروری کلی**
 
-Aspose.Slides for .NET می‌تواند متن را در یک قاب متن منفرد یا در کل ارائه جستجو، برجسته‌سازی و جایگزینی کند. هر عملیات می‌تواند با استفاده از یک فراخوانی نتیجه، برنامه را از هر تطبیق آگاه کند. این امکان را می‌دهد تا یک ارائه را به‌روزرسانی کنید و به‌طور همزمان یک مسیر حسابرسی شامل متن مطابق، زمینه آن، موقعیت، قاب متن و شماره اسلاید ایجاد کنید.
+Aspose.Slides for .NET می‌تواند متن را در یک فریم متنی منفرد یا در تمام ارائه جستجو، برجسته و جایگزین کند. هر عملیات می‌تواند با یک فراخوانی نتیجه، برنامه را در مورد هر مطابقت آگاه سازد. این امکان به‌روز‌رسانی ارائه و به‌طور همزمان ایجاد ردپای حسابرسی شامل متن مطابقت‌داری، زمینه، موقعیت، فریم متن و شماره اسلاید را فراهم می‌آورد.
 
-این قابلیت‌ها برای مرور، حذف، بررسی واژگان، پاک‌سازی قالب و گردش‌کارهای گزارش‌گیری خودکار مفید هستند.
+این قابلیت‌ها برای بازبینی، محو کردن، بررسی واژگان، پاک‌سازی قالب و جریان‌های کاری گزارش‌دهی خودکار مفید هستند.
 
-در مثال‌های اول زیر، از فایلی به نام "sample.pptx" استفاده می‌کنیم که یک جعبه متن واحد در اسلاید اول دارد و متن زیر را شامل می‌شود:
+در مثال‌های اولیه زیر، از پرونده‌ای به نام «sample.pptx» استفاده می‌کنیم که یک جعبه متن در اسلاید اول دارد و شامل متن زیر است:
 
 ![متن نمونه](sample_text.png)
 
 ## **انتخاب دامنه جستجو**
 
-از متدهای [ITextFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/) برای محدود کردن یک عملیات به یک قاب متن استفاده کنید. از متدهای [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/) برای پردازش تمام متن‌های قابل اعمال در ارائه استفاده کنید.
+از روش‌های موجود در [ITextFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/) برای محدود کردن عملیات به یک فریم متنی استفاده کنید. از روش‌های موجود در [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/) برای پردازش تمام متن‌های قابل‌ اعمال در ارائه بهره ببرید.
 
-| عملیات | یک قاب متن | کل ارائه |
+| عملیات | یک فریم متنی | تمام ارائه |
 |---|---|---|
-| برجسته‌سازی متن ثابت | [ITextFrame.HighlightText](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/highlighttext/) | [Presentation.HighlightText](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/highlighttext/) |
-| برجسته‌سازی تطبیق‌های عبارات منظم | [ITextFrame.HighlightRegex](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/highlightregex/) | [Presentation.HighlightRegex](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/highlightregex/) |
-| جایگزینی متن ثابت | [ITextFrame.ReplaceText](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/replacetext/) | [Presentation.ReplaceText](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/replacetext/) |
-| جایگزینی تطبیق‌های عبارات منظم | [ITextFrame.ReplaceRegex](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/replaceregex/) | [Presentation.ReplaceRegex](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/replaceregex/) |
+| برجسته‌سازی متن لغوی | [ITextFrame.HighlightText](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/highlighttext/) | [Presentation.HighlightText](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/highlighttext/) |
+| برجسته‌سازی مطابقت‌های عبارت منظم | [ITextFrame.HighlightRegex](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/highlightregex/) | [Presentation.HighlightRegex](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/highlightregex/) |
+| جایگزینی متن لغوی | [ITextFrame.ReplaceText](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/replacetext/) | [Presentation.ReplaceText](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/replacetext/) |
+| جایگزینی مطابقت‌های عبارت منظم | [ITextFrame.ReplaceRegex](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/replaceregex/) | [Presentation.ReplaceRegex](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/replaceregex/) |
 
 ## **پیکربندی مطابقت متن**
 
-برای عملیات متن ثابت، از [TextSearchOptions](https://reference.aspose.com/slides/fa/net/aspose.slides/textsearchoptions/) برای کنترل تطبیق استفاده کنید:
+برای عملیات متن لغوی، از [TextSearchOptions](https://reference.aspose.com/slides/fa/net/aspose.slides/textsearchoptions/) برای کنترل مطابقت استفاده کنید:
 
-- [TextSearchOptions.WholeWordsOnly](https://reference.aspose.com/slides/fa/net/aspose.slides/textsearchoptions/wholewordsonly/) تطبیق‌ها را به کلمات کامل محدود می‌کند.
-- [TextSearchOptions.CaseSensitive](https://reference.aspose.com/slides/fa/net/aspose.slides/textsearchoptions/casesensitive/) تعیین می‌کند که حروف باید به‌طور دقیق مطابقت داشته باشند.
-- [TextSearchOptions.IncludeNotes](https://reference.aspose.com/slides/fa/net/aspose.slides/textsearchoptions/includenotes/) یادداشت‌های اسلاید را در عملیات جستجو، جایگزینی و برجسته‌سازی سطح ارائه شامل می‌شود.
+- [TextSearchOptions.WholeWordsOnly](https://reference.aspose.com/slides/fa/net/aspose.slides/textsearchoptions/wholewordsonly/) مطابقت‌ها را فقط به کلمات کامل محدود می‌کند.
+- [TextSearchOptions.CaseSensitive](https://reference.aspose.com/slides/fa/net/aspose.slides/textsearchoptions/casesensitive/) تعیین می‌کند که حروف باید با حساسیت به حالت (بزرگ/کوچک) مطابقت داشته باشند یا نه.
+- [TextSearchOptions.IncludeNotes](https://reference.aspose.com/slides/fa/net/aspose.slides/textsearchoptions/includenotes/) یادداشت‌های اسلاید را در عملیات جستجو، جایگزینی و برجسته‌سازی در سطح ارائه گنجانده می‌شود.
 
-عملیات‌های عبارات منظم از یک `Regex` .NET استفاده می‌کنند، بنابراین قوانین مطابقت مانند حساسیت به حروف و مرزهای کلمه توسط الگو و گزینه‌های آن تعریف می‌شوند.
+عملیات‌های عبارت منظم از یک `Regex` در .NET استفاده می‌کنند، بنابراین قوانین مطابقت مانند حساسیت به حالت و مرزهای کلمه توسط الگو و گزینه‌های آن تعریف می‌شود.
 
-## **جمع‌آوری اطلاعات تطبیق با فراخوانی**
+## **شناسایی مالک فریم متنی**
 
-یک پیاده‌سازی از [IFindResultCallback](https://reference.aspose.com/slides/fa/net/aspose.slides/ifindresultcallback/) برای دریافت اعلان برای هر تطبیق پیاده کنید. متد [IFindResultCallback.FoundResult](https://reference.aspose.com/slides/fa/net/aspose.slides/ifindresultcallback/foundresult/) آن قاب متن مرتبط، متن منبع، متن مطابقت‌یافته و موقعیت تطبیق را ارائه می‌دهد.
+رویکردهای عمومی پردازش متن اغلب یک [ITextFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/) را در حین جستجو، جایگزینی، اعتبارسنجی یا استخراج دریافت می‌کنند. برای تعیین شیء ارائه‌ای که فریم متن را مالک است، از [ITextFrame.ParentShape](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/parentshape/) و [ITextFrame.ParentCell](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/parentcell/) استفاده کنید.
 
-فراخوانی شماره اسلاید را به‌صورت مستقیم دریافت نمی‌کند. پیاده‌سازی زیر آن را از اسلاید والد استخراج می‌کند و همچنین متنی که در یادداشت‌های اسلاید یافت می‌شود را مدیریت می‌کند. یک شماره اسلاید قابل نال شدن اجازه می‌دهد تا همان مدل نتیجه متن مرتبط با انواع دیگر اسلایدها را نشان دهد.
+مقادیر مورد انتظار بسته به مالک متفاوت است:
+
+| مالک فریم متنی | `ParentShape` | `ParentCell` |
+|---|---|---|
+| یک AutoShape یا شکل دیگری که متن دارد | شیء مالک [IShape](https://reference.aspose.com/slides/fa/net/aspose.slides/ishape/) | `null` |
+| یک سلول جدول | `null` | شیء مالک [ICell](https://reference.aspose.com/slides/fa/net/aspose.slides/icell/) |
+
+هر دو ویژگی فقط-خواندنی هستند. خواندن آن‌ها فریم متن را جابجا یا مالک آن را تغییر نمی‌دهد. کد عمومی باید هر دو مقدار را برای `null` بررسی کند و امکان عدم وجود هر دو مالک را در نظر بگیرد.
+
+مثال زیر از [SlideUtil.GetAllTextFrames](https://reference.aspose.com/slides/fa/net/aspose.slides.util/slideutil/getalltextframes/) برای پیمایش فریم‌های متنی در یک ارائه استفاده می‌کند. برای اشکال، نام شکل، نوع شکل و اسلاید حاوی آن گزارش می‌شود. برای سلول‌های جدول، مختصات ستون و ردیف صفر‑مبنای و اسلاید حاوی آن گزارش می‌شود.
+
+```cs
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Util;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var textFrames = SlideUtil.GetAllTextFrames(presentation, false);
+
+foreach (var textFrame in textFrames)
+{
+    var ownerShape = textFrame.ParentShape;
+    if (ownerShape != null)
+    {
+        var shapeName = string.IsNullOrEmpty(ownerShape.Name) ? "(unnamed)" : ownerShape.Name;
+        var shapeType = GetShapeType(ownerShape);
+        var slideLabel = GetSlideLabel(ownerShape.Slide);
+        Console.WriteLine($"Shape: {shapeName}; type: {shapeType}; {slideLabel}");
+
+        continue;
+    }
+
+    var ownerCell = textFrame.ParentCell;
+    if (ownerCell != null)
+    {
+        var slideLabel = GetSlideLabel(ownerCell.Slide);
+        Console.WriteLine($"Table cell: column {ownerCell.FirstColumnIndex}, row {ownerCell.FirstRowIndex}; {slideLabel}");
+        continue;
+    }
+
+    Console.WriteLine("The text frame owner is not available as a shape or table cell.");
+}
+
+static string GetShapeType(IShape shape)
+{
+    if (shape is IGeometryShape geometryShape)
+    {
+        return geometryShape.ShapeType.ToString();
+    }
+
+    return shape.GetType().Name;
+}
+
+static string GetSlideLabel(IBaseSlide baseSlide)
+{
+    if (baseSlide is ISlide slide)
+    {
+        return $"slide {slide.SlideNumber}";
+    }
+
+    if (baseSlide is INotesSlide notesSlide)
+    {
+        return $"notes for slide {notesSlide.ParentSlide.SlideNumber}";
+    }
+
+    return baseSlide.GetType().Name;
+}
+```
+
+برای محتوای SmartArt، در اشکال موجود در [ISmartArtNode.Shapes](https://reference.aspose.com/slides/fa/net/aspose.slides.smartart/ismartartnode/shapes/) پیمایش کنید و به هر [ISmartArtShape.TextFrame](https://reference.aspose.com/slides/fa/net/aspose.slides.smartart/ismartartshape/textframe/) دسترسی داشته باشید. فریم متنی می‌تواند از طریق [ITextFrame.ParentShape](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/parentshape/) به شکل مرتبط خود ردیابی شود، در حالی که [ITextFrame.ParentCell](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/parentcell/) برابر `null` است. بنابراین شاخه شکل در مثال نیز متن SmartArt را پردازش می‌کند.
+
+## **جمع‌آوری اطلاعات مطابقت با فراخوانی بازگشت**
+
+برای دریافت اطلاعیه برای هر مطابقت، [IFindResultCallback](https://reference.aspose.com/slides/fa/net/aspose.slides/ifindresultcallback/) را پیاده‌سازی کنید. متد [IFindResultCallback.FoundResult](https://reference.aspose.com/slides/fa/net/aspose.slides/ifindresultcallback/foundresult/) فریم متن مرتبط، متن منبع، متن مطابقت‌دار و موقعیت مطابقت را فراهم می‌کند.
+
+فراخوانی بازگشت شماره اسلاید را مستقیماً دریافت نمی‌کند. پیاده‌سازی زیر آن را از اسلاید والد استخراج می‌کند و متن موجود در یادداشت اسلاید را نیز مدیریت می‌کند. یک شماره اسلاید nullable امکان نمایندگی متن مرتبط با انواع دیگر اسلایدها را در همان مدل نتیجه فراهم می‌سازد.
 
 ```cs
 using System.Collections.Generic;
@@ -93,12 +169,7 @@ public sealed class TextSearchCallback : IFindResultCallback
 
     private static int? GetSlideNumber(ITextFrame textFrame)
     {
-        if (textFrame is not TextFrame concreteTextFrame)
-        {
-            return null;
-        }
-
-        var parentSlide = concreteTextFrame.Slide;
+        var parentSlide = textFrame.ParentShape?.Slide ?? textFrame.ParentCell?.Slide ?? textFrame.Slide;
 
         if (parentSlide is ISlide slide)
         {
@@ -115,13 +186,13 @@ public sealed class TextSearchCallback : IFindResultCallback
 }
 ```
 
-برای عملیات جایگزینی، `FoundText` شامل متن اصلی مطابقت‌یافته است، بنابراین فراخوانی می‌تواند دقیقاً ثبت کند که چه اصطلاحاتی جایگزین شده‌اند.
+برای عملیات جایگزینی، `FoundText` شامل متن اصلی مطابقت‌دار است، بنابراین فراخوانی می‌تواند دقیقاً ثبت کند که کدام عبارات جایگزین شده‌اند.
 
 ## **برجسته‌سازی متن**
 
-از متد [ITextFrame.HighlightText](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/highlighttext/) برای برجسته‌سازی تطبیق‌های متن ثابت در یک قاب متن استفاده کنید. برای کنترل جستجو و جمع‌آوری جزئیات تطبیق، یک [TextSearchOptions](https://reference.aspose.com/slides/fa/net/aspose.slides/textsearchoptions/) و یک فراخوانی پاس کنید.
+از متد [ITextFrame.HighlightText](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/highlighttext/) برای برجسته‌سازی مطابقت‌های متن لغوی در یک فریم متنی استفاده کنید. برای کنترل جستجو، یک [TextSearchOptions](https://reference.aspose.com/slides/fa/net/aspose.slides/textsearchoptions/) پاس بدهید و برای جمع‌آوری جزئیات مطابقت یک فراخوانی بازگشت ارائه کنید.
 
-کد زیر تمام رخدادهای کاراکترهای **"try"** را برجسته می‌کند و سپس تنها کلمه کامل **"to"** را برجسته می‌سازد. هر دو جستجو تطبیق‌های خود را به همان فراخوانی گزارش می‌دهند.
+کد زیر تمام رخدادهای کاراکترهای **"try"** را برجسته می‌کند و سپس فقط کلمهٔ کامل **"to"** را. هر دو جستجو مطابقت‌های خود را به همان فراخوانی بازگشت گزارش می‌دهند.
 
 ```cs
 using System;
@@ -131,7 +202,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation("sample.pptx");
 
-// Get the first shape from the first slide.
+// دریافت اولین شکل از اولین اسلاید.
 var shape = (IAutoShape)presentation.Slides[0].Shapes[0];
 var callback = new TextSearchCallback();
 
@@ -140,7 +211,7 @@ var substringSearchOptions = new TextSearchOptions
     CaseSensitive = false
 };
 
-// Highlight every occurrence of "try" in the text frame.
+// برجسته‌سازی تمام رخدادهای "try" در فریم متن.
 shape.TextFrame.HighlightText("try", Color.LightBlue, substringSearchOptions, callback);
 
 var wholeWordSearchOptions = new TextSearchOptions
@@ -149,7 +220,7 @@ var wholeWordSearchOptions = new TextSearchOptions
     CaseSensitive = false
 };
 
-// Highlight only the complete word "to".
+// برجسته‌سازی فقط کلمه کامل "to".
 shape.TextFrame.HighlightText("to", Color.Violet, wholeWordSearchOptions, callback);
 
 foreach (var result in callback.Results)
@@ -162,13 +233,13 @@ presentation.Save("highlighted_text.pptx", SaveFormat.Pptx);
 
 نتیجه:
 
-![متن برجسته شده](highlighted_text.png)
+![متن برجسته‌شده](highlighted_text.png)
 
 ## **برجسته‌سازی متن با استفاده از عبارات منظم**
 
-متد [ITextFrame.HighlightRegex](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/highlightregex/) تطبیق‌های متنی را که با یک عبارت منظم پیدا می‌شوند، در یک قاب متن برجسته می‌کند.
+متد [ITextFrame.HighlightRegex](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/highlightregex/) متن مطابقت‌یافته با یک عبارت منظم را در یک فریم متنی برجسته می‌کند.
 
-کد زیر تمام کلماتی که شامل هفت یا بیشتر کاراکتر هستند را برجسته می‌کند و هر تطبیق را جمع‌آوری می‌نماید:
+کد زیر تمام کلمات حاوی هفت یا بیشتر کاراکتر را برجسته کرده و هر مطابقت را جمع‌آوری می‌کند:
 
 ```cs
 using System.Drawing;
@@ -189,11 +260,11 @@ presentation.Save("highlighted_text_using_regex.pptx", SaveFormat.Pptx);
 
 نتیجه:
 
-![متن برجسته شده با استفاده از عبارت منظم](highlighted_text_using_regex.png)
+![متن برجسته‌شده با استفاده از عبارت منظم](highlighted_text_using_regex.png)
 
-## **برجسته‌سازی متن در کل ارائه**
+## **برجسته‌سازی متن در سراسر یک ارائه**
 
-از [Presentation.HighlightText](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/highlighttext/) و [Presentation.HighlightRegex](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/highlightregex/) برای جستجو در تمام قاب‌های متنی قابل اعمال در یک ارائه استفاده کنید. مثال زیر یک اصطلاح ثابت و تمام آدرس‌های ایمیل را برجسته می‌کند در حالی که مجموعه نتایج جداگانه‌ای برای دو جستجو نگه می‌دارد.
+از [Presentation.HighlightText](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/highlighttext/) و [Presentation.HighlightRegex](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/highlightregex/) برای جستجوی تمام فریم‌های متنی قابل‌ اعمال در یک ارائه استفاده کنید. مثال زیر یک اصطلاح لغوی و تمام آدرس‌های ایمیل را برجسته می‌کند در حالی که مجموعه نتایج جداگانه‌ای برای دو جستجو نگه می‌دارد.
 
 ```cs
 using System.Drawing;
@@ -220,11 +291,11 @@ presentation.HighlightRegex(emailRegex, Color.Yellow, emailCallback);
 presentation.Save("highlighted_presentation.pptx", SaveFormat.Pptx);
 ```
 
-## **جایگزینی متن در یک قاب متن**
+## **جایگزینی متن در یک فریم متنی**
 
-از [ITextFrame.ReplaceText](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/replacetext/) برای متن ثابت و [ITextFrame.ReplaceRegex](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/replaceregex/) برای جایگزینی بر پایه الگو استفاده کنید. این متدها متن مطابقت‌یافته را درون قاب متن موجود به‌روزرسانی می‌کنند و قالب‌بندی قسمت‌های اطراف را حفظ می‌نمایند، به جای این که قاب متن را از یک رشته ساده بازسازی کنند.
+برای متن لغوی از [ITextFrame.ReplaceText](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/replacetext/) و برای جایگزینی مبتنی بر الگو از [ITextFrame.ReplaceRegex](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/replaceregex/) استفاده کنید. این روش‌ها متن مطابقت‌یافته را درون فریم متنی موجود به‌روز می‌کنند و قالب‌بندی بخش‌های اطراف را حفظ می‌نمایند، به‌جای ساخت مجدد فریم از یک رشتهٔ ساده.
 
-مثال زیر یک واریانت املایی را استاندارد کرده و سپس برچسب‌های نسخه را جایگزین می‌کند. همان فراخوانی اصطلاحات اصلی مطابقت‌یافته توسط هر دو عملیات را ثبت می‌کند.
+مثال زیر یک نوع نوشتاری را استانداردسازی می‌کند و سپس برچسب‌های نسخه را جایگزین می‌سازد. همان فراخوانی بازگشت عبارات اصلی مطابقت‌دار توسط هر دو عملیات را ثبت می‌کند.
 
 ```cs
 using System.Text.RegularExpressions;
@@ -249,11 +320,11 @@ shape.TextFrame.ReplaceRegex(versionRegex, "current version", callback);
 presentation.Save("updated_text_frame.pptx", SaveFormat.Pptx);
 ```
 
-اگر یک تطبیق بخش‌هایی با قالب‌بندی متفاوت را در بر گیرد، خروجی را بررسی کنید تا تأیید کنید کدام قالب‌بندی باید بر متن جایگزین اعمال شود.
+اگر یک مطابقت بخش‌هایی با قالب‌بندی متفاوت را در بر گیرد، خروجی را بررسی کنید تا تأیید کنید کدام قالب‌بندی باید برای متن جایگزین اعمال شود.
 
-## **جایگزینی متن در کل ارائه**
+## **جایگزینی متن در سراسر یک ارائه**
 
-از [Presentation.ReplaceText](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/replacetext/) و [Presentation.ReplaceRegex](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/replaceregex/) برای اعمال همان عملیات‌ها در سراسر ارائه استفاده کنید. این برای پاک‌سازی قالب، به‌روزرسانی واژگان و حذف اطلاعات مفید است.
+از [Presentation.ReplaceText](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/replacetext/) و [Presentation.ReplaceRegex](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/replaceregex/) برای اعمال همان عملیات در سراسر ارائه استفاده کنید. این روش برای پاک‌سازی قالب، به‌روزرسانی واژگان و محو کردن مفید است.
 
 ```cs
 using System.Text.RegularExpressions;
@@ -277,9 +348,9 @@ presentation.ReplaceRegex(accountNumberRegex, "ACCT-REDACTED", callback);
 presentation.Save("updated_presentation.pptx", SaveFormat.Pptx);
 ```
 
-## **گروه‌بندی تطبیق‌ها برای گزارش‌گیری**
+## **گروه‌بندی مطابقت‌ها برای گزارش‌گیری**
 
-از آنجا که هر نتیجه شماره اسلاید و قاب متن خود را ذخیره می‌کند، برنامه‌ها می‌توانند تطبیق‌ها را برای حسابرسی، گزارش‌گیری یا گردش‌کارهای مرور گروه‌بندی کنند. مثال زیر نتایج جمع‌آوری‌شده را ابتدا بر اساس اسلاید و سپس بر اساس قاب متن گروه‌بندی می‌کند:
+از آنجا که هر نتیجه شماره اسلاید و فریم متن را ذخیره می‌کند، برنامه‌ها می‌توانند مطابقت‌ها را برای حسابرسی، گزارش‌گیری یا کارهای بازبینی گروه‌بندی کنند. مثال زیر نتایج جمع‌آوری‌شده را ابتدا بر حسب اسلاید و سپس بر حسب فریم متن گروه‌بندی می‌کند:
 
 ```cs
 using System;
@@ -305,24 +376,24 @@ foreach (var slideGroup in matchesBySlide)
 }
 ```
 
-## **سؤال‌های متداول**
+## **سوالات متداول**
 
-**چگونه می‌توانم فقط یک جعبه متن را به‌جای کل ارائه جستجو کنم؟**
+**چگونه می‌توانم فقط یک جعبه متن را به جای تمام ارائه جستجو کنم؟**
 
-قاب متن شکل را به‌دست آورید و بر روی آن [ITextFrame.HighlightText](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/highlighttext/)، [ITextFrame.HighlightRegex](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/highlightregex/)، [ITextFrame.ReplaceText](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/replacetext/) یا [ITextFrame.ReplaceRegex](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/replaceregex/) فراخوانی کنید. متدهای سطح ارائه تمام قاب‌های متنی قابل اعمال را پردازش می‌کنند.
+فریم متن شکل را دریافت کنید و بر روی آن [ITextFrame.HighlightText](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/highlighttext/)، [ITextFrame.HighlightRegex](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/highlightregex/)، [ITextFrame.ReplaceText](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/replacetext/) یا [ITextFrame.ReplaceRegex](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/replaceregex/) فراخوانی کنید. روش‌های سطح ارائه تمام فریم‌های متنی قابل‌ اعمال را پردازش می‌کنند.
 
 **چگونه می‌توانم کلمات کامل را با حروف بزرگ/کوچک صحیح مطابقت دهم؟**
 
-[TextSearchOptions.WholeWordsOnly](https://reference.aspose.com/slides/fa/net/aspose.slides/textsearchoptions/wholewordsonly/) و [TextSearchOptions.CaseSensitive](https://reference.aspose.com/slides/fa/net/aspose.slides/textsearchoptions/casesensitive/) را به `true` تنظیم کنید و گزینه‌ها را به متد برجسته‌سازی یا جایگزینی متن ثابت پاس دهید. برای عبارات منظم، مرزهای کلمه و حساسیت به حروف را در خود `Regex` تعریف کنید.
+[TextSearchOptions.WholeWordsOnly](https://reference.aspose.com/slides/fa/net/aspose.slides/textsearchoptions/wholewordsonly/) و [TextSearchOptions.CaseSensitive](https://reference.aspose.com/slides/fa/net/aspose.slides/textsearchoptions/casesensitive/) را به `true` تنظیم کنید و گزینه‌ها را به متد برجسته‌سازی یا جایگزینی متن لغوی پاس دهید. برای عبارات منظم، مرزهای کلمه و حساسیت به حروف را در خود `Regex` تعریف کنید.
 
-**آیا جستجو و جایگزینی می‌توانند متن در یادداشت‌های اسلاید را شامل شوند؟**
+**آیا می‌توان جستجو و جایگزینی را شامل متن موجود در یادداشت‌های اسلاید کرد؟**
 
-بله. هنگام استفاده از عملیات متن ثابت در سطح ارائه، [TextSearchOptions.IncludeNotes](https://reference.aspose.com/slides/fa/net/aspose.slides/textsearchoptions/includenotes/) را به `true` تنظیم کنید. پیاده‌سازی فراخوانی نشان‌شده در بالا یک تطبیق در اسلاید یادداشت‌ها را به شماره اسلاید والد خود بازمی‌گرداند.
+بله. هنگام استفاده از یک عملیات متن لغوی در سطح ارائه، [TextSearchOptions.IncludeNotes](https://reference.aspose.com/slides/fa/net/aspose.slides/textsearchoptions/includenotes/) را به `true` تنظیم کنید. پیاده‌سازی فراخوانی بازگشت در بالا یک مطابقت در اسلاید یادداشت را به شماره اسلاید والد خود نگاشت می‌کند.
 
-**چگونه می‌توانم گزارش بدون اسکن مجدد ارائه ایجاد کنم؟**
+**چگونه می‌توانم گزارش بدون اسکن دوبارهٔ ارائه ایجاد کنم؟**
 
-یک پیاده‌سازی از [IFindResultCallback](https://reference.aspose.com/slides/fa/net/aspose.slides/ifindresultcallback/) را به عملیات برجسته‌سازی یا جایگزینی پاس کنید. فراخوانی در حین اجرای عملیات هر تطبیق را دریافت می‌کند، بنابراین برنامه می‌تواند متن منبع، متن مطابقت‌یافته، موقعیت، قاب متن و شماره اسلاید استخراج‌شده را برای گروه‌بندی یا خروجی بعدی ذخیره کند.
+یک پیاده‌سازی از [IFindResultCallback](https://reference.aspose.com/slides/fa/net/aspose.slides/ifindresultcallback/) را به عملیات برجسته‌سازی یا جایگزینی پاس دهید. فراخوانی بازگشت هر مطابقت را در حین اجرا دریافت می‌کند، بنابراین برنامه می‌تواند متن منبع، متن مطابقت‌دار، موقعیت، فریم متن و شماره اسلاید مشتق‌شده را برای گروه‌بندی یا خروجی بعدی ذخیره کند.
 
 **آیا جایگزینی متن قالب‌بندی آن را حفظ می‌کند؟**
 
-[ITextFrame.ReplaceText](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/replacetext/) و [ITextFrame.ReplaceRegex](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/replaceregex/) متن مطابقت‌یافته را درون قاب متن موجود اصلاح می‌کنند و قالب‌بندی بخش‌های اطراف را حفظ می‌نمایند. اگر یک تطبیق بخش‌هایی با قالب‌بندی متفاوت را شامل شود، نتیجه را بررسی کنید تا اطمینان حاصل کنید که جایگزینی از استایل مطلوب استفاده می‌کند.
+[ITextFrame.ReplaceText](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/replacetext/) و [ITextFrame.ReplaceRegex](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframe/replaceregex/) متن مطابقت‌یافته را درون فریم متنی موجود اصلاح می‌کنند و قالب‌بندی بخش‌های اطراف را حفظ می‌نمایند. اگر یک مطابقت بخش‌هایی با قالب‌بندی متفاوت را در بر گیرد، نتیجه را بررسی کنید تا اطمینان حاصل کنید جایگزینی از سبک موردنظر استفاده می‌کند.

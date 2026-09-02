@@ -22,109 +22,191 @@ keywords:
 - simpan PPTX sebagai MD
 - ekspor PPT ke MD
 - ekspor PPTX ke MD
+- ekspor gambar Markdown
+- tautan gambar CDN
 - PowerPoint
 - presentasi
 - Markdown
 - .NET
 - C#
 - Aspose.Slides
-description: "Konversi slide PowerPoint—PPT, PPTX—ke Markdown bersih dengan Aspose.Slides untuk .NET, otomatisasi dokumentasi dan menjaga format."
+description: "Konversi presentasi PPT dan PPTX ke Markdown di .NET serta mengontrol lokasi penyimpanan dan referensi gambar bitmap, metafile, dan SVG yang diekspor."
 ---
-## **Pendahuluan**
+## **Gambaran Umum**
 
-Aspose.Slides memungkinkan Anda mengonversi presentasi PowerPoint ke Markdown, yang dapat berguna untuk alur kerja dokumentasi, pembuatan situs statis, migrasi konten, dan penerbitan teks yang dikontrol versi. API mendukung ekspor langsung dari presentasi PPT dan PPTX ke file MD serta menyediakan opsi tambahan untuk mengendalikan bagaimana konten slide direpresentasikan dalam dokumen Markdown yang dihasilkan.
+Aspose.Slides for .NET dapat mengonversi presentasi PPT dan PPTX ke Markdown untuk dokumentasi, situs statis, migrasi konten, dan alur kerja kontrol versi. Anda dapat memilih varian Markdown, mengontrol cara konten slide dirender, dan menentukan di mana gambar yang diekspor disimpan serta bagaimana Markdown yang dihasilkan merujuknya.
 
-Anda dapat mengekspor presentasi sebagai Markdown polos, memilih dari berbagai varian Markdown seperti CommonMark dan GitHub Flavored Markdown, serta mengonfigurasi cara penanganan gambar selama ekspor. Untuk presentasi yang berisi konten visual, Aspose.Slides juga memungkinkan Anda menyimpan gambar ke folder terpisah dan merujuknya dari file Markdown yang dihasilkan.
+Secara default, ekspor Markdown menggunakan output teks‑saja. Untuk mengekspor konten visual, atur properti [MarkdownSaveOptions.ExportType](https://reference.aspose.com/slides/id/net/aspose.slides.export/markdownsaveoptions/exporttype/) menjadi nilai `Sequential` atau `Visual` dari enumerasi [MarkdownExportType](https://reference.aspose.com/slides/id/net/aspose.slides.export/markdownexporttype/). `Sequential` merender item slide secara terpisah dan berurutan, sedangkan `Visual` menjaga item yang dikelompokkan bersama untuk mempertahankan hubungan visual mereka. Nilai `TextOnly` tidak menghasilkan sumber daya gambar, sehingga peristiwa penyimpanan gambar tidak dipanggil dalam mode tersebut.
 
-{{% alert color="warning" %}}
-Ekspor PowerPoint ke Markdown **tanpa gambar** secara default. Jika Anda ingin mengekspor dokumen PowerPoint yang berisi gambar, Anda perlu mengatur `ExportType = MarkdownExportType.Visual` dan menentukan `BasePath`, tempat gambar yang dirujuk dalam dokumen Markdown akan disimpan.
+## **Konversi Presentasi ke Markdown**
+
+Muat file sumber dengan kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/), lalu panggil metode [Presentation.Save](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/save/) dengan nilai `Md` dari enumerasi [SaveFormat](https://reference.aspose.com/slides/id/net/aspose.slides.export/saveformat/).
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+presentation.Save("presentation.md", SaveFormat.Md);
+```
+
+## **Pilih Varian Markdown**
+
+Properti [MarkdownSaveOptions.Flavor](https://reference.aspose.com/slides/id/net/aspose.slides.export/markdownsaveoptions/flavor/) mengontrol spesifikasi Markdown yang digunakan untuk output. Enumerasi [Flavor](https://reference.aspose.com/slides/id/net/aspose.slides.export/flavor/) mencakup CommonMark, GitHub Flavored Markdown, dan varian lain yang didukung.
+
+Contoh berikut mengekspor presentasi sebagai CommonMark:
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+var options = new MarkdownSaveOptions
+{
+    Flavor = Flavor.CommonMark
+};
+
+presentation.Save("presentation.md", SaveFormat.Md, options);
+```
+
+## **Ekspor Gambar dengan Perilaku Penyimpanan Lokal Bawaan**
+
+Kelas [MarkdownSaveOptions](https://reference.aspose.com/slides/id/net/aspose.slides.export/markdownsaveoptions/) menyediakan dua properti untuk gambar yang disimpan secara lokal:
+
+- [BasePath](https://reference.aspose.com/slides/id/net/aspose.slides.export/markdownsaveoptions/basepath/) menentukan direktori dasar untuk dokumen Markdown dan sumber dayanya.
+- [ImagesSaveFolderName](https://reference.aspose.com/slides/id/net/aspose.slides.export/markdownsaveoptions/imagessavefoldername/) menentukan subdirektori gambar. Nilai defaultnya adalah `Images`.
+
+Contoh berikut merender konten visual, menulis gambar ke `output/assets`, dan membuat referensi gambar relatif dalam dokumen Markdown:
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+const string outputDirectory = "output";
+Directory.CreateDirectory(outputDirectory);
+
+using var presentation = new Presentation("presentation.pptx");
+var options = new MarkdownSaveOptions
+{
+    ExportType = MarkdownExportType.Visual,
+    BasePath = outputDirectory,
+    ImagesSaveFolderName = "assets"
+};
+
+var markdownPath = Path.Combine(outputDirectory, "presentation.md");
+presentation.Save(markdownPath, SaveFormat.Md, options);
+```
+
+Perilaku ini juga berfungsi sebagai cadangan ketika penangan gambar khusus mengembalikan `false`.
+
+## **Sesuaikan Penyimpanan Gambar dan Tautan Markdown**
+
+Gunakan peristiwa [MarkdownSaveOptions.ImageSaving](https://reference.aspose.com/slides/id/net/aspose.slides.export/markdownsaveoptions/imagesaving/) untuk sumber daya bitmap dan metafile non‑SVG yang dihasilkan selama ekspor Markdown. Delegasi [MarkdownImageSavingHandler](https://reference.aspose.com/slides/id/net/aspose.slides.export/markdownsaveoptions.markdownimagesavinghandler/) menerima objek [IImage](https://reference.aspose.com/slides/id/net/aspose.slides/iimage/), [ImageFormat](https://reference.aspose.com/slides/id/net/aspose.slides/imageformat/), dan tautan Markdown yang dihasilkan sebagai parameter `ref string`. Simpan atau unggah gambar dengan format yang diberikan, dan ganti `link` dengan referensi yang harus muncul dalam output Markdown.
+
+Sumber daya yang dihasilkan dalam format SVG ditangani secara terpisah. Langganan peristiwa [MarkdownSaveOptions.SvgImageSaving](https://reference.aspose.com/slides/id/net/aspose.slides.export/markdownsaveoptions/svgimagesaving/), yang delegasinya [MarkdownSvgImageSavingHandler](https://reference.aspose.com/slides/id/net/aspose.slides.export/markdownsaveoptions.markdownsvgimagesavinghandler/) menerima objek [ISvgImage](https://reference.aspose.com/slides/id/net/aspose.slides/isvgimage/) dan parameter `ref string link`. SVG tidak memiliki argumen `ImageFormat`; tulis atau unggah data XML‑nya dari properti [ISvgImage.SvgData](https://reference.aspose.com/slides/id/net/aspose.slides/isvgimage/svgdata/) sebagai gantinya. Bergantung pada mode ekspor dan pengelompokan visual, SVG dalam presentasi sumber dapat dirasterisasi atau digabungkan dengan konten lain; sumber daya non‑SVG yang dihasilkan kemudian diteruskan ke `ImageSaving`. Langganan kedua peristiwa ketika setiap sumber daya visual yang diekspor memerlukan pemrosesan khusus.
+
+Nilai kembali penangan menentukan siapa yang memproses gambar:
+
+- Kembalikan `true` setelah penangan menyimpan, mengunggah, mengubah, atau memproses gambar dan menetapkan nilai yang valid ke `link`. Aspose.Slides menulis nilai tersebut ke dokumen Markdown dan tidak melakukan penyimpanan lokal bawaan.
+- Kembalikan `false` untuk membiarkan Aspose.Slides menyimpan gambar secara lokal dan menghasilkan tautannya menurut [MarkdownSaveOptions.BasePath](https://reference.aspose.com/slides/id/net/aspose.slides.export/markdownsaveoptions/basepath/) dan [MarkdownSaveOptions.ImagesSaveFolderName](https://reference.aspose.com/slides/id/net/aspose.slides.export/markdownsaveoptions/imagessavefoldername/).
+
+{{% alert color="warning" title="Penting" %}}
+
+Penangan yang mengembalikan `true` bertanggung jawab atas gambar. Jika mengembalikan `true` tanpa menetapkan tautan yang valid dan tidak kosong, ekspor akan gagal dengan `InvalidOperationException`.
+
 {{% /alert %}}
 
-## **Konversi PowerPoint ke Markdown**
+### **Simpan Gambar ke Direktori Asal CDN dan Gunakan URL Eksternal**
 
-1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation) untuk merepresentasikan objek presentasi.  
-2. Gunakan [Save ](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/methods/save)method untuk menyimpan objek sebagai file markdown.
+Contoh berikut memperlakukan `cdn-origin/presentations/quarterly-report` sebagai direktori asal CDN yang dipasang atau disinkronkan. Setiap penangan mengekstrak nama file yang dihasilkan, menyimpan gambar ke direktori khusus tersebut, dan mengganti referensi lokal yang dihasilkan dengan URL CDN publik. Contoh ini tidak melakukan unggahan jaringan: URL menjadi valid hanya setelah direktori dipasang sebagai asal CDN atau file‑filenya dipublikasikan ke CDN. Untuk penyimpanan objek, gantikan penulisan sistem berkas dengan operasi unggah SDK penyimpanan dan tetapkan `link` hanya setelah unggahan berhasil.
 
-Contoh kode C# berikut menunjukkan cara mengonversi PowerPoint ke markdown:
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+const string outputDirectory = "output";
+const string publicBaseUrl = "https://cdn.example.com/presentations/quarterly-report";
+var storageDirectory = Path.Combine("cdn-origin", "presentations", "quarterly-report");
+Directory.CreateDirectory(outputDirectory);
+Directory.CreateDirectory(storageDirectory);
+
+static string GetFileNameFromLink(string generatedLink)
 {
-    pres.Save("pres.md", SaveFormat.Md);
+    var urlCompatibleLink = generatedLink.Replace('\\', '/');
+    return urlCompatibleLink[(urlCompatibleLink.LastIndexOf('/') + 1)..];
 }
-```
 
-## **Konversi PowerPoint ke Varian Markdown**
-
-Aspose.Slides memungkinkan Anda mengonversi PowerPoint ke markdown (mengandung sintaks dasar), CommonMark, GitHub flavored markdown, Trello, XWiki, GitLab, dan 17 varian markdown lainnya.
-
-Contoh kode C# berikut menunjukkan cara mengonversi PowerPoint ke CommonMark:
-
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+static string BuildPublicUrl(string baseUrl, string fileName)
 {
-    pres.Save("pres.md", SaveFormat.Md, new MarkdownSaveOptions
+    return $"{baseUrl}/{Uri.EscapeDataString(fileName)}";
+}
+
+using var presentation = new Presentation("presentation.pptx");
+var options = new MarkdownSaveOptions
+{
+    ExportType = MarkdownExportType.Visual,
+    BasePath = outputDirectory,
+    ImagesSaveFolderName = "fallback-images"
+};
+
+options.ImageSaving += (IImage image, ImageFormat format, ref string link) =>
+{
+    if (image.Width < 128 || image.Height < 128)
     {
-        Flavor = Flavor.CommonMark
-    });
-}
-```
+        return false;
+    }
 
-23 varian markdown yang didukung **terdaftar** pada [enumerasi Flavor](https://reference.aspose.com/slides/id/net/aspose.slides.dom.export.markdown.saveoptions/flavor/) dari kelas [MarkdownSaveOptions](https://reference.aspose.com/slides/id/net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/).
+    var fileName = GetFileNameFromLink(link);
+    var storagePath = Path.Combine(storageDirectory, fileName);
+    image.Save(storagePath, format);
+    link = BuildPublicUrl(publicBaseUrl, fileName);
+    return true;
+};
 
-## **Konversi Presentasi yang Mengandung Gambar ke Markdown**
-
-Kelas [MarkdownSaveOptions](https://reference.aspose.com/slides/id/net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) menyediakan properti dan enumerasi yang memungkinkan Anda mengatur opsi tertentu untuk file markdown yang dihasilkan. Enum [MarkdownExportType](https://reference.aspose.com/slides/id/net/aspose.slides.dom.export.markdown.saveoptions/markdownexporttype/) misalnya, dapat diatur ke nilai yang menentukan bagaimana gambar dirender atau ditangani: `Sequential`, `TextOnly`, `Visual`.
-
-### **Konversi Gambar Secara Berurutan**
-
-Jika Anda ingin gambar muncul satu per satu secara berurutan dalam markdown yang dihasilkan, pilih opsi sequential. Contoh kode C# berikut menunjukkan cara mengonversi presentasi yang berisi gambar ke markdown:
-
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+options.SvgImageSaving += (ISvgImage svgImage, ref string link) =>
 {
-    MarkdownSaveOptions markdownSaveOptions = new MarkdownSaveOptions
-    {
-        ShowHiddenSlides = true,
-        ShowSlideNumber = true,
-        Flavor = Flavor.Github,
-        ExportType = MarkdownExportType.Sequential,
-        NewLineType = NewLineType.Windows
-    };
-    
-    pres.Save("doc.md", new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 }, SaveFormat.Md, markdownSaveOptions);
-}
+    var fileName = GetFileNameFromLink(link);
+    var storagePath = Path.Combine(storageDirectory, fileName);
+    File.WriteAllBytes(storagePath, svgImage.SvgData);
+    link = BuildPublicUrl(publicBaseUrl, fileName);
+    return true;
+};
+
+var markdownPath = Path.Combine(outputDirectory, "presentation.md");
+presentation.Save(markdownPath, SaveFormat.Md, options);
 ```
 
-### **Konversi Gambar Secara Visual**
-
-Jika Anda ingin gambar muncul bersama-sama dalam markdown yang dihasilkan, pilih opsi visual. Dalam kasus ini, gambar akan disimpan ke direktori kerja aplikasi (dan jalur relatif akan dibangun untuknya dalam dokumen markdown), atau Anda dapat menentukan jalur dan nama folder yang diinginkan.
-
-Contoh kode C# berikut memperlihatkan operasinya:
-
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-    const string outPath = "c:\\documents";
-    pres.Save(Path.Combine(outPath, "pres.md"), SaveFormat.Md, new MarkdownSaveOptions
-    { 
-        ExportType = MarkdownExportType.Visual,
-        ImagesSaveFolderName = "md-images",
-        BasePath = outPath
-    });
-}
-```
+Penangan bitmap sengaja mengembalikan `false` untuk gambar yang lebih kecil dari 128 × 128 piksel, sehingga Aspose.Slides menyimpan gambar tersebut ke `output/fallback-images` menggunakan perilaku default. Sumber daya bitmap dan metafile yang lebih besar, serta sumber daya SVG, ditangani oleh kode khusus. Misalnya, referensi lokal yang dihasilkan seperti `fallback-images/image1.png` menjadi `https://cdn.example.com/presentations/quarterly-report/image1.png`. Penangan menggunakan jalur sistem operasi hanya saat menulis file; tautan yang ditulis ke Markdown menggunakan garis miring maju dan nama file yang di‑escape untuk URL. Terapkan aturan yang sama saat membangun tautan relatif: gunakan `/`, bukan pemisah direktori spesifik platform.
 
 ## **FAQ**
 
-**Apakah hyperlink tetap ada setelah diekspor ke Markdown?**
+**Apakah satu penangan dapat memproses gambar raster dan gambar SVG?**
 
-Ya. Teks [hyperlinks](/slides/id/net/manage-hyperlinks/) dipertahankan sebagai tautan Markdown standar. Slide [transitions](/slides/id/net/slide-transition/) dan [animations](/slides/id/net/powerpoint-animation/) tidak dikonversi.
+Tidak. Gunakan [MarkdownSaveOptions.ImageSaving](https://reference.aspose.com/slides/id/net/aspose.slides.export/markdownsaveoptions/imagesaving/) untuk sumber daya bitmap dan metafile yang dihasilkan serta [MarkdownSaveOptions.SvgImageSaving](https://reference.aspose.com/slides/id/net/aspose.slides.export/markdownsaveoptions/svgimagesaving/) untuk sumber daya yang dihasilkan sebagai SVG. Yang pertama menyediakan objek [IImage](https://reference.aspose.com/slides/id/net/aspose.slides/iimage/) dan [ImageFormat](https://reference.aspose.com/slides/id/net/aspose.slides/imageformat/); yang kedua menyediakan objek [ISvgImage](https://reference.aspose.com/slides/id/net/aspose.slides/isvgimage/) yang data SVG‑nya dapat dibaca dari [ISvgImage.SvgData](https://reference.aspose.com/slides/id/net/aspose.slides/isvgimage/svgdata/). SVG sumber yang dirasterisasi selama ekspor diproses oleh `ImageSaving` alih‑alih.
 
-**Bisakah saya mempercepat konversi dengan menjalankannya dalam beberapa thread?**
+**Apa yang terjadi ketika penangan penyimpanan gambar mengembalikan `false`?**
 
-Anda dapat memparalelkan antar file, namun [don’t share](/slides/id/net/multithreading/) instance [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/) yang sama antar thread. Gunakan instance atau proses terpisah per file untuk menghindari kontensi.
+Aspose.Slides menggunakan perilaku penyimpanan lokal defaultnya. Lokasi gambar dan referensi yang dihasilkan dikontrol oleh [MarkdownSaveOptions.BasePath](https://reference.aspose.com/slides/id/net/aspose.slides.export/markdownsaveoptions/basepath/) dan [MarkdownSaveOptions.ImagesSaveFolderName](https://reference.aspose.com/slides/id/net/aspose.slides.export/markdownsaveoptions/imagessavefoldername/).
 
-**Apa yang terjadi pada gambar—di mana mereka disimpan, dan apakah jalurnya relatif?**
+**Apakah penangan dapat memberikan URL tanpa menyimpan gambar secara lokal?**
 
-[Images](/slides/id/net/image/) diekspor ke folder khusus, dan file Markdown merujuknya dengan jalur relatif secara default. Anda dapat mengonfigurasi jalur output dasar dan nama folder aset untuk menjaga struktur repositori yang dapat diprediksi.
+Ya. Penangan dapat mengunggah gambar ke penyimpanan objek atau meneruskannya ke layanan lain, menetapkan URL yang dihasilkan ke `link`, dan mengembalikan `true`. Penangan harus menyelesaikan pemrosesan sendiri; mengembalikan `true` mencegah penyimpanan lokal default.
+
+**Mengapa ekspor Markdown melempar `InvalidOperationException` dari penangan?**
+
+Pengecualian ini terjadi ketika penangan mengembalikan `true` namun tidak menyediakan tautan yang valid. Tetapkan jalur relatif atau URL eksternal yang harus ditulis ke Markdown sebelum mengembalikan `true`.
+
+**Pemilih pemisah jalur mana yang harus digunakan untuk tautan gambar?**
+
+Gunakan garis miring maju dalam tautan Markdown dan URL. Gunakan `Path.Combine` hanya untuk jalur sistem berkas, lalu buat atau normalisasi referensi Markdown secara terpisah.
+
+**Apakah hyperlink dipertahankan selama ekspor Markdown?**
+
+Ya. Teks [hyperlinks](/slides/id/net/manage-hyperlinks/) dipertahankan sebagai tautan Markdown standar. [Transitions](/slides/id/net/slide-transition/) dan [animations](/slides/id/net/powerpoint-animation/) slide tidak dikonversi.
+
+**Apakah presentasi dapat dikonversi ke Markdown secara paralel?**
+
+Anda dapat memproses berkas presentasi yang berbeda secara paralel, tetapi jangan berbagi instance [Presentation](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/) yang sama antar‑thread. Ikuti [multithreading guidelines](/slides/id/net/multithreading/) dan gunakan instance terpisah untuk tiap berkas.

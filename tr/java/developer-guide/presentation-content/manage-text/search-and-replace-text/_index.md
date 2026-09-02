@@ -1,15 +1,15 @@
 ---
-title: Java'da PowerPoint Sunumlarında Metin Arama ve Değiştirme
-linktitle: Metin Ara ve Değiştir
+title: Java ile PowerPoint Sunumlarında Metin Arama ve Değiştirme
+linktitle: Metin Arama ve Değiştirme
 type: docs
 weight: 55
 url: /tr/java/search-and-replace-text/
 keywords:
-- metin ara
-- metin vurgula
-- metin değiştir
+- metin arama
+- metin vurgulama
+- metin değiştirme
 - düzenli ifade
-- sonuç geri çağırma
+- sonuç geri çağrısı
 - metin çerçevesi
 - denetim raporu
 - PowerPoint
@@ -17,44 +17,108 @@ keywords:
 - sunum
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java kullanarak PowerPoint sunumlarında metin arayın, vurgulayın ve değiştirin; tüm eşleşmeleri toplayın."
+description: "Aspose.Slides for Java ile her eşleşmeyi toplarken PowerPoint sunumlarında metin arama, vurgulama ve değiştirme."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides for Java, tek bir metin çerçevesinde veya tüm sunumda metin arama, vurgulama ve değiştirme yapabilir. Her işlem, bir sonuç geri çağırma (callback) aracılığıyla her eşleşme hakkında uygulamaya bildirim gönderebilir. Bu sayede bir sunumu güncelleyebilir ve eşleşen metni, bağlamını, konumunu, metin çerçevesini ve slayt numarasını içeren bir denetim izini aynı anda oluşturabilirsiniz.
+Aspose.Slides for Java, bireysel bir metin çerçevesinde veya tüm sunu boyunca metin arayabilir, vurgulayabilir ve değiştirebilir. Her işlem aynı zamanda bir sonuç geri çağrısı aracılığıyla her eşleşme hakkında uygulamayı bilgilendirebilir. Bu, bir sunuyu güncellerken eşleşen metni, bağlamını, konumunu, metin çerçevesini ve slayt numarasını içeren bir denetim izini aynı anda oluşturmayı mümkün kılar.
 
-Bu özellikler inceleme, redaksiyon, terminoloji kontrolleri, şablon temizliği ve otomatik raporlama iş akışları için yararlıdır.
+Bu yetenekler inceleme, redaksiyon, terminoloji kontrolleri, şablon temizleme ve otomatik raporlama iş akışları için yararlıdır.
 
-Aşağıdaki ilk örneklerde, ilk slaytta tek bir metin kutusu bulunan ve aşağıdaki metni içeren “sample.pptx” adlı bir dosya kullanıyoruz:
+Aşağıdaki ilk örneklerde, ilk slaytta aşağıdaki metni içeren tek bir metin kutusu bulunan **sample.pptx** adlı dosyayı kullanıyoruz:
 
-![Sample text](sample_text.png)
+![Örnek metin](sample_text.png)
 
 ## **Arama Kapsamını Seçin**
 
-Bir işlemi tek bir metin çerçevesiyle sınırlamak için [ITextFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/) üzerindeki yöntemleri kullanın. Tüm geçerli metinleri işlemek için [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) üzerindeki yöntemleri kullanın.
+Bir işlemi tek bir metin çerçevesiyle sınırlamak için [ITextFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/) üzerindeki yöntemleri kullanın. Sunudaki tüm geçerli metni işlemek için [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) üzerindeki yöntemleri kullanın.
 
-| İşlem | Tek metin çerçevesi | Tüm sunum |
+| İşlem | Tek metin çerçevesi | Tüm sunu |
 |---|---|---|
-| Literal metni vurgula | [ITextFrame.highlightText](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [Presentation.highlightText](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
+| Düz metni vurgula | [ITextFrame.highlightText](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [Presentation.highlightText](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
 | Düzenli ifade eşleşmelerini vurgula | [ITextFrame.highlightRegex](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) | [Presentation.highlightRegex](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) |
-| Literal metni değiştir | [ITextFrame.replaceText](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [Presentation.replaceText](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
+| Düz metni değiştir | [ITextFrame.replaceText](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [Presentation.replaceText](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
 | Düzenli ifade eşleşmelerini değiştir | [ITextFrame.replaceRegex](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) | [Presentation.replaceRegex](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) |
 
-## **Metin Eşleştirmeyi Yapılandır**
+## **Metin Eşleştirmeyi Yapılandırma**
 
-Literal‑metin işlemleri için eşleşmeyi kontrol etmek amacıyla [TextSearchOptions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/textsearchoptions/) kullanın:
+Literal-metin işlemleri için eşleşmeyi kontrol etmek amacıyla [TextSearchOptions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/textsearchoptions/) kullanın:
 
-- [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/tr/java/com.aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) eşleşmeleri tam kelimelerle sınırlar.
-- [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/tr/java/com.aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) karakter büyük/küçük harf eşleşmesinin gerekip gerekmediğini belirler.
-- [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/tr/java/com.aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) sunum seviyesi arama, değiştirme ve vurgulama işlemlerine slayt notlarını dahil eder.
+- [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/tr/java/com.aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) eşleşmeleri yalnızca tam sözcüklerle sınırlar.  
+- [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/tr/java/com.aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) karakter büyük/küçük harf duyarlılığını kontrol eder.  
+- [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/tr/java/com.aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) slayt notlarını da sunu düzeyinde arama, değiştirme ve vurgulama işlemlerine dahil eder.
 
-Düzenli ifade işlemleri bir Java `Pattern` kullanır; bu nedenle büyük/küçük harf duyarlılığı ve kelime sınırları gibi kurallar ifadede ve bayraklarda tanımlanır.
+Regular ifade işlemleri bir Java `Pattern` kullanır, bu nedenle büyük/küçük harf duyarlılığı ve sözcük sınırları gibi eşleşme kuralları ifadenin ve bayraklarının tanımladığı şekildedir.
 
-## **Eşleşme Bilgilerini Geri Çağırma ile Topla**
+## **Bir Metin Çerçevesinin Sahibini Belirleme**
 
-Her eşleşme için bildirim almak üzere [IFindResultCallback](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ifindresultcallback/) uygulayın. Bu arayüzün [IFindResultCallback.foundResult](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ifindresultcallback/#foundResult-com.aspose.slides.ITextFrame-java.lang.String-java.lang.String-int-) yöntemi ilgili metin çerçevesini, kaynak metni, eşleşen metni ve eşleşmenin konumunu sağlar.
+Genel metin işleme iş akışları, metin ararken, değiştirirken, doğrularken veya dışa aktarırken sıklıkla bir [ITextFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/) alır. Metin çerçevesinin hangi sunu nesnesine ait olduğunu belirlemek için [ITextFrame.getParentShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/#getParentShape--) ve [ITextFrame.getParentCell](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/#getParentCell--) kullanın.
 
-Geri çağırma doğrudan bir slayt numarası almaz. Aşağıdaki uygulama, bunu üst slayttan türetir ve ayrıca slayt notlarındaki metni de işler. `Integer` tipinde nullable bir değer, aynı sonuç modelinin diğer slayt türleriyle ilişkili metni temsil etmesine olanak tanır.
+Beklenen değerler sahibine bağlıdır:
+
+| Metin çerçevesi sahibi | `getParentShape` | `getParentCell` |
+|---|---|---|
+| Bir AutoShape veya başka bir metin içeren şekil | Sahip olan [IShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ishape/) | `null` |
+| Bir tablo hücresi | `null` | Sahip olan [ICell](https://reference.aspose.com/slides/tr/java/com.aspose.slides/icell/) |
+
+Her iki yöntem de yalnızca okuma amaçlı gezinme sağlar. Bunları çağırmak metin çerçevesini taşımaz veya sahibini değiştirmez. Genel kod, her iki değeri de `null` için kontrol etmeli ve hiçbir sahibin mevcut olmama ihtimalini ele almalıdır.
+
+Aşağıdaki örnek, bir sunudaki metin çerçevelerini yinelemek için [SlideUtil.getAllTextFrames](https://reference.aspose.com/slides/tr/java/com.aspose.slides/slideutil/#getAllTextFrames-com.aspose.slides.IPresentation-boolean-) kullanır. Şekiller için şekil adını, Java çalışma zamanı türünü ve içeren slaytı raporlar. Tablo hücreleri için sıfır tabanlı sütun ve satır koordinatlarını ve içeren slaytı raporlar.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    ITextFrame[] textFrames = SlideUtil.getAllTextFrames(presentation, false);
+
+    for (ITextFrame textFrame : textFrames) {
+        IShape ownerShape = textFrame.getParentShape();
+        if (ownerShape != null) {
+            String shapeName = ownerShape.getName().isEmpty() ? "(unnamed)" : ownerShape.getName();
+            String shapeType = ownerShape.getClass().getSimpleName();
+            IBaseSlide baseSlide = ownerShape.getSlide();
+            String slideLabel;
+            if (baseSlide instanceof ISlide) {
+                slideLabel = "slide " + ((ISlide) baseSlide).getSlideNumber();
+            } else if (baseSlide instanceof INotesSlide) {
+                slideLabel = "notes for slide " + ((INotesSlide) baseSlide).getParentSlide().getSlideNumber();
+            } else {
+                slideLabel = baseSlide.getClass().getSimpleName();
+            }
+            System.out.println("Shape: " + shapeName + "; type: " + shapeType + "; " + slideLabel);
+            continue;
+        }
+
+        ICell ownerCell = textFrame.getParentCell();
+        if (ownerCell != null) {
+            IBaseSlide baseSlide = ownerCell.getSlide();
+            String slideLabel;
+            if (baseSlide instanceof ISlide) {
+                slideLabel = "slide " + ((ISlide) baseSlide).getSlideNumber();
+            } else if (baseSlide instanceof INotesSlide) {
+                slideLabel = "notes for slide " + ((INotesSlide) baseSlide).getParentSlide().getSlideNumber();
+            } else {
+                slideLabel = baseSlide.getClass().getSimpleName();
+            }
+            System.out.println("Table cell: column " + ownerCell.getFirstColumnIndex() + ", row " + ownerCell.getFirstRowIndex() + "; " + slideLabel);
+            continue;
+        }
+
+        System.out.println("The text frame owner is not available as a shape or table cell.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+SmartArt içeriği için, [ISmartArtNode.getShapes](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ismartartnode/#getShapes--) içindeki şekilleri yineleyin ve her bir [ISmartArtShape.getTextFrame](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ismartartshape/#getTextFrame--) erişin. Metin çerçevesi, [ITextFrame.getParentShape](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/#getParentShape--) aracılığıyla ilişkili şekle izlenebilir, [ITextFrame.getParentCell](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/#getParentCell--) ise `null` döndürür. Bu nedenle, örnekteki şekil dalı SmartArt düğümlerinden gelen metni de işler.
+
+## **Eşleşme Bilgilerini Geri Çağrı ile Toplama**
+
+Her eşleşme için bir bildirim almak üzere [IFindResultCallback](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ifindresultcallback/) uygulayın. Bunun [IFindResultCallback.foundResult](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ifindresultcallback/#foundResult-com.aspose.slides.ITextFrame-java.lang.String-java.lang.String-int-) metodu ilgili metin çerçevesi, kaynak metin, eşleşen metin ve eşleşme konumunu sağlar.
+
+Geri çağrı doğrudan bir slayt numarası almaz. Aşağıdaki uygulama, onu üst slayttan türetir ve slayt notlarında bulunan metni de işler. Nullable bir `Integer`, aynı sonuç modelinin diğer slayt türleriyle ilişkili metni temsil etmesini sağlar.
 
 ```java
 import com.aspose.slides.*;
@@ -111,12 +175,10 @@ final class TextSearchCallback implements IFindResultCallback {
         results.add(result);
     }
 
-    private static Integer getSlideNumber(ITextFrame textFrame) {
-        if (!(textFrame instanceof TextFrame)) {
-            return null;
-        }
-
-        IBaseSlide parentSlide = ((TextFrame) textFrame).getSlide();
+    private Integer getSlideNumber(ITextFrame textFrame) {
+        IShape parentShape = textFrame.getParentShape();
+        ICell parentCell = textFrame.getParentCell();
+        IBaseSlide parentSlide = parentShape != null ? parentShape.getSlide() : parentCell != null ? parentCell.getSlide() : textFrame.getSlide();
 
         if (parentSlide instanceof ISlide) {
             return ((ISlide) parentSlide).getSlideNumber();
@@ -131,13 +193,13 @@ final class TextSearchCallback implements IFindResultCallback {
 }
 ```
 
-Değiştirme işlemleri için `foundText` orijinal eşleşen metni içerir; böylece geri çağırma, hangi terimlerin değiştirildiğini tam olarak kaydedebilir.
+Değiştirme işlemleri için, `foundText` orijinal eşleşen metni içerir; böylece geri çağrı tam olarak hangi terimlerin değiştirildiğini kaydedebilir.
 
-## **Metni Vurgula**
+## **Metni Vurgulama**
 
-Bir metin çerçevesinde literal‑metin eşleşmelerini vurgulamak için [ITextFrame.highlightText](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) yöntemini kullanın. Aramayı kontrol etmek için [TextSearchOptions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/textsearchoptions/) ve eşleşme ayrıntılarını toplamak için bir geri çağırma geçirin.
+Bir metin çerçevesindeki literal metin eşleşmelerini vurgulamak için [ITextFrame.highlightText](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) metodunu kullanın. Aramayı kontrol etmek için [TextSearchOptions](https://reference.aspose.com/slides/tr/java/com.aspose.slides/textsearchoptions/) ve eşleşme detaylarını toplamak için bir geri çağrı gönderin.
 
-Aşağıdaki kod örneği, **"try"** karakterlerinin tüm oluşumlarını vurgular ve ardından yalnızca tam kelime **"to"** yi vurgular. Her iki arama da aynı geri çağırmaya bildirim gönderir.
+Aşağıdaki kod örneği, **"try"** karakterlerinin tüm oluşumlarını ve ardından yalnızca tam **"to"** kelimesini vurgular. Her iki arama da eşleşmelerini aynı geri çağrıya rapor eder.
 
 ```java
 import com.aspose.slides.*;
@@ -161,7 +223,7 @@ try {
     wholeWordSearchOptions.setCaseSensitive(false);
     Color wholeWordHighlightColor = new Color(238, 130, 238);
 
-    // Yalnızca tam kelime "to" yu vurgula.
+    // Sadece tam kelime "to"yu vurgula.
     shape.getTextFrame().highlightText("to", wholeWordHighlightColor, wholeWordSearchOptions, callback);
 
     for (TextMatch result : callback.getResults()) {
@@ -179,11 +241,11 @@ Sonuç:
 
 ![Vurgulanan metin](highlighted_text.png)
 
-## **Düzenli İfadeler Kullanarak Metni Vurgula**
+## **Düzenli İfadeler Kullanarak Metni Vurgulama**
 
-[ITextFrame.highlightRegex](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) yöntemi, bir düzenli ifadeyle bulunan metin eşleşmelerini bir metin çerçevesinde vurgular.
+[ITextFrame.highlightRegex](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) metodu, bir metin çerçevesinde düzenli ifade ile bulunan metin eşleşmelerini vurgular.
 
-Aşağıdaki kod, yedi veya daha fazla karakter içeren tüm kelimeleri vurgular ve her eşleşmeyi toplar:
+Aşağıdaki kod, yedi veya daha fazla karakter içeren tüm sözcükleri vurgular ve her eşleşmeyi toplar:
 
 ```java
 import com.aspose.slides.*;
@@ -209,9 +271,9 @@ Sonuç:
 
 ![Düzenli ifade kullanarak vurgulanan metin](highlighted_text_using_regex.png)
 
-## **Sunum Genelinde Metni Vurgula**
+## **Sunuda Metni Vurgulama**
 
-[Presentation.highlightText](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) ve [Presentation.highlightRegex](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) kullanarak bir sunumdaki tüm geçerli metin çerçevelerinde arama yapın. Aşağıdaki örnek, literal bir terimi ve tüm e‑posta adreslerini vurgular; iki arama için ayrı sonuç koleksiyonları tutulur.
+Bir sunudaki tüm geçerli metin çerçevelerini aramak için [Presentation.highlightText](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) ve [Presentation.highlightRegex](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) kullanın. Aşağıdaki örnek, iki arama için ayrı sonuç koleksiyonları tutarak bir literal terimi ve tüm e-posta adreslerini vurgular.
 
 ```java
 import com.aspose.slides.*;
@@ -239,11 +301,11 @@ try {
 }
 ```
 
-## **Metin Çerçevesinde Metni Değiştir**
+## **Bir Metin Çerçevesinde Metni Değiştirme**
 
-Literal metin için [ITextFrame.replaceText](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), desen tabanlı değiştirme için ise [ITextFrame.replaceRegex](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) kullanın. Bu yöntemler, mevcut metin çerçevesi içinde eşleşen metni günceller; böylece etrafındaki biçimlendirme korunur ve çerçeve yeniden oluşturulmaz.
+Literal metin için [ITextFrame.replaceText](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-)..., desen tabanlı değiştirme için [ITextFrame.replaceRegex](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-)... kullanın. Bu metodlar, mevcut metin çerçevesi içinde eşleşen metni günceller ve metin çerçevesini düz bir dizeden yeniden oluşturmak yerine çevresindeki bölüm formatlamasını korur.
 
-Aşağıdaki örnek, bir yazım varyantını standart hâle getirir ve ardından sürüm etiketlerini değiştirir. Aynı geri çağırma, iki işlemde de eşleşen orijinal terimleri kaydeder.
+Aşağıdaki örnek, bir yazım varyantını standartlaştırır ve ardından sürüm etiketlerini değiştirir. Aynı geri çağrı, her iki işlem tarafından eşleşen orijinal terimleri kaydeder.
 
 ```java
 import com.aspose.slides.*;
@@ -269,11 +331,11 @@ try {
 }
 ```
 
-Bir eşleşme farklı biçimlendirmeye sahip bölümleri kapsıyorsa, çıktıyı inceleyerek değiştirme metninin hangi biçimi alması gerektiğini doğrulayın.
+Eğer bir eşleşme farklı formatlamalı bölümleri kapsıyorsa, çıkışı inceleyerek hangi formatlamanın değiştirme metnine uygulanması gerektiğini doğrulayın.
 
-## **Sunum Genelinde Metni Değiştir**
+## **Sunuda Metni Değiştirme**
 
-[Presentation.replaceText](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) ve [Presentation.replaceRegex](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) kullanarak aynı işlemleri tüm sunuma uygulayın. Şablon temizliği, terminoloji güncellemeleri ve redaksiyon için yararlıdır.
+Aynı işlemleri tüm sunu boyunca uygulamak için [Presentation.replaceText](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) ve [Presentation.replaceRegex](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) kullanın. Bu, şablon temizleme, terminoloji güncellemeleri ve redaksiyon için yararlıdır.
 
 ```java
 import com.aspose.slides.*;
@@ -297,9 +359,9 @@ try {
 }
 ```
 
-## **Raporlama İçin Eşleşmeleri Gruplandır**
+## **Raporlama İçin Eşleşmeleri Gruplama**
 
-Her sonuç slayt numarası ve metin çerçevesi içerdiği için uygulamalar, denetim, raporlama veya inceleme iş akışları için eşleşmeleri gruplayabilir. Aşağıdaki örnek, toplanan sonuçları önce slayta, ardından metin çerçevesine göre gruplayarak gösterir:
+Her sonuç slayt numarasını ve metin çerçevesini depoladığından, uygulamalar eşleşmeleri denetim, raporlama veya inceleme iş akışları için gruplayabilir. Aşağıdaki örnek, toplanan sonuçları önce slayta, ardından metin çerçevesine göre gruplar:
 
 ```java
 import com.aspose.slides.ITextFrame;
@@ -347,22 +409,22 @@ for (Map.Entry<Integer, Map<ITextFrame, List<TextMatch>>> slideEntry : matchesBy
 
 ## **SSS**
 
-**Sadece bir metin kutusunda, tüm sunum yerine nasıl arama yapabilirim?**
+**Sadece bir metin kutusunu tüm sunu yerine nasıl arayabilirim?**
 
-Şeklin (shape) metin çerçevesini alın ve o metin çerçevesinde [ITextFrame.highlightText](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), [ITextFrame.highlightRegex](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-), [ITextFrame.replaceText](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), veya [ITextFrame.replaceRegex](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) yöntemlerini çağırın. Sunum‑seviyesi yöntemler tüm geçerli metin çerçevelerini işler.
+Şeklin metin çerçevesini alın ve bu metin çerçevesinde [ITextFrame.highlightText](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), [ITextFrame.highlightRegex](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-), [ITextFrame.replaceText](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), veya [ITextFrame.replaceRegex](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) yöntemlerini çağırın. Sunu düzeyindeki yöntemler tüm geçerli metin çerçevelerini işler.
 
-**Tam kelimeleri doğru büyük/küçük harf ile nasıl eşleştirebilirim?**
+**Tam sözcükleri doğru büyük/küçük harf duyarlılığıyla nasıl eşleştirebilirim?**
 
-[TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/tr/java/com.aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) ve [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/tr/java/com.aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) seçeneklerini `true` yapın ve bu seçenekleri literal‑metin vurgulama veya değiştirme yöntemine geçirin. Düzenli ifadeler için kelime sınırlarını ve büyük/küçük harf duyarlılığını Java `Pattern` içinde tanımlayın.
+[TextSearchOptions.setWholeWordsOnly] ve [TextSearchOptions.setCaseSensitive] seçeneklerini `true` olarak ayarlayın ve bu seçenekleri literal metin vurgulama veya değiştirme metoduna gönderin. Düzenli ifadeler için, sözcük sınırlarını ve büyük/küçük harf duyarlılığını Java `Pattern` içinde tanımlayın.
 
 **Arama ve değiştirme slayt notlarındaki metni de içerebilir mi?**
 
-Evet. Sunum‑seviyesi literal‑metin işlemi kullanırken [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/tr/java/com.aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) seçeneğini `true` yapın. Yukarıdaki geri çağırma uygulaması, bir not slaytındaki eşleşmeyi ebeveyn slayt numarasına bağlar.
+Evet. Sunu düzeyinde literal metin işlemi kullanırken [TextSearchOptions.setIncludeNotes] seçeneğini `true` olarak ayarlayın. Yukarıdaki geri çağrı uygulaması, not slaytındaki bir eşleşmeyi üst slayt numarasına eşler.
 
-**Sunumu ikinci kez taramadan bir rapor nasıl oluşturabilirim?**
+**Sunuyu ikinci kez taramadan bir rapor nasıl oluşturabilirim?**
 
-Vurgulama veya değiştirme işlemine bir [IFindResultCallback](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ifindresultcallback/) uygulaması geçirin. Geri çağırma işlem sırasında her eşleşmeyi alır; böylece uygulama kaynak metni, eşleşen metni, konumu, metin çerçevesini ve türetilen slayt numarasını daha sonra gruplandırma veya dışa aktarma için saklayabilir.
+[IFindResultCallback](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ifindresultcallback/) uygulamasını vurgulama veya değiştirme işlemine gönderin. Geri çağrı, işlem çalışırken her eşleşmeyi alır; böylece uygulama kaynak metni, eşleşen metni, konumu, metin çerçevesini ve türetilen slayt numarasını daha sonra grup oluşturma veya dışa aktarma için depolayabilir.
 
-**Metni değiştirmek biçimlendirmesini korur mu?**
+**Metni değiştirmek formatını korur mu?**
 
-[ITextFrame.replaceText](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) ve [ITextFrame.replaceRegex](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) mevcut metin çerçevesi içinde eşleşen metni değiştirir ve çevresindeki bölümlerin biçimlendirmesini korur. Bir eşleşme farklı biçimlendirmeye sahip bölümleri kapsıyorsa, istenen stilde olduğundan emin olmak için sonucu inceleyin.
+[ITextFrame.replaceText](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) ve [ITextFrame.replaceRegex](https://reference.aspose.com/slides/tr/java/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) mevcut metin çerçevesi içinde eşleşen metni değiştirir ve çevresindeki bölüm formatlamasını korur. Eğer bir eşleşme farklı formatlamalı bölümleri kapsıyorsa, sonucu inceleyerek değiştirmenin istenen stili kullandığından emin olun.

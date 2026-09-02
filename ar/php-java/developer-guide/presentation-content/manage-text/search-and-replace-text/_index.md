@@ -5,56 +5,130 @@ type: docs
 weight: 55
 url: /ar/php-java/search-and-replace-text/
 keywords:
-- بحث النص
-- تمييز النص
-- استبدال النص
+- بحث نص
+- تمييز نص
+- استبدال نص
 - تعبير نمطي
-- استدعاء النتيجة
-- إطار النص
+- نداء نتيجة
+- إطار نص
 - تقرير تدقيق
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "بحث، تمييز، واستبدال النص في عروض PowerPoint التقديمية مع جمع كل تطابق باستخدام Aspose.Slides for PHP عبر Java."
+description: "بحث وتمييز واستبدال النص في عروض PowerPoint التقديمية مع جمع كل مطابقة باستخدام Aspose.Slides for PHP via Java."
 ---
 ## **نظرة عامة**
 
-Aspose.Slides for PHP via Java يمكنه البحث وتحديد وإستبدال النص في إطار نص فردي أو عبر عرض تقديمي كامل. كل عملية يمكنها أيضًا إبلاغ التطبيق عن كل تطابق عبر رد نداء للنتيجة. هذا يتيح إمكانية تحديث العرض التقديمي وبنفس الوقت إنشاء سجل تدقيق يحتوي على النص المتطابق وسياقه وموقعه وإطار النص ورقم الشريحة.
+Aspose.Slides for PHP via Java يمكنه البحث وتنسيق النص وإستبداله في إطار نص فردي أو عبر عرض تقديمي كامل. يمكن لكل عملية أيضاً إبلاغ التطبيق عن كل مطابقة من خلال رد نداء للنتيجة. هذا يجعل من الممكن تحديث عرض تقديمي وفي الوقت نفسه بناء سجل تدقيق يحتوي على النص المطابق، وسياقه، وموقعه، وإطار النص، ورقم الشريحة.
 
-هذه الإمكانات مفيدة للمراجعة، الحجب، فحص المصطلحات، تنظيف القوالب، وسير عمل تقارير مؤتمتة.
+هذه القدرات مفيدة للمراجعة، والتمويه، وفحص المصطلحات، وتنظيف القوالب، وتدفقات عمل التقارير المؤتمتة.
 
-في الأمثلة الأولى أدناه، نستخدم ملفًا باسم "sample.pptx"، يحتوي على مربع نص واحد في الشريحة الأولى بالنص التالي:
+في الأمثلة الأولى أدناه، نستخدم ملفًا باسم "sample.pptx"، يحتوي على صندوق نص واحد في الشريحة الأولى بالنص التالي:
 
-![نص عينة](sample_text.png)
+![نص العينة](sample_text.png)
 
 ## **اختيار نطاق البحث**
 
-استخدم الأساليب على [TextFrame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/) لتقييد العملية على إطار نص واحد. استخدم الأساليب على [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/) لمعالجة كل النص القابل للتطبيق في العرض التقديمي.
+استخدم الأساليب على [TextFrame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/) لتحديد عملية لإطار نص واحد. استخدم الأساليب على [Presentation](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/) لمعالجة جميع النصوص القابلة للتطبيق في العرض التقديمي.
 
 | العملية | إطار نص واحد | العرض التقديمي بالكامل |
 |---|---|---|
 | تمييز النص الحرفي | [TextFrame::highlightText](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/#highlightText) | [Presentation::highlightText](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/#highlightText) |
-| تمييز تطابقات التعبير النمطي | [TextFrame::highlightRegex](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/#highlightRegex) | [Presentation::highlightRegex](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/#highlightRegex) |
+| تمييز مطابقات التعبير النمطي | [TextFrame::highlightRegex](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/#highlightRegex) | [Presentation::highlightRegex](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/#highlightRegex) |
 | استبدال النص الحرفي | [TextFrame::replaceText](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/#replaceText) | [Presentation::replaceText](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/#replaceText) |
-| استبدال تطابقات التعبير النمطي | [TextFrame::replaceRegex](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/#replaceRegex) | [Presentation::replaceRegex](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/#replaceRegex) |
+| استبدال مطابقات التعبير النمطي | [TextFrame::replaceRegex](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/#replaceRegex) | [Presentation::replaceRegex](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/#replaceRegex) |
 
 ## **تكوين مطابقة النص**
 
 لعمليات النص الحرفي، استخدم [TextSearchOptions](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textsearchoptions/) للتحكم في المطابقة:
 
-- [TextSearchOptions::setWholeWordsOnly](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textsearchoptions/#setWholeWordsOnly) يحد من التطابقات لتشمل كلمات كاملة.
+- [TextSearchOptions::setWholeWordsOnly](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textsearchoptions/#setWholeWordsOnly) يقتصر المطابقات على كلمات كاملة.
 - [TextSearchOptions::setCaseSensitive](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textsearchoptions/#setCaseSensitive) يتحكم فيما إذا كان يجب مطابقة حالة الأحرف.
-- [TextSearchOptions::setIncludeNotes](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textsearchoptions/#setIncludeNotes) يشمل ملاحظات الشرائح في عمليات البحث والاستبدال والتمييز على مستوى العرض التقديمي.
+- [TextSearchOptions::setIncludeNotes](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textsearchoptions/#setIncludeNotes) تشمل ملاحظات الشرائح في عمليات البحث، الإستبدال، وتنسيق النص على مستوى العرض التقديمي.
 
-عمليات التعبير النمطي تستخدم Java `Pattern`، لذا فإن قواعد المطابقة مثل حساسية حالة الأحرف وحدود الكلمات تُحدد بواسطة التعبير والعلمات الخاصة به.
+تستخدم عمليات التعبير النمطي كائن Java `Pattern`، لذا تُحدد قواعد المطابقة مثل حساسية الحالة وحدود الكلمات من خلال التعبير وعلماته.
 
-## **جمع معلومات التطابق باستخدام رد نداء**
+## **تحديد مالك إطار النص**
 
-مرّر رد نداء Java وكيل إلى طريقة تمييز أو استبدال لتلقي إشعار لكل تطابق. تتلقى طريقة رد النداء إطار النص المتعلق، النص الأصلي، النص المتطابق، وموقع التطابق.
+غالبًا ما تستقبل تدفقات عمل معالجة النص العامة كائنًا من نوع [TextFrame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/) أثناء البحث أو الإستبدال أو التحقق أو تصدير النص. استخدم [TextFrame::getParentShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/#getParentShape) و[TextFrame::getParentCell](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/#getParentCell) لتحديد أي كائن عرض تقديمي يملك إطار النص.
 
-رد النداء لا يتلقى رقم الشريحة مباشرة. التنفيذ أدناه يستخرجه من الشريحة الأصلية ويتعامل أيضًا مع النص الموجود في ملاحظات الشرائح. يستخدم مصفوفة النتيجة `null` عندما يكون النص مرتبطًا بنوع شريحة آخر.
+القيم المتوقعة تعتمد على المالك:
+
+| مالك إطار النص | `getParentShape` | `getParentCell` |
+|---|---|---|
+| شكل AutoShape أو أي شكل آخر يحتوي على نص | الـ [Shape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/shape/) المالك | `null` |
+| خلية جدول | `null` | الـ [Cell](https://reference.aspose.com/slides/ar/php-java/aspose.slides/cell/) المالك |
+
+كلا الطريقتين توفران تنقلًا للقراءة فقط. استدعاؤهما لا ينقل إطار النص ولا يغير مالكه. يجب على الشيفرة العامة فحص القيمتين باستخدام `java_is_null` ومعالجة احتمال عدم توفر أي من المالكين.
+
+المثال التالي يستخدم [SlideUtil::getAllTextFrames](https://reference.aspose.com/slides/ar/php-java/aspose.slides/slideutil/#getAllTextFrames) للتنقل بين إطارات النص في عرض تقديمي. بالنسبة للأشكال، يُبلغ عن اسم الشكل، نوع وقت تشغيل Java، والشريحة التي يحتويها. بالنسبة لخلايا الجدول، يُبلغ عن إحداثيات العمود والصف التي تبدأ من الصفر والشريحة المحتوية.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SlideUtil;
+
+$presentation = new Presentation("presentation.pptx");
+$arrayClass = new java_class("java.lang.reflect.Array");
+
+try {
+    $textFrames = SlideUtil::getAllTextFrames($presentation, false);
+    $textFrameCount = java_values($arrayClass->getLength($textFrames));
+
+    for ($textFrameIndex = 0; $textFrameIndex < $textFrameCount; $textFrameIndex++) {
+        $textFrame = $textFrames[$textFrameIndex];
+        $ownerShape = $textFrame->getParentShape();
+        if (!java_is_null($ownerShape)) {
+            $shapeName = java_values($ownerShape->getName());
+            $shapeName = $shapeName === "" ? "(unnamed)" : $shapeName;
+            $shapeType = java_values($ownerShape->getClass()->getSimpleName());
+            $baseSlide = $ownerShape->getSlide();
+            $slideClassName = java_values($baseSlide->getClass()->getName());
+
+            if ($slideClassName === "com.aspose.slides.Slide") {
+                $slideLabel = "slide " . java_values($baseSlide->getSlideNumber());
+            } elseif ($slideClassName === "com.aspose.slides.NotesSlide") {
+                $slideLabel = "notes for slide " . java_values($baseSlide->getParentSlide()->getSlideNumber());
+            } else {
+                $slideLabel = java_values($baseSlide->getClass()->getSimpleName());
+            }
+
+            echo("Shape: " . $shapeName . "; type: " . $shapeType . "; " . $slideLabel . "\n");
+            continue;
+        }
+
+        $ownerCell = $textFrame->getParentCell();
+        if (!java_is_null($ownerCell)) {
+            $baseSlide = $ownerCell->getSlide();
+            $slideClassName = java_values($baseSlide->getClass()->getName());
+
+            if ($slideClassName === "com.aspose.slides.Slide") {
+                $slideLabel = "slide " . java_values($baseSlide->getSlideNumber());
+            } elseif ($slideClassName === "com.aspose.slides.NotesSlide") {
+                $slideLabel = "notes for slide " . java_values($baseSlide->getParentSlide()->getSlideNumber());
+            } else {
+                $slideLabel = java_values($baseSlide->getClass()->getSimpleName());
+            }
+
+            echo("Table cell: column " . java_values($ownerCell->getFirstColumnIndex()) . ", row " . java_values($ownerCell->getFirstRowIndex()) . "; " . $slideLabel . "\n");
+            continue;
+        }
+
+        echo("The text frame owner is not available as a shape or table cell.\n");
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+لمحتوى SmartArt، تنقّل عبر الأشكال في [SmartArtNode::getShapes](https://reference.aspose.com/slides/ar/php-java/aspose.slides/smartartnode/#getShapes) وادخل إلى كل [SmartArtShape::getTextFrame](https://reference.aspose.com/slides/ar/php-java/aspose.slides/smartartshape/#getTextFrame). يمكن تتبع إطار النص إلى الشكل المرتبط عبر [TextFrame::getParentShape](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/#getParentShape)، بينما تُعيد [TextFrame::getParentCell](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/#getParentCell) `null`. لذلك يتعامل فرع الشكل في المثال أيضًا مع النص من عقد SmartArt.
+
+## **جمع معلومات المطابقة باستخدام رد نداء**
+
+مرّر رد نداء Java إلى طريقة تمييز أو إستبدال لتلقي إشعار عن كل مطابقة. تتلقى طريقة رد النداء إطار النص المرتبط، النص الأصلي، النص المطابق، وموقع المطابقة.
+
+لا يتلقى رد النداء رقم الشريحة مباشرة. يشتق التنفيذ أدناه الرقم من الشريحة الأصلية ويتعامل أيضًا مع النص الموجود في ملاحظات الشرائح. يستخدم مصفوفة النتائج `null` عندما يكون النص مرتبطًا بنوع شريحة آخر.
 
 ```php
 class TextSearchCallback {
@@ -76,7 +150,17 @@ class TextSearchCallback {
     }
 
     private function getSlideNumber($textFrame) {
-        $parentSlide = $textFrame->getSlide();
+        $parentShape = $textFrame->getParentShape();
+        $parentCell = $textFrame->getParentCell();
+
+        if (!java_is_null($parentShape)) {
+            $parentSlide = $parentShape->getSlide();
+        } elseif (!java_is_null($parentCell)) {
+            $parentSlide = $parentCell->getSlide();
+        } else {
+            $parentSlide = $textFrame->getSlide();
+        }
+
         if (java_is_null($parentSlide)) {
             return null;
         }
@@ -113,13 +197,13 @@ $callback = java_closure(
 );
 ```
 
-لعمليات الاستبدال، يحتوي `foundText` على النص المتطابق الأصلي، لذا يمكن لرد النداء تسجيل المصطلحات التي تم استبدالها بدقة.
+بالنسبة لعمليات الإستبدال، يحتوي `foundText` على النص الأصلي المطابق، لذا يمكن لرد النداء تسجيل بالضبط أي مصطلحات تم استبدالها.
 
 ## **تمييز النص**
 
-استخدم طريقة [TextFrame::highlightText](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/#highlightText) لتحديد تطابقات النص الحرفي في إطار نص. مرّر [TextSearchOptions](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textsearchoptions/) للتحكم في البحث.
+استخدم الطريقة [TextFrame::highlightText](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/#highlightText) لتمييز مطابقات النص الحرفي في إطار نص. مرّر [TextSearchOptions](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textsearchoptions/) للتحكم في البحث.
 
-الكود أدناه يحدد كل ما يظهر من الأحرف **"try"** ثم يحدد فقط الكلمة الكاملة **"to"**.
+الكود أدناه يميز جميع تكرارات الأحرف **"try"** ثم يميز الكلمة الكاملة **"to"** فقط.
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -138,7 +222,7 @@ try {
     $substringSearchOptions->setCaseSensitive(false);
     $substringHighlightColor = new Java("java.awt.Color", 173, 216, 230);
 
-    // تمييز كل تكرار لكلمة "try" داخل إطار النص.
+    // تمييز كل حدوث لكلمة "try" في إطار النص.
     $shape->getTextFrame()->highlightText(
         "try",
         $substringHighlightColor,
@@ -178,11 +262,11 @@ finally {
 
 ![النص المميز](highlighted_text.png)
 
-## **تمييز النص باستخدام التعبيرات النمطية**
+## **تمييز النص باستخدام التعابير النمطية**
 
-طريقة [TextFrame::highlightRegex](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/#highlightRegex) تميز تطابقات النص التي يتم العثور عليها بواسطة تعبير نمطي في إطار نص.
+الطريقة [TextFrame::highlightRegex](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/#highlightRegex) تميز مطابقات النص التي يجدها تعبير نمطي داخل إطار نص.
 
-الكود التالي يميز كل الكلمات التي تحتوي على سبعة أحرف أو أكثر:
+الكود التالي يميز جميع الكلمات التي تحتوي على سبعة أحرف أو أكثر:
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -205,9 +289,9 @@ finally {
 
 ![النص المميز باستخدام التعبير النمطي](highlighted_text_using_regex.png)
 
-## **تمييز النص عبر العرض التقديمي**
+## **تمييز النص عبر عرض تقديمي**
 
-استخدم [Presentation::highlightText](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/#highlightText) و[Presentation::highlightRegex](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/#highlightRegex) للبحث في جميع إطارات النص القابلة للتطبيق في العرض التقديمي. المثال التالي يحدد مصطلحًا حرفيًا وكل عناوين البريد الإلكتروني:
+استخدم [Presentation::highlightText](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/#highlightText) و[Presentation::highlightRegex](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/#highlightRegex) للبحث عن جميع إطارات النص القابلة للتطبيق في عرض تقديمي. المثال التالي يميز مصطلح حرفي وجميع عناوين البريد الإلكتروني:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -242,9 +326,9 @@ finally {
 
 ## **استبدال النص في إطار نص**
 
-استخدم [TextFrame::replaceText](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/#replaceText) للنص الحرفي و[TextFrame::replaceRegex](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/#replaceRegex) للاستبدال القائم على النمط. تقوم هذه الطرق بتحديث النص المتطابق داخل إطار النص الحالي، مما يحافظ على تنسيق الجزء المحيط بدلاً من إعادة بناء إطار النص من سلسلة عادية.
+استخدم [TextFrame::replaceText](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/#replaceText) للنص الحرفي و[TextFrame::replaceRegex](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/#replaceRegex) للإستبدال القائم على نمط. تقوم هذه الطرق بتحديث النص المطابق داخل إطار النص الحالي، مع الحفاظ على تنسيق الجزء المحيط بدلاً من إعادة بناء إطار النص من سلسلة عادية.
 
-المثال التالي موحد صيغة تهجئة ثم يستبدل تسميات الإصدارات:
+المثال التالي يوحد متغير تهجئة ثم يستبدل تسميات الإصدارات:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -282,11 +366,11 @@ finally {
 }
 ```
 
-إذا امتد تطابق واحد على أجزاء ذات تنسيقات مختلفة، راجع المخرجات لتأكيد أي تنسيق ينبغي تطبيقه على النص المستبدل.
+إذا امتد مطابقة واحدة على أجزاء ذات تنسيقات مختلفة، راجع النتيجة لتأكيد أي تنسيق يجب تطبيقه على النص المستبدل.
 
-## **استبدال النص عبر العرض التقديمي**
+## **استبدال النص عبر عرض تقديمي**
 
-استخدم [Presentation::replaceText](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/#replaceText) و[Presentation::replaceRegex](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/#replaceRegex) لتطبيق نفس العمليات عبر العرض التقديمي. هذا مفيد لتنظيف القوالب، تحديث المصطلحات، والحجب.
+استخدم [Presentation::replaceText](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/#replaceText) و[Presentation::replaceRegex](https://reference.aspose.com/slides/ar/php-java/aspose.slides/presentation/#replaceRegex) لتطبيق نفس العمليات عبر العرض التقديمي. هذا مفيد لتنظيف القوالب، وتحديث المصطلحات، والتمويه.
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -318,9 +402,9 @@ finally {
 }
 ```
 
-## **تجميع التطابقات للتقارير**
+## **تجميع المطابقات للتقارير**
 
-نظرًا لأن كل نتيجة تخزن رقم الشريحة وإطار النص، يمكن للتطبيقات تجميع التطابقات للتدقيق أو التقارير أو سير العمل المراجعي. المثال التالي يجمع النتائج المجمعة أولاً حسب الشريحة ثم حسب إطار النص:
+نظرًا لأن كل نتيجة تخزن رقم الشريحة وإطار النص، يمكن للتطبيقات تجميع المطابقات للتدقيق أو التقارير أو تدفقات العمل المراجعية. المثال التالي يجمع النتائج المجمعة أولاً حسب الشريحة ثم حسب إطار النص:
 
 ```php
 $matchesBySlide = [];
@@ -365,24 +449,24 @@ foreach ($matchesBySlide as $slideLabel => $textFrameGroups) {
 }
 ```
 
-## **الأسئلة المتكررة**
+## **الأسئلة المتداولة**
 
-**كيف يمكنني البحث في مربع نص واحد فقط بدلًا من كامل العرض التقديمي؟**
+**كيف أبحث فقط في صندوق نص واحد بدلاً من العرض التقديمي بالكامل؟**
 
-احصل على إطار النص الخاص بالشكل واستدعِ [TextFrame::highlightText](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/#highlightText)، [TextFrame::highlightRegex](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/#highlightRegex)، [TextFrame::replaceText](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/#replaceText) أو [TextFrame::replaceRegex](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/#replaceRegex) على ذلك الإطار. الأساليب على مستوى العرض التقديمي تعالج جميع إطارات النص القابلة للتطبيق بدلًا من ذلك.
+احصل على إطار نص الشكل واستدعِ [TextFrame::highlightText](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/#highlightText)، [TextFrame::highlightRegex](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/#highlightRegex)، [TextFrame::replaceText](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/#replaceText)، أو [TextFrame::replaceRegex](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/#replaceRegex) على ذلك الإطار. طرق مستوى العرض التقديمي تعالج جميع إطارات النص القابلة للتطبيق بدلاً من ذلك.
 
-**كيف يمكنني مطابقة الكلمات الكاملة مع الأحرف الكبيرة الصحيحة؟**
+**كيف أُطابق الكلمات الكاملة مع كتابة الأحرف الصحيحة؟**
 
-اضبط [TextSearchOptions::setWholeWordsOnly](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textsearchoptions/#setWholeWordsOnly) و[TextSearchOptions::setCaseSensitive](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textsearchoptions/#setCaseSensitive) على `true`، ومرّر الخيارات إلى طريقة تمييز أو استبدال نص حرفي. بالنسبة للتعبيرات النمطية، عرّف حدود الكلمات وحساسية الحالة في Java `Pattern` نفسه.
+اضبط [TextSearchOptions::setWholeWordsOnly](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textsearchoptions/#setWholeWordsOnly) و[TextSearchOptions::setCaseSensitive](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textsearchoptions/#setCaseSensitive) على `true`، ومرّر الخيارات إلى طريقة تمييز أو إستبدال النص الحرفي. بالنسبة للتعابير النمطية، عّرّف حدود الكلمات وحساسية الحالة داخل كائن Java `Pattern` نفسه.
 
-**هل يمكن للبحث والاستبدال أن يشمل نصًا في ملاحظات الشريحة؟**
+**هل يمكن أن تشمل عمليات البحث والإستبدال النص الموجود في ملاحظات الشرائح؟**
 
 نعم. اضبط [TextSearchOptions::setIncludeNotes](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textsearchoptions/#setIncludeNotes) على `true` عند استخدام عملية نص حرفي على مستوى العرض التقديمي.
 
-**كيف يمكنني إنشاء تقرير دون فحص العرض التقديمي مرة ثانية؟**
+**كيف أنشئ تقريرًا دون مسح العرض التقديمي مرة ثانية؟**
 
-مرّر رد نداء Java وكيل إلى عملية التمييز أو الاستبدال. سيتلقى كل تطابق أثناء تشغيل العملية، وبالتالي يمكن للتطبيق تخزين النص الأصلي، النص المتطابق، الموقع، إطار النص، ورقم الشريحة المستنتج للاستخدام لاحقًا في التجميع أو التصدير.
+مرّر رد نداء Java إلى عملية التمييز أو الإستبدال. سيتلقى كل مطابقة أثناء تشغيل العملية، وبالتالي يمكن للتطبيق حفظ النص الأصلي، النص المطابق، الموقع، إطار النص، ورقم الشريحة المستخلص لتجميعه لاحقًا أو تصديره.
 
-**هل يحافظ استبدال النص على تنسيقه؟**
+**هل يحافظ إستبدال النص على تنسيقه؟**
 
-[TextFrame::replaceText](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/#replaceText) و[TextFrame::replaceRegex](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/#replaceRegex) يغيران النص المتطابق داخل إطار النص الحالي ويحتفظان بتنسيق الجزء المحيط. إذا امتد تطابق إلى أجزاء ذات تنسيقات مختلفة، افحص النتيجة للتأكد من أن الاستبدال يستخدم النمط المطلوب.
+[TextFrame::replaceText](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/#replaceText) و[TextFrame::replaceRegex](https://reference.aspose.com/slides/ar/php-java/aspose.slides/textframe/#replaceRegex) يغيّران النص المطابق داخل إطار النص الحالي ويحتفظان بتنسيق الجزء المحيط. إذا امتدت مطابقة على أجزاء ذات تنسيقات مختلفة، افحص النتيجة لضمان أن الاستبدال يستخدم النمط المطلوب.

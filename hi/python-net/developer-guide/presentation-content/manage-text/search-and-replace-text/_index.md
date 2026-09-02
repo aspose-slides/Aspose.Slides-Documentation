@@ -1,5 +1,5 @@
 ---
-title: Python में PowerPoint प्रस्तुतियों में टेक्स्ट खोजें और बदलें
+title: PowerPoint प्रस्तुतियों में Python के साथ टेक्स्ट खोजें और बदलें
 linktitle: टेक्स्ट खोजें और बदलें
 type: docs
 weight: 55
@@ -8,49 +8,101 @@ keywords:
 - टेक्स्ट खोजें
 - टेक्स्ट हाइलाइट करें
 - टेक्स्ट बदलें
-- नियमित अभिव्यक्ति
+- रेगुलर एक्सप्रेशन
 - टेक्स्ट फ्रेम
 - PowerPoint
 - OpenDocument
-- प्रस्तुतीकरण
+- प्रस्तुति
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET के साथ PowerPoint प्रस्तुतियों में टेक्स्ट खोजें, हाइलाइट करें और बदलें।"
+description: "Aspose.Slides for Python via .NET के साथ PowerPoint प्रस्तुतियों में टेक्स्ट को खोजें, हाइलाइट करें और बदलें।"
 ---
 ## **अवलोकन**
 
-Aspose.Slides for Python via .NET एक व्यक्तिगत टेक्स्ट फ्रेम या पूरी प्रेजेंटेशन में टेक्स्ट को खोज, हाइलाइट और बदल सकता है। ये क्षमताएँ समीक्षा, रीडैक्शन, शब्दावली जांच, टेम्पलेट सफाई और अन्य स्वचालित दस्तावेज़-प्रसंस्करण कार्यप्रवाहों के लिए उपयोगी हैं।
+Aspose.Slides for Python via .NET व्यक्तिगत टेक्स्ट फ्रेम में या पूरी प्रस्तुति में टेक्स्ट को खोजने, हाइलाइट करने और बदलने में सक्षम है। ये सुविधाएँ समीक्षा, हटाना, शब्दावली जाँच, टेम्प्लेट सफाई और अन्य स्वचालित दस्तावेज़‑प्रसंस्करण कार्यप्रवाहों के लिए उपयोगी हैं।
 
-नीचे पहले उदाहरणों में हम "sample.pptx" नामक फ़ाइल का उपयोग करते हैं, जिसमें पहली स्लाइड पर एक टेक्स्ट बॉक्स होता है जिसमें निम्नलिखित टेक्स्ट है:
+नीचे दिए गए पहले उदाहरणों में, हम "sample.pptx" नामक फ़ाइल का उपयोग करते हैं, जिसमें पहले स्लाइड पर एकल टेक्स्ट बॉक्स है जिसमें निम्नलिखित टेक्स्ट है:
 
 ![Sample text](sample_text.png)
 
-## **खोज परिधि चुनें**
+## **खोज का दायरा चुनें**
 
-एक ऑपरेशन को एक टेक्स्ट फ्रेम तक सीमित करने के लिए [TextFrame](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/) पर मेथड्स का उपयोग करें। सभी लागू टेक्स्ट को प्रोसेस करने के लिए [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) पर मेथड्स का उपयोग करें।
+एक ऑपरेशन को एक टेक्स्ट फ्रेम तक सीमित करने के लिए [TextFrame](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/) पर विधियों का उपयोग करें। प्रस्तुति में सभी लागू टेक्स्ट को प्रोसेस करने के लिए [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) पर विधियों का उपयोग करें।
 
-| ऑपरेशन | एक टेक्स्ट फ्रेम | पूरी प्रेजेंटेशन |
+| ऑपरेशन | एक टेक्स्ट फ्रेम | पूरी प्रस्तुति |
 |---|---|---|
-| शाब्दिक टेक्स्ट को हाइलाइट करें | [TextFrame.highlight_text](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/highlight_text/) | [Presentation.highlight_text](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/highlight_text/) |
-| नियमित-व्यक्तिकरण (regex) मैच को हाइलाइट करें | [TextFrame.highlight_regex](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/highlight_regex/) | [Presentation.highlight_regex](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/highlight_regex/) |
-| शाब्दिक टेक्स्ट को बदलें | [TextFrame.replace_text](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/replace_text/) | [Presentation.replace_text](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/replace_text/) |
-| नियमित-व्यक्तिकरण (regex) मैच को बदलें | [TextFrame.replace_regex](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/replace_regex/) | [Presentation.replace_regex](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/replace_regex/) |
+| Highlight literal text | [TextFrame.highlight_text](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/highlight_text/) | [Presentation.highlight_text](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/highlight_text/) |
+| Highlight regular-expression matches | [TextFrame.highlight_regex](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/highlight_regex/) | [Presentation.highlight_regex](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/highlight_regex/) |
+| Replace literal text | [TextFrame.replace_text](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/replace_text/) | [Presentation.replace_text](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/replace_text/) |
+| Replace regular-expression matches | [TextFrame.replace_regex](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/replace_regex/) | [Presentation.replace_regex](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/replace_regex/) |
 
-## **पाठ मिलान कॉन्फ़िगर करें**
+## **टेक्स्ट मिलान कॉन्फ़िगर करें**
 
-शाब्दिक-टेक्स्ट संचालन के लिए, मिलान को नियंत्रित करने हेतु [TextSearchOptions](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textsearchoptions/) का उपयोग करें:
+शाब्दिक-टेक्स्ट ऑपरेशनों के लिए, मिलानों को नियंत्रित करने के लिए [TextSearchOptions](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textsearchoptions/) का उपयोग करें:
 
-- [TextSearchOptions.whole_words_only](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textsearchoptions/whole_words_only/) मैच को पूर्ण शब्दों तक सीमित करता है।
-- [TextSearchOptions.case_sensitive](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textsearchoptions/case_sensitive/) नियंत्रित करता है कि क्या अक्षर केस मेल खानी चाहिए।
-- [TextSearchOptions.include_notes](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textsearchoptions/include_notes/) प्रेजेंटेशन-स्तर की खोज, प्रतिस्थापन और हाइलाइटिंग ऑपरेशनों में स्लाइड नोट्स को शामिल करता है।
+- [TextSearchOptions.whole_words_only](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textsearchoptions/whole_words_only/) मिलानों को पूर्ण शब्दों तक सीमित करता है।
+- [TextSearchOptions.case_sensitive](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textsearchoptions/case_sensitive/) यह नियंत्रित करता है कि अक्षर केस का मिलान आवश्यक है या नहीं।
+- [TextSearchOptions.include_notes](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textsearchoptions/include_notes/) प्रस्तुति‑स्तरीय खोज, प्रतिस्थापन और हाइलाइटिंग ऑपरेशनों में स्लाइड नोट्स को शामिल करता है।
 
-नियमित-व्यक्तिकरण (regex) संचालन एक पैटर्न स्ट्रिंग का उपयोग करता है, इसलिए केस संवेदनशीलता और शब्द सीमाओं जैसे मिलान नियम अभिव्यक्ति द्वारा परिभाषित होते हैं।
+रेगुलर‑एक्सप्रेशन ऑपरेशनों में पैटर्न स्ट्रिंग का उपयोग किया जाता है, इसलिए केस‑सेंसिटिविटी और शब्द‑सीमाएँ जैसी नियम अभिव्यक्ति द्वारा परिभाषित होते हैं।
 
-## **पाठ को हाइलाइट करें**
+## **टेक्स्ट फ्रेम के मालिक की पहचान करें**
 
-एक टेक्स्ट फ्रेम में शाब्दिक-टेक्स्ट मैच को हाइलाइट करने के लिए [TextFrame.highlight_text](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/highlight_text/) मेथड का उपयोग करें। खोज को नियंत्रित करने हेतु [TextSearchOptions](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textsearchoptions/) पास करें।
+सामान्य टेक्स्ट‑प्रसंस्करण वर्कफ़्लो अक्सर खोज, प्रतिस्थापन, मान्यकरण, या निर्यात के दौरान एक [TextFrame](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/) प्राप्त करते हैं। टेक्स्ट फ्रेम के मालिक को निर्धारित करने के लिए [TextFrame.parent_shape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/parent_shape/) और [TextFrame.parent_cell](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/parent_cell/) का उपयोग करें।
 
-नीचे का कोड उदाहरण **"try"** अक्षरों की सभी घटनाओं को हाइलाइट करता है और फिर केवल पूर्ण शब्द **"to"** को हाइलाइट करता है।
+अपेक्षित मान मालिक पर निर्भर करते हैं:
+
+| टेक्स्ट फ्रेम मालिक | `parent_shape` | `parent_cell` |
+|---|---|---|
+| AutoShape या अन्य टेक्स्ट‑समाहित आकार | मालिक [Shape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shape/) | `None` |
+| एक तालिका सेल | `None` | मालिक [Cell](https://reference.aspose.com/slides/hi/python-net/aspose.slides/cell/) |
+
+दोनों गुण केवल‑पढ़ने योग्य नेविगेशन गुण हैं। इन्हें पढ़ने से टेक्स्ट फ्रेम नहीं चलता और न ही उसका मालिक बदलता है। सामान्य कोड को दोनों मानों के `None` होने की जाँच करनी चाहिए और यह संभालना चाहिए कि दोनों मालिक उपलब्ध न हों।
+
+निम्न उदाहरण में [SlideUtil.get_all_text_frames](https://reference.aspose.com/slides/hi/python-net/aspose.slides.util/slideutil/get_all_text_frames/) का उपयोग करके प्रस्तुति में टेक्स्ट फ्रेमों को इटरनेट किया गया है। आकारों के लिए, आकार का नाम, Python रन‑टाइम टाइप और समाविष्ट स्लाइड रिपोर्ट की जाती है। तालिका कोशिकाओं के लिए, शून्य‑आधारित स्तंभ और पंक्ति निर्देशांक तथा समाविष्ट स्लाइड रिपोर्ट की जाती है।
+
+```python
+import aspose.slides as slides
+
+
+def get_slide_label(base_slide):
+    if isinstance(base_slide, slides.Slide):
+        return f"slide {base_slide.slide_number}"
+
+    if isinstance(base_slide, slides.NotesSlide):
+        return f"notes for slide {base_slide.parent_slide.slide_number}"
+
+    return type(base_slide).__name__
+
+
+with slides.Presentation("presentation.pptx") as presentation:
+    text_frames = slides.util.SlideUtil.get_all_text_frames(presentation, False)
+
+    for text_frame in text_frames:
+        owner_shape = text_frame.parent_shape
+        if owner_shape is not None:
+            shape_name = owner_shape.name or "(unnamed)"
+            shape_type = type(owner_shape).__name__
+            slide_label = get_slide_label(owner_shape.slide)
+            print(f"Shape: {shape_name}; type: {shape_type}; {slide_label}")
+            continue
+
+        owner_cell = text_frame.parent_cell
+        if owner_cell is not None:
+            slide_label = get_slide_label(owner_cell.slide)
+            print(f"Table cell: column {owner_cell.first_column_index}, row {owner_cell.first_row_index}; {slide_label}")
+            continue
+
+        print("The text frame owner is not available as a shape or table cell.")
+```
+
+SmartArt सामग्री के लिए, [SmartArtNode.shapes](https://reference.aspose.com/slides/hi/python-net/aspose.slides.smartart/smartartnode/shapes/) में आकारों को इटरनेट करें और प्रत्येक [ISmartArtShape.text_frame](https://reference.aspose.com/slides/hi/python-net/aspose.slides.smartart/ismartartshape/text_frame/) तक पहुंचें। टेक्स्ट फ्रेम को उसके संबंधित आकार से [TextFrame.parent_shape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/parent_shape/) के माध्यम से ट्रेस किया जा सकता है, जबकि [TextFrame.parent_cell](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/parent_cell/) `None` है। इसलिए, उदाहरण में आकार शाखा SmartArt नोड्स से टेक्स्ट भी संभालती है।
+
+## **टेक्स्ट हाइलाइट करें**
+
+एक टेक्स्ट फ्रेम में शाब्दिक‑टेक्स्ट मिलानों को हाइलाइट करने के लिए [TextFrame.highlight_text](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/highlight_text/) विधि का उपयोग करें। खोज को नियंत्रित करने के लिए [TextSearchOptions](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textsearchoptions/) पास करें।
+
+नीचे का कोड उदाहरण अक्षर **"try"** की सभी आवृत्तियों को हाइलाइट करता है और फिर केवल पूर्ण शब्द **"to"** को हाइलाइट करता है।
 
 ```python
 import aspose.pydrawing as draw
@@ -63,7 +115,7 @@ with slides.Presentation("sample.pptx") as presentation:
     substring_search_options = slides.TextSearchOptions()
     substring_search_options.case_sensitive = False
 
-    # टेक्स्ट फ्रेम में "try" की प्रत्येक उपस्थिति को हाइलाइट करें।
+    # टेक्स्ट फ्रेम में "try" की हर उपस्थिति को हाइलाइट करें.
     shape.text_frame.highlight_text(
         "try", draw.Color.light_blue, substring_search_options, None
     )
@@ -72,7 +124,7 @@ with slides.Presentation("sample.pptx") as presentation:
     whole_word_search_options.whole_words_only = True
     whole_word_search_options.case_sensitive = False
 
-    # केवल पूर्ण शब्द "to" को हाइलाइट करें।
+    # केवल पूर्ण शब्द "to" को हाइलाइट करें.
     shape.text_frame.highlight_text(
         "to", draw.Color.violet, whole_word_search_options, None
     )
@@ -82,13 +134,13 @@ with slides.Presentation("sample.pptx") as presentation:
 
 परिणाम:
 
-![The highlighted text](highlighted_text.png)
+![हाइलाइट किया गया टेक्स्ट](highlighted_text.png)
 
-## **नियमित अभिव्यक्तियों का उपयोग करके पाठ को हाइलाइट करें**
+## **रेगुलर एक्सप्रेशन का उपयोग करके टेक्स्ट हाइलाइट करें**
 
-[TextFrame.highlight_regex](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/highlight_regex/) मेथड एक टेक्स्ट फ्रेम में नियमित अभिव्यक्ति द्वारा पाए गए टेक्स्ट मैच को हाइलाइट करता है।
+[TextFrame.highlight_regex](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/highlight_regex/) विधि एक रेगुलर एक्सप्रेशन द्वारा पाए गए टेक्स्ट मिलानों को एक टेक्स्ट फ्रेम में हाइलाइट करती है।
 
-निम्नलिखित कोड सात या उससे अधिक अक्षर वाले सभी शब्दों को हाइलाइट करता है:
+निम्न कोड सभी सात या अधिक अक्षरों वाले शब्दों को हाइलाइट करता है:
 
 ```python
 import aspose.pydrawing as draw
@@ -108,11 +160,11 @@ with slides.Presentation("sample.pptx") as presentation:
 
 परिणाम:
 
-![The highlighted text using the regular expression](highlighted_text_using_regex.png)
+![रेगुलर एक्सप्रेशन का उपयोग करके हाइलाइट किया गया टेक्स्ट](highlighted_text_using_regex.png)
 
-## **प्रेजेंटेशन भर में पाठ को हाइलाइट करें**
+## **पूरा प्रस्तुति में टेक्स्ट हाइलाइट करें**
 
-[Presentation.highlight_text](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/highlight_text/) और [Presentation.highlight_regex](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/highlight_regex/) का उपयोग करके प्रेजेंटेशन के सभी लागू टेक्स्ट फ्रेम को खोजें। नीचे का उदाहरण एक शाब्दिक शब्द और सभी ईमेल पते को हाइलाइट करता है:
+[Presentation.highlight_text](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/highlight_text/) और [Presentation.highlight_regex](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/highlight_regex/) का उपयोग करके प्रस्तुति में सभी लागू टेक्स्ट फ्रेमों को खोजें। निम्न उदाहरण में एक शाब्दिक शब्द और सभी ई‑मेल पते हाइलाइट किए गए हैं:
 
 ```python
 import aspose.pydrawing as draw
@@ -135,11 +187,11 @@ with slides.Presentation("presentation.pptx") as presentation:
     )
 ```
 
-## **टेक्स्ट फ्रेम में पाठ को बदलें**
+## **टेक्स्ट फ्रेम में टेक्स्ट बदलें**
 
-शाब्दिक टेक्स्ट के लिए [TextFrame.replace_text](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/replace_text/) और पैटर्न-आधारित प्रतिस्थापन के लिए [TextFrame.replace_regex](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/replace_regex/) का उपयोग करें। ये मेथड मौजूदा टेक्स्ट फ्रेम के भीतर मिले हुए टेक्स्ट को अपडेट करते हैं, जिससे आसपास के फ़ॉर्मेटिंग को पुनर्निर्माण के बिना बरकरार रखा जाता है।
+शाब्दिक टेक्स्ट के लिए [TextFrame.replace_text](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/replace_text/) और पैटर्न‑आधारित प्रतिस्थापन के लिए [TextFrame.replace_regex](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/replace_regex/) का उपयोग करें। ये विधियाँ मौजूदा टेक्स्ट फ्रेम के भीतर मिले टेक्स्ट को अपडेट करती हैं, जिससे आसपास के भाग का फॉर्मेट बना रहता है और फ्रेम को साधारण स्ट्रिंग से पुनःनिर्मित नहीं किया जाता।
 
-नीचे का उदाहरण वर्तनी वैरिएंट को मानकीकृत करता है और फिर संस्करण लेबल को बदलता है:
+निम्न उदाहरण एक वर्तनी रूपांतर को मानकीकृत करता है और फिर संस्करण लेबल बदलता है:
 
 ```python
 import aspose.slides as slides
@@ -164,11 +216,11 @@ with slides.Presentation("presentation.pptx") as presentation:
     )
 ```
 
-यदि कोई मैच अलग-अलग फ़ॉर्मेटिंग वाले हिस्सों को कवर करता है, तो आउटपुट की समीक्षा करें ताकि यह पुष्टि की जा सके कि प्रतिस्थापन टेक्स्ट पर कौन सा फ़ॉर्मेट लागू होना चाहिए।
+यदि कोई मिलान विभिन्न फॉर्मेट वाले भागों को कवर करता है, तो आउटपुट की जाँच करें कि किस फॉर्मेट को प्रतिस्थापन टेक्स्ट पर लागू करना है।
 
-## **प्रेजेंटेशन भर में पाठ को बदलें**
+## **पूरा प्रस्तुति में टेक्स्ट बदलें**
 
-[Presentation.replace_text](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/replace_text/) और [Presentation.replace_regex](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/replace_regex/) का उपयोग करके प्रेजेंटेशन भर में समान ऑपरेशन लागू करें। यह टेम्पलेट सफाई, शब्दावली अपडेट और रीडैक्शन के लिए उपयोगी है।
+[Presentation.replace_text](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/replace_text/) और [Presentation.replace_regex](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/replace_regex/) का उपयोग करके वही ऑपरेशनों को पूरी प्रस्तुति में लागू करें। यह टेम्प्लेट सफाई, शब्दावली अपडेट और हटाने के लिए उपयोगी है।
 
 ```python
 import aspose.slides as slides
@@ -192,18 +244,18 @@ with slides.Presentation("presentation.pptx") as presentation:
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**मैं पूरी प्रेजेंटेशन के बजाय केवल एक टेक्स्ट बॉक्स में कैसे खोज कर सकता हूँ?**
+**मैं पूरी प्रस्तुति के बजाय केवल एक टेक्स्ट बॉक्स कैसे खोज सकता हूँ?**
 
-शेप के टेक्स्ट फ्रेम को प्राप्त करें और उस टेक्स्ट फ्रेम पर [TextFrame.highlight_text](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/highlight_text/), [TextFrame.highlight_regex](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/highlight_regex/), [TextFrame.replace_text](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/replace_text/), या [TextFrame.replace_regex](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/replace_regex/) को कॉल करें। प्रेजेंटेशन-स्तर के मेथड सभी लागू टेक्स्ट फ्रेम को प्रोसेस करते हैं।
+आकार के टेक्स्ट फ्रेम को प्राप्त करें और उस टेक्स्ट फ्रेम पर [TextFrame.highlight_text](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/highlight_text/), [TextFrame.highlight_regex](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/highlight_regex/), [TextFrame.replace_text](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/replace_text/), या [TextFrame.replace_regex](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/replace_regex/) को कॉल करें। प्रस्तुति‑स्तरीय विधियां सभी लागू टेक्स्ट फ्रेमों को प्रोसेस करती हैं।
 
-**मैं पूर्ण शब्दों को सही कैपिटलाइज़ेशन के साथ कैसे मिलाऊँ?**
+**मैं पूर्ण शब्दों को सही बड़े‑छोटे अक्षरों के साथ कैसे मिलान कर सकता हूँ?**
 
-[TextSearchOptions.whole_words_only](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textsearchoptions/whole_words_only/) और [TextSearchOptions.case_sensitive](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textsearchoptions/case_sensitive/) को `True` सेट करें, और इन विकल्पों को शाब्दिक-टेक्स्ट हाइलाइट या प्रतिस्थापन मेथड में पास करें। नियमित अभिव्यक्तियों के लिए, पैटर्न में शब्द सीमाएँ और केस संवेदनशीलता परिभाषित करें।
+[TextSearchOptions.whole_words_only](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textsearchoptions/whole_words_only/) और [TextSearchOptions.case_sensitive](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textsearchoptions/case_sensitive/) को `True` पर सेट करें, और विकल्पों को शाब्दिक‑टेक्स्ट हाइलाइट या प्रतिस्थापन विधि में पास करें। रेगुलर एक्सप्रेशनों के लिए, पैटर्न स्वयं में शब्द‑सीमाएँ और केस‑सेंसिटिविटी तय करें।
 
-**क्या खोज और प्रतिस्थापन स्लाइड नोट्स में टेक्स्ट को शामिल कर सकते हैं?**
+**क्या खोज और प्रतिस्थापन में स्लाइड नोट्स का टेक्स्ट शामिल हो सकता है?**
 
-हाँ। प्रेजेंटेशन-स्तर के शाब्दिक-टेक्स्ट ऑपरेशन का उपयोग करते समय [TextSearchOptions.include_notes](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textsearchoptions/include_notes/) को `True` सेट करें।
+हाँ। प्रस्तुति‑स्तरीय शाब्दिक‑टेक्स्ट ऑपरेशन का उपयोग करते समय [TextSearchOptions.include_notes](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textsearchoptions/include_notes/) को `True` पर सेट करें।
 
-**क्या टेक्स्ट को बदलने से उसका फ़ॉर्मेटिंग बना रहता है?**
+**क्या टेक्स्ट बदलने से उसका फ़ॉर्मेटिंग बरकरार रहता है?**
 
-[TextFrame.replace_text](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/replace_text/) और [TextFrame.replace_regex](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/replace_regex/) मौजूदा टेक्स्ट फ्रेम के भीतर मिले हुए टेक्स्ट को संशोधित करते हैं और आसपास के फ़ॉर्मेटिंग को बरकरार रखते हैं। यदि कोई मैच अलग-अलग फ़ॉर्मेटिंग वाले हिस्सों को कवर करता है, तो परिणाम की जांच करें ताकि यह सुनिश्चित हो सके कि प्रतिस्थापन वांछित शैली का उपयोग कर रहा है।
+[TextFrame.replace_text](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/replace_text/) और [TextFrame.replace_regex](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/replace_regex/) मौजूदा टेक्स्ट फ्रेम के भीतर मिले टेक्स्ट को संशोधित करती हैं और आसपास के भाग का फॉर्मेटिंग बनाए रखती हैं। यदि कोई मिलान विभिन्न फॉर्मेट वाले भागों को कवर करता है, तो परिणाम की जाँच करें ताकि प्रतिस्थापन इच्छित शैली का उपयोग करे।

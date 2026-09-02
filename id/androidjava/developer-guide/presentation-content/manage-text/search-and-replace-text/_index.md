@@ -10,7 +10,7 @@ keywords:
 - ganti teks
 - ekspresi reguler
 - callback hasil
-- bingkai teks
+- frame teks
 - laporan audit
 - PowerPoint
 - OpenDocument
@@ -20,42 +20,106 @@ keywords:
 - Aspose.Slides
 description: "Cari, sorot, dan ganti teks dalam presentasi PowerPoint sambil mengumpulkan setiap kecocokan dengan Aspose.Slides untuk Android via Java."
 ---
-## **Ikhtisar**
+## **Gambaran Umum**
 
-Aspose.Slides for Android via Java dapat mencari, menyorot, dan mengganti teks dalam satu bingkai teks atau di seluruh presentasi. Setiap operasi juga dapat memberi tahu aplikasi tentang setiap kecocokan melalui callback hasil. Hal ini memungkinkan memperbarui presentasi sekaligus membangun jejak audit yang berisi teks yang cocok, konteksnya, posisi, bingkai teks, dan nomor slide.
+Aspose.Slides for Android via Java dapat mencari, menyorot, dan mengganti teks dalam sebuah frame teks tunggal atau di seluruh presentasi. Setiap operasi juga dapat memberi tahu aplikasi tentang setiap temuan melalui callback hasil. Ini memungkinkan memperbarui presentasi dan secara bersamaan membangun jejak audit yang berisi teks yang cocok, konteksnya, posisi, frame teks, dan nomor slide.
 
-Kemampuan ini berguna untuk peninjauan, redaksi, pemeriksaan terminologi, pembersihan templat, dan alur kerja pelaporan otomatis.
+Kemampuan ini berguna untuk peninjauan, penyensoran, pengecekan terminologi, pembersihan templat, dan alur kerja pelaporan otomatis.
 
-Dalam contoh pertama di bawah ini, kami menggunakan file bernama "sample.pptx", yang berisi satu kotak teks pada slide pertama dengan teks berikut:
+Pada contoh pertama di bawah ini, kami menggunakan file bernama "sample.pptx", yang berisi satu kotak teks pada slide pertama dengan teks berikut:
 
 ![Teks contoh](sample_text.png)
 
-## **Pilih Lingkup Pencarian**
+## **Pilih Ruang Lingkup Pencarian**
 
-Gunakan metode pada [ITextFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/) untuk membatasi operasi pada satu bingkai teks. Gunakan metode pada [IPresentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipresentation/) untuk memproses semua teks yang berlaku dalam presentasi.
+Gunakan metode pada [ITextFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/) untuk membatasi operasi pada satu frame teks. Gunakan metode pada [IPresentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipresentation/) untuk memproses semua teks yang berlaku dalam presentasi.
 
-| Operasi | Satu bingkai teks | Seluruh presentasi |
+| Operasi | Satu frame teks | Seluruh presentasi |
 |---|---|---|
 | Sorot teks literal | [ITextFrame.highlightText](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [IPresentation.highlightText](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipresentation/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
 | Sorot kecocokan ekspresi reguler | [ITextFrame.highlightRegex](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-) | [IPresentation.highlightRegex](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipresentation/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-) |
 | Ganti teks literal | [ITextFrame.replaceText](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [IPresentation.replaceText](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipresentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
 | Ganti kecocokan ekspresi reguler | [ITextFrame.replaceRegex](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) | [IPresentation.replaceRegex](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipresentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) |
 
-## **Konfigurasikan Pencocokan Teks**
+## **Konfigurasi Pencocokan Teks**
 
-Untuk operasi teks literal, gunakan [TextSearchOptions](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/textsearchoptions/) untuk mengontrol pencocokan:
+Untuk operasi teks literal, gunakan [TextSearchOptions](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/textsearchoptions/) untuk mengendalikan pencocokan:
 
 - [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) membatasi kecocokan hanya pada kata lengkap.
-- [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) mengatur apakah huruf besar/kecil harus cocok.
-- [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) menyertakan catatan slide dalam operasi pencarian, penggantian, dan penyorotan pada tingkat presentasi.
+- [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) mengontrol apakah huruf harus cocok dengan case.
+- [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) menyertakan catatan slide dalam pencarian, penggantian, dan operasi penyorotan tingkat presentasi.
 
-Operasi ekspresi reguler menggunakan `Pattern` Java, sehingga aturan pencocokan seperti sensitivitas huruf dan batas kata ditentukan oleh ekspresi dan flag-nya.
+Operasi ekspresi reguler menggunakan `Pattern` Java, sehingga aturan pencocokan seperti sensitivitas huruf dan batas kata didefinisikan oleh ekspresi dan flag-nya.
+
+## **Identifikasi Pemilik Frame Teks**
+
+Alur kerja pemrosesan teks umum sering menerima sebuah [ITextFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/) saat mencari, mengganti, memvalidasi, atau mengekspor teks. Gunakan [ITextFrame.getParentShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/#getParentShape--) dan [ITextFrame.getParentCell](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/#getParentCell--) untuk menentukan objek presentasi mana yang memiliki frame teks tersebut.
+
+Nilai yang diharapkan bergantung pada pemilik:
+
+| Pemilik frame teks | `getParentShape` | `getParentCell` |
+|---|---|---|
+| Sebuah AutoShape atau bentuk lain yang berisi teks | Pemilik [IShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ishape/) | `null` |
+| Sebuah sel tabel | `null` | Pemilik [ICell](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/icell/) |
+
+Kedua metode menyediakan navigasi hanya-baca. Memanggilnya tidak memindahkan frame teks atau mengubah pemiliknya. Kode umum harus memeriksa kedua nilai untuk `null` dan menangani kemungkinan bahwa tidak ada pemilik yang tersedia.
+
+Contoh berikut menggunakan [SlideUtil.getAllTextFrames](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/slideutil/#getAllTextFrames-com.aspose.slides.IPresentation-boolean-) untuk mengiterasi frame teks dalam sebuah presentasi. Untuk shape, ia melaporkan nama shape, tipe runtime Java, dan slide yang berisi. Untuk sel tabel, ia melaporkan koordinat kolom dan baris berbasis nol serta slide yang berisi.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    ITextFrame[] textFrames = SlideUtil.getAllTextFrames(presentation, false);
+
+    for (ITextFrame textFrame : textFrames) {
+        IShape ownerShape = textFrame.getParentShape();
+        if (ownerShape != null) {
+            String shapeName = ownerShape.getName().isEmpty() ? "(unnamed)" : ownerShape.getName();
+            String shapeType = ownerShape.getClass().getSimpleName();
+            IBaseSlide baseSlide = ownerShape.getSlide();
+            String slideLabel;
+            if (baseSlide instanceof ISlide) {
+                slideLabel = "slide " + ((ISlide) baseSlide).getSlideNumber();
+            } else if (baseSlide instanceof INotesSlide) {
+                slideLabel = "notes for slide " + ((INotesSlide) baseSlide).getParentSlide().getSlideNumber();
+            } else {
+                slideLabel = baseSlide.getClass().getSimpleName();
+            }
+            System.out.println("Shape: " + shapeName + "; type: " + shapeType + "; " + slideLabel);
+            continue;
+        }
+
+        ICell ownerCell = textFrame.getParentCell();
+        if (ownerCell != null) {
+            IBaseSlide baseSlide = ownerCell.getSlide();
+            String slideLabel;
+            if (baseSlide instanceof ISlide) {
+                slideLabel = "slide " + ((ISlide) baseSlide).getSlideNumber();
+            } else if (baseSlide instanceof INotesSlide) {
+                slideLabel = "notes for slide " + ((INotesSlide) baseSlide).getParentSlide().getSlideNumber();
+            } else {
+                slideLabel = baseSlide.getClass().getSimpleName();
+            }
+            System.out.println("Table cell: column " + ownerCell.getFirstColumnIndex() + ", row " + ownerCell.getFirstRowIndex() + "; " + slideLabel);
+            continue;
+        }
+
+        System.out.println("The text frame owner is not available as a shape or table cell.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Untuk konten SmartArt, iterasikan shape dalam [ISmartArtNode.getShapes](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ismartartnode/#getShapes--) dan akses setiap [ISmartArtShape.getTextFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ismartartshape/#getTextFrame--). Frame teks dapat ditelusuri ke shape terkait melalui [ITextFrame.getParentShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/#getParentShape--), sementara [ITextFrame.getParentCell](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/#getParentCell--) mengembalikan `null`. Karena itu, cabang shape dalam contoh juga menangani teks dari node SmartArt.
 
 ## **Kumpulkan Informasi Kecocokan dengan Callback**
 
-Implementasikan [IFindResultCallback](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ifindresultcallback/) untuk menerima notifikasi pada tiap kecocokan. Metodenya [IFindResultCallback.foundResult](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ifindresultcallback/#foundResult-com.aspose.slides.ITextFrame-java.lang.String-java.lang.String-int-) menyediakan bingkai teks terkait, teks sumber, teks yang cocok, dan posisi kecocokan.
+Implementasikan [IFindResultCallback](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ifindresultcallback/) untuk menerima notifikasi pada setiap kecocokan. Metode [IFindResultCallback.foundResult](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ifindresultcallback/#foundResult-com.aspose.slides.ITextFrame-java.lang.String-java.lang.String-int-) menyediakan frame teks terkait, teks sumber, teks yang cocok, dan posisi kecocokan.
 
-Callback tidak menerima nomor slide secara langsung. Implementasi di bawah ini menurunkannya dari slide induk dan juga menangani teks yang ditemukan dalam catatan slide. `Integer` yang dapat bernilai null memungkinkan model hasil yang sama merepresentasikan teks yang terkait dengan tipe slide lainnya.
+Callback tidak menerima nomor slide secara langsung. Implementasi di bawah ini menurunkannya dari slide induk dan juga menangani teks yang ditemukan dalam catatan slide. `Integer` yang dapat bernilai null memungkinkan model hasil yang sama merepresentasikan teks yang terkait dengan tipe slide lain.
 
 ```java
 import com.aspose.slides.*;
@@ -112,12 +176,10 @@ final class TextSearchCallback implements IFindResultCallback {
         results.add(result);
     }
 
-    private static Integer getSlideNumber(ITextFrame textFrame) {
-        if (!(textFrame instanceof TextFrame)) {
-            return null;
-        }
-
-        IBaseSlide parentSlide = ((TextFrame) textFrame).getSlide();
+    private Integer getSlideNumber(ITextFrame textFrame) {
+        IShape parentShape = textFrame.getParentShape();
+        ICell parentCell = textFrame.getParentCell();
+        IBaseSlide parentSlide = parentShape != null ? parentShape.getSlide() : parentCell != null ? parentCell.getSlide() : textFrame.getSlide();
 
         if (parentSlide instanceof ISlide) {
             return ((ISlide) parentSlide).getSlideNumber();
@@ -132,13 +194,13 @@ final class TextSearchCallback implements IFindResultCallback {
 }
 ```
 
-Untuk operasi penggantian, `foundText` berisi teks asli yang cocok, sehingga callback dapat mencatat istilah mana yang tepat diganti.
+Untuk operasi penggantian, `foundText` berisi teks yang cocok asli, sehingga callback dapat mencatat secara tepat istilah mana yang diganti.
 
 ## **Sorot Teks**
 
-Gunakan metode [ITextFrame.highlightText](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) untuk menyorot kecocokan teks literal dalam sebuah bingkai teks. Berikan [TextSearchOptions](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/textsearchoptions/) untuk mengontrol pencarian dan sebuah callback untuk mengumpulkan detail kecocokan.
+Gunakan metode [ITextFrame.highlightText](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) untuk menyorot kecocokan teks literal dalam sebuah frame teks. Berikan [TextSearchOptions](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/textsearchoptions/) untuk mengendalikan pencarian dan sebuah callback untuk mengumpulkan detail kecocokan.
 
-Contoh kode di bawah ini menyorot semua kemunculan karakter **"try"** lalu hanya menyorot kata lengkap **"to"**. Kedua pencarian melaporkan kecocokannya ke callback yang sama.
+Contoh kode di bawah ini menyorot semua kemunculan karakter **"try"** dan kemudian menyorot hanya kata lengkap **"to"**. Kedua pencarian melaporkan kecocokannya ke callback yang sama.
 
 ```java
 import com.aspose.slides.*;
@@ -154,7 +216,7 @@ try {
     substringSearchOptions.setCaseSensitive(false);
     int substringHighlightColor = Color.rgb(173, 216, 230);
 
-    // Sorot setiap kemunculan "try" dalam bingkai teks.
+    // Sorot setiap kemunculan "try" dalam frame teks.
     shape.getTextFrame().highlightText("try", substringHighlightColor, substringSearchOptions, callback);
 
     TextSearchOptions wholeWordSearchOptions = new TextSearchOptions();
@@ -176,15 +238,15 @@ try {
 }
 ```
 
-Hasilnya:
+Hasil:
 
 ![Teks yang disorot](highlighted_text.png)
 
 ## **Sorot Teks Menggunakan Ekspresi Reguler**
 
-Metode [ITextFrame.highlightRegex](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-) menyorot kecocokan teks yang ditemukan oleh ekspresi reguler dalam sebuah bingkai teks.
+Metode [ITextFrame.highlightRegex](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-) menyorot kecocokan teks yang ditemukan oleh ekspresi reguler dalam sebuah frame teks.
 
-Kode berikut menyorot semua kata yang mengandung tujuh atau lebih karakter dan mengumpulkan tiap kecocokan:
+Kode berikut menyorot semua kata yang mengandung tujuh karakter atau lebih dan mengumpulkan setiap kecocokan:
 
 ```java
 import com.aspose.slides.*;
@@ -206,13 +268,13 @@ try {
 }
 ```
 
-Hasilnya:
+Hasil:
 
 ![Teks yang disorot menggunakan ekspresi reguler](highlighted_text_using_regex.png)
 
 ## **Sorot Teks di Seluruh Presentasi**
 
-Gunakan [IPresentation.highlightText](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipresentation/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) dan [IPresentation.highlightRegex](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipresentation/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-) untuk mencari semua bingkai teks yang berlaku dalam presentasi. Contoh berikut menyorot istilah literal dan semua alamat email sekaligus menjaga koleksi hasil terpisah untuk kedua pencarian.
+Gunakan [IPresentation.highlightText](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipresentation/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) dan [IPresentation.highlightRegex](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipresentation/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-) untuk mencari semua frame teks yang berlaku dalam sebuah presentasi. Contoh berikut menyorot istilah literal dan semua alamat email sambil mempertahankan kumpulan hasil terpisah untuk dua pencarian.
 
 ```java
 import com.aspose.slides.*;
@@ -241,11 +303,11 @@ try {
 }
 ```
 
-## **Ganti Teks dalam Bingkai Teks**
+## **Ganti Teks dalam Frame Teks**
 
-Gunakan [ITextFrame.replaceText](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) untuk teks literal dan [ITextFrame.replaceRegex](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) untuk penggantian berbasis pola. Metode ini memperbarui teks yang cocok di dalam bingkai teks yang ada, sehingga mempertahankan pemformatan bagian di sekitarnya alih-alih membangun kembali bingkai teks dari string polos.
+Gunakan [ITextFrame.replaceText](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) untuk teks literal dan [ITextFrame.replaceRegex](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) untuk penggantian berbasis pola. Metode-metode ini memperbarui teks yang cocok dalam frame teks yang ada, yang mempertahankan pemformatan bagian sekitarnya alih-alih membangun ulang frame teks dari string biasa.
 
-Contoh berikut menstandarkan varian ejaan lalu mengganti label versi. Callback yang sama mencatat istilah asli yang cocok oleh kedua operasi.
+Contoh berikut menstandarkan variasi ejaan kemudian mengganti label versi. Callback yang sama mencatat istilah asli yang cocok pada kedua operasi.
 
 ```java
 import com.aspose.slides.*;
@@ -271,11 +333,11 @@ try {
 }
 ```
 
-Jika satu kecocokan melintasi bagian dengan pemformatan berbeda, tinjau output untuk memastikan pemformatan mana yang harus diterapkan pada teks pengganti.
+Jika satu kecocokan mencakup bagian dengan pemformatan berbeda, tinjau output untuk memastikan pemformatan mana yang harus diterapkan pada teks pengganti.
 
 ## **Ganti Teks di Seluruh Presentasi**
 
-Gunakan [IPresentation.replaceText](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipresentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) dan [IPresentation.replaceRegex](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipresentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) untuk menerapkan operasi yang sama di seluruh presentasi. Ini berguna untuk pembersihan templat, pembaruan terminologi, dan redaksi.
+Gunakan [IPresentation.replaceText](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipresentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) dan [IPresentation.replaceRegex](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ipresentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) untuk menerapkan operasi yang sama di seluruh presentasi. Ini berguna untuk pembersihan templat, pembaruan terminologi, dan penyensoran.
 
 ```java
 import com.aspose.slides.*;
@@ -301,7 +363,7 @@ try {
 
 ## **Kelompokkan Kecocokan untuk Pelaporan**
 
-Karena tiap hasil menyimpan nomor slide dan bingkai teks, aplikasi dapat mengelompokkan kecocokan untuk audit, pelaporan, atau alur kerja peninjauan. Contoh berikut mengelompokkan hasil yang dikumpulkan pertama menurut slide lalu menurut bingkai teks:
+Karena setiap hasil menyimpan nomor slide dan frame teks, aplikasi dapat mengelompokkan kecocokan untuk audit, pelaporan, atau alur kerja peninjauan. Contoh berikut mengelompokkan hasil yang dikumpulkan pertama berdasarkan slide dan kemudian berdasarkan frame teks:
 
 ```java
 import com.aspose.slides.ITextFrame;
@@ -351,20 +413,20 @@ for (Map.Entry<Integer, Map<ITextFrame, List<TextMatch>>> slideEntry : matchesBy
 
 **Bagaimana saya dapat mencari hanya satu kotak teks alih-alih seluruh presentasi?**
 
-Dapatkan bingkai teks dari shape dan panggil [ITextFrame.highlightText](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), [ITextFrame.highlightRegex](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-), [ITextFrame.replaceText](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), atau [ITextFrame.replaceRegex](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) pada bingkai teks tersebut. Metode tingkat presentasi memproses semua bingkai teks yang berlaku sebagai gantinya.
+Dapatkan frame teks dari shape dan panggil [ITextFrame.highlightText](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), [ITextFrame.highlightRegex](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-), [ITextFrame.replaceText](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), atau [ITextFrame.replaceRegex](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) pada frame teks tersebut. Metode tingkat presentasi memproses semua frame teks yang berlaku sebagai gantinya.
 
 **Bagaimana saya dapat mencocokkan kata lengkap dengan kapitalisasi yang tepat?**
 
 Atur [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) dan [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) ke `true`, dan berikan opsi tersebut ke metode penyorotan atau penggantian teks literal. Untuk ekspresi reguler, definisikan batas kata dan sensitivitas huruf dalam `Pattern` Java itu sendiri.
 
-**Apakah pencarian dan penggantian dapat mencakup teks dalam catatan slide?**
+**Apakah pencarian dan penggantian dapat menyertakan teks dalam catatan slide?**
 
-Ya. Atur [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) ke `true` saat menggunakan operasi teks literal tingkat presentasi. Implementasi callback yang ditampilkan di atas memetakan kecocokan pada slide catatan kembali ke nomor slide induknya.
+Ya. Atur [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) ke `true` saat menggunakan operasi teks literal tingkat presentasi. Implementasi callback yang ditunjukkan di atas memetakan kecocokan dalam slide catatan kembali ke nomor slide induknya.
 
 **Bagaimana saya dapat membuat laporan tanpa memindai presentasi lagi?**
 
-Berikan implementasi [IFindResultCallback](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ifindresultcallback/) ke operasi penyorotan atau penggantian. Callback menerima setiap kecocokan saat operasi berjalan, sehingga aplikasi dapat menyimpan teks sumber, teks yang cocok, posisi, bingkai teks, dan nomor slide yang diturunkan untuk pengelompokan atau ekspor nanti.
+Berikan sebuah implementasi [IFindResultCallback](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ifindresultcallback/) ke operasi penyorotan atau penggantian. Callback menerima setiap kecocokan saat operasi berjalan, sehingga aplikasi dapat menyimpan teks sumber, teks yang cocok, posisi, frame teks, dan nomor slide yang diturunkan untuk pengelompokan atau ekspor nanti.
 
-**Apakah penggantian teks mempertahankan pemformatannya?**
+**Apakah penggantian teks mempertahankan formatnya?**
 
-[ITextFrame.replaceText](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) dan [ITextFrame.replaceRegex](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) memodifikasi teks yang cocok dalam bingkai teks yang ada dan mempertahankan pemformatan bagian di sekitarnya. Jika sebuah kecocokan melintasi bagian dengan pemformatan berbeda, periksa hasilnya untuk memastikan penggantian menggunakan gaya yang diinginkan.
+[ITextFrame.replaceText](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) dan [ITextFrame.replaceRegex](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) memodifikasi teks yang cocok dalam frame teks yang ada dan mempertahankan pemformatan bagian sekitarnya. Jika satu kecocokan mencakup bagian dengan format berbeda, periksa hasilnya untuk memastikan pengganti menggunakan gaya yang diinginkan.

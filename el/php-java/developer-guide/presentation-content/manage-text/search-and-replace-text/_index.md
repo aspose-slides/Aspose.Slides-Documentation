@@ -17,44 +17,118 @@ keywords:
 - παρουσίαση
 - PHP
 - Aspose.Slides
-description: "Αναζήτηση, επισήμανση και αντικατάσταση κειμένου σε παρουσιάσεις PowerPoint, ενώ συλλέγονται όλες οι αντιστοιχίσεις με το Aspose.Slides for PHP μέσω Java."
+description: "Αναζητήστε, επισημάνετε και αντικαταστήστε κείμενο σε παρουσιάσεις PowerPoint ενώ συλλέγετε κάθε αντιστοίχηση με το Aspose.Slides για PHP μέσω Java."
 ---
 ## **Επισκόπηση**
 
-Το Aspose.Slides for PHP μέσω Java μπορεί να αναζητά, να επισημαίνει και να αντικαθιστά κείμενο σε ένα μεμονωμένο πλαίσιο κειμένου ή σε ολόκληρη την παρουσίαση. Κάθε λειτουργία μπορεί επίσης να ειδοποιεί μια εφαρμογή για κάθε αντιστοίχιση μέσω μιας κλήσης επιστροφής αποτελέσματος. Αυτό καθιστά δυνατό το ενημέρωση μιας παρουσίασης και ταυτόχρονα τη δημιουργία ενός αρχείου ελέγχου που περιέχει το αντιστοιχισμένο κείμενο, το περιεχόμενό του, τη θέση, το πλαίσιο κειμένου και τον αριθμό της διαφάνειας.
+Το Aspose.Slides για PHP μέσω Java μπορεί να αναζητήσει, να επισημάνει και να αντικαταστήσει κείμενο σε ένα μεμονωμένο πλαίσιο κειμένου ή σε ολόκληρη την παρουσίαση. Κάθε λειτουργία μπορεί επίσης να ειδοποιεί μια εφαρμογή για κάθε αντιστοίχηση μέσω μιας κλήσης επιστροφής αποτελέσματος. Αυτό καθιστά δυνατή την ενημέρωση μιας παρουσίασης και ταυτόχρονα τη δημιουργία ενός αρχείου ελέγχου που περιέχει το αντιστοιχισμένο κείμενο, το πλαίσιο του, τη θέση, το πλαίσιο κειμένου και τον αριθμό της διαφάνειας.
 
-Αυτές οι δυνατότητες είναι χρήσιμες για έλεγχο, διαγραφή, έλεγχο ορολογίας, καθαρισμό προτύπων και αυτοματοποιημένες ροές εργασίας αναφοράς.
+Αυτές οι δυνατότητες είναι χρήσιμες για ανασκόπηση, διαγραφή, έλεγχο ορολογίας, καθαρισμό προτύπων και αυτοματοποιημένες ροές εργασίας αναφοράς.
 
-Στα πρώτα παραδείγματα παρακάτω, χρησιμοποιούμε ένα αρχείο με όνομα "sample.pptx", το οποίο περιέχει ένα μόνο πλαίσιο κειμένου στην πρώτη διαφάνεια με το ακόλουθο κείμενο:
+Στα πρώτα παραδείγματα παρακάτω, χρησιμοποιούμε ένα αρχείο με το όνομα "sample.pptx", το οποίο περιέχει ένα μόνο πλαίσιο κειμένου στην πρώτη διαφάνεια με το ακόλουθο κείμενο:
 
 ![Δείγμα κειμένου](sample_text.png)
 
-## **Επιλογή Πεδίου Αναζήτησης**
+## **Επιλέξτε το Πεδίο Αναζήτησης**
 
-Χρησιμοποιήστε μεθόδους στο [TextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/) για να περιορίσετε μια λειτουργία σε ένα πλαίσιο κειμένου. Χρησιμοποιήστε μεθόδους στο [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) για να επεξεργαστείτε όλο το εφαρμόσιμο κείμενο στην παρουσίαση.
+Χρησιμοποιήστε μεθόδους στο [TextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/) για να περιορίσετε μια λειτουργία σε ένα πλαίσιο κειμένου. Χρησιμοποιήτε μεθόδους στο [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) για να επεξεργαστείτε όλο το κείμενο που ισχύει στην παρουσίαση.
 
 | Λειτουργία | Ένα πλαίσιο κειμένου | Ολόκληρη η παρουσίαση |
 |---|---|---|
 | Επισήμανση κυριολεκτικού κειμένου | [TextFrame::highlightText](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/#highlightText) | [Presentation::highlightText](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/#highlightText) |
-| Επισήμανση αντιστοιχιών κανονικής έκφρασης | [TextFrame::highlightRegex](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/#highlightRegex) | [Presentation::highlightRegex](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/#highlightRegex) |
+| Επισήμανση αντιστοιχίσεων κανονικής έκφρασης | [TextFrame::highlightRegex](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/#highlightRegex) | [Presentation::highlightRegex](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/#highlightRegex) |
 | Αντικατάσταση κυριολεκτικού κειμένου | [TextFrame::replaceText](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/#replaceText) | [Presentation::replaceText](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/#replaceText) |
-| Αντικατάσταση αντιστοιχιών κανονικής έκφρασης | [TextFrame::replaceRegex](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/#replaceRegex) | [Presentation::replaceRegex](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/#replaceRegex) |
+| Αντικατάσταση αντιστοιχίσεων κανονικής έκφρασης | [TextFrame::replaceRegex](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/#replaceRegex) | [Presentation::replaceRegex](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/#replaceRegex) |
 
-## **Διαμόρφωση Ταύτισης Κειμένου**
+## **Διαμορφώστε την Αντιστοίχηση Κειμένου**
 
-Για λειτουργίες κυριολεκτικού κειμένου, χρησιμοποιήστε το [TextSearchOptions](https://reference.aspose.com/slides/el/php-java/aspose.slides/textsearchoptions/) για να ελέγξετε την ταύτιση:
+Για λειτουργίες κυριολεκτικού κειμένου, χρησιμοποιήστε το [TextSearchOptions](https://reference.aspose.com/slides/el/php-java/aspose.slides/textsearchoptions/) για να ελέγξετε την αντιστοίχηση:
 
-- [TextSearchOptions::setWholeWordsOnly](https://reference.aspose.com/slides/el/php-java/aspose.slides/textsearchoptions/#setWholeWordsOnly) περιορίζει τις αντιστοιχίες σε πλήρεις λέξεις.
-- [TextSearchOptions::setCaseSensitive](https://reference.aspose.com/slides/el/php-java/aspose.slides/textsearchoptions/#setCaseSensitive) ελέγχει αν πρέπει να ταιριάζει ο χαρακτήρας κεφαλαίων/μικρών.
-- [TextSearchOptions::setIncludeNotes](https://reference.aspose.com/slides/el/php-java/aspose.slides/textsearchoptions/#setIncludeNotes) περιλαμβάνει τις σημειώσεις διαφάνειας στις λειτουργίες αναζήτησης, αντικατάστασης και επισήμανσης σε επίπεδο παρουσίασης.
+- [TextSearchOptions::setWholeWordsOnly](https://reference.aspose.com/slides/el/php-java/aspose.slides/textsearchoptions/#setWholeWordsOnly) περιορίζει τις αντιστοιχίες σε ολόκληρες λέξεις.
+- [TextSearchOptions::setCaseSensitive](https://reference.aspose.com/slides/el/php-java/aspose.slides/textsearchoptions/#setCaseSensitive) ελέγχει αν πρέπει να ταιριάζει η διάκριση κεφαλαίων/μικρών.
+- [TextSearchOptions::setIncludeNotes](https://reference.aspose.com/slides/el/php-java/aspose.slides/textsearchoptions/#setIncludeNotes) περιλαμβάνει τις σημειώσεις διαφάνειας σε λειτουργίες αναζήτησης, αντικατάστασης και επισήμανσης σε επίπεδο παρουσίασης.
 
-Οι λειτουργίες κανονικής έκφρασης χρησιμοποιούν ένα Java `Pattern`, έτσι οι κανόνες ταύτισης όπως η ευαισθησία σε πεζά/κεφαλαία και τα όρια λέξεων ορίζονται από την έκφραση και τις σημαίες της.
+Οι λειτουργίες κανονικής έκφρασης χρησιμοποιούν ένα Java `Pattern`, ώστε οι κανόνες αντιστοίχισης όπως η διάκριση κεφαλαίων/μικρών και τα όρια λέξεων να ορίζονται από την έκφραση και τις σημαίες της.
 
-## **Συλλογή Πληροφοριών Αντιστοιχίας με Κλήση Επιστροφής**
+## **Καθορίστε τον Ιδιοκτήτη ενός Πλαισίου Κειμένου**
 
-Περάστε μια κλήση επιστροφής διαμεσολαβητή Java σε μια μέθοδο επισήμανσης ή αντικατάστασης για να λάβετε ειδοποίηση για κάθε αντιστοίχιση. Η μέθοδος κλήσης επιστροφής λαμβάνει το σχετικό πλαίσιο κειμένου, το πηγαίο κείμενο, το αντιστοιχισμένο κείμενο και τη θέση της αντιστοίχισης.
+Γενικές ροές επεξεργασίας κειμένου συχνά λαμβάνουν ένα [TextFrame] κατά την αναζήτηση, αντικατάσταση, επικύρωση ή εξαγωγή κειμένου. Χρησιμοποιήστε τα [TextFrame::getParentShape] και [TextFrame::getParentCell] για να προσδιορίσετε ποιο αντικείμενο παρουσίασης κατέχει το πλαίσιο κειμένου.
 
-Η κλήση επιστροφής δεν λαμβάνει άμεσα τον αριθμό διαφάνειας. Η παρακάτω υλοποίηση τον εξάγει από τη γονική διαφάνεια και επίσης διαχειρίζεται κείμενο που βρίσκεται σε σημειώσεις διαφάνειας. Ο πίνακας αποτελεσμάτων χρησιμοποιεί `null` όταν το κείμενο σχετίζεται με άλλο τύπο διαφάνειας.
+Οι αναμενόμενες τιμές εξαρτώνται από τον ιδιοκτήτη:
+
+| Ιδιοκτήτης πλαισίου κειμένου | `getParentShape` | `getParentCell` |
+|---|---|---|
+| Ένα AutoShape ή άλλο σχήμα που περιέχει κείμενο | Το κυρίως [Shape](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/) | `null` |
+| Ένα κελί πίνακα | `null` | Το κυρίως [Cell](https://reference.aspose.com/slides/el/php-java/aspose.slides/cell/) |
+
+Και οι δύο μέθοδοι παρέχουν πλοήγηση μόνο για ανάγνωση. Η κλήση τους δεν μετακινεί το πλαίσιο κειμένου ούτε αλλάζει τον ιδιοκτήτη του. Ο γενικός κώδικας πρέπει να ελέγχει και τις δύο τιμές με `java_is_null` και να διαχειρίζεται την πιθανότητα να μην είναι διαθέσιμος κανένας ιδιοκτήτης.
+
+Το παρακάτω παράδειγμα χρησιμοποιεί το [SlideUtil::getAllTextFrames](https://reference.aspose.com/slides/el/php-java/aspose.slides/slideutil/#getAllTextFrames) για να επαναλάβει όλα τα πλαίσια κειμένου σε μια παρουσίαση. Για σχήματα, αναφέρει το όνομα του σχήματος, τον τύπο χρόνου εκτέλεσης Java και τη διαφάνεια που το περιέχει. Για κελιά πίνακα, αναφέρει τις συντεταγμένες στήλης και σειράς (από το μηδέν) και τη διαφάνεια που τα περιέχει.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SlideUtil;
+
+$presentation = new Presentation("presentation.pptx");
+$arrayClass = new java_class("java.lang.reflect.Array");
+
+try {
+    $textFrames = SlideUtil::getAllTextFrames($presentation, false);
+    $textFrameCount = java_values($arrayClass->getLength($textFrames));
+
+    for ($textFrameIndex = 0; $textFrameIndex < $textFrameCount; $textFrameIndex++) {
+        $textFrame = $textFrames[$textFrameIndex];
+        $ownerShape = $textFrame->getParentShape();
+        if (!java_is_null($ownerShape)) {
+            $shapeName = java_values($ownerShape->getName());
+            $shapeName = $shapeName === "" ? "(unnamed)" : $shapeName;
+            $shapeType = java_values($ownerShape->getClass()->getSimpleName());
+            $baseSlide = $ownerShape->getSlide();
+            $slideClassName = java_values($baseSlide->getClass()->getName());
+
+            if ($slideClassName === "com.aspose.slides.Slide") {
+                $slideLabel = "slide " . java_values($baseSlide->getSlideNumber());
+            } elseif ($slideClassName === "com.aspose.slides.NotesSlide") {
+                $slideLabel = "notes for slide " . java_values($baseSlide->getParentSlide()->getSlideNumber());
+            } else {
+                $slideLabel = java_values($baseSlide->getClass()->getSimpleName());
+            }
+
+            echo("Shape: " . $shapeName . "; type: " . $shapeType . "; " . $slideLabel . "\n");
+            continue;
+        }
+
+        $ownerCell = $textFrame->getParentCell();
+        if (!java_is_null($ownerCell)) {
+            $baseSlide = $ownerCell->getSlide();
+            $slideClassName = java_values($baseSlide->getClass()->getName());
+
+            if ($slideClassName === "com.aspose.slides.Slide") {
+                $slideLabel = "slide " . java_values($baseSlide->getSlideNumber());
+            } elseif ($slideClassName === "com.aspose.slides.NotesSlide") {
+                $slideLabel = "notes for slide " . java_values($baseSlide->getParentSlide()->getSlideNumber());
+            } else {
+                $slideLabel = java_values($baseSlide->getClass()->getSimpleName());
+            }
+
+            echo("Table cell: column " . java_values($ownerCell->getFirstColumnIndex()) . ", row " . java_values($ownerCell->getFirstRowIndex()) . "; " . $slideLabel . "\n");
+            continue;
+        }
+
+        echo("The text frame owner is not available as a shape or table cell.\n");
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Για περιεχόμενο SmartArt, επαναλάβετε τα σχήματα στο [SmartArtNode::getShapes](https://reference.aspose.com/slides/el/php-java/aspose.slides/smartartnode/#getShapes) και αποκτήστε πρόσβαση σε κάθε [SmartArtShape::getTextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/smartartshape/#getTextFrame). Το πλαίσιο κειμένου μπορεί να εντοπιστεί στο σχετικό σχήμα μέσω του [TextFrame::getParentShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/#getParentShape), ενώ το [TextFrame::getParentCell](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/#getParentCell) επιστρέφει `null`. Συνεπώς, το κλαδί σχήματος στο παράδειγμα χειρίζεται επίσης κείμενο από κόμβους SmartArt.
+
+## **Συλλογή Πληροφοριών Αντιστοίχησης με Κλήση Επιστροφής**
+
+Προωθήστε μια κλήση επιστροφής proxy Java σε μια μέθοδο επισήμανσης ή αντικατάστασης για να λάβετε ειδοποίηση για κάθε αντιστοίχηση. Η μέθοδος της κλήσης επιστροφής λαμβάνει το σχετικό πλαίσιο κειμένου, το πηγαίο κείμενο, το αντιστοιχισμένο κείμενο και τη θέση της αντιστοίχισης.
+
+Η κλήση επιστροφής δεν λαμβάνει άμεσα τον αριθμό της διαφάνειας. Η παρακάτω υλοποίηση τον εξάγει από τη γονική διαφάνεια και επίσης διαχειρίζεται κείμενο που βρίσκεται στις σημειώσεις διαφάνειας. Ο πίνακας αποτελεσμάτων χρησιμοποιεί `null` όταν το κείμενο σχετίζεται με άλλο τύπο διαφάνειας.
 
 ```php
 class TextSearchCallback {
@@ -76,7 +150,17 @@ class TextSearchCallback {
     }
 
     private function getSlideNumber($textFrame) {
-        $parentSlide = $textFrame->getSlide();
+        $parentShape = $textFrame->getParentShape();
+        $parentCell = $textFrame->getParentCell();
+
+        if (!java_is_null($parentShape)) {
+            $parentSlide = $parentShape->getSlide();
+        } elseif (!java_is_null($parentCell)) {
+            $parentSlide = $parentCell->getSlide();
+        } else {
+            $parentSlide = $textFrame->getSlide();
+        }
+
         if (java_is_null($parentSlide)) {
             return null;
         }
@@ -101,7 +185,7 @@ class TextSearchCallback {
 }
 ```
 
-Δημιουργήστε έναν διαμεσολαβητή για αυτό το αντικείμενο PHP πριν το περάσετε σε μια λειτουργία:
+Δημιουργήστε ένα proxy για αυτό το αντικείμενο PHP πριν το περάσετε σε μια λειτουργία:
 
 ```php
 $callbackHandler = new TextSearchCallback();
@@ -113,13 +197,13 @@ $callback = java_closure(
 );
 ```
 
-Για λειτουργίες αντικατάστασης, το `foundText` περιέχει το αρχικό αντιστοιχισμένο κείμενο, έτσι η κλήση επιστροφής μπορεί να καταγράψει ακριβώς ποιες όροι αντικαταστάθηκαν.
+Για λειτουργίες αντικατάστασης, το `foundText` περιέχει το αρχικό αντιστοιχισμένο κείμενο, ώστε η κλήση επιστροφής μπορεί να καταγράψει ακριβώς ποιές λέξεις αντικαταστάθηκαν.
 
 ## **Επισήμανση Κειμένου**
 
-Χρησιμοποιήστε τη μέθοδο [TextFrame::highlightText](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/#highlightText) για να επισημάνετε τις κυριολεκτικές αντιστοιχίες κειμένου σε ένα πλαίσιο κειμένου. Περάστε το [TextSearchOptions](https://reference.aspose.com/slides/el/php-java/aspose.slides/textsearchoptions/) για να ελέγξετε την αναζήτηση.
+Χρησιμοποιήστε τη μέθοδο [TextFrame::highlightText](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/#highlightText) για να επισημάνετε αντιστοιχίσεις κυριολεκτικού κειμένου σε ένα πλαίσιο κειμένου. Προωθήστε το [TextSearchOptions](https://reference.aspose.com/slides/el/php-java/aspose.slides/textsearchoptions/) για να ελέγξετε την αναζήτηση.
 
-Το παρακάτω παράδειγμα κώδικα επισημαίνει όλες τις εμφανίσεις των χαρακτήρων **"try"** και στη συνέχεια επισημαίνει μόνο την πλήρη λέξη **"to"**.
+Το παρακάτω παράδειγμα κώδικα επισημαίνει όλες τις εμφανίσεις των χαρακτήρων **"try"** και στη συνέχεια επισημαίνει μόνο τη λέξη **"to"** πλήρως.
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -151,7 +235,7 @@ try {
     $wholeWordSearchOptions->setCaseSensitive(false);
     $wholeWordHighlightColor = new Java("java.awt.Color", 238, 130, 238);
 
-    // Επισήμανση μόνο της πλήρους λέξης "to".
+    // Επισήμανση μόνο της πλήρης λέξης "to".
     $shape->getTextFrame()->highlightText(
         "to",
         $wholeWordHighlightColor,
@@ -178,9 +262,9 @@ finally {
 
 ![Το επισημασμένο κείμενο](highlighted_text.png)
 
-## **Επισήμανση Κειμένου Χρησιμοποιώντας Κανονικές Εκφράσεις**
+## **Επισήμανση Κειμένου με Κανονικές Εκφράσεις**
 
-Η μέθοδος [TextFrame::highlightRegex](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/#highlightRegex) επισημαίνει τις αντιστοιχίες κειμένου που βρίσκονται με μια κανονική έκφραση σε ένα πλαίσιο κειμένου.
+Η μέθοδος [TextFrame::highlightRegex](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/#highlightRegex) επισημαίνει τις αντιστοιχίες κειμένου που βρίσκονται μέσω κανονικής έκφρασης σε ένα πλαίσιο κειμένου.
 
 Ο παρακάτω κώδικας επισημαίνει όλες τις λέξεις που περιέχουν επτά ή περισσότερους χαρακτήρες:
 
@@ -203,11 +287,11 @@ finally {
 
 Το αποτέλεσμα:
 
-![Το επισημασμένο κείμενο χρησιμοποιώντας την κανονική έκφραση](highlighted_text_using_regex.png)
+![Το επισημασμένο κείμενο με την κανονική έκφραση](highlighted_text_using_regex.png)
 
-## **Επισήμανση Κειμένου σε Ολόκληρη την Παρουσίαση**
+## **Επισήμανση Κειμένου σε Όλη την Παρουσίαση**
 
-Χρησιμοποιήστε τις [Presentation::highlightText](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/#highlightText) και [Presentation::highlightRegex](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/#highlightRegex) για να αναζητήσετε όλα τα εφαρμοστέα πλαίσια κειμένου σε μια παρουσίαση. Το παρακάτω παράδειγμα επισημαίνει έναν κυριολεκτικό όρο και όλες τις διευθύνσεις email:
+Χρησιμοποιήστε τα [Presentation::highlightText](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/#highlightText) και [Presentation::highlightRegex](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/#highlightRegex) για να αναζητήσετε όλα τα συναφή πλαίσια κειμένου σε μια παρουσίαση. Το παρακάτω παράδειγμα επισημαίνει έναν κυριολεκτικό όρο και όλες τις διευθύνσεις email:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -242,9 +326,9 @@ finally {
 
 ## **Αντικατάσταση Κειμένου σε Πλαίσιο Κειμένου**
 
-Χρησιμοποιήστε το [TextFrame::replaceText](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/#replaceText) για κυριολεκτικό κείμενο και το [TextFrame::replaceRegex](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/#replaceRegex) για αντικατάσταση βάσει προτύπου. Αυτές οι μέθοδοι ενημερώνουν το αντιστοιχισμένο κείμενο μέσα στο υπάρχον πλαίσιο κειμένου, το οποίο διατηρεί τη μορφοποίηση των περιμετρικών τμημάτων αντί να ξαναδημιουργήσει το πλαίσιο κειμένου από μια απλή συμβολοσειρά.
+Χρησιμοποιήστε το [TextFrame::replaceText](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/#replaceText) για κυριολεκτικό κείμενο και το [TextFrame::replaceRegex](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/#replaceRegex) για αντικατάσταση βάσει προτύπου. Αυτές οι μέθοδοι ενημερώνουν το αντιστοιχισμένο κείμενο εντός του υπάρχοντος πλαισίου κειμένου, διατηρώντας τη μορφοποίηση των περιβάλλων τμημάτων αντί να ξαναδημιουργήσουν το πλαίσιο κειμένου από απλό κείμενο.
 
-Το παρακάτω παράδειγμα σταθεροποιεί μια παραλλαγή ορθογραφίας και στη συνέχεια αντικαθιστά ετικέτες εκδόσεων:
+Το παρακάτω παράδειγμα σταθεροποιεί μια παραλλαγή ορθογραφίας και στη συνέχεια αντικαθιστά ετικέτες έκδοσης:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -282,11 +366,11 @@ finally {
 }
 ```
 
-Εάν μια αντιστοίχιση καλύπτει τμήματα με διαφορετική μορφοποίηση, ελέγξτε την έξοδο για να επιβεβαιώσετε ποια μορφοποίηση πρέπει να εφαρμοστεί στο κείμενο αντικατάστασης.
+Αν μια αντιστοίχηση καλύπτει τμήματα με διαφορετική μορφοποίηση, ελέγξτε το αποτέλεσμα για να επιβεβαιώσετε ποια μορφοποίηση πρέπει να εφαρμοστεί στο κείμενο αντικατάστασης.
 
-## **Αντικατάσταση Κειμένου σε Ολόκληρη την Παρουσίαση**
+## **Αντικατάσταση Κειμένου σε Όλη την Παρουσίαση**
 
-Χρησιμοποιήστε τις [Presentation::replaceText](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/#replaceText) και [Presentation::replaceRegex](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/#replaceRegex) για να εφαρμόσετε τις ίδιες λειτουργίες σε όλη την παρουσίαση. Αυτό είναι χρήσιμο για καθαρισμό προτύπων, ενημερώσεις ορολογίας και διαγραφή.
+Χρησιμοποιήστε τα [Presentation::replaceText](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/#replaceText) και [Presentation::replaceRegex](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/#replaceRegex) για να εφαρμόσετε τις ίδιες λειτουργίες σε όλη την παρουσίαση. Αυτό είναι χρήσιμο για τον καθαρισμό προτύπων, τις ενημερώσεις ορολογίας και τη διαγραφή.
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -318,9 +402,9 @@ finally {
 }
 ```
 
-## **Ομαδοποίηση Αντιστοιχιών για Αναφορά**
+## **Ομαδοποίηση Αντιστοιχίσεων για Αναφορές**
 
-Επειδή κάθε αποτέλεσμα αποθηκεύει τον αριθμό της διαφάνειας και το πλαίσιο κειμένου, οι εφαρμογές μπορούν να ομαδοποιήσουν τις αντιστοιχίες για έλεγχο, αναφορά ή ροές εργασίας ανασκόπησης. Το παρακάτω παράδειγμα ομαδοποιεί τα συλλεχθέντα αποτελέσματα πρώτα κατά διαφάνεια και στη συνέχεια κατά πλαίσιο κειμένου:
+Καθώς κάθε αποτέλεσμα αποθηκεύει τον αριθμό της διαφάνειας και το πλαίσιο κειμένου, οι εφαρμογές μπορούν να ομαδοποιούν τις αντιστοιχίσεις για ελεγκτικούς, αναφορικούς ή ελεγκτικούς κύκλους εργασίας. Το παρακάτω παράδειγμα ομαδοποιεί τα συλλεγμένα αποτελέσματα πρώτα ανά διαφάνεια και στη συνέχεια ανά πλαίσιο κειμένου:
 
 ```php
 $matchesBySlide = [];
@@ -369,20 +453,20 @@ foreach ($matchesBySlide as $slideLabel => $textFrameGroups) {
 
 **Πώς μπορώ να αναζητήσω μόνο ένα πλαίσιο κειμένου αντί για ολόκληρη την παρουσίαση;**
 
-Αποκτήστε το πλαίσιο κειμένου του σχήματος και καλέστε το [TextFrame::highlightText](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/#highlightText), [TextFrame::highlightRegex](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/#highlightRegex), [TextFrame::replaceText](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/#replaceText) ή το [TextFrame::replaceRegex](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/#replaceRegex) σε αυτό το πλαίσιο κειμένου. Οι μέθοδοι σε επίπεδο παρουσίασης επεξεργάζονται όλα τα εφαρμοστέα πλαίσια κειμένου αντί για αυτό.
+Αποκτήστε το πλαίσιο κειμένου του σχήματος και καλέστε το [TextFrame::highlightText](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/#highlightText), το [TextFrame::highlightRegex](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/#highlightRegex), το [TextFrame::replaceText](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/#replaceText) ή το [TextFrame::replaceRegex](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/#replaceRegex) σε αυτό το πλαίσιο κειμένου. Οι μέθοδοι σε επίπεδο παρουσίασης επεξεργάζονται όλα τα συναφή πλαίσια κειμένου.
 
-**Πώς μπορώ να ταιριάξω πλήρεις λέξεις με τη σωστή κεφαλαιοποίηση;**
+**Πώς μπορώ να αντιστοιχίσω πλήρεις λέξεις με τη σωστή κεφαλαία/μικρά;**
 
-Ορίστε το [TextSearchOptions::setWholeWordsOnly](https://reference.aspose.com/slides/el/php-java/aspose.slides/textsearchoptions/#setWholeWordsOnly) και το [TextSearchOptions::setCaseSensitive](https://reference.aspose.com/slides/el/php-java/aspose.slides/textsearchoptions/#setCaseSensitive) σε `true` και περάστε τις επιλογές σε μια μέθοδο επισήμανσης ή αντικατάστασης κυριολεκτικού κειμένου. Για κανονικές εκφράσεις, ορίστε τα όρια λέξεων και την ευαισθησία σε πεζά/κεφαλαία στο ίδιο το Java `Pattern`.
+Ορίστε τα [TextSearchOptions::setWholeWordsOnly](https://reference.aspose.com/slides/el/php-java/aspose.slides/textsearchoptions/#setWholeWordsOnly) και [TextSearchOptions::setCaseSensitive](https://reference.aspose.com/slides/el/php-java/aspose.slides/textsearchoptions/#setCaseSensitive) σε `true` και προωθήστε τις επιλογές σε μια μέθοδο επισήμανσης ή αντικατάστασης κυριολεκτικού κειμένου. Για κανονικές εκφράσεις, καθορίστε τα όρια λέξεων και τη διάκριση κεφαλαίων/μικρών μέσα στο Java `Pattern` ίδιο του.
 
-**Μπορεί η αναζήτηση και η αντικατάσταση να περιλαμβάνει κείμενο σε σημειώσεις διαφάνειας;**
+**Μπορεί η αναζήτηση και η αντικατάσταση να περιλαμβάνει κείμενο στις σημειώσεις διαφάνειας;**
 
 Ναι. Ορίστε το [TextSearchOptions::setIncludeNotes](https://reference.aspose.com/slides/el/php-java/aspose.slides/textsearchoptions/#setIncludeNotes) σε `true` όταν χρησιμοποιείτε μια λειτουργία κυριολεκτικού κειμένου σε επίπεδο παρουσίασης.
 
-**Πώς μπορώ να δημιουργήσω μια αναφορά χωρίς να σαρώσω ξανά την παρουσίαση;**
+**Πώς μπορώ να δημιουργήσω μια αναφορά χωρίς να σαρώσω τη παρουσίαση δεύτερη φορά;**
 
-Περάστε μια κλήση επιστροφής διαμεσολαβητή Java στη λειτουργία επισήμανσης ή αντικατάστασης. Λαμβάνει κάθε αντιστοίχιση κατά τη διάρκεια της λειτουργίας, ώστε η εφαρμογή να μπορεί να αποθηκεύσει το πηγαίο κείμενο, το αντιστοιχισμένο κείμενο, τη θέση, το πλαίσιο κειμένου και τον προεξαχθέντα αριθμό διαφάνειας για μετέπειτα ομαδοποίηση ή εξαγωγή.
+Προωθήστε μια κλήση επιστροφής proxy Java στην λειτουργία επισήμανσης ή αντικατάστασης. Λαμβάνει κάθε αντιστοίχηση κατά τη διάρκεια της λειτουργίας, ώστε η εφαρμογή να μπορεί να αποθηκεύσει το πηγαίο κείμενο, το αντιστοιχισμένο κείμενο, τη θέση, το πλαίσιο κειμένου και τον προκύπτοντα αριθμό διαφάνειας για μετέπειτα ομαδοποίηση ή εξαγωγή.
 
 **Διατηρεί η αντικατάσταση κειμένου τη μορφοποίησή του;**
 
-[TextFrame::replaceText](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/#replaceText) και [TextFrame::replaceRegex](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/#replaceRegex) τροποποιούν το αντιστοιχισμένο κείμενο μέσα στο υπάρχον πλαίσιο κειμένου και διατηρούν τη μορφοποίηση των περιμετρικών τμημάτων. Εάν μια αντιστοίχιση καλύπτει τμήματα με διαφορετική μορφοποίηση, εξετάστε το αποτέλεσμα για να διασφαλίσετε ότι η αντικατάσταση χρησιμοποιεί το επιθυμητό στυλ.
+Οι μέθοδοι [TextFrame::replaceText](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/#replaceText) και [TextFrame::replaceRegex](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/#replaceRegex) τροποποιούν το αντιστοιχισμένο κείμενο εντός του υπάρχοντος πλαισίου κειμένου και διατηρούν τη μορφοποίηση των περιβάλλοντων τμημάτων. Εάν μια αντιστοίχηση καλύπτει τμήματα με διαφορετική μορφοποίηση, εξετάστε το αποτέλεσμα ώστε η αντικατάσταση να χρησιμοποιεί το επιθυμητό στυλ.

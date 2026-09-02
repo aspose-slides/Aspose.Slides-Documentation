@@ -5,11 +5,11 @@ type: docs
 weight: 55
 url: /es/cpp/search-and-replace-text/
 keywords:
-- buscar texto
-- resaltar texto
-- reemplazar texto
+- texto de búsqueda
+- texto resaltado
+- texto de reemplazo
 - expresión regular
-- devolución de llamada de resultado
+- devolución de llamada de resultados
 - cuadro de texto
 - informe de auditoría
 - PowerPoint
@@ -17,17 +17,17 @@ keywords:
 - presentación
 - C++
 - Aspose.Slides
-description: "Buscar, resaltar y reemplazar texto en presentaciones de PowerPoint mientras se recopilan todas las coincidencias con Aspose.Slides para C++."
+description: "Buscar, resaltar y reemplazar texto en presentaciones de PowerPoint mientras se recopila cada coincidencia con Aspose.Slides para C++."
 ---
-## **Visión general**
+## **Descripción general**
 
-Aspose.Slides for C++ puede buscar, resaltar y reemplazar texto en un cuadro de texto individual o en toda una presentación. Cada operación también puede notificar a una aplicación sobre cada coincidencia a través de una devolución de llamada de resultado. Esto permite actualizar una presentación y, simultáneamente, generar una pista de auditoría que contiene el texto coincidente, su contexto, posición, cuadro de texto y número de diapositiva.
+Aspose.Slides for C++ puede buscar, resaltar y reemplazar texto en un cuadro de texto individual o en toda una presentación. Cada operación también puede notificar a una aplicación sobre cada coincidencia mediante una devolución de llamada de resultado. Esto permite actualizar una presentación y, simultáneamente, generar una pista de auditoría que contenga el texto coincidente, su contexto, posición, cuadro de texto y número de diapositiva.
 
-Estas capacidades son útiles para la revisión, la censura, la comprobación de terminología, la limpieza de plantillas y los flujos de trabajo de generación de informes automatizados.
+Estas capacidades son útiles para revisiones, redactado, comprobaciones de terminología, limpieza de plantillas y flujos de trabajo de generación de informes automáticos.
 
-En los primeros ejemplos a continuación, utilizamos un archivo llamado "sample.pptx", que contiene un único cuadro de texto en la primera diapositiva con el siguiente texto:
+En los primeros ejemplos a continuación, utilizamos un archivo llamado "sample.pptx", que contiene un único cuadro de texto en la primera diapositiva con el siguiente contenido:
 
-![Sample text](sample_text.png)
+![Texto de ejemplo](sample_text.png)
 
 ## **Elegir el alcance de la búsqueda**
 
@@ -36,31 +36,142 @@ Utilice los métodos de [ITextFrame](https://reference.aspose.com/slides/es/cpp/
 | Operación | Un cuadro de texto | Presentación completa |
 |---|---|---|
 | Resaltar texto literal | [ITextFrame::HighlightText](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/highlighttext/) | [IPresentation::HighlightText](https://reference.aspose.com/slides/es/cpp/aspose.slides/ipresentation/highlighttext/) |
-| Resaltar coincidencias de expresión regular | [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/highlightregex/) | [IPresentation::HighlightRegex](https://reference.aspose.com/slides/es/cpp/aspose.slides/ipresentation/highlightregex/) |
+| Resaltar coincidencias de expresiones regulares | [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/highlightregex/) | [IPresentation::HighlightRegex](https://reference.aspose.com/slides/es/cpp/aspose.slides/ipresentation/highlightregex/) |
 | Reemplazar texto literal | [ITextFrame::ReplaceText](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/replacetext/) | [IPresentation::ReplaceText](https://reference.aspose.com/slides/es/cpp/aspose.slides/ipresentation/replacetext/) |
-| Reemplazar coincidencias de expresión regular | [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/replaceregex/) | [IPresentation::ReplaceRegex](https://reference.aspose.com/slides/es/cpp/aspose.slides/ipresentation/replaceregex/) |
+| Reemplazar coincidencias de expresiones regulares | [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/replaceregex/) | [IPresentation::ReplaceRegex](https://reference.aspose.com/slides/es/cpp/aspose.slides/ipresentation/replaceregex/) |
 
 ## **Configurar la coincidencia de texto**
 
 Para operaciones de texto literal, utilice [ITextSearchOptions](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextsearchoptions/) para controlar la coincidencia:
 
 - [ITextSearchOptions::set_WholeWordsOnly](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextsearchoptions/set_wholewordsonly/) limita las coincidencias a palabras completas.
-- [ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) controla si debe coincidir la capitalización de los caracteres.
+- [ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) controla si se debe respetar la distinción entre mayúsculas y minúsculas.
 - [ITextSearchOptions::set_IncludeNotes](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextsearchoptions/set_includenotes/) incluye las notas de diapositiva en las operaciones de búsqueda, reemplazo y resaltado a nivel de presentación.
 
-Las operaciones de expresiones regulares utilizan un `System::Text::RegularExpressions::Regex`, por lo que las reglas de coincidencia como la distinción de mayúsculas y minúsculas y los límites de palabras se definen en la expresión y sus opciones.
+Las operaciones con expresiones regulares utilizan un `System::Text::RegularExpressions::Regex`, por lo que las reglas de coincidencia, como la distinción entre mayúsculas y minúsculas y los límites de palabras, se definen en la propia expresión y sus opciones.
 
-## **Recopilar información de coincidencias con una devolución de llamada**
+## **Identificar el propietario de un cuadro de texto**
 
-Implemente [IFindResultCallback](https://reference.aspose.com/slides/es/cpp/aspose.slides/ifindresultcallback/) para recibir una notificación por cada coincidencia. Su método [IFindResultCallback::FoundResult](https://reference.aspose.com/slides/es/cpp/aspose.slides/ifindresultcallback/foundresult/) proporciona el cuadro de texto relacionado, el texto fuente, el texto coincidente y la posición de la coincidencia.
+Los flujos de trabajo genéricos de procesamiento de texto a menudo reciben un [ITextFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/) al buscar, reemplazar, validar o exportar texto. Utilice [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/get_parentshape/) y [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/get_parentcell/) para determinar qué objeto de la presentación posee el cuadro de texto.
 
-La devolución de llamada no recibe directamente el número de diapositiva. La implementación a continuación lo obtiene de [ISlideComponent::get_Slide](https://reference.aspose.com/slides/es/cpp/aspose.slides/islidecomponent/get_slide/) y también maneja el texto encontrado en notas de diapositiva mediante [INotesSlide::get_ParentSlide](https://reference.aspose.com/slides/es/cpp/aspose.slides/inotesslide/get_parentslide/). Un número de diapositiva nullable permite que el mismo modelo de resultados represente texto asociado a otros tipos de diapositivas.
+Los valores esperados dependen del propietario:
+
+| Propietario del cuadro de texto | `get_ParentShape` | `get_ParentCell` |
+|---|---|---|
+| Una AutoForma u otra forma que contenga texto | El propietario [IShape](https://reference.aspose.com/slides/es/cpp/aspose.slides/ishape/) | `nullptr` |
+| Una celda de tabla | `nullptr` | El propietario [ICell](https://reference.aspose.com/slides/es/cpp/aspose.slides/icell/) |
+
+Ambos métodos proporcionan navegación de solo lectura. Llamarlos no mueve el cuadro de texto ni cambia su propietario. El código genérico debe comprobar ambos valores para `nullptr` y gestionar la posibilidad de que ninguno de los propietarios esté disponible.
+
+El siguiente ejemplo utiliza [SlideUtil::GetAllTextFrames](https://reference.aspose.com/slides/es/cpp/aspose.slides.util/slideutil/getalltextframes/) para iterar a través de los cuadros de texto de una presentación. Para las formas, muestra el nombre de la forma, el tipo en tiempo de ejecución de C++ y la diapositiva contenedora. Para las celdas de tabla, muestra las coordenadas de columna y fila basadas en cero y la diapositiva contenedora.
 
 ```cpp
 #include <DOM/IBaseSlide.h>
 #include <DOM/INotesSlide.h>
+#include <DOM/IShape.h>
 #include <DOM/ISlide.h>
 #include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <Util/SlideUtil.h>
+#include <system/console.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using Aspose::Slides::IBaseSlide;
+using Aspose::Slides::INotesSlide;
+using Aspose::Slides::IShape;
+using Aspose::Slides::ISlide;
+using Aspose::Slides::ITextFrame;
+using Aspose::Slides::Presentation;
+using Aspose::Slides::Util::SlideUtil;
+using System::AsCast;
+using System::Console;
+using System::MakeObject;
+using System::String;
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx");
+auto textFrames = SlideUtil::GetAllTextFrames(presentation, false);
+
+for (const auto& textFrame : textFrames)
+{
+    auto ownerShape = textFrame->get_ParentShape();
+    if (ownerShape != nullptr)
+    {
+        auto shapeName = String::IsNullOrEmpty(ownerShape->get_Name()) ? u"(unnamed)" : ownerShape->get_Name();
+        auto shapeType = ownerShape->GetType().get_Name();
+        auto baseSlide = ownerShape->get_Slide();
+        String slideLabel;
+        auto slide = AsCast<ISlide>(baseSlide);
+
+        if (slide != nullptr)
+        {
+            slideLabel = String::Format(u"slide {0}", slide->get_SlideNumber());
+        }
+        else
+        {
+            auto notesSlide = AsCast<INotesSlide>(baseSlide);
+            if (notesSlide != nullptr)
+            {
+                slideLabel = String::Format(u"notes for slide {0}", notesSlide->get_ParentSlide()->get_SlideNumber());
+            }
+            else
+            {
+                slideLabel = baseSlide->GetType().get_Name();
+            }
+        }
+
+        Console::WriteLine(u"Shape: {0}; type: {1}; {2}", shapeName, shapeType, slideLabel);
+        continue;
+    }
+
+    auto ownerCell = textFrame->get_ParentCell();
+    if (ownerCell != nullptr)
+    {
+        auto baseSlide = ownerCell->get_Slide();
+        String slideLabel;
+        auto slide = AsCast<ISlide>(baseSlide);
+
+        if (slide != nullptr)
+        {
+            slideLabel = String::Format(u"slide {0}", slide->get_SlideNumber());
+        }
+        else
+        {
+            auto notesSlide = AsCast<INotesSlide>(baseSlide);
+            if (notesSlide != nullptr)
+            {
+                slideLabel = String::Format(u"notes for slide {0}", notesSlide->get_ParentSlide()->get_SlideNumber());
+            }
+            else
+            {
+                slideLabel = baseSlide->GetType().get_Name();
+            }
+        }
+
+        Console::WriteLine(u"Table cell: column {0}, row {1}; {2}", ownerCell->get_FirstColumnIndex(), ownerCell->get_FirstRowIndex(), slideLabel);
+        continue;
+    }
+
+    Console::WriteLine(u"The text frame owner is not available as a shape or table cell.");
+}
+```
+
+Para el contenido de SmartArt, itere a través de las formas en [ISmartArtNode::get_Shapes](https://reference.aspose.com/slides/es/cpp/aspose.slides.smartart/ismartartnode/get_shapes/) y acceda a cada [ISmartArtShape::get_TextFrame](https://reference.aspose.com/slides/es/cpp/aspose.slides.smartart/ismartartshape/get_textframe/). El cuadro de texto puede rastrearse hasta su forma asociada mediante [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/get_parentshape/), mientras que [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/get_parentcell/) devuelve `nullptr`. Por lo tanto, la rama de formas en el ejemplo también gestiona el texto de los nodos SmartArt.
+
+## **Recoger información de coincidencias con una devolución de llamada**
+
+Implemente [IFindResultCallback](https://reference.aspose.com/slides/es/cpp/aspose.slides/ifindresultcallback/) para recibir una notificación de cada coincidencia. Su método [IFindResultCallback::FoundResult](https://reference.aspose.com/slides/es/cpp/aspose.slides/ifindresultcallback/foundresult/) proporciona el cuadro de texto relacionado, el texto origen, el texto coincidente y la posición de la coincidencia.
+
+La devolución de llamada no recibe directamente el número de diapositiva. La implementación a continuación lo obtiene de [ISlideComponent::get_Slide](https://reference.aspose.com/slides/es/cpp/aspose.slides/islidecomponent/get_slide/) y también gestiona el texto encontrado en notas de diapositiva a través de [INotesSlide::get_ParentSlide](https://reference.aspose.com/slides/es/cpp/aspose.slides/inotesslide/get_parentslide/). Un número de diapositiva nullable permite que el mismo modelo de resultado represente texto asociado a otros tipos de diapositiva.
+
+```cpp
+#include <DOM/IBaseSlide.h>
+#include <DOM/INotesSlide.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Table/ICell.h>
 #include <IFindResultCallback.h>
 #include <system/collections/list.h>
 #include <system/nullable.h>
@@ -70,6 +181,7 @@ La devolución de llamada no recibe directamente el número de diapositiva. La i
 using Aspose::Slides::IBaseSlide;
 using Aspose::Slides::IFindResultCallback;
 using Aspose::Slides::INotesSlide;
+using Aspose::Slides::IShape;
 using Aspose::Slides::ISlide;
 using Aspose::Slides::ITextFrame;
 using System::AsCast;
@@ -119,7 +231,23 @@ public:
 private:
     static Nullable<int32_t> GetSlideNumber(SharedPtr<ITextFrame> textFrame)
     {
-        SharedPtr<IBaseSlide> baseSlide = textFrame->get_Slide();
+        auto parentShape = textFrame->get_ParentShape();
+        auto parentCell = textFrame->get_ParentCell();
+        SharedPtr<IBaseSlide> baseSlide;
+
+        if (parentShape != nullptr)
+        {
+            baseSlide = parentShape->get_Slide();
+        }
+        else if (parentCell != nullptr)
+        {
+            baseSlide = parentCell->get_Slide();
+        }
+        else
+        {
+            baseSlide = textFrame->get_Slide();
+        }
+
         auto slide = AsCast<ISlide>(baseSlide);
 
         if (slide != nullptr)
@@ -139,7 +267,7 @@ private:
 };
 ```
 
-Para las operaciones de reemplazo, `FoundText` contiene el texto original coincidente, por lo que la devolución de llamada puede registrar exactamente qué términos fueron reemplazados.
+Para operaciones de reemplazo, `FoundText` contiene el texto original coincidente, por lo que la devolución de llamada puede registrar exactamente qué términos fueron reemplazados.
 
 ## **Resaltar texto**
 
@@ -166,7 +294,7 @@ using System::MakeObject;
 
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-// Get the first shape from the first slide.
+// Obtener la primera forma de la primera diapositiva.
 auto shape = ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
 auto callback = MakeObject<TextSearchCallback>();
 
@@ -201,7 +329,7 @@ presentation->Dispose();
 
 El resultado:
 
-![The highlighted text](highlighted_text.png)
+![El texto resaltado](highlighted_text.png)
 
 ## **Resaltar texto usando expresiones regulares**
 
@@ -240,11 +368,11 @@ presentation->Dispose();
 
 El resultado:
 
-![The highlighted text using the regular expression](highlighted_text_using_regex.png)
+![El texto resaltado usando la expresión regular](highlighted_text_using_regex.png)
 
 ## **Resaltar texto en toda una presentación**
 
-Utilice [IPresentation::HighlightText](https://reference.aspose.com/slides/es/cpp/aspose.slides/ipresentation/highlighttext/) y [IPresentation::HighlightRegex](https://reference.aspose.com/slides/es/cpp/aspose.slides/ipresentation/highlightregex/) para buscar en todos los cuadros de texto aplicables de una presentación. El siguiente ejemplo resalta un término literal y todas las direcciones de correo electrónico, manteniendo colecciones de resultados independientes para ambas búsquedas.
+Utilice [IPresentation::HighlightText](https://reference.aspose.com/slides/es/cpp/aspose.slides/ipresentation/highlighttext/) y [IPresentation::HighlightRegex](https://reference.aspose.com/slides/es/cpp/aspose.slides/ipresentation/highlightregex/) para buscar en todos los cuadros de texto aplicables de una presentación. El siguiente ejemplo resalta un término literal y todas las direcciones de correo electrónico manteniendo colecciones de resultados separadas para ambas búsquedas.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -287,7 +415,7 @@ presentation->Dispose();
 
 Utilice [ITextFrame::ReplaceText](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/replacetext/) para texto literal y [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/replaceregex/) para reemplazo basado en patrones. Estos métodos actualizan el texto coincidente dentro del cuadro de texto existente, conservando el formato de la porción circundante en lugar de reconstruir el cuadro de texto a partir de una cadena simple.
 
-El siguiente ejemplo normaliza una variante ortográfica y luego reemplaza las etiquetas de versión. La misma devolución de llamada registra los términos originales coincidentes en ambas operaciones.
+El siguiente ejemplo estandariza una variante ortográfica y luego reemplaza etiquetas de versión. La misma devolución de llamada registra los términos originales coincidentes en ambas operaciones.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -326,11 +454,11 @@ presentation->Save(u"updated_text_frame.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Si una coincidencia abarca porciones con diferente formato, revise la salida para confirmar qué formato debe aplicarse al texto reemplazado.
+Si una coincidencia abarca partes con formatos diferentes, revise el resultado para confirmar qué formato debe aplicarse al texto de reemplazo.
 
 ## **Reemplazar texto en toda una presentación**
 
-Utilice [IPresentation::ReplaceText](https://reference.aspose.com/slides/es/cpp/aspose.slides/ipresentation/replacetext/) y [IPresentation::ReplaceRegex](https://reference.aspose.com/slides/es/cpp/aspose.slides/ipresentation/replaceregex/) para aplicar las mismas operaciones en toda la presentación. Esto es útil para la limpieza de plantillas, actualizaciones de terminología y censura.
+Utilice [IPresentation::ReplaceText](https://reference.aspose.com/slides/es/cpp/aspose.slides/ipresentation/replacetext/) y [IPresentation::ReplaceRegex](https://reference.aspose.com/slides/es/cpp/aspose.slides/ipresentation/replaceregex/) para aplicar las mismas operaciones en toda la presentación. Esto es útil para la limpieza de plantillas, actualizaciones de terminología y redactado.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -361,9 +489,9 @@ presentation->Save(u"updated_presentation.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Agrupar coincidencias para generar informes**
+## **Agrupar coincidencias para informes**
 
-Debido a que cada resultado almacena su número de diapositiva y cuadro de texto, las aplicaciones pueden agrupar coincidencias para auditorías, generación de informes o flujos de trabajo de revisión. El siguiente ejemplo agrupa los resultados recopilados primero por diapositiva y luego por cuadro de texto:
+Debido a que cada resultado almacena su número de diapositiva y cuadro de texto, las aplicaciones pueden agrupar coincidencias para auditoría, generación de informes o flujos de revisión. El siguiente ejemplo agrupa los resultados recopilados primero por diapositiva y luego por cuadro de texto:
 
 ```cpp
 #include <DOM/ITextFrame.h>
@@ -411,20 +539,20 @@ for (const auto& slideGroup : matchesBySlide)
 
 **¿Cómo puedo buscar solo en un cuadro de texto en lugar de en toda la presentación?**
 
-Obtenga el cuadro de texto de la forma y llame a [ITextFrame::HighlightText](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/highlighttext/), [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/highlightregex/), [ITextFrame::ReplaceText](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/replacetext/) o [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/replaceregex/) en ese cuadro de texto. Los métodos a nivel de presentación procesan todos los cuadros de texto aplicables.
+Obtenga el cuadro de texto de la forma y llame a [ITextFrame::HighlightText](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/highlighttext/), [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/highlightregex/), [ITextFrame::ReplaceText](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/replacetext/) o [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/replaceregex/) sobre ese cuadro de texto. Los métodos a nivel de presentación procesan todos los cuadros de texto aplicables.
 
-**¿Cómo puedo coincidir palabras completas con la capitalización correcta?**
+**¿Cómo puedo hacer coincidir palabras completas con la capitalización correcta?**
 
-Llama a [ITextSearchOptions::set_WholeWordsOnly](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextsearchoptions/set_wholewordsonly/) y [ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) con `true`, y pasa las opciones a un método de resaltado o reemplazo de texto literal. Para expresiones regulares, define los límites de palabra y la sensibilidad a mayúsculas en el propio `System::Text::RegularExpressions::Regex`.
+Llama a [ITextSearchOptions::set_WholeWordsOnly](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextsearchoptions/set_wholewordsonly/) y [ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) con `true`, y pasa las opciones a un método de resaltado o reemplazo de texto literal. Para expresiones regulares, define los límites de palabras y la distinción entre mayúsculas y minúsculas en el propio `System::Text::RegularExpressions::Regex`.
 
-**¿Pueden la búsqueda y el reemplazo incluir texto en las notas de diapositiva?**
+**¿Puede la búsqueda y el reemplazo incluir texto en las notas de diapositiva?**
 
 Sí. Llame a [ITextSearchOptions::set_IncludeNotes](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextsearchoptions/set_includenotes/) con `true` al usar una operación de texto literal a nivel de presentación. La implementación de la devolución de llamada mostrada arriba asigna una coincidencia en una diapositiva de notas a su número de diapositiva principal.
 
-**¿Cómo puedo crear un informe sin volver a escanear la presentación?**
+**¿Cómo puedo crear un informe sin escanear la presentación una segunda vez?**
 
-Pase una implementación de [IFindResultCallback](https://reference.aspose.com/slides/es/cpp/aspose.slides/ifindresultcallback/) a la operación de resaltado o reemplazo. La devolución de llamada recibe cada coincidencia mientras se ejecuta la operación, de modo que la aplicación puede almacenar el texto fuente, el texto coincidente, la posición, el cuadro de texto y el número de diapositiva derivado para agrupar o exportar posteriormente.
+Pase una implementación de [IFindResultCallback](https://reference.aspose.com/slides/es/cpp/aspose.slides/ifindresultcallback/) a la operación de resaltado o reemplazo. La devolución de llamada recibe cada coincidencia mientras la operación se ejecuta, de modo que la aplicación pueda almacenar el texto origen, el texto coincidente, la posición, el cuadro de texto y el número de diapositiva derivado para su posterior agrupamiento o exportación.
 
 **¿El reemplazo de texto conserva su formato?**
 
-[ITextFrame::ReplaceText](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/replacetext/) y [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/replaceregex/) modifican el texto coincidente dentro del cuadro de texto existente y conservan el formato de la porción circundante. Si una coincidencia abarca porciones con diferente formato, inspeccione el resultado para asegurarse de que el reemplazo utilice el estilo deseado.
+[ITextFrame::ReplaceText](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/replacetext/) y [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/es/cpp/aspose.slides/itextframe/replaceregex/) modifican el texto coincidente dentro del cuadro de texto existente y conservan el formato de la porción circundante. Si una coincidencia abarca partes con formatos diferentes, inspeccione el resultado para asegurarse de que el reemplazo utilice el estilo deseado.

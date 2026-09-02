@@ -1,6 +1,6 @@
 ---
-title: Μετατροπή Παρουσιών PowerPoint σε Markdown στο .NET
-linktitle: PowerPoint σε Markdown
+title: "Μετατροπή Παρουσιάσεων PowerPoint σε Markdown στο .NET"
+linktitle: "PowerPoint σε Markdown"
 type: docs
 weight: 140
 url: /el/net/convert-powerpoint-to-markdown/
@@ -21,110 +21,190 @@ keywords:
 - αποθήκευση PPT ως MD
 - αποθήκευση PPTX ως MD
 - εξαγωγή PPT σε MD
-- exportPPTX σε MD
+- εξαγωγή PPTX σε MD
+- εξαγωγή εικόνων Markdown
+- σύνδεσμοι εικόνων CDN
 - PowerPoint
 - παρουσίαση
 - Markdown
 - .NET
 - C#
 - Aspose.Slides
-description: "Μετατρέψτε τις διαφάνειες PowerPoint—PPT, PPTX—σε καθαρό Markdown με το Aspose.Slides για .NET, αυτοματοποιήστε την τεκμηρίωση και διατηρήστε τη μορφοποίηση."
+description: "Μετατρέψτε παρουσιάσεις PPT και PPTX σε Markdown στο .NET και ελέγξτε πού αποθηκεύονται και αναφέρονται οι εξαγόμενες εικόνες bitmap, metafile και SVG."
 ---
-## **Εισαγωγή**
+## **Επισκόπηση**
 
-Το Aspose.Slides σάς επιτρέπει να μετατρέπετε παρουσιάσεις PowerPoint σε Markdown, κάτι που μπορεί να είναι χρήσιμο για ροές εργασίας τεκμηρίωσης, δημιουργία στατικών ιστοσελίδων, μετανάστευση περιεχομένου και έκδοση κειμένου υπό έλεγχο εκδόσεων. Το API υποστηρίζει άμεση εξαγωγή από παρουσιάσεις PPT και PPTX σε αρχεία MD και παρέχει πρόσθετες επιλογές για τον έλεγχο του τρόπου με τον οποίο το περιεχόμενο των διαφανειών αντιπροσωπεύεται στο τελικό έγγραφο Markdown.
+Το Aspose.Slides for .NET μπορεί να μετατρέπει παρουσιάσεις PPT και PPTX σε Markdown για τεκμηρίωση, στατικές ιστοσελίδες, μεταφορά περιεχομένου και ροές εργασίας ελέγχου έκδοσης. Μπορείτε να επιλέξετε μια γεύση Markdown, να ελέγξετε πώς αποδίδεται το περιεχόμενο των διαφάνειων και να αποφασίσετε πού θα αποθηκευτούν οι εξαγόμενες εικόνες και πώς θα τις αναφέρει το δημιουργημένο Markdown.
 
-Μπορείτε να εξάγετε παρουσιάσεις ως απλό Markdown, να επιλέξετε από πολλαπλές γεύσεις Markdown όπως CommonMark και GitHub Flavored Markdown, και να διαμορφώσετε τον τρόπο διαχείρισης των εικόνων κατά την εξαγωγή. Για παρουσιάσεις που περιέχουν οπτικό περιεχόμενο, το Aspose.Slides επιτρέπει επίσης να αποθηκεύετε τις εικόνες σε ξεχωριστό φάκελο και να τις παραπέμπετε από το παραγόμενο αρχείο Markdown.
+Από προεπιλογή, η εξαγωγή σε Markdown χρησιμοποιεί έξοδο μόνο κειμένου. Για να εξάγετε οπτικό περιεχόμενο, ορίστε την ιδιότητα [MarkdownSaveOptions.ExportType](https://reference.aspose.com/slides/el/net/aspose.slides.export/markdownsaveoptions/exporttype/) στην τιμή `Sequential` ή `Visual` από την απαρίθμηση [MarkdownExportType](https://reference.aspose.com/slides/el/net/aspose.slides.export/markdownexporttype/). Το `Sequential` αποδίδει τα στοιχεία της διαφάνειας ξεχωριστά και με σειρά, ενώ το `Visual` διατηρεί τις ομαδοποιημένες αντικείμενα μαζί για να διατηρήσει τη οπτική τους σχέση. Η τιμή `TextOnly` δεν δημιουργεί πόρους εικόνας, επομένως τα γεγονότα αποθήκευσης εικόνας δεν καλούνται σε αυτήν τη λειτουργία.
 
-{{% alert color="warning" %}}
-Η εξαγωγή PowerPoint‑to‑Markdown είναι **χωρίς εικόνες** εξ ορισμού. Εάν θέλετε να εξάγετε ένα έγγραφο PowerPoint που περιέχει εικόνες, πρέπει να ορίσετε `ExportType = MarkdownExportType.Visual` και να καθορίσετε το `BasePath`, όπου θα αποθηκευτούν οι εικόνες που αναφέρονται στο έγγραφο Markdown.
+## **Μετατροπή Παρουσίασης σε Markdown**
+
+Φορτώστε το αρχείο προέλευσης με την κλάση [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/) και, στη συνέχεια, καλέστε τη μέθοδο [Presentation.Save](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/save/) με την τιμή `Md` από την απαρίθμηση [SaveFormat](https://reference.aspose.com/slides/el/net/aspose.slides.export/saveformat/).
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+presentation.Save("presentation.md", SaveFormat.Md);
+```
+
+## **Επιλογή Γεύσης Markdown**
+
+Η ιδιότητα [MarkdownSaveOptions.Flavor](https://reference.aspose.com/slides/el/net/aspose.slides.export/markdownsaveoptions/flavor/) ελέγχει την προδιαγραφή Markdown που χρησιμοποιείται για την έξοδο. Η απαρίθμηση [Flavor](https://reference.aspose.com/slides/el/net/aspose.slides.export/flavor/) περιλαμβάνει CommonMark, GitHub Flavored Markdown και άλλες υποστηριζόμενες παραλλαγές.
+
+Το παρακάτω παράδειγμα εξάγει μια παρουσίαση ως CommonMark:
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+var options = new MarkdownSaveOptions
+{
+    Flavor = Flavor.CommonMark
+};
+
+presentation.Save("presentation.md", SaveFormat.Md, options);
+```
+
+## **Εξαγωγή Εικόνων Χρησιμοποιώντας την Προεπιλεγμένη Συμπεριφορά Τοπικής Αποθήκευσης**
+
+Η κλάση [MarkdownSaveOptions](https://reference.aspose.com/slides/el/net/aspose.slides.export/markdownsaveoptions/) παρέχει δύο ιδιότητες για τοπικά αποθηκευμένες εικόνες:
+
+- [BasePath](https://reference.aspose.com/slides/el/net/aspose.slides.export/markdownsaveoptions/basepath/) καθορίζει το βασικό κατάλογο για το έγγραφο Markdown και τους πόρους του.
+- [ImagesSaveFolderName](https://reference.aspose.com/slides/el/net/aspose.slides.export/markdownsaveoptions/imagessavefoldername/) καθορίζει τον υποκατάλογο εικόνων. Η προεπιλεγμένη τιμή του είναι `Images`.
+
+Το παρακάτω παράδειγμα αποδίδει οπτικό περιεχόμενο, γράφει εικόνες στο `output/assets` και δημιουργεί σχετικές αναφορές εικόνας στο έγγραφο Markdown:
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+const string outputDirectory = "output";
+Directory.CreateDirectory(outputDirectory);
+
+using var presentation = new Presentation("presentation.pptx");
+var options = new MarkdownSaveOptions
+{
+    ExportType = MarkdownExportType.Visual,
+    BasePath = outputDirectory,
+    ImagesSaveFolderName = "assets"
+};
+
+var markdownPath = Path.Combine(outputDirectory, "presentation.md");
+presentation.Save(markdownPath, SaveFormat.Md, options);
+```
+
+Η συμπεριφορά αυτή εξυπηρετεί επίσης ως εφεδρική όταν ένας προσαρμοσμένος χειριστής αποθήκευσης εικόνας επιστρέφει `false`.
+
+## **Προσαρμογή Αποθήκευσης Εικόνας και Συνδέσμων Markdown**
+
+Χρησιμοποιήστε το γεγονός [MarkdownSaveOptions.ImageSaving](https://reference.aspose.com/slides/el/net/aspose.slides.export/markdownsaveoptions/imagesaving/) για πόρους bitmap και μετααρχείων που δεν είναι SVG που εκπονούνται κατά την εξαγωγή σε Markdown. Ο εκχωρητής [MarkdownImageSavingHandler](https://reference.aspose.com/slides/el/net/aspose.slides.export/markdownsaveoptions.markdownimagesavinghandler/) λαμβάνει το αντικείμενο [IImage](https://reference.aspose.com/slides/el/net/aspose.slides/iimage/), το [ImageFormat](https://reference.aspose.com/slides/el/net/aspose.slides/imageformat/) και τον παραγόμενο σύνδεσμο Markdown ως παράμετρο `ref string`. Αποθηκεύστε ή ανεβάστε την εικόνα με τη μορφή που δίνεται και αντικαταστήστε το `link` με την αναφορά που πρέπει να εμφανιστεί στην έξοδο Markdown.
+
+Οι πόροι που εκπονούνται σε μορφή SVG διαχειρίζονται χωριστά. Εγγραφείτε στο γεγονός [MarkdownSaveOptions.SvgImageSaving](https://reference.aspose.com/slides/el/net/aspose.slides.export/markdownsaveoptions/svgimagesaving/), του οποίου ο εκχωρητής [MarkdownSvgImageSavingHandler](https://reference.aspose.com/slides/el/net/aspose.slides.export/markdownsaveoptions.markdownsvgimagesavinghandler/) λαμβάνει ένα αντικείμενο [ISvgImage](https://reference.aspose.com/slides/el/net/aspose.slides/isvgimage/) και την παράμετρο `ref string link`. Ένα SVG δεν έχει όρισμα `ImageFormat`; γράψτε ή ανεβάστε τα XML δεδομένα του από την ιδιότητα [ISvgImage.SvgData](https://reference.aspose.com/slides/el/net/aspose.slides/isvgimage/svgdata/) αντ' αυτού. Ανάλογα με τη λειτουργία εξαγωγής και την οπτική ομαδοποίηση, ένα SVG στην πηγή μπορεί να ραστεροποιηθεί ή να συνδυαστεί με άλλο περιεχόμενο· ο μη‑SVG πόρος που προκύπτει τότε διαβιβάζεται στο `ImageSaving`. Εγγραφείτε και στα δύο γεγονότα όταν κάθε εξαγόμενος οπτικός πόρος απαιτεί προσαρμοσμένη επεξεργασία.
+
+Η τιμή επιστροφής του χειριστή καθορίζει ποιος επεξεργάζεται την εικόνα:
+
+- Επιστρέψτε `true` αφού ο χειριστής έχει αποθηκεύσει, ανεβάσει, μετασχηματίσει ή με οποιονδήποτε τρόπο επεξεργαστεί την εικόνα και έχει ορίσει μια έγκυρη τιμή στο `link`. Το Aspose.Slides γράφει αυτήν την τιμή στο έγγραφο Markdown και δεν εκτελεί την προεπιλεγμένη τοπική αποθήκευση.
+- Επιστρέψτε `false` για να επιτρέψετε στο Aspose.Slides να αποθηκεύσει την εικόνα τοπικά και να δημιουργήσει τον σύνδεσμο σύμφωνα με τις ιδιότητες [MarkdownSaveOptions.BasePath](https://reference.aspose.com/slides/el/net/aspose.slides.export/markdownsaveoptions/basepath/) και [MarkdownSaveOptions.ImagesSaveFolderName](https://reference.aspose.com/slides/el/net/aspose.slides.export/markdownsaveoptions/imagessavefoldername/).
+
+{{% alert color="warning" title="Important" %}}
+Ένας χειριστής που επιστρέφει `true` αναλαμβάνει την ευθύνη για την εικόνα. Εάν επιστρέψει `true` χωρίς να αντιστοιχίσει έναν έγκυρο, μη κενό σύνδεσμο, η εξαγωγή αποτυγχάνει με `InvalidOperationException`.
 {{% /alert %}}
 
-## **Μετατροπή PowerPoint σε Markdown**
+### **Αποθήκευση Εικόνων σε Κατάλογο Προέλευσης CDN και Χρήση Εξωτερικών URLs**
 
-1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation) για να αντιπροσωπεύει ένα αντικείμενο παρουσίασης.  
-2. Χρησιμοποιήστε τη [Αποθήκευση](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/methods/save) μέθοδο για να αποθηκεύσετε το αντικείμενο ως αρχείο markdown.
+Το παρακάτω παράδειγμα αντιλαμβάνεται το `cdn-origin/presentations/quarterly-report` ως προσαρτημένο ή συγχρονισμένο κατάλογο προέλευσης CDN. Κάθε χειριστής εξάγει το όνομα του παραγόμενου αρχείου, αποθηκεύει την εικόνα σε αυτόν τον προσαρμοσμένο κατάλογο και αντικαθιστά την τοπική αναφορά με ένα δημόσιο URL CDN. Το ίδιο το δείγμα δεν εκτελεί καμία δικτυακή φόρτωση: το URL γίνεται έγκυρο μόνο αφού ο κατάλογος προσαρτηθεί ως προέλευση CDN ή τα αρχεία του δημοσιευτούν στο CDN. Για αποθήκευση αντικειμένων, αντικαταστήστε την εγγραφή στο σύστημα αρχείων με τη λειτουργία ανεβάσματος του SDK αποθήκευσης και ορίστε το `link` μόνο μετά την επιτυχή μεταφόρτωση.
 
-Αυτός ο κώδικας C# δείχνει πώς να μετατρέψετε το PowerPoint σε markdown:
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+const string outputDirectory = "output";
+const string publicBaseUrl = "https://cdn.example.com/presentations/quarterly-report";
+var storageDirectory = Path.Combine("cdn-origin", "presentations", "quarterly-report");
+Directory.CreateDirectory(outputDirectory);
+Directory.CreateDirectory(storageDirectory);
+
+static string GetFileNameFromLink(string generatedLink)
 {
-    pres.Save("pres.md", SaveFormat.Md);
+    var urlCompatibleLink = generatedLink.Replace('\\', '/');
+    return urlCompatibleLink[(urlCompatibleLink.LastIndexOf('/') + 1)..];
 }
-```
 
-## **Μετατροπή PowerPoint σε Γεύση Markdown**
-
-Το Aspose.Slides σάς επιτρέπει να μετατρέψετε το PowerPoint σε markdown (περιέχει βασική σύνταξη), CommonMark, GitHub flavored markdown, Trello, XWiki, GitLab και 17 άλλες γεύσεις markdown.
-
-Αυτός ο κώδικας C# δείχνει πώς να μετατρέψετε το PowerPoint σε CommonMark:
-
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+static string BuildPublicUrl(string baseUrl, string fileName)
 {
-    pres.Save("pres.md", SaveFormat.Md, new MarkdownSaveOptions
+    return $"{baseUrl}/{Uri.EscapeDataString(fileName)}";
+}
+
+using var presentation = new Presentation("presentation.pptx");
+var options = new MarkdownSaveOptions
+{
+    ExportType = MarkdownExportType.Visual,
+    BasePath = outputDirectory,
+    ImagesSaveFolderName = "fallback-images"
+};
+
+options.ImageSaving += (IImage image, ImageFormat format, ref string link) =>
+{
+    if (image.Width < 128 || image.Height < 128)
     {
-        Flavor = Flavor.CommonMark
-    });
-}
-```
+        return false;
+    }
 
-Οι 23 υποστηριζόμενες γεύσεις markdown είναι [καταγραφμένες στην απαρίθμηση Flavor](https://reference.aspose.com/slides/el/net/aspose.slides.dom.export.markdown.saveoptions/flavor/) από την κλάση [MarkdownSaveOptions](https://reference.aspose.com/slides/el/net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/).
+    var fileName = GetFileNameFromLink(link);
+    var storagePath = Path.Combine(storageDirectory, fileName);
+    image.Save(storagePath, format);
+    link = BuildPublicUrl(publicBaseUrl, fileName);
+    return true;
+};
 
-## **Μετατροπή Παρουσίασης που Περιέχει Εικόνες σε Markdown**
-
-Η κλάση [MarkdownSaveOptions](https://reference.aspose.com/slides/el/net/aspose.slides.dom.export.markdown.saveoptions/markdownsaveoptions/) παρέχει ιδιότητες και απαριθμήσεις που σας επιτρέπουν να χρησιμοποιήσετε συγκεκριμένες επιλογές ή ρυθμίσεις για το τελικό αρχείο markdown. Η απαρίθμηση [MarkdownExportType](https://reference.aspose.com/slides/el/net/aspose.slides.dom.export.markdown.saveoptions/markdownexporttype/) μπορεί, για παράδειγμα, να οριστεί σε τιμές που καθορίζουν πώς θα αποτυπωθούν ή θα διαχειριστούν οι εικόνες: `Sequential`, `TextOnly`, `Visual`.
-
-### **Μετατροπή Εικόνων Διαδοχικά**
-
-Αν θέλετε οι εικόνες να εμφανίζονται μεμονωμένα η μία μετά την άλλη στο τελικό markdown, πρέπει να επιλέξετε τη διαδοχική επιλογή. Αυτός ο κώδικας C# δείχνει πώς να μετατρέψετε μια παρουσίαση που περιέχει εικόνες σε markdown:
-
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
+options.SvgImageSaving += (ISvgImage svgImage, ref string link) =>
 {
-    MarkdownSaveOptions markdownSaveOptions = new MarkdownSaveOptions
-    {
-        ShowHiddenSlides = true,
-        ShowSlideNumber = true,
-        Flavor = Flavor.Github,
-        ExportType = MarkdownExportType.Sequential,
-        NewLineType = NewLineType.Windows
-    };
-    
-    pres.Save("doc.md", new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 }, SaveFormat.Md, markdownSaveOptions);
-}
+    var fileName = GetFileNameFromLink(link);
+    var storagePath = Path.Combine(storageDirectory, fileName);
+    File.WriteAllBytes(storagePath, svgImage.SvgData);
+    link = BuildPublicUrl(publicBaseUrl, fileName);
+    return true;
+};
+
+var markdownPath = Path.Combine(outputDirectory, "presentation.md");
+presentation.Save(markdownPath, SaveFormat.Md, options);
 ```
 
-### **Μετατροπή Εικόνων Οπτικά**
-
-Αν θέλετε οι εικόνες να εμφανίζονται μαζί στο τελικό markdown, πρέπει να επιλέξετε την οπτική επιλογή. Σε αυτή την περίπτωση, οι εικόνες θα αποθηκευτούν στον τρέχοντα κατάλογο της εφαρμογής (και θα δημιουργηθεί μια σχετική διαδρομή για αυτές στο έγγραφο markdown), ή μπορείτε να καθορίσετε την προτιμώμενη διαδρομή και όνομα φακέλου.
-
-Αυτός ο κώδικας C# επιδεικνύει τη λειτουργία:
-
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-    const string outPath = "c:\\documents";
-    pres.Save(Path.Combine(outPath, "pres.md"), SaveFormat.Md, new MarkdownSaveOptions
-    { 
-        ExportType = MarkdownExportType.Visual,
-        ImagesSaveFolderName = "md-images",
-        BasePath = outPath
-    });
-}
-```
+Ο χειριστής bitmap επιστρέφει σκόπιμα `false` για εικόνες μικρότερες από 128 × 128 pixel, ώστε το Aspose.Slides να αποθηκεύσει αυτές τις εικόνες στο `output/fallback-images` χρησιμοποιώντας τη προεπιλεγμένη συμπεριφορά. Μεγαλύτεροι πόροι bitmap και μετααρχείων, καθώς και πόροι SVG, διαχειρίζονται από τον προσαρμοσμένο κώδικα. Για παράδειγμα, μια τοπική αναφορά όπως `fallback-images/image1.png` γίνεται `https://cdn.example.com/presentations/quarterly-report/image1.png`. Οι χειριστές χρησιμοποιούν μόνο διαδρομές λειτουργικού συστήματος κατά την εγγραφή αρχείων· οι σύνδεσμοι που γράφονται στο Markdown χρησιμοποιούν κάθετους (/) και URL‑κωδικοποιημένα ονόματα αρχείων. Εφαρμόστε τον ίδιο κανόνα όταν δημιουργείτε σχετικούς συνδέσμους: χρησιμοποιήστε `/`, όχι το διαχωριστικό καταλόγου της πλατφόρμας.
 
 ## **Συχνές Ερωτήσεις**
 
-**Τα υπερσυνδέσμους παραμένουν μετά την εξαγωγή σε Markdown;**
+**Μπορεί ένας χειριστής να επεξεργαστεί τόσο ραστερ εικόνες όσο και SVG εικόνες;**
 
-Ναι. Τα κείμενα [hyperlinks](/slides/el/net/manage-hyperlinks/) διατηρούνται ως τυπικοί σύνδεσμοι Markdown. Τα [transitions](/slides/el/net/slide-transition/) των διαφανειών και οι [animations](/slides/el/net/powerpoint-animation/) δεν μετατρέπονται.
+Όχι. Χρησιμοποιήστε το [MarkdownSaveOptions.ImageSaving](https://reference.aspose.com/slides/el/net/aspose.slides.export/markdownsaveoptions/imagesaving/) για bitmap και μετααρχείο πόρους και το [MarkdownSaveOptions.SvgImageSaving](https://reference.aspose.com/slides/el/net/aspose.slides.export/markdownsaveoptions/svgimagesaving/) για πόρους που εκπονούνται ως SVG. Το πρώτο παρέχει ένα αντικείμενο [IImage](https://reference.aspose.com/slides/el/net/aspose.slides/iimage/) και ένα [ImageFormat](https://reference.aspose.com/slides/el/net/aspose.slides/imageformat/); το δεύτερο παρέχει ένα αντικείμενο [ISvgImage](https://reference.aspose.com/slides/el/net/aspose.slides/isvgimage/) του οποίου τα δεδομένα SVG διαβάζονται από το [ISvgImage.SvgData](https://reference.aspose.com/slides/el/net/aspose.slides/isvgimage/svgdata/). Ένα SVG στην πηγή που ραστεροποιείται κατά την εξαγωγή επεξεργάζεται από το `ImageSaving`.
 
-**Μπορώ να επιταχύνω τη μετατροπή εκτελώντας την σε πολλαπλά νήματα;**
+**Τι συμβαίνει όταν ένας χειριστής αποθήκευσης εικόνας επιστρέφει `false`;**
 
-Μπορείτε να παράλληλοποιήσετε ανά αρχείο, αλλά [don’t share](/slides/el/net/multithreading/) την ίδια παρουσία [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/) μεταξύ νημάτων. Χρησιμοποιήστε ξεχωριστές παρουσίες/διεργασίες ανά αρχείο για να αποφύγετε συγκρούσεις.
+Το Aspose.Slides χρησιμοποιεί τη προεπιλεγμένη συμπεριφορά τοπικής αποθήκευσης. Η θέση της εικόνας και η δημιουργημένη αναφορά ελέγχονται από τις ιδιότητες [MarkdownSaveOptions.BasePath](https://reference.aspose.com/slides/el/net/aspose.slides.export/markdownsaveoptions/basepath/) και [MarkdownSaveOptions.ImagesSaveFolderName](https://reference.aspose.com/slides/el/net/aspose.slides.export/markdownsaveoptions/imagessavefoldername/).
 
-**Τι συμβαίνει με τις εικόνες—πού αποθηκεύονται και είναι οι διαδρομές σχετικές;**
+**Μπορεί ένας χειριστής να παρέχει URL χωρίς να αποθηκεύει την εικόνα τοπικά;**
 
-Οι [Images](/slides/el/net/image/) εξάγονται σε έναν αποκλειστικό φάκελο, και το αρχείο Markdown τις παραπέμπει με σχετικές διαδρομές εξ ορισμού. Μπορείτε να διαμορφώσετε τη βασική διαδρομή εξόδου και το όνομα του φακέλου πόρων για να διατηρήσετε μια προβλέψιμη δομή αποθετηρίου.
+Ναι. Ο χειριστής μπορεί να ανεβάσει την εικόνα σε αποθήκευση αντικειμένων ή να τη μεταβιβάσει σε άλλη υπηρεσία, να ορίσει το προκύπτων URL στο `link` και να επιστρέψει `true`. Ο χειριστής πρέπει να ολοκληρώσει την επεξεργασία μόνος του· η επιστροφή `true` αποτρέπει την προεπιλεγμένη τοπική αποθήκευση.
+
+**Γιατί η εξαγωγή Markdown ρίχνει `InvalidOperationException` από έναν χειριστή;**
+
+Αυτή η εξαίρεση εμφανίζεται όταν ο χειριστής επιστρέφει `true` αλλά δεν παρέχει έγκυρο σύνδεσμο. Ορίστε τη σχετική διαδρομή ή το εξωτερικό URL που πρέπει να γραφτεί στο Markdown πριν επιστρέψετε `true`.
+
+**Ποιον διαχωριστικό διαδρομής πρέπει να χρησιμοποιούν οι σύνδεσμοι εικόνας;**
+
+Χρησιμοποιήστε κάθετους (/) σε συνδέσμους Markdown και URLs. Χρησιμοποιήστε το `Path.Combine` μόνο για διαδρομές συστήματος αρχείων· στη συνέχεια δημιουργήστε ή ομαλοποιήστε την αναφορά Markdown ξεχωριστά.
+
+**Διατηρούνται οι υπερσυνδέσεις κατά την εξαγωγή σε Markdown;**
+
+Ναι. Τα κείμενα [hyperlinks](/slides/el/net/manage-hyperlinks/) διατηρούνται ως κανονικοί σύνδεσμοι Markdown. Οι [transitions](/slides/el/net/slide-transition/) και [animations](/slides/el/net/powerpoint-animation/) των διαφάνειων δεν μετατρέπονται.
+
+**Μπορούν οι παρουσιάσεις να μετατραπούν σε Markdown παράλληλα;**
+
+Μπορείτε να επεξεργαστείτε διαφορετικά αρχεία παρουσίασης παράλληλα, αλλά μην μοιράζετε το ίδιο αντικείμενο [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/) μεταξύ νημάτων. Ακολουθήστε τις [multithreading guidelines](/slides/el/net/multithreading/) και χρησιμοποιήστε ξεχωριστό στιγμιότυπο για κάθε αρχείο.

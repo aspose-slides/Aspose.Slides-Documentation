@@ -1,13 +1,13 @@
 ---
-title: Pencarian dan Penggantian Teks dalam Presentasi PowerPoint di PHP
-linktitle: Pencarian dan Penggantian Teks
+title: Cari dan Ganti Teks dalam Presentasi PowerPoint di PHP
+linktitle: Cari dan Ganti Teks
 type: docs
 weight: 55
 url: /id/php-java/search-and-replace-text/
 keywords:
-- pencarian teks
-- menyorot teks
-- mengganti teks
+- cari teks
+- sorot teks
+- ganti teks
 - ekspresi reguler
 - callback hasil
 - bingkai teks
@@ -19,19 +19,19 @@ keywords:
 - Aspose.Slides
 description: "Cari, sorot, dan ganti teks dalam presentasi PowerPoint sambil mengumpulkan setiap kecocokan dengan Aspose.Slides untuk PHP via Java."
 ---
-## **Gambaran Umum**
+## **Ikhtisar**
 
-Aspose.Slides for PHP via Java dapat mencari, menyorot, dan mengganti teks dalam satu bingkai teks atau di seluruh presentasi. Setiap operasi juga dapat memberi tahu aplikasi tentang setiap kecocokan melalui callback hasil. Hal ini memungkinkan memperbarui presentasi dan sekaligus membangun jejak audit yang berisi teks yang cocok, konteksnya, posisi, bingkai teks, dan nomor slide.
+Aspose.Slides for PHP via Java dapat mencari, menyorot, dan mengganti teks dalam sebuah bingkai teks individu atau di seluruh presentasi. Setiap operasi juga dapat memberi tahu aplikasi tentang setiap kecocokan melalui callback hasil. Ini memungkinkan untuk memperbarui presentasi dan secara bersamaan membangun jejak audit yang berisi teks yang cocok, konteksnya, posisi, bingkai teks, dan nomor slide.
 
-Kemampuan ini berguna untuk tinjauan, penyensoran, pemeriksaan terminologi, pembersihan templat, dan alur kerja pelaporan otomatis.
+Kemampuan ini berguna untuk peninjauan, penyensoran, pemeriksaan terminologi, pembersihan templat, dan alur kerja pelaporan otomatis.
 
-Dalam contoh pertama di bawah ini, kami menggunakan file bernama "sample.pptx", yang berisi satu kotak teks pada slide pertama dengan teks berikut:
+Pada contoh pertama di bawah ini, kami menggunakan file bernama "sample.pptx", yang berisi satu kotak teks pada slide pertama dengan teks berikut:
 
-![Teks contoh](sample_text.png)
+![Sample text](sample_text.png)
 
 ## **Pilih Lingkup Pencarian**
 
-Gunakan metode pada [TextFrame](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframe/) untuk membatasi operasi pada satu bingkai teks. Gunakan metode pada [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) untuk memproses semua teks yang berlaku dalam presentasi.
+Gunakan metode pada [TextFrame](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframe/) untuk membatasi operasi pada satu bingkai teks. Gunakan metode pada [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/) untuk memproses semua teks yang relevan dalam presentasi.
 
 | Operasi | Satu bingkai teks | Seluruh presentasi |
 |---|---|---|
@@ -44,17 +44,91 @@ Gunakan metode pada [TextFrame](https://reference.aspose.com/slides/id/php-java/
 
 Untuk operasi teks literal, gunakan [TextSearchOptions](https://reference.aspose.com/slides/id/php-java/aspose.slides/textsearchoptions/) untuk mengontrol pencocokan:
 
-- [TextSearchOptions::setWholeWordsOnly](https://reference.aspose.com/slides/id/php-java/aspose.slides/textsearchoptions/#setWholeWordsOnly) membatasi kecocokan hanya pada kata lengkap.  
-- [TextSearchOptions::setCaseSensitive](https://reference.aspose.com/slides/id/php-java/aspose.slides/textsearchoptions/#setCaseSensitive) mengontrol apakah huruf harus cocok dalam hal kapitalisasi.  
-- [TextSearchOptions::setIncludeNotes](https://reference.aspose.com/slides/id/php-java/aspose.slides/textsearchoptions/#setIncludeNotes) menyertakan catatan slide dalam operasi pencarian, penggantian, dan penyorotan tingkat presentasi.
+- [TextSearchOptions::setWholeWordsOnly](https://reference.aspose.com/slides/id/php-java/aspose.slides/textsearchoptions/#setWholeWordsOnly) membatasi pencocokan hanya pada kata lengkap.
+- [TextSearchOptions::setCaseSensitive](https://reference.aspose.com/slides/id/php-java/aspose.slides/textsearchoptions/#setCaseSensitive) mengontrol apakah huruf kapital harus cocok.
+- [TextSearchOptions::setIncludeNotes](https://reference.aspose.com/slides/id/php-java/aspose.slides/textsearchoptions/#setIncludeNotes) menyertakan catatan slide dalam pencarian, penggantian, dan penyorotan tingkat presentasi.
 
-Operasi ekspresi reguler menggunakan `Pattern` Java, sehingga aturan pencocokan seperti sensitivitas huruf dan batas kata ditentukan oleh ekspresi dan flag-nya.
+Operasi ekspresi reguler menggunakan `Pattern` Java, sehingga aturan pencocokan seperti sensitivitas huruf dan batas kata didefinisikan oleh ekspresi dan flag-nya.
+
+## **Identifikasi Pemilik Bingkai Teks**
+
+Alur kerja pemrosesan teks umum sering menerima sebuah [TextFrame] saat mencari, mengganti, memvalidasi, atau mengekspor teks. Gunakan [TextFrame::getParentShape] dan [TextFrame::getParentCell] untuk menentukan objek presentasi mana yang memiliki bingkai teks.
+
+Nilai yang diharapkan tergantung pada pemilik:
+
+| Pemilik bingkai teks | `getParentShape` | `getParentCell` |
+|---|---|---|
+| Sebuah AutoShape atau bentuk lain yang berisi teks | Bentuk [Shape](https://reference.aspose.com/slides/id/php-java/aspose.slides/shape/) yang memilikinya | `null` |
+| Sebuah sel tabel | `null` | Sel [Cell](https://reference.aspose.com/slides/id/php-java/aspose.slides/cell/) yang memilikinya |
+
+Kedua metode menyediakan navigasi read-only. Memanggilnya tidak memindahkan bingkai teks atau mengubah pemiliknya. Kode generik harus memeriksa kedua nilai dengan `java_is_null` dan menangani kemungkinan bahwa tidak ada pemilik yang tersedia.
+
+Contoh berikut menggunakan [SlideUtil::getAllTextFrames](https://reference.aspose.com/slides/id/php-java/aspose.slides/slideutil/#getAllTextFrames) untuk mengiterasi bingkai teks dalam sebuah presentasi. Untuk bentuk, ia melaporkan nama bentuk, tipe runtime Java, dan slide yang berisi. Untuk sel tabel, ia melaporkan koordinat kolom dan baris berbasis nol serta slide yang berisi.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SlideUtil;
+
+$presentation = new Presentation("presentation.pptx");
+$arrayClass = new java_class("java.lang.reflect.Array");
+
+try {
+    $textFrames = SlideUtil::getAllTextFrames($presentation, false);
+    $textFrameCount = java_values($arrayClass->getLength($textFrames));
+
+    for ($textFrameIndex = 0; $textFrameIndex < $textFrameCount; $textFrameIndex++) {
+        $textFrame = $textFrames[$textFrameIndex];
+        $ownerShape = $textFrame->getParentShape();
+        if (!java_is_null($ownerShape)) {
+            $shapeName = java_values($ownerShape->getName());
+            $shapeName = $shapeName === "" ? "(unnamed)" : $shapeName;
+            $shapeType = java_values($ownerShape->getClass()->getSimpleName());
+            $baseSlide = $ownerShape->getSlide();
+            $slideClassName = java_values($baseSlide->getClass()->getName());
+
+            if ($slideClassName === "com.aspose.slides.Slide") {
+                $slideLabel = "slide " . java_values($baseSlide->getSlideNumber());
+            } elseif ($slideClassName === "com.aspose.slides.NotesSlide") {
+                $slideLabel = "notes for slide " . java_values($baseSlide->getParentSlide()->getSlideNumber());
+            } else {
+                $slideLabel = java_values($baseSlide->getClass()->getSimpleName());
+            }
+
+            echo("Shape: " . $shapeName . "; type: " . $shapeType . "; " . $slideLabel . "\n");
+            continue;
+        }
+
+        $ownerCell = $textFrame->getParentCell();
+        if (!java_is_null($ownerCell)) {
+            $baseSlide = $ownerCell->getSlide();
+            $slideClassName = java_values($baseSlide->getClass()->getName());
+
+            if ($slideClassName === "com.aspose.slides.Slide") {
+                $slideLabel = "slide " . java_values($baseSlide->getSlideNumber());
+            } elseif ($slideClassName === "com.aspose.slides.NotesSlide") {
+                $slideLabel = "notes for slide " . java_values($baseSlide->getParentSlide()->getSlideNumber());
+            } else {
+                $slideLabel = java_values($baseSlide->getClass()->getSimpleName());
+            }
+
+            echo("Table cell: column " . java_values($ownerCell->getFirstColumnIndex()) . ", row " . java_values($ownerCell->getFirstRowIndex()) . "; " . $slideLabel . "\n");
+            continue;
+        }
+
+        echo("The text frame owner is not available as a shape or table cell.\n");
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Untuk konten SmartArt, iterasi bentuk dalam [SmartArtNode::getShapes](https://reference.aspose.com/slides/id/php-java/aspose.slides/smartartnode/#getShapes) dan akses setiap [SmartArtShape::getTextFrame](https://reference.aspose.com/slides/id/php-java/aspose.slides/smartartshape/#getTextFrame). Bingkai teks dapat ditelusuri ke bentuk terkait melalui [TextFrame::getParentShape](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframe/#getParentShape), sementara [TextFrame::getParentCell](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframe/#getParentCell) mengembalikan `null`. Oleh karena itu, cabang bentuk dalam contoh juga menangani teks dari node SmartArt.
 
 ## **Kumpulkan Informasi Kecocokan dengan Callback**
 
-Berikan callback proxy Java ke metode penyorotan atau penggantian untuk menerima notifikasi untuk setiap kecocokan. Metode callback menerima bingkai teks terkait, teks sumber, teks yang cocok, dan posisi kecocokan.
+Berikan callback proxy Java ke metode penyorotan atau penggantian untuk menerima notifikasi setiap kecocokan. Metode callback menerima bingkai teks terkait, teks sumber, teks yang cocok, dan posisi kecocokan.
 
-Callback tidak menerima nomor slide secara langsung. Implementasi di bawah ini menurunkannya dari slide induk dan juga menangani teks yang ditemukan di catatan slide. Array hasil menggunakan `null` ketika teks terkait dengan jenis slide lain.
+Callback tidak menerima nomor slide secara langsung. Implementasi di bawah ini menurunkannya dari slide induk dan juga menangani teks yang ditemukan dalam catatan slide. Array hasil menggunakan `null` ketika teks terkait dengan tipe slide lain.
 
 ```php
 class TextSearchCallback {
@@ -76,7 +150,17 @@ class TextSearchCallback {
     }
 
     private function getSlideNumber($textFrame) {
-        $parentSlide = $textFrame->getSlide();
+        $parentShape = $textFrame->getParentShape();
+        $parentCell = $textFrame->getParentCell();
+
+        if (!java_is_null($parentShape)) {
+            $parentSlide = $parentShape->getSlide();
+        } elseif (!java_is_null($parentCell)) {
+            $parentSlide = $parentCell->getSlide();
+        } else {
+            $parentSlide = $textFrame->getSlide();
+        }
+
         if (java_is_null($parentSlide)) {
             return null;
         }
@@ -113,13 +197,13 @@ $callback = java_closure(
 );
 ```
 
-Untuk operasi penggantian, `foundText` berisi teks yang cocok asli, sehingga callback dapat mencatat dengan tepat istilah mana yang diganti.
+Untuk operasi penggantian, `foundText` berisi teks asli yang cocok, sehingga callback dapat mencatat secara tepat istilah mana yang diganti.
 
 ## **Sorot Teks**
 
 Gunakan metode [TextFrame::highlightText](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframe/#highlightText) untuk menyorot kecocokan teks literal dalam sebuah bingkai teks. Berikan [TextSearchOptions](https://reference.aspose.com/slides/id/php-java/aspose.slides/textsearchoptions/) untuk mengontrol pencarian.
 
-Contoh kode di bawah menyorot semua kemunculan karakter **"try"** dan kemudian hanya menyorot kata lengkap **"to"**.
+Contoh kode di bawah ini menyorot semua kemunculan karakter **"try"** dan kemudian hanya menyorot kata lengkap **"to"**.
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -176,13 +260,13 @@ finally {
 
 Hasilnya:
 
-![Teks yang disorot](highlighted_text.png)
+![The highlighted text](highlighted_text.png)
 
 ## **Sorot Teks Menggunakan Ekspresi Reguler**
 
 Metode [TextFrame::highlightRegex](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframe/#highlightRegex) menyorot kecocokan teks yang ditemukan oleh ekspresi reguler dalam sebuah bingkai teks.
 
-Kode berikut menyorot semua kata yang berisi tujuh huruf atau lebih:
+Kode berikut menyorot semua kata yang mengandung tujuh karakter atau lebih:
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -201,13 +285,13 @@ finally {
 }
 ```
 
-Hasilnya:
+Hasil:
 
-![Teks yang disorot menggunakan ekspresi reguler](highlighted_text_using_regex.png)
+![The highlighted text using the regular expression](highlighted_text_using_regex.png)
 
 ## **Sorot Teks di Seluruh Presentasi**
 
-Gunakan [Presentation::highlightText](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/#highlightText) dan [Presentation::highlightRegex](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/#highlightRegex) untuk mencari semua bingkai teks yang berlaku dalam sebuah presentasi. Contoh berikut menyorot istilah literal dan semua alamat email:
+Gunakan [Presentation::highlightText](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/#highlightText) dan [Presentation::highlightRegex](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/#highlightRegex) untuk mencari semua bingkai teks yang relevan dalam sebuah presentasi. Contoh berikut menyorot istilah literal dan semua alamat email:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -240,11 +324,11 @@ finally {
 }
 ```
 
-## **Ganti Teks di Bingkai Teks**
+## **Ganti Teks dalam Bingkai Teks**
 
-Gunakan [TextFrame::replaceText](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframe/#replaceText) untuk teks literal dan [TextFrame::replaceRegex](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframe/#replaceRegex) untuk penggantian berbasis pola. Metode ini memperbarui teks yang cocok di dalam bingkai teks yang ada, yang mempertahankan pemformatan bagian sekitarnya alih-alih membangun ulang bingkai teks dari string biasa.
+Gunakan [TextFrame::replaceText](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframe/#replaceText) untuk teks literal dan [TextFrame::replaceRegex](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframe/#replaceRegex) untuk penggantian berbasis pola. Metode ini memperbarui teks yang cocok di dalam bingkai teks yang ada, mempertahankan format bagian sekitarnya alih-alih membangun ulang bingkai teks dari string biasa.
 
-Contoh berikut menstandarisasi varian ejaan dan kemudian mengganti label versi:
+Contoh berikut menstandarkan varian ejaan dan kemudian mengganti label versi:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -282,7 +366,7 @@ finally {
 }
 ```
 
-Jika satu kecocokan melintasi bagian dengan pemformatan berbeda, tinjau output untuk memastikan pemformatan mana yang harus diterapkan pada teks pengganti.
+Jika satu kecocokan mencakup bagian dengan format berbeda, tinjau output untuk memastikan format mana yang harus diterapkan pada teks pengganti.
 
 ## **Ganti Teks di Seluruh Presentasi**
 
@@ -320,7 +404,7 @@ finally {
 
 ## **Kelompokkan Kecocokan untuk Pelaporan**
 
-Karena setiap hasil menyimpan nomor slide dan bingkai teks, aplikasi dapat mengelompokkan kecocokan untuk audit, pelaporan, atau alur kerja tinjauan. Contoh berikut mengelompokkan hasil yang dikumpulkan pertama berdasarkan slide lalu berdasarkan bingkai teks:
+Karena setiap hasil menyimpan nomor slide dan bingkai teks, aplikasi dapat mengelompokkan kecocokan untuk audit, pelaporan, atau alur kerja peninjauan. Contoh berikut mengelompokkan hasil yang dikumpulkan pertama berdasarkan slide lalu berdasarkan bingkai teks:
 
 ```php
 $matchesBySlide = [];
@@ -367,22 +451,22 @@ foreach ($matchesBySlide as $slideLabel => $textFrameGroups) {
 
 ## **FAQ**
 
-**Bagaimana saya dapat mencari hanya satu kotak teks bukan seluruh presentasi?**
+**Bagaimana saya dapat mencari hanya satu kotak teks saja, bukan seluruh presentasi?**
 
-Dapatkan bingkai teks dari bentuk tersebut dan panggil [TextFrame::highlightText](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframe/#highlightText), [TextFrame::highlightRegex](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframe/#highlightRegex), [TextFrame::replaceText](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframe/#replaceText), atau [TextFrame::replaceRegex](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframe/#replaceRegex) pada bingkai teks itu. Metode tingkat presentasi memproses semua bingkai teks yang berlaku sebagai gantinya.
+Dapatkan bingkai teks bentuk dan panggil [TextFrame::highlightText](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframe/#highlightText), [TextFrame::highlightRegex](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframe/#highlightRegex), [TextFrame::replaceText](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframe/#replaceText), atau [TextFrame::replaceRegex](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframe/#replaceRegex) pada bingkai teks tersebut. Metode tingkat presentasi memproses semua bingkai teks yang relevan sebagai gantinya.
 
 **Bagaimana saya dapat mencocokkan kata lengkap dengan kapitalisasi yang tepat?**
 
 Setel [TextSearchOptions::setWholeWordsOnly](https://reference.aspose.com/slides/id/php-java/aspose.slides/textsearchoptions/#setWholeWordsOnly) dan [TextSearchOptions::setCaseSensitive](https://reference.aspose.com/slides/id/php-java/aspose.slides/textsearchoptions/#setCaseSensitive) ke `true`, dan berikan opsi tersebut ke metode penyorotan atau penggantian teks literal. Untuk ekspresi reguler, definisikan batas kata dan sensitivitas huruf dalam `Pattern` Java itu sendiri.
 
-**Apakah pencarian dan penggantian dapat mencakup teks dalam catatan slide?**
+**Apakah pencarian dan penggantian dapat menyertakan teks dalam catatan slide?**
 
 Ya. Setel [TextSearchOptions::setIncludeNotes](https://reference.aspose.com/slides/id/php-java/aspose.slides/textsearchoptions/#setIncludeNotes) ke `true` saat menggunakan operasi teks literal tingkat presentasi.
 
-**Bagaimana saya dapat membuat laporan tanpa memindai presentasi untuk kedua kalinya?**
+**Bagaimana saya dapat membuat laporan tanpa memindai presentasi sekali lagi?**
 
 Berikan callback proxy Java ke operasi penyorotan atau penggantian. Callback menerima setiap kecocokan saat operasi berjalan, sehingga aplikasi dapat menyimpan teks sumber, teks yang cocok, posisi, bingkai teks, dan nomor slide yang diturunkan untuk pengelompokan atau ekspor nanti.
 
-**Apakah mengganti teks mempertahankan pemformatannya?**
+**Apakah mengganti teks mempertahankan formatnya?**
 
-[TextFrame::replaceText](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframe/#replaceText) dan [TextFrame::replaceRegex](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframe/#replaceRegex) memodifikasi teks yang cocok di dalam bingkai teks yang ada dan mempertahankan pemformatan bagian sekitarnya. Jika satu kecocokan melintasi bagian dengan pemformatan berbeda, periksa hasilnya untuk memastikan penggantian menggunakan gaya yang diinginkan.
+[TextFrame::replaceText](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframe/#replaceText) dan [TextFrame::replaceRegex](https://reference.aspose.com/slides/id/php-java/aspose.slides/textframe/#replaceRegex) memodifikasi teks yang cocok di dalam bingkai teks yang ada dan mempertahankan format bagian sekitarnya. Jika sebuah kecocokan mencakup bagian dengan format berbeda, periksa hasilnya untuk memastikan penggantian menggunakan gaya yang diinginkan.

@@ -1,6 +1,6 @@
 ---
-title: Zoeken en vervangen van tekst in PowerPoint‑presentaties op Android
-linktitle: Zoeken en vervangen van tekst
+title: Zoeken en vervangen van tekst in PowerPoint-presentaties op Android
+linktitle: Zoeken en vervangen tekst
 type: docs
 weight: 55
 url: /nl/androidjava/search-and-replace-text/
@@ -9,8 +9,8 @@ keywords:
 - tekst markeren
 - tekst vervangen
 - reguliere expressie
-- resultaatcallback
-- tekstframe
+- resultaat callback
+- tekstkader
 - auditrapport
 - PowerPoint
 - OpenDocument
@@ -18,44 +18,108 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Zoeken, markeren en vervangen van tekst in PowerPoint‑presentaties terwijl elke overeenkomst wordt verzameld met Aspose.Slides for Android via Java."
+description: "Zoek, markeer en vervang tekst in PowerPoint-presentaties en verzamel elke overeenkomst met Aspose.Slides voor Android via Java."
 ---
 ## **Overzicht**
 
-Aspose.Slides for Android via Java kan tekst zoeken, markeren en vervangen in een enkel tekstframe of in een volledige presentatie. Elke bewerking kan ook een applicatie op de hoogte stellen van elke overeenkomst via een result-callback. Hierdoor is het mogelijk een presentatie bij te werken en tegelijk een auditspoor op te bouwen met de overeenkomstige tekst, de context, positie, het tekstframe en het slide‑nummer.
+Aspose.Slides for Android via Java kan tekst zoeken, markeren en vervangen in een enkel tekstkader of in de gehele presentatie. Elke bewerking kan ook een applicatie op de hoogte stellen van elke overeenkomst via een resultcallback. Hierdoor is het mogelijk om een presentatie bij te werken en tegelijkertijd een audittrail op te bouwen met de gevonden tekst, de context, positie, het tekstkader en het dia‑nummer.
 
-Deze mogelijkheden zijn nuttig voor beoordeling, redactie, terminologiecontroles, het opschonen van sjablonen en geautomatiseerde rapportage‑workflows.
+Deze mogelijkheden zijn nuttig voor review, redactie, terminologiewaarden, sjabloonopschoning en geautomatiseerde rapportage‑workflows.
 
-In de eerste voorbeelden hieronder gebruiken we een bestand met de naam "sample.pptx", dat één tekstvak bevat op de eerste slide met de volgende tekst:
+In de eerste voorbeelden hieronder gebruiken we een bestand genaamd "sample.pptx", dat een enkel tekstvak op de eerste dia bevat met de volgende tekst:
 
-![Voorbeeldtekst](sample_text.png)
+![Sample text](sample_text.png)
 
-## **Kies de zoekreikwijdte**
+## **Kies het zoekbereik**
 
-Gebruik methoden op [ITextFrame](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itextframe/) om een bewerking te beperken tot één tekstframe. Gebruik methoden op [IPresentation](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ipresentation/) om alle toepasbare tekst in de presentatie te verwerken.
+Gebruik methoden op [ITextFrame](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itextframe/) om een bewerking te beperken tot één tekstkader. Gebruik methoden op [IPresentation](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ipresentation/) om alle toepasselijke tekst in de presentatie te verwerken.
 
-| Bewerking | Eén tekstframe | Gehele presentatie |
+| Bewerking | Eén tekstkader | Gehele presentatie |
 |---|---|---|
 | Markeer letterlijke tekst | [ITextFrame.highlightText](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [IPresentation.highlightText](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ipresentation/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
 | Markeer reguliere‑expressie‑overeenkomsten | [ITextFrame.highlightRegex](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-) | [IPresentation.highlightRegex](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ipresentation/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-) |
 | Vervang letterlijke tekst | [ITextFrame.replaceText](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [IPresentation.replaceText](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ipresentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
 | Vervang reguliere‑expressie‑overeenkomsten | [ITextFrame.replaceRegex](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) | [IPresentation.replaceRegex](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ipresentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) |
 
-## **Configureer tekstmatching**
+## **Tekstmatching configureren**
 
-Voor operaties met letterlijke tekst, gebruik [TextSearchOptions](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/textsearchoptions/) om het zoeken te beheersen:
+Voor bewerkingen met letterlijke tekst, gebruik [TextSearchOptions](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/textsearchoptions/) om het overeenkomen te regelen:
 
-- [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) beperkt overeenkomsten tot complete woorden.
-- [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) bepaalt of hoofdlettergevoeligheid vereist is.
-- [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) neemt slidennotities op in zoeken, vervangen en markeren op presentatieniveau.
+- [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) beperkt overeenkomsten tot volledige woorden.
+- [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) bepaalt of hoofdlettergebruik moet overeenkomen.
+- [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) neemt dia‑notities op in zoek-, vervang- en markeerbewerkingen op presentatieniveau.
 
-Operaties met reguliere expressies gebruiken een Java `Pattern`, dus overeenkomstre­gels zoals hoofdlettergevoeligheid en woordgrenzen worden bepaald door de expressie en de bijbehorende vlaggen.
+Reguliere‑expressie‑bewerkingen gebruiken een Java `Pattern`, waardoor overeenkomstruulen zoals hoofdlettergevoeligheid en woordgrenzen worden bepaald door de expressie en de bijbehorende vlaggen.
 
-## **Verzamel overeenkomst‑informatie met een callback**
+## **Identificeer de eigenaar van een tekstkader**
 
-Implementeer [IFindResultCallback](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ifindresultcallback/) om een melding te ontvangen voor elke overeenkomst. Zijn [IFindResultCallback.foundResult](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ifindresultcallback/#foundResult-com.aspose.slides.ITextFrame-java.lang.String-java.lang.String-int-)‑methode geeft het gerelateerde tekstframe, de brontekst, de gevonden tekst en de positie van de overeenkomst.
+Algemene tekstverwerkingsworkflows ontvangen vaak een [ITextFrame](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itextframe/) tijdens zoeken, vervangen, valideren of exporteren. Gebruik [ITextFrame.getParentShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itextframe/#getParentShape--) en [ITextFrame.getParentCell](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itextframe/#getParentCell--) om te bepalen welk presentatie‑object het tekstkader bezit.
 
-De callback ontvangt niet rechtstreeks een slide‑nummer. De implementatie hieronder haalt het af van de bovenliggende slide en verwerkt ook tekst gevonden in slidennotities. Een nullable `Integer` maakt het mogelijk hetzelfde result‑model te gebruiken voor tekst die aan andere slide‑typen is gekoppeld.
+De verwachte waarden hangen af van de eigenaar:
+
+| Eigenaar van tekstkader | `getParentShape` | `getParentCell` |
+|---|---|---|
+| Een AutoShape of een andere vorm die tekst bevat | De bezitende [IShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ishape/) | `null` |
+| Een tabelcel | `null` | De bezitende [ICell](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/icell/) |
+
+Beide methoden bieden alleen‑lezen‑navigatie. Het aanroepen ervan verplaatst het tekstkader niet en wijzigt de eigenaar niet. Generieke code moet beide waarden op `null` controleren en rekening houden met de mogelijkheid dat geen van beide beschikbaar is.
+
+Het volgende voorbeeld gebruikt [SlideUtil.getAllTextFrames](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/slideutil/#getAllTextFrames-com.aspose.slides.IPresentation-boolean-) om door de tekstkaders in een presentatie te itereren. Voor vormen meldt het de vormnaam, Java‑runtime‑type en de bijbehorende dia. Voor tabelcellen meldt het de nul‑gebaseerde kolom‑ en rijcoördinaten en de bijbehorende dia.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    ITextFrame[] textFrames = SlideUtil.getAllTextFrames(presentation, false);
+
+    for (ITextFrame textFrame : textFrames) {
+        IShape ownerShape = textFrame.getParentShape();
+        if (ownerShape != null) {
+            String shapeName = ownerShape.getName().isEmpty() ? "(unnamed)" : ownerShape.getName();
+            String shapeType = ownerShape.getClass().getSimpleName();
+            IBaseSlide baseSlide = ownerShape.getSlide();
+            String slideLabel;
+            if (baseSlide instanceof ISlide) {
+                slideLabel = "slide " + ((ISlide) baseSlide).getSlideNumber();
+            } else if (baseSlide instanceof INotesSlide) {
+                slideLabel = "notes for slide " + ((INotesSlide) baseSlide).getParentSlide().getSlideNumber();
+            } else {
+                slideLabel = baseSlide.getClass().getSimpleName();
+            }
+            System.out.println("Shape: " + shapeName + "; type: " + shapeType + "; " + slideLabel);
+            continue;
+        }
+
+        ICell ownerCell = textFrame.getParentCell();
+        if (ownerCell != null) {
+            IBaseSlide baseSlide = ownerCell.getSlide();
+            String slideLabel;
+            if (baseSlide instanceof ISlide) {
+                slideLabel = "slide " + ((ISlide) baseSlide).getSlideNumber();
+            } else if (baseSlide instanceof INotesSlide) {
+                slideLabel = "notes for slide " + ((INotesSlide) baseSlide).getParentSlide().getSlideNumber();
+            } else {
+                slideLabel = baseSlide.getClass().getSimpleName();
+            }
+            System.out.println("Table cell: column " + ownerCell.getFirstColumnIndex() + ", row " + ownerCell.getFirstRowIndex() + "; " + slideLabel);
+            continue;
+        }
+
+        System.out.println("The text frame owner is not available as a shape or table cell.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Voor SmartArt‑inhoud itereren we door de vormen in [ISmartArtNode.getShapes](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ismartartnode/#getShapes--) en benaderen we elke [ISmartArtShape.getTextFrame](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ismartartshape/#getTextFrame--). Het tekstkader kan worden getraceerd naar de bijbehorende vorm via [ITextFrame.getParentShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itextframe/#getParentShape--), terwijl [ITextFrame.getParentCell](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itextframe/#getParentCell--) `null` retourneert. Daarom behandelt de vorm‑tak in het voorbeeld ook tekst uit SmartArt‑knopen.
+
+## **Verzamel overeenkomstinformatie met een callback**
+
+Implementeer [IFindResultCallback](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ifindresultcallback/) om een melding te ontvangen voor elke overeenkomst. Zijn [IFindResultCallback.foundResult](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ifindresultcallback/#foundResult-com.aspose.slides.ITextFrame-java.lang.String-java.lang.String-int-)‑methode levert het betreffende tekstkader, de brontekst, de gevonden tekst en de positie van de overeenkomst.
+
+De callback ontvangt geen dia‑nummer direct. De implementatie hieronder leidt dit af van de bovenliggende dia en verwerkt ook tekst die in dia‑notities is gevonden. Een nullable `Integer` maakt het mogelijk om hetzelfde resultaatsmodel te gebruiken voor tekst die gekoppeld is aan andere dia‑typen.
 
 ```java
 import com.aspose.slides.*;
@@ -112,12 +176,10 @@ final class TextSearchCallback implements IFindResultCallback {
         results.add(result);
     }
 
-    private static Integer getSlideNumber(ITextFrame textFrame) {
-        if (!(textFrame instanceof TextFrame)) {
-            return null;
-        }
-
-        IBaseSlide parentSlide = ((TextFrame) textFrame).getSlide();
+    private Integer getSlideNumber(ITextFrame textFrame) {
+        IShape parentShape = textFrame.getParentShape();
+        ICell parentCell = textFrame.getParentCell();
+        IBaseSlide parentSlide = parentShape != null ? parentShape.getSlide() : parentCell != null ? parentCell.getSlide() : textFrame.getSlide();
 
         if (parentSlide instanceof ISlide) {
             return ((ISlide) parentSlide).getSlideNumber();
@@ -132,13 +194,13 @@ final class TextSearchCallback implements IFindResultCallback {
 }
 ```
 
-Voor vervang‑operaties bevat `foundText` de oorspronkelijke gevonden tekst, zodat de callback precies kan registreren welke termen zijn vervangen.
+Voor vervang‑bewerkingen bevat `foundText` de oorspronkelijke gevonden tekst, zodat de callback precies kan registreren welke termen zijn vervangen.
 
-## **Markeer tekst**
+## **Tekst markeren**
 
-Gebruik de [ITextFrame.highlightText](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-)‑methode om letterlijke‑tekst‑overeenkomsten in een tekstframe te markeren. Geef [TextSearchOptions](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/textsearchoptions/) door om het zoeken te sturen en een callback om de details van de overeenkomsten te verzamelen.
+Gebruik de [ITextFrame.highlightText](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-)‑methode om letterlijke‑tekst‑overeenkomsten in een tekstkader te markeren. Geef [TextSearchOptions] door om de zoekopdracht te regelen en een callback om match‑details te verzamelen.
 
-De code‑voorbeeld hieronder markeert alle voorkomens van de tekens **"try"** en vervolgens alleen het volledige woord **"to"**. Beide zoekacties melden hun overeenkomsten aan dezelfde callback.
+De code‑voorbeeld hieronder markeert alle voorkomens van de tekens **"try"** en markeert daarna alleen het volledige woord **"to"**. Beide zoekopdrachten rapporteren hun matches aan dezelfde callback.
 
 ```java
 import com.aspose.slides.*;
@@ -154,7 +216,7 @@ try {
     substringSearchOptions.setCaseSensitive(false);
     int substringHighlightColor = Color.rgb(173, 216, 230);
 
-    // Markeer elke verschijning van "try" in het tekstframe.
+    // Markeer elk voorkomen van "try" in het tekstkader.
     shape.getTextFrame().highlightText("try", substringHighlightColor, substringSearchOptions, callback);
 
     TextSearchOptions wholeWordSearchOptions = new TextSearchOptions();
@@ -178,13 +240,13 @@ try {
 
 Het resultaat:
 
-![De gemarkeerde tekst](highlighted_text.png)
+![The highlighted text](highlighted_text.png)
 
 ## **Tekst markeren met reguliere expressies**
 
-De [ITextFrame.highlightRegex](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-)‑methode markeert tekstovereenkomsten die door een reguliere expressie worden gevonden in een tekstframe.
+De [ITextFrame.highlightRegex](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-)‑methode markeert tekstmatches die gevonden worden door een reguliere expressie in een tekstkader.
 
-De volgende code markeert alle woorden met zeven of meer tekens en verzamelt elke overeenkomst:
+De volgende code markeert alle woorden die zeven of meer tekens bevatten en verzamelt elke match:
 
 ```java
 import com.aspose.slides.*;
@@ -208,11 +270,11 @@ try {
 
 Het resultaat:
 
-![De met reguliere expressie gemarkeerde tekst](highlighted_text_using_regex.png)
+![The highlighted text using the regular expression](highlighted_text_using_regex.png)
 
-## **Tekst markeren over een presentatie**
+## **Tekst markeren in een presentatie**
 
-Gebruik [IPresentation.highlightText](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ipresentation/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) en [IPresentation.highlightRegex](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ipresentation/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-) om alle toepasselijke tekstframes in een presentatie te doorzoeken. Het volgende voorbeeld markeert een letterlijke term en alle e‑mailadressen, met afzonderlijke resultaatsverzamelingen voor de twee zoekacties.
+Gebruik [IPresentation.highlightText](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ipresentation/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) en [IPresentation.highlightRegex](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ipresentation/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-) om alle toepasselijke tekstkaders in een presentatie te doorzoeken. Het volgende voorbeeld markeert een letterlijke term en alle e‑mailadressen, terwijl het afzonderlijke resultaatsverzamelingen bijhoudt voor de twee zoekopdrachten.
 
 ```java
 import com.aspose.slides.*;
@@ -241,11 +303,11 @@ try {
 }
 ```
 
-## **Tekst vervangen in een tekstframe**
+## **Tekst vervangen in een tekstkader**
 
-Gebruik [ITextFrame.replaceText](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) voor letterlijke tekst en [ITextFrame.replaceRegex](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) voor op patroon gebaseerde vervanging. Deze methoden werken de gevonden tekst bij binnen het bestaande tekstframe, waardoor de omliggende formattering behouden blijft i.p.v. het tekstframe opnieuw op te bouwen van een platte string.
+Gebruik [ITextFrame.replaceText](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) voor letterlijke tekst en [ITextFrame.replaceRegex](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) voor patroongebaseerde vervanging. Deze methoden werken de gevonden tekst bij binnen het bestaande tekstkader, waardoor de opmaak van de omringende delen behouden blijft in plaats van het tekstkader opnieuw op te bouwen vanuit een eenvoudige string.
 
-Het volgende voorbeeld uniformiseert een spellingvariant en vervangt vervolgens versie‑labels. Dezelfde callback registreert de oorspronkelijke termen die door beide operaties zijn gevonden.
+Het volgende voorbeeld standaardiseert een spellingvariant en vervangt daarna versie‑labels. Dezelfde callback registreert de oorspronkelijke termen die door beide bewerkingen zijn gevonden.
 
 ```java
 import com.aspose.slides.*;
@@ -271,11 +333,11 @@ try {
 }
 ```
 
-Als één overeenkomst delen van verschillende opmaak omvat, controleer dan de output om te bevestigen welke opmaak moet worden toegepast op de vervangende tekst.
+Als één match delen met verschillende opmaak bestrijkt, controleer dan de output om te bevestigen welke opmaak op de vervangende tekst moet worden toegepast.
 
-## **Tekst vervangen over een presentatie**
+## **Tekst vervangen in een presentatie**
 
-Gebruik [IPresentation.replaceText](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ipresentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) en [IPresentation.replaceRegex](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ipresentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) om dezelfde bewerkingen toe te passen op de volledige presentatie. Dit is nuttig voor het opschonen van sjablonen, terminologie‑updates en redactie.
+Gebruik [IPresentation.replaceText](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ipresentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) en [IPresentation.replaceRegex](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ipresentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) om dezelfde bewerkingen over de hele presentatie toe te passen. Dit is handig voor sjabloonopschoning, terminologie‑updates en redactie.
 
 ```java
 import com.aspose.slides.*;
@@ -299,9 +361,9 @@ try {
 }
 ```
 
-## **Groepeer overeenkomsten voor rapportage**
+## **Matches groeperen voor rapportage**
 
-Omdat elk resultaat het slide‑nummer en het tekstframe opslaat, kunnen applicaties overeenkomsten groeperen voor audit, rapportage of beoordelings‑workflows. Het volgende voorbeeld groepeert de verzamelde resultaten eerst per slide en daarna per tekstframe:
+Omdat elk resultaat zijn dia‑nummer en tekstkader opslaat, kunnen applicaties matches groeperen voor audit, rapportage of review‑workflows. Het volgende voorbeeld groepeert de verzamelde resultaten eerst per dia en daarna per tekstkader:
 
 ```java
 import com.aspose.slides.ITextFrame;
@@ -349,22 +411,22 @@ for (Map.Entry<Integer, Map<ITextFrame, List<TextMatch>>> slideEntry : matchesBy
 
 ## **FAQ**
 
-**Hoe kan ik slechts één tekstvak doorzoeken in plaats van de volledige presentatie?**
+**Hoe kan ik slechts één tekstvak doorzoeken in plaats van de hele presentatie?**
 
-Haal het tekstframe van de vorm op en roep [ITextFrame.highlightText](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), [ITextFrame.highlightRegex](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-), [ITextFrame.replaceText](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), of [ITextFrame.replaceRegex](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) op dat tekstframe. Methoden op presentatieniveau verwerken alle toepasselijke tekstframes.
+Haal het tekstkader van de vorm op en roep [ITextFrame.highlightText](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), [ITextFrame.highlightRegex](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-), [ITextFrame.replaceText](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), of [ITextFrame.replaceRegex](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) op dat tekstkader. Methodes op presentatieniveau verwerken alle toepasselijke tekstkaders.
 
-**Hoe kan ik volledige woorden met de juiste hoofdletters vinden?**
+**Hoe kan ik volledige woorden matchen met de juiste hoofdlettergebruik?**
 
-Stel [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) en [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) in op `true` en geef de opties door aan een letterlijke‑tekst‑markeer‑ of vervang‑methode. Voor reguliere expressies definieer je woordgrenzen en hoofdlettergevoeligheid in de Java `Pattern` zelf.
+Stel [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) en [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) in op `true` en geef de opties door aan een letterlijke‑tekst‑markeer‑ of vervangingsmethode. Voor reguliere expressies definieer je woordgrenzen en hoofdlettergevoeligheid in de Java `Pattern` zelf.
 
-**Kunnen zoeken en vervangen tekst in slidennotities omvatten?**
+**Kunnen zoek‑ en vervangbewerkingen tekst in dia‑notities omvatten?**
 
-Ja. Stel [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) in op `true` bij een presentatieniveau‑operatie met letterlijke tekst. De callback‑implementatie hierboven koppelt een overeenkomst in een notitieslide terug aan het bovenliggende slide‑nummer.
+Ja. Stel [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) in op `true` wanneer je een letterlijke‑tekst‑bewerking op presentatieniveau uitvoert. De callback‑implementatie hierboven mappt een match in een notitiedia terug naar het bijbehorende dia‑nummer.
 
-**Hoe kan ik een rapport maken zonder de presentatie een tweede keer te scannen?**
+**Hoe kan ik een rapport maken zonder de presentatie een tweede keer te doorzoeken?**
 
-Geef een [IFindResultCallback](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ifindresultcallback/)‑implementatie door aan de markeer‑ of vervang‑operatie. De callback ontvangt elke overeenkomst terwijl de bewerking loopt, zodat de applicatie brontekst, gevonden tekst, positie, tekstframe en afgeleid slide‑nummer kan opslaan voor latere groepering of export.
+Geef een [IFindResultCallback](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ifindresultcallback/)‑implementatie mee aan de markeer‑ of vervangingsbewerking. De callback ontvangt elke match terwijl de bewerking loopt, zodat de applicatie brontekst, gevonden tekst, positie, tekstkader en afgeleid dia‑nummer kan opslaan voor later groeperen of exporteren.
 
 **Behoudt het vervangen van tekst de opmaak?**
 
-[ITextFrame.replaceText](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) en [ITextFrame.replaceRegex](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) wijzigen de gevonden tekst binnen het bestaande tekstframe en behouden de omliggende opmaak. Als een overeenkomst delen met verschillende opmaak beslaat, controleer dan het resultaat om te verzekeren dat de vervanging de gewenste stijl gebruikt.
+[ITextFrame.replaceText](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) en [ITextFrame.replaceRegex](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) wijzigen de gevonden tekst binnen het bestaande tekstkader en behouden de opmaak van de omringende delen. Als een match delen met verschillende opmaak bestrijkt, controleer dan het resultaat om te bevestigen dat de vervanging de gewenste stijl gebruikt.

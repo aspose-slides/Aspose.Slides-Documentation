@@ -1,13 +1,13 @@
 ---
-title: PowerPoint Sunumlarında PHP ile Metin Arama ve Değiştirme
-linktitle: Metin Arama ve Değiştirme
+title: PHP'de PowerPoint Sunumlarında Metin Ara ve Değiştir
+linktitle: Metin Ara ve Değiştir
 type: docs
 weight: 55
 url: /tr/php-java/search-and-replace-text/
 keywords:
-- metin arama
-- metin vurgulama
-- metin değiştirme
+- metin ara
+- metin vurgula
+- metin değiştir
 - düzenli ifade
 - sonuç geri çağrısı
 - metin çerçevesi
@@ -21,40 +21,114 @@ description: "PowerPoint sunumlarında metin arama, vurgulama ve değiştirme i�
 ---
 ## **Genel Bakış**
 
-Aspose.Slides for PHP via Java, tek bir metin çerçevesinde ya da tüm bir sunumda metin arama, vurgulama ve değiştirme yapabilir. Her işlem, bir sonuç geri çağrısı aracılığıyla uygulamayı her eşleşme hakkında bilgilendirebilir. Bu, bir sunumu güncellerken eşleşen metin, bağlamı, konumu, metin çerçevesi ve slayt numarasını içeren bir denetim izini aynı anda oluşturmayı mümkün kılar.
+Aspose.Slides for PHP via Java, bir tek metin çerçevesinde ya da tüm sunumda metin arama, vurgulama ve değiştirme işlemleri yapabilir. Her işlem, eşleşmeler hakkında bir sonuç geri çağrısı (callback) aracılığıyla uygulamaya bildirim gönderir. Bu sayede bir sunumu güncellerken eşleşen metni, bağlamını, konumunu, metin çerçevesini ve slayt numarasını içeren bir denetim izi oluşturmak mümkün olur.
 
-Bu özellikler, inceleme, gizleme, terminoloji kontrolleri, şablon temizliği ve otomatik raporlama iş akışları için yararlıdır.
+Bu yetenekler, inceleme, sansürleme, terminoloji denetimi, şablon temizliği ve otomatik raporlama iş akışları için faydalıdır.
 
-Aşağıdaki ilk örneklerde, ilk slaytta aşağıdaki metni içeren tek bir metin kutusu bulunan "sample.pptx" adlı dosyayı kullanıyoruz:
+Aşağıdaki ilk örneklerde, ilk slaytta tek bir metin kutusu bulunan ve aşağıdaki metni içeren **sample.pptx** adlı dosya kullanılmıştır:
 
 ![Örnek metin](sample_text.png)
 
 ## **Arama Kapsamını Seçin**
 
-[TextFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/) üzerindeki yöntemleri kullanarak bir işlemi tek bir metin çerçevesiyle sınırlayabilirsiniz. [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) üzerindeki yöntemleri kullanarak sunumdaki tüm uygulanabilir metni işleyebilirsiniz.
+Bir işlemi tek bir metin çerçevesiyle sınırlamak için [TextFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/) üzerindeki yöntemleri kullanın. Sunumdaki tüm ilgili metinleri işlemek için ise [Presentation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) üzerindeki yöntemleri kullanın.
 
 | İşlem | Tek metin çerçevesi | Tüm sunum |
 |---|---|---|
-| Highlight literal text | [TextFrame::highlightText](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/#highlightText) | [Presentation::highlightText](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/#highlightText) |
-| Highlight regular-expression matches | [TextFrame::highlightRegex](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/#highlightRegex) | [Presentation::highlightRegex](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/#highlightRegex) |
-| Replace literal text | [TextFrame::replaceText](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/#replaceText) | [Presentation::replaceText](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/#replaceText) |
-| Replace regular-expression matches | [TextFrame::replaceRegex](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/#replaceRegex) | [Presentation::replaceRegex](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/#replaceRegex) |
+| Düz metni vurgula | [TextFrame::highlightText](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/#highlightText) | [Presentation::highlightText](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/#highlightText) |
+| Düzenli ifade eşleşmelerini vurgula | [TextFrame::highlightRegex](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/#highlightRegex) | [Presentation::highlightRegex](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/#highlightRegex) |
+| Düz metni değiştir | [TextFrame::replaceText](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/#replaceText) | [Presentation::replaceText](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/#replaceText) |
+| Düzenli ifade eşleşmelerini değiştir | [TextFrame::replaceRegex](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/#replaceRegex) | [Presentation::replaceRegex](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/#replaceRegex) |
 
-## **Metin Eşleştirmeyi Yapılandırın**
+## **Metin Eşleştirmeyi Yapılandır**
 
-Literal metin işlemleri için, eşleşmeyi kontrol etmek amacıyla [TextSearchOptions](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textsearchoptions/) kullanın:
+Düz metin işlemleri için eşleşmeyi kontrol etmek amacıyla [TextSearchOptions](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textsearchoptions/) kullanın:
 
-- [TextSearchOptions::setWholeWordsOnly](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textsearchoptions/#setWholeWordsOnly) eşleşmeleri tam kelimelerle sınırlar.
-- [TextSearchOptions::setCaseSensitive](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textsearchoptions/#setCaseSensitive) karakter büyük/küçük harf eşleşmesinin zorunlu olup olmadığını kontrol eder.
-- [TextSearchOptions::setIncludeNotes](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textsearchoptions/#setIncludeNotes) sunum düzeyindeki arama, değiştirme ve vurgulama işlemlerine slayt notlarını dahil eder.
+- [TextSearchOptions::setWholeWordsOnly](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textsearchoptions/#setWholeWordsOnly) yalnızca tam kelimelerle eşleşmeyi sınırlar.
+- [TextSearchOptions::setCaseSensitive](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textsearchoptions/#setCaseSensitive) karakter duyarlılığının zorunlu olup olmadığını kontrol eder.
+- [TextSearchOptions::setIncludeNotes](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textsearchoptions/#setIncludeNotes) sunum seviyesindeki arama, değiştirme ve vurgulama işlemlerine slayt notlarını dahil eder.
 
-Düzenli ifade işlemleri bir Java `Pattern` kullanır, bu nedenle büyük/küçük harf duyarlılığı ve kelime sınırları gibi eşleşme kuralları ifade ve bayrakları tarafından tanımlanır.
+Düzenli ifade işlemleri bir Java `Pattern` kullanır; bu nedenle büyük/küçük harf duyarlılığı ve kelime sınırları gibi kurallar ifadede ve bayraklarında tanımlanır.
 
-## **Geri Çağrıyla Eşleşme Bilgilerini Toplayın**
+## **Bir Metin Çerçevesinin Sahibini Belirleyin**
 
-Vurgulama ya da değiştirme yöntemine bir Java proxy geri çağrısı geçirerek her eşleşme için bir bildirim alabilirsiniz. Geri çağrı yöntemi ilgili metin çerçevesini, kaynak metni, eşleşen metni ve eşleşme konumunu alır.
+Genel metin işleme iş akışları, arama, değiştirme, doğrulama veya dışa aktarma sırasında çoğu zaman bir [TextFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/) alır. Metin çerçevesinin hangi sunum nesnesine ait olduğunu belirlemek için [TextFrame::getParentShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/#getParentShape) ve [TextFrame::getParentCell](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/#getParentCell) yöntemlerini kullanın.
 
-Geri çağrı doğrudan bir slayt numarası almaz. Aşağıdaki uygulama, onu ana slayttan türetir ve slayt notlarında bulunan metni de işler. Sonuç dizisi, metin başka bir slayt türüyle ilişkili olduğunda `null` kullanır.
+Beklenen değerler sahibine göre değişir:
+
+| Metin çerçevesi sahibi | `getParentShape` | `getParentCell` |
+|---|---|---|
+| AutoShape veya başka bir metin içeren şekil | Sahibi olan [Shape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shape/) | `null` |
+| Tablo hücresi | `null` | Sahibi olan [Cell](https://reference.aspose.com/slides/tr/php-java/aspose.slides/cell/) |
+
+Her iki yöntem de yalnızca okuma amaçlı gezinme sağlar. Çağrıldıklarında metin çerçevesini taşımaz veya sahibini değiştirmez. Genel kod, her iki değeri de `java_is_null` ile kontrol etmeli ve hiçbir sahibin bulunmama olasılığını ele almalıdır.
+
+Aşağıdaki örnek, bir sunumdaki metin çerçevelerini yinelemek için [SlideUtil::getAllTextFrames](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slideutil/#getAllTextFrames) kullanır. Şekiller için şekil adını, Java çalışma zamanı tipini ve içinde bulunduğu slaytı raporlar. Tablo hücreleri için sıfır‑tabanlı sütun ve satır koordinatlarını ve içinde bulunduğu slaytı raporlar.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SlideUtil;
+
+$presentation = new Presentation("presentation.pptx");
+$arrayClass = new java_class("java.lang.reflect.Array");
+
+try {
+    $textFrames = SlideUtil::getAllTextFrames($presentation, false);
+    $textFrameCount = java_values($arrayClass->getLength($textFrames));
+
+    for ($textFrameIndex = 0; $textFrameIndex < $textFrameCount; $textFrameIndex++) {
+        $textFrame = $textFrames[$textFrameIndex];
+        $ownerShape = $textFrame->getParentShape();
+        if (!java_is_null($ownerShape)) {
+            $shapeName = java_values($ownerShape->getName());
+            $shapeName = $shapeName === "" ? "(unnamed)" : $shapeName;
+            $shapeType = java_values($ownerShape->getClass()->getSimpleName());
+            $baseSlide = $ownerShape->getSlide();
+            $slideClassName = java_values($baseSlide->getClass()->getName());
+
+            if ($slideClassName === "com.aspose.slides.Slide") {
+                $slideLabel = "slide " . java_values($baseSlide->getSlideNumber());
+            } elseif ($slideClassName === "com.aspose.slides.NotesSlide") {
+                $slideLabel = "notes for slide " . java_values($baseSlide->getParentSlide()->getSlideNumber());
+            } else {
+                $slideLabel = java_values($baseSlide->getClass()->getSimpleName());
+            }
+
+            echo("Shape: " . $shapeName . "; type: " . $shapeType . "; " . $slideLabel . "\n");
+            continue;
+        }
+
+        $ownerCell = $textFrame->getParentCell();
+        if (!java_is_null($ownerCell)) {
+            $baseSlide = $ownerCell->getSlide();
+            $slideClassName = java_values($baseSlide->getClass()->getName());
+
+            if ($slideClassName === "com.aspose.slides.Slide") {
+                $slideLabel = "slide " . java_values($baseSlide->getSlideNumber());
+            } elseif ($slideClassName === "com.aspose.slides.NotesSlide") {
+                $slideLabel = "notes for slide " . java_values($baseSlide->getParentSlide()->getSlideNumber());
+            } else {
+                $slideLabel = java_values($baseSlide->getClass()->getSimpleName());
+            }
+
+            echo("Table cell: column " . java_values($ownerCell->getFirstColumnIndex()) . ", row " . java_values($ownerCell->getFirstRowIndex()) . "; " . $slideLabel . "\n");
+            continue;
+        }
+
+        echo("The text frame owner is not available as a shape or table cell.\n");
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+SmartArt içeriği için, [SmartArtNode::getShapes](https://reference.aspose.com/slides/tr/php-java/aspose.slides/smartartnode/#getShapes) içindeki şekilleri yineleyin ve her bir [SmartArtShape::getTextFrame](https://reference.aspose.com/slides/tr/php-java/aspose.slides/smartartshape/#getTextFrame) öğesine erişin. Metin çerçevesi, [TextFrame::getParentShape](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/#getParentShape) aracılığıyla ilişkili şekle izlenebilir; [TextFrame::getParentCell](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/#getParentCell) ise `null` döndürür. Bu nedenle örnekteki şekil dalı, SmartArt düğümlerinden gelen metni de işler.
+
+## **Bir Geri Çağrı ile Eşleşme Bilgilerini Toplayın**
+
+Vurgulama veya değiştirme metoduna bir Java proxy geri çağrısı geçirerek her eşleşme için bildirim alabilirsiniz. Geri çağrı metodu ilgili metin çerçevesini, kaynak metni, eşleşen metni ve eşleşme konumunu alır.
+
+Geri çağrı doğrudan bir slayt numarası almaz. Aşağıdaki uygulama, bunu üst slayttan türetir ve slayt notlarında bulunan metni de işler. Sonuç dizisi, metin başka bir slayt türüne ait olduğunda `null` kullanır.
 
 ```php
 class TextSearchCallback {
@@ -76,7 +150,17 @@ class TextSearchCallback {
     }
 
     private function getSlideNumber($textFrame) {
-        $parentSlide = $textFrame->getSlide();
+        $parentShape = $textFrame->getParentShape();
+        $parentCell = $textFrame->getParentCell();
+
+        if (!java_is_null($parentShape)) {
+            $parentSlide = $parentShape->getSlide();
+        } elseif (!java_is_null($parentCell)) {
+            $parentSlide = $parentCell->getSlide();
+        } else {
+            $parentSlide = $textFrame->getSlide();
+        }
+
         if (java_is_null($parentSlide)) {
             return null;
         }
@@ -101,7 +185,7 @@ class TextSearchCallback {
 }
 ```
 
-Bu PHP nesnesi için bir proxy oluşturup bir işleme geçirmeden önce:
+Bu PHP nesnesi için bir proxy oluşturun ve ardından bir işleme geçirin:
 
 ```php
 $callbackHandler = new TextSearchCallback();
@@ -113,13 +197,13 @@ $callback = java_closure(
 );
 ```
 
-Değiştirme işlemleri için, `foundText` orijinal eşleşen metni içerir, böylece geri çağrı tam olarak hangi terimlerin değiştirildiğini kaydedebilir.
+Değiştirme işlemleri için, `foundText` orijinal eşleşen metni içerir; böylece geri çağrı hangi terimlerin değiştirildiğini tam olarak kaydedebilir.
 
 ## **Metni Vurgula**
 
-[TextFrame::highlightText] yöntemini bir metin çerçevesindeki literal metin eşleşmelerini vurgulamak için kullanın. Aramayı kontrol etmek için [TextSearchOptions] gönderin.
+Düz metin eşleşmelerini bir metin çerçevesinde vurgulamak için [TextFrame::highlightText](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/#highlightText) metodunu kullanın. Aramayı kontrol etmek için [TextSearchOptions](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textsearchoptions/) geçirin.
 
-Aşağıdaki kod örneği **"try"** karakterlerinin tüm görünümlerini ve ardından sadece tam **"to"** kelimesini vurgular.
+Aşağıdaki kod örneği, **"try"** karakterlerinin tüm oluşumlarını vurgular ve ardından yalnızca tam kelime **"to"** yi vurgular.
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -138,7 +222,7 @@ try {
     $substringSearchOptions->setCaseSensitive(false);
     $substringHighlightColor = new Java("java.awt.Color", 173, 216, 230);
 
-    // Metin çerçevesinde "try" ifadesinin her görünümünü vurgula.
+    // Metin çerçevesindeki "try" ifadesinin her oluşumunu vurgula.
     $shape->getTextFrame()->highlightText(
         "try",
         $substringHighlightColor,
@@ -151,7 +235,7 @@ try {
     $wholeWordSearchOptions->setCaseSensitive(false);
     $wholeWordHighlightColor = new Java("java.awt.Color", 238, 130, 238);
 
-    // Sadece tam kelime "to" yu vurgula.
+    // Sadece tam kelime "to"yu vurgula.
     $shape->getTextFrame()->highlightText(
         "to",
         $wholeWordHighlightColor,
@@ -178,11 +262,11 @@ Sonuç:
 
 ![Vurgulanan metin](highlighted_text.png)
 
-## **Düzenli İfadeler Kullanarak Metni Vurgula**
+## **Düzenli İfadelerle Metin Vurgula**
 
-[TextFrame::highlightRegex] yöntemi bir metin çerçevesinde düzenli ifade ile bulunan metin eşleşmelerini vurgular.
+[TextFrame::highlightRegex](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/#highlightRegex) metodu, bir düzenli ifadeyle bulunan metin eşleşmelerini bir metin çerçevesinde vurgular.
 
-Aşağıdaki kod yedi veya daha fazla karakter içeren tüm kelimeleri vurgular:
+Aşağıdaki kod, yedi veya daha fazla karakter içeren tüm kelimeleri vurgular:
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -203,11 +287,11 @@ finally {
 
 Sonuç:
 
-![Düzenli ifade kullanarak vurgulanan metin](highlighted_text_using_regex.png)
+![Düzenli ifade kullanılarak vurgulanan metin](highlighted_text_using_regex.png)
 
-## **Sunumda Metni Vurgula**
+## **Sunum Genelinde Metin Vurgula**
 
-[Presentation::highlightText] ve [Presentation::highlightRegex] yöntemlerini bir sunumdaki tüm uygulanabilir metin çerçevelerini aramak için kullanın. Aşağıdaki örnek literal bir terimi ve tüm e-posta adreslerini vurgular:
+[Presentation::highlightText](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/#highlightText) ve [Presentation::highlightRegex](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/#highlightRegex) metodlarını kullanarak bir sunumdaki tüm uygulanabilir metin çerçevelerinde arama yapın. Aşağıdaki örnek bir düz terimi ve tüm e‑posta adreslerini vurgular:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -242,9 +326,9 @@ finally {
 
 ## **Bir Metin Çerçevesinde Metni Değiştir**
 
-Literal metin için [TextFrame::replaceText], desen tabanlı değiştirme için [TextFrame::replaceRegex] kullanın. Bu yöntemler eşleşen metni mevcut metin çerçevesi içinde günceller; böylece çerçeve, düz bir dizeden yeniden oluşturulmak yerine çevresindeki biçimlendirmeyi korur.
+Düz metin için [TextFrame::replaceText](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/#replaceText), desen tabanlı değiştirme için ise [TextFrame::replaceRegex](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/#replaceRegex) kullanın. Bu yöntemler, eşleşen metni mevcut metin çerçevesi içinde günceller; böylece etrafındaki biçimlendirme korunur ve metin çerçevesi tamamen yeni bir dizeyle yeniden oluşturulmaz.
 
-Aşağıdaki örnek bir yazım varyantını standartlaştırır ve ardından sürüm etiketlerini değiştirir:
+Aşağıdaki örnek bir yazım varyantını standart hale getirir ve ardından sürüm etiketlerini değiştirir:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -282,11 +366,11 @@ finally {
 }
 ```
 
-Eğer bir eşleşme farklı biçimlendirmeli bölümleri kapsıyorsa, çıktıyı gözden geçirerek hangi biçimlendirmenin değiştirme metnine uygulanacağını doğrulayın.
+Bir eşleşme farklı biçimlendirmeye sahip bölümleri kapsıyorsa, çıktıyı inceleyerek hangi biçimin değiştirme metnine uygulanacağını doğrulayın.
 
-## **Sunumda Metni Değiştir**
+## **Sunum Genelinde Metni Değiştir**
 
-[Presentation::replaceText] ve [Presentation::replaceRegex] yöntemlerini aynı işlemleri sunum genelinde uygulamak için kullanın. Bu, şablon temizliği, terminoloji güncellemeleri ve gizleme için yararlıdır.
+[Presentation::replaceText](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/#replaceText) ve [Presentation::replaceRegex](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/#replaceRegex) metodlarını kullanarak aynı işlemleri tüm sunuma uygulayın. Bu, şablon temizliği, terminoloji güncellemeleri ve sansürleme için faydalıdır.
 
 ```php
 $presentation = new Presentation("presentation.pptx");
@@ -318,9 +402,9 @@ finally {
 }
 ```
 
-## **Raporlama İçin Eşleşmeleri Gruplandır**
+## **Raporlama İçin Eşleşmeleri Gruplayın**
 
-Her sonuç slayt numarasını ve metin çerçevesini depoladığından, uygulamalar denetim, raporlama ya da inceleme iş akışları için eşleşmeleri gruplayabilir. Aşağıdaki örnek toplanan sonuçları önce slayta, sonra metin çerçevesine göre gruplar:
+Her sonuç slayt numarasını ve metin çerçevesini sakladığından, uygulamalar denetim, raporlama veya inceleme iş akışları için eşleşmeleri gruplayabilir. Aşağıdaki örnek, toplanan sonuçları önce slayta, ardından metin çerçevesine göre gruplar:
 
 ```php
 $matchesBySlide = [];
@@ -367,22 +451,22 @@ foreach ($matchesBySlide as $slideLabel => $textFrameGroups) {
 
 ## **SSS**
 
-**Nasıl yalnızca bir metin kutusunda, tüm sunumu değil, arama yapabilirim?**
+**Yalnızca bir metin kutusunu, tüm sunumu değil, nasıl arayabilirim?**
 
-Şeklin metin çerçevesini alın ve o çerçevede [TextFrame::highlightText](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/#highlightText), [TextFrame::highlightRegex](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/#highlightRegex), [TextFrame::replaceText](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/#replaceText) veya [TextFrame::replaceRegex](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/#replaceRegex) yöntemlerini çağırın. Sunum düzeyindeki yöntemler tüm uygulanabilir metin çerçevelerini işler.
+Şeklin metin çerçevesini alın ve o çerçeve üzerinde [TextFrame::highlightText](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/#highlightText), [TextFrame::highlightRegex](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/#highlightRegex), [TextFrame::replaceText](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/#replaceText) veya [TextFrame::replaceRegex](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/#replaceRegex) yöntemlerini çağırın. Sunum seviyesindeki yöntemler ise tüm uygulanabilir metin çerçevelerini işler.
 
-**Tam kelimeleri doğru büyük/küçük harfle nasıl eşleştirebilirim?**
+**Tam kelimeleri doğru büyük‑küçük harfle eşleştirmek nasıl yapılır?**
 
-[TextSearchOptions::setWholeWordsOnly](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textsearchoptions/#setWholeWordsOnly) ve [TextSearchOptions::setCaseSensitive](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textsearchoptions/#setCaseSensitive) değerlerini `true` olarak ayarlayın ve seçenekleri literal metin vurgulama ya da değiştirme yöntemine iletin. Düzenli ifadeler için kelime sınırlarını ve büyük/küçük harf duyarlılığını Java `Pattern` içinde tanımlayın.
+[TextSearchOptions::setWholeWordsOnly](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textsearchoptions/#setWholeWordsOnly) ve [TextSearchOptions::setCaseSensitive](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textsearchoptions/#setCaseSensitive) seçeneklerini `true` yapın ve bu seçenekleri düz metin vurgulama veya değiştirme metoduna geçirin. Düzenli ifadeler için kelime sınırlarını ve büyük/küçük harf duyarlılığını Java `Pattern` içinde tanımlayın.
 
-**Arama ve değiştirme slayt notlarındaki metni içerebilir mi?**
+**Arama ve değiştirme slayt notlarındaki metni de kapsar mı?**
 
-Evet. Sunum düzeyinde literal metin işlemi uygularken [TextSearchOptions::setIncludeNotes](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textsearchoptions/#setIncludeNotes) değerini `true` olarak ayarlayın.
+Evet. Sunum seviyesindeki düz metin işlemlerinde [TextSearchOptions::setIncludeNotes](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textsearchoptions/#setIncludeNotes) seçeneğini `true` yapın.
 
 **Sunumu ikinci kez taramadan bir rapor nasıl oluşturabilirim?**
 
-Vurgulama ya da değiştirme işlemine bir Java proxy geri çağrısı geçirin. İşlem çalışırken her eşleşmeyi alır; böylece uygulama kaynak metni, eşleşen metni, konumu, metin çerçevesini ve türetilen slayt numarasını daha sonra gruplamak ya da dışa aktarmak için saklayabilir.
+Vurgulama veya değiştirme işlemi sırasında bir Java proxy geri çağrısı geçirin. İşlem çalışırken her eşleşme bildirilir; böylece uygulama kaynak metni, eşleşen metni, konumu, metin çerçevesini ve türetilen slayt numarasını daha sonra gruplayıp dışa aktarmak için saklayabilir.
 
-**Metni değiştirmek biçimlendirmesini korur mu?**
+**Metin değiştirme biçimlendirmesini korur mu?**
 
-[TextFrame::replaceText](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/#replaceText) ve [TextFrame::replaceRegex](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/#replaceRegex) eşleşen metni mevcut metin çerçevesi içinde değiştirir ve çevresindeki biçimlendirmeyi korur. Eğer bir eşleşme farklı biçimlendirmeli bölümleri kapsıyorsa, değiştirme istenen stili kullandığından emin olmak için sonucu inceleyin.
+[TextFrame::replaceText](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/#replaceText) ve [TextFrame::replaceRegex](https://reference.aspose.com/slides/tr/php-java/aspose.slides/textframe/#replaceRegex) metodları, eşleşen metni mevcut metin çerçevesi içinde değiştirir ve çevresindeki bölüm biçimlendirmesini korur. Bir eşleşme farklı biçimlendirmeye sahip bölümleri kapsıyorsa, değiştirme işleminin istediğiniz stile sahip olduğundan emin olmak için sonucu inceleyin.

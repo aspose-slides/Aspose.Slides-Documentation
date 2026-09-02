@@ -5,7 +5,7 @@ type: docs
 weight: 55
 url: /cs/cpp/search-and-replace-text/
 keywords:
-- vyhledat text
+- vyhledávání textu
 - zvýraznit text
 - nahradit text
 - regulární výraz
@@ -17,50 +17,161 @@ keywords:
 - prezentace
 - C++
 - Aspose.Slides
-description: "Vyhledávejte, zvýrazňujte a nahrazujte text v prezentacích PowerPoint a současně shromažďujte každou shodu pomocí Aspose.Slides pro C++."
+description: "Vyhledávejte, zvýrazňujte a nahrazujte text v prezentacích PowerPoint a při tom sbírejte každou shodu pomocí Aspose.Slides pro C++."
 ---
 ## **Přehled**
 
-Aspose.Slides pro C++ umí vyhledávat, zvýrazňovat a nahrazovat text v jednotlivém textovém rámečku nebo v celé prezentaci. Každá operace může také upozornit aplikaci na každý výsledek pomocí zpětného volání s výsledkem. To umožňuje aktualizovat prezentaci a současně vytvořit auditní záznam obsahující nalezený text, jeho kontext, pozici, textový rámec a číslo snímku.
+Aspose.Slides for C++ může vyhledávat, zvýrazňovat a nahrazovat text v jednotlivém textovém rámci nebo v celé prezentaci. Každá operace může také pomocí výsledkového zpětného volání informovat aplikaci o každém nálezu. To umožňuje aktualizovat prezentaci a zároveň vytvářet auditní stopu obsahující nalezený text, jeho kontext, pozici, textový rámec a číslo snímku.
 
-Tyto možnosti jsou užitečné pro revizi, redakci, kontrolu terminologie, úklid šablon a automatizované pracovní postupy reportování.
+Tyto možnosti jsou užitečné pro revizi, redakci, kontrolu terminologie, úklid šablon a automatizované pracovní toky reportování.
 
-V prvních příkladech níže používáme soubor nazvaný "sample.pptx", který obsahuje jedinou textovou položku na prvním snímku s následujícím textem:
+V následujících úvodních příkladech používáme soubor nazvaný "sample.pptx", který obsahuje jediný textový rámeček na prvním snímku s následujícím textem:
 
 ![Ukázkový text](sample_text.png)
 
-## **Zvolte rozsah vyhledávání**
+## **Zvolte rozsah hledání**
 
-Použijte metody na [ITextFrame](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/) k omezení operace na jeden textový rámec. Použijte metody na [IPresentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipresentation/) ke zpracování veškerého relevantního textu v prezentaci.
+Použijte metody na [ITextFrame](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/) pro omezení operace na jeden textový rámec. Použijte metody na [IPresentation](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipresentation/) pro zpracování veškerého relevantního textu v celé prezentaci.
 
 | Operace | Jeden textový rámec | Celá prezentace |
 |---|---|---|
-| Základní zvýraznění textu | [ITextFrame::HighlightText](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/highlighttext/) | [IPresentation::HighlightText](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipresentation/highlighttext/) |
-| Zvýraznění shod regulárního výrazu | [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/highlightregex/) | [IPresentation::HighlightRegex](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipresentation/highlightregex/) |
-| Nahrazení doslovného textu | [ITextFrame::ReplaceText](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/replacetext/) | [IPresentation::ReplaceText](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipresentation/replacetext/) |
-| Nahrazení shod regulárního výrazu | [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/replaceregex/) | [IPresentation::ReplaceRegex](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipresentation/replaceregex/) |
+| Zvýraznit doslovný text | [ITextFrame::HighlightText](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/highlighttext/) | [IPresentation::HighlightText](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipresentation/highlighttext/) |
+| Zvýraznit shody regulárního výrazu | [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/highlightregex/) | [IPresentation::HighlightRegex](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipresentation/highlightregex/) |
+| Nahradit doslovný text | [ITextFrame::ReplaceText](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/replacetext/) | [IPresentation::ReplaceText](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipresentation/replacetext/) |
+| Nahradit shody regulárního výrazu | [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/replaceregex/) | [IPresentation::ReplaceRegex](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipresentation/replaceregex/) |
 
 ## **Nastavení shody textu**
 
 Pro operace s doslovným textem použijte [ITextSearchOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextsearchoptions/) k řízení shody:
 
-- [ITextSearchOptions::set_WholeWordsOnly](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextsearchoptions/set_wholewordsonly/) omezuje shody na celá slova.
-- [ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) řídí, zda se musí shodovat velikost písmen.
-- [ITextSearchOptions::set_IncludeNotes](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextsearchoptions/set_includenotes/) zahrnuje poznámky ke snímkům do vyhledávání, nahrazování a zvýrazňování na úrovni celé prezentace.
+- [ITextSearchOptions::set_WholeWordsOnly](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextsearchoptions/set_wholewordsonly/) omezuje shody na celé slovo.
+- [ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) určuje, zda se musí shodovat velikost písmen.
+- [ITextSearchOptions::set_IncludeNotes](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextsearchoptions/set_includenotes/) zahrnuje poznámky snímků do vyhledávání, nahrazování a zvýrazňování na úrovni prezentace.
 
-Operace s regulárním výrazem používají `System::Text::RegularExpressions::Regex`, takže pravidla shody, jako je rozlišování velikosti písmen a hranice slov, jsou definována výrazem a jeho možnostmi.
+Operace s regulárními výrazy používají `System::Text::RegularExpressions::Regex`, takže pravidla shody, jako je citlivost na velikost písmen a hranice slov, jsou definována samotným výrazem a jeho možnostmi.
 
-## **Sbírat informace o shodách pomocí zpětného volání**
+## **Určete vlastníka textového rámce**
 
-Implementujte [IFindResultCallback](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ifindresultcallback/) pro získání oznámení o každé shodě. Jeho metoda [IFindResultCallback::FoundResult](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ifindresultcallback/foundresult/) poskytuje související textový rámec, zdrojový text, nalezený text a pozici shody.
+Obecné pracovní toky zpracování textu často získají [ITextFrame](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/) při vyhledávání, nahrazování, validaci nebo exportu textu. Použijte [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/get_parentshape/) a [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/get_parentcell/) k určení, který objekt prezentace vlastní daný textový rámec.
 
-Zpětné volání nedostává číslo snímku přímo. Níže uvedená implementace jej odvozuje z [ISlideComponent::get_Slide](https://reference.aspose.com/slides/cs/cpp/aspose.slides/islidecomponent/get_slide/) a také zpracovává text nalezený v poznámkách ke snímku prostřednictvím [INotesSlide::get_ParentSlide](https://reference.aspose.com/slides/cs/cpp/aspose.slides/inotesslide/get_parentslide/). Číselná hodnota, která může být null, umožňuje stejnému modelu výsledku reprezentovat text spojený s jinými typy snímků.
+Očekávané hodnoty závisí na vlastníkovi:
+
+| Vlastník textového rámce | `get_ParentShape` | `get_ParentCell` |
+|---|---|---|
+| AutoShape nebo jiný tvar obsahující text | Vlastnický [IShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ishape/) | `nullptr` |
+| Buňka tabulky | `nullptr` | Vlastnický [ICell](https://reference.aspose.com/slides/cs/cpp/aspose.slides/icell/) |
+
+Obě metody poskytují pouze čtení. Volání jich nepřesouvá textový rámec ani nemění jeho vlastníka. Obecný kód by měl kontrolovat obě hodnoty na `nullptr` a ošetřit možnost, že žádný vlastník není k dispozici.
+
+Následující příklad používá [SlideUtil::GetAllTextFrames](https://reference.aspose.com/slides/cs/cpp/aspose.slides.util/slideutil/getalltextframes/) k iteraci přes textové rámečky v prezentaci. Pro tvary vypisuje název tvaru, typ v runtime C++ a obsahující snímek. Pro buňky tabulky vypisuje nulově indexované souřadnice sloupce a řádku a obsahující snímek.
 
 ```cpp
 #include <DOM/IBaseSlide.h>
 #include <DOM/INotesSlide.h>
+#include <DOM/IShape.h>
 #include <DOM/ISlide.h>
 #include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <Util/SlideUtil.h>
+#include <system/console.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using Aspose::Slides::IBaseSlide;
+using Aspose::Slides::INotesSlide;
+using Aspose::Slides::IShape;
+using Aspose::Slides::ISlide;
+using Aspose::Slides::ITextFrame;
+using Aspose::Slides::Presentation;
+using Aspose::Slides::Util::SlideUtil;
+using System::AsCast;
+using System::Console;
+using System::MakeObject;
+using System::String;
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx");
+auto textFrames = SlideUtil::GetAllTextFrames(presentation, false);
+
+for (const auto& textFrame : textFrames)
+{
+    auto ownerShape = textFrame->get_ParentShape();
+    if (ownerShape != nullptr)
+    {
+        auto shapeName = String::IsNullOrEmpty(ownerShape->get_Name()) ? u"(unnamed)" : ownerShape->get_Name();
+        auto shapeType = ownerShape->GetType().get_Name();
+        auto baseSlide = ownerShape->get_Slide();
+        String slideLabel;
+        auto slide = AsCast<ISlide>(baseSlide);
+
+        if (slide != nullptr)
+        {
+            slideLabel = String::Format(u"slide {0}", slide->get_SlideNumber());
+        }
+        else
+        {
+            auto notesSlide = AsCast<INotesSlide>(baseSlide);
+            if (notesSlide != nullptr)
+            {
+                slideLabel = String::Format(u"notes for slide {0}", notesSlide->get_ParentSlide()->get_SlideNumber());
+            }
+            else
+            {
+                slideLabel = baseSlide->GetType().get_Name();
+            }
+        }
+
+        Console::WriteLine(u"Shape: {0}; type: {1}; {2}", shapeName, shapeType, slideLabel);
+        continue;
+    }
+
+    auto ownerCell = textFrame->get_ParentCell();
+    if (ownerCell != nullptr)
+    {
+        auto baseSlide = ownerCell->get_Slide();
+        String slideLabel;
+        auto slide = AsCast<ISlide>(baseSlide);
+
+        if (slide != nullptr)
+        {
+            slideLabel = String::Format(u"slide {0}", slide->get_SlideNumber());
+        }
+        else
+        {
+            auto notesSlide = AsCast<INotesSlide>(baseSlide);
+            if (notesSlide != nullptr)
+            {
+                slideLabel = String::Format(u"notes for slide {0}", notesSlide->get_ParentSlide()->get_SlideNumber());
+            }
+            else
+            {
+                slideLabel = baseSlide->GetType().get_Name();
+            }
+        }
+
+        Console::WriteLine(u"Table cell: column {0}, row {1}; {2}", ownerCell->get_FirstColumnIndex(), ownerCell->get_FirstRowIndex(), slideLabel);
+        continue;
+    }
+
+    Console::WriteLine(u"The text frame owner is not available as a shape or table cell.");
+}
+```
+
+Pro obsah SmartArt iterujte přes tvary v [ISmartArtNode::get_Shapes](https://reference.aspose.com/slides/cs/cpp/aspose.slides.smartart/ismartartnode/get_shapes/) a přistupujte k each [ISmartArtShape::get_TextFrame](https://reference.aspose.com/slides/cs/cpp/aspose.slides.smartart/ismartartshape/get_textframe/). Textový rámec lze sledovat k příslušnému tvaru pomocí [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/get_parentshape/), zatímco [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/get_parentcell/) vrací `nullptr`. Proto větev tvaru v příkladu rovněž zpracovává text ze SmartArt uzlů.
+
+## **Shromažďování informací o shodě pomocí zpětného volání**
+
+Implementujte [IFindResultCallback](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ifindresultcallback/) pro získání oznámení o každé shodě. Jeho metoda [IFindResultCallback::FoundResult](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ifindresultcallback/foundresult/) poskytuje související textový rámec, zdrojový text, nalezený text a pozici shody.
+
+Zpětné volání nedostává číslo snímku přímo. Implementace níže jej získává z [ISlideComponent::get_Slide](https://reference.aspose.com/slides/cs/cpp/aspose.slides/islidecomponent/get_slide/) a také zpracovává text nalezený v poznámkách snímku pomocí [INotesSlide::get_ParentSlide](https://reference.aspose.com/slides/cs/cpp/aspose.slides/inotesslide/get_parentslide/). Číselná hodnota může být nulovatelná, což umožňuje stejnému modelu výsledků reprezentovat text spojený s jinými typy snímků.
+
+```cpp
+#include <DOM/IBaseSlide.h>
+#include <DOM/INotesSlide.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Table/ICell.h>
 #include <IFindResultCallback.h>
 #include <system/collections/list.h>
 #include <system/nullable.h>
@@ -70,6 +181,7 @@ Zpětné volání nedostává číslo snímku přímo. Níže uvedená implement
 using Aspose::Slides::IBaseSlide;
 using Aspose::Slides::IFindResultCallback;
 using Aspose::Slides::INotesSlide;
+using Aspose::Slides::IShape;
 using Aspose::Slides::ISlide;
 using Aspose::Slides::ITextFrame;
 using System::AsCast;
@@ -119,7 +231,23 @@ public:
 private:
     static Nullable<int32_t> GetSlideNumber(SharedPtr<ITextFrame> textFrame)
     {
-        SharedPtr<IBaseSlide> baseSlide = textFrame->get_Slide();
+        auto parentShape = textFrame->get_ParentShape();
+        auto parentCell = textFrame->get_ParentCell();
+        SharedPtr<IBaseSlide> baseSlide;
+
+        if (parentShape != nullptr)
+        {
+            baseSlide = parentShape->get_Slide();
+        }
+        else if (parentCell != nullptr)
+        {
+            baseSlide = parentCell->get_Slide();
+        }
+        else
+        {
+            baseSlide = textFrame->get_Slide();
+        }
+
         auto slide = AsCast<ISlide>(baseSlide);
 
         if (slide != nullptr)
@@ -139,13 +267,13 @@ private:
 };
 ```
 
-Pro operace nahrazování `FoundText` obsahuje původní nalezený text, takže zpětné volání může přesně zaznamenat, které termíny byly nahrazeny.
+U operací nahrazování obsahuje `FoundText` původní nalezený text, takže zpětné volání může zaznamenat přesně, které termíny byly nahrazeny.
 
 ## **Zvýraznit text**
 
-Použijte metodu [ITextFrame::HighlightText](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/highlighttext/) k zvýraznění doslovných shod v textovém rámci. Předávejte [ITextSearchOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextsearchoptions/) pro řízení vyhledávání a zpětné volání pro sběr podrobností o shodách.
+Použijte metodu [ITextFrame::HighlightText](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/highlighttext/) pro zvýraznění doslovných shod textu v textovém rámci. Předávejte [ITextSearchOptions](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextsearchoptions/) pro řízení vyhledávání a zpětné volání pro sběr podrobností o shodách.
 
-Ukázkový kód níže zvýrazní všechny výskyty znaků **"try"** a poté zvýrazní pouze celé slovo **"to"**. Obě vyhledávání zaznamenají své shody do stejného zpětného volání.
+Ukázkový kód níže zvýrazní všechny výskyty znaků **"try"** a pak zvýrazní pouze celé slovo **"to"**. Oba vyhledávání oznamují své shody stejnému zpětnému volání.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -207,7 +335,7 @@ Výsledek:
 
 Metoda [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/highlightregex/) zvýrazní textové shody nalezené regulárním výrazem v textovém rámci.
 
-Následující kód zvýrazní všechna slova obsahující sedm a více znaků a shromáždí každou shodu:
+Následující kód zvýrazní všechna slova obsahující alespoň sedm znaků a shromáždí každou shodu:
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -244,7 +372,7 @@ Výsledek:
 
 ## **Zvýraznit text v celé prezentaci**
 
-Použijte [IPresentation::HighlightText](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipresentation/highlighttext/) a [IPresentation::HighlightRegex](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipresentation/highlightregex/) k prohledání všech relevantních textových rámců v prezentaci. Následující příklad zvýrazní doslovný termín a všechny e‑mailové adresy, přičemž zachová oddělené kolekce výsledků pro obě vyhledávání.
+Použijte [IPresentation::HighlightText](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipresentation/highlighttext/) a [IPresentation::HighlightRegex](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipresentation/highlightregex/) k prohledání všech relevantních textových rámců v prezentaci. Následující příklad zvýrazní doslovný termín a všechny e‑mailové adresy a zároveň udržuje samostatné kolekce výsledků pro obě vyhledávání.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -285,9 +413,9 @@ presentation->Dispose();
 
 ## **Nahradit text v textovém rámci**
 
-Použijte [ITextFrame::ReplaceText](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/replacetext/) pro doslovný text a [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/replaceregex/) pro nahrazování na základě vzoru. Tyto metody aktualizují nalezený text v existujícím textovém rámci, který si zachovává formátování okolních částí místo přestavby rámce z prostého řetězce.
+Použijte [ITextFrame::ReplaceText](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/replacetext/) pro doslovný text a [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/replaceregex/) pro nahrazování založené na vzoru. Tyto metody mění nalezený text uvnitř existujícího textového rámce, který si tak zachovává formátování okolních částí místo přestavování celého rámce z prostého řetězce.
 
-Následující příklad standardizuje variantu pravopisu a poté nahradí štítky verzí. Stejné zpětné volání zaznamenává původní termíny, které byly nalezeny v obou operacích.
+Následující příklad standardizuje variantu pravopisu a potom nahradí označení verzí. Stejné zpětné volání zaznamenává původní termíny nalezené v obou operacích.
 
 ```cpp
 #include <DOM/IAutoShape.h>
@@ -326,11 +454,11 @@ presentation->Save(u"updated_text_frame.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Pokud jedna shoda zahrnuje části s různým formátováním, zkontrolujte výstup a potvrďte, které formátování by se mělo použít na nahrazený text.
+Pokud jedna shoda zasahuje části s odlišným formátováním, prohlédněte výstup a potvrďte, které formátování by se mělo použít pro náhradní text.
 
 ## **Nahradit text v celé prezentaci**
 
-Použijte [IPresentation::ReplaceText](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipresentation/replacetext/) a [IPresentation::ReplaceRegex](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipresentation/replaceregex/) k provedení stejných operací v celé prezentaci. To je užitečné pro úklid šablon, aktualizaci terminologie a redakci.
+Použijte [IPresentation::ReplaceText](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipresentation/replacetext/) a [IPresentation::ReplaceRegex](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ipresentation/replaceregex/) k aplikaci stejných operací napříč celou prezentací. To je užitečné pro úklid šablon, aktualizaci terminologie a redakci.
 
 ```cpp
 #include <DOM/Presentation.h>
@@ -361,9 +489,9 @@ presentation->Save(u"updated_presentation.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Seskupit shody pro reportování**
+## **Seskupování shod pro reportování**
 
-Protože každý výsledek ukládá číslo snímku a textový rámec, mohou aplikace shody seskupit pro audit, reportování nebo revizní workflow. Následující příklad seskupí shromážděné výsledky nejprve podle snímku a poté podle textového rámce:
+Protože každý výsledek ukládá číslo snímku a textový rámec, aplikace mohou shodovat výsledky pro audit, reportování nebo revizní workflow. Následující příklad seskupí shromážděné výsledky nejprve podle snímku a potom podle textového rámce:
 
 ```cpp
 #include <DOM/ITextFrame.h>
@@ -409,22 +537,22 @@ for (const auto& slideGroup : matchesBySlide)
 
 ## **Často kladené otázky**
 
-**Jak mohu hledat pouze v jednom textovém poli místo celé prezentace?**
+**Jak mohu vyhledávat jen v jednom textovém poli místo v celé prezentaci?**
 
-Získejte textový rámec daného tvaru a zavolejte na něm [ITextFrame::HighlightText](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/highlighttext/), [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/highlightregex/), [ITextFrame::ReplaceText](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/replacetext/) nebo [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/replaceregex/). Metody na úrovni celé prezentace zpracovávají všechny relevantní textové rámy.
+Získejte textový rámec tvaru a zavolejte [ITextFrame::HighlightText](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/highlighttext/), [ITextFrame::HighlightRegex](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/highlightregex/), [ITextFrame::ReplaceText](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/replacetext/) nebo [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/replaceregex/) na tomto textovém rámci. Metody na úrovni prezentace zpracovávají všechny relevantní textové rámečky.
 
-**Jak mohu shodovat celá slova se správnou kapitalizací?**
+**Jak mohu shodovat celá slova s přesným použitím velkých písmen?**
 
-Zavolejte [ITextSearchOptions::set_WholeWordsOnly](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextsearchoptions/set_wholewordsonly/) a [ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) s hodnotou `true` a předávejte tyto možnosti metodě pro zvýraznění nebo nahrazení doslovného textu. Pro regulární výrazy definujte hranice slov a citlivost na velikost písmen přímo v `System::Text::RegularExpressions::Regex`.
+Zavolejte [ITextSearchOptions::set_WholeWordsOnly](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextsearchoptions/set_wholewordsonly/) a [ITextSearchOptions::set_CaseSensitive](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextsearchoptions/set_casesensitive/) s hodnotou `true` a předávejte možnosti metodě pro zvýraznění nebo nahrazení doslovného textu. Pro regulární výrazy definujte hranice slov a citlivost na velikost písmen přímo v `System::Text::RegularExpressions::Regex`.
 
-**Může vyhledávání a nahrazování zahrnovat text v poznámkách ke snímkům?**
+**Může vyhledávání a nahrazování zahrnovat text v poznámkách snímků?**
 
-Ano. Zavolejte [ITextSearchOptions::set_IncludeNotes](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextsearchoptions/set_includenotes/) s hodnotou `true` při použití operace doslovného textu na úrovni celé prezentace. Implementace zpětného volání uvedená výše mapuje shodu v poznámce snímku zpět na číslo jeho nadřazeného snímku.
+Ano. Zavolejte [ITextSearchOptions::set_IncludeNotes](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextsearchoptions/set_includenotes/) s hodnotou `true` při použití operace na úrovni prezentace s doslovným textem. Implementace zpětného volání uvedená výše mapuje shodu v poznámce snímku zpět na číslo jejího nadřazeného snímku.
 
 **Jak mohu vytvořit report bez druhého procházení prezentace?**
 
-Předávejte implementaci [IFindResultCallback](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ifindresultcallback/) do operace zvýraznění nebo nahrazení. Zpětné volání obdrží každou shodu během provádění operace, takže aplikace může uložit zdrojový text, nalezený text, pozici, textový rámec a odvozené číslo snímku pro pozdější seskupení nebo export.
+Předávejte implementaci [IFindResultCallback](https://reference.aspose.com/slides/cs/cpp/aspose.slides/ifindresultcallback/) operaci zvýraznění nebo nahrazení. Zpětné volání přijímá každou shodu během běhu operace, takže aplikace může uložit zdrojový text, nalezený text, pozici, textový rámec a odvozené číslo snímku pro pozdější seskupení nebo export.
 
 **Zachovává nahrazování textu jeho formátování?**
 
-[ITextFrame::ReplaceText](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/replacetext/) a [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/replaceregex/) upravují nalezený text v existujícím textovém rámci a zachovávají formátování okolních částí. Pokud shoda zahrnuje části s různým formátováním, zkontrolujte výsledek, aby bylo zajištěno, že nahrazený text použije požadovaný styl.
+[ITextFrame::ReplaceText](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/replacetext/) a [ITextFrame::ReplaceRegex](https://reference.aspose.com/slides/cs/cpp/aspose.slides/itextframe/replaceregex/) upravují nalezený text uvnitř existujícího textového rámce a zachovávají formátování okolních částí. Pokud shoda zasahuje části s různým formátováním, zkontrolujte výsledek, aby náhradní text používal požadovaný styl.

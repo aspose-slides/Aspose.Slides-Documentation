@@ -1,13 +1,13 @@
 ---
 title: Vyhledávání a nahrazování textu v prezentacích PowerPoint na Androidu
-linktitle: Vyhledat a nahradit text
+linktitle: Vyhledávání a nahrazování textu
 type: docs
 weight: 55
 url: /cs/androidjava/search-and-replace-text/
 keywords:
 - vyhledávání textu
-- zvýraznit text
-- nahradit text
+- zvýraznění textu
+- nahrazení textu
 - regulární výraz
 - zpětné volání výsledku
 - textový rámec
@@ -18,21 +18,21 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Vyhledávejte, zvýrazňujte a nahrazujte text v prezentacích PowerPoint a zároveň sbírejte všechny shody pomocí Aspose.Slides pro Android přes Java."
+description: "Vyhledávejte, zvýrazňujte a nahrazujte text v prezentacích PowerPoint a při tom shromažďujte každou shodu pomocí Aspose.Slides pro Android přes Java."
 ---
 ## **Přehled**
 
-Aspose.Slides for Android via Java může vyhledávat, zvýrazňovat a nahrazovat text v jednotlivém textovém rámečku nebo v celé prezentaci. Každá operace může také upozornit aplikaci na každý výskyt pomocí zpětného volání s výsledkem. To umožňuje aktualizovat prezentaci a současně vytvořit auditní stopu obsahující nalezený text, jeho kontext, pozici, textový rámeček a číslo snímku.
+Aspose.Slides for Android via Java dokáže vyhledávat, zvýrazňovat a nahrazovat text v jednotlivém textovém rámci nebo v celé prezentaci. Každá operace může také aplikaci upozornit na každou shodu pomocí zpětného volání výsledku. To umožňuje aktualizovat prezentaci a současně vytvářet auditní stopu obsahující nalezený text, jeho kontext, pozici, textový rámec a číslo snímku.
 
-Tyto možnosti jsou užitečné pro revizi, redakci, kontrolu terminologie, úklid šablon a automatizované pracovní postupy reportování.
+Tyto možnosti jsou užitečné při revizi, redakci, kontrolách terminologie, úklidu šablon a automatizovaných pracovních postupech pro reportování.
 
-V prvních příkladech níže používáme soubor nazvaný "sample.pptx", který obsahuje jediný textový rámeček na prvním snímku s následujícím textem:
+V prvních příkladech níže používáme soubor nazvaný "sample.pptx", který obsahuje jedinou textovou oblast na prvním snímku s následujícím textem:
 
 ![Ukázkový text](sample_text.png)
 
-## **Zvolte rozsah vyhledávání**
+## **Zvolte rozsah hledání**
 
-Použijte metody na [ITextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/) k omezení operace na jeden textový rámec. Použijte metody na [IPresentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipresentation/) k zpracování veškerého relevantního textu v prezentaci.
+Použijte metody na [ITextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/) pro omezení operace na jeden textový rámec. Použijte metody na [IPresentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipresentation/) pro zpracování celého textu v prezentaci.
 
 | Operace | Jeden textový rámec | Celá prezentace |
 |---|---|---|
@@ -47,15 +47,79 @@ Pro operace s doslovným textem použijte [TextSearchOptions](https://reference.
 
 - [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) omezuje shody na celá slova.
 - [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) určuje, zda se musí shodovat velikost písmen.
-- [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) zahrnuje poznámky ke snímkům do vyhledávání, nahrazování a zvýrazňování na úrovni celé prezentace.
+- [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) zahrnuje poznámky ke snímkům při vyhledávání, nahrazování a zvýrazňování na úrovni prezentace.
 
-Operace s regulárními výrazy používají v Javě třídu `Pattern`, takže pravidla shody, jako je rozlišování velikosti písmen a hranice slov, jsou definována výrazem a jeho příznaky.
+Operace s regulárními výrazy používají Java `Pattern`, takže pravidla shody, jako je rozlišení velkých a malých písmen a ohraničení slov, jsou definována výrazem a jeho příznaky.
 
-## **Sbírejte informace o shodách pomocí zpětného volání**
+## **Identifikace vlastníka textového rámce**
 
-Implementujte [IFindResultCallback](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ifindresultcallback/), aby jste získali oznámení o každé shodě. Jeho [IFindResultCallback.foundResult](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ifindresultcallback/#foundResult-com.aspose.slides.ITextFrame-java.lang.String-java.lang.String-int-) metoda poskytuje související textový rámec, zdrojový text, nalezený text a pozici shody.
+Obecné pracovní postupy pro zpracování textu často získají objekt [ITextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/) během vyhledávání, nahrazování, validace nebo exportu textu. Použijte [ITextFrame.getParentShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/#getParentShape--) a [ITextFrame.getParentCell](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/#getParentCell--) k určení, který objekt prezentace vlastní textový rámec.
 
-Zpětné volání nedostává číslo snímku přímo. Implementace níže jej odvozuje z nadřazeného snímku a také zpracovává text nalezený v poznámkách ke snímkům. Nullable `Integer` umožňuje stejnému modelu výsledku reprezentovat text spojený s jinými typy snímků.
+Očekávané hodnoty závisí na vlastníkovi:
+
+| Vlastník textového rámce | `getParentShape` | `getParentCell` |
+|---|---|---|
+| AutoShape nebo jiný tvar obsahující text | Vlastní [IShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/) | `null` |
+| Buňka tabulky | `null` | Vlastní [ICell](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/icell/) |
+
+Obě metody poskytují pouze čtení navigace. Volání neprovádí přesun textového rámce ani nezmění jeho vlastníka. Obecný kód by měl kontrolovat obě hodnoty na `null` a ošetřit možnost, že žádný vlastník není dostupný.
+
+Následující příklad používá [SlideUtil.getAllTextFrames](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/slideutil/#getAllTextFrames-com.aspose.slides.IPresentation-boolean-) k iteraci přes textové rámce v prezentaci. Pro tvary vypisuje název tvaru, typ Java runtime a snímek, ve kterém se nachází. Pro buňky tabulky vypisuje nulové sloupce a řádky a příslušný snímek.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    ITextFrame[] textFrames = SlideUtil.getAllTextFrames(presentation, false);
+
+    for (ITextFrame textFrame : textFrames) {
+        IShape ownerShape = textFrame.getParentShape();
+        if (ownerShape != null) {
+            String shapeName = ownerShape.getName().isEmpty() ? "(unnamed)" : ownerShape.getName();
+            String shapeType = ownerShape.getClass().getSimpleName();
+            IBaseSlide baseSlide = ownerShape.getSlide();
+            String slideLabel;
+            if (baseSlide instanceof ISlide) {
+                slideLabel = "slide " + ((ISlide) baseSlide).getSlideNumber();
+            } else if (baseSlide instanceof INotesSlide) {
+                slideLabel = "notes for slide " + ((INotesSlide) baseSlide).getParentSlide().getSlideNumber();
+            } else {
+                slideLabel = baseSlide.getClass().getSimpleName();
+            }
+            System.out.println("Shape: " + shapeName + "; type: " + shapeType + "; " + slideLabel);
+            continue;
+        }
+
+        ICell ownerCell = textFrame.getParentCell();
+        if (ownerCell != null) {
+            IBaseSlide baseSlide = ownerCell.getSlide();
+            String slideLabel;
+            if (baseSlide instanceof ISlide) {
+                slideLabel = "slide " + ((ISlide) baseSlide).getSlideNumber();
+            } else if (baseSlide instanceof INotesSlide) {
+                slideLabel = "notes for slide " + ((INotesSlide) baseSlide).getParentSlide().getSlideNumber();
+            } else {
+                slideLabel = baseSlide.getClass().getSimpleName();
+            }
+            System.out.println("Table cell: column " + ownerCell.getFirstColumnIndex() + ", row " + ownerCell.getFirstRowIndex() + "; " + slideLabel);
+            continue;
+        }
+
+        System.out.println("The text frame owner is not available as a shape or table cell.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Pro obsah SmartArt iterujte přes tvary v [ISmartArtNode.getShapes](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ismartartnode/#getShapes--) a přistupujte k každému [ISmartArtShape.getTextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ismartartshape/#getTextFrame--). Textový rámec lze sledovat k přidruženému tvaru pomocí [ITextFrame.getParentShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/#getParentShape--), zatímco [ITextFrame.getParentCell](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/#getParentCell--) vrací `null`. Proto větev tvarů v příkladu také zpracovává text ze SmartArt uzlů.
+
+## **Shromažďování informací o shodách pomocí zpětného volání**
+
+Implementujte [IFindResultCallback](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ifindresultcallback/) pro získání upozornění na každou shodu. Jeho metoda [IFindResultCallback.foundResult](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ifindresultcallback/#foundResult-com.aspose.slides.ITextFrame-java.lang.String-java.lang.String-int-) poskytuje související textový rámec, zdrojový text, nalezený text a pozici shody.
+
+Zpětné volání nedostává přímo číslo snímku. Implementace níže jej odvozuje z rodičovského snímku a také zpracovává text nalezený v poznámkách ke snímkům. Nullable `Integer` umožňuje stejnému modelu výsledku reprezentovat text spojený s jinými typy snímků.
 
 ```java
 import com.aspose.slides.*;
@@ -112,12 +176,10 @@ final class TextSearchCallback implements IFindResultCallback {
         results.add(result);
     }
 
-    private static Integer getSlideNumber(ITextFrame textFrame) {
-        if (!(textFrame instanceof TextFrame)) {
-            return null;
-        }
-
-        IBaseSlide parentSlide = ((TextFrame) textFrame).getSlide();
+    private Integer getSlideNumber(ITextFrame textFrame) {
+        IShape parentShape = textFrame.getParentShape();
+        ICell parentCell = textFrame.getParentCell();
+        IBaseSlide parentSlide = parentShape != null ? parentShape.getSlide() : parentCell != null ? parentCell.getSlide() : textFrame.getSlide();
 
         if (parentSlide instanceof ISlide) {
             return ((ISlide) parentSlide).getSlideNumber();
@@ -132,13 +194,13 @@ final class TextSearchCallback implements IFindResultCallback {
 }
 ```
 
-Pro operace nahrazování `foundText` obsahuje původní nalezený text, takže zpětné volání může přesně zaznamenat, které termíny byly nahrazeny.
+U operací nahrazování `foundText` obsahuje původní nalezený text, takže zpětné volání může zaznamenat přesně, které termíny byly nahrazeny.
 
-## **Zvýraznit text**
+## **Zvýraznění textu**
 
-Použijte metodu [ITextFrame.highlightText](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) k zvýraznění doslovných shod v textovém rámci. Předávejte [TextSearchOptions](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/textsearchoptions/) pro řízení vyhledávání a zpětné volání pro sběr podrobností o shodách.
+Použijte metodu [ITextFrame.highlightText](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) k zvýraznění doslovných shod v textovém rámci. Předávejte [TextSearchOptions](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/textsearchoptions/) pro řízení vyhledávání a zpětné volání pro shromažďování podrobností o shodách.
 
-Ukázkový kód níže zvýrazní všechny výskyty znaků **"try"** a poté zvýrazní pouze celé slovo **"to"**. Obě vyhledávání hlásí své shody stejnému zpětnému volání.
+Následující ukázkový kód zvýrazní všechna výskyty řetězce **"try"** a poté zvýrazní jen celé slovo **"to"**. Obě vyhledávání zaznamenávají své shody do stejného zpětného volání.
 
 ```java
 import com.aspose.slides.*;
@@ -154,7 +216,7 @@ try {
     substringSearchOptions.setCaseSensitive(false);
     int substringHighlightColor = Color.rgb(173, 216, 230);
 
-    // Zvýraznit každý výskyt "try" v textovém rámci.
+    // Zvýrazněte každý výskyt "try" v textovém rámci.
     shape.getTextFrame().highlightText("try", substringHighlightColor, substringSearchOptions, callback);
 
     TextSearchOptions wholeWordSearchOptions = new TextSearchOptions();
@@ -162,7 +224,7 @@ try {
     wholeWordSearchOptions.setCaseSensitive(false);
     int wholeWordHighlightColor = Color.rgb(238, 130, 238);
 
-    // Zvýraznit pouze celé slovo "to".
+    // Zvýrazněte pouze celé slovo "to".
     shape.getTextFrame().highlightText("to", wholeWordHighlightColor, wholeWordSearchOptions, callback);
 
     for (TextMatch result : callback.getResults()) {
@@ -180,11 +242,11 @@ Výsledek:
 
 ![Zvýrazněný text](highlighted_text.png)
 
-## **Zvýraznit text pomocí regulárních výrazů**
+## **Zvýraznění textu pomocí regulárních výrazů**
 
-Metoda [ITextFrame.highlightRegex](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-) zvýrazňuje textové shody nalezené regulárním výrazem v textovém rámci.
+Metoda [ITextFrame.highlightRegex](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-) zvýrazní textové shody nalezené regulárním výrazem v textovém rámci.
 
-Následující kód zvýrazní všechna slova obsahující sedm a více znaků a sbírá každou shodu:
+Následující kód zvýrazní všechna slova obsahující sedm a více znaků a shromažďuje každou shodu:
 
 ```java
 import com.aspose.slides.*;
@@ -210,9 +272,9 @@ Výsledek:
 
 ![Zvýrazněný text pomocí regulárního výrazu](highlighted_text_using_regex.png)
 
-## **Zvýraznit text v celé prezentaci**
+## **Zvýraznění textu v celé prezentaci**
 
-Použijte [IPresentation.highlightText](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipresentation/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) a [IPresentation.highlightRegex](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipresentation/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-) k vyhledání ve všech relevantních textových rámcích v prezentaci. Následující příklad zvýrazní doslovný termín a všechny e-mailové adresy, přičemž pro dvě vyhledávání udržuje samostatné kolekce výsledků.
+Použijte [IPresentation.highlightText](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipresentation/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) a [IPresentation.highlightRegex](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipresentation/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-) pro vyhledání všech relevantních textových rámců v prezentaci. Následující příklad zvýrazní doslovný termín a všechny e‑mailové adresy a přitom udržuje samostatné kolekce výsledků pro obě vyhledávání.
 
 ```java
 import com.aspose.slides.*;
@@ -241,11 +303,11 @@ try {
 }
 ```
 
-## **Nahradit text v textovém rámci**
+## **Nahrazení textu v textovém rámci**
 
-Použijte [ITextFrame.replaceText](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) pro doslovný text a [ITextFrame.replaceRegex](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) pro nahrazování založené na vzoru. Tyto metody aktualizují nalezený text v existujícím textovém rámci, který zachovává formátování okolních částí místo přestavby rámce z prostého řetězce.
+Použijte [ITextFrame.replaceText](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) pro doslovný text a [ITextFrame.replaceRegex](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) pro nahrazení na základě vzoru. Tyto metody aktualizují nalezený text v existujícím textovém rámci, který si zachovává formátování okolních částí místo přestavby textového rámce z prostého řetězce.
 
-Následující příklad normalizuje variantu pravopisu a poté nahradí označení verzí. Stejné zpětné volání zaznamenává původní termíny nalezené oběma operacemi.
+Následující příklad sjednotí variantu pravopisu a poté nahradí štítky verzí. Stejné zpětné volání zaznamenává původní termíny nalezené oběma operacemi.
 
 ```java
 import com.aspose.slides.*;
@@ -271,11 +333,11 @@ try {
 }
 ```
 
-Pokud jedna shoda zahrnuje části s různým formátováním, zkontrolujte výstup a potvrďte, které formátování by mělo být použito pro nahrazený text.
+Pokud jedna shoda zasahuje do částí s odlišným formátováním, zkontrolujte výstup, abyste potvrdili, které formátování by se mělo použít pro nahrazený text.
 
-## **Nahradit text v celé prezentaci**
+## **Nahrazení textu v celé prezentaci**
 
-Použijte [IPresentation.replaceText](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipresentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) a [IPresentation.replaceRegex](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipresentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) k provedení stejných operací v celé prezentaci. To je užitečné pro úklid šablon, aktualizaci terminologie a redakci.
+Použijte [IPresentation.replaceText](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipresentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) a [IPresentation.replaceRegex](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ipresentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) pro aplikaci stejných operací na celou prezentaci. To je užitečné při úklidu šablon, aktualizaci terminologie a redakci.
 
 ```java
 import com.aspose.slides.*;
@@ -299,9 +361,9 @@ try {
 }
 ```
 
-## **Seskupit shody pro reportování**
+## **Seskupení shod pro reportování**
 
-Protože každý výsledek ukládá číslo snímku a textový rámec, aplikace mohou shody seskupovat pro audit, reportování nebo revizní pracovní postupy. Následující příklad seskupuje sesbírané výsledky nejprve podle snímku a poté podle textového rámce:
+Protože každý výsledek uchovává číslo snímku a textový rámec, aplikace mohou shody seskupit pro audit, reportování nebo revizi. Následující příklad seskupí shromážděné výsledky nejprve podle snímku a poté podle textového rámce:
 
 ```java
 import com.aspose.slides.ITextFrame;
@@ -349,22 +411,22 @@ for (Map.Entry<Integer, Map<ITextFrame, List<TextMatch>>> slideEntry : matchesBy
 
 ## **FAQ**
 
-**Jak mohu vyhledávat pouze v jednom textovém políčku místo celé prezentace?**
+**Jak mohu vyhledávat jen v jednom textovém poli místo celé prezentace?**
 
-Získejte textový rámec tvaru a zavolejte [ITextFrame.highlightText](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), [ITextFrame.highlightRegex](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-), [ITextFrame.replaceText](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) nebo [ITextFrame.replaceRegex](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) na tomto textovém rámci. Metody na úrovni prezentace zpracují všechny relevantní textové rámy.
+Získejte textový rámec tvaru a zavolejte na něm [ITextFrame.highlightText](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), [ITextFrame.highlightRegex](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-), [ITextFrame.replaceText](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), nebo [ITextFrame.replaceRegex](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) na tomto textovém rámci. Metody na úrovni prezentace zpracovávají všechny relevantní textové rámce.
 
-**Jak mohu shodovat celá slova s přesnou kapitalizací?**
+**Jak mohu shodovat celá slova s korrektním rozlišením velkých a malých písmen?**
 
-Nastavte [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) a [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) na `true` a předávejte tyto možnosti metodě pro zvýraznění nebo nahrazování doslovného textu. Pro regulární výrazy definujte hranice slov a rozlišování velikosti písmen přímo v Java `Pattern`.
+Nastavte [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) a [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) na `true` a předávejte možnosti metodě pro zvýraznění nebo nahrazení doslovného textu. Pro regulární výrazy definujte ohraničení slov a rozlišení velkých/malých písmen přímo v Java `Pattern`.
 
-**Může vyhledávání a nahrazování zahrnovat text v poznámkách ke snímkům?**
+**Mohou vyhledávání a nahrazování zahrnovat text v poznámkách ke snímkům?**
 
-Ano. Nastavte [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) na `true` při použití operace doslovného textu na úrovni prezentace. Implementace zpětného volání uvedená výše mapuje shodu v poznámkách zpět na číslo nadřazeného snímku.
+Ano. Nastavte [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) na `true`, když používáte operaci na úrovni prezentace s doslovným textem. Implementace zpětného volání uvedená výše mapuje shodu v poznámce zpět na číslo nadřazeného snímku.
 
 **Jak mohu vytvořit report bez druhého procházení prezentace?**
 
-Předávejte implementaci [IFindResultCallback](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ifindresultcallback/) operaci zvýraznění nebo nahrazování. Zpětné volání získává každou shodu během běhu operace, takže aplikace může uložit zdrojový text, nalezený text, pozici, textový rámec a odvozené číslo snímku pro pozdější seskupení nebo export.
+Předávejte implementaci [IFindResultCallback](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ifindresultcallback/) do operace zvýraznění nebo nahrazení. Zpětné volání přijímá každou shodu během provádění operace, takže aplikace může uložit zdrojový text, nalezený text, pozici, textový rámec a odvozené číslo snímku pro pozdější seskupení nebo export.
 
-**Zachovává nahrazování textu jeho formátování?**
+**Zachovává nahrazení textu jeho formátování?**
 
-[ITextFrame.replaceText](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) a [ITextFrame.replaceRegex](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) modifikují nalezený text v existujícím textovém rámci a zachovávají formátování okolních částí. Pokud shoda zahrnuje části s různým formátováním, prověřte výsledek, aby bylo zajištěno, že nahrazení použije požadovaný styl.
+[ITextFrame.replaceText](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) a [ITextFrame.replaceRegex](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) mění nalezený text v existujícím textovém rámci a zachovávají formátování okolních částí. Pokud shoda zasahuje do částí s odlišným formátováním, zkontrolujte výsledek, aby nahrazený text použil požadovaný styl.

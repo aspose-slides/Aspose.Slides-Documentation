@@ -5,12 +5,12 @@ type: docs
 weight: 55
 url: /sv/net/search-and-replace-text/
 keywords:
-- söktext
+- sök text
 - markera text
 - ersätt text
 - reguljärt uttryck
-- resultatåteranrop
-- textram
+- resultat-callback
+- textruta
 - revisionsrapport
 - PowerPoint
 - OpenDocument
@@ -18,13 +18,13 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Sök, markera och ersätt text i PowerPoint-presentationer samtidigt som varje matchning samlas in med Aspose.Slides för .NET."
+description: "Sök, markera och ersätt text i PowerPoint-presentationer samtidigt som du samlar alla matchningar med Aspose.Slides för .NET."
 ---
 ## **Översikt**
 
-Aspose.Slides for .NET kan söka, markera och ersätta text i en enskild textram eller i hela presentationen. Varje operation kan också meddela en applikation om varje matchning via ett resultat‑återanrop. Detta gör det möjligt att uppdatera en presentation och samtidigt skapa en revisionsspårning som innehåller den matchade texten, dess sammanhang, position, textram och bildnummer.
+Aspose.Slides for .NET kan söka, markera och ersätta text i en enskild textruta eller i hela en presentation. Varje operation kan också meddela en applikation om varje matchning via ett callback. Detta gör det möjligt att uppdatera en presentation och samtidigt bygga ett revisionsspår som innehåller den matchade texten, dess sammanhang, position, textruta och bildnummer.
 
-Dessa funktioner är användbara för granskning, maskering, terminologikontroller, rensning av mallar och automatiserade rapportsarbetsflöden.
+Dessa funktioner är användbara för granskning, redigering, terminologikontroller, mallrengöring och automatiserade rapporteringsarbetsflöden.
 
 I de första exemplen nedan använder vi en fil med namnet "sample.pptx", som innehåller en enda textruta på den första bilden med följande text:
 
@@ -32,30 +32,106 @@ I de första exemplen nedan använder vi en fil med namnet "sample.pptx", som in
 
 ## **Välj sökområde**
 
-Använd metoder på [ITextFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframe/) för att begränsa en operation till en textram. Använd metoder på [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/) för att bearbeta all tillämplig text i presentationen.
+Använd metoder på [ITextFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframe/) för att begränsa en operation till en textruta. Använd metoder på [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/) för att bearbeta all tillämplig text i presentationen.
 
-| Operation | En textram | Hela presentationen |
+| Operation | En textruta | Hela presentationen |
 |---|---|---|
 | Markera bokstavlig text | [ITextFrame.HighlightText](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframe/highlighttext/) | [Presentation.HighlightText](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/highlighttext/) |
-| Markera reguljära uttrycksmatcher | [ITextFrame.HighlightRegex](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframe/highlightregex/) | [Presentation.HighlightRegex](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/highlightregex/) |
+| Markera matchningar för reguljära uttryck | [ITextFrame.HighlightRegex](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframe/highlightregex/) | [Presentation.HighlightRegex](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/highlightregex/) |
 | Ersätt bokstavlig text | [ITextFrame.ReplaceText](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframe/replacetext/) | [Presentation.ReplaceText](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/replacetext/) |
-| Ersätt reguljära uttrycksmatcher | [ITextFrame.ReplaceRegex](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframe/replaceregex/) | [Presentation.ReplaceRegex](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/replaceregex/) |
+| Ersätt matchningar för reguljära uttryck | [ITextFrame.ReplaceRegex](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframe/replaceregex/) | [Presentation.ReplaceRegex](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/replaceregex/) |
 
 ## **Konfigurera textmatchning**
 
-För bokstavliga textoperationer, använd [TextSearchOptions](https://reference.aspose.com/slides/sv/net/aspose.slides/textsearchoptions/) för att styra matchning:
+För operationer med bokstavlig text, använd [TextSearchOptions](https://reference.aspose.com/slides/sv/net/aspose.slides/textsearchoptions/) för att styra matchning:
 
-- [TextSearchOptions.WholeWordsOnly](https://reference.aspose.com/slides/sv/net/aspose.slides/textsearchoptions/wholewordsonly/) begränsar matchningar till kompletta ord.
-- [TextSearchOptions.CaseSensitive](https://reference.aspose.com/slides/sv/net/aspose.slides/textsearchoptions/casesensitive/) styr om teckenens skiftläge måste matcha.
+- [TextSearchOptions.WholeWordsOnly](https://reference.aspose.com/slides/sv/net/aspose.slides/textsearchoptions/wholewordsonly/) begränsar matchningar till hela ord.
+- [TextSearchOptions.CaseSensitive](https://reference.aspose.com/slides/sv/net/aspose.slides/textsearchoptions/casesensitive/) styr huruvida tecknens skiftläge måste matcha.
 - [TextSearchOptions.IncludeNotes](https://reference.aspose.com/slides/sv/net/aspose.slides/textsearchoptions/includenotes/) inkluderar bildanteckningar i sök-, ersättnings- och markeringsoperationer på presentationsnivå.
 
-Reguljära uttrycksoperationer använder en .NET `Regex`, så matchningsregler såsom skiftlägeskänslighet och ordgränser definieras av uttrycket och dess alternativ.
+Operationer med reguljära uttryck använder en .NET `Regex`, så matchningsregler såsom skiftlägeskänslighet och ordgränser definieras av själva uttrycket och dess alternativ.
 
-## **Samla matchningsinformation med ett återanrop**
+## **Identifiera ägaren till en textruta**
 
-Implementera [IFindResultCallback](https://reference.aspose.com/slides/sv/net/aspose.slides/ifindresultcallback/) för att få en notifikation för varje match. Dess [IFindResultCallback.FoundResult](https://reference.aspose.com/slides/sv/net/aspose.slides/ifindresultcallback/foundresult/)‑metod tillhandahåller den relaterade textramen, källtexten, den matchade texten och matchningspositionen.
+Generiska textbehandlingsarbetsflöden får ofta en [ITextFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframe/) medan de söker, ersätter, validerar eller exporterar text. Använd [ITextFrame.ParentShape](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframe/parentshape/) och [ITextFrame.ParentCell](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframe/parentcell/) för att avgöra vilket presentationsobjekt som äger textrutan.
 
-Återanropet får inte ett bildnummer direkt. Implementeringen nedan härleder det från den överordnade bilden och hanterar också text som hittas i bildanteckningar. Ett nullbart bildnummer tillåter samma resultatmodell att representera text kopplad till andra bildtyper.
+De förväntade värdena beror på ägaren:
+
+| Ägare av textrutan | `ParentShape` | `ParentCell` |
+|---|---|---|
+| En AutoShape eller en annan textinnehållande form | Den ägande [IShape](https://reference.aspose.com/slides/sv/net/aspose.slides/ishape/) | `null` |
+| En tabellcell | `null` | Den ägande [ICell](https://reference.aspose.com/slides/sv/net/aspose.slides/icell/) |
+
+Båda egenskaperna är skrivskyddade navigerings‑egenskaper. Att läsa dem flyttar inte textrutan eller ändrar dess ägare. Generisk kod bör kontrollera båda värdena för `null` och hantera möjligheten att ingen ägare är tillgänglig.
+
+Följande exempel använder [SlideUtil.GetAllTextFrames](https://reference.aspose.com/slides/sv/net/aspose.slides.util/slideutil/getalltextframes/) för att iterera genom textrutorna i en presentation. För former rapporterar det formens namn, formtyp och innehållande bild. För tabellceller rapporterar det nollbaserade kolumn‑ och radkoordinater samt den innehållande bilden.
+
+```cs
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Util;
+
+using var presentation = new Presentation("presentation.pptx");
+
+var textFrames = SlideUtil.GetAllTextFrames(presentation, false);
+
+foreach (var textFrame in textFrames)
+{
+    var ownerShape = textFrame.ParentShape;
+    if (ownerShape != null)
+    {
+        var shapeName = string.IsNullOrEmpty(ownerShape.Name) ? "(unnamed)" : ownerShape.Name;
+        var shapeType = GetShapeType(ownerShape);
+        var slideLabel = GetSlideLabel(ownerShape.Slide);
+        Console.WriteLine($"Shape: {shapeName}; type: {shapeType}; {slideLabel}");
+
+        continue;
+    }
+
+    var ownerCell = textFrame.ParentCell;
+    if (ownerCell != null)
+    {
+        var slideLabel = GetSlideLabel(ownerCell.Slide);
+        Console.WriteLine($"Table cell: column {ownerCell.FirstColumnIndex}, row {ownerCell.FirstRowIndex}; {slideLabel}");
+        continue;
+    }
+
+    Console.WriteLine("The text frame owner is not available as a shape or table cell.");
+}
+
+static string GetShapeType(IShape shape)
+{
+    if (shape is IGeometryShape geometryShape)
+    {
+        return geometryShape.ShapeType.ToString();
+    }
+
+    return shape.GetType().Name;
+}
+
+static string GetSlideLabel(IBaseSlide baseSlide)
+{
+    if (baseSlide is ISlide slide)
+    {
+        return $"slide {slide.SlideNumber}";
+    }
+
+    if (baseSlide is INotesSlide notesSlide)
+    {
+        return $"notes for slide {notesSlide.ParentSlide.SlideNumber}";
+    }
+
+    return baseSlide.GetType().Name;
+}
+```
+
+För SmartArt‑innehåll, iterera genom formerna i [ISmartArtNode.Shapes](https://reference.aspose.com/slides/sv/net/aspose.slides.smartart/ismartartnode/shapes/) och få åtkomst till varje [ISmartArtShape.TextFrame](https://reference.aspose.com/slides/sv/net/aspose.slides.smartart/ismartartshape/textframe/). Textrutan kan spåras till sin associerade form via [ITextFrame.ParentShape](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframe/parentshape/), medan [ITextFrame.ParentCell](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframe/parentcell/) är `null`. Därför hanterar formgrenen i exemplet även text från SmartArt‑noder.
+
+## **Samla in matchningsinformation med ett callback**
+
+Implementera [IFindResultCallback](https://reference.aspose.com/slides/sv/net/aspose.slides/ifindresultcallback/) för att få en avisering för varje matchning. Dess [IFindResultCallback.FoundResult](https://reference.aspose.com/slides/sv/net/aspose.slides/ifindresultcallback/foundresult/)‑metod tillhandahåller den relaterade textrutan, källtexten, den matchade texten och matchningspositionen.
+
+Callback‑funktionen får inte ett bildnummer direkt. Implementeringen nedan härleder det från den överordnade bilden och hanterar även text som hittas i bildanteckningar. Ett nullable bildnummer gör att samma resultatsmodell kan representera text som är associerad med andra bildtyper.
 
 ```cs
 using System.Collections.Generic;
@@ -93,12 +169,7 @@ public sealed class TextSearchCallback : IFindResultCallback
 
     private static int? GetSlideNumber(ITextFrame textFrame)
     {
-        if (textFrame is not TextFrame concreteTextFrame)
-        {
-            return null;
-        }
-
-        var parentSlide = concreteTextFrame.Slide;
+        var parentSlide = textFrame.ParentShape?.Slide ?? textFrame.ParentCell?.Slide ?? textFrame.Slide;
 
         if (parentSlide is ISlide slide)
         {
@@ -115,13 +186,13 @@ public sealed class TextSearchCallback : IFindResultCallback
 }
 ```
 
-För ersättningsoperationer innehåller `FoundText` den ursprungliga matchade texten, så återanropet kan registrera exakt vilka termer som ersattes.
+För ersättningsoperationer innehåller `FoundText` den ursprungliga matchade texten, så callback‑funktionen kan exakt registrera vilka termer som ersattes.
 
 ## **Markera text**
 
-Använd metoden [ITextFrame.HighlightText](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframe/highlighttext/) för att markera bokstavliga textmatchningar i en textram. Skicka in [TextSearchOptions](https://reference.aspose.com/slides/sv/net/aspose.slides/textsearchoptions/) för att styra sökningen och ett återanrop för att samla matchningsdetaljer.
+Använd metoden [ITextFrame.HighlightText](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframe/highlighttext/) för att markera matchningar av bokstavlig text i en textruta. Skicka in [TextSearchOptions] för att styra sökningen och ett callback för att samla in matchningsdetaljer.
 
-Kodexemplet nedan markerar alla förekomster av tecknen **"try"** och markerar sedan endast det kompletta ordet **"to"**. Båda sökningarna rapporterar sina matchningar till samma återanrop.
+Koden nedan markerar alla förekomster av tecknen **"try"** och markerar sedan endast det hela ordet **"to"**. Båda sökningarna rapporterar sina matchningar till samma callback.
 
 ```cs
 using System;
@@ -131,7 +202,7 @@ using Aspose.Slides.Export;
 
 using var presentation = new Presentation("sample.pptx");
 
-// Get the first shape from the first slide.
+// Hämta den första formen från den första bilden.
 var shape = (IAutoShape)presentation.Slides[0].Shapes[0];
 var callback = new TextSearchCallback();
 
@@ -140,7 +211,7 @@ var substringSearchOptions = new TextSearchOptions
     CaseSensitive = false
 };
 
-// Highlight every occurrence of "try" in the text frame.
+// Markera varje förekomst av "try" i textrutan.
 shape.TextFrame.HighlightText("try", Color.LightBlue, substringSearchOptions, callback);
 
 var wholeWordSearchOptions = new TextSearchOptions
@@ -149,7 +220,7 @@ var wholeWordSearchOptions = new TextSearchOptions
     CaseSensitive = false
 };
 
-// Highlight only the complete word "to".
+// Markera endast det hela ordet "to".
 shape.TextFrame.HighlightText("to", Color.Violet, wholeWordSearchOptions, callback);
 
 foreach (var result in callback.Results)
@@ -166,7 +237,7 @@ Resultatet:
 
 ## **Markera text med reguljära uttryck**
 
-Metoden [ITextFrame.HighlightRegex](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframe/highlightregex/) markerar textmatchningar som hittats med ett reguljärt uttryck i en textram.
+Metoden [ITextFrame.HighlightRegex](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframe/highlightregex/) markerar textmatchningar som hittas av ett reguljärt uttryck i en textruta.
 
 Följande kod markerar alla ord som innehåller sju eller fler tecken och samlar varje matchning:
 
@@ -193,7 +264,7 @@ Resultatet:
 
 ## **Markera text i en hel presentation**
 
-Använd [Presentation.HighlightText](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/highlighttext/) och [Presentation.HighlightRegex](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/highlightregex/) för att söka i alla tillämpliga textramar i en presentation. Följande exempel markerar ett bokstavligt uttryck och alla e‑postadresser samtidigt som separata resultatkollektioner hålls för de två sökningarna.
+Använd [Presentation.HighlightText](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/highlighttext/) och [Presentation.HighlightRegex](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/highlightregex/) för att söka alla tillämpliga textrutor i en presentation. Följande exempel markerar ett bokstavligt uttryck och alla e‑postadresser samtidigt som separata resultatsamlingar hålls för de två sökningarna.
 
 ```cs
 using System.Drawing;
@@ -220,11 +291,11 @@ presentation.HighlightRegex(emailRegex, Color.Yellow, emailCallback);
 presentation.Save("highlighted_presentation.pptx", SaveFormat.Pptx);
 ```
 
-## **Ersätt text i en textram**
+## **Ersätt text i en textruta**
 
-Använd [ITextFrame.ReplaceText](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframe/replacetext/) för bokstavlig text och [ITextFrame.ReplaceRegex](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframe/replaceregex/) för mönsterbaserad ersättning. Dessa metoder uppdaterar den matchade texten inom den befintliga textramen, vilket bevarar formateringen på den omgivande delen istället för att bygga om textramen från en ren sträng.
+Använd [ITextFrame.ReplaceText](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframe/replacetext/) för bokstavlig text och [ITextFrame.ReplaceRegex](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframe/replaceregex/) för mönsterbaserad ersättning. Dessa metoder uppdaterar den matchade texten i den befintliga textrutan, vilket behåller formateringen för den omgivande delen istället för att bygga om textrutan från en ren sträng.
 
-Följande exempel standardiserar en stavningsvariant och ersätter sedan versionsetiketter. Samma återanrop registrerar de ursprungliga termerna som matchades av båda operationerna.
+Följande exempel standardiserar en stavningsvariant och ersätter sedan versionsetiketter. Samma callback registrerar de ursprungliga termerna som matchades av båda operationerna.
 
 ```cs
 using System.Text.RegularExpressions;
@@ -249,11 +320,11 @@ shape.TextFrame.ReplaceRegex(versionRegex, "current version", callback);
 presentation.Save("updated_text_frame.pptx", SaveFormat.Pptx);
 ```
 
-Om en matchning sträcker sig över segment med olika formatering, granska utdata för att bekräfta vilken formatering som ska tillämpas på den ersatta texten.
+Om en matchning sträcker sig över delar med olika formatering, granska utdata för att bekräfta vilken formatering som ska gälla för den ersatta texten.
 
 ## **Ersätt text i en hel presentation**
 
-Använd [Presentation.ReplaceText](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/replacetext/) och [Presentation.ReplaceRegex](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/replaceregex/) för att tillämpa samma operationer i hela presentationen. Detta är användbart för rensning av mallar, uppdatering av terminologi och maskering.
+Använd [Presentation.ReplaceText](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/replacetext/) och [Presentation.ReplaceRegex](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/replaceregex/) för att tillämpa samma operationer över hela presentationen. Detta är användbart för mallrengöring, terminologisk uppdatering och redigering.
 
 ```cs
 using System.Text.RegularExpressions;
@@ -279,7 +350,7 @@ presentation.Save("updated_presentation.pptx", SaveFormat.Pptx);
 
 ## **Gruppera matchningar för rapportering**
 
-Eftersom varje resultat lagrar sitt bildnummer och textram kan applikationer gruppera matchningar för revision, rapportering eller granskningsarbetsflöden. Följande exempel grupperar de insamlade resultaten först efter bild och sedan efter textram:
+Eftersom varje resultat lagrar sitt bildnummer och sin textruta kan applikationer gruppera matchningar för revisions‑, rapporterings‑ eller granskningsarbetsflöden. Följande exempel grupperar de insamlade resultaten först efter bild och sedan efter textruta:
 
 ```cs
 using System;
@@ -307,22 +378,22 @@ foreach (var slideGroup in matchesBySlide)
 
 ## **FAQ**
 
-**Hur kan jag söka bara i en textruta istället för i hela presentationen?**
+**Hur kan jag söka endast i en textruta istället för hela presentationen?**
 
-Hämta figurens textram och anropa [ITextFrame.HighlightText](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframe/highlighttext/), [ITextFrame.HighlightRegex](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframe/highlightregex/), [ITextFrame.ReplaceText](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframe/replacetext/) eller [ITextFrame.ReplaceRegex](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframe/replaceregex/) på den textramen. Metoder på presentationsnivå bearbetar alla tillämpliga textramar istället.
+Hämta formens textruta och anropa [ITextFrame.HighlightText](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframe/highlighttext/), [ITextFrame.HighlightRegex](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframe/highlightregex/), [ITextFrame.ReplaceText](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframe/replacetext/) eller [ITextFrame.ReplaceRegex](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframe/replaceregex/) på den textrutan. Metoder på presentationsnivå bearbetar alla tillämpliga textrutor istället.
 
-**Hur kan jag matcha hela ord med korrekt kapitalisering?**
+**Hur kan jag matcha hela ord med korrekt versal-/gemen‑skrift?**
 
-Ställ in [TextSearchOptions.WholeWordsOnly](https://reference.aspose.com/slides/sv/net/aspose.slides/textsearchoptions/wholewordsonly/) och [TextSearchOptions.CaseSensitive](https://reference.aspose.com/slides/sv/net/aspose.slides/textsearchoptions/casesensitive/) till `true`, och skicka alternativen till en metod för bokstavlig textmarkering eller -ersättning. För reguljära uttryck definera ordgränser och skiftlägeskänslighet i .NET `Regex` själva.
+Ställ in [TextSearchOptions.WholeWordsOnly](https://reference.aspose.com/slides/sv/net/aspose.slides/textsearchoptions/wholewordsonly/) och [TextSearchOptions.CaseSensitive](https://reference.aspose.com/slides/sv/net/aspose.slides/textsearchoptions/casesensitive/) till `true` och skicka alternativen till en bokstavlig markerings‑ eller ersättningsmetod. För reguljära uttryck definierar du ordgränser och skiftlägeskänslighet i själva .NET `Regex`.
 
 **Kan sökning och ersättning inkludera text i bildanteckningar?**
 
-Ja. Ställ in [TextSearchOptions.IncludeNotes](https://reference.aspose.com/slides/sv/net/aspose.slides/textsearchoptions/includenotes/) till `true` när du använder en bokstavlig textoperation på presentationsnivå. Återanropsimplementationen ovan mappar en matchning i en anteckningsbild tillbaka till dess överordnade bildnummer.
+Ja. Ställ in [TextSearchOptions.IncludeNotes](https://reference.aspose.com/slides/sv/net/aspose.slides/textsearchoptions/includenotes/) till `true` när du använder en presentationsnivå‑operation för bokstavlig text. Callback‑implementeringen ovan kartlägger en matchning i en notbild tillbaka till dess överordnade bildnummer.
 
 **Hur kan jag skapa en rapport utan att skanna presentationen en andra gång?**
 
-Skicka en [IFindResultCallback](https://reference.aspose.com/slides/sv/net/aspose.slides/ifindresultcallback/)‑implementation till markerings‑ eller ersättningsoperationen. Återanropet får varje matchning medan operationen körs, så applikationen kan lagra källtext, matchad text, position, textram och härlett bildnummer för senare gruppering eller export.
+Passa in en [IFindResultCallback](https://reference.aspose.com/slides/sv/net/aspose.slides/ifindresultcallback/)‑implementation till markerings‑ eller ersättningsoperationen. Callback‑funktionen får varje matchning medan operationen körs, så applikationen kan lagra källtexten, den matchade texten, positionen, textrutan och det härledda bildnumret för senare gruppering eller export.
 
-**Bevarar ersättning av text dess formatering?**
+**Behåller ersättning av text dess formatering?**
 
-[ITextFrame.ReplaceText](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframe/replacetext/) och [ITextFrame.ReplaceRegex](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframe/replaceregex/) modifierar den matchade texten inom den befintliga textramen och behåller formateringen på den omgivande delen. Om en matchning sträcker sig över segment med olika formatering, granska resultatet för att säkerställa att ersättningen använder önskad stil.
+[ITextFrame.ReplaceText](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframe/replacetext/) och [ITextFrame.ReplaceRegex](https://reference.aspose.com/slides/sv/net/aspose.slides/itextframe/replaceregex/) ändrar den matchade texten i den befintliga textrutan och behåller formateringen för den omgivande delen. Om en matchning sträcker sig över delar med olika formatering, inspektera resultatet för att säkerställa att ersättningen använder den önskade stilen.

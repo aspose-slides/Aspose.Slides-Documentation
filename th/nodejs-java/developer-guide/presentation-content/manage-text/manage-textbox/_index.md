@@ -1,68 +1,83 @@
 ---
-title: จัดการกล่องข้อความในงานนำเสนอด้วย JavaScript
-linktitle: จัดการกล่องข้อความ
+title: "จัดการกล่องข้อความในงานนำเสนอด้วย JavaScript"
+linktitle: "จัดการกล่องข้อความ"
 type: docs
 weight: 20
 url: /th/nodejs-java/manage-textbox/
 keywords:
-- กล่องข้อความ
-- กรอบข้อความ
-- เพิ่มข้อความ
-- อัปเดตข้อความ
-- สร้างกล่องข้อความ
-- ตรวจสอบกล่องข้อความ
-- เพิ่มคอลัมน์ข้อความ
-- เพิ่มไฮเปอร์ลิงก์
-- PowerPoint
-- งานนำเสนอ
-- Node.js
-- JavaScript
-- Aspose.Slides
-description: "Aspose.Slides สำหรับ Node.js ทำให้การสร้าง แก้ไข และคัดลอกกล่องข้อความในไฟล์ PowerPoint และ OpenDocument เป็นเรื่องง่าย ช่วยปรับปรุงการทำงานอัตโนมัติของงานนำเสนอของคุณ."
+- "กล่องข้อความ"
+- "กรอบข้อความ"
+- "เพิ่มข้อความ"
+- "อัปเดตข้อความ"
+- "สร้างกล่องข้อความ"
+- "ตรวจสอบกล่องข้อความ"
+- "เพิ่มคอลัมน์ข้อความ"
+- "เพิ่มไฮเปอร์ลิงก์"
+- "PowerPoint"
+- "งานนำเสนอ"
+- "Node.js"
+- "JavaScript"
+- "Aspose.Slides"
+description: "Aspose.Slides สำหรับ Node.js ทำให้การสร้าง แก้ไข และคัดลอกกล่องข้อความในไฟล์ PowerPoint และ OpenDocument เป็นเรื่องง่าย ช่วยเพิ่มประสิทธิภาพการทำงานอัตโนมัติของงานนำเสนอของคุณ"
 ---
-## **คำนำ**
+## **บทนำ**
 
-ข้อความในสไลด์มักอยู่ในกล่องข้อความหรือรูปทรง ดังนั้นเพื่อเพิ่มข้อความลงในสไลด์ คุณต้องเพิ่มกล่องข้อความแล้วใส่ข้อความลงในกล่องนั้น Aspose.Slides for Node.js via Java มีคลาส [AutoShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/AutoShape) ที่อนุญาตให้คุณเพิ่มรูปทรงที่มีข้อความได้
+ข้อความบนสไลด์มักจะอยู่ในกล่องข้อความหรือรูปทรง ดังนั้น เพื่อเพิ่มข้อความลงในสไลด์ คุณต้องเพิ่มกล่องข้อความและใส่ข้อความบางส่วนลงในกล่องนั้น Aspose.Slides for Node.js ผ่าน Java มีคลาส [AutoShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/AutoShape) ที่อนุญาตให้คุณเพิ่มรูปทรงที่มีข้อความได้.
 
-{{% alert title="Info" color="info" %}}
-Aspose.Slides ยังมีคลาส [Shape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Shape) ที่ให้คุณเพิ่มรูปทรงลงในสไลด์ อย่างไรก็ตาม ไม่ใช่รูปทรงทั้งหมดที่สร้างด้วยคลาส `Shape` จะสามารถบรรจุข้อความได้ แต่รูปทรงที่สร้างด้วยคลาส [AutoShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/AutoShape) อาจมีข้อความได้
+{{% alert title="ข้อมูล" color="info" %}}
+
+Aspose.Slides ยังมีคลาส [Shape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Shape) ที่อนุญาตให้คุณเพิ่มรูปทรงลงในสไลด์ อย่างไรก็ตาม รูปทรงทั้งหมดที่เพิ่มด้วยคลาส `Shape` ไม่สามารถเก็บข้อความได้ แต่รูปทรงที่เพิ่มด้วยคลาส [AutoShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/AutoShape) อาจมีข้อความได้.
+
 {{% /alert %}}
 
-{{% alert title="Note" color="warning" %}} 
-ดังนั้นเมื่อทำงานกับรูปทรงที่คุณต้องการเพิ่มข้อความ คุณควรตรวจสอบและยืนยันว่ารูปทรงนั้นถูกแคสต์ผ่านคลาส `AutoShape` เท่านั้นจึงจะสามารถทำงานกับ [TextFrame](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/TextFrame) ซึ่งเป็นคุณสมบัติของ `AutoShape` ได้ ดูส่วน [Update Text](https://docs.aspose.com/slides/th/nodejs-java/manage-textbox/#update-text) ในหน้านี้
+{{% alert title="หมายเหตุ" color="warning" %}} 
+
+ดังนั้น เมื่อทำงานกับรูปทรงที่ต้องการเพิ่มข้อความ คุณอาจต้องตรวจสอบและยืนยันว่ามันถูกแคสต์จากคลาส `AutoShape` เท่านั้นจึงจะสามารถทำงานกับ [TextFrame](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/TextFrame) ซึ่งเป็นคุณสมบัติของ `AutoShape` ได้ ดูส่วน [Update Text](https://docs.aspose.com/slides/th/nodejs-java/manage-textbox/#update-text) ในหน้านี้.
+
 {{% /alert %}}
 
 ## **สร้างกล่องข้อความบนสไลด์**
 
 เพื่อสร้างกล่องข้อความบนสไลด์ ให้ทำตามขั้นตอนต่อไปนี้:
 
-1. สร้างอินสแทนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Presentation)
-2. รับอ้างอิงของสไลด์แรกในพรีเซนเทชันที่สร้างใหม่
-3. เพิ่มอ็อบเจกต์ [AutoShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/AutoShape) ที่มี `ShapeType` ตั้งเป็น `Rectangle` ที่ตำแหน่งที่กำหนดบนสไลด์และรับอ้างอิงของอ็อบเจกต์ `AutoShape` ที่เพิ่มใหม่
-4. เพิ่มคุณสมบัติ `TextFrame` ให้กับอ็อบเจกต์ `AutoShape` ที่จะบรรจุข้อความ ในตัวอย่างด้านล่าง เราเพิ่มข้อความนี้: *Aspose TextBox*
-5. สุดท้าย เขียนไฟล์ PPTX ผ่านอ็อบเจกต์ `Presentation`
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Presentation).
+2. รับอ้างอิงของสไลด์แรกในพรีเซนเทชันที่สร้างใหม่. 
+3. เพิ่มอ็อบเจ็กต์ [AutoShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/AutoShape) ที่กำหนด `ShapeType` เป็น `Rectangle` ที่ตำแหน่งที่ระบุบนสไลด์และรับอ้างอิงของอ็อบเจ็กต์ `AutoShape` ที่เพิ่มใหม่.
+4. เพิ่มคุณสมบัติ `TextFrame` ให้กับอ็อบเจ็กต์ `AutoShape` เพื่อเก็บข้อความ ตัวอย่างด้านล่างเราเพิ่มข้อความ: *Aspose TextBox*
+5. สุดท้าย เขียนไฟล์ PPTX ผ่านอ็อบเจ็กต์ `Presentation`. 
 
-โค้ด JavaScript—ซึ่งเป็นการดำเนินการตามขั้นตอนข้างต้น—แสดงวิธีเพิ่มข้อความลงในสไลด์:
+โค้ด JavaScript นี้—การทำตามขั้นตอนข้างต้น—แสดงวิธีเพิ่มข้อความลงในสไลด์:
 
 ```javascript
-// สร้างอินสแทนซ์ของ Presentation
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// สร้างอินสแทนซ์ Presentation
+    // รับสไลด์แรกในพรีเซนเทชัน
+    // เพิ่ม AutoShape ที่ประเภทตั้งเป็น Rectangle
+    // เพิ่ม TextFrame ไปยัง Rectangle
+    // เข้าถึง TextFrame
+    // สร้างอ็อบเจ็กต์ Paragraph สำหรับ TextFrame
+    // สร้างอ็อบเจ็กต์ Portion สำหรับ Paragraph
+    // ตั้งค่าข้อความ
+    // บันทึกพรีเซนเทชันลงดิสก์
 var pres = new aspose.slides.Presentation();
 try {
-    // ดึงสไลด์แรกในพรีเซนเทชัน
+    // Gets the first slide in the presentation
     var sld = pres.getSlides().get_Item(0);
-    // เพิ่ม AutoShape โดยตั้งประเภทเป็น Rectangle
+    // Adds an AutoShape with type set as Rectangle
     var ashp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 75, 150, 50);
-    // เพิ่ม TextFrame ให้กับ Rectangle
+    // Adds TextFrame to the Rectangle
     ashp.addTextFrame(" ");
-    // เข้าถึง TextFrame
+    // Accesses the text frame
     var txtFrame = ashp.getTextFrame();
-    // สร้างอ็อบเจกต์ Paragraph สำหรับ TextFrame
+    // Creates the Paragraph object for text frame
     var para = txtFrame.getParagraphs().get_Item(0);
-    // สร้างอ็อบเจกต์ Portion สำหรับ Paragraph
+    // Creates a Portion object for paragraph
     var portion = para.getPortions().get_Item(0);
-    // ตั้งค่าข้อความ
+    // Sets Text
     portion.setText("Aspose TextBox");
-    // บันทึกพรีเซนเทชันลงดิสก์
+    // Saves the presentation to disk
     pres.save("TextBox_out.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     if (pres != null) {
@@ -73,29 +88,40 @@ try {
 
 ## **ตรวจสอบรูปทรงกล่องข้อความ**
 
-Aspose.Slides มีเมธอด [isTextBox](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/autoshape/#isTextBox) จากคลาส [AutoShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/autoshape/) ที่ช่วยให้คุณตรวจสอบรูปทรงและระบุว่าเป็นกล่องข้อความหรือไม่
+Aspose.Slides มีเมธอด [isTextBox](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/autoshape/#isTextBox) จากคลาส [AutoShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/autoshape/) ที่ช่วยให้คุณตรวจสอบรูปทรงและระบุว่ารูปทรงเป็นกล่องข้อความหรือไม่.
 
-![Text box and shape](istextbox.png)
+![กล่องข้อความและรูปทรง](istextbox.png)
 
 โค้ด JavaScript นี้แสดงวิธีตรวจสอบว่ารูปทรงถูกสร้างเป็นกล่องข้อความหรือไม่:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    java.callStaticMethodSync("ForEach", "shape", presentation, (shape, slide, index) -> {
-        if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
-            var autoShape = shape;
-            console.log(autoShape.isTextBox() ? "shape is a text box" : "shape is not a text box");
+    for (var slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
+        var slide = presentation.getSlides().get_Item(slideIndex);
+        for (var shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+            var shape = slide.getShapes().get_Item(shapeIndex);
+            if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
+                var autoShape = shape;
+                console.log(autoShape.isTextBox() ? "shape is a text box" : "shape is not a text box");
+            }
         }
-    });
+    }
 } finally {
     presentation.dispose();
 }
 ```
 
-โปรดทราบว่า หากคุณเพียงเพิ่มออโต้เชปโดยใช้เมธอด `addAutoShape` จากคลาส [ShapeCollection](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shapecollection/) เมธอด `isTextBox` ของออโต้เชปจะคืนค่า `false` อย่างไรก็ตาม หลังจากคุณเพิ่มข้อความให้กับออโต้เชปโดยใช้เมธอด `addTextFrame` หรือเมธอด `setText` คุณสมบัติ `isTextBox` จะคืนค่า `true`
+โปรดทราบว่าหากคุณเพิ่ม autoshape ด้วยเมธอด `addAutoShape` จากคลาส [ShapeCollection](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shapecollection/) เมธอด `isTextBox` ของ autoshape จะคืนค่า `false` อย่างไรก็ตาม หลังจากคุณเพิ่มข้อความลงใน autoshape ด้วยเมธอด `addTextFrame` หรือเมธอด `setText` คุณสมบัติ `isTextBox` จะคืนค่า `true`.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var presentation = new aspose.slides.Presentation();
 var slide = presentation.getSlides().get_Item(0);
 
@@ -120,26 +146,37 @@ shape4.getTextFrame().setText("");
 // shape4.isTextBox() คืนค่า false
 ```
 
+## **ค้นหารูปทรงที่เป็นเจ้าของ Text Frame**
+
+ในโค้ดการประมวลผลข้อความทั่วไป คุณอาจได้รับอ็อบเจ็กต์ [TextFrame](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/textframe/) โดยไม่ทราบว่ามันอยู่ในพรีเซนเทชันใด ใช้วิธีการ [TextFrame.getParentShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/textframe/#getParentShape--) เพื่อกลับไปยัง [Shape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/) ที่เป็นเจ้าของ.
+
+สำหรับ TextFrame ที่เป็นส่วนหนึ่งของ [AutoShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/autoshape/) หรือรูปทรงอื่นที่มีข้อความ [TextFrame.getParentShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/textframe/#getParentShape--) จะคืนค่าเจ้าของและ [TextFrame.getParentCell](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/textframe/#getParentCell--) จะคืนค่า `null` ทั้งสองเมธอดเป็นการนำทางแบบอ่านอย่างเดียว ดังนั้นการเรียกใช้จะไม่ได้เปลี่ยนแปลงเจ้าของ อย่าลืมตรวจสอบค่าที่คืนว่าเป็น `null` ก่อนเข้าถึงรูปทรง.
+
+สำหรับตัวอย่างเต็มที่ระบุเจ้าของรูปทรงและเซลล์ตาราง รวมถึงรูปทรงที่เชื่อมกับโหนด SmartArt ดูที่ [Search and Replace Text](/slides/th/nodejs-java/search-and-replace-text/).
+
 ## **เพิ่มคอลัมน์ในกล่องข้อความ**
 
-Aspose.Slides มีเมธอด [setColumnCount](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) และ [setColumnSpacing](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/TextFrameFormat#setColumnSpacing-double-) จากคลาส [TextFrameFormat](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/TextFrameFormat) ที่ช่วยให้คุณเพิ่มคอลัมน์ในกล่องข้อความ คุณสามารถกำหนดจำนวนคอลัมน์ในกล่องข้อความและตั้งค่าการเว้นระยะห่างเป็นจุดระหว่างคอลัมน์ได้
+Aspose.Slides มีเมธอด [setColumnCount](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) และ [setColumnSpacing](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/TextFrameFormat#setColumnSpacing-double-) จากคลาส [TextFrameFormat](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/TextFrameFormat) ที่อนุญาตให้คุณเพิ่มคอลัมน์ในกล่องข้อความ คุณสามารถกำหนดจำนวนคอลัมน์ในกล่องข้อความและตั้งค่าระยะห่างระหว่างคอลัมน์เป็นหน่วยพอยท์ได้.
 
-โค้ด JavaScript ด้านล่างแสดงการทำงานดังกล่าว:
+โค้ด JavaScript นี้แสดงการดำเนินการตามที่อธิบาย:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 var pres = new aspose.slides.Presentation();
 try {
-    // ดึงสไลด์แรกในพรีเซนเทชัน
+    // รับสไลด์แรกในพรีเซนเทชัน
     var slide = pres.getSlides().get_Item(0);
-    // เพิ่ม AutoShape โดยตั้งประเภทเป็น Rectangle
+    // เพิ่ม AutoShape ที่ประเภทตั้งเป็น Rectangle
     var aShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 300, 300);
-    // เพิ่ม TextFrame ให้กับ Rectangle
+    // เพิ่ม TextFrame ไปยัง Rectangle
     aShape.addTextFrame((("All these columns are limited to be within a single text container -- " + "you can add or delete text and the new or remaining text automatically adjusts ") + "itself to flow within the container. You cannot have text flow from one container ") + "to other though -- we told you PowerPoint's column options for text are limited!");
-    // ดึงรูปแบบข้อความของ TextFrame
+    // รับรูปแบบข้อความของ TextFrame
     var format = aShape.getTextFrame().getTextFrameFormat();
-    // ระบุจำนวนคอลัมน์ใน TextFrame
+    // กำหนดจำนวนคอลัมน์ใน TextFrame
     format.setColumnCount(3);
-    // ระบุระยะห่างระหว่างคอลัมน์
+    // กำหนดระยะห่างระหว่างคอลัมน์
     format.setColumnSpacing(10);
     // บันทึกพรีเซนเทชัน
     pres.save("ColumnCount.pptx", aspose.slides.SaveFormat.Pptx);
@@ -152,11 +189,15 @@ try {
 
 ## **เพิ่มคอลัมน์ใน Text Frame**
 
-Aspose.Slides for Node.js via Java มีเมธอด [setColumnCount](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) จากคลาส [TextFrameFormat](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/TextFrameFormat) ที่ช่วยให้คุณเพิ่มคอลัมน์ใน Text Frame ผ่านคุณสมบัตินี้คุณสามารถกำหนดจำนวนคอลัมน์ที่ต้องการใน Text Frame ได้
+Aspose.Slides for Node.js ผ่าน Java มีเมธอด [setColumnCount](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/TextFrameFormat#setColumnCount-int-) จากคลาส [TextFrameFormat](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/TextFrameFormat) ที่ช่วยให้คุณเพิ่มคอลัมน์ใน Text Frame ผ่านคุณสมบัตินี้คุณสามารถกำหนดจำนวนคอลัมน์ที่ต้องการใน Text Frame ได้.
 
 โค้ด JavaScript นี้แสดงวิธีเพิ่มคอลัมน์ภายใน Text Frame:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const assert = require("assert");
+
 var outPptxFileName = "ColumnsTest.pptx";
 var pres = new aspose.slides.Presentation();
 try {
@@ -168,8 +209,9 @@ try {
     var test = new aspose.slides.Presentation(outPptxFileName);
     try {
         var autoShape = test.getSlides().get_Item(0).getShapes().get_Item(0);
-        java.callStaticMethodSync("Assert", "assertTrue", 2 == autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        java.callStaticMethodSync("Assert", "assertTrue", java.getStaticFieldValue("java.lang.Double", "NaN") == autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
+        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 2);
+        // ช่องว่างระหว่างคอลัมน์ไม่มีการตั้งค่าเลย จึงแสดงเป็น NaN.
+        assert.ok(Number.isNaN(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing()));
     } finally {
         if (test != null) {
             test.dispose();
@@ -180,8 +222,8 @@ try {
     var test1 = new aspose.slides.Presentation(outPptxFileName);
     try {
         var autoShape = test1.getSlides().get_Item(0).getShapes().get_Item(0);
-        java.callStaticMethodSync("Assert", "assertTrue", 2 == autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        java.callStaticMethodSync("Assert", "assertTrue", 20 == autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
+        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 2);
+        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing(), 20);
     } finally {
         if (test1 != null) {
             test1.dispose();
@@ -193,8 +235,8 @@ try {
     var test2 = new aspose.slides.Presentation(outPptxFileName);
     try {
         var autoShape = test2.getSlides().get_Item(0).getShapes().get_Item(0);
-        java.callStaticMethodSync("Assert", "assertTrue", 3 == autoShape.getTextFrame().getTextFrameFormat().getColumnCount());
-        java.callStaticMethodSync("Assert", "assertTrue", 15 == autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing());
+        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnCount(), 3);
+        assert.strictEqual(autoShape.getTextFrame().getTextFrameFormat().getColumnSpacing(), 15);
     } finally {
         if (test2 != null) {
             test2.dispose();
@@ -209,24 +251,28 @@ try {
 
 ## **อัปเดตข้อความ**
 
-Aspose.Slides อนุญาตให้คุณเปลี่ยนหรืออัปเดตข้อความที่อยู่ในกล่องข้อความหรือข้อความทั้งหมดในพรีเซนเทชัน
+Aspose.Slides อนุญาตให้คุณเปลี่ยนหรืออัปเดตข้อความที่อยู่ในกล่องข้อความหรือข้อความทั้งหมดในพรีเซนเทชัน.
 
-โค้ด JavaScript นี้สาธิตการดำเนินการที่อัปเดตหรือเปลี่ยนข้อความทั้งหมดในพรีเซนเทชัน:
+โค้ด JavaScript นี้แสดงการอัปเดตหรือเปลี่ยนข้อความทั้งหมดในพรีเซนเทชัน:
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 var pres = new aspose.slides.Presentation("text.pptx");
 try {
     for (let s = 0; s < pres.getSlides().size(); s++) {
         let slide = pres.getSlides().get_Item(s);
         for (let i = 0; i < slide.getShapes().size(); i++) {
             let shape = slide.getShapes().get_Item(i);
-            // ตรวจสอบว่ารูปทรงสนับสนุน TextFrame (IAutoShape) หรือไม่.
+            // ตรวจสอบว่ารูปทรงรองรับ TextFrame (IAutoShape) หรือไม่.
             if (java.instanceOf(shape, "com.aspose.slides.AutoShape")) {
                 var autoShape = shape;
-                // วนซ้ำผ่านย่อหน้าใน TextFrame
+                // วนรอบผ่านย่อหน้าภายใน TextFrame
                 for (let j = 0; j < autoShape.getTextFrame().getParagraphs().getCount(); j++) {
                     let paragraph = autoShape.getTextFrame().getParagraphs().get_Item(j);
-                    // วนซ้ำผ่านแต่ละ Portion ในย่อหน้า
+                    // วนรอบผ่านแต่ละ Portion ในย่อหน้า
                     for (let k = 0; k < paragraph.getPortions().getCount(); k++) {
                         let portion = paragraph.getPortions().get_Item(k);
                         portion.setText(portion.getText().replace("years", "months"));// เปลี่ยนข้อความ
@@ -245,29 +291,32 @@ try {
 }
 ```
 
-## **เพิ่มกล่องข้อความพร้อมไฮเปอร์ลิงก์** 
+## **เพิ่มกล่องข้อความพร้อมลิงก์** 
 
-คุณสามารถแทรกลิงก์ภายในกล่องข้อความได้ เมื่อคลิกที่กล่องข้อความ ผู้ใช้จะถูกนำไปเปิดลิงก์
+คุณสามารถแทรกลิงก์ภายในกล่องข้อความได้ เมื่อคลิกที่กล่องข้อความ ผู้ใช้จะถูกนำไปเปิดลิงก์นั้น. 
 
 เพื่อเพิ่มกล่องข้อความที่มีลิงก์ ให้ทำตามขั้นตอนต่อไปนี้:
 
-1. สร้างอินสแทนซ์ของคลาส `Presentation`
-2. รับอ้างอิงของสไลด์แรกในพรีเซนเทชันที่สร้างใหม่
-3. เพิ่มอ็อบเจกต์ `AutoShape` ที่มี `ShapeType` ตั้งเป็น `Rectangle` ที่ตำแหน่งที่กำหนดบนสไลด์และรับอ้างอิงของอ็อบเจกต์ AutoShape ที่เพิ่มใหม่
-4. เพิ่ม `TextFrame` ให้กับอ็อบเจกต์ `AutoShape` โดยมีข้อความเริ่มต้นเป็น *Aspose TextBox*
-5. สร้างอินสแทนซ์ของคลาส `HyperlinkManager`
-6. กำหนดอ็อบเจกต์ `HyperlinkManager` ให้กับคุณสมบัติ [HyperlinkClick](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Shape#getHyperlinkClick--) ที่เชื่อมโยงกับส่วนที่คุณต้องการใน `TextFrame`
-7. สุดท้าย เขียนไฟล์ PPTX ผ่านอ็อบเจกต์ `Presentation`
+1. สร้างอินสแตนซ์ของคลาส `Presentation`. 
+2. รับอ้างอิงของสไลด์แรกในพรีเซนเทชันที่เพิ่งสร้าง. 
+3. เพิ่มอ็อบเจ็กต์ `AutoShape` ที่กำหนด `ShapeType` เป็น `Rectangle` ที่ตำแหน่งที่ระบุบนสไลด์และรับอ้างอิงของอ็อบเจ็กต์ AutoShape ที่เพิ่มใหม่.
+4. เพิ่ม `TextFrame` ให้กับอ็อบเจ็กต์ `AutoShape` และตั้งค่าข้อความของส่วนแรกของมัน ตัวอย่างด้านล่างเราใช้ข้อความ: *Aspose.Slides*
+5. รับ `HyperlinkManager` ของส่วนนั้นผ่าน `PortionFormat` ของมัน.
+6. เรียกใช้ `setExternalHyperlinkClick` บน `HyperlinkManager` เพื่อแนบลิงก์กับส่วนนั้น.
+7. สุดท้าย เขียนไฟล์ PPTX ผ่านอ็อบเจ็กต์ `Presentation`. 
 
-โค้ด JavaScript—ซึ่งเป็นการดำเนินการตามขั้นตอนข้างต้น—แสดงวิธีเพิ่มกล่องข้อความพร้อมไฮเปอร์ลิงก์ลงในสไลด์:
+โค้ด JavaScript นี้—การทำตามขั้นตอนข้างต้น—แสดงวิธีเพิ่มกล่องข้อความพร้อมลิงก์ไปยังสไลด์:
 
 ```javascript
-// สร้างอินสแทนซ์ของคลาส Presentation ที่เป็นตัวแทนของ PPTX
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนของ PPTX
 var pres = new aspose.slides.Presentation();
 try {
-    // ดึงสไลด์แรกในพรีเซนเทชัน
+    // รับสไลด์แรกในพรีเซนเทชัน
     var slide = pres.getSlides().get_Item(0);
-    // เพิ่มอ็อบเจกต์ AutoShape โดยตั้งประเภทเป็น Rectangle
+    // เพิ่มอ็อบเจ็กต์ AutoShape ที่ประเภทตั้งเป็น Rectangle
     var shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 150, 150, 50);
     // แคสต์รูปทรงเป็น AutoShape
     var pptxAutoShape = shape;
@@ -276,7 +325,7 @@ try {
     var textFrame = pptxAutoShape.getTextFrame();
     // เพิ่มข้อความบางส่วนลงในเฟรม
     textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).setText("Aspose.Slides");
-    // ตั้งค่า Hyperlink ให้กับข้อความ Portion
+    // ตั้งค่า Hyperlink สำหรับข้อความส่วน
     var hyperlinkManager = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().getHyperlinkManager();
     hyperlinkManager.setExternalHyperlinkClick("http://www.aspose.com");
     // บันทึกพรีเซนเทชัน PPTX
@@ -288,12 +337,12 @@ try {
 }
 ```
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-**ความแตกต่างระหว่างกล่องข้อความและตัวเก็บตำแหน่งข้อความเมื่อทำงานกับสไลด์แม่คืออะไร?**
+**กล่องข้อความกับตัวจัดตำแหน่งข้อความ (placeholder) มีความแตกต่างอย่างไรเมื่อทำงานกับมาสเตอร์สไลด์?**
 
-[ตัวเก็บตำแหน่ง](/slides/th/nodejs-java/manage-placeholder/) สืบทอดรูปแบบ/ตำแหน่งจาก [แม่สไลด์](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/masterslide/) และสามารถถูกแทนที่ได้บน [เค้าโครง](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/layoutslide/) ในขณะที่กล่องข้อความปกติเป็นอ็อบเจกต์อิสระบนสไลด์เฉพาะและจะไม่เปลี่ยนแปลงเมื่อคุณสลับเค้าโครง
+ตัวจัดตำแหน่ง (placeholder) สืบทอดสไตล์/ตำแหน่งจากมาสเตอร์และสามารถถูกแก้ไขได้บนเลย์เอาต์ต่าง ๆ ในขณะที่กล่องข้อความปกติเป็นอ็อบเจ็กต์อิสระบนสไลด์เฉพาะและจะไม่เปลี่ยนแปลงเมื่อคุณสลับเลย์เอาต์.
 
-**ฉันจะทำการแทนที่ข้อความจำนวนมากทั่วทั้งพรีเซนเทชันโดยไม่กระทบข้อความในแผนภูมิ ตาราง หรือ SmartArt ได้อย่างไร?**
+**ฉันจะทำการแทนที่ข้อความแบบกลุ่มทั่วทั้งพรีเซนเทชันโดยไม่กระทบข้อความภายในชาร์ต ตาราง และ SmartArt อย่างไร?**
 
-จำกัดการวนลูปของคุณให้กับออโต้เชปที่มี Text Frame เท่านั้นและตัดวัตถุที่ฝังอยู่ ([แผนภูมิ](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chart/), [ตาราง](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/smartart/)) โดยแยกการเดินสำรวจคอลเลกชันของพวกมันออกจากกันหรือข้ามประเภทวัตถุเหล่านั้น
+จำกัดการวนซ้ำของคุณให้เฉพาะ auto‑shape ที่มี Text Frame และละเว้นอ็อบเจ็กต์ฝังรวม (เช่น [charts](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chart/), [tables](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/smartart/)) โดยทำการเดินทางผ่านคอลเลกชันของพวกมันแยกกันหรือข้ามประเภทอ็อบเจ็กต์เหล่านั้น.

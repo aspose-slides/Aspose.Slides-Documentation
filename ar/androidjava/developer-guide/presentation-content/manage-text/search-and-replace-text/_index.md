@@ -1,30 +1,30 @@
 ---
-title: البحث عن النص واستبداله في عروض PowerPoint على Android
-linktitle: البحث عن النص واستبداله
+title: بحث واستبدال النص في عروض PowerPoint على Android
+linktitle: بحث واستبدال النص
 type: docs
 weight: 55
 url: /ar/androidjava/search-and-replace-text/
 keywords:
-- البحث عن النص
+- بحث النص
 - تظليل النص
 - استبدال النص
 - تعبير نمطي
-- استدعاء نتيجة
+- رد نداء النتيجة
 - إطار النص
 - تقرير تدقيق
 - PowerPoint
 - OpenDocument
-- العرض التقديمي
+- عرض تقديمي
 - Android
 - Java
 - Aspose.Slides
-description: "ابحث، وميّز، واستبدل النص في عروض PowerPoint بينما تجمع كل تطابق باستخدام Aspose.Slides for Android عبر Java."
+description: "ابحث، ظلل، واستبدل النص في عروض PowerPoint مع جمع كل مطابقة باستخدام Aspose.Slides للـ Android عبر Java."
 ---
 ## **نظرة عامة**
 
-يمكن لـ Aspose.Slides for Android عبر Java البحث وتحديد النص وتغييره داخل إطار نصي فردي أو عبر عرض تقديمي كامل. يمكن لكل عملية أيضًا إبلاغ التطبيق عن كل تطابق من خلال استدعاء نتيجة. هذا يجعل من الممكن تحديث العرض التقديمي وفي الوقت نفسه إنشاء سجل تتبع يحتوي على النص المتطابق، وسياقه، وموقعه، وإطار النص، ورقم الشريحة.
+يمكن لـ Aspose.Slides for Android via Java البحث وتظليل واستبدال النص في إطار نصي فردي أو عبر العرض التقديمي بأكمله. يمكن لكل عملية أيضًا إبلاغ التطبيق عن كل تطابق من خلال رد نداء النتيجة. يتيح ذلك تحديث العرض التقديمي وبناء سجل تدقيق يتضمن النص المتطابق وسياقه وموقعه وإطار النص ورقم الشريحة.
 
-هذه الإمكانات مفيدة للمراجعة، والطمس، وفحص المصطلحات، وتنظيف القوالب، وتدفقات العمل للتقارير الآلية.
+هذه الإمكانات مفيدة للمراجعة وإزالة المعلومات الحساسة وفحوصات المصطلحات وتنظيف القوالب وتدفقات العمل الآلية للتقارير.
 
 في الأمثلة الأولى أدناه، نستخدم ملفًا باسم "sample.pptx"، يحتوي على صندوق نص واحد في الشريحة الأولى بالنص التالي:
 
@@ -32,30 +32,94 @@ description: "ابحث، وميّز، واستبدل النص في عروض Powe
 
 ## **اختر نطاق البحث**
 
-استخدم الأساليب في [ITextFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/) لتقييد العملية على إطار نص واحد. استخدم الأساليب في [IPresentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentation/) لمعالجة جميع النصوص القابلة للتطبيق في العرض التقديمي.
+استخدم الأساليب على [ITextFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/) لتحديد عملية لإطار نصي واحد. استخدم الأساليب على [IPresentation](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentation/) لمعالجة جميع النصوص القابلة للتطبيق في العرض التقديمي.
 
-| العملية | إطار نص واحد | العرض التقديمي بالكامل |
+| العملية | إطار نصي واحد | العرض التقديمي بالكامل |
 |---|---|---|
-| Highlight literal text | [ITextFrame.highlightText](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [IPresentation.highlightText](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentation/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
-| Highlight regular-expression matches | [ITextFrame.highlightRegex](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-) | [IPresentation.highlightRegex](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentation/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-) |
-| Replace literal text | [ITextFrame.replaceText](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [IPresentation.replaceText](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
-| Replace regular-expression matches | [ITextFrame.replaceRegex](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) | [IPresentation.replaceRegex](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) |
+| تظليل النص الحرفي | [ITextFrame.highlightText](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [IPresentation.highlightText](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentation/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
+| تظليل التطابقات باستخدام تعبيرات نمطية | [ITextFrame.highlightRegex](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-) | [IPresentation.highlightRegex](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentation/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-) |
+| استبدال النص الحرفي | [ITextFrame.replaceText](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [IPresentation.replaceText](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
+| استبدال التطابقات باستخدام تعبيرات نمطية | [ITextFrame.replaceRegex](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) | [IPresentation.replaceRegex](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) |
 
 ## **تكوين مطابقة النص**
 
-للعمليات التي تتعامل مع النص الحرفي، استخدم [TextSearchOptions](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/textsearchoptions/) للتحكم في المطابقة:
+لعمليات النص الحرفي، استخدم [TextSearchOptions](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/textsearchoptions/) للتحكم في المطابقة:
 
-- [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) يقتصر المطابقات على الكلمات الكاملة.
-- [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) يتحكم فيما إذا كان يجب تطابق حالة الأحرف.
-- [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) يضم ملاحظات الشرائح في عمليات البحث والاستبدال والتمييز على مستوى العرض التقديمي.
+- [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) يحد من المطابقات إلى كلمات كاملة.
+- [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) يتحكم فيما إذا كان يجب مطابقة حالة الأحرف.
+- [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) يضم ملاحظات الشرائح في عمليات البحث والاستبدال والتظليل على مستوى العرض التقديمي.
 
-تستخدم عمليات التعبير النمطي Java `Pattern`، لذا تُحدد قواعد المطابقة مثل حساسية الحالة وحدود الكلمات داخل التعبير وعلاماته.
+تستخدم عمليات التعبيرات النمطية كائن Java `Pattern`، لذا فإن قواعد المطابقة مثل حساسية الحالة وحدود الكلمات تُحدد بواسطة التعبير وعلماته.
 
-## **جمع معلومات التطابق عبر استدعاء رد الاتصال**
+## **تحديد مالك إطار النص**
 
-نفّذ [IFindResultCallback](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ifindresultcallback/) لتلقي إشعار لكل تطابق. الطريقة [IFindResultCallback.foundResult](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ifindresultcallback/#foundResult-com.aspose.slides.ITextFrame-java.lang.String-java.lang.String-int-) توفر إطار النص المتعلق، والنص المصدر، والنص المتطابق، وموقع التطابق.
+غالبًا ما تتلقى سير عمل معالجة النص العامة كائنًا من النوع [ITextFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/) أثناء البحث أو الاستبدال أو التحقق أو التصدير. استخدم [ITextFrame.getParentShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/#getParentShape--) و[ITextFrame.getParentCell](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/#getParentCell--) لتحديد أي كائن عرض تقديمي يملك إطار النص.
 
-لا يتلقى رد الاتصال رقم الشريحة مباشرة. تُستمد القيمة في المثال أدناه من الشريحة الأصلية وتتعامل أيضًا مع النص الموجود في ملاحظات الشرائح. يسمح `Integer` قابل للعدّ بالقيم `null` بتمثيل النص المرتبط بأنواع شرائح أخرى بنفس نموذج النتيجة.
+القيم المتوقعة تعتمد على المالك:
+
+| مالك إطار النص | `getParentShape` | `getParentCell` |
+|---|---|---|
+| شكل AutoShape أو أي شكل يحتوي على نص | الشكل [IShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ishape/) المالك | `null` |
+| خلية جدول | `null` | الخلية [ICell](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/icell/) المالك |
+
+كلا الطريقتين توفر تنقلًا للقراءة فقط. لا يؤدي استدعاؤهما إلى نقل إطار النص أو تغيير مالكه. يجب على الشيفرة العامة فحص القيمتين لـ `null` ومعالجة احتمال عدم توفر أي مالك.
+
+المثال التالي يستخدم [SlideUtil.getAllTextFrames](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/slideutil/#getAllTextFrames-com.aspose.slides.IPresentation-boolean-) للتكرار عبر إطارات النص في عرض تقديمي. بالنسبة للأشكال، يُظهر اسم الشكل، ونوعه في وقت تشغيل Java، والشريحة المحتوية. بالنسبة لخلايا الجدول، يُظهر إحداثيات العمود والصف (بدءًا من الصفر) والشريحة المحتوية.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    ITextFrame[] textFrames = SlideUtil.getAllTextFrames(presentation, false);
+
+    for (ITextFrame textFrame : textFrames) {
+        IShape ownerShape = textFrame.getParentShape();
+        if (ownerShape != null) {
+            String shapeName = ownerShape.getName().isEmpty() ? "(unnamed)" : ownerShape.getName();
+            String shapeType = ownerShape.getClass().getSimpleName();
+            IBaseSlide baseSlide = ownerShape.getSlide();
+            String slideLabel;
+            if (baseSlide instanceof ISlide) {
+                slideLabel = "slide " + ((ISlide) baseSlide).getSlideNumber();
+            } else if (baseSlide instanceof INotesSlide) {
+                slideLabel = "notes for slide " + ((INotesSlide) baseSlide).getParentSlide().getSlideNumber();
+            } else {
+                slideLabel = baseSlide.getClass().getSimpleName();
+            }
+            System.out.println("Shape: " + shapeName + "; type: " + shapeType + "; " + slideLabel);
+            continue;
+        }
+
+        ICell ownerCell = textFrame.getParentCell();
+        if (ownerCell != null) {
+            IBaseSlide baseSlide = ownerCell.getSlide();
+            String slideLabel;
+            if (baseSlide instanceof ISlide) {
+                slideLabel = "slide " + ((ISlide) baseSlide).getSlideNumber();
+            } else if (baseSlide instanceof INotesSlide) {
+                slideLabel = "notes for slide " + ((INotesSlide) baseSlide).getParentSlide().getSlideNumber();
+            } else {
+                slideLabel = baseSlide.getClass().getSimpleName();
+            }
+            System.out.println("Table cell: column " + ownerCell.getFirstColumnIndex() + ", row " + ownerCell.getFirstRowIndex() + "; " + slideLabel);
+            continue;
+        }
+
+        System.out.println("The text frame owner is not available as a shape or table cell.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+لمحتوى SmartArt، كرر عبر الأشكال في [ISmartArtNode.getShapes](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ismartartnode/#getShapes--) وادخل إلى كل [ISmartArtShape.getTextFrame](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ismartartshape/#getTextFrame--). يمكن تتبع إطار النص إلى الشكل المرتبط عبر [ITextFrame.getParentShape](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/#getParentShape--)، بينما تُعيد [ITextFrame.getParentCell](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/#getParentCell--) `null`. لذلك يتعامل فرع الشكل في المثال أيضًا مع النص من عقد SmartArt.
+
+## **جمع معلومات المطابقة باستخدام رد النداء**
+
+نفّذ [IFindResultCallback](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ifindresultcallback/) لتلقي إشعار لكل مطابقة. توفر طريقة [IFindResultCallback.foundResult](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ifindresultcallback/#foundResult-com.aspose.slides.ITextFrame-java.lang.String-java.lang.String-int-) إطار النص ذو الصلة، والنص المصدر، والنص المتطابق، وموقع المطابقة.
+
+لا تستقبل رد النداء رقم الشريحة مباشرة. يستنتج التنفيذ أدناه الرقم من الشريحة الأم ويعالج أيضًا النص الموجود في ملاحظات الشريحة. يسمح `Integer` القابل للخطأ بتوحيد نموذج النتيجة لتمثيل النص المرتبط بأنواع شرائح أخرى.
 
 ```java
 import com.aspose.slides.*;
@@ -112,12 +176,10 @@ final class TextSearchCallback implements IFindResultCallback {
         results.add(result);
     }
 
-    private static Integer getSlideNumber(ITextFrame textFrame) {
-        if (!(textFrame instanceof TextFrame)) {
-            return null;
-        }
-
-        IBaseSlide parentSlide = ((TextFrame) textFrame).getSlide();
+    private Integer getSlideNumber(ITextFrame textFrame) {
+        IShape parentShape = textFrame.getParentShape();
+        ICell parentCell = textFrame.getParentCell();
+        IBaseSlide parentSlide = parentShape != null ? parentShape.getSlide() : parentCell != null ? parentCell.getSlide() : textFrame.getSlide();
 
         if (parentSlide instanceof ISlide) {
             return ((ISlide) parentSlide).getSlideNumber();
@@ -132,13 +194,13 @@ final class TextSearchCallback implements IFindResultCallback {
 }
 ```
 
-بالنسبة لعمليات الاستبدال، يحتوي `foundText` على النص الأصلي المتطابق، وبالتالي يمكن لاستدعاء رد الاتصال تسجيل المصطلحات التي تم استبدالها بدقة.
+في عمليات الاستبدال، يحتوي `foundText` على النص المتطابق الأصلي، لذا يمكن لرد النداء تسجيل المصطلحات التي تم استبدالها بدقة.
 
-## **تمييز النص**
+## **تظليل النص**
 
-استخدم الطريقة [ITextFrame.highlightText](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) لتمييز مطابقات النص الحرفي داخل إطار نص. مرّر [TextSearchOptions](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/textsearchoptions/) للتحكم في البحث واستدعاء رد الاتصال لجمع تفاصيل التطابق.
+استخدم طريقة [ITextFrame.highlightText](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) لتظليل مطابقات النص الحرفي في إطار نص. مرّر [TextSearchOptions](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/textsearchoptions/) للتحكم في البحث ومرّر رد نداء لتجميع تفاصيل المطابقة.
 
-المثال البرمجي أدناه يميز جميع تكرارات الحرفين **"try"** ثم يميز الكلمة الكاملة **"to"** فقط. كلا البحثين يبلّغان عن تطابقاتهما إلى نفس رد الاتصال.
+يوضح مثال الشيفرة أدناه تظليل جميع مرات ظهور الأحرف **"try"** ثم تظليل الكلمة الكاملة **"to"** فقط. كلا البحثين يبلغان عن نتائجهما إلى نفس رد النداء.
 
 ```java
 import com.aspose.slides.*;
@@ -154,7 +216,7 @@ try {
     substringSearchOptions.setCaseSensitive(false);
     int substringHighlightColor = Color.rgb(173, 216, 230);
 
-    // تسليط الضوء على كل ظهور لكلمة "try" في إطار النص.
+    // تظليل كل ظهور لكلمة "try" في إطار النص.
     shape.getTextFrame().highlightText("try", substringHighlightColor, substringSearchOptions, callback);
 
     TextSearchOptions wholeWordSearchOptions = new TextSearchOptions();
@@ -162,7 +224,7 @@ try {
     wholeWordSearchOptions.setCaseSensitive(false);
     int wholeWordHighlightColor = Color.rgb(238, 130, 238);
 
-    // تسليط الضوء فقط على الكلمة الكاملة "to".
+    // تظليل الكلمة الكاملة "to" فقط.
     shape.getTextFrame().highlightText("to", wholeWordHighlightColor, wholeWordSearchOptions, callback);
 
     for (TextMatch result : callback.getResults()) {
@@ -180,11 +242,11 @@ try {
 
 ![The highlighted text](highlighted_text.png)
 
-## **تمييز النص باستخدام التعبيرات النمطية**
+## **تظليل النص باستخدام تعبيرات نمطية**
 
-الطريقة [ITextFrame.highlightRegex](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-) تميز مطابقات النص التي يجدها تعبير نمطي داخل إطار نص.
+طريقة [ITextFrame.highlightRegex](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-) تضع تظليلًا على مطابقة النص التي يجدها تعبير نمطي في إطار نص.
 
-الكود التالي يميز جميع الكلمات التي تحتوي على سبعة أحرف أو أكثر ويجمع كل تطابق:
+الشيفرة التالية تظلل جميع الكلمات التي تحتوي على سبعة أحرف أو أكثر وتجمع كل مطابقة:
 
 ```java
 import com.aspose.slides.*;
@@ -210,9 +272,9 @@ try {
 
 ![The highlighted text using the regular expression](highlighted_text_using_regex.png)
 
-## **تمييز النص عبر العرض التقديمي**
+## **تظليل النص عبر عرض تقديمي**
 
-استخدم [IPresentation.highlightText](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentation/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) و [IPresentation.highlightRegex](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentation/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-) للبحث في جميع إطارات النص القابلة للتطبيق في العرض التقديمي. المثال التالي يميز مصطلحًا حرفيًا وجميع عناوين البريد الإلكتروني مع الحفاظ على مجموعات نتائج منفصلة للبحثين.
+استخدم [IPresentation.highlightText](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentation/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) و[IPresentation.highlightRegex](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentation/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-) للبحث في جميع إطارات النص القابلة للتطبيق في عرض تقديمي. المثال التالي يظلل مصطلحًا حرفيًا وجميع عناوين البريد الإلكتروني مع الحفاظ على مجموعات نتائج منفصلة لكل بحث.
 
 ```java
 import com.aspose.slides.*;
@@ -243,9 +305,9 @@ try {
 
 ## **استبدال النص في إطار نص**
 
-استخدم [ITextFrame.replaceText](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) للنص الحرفي و[ITextFrame.replaceRegex](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) للاستبدال القائم على النمط. تُحدّث هذه الأساليب النص المتطابق داخل إطار النص الموجود، مع الحفاظ على تنسيق الجزء المحيط بدلاً من إعادة بناء إطار النص من سلسلة عادية.
+استخدم [ITextFrame.replaceText](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) للنص الحرفي و[ITextFrame.replaceRegex](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) للاستبدال القائم على نمط. تقوم هذه الأساليب بتحديث النص المتطابق داخل إطار النص الحالي، مما يحافظ على تنسيق الجزء المحيط بدلاً من إعادة بناء إطار النص من سلسلة عادية.
 
-المثال التالي يوحد صيغة لفظية ثم يستبدل تسميات الإصدارات. نفس رد الاتصال يسجّل المصطلحات الأصلية التي تم مطابقتها في كلا العمليتين.
+المثال التالي يوحّد متغير تهجئة ثم يستبدل تسميات الإصدارات. يسجل نفس رد النداء المصطلحات الأصلية التي طابقها كل من العمليتين.
 
 ```java
 import com.aspose.slides.*;
@@ -271,11 +333,11 @@ try {
 }
 ```
 
-إذا امتد تطابق على أجزاء ذات تنسيق مختلف، راجع المخرجات لتأكيد أي تنسيق يجب تطبيقه على النص المستبدل.
+إذا امتد مطابقة عبر أجزاء ذات تنسيق مختلف، راجع الناتج لتأكيد أي تنسيق يجب أن يُطبق على النص المستبدل.
 
-## **استبدال النص عبر العرض التقديمي**
+## **استبدال النص عبر عرض تقديمي**
 
-استخدم [IPresentation.replaceText](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) و[IPresentation.replaceRegex](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) لتطبيق نفس العمليات عبر العرض التقديمي. هذا مفيد لتنظيف القوالب، وتحديث المصطلحات، والطمس.
+استخدم [IPresentation.replaceText](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) و[IPresentation.replaceRegex](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ipresentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) لتطبيق نفس العمليات عبر العرض التقديمي. هذا مفيد لتنظيف القالب، وتحديث المصطلحات، وإزالة المعلومات الحساسة.
 
 ```java
 import com.aspose.slides.*;
@@ -299,9 +361,9 @@ try {
 }
 ```
 
-## **تجميع التطابقات للتقارير**
+## **تجميع المطابقات للتقارير**
 
-نظرًا لأن كل نتيجة تخزن رقم الشريحة وإطار النص، يمكن للتطبيقات تجميع التطابقات لأغراض التدقيق أو التقارير أو سير عمل المراجعة. المثال التالي يجمع النتائج التي تم جمعها أولاً بحسب الشريحة ثم بحسب إطار النص:
+نظرًا لأن كل نتيجة تخزن رقم الشريحة وإطار النص، يمكن للتطبيقات تجميع المطابقات للتدقيق أو التقارير أو سير عمل المراجعة. المثال التالي يجمع النتائج المجمّعة أولًا حسب الشريحة ثم حسب إطار النص:
 
 ```java
 import com.aspose.slides.ITextFrame;
@@ -347,24 +409,24 @@ for (Map.Entry<Integer, Map<ITextFrame, List<TextMatch>>> slideEntry : matchesBy
 }
 ```
 
-## **الأسئلة الشائعة**
+## **الأسئلة المتكررة**
 
-**كيف يمكنني البحث داخل صندوق نص واحد فقط بدلاً من العرض التقديمي بالكامل؟**
+**كيف يمكنني البحث في مربع نص واحد فقط بدلاً من العرض التقديمي بأكمله؟**
 
-احصل على إطار النص الخاص بالشكل واستدعِ [ITextFrame.highlightText](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-)، [ITextFrame.highlightRegex](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-)، [ITextFrame.replaceText](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-)، أو [ITextFrame.replaceRegex](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) على ذلك الإطار. تُعالج أساليب مستوى العرض التقديمي جميع إطارات النص القابلة للتطبيق بدلاً من ذلك.
+احصل على إطار النص الخاص بالشكل واستدعِ [ITextFrame.highlightText](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.lang.Integer-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-)، [ITextFrame.highlightRegex](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-)، [ITextFrame.replaceText](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-)، أو [ITextFrame.replaceRegex](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) على ذلك الإطار. تُعالج طرق مستوى العرض التقديمي جميع إطارات النص القابلة للتطبيق بدلاً من ذلك.
 
 **كيف يمكنني مطابقة الكلمات الكاملة مع الحالة الصحيحة للأحرف؟**
 
-عيّن [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) و[TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) إلى `true`، ومرّر الخيارات إلى طريقة تمييز أو استبدال النص الحرفي. بالنسبة للتعبيرات النمطية، عيّن حدود الكلمات وحساسية الحالة داخل `Pattern` في Java نفسها.
+قم بتعيين [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) و[TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) إلى `true`، ومرّر الخيارات إلى طريقة تظليل أو استبدال النص الحرفي. بالنسبة للتعبيرات النمطية، عرّف حدود الكلمات وحساسية الحالة في Java `Pattern` نفسه.
 
-**هل يمكن أن تشمل عمليات البحث والاستبدال النص الموجود في ملاحظات الشرائح؟**
+**هل يمكن أن تشمل عملية البحث والاستبدال النص الموجود في ملاحظات الشرائح؟**
 
-نعم. عيّن [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) إلى `true` عند استخدام عملية نص حرفي على مستوى العرض التقديمي. تقوم تنفيذية رد الاتصال الموضحة أعلاه بربط التطابق في شريحة الملاحظات برقم الشريحة الأصلية.
+نعم. عيّن [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) إلى `true` عند استخدام عملية نص حرفي على مستوى العرض التقديمي. تقوم تنفيذية رد النداء الموضحة أعلاه بربط مطابقة في شريحة ملاحظات برقم الشريحة الأم.
 
 **كيف يمكنني إنشاء تقرير دون مسح العرض التقديمي مرة ثانية؟**
 
-مرّر تنفيذية [IFindResultCallback](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ifindresultcallback/) إلى عملية التمييز أو الاستبدال. يتلقى رد الاتصال كل تطابق أثناء تشغيل العملية، وبالتالي يمكن للتطبيق تخزين النص المصدر، والنص المتطابق، والموقع، وإطار النص، ورقم الشريحة المستنتج لتجميعه أو تصديره لاحقًا.
+مرّر تنفيذًا لـ [IFindResultCallback](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/ifindresultcallback/) إلى عملية التظليل أو الاستبدال. يتلقى رد النداء كل مطابقة أثناء تشغيل العملية، بحيث يمكن للتطبيق تخزين النص المصدر، والنص المتطابق، والموقع، وإطار النص، ورقم الشريحة المستنتج لتجميعه لاحقًا أو تصديره.
 
 **هل يحافظ استبدال النص على تنسيقه؟**
 
-[ITextFrame.replaceText](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) و[ITextFrame.replaceRegex](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) يغيران النص المتطابق داخل إطار النص الحالي ويحتفظان بتنسيق الجزء المحيط. إذا امتد التطابق على أجزاء ذات تنسيق مختلف، فافحص النتيجة لضمان أن الاستبدال يستخدم النمط المطلوب.
+تُعيد كل من [ITextFrame.replaceText](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) و[ITextFrame.replaceRegex](https://reference.aspose.com/slides/ar/androidjava/com.aspose.slides/itextframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) تعديل النص المتطابق داخل إطار النص الحالي وتحتفظ بتنسيق الجزء المحيط. إذا امتدت مطابقة عبر أجزاء ذات تنسيقات مختلفة، فافحص النتيجة للتأكد من أن الاستبدال يستخدم النمط المطلوب.

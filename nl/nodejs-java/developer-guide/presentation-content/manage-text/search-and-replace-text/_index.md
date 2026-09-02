@@ -1,5 +1,5 @@
 ---
-title: Zoeken en vervangen van tekst in PowerPoint-presentaties in JavaScript
+title: Zoeken en vervangen van tekst in PowerPoint‑presentaties in JavaScript
 linktitle: Zoeken en vervangen van tekst
 type: docs
 weight: 55
@@ -10,7 +10,7 @@ keywords:
 - tekst vervangen
 - reguliere expressie
 - resultaat‑callback
-- tekstframe
+- tekstkader
 - auditrapport
 - PowerPoint
 - OpenDocument
@@ -18,51 +18,120 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Zoeken, markeren en vervangen van tekst in PowerPoint-presentaties terwijl elke overeenkomst wordt verzameld met Aspose.Slides voor Node.js via Java."
+description: "Zoek, markeer en vervang tekst in PowerPoint‑presentaties terwijl u elke overeenkomst verzamelt met Aspose.Slides voor Node.js via Java."
 ---
 ## **Overzicht**
 
-Aspose.Slides voor Node.js via Java kan zoeken, markeren en tekst vervangen in een individueel tekstframe of in een volledige presentatie. Elke bewerking kan ook een toepassing op de hoogte stellen van elke overeenkomst via een result-callback. Hierdoor is het mogelijk om een presentatie bij te werken en tegelijkertijd een audittrail op te bouwen die de gevonden tekst, de context, positie, het tekstframe en het dia-nummer bevat.
+Aspose.Slides for Node.js via Java kan tekst zoeken, markeren en vervangen in een individueel tekstkader of in de volledige presentatie. Elke bewerking kan een applicatie ook op de hoogte stellen van elke overeenkomst via een resultaat‑callback. Dit maakt het mogelijk om een presentatie bij te werken en tegelijkertijd een audittrail op te bouwen met de gevonden tekst, de context, positie, het tekstkader en het slide‑nummer.
 
-Deze mogelijkheden zijn nuttig voor beoordeling, redactie, terminologiecontroles, sjabloon-opschoning en geautomatiseerde rapportage-workflows.
+Deze mogelijkheden zijn nuttig voor herziening, redactie, terminologiecontroles, sjabloonsopschoning en geautomatiseerde rapportage‑workflows.
 
-In de eerste voorbeelden hieronder gebruiken we een bestand genaamd "sample.pptx", dat een enkele tekstvak op de eerste dia bevat met de volgende tekst:
+In de eerste voorbeelden hieronder gebruiken we een bestand met de naam "sample.pptx", dat een enkele tekstvak op de eerste dia bevat met de volgende tekst:
 
-![Sample text](sample_text.png)
+![Voorbeeldtekst](sample_text.png)
 
 ## **Kies de zoekscope**
 
-Gebruik de methoden op [TextFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/) om een bewerking te beperken tot één tekstframe. Gebruik de methoden op [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/) om alle toepasselijke tekst in de presentatie te verwerken.
+Gebruik methoden op [TextFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/) om een bewerking te beperken tot één tekstkader. Gebruik methoden op [Presentation](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/) om alle toepasselijke tekst in de presentatie te verwerken.
 
-| Bewerking | Eén tekstframe | Gehele presentatie |
+| Bewerking | Één tekstkader | Volledige presentatie |
 |---|---|---|
 | Markeer letterlijke tekst | [TextFrame.highlightText](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [Presentation.highlightText](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
-| Markeer reguliere-expressie‑overeenkomsten | [TextFrame.highlightRegex](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) | [Presentation.highlightRegex](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) |
+| Markeer reguliere‑expressie‑overeenkomsten | [TextFrame.highlightRegex](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) | [Presentation.highlightRegex](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) |
 | Vervang letterlijke tekst | [TextFrame.replaceText](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [Presentation.replaceText](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
-| Vervang reguliere-expressie‑overeenkomsten | [TextFrame.replaceRegex](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) | [Presentation.replaceRegex](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) |
+| Vervang reguliere‑expressie‑overeenkomsten | [TextFrame.replaceRegex](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) | [Presentation.replaceRegex](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) |
 
 ## **Configureer tekstmatching**
 
-Voor bewerkingen met letterlijke tekst, gebruik [TextSearchOptions](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textsearchoptions/) om het matchen te regelen:
+Voor bewerkingen met letterlijke tekst, gebruik [TextSearchOptions](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textsearchoptions/) om de overeenkomsten te sturen:
 
 - [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) beperkt overeenkomsten tot volledige woorden.
-- [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) bepaalt of hoofdlettergebruik moet overeenkomen.
-- [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) neemt dia-notities op in zoek-, vervang- en markeerbewerkingen op presentatieniveau.
+- [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) regelt of hoofdlettergebruik moet overeenkomen.
+- [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) voegt dia‑notities toe aan zoek-, vervang‑ en markeerbewerkingen op presentatieniveau.
 
-Reguliere-expressie-bewerkingen gebruiken een Java `Pattern`, dus de regels voor overeenkomsten, zoals hoofdlettergevoeligheid en woordgrenzen, worden gedefinieerd door de expressie en de bijbehorende vlaggen.
+Reguliere‑expressie‑bewerkingen gebruiken een Java `Pattern`, waardoor regels voor overeenkomsten zoals hoofdlettergevoeligheid en woordgrenzen worden gedefinieerd door de expressie en de bijbehorende vlaggen.
 
-## **Verzamel matchinformatie met een callback**
+## **Identificeer de eigenaar van een tekstkader**
 
-Maak een Java-proxy voor de result-callback om een melding te ontvangen voor elke overeenkomst. De proxy-functie ontvangt het bijbehorende tekstframe, de brontekst, de gevonden tekst en de positie van de overeenkomst.
+Generieke tekstverwerkingsworkflows ontvangen vaak een [TextFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/) tijdens het zoeken, vervangen, valideren of exporteren van tekst. Gebruik [TextFrame.getParentShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/#getParentShape--) en [TextFrame.getParentCell](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/#getParentCell--) om te bepalen welk presentatie‑object eigenaar is van het tekstkader.
 
-De callback ontvangt niet direct een dia-nummer. De onderstaande implementatie haalt dit af via [TextFrame.getSlide](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/#getSlide--), [Slide.getSlideNumber](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/slide/#getSlideNumber--), en [NotesSlide.getParentSlide](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/notesslide/#getParentSlide--). Het verwerkt ook tekst die in dia-notities is gevonden.
+De verwachte waarden hangen af van de eigenaar:
+
+| Eigenaar van tekstkader | `getParentShape` | `getParentCell` |
+|---|---|---|
+| Een AutoShape of een andere vorm die tekst bevat | De eigenaar‑[Shape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/shape/) | `null` |
+| Een tabelcel | `null` | De eigenaar‑[Cell](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/cell/) |
+
+Beide methoden bieden alleen‑lezen navigatie. Het aanroepen ervan verplaatst het tekstkader niet en wijzigt de eigenaar niet. Generieke code moet beide waarden op `null` controleren en rekening houden met de mogelijkheid dat geen enkele eigenaar beschikbaar is.
+
+Het onderstaande voorbeeld gebruikt [SlideUtil.getAllTextFrames](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/slideutil/#getAllTextFrames-aspose.slides.IPresentation-boolean-) om door de tekstkaders in een presentatie te itereren. Voor vormen geeft het de vormnaam, het Java‑runtime‑type en de bijbehorende dia weer. Voor tabelcellen geeft het de nul‑gebaseerde kolom‑ en rij‑coördinaten en de bijbehorende dia weer.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+function getSlideLabel(baseSlide) {
+    if (java.instanceOf(baseSlide, "com.aspose.slides.Slide")) {
+        return "slide " + baseSlide.getSlideNumber();
+    }
+
+    if (java.instanceOf(baseSlide, "com.aspose.slides.NotesSlide")) {
+        return "notes for slide " + baseSlide.getParentSlide().getSlideNumber();
+    }
+
+    return baseSlide.getClass().getSimpleName();
+}
+
+const presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    const textFrames = aspose.slides.SlideUtil.getAllTextFrames(presentation, false);
+
+    for (let index = 0; index < textFrames.length; index++) {
+        const textFrame = textFrames[index];
+        const ownerShape = textFrame.getParentShape();
+        if (ownerShape !== null) {
+            const shapeName = ownerShape.getName() === "" ? "(unnamed)" : ownerShape.getName();
+            const shapeType = ownerShape.getClass().getSimpleName();
+            const slideLabel = getSlideLabel(ownerShape.getSlide());
+            console.log("Shape: " + shapeName + "; type: " + shapeType + "; " + slideLabel);
+            continue;
+        }
+
+        const ownerCell = textFrame.getParentCell();
+        if (ownerCell !== null) {
+            const slideLabel = getSlideLabel(ownerCell.getSlide());
+            console.log("Table cell: column " + ownerCell.getFirstColumnIndex() + ", row " + ownerCell.getFirstRowIndex() + "; " + slideLabel);
+            continue;
+        }
+
+        console.log("The text frame owner is not available as a shape or table cell.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Voor SmartArt‑inhoud, doorloop de vormen in [SmartArtNode.getShapes](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/smartartnode/#getShapes--) en krijg toegang tot elke [SmartArtShape.getTextFrame](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/smartartshape/#getTextFrame--). Het tekstkader kan worden getraceerd naar de bijbehorende vorm via [TextFrame.getParentShape](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/#getParentShape--), terwijl [TextFrame.getParentCell](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/#getParentCell--) `null` retourneert. Daarom behandelt de vorm‑tak in het voorbeeld ook tekst van SmartArt‑knopen.
+
+## **Verzamel overeenkomstinformatie met een callback**
+
+Maak een Java‑proxy voor de resultaat‑callback om een melding te ontvangen voor elke overeenkomst. De proxy‑functie ontvangt het betreffende tekstkader, de brontekst, de gevonden tekst en de positie van de overeenkomst.
+
+De callback ontvangt niet direct een slidennummer. De onderstaande implementatie haalt dit af via de eigenaar‑vorm of -cel van het tekstkader, met [TextFrame.getSlide](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/#getSlide--) als fallback. Het verwerkt ook tekst die wordt gevonden in dia‑notities.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
 function getSlideNumber(textFrame) {
-    const parentSlide = textFrame.getSlide();
+    const parentShape = textFrame.getParentShape();
+    const parentCell = textFrame.getParentCell();
+    let parentSlide = textFrame.getSlide();
+    if (parentShape !== null) {
+        parentSlide = parentShape.getSlide();
+    } else if (parentCell !== null) {
+        parentSlide = parentCell.getSlide();
+    }
 
     if (java.instanceOf(parentSlide, "com.aspose.slides.Slide")) {
         return parentSlide.getSlideNumber();
@@ -90,13 +159,13 @@ function createTextSearchCallback(results) {
 }
 ```
 
-Voor vervangingsbewerkingen bevat `foundText` de oorspronkelijke gevonden tekst, zodat de callback exact kan registreren welke termen zijn vervangen.
+Voor vervangingsbewerkingen bevat `foundText` de oorspronkelijk gevonden tekst, zodat de callback exact kan vastleggen welke termen zijn vervangen.
 
 ## **Markeer tekst**
 
-Gebruik de methode [TextFrame.highlightText](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) om letterlijke-tekst-overeenkomsten in een tekstframe te markeren. Geef [TextSearchOptions](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textsearchoptions/) door om de zoekopdracht te regelen.
+Gebruik de methode [TextFrame.highlightText](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) om letterlijke‑tekstovereenkomsten in een tekstkader te markeren. Geef [TextSearchOptions](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textsearchoptions/) door om de zoekopdracht te sturen.
 
-Het codevoorbeeld hieronder markeert alle voorkomens van de tekens **"try"** en markeert vervolgens alleen het volledige woord **"to"**.
+Het onderstaande codevoorbeeld markeert alle voorkomen van de tekens **"try"** en markeert daarna alleen het volledige woord **"to"**.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -111,7 +180,7 @@ try {
     substringSearchOptions.setCaseSensitive(false);
     const substringHighlightColor = java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY");
 
-    // Markeer elk voorkomen van "try" in het tekstframe.
+    // Markeer elke keer dat "try" voorkomt in het tekstkader.
     shape.getTextFrame().highlightText(
         "try", substringHighlightColor, substringSearchOptions, null);
 
@@ -132,11 +201,11 @@ try {
 
 Het resultaat:
 
-![The highlighted text](highlighted_text.png)
+![De gemarkeerde tekst](highlighted_text.png)
 
 ## **Markeer tekst met reguliere expressies**
 
-De methode [TextFrame.highlightRegex](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) markeert tekstovereenkomsten die gevonden zijn met een reguliere expressie in een tekstframe.
+De methode [TextFrame.highlightRegex](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) markeert tekstovereenkomsten die door een reguliere expressie in een tekstkader worden gevonden.
 
 De volgende code markeert alle woorden die zeven of meer tekens bevatten:
 
@@ -163,11 +232,11 @@ try {
 
 Het resultaat:
 
-![The highlighted text using the regular expression](highlighted_text_using_regex.png)
+![De gemarkeerde tekst met de reguliere expressie](highlighted_text_using_regex.png)
 
-## **Markeer tekst in een volledige presentatie**
+## **Markeer tekst in een hele presentatie**
 
-Gebruik [Presentation.highlightText](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) en [Presentation.highlightRegex](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) om alle toepasselijke tekstframes in een presentatie te doorzoeken. Het volgende voorbeeld markeert een letterlijke term en alle e-mailadressen:
+Gebruik [Presentation.highlightText](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) en [Presentation.highlightRegex](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) om alle toepasselijke tekstkaders in een presentatie te doorzoeken. Het onderstaande voorbeeld markeert een letterlijke term en alle e‑mailadressen:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -196,11 +265,11 @@ try {
 }
 ```
 
-## **Vervang tekst in een tekstframe**
+## **Vervang tekst in een tekstkader**
 
-Gebruik [TextFrame.replaceText](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) voor letterlijke tekst en [TextFrame.replaceRegex](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) voor patroon-gebaseerde vervanging. Deze methoden werken de gevonden tekst bij binnen het bestaande tekstframe, waardoor de opmaak van de omringende delen behouden blijft in plaats van het tekstframe opnieuw op te bouwen uit een platte string.
+Gebruik [TextFrame.replaceText](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) voor letterlijke tekst en [TextFrame.replaceRegex](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) voor patroon‑gebaseerde vervanging. Deze methoden werken de gevonden tekst bij binnen het bestaande tekstkader, waarbij de opmaak van de omliggende delen behouden blijft in plaats van het tekstkader opnieuw op te bouwen vanuit een platte tekenreeks.
 
-Het volgende voorbeeld standaardiseert een spellingvariant en vervangt vervolgens versielabels:
+Het onderstaande voorbeeld normaliseert een spellingvariant en vervangt vervolgens versielabels:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -228,11 +297,11 @@ try {
 }
 ```
 
-Als één overeenkomst delen met verschillende opmaak omvat, bekijk dan de output om te bevestigen welke opmaak op de vervangende tekst moet worden toegepast.
+Als één overeenkomst delen met verschillende opmaak overspant, controleer dan de output om te bevestigen welke opmaak op de vervangende tekst moet worden toegepast.
 
-## **Vervang tekst in een volledige presentatie**
+## **Vervang tekst in een hele presentatie**
 
-Gebruik [Presentation.replaceText](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) en [Presentation.replaceRegex](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) om dezelfde bewerkingen over de hele presentatie toe te passen. Dit is nuttig voor sjabloon-opschoning, terminologie-updates en redactie.
+Gebruik [Presentation.replaceText](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) en [Presentation.replaceRegex](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/presentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) om dezelfde bewerkingen over de hele presentatie toe te passen. Dit is nuttig voor sjabloonsopschoning, terminologie‑updates en redacties.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -257,16 +326,23 @@ try {
 }
 ```
 
-## **Groeperen van matches voor rapportage**
+## **Groepeer overeenkomsten voor rapportage**
 
-Omdat elk verzameld resultaat het dia-nummer en tekstframe opslaat, kunnen toepassingen matches groeperen voor audit, rapportage of beoordelingsworkflows. Het volgende voorbeeld groepeert de resultaten eerst per dia en vervolgens per tekstframe:
+Aangezien elk verzameld resultaat zijn slidennummer en tekstkader opslaat, kunnen applicaties overeenkomsten groeperen voor audit‑, rapportage‑ of beoordelingsworkflows. Het onderstaande voorbeeld groepeert de resultaten eerst per dia en daarna per tekstkader:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
 function getSlideNumber(textFrame) {
-    const parentSlide = textFrame.getSlide();
+    const parentShape = textFrame.getParentShape();
+    const parentCell = textFrame.getParentCell();
+    let parentSlide = textFrame.getSlide();
+    if (parentShape !== null) {
+        parentSlide = parentShape.getSlide();
+    } else if (parentCell !== null) {
+        parentSlide = parentCell.getSlide();
+    }
 
     if (java.instanceOf(parentSlide, "com.aspose.slides.Slide")) {
         return parentSlide.getSlideNumber();
@@ -338,22 +414,22 @@ try {
 
 ## **FAQ**
 
-**Hoe kan ik zoeken in slechts één tekstvak in plaats van de volledige presentatie?**
+**Hoe kan ik slechts één tekstvak doorzoeken in plaats van de volledige presentatie?**
 
-Haal het tekstframe van de vorm op en roep [TextFrame.highlightText](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), [TextFrame.highlightRegex](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-), [TextFrame.replaceText](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), of [TextFrame.replaceRegex](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) aan op dat tekstframe. Methoden op presentatieniveau verwerken alle toepasselijke tekstframes.
+Haal het tekstkader van de vorm op en roep daarop [TextFrame.highlightText](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), [TextFrame.highlightRegex](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-), [TextFrame.replaceText](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) of [TextFrame.replaceRegex](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) aan. Methoden op presentatieniveau verwerken alle toepasselijke tekstkaders.
 
-**Hoe kan ik volledige woorden matchen met de juiste hoofdlettergebruik?**
+**Hoe kan ik volledige woorden met de juiste hoofdlettervorm vinden?**
 
-Stel [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) en [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) in op `true` en geef de opties door aan een letterlijke-tekst-markeer- of vervangingsmethode. Voor reguliere expressies definieer je woordgrenzen en hoofdlettergevoeligheid in de Java `Pattern` zelf.
+Stel [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) en [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) in op `true`, en geef de opties door aan een letterlijke‑tekst markeer‑ of vervangingsmethode. Voor reguliere expressies definieer je woordgrenzen en hoofdlettergevoeligheid in de Java `Pattern` zelf.
 
-**Kunnen zoeken en vervangen tekst in dia-notities omvatten?**
+**Kunnen zoeken en vervangen tekst uit dia‑notities omvatten?**
 
-Ja. Stel [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) in op `true` wanneer je een letterlijke-tekst-bewerking op presentatieniveau gebruikt. De hierboven getoonde callback-implementatie mappt een overeenkomst in een notitieslide terug naar het bijbehorende dia-nummer.
+Ja. Stel [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) in op `true` bij het gebruik van een letterlijke‑tekst bewerking op presentatieniveau. De hierboven getoonde callback‑implementatie brengt een overeenkomst in een notitiesdia terug naar het bijbehorende slidennummer.
 
 **Hoe kan ik een rapport maken zonder de presentatie een tweede keer te scannen?**
 
-Geef een Java-result-callback-proxy door aan de markeer- of vervangingsbewerking. De callback ontvangt elke overeenkomst terwijl de bewerking loopt, zodat de toepassing de brontekst, gevonden tekst, positie, tekstframe en afgeleide dia-nummer kan opslaan voor latere groepering of export.
+Geef een Java‑resultaat‑callback‑proxy door aan de markeer‑ of vervangingsbewerking. De callback ontvangt elke overeenkomst terwijl de bewerking loopt, zodat de applicatie de brontekst, gevonden tekst, positie, tekstkader en afgeleid slidennummer kan opslaan voor later groeperen of exporteren.
 
-**Behoudt vervanging van tekst de opmaak?**
+**Behoudt het vervangen van tekst de opmaak?**
 
-[TextFrame.replaceText](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) en [TextFrame.replaceRegex](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) wijzigen de gevonden tekst binnen het bestaande tekstframe en behouden de opmaak van de omringende delen. Als een overeenkomst delen met verschillende opmaak omvat, inspecteer dan het resultaat om er zeker van te zijn dat de vervanging de gewenste stijl gebruikt.
+[TextFrame.replaceText](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) en [TextFrame.replaceRegex](https://reference.aspose.com/slides/nl/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) wijzigen de gevonden tekst binnen het bestaande tekstkader en behouden de opmaak van de omliggende delen. Als een overeenkomst delen met verschillende opmaak overspant, inspecteer dan het resultaat om er zeker van te zijn dat de vervanging de gewenste stijl gebruikt.

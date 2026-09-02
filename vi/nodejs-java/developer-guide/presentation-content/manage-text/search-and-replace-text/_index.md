@@ -1,68 +1,137 @@
 ---
-title: Tìm kiếm và Thay thế Văn bản trong Bản trình bày PowerPoint bằng JavaScript
+title: Tìm kiếm và Thay thế Văn bản trong Bản trình chiếu PowerPoint bằng JavaScript
 linktitle: Tìm kiếm và Thay thế Văn bản
 type: docs
 weight: 55
 url: /vi/nodejs-java/search-and-replace-text/
 keywords:
 - tìm kiếm văn bản
-- tô sáng văn bản
+- đánh dấu văn bản
 - thay thế văn bản
 - biểu thức chính quy
 - callback kết quả
 - khung văn bản
-- báo cáo audit
+- báo cáo kiểm toán
 - PowerPoint
 - OpenDocument
-- bản trình bày
+- bản trình chiếu
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Tìm kiếm, tô sáng và thay thế văn bản trong các bản trình bày PowerPoint đồng thời thu thập mọi kết quả khớp bằng Aspose.Slides cho Node.js qua Java."
+description: "Tìm kiếm, đánh dấu và thay thế văn bản trong các bản trình chiếu PowerPoint trong khi thu thập mọi kết quả khớp bằng Aspose.Slides cho Node.js thông qua Java."
 ---
 ## **Tổng quan**
 
-Aspose.Slides for Node.js via Java có thể tìm kiếm, tô sáng và thay thế văn bản trong một khung văn bản riêng lẻ hoặc trên toàn bộ bản trình bày. Mỗi thao tác cũng có thể thông báo cho ứng dụng về mọi kết quả khớp thông qua một callback kết quả. Điều này cho phép cập nhật bản trình bày đồng thời xây dựng một bản ghi audit chứa văn bản khớp, ngữ cảnh, vị trí, khung văn bản và số slide.
+Aspose.Slides cho Node.js thông qua Java có thể tìm kiếm, đánh dấu và thay thế văn bản trong một khung văn bản riêng lẻ hoặc trên toàn bộ bản trình bày. Mỗi thao tác cũng có thể thông báo cho ứng dụng về mọi kết quả khớp thông qua một callback kết quả. Điều này cho phép cập nhật bản trình bày và đồng thời tạo một bản ghi kiểm toán chứa văn bản đã khớp, ngữ cảnh, vị trí, khung văn bản và số slide.
 
-Các khả năng này hữu ích cho việc xem xét, xóa thông tin, kiểm tra thuật ngữ, dọn dẹp mẫu và các quy trình báo cáo tự động.
+Các khả năng này hữu ích cho việc xem xét, gỡ bỏ, kiểm tra thuật ngữ, dọn dẹp mẫu và quy trình báo cáo tự động.
 
-Trong các ví dụ đầu tiên bên dưới, chúng ta dùng tệp có tên “sample.pptx”, chứa một hộp văn bản duy nhất trên slide đầu tiên với nội dung sau:
+Trong các ví dụ đầu tiên dưới đây, chúng tôi sử dụng tệp có tên "sample.pptx", chứa một hộp văn bản duy nhất trên slide đầu tiên với văn bản sau:
 
 ![Văn bản mẫu](sample_text.png)
 
 ## **Chọn phạm vi tìm kiếm**
 
-Sử dụng các phương thức trên [TextFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/) để giới hạn thao tác vào một khung văn bản. Sử dụng các phương thức trên [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/) để xử lý tất cả văn bản áp dụng trong bản trình bày.
+Sử dụng các phương thức trên [TextFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/) để giới hạn một thao tác chỉ trên một khung văn bản. Sử dụng các phương thức trên [Presentation](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/) để xử lý tất cả văn bản áp dụng trong bản trình bày.
 
 | Thao tác | Một khung văn bản | Toàn bộ bản trình bày |
 |---|---|---|
-| Tô sáng văn bản nguyên mẫu | [TextFrame.highlightText](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [Presentation.highlightText](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
-| Tô sáng các khớp biểu thức chính quy | [TextFrame.highlightRegex](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) | [Presentation.highlightRegex](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) |
-| Thay thế văn bản nguyên mẫu | [TextFrame.replaceText](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [Presentation.replaceText](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
+| Đánh dấu văn bản thuần | [TextFrame.highlightText](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [Presentation.highlightText](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
+| Đánh dấu các khớp biểu thức chính quy | [TextFrame.highlightRegex](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) | [Presentation.highlightRegex](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) |
+| Thay thế văn bản thuần | [TextFrame.replaceText](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) | [Presentation.replaceText](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) |
 | Thay thế các khớp biểu thức chính quy | [TextFrame.replaceRegex](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) | [Presentation.replaceRegex](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) |
 
 ## **Cấu hình khớp văn bản**
 
-Đối với các thao tác văn bản nguyên mẫu, sử dụng [TextSearchOptions](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textsearchoptions/) để kiểm soát cách khớp:
+Đối với các thao tác văn bản thuần, sử dụng [TextSearchOptions](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textsearchoptions/) để điều khiển việc khớp:
 
-- [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) hạn chế các kết quả chỉ khớp với từ đầy đủ.
-- [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) điều khiển việc có yêu cầu phân biệt chữ hoa/chữ thường hay không.
-- [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) bao gồm ghi chú slide trong các thao tác tìm kiếm, thay thế và tô sáng ở mức bản trình bày.
+- [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) giới hạn kết quả khớp chỉ về các từ hoàn chỉnh.
+- [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) kiểm soát việc có phải khớp chữ hoa/thường hay không.
+- [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) bao gồm ghi chú slide trong các thao tác tìm kiếm, thay thế và đánh dấu ở cấp độ bản trình bày.
 
-Các thao tác biểu thức chính quy sử dụng một `Pattern` của Java, do đó các quy tắc khớp như phân biệt chữ hoa/chữ thường và ranh giới từ được xác định bởi biểu thức và các flag của nó.
+Các thao tác biểu thức chính quy sử dụng một `Pattern` của Java, do đó các quy tắc khớp như phân biệt chữ hoa/thường và ranh giới từ được định nghĩa bởi biểu thức và các cờ của nó.
+
+## **Xác định chủ sở hữu của một khung văn bản**
+
+Trong các quy trình xử lý văn bản chung, thường nhận được một [TextFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/) khi tìm kiếm, thay thế, xác thực hoặc xuất văn bản. Sử dụng [TextFrame.getParentShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#getParentShape--) và [TextFrame.getParentCell](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#getParentCell--) để xác định đối tượng bản trình bày nào sở hữu khung văn bản.
+
+Giá trị mong đợi phụ thuộc vào chủ sở hữu:
+
+| Chủ sở hữu khung văn bản | `getParentShape` | `getParentCell` |
+|---|---|---|
+| Một AutoShape hoặc một hình dạng chứa văn bản khác | The owning [Shape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shape/) | `null` |
+| Một ô bảng | `null` | The owning [Cell](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/cell/) |
+
+Cả hai phương thức đều cung cấp điều hướng chỉ đọc. Gọi chúng không di chuyển khung văn bản hay thay đổi chủ sở hữu. Mã chung nên kiểm tra cả hai giá trị xem có `null` không và xử lý khả năng không có bất kỳ chủ sở hữu nào.
+
+Ví dụ sau sử dụng [SlideUtil.getAllTextFrames](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slideutil/#getAllTextFrames-aspose.slides.IPresentation-boolean-) để lặp qua các khung văn bản trong một bản trình bày. Đối với các hình dạng, nó báo cáo tên hình dạng, loại runtime Java và slide chứa. Đối với các ô bảng, nó báo cáo tọa độ cột và hàng dựa trên chỉ số 0 và slide chứa.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+function getSlideLabel(baseSlide) {
+    if (java.instanceOf(baseSlide, "com.aspose.slides.Slide")) {
+        return "slide " + baseSlide.getSlideNumber();
+    }
+
+    if (java.instanceOf(baseSlide, "com.aspose.slides.NotesSlide")) {
+        return "notes for slide " + baseSlide.getParentSlide().getSlideNumber();
+    }
+
+    return baseSlide.getClass().getSimpleName();
+}
+
+const presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    const textFrames = aspose.slides.SlideUtil.getAllTextFrames(presentation, false);
+
+    for (let index = 0; index < textFrames.length; index++) {
+        const textFrame = textFrames[index];
+        const ownerShape = textFrame.getParentShape();
+        if (ownerShape !== null) {
+            const shapeName = ownerShape.getName() === "" ? "(unnamed)" : ownerShape.getName();
+            const shapeType = ownerShape.getClass().getSimpleName();
+            const slideLabel = getSlideLabel(ownerShape.getSlide());
+            console.log("Shape: " + shapeName + "; type: " + shapeType + "; " + slideLabel);
+            continue;
+        }
+
+        const ownerCell = textFrame.getParentCell();
+        if (ownerCell !== null) {
+            const slideLabel = getSlideLabel(ownerCell.getSlide());
+            console.log("Table cell: column " + ownerCell.getFirstColumnIndex() + ", row " + ownerCell.getFirstRowIndex() + "; " + slideLabel);
+            continue;
+        }
+
+        console.log("The text frame owner is not available as a shape or table cell.");
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Đối với nội dung SmartArt, lặp qua các hình dạng trong [SmartArtNode.getShapes](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/smartartnode/#getShapes--) và truy cập mỗi [SmartArtShape.getTextFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/smartartshape/#getTextFrame--). Khung văn bản có thể được truy xuất tới hình dạng liên quan thông qua [TextFrame.getParentShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#getParentShape--), trong khi [TextFrame.getParentCell](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#getParentCell--) trả về `null`. Do đó, nhánh hình dạng trong ví dụ cũng xử lý văn bản từ các nút SmartArt.
 
 ## **Thu thập thông tin khớp với Callback**
 
-Tạo một proxy Java cho callback kết quả để nhận thông báo cho mỗi khớp. Hàm proxy nhận khung văn bản liên quan, văn bản nguồn, văn bản khớp và vị trí khớp.
+Tạo một proxy Java cho callback kết quả để nhận thông báo về mỗi kết quả khớp. Hàm proxy nhận khung văn bản liên quan, văn bản nguồn, văn bản khớp và vị trí khớp.
 
-Callback không nhận trực tiếp số slide. Đoạn triển khai dưới đây suy ra số slide thông qua [TextFrame.getSlide](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#getSlide--), [Slide.getSlideNumber](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slide/#getSlideNumber--), và [NotesSlide.getParentSlide](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/notesslide/#getParentSlide--). Nó cũng xử lý văn bản được tìm thấy trong ghi chú slide.
+Callback không nhận trực tiếp số slide. Triển khai bên dưới suy ra nó thông qua hình dạng hoặc ô bảng sở hữu khung văn bản, với [TextFrame.getSlide](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#getSlide--) làm phương án dự phòng. Nó cũng xử lý văn bản được tìm thấy trong ghi chú slide.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
 function getSlideNumber(textFrame) {
-    const parentSlide = textFrame.getSlide();
+    const parentShape = textFrame.getParentShape();
+    const parentCell = textFrame.getParentCell();
+    let parentSlide = textFrame.getSlide();
+    if (parentShape !== null) {
+        parentSlide = parentShape.getSlide();
+    } else if (parentCell !== null) {
+        parentSlide = parentCell.getSlide();
+    }
 
     if (java.instanceOf(parentSlide, "com.aspose.slides.Slide")) {
         return parentSlide.getSlideNumber();
@@ -90,13 +159,13 @@ function createTextSearchCallback(results) {
 }
 ```
 
-Đối với các thao tác thay thế, `foundText` chứa văn bản khớp gốc, vì vậy callback có thể ghi lại chính xác những thuật ngữ đã được thay thế.
+Đối với các thao tác thay thế, `foundText` chứa văn bản gốc đã khớp, vì vậy callback có thể ghi lại chính xác những thuật ngữ đã được thay thế.
 
-## **Tô sáng văn bản**
+## **Đánh dấu Văn bản**
 
-Sử dụng phương thức [TextFrame.highlightText](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) để tô sáng các khớp văn bản nguyên mẫu trong một khung văn bản. Gửi [TextSearchOptions](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textsearchoptions/) để kiểm soát việc tìm kiếm.
+Sử dụng phương pháp [TextFrame.highlightText](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) để đánh dấu các khớp văn bản thuần trong một khung văn bản. Đưa [TextSearchOptions](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textsearchoptions/) vào để điều khiển việc tìm kiếm.
 
-Đoạn mã dưới đây tô sáng tất cả các lần xuất hiện của chuỗi **"try"** và sau đó chỉ tô sáng từ đầy đủ **"to"**.
+Ví dụ mã dưới đây đánh dấu tất cả các lần xuất hiện của ký tự **"try"** và sau đó chỉ đánh dấu toàn bộ từ **"to"**.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -111,7 +180,7 @@ try {
     substringSearchOptions.setCaseSensitive(false);
     const substringHighlightColor = java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY");
 
-    // Tô sáng mọi lần xuất hiện của "try" trong khung văn bản.
+    // Đánh dấu mọi lần xuất hiện của "try" trong khung văn bản.
     shape.getTextFrame().highlightText(
         "try", substringHighlightColor, substringSearchOptions, null);
 
@@ -120,7 +189,7 @@ try {
     wholeWordSearchOptions.setCaseSensitive(false);
     const wholeWordHighlightColor = java.getStaticFieldValue("java.awt.Color", "MAGENTA");
 
-    // Chỉ tô sáng từ đầy đủ "to".
+    // Đánh dấu chỉ từ hoàn chỉnh "to".
     shape.getTextFrame().highlightText(
         "to", wholeWordHighlightColor, wholeWordSearchOptions, null);
 
@@ -132,13 +201,13 @@ try {
 
 Kết quả:
 
-![Văn bản được tô sáng](highlighted_text.png)
+![Văn bản đã được đánh dấu](highlighted_text.png)
 
-## **Tô sáng văn bản bằng biểu thức chính quy**
+## **Đánh dấu Văn bản bằng Biểu thức Chính quy**
 
-Phương thức [TextFrame.highlightRegex](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) tô sáng các khớp văn bản được tìm thấy bằng một biểu thức chính quy trong một khung văn bản.
+Phương pháp [TextFrame.highlightRegex](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) đánh dấu các khớp văn bản được tìm thấy bằng biểu thức chính quy trong một khung văn bản.
 
-Mã dưới đây tô sáng tất cả các từ có độ dài bảy ký tự trở lên:
+Mã dưới đây đánh dấu tất cả các từ chứa bảy ký tự trở lên:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -163,11 +232,11 @@ try {
 
 Kết quả:
 
-![Văn bản được tô sáng bằng biểu thức chính quy](highlighted_text_using_regex.png)
+![Văn bản đã được đánh dấu bằng biểu thức chính quy](highlighted_text_using_regex.png)
 
-## **Tô sáng văn bản trên toàn bộ bản trình bày**
+## **Đánh dấu Văn bản trên Toàn bộ Bản trình bày**
 
-Sử dụng [Presentation.highlightText](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) và [Presentation.highlightRegex](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) để tìm kiếm tất cả các khung văn bản áp dụng trong bản trình bày. Ví dụ sau tô sáng một thuật ngữ nguyên mẫu và tất cả các địa chỉ email:
+Sử dụng [Presentation.highlightText](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) và [Presentation.highlightRegex](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) để tìm kiếm tất cả các khung văn bản áp dụng trong một bản trình bày. Ví dụ dưới đây đánh dấu một thuật ngữ thuần và tất cả địa chỉ email:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -196,11 +265,11 @@ try {
 }
 ```
 
-## **Thay thế văn bản trong một khung văn bản**
+## **Thay thế Văn bản trong Khung Văn bản**
 
-Sử dụng [TextFrame.replaceText](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) cho văn bản nguyên mẫu và [TextFrame.replaceRegex](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) cho việc thay thế dựa trên mẫu. Các phương thức này cập nhật văn bản khớp trong khung văn bản hiện có, giữ lại định dạng của các phần xung quanh thay vì tạo lại khung văn bản từ một chuỗi thuần.
+Sử dụng [TextFrame.replaceText](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) cho văn bản thuần và [TextFrame.replaceRegex](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) cho việc thay thế dựa trên mẫu. Các phương pháp này cập nhật văn bản đã khớp trong khung văn bản hiện có, giữ định dạng của phần xung quanh thay vì xây dựng lại khung văn bản từ một chuỗi thuần.
 
-Ví dụ dưới đây chuẩn hoá một biến thể chính tả rồi thay thế các nhãn phiên bản:
+Ví dụ dưới đây chuẩn hóa một biến thể chính tả và sau đó thay thế các nhãn phiên bản:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -228,11 +297,11 @@ try {
 }
 ```
 
-Nếu một khớp bao phủ các phần có định dạng khác nhau, hãy xem lại đầu ra để xác định định dạng nào nên áp dụng cho văn bản thay thế.
+Nếu một khớp bao phủ các phần có định dạng khác nhau, hãy xem lại kết quả để xác nhận định dạng nào nên áp dụng cho văn bản thay thế.
 
-## **Thay thế văn bản trên toàn bộ bản trình bày**
+## **Thay thế Văn bản trên Toàn bộ Bản trình bày**
 
-Sử dụng [Presentation.replaceText](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) và [Presentation.replaceRegex](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) để áp dụng cùng một thao tác trên toàn bộ bản trình bày. Điều này hữu ích cho việc dọn dẹp mẫu, cập nhật thuật ngữ và xóa thông tin.
+Sử dụng [Presentation.replaceText](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) và [Presentation.replaceRegex](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) để áp dụng các thao tác tương tự trên toàn bộ bản trình bày. Điều này hữu ích cho việc dọn dẹp mẫu, cập nhật thuật ngữ và gỡ bỏ thông tin.
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
@@ -257,16 +326,23 @@ try {
 }
 ```
 
-## **Nhóm các khớp để báo cáo**
+## **Nhóm các Kết quả Khớp cho Báo cáo**
 
-Vì mỗi kết quả thu thập được lưu trữ số slide và khung văn bản, ứng dụng có thể nhóm các khớp để audit, báo cáo hoặc quy trình xem xét. Ví dụ dưới đây nhóm kết quả đầu tiên theo slide rồi theo khung văn bản:
+Vì mỗi kết quả thu thập được lưu trữ số slide và khung văn bản, các ứng dụng có thể nhóm các kết quả cho việc kiểm toán, báo cáo hoặc quy trình xem xét. Ví dụ dưới đây nhóm các kết quả trước tiên theo slide và sau đó theo khung văn bản:
 
 ```javascript
 const aspose = { slides: require("aspose.slides.via.java") };
 const java = require("java");
 
 function getSlideNumber(textFrame) {
-    const parentSlide = textFrame.getSlide();
+    const parentShape = textFrame.getParentShape();
+    const parentCell = textFrame.getParentCell();
+    let parentSlide = textFrame.getSlide();
+    if (parentShape !== null) {
+        parentSlide = parentShape.getSlide();
+    } else if (parentCell !== null) {
+        parentSlide = parentCell.getSlide();
+    }
 
     if (java.instanceOf(parentSlide, "com.aspose.slides.Slide")) {
         return parentSlide.getSlideNumber();
@@ -338,22 +414,22 @@ try {
 
 ## **Câu hỏi thường gặp**
 
-**Làm thế nào để tìm kiếm chỉ trong một hộp văn bản thay vì toàn bộ bản trình bày?**
+**Làm sao tôi có thể tìm kiếm chỉ trong một hộp văn bản thay vì toàn bộ bản trình bày?**
 
-Lấy khung văn bản của hình dạng và gọi [TextFrame.highlightText](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), [TextFrame.highlightRegex](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-), [TextFrame.replaceText](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), hoặc [TextFrame.replaceRegex](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) trên khung văn bản đó. Các phương thức ở mức bản trình bày sẽ xử lý tất cả các khung văn bản áp dụng.
+Lấy khung văn bản của hình dạng và gọi [TextFrame.highlightText](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-), [TextFrame.highlightRegex](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-), [TextFrame.replaceText](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) hoặc [TextFrame.replaceRegex](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) trên khung văn bản đó. Các phương pháp ở cấp độ Presentation sẽ xử lý tất cả các khung văn bản áp dụng.
 
-**Làm sao để khớp toàn bộ từ với ký tự viết hoa đúng?**
+**Làm sao tôi có thể khớp các từ hoàn chỉnh với đúng cách viết hoa?**
 
-Đặt [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) và [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) thành `true`, và truyền các tùy chọn này cho phương thức tô sáng hoặc thay thế văn bản nguyên mẫu. Đối với biểu thức chính quy, định nghĩa ranh giới từ và phân biệt chữ hoa/chữ thường trong chính `Pattern` của Java.
+Đặt [TextSearchOptions.setWholeWordsOnly](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textsearchoptions/#setWholeWordsOnly-boolean-) và [TextSearchOptions.setCaseSensitive](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textsearchoptions/#setCaseSensitive-boolean-) thành `true`, và truyền các tùy chọn vào phương pháp đánh dấu hoặc thay thế văn bản thuần. Đối với biểu thức chính quy, định nghĩa ranh giới từ và phân biệt chữ hoa/thường trong `Pattern` của Java.
 
-**Tìm kiếm và thay thế có bao gồm văn bản trong ghi chú slide không?**
+**Tìm kiếm và thay thế có thể bao gồm văn bản trong ghi chú slide không?**
 
-Có. Đặt [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) thành `true` khi sử dụng thao tác văn bản nguyên mẫu ở mức bản trình bày. triển khai callback được trình bày ở trên sẽ ánh xạ một khớp trong ghi chú slide về số slide cha của nó.
+Có. Đặt [TextSearchOptions.setIncludeNotes](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textsearchoptions/#setIncludeNotes-boolean-) thành `true` khi sử dụng thao tác văn bản thuần ở cấp độ presentation. Triển khai callback ở trên ánh xạ khớp trong slide ghi chú trở lại số slide cha.
 
-**Làm sao tạo báo cáo mà không phải quét lại bản trình bày?**
+**Làm sao tôi có thể tạo báo cáo mà không cần quét lại bản trình bày lần thứ hai?**
 
-Truyền một proxy callback kết quả Java cho thao tác tô sáng hoặc thay thế. Callback nhận mọi khớp trong khi thao tác đang chạy, do đó ứng dụng có thể lưu trữ văn bản nguồn, văn bản khớp, vị trí, khung văn bản và số slide suy ra để sau này nhóm hoặc xuất ra.
+Truyền một proxy callback kết quả Java vào thao tác đánh dấu hoặc thay thế. Callback nhận mỗi khớp trong khi thao tác chạy, vì vậy ứng dụng có thể lưu trữ văn bản nguồn, văn bản khớp, vị trí, khung văn bản và số slide suy ra để sau này nhóm hoặc xuất.
 
 **Việc thay thế văn bản có giữ nguyên định dạng không?**
 
-[TextFrame.replaceText](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) và [TextFrame.replaceRegex](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) sửa đổi văn bản khớp trong khung văn bản hiện có và giữ lại định dạng của phần xung quanh. Nếu một khớp bao phủ các phần có định dạng khác nhau, hãy kiểm tra kết quả để đảm bảo phần thay thế sử dụng kiểu mong muốn.
+[TextFrame.replaceText](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#replaceText-java.lang.String-java.lang.String-com.aspose.slides.ITextSearchOptions-com.aspose.slides.IFindResultCallback-) và [TextFrame.replaceRegex](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#replaceRegex-java.util.regex.Pattern-java.lang.String-com.aspose.slides.IFindResultCallback-) sửa đổi văn bản đã khớp trong khung văn bản hiện tại và giữ định dạng phần xung quanh. Nếu một khớp bao phủ các phần có định dạng khác nhau, hãy kiểm tra kết quả để đảm bảo việc thay thế sử dụng kiểu mong muốn.
